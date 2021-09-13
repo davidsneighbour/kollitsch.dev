@@ -1,0 +1,237 @@
+// start header style
+.header-height-fix {
+  height: 109px;
+  @include tablet {
+    height: 60px;
+  }
+}
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: $white;
+  padding: 50px 0 20px;
+  transition: .25s ease;
+
+  @include tablet {
+    padding: 40px 0;
+  }
+
+  &.header-sticky-top {
+    box-shadow: 0 0 50px -30px rgba($color-primary, .5);
+    padding: 20px 0;
+  }
+
+  .navbar-brand {
+    @include tablet {
+      img {
+        height: 30px;
+      }
+    }
+  }
+
+  .nav-item {
+    &.active .nav-link {
+      color: $color-primary !important;
+    }
+
+    &.dropdown .nav-link {
+      position: relative;
+      padding-right: 30px !important;
+      @include desktop {
+        padding-right: 20px !important;
+      }
+    }
+
+    &.dropdown .nav-link::after {
+      display: none;
+    }
+
+    &.dropdown .nav-link::before {
+      position: absolute;
+      right: 14px;
+      @include desktop {
+        right: 0;
+      }
+      top: calc(50% - 7px);
+      display: inline-block;
+      vertical-align: .255em;
+      content: "";
+      height: 9px;
+      width: 9px;
+      border: 2px solid;
+      border-left: 0;
+      border-top: 0;
+      border-color: inherit;
+      border-radius: 2px;
+      transform: rotate(45deg);
+      transition: 0s;
+    }
+
+    .nav-link {
+      font-size: 18px;
+      font-weight: 700;
+      color: $dark !important;
+      padding: 15px !important;
+
+      &:hover {
+        color: $color-primary !important;
+      }
+    }
+  }
+
+  @media (min-width:991px) {
+    .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      width: 220px;
+      transition: 0.2s;
+      left: 50%;
+      border-radius: 8px;
+      transform: translate(-50%, 15px);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      box-shadow: 0 10px 30px rgba(22, 28, 45, .10);
+      transform: translate(-50%, -6px);
+    }
+
+    .nav-item:last-child {
+      .nav-link {
+        padding-right: 0 !important;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    border: 0;
+    padding: 16px 25px;
+  }
+
+  .dropdown-item {
+    font-size: 16px;
+    padding: 8px 0;
+    font-weight: 700;
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    color: $color-primary;
+    background-color: transparent;
+  }
+
+  .dropdown-item:focus,
+  .dropdown-item:hover {
+    color: $color-primary;
+    background-color: transparent;
+  }
+
+  .navbar-light .navbar-toggler {
+    border-color: transparent;
+    padding: 0;
+    font-size: 38px;
+    color: $dark;
+    transition: .3s ease;
+
+    @include tablet {
+      font-size: 32px;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  @include desktop {
+    .navbar-nav {
+      max-width: 300px;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .dropdown-toggle {
+      margin-right: 12px;
+    }
+
+    .navbar-right {
+      text-align: center;
+      margin-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    .dropdown-menu {
+      padding: 5px;
+      text-align: center;
+      background: rgba($color-primary, .05);
+    }
+
+    .nav-item .nav-link {
+      padding: 5px 20px !important;
+    }
+  }
+}
+
+
+// search block style
+.search-toggle {
+  background-color: transparent;
+  border: 0;
+  transition: .3s ease;
+  padding: 5px;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.search-block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: $white;
+  z-index: 9999988999889;
+  padding: 0 50px;
+  display: none;
+
+  form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  input {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+    width: 500px;
+    max-width: 100%;
+    padding: 15px 0;
+    margin: auto;
+    letter-spacing: -1px;
+    transition: .3s ease;
+  }
+
+  &.is-visible {
+    input {
+      border-bottom-color: $color-primary;
+    }
+  }
+
+  [data-toggle="search-close"] {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+  }
+}
+
+// end header style

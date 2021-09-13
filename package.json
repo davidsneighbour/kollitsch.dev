@@ -1,0 +1,69 @@
+{
+  "name": "@davidsneighbour/kollitsch-de",
+  "version": "2021.0.0",
+  "license": "UNLICENSED",
+  "description": "Website and content for kollitsch.de",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://kollitsch.de",
+  "repository": "davidsneighbour/kollitsch.de",
+  "dependencies": {
+    "@dnb-org/all": "3.2.24",
+    "lazysizes": "5.3.2",
+    "lite-youtube-embed": "^0.2.0",
+    "pixrem": "5.0.0",
+    "precss": "4.0.0"
+  },
+  "scripts": {
+    "build": "run-s build:critical && build:hugo",
+    "build:critical": "./bin/build-critical-css.sh",
+    "build:highlights": "hugo gen chromastyles --style=native > assets/css/utilities/syntax.css",
+    "build:hugo": "hugo --gc --minify",
+    "clean": "npm-run-all -p clean:hugo",
+    "clean:all": "npm-run-all -p clean:*",
+    "clean:hugo": "rimraf hugo.log hugo_stats.json resources",
+    "clean:npm": "rimraf node_modules package-lock.json",
+    "release": "npm run release:patch",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release:patch": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "serve:hugo": "rimraf hugo.log && hugo server --bind 192.168.1.201 --baseURL http://192.168.1.201 --disableFastRender --i18n-warnings --navigateToChanged  --templateMetrics --templateMetricsHints --verbose --verboseLog --path-warnings --buildDrafts --buildExpired --buildFuture --watch --enableGitInfo --forceSyncStatic --log true --logFile hugo.log -v",
+    "server": "npm-run-all -p serve:**"
+  },
+  "private": true,
+  "browserslist": [
+    "extends @dnb-org/browserslist-config"
+  ],
+  "commitlint": {
+    "extends": [
+      "@dnb-org/commitlint-config"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "@dnb-org/eslint-config"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "@dnb-org/remark-config",
+      [
+        "remark-lint-write-good",
+        false
+      ]
+    ]
+  },
+  "slug": "kollitsch-de",
+  "stylelint": {
+    "extends": "@dnb-org/stylelint-config-dnb"
+  },
+  "url": "https://kollitsch.de"
+}

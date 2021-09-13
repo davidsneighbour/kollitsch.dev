@@ -1,0 +1,197 @@
+{{ define "main"}}
+
+<!-- checking blog -->
+{{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
+
+{{ $sidebar := site.Params.sidebar }}
+{{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
+{{ $widget:= site.Params.widgets.sidebar }}
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- left sidebar -->
+      {{ if eq $sidebar "left" }}
+      <aside class="col-lg-3 order-2 order-lg-1">
+        <div class="sticky-sidebar">
+          {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
+        </div>
+      </aside>
+      {{ end }}
+      <!-- /left sidebar -->
+
+      <div class="{{ if $has_sidebar }}col-lg-9{{ else }}col-lg-10{{ end }} {{ if eq $sidebar `left` }}order-1 order-lg-2{{ end }}">
+        <div class="{{ if eq $sidebar `left` }}pl-lg-4{{ end }}{{ if eq $sidebar `right` }}pr-lg-4{{ end }}">
+          <div class="text-center mb-5">
+            <h3 class="h2 mb-4 post-title">{{.Title}}</h3>
+            <ul class="card-meta list-inline">
+              <li class="list-inline-item">
+                {{ $author:= .Params.Author | urlize | lower}}
+                {{ with site.GetPage $author }}
+                {{ if .Params.image }}
+                {{ $imagePath:= .Params.image }}
+                {{ if (fileExists (add "assets/" $imagePath)) }}
+                {{ $image:= resources.Get $imagePath }}
+                {{ $imageXS:= $image.Fill "26x26" }}
+                {{ .Scratch.Set "image" $imageXS.RelPermalink }}
+                {{ else }}
+                {{ .Scratch.Set "image" ($imagePath | absURL) }}
+                {{ end }}
+                <a href="{{.Permalink}}" class="card-meta-author">
+                  <img loading="lazy" src="{{.Scratch.Get `image`}}" alt="{{ .Title }}">
+                  <span>{{ .Title }}</span>
+                </a>
+                {{else if .Params.Email}}
+                <a href="{{.Permalink}}" class="card-meta-author">
+                  <img loading="lazy" src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=26&pg&d=identicon">
+                  <span>{{ .Title }}</span>
+                </a>
+                {{ end }}
+                {{ end }}
+              </li>
+              <li class="list-inline-item">|</li>
+              <li class="list-inline-item">
+                <span>{{.PublishDate.Format "02 January 2006"}}</span>
+              </li>
+            </ul>
+          </div>
+          
+          {{with .Params.images}}
+          <div class="mb-5 {{ if $has_sidebar }}{{ else }}text-center{{ end }}">
+            <div class="post-slider rounded">
+              {{ range .}}
+              {{ if (fileExists (add `assets/` .)) }}
+              {{ $image:= resources.Get . }}
+              {{ $imageXL:= $image.Fill "925x475" }}
+              {{ $imageLG:= $image.Fill "775x400" }}
+              {{ $imageMD:= $image.Fill "690x355" }}
+              {{ $imageSM:= $image.Fill "545x295" }}
+              <picture>
+                <source srcset="{{ $imageSM.Permalink }}" media="(max-width: 575px)">
+                <source srcset="{{ $imageMD.Permalink }}" media="(max-width: 767px)">
+                <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 991px)">
+                <source srcset="{{ $imageXL.Permalink }}" media="(max-width: 1200px)">
+                <source srcset="{{$imageXL.Permalink}}">
+                <img loading="lazy" class="img-fluid" src="{{$imageXL.Permalink}}" alt="Image not Found">
+              </picture>
+              {{ else }}
+              <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="Image not Found">
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
+          {{end}}
+
+          <div class="content">
+            {{.Content}}
+          </div>
+          
+          <div class="single-post-meta">
+            <div class="row justify-content-center">
+              <div class="col-md-6 text-center text-md-left">
+                <ul class="post-meta-tags list-unstyled list-inline">
+                  {{range .Params.tags}}
+                  <li class="list-inline-item"><a href="{{`tags` | absLangURL}}/{{.| urlize}}">{{.}}</a></li>
+                  {{end}}
+                </ul>
+              </div>
+              <div class="col-md-6 text-center text-md-right mt-4 mt-md-0">
+                {{- partial "post-share.html" . -}}
+              </div>
+            </div>
+          </div>
+          
+          <div class="single-post-author">
+            <div class="media d-block d-sm-flex text-center text-sm-left">
+              {{ $author:= .Params.Author | urlize | lower}}
+              {{ with site.GetPage $author }}
+              {{ if .Params.image }}
+              {{ $imagePath:= .Params.image }}
+              {{ if (fileExists (add "assets/" $imagePath)) }}
+              {{ $image:= resources.Get $imagePath }}
+              {{ $imageXS:= $image.Fill "150x150" }}
+              {{ .Scratch.Set "image" $imageXS.RelPermalink }}
+              {{ else }}
+              {{ .Scratch.Set "image" ($imagePath | absURL) }}
+              {{ end }}
+              <a href="{{.Permalink}}">
+                <img loading="lazy" class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="{{.Scratch.Get `image`}}" alt="{{ .Title }}">
+              </a>
+              {{else if .Params.Email}}
+              <a href="{{.Permalink}}">
+                <img loading="lazy" class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=150&pg&d=identicon">
+              </a>
+              {{ end }}
+
+              <div class="media-body">
+                <p class="font-primary mb-1">{{i18n "written_by"}}</p>
+                <h4><a href="{{.Permalink}}" class="text-dark font-weight-700">{{.Title}}</a></h4>
+                <p class="font-primary">{{ .Summary | truncate 250 }}</p>
+                <ul class="social-links list-unstyled list-inline ml-0 ml-sm-n2">
+                  {{ range .Params.social }}
+                  <li class="list-inline-item"><a href="{{.link | safeURL}}">
+                      <i class="lab {{.icon}}"></i>
+                    </a></li>
+                  {{end}}
+                </ul>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+
+          <!-- comments -->
+          {{ if site.DisqusShortname }}
+          <div class="pt-4"></div>
+          <div class="mt-5 border-default border p-4 bg-white rounded">
+            {{ template "_internal/disqus.html" . }}
+          </div>
+          {{ end }}
+
+          <div class="single-post-similer">
+            <div class="row mt-3">
+              <div class="col-12">
+                <h3 class="text-dark font-weight-800 mb-4 pb-2">{{i18n "you_may_also_like"}}</h3>
+              </div>
+              {{ $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
+              {{ range first 2 $related }}
+              <div class="col-md-6">
+                {{ .Render "post" }}
+              </div>
+              {{ end }}
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- right sidebar -->
+      {{ if eq $sidebar "right" }}
+      <aside class="col-lg-3 mt-5 mt-lg-0">
+        <div class="sticky-sidebar">
+          {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
+        </div>
+      </aside>
+      {{ end }}
+      <!-- /right sidebar -->
+    </div>
+  </div>
+</section>
+
+{{ else }}
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="content">
+          {{.Content}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ end }}

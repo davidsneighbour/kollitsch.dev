@@ -1,0 +1,77 @@
+tagmanagerid = "" # tagmanager container ID
+version = "2018.1.159"
+og_image = ""
+og_image_url = ""
+githubName = ""
+twitterName = ""
+siteslug = "davids-neighbour-de"
+description = "Onlinemarketing Made in Paradise"
+images = ["site-feature-image.jpg"]
+title = "David's Neighbour"
+containerMaxWidth = "700px"
+dateFormat = "Jan 2, 2006"
+sitecolor = "#d02d19"
+email = "name@domain.com"
+github = "github_username"
+twitter = "twitter_username"
+linkedin = "linkedin_username"
+facebook = "facebook_username"
+google = "googleplus_id_number"
+instagram = "instagram_username"
+youtube = "youtube_username"
+dribbble = "dribbble_username"
+
+[algolia]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"]
+
+[dnb]
+javascript = "script-local.js"
+
+[[dnb.contacts]]
+name = "WhatsApp"
+url = "https://wa.me/66878979350?&lang=en"
+username = "Contact me"
+[[dnb.contacts]]
+name = "Signal"
+username = "davidsneighbour"
+[[dnb.contacts]]
+name = "Telegram"
+url = "https://t.me/davidsneighbour"
+username = "davidsneighbour"
+
+[dnb.footer]
+copyright = "&copy; Copyright 2005-%s by [David's Neighbour Part., Ltd.](/) - All rights reserved."
+
+[dnb.footer.company]
+name = "David's Neighbour Part., Ltd."
+address = [
+  "Patrick Kollitsch",
+  "P.O.Box 135, Post Office Maenam",
+  "84330 Suratthani, Koh Samui",
+  "Thailand",
+]
+
+[dnb.footer.menu]
+title1 = "@dnb-org Configurations"
+title2 = "@dnb-org Configurations"
+title3 = "Other Stuff"
+
+[dnb.header]
+
+[dnb.header.logo]
+src = "/ci/logo-black-singleline.svg"
+title = ""
+classes = ""
+
+[social.facebook]
+profileid = "517050641" # patrick.kollitsch
+pageid = "6967849771" # samuisamui
+appid = "2047624572136513" # samui-samui.de
+
+[social.twitter]
+profileid = "davidsneighbour"
+siteid = "samui2"
+
+[dnb.exchangerates]
+api_Key = "9f34bc441a9f0a86101875ff710500e7"

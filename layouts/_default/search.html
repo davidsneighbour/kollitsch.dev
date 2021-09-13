@@ -1,0 +1,69 @@
+{{ define "main" }}
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 mb-5">
+        <div class="title-bordered">
+          <h1 class="h3">{{i18n "search_result_for"}}
+            <span class="mark">
+              <script>
+                var keyword = (window.location.search).substr(3);
+                var result = keyword.replace("+", " ");
+                document.write(result);
+              </script>
+            </span>
+          </h1>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row justify-content-center" id="search-results"></div>
+        <div class="row justify-content-center">
+          {{ $layout := site.Params.post_layout }}
+          {{ if eq $layout "grid" }}
+          <script id="search-result-template" type="text/x-js-template">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <article class="card post-card" id="summary-${key}">
+                ${ isset image }<img loading="lazy" class="img-fluid rounded mb-4" src="${image}" alt="${title}">${end}
+                <div class="card-body">
+                  <h3 class="h4 mb-2">
+                    <a class="post-title" href="${link}">${title}</a>
+                  </h3>
+                  ${ isset categories } <p class="mb-2">Categories : ${categories}</p> ${end}
+                </div>
+              </article>
+            </div>
+          </script>
+          {{ else if eq $layout "list" }}
+          <script id="search-result-template" type="text/x-js-template">
+            <div class="col-lg-10">
+              <article class="card post-card" id="summary-${key}">
+                <div class="row no-gutters align-items-center">
+                  <div class="col-lg-6">
+                    <div class="pr-0 pr-lg-5">
+                      ${ isset image }<img loading="lazy" class="img-fluid rounded mb-4 mb-lg-0" src="${image}" alt="${title}">${end}
+                    </div>
+                  </div>
+                  <div class="col-lg-5">
+                    <div class="card-body pt-lg-0">
+                      <h4 class="mb-3">
+                        <a class="post-title" href="${link}">${title}</a>
+                      </h4>
+                      ${ isset categories } <p class="mb-2">Categories : ${categories}</p> ${end}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </script>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search index -->
+<script>var indexURL = {{"index.json" | absLangURL}}</script>
+
+{{ end }}

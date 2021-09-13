@@ -1,0 +1,5 @@
+# twitter user account (without @) for this site
+# required, if not set then no twitter meta info is added to the pages
+
+profile = "davidsneighbour"
+domain = "davids-neighbour.com"

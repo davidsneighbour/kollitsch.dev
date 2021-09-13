@@ -1,0 +1,346 @@
+################################################################################
+# see https://gohugo.io/getting-started/configuration/
+################################################################################
+
+baseURL = "https://kollitsch.de/"
+copyright = "All rights reserved. Copyright &copy;2020 davids-neighbour.com"
+defaultContentLanguage = "en"
+disableHugoGeneratorInject = true
+enableEmoji = false
+enableGitInfo = false
+enableRobotsTXT = true
+footnoteReturnLinkContents = "^"
+languageCode = "en-us"
+linenos = true
+pygmentsUseClasses = true
+rssLimit = 10
+summaryLength = 70
+timeZone = "Asia/Bangkok"
+title = "Kollitsch.de"
+ignoreErrors = ["error-remote-getjson"]
+paginate = "5"
+disableLanguages = []
+
+############################# Outputs ##############################
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+unsafe= true
+
+######################## Plugins ####################
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.min.css"
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/instagram-feed/instagram-feed.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+
+# site variables
+[params.variables]
+primary_font = "Mulish:wght@500;600;700;800;900"
+primary_font_type = "sans-serif" # [serif/sans-serif]
+secondary_font = ""
+secondary_font_type = "" # [serif/sans-serif]
+icon_font = "Font Awesome 5 Free"
+
+h1 = "64px"
+h1_lg = "52px"
+h1_md = "42px"
+h2 = "38px"
+h2_md = "30px"
+h3 = "30px"
+h3_md = "24px"
+h4 = "24px"
+h5 = "18px"
+h6 = "16px"
+white = "#ffffff"
+black = "#000000"
+dark = "#152035"
+gray = "#747577"
+light = "#FAFAFA"
+color_primary = "#01AD9F"
+
+#################### default parameters ################################
+[params]
+logo = "images/logo.png"
+logo_height = "35px"
+favicon = "images/favicon.png"
+# Meta data
+description = "This is meta description"
+author = "Themefisher"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+# search
+search = true # (if Search is disable/false Menu will align in Right)
+# Menu align
+menu_align = "center" # Menu-align value "left", "right" or "center" (if Search is disable/false Menu will align in Right)
+# Main section
+mainSection = ["blog"]
+# Post layout
+post_layout = "list" # Post-Layout value ("grid" or "list")
+# Blog-details page sidebar
+sidebar = "right" # Sidebar value ("left", "right" or false)
+
+######################## sidebar widgets #########################
+[params.widgets]
+sidebar = ["search", "categories", "tags", "social"]
+# available widget : search, categories, tags, social
+
+# Preloader
+[params.preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
+
+# Instagram feed
+[params.instafeed]
+enable = false
+instagram_user = "bookworm"
+access_token = "IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1NmpxZA3RTbnU1MXpDNVBHTzZAMOFlxcGlkVHBKdjhqSnUybERhNWdQSE5hVmtXT013MEhOQVJJRGJBRURn"
+
+# Subscription
+[params.subscription]
+enable = true
+# mailchimp subsciption
+mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
+mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074" # replace this code with yours
+title = "Subscribe for our monthly newsletter."
+input_placeholder = "Enter your email"
+
+# cookies
+[params.cookies]
+enable = false
+expire_days = 2
+
+# Social Icons
+[[params.social]]
+url = "https://www.facebook.com/"
+icon = "fab fa-facebook-f" # https://fontawesome.com/
+
+[[params.social]]
+url = "https://www.twitter.com/"
+icon = "fab fa-twitter" # https://fontawesome.com/
+
+[[params.social]]
+url = "https://www.instagram.com/"
+icon = "fab fa-instagram" # https://fontawesome.com/
+
+[[params.social]]
+url = "https://www.linkedin.com/"
+icon = "fab fa-linkedin-in" # https://fontawesome.com/
+
+################################### English language #####################################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+contentDir = "content/english"
+weight = 1
+
+############################# English - Main Menu ########################
+[[Languages.en.menu.main]]
+weight = 1
+url = "/"
+name = "Home"
+hasChildren = true
+
+  [[Languages.en.menu.main]]
+  parent = "Home"
+  weight = 1
+  url = "homepage/list/"
+  name = "List layout"
+
+  [[Languages.en.menu.main]]
+  parent = "Home"
+  weight = 2
+  url = "homepage/grid/"
+  name = "Grid layout"
+  
+[[Languages.en.menu.main]]
+weight = 3
+url = "about"
+name = "About"
+  
+[[Languages.en.menu.main]]
+weight = 4
+url = "contact"
+name = "Contact"
+
+[[Languages.en.menu.main]]
+weight = 5
+url = "#"
+name = "Pages"
+hasChildren = true
+
+  [[Languages.en.menu.main]]
+  parent = "Pages"
+  weight = 1
+  url = "author/"
+  name = "Author"
+  
+  [[Languages.en.menu.main]]
+  parent = "Pages"
+  weight = 2
+  url = "tags/"
+  name = "Tags"
+  
+  [[Languages.en.menu.main]]
+  parent = "Pages"
+  weight = 3
+  url = "tags/photography/"
+  name = "Tag Single"
+  
+  [[Languages.en.menu.main]]
+  parent = "Pages"
+  weight = 4
+  url = "categories/"
+  name = "Category"
+  
+  [[Languages.en.menu.main]]
+  parent = "Pages"
+  weight = 5
+  url = "categories/lifestyle/"
+  name = "Category Single"
+  
+  [[Languages.en.menu.main]]
+  parent = "Pages"
+  weight = 6
+  url = "elements/"
+  name = "Elements"
+
+############################# Footer Menu ########################
+[[Languages.en.menu.footer]]
+weight = 1
+url = "about/"
+name = "About"
+
+[[Languages.en.menu.footer]]
+weight = 2
+url = "author/"
+name = "Authors"
+
+[[Languages.en.menu.footer]]
+weight = 3
+url = "privacy/"
+name = "Privacy"
+
+[[Languages.en.menu.footer]]
+weight = 4
+url = "terms-conditions/"
+name = "Terms & Conditions"
+
+################################### French language #####################################
+[Languages.fr]
+languageName = "Fr"
+languageCode = "fr-fr"
+contentDir = "content/french"
+weight = 2
+
+############################# French - Main Menu ########################
+[[Languages.fr.menu.main]]
+weight = 1
+url = "/"
+name = "Home"
+hasChildren = true
+
+  [[Languages.fr.menu.main]]
+  parent = "Home"
+  weight = 1
+  url = "homepage/list/"
+  name = "List layout"
+
+  [[Languages.fr.menu.main]]
+  parent = "Home"
+  weight = 2
+  url = "homepage/grid/"
+  name = "Grid layout"
+  
+[[Languages.fr.menu.main]]
+weight = 3
+url = "about"
+name = "About"
+  
+[[Languages.fr.menu.main]]
+weight = 4
+url = "contact"
+name = "Contact"
+
+[[Languages.fr.menu.main]]
+weight = 5
+url = "#"
+name = "Pages"
+hasChildren = true
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 1
+  url = "author/"
+  name = "Author"
+  
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 2
+  url = "tags/"
+  name = "Tags"
+  
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 3
+  url = "tags/photography/"
+  name = "Tag Single"
+  
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 4
+  url = "categories/"
+  name = "Category"
+  
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 5
+  url = "categories/lifestyle/"
+  name = "Category Single"
+  
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 6
+  url = "elements/"
+  name = "Elements"
+
+############################# Footer Menu ########################
+[[Languages.fr.menu.footer]]
+weight = 1
+url = "about/"
+name = "Quelque"
+
+[[Languages.fr.menu.footer]]
+weight = 2
+url = "author/"
+name = "Auteure"
+
+[[Languages.fr.menu.footer]]
+weight = 3
+url = "privacy/"
+name = "Vie privée"
+
+[[Languages.fr.menu.footer]]
+weight = 4
+url = "terms-conditions/"
+name = "Termes et conditions"

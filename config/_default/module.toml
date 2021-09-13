@@ -1,0 +1,48 @@
+[hugoVersion]
+extended = false
+min = "0.75.0"
+
+[[imports]]
+path = "github.com/dnb-org/components/auditor"
+
+[[imports]]
+path = "github.com/dnb-org/components/functions"
+
+[[imports]]
+path = "github.com/dnb-org/components/netlification"
+
+[[imports]]
+path = "github.com/dnb-org/components/opensearch"
+
+[[imports]]
+path = "github.com/dnb-org/components/pwa"
+
+[[imports]]
+path = "github.com/dnb-org/components/robots"
+
+[[imports]]
+path = "github.com/dnb-org/components/security"
+
+[[imports]]
+path = "github.com/dnb-org/components/sitemap"
+
+[[imports]]
+path = "github.com/dnb-org/components/social"
+
+[[imports]]
+path = "github.com/dnb-org/libraries/heroicons"
+
+#[[imports]]
+#path = "github.com/dnb-org/shortcodes/exchangerates"
+
+[[imports]]
+path = "github.com/dnb-org/shortcodes/youtube"
+
+[[imports]]
+path = "github.com/dnb-org/shortcodes/pictures"
+
+[[imports]]
+path = "github.com/dnb-org/debug"
+
+[[imports]]
+path = "github.com/dnb-org/hooks"

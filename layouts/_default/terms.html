@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <ul class="list-inline taxonomies-list">
+        {{ if eq .Permalink (`tags/` | absLangURL)}}
+        {{ range .Site.Taxonomies.tags }}
+        <li class="list-inline-item mb-1">
+          <a class="h5 px-4 py-3 rounded bg-light d-block font-weight-700" href="{{ .Page.Permalink }}"><i class="las la-tags mr-1"></i> {{ .Page.Title }} ({{ .Count }})</a>
+        </li>
+        {{ end }}
+        {{ end }}
+        {{ if eq .Permalink (`categories/` | absLangURL)}}
+        {{ range .Site.Taxonomies.categories }}
+        <li class="list-inline-item mb-1">
+          <a class="h5 px-4 py-3 rounded bg-light d-block font-weight-700" href="{{ .Page.Permalink }}"><i class="las la-tags mr-1"></i> {{ .Page.Title }} ({{ .Count }})</a>
+        </li>
+        {{ end }}
+        {{ end }}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="single-post-similer">
+      <div class="row justify-content-center mt-3">
+        <div class="col-lg-10">
+          <h3 class="text-dark font-weight-800 mb-4 pb-2">{{i18n "most_recent_post"}}</h3>
+        </div>
+        {{ $layout := site.Params.post_layout }}
+        {{ $related := (where site.RegularPages "Section" "blog") }}
+        {{ range first 4 $related }}
+          {{ if eq $layout "grid" }}
+          <div class="col-lg-5 col-md-6">
+            {{ .Render "post" }}
+          </div>
+          {{ else if eq $layout "list" }}
+          <div class="col-lg-10">
+            {{ .Render "post-list" }}
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{ end }}

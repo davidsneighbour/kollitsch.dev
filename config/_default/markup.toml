@@ -1,0 +1,40 @@
+################################################################################
+# see https://github.com/yuin/goldmark/#built-in-extensions
+# see https://gohugo.io/getting-started/configuration-markup#goldmark
+################################################################################
+
+[goldmark]
+
+[goldmark.extensions]
+definitionList = true
+footnote = true
+linkify = true
+strikethrough = true
+table = true
+taskList = true
+typographer = true
+
+[goldmark.parser]
+attribute = true
+autoHeadingID = true
+autoHeadingIDType = "github"
+
+[goldmark.renderer]
+hardWraps = false
+unsafe = false
+xhtml = false
+
+[highlight]
+anchorLineNos = true
+codeFences = true
+guessSyntax = true
+lineAnchors = "code"
+lineNos = true
+lineNumbersInTable = true
+noClasses = false
+tabWidth = 2
+
+[tableOfContents]
+endLevel = 4
+ordered = false
+startLevel = 2

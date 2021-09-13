@@ -1,0 +1,76 @@
+<article class="card post-card">
+  <div class="row no-gutters align-items-center">
+    <div class="col-lg-6">
+      <div class="pr-0 pr-lg-5">
+        {{with .Params.images}}
+        <div class="post-slider slider-sm rounded mb-4 mb-lg-0">
+          {{ range .}}
+          {{ if (fileExists (add `assets/` .)) }}
+          {{ $image:= resources.Get . }}
+          {{ $imageLG:= $image.Fill "440x300" }}
+          {{ $imageMD:= $image.Fill "690x355" }}
+          {{ $imageSM:= $image.Fill "545x295" }}
+          <picture>
+            <source srcset="{{ $imageSM.Permalink }}" media="(max-width: 767px)">
+            <source srcset="{{ $imageMD.Permalink }}" media="(max-width: 991px)">
+            <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 1200px)">
+            <source srcset="{{$imageLG.Permalink}}">
+            <img loading="lazy" class="img-fluid" src="{{$imageLG.Permalink}}" alt="post-thumb">
+          </picture>
+          {{ else }}
+          <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="post-thumb">
+          {{ end }}
+          {{ end }}
+        </div>
+        {{end}}
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="card-body pt-lg-0">
+        <ul class="card-meta list-inline mb-2">
+          <li class="list-inline-item mb-2">
+            {{ $author:= .Params.Author | urlize | lower}}
+            {{ with site.GetPage $author }}
+            {{ if .Params.image }}
+            {{ $imagePath:= .Params.image }}
+            {{ if (fileExists (add "assets/" $imagePath)) }}
+            {{ $image:= resources.Get $imagePath }}
+            {{ $imageXS:= $image.Fill "26x26" }}
+            {{ .Scratch.Set "image" $imageXS.RelPermalink }}
+            {{ else }}
+            {{ .Scratch.Set "image" ($imagePath | absURL) }}
+            {{ end }}
+            <a href="{{.Permalink}}" class="card-meta-author">
+              <img loading="lazy" src="{{.Scratch.Get `image`}}" alt="{{ .Title }}">
+              <span>{{ .Title }}</span>
+            </a>
+            {{else if .Params.Email}}
+            <a href="{{.Permalink}}" class="card-meta-author">
+              <img loading="lazy" src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=26&pg&d=identicon">
+              <span>{{ .Title }}</span>
+            </a>
+            {{ end }}
+            {{ end }}
+          </li>
+          <li class="list-inline-item mb-2">
+            <span>{{.PublishDate.Format "02 Jan, 2006"}}</span>
+          </li>
+          <li class="list-inline-item mb-2">
+            <ul class="card-meta-tag list-inline">
+              {{range .Params.tags}}
+              <li class="list-inline-item"><a href="{{site.BaseURL}}tags/{{.| urlize}}">{{.}}</a></li>
+              {{end}}
+            </ul>
+          </li>
+        </ul>
+        <h3 class="mb-3">
+          <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
+        </h3>
+        <p>{{ .Plain | truncate 100 }}</p>
+
+        <a href="{{.Permalink}}" aria-label="Read Article">{{ i18n "read_article" }} <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,116 @@
+---
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.0.1
+      hooks:
+      #    - id: check-added-large-files
+          - id: check-case-conflict
+      #    -   id: check-executables-have-shebangs
+          - id: check-json
+          - id: check-merge-conflict
+      #    -   id: check-shebang-scripts-are-executable
+          - id: check-symlinks
+          - id: check-toml
+          - id: check-vcs-permalinks
+          - id: check-xml
+          - id: check-yaml
+          - id: detect-private-key
+          - id: double-quote-string-fixer
+      #    -   id: end-of-file-fixer
+          - id: fix-byte-order-marker
+          - id: mixed-line-ending
+          - id: pretty-format-json
+            args: [--no-sort-keys]
+          - id: sort-simple-yaml
+  #    -   id: trailing-whitespace
+  #        args: [--markdown-linebreak-ext=md]
+  #-   repo: https://github.com/pre-commit/mirrors-csslint
+  #    rev: 'v1.0.5'
+  #    hooks:
+  #    -   id: csslint
+  #-   repo: https://github.com/pre-commit/mirrors-eslint
+  #    rev: 'v7.31.0'
+  #    hooks:
+  #    -   id: eslint
+  #        additional_dependencies:
+  #        -   eslint@4.15.0
+  #        -   eslint-config-google@0.7.1
+  #        -   eslint-loader@1.6.1
+  #        -   eslint-plugin-react@6.10.3
+  #        -   babel-eslint@6.1.2
+#  - repo: https://github.com/pre-commit/mirrors-scss-lint
+#    rev: 'v0.59.0'  # Use the sha / tag you want to point at
+#    hooks:
+#      - id: scss-lint
+#  - repo: https://github.com/pre-commit/mirrors-jshint
+#    rev: "v2.13.0" # Use the sha / tag you want to point at
+#    hooks:
+#      - id: jshint
+#  - repo: https://github.com/pre-commit/mirrors-prettier
+#    rev: "v2.3.2" # Use the sha / tag you want to point at
+#    hooks:
+#      - id: prettier
+#-   repo: https://github.com/pre-commit/mirrors-fixmyjs
+#    rev: 'v2.0.0'  # Use the sha / tag you want to point at
+#    hooks:
+#    -   id: fixmyjs
+#    - repo: https://github.com/asottile/add-trailing-comma
+#      rev: v2.1.0
+#      hooks:
+#          - id: add-trailing-comma
+#  -   repo: git://github.com/elidupuis/mirrors-sass-lint
+#      sha: ''  # Use the sha you want to point at
+#      hooks:
+#        -   id: sass-lint
+#    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+#      rev: 0.1.0 # or specific tag
+#      hooks:
+#          - id: yamlfmt
+#    - repo: https://github.com/Lucas-C/pre-commit-hooks
+#      rev: v1.1.10
+#      hooks:
+#          - id: forbid-crlf
+#          - id: remove-crlf
+#          - id: forbid-tabs
+#          - id: remove-tabs
+#            args: [--whitespaces-count, '2']      # defaults to: 4
+#    - repo: git://github.com/detailyang/pre-commit-shell
+#      rev: 1.0.5
+#      hooks:
+#          - id: shell-lint
+#            args: [--format=json]
+#    - repo: https://github.com/awebdeveloper/pre-commit-stylelint
+#      rev: 0.0.2
+#      hooks:
+#          - id: stylelint
+#            additional_dependencies: [stylelint@13.2.1, stylelint-config-standard@20.0.0]
+#    - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+#      rev: v5.0.0
+#      hooks:
+#          - id: commitlint
+#            stages: [commit-msg]
+#            additional_dependencies: ['@dnb-org/commitlint-config']
+#- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+#  rev: v2.1.0
+#  hooks:
+#  - id: pretty-format-ini
+#    args: [--autofix]
+#  - id: pretty-format-toml
+#    args: [--autofix]
+#  - id: pretty-format-yaml
+#    args: [--autofix, --indent, '2']
+#    - repo: https://github.com/zricethezav/gitleaks
+#      rev: v7.5.0
+#      hooks:
+#          - id: gitleaks
+#    - repo: local
+#      hooks:
+#          - id: check-bash-syntax
+#            name: Check Shell scripts syntax corectness
+#            language: system
+#            entry: bash -n
+#            files: \.sh$
+fail_fast: false
+minimum_pre_commit_version: 1.15.0

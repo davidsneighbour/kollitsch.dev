@@ -1,0 +1,64 @@
+[config]
+debug = false
+
+[footer]
+
+[footer.copyright]
+logo = "/images/logos/logo.png"
+width = 200
+height = 206
+copyline = ""
+
+[[footer.rows]]
+
+[[footer.rows.item]]
+type = "navigation"
+name = "official"
+title = "Official Hugo Resources"
+
+[[footer.rows.item]]
+type = "navigation"
+name = "github"
+title = "Hugo Repositories"
+
+[[footer.rows.item]]
+type = "navigation"
+name = "social"
+icononly = true
+class = "social-icons"
+
+[[footer.rows]]
+
+[[footer.rows.item]]
+type = "navigation"
+name = "configurations"
+title = "@dnb-org Configurations"
+class = "list-inline"
+classitem = "list-inline-item"
+
+[forms]
+fieldlayout = 1
+
+[forms.fields.inline]
+labelclass = "col-sm-3 col-" # content is followed by `form-label` for positioning
+fieldclass = "col-sm-9"
+
+[head]
+viewport = "width=device-width, initial-scale=1, shrink-to-fit=no"
+charset = "utf-8"
+
+[header]
+menu = "main"
+
+[header.logo]
+src = "/images/logos/hugo-logo-wordmark.svg"
+width = 300
+height = 40
+
+[layout]
+sidebar_enabled = true
+
+[plugins]
+
+[plugins.head]
+monetization_url = ""

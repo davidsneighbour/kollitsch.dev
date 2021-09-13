@@ -1,0 +1,115 @@
+<div class="header-height-fix"></div>
+<header class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <a class="navbar-brand font-weight-bold mr-0" href="{{site.BaseURL | relLangURL}}">
+            {{if site.Params.logo}}
+            <img loading="lazy" src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
+            {{else}} {{site.Title}} {{end}}
+          </a>
+
+          {{if site.Params.search}}
+          <button class="search-toggle d-inline-block d-lg-none ml-auto mr-3" data-toggle="search" aria-label="Search Toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          </button>
+          {{end}}
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="d-inline p-1" viewBox="0 0 16 16"><path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/></svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="d-none text-primary" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navHeader">
+            {{ $menu_align:= site.Params.menu_align }}
+
+            {{ if site.Params.search }}
+            {{ if eq $menu_align "right" }}
+            <ul class="navbar-nav ml-auto mr-auto mr-lg-0">
+            {{ else if eq $menu_align "left" }}
+            <ul class="navbar-nav mr-auto ml-auto ml-lg-0 pl-0 pl-lg-5">
+            {{ else }}
+            <ul class="navbar-nav mx-auto">
+            {{ end }}
+            {{ else }}
+            <ul class="navbar-nav ml-auto mr-auto mr-lg-0">
+            {{ end }}
+
+
+              {{ $current := . }}
+              {{ range site.Menus.main }}
+              {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+              {{ $active = or $active (eq .Name $current.Title) }}
+              {{if .HasChildren}}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-inline-block {{ if $active }}active{{ end }}" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{.Name}}</a>
+                <ul class="dropdown-menu">
+                  {{range .Children}}
+                  <li><a class="dropdown-item" href="{{.URL | absLangURL}}">{{.Name}}</a></li>
+                  {{end}}
+                </ul>
+              </li>
+              {{else}}
+              <li class="nav-item {{ if $active }}active{{ end }}">
+                <a class="nav-link" href="{{.URL | absLangURL}}">{{.Name}}</a>
+              </li>
+              {{end}}
+              {{end}}
+
+              <!-- Language List -->
+              {{ if .IsTranslated }}
+              <li class="nav-item">
+                <span class="nav-link">
+                  <select class="border-0" id="select-language" style="cursor:pointer;background:transparent" onchange="location = this.value;">
+                    {{ $siteLanguages := site.Languages}}
+                    {{ $pageLang := .Page.Lang}}
+                    {{ range .Page.AllTranslations }}
+                    {{ $translation := .}}
+                    {{ range $siteLanguages }}
+                    {{ if eq $translation.Lang .Lang }}
+                    {{ $selected := false }}
+                    {{ if eq $pageLang .Lang}}
+                    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+                    </option>
+                    {{ else }}
+                    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+                  </select>
+                </span>
+              </li>
+              {{ end }}
+            </ul>
+            
+            {{if site.Params.search}}
+            <div class="navbar-right d-none d-lg-inline-block">
+              <ul class="social-links list-unstyled list-inline">
+                <li class="list-inline-item ml-4 d-none d-lg-inline-block">
+                  <button class="search-toggle" data-toggle="search" aria-label="Search Toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            {{end}}
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+{{if site.Params.search}}
+<div class="search-block">
+  <div data-toggle="search-close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="text-primary" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+  </div>
+  <form action="{{ `search`| relLangURL }}">
+    <input id="search-query" name="s" type="search" placeholder="{{ i18n `search_placeholder`}}" class="text-center" aria-label="search-query">
+  </form>
+</div>
+{{end}}

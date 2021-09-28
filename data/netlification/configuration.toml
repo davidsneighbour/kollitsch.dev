@@ -1,49 +1,23 @@
 [csp]
-reportOnly = true
-reportUri = "https://samuisamui.report-uri.com/r/d/csp/enforce"
+#reportOnly = true
+#reportUri = ""
 defaultSrc = [
-  "'self'",
-  "googleads.g.doubleclick.net"
+  "'self'"
 ]
 scriptSrc = [
-  "'self'",
-  "*.cloudfront.net",
-  "www.clarity.ms",
-  "utteranc.es",
-  "pagead2.googlesyndication.com",
-  "storage.googleapis.com",
-  "googleads.g.doubleclick.net",
-  "ajax.googleapis.com",
-  "www.google-analytics.com",
-  "www.google.com",
-  "www.gstatic.com",
-  "unpkg.com",
-  "identity.netlify.com",
-  "www.googletagmanager.com"
+  "'self'"
 ]
 styleSrc = [
   "'self'"
 ]
 imgSrc = [
-  "'self'",
-  "data: www.google-analytics.com",
-  "*.cloudfront.net",
-  "i.ytimg.com"
+  "'self'"
 ]
 connectSrc = [
-  "'self'",
-  "*.algolia.net",
-  "*.algolianet.com",
-  "www.clarity.ms",
-  "www.google-analytics.com"
+  "'self'"
 ]
 frameSrc = [
-  "'self'",
-  "utteranc.es",
-  "www.google.com",
-  "www.youtube.com",
-  "www.youtube-nocookie.com",
-  "googleads.g.doubleclick.net"
+  "'self'"
 ]
 frameAncestors = [
   "'none'"
@@ -52,8 +26,7 @@ manifestSrc = [
   "'self'"
 ]
 fontSrc = [
-  "'self'",
-  "fonts.googleapis.com"
+  "'self'"
 ]
 objectSrc = [
   "'self'"

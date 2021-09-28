@@ -1,7 +1,3 @@
-github.com/dnb-org/components/auditor v0.0.0-20210917121358-9564359225ba h1:2wgstoWL92mqaI5Pv1+qM5MUK7T/AWM1uHYpqOb9Zbc=
-github.com/dnb-org/components/auditor v0.0.0-20210917121358-9564359225ba/go.mod h1:lc2H5PPI6ohpx0LaOP1/fMQtE+YDA7xPZqr24OzmRII=
-github.com/dnb-org/components/functions v1.1.4 h1:7oht8cWxFWXhg3qf7Qg5Kw/9C1/ac6XNi10ld2kya7Q=
-github.com/dnb-org/components/functions v1.1.4/go.mod h1:+GMAcQaK260wZ6ioNPbQY/ruWdBxFxj9PPw7o5p7eu0=
 github.com/dnb-org/components/netlification v1.2.0 h1:h2/yoG7C8NwXxSRMYS9i6wfdGawU1CwS3+T1cv1XeeI=
 github.com/dnb-org/components/netlification v1.2.0/go.mod h1:jPjSlmP7+RTHm8z5HF7ZVA5cId58rEefXMyaUlxImbI=
 github.com/dnb-org/components/opensearch v1.0.12 h1:H8mW7GTCm8Gq2cIcTWNHyhh3mNkqvfAA7URDvrPlMEE=

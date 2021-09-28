@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2021.0.1 (2021-09-28)
+
+
+### Documentation
+
+* updated README.md ([b45d634](https://github.com/davidsneighbour/kollitsch.de/commit/b45d634f8a042a79058e2ea9db2b48fd1fa56435))
+
+
+### Chore
+
+* **config:** remove stylelint config file (it's in package.json already) ([1dce34f](https://github.com/davidsneighbour/kollitsch.de/commit/1dce34f72b3a11e543b57faa60022defd745a515))
+* initial commit ([3506075](https://github.com/davidsneighbour/kollitsch.de/commit/350607577fac3cb063ec79bca07b67ba073d2000))
+
 ### [2021.3.10](https://github.com/davidsneighbour/davids-neighbour.com/compare/v2021.3.9...v2021.3.10) (2021-08-16)
 
 

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.2](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.1...v2021.0.2) (2021-09-28)
+
+
+### Features
+
+* move archetype for default posts into page leaf ([ccb59c1](https://github.com/davidsneighbour/kollitsch.de/commit/ccb59c14f085522e1dca46abf83d1dc38e502d3e))
+* remove i18n structure of content folder for now ([9bb91f2](https://github.com/davidsneighbour/kollitsch.de/commit/9bb91f23ac460616b42fe8ca728fbd537a355f7c))
+
+
+### Chore
+
+* **config:** add full resources folder to gitignore ([e2875de](https://github.com/davidsneighbour/kollitsch.de/commit/e2875deafb616fd37607a9cbb59679794ec81477))
+* remove obsolete image directory ([b855680](https://github.com/davidsneighbour/kollitsch.de/commit/b855680ae62089e7a2879d48a9a48f0e5ccbac29))
+* reset netlification setup for later setup ([05c431c](https://github.com/davidsneighbour/kollitsch.de/commit/05c431c010e072dcaf5fcc69c0ce24ab8af3bdca))
+* update server command ([32b4b13](https://github.com/davidsneighbour/kollitsch.de/commit/32b4b138f296c49230d3db0d726cc8b25bb53a60))
+
 ### 2021.0.1 (2021-09-28)
 
 

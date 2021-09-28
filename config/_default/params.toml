@@ -1,9 +1,3 @@
-tagmanagerid = "" # tagmanager container ID
-version = "2018.1.159"
-og_image = ""
-og_image_url = ""
-githubName = ""
-twitterName = ""
 siteslug = "davids-neighbour-de"
 description = "Onlinemarketing Made in Paradise"
 images = ["site-feature-image.jpg"]

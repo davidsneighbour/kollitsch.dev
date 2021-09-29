@@ -27,10 +27,6 @@ disableLanguages = ["fr"] # desable language from here
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
-[markup.goldmark.renderer]
-unsafe= true
-
-
 ######################## Plugins ####################
 # CSS Plugins
 [[params.plugins.css]]

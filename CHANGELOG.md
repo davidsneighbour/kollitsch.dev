@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.3](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.2...v2021.0.3) (2021-10-08)
+
+
+### Bug Fixes
+
+* **config:** proper path to build script ([48784ec](https://github.com/davidsneighbour/kollitsch.de/commit/48784ecb64d0e86b29682d91144094749e90fe8a))
+* getting content to work again while disabling french ([6443b6a](https://github.com/davidsneighbour/kollitsch.de/commit/6443b6a221638102c4104f27be76fa50e1017276))
+* trying to fix the removal of i18n structure ([573a8cf](https://github.com/davidsneighbour/kollitsch.de/commit/573a8cfb66402ee7ca84c4b4ebef5ec295527a00))
+
+
+### Chore
+
+* add dev server scripts ([e33b230](https://github.com/davidsneighbour/kollitsch.de/commit/e33b230e378d8e2a01bbe887468f91b3756ac01a))
+* remove unsafe markup parsing ([7d8b539](https://github.com/davidsneighbour/kollitsch.de/commit/7d8b5397f3d7d16aa1c6d4d8e65806326e14dea7))
+
 ### [2021.0.2](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.1...v2021.0.2) (2021-09-28)
 
 

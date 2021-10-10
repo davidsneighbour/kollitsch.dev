@@ -95,7 +95,7 @@ menu_align = "center" # Menu-align value "left", "right" or "center" (if Search 
 # Main section
 mainSection = ["blog"]
 # Post layout
-post_layout = "list" # Post-Layout value ("grid" or "list")
+post_layout = "grid" # Post-Layout value ("grid" or "list")
 # Blog-details page sidebar
 sidebar = "right" # Sidebar value ("left", "right" or false)
 
@@ -107,7 +107,7 @@ sidebar = ["search", "categories", "tags", "social"]
 
 # Preloader
 [params.preloader]
-enable = false
+enable = true
 preloader = "" # use jpg, png, svg or gif format.
 
 # Instagram feed

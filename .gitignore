@@ -1,7 +1,6 @@
 # local files
 package-lock.json
 bin/replacements
-static/assets/*
 hugo_stats.json
 resources
 

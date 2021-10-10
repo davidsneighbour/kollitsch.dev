@@ -11,7 +11,7 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: $white;
+  background-color: $bgcolor;
   padding: 50px 0 20px;
   transition: .25s ease;
 
@@ -73,7 +73,7 @@ header {
     .nav-link {
       font-size: 18px;
       font-weight: 700;
-      color: $dark !important;
+      color: $fgcolor !important;
       padding: 15px !important;
 
       &:hover {
@@ -135,7 +135,7 @@ header {
     border-color: transparent;
     padding: 0;
     font-size: 38px;
-    color: $dark;
+    color: $fgcolor;
     transition: .3s ease;
 
     @include tablet {
@@ -195,7 +195,7 @@ header {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: $white;
+  background-color: $bgcolor;
   z-index: 9999988999889;
   padding: 0 50px;
   display: none;

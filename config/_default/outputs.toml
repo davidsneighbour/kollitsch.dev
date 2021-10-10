@@ -1,8 +1,3 @@
 home = [ "HTML", "RSS", "JSON", "security" ]
 page = [ "HTML" ]
 post = [ "HTML" ]
-
-
-############################# Outputs ##############################
-[outputs]
-home = ["HTML", "RSS", "JSON"]

@@ -21,7 +21,6 @@ logo_height = "35px"
 favicon = "/assets/favicon/favicon.svg"
 
 # Meta data
-description = "This is meta description"
 author = "Themefisher"
 # contact form action
 contact_form_action = "#" # contact form works with https://formspree.io
@@ -133,9 +132,6 @@ icon = "fab fa-instagram" # https://fontawesome.com/
 [[social]]
 url = "https://www.linkedin.com/"
 icon = "fab fa-linkedin-in" # https://fontawesome.com/
-
-
-
 
 [algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]

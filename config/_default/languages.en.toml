@@ -8,19 +8,6 @@ weight = 1
 weight = 1
 url = "/"
 name = "Home"
-hasChildren = true
-
-  [[menu.main]]
-  parent = "Home"
-  weight = 1
-  url = "homepage/list/"
-  name = "List layout"
-
-  [[menu.main]]
-  parent = "Home"
-  weight = 2
-  url = "homepage/grid/"
-  name = "Grid layout"
   
 [[menu.main]]
 weight = 3
@@ -31,48 +18,6 @@ name = "About"
 weight = 4
 url = "contact"
 name = "Contact"
-
-[[menu.main]]
-weight = 5
-url = "#"
-name = "Pages"
-hasChildren = true
-
-  [[menu.main]]
-  parent = "Pages"
-  weight = 1
-  url = "author/"
-  name = "Author"
-  
-  [[menu.main]]
-  parent = "Pages"
-  weight = 2
-  url = "tags/"
-  name = "Tags"
-  
-  [[menu.main]]
-  parent = "Pages"
-  weight = 3
-  url = "tags/photography/"
-  name = "Tag Single"
-  
-  [[menu.main]]
-  parent = "Pages"
-  weight = 4
-  url = "categories/"
-  name = "Category"
-  
-  [[menu.main]]
-  parent = "Pages"
-  weight = 5
-  url = "categories/lifestyle/"
-  name = "Category Single"
-  
-  [[menu.main]]
-  parent = "Pages"
-  weight = 6
-  url = "elements/"
-  name = "Elements"
 
 ############################# Footer Menu ########################
 [[menu.footer]]
@@ -94,4 +39,3 @@ name = "Privacy"
 weight = 4
 url = "terms-conditions/"
 name = "Terms & Conditions"
-

@@ -11,11 +11,13 @@
   "homepage": "https://kollitsch.de",
   "repository": "davidsneighbour/kollitsch.de",
   "dependencies": {
-    "@dnb-org/all": "3.2.24",
     "lazysizes": "5.3.2",
-    "lite-youtube-embed": "^0.2.0",
+    "lite-youtube-embed": "0.2.0",
     "pixrem": "5.0.0",
     "precss": "4.0.0"
+  },
+  "devDependencies": {
+    "@dnb-org/all": "3.3.2"
   },
   "scripts": {
     "build": "run-s build:critical && build:hugo",

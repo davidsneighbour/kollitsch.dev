@@ -82,7 +82,8 @@ color_primary = "#01AD9F"
 [params]
 logo = "/assets/logo/logo.svg"
 logo_height = "35px"
-favicon = "images/favicon.png"
+favicon = "/assets/favicon/favicon.svg"
+
 # Meta data
 description = "This is meta description"
 author = "Themefisher"
@@ -91,7 +92,7 @@ contact_form_action = "#" # contact form works with https://formspree.io
 # search
 search = true # (if Search is disable/false Menu will align in Right)
 # Menu align
-menu_align = "center" # Menu-align value "left", "right" or "center" (if Search is disable/false Menu will align in Right)
+menu_align = "right" # "left", "right" or "center"
 # Main section
 mainSection = ["blog"]
 # Post layout
@@ -107,7 +108,7 @@ sidebar = ["search", "categories", "tags", "social"]
 
 # Preloader
 [params.preloader]
-enable = true
+enable = false
 preloader = "" # use jpg, png, svg or gif format.
 
 # Instagram feed
@@ -146,203 +147,3 @@ icon = "fab fa-instagram" # https://fontawesome.com/
 [[params.social]]
 url = "https://www.linkedin.com/"
 icon = "fab fa-linkedin-in" # https://fontawesome.com/
-
-
-################################### English language #####################################
-[Languages.en]
-languageName = "En"
-languageCode = "en-us"
-contentDir = "content"
-weight = 1
-
-############################# English - Main Menu ########################
-[[Languages.en.menu.main]]
-weight = 1
-url = "/"
-name = "Home"
-hasChildren = true
-
-  [[Languages.en.menu.main]]
-  parent = "Home"
-  weight = 1
-  url = "homepage/list/"
-  name = "List layout"
-
-  [[Languages.en.menu.main]]
-  parent = "Home"
-  weight = 2
-  url = "homepage/grid/"
-  name = "Grid layout"
-  
-[[Languages.en.menu.main]]
-weight = 3
-url = "about"
-name = "About"
-  
-[[Languages.en.menu.main]]
-weight = 4
-url = "contact"
-name = "Contact"
-
-[[Languages.en.menu.main]]
-weight = 5
-url = "#"
-name = "Pages"
-hasChildren = true
-
-  [[Languages.en.menu.main]]
-  parent = "Pages"
-  weight = 1
-  url = "author/"
-  name = "Author"
-  
-  [[Languages.en.menu.main]]
-  parent = "Pages"
-  weight = 2
-  url = "tags/"
-  name = "Tags"
-  
-  [[Languages.en.menu.main]]
-  parent = "Pages"
-  weight = 3
-  url = "tags/photography/"
-  name = "Tag Single"
-  
-  [[Languages.en.menu.main]]
-  parent = "Pages"
-  weight = 4
-  url = "categories/"
-  name = "Category"
-  
-  [[Languages.en.menu.main]]
-  parent = "Pages"
-  weight = 5
-  url = "categories/lifestyle/"
-  name = "Category Single"
-  
-  [[Languages.en.menu.main]]
-  parent = "Pages"
-  weight = 6
-  url = "elements/"
-  name = "Elements"
-
-############################# Footer Menu ########################
-[[Languages.en.menu.footer]]
-weight = 1
-url = "about/"
-name = "About"
-
-[[Languages.en.menu.footer]]
-weight = 2
-url = "author/"
-name = "Authors"
-
-[[Languages.en.menu.footer]]
-weight = 3
-url = "privacy/"
-name = "Privacy"
-
-[[Languages.en.menu.footer]]
-weight = 4
-url = "terms-conditions/"
-name = "Terms & Conditions"
-
-
-################################### French language #####################################
-[Languages.fr]
-languageName = "Fr"
-languageCode = "fr-fr"
-contentDir = "content/french"
-weight = 2
-
-############################# French - Main Menu ########################
-[[Languages.fr.menu.main]]
-weight = 1
-url = "/"
-name = "Home"
-hasChildren = true
-
-  [[Languages.fr.menu.main]]
-  parent = "Home"
-  weight = 1
-  url = "homepage/list/"
-  name = "List layout"
-
-  [[Languages.fr.menu.main]]
-  parent = "Home"
-  weight = 2
-  url = "homepage/grid/"
-  name = "Grid layout"
-  
-[[Languages.fr.menu.main]]
-weight = 3
-url = "about"
-name = "About"
-  
-[[Languages.fr.menu.main]]
-weight = 4
-url = "contact"
-name = "Contact"
-
-[[Languages.fr.menu.main]]
-weight = 5
-url = "#"
-name = "Pages"
-hasChildren = true
-
-  [[Languages.fr.menu.main]]
-  parent = "Pages"
-  weight = 1
-  url = "author/"
-  name = "Author"
-  
-  [[Languages.fr.menu.main]]
-  parent = "Pages"
-  weight = 2
-  url = "tags/"
-  name = "Tags"
-  
-  [[Languages.fr.menu.main]]
-  parent = "Pages"
-  weight = 3
-  url = "tags/photography/"
-  name = "Tag Single"
-  
-  [[Languages.fr.menu.main]]
-  parent = "Pages"
-  weight = 4
-  url = "categories/"
-  name = "Category"
-  
-  [[Languages.fr.menu.main]]
-  parent = "Pages"
-  weight = 5
-  url = "categories/lifestyle/"
-  name = "Category Single"
-  
-  [[Languages.fr.menu.main]]
-  parent = "Pages"
-  weight = 6
-  url = "elements/"
-  name = "Elements"
-
-############################# Footer Menu ########################
-[[Languages.fr.menu.footer]]
-weight = 1
-url = "about/"
-name = "Quelque"
-
-[[Languages.fr.menu.footer]]
-weight = 2
-url = "author/"
-name = "Auteure"
-
-[[Languages.fr.menu.footer]]
-weight = 3
-url = "privacy/"
-name = "Vie privée"
-
-[[Languages.fr.menu.footer]]
-weight = 4
-url = "terms-conditions/"
-name = "Termes et conditions"

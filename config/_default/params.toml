@@ -15,6 +15,128 @@ instagram = "instagram_username"
 youtube = "youtube_username"
 dribbble = "dribbble_username"
 
+#################### default parameters ################################
+logo = "/assets/logo/logo.svg"
+logo_height = "35px"
+favicon = "/assets/favicon/favicon.svg"
+
+# Meta data
+description = "This is meta description"
+author = "Themefisher"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+# search
+search = true # (if Search is disable/false Menu will align in Right)
+# Menu align
+menu_align = "right" # "left", "right" or "center"
+# Main section
+mainSection = ["blog"]
+# Post layout
+post_layout = "grid" # Post-Layout value ("grid" or "list")
+# Blog-details page sidebar
+sidebar = "right" # Sidebar value ("left", "right" or false)
+
+######################## Plugins ####################
+# CSS Plugins
+[[plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[plugins.css]]
+link = "plugins/slick/slick.min.css"
+
+# JS Plugins
+[[plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[plugins.js]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
+[[plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[plugins.js]]
+link = "plugins/instagram-feed/instagram-feed.js"
+[[plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[plugins.js]]
+link = "plugins/search/mark.js"
+[[plugins.js]]
+link = "plugins/search/search.js"
+
+# site variables
+[variables]
+primary_font = "Mulish:wght@500;600;700;800;900"
+primary_font_type = "sans-serif" # [serif/sans-serif]
+secondary_font = ""
+secondary_font_type = "" # [serif/sans-serif]
+icon_font = "Font Awesome 5 Free"
+
+h1 = "64px"
+h1_lg = "52px"
+h1_md = "42px"
+h2 = "38px"
+h2_md = "30px"
+h3 = "30px"
+h3_md = "24px"
+h4 = "24px"
+h5 = "18px"
+h6 = "16px"
+white = "#ffffff"
+black = "#000000"
+dark = "#152035"
+gray = "#747577"
+light = "#FAFAFA"
+color_primary = "#01AD9F"
+
+######################## sidebar widgets #########################
+[widgets]
+sidebar = ["search", "categories", "tags", "social"]
+# available widget : search, categories, tags, social
+
+# Preloader
+[preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
+
+# Instagram feed
+[instafeed]
+enable = false
+instagram_user = "bookworm"
+access_token = "IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1NmpxZA3RTbnU1MXpDNVBHTzZAMOFlxcGlkVHBKdjhqSnUybERhNWdQSE5hVmtXT013MEhOQVJJRGJBRURn"
+
+# Subscription
+[subscription]
+enable = true
+# mailchimp subsciption
+mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
+mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074" # replace this code with yours
+title = "Subscribe for our monthly newsletter."
+input_placeholder = "Enter your email"
+
+# cookies
+[cookies]
+enable = false
+expire_days = 2
+
+# Social Icons
+[[social]]
+url = "https://www.facebook.com/"
+icon = "fab fa-facebook-f" # https://fontawesome.com/
+
+[[social]]
+url = "https://www.twitter.com/"
+icon = "fab fa-twitter" # https://fontawesome.com/
+
+[[social]]
+url = "https://www.instagram.com/"
+icon = "fab fa-instagram" # https://fontawesome.com/
+
+[[social]]
+url = "https://www.linkedin.com/"
+icon = "fab fa-linkedin-in" # https://fontawesome.com/
+
+
+
+
 [algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
 params = ["categories", "tags"]

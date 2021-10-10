@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.5](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.4...v2021.0.5) (2021-10-10)
+
+
+### Chore
+
+* fix confniguration files ([2f79774](https://github.com/davidsneighbour/kollitsch.de/commit/2f797741bf36fb7504c8972ebf8885df9892bd59))
+
 ### [2021.0.4](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.3...v2021.0.4) (2021-10-10)
 
 

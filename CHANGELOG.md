@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.4](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.3...v2021.0.4) (2021-10-10)
+
+
+### Documentation
+
+* add some devnotes for vscode ([e3db787](https://github.com/davidsneighbour/kollitsch.de/commit/e3db787fd710739c5aedb4648d23e6785ee77383))
+
+
+### Theme
+
+* add placeholder logo and fix static assets in repo bug ([0175f51](https://github.com/davidsneighbour/kollitsch.de/commit/0175f517cca937a0775f2e0fc75296a5196b6ccf))
+* fix configuration and add favicon ([564be49](https://github.com/davidsneighbour/kollitsch.de/commit/564be49b348ac6b38a4868df0bb567928d646a2b))
+
+
+### Chore
+
+* add public directory to clean script for gohugo ([c30b23d](https://github.com/davidsneighbour/kollitsch.de/commit/c30b23dc2cba622464f29b666766dc2d98631ade))
+* **config:** moving subconfig sections into their respective files ([674ee8c](https://github.com/davidsneighbour/kollitsch.de/commit/674ee8cc530930227cd429a49a0b66d1b0e9fcac))
+* **config:** remove base path from netlify configuration ([f1df665](https://github.com/davidsneighbour/kollitsch.de/commit/f1df665f7e79190529385a67d6c2d8c4011491c2))
+* **config:** set post layout to grid globally ([468ab4c](https://github.com/davidsneighbour/kollitsch.de/commit/468ab4c4f12b1c39cf2042c2b8990988f777da1c))
+* **deps:** update dependencies ([87805f7](https://github.com/davidsneighbour/kollitsch.de/commit/87805f7597bde74370b29e9da229f285dc9598e9))
+* remove static imagery of sample theme ([4790d3f](https://github.com/davidsneighbour/kollitsch.de/commit/4790d3f7753cbe25e8f0430def0c26deff0404f4))
+* **setup:** add script to install dev environment with ms edge ([77989e0](https://github.com/davidsneighbour/kollitsch.de/commit/77989e012e3860fadd26a5f2c686fa90732d5d04))
+
+
+### Build System
+
+* remove additional clean command from server run ([79411df](https://github.com/davidsneighbour/kollitsch.de/commit/79411dfa3abc8d9668b82d204f7b2aa4ff136c9e))
+
 ### [2021.0.3](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.2...v2021.0.3) (2021-10-08)
 
 

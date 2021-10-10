@@ -35,3 +35,10 @@ pre-commit gc
 
 - [Github Repository](https://github.com/tailwindlabs/heroicons)
 - [Website with icon overview](https://heroicons.com/)
+
+
+## Setup Development Environment
+
+- the repo contains some setups to use in VSCode
+- install "Debugger for Microsoft Edge" and "Microsoft Edge Tools for VS Code"
+- enable the headless option for vscode.edge.devtools in Settings

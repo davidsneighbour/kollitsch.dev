@@ -19,8 +19,8 @@ github.com/dnb-org/components/social v1.4.3 h1:zPFGvbFEp+tWw748G6/PQwRQik5IUw9be
 github.com/dnb-org/components/social v1.4.3/go.mod h1:xlTBYQYqpLay7s9BZvWRIQbzGMd8aBETcgQAPzAHjvE=
 github.com/dnb-org/debug v1.3.3 h1:b0bCZCG3SPSbV7MmoHYiCWO73nIqqqbFwlSBOc99zGc=
 github.com/dnb-org/debug v1.3.3/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
-github.com/dnb-org/hooks v1.0.15 h1:sS2El6W+/V5qzZQy0N+rmv4/RIGKLBXU4G4nIZAMezw=
-github.com/dnb-org/hooks v1.0.15/go.mod h1:ZT3cpzZVQMtE4a7kDP7i63dxcvH5OwHpuBk+3YQ+X9E=
+github.com/dnb-org/hooks v1.0.16 h1:e/xPlrD0jtCtXxwgnAiOdhTM4e42JXRW4SXudUJQGRo=
+github.com/dnb-org/hooks v1.0.16/go.mod h1:hYVzB0Lk3ut+lNLNYGRh8xn8YfVCVxnM+u5eQxltOaA=
 github.com/dnb-org/libraries/heroicons v1.0.2 h1:MwFGmIz+ZYBtWjbAM0h0Pb0KBQ9a37bUfNQGC9jFzCA=
 github.com/dnb-org/libraries/heroicons v1.0.2/go.mod h1:eGLho1QH6BtWicXfclCNSSRsaGYuQ++yaW2f6fhKk6Y=
 github.com/dnb-org/shortcodes/pictures v0.0.10 h1:477I6xa/KzQ/zYtHt+mooTJXo+MuyFh6ChXwF0UAI5w=

@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.7](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.6...v2021.0.7) (2021-10-14)
+
+
+### Chore
+
+* **config:** add archetype for blog posts ([71730ec](https://github.com/davidsneighbour/kollitsch.de/commit/71730ec8a84880a681eec33271413ff013628471))
+* **config:** remove old bootstrap stylesheet from plugin config ([ea1839b](https://github.com/davidsneighbour/kollitsch.de/commit/ea1839b95669e8f283e396df6c5a0731792b1995))
+* **deps:** update dependencies ([a53779b](https://github.com/davidsneighbour/kollitsch.de/commit/a53779b7fb910db68e53e25b047b735e7589f603))
+* enable adding vscode files to the repository ([fea4a14](https://github.com/davidsneighbour/kollitsch.de/commit/fea4a14c33bdd16864b1c623e3f75c8f475e124d))
+* move scripts to bin directory ([f9c6c13](https://github.com/davidsneighbour/kollitsch.de/commit/f9c6c1335352586f31716d139e413ba9a4b53e06))
+
+
+### Theme
+
+* **fix:** subscription form submit button with BS5 ([4571570](https://github.com/davidsneighbour/kollitsch.de/commit/4571570697677654bf4061314176915eb6066fe9))
+* move bootstrap css into local npm package instead of extra loading plugin ([70e893a](https://github.com/davidsneighbour/kollitsch.de/commit/70e893a3dea6910d082000f606ebc3ec93cd4516))
+* move SASS files around for better structure ([d3b9e99](https://github.com/davidsneighbour/kollitsch.de/commit/d3b9e99ecafc2b17c84f59b5b01434d999f6c4f9))
+* upgrade BS classes from left/right to start/end ([622c630](https://github.com/davidsneighbour/kollitsch.de/commit/622c6305f66b4da2f6ad2fdf16e45323c297e65f))
+
 ### [2021.0.6](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.5...v2021.0.6) (2021-10-14)
 
 

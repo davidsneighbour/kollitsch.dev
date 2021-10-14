@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.9](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.8...v2021.0.9) (2021-10-14)
+
+
+### Theme
+
+* **styles:** remove css plugin loaders ([e1b9e3e](https://github.com/davidsneighbour/kollitsch.de/commit/e1b9e3ee5a8791ea3131d761b37de3d91e8424a3))
+
 ### [2021.0.8](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.7...v2021.0.8) (2021-10-14)
 
 

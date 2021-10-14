@@ -8,14 +8,14 @@
         {{ if eq .Permalink (`tags/` | absLangURL)}}
         {{ range .Site.Taxonomies.tags }}
         <li class="list-inline-item mb-1">
-          <a class="h5 px-4 py-3 rounded bg-light d-block font-weight-700" href="{{ .Page.Permalink }}"><i class="las la-tags mr-1"></i> {{ .Page.Title }} ({{ .Count }})</a>
+          <a class="h5 px-4 py-3 rounded bg-light d-block font-weight-700" href="{{ .Page.Permalink }}"><i class="las la-tags me-1"></i> {{ .Page.Title }} ({{ .Count }})</a>
         </li>
         {{ end }}
         {{ end }}
         {{ if eq .Permalink (`categories/` | absLangURL)}}
         {{ range .Site.Taxonomies.categories }}
         <li class="list-inline-item mb-1">
-          <a class="h5 px-4 py-3 rounded bg-light d-block font-weight-700" href="{{ .Page.Permalink }}"><i class="las la-tags mr-1"></i> {{ .Page.Title }} ({{ .Count }})</a>
+          <a class="h5 px-4 py-3 rounded bg-light d-block font-weight-700" href="{{ .Page.Permalink }}"><i class="las la-tags me-1"></i> {{ .Page.Title }} ({{ .Count }})</a>
         </li>
         {{ end }}
         {{ end }}

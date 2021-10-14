@@ -21,7 +21,7 @@
       <!-- /left sidebar -->
 
       <div class="{{ if $has_sidebar }}col-lg-9{{ else }}col-lg-10{{ end }} {{ if eq $sidebar `left` }}order-1 order-lg-2{{ end }}">
-        <div class="{{ if eq $sidebar `left` }}pl-lg-4{{ end }}{{ if eq $sidebar `right` }}pr-lg-4{{ end }}">
+        <div class="{{ if eq $sidebar `left` }}ps-lg-4{{ end }}{{ if eq $sidebar `right` }}pe-lg-4{{ end }}">
           <div class="text-center mb-5">
             <h3 class="h2 mb-4 post-title">{{.Title}}</h3>
             <ul class="card-meta list-inline">
@@ -115,11 +115,11 @@
               {{ .Scratch.Set "image" ($imagePath | absURL) }}
               {{ end }}
               <a href="{{.Permalink}}">
-                <img loading="lazy" class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="{{.Scratch.Get `image`}}" alt="{{ .Title }}">
+                <img loading="lazy" class="img-fluid rounded-circle me-0 me-sm-4 mb-4" src="{{.Scratch.Get `image`}}" alt="{{ .Title }}">
               </a>
               {{else if .Params.Email}}
               <a href="{{.Permalink}}">
-                <img loading="lazy" class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=150&pg&d=identicon">
+                <img loading="lazy" class="img-fluid rounded-circle me-0 me-sm-4 mb-4" src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=150&pg&d=identicon">
               </a>
               {{ end }}
 
@@ -127,7 +127,7 @@
                 <p class="font-primary mb-1">{{i18n "written_by"}}</p>
                 <h4><a href="{{.Permalink}}" class="text-dark font-weight-700">{{.Title}}</a></h4>
                 <p class="font-primary">{{ .Summary | truncate 250 }}</p>
-                <ul class="social-links list-unstyled list-inline ml-0 ml-sm-n2">
+                <ul class="social-links list-unstyled list-inline ms-0 ms-sm-n2">
                   {{ range .Params.social }}
                   <li class="list-inline-item"><a href="{{.link | safeURL}}">
                       <i class="lab {{.icon}}"></i>

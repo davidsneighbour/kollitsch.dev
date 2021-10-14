@@ -19,7 +19,7 @@
         {{ end }}
 
         <h3 class="text-dark font-weight-700 mb-2">{{.Title}}</h3>
-        <ul class="social-links list-unstyled list-inline ml-0 ml-sm-n2">
+        <ul class="social-links list-unstyled list-inline ms-0 ms-sm-n2">
           {{ range .Params.social }}
           <li class="list-inline-item"><a href="{{.link | safeURL}}">
               <i class="lab {{.icon}}"></i>

@@ -4,14 +4,14 @@
     <div class="row">
       <div class="col-12">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
-          <a class="navbar-brand font-weight-bold mr-0" href="{{site.BaseURL | relLangURL}}">
+          <a class="navbar-brand font-weight-bold me-0" href="{{site.BaseURL | relLangURL}}">
             {{if site.Params.logo}}
             <img loading="lazy" src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
             {{else}} {{site.Title}} {{end}}
           </a>
 
           {{if site.Params.search}}
-          <button class="search-toggle d-inline-block d-lg-none ml-auto mr-3" data-toggle="search" aria-label="Search Toggle">
+          <button class="search-toggle d-inline-block d-lg-none ms-auto me-3" data-toggle="search" aria-label="Search Toggle">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
           </button>
           {{end}}
@@ -27,14 +27,14 @@
 
             {{ if site.Params.search }}
             {{ if eq $menu_align "right" }}
-            <ul class="navbar-nav ml-auto mr-auto mr-lg-0">
+            <ul class="navbar-nav ms-auto me-auto me-lg-0">
             {{ else if eq $menu_align "left" }}
-            <ul class="navbar-nav mr-auto ml-auto ml-lg-0 pl-0 pl-lg-5">
+            <ul class="navbar-nav me-auto ms-auto ms-lg-0 ps-0 ps-lg-5">
             {{ else }}
             <ul class="navbar-nav mx-auto">
             {{ end }}
             {{ else }}
-            <ul class="navbar-nav ml-auto mr-auto mr-lg-0">
+            <ul class="navbar-nav ms-auto me-auto me-lg-0">
             {{ end }}
 
 
@@ -88,7 +88,7 @@
             {{if site.Params.search}}
             <div class="navbar-right d-none d-lg-inline-block">
               <ul class="social-links list-unstyled list-inline">
-                <li class="list-inline-item ml-4 d-none d-lg-inline-block">
+                <li class="list-inline-item ms-4 d-none d-lg-inline-block">
                   <button class="search-toggle" data-toggle="search" aria-label="Search Toggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
                   </button>

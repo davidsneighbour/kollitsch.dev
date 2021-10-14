@@ -1,6 +1,6 @@
 body {
-  color: $fgcolor;
-  background-color: $bgcolor;
+  color: $gray;
+  background-color: $white;
   font-family: $font-primary;
   font-weight: 500;
   font-size: 16px;
@@ -8,7 +8,7 @@ body {
 }
 
 ::selection {
-  color: $bgcolor;
+  color: $white;
   background-color: darken($color-primary, 5);
   text-shadow: none;
 }
@@ -31,7 +31,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $bgcolor;
+  background-color: $white;
   z-index: 9999;
   height: 100%;
   width: 100%;
@@ -105,7 +105,7 @@ body {
   line-height: 50px;
   border-radius: 50%;
   background: rgba($color-primary, .5);
-  color: $bgcolor;
+  color: $white;
   border: 0;
   transition: 0.3s;
   @include mobile {
@@ -131,7 +131,7 @@ body {
   a {
     font-size: 18px;
     padding: 7px;
-    color: rgba($fgcolor, .8);
+    color: rgba($black, .8);
     display: inline-block;
 
     &:hover {
@@ -224,7 +224,7 @@ a.post-title:hover,
 .taxonomies-list {
   li a:hover {
     background-color: $color-primary !important;
-    color: $bgcolor;
+    color: $white;
   }
 }
 
@@ -434,7 +434,7 @@ a.post-title:hover,
     content: 'Note';
     position: absolute;
     top: 2px;
-    color: $bgcolor;
+    color: $white;
     left: 2rem;
   }
 
@@ -448,7 +448,7 @@ a.post-title:hover,
     content: 'Tip';
     position: absolute;
     top: 2px;
-    color: $bgcolor;
+    color: $white;
     left: 2rem;
   }
 
@@ -461,7 +461,7 @@ a.post-title:hover,
     content: 'Info';
     position: absolute;
     top: 2px;
-    color: $bgcolor;
+    color: $white;
     left: 2rem;
   }
 
@@ -519,7 +519,7 @@ a.post-title:hover,
         background: $color-primary;
 
         .nav-link {
-          color: $bgcolor;
+          color: $white;
         }
       }
     }
@@ -548,7 +548,7 @@ a.post-title:hover,
     &:focus,
     &:hover {
       box-shadow: none;
-      color: $bgcolor;
+      color: $white;
       background-color: $color-primary;
     }
 
@@ -558,7 +558,7 @@ a.post-title:hover,
 
       &:hover {
         color: $color-primary;
-        background-color: $bgcolor;
+        background-color: $white;
       }
     }
   }
@@ -566,7 +566,7 @@ a.post-title:hover,
   .page-item.active {
     .page-link {
       box-shadow: none;
-      color: $bgcolor;
+      color: $white;
       background-color: $color-primary;
     }
   }
@@ -725,9 +725,9 @@ a.text-dark:hover {
 footer {
   background-color: $dark;
   .icon-box a {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
     &:hover {
-      color: $bgcolor;
+      color: $white;
       background-color: $color-primary;
       border-color: $color-primary;
     }
@@ -735,7 +735,7 @@ footer {
 }
 .footer-menu {
   li a {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
     &:hover {
       color: $color-primary;
       text-decoration: underline;
@@ -743,8 +743,8 @@ footer {
   }
 }
 .copyright-text {
-  color: rgba($bgcolor, .7);
+  color: rgba($white, .7);
   a {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
   }
 }

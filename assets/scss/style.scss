@@ -22,16 +22,12 @@ $h4: {{.h4}};
 $h5: {{.h5}};
 $h6: {{.h6}};
 
-$fgcolor: {{.bgcolor}};
-$dark: {{.bgcolor2}};
+$white: {{.white}};
+$black: {{.black}};
+$dark: {{.dark}};
 $gray: {{.gray}};
 $light: {{.light}};
 $color-primary: {{.color_primary}};
-
-$bgcolor: {{.bgcolor}};
-$bgcolor2: {{.bgcolor2}};
-$fgcolor: {{.fgcolor}};
-
 {{ end }}
 
 @import 'mixins';

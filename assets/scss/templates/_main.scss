@@ -1,11 +1,11 @@
 // newsletter-block
 .newsletter-block {
-  color: $bgcolor;
+  color: $white;
 
   .input-group-text,
   .form-control {
     background-color: transparent;
-    color: $bgcolor;
+    color: $white;
     border-color: #999;
   }
 
@@ -28,29 +28,29 @@
         .input-group-text {
           border-color: $color-primary;
           background-color: $color-primary;
-          color: $bgcolor;
+          color: $white;
         }
       }
     }
   }
 
   ::-webkit-input-placeholder {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
   }
 
   :-ms-input-placeholder {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
   }
 
   ::placeholder {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
   }
 
   button.input-group-text {
-    color: rgba($bgcolor, .7);
+    color: rgba($white, .7);
 
     &:hover {
-      color: $bgcolor;
+      color: $white;
     }
   }
 }

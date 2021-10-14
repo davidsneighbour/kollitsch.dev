@@ -2,7 +2,7 @@
 .btn {
 	font-size: 16px;
 	padding: 12px 28px;
-	color: $bgcolor;
+	color: $white;
 	border: 0;
 	border-radius: 50px;
 	transition: .2s ease-out;
@@ -20,7 +20,7 @@
 	}
 
 	&:hover {
-		box-shadow: 0px 10px 25px rgba($fgcolor, 0.1);
+		box-shadow: 0px 10px 25px rgba($black, 0.1);
 	}
 
 	&.btn-sm {
@@ -40,7 +40,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-			color: $bgcolor;
+			color: $white;
 		}
 	}
 
@@ -54,7 +54,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-			color: $bgcolor;
+			color: $white;
 			background-color: $color-primary !important;
 		}
 	}

@@ -38,8 +38,6 @@ sidebar = "right" # Sidebar value ("left", "right" or false)
 ######################## Plugins ####################
 # CSS Plugins
 [[plugins.css]]
-link = "plugins/bootstrap/bootstrap.min.css"
-[[plugins.css]]
 link = "plugins/slick/slick.min.css"
 
 # JS Plugins

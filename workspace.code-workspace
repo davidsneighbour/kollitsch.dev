@@ -1,0 +1,81 @@
+{
+	"folders": [
+		{
+			"name": "kollitsch.de",
+			"path": "."
+		},
+		{
+			"name": "components",
+			"path": "../components"
+		},
+		{
+			"name": "configurations",
+			"path": "../configurations"
+		},
+		{
+			"name": "debug",
+			"path": "../debug"
+		},
+		{
+			"name": "hooks",
+			"path": "../hooks"
+		},
+		{
+			"name": "libraries",
+			"path": "../libraries"
+		},
+		{
+			"name": "namespace",
+			"path": "../namespace"
+		},
+		{
+			"name": "shortcodes",
+			"path": "../shortcodes"
+		},
+		{
+			"name": "templates",
+			"path": "../templates"
+		},
+		{
+			"name": "quicklinks",
+			"path": "../quicklinks"
+		},
+		{
+			"name": "testcontent",
+			"path": "../testcontent"
+		},
+		{
+			"name": ".github",
+			"path": "../.github"
+		}
+	],
+	"settings": {},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Launch Edge",
+				"request": "launch",
+				"type": "pwa-msedge",
+				"url": "http://localhost:8080",
+				"webRoot": "${workspaceFolder}"
+			},
+			{
+				"type": "pwa-msedge",
+				"request": "launch",
+				"name": "Open index.html",
+				"file": "/home/patrick/Projects/dnb-org/kollitsch.de/public/index.html"
+			},
+			{
+				"name": "Launch Microsoft Edge and open the Edge DevTools",
+				"request": "launch",
+				"type": "vscode-edge-devtools.debug",
+				"url": ""
+			}
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"EditorConfig.EditorConfig"
+		]
+	}
+}

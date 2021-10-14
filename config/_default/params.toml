@@ -36,10 +36,6 @@ post_layout = "grid" # Post-Layout value ("grid" or "list")
 sidebar = "right" # Sidebar value ("left", "right" or false)
 
 ######################## Plugins ####################
-# CSS Plugins
-[[plugins.css]]
-link = "plugins/slick/slick.min.css"
-
 # JS Plugins
 [[plugins.js]]
 link = "plugins/jquery/jquery.min.js"

@@ -2,7 +2,7 @@
 title: "About"
 layout: "about"
 image: "images/about.jpg"
-draft: false
+draft: true
 
 #caption
 caption:

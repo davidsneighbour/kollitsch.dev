@@ -84,11 +84,7 @@ black = "#000000"
 dark = "#152035"
 gray = "#747577"
 light = "#FAFAFA"
-
-bgcolor = "#171717"
-bgcolor2 = "#444444"
-fgcolor = "#EDEDED"
-color_primary = "#DA0037"
+color_primary = "#01AD9F"
 
 ######################## sidebar widgets #########################
 [widgets]

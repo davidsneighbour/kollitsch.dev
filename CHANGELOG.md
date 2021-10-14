@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.8](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.7...v2021.0.8) (2021-10-14)
+
+
+### Chore
+
+* **revert:** undo "content: remove sample content and add draft markers" ([4de4b28](https://github.com/davidsneighbour/kollitsch.de/commit/4de4b2892e5a680ba741872a60ec42e95875973a))
+
+
+### Theme
+
+* move slick css into SASS setup ([20af347](https://github.com/davidsneighbour/kollitsch.de/commit/20af347d366d99f3204804dbcae273108f769b85))
+
 ### [2021.0.7](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.6...v2021.0.7) (2021-10-14)
 
 

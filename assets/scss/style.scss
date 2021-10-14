@@ -23,4 +23,11 @@ $light: {{.light}};
 $color-primary: {{.color_primary}};
 {{ end }}
 
+// bootstrap
+@import "bootstrap";
+
+// theme files
 @import "theme";
+
+// local overrides
+@import "local";

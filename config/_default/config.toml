@@ -20,4 +20,3 @@ title = "Kollitsch.de"
 ignoreErrors = []
 paginate = "5"
 googleAnalytics = ""
-disableLanguages = ["fr"] # desable language from here

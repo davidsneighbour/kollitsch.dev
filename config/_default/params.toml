@@ -162,11 +162,6 @@ address = [
   "Thailand",
 ]
 
-[dnb.footer.menu]
-title1 = "@dnb-org Configurations"
-title2 = "@dnb-org Configurations"
-title3 = "Other Stuff"
-
 [dnb.header]
 
 [dnb.header.logo]

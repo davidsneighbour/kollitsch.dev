@@ -1,0 +1,31 @@
+############################# English - Main Menu ########################
+[[main]]
+weight = 1
+url = "/"
+name = "Home"
+  
+[[main]]
+weight = 3
+url = "about"
+name = "About"
+  
+[[main]]
+weight = 4
+url = "contact"
+name = "Contact"
+
+############################# Footer Menu ########################
+[[footer]]
+weight = 1
+url = "about/"
+name = "About"
+
+[[footer]]
+weight = 3
+url = "privacy/"
+name = "Privacy"
+
+[[footer]]
+weight = 4
+url = "terms-conditions/"
+name = "Terms & Conditions"

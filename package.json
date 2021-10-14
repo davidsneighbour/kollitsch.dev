@@ -17,7 +17,8 @@
     "precss": "4.0.0"
   },
   "devDependencies": {
-    "@dnb-org/all": "3.3.2"
+    "@dnb-org/all": "3.3.2",
+    "typescript": "^4.4"
   },
   "scripts": {
     "build": "run-s build:critical && build:hugo",
@@ -33,6 +34,7 @@
     "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
     "release:patch": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
     "serve:hugo": "bin/hugo-dev-server.sh",
+    "serve:script": "tsc ./assets/js/script.ts --watch",
     "server": "npm-run-all -p serve:**"
   },
   "private": true,

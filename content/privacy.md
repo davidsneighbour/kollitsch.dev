@@ -1,7 +1,7 @@
 ---
 title: "Privacy"
 description: "this is meta description"
-draft: true
+draft: false
 ---
 
 

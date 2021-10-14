@@ -9,9 +9,9 @@
           <form class="px-0 px-sm-3 px-md-5" action="{{ .mailchimp_form_action }}" method="post" name="mailchimp_form_name" target="_blank">
             <div class="input-group">
               <input form="subscription" type="text" class="form-control" placeholder="{{ .input_placeholder }}" aria-label="Subscription" required autocomplete="new-email">
-              <div class="input-group-append">
-                <button type="submit" name="subscription" class="input-group-text" aria-label="Subscription Button"><i class="icon fas fa-paper-plane" style="font-size:15px"></i></button>
-              </div>
+              <button type="submit" name="subscription" class="btn btn-outline-primary" aria-label="Subscription Button">
+                <i class="icon fas fa-paper-plane" style="font-size:15px"></i>
+              </button>
             </div>
             <div style="position: absolute; left: -5000px;" aria-hidden="true">
               <input type="text" name="{{ .mailchimp_form_name }}" tabindex="-1">

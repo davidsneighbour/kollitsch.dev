@@ -17,7 +17,7 @@
     "precss": "4.0.0"
   },
   "devDependencies": {
-    "@dnb-org/all": "3.3.2",
+    "@dnb-org/all": "3.3.3",
     "typescript": "^4.4"
   },
   "scripts": {

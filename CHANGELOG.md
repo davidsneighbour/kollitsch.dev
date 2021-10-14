@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.6](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.5...v2021.0.6) (2021-10-14)
+
+
+### Bug Fixes
+
+* backticks around go properties will result in the property being processed. ([78adbed](https://github.com/davidsneighbour/kollitsch.de/commit/78adbed680e4feaeb1c7b006c2414b3b6f5d1723))
+
+
+### Theme
+
+* trying to move into a dark theme (WIP) ([456f00f](https://github.com/davidsneighbour/kollitsch.de/commit/456f00f215c208ca63f353045c7a41dbdf1692fc))
+
+
+### Chore
+
+* **config:** disable json checks in pre-commit ([9e64c56](https://github.com/davidsneighbour/kollitsch.de/commit/9e64c561f84bdd9228f0a0a76843067250a160ba))
+* **config:** fix indentation in dependabot configuration ([bb652b9](https://github.com/davidsneighbour/kollitsch.de/commit/bb652b9c9226f4418b7653fb49d6b99b4c57003d))
+* **revert:** revert "theme: trying to move into a dark theme (WIP)" ([5288766](https://github.com/davidsneighbour/kollitsch.de/commit/5288766c2a3774bc3a46ca1024037332e9fe1bd6))
+
+
+### Build System
+
+* move pre-processed javascript into typescript ([48c2202](https://github.com/davidsneighbour/kollitsch.de/commit/48c22028f1ce1423709fbef9c24cab0303e7db05))
+
 ### [2021.0.5](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.4...v2021.0.5) (2021-10-10)
 
 

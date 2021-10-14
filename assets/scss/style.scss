@@ -26,6 +26,9 @@ $color-primary: {{.color_primary}};
 // bootstrap
 @import "bootstrap";
 
+// plugins
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+
 // theme files
 @import "theme";
 

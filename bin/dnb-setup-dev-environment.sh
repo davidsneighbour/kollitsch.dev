@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+REQUIRED_TOOLS=(
+  hugo
+  npm
+  curl
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
 
 echo "Setup Windows Edge Browser for Ubuntu"
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg

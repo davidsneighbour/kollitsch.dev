@@ -1,4 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+REQUIRED_TOOLS=(
+  git
+  hugo
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
 
 SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 

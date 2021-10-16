@@ -1,4 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+REQUIRED_TOOLS=(
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
 
 # replacing spaces with underscores
 for file in *; do mv "$file" `echo $file | tr ' ' '_'` ; done

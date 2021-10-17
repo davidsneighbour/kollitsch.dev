@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.10](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.9...v2021.0.10) (2021-10-17)
+
+
+### Documentation
+
+* add notes about repository setup ([fa72639](https://github.com/davidsneighbour/kollitsch.de/commit/fa726393c41527d7cc83a2213411024904f44a91))
+
+
+### Build System
+
+* better scripts ([bb0f71c](https://github.com/davidsneighbour/kollitsch.de/commit/bb0f71c9ebcf4117f00b87121b9a8f9bc0cff296))
+* update dev-server to use ip and port from .env file ([861382d](https://github.com/davidsneighbour/kollitsch.de/commit/861382d77ceeaaba71319775823d4bfa2ee7c5b8))
+
+
+### Chore
+
+* **config:** fix scripts and update dependencies to full versions ([94cd959](https://github.com/davidsneighbour/kollitsch.de/commit/94cd9596ffc961b8215212d123c8fc436e2756ae))
+
+
+### Theme
+
+* **script:** move theme script to typescript setup ([706611c](https://github.com/davidsneighbour/kollitsch.de/commit/706611c72cc5b23cd0f2f8e5663435ad35c52049))
+
 ### [2021.0.9](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.8...v2021.0.9) (2021-10-14)
 
 

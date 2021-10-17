@@ -13,21 +13,36 @@ pre-commit gc
 
 ## NPM scripts
 
+### Installation and Setup
+
 ```shell
+npm install
 ```
 
 ### Development server
 
+Add a file named `.env` to the root of your repository containing your local setup:
+
+```ini
+IP=192.168.1.201
+PORT=1313
+```
+
+Do NOT commit this file to the repository.
+
+To run the development server run 
+
 ```shell
+npm run server
 ```
 
 ### Build scripts
 
-### Cleaning
+This repository is currently optimised for Netlify. To create a local copy of the website run the following command:
 
-### Linting
-
-### Testing
+```shell
+./bin/netlify.sh
+```
 
 ### Releasing
 
@@ -35,10 +50,3 @@ pre-commit gc
 
 - [Github Repository](https://github.com/tailwindlabs/heroicons)
 - [Website with icon overview](https://heroicons.com/)
-
-
-## Setup Development Environment
-
-- the repo contains some setups to use in VSCode
-- install "Debugger for Microsoft Edge" and "Microsoft Edge Tools for VS Code"
-- enable the headless option for vscode.edge.devtools in Settings

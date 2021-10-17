@@ -13,4 +13,4 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 done
 
 rm -rf public/
-npm run build:critical && npm run build:hugo
+npm run build

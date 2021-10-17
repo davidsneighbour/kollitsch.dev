@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.14](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.13...v2021.0.14) (2021-10-17)
+
+
+### Build System
+
+* **config:** add tsconfiguration ([6c59830](https://github.com/davidsneighbour/kollitsch.de/commit/6c59830576f49a87faee366c36592e74623a1b3c))
+* **release:** add merge to live branch to release scripts ([5aaf706](https://github.com/davidsneighbour/kollitsch.de/commit/5aaf70637863d3e231b9a74cfc528bfe02b540a3))
+
+
+### Documentation
+
+* add notes about Netlify deploy process ([ab086b0](https://github.com/davidsneighbour/kollitsch.de/commit/ab086b0383e1f4072c4036d26b599f47b6515fca))
+
+
+### Theme
+
+* **scripts:** silence typescript for now in slick module ([0f81e84](https://github.com/davidsneighbour/kollitsch.de/commit/0f81e84febed970e4467624c01e6fc078b67f41b))
+* **wip:** move javascripts to modular typescript ([7e508ba](https://github.com/davidsneighbour/kollitsch.de/commit/7e508ba87822ba01eea984d92c792021fdbf04e5)), closes [#3](https://github.com/davidsneighbour/kollitsch.de/issues/3)
+
 ### [2021.0.13](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.12...v2021.0.13) (2021-10-17)
 
 

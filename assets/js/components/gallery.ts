@@ -1,5 +1,6 @@
 // post slider Init
 function postSlider() {
+  // @ts-ignore
   jQuery('.post-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,

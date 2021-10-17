@@ -50,3 +50,11 @@ This repository is currently optimised for Netlify. To create a local copy of th
 
 - [Github Repository](https://github.com/tailwindlabs/heroicons)
 - [Website with icon overview](https://heroicons.com/)
+
+
+## Publishing on Netlify
+
+- running `npm run release` will create a new tag in the `main` branch
+- it will merge the `main` branch into the `live` branch
+- Netlify is set up to only deploy the `live` branch
+- thus only releases will trigger a deploy

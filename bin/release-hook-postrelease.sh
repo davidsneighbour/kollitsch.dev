@@ -12,3 +12,8 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 done
 
 git push --follow-tags origin main
+
+git checkout live
+git merge main
+git push --follow-tags origin live
+git checkout main

@@ -3,6 +3,7 @@
 REQUIRED_TOOLS=(
   hugo
   npm
+  export
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -11,6 +12,15 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     exit 1
   fi
 done
+
+FILE=.env
+if [ -f "$FILE" ]; then
+  echo "exporting .env"
+  set -a # export all variables created next
+  # shellcheck source=.env
+  source "${FILE}"
+  set +a # stop exporting
+fi
 
 # cleanup hugo loggin
 npm run clean:hugo
@@ -35,6 +45,6 @@ hugo server \
     --log true --logFile hugo.log \
     --verbose \
     --verboseLog \
-    --port 1313 \
-    --baseURL http://localhost/
-    #--bind 192.168.1.201 \
+    --port "${PORT}" \
+    --baseURL http://"${IP}"/ \
+    --bind "${IP}"

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.13](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.12...v2021.0.13) (2021-10-17)
+
+
+### Build System
+
+* **fix:** ignore errors on netlify build ([0e95dde](https://github.com/davidsneighbour/kollitsch.de/commit/0e95ddea936391960aefa3f88c4e10cd0bc44aae))
+
 ### [2021.0.12](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.11...v2021.0.12) (2021-10-17)
 
 

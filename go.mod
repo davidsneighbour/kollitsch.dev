@@ -5,7 +5,6 @@ go 1.16
 require (
 	github.com/dnb-org/components/auditor v1.4.3 // indirect
 	github.com/dnb-org/components/functions v1.4.3 // indirect
-	github.com/dnb-org/components/netlification v1.4.3 // indirect
 	github.com/dnb-org/components/opensearch v1.4.3 // indirect
 	github.com/dnb-org/components/pwa v1.4.3 // indirect
 	github.com/dnb-org/components/robots v1.4.3 // indirect

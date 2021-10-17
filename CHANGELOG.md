@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.12](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.11...v2021.0.12) (2021-10-17)
+
+
+### Build System
+
+* **netlify:** remove script compilation from build script for now ([5192e5d](https://github.com/davidsneighbour/kollitsch.de/commit/5192e5deb03440e0cefdd10263c96f1e433b2ddd))
+
 ### [2021.0.11](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.10...v2021.0.11) (2021-10-17)
 
 

@@ -50,29 +50,6 @@
 		}
 	],
 	"settings": {},
-	"launch": {
-		"configurations": [
-			{
-				"name": "Launch Edge",
-				"request": "launch",
-				"type": "pwa-msedge",
-				"url": "http://localhost:8080",
-				"webRoot": "${workspaceFolder}"
-			},
-			{
-				"type": "pwa-msedge",
-				"request": "launch",
-				"name": "Open index.html",
-				"file": "/home/patrick/Projects/dnb-org/kollitsch.de/public/index.html"
-			},
-			{
-				"name": "Launch Microsoft Edge and open the Edge DevTools",
-				"request": "launch",
-				"type": "vscode-edge-devtools.debug",
-				"url": ""
-			}
-		]
-	},
 	"extensions": {
 		"recommendations": [
 			"EditorConfig.EditorConfig"

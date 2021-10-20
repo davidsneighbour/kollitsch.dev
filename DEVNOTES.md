@@ -1,14 +1,20 @@
-## Development Environment
+## Local Development Environment
 
 ### pre-commit
+
+If you want then install and setup `pre-commit` to check commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
 
 ```shell
 pip install pre-commit
 pre-commit install
-pre-commit run --all-files
-pre-commit autoupdate
-pre-commit autoupdate
-pre-commit gc
+```
+
+Other `pre-commit` commands are:
+
+```shell
+pre-commit run --all-files # check rules on all files
+pre-commit autoupdate # update repositories
+pre-commit gc # garbage collection
 ```
 
 ## NPM scripts

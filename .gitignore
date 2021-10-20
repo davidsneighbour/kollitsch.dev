@@ -3,6 +3,7 @@ package-lock.json
 bin/replacements
 hugo_stats.json
 resources
+assets/js/**/*.js
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass

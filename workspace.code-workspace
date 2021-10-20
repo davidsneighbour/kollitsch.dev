@@ -47,6 +47,9 @@
 		{
 			"name": ".github",
 			"path": "../.github"
+		},
+		{
+			"path": "../hugo-assets-unsplash"
 		}
 	],
 	"settings": {},

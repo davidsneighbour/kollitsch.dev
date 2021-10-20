@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.15](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.14...v2021.0.15) (2021-10-20)
+
+
+### Build System
+
+* **audit:** add audit script for template errors ([00da4df](https://github.com/davidsneighbour/kollitsch.de/commit/00da4df0edffd89be111e36d2cebd7d1e5c9ecb2))
+
+
+### Chore
+
+* **config:** add server script fallback ([5947788](https://github.com/davidsneighbour/kollitsch.de/commit/5947788d0fef4d5a01cfcaf64a83eae66e49f167))
+* **config:** ignore compiled javascript files in assets folder ([cb3bd72](https://github.com/davidsneighbour/kollitsch.de/commit/cb3bd72eec65cafd9960396547a0518025eeafd2))
+* **config:** update workspace configuration ([1aa9502](https://github.com/davidsneighbour/kollitsch.de/commit/1aa9502b54b71a9aa52c2c34fffaef8169d856fc))
+
 ### [2021.0.14](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.13...v2021.0.14) (2021-10-17)
 
 

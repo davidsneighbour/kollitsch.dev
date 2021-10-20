@@ -43,7 +43,8 @@
     "release:patch": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
     "serve:hugo": "bin/hugo-dev-server.sh",
     "serve:script": "tsc ./assets/js/**/**.ts --watch",
-    "server": "run-p serve:**"
+    "serve": "run-p serve:**",
+    "server": "npm run serve"
   },
   "private": true,
   "browserslist": [

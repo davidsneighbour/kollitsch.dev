@@ -55,13 +55,13 @@
               </li>
             </ul>
           </div>
-          
-          {{with .Params.images}}
+
+          {{ $articleimages := .Resources.ByType "image" }}
+          {{with $articleimages}}
+
           <div class="mb-5 {{ if $has_sidebar }}{{ else }}text-center{{ end }}">
             <div class="post-slider rounded">
-              {{ range .}}
-              {{ if (fileExists (add `assets/` .)) }}
-              {{ $image:= resources.Get . }}
+              {{ range $counter, $image := .}}
               {{ $imageXL:= $image.Fill "925x475" }}
               {{ $imageLG:= $image.Fill "775x400" }}
               {{ $imageMD:= $image.Fill "690x355" }}
@@ -74,18 +74,16 @@
                 <source srcset="{{$imageXL.Permalink}}">
                 <img loading="lazy" class="img-fluid" src="{{$imageXL.Permalink}}" alt="Image not Found">
               </picture>
-              {{ else }}
-              <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="Image not Found">
-              {{ end }}
               {{ end }}
             </div>
           </div>
+
           {{end}}
 
           <div class="content">
             {{.Content}}
           </div>
-          
+
           <div class="single-post-meta">
             <div class="row justify-content-center">
               <div class="col-md-6 text-center text-md-left">
@@ -100,7 +98,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="single-post-author">
             <div class="media d-block d-sm-flex text-center text-sm-left">
               {{ $author:= .Params.Author | urlize | lower}}

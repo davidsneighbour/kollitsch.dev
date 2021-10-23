@@ -31,7 +31,7 @@
     "build:critical": "./bin/build-critical-css.sh",
     "build:highlights": "hugo gen chromastyles --style=native > assets/css/utilities/syntax.css",
     "build:hugo": "hugo --gc --minify",
-    "build:script": "tsc ./assets/js/**/**.ts",
+    "build:script": "tsc ./assets/js/**.ts",
     "check-env": "node -e 'console.log(process.env)' | grep npm_config_",
     "clean": "run-p clean:hugo",
     "clean:all": "run-p clean:*",
@@ -42,7 +42,7 @@
     "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
     "release:patch": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
     "serve:hugo": "bin/hugo-dev-server.sh",
-    "serve:script": "tsc ./assets/js/**/**.ts --watch",
+    "serve:script": "tsc ./assets/js/**.ts --watch",
     "serve": "run-p serve:**",
     "server": "npm run serve"
   },

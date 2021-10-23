@@ -38,7 +38,7 @@ hugo server \
     --poll 1s \
     --cleanDestinationDir \
     --renderToDisk \
-    --buildDrafts --buildExpired --buildFuture \
+    --buildFuture \
     --watch \
     --enableGitInfo \
     --forceSyncStatic \
@@ -48,3 +48,5 @@ hugo server \
     --port "${PORT}" \
     --baseURL http://"${IP}"/ \
     --bind "${IP}"
+
+# TODO --buildDrafts --buildExpired on request

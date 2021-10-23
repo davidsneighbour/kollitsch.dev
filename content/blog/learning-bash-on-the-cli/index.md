@@ -2,6 +2,7 @@
 title: "Learning Bash on the Cli"
 date: 2021-10-18T19:02:19+07:00
 description: ""
+draft: true
 ---
 
 

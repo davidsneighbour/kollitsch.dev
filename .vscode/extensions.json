@@ -1,3 +1,25 @@
 {
-    "recommendations": []
-  }
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "be5invis.toml",
+    "bodil.prettier-toml",
+    "budparr.language-hugo-vscode",,
+    "bungcip.better-toml",
+    "casualjim.gotemplate",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "codespaces-contrib.codeswing",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "fivethree.vscode-hugo-snippets",
+    "ms-vscode.wordcount",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vsliveshare.vsliveshare-audio",
+    "ms-vsliveshare.vsliveshare-pack",
+    "remimarsal.prettier-now",
+    "timonwong.shellcheck",
+    "WallabyJs.quokka-vscode"
+  ]
+}

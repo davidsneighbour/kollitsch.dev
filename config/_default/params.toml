@@ -105,11 +105,6 @@ mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074" # replace this co
 title = "Subscribe for our monthly newsletter."
 input_placeholder = "Enter your email"
 
-# cookies
-[cookies]
-enable = false
-expire_days = 2
-
 # Social Icons
 [[social]]
 url = "https://www.facebook.com/"

@@ -55,31 +55,6 @@ link = "plugins/search/mark.js"
 [[plugins.js]]
 link = "plugins/search/search.js"
 
-# site variables
-[variables]
-primary_font = "Mulish:wght@500;600;700;800;900"
-primary_font_type = "sans-serif" # [serif/sans-serif]
-secondary_font = ""
-secondary_font_type = "" # [serif/sans-serif]
-icon_font = "Font Awesome 5 Free"
-
-h1 = "64px"
-h1_lg = "52px"
-h1_md = "42px"
-h2 = "38px"
-h2_md = "30px"
-h3 = "30px"
-h3_md = "24px"
-h4 = "24px"
-h5 = "18px"
-h6 = "16px"
-white = "#ffffff"
-black = "#000000"
-dark = "#152035"
-gray = "#747577"
-light = "#FAFAFA"
-color_primary = "#01AD9F"
-
 ######################## sidebar widgets #########################
 [widgets]
 sidebar = ["search", "categories", "tags", "social"]

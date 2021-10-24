@@ -3,18 +3,36 @@
 ################################################################################
 version: 2
 updates:
-    - package-ecosystem: npm
-      directory: /
-      schedule:
-        interval: monthly
-        day: friday
-        time: 18:00
-        timezone: Asia/Bangkok
-      assignees:
-        - davidsneighbour
-      reviewers:
-        - davidsneighbour
-      target-branch: main
-      open-pull-requests-limit: 999
-      pull-request-branch-name:
-        separator: /
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+      day: friday
+      time: 18:00
+      timezone: Asia/Bangkok
+    assignees:
+      - davidsneighbour
+    reviewers:
+      - davidsneighbour
+    target-branch: main
+    open-pull-requests-limit: 999
+    pull-request-branch-name:
+      separator: /
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: monthly
+      day: friday
+      time: 18:00
+      timezone: "Asia/Bangkok"
+    assignees:
+      - "davidsneighbour"
+    reviewers:
+      - "davidsneighbour"
+    target-branch: "main"
+    open-pull-requests-limit: 999
+    pull-request-branch-name:
+      separator: "/"
+    labels:
+      - "type:dependencies"

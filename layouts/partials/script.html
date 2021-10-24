@@ -1,28 +1,11 @@
-<!-- font family -->
-<script src="https://cdn.jsdelivr.net/gh/theprojectsomething/webfontloader@feature/google-fonts-v2/webfontloader.js"></script>
-{{$pf:= site.Params.variables.primary_font}}
-{{$sf:= site.Params.variables.secondary_font}}
-<script>
-  WebFont.load({
-    google: {
-      api: 'https://fonts.googleapis.com/css2',
-      families: ['{{$pf}}{{if not $sf}}&display=swap{{end}}'{{with $sf}},'{{.}}&display=swap'{{end}}],
-      version: 2
-    },
-    active: () => {
-      sessionStorage.fontsLoaded = true
-    }
-  });
-</script>
-
 <!-- JS Plugins + Main script -->
 {{ $scripts := slice }}
 {{ range site.Params.plugins.js}}
-{{ if findRE "^http" .link }}
-<script src="{{ .link | absURL }}" type="application/javascript" {{.attributes | safeHTMLAttr}}></script>
-{{ else }}
-{{ $scripts = $scripts | append (resources.Get .link) }}
-{{ end }}
+  {{ if findRE "^http" .link }}
+    <script src="{{ .link | absURL }}" type="application/javascript" {{.attributes | safeHTMLAttr}}></script>
+  {{ else }}
+    {{ $scripts = $scripts | append (resources.Get .link) }}
+  {{ end }}
 {{ end }}
 {{ $scripts := $scripts | append (resources.Get "js/script.js" | minify) }}
 {{ $scripts := $scripts | append (resources.Get "js/theme.js" | minify) }}

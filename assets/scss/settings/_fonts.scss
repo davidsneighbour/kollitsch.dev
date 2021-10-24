@@ -1,0 +1,100 @@
+$fontpath: '/assets/webfonts/mulish' !default;
+
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 100;
+font-display: swap;
+src: local('Mulish ExtraLight'), url('#{$fontpath}/Mulish-ExtraLight.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 100;
+font-display: swap;
+src: local('Mulish ExtraLight Italic'), url('#{$fontpath}/Mulish-ExtraLightItalic.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 200;
+font-display: swap;
+src: local('Mulish Light'), url('#{$fontpath}/Mulish-Light.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 200;
+font-display: swap;
+src: local('Mulish Light Italic'), url('#{$fontpath}/Mulish-LightItalic.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: local('Mulish Regular'), url('#{$fontpath}/Mulish-Regular.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 400;
+font-display: swap;
+src: local('Mulish Italic'), url('#{$fontpath}/Mulish-Italic.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 500;
+font-display: swap;
+src: local('Mulish SemiBold'), url('#{$fontpath}/Mulish-SemiBold.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 500;
+font-display: swap;
+src: local('Mulish SemiBold Italic'), url('#{$fontpath}/Mulish-SemiBoldItalic.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 600;
+font-display: swap;
+src: local('Mulish Bold'), url('#{$fontpath}/Mulish-Bold.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 600;
+font-display: swap;
+src: local('Mulish Bold Italic'), url('#{$fontpath}/Mulish-BoldItalic.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 800;
+font-display: swap;
+src: local('Mulish ExtraBold'), url('#{$fontpath}/Mulish-ExtraBold.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 800;
+font-display: swap;
+src: local('Mulish ExtraBold Italic'), url('#{$fontpath}/Mulish-ExtraBoldItalic.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 900;
+font-display: swap;
+src: local('Mulish Black'), url('#{$fontpath}/Mulish-Black.woff') format('woff');
+}
+@font-face {
+font-family: 'Mulish';
+font-style: italic;
+font-weight: 900;
+font-display: swap;
+src: local('Mulish Black Italic'), url('#{$fontpath}/Mulish-BlackItalic.woff') format('woff');
+}

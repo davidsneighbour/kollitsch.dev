@@ -23,6 +23,8 @@ $light: {{.light}};
 $color-primary: {{.color_primary}};
 {{ end }}
 
+@import "settings/fonts";
+
 // bootstrap
 @import "bootstrap";
 

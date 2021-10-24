@@ -145,6 +145,11 @@
           </div>
           {{ end }}
 
+
+          {{ with site.Params.giscus }}
+            {{ partial "content/giscus.html" . }}
+          {{ end }}
+
           <div class="single-post-similer">
             <div class="row mt-3">
               <div class="col-12">

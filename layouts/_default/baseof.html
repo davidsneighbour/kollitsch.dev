@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode | default "en-US" }}">
-
 <head>
   {{ partial "head.html" . }}
-  {{ partialCached "style.html" . }}
 </head>
-
 <body>
   {{ partialCached "preloader.html" . }}
   {{ partial "header.html" . }}
@@ -13,8 +10,6 @@
   {{ partial "page-header.html" . }}
   {{end}}
   {{ block "main" . }}{{ end }}
-  {{ partialCached "footer.html" . }}
-  {{ partialCached "script.html" . }}
+  {{ partialCached "footer.html" . }}--
 </body>
-
 </html>

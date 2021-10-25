@@ -20,8 +20,6 @@ logo = "/assets/logo/logo.svg"
 logo_height = "35px"
 favicon = "/assets/favicon/favicon.svg"
 
-# Meta data
-author = "Themefisher"
 # contact form action
 contact_form_action = "#" # contact form works with https://formspree.io
 # search
@@ -33,7 +31,7 @@ mainSection = ["blog"]
 # Post layout
 post_layout = "grid" # Post-Layout value ("grid" or "list")
 # Blog-details page sidebar
-sidebar = "right" # Sidebar value ("left", "right" or false)
+sidebar = "false" # Sidebar value ("left", "right" or false)
 
 ######################## Plugins ####################
 # JS Plugins

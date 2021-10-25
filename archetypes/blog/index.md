@@ -14,8 +14,9 @@ lastmod: {{ .Date }}
 
 # add multiple resources to create a slider gallery
 resources:
-  - name = "Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)"
-    src = "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
+  - title: "Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)"
+    name: "image name if other than src"
+    src: "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
 
 # remove the author section to use the sites author setup
 author: 

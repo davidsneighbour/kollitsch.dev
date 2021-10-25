@@ -34,7 +34,7 @@
           </a></li>
           {{end}}
         </ul>
-        <p class="mb-0 font-weight-500 copyright-text content">{{ i18n "copyright-text" }} <a href="https://gethugothemes.com/">Gethugothemes</a></p>
+        <p class="mb-0 font-weight-500 copyright-text content">{{ i18n "copyright-text" | markdownify | safeHTML }}</p>
       </div>
     </div>
   </div>

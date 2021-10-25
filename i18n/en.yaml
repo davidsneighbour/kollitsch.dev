@@ -33,7 +33,7 @@
 
 - id: read_more
   translation: Read More
-  
+
 - id: read_article
   translation: Read Article
 
@@ -56,4 +56,4 @@
   translation: Social
 
 - id: copyright-text
-  translation: Designed & Developed By
+  translation: "&copy; 2021 - Webwork done by [David's Neighbour](https://davids-neighbour.com)"

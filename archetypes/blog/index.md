@@ -2,10 +2,11 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: ""
-images:
-  - "images/post/010.jpg"
-  - "images/post/011.jpg"
-  - "images/post/012.jpg"
+# add multiple resources to create a slider gallery
+resources:
+  - name = "Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)"
+    src = "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
+# remove the author section to use the sites author setup
 author: 
   name: "Patrick Kollitsch"
   homepage: "https://kollitsch.de/"

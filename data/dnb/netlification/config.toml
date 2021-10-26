@@ -5,13 +5,15 @@ defaultSrc = [
   "'self'"
 ]
 scriptSrc = [
-  "'self'"
+  "'self'",
+  "https://www.google-analytics.com"
 ]
 styleSrc = [
   "'self'"
 ]
 imgSrc = [
-  "'self'"
+  "'self'",
+  "https://www.gravatar.com"
 ]
 connectSrc = [
   "'self'"
@@ -39,4 +41,4 @@ netlify = "https://kollitsch.netlify.app"
 [[redirects]]
 from = "https://main--kollitsch.netlify.app/"
 to = "https://kollitsch.de"
-status = 200
+status = 301

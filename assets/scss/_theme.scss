@@ -5,11 +5,6 @@ AUTHOR: Themefisher
 AUTHOR WEBSITE: https://themefisher.com
 -------------------------------------------------------------------*/
 
-@mixin mobile-xs {
-  @media (max-width: 400px) {
-    @content;
-  }
-}
 @mixin mobile {
   @media (max-width: 575px) {
     @content;
@@ -34,30 +29,6 @@ AUTHOR WEBSITE: https://themefisher.com
   @media (max-width: 1466px) {
     @content;
   }
-}
-
-@mixin size($size) {
-  width: $size;
-  height: $size;
-}
-
-a:focus,
-button:focus {
-  outline: 0;
-}
-a {
-  color: $gray-900;
-  transition: all 0.3s;
-  &:hover {
-    text-decoration: none;
-    color: $color-primary;
-  }
-}
-ul,
-li {
-  padding: 0;
-  margin: 0;
-  list-style-position: inside;
 }
 
 // button style
@@ -97,8 +68,8 @@ li {
   }
 
   &.btn-primary {
-    background-color: $color-primary !important;
-    border: 2px solid $color-primary;
+    background-color: $primary !important;
+    border: 2px solid $primary;
     &:hover,
     &:active,
     &:focus {
@@ -107,17 +78,17 @@ li {
   }
 
   &.btn-outline-primary {
-    color: $color-primary;
-    border: 1px solid $color-primary;
+    color: $primary;
+    border: 1px solid $primary;
     background-color: transparent !important;
     &::after {
-      background-color: $color-primary !important;
+      background-color: $primary !important;
     }
     &:hover,
     &:active,
     &:focus {
       color: $white;
-      background-color: $color-primary !important;
+      background-color: $primary !important;
     }
   }
 }
@@ -126,10 +97,10 @@ li {
 
 .mark,
 mark {
-  border-bottom: 1px dashed rgba($color-primary, 0.4);
+  border-bottom: 1px dashed rgba($primary, 0.4);
   background: transparent;
   padding: 0;
-  color: $color-primary;
+  color: $primary;
 }
 
 /*------------------------------------------------------------------
@@ -210,7 +181,7 @@ mark {
   width: 50px;
   line-height: 50px;
   border-radius: 50%;
-  background: rgba($color-primary, 0.5);
+  background: rgba($primary, 0.5);
   color: $white;
   border: 0;
   transition: 0.3s;
@@ -221,7 +192,7 @@ mark {
     outline: 0;
   }
   &:hover {
-    background: $color-primary;
+    background: $primary;
   }
 }
 .prevArrow {
@@ -240,7 +211,7 @@ mark {
     display: inline-block;
 
     &:hover {
-      color: $color-primary;
+      color: $primary;
     }
   }
   &.icon-box li a {
@@ -272,7 +243,7 @@ mark {
 
 a.post-title:hover,
 .post-title:hover a {
-  color: $color-primary;
+  color: $primary;
 }
 
 .card-meta {
@@ -291,7 +262,7 @@ a.post-title:hover,
     display: inline-block;
 
     &:hover {
-      color: $color-primary;
+      color: $primary;
     }
 
     img {
@@ -318,7 +289,7 @@ a.post-title:hover,
       }
 
       &:hover {
-        color: $color-primary;
+        color: $primary;
       }
     }
   }
@@ -327,7 +298,7 @@ a.post-title:hover,
 // taxonomies-list
 .taxonomies-list {
   li a:hover {
-    background-color: $color-primary !important;
+    background-color: $primary !important;
     color: $white;
   }
 }
@@ -400,7 +371,7 @@ a.post-title:hover,
 
   blockquote {
     padding: 20px 30px;
-    border-left: 6px solid $color-primary;
+    border-left: 6px solid $primary;
     color: $dark;
     font-weight: 700;
     font-size: 22px;
@@ -440,10 +411,10 @@ a.post-title:hover,
 
   a {
     color: $gray-900;
-    border-bottom: 1px dotted $color-primary;
+    border-bottom: 1px dotted $primary;
 
     &:hover {
-      color: $color-primary;
+      color: $primary;
     }
   }
   a.collapse-head {
@@ -471,7 +442,7 @@ a.post-title:hover,
         height: 8px;
         width: 8px;
         border-radius: 50%;
-        background: $color-primary;
+        background: $primary;
         left: 3px;
         top: 8px;
       }
@@ -615,7 +586,7 @@ a.post-title:hover,
       }
 
       &.active {
-        background: $color-primary;
+        background: $primary;
 
         .nav-link {
           color: $white;
@@ -648,7 +619,7 @@ a.post-title:hover,
     &:hover {
       box-shadow: none;
       color: $white;
-      background-color: $color-primary;
+      background-color: $primary;
     }
 
     &.arrow {
@@ -656,7 +627,7 @@ a.post-title:hover,
       width: auto;
 
       &:hover {
-        color: $color-primary;
+        color: $primary;
         background-color: $white;
       }
     }
@@ -666,7 +637,7 @@ a.post-title:hover,
     .page-link {
       box-shadow: none;
       color: $white;
-      background-color: $color-primary;
+      background-color: $primary;
     }
   }
 }
@@ -675,7 +646,7 @@ a.post-title:hover,
 .breadcrumb-menu {
   display: inline-block;
   padding-top: 18px;
-  border-top: 1px solid $color-primary;
+  border-top: 1px solid $primary;
 }
 
 // form-control
@@ -693,11 +664,11 @@ a.post-title:hover,
   &:focus {
     box-shadow: none;
     color: $dark;
-    border-color: $color-primary;
+    border-color: $primary;
 
     ~ .input-group-append {
       .input-group-text {
-        border-color: $color-primary;
+        border-color: $primary;
       }
     }
   }
@@ -720,7 +691,7 @@ textarea {
 
 button.input-group-text {
   &:hover {
-    color: $color-primary;
+    color: $primary;
   }
 }
 
@@ -745,8 +716,8 @@ button.input-group-text {
 
   .custom-control-input:checked ~ .custom-control-label::before,
   .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-    background-color: $color-primary;
-    border-color: $color-primary;
+    background-color: $primary;
+    border-color: $primary;
   }
 
   .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
@@ -754,8 +725,8 @@ button.input-group-text {
   }
 
   .custom-control-input:disabled:checked ~ .custom-control-label::before {
-    background-color: rgba($color-primary, 0.5);
-    border-color: rgba($color-primary, 0.2);
+    background-color: rgba($primary, 0.5);
+    border-color: rgba($primary, 0.2);
   }
 }
 
@@ -788,15 +759,15 @@ button.input-group-text {
 }
 
 .text-primary {
-  color: $color-primary !important;
+  color: $primary !important;
 }
 
 a.text-primary:hover {
-  color: darken($color-primary, 10) !important;
+  color: darken($primary, 10) !important;
 }
 
 .bg-primary {
-  background-color: $color-primary !important;
+  background-color: $primary !important;
 }
 
 .text-dark {
@@ -804,7 +775,7 @@ a.text-primary:hover {
 }
 
 a.text-dark:hover {
-  color: $color-primary !important;
+  color: $primary !important;
 }
 
 .bg-light {
@@ -816,7 +787,7 @@ a.text-dark:hover {
 }
 
 .text-gray:hover {
-  color: $color-primary;
+  color: $primary;
 }
 
 // footer
@@ -826,8 +797,8 @@ footer {
     color: rgba($white, 0.7);
     &:hover {
       color: $white;
-      background-color: $color-primary;
-      border-color: $color-primary;
+      background-color: $primary;
+      border-color: $primary;
     }
   }
 }
@@ -835,7 +806,7 @@ footer {
   li a {
     color: rgba($white, 0.7);
     &:hover {
-      color: $color-primary;
+      color: $primary;
       text-decoration: underline;
     }
   }
@@ -869,7 +840,7 @@ header {
   }
 
   &.header-sticky-top {
-    box-shadow: 0 0 50px -30px rgba($color-primary, 0.5);
+    box-shadow: 0 0 50px -30px rgba($primary, 0.5);
     padding: 20px 0;
   }
 
@@ -883,7 +854,7 @@ header {
 
   .nav-item {
     &.active .nav-link {
-      color: $color-primary !important;
+      color: $primary !important;
     }
 
     &.dropdown .nav-link {
@@ -926,7 +897,7 @@ header {
       padding: 15px !important;
 
       &:hover {
-        color: $color-primary !important;
+        color: $primary !important;
       }
     }
   }
@@ -970,13 +941,13 @@ header {
 
   .dropdown-item.active,
   .dropdown-item:active {
-    color: $color-primary;
+    color: $primary;
     background-color: transparent;
   }
 
   .dropdown-item:focus,
   .dropdown-item:hover {
-    color: $color-primary;
+    color: $primary;
     background-color: transparent;
   }
 
@@ -992,7 +963,7 @@ header {
     }
 
     &:hover {
-      color: $color-primary;
+      color: $primary;
     }
   }
 
@@ -1016,7 +987,7 @@ header {
     .dropdown-menu {
       padding: 5px;
       text-align: center;
-      background: rgba($color-primary, 0.05);
+      background: rgba($primary, 0.05);
     }
 
     .nav-item .nav-link {
@@ -1033,7 +1004,7 @@ header {
   padding: 5px;
 
   &:hover {
-    color: $color-primary;
+    color: $primary;
   }
 }
 
@@ -1070,7 +1041,7 @@ header {
 
   &.is-visible {
     input {
-      border-bottom-color: $color-primary;
+      border-bottom-color: $primary;
     }
   }
 
@@ -1109,12 +1080,12 @@ header {
 
   .form-control {
     &:focus {
-      border-color: $color-primary;
+      border-color: $primary;
 
       ~ .input-group-append {
         .input-group-text {
-          border-color: $color-primary;
-          background-color: $color-primary;
+          border-color: $primary;
+          background-color: $primary;
           color: $white;
         }
       }
@@ -1171,7 +1142,7 @@ header {
 
     &:hover {
       background-color: transparent;
-      color: $color-primary;
+      color: $primary;
     }
   }
 }

@@ -58,33 +58,8 @@
               {{end}}
               {{end}}
 
-              <!-- Language List -->
-              {{ if .IsTranslated }}
-              <li class="nav-item">
-                <span class="nav-link">
-                  <select class="border-0" id="select-language" style="cursor:pointer;background:transparent" onchange="location = this.value;">
-                    {{ $siteLanguages := site.Languages}}
-                    {{ $pageLang := .Page.Lang}}
-                    {{ range .Page.AllTranslations }}
-                    {{ $translation := .}}
-                    {{ range $siteLanguages }}
-                    {{ if eq $translation.Lang .Lang }}
-                    {{ $selected := false }}
-                    {{ if eq $pageLang .Lang}}
-                    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
-                    </option>
-                    {{ else }}
-                    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
-                    {{ end }}
-                    {{ end }}
-                    {{ end }}
-                    {{ end }}
-                  </select>
-                </span>
-              </li>
-              {{ end }}
             </ul>
-            
+
             {{if site.Params.search}}
             <div class="navbar-right d-none d-lg-inline-block">
               <ul class="social-links list-unstyled list-inline">

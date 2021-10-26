@@ -126,13 +126,6 @@ address = [
   "Thailand",
 ]
 
-[dnb.header]
-
-[dnb.header.logo]
-src = "/ci/logo-black-singleline.svg"
-title = ""
-classes = ""
-
 [social.facebook]
 profileid = "517050641" # patrick.kollitsch
 pageid = "6967849771" # samuisamui
@@ -144,7 +137,6 @@ siteid = "samui2"
 
 [dnb.exchangerates]
 api_Key = "9f34bc441a9f0a86101875ff710500e7"
-
 
 [giscus]
 #src="https://dnb-org-comm.vercel.app/client.js"

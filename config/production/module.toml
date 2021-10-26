@@ -2,11 +2,20 @@
 extended = false
 min = "0.75.0"
 
+# [[imports]]
+# path = "github.com/dnb-org/hugo-assets-unsplash"
+
 [[imports]]
 path = "github.com/dnb-org/components/auditor"
 
 [[imports]]
 path = "github.com/dnb-org/components/functions"
+
+[[imports]]
+path = "github.com/dnb-org/components/giscus"
+
+[[imports]]
+path = "github.com/dnb-org/components/netlification"
 
 [[imports]]
 path = "github.com/dnb-org/components/opensearch"

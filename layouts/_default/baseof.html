@@ -7,7 +7,7 @@
   {{ partialCached "content/preloader.html" . }}
   {{ partial "header.html" . }}
   {{if and (not .IsHome) (ne .Section "blog") (ne .Section "homepage") (ne .Permalink (`about/` | absLangURL)) (ne .Permalink (`search/` | absLangURL)) }}
-  {{ partial "content/page-header.html" . }}
+    {{ partial "content/page-header.html" . }}
   {{end}}
   {{ block "main" . }}{{ end }}
   {{ partialCached "footer.html" . }}--

@@ -7,7 +7,7 @@
 {{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
 {{ $widget:= site.Params.widgets.sidebar }}
 
-<section class="section-sm">
+<section>
   <div class="container">
     <div class="row justify-content-center">
       <!-- left sidebar -->
@@ -108,7 +108,7 @@
 
 {{ else }}
 
-<section class="section-sm">
+<section>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10">

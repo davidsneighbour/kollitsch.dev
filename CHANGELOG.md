@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.23](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.22...v2021.0.23) (2021-10-26)
+
+
+### Chore
+
+* **config:** fix production module setup ([e5deb0c](https://github.com/davidsneighbour/kollitsch.de/commit/e5deb0c065bf0981bbd00e21bb69619824300f73))
+
 ### [2021.0.22](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.21...v2021.0.22) (2021-10-26)
 
 

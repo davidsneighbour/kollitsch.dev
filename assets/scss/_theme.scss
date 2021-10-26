@@ -103,19 +103,6 @@ mark {
   color: $primary;
 }
 
-/*------------------------------------------------------------------
- # preloader
--------------------------------------------------------------------*/
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: $white;
-  z-index: 9999;
-  height: 100%;
-  width: 100%;
-}
-
 .section-title {
   h1 {
     text-transform: capitalize;

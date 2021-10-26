@@ -58,11 +58,6 @@ link = "plugins/search/search.js"
 sidebar = ["search", "categories", "tags", "social"]
 # available widget : search, categories, tags, social
 
-# Preloader
-[preloader]
-enable = false
-preloader = "" # use jpg, png, svg or gif format.
-
 # Instagram feed
 [instafeed]
 enable = false

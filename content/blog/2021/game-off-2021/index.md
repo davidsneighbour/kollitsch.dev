@@ -1,5 +1,5 @@
 ---
-title: "Game Off 2021"
+title: "Game Off 2021 Part I"
 date: 2021-10-23T16:35:44+07:00
 description: ""
 resources:
@@ -7,14 +7,13 @@ resources:
   src = 'hero.png'
 tags: ["game-off", "javascript", "projects", "planning"]
 categories: ["programming", "projects"]
-draft: true
 ---
 
 [Game Off 2021](https://itch.io/jam/game-off-2021) is this years iteration of a regular game development contest hosted by [itch.io](https://itch.io).
 
-I decided a while back to develop some form of program or game just because of it. This is the perfect opportunity to force myself to do so and I'll program a little game throughout the month of November. If it fits the Game Off rules I might enter it into the contest. I don't expect to win or even be in the upper ranks, there are plenty of dedicated game developers out there that deserve their work being recognised.
+I decided a while back to develop some form of program or game just because I can. This is the perfect opportunity to force myself to do so and I'll program a little game throughout the month of November. If it fits the Game Off rules I might enter it into the contest. I don't expect to win or even be in the upper ranks, there are plenty of dedicated game developers out there that deserve their work being recognised.
 
-I'll report each Sunday if I got anywhere and what the progress of the project is and go into depth about that. Feel free to follow :)
+I'll report each Sunday if I got anywhere and what the progress of the project is and go into depth about that. [Feel free to follow](/tags/game-off/) :)
 
 My current state is an empty repository (this is where everything starts, isn't it?) and a faint idea.
 
@@ -30,6 +29,4 @@ The idea is the following: A simple click-click puzzle. Tiles of a graphic (worl
 
 The technology stack will be HTML5 with JavaScript as a browser game, for now. I need to research if there is a viable way to transform a browser game onto other platforms. 
 
-That's all for now.
-
-PS: By the way, I often tried starting a new blog and always lost track of finishing it up or was to perfectionist to actually do so. Now I "just" published it and let's see where it leads. Some parts of the website might have issues, that will be fixed in the coming weeks.
+That's all for now. Let's wait and see what the requirements of the contest are. 

@@ -62,15 +62,6 @@
             </div>
           </div>
 
-          <!-- comments -->
-          {{ if site.DisqusShortname }}
-          <div class="pt-4"></div>
-          <div class="mt-5 border-default border p-4 bg-white rounded">
-            {{ template "_internal/disqus.html" . }}
-          </div>
-          {{ end }}
-
-
           {{ with site.Params.giscus }}
             {{ partial "content/giscus.html" . }}
           {{ end }}

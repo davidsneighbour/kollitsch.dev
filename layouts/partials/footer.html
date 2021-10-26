@@ -10,10 +10,10 @@
             <div class="input-group">
               <input form="subscription" type="text" class="form-control" placeholder="{{ .input_placeholder }}" aria-label="Subscription" required autocomplete="new-email">
               <button type="submit" name="subscription" class="btn btn-outline-primary" aria-label="Subscription Button">
-                <i class="icon fas fa-paper-plane" style="font-size:15px"></i>
+                <i class="icon fas fa-paper-plane"></i>
               </button>
             </div>
-            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <div class="d-none" aria-hidden="true">
               <input type="text" name="{{ .mailchimp_form_name }}" tabindex="-1">
             </div>
           </form>

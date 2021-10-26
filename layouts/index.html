@@ -11,16 +11,16 @@
           {{ range $index, $items := $paginator.Pages }}
             {{ if (eq $index 0) }}
             <div class="col-lg-12">
-              {{ .Render "post-fluid" }}
+              {{ partialCached "content/post-fluid" . . }}
             </div>
             {{ else }}
               {{ if eq $layout "grid" }}
               <div class="col-md-6">
-                {{ .Render "post" }}
+                {{ partialCached "content/post" . . }}
               </div>
               {{ else if eq $layout "list" }}
               <div class="col-lg-12">
-              {{ .Render "post-list" }}
+                {{ partialCached "content/post-list" . . }}
               </div>
               {{ end }}
             {{ end }}

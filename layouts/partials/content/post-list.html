@@ -2,27 +2,7 @@
   <div class="row no-gutters align-items-center">
     <div class="col-lg-6">
       <div class="pe-0 pe-lg-5">
-        {{with .Params.images}}
-        <div class="post-slider slider-sm rounded mb-4 mb-lg-0">
-          {{ range .}}
-          {{ if (fileExists (add `assets/` .)) }}
-          {{ $image:= resources.Get . }}
-          {{ $imageLG:= $image.Fill "440x300" }}
-          {{ $imageMD:= $image.Fill "690x355" }}
-          {{ $imageSM:= $image.Fill "545x295" }}
-          <picture>
-            <source srcset="{{ $imageSM.Permalink }}" media="(max-width: 767px)">
-            <source srcset="{{ $imageMD.Permalink }}" media="(max-width: 991px)">
-            <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 1200px)">
-            <source srcset="{{$imageLG.Permalink}}">
-            <img loading="lazy" class="img-fluid" src="{{$imageLG.Permalink}}" alt="post-thumb">
-          </picture>
-          {{ else }}
-          <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="post-thumb">
-          {{ end }}
-          {{ end }}
-        </div>
-        {{end}}
+        {{- partialCached "content/article-images.html" . . -}}
       </div>
     </div>
 

@@ -1,0 +1,26 @@
+<article class="card post-card">
+  {{- partialCached "content/article-images.html" . . -}}
+  <div class="card-body">
+    <ul class="card-meta list-inline mb-2">
+      <li class="list-inline-item mb-2">
+        {{ partial "content/author.html" . }}
+      </li>
+      <li class="list-inline-item mb-2">
+        <span>{{.PublishDate.Format "02 Jan, 2006"}}</span>
+      </li>
+      <li class="list-inline-item mb-2">
+        <ul class="card-meta-tag list-inline">
+          {{range .Params.tags}}
+          <li class="list-inline-item"><a href="{{site.BaseURL}}tags/{{.| urlize}}">{{.}}</a></li>
+          {{end}}
+        </ul>
+      </li>
+    </ul>
+    <h3 class="mb-3">
+      <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
+    </h3>
+    <p>{{ .Plain | truncate 150 }}</p>
+
+    <a href="{{.Permalink}}" aria-label="Read Article">{{ i18n "read_article" }} <i class="fas fa-angle-right"></i></a>
+  </div>
+</article>

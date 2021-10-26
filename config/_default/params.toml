@@ -40,9 +40,6 @@ link = "plugins/jquery/jquery.min.js"
 [[plugins.js]]
 link = "plugins/bootstrap/bootstrap.min.js"
 [[plugins.js]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
-attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
-[[plugins.js]]
 link = "plugins/slick/slick.min.js"
 [[plugins.js]]
 link = "plugins/instagram-feed/instagram-feed.js"
@@ -76,19 +73,19 @@ input_placeholder = "Enter your email"
 # Social Icons
 [[social]]
 url = "https://www.facebook.com/"
-icon = "fab fa-facebook-f" # https://fontawesome.com/
+icon = "facebook"
 
 [[social]]
 url = "https://www.twitter.com/"
-icon = "fab fa-twitter" # https://fontawesome.com/
+icon = "twitter"
 
 [[social]]
 url = "https://www.instagram.com/"
-icon = "fab fa-instagram" # https://fontawesome.com/
+icon = "instagram"
 
 [[social]]
 url = "https://www.linkedin.com/"
-icon = "fab fa-linkedin-in" # https://fontawesome.com/
+icon = "linkedin"
 
 [algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]

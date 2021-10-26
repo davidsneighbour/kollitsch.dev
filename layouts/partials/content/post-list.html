@@ -28,7 +28,10 @@
         </h3>
         <p>{{ .Plain | truncate 100 }}</p>
 
-        <a href="{{.Permalink}}" aria-label="Read Article">{{ i18n "read_article" }} <i class="fas fa-angle-right"></i></a>
+        <a href="{{.Permalink}}" aria-label="Read Article">
+          {{ i18n "read_article" }}
+          {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+        </a>
       </div>
     </div>
   </div>

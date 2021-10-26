@@ -47,7 +47,7 @@
                   <!-- Previous page. -->
                   {{ if $paginator.HasPrev }}
                   <li class="page-item"><a class="page-link rounded" href="{{ $paginator.Prev.URL }}" aria-label="Pagination Arrow">
-                    <i class="fas fa-angle-left"></i>
+                    {{- partialCached "icons/caret-left-fill.html" "caret-left-fill" "caret-left-fill" -}}
                   </a></li>
                   {{ end }}
                   <!-- Page numbers. -->
@@ -91,7 +91,7 @@
                   <!-- Next page. -->
                   {{ if $paginator.HasNext }}
                   <li class="page-item"><a class="page-link rounded" href="{{ $paginator.Next.URL }}" aria-label="Pagination Arrow">
-                    <i class="fas fa-angle-right"></i>
+                    {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
                   </a></li>
                   {{ end }}
                 </ul>

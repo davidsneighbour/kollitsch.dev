@@ -2,7 +2,8 @@
 
 <div class="border border-default collapse-wrapper">
   <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#{{ .Get 0 | urlize }}" role="button">
-    {{ .Get 0 | markdownify }} <i class="fas fa-plus ms-auto pt-1 mt-1"></i>
+    {{ .Get 0 | markdownify }}
+    {{- partialCached "icons/plus-square-dotted.html" "plus-square-dotted" "plus-square-dotted" -}}
   </a>
   <div class="collapse" id="{{ .Get 0 | urlize }}"><div class="p-2">{{ .Inner | markdownify }}</div></div>
 </div>

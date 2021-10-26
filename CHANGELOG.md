@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.22](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.21...v2021.0.22) (2021-10-26)
+
+
+### Build System
+
+* **fix:** forced golang module update on build ([15c9ecc](https://github.com/davidsneighbour/kollitsch.de/commit/15c9eccc90064bdd5807dbbf8d8b7602aba64f35))
+* remove live branch from release script ([2cb31e8](https://github.com/davidsneighbour/kollitsch.de/commit/2cb31e828567d56c03e467fa2cd94ed4c22be11b))
+
 ### [2021.0.21](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.20...v2021.0.21) (2021-10-26)
 
 

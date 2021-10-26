@@ -3,8 +3,8 @@ title: "Game Off 2021 Part I"
 date: 2021-10-23T16:35:44+07:00
 description: ""
 resources:
-- name = 'Game Off 2021'
-  src = 'hero.png'
+- title: 'Game Off 2021'
+  src: 'hero.png'
 tags: ["game-off", "javascript", "projects", "planning"]
 categories: ["programming", "projects"]
 ---

@@ -10,7 +10,7 @@
             <div class="input-group">
               <input form="subscription" type="text" class="form-control" placeholder="{{ .input_placeholder }}" aria-label="Subscription" required autocomplete="new-email">
               <button type="submit" name="subscription" class="btn btn-outline-primary" aria-label="Subscription Button">
-                <i class="icon fas fa-paper-plane"></i>
+                {{- partialCached "icons/newspaper.html" "newspaper" "newspaper" -}}
               </button>
             </div>
             <div class="d-none" aria-hidden="true">

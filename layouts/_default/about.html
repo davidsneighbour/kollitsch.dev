@@ -17,16 +17,17 @@
         {{ end }}
         {{ end }}
 
-        {{ if .Params.social.enable }}
         {{ with .Params.social }}
         <ul class="social-links list-unstyled list-inline mt-4">
           {{ range .social_links }}
-          <li class="list-inline-item"><a href="{{.link | safeURL}}">
-              <i class="{{.icon}}"></i>
-            </a></li>
+            <li class="list-inline-item">
+              <a href="{{.link | safeURL}}">
+                {{ $path := printf "icons/%s.html" .icon }}
+                {{ partialCached $path .icon .icon }}
+              </a>
+            </li>
           {{end}}
         </ul>
-        {{ end }}
         {{ end }}
 
         <div class="content mt-3">

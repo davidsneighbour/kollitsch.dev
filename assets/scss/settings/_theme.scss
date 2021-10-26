@@ -1,7 +1,23 @@
 $icon-font: "Font Awesome 5 Free";
 
-$color-primary: #DC143C;
+$primary:       #DC143C;;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
 
 $headings-line-height: 1.3;
 $line-height-base: 1.65;
 $font-family-sans-serif: Mulish, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+$link-color:                              $gray-800;
+$link-decoration:                         none;
+$link-hover-color:                        $primary;
+$link-hover-decoration:                   underline;

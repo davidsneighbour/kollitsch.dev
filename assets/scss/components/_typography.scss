@@ -1,5 +1,9 @@
 ::selection {
   color: $white;
-  background-color: darken($color-primary, 5);
+  background-color: darken($primary, 5);
   text-shadow: none;
+}
+
+a {
+  transition: all 0.3s;
 }

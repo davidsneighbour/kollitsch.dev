@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.18](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.17...v2021.0.18) (2021-10-26)
+
+
+### Build System
+
+* **fix:** update golang module configuration ([376856b](https://github.com/davidsneighbour/kollitsch.de/commit/376856ba6730521d1aa7f14fd5fee2de853384be))
+
 ### [2021.0.17](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.15...v2021.0.17) (2021-10-26)
 
 

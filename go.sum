@@ -5,8 +5,6 @@ github.com/dnb-org/components/functions v1.4.8 h1:4njnLI5hy4ECzksn3CGnWHI0ppk+SD
 github.com/dnb-org/components/functions v1.4.8/go.mod h1:+GMAcQaK260wZ6ioNPbQY/ruWdBxFxj9PPw7o5p7eu0=
 github.com/dnb-org/components/giscus v1.4.8 h1:NO57M4GeT7rit0qK0ZbefJTcr8cwOc81rhy+11gs6hg=
 github.com/dnb-org/components/giscus v1.4.8/go.mod h1:XivOAFWWo2KadqOMg8y+qTMsiPfCzD7mP47ifvdg29s=
-github.com/dnb-org/components/netlification v1.4.8 h1:iS0Feu9YOZgpBIg3707AEXA0Xzjal/d5VG7gy5mNR74=
-github.com/dnb-org/components/netlification v1.4.8/go.mod h1:jPjSlmP7+RTHm8z5HF7ZVA5cId58rEefXMyaUlxImbI=
 github.com/dnb-org/components/opensearch v1.4.8 h1:M3J6j1I/BdxUFJINZ4HUT+7QtCkUl3ofAY1mMgWmkxI=
 github.com/dnb-org/components/opensearch v1.4.8/go.mod h1:0+z6OQrxXBEhddwlp7YFe9T+T/Nrch9nBDeNUWsGctk=
 github.com/dnb-org/components/pwa v1.4.8 h1:fKMucXDTJGFh8FYcQqiH/1TZ9sK/iAQ2/mJeWVtFq28=

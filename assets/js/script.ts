@@ -3,9 +3,6 @@ import * as jQuery from "jquery";
 window.addEventListener('load', function () {
     'use strict';
 
-    // prelaoder
-    jQuery('.preloader').delay(100).fadeOut(10);
-
     // header sticky
     jQuery(window).scroll(function () {
       if (jQuery(window).scrollTop() >= 50) {

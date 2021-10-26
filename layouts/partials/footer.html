@@ -4,20 +4,7 @@
       <div class="col-lg-5">
         {{ with site.Params.subscription }}
         {{ if .enable }}
-        <div class="newsletter-block font-primary">
-          <h3 class="h4 mb-4 font-weight-700 text-center">{{ .title | markdownify }}</h3>
-          <form class="px-0 px-sm-3 px-md-5" action="{{ .mailchimp_form_action }}" method="post" name="mailchimp_form_name" target="_blank">
-            <div class="input-group">
-              <input form="subscription" type="text" class="form-control" placeholder="{{ .input_placeholder }}" aria-label="Subscription" required autocomplete="new-email">
-              <button type="submit" name="subscription" class="btn btn-outline-primary" aria-label="Subscription Button">
-                {{- partialCached "icons/newspaper.html" "newspaper" "newspaper" -}}
-              </button>
-            </div>
-            <div class="d-none" aria-hidden="true">
-              <input type="text" name="{{ .mailchimp_form_name }}" tabindex="-1">
-            </div>
-          </form>
-        </div>
+          {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
         {{ end }}
         {{ end }}
       </div>

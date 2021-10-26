@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.25](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.24...v2021.0.25) (2021-10-26)
+
+
+### Features
+
+* remove disqus snippet ([5e8326a](https://github.com/davidsneighbour/kollitsch.de/commit/5e8326aa2036c8949dfaa870afef3a711d93bea8))
+
+
+### Theme
+
+* **feature:** remove preloader ([a1fc7d5](https://github.com/davidsneighbour/kollitsch.de/commit/a1fc7d562649b8a460d514c946d99172ff599c7d))
+* **fix:** removing preloader script ([e12b129](https://github.com/davidsneighbour/kollitsch.de/commit/e12b129b56cf6b9ea5c6bdcc50541c2ee83398a8))
+* **layouts:** remove unused section class ([39cc9f9](https://github.com/davidsneighbour/kollitsch.de/commit/39cc9f9431e4dcf9030152da164ee82944746933))
+* **styles:** layout fixes ([9ec27a8](https://github.com/davidsneighbour/kollitsch.de/commit/9ec27a82ea32e30c0e42a9fc96dff1bdf3033055))
+
+
+### Build System
+
+* add version file to release script setup ([a8e47ff](https://github.com/davidsneighbour/kollitsch.de/commit/a8e47ff934f5b1e7d6318e940f57ad80f6f1ed3e))
+
 ### [2021.0.24](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.23...v2021.0.24) (2021-10-26)
 
 

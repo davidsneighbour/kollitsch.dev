@@ -2,6 +2,112 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.17](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.15...v2021.0.17) (2021-10-26)
+
+
+### Features
+
+* adding giscus commenting system to single layout ([f906ef3](https://github.com/davidsneighbour/kollitsch.de/commit/f906ef3006eab365b10d959de64a59f7fa335e3d))
+
+
+### Bug Fixes
+
+* remove inline JS and put into pipeline, remove cookie script inline ([b54eac1](https://github.com/davidsneighbour/kollitsch.de/commit/b54eac1bc28c2ee13c03d1089c8f6662bbde10c0)), closes [#5](https://github.com/davidsneighbour/kollitsch.de/issues/5) [#6](https://github.com/davidsneighbour/kollitsch.de/issues/6)
+
+
+### Build System
+
+* remove draft and expired builds from dev-server ([513a255](https://github.com/davidsneighbour/kollitsch.de/commit/513a255f3274528cdada75f8ca23013afefe52e8))
+
+
+### Theme
+
+* **archetypes:** add resources section, remove images section and add notes about archetype ([935d2ad](https://github.com/davidsneighbour/kollitsch.de/commit/935d2adfff6d56c835b3ad3015249c4c6fdd8fef))
+* **archetypes:** fix archetypes ([8f4c57f](https://github.com/davidsneighbour/kollitsch.de/commit/8f4c57fb42ef7dc31c2ae29c5f4e90f5a3287ed8))
+* **archetypes:** more optimisation and reorganisation of archetypes ([f2e79f4](https://github.com/davidsneighbour/kollitsch.de/commit/f2e79f4dcc29be2366bb98d011613cb591ef93f5))
+* **assets:** fix line endings in mulish sample file ([990ea12](https://github.com/davidsneighbour/kollitsch.de/commit/990ea12de80903913c8c9f765cb83f4535768d9c))
+* **assets:** move webfont into static dir and load via SCSS ([5d1e1a0](https://github.com/davidsneighbour/kollitsch.de/commit/5d1e1a0be4a6c1f8894256a5b43e10d09a788a86)), closes [#2](https://github.com/davidsneighbour/kollitsch.de/issues/2)
+* **fix:** author display (WIP) ([de373b4](https://github.com/davidsneighbour/kollitsch.de/commit/de373b40ee5729b2db10dedb589656becfc31d9f)), closes [#10](https://github.com/davidsneighbour/kollitsch.de/issues/10)
+* **fix:** author name in posts fixed and use of single partial for all occurences ([6fc2e30](https://github.com/davidsneighbour/kollitsch.de/commit/6fc2e30ffd9565b02cd707f8309a3a31243152e8)), closes [#10](https://github.com/davidsneighbour/kollitsch.de/issues/10)
+* **fix:** build theme scripts properly ([ea62f1c](https://github.com/davidsneighbour/kollitsch.de/commit/ea62f1cc71a38d08fd4ea7be59dd36580957a376))
+* **fix:** remove over-rounding of submit button on newsletter box ([1241d75](https://github.com/davidsneighbour/kollitsch.de/commit/1241d759531da02898a29647fd3b3096e1030ee3)), closes [#11](https://github.com/davidsneighbour/kollitsch.de/issues/11)
+* **images:** move images to the content as page resources ([c4a398e](https://github.com/davidsneighbour/kollitsch.de/commit/c4a398e3c963aa0306f58aa741ca21522a9be1af))
+* **layouts:** add figure and figcaption to single post ([ee041e0](https://github.com/davidsneighbour/kollitsch.de/commit/ee041e0da19e7c0ddccb3c7ce673f1bc20ce8760))
+* **layouts:** move files in partials folder into proper location ([cfdcc85](https://github.com/davidsneighbour/kollitsch.de/commit/cfdcc85b96ebc9dcfbd7f4046c569488178a6e3a))
+* **layouts:** move layout partials around for better structure ([9ba5e50](https://github.com/davidsneighbour/kollitsch.de/commit/9ba5e50aac382d0d6f2943096d1f694dfbfc6862))
+* **layouts:** move post layouts into partials ([d4afc41](https://github.com/davidsneighbour/kollitsch.de/commit/d4afc41939f15e41b9026c2e2a249ca5024ff799))
+* make links a bit bolder ([c3bd9e3](https://github.com/davidsneighbour/kollitsch.de/commit/c3bd9e3c1baef2d840e0cc12e08876e2944b1ee2))
+* **scss:** move theme styles around ([9a222f6](https://github.com/davidsneighbour/kollitsch.de/commit/9a222f6cd8d42edf252cd5b5900e67200f721009))
+* **styles:** move bootstrap into theme configuration and remove unneccessary code ([a1d3637](https://github.com/davidsneighbour/kollitsch.de/commit/a1d3637da083bce4dc25e8db46ed349e121cea00))
+* **styles:** move style setup into SCSS files and remove inline styles ([dd4cce7](https://github.com/davidsneighbour/kollitsch.de/commit/dd4cce7ab99abbc48efb4372079d6c1211094cf4))
+
+
+### Chore
+
+* **config:** add markdown extension to vscode setup ([521bf8f](https://github.com/davidsneighbour/kollitsch.de/commit/521bf8f8d3e9413347b06c0a3938381870f86220))
+* **config:** add recommended extensions for vscode ([20d965f](https://github.com/davidsneighbour/kollitsch.de/commit/20d965f426e1df94b7c6a57831997a433bfdac70))
+* **config:** cleanup configuration and fix analytics ID ([9ce1a7c](https://github.com/davidsneighbour/kollitsch.de/commit/9ce1a7c4951b371852fad37be54b54639febf33c))
+* **config:** disable reactions in giscus configuration ([d65fcb7](https://github.com/davidsneighbour/kollitsch.de/commit/d65fcb7bcfd3ada5f8b03007b099a82bf824350c))
+* **config:** disable unsplash module for now ([8733c88](https://github.com/davidsneighbour/kollitsch.de/commit/8733c880c3ecca6bcb7f401774b7f085f409c0e9))
+* **config:** fix author configuration ([2cea937](https://github.com/davidsneighbour/kollitsch.de/commit/2cea9374b3cc255ea406476406d038e6af6b825e))
+* **config:** remove sidebar for now ([b05d4e0](https://github.com/davidsneighbour/kollitsch.de/commit/b05d4e022bc4b11418bc0096bd30cbeb5ff1ebbc))
+* **config:** remove unused config params ([01ef7fa](https://github.com/davidsneighbour/kollitsch.de/commit/01ef7facd76fc8daa1805b1a29ca645608163aca))
+* **config:** update dependabot configuration ([3de8abd](https://github.com/davidsneighbour/kollitsch.de/commit/3de8abde6c82e6f4db3b41f91efb7682214467ed))
+* **deps:** update dependencies ([f3f4356](https://github.com/davidsneighbour/kollitsch.de/commit/f3f43568d5c892c422aafc375b9c603443ff0694))
+
+### [2021.0.16](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.15...v2021.0.16) (2021-10-26)
+
+
+### Features
+
+* adding giscus commenting system to single layout ([f906ef3](https://github.com/davidsneighbour/kollitsch.de/commit/f906ef3006eab365b10d959de64a59f7fa335e3d))
+
+
+### Bug Fixes
+
+* remove inline JS and put into pipeline, remove cookie script inline ([b54eac1](https://github.com/davidsneighbour/kollitsch.de/commit/b54eac1bc28c2ee13c03d1089c8f6662bbde10c0)), closes [#5](https://github.com/davidsneighbour/kollitsch.de/issues/5) [#6](https://github.com/davidsneighbour/kollitsch.de/issues/6)
+
+
+### Build System
+
+* remove draft and expired builds from dev-server ([513a255](https://github.com/davidsneighbour/kollitsch.de/commit/513a255f3274528cdada75f8ca23013afefe52e8))
+
+
+### Theme
+
+* **archetypes:** add resources section, remove images section and add notes about archetype ([935d2ad](https://github.com/davidsneighbour/kollitsch.de/commit/935d2adfff6d56c835b3ad3015249c4c6fdd8fef))
+* **archetypes:** fix archetypes ([8f4c57f](https://github.com/davidsneighbour/kollitsch.de/commit/8f4c57fb42ef7dc31c2ae29c5f4e90f5a3287ed8))
+* **archetypes:** more optimisation and reorganisation of archetypes ([f2e79f4](https://github.com/davidsneighbour/kollitsch.de/commit/f2e79f4dcc29be2366bb98d011613cb591ef93f5))
+* **assets:** fix line endings in mulish sample file ([990ea12](https://github.com/davidsneighbour/kollitsch.de/commit/990ea12de80903913c8c9f765cb83f4535768d9c))
+* **assets:** move webfont into static dir and load via SCSS ([5d1e1a0](https://github.com/davidsneighbour/kollitsch.de/commit/5d1e1a0be4a6c1f8894256a5b43e10d09a788a86)), closes [#2](https://github.com/davidsneighbour/kollitsch.de/issues/2)
+* **fix:** author display (WIP) ([de373b4](https://github.com/davidsneighbour/kollitsch.de/commit/de373b40ee5729b2db10dedb589656becfc31d9f)), closes [#10](https://github.com/davidsneighbour/kollitsch.de/issues/10)
+* **fix:** author name in posts fixed and use of single partial for all occurences ([6fc2e30](https://github.com/davidsneighbour/kollitsch.de/commit/6fc2e30ffd9565b02cd707f8309a3a31243152e8)), closes [#10](https://github.com/davidsneighbour/kollitsch.de/issues/10)
+* **fix:** build theme scripts properly ([ea62f1c](https://github.com/davidsneighbour/kollitsch.de/commit/ea62f1cc71a38d08fd4ea7be59dd36580957a376))
+* **fix:** remove over-rounding of submit button on newsletter box ([1241d75](https://github.com/davidsneighbour/kollitsch.de/commit/1241d759531da02898a29647fd3b3096e1030ee3)), closes [#11](https://github.com/davidsneighbour/kollitsch.de/issues/11)
+* **images:** move images to the content as page resources ([c4a398e](https://github.com/davidsneighbour/kollitsch.de/commit/c4a398e3c963aa0306f58aa741ca21522a9be1af))
+* **layouts:** add figure and figcaption to single post ([ee041e0](https://github.com/davidsneighbour/kollitsch.de/commit/ee041e0da19e7c0ddccb3c7ce673f1bc20ce8760))
+* **layouts:** move files in partials folder into proper location ([cfdcc85](https://github.com/davidsneighbour/kollitsch.de/commit/cfdcc85b96ebc9dcfbd7f4046c569488178a6e3a))
+* **layouts:** move layout partials around for better structure ([9ba5e50](https://github.com/davidsneighbour/kollitsch.de/commit/9ba5e50aac382d0d6f2943096d1f694dfbfc6862))
+* **layouts:** move post layouts into partials ([d4afc41](https://github.com/davidsneighbour/kollitsch.de/commit/d4afc41939f15e41b9026c2e2a249ca5024ff799))
+* make links a bit bolder ([c3bd9e3](https://github.com/davidsneighbour/kollitsch.de/commit/c3bd9e3c1baef2d840e0cc12e08876e2944b1ee2))
+* **scss:** move theme styles around ([9a222f6](https://github.com/davidsneighbour/kollitsch.de/commit/9a222f6cd8d42edf252cd5b5900e67200f721009))
+* **styles:** move bootstrap into theme configuration and remove unneccessary code ([a1d3637](https://github.com/davidsneighbour/kollitsch.de/commit/a1d3637da083bce4dc25e8db46ed349e121cea00))
+* **styles:** move style setup into SCSS files and remove inline styles ([dd4cce7](https://github.com/davidsneighbour/kollitsch.de/commit/dd4cce7ab99abbc48efb4372079d6c1211094cf4))
+
+
+### Chore
+
+* **config:** add markdown extension to vscode setup ([521bf8f](https://github.com/davidsneighbour/kollitsch.de/commit/521bf8f8d3e9413347b06c0a3938381870f86220))
+* **config:** add recommended extensions for vscode ([20d965f](https://github.com/davidsneighbour/kollitsch.de/commit/20d965f426e1df94b7c6a57831997a433bfdac70))
+* **config:** cleanup configuration and fix analytics ID ([9ce1a7c](https://github.com/davidsneighbour/kollitsch.de/commit/9ce1a7c4951b371852fad37be54b54639febf33c))
+* **config:** disable reactions in giscus configuration ([d65fcb7](https://github.com/davidsneighbour/kollitsch.de/commit/d65fcb7bcfd3ada5f8b03007b099a82bf824350c))
+* **config:** disable unsplash module for now ([8733c88](https://github.com/davidsneighbour/kollitsch.de/commit/8733c880c3ecca6bcb7f401774b7f085f409c0e9))
+* **config:** fix author configuration ([2cea937](https://github.com/davidsneighbour/kollitsch.de/commit/2cea9374b3cc255ea406476406d038e6af6b825e))
+* **config:** remove sidebar for now ([b05d4e0](https://github.com/davidsneighbour/kollitsch.de/commit/b05d4e022bc4b11418bc0096bd30cbeb5ff1ebbc))
+* **config:** remove unused config params ([01ef7fa](https://github.com/davidsneighbour/kollitsch.de/commit/01ef7facd76fc8daa1805b1a29ca645608163aca))
+* **config:** update dependabot configuration ([3de8abd](https://github.com/davidsneighbour/kollitsch.de/commit/3de8abde6c82e6f4db3b41f91efb7682214467ed))
+* **deps:** update dependencies ([f3f4356](https://github.com/davidsneighbour/kollitsch.de/commit/f3f43568d5c892c422aafc375b9c603443ff0694))
+
 ### [2021.0.15](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.14...v2021.0.15) (2021-10-20)
 
 

@@ -11,4 +11,7 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+git add data/dnb/build/version.json
+git commit --amend --no-edit
+
 git push --follow-tags origin main

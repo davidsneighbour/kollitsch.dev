@@ -1,2 +1,19 @@
 const defaultStandardVersion = require("@dnb-org/standard-version-config");
-module.exports = defaultStandardVersion;
+const localStandardVersion =  {
+  bumpFiles: [
+    {
+      filename: "package.json",
+      type: "json",
+    },
+    {
+      filename: "data/dnb/build/version.json",
+      type: "json",
+    },
+  ],
+};
+
+const standardVersion = {
+  ...defaultStandardVersion,
+  ...localStandardVersion,
+};
+module.exports = standardVersion;

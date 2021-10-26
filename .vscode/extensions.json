@@ -20,6 +20,7 @@
     "ms-vsliveshare.vsliveshare-pack",
     "remimarsal.prettier-now",
     "timonwong.shellcheck",
-    "WallabyJs.quokka-vscode"
+    "WallabyJs.quokka-vscode",
+    "yzhang.markdown-all-in-one"
   ]
 }

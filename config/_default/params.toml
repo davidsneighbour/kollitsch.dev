@@ -63,10 +63,8 @@ access_token = "IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1Nmpx
 
 # Subscription
 [subscription]
-enable = true
-# mailchimp subsciption
-mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
-mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074" # replace this code with yours
+mailchimp_form_action = "https://davids-neighbour.us2.list-manage.com/subscribe/post?u=4a6208bfefc55f68a85c88616&amp;id=cedaeb1aca" # replace this url with yours
+mailchimp_form_name = "b_4a6208bfefc55f68a85c88616_cedaeb1aca" # replace this code with yours
 title = "Subscribe for our monthly newsletter."
 input_placeholder = "Enter your email"
 

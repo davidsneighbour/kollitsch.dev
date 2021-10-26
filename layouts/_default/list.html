@@ -3,7 +3,7 @@
 <!-- checking blog -->
 {{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
 
-<section class="section-sm">
+<section>
   <div class="container">
     <div class="row no-gutters justify-content-center">
       <div class="col-lg-10">
@@ -29,7 +29,7 @@
 {{ else }}
 
 {{ partial "content/page-header.html" . }}
-<section class="section-sm">
+<section>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">

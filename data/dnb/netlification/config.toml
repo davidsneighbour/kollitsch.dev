@@ -32,3 +32,11 @@ objectSrc = [
   "'self'"
 ]
 upgradeInsecureRequests = true
+
+[[redirects]]
+netlify = "https://kollitsch.netlify.app"
+
+[[redirects]]
+from = "https://main--kollitsch.netlify.app/"
+to = "https://kollitsch.de"
+status = 200

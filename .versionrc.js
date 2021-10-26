@@ -6,7 +6,7 @@ const localStandardVersion =  {
       type: "json",
     },
     {
-      filename: "data/dnb/build/version.json",
+      filename: "data/dnb/build/info.json",
       type: "json",
     },
   ],

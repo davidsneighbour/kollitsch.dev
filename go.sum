@@ -1,14 +1,8 @@
 github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/dnb-org/components/auditor v1.4.7 h1:so1qF+PMltvoULZE6MRpIS+oBtT6OEhws4ou/uG1dGM=
 github.com/dnb-org/components/auditor v1.4.7/go.mod h1:QSO+Y7oXCwLWAhBidxlXqvZtXzYOkeHW/8GzbV/YoLw=
-github.com/dnb-org/components/functions v1.4.3/go.mod h1:+GMAcQaK260wZ6ioNPbQY/ruWdBxFxj9PPw7o5p7eu0=
-github.com/dnb-org/components/functions v1.4.6/go.mod h1:+GMAcQaK260wZ6ioNPbQY/ruWdBxFxj9PPw7o5p7eu0=
 github.com/dnb-org/components/functions v1.4.7 h1:mhHGrxdqGIKS4zPzewEcg9qOr/G44nCb7xRa2VjBen0=
 github.com/dnb-org/components/functions v1.4.7/go.mod h1:+GMAcQaK260wZ6ioNPbQY/ruWdBxFxj9PPw7o5p7eu0=
-github.com/dnb-org/components/giscus v1.4.7 h1:h1tc5LHk4SE2mxI84+8LliDv35UzxUSQ7EZnwU6bbQA=
-github.com/dnb-org/components/giscus v1.4.7/go.mod h1:XivOAFWWo2KadqOMg8y+qTMsiPfCzD7mP47ifvdg29s=
-github.com/dnb-org/components/netlification v1.4.7 h1:JuSV7xF1EXCfDJMhLSB53dgzyXL4o1LdiyirPhqw174=
-github.com/dnb-org/components/netlification v1.4.7/go.mod h1:jPjSlmP7+RTHm8z5HF7ZVA5cId58rEefXMyaUlxImbI=
 github.com/dnb-org/components/opensearch v1.4.7 h1:dYxpDUK/Gug0N/rPzRpAeaTaqm8i9XM8WSl1kD0QoY8=
 github.com/dnb-org/components/opensearch v1.4.7/go.mod h1:0+z6OQrxXBEhddwlp7YFe9T+T/Nrch9nBDeNUWsGctk=
 github.com/dnb-org/components/pwa v1.4.7 h1:c73f6+k4lPL3oJI+KttwViwnU0LzRSidY2Wbm/7rKzo=
@@ -21,7 +15,6 @@ github.com/dnb-org/components/sitemap v1.4.7 h1:tLcb6kCYLvh4kWHCTrH35ls0zl8/9cJ9
 github.com/dnb-org/components/sitemap v1.4.7/go.mod h1:Nn+4/+uAGQAId5lvyRyN/sLYk+FjA0e+jUMqOTau/fU=
 github.com/dnb-org/components/social v1.4.7 h1:XzUvzKzO7/JsYWquvrnxEoz6rT6IaJa1iqRYny3FGfQ=
 github.com/dnb-org/components/social v1.4.7/go.mod h1:LeixgBYoYlKQ2nBB63DyzGAXJiqOkzCUnURRLdHB3TQ=
-github.com/dnb-org/debug v1.3.3/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
 github.com/dnb-org/debug v1.3.4 h1:z/RwloIg1pTXRD7NToX7f/k7uS9Vn43rEGcUMgQv7fc=
 github.com/dnb-org/debug v1.3.4/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
 github.com/dnb-org/hooks v1.0.16 h1:e/xPlrD0jtCtXxwgnAiOdhTM4e42JXRW4SXudUJQGRo=

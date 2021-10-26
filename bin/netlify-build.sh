@@ -12,5 +12,6 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+hugo mod get -u ./...
 rm -rf public/
 npm run build

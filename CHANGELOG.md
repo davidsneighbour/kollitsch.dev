@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.20](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.19...v2021.0.20) (2021-10-26)
+
 ### [2021.0.19](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.18...v2021.0.19) (2021-10-26)
 
 ### [2021.0.18](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.17...v2021.0.18) (2021-10-26)

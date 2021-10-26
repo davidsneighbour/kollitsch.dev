@@ -22,7 +22,7 @@
         </ul>
       </div>
     </div>
-    
+
     <div class="single-post-similer">
       <div class="row justify-content-center mt-3">
         <div class="col-lg-10">
@@ -33,11 +33,11 @@
         {{ range first 4 $related }}
           {{ if eq $layout "grid" }}
           <div class="col-lg-5 col-md-6">
-            {{ .Render "post" }}
+            {{ partialCached "content/post" . . }}
           </div>
           {{ else if eq $layout "list" }}
           <div class="col-lg-10">
-            {{ .Render "post-list" }}
+            {{ partialCached "content/post-list" . . }}
           </div>
           {{ end }}
         {{ end }}

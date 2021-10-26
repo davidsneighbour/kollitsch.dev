@@ -1,25 +1,6 @@
 <article class="card post-card">
-  {{with .Params.images}}
-  <div class="post-slider slider-sm rounded mb-4">
-    {{ range .}}
-    {{ if (fileExists (add `assets/` .)) }}
-    {{ $image:= resources.Get . }}
-    {{ $imageLG:= $image.Fill "450x230" }}
-    {{ $imageMD:= $image.Fill "690x355" }}
-    {{ $imageSM:= $image.Fill "545x295" }}
-    <picture>
-      <source srcset="{{ $imageSM.Permalink }}" media="(max-width: 767px)">
-      <source srcset="{{ $imageMD.Permalink }}" media="(max-width: 991px)">
-      <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 1200px)">
-      <source srcset="{{$imageLG.Permalink}}">
-      <img loading="lazy" class="img-fluid" src="{{$imageLG.Permalink}}" alt="post-thumb">
-    </picture>
-    {{ else }}
-    <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="post-thumb">
-    {{ end }}
-    {{ end }}
-  </div>
-  {{end}}
+
+  {{- partialCached "content/article-images.html" . . -}}
 
   <div class="card-body">
     <ul class="card-meta list-inline mb-2">

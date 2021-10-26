@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.24](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.23...v2021.0.24) (2021-10-26)
+
+
+### Chore
+
+* **config:** disable netlification again ([552ea05](https://github.com/davidsneighbour/kollitsch.de/commit/552ea05a3b19f87c888da16196570311cb74a454))
+
 ### [2021.0.23](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.22...v2021.0.23) (2021-10-26)
 
 

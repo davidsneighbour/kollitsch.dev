@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.21](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.20...v2021.0.21) (2021-10-26)
+
+
+### Chore
+
+* **config:** add giscus module properly ([2924f21](https://github.com/davidsneighbour/kollitsch.de/commit/2924f219cf7afbb213f1ae1ddbeba3a1755b899f))
+
 ### [2021.0.20](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.19...v2021.0.20) (2021-10-26)
 
 ### [2021.0.19](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.18...v2021.0.19) (2021-10-26)

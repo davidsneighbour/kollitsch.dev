@@ -2,6 +2,72 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2021.0.34](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.24...v2021.0.34) (2021-10-27)
+
+
+### Features
+
+* remove disqus snippet ([5e8326a](https://github.com/davidsneighbour/kollitsch.de/commit/5e8326aa2036c8949dfaa870afef3a711d93bea8))
+
+
+### Build System
+
+* add version file to release script setup ([a8e47ff](https://github.com/davidsneighbour/kollitsch.de/commit/a8e47ff934f5b1e7d6318e940f57ad80f6f1ed3e))
+* **fix:** typo in highlight script ([1d56f46](https://github.com/davidsneighbour/kollitsch.de/commit/1d56f46c9696126686ce3d7bc23cf70e7802bdaa))
+
+
+### Chore
+
+* **config:** add categories to footer menu ([2d08ace](https://github.com/davidsneighbour/kollitsch.de/commit/2d08acede2c81055057b6a6eca1545e04e41b2ea))
+* **config:** add domain redirects to netlification configuration ([89bf2f8](https://github.com/davidsneighbour/kollitsch.de/commit/89bf2f8f98fd1e88c689e847c88e26da32dba270))
+* **config:** add GA and Gravatar to netlification config ([3f77180](https://github.com/davidsneighbour/kollitsch.de/commit/3f77180618d148ab3fff17d845bd7f5cecb9aba1))
+* **config:** add ideas file to gitignore ([a2fab4a](https://github.com/davidsneighbour/kollitsch.de/commit/a2fab4a35e93e53fe178a49e27a234e821dcbf8a))
+* **config:** add youtube shortcode script ([52ce267](https://github.com/davidsneighbour/kollitsch.de/commit/52ce267659010fbb2a77cf5cc3276fd944ca7dbf))
+* **config:** enable gitinfo ([a9938af](https://github.com/davidsneighbour/kollitsch.de/commit/a9938af7fddd757e777021a536908176690e7671))
+* **config:** fix up markup configuration ([6ad444f](https://github.com/davidsneighbour/kollitsch.de/commit/6ad444fee31b82e8f6e366d24b1603376e2d8435))
+* **config:** re-enable netlification to fix setup ([dc64dbb](https://github.com/davidsneighbour/kollitsch.de/commit/dc64dbbea2ced2d8389cfee5d7a081792c9e7648)), closes [#15](https://github.com/davidsneighbour/kollitsch.de/issues/15)
+* **release:** v2021.0.25 ([9111c04](https://github.com/davidsneighbour/kollitsch.de/commit/9111c048e9c18f43757725769a5b119664b767e2))
+* **release:** v2021.0.26 ([bef9a5f](https://github.com/davidsneighbour/kollitsch.de/commit/bef9a5f78b08cf264be422aa387111696d14631b))
+* **release:** v2021.0.27 ([9e3ad45](https://github.com/davidsneighbour/kollitsch.de/commit/9e3ad457680ff933fad6da12fe2b2aa105653b13))
+* **release:** v2021.0.28 ([a05a957](https://github.com/davidsneighbour/kollitsch.de/commit/a05a957f0077afab7c995e4acf38dfb393363423))
+* **release:** v2021.0.29 ([ed2c937](https://github.com/davidsneighbour/kollitsch.de/commit/ed2c937f9e42095ec40cddee74f248e4280dcb2d))
+* **release:** v2021.0.30 ([0e2bd5f](https://github.com/davidsneighbour/kollitsch.de/commit/0e2bd5f2fe38254d959200465d09e7fc944393a5))
+* **release:** v2021.0.31 ([7fb7713](https://github.com/davidsneighbour/kollitsch.de/commit/7fb77130b622de7b9453d708a8bd966d54b05962))
+* **release:** v2021.0.32 ([ce1bc83](https://github.com/davidsneighbour/kollitsch.de/commit/ce1bc838ff0839677ca96c771812a79bc22a87cc))
+* **release:** v2021.0.33 ([6ca78b5](https://github.com/davidsneighbour/kollitsch.de/commit/6ca78b5c946f7d78056b98fa26ae168d4ee456ca))
+
+
+### Theme
+
+* **feat:** add version number to footer and move version info to info.json ([4a28005](https://github.com/davidsneighbour/kollitsch.de/commit/4a280058d8df665a58fefdc6d3d538e0f7f01a4e)), closes [#14](https://github.com/davidsneighbour/kollitsch.de/issues/14)
+* **feature:** remove fontawesome and add singular icons from bootstrap-icons ([a754a3b](https://github.com/davidsneighbour/kollitsch.de/commit/a754a3bc682d532627d6cd64badb19a0581894f5))
+* **feature:** remove preloader ([a1fc7d5](https://github.com/davidsneighbour/kollitsch.de/commit/a1fc7d562649b8a460d514c946d99172ff599c7d))
+* **fix:** add proper syntax highlighting and remove old theme styles for code ([2d9f768](https://github.com/davidsneighbour/kollitsch.de/commit/2d9f76859aea97e8444188a5196b3d721addeeb7))
+* **fix:** color setup in the footer ([86ebe2f](https://github.com/davidsneighbour/kollitsch.de/commit/86ebe2f89b86d5e6e5b0715e29bc6fc1e070438f)), closes [#18](https://github.com/davidsneighbour/kollitsch.de/issues/18)
+* **fix:** link article image to article ([df69f16](https://github.com/davidsneighbour/kollitsch.de/commit/df69f16d46f68edf3a95682ce162ada64484d468)), closes [#19](https://github.com/davidsneighbour/kollitsch.de/issues/19)
+* **fix:** remove erroneous -- ([13c9815](https://github.com/davidsneighbour/kollitsch.de/commit/13c9815ea7f63f0c691b6ba0585c1a48dcf5e0d9))
+* **fix:** remove erroneous author name from the footer ([6d8d655](https://github.com/davidsneighbour/kollitsch.de/commit/6d8d655be0cba38af9a8bd388ce8900d125f04a2))
+* **fix:** remove inline styles ([c63a279](https://github.com/davidsneighbour/kollitsch.de/commit/c63a2798016c9a6cf976d583b69d96e35c8b8cf0))
+* **fix:** removing preloader script ([e12b129](https://github.com/davidsneighbour/kollitsch.de/commit/e12b129b56cf6b9ea5c6bdcc50541c2ee83398a8))
+* **fix:** taxonomy setup broken for categories, changing layout for taxonomy pages ([26c41ed](https://github.com/davidsneighbour/kollitsch.de/commit/26c41ed287c2647578c9f32cc208a6476f67b423))
+* **layouts:** add tag overview partial ([db9884f](https://github.com/davidsneighbour/kollitsch.de/commit/db9884ff6b92054c6e722543b904bd29b4f54410))
+* **layouts:** fix mailchimp form setup with latest code ([2e6571e](https://github.com/davidsneighbour/kollitsch.de/commit/2e6571e9af83971f0b9a25db06e44436ab30f788)), closes [#17](https://github.com/davidsneighbour/kollitsch.de/issues/17)
+* **layouts:** fix social icons in the footer area ([3d6b67c](https://github.com/davidsneighbour/kollitsch.de/commit/3d6b67cb617066f55b2e68ca7ff904f835973658))
+* **layouts:** move newsletter form into its own partial ([dadea71](https://github.com/davidsneighbour/kollitsch.de/commit/dadea718414d7a680052921258e67ac985c7430f))
+* **layouts:** readd disqus code ([22a50bb](https://github.com/davidsneighbour/kollitsch.de/commit/22a50bb934912665697d649b2ab01ffecd509c5e))
+* **layouts:** remove about layout ([cb8b68e](https://github.com/davidsneighbour/kollitsch.de/commit/cb8b68e2d8b44337f39b9ebe048a218348c19357))
+* **layouts:** remove margin below article images ([859e9d9](https://github.com/davidsneighbour/kollitsch.de/commit/859e9d9f2f329307d64b87d6cd872aba4d8844f6))
+* **layouts:** remove translation menu ([b37f815](https://github.com/davidsneighbour/kollitsch.de/commit/b37f81550b55c1f7999c9c6aa16ef6c0f6d5f842))
+* **layouts:** remove unused layouts and fix spacing of tags ([8c6ce5a](https://github.com/davidsneighbour/kollitsch.de/commit/8c6ce5ac5bc5f7e9c9fb3a086e88d66e14c27dc1))
+* **layouts:** remove unused section class ([39cc9f9](https://github.com/davidsneighbour/kollitsch.de/commit/39cc9f9431e4dcf9030152da164ee82944746933))
+* **layouts:** use i18n time formats for date displays ([3689f9f](https://github.com/davidsneighbour/kollitsch.de/commit/3689f9ff477fede8d70d9374abce03bb80ef27eb)), closes [#13](https://github.com/davidsneighbour/kollitsch.de/issues/13)
+* **styles:** add figure styling ([7ef45dd](https://github.com/davidsneighbour/kollitsch.de/commit/7ef45ddff90016a0695e80dd3a0f53b6483f58d9))
+* **styles:** add some bottom radius'ses to figure images ([d2da765](https://github.com/davidsneighbour/kollitsch.de/commit/d2da765716b0db8b1f85e9ef038c56b014cb13ce))
+* **styles:** layout fixes ([9ec27a8](https://github.com/davidsneighbour/kollitsch.de/commit/9ec27a82ea32e30c0e42a9fc96dff1bdf3033055))
+* **styles:** lower border radius of images inside of figure tags ([11af691](https://github.com/davidsneighbour/kollitsch.de/commit/11af69168537a68425281d18be0412a16d72ad4a))
+* **styles:** move footer design into it's own sass file ([576ab7c](https://github.com/davidsneighbour/kollitsch.de/commit/576ab7c853f88c30cd7458df7523797862060bf7))
+* **styles:** remove underline from headlines ([997d86d](https://github.com/davidsneighbour/kollitsch.de/commit/997d86d37c8f3cf7830b9dfd289be8badedf807c))
+
 ### [2021.0.33](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.24...v2021.0.33) (2021-10-27)
 
 

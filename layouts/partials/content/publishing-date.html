@@ -1,0 +1,5 @@
+{{- .PublishDate | time.Format ":date_full" -}}
+&nbsp;
+{{- i18n "at" | default "at" -}}
+&nbsp;
+{{- .PublishDate | time.Format ":time_short" -}}

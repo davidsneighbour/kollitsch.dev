@@ -30,7 +30,7 @@
               </li>
               <li class="list-inline-item">|</li>
               <li class="list-inline-item">
-                <span>{{.PublishDate.Format "02 January 2006"}}</span>
+                {{ partialCached "content/publishing-date.html" . . }}
               </li>
             </ul>
           </div>

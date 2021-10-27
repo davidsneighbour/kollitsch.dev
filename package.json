@@ -27,9 +27,9 @@
   },
   "scripts": {
     "audit:hugo": "./bin/dnb-hugo-audit.sh",
-    "build": "run-p build:critical build:script && run-s build:hugo",
+    "build": "run-p build:critical build:script build:highlights && run-s build:hugo",
     "build:critical": "./bin/build-critical-css.sh",
-    "build:highlights": "hugo gen chromastyles --style=native > assets/css/utilities/syntax.css",
+    "build:highlights": "huhugo gen chromastyles --style=xcode > assets/scss/components/_syntaxhighlighting.scss",
     "build:hugo": "hugo --gc --minify",
     "build:script": "tsc ./assets/js/**.ts",
     "check-env": "node -e 'console.log(process.env)' | grep npm_config_",

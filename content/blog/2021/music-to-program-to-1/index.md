@@ -9,8 +9,8 @@ lastmod: 2021-10-26T22:08:33+07:00
 
 # add multiple resources to create a slider gallery
 resources:
-  - title: "Rafael Anton Irisarri - Empire Systems"
-    src: "hero.png"
+- title: "Rafael Anton Irisarri - Empire Systems"
+  src: "hero.png"
 
 # taxonomification
 categories: ["video"]
@@ -23,3 +23,4 @@ youtube: "iFi0n_odlh8"
 ---
 
 {{< youtube id="iFi0n_odlh8" >}}
+

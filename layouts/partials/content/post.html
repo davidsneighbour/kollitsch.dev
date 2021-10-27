@@ -8,7 +8,7 @@
         {{ partial "content/author.html" . }}
       </li>
       <li class="list-inline-item mb-2">
-        <span>{{.PublishDate.Format "02 Jan, 2006"}}</span>
+        {{ partialCached "content/publishing-date.html" . . }}
       </li>
       <li class="list-inline-item mb-2">
         <ul class="card-meta-tag list-inline">

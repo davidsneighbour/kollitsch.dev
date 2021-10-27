@@ -36,6 +36,8 @@ sidebar = "false" # Sidebar value ("left", "right" or false)
 ######################## Plugins ####################
 # JS Plugins
 [[plugins.js]]
+link = "libs/liteyoutube/lite-yt-embed.js"
+[[plugins.js]]
 link = "plugins/jquery/jquery.min.js"
 [[plugins.js]]
 link = "plugins/bootstrap/bootstrap.min.js"

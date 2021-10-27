@@ -1,0 +1,18 @@
+figure {
+  background-color: $primary;
+  padding:10px 10px 0 10px;
+  color: $light;
+  border-radius: 20px;
+
+  picture, img {
+    border-top-left-radius: 20px;
+    border-top-right-radius:20px;
+  }
+
+  a {
+    color: $light;
+    &:hover {
+      color: $gray-300;
+    }
+  }
+}

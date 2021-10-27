@@ -178,27 +178,7 @@ mark {
   right: -60px;
 }
 
-// social-links
-.social-links {
-  a {
-    font-size: 18px;
-    padding: 7px;
-    color: rgba($black, 0.8);
-    display: inline-block;
 
-    &:hover {
-      color: $primary;
-    }
-  }
-  &.icon-box li a {
-    height: 45px;
-    width: 45px;
-    line-height: 45px;
-    border: 1px solid #ddd;
-    padding: 0;
-    @extend .rounded;
-  }
-}
 
 // card style
 .card.post-card {

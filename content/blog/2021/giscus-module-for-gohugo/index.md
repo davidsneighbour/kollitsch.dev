@@ -1,6 +1,6 @@
 ---
 title: "Giscus Module for GoHugo"
-date: 2021-10-26T10:25:27+07:00
+date: 2021-10-27T20:25:27+07:00
 description: ""
 resources:
 - title: "Photo by [Gerry Roarty](https://unsplash.com/@ger54321) on [Unsplash](https://unsplash.com/s/photos/module)"

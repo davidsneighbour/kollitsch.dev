@@ -33,6 +33,8 @@ lineNos = true
 lineNumbersInTable = true
 noClasses = false
 tabWidth = 2
+style = "xcode"
+
 
 [tableOfContents]
 endLevel = 4

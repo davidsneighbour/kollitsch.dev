@@ -1,6 +1,6 @@
 ---
-title: "Music to Program to (Part I)"
-linkTitle: "Music to Program to (I)"
+title: "Music to program to (Part I)"
+linkTitle: "Music to program to I"
 
 # dates
 date: 2021-10-26T22:08:33+07:00
@@ -16,6 +16,10 @@ resources:
 categories: ["video"]
 tags: ["programming-music"]
 keywords: ["video", "music"]
+
+# special layout functionality
+type: "youtube"
+youtube: "iFi0n_odlh8"
 ---
 
 {{< youtube id="iFi0n_odlh8" >}}

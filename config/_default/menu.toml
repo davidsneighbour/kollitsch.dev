@@ -4,7 +4,6 @@ weight = 1
 url = "/"
 name = "Home"
 
-
 ############################# Footer Menu ########################
 [[footer]]
 weight = 3
@@ -20,3 +19,8 @@ name = "Terms & Conditions"
 weight = 1
 url = "tags/"
 name = "Tags"
+
+[[footer]]
+weight = 2
+url = "categories/"
+name = "Categories"

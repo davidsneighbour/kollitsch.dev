@@ -1,0 +1,8 @@
+{{ range (index site.Taxonomies .Type) }}
+  <span class="badge bh-primary">
+    <a class="" href="{{ .Page.Permalink }}">
+      {{ partialCached "icons/tag-fill.html" "tag-fill" "tag-fill" }}
+      {{ .Page.Title }} ({{ .Count }})
+    </a>
+  </span>
+{{ end }}

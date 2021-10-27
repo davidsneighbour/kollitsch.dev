@@ -18,7 +18,7 @@ tags: ["programming-music"]
 keywords: ["video", "music"]
 
 # special layout functionality
-type: "youtube"
+#type: "youtube"
 youtube: "iFi0n_odlh8"
 ---
 

@@ -4,10 +4,6 @@ weight = 1
 url = "/"
 name = "Home"
 
-[[main]]
-weight = 4
-url = "contact"
-name = "Contact"
 
 ############################# Footer Menu ########################
 [[footer]]
@@ -19,3 +15,8 @@ name = "Privacy"
 weight = 4
 url = "terms-conditions/"
 name = "Terms & Conditions"
+
+[[footer]]
+weight = 1
+url = "tags/"
+name = "Tags"

@@ -6,7 +6,9 @@
       <div class="col-lg-10">
         <div class="row">
 
-          <img src="/assets/logo/logo.svg" style="width:100%;height:auto;"/>
+          <a href="/">
+            <img src="/assets/logo/logo.svg" style="width:100%;height:auto;"/>
+          </a>
 
           {{ $layout := site.Params.post_layout }}
           {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSection) }}

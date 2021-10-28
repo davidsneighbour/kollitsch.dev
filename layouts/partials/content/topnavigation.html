@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg mb-5">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="{{site.BaseURL | relLangURL}}">
+      {{if site.Params.logo}}
+        <img src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
+      {{else}}
+        {{site.Title}}
+      {{end}}
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="navbar-nav ms-auto me-auto me-lg-0">
+      {{ $current := . }}
+      {{ range site.Menus.main }}
+        {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+        {{ $active = or $active (eq .Name $current.Title) }}
+        {{if .HasChildren}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-inline-block {{ if $active }}active{{ end }}" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{.Name}}</a>
+            <ul class="dropdown-menu">
+              {{range .Children}}
+                <li><a class="dropdown-item" href="{{.URL | absLangURL}}">{{.Name}}</a></li>
+              {{end}}
+            </ul>
+          </li>
+        {{else}}
+          <li class="nav-item {{ if $active }}active{{ end }}">
+            <a class="nav-link" href="{{.URL | absLangURL}}">{{.Name}}</a>
+          </li>
+        {{end}}
+      {{end}}
+    </ul>
+
+  </div>
+</nav>

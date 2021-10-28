@@ -6,9 +6,9 @@ $container-max-widths: (
 );
 
 // colors
-$primary:       #DC143C;;
+$primary:       #DC143C;
 $theme-colors: (
-  "primary":    $primary,
+  "primary":    #DC143C,
   "secondary":  $secondary,
   "success":    $success,
   "info":       $info,
@@ -16,7 +16,7 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark
-) !default;
+);
 
 // typography
 $font-family-sans-serif: Mulish, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;

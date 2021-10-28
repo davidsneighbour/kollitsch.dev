@@ -55,9 +55,6 @@ src = "/images/logos/hugo-logo-wordmark.svg"
 width = 300
 height = 40
 
-[layout]
-sidebar_enabled = true
-
 [plugins]
 
 [plugins.head]

@@ -30,8 +30,6 @@ menu_align = "right" # "left", "right" or "center"
 mainSection = ["blog"]
 # Post layout
 post_layout = "grid" # Post-Layout value ("grid" or "list")
-# Blog-details page sidebar
-sidebar = "false" # Sidebar value ("left", "right" or false)
 
 ######################## Plugins ####################
 # JS Plugins
@@ -49,11 +47,6 @@ link = "plugins/search/fuse.min.js"
 link = "plugins/search/mark.js"
 [[plugins.js]]
 link = "plugins/search/search.js"
-
-######################## sidebar widgets #########################
-[widgets]
-sidebar = ["search", "categories", "tags", "social"]
-# available widget : search, categories, tags, social
 
 # Social Icons
 [[social]]

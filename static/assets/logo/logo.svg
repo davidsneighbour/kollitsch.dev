@@ -30,7 +30,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.64"
-     inkscape:cx="312.5"
+     inkscape:cx="-167.1875"
      inkscape:cy="446.875"
      inkscape:window-width="1868"
      inkscape:window-height="1016"
@@ -60,7 +60,7 @@
      inkscape:label="Background"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline"
+     style="display:none"
      transform="translate(-2608.9749,-882.87518)">
     <rect
        style="fill:#ffffff;stroke-width:0.765393"

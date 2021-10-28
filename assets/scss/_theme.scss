@@ -39,22 +39,7 @@ mark {
   color: $primary;
 }
 
-.section-title {
-  h1 {
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    position: relative;
-    padding-top: 25px;
 
-    @include desktop-xl {
-      font-size: 42px;
-    }
-
-    @include tablet {
-      font-size: 34px;
-    }
-  }
-}
 
 .sticky-sidebar {
   position: sticky;

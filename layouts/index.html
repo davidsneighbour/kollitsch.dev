@@ -5,6 +5,9 @@
     <div class="row no-gutters justify-content-center">
       <div class="col-lg-10">
         <div class="row">
+
+          <img src="/assets/logo/logo.svg" style="width:100%;height:auto;"/>
+
           {{ $layout := site.Params.post_layout }}
           {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSection) }}
 

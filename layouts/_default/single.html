@@ -41,25 +41,14 @@
             {{.Content}}
           </div>
 
-          <div class="single-post-meta">
-            <div class="row justify-content-center">
-              <div class="col-md-6 text-center text-md-left">
-                <ul class="list-unstyled list-inline">
-                  {{range .Params.tags}}
-                    <li class="list-inline-item"><a href="{{`tags` | absLangURL}}/{{.| urlize}}">{{.}}</a></li>
-                  {{end}}
-                </ul>
-              </div>
-              <div class="col-md-6 text-center text-md-right mt-4 mt-md-0">
-                {{- partial "widgets/post-share.html" . -}}
-              </div>
-            </div>
-          </div>
+          <ul class="list-unstyled list-inline">
+            {{range .Params.tags}}
+              <li class="list-inline-item"><a href="{{`tags` | absLangURL}}/{{.| urlize}}">{{.}}</a></li>
+            {{end}}
+          </ul>
 
           {{ with site.DisqusShortname }}
-          <div class="mt-5 border-default border p-4 bg-white rounded">
             {{ template "_internal/disqus.html" . }}
-          </div>
           {{ end }}
 
           {{ with site.Params.giscus }}
@@ -79,7 +68,6 @@
               {{ end }}
             </div>
           </div>
-
 
         </div>
       </div>

@@ -7,19 +7,19 @@
         <form action="{{site.Params.contact_form_action}}">
           <div class="mb-4">
             <label for="name" class="form-label">{{ i18n "name" }}</label>
-            <input type="email" class="form-control" id="name" placeholder="Alex Smith" required>
+            <input type="text" class="form-control" id="name" required>
           </div>
           <div class="mb-4">
             <label for="email" class="form-label">{{ i18n "email" }}</label>
-            <input type="email" class="form-control" id="email" placeholder="hello@bookworm.com" required>
+            <input type="email" class="form-control" id="email" required>
           </div>
           <div class="mb-4">
             <label for="subject" class="form-label">{{ i18n "subject" }}</label>
-            <input type="email" class="form-control" id="subject" placeholder="Reasons for Contact" required>
+            <input type="text" class="form-control" id="subject" required>
           </div>
           <div class="mb-4">
             <label for="message" class="form-label">{{ i18n "message"}}</label>
-            <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary" aria-label="Send Message">{{ i18n "send_message"}}</button>

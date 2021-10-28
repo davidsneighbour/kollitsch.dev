@@ -8,7 +8,7 @@
 
     <div class="col-lg-6">
       <div class="card-body pt-lg-0">
-        <ul class="card-meta list-inline mb-2">
+        <ul class="list-inline mb-2">
           <li class="list-inline-item mb-2">
             {{ partial "content/author.html" . }}
           </li>
@@ -16,7 +16,7 @@
             {{ partialCached "content/publishing-date.html" . . }}
           </li>
           <li class="list-inline-item mb-2">
-            <ul class="card-meta-tag list-inline">
+            <ul class="list-inline">
               {{range .Params.tags}}
               <li class="list-inline-item"><a href="{{site.BaseURL}}tags/{{.| urlize}}">{{.}}</a></li>
               {{end}}

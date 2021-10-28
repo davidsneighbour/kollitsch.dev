@@ -5,12 +5,12 @@
 
         {{ if or (eq .Section "tags") (eq .Section "categories") }}
         {{ if or (eq .Permalink (`tags/` | absLangURL)) (eq .Permalink (`categories/` | absLangURL)) }}
-        <h3 class="mb-3 text-dark font-weight-bold">{{.Title | markdownify}}</h3>
+        <h3 class="mb-3 text-dark">{{.Title | markdownify}}</h3>
         {{else}}
-        <h4 class="mb-3 text-dark font-weight-bold">{{ i18n "showing_posts_from" }} <mark>{{.Title | markdownify}}</mark></h4>
+        <h4 class="mb-3 text-dark">{{ i18n "showing_posts_from" }} <mark>{{.Title | markdownify}}</mark></h4>
         {{ end }}
         {{ else }}
-        <h3 class="mb-3 text-dark font-weight-bold">{{.Title | markdownify}}</h3>
+        <h3 class="mb-3 text-dark">{{.Title | markdownify}}</h3>
         {{ end }}
 
 

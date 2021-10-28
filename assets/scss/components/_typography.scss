@@ -12,3 +12,11 @@ a {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none;
 }
+
+.mark,
+mark {
+  border-bottom: 1px dashed rgba($primary, 0.4);
+  background: transparent;
+  padding: 0;
+  color: $primary;
+}

@@ -1,0 +1,43 @@
+
+// pagination
+.pagination {
+    .page-link {
+      padding: 0;
+      margin-left: 0;
+      color: $dark;
+      border: 0;
+      margin: 0 4px;
+      height: 48px;
+      width: 48px;
+      line-height: 48px;
+      text-align: center;
+      font-weight: 700;
+  
+      &.active,
+      &:focus,
+      &:hover {
+        box-shadow: none;
+        color: $white;
+        background-color: $primary;
+      }
+  
+      &.arrow {
+        font-size: 26px;
+        width: auto;
+  
+        &:hover {
+          color: $primary;
+          background-color: $white;
+        }
+      }
+    }
+  
+    .page-item.active {
+      .page-link {
+        box-shadow: none;
+        color: $white;
+        background-color: $primary;
+      }
+    }
+  }
+  

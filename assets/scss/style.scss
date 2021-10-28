@@ -54,14 +54,15 @@
 @import "components/layout";
 @import "components/topnavigation";
 @import "components/typography";
+@import "components/forms";
 @import "components/footer";
 @import "components/syntaxhighlighting";
 @import "components/social-icons";
 @import "components/figure";
 @import "components/search";
-
-// old theme
-@import "theme";
+@import "components/breadcrumbs";
+@import "components/pagination";
+@import "components/slider";
 
 // plugins
 @import "plugins/youtube.scss";

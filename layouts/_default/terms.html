@@ -11,7 +11,7 @@
     <div class="single-post-similer">
       <div class="row justify-content-center mt-3">
         <div class="col-lg-10">
-          <h3 class="text-dark font-weight-800 mb-4 pb-2">{{i18n "most_recent_post"}}</h3>
+          <h3 class="text-dark mb-4 pb-2">{{i18n "most_recent_post"}}</h3>
         </div>
         {{ $layout := site.Params.post_layout }}
         {{ $related := (where site.RegularPages "Section" "blog") }}

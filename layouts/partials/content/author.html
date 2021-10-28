@@ -11,7 +11,7 @@ or the default author in config/_default/author.toml is used
 {{- end -}}
 
 {{ if $author.email }}
-  <div class="card-meta-author">
+  <div>
     <img loading="lazy" src="https://www.gravatar.com/avatar/{{ md5 $author.email }}?s=26&pg&d=identicon" alt="{{ $author.name }}">
     <span>{{ $author.name }}</span>
   </div>
@@ -24,7 +24,7 @@ or the default author in config/_default/author.toml is used
   {{ else }}
     {{ .Scratch.Set "image" ($imagePath | absURL) }}
   {{ end }}
-  <a href="{{.Permalink}}" class="card-meta-author">
+  <a href="{{.Permalink}}">
     <img loading="lazy" src="{{.Scratch.Get `image`}}" alt="{{ $author.Name }}">
     <span>{{ $author.Name }}</span>
   </a>

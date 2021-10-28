@@ -11,7 +11,7 @@
         <div>
           <div class="text-center mb-5">
             <h3 class="h2 mb-4 post-title">{{.Title}}</h3>
-            <ul class="card-meta list-inline">
+            <ul class="list-inline">
               <li class="list-inline-item">
                 {{ partial "content/author.html" . }}
               </li>
@@ -45,7 +45,7 @@
           <div class="single-post-similer">
             <div class="row mt-3">
               <div class="col-12">
-                <h3 class="text-dark font-weight-800 mb-4 pb-2">{{i18n "you_may_also_like"}}</h3>
+                <h3 class="text-dark mb-4 pb-2">{{i18n "you_may_also_like"}}</h3>
               </div>
               {{ $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
               {{ range first 2 $related }}

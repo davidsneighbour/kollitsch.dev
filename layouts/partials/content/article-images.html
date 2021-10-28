@@ -1,7 +1,7 @@
 {{- $articleimages := .Resources.ByType "image" -}}
 {{- $link := .Permalink -}}
 {{with $articleimages }}
-  <div class="text-center post-slider rounded">
+  <div class="text-center post-slider">
     {{ range $counter, $image := .}}
       {{ $imageXL:= $image.Fill "925x475" }}
       {{ $imageLG:= $image.Fill "775x400" }}

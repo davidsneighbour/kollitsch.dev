@@ -1,0 +1,76 @@
+// form-control
+.form-control {
+  padding: 0;
+  border: 0;
+  border: 1px solid #e6e6e6;
+  border-radius: 0 !important;
+  height: 50px;
+  padding: 12px 16px;
+  font-size: 17px;
+  font-weight: 500;
+  transition: 0.3s ease;
+
+  &:focus {
+    box-shadow: none;
+    color: $dark;
+    border-color: $primary;
+
+    ~ .input-group-append {
+      .input-group-text {
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+.input-group-text {
+  background-color: transparent;
+  border-bottom: 1px solid #999;
+  border-radius: 0 !important;
+  transition: 0.3s ease;
+
+  .icon {
+    font-size: 22px;
+  }
+}
+
+button.input-group-text {
+  &:hover {
+    color: $primary;
+  }
+}
+
+.custom-control-label {
+  user-select: none;
+  cursor: text;
+  line-height: 1.45;
+
+  &::before {
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: none !important;
+  }
+}
+
+.custom-checkbox {
+  margin-top: 15px;
+
+  .custom-control-label::before {
+    border-radius: 0;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before,
+  .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: transparent;
+  }
+
+  .custom-control-input:disabled:checked ~ .custom-control-label::before {
+    background-color: rgba($primary, 0.5);
+    border-color: rgba($primary, 0.2);
+  }
+}

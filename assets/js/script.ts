@@ -50,32 +50,6 @@ window.addEventListener('load', function () {
       userFeed.run();
     }
 
-    // tab
-    jQuery('.tab-content').find('.tab-pane').each(function (idx, item) {
-      var navTabs = jQuery(this).closest('.code-tabs').find('.nav-tabs'),
-        title = jQuery(this).attr('title');
-      navTabs.append('<li class="nav-item"><a class="nav-link" href="#">' + title + '</a></li>');
-    });
-
-    jQuery('.code-tabs ul.nav-tabs').each(function () {
-      jQuery(this).find("li:first").addClass('active');
-    })
-
-    jQuery('.code-tabs .tab-content').each(function () {
-      jQuery(this).find("div:first").addClass('active');
-    });
-
-    jQuery('.nav-tabs a').click(function (e) {
-      e.preventDefault();
-      var tab = jQuery(this).parent(),
-        tabIndex = tab.index(),
-        tabPanel = jQuery(this).closest('.code-tabs'),
-        tabPane = tabPanel.find('.tab-pane').eq(tabIndex);
-        tabPanel.find('.active').removeClass('active');
-        tab.addClass('active');
-        tabPane.addClass('active');
-    });
-
     // Accordions
     jQuery('.collapse').on('shown.bs.collapse', function () {
       jQuery(this).parent().find('.fa-plus').removeClass('fa-plus').addClass('fa-minus');

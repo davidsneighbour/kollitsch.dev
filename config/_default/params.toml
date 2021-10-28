@@ -21,7 +21,7 @@ logo_height = "35px"
 favicon = "/assets/favicon/favicon.svg"
 
 # contact form action
-contact_form_action = "#" # contact form works with https://formspree.io
+contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
 # search
 search = true # (if Search is disable/false Menu will align in Right)
 # Menu align

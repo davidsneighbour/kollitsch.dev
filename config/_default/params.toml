@@ -44,8 +44,6 @@ link = "plugins/bootstrap/bootstrap.min.js"
 [[plugins.js]]
 link = "plugins/slick/slick.min.js"
 [[plugins.js]]
-link = "plugins/instagram-feed/instagram-feed.js"
-[[plugins.js]]
 link = "plugins/search/fuse.min.js"
 [[plugins.js]]
 link = "plugins/search/mark.js"

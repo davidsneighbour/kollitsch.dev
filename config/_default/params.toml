@@ -63,13 +63,6 @@ enable = false
 instagram_user = "bookworm"
 access_token = "IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1NmpxZA3RTbnU1MXpDNVBHTzZAMOFlxcGlkVHBKdjhqSnUybERhNWdQSE5hVmtXT013MEhOQVJJRGJBRURn"
 
-# Subscription
-[subscription]
-mailchimp_form_action = "https://davids-neighbour.us2.list-manage.com/subscribe/post?u=4a6208bfefc55f68a85c88616&amp;id=cedaeb1aca" # replace this url with yours
-mailchimp_form_name = "b_4a6208bfefc55f68a85c88616_cedaeb1aca" # replace this code with yours
-title = "Subscribe for our monthly newsletter."
-input_placeholder = "Enter your email"
-
 # Social Icons
 [[social]]
 url = "https://www.facebook.com/"

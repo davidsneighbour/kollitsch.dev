@@ -1,11 +1,11 @@
 <footer id="footer">
   <div class="container">
     <div class="row justify-content-center align-items-center">
-      <div class="col-lg-12">
         {{ with site.Params.subscription }}
-          {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
+          <div class="col-lg-12">
+            {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
+          </div>
         {{ end }}
-      </div>
       <div class="col-lg-12 text-center mt-5">
         <ul class="list-inline mb-4">
           {{ range site.Menus.footer }}

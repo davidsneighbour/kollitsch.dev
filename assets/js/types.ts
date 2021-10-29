@@ -1,5 +1,0 @@
-interface JQuery {
-
-  slick(): any;
-
-}

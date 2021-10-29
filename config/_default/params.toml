@@ -36,10 +36,6 @@ post_layout = "grid" # Post-Layout value ("grid" or "list")
 [[plugins.js]]
 link = "libs/liteyoutube/lite-yt-embed.js"
 [[plugins.js]]
-link = "plugins/jquery/jquery.min.js"
-[[plugins.js]]
-link = "plugins/bootstrap/bootstrap.min.js"
-[[plugins.js]]
 link = "plugins/slick/slick.min.js"
 [[plugins.js]]
 link = "plugins/search/fuse.min.js"

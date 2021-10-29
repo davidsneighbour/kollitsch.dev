@@ -1,46 +1,41 @@
 {{ define "main" }}
 
-<!-- checking blog -->
-{{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
+  {{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
 
-<section>
-  <div class="container">
-    <div class="row no-gutters justify-content-center">
-      <div class="col-lg-10">
+    <section>
+      <div class="container">
         <div class="row">
           {{ $layout := site.Params.post_layout }}
           {{range .Data.Pages}}
-          {{ if eq $layout "grid" }}
-          <div class="col-lg-6">
-            {{ partialCached "content/post" . . }}
-          </div>
-          {{ else if eq $layout "list" }}
-          <div class="col-lg-12">
-            {{ partialCached "content/post-list" . . }}
-          </div>
-          {{ end }}
+            {{ if eq $layout "grid" }}
+              <div class="col-6">
+                {{ partialCached "content/post" . . }}
+              </div>
+            {{ else if eq $layout "list" }}
+              <div class="col-12">
+                {{ partialCached "content/post-list" . . }}
+              </div>
+            {{ end }}
           {{ end }}
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-{{ else }}
+  {{ else }}
 
-{{ partial "content/page-header.html" . }}
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <div class="content">
-          {{.Content}}
+    {{ partial "content/page-header.html" . }}
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="content">
+              {{.Content}}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-{{ end }}
+  {{ end }}
 
 {{ end }}

@@ -27,7 +27,7 @@
   },
   "scripts": {
     "audit:hugo": "./bin/dnb-hugo-audit.sh",
-    "build": "run-p build:critical build:script build:highlights && run-s build:hugo",
+    "build": "run-p build:critical build:highlights && run-s build:hugo",
     "build:critical": "./bin/build-critical-css.sh",
     "build:highlights": "hugo gen chromastyles --style=xcode > assets/scss/components/_syntaxhighlighting.scss",
     "build:hugo": "hugo --gc --minify",

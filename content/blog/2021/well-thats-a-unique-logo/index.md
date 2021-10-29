@@ -1,5 +1,5 @@
 ---
-title: "Well... that's a... unique logo?"
+title: "Well... that's a unique... logo?"
 date: 2021-10-29T19:47:48+07:00
 publishDate: 2021-10-29T19:47:48+07:00
 lastmod: 2021-10-29T19:47:48+07:00

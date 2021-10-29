@@ -1,25 +1,26 @@
 {{- $articleimages := .Resources.ByType "image" -}}
 {{- $link := .Permalink -}}
-{{with $articleimages }}
-  <div class="text-center post-slider">
-    {{ range $counter, $image := .}}
-      {{ $imageXL:= $image.Fill "925x475" }}
-      {{ $imageLG:= $image.Fill "775x400" }}
-      {{ $imageMD:= $image.Fill "690x355" }}
-      {{ $imageSM:= $image.Fill "545x295" }}
+{{- with $articleimages -}}
+  <div class="post-slider">
+    {{- range $counter, $image := . -}}
+      {{- $imageXL:= $image.Fill "925x475" -}}
+      {{- $imageLG:= $image.Fill "775x400" -}}
+      {{- $imageMD:= $image.Fill "690x355" -}}
+      {{- $imageSM:= $image.Fill "545x295" -}}
+      {{- $title := $image.Title | markdownify -}}
       <figure>
         <a href="{{- $link -}}">
           <picture>
-            <source srcset="{{ $imageSM.Permalink }}" media="(max-width: 575px)">
-            <source srcset="{{ $imageMD.Permalink }}" media="(max-width: 767px)">
-            <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 991px)">
-            <source srcset="{{ $imageXL.Permalink }}" media="(max-width: 1200px)">
-            <source srcset="{{$imageXL.Permalink}}">
-            <img loading="lazy" class="img-fluid" src="{{$imageXL.Permalink}}" alt="Image not Found">
+            <source srcset="{{- $imageSM.Permalink -}}" media="(max-width: 575px)">
+            <source srcset="{{- $imageMD.Permalink -}}" media="(max-width: 767px)">
+            <source srcset="{{- $imageLG.Permalink -}}" media="(max-width: 991px)">
+            <source srcset="{{- $imageXL.Permalink -}}" media="(max-width: 1200px)">
+            <source srcset="{{- $imageXL.Permalink -}}">
+            <img loading="lazy" class="img-fluid" src="{{- $imageXL.Permalink -}}" alt="{{- $title | plainify -}}">
           </picture>
         </a>
-        <figcaption>{{ $image.Title | markdownify }}</figcaption>
+        <figcaption class="text-center">{{- $title -}}</figcaption>
       </figure>
-    {{ end }}
+    {{- end -}}
   </div>
-{{end}}
+{{- end -}}

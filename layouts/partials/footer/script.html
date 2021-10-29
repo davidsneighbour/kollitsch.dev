@@ -1,17 +1,6 @@
-<!-- JS Plugins + Main script -->
-{{ $scripts := slice }}
-{{ range site.Params.plugins.js}}
-  {{ if findRE "^http" .link }}
-    <script src="{{ .link | absURL }}" type="application/javascript" {{.attributes | safeHTMLAttr}}></script>
-  {{ else }}
-    {{ $scripts = $scripts | append (resources.Get .link) }}
-  {{ end }}
-{{ end }}
-{{ $scripts := $scripts | append (resources.Get "js/script.js" | minify) }}
-{{ $scripts := $scripts | append (resources.Get "js/theme.js" | minify) }}
-{{ $scripts := $scripts | resources.Concat "/js/script.js" | minify | fingerprint "sha512" }}
+{{ $scripts := resources.Get "js/script.ts" | js.Build | minify | fingerprint "sha512" }}
 <script
   src="{{ $scripts.Permalink }}"
-  crossorigin="anonymous" defer="defer"
-  data-turbolinks-suppress-warning
+  defer
   integrity="{{ $scripts.Data.Integrity }}"></script>
+{{- /* type="module" */ -}}

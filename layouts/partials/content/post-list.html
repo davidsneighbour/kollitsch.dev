@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-lg-6">
-      <div class="card-body pt-lg-0">
+      <div class="card-body shadow-sm pt-lg-0">
         <ul class="list-inline mb-2">
           <li class="list-inline-item mb-2">
             {{ partial "content/author.html" . }}
@@ -26,7 +26,7 @@
         <h3 class="mb-3">
           <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
         </h3>
-        <p>{{ .Plain | truncate 100 }}</p>
+        <p>{{ .Summary }}</p>
 
         <a href="{{.Permalink}}" aria-label="Read Article">
           {{ i18n "read_article" }}

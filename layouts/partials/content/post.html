@@ -1,4 +1,4 @@
-<article class="card post-card">
+<article class="card shadow-sm post-card">
 
   {{- partialCached "content/article-images.html" . . -}}
 
@@ -21,7 +21,7 @@
     <h3 class="mb-3">
       <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
     </h3>
-    <p>{{ .Plain | truncate 150 }}</p>
+    <p>{{ .Summary }}</p>
 
     <a href="{{.Permalink}}" aria-label="Read Article">
       {{ i18n "read_article" }}

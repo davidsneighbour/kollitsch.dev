@@ -19,12 +19,14 @@ github.com/dnb-org/components/sitemap v1.4.8 h1:VlTG7U9wIGOFuOW8s9FQ+aUHnsLvdCpv
 github.com/dnb-org/components/sitemap v1.4.8/go.mod h1:Nn+4/+uAGQAId5lvyRyN/sLYk+FjA0e+jUMqOTau/fU=
 github.com/dnb-org/components/social v1.4.8 h1:0IQFSvevYaFWhKVn6lCjvXpKLdttRsavY7CRVTSsGps=
 github.com/dnb-org/components/social v1.4.8/go.mod h1:1ciAbBlH7dkuAfA88dk/gbYrXp8gQD/hzgwi6HguzBI=
-github.com/dnb-org/debug v1.3.5 h1:evHiS/zqMIivx5BiRQIUvQtOtI1fCGZ859JwSpavCWI=
-github.com/dnb-org/debug v1.3.5/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
+github.com/dnb-org/debug v1.4.1 h1:jWSRBI1sBkbU7aS8uSc9GHyz0dnRAvrbBs5NgLCGFlI=
+github.com/dnb-org/debug v1.4.1/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
 github.com/dnb-org/hooks v1.0.16 h1:e/xPlrD0jtCtXxwgnAiOdhTM4e42JXRW4SXudUJQGRo=
 github.com/dnb-org/hooks v1.0.16/go.mod h1:hYVzB0Lk3ut+lNLNYGRh8xn8YfVCVxnM+u5eQxltOaA=
 github.com/dnb-org/libraries/heroicons v1.0.3 h1:HIMctgGhctWjOU1JK1DtetjdIXhjABN3Cun65Kppuv4=
 github.com/dnb-org/libraries/heroicons v1.0.3/go.mod h1:eGLho1QH6BtWicXfclCNSSRsaGYuQ++yaW2f6fhKk6Y=
+github.com/dnb-org/shortcodes/collection v1.4.21 h1:Ptce3e7TEGFXQRNzeYxURUTw9ju4SiAldgZX2o074y0=
+github.com/dnb-org/shortcodes/collection v1.4.21/go.mod h1:jY4DOilX3w3F/NIuVyqLIumMK1f8gPpXCIQxutZM0Kg=
 github.com/dnb-org/shortcodes/pictures v0.0.12 h1:sw2nxURdIreZqkSOdDahppyffR1f80mRhUs6jlZDGrY=
 github.com/dnb-org/shortcodes/pictures v0.0.12/go.mod h1:lzda/swoLiTpsOxJ0OsKUtXP3FMpl/x/OWQ6Nds1ipQ=
 github.com/dnb-org/shortcodes/youtube v1.4.16 h1:srA1K+TW/Yd8IxvQPN4uARDLMd8m2zS78oi5Sa/IG3Q=

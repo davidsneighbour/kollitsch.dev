@@ -8,3 +8,12 @@ preloader("GNAH");
 // alpine
 Alpine.start()
 
+// tabs
+var triggerTabList = [].slice.call(document.querySelectorAll('#myTab button'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new Tab(triggerEl)
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+  })
+})

@@ -42,6 +42,9 @@ path = "github.com/dnb-org/libraries/heroicons"
 #path = "github.com/dnb-org/shortcodes/exchangerates"
 
 [[imports]]
+path = "github.com/dnb-org/shortcodes/collection"
+
+[[imports]]
 path = "github.com/dnb-org/shortcodes/youtube"
 
 [[imports]]

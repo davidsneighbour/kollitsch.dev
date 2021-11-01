@@ -5,6 +5,8 @@ description: ""
 resources:
 - title: 'Game Off 2021'
   src: 'hero.png'
+  params:
+    process: false
 tags: ["game-off", "javascript", "projects", "planning"]
 categories: ["programming", "projects"]
 ---

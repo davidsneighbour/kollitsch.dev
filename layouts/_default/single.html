@@ -1,16 +1,5 @@
 {{ define "main"}}
 
-<!-- checking blog -->
-{{ if or
-    (eq .Section "post")
-    (eq .Section "posts")
-    (eq .Section "blog")
-    (eq .Section "blogs")
-    (eq .Section "news")
-    (eq .Section "categories")
-    (eq .Section "tags")
-}}
-
 <section>
   <div class="container">
     <div class="row">
@@ -19,15 +8,11 @@
         <div>
           <div class="text-center mb-5">
             <h3 class="h2 mb-4 post-title">{{.Title}}</h3>
-            <ul class="list-inline">
-              <li class="list-inline-item">
+            <div class="text-center">
                 {{ partial "content/author.html" . }}
-              </li>
-              <li class="list-inline-item">|</li>
-              <li class="list-inline-item">
+                &nbsp;|&nbsp;
                 {{ partialCached "content/publishing-date.html" . . }}
-              </li>
-            </ul>
+            </div>
           </div>
 
           {{- partialCached "content/article-images.html" . . -}}
@@ -70,21 +55,5 @@
     </div>
   </div>
 </section>
-
-{{ else }}
-
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="content">
-          {{.Content}}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{ end }}
 
 {{ end }}

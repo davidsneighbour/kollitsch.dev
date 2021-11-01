@@ -1,0 +1,20 @@
+{{- if site.IsServer -}}
+  <footer id="debugging">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          {{ partial "debugprint.html" . }}
+          {{ partial "debugprint.html" .Params }}
+          {{ partial "debugprint.html" .Site }}
+          {{ partial "debugprint.html" .Site.Menus }}
+          {{ partial "debugprint.html" .Resources }}
+          {{ partial "debugprint.html" .File }}
+          {{ $layoutTrace := .Scratch.Get "trace" }}
+          {{ with $layoutTrace }}
+            {{ partial "debugprint.html" . }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </footer>
+{{- end -}}

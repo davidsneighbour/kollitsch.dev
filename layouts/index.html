@@ -1,113 +1,117 @@
 {{ define "main" }}
+{{- .Scratch.Add "trace" (slice "<index.html>") -}}
+{{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
 
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="is--textfit text-center">KOLLITSCH.DE</h1>
-        <a href="/">
-          <img src="/assets/logo/logo.svg" style="width: 100%; height: auto" />
-        </a>
-      </div>
-      {{ $layout := site.Params.post_layout }}
-      {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSection) }}
-      {{ range $index, $items := $paginator.Pages }}
-        {{ if (eq $index 0) }}
-          <div class="col-12">
-            {{ partialCached "content/post-fluid" . . }}
-          </div>
-        {{ else }}
-          {{ if eq $layout "grid" }}
-            <div class="col-md-6">
-              {{ partialCached "content/post" . . }}
-            </div>
-          {{ else if eq $layout "list" }}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="is--textfit text-center">KOLLITSCH.DE</h1>
+          <a href="/">
+            <img src="/assets/logo/logo.svg" style="width: 100%; height: auto" />
+          </a>
+        </div>
+        {{ $layout := site.Params.post_layout }}
+        {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSection) }}
+        {{ range $index, $items := $paginator.Pages }}
+          {{ if (eq $index 0) }}
             <div class="col-12">
-              {{ partialCached "content/post-list" . . }}
+              {{ partialCached "content/post-fluid" . . }}
             </div>
+          {{ else }}
+            {{ if eq $layout "grid" }}
+              <div class="col-md-6">
+                {{ partialCached "content/post" . . }}
+              </div>
+            {{ else if eq $layout "list" }}
+              <div class="col-12">
+                {{ partialCached "content/post-list" . . }}
+              </div>
+            {{ end }}
           {{ end }}
         {{ end }}
-      {{ end }}
-    </div>
+      </div>
 
-    <div class="row">
-      <div class="col-12">
-        <nav class="mt-4">
-          {{"<!-- pagination -->" | safeHTML }}
-          {{ $paginator := .Paginator }}
-          <!-- Number of links either side of the current page. -->
-          {{ $adjacent_links := 2 }}
-          <!-- $max_links = ($adjacent_links * 2) + 1 -->
-          {{ $max_links := (add (mul $adjacent_links 2) 1) }}
-          <!-- $lower_limit = $adjacent_links + 1 -->
-          {{ $lower_limit := (add $adjacent_links 1) }}
-          <!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
-          {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
-          <!-- If there's more than one page. -->
-          {{ if gt $paginator.TotalPages 1 }}
-            <nav class="mb-md-50">
-              <ul class="pagination justify-content-center">
-                <!-- Previous page. -->
-                {{ if $paginator.HasPrev }}
-                  <li class="page-item">
-                    <a class="page-link rounded" href="{{ $paginator.Prev.URL }}" aria-label="Pagination Arrow">
-                      {{- partialCached "icons/caret-left-fill.html" "caret-left-fill" "caret-left-fill" -}}
-                    </a>
-                  </li>
-                {{ end }}
-                <!-- Page numbers. -->
-                {{ range $paginator.Pagers }}
-                  {{ $.Scratch.Set "page_number_flag" false }}
-                  <!-- Advanced page numbers. -->
-                  {{ if gt $paginator.TotalPages $max_links }}
-                    <!-- Lower limit pages. -->
-                    <!-- If the user is on a page which is in the lower limit.  -->
-                    {{ if le $paginator.PageNumber $lower_limit }}
-                      <!-- If the current loop page is less than max_links. -->
-                      {{ if le .PageNumber $max_links }}
-                        {{ $.Scratch.Set "page_number_flag" true }}
-                      {{ end }}
-                    <!-- Upper limit pages. -->
-                    <!-- If the user is on a page which is in the upper limit. -->
-                    {{ else if ge $paginator.PageNumber $upper_limit }}
-                      <!-- If the current loop page is greater than total pages minus $max_links -->
-                      {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
-                        {{ $.Scratch.Set "page_number_flag" true }}
-                      {{ end }}
-                    <!-- Middle pages. -->
-                    {{ else }}
-                      {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
-                        {{ $.Scratch.Set "page_number_flag" true }}
-                      {{ end }}
-                    {{ end }}
-                  <!-- Simple page numbers. -->
-                  {{ else }}
-                    {{ $.Scratch.Set "page_number_flag" true }}
-                  {{ end }}
-                  <!-- Output page numbers. -->
-                  {{ if eq ($.Scratch.Get "page_number_flag") true }}
-                    <li class="page-item{{ if eq . $paginator }} active {{ end }}">
-                      <a href="{{ .URL }}" class="page-link rounded">
-                        {{ .PageNumber }}
+      <div class="row">
+        <div class="col-12">
+          <nav class="mt-4">
+            {{"<!-- pagination -->" | safeHTML }}
+            {{ $paginator := .Paginator }}
+            <!-- Number of links either side of the current page. -->
+            {{ $adjacent_links := 2 }}
+            <!-- $max_links = ($adjacent_links * 2) + 1 -->
+            {{ $max_links := (add (mul $adjacent_links 2) 1) }}
+            <!-- $lower_limit = $adjacent_links + 1 -->
+            {{ $lower_limit := (add $adjacent_links 1) }}
+            <!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+            {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+            <!-- If there's more than one page. -->
+            {{ if gt $paginator.TotalPages 1 }}
+              <nav class="mb-md-50">
+                <ul class="pagination justify-content-center">
+                  <!-- Previous page. -->
+                  {{ if $paginator.HasPrev }}
+                    <li class="page-item">
+                      <a class="page-link rounded" href="{{ $paginator.Prev.URL }}" aria-label="Pagination Arrow">
+                        {{- partialCached "icons/caret-left-fill.html" "caret-left-fill" "caret-left-fill" -}}
                       </a>
                     </li>
                   {{ end }}
-                {{ end }}
-                <!-- Next page. -->
-                {{ if $paginator.HasNext }}
-                  <li class="page-item">
-                    <a class="page-link rounded" href="{{ $paginator.Next.URL }}" aria-label="Pagination Arrow">
-                      {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
-                    </a>
-                  </li>
-                {{ end }}
-              </ul>
-            </nav>
-          {{ end }}
-        </nav>
+                  <!-- Page numbers. -->
+                  {{ range $paginator.Pagers }}
+                    {{ $.Scratch.Set "page_number_flag" false }}
+                    <!-- Advanced page numbers. -->
+                    {{ if gt $paginator.TotalPages $max_links }}
+                      <!-- Lower limit pages. -->
+                      <!-- If the user is on a page which is in the lower limit.  -->
+                      {{ if le $paginator.PageNumber $lower_limit }}
+                        <!-- If the current loop page is less than max_links. -->
+                        {{ if le .PageNumber $max_links }}
+                          {{ $.Scratch.Set "page_number_flag" true }}
+                        {{ end }}
+                      <!-- Upper limit pages. -->
+                      <!-- If the user is on a page which is in the upper limit. -->
+                      {{ else if ge $paginator.PageNumber $upper_limit }}
+                        <!-- If the current loop page is greater than total pages minus $max_links -->
+                        {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
+                          {{ $.Scratch.Set "page_number_flag" true }}
+                        {{ end }}
+                      <!-- Middle pages. -->
+                      {{ else }}
+                        {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
+                          {{ $.Scratch.Set "page_number_flag" true }}
+                        {{ end }}
+                      {{ end }}
+                    <!-- Simple page numbers. -->
+                    {{ else }}
+                      {{ $.Scratch.Set "page_number_flag" true }}
+                    {{ end }}
+                    <!-- Output page numbers. -->
+                    {{ if eq ($.Scratch.Get "page_number_flag") true }}
+                      <li class="page-item{{ if eq . $paginator }} active {{ end }}">
+                        <a href="{{ .URL }}" class="page-link rounded">
+                          {{ .PageNumber }}
+                        </a>
+                      </li>
+                    {{ end }}
+                  {{ end }}
+                  <!-- Next page. -->
+                  {{ if $paginator.HasNext }}
+                    <li class="page-item">
+                      <a class="page-link rounded" href="{{ $paginator.Next.URL }}" aria-label="Pagination Arrow">
+                        {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </nav>
+            {{ end }}
+          </nav>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+{{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
+{{- .Scratch.Add "trace" (slice "</index.html>") -}}
 {{ end }}

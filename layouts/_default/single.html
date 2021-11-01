@@ -1,7 +1,15 @@
 {{ define "main"}}
 
 <!-- checking blog -->
-{{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
+{{ if or
+    (eq .Section "post")
+    (eq .Section "posts")
+    (eq .Section "blog")
+    (eq .Section "blogs")
+    (eq .Section "news")
+    (eq .Section "categories")
+    (eq .Section "tags")
+}}
 
 <section>
   <div class="container">

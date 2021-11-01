@@ -11,10 +11,10 @@ or the default author in config/_default/author.toml is used
 {{- end -}}
 
 {{ if $author.email }}
-  <div>
+  <span class="d-inline-block">
     <img loading="lazy" src="https://www.gravatar.com/avatar/{{ md5 $author.email }}?s=26&pg&d=identicon" alt="{{ $author.name }}">
     <span>{{ $author.name }}</span>
-  </div>
+  </span>
 {{ else }}
   {{ $imagePath:= $author.image }}
   {{ if (fileExists (add "assets/" $imagePath)) }}

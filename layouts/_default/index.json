@@ -17,7 +17,6 @@
       {{- range first 1 $articleimages -}}
         {{ $imageSM:= .Fill "460x250" }}
         {{ $imagePath = $imageSM.Permalink }}
-        {{ $imagePath = $imageSM.Permalink }}
       {{ end }}
     {{ end }}
   {{ end }}

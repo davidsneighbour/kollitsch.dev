@@ -6,21 +6,21 @@ name = "Home"
 
 ############################# Footer Menu ########################
 [[footer]]
-weight = 3
+weight = 40
 url = "privacy/"
 name = "Privacy"
 
 [[footer]]
-weight = 4
+weight = 50
 url = "terms-conditions/"
 name = "Terms & Conditions"
 
 [[footer]]
-weight = 1
+weight = 10
 url = "tags/"
 name = "Tags"
 
 [[footer]]
-weight = 2
+weight = 20
 url = "categories/"
 name = "Categories"

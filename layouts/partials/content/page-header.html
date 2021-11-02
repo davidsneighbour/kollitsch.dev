@@ -1,3 +1,5 @@
+{{if and (not .IsHome) (ne .Section "blog") (ne .Section "homepage") (ne .Permalink (`about/` | absLangURL)) (ne .Permalink (`search/` | absLangURL)) }}
+
 <section class="page-header">
   <div class="container">
     <div class="row">
@@ -36,3 +38,5 @@
     </div>
   </div>
 </section>
+
+{{ end }}

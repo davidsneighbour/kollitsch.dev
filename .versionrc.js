@@ -1,10 +1,7 @@
 const defaultStandardVersion = require("@dnb-org/standard-version-config");
 const localStandardVersion =  {
   bumpFiles: [
-    {
-      filename: "package.json",
-      type: "json",
-    },
+    ...defaultStandardVersion.bumpFiles,
     {
       filename: "data/dnb/build/info.json",
       type: "json",

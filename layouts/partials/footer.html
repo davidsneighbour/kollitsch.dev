@@ -1,7 +1,7 @@
-<footer id="footer" class="pt-5">
+<footer id="footer" class="py-5">
   <div class="container">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-lg-12 text-center">
+    <div class="row">
+      <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
           {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
         {{- end -}}
@@ -12,10 +12,10 @@
           {{- partialCached "footer/social-media.html" . -}}
         {{- end -}}
         {{- partialCached "footer/copyright.html" . -}}
-        {{- partial "footer/versioning.html" . -}}
-        {{- partial "footer/debugging.html" . -}}
+        {{- if site.IsServer -}}
+          {{- partial "footer/debugging.html" . -}}
+        {{- end -}}
       </div>
     </div>
   </div>
 </footer>
-{{- partialCached "footer/script.html" . -}}

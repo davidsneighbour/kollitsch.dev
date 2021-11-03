@@ -1,0 +1,8 @@
+<div>
+  Connect on
+  {{- range site.Params.social -}}
+    &nbsp;
+    <a href="{{- .url -}}">{{- partialCached (printf "icons/%s.html" .icon) .icon .icon -}}</a>
+    &nbsp;
+  {{- end -}}
+</div>

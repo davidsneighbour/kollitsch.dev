@@ -1,32 +1,21 @@
-<footer id="footer">
+<footer id="footer" class="pt-5">
   <div class="container">
     <div class="row justify-content-center align-items-center">
-      {{ with site.Params.subscription }}
-        <div class="col-lg-12">
+      <div class="col-lg-12 text-center">
+        {{- with site.Params.subscription -}}
           {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
-        </div>
-      {{ end }}
-      <div class="col-lg-12 text-center mt-5">
-        <ul class="list-inline mb-4">
-          {{ range site.Menus.footer }}
-            <li class="list-inline-item mx-3"><a href="{{.URL | absLangURL}}">{{.Name}}</a></li>
-          {{ end }}
-        </ul>
-        <ul class="list-unstyled list-inline mb-3">
-          {{range site.Params.social}}
-          <li class="list-inline-item text-center">
-            <a href="{{.url}}" aria-label="social-icon">
-              {{ partialCached (printf "icons/%s.html" .icon) .icon .icon }}
-            </a>
-          </li>
-          {{end}}
-        </ul>
-        <p class="mb-0 copyright-text content">{{ i18n "copyright-text" | markdownify | safeHTML }}</p>
-        <p class="my-5">v{{ site.Data.dnb.build.info.version }}</p>
-        {{ partial "footer/debugging.html" . }}
+        {{- end -}}
+        {{- with site.Menus.footer -}}
+          {{- partialCached "footer/footer-menu.html" . -}}
+        {{- end -}}
+        {{- with site.Params.social -}}
+          {{- partialCached "footer/social-media.html" . -}}
+        {{- end -}}
+        {{- partialCached "footer/copyright.html" . -}}
+        {{- partial "footer/versioning.html" . -}}
+        {{- partial "footer/debugging.html" . -}}
       </div>
     </div>
   </div>
 </footer>
-
-{{ partialCached "footer/script.html" . }}
+{{- partialCached "footer/script.html" . -}}

@@ -1,8 +1,11 @@
----
-title: "Contact"
-menu:
-  main:
-    weight: 5
----
++++
+title = 'Contact'
+[menu]
+  [menu.main]
+    weight = 5
+
+
+
++++
 
 {{< contact-form >}}

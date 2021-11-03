@@ -1,14 +1,16 @@
----
-title: "(Another) new beginning"
-date: 2021-10-21T20:00:00+07:00
-description: "A short summary of how we got here and where we go from here."
-resources:
-  - title: "Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)"
-    src: "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
-categories: ["about"]
-tags: ["kollitsch.de", "me now"]
-keywords: []
----
++++
+categories = ['about']
+date = '2021-10-21T20:00:00+07:00'
+description = 'A short summary of how we got here and where we go from here.'
+keywords = []
+tags = ['kollitsch.de', 'me now']
+title = '(Another) new beginning'
+[[resources]]
+src = 'ave-calvar-HcUDHJfd5GY-unsplash.jpg'
+title = 'Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)'
+
+
++++
 
 **Hello again, Internet!** You might not know me, but you probably already somewhere came across my work or myself if you ended up here. My name is Patrick (born 1975). I am a German, living on Koh Samui in Thailand and I am a web worker. Let me give you a short summary of how we got here and where we go from here :smile:
 

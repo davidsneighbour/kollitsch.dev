@@ -21,6 +21,7 @@
     {{ end }}
   {{ end }}
   {{- $index = $index | append (dict
+        "objectID" .File.UniqueID
         "title" .Title
         "tags" .Params.tags
         "image" $imagePath

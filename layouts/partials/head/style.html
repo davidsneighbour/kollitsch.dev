@@ -1,7 +1,5 @@
 {{ $styles := resources.Get "scss/style.scss" }}
 {{ $styles = $styles | resources.ToCSS }}
 {{/* {{ $styles = $styles | resources.PostCSS }} */}}
-{{ $styles = $styles | fingerprint "sha512"}}
+{{ $styles = $styles | minify | fingerprint "sha512"}}
 <link rel="stylesheet" media="all" integrity="{{ $styles.Data.Integrity }}" href="{{ $styles.Permalink }}">
-
-

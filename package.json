@@ -35,7 +35,7 @@
     "check-env": "node -e 'console.log(process.env)' | grep npm_config_",
     "clean": "run-p clean:hugo",
     "clean:all": "run-p clean:*",
-    "clean:hugo": "rimraf hugo.log hugo_stats.json resources public",
+    "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
     "clean:npm": "rimraf node_modules package-lock.json",
     "release": "npm run release:patch",
     "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",

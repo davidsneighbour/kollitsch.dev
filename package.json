@@ -20,7 +20,7 @@
     "precss": "4.0.0"
   },
   "devDependencies": {
-    "@dnb-org/all": "3.3.8",
+    "@dnb-org/all": "3.3.9",
     "@types/jquery": "3.5.8",
     "slick-carousel": "1.8.1",
     "typescript": "4.4.4"
@@ -78,7 +78,7 @@
   },
   "slug": "kollitsch-de",
   "stylelint": {
-    "extends": "@dnb-org/stylelint-config-dnb"
+    "extends": "@dnb-org/stylelint-config"
   },
   "url": "https://kollitsch.de"
 }

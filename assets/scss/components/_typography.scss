@@ -20,3 +20,13 @@ mark {
   padding: 0;
   color: $primary;
 }
+
+blockquote {
+  background-color: lighten($primary, 55%);
+  padding-left: 0.95rem;
+  border-left: $primary 5px solid;
+
+  cite {
+    font-style: italic;
+  }
+}

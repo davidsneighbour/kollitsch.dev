@@ -1,11 +1,10 @@
-{{ $_hugo_config := `{ "version": 1 }` }}
-
-<div class="quote">
-  <i class="ti-quote-left"></i>
-  <div>
-    <p>{{ .Inner | markdownify }}</p>
-    {{ with .Get "by"}}
-    <span class="quote-by"> -{{ . }}</span>
-    {{ end }}
-  </div>
-</div>
+{{- $src := .Get "src" -}}
+{{- $source := .Get "source" -}}
+<blockquote>
+  {{- .Inner | markdownify -}}
+  {{- with $source -}}
+    <cite>
+      {{- i18n "via" | default "via" -}}&nbsp;<a href="{{- $src -}}">{{- $source -}}</a>
+    </cite>
+  {{- end -}}
+</blockquote>

@@ -45,7 +45,8 @@
     "serve:script": "tsc --watch",
     "serve": "run-p serve:hugo",
     "server": "npm run serve",
-    "lighthouse": "bin/lighthouse.sh"
+    "lighthouse": "bin/lighthouse.sh",
+    "lint:templates": "bin/lint-templates.sh"
   },
   "private": true,
   "browserslist": [

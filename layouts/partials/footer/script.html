@@ -1,6 +1,7 @@
 {{- $scripts := resources.Get "js/script.ts" | js.Build | minify | fingerprint "sha512" -}}
 <script
   type="module"
+  importance="low"
   src="{{- $scripts.Permalink -}}"
   async defer
   integrity="{{- $scripts.Data.Integrity -}}"></script>

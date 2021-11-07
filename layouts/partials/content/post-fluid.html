@@ -22,7 +22,7 @@
     <p>{{ .Summary }}</p>
 
     <a href="{{.Permalink}}" aria-label="Read Article">
-      {{ i18n "read_article" }}
+      {{ i18n "read_article" | default "Read Article" }}
       {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
     </a>
   </div>

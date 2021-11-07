@@ -2,6 +2,7 @@
 
 <section>
   <div class="container">
+    {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
     <div class="row">
 
       <div class="col-12">
@@ -53,6 +54,7 @@
       </div>
 
     </div>
+  {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
   </div>
 </section>
 

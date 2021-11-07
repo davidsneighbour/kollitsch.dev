@@ -68,6 +68,14 @@ params = ["categories", "tags"]
 [dnb]
 javascript = "script-local.js"
 
+[dnb.hooks]
+disable_messages = [
+  "unused_hooks",
+  "running_hooks",
+  "running_cached_hooks",
+  "running_uncached_hooks",
+]
+
 [[dnb.contacts]]
 name = "WhatsApp"
 url = "https://wa.me/66878979350?&lang=en"

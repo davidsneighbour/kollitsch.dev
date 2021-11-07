@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-de",
-  "version": "2021.0.59",
+  "version": "2021.0.60",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.de",
   "author": {
@@ -81,7 +81,9 @@
   "slug": "kollitsch-de",
   "stylelint": {
     "extends": "@dnb-org/stylelint-config",
-    "ignoreFiles": ["assets/scss/settings/_bootstrap-variables.scss"]
+    "ignoreFiles": [
+      "assets/scss/settings/_bootstrap-variables.scss"
+    ]
   },
   "url": "https://kollitsch.de"
 }

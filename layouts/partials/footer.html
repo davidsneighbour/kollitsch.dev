@@ -1,6 +1,7 @@
 <footer id="footer" class="py-5">
   <div class="container">
     <div class="row">
+      {{- partial "func/hook.html" ( dict "hook" "footer-start" "context" . ) -}}
       <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
           {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
@@ -16,6 +17,7 @@
           {{- partial "footer/debugging.html" . -}}
         {{- end -}}
       </div>
+      {{- partial "func/hook.html" ( dict "hook" "footer-end" "context" . ) -}}
     </div>
   </div>
 </footer>

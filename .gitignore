@@ -6,6 +6,7 @@ resources
 assets/js/**/*.js
 assets/jsconfig.json
 content/ideas.md
+.vscode/*.code-snippets
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
@@ -294,7 +295,6 @@ GitHub.sublime-settings
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/*.code-snippets
 #*.code-workspace
 
 # Local History for Visual Studio Code

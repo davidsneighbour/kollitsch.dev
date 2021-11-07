@@ -1,10 +1,10 @@
-@import "settings/fonts";
+@import 'settings/fonts';
 
 // bootstrap
 // Configuration
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
-@import "settings/theme"; // local setup
+@import 'settings/theme'; // local setup
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/utilities';
 
@@ -48,26 +48,26 @@
 @import '../../node_modules/bootstrap/scss/utilities/api';
 
 // plugins
-@import "../../node_modules/slick-carousel/slick/slick.scss";
+@import '../../node_modules/slick-carousel/slick/slick.scss';
 
 // theme files
-@import "components/layout";
-@import "components/topnavigation";
-@import "components/article";
-@import "components/typography";
-@import "components/forms";
-@import "components/footer";
-@import "components/syntaxhighlighting";
-@import "components/social-icons";
-@import "components/figure";
-@import "components/search";
-@import "components/breadcrumbs";
-@import "components/pagination";
-@import "components/slider";
+@import 'components/layout';
+@import 'components/topnavigation';
+@import 'components/article';
+@import 'components/typography';
+@import 'components/forms';
+@import 'components/footer';
+@import 'components/syntaxhighlighting';
+@import 'components/social-icons';
+@import 'components/figure';
+@import 'components/search';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/slider';
 
 // plugins
-@import "plugins/youtube";
-@import "plugins/debugprint";
+@import 'plugins/youtube';
+@import 'plugins/debugprint';
 
 // local overrides
-@import "local";
+@import 'local';

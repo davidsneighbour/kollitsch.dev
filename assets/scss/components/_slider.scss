@@ -27,54 +27,68 @@
 
 
 .slick-slide {
+  outline: 0;
+}
+
+.post-slider {
+  position: relative;
+
+  overflow: hidden;
+
+  &:hover {
+    .prevArrow {
+      left: 25px;
+    }
+
+    .nextArrow {
+      right: 25px;
+    }
+  }
+}
+
+.slider-sm {
+  .slick-arrow {
+    width: 42px;
+    height: 42px;
+
+    line-height: 42px;
+  }
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 9;
+
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 50%;
+
+  color: $white;
+  line-height: 50px;
+
+  background: rgba($primary, 0.5);
+  transform: translateY(-50%);
+
+  transition: 0.3s;
+
+  &:focus {
     outline: 0;
   }
-  .post-slider {
-    overflow: hidden;
-    position: relative;
-    &:hover {
-      .prevArrow {
-        left: 25px;
-      }
-      .nextArrow {
-        right: 25px;
-      }
-    }
+
+  &:hover {
+    background: $primary;
   }
-  .slider-sm {
-    .slick-arrow {
-      height: 42px;
-      width: 42px;
-      line-height: 42px;
-    }
+  @include mobile {
+    display: none;
   }
-  .slick-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 9;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
-    border-radius: 50%;
-    background: rgba($primary, 0.5);
-    color: $white;
-    border: 0;
-    transition: 0.3s;
-    @include mobile {
-      display: none;
-    }
-    &:focus {
-      outline: 0;
-    }
-    &:hover {
-      background: $primary;
-    }
-  }
-  .prevArrow {
-    left: -60px;
-  }
-  .nextArrow {
-    right: -60px;
-  }
-  
+}
+
+.prevArrow {
+  left: -60px;
+}
+
+.nextArrow {
+  right: -60px;
+}

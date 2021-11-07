@@ -2,31 +2,35 @@
 // pagination
 .pagination {
   .page-link {
-    padding: 0;
-    margin-left: 0;
-    color: $dark;
-    border: 0;
-    margin: 0 4px;
-    height: 48px;
     width: 48px;
+    height: 48px;
+    margin: 0 4px;
+    margin-left: 0;
+    padding: 0;
+    border: 0;
+
+    color: $dark;
+    font-weight: 700;
     line-height: 48px;
     text-align: center;
-    font-weight: 700;
 
     &.active,
     &:focus,
     &:hover {
-      box-shadow: none;
       color: $white;
+
       background-color: $primary;
+      box-shadow: none;
     }
 
     &.arrow {
-      font-size: 26px;
       width: auto;
+
+      font-size: 26px;
 
       &:hover {
         color: $primary;
+
         background-color: $white;
       }
     }
@@ -34,9 +38,10 @@
 
   .page-item.active {
     .page-link {
-      box-shadow: none;
       color: $white;
+
       background-color: $primary;
+      box-shadow: none;
     }
   }
 }

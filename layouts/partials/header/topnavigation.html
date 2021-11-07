@@ -1,6 +1,7 @@
+{{- partial "func/hook.html" ( dict "hook" "header-topnav-pre" "context" . ) -}}
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-lg mb-5">
   <div class="container-fluid">
-
+    {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
     <a class="navbar-brand" href="{{site.BaseURL | relLangURL}}">
       {{if site.Params.logo}}
         <img src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
@@ -8,11 +9,11 @@
         {{site.Title}}
       {{end}}
     </a>
-
+    {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-logo" "context" . ) -}}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre-mainnav" "context" . ) -}}
     <ul class="navbar-nav ms-auto me-auto me-lg-0">
       {{ $current := . }}
       {{ range site.Menus.main }}
@@ -34,6 +35,8 @@
         {{end}}
       {{end}}
     </ul>
-
+    {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-mainnav" "context" . ) -}}
+    {{- partial "func/hook.html" ( dict "hook" "header-topnav-end" "context" . ) -}}
   </div>
 </nav>
+{{- partial "func/hook.html" ( dict "hook" "header-topnav-post" "context" . ) -}}

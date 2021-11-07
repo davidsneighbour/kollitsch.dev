@@ -1,4 +1,4 @@
-{{ partialCached "content/topnavigation.html" . }}
+{{ partialCached "header/topnavigation.html" . }}
 
 {{if site.Params.search}}
 <div class="search-block">
@@ -10,3 +10,6 @@
   </form>
 </div>
 {{end}}
+
+{{ partial "header/page-header.html" . }}
+

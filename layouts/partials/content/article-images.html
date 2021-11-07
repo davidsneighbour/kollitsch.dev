@@ -3,18 +3,20 @@
 {{- with $articleimages -}}
   <div class="post-slider">
     {{- range $counter, $image := . -}}
-      {{- $imageXL:= $image.Fill "960x480" -}}
-      {{- $imageLG:= $image.Fill "720x360" -}}
-      {{- $imageSM:= $image.Fill "540x270" -}}
+      {{- $imageXL:= $image.Fill "914x457" -}}
+      {{- $imageLG:= $image.Fill "674x337" -}}
+      {{- $imageSM:= $image.Fill "517x259" -}}
+      {{- $imageXS:= $image.Fill "494x247" -}}
       {{- $title := $image.Title | markdownify -}}
       <figure>
         <a href="{{- $link -}}">
           <picture>
+            <source srcset="{{- $imageXS.Permalink -}}" media="(max-width: 520px)">
             <source srcset="{{- $imageSM.Permalink -}}" media="(max-width: 540px)">
             <source srcset="{{- $imageLG.Permalink -}}" media="(max-width: 720px)">
             <source srcset="{{- $imageXL.Permalink -}}" media="(max-width: 960px)">
             <source srcset="{{- $imageXL.Permalink -}}">
-            <img loading="lazy" class="img-fluid" src="{{- $imageXL.Permalink -}}" alt="{{- $title | plainify -}}">
+            <img loading="lazy" class="img-fluid" src="{{- $imageXL.Permalink -}}" alt="{{- $title | plainify -}}" width="960" height="480">
           </picture>
         </a>
         <figcaption class="text-center">{{- $title -}}</figcaption>

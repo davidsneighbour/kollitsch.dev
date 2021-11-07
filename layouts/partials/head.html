@@ -1,33 +1,30 @@
+{{- partial "func/hook.html" ( dict "hook" "head-init" "context" . ) -}}
 <meta charset="utf-8">
-<title>{{ .Title }}</title>
-
+<title>{{- .Title -}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- partial "func/hook.html" ( dict "hook" "head-start" "context" . ) -}}
 <meta name="author" content="{{ site.Params.author }}">
-<meta name="description" content="{{ with .Params.description }}{{.}}{{else}}{{ with site.Params.description }}{{.}}{{end}}{{end}}">
-
-{{ "<!-- mobile responsive meta -->" | safeHTML}}
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-
-<!-- DNS preconnect -->
+<meta name="description" content="{{- with .Params.description -}}
+  {{- . -}}
+{{- else -}}
+  {{- with site.Params.description -}}
+    {{- . -}}
+  {{- end -}}
+{{- end -}}">
 <meta http-equiv="x-dns-prefetch-control" content="on">
-<link rel="preconnect" href="//ajax.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link rel="preconnect" href="//cdnjs.cloudflare.com">
-<link rel="preconnect" href="//www.googletagmanager.com">
-<link rel="preconnect" href="//www.google-analytics.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link rel="dns-prefetch" href="//ajax.googleapis.com">
-<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-<link rel="dns-prefetch" href="//www.googletagmanager.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//connect.facebook.net">
-<link rel="dns-prefetch" href="//platform.linkedin.com">
-<link rel="dns-prefetch" href="//platform.twitter.com">
-
-{{ "<!-- Favicon -->" | safeHTML}}
-<link rel="icon" href="{{ site.Params.favicon | absURL }}" type="image/x-icon">
-
-<!-- google analytics -->
-{{ template "_internal/google_analytics.html" . }}
-
-{{ partialCached "head/style.html" . }}
+{{- with site.Params.head.preconnect -}}
+  {{- range . -}}
+    <link rel="preconnect" href="{{- . -}}">
+  {{- end -}}
+{{- end -}}
+{{- with site.Params.head.prefetch -}}
+  {{- range . -}}
+    <link rel="dns-prefetch" href="{{- . -}}">
+  {{- end -}}
+{{- end -}}
+<link rel="icon" href="{{- site.Params.favicon | absURL -}}" type="image/x-icon">
+{{- template "_internal/google_analytics.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-pre-css" "context" . ) -}}
+{{- partialCached "head/style.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-post-css" "context" . ) -}}
+{{- partial "func/hook.html" ( dict "hook" "head-end" "context" . ) -}}

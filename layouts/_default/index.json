@@ -1,25 +1,25 @@
 {{- $index := slice -}}
 {{- range where site.RegularPages "Type" "in" site.Params.mainSections -}}
-  {{ $imagePath := "" }}
+  {{- $imagePath := "" -}}
   {{- $articleimages := .Resources.ByType "image" -}}
   {{- with $articleimages -}}
     {{- range first 1 $articleimages -}}
-      {{ $imageSM:= .Fill "460x250" }}
-      {{ $imagePath = $imageSM.Permalink }}
-    {{ end }}
-  {{ else }}
-    {{ with .Params.images }}
-      {{ range first 1 . }}
-        {{ if (fileExists (add `assets/` .)) }}
-          {{ $image = resources.Get . }}
-          {{ $imageSM:= $image.Fill "460x250" }}
-          {{ $imagePath = $imageSM.Permalink }}
-        {{ else }}
-          {{ $imagePath = (. | absURL) }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+      {{- $imageSM:= .Fill "460x250" -}}
+      {{- $imagePath = $imageSM.Permalink -}}
+    {{- end -}}
+  {{- else -}}
+    {{- with .Params.images -}}
+      {{- range first 1 . -}}
+        {{- if (fileExists (add `assets/` .)) -}}
+          {{- $image = resources.Get . -}}
+          {{- $imageSM:= $image.Fill "460x250" -}}
+          {{- $imagePath = $imageSM.Permalink -}}
+        {{- else -}}
+          {{- $imagePath = (. | absURL) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
   {{- $index = $index | append (dict
         "objectID" .File.UniqueID
         "title" .Title

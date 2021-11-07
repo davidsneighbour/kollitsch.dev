@@ -1,5 +1,5 @@
 <div>
-  {{ i18n "connect-on-social" | default "Connect on Social Media" }}
+  {{- i18n "connect-on-social" | default "Connect on Social Media" -}}
   {{- range site.Params.social -}}
     &nbsp;
     <a href="{{- .url -}}">{{- partialCached (printf "icons/%s.html" .icon) .icon .icon -}}</a>

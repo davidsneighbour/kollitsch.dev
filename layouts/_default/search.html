@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{- define "main" -}}
 
 <section>
   <div class="container">
@@ -20,8 +20,8 @@
       <div class="col-12">
         <div class="row justify-content-center" id="search-results"></div>
         <div class="row justify-content-center">
-          {{ $layout := site.Params.post_layout }}
-          {{ if eq $layout "grid" }}
+          {{- $layout := site.Params.post_layout -}}
+          {{- if eq $layout "grid" -}}
           <script id="search-result-template" type="text/x-js-template">
             <div class="col-lg-4 col-md-6 mb-4">
               <article class="card post-card" id="summary-${key}">
@@ -35,7 +35,7 @@
               </article>
             </div>
           </script>
-          {{ else if eq $layout "list" }}
+          {{- else if eq $layout "list" -}}
           <script id="search-result-template" type="text/x-js-template">
             <div class="col-lg-10">
               <article class="card post-card" id="summary-${key}">
@@ -57,7 +57,7 @@
               </article>
             </div>
           </script>
-          {{ end }}
+          {{- end -}}
         </div>
       </div>
     </div>
@@ -68,4 +68,4 @@
 <!-- Search index -->
 <script>var indexURL = {{"index.json" | absLangURL}}</script>
 
-{{ end }}
+{{- end -}}

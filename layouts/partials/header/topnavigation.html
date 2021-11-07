@@ -2,11 +2,11 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-lg mb-5">
   <div class="container-fluid">
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
-    <a class="navbar-brand" href="{{site.BaseURL | relLangURL}}">
+    <a class="navbar-brand" href="{{- site.BaseURL | relLangURL -}}">
       {{if site.Params.logo}}
-        <img src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
+        <img src="{{- site.Params.logo | absURL -}}" alt="{{- site.Title -}}" height="{{- site.Params.logo_height -}}">
       {{else}}
-        {{site.Title}}
+        {{- site.Title -}}
       {{end}}
     </a>
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-logo" "context" . ) -}}

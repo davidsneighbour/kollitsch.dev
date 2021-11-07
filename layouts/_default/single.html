@@ -1,4 +1,4 @@
-{{ define "main"}}
+{{- define "main"}}
 
 <section>
   <div class="container">
@@ -8,45 +8,45 @@
       <div class="col-12">
         <div>
           <div class="text-center mb-5">
-            <h3 class="h2 mb-4 post-title">{{.Title}}</h3>
+            <h3 class="h2 mb-4 post-title">{{- .Title -}}</h3>
             <div class="text-center">
-                {{ partial "content/author.html" . }}
+                {{- partial "content/author.html" . -}}
                 &nbsp;|&nbsp;
-                {{ partialCached "content/publishing-date.html" . . }}
+                {{- partialCached "content/publishing-date.html" . . -}}
             </div>
           </div>
 
           {{- partialCached "content/article-images.html" . . -}}
 
           <div class="content">
-            {{.Content}}
+            {{- .Content -}}
           </div>
 
           <ul class="list-unstyled list-inline">
-            {{range .Params.tags}}
-              <li class="list-inline-item"><a href="{{`tags` | absLangURL}}/{{.| urlize}}">{{.}}</a></li>
-            {{end}}
+            {{- range .Params.tags -}}
+              <li class="list-inline-item"><a href="{{- `tags` | absLangURL -}}/{{- . | urlize -}}">{{- . -}}</a></li>
+            {{- end -}}
           </ul>
 
-          {{ with site.DisqusShortname }}
-            {{ template "_internal/disqus.html" . }}
-          {{ end }}
+          {{- with site.DisqusShortname -}}
+            {{- template "_internal/disqus.html" . -}}
+          {{- end -}}
 
-          {{ with site.Params.giscus }}
-            {{ partial "content/giscus.html" . }}
-          {{ end }}
+          {{- with site.Params.giscus -}}
+            {{- partial "content/giscus.html" . -}}
+          {{- end -}}
 
           <div class="single-post-similer">
             <div class="row mt-3">
               <div class="col-12">
-                <h3 class="text-dark mb-4 pb-2">{{i18n "you_may_also_like"}}</h3>
+                <h3 class="text-dark mb-4 pb-2">{{- i18n "you_may_also_like" -}}</h3>
               </div>
-              {{ $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
-              {{ range first 2 $related }}
+              {{- $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) -}}
+              {{- range first 2 $related -}}
               <div class="col-md-6">
-                {{ partialCached "content/post" . . }}
+                {{- partialCached "content/post" . . -}}
               </div>
-              {{ end }}
+              {{- end -}}
             </div>
           </div>
 
@@ -58,4 +58,4 @@
   </div>
 </section>
 
-{{ end }}
+{{- end -}}

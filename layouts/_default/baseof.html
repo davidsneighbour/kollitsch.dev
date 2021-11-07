@@ -1,14 +1,14 @@
 {{- partial "func/hook.html" ( dict "hook" "setup" "context" . ) -}}
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default "en-US" }}">
+<html lang="{{- site.LanguageCode | default "en-US" -}}">
 <head>
-  {{ partial "head.html" . }}
+  {{- partial "head.html" . -}}
 </head>
 <body>
   {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
-  {{ partial "header.html" . }}
-  {{ block "main" . }}{{ end }}
-  {{ partialCached "footer.html" . . }}
+  {{- partial "header.html" . -}}
+  {{- block "main" . -}}{{- end -}}
+  {{- partialCached "footer.html" . . -}}
   {{- partial "func/hook.html" ( dict "hook" "body-end-pre-script" "context" . ) -}}
   {{- partialCached "footer/script.html" . -}}
   {{- partial "func/hook.html" ( dict "hook" "body-end" "context" . ) -}}

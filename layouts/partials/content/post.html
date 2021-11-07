@@ -5,26 +5,26 @@
   <div class="card-body">
     <ul class="list-inline mb-2">
       <li class="list-inline-item mb-2">
-        {{ partial "content/author.html" . }}
+        {{- partial "content/author.html" . -}}
       </li>
       <li class="list-inline-item mb-2">
-        {{ partialCached "content/publishing-date.html" . . }}
+        {{- partialCached "content/publishing-date.html" . . -}}
       </li>
       <li class="list-inline-item mb-2">
         <ul class="list-inline">
-          {{range .Params.tags}}
-          <li class="list-inline-item"><a href="{{site.BaseURL}}tags/{{.| urlize}}">{{.}}</a></li>
-          {{end}}
+          {{- range .Params.tags -}}
+          <li class="list-inline-item"><a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}">{{- . -}}</a></li>
+          {{- end -}}
         </ul>
       </li>
     </ul>
     <h3 class="mb-3">
-      <a class="post-title" href="{{.Permalink}}">{{.Title}}</a>
+      <a class="post-title" href="{{- .Permalink -}}">{{- .Title -}}</a>
     </h3>
-    <p>{{ .Summary }}</p>
+    <p>{{- .Summary -}}</p>
 
-    <a href="{{.Permalink}}" aria-label="Read Article">
-      {{ i18n "read_article" }}
+    <a href="{{- .Permalink -}}">
+      {{- i18n "read_article" -}}
       {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
     </a>
   </div>

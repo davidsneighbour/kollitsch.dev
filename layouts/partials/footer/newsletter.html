@@ -1,13 +1,13 @@
-<h3 class="h4 mb-4 text-center">{{ .title | markdownify }}</h3>
-<form class="px-0 px-sm-3 px-md-5" action="{{ .mailchimp_form_action }}" method="post" target="_blank">
+<h3 class="h4 mb-4 text-center">{{- .title | markdownify -}}</h3>
+<form class="px-0 px-sm-3 px-md-5" action="{{- .mailchimp_form_action -}}" method="post" target="_blank">
   <div class="input-group">
-    <input name="EMAIL" type="text" class="form-control" placeholder="{{ .input_placeholder }}" aria-label="Subscription" required autocomplete="new-email">
+    <input name="EMAIL" type="text" class="form-control" placeholder="{{- .input_placeholder -}}" aria-label="Subscription" required autocomplete="new-email">
     <button type="submit" name="subscription" class="btn btn-primary" aria-label="Subscription Button">
       {{- partialCached "icons/newspaper.html" "newspaper" "newspaper" -}}
     </button>
   </div>
   <div class="d-none" aria-hidden="true">
-    <input type="text" name="{{ .mailchimp_form_name }}" tabindex="-1">
+    <input type="text" name="{{- .mailchimp_form_name -}}" tabindex="-1">
   </div>
   <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
     <div class="content__gdpr">

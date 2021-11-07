@@ -1,29 +1,29 @@
-{{ define "main" }}
+{{- define "main" -}}
 
-  {{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
+  {{- if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") -}}
 
     <section>
       <div class="container">
         {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
         <div class="row">
-          {{ $layout := site.Params.post_layout }}
+          {{- $layout := site.Params.post_layout -}}
           {{range .Data.Pages}}
-            {{ if eq $layout "grid" }}
+            {{- if eq $layout "grid" -}}
               <div class="col-6">
-                {{ partialCached "content/post" . . }}
+                {{- partialCached "content/post" . . -}}
               </div>
-            {{ else if eq $layout "list" }}
+            {{- else if eq $layout "list" -}}
               <div class="col-12">
-                {{ partialCached "content/post-list" . . }}
+                {{- partialCached "content/post-list" . . -}}
               </div>
-            {{ end }}
-          {{ end }}
+            {{- end -}}
+          {{- end -}}
         </div>
       {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
       </div>
     </section>
 
-  {{ else }}
+  {{- else -}}
 
     <section>
       <div class="container">
@@ -39,6 +39,6 @@
       </div>
     </section>
 
-  {{ end }}
+  {{- end -}}
 
-{{ end }}
+{{- end -}}

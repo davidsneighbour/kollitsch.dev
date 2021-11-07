@@ -3,6 +3,7 @@ package-lock.json
 bin/replacements
 hugo_stats.json
 resources
+assets/content
 assets/js/**/*.js
 assets/jsconfig.json
 content/ideas.md

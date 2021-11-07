@@ -1,23 +1,28 @@
 // footer
 #footer {
+  color: $light;
+
   background-color: $dark;
-  color:$light;
 
   a {
     color: $light;
     text-decoration: underline;
+
     &:hover {
       color: $primary;
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 
   .icon-box a {
     color: rgba($white, 0.7);
+
     &:hover {
-      color: $white;
-      background-color: $primary;
       border-color: $primary;
+
+      color: $white;
+
+      background-color: $primary;
     }
   }
 

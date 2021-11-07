@@ -1,6 +1,6 @@
 article {
   &.card {
-    @extend .mb-5;
     border-radius: 20px;
+    @extend .mb-5;
   }
 }

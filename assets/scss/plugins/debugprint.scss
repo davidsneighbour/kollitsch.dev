@@ -1,18 +1,20 @@
-.debugprint table, table.debugprint {
+.debugprint table,
+table.debugprint {
+  font-size: 0.7rem;
 
-  font-size: 0.70rem;
-
-  td, th {
-    @extend .align-top;
-
+  td,
+  th {
     #footer & a {
       color: $dark;
     }
+    @extend .align-top;
 
   }
+
   .true {
     @extend .text-success;
   }
+
   .false {
     @extend .text-danger;
   }

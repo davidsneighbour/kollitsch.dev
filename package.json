@@ -20,7 +20,7 @@
     "precss": "4.0.0"
   },
   "devDependencies": {
-    "@dnb-org/all": "3.3.9",
+    "@dnb-org/all": "3.3.10",
     "@types/jquery": "3.5.8",
     "slick-carousel": "1.8.1",
     "typescript": "4.4.4"
@@ -46,7 +46,9 @@
     "serve": "run-p serve:hugo",
     "server": "npm run serve",
     "lighthouse": "bin/lighthouse.sh",
-    "lint:templates": "bin/lint-templates.sh"
+    "lint:templates": "bin/lint-templates.sh",
+    "lint:styles": "stylelint assets/scss",
+    "lint:styles:fix": "stylelint assets/scss --fix"
   },
   "private": true,
   "browserslist": [
@@ -78,7 +80,8 @@
   },
   "slug": "kollitsch-de",
   "stylelint": {
-    "extends": "@dnb-org/stylelint-config"
+    "extends": "@dnb-org/stylelint-config",
+    "ignoreFiles": ["assets/scss/settings/_bootstrap-variables.scss"]
   },
   "url": "https://kollitsch.de"
 }

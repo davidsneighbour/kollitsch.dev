@@ -15,6 +15,9 @@ path = "github.com/dnb-org/components/functions"
 path = "github.com/dnb-org/components/giscus"
 
 [[imports]]
+path = "github.com/dnb-org/components/head"
+
+[[imports]]
 path = "github.com/dnb-org/components/netlification"
 
 [[imports]]

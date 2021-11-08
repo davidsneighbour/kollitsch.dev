@@ -1,31 +1,41 @@
+{{- /*
+
+All you need to know about the <head> tag:
+https://htmlhead.dev/
+
+- TODO add documentation of settings under site.Params.dnb.head
+- TODO add documentation of hooks
+- TODO research license <link rel="license" href="copyright.html">
+- TODO research links the archive (<link rel="archives" href="https://example.com/archives/">)
+- TODO research links to top level resource in an hierarchical structure (<link rel="index" href="https://example.com/article/">)
+- TODO research EditURI (<link rel="EditURI" href="https://example.com/xmlrpc.php?rsd" type="application/rsd+xml" title="RSD">)
+- TODO research pingback (<link rel="pingback" href="https://example.com/xmlrpc.php">)
+- TODO research webmention (<link rel="webmention" href="https://example.com/webmention">)
+- TODO research micropub (<link rel="micropub" href="https://example.com/micropub">)
+
+*/ -}}
 {{- partial "func/hook.html" ( dict "hook" "head-init" "context" . ) -}}
-<meta charset="utf-8">
-<title>{{- .Title -}}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="{{- site.Params.dnb.head.charset | default "utf-8" -}}">
+<meta name="viewport" content="{{- site.Params.dnb.head.viewport | default "width=device-width, initial-scale=1" -}}">
+{{- partial "head/title.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-start" "context" . ) -}}
-<meta name="author" content="{{ site.Params.author }}">
-<meta name="description" content="{{- with .Params.description -}}
-  {{- . -}}
-{{- else -}}
-  {{- with site.Params.description -}}
-    {{- . -}}
-  {{- end -}}
-{{- end -}}">
-<meta http-equiv="x-dns-prefetch-control" content="on">
-{{- with site.Params.head.preconnect -}}
-  {{- range . -}}
-    <link rel="preconnect" href="{{- . -}}">
-  {{- end -}}
-{{- end -}}
-{{- with site.Params.head.prefetch -}}
-  {{- range . -}}
-    <link rel="dns-prefetch" href="{{- . -}}">
-  {{- end -}}
-{{- end -}}
-<link rel="icon" href="{{- site.Params.favicon | absURL -}}" type="image/x-icon">
-{{- template "_internal/google_analytics.html" . -}}
+{{- partialCached "head/speed-optimisation.html" . -}}
+<base href="{{- site.BaseURL -}}">
+{{- partial "head/description.html" . -}}
+{{- partial "head/author.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-pre-css" "context" . ) -}}
 {{- partialCached "head/style.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-post-css" "context" . ) -}}
-{{- partial "func/hook.html" ( dict "hook" "head-end" "context" . ) -}}
+{{- with site.GoogleAnalytics -}}
+  {{- template "_internal/google_analytics.html" . -}}
+{{- end -}}
+{{- partial "head/translations.html" . -}}
+{{- partial "head/seo.html" . -}}
+{{- partial "head/series.html" . -}}
+{{- partial "head/social-graph.html" . -}}
+{{- partialCached "head/opensearch.html" . -}}
 {{- partialCached "head/pwa.html" . -}}
+{{- partialCached "head/verification.html" . -}}
+{{- partialCached "head/alternates.html" . -}}
+{{- partial "head/others.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-end" "context" . ) -}}

@@ -1,0 +1,18 @@
+{{ with site.Params.dnb.head.verification.google }}
+  <meta name="google-site-verification" content="{{ . }}">
+{{ end }}
+{{ with site.Params.dnb.head.verification.yandex }}
+  <meta name="yandex-verification" content="{{ . }}">
+{{ end }}
+{{ with site.Params.dnb.head.verification.bing }}
+  <meta name="msvalidate.01" content="{{ . }}">
+{{ end }}
+{{ with site.Params.dnb.head.verification.alexa }}
+  <meta name="alexaVerifyID" content="{{ . }}">
+{{ end }}
+{{ with site.Params.dnb.head.verification.pinterest }}
+  <meta name="p:domain_verify" content="{{ . }}">
+{{ end }}
+{{ with site.Params.dnb.head.verification.norton }}
+  <meta name="norton-safeweb-site-verification" content="{{ . }}">
+{{ end }}

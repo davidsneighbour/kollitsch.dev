@@ -70,10 +70,10 @@ javascript = "script-local.js"
 
 [dnb.hooks]
 disable_messages = [
-  "unused_hooks",
-  "running_hooks",
-  "running_cached_hooks",
-  "running_uncached_hooks",
+  # "unused_hooks",
+  # "running_hooks",
+  # "running_cached_hooks",
+  # "running_uncached_hooks",
 ]
 
 [[dnb.contacts]]
@@ -123,3 +123,28 @@ dataReactionsEnabled="0"
 dataEmitMetadata="1"
 #dataTheme="light"
 #dataLang="en"
+
+[dnb.head]
+control     = "on" # on/off - off disables all prefetching
+charset     = "utf-8"
+viewport    = "width=device-width, initial-scale=1"
+latitude    = "9.578492"
+longitude   = "99.958311"
+# https://en.wikipedia.org/wiki/ISO_3166
+region      = "TH-84"
+placename   = "Koh Samui"
+
+[dnb.head.speedoptimisation]
+control     = "on" # on/off - off disables all prefetching
+prefetch    = []
+preconnect  = []
+prerender   = []
+
+[dnb.head.verification]
+google      = ""
+yandex      = ""
+bing        = ""
+alexa       = ""
+pinterest   = ""
+nortong     = ""
+

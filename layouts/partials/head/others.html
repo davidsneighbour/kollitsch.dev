@@ -1,0 +1,22 @@
+{{/* <!-- Allows control over how referrer information is passed -->
+<meta name="referrer" content="no-referrer">
+
+<!-- Disable automatic detection and formatting of possible phone numbers -->
+<meta name="format-detection" content="telephone=no">
+
+<!-- Tells Google not to provide a translation for this document -->
+<meta name="google" content="notranslate">
+
+<!-- Web Monetization https://webmonetization.org/docs/getting-started -->
+<meta name="monetization" content="$paymentpointer.example"> */}}
+
+{{ with (and site.Params.dnb.head.latitude site.Params.dnb.head.longitude) }}
+  <meta name="ICBM" content="latitude, longitude">
+  <meta name="geo.position" content="latitude;longitude">
+{{ end }}
+{{ with site.Params.dnb.head.region }}
+  <meta name="geo.region" content="country[-state]"><!-- Country code (ISO 3166-1): mandatory, state code (ISO 3166-2): optional; eg. content="US" / content="US-NY" -->
+{{ end }}
+{{ with site.Params.dnb.head.placename }}
+  <meta name="geo.placename" content="city/town"><!-- eg. content="New York City" -->
+{{ end }}

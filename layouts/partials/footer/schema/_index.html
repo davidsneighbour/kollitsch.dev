@@ -1,0 +1,11 @@
+{{- /*
+
+Global schema.org loader.
+Add anywhere between the `head` or the `body` tag.
+I propose right at the end of the body of your document.
+**DO NOT** cache the partial.
+This will without any configuration add a basic schema.org structure to your site.
+To configure details read the [documentation](https://github.com/dnb-org/components/wiki/Schema.org-configuration)
+
+*/ -}}
+{{- partialCached "footer/schema/things/website.html" . . -}}

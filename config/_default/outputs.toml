@@ -1,3 +1,3 @@
-home = [ "HTML", "RSS", "JSON", "security", "Algolia" ]
+home = [ "HTML", "RSS", "JSON", "security", "Algolia", "manifest" ]
 page = [ "HTML" ]
 post = [ "HTML" ]

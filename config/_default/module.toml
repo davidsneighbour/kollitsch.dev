@@ -22,6 +22,7 @@ path = "github.com/dnb-org/components/opensearch"
 
 [[imports]]
 path = "github.com/dnb-org/components/pwa"
+disabled = false
 
 [[imports]]
 path = "github.com/dnb-org/components/robots"

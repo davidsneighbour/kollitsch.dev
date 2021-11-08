@@ -1,5 +1,5 @@
-{{- partial "func/hook.html" ( dict "hook" "setup" "context" . ) -}}
 <!DOCTYPE html>
+{{- partial "func/hook.html" ( dict "hook" "setup" "context" . ) -}}
 <html lang="{{- site.LanguageCode | default "en-US" -}}">
 <head>
   {{- partial "head.html" . -}}
@@ -12,6 +12,7 @@
   {{- partial "func/hook.html" ( dict "hook" "body-end-pre-script" "context" . ) -}}
   {{- partialCached "footer/script.html" . -}}
   {{- partial "func/hook.html" ( dict "hook" "body-end" "context" . ) -}}
+  {{- partialCached "footer/service-worker.html" . -}}
 </body>
 </html>
 {{- partial "func/hook.html" ( dict "hook" "teardown" "context" . ) -}}

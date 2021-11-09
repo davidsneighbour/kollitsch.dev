@@ -1,0 +1,12 @@
+/* Webfont: TomkinCondense-Black */@font-face {
+    font-family: 'TomkinCondenseBlack';
+    src: url('TomkinCondense-Black.eot'); /* IE9 Compat Modes */
+    src: url('TomkinCondense-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('TomkinCondense-Black.woff') format('woff'), /* Modern Browsers */
+         url('TomkinCondense-Black.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('TomkinCondense-Black.svg#TomkinCondense-Black') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

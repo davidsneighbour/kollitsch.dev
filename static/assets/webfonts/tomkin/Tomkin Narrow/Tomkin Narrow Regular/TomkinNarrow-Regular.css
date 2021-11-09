@@ -1,0 +1,12 @@
+/* Webfont: TomkinNarrow-Regular */@font-face {
+    font-family: 'TomkinNarrowRegular';
+    src: url('TomkinNarrow-Regular.eot'); /* IE9 Compat Modes */
+    src: url('TomkinNarrow-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('TomkinNarrow-Regular.woff') format('woff'), /* Modern Browsers */
+         url('TomkinNarrow-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('TomkinNarrow-Regular.svg#TomkinNarrow-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

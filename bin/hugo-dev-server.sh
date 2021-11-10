@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+# shellcheck shell=bash
 REQUIRED_TOOLS=(
   hugo
   npm
   export
+  trap
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -12,6 +14,8 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     exit 1
   fi
 done
+
+trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 
 FILE=.env
 if [ -f "$FILE" ]; then

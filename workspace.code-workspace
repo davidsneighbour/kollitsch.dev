@@ -52,7 +52,9 @@
 			"path": "../hugo-assets-unsplash"
 		}
 	],
-	"settings": {},
+	"settings": {
+
+  },
 	"extensions": {
 		"recommendations": [
 			"EditorConfig.EditorConfig"

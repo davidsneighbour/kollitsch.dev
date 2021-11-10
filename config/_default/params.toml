@@ -27,7 +27,7 @@ search = true # (if Search is disable/false Menu will align in Right)
 # Menu align
 menu_align = "right" # "left", "right" or "center"
 # Main section
-mainSection = ["blog"]
+mainSections = ["blog"]
 # Post layout
 post_layout = "grid" # Post-Layout value ("grid" or "list")
 

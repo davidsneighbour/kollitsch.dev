@@ -13,7 +13,7 @@
           </a>
         </div>
         {{ $layout := site.Params.post_layout }}
-        {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSection) }}
+        {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
         {{ range $index, $items := $paginator.Pages }}
           {{ if (eq $index 0) }}
             <div class="col-12">

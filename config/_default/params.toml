@@ -133,6 +133,12 @@ longitude   = "99.958311"
 # https://en.wikipedia.org/wiki/ISO_3166
 region      = "TH-84"
 placename   = "Koh Samui"
+disable     = [
+  #"phone_transcription" # disable automatic detection and formatting of possible phone numbers
+]
+notranslate = false # tell Google not to provide a translation for this document
+# https://webmonetization.org/docs/getting-started
+monetization = ""
 
 [dnb.head.speedoptimisation]
 control     = "on" # on/off - off disables all prefetching

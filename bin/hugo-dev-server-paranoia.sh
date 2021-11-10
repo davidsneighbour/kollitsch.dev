@@ -3,6 +3,7 @@
 REQUIRED_TOOLS=(
   hugo
   npm
+  export
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -12,8 +13,20 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
-# cleanup hugo loggin
+FILE=.env
+if [ -f "$FILE" ]; then
+  echo "exporting .env"
+  set -a
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
+fi
+
+# cleanup hugo logging
 npm run clean:hugo
+
+# update modules
+hugo mod get -u ./...
 
 # starting hugo server
 hugo server \
@@ -41,4 +54,4 @@ hugo server \
     --print-mem \
     --bind 192.168.1.201 \
     --port 1313 \
-    --baseURL http://192.168.1.201 
+    --baseURL http://192.168.1.201

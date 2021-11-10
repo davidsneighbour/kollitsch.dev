@@ -16,14 +16,17 @@ done
 FILE=.env
 if [ -f "$FILE" ]; then
   echo "exporting .env"
-  set -a # export all variables created next
-  # shellcheck source=.env
+  set -a
+  # shellcheck source=/dev/null
   source "${FILE}"
-  set +a # stop exporting
+  set +a
 fi
 
-# cleanup hugo loggin
+# cleanup hugo logging
 npm run clean:hugo
+
+# update modules
+hugo mod get -u ./...
 
 # starting hugo server
 hugo server \

@@ -1,4 +1,5 @@
 {{- define "main"}}
+{{- .Scratch.Add "trace" (slice "<_default/single.html>") -}}
 
 <section>
   <div class="container">
@@ -56,4 +57,5 @@
   </div>
 </section>
 
+{{- .Scratch.Add "trace" (slice "</_default/single.html>") -}}
 {{- end -}}

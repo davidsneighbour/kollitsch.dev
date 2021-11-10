@@ -1,6 +1,17 @@
 {{ define "main" }}
 {{- .Scratch.Add "trace" (slice "<index.html>") -}}
 {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+{{- $layout := site.Params.post_layout -}}
+
+{{- /*
+
+Layout:
+
+- one fullsize main article with long excerpt (or complete)
+- 2/4/6/8 recent articles
+- playlist section
+
+ */ -}}
 
   <section>
     <div class="container">
@@ -12,22 +23,18 @@
               importance="high" class="img-fluid w-100" />
           </a>
         </div>
-        {{ $layout := site.Params.post_layout }}
         {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
         {{ range $index, $items := $paginator.Pages }}
           {{ if (eq $index 0) }}
+          {{- /* first post full size */ -}}
             <div class="col-12">
               {{ partialCached "content/post-fluid" . . }}
             </div>
           {{ else }}
             {{ if eq $layout "grid" }}
-              <div class="col-md-6">
                 {{ partialCached "content/post" . . }}
-              </div>
             {{ else if eq $layout "list" }}
-              <div class="col-12">
                 {{ partialCached "content/post-list" . . }}
-              </div>
             {{ end }}
           {{ end }}
         {{ end }}

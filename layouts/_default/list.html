@@ -9,13 +9,9 @@
           {{- $layout := site.Params.post_layout -}}
           {{range .Data.Pages}}
             {{- if eq $layout "grid" -}}
-              <div class="col-6">
                 {{- partialCached "content/post" . . -}}
-              </div>
             {{- else if eq $layout "list" -}}
-              <div class="col-12">
                 {{- partialCached "content/post-list" . . -}}
-              </div>
             {{- end -}}
           {{- end -}}
         </div>

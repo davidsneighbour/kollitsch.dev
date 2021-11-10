@@ -43,9 +43,7 @@
               </div>
               {{- $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) -}}
               {{- range first 2 $related -}}
-              <div class="col-md-6">
                 {{- partialCached "content/post" . . -}}
-              </div>
               {{- end -}}
             </div>
           </div>

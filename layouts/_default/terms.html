@@ -18,13 +18,9 @@
         {{- $related := (where site.RegularPages "Section" "blog") -}}
         {{- range first 4 $related -}}
           {{- if eq $layout "grid" -}}
-            <div class="col-12 col-md-6">
-              {{- partialCached "content/post" . . -}}
-            </div>
+            {{- partialCached "content/post" . . -}}
           {{- else if eq $layout "list" -}}
-            <div class="col-12">
-              {{- partialCached "content/post-list" . . -}}
-            </div>
+            {{- partialCached "content/post-list" . . -}}
           {{- end -}}
         {{- end -}}
       </div>

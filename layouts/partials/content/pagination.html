@@ -1,54 +1,60 @@
-{{ $paginator := .Paginator }}
-{{ $adjacent_links := 2 }}
-{{ $max_links := (add (mul $adjacent_links 2) 1) }}
-{{ $lower_limit := (add $adjacent_links 1) }}
-{{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
-{{ if gt $paginator.TotalPages 1 }}
-  <nav class="row mb-5" aria-label="Page navigation">
-    <div class="col-12">
-      <ul class="pagination justify-content-center">
-        {{ if $paginator.HasPrev }}
-          <li class="page-item">
-            <a class="page-link rounded" href="{{ $paginator.Prev.URL }}" aria-label="Pagination Arrow">
-              {{- partialCached "icons/caret-left-fill.html" "caret-left-fill" "caret-left-fill" -}}
-            </a>
-          </li>
-        {{ end }}
-        {{ range $paginator.Pagers }}
-          {{ $.Scratch.Set "page_number_flag" false }}
-          {{ if gt $paginator.TotalPages $max_links }}
-            {{ if le $paginator.PageNumber $lower_limit }}
-              {{ if le .PageNumber $max_links }}
-                {{ $.Scratch.Set "page_number_flag" true }}
-              {{ end }}
-            {{ else if ge $paginator.PageNumber $upper_limit }}
-              {{ if gt .PageNumber (sub $paginator.TotalPages $max_links) }}
-                {{ $.Scratch.Set "page_number_flag" true }}
-              {{ end }}
-            {{ else }}
-              {{ if and ( ge .PageNumber (sub $paginator.PageNumber $adjacent_links) ) ( le .PageNumber (add $paginator.PageNumber $adjacent_links) ) }}
-                {{ $.Scratch.Set "page_number_flag" true }}
-              {{ end }}
-            {{ end }}
-          {{ else }}
-            {{ $.Scratch.Set "page_number_flag" true }}
-          {{ end }}
-          {{ if eq ($.Scratch.Get "page_number_flag") true }}
-            <li class="page-item{{ if eq . $paginator }} active {{ end }}">
-              <a href="{{ .URL }}" class="page-link rounded">
-                {{ .PageNumber }}
+<nav class="row">
+  <div class="d-flex justify-content-center">
+    {{- if gt .Paginator.TotalPages 1 }}
+      <ul class="pagination">
+        {{- with .Paginator }}
+          {{- $currentPageNumber := .PageNumber }}
+          {{- with .First }}
+            {{- if ne $currentPageNumber .PageNumber }}
+              <li class="page-item">
+                <a href="{{ .URL }}" aria-label="First" class="page-link" role="button">
+                  {{ partialCached "icons/chevron-double-left.html" "chevron-double-left" "chevron-double-left" }}
+                </a>
+              </li>
+            {{- end }}
+          {{- end }}
+          {{- with .Prev }}
+            <li class="page-item">
+              <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button">
+                {{ partialCached "icons/chevron-left.html" "chevron-left" "chevron-left" }}
               </a>
             </li>
-          {{ end }}
-        {{ end }}
-        {{ if $paginator.HasNext }}
-          <li class="page-item">
-            <a class="page-link rounded" href="{{ $paginator.Next.URL }}" aria-label="Pagination Arrow">
-              {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
-            </a>
-          </li>
-        {{ end }}
+          {{- end }}
+          {{- $slots := 5 }}
+          {{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+          {{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+          {{- if lt (add (sub $end $start) 1) $slots }}
+            {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+          {{- end }}
+          {{- range $k := seq $start $end }}
+            {{- if eq $.Paginator.PageNumber $k }}
+              <li class="page-item active">
+                <a href="#" aria-current="page" aria-label="Page {{ $k }}" class="page-link" role="button">{{ $k }}</a>
+              </li>
+            {{- else }}
+              <li class="page-item">
+                <a href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="page-link" role="button">{{ $k }}</a>
+              </li>
+            {{- end }}
+          {{- end }}
+          {{- with .Next }}
+            <li class="page-item">
+              <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button">
+                {{ partialCached "icons/chevron-right.html" "chevron-right" "chevron-right" }}
+              </a>
+            </li>
+          {{- end }}
+          {{- with .Last }}
+            {{- if ne $currentPageNumber .PageNumber }}
+              <li class="page-item">
+                <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button">
+                  {{ partialCached "icons/chevron-double-right.html" "chevron-double-right" "chevron-double-right" }}
+                </a>
+              </li>
+            {{- end }}
+          {{- end }}
+        {{- end }}
       </ul>
-    </div>
-  </nav>
-{{ end }}
+    {{- end }}
+  </div>
+</nav>

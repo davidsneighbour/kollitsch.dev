@@ -10,12 +10,17 @@
     </div>
 
     <div class="single-post-similer">
-      <div class="row mt-3">
+      <div class="row mb-4">
         <div class="col-12">
           <h3 class="text-dark mb-4 pb-2">{{- i18n "most_recent_post" -}}</h3>
         </div>
         {{- $layout := site.Params.post_layout -}}
         {{- $related := (where site.RegularPages "Section" "blog") -}}
+        {{ if eq $layout "grid" }}
+          {{- /* setup grid wrapper */ -}}
+          <div class="col mb-5">
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+        {{ end }}
         {{- range first 4 $related -}}
           {{- if eq $layout "grid" -}}
             {{- partialCached "content/post" . . -}}
@@ -23,6 +28,11 @@
             {{- partialCached "content/post-list" . . -}}
           {{- end -}}
         {{- end -}}
+        {{ if eq $layout "grid" }}
+          {{- /* close grid wrapper */ -}}
+          </div>
+          </div>
+        {{ end }}
       </div>
     </div>
 

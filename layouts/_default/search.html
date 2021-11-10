@@ -1,4 +1,5 @@
 {{- define "main" -}}
+{{- .Scratch.Add "trace" (slice "<_default/search.html>") -}}
 
 <section>
   <div class="container">
@@ -68,4 +69,5 @@
 <!-- Search index -->
 <script>var indexURL = {{"index.json" | absLangURL}}</script>
 
+{{- .Scratch.Add "trace" (slice "</_default/search.html>") -}}
 {{- end -}}

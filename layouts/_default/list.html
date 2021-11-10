@@ -1,4 +1,5 @@
 {{- define "main" -}}
+{{- .Scratch.Add "trace" (slice "<_default/list.html>") -}}
 
   {{- if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") -}}
 
@@ -7,6 +8,11 @@
         {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
         <div class="row">
           {{- $layout := site.Params.post_layout -}}
+          {{ if eq $layout "grid" }}
+            {{- /* setup grid wrapper */ -}}
+            <div class="col mb-5">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+          {{ end }}
           {{range .Data.Pages}}
             {{- if eq $layout "grid" -}}
                 {{- partialCached "content/post" . . -}}
@@ -14,6 +20,11 @@
                 {{- partialCached "content/post-list" . . -}}
             {{- end -}}
           {{- end -}}
+          {{ if eq $layout "grid" }}
+            {{- /* close grid wrapper */ -}}
+            </div>
+            </div>
+          {{ end }}
         </div>
       {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
       </div>
@@ -37,4 +48,5 @@
 
   {{- end -}}
 
+{{- .Scratch.Add "trace" (slice "</_default/list.html>") -}}
 {{- end -}}

@@ -1,3 +1,4 @@
+{{- .Scratch.Add "trace" (slice "<partials/header.html>") -}}
 {{ partialCached "header/topnavigation.html" . }}
 
 {{if site.Params.search}}
@@ -11,5 +12,5 @@
 </div>
 {{end}}
 
+{{- .Scratch.Add "trace" (slice "</partials/header.html>") -}}
 {{ partial "header/page-header.html" . }}
-

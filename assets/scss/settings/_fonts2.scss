@@ -198,3 +198,203 @@ $fontpath: '/assets/webfonts/tomkin/Tomkin' !default;
   font-weight: 900;
   text-rendering: optimizeLegibility;
 }
+
+$fontpath2: '/assets/webfonts/tomkin/TomkinCondense' !default;
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-Thin.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-Thin.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-Thin.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-Thin.svg#TomkinCondense-Thin') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-ThinItalic.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-ThinItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-ThinItalic.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-ThinItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseThin/TomkinCondense-ThinItalic.svg#TomkinCondense-ThinItalic') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtLtIta.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtLtIta.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtLtIta.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtLtIta.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtLtIta.svg#TomkinCondense-ExtLtIta') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 200;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtraLight.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtraLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtraLight.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtraLight.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseExtraLight/TomkinCondense-ExtraLight.svg#TomkinCondense-ExtraLight') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 200;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-Light.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-Light.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-Light.svg#TomkinCondense-Light') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-LightItalic.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-LightItalic.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-LightItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseLight/TomkinCondense-LightItalic.svg#TomkinCondense-LightItalic') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Italic.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Italic.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Italic.svg#TomkinCondense-Italic') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Regular.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Regular.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseRegular/TomkinCondense-Regular.svg#TomkinCondense-Regular') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemiLight.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemiLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemiLight.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemiLight.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemiLight.svg#TomkinCondense-SemiLight') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemLtIta.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemLtIta.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemLtIta.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemLtIta.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseSemiLight/TomkinCondense-SemLtIta.svg#TomkinCondense-SemLtIta') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-Medium.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-Medium.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-Medium.svg#TomkinCondense-Medium') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-MediumItalic.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-MediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-MediumItalic.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-MediumItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseMedium/TomkinCondense-MediumItalic.svg#TomkinCondense-MediumItalic') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-Bold.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-Bold.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-Bold.svg#TomkinCondense-Bold') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-BoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-BoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseBold/TomkinCondense-BoldItalic.svg#TomkinCondense-BoldItalic') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtBdIta.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtBdIta.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtBdIta.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtBdIta.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtBdIta.svg#TomkinCondense-ExtBdIta') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 800;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtraBold.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtraBold.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseExtraBold/TomkinCondense-ExtraBold.svg#TomkinCondense-ExtraBold') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 800;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-Black.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-Black.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-Black.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-Black.svg#TomkinCondense-Black') format('svg'); /* Legacy iOS */
+  font-style: normal;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: TomkinCondense;
+  src: url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-BlackItalic.eot'); /* IE9 Compat Modes */
+  src: url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-BlackItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-BlackItalic.woff') format('woff'), /* Modern Browsers */
+       url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-BlackItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('#{$fontpath2}/TomkinCondenseBlack/TomkinCondense-BlackItalic.svg#TomkinCondense-BlackItalic') format('svg'); /* Legacy iOS */
+  font-style: italic;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+}

@@ -5,8 +5,8 @@ github.com/dnb-org/components/functions v1.4.13 h1:zGm6DSmQNP1RbmFtnmIQyyYXrIJib
 github.com/dnb-org/components/functions v1.4.13/go.mod h1:+GMAcQaK260wZ6ioNPbQY/ruWdBxFxj9PPw7o5p7eu0=
 github.com/dnb-org/components/giscus v1.4.13 h1:/F9HHh0wIN7Ow/8YTaWacNQR5+aIaMgUb6UTSBDZCr0=
 github.com/dnb-org/components/giscus v1.4.13/go.mod h1:XivOAFWWo2KadqOMg8y+qTMsiPfCzD7mP47ifvdg29s=
-github.com/dnb-org/components/head v1.4.13 h1:AdDILwBKIpKe43Kdc5sqCjjCBDGvIruPk5QpHBmfre4=
-github.com/dnb-org/components/head v1.4.13/go.mod h1:vtyX3EIKxYoxhlHJefdOahQySW11XwOy23Bh/veDrAY=
+github.com/dnb-org/components/head v1.4.15 h1:0teT51E6cl2Gx/1SZjch0bp1SZggUmeneNX0kI1nEQI=
+github.com/dnb-org/components/head v1.4.15/go.mod h1:vtyX3EIKxYoxhlHJefdOahQySW11XwOy23Bh/veDrAY=
 github.com/dnb-org/components/netlification v1.4.13 h1:9dKmwa+jXydkq8134RX6AM+2BbLkvvMd/L3xJcWlvGs=
 github.com/dnb-org/components/netlification v1.4.13/go.mod h1:jPjSlmP7+RTHm8z5HF7ZVA5cId58rEefXMyaUlxImbI=
 github.com/dnb-org/components/opensearch v1.4.13 h1:hwoscV7u0fenwAlUAew+fs5kffdEYdcOo9DZu3a9u7Q=
@@ -21,8 +21,8 @@ github.com/dnb-org/components/sitemap v1.4.13 h1:YAWgpSUWrvFZyTiLDP+TkwRNm8CvLcC
 github.com/dnb-org/components/sitemap v1.4.13/go.mod h1:Nn+4/+uAGQAId5lvyRyN/sLYk+FjA0e+jUMqOTau/fU=
 github.com/dnb-org/components/social v1.4.13 h1:nIbVrII/0QSt2EHJ7TlfpISyiOGdOEm913FD4062AfI=
 github.com/dnb-org/components/social v1.4.13/go.mod h1:cctksnZHbTekjDP7iIYLwaIqAtfCtaRSMDKHDi+TWjo=
-github.com/dnb-org/debug v1.4.1 h1:jWSRBI1sBkbU7aS8uSc9GHyz0dnRAvrbBs5NgLCGFlI=
-github.com/dnb-org/debug v1.4.1/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
+github.com/dnb-org/debug v1.4.2 h1:APKrwZWrqxLBgDruqA3W+M5OYCAlzmppkj6neNEFXdg=
+github.com/dnb-org/debug v1.4.2/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
 github.com/dnb-org/hooks v1.0.20 h1:li71xDjs5H3pY44gbZHz+ex/K7uP/7Ej3YDgjkSRIxM=
 github.com/dnb-org/hooks v1.0.20/go.mod h1:pqjp732xSQs+EVXhfgFhhqmQRS1XAcIhVWDOSAZWd3s=
 github.com/dnb-org/libraries/heroicons v1.0.3 h1:HIMctgGhctWjOU1JK1DtetjdIXhjABN3Cun65Kppuv4=

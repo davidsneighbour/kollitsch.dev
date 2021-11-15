@@ -87,3 +87,10 @@ This repository is currently optimised for Netlify. To create a local copy of th
 - it will merge the `main` branch into the `live` branch
 - Netlify is set up to only deploy the `live` branch
 - thus only releases will trigger a deploy
+
+## Design Paradigms for this theme
+
+- Margins are applied to the bottom of items.
+- Mobile first design.
+- no layouts inside of layouts (container>row>col>row>col) if not explicitly required.
+- do not re-invent the wheel. reuse, recycle.

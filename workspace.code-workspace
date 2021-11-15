@@ -53,6 +53,7 @@
 		}
 	],
 	"settings": {
+		"terminal.integrated.persistentSessionReviveProcess": "never"
 
   },
 	"extensions": {

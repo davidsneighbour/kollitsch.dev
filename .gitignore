@@ -8,6 +8,7 @@ assets/js/**/*.js
 assets/jsconfig.json
 content/ideas.md
 .vscode/*.code-snippets
+scratch
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass

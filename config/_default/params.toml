@@ -48,18 +48,22 @@ link = "plugins/search/search.js"
 [[social]]
 url = "https://www.facebook.com/"
 icon = "facebook"
+label = "Follow me on Facebook"
 
 [[social]]
 url = "https://www.twitter.com/"
 icon = "twitter"
+label = "Follow me on Twitter"
 
 [[social]]
 url = "https://www.instagram.com/"
 icon = "instagram"
+label = "Follow me on Instagram"
 
 [[social]]
 url = "https://www.linkedin.com/"
 icon = "linkedin"
+label = "Follow me on LinkedIn"
 
 [algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]

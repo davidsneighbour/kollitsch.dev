@@ -5,5 +5,5 @@
 ################################################################################
 
 resampleFilter = "lanczos"
-quality = 75
+quality = 70
 anchor = "smart"

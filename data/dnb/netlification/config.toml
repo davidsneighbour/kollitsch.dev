@@ -1,6 +1,6 @@
 [csp]
-reportOnly = true
-reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
+# reportOnly = true
+# reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
 defaultSrc = [
   "'self'"
 ]

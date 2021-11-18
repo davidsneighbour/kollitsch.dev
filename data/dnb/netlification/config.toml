@@ -2,7 +2,10 @@
 reportOnly = true
 # reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
 defaultSrc = [
-  "'self'"
+  "'self'",
+  "https://www.google-analytics.com",
+  "https://www.googletagmanager.com",
+  "https://giscus.app"
 ]
 scriptSrc = [
   "'self'",

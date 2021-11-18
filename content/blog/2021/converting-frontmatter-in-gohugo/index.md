@@ -16,9 +16,9 @@ tags = [
 ]
 +++
 
-Some days ago I realised, that I keep all my configurations for GoHugo in the TOML format, while using YAML for the frontmatters in my content folder. That did not seem right ;) so I changed those too to TOML. 
+Some days ago I realised, that I keep all my configurations for GoHugo in the TOML format, while using YAML for the frontmatters in my content folder. That did not seem right ;) so I changed those too to TOML.
 
-Hugo has an easy command [`convert`](https://gohugo.io/commands/hugo_convert/), to transform frontmatter from one type to another. 
+Hugo has an easy command [`convert`](https://gohugo.io/commands/hugo_convert/), to transform frontmatter from one type to another.
 
 ```shell
 hugo convert toJSON
@@ -34,6 +34,6 @@ hugo convert toTOML --unsafe
 hugo convert toYAML --unsafe
 ```
 
-After running this command your frontmatter will be in the new format. The only problem that I experienced was, that after converting from YAML to TOML all frontmatter items were in alphabetical order, which is nice, but might confuse us later on. I like my frontmatter sorted by topics. 
+After running this command your frontmatter will be in the new format. The only problem that I experienced was, that after converting from YAML to TOML all frontmatter items were in alphabetical order, which is nice, but might confuse us later on. I like my frontmatter sorted by topics.
 
 Don't forget to change your archetypes too (there is no command for this, so you need to do it manually), so all future content too is in your new preferred format.

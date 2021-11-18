@@ -1,46 +1,6 @@
 [csp]
 reportOnly = true
-# reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
-defaultSrc = [
-  "'self'",
-  "https://www.google-analytics.com",
-  "https://www.googletagmanager.com",
-  "https://giscus.app"
-]
-scriptSrc = [
-  "'self'",
-  "https://www.google-analytics.com",
-  "https://www.googletagmanager.com",
-  "https://giscus.app"
-]
-styleSrc = [
-  "'self'"
-]
-imgSrc = [
-  "'self'",
-  "https://www.gravatar.com",
-  "https://d33wubrfki0l68.cloudfront.net"
-]
-connectSrc = [
-  "'self'",
-  "https://www.google-analytics.com",
-  "https://www.googletagmanager.com"
-]
-frameSrc = [
-  "'self'"
-]
-frameAncestors = [
-  "'none'"
-]
-manifestSrc = [
-  "'self'"
-]
-fontSrc = [
-  "'self'"
-]
-objectSrc = [
-  "'self'"
-]
+reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
 upgradeInsecureRequests = true
 
 [[redirects]]

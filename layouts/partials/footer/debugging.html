@@ -3,10 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          {{- $layoutTrace := .Scratch.Get "trace" -}}
-          {{- with $layoutTrace -}}
-            {{- partial "debugprint.html" . -}}
-          {{- end -}}
+          {{ partial "debugprint.html" . }}
         </div>
       </div>
     </div>

@@ -19,7 +19,9 @@ imgSrc = [
   "https://d33wubrfki0l68.cloudfront.net"
 ]
 connectSrc = [
-  "'self'"
+  "'self'",
+  "https://www.google-analytics.com",
+  "https://www.googletagmanager.com"
 ]
 frameSrc = [
   "'self'"

@@ -6,14 +6,16 @@ defaultSrc = [
 ]
 scriptSrc = [
   "'self'",
-  "https://www.google-analytics.com"
+  "https://www.google-analytics.com",
+  "https://www.googletagmanager.com"
 ]
 styleSrc = [
   "'self'"
 ]
 imgSrc = [
   "'self'",
-  "https://www.gravatar.com"
+  "https://www.gravatar.com",
+  "https://d33wubrfki0l68.cloudfront.net"
 ]
 connectSrc = [
   "'self'"

@@ -24,11 +24,12 @@ jobs:
           value: ${{ steps.gohugohugo.outputs.release }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
-        commit-message: "chore(config): update Netlify configuration"
-        signoff: true
-        branch: config/netlify
-        title: "Update GoHugo version in netlify.toml"
-        body: "Update netlify.toml with current latest GoHugo version number"
-        assignees: "davidsneighbour"
-        reviewers: "davidsneighbour"
+        with:
+          commit-message: "chore(config): update Netlify configuration"
+          signoff: true
+          branch: config/netlify
+          title: "Update GoHugo version in netlify.toml"
+          body: "Update netlify.toml with current latest GoHugo version number"
+          assignees: "davidsneighbour"
+          reviewers: "davidsneighbour"
 

@@ -23,6 +23,7 @@ jobs:
           key: "context.production.environment.HUGO_VERSION"
           value: ${{ steps.gohugohugo.outputs.release }}
       - name: Create Pull Request
+        id: createpr
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: "chore(config): update Netlify configuration"
@@ -32,4 +33,10 @@ jobs:
           body: "Update netlify.toml with current latest GoHugo version number"
           assignees: "davidsneighbour"
           reviewers: "davidsneighbour"
-
+      - name: Auto approve
+        if: steps.createpr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash

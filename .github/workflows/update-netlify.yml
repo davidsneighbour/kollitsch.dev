@@ -13,7 +13,6 @@ jobs:
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: "gohugoio/hugo"
-          excludes: "prerelease,draft"
       - uses: actions/checkout@v2
       - name: Edit Hugo Version
         uses: ciiiii/toml-editor@1.0.0

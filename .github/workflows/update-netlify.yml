@@ -12,14 +12,16 @@ jobs:
       - id: gohugohugo
         uses: pozetroninc/github-action-get-latest-release@master
         with:
-          repository: "gohugoio/hugo"
+          owner: gohugoio
+          repo: hugo
+          excludes: prerelease, draft
       - uses: actions/checkout@v2
       - name: Edit Hugo Version
         uses: ciiiii/toml-editor@1.0.0
         with:
-          file: "netlify.toml"
-          key: "context.production.environment.HUGO_VERSION"
-          value: "${{ steps.gohugohugo.outputs.release }}"
+          file: netlify.toml
+          key: context.production.environment.HUGO_VERSION
+          value: ${{ steps.gohugohugo.outputs.release }}
       - name: Create Pull Request
         id: createpr
         uses: peter-evans/create-pull-request@v3
@@ -27,6 +29,7 @@ jobs:
           commit-message: "chore(config): update Netlify configuration"
           signoff: true
           branch: config/netlify
+          delete-branch: true
           title: "Update GoHugo version in netlify.toml"
           body: "Update netlify.toml with current latest GoHugo version number"
           assignees: "davidsneighbour"
@@ -36,4 +39,4 @@ jobs:
         uses: juliangruber/approve-pull-request-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.cpr.outputs.pull-request-number }}
+          number: ${{ steps.createpr.outputs.pull-request-number }}

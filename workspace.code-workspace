@@ -50,11 +50,24 @@
 		},
 		{
 			"path": "../hugo-assets-unsplash"
+		},
+		{
+			"path": "../scratch"
 		}
 	],
 	"settings": {
-		"terminal.integrated.persistentSessionReviveProcess": "never"
+		"terminal.integrated.persistentSessionReviveProcess": "never",
+		"cSpell.words": [
+			"reponame"
+		],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": true
+    },
+    "auto-close-tag.activationOnLanguage": [
+      "gohtml",
 
+    ],
+    "editor.linkedEditing": true,
   },
 	"extensions": {
 		"recommendations": [

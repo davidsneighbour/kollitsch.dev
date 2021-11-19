@@ -23,6 +23,14 @@
 # [i18n]
 # This is the placeholder produced instead of the default value or an
 # empty string if a translation is missing.
+#
+# (<nil>)
+# This string will appear in the rendered HTML when passing a nil value
+# to the printf function.
+#
+# (&lt;nil&gt;)
+# Same as above when the value returned from the printf function has not
+# been passed through safeHTML.
 
 REQUIRED_TOOLS=(
   hugo
@@ -48,4 +56,4 @@ fi
 HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS=true \
   HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true \
   hugo && \
-  grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|hahahugo|\[i18n\]" public/
+  grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|hahahugo|\[i18n\|\(<nil>\)|(&lt;nil&gt;)]" public/

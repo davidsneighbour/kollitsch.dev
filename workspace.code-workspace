@@ -58,7 +58,11 @@
 	"settings": {
 		"terminal.integrated.persistentSessionReviveProcess": "never",
 		"cSpell.words": [
-			"reponame"
+			"browserslist",
+			"commitlint",
+			"reponame",
+			"stylelint",
+			"textlint"
 		],
     "editor.codeActionsOnSave": {
       "source.fixAll.markdownlint": true
@@ -67,7 +71,8 @@
       "gohtml",
 
     ],
-    "editor.linkedEditing": true,
+	"editor.linkedEditing": true,
+	"stripe.telemetry.enabled": false,
   },
 	"extensions": {
 		"recommendations": [

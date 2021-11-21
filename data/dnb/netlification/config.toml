@@ -1,6 +1,6 @@
 [csp]
 reportOnly = false
-reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
+reportUri = "https://samuisamui.report-uri.com/r/d/csp/wizard"
 upgradeInsecureRequests = true
 
 defaultSrc = [

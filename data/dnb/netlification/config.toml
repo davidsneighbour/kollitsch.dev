@@ -6,6 +6,60 @@ upgradeInsecureRequests = true
 defaultSrc = [
   "'self'"
 ]
+script-src = [
+  "'self'"
+]
+script-src-elem = [
+  "'self'"
+]
+script-src-attr = [
+  "'self'"
+]
+style-src = [
+  "'self'"
+]
+style-src-elem = [
+  "'self'"
+]
+style-src-attr = [
+  "'self'"
+]
+img-src = [
+  "'self'"
+]
+font-src = [
+  "'self'"
+]
+connect-src = [
+  "'self'"
+]
+media-src = [
+  "'self'"
+]
+object-src = [
+  "'self'"
+]
+prefetch-src = [
+  "'self'"
+]
+child-src = [
+  "'self'"
+]
+frame-src = [
+  "'self'"
+]
+worker-src = [
+  "'self'"
+]
+frame-ancestors = [
+  "'self'"
+]
+form-action = [
+  "'self'"
+]
+manifest-src = [
+  "'self'"
+]
 
 [[redirects]]
 netlify = "https://kollitsch.netlify.app"

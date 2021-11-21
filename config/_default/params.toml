@@ -124,7 +124,7 @@ dataCategory="Comments"
 dataCategoryId="DIC_kwDOGDHt584B_i3-"
 #dataMapping="title"
 dataReactionsEnabled="0"
-dataEmitMetadata="1"
+dataEmitMetadata="0"
 #dataTheme="light"
 #dataLang="en"
 

@@ -10,6 +10,8 @@ dotenv.config();
 // see https://github.com/algolia-samples/api-clients-quickstarts/blob/master/javascript/indexing.js
 (async () => {
   try {
+    console.log("Starting Algolia update...");
+
     // Algolia client credentials
     const ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID;
     const ALGOLIA_API_KEY = process.env.ALGOLIA_API_KEY;
@@ -28,11 +30,11 @@ dotenv.config();
 
     // Save objects: Add multiple objects to an index
     // https://www.algolia.com/doc/api-reference/api-methods/add-objects/?client=javascript
-    console.log("Save objects - Adding multiple objects: ", objects);
+    console.log("Save objects - Updating index now...");
     await index.saveObjects(objects).wait();
 
     let res = await index.search("");
-    console.log("Current objects: ", res.hits);
+    console.log("Current objects in the index: ", res.hits.length);
 
   } catch (error) {
     console.error(error);

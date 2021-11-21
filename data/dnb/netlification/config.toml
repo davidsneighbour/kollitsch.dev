@@ -3,6 +3,10 @@ reportOnly = false
 reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
 upgradeInsecureRequests = true
 
+defaultSrc = [
+  "'self'"
+]
+
 [[redirects]]
 netlify = "https://kollitsch.netlify.app"
 

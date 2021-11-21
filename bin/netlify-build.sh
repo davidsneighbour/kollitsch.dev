@@ -15,3 +15,4 @@ done
 hugo mod get -u ./...
 rm -rf public/
 npm run build
+node .bin/algolia-reindex.ts

@@ -1,5 +1,5 @@
 [csp]
-reportOnly = true
+reportOnly = false
 reportUri = "https://samuisamui.report-uri.com/r/d/csp/reportOnly"
 upgradeInsecureRequests = true
 

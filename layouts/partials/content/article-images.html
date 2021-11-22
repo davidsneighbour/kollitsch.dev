@@ -16,7 +16,8 @@
             <source srcset="{{- $imageLG.Permalink -}}" media="(max-width: 720px)">
             <source srcset="{{- $imageXL.Permalink -}}" media="(max-width: 960px)">
             <source srcset="{{- $imageXL.Permalink -}}">
-            <img loading="lazy" class="img-fluid" src="{{- $imageXL.Permalink -}}" alt="{{- $title | plainify -}}" width="914" height="457">
+            {{- /* TODO loading="lazy" for images that are below the fold */ -}}
+            <img class="img-fluid" src="{{- $imageXL.Permalink -}}" alt="{{- $title | plainify -}}" width="914" height="457">
           </picture>
         </a>
         <figcaption class="text-center">{{- $title -}}</figcaption>

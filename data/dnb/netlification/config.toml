@@ -21,7 +21,8 @@ style-src = [
 img-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
-  "https://www.googletagmanager.com"
+  "https://www.googletagmanager.com",
+  "https://www.google-analytics.com"
 ]
 font-src = [
   "'self'",
@@ -41,7 +42,8 @@ child-src = [
   "'self'"
 ]
 frame-src = [
-  "'self'"
+  "'self'",
+  "https://giscus.app/"
 ]
 worker-src = [
   "'self'"

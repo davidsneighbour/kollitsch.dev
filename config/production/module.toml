@@ -17,8 +17,8 @@ path = "github.com/dnb-org/components/giscus"
 [[imports]]
 path = "github.com/dnb-org/components/head"
 
-# [[imports]]
-# path = "github.com/dnb-org/components/netlification"
+[[imports]]
+path = "github.com/dnb-org/components/netlification"
 
 [[imports]]
 path = "github.com/dnb-org/components/opensearch"

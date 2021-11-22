@@ -10,11 +10,13 @@ script-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://www.googletagmanager.com",
-  "https://www.google-analytics.com"
+  "https://www.google-analytics.com",
+  "https://giscus.app/"
 ]
 style-src = [
   "'self'",
-  "https://d33wubrfki0l68.cloudfront.net"
+  "https://d33wubrfki0l68.cloudfront.net",
+  "https://giscus.app/"
 ]
 img-src = [
   "'self'",
@@ -26,7 +28,8 @@ font-src = [
   "https://d33wubrfki0l68.cloudfront.net"
 ]
 connect-src = [
-  "'self'"
+  "'self'",
+  "https://www.google-analytics.com"
 ]
 media-src = [
   "'self'"

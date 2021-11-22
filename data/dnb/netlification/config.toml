@@ -7,28 +7,21 @@ defaultSrc = [
   "'self'"
 ]
 script-src = [
-  "'self'"
-]
-script-src-elem = [
-  "'self'"
-]
-script-src-attr = [
-  "'self'"
+  "'self'",
+  "https://d33wubrfki0l68.cloudfront.net",
+  "https://www.googletagmanager.com"
 ]
 style-src = [
-  "'self'"
-]
-style-src-elem = [
-  "'self'"
-]
-style-src-attr = [
-  "'self'"
+  "'self'",
+  "https://d33wubrfki0l68.cloudfront.net"
 ]
 img-src = [
-  "'self'"
+  "'self'",
+  "https://d33wubrfki0l68.cloudfront.net"
 ]
 font-src = [
-  "'self'"
+  "'self'",
+  "https://d33wubrfki0l68.cloudfront.net"
 ]
 connect-src = [
   "'self'"
@@ -37,9 +30,6 @@ media-src = [
   "'self'"
 ]
 object-src = [
-  "'self'"
-]
-prefetch-src = [
   "'self'"
 ]
 child-src = [

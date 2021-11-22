@@ -2,4 +2,9 @@ body {
   padding-top: 100px;
 
   background-color: $gray-100;
+  background-image: url(/images/bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }

@@ -22,7 +22,8 @@ img-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://www.googletagmanager.com",
-  "https://www.google-analytics.com"
+  "https://www.google-analytics.com",
+  "data:"
 ]
 font-src = [
   "'self'",

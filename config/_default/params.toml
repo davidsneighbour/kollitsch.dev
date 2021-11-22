@@ -18,6 +18,7 @@ dribbble = "dribbble_username"
 #################### default parameters ################################
 logo = "/assets/logo/logo.svg"
 logo_height = "35px"
+logo_width = "280px"
 favicon = "/assets/favicon/favicon.svg"
 
 # contact form action
@@ -146,8 +147,15 @@ monetization = ""
 
 [dnb.head.speedoptimisation]
 control     = "on" # on/off - off disables all prefetching
-prefetch    = []
-preconnect  = []
+prefetch    = [
+  "/assets/webfonts/tomkin/Tomkin/TomkinLight/Tomkin-Light.woff",
+  "/assets/webfonts/tomkin/TomkinCondense/TomkinCondenseMedium/TomkinCondense-Medium.woff",
+  "/assets/webfonts/tomkin/TomkinCondense/TomkinCondenseRegular/TomkinCondense-Regular.woff",
+  "/assets/webfonts/tomkin/Tomkin/TomkinSemiLight/Tomkin-SemiLight.woff"
+]
+preconnect  = [
+  "google-analytics.com"
+]
 prerender   = []
 
 [dnb.head.verification]

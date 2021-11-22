@@ -12,13 +12,13 @@ script-src = [
   "https://www.googletagmanager.com",
   "https://www.google-analytics.com",
   "https://giscus.app/",
-  "unsafe-eval"
+  "'unsafe-eval'"
 ]
 style-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/",
-  "unsafe-inline"
+  "'unsafe-inline'"
 ]
 img-src = [
   "'self'",

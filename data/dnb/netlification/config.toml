@@ -11,12 +11,14 @@ script-src = [
   "https://d33wubrfki0l68.cloudfront.net",
   "https://www.googletagmanager.com",
   "https://www.google-analytics.com",
-  "https://giscus.app/"
+  "https://giscus.app/",
+  "eval"
 ]
 style-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
-  "https://giscus.app/"
+  "https://giscus.app/",
+  "inline"
 ]
 img-src = [
   "'self'",
@@ -47,9 +49,6 @@ frame-src = [
   "https://giscus.app/"
 ]
 worker-src = [
-  "'self'"
-]
-frame-ancestors = [
   "'self'"
 ]
 form-action = [

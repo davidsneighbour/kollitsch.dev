@@ -1,5 +1,5 @@
 [csp]
-reportOnly = false
+# reportOnly = false
 reportUri = "https://samuisamui.report-uri.com/r/d/csp/wizard"
 upgradeInsecureRequests = true
 

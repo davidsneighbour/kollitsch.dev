@@ -1,8 +1,8 @@
-import "ninja-keys";
+import 'ninja-keys';
 
 // menu
 const ninja = document.querySelector('ninja-keys');
-if (ninja){
+if (ninja) {
   ninja.data = [
     {
       id: 'Home',
@@ -10,7 +10,7 @@ if (ninja){
       hotkey: 'ctrl+H',
       section: 'Navigation',
       handler: () => {
-        window.location.href = "/";
+        window.location.href = '/';
       },
     },
     {
@@ -19,7 +19,7 @@ if (ninja){
       hotkey: 'ctrl+C',
       section: 'Navigation',
       handler: () => {
-        window.location.href = "/contact/";
+        window.location.href = '/contact/';
       },
     },
   ];

@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-de",
-  "version": "2021.0.92",
+  "version": "2021.0.93",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.de",
   "author": {
@@ -24,8 +24,8 @@
     "precss": "^4.0.0"
   },
   "devDependencies": {
-    "@dnb-org/all": "^3.4.12",
-    "@dnb-org/eslint-config": "^3.4.11",
+    "@dnb-org/all": "^3.4.13",
+    "@dnb-org/eslint-config": "^3.4.12",
     "@dnb-org/prettier-config": "^3.4.2",
     "json-schema": ">=0.4.0",
     "markdownlint-cli": "^0.30.0",

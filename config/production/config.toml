@@ -10,7 +10,6 @@ enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
 footnoteReturnLinkContents = "^"
-googleAnalytics = "UA-400066-4"
 ignoreErrors = []
 languageCode = "en-us"
 linenos = true

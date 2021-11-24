@@ -151,9 +151,7 @@ prefetch    = [
   "/assets/webfonts/tomkin/Tomkin/TomkinLight/Tomkin-Light.woff",
   "/assets/webfonts/tomkin/Tomkin/TomkinSemiLight/Tomkin-SemiLight.woff"
 ]
-preconnect  = [
-  "google-analytics.com"
-]
+preconnect  = []
 prerender   = []
 
 [dnb.head.verification]

@@ -4,7 +4,7 @@
 <head>
   {{- partial "head.html" . -}}
 </head>
-<body{{ with site.GoogleAnalytics }} data-ganalytics="{{ . }}"{{ end }}>
+<body>
   {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
   {{- partial "header.html" . -}}
   {{- block "main" . -}}{{- end -}}

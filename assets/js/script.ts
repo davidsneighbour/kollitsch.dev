@@ -1,6 +1,7 @@
 import Alpine from 'alpinejs';
+import { Tab } from 'bootstrap';
+import './components/menu';
 import { preloader } from './components/preloader';
-import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip } from 'bootstrap';
 
 // preloader
 preloader("GNAH");
@@ -22,15 +23,12 @@ triggerTabList.forEach(function (triggerEl) {
 var element = document.querySelector('body');
 var analyticsID = element.getAttribute('data-ganalytics');
 if (analyticsID !== null) {
-  function loadGoogleAnalytics() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + analyticsID;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  }
-  loadGoogleAnalytics();
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + analyticsID;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());

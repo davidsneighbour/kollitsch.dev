@@ -2,28 +2,28 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-    - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v4.0.1
-      hooks:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
       #    - id: check-added-large-files
-          - id: check-case-conflict
+      - id: check-case-conflict
       #    -   id: check-executables-have-shebangs
       #    - id: check-json
-          - id: check-merge-conflict
+      - id: check-merge-conflict
       #    -   id: check-shebang-scripts-are-executable
-          - id: check-symlinks
-          - id: check-toml
-          - id: check-vcs-permalinks
-          - id: check-xml
-          - id: check-yaml
-          - id: detect-private-key
-          - id: double-quote-string-fixer
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: double-quote-string-fixer
       #    -   id: end-of-file-fixer
-          - id: fix-byte-order-marker
-          - id: mixed-line-ending
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
       #    - id: pretty-format-json
       #      args: [--no-sort-keys]
-          - id: sort-simple-yaml
+      - id: sort-simple-yaml
   #    -   id: trailing-whitespace
   #        args: [--markdown-linebreak-ext=md]
   #-   repo: https://github.com/pre-commit/mirrors-csslint
@@ -40,18 +40,18 @@ repos:
   #        -   eslint-loader@1.6.1
   #        -   eslint-plugin-react@6.10.3
   #        -   babel-eslint@6.1.2
-#  - repo: https://github.com/pre-commit/mirrors-scss-lint
-#    rev: 'v0.59.0'  # Use the sha / tag you want to point at
-#    hooks:
-#      - id: scss-lint
-#  - repo: https://github.com/pre-commit/mirrors-jshint
-#    rev: "v2.13.0" # Use the sha / tag you want to point at
-#    hooks:
-#      - id: jshint
-#  - repo: https://github.com/pre-commit/mirrors-prettier
-#    rev: "v2.3.2" # Use the sha / tag you want to point at
-#    hooks:
-#      - id: prettier
+  #  - repo: https://github.com/pre-commit/mirrors-scss-lint
+  #    rev: 'v0.59.0'  # Use the sha / tag you want to point at
+  #    hooks:
+  #      - id: scss-lint
+  #  - repo: https://github.com/pre-commit/mirrors-jshint
+  #    rev: "v2.13.0" # Use the sha / tag you want to point at
+  #    hooks:
+  #      - id: jshint
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: 'v2.4.1'
+    hooks:
+      - id: prettier
 #-   repo: https://github.com/pre-commit/mirrors-fixmyjs
 #    rev: 'v2.0.0'  # Use the sha / tag you want to point at
 #    hooks:

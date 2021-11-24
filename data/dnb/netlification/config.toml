@@ -9,8 +9,6 @@ defaultSrc = [
 script-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
-  "https://www.googletagmanager.com",
-  "https://www.google-analytics.com",
   "https://giscus.app/",
   "'unsafe-eval'"
 ]
@@ -23,8 +21,6 @@ style-src = [
 img-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
-  "https://www.googletagmanager.com",
-  "https://www.google-analytics.com",
   "data:"
 ]
 font-src = [
@@ -32,8 +28,7 @@ font-src = [
   "https://d33wubrfki0l68.cloudfront.net"
 ]
 connect-src = [
-  "'self'",
-  "https://www.google-analytics.com"
+  "'self'"
 ]
 media-src = [
   "'self'"

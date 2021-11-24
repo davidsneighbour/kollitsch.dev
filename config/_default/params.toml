@@ -149,8 +149,6 @@ monetization = ""
 control     = "on" # on/off - off disables all prefetching
 prefetch    = [
   "/assets/webfonts/tomkin/Tomkin/TomkinLight/Tomkin-Light.woff",
-  "/assets/webfonts/tomkin/TomkinCondense/TomkinCondenseMedium/TomkinCondense-Medium.woff",
-  "/assets/webfonts/tomkin/TomkinCondense/TomkinCondenseRegular/TomkinCondense-Regular.woff",
   "/assets/webfonts/tomkin/Tomkin/TomkinSemiLight/Tomkin-SemiLight.woff"
 ]
 preconnect  = [

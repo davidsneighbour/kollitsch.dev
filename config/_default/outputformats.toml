@@ -19,3 +19,9 @@ mediatype = "text/netlify"
 baseName = "_redirects"
 isPlainText = true
 notAlternative = true
+
+[manifest]
+mediaType = "application/manifest+json"
+baseName = "manifest"
+isPlainText = true
+notAlternative = true

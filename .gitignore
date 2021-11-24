@@ -1,5 +1,4 @@
 # local files
-package-lock.json
 bin/replacements
 hugo_stats.json
 resources

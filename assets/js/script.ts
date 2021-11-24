@@ -9,12 +9,15 @@ Alpine.start();
 const triggerTabList = [].slice.call(
   document.querySelectorAll('#myTab button')
 );
-triggerTabList.forEach((triggerEl) => {
+triggerTabList.forEach((triggerEl: string | Element) => {
   const tabTrigger = new Tab(triggerEl);
-  triggerEl.addEventListener('click', (event) => {
-    event.preventDefault();
-    tabTrigger.show();
-  });
+  triggerEl.addEventListener(
+    'click',
+    (event: { preventDefault: () => void }) => {
+      event.preventDefault();
+      tabTrigger.show();
+    }
+  );
 });
 
 // google analytics

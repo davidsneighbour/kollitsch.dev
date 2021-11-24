@@ -11,6 +11,7 @@ require (
 	github.com/dnb-org/components/opensearch v1.4.13 // indirect
 	github.com/dnb-org/components/pwa v1.4.13 // indirect
 	github.com/dnb-org/components/robots v1.4.13 // indirect
+	github.com/dnb-org/components/search-algolia v1.4.13 // indirect
 	github.com/dnb-org/components/security v1.4.13 // indirect
 	github.com/dnb-org/components/sitemap v1.4.13 // indirect
 	github.com/dnb-org/components/social v1.4.13 // indirect

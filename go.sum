@@ -15,6 +15,8 @@ github.com/dnb-org/components/pwa v1.4.13 h1:BNZ4X+wSsSZJux+3I2xfyASgRY4Pifcnf+a
 github.com/dnb-org/components/pwa v1.4.13/go.mod h1:TFC2NEk3gF3+MuYhX/GdMUK/Nt4RQaYLr3Uj+EobpaQ=
 github.com/dnb-org/components/robots v1.4.13 h1:5yDGSmKcco6W/jrlqnRP2Xe8G10bOxFpSvmGVTd8M1c=
 github.com/dnb-org/components/robots v1.4.13/go.mod h1:B5pHw6Oki+VPRicJGZ5EpYzByUm2UvS0b7sQAtJQwyQ=
+github.com/dnb-org/components/search-algolia v1.4.13 h1:E+MTp6kHl5VaIDfS4FMDIiPE80COGzbwJRAixBUi2Gc=
+github.com/dnb-org/components/search-algolia v1.4.13/go.mod h1:ddq547jLU+1+c15DXDPXdIUL6WBpKsZjMbd25ffZi9E=
 github.com/dnb-org/components/security v1.4.13 h1:Y/Z5kmBkbIimpnDMgwDQUAcp1iGWgUKClpskOYqXVI0=
 github.com/dnb-org/components/security v1.4.13/go.mod h1:qfsSeGN/i036QGeOfGb0MBsCHkaifz/dXiEEtjDXvO0=
 github.com/dnb-org/components/sitemap v1.4.13 h1:YAWgpSUWrvFZyTiLDP+TkwRNm8CvLcCeO6DsSi0YF1Y=

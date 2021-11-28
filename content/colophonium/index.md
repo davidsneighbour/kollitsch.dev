@@ -1,18 +1,14 @@
-+++
-date = '2021-11-01T12:42:55+07:00'
-title = 'Colophonium'
-[menu]
-  [menu.footer]
-    name = 'Colophonium'
-    weight = 30
-
-
-[[resources]]
-src = 'todd-quackenbush-IClZBVw5W5A-unsplash.jpg'
-title = 'Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/s/photos/construction)'
-
-
-+++
+---
+date: "2021-11-01T12:42:55+07:00"
+menu:
+  footer:
+    name: Colophonium
+    weight: 30
+resources:
+- src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
+  title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/s/photos/construction)
+title: Colophonium
+---
 
 A list of technologies and tools I am using to build this website. 
 

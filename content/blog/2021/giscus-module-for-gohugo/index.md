@@ -1,15 +1,19 @@
-+++
-categories = ['gohugo', 'modules']
-date = '2021-10-27T20:25:27+07:00'
-description = ''
-tags = ['gohugo', 'static websites', 'dnb-org', 'giscus']
-title = 'Giscus Module for GoHugo'
-[[resources]]
-src = 'gerry-roarty-slkENpP5PbI-unsplash.jpg'
-title = 'Photo by [Gerry Roarty](https://unsplash.com/@ger54321) on [Unsplash](https://unsplash.com/s/photos/module)'
-
-
-+++
+---
+categories:
+- gohugo
+- modules
+date: "2021-10-27T20:25:27+07:00"
+description: ""
+resources:
+- src: gerry-roarty-slkENpP5PbI-unsplash.jpg
+  title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) on [Unsplash](https://unsplash.com/s/photos/module)
+tags:
+- gohugo
+- static websites
+- dnb-org
+- giscus
+title: Giscus Module for GoHugo
+---
 
 [Giscus](https://github.com/giscus/giscus) is a new star on the comment systems for static website generators orbit. It is inspired by the wonderful [utterances](https://github.com/utterance/utterances) and uses Github Discussions to save comments. It's open source, easily configurable, themeable, translatable, and you can [host it on your own server](https://github.com/giscus/giscus/blob/main/SELF-HOSTING.md) (it's JavaScript based) if you like. I tried it, but ran into problems setting it up, so this will be a topic for a later post.
 

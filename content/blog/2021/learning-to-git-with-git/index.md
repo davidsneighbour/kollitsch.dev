@@ -1,15 +1,17 @@
-+++
-categories = ['links']
-date = '2021-11-02T18:48:49+07:00'
-series = 'learning-by-doing'
-tags = ['git', 'learning', 'quicklink']
-title = 'Learning to git with git'
-[[resources]]
-src = 'yancy-min-842ofHC6MaI-unsplash.jpg'
-title = 'Photo by [Yancy Min](https://unsplash.com/@yancymin) via [Unsplash](https://unsplash.com/)'
-
-
-+++
+---
+categories:
+- links
+date: "2021-11-02T18:48:49+07:00"
+resources:
+- src: yancy-min-842ofHC6MaI-unsplash.jpg
+  title: Photo by [Yancy Min](https://unsplash.com/@yancymin) via [Unsplash](https://unsplash.com/)
+series: learning-by-doing
+tags:
+- git
+- learning
+- quicklink
+title: Learning to git with git
+---
 
 I like to learn things by doing them. Recently I found a couple of interesting game formats that teach certain aspects of full stack developer's life by playing a game. Let's play?
 

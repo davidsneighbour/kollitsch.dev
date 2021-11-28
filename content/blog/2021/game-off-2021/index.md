@@ -1,18 +1,21 @@
-+++
-categories = ['programming', 'projects']
-date = '2021-10-23T16:35:44+07:00'
-description = ''
-tags = ['game-off', 'javascript', 'projects', 'planning']
-title = 'Game Off 2021 Part I'
-[[resources]]
-src = 'hero.png'
-title = 'Game Off 2021'
-[resources.params]
-  process = false
-
-
-
-+++
+---
+categories:
+- programming
+- projects
+date: "2021-10-23T16:35:44+07:00"
+description: ""
+resources:
+- params:
+    process: false
+  src: hero.png
+  title: Game Off 2021
+tags:
+- game-off
+- javascript
+- projects
+- planning
+title: Game Off 2021 Part I
+---
 
 [Game Off 2021](https://itch.io/jam/game-off-2021) is this years iteration of a regular game development contest hosted by [itch.io](https://itch.io).
 
@@ -26,12 +29,12 @@ The idea is the following: A simple click-click puzzle. Tiles of a graphic (worl
 
 - level timeout
 - maximum allowed click count per level
-- diagonal, horizontal or vertical tiles turn counter to the current clicked tile, 
+- diagonal, horizontal or vertical tiles turn counter to the current clicked tile,
 - tiles dis- and reappear on certain clicks
 - tiles dis- and reappear based on timeout or move count
 - enemies trapping/freezing/killing the subject
 - power ups and power downs (for counters and clicks)
 
-The technology stack will be HTML5 with JavaScript as a browser game, for now. I need to research if there is a viable way to transform a browser game onto other platforms. 
+The technology stack will be HTML5 with JavaScript as a browser game, for now. I need to research if there is a viable way to transform a browser game onto other platforms.
 
-That's all for now. Let's wait and see what the requirements of the contest are. 
+That's all for now. Let's wait and see what the requirements of the contest are.

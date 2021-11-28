@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-12 mb-5">
         <div class="title-bordered">
-          <h1 class="h3">{{i18n "search_result_for"}}
+          <h2 class="h3">{{i18n "search_result_for"}}
             <span class="mark">
               <script>
                 var keyword = (window.location.search).substr(3);
@@ -15,7 +15,7 @@
                 document.write(result);
               </script>
             </span>
-          </h1>
+          </h2>
         </div>
       </div>
       <div class="col-12">
@@ -28,7 +28,7 @@
               <article class="card post-card" id="summary-${key}">
                 ${ isset image }<img loading="lazy" class="img-fluid mb-4" src="${image}" alt="${title}">${end}
                 <div class="card-body">
-                  <h3 class="h4 mb-2">
+                  <h3 class="h4">
                     <a class="post-title" href="${link}">${title}</a>
                   </h3>
                   ${ isset categories } <p class="mb-2">Categories : ${categories}</p> ${end}
@@ -48,7 +48,7 @@
                   </div>
                   <div class="col-lg-5">
                     <div class="card-body pt-lg-0">
-                      <h4 class="mb-3">
+                      <h4>
                         <a class="post-title" href="${link}">${title}</a>
                       </h4>
                       ${ isset categories } <p class="mb-2">Categories : ${categories}</p> ${end}

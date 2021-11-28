@@ -2,15 +2,13 @@
 # reportOnly = false
 reportUri = "https://samuisamui.report-uri.com/r/d/csp/wizard"
 upgradeInsecureRequests = true
-
-defaultSrc = [
-  "'self'"
-]
+defaultSrc = ["'self'"]
 script-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/",
-  "'unsafe-eval'"
+  "'unsafe-eval'",
+  "'unsafe-inline'"
 ]
 style-src = [
   "'self'",
@@ -18,40 +16,16 @@ style-src = [
   "https://giscus.app/",
   "'unsafe-inline'"
 ]
-img-src = [
-  "'self'",
-  "https://d33wubrfki0l68.cloudfront.net",
-  "data:"
-]
-font-src = [
-  "'self'",
-  "https://d33wubrfki0l68.cloudfront.net"
-]
-connect-src = [
-  "'self'"
-]
-media-src = [
-  "'self'"
-]
-object-src = [
-  "'self'"
-]
-child-src = [
-  "'self'"
-]
-frame-src = [
-  "'self'",
-  "https://giscus.app/"
-]
-worker-src = [
-  "'self'"
-]
-form-action = [
-  "'self'"
-]
-manifest-src = [
-  "'self'"
-]
+img-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net", "data:"]
+font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
+connect-src = ["'self'"]
+media-src = ["'self'"]
+object-src = ["'self'"]
+child-src = ["'self'"]
+frame-src = ["'self'", "https://giscus.app/"]
+worker-src = ["'self'"]
+form-action = ["'self'"]
+manifest-src = ["'self'"]
 
 [[redirects]]
 netlify = "https://kollitsch.netlify.app"

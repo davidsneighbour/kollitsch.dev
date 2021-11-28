@@ -7,6 +7,8 @@ github.com/dnb-org/components/giscus v1.4.13 h1:/F9HHh0wIN7Ow/8YTaWacNQR5+aIaMgU
 github.com/dnb-org/components/giscus v1.4.13/go.mod h1:XivOAFWWo2KadqOMg8y+qTMsiPfCzD7mP47ifvdg29s=
 github.com/dnb-org/components/head v1.4.15 h1:0teT51E6cl2Gx/1SZjch0bp1SZggUmeneNX0kI1nEQI=
 github.com/dnb-org/components/head v1.4.15/go.mod h1:vtyX3EIKxYoxhlHJefdOahQySW11XwOy23Bh/veDrAY=
+github.com/dnb-org/components/internals v0.0.1 h1:k8v4aWDK0vBV/0gKgWZixSJdYYfPFt74PrchDk1O1jA=
+github.com/dnb-org/components/internals v0.0.1/go.mod h1:h1uNVDcgjad8oaF3xSk9LsocuLAc4svFnSii/CtSccQ=
 github.com/dnb-org/components/netlification v1.4.13 h1:9dKmwa+jXydkq8134RX6AM+2BbLkvvMd/L3xJcWlvGs=
 github.com/dnb-org/components/netlification v1.4.13/go.mod h1:jPjSlmP7+RTHm8z5HF7ZVA5cId58rEefXMyaUlxImbI=
 github.com/dnb-org/components/opensearch v1.4.13 h1:hwoscV7u0fenwAlUAew+fs5kffdEYdcOo9DZu3a9u7Q=

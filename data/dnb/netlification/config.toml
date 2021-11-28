@@ -8,7 +8,8 @@ script-src = [
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/",
   "'unsafe-eval'",
-  "'unsafe-inline'"
+  "'unsafe-inline'",
+  'nonce-dnb-components-sw'
 ]
 style-src = [
   "'self'",

@@ -2,10 +2,24 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "hugo",
   "frontMatter.content.publicFolder": "static",
+  "frontMatter.content.draftField": {
+    "name": "draft",
+    "type": "boolean"
+  },
+  "frontMatter.content.defaultSorting": "LastModifiedDesc",
+  "frontMatter.preview.host": "192.168.1.201",
+  "frontMatter.preview.pathName": "",
+  "frontMatter.content.fmHighlight": true,
+
   "frontMatter.content.pageFolders": [
     {
-      "title": "content",
-      "path": "[[workspace]]/content"
+      "title": "Blog posts",
+      "path": "content/blog"
+    },
+    {
+      "title": "Pages",
+      "path": "content",
+      "excludeSubdir": true
     }
   ]
 }

@@ -2,62 +2,116 @@
 extended = false
 min = "0.75.0"
 
-# [[imports]]
-# path = "github.com/dnb-org/hugo-assets-unsplash"
-
 [[imports]]
 path = "github.com/dnb-org/components/auditor"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/functions"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/giscus"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/head"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+
+[[imports]]
+path = "github.com/dnb-org/components/internals"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/netlification"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/opensearch"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/pwa"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/robots"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/search-algolia"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/security"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/sitemap"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/components/social"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/libraries/heroicons"
-
-#[[imports]]
-#path = "github.com/dnb-org/shortcodes/exchangerates"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/shortcodes/collection"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/shortcodes/youtube"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/shortcodes/pictures"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/debug"
+disable = false
+ignoreConfig = false
+ignoreImports = false
 
 [[imports]]
 path = "github.com/dnb-org/hooks"
+disable = false
+ignoreConfig = false
+ignoreImports = false

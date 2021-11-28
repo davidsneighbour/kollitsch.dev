@@ -9,7 +9,7 @@ Alpine.start();
 const triggerTabList = [].slice.call(
   document.querySelectorAll('#myTab button')
 );
-triggerTabList.forEach((triggerEl: string | Element) => {
+triggerTabList.forEach((triggerEl: Element) => {
   const tabTrigger = new Tab(triggerEl);
   triggerEl.addEventListener(
     'click',

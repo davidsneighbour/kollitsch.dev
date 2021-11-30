@@ -1,26 +1,16 @@
 ############################# English - Main Menu ########################
 [[main]]
-weight = 1
-url = "/"
 name = "Home"
+url = "/"
+weight = 1
 
 ############################# Footer Menu ########################
 [[footer]]
-weight = 40
-url = "privacy/"
-name = "Privacy"
-
-[[footer]]
-weight = 50
-url = "terms-conditions/"
-name = "Terms & Conditions"
-
-[[footer]]
-weight = 10
-url = "tags/"
 name = "Tags"
+url = "tags/"
+weight = 10
 
 [[footer]]
-weight = 20
-url = "categories/"
 name = "Categories"
+url = "categories/"
+weight = 20

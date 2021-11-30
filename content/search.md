@@ -1,7 +1,10 @@
 ---
-date: "2018-09-24T11:07:10+06:00"
-description: this is meta description
-draft: false
 layout: search
-title: Search Result
+title: Search on this kollitsch.de
+linktitle: Search
+description: Find the post or information you are looking for. Missing something? Feel free to contact me!
+date: '2021-11-30T17:00:00+07:00'
+menu:
+  main:
+    weight: 4
 ---

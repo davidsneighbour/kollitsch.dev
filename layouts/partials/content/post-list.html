@@ -19,7 +19,7 @@
           <li class="list-inline-item mb-2">
             <ul class="list-inline">
               {{- range .Params.tags -}}
-              <li class="list-inline-item"><a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}">{{- . -}}</a></li>
+              <li class="list-inline-item"><a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">{{- . -}}</a></li>
               {{- end -}}
             </ul>
           </li>

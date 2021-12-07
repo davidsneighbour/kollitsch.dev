@@ -1,6 +1,7 @@
-@import 'settings/fonts2';
+// Font setup
+@import 'settings/fonts';
 
-// bootstrap
+// Bootstrap
 // Configuration
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
@@ -8,7 +9,7 @@
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/utilities';
 
-// Layout & components
+// Layout and components
 @import '../../node_modules/bootstrap/scss/root';
 @import '../../node_modules/bootstrap/scss/reboot';
 @import '../../node_modules/bootstrap/scss/type';
@@ -47,10 +48,7 @@
 // Utilities
 @import '../../node_modules/bootstrap/scss/utilities/api';
 
-// plugins
-@import '../../node_modules/slick-carousel/slick/slick.scss';
-
-// theme files
+// Theme files
 @import 'components/layout';
 @import 'components/topnavigation';
 @import 'components/article';
@@ -65,9 +63,9 @@
 @import 'components/pagination';
 @import 'components/slider';
 
-// plugins
+// Plugins
 @import 'plugins/youtube';
 @import 'plugins/debugprint';
 
-// local overrides
+// Local overrides
 @import 'local';

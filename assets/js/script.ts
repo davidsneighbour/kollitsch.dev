@@ -1,9 +1,5 @@
-import Alpine from 'alpinejs';
-import { Tab } from 'bootstrap';
+import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
-
-// alpine
-Alpine.start();
 
 // tabs
 const triggerTabList = Array.prototype.slice.call(
@@ -19,4 +15,12 @@ triggerTabList.forEach((triggerElement: Element) => {
       tabTrigger.show();
     }
   );
+});
+
+// collapsibles
+const collapseElementList = Array.prototype.slice.call(
+  document.querySelectorAll('.collapse')
+);
+collapseElementList.map(function collapsibles(collapseElement: Element) {
+  return new Collapse(collapseElement);
 });

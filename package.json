@@ -12,7 +12,7 @@
   "repository": "davidsneighbour/kollitsch.de",
   "dependencies": {
     "algoliasearch": "^4.11.0",
-    "alpinejs": "^3.5.2",
+    "alpinejs": "^3.7.0",
     "bootstrap": "^5.1.3",
     "dotenv": "^10.0.0",
     "instantsearch.js": "^4.33.2",
@@ -24,10 +24,10 @@
     "precss": "^4.0.0"
   },
   "devDependencies": {
-    "@dnb-org/all": "^3.4.16",
-    "@dnb-org/browserslist-config": "^3.4.0",
-    "@dnb-org/eslint-config": "^3.4.14",
-    "@dnb-org/prettier-config": "^3.4.3",
+    "@dnb-org/all": "^3.4.20",
+    "@dnb-org/browserslist-config": "^3.4.3",
+    "@dnb-org/eslint-config": "^3.4.17",
+    "@dnb-org/prettier-config": "^3.4.6",
     "json-schema": ">=0.4.0",
     "markdownlint-cli": "^0.30.0",
     "mem": ">=9.0.1",

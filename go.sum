@@ -9,8 +9,6 @@ github.com/dnb-org/components/head v1.4.15 h1:0teT51E6cl2Gx/1SZjch0bp1SZggUmeneN
 github.com/dnb-org/components/head v1.4.15/go.mod h1:vtyX3EIKxYoxhlHJefdOahQySW11XwOy23Bh/veDrAY=
 github.com/dnb-org/components/internals v0.0.1 h1:k8v4aWDK0vBV/0gKgWZixSJdYYfPFt74PrchDk1O1jA=
 github.com/dnb-org/components/internals v0.0.1/go.mod h1:h1uNVDcgjad8oaF3xSk9LsocuLAc4svFnSii/CtSccQ=
-github.com/dnb-org/components/netlification v1.4.13 h1:9dKmwa+jXydkq8134RX6AM+2BbLkvvMd/L3xJcWlvGs=
-github.com/dnb-org/components/netlification v1.4.13/go.mod h1:jPjSlmP7+RTHm8z5HF7ZVA5cId58rEefXMyaUlxImbI=
 github.com/dnb-org/components/opensearch v1.4.13 h1:hwoscV7u0fenwAlUAew+fs5kffdEYdcOo9DZu3a9u7Q=
 github.com/dnb-org/components/opensearch v1.4.13/go.mod h1:0+z6OQrxXBEhddwlp7YFe9T+T/Nrch9nBDeNUWsGctk=
 github.com/dnb-org/components/pwa v1.4.19 h1:73yFQHUIQIO7fB/0DPvC3x0XGguQdpr1X+dzAYsIFQc=
@@ -27,6 +25,8 @@ github.com/dnb-org/components/social v1.4.13 h1:nIbVrII/0QSt2EHJ7TlfpISyiOGdOEm9
 github.com/dnb-org/components/social v1.4.13/go.mod h1:cctksnZHbTekjDP7iIYLwaIqAtfCtaRSMDKHDi+TWjo=
 github.com/dnb-org/debug v1.4.2 h1:APKrwZWrqxLBgDruqA3W+M5OYCAlzmppkj6neNEFXdg=
 github.com/dnb-org/debug v1.4.2/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
+github.com/dnb-org/dnb-hugo-netlification v1.0.0 h1:JZ3R5yH4hDhjCCJAFbmduWZfRRWYQiXs4i5vLOx+Vs0=
+github.com/dnb-org/dnb-hugo-netlification v1.0.0/go.mod h1:U5IMFMLbYFf3OgsDkEP/DWjvlNcMabJtEZSBkwc1U38=
 github.com/dnb-org/hooks v1.0.20 h1:li71xDjs5H3pY44gbZHz+ex/K7uP/7Ej3YDgjkSRIxM=
 github.com/dnb-org/hooks v1.0.20/go.mod h1:pqjp732xSQs+EVXhfgFhhqmQRS1XAcIhVWDOSAZWd3s=
 github.com/dnb-org/libraries/heroicons v1.0.3 h1:HIMctgGhctWjOU1JK1DtetjdIXhjABN3Cun65Kppuv4=

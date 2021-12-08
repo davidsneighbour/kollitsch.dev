@@ -1,17 +1,17 @@
 ---
-date: "2021-11-16T19:52:00+07:00"
-lastmod: "2021-11-16T19:52:00+07:00"
+date: '2021-11-16T19:52:00+07:00'
+lastmod: '2021-11-16T19:52:00+07:00'
 linkTitle: Hyper Shell
-publishDate: "2021-11-16T19:52:00+07:00"
+publishDate: '2021-11-16T19:52:00+07:00'
 resources:
-- categories:
-  - programs
-  src: hyper-shell.png
-  tags:
-  - shell
-  - electron
-  - link
-  title: Hyper shell
+  - categories:
+      - programs
+    src: hyper-shell.png
+    tags:
+      - shell
+      - electron
+      - link
+    title: Hyper shell
 title: Hyper Shell
 ---
 

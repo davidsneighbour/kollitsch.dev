@@ -89,6 +89,7 @@
   "url": "https://kollitsch.de",
   "dependencies": {
     "@dnb-org/standard-version-config": "^3.4.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "mem": "^9.0.1"
   }
 }

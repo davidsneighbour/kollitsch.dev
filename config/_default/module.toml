@@ -32,12 +32,17 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-head"
 
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-hooks"
+
 # [[imports]]
 # disable = false
 # ignoreConfig = false
 # ignoreImports = false
 # path = "github.com/dnb-org/components/internals"
-
 [[imports]]
 disable = false
 ignoreConfig = false
@@ -109,9 +114,3 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/shortcodes/pictures"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/hooks"

@@ -27,8 +27,8 @@ github.com/dnb-org/dnb-hugo-sitemap v0.0.2 h1:COCJ7UpW+AMxKjjNJGkflGcG353zGRjR0g
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2/go.mod h1:VxMcmcfV6ulDhKdbEFUIjGE/O5GUFYCkqXMvm27/hWM=
 github.com/dnb-org/dnb-hugo-social v0.0.2 h1:07nN+Uf9JSgGbZBoRwY6Fl4CKjT9jGmNPBy1AcExE1k=
 github.com/dnb-org/dnb-hugo-social v0.0.2/go.mod h1:T/tsdsocfpBO0TRZFYHwXN6sQzCfIPWvf+r9GGY2lAY=
-github.com/dnb-org/hooks v1.0.20 h1:li71xDjs5H3pY44gbZHz+ex/K7uP/7Ej3YDgjkSRIxM=
-github.com/dnb-org/hooks v1.0.20/go.mod h1:pqjp732xSQs+EVXhfgFhhqmQRS1XAcIhVWDOSAZWd3s=
+github.com/dnb-org/hooks v1.0.21 h1:+3HY/9a2rTcWV9dyKmOXLAJIjtvCsXVv2y0CaJO7yio=
+github.com/dnb-org/hooks v1.0.21/go.mod h1:KcaaGnSb/t1nnBH8NwzX24TwqcTDvNh6ec5ARS+C6dI=
 github.com/dnb-org/libraries/heroicons v1.0.3 h1:HIMctgGhctWjOU1JK1DtetjdIXhjABN3Cun65Kppuv4=
 github.com/dnb-org/libraries/heroicons v1.0.3/go.mod h1:eGLho1QH6BtWicXfclCNSSRsaGYuQ++yaW2f6fhKk6Y=
 github.com/dnb-org/shortcodes/collection v1.4.21 h1:Ptce3e7TEGFXQRNzeYxURUTw9ju4SiAldgZX2o074y0=

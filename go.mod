@@ -16,7 +16,7 @@ require (
 	github.com/dnb-org/dnb-hugo-security v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-sitemap v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-social v0.0.2 // indirect
-	github.com/dnb-org/hooks v1.0.20 // indirect
+	github.com/dnb-org/hooks v1.0.21 // indirect
 	github.com/dnb-org/libraries/heroicons v1.0.3 // indirect
 	github.com/dnb-org/shortcodes/collection v1.4.21 // indirect
 	github.com/dnb-org/shortcodes/pictures v0.0.12 // indirect

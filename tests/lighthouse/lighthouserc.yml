@@ -1,0 +1,20 @@
+ci:
+  healthcheck:
+    fatal: false
+    checks: ['githubToken']
+  autorun:
+  open:
+  collect:
+    # collect options here
+
+  assert:
+    # assert options here
+
+  upload:
+    # upload options here
+
+  server:
+    # server options here
+
+  wizard:
+    # wizard options here

@@ -1,7 +1,6 @@
 ################################################################################
 # see https://gohugo.io/getting-started/configuration/
 ################################################################################
-
 baseURL = "https://kollitsch.de/"
 copyright = "All rights reserved. Copyright &copy;2021 kollitsch.de"
 defaultContentLanguage = "en"

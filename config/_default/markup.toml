@@ -2,7 +2,6 @@
 # see https://github.com/yuin/goldmark/#built-in-extensions
 # see https://gohugo.io/getting-started/configuration-markup#goldmark
 ################################################################################
-
 [goldmark]
 
 [goldmark.extensions]
@@ -34,7 +33,6 @@ lineNumbersInTable = true
 noClasses = false
 tabWidth = 2
 style = "xcode"
-
 
 [tableOfContents]
 endLevel = 4

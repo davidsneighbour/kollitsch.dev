@@ -105,6 +105,11 @@ address = [
   "Thailand",
 ]
 
+[dnb.dateformat]
+long = "Mon, Jan 2, 2006"
+short = "Jan 2 2006"
+timestamp = "2006-01-02T15:04:05-07:00"
+
 [social.facebook]
 profileid = "517050641" # patrick.kollitsch
 pageid = "6967849771" # samuisamui
@@ -161,4 +166,3 @@ bing        = ""
 alexa       = ""
 pinterest   = ""
 nortong     = ""
-

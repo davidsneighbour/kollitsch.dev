@@ -1,6 +1,5 @@
-<span class="publishing-date" title="{{- .PublishDate | time.Format "2006-01-02T15:04:05-07:00" -}}">
-  {{- .PublishDate | time.Format ":date_full" -}}&nbsp;
+<span class="publishing-date" title="🤖 {{- .PublishDate | time.Format site.Params.dnb.dateformat.timestamp -}}">
+  {{- .PublishDate | time.Format site.Params.dnb.dateformat.long -}}&nbsp;
   {{- i18n "at" | default "at" -}}&nbsp;
   {{- .PublishDate | time.Format ":time_short" -}}
 </span>
-

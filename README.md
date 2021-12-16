@@ -8,8 +8,6 @@ Note: we will check out Cloudflare Pages soon. More bandwidth and more build tim
 
 - copy `.env.sample` to `.env`
 - fill in the info from [https://www.algolia.com/apps](https://www.algolia.com/apps) &gt; API keys
-- run `npm install -g atomic-algolia` to install globally
-- run `npm run algolia` whenever there are updates to the content
 
 ## Publishing
 
@@ -43,7 +41,6 @@ pre-commit gc # garbage collection
 
 ```shell
 npm install
-npm install -g lighthouse
 ```
 
 ### Development server
@@ -74,8 +71,6 @@ This repository is currently optimised for Netlify. To create a local copy of th
 ./bin/netlify.sh
 ```
 
-### Releasing
-
 ## HeroIcons
 
 - [Github Repository](https://github.com/tailwindlabs/heroicons)
@@ -83,14 +78,11 @@ This repository is currently optimised for Netlify. To create a local copy of th
 
 ## Publishing on Netlify
 
-- running `npm run release` will create a new tag in the `main` branch
-- it will merge the `main` branch into the `live` branch
-- Netlify is set up to only deploy the `live` branch
-- thus only releases will trigger a deploy
+- running `npm run release` will create a new tag in the `main` branch and release on Netlify.
 
 ## Design Paradigms for this theme
 
 - Margins are applied to the bottom of items.
-- Mobile first design.
-- no layouts inside of layouts (container>row>col>row>col) if not explicitly required.
-- do not re-invent the wheel. reuse, recycle.
+- This is a mobile-first design.
+- No layouts inside of layouts (container>row>col>row>col) if not explicitly required.
+- Do not re-invent the wheel. Reuse, recycle.

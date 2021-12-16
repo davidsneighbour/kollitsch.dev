@@ -1,5 +1,4 @@
 # date = ["myDate", ":default"] :fileModTime :filename :git
-
 date = ["date", "publishDate", "lastmod"]
 lastmod = [":git", "lastmod", "date", "publishDate"]
 publishDate = ["publishDate", "date"]

@@ -1,7 +1,6 @@
 ################################################################################
 # see https://gohugo.io/content-management/urls/
 ################################################################################
-
 journal = "/journal/:title/"
 page = "/:title/"
 notes = "/notes/:year/:month/:filename/"

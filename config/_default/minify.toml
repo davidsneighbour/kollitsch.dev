@@ -1,7 +1,6 @@
 ################################################################################
 # see https://gohugo.io/getting-started/configuration/#configure-minify
 ################################################################################
-
 disableCSS = false
 disableHTML = false
 disableJS = false

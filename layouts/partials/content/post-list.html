@@ -1,40 +1,38 @@
 <div class="col-12">
-<article class="card post-card">
-  <div class="row no-gutters align-items-center">
-    <div class="col-lg-6">
-      <div class="pe-0 pe-lg-5">
-        {{- partialCached "content/article-images.html" . . -}}
+  <article class="card post-card">
+    <div class="row no-gutters align-items-center">
+      <div class="col-lg-6">
+        <div class="pe-0 pe-lg-5">
+          {{- partialCached "content/article-images.html" . . -}}
+        </div>
       </div>
-    </div>
 
-    <div class="col-lg-6">
-      <div class="card-body shadow-sm pt-lg-0">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item mb-2">
+      <div class="col-lg-6">
+        <div class="card-body shadow-sm pt-lg-0">
+          <div class="d-flex justify-content-between">
             {{- partial "content/author.html" . -}}
-          </li>
-          <li class="list-inline-item mb-2">
             {{- partialCached "content/publishing-date.html" . . -}}
-          </li>
-          <li class="list-inline-item mb-2">
-            <ul class="list-inline">
-              {{- range .Params.tags -}}
-              <li class="list-inline-item"><a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">{{- . -}}</a></li>
-              {{- end -}}
-            </ul>
-          </li>
-        </ul>
-        <h1>
-          <a class="post-title" href="{{- .Permalink -}}">{{- .Title -}}</a>
-        </h1>
-        <p>{{- .Summary -}}</p>
+          </div>
+          <ul class="list-inline">
+            {{- range .Params.tags -}}
+              <li class="list-inline-item">
+                <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/"
+                  >{{- . -}}</a
+                >
+              </li>
+            {{- end -}}
+          </ul>
+          <h1>
+            <a class="post-title" href="{{- .Permalink -}}">{{- .Title -}}</a>
+          </h1>
+          <p>{{- .Summary -}}</p>
 
-        <a href="{{- .Permalink -}}">
-          {{- i18n "read_article" -}}
-          {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
-        </a>
+          <a href="{{- .Permalink -}}">
+            {{- i18n "read_article" -}}
+            {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</article>
+  </article>
 </div>

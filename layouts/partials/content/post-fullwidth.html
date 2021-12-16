@@ -6,13 +6,13 @@
         {{- partial "content/author.html" . -}}
         {{- partialCached "content/publishing-date.html" . . -}}
       </div>
-      <ul class="list-inline">
+      <div class="d-flex flex-row">
         {{- range .Params.tags -}}
-          <li class="list-inline-item">
-            <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">{{- . -}}</a>
-          </li>
+          <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/" class="me-1"
+            >{{- . -}}</a
+          >
         {{- end -}}
-      </ul>
+      </div>
       <h1>
         <a class="post-title" href="{{- .Permalink -}}">{{- .Title -}}</a>
       </h1>

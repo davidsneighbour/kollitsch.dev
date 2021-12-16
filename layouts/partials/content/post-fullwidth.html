@@ -1,31 +1,27 @@
 <div class="col-12 mb-4">
-<article class="card post-card shadow-sm">
-  {{- partialCached "content/article-images.html" . . -}}
-  <div class="card-body">
-    <ul class="list-inline mb-2">
-      <li class="list-inline-item mb-2">
+  <article class="card post-card shadow-sm">
+    {{- partialCached "content/article-images.html" . . -}}
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
         {{- partial "content/author.html" . -}}
-      </li>
-      <li class="list-inline-item mb-2">
         {{- partialCached "content/publishing-date.html" . . -}}
-      </li>
-      <li class="list-inline-item mb-2">
-        <ul class="list-inline">
-          {{- range .Params.tags -}}
-          <li class="list-inline-item"><a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">{{- . -}}</a></li>
-          {{- end -}}
-        </ul>
-      </li>
-    </ul>
-    <h1>
-      <a class="post-title" href="{{- .Permalink -}}">{{- .Title -}}</a>
-    </h1>
-    <p>{{- .Summary -}}</p>
+      </div>
+      <ul class="list-inline">
+        {{- range .Params.tags -}}
+          <li class="list-inline-item">
+            <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">{{- . -}}</a>
+          </li>
+        {{- end -}}
+      </ul>
+      <h1>
+        <a class="post-title" href="{{- .Permalink -}}">{{- .Title -}}</a>
+      </h1>
+      <p>{{- .Summary -}}</p>
 
-    <a href="{{- .Permalink -}}">
-      {{- i18n "read_article" | default "Read Article" -}}
-      {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
-    </a>
-  </div>
-</article>
+      <a href="{{- .Permalink -}}">
+        {{- i18n "read_article" | default "Read Article" -}}
+        {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+      </a>
+    </div>
+  </article>
 </div>

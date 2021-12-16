@@ -1,5 +1,18 @@
-<span class="publishing-date" title="🤖 {{- .PublishDate | time.Format site.Params.dnb.dateformat.timestamp -}}">
+<span
+  class="publishing-date"
+  title="🤖 {{- .PublishDate | time.Format site.Params.dnb.dateformat.timestamp -}}">
   {{- .PublishDate | time.Format site.Params.dnb.dateformat.long -}}&nbsp;
   {{- i18n "at" | default "at" -}}&nbsp;
   {{- .PublishDate | time.Format ":time_short" -}}
 </span>
+{{/* {{ if (and .Lastmod (ne .PublishDate .Lastmod)) }}
+  <span
+    class="date-lastmod"
+    title="🤖 {{- .Lastmod | time.Format site.Params.dnb.dateformat.timestamp -}}">
+    ( {{- i18n "Last changed: " | default "Last changed: " -}}&nbsp;
+    {{- .Lastmod | time.Format site.Params.dnb.dateformat.long -}}&nbsp;
+    {{- i18n "at" | default "at" -}}&nbsp;
+    {{- .Lastmod | time.Format ":time_short" -}}
+    )
+  </span>
+{{ end }} */}}

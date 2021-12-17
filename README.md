@@ -86,3 +86,7 @@ This repository is currently optimised for Netlify. To create a local copy of th
 - This is a mobile-first design.
 - No layouts inside of layouts (container>row>col>row>col) if not explicitly required.
 - Do not re-invent the wheel. Reuse, recycle.
+
+## Repository Setup
+
+- To enable step debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true.

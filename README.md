@@ -7,7 +7,7 @@ Note: we will check out Cloudflare Pages soon. More bandwidth and more build tim
 ## setup and update algolia search (might not work)
 
 - copy `.env.sample` to `.env`
-- fill in the info from [https://www.algolia.com/apps](https://www.algolia.com/apps) &gt; API keys
+- fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys
 
 ## Publishing
 

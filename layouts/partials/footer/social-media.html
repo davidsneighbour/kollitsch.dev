@@ -1,8 +1,11 @@
 <div>
   {{- i18n "connect-on-social" | default "Connect on Social Media" -}}
   {{- range site.Params.social -}}
+    {{- $icon := printf "icons/%s.html" .icon -}}
     &nbsp;
-    <a href="{{- .url -}}" aria-label="{{ .label }}">{{- partialCached (printf "icons/%s.html" .icon) .icon .icon -}}</a>
+    <a href="{{- .url -}}" aria-label="{{ .label }}">
+      {{- partialCached $icon .icon .icon -}}
+    </a>
     &nbsp;
   {{- end -}}
 </div>

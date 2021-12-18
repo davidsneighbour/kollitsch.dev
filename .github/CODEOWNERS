@@ -17,3 +17,6 @@ static/assets/webfonts/tomkin/TomkinNarrow/TomkinNarrowRegular/TomkinNarrow-Regu
 .github/workflows/testing.yml davidsneighbour
 .github/CODEOWNERS davidsneighbour
 CHANGELOG.md davidsneighbour
+.github/workflows/pre-commit.yml davidsneighbour
+.github/workflows/audit.yml davidsneighbour
+.github/workflows/update-netlify.yml davidsneighbour

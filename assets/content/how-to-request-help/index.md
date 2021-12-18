@@ -7,7 +7,7 @@ draft: true
 ---
 
 {{< notebox >}}
-This is an attempted rewrite of the "[How to request help](https://discourse.gohugo.io/t/requesting-help/9132)" post for [the Hugo Discourse community forum](https://discourse.gohugo.io/). The current version is written in a very developer-centric way and ignores, that in the past two years Hugo has become the go-to static website generator, which naturally leads to support requests of people that are unversed in the ways of how developers think and describe issues. 
+This is an attempted rewrite of the "[How to request help](https://discourse.gohugo.io/t/requesting-help/9132)" post for [the Hugo Discourse community forum](https://discourse.gohugo.io/). The current version is written in a very developer-centric way and ignores, that in the past two years Hugo has become the go-to static website generator, which naturally leads to support requests of people that are unversed in the ways of how developers think and describe issues.
 
 This post tries to remedy this by writing an engaging and comprehensive guide to write readable and conclusive issue reports with lots of entry points that people can be sent to when they "infringe" on one of the "rules". It also tries to create a to the point short wording without too many fancy phrases that might make it hard to understand for non-native language speakers. Looking at you, _corollary_ ;]
 
@@ -35,7 +35,7 @@ Welcome to the Hugo forums and thanks for using **Hugo**! The below are a few fr
 * **Pitch in** and offer what help you can, as there is never enough time to do everything. If you noticed that something is lacking in the docs, feel free to contribute!
 * Assume good intentions. English is the language of the forum (except for a couple subforums), but it is not every user's *native* language. Try to avoid too much slang, abbreviations, or idiomatic expressions.
 * Keep it civil, courteous and polite. Personal attacks have no place here, as well as attacks on belief systems of any kind, may they be technical or societal.
-* The discussion should be on topic, related to Hugo usage. Topics like general JavaScript or CSS questions or world events and politics have their place on other websites and forums. Please consider taking your issue there please. If you start a thread on the discourse it might be closed as off-topic. 
+* The discussion should be on topic, related to Hugo usage. Topics like general JavaScript or CSS questions or world events and politics have their place on other websites and forums. Please consider taking your issue there please. If you start a thread on the discourse it might be closed as off-topic.
 * This forum &mdash; https://discourse.gohugo.io/ &mdash; is the *official support forum* for Hugo. The developers and an army of voluntary members are here to help you with all your questions.
 
 We reserve the right to ban or suspend anyone from being a part of this community who cannot play by these rules. Thank you for your understanding.
@@ -56,7 +56,7 @@ Dare we say that while **Hugo** is indeed pretty magical, it is not meant to be 
 
 If you _do_ put the time in, Hugo will help you rapidly merge your html templates, css, javascript, media, and even data, into a flexible working site. In addition, you get the added benefit of understanding how things fit together, which in turn makes understanding a variety of website builders and content management systems much easier. It is really a worthwhile investment to put the time in, to learn the basic building blocks well.
 
-There are too many such sites to mention but if you're just starting out, here are a couple of sites to take a look at: [w3schools](https://www.w3schools.com), [HTML5 Boilerplate](https://html5boilerplate.com) or [hackr.io](https://hackr.io/tutorials/learn-html-5). 
+There are too many such sites to mention but if you're just starting out, here are a couple of sites to take a look at: [w3schools](https://www.w3schools.com), [HTML5 Boilerplate](https://html5boilerplate.com) or [hackr.io](https://hackr.io/tutorials/learn-html-5).
 
 ## How do I get help?
 
@@ -64,9 +64,9 @@ Thanks for bearing with me on the above, which needed to be said given the sheer
 
 ### Search older posts
 
-It is likely, that your question has been asked and answered before. If you search the forum you can find previous threads and related issues. Of course, the main problem is always to know what exactly to search for. If you can't find any solution for your problem and it already exists then members of the forum will probably add a link to the original solution. 
+It is likely, that your question has been asked and answered before. If you search the forum you can find previous threads and related issues. Of course, the main problem is always to know what exactly to search for. If you can't find any solution for your problem and it already exists then members of the forum will probably add a link to the original solution.
 
-**NOTE:** Please do not add your current issue to an older post. People that were part of these discussions might not be a part of the forum anymore and old topics tend to refer to older features. Hugo changes fast and old solutions might not be the preferred solutions in newer versions. Feel free to link to an old topic to include their solutions and "hacks" into the current discussion. 
+**NOTE:** Please do not add your current issue to an older post. People that were part of these discussions might not be a part of the forum anymore and old topics tend to refer to older features. Hugo changes fast and old solutions might not be the preferred solutions in newer versions. Feel free to link to an old topic to include their solutions and "hacks" into the current discussion.
 
 ### Read the Docs
 
@@ -133,7 +133,7 @@ A perfect support request hands the volunteers or developers enough information 
 
 ### What does your environment look like
 
-### 
+###
 
 ## Add relevant information
 

@@ -30,11 +30,11 @@ categories = [
   "category1"
 ]
 tags = [
-  "tag1", 
+  "tag1",
   "tag2"
 ]
 keywords = [
-  "keyword1", 
+  "keyword1",
   "keyword2"
 ]
 +++

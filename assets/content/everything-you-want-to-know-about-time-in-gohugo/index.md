@@ -49,6 +49,3 @@ The same is true with dates:
     https://pkg.go.dev/time#Time
     https://cs.opensource.google/go/go/+/refs/tags/go1.17.2:src/time/time.go;l=127-148
 {{ .PublishDate | time.Format "2006-01-02T15:04:05-07:00" }}
-
-
-

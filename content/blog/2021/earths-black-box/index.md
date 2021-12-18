@@ -14,7 +14,7 @@ categories = [
   "links of interest"
 ]
 keywords = [
-  "link", 
+  "link",
   "earth",
   "logging"
 ]

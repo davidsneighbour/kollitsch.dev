@@ -34,5 +34,15 @@ repos:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
 
+  - repo: https://github.com/milin/gitown
+    rev: v0.1.6
+    hooks:
+      - id: gitown
+        args:
+          [
+            '--ownership_threshold=25',
+            '--codeowners_filename=.github/CODEOWNERS',
+          ]
+
 fail_fast: true
 minimum_pre_commit_version: 1.15.0

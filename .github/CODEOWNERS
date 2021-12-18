@@ -11,3 +11,8 @@ assets/plugins/slick/slick.min.js davidsneighbour
 config/_default/outputformats.toml davidsneighbour
 postcss.config.js davidsneighbour
 static/assets/webfonts/tomkin/Tomkin/TomkinThin/Tomkin-Thin.html davidsneighbour
+static/assets/webfonts/tomkin/Tomkin/TomkinMedium/Tomkin-Medium.html davidsneighbour
+static/assets/webfonts/tomkin/TomkinNarrow/TomkinNarrowMedium/TomkinNarrow-MediumItalic.html davidsneighbour
+static/assets/webfonts/tomkin/TomkinNarrow/TomkinNarrowRegular/TomkinNarrow-Regular.woff davidsneighbour
+.github/workflows/testing.yml davidsneighbour
+.github/CODEOWNERS davidsneighbour

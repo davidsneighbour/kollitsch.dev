@@ -16,3 +16,4 @@ static/assets/webfonts/tomkin/TomkinNarrow/TomkinNarrowMedium/TomkinNarrow-Mediu
 static/assets/webfonts/tomkin/TomkinNarrow/TomkinNarrowRegular/TomkinNarrow-Regular.woff davidsneighbour
 .github/workflows/testing.yml davidsneighbour
 .github/CODEOWNERS davidsneighbour
+CHANGELOG.md davidsneighbour

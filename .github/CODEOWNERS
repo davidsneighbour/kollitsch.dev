@@ -6,7 +6,7 @@
 # Order is important. The last matching pattern has the most precedence.
 
 # This file is also being managed automatically by the gitown tool.
-* @davidsneighbour
+* davidsneighbour
 assets/plugins/slick/slick.min.js davidsneighbour
 config/_default/outputformats.toml davidsneighbour
 postcss.config.js davidsneighbour

@@ -4,6 +4,7 @@ description = ""
 date = 2021-12-17T17:22:28+07:00
 publishDate = 2021-12-17T17:22:28+07:00
 lastmod = 2021-12-17T17:22:28+07:00
+draft = true
 
 [[resources]]
 title = "Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unsplash](https://unsplash.com/)"

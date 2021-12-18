@@ -17,7 +17,7 @@ tags:
 title: Well... that's a unique... logo?
 ---
 
-I had a weird reaction ("well... that's a unique logo?") to my really great weblog logo above recently, so I thought I might as well explain it. 
+I had a weird reaction ("well... that's a unique logo?") to my really great weblog logo above recently, so I thought I might as well explain it.
 
 1) Star Trek tops Star Wars (don't even start discussing this)
 2) I am a wizard (I have people on record saying that about me)

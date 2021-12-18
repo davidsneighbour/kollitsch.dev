@@ -63,7 +63,7 @@ I created a [GoHugo](https://gohugo.io) module in my [components collection](htt
 - **dataRepoId**: (required)
 - **dataCategory**: (required) it's recommended to create a category "Comments" before you start configuration, so all your comments are in the same dedicated category.
 - **dataCategoryId**: (required)
-- **dataMapping**: (default "title") set up if 
+- **dataMapping**: (default "title") set up if
 - **dataReactionsEnabled**: (default "0")
 - **dataEmitMetadata**: (default "0")
 - **dataTheme**: (default "light")
@@ -73,4 +73,4 @@ I created a [GoHugo](https://gohugo.io) module in my [components collection](htt
 
 - loading the JS without impacting page performance
 - add SASS files for theme creation via configuration
-- if you have any ideas feel free to [open an issue](https://github.com/dnb-org/components/issues). 
+- if you have any ideas feel free to [open an issue](https://github.com/dnb-org/components/issues).

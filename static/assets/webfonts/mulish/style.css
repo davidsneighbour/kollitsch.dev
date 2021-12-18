@@ -6,7 +6,7 @@
     font-weight: normal;
     src: local('Mulish Regular'), url('Mulish-Regular.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Italic';
@@ -14,7 +14,7 @@
     font-weight: normal;
     src: local('Mulish Italic'), url('Mulish-Italic.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish ExtraLight';
@@ -22,7 +22,7 @@
     font-weight: normal;
     src: local('Mulish ExtraLight'), url('Mulish-ExtraLight.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish ExtraLight Italic';
@@ -30,7 +30,7 @@
     font-weight: normal;
     src: local('Mulish ExtraLight Italic'), url('Mulish-ExtraLightItalic.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Light';
@@ -38,7 +38,7 @@
     font-weight: normal;
     src: local('Mulish Light'), url('Mulish-Light.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Light Italic';
@@ -46,7 +46,7 @@
     font-weight: normal;
     src: local('Mulish Light Italic'), url('Mulish-LightItalic.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish SemiBold';
@@ -54,7 +54,7 @@
     font-weight: normal;
     src: local('Mulish SemiBold'), url('Mulish-SemiBold.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish SemiBold Italic';
@@ -62,7 +62,7 @@
     font-weight: normal;
     src: local('Mulish SemiBold Italic'), url('Mulish-SemiBoldItalic.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Bold';
@@ -70,7 +70,7 @@
     font-weight: normal;
     src: local('Mulish Bold'), url('Mulish-Bold.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Bold Italic';
@@ -78,7 +78,7 @@
     font-weight: normal;
     src: local('Mulish Bold Italic'), url('Mulish-BoldItalic.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish ExtraBold';
@@ -86,7 +86,7 @@
     font-weight: normal;
     src: local('Mulish ExtraBold'), url('Mulish-ExtraBold.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish ExtraBold Italic';
@@ -94,7 +94,7 @@
     font-weight: normal;
     src: local('Mulish ExtraBold Italic'), url('Mulish-ExtraBoldItalic.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Black';
@@ -102,7 +102,7 @@
     font-weight: normal;
     src: local('Mulish Black'), url('Mulish-Black.woff') format('woff');
     }
-    
+
 
     @font-face {
     font-family: 'Mulish Black Italic';

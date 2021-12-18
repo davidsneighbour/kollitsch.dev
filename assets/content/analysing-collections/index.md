@@ -56,7 +56,7 @@ An useful example is to use it as AND filters when combined with where:
 ```go-html-template
 {{ $pages := where .Site.RegularPages "Type" "not in" (slice "page" "about") }}
 {{ $pages = $pages | union (where .Site.RegularPages "Params.pinned" true) }}
-{{ $pages = $pages | intersect (where .Site.RegularPages "Params.images" "!=" nil) }} 
+{{ $pages = $pages | intersect (where .Site.RegularPages "Params.images" "!=" nil) }}
 ```
 
 The above fetches regular pages not of page or about type unless they are pinned. And finally, we exclude all pages with no images set in Page params.
@@ -151,7 +151,7 @@ collections.Complement (alias complement) gives the elements of a collection tha
 ### Syntax
 
 {{< syntax >}}  
-{{ *collection1* | **complement** *collection2* [*collection3* ...] }}      
+{{ *collection1* | **complement** *collection2* [*collection3* ...] }}  
 {{ **complement** *collection1* *collection2* [*collection3* ...] }}  
 {{< /syntax >}}
 
@@ -175,7 +175,7 @@ collections.Complement (alias complement) gives the elements of a collection tha
 {{ $pages := .Site.RegularPages | first 50 }}
 {{ $news := where $pages "Type" "news" | first 5 }}
 {{ $blog := where $pages "Type" "blog" | first 5 }}
-{{ $other := $pages | complement $news $blog | first 10 }} 
+{{ $other := $pages | complement $news $blog | first 10 }}
 ```
 
-The above is an imaginary use case for the home page where you want to display different page listings in sections/boxes on different places on the page: 5 from news, 5 from the blog and then 
+The above is an imaginary use case for the home page where you want to display different page listings in sections/boxes on different places on the page: 5 from news, 5 from the blog and then

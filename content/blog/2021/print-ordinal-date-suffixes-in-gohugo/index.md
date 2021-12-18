@@ -36,13 +36,13 @@ Golangs `$date.Format` is unable to add ordinal suffixes to dates (like 1st, 2nd
 call to this partial:
 
 ```go-html-template
-<span title="{{- 
-  with partialCached 
+<span title="{{-
+  with partialCached
     "func/formatOrdinalDate" (
-        dict 
-            "format" "January 2%s, 2006 at 15:04 UTCMST:00" 
-            "date" .Lastmod .Lastmod 
-    ) 
+        dict
+            "format" "January 2%s, 2006 at 15:04 UTCMST:00"
+            "date" .Lastmod .Lastmod
+    )
   -}}
   {{- . -}}
 {{- end -}}">

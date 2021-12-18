@@ -1,0 +1,15 @@
+# Note that almost all of these options are regular expression whitelists
+# (a string or a slice); the value none will block all.
+# see https://gohugo.io/about/security-model/
+enableInlineShortcodes = false
+
+[exec]
+allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$']
+osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$']
+
+[funcs]
+getenv = ['^HUGO_']
+
+[http]
+methods = ['(?i)GET|POST']
+urls = ['.*']

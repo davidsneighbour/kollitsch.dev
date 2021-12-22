@@ -5,9 +5,10 @@ go 1.16
 require (
 	github.com/dnb-org/dnb-hugo-auditor v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-debug v1.4.3 // indirect
+	github.com/dnb-org/dnb-hugo-feeds v0.0.4 // indirect
 	github.com/dnb-org/dnb-hugo-functions v0.0.3 // indirect
 	github.com/dnb-org/dnb-hugo-giscus v0.0.2 // indirect
-	github.com/dnb-org/dnb-hugo-head v0.0.2 // indirect
+	github.com/dnb-org/dnb-hugo-head v0.0.6 // indirect
 	github.com/dnb-org/dnb-hugo-hooks v1.0.23 // indirect
 	github.com/dnb-org/dnb-hugo-netlification v1.0.3 // indirect
 	github.com/dnb-org/dnb-hugo-opensearch v0.0.2 // indirect

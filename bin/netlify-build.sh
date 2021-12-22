@@ -13,6 +13,7 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 done
 
 hugo mod get -u ./...
+hugo mod tidy
 rm -rf public/
 npm run build
 node ./bin/algolia-reindex.ts

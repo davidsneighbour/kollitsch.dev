@@ -18,6 +18,12 @@ path = "github.com/dnb-org/dnb-hugo-debug"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-feeds"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-functions"
 
 [[imports]]

@@ -1,12 +1,14 @@
 home = [
   "HTML",
-  "RSS",
   "JSON",
   "security",
   "Algolia",
   "manifest",
   "REDIR",
-  "HEADERS"
+  "HEADERS",
+  "RSS",
+  "jsonfeed",
+  "atom"
 ]
 page = ["HTML"]
 post = ["HTML"]

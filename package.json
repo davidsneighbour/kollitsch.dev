@@ -22,7 +22,7 @@
     "@dnb-org/commitlint-config": "^3.4.4",
     "@dnb-org/cssnano-config": "^3.4.4",
     "@dnb-org/cypress-config": "^3.4.5",
-    "@dnb-org/eslint-config": "^3.4.17",
+    "@dnb-org/eslint-config": "^3.4.18",
     "@dnb-org/postcss-config": "^3.4.4",
     "@dnb-org/prettier-config": "^3.4.6",
     "@dnb-org/remark-config": "^3.4.4",

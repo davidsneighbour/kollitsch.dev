@@ -12,7 +12,8 @@
   "repository": "davidsneighbour/kollitsch.de",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "mem": "^9.0.1"
+    "mem": "^9.0.1",
+    "trim": "^1.0.1"
   },
   "devDependencies": {
     "@dnb-org/babel-config": "^3.4.3",

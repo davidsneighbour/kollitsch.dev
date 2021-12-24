@@ -28,7 +28,7 @@
     "@dnb-org/standard-version-config": "^3.4.3",
     "@dnb-org/stylelint-config": "^3.4.3",
     "@dnb-org/textlint-config": "^3.4.5",
-    "@dnb-org/tools": "^3.4.3",
+    "@dnb-org/tools": "^3.4.5",
     "@dnb-org/webpack-config": "^3.4.5",
     "@types/bootstrap": "^5.1.6",
     "algoliasearch": "^4.11.0",

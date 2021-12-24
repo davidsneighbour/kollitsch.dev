@@ -1,10 +1,11 @@
 on:
-  push:
-    branches:
-      - main
-  pull_request:
   workflow_dispatch:
-name: Linkinator Audit
+  schedule:
+    - cron:  '0 0 * * *'
+  create:
+    tags:
+      - v*
+name: Link Audit
 jobs:
   linkinator:
     runs-on: ubuntu-latest
@@ -12,5 +13,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: 'README.md'
+          paths: '*.md'
           markdown: true
+          linksToSkip: "https://github.com/*/*/commit/"

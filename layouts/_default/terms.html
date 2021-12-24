@@ -5,7 +5,7 @@
     {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
     <div class="row text-center">
       <div class="col-12">
-        {{- partialCached "content/tags-overview.html" . "global" -}}
+        {{- partialCached "content/partials/tags-overview.html" . "global" -}}
       </div>
     </div>
 
@@ -16,22 +16,10 @@
         </div>
         {{- $layout := site.Params.post_layout -}}
         {{- $related := (where site.RegularPages "Section" "blog") -}}
-        {{ if eq $layout "grid" }}
-          {{- /* setup grid wrapper */ -}}
-          <div class="col mb-5">
-          <div class="row row-cols-1 row-cols-md-2 g-4">
-        {{ end }}
+        {{- $fullcontent := false -}}
         {{- range first 4 $related -}}
-          {{- if eq $layout "grid" -}}
-            {{- partialCached "content/post" . . -}}
-          {{- else if eq $layout "list" -}}
-            {{- partialCached "content/post-list" . . -}}
-          {{- end -}}
-        {{- end -}}
-        {{ if eq $layout "grid" }}
-          {{- /* close grid wrapper */ -}}
-          </div>
-          </div>
+          {{- $post := dict "context" . "fullcontent" $fullcontent -}}
+          {{- partial "content/post.html" $post $post -}}
         {{ end }}
       </div>
     </div>

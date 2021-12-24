@@ -1,0 +1,35 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+
+<article class="card post-card shadow-sm">
+  {{- partialCached "content/partials/banner-images.html" $post $post -}}
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      {{- partial "content/partials/author.html" $post -}}
+      {{- partialCached "content/partials/publishing-date.html" $post $post -}}
+    </div>
+    <div class="d-flex flex-row">
+      {{- partialCached "content/partials/tags.html" $post $post -}}
+    </div>
+    {{- partialCached "content/partials/headline.html" $post $post -}}
+    {{- with $fullcontent -}}
+      {{- $post.Content -}}
+    {{- else -}}
+      <p>{{- $post.Summary -}}</p>
+      <a href="{{- .Permalink -}}">
+        {{- i18n "read_article" | default "Read Article" -}}
+        {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+      </a>
+    {{- end -}}
+  </div>
+
+  {{- with $fullcontent -}}
+    {{- with site.DisqusShortname -}}
+      {{- template "_internal/disqus.html" . -}}
+    {{- end -}}
+
+    {{- with site.Params.giscus -}}
+      {{- partial "content/giscus.html" . -}}
+    {{- end -}}
+  {{- end -}}
+</article>

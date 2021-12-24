@@ -1,0 +1,25 @@
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+      {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+
+      {{- $fullcontent := false -}}
+      {{- if (eq $.Kind "page") -}}
+        {{- $fullcontent = true -}}
+      {{- end -}}
+
+      {{ range $index, $item := $paginator.Pages }}
+
+        {{- $post := dict "context" $item "fullcontent" $fullcontent -}}
+        {{ $col := "6" }}
+        {{ if eq $index 0 }}
+          {{ $col = "12" }}
+        {{ end }}
+        <div class="col-{{ $col }} mb-5">
+          {{ partial "content/post.html" $post $post }}
+        </div>
+      {{ end }}
+    </div>
+    {{ partial "content/partials/pagination.html" . }}
+  </div>
+</section>

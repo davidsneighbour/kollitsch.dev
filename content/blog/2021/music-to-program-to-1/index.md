@@ -1,20 +1,19 @@
 ---
 categories:
-- video
-date: "2021-10-26T22:08:33+07:00"
+  - video
+date: '2021-10-26T22:08:33+07:00'
 keywords:
-- video
-- music
-lastmod: "2021-10-26T22:08:33+07:00"
+  - video
+  - music
+lastmod: '2021-10-26T22:08:33+07:00'
 linkTitle: Music to program to I
-publishDate: "2021-10-26T22:08:33+07:00"
+publishDate: '2021-10-26T22:08:33+07:00'
 resources:
-- src: hero.png
-  title: Rafael Anton Irisarri - Empire Systems
+  - src: hero.png
+    title: Rafael Anton Irisarri - Empire Systems
 tags:
-- programming-music
+  - programming-music
 title: Music to program to (Part I)
 youtube: iFi0n_odlh8
+posttype: video
 ---
-
-{{< youtube id="iFi0n_odlh8" >}}

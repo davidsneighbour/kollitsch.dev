@@ -1,0 +1,10 @@
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-5">
+        {{- $post := dict "context" . "fullcontent" true -}}
+        {{ partial "content/post.html" $post $post }}
+      </div>
+    </div>
+  </div>
+</section>

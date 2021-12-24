@@ -1,15 +1,5 @@
-{{ define "main" }}
-{{- .Scratch.Add "trace" (slice "<404.html>") -}}
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h1>{{ .Title }}</h1>
-        </div>
-      </div>
-    </div>
-  </section>
-
-{{- .Scratch.Add "trace" (slice "</404.html>") -}}
-{{ end }}
+{{- define "main" }}
+{{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+{{- partial "content/section-error.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
+{{- end -}}

@@ -1,0 +1,3 @@
+{{- range .Params.tags -}}
+  <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/" class="me-1">{{- . -}}</a>
+{{- end -}}

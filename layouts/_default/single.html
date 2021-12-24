@@ -1,61 +1,6 @@
-{{- define "main"}}
-{{- .Scratch.Add "trace" (slice "<_default/single.html>") -}}
-
-<section>
-  <div class="container">
-    {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
-    <div class="row">
-
-      <div class="col-12">
-        <div>
-          <div class="text-center mb-5">
-            <h2 class="post-title">{{- .Title -}}</h2>
-            <div class="text-center">
-                {{- partial "content/author.html" . -}}
-                &nbsp;|&nbsp;
-                {{- partialCached "content/publishing-date.html" . . -}}
-            </div>
-          </div>
-
-          {{- partialCached "content/article-images.html" . . -}}
-
-          <div class="content">
-            {{- .Content -}}
-          </div>
-
-          <ul class="list-unstyled list-inline">
-            {{- range .Params.tags -}}
-              <li class="list-inline-item"><a href="{{- `tags` | absLangURL -}}/{{- . | urlize -}}">{{- . -}}</a></li>
-            {{- end -}}
-          </ul>
-
-          {{- with site.DisqusShortname -}}
-            {{- template "_internal/disqus.html" . -}}
-          {{- end -}}
-
-          {{- with site.Params.giscus -}}
-            {{- partial "content/giscus.html" . -}}
-          {{- end -}}
-
-          <div class="single-post-similer">
-            <div class="row mt-3">
-              <div class="col-12">
-                <h2>{{- i18n "you_may_also_like" -}}</h2>
-              </div>
-              {{- $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) -}}
-              {{- range first 2 $related -}}
-                {{- partialCached "content/post" . . -}}
-              {{- end -}}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
-  </div>
-</section>
-
-{{- .Scratch.Add "trace" (slice "</_default/single.html>") -}}
+{{- define "main" }}
+{{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+{{- partial "content/section-sitetitle.html" . -}}
+{{- partial "content/section-page.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
 {{- end -}}

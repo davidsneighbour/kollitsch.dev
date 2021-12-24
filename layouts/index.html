@@ -1,55 +1,6 @@
-{{ define "main" }}
-{{- .Scratch.Add "trace" (slice "<index.html>") -}}
+{{- define "main" -}}
 {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
-{{- $layout := site.Params.post_layout -}}
-
-<section class="section--sitetitle">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="h1 is--textfit text-center">KOLLITSCH.DE</div>
-        <a href="/">
-          <img src="/assets/logo/logo.svg"
-            importance="high" class="img-fluid w-100" alt="David's Neighbour's Logo"
-            width="936" height="117" />
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section--content">
-  <div class="container">
-    <div class="row">
-      {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
-      {{ range $index, $items := $paginator.Pages }}
-        {{ if (eq $index 0) }}
-          {{- /* first post full size */ -}}
-          {{ partialCached "content/post-fullwidth" . . }}
-          {{ if eq $layout "grid" }}
-            {{- /* setup grid wrapper */ -}}
-            <div class="col mb-5">
-              <div class="row row-cols-1 row-cols-md-2 g-4">
-          {{ end }}
-        {{ else }}
-          {{ if eq $layout "grid" }}
-            {{ partialCached "content/post" . . }}
-          {{ else }}
-            {{ partialCached "content/post-list" . . }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-      {{ if eq $layout "grid" }}
-        {{- /* close grid wrapper */ -}}
-        </div>
-        </div>
-      {{ end }}
-    </div>
-
-    {{ partial "content/pagination.html" . }}
-  </div>
-</section>
-
+{{- partial "content/section-sitetitle.html" . -}}
+{{- partial "content/section-posts.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
-{{- .Scratch.Add "trace" (slice "</index.html>") -}}
-{{ end }}
+{{- end -}}

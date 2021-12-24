@@ -1,15 +1,15 @@
 ---
 categories:
-- about
-date: "2021-10-21T20:00:00+07:00"
+  - about
+date: '2021-10-21T20:00:00+07:00'
 description: A short summary of how we got here and where we go from here.
 keywords: []
 resources:
-- src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
-  title: Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)
+  - src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+    title: Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)
 tags:
-- kollitsch.de
-- me now
+  - kollitsch.de
+  - me now
 title: (Another) new beginning
 ---
 
@@ -25,15 +25,15 @@ Fast forward to 2004 and you find me employed by a company in Berlin, that dabbl
 
 In 2005 I was mostly working with a small website builder system called [Textpattern](https://textpattern.com/) and "hated" [WordPress](https://wordpress.org) with all my heart (mostly due to nearly monthly security holes that made life of existing websites quite hard). This of course changed over time and I ended up using (via many years of [WordPress](https://wordpress.org) work) static website generators.
 
-Then came Corona (Covid-19) (*meaningful pause*).
+Then came Corona (Covid-19) (_meaningful pause_).
 
 On March 18th 2020 Thailand closed all country borders and tourism, tourism operators and companies depending on tourism --- my main income source (well, Samui is an island and one of the top 3 tourist spots in Thailand) --- instantly died down.
 
-[**David's Neighbour**](https://davids-neighbour.com/) is an agency, that depends on word of mouth marketing. All my customers found me by talking to someone who I helped to establish, optimise or increase business. I don't complain, but I realised in the past two years, that my online footprint is not large enough to "instantly" create new business and income. Which brings us to the *NOW* and *WHY* of this weblog. I completely ignored to create some form of online reputation for myself (references, references, references) and lost quite some opportunities in the past two years due to this.
+[**David's Neighbour**](https://davids-neighbour.com/) is an agency, that depends on word of mouth marketing. All my customers found me by talking to someone who I helped to establish, optimise or increase business. I don't complain, but I realised in the past two years, that my online footprint is not large enough to "instantly" create new business and income. Which brings us to the _NOW_ and _WHY_ of this weblog. I completely ignored to create some form of online reputation for myself (references, references, references) and lost quite some opportunities in the past two years due to this.
 
 I always had some form of company site or personal blog in the works, but never quite got around to getting to the point of publishing it.
 
-The plan for *this blog* is to remedy this by finally have some form of online tech-blog with my thoughts and tips about current topics and the things I know.
+The plan for _this blog_ is to remedy this by finally have some form of online tech-blog with my thoughts and tips about current topics and the things I know.
 
 I actually started back in 2005 to create a tech-blog, where I wanted to post "stuff of interest and things I know", but I ended up being trapped in a never-ending spiral of optimising and rebuilding. Up to today I have 7 different never-published tech-blogs that died down due to perfectionism, imposter syndrome and technological advancement. Not anymore. I shall kick this blog out there, as imperfectionist as it is.
 

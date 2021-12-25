@@ -11,7 +11,7 @@
     <div class="d-flex flex-row">
       {{- partialCached "content/partials/tags.html" $post $post -}}
     </div>
-    {{- partialCached "content/partials/headline.html" $post $post -}}
+    {{- partial "content/partials/headline.html" . . -}}
     {{- with $fullcontent -}}
       {{- $post.Content -}}
     {{- else -}}

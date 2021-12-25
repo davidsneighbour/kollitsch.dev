@@ -17,13 +17,13 @@ style-src = [
   "https://giscus.app/",
   "'unsafe-inline'"
 ]
-img-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net", "data:"]
+img-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net", "data:", "https://i.ytimg.com"]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
 connect-src = ["'self'"]
 media-src = ["'self'"]
 object-src = ["'self'"]
 child-src = ["'self'"]
-frame-src = ["'self'", "https://giscus.app/"]
+frame-src = ["'self'", "https://giscus.app/", "https://www.youtube-nocookie.com"]
 worker-src = ["'self'"]
 form-action = ["'self'"]
 manifest-src = ["'self'"]

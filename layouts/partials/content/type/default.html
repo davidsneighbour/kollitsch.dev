@@ -21,15 +21,10 @@
         {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
       </a>
     {{- end -}}
+
+    {{- with $fullcontent -}}
+      {{ partial "content/partials/comments.html" $post $post }}
+    {{- end -}}
+
   </div>
-
-  {{- with $fullcontent -}}
-    {{- with site.DisqusShortname -}}
-      {{- template "_internal/disqus.html" . -}}
-    {{- end -}}
-
-    {{- with site.Params.giscus -}}
-      {{- partial "content/giscus.html" . -}}
-    {{- end -}}
-  {{- end -}}
 </article>

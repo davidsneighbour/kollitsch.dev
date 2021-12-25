@@ -17,8 +17,8 @@ dribbble = "dribbble_username"
 
 #################### default parameters ################################
 logo = "/assets/logo/logo.svg"
-logo_height = "35px"
-logo_width = "280px"
+logo_height = "35"
+logo_width = "280"
 favicon = "/assets/favicon/favicon.svg"
 
 # contact form action

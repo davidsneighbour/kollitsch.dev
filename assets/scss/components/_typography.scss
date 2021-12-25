@@ -6,7 +6,6 @@
 }
 
 a {
-
   transition: all 0.3s;
 }
 
@@ -17,6 +16,16 @@ h4 a,
 h5 a,
 h6 a {
   text-decoration: none;
+}
+
+h1 {
+  @extend .display-1;
+  text-transform: uppercase;
+  text-decoration: none;
+  a:hover {
+    text-decoration: none;
+    transition: color 2s;
+  }
 }
 
 .mark,

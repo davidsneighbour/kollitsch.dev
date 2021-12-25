@@ -6,9 +6,9 @@ $container-max-widths: (
 );
 
 // colors
-$primary: #dc143c;
+$primary: rgb(192, 57, 43);
 $theme-colors: (
-  'primary': #dc143c,
+  'primary': rgb(192, 57, 43),
   'secondary': $secondary,
   'success': $success,
   'info': $info,

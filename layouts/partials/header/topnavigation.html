@@ -1,4 +1,3 @@
-
 {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre" "context" . ) -}}
 <nav
   class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-lg mb-5">
@@ -8,7 +7,7 @@
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-logo" "context" . ) -}}
     {{- partialCached "header/navbar/toggle-button.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre-mainnav" "context" . ) -}}
-    <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto me-lg-0">
         {{ $current := . }}
         {{ range site.Menus.main }}

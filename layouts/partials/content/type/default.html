@@ -1,6 +1,7 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
 
+
 <article class="card post-card shadow-sm">
   {{- partialCached "content/partials/banner-images.html" $post $post -}}
   <div class="card-body">
@@ -11,7 +12,7 @@
     <div class="d-flex flex-row">
       {{- partialCached "content/partials/tags.html" $post $post -}}
     </div>
-    {{- partialCached "content/partials/headline.html" $post $post -}}
+    {{- partial "content/partials/headline.html" . . -}}
     {{- with $fullcontent -}}
       {{- $post.Content -}}
     {{- else -}}

@@ -1,1 +1,7 @@
-{{- partial "content/type/default.html" . -}}
+{{ $posttype := "default" }}
+
+{{ with .context.Params.posttype }}
+  {{ $posttype = . }}
+{{ end }}
+
+{{- partial (printf "content/type/%s.html" $posttype) . -}}

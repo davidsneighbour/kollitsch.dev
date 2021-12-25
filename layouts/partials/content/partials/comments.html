@@ -1,0 +1,11 @@
+{{- with site.DisqusShortname -}}
+  <div class="col-12">
+    {{- template "_internal/disqus.html" . -}}
+  </div>
+{{- end -}}
+
+{{- with site.Params.giscus -}}
+  <div class="col-12">
+    {{- partial "content/giscus.html" . -}}
+  </div>
+{{- end -}}

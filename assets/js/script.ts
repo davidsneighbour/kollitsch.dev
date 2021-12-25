@@ -1,4 +1,5 @@
 import { Collapse, Tab } from 'bootstrap';
+// eslint-disable-next-line import/no-unresolved,import/extensions
 import './components/menu.ts';
 
 // tabs

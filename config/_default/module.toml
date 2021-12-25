@@ -101,6 +101,12 @@ path = "github.com/dnb-org/dnb-hugo-social"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-youtube"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/dnb-org/libraries/heroicons"
 
 [[imports]]
@@ -108,12 +114,6 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/shortcodes/collection"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/shortcodes/youtube"
 
 [[imports]]
 disable = false

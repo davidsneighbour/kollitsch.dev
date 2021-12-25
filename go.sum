@@ -30,13 +30,13 @@ github.com/dnb-org/dnb-hugo-sitemap v0.0.2 h1:COCJ7UpW+AMxKjjNJGkflGcG353zGRjR0g
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2/go.mod h1:VxMcmcfV6ulDhKdbEFUIjGE/O5GUFYCkqXMvm27/hWM=
 github.com/dnb-org/dnb-hugo-social v0.0.2 h1:07nN+Uf9JSgGbZBoRwY6Fl4CKjT9jGmNPBy1AcExE1k=
 github.com/dnb-org/dnb-hugo-social v0.0.2/go.mod h1:T/tsdsocfpBO0TRZFYHwXN6sQzCfIPWvf+r9GGY2lAY=
+github.com/dnb-org/dnb-hugo-youtube v1.0.0 h1:GFhrb8TEKHOi7gO88A5VC3xb3pfuNMaPKVhVFdnclj0=
+github.com/dnb-org/dnb-hugo-youtube v1.0.0/go.mod h1:MYuv60FujzuWXI0CN+wy0SEYmru2zpZRDpzk1fjAAkU=
 github.com/dnb-org/libraries/heroicons v1.0.3 h1:HIMctgGhctWjOU1JK1DtetjdIXhjABN3Cun65Kppuv4=
 github.com/dnb-org/libraries/heroicons v1.0.3/go.mod h1:eGLho1QH6BtWicXfclCNSSRsaGYuQ++yaW2f6fhKk6Y=
 github.com/dnb-org/shortcodes/collection v1.4.21 h1:Ptce3e7TEGFXQRNzeYxURUTw9ju4SiAldgZX2o074y0=
 github.com/dnb-org/shortcodes/collection v1.4.21/go.mod h1:jY4DOilX3w3F/NIuVyqLIumMK1f8gPpXCIQxutZM0Kg=
 github.com/dnb-org/shortcodes/pictures v0.0.12 h1:sw2nxURdIreZqkSOdDahppyffR1f80mRhUs6jlZDGrY=
 github.com/dnb-org/shortcodes/pictures v0.0.12/go.mod h1:lzda/swoLiTpsOxJ0OsKUtXP3FMpl/x/OWQ6Nds1ipQ=
-github.com/dnb-org/shortcodes/youtube v1.4.16 h1:srA1K+TW/Yd8IxvQPN4uARDLMd8m2zS78oi5Sa/IG3Q=
-github.com/dnb-org/shortcodes/youtube v1.4.16/go.mod h1:zuuEmKods4+g66Q0CI4zJ6R716ZNs29ZkPfCJnrlKA8=
 github.com/paulirish/lite-youtube-embed v0.2.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tailwindlabs/heroicons v1.0.3/go.mod h1:2SHGOdw86jviBkoeQINcTfkzAAao9dciip4RsMS9xIg=

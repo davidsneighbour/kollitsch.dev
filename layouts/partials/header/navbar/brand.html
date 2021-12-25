@@ -1,8 +1,11 @@
 <a class="navbar-brand" href="{{- site.BaseURL | relLangURL -}}">
   {{ if site.Params.logo }}
-  <img src="{{- site.Params.logo | absURL -}}" alt="{{- site.Title -}}" height="{{- site.Params.logo_height -}}"
-       width="{{- site.Params.logo_width -}}" alt="David's Neighbour's Logo" />
+    <img
+      src="{{- site.Params.logo | absURL -}}"
+      alt="Logo of {{ site.Title -}}"
+      height="{{- site.Params.logo_height -}}"
+      width="{{- site.Params.logo_width -}}" />
   {{ else }}
-  {{- site.Title -}}
+    {{- site.Title -}}
   {{ end }}
 </a>

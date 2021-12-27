@@ -119,10 +119,10 @@ path = "github.com/dnb-org/libraries/heroicons"
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/shortcodes/collection"
+path = "github.com/dnb-org/dnb-hugo-shortcodes"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/shortcodes/pictures"
+path = "github.com/dnb-org/dnb-hugo-pictures"

@@ -65,6 +65,12 @@ path = "github.com/dnb-org/dnb-hugo-opensearch"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-publisher"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-pwa"
 
 [[imports]]

@@ -1,3 +1,5 @@
+github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 h1:K8ukOfj0MOBEWWsL8Mzd8GXIbAf7/RHnX1hipqbjeto=
+github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579/go.mod h1:xl3heUINAn0oPowV1biDQ2Pyw1w3x66I7KEbWkaxox0=
 github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/dnb-org/debug v1.4.2/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
 github.com/dnb-org/dnb-hugo-auditor v0.0.2 h1:DwuhUN7qjX6fORD5QZoaFy3DPTIjxf7p7B1kI1V2j8s=
@@ -18,6 +20,8 @@ github.com/dnb-org/dnb-hugo-netlification v1.0.4 h1:nv+Bfvlb7L7MuX5S4oqMAgbtXgzK
 github.com/dnb-org/dnb-hugo-netlification v1.0.4/go.mod h1:U5IMFMLbYFf3OgsDkEP/DWjvlNcMabJtEZSBkwc1U38=
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2 h1:xr0j4/lVXEMslxYH0KGdd+JMd4CYWz/k9cXCWGMpffc=
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2/go.mod h1:E0wsVgFRTWWfMvRlMoTlP2ONBCg9CEUl3AXYoYWE5jk=
+github.com/dnb-org/dnb-hugo-publisher v0.0.0-20211227125838-a9b66dd90d5f h1:o7mg/BCuyiKd6/R6hb0wd0N94Yxh8rlnYaOSHBat8gE=
+github.com/dnb-org/dnb-hugo-publisher v0.0.0-20211227125838-a9b66dd90d5f/go.mod h1:0slEsAr913wXdhhJFO//nV0fdFVkNCUPorq6pYRNcL4=
 github.com/dnb-org/dnb-hugo-pwa v0.0.2 h1:IoI6CZ2460QMgtiyo9LX/j1chsSz/skDA4wtr452dd8=
 github.com/dnb-org/dnb-hugo-pwa v0.0.2/go.mod h1:POyBmJqMdTs1dsbhhKE5Ndt8rUTmLzyIAISqitpHOwc=
 github.com/dnb-org/dnb-hugo-robots v0.0.7 h1:czGnJR4TbQXqfQZLdcI9EQYro3O6xZ7WhhqbfDVsqjg=
@@ -34,9 +38,5 @@ github.com/dnb-org/dnb-hugo-youtube v1.0.0 h1:GFhrb8TEKHOi7gO88A5VC3xb3pfuNMaPKV
 github.com/dnb-org/dnb-hugo-youtube v1.0.0/go.mod h1:MYuv60FujzuWXI0CN+wy0SEYmru2zpZRDpzk1fjAAkU=
 github.com/dnb-org/libraries/heroicons v1.0.3 h1:HIMctgGhctWjOU1JK1DtetjdIXhjABN3Cun65Kppuv4=
 github.com/dnb-org/libraries/heroicons v1.0.3/go.mod h1:eGLho1QH6BtWicXfclCNSSRsaGYuQ++yaW2f6fhKk6Y=
-github.com/dnb-org/shortcodes/collection v1.4.21 h1:Ptce3e7TEGFXQRNzeYxURUTw9ju4SiAldgZX2o074y0=
-github.com/dnb-org/shortcodes/collection v1.4.21/go.mod h1:jY4DOilX3w3F/NIuVyqLIumMK1f8gPpXCIQxutZM0Kg=
-github.com/dnb-org/shortcodes/pictures v0.0.12 h1:sw2nxURdIreZqkSOdDahppyffR1f80mRhUs6jlZDGrY=
-github.com/dnb-org/shortcodes/pictures v0.0.12/go.mod h1:lzda/swoLiTpsOxJ0OsKUtXP3FMpl/x/OWQ6Nds1ipQ=
 github.com/paulirish/lite-youtube-embed v0.2.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tailwindlabs/heroicons v1.0.3/go.mod h1:2SHGOdw86jviBkoeQINcTfkzAAao9dciip4RsMS9xIg=

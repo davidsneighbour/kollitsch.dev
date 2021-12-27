@@ -21,17 +21,19 @@ h6 a {
 h1 {
   @extend .display-1;
   text-transform: uppercase;
-  text-decoration: none;
   a {
-    color: rgb(192, 57, 43);
+    transition: color 100s;
+    transition: text-decoration 5s;
+    animation-name: rainbow;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    text-decoration: none;
     &:hover {
       text-decoration: none;
-      transition: color 30s;
-      animation-name: rainbow;
-      animation-duration: 30s;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      animation-timing-function: linear;
+      transition: text-decoration 5s;
+      text-shadow: rgb(52, 152, 219);
     }
   }
 }

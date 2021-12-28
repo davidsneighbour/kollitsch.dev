@@ -1,31 +1,4 @@
 {{ define "main" }}
-
-<section>
-  <div class="container">
-    {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
-    <div class="row text-center">
-      <div class="col-12">
-        {{- partialCached "content/partials/tags-overview.html" . "global" -}}
-      </div>
-    </div>
-
-    <div class="single-post-similer">
-      <div class="row mb-4">
-        <div class="col-12">
-          <h2>{{- i18n "most_recent_post" -}}</h2>
-        </div>
-        {{- $layout := site.Params.post_layout -}}
-        {{- $related := (where site.RegularPages "Section" "blog") -}}
-        {{- $fullcontent := false -}}
-        {{- range first 4 $related -}}
-          {{- $post := dict "context" . "fullcontent" $fullcontent -}}
-          {{- partial "content/post.html" $post $post -}}
-        {{ end }}
-      </div>
-    </div>
-
-  {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
-  </div>
-</section>
-
+{{- partial "content/section-sitetitle.html" . -}}
+{{- partial "content/section-tagoverview.html" . -}}
 {{- end -}}

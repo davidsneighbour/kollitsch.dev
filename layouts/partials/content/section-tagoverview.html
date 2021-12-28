@@ -1,0 +1,10 @@
+<section>
+  <div class="container">
+    {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+    <div class="row text-center">
+      <div class="col-12">
+        {{- partialCached "content/partials/tags-overview.html" . "global" -}}
+      </div>
+    </div>
+  </div>
+</section>

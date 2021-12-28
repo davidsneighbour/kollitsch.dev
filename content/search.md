@@ -8,4 +8,5 @@ draft: true
 menu:
   main:
     weight: 4
+comments: false
 ---

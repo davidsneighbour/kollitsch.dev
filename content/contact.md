@@ -6,6 +6,7 @@ date: '2021-11-30T17:00:00+07:00'
 menu:
   main:
     weight: 5
+comments: false
 ---
 
 {{< contact-form >}}

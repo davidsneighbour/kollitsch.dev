@@ -47,22 +47,22 @@ link = "plugins/search/search.js"
 
 # Social Icons
 [[social]]
-url = "https://www.facebook.com/"
+url = "https://www.facebook.com/davidsneighbour"
 icon = "facebook"
 label = "Follow me on Facebook"
 
 [[social]]
-url = "https://www.twitter.com/"
+url = "https://www.twitter.com/davidsneighbour"
 icon = "twitter"
 label = "Follow me on Twitter"
 
 [[social]]
-url = "https://www.instagram.com/"
+url = "https://www.instagram.com/davids.neighbour"
 icon = "instagram"
 label = "Follow me on Instagram"
 
 [[social]]
-url = "https://www.linkedin.com/"
+url = "https://th.linkedin.com/company/david%27s-neighbour"
 icon = "linkedin"
 label = "Follow me on LinkedIn"
 

@@ -1,11 +1,24 @@
-{{- with site.DisqusShortname -}}
-  <div class="col-12">
-    {{- template "_internal/disqus.html" . -}}
-  </div>
+{{- $commentform := "true" -}}
+{{ if isset .Params "comments" }}
+  {{- if (eq false (index .Params "comments")) -}}
+    {{- $commentform = "false" -}}
+  {{- end -}}
 {{- end -}}
 
-{{- with site.Params.giscus -}}
-  <div class="col-12">
-    {{- partial "content/giscus.html" . -}}
-  </div>
+{{ $commentform }}
+
+{{- with (and site.DisqusShortname $commentform) -}}
+  {{- if (eq "true" $commentform) -}}
+    <div class="col-12">
+      {{- template "_internal/disqus.html" . -}}
+    </div>
+  {{- end -}}
+{{- end -}}
+
+{{- with (and site.Params.giscus $commentform) -}}
+  {{- if (eq "true" $commentform) -}}
+    <div class="col-12">
+      {{- partial "content/giscus.html" . -}}
+    </div>
+  {{- end -}}
 {{- end -}}

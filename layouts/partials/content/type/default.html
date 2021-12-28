@@ -1,7 +1,6 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
 
-
 <article class="card post-card shadow-sm">
   {{- partialCached "content/partials/banner-images.html" $post $post -}}
   <div class="card-body">

@@ -5,8 +5,6 @@
   {{- end -}}
 {{- end -}}
 
-{{ $commentform }}
-
 {{- with (and site.DisqusShortname $commentform) -}}
   {{- if (eq "true" $commentform) -}}
     <div class="col-12">

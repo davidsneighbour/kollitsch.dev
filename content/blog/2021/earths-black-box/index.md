@@ -1,6 +1,5 @@
 +++
 title = "Earth's Black Box"
-linkTitle = "Earth's Black Box"
 
 date = 2021-12-10T18:25:14+07:00
 publishDate = 2021-12-10T18:25:14+07:00
@@ -10,10 +9,7 @@ lastmod = 2021-12-10T18:25:14+07:00
 title = "Earth's Black Box by [earthsblackbox.com](https://www.earthsblackbox.com/)"
 src = "earths-black-box.jpg"
 
-categories = [
-  "links of interest"
-]
-keywords = [
+tags = [
   "link",
   "earth",
   "logging"

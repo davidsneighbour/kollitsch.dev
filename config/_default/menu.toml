@@ -7,10 +7,20 @@ weight = 1
 ############################# Footer Menu ########################
 [[footer]]
 name = "Tags"
-url = "tags/"
+url = "/tags/"
 weight = 10
 
 [[footer]]
-name = "Categories"
-url = "categories/"
-weight = 20
+name = "Home"
+url = "/"
+weight = 1
+
+[[footer]]
+name = "Contact"
+url = "/contact/"
+weight = 90
+
+# [[footer]]
+# name = "Categories"
+# url = "categories/"
+# weight = 20

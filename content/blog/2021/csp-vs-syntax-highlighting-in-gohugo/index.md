@@ -1,22 +1,21 @@
 ---
-categories:
-- gohugo
-date: "2021-10-27T21:52:14+07:00"
-description: If you are using the codestyling functionality of Hugo then you might
+title: CSP vs. syntax highlighting in GoHugo
+date: '2021-10-27T21:52:14+07:00'
+description:
+  If you are using the codestyling functionality of Hugo then you might
   have stumbled over a common issue in connection with Content Security Policies (CSP)
   and inline styles.
-lastmod: "2021-10-27T21:52:14+07:00"
-publishDate: "2021-10-27T21:52:14+07:00"
+lastmod: '2021-10-27T21:52:14+07:00'
+publishDate: '2021-10-27T21:52:14+07:00'
 resources:
-- name: image name if other than src
-  src: christopher-gower-m_HRfLhgABo-unsplash.jpg
-  title: Photo by [Christopher Gower](https://unsplash.com/@cgower) via [Unsplash](https://unsplash.com/s/photos/code)
+  - name: image name if other than src
+    src: christopher-gower-m_HRfLhgABo-unsplash.jpg
+    title: Photo by [Christopher Gower](https://unsplash.com/@cgower) via [Unsplash](https://unsplash.com)
 tags:
-- gohugo
-- syntaxhighlighting
-- SRI
-- CSP
-title: CSP vs. syntax highlighting in GoHugo
+  - gohugo
+  - syntaxhighlighting
+  - SRI
+  - CSP
 ---
 
 If you are using the code styling functionality of GoHugo then you might have stumbled over a common issue when you are using Content Security Policies (CSP) and inline styles. Using CSPs is the proper way these days to secure your site code but it is considered (in the realm of CSPs) bad style to have your style sheets or JavaScript inlined into your page.
@@ -27,9 +26,11 @@ First step: [Configure GoHugo to use classes for syntax highlighting](https://go
 
 ```toml
 [markup]
+
 [markup.highlight]
 noClasses = false
 style = "monokai"
+
 ```
 
 Then on the command prompt create the style sheet for the highlight shortcode or Markdown code fences:

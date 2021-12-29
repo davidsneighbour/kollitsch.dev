@@ -1,0 +1,17 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+<article class="card shadow-sm">
+  {{- partialCached "content/partials/banner-images.html" $post $post -}}
+  <div class="card-header">
+    {{- partial "content/partials/headline.html" . . -}}
+  </div>
+  <div class="card-body">
+    <p>{{- $post.Summary -}}</p>
+  </div>
+  <div class="card-footer text-end">
+    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary">
+      Read posts about <strong>{{ $post.Title -}}</strong>
+      {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+    </a>
+  </div>
+</article>

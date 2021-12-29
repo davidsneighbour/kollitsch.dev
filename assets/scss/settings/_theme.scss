@@ -27,8 +27,8 @@ $icon-font: 'Font Awesome 5 Free';
 $font-weight-lighter: lighter;
 $font-weight-light: 200;
 $font-weight-normal: 300;
-$font-weight-bold: 400;
-$font-weight-bolder: bolder;
+$font-weight-bold: 600;
+$font-weight-bolder: 900;
 $font-size-base: 1.1rem;
 $font-weight-base: $font-weight-normal;
 $line-height-base: 1.4;
@@ -53,3 +53,5 @@ $link-hover-decoration: underline;
 // cards
 $card-border-radius: 20px;
 $card-height: 100%;
+$card-cap-bg: transparent;
+$card-border-color: transparent;

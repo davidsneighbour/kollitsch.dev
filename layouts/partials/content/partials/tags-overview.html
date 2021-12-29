@@ -1,3 +1,13 @@
-{{- range (index site.Taxonomies .Type) -}}
-  {{- partialCached "content/partials/tag.html" . . -}}
-{{- end -}}
+{{ $current := .Name }}
+<ul class="list-inline">
+  {{- range (index site.Taxonomies .Type) -}}
+    <li class="list-inline-item mx-2">
+      <a href="{{- .Page.Permalink -}}" class="text-decoration-none">
+        {{ if eq $current .Page.Title }}<strong>{{ end }}
+        {{- partialCached "icons/tag-fill.html" "tag-fill" "tag-fill" -}}
+        {{- .Page.Title -}} ({{- .Count -}})
+        {{ if eq $current .Page.Title }}</strong>{{ end }}
+      </a>
+    </li>
+  {{- end -}}
+</ul>

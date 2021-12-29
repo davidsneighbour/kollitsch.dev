@@ -3,6 +3,9 @@
 <article class="card shadow-sm">
   {{ $settings := dict "id" $post.Params.youtube }}
   {{ partialCached "youtube.html" $settings $settings }}
+  <div class="card-header">
+    {{- partial "content/partials/headline.html" . . -}}
+  </div>
   <div class="card-body">
     <div class="d-flex justify-content-between">
       {{- partial "content/partials/author.html" $post -}}
@@ -11,16 +14,17 @@
     <div class="d-flex flex-row">
       {{- partialCached "content/partials/tags.html" $post $post -}}
     </div>
-    {{- partial "content/partials/headline.html" . . -}}
     {{- with $fullcontent -}}
       {{- $post.Content -}}
     {{- else -}}
       <p>{{- $post.Summary -}}</p>
-      <a href="{{- .Permalink -}}">
-        {{- i18n "read_article" | default "Read Article" -}}
-        {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
-      </a>
     {{- end -}}
+  </div>
+<div class="card-footer text-end">
+  <a href="{{- .Permalink -}}" class="btn btn-outline-primary">
+      {{- i18n "read_article" | default "Read Article" -}}
+      {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+    </a>
     {{- with $fullcontent -}}
       {{ partial "content/partials/comments.html" $post $post }}
     {{- end -}}

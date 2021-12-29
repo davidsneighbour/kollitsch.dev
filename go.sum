@@ -30,6 +30,8 @@ github.com/dnb-org/dnb-hugo-search-algolia v0.0.3 h1:di6cRNuFpd0qXTTbPw7s52cx2fL
 github.com/dnb-org/dnb-hugo-search-algolia v0.0.3/go.mod h1:F3LGPDZOMA/x871UW3iVZDBoO+60qDJpwP1GkNgiqP4=
 github.com/dnb-org/dnb-hugo-security v0.0.2 h1:OcctYGQVq4lJ4mVBPNddJWWr0COTA9hybjWCdxplmuc=
 github.com/dnb-org/dnb-hugo-security v0.0.2/go.mod h1:ArIxe0BRvbTSIZyPn3mSKPnWbGtdQszjrRR7KmBY/Ts=
+github.com/dnb-org/dnb-hugo-shortcodes v1.4.22 h1:Np5EeT3RHaUKLPcbbv6eu+MjzaiUFUpI8AvOrjjZSt4=
+github.com/dnb-org/dnb-hugo-shortcodes v1.4.22/go.mod h1:lWIgpS0CtU6r9XiUH0AlGPeXH5esnF/GtZRUIhjJBY8=
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2 h1:COCJ7UpW+AMxKjjNJGkflGcG353zGRjR0gywki+AMr0=
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2/go.mod h1:VxMcmcfV6ulDhKdbEFUIjGE/O5GUFYCkqXMvm27/hWM=
 github.com/dnb-org/dnb-hugo-social v0.0.2 h1:07nN+Uf9JSgGbZBoRwY6Fl4CKjT9jGmNPBy1AcExE1k=

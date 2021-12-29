@@ -82,3 +82,11 @@ blockquote {
     font-style: italic;
   }
 }
+
+p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}

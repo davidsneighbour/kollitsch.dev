@@ -7,17 +7,10 @@ lastmod = 2021-12-17T17:22:28+07:00
 draft = true
 
 [[resources]]
-title = "Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unsplash](https://unsplash.com/)"
+title = "Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unsplash](https://unsplash.com)"
 src = "artiom-vallat-mx9axbKqKW8-unsplash.jpg"
 
-# taxonomification
-categories = [
-  "howto","ubuntu"
-]
 tags = [
-  "howto","ubuntu"
-]
-keywords = [
   "howto","ubuntu"
 ]
 +++

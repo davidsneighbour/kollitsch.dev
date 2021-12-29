@@ -1,15 +1,13 @@
 ---
-date: "2021-11-02T22:49:49+07:00"
-resources:
-- categories:
-  - gohugo
-  src: ferenc-almasi-HfFoo4d061A-unsplash.jpg
-  tags:
+title: Converting frontmatter in GoHugo
+tags:
   - gohugo
   - frontmatter
   - configuration
+date: '2021-11-02T22:49:49+07:00'
+resources:
+  src: ferenc-almasi-HfFoo4d061A-unsplash.jpg
   title: Photo by [Ferenc Almasi](https://unsplash.com/@flowforfrank) via [Unsplash](https://unsplash.com)
-title: Converting frontmatter in GoHugo
 ---
 
 Some days ago I realised, that I keep all my configurations for GoHugo in the TOML format, while using YAML for the frontmatters in my content folder. That did not seem right ;) so I changed those too to TOML.

@@ -1,18 +1,15 @@
 ---
-categories:
-- gohugo
-- modules
-date: "2021-10-27T20:25:27+07:00"
-description: ""
-resources:
-- src: gerry-roarty-slkENpP5PbI-unsplash.jpg
-  title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) on [Unsplash](https://unsplash.com/s/photos/module)
-tags:
-- gohugo
-- static websites
-- dnb-org
-- giscus
 title: Giscus Module for GoHugo
+date: '2021-10-27T20:25:27+07:00'
+description: ''
+resources:
+  - src: gerry-roarty-slkENpP5PbI-unsplash.jpg
+    title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via [Unsplash](https://unsplash.com)
+tags:
+  - gohugo
+  - static websites
+  - dnb-org
+  - giscus
 ---
 
 [Giscus](https://github.com/giscus/giscus) is a new star on the comment systems for static website generators orbit. It is inspired by the wonderful [utterances](https://github.com/utterance/utterances) and uses Github Discussions to save comments. It's open source, easily configurable, themeable, translatable, and you can [host it on your own server](https://github.com/giscus/giscus/blob/main/SELF-HOSTING.md) (it's JavaScript based) if you like. I tried it, but ran into problems setting it up, so this will be a topic for a later post.
@@ -23,38 +20,40 @@ You can see Giscus in action at the end of this post or any other post on this w
 
 I created a [GoHugo](https://gohugo.io) module in my [components collection](https://github.com/dnb-org/components/) that you can use easily to add Giscus to your website. The plan is to add the script as unobstrusive as possible to your website and add belated loading and easy design options to it. Just follow these steps to add it to your GoHugo website:
 
-1) Go to [giscus.app/](https://giscus.app/) and fill out the form in the "Configuration" section. Copy the resulting code and paste into your scratch pad.
+1. Go to [giscus.app/](https://giscus.app/) and fill out the form in the "Configuration" section. Copy the resulting code and paste into your scratch pad.
 
-2) Add the component to your config.toml (or at the appropriate location in your configuration):
+2. Add the component to your config.toml (or at the appropriate location in your configuration):
 
-    ```toml
-    [[module.imports]]
-    path = "github.com/dnb-org/components/giscus"
-    ```
+   ```toml
+   [[module.imports]]
+   path = "github.com/dnb-org/components/giscus"
 
-3) Add your Giscus configuration to config.toml:
+   ```
 
-    ```toml
-    [giscus]
-    dataRepo="username/reponame"
-    dataRepoId="repo id hash"
-    dataCategory="category"
-    dataCategoryId="category id hash"
-    ```
+3. Add your Giscus configuration to config.toml:
 
-4) Update your modules
+   ```toml
+   [giscus]
+   dataRepo = "username/reponame"
+   dataRepoId = "repo id hash"
+   dataCategory = "category"
+   dataCategoryId = "category id hash"
 
-    ```bash
-    hugo mod get -u ./...
-    ```
+   ```
 
-5) Add the giscus-partial to your single.html or any post layout you are using in your theme:
+4. Update your modules
 
-    ```gotemplate
-    {{ with site.Params.giscus }}
-      {{ partial "content/giscus.html" . }}
-    {{ end }}
-    ```
+   ```bash
+   hugo mod get -u ./...
+   ```
+
+5. Add the giscus-partial to your single.html or any post layout you are using in your theme:
+
+   ```gotemplate
+   {{ with site.Params.giscus }}
+     {{ partial "content/giscus.html" . }}
+   {{ end }}
+   ```
 
 ## Available Configuration Parameters
 

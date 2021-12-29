@@ -26,6 +26,4 @@ require (
 	github.com/dnb-org/libraries/heroicons v1.0.3 // indirect
 )
 
-replace github.com/dnb-org/dnb-hugo-pictures => /home/patrick/Projects/dnb-org/components/dnb-hugo-pictures
-
 replace github.com/dnb-org/dnb-hugo-shortcodes => /home/patrick/Projects/dnb-org/components/dnb-hugo-shortcodes

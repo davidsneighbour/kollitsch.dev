@@ -1,7 +1,10 @@
 {{ $posttype := "default" }}
 
 {{ with .context.Params.posttype }}
-  {{ $posttype = . }}
+{{ $posttype = . }}
+{{ end }}
+{{ if eq .context.Type "tags" }}
+{{ $posttype = "tag" }}
 {{ end }}
 
 {{- partial (printf "content/type/%s.html" $posttype) . -}}

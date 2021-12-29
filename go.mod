@@ -24,5 +24,3 @@ require (
 	github.com/dnb-org/dnb-hugo-youtube v1.0.0 // indirect
 	github.com/dnb-org/libraries/heroicons v1.0.3 // indirect
 )
-
-replace github.com/dnb-org/dnb-hugo-shortcodes => /home/patrick/Projects/dnb-org/components/dnb-hugo-shortcodes

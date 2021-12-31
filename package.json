@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-de",
-  "version": "2021.1.20",
+  "version": "2021.1.21",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.de",
   "author": {
@@ -17,7 +17,6 @@
     "trim": "^1.0.1"
   },
   "devDependencies": {
-    "@dnb-org/babel-config": "^3.4.7",
     "@dnb-org/bootstrap-config": "^3.4.7",
     "@dnb-org/browserslist-config": "^3.4.7",
     "@dnb-org/commitlint-config": "^3.4.8",
@@ -31,7 +30,6 @@
     "@dnb-org/stylelint-config": "^3.4.7",
     "@dnb-org/textlint-config": "^3.4.8",
     "@dnb-org/tools": "^3.4.8",
-    "@dnb-org/webpack-config": "^3.4.8",
     "@types/bootstrap": "^5.1.6",
     "algoliasearch": "^4.11.0",
     "html-validate": "^6.1.5",

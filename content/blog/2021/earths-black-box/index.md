@@ -1,5 +1,6 @@
 +++
 title = "Earth's Black Box"
+description = "It looks like earths climate catastrophe now has it's own black box which will record every step we take towards this catastrophe."
 
 date = 2021-12-10T18:25:14+07:00
 publishDate = 2021-12-10T18:25:14+07:00

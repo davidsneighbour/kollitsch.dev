@@ -1,5 +1,4 @@
 ---
-date: '2021-11-01T12:42:55+07:00'
 menu:
   footer:
     name: Colophonium

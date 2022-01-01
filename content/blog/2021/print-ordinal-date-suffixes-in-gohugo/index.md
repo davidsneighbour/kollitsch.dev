@@ -20,15 +20,15 @@ Golangs `$date.Format` is unable to add ordinal suffixes to dates (like 1st, 2nd
 ```go-html-template
 {{- $format := .format -}}
 {{- $date := .date -}}
-{{- $shortend := "th" -}}
+{{- $shortened := "th" -}}
 {{- if in (slice 1 21 31) $date.Day -}}
-  {{- $shortend = "st" -}}
+  {{- $shortened = "st" -}}
 {{- else if in (slice 2 22) $date.Day -}}
-  {{- $shortend = "nd" -}}
+  {{- $shortened = "and" -}}
 {{- else if in (slice 3 23) $date.Day -}}
-  {{- $shortend = "rd" -}}
+  {{- $shortened = "rd" -}}
 {{- end }}
-{{- return $date.Format (printf $format $shortend) -}}
+{{- return $date.Format (printf $format $shortened) -}}
 ```
 
 call to this partial:

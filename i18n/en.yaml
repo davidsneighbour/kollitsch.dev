@@ -1,3 +1,4 @@
+---
 - id: search_placeholder
   translation: Type & Hit Enter...
 
@@ -59,13 +60,13 @@
   translation: "&copy; 2021 - Webwork done by [David's Neighbour](https://davids-neighbour.com)"
 
 - id: at
-  translation: "at"
+  translation: at
 
 - id: this-is
-  translation: "this is"
+  translation: this is
 
 - id: via
-  translation: "via"
+  translation: via
 
 - id: connect-on-social
   translation: "Connect on social media: "

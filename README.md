@@ -30,6 +30,7 @@ pre-commit install
 Other `pre-commit` commands are:
 
 ```shell
+pre-commit run blocklint --all-files # check specific hook on all files
 pre-commit run --all-files # check rules on all files
 pre-commit autoupdate # update repositories
 pre-commit gc # garbage collection

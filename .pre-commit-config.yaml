@@ -1,9 +1,8 @@
----
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+  - repo: "https://github.com/pre-commit/pre-commit-hooks"
+    rev: v4.1.0
     hooks:
       # - id: check-added-large-files #- prevents giant files from being committed.
       #   args: ['--maxkb=1024']
@@ -12,7 +11,7 @@ repos:
       - id: check-docstring-first #- checks a common error of defining a docstring after code.
       - id: check-executables-have-shebangs #- ensures that (non-binary) executables have a shebang.
       - id: check-json #- checks json files for parseable syntax.
-        exclude: '^(layouts/|.vscode/|tsconfig.json)'
+        exclude: ^(layouts/|.vscode/|tsconfig.json)
       - id: check-shebang-scripts-are-executable #- ensures that (non-binary) files with a shebang are executable.
       - id: check-merge-conflict #- checks for files that contain merge conflict strings.
       - id: check-symlinks #- checks for symlinks which do not point to anything.
@@ -20,19 +19,46 @@ repos:
       - id: check-vcs-permalinks #- ensures that links to vcs websites are permalinks.
       - id: check-xml #- checks xml files for parseable syntax.
       - id: check-yaml #- checks yaml files for parseable syntax.
-      - id: destroyed-symlinks #- detects symlinks which are changed to regular files with a content of a path which that symlink was pointing to.
-      # - id: detect-aws-credentials #- detects *your* aws credentials from the aws cli credentials file.
+      - id:
+          destroyed-symlinks #- detects symlinks which are changed to regular files with a content of a path which that symlink was pointing to.
+          # - id: detect-aws-credentials #- detects *your* aws credentials from the aws cli credentials file.
       - id: detect-private-key #- detects the presence of private keys.
       - id: double-quote-string-fixer #- replaces double quoted strings with single quoted strings.
       - id: end-of-file-fixer #- ensures that a file is either empty, or ends with one newline.
       - id: fix-byte-order-marker #- removes utf-8 byte order marker.
       - id: forbid-new-submodules #- prevents addition of new git submodules.
-      - id: mixed-line-ending #- replaces or checks mixed line ending.
-        exclude: '^(assets/plugins/|tsconfig.json)'
-      # - id: no-commit-to-branch #- don't commit to branch
-      #   args: [--branch, staging, --branch, master]
+      - id: mixed-line-ending # replaces or checks mixed line ending.
+        exclude:
+          ^(assets/plugins/|tsconfig.json)
+          # - id: no-commit-to-branch #- don't commit to branch
+          #   args: [--branch, staging, --branch, master]
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
 
+  - repo: "https://github.com/PrincetonUniversity/blocklint"
+    rev: v0.2.3
+    hooks:
+      - id: blocklint
+
+  - repo: "https://github.com/adrienverge/yamllint"
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
+        args: [-c=tests/config/yamllint.yaml]
+
+  - repo: "https://github.com/jumanjihouse/pre-commit-hooks"
+    rev: 2.1.5 # or specific git tag
+    hooks:
+      - id: check-mailmap
+      - id: git-check # Configure in .gitattributes
+      - id: script-must-have-extension
+        name: Local policy is to use .sh extension for shell scripts
+        types: [shell, executable]
+
+  - repo: "https://github.com/zricethezav/gitleaks"
+    rev: v8.2.5
+    hooks:
+      - id: gitleaks
+
 fail_fast: true
-minimum_pre_commit_version: 1.15.0
+minimum_pre_commit_version: 2.13.0

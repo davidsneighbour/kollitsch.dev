@@ -24,9 +24,10 @@ img-src = [
   "https://d33wubrfki0l68.cloudfront.net",
   "data:",
   "https://i.ytimg.com",
+  "https://www.google-analytics.com",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
-connect-src = ["'self'"]
+connect-src = ["'self'", "https://www.google-analytics.com"]
 media-src = ["'self'"]
 object-src = ["'self'"]
 child-src = ["'self'"]

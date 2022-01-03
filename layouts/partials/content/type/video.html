@@ -2,7 +2,14 @@
 {{- $fullcontent := .fullcontent | default true -}}
 <article class="card shadow-sm">
   {{ $settings := dict "id" $post.Params.youtube }}
-  {{ partialCached "youtube.html" $settings $settings }}
+  <div class="post-slider">
+      <figure>
+        <div class="iframe-border">
+          {{ partialCached "youtube.html" $settings $settings }}
+        </div>
+        <figcaption class="text-center">{{- $post.Title -}}</figcaption>
+      </figure>
+  </div>
   <div class="card-header">
     {{- partial "content/partials/headline.html" . . -}}
   </div>

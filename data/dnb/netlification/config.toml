@@ -10,6 +10,8 @@ script-src = [
   "'unsafe-eval'",
   "'unsafe-inline'",
   'nonce-dnb-components-sw',
+  "https://www.googletagmanager.com",
+  "https://www.google-analytics.com",
 ]
 style-src = [
   "'self'",

@@ -13,7 +13,7 @@ require (
 	github.com/dnb-org/dnb-hugo-netlification v1.0.4 // indirect
 	github.com/dnb-org/dnb-hugo-opensearch v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-pictures v0.0.0-20211229113301-627b0dbfcc1b // indirect
-	github.com/dnb-org/dnb-hugo-publisher v0.0.0-20211227125838-a9b66dd90d5f // indirect
+	github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220104113408-9ec9867b9da2 // indirect
 	github.com/dnb-org/dnb-hugo-pwa v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-robots v0.0.7 // indirect
 	github.com/dnb-org/dnb-hugo-search-algolia v0.0.3 // indirect

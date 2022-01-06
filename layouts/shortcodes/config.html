@@ -77,13 +77,13 @@ Renders syntax-highlighted configuration data in JSON, TOML, and YAML formats.
 <div class="code relative" {{ with $file }}id="{{ . | urlize }}" {{ end }}>
   <div class="code-nav flex flex-nowrap items-stretch">
     {{- with $file }}
-    <div class="san-serif f6 dib lh-solid pl2 pv2 mr2">
+    <div class="san-serif">
       {{- . -}}{{- if not $fm -}}.{{- end -}}
     </div>
     {{- end -}}
     {{- range $langs }}
     <button data-toggle-tab="{{ . }}"
-            class="tab-button {{ cond (eq . "yaml") "active" "" }} ba san-serif f6 dib lh-solid ph2 pv2">
+            class="tab-button {{ cond (eq . "yaml") "active" "" }}">
       {{ . }}
     </button>
     &nbsp;

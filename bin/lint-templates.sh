@@ -57,3 +57,7 @@ HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS=true \
   HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true \
   hugo && \
   grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|hahahugo|\[i18n\|\(<nil>\)|(&lt;nil&gt;)]" public/
+
+
+
+rm -f $(find . | xargs grep -li email@domain.co)

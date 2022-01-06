@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // Font setup
 @import 'settings/fonts';
 
@@ -8,6 +10,10 @@
 @import 'settings/theme'; // local setup
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/utilities';
+
+* {
+  --color-bg: #{$gray-100};
+}
 
 .dark {
 

@@ -22,12 +22,11 @@ h1 {
   @extend .display-1;
   text-transform: uppercase;
   a {
-    transition: color 100s;
-    transition: text-decoration 5s;
+    transition: all 1500ms ease;
     text-decoration: none;
     &:hover {
       text-decoration: none;
-      transition: text-decoration 5s;
+      transition: all 1500ms ease;
       text-shadow: rgb(52, 152, 219);
     }
   }

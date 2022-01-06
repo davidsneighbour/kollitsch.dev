@@ -44,6 +44,12 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-hooks"
 
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-icons"
+
 # [[imports]]
 # disable = false
 # ignoreConfig = false
@@ -108,12 +114,6 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-youtube"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/libraries/heroicons"
 
 [[imports]]
 disable = false

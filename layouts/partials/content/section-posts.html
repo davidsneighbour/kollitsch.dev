@@ -1,7 +1,8 @@
 <section class="section--content">
   <div class="container">
     <div class="row">
-      {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{/* {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }} */}}
+      {{ $paginator := .Paginate site.RegularPages }}
       <h2 class="visually-hidden">
         Recent Posts (Page {{ $paginator.PageNumber }})
       </h2>

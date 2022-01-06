@@ -1,6 +1,17 @@
+// @ts-ignore
+import Alpine from 'alpinejs';
 import { Collapse, Tab } from 'bootstrap';
 // eslint-disable-next-line import/no-unresolved,import/extensions
 import './components/menu.ts';
+
+// @ts-ignore
+window.Alpine = Alpine;
+
+Alpine.start();
+
+function switchColorTheme() {
+  console.log('bla');
+}
 
 // tabs
 const triggerTabList = Array.prototype.slice.call(

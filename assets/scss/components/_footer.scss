@@ -9,7 +9,7 @@
     text-decoration: underline;
 
     &:hover {
-      color: $primary;
+      color: var(--primary);
       text-decoration: none;
     }
   }
@@ -18,11 +18,11 @@
     color: rgba($white, 0.7);
 
     &:hover {
-      border-color: $primary;
+      border-color: var(--primary);
 
       color: $white;
 
-      background-color: $primary;
+      background-color: var(--primary);
     }
   }
 

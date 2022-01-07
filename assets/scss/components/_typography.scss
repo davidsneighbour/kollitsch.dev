@@ -19,32 +19,36 @@ h6 a {
 }
 
 h1 {
-  @extend .display-1;
   text-transform: uppercase;
+
   a {
-    transition: all 1500ms ease;
     text-decoration: none;
+
+    transition: all 1500ms ease;
+
     &:hover {
       text-decoration: none;
-      transition: all 1500ms ease;
       text-shadow: rgb(52, 152, 219);
+
+      transition: all 1500ms ease;
     }
   }
+  @extend .display-1;
 }
 
 .mark,
 mark {
   padding: 0;
-  border-bottom: 1px dashed rgba($primary, 0.4);
+  border-bottom: 1px dashed rgba(var(--primary), 0.4);
 
-  color: $primary;
+  color: var(--primary);
 
   background: transparent;
 }
 
 blockquote {
   padding-left: 0.95rem;
-  border-left: $primary 5px solid;
+  border-left: var(--primary) 5px solid;
 
   background-color: lighten($primary, 55%);
 
@@ -55,8 +59,6 @@ blockquote {
 
 p {
   word-wrap: break-word;
-  overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
+  overflow-wrap: break-word; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+  hyphens: auto; /* stylelint-disable-line plugin/no-unsupported-browser-features */
 }

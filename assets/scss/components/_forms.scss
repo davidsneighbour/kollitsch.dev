@@ -11,7 +11,7 @@
   transition: 0.3s ease;
 
   &:focus {
-    border-color: $primary;
+    border-color: var(--primary);
 
     color: $dark;
 
@@ -19,7 +19,7 @@
 
     ~ .input-group-append {
       .input-group-text {
-        border-color: $primary;
+        border-color: var(--primary);
       }
     }
   }
@@ -40,7 +40,7 @@
 
 button.input-group-text {
   &:hover {
-    color: $primary;
+    color: var(--primary);
   }
 }
 
@@ -49,7 +49,7 @@ button.input-group-text {
 
   cursor: text;
 
-  user-select: none;
+  user-select: none; /* stylelint-disable-line plugin/no-unsupported-browser-features */
 
   &::before {
     border-radius: 0;
@@ -68,9 +68,9 @@ button.input-group-text {
 
   .custom-control-input:checked ~ .custom-control-label::before,
   .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-    border-color: $primary;
+    border-color: var(--primary);
 
-    background-color: $primary;
+    background-color: var(--primary);
   }
 
   .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
@@ -78,8 +78,8 @@ button.input-group-text {
   }
 
   .custom-control-input:disabled:checked ~ .custom-control-label::before {
-    border-color: rgba($primary, 0.2);
+    border-color: rgba(var(--primary), 0.2);
 
-    background-color: rgba($primary, 0.5);
+    background-color: rgba(var(--primary), 0.5);
   }
 }

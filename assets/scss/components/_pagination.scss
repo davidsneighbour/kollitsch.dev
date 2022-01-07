@@ -18,7 +18,7 @@
     &:hover {
       color: $white;
 
-      background-color: $primary;
+      background-color: var(--primary);
       box-shadow: none;
     }
 
@@ -28,7 +28,7 @@
       font-size: 26px;
 
       &:hover {
-        color: $primary;
+        color: var(--primary);
 
         background-color: $white;
       }
@@ -39,7 +39,7 @@
     .page-link {
       color: $white;
 
-      background-color: $primary;
+      background-color: var(--primary);
       box-shadow: none;
     }
   }

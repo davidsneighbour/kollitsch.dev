@@ -46,7 +46,7 @@ $display-font-weight: 900;
 // links
 $link-color: $gray-800;
 $link-decoration: underline;
-$link-hover-color: $primary;
+$link-hover-color: var(--primary);
 $link-hover-decoration: underline;
 
 // cards

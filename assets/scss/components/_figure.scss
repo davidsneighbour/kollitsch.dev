@@ -1,14 +1,14 @@
 figure {
-  font-weight: $font-weight-bold;
-  font-variant: small-caps;
-  padding: 10px 10px 0;
   margin-bottom: 0;
+  padding: 10px 10px 0;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 
   color: $light;
+  font-weight: $font-weight-bold;
+  font-variant: small-caps;
 
-  background-color: $primary;
+  background-color: var(--primary);
 
   picture,
   img,
@@ -25,7 +25,7 @@ figure {
     color: $light;
 
     &:hover {
-      color: $gray-300;
+      color: var(--gray-300);
     }
   }
 }

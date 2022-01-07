@@ -44,10 +44,13 @@
       </ul>
 
       {{ if site.Params.dnb.theme.switcher.enabled }}
-        <div class="form-check form-switch form-check-inline is--themeswitcher">
+        <div class="form-check form-switch form-check-inline is--themeswitcher ms-md-5">
           <input class="form-check-input" type="checkbox"
                 role="switch" id="flexSwitchCheckChecked"
-                x-data x-on:click="$data.theme = $event.target.checked ? 'dark' : 'light'" >
+                x-data
+                x-on:click="$data.theme = $event.target.checked ? 'dark' : 'light'"
+                checked
+                >
           <label class="form-check-label" for="flexSwitchCheckChecked">
           {{ range site.Params.dnb.theme.switcher.themes }}
             {{ partialCached "bsicon.html" .icon .icon }}

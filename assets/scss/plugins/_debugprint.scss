@@ -1,12 +1,13 @@
-.debugprint table,
-table.debugprint {
+.debugprint {
   font-size: 0.7rem;
+
+  #footer & a {
+    color: $dark;
+  }
 
   td,
   th {
-    #footer & a {
-      color: $dark;
-    }
+
     @extend .align-top;
 
   }

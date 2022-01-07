@@ -11,7 +11,7 @@
 @import 'settings/theme';
 
 // colors
-$primary: rgb(192, 57, 43);
+$primary: hsl(6, 63.4%, 46.1%);
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
@@ -46,6 +46,8 @@ $theme-colors: (
 
   --footer-color-fg: #{$light};
   --footer-color-bg: #{$dark};
+
+  --card-border-color: #{$dark};
 }
 
 .dark {
@@ -59,7 +61,15 @@ $theme-colors: (
 
   --footer-color-fg: #{$light};
   --footer-color-bg: #{$dark};
+
+  --card-border-color: #{$light};
 }
+
+$card-bg: var(--bg-card);
+$card-color: var(--color);
+
+$pagination-bg: var(--color2);
+$pagination-color: var(--color);
 
 // Bootstrap - Layout and components
 @import '../../node_modules/bootstrap/scss/root';

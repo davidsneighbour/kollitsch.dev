@@ -6,7 +6,7 @@
 }
 
 a {
-  transition: all 0.3s;
+  transition: all 0.75s;
 }
 
 h1 a,
@@ -15,6 +15,7 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
+  color: var(--color);
   text-decoration: none;
 }
 

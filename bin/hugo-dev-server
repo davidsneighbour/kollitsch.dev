@@ -34,26 +34,26 @@ hugo mod get -u ./...
 
 # starting hugo server
 hugo server \
-    --gc \
-    --environment development \
-    --disableFastRender \
-    --i18n-warnings \
-    --navigateToChanged \
-    --templateMetrics \
-    --templateMetricsHints \
-    --path-warnings \
-    --poll 1s \
-    --cleanDestinationDir \
-    --renderToDisk \
-    --buildFuture \
-    --watch \
-    --enableGitInfo \
-    --forceSyncStatic \
-    --log true --logFile hugo.log \
-    --verbose \
-    --verboseLog \
-    --port "${PORT}" \
-    --baseURL http://"${IP}"/ \
-    --bind "${IP}"
+  --gc \
+  --environment development \
+  --disableFastRender \
+  --i18n-warnings \
+  --navigateToChanged \
+  --templateMetrics \
+  --templateMetricsHints \
+  --path-warnings \
+  --poll 1s \
+  --cleanDestinationDir \
+  --renderToDisk \
+  --buildFuture \
+  --watch \
+  --enableGitInfo \
+  --forceSyncStatic \
+  --log true --logFile hugo.log \
+  --verbose \
+  --verboseLog \
+  --port "${PORT}" \
+  --baseURL http://"${IP}"/ \
+  --bind "${IP}"
 
 # TODO --buildDrafts --buildExpired on request

@@ -11,7 +11,7 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
-cat << EOF
+cat <<EOF
 [build]
 publish = "./public"
 

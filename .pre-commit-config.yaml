@@ -47,13 +47,19 @@ repos:
         args: [-c=tests/config/yamllint.yaml]
 
   - repo: "https://github.com/jumanjihouse/pre-commit-hooks"
-    rev: 2.1.5 # or specific git tag
+    rev: 2.1.5
     hooks:
       - id: check-mailmap
       - id: git-check # Configure in .gitattributes
+      - id: markdownlint # Configure in .mdlrc
       - id: script-must-have-extension
-        name: Local policy is to use .sh extension for shell scripts
+        name: Shell libraries must have a .sh extension and should not be executable.
+        types: [shell, non-executable]
+      - id: script-must-not-have-extension
+        name: Executable shell scripts must not have an extension
         types: [shell, executable]
+      - id: shellcheck
+      - id: shfmt
 
   - repo: "https://github.com/zricethezav/gitleaks"
     rev: v8.2.5

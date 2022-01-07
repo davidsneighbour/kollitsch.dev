@@ -71,6 +71,13 @@ path = "github.com/dnb-org/dnb-hugo-opensearch"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-pictures"
+
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-publisher"
 
 [[imports]]
@@ -101,6 +108,12 @@ path = "github.com/dnb-org/dnb-hugo-security"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-shortcodes"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-sitemap"
 
 [[imports]]
@@ -114,15 +127,3 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-youtube"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-shortcodes"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-pictures"

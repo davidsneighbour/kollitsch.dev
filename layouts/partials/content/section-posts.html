@@ -7,8 +7,6 @@
         Recent Posts (Page {{ $paginator.PageNumber -}})
       </h2>
 
-      {{ partial "debugprint.html" site.Params.mainSections }}
-
       {{- $fullcontent := false -}}
       {{- if (eq $.Kind "page") -}}
         {{- $fullcontent = true -}}

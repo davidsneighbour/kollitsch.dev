@@ -160,3 +160,15 @@ bing = ""
 alexa = ""
 pinterest = ""
 norton = ""
+
+[dnb.theme.switcher]
+enabled = true
+default = "light"
+
+[[dnb.theme.switcher.themes]]
+slug = "light"
+icon = "sun-fill"
+
+[[dnb.theme.switcher.themes]]
+slug = "dark"
+icon = "moon-stars-fill"

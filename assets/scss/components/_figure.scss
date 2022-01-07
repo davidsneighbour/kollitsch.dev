@@ -4,11 +4,12 @@ figure {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 
-  color: $light;
+  color: var(--highlight-color-fg);
+
   font-weight: $font-weight-bold;
   font-variant: small-caps;
 
-  background-color: var(--primary);
+  background-color: var(--highlight-color-bg);
 
   picture,
   img,
@@ -22,10 +23,10 @@ figure {
   }
 
   a {
-    color: $light;
+    color: var(--link-color);
 
     &:hover {
-      color: var(--gray-300);
+      color: var(--link-color-hover);
     }
   }
 }

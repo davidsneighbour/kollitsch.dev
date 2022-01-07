@@ -43,15 +43,18 @@
         {{ end }}
       </ul>
 
-      <div class="form-check form-switch form-check-inline is--themeswitcher d-none">
-        <input class="form-check-input" type="checkbox"
-              role="switch" id="flexSwitchCheckChecked"
-              x-data x-on:click="$data.theme = $event.target.checked ? 'dark' : 'light'" >
-        <label class="form-check-label" for="flexSwitchCheckChecked">
-          {{ partialCached "bsicon.html" "moon-stars-fill" "moon-stars-fill" }}
-          {{ partialCached "bsicon.html" "sun-fill" "sun-fill" }}
-        </label>
-      </div>
+      {{ if site.Params.dnb.theme.switcher.enabled }}
+        <div class="form-check form-switch form-check-inline is--themeswitcher">
+          <input class="form-check-input" type="checkbox"
+                role="switch" id="flexSwitchCheckChecked"
+                x-data x-on:click="$data.theme = $event.target.checked ? 'dark' : 'light'" >
+          <label class="form-check-label" for="flexSwitchCheckChecked">
+          {{ range site.Params.dnb.theme.switcher.themes }}
+            {{ partialCached "bsicon.html" .icon .icon }}
+          {{ end }}
+          </label>
+        </div>
+      {{ end }}
 
     </div>
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-mainnav" "context" . ) -}}

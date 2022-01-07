@@ -16,7 +16,7 @@ require (
 	github.com/dnb-org/dnb-hugo-pictures v0.0.0-20211229113301-627b0dbfcc1b // indirect
 	github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220106130751-978b4935e65a // indirect
 	github.com/dnb-org/dnb-hugo-pwa v0.0.2 // indirect
-	github.com/dnb-org/dnb-hugo-robots v0.0.7 // indirect
+	github.com/dnb-org/dnb-hugo-robots v1.0.1 // indirect
 	github.com/dnb-org/dnb-hugo-search-algolia v0.0.3 // indirect
 	github.com/dnb-org/dnb-hugo-security v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-shortcodes v1.4.22 // indirect

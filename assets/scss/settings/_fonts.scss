@@ -93,7 +93,7 @@ $fontpath: '/assets/webfonts/tomkin/Tomkin' !default;
        url('#{$fontpath}/TomkinSemiLight/Tomkin-SemiLightItalic.ttf') format('truetype'), /* Safari, Android, iOS */
        url('#{$fontpath}/TomkinSemiLight/Tomkin-SemiLightItalic.svg#Tomkin-SemiLightItalic') format('svg'); /* Legacy iOS */
   font-style: italic;
-  font-weight: 400l;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   font-display: swap;
 }

@@ -8,7 +8,7 @@ $container-max-widths: (
 // colors
 $primary: rgb(192, 57, 43);
 $theme-colors: (
-  'primary': rgb(192, 57, 43),
+  'primary': $primary,
   'secondary': $secondary,
   'success': $success,
   'info': $info,

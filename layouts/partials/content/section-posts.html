@@ -1,28 +1,30 @@
 <section class="section--content">
   <div class="container">
     <div class="row">
-      {{/* {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }} */}}
-      {{ $paginator := .Paginate site.RegularPages }}
+
+      {{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
       <h2 class="visually-hidden">
-        Recent Posts (Page {{ $paginator.PageNumber }})
+        Recent Posts (Page {{ $paginator.PageNumber -}})
       </h2>
+
+      {{ partial "debugprint.html" site.Params.mainSections }}
 
       {{- $fullcontent := false -}}
       {{- if (eq $.Kind "page") -}}
         {{- $fullcontent = true -}}
       {{- end -}}
 
-      {{ range $index, $item := $paginator.Pages }}
-
+      {{- range $index, $item := $paginator.Pages -}}
         {{- $post := dict "context" $item "fullcontent" $fullcontent -}}
-        {{ $col := "6" }}
-        {{ if eq $index 0 }}
-          {{ $col = "12" }}
-        {{ end }}
-        <div class="col-12 col-md-{{ $col }} mb-5">
-          {{ partial "content/post.html" $post $post }}
+        {{- $col := "6" -}}
+        {{- if eq $index 0 -}}
+          {{- $col = "12" -}}
+        {{- end -}}
+        <div class="col-12 col-md-{{ $col }} mb-4">
+          {{- partial "content/post.html" $post $post -}}
         </div>
-      {{ end }}
+      {{- end -}}
+
     </div>
     {{ partial "content/partials/pagination.html" . }}
   </div>

@@ -1,6 +1,6 @@
 {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre" "context" . ) -}}
 <nav
-  class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-lg mb-5">
+  class="navbar fixed-top navbar-expand-md shadow-lg mb-5">
   <div class="container-fluid">
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
     {{- partialCached "header/navbar/brand.html" . -}}

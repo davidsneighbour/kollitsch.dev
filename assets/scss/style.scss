@@ -10,17 +10,28 @@
 // Local Bootstrap Setup/Overrides
 @import 'settings/theme';
 
-:root {
+// colors
+$primary: rgb(192, 57, 43);
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+);
 
-  // variables
+:root {
   --primary: #{$primary};
   --gray-300: #{$gray-300};
 
   --highlight-color-bg: #{$primary};
   --highlight-color-fg: #{$light};
 
-  // https://codepen.io/stefanjudis/pen/abpPvYQ
   // https://drafts.csswg.org/css-ui-4/#widget-accent
+  // https://caniuse.com/?search=accent-color
   accent-color: var(--primary);
 }
 
@@ -41,8 +52,13 @@
   --bg-page: #{$gray-800};
   --bg-card: #{$gray-900};
   --color-title: #{$white};
+  --color: #{$white};
+  --color2: #{$dark};
   --link-color: #{$light};
   --link-color-hover: #{$gray-300};
+
+  --footer-color-fg: #{$light};
+  --footer-color-bg: #{$dark};
 }
 
 // Bootstrap - Layout and components

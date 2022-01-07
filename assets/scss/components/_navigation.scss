@@ -10,3 +10,16 @@
   }
 
 }
+
+.navbar {
+  .light & {
+    @extend .navbar-light;
+    @extend .bg-white;
+  }
+
+  .dark & {
+    @extend .navbar-dark;
+    @extend .bg-dark;
+  }
+
+}

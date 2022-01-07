@@ -45,9 +45,9 @@
   },
   "scripts": {
     "audit:html": "hugo && html-validate public/**/*.html",
-    "audit:hugo": "./bin/dnb-hugo-audit.sh",
+    "audit:hugo": "./bin/dnb-hugo-audit",
     "build": "run-s build:critical build:hugo",
-    "build:critical": "./bin/build-critical-css.sh",
+    "build:critical": "./bin/build-critical-css",
     "build:highlights": "hugo gen chromastyles --style=xcode > assets/scss/components/_syntaxhighlighting.scss",
     "build:hugo": "hugo --gc --minify",
     "build:script": "tsc",
@@ -57,19 +57,19 @@
     "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
     "clean:npm": "rimraf node_modules package-lock.json",
     "commit": "./node_modules/cz-customizable/standalone.js",
-    "lighthouse": "bin/lighthouse.sh",
+    "lighthouse": "bin/lighthouse",
     "lint:scripts": "eslint assets/js --ext .ts",
     "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
     "lint:styles": "stylelint assets/scss",
     "lint:styles:fix": "stylelint assets/scss --fix",
-    "lint:templates": "bin/lint-templates.sh",
+    "lint:templates": "bin/lint-templates",
     "prettier": "prettier 'assets/**/*.ts'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
-    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
-    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
-    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease",
     "serve": "run-p serve:hugo",
-    "serve:hugo": "bin/hugo-dev-server.sh",
+    "serve:hugo": "bin/hugo-dev-server",
     "serve:script": "tsc --watch",
     "server": "npm run serve",
     "update": "npm-check-updates -u && npm install && fixpack"
@@ -103,7 +103,11 @@
     "extends": "@dnb-org/stylelint-config",
     "ignoreFiles": [
       "assets/scss/settings/_bootstrap-variables.scss"
-    ]
+    ],
+    "rules": {
+      "max-nesting-depth": 3,
+      "selector-max-id": 1
+    }
   },
   "url": "https://kollitsch.de"
 }

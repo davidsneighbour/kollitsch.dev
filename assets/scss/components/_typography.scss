@@ -1,8 +1,8 @@
 ::selection {
-  color: $white;
+  color: var(--color2);
   text-shadow: none;
 
-  background-color: darken($primary, 5);
+  background-color: var(--primary);
 }
 
 a {
@@ -23,15 +23,6 @@ h1 {
 
   a {
     text-decoration: none;
-
-    transition: all 1500ms ease;
-
-    &:hover {
-      text-decoration: none;
-      text-shadow: rgb(52, 152, 219);
-
-      transition: all 1500ms ease;
-    }
   }
   @extend .display-1;
 }

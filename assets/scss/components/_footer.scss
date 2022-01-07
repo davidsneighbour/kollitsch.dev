@@ -1,11 +1,11 @@
 // footer
 #footer {
-  color: $light;
+  color: var(--footer-color-fg);
 
-  background-color: $dark;
+  background-color: var(--footer-color-bg);
 
   a {
-    color: $light;
+    color: var(--footer-color-fg);
     text-decoration: underline;
 
     &:hover {
@@ -13,17 +13,4 @@
       text-decoration: none;
     }
   }
-
-  .icon-box a {
-    color: rgba($white, 0.7);
-
-    &:hover {
-      border-color: var(--primary);
-
-      color: $white;
-
-      background-color: var(--primary);
-    }
-  }
-
 }

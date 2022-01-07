@@ -6,12 +6,7 @@ import './components/menu.ts';
 
 // @ts-ignore
 window.Alpine = Alpine;
-
 Alpine.start();
-
-function switchColorTheme() {
-  console.log('bla');
-}
 
 // tabs
 const triggerTabList = Array.prototype.slice.call(
@@ -34,5 +29,7 @@ const collapseElementList = Array.prototype.slice.call(
   document.querySelectorAll('.collapse')
 );
 collapseElementList.map(function collapsibles(collapseElement: Element) {
-  return new Collapse(collapseElement);
+  return new Collapse(collapseElement, {
+    toggle: false,
+  }).hide();
 });

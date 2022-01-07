@@ -28,8 +28,13 @@
   --bg-page: #{$gray-100};
   --bg-card: #{$white};
   --color-title: #{$black};
+  --color: #{$dark};
+  --color2: #{$white};
   --link-color: #{$light};
   --link-color-hover: #{$gray-300};
+
+  --footer-color-fg: #{$light};
+  --footer-color-bg: #{$dark};
 }
 
 .dark {

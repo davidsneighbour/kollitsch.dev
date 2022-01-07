@@ -32,19 +32,6 @@ mainSections = ["blog"]
 # Post layout
 post_layout = "grid" # Post-Layout value ("grid" or "list")
 
-######################## Plugins ####################
-# JS Plugins
-[[plugins.js]]
-link = "libs/liteyoutube/lite-yt-embed.js"
-[[plugins.js]]
-link = "plugins/slick/slick.min.js"
-[[plugins.js]]
-link = "plugins/search/fuse.min.js"
-[[plugins.js]]
-link = "plugins/search/mark.js"
-[[plugins.js]]
-link = "plugins/search/search.js"
-
 # Social Icons
 [[social]]
 url = "https://www.facebook.com/davidsneighbour"

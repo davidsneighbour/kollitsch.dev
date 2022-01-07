@@ -8,4 +8,5 @@ menu:
   main:
     weight: 4
 comments: false
+robotsdisallow: true
 ---

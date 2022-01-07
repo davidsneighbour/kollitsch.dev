@@ -6,6 +6,7 @@ menu:
   main:
     weight: 5
 comments: false
+robotsdisallow: true
 ---
 
 {{< contact-form >}}

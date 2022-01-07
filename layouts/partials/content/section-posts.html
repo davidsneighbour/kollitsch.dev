@@ -19,7 +19,7 @@
         {{ if eq $index 0 }}
           {{ $col = "12" }}
         {{ end }}
-        <div class="col-{{ $col }} mb-5">
+        <div class="col-12 col-md-{{ $col }} mb-5">
           {{ partial "content/post.html" $post $post }}
         </div>
       {{ end }}

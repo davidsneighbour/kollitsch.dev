@@ -1,4 +1,3 @@
----
 - id: search_placeholder
   translation: Type & Hit Enter...
 
@@ -63,7 +62,7 @@
   translation: at
 
 - id: this-is
-  translation: this is
+  translation: this is v%s
 
 - id: via
   translation: via

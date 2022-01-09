@@ -26,8 +26,8 @@ github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220106130751-978b4935e65a h1:ljLX
 github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220106130751-978b4935e65a/go.mod h1:0slEsAr913wXdhhJFO//nV0fdFVkNCUPorq6pYRNcL4=
 github.com/dnb-org/dnb-hugo-pwa v0.0.2 h1:IoI6CZ2460QMgtiyo9LX/j1chsSz/skDA4wtr452dd8=
 github.com/dnb-org/dnb-hugo-pwa v0.0.2/go.mod h1:POyBmJqMdTs1dsbhhKE5Ndt8rUTmLzyIAISqitpHOwc=
-github.com/dnb-org/dnb-hugo-robots v1.0.1 h1:pHF9PI4SBX1XvDajiwHbWN+8511sAqwe1DhIZLbLMbM=
-github.com/dnb-org/dnb-hugo-robots v1.0.1/go.mod h1:7fUbUuxVt2nAgnC+Ye+nz1GqRBQrFZ+Y0q/OA9idkIk=
+github.com/dnb-org/dnb-hugo-robots v1.0.5 h1:hm8e4EQNkiKspi1npioMLrqeR1nnFBhJsD4U9jeoYUQ=
+github.com/dnb-org/dnb-hugo-robots v1.0.5/go.mod h1:4ONnwyPFv29xqs0h89VnUHaVBmDct7WBPmcwAH7J9gI=
 github.com/dnb-org/dnb-hugo-search-algolia v0.0.3 h1:di6cRNuFpd0qXTTbPw7s52cx2fL7rejhiuRs1O5NjH8=
 github.com/dnb-org/dnb-hugo-search-algolia v0.0.3/go.mod h1:F3LGPDZOMA/x871UW3iVZDBoO+60qDJpwP1GkNgiqP4=
 github.com/dnb-org/dnb-hugo-security v0.0.2 h1:OcctYGQVq4lJ4mVBPNddJWWr0COTA9hybjWCdxplmuc=

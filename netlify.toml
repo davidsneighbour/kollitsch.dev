@@ -7,3 +7,9 @@ command = "./bin/netlify-build"
 [context.production.environment]
 HUGO_VERSION = "0.91.2"
 HUGO_ENV = "production"
+
+[[plugins]]
+package = "netlify-plugin-hugo-cache-resources"
+
+[plugins.inputs]
+debug = true

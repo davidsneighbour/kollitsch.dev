@@ -14,3 +14,19 @@
     }
   }
 }
+
+.widget.social-media {
+  a:link,
+  a:hover {
+    text-decoration: none;
+
+    svg {
+      width: 36px;
+      height: 36px;
+      @extend .p-0;
+      @extend .m-0;
+    }
+    @extend .px-3;
+
+  }
+}

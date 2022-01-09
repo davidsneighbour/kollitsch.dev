@@ -24,5 +24,3 @@ require (
 	github.com/dnb-org/dnb-hugo-social v0.0.3 // indirect
 	github.com/dnb-org/dnb-hugo-youtube v1.0.0 // indirect
 )
-
-replace github.com/dnb-org/libraries/bootstrap-icons => /home/patrick/Projects/dnb-org/libraries/bootstrap-icons

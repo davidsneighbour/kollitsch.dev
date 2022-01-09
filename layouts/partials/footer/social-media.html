@@ -1,9 +1,7 @@
-<div>
-  {{- i18n "connect-on-social" | default "Connect on Social Media" -}}
+<div class="widget social-media">
+  <h3 class="mt-3 mb-0">{{- i18n "connect-on-social" | default "Connect on Social Media" -}}</h3>
   {{- range site.Params.social -}}
     {{- $icon := printf "icons/%s.html" .icon -}}
-    &nbsp;
-    <a href="{{- .url -}}" aria-label="{{- .label -}}">{{- partialCached $icon .icon .icon -}}</a>
-    &nbsp;
+    <a href="{{- .url -}}" aria-label="{{- .label -}}" class="mx-3">{{- partialCached $icon .icon .icon -}}</a>
   {{- end -}}
 </div>

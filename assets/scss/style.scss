@@ -24,6 +24,10 @@ $theme-colors: (
 );
 
 :root {
+  --brand-hue: 6;
+  --brand-saturation: 63.4%;
+  --brand-lightness: 46.1%;
+
   --primary: #{$primary};
   --gray-300: #{$gray-300};
 
@@ -32,7 +36,7 @@ $theme-colors: (
 
   // https://drafts.csswg.org/css-ui-4/#widget-accent
   // https://caniuse.com/?search=accent-color
-  accent-color: var(--primary);
+  accent-color: var(--brand);
 }
 
 .light {
@@ -48,6 +52,15 @@ $theme-colors: (
   --footer-color-bg: #{$dark};
 
   --card-border-color: #{$dark};
+
+  --brand: hsl(var(--brand-hue), var(--brand-saturation), var(--brand-lightness));
+  --text1: hsl(var(--brand-hue), var(--brand-saturation), 10%);
+  --text2: hsl(var(--brand-hue), 30%, 30%);
+  --surface1: hsl(var(--brand-hue), 25%, 90%);
+  --surface2: hsl(var(--brand-hue), 20%, 99%);
+  --surface3: hsl(var(--brand-hue), 20%, 92%);
+  --surface4: hsl(var(--brand-hue), 20%, 85%);
+
 }
 
 .dark {
@@ -63,6 +76,38 @@ $theme-colors: (
   --footer-color-bg: #{$dark};
 
   --card-border-color: #{$light};
+
+  --brand: hsl(var(--brand-hue), var(--brand-saturation), var(--brand-lightness));
+  --text1: hsl(var(--brand-hue), 15%, 85%);
+  --text2: hsl(var(--brand-hue), 5%, 65%);
+  --surface1: hsl(var(--brand-hue), 10%, 10%);
+  --surface2: hsl(var(--brand-hue), 10%, 15%);
+  --surface3: hsl(var(--brand-hue), 5%, 20%);
+  --surface4: hsl(var(--brand-hue), 5%, 25%);
+}
+
+.dim {
+  --bg-page: #{$gray-800};
+  --bg-card: #{$gray-900};
+  --color-title: #{$white};
+  --color: #{$white};
+  --color2: #{$dark};
+  --link-color: #{$light};
+  --link-color-hover: #{$gray-300};
+
+  --footer-color-fg: #{$light};
+  --footer-color-bg: #{$dark};
+
+  --card-border-color: #{$light};
+
+  --brand: hsl(var(--brand-hue), calc(var(--brand-saturation) / 1.25), calc(var(--brand-lightness) / 1.25));
+  --text1: hsl(var(--brand-hue), 15%, 75%);
+  --text2: hsl(var(--brand-hue), 10%, 61%);
+  --surface1: hsl(var(--brand-hue), 10%, 20%);
+  --surface2: hsl(var(--brand-hue), 10%, 25%);
+  --surface3: hsl(var(--brand-hue), 5%, 30%);
+  --surface4: hsl(var(--brand-hue), 5%, 35%);
+
 }
 
 $card-bg: var(--bg-card);

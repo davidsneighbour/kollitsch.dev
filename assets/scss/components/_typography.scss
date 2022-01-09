@@ -6,27 +6,8 @@
 }
 
 a {
-  position: relative;
-  text-decoration: none;
-
-
-  &::before {
-    position: absolute;
-    z-index: -1;
-
-    background: --var(primary);
-    transform: scaleX(0);
-    transform-origin: right;
-
-    transition: transform 0.57s ease-in-out;
-
-    content: '';
-    inset: 0;
-  }
-
-  &:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+  &.active {
+    color: var(--primary);
   }
 
 }

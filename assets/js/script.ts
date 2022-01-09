@@ -1,11 +1,35 @@
 // @ts-ignore
 import Alpine from 'alpinejs';
 import { Collapse, Tab } from 'bootstrap';
-// eslint-disable-next-line import/no-unresolved,import/extensions
 import './components/menu.ts';
 
 // @ts-ignore
 window.Alpine = Alpine;
+
+// themechanger
+Alpine.store('theme', {
+  mode: 'dim',
+
+  init() {
+    const mode = localStorage.theme;
+    if (mode !== undefined) {
+      this.set(localStorage.theme);
+    } else if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.set('dim');
+    } else {
+      this.set('light');
+    }
+  },
+
+  set(mode: string) {
+    this.mode = mode;
+    localStorage.theme = this.mode;
+  },
+});
+
 Alpine.start();
 
 // tabs

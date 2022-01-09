@@ -157,5 +157,9 @@ slug = "light"
 icon = "sun-fill"
 
 [[dnb.theme.switcher.themes]]
-slug = "dark"
+slug = "dim"
 icon = "moon-stars-fill"
+
+[[dnb.theme.switcher.themes]]
+slug = "dark"
+icon = "stars"

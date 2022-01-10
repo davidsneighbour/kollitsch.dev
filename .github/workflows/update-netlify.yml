@@ -18,7 +18,7 @@ jobs:
         repo: hugo
         excludes: prerelease, draft
     - run: |
-        ${GITHUB_WORKSPACE}/bin/update-hugo-on-netlify.sh "${{ steps.gohugohugo.outputs.release }}" > "${GITHUB_WORKSPACE}/netlify.toml"
+        ${GITHUB_WORKSPACE}/bin/update-hugo-on-netlify "${{ steps.gohugohugo.outputs.release }}" > "${GITHUB_WORKSPACE}/netlify.toml"
     - name: Create Pull Request
       id: createpr
       uses: peter-evans/create-pull-request@v3

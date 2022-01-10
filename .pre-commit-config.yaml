@@ -59,7 +59,7 @@ repos:
         name: Executable shell scripts must not have an extension
         types: [shell, executable]
       - id: shellcheck
-      - id: shfmt
+      #- id: shfmt
 
   - repo: "https://github.com/zricethezav/gitleaks"
     rev: v8.2.5

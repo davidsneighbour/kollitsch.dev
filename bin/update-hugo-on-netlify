@@ -16,9 +16,15 @@ cat <<EOF
 publish = "./public"
 
 [context.production]
-command = "./bin/netlify-build.sh"
+command = "./bin/netlify-build"
 
 [context.production.environment]
 HUGO_VERSION = "${1/v/""}"
 HUGO_ENV = "production"
+
+[[plugins]]
+package = "netlify-plugin-hugo-cache-resources"
+
+[plugins.inputs]
+debug = true
 EOF

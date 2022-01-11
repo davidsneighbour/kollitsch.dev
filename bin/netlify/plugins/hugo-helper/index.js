@@ -17,10 +17,7 @@ const getCache = ({ inputs }) => {
 
 const printList = (items, inputs) => {
   if (getDebug({ inputs }) === true) {
-    console.log('---');
-    items.forEach((item, index) => {
-      console.log(`${index + 1}. ${item}`);
-    });
+    console.table(items);
   }
 };
 

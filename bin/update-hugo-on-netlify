@@ -23,7 +23,7 @@ HUGO_VERSION = "${1/v/""}"
 HUGO_ENV = "production"
 
 [[plugins]]
-package = "netlify-plugin-hugo-cache-resources"
+package = "/bin/netlify/plugins/hugo-helper"
 
 [plugins.inputs]
 debug = true

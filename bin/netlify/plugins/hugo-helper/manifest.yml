@@ -1,0 +1,8 @@
+name: netlify-plugin-hugo-cache
+inputs:
+  - name: debug
+    description: Show more verbose logs
+    default: true
+  - name: srcdir
+    description: Relative path to source directory in case you use Hugo's "--s" option
+    default: ""

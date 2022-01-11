@@ -326,3 +326,6 @@ npm-debug.log
 yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
+
+# Local Netlify folder
+.netlify

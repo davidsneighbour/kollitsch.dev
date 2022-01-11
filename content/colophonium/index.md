@@ -4,7 +4,7 @@ menu:
     name: Colophonium
     weight: 30
 resources:
-  - src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
+  - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
 title: Colophonium
 draft: true

@@ -50,7 +50,7 @@
     "build": "run-s build:critical build:hugo",
     "build:critical": "./bin/build-critical-css",
     "build:highlights": "hugo gen chromastyles --style=xcode > assets/scss/components/_syntaxhighlighting.scss",
-    "build:hugo": "hugo --gc --minify",
+    "build:hugo": "hugo --minify",
     "build:script": "tsc",
     "check-env": "node -e 'console.log(process.env)' | grep npm_config_",
     "clean": "run-p clean:hugo",

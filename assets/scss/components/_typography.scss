@@ -6,6 +6,8 @@
 }
 
 a {
+  box-decoration-break: clone;
+
   &.active {
     color: var(--primary);
   }

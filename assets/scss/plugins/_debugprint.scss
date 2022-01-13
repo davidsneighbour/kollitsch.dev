@@ -19,6 +19,11 @@
   .false {
     @extend .text-danger;
   }
+
+  .debugprint {
+    @extend .table;
+    @extend .mb-0;
+  }
   @extend .table;
   @extend .table-light;
   @extend .table-bordered;
@@ -26,4 +31,5 @@
 
   @extend .w-100;
   @extend .overflow-auto;
+
 }

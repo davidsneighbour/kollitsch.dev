@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
 
-      {{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
+      {{- $paginator := .Scratch.Get "paginator" -}}
       <h2 class="visually-hidden">
         Recent Posts (Page {{ $paginator.PageNumber -}})
       </h2>

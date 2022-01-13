@@ -1,0 +1,7 @@
+{{- $paginator := dict -}}
+{{- if eq "home" .Kind -}}
+  {{- $paginator = $.Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
+{{- else if .IsNode -}}
+  {{- $paginator = $.Paginator -}}
+{{- end -}}
+{{- .Scratch.Set "paginator" $paginator -}}

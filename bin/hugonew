@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 PS3='Choose section: '
 options=("Post" "Zettel" "Tag" "Quit")

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # see discourse.gohugo.io/t/audit-your-published-site-for-problems/35184
 #

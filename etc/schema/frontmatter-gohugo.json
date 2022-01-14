@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://davids-neighbour.com/schema/defaults/frontmatter-gohugo.json",
+
+  "title": "Blogpost",
+  "description": "Frontmatter description for blog posts",
+  "type": "object",
+
+  "note": "https://json-schema.org/learn/getting-started-step-by-step",
+
+  "properties": {
+    "title": {
+      "description": "",
+      "type": "string"
+    },
+    "linkTitle": {
+      "description": "",
+      "type": "string"
+    }
+  },
+  "required": [ "title" ]
+
+}

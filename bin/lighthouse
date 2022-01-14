@@ -23,8 +23,8 @@ if [ -f "$FILE" ]; then
 fi
 
 lighthouse \
-  --budget-path=tests/lighthouse/budget.json \
-  --config-path=tests/lighthouse/config.js \
+  --budget-path=etc/lighthouse/budget.json \
+  --config-path=etc/lighthouse/config.js \
   --output "html" "csv" "json" \
   --output-path=tests/lighthouse/reports/"$(date +"%Y%m%d-%H%M%S")" \
   --view \

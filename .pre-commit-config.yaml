@@ -51,7 +51,8 @@ repos:
     hooks:
       - id: check-mailmap
       - id: git-check # Configure in .gitattributes
-      #- id: markdownlint # Configure in .mdlrc
+      - id: markdownlint # Configure in .mdlrc
+        args: ["--rules", "./etc/markdownlint-rules.rb"]
       - id: script-must-have-extension
         name: Shell libraries must have a .sh extension and should not be executable.
         types: [shell, non-executable]

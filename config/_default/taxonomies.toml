@@ -1,3 +1,6 @@
 #series = "series"
 tag = "tags"
 #category = "categories"
+
+# taxonomies for zettelbox section
+zettelboxtag = "zettelboxtagtags"

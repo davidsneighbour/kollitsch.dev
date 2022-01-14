@@ -1,6 +1,6 @@
 [hugoVersion]
 extended = false
-min = "0.75.0"
+min = "0.92.0"
 
 [[imports]]
 disable = false
@@ -13,6 +13,12 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-debug"
+
+# [[imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = "github.com/dnb-org/dnb-hugo-errors"
 
 [[imports]]
 disable = false

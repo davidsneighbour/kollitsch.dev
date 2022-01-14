@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://davids-neighbour.com/schema/defaults/frontmatter-blog.json",
+  "title": "Blogpost",
+  "description": "Frontmatter description for blog posts",
+  "type": "object",
+  "note": "https://json-schema.org/learn/getting-started-step-by-step",
+  "properties": {
+    "title": {
+      "description": "Title of the blog post",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tags for the blog post",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "src": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "src"
+      ]
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

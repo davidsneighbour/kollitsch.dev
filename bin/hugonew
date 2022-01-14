@@ -1,36 +1,47 @@
 #!/usr/bin/env bash
 
 PS3='Choose section: '
-options=("News Post" "Notebook Entry" "Function" "Variable" "Quit")
+options=("Post" "Zettel" "Tag" "Quit")
 select opt in "${options[@]}"; do
   case $opt in
-  "News Post")
+  "Post")
     YEAR=$(date +'%Y')
-    read -r -p 'Title: ' NEWSPOST
-    NEWSPOST=${NEWSPOST// /-}
-    NEWSPOST=${NEWSPOST,,}
-    hugo new news/"${YEAR}"/"${NEWSPOST}" --kind news
+    read -r -p 'Title: ' POST
+    POST=${POST// /-}
+    POST=${POST,,}
+    hugo new blog/"${YEAR}"/"${POST}"
     exit
     ;;
-  "Notebook Entry")
-    read -r -p 'Title: ' NOTEBOOK
-    NOTEBOOK=${NOTEBOOK// /-}
-    NOTEBOOK=${NOTEBOOK,,}
-    hugo new notebook/"${NOTEBOOK}" --kind notebook
+  "Zettel")
+    YEAR=$(date +'%Y')
+    MONTH=$(date +'%B')
+    read -r -p 'Title: ' ZETTEL
+    ZETTEL=${ZETTEL// /-}
+    ZETTEL=${ZETTEL,,}
+    hugo new zettelbox/"${YEAR}"/"${MONTH}"/"${ZETTEL}"
     exit
     ;;
-  "Function")
-    read -r -p 'Add function: ' FUNCTION
-    hugo new functions/"${FUNCTION}" --kind function
+  "Tag")
+    read -r -p 'Title: ' TAG
+    TAG=${TAG// /-}
+    TAG=${TAG,,}
+    hugo new tags/"${TAG}"
     exit
     ;;
-  "Variable")
-    select TYPE in File Page Section Shortcode Site Taxonomy Menu; do
-      read -r -p 'Variable name: ' VARIABLE
-      hugo new variables/"${TYPE,,}"/"${VARIABLE}" --kind variable
-      exit
-    done
-    ;;
+  # "Notebook Entry")
+  #   read -r -p 'Title: ' NOTEBOOK
+  #   NOTEBOOK=${NOTEBOOK// /-}
+  #   NOTEBOOK=${NOTEBOOK,,}
+  #   hugo new notebook/"${NOTEBOOK}" --kind notebook
+  #   exit
+  #   ;;
+  # "Variable")
+  #   select TYPE in File Page Section Shortcode Site Taxonomy Menu; do
+  #     read -r -p 'Variable name: ' VARIABLE
+  #     hugo new variables/"${TYPE,,}"/"${VARIABLE}" --kind variable
+  #     exit
+  #   done
+  #   ;;
   "Quit")
     break
     ;;

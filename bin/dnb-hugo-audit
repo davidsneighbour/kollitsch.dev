@@ -1,8 +1,18 @@
-#!/usr/bin/env bash
-
-# see https://discourse.gohugo.io/t/audit-your-published-site-for-problems/35184
+#!/bin/bash
 
 rm -rf public
+
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+IFS=$'\n\t'
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+  pwd -P
+)"
+
+# see https://discourse.gohugo.io/t/audit-your-published-site-for-problems/35184
 HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS=true \
   HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true \
-  hugo && grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|hahahugo|\[i18n\]" public/
+  "${SCRIPTPATH}"/hugo
+
+grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|\[i18n\]|\(<nil>\)|(&lt;nil&gt;)|hahahugo" public/

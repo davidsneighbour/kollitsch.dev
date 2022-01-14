@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/bash
 
 paster() {
   # shellcheck disable=SC2162

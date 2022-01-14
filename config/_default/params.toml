@@ -163,3 +163,10 @@ icon = "moon-stars-fill"
 [[dnb.theme.switcher.themes]]
 slug = "dark"
 icon = "stars"
+
+[dnb.security.txt]
+intro = "Information related to reporting security vulnerabilities of this site."
+contact = "https://kollitsch.de/contact/"
+expires = 365
+languages = "en,de"
+policy = "https://davids-neighbour.com/security-policy/"

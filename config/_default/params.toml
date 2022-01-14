@@ -165,7 +165,24 @@ slug = "dark"
 icon = "stars"
 
 [dnb.security.txt]
-intro = "Information related to reporting security vulnerabilities of this site."
+intro = '''
+#############################################################################
+#                                                                           #
+# Information related to reporting security vulnerabilities on kollitsch.de #
+#                                                                           #
+#                        ,     ,                                            #
+#                       (\____/)                                            #
+#                        (_oo_)                                             #
+#                          (O)                                              #
+#                        __||__    \)                                       #
+#                     []/______\[] /                                        #
+#                     / \______/ \/                                         #
+#                    /    /__\                                              #
+#                   (\   /____\                                             #
+#                                                                           #
+#                                                                           #
+#############################################################################
+'''
 contact = "https://kollitsch.de/contact/"
 expires = 365
 languages = "en,de"

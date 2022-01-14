@@ -1,0 +1,38 @@
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+      {{- $paginator := .Scratch.Get "paginator" -}}
+      <div class="col-12 mb-4">
+        <article class="card shadow-sm">
+          <div class="card-header">
+            <h2>
+              Recent Zettels
+              {{ if gt 1 $paginator.PageNumber }}
+              <small>
+                (Page {{ $paginator.PageNumber -}})
+              </small>
+              {{ end }}
+            </h2>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+            {{- range $index, $item := $paginator.Pages -}}
+              <li class="mb-3">
+                <h3 class="h6 d-inline">{{ .Title }}</h3>
+                <p class="d-inline">
+                  <small class="mx-4">({{ .Date.Format "2006-01-02" }})</small>
+                  <span class="">{{- .Summary -}}</span>
+                </p>
+                <div class="d-flex flex-row-reverse ">
+                  <a class="btn btn-primary text-right" href="{{- .Permalink -}}">Read More...</a>
+                </div>
+              </li>
+            {{- end -}}
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+    {{ partial "content/partials/pagination.html" . }}
+  </div>
+</section>

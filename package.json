@@ -68,6 +68,7 @@
     "serve:hugo": "bin/hugo-dev-server",
     "serve:script": "tsc --watch",
     "server": "npm run serve",
+    "server:paranoid": "bin/hugo-dev-server-paranoid",
     "update": "npm-check-updates -u && npm install && fixpack"
   },
   "private": true,
@@ -87,11 +88,7 @@
   "prettier": "@dnb-org/prettier-config",
   "remarkConfig": {
     "plugins": [
-      "@dnb-org/remark-config",
-      [
-        "remark-lint-write-good",
-        false
-      ]
+      "@dnb-org/remark-config"
     ]
   },
   "slug": "kollitsch-de",
@@ -99,11 +96,7 @@
     "extends": "@dnb-org/stylelint-config",
     "ignoreFiles": [
       "assets/scss/settings/_bootstrap-variables.scss"
-    ],
-    "rules": {
-      "max-nesting-depth": 3,
-      "selector-max-id": 1
-    }
+    ]
   },
   "url": "https://kollitsch.de"
 }

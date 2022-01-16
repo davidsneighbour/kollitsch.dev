@@ -1,24 +1,16 @@
 #!/bin/bash
 
 PS3='Choose section: '
-options=("Post" "Zettel" "Tag" "Quit")
+options=("Post" "Tag" "Quit")
 select opt in "${options[@]}"; do
   case $opt in
   "Post")
     YEAR=$(date +'%Y')
+    # MONTH=$(date +'%B')
     read -r -p 'Title: ' POST
     POST=${POST// /-}
     POST=${POST,,}
     hugo new blog/"${YEAR}"/"${POST}"
-    exit
-    ;;
-  "Zettel")
-    YEAR=$(date +'%Y')
-    MONTH=$(date +'%B')
-    read -r -p 'Title: ' ZETTEL
-    ZETTEL=${ZETTEL// /-}
-    ZETTEL=${ZETTEL,,}
-    hugo new zettelbox/"${YEAR}"/"${MONTH}"/"${ZETTEL}"
     exit
     ;;
   "Tag")

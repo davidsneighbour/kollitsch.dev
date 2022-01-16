@@ -1,5 +1,5 @@
-# yaml-langauge-server: $schema=../../config/_schema/frontmatter-blog.json
 ---
+# yaml-langauge-server: $schema=../../config/_schema/frontmatter-blog.json
 title: '{{ replace .Name "-" " " | title }}'
 linkTitle: '{{ replace .Name "-" " " | title }}'
 # used for SEO description, should not go over 180 characters
@@ -9,9 +9,9 @@ description: ""
 summary: ""
 
 # dates
-date: { { .Date } }
-publishDate: { { .Date } }
-lastmod: { { .Date } }
+date: {{ .Date }}
+publishDate: {{ .Date }}
+lastmod: {{ .Date }}
 
 # add multiple resources to create a slider gallery
 resources:

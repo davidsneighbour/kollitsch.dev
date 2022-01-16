@@ -14,11 +14,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-debug"
 
-# [[imports]]
-# disable = false
-# ignoreConfig = false
-# ignoreImports = false
-# path = "github.com/dnb-org/dnb-hugo-errors"
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-errors"
 
 [[imports]]
 disable = false
@@ -60,7 +60,7 @@ path = "github.com/dnb-org/dnb-hugo-icons"
 # disable = false
 # ignoreConfig = false
 # ignoreImports = false
-# path = "github.com/dnb-org/components/internals"
+# path = "github.com/dnb-org/components/dnb-hugo-internals"
 [[imports]]
 disable = false
 ignoreConfig = false

@@ -2,7 +2,7 @@
 title: .gitignore for GoHugo
 date: '2021-11-03T20:03:48+07:00'
 resources:
-  src: mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg
+  src: header.jpg
   title: Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) via [Unsplash](https://unsplash.com/)
 tags:
   - gitignore

@@ -13,7 +13,8 @@
   "dependencies": {
     "alpinejs": "^3.8.1",
     "dotenv": "^14.1.0",
-    "netlify-cli": "^8.8.2"
+    "netlify-cli": "^8.8.2",
+    "mem": ">=4.0.0"
   },
   "devDependencies": {
     "@dnb-org/bootstrap-config": "^3.4.9",

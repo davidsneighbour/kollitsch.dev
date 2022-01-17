@@ -44,7 +44,7 @@
     "audit:html": "hugo && html-validate public/**/*.html",
     "audit:hugo": "./bin/dnb-hugo-audit",
     "build": "run-s build:critical build:hugo",
-    "build:critical": "./bin/build-critical-css",
+    "build:critical": "./bin/cleanup/build-critical-css",
     "build:highlights": "hugo gen chromastyles --style=xcode > assets/scss/components/_syntaxhighlighting.scss",
     "build:hugo": "hugo --minify",
     "build:script": "tsc",

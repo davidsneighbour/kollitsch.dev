@@ -1,5 +1,16 @@
 #!/bin/bash
 
+REQUIRED_TOOLS=(
+  hugo
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
 PS3='Choose section: '
 options=("Post" "Tag" "Quit")
 select opt in "${options[@]}"; do

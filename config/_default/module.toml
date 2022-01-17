@@ -14,11 +14,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-debug"
 
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-errors"
+# [[imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = "github.com/dnb-org/dnb-hugo-errors"
 
 [[imports]]
 disable = false

@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# shellcheck shell=bash
 REQUIRED_TOOLS=(
   hugo
   npm
-  export
-  trap
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do

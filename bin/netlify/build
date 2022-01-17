@@ -16,4 +16,4 @@ hugo mod get -u ./...
 hugo mod tidy
 rm -rf public/
 npm run build
-node ./bin/algolia-reindex.ts
+node ./bin/algolia/algolia-reindex.ts

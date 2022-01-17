@@ -15,14 +15,15 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
-SCRIPTPATH="$(
-  cd "$(dirname "$0")" >/dev/null 2>&1 || exit
-  pwd -P
-)"
+# SCRIPTPATH="$(
+#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+#   pwd -P
+# )"
+CURPATH="$(pwd -P)"
 
 trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 
-FILE=.env
+FILE=${CURPATH}/.env
 if [ -f "$FILE" ]; then
   echo "exporting .env"
   set -a
@@ -40,7 +41,8 @@ hugo mod get -u ./...
 # create replacements
 NOT_FIRST_LINE=false
 HUGO_MODULE_REPLACEMENTS=""
-if test -f "$SCRIPTPATH"/replacements; then
+REPLACEMENTS="${CURPATH}"/etc/replacements
+if test -f "${REPLACEMENTS}"; then
   while read -ra __; do
     if $NOT_FIRST_LINE; then
       HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
@@ -48,7 +50,7 @@ if test -f "$SCRIPTPATH"/replacements; then
       HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
       NOT_FIRST_LINE=true
     fi
-  done <"$SCRIPTPATH"/replacements
+  done < "${REPLACEMENTS}"
 fi
 
 # starting hugo server

@@ -13,10 +13,23 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+# SCRIPTPATH="$(
+#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+#   pwd -P
+# )"
+CURPATH="$(pwd -P)"
+
 typos -- ./content
 
 hugo mod get -u ./...
 hugo mod tidy
 
-git add go.mod
-git add go.sum
+FILE="${CURPATH}"/go.mod
+if test -f "$FILE"; then
+    git add go.sum
+fi
+
+FILE="${CURPATH}"/go.sum
+if test -f "$FILE"; then
+    git add go.sum
+fi

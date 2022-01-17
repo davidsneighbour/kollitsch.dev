@@ -6,8 +6,6 @@ github.com/dnb-org/dnb-hugo-auditor v0.0.2 h1:DwuhUN7qjX6fORD5QZoaFy3DPTIjxf7p7B
 github.com/dnb-org/dnb-hugo-auditor v0.0.2/go.mod h1:4LllLPU6QWtG81Y3OxsXdZKXYdD0D0p3UF20jmbjgkA=
 github.com/dnb-org/dnb-hugo-debug v1.4.3 h1:LbSxXq624VWkFEtoMJBaLuH7cXvZIXRYzzP6xiS4o2o=
 github.com/dnb-org/dnb-hugo-debug v1.4.3/go.mod h1:NWi/VpUDXC2GU5TLM7UEjL7HPT2WmgHgoURHTCVzTho=
-github.com/dnb-org/dnb-hugo-errors v0.0.3 h1:Ecbgwbvzb1yGsl1qb45WkG+JH+k+YgctPum7aw4wQMo=
-github.com/dnb-org/dnb-hugo-errors v0.0.3/go.mod h1:rgrHw7UrjvYflQHujWBsDlcPQZa8nw0vbuwYSjVmhLE=
 github.com/dnb-org/dnb-hugo-feeds v0.0.12 h1:U7Z1YG+7FE7to/+bQrhD+TeezRknLR8UR2yiNhJTqj8=
 github.com/dnb-org/dnb-hugo-feeds v0.0.12/go.mod h1:6Ib5P2DE/iNjtCrtQOHHGBWnW+FBRvcCR0y2rW13POA=
 github.com/dnb-org/dnb-hugo-functions v1.0.0 h1:NN0wLxn7Qihf66VVDvh5/oL9oKBBTMohILw+UtTdJ0k=

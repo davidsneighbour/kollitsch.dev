@@ -1,0 +1,5 @@
+{
+  "extends": "@dnb-org/cypress-config/base-hugo.json",
+  "pluginsFile": "tests/cypress/plugins/index.js",
+  "env": {}
+}

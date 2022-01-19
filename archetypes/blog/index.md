@@ -1,7 +1,7 @@
 ---
-# yaml-langauge-server: $schema=../../config/_schema/frontmatter-blog.json
-title: '{{ replace .Name "-" " " | title }}'
-linkTitle: '{{ replace .Name "-" " " | title }}'
+# yaml-language-server: $schema=../../config/_schema/frontmatter-blog.json
+title: "{{ replace .Name "-" " " | title }}"
+linkTitle: "{{ replace .Name "-" " " | title }}"
 # used for SEO description, should not go over 180 characters
 description: ""
 # used for the preview of the post on list pages

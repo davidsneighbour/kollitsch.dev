@@ -11,8 +11,14 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+# SCRIPTPATH="$(
+#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+#   pwd -P
+# )"
+CURPATH="$(pwd -P)"
+
 PS3='Choose section: '
-options=("Post" "Tag" "Quit")
+options=("Post" "Music to program to" "Tag" "Quit")
 select opt in "${options[@]}"; do
   case $opt in
   "Post")
@@ -22,6 +28,19 @@ select opt in "${options[@]}"; do
     POST=${POST// /-}
     POST=${POST,,}
     hugo new blog/"${YEAR}"/"${POST}"
+    exit
+    ;;
+  "Music to program to")
+    YEAR=$(date +'%Y')
+    INCREMENT_FILENAME=${CURPATH}/resources/music2program2
+    TEMPLATE=${CURPATH}/bin/templates/music2program2.md
+    NUMBER=$(cat "$INCREMENT_FILENAME")
+    TEMPLATE=$(cat "$TEMPLATE")
+    INCREMENTED_NUMBER=$(( NUMBER + 1 ))
+    echo "${INCREMENTED_NUMBER}" > "${INCREMENT_FILENAME}"
+    #hugo new --kind music2program2 blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"
+    mkdir -p ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/
+    echo eval "${TEMPLATE}" > ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/index.md
     exit
     ;;
   "Tag")

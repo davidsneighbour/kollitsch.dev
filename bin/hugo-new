@@ -28,6 +28,7 @@ select opt in "${options[@]}"; do
     POST=${POST// /-}
     POST=${POST,,}
     hugo new blog/"${YEAR}"/"${POST}"
+    code ./content/blog/"${YEAR}"/"${POST}"/index.md
     exit
     ;;
   "Music to program to")
@@ -41,6 +42,7 @@ select opt in "${options[@]}"; do
     #hugo new --kind music2program2 blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"
     mkdir -p ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/
     echo eval "${TEMPLATE}" > ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/index.md
+    code ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/index.md
     exit
     ;;
   "Tag")
@@ -48,6 +50,7 @@ select opt in "${options[@]}"; do
     TAG=${TAG// /-}
     TAG=${TAG,,}
     hugo new tags/"${TAG}"
+    code ./content/tags/"${TAG}"/_index.md
     exit
     ;;
   # "Notebook Entry")

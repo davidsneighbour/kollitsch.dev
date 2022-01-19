@@ -1,5 +1,3 @@
-
-
 .navbar {
   .light & {
     @extend .navbar-light;
@@ -7,6 +5,11 @@
   }
 
   .dark & {
+    @extend .navbar-dark;
+    @extend .bg-dark;
+  }
+
+  .dim & {
     @extend .navbar-dark;
     @extend .bg-dark;
   }

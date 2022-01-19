@@ -1,5 +1,6 @@
 // @ts-ignore
 import Alpine from 'alpinejs';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
 
@@ -32,11 +33,10 @@ Alpine.store('theme', {
 
 Alpine.start();
 
-// tabs
+// Bootstrap Tabs
 const triggerTabList = Array.prototype.slice.call(
   document.querySelectorAll('#myTab button')
 );
-
 triggerTabList.forEach((triggerElement: Element) => {
   const tabTrigger = new Tab(triggerElement);
   triggerElement.addEventListener(
@@ -48,7 +48,7 @@ triggerTabList.forEach((triggerElement: Element) => {
   );
 });
 
-// collapsibles
+// Bootstrap Collapsibles
 const collapseElementList = Array.prototype.slice.call(
   document.querySelectorAll('.collapse')
 );

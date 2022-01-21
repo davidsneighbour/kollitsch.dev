@@ -16,7 +16,7 @@ cat <<EOF
 publish = "./public"
 
 [context.production]
-command = "./bin/netlify-build"
+command = "./bin/netlify/build"
 
 [context.production.environment]
 HUGO_VERSION = "${1/v/""}"

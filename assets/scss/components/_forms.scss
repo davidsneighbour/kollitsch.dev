@@ -49,7 +49,7 @@ button.input-group-text {
 
   cursor: text;
 
-  user-select: none; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+  user-select: none;
 
   &::before {
     border-radius: 0;

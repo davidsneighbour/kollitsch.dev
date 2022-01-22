@@ -65,6 +65,6 @@ blockquote {
 
 p {
   word-wrap: break-word;
-  overflow-wrap: break-word; /* stylelint-disable-line plugin/no-unsupported-browser-features */
-  hyphens: auto; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+  overflow-wrap: break-word;
+  hyphens: auto;
 }

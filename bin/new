@@ -18,8 +18,8 @@ done
 CURPATH="$(pwd -P)"
 
 PS3='Choose section: '
-options=("Post" "Music to program to" "Tag" "Quit")
-select opt in "${options[@]}"; do
+OPTIONS=("Post" "Music to program to" "Tag" "Quit")
+select opt in "${OPTIONS[@]}"; do
   case $opt in
   "Post")
     YEAR=$(date +'%Y')

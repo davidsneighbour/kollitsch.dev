@@ -1,8 +1,5 @@
-
-'use strict';
-
-const algoliasearch = require("algoliasearch");
-const dotenv = require("dotenv");
+const algoliasearch = require('algoliasearch');
+const dotenv = require('dotenv');
 const fs = require('fs');
 
 dotenv.config();
@@ -10,12 +7,12 @@ dotenv.config();
 // see https://github.com/algolia-samples/api-clients-quickstarts/blob/master/javascript/indexing.js
 (async () => {
   try {
-    console.log("Starting Algolia update...");
+    console.log('Starting Algolia update...');
 
     // Algolia client credentials
-    const ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID;
-    const ALGOLIA_API_KEY = process.env.ALGOLIA_API_KEY;
-    const ALGOLIA_INDEX_NAME = process.env.ALGOLIA_INDEX_NAME;
+    const { ALGOLIA_APP_ID } = process.env;
+    const { ALGOLIA_API_KEY } = process.env;
+    const { ALGOLIA_INDEX_NAME } = process.env;
 
     // Initialize the client
     // https://www.algolia.com/doc/api-client/getting-started/instantiate-client-index/
@@ -25,17 +22,16 @@ dotenv.config();
     // https://www.algolia.com/doc/api-client/getting-started/instantiate-client-index/#initialize-an-index
     const index = client.initIndex(ALGOLIA_INDEX_NAME);
 
-    let data = fs.readFileSync('./public/index.json');
-    let objects = JSON.parse(data);
+    const data = fs.readFileSync('./public/index.json');
+    const objects = JSON.parse(data);
 
     // Save objects: Add multiple objects to an index
     // https://www.algolia.com/doc/api-reference/api-methods/add-objects/?client=javascript
-    console.log("Save objects - Updating index now...");
+    console.log('Save objects - Updating index now...');
     await index.saveObjects(objects).wait();
 
-    let res = await index.search("");
-    console.log("Current objects in the index: ", res.hits.length);
-
+    const result = await index.search('');
+    console.log('Current objects in the index:', result.hits.length);
   } catch (error) {
     console.error(error);
   }

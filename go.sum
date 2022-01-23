@@ -8,12 +8,12 @@ github.com/dnb-org/dnb-hugo-debug v1.4.3 h1:LbSxXq624VWkFEtoMJBaLuH7cXvZIXRYzzP6
 github.com/dnb-org/dnb-hugo-debug v1.4.3/go.mod h1:NWi/VpUDXC2GU5TLM7UEjL7HPT2WmgHgoURHTCVzTho=
 github.com/dnb-org/dnb-hugo-feeds v0.0.12 h1:U7Z1YG+7FE7to/+bQrhD+TeezRknLR8UR2yiNhJTqj8=
 github.com/dnb-org/dnb-hugo-feeds v0.0.12/go.mod h1:6Ib5P2DE/iNjtCrtQOHHGBWnW+FBRvcCR0y2rW13POA=
-github.com/dnb-org/dnb-hugo-functions v1.0.0 h1:NN0wLxn7Qihf66VVDvh5/oL9oKBBTMohILw+UtTdJ0k=
-github.com/dnb-org/dnb-hugo-functions v1.0.0/go.mod h1:bTX/w1EzpOQYB+XOcInG/k/zPK8/pj7P2OuQNTXnp5g=
+github.com/dnb-org/dnb-hugo-functions v1.0.2 h1:1yyVw2IgyaWu3iQitBH7Fe6mUv59uIPs5EctW+MVhVY=
+github.com/dnb-org/dnb-hugo-functions v1.0.2/go.mod h1:bTX/w1EzpOQYB+XOcInG/k/zPK8/pj7P2OuQNTXnp5g=
 github.com/dnb-org/dnb-hugo-giscus v1.0.1 h1:hFTVxbFNMSGXFbmpWtAnPHrYhCG8DOfm4GAHYmDVC5A=
 github.com/dnb-org/dnb-hugo-giscus v1.0.1/go.mod h1:dlB/gf7rPxDDDXpQS6IIGI+13ozMsLOFtQsNigxjylA=
-github.com/dnb-org/dnb-hugo-head v0.0.10 h1:kBgyDDH14Fh9Jk6pRpkjSPcxFij387WqCp5lWX5YJM4=
-github.com/dnb-org/dnb-hugo-head v0.0.10/go.mod h1:T+ufvYir5UbWKbg66olnTFohyD7nYdA4PsTYpP2AaIs=
+github.com/dnb-org/dnb-hugo-head v0.0.15 h1:zUuIkMGZW58eoSFxbn3CHseIfJaH8YAbLUJVJZGI/LY=
+github.com/dnb-org/dnb-hugo-head v0.0.15/go.mod h1:T+ufvYir5UbWKbg66olnTFohyD7nYdA4PsTYpP2AaIs=
 github.com/dnb-org/dnb-hugo-hooks v1.0.25 h1:2s44qMjzBJIn5NIF/etuBWlTHXBGYEApKt/pcOWetk8=
 github.com/dnb-org/dnb-hugo-hooks v1.0.25/go.mod h1:NmTtBQithLJG+Bsv5K3dCHv3GrdIFoRHf3x22BonNW4=
 github.com/dnb-org/dnb-hugo-icons v1.1.0 h1:bp7dK+URwtxbmrnYQkzGyoSUlFVTmHOEQ8IMOnV9QMw=
@@ -26,8 +26,8 @@ github.com/dnb-org/dnb-hugo-opensearch v0.0.2 h1:xr0j4/lVXEMslxYH0KGdd+JMd4CYWz/
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2/go.mod h1:E0wsVgFRTWWfMvRlMoTlP2ONBCg9CEUl3AXYoYWE5jk=
 github.com/dnb-org/dnb-hugo-pictures v0.0.13 h1:BhSzq0462FVe3NSmCFb/oVsxVI5mPvYDUcYCtVvrPxE=
 github.com/dnb-org/dnb-hugo-pictures v0.0.13/go.mod h1:NCRLHNgeqQzGhdlQczyM+XuGXrQL9l0EJSu1tbXAzl8=
-github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220116050840-d9f7962037c2 h1:WNabzbAz7ugcNRiIGZc6lDPdIgTgOWX7wQFeghLyuwY=
-github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220116050840-d9f7962037c2/go.mod h1:0slEsAr913wXdhhJFO//nV0fdFVkNCUPorq6pYRNcL4=
+github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220120142624-883195ce5206 h1:iK4hB418ux4UMdNROuqfoex1RKGM7XHMbcu0SJfW5Ho=
+github.com/dnb-org/dnb-hugo-publisher v0.0.0-20220120142624-883195ce5206/go.mod h1:0slEsAr913wXdhhJFO//nV0fdFVkNCUPorq6pYRNcL4=
 github.com/dnb-org/dnb-hugo-pwa v0.0.2 h1:IoI6CZ2460QMgtiyo9LX/j1chsSz/skDA4wtr452dd8=
 github.com/dnb-org/dnb-hugo-pwa v0.0.2/go.mod h1:POyBmJqMdTs1dsbhhKE5Ndt8rUTmLzyIAISqitpHOwc=
 github.com/dnb-org/dnb-hugo-robots v1.0.5 h1:hm8e4EQNkiKspi1npioMLrqeR1nnFBhJsD4U9jeoYUQ=

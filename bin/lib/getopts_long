@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 # see https://github.com/UrsaDK/getopts_long
 

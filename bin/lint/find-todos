@@ -1,0 +1,34 @@
+#!/bin/bash
+
+REQUIRED_TOOLS=(
+  hugo
+  export
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
+for FILE in bin/tools/*; do
+  set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
+done
+
+FILE=.env
+if [ -f "$FILE" ]; then
+  set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
+fi
+
+grep --color=auto -irnoE "\{\{\-\ \/\*\ TODO.*|- TODO.*" layouts/

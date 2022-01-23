@@ -1,0 +1,27 @@
+#!/bin/bash
+
+REQUIRED_TOOLS=(
+  git
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
+# retrieve latest version
+VERSION=$(curl -s "https://api.github.com/repos/dnb-org/dnb-hugo-bin/tags" | jq -r '.[0].name')
+
+# loading current content of binaries and copy over bin directory
+git clone --depth 1 --branch "${VERSION}" https://github.com/dnb-org/dnb-hugo-bin tmp.bin
+mkdir -p bin
+cp -R tmp.bin/bin bin
+rm -rf tmp.bin
+
+# save version into version
+echo "${VERSION}" > bin/version
+
+# removing files
+# intentionally left blank, will be updated if core files are renamed or removed

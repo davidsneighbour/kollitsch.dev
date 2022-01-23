@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# shellcheck shell=bash
 REQUIRED_TOOLS=(
   hugo
   npm
@@ -15,18 +14,19 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
-# SCRIPTPATH="$(
-#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
-#   pwd -P
-# )"
-CURPATH="$(pwd -P)"
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+  pwd -P
+)"
 
 trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 
-FILE=${CURPATH}/.env
+FILE=.env
 if [ -f "$FILE" ]; then
   echo "exporting .env"
   set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
   # shellcheck source=/dev/null
   source "${FILE}"
   set +a
@@ -41,8 +41,7 @@ hugo mod get -u ./...
 # create replacements
 NOT_FIRST_LINE=false
 HUGO_MODULE_REPLACEMENTS=""
-REPLACEMENTS="${CURPATH}"/etc/replacements
-if test -f "${REPLACEMENTS}"; then
+if test -f "$SCRIPTPATH"/replacements; then
   while read -ra __; do
     if $NOT_FIRST_LINE; then
       HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
@@ -50,7 +49,7 @@ if test -f "${REPLACEMENTS}"; then
       HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
       NOT_FIRST_LINE=true
     fi
-  done < "${REPLACEMENTS}"
+  done <"$SCRIPTPATH"/replacements
 fi
 
 # starting hugo server
@@ -67,15 +66,18 @@ env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
     --poll 1s \
     --cleanDestinationDir \
     --renderToDisk \
-    --buildFuture \
+    --buildDrafts --buildExpired --buildFuture \
     --watch \
     --enableGitInfo \
     --forceSyncStatic \
     --log true --logFile hugo.log \
     --verbose \
     --verboseLog \
+    --debug \
+    --meminterval 5s \
+    --memstats hugo_memory.log \
+    --print-mem \
     --port "${PORT}" \
     --baseURL http://"${IP}"/ \
-    --bind "${IP}"
-
-# TODO --buildDrafts --buildExpired on request
+    --bind "${IP}" \
+    --panicOnWarning

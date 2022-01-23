@@ -14,9 +14,24 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+for FILE in bin/tools/*; do
+  set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
+done
+
+# SCRIPTPATH="$(
+#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+#   pwd -P
+# )"
+CURPATH="$(pwd -P)"
+
 trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 
-FILE=.env
+FILE=${CURPATH}/.env
 if [ -f "$FILE" ]; then
   echo "exporting .env"
   set -a
@@ -33,9 +48,24 @@ npm run clean:hugo
 # update modules
 hugo mod get -u ./...
 
+# create replacements
+NOT_FIRST_LINE=false
+HUGO_MODULE_REPLACEMENTS=""
+REPLACEMENTS="${CURPATH}"/etc/replacements
+if test -f "${REPLACEMENTS}"; then
+  while read -ra __; do
+    if $NOT_FIRST_LINE; then
+      HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
+    else
+      HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
+      NOT_FIRST_LINE=true
+    fi
+  done < "${REPLACEMENTS}"
+fi
+
 # starting hugo server
-hugo server \
-    --source dev \
+env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
+  hugo server \
     --gc \
     --environment development \
     --disableFastRender \
@@ -59,3 +89,4 @@ hugo server \
     --bind "${IP}"
 
 # TODO --buildDrafts --buildExpired on request
+# TODO check --source dev

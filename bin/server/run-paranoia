@@ -4,6 +4,7 @@ REQUIRED_TOOLS=(
   hugo
   npm
   export
+  trap
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -12,6 +13,13 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     exit 1
   fi
 done
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+  pwd -P
+)"
+
+trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 
 FILE=.env
 if [ -f "$FILE" ]; then
@@ -30,9 +38,23 @@ npm run clean:hugo
 # update modules
 hugo mod get -u ./...
 
+# create replacements
+NOT_FIRST_LINE=false
+HUGO_MODULE_REPLACEMENTS=""
+if test -f "$SCRIPTPATH"/replacements; then
+  while read -ra __; do
+    if $NOT_FIRST_LINE; then
+      HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
+    else
+      HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
+      NOT_FIRST_LINE=true
+    fi
+  done <"$SCRIPTPATH"/replacements
+fi
+
 # starting hugo server
-hugo server \
-    --source dev \
+env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
+  hugo server \
     --gc \
     --environment development \
     --disableFastRender \
@@ -57,4 +79,5 @@ hugo server \
     --print-mem \
     --port "${PORT}" \
     --baseURL http://"${IP}"/ \
-    --bind "${IP}"
+    --bind "${IP}" \
+    --panicOnWarning

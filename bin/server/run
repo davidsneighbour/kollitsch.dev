@@ -14,7 +14,7 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
-for FILE in bin/tools/*; do
+for FILE in bin/lib/*; do
   set -a
   # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
   # see https://github.com/koalaman/shellcheck/wiki/SC1090
@@ -61,10 +61,11 @@ if test -f "${REPLACEMENTS}"; then
       NOT_FIRST_LINE=true
     fi
   done < "${REPLACEMENTS}"
+  export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}"
 fi
 
 # starting hugo server
-env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
+#env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   hugo server \
     --gc \
     --environment development \

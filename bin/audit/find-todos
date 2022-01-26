@@ -12,7 +12,7 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
-for FILE in bin/tools/*; do
+for FILE in bin/lib/*; do
   set -a
   # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
   # see https://github.com/koalaman/shellcheck/wiki/SC1090

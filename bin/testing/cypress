@@ -1,0 +1,59 @@
+#!/bin/bash
+
+REQUIRED_TOOLS=(
+  hugo
+  npm
+  export
+  trap
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
+FILE=.env
+if [ -f "$FILE" ]; then
+  #echo "exporting .env"
+  set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
+fi
+
+# Start our server as a job
+bin/server/run --quiet &
+SERVER_PID=$!
+
+trap "{ killall -9 hugo; }" SIGINT
+
+attempt_counter=0
+max_attempts=60
+sleep_duration=10
+
+# shellcheck disable=SC2091
+until $(curl --output /dev/null --silent --head --fail http://192.168.1.201:1313); do
+  if [ ${attempt_counter} -eq ${max_attempts} ]; then
+    echo "The server is still not available. Exiting now."
+    kill $SERVER_PID
+    exit 1
+  fi
+  attempt_counter=$((attempt_counter + 1))
+  if ! ((attempt_counter % 5)); then
+    echo "Still waiting for the server to start"
+  fi
+  sleep $sleep_duration
+done
+
+echo "Server is running"
+
+# Wait until Node deps is done
+# wait $SERVER_PID
+
+npm run cypress
+
+kill $SERVER_PID

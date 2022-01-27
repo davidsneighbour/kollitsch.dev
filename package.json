@@ -34,6 +34,7 @@
     "instantsearch.js": "^4.37.3",
     "lazysizes": "^5.3.2",
     "lite-youtube-embed": "^0.2.0",
+    "mem": "^9.0.2",
     "netlify-plugin-hugo-cache-resources": "^0.2.1",
     "pixrem": "^5.0.0",
     "precss": "^4.0.0",
@@ -78,7 +79,7 @@
     "serve:script": "tsc --watch",
     "server": "npm run serve",
     "server:paranoid": "bin/server/run-paranoid",
-    "update": "npm-check-updates -u && npm install && fixpack"
+    "update": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db"
   },
   "private": true,
   "browserslist": [

@@ -5,6 +5,7 @@ REQUIRED_TOOLS=(
   npm
   export
   trap
+  curl
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -14,36 +15,43 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+trap "{ killall -9 hugo; }" SIGINT
+
 FILE=.env
 if [ -f "$FILE" ]; then
-  #echo "exporting .env"
+  # echo "exporting .env"
   set -a
-  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
   # see https://github.com/koalaman/shellcheck/wiki/SC1090
-  # shellcheck source=/dev/null
+  # shellcheck disable=SC1090
   source "${FILE}"
   set +a
 fi
 
+IP=${IP:-192.168.1.201}
+PORT=${PORT:-1313}
+HOST="http://${IP}:${PORT}"
+
 # Start our server as a job
 bin/server/run --quiet &
-SERVER_PID=$!
+HUGO=$!
 
-trap "{ killall -9 hugo; }" SIGINT
+sleep 5
 
 attempt_counter=0
 max_attempts=60
 sleep_duration=10
 
 # shellcheck disable=SC2091
-until $(curl --output /dev/null --silent --head --fail http://192.168.1.201:1313); do
+until $(curl --output /dev/null --silent --head --fail "${HOST}"); do
   if [ ${attempt_counter} -eq ${max_attempts} ]; then
     echo "The server is still not available. Exiting now."
-    kill $SERVER_PID
+    kill $HUGO
     exit 1
   fi
-  attempt_counter=$((attempt_counter + 1))
-  if ! ((attempt_counter % 5)); then
+  # shellcheck disable=SC2004 # seems legit (fix won't work)
+  attempt_counter=$(($attempt_counter + 1))
+  # shellcheck disable=SC2004 # seems legit (fix won't work)
+  if ! (($attempt_counter % 5)); then
     echo "Still waiting for the server to start"
   fi
   sleep $sleep_duration
@@ -52,8 +60,9 @@ done
 echo "Server is running"
 
 # Wait until Node deps is done
-# wait $SERVER_PID
+# wait $HUGO
 
 npm run cypress
 
-kill $SERVER_PID
+# gettin' hugo "done with"
+kill $HUGO

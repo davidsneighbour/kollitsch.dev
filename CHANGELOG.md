@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2022.2.12](https://github.com/davidsneighbour/kollitsch.de/compare/v2022.2.11...v2022.2.12) (2022-01-27)
+
+
+### Build System
+
+* fix release script path ([2c94285](https://github.com/davidsneighbour/kollitsch.de/commit/2c942853bcfd11e7c8682a0bcb95451fd036639c))
+
 ### [2022.2.11](https://github.com/davidsneighbour/kollitsch.de/compare/v2021.0.24...v2022.2.11) (2022-01-27)
 
 

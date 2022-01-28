@@ -44,7 +44,7 @@
     "audit:html": "hugo && html-validate public/**/*.html",
     "audit:hugo": "./bin/dnb-hugo-audit",
     "build": "run-s build:critical build:hugo",
-    "build:critical": "./bin/cleanup/build-critical-css",
+    "build:critical": "",
     "build:highlights": "hugo gen chromastyles --style=monokai > assets/scss/components/_syntaxhighlightingdark.scss && hugo gen chromastyles --style=monokailight > assets/scss/components/_syntaxhighlightinglight.scss",
     "build:hugo": "hugo --minify",
     "build:script": "tsc",

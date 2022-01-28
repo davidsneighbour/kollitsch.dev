@@ -12,4 +12,7 @@
   {{- partial "footer.html" . . -}}
 </body>
 </html>
-{{- partial "func/hook.html" ( dict "hook" "teardown" "context" . ) -}}
+{{- partial "func/hook.html" ( dict
+      "hook" "teardown"
+      "context" .
+) -}}

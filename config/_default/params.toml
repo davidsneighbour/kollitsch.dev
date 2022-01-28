@@ -116,6 +116,56 @@ dataEmitMetadata = "0"
 #dataTheme="light"
 #dataLang="en"
 
+
+###############################################################################
+# theme setup
+###############################################################################
+[dnb.theme.switcher]
+enabled = true
+default = "light"
+
+[[dnb.theme.switcher.themes]]
+slug = "light"
+icon = "sun-fill"
+
+[[dnb.theme.switcher.themes]]
+slug = "dim"
+icon = "moon-stars-fill"
+
+[[dnb.theme.switcher.themes]]
+slug = "dark"
+icon = "stars"
+
+###############################################################################
+# dnb-hugo-security
+###############################################################################
+[dnb.security.txt]
+intro = '''
+#############################################################################
+#                                                                           #
+# Information related to reporting security vulnerabilities on kollitsch.de #
+#                                                                           #
+#                        ,     ,                                            #
+#                       (\____/)                                            #
+#                        (_oo_)                                             #
+#                          (O)                                              #
+#                        __||__    \)                                       #
+#                     []/______\[] /                                        #
+#                     / \______/ \/                                         #
+#                    /    /__\                                              #
+#                   (\   /____\                                             #
+#                                                                           #
+#                                                                           #
+#############################################################################
+'''
+contact = "https://kollitsch.de/contact/"
+expires = 365
+languages = "en,de"
+policy = "https://davids-neighbour.com/security-policy/"
+
+###############################################################################
+# dnb-hugo-head
+###############################################################################
 [dnb.head]
 control = "on"                                   # on/off - off disables all prefetching
 charset = "utf-8"
@@ -147,43 +197,3 @@ bing = ""
 alexa = ""
 pinterest = ""
 norton = ""
-
-[dnb.theme.switcher]
-enabled = true
-default = "light"
-
-[[dnb.theme.switcher.themes]]
-slug = "light"
-icon = "sun-fill"
-
-[[dnb.theme.switcher.themes]]
-slug = "dim"
-icon = "moon-stars-fill"
-
-[[dnb.theme.switcher.themes]]
-slug = "dark"
-icon = "stars"
-
-[dnb.security.txt]
-intro = '''
-#############################################################################
-#                                                                           #
-# Information related to reporting security vulnerabilities on kollitsch.de #
-#                                                                           #
-#                        ,     ,                                            #
-#                       (\____/)                                            #
-#                        (_oo_)                                             #
-#                          (O)                                              #
-#                        __||__    \)                                       #
-#                     []/______\[] /                                        #
-#                     / \______/ \/                                         #
-#                    /    /__\                                              #
-#                   (\   /____\                                             #
-#                                                                           #
-#                                                                           #
-#############################################################################
-'''
-contact = "https://kollitsch.de/contact/"
-expires = 365
-languages = "en,de"
-policy = "https://davids-neighbour.com/security-policy/"

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2022.2.14](https://github.com/davidsneighbour/kollitsch.de/compare/v2022.2.11...v2022.2.14) (2022-01-28)
+
+
+### Build System
+
+* fix release script path ([2c94285](https://github.com/davidsneighbour/kollitsch.de/commit/2c942853bcfd11e7c8682a0bcb95451fd036639c))
+* remove server script for testing environment (it's included) ([1530035](https://github.com/davidsneighbour/kollitsch.de/commit/1530035aa95bed3a14cf51a434b621ee6ca24880))
+
+
+### Theme
+
+* **layouts:** better formatting for date formats ([c309c57](https://github.com/davidsneighbour/kollitsch.de/commit/c309c570b43b9e301c4bff8ecd2cc817922cc013))
+* **styles:** adding code highlighting styles for dark/light themes ([04b02c4](https://github.com/davidsneighbour/kollitsch.de/commit/04b02c4ee31bbc9d3742cecb5f26265b3959e683))
+* **styles:** update syntax highlighting ([a7f6051](https://github.com/davidsneighbour/kollitsch.de/commit/a7f6051c9fc428c97feef611031a0ae3b7938d9f))
+
+
+### Chore
+
+* **deps:** update dependencies ([1834404](https://github.com/davidsneighbour/kollitsch.de/commit/1834404261daeeb3fd7e56d40e863e436baf1cea))
+* **release:** v2022.2.12 ([93d3ff8](https://github.com/davidsneighbour/kollitsch.de/commit/93d3ff8bc6ddbbe6748e638a729efa7b7efbb98c))
+* **release:** v2022.2.13 ([102bd20](https://github.com/davidsneighbour/kollitsch.de/commit/102bd2075830232d845d413da73ee1536bb698d2))
+
 ### [2022.2.13](https://github.com/davidsneighbour/kollitsch.de/compare/v2022.2.11...v2022.2.13) (2022-01-28)
 
 

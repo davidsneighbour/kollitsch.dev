@@ -47,3 +47,11 @@ netlify = "https://kollitsch.netlify.app"
 from = "https://main--kollitsch.netlify.app/"
 to = "https://kollitsch.de"
 status = 301
+
+[[redirects]]
+from = "/repos/textpattern-plugins/current/"
+to = "https://kollitsch.de"
+
+[[redirects]]
+from = "/[2005|2006|2007|2008]/*"
+to = "https://kollitsch.de"

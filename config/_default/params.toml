@@ -32,6 +32,7 @@ mainSections = ["blog"]
 # Post layout
 post_layout = "grid" # Post-Layout value ("grid" or "list")
 
+
 # Social Icons
 [[social]]
 url = "https://www.facebook.com/davidsneighbour"
@@ -59,6 +60,18 @@ params = ["categories", "tags"]
 
 [dnb]
 javascript = "script-local.js"
+
+
+[dnb.pwa]
+dev = true
+
+
+short_name = ""
+theme_color = ""
+background_color = ""
+display = ""
+start_url = ""
+description = ""
 
 [dnb.hooks]
 disable_messages = []

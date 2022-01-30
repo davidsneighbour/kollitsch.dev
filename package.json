@@ -13,7 +13,7 @@
   "dependencies": {
     "alpinejs": "^3.8.1",
     "dotenv": "^14.3.2",
-    "netlify-cli": "^8.14.1",
+    "netlify-cli": "^8.15.0",
     "ninja-keys": "^1.1.12"
   },
   "devDependencies": {
@@ -35,7 +35,6 @@
     "lazysizes": "^5.3.2",
     "lite-youtube-embed": "^0.2.0",
     "mem": "^9.0.2",
-    "netlify-plugin-hugo-cache-resources": "^0.2.1",
     "pixrem": "^5.0.0",
     "precss": "^4.0.0",
     "typescript": "^4.5.5"

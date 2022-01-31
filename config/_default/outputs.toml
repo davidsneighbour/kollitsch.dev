@@ -8,7 +8,8 @@ home = [
   "HEADERS",
   "RSS",
   "jsonfeed",
-  "atom"
+  "atom",
+  "DnbLinklist",
 ]
 page = ["HTML"]
 post = ["HTML"]

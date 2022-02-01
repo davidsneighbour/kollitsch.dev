@@ -15,3 +15,12 @@
   }
 
 }
+
+.is--themeswitcher {
+  a {
+    color: var(--color);
+    &.active {
+      color: var(--primary);
+    }
+  }
+}

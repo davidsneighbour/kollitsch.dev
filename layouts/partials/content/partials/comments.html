@@ -17,6 +17,17 @@
   {{- if (eq "true" $commentform) -}}
     <div class="col-12">
       {{- partial "content/giscus.html" . -}}
+      <script>
+        const theme = localStorage.theme;
+        let scheme = "light";
+        if (theme === "dark") {
+          scheme = "dark";
+        } else if (theme === "dim") {
+          scheme = "dark_dimmed";
+        }
+        let giscusScript = document.getElementById("giscus-script");
+        giscusScript.setAttribute('data-theme', scheme);
+      </script>
     </div>
   {{- end -}}
 {{- end -}}

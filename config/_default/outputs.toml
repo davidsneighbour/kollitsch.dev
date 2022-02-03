@@ -9,7 +9,7 @@ home = [
   "RSS",
   "jsonfeed",
   "atom",
-  "DnbLinklist",
+  "dnblinklist",
 ]
 page = ["HTML"]
 post = ["HTML"]

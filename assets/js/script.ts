@@ -4,6 +4,29 @@ import Alpine from 'alpinejs';
 import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
 
+// change giscus theme
+function changeGiscusTheme(theme: string) {
+
+  let scheme = "light";
+  if (theme === "dark") {
+    scheme = "dark";
+  } else if (theme === "dim") {
+    scheme = "dark_dimmed";
+  }
+
+  function sendMessage(message: { setConfig: { theme: string; }; }) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: scheme
+    }
+  });
+}
+
 // @ts-ignore
 window.Alpine = Alpine;
 
@@ -15,6 +38,14 @@ Alpine.store('theme', {
     const mode = localStorage.theme;
     if (mode !== undefined) {
       this.set(localStorage.theme);
+      let scheme = "light";
+      if (mode === "dark") {
+        scheme = "dark";
+      } else if (mode === "dim") {
+        scheme = "dark_dimmed";
+      }
+      setTimeout('changeGiscusTheme', 5000, scheme);
+
     } else if (
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -28,6 +59,7 @@ Alpine.store('theme', {
   set(mode: string) {
     this.mode = mode;
     localStorage.theme = this.mode;
+    changeGiscusTheme(mode)
   },
 });
 

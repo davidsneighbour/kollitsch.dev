@@ -19,6 +19,6 @@ npm run build
 node ./bin/algolia/algolia-reindex.ts
 
 # cleaning up
-rm index.json
-rm links.json
-rm algolia.json
+rm -f index.json
+rm -f links.json
+rm -f algolia.json

@@ -1,5 +1,10 @@
 <ul class="list-inline mb-0">
   {{- range . -}}
-    <li class="list-inline-item"><a href="{{- .URL | absLangURL -}}">{{- .Name -}}</a></li>
+    <li class="list-inline-item px-2">
+      <a href="{{- .URL | absLangURL -}}">
+        {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+        {{- .Name -}}
+      </a>
+    </li>
   {{- end -}}
 </ul>

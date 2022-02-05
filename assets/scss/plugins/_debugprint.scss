@@ -24,8 +24,18 @@
     @extend .table;
     @extend .mb-0;
   }
+
+  .dim &,
+  .dark & {
+    @extend .table-dark;
+
+  }
+
+  .light & {
+    @extend .table-light;
+
+  }
   @extend .table;
-  @extend .table-light;
   @extend .table-bordered;
   @extend .table-sm;
 

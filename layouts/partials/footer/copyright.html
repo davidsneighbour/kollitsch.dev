@@ -1,5 +1,6 @@
 <p class="my-5">
-  {{- i18n "copyright-text" | markdownify | safeHTML -}}
+{{- $year := partialCached "func/getYear.html" . . -}}
+  {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | markdownify | safeHTML  -}}
   &nbsp;-&nbsp;
-  {{- printf (i18n "this-is" | default "this is v%s") site.Data.dnb.build.info.version -}}
+  {{- printf (i18n "this-is" | default "this is v%s") site.Data.dnb.build.info.version | markdownify | safeHTML -}}
 </p>

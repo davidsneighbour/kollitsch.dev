@@ -3,22 +3,30 @@
 name = "Home"
 url = "/"
 weight = 1
+[main.params]
+bsicon = "house-fill"
 
 ############################# Footer Menu ########################
 [[footer]]
 name = "Tags"
 url = "/tags/"
 weight = 10
+[footer.params]
+bsicon = "tags-fill"
 
 [[footer]]
 name = "Home"
 url = "/"
 weight = 1
+[footer.params]
+bsicon = "house-fill"
 
 [[footer]]
 name = "Contact"
 url = "/contact/"
 weight = 90
+[footer.params]
+bsicon = "envelope-paper-fill"
 
 # [[footer]]
 # name = "Categories"

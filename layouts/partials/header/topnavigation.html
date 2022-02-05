@@ -23,21 +23,28 @@
                 role="button"
                 data-toggle="dropdown"
                 aria-expanded="false"
-                >{{ .Name }}</a
+                >
+                  {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+                  {{- .Name -}}
+                </a
               >
               <ul class="dropdown-menu">
                 {{ range .Children }}
                   <li>
-                    <a class="dropdown-item" href="{{ .URL | absLangURL }}"
-                      >{{ .Name }}</a
-                    >
+                    <a class="dropdown-item" href="{{ .URL | absLangURL }}">
+                      {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+                      {{- .Name -}}
+                    </a>
                   </li>
                 {{ end }}
               </ul>
             </li>
           {{ else }}
             <li class="nav-item {{ if $active }}active{{ end }}">
-              <a class="nav-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+              <a class="nav-link" href="{{ .URL | absLangURL }}">
+                {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+                {{- .Name -}}
+              </a>
             </li>
           {{ end }}
         {{ end }}

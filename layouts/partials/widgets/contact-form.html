@@ -15,5 +15,7 @@
     <label for="message" class="form-label">{{ i18n "message"}}</label>
     <textarea class="form-control" id="message" rows="4" name="message" required></textarea>
   </div>
-  <button type="submit" class="btn btn-primary" aria-label="Send Message">{{ i18n "send_message"}}</button>
+  <button type="submit" class="btn btn-primary" aria-label="Send Message">
+    {{- partialCached "bsicon.html" "send-fill" "send-fill" }} {{ i18n "send_message"}}
+  </button>
 </form>

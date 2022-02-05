@@ -1,0 +1,99 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.content.autoUpdateDate": false,
+  "frontMatter.content.defaultFileType": "md",
+  "frontMatter.content.defaultSorting": "date",
+  "frontMatter.content.draftField": {
+    "name": "draft",
+    "type": "boolean"
+  },
+  "frontMatter.content.fmHighlight": true,
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Blog Posts",
+      "path": "[[workspace]]/content/blog"
+    },
+    {
+      "title": "Tags",
+      "path": "[[workspace]]/content/tags"
+    }
+  ],
+  "frontMatter.content.placeholders": {},
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.content.sorting": [
+    {
+      "title": "Date (asc)",
+      "name": "date",
+      "order": "asc",
+      "type": "date"
+    },
+    {
+      "title": "Date (desc)",
+      "name": "date",
+      "order": "desc",
+      "type": "date"
+    }
+  ],
+  "frontMatter.content.supportedFileTypes": [
+    "md"
+  ],
+  "frontMatter.content.wysiwyg": true,
+  "frontMatter.custom.scripts": [
+    {
+      "title": "Generate social image",
+      "script": "./scripts/social-img.js",
+      "nodeBin": "~/.nvm/versions/node/v14.15.5/bin/node"
+    }
+  ],
+  "frontMatter.dashboard.mediaSnippet": [
+    "{{< caption \"{mediaUrl}\" \"Description\" >}}"
+  ],
+  "frontMatter.dashboard.openOnStart": true,
+  "frontMatter.data.files": [],
+  "frontMatter.data.folders": [],
+  "frontMatter.data.types": [],
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.global.notifications": [
+    "info",
+    "warning",
+    "error"
+  ],
+  "frontMatter.media.defaultSorting": "FileNameAsc",
+  "frontMatter.panel.freeform": true,
+  "frontMatter.preview.host": "http://192.168.1.201:1313",
+  "frontMatter.preview.pathName": "yyyy/MM",
+  "frontMatter.site.baseURL": "https://kollitsch.de",
+  "frontMatter.taxonomy.alignFilename": false,
+  "frontMatter.taxonomy.categories": [],
+  "frontMatter.taxonomy.commaSeparatedFields": [],
+  "frontMatter.taxonomy.contentTypes": [],
+  "frontMatter.taxonomy.customTaxonomy": [
+    {
+      "id": "customTaxonomy",
+      "options": [
+        "Option 1",
+        "Option 2",
+        "Option 3"
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.dateField": "date",
+  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
+  "frontMatter.taxonomy.frontMatterType": "YAML",
+  "frontMatter.taxonomy.indentArrays": false,
+  "frontMatter.taxonomy.modifiedField": "lastmod",
+  "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "date"
+  ],
+  "frontMatter.taxonomy.seoContentLengh": 1760,
+  "frontMatter.taxonomy.seoDescriptionField": "description",
+  "frontMatter.taxonomy.seoDescriptionLength": 170,
+  "frontMatter.taxonomy.seoSlugLength": 75,
+  "frontMatter.taxonomy.seoTitleLength": 60,
+  "frontMatter.taxonomy.slugPrefix": "",
+  "frontMatter.taxonomy.slugSuffix": "",
+  "frontMatter.taxonomy.tags": [],
+  "frontMatter.templates.folder": ".frontmatter/templates",
+  "frontMatter.templates.prefix": "",
+  "frontMatter.framework.startCommand": "npm run server"
+}

@@ -11,7 +11,7 @@
   <div class="card-footer text-end">
     <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary">
       Read posts about <strong>{{ $post.Title -}}</strong>
-      {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+      <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
     </a>
   </div>
 </article>

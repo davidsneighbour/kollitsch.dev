@@ -28,9 +28,9 @@
     {{- end -}}
   </div>
 <div class="card-footer text-end">
-  <a href="{{- .Permalink -}}" class="btn btn-outline-primary">
+    <a href="{{- .Permalink -}}" class="btn btn-outline-primary">
       {{- i18n "read_article" | default "Read Article" -}}
-      {{- partialCached "icons/caret-right-fill.html" "caret-right-fill" "caret-right-fill" -}}
+      <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
     </a>
     {{- with $fullcontent -}}
       {{ partial "content/partials/comments.html" $post $post }}

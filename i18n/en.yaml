@@ -1,9 +1,3 @@
-- id: search_placeholder
-  translation: Type & Hit Enter...
-
-- id: our_instagram
-  translation: Our Instagram
-
 - id: name
   translation: Your Name
 
@@ -18,21 +12,6 @@
 
 - id: send_message
   translation: Send Message
-
-- id: search_result_for
-  translation: Search results for
-
-- id: you_may_also_like
-  translation: Remotely related
-
-- id: most_recent_post
-  translation: Our Most Recent Post
-
-- id: written_by
-  translation: Written By
-
-- id: read_more
-  translation: Read More
 
 - id: read_article
   translation: Read Article
@@ -56,7 +35,7 @@
   translation: Social
 
 - id: copyright-text
-  translation: "&copy; 2021 - Webwork done by [David's Neighbour](https://davids-neighbour.com)"
+  translation: "&copy; %s - Webwork done by [David's Neighbour](https://davids-neighbour.com)"
 
 - id: at
   translation: at

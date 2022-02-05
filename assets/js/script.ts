@@ -44,7 +44,7 @@ Alpine.store('theme', {
       } else if (mode === "dim") {
         scheme = "dark_dimmed";
       }
-      setTimeout('changeGiscusTheme', 5000, scheme);
+      setTimeout(changeGiscusTheme, 5000, scheme);
 
     } else if (
       window.matchMedia &&

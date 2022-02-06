@@ -1,11 +1,11 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
 <article class="card shadow-sm">
-  {{ $settings := dict "id" $post.Params.youtube }}
+  {{- $settings := dict "id" $post.Params.youtube -}}
   <div class="post-slider">
       <figure>
         <div class="iframe-border">
-          {{ partialCached "youtube.html" $settings $settings }}
+          {{- partialCached "youtube.html" $settings $settings -}}
         </div>
         <figcaption class="text-center">{{- $post.Title -}}</figcaption>
       </figure>
@@ -33,7 +33,7 @@
       <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
     </a>
     {{- with $fullcontent -}}
-      {{ partial "content/partials/comments.html" $post $post }}
+      {{- partial "content/partials/comments.html" $post $post -}}
     {{- end -}}
   </div>
 </article>

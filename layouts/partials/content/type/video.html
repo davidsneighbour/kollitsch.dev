@@ -28,7 +28,7 @@
     {{- end -}}
   </div>
 <div class="card-footer text-end">
-    <a href="{{- .Permalink -}}" class="btn btn-outline-primary">
+    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary">
       {{- i18n "read_article" | default "Read Article" -}}
       <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
     </a>

@@ -2,6 +2,69 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2022.2.25](https://github.com/davidsneighbour/kollitsch.de/compare/v2022.2.11...v2022.2.25) (2022-02-07)
+
+
+### Features
+
+* add linklist output format from dnb-hugo-auditor ([6147c76](https://github.com/davidsneighbour/kollitsch.de/commit/6147c7678fbc0660c4e16208eb5346ea09253e6b))
+
+
+### Chore
+
+* **config:** add dnb-hugo-pwa configuration ([96ceb29](https://github.com/davidsneighbour/kollitsch.de/commit/96ceb293ec25e40c48b7a618bd860b9e690d63b9))
+* **config:** add redirects for old age 404s to netlification configuration ([e23340d](https://github.com/davidsneighbour/kollitsch.de/commit/e23340d62336466ad201d9fc1c5c4d67d54f6725))
+* **config:** fix linklist output type ([3138c39](https://github.com/davidsneighbour/kollitsch.de/commit/3138c39596cec1fa274fe936a6e69e0d4b53b7aa))
+* **config:** update frontmatter configuration ([4b7fc25](https://github.com/davidsneighbour/kollitsch.de/commit/4b7fc2598c9a41cbd526dd8665f2c344fc439fa5))
+* **config:** update Netlify configuration ([#55](https://github.com/davidsneighbour/kollitsch.de/issues/55)) ([fe63741](https://github.com/davidsneighbour/kollitsch.de/commit/fe63741cbef755a3dd60ea86001e21d6f574d6e7))
+* **deps:** update dependencies ([58e732d](https://github.com/davidsneighbour/kollitsch.de/commit/58e732df8a7b2143eb3145b1632dc2cdc4ba91fb))
+* **deps:** update dependencies ([6ca8e7e](https://github.com/davidsneighbour/kollitsch.de/commit/6ca8e7ea2fad2b0682d8ace3aad54dd04864bd54))
+* **deps:** update dependencies ([1834404](https://github.com/davidsneighbour/kollitsch.de/commit/1834404261daeeb3fd7e56d40e863e436baf1cea))
+* **deps:** update dependencies and add dependabot dependencies ([2fc2090](https://github.com/davidsneighbour/kollitsch.de/commit/2fc2090a3802f05353555e11d5924adafff4bb62))
+* **release:** v2022.2.12 ([93d3ff8](https://github.com/davidsneighbour/kollitsch.de/commit/93d3ff8bc6ddbbe6748e638a729efa7b7efbb98c))
+* **release:** v2022.2.13 ([102bd20](https://github.com/davidsneighbour/kollitsch.de/commit/102bd2075830232d845d413da73ee1536bb698d2))
+* **release:** v2022.2.14 ([8578227](https://github.com/davidsneighbour/kollitsch.de/commit/8578227e4ac120df162a0238600968f4b45a9135))
+* **release:** v2022.2.15 ([c02bd62](https://github.com/davidsneighbour/kollitsch.de/commit/c02bd623a8bac6335b8c2fd0050fe08dea2e9f4b))
+* **release:** v2022.2.16 ([18401a3](https://github.com/davidsneighbour/kollitsch.de/commit/18401a326350ef806acfdb2d18848a4719bb0db1))
+* **release:** v2022.2.17 ([b031636](https://github.com/davidsneighbour/kollitsch.de/commit/b0316364ba5a8ee55aece203d330d5164a6a6461))
+* **release:** v2022.2.19 ([adf246d](https://github.com/davidsneighbour/kollitsch.de/commit/adf246d963d6b52a721998e2a3e5fb8cae925864))
+* **release:** v2022.2.20 ([11f3905](https://github.com/davidsneighbour/kollitsch.de/commit/11f39052a9f1632591bed16f16543f265f95ba50))
+* **release:** v2022.2.21 ([549894a](https://github.com/davidsneighbour/kollitsch.de/commit/549894a5b8e5abd9b22bf9e862f3dae655ed5e7a))
+* **release:** v2022.2.22 ([7d97731](https://github.com/davidsneighbour/kollitsch.de/commit/7d97731a2fbc1f51b967e4a6adb65e3f21bdc5d0))
+* **release:** v2022.2.23 ([24479c1](https://github.com/davidsneighbour/kollitsch.de/commit/24479c1e6eae44c70bafe1fbe4484e3dee061df1))
+* **release:** v2022.2.24 ([fee1bfa](https://github.com/davidsneighbour/kollitsch.de/commit/fee1bfafbe06b5c25157d1c39f388fb8ecee7e25))
+
+
+### Theme
+
+* add comment theme on themeswitcher click ([a873e5c](https://github.com/davidsneighbour/kollitsch.de/commit/a873e5c62832e3ea10e21c55f6031a8502f353e9))
+* add icons to navigation items ([0ab7188](https://github.com/davidsneighbour/kollitsch.de/commit/0ab71883305d6b15b7d1456d9c8cddd2501e49f1))
+* add onload setup of giscus theme ([75b8846](https://github.com/davidsneighbour/kollitsch.de/commit/75b884677f34af8b0793357f9c8ae6ef7665f55b))
+* add social share buttons ([46e93b6](https://github.com/davidsneighbour/kollitsch.de/commit/46e93b68bf2e8ed75bf7812929027f60c4707ff4))
+* **fix:** proper call to giscus change theme script ([1d4bf53](https://github.com/davidsneighbour/kollitsch.de/commit/1d4bf53a304d0ff364adc3f5f60dd79b49331001))
+* **layouts:** add ids to theme switcher items ([31e10c5](https://github.com/davidsneighbour/kollitsch.de/commit/31e10c501727bc4a542497f96b8a494cc4f473bd))
+* **layouts:** add more minification tags ([2871eee](https://github.com/davidsneighbour/kollitsch.de/commit/2871eeecac3340dba683c9afb0ed5abe54cd4f84))
+* **layouts:** better formatting for date formats ([c309c57](https://github.com/davidsneighbour/kollitsch.de/commit/c309c570b43b9e301c4bff8ecd2cc817922cc013))
+* **layouts:** fix read more button link ([309fbc1](https://github.com/davidsneighbour/kollitsch.de/commit/309fbc1cd42dd844437c57a638c24ab71f3555ca))
+* **layouts:** new read article icon ([e5d3f31](https://github.com/davidsneighbour/kollitsch.de/commit/e5d3f31e9a3f602be8e21a48cfd8ec3ed46e31d2))
+* **layouts:** update footer copyright line ([8571a32](https://github.com/davidsneighbour/kollitsch.de/commit/8571a32c209622f0e491b6b7ca8f9bfb26844a5f))
+* **styles:** adding code highlighting styles for dark/light themes ([04b02c4](https://github.com/davidsneighbour/kollitsch.de/commit/04b02c4ee31bbc9d3742cecb5f26265b3959e683))
+* **styles:** fix colors in theme switcher component ([8fbf395](https://github.com/davidsneighbour/kollitsch.de/commit/8fbf39580fd20ac2ed3be28183035aab649d45d3))
+* **styles:** fix link color ([569a0b2](https://github.com/davidsneighbour/kollitsch.de/commit/569a0b2a0e03d7648aafdb30ca5835d5dbd18eb5))
+* **styles:** fix link colors ([53d2e2a](https://github.com/davidsneighbour/kollitsch.de/commit/53d2e2a538111d4cdd4dc000863e833cd1333401))
+* **styles:** remove underlines from links in footer ([c2f77a5](https://github.com/davidsneighbour/kollitsch.de/commit/c2f77a5eda190d275f73bac07726fb862ae2d6e7))
+* **styles:** update syntax highlighting ([a7f6051](https://github.com/davidsneighbour/kollitsch.de/commit/a7f6051c9fc428c97feef611031a0ae3b7938d9f))
+
+
+### Build System
+
+* fix path to dnb-hugo-bin for self update script ([ed95013](https://github.com/davidsneighbour/kollitsch.de/commit/ed950130c76a5fd1cbfb87afc085d0153ba072e5))
+* fix release script path ([2c94285](https://github.com/davidsneighbour/kollitsch.de/commit/2c942853bcfd11e7c8682a0bcb95451fd036639c))
+* **fix:** force deletion of non existing files ([1d08ebc](https://github.com/davidsneighbour/kollitsch.de/commit/1d08ebcfdd4dcd351cc7a9e4f3fa404db0c4e6e9))
+* **netlify:** fix netlify build ([e252df0](https://github.com/davidsneighbour/kollitsch.de/commit/e252df06bdb5c603c794aab938ce2d775485e203))
+* remove server script for testing environment (it's included) ([1530035](https://github.com/davidsneighbour/kollitsch.de/commit/1530035aa95bed3a14cf51a434b621ee6ca24880))
+* remove unused files before deployment ([35282f4](https://github.com/davidsneighbour/kollitsch.de/commit/35282f4872f5cc4721487ae13f850eaf01f4a71c))
+
 ### [2022.2.24](https://github.com/davidsneighbour/kollitsch.de/compare/v2022.2.11...v2022.2.24) (2022-02-06)
 
 

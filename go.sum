@@ -2,8 +2,8 @@ github.com/dnb-org/dnb-hugo-auditor v0.0.4 h1:2oG+ZCGYNwPi5UrR9tglrwpTj9N5iiVmLM
 github.com/dnb-org/dnb-hugo-auditor v0.0.4/go.mod h1:XWE5TwHhyPD0oOYqDjULpphIiMC0a+8+2ijfZfEemFk=
 github.com/dnb-org/dnb-hugo-debug v1.4.3 h1:LbSxXq624VWkFEtoMJBaLuH7cXvZIXRYzzP6xiS4o2o=
 github.com/dnb-org/dnb-hugo-debug v1.4.3/go.mod h1:NWi/VpUDXC2GU5TLM7UEjL7HPT2WmgHgoURHTCVzTho=
-github.com/dnb-org/dnb-hugo-feeds v0.0.13 h1:D5NhoqH89WP5Rm5iAO05D1sprUzkcyTTwJZ6n6b0Xxw=
-github.com/dnb-org/dnb-hugo-feeds v0.0.13/go.mod h1:Jh+qZeOQlZCM1UDfgITvFFo8jIBwkJjpV8LFOhrTZdw=
+github.com/dnb-org/dnb-hugo-feeds v0.0.14 h1:CuuMPRye4fEZBVPruvtRugOWsjdxofGpR9/z72iXyUg=
+github.com/dnb-org/dnb-hugo-feeds v0.0.14/go.mod h1:ybCc93NHFzP2YHV6PUA079ImYnXb4wChDryBXB9EuBo=
 github.com/dnb-org/dnb-hugo-functions v1.0.2 h1:1yyVw2IgyaWu3iQitBH7Fe6mUv59uIPs5EctW+MVhVY=
 github.com/dnb-org/dnb-hugo-functions v1.0.2/go.mod h1:bTX/w1EzpOQYB+XOcInG/k/zPK8/pj7P2OuQNTXnp5g=
 github.com/dnb-org/dnb-hugo-giscus v1.0.3 h1:Yd0iszv5qb/PjVHXIKjPK6aaymBdpIm+WKDQn9F9TLU=
@@ -36,7 +36,7 @@ github.com/dnb-org/dnb-hugo-shortcodes v1.4.22 h1:Np5EeT3RHaUKLPcbbv6eu+MjzaiUFU
 github.com/dnb-org/dnb-hugo-shortcodes v1.4.22/go.mod h1:lWIgpS0CtU6r9XiUH0AlGPeXH5esnF/GtZRUIhjJBY8=
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2 h1:COCJ7UpW+AMxKjjNJGkflGcG353zGRjR0gywki+AMr0=
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2/go.mod h1:VxMcmcfV6ulDhKdbEFUIjGE/O5GUFYCkqXMvm27/hWM=
-github.com/dnb-org/dnb-hugo-social v0.0.4 h1:zSC61jjhjaBr4F248Zy+MiBR5EDfo00TSU1e9ZYwJbs=
-github.com/dnb-org/dnb-hugo-social v0.0.4/go.mod h1:owUqI6GmoT7E0ZZnUFemVfhXtNlse+JT8uPUebkKg0E=
+github.com/dnb-org/dnb-hugo-social v0.0.7 h1:zk0CzeJ+zU1MObjmMOixgsHwivPiYPEsDKSikEawLbU=
+github.com/dnb-org/dnb-hugo-social v0.0.7/go.mod h1:wcSBTQ5/kJFP02RwYI1x8F1qGWpdeiyxyyaSjrahYQ0=
 github.com/dnb-org/dnb-hugo-youtube v1.0.5 h1:ZPig6pa2GZEXSxPdL/jef6x2Z6j2HRSIvLZ55F77SWA=
 github.com/dnb-org/dnb-hugo-youtube v1.0.5/go.mod h1:fWyywoq0QYgi3lWfm0J6OL7Pqb7VgxicVS0nKSsNzjM=

@@ -1,0 +1,9 @@
+{{- $post := . -}}
+<div class="d-flex flex-row widget--sharebuttons">
+  <div class="p-3">
+    {{- partialCached "bsicon.html" "share-fill" "share-fill" }}
+  </div>
+  <div class="flex-grow-1">
+    {{- partialCached "widgets/share-buttons.html" $post $post -}}
+  </div>
+</div>

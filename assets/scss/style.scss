@@ -156,6 +156,7 @@ $pagination-color: var(--color);
 @import '../../node_modules/bootstrap/scss/utilities/api';
 
 // Theme files
+@import 'components/containers';
 @import 'components/layout';
 @import 'components/typography';
 @import 'components/forms';
@@ -164,6 +165,7 @@ $pagination-color: var(--color);
 @import 'components/syntaxhighlighting';
 @import 'components/figure';
 @import 'components/pagination';
+@import 'components/widgets';
 
 // Plugins
 @import 'plugins/debugprint';

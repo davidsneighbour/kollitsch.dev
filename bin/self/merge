@@ -13,4 +13,4 @@ done
 
 CURPATH="$(pwd -P)"
 
-cp -r "${CURPATH}"/bin/* ../components/dnb-hugo-bin/bin/
+cp -r "${CURPATH}"/bin/* ../../dnb-org/dnb-hugo-bin/bin/

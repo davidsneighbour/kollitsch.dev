@@ -1,0 +1,12 @@
+$sizes: 12, 32, 64;
+
+@each $size in $sizes {
+  .ch-#{$size} {
+    width: auto;
+    height: #{$size}px;
+  }
+  .cw-#{$size} {
+    width: #{$size}px;
+    height: auto;
+  }
+}

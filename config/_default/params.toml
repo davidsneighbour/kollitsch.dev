@@ -210,3 +210,7 @@ bing = ""
 alexa = ""
 pinterest = ""
 norton = ""
+
+[dnb.social]
+[dnb.social.sharebuttons]
+networks = ["facebook", "twitter", "linkedin", "email", "whatsapp", "telegram"]

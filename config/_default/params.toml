@@ -98,6 +98,7 @@ policy = "https://davids-neighbour.com/security-policy/"
 # select a theme
 # this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
 # value of `dnb.theme.switcher.default` is used.
+slug = "dark-skies"
 theme = "dark"
 
 [dnb.theme.colors]

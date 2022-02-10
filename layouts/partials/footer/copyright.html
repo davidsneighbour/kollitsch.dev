@@ -2,5 +2,5 @@
 {{- $year := partialCached "func/getYear.html" . . -}}
   {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | markdownify | safeHTML  -}}
   &nbsp;-&nbsp;
-  {{- printf (i18n "this-is" | default "this is v%s") site.Data.dnb.build.info.version | markdownify | safeHTML -}}
+  {{- printf (i18n "this-is" | default "this is v%s") (index site.Data.dnb site.Params.dnb.theme.slug "build" "version") | markdownify | safeHTML -}}
 </p>

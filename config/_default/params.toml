@@ -1,71 +1,28 @@
-siteslug = "davids-neighbour-de"
-description = "Onlinemarketing Made in Paradise"
-images = ["site-feature-image.jpg"]
+###############################################################################
+# Defaults
+###############################################################################
 title = "David's Neighbour"
-containerMaxWidth = "700px"
-dateFormat = "Jan 2, 2006"
-sitecolor = "#d02d19"
-email = "name@domain.com"
-github = "github_username"
-twitter = "twitter_username"
-linkedin = "linkedin_username"
-facebook = "facebook_username"
-google = "googleplus_id_number"
-instagram = "instagram_username"
-youtube = "youtube_username"
-dribbble = "dribbble_username"
+description = "Onlinemarketing Made in Paradise"
+siteslug = "davids-neighbour-de"
 
-#################### default parameters ################################
+###############################################################################
+# TODO: rework these either into dnb.theme or dnb-components
+###############################################################################
+
 logo = "/assets/logo/logo.svg"
 logo_height = "35"
 logo_width = "280"
 favicon = "/assets/favicon/favicon.svg"
-
-# contact form action
 contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
-# search
-search = true # (if Search is disable/false Menu will align in Right)
-# Menu align
-menu_align = "right" # "left", "right" or "center"
-# Main section
+menu_align = "right"                                    # "left", "right" or "center"
 mainSections = ["blog"]
-# Post layout
-post_layout = "grid" # Post-Layout value ("grid" or "list")
-
-
-# Social Icons
-[[social]]
-url = "https://www.facebook.com/davidsneighbour"
-icon = "facebook"
-label = "Follow me on Facebook"
-
-[[social]]
-url = "https://www.twitter.com/davidsneighbour"
-icon = "twitter"
-label = "Follow me on Twitter"
-
-[[social]]
-url = "https://www.instagram.com/davids.neighbour"
-icon = "instagram"
-label = "Follow me on Instagram"
-
-[[social]]
-url = "https://th.linkedin.com/company/david%27s-neighbour"
-icon = "linkedin"
-label = "Follow me on LinkedIn"
-
-[algolia]
-vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
-params = ["categories", "tags"]
+post_layout = "grid"                                    # Post-Layout value ("grid" or "list")
 
 [dnb]
 javascript = "script-local.js"
 
-
 [dnb.pwa]
 dev = true
-
-
 short_name = ""
 theme_color = ""
 background_color = ""
@@ -80,25 +37,15 @@ disable_messages = []
 name = "WhatsApp"
 url = "https://wa.me/66878979350?&lang=en"
 username = "Contact me"
+
 [[dnb.contacts]]
 name = "Signal"
 username = "davidsneighbour"
+
 [[dnb.contacts]]
 name = "Telegram"
 url = "https://t.me/davidsneighbour"
 username = "davidsneighbour"
-
-[dnb.footer]
-copyright = "&copy; Copyright 2005-%s by [David's Neighbour Part., Ltd.](/) - All rights reserved."
-
-[dnb.footer.company]
-name = "David's Neighbour Part., Ltd."
-address = [
-  "Patrick Kollitsch",
-  "P.O.Box 135, Post Office Maenam",
-  "84330 Suratthani, Koh Samui",
-  "Thailand",
-]
 
 [dnb.dateformat]
 long = "Mon, Jan 2, 2006"
@@ -116,38 +63,6 @@ siteid = "samui2"
 
 [dnb.exchangerates]
 api_Key = "9f34bc441a9f0a86101875ff710500e7"
-
-[giscus]
-#src="https://dnb-org-comm.vercel.app/client.js"
-dataRepo = "davidsneighbour/kollitsch.de"
-dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
-dataCategory = "Comments"
-dataCategoryId = "DIC_kwDOGDHt584B_i3-"
-#dataMapping="title"
-dataReactionsEnabled = "0"
-dataEmitMetadata = "0"
-#dataTheme="light"
-#dataLang="en"
-
-
-###############################################################################
-# theme setup
-###############################################################################
-[dnb.theme.switcher]
-enabled = true
-default = "light"
-
-[[dnb.theme.switcher.themes]]
-slug = "light"
-icon = "sun-fill"
-
-[[dnb.theme.switcher.themes]]
-slug = "dim"
-icon = "moon-stars-fill"
-
-[[dnb.theme.switcher.themes]]
-slug = "dark"
-icon = "stars"
 
 ###############################################################################
 # dnb-hugo-security
@@ -177,10 +92,49 @@ languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
 
 ###############################################################################
-# dnb-hugo-head
+# DNB Dark Skies theme setup
 ###############################################################################
+[dnb.theme]
+# select a theme
+# this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
+# value of `dnb.theme.switcher.default` is used.
+theme = "dark"
+
+[dnb.theme.colors]
+primary = "#d02d19"
+
+[dnb.theme.switcher]
+enabled = true   # boolean
+default = "dark" # `dark`, `dim` or `light` or whatever `dnb.theme.theme` says
+# selected icon theme.
+# can be one of the identifiers of dnb-hugo-icons OR
+# `specific` to indicate use values of `icon` values as individual classes OR
+# `partial` to indicate the inclusion of the value as cached partial
+icontheme = "bootstrap"
+
+[[dnb.theme.switcher.themes]]
+slug = "light"
+icon = "sun-fill"
+
+[[dnb.theme.switcher.themes]]
+slug = "dim"
+icon = "moon-stars-fill"
+
+[[dnb.theme.switcher.themes]]
+slug = "dark"
+icon = "stars"
+
+################################################################################
+# some DNB Org Components Configuration.
+# see https://learnxinyminutes.com/docs/toml/ for details about TOML
+# see the components documentation for details about those specific
+# configuration options.
+################################################################################
+#
+################################################################################
+# dnb-hugo-head @see https://github.com/dnb-org/dnb-hugo-head
+################################################################################
 [dnb.head]
-control = "on"                                   # on/off - off disables all prefetching
 charset = "utf-8"
 viewport = "width=device-width, initial-scale=1"
 latitude = "9.578492"
@@ -211,6 +165,51 @@ alexa = ""
 pinterest = ""
 norton = ""
 
+################################################################################
+# dnb-hugo-social @see https://github.com/dnb-org/dnb-hugo-social
+################################################################################
 [dnb.social]
+# selected icon theme.
+# can be one of the identifiers of dnb-hugo-icons OR
+# `specific` to indicate use values of `icon` values as individual classes OR
+# `partial` to indicate the inclusion of the value as cached partial
+icontheme = "bootstrap"
+
 [dnb.social.sharebuttons]
 networks = ["facebook", "twitter", "linkedin", "email", "whatsapp", "telegram"]
+
+# TODO: move layouts using this into dnb-hugo-social
+[[dnb.social.network]]
+url = "https://www.facebook.com/davidsneighbour"
+icon = "facebook"
+label = "Follow me on Facebook"
+
+[[dnb.social.network]]
+url = "https://www.twitter.com/davidsneighbour"
+icon = "twitter"
+label = "Follow me on Twitter"
+
+[[dnb.social.network]]
+url = "https://www.instagram.com/davids.neighbour"
+icon = "instagram"
+label = "Follow me on Instagram"
+
+[[dnb.social.network]]
+url = "https://th.linkedin.com/company/david%27s-neighbour"
+icon = "linkedin"
+label = "Follow me on LinkedIn"
+
+################################################################################
+# dnb-hugo-giscus @see https://github.com/dnb-org/dnb-hugo-giscus
+################################################################################
+[dnb.giscus]
+#src="https://dnb-org-comm.vercel.app/client.js"
+dataRepo = "davidsneighbour/kollitsch.de"
+dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
+dataCategory = "Comments"
+dataCategoryId = "DIC_kwDOGDHt584B_i3-"
+#dataMapping="title"
+dataReactionsEnabled = "0"
+dataEmitMetadata = "0"
+#dataTheme="light"
+#dataLang="en"

@@ -8,10 +8,6 @@ siteslug = "davids-neighbour-de"
 ###############################################################################
 # TODO: rework these either into dnb.theme or dnb-components
 ###############################################################################
-
-logo = "/assets/logo/logo.svg"
-logo_height = "35"
-logo_width = "280"
 favicon = "/assets/favicon/favicon.svg"
 contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
 menu_align = "right"                                    # "left", "right" or "center"
@@ -100,6 +96,9 @@ policy = "https://davids-neighbour.com/security-policy/"
 # value of `dnb.theme.switcher.default` is used.
 slug = "dark-skies"
 theme = "dark"
+logo = "/assets/logo/logo.svg"
+logo_height = "35"
+logo_width = "280"
 
 [dnb.theme.colors]
 primary = "#d02d19"

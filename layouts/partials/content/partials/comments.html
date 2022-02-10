@@ -13,7 +13,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- with (and site.Params.giscus $commentform) -}}
+{{- with (and site.Params.dnb.giscus $commentform) -}}
   {{- if (eq "true" $commentform) -}}
     <div class="col-12">
       {{- partial "content/giscus.html" . -}}

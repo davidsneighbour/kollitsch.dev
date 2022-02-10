@@ -1,5 +1,5 @@
 ---
-title: "Notes From the Laboratory: January 2022"
+title: "Notes from the Laboratory: January 2022"
 linkTitle: "Laboratory 2022-01"
 description: ""
 date: 2022-01-30T21:12:06+07:00

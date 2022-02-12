@@ -1,6 +1,6 @@
 <span
   class="publishing-date"
-  title="🤖 {{ .PublishDate | time.Format site.Params.dnb.dateformat.timestamp -}}">
+  title="🤖 {{ .PublishDate | time.Format site.Params.dnb.theme.dateformat.timestamp -}}">
   {{- .PublishDate | time.Format (site.Params.dnb.theme.post_date_format | default ":date_long") -}}&nbsp;
   {{- i18n "at" | default "at" -}}&nbsp;
   {{- .PublishDate | time.Format (site.Params.dnb.theme.post_time_format | default ":time_short") -}}

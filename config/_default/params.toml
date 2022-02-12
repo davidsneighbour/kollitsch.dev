@@ -1,91 +1,10 @@
 ###############################################################################
-# Defaults
+# Hugo Defaults
 ###############################################################################
 title = "David's Neighbour"
 description = "Onlinemarketing Made in Paradise"
 siteslug = "davids-neighbour-de"
-
-###############################################################################
-# TODO: rework these either into dnb.theme or dnb-components
-###############################################################################
-favicon = "/assets/favicon/favicon.svg"
-contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
-menu_align = "right"                                    # "left", "right" or "center"
 mainSections = ["blog"]
-post_layout = "grid"                                    # Post-Layout value ("grid" or "list")
-
-[dnb]
-javascript = "script-local.js"
-
-[dnb.pwa]
-dev = true
-short_name = ""
-theme_color = ""
-background_color = ""
-display = ""
-start_url = ""
-description = ""
-
-[dnb.hooks]
-disable_messages = []
-
-[[dnb.contacts]]
-name = "WhatsApp"
-url = "https://wa.me/66878979350?&lang=en"
-username = "Contact me"
-
-[[dnb.contacts]]
-name = "Signal"
-username = "davidsneighbour"
-
-[[dnb.contacts]]
-name = "Telegram"
-url = "https://t.me/davidsneighbour"
-username = "davidsneighbour"
-
-[dnb.dateformat]
-long = "Mon, Jan 2, 2006"
-short = "Jan 2 2006"
-timestamp = "2006-01-02T15:04:05-07:00"
-
-[social.facebook]
-profileid = "517050641"    # patrick.kollitsch
-pageid = "6967849771"      # samuisamui
-appid = "2047624572136513" # samui-samui.de
-
-[social.twitter]
-profileid = "davidsneighbour"
-siteid = "samui2"
-
-[dnb.exchangerates]
-api_Key = "9f34bc441a9f0a86101875ff710500e7"
-
-###############################################################################
-# dnb-hugo-security
-###############################################################################
-[dnb.security.txt]
-intro = '''
-#############################################################################
-#                                                                           #
-# Information related to reporting security vulnerabilities on kollitsch.de #
-#                                                                           #
-#                        ,     ,                                            #
-#                       (\____/)                                            #
-#                        (_oo_)                                             #
-#                          (O)                                              #
-#                        __||__    \)                                       #
-#                     []/______\[] /                                        #
-#                     / \______/ \/                                         #
-#                    /    /__\                                              #
-#                   (\   /____\                                             #
-#                                                                           #
-#                                                                           #
-#############################################################################
-'''
-contact = "https://kollitsch.de/contact/"
-expires = 365
-languages = "en,de"
-policy = "https://davids-neighbour.com/security-policy/"
 
 ###############################################################################
 # DNB Dark Skies theme setup
@@ -99,9 +18,15 @@ theme = "dark"
 logo = "/assets/logo/logo.svg"
 logo_height = "35"
 logo_width = "280"
+contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
 
 [dnb.theme.colors]
 primary = "#d02d19"
+
+[dnb.theme.dateformat]
+long = "Mon, Jan 2, 2006"
+short = "Jan 2 2006"
+timestamp = "2006-01-02T15:04:05-07:00"
 
 [dnb.theme.switcher]
 enabled = true   # boolean
@@ -213,3 +138,30 @@ dataReactionsEnabled = "0"
 dataEmitMetadata = "0"
 #dataTheme="light"
 #dataLang="en"
+
+###############################################################################
+# dnb-hugo-security @see https://github.com/dnb-org/dnb-hugo-security
+###############################################################################
+[dnb.security.txt]
+intro = '''
+#############################################################################
+#                                                                           #
+# Information related to reporting security vulnerabilities on kollitsch.de #
+#                                                                           #
+#                        ,     ,                                            #
+#                       (\____/)                                            #
+#                        (_oo_)                                             #
+#                          (O)                                              #
+#                        __||__    \)                                       #
+#                     []/______\[] /                                        #
+#                     / \______/ \/                                         #
+#                    /    /__\                                              #
+#                   (\   /____\                                             #
+#                                                                           #
+#                                                                           #
+#############################################################################
+'''
+contact = "https://kollitsch.de/contact/"
+expires = 365
+languages = "en,de"
+policy = "https://davids-neighbour.com/security-policy/"

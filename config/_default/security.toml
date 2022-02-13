@@ -5,7 +5,7 @@ enableInlineShortcodes = false
 
 [exec]
 allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$']
-osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|HOME|TMP|TEMP|TERM)$']
+osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|HOME|TMP|TEMP|TERM|HUGO_ENV)$']
 
 [funcs]
 getenv = ['^HUGO_']

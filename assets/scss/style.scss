@@ -66,8 +66,8 @@ $theme-colors: (
 .dark {
   --bg-page: #{$gray-800};
   --bg-card: #{$gray-900};
-  --color-title: #{$white};
-  --color: #{$white};
+  --color-title: rgba(255, 255, 255, 0.9);
+  --color: rgba(255, 255, 255, 0.7);
   --color2: #{$dark};
   --link-color: #{$light};
   --link-color-hover: #{$gray-300};
@@ -89,8 +89,8 @@ $theme-colors: (
 .dim {
   --bg-page: #{$gray-800};
   --bg-card: #{$gray-900};
-  --color-title: #{$white};
-  --color: #{$white};
+  --color-title: rgba(255, 255, 255, 0.9);
+  --color: rgba(255, 255, 255, 0.7);
   --color2: #{$dark};
   --link-color: #{$light};
   --link-color-hover: #{$gray-300};

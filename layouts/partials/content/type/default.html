@@ -25,6 +25,7 @@
       </a>
     {{- end -}}
     {{- with $fullcontent -}}
+      {{- partial "content/partials/github-bar.html" $post $post -}}
       {{- partial "content/partials/share-buttons.html" $post $post -}}
       {{- partial "content/partials/comments.html" $post $post -}}
     {{- end -}}

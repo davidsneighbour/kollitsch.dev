@@ -157,6 +157,9 @@ $pagination-color: var(--color);
 // Bootstrap - Utilities
 @import '../../node_modules/bootstrap/scss/utilities/api';
 
+// create utility classes
+@import 'settings/utilities';
+
 // Theme files
 @import 'components/containers';
 @import 'components/layout';

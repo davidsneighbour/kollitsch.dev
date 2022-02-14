@@ -68,3 +68,12 @@ p {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
+
+$sizes: 0.8, 0.9, 1, 1.1, 1.2;
+
+@each $size in $sizes {
+  .f-#{$size} {
+    font-size: #{$size}rem;
+  }
+}

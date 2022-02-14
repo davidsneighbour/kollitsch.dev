@@ -165,3 +165,8 @@ contact = "https://kollitsch.de/contact/"
 expires = 365
 languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
+
+###############################################################################
+# dnb-hugo-debug @see https://github.com/dnb-org/dnb-hugo-debug
+###############################################################################
+enable = true

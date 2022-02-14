@@ -1,3 +1,7 @@
+github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 h1:K8ukOfj0MOBEWWsL8Mzd8GXIbAf7/RHnX1hipqbjeto=
+github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579/go.mod h1:xl3heUINAn0oPowV1biDQ2Pyw1w3x66I7KEbWkaxox0=
+github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e h1:YqovKrj72RLVvP244ZkZ5zasDB2x/aTTfTFDJFJKDi4=
+github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/dnb-org/dnb-hugo-auditor v0.0.4 h1:2oG+ZCGYNwPi5UrR9tglrwpTj9N5iiVmLMRxuO8ec8w=
 github.com/dnb-org/dnb-hugo-auditor v0.0.4/go.mod h1:XWE5TwHhyPD0oOYqDjULpphIiMC0a+8+2ijfZfEemFk=
 github.com/dnb-org/dnb-hugo-debug v1.4.3 h1:LbSxXq624VWkFEtoMJBaLuH7cXvZIXRYzzP6xiS4o2o=
@@ -40,3 +44,9 @@ github.com/dnb-org/dnb-hugo-social v0.0.8 h1:aV1ue2rBF31WTNED+vGxiDI9LaIMZLHNDpV
 github.com/dnb-org/dnb-hugo-social v0.0.8/go.mod h1:wcSBTQ5/kJFP02RwYI1x8F1qGWpdeiyxyyaSjrahYQ0=
 github.com/dnb-org/dnb-hugo-youtube v1.0.5 h1:ZPig6pa2GZEXSxPdL/jef6x2Z6j2HRSIvLZ55F77SWA=
 github.com/dnb-org/dnb-hugo-youtube v1.0.5/go.mod h1:fWyywoq0QYgi3lWfm0J6OL7Pqb7VgxicVS0nKSsNzjM=
+github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 h1:NaIMifqZJiyLbGxFqrMIwUtaZp+prmNZ7VasS83N+sk=
+github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
+github.com/tailwindlabs/heroicons v1.0.3 h1:X7j//m1rTs6gtFRXgYpfqp5TCaESKzDjwpJa11ZIGu0=
+github.com/tailwindlabs/heroicons v1.0.3/go.mod h1:2SHGOdw86jviBkoeQINcTfkzAAao9dciip4RsMS9xIg=
+github.com/twbs/icons v1.8.1 h1:0friuyXfO1G6+oRt2lzry6uI5TjTjkI9IvAyplvd9oI=
+github.com/twbs/icons v1.8.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=

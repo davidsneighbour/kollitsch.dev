@@ -15,9 +15,10 @@ mainSections = ["blog"]
 # value of `dnb.theme.switcher.default` is used.
 slug = "dark-skies"
 theme = "dark"
-logo = "/assets/logo/logo.svg"
-logo_height = "35"
-logo_width = "280"
+logo = "/assets/logo/favicon.svg"
+logo_height = "40"
+logo_width = "40"
+show_title = true
 contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
 
 [dnb.theme.colors]

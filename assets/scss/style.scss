@@ -118,6 +118,9 @@ $card-color: var(--color);
 $pagination-bg: var(--color2);
 $pagination-color: var(--color);
 
+// navbar-brand
+$navbar-brand-font-size: 2rem;
+
 // Bootstrap - Layout and components
 @import '../../node_modules/bootstrap/scss/root';
 @import '../../node_modules/bootstrap/scss/reboot';

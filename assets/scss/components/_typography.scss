@@ -1,3 +1,4 @@
+/* stylelint-disable plugin/no-unsupported-browser-features */
 ::selection {
   color: var(--color2);
   text-shadow: none;
@@ -32,10 +33,29 @@ h1 {
   text-transform: uppercase;
 
   a {
-    color: var(--color);
     text-decoration: none;
+
+    &:hover {
+      @extend .text-gradient-primary-inverted;
+    }
+    @extend .text-gradient-primary;
+
   }
   @extend .display-1;
+}
+
+.text-gradient-primary {
+  color: transparent;
+
+  background-image: linear-gradient(60deg, var(--primary), #ffb03a);
+  background-clip: text;
+}
+
+.text-gradient-primary-inverted {
+  color: transparent;
+
+  background-image: linear-gradient(240deg, var(--primary), #ffb03a);
+  background-clip: text;
 }
 
 .mark,

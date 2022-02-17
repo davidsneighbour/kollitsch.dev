@@ -7,6 +7,9 @@
 </head>
 <body x-data :class="$store.theme.mode">
   {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
+  {{- if .IsHome -}}
+    {{- partial "content/section-sitetitle.html" . -}}
+  {{- end -}}
   {{- partial "header.html" . -}}
   {{- block "main" . -}}{{- end -}}
   {{- partial "footer.html" . . -}}

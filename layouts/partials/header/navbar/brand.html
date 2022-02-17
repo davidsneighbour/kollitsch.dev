@@ -6,12 +6,10 @@
         alt="Logo of {{ site.Title -}}"
         height="{{- site.Params.dnb.theme.logo_height -}}"
         width="{{- site.Params.dnb.theme.logo_width -}}">
-    </a>
-    {{- if site.Params.dnb.theme.show_title -}}
-      <a href="{{- site.BaseURL | relLangURL -}}">
+      {{- if site.Params.dnb.theme.show_title -}}
         {{- site.Title -}}
-      </a>
-    {{- end -}}
+      {{- end -}}
+    </a>
   {{- else -}}
     <a href="{{- site.BaseURL | relLangURL -}}">
       {{- site.Title -}}

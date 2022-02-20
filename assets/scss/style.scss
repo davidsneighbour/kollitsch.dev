@@ -170,7 +170,16 @@ $navbar-brand-font-size: 2rem;
 @import 'components/forms';
 @import 'components/navigation';
 @import 'components/footer';
-@import 'components/syntaxhighlighting';
+
+.dark,
+.dim {
+  @import 'components/syntax/dark';
+}
+
+.light {
+  @import 'components/syntax/light';
+}
+
 @import 'components/figure';
 @import 'components/pagination';
 @import 'components/widgets';

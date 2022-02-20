@@ -1,3 +1,5 @@
+/* stylelint-disable plugin/no-unsupported-browser-features */
+
 .shortcode--youtube {
   width: 100%;
   height: auto;
@@ -87,7 +89,7 @@
 
   lite-youtube.lyt-activated::before,
   lite-youtube.lyt-activated > .lty-playbtn {
-    opacity: 0;
+    opacity: 0%;
 
     pointer-events: none;
   }

@@ -1,0 +1,11 @@
+h1 {
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+
+    @extend .text-gradient-primary;
+
+  }
+  @extend .display-1;
+}

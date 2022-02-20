@@ -11,7 +11,7 @@
 @import 'settings/theme';
 
 // colors
-$primary: hsl(6, 63.4%, 46.1%);
+$primary: hsl(6deg, 63.4%, 46.1%);
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
@@ -66,8 +66,8 @@ $theme-colors: (
 .dark {
   --bg-page: #{$gray-800};
   --bg-card: #{$gray-900};
-  --color-title: rgba(255, 255, 255, 0.9);
-  --color: rgba(255, 255, 255, 0.7);
+  --color-title: rgba(255, 255, 255, 90%);
+  --color: rgba(255, 255, 255, 70%);
   --color2: #{$dark};
   --link-color: #{$light};
   --link-color-hover: #{$gray-300};
@@ -89,8 +89,8 @@ $theme-colors: (
 .dim {
   --bg-page: #{$gray-800};
   --bg-card: #{$gray-900};
-  --color-title: rgba(255, 255, 255, 0.9);
-  --color: rgba(255, 255, 255, 0.7);
+  --color-title: rgba(255, 255, 255, 90%);
+  --color: rgba(255, 255, 255, 70%);
   --color2: #{$dark};
   --link-color: #{$light};
   --link-color-hover: #{$gray-300};
@@ -132,27 +132,27 @@ $navbar-brand-font-size: 2rem;
 @import '../../node_modules/bootstrap/scss/forms';
 @import '../../node_modules/bootstrap/scss/buttons';
 @import '../../node_modules/bootstrap/scss/transitions';
-@import '../../node_modules/bootstrap/scss/dropdown';
-@import '../../node_modules/bootstrap/scss/button-group';
+// @import '../../node_modules/bootstrap/scss/dropdown';
+// @import '../../node_modules/bootstrap/scss/button-group';
 @import '../../node_modules/bootstrap/scss/nav';
 @import '../../node_modules/bootstrap/scss/navbar';
 @import '../../node_modules/bootstrap/scss/card';
-@import '../../node_modules/bootstrap/scss/accordion';
-@import '../../node_modules/bootstrap/scss/breadcrumb';
+// @import '../../node_modules/bootstrap/scss/accordion';
+// @import '../../node_modules/bootstrap/scss/breadcrumb';
 @import '../../node_modules/bootstrap/scss/pagination';
-@import '../../node_modules/bootstrap/scss/badge';
-@import '../../node_modules/bootstrap/scss/alert';
-@import '../../node_modules/bootstrap/scss/progress';
-@import '../../node_modules/bootstrap/scss/list-group';
-@import '../../node_modules/bootstrap/scss/close';
-@import '../../node_modules/bootstrap/scss/toasts';
-@import '../../node_modules/bootstrap/scss/modal';
-@import '../../node_modules/bootstrap/scss/tooltip';
-@import '../../node_modules/bootstrap/scss/popover';
-@import '../../node_modules/bootstrap/scss/carousel';
-@import '../../node_modules/bootstrap/scss/spinners';
-@import '../../node_modules/bootstrap/scss/offcanvas';
-@import '../../node_modules/bootstrap/scss/placeholders';
+// @import '../../node_modules/bootstrap/scss/badge';
+// @import '../../node_modules/bootstrap/scss/alert';
+// @import '../../node_modules/bootstrap/scss/progress';
+// @import '../../node_modules/bootstrap/scss/list-group';
+// @import '../../node_modules/bootstrap/scss/close';
+// @import '../../node_modules/bootstrap/scss/toasts';
+// @import '../../node_modules/bootstrap/scss/modal';
+// @import '../../node_modules/bootstrap/scss/tooltip';
+// @import '../../node_modules/bootstrap/scss/popover';
+// @import '../../node_modules/bootstrap/scss/carousel';
+// @import '../../node_modules/bootstrap/scss/spinners';
+// @import '../../node_modules/bootstrap/scss/offcanvas';
+// @import '../../node_modules/bootstrap/scss/placeholders';
 
 // Bootstrap - Helpers
 @import '../../node_modules/bootstrap/scss/helpers';
@@ -163,30 +163,37 @@ $navbar-brand-font-size: 2rem;
 // create utility classes
 @import 'settings/utilities';
 
-// Theme files
-@import 'components/containers';
-@import 'components/layout';
-@import 'components/typography';
-@import 'components/forms';
+// theme
+@import 'utilities';
+@import 'layout';
+@import 'footer';
+
+// components
+@import 'components/header';
 @import 'components/navigation';
-@import 'components/footer';
-
-.dark,
-.dim {
-  @import 'components/syntax/dark';
-}
-
-.light {
-  @import 'components/syntax/light';
-}
-
 @import 'components/figure';
 @import 'components/pagination';
 @import 'components/widgets';
 
-// Plugins
+// Prose formatting
+.prose {
+  @import 'prose/prose';
+}
+
+// plugins
 @import 'plugins/debugprint';
 @import 'plugins/youtube';
 
-// Local overrides
+// syntax highlighting
+.dark,
+.dim {
+  @import 'plugins/syntax/dark';
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+.light {
+  @import 'plugins/syntax/light';
+}
+
+// local overrides for child themes
 @import 'local';

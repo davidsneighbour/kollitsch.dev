@@ -38,10 +38,6 @@
     font-weight: $font-weight-bolder;
     text-transform: uppercase;
 
-    &:hover,
-    &:active {
-      @extend .text-gradient-primary-inverted;
-    }
     @extend .text-gradient-primary;
   }
 

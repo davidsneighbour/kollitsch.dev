@@ -1,0 +1,47 @@
+a {
+  box-decoration-break: clone;
+
+  &.active {
+    color: var(--primary);
+  }
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-title);
+
+  a {
+    color: var(--color-title);
+    text-decoration: none;
+  }
+}
+
+p {
+  word-wrap: break-word;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  overflow-wrap: break-word;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  hyphens: auto;
+}
+
+blockquote {
+  padding-left: 0.95rem;
+  border-left: var(--primary) 5px solid;
+
+  background-color: rgba($primary, 0.1);
+
+  a {
+    color: var(--color);
+  }
+
+  cite {
+    font-style: italic;
+  }
+}

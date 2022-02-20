@@ -1,3 +1,4 @@
+/* stylelint-disable block-no-empty */
 /* Background */ .chroma { color: #272822;
 
   background-color: #fafafa; }
@@ -98,7 +99,7 @@
 /* GenericInserted */ .chroma .gi {  }
 /* GenericOutput */ .chroma .go {  }
 /* GenericPrompt */ .chroma .gp {  }
-/* GenericStrong */ .chroma .gs { font-weight: bold; }
+/* GenericStrong */ .chroma .gs { font-weight: 700; }
 /* GenericSubheading */ .chroma .gu {  }
 /* GenericTraceback */ .chroma .gt {  }
 /* GenericUnderline */ .chroma .gl {  }

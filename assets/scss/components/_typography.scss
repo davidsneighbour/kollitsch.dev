@@ -54,7 +54,7 @@ h1 {
 .text-gradient-primary-inverted {
   color: transparent;
 
-  background-image: linear-gradient(240deg, var(--primary), #ffb03a);
+  background-image: linear-gradient(60deg, var(--primary), darken(#ffb03a, 20%));
   background-clip: text;
 }
 

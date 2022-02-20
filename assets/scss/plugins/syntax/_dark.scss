@@ -1,3 +1,4 @@
+/* stylelint-disable block-no-empty */
 /* Background */ .chroma { color: #f8f8f2;
 
   background-color: #272822; }
@@ -98,7 +99,7 @@
 /* GenericInserted */ .chroma .gi { color: #a6e22e; }
 /* GenericOutput */ .chroma .go {  }
 /* GenericPrompt */ .chroma .gp {  }
-/* GenericStrong */ .chroma .gs { font-weight: bold; }
+/* GenericStrong */ .chroma .gs { font-weight: 700; }
 /* GenericSubheading */ .chroma .gu { color: #75715e; }
 /* GenericTraceback */ .chroma .gt {  }
 /* GenericUnderline */ .chroma .gl {  }

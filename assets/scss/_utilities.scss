@@ -1,0 +1,51 @@
+
+// containers (value for one side, the other auto)
+$sizes: 12, 32, 64;
+
+@each $size in $sizes {
+  .ch-#{$size} {
+    width: auto;
+    height: #{$size}px;
+  }
+  .cw-#{$size} {
+    width: #{$size}px;
+    height: auto;
+  }
+}
+
+// coloring the selection in the browser
+::selection {
+  color: var(--color2);
+  text-shadow: none;
+
+  background-color: var(--primary);
+}
+
+// theme gradient
+.text-gradient-primary {
+  color: transparent;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  background-image: linear-gradient(60deg, var(--primary), #ffb03a);
+  background-clip: text;
+
+  &:active,
+  &:hover {
+
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    background-image: linear-gradient(60deg, var(--primary), darken(#ffb03a, 20%));
+  }
+}
+
+// font sizes
+$sizes: 0.8, 0.9, 1, 1.1, 1.2;
+
+@each $size in $sizes {
+  .f-#{$size} {
+    font-size: #{$size}rem;
+  }
+}
+
+.fontsize-1 {
+  font-size: 1rem;
+}

@@ -13,26 +13,26 @@
   "dependencies": {
     "alpinejs": "^3.9.0",
     "dotenv": "^16.0.0",
-    "netlify-cli": "^9.4.0",
+    "netlify-cli": "^9.6.5",
     "ninja-keys": "^1.1.12",
     "svgo": "^2.8.0"
   },
   "devDependencies": {
     "@dnb-org/bootstrap-config": "^3.5.6",
-    "@dnb-org/browserslist-config": "^3.5.6",
+    "@dnb-org/browserslist-config": "^3.5.7",
     "@dnb-org/commitlint-config": "^3.5.6",
     "@dnb-org/cssnano-config": "^3.5.6",
     "@dnb-org/cypress-config": "^3.5.6",
-    "@dnb-org/eslint-config": "^3.5.7",
+    "@dnb-org/eslint-config": "^3.5.8",
     "@dnb-org/postcss-config": "^3.5.6",
     "@dnb-org/prettier-config": "^3.5.7",
     "@dnb-org/standard-version-config": "^3.5.6",
-    "@dnb-org/stylelint-config": "^3.5.7",
+    "@dnb-org/stylelint-config": "^3.5.9",
     "@dnb-org/tools": "^3.5.6",
     "@types/bootstrap": "^5.1.9",
     "algoliasearch": "^4.12.1",
     "ansi-regex": ">=6.0.1",
-    "html-validate": "^6.3.1",
+    "html-validate": "^6.4.0",
     "instantsearch.js": "^4.38.1",
     "lazysizes": "^5.3.2",
     "lite-youtube-embed": "^0.2.0",
@@ -105,7 +105,8 @@
     "extends": "@dnb-org/stylelint-config",
     "ignoreFiles": [
       "assets/scss/settings/_bootstrap-variables.scss"
-    ]
+    ],
+    "rules": {}
   },
   "url": "https://kollitsch.de"
 }

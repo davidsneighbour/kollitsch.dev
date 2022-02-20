@@ -58,15 +58,6 @@ h1 {
   background-clip: text;
 }
 
-.mark,
-mark {
-  padding: 0;
-  border-bottom: 1px dashed rgba(var(--primary), 0.4);
-
-  color: var(--primary);
-
-  background: transparent;
-}
 
 blockquote {
   padding-left: 0.95rem;

@@ -10,8 +10,6 @@ function changeGiscusTheme(theme: string) {
   let scheme = "light";
   if (theme === "dark") {
     scheme = "dark";
-  } else if (theme === "dim") {
-    scheme = "dark_dimmed";
   }
 
   function sendMessage(message: { setConfig: { theme: string; }; }) {
@@ -40,8 +38,6 @@ Alpine.store('theme', {
       this.set(localStorage.theme);
       let scheme = "light";
       if (mode === "dark") {
-        scheme = "dark";
-      } else if (mode === "dim") {
         scheme = "dark_dimmed";
       }
       setTimeout(changeGiscusTheme, 5000, scheme);
@@ -50,7 +46,7 @@ Alpine.store('theme', {
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
-      this.set('dim');
+      this.set('dark');
     } else {
       this.set('light');
     }

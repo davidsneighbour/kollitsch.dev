@@ -9,11 +9,6 @@
     @extend .bg-dark;
   }
 
-  .dim & {
-    @extend .navbar-dark;
-    @extend .bg-dark;
-  }
-
   .nav-link {
     &:hover .icon--bs {
       color: var(--primary);

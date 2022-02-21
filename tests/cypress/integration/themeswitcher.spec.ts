@@ -6,7 +6,7 @@ describe('Testing Theme Switcher', () => {
       const expected = (
         window.matchMedia &&
         window.matchMedia('(prefers-color-scheme: dark)').matches
-      ) ? 'dim' : 'light';
+      ) ? 'dark' : 'light';
 
       expect(localStorage.getItem('theme')).to.eq(expected);
 
@@ -26,7 +26,7 @@ describe('Testing Theme Switcher', () => {
 
   // test themes by id
   it('Check all themes by name', () => {
-    const themes = ['light', 'dim', 'dark'];
+    const themes = ['light', 'dark'];
     cy.visit('/')
     themes.forEach(theme => {
       cy.get('#' + theme).click().should((element) => {

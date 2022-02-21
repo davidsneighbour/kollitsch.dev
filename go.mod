@@ -7,10 +7,10 @@ require (
 	github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e // indirect
 	github.com/dnb-org/dnb-hugo-auditor v0.0.4 // indirect
 	github.com/dnb-org/dnb-hugo-debug v1.4.3 // indirect
-	github.com/dnb-org/dnb-hugo-feeds v0.0.14 // indirect
-	github.com/dnb-org/dnb-hugo-functions v1.0.2 // indirect
+	github.com/dnb-org/dnb-hugo-feeds v0.0.16 // indirect
+	github.com/dnb-org/dnb-hugo-functions v1.0.4 // indirect
 	github.com/dnb-org/dnb-hugo-giscus v1.0.4 // indirect
-	github.com/dnb-org/dnb-hugo-head v0.0.15 // indirect
+	github.com/dnb-org/dnb-hugo-head v0.0.16 // indirect
 	github.com/dnb-org/dnb-hugo-hooks v1.1.0 // indirect
 	github.com/dnb-org/dnb-hugo-icons v1.1.3 // indirect
 	github.com/dnb-org/dnb-hugo-internals v0.0.2 // indirect

@@ -1,11 +1,16 @@
 h1 {
+  font-size: 8vw;
   text-transform: uppercase;
 
   a {
     text-decoration: none;
 
-    @extend .text-gradient-primary;
+    &:hover {
+      text-decoration: none;
+    }
 
+    @extend .text-gradient-primary;
   }
+
   @extend .display-1;
 }

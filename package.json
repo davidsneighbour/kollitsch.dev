@@ -101,11 +101,5 @@
     ]
   },
   "slug": "kollitsch-de",
-  "stylelint": {
-    "extends": "@dnb-org/stylelint-config",
-    "ignoreFiles": [
-      "assets/scss/settings/_bootstrap-variables.scss"
-    ]
-  },
   "url": "https://kollitsch.de"
 }

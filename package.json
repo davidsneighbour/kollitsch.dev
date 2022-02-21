@@ -13,7 +13,7 @@
   "dependencies": {
     "alpinejs": "^3.9.0",
     "dotenv": "^16.0.0",
-    "netlify-cli": "^9.6.5",
+    "netlify-cli": "^9.6.6",
     "ninja-keys": "^1.1.12",
     "svgo": "^2.8.0"
   },
@@ -27,7 +27,7 @@
     "@dnb-org/postcss-config": "^3.5.6",
     "@dnb-org/prettier-config": "^3.5.7",
     "@dnb-org/standard-version-config": "^3.5.6",
-    "@dnb-org/stylelint-config": "^3.5.10",
+    "@dnb-org/stylelint-config": "^3.5.11",
     "@dnb-org/tools": "^3.5.6",
     "@types/bootstrap": "^5.1.9",
     "algoliasearch": "^4.12.1",

@@ -42,8 +42,8 @@ github.com/dnb-org/dnb-hugo-sitemap v0.0.2 h1:COCJ7UpW+AMxKjjNJGkflGcG353zGRjR0g
 github.com/dnb-org/dnb-hugo-sitemap v0.0.2/go.mod h1:VxMcmcfV6ulDhKdbEFUIjGE/O5GUFYCkqXMvm27/hWM=
 github.com/dnb-org/dnb-hugo-social v0.0.8 h1:aV1ue2rBF31WTNED+vGxiDI9LaIMZLHNDpVOz5il3B4=
 github.com/dnb-org/dnb-hugo-social v0.0.8/go.mod h1:wcSBTQ5/kJFP02RwYI1x8F1qGWpdeiyxyyaSjrahYQ0=
-github.com/dnb-org/dnb-hugo-youtube v1.0.5 h1:ZPig6pa2GZEXSxPdL/jef6x2Z6j2HRSIvLZ55F77SWA=
-github.com/dnb-org/dnb-hugo-youtube v1.0.5/go.mod h1:fWyywoq0QYgi3lWfm0J6OL7Pqb7VgxicVS0nKSsNzjM=
+github.com/dnb-org/dnb-hugo-youtube v1.0.7 h1:RK3TN9CUlo1wSzxxT6+2P4MiHv+ISTdKyPoKyYbIalI=
+github.com/dnb-org/dnb-hugo-youtube v1.0.7/go.mod h1:C3LJDr1+xwiJzc5T5Ct5ZuvCCLyh60hAnXJMxn3FvtE=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 h1:NaIMifqZJiyLbGxFqrMIwUtaZp+prmNZ7VasS83N+sk=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tailwindlabs/heroicons v1.0.3 h1:X7j//m1rTs6gtFRXgYpfqp5TCaESKzDjwpJa11ZIGu0=

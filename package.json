@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-de",
-  "version": "2022.2.40",
+  "version": "2022.2.41",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.de",
   "author": {
@@ -13,7 +13,7 @@
   "dependencies": {
     "alpinejs": "^3.9.0",
     "dotenv": "^16.0.0",
-    "netlify-cli": "^9.6.6",
+    "netlify-cli": "^9.6.12",
     "ninja-keys": "^1.1.12",
     "svgo": "^2.8.0"
   },

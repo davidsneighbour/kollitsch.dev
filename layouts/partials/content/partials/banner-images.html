@@ -3,10 +3,10 @@
 {{- with $articleimages -}}
   <div class="post-slider">
     {{- range $counter, $image := . -}}
-      {{- $imageXL:= $image.Fill "914x457" -}}
-      {{- $imageLG:= $image.Fill "674x337" -}}
-      {{- $imageSM:= $image.Fill "517x259" -}}
-      {{- $imageXS:= $image.Fill "494x247" -}}
+      {{- $imageXL:= $image.Fill "914x514" -}}
+      {{- $imageLG:= $image.Fill "674x379" -}}
+      {{- $imageSM:= $image.Fill "517x291" -}}
+      {{- $imageXS:= $image.Fill "494x278" -}}
       {{- $title := $image.Title | markdownify -}}
       <figure>
         <a href="{{- $link -}}">

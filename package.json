@@ -13,7 +13,7 @@
   "dependencies": {
     "alpinejs": "^3.9.0",
     "dotenv": "^16.0.0",
-    "netlify-cli": "^9.6.12",
+    "netlify-cli": "^9.7.0",
     "ninja-keys": "^1.1.12",
     "svgo": "^2.8.0"
   },
@@ -33,7 +33,7 @@
     "algoliasearch": "^4.12.1",
     "ansi-regex": ">=6.0.1",
     "html-validate": "^6.4.0",
-    "instantsearch.js": "^4.38.1",
+    "instantsearch.js": "^4.39.0",
     "lazysizes": "^5.3.2",
     "lite-youtube-embed": "^0.2.0",
     "mem": "^9.0.2",

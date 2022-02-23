@@ -19,7 +19,16 @@ logo = "/assets/logo/favicon.svg"
 logo_height = "40"
 logo_width = "40"
 show_title = true
-contact_form_action = "https://formspree.io/f/xoqyzooe" # contact form works with https://formspree.io
+# 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
+# this needs to be a string and needs to be two floats separated by a colon
+aspect_ratio = "16:9"
+# collection of image sizes for responsive image sizes. this takes the aspect_ratio
+# above into account, so only the long side length is required here.
+image_sizes = ["494", "517", "674", "914"]
+break_points = ["520", "540", "720", "960"]
+# contact form works with https://formspree.io or any other email service
+# that is listening to POST requests from your local form
+contact_form_action = "https://formspree.io/f/xoqyzooe"
 
 [dnb.theme.colors]
 primary = "#d02d19"

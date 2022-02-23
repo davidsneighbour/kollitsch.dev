@@ -1,9 +1,7 @@
 a {
   box-decoration-break: clone;
 
-  &.active {
-    color: var(--primary);
-  }
+  @extend .text-gradient-primary;
 
 }
 
@@ -13,12 +11,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-title);
-
   a {
-    color: var(--color-title);
     text-decoration: none;
+    @extend .text-gradient-primary;
   }
+  @extend .text-gradient-primary;
 }
 
 p {
@@ -37,11 +34,11 @@ blockquote {
 
   background-color: rgba($primary, 0.1);
 
-  a {
-    color: var(--color);
-  }
-
   cite {
     font-style: italic;
   }
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
 }

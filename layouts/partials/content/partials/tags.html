@@ -1,3 +1,5 @@
+<div class="tags">
 {{- range .Params.tags -}}
-  <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/" class="me-1">{{- . -}}</a>
+  <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/" class="me-1 badge bg-dark border border-primary">{{- . -}}</a>
 {{- end -}}
+</div>

@@ -42,3 +42,20 @@ blockquote {
 .border-primary {
   border-color: var(--primary) !important;
 }
+
+table {
+  .dark & {
+    @extend .table-dark;
+  }
+
+  .light & {
+    @extend .table-light;
+  }
+  // .highlight & {
+  //   @extend .table-borderless;
+  // }
+  @extend .table;
+  // @extend .table-bordered;
+  // @extend .table-hover;
+  @extend .table-sm;
+}

@@ -1,0 +1,17 @@
+{{- $title := $.Params.title -}}
+{{- $tag := $.Params.tag -}}
+{{- $limit := int ($.Params.limit) -}}
+{{- $tags := (index site.Taxonomies.tags $tag) -}}
+
+{{- if (eq $limit -1) -}}
+  {{- $limit = len site.Taxonomies.tags -}}
+{{- end -}}
+
+<h3>{{- $title| default "Related Posts" -}}</h3>
+<ul>
+{{- range (first $limit $tags.Pages) -}}
+  <li>
+    <a href="{{- .Permalink -}}">{{- .Title -}}</a>
+  </li>
+{{- end -}}
+</ul>

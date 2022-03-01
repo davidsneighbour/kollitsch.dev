@@ -55,29 +55,29 @@ fi
 # starting hugo server
 env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   hugo server \
-    --gc \
-    --environment development \
-    --disableFastRender \
-    --i18n-warnings \
-    --navigateToChanged \
-    --templateMetrics \
-    --templateMetricsHints \
-    --path-warnings \
-    --poll 1s \
-    --cleanDestinationDir \
-    --renderToDisk \
-    --buildDrafts --buildExpired --buildFuture \
-    --watch \
-    --enableGitInfo \
-    --forceSyncStatic \
-    --log true --logFile hugo.log \
-    --verbose \
-    --verboseLog \
-    --debug \
-    --meminterval 5s \
-    --memstats hugo_memory.log \
-    --print-mem \
-    --port "${PORT}" \
-    --baseURL http://"${IP}"/ \
-    --bind "${IP}" \
-    --panicOnWarning
+  --gc \
+  --environment development \
+  --disableFastRender \
+  --printI18nWarnings \
+  --navigateToChanged \
+  --templateMetrics \
+  --templateMetricsHints \
+  --printUnusedTemplates \
+  --poll 1s \
+  --cleanDestinationDir \
+  --renderToDisk \
+  --buildDrafts --buildExpired --buildFuture \
+  --watch \
+  --enableGitInfo \
+  --forceSyncStatic \
+  --log true --logFile hugo.log \
+  --verbose \
+  --verboseLog \
+  --debug \
+  --meminterval 5s \
+  --memstats hugo_memory.log \
+  --printMemoryUsage \
+  --port "${PORT}" \
+  --baseURL http://"${IP}"/ \
+  --bind "${IP}" \
+  --panicOnWarning

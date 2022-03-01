@@ -13,7 +13,7 @@
   <div class="card-header">
     {{- partial "content/partials/headline.html" . . -}}
   </div>
-  <div class="card-body">
+  <div class="card-body prose">
     <div class="d-flex justify-content-between">
       {{- partial "content/partials/author.html" $post -}}
       {{- partialCached "content/partials/publishing-date.html" $post $post -}}

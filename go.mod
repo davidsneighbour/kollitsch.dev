@@ -12,7 +12,7 @@ require (
 	github.com/dnb-org/dnb-hugo-giscus v1.0.4 // indirect
 	github.com/dnb-org/dnb-hugo-head v0.0.17 // indirect
 	github.com/dnb-org/dnb-hugo-hooks v1.1.0 // indirect
-	github.com/dnb-org/dnb-hugo-icons v1.1.3 // indirect
+	github.com/dnb-org/dnb-hugo-icons v1.1.4 // indirect
 	github.com/dnb-org/dnb-hugo-internals v0.0.2 // indirect
 	github.com/dnb-org/dnb-hugo-netlification v1.0.4 // indirect
 	github.com/dnb-org/dnb-hugo-opensearch v0.0.2 // indirect
@@ -27,6 +27,6 @@ require (
 	github.com/dnb-org/dnb-hugo-social v0.0.9 // indirect
 	github.com/dnb-org/dnb-hugo-youtube v1.0.7 // indirect
 	github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 // indirect
-	github.com/tailwindlabs/heroicons v1.0.3 // indirect
+	github.com/tailwindlabs/heroicons v1.0.5 // indirect
 	github.com/twbs/icons v1.8.1 // indirect
 )

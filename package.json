@@ -40,7 +40,7 @@
     "pixrem": "^5.0.0",
     "precss": "^4.0.0",
     "trim": ">=1.0.1",
-    "typescript": "^4.5.5",
+    "typescript": "^4.6.2",
     "yargs-parser": ">=21.0.0"
   },
   "scripts": {

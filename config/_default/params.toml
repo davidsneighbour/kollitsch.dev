@@ -30,6 +30,15 @@ break_points = ["520", "540", "720", "960"]
 # that is listening to POST requests from your local form
 contact_form_action = "https://formspree.io/f/xoqyzooe"
 
+################################################################################
+# footer setup
+################################################################################
+[dnb.theme.footer]
+show_version = true
+show_tag_as_version = true
+show_release_as_version = true
+repository = "https://github.com/davidsneighbour/kollitsch.de"
+
 [dnb.theme.colors]
 primary = "#d02d19"
 

@@ -41,7 +41,7 @@
   translation: at
 
 - id: this-is
-  translation: this is v%s
+  translation: this is %s
 
 - id: via
   translation: via

@@ -18,3 +18,5 @@ rssLimit = 10
 summaryLength = 40
 timeZone = "Asia/Bangkok"
 title = "kollitsch.de"
+# hack: adding a crazy timeout to prevent hugo from... timing out...
+timeout = 100000000000000

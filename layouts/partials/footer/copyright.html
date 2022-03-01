@@ -1,6 +1,9 @@
 <p class="my-5">
 {{- $year := partialCached "func/getYear.html" . . -}}
   {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | markdownify | safeHTML  -}}
-  &nbsp;-&nbsp;
-  {{- printf (i18n "this-is" | default "this is v%s") (index site.Data.dnb site.Params.dnb.theme.slug "build" "version") | markdownify | safeHTML -}}
+  &nbsp;&mdash;&nbsp;
+  {{- $version := (index site.Data.dnb site.Params.dnb.theme.slug "build" "version") -}}
+  {{- $repository := site.Params.dnb.theme.footer.repository | default "" -}}
+  {{- $versionpath := printf "[v%s](%s/releases/tag/v%s)" $version $repository $version -}}
+  {{- printf (i18n "this-is" | default "this is %s") $versionpath | markdownify | safeHTML -}}
 </p>

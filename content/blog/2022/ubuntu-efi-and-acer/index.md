@@ -26,3 +26,5 @@ The following steps should solve this issue:
 - Reboot and Ubuntu should boot up.
 
 I wonder why this is not something that Ubuntu could somehow do itself on a new installation.
+
+[A more verbose description of the problem can be found here](http://www.slabbe.org/blogue/2018/05/installing-ubuntu-18.04-on-aspire-es-11-es1-132-c6lg/).

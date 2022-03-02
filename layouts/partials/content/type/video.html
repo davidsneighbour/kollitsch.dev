@@ -11,16 +11,10 @@
       </figure>
   </div>
   <div class="card-header">
+    {{- partialCached "content/partials/publishing-date.html" $post $post -}}
     {{- partial "content/partials/headline.html" . . -}}
   </div>
   <div class="card-body prose">
-    <div class="d-flex justify-content-between">
-      {{- partial "content/partials/author.html" $post -}}
-      {{- partialCached "content/partials/publishing-date.html" $post $post -}}
-    </div>
-    <div class="d-flex flex-row">
-      {{- partialCached "content/partials/tags.html" $post $post -}}
-    </div>
     {{- with $fullcontent -}}
       {{- $post.Content -}}
     {{- else -}}

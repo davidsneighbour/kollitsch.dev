@@ -3,13 +3,10 @@
 <article class="card shadow-sm">
   {{- partialCached "content/partials/banner-images.html" $post $post -}}
   <div class="card-header">
+    {{- partialCached "content/partials/publishing-date.html" $post $post -}}
     {{- partial "content/partials/headline.html" . . -}}
   </div>
   <div class="card-body prose">
-    <div class="d-flex justify-content-between">
-      {{- partialCached "content/partials/tags.html" $post $post -}}
-      {{- partialCached "content/partials/publishing-date.html" $post $post -}}
-    </div>
     {{- with $fullcontent -}}
       {{- $post.Content -}}
     {{- else -}}

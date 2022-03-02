@@ -26,14 +26,14 @@ $sizes: 12, 32, 64;
   color: transparent;
 
   /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-  background-image: linear-gradient(60deg, var(--primary), #ffb03a);
+  background-image: linear-gradient(60deg, var(--primary), #f2ba01);
   background-clip: text;
 
   &:active,
   &:hover {
 
     /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    background-image: linear-gradient(60deg, var(--primary), darken(#ffb03a, 20%));
+    background-image: linear-gradient(60deg, var(--primary), darken(#f2ba01, 20%));
   }
 }
 

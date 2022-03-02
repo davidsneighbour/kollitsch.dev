@@ -41,7 +41,7 @@
     "precss": "^4.0.0",
     "trim": ">=1.0.1",
     "typescript": "^4.6.2",
-    "yargs-parser": ">=21.0.0"
+    "yargs-parser": ">=21.0.1"
   },
   "scripts": {
     "audit:html": "hugo && html-validate public/**/*.html",

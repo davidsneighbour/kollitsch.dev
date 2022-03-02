@@ -10,7 +10,7 @@ require (
 	github.com/dnb-org/dnb-hugo-feeds v0.0.16 // indirect
 	github.com/dnb-org/dnb-hugo-functions v1.0.6 // indirect
 	github.com/dnb-org/dnb-hugo-giscus v1.0.4 // indirect
-	github.com/dnb-org/dnb-hugo-head v0.0.17 // indirect
+	github.com/dnb-org/dnb-hugo-head v1.0.1 // indirect
 	github.com/dnb-org/dnb-hugo-hooks v1.1.0 // indirect
 	github.com/dnb-org/dnb-hugo-icons v1.1.4 // indirect
 	github.com/dnb-org/dnb-hugo-internals v0.0.2 // indirect

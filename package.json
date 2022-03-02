@@ -13,7 +13,7 @@
   "dependencies": {
     "alpinejs": "^3.9.0",
     "dotenv": "^16.0.0",
-    "netlify-cli": "^9.7.0",
+    "netlify-cli": "^9.9.0",
     "ninja-keys": "^1.1.12",
     "svgo": "^2.8.0"
   },

@@ -17,21 +17,25 @@
     {{- partial "content/partials/headline.html" . . -}}
   </div>
   <div class="card-body prose">
-    {{- with $post.Content -}}
+   {{- with $post.Content -}}
       {{- . -}}
     {{- end -}}
     <p>
       This is "{{ $post.Params.video.title }}" by <a href="{{$artist.link}}">{{ $artist.name}}</a>.
     </p>
     {{$artist.description | markdownify }}
+  {{- with $fullcontent -}}
+    {{- partial "content/partials/github-bar.html" $post $post -}}
+    {{- partial "content/partials/tags.html" $post $post -}}
+    {{- partial "content/partials/share-buttons.html" $post $post -}}
+    {{- partial "content/partials/comments.html" $post $post -}}
+  {{ else }}
   </div>
-<div class="card-footer text-end">
+  <div class="card-footer text-end">
     <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary">
       {{- i18n "read_article" | default "Read Article" -}}
       <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
     </a>
-    {{- with $fullcontent -}}
-      {{- partial "content/partials/comments.html" $post $post -}}
-    {{- end -}}
+  {{- end -}}
   </div>
 </article>

@@ -1,16 +1,16 @@
 import 'ninja-keys';
 
 // menu
-let ninjaTag = document.createElement("ninja-keys");
-const footer = document.getElementById("footer");
-footer.appendChild(ninjaTag);
+const ninjaTag = document.createElement('ninja-keys');
+const footer = document.querySelector('#footer');
+footer.append(ninjaTag);
 
 if (ninjaTag) {
   ninjaTag.data = [
     {
       id: 'Home',
       title: 'Home',
-      hotkey: 'ctrl+H',
+      hotkey: 'ctrl+shift+H',
       section: 'Navigation',
       handler: () => {
         window.location.href = '/';

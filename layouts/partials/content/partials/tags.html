@@ -1,5 +1,12 @@
-<div class="tags">
-{{- range .Params.tags -}}
-  <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/" class="me-1 badge bg-dark border border-primary">{{- . -}}</a>
-{{- end -}}
+{{ with .Params.tags }}
+<div class="tags fontsize-1">
+  <ul class="list-inline">
+    <li class="list-inline-item">{{- partialCached "bsicon.html" "tags-fill" "tags-fill" -}}</li>
+    {{- range . -}}
+      <li class="list-inline-item">
+        <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">#{{- . -}}</a>
+      </li>
+    {{- end -}}
+  </ul>
 </div>
+{{- end -}}

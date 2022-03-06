@@ -11,6 +11,7 @@
     {{- partial "content/section-sitetitle.html" . -}}
   {{- end -}}
   {{- partial "header.html" . -}}
+  {{- partialCached "content/100days-challenge.html" . -}}
   {{- block "main" . -}}{{- end -}}
   {{- partial "footer.html" . . -}}
 </body>

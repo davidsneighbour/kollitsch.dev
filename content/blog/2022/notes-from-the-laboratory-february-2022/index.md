@@ -1,7 +1,6 @@
 ---
 title: "Notes from the Laboratory: February 2022"
 linkTitle: "Laboratory 2022-02"
-description: ""
 date: 2022-03-01T19:58:03+07:00
 resources:
   - src: header.jpg

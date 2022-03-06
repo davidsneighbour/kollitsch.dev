@@ -9,7 +9,7 @@ menu:
     params:
       bsicon: envelope-paper-fill
 comments: false
-robotsdisallow: true
+posttype: page
 ---
 
 {{< contact-form >}}

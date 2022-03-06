@@ -9,4 +9,5 @@ menu:
     weight: 4
 comments: false
 robotsdisallow: true
+posttype: page
 ---

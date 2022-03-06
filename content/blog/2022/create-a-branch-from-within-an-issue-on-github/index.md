@@ -11,6 +11,7 @@ tags:
   - github
   - feature
   - project-management
+  - 100DaysToOffload
 ---
 
 > You can now create a branch directly from an issue to begin development work that's correlated to that issue. Branches connected to an issue are shown under the "Development" section, which has replaced "Linked pull requests", in the sidebar of an issue. When you create a pull request for one of these branches, it is automatically linked to the issue.

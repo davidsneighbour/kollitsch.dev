@@ -1,13 +1,15 @@
+{{- $video := site.Data.dnb.kollitsch.music -}}
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
+{{- $artist := index $video $post.Params.video.artist -}}
 <article class="card shadow-sm">
-  {{- $settings := dict "id" $post.Params.youtube -}}
+  {{- $settings := dict "id" $post.Params.video.youtube -}}
   <div class="post-slider">
       <figure>
         <div class="iframe-border">
           {{- partialCached "youtube.html" $settings $settings -}}
         </div>
-        <figcaption class="text-center">{{- $post.Title -}}</figcaption>
+        <figcaption class="text-center">{{ $artist.name }}: {{ $post.Params.video.title }}</figcaption>
       </figure>
   </div>
   <div class="card-header">
@@ -15,7 +17,13 @@
     {{- partial "content/partials/headline.html" . . -}}
   </div>
   <div class="card-body prose">
-    {{- $post.Content -}}
+    {{- with $post.Content -}}
+      {{- . -}}
+    {{- end -}}
+    <p>
+      This is "{{ $post.Params.video.title }}" by <a href="{{$artist.link}}">{{ $artist.name}}</a>.
+    </p>
+    {{$artist.description | markdownify }}
   </div>
 <div class="card-footer text-end">
     <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary">

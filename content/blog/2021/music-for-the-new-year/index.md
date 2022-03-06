@@ -12,8 +12,12 @@ resources:
     title: Khruangbin @ Villain | Pitchfork Live
 tags:
   - programming-music
-youtube: q4xKvHANqjk
-posttype: video
+posttype: music
+video:
+  artist: khruangbin
+  title: Khruangbin @ Villain | Pitchfork Live
+  youtube: q4xKvHANqjk
+
 ---
 
-Some mellow music to let the year run out to. No more programming for last 10 hours ;)
+Some mellow music to let the year run out to. No more programming for at least 10 hours ;)

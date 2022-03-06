@@ -10,7 +10,7 @@ title = "Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unspl
 src = "artiom-vallat-mx9axbKqKW8-unsplash.jpg"
 
 tags = [
-  "howto","ubuntu", "acer", "UEFI", "EFI"
+  "howto","ubuntu", "acer", "UEFI", "EFI", "100DaysToOffload"
 ]
 +++
 

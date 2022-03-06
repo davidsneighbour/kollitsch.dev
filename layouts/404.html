@@ -1,5 +1,20 @@
 {{- define "main" }}
 {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
-{{- partial "content/section-error.html" . -}}
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-5">
+        <article class="card shadow-sm">
+          <div class="card-header">
+            Four Oh Four: Page Not Found!
+          </div>
+          <div class="card-body prose">
+            <p>{{- .Summary -}}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
 {{- end -}}

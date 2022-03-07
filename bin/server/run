@@ -76,6 +76,7 @@ hugo server \
   --templateMetricsHints \
   --printPathWarnings \
   --poll 1s \
+  --minify \
   --cleanDestinationDir \
   --renderToDisk \
   --buildFuture \

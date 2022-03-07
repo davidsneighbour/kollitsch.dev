@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@dnb-org/htmlvalidate-config"
+  ],
+  "root": true
+}

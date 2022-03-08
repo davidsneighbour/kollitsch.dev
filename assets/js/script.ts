@@ -5,15 +5,15 @@ import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
 
 // change giscus theme
-function changeGiscusTheme(theme: string) {
+function changeGiscusTheme(theme = "dark_dimmed") {
 
-  let scheme = "light";
-  if (theme === "dark") {
-    scheme = "dark";
+  let scheme = "dark_dimmed";
+  if (theme === 'light') {
+    scheme = 'light';
   }
 
   function sendMessage(message: { setConfig: { theme: string; }; }) {
-    const iframe = document.querySelector('iframe.giscus-frame');
+    const iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
     if (!iframe) return;
     iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
   }
@@ -30,25 +30,20 @@ window.Alpine = Alpine;
 
 // themechanger
 Alpine.store('theme', {
-  mode: 'dim',
+  mode: 'dark',
 
   init() {
     const mode = localStorage.theme;
     if (mode !== undefined) {
       this.set(localStorage.theme);
-      let scheme = "light";
-      if (mode === "dark") {
-        scheme = "dark_dimmed";
-      }
-      setTimeout(changeGiscusTheme, 5000, scheme);
 
     } else if (
       window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+      window.matchMedia('(prefers-color-scheme: light)').matches
     ) {
-      this.set('dark');
-    } else {
       this.set('light');
+    } else {
+      this.set('dark');
     }
   },
 
@@ -56,6 +51,7 @@ Alpine.store('theme', {
     this.mode = mode;
     localStorage.theme = this.mode;
     changeGiscusTheme(mode)
+    setTimeout(changeGiscusTheme, 2000, mode);
   },
 });
 

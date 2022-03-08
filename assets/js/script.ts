@@ -5,23 +5,25 @@ import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
 
 // change giscus theme
-function changeGiscusTheme(theme = "dark_dimmed") {
-
-  let scheme = "dark_dimmed";
+function changeGiscusTheme(theme = 'dark_dimmed') {
+  let scheme = 'dark_dimmed';
   if (theme === 'light') {
     scheme = 'light';
   }
 
-  function sendMessage(message: { setConfig: { theme: string; }; }) {
-    const iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  function sendMessage(message: { setConfig: { theme: string } }) {
+    const iframe = document.querySelector(
+      'iframe.giscus-frame'
+    ) as HTMLIFrameElement;
     if (!iframe) return;
     iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
   }
 
   sendMessage({
     setConfig: {
-      theme: scheme
-    }
+      theme: scheme,
+    },
   });
 }
 
@@ -36,7 +38,6 @@ Alpine.store('theme', {
     const mode = localStorage.theme;
     if (mode !== undefined) {
       this.set(localStorage.theme);
-
     } else if (
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: light)').matches
@@ -50,7 +51,7 @@ Alpine.store('theme', {
   set(mode: string) {
     this.mode = mode;
     localStorage.theme = this.mode;
-    changeGiscusTheme(mode)
+    changeGiscusTheme(mode);
     setTimeout(changeGiscusTheme, 2000, mode);
   },
 });

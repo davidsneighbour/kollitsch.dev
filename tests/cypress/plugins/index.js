@@ -1,5 +1,8 @@
-// noinspection JSUnresolvedVariable
-module.exports = (on, config) =>
-  // eslint-disable-next-line global-require
-  // eslint-disable-next-line unicorn/prefer-module
-  require('@dnb-org/cypress-config')(config.configFile);
+/* eslint-disable global-require, import/no-extraneous-dependencies, @typescript-eslint/no-var-requires */
+const htmlvalidate = require('cypress-html-validate/dist/plugin');
+const loadConfig = require('@dnb-org/cypress-config');
+
+module.exports = (on, config) => {
+  htmlvalidate.install(on);
+  return loadConfig(config.configFile);
+};

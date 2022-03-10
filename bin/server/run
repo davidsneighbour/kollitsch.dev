@@ -78,7 +78,7 @@ hugo server \
   --poll 1s \
   --minify \
   --cleanDestinationDir \
-  --renderToDisk \
+  --renderStaticToDisk \
   --buildFuture \
   --watch \
   --enableGitInfo \

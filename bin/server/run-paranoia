@@ -65,7 +65,7 @@ env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   --printUnusedTemplates \
   --poll 1s \
   --cleanDestinationDir \
-  --renderToDisk \
+  --renderStaticToDisk \
   --buildDrafts --buildExpired --buildFuture \
   --watch \
   --enableGitInfo \

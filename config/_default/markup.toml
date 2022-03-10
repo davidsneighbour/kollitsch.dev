@@ -7,16 +7,21 @@
 [goldmark.extensions]
 definitionList = true
 footnote = true
-linkify = true
+linkify = false
+linkifyProtocol = "https"
+
 strikethrough = true
 table = true
 taskList = true
 typographer = true
 
 [goldmark.parser]
-attribute = true
 autoHeadingID = true
 autoHeadingIDType = "github"
+
+[goldmark.parser.attribute]
+block = false
+title = true
 
 [goldmark.renderer]
 hardWraps = false

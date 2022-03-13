@@ -47,7 +47,7 @@ to = "https://kollitsch.de"
 status = 301
 
 [[redirects]]
-from = "/repos/textpattern-plugins/current/"
+from = "/repos/*"
 to = "https://kollitsch.de"
 
 [[redirects]]

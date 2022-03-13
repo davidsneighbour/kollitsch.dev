@@ -1,10 +1,10 @@
 {{ with .Params.tags }}
-<div class="tags fontsize-1">
-  <ul class="list-inline">
+<div class="d-flex gap-2 fontsize-1">
+  <ul class="list-inline mb-0">
     <li class="list-inline-item">{{- partialCached "bsicon.html" "tags-fill" "tags-fill" -}}</li>
     {{- range . -}}
       <li class="list-inline-item">
-        <a href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">#{{- . -}}</a>
+        <a rel="tag" href="{{- site.BaseURL -}}tags/{{- .| urlize -}}/">#{{- . -}}</a>
       </li>
     {{- end -}}
   </ul>

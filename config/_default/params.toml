@@ -116,7 +116,9 @@ norton = ""
 icontheme = "bootstrap"
 
 [dnb.social.sharebuttons]
-networks = ["facebook", "twitter", "linkedin", "email", "whatsapp", "telegram"]
+networks = ["facebook", "twitter", "linkedin", "telegram"]
+icons = false
+sharetext = true
 
 # TODO: move layouts using this into dnb-hugo-social
 [[dnb.social.network]]

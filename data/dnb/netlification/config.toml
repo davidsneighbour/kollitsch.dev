@@ -9,7 +9,7 @@ script-src = [
   "https://giscus.app/",
   "'unsafe-eval'",
   "'unsafe-inline'",
-  'nonce-dnb-components-sw'
+  'nonce-dnb-components-sw',
 ]
 style-src = [
   "'self'",
@@ -22,7 +22,7 @@ img-src = [
   "https://d33wubrfki0l68.cloudfront.net",
   "data:",
   "https://i.ytimg.com",
-  "https://analytics.islandseo.tech"
+  "https://analytics.islandseo.tech",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
 connect-src = ["'self'"]

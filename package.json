@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-de",
-  "version": "2022.2.67",
+  "version": "2022.2.68",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.de",
   "author": {
@@ -16,6 +16,7 @@
     "@sentry/tracing": "^6.18.2",
     "alpinejs": "^3.9.1",
     "dotenv": "^16.0.0",
+    "html-validate": "^6.5.0",
     "netlify-cli": "^9.13.0",
     "ninja-keys": "^1.1.12",
     "svgo": "^2.8.0"
@@ -65,7 +66,8 @@
     "cypress:run": "cypress open --config-file tests/cypress/cypress.json",
     "cypress:verify": "cypress verify",
     "lighthouse": "bin/lighthouse",
-    "lint:html": "html-validate public",
+    "lint:html": "html-validate --config=tests/html-validator/config.json public",
+    "lint:html:config": "html-validate --print-config --config=tests/html-validator/config.json",
     "lint:scripts": "eslint assets/js --ext .ts",
     "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
     "lint:styles": "stylelint assets/scss",

@@ -1,5 +1,6 @@
 # TODO: check a way to load a list of URLs from JSON
 # see https://github.com/treosh/lighthouse-ci-action/issues/95
+# see https://github.com/patternfly/patternfly-elements/blob/9035f4e4d32fee407cbf49740ce2fca9aec9e2fc/.github/workflows/visual-regression.yml#L50-L75
 
 name: Lighthouse CI
 
@@ -15,12 +16,14 @@ jobs:
       - run: npm install
 
       - name: Wait for the Netlify Preview
+        # https://github.com/JakePartusch/wait-for-netlify-action
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
           site_name: "kollitsch"
 
       - name: Audit URLs using Lighthouse for desktop
+        # https://github.com/treosh/lighthouse-ci-action
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |

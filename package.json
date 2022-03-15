@@ -66,7 +66,7 @@
     "cypress:install": "cypress install",
     "cypress:run": "cypress open --config-file tests/cypress/cypress.json",
     "cypress:verify": "cypress verify",
-    "lighthouse": "bin/lighthouse",
+    "lighthouse": "bin/audit/lighthouse",
     "lint:html": "html-validate --config=tests/html-validator/config.json public",
     "lint:html:config": "html-validate --print-config --config=tests/html-validator/config.json",
     "lint:scripts": "eslint assets/js --ext .ts",

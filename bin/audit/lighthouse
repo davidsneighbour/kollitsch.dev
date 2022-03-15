@@ -27,5 +27,6 @@ lighthouse \
   --config-path=etc/lighthouse/config.js \
   --output "html" "csv" "json" \
   --output-path=tests/lighthouse/reports/"$(date +"%Y%m%d-%H%M%S")" \
+  --locale=en-US --quiet --chrome-flags=\"--headless\" \
   --view \
   http://"${IP}":"${PORT}"

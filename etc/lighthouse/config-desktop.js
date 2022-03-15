@@ -26,6 +26,7 @@ module.exports = {
     collect: {
       settings: {
         emulatedFormFactor: 'desktop',
+        plugins: ['lighthouse-plugin-field-performance'],
       },
     },
   },

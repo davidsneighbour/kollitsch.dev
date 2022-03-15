@@ -20,4 +20,11 @@ module.exports = {
     //   'seo/meta-description'
     // ]
   },
+  ci: {
+    collect: {
+      settings: {
+        emulatedFormFactor: 'mobile',
+      },
+    },
+  },
 };

@@ -1,3 +1,6 @@
+# TODO: check a way to load a list of URLs from JSON
+# see https://github.com/treosh/lighthouse-ci-action/issues/95
+
 name: Lighthouse CI
 
 on: push

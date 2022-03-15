@@ -1,4 +1,5 @@
 const links = require('../../../public/links.json');
+
 const items = links.links;
 
 const terminalLog = (violations) => {
@@ -6,17 +7,17 @@ const terminalLog = (violations) => {
     'log',
     `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'
     } ${violations.length === 1 ? 'was' : 'were'} detected`
-  )
+  );
   const violationData = violations.map(
     ({ id, impact, description, nodes }) => ({
       id,
       impact,
       description,
-      nodes: nodes.length
+      nodes: nodes.length,
     })
-  )
-  cy.task('table', violationData)
-}
+  );
+  cy.task('table', violationData);
+};
 
 describe('Component accessibility test', () => {
   items.forEach((route) => {
@@ -33,9 +34,11 @@ describe('Component accessibility test', () => {
               values: ['wcag21aa'],
             },
           },
-          terminalLog,
+          terminalLog
         );
       });
+
+      cy.htmlvalidate();
     });
   });
 });

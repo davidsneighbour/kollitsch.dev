@@ -59,6 +59,7 @@
     "clean:all": "npm run clean:hugo && npm run clean:npm",
     "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
     "clean:npm": "rimraf node_modules package-lock.json",
+    "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
     "commit": "./node_modules/cz-customizable/standalone.js",
     "cypress": "npm run cypress:run",
     "cypress:info": "cypress info",

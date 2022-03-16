@@ -18,7 +18,7 @@ done
 CURPATH="$(pwd -P)"
 
 PS3='Choose section: '
-OPTIONS=("Post" "Music to program to" "Tag" "Quit")
+OPTIONS=("Post" "Music to program to" "Notes from the Lab" "Tag" "Quit")
 select opt in "${OPTIONS[@]}"; do
   case $opt in
   "Post")
@@ -37,12 +37,19 @@ select opt in "${OPTIONS[@]}"; do
     TEMPLATE=${CURPATH}/bin/templates/music2program2.md
     NUMBER=$(cat "$INCREMENT_FILENAME")
     TEMPLATE=$(cat "$TEMPLATE")
-    INCREMENTED_NUMBER=$(( NUMBER + 1 ))
-    echo "${INCREMENTED_NUMBER}" > "${INCREMENT_FILENAME}"
+    INCREMENTED_NUMBER=$((NUMBER + 1))
+    echo "${INCREMENTED_NUMBER}" >"${INCREMENT_FILENAME}"
     #hugo new --kind music2program2 blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"
     mkdir -p ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/
-    echo eval "${TEMPLATE}" > ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/index.md
+    echo eval "${TEMPLATE}" >./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/index.md
     code ./content/blog/"${YEAR}"/music-to-program-to-"${INCREMENTED_NUMBER}"/index.md
+    exit
+    ;;
+  "Notes from the Lab")
+    YEAR=$(date +'%Y')
+    read -r -p 'Month: ' TAG
+    hugo new --kind notes-from-the-laboratory blog/"${YEAR}"/notes-from-the-laboratory-"${MONTH}"
+    code ./content/blog/"${YEAR}"/notes-from-the-laboratory-"${MONTH}"/index.md
     exit
     ;;
   "Tag")
@@ -53,20 +60,20 @@ select opt in "${OPTIONS[@]}"; do
     code ./content/tags/"${TAG}"/_index.md
     exit
     ;;
-  # "Notebook Entry")
-  #   read -r -p 'Title: ' NOTEBOOK
-  #   NOTEBOOK=${NOTEBOOK// /-}
-  #   NOTEBOOK=${NOTEBOOK,,}
-  #   hugo new notebook/"${NOTEBOOK}" --kind notebook
-  #   exit
-  #   ;;
-  # "Variable")
-  #   select TYPE in File Page Section Shortcode Site Taxonomy Menu; do
-  #     read -r -p 'Variable name: ' VARIABLE
-  #     hugo new variables/"${TYPE,,}"/"${VARIABLE}" --kind variable
-  #     exit
-  #   done
-  #   ;;
+    # "Notebook Entry")
+    #   read -r -p 'Title: ' NOTEBOOK
+    #   NOTEBOOK=${NOTEBOOK// /-}
+    #   NOTEBOOK=${NOTEBOOK,,}
+    #   hugo new notebook/"${NOTEBOOK}" --kind notebook
+    #   exit
+    #   ;;
+    # "Variable")
+    #   select TYPE in File Page Section Shortcode Site Taxonomy Menu; do
+    #     read -r -p 'Variable name: ' VARIABLE
+    #     hugo new variables/"${TYPE,,}"/"${VARIABLE}" --kind variable
+    #     exit
+    #   done
+    #   ;;
   "Quit")
     break
     ;;

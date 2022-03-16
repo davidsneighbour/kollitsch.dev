@@ -1,9 +1,9 @@
+# Listen: https://www.youtube.com/watch?v=6TGDakBYk90
 ###############################################################################
-# Hugo Defaults
+# Some defaults
 ###############################################################################
-title = "David's Neighbour"
-description = "Onlinemarketing Made in Paradise"
-siteslug = "davids-neighbour-de"
+description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
+siteslug = "kollitsch-de"
 mainSections = ["blog"]
 
 ###############################################################################

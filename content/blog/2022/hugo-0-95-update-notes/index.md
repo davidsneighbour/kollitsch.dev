@@ -55,6 +55,8 @@ tags:
 
 The history of this feature in Golang 1.18 is a bit complicated, but nicely explains the mindset of Golang programmers in [two](https://github.com/golang/go/issues/20523) [issues](https://github.com/golang/go/issues/20531) over nearly 5 years. Let's ignore that and enjoy these features availability.
 
+There is [an issue open about a problem with spaces](https://github.com/golang/go/issues/51670) in the `break` and `continue` keywords. For now keep using `{{break}}` and `{{continue}}` if you encounter errors.
+
 ### Feature change: `{{ and }}` and `{{ or }}` are short-circuiting
 
 The following snippet previously did throw an error for the second part `(eq .File.Extension "html")`, if`.File` was not defined. Now it will "[short circuit](https://github.com/golang/go/issues/31103)" immediately after Golang evaluates the first part to nil then the second part is not evaluated.

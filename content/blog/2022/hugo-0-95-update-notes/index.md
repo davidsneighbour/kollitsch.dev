@@ -55,9 +55,9 @@ tags:
 
 The history of this feature in Golang 1.18 is a bit complicated, but nicely explains the mindset of Golang programmers in [two](https://github.com/golang/go/issues/20523) [issues](https://github.com/golang/go/issues/20531) over nearly 5 years. Let's ignore that and enjoy these features availability.
 
-### Feature change: `{{ and }}` and `{{ or }}`
+### Feature change: `{{ and }}` and `{{ or }}` are short-circuiting
 
-The following snippet previously did throw an error for the second part `(eq .File.Extension "html")`, if`.File` was not defined. Now it will "[short circuit](https://github.com/golang/go/issues/31103)" immediately after Golang evaluates the second part to nil it's not evaluated.
+The following snippet previously did throw an error for the second part `(eq .File.Extension "html")`, if`.File` was not defined. Now it will "[short circuit](https://github.com/golang/go/issues/31103)" immediately after Golang evaluates the first part to nil then the second part is not evaluated.
 
 ```go
 {{ if and .File (eq .File.Extension "html") }}

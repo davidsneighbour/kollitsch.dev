@@ -1,3 +1,4 @@
+{{- $context := . -}}
 {{- $commentform := "true" -}}
 {{ if isset .Params "comments" }}
   {{- if (eq false (index .Params "comments")) -}}
@@ -16,7 +17,7 @@
 {{- with (and site.Params.dnb.giscus $commentform) -}}
   {{- if (eq "true" $commentform) -}}
     <div class="col-12">
-      {{- partial "content/giscus.html" . -}}
+      {{- partialCached "content/giscus.html" $context $context -}}
       <script>
         const theme = localStorage.theme;
         let scheme = "light";

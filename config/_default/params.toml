@@ -150,11 +150,10 @@ dataRepo = "davidsneighbour/kollitsch.de"
 dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
 dataCategory = "Comments"
 dataCategoryId = "DIC_kwDOGDHt584B_i3-"
-#dataMapping="title"
+dataMapping = "specific"
 dataReactionsEnabled = "0"
 dataEmitMetadata = "0"
-#dataTheme="light"
-#dataLang="en"
+dataTheme = "dark"
 
 ###############################################################################
 # dnb-hugo-security @see https://github.com/dnb-org/dnb-hugo-security

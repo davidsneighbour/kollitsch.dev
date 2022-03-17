@@ -18,8 +18,9 @@
     "dotenv": "^16.0.0",
     "html-validate": "^6.5.0",
     "lockfile-lint": "^4.7.4",
-    "netlify-cli": "^9.13.1",
+    "netlify-cli": "^9.13.2",
     "ninja-keys": "^1.1.12",
+    "sass": "^1.49.9",
     "svgo": "^2.8.0"
   },
   "devDependencies": {

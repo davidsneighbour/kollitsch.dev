@@ -23,21 +23,21 @@ $sizes: 12, 32, 64;
 
 // theme gradient
 .text-gradient-primary {
-  color: transparent;
+  // color: transparent;
 
-  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-  background-image: linear-gradient(60deg, var(--primary), #f2ba01);
-  background-clip: text;
+  // /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  // background-image: linear-gradient(60deg, var(--primary), #f2ba01);
+  // background-clip: text;
 
-  /* stylelint-disable-next-line */
-  -webkit-background-clip: text;
+  // /* stylelint-disable-next-line */
+  // -webkit-background-clip: text;
 
-  &:active,
-  &:hover {
+  // &:active,
+  // &:hover {
 
-    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    background-image: linear-gradient(60deg, var(--primary), darken(#f2ba01, 20%));
-  }
+  //   /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  //   background-image: linear-gradient(60deg, var(--primary), darken(#f2ba01, 20%));
+  // }
 }
 
 // font sizes

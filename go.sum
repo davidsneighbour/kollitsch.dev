@@ -10,8 +10,6 @@ github.com/dnb-org/dnb-hugo-feeds v0.0.16 h1:Gy5w/dQw4cdPP8pvv+DDBNgyIhOm5FTgZLN
 github.com/dnb-org/dnb-hugo-feeds v0.0.16/go.mod h1:Jh+qZeOQlZCM1UDfgITvFFo8jIBwkJjpV8LFOhrTZdw=
 github.com/dnb-org/dnb-hugo-functions v1.0.7 h1:odQcI3oTzW7c1DSa0Gz4WFjSu8rQVYoUsQA0WsmuHjE=
 github.com/dnb-org/dnb-hugo-functions v1.0.7/go.mod h1:bTX/w1EzpOQYB+XOcInG/k/zPK8/pj7P2OuQNTXnp5g=
-github.com/dnb-org/dnb-hugo-giscus v1.0.4 h1:6jP7ErBJ7tofX7lfSomsjhVwDbv78qhHITy4z71ikkw=
-github.com/dnb-org/dnb-hugo-giscus v1.0.4/go.mod h1:dJ8N7PCZlgciN7MtI7UQOorkqvmv+7CYKv38VozQHvs=
 github.com/dnb-org/dnb-hugo-giscus v1.1.0 h1:vBrE1K3xKSGVoSLZcrla1wc5p5z86SQX6/mI5jqo2gs=
 github.com/dnb-org/dnb-hugo-giscus v1.1.0/go.mod h1:dJ8N7PCZlgciN7MtI7UQOorkqvmv+7CYKv38VozQHvs=
 github.com/dnb-org/dnb-hugo-head v1.0.3 h1:oQAcfLNKy62+KiXRTGvEP8hnrjptywFjwYwD98ylVCo=

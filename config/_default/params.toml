@@ -154,6 +154,11 @@ dataMapping = "specific"
 dataReactionsEnabled = "0"
 dataEmitMetadata = "0"
 dataTheme = "dark"
+dataLoading = "lazy"
+
+[dnb.giscus.extended]
+defaultCommentOrder = "oldest"
+origins = ["htttps://kollitsch.de", "http://192.168.1.201:1313"]
 
 ###############################################################################
 # dnb-hugo-security @see https://github.com/dnb-org/dnb-hugo-security

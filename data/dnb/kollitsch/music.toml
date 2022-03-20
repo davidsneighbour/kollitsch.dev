@@ -22,3 +22,8 @@ description = ""
 name = "Ben Lukas Boysen"
 link = "https://benlukasboysen.com/"
 description = "Ben Lukas Boysen, also known by his stage name Hecq, is an electronic music composer based in Berlin. (via Wikipedia)"
+
+[rammstein]
+name = "Rammstein"
+link = "https://www.rammstein.de/en/home/"
+description = "Rammstein is a German Neue Deutsche Härte band formed in Berlin in 1994."

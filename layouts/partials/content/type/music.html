@@ -20,8 +20,12 @@
    {{- with $post.Content -}}
       {{- . -}}
     {{- end -}}
+    {{- $name := $artist.name -}}
+    {{- with $post.Params.video.name -}}
+      {{- $name = . -}}
+    {{- end -}}
     <p>
-      This is "{{ $post.Params.video.title }}" by <a href="{{$artist.link}}">{{ $artist.name}}</a>.
+      This is "{{ $post.Params.video.title }}" by <a href="{{$artist.link}}">{{ $name }}</a>.
     </p>
     {{$artist.description | markdownify }}
   {{- with $fullcontent -}}

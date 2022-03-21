@@ -9,11 +9,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-auditor"
 
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-debug"
+# [[imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = "github.com/dnb-org/dnb-hugo-debug"
 
 # [[imports]]
 # disable = false
@@ -27,11 +27,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-feeds"
 
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-functions"
+# [[imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = "github.com/dnb-org/dnb-hugo-functions"
 
 [[imports]]
 disable = false
@@ -45,11 +45,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-head"
 
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-hooks"
+# [[imports]]
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
+# path = "github.com/dnb-org/dnb-hugo-hooks"
 
 [[imports]]
 disable = false

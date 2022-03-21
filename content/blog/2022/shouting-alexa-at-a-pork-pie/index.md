@@ -10,6 +10,7 @@ tags:
   - alexa
   - useful
   - video
+  - 100DaysToOffload
 ---
 
 This really important video about Alexa is a great example of how to use the Alexa API to create a skill. Not really, but watch it until the end to understand ;)

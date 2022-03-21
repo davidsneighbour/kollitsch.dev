@@ -10,7 +10,7 @@ lastmod: 2022-03-21T23:27:23+07:00
 
 # add multiple resources to create a slider gallery
 resources:
-  - title: "Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)"  
+  - title: "Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)"
     src: "marcel-eberle-SCBREPQuYoM-unsplash.jpg"
 tags:
   - 100DaysToOffload

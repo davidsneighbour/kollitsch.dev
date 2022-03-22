@@ -1,4 +1,50 @@
 {
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "previewPath": null,
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Article preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
+    }
+  ],
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.content.autoUpdateDate": false,
   "frontMatter.content.defaultFileType": "md",
@@ -66,7 +112,6 @@
   "frontMatter.taxonomy.alignFilename": false,
   "frontMatter.taxonomy.categories": [],
   "frontMatter.taxonomy.commaSeparatedFields": [],
-  "frontMatter.taxonomy.contentTypes": [],
   "frontMatter.taxonomy.customTaxonomy": [
     {
       "id": "customTaxonomy",
@@ -85,7 +130,7 @@
   "frontMatter.taxonomy.noPropertyValueQuotes": [
     "date"
   ],
-  "frontMatter.taxonomy.seoContentLengh": 1760,
+  "frontMatter.taxonomy.seoContentLength": 1760,
   "frontMatter.taxonomy.seoDescriptionField": "description",
   "frontMatter.taxonomy.seoDescriptionLength": 170,
   "frontMatter.taxonomy.seoSlugLength": 75,

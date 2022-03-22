@@ -48,3 +48,11 @@ $nav-link-hover-color: var(--primary);
 
 // code
 $code-color: var(--primary);
+
+// lines
+$hr-margin-y: $spacer;
+$hr-color: var(--primary);
+$hr-bg-color: currentColor;
+$hr-border-width: 0 ;
+$hr-height: $border-width;
+$hr-opacity: 1;

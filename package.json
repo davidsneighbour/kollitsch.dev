@@ -20,6 +20,7 @@
     "lockfile-lint": "^4.7.4",
     "netlify-cli": "^9.13.3",
     "ninja-keys": "^1.1.12",
+    "package.json": "^2.0.1",
     "sass": "^1.49.9",
     "svgo": "^2.8.0"
   },
@@ -86,7 +87,7 @@
     "serve": "run-p serve:hugo",
     "serve:hugo": "bin/server/run",
     "serve:script": "tsc --watch",
-    "server": "npm run serve",
+    "server": "run-p serve watch",
     "server:paranoid": "bin/server/run-paranoid",
     "update": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db",
     "build:frontmatter": "node assets/config/frontmatter/build.ts",

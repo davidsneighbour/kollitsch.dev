@@ -88,7 +88,12 @@
     "serve:script": "tsc --watch",
     "server": "npm run serve",
     "server:paranoid": "bin/server/run-paranoid",
-    "update": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db"
+    "update": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db",
+    "build:frontmatter": "node assets/config/frontmatter/build.ts",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build:frontmatter": "assets/config/frontmatter/**/*.*"
   },
   "private": true,
   "browserslist": [

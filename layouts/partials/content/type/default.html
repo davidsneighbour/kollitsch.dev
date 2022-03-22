@@ -19,10 +19,7 @@
       </a>
     {{- end -}}
     {{- with $fullcontent -}}
-      {{- partial "content/partials/github-bar.html" $post $post -}}
-      {{- partial "content/partials/tags.html" $post $post -}}
-      {{- partial "content/partials/share-links.html" $post $post -}}
-      {{- partial "content/partials/comments.html" $post $post -}}
+      {{- partial "content/partials/content-footer.html" $post -}}
     {{- end -}}
   </div>
 </article>

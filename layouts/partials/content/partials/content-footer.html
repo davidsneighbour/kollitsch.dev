@@ -1,0 +1,10 @@
+{{- $post := . -}}
+<div id="comments">
+  {{- partial "content/partials/comments.html" $post $post -}}
+</div>
+<hr/>
+<div id="content-footer" class="pt-1">
+  {{- partial "content/partials/github-bar.html" $post $post -}}
+  {{- partial "content/partials/tags.html" $post $post -}}
+  {{- partial "content/partials/share-links.html" $post $post -}}
+</div>

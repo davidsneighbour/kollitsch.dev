@@ -9,7 +9,7 @@
     <p>{{- $post.Summary -}}</p>
   </div>
   <div class="card-footer text-end">
-    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary">
+    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
       Read posts about <strong>{{ $post.Title -}}</strong>
       <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
     </a>

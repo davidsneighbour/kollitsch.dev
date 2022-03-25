@@ -73,3 +73,8 @@ table {
 
   box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
 }
+
+.section-meta {
+  border-top: 1px solid var(--primary);
+  @extend .pt-3;
+}

@@ -1,9 +1,8 @@
 {{- $post := . -}}
-<div id="comments">
+<div class="section-comments">
   {{- partial "content/partials/comments.html" $post $post -}}
 </div>
-<hr/>
-<div id="content-footer" class="pt-1">
+<div class="section-meta">
   {{- partial "content/partials/github-bar.html" $post $post -}}
   {{- partial "content/partials/tags.html" $post $post -}}
   {{- partial "content/partials/share-links.html" $post $post -}}

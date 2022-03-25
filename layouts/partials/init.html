@@ -1,6 +1,8 @@
 {{- $paginator := dict -}}
 {{- if eq "home" .Kind -}}
-  {{- $paginator = $.Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
+  {{ $p := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $p = slice site.Home | append $p }}
+  {{- $paginator = $.Paginate $p -}}
 {{- else if .IsNode -}}
   {{- $paginator = $.Paginator -}}
 {{- end -}}

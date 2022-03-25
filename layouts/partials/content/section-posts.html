@@ -13,14 +13,16 @@
       {{- end -}}
 
       {{- range $index, $item := $paginator.Pages -}}
-        {{- $post := dict "context" $item "fullcontent" $fullcontent -}}
-        {{- $col := "6" -}}
-        {{- if eq $index 0 -}}
-          {{- $col = "12" -}}
-        {{- end -}}
-        <div class="col-12 col-md-{{ $col }} mb-4">
-          {{- partial "content/post.html" $post $post -}}
-        </div>
+        {{ if not .IsHome }}
+          {{- $post := dict "context" $item "fullcontent" $fullcontent -}}
+          {{- $col := "6" -}}
+          {{- if and (eq $index 1) (eq $paginator.PageNumber 1) (eq "home" $.Kind) -}}
+            {{- $col = "12" -}}
+          {{- end -}}
+          <div class="col-12 col-md-{{ $col }} mb-4">
+            {{- partial "content/post.html" $post $post -}}
+          </div>
+        {{ end }}
       {{- end -}}
 
     </div>

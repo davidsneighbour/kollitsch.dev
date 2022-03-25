@@ -1,93 +1,105 @@
-# kollitsch.de
-
-This is the [Hugo](https://gohugo.io/) setup and content for [kollitsch.de](https://kollitsch.de/). The site is hosted on Netlify and most of this repository is set up to work on Netlify and use it's features (like minification).
+This is the [Hugo](https://gohugo.io/) setup and content for [kollitsch.de](https://kollitsch.de/). The site is currently hosted on Netlify and most of this repository is set up to work on Netlify and use its features.
 
 Note: we will check out Cloudflare Pages soon. More bandwidth and more build time (unlimited).
 
-## setup and update algolia search (might not work)
+**Content**
+- [Setup](#setup)
+  - [General Notes](#general-notes)
+  - [Requirements](#requirements)
+  - [Setup development environment](#setup-development-environment)
+  - [pre-commit](#pre-commit)
+- [Development](#development)
+  - [Development server](#development-server)
+- [Releasing](#releasing)
+- [Deployment](#deployment)
+  - [Publishing on Netlify](#publishing-on-netlify)
+- [Theme](#theme)
+  - [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
+- [Advanced setup](#advanced-setup)
 
-- copy `.env.sample` to `.env`
-- fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys
+## Setup
 
-## Publishing
+### General Notes
 
-- setup signed tags with `npm config set sign-git-tag true`
-- create patch release with `npm run release`
-- create minor release with `npm run release:minor`
-- create major release with `npm run release:major`
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-## Local Development Environment
+### Requirements
+
+- [Hugo](https://gohugo.io/)
+- [Node.js](https://nodejs.org/)
+- [Bash](https://www.gnu.org/software/bash/)
+
+### Setup development environment
+
+- Copy `.env.sample` to `.env` and fill in the values. This will be used by scripts and build system for various tasks. You MUST NOT commit the `.env` file to the repository for obvious reasons.
+- To setup Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
+- Run `npm install` to install all dependencies.
+- Install and setup `pre-commit` if you intend to send commits to the repository. This will ensure that all commits adhere to the quality and security standards of this project.
+
+  ```bash
+  pip install pre-commit
+  pre-commit install
+  ```
 
 ### pre-commit
 
 If you want then install and setup `pre-commit` to check commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
 
-```shell
+```bash
 pip install pre-commit
 pre-commit install
 ```
 
 Other `pre-commit` commands are:
 
-```shell
+```bash
 pre-commit run blocklint --all-files # check specific hook on all files
 pre-commit run --all-files # check rules on all files
 pre-commit autoupdate # update repositories
 pre-commit gc # garbage collection
 ```
 
-## NPM scripts
-
-### Installation and Setup
-
-```shell
-npm install
-```
+## Development
 
 ### Development server
 
-Add a file named `.env` to the root of your repository containing your local setup:
+Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` is badly named, as it could also be a hostname (without protocol in the beginning).
 
 ```ini
 IP=192.168.1.201
 PORT=1313
-ALGOLIA_APP_ID=
-ALGOLIA_API_KEY=
-ALGOLIA_INDEX_NAME=
 ```
 
-Do NOT commit this file to the repository.
+This will be used to configure the Hugo server so that you will be able to access the server from other machines (and mobile devices). Again: You MUST NOT commit this file to the repository as it might contain private information.
 
-To run the development server run
+To start the development server run `npm run server`
 
-```shell
-npm run server
-```
+## Releasing
 
-### Build scripts
+- Setup signed tags with `npm config set sign-git-tag true`
+- Create patch release with `npm run release` or `npm run release:patch`
+- Create minor release with `npm run release:minor`
+- Create major release with `npm run release:major`
 
-This repository is currently optimised for Netlify. To create a local copy of the website run the following command:
+## Deployment
 
-```shell
-./bin/netlify.sh
-```
+### Publishing on Netlify
 
-## HeroIcons
-
-- [Github Repository](https://github.com/tailwindlabs/heroicons)
-- [Website with icon overview](https://heroicons.com/)
-
-## Publishing on Netlify
+This repository is currently optimised for Netlify. To create a local copy of the website run `npm run build` or `./bin/netlify/build`.
 
 - running `npm run release` will create a new tag in the `main` branch and release on Netlify.
 
-## Design Paradigms for this theme
+## Theme
 
-- Margins are applied to the bottom of items.
-- This is a mobile-first design.
-- No layouts inside of layouts (container>row>col>row>col) if not explicitly required.
+Currently the theme is integrated into the repository. I plan to release the theme as [Dark Skies](https://github.com/dnb-org/dnb-hugo-dark-skies) in a while.
+
+### Design paradigms for the used theme
+
+- Spacing is applied from top to bottom, meaning that margins are applied to the bottom of items.
+- Responsive design principles are applied as mobile-first.
+- No rows inside of rows (container>row>col>row>col) if this is not explicitly required.
 - Do not re-invent the wheel. Reuse, recycle.
 
-## Repository Setup
+## Advanced setup
 
-- To enable step debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true.
+- To enable step debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`.

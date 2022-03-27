@@ -1,0 +1,46 @@
+{
+  "frontMatter.taxonomy.fieldGroups": [
+    {
+      "id": "author",
+      "labelField": "name",
+      "fields": [
+        {
+          "title": "Author Name",
+          "name": "name",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Social link",
+          "name": "social",
+          "type": "string",
+          "single": true
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "labelField": "src",
+      "fields": [
+        {
+          "title": "Path/Filename",
+          "name": "src",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Name (Identifier)",
+          "name": "name",
+          "type": "string",
+          "single": true
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,11 @@
     {
       "name": "default",
       "previewPath": null,
-      "pageBundle": false,
+      "pageBundle": true,
+      "filetype": "md",
+      "fieldGroup": [
+        "resources"
+      ],
       "fields": [
         {
           "title": "Title",
@@ -23,11 +27,6 @@
           "isPublishDate": true
         },
         {
-          "title": "Article preview",
-          "name": "preview",
-          "type": "image"
-        },
-        {
           "title": "Is in draft",
           "name": "draft",
           "type": "draft"
@@ -41,6 +40,14 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
+        },
+        {
+          "title": "Resources",
+          "name": "resources",
+          "type": "block",
+          "fieldGroup": [
+            "resources"
+          ]
         }
       ]
     }

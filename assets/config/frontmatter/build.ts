@@ -16,12 +16,25 @@ files.forEach(function mergeConfigs(value) {
   };
 });
 
+const files2 = fs.readdirSync(path.join(__dirname, '/partials/'));
+
+let partialsConfiguration = {};
+
+files2.forEach(function mergeConfigs(value) {
+  const data = fs.readFileSync(path.join(__dirname, `/partials/${value}`));
+  partialsConfiguration = {
+    ...partialsConfiguration,
+    ...JSON.parse(data),
+  };
+});
+
 fs.writeFileSync(
   'frontmatter.json',
   `${JSON.stringify(
     {
       ...defaultConfiguration,
       ...typeConfiguration,
+      ...partialsConfiguration,
     },
     undefined,
     2

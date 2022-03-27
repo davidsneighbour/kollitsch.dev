@@ -43,13 +43,13 @@ netlify = "https://kollitsch.netlify.app"
 
 [[redirects]]
 from = "https://main--kollitsch.netlify.app/"
-to = "https://kollitsch.de"
+to = "/"
 status = 301
 
 [[redirects]]
 from = "/repos/*"
-to = "https://kollitsch.de"
+to = "/"
 
 [[redirects]]
 from = "/[2005|2006|2007|2008]/*"
-to = "https://kollitsch.de"
+to = "/"

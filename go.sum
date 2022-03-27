@@ -12,8 +12,8 @@ github.com/dnb-org/dnb-hugo-functions v1.0.7 h1:odQcI3oTzW7c1DSa0Gz4WFjSu8rQVYoU
 github.com/dnb-org/dnb-hugo-functions v1.0.7/go.mod h1:bTX/w1EzpOQYB+XOcInG/k/zPK8/pj7P2OuQNTXnp5g=
 github.com/dnb-org/dnb-hugo-giscus v1.1.0 h1:vBrE1K3xKSGVoSLZcrla1wc5p5z86SQX6/mI5jqo2gs=
 github.com/dnb-org/dnb-hugo-giscus v1.1.0/go.mod h1:dJ8N7PCZlgciN7MtI7UQOorkqvmv+7CYKv38VozQHvs=
-github.com/dnb-org/dnb-hugo-head v1.0.3 h1:oQAcfLNKy62+KiXRTGvEP8hnrjptywFjwYwD98ylVCo=
-github.com/dnb-org/dnb-hugo-head v1.0.3/go.mod h1:NAUO52tYCeDnoyfOHsjSZ5AmCZ9Wywou344FdlYCOA4=
+github.com/dnb-org/dnb-hugo-head v1.0.4 h1:IeVmTUbpMPz1IfRgLCNIqKdyvnStSLvcaPjElsuo/xM=
+github.com/dnb-org/dnb-hugo-head v1.0.4/go.mod h1:NAUO52tYCeDnoyfOHsjSZ5AmCZ9Wywou344FdlYCOA4=
 github.com/dnb-org/dnb-hugo-hooks v1.1.0 h1:dmVi19eea7VytVKEK+Hkgzncon7rmWolHVFqjMKHwCA=
 github.com/dnb-org/dnb-hugo-hooks v1.1.0/go.mod h1:mWy5sE8Jqhg6YeNkAC5LUBI1iaNXyAtpmqsJmcr6JFo=
 github.com/dnb-org/dnb-hugo-icons v1.1.4 h1:ZaK5bultBcHenVJ6SAKmzYUFjfg4VHx8cywXXx/kwAk=

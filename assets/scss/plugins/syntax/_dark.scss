@@ -25,7 +25,13 @@
 /* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em;
   padding: 0 0.4em;
 
-  color: #7f7f7f; }
+  color: #7f7f7f;
+
+  display: block;
+  width: 2rem !important;
+
+  text-align: right;
+}
 /* LineNumbers */ .chroma .ln { margin-right: 0.4em;
   padding: 0 0.4em;
 

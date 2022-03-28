@@ -18,7 +18,7 @@ done
 CURPATH="$(pwd -P)"
 
 PS3='Choose section: '
-OPTIONS=("Post" "Music to program to" "Notes from the Lab" "Tag" "Quit")
+OPTIONS=("Post" "Music to program to" "Notes from the Lab" "Hugo Release Notes" "Tag" "Quit")
 select opt in "${OPTIONS[@]}"; do
   case $opt in
   "Post")
@@ -50,6 +50,13 @@ select opt in "${OPTIONS[@]}"; do
     read -r -p 'Month: ' TAG
     hugo new --kind notes-from-the-laboratory blog/"${YEAR}"/notes-from-the-laboratory-"${MONTH}"
     code ./content/blog/"${YEAR}"/notes-from-the-laboratory-"${MONTH}"/index.md
+    exit
+    ;;
+  "Hugo Release Notes")
+    read -r -p 'Version: ' VERSION
+    YEAR=$(date +'%Y')
+    hugo new --kind hugo-release-notes blog/"${YEAR}"/hugo-"${VERSION}"-release-notes/index.md
+    code ./content/blog/"${YEAR}"/hugo-"${VERSION}"-release-notes/index.md
     exit
     ;;
   "Tag")

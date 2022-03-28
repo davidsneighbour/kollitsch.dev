@@ -2,9 +2,9 @@
 title: "Hugo 0.96 update notes"
 linkTitle: "Hugo 0.96"
 description: ""
-date: 2022-03-28T14:30:49+07:00
-publishDate: 2022-03-28T14:30:49+07:00
-lastmod: 2022-03-28T14:30:49+07:00
+date: 2022-03-28T17:58:49+07:00
+publishDate: 2022-03-28T17:58:49+07:00
+lastmod: 2022-03-28T17:58:49+07:00
 resources:
   - title: "GoHugo"
     src: "header.png"

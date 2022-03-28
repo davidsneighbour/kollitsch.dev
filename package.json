@@ -18,7 +18,7 @@
     "dotenv": "^16.0.0",
     "html-validate": "^6.6.1",
     "lockfile-lint": "^4.7.4",
-    "netlify-cli": "^9.13.5",
+    "netlify-cli": "^9.13.6",
     "ninja-keys": "^1.1.12",
     "package.json": "^2.0.1",
     "sass": "^1.49.9",
@@ -55,15 +55,16 @@
     "audit:hugo": "./bin/dnb-hugo-audit",
     "build": "run-s build:critical build:hugo",
     "build:critical": "",
+    "build:frontmatter": "node assets/config/frontmatter/build.ts",
     "build:highlights": "hugo gen chromastyles --style=monokai > assets/scss/components/_syntaxhighlightingdark.scss && hugo gen chromastyles --style=monokailight > assets/scss/components/_syntaxhighlightinglight.scss",
     "build:hugo": "hugo --minify",
     "build:script": "tsc",
     "check-env": "node -e 'console.log(process.env)' | grep npm_config_",
     "clean": "run-p clean:hugo",
     "clean:all": "npm run clean:hugo && npm run clean:npm",
+    "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
     "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
     "clean:npm": "rimraf node_modules package-lock.json",
-    "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
     "commit": "./node_modules/cz-customizable/standalone.js",
     "cypress": "npm run cypress:run",
     "cypress:info": "cypress info",
@@ -90,11 +91,7 @@
     "server": "run-p serve watch",
     "server:paranoid": "bin/server/run-paranoid",
     "update": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db",
-    "build:frontmatter": "node assets/config/frontmatter/build.ts",
     "watch": "npm-watch"
-  },
-  "watch": {
-    "build:frontmatter": "assets/config/frontmatter/**/*.*"
   },
   "private": true,
   "browserslist": [
@@ -117,5 +114,8 @@
     ]
   },
   "slug": "kollitsch-de",
-  "url": "https://kollitsch.de"
+  "url": "https://kollitsch.de",
+  "watch": {
+    "build:frontmatter": "assets/config/frontmatter/**/*.*"
+  }
 }

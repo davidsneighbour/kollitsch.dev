@@ -5,43 +5,11 @@ publish = "./public"
 command = "./bin/netlify/build"
 
 [context.production.environment]
-HUGO_VERSION = "0.95.0"
+HUGO_VERSION = "0.96.0"
 HUGO_ENV = "production"
-GO_VERSION = "1.17"
-NODE_ENV = "development"
 
 [[plugins]]
 package = "/bin/netlify/plugins/hugo-helper"
 
 [plugins.inputs]
 debug = true
-
-[[redirects]]
-from = "https://main--kollitsch.netlify.app/"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/repos/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2005/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2006/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2007/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2008/*"
-to = "/"
-status = 301

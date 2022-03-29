@@ -5,7 +5,7 @@ publish = "./public"
 command = "./bin/netlify/build"
 
 [context.production.environment]
-HUGO_VERSION = "0.95.0"
+HUGO_VERSION = "0.96.0"
 HUGO_ENV = "production"
 GO_VERSION = "1.17"
 NODE_ENV = "development"

@@ -12,6 +12,7 @@
   "repository": "davidsneighbour/kollitsch.de",
   "dependencies": {
     "@dnb-org/htmlvalidate-config": "^0.0.9",
+    "@fullhuman/postcss-purgecss": "^4.1.3",
     "@sentry/node": "^6.19.2",
     "@sentry/tracing": "^6.19.2",
     "alpinejs": "^3.9.5",

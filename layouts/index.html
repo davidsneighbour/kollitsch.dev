@@ -1,5 +1,9 @@
 {{- define "main" -}}
 {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+{{- $paginator := .Scratch.Get "paginator" -}}
+{{- if lt $paginator.PageNumber 2  -}}
+  {{- partialCached "content/section-sitetitle.html" . -}}
+{{- end -}}
 {{- partial "content/section-posts.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
 {{- end -}}

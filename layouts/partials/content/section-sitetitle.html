@@ -10,4 +10,8 @@
       </div>
     </div>
   </div>
+  {{- partialCached "func/hook.html" ( dict
+    "hook" "post-sitetitle"
+    "context" .
+  ) -}}
 </section>

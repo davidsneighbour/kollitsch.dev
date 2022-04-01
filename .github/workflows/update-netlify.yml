@@ -21,7 +21,7 @@ jobs:
           ${GITHUB_WORKSPACE}/bin/netlify/update-hugo-version "${{ steps.gohugohugo.outputs.release }}" > "${GITHUB_WORKSPACE}/netlify.toml"
       - name: Create Pull Request
         id: createpr
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4.0.1
         with:
           commit-message: "chore(config): update Netlify configuration"
           committer: Patrick Kollitsch <patrick@davids-neighbour.com>

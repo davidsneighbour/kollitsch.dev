@@ -1,8 +1,10 @@
-{{- .Scratch.Add "trace" (slice "<partials/footer.html>") -}}
 <footer id="footer" class="py-5">
   <div class="container">
     <div class="row">
-      {{- partial "func/hook.html" ( dict "hook" "footer-start" "context" . ) -}}
+      {{- partial "func/hook.html" ( dict
+        "hook" "footer-start"
+        "context" .
+      ) -}}
       <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
           {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
@@ -18,12 +20,10 @@
           {{- partial "footer/debugging.html" . -}}
         {{- end -}}
       </div>
-      {{- partial "func/hook.html" ( dict "hook" "footer-end" "context" . ) -}}
+      {{- partial "func/hook.html" ( dict
+        "hook" "footer-end"
+        "context" .
+      ) -}}
     </div>
   </div>
 </footer>
-{{- partial "func/hook.html" ( dict "hook" "body-end-pre-script" "context" . ) -}}
-{{- partialCached "footer/script.html" . -}}
-{{- partial "func/hook.html" ( dict "hook" "body-end" "context" . ) -}}
-{{- partialCached "footer/service-worker.html" . -}}
-{{- .Scratch.Add "trace" (slice "<partials/footer.html>") -}}

@@ -38,8 +38,8 @@ github.com/dnb-org/dnb-hugo-security v1.0.3 h1:lq4+XeLyw1lCnwy95zKYpxSkrYDA5uBIG
 github.com/dnb-org/dnb-hugo-security v1.0.3/go.mod h1:JqWX81rIw1+WStFZBY0J9FfcBFwBI7P/5aJLaDueGv4=
 github.com/dnb-org/dnb-hugo-shortcodes v1.4.22 h1:Np5EeT3RHaUKLPcbbv6eu+MjzaiUFUpI8AvOrjjZSt4=
 github.com/dnb-org/dnb-hugo-shortcodes v1.4.22/go.mod h1:lWIgpS0CtU6r9XiUH0AlGPeXH5esnF/GtZRUIhjJBY8=
-github.com/dnb-org/dnb-hugo-sitemap v0.0.2 h1:COCJ7UpW+AMxKjjNJGkflGcG353zGRjR0gywki+AMr0=
-github.com/dnb-org/dnb-hugo-sitemap v0.0.2/go.mod h1:VxMcmcfV6ulDhKdbEFUIjGE/O5GUFYCkqXMvm27/hWM=
+github.com/dnb-org/dnb-hugo-sitemap v0.0.4 h1:YhQsAPDjD3UHdD/2UaD8yZR6J+41hHZRKQvtyWe4RmM=
+github.com/dnb-org/dnb-hugo-sitemap v0.0.4/go.mod h1:ibk53R5mdQReB/LBB9etkmPZYBh9JiTL4ho659aHzmA=
 github.com/dnb-org/dnb-hugo-social v0.0.13 h1:ug1G1+aEw5QdmjEsWJJ4dWbpGkNmF+GpE//d3RI11N8=
 github.com/dnb-org/dnb-hugo-social v0.0.13/go.mod h1:YCXg0BdudoEwII99QmFSHb1tID7+4GAJIo5QW5tNHbY=
 github.com/dnb-org/dnb-hugo-youtube v1.0.7 h1:RK3TN9CUlo1wSzxxT6+2P4MiHv+ISTdKyPoKyYbIalI=

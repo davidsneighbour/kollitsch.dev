@@ -40,6 +40,7 @@
     "@types/bootstrap": "^5.1.9",
     "algoliasearch": "^4.13.0",
     "ansi-regex": ">=6.0.1",
+    "axios": "^0.26.1",
     "instantsearch.js": "^4.40.2",
     "lazysizes": "^5.3.2",
     "lighthouse-plugin-field-performance": "^3.0.0",

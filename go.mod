@@ -22,6 +22,6 @@ require (
 	github.com/dnb-org/dnb-hugo-security v1.0.3 // indirect
 	github.com/dnb-org/dnb-hugo-shortcodes v1.4.22 // indirect
 	github.com/dnb-org/dnb-hugo-sitemap v0.0.4 // indirect
-	github.com/dnb-org/dnb-hugo-social v0.0.14 // indirect
+	github.com/dnb-org/dnb-hugo-social v0.0.15 // indirect
 	github.com/dnb-org/dnb-hugo-youtube v1.0.7 // indirect
 )

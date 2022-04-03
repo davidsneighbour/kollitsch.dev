@@ -29,3 +29,5 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 - **Pokki:** My baby (a shihtzu dog, don't worry) is having more and more age related issues. Just yesterday his hind-legs gave up and he was crouching over the grounds for a day or two. He knows that his time is running out and I try to make it as amenable as possible for him. If I get up with the birds in the morning, today at 4am, we don't even need to spend the rest of the morning cleaning the house 🐶 The whole "lets give him all the food he craves at all times" strategy spectacularly backfired. Lots of cleaning. I won't be listening to anyone telling me to give him more food anymore.
 - **Language Learning:** I didn't do much in this resort... well, I started looking into [Golang](https://pkg.go.dev/)... does that count? I am programming a little CLI app that ties into [Hugo](https://gohugo.io) to create new content and objects of content.
 - **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.
+
+{{< taglist tag="laboratory" limit="-1" title="Recent Notes" >}}

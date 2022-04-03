@@ -32,12 +32,15 @@ xhtml = false
 anchorLineNos = true
 codeFences = true
 guessSyntax = true
+hl_Lines = ""
 lineAnchors = "code"
 lineNos = true
-lineNumbersInTable = true
+lineNoStart = 1
+lineNumbersInTable = false
 noClasses = false
-tabWidth = 2
+noHl = false
 style = "xcode"
+tabWidth = 2
 
 [tableOfContents]
 endLevel = 4

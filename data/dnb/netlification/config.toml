@@ -27,7 +27,7 @@ img-src = [
   "https://analytics.islandseo.tech",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
-connect-src = ["'self'"]
+connect-src = ["'self'", "https://api.github.com/"]
 media-src = ["'self'"]
 object-src = ["'self'"]
 child-src = ["'self'"]

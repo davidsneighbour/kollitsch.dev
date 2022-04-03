@@ -11,3 +11,6 @@ see https://bugzilla.mozilla.org/show_bug.cgi?id=1404468
 <script>
 const FF_FOUC_FIX = true;
 </script>
+{{ if .IsHome }}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+{{ end }}

@@ -22,6 +22,10 @@ github.com/dnb-org/dnb-hugo-internals v0.0.2 h1:P0NP7ywjZK/f+amDdFsJJAeBiuxHd+B8
 github.com/dnb-org/dnb-hugo-internals v0.0.2/go.mod h1:yjnD1iY7TwRZMyzlu1D4L14dinJtgBdIq5pyhxYfv0Q=
 github.com/dnb-org/dnb-hugo-netlification v1.0.7 h1:t3BgM7alekQUQr9USAEH9yymm4ZfXFn/wW8zAU/0SXU=
 github.com/dnb-org/dnb-hugo-netlification v1.0.7/go.mod h1:hjX0tbEZCr7avoOBS59Zd7U4rqcc3two5yhHnLBVKGo=
+github.com/dnb-org/dnb-hugo-netlification v1.0.8 h1:EP0f6GKyugEuyp6pZVFW2tHllKcGvUYGgO06xYt2EG0=
+github.com/dnb-org/dnb-hugo-netlification v1.0.8/go.mod h1:hjX0tbEZCr7avoOBS59Zd7U4rqcc3two5yhHnLBVKGo=
+github.com/dnb-org/dnb-hugo-netlification v1.0.9 h1:7P+sL2ljw2QEAf7eY77z1A9/eo4fR/UjEdE93QaLtJM=
+github.com/dnb-org/dnb-hugo-netlification v1.0.9/go.mod h1:hjX0tbEZCr7avoOBS59Zd7U4rqcc3two5yhHnLBVKGo=
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2 h1:xr0j4/lVXEMslxYH0KGdd+JMd4CYWz/k9cXCWGMpffc=
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2/go.mod h1:E0wsVgFRTWWfMvRlMoTlP2ONBCg9CEUl3AXYoYWE5jk=
 github.com/dnb-org/dnb-hugo-pictures v0.0.13 h1:BhSzq0462FVe3NSmCFb/oVsxVI5mPvYDUcYCtVvrPxE=

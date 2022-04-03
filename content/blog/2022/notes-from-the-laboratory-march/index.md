@@ -1,6 +1,7 @@
 ---
 title: "Notes from the Laboratory: March 2022"
 linkTitle: "Laboratory 2022-03"
+description: "Another monthly report from the Laboratories of kollitsch.de for the month of March 2022"
 date: 2022-04-03T18:55:03+07:00
 resources:
   - src: header.jpg

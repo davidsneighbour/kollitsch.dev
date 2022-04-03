@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 {{- partial "init.html" . -}}
-{{- partial "func/hook.html" ( dict "hook" "setup" "context" . ) -}}
+{{- partial "func/hook.html" ( dict
+  "hook" "setup"
+  "context" .
+) -}}
 <html lang="{{- site.LanguageCode | default "en-US" -}}">
 <head>
   {{- partial "head.html" . -}}
 </head>
 <body x-data :class="$store.theme.mode">
-  {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
-  {{- if .IsHome -}}
-    {{- partial "content/section-sitetitle.html" . -}}
-  {{- end -}}
+  {{- partial "func/hook.html" ( dict
+    "hook" "body-start"
+    "context" .
+  ) -}}
   {{- partial "header.html" . -}}
-  {{- partialCached "content/100days-challenge.html" . -}}
   {{- block "main" . -}}{{- end -}}
   {{- partial "footer.html" . . -}}
+  {{- partial "func/hook.html" ( dict
+    "hook" "body-end-pre-script"
+    "context" .
+  ) -}}
+  {{- partialCached "footer/script.html" . -}}
+  {{- partial "func/hook.html" ( dict
+    "hook" "body-end"
+    "context" .
+  ) -}}
+  {{- partialCached "footer/service-worker.html" . -}}
 </body>
 </html>
 {{- partial "func/hook.html" ( dict

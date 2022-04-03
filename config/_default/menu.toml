@@ -10,25 +10,20 @@ bsicon = "house-fill"
 [[footer]]
 name = "Tags"
 url = "/tags/"
-weight = 10
+weight = 200
 [footer.params]
 bsicon = "tags-fill"
 
 [[footer]]
 name = "Home"
 url = "/"
-weight = 1
+weight = 100
 [footer.params]
 bsicon = "house-fill"
 
 [[footer]]
 name = "Contact"
 url = "/contact/"
-weight = 90
+weight = 900
 [footer.params]
 bsicon = "envelope-paper-fill"
-
-# [[footer]]
-# name = "Categories"
-# url = "categories/"
-# weight = 20

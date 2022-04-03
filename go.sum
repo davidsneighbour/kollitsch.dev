@@ -20,8 +20,8 @@ github.com/dnb-org/dnb-hugo-icons v1.1.4 h1:ZaK5bultBcHenVJ6SAKmzYUFjfg4VHx8cywX
 github.com/dnb-org/dnb-hugo-icons v1.1.4/go.mod h1:U5HN9EgCG9CfgtQs/47m3rPtWwkaiJ1Cm9OvtR8YM+c=
 github.com/dnb-org/dnb-hugo-internals v0.0.2 h1:P0NP7ywjZK/f+amDdFsJJAeBiuxHd+B8W/Y9gQx5uTo=
 github.com/dnb-org/dnb-hugo-internals v0.0.2/go.mod h1:yjnD1iY7TwRZMyzlu1D4L14dinJtgBdIq5pyhxYfv0Q=
-github.com/dnb-org/dnb-hugo-netlification v1.0.6 h1:/ptBVmHE3ztHNgLloOM4XNLoAAcYVwLSxGrlr3io8fE=
-github.com/dnb-org/dnb-hugo-netlification v1.0.6/go.mod h1:hjX0tbEZCr7avoOBS59Zd7U4rqcc3two5yhHnLBVKGo=
+github.com/dnb-org/dnb-hugo-netlification v1.0.7 h1:t3BgM7alekQUQr9USAEH9yymm4ZfXFn/wW8zAU/0SXU=
+github.com/dnb-org/dnb-hugo-netlification v1.0.7/go.mod h1:hjX0tbEZCr7avoOBS59Zd7U4rqcc3two5yhHnLBVKGo=
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2 h1:xr0j4/lVXEMslxYH0KGdd+JMd4CYWz/k9cXCWGMpffc=
 github.com/dnb-org/dnb-hugo-opensearch v0.0.2/go.mod h1:E0wsVgFRTWWfMvRlMoTlP2ONBCg9CEUl3AXYoYWE5jk=
 github.com/dnb-org/dnb-hugo-pictures v0.0.13 h1:BhSzq0462FVe3NSmCFb/oVsxVI5mPvYDUcYCtVvrPxE=
@@ -40,8 +40,8 @@ github.com/dnb-org/dnb-hugo-shortcodes v1.4.22 h1:Np5EeT3RHaUKLPcbbv6eu+MjzaiUFU
 github.com/dnb-org/dnb-hugo-shortcodes v1.4.22/go.mod h1:lWIgpS0CtU6r9XiUH0AlGPeXH5esnF/GtZRUIhjJBY8=
 github.com/dnb-org/dnb-hugo-sitemap v0.0.4 h1:YhQsAPDjD3UHdD/2UaD8yZR6J+41hHZRKQvtyWe4RmM=
 github.com/dnb-org/dnb-hugo-sitemap v0.0.4/go.mod h1:ibk53R5mdQReB/LBB9etkmPZYBh9JiTL4ho659aHzmA=
-github.com/dnb-org/dnb-hugo-social v0.0.13 h1:ug1G1+aEw5QdmjEsWJJ4dWbpGkNmF+GpE//d3RI11N8=
-github.com/dnb-org/dnb-hugo-social v0.0.13/go.mod h1:YCXg0BdudoEwII99QmFSHb1tID7+4GAJIo5QW5tNHbY=
+github.com/dnb-org/dnb-hugo-social v0.0.14 h1:TdD7wkFJ0F6IwTzZhoKjQ38nFi8llfvHOhbHEkqWwDE=
+github.com/dnb-org/dnb-hugo-social v0.0.14/go.mod h1:YCXg0BdudoEwII99QmFSHb1tID7+4GAJIo5QW5tNHbY=
 github.com/dnb-org/dnb-hugo-youtube v1.0.7 h1:RK3TN9CUlo1wSzxxT6+2P4MiHv+ISTdKyPoKyYbIalI=
 github.com/dnb-org/dnb-hugo-youtube v1.0.7/go.mod h1:C3LJDr1+xwiJzc5T5Ct5ZuvCCLyh60hAnXJMxn3FvtE=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 h1:NaIMifqZJiyLbGxFqrMIwUtaZp+prmNZ7VasS83N+sk=

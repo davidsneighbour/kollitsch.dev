@@ -1,41 +1,34 @@
-+++
-title = "{{ replace .Name "-" " " | title }}"
-linkTitle = "{{ replace .Name "-" " " | title }}"
-# used for SEO description, should not go over 180 characters
-description = ""
-# used for the preview of the post on list pages
-# if missing or empty the automatic excerpt is used
-summary = ""
+---
+title: {{ replace .Name "-" " " | title }}
+linkTitle: {{ replace .Name "-" " " | title }}
+description: ""
+summary: ""
+date: {{ .Date }}
+publishDate: {{ .Date }}
+lastmod: {{ .Date }}
 
-# dates
-date = {{ .Date }}
-publishDate = {{ .Date }}
-lastmod = {{ .Date }}
+resources:
+- title: "Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)"
+  name: "image name if other than src"
+  src: "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
 
-# add multiple resources to create a slider gallery
-[[resources]]
-title = "Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via [Unsplash](https://unsplash.com/s/photos/horizon)"
-name = "image name if other than src"
-src = "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
+author:
+- name: "Patrick Kollitsch"
+  homepage: "https://kollitsch.de/"
+  image: "/images/patrick-kollitsch.jpg"
+  email: "patrick@kollitsch.de"
 
-# remove the author section to use the sites author setup
-[author]
-name = "Patrick Kollitsch"
-homepage = "https://kollitsch.de/"
-image = "/images/patrick-kollitsch.jpg"
-email = "patrick@kollitsch.de"
+categories:
+- category1
 
-# taxonomification
-categories = [
-  "category1"
-]
-tags = [
-  "tag1",
-  "tag2"
-]
-keywords = [
-  "keyword1",
-  "keyword2"
-]
-video = 12344443
-+++
+tags:
+- tag1
+- tag2
+- tag3
+
+keywords:
+- keyword1
+- keyword2
+- keyword3
+
+---

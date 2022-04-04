@@ -106,6 +106,20 @@ pinterest = ""
 norton = ""
 
 ################################################################################
+# dnb-hugo-matomo @see https://github.com/dnb-org/dnb-hugo-matomo
+################################################################################
+[dnb.matomo]
+host = "https://analytics.islandseo.tech/"
+siteid = 1000
+language = "en"
+
+[dnb.matomo.optout]
+fontfamily = "Tomkin"
+textcolor = "ffffff"
+backgroundcolor = "000000"
+fontsize = "1rem"
+
+################################################################################
 # dnb-hugo-social @see https://github.com/dnb-org/dnb-hugo-social
 ################################################################################
 [dnb.social]

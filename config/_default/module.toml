@@ -67,6 +67,12 @@ path = "github.com/dnb-org/dnb-hugo-internals"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/dnb-org/dnb-hugo-matomo"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/dnb-org/dnb-hugo-netlification"
 
 [[imports]]

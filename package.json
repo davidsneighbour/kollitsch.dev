@@ -23,7 +23,8 @@
     "ninja-keys": "^1.1.12",
     "package.json": "^2.0.1",
     "sass": "^1.49.10",
-    "svgo": "^2.8.0"
+    "svgo": "^2.8.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@dnb-org/bootstrap-config": "^3.5.9",

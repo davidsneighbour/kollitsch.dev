@@ -17,7 +17,7 @@
 {{- with (and site.Params.dnb.giscus $commentform) -}}
   {{- if (eq "true" $commentform) -}}
     <div class="col-12">
-      {{- partialCached "content/giscus.html" $context $context -}}
+      {{- partial "content/giscus.html" $context $context -}}
       <script>
         const theme = localStorage.theme;
         let scheme = "light";

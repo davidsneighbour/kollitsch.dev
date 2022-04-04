@@ -1,5 +1,5 @@
 <p class="my-5">
-{{- $year := partialCached "func/getYear.html" . . -}}
+{{- $year := partial "func/getYear.html" . . -}}
   {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML  -}}
   &nbsp;&mdash;&nbsp;
   {{- $version := (index site.Data.dnb site.Params.dnb.theme.slug "build" "version") -}}

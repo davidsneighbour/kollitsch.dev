@@ -1,12 +1,12 @@
+{{- $fullcontent := false -}}
+{{- if (eq $.Kind "page") -}}
+  {{- $fullcontent = true -}}
+{{- end -}}
+{{- $post := dict "context" . "fullcontent" $fullcontent -}}
 <section class="section--content">
   <div class="container">
     <div class="row">
       <div class="col-12 mb-5">
-        {{- $fullcontent := false -}}
-        {{- if (eq $.Kind "page") -}}
-          {{- $fullcontent = true -}}
-        {{- end -}}
-        {{- $post := dict "context" . "fullcontent" $fullcontent -}}
         {{ partial "content/post.html" $post $post }}
       </div>
     </div>

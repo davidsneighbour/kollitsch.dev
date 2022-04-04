@@ -3,9 +3,9 @@
   class="navbar fixed-top navbar-expand-md shadow-lg mb-5">
   <div class="container-fluid">
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
-    {{- partialCached "header/navbar/brand.html" . -}}
+    {{- partial "header/navbar/brand.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-logo" "context" . ) -}}
-    {{- partialCached "header/navbar/toggle-button.html" . -}}
+    {{- partial "header/navbar/toggle-button.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre-mainnav" "context" . ) -}}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto me-md-0">
@@ -24,7 +24,7 @@
                 data-toggle="dropdown"
                 aria-expanded="false"
                 >
-                  {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+                  {{- with .Params.bsicon }}{{ partial "bsicon.html" . . }} {{ end -}}
                   {{- .Name -}}
                 </a
               >
@@ -32,7 +32,7 @@
                 {{ range .Children }}
                   <li>
                     <a class="dropdown-item" href="{{ .URL | absLangURL }}">
-                      {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+                      {{- with .Params.bsicon }}{{ partial "bsicon.html" . . }} {{ end -}}
                       {{- .Name -}}
                     </a>
                   </li>
@@ -42,7 +42,7 @@
           {{ else }}
             <li class="nav-item {{ if $active }}active{{ end }}">
               <a class="nav-link" href="{{ .URL | absLangURL }}">
-                {{- with .Params.bsicon }}{{ partialCached "bsicon.html" . . }} {{ end -}}
+                {{- with .Params.bsicon }}{{ partial "bsicon.html" . . }} {{ end -}}
                 {{- .Name -}}
               </a>
             </li>

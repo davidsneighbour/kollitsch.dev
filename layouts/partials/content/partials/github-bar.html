@@ -1,6 +1,6 @@
 {{- $post := . -}}
 {{- $last_modified := $post.Lastmod.Format "Monday, January 2, 2006 at 15:04 MST" -}}
-{{- $githash := partialCached "func/getGitHash.html" $post $post -}}
+{{- $githash := partial "func/getGitHash.html" $post $post -}}
 {{- $hashlink := "" -}}
 {{- with $githash }}
   {{- $hashlink = (printf "[<a href='https://github.com/davidsneighbour/kollitsch.de/commit/%s'>%s</a>]"
@@ -9,12 +9,12 @@
   -}}
 {{- end -}}
 <div class="d-flex gap-2 fontsize-1">
-  {{- partialCached "bsicon.html" "github" "github" -}}
+  {{- partial "bsicon.html" "github" "github" -}}
   <span>Last Modified: {{- $last_modified -}}</span>
   {{- with $hashlink -}}
     <span>{{- . | safeHTML -}}</span>
     <span>
-      {{- partialCached "bsicon.html" "binoculars-fill" "binoculars-fill" }}
+      {{- partial "bsicon.html" "binoculars-fill" "binoculars-fill" }}
       <a href="https://github.com/davidsneighbour/kollitsch.de/blame/main/content/{{ $post.File.Path }}"
         target="_blank" rel="nofollow,noreferrer">View history
       </a>

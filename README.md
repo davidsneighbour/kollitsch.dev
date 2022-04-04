@@ -1,8 +1,11 @@
+# Kollitsch.de
+
 This is the [Hugo](https://gohugo.io/) setup and content for [kollitsch.de](https://kollitsch.de/). The site is currently hosted on Netlify and most of this repository is set up to work on Netlify and use its features.
 
 Note: we will check out Cloudflare Pages soon. More bandwidth and more build time (unlimited).
 
 **Content**
+
 - [Setup](#setup)
   - [General Notes](#general-notes)
   - [Requirements](#requirements)
@@ -27,11 +30,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 - [Hugo](https://gohugo.io/)
 - [Node.js](https://nodejs.org/)
-- [Bash](https://www.gnu.org/software/bash/)
+- [Bash](https://www.gnu.org/software/bash/) (Patrick loves Bash!)
 
 ### Setup development environment
 
-- Copy `.env.sample` to `.env` and fill in the values. This will be used by scripts and build system for various tasks. You MUST NOT commit the `.env` file to the repository for obvious reasons.
+- Copy `.env.sample` to `.env` and fill in the values. This will be used by scripts and build system for various tasks. You MUST NOT commit the `.env` file to the repository for obvious reasons. Take notes of your configuration data in something safe, like [Keybase](https://keybase.io/).
 - To setup Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 - Run `npm install` to install all dependencies.
 - Install and setup `pre-commit` if you intend to send commits to the repository. This will ensure that all commits adhere to the quality and security standards of this project.
@@ -40,6 +43,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   pip install pre-commit
   pre-commit install
   ```
+
+- If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit --no-verify`. Use your brain on this one.
 
 ### pre-commit
 
@@ -63,7 +68,7 @@ pre-commit gc # garbage collection
 
 ### Development server
 
-Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` is badly named, as it could also be a hostname (without protocol in the beginning).
+Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` is badly named, as it could also be a hostname (without protocol in the beginning). If that triggers your OCD then open an issue or a PR in either this repo or over at [dnb-org/dnb-hugo-bin](https://github.com/dnb-org/dnb-hugo-bin/).
 
 ```ini
 IP=192.168.1.201
@@ -72,7 +77,7 @@ PORT=1313
 
 This will be used to configure the Hugo server so that you will be able to access the server from other machines (and mobile devices). Again: You MUST NOT commit this file to the repository as it might contain private information.
 
-To start the development server run `npm run server`
+To start the development server run `npm run server`. This will run the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more the better). Running just `hugo server` will run Hugo on [localhost:1313](http://localhost:1313).
 
 ## Releasing
 
@@ -91,7 +96,7 @@ This repository is currently optimised for Netlify. To create a local copy of th
 
 ## Theme
 
-Currently the theme is integrated into the repository. I plan to release the theme as [Dark Skies](https://github.com/dnb-org/dnb-hugo-dark-skies) in a while.
+Currently the theme is integrated into the repository. I plan to release the theme as [Dark Skies](https://github.com/dnb-org/dnb-hugo-dark-skies) in a bit.
 
 ### Design paradigms for the used theme
 

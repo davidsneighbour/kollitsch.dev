@@ -65,8 +65,8 @@
 *.PDF diff=astextplain
 *.rtf diff=astextplain
 *.RTF diff=astextplain
-*.md text diff=markdown
-*.mdx text diff=markdown
+*.md text diff=markdown core.whitespace=unset
+*.mdx text diff=markdown core.whitespace=unset
 *.tex text diff=tex
 *.adoc text
 *.textile text
@@ -194,14 +194,14 @@ Dockerfile text
 
 # Documentation
 *.ipynb text
-*.markdown text diff=markdown
-*.md text diff=markdown
-*.mdwn text diff=markdown
-*.mdown text diff=markdown
-*.mkd text diff=markdown
-*.mkdn text diff=markdown
-*.mdtxt text
-*.mdtext text
+*.markdown text diff=markdown core.whitespace=unset
+*.md text diff=markdown core.whitespace=unset
+*.mdwn text diff=markdown core.whitespace=unset
+*.mdown text diff=markdown core.whitespace=unset
+*.mkd text diff=markdown core.whitespace=unset
+*.mkdn text diff=markdown core.whitespace=unset
+*.mdtxt text core.whitespace=unset
+*.mdtext text core.whitespace=unset
 *.txt text
 AUTHORS text
 CHANGELOG text

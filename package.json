@@ -19,10 +19,10 @@
     "dotenv": "^16.0.0",
     "html-validate": "^6.6.1",
     "lockfile-lint": "^4.7.4",
-    "netlify-cli": "^9.15.0",
+    "netlify-cli": "^9.16.2",
     "ninja-keys": "^1.1.12",
     "package.json": "^2.0.1",
-    "sass": "^1.49.10",
+    "sass": "^1.49.11",
     "svgo": "^2.8.0",
     "xml2js": "^0.4.23"
   },

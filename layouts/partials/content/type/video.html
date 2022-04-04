@@ -5,13 +5,13 @@
   <div class="post-slider">
       <figure>
         <div class="iframe-border">
-          {{- partialCached "youtube.html" $settings $settings -}}
+          {{- partial "youtube.html" $settings $settings -}}
         </div>
         <figcaption class="text-center">{{- $post.Title -}}</figcaption>
       </figure>
   </div>
   <div class="card-header">
-    {{- partialCached "content/partials/publishing-date.html" $post $post -}}
+    {{- partial "content/partials/publishing-date.html" $post $post -}}
     {{- partial "content/partials/headline.html" . . -}}
   </div>
   <div class="card-body prose">
@@ -20,7 +20,7 @@
 <div class="card-footer text-end">
     <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
       {{- i18n "read_article" | default "Read Article" -}}
-      <span class="ps-2">{{- partialCached "bsicon.html" "body-text" "body-text" -}}</span>
+      <span class="ps-2">{{- partial "bsicon.html" "body-text" "body-text" -}}</span>
     </a>
     {{- with $fullcontent -}}
       {{- partial "content/partials/comments.html" $post $post -}}

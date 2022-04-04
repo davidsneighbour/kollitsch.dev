@@ -4,7 +4,7 @@
   "context" .
 ) -}}
 {{- if lt (.Scratch.Get "paginator").PageNumber 2  -}}
-  {{- partialCached "content/section-sitetitle.html" . -}}
+  {{- partial "content/section-sitetitle.html" . -}}
 {{- end -}}
 {{- partial "content/section-posts.html" . -}}
 {{- partial "func/hook.html" ( dict

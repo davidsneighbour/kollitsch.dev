@@ -7,15 +7,15 @@
       ) -}}
       <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
-          {{- partialCached "footer/newsletter.html" site.Params.subscription -}}
+          {{- partial "footer/newsletter.html" site.Params.subscription -}}
         {{- end -}}
         {{- with site.Menus.footer -}}
-          {{- partialCached "footer/footer-menu.html" . -}}
+          {{- partial "footer/footer-menu.html" . -}}
         {{- end -}}
         {{- with site.Params.social -}}
-          {{- partialCached "footer/social-media.html" . -}}
+          {{- partial "footer/social-media.html" . -}}
         {{- end -}}
-        {{- partialCached "footer/copyright.html" . -}}
+        {{- partial "footer/copyright.html" . -}}
         {{- if site.IsServer -}}
           {{- partial "footer/debugging.html" . -}}
         {{- end -}}

@@ -1,4 +1,5 @@
 ---
+type: hugo-release-notes
 title: "Hugo $VERSION update notes"
 linkTitle: "Hugo $VERSION"
 description: ""

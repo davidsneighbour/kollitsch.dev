@@ -76,11 +76,9 @@
       ]
     }
   ],
-  "frontMatter.taxonomy.dateField": "date",
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
   "frontMatter.taxonomy.frontMatterType": "YAML",
   "frontMatter.taxonomy.indentArrays": false,
-  "frontMatter.taxonomy.modifiedField": "lastmod",
   "frontMatter.taxonomy.noPropertyValueQuotes": [
     "date"
   ],

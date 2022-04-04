@@ -27,6 +27,13 @@
           "isPublishDate": true
         },
         {
+          "title": "Last modified date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isModifiedDate": true
+        },
+        {
           "title": "Is in draft",
           "name": "draft",
           "type": "draft"

@@ -8,7 +8,7 @@
 <head>
   {{- partial "head.html" . -}}
 </head>
-<body x-data :class="$store.theme.mode">
+<body x-data :class="$store.theme.mode" class="dark">
   {{- partial "func/hook.html" ( dict
     "hook" "body-start"
     "context" .

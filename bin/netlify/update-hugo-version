@@ -59,4 +59,14 @@ status = 301
 from = "/2008/*"
 to = "/"
 status = 301
+
+###############################################################################
+# Setup for server side functions on Netlify
+###############################################################################
+[functions]
+directory = "bin/netlify/functions/"
+
+[functions.healthcheck]
+schedule = "*/30 * * * *"
+
 EOF

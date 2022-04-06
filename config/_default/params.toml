@@ -72,7 +72,7 @@ icon = "moon-stars-fill"
 ################################################################################
 #
 ################################################################################
-# dnb-hugo-head @see https://github.com/dnb-org/dnb-hugo-head
+# dnb-hugo-head @see https://github.com/davidsneighbour/hugo-head
 ################################################################################
 [dnb.head]
 charset = "utf-8"
@@ -106,7 +106,7 @@ pinterest = ""
 norton = ""
 
 ################################################################################
-# dnb-hugo-matomo @see https://github.com/dnb-org/dnb-hugo-matomo
+# dnb-hugo-matomo @see https://github.com/davidsneighbour/hugo-matomo
 ################################################################################
 [dnb.matomo]
 host = "https://analytics.islandseo.tech/"
@@ -120,7 +120,7 @@ backgroundcolor = "000000"
 fontsize = "1rem"
 
 ################################################################################
-# dnb-hugo-social @see https://github.com/dnb-org/dnb-hugo-social
+# dnb-hugo-social @see https://github.com/davidsneighbour/hugo-social
 ################################################################################
 [dnb.social]
 # selected icon theme.
@@ -156,7 +156,7 @@ icon = "linkedin"
 label = "Follow me on LinkedIn"
 
 ################################################################################
-# dnb-hugo-giscus @see https://github.com/dnb-org/dnb-hugo-giscus
+# dnb-hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-org-comm.vercel.app/client.js"
@@ -175,7 +175,7 @@ defaultCommentOrder = "oldest"
 origins = ["htttps://kollitsch.de", "http://192.168.1.201:1313"]
 
 ###############################################################################
-# dnb-hugo-security @see https://github.com/dnb-org/dnb-hugo-security
+# dnb-hugo-security @see https://github.com/davidsneighbour/hugo-security
 ###############################################################################
 [dnb.security.txt]
 intro = '''
@@ -202,6 +202,6 @@ languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
 
 ###############################################################################
-# dnb-hugo-debug @see https://github.com/dnb-org/dnb-hugo-debug
+# dnb-hugo-debug @see https://github.com/davidsneighbour/hugo-debug
 ###############################################################################
 enable = true

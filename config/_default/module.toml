@@ -7,136 +7,136 @@ min = "0.94.0"
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-auditor"
+path = "github.com/davidsneighbour/hugo-auditor"
 
 # [[imports]]
 # disable = false
 # ignoreConfig = false
 # ignoreImports = false
-# path = "github.com/dnb-org/dnb-hugo-debug"
+# path = "github.com/davidsneighbour/hugo-debug"
 
 # [[imports]]
 # disable = false
 # ignoreConfig = false
 # ignoreImports = false
-# path = "github.com/dnb-org/dnb-hugo-errors"
+# path = "github.com/davidsneighbour/hugo-errors"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-feeds"
+path = "github.com/davidsneighbour/hugo-feeds"
 
 # [[imports]]
 # disable = false
 # ignoreConfig = false
 # ignoreImports = false
-# path = "github.com/dnb-org/dnb-hugo-functions"
+# path = "github.com/davidsneighbour/hugo-functions"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-giscus"
+path = "github.com/davidsneighbour/hugo-giscus"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-head"
+path = "github.com/davidsneighbour/hugo-head"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-hooks"
+path = "github.com/davidsneighbour/hugo-hooks"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-icons"
+path = "github.com/davidsneighbour/hugo-icons"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-internals"
+path = "github.com/davidsneighbour/hugo-internals"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-matomo"
+path = "github.com/davidsneighbour/hugo-matomo"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-netlification"
+path = "github.com/davidsneighbour/hugo-netlification"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-opensearch"
+path = "github.com/davidsneighbour/hugo-opensearch"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-pictures"
+path = "github.com/davidsneighbour/hugo-pictures"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-publisher"
+path = "github.com/davidsneighbour/hugo-publisher"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-pwa"
+path = "github.com/davidsneighbour/hugo-pwa"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-robots"
+path = "github.com/davidsneighbour/hugo-robots"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-search-algolia"
+path = "github.com/davidsneighbour/hugo-search-algolia"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-security"
+path = "github.com/davidsneighbour/hugo-security"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-shortcodes"
+path = "github.com/davidsneighbour/hugo-shortcodes"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-sitemap"
+path = "github.com/davidsneighbour/hugo-sitemap"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-social"
+path = "github.com/davidsneighbour/hugo-social"
 
 [[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/dnb-org/dnb-hugo-youtube"
+path = "github.com/davidsneighbour/hugo-youtube"

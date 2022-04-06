@@ -18,7 +18,7 @@ In my opinion this tool is very useful for development websites or smaller devel
 
 You can see Giscus in action at the end of this post or any other post on this website. Feel free to test, but please try to add a useful comment :wink:
 
-I created a [GoHugo](https://gohugo.io) module in my [components collection](https://github.com/dnb-org/components/) that you can use easily to add Giscus to your website. The plan is to add the script as unobstrusive as possible to your website and add belated loading and easy design options to it. Just follow these steps to add it to your GoHugo website:
+I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](https://github.com/davidsneighbour/hugo-giscus/) that you can use easily to add Giscus to your website. The plan is to add the script as unobstrusive as possible to your website and add belated loading and easy design options to it. Just follow these steps to add it to your GoHugo website:
 
 1. Go to [giscus.app/](https://giscus.app/) and fill out the form in the "Configuration" section. Copy the resulting code and paste into your scratch pad.
 
@@ -26,7 +26,7 @@ I created a [GoHugo](https://gohugo.io) module in my [components collection](htt
 
    ```toml
    [[module.imports]]
-   path = "github.com/dnb-org/components/giscus"
+   path = "github.com/davidsneighbour/hugo-giscus"
 
    ```
 
@@ -57,7 +57,7 @@ I created a [GoHugo](https://gohugo.io) module in my [components collection](htt
 
 ## Available Configuration Parameters
 
-- **src**: (default https://giscus.app/client.js) - useful if you host your own version of Giscus
+- **src**: (default `https://giscus.app/client.js`) - useful if you host your own version of Giscus
 - **dataRepo**: (required, your-github-username/reponame)
 - **dataRepoId**: (required)
 - **dataCategory**: (required) it's recommended to create a category "Comments" before you start configuration, so all your comments are in the same dedicated category.
@@ -72,4 +72,4 @@ I created a [GoHugo](https://gohugo.io) module in my [components collection](htt
 
 - loading the JS without impacting page performance
 - add SASS files for theme creation via configuration
-- if you have any ideas feel free to [open an issue](https://github.com/dnb-org/components/issues).
+- if you have any ideas feel free to [open an issue](https://github.com/davidsneighbour/hugo-giscus/issues).

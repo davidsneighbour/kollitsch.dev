@@ -46,4 +46,4 @@ node ./node_modules/replace-between/bin/replace-between.js \
   --target README.md \
   --token THINGSTOKNOW
 
-sed -i 's+##MODULENAME##+github.com/dnb-org/dnb-hugo-debug+g' README.md
+sed -i 's+##MODULENAME##+github.com/davidsneighbour/hugo-debug+g' README.md

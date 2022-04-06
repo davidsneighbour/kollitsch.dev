@@ -68,7 +68,7 @@ pre-commit gc # garbage collection
 
 ### Development server
 
-Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` is badly named, as it could also be a hostname (without protocol in the beginning). If that triggers your OCD then open an issue or a PR in either this repo or over at [dnb-org/dnb-hugo-bin](https://github.com/dnb-org/dnb-hugo-bin/).
+Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` is badly named, as it could also be a hostname (without protocol in the beginning). If that triggers your OCD then open an issue or a PR in either this repo or over at [davidsneighbour/hugo-bin](https://github.com/davidsneighbour/hugo-bin/).
 
 ```ini
 IP=192.168.1.201
@@ -96,7 +96,7 @@ This repository is currently optimised for Netlify. To create a local copy of th
 
 ## Theme
 
-Currently the theme is integrated into the repository. I plan to release the theme as [Dark Skies](https://github.com/dnb-org/dnb-hugo-dark-skies) in a bit.
+Currently the theme is integrated into the repository. I plan to release the theme as [Dark Skies](https://github.com/davidsneighbour/hugo-dark-skies) in a bit.
 
 ### Design paradigms for the used theme
 

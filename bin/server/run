@@ -86,7 +86,6 @@ hugo server \
   --log true --logFile hugo.log \
   --verbose \
   --verboseLog \
-  --debug \
   --port "${PORT}" \
   --baseURL http://"${IP}"/ \
   --bind "${IP}"

@@ -21,7 +21,8 @@ logo_width = "40"
 show_title = true
 # 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
 # this needs to be a string and needs to be two floats separated by a colon
-aspect_ratio = "16:9"
+# aspect_ratio = "16:9"
+aspect_ratio = "2:1"
 # collection of image sizes for responsive image sizes. this takes the aspect_ratio
 # above into account, so only the long side length is required here.
 image_sizes = ["494", "517", "674", "914"]

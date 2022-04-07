@@ -9,11 +9,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/davidsneighbour/hugo-auditor"
 
-# [[imports]]
-# disable = false
-# ignoreConfig = false
-# ignoreImports = false
-# path = "github.com/davidsneighbour/hugo-debug"
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-debug"
 
 # [[imports]]
 # disable = false
@@ -27,11 +27,11 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/davidsneighbour/hugo-feeds"
 
-# [[imports]]
-# disable = false
-# ignoreConfig = false
-# ignoreImports = false
-# path = "github.com/davidsneighbour/hugo-functions"
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-functions"
 
 [[imports]]
 disable = false

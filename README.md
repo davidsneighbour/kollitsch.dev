@@ -1,6 +1,4 @@
-# Kollitsch.de
-
-This is the [Hugo](https://gohugo.io/) setup and content for [kollitsch.de](https://kollitsch.de/). The site is currently hosted on Netlify and most of this repository is set up to work on Netlify and use its features.
+This is the website setup and content for [kollitsch.de](https://kollitsch.de/). The site is currently hosted on Netlify and built via GoHugo and most of this repository is set up to work on Netlify and use its features.
 
 Note: we will check out Cloudflare Pages soon. More bandwidth and more build time (unlimited).
 

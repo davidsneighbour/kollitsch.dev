@@ -7,6 +7,9 @@ const localStandardVersion = {
       type: 'json',
     },
   ],
+  skip: {
+    changelog: true
+  }
 };
 
 const standardVersion = {

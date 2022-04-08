@@ -54,3 +54,4 @@ directory = "bin/netlify/functions/"
 
 [functions.healthcheck]
 schedule = "*/30 * * * *"
+

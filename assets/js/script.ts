@@ -1,4 +1,3 @@
-// @ts-ignore
 import Alpine from 'alpinejs';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Collapse, Tab } from 'bootstrap';
@@ -27,7 +26,6 @@ function changeGiscusTheme(theme = 'dark_dimmed') {
   });
 }
 
-// @ts-ignore
 window.Alpine = Alpine;
 
 // themechanger
@@ -36,15 +34,15 @@ Alpine.store('theme', {
 
   init() {
     const mode = localStorage.theme;
-    if (mode !== undefined) {
-      this.set(localStorage.theme);
-    } else if (
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: light)').matches
-    ) {
-      this.set('light');
-    } else {
-      this.set('dark');
+    if (mode === undefined) {
+      if (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: light)').matches
+      ) {
+        this.set('light');
+      } else {
+        this.set('dark');
+      }
     }
   },
 

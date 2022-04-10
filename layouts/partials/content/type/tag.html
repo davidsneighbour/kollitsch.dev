@@ -1,6 +1,7 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
 <article class="card shadow-sm">
+  {{- partial "content/partials/status.html" $post $post -}}
   {{- partial "content/partials/banner-images.html" $post $post -}}
   <div class="card-header">
     {{- partial "content/partials/headline.html" . . -}}

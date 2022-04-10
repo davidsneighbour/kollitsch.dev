@@ -80,6 +80,7 @@ hugo server \
   --cleanDestinationDir \
   --renderToDisk \
   --buildFuture \
+  --buildDrafts \
   --watch \
   --enableGitInfo \
   --forceSyncStatic \

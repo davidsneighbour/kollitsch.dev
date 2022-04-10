@@ -3,6 +3,7 @@
 {{- $fullcontent := .fullcontent | default true -}}
 {{- $artist := index $video $post.Params.video.artist -}}
 <article class="card shadow-sm">
+  {{- partial "content/partials/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.video.youtube -}}
   <div class="post-slider">
       <figure>

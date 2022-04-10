@@ -27,3 +27,39 @@ url = "/contact/"
 weight = 900
 [footer.params]
 bsicon = "envelope-paper-fill"
+
+### Footer submenus ###
+[[configurations]]
+name =  "@dnb-org/browserslist-config"
+url = "https://www.npmjs.com/package/@dnb-org/browserslist-config"
+weight = 100
+[[configurations]]
+name = "@dnb-org/cypress-config"
+url = "https://www.npmjs.com/package/@dnb-org/cypress-config"
+weight = 200
+[[configurations]]
+name =  "@dnb-org/eslint-config"
+url = "https://www.npmjs.com/package/@dnb-org/eslint-config"
+weight = 300
+[[configurations]]
+name = "@dnb-org/postcss-config"
+url = "https://www.npmjs.com/package/@dnb-org/postcss-config"
+weight = 400
+[[configurations]]
+name = "@dnb-org/standard-version-config"
+url = "https://www.npmjs.com/package/@dnb-org/standard-version-config"
+weight = 500
+[[configurations]]
+name = "All configurations"
+url = "https://www.npmjs.com/search?q=%40dnb-org"
+weight = 600
+
+[[hugomodules]]
+name = "Tags"
+url = "/tags/"
+weight = 200
+
+[[projects]]
+name = "Tags"
+url = "/tags/"
+weight = 200

@@ -5,10 +5,7 @@ import './components/menu.ts';
 
 // change giscus theme
 function changeGiscusTheme(theme = 'dark_dimmed') {
-  let scheme = 'dark_dimmed';
-  if (theme === 'light') {
-    scheme = 'light';
-  }
+  const scheme = theme === 'light' ? 'light' : 'dark_dimmed';
 
   // eslint-disable-next-line unicorn/consistent-function-scoping
   function sendMessage(message: { setConfig: { theme: string } }) {
@@ -19,11 +16,7 @@ function changeGiscusTheme(theme = 'dark_dimmed') {
     iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
   }
 
-  sendMessage({
-    setConfig: {
-      theme: scheme,
-    },
-  });
+  sendMessage({ setConfig: { theme: scheme } });
 }
 
 window.Alpine = Alpine;

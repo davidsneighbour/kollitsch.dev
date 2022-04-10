@@ -1,0 +1,8 @@
+{
+  "terminal.integrated.automationProfile.linux": {
+    "color": "terminal.ansiCyan",
+    "icon": "server-environment",
+    "name": "npm-server",
+    "path": ""
+  },
+}

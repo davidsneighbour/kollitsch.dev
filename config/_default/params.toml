@@ -40,6 +40,16 @@ show_tag_as_version = true
 show_release_as_version = true
 repository = "https://github.com/davidsneighbour/kollitsch.de"
 
+# [[dnb.theme.footer.menus]]
+# slug = "configurations"
+# name = "Configurations"
+# [[dnb.theme.footer.menus]]
+# slug = "hugomodules"
+# name = "GoHugo Modules"
+# [[dnb.theme.footer.menus]]
+# slug = "projects"
+# name = "Projects"
+
 [dnb.theme.colors]
 primary = "#d02d19"
 

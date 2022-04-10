@@ -1,10 +1,19 @@
 <footer id="footer" class="py-5">
-  <div class="container">
+  {{- partial "func/hook.html" ( dict
+    "hook" "footer-start"
+    "context" .
+  ) -}}
+  <div class="container mb-5 widgets">
+    {{- with site.Params.dnb.theme.footer.menus -}}
+      <div class="row justify-content-center align-items-start">
+        {{ range . -}}
+          {{- partial "widgets/menu.html" . -}}
+        {{ end }}
+      </div>
+    {{- end -}}
+  </div>
+  <div class="container mb-5">
     <div class="row">
-      {{- partial "func/hook.html" ( dict
-        "hook" "footer-start"
-        "context" .
-      ) -}}
       <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
           {{- partial "footer/newsletter.html" site.Params.subscription -}}
@@ -20,10 +29,10 @@
           {{- partial "footer/debugging.html" . -}}
         {{- end -}}
       </div>
-      {{- partial "func/hook.html" ( dict
-        "hook" "footer-end"
-        "context" .
-      ) -}}
     </div>
   </div>
+  {{- partial "func/hook.html" ( dict
+    "hook" "footer-end"
+    "context" .
+  ) -}}
 </footer>

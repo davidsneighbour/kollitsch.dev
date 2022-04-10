@@ -7,6 +7,8 @@ draft: true
 menu:
   main:
     weight: 4
+    params:
+      bsicon: binoculars-fill
 comments: false
 robotsdisallow: true
 posttype: page

@@ -3,6 +3,7 @@ title: "Piping output to files in Bash"
 date: 2022-03-11T20:13:49+07:00
 publishDate: 2022-03-11T20:13:49+07:00
 lastmod: 2022-03-11T20:13:49+07:00
+draft: true
 resources:
   - title: "Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)"
     id: "vincent-van-zalinge-vUNQaTtZeOo-unsplash.jpg"

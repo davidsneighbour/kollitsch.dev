@@ -3,6 +3,7 @@ title: 'Notes from the Laboratory: April 2022'
 linkTitle: 'Laboratory 2022-04'
 description: "Another monthly report from the depths of my laboratories - the month of April"
 date: 2022-04-03T20:33:40+07:00
+draft: true
 resources:
   - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)

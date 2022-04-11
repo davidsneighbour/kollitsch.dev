@@ -1,5 +1,5 @@
 {
-  "extends": "@dnb-org/cypress-config/base-hugo.json",
+  "extends": "@davidsneighbour/cypress-config/base-hugo.json",
   "pluginsFile": "tests/cypress/plugins/index.js",
   "env": {},
   "projectId": "q89kap"

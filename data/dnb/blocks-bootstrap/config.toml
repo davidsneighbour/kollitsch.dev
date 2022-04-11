@@ -32,7 +32,7 @@ class = "social-icons"
 [[footer.rows.item]]
 type = "navigation"
 name = "configurations"
-title = "@dnb-org Configurations"
+title = "@davidsneighbour Configurations"
 class = "list-inline"
 classitem = "list-inline-item"
 

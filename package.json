@@ -11,7 +11,7 @@
   "homepage": "https://kollitsch.de",
   "repository": "davidsneighbour/kollitsch.de",
   "dependencies": {
-    "@dnb-org/htmlvalidate-config": "^0.0.9",
+    "@davidsneighbour/htmlvalidate-config": "^0.0.9",
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "@sentry/node": "^6.19.6",
     "@sentry/tracing": "^6.19.6",
@@ -27,17 +27,17 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "@dnb-org/bootstrap-config": "^3.5.9",
-    "@dnb-org/browserslist-config": "^3.5.10",
-    "@dnb-org/commitlint-config": "^3.5.9",
-    "@dnb-org/cssnano-config": "^3.5.9",
-    "@dnb-org/cypress-config": "^3.5.9",
-    "@dnb-org/eslint-config": "^3.5.12",
-    "@dnb-org/postcss-config": "^3.5.10",
-    "@dnb-org/prettier-config": "^3.5.10",
-    "@dnb-org/standard-version-config": "^3.5.9",
-    "@dnb-org/stylelint-config": "^3.5.14",
-    "@dnb-org/tools": "^3.5.10",
+    "@davidsneighbour/bootstrap-config": "^3.5.9",
+    "@davidsneighbour/browserslist-config": "^3.5.10",
+    "@davidsneighbour/commitlint-config": "^3.5.9",
+    "@davidsneighbour/cssnano-config": "^3.5.9",
+    "@davidsneighbour/cypress-config": "^3.5.9",
+    "@davidsneighbour/eslint-config": "^3.5.12",
+    "@davidsneighbour/postcss-config": "^3.5.10",
+    "@davidsneighbour/prettier-config": "^3.5.10",
+    "@davidsneighbour/standard-version-config": "^3.5.9",
+    "@davidsneighbour/stylelint-config": "^3.5.14",
+    "@davidsneighbour/tools": "^3.5.10",
     "@types/bootstrap": "^5.1.9",
     "algoliasearch": "^4.13.0",
     "ansi-regex": ">=6.0.1",
@@ -98,22 +98,22 @@
   },
   "private": true,
   "browserslist": [
-    "extends @dnb-org/browserslist-config"
+    "extends @davidsneighbour/browserslist-config"
   ],
   "commitlint": {
     "extends": [
-      "@dnb-org/commitlint-config"
+      "@davidsneighbour/commitlint-config"
     ]
   },
   "eslintConfig": {
     "extends": [
-      "@dnb-org/eslint-config"
+      "@davidsneighbour/eslint-config"
     ]
   },
-  "prettier": "@dnb-org/prettier-config",
+  "prettier": "@davidsneighbour/prettier-config",
   "remarkConfig": {
     "plugins": [
-      "@dnb-org/remark-config"
+      "@davidsneighbour/remark-config"
     ]
   },
   "slug": "kollitsch-de",

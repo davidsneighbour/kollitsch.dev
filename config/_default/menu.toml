@@ -30,24 +30,24 @@ bsicon = "envelope-paper-fill"
 
 ### Footer submenus ###
 [[configurations]]
-name =  "@dnb-org/browserslist-config"
-url = "https://www.npmjs.com/package/@dnb-org/browserslist-config"
+name =  "@davidsneighbour/browserslist-config"
+url = "https://www.npmjs.com/package/@davidsneighbour/browserslist-config"
 weight = 100
 [[configurations]]
-name = "@dnb-org/cypress-config"
-url = "https://www.npmjs.com/package/@dnb-org/cypress-config"
+name = "@davidsneighbour/cypress-config"
+url = "https://www.npmjs.com/package/@davidsneighbour/cypress-config"
 weight = 200
 [[configurations]]
-name =  "@dnb-org/eslint-config"
-url = "https://www.npmjs.com/package/@dnb-org/eslint-config"
+name =  "@davidsneighbour/eslint-config"
+url = "https://www.npmjs.com/package/@davidsneighbour/eslint-config"
 weight = 300
 [[configurations]]
-name = "@dnb-org/postcss-config"
-url = "https://www.npmjs.com/package/@dnb-org/postcss-config"
+name = "@davidsneighbour/postcss-config"
+url = "https://www.npmjs.com/package/@davidsneighbour/postcss-config"
 weight = 400
 [[configurations]]
-name = "@dnb-org/standard-version-config"
-url = "https://www.npmjs.com/package/@dnb-org/standard-version-config"
+name = "@davidsneighbour/standard-version-config"
+url = "https://www.npmjs.com/package/@davidsneighbour/standard-version-config"
 weight = 500
 [[configurations]]
 name = "All configurations"

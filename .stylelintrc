@@ -1,5 +1,5 @@
 {
-  "extends": "@dnb-org/stylelint-config",
+  "extends": "@davidsneighbour/stylelint-config",
   "ignoreFiles": [
     "assets/scss/settings/_bootstrap-variables.scss"
   ]

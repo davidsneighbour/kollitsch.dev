@@ -7,7 +7,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 });
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-const defaultConfig = require('@dnb-org/postcss-config');
+const defaultConfig = require('@davidsneighbour/postcss-config');
 
 const localConfig = {
   plugins: [

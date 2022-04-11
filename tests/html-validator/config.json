@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@dnb-org/htmlvalidate-config"
+    "@davidsneighbour/htmlvalidate-config"
   ],
   "root": true
 }

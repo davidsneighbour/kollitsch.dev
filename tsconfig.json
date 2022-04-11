@@ -1,5 +1,7 @@
 {
-  "include": ["assets/js/script.ts"],
+  "include": [
+    "assets/js/script.ts"
+  ],
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",

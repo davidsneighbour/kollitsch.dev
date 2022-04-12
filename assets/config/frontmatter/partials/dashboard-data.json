@@ -1,0 +1,40 @@
+{
+  "frontMatter.data.files": [
+    {
+      "id": "all-sponsors",
+      "path": "[[workspace]]/data/sponsors",
+      "type": "sponsors"
+    }
+  ],
+  "frontMatter.data.folders": [],
+  "frontMatter.data.types": [
+    {
+      "id": "sponsors",
+      "title": "Sponsors",
+      "fileType": "json",
+      "labelField": "name",
+      "schema": {
+        "title": "Sponsors",
+        "type": "object",
+        "required": [
+          "name",
+          "url"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "url": {
+            "type": "string",
+            "title": "URL"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
-      "previewPath": null,
+      "previewPath": "{{permalink}}",
       "pageBundle": true,
       "filetype": "md",
       "fieldGroup": [
@@ -12,12 +12,14 @@
         {
           "title": "Title",
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "single": true
         },
         {
           "title": "Description",
           "name": "description",
-          "type": "string"
+          "type": "string",
+          "single": true
         },
         {
           "title": "Publishing date",
@@ -28,7 +30,7 @@
         },
         {
           "title": "Last modified date",
-          "name": "date",
+          "name": "lastmod",
           "type": "datetime",
           "default": "{{now}}",
           "isModifiedDate": true
@@ -54,6 +56,47 @@
           "type": "block",
           "fieldGroup": [
             "resources"
+          ]
+        },
+        {
+          "title": "Weight",
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "title": "Boolean",
+          "name": "isboolean",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Choice",
+          "name": "choice",
+          "type": "choice",
+          "choices": [
+            "",
+            "Choice 1",
+            "Choice 2",
+            "Choice 3"
+          ]
+        },
+        {
+          "title": "Choice",
+          "name": "choice2",
+          "type": "choice",
+          "choices": [
+            {
+              "id": "1",
+              "title": "Choice 1"
+            },
+            {
+              "id": "2",
+              "title": "Choice 2"
+            },
+            {
+              "id": "3",
+              "title": "Choice 3"
+            }
           ]
         }
       ]

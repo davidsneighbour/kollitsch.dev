@@ -123,6 +123,7 @@ norton = ""
 outputStyle = "compressed"
 targetPath = "assets/theme.css"
 enableSourceMap = true
+includePaths = ["node_modules"]
 
 ################################################################################
 # dnb-hugo-matomo @see https://github.com/davidsneighbour/hugo-matomo

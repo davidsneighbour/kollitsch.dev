@@ -3,7 +3,7 @@ const localStandardVersion = {
   bumpFiles: [
     ...defaultStandardVersion.bumpFiles,
     {
-      filename: 'data/dnb/dark-skies/build.json',
+      filename: 'data/dnb/kollitsch/build.json',
       type: 'json',
     },
   ],

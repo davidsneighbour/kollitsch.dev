@@ -13,7 +13,8 @@ mainSections = ["blog"]
 # select a theme
 # this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
 # value of `dnb.theme.switcher.default` is used.
-slug = "dark-skies"
+#slug = "dark-skies"
+slug = "kollitsch"
 theme = "dark"
 logo = "/assets/logo/favicon.svg"
 logo_height = "40"

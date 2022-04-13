@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/davidsneighbour/hugo-auditor v0.1.1 // indirect
-	github.com/davidsneighbour/hugo-dark-skies v0.0.3 // indirect
+	github.com/davidsneighbour/hugo-dark-skies v0.0.4 // indirect
 	github.com/davidsneighbour/hugo-debug v1.5.3 // indirect
 	github.com/davidsneighbour/hugo-feeds v0.1.0 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.0 // indirect
@@ -25,5 +25,6 @@ require (
 	github.com/davidsneighbour/hugo-shortcodes v1.5.0 // indirect
 	github.com/davidsneighbour/hugo-sitemap v0.1.0 // indirect
 	github.com/davidsneighbour/hugo-social v0.1.2 // indirect
+	github.com/davidsneighbour/hugo-styles v0.0.0-20220413170339-246a1fe1be76 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.0 // indirect
 )

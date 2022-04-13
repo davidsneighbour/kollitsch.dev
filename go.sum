@@ -1,7 +1,7 @@
 github.com/davidsneighbour/hugo-auditor v0.1.1 h1:jx1tn7D+sS2BqxdOuykUD74JBsCFgDUvtkYyjyYopDg=
 github.com/davidsneighbour/hugo-auditor v0.1.1/go.mod h1:PYAXMAY7rDZAX4T7VYoqe5IXQ6ABdAky10MkOlUH++k=
-github.com/davidsneighbour/hugo-dark-skies v0.0.3 h1:lOu/XjLTVzRc5T5uwHh3i5hNyqwQwkgF9HaztrCjNNY=
-github.com/davidsneighbour/hugo-dark-skies v0.0.3/go.mod h1:7mpMqifUHTyjr8AAgtSzQHM+XNDCtL4FG7C1wnGemFs=
+github.com/davidsneighbour/hugo-dark-skies v0.0.4 h1:WE3v6f9ixE9i9P0r6x3xF3GfKQY/Eua0uPFPumZaKSc=
+github.com/davidsneighbour/hugo-dark-skies v0.0.4/go.mod h1:exmOhHpsn7yA9pVTqpR4NwrZVVBIFWxOzrgmfTqEM+I=
 github.com/davidsneighbour/hugo-debug v1.5.3 h1:A8eEHWR2UfBErKnKEHiq+G6mvzHI8uUIea1OJUJBYz0=
 github.com/davidsneighbour/hugo-debug v1.5.3/go.mod h1:ka0eftoPGqF1B0TUvAIvWOau96Y5XQKKGZ9DCb5NBz4=
 github.com/davidsneighbour/hugo-feeds v0.1.0 h1:vnLUX6tl7F3aCEWSZKa8PIxCtQeRF2Wd/oqVREWmP+4=
@@ -42,5 +42,7 @@ github.com/davidsneighbour/hugo-sitemap v0.1.0 h1:j+tAS3JSsAis2+l94G5aC7w9ak7SpK
 github.com/davidsneighbour/hugo-sitemap v0.1.0/go.mod h1:HoRsrOi5g/IND7aAw6gA0QNXObNd9P9ar8P27PWeURM=
 github.com/davidsneighbour/hugo-social v0.1.2 h1:Lw3gA53Sha6IPcN4zh068DL8uRTigckMY1rsKfqrlAM=
 github.com/davidsneighbour/hugo-social v0.1.2/go.mod h1:EbFRd+ulTPTDP5brcbjx+kdXL+ObVmFOlDhpG1YeK8k=
+github.com/davidsneighbour/hugo-styles v0.0.0-20220413170339-246a1fe1be76 h1:9otYZcejF8S84UqKeA7NVF5ZyGbrP9AwpCCDANnPxDQ=
+github.com/davidsneighbour/hugo-styles v0.0.0-20220413170339-246a1fe1be76/go.mod h1:zw3aoVbNQ0duy/Fd/4cs1G/C0NHX5xLArrb79n8FqqM=
 github.com/davidsneighbour/hugo-youtube v1.1.0 h1:K4c/gzT/cccW9uOb4ZAfdpcVKxPnypg28lZnTjQNSKE=
 github.com/davidsneighbour/hugo-youtube v1.1.0/go.mod h1:qR+p/3TJDmApG4sB+ajqV4vvRwWaRr+HZiMwPrRxE7U=

@@ -1,0 +1,7 @@
+<div
+  class="text-end fs-6"
+  title="🤖 {{ .PublishDate | time.Format site.Params.dnb.theme.dateformat.timestamp -}}">
+  {{- .PublishDate | time.Format (site.Params.dnb.theme.post_date_format | default ":date_long") -}}&nbsp;
+  {{- i18n "at" | default "at" -}}&nbsp;
+  {{- .PublishDate | time.Format (site.Params.dnb.theme.post_time_format | default ":time_short") -}}
+</div>

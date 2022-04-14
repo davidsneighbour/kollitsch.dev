@@ -1,0 +1,34 @@
+{{- $blog := (where .Site.RegularPages ".Type" "blog") -}}
+{{- $tags := (where .Site.Pages ".Type" "tags") -}}
+{{- $pages := where .Site.Pages ".Type" "not in" (slice "blog" "tags") }}
+{{- $sections := dict
+  "Blog Posts" $blog
+  "Tags"       $tags
+-}}
+
+<ul>
+  {{- range $index, $values := $sections -}}
+    <li><a href="#{{- $index | urlize -}}">{{- $index -}}</a></li>
+  {{- end -}}
+  <li><a href="#other-pages">Other Pages</a></li>
+</ul>
+
+{{- range $index, $values := $sections -}}
+  <h3 id="{{- $index | urlize -}}">{{- $index -}}</h3>
+  {{- partial "range-through-pages.html" $values -}}
+{{- end -}}
+
+<h3 id="other-pages">Other Pages</h3>
+{{- partial "range-through-pages.html" $pages -}}
+
+{{ define "partials/range-through-pages.html" }}
+<ul>
+  {{- range . -}}
+    <li>
+      <a href="{{- .Permalink -}}" title="{{- .Description -}}">
+        {{- .Title -}}
+      </a>
+    </li>
+  {{- end -}}
+</ul>
+{{ end }}

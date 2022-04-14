@@ -1,0 +1,14 @@
+{{- define "main" -}}
+{{- partial "func/hook.html" ( dict
+  "hook" "container-start"
+  "context" .
+) -}}
+{{- if lt (.Scratch.Get "paginator").PageNumber 2  -}}
+  {{- partial "content/section-sitetitle.html" . -}}
+{{- end -}}
+{{- partial "content/section-posts.html" . -}}
+{{- partial "func/hook.html" ( dict
+  "hook" "container-end"
+  "context" .
+) -}}
+{{- end -}}

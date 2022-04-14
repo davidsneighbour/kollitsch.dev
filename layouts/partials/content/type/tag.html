@@ -1,0 +1,18 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+<article class="card shadow-sm">
+  {{- partial "content/partials/status.html" $post $post -}}
+  {{- partial "content/partials/banner-images.html" $post $post -}}
+  <div class="card-header">
+    {{- partial "content/partials/headline.html" . . -}}
+  </div>
+  <div class="card-body prose">
+    <p>{{- $post.Summary -}}</p>
+  </div>
+  <div class="card-footer text-end">
+    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
+      Read posts about <strong>{{ $post.Title -}}</strong>
+      <span class="ps-2">{{- partial "bsicon.html" "body-text" "body-text" -}}</span>
+    </a>
+  </div>
+</article>

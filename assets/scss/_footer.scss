@@ -1,0 +1,32 @@
+// footer
+#footer {
+  color: var(--footer-color-fg);
+
+  background-color: var(--footer-color-bg);
+
+  a {
+    color: var(--footer-color-fg);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  }
+}
+
+.widget.social-media {
+  a:link,
+  a:hover {
+    text-decoration: none;
+
+    svg {
+      width: 36px;
+      height: 36px;
+      @extend .p-0;
+      @extend .m-0;
+    }
+    @extend .px-3;
+
+  }
+}

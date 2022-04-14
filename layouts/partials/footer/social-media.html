@@ -1,0 +1,7 @@
+<div class="widget social-media">
+  <h3 class="mt-3 mb-0">{{- i18n "connect-on-social" | default "Connect on Social Media" -}}</h3>
+  {{- range site.Params.dnb.social.network -}}
+    {{- $icon := printf "icons/%s.html" .icon -}}
+    <a href="{{- .url -}}" aria-label="{{- .label -}}" class="mx-3">{{- partial $icon .icon .icon -}}</a>
+  {{- end -}}
+</div>

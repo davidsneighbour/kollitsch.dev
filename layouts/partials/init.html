@@ -1,0 +1,10 @@
+{{- $paginator := dict -}}
+{{- if eq "home" .Kind -}}
+  {{- /* see https://discourse.gohugo.io/t/possible-first-list-page-showing-9-items-following-showing-10-items/36186/2?u=davidsneighbour */ -}}
+  {{ $p := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $p = slice site.Home | append $p }}
+  {{- $paginator = $.Paginate $p -}}
+{{- else if .IsNode -}}
+  {{- $paginator = $.Paginator -}}
+{{- end -}}
+{{- .Scratch.Set "paginator" $paginator -}}

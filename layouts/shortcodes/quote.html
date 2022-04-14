@@ -1,0 +1,10 @@
+{{- $src := .Get "src" -}}
+{{- $source := .Get "source" -}}
+<blockquote>
+  {{- .Inner | markdownify -}}
+  {{- with $source -}}
+    <cite>
+      {{- i18n "via" | default "via" -}}&nbsp;<a href="{{- $src -}}">{{- $source -}}</a>
+    </cite>
+  {{- end -}}
+</blockquote>

@@ -1,0 +1,11 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+
+{{- $headerlevel := "3" -}}
+{{- with $fullcontent -}}
+  {{- $headerlevel = "2" -}}
+{{- end -}}
+
+{{- printf "<h%s>" $headerlevel | safeHTML -}}
+<a class="post-title" href="{{- $post.Permalink -}}">{{- $post.Title -}}</a>
+{{- printf "</h%s>" $headerlevel | safeHTML -}}

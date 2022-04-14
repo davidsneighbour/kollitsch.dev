@@ -1,0 +1,54 @@
+.navbar {
+  .light & {
+    @extend .navbar-light;
+    @extend .bg-white;
+  }
+
+  .dark & {
+    @extend .navbar-dark;
+    @extend .bg-dark;
+  }
+
+  .nav-link {
+    &:hover .icon--bs {
+      color: var(--primary);
+    }
+
+    .icon--bs {
+      display: inline-block;
+      margin-right: 0.4rem;
+      margin-bottom: 0.1rem;
+
+      vertical-align: bottom;
+    }
+  }
+
+}
+
+.navbar-dark .navbar-brand,
+.navbar-light .navbar-brand {
+  margin-bottom: -10px;
+
+  a {
+    font-weight: $font-weight-bolder;
+    text-transform: uppercase;
+
+    @extend .text-gradient-primary;
+  }
+
+  img {
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+
+}
+
+.is--themeswitcher {
+  a {
+    color: var(--color);
+
+    &.active {
+      color: var(--primary);
+    }
+  }
+}

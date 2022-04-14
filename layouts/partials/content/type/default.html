@@ -1,0 +1,26 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+<article class="card shadow-sm">
+  {{- partial "content/partials/status.html" $post $post -}}
+  {{- partial "content/partials/banner-images.html" $post $post -}}
+  <div class="card-header">
+    {{- partial "content/partials/publishing-date.html" $post $post -}}
+    {{- partial "content/partials/headline.html" . . -}}
+  </div>
+  <div class="card-body prose">
+    {{- with $fullcontent -}}
+      {{- $post.Content -}}
+    {{- else -}}
+      <p>{{- $post.Summary -}}</p>
+  </div>
+  <div class="card-footer text-end">
+      <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
+        {{- i18n "read_article" | default "Read Article" -}}
+        <span class="ps-2">{{- partial "bsicon.html" "body-text" "body-text" -}}</span>
+      </a>
+    {{- end -}}
+    {{- with $fullcontent -}}
+      {{- partial "content/partials/content-footer.html" $post -}}
+    {{- end -}}
+  </div>
+</article>

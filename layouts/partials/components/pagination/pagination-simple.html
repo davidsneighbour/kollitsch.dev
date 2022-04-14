@@ -1,0 +1,17 @@
+<nav class="row">
+  <div class="d-flex justify-content-center">
+    {{- $paginator := .Scratch.Get "paginator" -}}
+    {{- if gt $paginator.TotalPages 1 -}}
+      <ul class="pagination">
+        {{- with $paginator -}}
+          {{- $currentPageNumber := .PageNumber -}}
+          {{- partial "components/pagination/item-first.html" . . -}}
+          {{- partial "components/pagination/item-previous.html" . . -}}
+          {{- partial "components/pagination/item-current.html" . . -}}
+          {{- partial "components/pagination/item-next.html" . . -}}
+          {{- partial "components/pagination/item-last.html" . . -}}
+        {{- end -}}
+      </ul>
+    {{- end -}}
+  </div>
+</nav>

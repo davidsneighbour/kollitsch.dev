@@ -13,8 +13,7 @@ mainSections = ["blog"]
 # select a theme
 # this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
 # value of `dnb.theme.switcher.default` is used.
-#slug = "dark-skies"
-slug = "kollitsch"
+slug = "dark-skies"
 theme = "dark"
 logo = "/assets/logo/favicon.svg"
 logo_height = "40"
@@ -124,7 +123,6 @@ norton = ""
 outputStyle = "compressed"
 targetPath = "assets/theme.css"
 enableSourceMap = true
-includePaths = ["node_modules"]
 
 ################################################################################
 # dnb-hugo-matomo @see https://github.com/davidsneighbour/hugo-matomo
@@ -180,7 +178,7 @@ label = "Follow me on LinkedIn"
 # dnb-hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
 ################################################################################
 [dnb.giscus]
-#src="https://dnb-org-comm.vercel.app/client.js"
+#src="https://dnb-comm.vercel.app/client.js"
 dataRepo = "davidsneighbour/kollitsch.de"
 dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
 dataCategory = "Comments"

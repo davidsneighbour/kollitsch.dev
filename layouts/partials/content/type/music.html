@@ -1,0 +1,43 @@
+{{- $video := site.Data.dnb.kollitsch.music -}}
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+{{- $artist := index $video $post.Params.video.artist -}}
+<article class="card shadow-sm">
+  {{- partial "content/partials/status.html" $post $post -}}
+  {{- $settings := dict "id" $post.Params.video.youtube -}}
+  <div class="post-slider">
+      <figure>
+        <div class="iframe-border">
+          {{- partial "youtube.html" $settings $settings -}}
+        </div>
+        <figcaption class="text-center">{{ $artist.name }}: {{ $post.Params.video.title }}</figcaption>
+      </figure>
+  </div>
+  <div class="card-header">
+    {{- partial "content/partials/publishing-date.html" $post $post -}}
+    {{- partial "content/partials/headline.html" . . -}}
+  </div>
+  <div class="card-body prose">
+   {{- with $post.Content -}}
+      {{- . -}}
+    {{- end -}}
+    {{- $name := $artist.name -}}
+    {{- with $post.Params.video.name -}}
+      {{- $name = . -}}
+    {{- end -}}
+    <p>
+      This is "{{ $post.Params.video.title }}" by <a href="{{$artist.link}}">{{ $name }}</a>.
+    </p>
+    {{$artist.description | markdownify }}
+  {{- with $fullcontent -}}
+      {{- partial "content/partials/content-footer.html" $post -}}
+  {{ else }}
+  </div>
+  <div class="card-footer text-end">
+    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
+      {{- i18n "read_article" | default "Read Article" -}}
+      <span class="ps-2">{{- partial "bsicon.html" "body-text" "body-text" -}}</span>
+    </a>
+  {{- end -}}
+  </div>
+</article>

@@ -1,0 +1,12 @@
+{{- define "main" -}}
+{{- partial "func/hook.html" ( dict
+  "hook" "container-start"
+  "context" .
+) -}}
+{{- partial "content/section-tagoverview.html" . -}}
+{{- partial "content/section-taxonomy.html" . -}}
+{{- partial "func/hook.html" ( dict
+  "hook" "container-end"
+  "context" .
+) -}}
+{{- end -}}

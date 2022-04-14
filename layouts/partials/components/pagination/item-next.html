@@ -1,0 +1,7 @@
+{{- with .Next }}
+  <li class="page-item">
+    <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button">
+      {{ partial "icons/chevron-right.html" "chevron-right" "chevron-right" }}
+    </a>
+  </li>
+{{- end }}

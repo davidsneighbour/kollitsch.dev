@@ -1,0 +1,93 @@
+## See https://github.com/nicksnyder/go-i18n
+## ID uniquely identifies the message.
+# [id]
+## Zero is the content of the message for the CLDR plural form "zero".
+# zero=""
+## One is the content of the message for the CLDR plural form "one".
+# one=""
+## two is the content of the message for the CLDR plural form "two".
+# two=""
+## Few is the content of the message for the CLDR plural form "few".
+# few=""
+## Many is the content of the message for the CLDR plural form "many".
+# many=""
+## Other is the content of the message for the CLDR plural form "other".
+# Other=""
+## Hash uniquely identifies the content of the message
+## that this message was translated from.
+# hash=""
+## Description describes the message to give additional
+## context to translators that may be relevant for translation.
+# description=""
+## LeftDelim is the left Go template delimiter.
+# leftDelim=""
+## RightDelim is the right Go template delimiter.“
+# rightDelim=""
+
+[name]
+description = ""
+other = "Your Name"
+
+[email]
+description = ""
+other = "Email Address"
+
+[subject]
+description = ""
+other = "Subject"
+
+[message]
+description = ""
+other = "Your Message Here"
+
+[send_message]
+description = ""
+other = "Send Message"
+
+[read_article]
+description = ""
+other = "Read Article"
+
+[showing_posts_from]
+description = ""
+other = "Showing posts from"
+
+[home]
+description = ""
+other = "Home"
+
+[search]
+description = ""
+other = "Search"
+
+[categories]
+description = ""
+other = "Categories"
+
+[tags]
+description = ""
+other = "Tags"
+
+[social]
+description = ""
+other = "Social"
+
+[copyright-text]
+description = ""
+other = "&copy; %s - Webwork done by [David&apos;s Neighbour](https://davids-neighbour.com)"
+
+[at]
+description = ""
+other = "at"
+
+[this-is]
+description = ""
+other = "this is %s"
+
+[via]
+description = ""
+other = "via"
+
+[connect-on-social]
+description = ""
+other = "Connect on Social Media"

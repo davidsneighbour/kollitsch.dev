@@ -1,3 +1,4 @@
+// @ts-ignore
 import Alpine from 'alpinejs';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Collapse, Tab } from 'bootstrap';
@@ -5,7 +6,10 @@ import './components/menu.ts';
 
 // change giscus theme
 function changeGiscusTheme(theme = 'dark_dimmed') {
-  const scheme = theme === 'light' ? 'light' : 'dark_dimmed';
+  let scheme = 'dark_dimmed';
+  if (theme === 'light') {
+    scheme = 'light';
+  }
 
   // eslint-disable-next-line unicorn/consistent-function-scoping
   function sendMessage(message: { setConfig: { theme: string } }) {
@@ -16,9 +20,14 @@ function changeGiscusTheme(theme = 'dark_dimmed') {
     iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
   }
 
-  sendMessage({ setConfig: { theme: scheme } });
+  sendMessage({
+    setConfig: {
+      theme: scheme,
+    },
+  });
 }
 
+// @ts-ignore
 window.Alpine = Alpine;
 
 // themechanger
@@ -27,15 +36,15 @@ Alpine.store('theme', {
 
   init() {
     const mode = localStorage.theme;
-    if (mode === undefined) {
-      if (
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: light)').matches
-      ) {
-        this.set('light');
-      } else {
-        this.set('dark');
-      }
+    if (mode !== undefined) {
+      this.set(localStorage.theme);
+    } else if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: light)').matches
+    ) {
+      this.set('light');
+    } else {
+      this.set('dark');
     }
   },
 

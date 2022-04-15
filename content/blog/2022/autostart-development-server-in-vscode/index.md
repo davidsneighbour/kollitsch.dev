@@ -6,7 +6,7 @@ description: "An easy way to automatically start a development server each time 
 
 date: 2022-04-12T23:26:46+07:00
 publishDate: 2022-04-12T23:26:46+07:00
-lastmod: 2022-04-15T20:10:37+07:00
+lastmod: 2022-04-15T21:36:09+07:00
 
 resources:
   - title: Photo by [Douglas Lopes](https://unsplash.com/@douglasamarelo) via
@@ -95,7 +95,7 @@ You can start or restart the task manually by typing {{< kbd >}}{{< kbd >}}CTRL{
 As an added bonus, you can configure the look (icon and color) of the automatic terminal with some lines in your user configuration:
 
 ```json
-  {
+{
   "terminal.integrated.automationProfile.linux": {
     "color": "terminal.ansiCyan",
     "icon": "server-environment",

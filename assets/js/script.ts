@@ -4,7 +4,7 @@ import Alpine from 'alpinejs';
 import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
 
-// change giscus theme
+// change Giscus theme
 function changeGiscusTheme(theme = 'dark_dimmed') {
   let scheme = 'dark_dimmed';
   if (theme === 'light') {
@@ -81,4 +81,12 @@ collapseElementList.map(function collapsibles(collapseElement: Element) {
   return new Collapse(collapseElement, {
     toggle: false,
   }).hide();
+});
+
+// Font family in Giscus frame
+const frame = document.querySelector(
+  'iframe.giscus-frame'
+) as HTMLIFrameElement;
+frame.load(function framestyles() {
+  frame.contents().find('body').css('font-family', 'Tomkin');
 });

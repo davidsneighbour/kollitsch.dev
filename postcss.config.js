@@ -1,3 +1,4 @@
+// @ts-nocheck
 const purgecss = require('@fullhuman/postcss-purgecss')({
   content: ['./hugo_stats.json'],
   defaultExtractor: (content) => {

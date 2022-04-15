@@ -68,3 +68,10 @@ $pagination-transition: none;
 $alert-margin-bottom: 0;
 $alert-border-radius: $border-radius;
 $alert-border-width: $border-width;
+
+// Typography
+$kbd-padding-y: 0.2rem;
+$kbd-padding-x: 0.4rem;
+$kbd-font-size: $code-font-size;
+$kbd-color: var(--text1);
+$kbd-bg: var(--primary);

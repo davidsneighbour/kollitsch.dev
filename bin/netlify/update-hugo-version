@@ -11,6 +11,12 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" |
+    grep '"tag_name":' |
+    sed -E 's/.*"v([^"]+)".*/\1/'
+}
+
 cat <<EOF
 [build]
 publish = "./public"
@@ -19,7 +25,7 @@ publish = "./public"
 command = "./bin/netlify/build"
 
 [context.production.environment]
-HUGO_VERSION = "${1/v/""}"
+HUGO_VERSION = "$(get_latest_release)"
 HUGO_ENV = "production"
 GO_VERSION = "1.17"
 NODE_ENV = "development"

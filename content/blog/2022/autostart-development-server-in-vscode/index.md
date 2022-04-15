@@ -6,7 +6,7 @@ description: "An easy way to automatically start a development server each time 
 
 date: 2022-04-12T23:26:46+07:00
 publishDate: 2022-04-12T23:26:46+07:00
-lastmod: 2022-04-12T23:27:53+07:00
+lastmod: 2022-04-15T20:10:37+07:00
 
 resources:
   - title: Photo by [Douglas Lopes](https://unsplash.com/@douglasamarelo) via
@@ -88,9 +88,9 @@ Create a `.vscode/tasks.json` (or add to an existing file) in your project:
 }
 ```
 
-This will create a task, that will run `npm run server` (see line 17) when you open a folder or workspace in VSCode. Type `CTRL+SHIFT+P` and then search for "Tasks: Manage Automatic Tasks in Folder" and select to allow automatic tasks and you are good to go.
+This will create a task, that will run `npm run server` (see line 17) when you open a folder or workspace in VSCode. Type {{< kbd >}}{{< kbd >}}CTRL{{< /kbd >}} + {{< kbd >}}SHIFT{{< /kbd >}} + {{< kbd >}}P{{< /kbd >}}{{< /kbd >}} and then search for "Tasks: Manage Automatic Tasks in Folder" and select to allow automatic tasks and you are good to go.
 
-You can start or restart the task manually by typing `CTRL+SHIFT+B`, but after the change above whenever you open your workspace or folder it will start automatically for you.
+You can start or restart the task manually by typing {{< kbd >}}{{< kbd >}}CTRL{{< /kbd >}} + {{< kbd >}}SHIFT{{< /kbd >}} + {{< kbd >}}B{{< /kbd >}}{{< /kbd >}}, but after the change above whenever you open your workspace or folder it will start automatically for you.
 
 As an added bonus, you can configure the look (icon and color) of the automatic terminal with some lines in your user configuration:
 

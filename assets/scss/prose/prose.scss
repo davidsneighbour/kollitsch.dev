@@ -69,6 +69,7 @@ table {
 }
 
 .highlight {
+  margin-bottom: $spacer;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
@@ -77,4 +78,8 @@ table {
 .section-meta {
   border-top: 1px solid var(--primary);
   @extend .pt-3;
+}
+
+pre {
+  margin-bottom: 0;
 }

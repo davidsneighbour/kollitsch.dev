@@ -11,9 +11,9 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 const defaultConfig = require('@davidsneighbour/postcss-config');
 
 const localConfig = {
-  plugins: [
-    ...(process.env.HUGO_ENVIRONMENT === 'production' ? [purgecss] : []),
-  ],
+  //  plugins: [
+  //    ...(process.env.HUGO_ENVIRONMENT === 'production' ? [purgecss] : []),
+  //  ],
 };
 
 const config = {

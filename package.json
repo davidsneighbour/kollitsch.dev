@@ -33,7 +33,7 @@
     "@davidsneighbour/cssnano-config": "^4.0.1",
     "@davidsneighbour/cypress-config": "^4.0.1",
     "@davidsneighbour/eslint-config": "^4.0.1",
-    "@davidsneighbour/postcss-config": "^4.0.1",
+    "@davidsneighbour/postcss-config": "^4.0.2",
     "@davidsneighbour/prettier-config": "^4.0.1",
     "@davidsneighbour/standard-version-config": "^4.0.1",
     "@davidsneighbour/stylelint-config": "^4.0.1",

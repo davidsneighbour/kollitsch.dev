@@ -129,6 +129,7 @@ $navbar-brand-font-size: 2rem;
 
 // create utility classes
 @import 'settings/utilities';
+@import 'settings/mixins';
 
 // theme
 @import 'utilities';

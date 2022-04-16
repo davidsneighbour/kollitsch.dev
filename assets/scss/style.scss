@@ -32,9 +32,29 @@ $theme-colors: (
   --highlight-color-bg: #{$primary};
   --highlight-color-fg: #{$light};
 
+  // quick hack, use dark as defaults
+  --bg-page: #{$gray-800};
+  --bg-card: #{$gray-900};
+  --color-title: rgb(255 255 255 / 90%);
+  --color: rgb(255 255 255 / 70%);
+  --color2: #{$dark};
+  --link-color: #{$light};
+  --link-color-hover: #{$gray-300};
+  --footer-color-fg: #{$light};
+  --footer-color-bg: #{$dark};
+  --card-border-color: #{$light};
+  --brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --text1: hsl(var(--brand-hue) 15% 85%);
+  --text2: hsl(var(--brand-hue) 5% 65%);
+  --surface1: hsl(var(--brand-hue) 10% 10%);
+  --surface2: hsl(var(--brand-hue) 10% 15%);
+  --surface3: hsl(var(--brand-hue) 5% 20%);
+  --surface4: hsl(var(--brand-hue) 5% 25%);
+
   // https://drafts.csswg.org/css-ui-4/#widget-accent
   // https://caniuse.com/?search=accent-color
   accent-color: var(--brand);
+
 }
 
 .light {

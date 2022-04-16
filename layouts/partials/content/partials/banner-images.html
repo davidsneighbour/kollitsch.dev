@@ -1,8 +1,15 @@
-{{- $articleimages := .Resources.ByType "image" -}}
-{{- $link := .Permalink -}}
+{{- $context := .context -}}
+{{- $articleimages := $context.Resources.ByType "image" -}}
+{{- $link := $context.Permalink -}}
 {{- $aspectRatio := (split site.Params.dnb.theme.aspect_ratio ":") -}}
-{{- $breakPoints := site.Params.dnb.theme.break_points -}}
-{{- $imageSizes := site.Params.dnb.theme.image_sizes -}}
+{{/* {{- $breakPoints := site.Params.dnb.theme.break_points -}}
+{{- $imageSizes := site.Params.dnb.theme.image_sizes -}} */}}
+{{- $breakPoints := site.Params.dnb.pictures.responsive.halfwidth.break_points -}}
+{{- $imageSizes := site.Params.dnb.pictures.responsive.halfwidth.image_sizes -}}
+{{- if (eq .responsive "fullwidth") -}}
+  {{- $breakPoints = site.Params.dnb.pictures.responsive.fullwidth.break_points -}}
+  {{- $imageSizes = site.Params.dnb.pictures.responsive.fullwidth.image_sizes -}}
+{{- end -}}
 {{- $imageSizes2 := slice -}}
 {{- range $imageSizes -}}
   {{- $imageSizes2 = $imageSizes2 | append (math.Ceil (div (mul (float .) (float (index $aspectRatio 1))) (float (index $aspectRatio 0)))) -}}
@@ -27,7 +34,7 @@
               {{ if eq $index (sub (len $images) 1) }}
                 <source srcset="{{ $image.Permalink }}">
                 {{- /* TODO: loading="lazy" for images that are below the fold */ -}}
-                <img class="img-fluid" src="{{- $image.Permalink -}}" alt="{{- $title | plainify -}}" width="914" height="457">
+                <img class="img-fluid" src="{{- $image.Permalink -}}" alt="{{- $title | plainify -}}" width="{{- $image.Width -}}" height="{{- $image.Height -}}">
               {{ end }}
             {{ end }}
           </picture>

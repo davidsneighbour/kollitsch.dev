@@ -83,6 +83,18 @@ icon = "moon-stars-fill"
 ################################################################################
 #
 ################################################################################
+# hugo-pictures @see https://github.com/davidsneighbour/hugo-pictures
+################################################################################
+[dnb.pictures]
+[dnb.pictures.responsive]
+[dnb.pictures.responsive.fullwidth]
+image_sizes = ["494", "517", "674", "914"]
+break_points = ["520", "540", "720", "960"]
+[dnb.pictures.responsive.halfwidth]
+image_sizes = ["494", "517", "674"]
+break_points = ["520", "540", "720"]
+
+################################################################################
 # dnb-hugo-head @see https://github.com/davidsneighbour/hugo-head
 ################################################################################
 [dnb.head]

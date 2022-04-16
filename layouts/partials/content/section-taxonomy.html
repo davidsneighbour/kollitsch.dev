@@ -9,7 +9,7 @@
         {{- if lt $counter 4 -}}
           {{- with site.GetPage (printf "/tags/%s" .Name) -}}
             {{- if ne .Content "" -}}
-              {{- $post := dict "context" . "fullcontent" false -}}
+              {{- $post := dict "context" . "fullcontent" false "responsive" "halfwidth" -}}
               <div class="col-md-6 mb-3">
                 {{- partial "content/post.html" $post -}}
               </div>

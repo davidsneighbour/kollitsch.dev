@@ -1,3 +1,4 @@
+
 h1 {
   font-size: 8vw;
   text-transform: uppercase;
@@ -9,8 +10,13 @@ h1 {
       text-decoration: none;
     }
 
+    @include text-shadow();
     @extend .text-gradient-primary;
   }
 
   @extend .display-1;
+}
+
+.alert {
+  @include box-shadow(var(--primary));
 }

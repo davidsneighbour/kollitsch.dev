@@ -1,13 +1,13 @@
 # Listen: https://www.youtube.com/watch?v=6TGDakBYk90
 ###############################################################################
-# Some defaults
+# some defaults
 ###############################################################################
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
 siteslug = "kollitsch-de"
 mainSections = ["blog"]
 
 ###############################################################################
-# DNB Dark Skies theme setup
+# theme setup
 ###############################################################################
 [dnb.theme]
 # select a theme
@@ -95,7 +95,7 @@ image_sizes = ["494", "517"]
 break_points = ["520", "540"]
 
 ################################################################################
-# dnb-hugo-head @see https://github.com/davidsneighbour/hugo-head
+# hugo-head @see https://github.com/davidsneighbour/hugo-head
 ################################################################################
 [dnb.head]
 charset = "utf-8"
@@ -138,7 +138,7 @@ enableSourceMap = true
 includePaths = ["node_modules/"]
 
 ################################################################################
-# dnb-hugo-matomo @see https://github.com/davidsneighbour/hugo-matomo
+# hugo-matomo @see https://github.com/davidsneighbour/hugo-matomo
 ################################################################################
 [dnb.matomo]
 host = "https://analytics.islandseo.tech/"
@@ -152,7 +152,7 @@ backgroundcolor = "000000"
 fontsize = "1rem"
 
 ################################################################################
-# dnb-hugo-social @see https://github.com/davidsneighbour/hugo-social
+# hugo-social @see https://github.com/davidsneighbour/hugo-social
 ################################################################################
 [dnb.social]
 # selected icon theme.
@@ -188,7 +188,7 @@ icon = "linkedin"
 label = "Follow me on LinkedIn"
 
 ################################################################################
-# dnb-hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
+# hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"
@@ -207,7 +207,7 @@ defaultCommentOrder = "oldest"
 origins = ["htttps://kollitsch.de", "http://192.168.1.201:1313"]
 
 ###############################################################################
-# dnb-hugo-security @see https://github.com/davidsneighbour/hugo-security
+# hugo-security @see https://github.com/davidsneighbour/hugo-security
 ###############################################################################
 [dnb.security.txt]
 intro = '''
@@ -234,6 +234,7 @@ languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
 
 ###############################################################################
-# dnb-hugo-debug @see https://github.com/davidsneighbour/hugo-debug
+# hugo-debug @see https://github.com/davidsneighbour/hugo-debug
 ###############################################################################
+[dnb.debug]
 enable = true

@@ -3,8 +3,12 @@
     "assets/js/script.ts"
   ],
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es5",
+    "module": "es6",
+    "outDir": "./dist/",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "allowJs": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -18,6 +22,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,

@@ -2,7 +2,7 @@
 {{- if (eq $.Kind "page") -}}
   {{- $fullcontent = true -}}
 {{- end -}}
-{{- $post := dict "context" . "fullcontent" $fullcontent -}}
+{{- $post := dict "context" . "fullcontent" $fullcontent "responsive" "fullwidth" -}}
 <section class="section--content">
   <div class="container">
     <div class="row">

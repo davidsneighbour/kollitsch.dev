@@ -70,8 +70,8 @@ $alert-border-radius: $border-radius;
 $alert-border-width: $border-width;
 
 // Typography
-$kbd-padding-y: 0.2rem;
-$kbd-padding-x: 0.4rem;
-$kbd-font-size: $code-font-size;
+$kbd-padding-y: 0.1rem;
+$kbd-padding-x: 0.2rem;
+$kbd-font-size: $code-font-size * 0.9;
 $kbd-color: var(--text1);
 $kbd-bg: var(--primary);

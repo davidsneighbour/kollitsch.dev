@@ -82,11 +82,3 @@ collapseElementList.map(function collapsibles(collapseElement: Element) {
     toggle: false,
   }).hide();
 });
-
-// Font family in Giscus frame
-const frame = document.querySelector(
-  'iframe.giscus-frame'
-) as HTMLIFrameElement;
-frame.load(function framestyles() {
-  frame.contents().find('body').css('font-family', 'Tomkin');
-});

@@ -16,6 +16,9 @@ package = "/bin/netlify/plugins/hugo-helper"
 [plugins.inputs]
 debug = true
 
+[[plugins]]
+package = "netlify-plugin-image-optim"
+
 [[redirects]]
 from = "https://main--kollitsch.netlify.app/"
 to = "/"
@@ -54,4 +57,3 @@ directory = "bin/netlify/functions/"
 
 [functions.healthcheck]
 schedule = "*/30 * * * *"
-

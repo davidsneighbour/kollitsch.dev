@@ -16,8 +16,6 @@ github.com/davidsneighbour/hugo-icons v1.2.0 h1:BU2lQdxd+7VRxweYhkJ9LrcDQkUIEbxF
 github.com/davidsneighbour/hugo-icons v1.2.0/go.mod h1:AsQcbHbXw9itwfUZg0e77Ws2oOxwjO6R/2qm0nlujd0=
 github.com/davidsneighbour/hugo-internals v0.0.6 h1:+GJ0hdTIHGPVKEdBd/FVwvgSOmRXiAlMjKI8EGUp1s4=
 github.com/davidsneighbour/hugo-internals v0.0.6/go.mod h1:Oa6MkFeXiAEob/xhVtMMd8UWfM2K0BLkcnxKw2S8BsE=
-github.com/davidsneighbour/hugo-matomo v0.1.0 h1:L4mFCHndupMEQuYiEDDYFRCmJ2HEownsH+gDjZjy2JY=
-github.com/davidsneighbour/hugo-matomo v0.1.0/go.mod h1:lwDV7ybnCXHWluy5KTuHBE2nhMuuJM26cAg6TuvCfyY=
 github.com/davidsneighbour/hugo-netlification v1.2.0 h1:J4JSNMgUSauauREpkn13bGlu8tvMcdj9i18Y4otQgV4=
 github.com/davidsneighbour/hugo-netlification v1.2.0/go.mod h1:6hgo+ce6kL1gEMKMOqCdukXQhL/2N7FUbOTVPs2Gw8c=
 github.com/davidsneighbour/hugo-opensearch v0.1.0 h1:p+e8HfrADOrKcB9IOwNB9ldszlgktmXE4YdUhzcc2CA=

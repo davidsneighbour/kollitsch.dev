@@ -138,20 +138,6 @@ enableSourceMap = true
 includePaths = ["node_modules/"]
 
 ################################################################################
-# hugo-matomo @see https://github.com/davidsneighbour/hugo-matomo
-################################################################################
-[dnb.matomo]
-host = "https://analytics.islandseo.tech/"
-siteid = 1000
-language = "en"
-
-[dnb.matomo.optout]
-fontfamily = "Tomkin"
-textcolor = "ffffff"
-backgroundcolor = "000000"
-fontsize = "1rem"
-
-################################################################################
 # hugo-social @see https://github.com/davidsneighbour/hugo-social
 ################################################################################
 [dnb.social]

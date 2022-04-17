@@ -22,6 +22,7 @@
     "netlify-cli": "^9.16.6",
     "netlify-plugin-image-optim": "^0.4.0",
     "ninja-keys": "^1.1.12",
+    "node-fetch": "^2.6.7",
     "package.json": "^2.0.1",
     "sass": "^1.50.0",
     "svgo": "^2.8.0",

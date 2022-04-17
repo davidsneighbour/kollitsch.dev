@@ -17,6 +17,7 @@ Note: we will check out Cloudflare Pages soon. More bandwidth and more build tim
 - [Theme](#theme)
   - [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
 - [Advanced setup](#advanced-setup)
+- [Netlify Setup](#netlify-setup)
 
 ## Setup
 
@@ -105,4 +106,11 @@ Currently the theme is integrated into the repository. I plan to release the the
 
 ## Advanced setup
 
-- To enable step debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`.
+- To enable step debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`
+
+## Netlify Setup
+
+- `npm i netlify-cli -g && netlify login`
+- `netlify --telemetry-disable`
+- `netlify init`
+- `netlify build`

@@ -41,11 +41,21 @@ form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
 manifest-src = ["'self'"]
 
 [[redirects]]
-netlify = "https://kollitsch.netlify.app"
+netlify = "https://kollitsch-dev.netlify.app"
 
 [[redirects]]
 from = "https://main--kollitsch.netlify.app/"
 to = "/"
+status = 301
+
+[[redirects]]
+from = "https://kollitsch.de/"
+to = "https://kollitsch.dev/"
+status = 301
+
+[[redirects]]
+from = "http://kollitsch.de/"
+to = "https://kollitsch.dev/"
 status = 301
 
 [[redirects]]

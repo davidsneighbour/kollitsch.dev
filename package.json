@@ -20,7 +20,6 @@
     "html-validate": "^6.7.1",
     "lockfile-lint": "^4.7.4",
     "netlify-cli": "^9.16.6",
-    "netlify-plugin-image-optim": "^0.4.0",
     "ninja-keys": "^1.1.12",
     "node-fetch": "^2.6.7",
     "package.json": "^2.0.1",

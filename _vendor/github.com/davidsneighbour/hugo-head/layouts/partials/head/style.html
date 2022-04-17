@@ -1,0 +1,8 @@
+{{- $opts := site.Params.dnb.head.styles.options }}
+{{- $config := site.Params.dnb.head.styles -}}
+{{- $entrypoint := $config.entrypoint | default "scss/style.scss" -}}
+{{- $styles := resources.Get $entrypoint -}}
+{{- $styles = $styles | resources.ToCSS $opts -}}
+{{- $styles = $styles | resources.PostCSS -}}
+{{- $styles = $styles | minify | fingerprint "sha512" | resources.PostProcess -}}
+<link rel="stylesheet" media="all" integrity="{{- $styles.Data.Integrity -}}" href="{{- $styles.Permalink -}}">

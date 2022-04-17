@@ -1,0 +1,27 @@
+{{- $context := . -}}
+{{- $dataMapping := site.Params.dnb.giscus.dataMapping | default "specific" -}}
+{{- with site.Params.dnb.giscus -}}
+<div id="giscus-comments" class="giscus"></div>
+<script src='{{- .src | default "https://giscus.app/client.js" -}}'
+  data-repo="{{- .dataRepo -}}"
+  data-repo-id="{{- .dataRepoId -}}"
+  data-category="{{- .dataCategory -}}"
+  data-category-id="{{- .dataCategoryId -}}"
+  data-mapping="{{- $dataMapping -}}"
+  {{- if (eq $dataMapping "specific") }}
+  data-term="{{- $context.Title -}}"
+  {{- end }}
+  {{- with .dataLoading -}}
+    data-loading="{{- . -}}"
+  {{- end }}
+  data-reactions-enabled='{{- .dataReactionsEnabled | default "1" -}}'
+  data-emit-metadata='{{- .dataEmitMetadata | default "0" -}}'
+  data-input-position='{{- .dataInputPosition | default "top" -}}'
+  data-theme='{{- .dataTheme | default "dark" -}}'
+  data-lang='{{- .dataLang | default "en" -}}'
+  crossorigin="anonymous"
+  async
+  defer
+  id="giscus-script">
+</script>
+{{- end -}}

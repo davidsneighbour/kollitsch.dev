@@ -1,0 +1,24 @@
+{{- if (in site.Params.dnb.head.disable "referrer") -}}
+  <meta name="referrer" content="no-referrer">
+{{- end -}}
+{{- if (in site.Params.dnb.head.disable "phone_transcription") -}}
+  <meta name="format-detection" content="telephone=no">
+{{- end -}}
+{{- with site.Params.dnb.head.notranslate -}}
+  {{- if eq . true -}}
+    <meta name="google" content="notranslate">
+  {{- end -}}
+{{- end -}}
+{{- with site.Params.dnb.head.monetization -}}
+  <meta name="monetization" content="{{- . -}}">
+{{- end -}}
+{{- with (and site.Params.dnb.head.latitude site.Params.dnb.head.longitude) -}}
+  <meta name="ICBM" content="{{- site.Params.dnb.head.latitude -}},{{- site.Params.dnb.head.longitude -}}">
+  <meta name="geo.position" content="{{- site.Params.dnb.head.latitude -}};{{- site.Params.dnb.head.longitude -}}">
+{{- end -}}
+{{- with site.Params.dnb.head.region -}}
+  <meta name="geo.region" content="{{- site.Params.dnb.head.region -}}">
+{{- end -}}
+{{- with site.Params.dnb.head.placename -}}
+  <meta name="geo.placename" content="{{- site.Params.dnb.head.placename -}}">
+{{- end -}}

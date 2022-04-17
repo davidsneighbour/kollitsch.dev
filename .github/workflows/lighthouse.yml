@@ -46,9 +46,9 @@ jobs:
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
-            https://kollitsch.de/
-            https://kollitsch.de/page/2/
-            https://kollitsch.de/page/3/
+            https://kollitsch.dev/
+            https://kollitsch.dev/page/2/
+            https://kollitsch.dev/page/3/
           budgetPath: ./etc/lighthouse/budget.json
           configPath: ./etc/lighthouse/config-mobile.js
           uploadArtifacts: true

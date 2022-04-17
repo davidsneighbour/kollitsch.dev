@@ -58,7 +58,7 @@
   "frontMatter.panel.freeform": true,
   "frontMatter.preview.host": "http://192.168.1.201:1313",
   "frontMatter.preview.pathName": "yyyy/MM",
-  "frontMatter.site.baseURL": "https://kollitsch.de",
+  "frontMatter.site.baseURL": "https://kollitsch.dev",
   "frontMatter.taxonomy.alignFilename": false,
   "frontMatter.taxonomy.categories": [],
   "frontMatter.taxonomy.commaSeparatedFields": [],

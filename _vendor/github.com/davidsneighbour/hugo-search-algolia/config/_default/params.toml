@@ -1,0 +1,16 @@
+[dnb]
+[dnb.search]
+[dnb.search.algolia]
+appId = ""
+apiKey = ""
+indexName = ""
+numberLocale = ""
+
+[dnb.search.algolia.plugins]
+js = [
+  "js/instantsearch.js",
+  "js/search-algolia.js"
+]
+jsTemplates = [
+  "js/algolia-setup.js"
+]

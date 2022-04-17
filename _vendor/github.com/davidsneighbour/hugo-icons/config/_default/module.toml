@@ -1,0 +1,39 @@
+[hugoVersion]
+extended = true
+min = "0.84.0"
+
+[[mounts]]
+source = "data"
+target = "data"
+
+[[mounts]]
+source = "content"
+target = "content"
+
+[[mounts]]
+source = "layouts"
+target = "layouts"
+
+[[imports]]
+path = "github.com/twbs/icons"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "icons"
+target = "assets/libs/bootstrap-icons"
+
+[[imports]]
+path = "github.com/tailwindlabs/heroicons"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "optimized/outline"
+target = "assets/icons/heroicons/outline"
+
+[[imports.mounts]]
+source = "optimized/solid"
+target = "assets/icons/heroicons/solid"

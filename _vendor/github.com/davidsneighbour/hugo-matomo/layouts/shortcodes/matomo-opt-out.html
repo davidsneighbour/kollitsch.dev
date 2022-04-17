@@ -1,0 +1,10 @@
+{{- $config := site.Params.dnb.matomo -}}
+{{- $language := $config.language -}}
+{{- $fontcolor := $config.optout.textcolor -}}
+{{- $backgroundcolor := $config.optout.backgroundcolor -}}
+{{- $fontsize := $config.optout.fontsize -}}
+{{- $fontfamily := $config.optout.fontfamily -}}
+{{- $host := $config.host -}}
+{{- $link := printf "%sindex.php?module=CoreAdminHome&action=optOut&language=%s&backgroundColor=%s&fontColor=%s&fontSize=%s&fontFamily=%s"
+                    $host $language $backgroundcolor $fontcolor $fontsize $fontfamily -}}
+<iframe style="border: 0; height: 200px; width: 600px;" src="{{- $link -}}"></iframe>

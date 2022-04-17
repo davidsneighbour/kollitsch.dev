@@ -22,7 +22,7 @@ resources:
 # remove the author section to use the sites author setup
 author:
   name: "Patrick Kollitsch"
-  homepage: "https://kollitsch.de/"
+  homepage: "https://kollitsch.dev/"
   image: "/images/patrick-kollitsch.jpg"
   email: "patrick@kollitsch.de"
 

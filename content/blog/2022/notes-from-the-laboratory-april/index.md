@@ -24,7 +24,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 - **Header tags and social media tags:** For a while now I was working on a module that creates all the header tags a website could possibly need. After some cleaning up and fine tuning it's finally ready to be released as a proper module. In it's wake we have two other modules that take care of "everything social" and "everything image" on my websites.
 - **Fixing things:**
 - **Cleanup:**
-- **kollitsch.de:**
+- **kollitsch.dev:**
 - **Customers:**
 - **Cooking:**
 - **Pokki:**

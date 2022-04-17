@@ -1,8 +1,9 @@
 ---
 layout: search
-title: Search on this kollitsch.de
+title: Search on this kollitsch.dev
 linktitle: Search
-description: Find the post or information you are looking for. Missing something? Feel free to contact me!
+description: Find the post or information you are looking for. Missing something? Feel free
+  to contact me!
 draft: true
 menu:
   main:
@@ -12,4 +13,5 @@ menu:
 comments: false
 robotsdisallow: true
 posttype: page
+lastmod: 2022-04-17T18:01:30+07:00
 ---

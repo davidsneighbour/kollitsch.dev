@@ -3,7 +3,7 @@
 {{- $githash := partial "func/getGitHash.html" $post $post -}}
 {{- $hashlink := "" -}}
 {{- with $githash }}
-  {{- $hashlink = (printf "[<a href='https://github.com/davidsneighbour/kollitsch.de/commit/%s'>%s</a>]"
+  {{- $hashlink = (printf "[<a href='https://github.com/davidsneighbour/kollitsch.dev/commit/%s'>%s</a>]"
                               $post.GitInfo.Hash
                               $githash)
   -}}
@@ -15,7 +15,7 @@
     <span>{{- . | safeHTML -}}</span>
     <span>
       {{- partial "bsicon.html" "binoculars-fill" "binoculars-fill" }}
-      <a href="https://github.com/davidsneighbour/kollitsch.de/blame/main/content/{{ $post.File.Path }}"
+      <a href="https://github.com/davidsneighbour/kollitsch.dev/blame/main/content/{{ $post.File.Path }}"
         target="_blank" rel="nofollow,noreferrer">View history
       </a>
     </span>

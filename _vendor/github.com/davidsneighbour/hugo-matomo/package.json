@@ -1,0 +1,26 @@
+{
+  "name": "@davidsneighbour/hugo-matomo",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Matomo (formerly Piwik) tracking layouts for Hugo",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-matomo",
+  "repository": "davidsneighbour/hugo-matomo",
+  "bugs": "https://github.com/davidsneighbour/hugo-matomo/issues",
+  "devDependencies": {
+    "@dnb-org/standard-version-config": "^3.5.9",
+    "@dnb-org/tools": "^3.5.10"
+  },
+  "scripts": {
+    "clean": "run-p clean:*",
+    "clean:npm": "rimraf node_modules package-lock.json",
+    "release": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:major": "standard-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
+  },
+  "private": true
+}

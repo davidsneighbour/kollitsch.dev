@@ -38,7 +38,7 @@ contact_form_action = "https://formspree.io/f/xoqyzooe"
 show_version = true
 show_tag_as_version = true
 show_release_as_version = true
-repository = "https://github.com/davidsneighbour/kollitsch.de"
+repository = "https://github.com/davidsneighbour/kollitsch.dev"
 
 # [[dnb.theme.footer.menus]]
 # slug = "configurations"
@@ -192,7 +192,7 @@ label = "Follow me on LinkedIn"
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"
-dataRepo = "davidsneighbour/kollitsch.de"
+dataRepo = "davidsneighbour/kollitsch.dev"
 dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
 dataCategory = "Comments"
 dataCategoryId = "DIC_kwDOGDHt584B_i3-"
@@ -204,31 +204,31 @@ dataLoading = "lazy"
 
 [dnb.giscus.extended]
 defaultCommentOrder = "oldest"
-origins = ["htttps://kollitsch.de", "http://192.168.1.201:1313"]
+origins = ["htttps://kollitsch.dev", "http://192.168.1.201:1313"]
 
 ###############################################################################
 # hugo-security @see https://github.com/davidsneighbour/hugo-security
 ###############################################################################
 [dnb.security.txt]
 intro = '''
-#############################################################################
-#                                                                           #
-# Information related to reporting security vulnerabilities on kollitsch.de #
-#                                                                           #
-#                        ,     ,                                            #
-#                       (\____/)                                            #
-#                        (_oo_)                                             #
-#                          (O)                                              #
-#                        __||__    \)                                       #
-#                     []/______\[] /                                        #
-#                     / \______/ \/                                         #
-#                    /    /__\                                              #
-#                   (\   /____\                                             #
-#                                                                           #
-#                                                                           #
-#############################################################################
+##############################################################################
+#                                                                            #
+# Information related to reporting security vulnerabilities on kollitsch.dev #
+#                                                                            #
+#                        ,     ,                                             #
+#                       (\____/)                                             #
+#                        (_oo_)                                              #
+#                          (O)                                               #
+#                        __||__    \)                                        #
+#                     []/______\[] /                                         #
+#                     / \______/ \/                                          #
+#                    /    /__\                                               #
+#                   (\   /____\                                              #
+#                                                                            #
+#                                                                            #
+##############################################################################
 '''
-contact = "https://kollitsch.de/contact/"
+contact = "https://kollitsch.dev/contact/"
 expires = 365
 languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"

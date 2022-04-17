@@ -6,7 +6,7 @@ description: "An easy way to automatically start a development server each time 
 
 date: 2022-04-12T23:26:46+07:00
 publishDate: 2022-04-12T23:26:46+07:00
-lastmod: 2022-04-15T21:36:09+07:00
+lastmod: 2022-04-17T1:27:49+07:00
 
 resources:
   - title: Photo by [Douglas Lopes](https://unsplash.com/@douglasamarelo) via
@@ -105,4 +105,4 @@ As an added bonus, you can configure the look (icon and color) of the automatic 
 }
 ```
 
-Make sure that the `name` (in my example `npm-server`) matches the `tasks.group.profile` value of your task setup. If you edit these files in VSCode itself you will receive hints about possible values on `CTRL+SPACE`.
+Make sure that the `name` (in my example `npm-server`) matches the `tasks.group.profile` value of your task setup. If you edit these files in VSCode itself you will receive hints about possible values on {{< kbd >}}{{< kbd >}}CTRL{{< /kbd >}} + {{< kbd >}}SPACE{{< /kbd >}}{{< /kbd >}}.

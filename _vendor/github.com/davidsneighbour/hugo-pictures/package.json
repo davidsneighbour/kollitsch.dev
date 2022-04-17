@@ -1,0 +1,37 @@
+{
+  "name": "@davidsneighbour/hugo-pictures",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Image generation for Hugo",
+  "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
+  "homepage": "https://github.com/davidsneighbour/hugo-pictures",
+  "bugs": {
+    "url": "https://github.com/davidsneighbour/hugo-pictures/issues"
+  },
+  "devDependencies": {
+    "@dnb-org/bootstrap-config": "^3.5.9",
+    "@dnb-org/cypress-config": "^3.5.9",
+    "@dnb-org/eslint-config": "^3.5.12",
+    "@dnb-org/prettier-config": "^3.5.10",
+    "@dnb-org/standard-version-config": "^3.5.9",
+    "@dnb-org/tools": "^3.5.10"
+  },
+  "scripts": {
+    "clean": "run-p clean:**",
+    "clean:cypress": "rimraf tests/cypress/screenshots tests/cypress/videos",
+    "clean:hugo": "rimraf dev/public dev/resources dev/.hugo_build.lock hugo.log",
+    "clean:node": "rimraf node_modules package-lock.json",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease",
+    "release-major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease",
+    "release-next": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease",
+    "serve": "run-p serve:hugo",
+    "serve:hugo": "bin/dnb-hugo-dev-server",
+    "server": "npm run serve",
+    "test": "run-p test:server test:cypress",
+    "test:cypress": "cypress run",
+    "test:cypress:ide": "cypress open",
+    "test:ide": "run-p test:server test:cypress:ide",
+    "test:server": "./bin/dnb-hugo-test-server"
+  },
+  "private": true
+}

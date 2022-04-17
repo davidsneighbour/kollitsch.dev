@@ -1,0 +1,17 @@
+[module]
+
+[module.hugoVersion]
+extended = true
+min = "0.91.0"
+
+[[module.mounts]]
+source = "assets/js/debug.js"
+target = "assets/js/debug.js"
+
+[[module.mounts]]
+source = "data"
+target = "data"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"

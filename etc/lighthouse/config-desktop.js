@@ -2,7 +2,7 @@ desktop;
 
 module.exports = {
   extends: 'lighthouse:default',
-  url: 'https://kollitsch.de/',
+  url: 'https://kollitsch.dev/',
   settings: {
     scores: {
       performance: 90,

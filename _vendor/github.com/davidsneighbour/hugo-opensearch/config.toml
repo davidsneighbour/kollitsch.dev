@@ -1,0 +1,40 @@
+[module.hugoVersion]
+extended = false
+min = "0.84.4"
+
+[[module.mounts]]
+source = "data"
+target = "data"
+
+[[module.mounts]]
+source = "i18n"
+target = "i18n"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+# either:
+# copy this section into your own configuration
+# or:
+# add `_merge = "deep"` into the `[outputFormats]` section of your configuration
+[outputFormats]
+[outputFormats.OpenSearch]
+baseName = "opensearch"
+isPlainText = true
+mediatype = "application/opensearchdescription+xml"
+notAlternative = true
+
+# either:
+# copy this section into your own configuration
+# or:
+# add `_merge = "deep"` into the `[mediaTypes]` section of your configuration
+[mediaTypes]
+[mediaTypes."application/opensearchdescription+xml"]
+delimiter = "."
+suffixes = ["xml"]
+
+# parameters
+[params]
+[params.dnb.opensearch]
+hookLink = "https://dnbql.netlify.app/opensearch"

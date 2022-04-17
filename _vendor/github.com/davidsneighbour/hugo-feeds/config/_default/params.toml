@@ -1,0 +1,12 @@
+[dnb]
+[dnb.feeds]
+limit = 10
+
+[dnb.feeds.atom]
+limit = 10
+
+[dnb.feeds.rss]
+limit = 10
+
+[dnb.feeds.json]
+limit = 10

@@ -6,16 +6,17 @@ linkTitle: "#100daystooffload"
 # dates
 date: 2022-03-21T23:27:23+07:00
 publishDate: 2022-03-21T23:27:23+07:00
-lastmod: 2022-03-21T23:27:23+07:00
+lastmod: 2022-04-17T18:01:53+07:00
 
 # add multiple resources to create a slider gallery
 resources:
-  - title: "Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)"
-    src: "marcel-eberle-SCBREPQuYoM-unsplash.jpg"
+  - title: Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via
+      [Unsplash](https://unsplash.com/)
+    src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 tags:
   - 100DaysToOffload
   - selfimprovement
-  - kollitsch.de
+  - kollitsch.dev
 ---
 
 I [recently](/blog/2022/notes-from-the-laboratory-february/) started taking part in the [`#100DaysToOffload`](https://100daystooffload.com/) challenge. It's a challenge that tries to create a larger output of content that is interesting and useful. I will try to write about the topics that I have learned during this time while still staying to be the nerd that I am.

@@ -1,5 +1,0 @@
-{{- $config := site.Params.dnb.matomo -}}
-{{- $host := $config.host -}}
-{{- $siteid := $config.siteid -}}
-{{- $link := printf "%smatomo.php?idsite=%d&amp;rec=1" $host $siteid -}}
-<img referrerpolicy="no-referrer-when-downgrade" src="{{ $link }}" style="border:0" alt="" width="0" height="0" />

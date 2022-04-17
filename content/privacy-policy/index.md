@@ -1,16 +1,18 @@
 ---
-title: "Privacy Policy"
+title: Privacy Policy
 date: 2022-04-04T16:23:31+07:00
 
 resources:
-  - title: "Photo by [Tobias Tullius](https://unsplash.com/@tobiastu) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: Photo by [Tobias Tullius](https://unsplash.com/@tobiastu) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 
 menu:
   footer:
     weight: 700
     params:
       bsicon: shield-lock-fill
+lastmod: 2022-04-17T21:00:13+07:00
 ---
 
 Personal data (usually referred to just as "data" below) will only be processed by us to the extent necessary and for the purpose of providing a functional and user-friendly website, including its contents, and the services offered there.
@@ -21,17 +23,17 @@ The following privacy policy is intended to inform you in particular about the t
 
 Our privacy policy is structured as follows:
 
-I. Information about us as controllers of your data  
-II. The rights of users and data subjects  
+I. Information about us as controllers of your data
+II. The rights of users and data subjects
 III. Information about the data processing
 
 ## I. Information about us as controllers of your data
 
 The party responsible for this website (the "controller") for purposes of data protection law is:
 
-David's Neighbour Part., Ltd.  
-1/6 Moo 5, Ban Maenam  
-84330 Suratthani  
+David's Neighbour Part., Ltd.
+1/6 Moo 5, Ban Maenam
+84330 Suratthani
 Thailand
 
 ## II. The rights of users and data subjects
@@ -203,24 +205,6 @@ Privacy Policy: [https://www.linkedin.com/legal/privacy-policy](https://www.link
 Facebook Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland, a subsidiary of Facebook Inc., 1601 S. California Ave., Palo Alto, CA 94304, USA.
 
 Privacy Policy: [https://help.instagram.com/519522125107875](https://help.instagram.com/519522125107875)
-
-### Matomo (formerly: PIWIK)
-
-Our website uses Matomo (formerly: PIWIK). This is open-source software with which we can analyze the use of our site. Data such as your IP address, the pages you visit, the website from which you came (referrer URL), the duration of your visit, and the frequency of your visits is processed.
-
-Matomo stores a cookie on your device via your browser in order to collect this data. This cookie is valid for one week.
-
-The legal basis is Art. 6 Para. 1 lit. f) GDPR. Our legitimate interest lies in the analysis and optimization of our website.
-
-We use Matomo with the "Automatically Anonymize Visitor IPs" function. This anonymization function truncates your IP address by two bytes so that it is impossible to assign it to you or to the internet connection you are using.
-
-If you do not agree to this processing, you have the option of preventing the installation of cookies by making the appropriate settings in your browser. Further details can be found in the section about cookies above.
-
-In addition, you have the option of terminating the analysis of your usage behavior by opting out. By confirming the link
-
-{{< matomo-opt-out >}}
-
-a cookie is stored on your device via your browser to prevent any further analysis. Please note, however, that you must click the above link again if you delete the cookies stored on your end device.
 
 ### Google reCAPTCHA
 

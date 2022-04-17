@@ -1,4 +1,5 @@
 {{- $context := .context -}}
+{{- $responsive := .responsive -}}
 {{- $articleimages := $context.Resources.ByType "image" -}}
 {{- $link := $context.Permalink -}}
 {{- $aspectRatio := (split site.Params.dnb.theme.aspect_ratio ":") -}}
@@ -6,7 +7,7 @@
 {{- $imageSizes := site.Params.dnb.theme.image_sizes -}} */}}
 {{- $breakPoints := site.Params.dnb.pictures.responsive.halfwidth.break_points -}}
 {{- $imageSizes := site.Params.dnb.pictures.responsive.halfwidth.image_sizes -}}
-{{- if (eq .responsive "fullwidth") -}}
+{{- if (eq $responsive "fullwidth") -}}
   {{- $breakPoints = site.Params.dnb.pictures.responsive.fullwidth.break_points -}}
   {{- $imageSizes = site.Params.dnb.pictures.responsive.fullwidth.image_sizes -}}
 {{- end -}}
@@ -34,7 +35,7 @@
               {{ if eq $index (sub (len $images) 1) }}
                 <source srcset="{{ $image.Permalink }}">
                 {{- /* TODO: loading="lazy" for images that are below the fold */ -}}
-                <img class="img-fluid" src="{{- $image.Permalink -}}" alt="{{- $title | plainify -}}" width="{{- $image.Width -}}" height="{{- $image.Height -}}">
+                <img class="img-fluid" src="{{- $image.Permalink -}}" alt="{{- $title | plainify -}}" width="{{- $image.Width -}}" height="{{- $image.Height -}}" {{- if (eq $responsive "fullwidth") -}} loading='eager'{{- end -}}>
               {{ end }}
             {{ end }}
           </picture>

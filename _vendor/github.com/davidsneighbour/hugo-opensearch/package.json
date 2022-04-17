@@ -1,0 +1,37 @@
+{
+  "name": "dnb-hugo-opensearch",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Opensearch configuration for Hugo",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-opensearch",
+  "repository": "davidsneighbour/hugo-opensearch",
+  "bugs": "https://github.com/davidsneighbour/hugo-opensearch/issues",
+  "devDependencies": {
+    "@dnb-org/remark-config": "^3.5.7",
+    "@dnb-org/standard-version-config": "^3.5.6",
+    "@dnb-org/tools": "^3.5.6"
+  },
+  "scripts": {
+    "clean": "run-p clean:*",
+    "clean:npm": "rimraf node_modules package-lock.json",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh"
+  },
+  "private": true,
+  "remarkConfig": {
+    "plugins": [
+      "@dnb-org/remark-config"
+    ]
+  },
+  "slug": "dnb-hugo-opensearch",
+  "dependencies": {
+    "mem": "^9.0.2",
+    "trim": "^1.0.1"
+  }
+}

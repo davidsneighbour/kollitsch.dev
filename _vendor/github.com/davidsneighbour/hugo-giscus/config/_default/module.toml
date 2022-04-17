@@ -1,0 +1,11 @@
+[hugoVersion]
+extended = true
+min = "0.84.4"
+
+[[mounts]]
+source = "data"
+target = "data"
+
+[[mounts]]
+source = "layouts"
+target = "layouts"

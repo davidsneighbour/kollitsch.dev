@@ -1,0 +1,9 @@
+<!-- Use %#v for strings so that their values always get double-quoted.
+      That is helpful to tell if a space char is within a string. -->
+<table class="debugprint">
+  <tr>
+    <td>
+      {{ printf "%#v" .value | htmlUnescape }}
+    </td>
+  </tr>
+</table>

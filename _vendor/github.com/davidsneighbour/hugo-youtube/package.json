@@ -1,0 +1,20 @@
+{
+  "name": "@davidsneighbour/hugo-youtube",
+  "version": "1.1.0",
+  "license": "MIT",
+  "description": "Youtube shortcode and partial for GoHugo",
+  "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
+  "homepage": "https://github.com/davidsneighbour/hugo-youtube",
+  "bugs": "https://github.com/davidsneighbour/hugo-youtube/issues",
+  "devDependencies": {
+    "@dnb-org/standard-version-config": "^3.5.6",
+    "@dnb-org/tools": "^3.5.6",
+    "mem": "^9.0.2"
+  },
+  "scripts": {
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release-major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release-next": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
+  },
+  "private": true
+}

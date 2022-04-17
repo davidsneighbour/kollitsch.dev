@@ -1,0 +1,21 @@
+{
+  "name": "@davidsneighbour/hugo-icons",
+  "version": "1.2.0",
+  "license": "MIT",
+  "description": "Icons for Hugo",
+  "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
+  "homepage": "https://github.com/davidsneighbour/hugo-icons",
+  "bugs": {
+    "url": "https://github.com/davidsneighbour/hugo-icons/issues"
+  },
+  "devDependencies": {
+    "@dnb-org/standard-version-config": "^3.5.6",
+    "@dnb-org/tools": "^3.5.6"
+  },
+  "scripts": {
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
+  },
+  "private": true
+}

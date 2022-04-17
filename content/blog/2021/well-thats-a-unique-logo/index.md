@@ -1,16 +1,15 @@
 ---
 title: Well... that's a unique... logo?
-summary:
-  I had a weird reaction (""well… that’s a unique logo?") to my really great
+summary: I had a weird reaction (""well… that’s a unique logo?") to my really great
   weblog logo above recently, so I thought I might as well explain it.
-date: '2021-10-29T19:47:48+07:00'
-lastmod: '2021-10-29T19:47:48+07:00'
-publishDate: '2021-10-29T19:47:48+07:00'
+date: 2021-10-29T19:47:48+07:00
+lastmod: 2022-04-17T18:01:41+07:00
+publishDate: 2021-10-29T19:47:48+07:00
 resources:
   - src: logo.png
     title: The greatest logo of them all
 tags:
-  - kollitsch.de
+  - kollitsch.dev
   - me now
   - logos
 ---

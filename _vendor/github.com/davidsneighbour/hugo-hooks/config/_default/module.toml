@@ -1,0 +1,23 @@
+[hugoVersion]
+extended = true
+min = "0.56.0"
+
+[[mounts]]
+source = "layouts"
+target = "layouts"
+
+[[mounts]]
+source = "data"
+target = "data"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-functions"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-debug"
+disable = false
+ignoreConfig = false
+ignoreImports = false

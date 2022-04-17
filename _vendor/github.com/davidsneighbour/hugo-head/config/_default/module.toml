@@ -1,0 +1,17 @@
+[hugoVersion]
+extended = false
+min = "0.84.4"
+
+[[mounts]]
+source = "layouts"
+target = "layouts"
+
+[[mounts]]
+source = "data"
+target = "data"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-hooks"

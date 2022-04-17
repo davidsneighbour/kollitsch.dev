@@ -1,8 +1,8 @@
 ################################################################################
 # see https://gohugo.io/getting-started/configuration/
 ################################################################################
-baseURL = "https://kollitsch.de/"
-copyright = "All rights reserved. Copyright &copy;2021 kollitsch.de"
+baseURL = "https://kollitsch.dev/"
+copyright = "All rights reserved. Copyright &copy;2022 kollitsch.dev"
 defaultContentLanguage = "en"
 disableHugoGeneratorInject = true
 enableEmoji = true
@@ -17,6 +17,6 @@ pygmentsUseClasses = true
 rssLimit = 10
 summaryLength = 40
 timeZone = "Asia/Bangkok"
-title = "kollitsch.de"
+title = "kollitsch.dev"
 # hack: adding a crazy timeout to prevent hugo from... timing out...
 timeout = 100000000000000

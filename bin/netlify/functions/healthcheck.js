@@ -18,7 +18,7 @@ exports.handler = async function (event, context) {
   try {
     const apiResponse = await axios({
       method: 'get',
-      url: 'https://kollitsch.de/',
+      url: 'https://kollitsch.dev/',
       timeout: 3000,
     });
   } catch (error) {
@@ -76,9 +76,9 @@ async function sendEmail(statusCode) {
               Name: 'Patrick Kollitsch',
             },
           ],
-          Subject: 'Healthcheck failed on kollitsch.de',
+          Subject: 'Healthcheck failed on kollitsch.dev',
           HtmlPart: `
-            <h1>Kollitsch.de Not Responding</h1>
+            <h1>Kollitsch.dev Not Responding</h1>
             <p>The healthcheck has responded with a non-200 status code
             [${statusCode}]. You best check the site to see if it is up.
             </p>`,

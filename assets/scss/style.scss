@@ -8,10 +8,11 @@
 @import 'bootstrap/scss/utilities';
 
 // Local Bootstrap Setup/Overrides
+@import 'settings/colours';
 @import 'settings/theme';
 
 // colors
-$primary: hsl(6deg, 63.4%, 46.1%);
+$primary: $color-orange-4;
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
@@ -20,7 +21,7 @@ $theme-colors: (
   'warning': $warning,
   'danger': $danger,
   'light': $light,
-  'dark': $dark,
+  'dark': $color-cerulean-6,
 );
 
 :root {

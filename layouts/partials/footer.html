@@ -4,6 +4,10 @@
     "context" .
   ) -}}
   <div class="container mb-5 widgets">
+    {{- partial "func/hook.html" ( dict
+      "hook" "footer-widgets-start"
+      "context" .
+    ) -}}
     {{- with site.Params.dnb.theme.footer.menus -}}
       <div class="row justify-content-center align-items-start">
         {{ range . -}}

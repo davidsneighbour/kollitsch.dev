@@ -3,6 +3,7 @@ import Alpine from 'alpinejs';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
+import 'web-vitals-element';
 
 // change Giscus theme
 function changeGiscusTheme(theme = 'dark_dimmed') {

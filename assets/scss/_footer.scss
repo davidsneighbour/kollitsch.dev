@@ -30,3 +30,47 @@
 
   }
 }
+
+.widget--web-vitals {
+  strong {
+    display: inline;
+    margin-right: 1rem;
+
+  }
+
+  .is-good {
+    color: $color-green-4;
+  }
+
+  .is-bad {
+    color: $color-red-4;
+  }
+
+  dl {
+    display: inline;
+
+    color: $color-yellow-4;
+
+    >div {
+      display: inline;
+    }
+
+    dt {
+      display: inline;
+      margin-right: 1rem;
+
+      font-size: 1rem;
+
+    }
+
+    dd {
+      display: inline;
+      margin-right: 1rem;
+
+      font-size: 1rem;
+    }
+  }
+
+  @extend .text-center;
+
+}

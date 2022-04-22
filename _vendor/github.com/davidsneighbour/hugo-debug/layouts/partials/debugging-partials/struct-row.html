@@ -1,0 +1,9 @@
+<tr>
+  {{- range $index, $item := . -}}
+    {{- if (eq $index 0) -}}
+      <th>{{- . -}}</th>
+    {{- else -}}
+      <td>{{- . -}}</td>
+    {{- end -}}
+  {{- end -}}
+</tr>

@@ -5,7 +5,8 @@ const items = links.links;
 const terminalLog = (violations) => {
   cy.task(
     'log',
-    `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? '' : 's'
     } ${violations.length === 1 ? 'was' : 'were'} detected`
   );
   const violationData = violations.map(

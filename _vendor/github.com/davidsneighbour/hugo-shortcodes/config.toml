@@ -1,0 +1,21 @@
+[module]
+
+[module.hugoVersion]
+extended = true
+min = "0.56.0"
+
+[[module.mounts]]
+source = "assets/libs/lite-vimeo/lite-vimeo.js"
+target = "assets/libs/lite-vimeo/lite-vimeo.js"
+
+[[module.mounts]]
+source = "data"
+target = "data"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "static"
+target = "static"

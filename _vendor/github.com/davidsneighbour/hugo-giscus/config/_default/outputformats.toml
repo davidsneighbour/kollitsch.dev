@@ -1,0 +1,5 @@
+[GISCUS]
+baseName = "giscus"
+isPlainText = true
+mediatype = "application/json"
+notAlternative = true

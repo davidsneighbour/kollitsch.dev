@@ -1,0 +1,11 @@
+{{- with site.Home.AlternativeOutputFormats -}}
+  {{- range . -}}
+  <link
+    rel="{{- .Rel -}}"
+    type="{{- .MediaType.Type | safeHTMLAttr -}}"
+    href="{{- .Permalink | safeURL -}}"
+
+    {{/* hreflang="{{- site.LanguageCode -}}" */}}
+    >
+  {{- end -}}
+{{- end -}}

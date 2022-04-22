@@ -11,6 +11,7 @@ home = [
   "jsonfeed",
   "atom",
   "dnblinklist",
+  "opensearch",
 ]
 page = ["HTML"]
 post = ["HTML"]

@@ -1,0 +1,9 @@
+{{- $names := slice
+      ".PageNumber" ".URL" ".Pages" ".NumberOfElements" ".HasPrev"
+      ".Prev" ".HasNext" ".Next" ".First" ".Last"  ".Pagers"
+      ".PageSize" ".TotalPages" ".TotalNumberOfElements" -}}
+{{- $items := slice
+      .value.PageNumber .value.URL .value.Pages .value.NumberOfElements .value.HasPrev
+      .value.Prev .value.HasNext .value.Next .value.First .value.Last .value.Pagers
+      .value.PageSize .value.TotalPages .value.TotalNumberOfElements -}}
+{{ partial "debugging-partials/struct-table.html" (dict "names" $names "items" $items "config" .config) }}

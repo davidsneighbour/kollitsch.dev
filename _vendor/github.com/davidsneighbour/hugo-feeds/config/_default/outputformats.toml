@@ -1,0 +1,27 @@
+################################################################################
+# see http://gohugo.io/templates/output-formats/
+################################################################################
+[rss]
+baseName = "rss"
+
+[jsonfeed]
+mediaType = "application/feed+json"
+path = ""
+baseName = "feed"
+rel = "alternate"
+protocol = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = false
+
+[atom]
+mediaType = "application/rss+xml"
+path = ""
+baseName = "atom"
+rel = "alternate"
+protocol = ""
+isPlainText = false
+isHTML = false
+noUgly = true
+permalinkable = false

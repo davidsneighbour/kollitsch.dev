@@ -1,0 +1,27 @@
+{{- /*
+
+@see https://discourse.gohugo.io/t/generate-a-random-string/26338
+@since 1.0.0
+
+```gotemplate
+{{- $random := partialCached "func/getRandomString" (dict "limit" 8) -}}
+{{- $random := partialCached "func/getRandomString" . -}}
+```
+
+- calling without parameters returns 12 characters
+- call with a limit parameter to select the amount of characters returned
+- call with a seed parameter will use that string instead of the site.Title to
+  create the random string
+- call with `partialCached` and a unique seed to reuse the random string
+
+*/ -}}
+{{ $seed := printf "%s%s" site.Title now.Unix }}
+{{ if isset . "seed" }}
+  {{ $seed = .seed }}
+{{ end }}
+{{ $limit := 12 }}
+{{ with .limit }}
+  {{ $limit = . }}
+{{ end }}
+{{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+{{ return substr $random 0 $limit }}

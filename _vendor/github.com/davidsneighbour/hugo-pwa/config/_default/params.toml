@@ -1,0 +1,10 @@
+[dnb.pwa]
+dev = true
+
+
+short_name = ""
+theme_color = ""
+background_color = ""
+display = ""
+start_url = ""
+description = ""

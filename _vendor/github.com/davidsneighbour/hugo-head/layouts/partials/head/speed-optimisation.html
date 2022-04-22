@@ -1,0 +1,33 @@
+{{/* <!-- Completely opt out of DNS prefetching by setting to "off" -->
+<meta http-equiv="x-dns-prefetch-control" content="off">
+
+<!-- Prefetching, preloading, prebrowsing -->
+<!-- More info: https://css-tricks.com/prefetching-preloading-prebrowsing/ -->
+<link rel="dns-prefetch" href="//example.com/">
+<link rel="prefetch" href="https://www.example.com/">
+<link rel="preconnect" href="https://www.example.com/">
+<link rel="prerender" href="https://example.com/">
+<link rel="preload" href="image.png" as="image"> */}}
+
+{{- /* TODO configure prefetch/preconnection control */ -}}
+<meta http-equiv="x-dns-prefetch-control" content="{{- site.Params.dnb.head.speedoptimisation.control | default "on" -}}">
+{{- with site.Params.dnb.head.speedoptimisation.preconnect -}}
+  {{- range . -}}
+    <link rel="preconnect" href="{{- . -}}">
+  {{- end -}}
+{{- end -}}
+{{- with site.Params.head.speedoptimisation.prefetch -}}
+  {{- range . -}}
+    <link rel="dns-prefetch" href="{{- . -}}">
+  {{- end -}}
+{{- end -}}
+{{- with site.Params.head.speedoptimisation.prerender -}}
+  {{- range . -}}
+    <link rel="prerender" href="{{- . -}}">
+  {{- end -}}
+{{- end -}}
+{{- with site.Params.head.speedoptimisation.preload -}}
+  {{- range . -}}
+    <link rel="preload" href="{{- .href -}}" as="{{- .as -}}">
+  {{- end -}}
+{{- end -}}

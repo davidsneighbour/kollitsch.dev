@@ -1,0 +1,31 @@
+<link rel="manifest" href="/manifest.webmanifest">
+{{- $icon := resources.Get "favicon/favicon.png" -}}
+{{- if ne nil $icon -}}
+<link rel="apple-touch-icon" sizes="180x180" href="{{- ($icon.Resize "180x180").Permalink -}}">
+<link rel="apple-touch-icon" sizes="192x192" href="{{- ($icon.Resize "192x192").Permalink -}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{- ($icon.Resize "32x32").Permalink -}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{- ($icon.Resize "16x16").Permalink -}}">
+
+{{- /* https://web.dev/building-an-adaptive-favicon/ */ -}}
+{{- with resources.Get "favicon/favicon.svg" -}}
+<link rel="icon" href="{{- .Permalink -}}" type="image/svg+xml">
+{{- end -}}
+
+<link rel="mask-icon" href="{{- ($icon.Resize "192x192").Permalink -}}" color="#ffffff">
+<meta name="theme-color" content="#ffffff">
+{{- else -}}
+  {{- warnf "No favicon defined. " -}}
+{{- end -}}
+
+{{- /* TODO maybe only these, see https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs */ -}}
+{{/* <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+<link rel="manifest" href="/manifest.webmanifest">
+<!-- Name of web application (only should be used if the website is used as an app) -->
+<meta name="application-name" content="Application Name">
+
+<!-- Theme Color for Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#4285f4">
+
+*/}}

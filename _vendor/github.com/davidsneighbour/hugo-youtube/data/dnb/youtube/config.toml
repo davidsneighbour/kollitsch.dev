@@ -1,0 +1,12 @@
+[youtube]
+# youtube shortcode
+disabled = false
+verbose = true
+
+[plugins]
+js = [
+  "libs/liteyoutube/lite-yt-embed.js"
+]
+scss = [
+  "libs/liteyoutube/lite-yt-embed.scss"
+]

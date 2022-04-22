@@ -1,0 +1,20 @@
+[dnb-opensearch-error-url]
+description = "telling the client that a default search url is used (/search?q=searchterm)"
+other = "using default site search URL"
+
+[dnb-opensearch-error-form]
+description = "telling the client that a default search form URL is used"
+other = "using default site search form URL"
+
+[dnb-opensearch-error-icon]
+other = "using default site search icon"
+
+[dnb-opensearch-error-description]
+other = "parameter description must be 1024 or less characters"
+
+[dnb-opensearch-error-title]
+other = "parameter title must be 16 or less characters"
+
+[dnb-opensearch-search-title]
+description = "Variable is the site title"
+other = "Search on {{ . }}"

@@ -20,6 +20,8 @@ github.com/davidsneighbour/hugo-netlification v1.2.1 h1:SEpEEl3x+HmmLDvufqyUBjOH
 github.com/davidsneighbour/hugo-netlification v1.2.1/go.mod h1:6hgo+ce6kL1gEMKMOqCdukXQhL/2N7FUbOTVPs2Gw8c=
 github.com/davidsneighbour/hugo-opensearch v0.1.1 h1:jJPToDzAU+jWvtLXplHt/maRaobs+uQYdEH4mWol1MI=
 github.com/davidsneighbour/hugo-opensearch v0.1.1/go.mod h1:1nekru22wosNIGNFJTnxA6FwM9xESe4MrjXGnpqLK7I=
+github.com/davidsneighbour/hugo-opensearch v1.0.1 h1:aiXwr5eEELeSOi+dykS5vR5E8YjM+WTSUJuZ3xXdDfc=
+github.com/davidsneighbour/hugo-opensearch v1.0.1/go.mod h1:1nekru22wosNIGNFJTnxA6FwM9xESe4MrjXGnpqLK7I=
 github.com/davidsneighbour/hugo-pictures v0.1.1 h1:0/UlCn7R6VbB8VMxg+6MbGLbGkd9uEHe3WfgSYVQ7qU=
 github.com/davidsneighbour/hugo-pictures v0.1.1/go.mod h1:SzVXdR2TT4OUmDxCv5B2UeVl3DSCk9MA/MjtbXRVvHE=
 github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc h1:3R1+oq7cV2VAwfieugclpf2PzajcI/gEsaKVWuJ33Lw=

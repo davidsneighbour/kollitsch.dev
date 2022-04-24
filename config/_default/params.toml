@@ -138,6 +138,29 @@ enableSourceMap = true
 includePaths = ["node_modules/"]
 
 ################################################################################
+# hugo-search-algolia @see https://github.com/davidsneighbour/hugo-search-algolia
+################################################################################
+[dnb.search]
+# 1 = mainsections use of params > mainsections
+# 2 = all for all pages that are draft=false
+# 5 = withdrafts for all pages, including drafts
+filter = ["mainsections"]
+# TODO add to setup
+[dnb.search.fields]
+objectID = ".File.UniqueID"
+title = ".Title"
+description = ".Description"
+summary = ".Summary"
+tags = ".Params.tags"
+categories = ".Params.categories"
+image = "$imagePath"
+content = ".Plain"
+permalink = ".Permalink"
+date = ".Date"
+lastmod = ".Lastmod"
+wordcount = ".WordCount"
+
+################################################################################
 # hugo-social @see https://github.com/davidsneighbour/hugo-social
 ################################################################################
 [dnb.social]

@@ -70,4 +70,11 @@ module.exports = {
       }
     }
   },
+
+  async onSuccess({ utils, inputs, constants, netlifyConfig }) {
+    console.table(utils);
+    console.table(inputs);
+    console.table(constants);
+    console.table(netlifyConfig);
+  },
 };

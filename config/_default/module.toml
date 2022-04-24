@@ -7,6 +7,12 @@ min = "0.94.0"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+path = "github.com/davidsneighbour/kollitsch.dev-content"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
 path = "github.com/davidsneighbour/hugo-auditor"
 
 [[imports]]

@@ -1,5 +1,7 @@
 {{- $index := slice -}}
-{{- range where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $pages := where site.RegularPages "Draft" "==" false -}}
+{{- $pages = where $pages "Type" "in" site.Params.mainSections -}}
+{{- range $pages -}}
   {{- $imagePath := "" -}}
   {{- $articleimages := .Resources.ByType "image" -}}
   {{- with $articleimages -}}
@@ -23,11 +25,16 @@
   {{- $index = $index | append (dict
         "objectID" .File.UniqueID
         "title" .Title
+        "description" .Description
+        "summary" .Summary
         "tags" .Params.tags
-        "image" $imagePath
         "categories" .Params.categories
-        "contents" .Plain
+        "image" $imagePath
+        "content" .Plain
         "permalink" .Permalink
+        "date" .Date
+        "lastmod" .Lastmod
+        "wordcount" .WordCount
   ) -}}
 {{- end -}}
 {{- $index | jsonify -}}

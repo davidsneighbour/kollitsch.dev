@@ -1,6 +1,0 @@
-[dnblinklist]
-baseName = 'links'
-isPlainText = true
-mediaType = 'application/json'
-permalinkable = false
-notAlternative = true

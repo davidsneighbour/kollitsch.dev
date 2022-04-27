@@ -42,3 +42,5 @@ github.com/davidsneighbour/hugo-youtube v1.1.2 h1:qgByk9Z6qx7W9Qx8m6vjkfkfAhq1Hb
 github.com/davidsneighbour/hugo-youtube v1.1.2/go.mod h1:qR+p/3TJDmApG4sB+ajqV4vvRwWaRr+HZiMwPrRxE7U=
 github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424143811-9e171311f310 h1:NfaXYiSR32xbGwVK2liG259XPCPi2h+NzzbYg+joGHA=
 github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424143811-9e171311f310/go.mod h1:Gq5voMo31ZjHRNZyUDMLzRES8Mf5ANk+vud56wFlXZk=
+github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424154705-b28f44a8a6bf h1:2SbwGc/z+cT1ROVzrJFHMQqJTTcmeENqolWbJ7OncG4=
+github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424154705-b28f44a8a6bf/go.mod h1:Gq5voMo31ZjHRNZyUDMLzRES8Mf5ANk+vud56wFlXZk=

@@ -4,10 +4,13 @@
   "hook" "setup"
   "context" .
 ) -}}
-<html lang='{{- site.LanguageCode | default "en-US" -}}'>
+{{- $siteLanguageCode := site.LanguageCode | default "en-US" -}}
+<html lang="{{- $siteLanguageCode -}}">
+
 <head>
   {{- partial "head.html" . -}}
 </head>
+
 <body x-data :class="$store.theme.mode">
   {{- partial "func/hook.html" ( dict
     "hook" "body-start"
@@ -27,6 +30,7 @@
   ) -}}
   {{- partial "footer/service-worker.html" . -}}
 </body>
+
 </html>
 {{- partial "func/hook.html" ( dict
       "hook" "teardown"

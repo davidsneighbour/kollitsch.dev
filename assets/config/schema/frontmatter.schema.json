@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "definitions": {
+    "default": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "founded": {
+          "type": "integer"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "founded",
+        "members",
+        "name"
+      ],
+      "title": "Artist"
+    },
+    "blog": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "linkTitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "date": {},
+        "publishDate": {},
+        "lastmod": {},
+        "resources": {},
+        "author": {
+          "$ref": "#/definitions/author"
+        },
+        "categories": {},
+        "tags": {},
+        "keywords": {}
+      },
+      "required": [
+        "type",
+        "title",
+        "description",
+        "date",
+        "lastmod",
+        "resources",
+        "tags"
+      ],
+      "title": "Blog Entry"
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "homepage": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "Author"
+    },
+    "resources": {},
+    "music2program2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "duration",
+        "name"
+      ],
+      "title": "Track"
+    },
+    "notes-from-the-laboratory": {},
+    "playlist": {},
+    "tags": {},
+    "stack": {}
+  }
+}

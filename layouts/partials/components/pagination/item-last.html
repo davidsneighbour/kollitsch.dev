@@ -1,12 +1,11 @@
-
 {{- $paginator := . }}
 {{- $currentPageNumber := .PageNumber }}
 {{- with .Last }}
-  {{- if ne $currentPageNumber .PageNumber }}
-    <li class="page-item">
-      <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button">
-        {{ partial "icons/chevron-double-right.html" "chevron-double-right" "chevron-double-right" }}
-      </a>
-    </li>
-  {{- end }}
+{{- if ne $currentPageNumber .PageNumber }}
+<li class="page-item">
+  <a href="{{ .URL }}" aria-label="Last" class="page-link">
+    {{ partial "icons/chevron-double-right.html" "chevron-double-right" "chevron-double-right" }}
+  </a>
+</li>
+{{- end }}
 {{- end }}

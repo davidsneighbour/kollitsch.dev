@@ -2,5 +2,33 @@
   "extends": [
     "@davidsneighbour/htmlvalidate-config"
   ],
+  "rules": {
+    "long-title": "off",
+    "valid-id": "off",
+    "no-trailing-whitespace": "off",
+    "element-name": [
+      "warn",
+      {
+        "whitelist": [
+          "menu"
+        ]
+      }
+    ],
+    "element-required-content": "off",
+    "no-inline-style": [
+      "error",
+      {
+        "include": [
+          "lite-youtube"
+        ],
+        "exclude": [],
+        "allowedProperties": [
+          "display"
+        ]
+      }
+    ],
+    "element-required-attributes": "off",
+    "no-dup-id": "off"
+  },
   "root": true
 }

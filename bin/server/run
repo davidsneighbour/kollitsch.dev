@@ -81,6 +81,7 @@ hugo server \
   --buildFuture \
   --buildDrafts \
   --watch \
+  --minify \
   --enableGitInfo \
   --forceSyncStatic \
   --log true --logFile hugo.log \

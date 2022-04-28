@@ -27,7 +27,7 @@ if test -f "$SCRIPTPATH"/replacements; then
   done < "$SCRIPTPATH"/replacements
 fi
 
-"${CURPATH}"/bin/build/prepare-docs
+#"${CURPATH}"/bin/build/prepare-docs
 
 hugo mod get -u ./...
 hugo mod tidy

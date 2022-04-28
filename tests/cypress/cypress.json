@@ -2,5 +2,9 @@
   "extends": "@davidsneighbour/cypress-config/base-hugo.json",
   "pluginsFile": "tests/cypress/plugins/index.js",
   "env": {},
-  "projectId": "q89kap"
+  "projectId": "q89kap",
+  "ignoreTestFiles": [
+    "**/accessibility/*.spec.ts",
+    "**/htmlvalidation/*.spec.js"
+  ]
 }

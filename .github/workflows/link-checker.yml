@@ -8,9 +8,21 @@ jobs:
   linkinator:
     name: Link Audit
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Set Node.js 12
-        uses: actions/setup-node@v1
-      - run: npm ci
-      - run: npm run lint:links
+
+      # - name: Set Node.js 12
+      #   uses: actions/setup-node@v1
+
+      - run: npm install
+
+      - name: Wait for the Netlify Preview
+        # https://github.com/JakePartusch/wait-for-netlify-action
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: "kollitsch"
+
+      - name: Audit URLs
+        run: npm run lint:links

@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
-  "version": "2022.5.15",
+  "version": "2022.5.16",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.dev",
   "author": {
@@ -67,7 +67,7 @@
     "clean": "run-p clean:*",
     "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
     "clean:cypress": "rimraf tests/cypress/{downloads,screenshots,videos}/*",
-    "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
+    "clean:hugo": "rimraf hugo{.log,_stats.json} resources public assets/jsconfig.json .hugo_build.lock",
     "clean:npm": "rimraf node_modules package-lock.json",
     "commit": "./node_modules/cz-customizable/standalone.js",
     "cypress": "npm run cypress:run",
@@ -95,7 +95,7 @@
     "serve:script": "tsc --watch",
     "server": "run-p serve watch",
     "server:paranoid": "bin/server/run-paranoid",
-    "test": "npm run cypress",
+    "tests": "npm run cypress",
     "update": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db",
     "watch": "npm-watch"
   },
@@ -119,8 +119,6 @@
       "@davidsneighbour/remark-config"
     ]
   },
-  "slug": "kollitsch-dev",
-  "url": "https://kollitsch.dev",
   "watch": {
     "build:frontmatter": "assets/config/frontmatter/**/*.*"
   }

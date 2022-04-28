@@ -3,18 +3,34 @@
     "@davidsneighbour/htmlvalidate-config"
   ],
   "rules": {
-    "long-title": "off",
-    "valid-id": "off",
+    "long-title": [
+      "error",
+      {
+        "maxlength": 100
+      }
+    ],
+    "why-no-trailing-whitespace": [
+      "off",
+      {
+        "why": "because there is a lot of trailing whitespace in hugo"
+      }
+    ],
     "no-trailing-whitespace": "off",
     "element-name": [
-      "warn",
+      "error",
       {
         "whitelist": [
-          "menu"
+          "menu",
+          "date"
         ]
       }
     ],
-    "element-required-content": "off",
+    "valid-id": [
+      "error",
+      {
+        "relaxed": true
+      }
+    ],
     "no-inline-style": [
       "error",
       {
@@ -27,8 +43,20 @@
         ]
       }
     ],
+    "why-element-required-attributes": [
+      "off",
+      {
+        "why": "because goldmark does not support attributes in th (scope)"
+      }
+    ],
     "element-required-attributes": "off",
-    "no-dup-id": "off"
+    "why-element-required-content": [
+      "off",
+      {
+        "why": "because html does not require to have a body tag"
+      }
+    ],
+    "element-required-content": "off"
   },
   "root": true
 }

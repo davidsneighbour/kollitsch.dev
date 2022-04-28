@@ -1,0 +1,7 @@
+{
+  "directory": "public",
+  "recursive": true,
+  "mkdocs": true,
+  "allow-hash-href": true,
+  "disable-external": true
+}

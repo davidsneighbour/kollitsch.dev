@@ -1,0 +1,9 @@
+{{- $options := .Options -}}
+{{- $data := newScratch -}}
+{{- $data.Set "options" dict -}}
+{{- range $key, $value := $options -}}
+{{- $data.SetInMap "options" (lower $key) $value -}}
+{{- end -}}
+{{- $replacement := (printf "%s%s" "code" (substr (md5 .Inner) 0 7)) -}}
+{{- $data.SetInMap "options" "lineanchors" $replacement -}}
+{{- highlight .Inner .Type ($data.Get "options") -}}

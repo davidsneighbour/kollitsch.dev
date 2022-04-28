@@ -62,7 +62,7 @@
     "mem": "^9.0.2",
     "netlify-cli": "^10.1.0",
     "ninja-keys": "^1.2.1",
-    "node-fetch": "^3.2.3",
+    "node-fetch": "^3.2.4",
     "package.json": "^2.0.1",
     "pixrem": "^5.0.0",
     "precss": "^4.0.0",

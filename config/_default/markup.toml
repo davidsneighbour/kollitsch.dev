@@ -9,7 +9,6 @@ definitionList = true
 footnote = true
 linkify = false
 linkifyProtocol = "https"
-
 strikethrough = true
 table = true
 taskList = true
@@ -29,13 +28,14 @@ unsafe = false
 xhtml = false
 
 [highlight]
+lineNos = true
+lineNoStart = 1
 anchorLineNos = true
 codeFences = true
 guessSyntax = true
 hl_Lines = ""
-lineAnchors = "code"
-lineNos = true
-lineNoStart = 1
+# no need for this, we do this in layouts/_default/_markup/render-codeblock.html
+# lineAnchors = "code"
 lineNumbersInTable = false
 noClasses = false
 noHl = false

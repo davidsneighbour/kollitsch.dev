@@ -1,3 +1,7 @@
+github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 h1:K8ukOfj0MOBEWWsL8Mzd8GXIbAf7/RHnX1hipqbjeto=
+github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579/go.mod h1:xl3heUINAn0oPowV1biDQ2Pyw1w3x66I7KEbWkaxox0=
+github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e h1:YqovKrj72RLVvP244ZkZ5zasDB2x/aTTfTFDJFJKDi4=
+github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/davidsneighbour/hugo-auditor v0.1.2 h1:BLGNEJ9LyKK/AsJ2CdJmkNHs8o3IanxaUWj22hn95j8=
 github.com/davidsneighbour/hugo-auditor v0.1.2/go.mod h1:PYAXMAY7rDZAX4T7VYoqe5IXQ6ABdAky10MkOlUH++k=
 github.com/davidsneighbour/hugo-debug v1.5.6 h1:0VCYMWKVwj2yPFuWeHeGYtpLDXKaD2Q/qgluxNXdNUk=
@@ -40,7 +44,11 @@ github.com/davidsneighbour/hugo-social v0.1.3 h1:Z5BDPHez1MZaqzZbHE4jo0wrk3J687k
 github.com/davidsneighbour/hugo-social v0.1.3/go.mod h1:26icYSnjl7Q9QcWMnm/5j6FYJopPfkweQXX6gzR1ZgU=
 github.com/davidsneighbour/hugo-youtube v1.1.2 h1:qgByk9Z6qx7W9Qx8m6vjkfkfAhq1HbzkE/ChHAX+E6U=
 github.com/davidsneighbour/hugo-youtube v1.1.2/go.mod h1:qR+p/3TJDmApG4sB+ajqV4vvRwWaRr+HZiMwPrRxE7U=
-github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424143811-9e171311f310 h1:NfaXYiSR32xbGwVK2liG259XPCPi2h+NzzbYg+joGHA=
-github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424143811-9e171311f310/go.mod h1:Gq5voMo31ZjHRNZyUDMLzRES8Mf5ANk+vud56wFlXZk=
 github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424154705-b28f44a8a6bf h1:2SbwGc/z+cT1ROVzrJFHMQqJTTcmeENqolWbJ7OncG4=
 github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220424154705-b28f44a8a6bf/go.mod h1:Gq5voMo31ZjHRNZyUDMLzRES8Mf5ANk+vud56wFlXZk=
+github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 h1:NaIMifqZJiyLbGxFqrMIwUtaZp+prmNZ7VasS83N+sk=
+github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
+github.com/tailwindlabs/heroicons v1.0.6 h1:XquXj196+XH8+EUDC1wXKMCF6F2ziVKncN66bYgL/Eo=
+github.com/tailwindlabs/heroicons v1.0.6/go.mod h1:2SHGOdw86jviBkoeQINcTfkzAAao9dciip4RsMS9xIg=
+github.com/twbs/icons v1.8.1 h1:0friuyXfO1G6+oRt2lzry6uI5TjTjkI9IvAyplvd9oI=
+github.com/twbs/icons v1.8.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=

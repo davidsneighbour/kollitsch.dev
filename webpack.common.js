@@ -1,40 +1,69 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  target: ["browserslist"],
+	target: ['browserslist'],
 
-  entry: {
-    main: path.join(__dirname, "assets/js", "script.ts"),
-  },
+	entry: {
+		main: path.join(__dirname, 'assets/js', 'script.ts'),
+		styles: path.join(__dirname, 'assets/scss', 'style.scss'),
+	},
 
-  output: {
-    path: path.join(__dirname, "static/assets/theme"),
-    filename: "[name].js",
-    chunkFilename: "[id].css",
-    clean: true,
-  },
+	output: {
+		path: path.join(__dirname, 'static/assets/theme/'),
+		filename: '[name].js',
+		chunkFilename: '[id].css',
+		clean: true,
+	},
 
-  performance: {
-    maxEntrypointSize: 400000,
-    maxAssetSize: 100000,
-    hints: "warning",
-  },
+	performance: {
+		maxEntrypointSize: 400_000,
+		maxAssetSize: 100_000,
+		hints: 'warning',
+	},
 
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        loader: "babel-loader",
-        test: /\.js?$/,
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+			{
+				loader: 'babel-loader',
+				test: /\.js?$/,
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.css$/i,
+				use: [
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [
+									[
+										'postcss-preset-env',
+										{
+											// Options
+										},
+									],
+								],
+							},
+						},
+					},
+				],
+			},
+		],
+	},
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],
+	},
 };

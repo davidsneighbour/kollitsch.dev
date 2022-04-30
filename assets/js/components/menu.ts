@@ -3,7 +3,10 @@ import 'ninja-keys';
 // menu
 const ninjaTag = document.createElement('ninja-keys');
 const footer = document.querySelector('#footer');
-footer.append(ninjaTag);
+
+if (footer){
+  footer.append(ninjaTag);
+}
 
 if (ninjaTag) {
   ninjaTag.data = [

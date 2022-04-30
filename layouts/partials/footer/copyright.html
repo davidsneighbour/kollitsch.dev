@@ -1,6 +1,6 @@
 <p class="my-5">
   {{- $year := partial "func/getYear.html" . . -}}
-  {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML  -}}
+  {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML -}}
   &nbsp;&mdash;&nbsp;
   {{- $data := (index site.Data.dnb "dark-skies").build -}}
   {{- $versionpath := printf "[v%s](%s/releases/tag/v%s)" $data.version $data.repository $data.version -}}

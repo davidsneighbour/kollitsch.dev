@@ -30,8 +30,8 @@ jobs:
             ${{ steps.netlify.outputs.url }}
             ${{ steps.netlify.outputs.url }}/page/2/
             ${{ steps.netlify.outputs.url }}/page/3/
-          budgetPath: ./etc/lighthouse/budget.json
-          configPath: ./etc/lighthouse/config-desktop.js
+          budgetPath: ./config/etc/lighthouse/budget.json
+          configPath: ./config/etc/lighthouse/config-desktop.js
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3
@@ -49,8 +49,8 @@ jobs:
             https://kollitsch.dev/
             https://kollitsch.dev/page/2/
             https://kollitsch.dev/page/3/
-          budgetPath: ./etc/lighthouse/budget.json
-          configPath: ./etc/lighthouse/config-mobile.js
+          budgetPath: ./config/etc/lighthouse/budget.json
+          configPath: ./config/etc/lighthouse/config-mobile.js
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3

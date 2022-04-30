@@ -51,7 +51,7 @@ npm run clean:hugo
 # create replacements via environment
 NOT_FIRST_LINE=false
 HUGO_MODULE_REPLACEMENTS=""
-REPLACEMENTS="${CURPATH}"/bin/config/etc/replacements
+REPLACEMENTS="${CURPATH}"/bin/etc/replacements
 if test -f "${REPLACEMENTS}"; then
   while read -ra __; do
     if $NOT_FIRST_LINE; then

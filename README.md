@@ -23,7 +23,7 @@ Note: we will check out Cloudflare Pages soon. More bandwidth and more build tim
 
 ### General Notes
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ### Requirements
 
@@ -114,3 +114,20 @@ Currently the theme is integrated into the repository. I plan to release the the
 - `netlify --telemetry-disable`
 - `netlify init`
 - `netlify build`
+
+## Hooks
+
+(not done yet)
+
+Hooks are listed in their order
+
+<!-- prettier-ignore -->
+| Hook | File | Multi | Depends on | Description |
+| ---- | ---- | ----- | ---------- | ----------- |
+| init | partials/init.html | :x: | | before anything else is executed (before pagination object is created) |
+| init-end | partials/init.html | :x: |  | after the pagination object is created and in scratch |
+| setup | _default/baseof.html | :x: |  | at the beginning of the main layout |
+| body-start | _default/baseof.html | :x: |  |  |
+| body-end-pre-script | _default/baseof.html | :x: |  |  |
+| body-end | _default/baseof.html | :x: |  |  |
+| teardown | _default/baseof.html | :x: |  |  |

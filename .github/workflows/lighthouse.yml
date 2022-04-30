@@ -20,7 +20,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
-          site_name: "kollitsch"
+          site_name: 'kollitsch'
 
       - name: Audit URLs using Lighthouse for desktop
         # https://github.com/treosh/lighthouse-ci-action

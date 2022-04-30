@@ -1,6 +1,5 @@
 // @ts-ignore
 import Alpine from 'alpinejs';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Collapse, Tab } from 'bootstrap';
 import './components/menu.ts';
 import 'web-vitals-element';
@@ -12,13 +11,14 @@ function changeGiscusTheme(theme = 'dark_dimmed') {
     scheme = 'light';
   }
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   function sendMessage(message: { setConfig: { theme: string } }) {
     const iframe = document.querySelector(
       'iframe.giscus-frame'
     ) as HTMLIFrameElement;
-    if (!iframe) return;
-    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    if (iframe){
+      // @ts-ignore
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    }
   }
 
   sendMessage({

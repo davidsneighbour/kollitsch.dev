@@ -1,5 +1,5 @@
 # local files
-bin/replacements
+bin/etc/replacements
 hugo_stats.json
 resources
 assets/content

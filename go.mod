@@ -26,7 +26,7 @@ require (
 	github.com/davidsneighbour/hugo-sitemap v0.1.1 // indirect
 	github.com/davidsneighbour/hugo-social v0.1.3 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.2 // indirect
-	github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220429143353-cebd79251c55 // indirect
+	github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220430182349-ef85e6c7be72 // indirect
 	github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 // indirect
 	github.com/tailwindlabs/heroicons v1.0.6 // indirect
 	github.com/twbs/icons v1.8.1 // indirect

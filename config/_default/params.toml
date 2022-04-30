@@ -129,7 +129,7 @@ pinterest = ""
 norton = ""
 
 [dnb.head.styles]
-method = "external"
+# method = "external"
 
 [dnb.head.styles.options]
 # options for the compilation of CSS

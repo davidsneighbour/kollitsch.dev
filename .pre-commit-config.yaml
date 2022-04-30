@@ -35,31 +35,31 @@ repos:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
 
-  - repo: "https://github.com/crate-ci/typos"
+  - repo: 'https://github.com/crate-ci/typos'
     rev: v1.3.4
     hooks:
       - id: typos
-        args: ["--config", "./etc/typos.toml", "./content/"]
+        args: ['--config', './config/etc/typos.toml', './content/']
         files: ^content|i18n
 
-  - repo: "https://github.com/PrincetonUniversity/blocklint"
+  - repo: 'https://github.com/PrincetonUniversity/blocklint'
     rev: v0.2.3
     hooks:
       - id: blocklint
 
-  - repo: "https://github.com/adrienverge/yamllint"
+  - repo: 'https://github.com/adrienverge/yamllint'
     rev: v1.26.3
     hooks:
       - id: yamllint
-        args: [-c=etc/yamllint.yaml]
+        args: [-c=config/etc/yamllint.yaml]
 
-  - repo: "https://github.com/jumanjihouse/pre-commit-hooks"
+  - repo: 'https://github.com/jumanjihouse/pre-commit-hooks'
     rev: 2.1.5
     hooks:
       - id: check-mailmap
       #- id: git-check # Configure in .gitattributes
       - id: markdownlint # Configure in .mdlrc
-        args: ["--rules", "./etc/markdownlint-rules.rb"]
+        args: ['--rules', './config/etc/markdownlint-rules.rb']
       - id: script-must-have-extension
         name: Shell libraries must have a .sh extension and should not be executable.
         types: [shell, non-executable]

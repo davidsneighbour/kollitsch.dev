@@ -34,8 +34,8 @@ github.com/davidsneighbour/hugo-robots v1.1.1 h1:7G+AdLypvxWIrAE44sAchkPYlPdPm0s
 github.com/davidsneighbour/hugo-robots v1.1.1/go.mod h1:q4YHx8ppcEtXa7bpCC0h+ml6lXCPsvemZrufl5XU+9U=
 github.com/davidsneighbour/hugo-search-algolia v0.1.2 h1:YtQMAqEKeXoGQ8jH8D7I0oEzVf2nk7nwcLNSAUdm8Qg=
 github.com/davidsneighbour/hugo-search-algolia v0.1.2/go.mod h1:zsHubhmSijLhO7UFCsAryCBVhsG2gegoxB60jLHpdpE=
-github.com/davidsneighbour/hugo-security v1.1.1 h1:rzZy+tXG4X7scjtIv+P35TH79C4aGAhpLALniPz6fCA=
-github.com/davidsneighbour/hugo-security v1.1.1/go.mod h1:MJvazS6ktIK7tbA+pddZopCTs1Rbw4iq21bv4J7GJ3U=
+github.com/davidsneighbour/hugo-security v1.1.2 h1:NbLsWJP7Fm+QyIgJmSdGKaRo93r04wd1eyiYjS4j4O0=
+github.com/davidsneighbour/hugo-security v1.1.2/go.mod h1:MJvazS6ktIK7tbA+pddZopCTs1Rbw4iq21bv4J7GJ3U=
 github.com/davidsneighbour/hugo-shortcodes v1.5.1 h1:d/3JC8YEoprOVnbo1VsXO6YbNwgBTYpn095EmQQtAhE=
 github.com/davidsneighbour/hugo-shortcodes v1.5.1/go.mod h1:wkCkKIjJqvQ7IwwjKoIHZAMkUM4cqbrllX+HgOZr/50=
 github.com/davidsneighbour/hugo-sitemap v0.1.1 h1:YY7L3LnpZF1+gMXaSIt8RL4fcuKe2ZRsOnuVcwxCu6I=
@@ -44,8 +44,8 @@ github.com/davidsneighbour/hugo-social v0.1.3 h1:Z5BDPHez1MZaqzZbHE4jo0wrk3J687k
 github.com/davidsneighbour/hugo-social v0.1.3/go.mod h1:26icYSnjl7Q9QcWMnm/5j6FYJopPfkweQXX6gzR1ZgU=
 github.com/davidsneighbour/hugo-youtube v1.1.2 h1:qgByk9Z6qx7W9Qx8m6vjkfkfAhq1HbzkE/ChHAX+E6U=
 github.com/davidsneighbour/hugo-youtube v1.1.2/go.mod h1:qR+p/3TJDmApG4sB+ajqV4vvRwWaRr+HZiMwPrRxE7U=
-github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220430182349-ef85e6c7be72 h1:XNEkSBVg49jOXLv5RoDMcEcCbMUnwh9C5Fb1+MgT8PM=
-github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220430182349-ef85e6c7be72/go.mod h1:Gq5voMo31ZjHRNZyUDMLzRES8Mf5ANk+vud56wFlXZk=
+github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220501121401-3bee21e6d023 h1:iSjOl/NsVdu+N5dUKnCbuwiMqY3zWqjxVVaGLGKkhlo=
+github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220501121401-3bee21e6d023/go.mod h1:Gq5voMo31ZjHRNZyUDMLzRES8Mf5ANk+vud56wFlXZk=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 h1:NaIMifqZJiyLbGxFqrMIwUtaZp+prmNZ7VasS83N+sk=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tailwindlabs/heroicons v1.0.6 h1:XquXj196+XH8+EUDC1wXKMCF6F2ziVKncN66bYgL/Eo=

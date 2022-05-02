@@ -1,0 +1,18 @@
+{{- /*
+
+@example
+
+{{ partial "heroicon" "cash" }}
+{{ partialCached "heroicon" "cash" "cash" }}
+{{< heroicon "cash" >}}
+{{< heroicon icon="cash" >}}
+
+*/ -}}
+
+{{- $iconname := . -}}
+{{- $icon := (printf "icons/heroicons/solid/%s.svg" $iconname) -}}
+{{- with resources.Get $icon -}}
+<span class="heroicon heroicon-{{- $iconname }} w-max h-max">
+  {{- .Content | safeHTML -}}
+</span>
+{{- end -}}

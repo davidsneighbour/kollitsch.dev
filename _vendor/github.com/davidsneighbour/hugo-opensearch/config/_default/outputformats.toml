@@ -1,0 +1,5 @@
+[OpenSearch]
+baseName = "opensearch"
+isPlainText = true
+mediatype = "application/opensearchdescription+xml"
+notAlternative = true

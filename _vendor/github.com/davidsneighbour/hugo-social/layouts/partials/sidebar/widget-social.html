@@ -1,0 +1,40 @@
+<aside id="widget-social" class="mb-3 card">
+  <h3 class="card-header">
+    {{ i18n "socialmedia_sidebar" | safeHTML }}
+  </h3>
+	<div class="card-body d-flex justify-content-between">
+    {{ with site.Params.Social.Facebook.Profileslug }}
+		  <a href="https://www.facebook.com/{{ . }}" class="facebook" aria-label="Follow us on Facebook">
+        <span class="icon large" aria-hidden="true">
+          {{ partialCached "icons/facebook-square.svg" . $.Lang }}
+        </span>
+      </a>
+		  <a href="http://m.me/{{ . }}" class="messenger" aria-label="Contact us via FB Messenger">
+        <span class="icon large" aria-hidden="true">
+          {{ partialCached "icons/facebook-messenger.svg" . $.Lang }}
+        </span>
+      </a>
+    {{ end }}
+    {{ with site.Params.Social.Twitter.Profileid }}
+		  <a rel="me" href="https://twitter.com/{{ . }}" class="twitter" aria-label="Follow us on Twitter">
+        <span class="icon large" aria-hidden="true">
+          {{ partialCached "icons/twitter.svg" . $.Lang }}
+        </span>
+      </a>
+    {{ end }}
+    {{ with site.Params.Social.Whatsapp.Profileid }}
+		  <a href="https://api.whatsapp.com/send?phone={{ . }}" class="whatsapp" aria-label="Contact us via WhatsApp">
+        <span class="icon large" aria-hidden="true">
+          {{ partialCached "icons/whatsapp.svg" . $.Lang }}
+        </span>
+      </a>
+    {{ end }}
+    {{ with site.Params.Social.Snapchat.Profileid }}
+		  <a href="https://www.snapchat.com/add/{{ . }}" class="snapchat" aria-label="Follow us on Snapchat">
+        <span class="icon large" aria-hidden="true">
+          {{ partialCached "icons/snapchat.svg" . $.Lang }}
+        </span>
+      </a>
+    {{ end }}
+	</div>
+</aside>

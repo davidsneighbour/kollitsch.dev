@@ -1,0 +1,13 @@
+{{- $networks := .networks -}}
+{{- $setups := .setups -}}
+
+{{- $output := slice -}}
+{{- range $networks -}}
+  {{- $network := . -}}
+  {{- range $setups -}}
+    {{- if eq .slug $network -}}
+      {{- $output = $output | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $output -}}

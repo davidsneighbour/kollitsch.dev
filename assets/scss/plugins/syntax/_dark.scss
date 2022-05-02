@@ -20,13 +20,13 @@
   width: 100%;
 
   background-color: #ffffcc; }
-/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em;
+/* LineNumbersTable */ .chroma .lnt {
+  display: block;
+  width: 2rem !important;
+  margin-right: 0.4em;
   padding: 0 0.4em;
 
   color: #7f7f7f;
-
-  display: block;
-  width: 2rem !important;
 
   text-align: right;
 }

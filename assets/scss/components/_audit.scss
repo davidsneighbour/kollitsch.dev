@@ -1,47 +1,49 @@
 .audit {
-  background: var(--bg-page);
   padding: 1rem;
+
+  background: var(--bg-page);
 }
 
 .brand .swatch {
-  background: var(--brand)
+  background: var(--brand);
 }
 
 .text1 .swatch {
-  background: var(--text1)
+  background: var(--text1);
 }
 
 .text2 .swatch {
-  background: var(--text2)
+  background: var(--text2);
 }
 
 .surface1 .swatch {
-  background: var(--surface1)
+  background: var(--surface1);
 }
 
 .surface2 .swatch {
-  background: var(--surface2)
+  background: var(--surface2);
 }
 
 .surface3 .swatch {
-  background: var(--surface3)
+  background: var(--surface3);
 }
 
 .surface4 .swatch {
-  background: var(--surface4)
+  background: var(--surface4);
 }
 
 .block {
-  font-size: 1rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
   display: block;
+  margin-bottom: 1rem;
+
+  font-weight: 300;
+  font-size: 1rem;
 }
 
 .swatch {
-  inline-size: 3ch;
-  aspect-ratio: 1;
-  border-radius: 50%;
   float: left;
   margin-right: 1rem;
+  border-radius: 50%;
+  inline-size: 3ch;
+  aspect-ratio: 1;
 }

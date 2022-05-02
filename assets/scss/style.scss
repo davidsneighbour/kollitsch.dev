@@ -176,6 +176,8 @@ $navbar-brand-font-size: 2rem;
 @import 'plugins/youtube';
 
 // syntax highlighting
+
+/* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
   @import 'plugins/syntax/dark';
 }

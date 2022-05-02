@@ -10,7 +10,7 @@ require (
 	github.com/davidsneighbour/hugo-feeds v0.1.4 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.1 // indirect
 	github.com/davidsneighbour/hugo-giscus v1.2.2 // indirect
-	github.com/davidsneighbour/hugo-head v1.1.5 // indirect
+	github.com/davidsneighbour/hugo-head v1.1.6 // indirect
 	github.com/davidsneighbour/hugo-hooks v1.3.3 // indirect
 	github.com/davidsneighbour/hugo-icons v1.2.2 // indirect
 	github.com/davidsneighbour/hugo-internals v0.0.8 // indirect
@@ -24,9 +24,9 @@ require (
 	github.com/davidsneighbour/hugo-security v1.1.2 // indirect
 	github.com/davidsneighbour/hugo-shortcodes v1.5.1 // indirect
 	github.com/davidsneighbour/hugo-sitemap v0.1.1 // indirect
-	github.com/davidsneighbour/hugo-social v0.1.3 // indirect
+	github.com/davidsneighbour/hugo-social v0.1.4 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.2 // indirect
-	github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220501121401-3bee21e6d023 // indirect
+	github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220502130740-97c0f174e027 // indirect
 	github.com/paulirish/lite-youtube-embed v0.2.1-0.20220128161756-32f4a55192a1 // indirect
 	github.com/tailwindlabs/heroicons v1.0.6 // indirect
 	github.com/twbs/icons v1.8.1 // indirect

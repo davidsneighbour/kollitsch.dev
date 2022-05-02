@@ -84,7 +84,7 @@
     "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
     "lint:styles": "stylelint assets/scss",
     "lint:styles:fix": "stylelint assets/scss --fix",
-    "lint:templates": "bin/lint-templates",
+    "lint:templates": "bin/audit/lint-template-style",
     "prettier": "prettier 'assets/**/*.ts'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
     "release": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",

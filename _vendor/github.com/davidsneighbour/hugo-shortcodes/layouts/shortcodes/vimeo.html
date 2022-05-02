@@ -1,0 +1,18 @@
+{{/*
+see
+- https://web.dev/iframe-lazy-loading/ (not used in this shortcode, just for
+      learning purposes)
+- https://github.com/justinribeiro/lite-youtube
+*/}}
+{{- $pc := .Page.Site.Config.Privacy.Vimeo -}}
+{{- if not $pc.Disable -}}
+  {{- $id     := .Get "id"    | default (.Get 0) -}}
+  {{- $class  := .Get "class" | default (.Get 1 | default "w-100 ratio ratio-16x9") -}}
+  {{- $title  := .Get "title" | default (.Get 2) -}}
+  <div class="{{ with $class }}{{ . }}{{ end }} mb-3">
+    <lite-vimeo videoid="{{ $id }}" videotitle="{{ $title }}"></lite-vimeo>
+  </div>
+
+{{- end -}}
+
+<!-- https://player.vimeo.com/video/522265992?title=0&byline=0&portrait=0 //-->

@@ -1,0 +1,14 @@
+{{ $siteVarNames   := (slice "Title" "Author" "Social" "LastChange" "DisqusShortname" "GoogleAnalytics" "Copyright" "RSSLink" "LanguageCode" "BuildDrafts" "Params") }}
+{{ $siteVarSymbols := (slice .value.Title  .value.Author  .value.Social  .value.LastChange  .value.DisqusShortname  .value.GoogleAnalytics
+              .value.Copyright  .value.RSSLink  .value.LanguageCode  .value.BuildDrafts  .value.Params ) }}
+<table class="debugprint">
+  <tr>
+      <th class="align-top" class="key">SiteInfo Variable</th>
+      <th class="align-top" class="value">Value</th>
+  </tr>
+  {{ range $idx, $elem := $siteVarNames }}
+    {{ printf `<tr> <td class="align-top" class="key">%s</td> <td class="align-top" class="value">` $elem | safeHTML }}
+    {{ partial "debugprint.html" (index $siteVarSymbols $idx) }}
+    {{ printf "</td></tr>" | safeHTML }}
+  {{ end }}
+</table>

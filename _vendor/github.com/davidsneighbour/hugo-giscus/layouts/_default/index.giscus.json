@@ -1,0 +1,16 @@
+{{- $feed := dict -}}
+{{- $config := site.Params.dnb.giscus.extended -}}
+
+{{- /* set up origins */ -}}
+{{- with $config.origins -}}
+  {{- $feed = merge $feed ( dict "origins" . ) -}}
+{{- end -}}
+
+{{- /* set up originsRegexp */ -}}
+{{- with $config.originsRegexp -}}
+  {{- $feed = merge $feed ( dict "originsRegexp" . ) -}}
+{{- end -}}
+
+{{- /* comment order setup */ -}}
+{{- $feed = merge $feed ( dict "defaultCommentOrder" ($config.defaultCommentOrder | default "oldest") ) -}}
+{{- $feed | jsonify -}}

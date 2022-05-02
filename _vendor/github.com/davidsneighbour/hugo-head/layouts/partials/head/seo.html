@@ -1,0 +1,7 @@
+{{- with .Params.robots -}}
+<meta name="robots" content="{{ . }}" />
+{{- else -}}
+<meta name="robots" content="index,follow" />
+{{- end -}} {{- if (eq (.Params.canonical | default true) true) -}}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{- end -}}

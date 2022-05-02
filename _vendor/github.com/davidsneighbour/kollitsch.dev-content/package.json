@@ -1,0 +1,27 @@
+{
+  "name": "@davidsneighbour/kollitsch-dev-content",
+  "version": "2022.0.8",
+  "license": "UNLICENSED",
+  "description": "Content for kollitsch.dev",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://kollitsch.dev",
+  "repository": "davidsneighbour/kollitsch.dev",
+  "dependencies": {
+    "@davidsneighbour/commitlint-config": "^4.0.1",
+    "@davidsneighbour/standard-version-config": "^4.0.1",
+    "@davidsneighbour/tools": "^4.0.1"
+  },
+  "scripts": {
+    "release": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
+  },
+  "private": true,
+  "commitlint": {
+    "extends": [
+      "@davidsneighbour/commitlint-config"
+    ]
+  }
+}

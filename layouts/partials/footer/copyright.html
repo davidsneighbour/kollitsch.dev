@@ -2,7 +2,7 @@
   {{- $year := partial "func/getYear.html" . . -}}
   {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML -}}
   &nbsp;&mdash;&nbsp;
-  {{- $data := (index site.Data.dnb "dark-skies").build -}}
+  {{- $data := (index site.Data.dnb "kollitsch").build -}}
   {{- $versionpath := printf "[v%s](%s/releases/tag/v%s)" $data.version $data.repository $data.version -}}
   {{- printf "Theme: %s" $versionpath | markdownify | safeHTML -}}
   &nbsp;&mdash;&nbsp;

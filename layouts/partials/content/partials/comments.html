@@ -19,13 +19,13 @@
     <div class="col-12">
       {{- partial "content/giscus.html" $context $context -}}
       <script>
-        const theme = localStorage.theme;
-        let scheme = "light";
-        if (theme === "dark") {
-          scheme = "dark_dimmed";
+        const { theme } = localStorage;
+        let scheme = 'light';
+        if (theme === 'dark') {
+          scheme = 'dark_dimmed';
         }
-        let giscusScript = document.getElementById("giscus-script");
-        giscusScript.setAttribute('data-theme', scheme);
+        const giscusScript = document.querySelector('#giscus-script');
+        giscusScript.dataset.theme = scheme;
       </script>
     </div>
   {{- end -}}

@@ -12,7 +12,7 @@
 ## Many is the content of the message for the CLDR plural form "many".
 # many=""
 ## Other is the content of the message for the CLDR plural form "other".
-# Other=""
+# other=""
 ## Hash uniquely identifies the content of the message
 ## that this message was translated from.
 # hash=""
@@ -23,7 +23,6 @@
 # leftDelim=""
 ## RightDelim is the right Go template delimiter.“
 # rightDelim=""
-
 [name]
 description = ""
 other = "Your Name"

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+netlify deploy --build --prod --open

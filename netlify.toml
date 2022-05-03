@@ -14,11 +14,10 @@ NODE_ENV = "development"
 package = "/bin/netlify/plugins/hugo-helper"
 
 [plugins.inputs]
-debug = true
+debug = false
 
 # [[plugins]]
 # package = "netlify-plugin-image-optim"
-
 [[redirects]]
 from = "https://main--kollitsch.netlify.app/"
 to = "/"

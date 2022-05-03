@@ -1,8 +1,9 @@
 {{- /*
-Author:
-either add an author object (name, homepage, image, email) in the frontmatter
-or the default author in config/_default/author.toml is used
-*/ -}}
+  Author:
+  either add an author object (name, homepage, image, email) in the frontmatter
+  or the default author in config/_default/author.toml is used
+  */
+-}}
 {{- $author := slice -}}
 {{- with .Params.Author -}}
   {{- $author = . -}}
@@ -12,7 +13,8 @@ or the default author in config/_default/author.toml is used
 
 {{- if $author.email -}}
   <span class="d-inline-block">
-    {{/* <img loading="lazy" src="https://www.gravatar.com/avatar/{{- md5 $author.email -}}?s=26&pg&d=identicon" alt="{{- $author.name -}}"> */}}
+    {{/* <img loading="lazy" src="https://www.gravatar.com/avatar/{{- md5 $author.email -}}?s=26&pg&d=identicon"
+    alt="{{- $author.name -}}"> */}}
     <span>{{- $author.name -}}</span>
   </span>
 {{- else -}}
@@ -24,8 +26,11 @@ or the default author in config/_default/author.toml is used
   {{- else -}}
     {{- .Scratch.Set "image" ($imagePath | absURL) -}}
   {{- end -}}
-  <a href="{{.Permalink}}">
-    <img loading="lazy" src="{{.Scratch.Get `image`}}" alt="{{- $author.Name -}}">
+  <a href="{{ .Permalink }}">
+    <img
+      loading="lazy"
+      src="{{ .Scratch.Get `image` }}"
+      alt="{{- $author.Name -}}" />
     <span>{{- $author.Name -}}</span>
   </a>
 {{- end -}}

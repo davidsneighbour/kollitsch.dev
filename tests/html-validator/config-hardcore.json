@@ -1,6 +1,0 @@
-{
-  "extends": [
-    "@davidsneighbour/htmlvalidate-config"
-  ],
-  "root": true
-}

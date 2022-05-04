@@ -34,9 +34,9 @@
             {{ range $index, $image := $images }}
               <source
                 srcset="{{ $image.Permalink }}"
-                media="(max-width: {{ index $breakPoints $index }}px)" />
+                media="(max-width: {{ index $breakPoints $index }}px)">
               {{ if eq $index (sub (len $images) 1) }}
-                <source srcset="{{ $image.Permalink }}" />
+                <source srcset="{{ $image.Permalink }}">
                 {{- /* TODO: loading="lazy" for images that are below the fold */ -}}
                 <img
                   class="img-fluid"
@@ -48,7 +48,7 @@
                     loading="eager" fetchpriority="high"
                   {{ else }}
                     loading="lazy" fetchpriority="low"
-                  {{- end -}} />
+                  {{- end -}}>
               {{ end }}
             {{ end }}
           </picture>

@@ -16,15 +16,6 @@
       }
     ],
     "no-trailing-whitespace": "off",
-    "element-name": [
-      "error",
-      {
-        "whitelist": [
-          "menu",
-          "date"
-        ]
-      }
-    ],
     "valid-id": [
       "error",
       {

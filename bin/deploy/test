@@ -12,6 +12,9 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+# shutting down concurring hugo servers
+killall -9 hugo
+
 FILE=.env
 if [ -f "$FILE" ]; then
   set -a

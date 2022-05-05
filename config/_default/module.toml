@@ -7,7 +7,7 @@ min = "0.94.0"
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/davidsneighbour/kollitsch.dev-content"
+path = "github.com/davidsneighbour/kollitsch.dev-content/v2022"
 
 [[imports]]
 disable = false

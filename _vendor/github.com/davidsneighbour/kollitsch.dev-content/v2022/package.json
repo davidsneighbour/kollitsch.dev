@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-dev-content",
-  "version": "2022.0.8",
+  "version": "2022.1.2",
   "license": "UNLICENSED",
   "description": "Content for kollitsch.dev",
   "author": {
@@ -13,7 +13,8 @@
   "dependencies": {
     "@davidsneighbour/commitlint-config": "^4.0.1",
     "@davidsneighbour/standard-version-config": "^4.0.1",
-    "@davidsneighbour/tools": "^4.0.1"
+    "@davidsneighbour/tools": "^4.0.1",
+    "replace-json-property": "^1.8.0"
   },
   "scripts": {
     "release": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"

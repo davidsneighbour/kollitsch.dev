@@ -12,6 +12,7 @@ script-src = [
   "'unsafe-eval'",
   "'unsafe-inline'",
   'nonce-dnb-components-sw',
+  'static.cloudflareinsights.com'
 ]
 style-src = [
   "'self'",
@@ -26,7 +27,7 @@ img-src = [
   "https://i.ytimg.com",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
-connect-src = ["'self'", "https://api.github.com/"]
+connect-src = ["'self'", "https://api.github.com/", 'cloudflareinsights.com']
 media-src = ["'self'"]
 object-src = ["'self'"]
 child-src = ["'self'"]

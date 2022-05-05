@@ -1,3 +1,5 @@
 #!/bin/bash
 
+# shutting down concurring hugo servers
+killall -9 hugo
 netlify deploy --build --prod --open

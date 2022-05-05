@@ -24,5 +24,5 @@ require (
 	github.com/davidsneighbour/hugo-sitemap v0.1.1 // indirect
 	github.com/davidsneighbour/hugo-social v0.1.4 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.2 // indirect
-	github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20220504152617-85747742ce74 // indirect
+	github.com/davidsneighbour/kollitsch.dev-content/v2022 v2022.1.2 // indirect
 )

@@ -2,4 +2,5 @@
 
 # shutting down concurring hugo servers
 killall -9 hugo
+npm run release
 netlify deploy --build --prod --open

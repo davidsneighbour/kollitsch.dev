@@ -1,0 +1,11 @@
+/* Webfont: TomkinCondense-SemLtIta */@font-face {
+    font-family: 'TomkinCondenseSemiLight';
+    src: url('TomkinCondense-SemLtIta.eot'); /* IE9 Compat Modes */
+    src: url('TomkinCondense-SemLtIta.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('TomkinCondense-SemLtIta.woff') format('woff'), /* Modern Browsers */
+         url('TomkinCondense-SemLtIta.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('TomkinCondense-SemLtIta.svg#TomkinCondense-SemLtIta') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}

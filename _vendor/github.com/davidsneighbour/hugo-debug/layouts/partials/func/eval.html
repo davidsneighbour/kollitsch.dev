@@ -1,8 +1,0 @@
-{{- /*
-TODO test and implement
-see https://discourse.gohugo.io/t/transform-a-string-variable-into-the-variable-itself/33741
-*/ -}}
-{{ $f := printf "%d.txt" now.UnixNano }}
-{{ $r := printf "{{ %s }}" .cmd | resources.FromString $f }}
-{{ $r = $r | resources.ExecuteAsTemplate $f .ctx }}
-{{ return $r.Content }}

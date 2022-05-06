@@ -1,0 +1,11 @@
+/* Webfont: Tomkin-Italic */@font-face {
+    font-family: 'TomkinRegular';
+    src: url('Tomkin-Italic.eot'); /* IE9 Compat Modes */
+    src: url('Tomkin-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Tomkin-Italic.woff') format('woff'), /* Modern Browsers */
+         url('Tomkin-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('Tomkin-Italic.svg#Tomkin-Italic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}

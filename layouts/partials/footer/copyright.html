@@ -5,8 +5,4 @@
   {{- $data := (index site.Data.dnb "kollitsch").build -}}
   {{- $versionpath := printf "[v%s](%s/releases/tag/v%s)" $data.version $data.repository $data.version -}}
   {{- printf "Theme: %s" $versionpath | markdownify | safeHTML -}}
-  &nbsp;&mdash;&nbsp;
-  {{- $data2 := index site.Data.dnb.content.build -}}
-  {{- $versionpath := printf "[v%s](%s/releases/tag/v%s)" $data2.version $data2.repository $data2.version -}}
-  {{- printf "Content: %s" $versionpath | markdownify | safeHTML -}}
 </p>

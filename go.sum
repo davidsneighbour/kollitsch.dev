@@ -1,5 +1,5 @@
-github.com/davidsneighbour/hugo-auditor v0.1.2 h1:BLGNEJ9LyKK/AsJ2CdJmkNHs8o3IanxaUWj22hn95j8=
-github.com/davidsneighbour/hugo-auditor v0.1.2/go.mod h1:PYAXMAY7rDZAX4T7VYoqe5IXQ6ABdAky10MkOlUH++k=
+github.com/davidsneighbour/hugo-auditor v0.1.4 h1:55vAtuhXubeLLOQmTHHVpoYbHD2HJsoUnCdU/kQqJZw=
+github.com/davidsneighbour/hugo-auditor v0.1.4/go.mod h1:PYAXMAY7rDZAX4T7VYoqe5IXQ6ABdAky10MkOlUH++k=
 github.com/davidsneighbour/hugo-debug v1.5.6 h1:0VCYMWKVwj2yPFuWeHeGYtpLDXKaD2Q/qgluxNXdNUk=
 github.com/davidsneighbour/hugo-debug v1.5.6/go.mod h1:ka0eftoPGqF1B0TUvAIvWOau96Y5XQKKGZ9DCb5NBz4=
 github.com/davidsneighbour/hugo-feeds v0.1.4 h1:ATNsMWtXt5XrkL+ccABP44S3zGYli7Z4mNejqMrFlJk=
@@ -40,5 +40,3 @@ github.com/davidsneighbour/hugo-social v0.1.4 h1:zbXk+XVbCcxvo7Bo6W9Z6YXXnXxk5+3
 github.com/davidsneighbour/hugo-social v0.1.4/go.mod h1:zyQJo6nJv+aPAFFsraAYW/FWnKVmZm+UvDKOEtLDyrY=
 github.com/davidsneighbour/hugo-youtube v1.1.2 h1:qgByk9Z6qx7W9Qx8m6vjkfkfAhq1HbzkE/ChHAX+E6U=
 github.com/davidsneighbour/hugo-youtube v1.1.2/go.mod h1:qR+p/3TJDmApG4sB+ajqV4vvRwWaRr+HZiMwPrRxE7U=
-github.com/davidsneighbour/kollitsch.dev-content/v2022 v2022.1.2 h1:fju8oPJT7vgb+ECgep/okphMdtWjtA1+fN3eln4LT6s=
-github.com/davidsneighbour/kollitsch.dev-content/v2022 v2022.1.2/go.mod h1:I+QooBCP1/lMsU+l7OEqhxnzKHxuDw5weU0ETr18ZHo=

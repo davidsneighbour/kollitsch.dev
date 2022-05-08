@@ -9,7 +9,7 @@ resources:
   - src: logo.png
     title: The greatest logo of them all
 tags:
-  - kollitsch.dev
+  - davidsneighbour
   - me now
   - logos
 ---

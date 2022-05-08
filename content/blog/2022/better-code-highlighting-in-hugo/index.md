@@ -19,6 +19,7 @@ tags:
   - gohugo
   - howto
   - render-hook
+  - 100DaysToOffload
 ---
 
 One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the [internal templates](https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates)). But it offers ways to override and configure things, so not all is lost. 

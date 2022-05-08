@@ -17,6 +17,7 @@ tags:
   - vscode
   - development
   - automation
+  - 100DaysToOffload
 ---
 
 Are you annoyed of the two clicks and one line command to start your development server (or development watching process) each time you open VSCode? Then I can help you ;]

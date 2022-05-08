@@ -8,7 +8,7 @@ resources:
     title: Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via
       [Unsplash](https://unsplash.com)
 tags:
-  - kollitsch.dev
+  - davidsneighbour
   - me now
 lastmod: 2022-04-17T18:01:41+07:00
 ---

@@ -84,12 +84,10 @@ hugo server \
   --minify \
   --enableGitInfo \
   --forceSyncStatic \
-  --log true --logFile hugo.log \
   --verbose \
-  --verboseLog \
   --port "${PORT}" \
   --baseURL http://"${IP}"/ \
-  --bind "${IP}"
+  --bind "${IP}" 2>&1 | tee -a hugo.log
 
 # TODO: --buildDrafts --buildExpired on request
 # TODO: check --source dev

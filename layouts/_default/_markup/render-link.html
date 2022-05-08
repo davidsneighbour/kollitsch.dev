@@ -12,10 +12,20 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+{{- $parsedTitle := dict -}}
+{{- with .Title -}}
+  {{- $parsedTitle = partial "functions/parse-title-attribute.html" . -}}
+{{- end -}}
 <a
   href="{{ $link | safeURL }}"
-  {{ with .Title }}title="{{ . }}"{{ end }}{{ if $isRemote }}
+  {{- with $parsedTitle.title }} title="{{ . }}"{{- end -}}{{ if $isRemote }}
     target="_blank"
   {{ end }}
+  {{- with $parsedTitle.attributes -}}
+    {{- range $k, $v := . -}}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+    {{- end -}}
+  {{- end -}}
   >{{- .Text | safeHTML -}}</a
 >
+{{- /*  */ -}}

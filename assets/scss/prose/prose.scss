@@ -11,19 +11,25 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--primary);
   a {
     text-decoration: none;
+    color: var(--primary);
     @extend .text-gradient-primary;
   }
   @extend .text-gradient-primary;
 }
 
-h3 {
+h2 {
   font-size: 1.4rem;
 }
 
-h4 {
+h3 {
   font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1.0rem;
 }
 
 p {

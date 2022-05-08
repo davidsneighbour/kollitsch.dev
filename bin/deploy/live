@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # shutting down concurring hugo servers
-killall -9 hugo
+killall -q -9 hugo
+# cut a release
 npm run release
+# and deploy
 netlify deploy --build --prod --open

@@ -46,6 +46,7 @@
     "package.json": "^2.0.1",
     "pixrem": "^5.0.0",
     "precss": "^4.0.0",
+    "reasonable-colors": "^0.4.0",
     "sass": "^1.51.0",
     "svgo": "^2.8.0",
     "trim": ">=1.0.1",

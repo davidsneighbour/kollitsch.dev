@@ -15,10 +15,10 @@ $sizes: 12, 32, 64;
 
 // coloring the selection in the browser
 ::selection {
-  color: var(--color2);
+  color: #{var(--color2)};
   text-shadow: none;
 
-  background-color: var(--primary);
+  background-color: #{var(--primary)};
 }
 
 // theme gradient

@@ -8,7 +8,7 @@
 @import 'bootstrap/scss/utilities';
 
 // Local Bootstrap Setup/Overrides
-@import 'settings/colours';
+@import 'reasonable-colors/reasonable-colors-hsl.scss';
 @import 'settings/theme';
 
 // colors
@@ -25,86 +25,54 @@ $theme-colors: (
 );
 
 :root {
-  --brand-hue: 6;
-  --brand-saturation: 63.4%;
-  --brand-lightness: 46.1%;
   --primary: #{$primary};
-  --gray-300: #{$gray-300};
-  --highlight-color-bg: #{$primary};
-  --highlight-color-fg: #{$light};
+  --highlight: #{$color-orange-1};
+  --highlight2: #{$color-orange-2};
 
-  // quick hack, use dark as defaults
-  --bg-page: #{$gray-800};
-  --bg-card: #{$gray-900};
-  --color-title: rgb(255 255 255 / 90%);
-  --color: rgb(255 255 255 / 70%);
-  --color2: #{$dark};
-  --link-color: #{$light};
-  --link-color-hover: #{$gray-300};
-  --footer-color-fg: #{$light};
-  --footer-color-bg: #{$dark};
-  --card-border-color: #{$light};
-  --brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-  --text1: hsl(var(--brand-hue) 15% 85%);
-  --text2: hsl(var(--brand-hue) 5% 65%);
-  --surface1: hsl(var(--brand-hue) 10% 10%);
-  --surface2: hsl(var(--brand-hue) 10% 15%);
-  --surface3: hsl(var(--brand-hue) 5% 20%);
-  --surface4: hsl(var(--brand-hue) 5% 25%);
+  --bg-page: #{$color-gray-5};
+  --bg-card: #{$color-gray-6};
+
+  --color-title: #{$color-gray-1};
+  --color: #{$color-gray-2};
+  --color2: #{$color-orange-1};
+
+  --card-header-link-color: #{$color-gray-1};
+  --card-header-link-color-hover: #{$color-gray-2};
+
+  --footer-color-fg: #{$color-gray-2};
+  --footer-color-bg: #{$color-gray-6};
+
+  --card-border-color: #{$color-gray-6};
 
   // https://drafts.csswg.org/css-ui-4/#widget-accent
   // https://caniuse.com/?search=accent-color
-  accent-color: var(--brand);
+  accent-color: var(--primary);
 
 }
 
 .light {
   --bg-page: #{$gray-100};
   --bg-card: #{$white};
-  --color-title: #{$black};
-  --color: #{$dark};
-  --color2: #{$white};
-  --link-color: #{$light};
-  --link-color-hover: #{$gray-300};
-  --footer-color-fg: #{$light};
-  --footer-color-bg: #{$dark};
-  --card-border-color: #{$dark};
-  --brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-  --text1: hsl(var(--brand-hue) var(--brand-saturation) 10%);
-  --text2: hsl(var(--brand-hue) 30% 30%);
-  --surface1: hsl(var(--brand-hue) 25% 90%);
-  --surface2: hsl(var(--brand-hue) 20% 99%);
-  --surface3: hsl(var(--brand-hue) 20% 92%);
-  --surface4: hsl(var(--brand-hue) 20% 85%);
+
+  --color-title: #{$color-gray-6};
+  --color: #{$color-gray-5};
+  --color2: #{$color-orange-6};
+
+  --footer-color-fg: #{$color-gray-6};
+  --footer-color-bg: #{$color-gray-2};
+
+  --card-border-color: #{$color-gray-2};
 }
 
 .dark {
-  --bg-page: #{$gray-800};
-  --bg-card: #{$gray-900};
-  --color-title: rgb(255 255 255 / 90%);
-  --color: rgb(255 255 255 / 70%);
-  --color2: #{$dark};
-  --link-color: #{$light};
-  --link-color-hover: #{$gray-300};
-  --footer-color-fg: #{$light};
-  --footer-color-bg: #{$dark};
-  --card-border-color: #{$light};
-  --brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-  --text1: hsl(var(--brand-hue) 15% 85%);
-  --text2: hsl(var(--brand-hue) 5% 65%);
-  --surface1: hsl(var(--brand-hue) 10% 10%);
-  --surface2: hsl(var(--brand-hue) 10% 15%);
-  --surface3: hsl(var(--brand-hue) 5% 20%);
-  --surface4: hsl(var(--brand-hue) 5% 25%);
+  // most (or all) of the dark setup is defined as default in :root
 }
 
-$primary: var(--primary);
+$card-bg: #{var(--bg-card)};
+$card-color: #{var(--color)};
 
-$card-bg: var(--bg-card);
-$card-color: var(--color);
-
-$pagination-bg: var(--color2);
-$pagination-color: var(--color);
+$pagination-bg: #{var(--color)};
+$pagination-color: #{var(--color2)};
 
 // navbar-brand
 $navbar-brand-font-size: 2rem;

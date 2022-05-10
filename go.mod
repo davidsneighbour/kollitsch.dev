@@ -17,7 +17,7 @@ require (
 	github.com/davidsneighbour/hugo-opensearch v1.0.1 // indirect
 	github.com/davidsneighbour/hugo-pictures v0.1.1 // indirect
 	github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc // indirect
-	github.com/davidsneighbour/hugo-pwa v0.2.0 // indirect
+	github.com/davidsneighbour/hugo-pwa v0.2.4 // indirect
 	github.com/davidsneighbour/hugo-robots v1.1.1 // indirect
 	github.com/davidsneighbour/hugo-search-algolia v0.1.2 // indirect
 	github.com/davidsneighbour/hugo-security v1.1.2 // indirect

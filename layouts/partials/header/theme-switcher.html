@@ -1,11 +1,11 @@
 {{- if site.Params.dnb.theme.switcher.enabled -}}
 <div class="is--themeswitcher ms-md-5">
   {{- range site.Params.dnb.theme.switcher.themes -}}
-  <a id="{{- .slug -}}" x-on:click="$store.theme.set('{{ .slug }}')" class="py-2 px-2"
+  <span id="{{- .slug -}}" x-on:click="$store.theme.set('{{ .slug }}')" class="py-2 px-2 is--clickable"
      x-bind:class="$store.theme.mode === '{{ .slug }}' ? 'active' : ''"
      aria-label="Select {{ .slug }} theme as default">
     {{- partial "bsicon.html" .icon .icon -}}
-  </a>
+  </span>
   {{- end -}}
 </div>
 {{- end -}}

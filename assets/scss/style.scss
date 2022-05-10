@@ -71,8 +71,8 @@ $theme-colors: (
 $card-bg: #{var(--bg-card)};
 $card-color: #{var(--color)};
 
-$pagination-bg: #{var(--color)};
-$pagination-color: #{var(--color2)};
+$pagination-bg: #{$color-gray-6};
+$pagination-color: #{$color-orange-1};
 
 // navbar-brand
 $navbar-brand-font-size: 2rem;
@@ -133,6 +133,7 @@ $navbar-brand-font-size: 2rem;
 @import 'components/figure';
 @import 'components/pagination';
 @import 'components/widgets';
+@import 'components/features';
 
 // Prose formatting
 .prose {

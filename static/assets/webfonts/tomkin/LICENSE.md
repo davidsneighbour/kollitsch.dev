@@ -1,1 +1,0 @@
-Please note that Tomkin is a licensed font. You have no license to use this font on your website without purchasing your own license. This font is only added to this repository to make deployment easier.

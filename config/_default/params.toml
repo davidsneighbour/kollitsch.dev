@@ -250,3 +250,15 @@ policy = "https://davids-neighbour.com/security-policy/"
 ###############################################################################
 [dnb.debug]
 enable = true
+
+###############################################################################
+# hugo-pwa @see https://github.com/davidsneighbour/hugo-pwa
+###############################################################################
+[dnb.pwa]
+dev = true
+short_name = "kollitsch.dev"
+theme_color = "#cd3c00"
+background_color = "#222222"
+display = ""
+start_url = "https://kollitsch.dev/"
+description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."

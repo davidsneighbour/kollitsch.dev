@@ -9,14 +9,14 @@
     padding: 0;
     border: 0;
 
-    color: var(--color);
+    color: #{$color-gray-2};
     line-height: 48px;
     text-align: center;
 
     &.active,
     &:focus,
     &:hover {
-      color: var(--color2);
+      color: #{$color-orange-1};
 
       background-color: var(--primary);
       box-shadow: none;
@@ -30,14 +30,14 @@
       &:hover {
         color: var(--primary);
 
-        background-color: var(--color2);
+        background-color: #{$color-orange-1};
       }
     }
   }
 
   .page-item.active {
     .page-link {
-      color: var(--color2);
+      color: #{$color-orange-1};
 
       background-color: var(--primary);
       box-shadow: none;

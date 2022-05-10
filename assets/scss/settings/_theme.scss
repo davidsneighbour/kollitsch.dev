@@ -15,7 +15,7 @@ $font-weight-light: 200;
 $font-weight-normal: 300;
 $font-weight-bold: 600;
 $font-weight-bolder: 900;
-$font-size-base: 1.2rem;
+$font-size-base: 1.1rem;
 $font-weight-base: $font-weight-normal;
 $line-height-base: 1.4;
 
@@ -73,5 +73,5 @@ $alert-border-width: $border-width;
 $kbd-padding-y: 0.1rem;
 $kbd-padding-x: 0.2rem;
 $kbd-font-size: $code-font-size * 0.9;
-$kbd-color: var(--text1);
+$kbd-color: var(--color);
 $kbd-bg: var(--primary);

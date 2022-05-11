@@ -31,7 +31,7 @@
     "alpinejs": "^3.10.2",
     "ansi-regex": ">=6.0.1",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "html-validate": "^7.0.0",
     "instantsearch.js": "^4.40.5",
     "lazysizes": "^5.3.2",
@@ -127,6 +127,6 @@
     "build:frontmatter": "assets/config/frontmatter/**/*.*"
   },
   "devDependencies": {
-    "wireit": "^0.4.0"
+    "wireit": "^0.4.1"
   }
 }

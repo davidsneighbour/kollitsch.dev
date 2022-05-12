@@ -31,12 +31,12 @@
       <figure>
         <a href="{{- $link -}}">
           <picture>
-            {{ range $index, $image := $images }}
+            {{- range $index, $image := $images -}}
               <source
-                srcset="{{ $image.Permalink }}"
-                media="(max-width: {{ index $breakPoints $index }}px)">
-              {{ if eq $index (sub (len $images) 1) }}
-                <source srcset="{{ $image.Permalink }}">
+                srcset="{{- $image.Permalink -}}"
+                media="(max-width: {{- index $breakPoints $index -}}px)">
+              {{- if eq $index (sub (len $images) 1) -}}
+                <source srcset="{{- $image.Permalink -}}">
                 {{- /* TODO: loading="lazy" for images that are below the fold */ -}}
                 <img
                   class="img-fluid"
@@ -44,13 +44,13 @@
                   alt="{{- $title | plainify -}}"
                   width="{{- $image.Width -}}"
                   height="{{- $image.Height -}}"
-                  {{ if (eq $responsive "fullwidth") }}
+                  {{ if (eq $responsive "fullwidth") -}}
                     loading="eager" fetchpriority="high"
-                  {{ else }}
+                  {{- else -}}
                     loading="lazy" fetchpriority="low"
                   {{- end -}}>
-              {{ end }}
-            {{ end }}
+              {{- end -}}
+            {{- end -}}
           </picture>
         </a>
         <figcaption class="text-center">{{- $title -}}</figcaption>

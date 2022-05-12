@@ -6,10 +6,11 @@ tags:
   - programming-music
   - deep core
   - danny kreutzfeldt
+  - 100DaysToOffload
 posttype: music
 video:
   youtube: 3We_dXYnjK0
   artist: dannykreutzfeldt
   title: Verge
-lastmod: 2022-05-12T20:48:50+07:00
+lastmod: 2022-05-12T21:05:19+07:00
 ---

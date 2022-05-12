@@ -9,49 +9,49 @@
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre-mainnav" "context" . ) -}}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <menu class="navbar-nav ms-auto me-auto me-md-0">
-        {{ $current := . }}
-        {{ range site.Menus.main }}
-          {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
-          {{ $active = or $active (eq .Name $current.Title) }}
-          {{ if .HasChildren }}
+        {{- $current := . -}}
+        {{- range site.Menus.main -}}
+          {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
+          {{- $active = or $active (eq .Name $current.Title) -}}
+          {{- if .HasChildren -}}
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle d-inline-block {{ if $active }}
+                class="nav-link dropdown-toggle d-inline-block {{- if $active -}}
                   active
-                {{ end }}"
+                {{- end -}}"
                 href="#"
                 data-toggle="dropdown"
                 aria-expanded="false"
                 >
-                  {{- with .Params.bsicon }}{{ partial "bsicon.html" . . }} {{ end -}}
+                  {{- with .Params.bsicon -}}{{- partial "bsicon.html" . . -}} {{- end -}}
                   {{- .Name -}}
                 </a
               >
               <ul class="dropdown-menu">
-                {{ range .Children }}
+                {{- range .Children -}}
                   <li>
-                    <a class="dropdown-item" href="{{ .URL | absLangURL }}">
-                      {{- with .Params.bsicon }}{{ partial "bsicon.html" . . }} {{ end -}}
+                    <a class="dropdown-item" href="{{- .URL | absLangURL -}}">
+                      {{- with .Params.bsicon -}}{{- partial "bsicon.html" . . -}} {{- end -}}
                       {{- .Name -}}
                     </a>
                   </li>
-                {{ end }}
+                {{- end -}}
               </ul>
             </li>
-          {{ else }}
-            <li class="nav-item {{ if $active }}active{{ end }}">
-              <a class="nav-link" href="{{ .URL | absLangURL }}">
-                {{- with .Params.bsicon }}{{ partial "bsicon.html" . . }} {{ end -}}
+          {{- else -}}
+            <li class="nav-item {{- if $active -}}active{{- end -}}">
+              <a class="nav-link" href="{{- .URL | absLangURL -}}">
+                {{- with .Params.bsicon -}}{{- partial "bsicon.html" . . -}} {{- end -}}
                 {{- .Name -}}
               </a>
             </li>
-          {{ end }}
-        {{ end }}
+          {{- end -}}
+        {{- end -}}
       </menu>
 
-      {{ if site.Params.dnb.theme.switcher.enabled }}
-        {{ partial "header/theme-switcher.html" . . }}
-      {{ end }}
+      {{- if site.Params.dnb.theme.switcher.enabled -}}
+        {{- partial "header/theme-switcher.html" . . -}}
+      {{- end -}}
 
     </div>
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-mainnav" "context" . ) -}}

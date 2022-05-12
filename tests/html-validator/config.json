@@ -1,53 +1,16 @@
 {
-  "extends": [
-    "@davidsneighbour/htmlvalidate-config"
-  ],
+  "extends": ["@davidsneighbour/htmlvalidate-config"],
   "rules": {
-    "long-title": [
-      "error",
+    "require-sri": [
+      "warn",
       {
-        "maxlength": 100
+        "target": "crossorigin"
       }
     ],
-    "why-no-trailing-whitespace": [
-      "off",
-      {
-        "why": "because there is a lot of trailing whitespace in hugo"
-      }
-    ],
-    "no-trailing-whitespace": "off",
-    "valid-id": [
-      "error",
-      {
-        "relaxed": true
-      }
-    ],
-    "no-inline-style": [
-      "error",
-      {
-        "include": [
-          "lite-youtube"
-        ],
-        "exclude": [],
-        "allowedProperties": [
-          "display"
-        ]
-      }
-    ],
-    "why-element-required-attributes": [
-      "off",
-      {
-        "why": "because goldmark does not support attributes in th (scope)"
-      }
-    ],
-    "element-required-attributes": "off",
-    "why-element-required-content": [
-      "off",
-      {
-        "why": "because html does not require to have a body tag"
-      }
-    ],
-    "element-required-content": "off"
+    "no-unknown-elements": "warn",
+    "allowed-links": [
+      "warn"
+    ]
   },
   "root": true
 }

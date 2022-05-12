@@ -1,7 +1,5 @@
 # local files
 bin/etc/replacements
-hugo_stats.json
-resources
 assets/content
 assets/js/**/*.js
 assets/jsconfig.json
@@ -9,11 +7,11 @@ content/ideas.md
 .vscode/*.code-snippets
 scratch
 TODO
-hugo*.deb
 frontmatter.json
 NOTES.md
 .netlify
 .wireit
+!/resources/music2program2
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass

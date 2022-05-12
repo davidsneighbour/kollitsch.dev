@@ -42,7 +42,7 @@
       "problemMatcher": [],
       // Try start the task on folder open
       "runOptions": {
-        "runOn": "folderOpen",
+        "runOn":"default",
         "instanceLimit": 1
       }
     },

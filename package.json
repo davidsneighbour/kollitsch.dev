@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
-  "version": "2022.5.42",
+  "version": "2022.5.43",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.dev",
   "author": {
@@ -23,7 +23,6 @@
     "@davidsneighbour/standard-version-config": "^4.0.3",
     "@davidsneighbour/stylelint-config": "^4.0.3",
     "@davidsneighbour/tools": "^4.0.3",
-
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "@sentry/node": "^6.19.7",
     "@sentry/tracing": "^6.19.7",

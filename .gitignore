@@ -12,6 +12,7 @@ NOTES.md
 .netlify
 .wireit
 !/resources/music2program2
+.vscode
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,hugo,phpstorm,sublimetext,visualstudiocode,vuejs,vue,sass

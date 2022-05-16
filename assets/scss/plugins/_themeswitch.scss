@@ -1,0 +1,16 @@
+.is--themeswitcher {
+
+  > span {
+    color: #{var(--color)};
+
+    &.active {
+      color: #{var(--primary)};
+    }
+  }
+
+  // display: none;
+
+  // .js & {
+  //   display: flex;
+  // }
+}

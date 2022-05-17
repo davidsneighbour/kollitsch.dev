@@ -1,0 +1,15 @@
+{{- /*
+  fetches any resource without consideration where it lives
+
+  see https://github.com/gohugoio/hugo/releases/tag/v0.91.0
+
+*/ -}}
+{{- $url = . -}}
+{{- $resource := "" -}}
+{{- if (urls.Parse $url).IsAbs -}}
+ {{- $resource = resources.GetRemote $url -}}
+{{- else -}}
+ {{- $resource = resources.Get $url -}}
+{{- end -}}
+
+{{- return $resource -}}

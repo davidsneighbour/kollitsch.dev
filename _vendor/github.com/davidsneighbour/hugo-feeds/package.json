@@ -1,0 +1,42 @@
+{
+  "name": "@davidsneighbour/hugo-feeds",
+  "version": "0.1.4",
+  "license": "MIT",
+  "description": "Feeds for GoHugo websites",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-feeds#readme",
+  "repository": "davidsneighbour/hugo-feeds",
+  "bugs": {
+    "url": "https://github.com/davidsneighbour/hugo-feeds/issues"
+  },
+  "devDependencies": {
+    "@davidsneighbour/commitlint-config": ">=3.5.9",
+    "@davidsneighbour/cypress-config": ">=3.5.9",
+    "@davidsneighbour/prettier-config": ">=3.5.10",
+    "@davidsneighbour/remark-config": ">=3.5.11",
+    "@davidsneighbour/standard-version-config": ">=3.5.9",
+    "@davidsneighbour/textlint-config": ">=3.5.11",
+    "@davidsneighbour/tools": ">=3.5.9"
+  },
+  "scripts": {
+    "clean": "run-p clean:**",
+    "clean:cypress": "rimraf tests/cypress/screenshots tests/cypress/videos",
+    "clean:hugo": "rimraf dev/public dev/resources dev/.hugo_build.lock hugo.log",
+    "clean:node": "rimraf node_modules package-lock.json",
+    "release": "standard-version --release-as patch -a -t \"v\" && git push --follow-tags origin main",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" && git push --follow-tags origin main",
+    "serve": "run-p serve:hugo",
+    "serve:hugo": "bin/dnb-hugo-dev-server.sh",
+    "server": "npm run serve",
+    "test": "run-p test:server test:cypress",
+    "test:cypress": "cypress run",
+    "test:cypress:ide": "cypress open",
+    "test:ide": "run-p test:server test:cypress:ide",
+    "test:server": "./bin/dnb-hugo-test-server.sh"
+  },
+  "private": true
+}

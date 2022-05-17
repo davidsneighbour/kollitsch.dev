@@ -1,0 +1,26 @@
+{{- $page := . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-init" "context" . ) -}}
+<meta charset="{{- site.Params.dnb.head.charset | default "utf-8" -}}">
+<meta name="viewport" content="{{- site.Params.dnb.head.viewport | default "width=device-width, initial-scale=1" -}}">
+{{- partial "head/title.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-start" "context" . ) -}}
+{{- partialCached "head/speed-optimisation.html" . -}}
+<base href="{{- site.BaseURL -}}">
+{{- partial "head/description.html" . -}}
+{{- partial "head/author.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-pre-css" "context" . ) -}}
+{{- partialCached "head/style.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-post-css" "context" . ) -}}
+{{- partial "head/translations.html" . -}}
+{{- partial "head/seo.html" . -}}
+{{- partialCached "head/series.html" . . -}}
+{{- $paths := slice "head/social.html" "head/opensearch.html" "head/pwa.html" "head/humans.txt" -}}
+{{- range $paths -}}
+  {{- if templates.Exists ( printf "partials/%s" . ) -}}
+    {{- partialCached . $page $page -}}
+  {{- end -}}
+{{- end -}}
+{{- partialCached "head/verification.html" . -}}
+{{- partialCached "head/alternates.html" . "sitefeeds" -}}
+{{- partial "head/others.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "head-end" "context" . ) -}}

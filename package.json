@@ -124,7 +124,7 @@
       "command": "html-validate public/**/*.html --config=tests/html-validator/config.json"
     },
     "audit:hugo": {
-      "command": "./bin/dnb-hugo-audit"
+      "command": "./bin/audit/audit"
     },
     "build": {
       "command": "run-s build:critical build:hugo"

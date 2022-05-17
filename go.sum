@@ -12,6 +12,8 @@ github.com/davidsneighbour/hugo-github v0.0.0-20220323153403-0580955b95f1 h1:eFS
 github.com/davidsneighbour/hugo-github v0.0.0-20220323153403-0580955b95f1/go.mod h1:c+8VvOGR1zEcXYMn8dZ9+vlltrHUMKI3qekRN6E5Ycg=
 github.com/davidsneighbour/hugo-head v1.1.6 h1:yO+GIE97+ThpUhOo6mJ7f9ea8GwD8QVeMGoxZM6HKz4=
 github.com/davidsneighbour/hugo-head v1.1.6/go.mod h1:aNZ+WReNWHGQCk0ZGN+qfb+6niT8Y+rr1dZZZNG9E7I=
+github.com/davidsneighbour/hugo-head v1.1.7 h1:4TNjMbaD/izRTmKnq3rPcmUAT7MV/H4GLc2MIzsoGkU=
+github.com/davidsneighbour/hugo-head v1.1.7/go.mod h1:aNZ+WReNWHGQCk0ZGN+qfb+6niT8Y+rr1dZZZNG9E7I=
 github.com/davidsneighbour/hugo-hooks v1.3.3 h1:fOavETv1IPahzpTlOlZpye+6rdz/rtLQZvWwQh24fHo=
 github.com/davidsneighbour/hugo-hooks v1.3.3/go.mod h1:7Z0/nbpIE4IvyppSwCJYw6gXE9Fe5cLBM80gceQ2VYQ=
 github.com/davidsneighbour/hugo-icons v1.2.2 h1:XTlMfLH9c4kuTicjLB3+vDs0vKpXCGhUmafRZ5NCQiQ=

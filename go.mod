@@ -4,11 +4,10 @@ go 1.17
 
 require (
 	github.com/davidsneighbour/hugo-auditor v0.1.4 // indirect
-	github.com/davidsneighbour/hugo-debug v1.5.6 // indirect
+	github.com/davidsneighbour/hugo-debug v1.5.9 // indirect
 	github.com/davidsneighbour/hugo-feeds v0.1.4 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.1 // indirect
 	github.com/davidsneighbour/hugo-giscus v1.2.2 // indirect
-	github.com/davidsneighbour/hugo-github v0.0.0-20220323153403-0580955b95f1 // indirect
 	github.com/davidsneighbour/hugo-head v1.1.7 // indirect
 	github.com/davidsneighbour/hugo-hooks v1.3.3 // indirect
 	github.com/davidsneighbour/hugo-icons v1.2.2 // indirect

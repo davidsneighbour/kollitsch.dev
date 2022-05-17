@@ -51,32 +51,32 @@ if test -f "${REPLACEMENTS}"; then
       HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
       NOT_FIRST_LINE=true
     fi
-  done < "${REPLACEMENTS}"
+  done <"${REPLACEMENTS}"
 fi
 
 # starting hugo server
 env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   hugo server \
-    --gc \
-    --environment development \
-    --disableFastRender \
-    --i18n-warnings \
-    --navigateToChanged \
-    --templateMetrics \
-    --templateMetricsHints \
-    --path-warnings \
-    --poll 1s \
-    --cleanDestinationDir \
-    --renderToDisk \
-    --buildFuture \
-    --watch \
-    --enableGitInfo \
-    --forceSyncStatic \
-    --log true --logFile hugo.log \
-    --verbose \
-    --verboseLog \
-    --port "${PORT}" \
-    --baseURL http://"${IP}"/ \
-    --bind "${IP}"
+  --gc \
+  --environment development \
+  --disableFastRender \
+  --i18n-warnings \
+  --navigateToChanged \
+  --templateMetrics \
+  --templateMetricsHints \
+  --path-warnings \
+  --poll 1s \
+  --cleanDestinationDir \
+  --renderToDisk \
+  --buildFuture \
+  --watch \
+  --enableGitInfo \
+  --forceSyncStatic \
+  --log true --logFile hugo.log \
+  --verbose \
+  --verboseLog \
+  --port "${PORT}" \
+  --baseURL http://"${IP}"/ \
+  --bind "${IP}"
 
 # TODO --buildDrafts --buildExpired on request

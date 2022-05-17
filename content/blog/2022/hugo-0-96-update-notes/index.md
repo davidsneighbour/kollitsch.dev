@@ -1,13 +1,13 @@
 ---
-title: "Hugo 0.96 update notes"
-linkTitle: "Hugo 0.96"
+title: Hugo 0.96 update notes
+linkTitle: Hugo 0.96
 description: ""
 date: 2022-03-28T17:58:49+07:00
 publishDate: 2022-03-28T17:58:49+07:00
-lastmod: 2022-03-28T17:58:49+07:00
+lastmod: 2022-05-18T1:39:34+07:00
 resources:
-  - title: "GoHugo"
-    src: "header.png"
+  - title: GoHugo
+    src: header.png
 tags:
   - gohugo
   - notes
@@ -35,7 +35,7 @@ target = 'content'
 lang = 'de'
 ```
 
-The interesting thing to note here is, that the merging is not happening from the left to the right, but the other way around. People coming from other programming languages might expect, that everything in the second module mount is overriding things in the first one, if there is already content under the same name available. In fact it is the other way around in Hugo (or Go as such). Following module mounts will fill missing parts of the first mount, or, in the widest sense, everything in tha last module will be overridden by the contents of each successive previous module. The first mount wins.
+The interesting thing to note here is, that the merging is not happening from the left to the right, but the other way around. People coming from other programming languages might expect, that everything in the second module mount is overriding things in the first one, if there is already content under the same name available. In fact it is the other way around in Hugo (or Go as such). Following module mounts will fill missing parts of the first mount, or, in the widest sense, everything in the last module will be overridden by the contents of each successive previous module. The first mount wins.
 
 #### HTTP error objects for Get* functions
 

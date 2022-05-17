@@ -52,7 +52,7 @@ rules:
   quoted-strings:
     quote-type: double
     required: false
-    #required: only-when-needed
+    # required: only-when-needed
     extra-required: ["^http://", "^https://", "^ftp://"]
     extra-allowed: []
   trailing-spaces: enable

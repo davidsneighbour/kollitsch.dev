@@ -21,7 +21,7 @@ cp -R tmp.bin/bin bin
 rm -rf tmp.bin
 
 # save version into version
-echo "${VERSION}" > bin/version
+echo "${VERSION}" >bin/version
 
 # removing files
 # intentionally left blank, will be updated if core files are renamed or removed

@@ -18,6 +18,7 @@ Note: we will check out Cloudflare Pages soon. More bandwidth and more build tim
   - [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
 - [Advanced setup](#advanced-setup)
 - [Netlify Setup](#netlify-setup)
+- [Hooks](#hooks)
 
 ## Setup
 
@@ -30,6 +31,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 - [Hugo](https://gohugo.io/)
 - [Node.js](https://nodejs.org/)
 - [Bash](https://www.gnu.org/software/bash/) (Patrick loves Bash!)
+- [Shellcheck](https://github.com/koalaman/shellcheck) (`snap install --channel=edge shellcheck`)
 
 ### Setup development environment
 

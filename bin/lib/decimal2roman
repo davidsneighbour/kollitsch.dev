@@ -18,6 +18,7 @@ declare -A r2d=(
 
 # build decimal to roman array from roman to decimal array
 for element in "${!r2d[@]}"; do
+  # shellcheck disable=SC2211,2276
   d2r[r2d["$element"]]="$element"
 done
 

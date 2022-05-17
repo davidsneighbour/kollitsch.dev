@@ -1,0 +1,22 @@
+<div class="event">
+	<h4>{{ with .Get "date" }}{{ . }}{{ end }}: {{ with .Get "name" }}{{ . }}{{ end }}</h4>
+	{{ with .Inner }}{{ . }}{{ end }}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Event",
+	  "name": "{{ with .Get "name" }}{{ . }}{{ end }}",
+	  "description": "{{ with .Inner }}{{ . }}{{ end }}",
+	  "startDate": "{{ with .Get "date" }}{{ . }}{{ end }}",
+	  "location": {
+	    "@type": "Place",
+	    "name": "{{ with .Get "place" }}{{ . }}{{ end }}",
+	    "address": {
+	      "@type": "PostalAddress",
+	      "addressLocality": "{{ with .Get "place" }}{{ . }}{{ end }}",
+	      "addressCountry": "TH"
+	    }
+	  }
+	}
+	</script>	
+</div>

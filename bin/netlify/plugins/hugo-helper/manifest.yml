@@ -4,8 +4,10 @@ inputs:
     description: Enable caching of resources between deploys
     default: true
   - name: debug
-    description: Show verbose logs and list files that are backed up and restored
+    description: >
+      Show verbose logs and list files that are backed up and restored
     default: false
   - name: srcdir
-    description: Relative path to source directory in case you use Hugo's "--s" option
+    description: >
+      Relative path to source directory in case you use Hugo's "--s" option
     default: ""

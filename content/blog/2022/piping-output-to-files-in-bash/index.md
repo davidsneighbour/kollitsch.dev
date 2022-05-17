@@ -2,7 +2,7 @@
 title: Piping output to files in Bash
 date: 2022-05-08T15:18:20+07:00
 publishDate: 2022-05-08T15:18:20+07:00
-lastmod: 2022-05-08T20:13:39+07:00
+lastmod: 2022-05-18T1:39:10+07:00
 resources:
   - title: Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge)
       via [Unsplash](https://unsplash.com/)
@@ -70,7 +70,7 @@ Runs Hugo, pipes the output to `hugo-output.log` (which will be overridden) and 
 
 ## Piping AND displaying output or errors
 
-Now onto the problem at hand. With the removal of `--debug`, `--log`, `--logFile` and `--verboseLog` we can no longer send the output of Hugo on the CLI to a file for later use. The way `--log` worked was to show the output and errors on the CLI _and_ pipe them into the file designated by `--logFile`. The `--verboseLog` option resulted in more detailled output in the log file only. To achieve the same effect we run `hugo` with the `--verbose` option and pipe output as well as errors into our log file, appending to existing content.
+Now onto the problem at hand. With the removal of `--debug`, `--log`, `--logFile` and `--verboseLog` we can no longer send the output of Hugo on the CLI to a file for later use. The way `--log` worked was to show the output and errors on the CLI _and_ pipe them into the file designated by `--logFile`. The `--verboseLog` option resulted in more detailed output in the log file only. To achieve the same effect we run `hugo` with the `--verbose` option and pipe output as well as errors into our log file, appending to existing content.
 
 The command for this is the following:
 

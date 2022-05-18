@@ -1,6 +1,6 @@
 # github.com/davidsneighbour/hugo-auditor v0.1.4
 # github.com/csswizardry/ct v0.0.0-20210921141612-1f0a063ceb7e
-# github.com/davidsneighbour/hugo-debug v1.5.6
+# github.com/davidsneighbour/hugo-debug v1.5.9
 # github.com/davidsneighbour/hugo-feeds v0.1.4
 # github.com/davidsneighbour/hugo-functions v1.1.1
 # github.com/davidsneighbour/hugo-giscus v1.2.2

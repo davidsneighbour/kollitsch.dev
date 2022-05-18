@@ -1,6 +1,6 @@
 {
   "name": "@davidsneigihbour/hugo-debug",
-  "version": "1.5.6",
+  "version": "1.5.9",
   "license": "GPL-3.0-only",
   "description": "GoHugo's missing debugging partials.",
   "author": {
@@ -21,10 +21,10 @@
     "mem": "^9.0.2"
   },
   "devDependencies": {
-    "@davidsneighbour/bootstrap-config": "^4.0.1",
-    "@davidsneighbour/cypress-config": "^4.0.1",
-    "@davidsneighbour/standard-version-config": "^4.0.1",
-    "@davidsneighbour/tools": "^4.0.1"
+    "@davidsneighbour/bootstrap-config": "^4.0.4",
+    "@davidsneighbour/cypress-config": "^4.0.4",
+    "@davidsneighbour/standard-version-config": "^4.0.4",
+    "@davidsneighbour/tools": "^4.0.4"
   },
   "scripts": {
     "clean": "run-p clean:**",

@@ -44,24 +44,28 @@ $theme-colors: (
 
   --card-border-color: #{$color-gray-6};
 
+  --pagination-bg: #{$color-gray-1};
+  --pagination-color: #{$color-orange-1};
+
   // https://drafts.csswg.org/css-ui-4/#widget-accent
   // https://caniuse.com/?search=accent-color
   accent-color: var(--primary);
-
 }
 
 .light {
-  --bg-page: #{$gray-100};
-  --bg-card: #{$white};
+  --bg-page: #{$color-gray-2};
+  --bg-card: #{$color-gray-1};
 
   --color-title: #{$color-gray-6};
   --color: #{$color-gray-5};
   --color2: #{$color-orange-6};
 
   --footer-color-fg: #{$color-gray-6};
-  --footer-color-bg: #{$color-gray-2};
+  --footer-color-bg: #{$color-gray-1};
 
   --card-border-color: #{$color-gray-2};
+
+  --pagination-bg: #{$color-gray-6};
 }
 
 .dark {
@@ -71,8 +75,8 @@ $theme-colors: (
 $card-bg: #{var(--bg-card)};
 $card-color: #{var(--color)};
 
-$pagination-bg: #{$color-gray-6};
-$pagination-color: #{$color-orange-1};
+$pagination-bg: #{--pagination-bg};
+$pagination-color: #{--pagination-color};
 
 // navbar-brand
 $navbar-brand-font-size: 2rem;

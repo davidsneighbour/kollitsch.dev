@@ -16,9 +16,10 @@ h4,
 h5,
 h6 {
   color: var(--primary);
+
   a {
-    text-decoration: none;
     color: var(--primary);
+    text-decoration: none;
     @extend .text-gradient-primary;
   }
   @extend .text-gradient-primary;
@@ -33,7 +34,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
 
 p {

@@ -9,11 +9,12 @@
     border: 0;
 
     color: #{$color-gray-2};
+    line-height: 48px;
+    text-align: center;
+
     .light & {
       color: #{$color-gray-5};
     }
-    line-height: 48px;
-    text-align: center;
 
     &.active,
     &:focus,

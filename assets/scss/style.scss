@@ -8,6 +8,8 @@
 @import 'bootstrap/scss/utilities';
 
 // Local Bootstrap Setup/Overrides
+
+/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
 @import 'reasonable-colors/reasonable-colors-hsl.scss';
 @import 'settings/theme';
 

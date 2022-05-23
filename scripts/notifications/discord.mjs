@@ -1,7 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const fetch = require('node-fetch');
-const dotenv = require('dotenv').config();
-const { parseString } = require('xml2js');
+import fetch from 'node-fetch';
+import 'dotenv/config';
+
+import { parseString } from 'xml2js';
 
 const { FEED_LINK } = process.env;
 const { DISCORD_WEBHOOK } = process.env;
@@ -24,7 +24,7 @@ function sendMessage(message) {
 fetch(FEED_LINK)
   .then((response) => response.text())
   .then((data) => {
-    parseString(data, function (error, result) {
+    parseString(data, (error, result) => {
       let message = `New post on [${result.rss.channel[0].title[0]}](${result.rss.channel[0].link[0]})`;
       message += ` titled: [${result.rss.channel[0].item[0].title[0]}](${result.rss.channel[0].item[0].link[0]})`;
       sendMessage(message);

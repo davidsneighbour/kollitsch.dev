@@ -1,5 +1,5 @@
 ---
-name: Update Hugo version for Netlify
+name: Update GoHugo version for Netlify
 on:
   workflow_dispatch:
   schedule:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Update Hugo version for Netlify
+    name: Update GoHugo version for Netlify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -22,7 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         # supported types at https://git.io/codeql-language-support
-        language: ["javascript", "typescript"]
+        language: ["go", "javascript", "typescript"]
 
     steps:
       - name: Checkout repository

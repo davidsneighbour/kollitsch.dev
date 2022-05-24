@@ -79,6 +79,7 @@
     "lint:scripts:fix": "wireit",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
+    "lint:styles:config": "wireit",
     "lint:templates": "wireit",
     "prettier": "wireit",
     "prettier:fix": "wireit",
@@ -101,11 +102,6 @@
   "commitlint": {
     "extends": [
       "@davidsneighbour/commitlint-config"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "@davidsneighbour/eslint-config"
     ]
   },
   "prettier": "@davidsneighbour/prettier-config",
@@ -191,7 +187,7 @@
       "command": "html-validate --config=tests/html-validator/config.json public"
     },
     "lint:html:config": {
-      "command": "html-validate --print-config --config=tests/html-validator/config.json"
+      "command": "html-validate --print-config=tests/html-validator/config.json"
     },
     "lint:lockfiles": {
       "command": "lockfile-lint --path package-lock.json --type=npm"
@@ -207,6 +203,9 @@
     },
     "lint:styles:fix": {
       "command": "stylelint assets/scss --fix"
+    },
+    "lint:styles:config": {
+      "command": "stylelint --print-config index.js"
     },
     "lint:templates": {
       "command": "bin/audit/lint-template-style"

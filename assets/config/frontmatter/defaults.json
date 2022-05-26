@@ -103,5 +103,6 @@
       "id": "permalink",
       "value": "/blog/{{year}}/{{slug}}/index.md"
     }
-  ]
+  ],
+  "frontMatter.templates.enabled": false
 }

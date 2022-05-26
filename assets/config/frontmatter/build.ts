@@ -1,5 +1,4 @@
 const fs = require('node:fs');
-
 const path = require('node:path');
 
 const defaults = fs.readFileSync(path.join(__dirname, '/defaults.json'));
@@ -10,7 +9,7 @@ const files2 = fs.readdirSync(path.join(__dirname, '/partials/'));
 let partialsConfiguration = {};
 let typeConfiguration = {};
 
-files.forEach(function mergeConfigs(value) {
+files.forEach((value) => {
   const data = fs.readFileSync(path.join(__dirname, `/types/${value}`));
   typeConfiguration = {
     ...typeConfiguration,
@@ -18,7 +17,7 @@ files.forEach(function mergeConfigs(value) {
   };
 });
 
-files2.forEach(function mergeConfigs(value) {
+files2.forEach((value) => {
   const data = fs.readFileSync(path.join(__dirname, `/partials/${value}`));
   partialsConfiguration = {
     ...partialsConfiguration,
@@ -35,6 +34,6 @@ fs.writeFileSync(
       ...partialsConfiguration,
     },
     undefined,
-    2
-  )}\n`
+    2,
+  )}\n`,
 );

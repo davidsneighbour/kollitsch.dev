@@ -1,8 +1,9 @@
 {
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.data.files": [
     {
       "id": "all-sponsors",
-      "path": "[[workspace]]/data/sponsors",
+      "path": "[[workspace]]/kollitsch/music.toml",
       "type": "sponsors"
     }
   ],

@@ -1,6 +1,6 @@
 [csp]
 reportOnly = false
-reportUri = "https://samuisamui.report-uri.com/r/d/csp/wizard"
+reportUri = "https://kollitschdev.report-uri.com/r/d/csp/reportOnly"
 
 require-trusted-types-for = ['script']
 upgradeInsecureRequests = true

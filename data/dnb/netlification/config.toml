@@ -9,6 +9,7 @@ defaultSrc = ["'none'"]
 script-src = [
   "'self'",
   "'unsafe-eval'",
+  "'unsafe-inline'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/",
   'https://unpkg.com',

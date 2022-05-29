@@ -48,9 +48,10 @@ $link-hover-decoration: underline;
 
 // cards
 $card-border-radius: $border-radius;
+$card-border-width: 0;
+$card-border-color: transparent;
 $card-height: 100%;
 $card-cap-bg: transparent;
-$card-border-color: transparent;
 
 // navigation
 $nav-link-color: var(--color);

@@ -1,19 +1,24 @@
 [csp]
 reportOnly = false
 reportUri = "https://samuisamui.report-uri.com/r/d/csp/wizard"
+
+require-trusted-types-for = ['script']
 upgradeInsecureRequests = true
-defaultSrc = ["'self'"]
+
+defaultSrc = ["'none'"]
 script-src = [
   "'self'",
+  "'unsafe-eval'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/",
   'https://unpkg.com',
   "https://identity.netlify.com",
-  'nonce-dnb-components-sw',
-  'static.cloudflareinsights.com'
+  "'nonce-dnb-components-sw'",
+  "static.cloudflareinsights.com"
 ]
 style-src = [
   "'self'",
+  "'unsafe-inline'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/"
 ]
@@ -26,7 +31,7 @@ img-src = [
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
 connect-src = ["'self'", "https://api.github.com/", 'cloudflareinsights.com']
 media-src = ["'self'"]
-object-src = ["'self'"]
+object-src = ["'none'"]
 child-src = ["'self'"]
 frame-src = [
   "'self'",

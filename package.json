@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
-  "version": "2022.5.53",
+  "version": "2022.5.54",
   "license": "UNLICENSED",
   "description": "Website and content for kollitsch.dev",
   "author": {
@@ -11,42 +11,42 @@
   "homepage": "https://kollitsch.dev",
   "repository": "davidsneighbour/kollitsch.dev",
   "dependencies": {
-    "@davidsneighbour/bootstrap-config": "^4.0.5",
-    "@davidsneighbour/browserslist-config": "^4.0.5",
-    "@davidsneighbour/commitlint-config": "^4.0.5",
+    "@davidsneighbour/bootstrap-config": "^4.0.8",
+    "@davidsneighbour/browserslist-config": "^4.0.10",
+    "@davidsneighbour/commitlint-config": "^4.0.7",
     "@davidsneighbour/cssnano-config": "^4.0.5",
     "@davidsneighbour/cypress-config": "^4.0.5",
-    "@davidsneighbour/eslint-config": "^4.0.6",
+    "@davidsneighbour/eslint-config": "^4.1.1",
     "@davidsneighbour/htmlvalidate-config": "^0.0.17",
-    "@davidsneighbour/postcss-config": "^4.0.6",
+    "@davidsneighbour/postcss-config": "^4.0.8",
     "@davidsneighbour/prettier-config": "^4.0.6",
     "@davidsneighbour/standard-version-config": "^4.0.6",
-    "@davidsneighbour/stylelint-config": "^4.0.5",
+    "@davidsneighbour/stylelint-config": "^4.0.7",
     "@davidsneighbour/tools": "^4.0.6",
     "@fullhuman/postcss-purgecss": "^4.1.3",
-    "@types/bootstrap": "^5.1.12",
     "algoliasearch": "^4.13.1",
     "alpinejs": "^3.10.2",
+    "bootstrap": "^5.2.0-beta1",
     "dotenv": "^16.0.1",
-    "got": "^12.0.4",
     "instantsearch.js": "^4.40.6",
     "lazysizes": "^5.3.2",
     "lighthouse-plugin-field-performance": "^3.0.0",
     "lite-youtube-embed": "^0.2.0",
-    "lockfile-lint": "^4.7.4",
     "needle": "^3.1.0",
-    "netlify-cli": "^10.3.1",
+    "netlify-cli": "^10.3.3",
     "ninja-keys": "^1.2.1",
     "node-fetch": "^3.2.4",
-    "oauth-1.0a": "^2.2.6",
     "pixrem": "^5.0.0",
     "reasonable-colors": "^0.4.0",
     "sass": "^1.52.1",
     "svgo": "^2.8.0",
     "trim": ">=1.0.1",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.2",
     "web-vitals-element": "^1.3.7",
     "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.1.12"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -72,6 +72,7 @@
     "deploy": "wireit",
     "deploy:test": "wireit",
     "lighthouse": "wireit",
+    "lint": "wireit",
     "lint:html": "wireit",
     "lint:html:config": "wireit",
     "lint:lockfiles": "wireit",
@@ -183,6 +184,12 @@
     "lighthouse": {
       "command": "bin/audit/lighthouse"
     },
+    "lint": {
+      "dependencies": [
+        "lint:html",
+        "lint:lockfiles"
+      ]
+    },
     "lint:html": {
       "command": "html-validate --config=tests/html-validator/config.json public"
     },
@@ -190,7 +197,7 @@
       "command": "html-validate --print-config=tests/html-validator/config.json"
     },
     "lint:lockfiles": {
-      "command": "lockfile-lint --path package-lock.json --type=npm"
+      "command": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity"
     },
     "lint:scripts": {
       "command": "eslint assets/js --ext .ts"

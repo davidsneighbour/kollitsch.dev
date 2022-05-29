@@ -1,5 +1,5 @@
 [csp]
-# reportOnly = false
+reportOnly = false
 reportUri = "https://samuisamui.report-uri.com/r/d/csp/wizard"
 upgradeInsecureRequests = true
 defaultSrc = ["'self'"]
@@ -9,16 +9,13 @@ script-src = [
   "https://giscus.app/",
   'https://unpkg.com',
   "https://identity.netlify.com",
-  "'unsafe-eval'",
-  "'unsafe-inline'",
   'nonce-dnb-components-sw',
   'static.cloudflareinsights.com'
 ]
 style-src = [
   "'self'",
   "https://d33wubrfki0l68.cloudfront.net",
-  "https://giscus.app/",
-  "'unsafe-inline'",
+  "https://giscus.app/"
 ]
 img-src = [
   "'self'",

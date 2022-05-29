@@ -46,7 +46,8 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "@types/bootstrap": "^5.1.12"
+    "@types/bootstrap": "^5.1.12",
+    "cz-git": "^1.3.3"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -255,6 +256,15 @@
     },
     "watch": {
       "command": "npm-watch"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "useEmoji": false,
+      "messages": {
+        "type": "Select the type of change that you're committing"
+      }
     }
   }
 }

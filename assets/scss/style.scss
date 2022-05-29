@@ -5,28 +5,122 @@
 
 // Bootstrap - Setup Configuration
 @import 'bootstrap/scss/functions';
+
+/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
+@import 'reasonable-colors/reasonable-colors-hsl.scss';
+
+// layouting
+$spacer: 1rem;
+
+// typography
+$font-weight-lighter: lighter;
+$font-weight-light: 200;
+$font-weight-normal: 300;
+$font-weight-semibold: 500;
+$font-weight-bold: 600;
+$font-weight-bolder: 900;
+$font-size-base: 1.2rem;
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.4;
+$small-font-size: 0.875em;
+$code-font-size: $small-font-size;
+
+// settings
+$border-radius: 10px;
+$border-width: 5px;
+
+// headings
+$headings-line-height: 1.3;
+$headings-font-weight: $font-weight-bold;
+// no need for h1-font-size because we use display-1
+$h2-font-size: $font-size-base * 1.75;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+$display-font-weight: $font-weight-bolder;
+
+// links
+$link-color: var(--primary);
+$link-decoration: none;
+$link-hover-color: var(--primary);
+$link-hover-decoration: underline;
+
+// cards
+$card-border-radius: $border-radius;
+$card-height: 100%;
+$card-cap-bg: transparent;
+$card-border-color: transparent;
+
+// navigation
+$nav-link-color: var(--color);
+$nav-link-hover-color: var(--primary);
+
+// code
+$code-color: var(--primary);
+
+// lines
+$hr-margin-y: $spacer;
+$hr-color: var(--primary);
+$hr-bg-color: currentColor;
+$hr-border-width: 0;
+$hr-height: $border-width;
+$hr-opacity: 1;
+
+// pagination
+$pagination-transition: none;
+
+// Alerts
+$alert-margin-bottom: 0;
+$alert-border-radius: $border-radius;
+$alert-border-width: $border-width;
+
+// Typography
+$kbd-padding-y: 0.1rem;
+$kbd-padding-x: 0.2rem;
+$kbd-font-size: $code-font-size * 0.9;
+$kbd-color: var(--color);
+$kbd-bg: var(--primary);
+
+// colors
+$primary: $color-orange-4;
+
+$enable-caret: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-smooth-scroll: true;
+$enable-grid-classes: true;
+$enable-container-classes: true;
+$enable-cssgrid: false;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: false;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+
+// Prefix for :root CSS variables
+
+$variable-prefix: bs-;
+$prefix: $variable-prefix;
+
 @import 'bootstrap/scss/variables';
+
+// layout
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+);
+
+@import "bootstrap/scss/maps";
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/utilities';
 
 // Local Bootstrap Setup/Overrides
-
-/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
-@import 'reasonable-colors/reasonable-colors-hsl.scss';
-@import 'settings/theme';
-
-// colors
-$primary: $color-orange-4;
-$theme-colors: (
-  'primary': $primary,
-  'secondary': $secondary,
-  'success': $success,
-  'info': $info,
-  'warning': $warning,
-  'danger': $danger,
-  'light': $light,
-  'dark': $color-cerulean-6,
-);
 
 :root {
   --primary: #{$primary};

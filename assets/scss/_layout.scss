@@ -1,5 +1,20 @@
 body {
+  background-color: var(--bg-card);
+}
+
+section {
+  background-color: var(--bg-page);
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+
+}
+
+.section--sitetitle, .section--content {
   padding-top: 100px;
 
-  background-color: var(--bg-page);
+
+}
+
+.section--content {
+  border-bottom-right-radius: 10px;
 }

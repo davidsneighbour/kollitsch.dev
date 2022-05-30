@@ -259,11 +259,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-git",
-      "useEmoji": false,
-      "messages": {
-        "type": "Select the type of change that you're committing"
-      }
+      "path": "node_modules/cz-git"
     }
   }
 }

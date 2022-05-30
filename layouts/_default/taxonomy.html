@@ -1,14 +1,26 @@
 {{- define "main" -}}
-  {{- partial "func/hook.html" ( dict
-    "hook" "container-start"
-    "context" .
-    )
-  -}}
   {{- partial "content/section-tagoverview.html" . -}}
-  {{- partial "content/section-taxonomy.html" . -}}
-  {{- partial "func/hook.html" ( dict
-    "hook" "container-end"
-    "context" .
-    )
-  -}}
+  {{- $counter := 0 -}}
+  <section id="menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Hot {{ .Name }}</h2>
+        </div>
+        {{- range $key, $taxonomy := .Site.Taxonomies.tags.ByCount -}}
+          {{- if lt $counter 4 -}}
+            {{- with site.GetPage (printf "/tags/%s" .Name) -}}
+              {{- if ne .Content "" -}}
+                {{- $post := dict "context" . "fullcontent" false "responsive" "halfwidth" -}}
+                <div class="col-md-6 mb-3">
+                  {{- partial "content/post.html" $post -}}
+                </div>
+                {{- $counter = add $counter 1 -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      </div>
+    </div>
+  </section>
 {{- end -}}

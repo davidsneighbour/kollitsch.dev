@@ -4,8 +4,7 @@
   "hook" "setup"
   "context" .
 ) -}}
-{{- $siteLanguageCode := site.LanguageCode | default "en-US" -}}
-<html lang="{{- $siteLanguageCode -}}">
+<html lang="{{- site.LanguageCode | default "en-US" -}}">
 
 <head>
   {{- partial "head.html" . -}}
@@ -17,7 +16,19 @@
     "context" .
   ) -}}
   {{- partial "header.html" . -}}
-  {{- block "main" . -}}{{- end -}}
+  <main id="content">
+    {{- partial "func/hook.html" ( dict
+      "hook" "container-start"
+      "context" .
+      )
+    -}}
+    {{- block "main" . -}}{{- end -}}
+    {{- partial "func/hook.html" ( dict
+      "hook" "container-end"
+      "context" .
+      )
+    -}}
+  </main>
   {{- partial "footer.html" . . -}}
   {{- partial "func/hook.html" ( dict
     "hook" "body-end-pre-script"

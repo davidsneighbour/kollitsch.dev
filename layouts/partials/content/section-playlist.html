@@ -1,9 +1,0 @@
-<section class="section--playlist mb-5">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      {{ range first 3 (where site.RegularPages "Type" "in" "playlist")  }}
-        {{ partial "content/post" . . }}
-      {{ end }}
-    </div>
-  </div>
-</section>

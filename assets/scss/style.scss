@@ -242,6 +242,7 @@ $navbar-brand-font-size: 2rem;
 // Prose formatting
 .prose {
   @import 'prose/prose';
+  @import 'prose/footnotes';
 }
 
 // plugins

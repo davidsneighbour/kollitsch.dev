@@ -3,16 +3,15 @@ body {
 }
 
 section {
-  background-color: var(--bg-page);
   margin-bottom: 0;
   padding-bottom: 1rem;
+
+  background-color: var(--bg-page);
 
 }
 
 .section--sitetitle, .section--content {
   padding-top: 100px;
-
-
 }
 
 .section--content {

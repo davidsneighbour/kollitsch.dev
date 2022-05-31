@@ -35,9 +35,6 @@
     padding: 0;
     padding: 0.5em 0 0;
 
-    color: var(--color-title);
-
-    background: var(--primary);
     transform: translateX(30%) translateY(0%) rotate(45deg);
     transform-origin: top left;
 
@@ -51,9 +48,9 @@
       height: 100%;
       margin: 0 -1px;
 
-      background: var(--primary);
-
       content: '';
+
+      @extend .text-bg-primary;
     }
 
     &::before {
@@ -64,6 +61,8 @@
       left: 100%;
     }
 
+    @extend .text-bg-primary;
+    @extend .p-1;
     @extend .text-center;
   }
 }

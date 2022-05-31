@@ -1,22 +1,22 @@
 /* footnote reference */
-[id^=fnref] {
-
+[id^='fnref'] {
+  color: var(--color-primary);
 }
 
 .footnotes {
-  font-size:0.8rem;
+  font-size: 0.8rem;
+
   hr {
-    border-top: 1px solid #ccc;
     margin: 0;
     padding: 0;
+    border-top: 1px solid #cccccc;
   }
-  ol {
-    li {
-      p {
-      }
-    }
-  }
-  .footnote-backref {
 
+  p {
+    font-weight: 300;
+  }
+
+  .footnote-backref {
+    font-weight: 300;
   }
 }

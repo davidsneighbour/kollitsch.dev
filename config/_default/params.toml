@@ -15,7 +15,7 @@ mainSections = ["blog"]
 # value of `dnb.theme.switcher.default` is used.
 slug = "dark-skies"
 theme = "dark"
-logo = "/assets/logo/favicon.svg"
+logo = "/logo/favicon.svg"
 logo_height = "40"
 logo_width = "40"
 show_title = true

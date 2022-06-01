@@ -1,7 +1,5 @@
 This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is currently hosted on Netlify and built via GoHugo and most of this repository is set up to work on Netlify and use its features.
 
-Note: we will check out Cloudflare Pages soon. More bandwidth and more build time (unlimited).
-
 **Content**
 
 - [Setup](#setup)

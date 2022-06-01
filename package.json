@@ -16,7 +16,6 @@
     "@davidsneighbour/commitlint-config": "^4.0.7",
     "@davidsneighbour/cssnano-config": "^4.0.5",
     "@davidsneighbour/cypress-config": "^4.0.5",
-    "@davidsneighbour/eslint-config": "^4.1.1",
     "@davidsneighbour/htmlvalidate-config": "^0.0.17",
     "@davidsneighbour/postcss-config": "^4.0.8",
     "@davidsneighbour/prettier-config": "^4.0.6",
@@ -40,13 +39,29 @@
     "sass": "^1.52.1",
     "svgo": "^2.8.0",
     "trim": ">=1.0.1",
-    "typescript": "^4.7.2",
     "web-vitals-element": "^1.3.7",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
+    "@davidsneighbour/webpack-config": "^4.0.5",
     "@types/bootstrap": "^5.1.12",
-    "cz-git": "^1.3.3"
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "cz-git": "^1.3.3",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-anti-trojan-source": "^1.1.0",
+    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-package-json": "^0.1.4",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -94,7 +109,8 @@
     "server:paranoid": "wireit",
     "tests": "wireit",
     "update": "wireit",
-    "watch": "wireit"
+    "watch": "wireit",
+    "webpack": "webpack --config ./webpack.config.js"
   },
   "private": true,
   "browserslist": [

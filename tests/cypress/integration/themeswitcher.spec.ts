@@ -1,3 +1,4 @@
+/* eslint-disable i18n-text/no-en */
 describe('Testing Theme Switcher', () => {
 	it('check default theme setup', () => {
 		cy.visit('/').then(() => {

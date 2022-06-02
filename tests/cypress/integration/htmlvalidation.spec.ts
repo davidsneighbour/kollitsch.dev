@@ -1,4 +1,6 @@
 const links = require('../../../public/links.json');
+const config = require('../../html-validator/config.json');
+
 const items = links.links;
 
 describe('Checking layouts', () => {
@@ -7,7 +9,7 @@ describe('Checking layouts', () => {
     it(testName, () => {
       cy.visit(route);
       cy.get('h1').should('contain', 'kollitsch.dev');
-      cy.htmlvalidate();
+      cy.htmlvalidate(config);
     });
   });
 });

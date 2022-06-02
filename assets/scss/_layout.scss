@@ -1,5 +1,5 @@
 body {
-  background-color: var(--bg-card);
+  background-color: var(--bg-page);
 }
 
 section {
@@ -10,8 +10,7 @@ section {
 
 }
 
-.section--sitetitle,
-.section--content {
+main {
   padding-top: 100px;
 }
 

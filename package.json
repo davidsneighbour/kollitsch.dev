@@ -1,6 +1,6 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
-  "version": "2022.5.59",
+  "version": "2022.6.0",
   "private": true,
   "description": "Website and content for kollitsch.dev",
   "scripts": {

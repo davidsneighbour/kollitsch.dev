@@ -1,0 +1,79 @@
+{
+  "sortToTop": [
+    "name",
+    "description",
+    "version",
+    "license",
+    "private",
+    "repository",
+    "author",
+    "bugs",
+    "homepage",
+    "keywords",
+    "dependencies",
+    "devDependencies",
+    "publishConfig",
+    "scripts",
+    "main",
+    "browser",
+    "files",
+    "bin",
+    "directories",
+    "man",
+    "config",
+    "peerDependencies",
+    "optionalDependencies",
+    "bundledDependencies",
+    "engines",
+    "os",
+    "cpu"
+  ],
+  // will error if these not present
+  "required": [
+    "name",
+    "version"
+  ],
+  // will warn if these not present
+  "warn": [
+    "description",
+    "author",
+    "repository",
+    "keywords",
+    "main",
+    "bugs",
+    "homepage",
+    "license"
+  ],
+  // if `private: true` in package.json will use the next two lists instead
+  "requiredOnPrivate": [
+    "name",
+    "version"
+  ],
+  "warnOnPrivate": [
+    "description",
+    "author",
+    "repository",
+    "bugs",
+    "homepage",
+    "license"
+  ],
+  "sortedSubItems": [
+    "dependencies",
+    "devDependencies",
+    "scripts"
+  ],
+  "quiet": true,
+  "files": [
+    "package.json"
+  ],
+  // Will not fix file, only inform if is fixed
+  "dryRun": false,
+  // Will set all deps to "*"
+  // this may be useful because then you can
+  // run npm update --save && npm update --save-dev
+  // to install latest stable releases of everything.
+  "wipe": false,
+  "indent": 2,
+  "newLine": "LF",
+  "finalNewLine": true
+}

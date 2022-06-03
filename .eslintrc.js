@@ -5,13 +5,12 @@ module.exports = {
 		'anti-trojan-source',
 		'html',
 		'no-loops',
-		'package-json',
 		'sonarjs',
 		// https://github.com/sindresorhus/eslint-plugin-unicorn
 		'unicorn',
 		'github',
 	],
-	ignorePatterns: ['**/node_modules/*', '**/vendor/*', '**/.git/*'],
+	ignorePatterns: ['**/node_modules/*', '**/vendor/*', '**/.git/*', '**/package.json'],
 	settings: {
 		'html/html-extensions': ['.html', '.htm'],
 		'html/xml-extensions': ['.xml'],
@@ -45,7 +44,7 @@ module.exports = {
 		'@typescript-eslint/no-explicit-any': 'error',
 		'@typescript-eslint/ban-ts-comment': 0,
 		'import/no-unresolved': 'off',
-		'@typescript-eslint/no-var-requires': 'off'
+		'@typescript-eslint/no-var-requires': 'off',
 	},
 	overrides: [
 		{

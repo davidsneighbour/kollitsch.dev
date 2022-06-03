@@ -1,74 +1,8 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "version": "2022.5.59",
-  "license": "UNLICENSED",
+  "private": true,
   "description": "Website and content for kollitsch.dev",
-  "author": {
-    "name": "Patrick Kollitsch",
-    "email": "patrick@davids-neighbour.com",
-    "web": "https://davids-neighbour.com"
-  },
-  "homepage": "https://kollitsch.dev",
-  "repository": "davidsneighbour/kollitsch.dev",
-  "dependencies": {
-    "@davidsneighbour/bootstrap-config": "^4.0.8",
-    "@davidsneighbour/browserslist-config": "^4.0.11",
-    "@davidsneighbour/commitlint-config": "^4.0.7",
-    "@davidsneighbour/cssnano-config": "^4.0.5",
-    "@davidsneighbour/cypress-config": "^4.0.5",
-    "@davidsneighbour/htmlvalidate-config": "^0.0.17",
-    "@davidsneighbour/prettier-config": "^4.0.6",
-    "@davidsneighbour/standard-version-config": "^4.0.6",
-    "@davidsneighbour/stylelint-config": "^4.0.7",
-    "@davidsneighbour/tools": "^4.0.8",
-    "@davidsneighbour/webpack-config": "^4.0.5",
-    "@fullhuman/postcss-purgecss": "^4.1.3",
-    "@types/bootstrap": "^5.1.12",
-    "@typescript-eslint/eslint-plugin": "^5.27.0",
-    "@typescript-eslint/parser": "^5.27.0",
-    "algoliasearch": "^4.13.1",
-    "alpinejs": "^3.10.2",
-    "autoprefixer": "^10.4.7",
-    "cssnano": "^5.1.10",
-    "cz-git": "^1.3.3",
-    "doiuse": "^4.4.1",
-    "dotenv": "^16.0.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-anti-trojan-source": "^1.1.0",
-    "eslint-plugin-compat": "^4.0.2",
-    "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-markdown": "^2.2.1",
-    "eslint-plugin-no-loops": "^0.3.0",
-    "eslint-plugin-package-json": "^0.1.4",
-    "eslint-plugin-sonarjs": "^0.13.0",
-    "eslint-plugin-unicorn": "^42.0.0",
-    "instantsearch.js": "^4.40.6",
-    "lazysizes": "^5.3.2",
-    "lighthouse-plugin-field-performance": "^3.0.0",
-    "lite-youtube-embed": "^0.2.0",
-    "needle": "^3.1.0",
-    "netlify-cli": "^10.3.3",
-    "ninja-keys": "^1.2.1",
-    "node-fetch": "^3.2.4",
-    "pixrem": "^5.0.0",
-    "postcss": "^8.4.14",
-    "postcss-cli": "^9.1.0",
-    "postcss-import": "^14.1.0",
-    "postcss-loader": "^7.0.0",
-    "postcss-nesting": "^10.1.7",
-    "postcss-preset-env": "^7.7.0",
-    "reasonable-colors": "^0.4.0",
-    "sass": "^1.52.1",
-    "stylelint": "^14.8.5",
-    "svgo": "^2.8.0",
-    "trim": ">=1.0.1",
-    "ts-node": "^10.8.0",
-    "typescript": "^4.7.2",
-    "web-vitals-element": "^1.3.7",
-    "xml2js": "^0.4.23"
-  },
   "scripts": {
     "audit:html": "wireit",
     "audit:hugo": "wireit",
@@ -99,8 +33,8 @@
     "lint:scripts": "wireit",
     "lint:scripts:fix": "wireit",
     "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
     "lint:styles:config": "wireit",
+    "lint:styles:fix": "wireit",
     "lint:templates": "wireit",
     "prettier": "wireit",
     "prettier:fix": "wireit",
@@ -117,19 +51,187 @@
     "watch": "wireit",
     "webpack": "webpack --config ./webpack.config.js"
   },
-  "private": true,
+  "repository": "davidsneighbour/kollitsch.dev",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "license": "UNLICENSED",
+  "homepage": "https://kollitsch.dev",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@fullhuman/postcss-purgecss": "^4.1.3",
+    "@popperjs/core": "^2.11.5",
+    "@types/bootstrap": "^5.1.12",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "algoliasearch": "^4.13.1",
+    "alpinejs": "^3.10.2",
+    "autoprefixer": "^10.4.7",
+    "axe-core": "^4.4.2",
+    "babel-loader": "^8.2.5",
+    "bootstrap": "^5.2.0-beta1",
+    "browserslist": ">=4.20.3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.10",
+    "cypress": "^9.7.0",
+    "cypress-axe": "^0.14.0",
+    "cypress-html-validate": "^4.0.0",
+    "cz-git": "^1.3.3",
+    "debug": "^4.3.4",
+    "deepmerge": "^4.2.2",
+    "doiuse": "^4.4.1",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-anti-trojan-source": "^1.1.0",
+    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-github": "^4.3.6",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-package-json": "^0.1.4",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "fixpack": "^4.0.0",
+    "html-validate": "^7.1.1",
+    "html-webpack-plugin": "^5.5.0",
+    "instantsearch.js": "^4.41.0",
+    "lazysizes": "^5.3.2",
+    "lighthouse-plugin-field-performance": "^3.0.0",
+    "lite-youtube-embed": "^0.2.0",
+    "lockfile-lint": "^4.7.4",
+    "ncp": "^2.0.0",
+    "needle": "^3.1.0",
+    "netlify-cli": "^10.4.0",
+    "ninja-keys": "^1.2.1",
+    "node-fetch": "^3.2.5",
+    "npm-check-updates": "^13.1.1",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0",
+    "pixrem": "^5.0.0",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^7.0.0",
+    "postcss-nesting": "^10.1.7",
+    "postcss-preset-env": "^7.7.1",
+    "prettier": "^2.6.2",
+    "prettier-plugin-go-template": "^0.0.13",
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "prettier-plugin-toml": "^0.3.1",
+    "reasonable-colors": "^0.4.0",
+    "replace-between": "^0.0.8",
+    "rimraf": "^3.0.2",
+    "sass": "^1.52.2",
+    "sass-loader": "^13.0.0",
+    "standard-version": "^9.5.0",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.8.5",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.3",
+    "stylelint-order": "^5.0.0",
+    "svgo": "^2.8.0",
+    "terser-webpack-plugin": "^5.3.3",
+    "trim": ">=1.0.1",
+    "ts-loader": "^9.3.0",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2",
+    "web-vitals-element": "^1.3.7",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-merge": "^5.8.0",
+    "wireit": "^0.5.0",
+    "xml2js": "^0.4.23"
+  },
   "browserslist": [
-    "extends @davidsneighbour/browserslist-config"
+    ">= 0.5%",
+    "last 2 major versions",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Firefox ESR",
+    "iOS >= 12",
+    "Safari >= 12",
+    "not op_mini all",
+    "not op_mob > 0",
+    "not opera > 0"
   ],
   "commitlint": {
     "extends": [
-      "@davidsneighbour/commitlint-config"
-    ]
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0,
+        "always",
+        100
+      ],
+      "type-enum": [
+        0,
+        "always",
+        [
+          "content",
+          "docs",
+          "feat",
+          "fix",
+          "layouts",
+          "refactor",
+          "test",
+          "chore",
+          "wip"
+        ]
+      ]
+    }
   },
-  "prettier": "@davidsneighbour/prettier-config",
-  "remarkConfig": {
-    "plugins": [
-      "@davidsneighbour/remark-config"
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "quoteProps": "as-needed",
+    "bracketSpacing": true,
+    "bracketSameLine": true,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "goTemplateBracketSpacing": true,
+    "overrides": [
+      {
+        "files": [
+          "*.html"
+        ],
+        "options": {
+          "parser": "go-template",
+          "goTemplateBracketSpacing": true,
+          "bracketSameLine": true
+        }
+      },
+      {
+        "files": [
+          "*.js",
+          "*.ts"
+        ],
+        "options": {
+          "useTabs": true,
+          "printWidth": 120,
+          "singleQuote": true
+        }
+      }
     ]
   },
   "watch": {
@@ -269,19 +371,13 @@
       "command": "npm run cypress"
     },
     "update": {
-      "command": "npm-check-updates -u && npm install && fixpack && npx browserslist@latest --update-db"
+      "command": "npm-check-updates -u --target minor && npm install && fixpack && npx browserslist@latest --update-db"
     },
     "watch": {
       "command": "npm-watch"
     }
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
-  },
   "devDependencies": {
-    "eslint": "^8.16.0",
-    "eslint-plugin-github": "^4.3.6"
+    "caniuse-lite": "^1.0.30001346"
   }
 }

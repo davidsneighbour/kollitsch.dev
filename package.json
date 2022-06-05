@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2022.6.1",
+  "version": "2022.6.2",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -103,9 +103,6 @@
     "webpack-merge": "^5.8.0",
     "wireit": "^0.5.0",
     "xml2js": "^0.4.23"
-  },
-  "devDependencies": {
-    "caniuse-lite": "^1.0.30001346"
   },
   "scripts": {
     "audit:html": "wireit",

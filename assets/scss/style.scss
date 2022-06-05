@@ -9,6 +9,7 @@
 /* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
 @import 'reasonable-colors/reasonable-colors-hsl.scss';
 
+
 // layouting
 $spacer: 1rem;
 
@@ -170,6 +171,9 @@ $container-max-widths: (
 .dark {
   // most (or all) of the dark setup is defined as default in :root
 }
+
+// color
+$dark: var(--bg-page);
 
 $card-bg: #{var(--bg-card)};
 $card-color: #{var(--color)};

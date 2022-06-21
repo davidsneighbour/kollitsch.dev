@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-06-06T19:33:56+07:00
 publishDate: 2022-06-06T19:33:56+07:00
-lastmod: 2022-06-06T20:09:47+07:00
+lastmod: 2022-06-06T21:54:14+07:00
 
 resources:
   - title: Photo by [Glen Noble](https://unsplash.com/@glennoble) via
@@ -18,6 +18,8 @@ tags:
   - howto
   - 100DaysToOffload
 ---
+
+Short Interlude: The following problems and it's solution seems to be an Ubuntu 22.04 issue, because that is when the new OOM service was introduced. Read on if your Ubuntu system closes applications when it seems to be overwhelmed by tasks and if it's a 22.04 one. If not, this might not be your issue (and solution).
 
 My main workstation recently tends to just close VSCode or Google Chrome on me and I had the slight feeling, that it's not personal but more related to available swap space. I was wondering how to find out if memory issues are the cause and how to add some more swap space so everyone (including me) could be happy.
 
@@ -70,7 +72,7 @@ After these steps edit `/etc/fstab` and add the following line to make the chang
 /swapfile   swap   swap    sw   0   0
 ```
 
-If there is already a partition or file set as swap space we either delete the line or keep it as additional swap partition. I left the partition in as even more swap space. I'll keep an eye on it and we will see if two swap spaces will irritate the system.
+If there is already a partition or file set as swap space we either delete the line or keep it as add an eye on it and we will see if two swap spaces will irritate the system.
 
 Once done do a quick reboot to see if everything worked out as expected. You can then check your swap and will see the increased space:
 

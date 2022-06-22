@@ -5,8 +5,8 @@
   }
 
   .dark & {
-    @extend .navbar-dark;
     background-color: var(--bg-card);
+    @extend .navbar-dark;
   }
 
   .nav-link {

@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import 'cypress-axe';
-import 'cypress-html-validate/dist/commands';
-import './commands';
+import 'cypress-html-validate/commands';
+import './commands.ts';
 
 // @ts-ignore
 before(() => {
@@ -19,7 +18,7 @@ beforeEach(() => {
 afterEach(() => {
   // runs after each test block
   // @ts-ignore
-  //cy.htmlvalidate();
+  // cy.htmlvalidate();
 });
 
 // @ts-ignore

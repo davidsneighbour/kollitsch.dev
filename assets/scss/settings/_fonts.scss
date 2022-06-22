@@ -1,16 +1,18 @@
 @font-face {
+  font-weight: 100 900;
   font-family: Exo;
   font-style: italic;
+  src: url('/webfonts/exo/exoi.ttf') format('ttf') tech('variations'),
+    url('/webfonts/exo/exoi.ttf') format('ttf-variations');
   font-display: swap;
-
-  src: url('/webfonts/exo/exoi.ttf') format('ttf');
 }
 
 /* latin-ext */
 @font-face {
+  font-weight: 100 900;
   font-family: Exo;
   font-style: normal;
+  src: url('/webfonts/exo/exo.ttf') format('ttf') tech('variations'),
+    url('/webfonts/exo/exo.ttf') format('ttf-variations');
   font-display: swap;
-
-  src: url('/webfonts/exo/exo.ttf') format('ttf');
 }

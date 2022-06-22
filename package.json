@@ -168,7 +168,8 @@
     "Safari >= 12",
     "not op_mini all",
     "not op_mob > 0",
-    "not opera > 0"
+    "not opera > 0",
+    "not IE > 0"
   ],
   "commitlint": {
     "extends": [

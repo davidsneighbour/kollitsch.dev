@@ -1,5 +1,5 @@
 <div
-  class="text-end fs-6"
+  class="text-end mb-2 mt-1 is--publishdate"
   title="🤖 {{ .PublishDate | time.Format site.Params.dnb.theme.dateformat.timestamp -}}">
   {{- .PublishDate | time.Format (site.Params.dnb.theme.post_date_format | default ":date_long") -}}
 </div>

@@ -22,6 +22,7 @@ h6 {
     text-decoration: none;
     @extend .text-gradient-primary;
   }
+
   @extend .text-gradient-primary;
 }
 
@@ -38,6 +39,7 @@ h4 {
 }
 
 p {
+  text-align: justify;
   word-wrap: break-word;
 
   /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
@@ -59,7 +61,7 @@ blockquote {
 }
 
 .border-primary {
-  border-color: var(--primary) !important;
+  border-color: var(--primary);
 }
 
 table {
@@ -70,6 +72,7 @@ table {
   .light & {
     @extend .table-light;
   }
+
   // .highlight & {
   //   @extend .table-borderless;
   // }

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-NEWVERSION=$(npm version patch)
-git tag "${NEWVERSION}"
-npm publish
-git push && git push --tags

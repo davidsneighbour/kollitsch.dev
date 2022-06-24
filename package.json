@@ -379,6 +379,7 @@
     }
   },
   "devDependencies": {
+    "@davidsneighbour/htmlvalidate-config": "^0.0.19",
     "cypress": "^10.2.0"
   }
 }

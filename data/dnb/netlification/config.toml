@@ -44,15 +44,15 @@ worker-src = ["'self'"]
 form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
 manifest-src = ["'self'"]
 
-[[redirects]]
-from = "/bee.js"
-to = "https://cdn.splitbee.io/sb.js"
-status = 200
+# [[redirects]]
+# from = "/bee.js"
+# to = "https://cdn.splitbee.io/sb.js"
+# status = 200
 
-[[redirects]]
-from = "/_hive/*"
-to = "https://hive.splitbee.io/:splat"
-status = 200
+# [[redirects]]
+# from = "/_hive/*"
+# to = "https://hive.splitbee.io/:splat"
+# status = 200
 
 [[redirects]]
 netlify = "https://kollitsch-dev.netlify.app"

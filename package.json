@@ -60,7 +60,7 @@
     "needle": "^3.1.0",
     "netlify-cli": "^10.7.1",
     "ninja-keys": "^1.2.2",
-    "npm-check-updates": "^15.2.1",
+    "npm-check-updates": "^15.2.6",
     "npm-watch": "^0.11.0",
     "pixrem": "^5.0.0",
     "postcss": "^8.4.14",

@@ -1,0 +1,25 @@
+// shortcode helpers for GoHugo internal shortcodes
+{
+  "hugo-highlight": {
+    // supported languages see https://github.com/alecthomas/chroma#supported-languages
+    "scope": "markdown",
+    "prefix": "hugo-highlight",
+    "body": [
+      "{{< highlight ${1:markdown|markdown,javascript,html,scss,typescript,toml,abap,abnf,actionscript,actionscript 3,ada,angular2,antlr,apacheconf,apl,applescript,arduino,awk,ballerina,base makefile,bash,batchfile,bibtex,bicep,blitzbasic,bnf,brainfuck,c,c#,c++,caddyfile,caddyfile directives,cap'n proto,cassandra cql,ceylon,cfengine3,cfstatement,chaiscript,cheetah,clojure,cmake,cobol,coffeescript,common lisp,coq,crystal,css,cython,d,dart,diff,django/jinja,docker,dtd,dylan,ebnf,elixir,elm,emacslisp,erlang,factor,fish,forth,fortran,fsharp,gas,gdscript,genshi,genshi html,genshi text,gherkin,glsl,gnuplot,go,go-html-template,go-text-template,graphql,groff,groovy,handlebars,haskell,haxe,hcl,hexdump,hlb,html,http,hy,idris,igor,ini,io,j,java,javascript,json,julia,jungle,kotlin,lighttpd configuration file,llvm,lua,mako,markdown,mason,mathematica,matlab,minizinc,mlir,modula-2,monkeyc,morrowindscript,myghty,mysql,nasm,newspeak,nginx configuration file,nim,nix,objective-c,ocaml,octave,onesenterprise,openscad,org mode,pacmanconf,perl,php,phtml,pig,pkgconfig,pl/pgsql,plaintext,pony,postgresql sql dialect,postscript,povray,powershell,prolog,promql,protocol buffer,puppet,python 2,python,qbasic,r,racket,ragel,raku,react,reasonml,reg,restructuredtext,rexx,ruby,rust,sas,sass,scala,scheme,scilab,scss,smalltalk,smarty,snobol,solidity,sparql,sql,squidconf,standard ml,stylus,svelte,swift,systemd,systemverilog,tablegen,tasm,tcl,tcsh,termcap,terminfo,terraform,tex,thrift,toml,tradingview,transact-sql,turing,turtle,twig,typescript,typoscript,typoscriptcssdata,typoscripthtmldata,vb.net,verilog,vhdl,viml,vue,wdte,xml,xorg,yaml,yang,zig|} >}}",
+      "$0",
+      "{{< /highlight >}}"
+    ],
+    "description": "Highlight Shortcode"
+  },
+  "hugo-code": {
+    // supported languages see https://github.com/alecthomas/chroma#supported-languages
+    "scope": "markdown",
+    "prefix": "hugo-code",
+    "body": [
+      "```${1:markdown|markdown,javascript,html,scss,typescript,toml,abap,abnf,actionscript,actionscript 3,ada,angular2,antlr,apacheconf,apl,applescript,arduino,awk,ballerina,base makefile,bash,batchfile,bibtex,bicep,blitzbasic,bnf,brainfuck,c,c#,c++,caddyfile,caddyfile directives,cap'n proto,cassandra cql,ceylon,cfengine3,cfstatement,chaiscript,cheetah,clojure,cmake,cobol,coffeescript,common lisp,coq,crystal,css,cython,d,dart,diff,django/jinja,docker,dtd,dylan,ebnf,elixir,elm,emacslisp,erlang,factor,fish,forth,fortran,fsharp,gas,gdscript,genshi,genshi html,genshi text,gherkin,glsl,gnuplot,go,go-html-template,go-text-template,graphql,groff,groovy,handlebars,haskell,haxe,hcl,hexdump,hlb,html,http,hy,idris,igor,ini,io,j,java,javascript,json,julia,jungle,kotlin,lighttpd configuration file,llvm,lua,mako,markdown,mason,mathematica,matlab,minizinc,mlir,modula-2,monkeyc,morrowindscript,myghty,mysql,nasm,newspeak,nginx configuration file,nim,nix,objective-c,ocaml,octave,onesenterprise,openscad,org mode,pacmanconf,perl,php,phtml,pig,pkgconfig,pl/pgsql,plaintext,pony,postgresql sql dialect,postscript,povray,powershell,prolog,promql,protocol buffer,puppet,python 2,python,qbasic,r,racket,ragel,raku,react,reasonml,reg,restructuredtext,rexx,ruby,rust,sas,sass,scala,scheme,scilab,scss,smalltalk,smarty,snobol,solidity,sparql,sql,squidconf,standard ml,stylus,svelte,swift,systemd,systemverilog,tablegen,tasm,tcl,tcsh,termcap,terminfo,terraform,tex,thrift,toml,tradingview,transact-sql,turing,turtle,twig,typescript,typoscript,typoscriptcssdata,typoscripthtmldata,vb.net,verilog,vhdl,viml,vue,wdte,xml,xorg,yaml,yang,zig|}",
+      "$0",
+      "```"
+    ],
+    "description": "Highlight Shortcode"
+  }
+}

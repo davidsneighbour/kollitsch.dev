@@ -11,6 +11,7 @@ bin/etc/replacements
 notes/
 # experimental vscode configs
 .vscode/test-snippets.code-snippets
+.devcontainer/notes.md
 # WireIT cache
 .wireit/
 

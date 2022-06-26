@@ -18,7 +18,7 @@ module.exports = {
       confirmCommit: "Are you sure you want to proceed with the commit above?"
     },
     // https://github.com/sindresorhus/xterm-colors
-    themeColorCode: "38;5;160",
+    themeColorCode: "",
     types: [
       { value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" },
       { value: "fix", name: "fix:      A bug fix", emoji: ":bug:" },
@@ -33,7 +33,7 @@ module.exports = {
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: false,
-    customScopesAlign: "bottom-top",
+    customScopesAlign: "bottom",
     scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
@@ -46,8 +46,7 @@ module.exports = {
     breaklineChar: "|",
     skipQuestions: [],
     issuePrefixs: [
-      { value: "closed", name: "closed:   ISSUE has been resolved" },
-      { value: "see", name: "see:      ISSUE is connected to this commit" }
+      { value: "closed", name: "closed:   ISSUES has been processed" }
     ],
     customIssuePrefixsAlign: "top",
     emptyIssuePrefixsAlias: "skip",
@@ -64,4 +63,4 @@ module.exports = {
     defaultScope: "",
     defaultSubject: ""
   }
-}
+};

@@ -3,6 +3,8 @@
     "@davidsneighbour/htmlvalidate-config"
   ],
   "rules": {
+    "allowed-links": "off",
+    "no-style-tag": "off",
     "long-title": "off",
     "valid-id": "off",
     "no-trailing-whitespace": "off",
@@ -55,7 +57,8 @@
     "void-style": "off",
     "attr-spacing": "off",
     "require-sri": "off",
-    "no-unknown-elements": "off"
+    "no-unknown-elements": "off",
+    "missing-doctype": "off"
   },
   "root": true
 }

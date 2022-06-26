@@ -1,0 +1,7 @@
+{
+    "composer.executablePath": "/usr/local/bin/composer",
+    "phpcs.standard": "WordPress",
+    "remote.containers.defaultExtensions": [
+        "mutantdino.resourcemonitor"
+    ]
+}

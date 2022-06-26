@@ -1,0 +1,10 @@
+version: "3.6"
+
+services:
+  server:
+    image: klakegg/hugo:ext-alpine
+    command: server
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - "1313:1313"

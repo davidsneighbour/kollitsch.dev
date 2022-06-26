@@ -40,7 +40,7 @@ module.exports = {
     customScopesAlias: "custom",
     emptyScopesAlias: "empty",
     upperCaseSubject: false,
-    markBreakingChangeMode: false,
+    markBreakingChangeMode: true,
     allowBreakingChanges: ['feat', 'fix'],
     breaklineNumber: 100,
     breaklineChar: "|",
@@ -62,6 +62,7 @@ module.exports = {
     defaultBody: "",
     defaultIssues: "",
     defaultScope: "",
-    defaultSubject: ""
+    defaultSubject: "",
+    // https://cz-git.qbenben.com/config/engineer.html
   }
 }

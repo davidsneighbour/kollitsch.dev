@@ -75,6 +75,4 @@ collapseElementList.map(function collapsibles(collapseElement: Element) {
 });
 
 // start Splitbee analytics
-splitbee.init({
-  disableCookie: true
-})
+splitbee.init({  disableCookie: true})

@@ -2,9 +2,33 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.data.files": [
     {
-      "id": "all-sponsors",
-      "path": "[[workspace]]/kollitsch/music.toml",
-      "type": "sponsors"
+      "id": "music2program2",
+      "title": "Music to program to",
+      "file": "[[workspace]]/data/dnb/kollitsch/music.json",
+      "fileType": "json",
+      "labelField": "name",
+      "schema": {
+        "title": "music2program2",
+        "type": "object",
+        "required": [
+          "name",
+          "link"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "link": {
+            "type": "string",
+            "title": "URL"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        }
+      }
     }
   ],
   "frontMatter.data.folders": [],

@@ -1,8 +1,13 @@
-{{- $video := site.Data.dnb.kollitsch.music -}}
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
-{{- $artist := index $video $post.Params.video.artist -}}
-<article class="card shadow-sm">
+{{- $artist := first 1 (where
+            site.Data.dnb.kollitsch.music
+            "slug"
+            $post.Params.video.artist
+) -}}
+{{- $artist = index $artist 0 -}}
+
+<article class="card shadow-sm music2program2 {{ $artist.slug }}">
   {{- partial "content/partials/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.video.youtube -}}
   <div class="post-slider">
@@ -26,7 +31,10 @@
       {{- $name = . -}}
     {{- end -}}
     <p>
-      This is "{{ $post.Params.video.title }}" by <a href="{{$artist.link}}">{{ $name }}</a>.
+      This is "{{ $post.Params.video.title }}" by
+      <a href="{{ $artist.link }}">
+        {{ $artist.name }}
+      </a>.
     </p>
     {{$artist.description | markdownify }}
   {{- with $fullcontent -}}

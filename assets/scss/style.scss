@@ -90,6 +90,7 @@ $btn-border-width: 2px;
 // colors
 $primary: $color-orange-4;
 
+// settings
 $enable-caret: true;
 $enable-rounded: true;
 $enable-shadows: false;
@@ -147,8 +148,8 @@ $container-max-widths: (
 
   --card-border-color: #{$color-gray-6};
 
-  --pagination-bg: #{$color-gray-1};
-  --pagination-color: #{$color-orange-1};
+  --#{$prefix}pagination-bg: #{$color-gray-6};
+  --#{$prefix}pagination-color: #{$color-orange-1};
 
   // https://drafts.csswg.org/css-ui-4/#widget-accent
   // https://caniuse.com/?search=accent-color
@@ -168,7 +169,7 @@ $container-max-widths: (
 
   --card-border-color: #{$color-gray-2};
 
-  --pagination-bg: #{$color-gray-6};
+  --#{$prefix}pagination-bg: #{$color-gray-6};
 }
 
 .dark {
@@ -180,9 +181,6 @@ $dark: var(--bg-page);
 
 $card-bg: #{var(--bg-card)};
 $card-color: #{var(--color)};
-
-$pagination-bg: #{--pagination-bg};
-$pagination-color: #{--pagination-color};
 
 // navbar-brand
 $navbar-brand-font-size: 2rem;

@@ -1,9 +1,21 @@
 [
   {
-    "slug": "nineinchnails",
-    "name": "Nine Inch Nails",
-    "link": "https://www.nin.com/",
+    "slug": "ben-lukas-boysen",
+    "name": "Ben Lukas Boysen",
+    "link": "https://benlukasboysen.com/",
+    "description": "Ben Lukas Boysen, also known by his stage name Hecq, is an electronic music composer based in Berlin. (via Wikipedia)"
+  },
+  {
+    "slug": "chromatics",
+    "name": "Chromatics",
+    "link": "https://soundcloud.com/chromaticsofficial",
     "description": ""
+  },
+  {
+    "slug": "dannykreutzfeldt",
+    "name": "Danny Kreutzfeldt",
+    "link": "https://www.discogs.com/artist/27424-Danny-Kreutzfeldt",
+    "description": "Danny Kreutzfeldt covered a wide range of styles from deep ambient dub to vast harshnoise soundscapes and went on to perform, collaborate and release under numerous monikers before discontinuing most of these activities around 2008."
   },
   {
     "slug": "khruangbin",
@@ -12,9 +24,9 @@
     "description": "Khruangbin (/ˈkrʌŋbɪn/ KRUNG-bin; Thai: [kʰrɯa̯ŋ˥˩.bin], เครื่องบิน) is an American musical trio from Houston, Texas. The band comprises Laura Lee on bass, Mark Speer on guitar, and Donald Ray \"DJ\" Johnson Jr. on drums. "
   },
   {
-    "slug": "chromatics",
-    "name": "Chromatics",
-    "link": "https://soundcloud.com/chromaticsofficial",
+    "slug": "nineinchnails",
+    "name": "Nine Inch Nails",
+    "link": "https://www.nin.com/",
     "description": ""
   },
   {
@@ -24,21 +36,9 @@
     "description": ""
   },
   {
-    "slug": "ben-lukas-boysen",
-    "name": "Ben Lukas Boysen",
-    "link": "https://benlukasboysen.com/",
-    "description": "Ben Lukas Boysen, also known by his stage name Hecq, is an electronic music composer based in Berlin. (via Wikipedia)"
-  },
-  {
     "slug": "rammstein",
     "name": "Rammstein",
     "link": "https://www.rammstein.de/en/home/",
     "description": "Rammstein is a German Neue Deutsche Härte band formed in Berlin in 1994."
-  },
-  {
-    "slug": "dannykreutzfeldt",
-    "name": "Danny Kreutzfeldt",
-    "link": "https://www.discogs.com/artist/27424-Danny-Kreutzfeldt",
-    "description": "Danny Kreutzfeldt covered a wide range of styles from deep ambient dub to vast harshnoise soundscapes and went on to perform, collaborate and release under numerous monikers before discontinuing most of these activities around 2008."
   }
 ]

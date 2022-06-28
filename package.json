@@ -100,21 +100,30 @@
     "wireit": "^0.7.0",
     "xml2js": "^0.4.23"
   },
+  "devDependencies": {
+    "@davidsneighbour/htmlvalidate-config": "^0.0.19",
+    "cypress": "^10.2.0",
+    "cz-git": "^1.3.8",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "tailwindcss": "^3.1.4"
+  },
   "scripts": {
-    "build-tw": "npx tailwindcss -i ./assets/styles/main.css -o ./assets/style.css",
     "audit:html": "wireit",
     "audit:hugo": "wireit",
     "build": "wireit",
+    "build-tw": "npx tailwindcss -i ./assets/styles/main.css -o ./assets/style.css",
     "build:frontmatter": "wireit",
     "build:hugo": "wireit",
     "build:script": "wireit",
     "check-env": "wireit",
-    "clean": "wireit",
-    "clean:audit": "wireit",
-    "clean:cypress": "wireit",
-    "clean:hugo": "wireit",
-    "clean:netlify": "wireit",
-    "clean:npm": "wireit",
+    "clean": "run-p clean:*",
+    "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
+    "clean:cypress": "rimraf tests/cypress/{downloads,screenshots,videos}/*",
+    "clean:hugo": "rimraf hugo{.log,_stats.json} resources public assets/jsconfig.json .hugo_build.lock",
+    "clean:netlify": "rimraf .netlify/cache .netlify/functions",
+    "clean:npm": "rimraf node_modules package-lock.json",
     "commit": "wireit",
     "cypress": "wireit",
     "cypress:info": "wireit",
@@ -263,24 +272,6 @@
     "check-env": {
       "command": "node -e 'console.log(process.env)' | grep npm_config_"
     },
-    "clean": {
-      "command": "run-p clean:*"
-    },
-    "clean:audit": {
-      "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
-    },
-    "clean:cypress": {
-      "command": "rimraf tests/cypress/{downloads,screenshots,videos}/*"
-    },
-    "clean:hugo": {
-      "command": "rimraf hugo{.log,_stats.json} resources public assets/jsconfig.json .hugo_build.lock"
-    },
-    "clean:npm": {
-      "command": "rimraf node_modules package-lock.json"
-    },
-    "clean:netlify": {
-      "command": "rimraf .netlify/cache .netlify/functions"
-    },
     "commit": {
       "command": "./node_modules/cz-customizable/standalone.js"
     },
@@ -374,14 +365,5 @@
     "watch": {
       "command": "npm-watch"
     }
-  },
-  "devDependencies": {
-    "@davidsneighbour/htmlvalidate-config": "^0.0.19",
-    "cypress": "^10.2.0",
-    "cz-git": "^1.3.8",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.11",
-    "tailwindcss": "^3.1.4"
   }
 }

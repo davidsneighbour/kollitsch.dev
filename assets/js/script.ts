@@ -4,7 +4,6 @@ import Alpine from 'alpinejs';
 import { Collapse, Tab } from 'bootstrap';
 //import './components/menu.ts';
 import 'web-vitals-element';
-import splitbee from '@splitbee/web';
 
 // change Giscus theme
 function changeGiscusTheme(theme = 'dark_dimmed') {
@@ -73,6 +72,3 @@ collapseElementList.map(function collapsibles(collapseElement: Element) {
 		toggle: false,
 	}).hide();
 });
-
-// start Splitbee analytics
-splitbee.init({  disableCookie: true})

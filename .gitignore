@@ -14,6 +14,8 @@ notes/
 .devcontainer/notes.md
 # WireIT cache
 .wireit/
+# dynamically created files (pipes)
+assets/dist/*
 
 #####################################################################
 # ignores via API

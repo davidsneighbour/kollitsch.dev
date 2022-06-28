@@ -7,9 +7,11 @@
 
   td,
   th {
+    @extend .align-bottom;
+  }
 
-    @extend .align-top;
-
+  .key {
+    @extend .h5;
   }
 
   .true {
@@ -27,13 +29,12 @@
 
   .dark & {
     @extend .table-dark;
-
   }
 
   .light & {
     @extend .table-light;
-
   }
+
   @extend .table;
   @extend .table-bordered;
   @extend .table-sm;

@@ -4,19 +4,19 @@ reportUri = "https://kollitschdev.report-uri.com/r/d/csp/reportOnly"
 
 #require-trusted-types-for = ["'script'"]
 upgradeInsecureRequests = true
-
+base-uri = ["'self'"]
 defaultSrc = ["'none'"]
 script-src = [
   "'self'",
   "'unsafe-eval'",
   "'unsafe-inline'",
+  "'strict-dynamic'",
   "https://d33wubrfki0l68.cloudfront.net",
   "https://giscus.app/",
   'https://unpkg.com',
   "https://identity.netlify.com",
   "'nonce-dnb-components-sw'",
-  "static.cloudflareinsights.com",
-  "https://cdn.splitbee.io"
+  "static.cloudflareinsights.com"
 ]
 style-src = [
   "'self'",
@@ -31,7 +31,7 @@ img-src = [
   "https://i.ytimg.com",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
-connect-src = ["'self'", "https://api.github.com/","https://hive.splitbee.io", 'cloudflareinsights.com']
+connect-src = ["'self'", "https://api.github.com/", 'cloudflareinsights.com']
 media-src = ["'self'"]
 object-src = ["'none'"]
 child-src = ["'self'"]
@@ -43,16 +43,6 @@ frame-src = [
 worker-src = ["'self'"]
 form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
 manifest-src = ["'self'"]
-
-# [[redirects]]
-# from = "/bee.js"
-# to = "https://cdn.splitbee.io/sb.js"
-# status = 200
-
-# [[redirects]]
-# from = "/_hive/*"
-# to = "https://hive.splitbee.io/:splat"
-# status = 200
 
 [[redirects]]
 netlify = "https://kollitsch-dev.netlify.app"

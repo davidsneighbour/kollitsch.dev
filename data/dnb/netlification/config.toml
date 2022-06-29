@@ -4,7 +4,7 @@ reportUri = "https://kollitschdev.report-uri.com/r/d/csp/reportOnly"
 
 #require-trusted-types-for = ["'script'"]
 upgradeInsecureRequests = true
-require-trusted-types-for = ["'script'"]
+#require-trusted-types-for = ["'script'"]
 base-uri = ["'self'"]
 defaultSrc = ["'none'"]
 script-src = [

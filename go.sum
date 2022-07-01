@@ -10,8 +10,8 @@ github.com/davidsneighbour/hugo-giscus v1.2.2 h1:5qw4+4w4AifGlqG4bD5PFoqhB+Mqyif
 github.com/davidsneighbour/hugo-giscus v1.2.2/go.mod h1:9w0WXLNMPZXFS8gPqxkROOBQgmSJMA0zdoxChArDMy0=
 github.com/davidsneighbour/hugo-head v1.1.7 h1:4TNjMbaD/izRTmKnq3rPcmUAT7MV/H4GLc2MIzsoGkU=
 github.com/davidsneighbour/hugo-head v1.1.7/go.mod h1:aNZ+WReNWHGQCk0ZGN+qfb+6niT8Y+rr1dZZZNG9E7I=
-github.com/davidsneighbour/hugo-hooks v1.3.3 h1:fOavETv1IPahzpTlOlZpye+6rdz/rtLQZvWwQh24fHo=
-github.com/davidsneighbour/hugo-hooks v1.3.3/go.mod h1:7Z0/nbpIE4IvyppSwCJYw6gXE9Fe5cLBM80gceQ2VYQ=
+github.com/davidsneighbour/hugo-hooks v1.3.5 h1:2MWcJlsmUMAWTMyb6nkYYhFOCA+yx6c1uGm6jHaGr6Y=
+github.com/davidsneighbour/hugo-hooks v1.3.5/go.mod h1:AM5v7lsVWD2tQFSzbDClu5Q0lwqxB7P1kpQGMMSaxXY=
 github.com/davidsneighbour/hugo-icons v1.2.2 h1:XTlMfLH9c4kuTicjLB3+vDs0vKpXCGhUmafRZ5NCQiQ=
 github.com/davidsneighbour/hugo-icons v1.2.2/go.mod h1:AsQcbHbXw9itwfUZg0e77Ws2oOxwjO6R/2qm0nlujd0=
 github.com/davidsneighbour/hugo-internals v0.0.8 h1:YzkNly9tyRF39XP7EEygwFii5zRhhk7pV1cQw8AzNaQ=
@@ -24,8 +24,8 @@ github.com/davidsneighbour/hugo-pictures v0.1.1 h1:0/UlCn7R6VbB8VMxg+6MbGLbGkd9u
 github.com/davidsneighbour/hugo-pictures v0.1.1/go.mod h1:SzVXdR2TT4OUmDxCv5B2UeVl3DSCk9MA/MjtbXRVvHE=
 github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc h1:3R1+oq7cV2VAwfieugclpf2PzajcI/gEsaKVWuJ33Lw=
 github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc/go.mod h1:BJDdeFXuKloJU3kCs8TExCtjjxULDYbF/IQWFAx9Ks4=
-github.com/davidsneighbour/hugo-pwa v0.2.6 h1:/IUfuCm8gtkEDG66C5P1cX3Q8FYrZdeUre99R7stosw=
-github.com/davidsneighbour/hugo-pwa v0.2.6/go.mod h1:W3O4g46pYzCMmiqGnXT/7BVNDfDQ+FXqZoMu/xzaeVQ=
+github.com/davidsneighbour/hugo-pwa v1.0.0 h1:BqXXOSNcxcV3pSrDsik3TY4BcqJmHNRWdr2M2twGHkE=
+github.com/davidsneighbour/hugo-pwa v1.0.0/go.mod h1:W3O4g46pYzCMmiqGnXT/7BVNDfDQ+FXqZoMu/xzaeVQ=
 github.com/davidsneighbour/hugo-robots v1.1.1 h1:7G+AdLypvxWIrAE44sAchkPYlPdPm0soKNvmoahcWz0=
 github.com/davidsneighbour/hugo-robots v1.1.1/go.mod h1:q4YHx8ppcEtXa7bpCC0h+ml6lXCPsvemZrufl5XU+9U=
 github.com/davidsneighbour/hugo-search-algolia v0.1.2 h1:YtQMAqEKeXoGQ8jH8D7I0oEzVf2nk7nwcLNSAUdm8Qg=

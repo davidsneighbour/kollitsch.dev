@@ -70,7 +70,7 @@
     "postcss-cli": "^9.1.0",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^7.0.0",
-    "postcss-nesting": "^10.1.9",
+    "postcss-nesting": "^10.1.10",
     "postcss-preset-env": "^7.7.2",
     "prettier-plugin-go-template": "^0.0.13",
     "prettier-plugin-toml": "^0.3.1",

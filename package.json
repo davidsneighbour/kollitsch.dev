@@ -60,7 +60,7 @@
     "lockfile-lint": "^4.7.5",
     "ncp": "^2.0.0",
     "needle": "^3.1.0",
-    "netlify-cli": "^10.6.3",
+    "netlify-cli": "^10.7.0",
     "ninja-keys": "^1.2.1",
     "node-fetch": "^3.2.6",
     "npm-check-updates": "^14.1.1",

@@ -63,7 +63,7 @@
     "netlify-cli": "^10.6.3",
     "ninja-keys": "^1.2.1",
     "node-fetch": "^3.2.6",
-    "npm-check-updates": "^14.1.1",
+    "npm-check-updates": "^15.0.1",
     "npm-watch": "^0.11.0",
     "pixrem": "^5.0.0",
     "postcss": "^8.4.14",

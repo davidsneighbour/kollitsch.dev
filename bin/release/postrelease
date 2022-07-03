@@ -11,6 +11,16 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+# update version in citation configuration
+FILE=CITATION.cff
+if test -f "$FILE"; then
+  VERSION=$(node -pe 'require("./package.json")["version"]')
+  sed -i "s/^version: .*/version: ${VERSION}/" $FILE
+  DATE=$(date +%F)
+  sed -i "s/date-released: .*/date-released: ${DATE}/" $FILE
+  git add $FILE
+fi
+
 # adding data directory for new build information
 git add data/dnb
 git commit --signoff --amend --no-edit

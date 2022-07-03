@@ -16,7 +16,7 @@
   {{- $imageSizes2 = $imageSizes2 | append (math.Ceil (div (mul (float .) (float (index $aspectRatio 1))) (float (index $aspectRatio 0)))) -}}
 {{- end -}}
 
-{{- with $articleimages -}}
+{{- with first 1 $articleimages -}}
   <div class="post-slider">
     {{- range $counter, $image := . -}}
 

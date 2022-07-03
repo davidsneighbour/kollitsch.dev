@@ -1,13 +1,12 @@
 ---
-title: 'Notes from the Laboratory: MONTH {{ now.Format "2006" }}'
-linkTitle: Laboratory {{ now.Format "2006-##" }}
+title: Notes from the Laboratory: {{ now.Format "January 2006" }}
+linkTitle: Laboratory {{ now.Format "2006-01" }}
 description: ""
-date:
-  ? "{ .Date }"
+date: {{ .Date }}
+lastmod: {{ .Date }}
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
+    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
 categories:
   - notes-from-the-laboratory
 tags:
@@ -15,7 +14,6 @@ tags:
   - notes
   - self-improvement
   - 100DaysToOffload
-lastmod: 2022-04-17T17:59:48+07:00
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

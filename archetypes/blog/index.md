@@ -1,17 +1,13 @@
 ---
 type: blog
-title:
-  ? "{ replace .Name \"-\" \" \" | title }"
-linkTitle:
-  ? "{ replace .Name \"-\" \" \" | title }"
+title: {{ replace .Name "-" " " | title }}
+linkTitle: {{ replace .Name "-" " " | title }}
 description: ""
 summary: ""
 
-date:
-  ? "{ .Date }"
-publishDate:
-  ? "{ .Date }"
-lastmod: 2022-05-04T21:31:16+07:00
+date: {{ .Date }}
+publishDate: {{ .Date }}
+lastmod: {{ .Date }}
 
 resources:
   - title: Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via

@@ -1,21 +1,17 @@
 ---
-type: default
-title:
-  ? "{ replace .Name \"-\" \" \" | title }"
-linkTitle:
-  ? "{ replace .Name \"-\" \" \" | title }"
+type: blog
+title: {{ replace .Name "-" " " | title }}
+linkTitle: {{ replace .Name "-" " " | title }}
 description: ""
 summary: ""
 
-date:
-  ? "{ .Date }"
-publishDate:
-  ? "{ .Date }"
-lastmod: 2022-04-17T17:59:28+07:00
+date: {{ .Date }}
+publishDate: {{ .Date }}
+lastmod: {{ .Date }}
 
 resources:
   - title: Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via
-      [Unsplash](https://unsplash.com/s/photos/horizon)
+      [Unsplash](https://unsplash.com/)
     name: image name if other than src
     src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
 

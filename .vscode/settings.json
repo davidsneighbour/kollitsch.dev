@@ -3,5 +3,8 @@
     "phpcs.standard": "WordPress",
     "remote.containers.defaultExtensions": [
         "mutantdino.resourcemonitor"
-    ]
+    ],
+    "files.associations": {
+        "**/layouts/**.html": "go"
+    }
 }

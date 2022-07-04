@@ -1,6 +1,6 @@
 {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre" "context" . ) -}}
 <nav
-  class="navbar fixed-top navbar-expand-md shadow-lg">
+  class="shadow-lg navbar fixed-top navbar-expand-md">
   <div class="container-fluid">
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
     {{- partial "header/navbar/brand.html" . -}}
@@ -23,7 +23,9 @@
                 data-toggle="dropdown"
                 aria-expanded="false"
                 >
-                  {{- with .Params.bsicon -}}{{- partial "bsicon.html" . . -}} {{- end -}}
+                  {{- with .Params.bsicon -}}
+                    {{- partialCached "bsicon.html" . . -}}
+                  {{- end -}}
                   {{- .Name -}}
                 </a
               >
@@ -31,7 +33,9 @@
                 {{- range .Children -}}
                   <li>
                     <a class="dropdown-item" href="{{- .URL | absLangURL -}}">
-                      {{- with .Params.bsicon -}}{{- partial "bsicon.html" . . -}} {{- end -}}
+                      {{- with .Params.bsicon -}}
+                        {{- partialCached "bsicon.html" . . -}}
+                      {{- end -}}
                       {{- .Name -}}
                     </a>
                   </li>
@@ -41,7 +45,9 @@
           {{- else -}}
             <li class="nav-item {{- if $active -}}active{{- end -}}">
               <a class="nav-link" href="{{- .URL | absLangURL -}}">
-                {{- with .Params.bsicon -}}{{- partial "bsicon.html" . . -}} {{- end -}}
+                {{- with .Params.bsicon -}}
+                  {{- partialCached "bsicon.html" . . -}}
+                {{- end -}}
                 {{- .Name -}}
               </a>
             </li>

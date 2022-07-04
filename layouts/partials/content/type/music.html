@@ -22,7 +22,7 @@
     {{- partial "content/partials/publishing-date.html" $post $post -}}
     {{- partial "content/partials/headline.html" . . -}}
   </div>
-  <div class="card-body prose">
+  <div class="prose card-body">
    {{- with $post.Content -}}
       {{- . -}}
     {{- end -}}
@@ -42,9 +42,11 @@
   {{ else }}
   </div>
   <div class="card-footer text-end">
-    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
+    <a href="{{- $post.Permalink -}}" class="mb-2 btn btn-outline-primary">
       {{- i18n "read_article" | default "Read Article" -}}
-      <span class="ps-2">{{- partial "bsicon.html" "body-text" "body-text" -}}</span>
+      <span class="ps-2">
+        {{- partialCached "bsicon.html" "body-text" "body-text" -}}
+      </span>
     </a>
   {{- end -}}
   </div>

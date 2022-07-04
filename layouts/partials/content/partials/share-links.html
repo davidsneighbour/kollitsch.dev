@@ -1,7 +1,9 @@
 {{- $post := . -}}
-<div class="d-flex gap-2 fontsize-1">
-  <ul class="list-inline mb-0">
-    <li class="list-inline-item">{{- partial "bsicon.html" "share-fill" "share-fill" -}}</li>
+<div class="gap-2 d-flex fontsize-1">
+  <ul class="mb-0 list-inline">
+    <li class="list-inline-item">
+      {{- partialCached "bsicon.html" "share-fill" "share-fill" -}}
+    </li>
     {{- partial "widgets/share-links.html" $post $post -}}
   </ul>
 </div>

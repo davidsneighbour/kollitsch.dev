@@ -1,6 +1,6 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
-<article class="card shadow-sm">
+<article class="shadow-sm card">
   {{- partial "content/partials/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.youtube -}}
   <div class="post-slider">
@@ -15,13 +15,15 @@
     {{- partial "content/partials/publishing-date.html" $post $post -}}
     {{- partial "content/partials/headline.html" . . -}}
   </div>
-  <div class="card-body prose">
+  <div class="prose card-body">
     {{- $post.Content -}}
   </div>
 <div class="card-footer text-end">
-    <a href="{{- $post.Permalink -}}" class="btn btn-outline-primary mb-2">
+    <a href="{{- $post.Permalink -}}" class="mb-2 btn btn-outline-primary">
       {{- i18n "read_article" | default "Read Article" -}}
-      <span class="ps-2">{{- partial "bsicon.html" "body-text" "body-text" -}}</span>
+      <span class="ps-2">
+        {{- partialCached "bsicon.html" "body-text" "body-text" -}}
+      </span>
     </a>
     {{- with $fullcontent -}}
       {{- partial "content/partials/comments.html" $post $post -}}

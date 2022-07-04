@@ -129,12 +129,12 @@ pinterest = ""
 norton = ""
 
 [dnb.head.styles]
-# method = "external"
+method = "postcss"
+entrypoint = "css/main.css"
 
 [dnb.head.styles.options]
 # options for the compilation of CSS
 # see https://gohugo.io/hugo-pipes/scss-sass/#options
-#transpiler = "dartsass"
 outputStyle = "compressed"
 targetPath = "assets/theme.css"
 enableSourceMap = true

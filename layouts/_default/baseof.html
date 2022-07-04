@@ -4,7 +4,7 @@
   "hook" "setup"
   "context" .
 ) -}}
-<html lang="{{- site.LanguageCode | default "en-US" -}}">
+<html lang="{{- site.LanguageCode | default "en-US" -}}" class="dark">
 
 <head>
   {{- partial "head.html" . -}}
@@ -16,7 +16,7 @@
     "context" .
   ) -}}
   {{- partial "header.html" . -}}
-  <main id="content">
+  <main id="md:container md:mx-auto">
     {{- partial "func/hook.html" ( dict
       "hook" "container-start"
       "context" .

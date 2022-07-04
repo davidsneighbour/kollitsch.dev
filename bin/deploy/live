@@ -1,8 +1,13 @@
 #!/bin/bash
 
-# shutting down concurring hugo servers
+# silently shutting down concurring hugo servers
 killall -q -9 hugo
+
 # cut a release
 npm run release
+
+# get the version number
+VERSION=$(node -pe 'require("./package.json")["version"]')
+
 # and deploy
-netlify deploy --build --prod --open
+netlify deploy --build --prod --open --message "Release v${VERSION}"

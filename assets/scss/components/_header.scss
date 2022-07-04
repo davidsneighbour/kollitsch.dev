@@ -18,10 +18,6 @@
   @extend .display-1;
 }
 
-.alert {
-  @include box-shadow(var(--primary));
-}
-
 menu {
   margin: 0;
 }

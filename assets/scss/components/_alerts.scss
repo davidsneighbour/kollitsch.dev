@@ -9,4 +9,8 @@
 
   }
 
+  a {
+    color: $color-blue-5;
+    @extend .alert-link;
+  }
 }

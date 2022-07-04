@@ -11,6 +11,10 @@ figure {
 
   background-color: var(--primary);
 
+  figcaption {
+    color: $color-orange-1;
+  }
+
   picture,
   img,
   .iframe-border,

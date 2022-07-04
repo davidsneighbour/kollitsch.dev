@@ -1,36 +1,36 @@
-Exo Variable Font
-=================
+Exo 2 Variable Font
+===================
 
-This download contains Exo as both variable fonts and static fonts.
+This download contains Exo 2 as both variable fonts and static fonts.
 
-Exo is a variable font with this axis:
+Exo 2 is a variable font with this axis:
   wght
 
 This means all the styles are contained in these files:
-  Exo-VariableFont_wght.ttf
-  Exo-Italic-VariableFont_wght.ttf
+  Exo2-VariableFont_wght.ttf
+  Exo2-Italic-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Exo:
-  static/Exo-Thin.ttf
-  static/Exo-ExtraLight.ttf
-  static/Exo-Light.ttf
-  static/Exo-Regular.ttf
-  static/Exo-Medium.ttf
-  static/Exo-SemiBold.ttf
-  static/Exo-Bold.ttf
-  static/Exo-ExtraBold.ttf
-  static/Exo-Black.ttf
-  static/Exo-ThinItalic.ttf
-  static/Exo-ExtraLightItalic.ttf
-  static/Exo-LightItalic.ttf
-  static/Exo-Italic.ttf
-  static/Exo-MediumItalic.ttf
-  static/Exo-SemiBoldItalic.ttf
-  static/Exo-BoldItalic.ttf
-  static/Exo-ExtraBoldItalic.ttf
-  static/Exo-BlackItalic.ttf
+in those cases you can use the static font files for Exo 2:
+  static/Exo2-Thin.ttf
+  static/Exo2-ExtraLight.ttf
+  static/Exo2-Light.ttf
+  static/Exo2-Regular.ttf
+  static/Exo2-Medium.ttf
+  static/Exo2-SemiBold.ttf
+  static/Exo2-Bold.ttf
+  static/Exo2-ExtraBold.ttf
+  static/Exo2-Black.ttf
+  static/Exo2-ThinItalic.ttf
+  static/Exo2-ExtraLightItalic.ttf
+  static/Exo2-LightItalic.ttf
+  static/Exo2-Italic.ttf
+  static/Exo2-MediumItalic.ttf
+  static/Exo2-SemiBoldItalic.ttf
+  static/Exo2-BoldItalic.ttf
+  static/Exo2-ExtraBoldItalic.ttf
+  static/Exo2-BlackItalic.ttf
 
 Get started
 -----------

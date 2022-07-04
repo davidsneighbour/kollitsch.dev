@@ -1,5 +1,5 @@
 ---
-title: "Notes from the Laboratory: July 2022"
+title: "Notes from the Laboratory: June 2022"
 linkTitle: Laboratory 2022-06
 description: ""
 date: 2022-07-03T17:04:11+07:00
@@ -17,7 +17,7 @@ tags:
   - notes
   - self-improvement
   - 100DaysToOffload
-lastmod: 2022-07-03T17:23:15+07:00
+lastmod: 2022-07-04T19:18:06+07:00
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

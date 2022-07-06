@@ -4,6 +4,7 @@
 killall -q -9 hugo
 
 # cut a release
+npm install
 npm run release
 
 # get the version number

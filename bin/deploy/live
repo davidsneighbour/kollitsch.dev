@@ -2,6 +2,7 @@
 
 # silently shutting down concurring hugo servers
 killall -q -9 hugo
+rm -rf public
 
 # cut a release
 npm install

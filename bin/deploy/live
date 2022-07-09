@@ -13,3 +13,6 @@ VERSION=$(node -pe 'require("./package.json")["version"]')
 
 # and deploy
 netlify deploy --build --prod --open --message "Release v${VERSION}"
+
+# and clear cloudflare cache
+node bin/cloudflare/purge-cache.mjs

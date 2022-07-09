@@ -54,7 +54,6 @@
     "html-validate": "^7.1.2",
     "instantsearch.js": "^4.43.0",
     "lazysizes": "^5.3.2",
-    "lighthouse-plugin-field-performance": "^3.0.0",
     "lite-youtube-embed": "^0.2.0",
     "lockfile-lint": "^4.7.6",
     "ncp": "^2.0.0",

@@ -1,9 +1,9 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
 
-{{- $headerlevel := "3" -}}
+{{- $headerlevel := "2" -}}
 {{- with $fullcontent -}}
-  {{- $headerlevel = "2" -}}
+  {{- $headerlevel = "1" -}}
 {{- end -}}
 
 {{- printf "<h%s>" $headerlevel | safeHTML -}}

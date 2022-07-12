@@ -17,6 +17,7 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Advanced setup](#advanced-setup)
 - [Netlify Setup](#netlify-setup)
 - [Hooks](#hooks)
+- [License](#license)
 
 ## Setup
 
@@ -122,12 +123,20 @@ Currently the theme is integrated into the repository. I plan to release the the
 Hooks are listed in their order
 
 <!-- prettier-ignore -->
-| Hook | File | Multi | Depends on | Description |
-| ---- | ---- | ----- | ---------- | ----------- |
-| init | partials/init.html | :x: | | before anything else is executed (before pagination object is created) |
-| init-end | partials/init.html | :x: |  | after the pagination object is created and in scratch |
-| setup | _default/baseof.html | :x: |  | at the beginning of the main layout |
-| body-start | _default/baseof.html | :x: |  |  |
-| body-end-pre-script | _default/baseof.html | :x: |  |  |
-| body-end | _default/baseof.html | :x: |  |  |
-| teardown | _default/baseof.html | :x: |  |  |
+| Hook                | File                 | Multi | Depends on | Description                                                            |
+| ------------------- | -------------------- | ----- | ---------- | ---------------------------------------------------------------------- |
+| init                | partials/init.html   | :x:   |            | before anything else is executed (before pagination object is created) |
+| init-end            | partials/init.html   | :x:   |            | after the pagination object is created and in scratch                  |
+| setup               | _default/baseof.html | :x:   |            | at the beginning of the main layout                                    |
+| body-start          | _default/baseof.html | :x:   |            |                                                                        |
+| body-end-pre-script | _default/baseof.html | :x:   |            |                                                                        |
+| body-end            | _default/baseof.html | :x:   |            |                                                                        |
+| teardown            | _default/baseof.html | :x:   |            |                                                                        |
+
+## License
+
+The content of this project itself is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), and the underlying source code used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
+
+White this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is obviously everything in the `content` folder. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in it's full may not be reused, but studied and parts reused.
+
+Long story short: go and create something by yourself and if you want to know how I did realise a feature feel free to have a look.

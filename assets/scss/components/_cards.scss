@@ -1,3 +1,22 @@
+.component--archive-card {
+  .is--date {
+    min-width: 175px;
+  }
+
+  .is--content {
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    margin-bottom: 1rem;
+  }
+}
+
 .card-header {
   margin-bottom: 0;
 

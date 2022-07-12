@@ -6,18 +6,21 @@
         <div class="card-header">
           <h1><a href="{{ .Permalink }}">Archive</a></h1>
         </div>
-        <div class="prose card-body">
+        <div class="prose card-body component--archive-card">
           {{ $archive := where $.Site.RegularPages "Section" "blog" }}
           {{ range $index, $item := sort $archive "Date" "desc" }}
-            <div class="d-flex flex-row">
-                <div style="min-width:175px;" class="me-3 text-end">
+            <div class="flex-row d-flex">
+                <div class="me-3 text-end is--date">
                   {{- $item.PublishDate.Format "January 2, 2006" -}}
                 </div>
-                <div>
-                  <a href="{{ $item.Permalink }}">
-                    {{- $item.Title -}}
-                  </a>
+                <div class="is--content">
+                  <h2>
+                    <a href="{{ $item.Permalink }}">
+                      {{- $item.Title -}}
+                    </a>
+                  </h2>
                   <p>{{- $item.Summary -}}</p>
+                  {{- partial "content/partials/tags.html" . . -}}
                 </div>
             </div>
           {{- end -}}

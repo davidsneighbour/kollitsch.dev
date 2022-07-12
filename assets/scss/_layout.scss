@@ -1,4 +1,23 @@
+html {
+  background: hsl(318deg, 100%, 33%) 46%;
+  background-image: linear-gradient(45deg,
+      hsl(240deg, 100%, 20%) 0%,
+      hsl(259deg, 100%, 23%) 17%,
+      hsl(279deg, 100%, 27%) 30%,
+      hsl(298deg, 100%, 30%) 39%,
+      hsl(318deg, 100%, 33%) 46%,
+      hsl(337deg, 100%, 37%) 52%,
+      hsl(357deg, 100%, 40%) 59%,
+      hsl(16deg, 100%, 43%) 69%,
+      hsl(16deg, 100%, 43%) 69%,
+      hsl(16deg, 100%, 43%) 69%,
+      hsl(36deg, 100%, 47%) 83%,
+      hsl(55deg, 100%, 50%) 100%);
+  padding: 0;
+}
+
 body {
+  border-radius: 5rem;
   background-color: var(--bg-page);
 }
 

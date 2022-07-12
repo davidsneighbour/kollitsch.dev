@@ -136,7 +136,7 @@ entrypoint = "css/main.css"
 # options for the compilation of CSS
 # see https://gohugo.io/hugo-pipes/scss-sass/#options
 outputStyle = "compressed"
-targetPath = "assets/theme.css"
+targetPath = "theme.css"
 enableSourceMap = true
 includePaths = ["node_modules/"]
 

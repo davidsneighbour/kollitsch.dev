@@ -8,13 +8,13 @@
                               $githash)
   -}}
 {{- end -}}
-<div class="d-flex gap-2 fontsize-1">
-  {{- partial "bsicon.html" "github" "github" -}}
+<div class="gap-2 d-flex fontsize-1">
+  {{- partialCached "bsicon.html" "github" "github" -}}
   <span>Last Modified: {{- $last_modified -}}</span>
   {{- with $hashlink -}}
     <span>{{- . | safeHTML -}}</span>
     <span>
-      {{- partial "bsicon.html" "binoculars-fill" "binoculars-fill" }}
+      {{- partialCached "bsicon.html" "binoculars-fill" "binoculars-fill" }}
       <a href="https://github.com/davidsneighbour/kollitsch.dev/blame/main/content/{{ $post.File.Path }}"
         target="_blank" rel="nofollow,noreferrer">View history
       </a>

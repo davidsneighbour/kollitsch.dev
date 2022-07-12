@@ -1,4 +1,4 @@
-<h1 class="navbar-brand">
+<div class="navbar-brand">
   {{- if site.Params.dnb.theme.logo -}}
   <a href="{{- site.BaseURL | relLangURL -}}">
     <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | absURL -}}" alt="Logo of {{ site.Title -}}"
@@ -12,4 +12,4 @@
     {{- site.Title -}}
   </a>
   {{- end -}}
-</h1>
+</div>

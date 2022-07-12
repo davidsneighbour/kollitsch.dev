@@ -7,7 +7,7 @@
   {{- $limit = len site.Taxonomies.tags -}}
 {{- end -}}
 
-<h3>{{- $title| default "Related Posts" -}}</h3>
+<h2>{{- $title| default "Related Posts" -}}</h2>
 <ul>
 {{- range (first $limit $tags.Pages) -}}
   <li>

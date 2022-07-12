@@ -3,9 +3,9 @@
     <div class="row">
 
       {{- $paginator := .Scratch.Get "paginator" -}}
-      <h2 class="visually-hidden">
+      <h1 class="visually-hidden">
         Recent Posts (Page {{ $paginator.PageNumber -}})
-      </h2>
+      </h1>
 
       {{- $fullcontent := false -}}
       {{- if (eq $.Kind "page") -}}

@@ -69,9 +69,6 @@ $hr-border-width: 0;
 $hr-height: $border-width;
 $hr-opacity: 1;
 
-// pagination
-$pagination-transition: none;
-
 // Alerts
 $alert-margin-bottom: 0;
 $alert-border-radius: $border-radius;
@@ -149,7 +146,7 @@ $container-max-widths: (
   --card-border-color: #{$color-gray-6};
 
   --#{$prefix}pagination-bg: #{$color-gray-6};
-  --#{$prefix}pagination-color: #{$color-orange-1};
+  --#{$prefix}pagination-border-color: #{$color-gray-1};
 
   // https://drafts.csswg.org/css-ui-4/#widget-accent
   // https://caniuse.com/?search=accent-color
@@ -170,6 +167,7 @@ $container-max-widths: (
   --card-border-color: #{$color-gray-2};
 
   --#{$prefix}pagination-bg: #{$color-gray-6};
+  --#{$prefix}pagination-border-color: #{$color-gray-1};
 }
 
 .dark {
@@ -239,7 +237,6 @@ $navbar-brand-font-size: 2rem;
 @import 'components/navigation';
 @import 'components/cards';
 @import 'components/figure';
-@import 'components/pagination';
 @import 'components/widgets';
 @import 'components/features';
 @import 'components/scrollbars';

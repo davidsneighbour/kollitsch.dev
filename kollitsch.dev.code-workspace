@@ -26,6 +26,9 @@
     },
     {
       "path": "../hugo-components-documentation"
+    },
+    {
+      "path": "../hugo-feeds"
     }
   ],
   "settings": {

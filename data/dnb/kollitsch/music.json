@@ -40,5 +40,11 @@
     "name": "Rammstein",
     "link": "https://www.rammstein.de/en/home/",
     "description": "Rammstein is a German Neue Deutsche Härte band formed in Berlin in 1994."
+  },
+  {
+    "slug": "queensryche",
+    "name": "Queensrÿche",
+    "link": "https://en.wikipedia.org/wiki/Queensr%C3%BFche",
+    "description": "Queensrÿche has sold over 20 million albums worldwide, including over 6 million albums in the United States. They are considered one of the leaders of the progressive metal scene of the mid-to-late 1980s, and often referred to as one of the \"Big Three\" of the genre."
   }
 ]

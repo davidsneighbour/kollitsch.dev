@@ -25,9 +25,6 @@
       "path": "../hugo-auditor"
     },
     {
-      "path": "../samui-samui.de"
-    },
-    {
       "path": "../hugo-components-documentation"
     }
   ],
@@ -90,6 +87,7 @@
       "recommendations": [
         "google.wireit"
       ]
-    }
+    },
+    "frontMatter.dashboard.openOnStart": false
   }
 }

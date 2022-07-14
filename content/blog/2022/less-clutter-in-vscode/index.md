@@ -6,7 +6,7 @@ description: A strategy to declutter enabled extensions in VSCode by using a wor
 
 date: 2022-07-13T17:52:34+07:00
 publishDate: 2022-07-13T17:52:34+07:00
-lastmod: 2022-07-13T20:51:53+07:00
+lastmod: 2022-07-13T23:37:31+07:00
 
 resources:
   - title: Photo by [CHUTTERSNAP](https://unsplash.com/@chuttersnap) via
@@ -40,6 +40,6 @@ To add the extension to the recommended extension click the little gearwheel at 
 
 This way I end up with exactly the functionality I need per project and still have all the plugins up-to-date and available if needed. VSCode shows what I need when I need it. Nice.
 
-Note 1: I am not sure if that is a default setting but it seems that disabled extensions are not automatically updated anymore. This can easily be changed by using `CTRL+SHIFT+P` (or `CMD+SHIFT+P`) to bring up the functions browser of VSCode and then searching for `auto update`. The function "Enable Auto Update for all extensions" will take care of the updating in the background.
+Note 1: I am not sure if that is a default setting but it seems that disabled extensions are not automatically updated anymore. This can easily be changed by using {{< kbd >}}CTRL+SHIFT+P{{< / kbd >}} (or {{< kbd >}}CMD+SHIFT+P{{< / kbd >}}) to bring up the functions browser of VSCode and then searching for `auto update`. The function "Enable Auto Update for all extensions" will take care of the updating in the background.
 
 Note 2: It appears that the extensions enabled per workspace are not saved somewhere in `.vscode` or the `*.code-workspace` file itself, but inside of the `~/.config/Code` directory --- which will lead to these extensions being not automatically in workspace-only mode when the are installed via the recommended extensions functionality. This means I will have to reinstall all recommended extension, then go through the steps above again (disable, enable per workspace) to get back to the current state. It [does not appear](https://github.com/microsoft/vscode/issues/15611) that this will change.

@@ -12,7 +12,7 @@ menu:
     weight: 700
     params:
       bsicon: shield-lock-fill
-lastmod: 2022-04-17T21:00:13+07:00
+lastmod: 2022-07-14T21:26:57+07:00
 ---
 
 Personal data (usually referred to just as "data" below) will only be processed by us to the extent necessary and for the purpose of providing a functional and user-friendly website, including its contents, and the services offered there.
@@ -162,7 +162,7 @@ If you do not agree to this processing, you have the option of preventing the in
 
 Details on the processing activities, their suppression, and the deletion of the data processed by Instagram can be found in its privacy policy:
 
-[https://help.instagram.com/519522125107875](https://help.instagram.com/519522125107875)
+[https://privacycenter.instagram.com/policy/](https://privacycenter.instagram.com/policy/)
 
 It cannot be excluded that the processing by Facebook Ireland Ltd. will also take place in the United States by Facebook Inc., 1601 Willow Road, Menlo Park, California 94025.
 

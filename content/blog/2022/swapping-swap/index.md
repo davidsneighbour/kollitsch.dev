@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-06-06T19:33:56+07:00
 publishDate: 2022-06-06T19:33:56+07:00
-lastmod: 2022-06-06T21:54:14+07:00
+lastmod: 2022-07-14T21:28:05+07:00
 
 resources:
   - title: Photo by [Glen Noble](https://unsplash.com/@glennoble) via
@@ -25,7 +25,7 @@ My main workstation recently tends to just close VSCode or Google Chrome on me a
 
 **How to find out if memory issues are the cause for programs suddenly closing down:**
 
-This one is relatively easy, as soon as one has found out how to ask the question on, ehem, [Stackexchange](https://askubuntu.com/q/1408784/57770) ;)
+This one is relatively easy, as soon as one has found out how to ask the question on, ehem, [Stackexchange](https://askubuntu.com/questions/1408784/apps-crash-randomly-on-newly-installed-ubuntu-22-04) ;)
 
 With `journalctl -u systemd-oomd` we receive quite clear explanations why a service called `systemd-oomd` killed processes.
 

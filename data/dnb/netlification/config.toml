@@ -49,18 +49,6 @@ manifest-src = ["'self'"]
 netlify = "https://kollitsch-dev.netlify.app"
 
 [[redirects]]
-from = "https://main--kollitsch.netlify.app/"
-to = "https://kollitsch.dev/"
-
-[[redirects]]
-from = "https://kollitsch.de/"
-to = "https://kollitsch.dev/"
-
-[[redirects]]
-from = "http://kollitsch.de/"
-to = "https://kollitsch.dev/"
-
-[[redirects]]
 from = "/repos/*"
 to = "https://kollitsch.dev/"
 

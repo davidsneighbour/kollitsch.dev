@@ -26,6 +26,7 @@ figure {
     border-bottom-left-radius: $border-radius;
     overflow: hidden;
     aspect-ratio: 2/1;
+    object-fit: cover;
   }
 
   a {

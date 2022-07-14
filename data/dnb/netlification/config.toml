@@ -62,20 +62,32 @@ to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/repos/*"
-to = "/"
+to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/2005/*"
-to = "/"
+to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/2006/*"
-to = "/"
+to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/2007/*"
-to = "/"
+to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/2008/*"
-to = "/"
+to = "https://kollitsch.dev/"
+
+[[redirects]]
+from = "/tags/kollitsch.de/"
+to = "https://kollitsch.dev/tags/kollitsch.dev/"
+
+[[redirects]]
+from = "/tags/dnb/"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
+
+[[redirects]]
+from = "/repos/textpattern-plugins/current/"
+to = "https://kollitsch.dev/"

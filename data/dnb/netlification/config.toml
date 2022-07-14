@@ -50,23 +50,32 @@ netlify = "https://kollitsch-dev.netlify.app"
 
 [[redirects]]
 from = "https://main--kollitsch.netlify.app/"
-to = "/"
-status = 301
+to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "https://kollitsch.de/"
 to = "https://kollitsch.dev/"
-status = 301
 
 [[redirects]]
 from = "http://kollitsch.de/"
 to = "https://kollitsch.dev/"
-status = 301
 
 [[redirects]]
 from = "/repos/*"
 to = "/"
 
 [[redirects]]
-from = "/[2005|2006|2007|2008]/*"
+from = "/2005/*"
+to = "/"
+
+[[redirects]]
+from = "/2006/*"
+to = "/"
+
+[[redirects]]
+from = "/2007/*"
+to = "/"
+
+[[redirects]]
+from = "/2008/*"
 to = "/"

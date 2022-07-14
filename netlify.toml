@@ -18,32 +18,3 @@ debug = false
 
 # [[plugins]]
 # package = "netlify-plugin-image-optim"
-[[redirects]]
-from = "https://main--kollitsch.netlify.app/"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/repos/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2005/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2006/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2007/*"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/2008/*"
-to = "/"
-status = 301

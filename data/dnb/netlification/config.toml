@@ -70,11 +70,23 @@ to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/tags/kollitsch.de/"
-to = "https://kollitsch.dev/tags/kollitsch.dev/"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
 
 [[redirects]]
 from = "/tags/dnb/"
 to = "https://kollitsch.dev/tags/davidsneighbour/"
+
+[[redirects]]
+from = "/tags/dnb-org/"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
+
+[[redirects]]
+from = "/repos/textpattern-plugins/current/"
+to = "https://kollitsch.dev/"
+
+[[redirects]]
+from = "/dnb/*"
+to = "https://kollitsch.dev/"
 
 [[redirects]]
 from = "/repos/textpattern-plugins/current/"

@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2022.6.73",
+  "version": "2022.6.74",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",

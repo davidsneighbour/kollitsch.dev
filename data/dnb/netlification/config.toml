@@ -51,43 +51,54 @@ netlify = "https://kollitsch-dev.netlify.app/"
 [[redirects]]
 from = "/repos/*"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/2005/*"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/2006/*"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/2007/*"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/2008/*"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/tags/kollitsch.de/"
 to = "https://kollitsch.dev/tags/davidsneighbour/"
+status = "301"
 
 [[redirects]]
 from = "/tags/dnb/"
 to = "https://kollitsch.dev/tags/davidsneighbour/"
+status = "301"
 
 [[redirects]]
 from = "/tags/dnb-org/"
 to = "https://kollitsch.dev/tags/davidsneighbour/"
+status = "301"
 
 [[redirects]]
 from = "/repos/textpattern-plugins/current/"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/dnb/*"
 to = "https://kollitsch.dev/"
+status = "301"
 
 [[redirects]]
 from = "/repos/textpattern-plugins/current/"
 to = "https://kollitsch.dev/"
+status = "301"

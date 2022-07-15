@@ -46,7 +46,7 @@ form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
 manifest-src = ["'self'"]
 
 [[redirects]]
-netlify = "https://kollitsch-dev.netlify.app"
+netlify = "https://kollitsch-dev.netlify.app/"
 
 [[redirects]]
 from = "/repos/*"

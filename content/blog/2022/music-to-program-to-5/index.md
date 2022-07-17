@@ -8,9 +8,11 @@ tags:
   - danny kreutzfeldt
   - 100DaysToOffload
 posttype: music
+resources:
+  - src: header.jpg
 video:
   youtube: 3We_dXYnjK0
   artist: dannykreutzfeldt
   title: Verge
-lastmod: 2022-05-12T21:05:19+07:00
+lastmod: 2022-07-17T17:13:46+07:00
 ---

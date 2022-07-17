@@ -37,13 +37,6 @@
     "md"
   ],
   "frontMatter.content.wysiwyg": true,
-  "frontMatter.custom.scripts": [
-    {
-      "title": "Generate social image",
-      "script": "./scripts/social-img.js",
-      "nodeBin": "~/.nvm/versions/node/v14.15.5/bin/node"
-    }
-  ],
   "frontMatter.content.snippet": [
     "{{< caption \"{mediaUrl}\" \"Description\" >}}"
   ],

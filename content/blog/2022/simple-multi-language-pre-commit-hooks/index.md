@@ -4,9 +4,9 @@ title: Simple multi-language pre-commit hooks
 description: ""
 summary: ""
 draft: true
-date: 2022-04-20T19:52:53+07:00
-publishDate: 2022-04-06T19:13:44+07:00
-lastmod: 2022-04-20T23:55:02+07:00
+date: 2022-07-15T19:02:44+07:00
+publishDate: 2022-07-15T19:02:44+07:00
+lastmod: 2022-07-15T19:04:07+07:00
 
 resources:
   - title: Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
@@ -18,4 +18,5 @@ tags:
   - git
   - code quality
   - automation
+  - 100DaysToOffload
 ---

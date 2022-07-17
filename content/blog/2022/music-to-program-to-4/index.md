@@ -7,11 +7,14 @@ tags:
   - rammstein
   - 100DaysToOffload
 posttype: music
+resources:
+  - src: header.jpg
 video:
   youtube: oQ10_EzMvtQ
   artist: rammstein
   name: Rammstein feat Ólafur Arnalds
   title: Zeit
+lastmod: 2022-07-17T17:13:40+07:00
 ---
 
 Ólafur Arnalds remix of Rammstein's "Zeit" is something perfect.

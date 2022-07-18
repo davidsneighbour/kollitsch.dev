@@ -4,7 +4,7 @@
     <div class="row">
       <article class="shadow-sm card">
         <div class="card-header">
-          <h1><a href="{{ .Permalink }}">Archive</a></h1>
+          <h1 class="h2"><a href="{{ .Permalink }}">Archive</a></h1>
         </div>
         <div class="prose card-body component--archive-card">
           {{ $archive := where $.Site.RegularPages "Section" "blog" }}

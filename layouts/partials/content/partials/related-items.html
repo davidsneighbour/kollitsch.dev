@@ -1,7 +1,7 @@
 <div class="single-post-similer">
   <div class="row mt-3">
     <div class="col-12">
-      <h1>{{- i18n "you_may_also_like" -}}</h1>
+      <h1 class="h2">{{- i18n "you_may_also_like" -}}</h1>
     </div>
     {{- $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) -}}
     {{- range first 2 $related -}}

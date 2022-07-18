@@ -9,7 +9,9 @@
   {{ $p = slice site.Home | append $p }}
   {{- $paginator = $.Paginate $p -}}
 {{- else if .IsNode -}}
-  {{- $paginator = $.Paginator -}}
+  {{ $p := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{- $paginator = $.Paginate $p -}}
+  {{/* {{- $paginator = $.Paginator -}} */}}
 {{- end -}}
 {{- .Scratch.Set "paginator" $paginator -}}
 {{- partial "func/hook.html" ( dict

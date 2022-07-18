@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1>Hot {{ .Name }}</h1>
+          <h1 class="h2">Hot {{ .Name }}</h1>
         </div>
         {{- range $key, $taxonomy := .Site.Taxonomies.tags.ByCount -}}
           {{- if lt $counter 4 -}}

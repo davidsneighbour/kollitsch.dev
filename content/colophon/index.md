@@ -13,12 +13,15 @@ menu:
 
 date: 2022-07-18T17:28:10+07:00
 publishDate: 2022-07-18T17:28:10+07:00
-lastmod: 2022-07-18T18:18:32+07:00
+lastmod: 2022-07-18T19:37:05+07:00
 
 resources:
   - title: Photo by [Osman Rana](https://unsplash.com/@osmanrana) via
       [Unsplash](https://unsplash.com/)
     src: header.jpg
+
+_build:
+  list: never
 ---
 
 ## Patrick Kollitsch

@@ -29,6 +29,15 @@
     },
     {
       "path": "../hugo-feeds"
+    },
+    {
+      "path": "../hugo-security"
+    },
+    {
+      "path": "../sc.kollitsch.dev"
+    },
+    {
+      "path": "../hugo-shortcodes"
     }
   ],
   "settings": {
@@ -36,7 +45,7 @@
     "explorer.confirmDragAndDrop": false,
     "window.autoDetectColorScheme": true,
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Noctis",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.limit.enabled": true,

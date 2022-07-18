@@ -1,43 +1,56 @@
 {
   "folders": [
     {
+      "name": "kollitsch.dev",
       "path": "."
     },
     {
+      "name": "hugo-debug",
       "path": "../hugo-debug"
     },
     {
+      "name": "hugo-head",
       "path": "../hugo-head"
     },
     {
+      "name": "hugo-hooks",
       "path": "../hugo-hooks"
     },
     {
+      "name": "hugo-netlification",
       "path": "../hugo-netlification"
     },
     {
+      "name": "hugo-pictures",
       "path": "../hugo-pictures"
     },
     {
+      "name": "hugo-pwa",
       "path": "../hugo-pwa"
     },
     {
+      "name": "hugo-auditor",
       "path": "../hugo-auditor"
     },
     {
-      "path": "../hugo-components-documentation"
-    },
-    {
+      "name": "hugo-feeds",
       "path": "../hugo-feeds"
     },
     {
+      "name": "hugo-security",
       "path": "../hugo-security"
     },
     {
+      "name": "hugo-shortcodes",
+      "path": "../hugo-shortcodes"
+    },
+    {
+      "name": "sc.kollitsch.dev",
       "path": "../sc.kollitsch.dev"
     },
     {
-      "path": "../hugo-shortcodes"
+      "name": "hugo-components-documentation",
+      "path": "../hugo-components-documentation"
     }
   ],
   "settings": {

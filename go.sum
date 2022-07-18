@@ -32,8 +32,8 @@ github.com/davidsneighbour/hugo-search-algolia v0.1.2 h1:YtQMAqEKeXoGQ8jH8D7I0oE
 github.com/davidsneighbour/hugo-search-algolia v0.1.2/go.mod h1:zsHubhmSijLhO7UFCsAryCBVhsG2gegoxB60jLHpdpE=
 github.com/davidsneighbour/hugo-security v1.1.2 h1:NbLsWJP7Fm+QyIgJmSdGKaRo93r04wd1eyiYjS4j4O0=
 github.com/davidsneighbour/hugo-security v1.1.2/go.mod h1:MJvazS6ktIK7tbA+pddZopCTs1Rbw4iq21bv4J7GJ3U=
-github.com/davidsneighbour/hugo-shortcodes v1.5.1 h1:d/3JC8YEoprOVnbo1VsXO6YbNwgBTYpn095EmQQtAhE=
-github.com/davidsneighbour/hugo-shortcodes v1.5.1/go.mod h1:wkCkKIjJqvQ7IwwjKoIHZAMkUM4cqbrllX+HgOZr/50=
+github.com/davidsneighbour/hugo-shortcodes v1.5.3 h1:v/T8kDlTJER4kriUSnsmOCK64J9X/ZWG9Ee0oUxqjKY=
+github.com/davidsneighbour/hugo-shortcodes v1.5.3/go.mod h1:wkCkKIjJqvQ7IwwjKoIHZAMkUM4cqbrllX+HgOZr/50=
 github.com/davidsneighbour/hugo-sitemap v0.1.2 h1:ZPyGaL6w5xeh4t2dYhmaySP+Y87Sou6pz5uYT0gxybk=
 github.com/davidsneighbour/hugo-sitemap v0.1.2/go.mod h1:HoRsrOi5g/IND7aAw6gA0QNXObNd9P9ar8P27PWeURM=
 github.com/davidsneighbour/hugo-social v0.1.4 h1:zbXk+XVbCcxvo7Bo6W9Z6YXXnXxk5+3AeDURwQ52Epw=

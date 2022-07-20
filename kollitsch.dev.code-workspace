@@ -5,8 +5,32 @@
       "path": "."
     },
     {
+      "name": "hugo-auditor",
+      "path": "../hugo-auditor"
+    },
+    {
       "name": "hugo-debug",
       "path": "../hugo-debug"
+    },
+    {
+      "name": "hugo-errors",
+      "path": "../hugo-errors"
+    },
+    {
+      "name": "hugo-feeds",
+      "path": "../hugo-feeds"
+    },
+    {
+      "name": "hugo-functions",
+      "path": "../hugo-functions"
+    },
+    {
+      "name": "hugo-giscus",
+      "path": "../hugo-giscus"
+    },
+    {
+      "name": "hugo-github",
+      "path": "../hugo-github"
     },
     {
       "name": "hugo-head",
@@ -17,24 +41,40 @@
       "path": "../hugo-hooks"
     },
     {
+      "name": "hugo-icons",
+      "path": "../hugo-icons"
+    },
+    {
+      "name": "hugo-internals",
+      "path": "../hugo-internals"
+    },
+    {
       "name": "hugo-netlification",
       "path": "../hugo-netlification"
+    },
+    {
+      "name": "hugo-opensearch",
+      "path": "../hugo-opensearch"
     },
     {
       "name": "hugo-pictures",
       "path": "../hugo-pictures"
     },
     {
+      "name": "hugo-publisher",
+      "path": "../hugo-publisher"
+    },
+    {
       "name": "hugo-pwa",
       "path": "../hugo-pwa"
     },
     {
-      "name": "hugo-auditor",
-      "path": "../hugo-auditor"
+      "name": "hugo-robots",
+      "path": "../hugo-robots"
     },
     {
-      "name": "hugo-feeds",
-      "path": "../hugo-feeds"
+      "name": "hugo-search-algolia",
+      "path": "../hugo-search-algolia"
     },
     {
       "name": "hugo-security",
@@ -45,12 +85,20 @@
       "path": "../hugo-shortcodes"
     },
     {
-      "name": "sc.kollitsch.dev",
-      "path": "../sc.kollitsch.dev"
+      "name": "hugo-sitemap",
+      "path": "../hugo-sitemap"
     },
     {
-      "name": "hugo-components-documentation",
-      "path": "../hugo-components-documentation"
+      "name": "hugo-social",
+      "path": "../hugo-social"
+    },
+    {
+      "name": "hugo-youtube",
+      "path": "../hugo-youtube"
+    },
+    {
+      "name": "sc.kollitsch.dev",
+      "path": "../sc.kollitsch.dev"
     }
   ],
   "settings": {
@@ -58,7 +106,7 @@
     "explorer.confirmDragAndDrop": false,
     "window.autoDetectColorScheme": true,
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Noctis",
+    "workbench.colorTheme": "Solarized Dark",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.limit.enabled": true,

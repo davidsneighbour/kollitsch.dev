@@ -5,7 +5,7 @@
   }
 
   .dark & {
-    background-color: var(--bg-card);
+    background-color: var(--bg-page);
     @extend .navbar-dark;
   }
 
@@ -45,7 +45,7 @@
 }
 
 .is--themeswitcher {
-  > span {
+  >span {
     color: #{var(--color)};
 
     &.active {

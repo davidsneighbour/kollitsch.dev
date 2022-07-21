@@ -1,10 +1,10 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
-<article class="shadow-sm card">
-  {{- partial "content/partials/status.html" $post $post -}}
-  {{- partial "content/partials/banner-images.html" . -}}
+<article class="card">
+  {{- partialCached "content/partials/status.html" $post $post -}}
+  {{- partialCached "content/partials/banner-images.html" . . -}}
   <div class="card-header">
-    {{- partial "content/partials/headline.html" . . -}}
+    {{- partialCached "content/partials/headline.html" . . -}}
   </div>
   <div class="prose card-body">
     <p>{{- $post.Summary -}}</p>

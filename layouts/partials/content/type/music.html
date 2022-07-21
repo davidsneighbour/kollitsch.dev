@@ -7,20 +7,20 @@
 ) -}}
 {{- $artist = index $artist 0 -}}
 
-<article class="card shadow-sm music2program2 {{ $artist.slug }}">
-  {{- partial "content/partials/status.html" $post $post -}}
+<article class="card music2program2 {{ $artist.slug }}">
+  {{- partialCached "content/partials/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.video.youtube -}}
   <div class="post-slider">
       <figure>
         <div class="iframe-border">
-          {{- partial "youtube.html" $settings $settings -}}
+          {{- partialCached "youtube.html" $settings $settings -}}
         </div>
         <figcaption class="text-center">{{ $artist.name }}: {{ $post.Params.video.title }}</figcaption>
       </figure>
   </div>
   <div class="card-header">
-    {{- partial "content/partials/publishing-date.html" $post $post -}}
-    {{- partial "content/partials/headline.html" . . -}}
+    {{- partialCached "content/partials/publishing-date.html" $post $post -}}
+    {{- partialCached "content/partials/headline.html" . . -}}
   </div>
   <div class="prose card-body">
    {{- with $post.Content -}}
@@ -38,7 +38,7 @@
     </p>
     {{$artist.description | markdownify }}
   {{- with $fullcontent -}}
-      {{- partial "content/partials/content-footer.html" $post -}}
+      {{- partialCached "content/partials/content-footer.html" $post $post -}}
   {{ else }}
   </div>
   <div class="card-footer text-end">

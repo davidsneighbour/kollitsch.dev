@@ -21,12 +21,12 @@
             {{- $post = dict "context" $item "fullcontent" $fullcontent "responsive" "fullwidth" -}}
           {{- end -}}
           <div class="col-12 col-md-{{ $col }} mb-4">
-            {{- partial "content/post.html" $post $post -}}
+            {{- partialCached "content/post.html" $post $post -}}
           </div>
         {{ end }}
       {{- end -}}
 
     </div>
-    {{ partial "components/pagination/pagination-simple.html" . }}
+    {{ partialCached "components/pagination/pagination-simple.html" . . }}
   </div>
 </section>

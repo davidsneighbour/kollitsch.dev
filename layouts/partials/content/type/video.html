@@ -1,19 +1,19 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
-<article class="shadow-sm card">
-  {{- partial "content/partials/status.html" $post $post -}}
+<article class="card">
+  {{- partialCached "content/partials/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.youtube -}}
   <div class="post-slider">
       <figure>
         <div class="iframe-border">
-          {{- partial "youtube.html" $settings $settings -}}
+          {{- partialCached "youtube.html" $settings $settings -}}
         </div>
         <figcaption class="text-center">{{- $post.Title -}}</figcaption>
       </figure>
   </div>
   <div class="card-header">
-    {{- partial "content/partials/publishing-date.html" $post $post -}}
-    {{- partial "content/partials/headline.html" . . -}}
+    {{- partialCached "content/partials/publishing-date.html" $post $post -}}
+    {{- partialCached "content/partials/headline.html" . . -}}
   </div>
   <div class="prose card-body">
     {{- $post.Content -}}
@@ -26,7 +26,7 @@
       </span>
     </a>
     {{- with $fullcontent -}}
-      {{- partial "content/partials/comments.html" $post $post -}}
+      {{- partialCached "content/partials/comments.html" $post $post -}}
     {{- end -}}
   </div>
 </article>

@@ -14,7 +14,7 @@
 {{- end -}}
 {{- $parsedTitle := dict -}}
 {{- with .Title -}}
-  {{- $parsedTitle = partial "functions/parse-title-attribute.html" . -}}
+  {{- $parsedTitle = partialCached "functions/parse-title-attribute.html" . . -}}
 {{- end -}}
 <a
   href="{{ $link | safeURL }}"

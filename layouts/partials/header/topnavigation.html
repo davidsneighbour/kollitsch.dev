@@ -3,9 +3,9 @@
   class="shadow-lg navbar fixed-top navbar-expand-md">
   <div class="container-fluid">
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
-    {{- partial "header/navbar/brand.html" . -}}
+    {{- partialCached "header/navbar/brand.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-logo" "context" . ) -}}
-    {{- partial "header/navbar/toggle-button.html" . -}}
+    {{- partialCached "header/navbar/toggle-button.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre-mainnav" "context" . ) -}}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <menu class="navbar-nav ms-auto me-auto me-md-0">
@@ -56,7 +56,7 @@
       </menu>
 
       {{- if site.Params.dnb.theme.switcher.enabled -}}
-        {{- partial "header/theme-switcher.html" . . -}}
+        {{- partialCached "header/theme-switcher.html" . . -}}
       {{- end -}}
 
     </div>

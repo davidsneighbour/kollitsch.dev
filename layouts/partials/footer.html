@@ -11,7 +11,8 @@
     {{- with site.Params.dnb.theme.footer.menus -}}
       <div class="row justify-content-center align-items-start">
         {{ range . -}}
-          {{- partial "widgets/menu.html" . -}}
+          {{- /* FIXME: might require a more specific caching key */ -}}
+          {{- partialCached "widgets/menu.html" . . -}}
         {{ end }}
       </div>
     {{- end -}}
@@ -20,15 +21,15 @@
     <div class="row">
       <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
-          {{- partial "footer/newsletter.html" site.Params.subscription -}}
+          {{- partialCached "footer/newsletter.html" site.Params.subscription site.Params.subscription -}}
         {{- end -}}
         {{- with site.Menus.footer -}}
-          {{- partial "footer/footer-menu.html" . -}}
+          {{- partialCached "footer/footer-menu.html" . -}}
         {{- end -}}
         {{- with site.Params.social -}}
-          {{- partial "footer/social-media.html" . -}}
+          {{- partialCached "footer/social-media.html" . -}}
         {{- end -}}
-        {{- partial "footer/copyright.html" . -}}
+        {{- partialCached "footer/copyright.html" . -}}
         {{- if site.IsServer -}}
           {{- partial "footer/debugging.html" . -}}
         {{- end -}}

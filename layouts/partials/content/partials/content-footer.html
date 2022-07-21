@@ -1,9 +1,9 @@
 {{- $post := . -}}
 <div class="section-comments">
-  {{- partial "content/partials/comments.html" $post $post -}}
+  {{- partialCached "content/partials/comments.html" $post $post -}}
 </div>
 <div class="section-meta">
-  {{- partial "content/partials/github-bar.html" $post $post -}}
-  {{- partial "content/partials/tags.html" $post $post -}}
-  {{- partial "content/partials/share-links.html" $post $post -}}
+  {{- partialCached "content/partials/github-bar.html" $post $post -}}
+  {{- partialCached "content/partials/tags.html" $post $post -}}
+  {{- partialCached "content/partials/share-links.html" $post $post -}}
 </div>

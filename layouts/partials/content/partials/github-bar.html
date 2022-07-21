@@ -1,6 +1,6 @@
 {{- $post := . -}}
 {{- $last_modified := $post.Lastmod.Format "Monday, January 2, 2006 at 15:04 MST" -}}
-{{- $githash := partial "func/getGitHash.html" $post $post -}}
+{{- $githash := partialCached "func/getGitHash.html" $post $post -}}
 {{- $hashlink := "" -}}
 {{- with $githash }}
   {{- $hashlink = (printf "[<a href=\"https://github.com/davidsneighbour/kollitsch.dev/commit/%s\">%s</a>]"

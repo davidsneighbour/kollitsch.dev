@@ -15,11 +15,11 @@
 
 {{- range $index, $values := $sections -}}
   <h2 id="{{- $index | urlize -}}">{{- $index -}}</h2>
-  {{- partial "range-through-pages.html" $values -}}
+  {{- partialCached "range-through-pages.html" $values $values -}}
 {{- end -}}
 
 <h2 id="other-pages">Other Pages</h2>
-{{- partial "range-through-pages.html" $pages -}}
+{{- partialCached "range-through-pages.html" $pages $pages -}}
 
 {{ define "partials/range-through-pages.html" }}
 <ul>

@@ -1,1 +1,2 @@
-{{- partial "header/topnavigation.html" . .IsHome -}}
+{{- /* FIXME: should be cached somehow, but not with .IsHome as was done before */ -}}
+{{- partial "header/topnavigation.html" .  -}}

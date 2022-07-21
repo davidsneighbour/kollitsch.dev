@@ -10,7 +10,8 @@
       {{- if ne $currentPageNumber .PageNumber }}
       <li class="page-item">
         <a href="{{ .URL }}" aria-label="First" class="page-link">
-          {{ partial "icons/chevron-double-left.html" "chevron-double-left" "chevron-double-left" }}
+          {{- $icon :=  "icons/chevron-double-left.html" -}}
+          {{- partialCached $icon $icon $icon -}}
         </a>
       </li>
       {{- end }}
@@ -18,7 +19,8 @@
       {{- with .Prev }}
       <li class="page-item">
         <a href="{{ .URL }}" aria-label="Previous" class="page-link">
-          {{ partial "icons/chevron-left.html" "chevron-left" "chevron-left" }}
+          {{- $icon := "icons/chevron-left.html" -}}
+          {{- partialCached $icon $icon $icon -}}
         </a>
       </li>
       {{- end }}
@@ -43,7 +45,8 @@
       {{- with .Next }}
       <li class="page-item">
         <a href="{{ .URL }}" aria-label="Next" class="page-link">
-          {{ partial "icons/chevron-right.html" "chevron-right" "chevron-right" }}
+          {{- $icon := "icons/chevron-right.html" -}}
+          {{- partialCached $icon $icon $icon -}}
         </a>
       </li>
       {{- end }}
@@ -51,7 +54,8 @@
       {{- if ne $currentPageNumber .PageNumber }}
       <li class="page-item">
         <a href="{{ .URL }}" aria-label="Last" class="page-link">
-          {{ partial "icons/chevron-double-right.html" "chevron-double-right" "chevron-double-right" }}
+          {{- $icon := "icons/chevron-double-right.html" -}}
+          {{- partialCached $icon $icon $icon -}}
         </a>
       </li>
       {{- end }}

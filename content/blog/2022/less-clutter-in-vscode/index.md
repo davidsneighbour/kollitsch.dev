@@ -6,10 +6,10 @@ description: A strategy to declutter enabled extensions in VSCode by using a wor
 
 date: 2022-07-13T17:52:34+07:00
 publishDate: 2022-07-13T17:52:34+07:00
-lastmod: 2022-07-13T23:37:31+07:00
+lastmod: 2022-07-20T23:14:39+07:00
 
 resources:
-  - title: Photo by [CHUTTERSNAP](https://unsplash.com/@chuttersnap) via
+  - title: Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via
       [Unsplash](https://unsplash.com/)
     src: header.jpg
   - src: workspace-enable.png

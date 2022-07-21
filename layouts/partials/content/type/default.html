@@ -2,7 +2,7 @@
 {{- $fullcontent := .fullcontent | default true -}}
 <article class="card">
   {{- partialCached "content/partials/status.html" $post $post -}}
-  {{- partialCached "content/partials/banner-images.html" . . -}}
+  {{- partial "content/partials/banner-images.html" . -}}
   <div class="card-header">
     {{- partialCached "content/partials/publishing-date.html" $post $post -}}
     {{- partial "content/partials/headline.html" . -}}

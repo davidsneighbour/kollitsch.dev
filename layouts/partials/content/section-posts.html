@@ -21,7 +21,7 @@
             {{- $post = dict "context" $item "fullcontent" $fullcontent "responsive" "fullwidth" -}}
           {{- end -}}
           <div class="col-12 col-md-{{ $col }} mb-4">
-            {{- partialCached "content/post.html" $post $post -}}
+            {{- partial "content/post.html" $post $post -}}
           </div>
         {{ end }}
       {{- end -}}

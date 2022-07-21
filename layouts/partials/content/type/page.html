@@ -4,7 +4,7 @@
   {{- partialCached "content/partials/status.html" $post $post -}}
   {{- partialCached "content/partials/banner-images.html" . . -}}
   <div class="card-header">
-    {{- partialCached "content/partials/headline.html" . . -}}
+    {{- partial "content/partials/headline.html" . -}}
   </div>
   <div class="prose card-body">
     {{- with $fullcontent -}}

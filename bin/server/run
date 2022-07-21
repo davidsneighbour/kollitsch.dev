@@ -77,6 +77,8 @@ hugo server \
   --watch \
   --enableGitInfo \
   --forceSyncStatic \
+  --templateMetrics \
+  --templateMetricsHints \
   --port "${PORT}" \
   --baseURL http://"${IP}"/ \
   --bind "${IP}" 2>&1 | tee -a hugo.log

@@ -149,7 +149,6 @@ includePaths = ["node_modules/"]
 # 2 = all for all pages that are draft=false
 # 5 = withdrafts for all pages, including drafts
 filter = ["mainsections"]
-# TODO add to setup
 [dnb.search.fields]
 objectID = ".File.UniqueID"
 title = ".Title"
@@ -179,7 +178,6 @@ networks = ["facebook", "twitter", "linkedin", "telegram"]
 icons = false
 sharetext = true
 
-# TODO: move layouts using this into dnb-hugo-social
 [[dnb.social.network]]
 url = "https://www.facebook.com/davidsneighbour"
 icon = "facebook"

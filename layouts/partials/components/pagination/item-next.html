@@ -1,8 +1,7 @@
 {{- with .Next }}
   <li class="page-item">
     <a href="{{ .URL }}" aria-label="Next" class="page-link">
-      {{- $icon := "icons/chevron-right.html" -}}
-      {{- partialCached $icon $icon $icon -}}
+      {{- partialCached "bsicon.html" "chevron-right" "chevron-right" -}}
     </a>
   </li>
 {{- end }}

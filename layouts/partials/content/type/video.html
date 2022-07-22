@@ -1,7 +1,7 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
 <article class="card">
-  {{- partialCached "content/partials/status.html" $post $post -}}
+  {{- partialCached "components/content/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.youtube -}}
   <div class="post-slider">
       <figure>
@@ -12,8 +12,8 @@
       </figure>
   </div>
   <div class="card-header">
-    {{- partialCached "content/partials/publishing-date.html" $post $post -}}
-    {{- partial "content/partials/headline.html" . -}}
+    {{- partialCached "components/content/publishing-date.html" $post $post -}}
+    {{- partial "components/content/headline.html" . -}}
   </div>
   <div class="prose card-body">
     {{- $post.Content -}}
@@ -26,7 +26,7 @@
       </span>
     </a>
     {{- with $fullcontent -}}
-      {{- partialCached "content/partials/comments.html" $post $post -}}
+      {{- partialCached "components/comments/form.html" $post $post -}}
     {{- end -}}
   </div>
 </article>

@@ -4,8 +4,8 @@
 {{- $hashlink := "" -}}
 {{- with $githash }}
   {{- $hashlink = (printf "[<a href=\"https://github.com/davidsneighbour/kollitsch.dev/commit/%s\">%s</a>]"
-                              $post.GitInfo.Hash
-                              $githash)
+                          $post.GitInfo.Hash
+                          $githash)
   -}}
 {{- end -}}
 <div class="gap-2 d-flex fontsize-1">

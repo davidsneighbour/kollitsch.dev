@@ -20,13 +20,16 @@
   <div class="post-slider">
     {{- range $counter, $image := . -}}
 
-      {{- $title := $image.Title | markdownify -}}
+      {{- $title := "" -}}
+      {{- if ne $image.Title $image.Name -}}
+        {{- $title = $image.Title | markdownify -}}
+      {{- end -}}
+
       {{- $images := slice -}}
       {{- range $index, $value := $imageSizes -}}
         {{- $imagesize := printf "%sx%s" (string $value) (string (index $imageSizes2 $index)) -}}
         {{- $images = $images | append ($image.Fill $imagesize) -}}
       {{- end -}}
-
 
       <figure>
         <a href="{{- $link -}}">
@@ -53,7 +56,9 @@
             {{- end -}}
           </picture>
         </a>
-        <figcaption class="text-center">{{- $title -}}</figcaption>
+        {{- with $title -}}
+          <figcaption class="text-center">{{- . -}}</figcaption>
+        {{- end -}}
       </figure>
     {{- end -}}
   </div>

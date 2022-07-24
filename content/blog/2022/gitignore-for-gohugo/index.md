@@ -8,9 +8,9 @@ resources:
 tags:
   - gitignore
   - developers
-lastmod: 2022-07-22T0:02:58+07:00
+lastmod: 2022-07-24T15:29:15+07:00
 slug: gitignore-gohugo
-alias:
+aliases:
   - /blog/2021/gitignore-for-gohugo/
 ---
 

@@ -14,6 +14,7 @@ $spacer: 1rem;
 
 // typography
 $font-family-sans-serif: 'Exo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$font-family-monospace: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-weight-lighter: lighter;
 $font-weight-light: 200;
 $font-weight-normal: 300;
@@ -251,6 +252,7 @@ $navbar-brand-font-size: 2rem;
 // plugins
 @import 'plugins/debugprint';
 @import 'plugins/youtube';
+@import "plugins/devaudit";
 
 // syntax highlighting
 

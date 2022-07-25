@@ -7,12 +7,29 @@
   font-display: swap;
 }
 
-/* latin-ext */
 @font-face {
   font-weight: 100 900;
   font-family: Exo;
   font-style: normal;
   src: url('/webfonts/exo/exo.ttf') format('ttf') tech('variations'),
     url('/webfonts/exo/exo.ttf') format('ttf-variations');
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 100 800;
+  font-family: Exo;
+  font-style: italic;
+  src: url('/webfonts/jetbrainsmono/jetbrainsmonoi.ttf') format('ttf') tech('variations'),
+    url('/webfonts/jetbrainsmono/jetbrainsmonoi.ttf') format('ttf-variations');
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 100 800;
+  font-family: Exo;
+  font-style: normal;
+  src: url('/webfonts/jetbrainsmono/jetbrainsmono.ttf') format('ttf') tech('variations'),
+    url('/webfonts/jetbrainsmono/jetbrainsmono.ttf') format('ttf-variations');
   font-display: swap;
 }

@@ -2,7 +2,7 @@
 {{- $responsive := .responsive -}}
 {{- $articleimages := $context.Resources.ByType "image" -}}
 {{- $link := $context.Permalink -}}
-{{- $aspectRatio := (split site.Params.dnb.theme.aspect_ratio ":") -}}
+{{- $aspectRatio := (split site.Params.dnb.pictures.aspect_ratio ":") -}}
 {{/* {{- $breakPoints := site.Params.dnb.theme.break_points -}}
 {{- $imageSizes := site.Params.dnb.theme.image_sizes -}} */}}
 {{- $breakPoints := site.Params.dnb.pictures.responsive.halfwidth.break_points -}}

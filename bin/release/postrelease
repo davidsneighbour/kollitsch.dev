@@ -33,7 +33,7 @@ if test -f "$FILE"; then
 fi
 
 # adding data directory for new build information
-git add data/dnb --quiet
+git add data/dnb
 git commit --signoff --amend --no-edit --quiet
 
 # push release to GitHub

@@ -3,8 +3,6 @@
 {{- $articleimages := $context.Resources.ByType "image" -}}
 {{- $link := $context.Permalink -}}
 {{- $aspectRatio := (split site.Params.dnb.pictures.aspect_ratio ":") -}}
-{{/* {{- $breakPoints := site.Params.dnb.theme.break_points -}}
-{{- $imageSizes := site.Params.dnb.theme.image_sizes -}} */}}
 {{- $breakPoints := site.Params.dnb.pictures.responsive.halfwidth.break_points -}}
 {{- $imageSizes := site.Params.dnb.pictures.responsive.halfwidth.image_sizes -}}
 {{- if (eq $responsive "fullwidth") -}}
@@ -40,10 +38,14 @@
                 media="(max-width: {{- index $breakPoints $index -}}px)">
               {{- if eq $index (sub (len $images) 1) -}}
                 <source srcset="{{- $image.Permalink -}}">
+                {{- $alt := $title -}}
+                {{- if eq $alt "" -}}
+                  {{- $alt = $context.Title -}}
+                {{- end -}}
                 <img
                   class="img-fluid"
                   src="{{- $image.Permalink -}}"
-                  alt="{{- $title | plainify -}}"
+                  alt="{{- $alt | plainify -}}"
                   width="{{- $image.Width -}}"
                   height="{{- $image.Height -}}"
                   {{ if (eq $responsive "fullwidth") -}}

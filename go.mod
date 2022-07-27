@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/davidsneighbour/hugo-auditor v0.1.8 // indirect
 	github.com/davidsneighbour/hugo-debug v1.5.18 // indirect
-	github.com/davidsneighbour/hugo-feeds v0.1.5 // indirect
+	github.com/davidsneighbour/hugo-feeds v1.0.0 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.2 // indirect
 	github.com/davidsneighbour/hugo-giscus v1.2.2 // indirect
 	github.com/davidsneighbour/hugo-head v1.1.12 // indirect
@@ -21,7 +21,7 @@ require (
 	github.com/davidsneighbour/hugo-search-algolia v0.1.2 // indirect
 	github.com/davidsneighbour/hugo-security v1.1.3 // indirect
 	github.com/davidsneighbour/hugo-shortcodes v1.5.3 // indirect
-	github.com/davidsneighbour/hugo-sitemap v0.1.3 // indirect
+	github.com/davidsneighbour/hugo-sitemap v1.0.0 // indirect
 	github.com/davidsneighbour/hugo-social v0.1.6 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.3 // indirect
 )

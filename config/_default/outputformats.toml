@@ -24,3 +24,9 @@ mediaType = "application/manifest+json"
 baseName = "manifest"
 isPlainText = true
 notAlternative = true
+
+[JSON]
+mediaType = "application/json"
+baseName = "index"
+notAlternative = true
+isPlainText = true

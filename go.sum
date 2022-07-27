@@ -6,6 +6,8 @@ github.com/davidsneighbour/hugo-feeds v0.1.5 h1:MC5QYsmPXO8468s8zqJaDSomhiYmx5bC
 github.com/davidsneighbour/hugo-feeds v0.1.5/go.mod h1:3GFyze9utUXZPaxOPlIJKCh7aKMzkgpIGXgVs/a/PVE=
 github.com/davidsneighbour/hugo-feeds v1.0.0 h1:DSq2xHaEYVZDm6eJYsl/2Si4vN5R/AS6Qehi8HyQUEU=
 github.com/davidsneighbour/hugo-feeds v1.0.0/go.mod h1:3GFyze9utUXZPaxOPlIJKCh7aKMzkgpIGXgVs/a/PVE=
+github.com/davidsneighbour/hugo-feeds v1.0.1 h1:Xi7Fc1xO5nKd3GRWZDgY1FY95r+PjPmKmC7O8VZtoRQ=
+github.com/davidsneighbour/hugo-feeds v1.0.1/go.mod h1:3GFyze9utUXZPaxOPlIJKCh7aKMzkgpIGXgVs/a/PVE=
 github.com/davidsneighbour/hugo-functions v1.1.2 h1:k+nqsfeF6/Z6yFZtnS+67utrF7jiTUA2bO3TfNIu4yo=
 github.com/davidsneighbour/hugo-functions v1.1.2/go.mod h1:vcxVzEHYhArEYMR0w+r6h6xwoV6Tkovl/d9fK2n3dQE=
 github.com/davidsneighbour/hugo-giscus v1.2.2 h1:5qw4+4w4AifGlqG4bD5PFoqhB+MqyifmLmMEVW3XUBE=

@@ -5,7 +5,7 @@ summary: ""
 
 date: 2022-07-27T18:34:57+07:00
 publishDate: 2022-07-27T18:34:57+07:00
-lastmod: 2022-07-28T21:05:28+07:00
+lastmod: 2022-07-28T21:20:24+07:00
 
 resources:
   - src: github-card-dark.png
@@ -23,7 +23,8 @@ component:
   status: release
   list: true
 
-comments: false
+theme:
+  comments: false
 ---
 
 This is a GoHugo theme component that implements various configurable feed formats. Currently implemented formats are RSS, Atom and JSONfeed.

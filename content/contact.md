@@ -9,9 +9,12 @@ menu:
     weight: 5
     params:
       bsicon: envelope-paper-fill
-comments: false
+
 posttype: page
-lastmod: 2022-05-17T21:40:17+07:00
+lastmod: 2022-07-28T21:20:06+07:00
+
+theme:
+  comments: false
 ---
 
 {{< contact-form >}}

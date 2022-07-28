@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/davidsneighbour/hugo-auditor v0.1.8 // indirect
 	github.com/davidsneighbour/hugo-debug v1.5.18 // indirect
-	github.com/davidsneighbour/hugo-feeds v1.0.1 // indirect
+	github.com/davidsneighbour/hugo-feeds v1.0.2 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.2 // indirect
 	github.com/davidsneighbour/hugo-giscus v1.2.2 // indirect
 	github.com/davidsneighbour/hugo-head v1.1.12 // indirect

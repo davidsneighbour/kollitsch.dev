@@ -23,4 +23,6 @@ component:
   slug: "{{ .Name }}"
   status: release
   list: true
+
+comments: false
 ---

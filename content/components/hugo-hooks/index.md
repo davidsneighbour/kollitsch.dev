@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-27T21:23:50+07:00
 publishDate: 2022-07-27T21:23:50+07:00
-lastmod: 2022-07-28T20:49:41+07:00
+lastmod: 2022-07-28T21:05:37+07:00
 
 resources:
   - src: github-card-dark.png
@@ -23,6 +23,8 @@ component:
   slug: null
   status: release
   list: true
+
+comments: false
 ---
 
 Hooks for GoHugo layouts. An easy way for theme developers to let users add partials and blocks at pre-defined safe places to their themes.

@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-07-28T20:57:02+07:00
+lastmod: 2022-07-28T21:06:14+07:00
 
 resources:
   - src: github-card-dark.png
@@ -18,6 +18,8 @@ tags:
   - gohugo
   - component
   - seo
+
+comments: false
 ---
 
 This is a Hugo theme component with layouts to add a configurable sitemap to your website. Hugo itself has internal templates that add sitemaps, but this component has additional setup options per page.

@@ -17,6 +17,7 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Advanced setup](#advanced-setup)
 - [Netlify Setup](#netlify-setup)
 - [Hooks](#hooks)
+- [Frontmatter Parameters](#frontmatter-parameters)
 - [License](#license)
 
 ## Setup
@@ -132,6 +133,12 @@ Hooks are listed in their order
 | body-end-pre-script | _default/baseof.html | 1    |            |                                                                        |
 | body-end            | _default/baseof.html | 1    |            |                                                                        |
 | teardown            | _default/baseof.html | 1    |            |                                                                        |
+
+## Frontmatter Parameters
+
+The following frontmatter parameters exist to finetune the layouts:
+
+- *comments* - set to false to disable comment form(s)
 
 ## License
 

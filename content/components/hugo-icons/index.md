@@ -1,5 +1,7 @@
 ---
-title: GoHugo Components/ Icons
+title: GoHugo Components/ I
+
+comments: falsecons
 linktitle: hugo-icons
 description: ""
 summary: ""
@@ -23,6 +25,8 @@ component:
   slug: null
   status: release
   list: true
+
+comments: false
 ---
 
 This is a Hugo theme component that adds several icon sets to your Hugo website.

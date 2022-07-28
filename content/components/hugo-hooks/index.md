@@ -1,11 +1,12 @@
 ---
-title: Hugo Component /
+title: GoHugo Components/ Hooks
+linktitle: hugo-hooks
 description: ""
 summary: ""
 
 date: 2022-07-27T21:23:50+07:00
 publishDate: 2022-07-27T21:23:50+07:00
-lastmod: 2022-07-27T21:24:27+07:00
+lastmod: 2022-07-28T20:49:41+07:00
 
 resources:
   - src: github-card-dark.png

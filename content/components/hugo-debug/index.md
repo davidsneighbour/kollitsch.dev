@@ -1,11 +1,12 @@
 ---
-title: hugo-debug
+title: GoHugo Components/ Debug
+linktitle: hugo-debug
 description: Debug everything in Hugo!
 summary: ""
 
 date: 2022-07-27T21:17:03+07:00
 publishDate: 2022-07-27T21:17:03+07:00
-lastmod: 2022-07-28T18:46:23+07:00
+lastmod: 2022-07-28T20:49:19+07:00
 
 resources:
   - src: github-card-dark.png

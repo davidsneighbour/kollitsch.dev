@@ -1,5 +1,5 @@
 ---
-title: Hugo Component / {{ .Name | title }}
+title: GoHugo Components / {{ .Name | title }}
 linkTitle: "{{ .Name }}"
 description: ""
 summary: ""

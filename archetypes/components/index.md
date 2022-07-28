@@ -1,10 +1,10 @@
 ---
-title: "Hugo Component / {{ .Title | title }}"
-linkTitle: "{{ .Title }}"
+title: Hugo Component / {{ .Name | title }}
+linkTitle: "{{ .Name }}"
 description: ""
 summary: ""
 
-date: "{{ .Date }}"
+date: {{ .Date }}
 publishDate: "{{ .Date }}"
 lastmod: "{{ .Date }}"
 
@@ -20,7 +20,7 @@ tags:
   - seo
 
 component:
-  slug: "{{ .Title }}"
+  slug: "{{ .Name }}"
   status: release
   list: true
 ---

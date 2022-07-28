@@ -5,7 +5,7 @@ summary: ""
 
 date: 2022-07-27T21:17:03+07:00
 publishDate: 2022-07-27T21:17:03+07:00
-lastmod: 2022-07-27T21:18:10+07:00
+lastmod: 2022-07-28T18:46:23+07:00
 
 resources:
   - src: github-card-dark.png
@@ -180,7 +180,7 @@ You can add the following call to any layout file:
 or by using the following shortcode in your Markdown:
 
 ```markdown
-{{< debugpage >}}
+{{</* debugpage */>}}
 ```
 
 The Markdown shortcode will take the context of the currently parsed page while the template call will take what you hand over.

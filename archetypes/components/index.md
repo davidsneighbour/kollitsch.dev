@@ -1,5 +1,6 @@
 ---
-title: Hugo Component /
+title: "Hugo Component / {{ .Title | title }}"
+linkTitle: "{{ .Title }}"
 description: ""
 summary: ""
 
@@ -19,7 +20,7 @@ tags:
   - seo
 
 component:
-  slug: ###NAME###
+  slug: "{{ .Title }}"
   status: release
   list: true
 ---

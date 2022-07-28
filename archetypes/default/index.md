@@ -5,13 +5,12 @@ linkTitle: {{ replace .Name "-" " " | title }}
 description: ""
 summary: ""
 
-date: {{ .Date }}
-publishDate: {{ .Date }}
-lastmod: {{ .Date }}
+date: "{{ .Date }}"
+publishDate: "{{ .Date }}"
+lastmod: "{{ .Date }}"
 
 resources:
-  - title: Photo by [Ave Calvar](https://unsplash.com/@shotbyrain) via
-      [Unsplash](https://unsplash.com/)
+  - title: Photo by [Name](Link) via [Unsplash](https://unsplash.com/)
     name: image name if other than src
     src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
 

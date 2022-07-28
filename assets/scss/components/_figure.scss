@@ -23,9 +23,9 @@ figure {
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
+    object-fit: cover;
     overflow: hidden;
     aspect-ratio: 2/1;
-    object-fit: cover;
   }
 
   a {

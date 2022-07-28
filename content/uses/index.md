@@ -1,19 +1,20 @@
 ---
 title: /uses
 date: 2022-02-13T18:29:07+07:00
-elements:
-  comments: false
-  share: false
-  author: false
-  date: false
+lastmod: 2022-07-28T21:21:43+07:00
+
 resources:
-  - title: "Photo by [Cesar Carlevarino Aragon](https://unsplash.com/@carlevarino) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: Photo by [Cesar Carlevarino Aragon](https://unsplash.com/@carlevarino)
+      via [Unsplash](https://unsplash.com/)
+    src: header.jpg
 menu:
   footer:
     weight: 100
     params:
       bsicon: info-square-fill
+
+theme:
+  comments: false
 ---
 
 The following is a collection of tools helping me with my digital and work life. My main focus lies in applications that are open source and usable across operating systems. This is a collection in progress, so check back or subscribe to updates to know when there is something new to know about.

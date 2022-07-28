@@ -10,8 +10,10 @@ menu:
     weight: 4
     params:
       bsicon: binoculars-fill
-comments: false
 robotsdisallow: true
 posttype: page
-lastmod: 2022-04-17T18:01:30+07:00
+lastmod: 2022-07-28T21:20:13+07:00
+
+theme:
+  comments: false
 ---

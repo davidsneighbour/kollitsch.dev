@@ -1,11 +1,12 @@
 ---
-title: Hugo Component / Sitemap
+title: GoHugo Components/ Sitemap
+linktitle: hugo-sitemap
 description: ""
 summary: ""
 
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-07-19T17:45:10+07:00
+lastmod: 2022-07-28T20:50:08+07:00
 
 resources:
   - src: github-card-dark.png

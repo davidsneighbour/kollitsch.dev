@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-27T21:17:03+07:00
 publishDate: 2022-07-27T21:17:03+07:00
-lastmod: 2022-07-28T20:56:35+07:00
+lastmod: 2022-07-28T21:00:15+07:00
 
 resources:
   - src: github-card-dark.png
@@ -97,8 +97,6 @@ A quick sample for it's usage is the following partial that I use in my footer a
 {{- end -}}
 ```
 
-## Usage
-
 ### Debug from within layouts
 
 To print a variable in one of your layouts:
@@ -124,11 +122,11 @@ Exchange the context `.` with whatever variable you want to debug. Sub-collectio
 To debug page data from within a Markdown file:
 
 ```markdown
-{{< debugprint >}} <!-- the same as -->
-{{< debugprint "page" >}} <!-- debugs page variable -->
-{{< debugprint "params" >}} <!-- debugs page params -->
-{{< debugprint "site" >}} <!-- debug sites params -->
-{{< debugprint param="bla" >}} <!-- debugs .Params.bla -->
+{{</* debugprint */>}} <!-- the same as -->
+{{</* debugprint "page" */>}} <!-- debugs page variable -->
+{{</* debugprint "params" */>}} <!-- debugs page params -->
+{{</* debugprint "site" */>}} <!-- debug sites params -->
+{{</* debugprint param="bla" */>}} <!-- debugs .Params.bla -->
 ```
 
 Debugging from within Markdown requires very explicit configuration in the shortcode template. [Open a new issue](https://github.com/davidsneighbour/hugo-debug/issues/new) if you require a specific debugging subject.

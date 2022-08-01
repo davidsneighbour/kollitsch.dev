@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-27T21:17:03+07:00
 publishDate: 2022-07-27T21:17:03+07:00
-lastmod: 2022-07-28T21:20:20+07:00
+lastmod: 2022-08-01T22:01:27+07:00
 
 resources:
   - src: github-card-dark.png
@@ -26,6 +26,9 @@ component:
 
 theme:
   comments: false
+
+github:
+  slug: davidsneighbour/hugo-debug
 ---
 
 This module for GoHugo adds debugging partials for many use cases.

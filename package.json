@@ -42,7 +42,7 @@
     "deepmerge": "^4.2.2",
     "doiuse": "^4.4.1",
     "dotenv": "^16.0.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-anti-trojan-source": "^1.1.0",
     "eslint-plugin-compat": "^4.0.2",

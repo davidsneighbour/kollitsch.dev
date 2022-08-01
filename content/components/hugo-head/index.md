@@ -5,7 +5,7 @@ summary: ""
 
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2022-07-28T21:20:27+07:00
+lastmod: 2022-08-01T21:57:09+07:00
 
 resources:
   - src: github-card-dark.png
@@ -25,6 +25,9 @@ component:
 
 theme:
   comments: false
+
+github:
+  slug: davidsneighbour/hugo-head
 ---
 
 

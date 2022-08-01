@@ -1,3 +1,36 @@
 {{- define "main" -}}
-  {{- partial "content/section-posts.html" . -}}
+
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+
+      {{- $paginator := .Scratch.Get "paginator" -}}
+      <h1 class="visually-hidden h2">
+        Recent Posts (Page {{ $paginator.PageNumber -}})
+      </h1>
+
+      {{- $fullcontent := false -}}
+      {{- if (eq $.Kind "page") -}}
+        {{- $fullcontent = true -}}
+      {{- end -}}
+
+      {{- range $index, $item := $paginator.Pages -}}
+        {{ if not .IsHome }}
+          {{- $post := dict "context" $item "fullcontent" $fullcontent "responsive" "halfwidth" -}}
+          {{- $col := "6" -}}
+          {{- if and (eq $index 1) (eq $paginator.PageNumber 1) (eq "home" $.Kind) -}}
+            {{- $col = "12" -}}
+            {{- $post = dict "context" $item "fullcontent" $fullcontent "responsive" "fullwidth" -}}
+          {{- end -}}
+          <div class="col-12 col-md-{{ $col }} mb-4">
+            {{- partial "content/post.html" $post $post -}}
+          </div>
+        {{ end }}
+      {{- end -}}
+
+    </div>
+    {{ partialCached "components/pagination/pagination-simple.html" . . }}
+  </div>
+</section>
+
 {{- end -}}

@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-28T20:51:08+07:00
 publishDate: 2022-07-28T20:51:08+07:00
-lastmod: 2022-07-28T21:20:51+07:00
+lastmod: 2022-08-01T21:58:15+07:00
 
 resources:
   - src: github-card-dark.png
@@ -26,4 +26,7 @@ component:
 
 theme:
   comments: false
+
+github:
+  slug: davidsneighbour/hugo-security
 ---

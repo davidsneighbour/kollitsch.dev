@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-07-28T21:20:54+07:00
+lastmod: 2022-08-01T21:58:24+07:00
 
 resources:
   - src: github-card-dark.png
@@ -21,6 +21,9 @@ tags:
 
 theme:
   comments: false
+
+github:
+  slug: davidsneighbour/hugo-sitemap
 ---
 
 This is a Hugo theme component with layouts to add a configurable sitemap to your website. Hugo itself has internal templates that add sitemaps, but this component has additional setup options per page.

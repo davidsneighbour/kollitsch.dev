@@ -5,13 +5,11 @@
 {{- $paginator := dict -}}
 {{- if eq "home" .Kind -}}
   {{- /* see https://discourse.gohugo.io/t/possible-first-list-page-showing-9-items-following-showing-10-items/36186/ */ -}}
-  {{ $p := where site.RegularPages "Type" "in" site.Params.mainSections }}
-  {{ $p = slice site.Home | append $p }}
+  {{- $p := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+  {{- $p = slice site.Home | append $p -}}
   {{- $paginator = $.Paginate $p -}}
-{{- else if .IsNode -}}
-  {{ $p := where site.RegularPages "Type" "in" site.Params.mainSections }}
-  {{- $paginator = $.Paginate $p -}}
-  {{/* {{- $paginator = $.Paginator -}} */}}
+{{- else -}}
+  {{- $paginator = $.Paginator -}}
 {{- end -}}
 {{- .Scratch.Set "paginator" $paginator -}}
 {{- partial "func/hook.html" ( dict

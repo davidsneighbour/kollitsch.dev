@@ -48,6 +48,14 @@ manifest-src = ["'self'"]
 [[redirects]]
 netlify = "https://kollitsch-dev.netlify.app/"
 
+# redirect main sections to home page
+# this should correspond to mainSections in config/_default/params/mainSections
+[[redirects]]
+from = "/blog/"
+to = "/"
+status = "301"
+# END redirect main sections to home page
+
 [[redirects]]
 from = "/repos/*"
 to = "https://kollitsch.dev/"

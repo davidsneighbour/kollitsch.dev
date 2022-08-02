@@ -148,7 +148,8 @@ theme:
 
 The following frontmatter parameters exist to fine tune the layouts and theme options:
 
-- *comments* - set to false to disable comment form(s) and display
+- *comments* - set to false to disable comment form(s) and display (default: true)
+- *showdate* - set to false to disable date per post display (default: true)
 
 ## License
 

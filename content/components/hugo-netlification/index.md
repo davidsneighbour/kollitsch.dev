@@ -1,12 +1,12 @@
 ---
-title: GoHugo Components / Netlification
+title: Netlification
 linkTitle: hugo-netlification
 description: ""
 summary: ""
 
 date: 2022-07-28T20:48:52+07:00
 publishDate: 2022-07-28T20:48:52+07:00
-lastmod: 2022-08-02T21:10:32+07:00
+lastmod: 2022-08-02T21:38:14+07:00
 
 resources:
   - src: github-card-dark.png

@@ -1,11 +1,11 @@
 ---
-title: GoHugo Components / Feeds
+title: Feeds
 linktitle: hugo-feeds
 summary: ""
 
 date: 2022-07-27T18:34:57+07:00
 publishDate: 2022-07-27T18:34:57+07:00
-lastmod: 2022-08-02T21:11:11+07:00
+lastmod: 2022-08-02T21:37:45+07:00
 
 resources:
   - src: github-card-dark.png

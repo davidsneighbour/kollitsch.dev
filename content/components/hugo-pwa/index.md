@@ -1,12 +1,12 @@
 ---
-title: GoHugo Components / PWA
+title: PWA
 linkTitle: hugo-pwa
 description: ""
 summary: ""
 
 date: 2022-07-28T20:50:54+07:00
 publishDate: 2022-07-28T20:50:54+07:00
-lastmod: 2022-08-02T21:13:02+07:00
+lastmod: 2022-08-02T21:38:20+07:00
 
 resources:
   - src: github-card-dark.png

@@ -1,11 +1,11 @@
 ---
-title: GoHugo Components / Head
+title: Head
 linktitle: hugo-head
 summary: ""
 
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2022-08-02T21:13:16+07:00
+lastmod: 2022-08-02T21:37:51+07:00
 
 resources:
   - src: github-card-dark.png

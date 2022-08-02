@@ -1,5 +1,5 @@
 ---
-title: GoHugo Components/ Icons
+title: Icons
 
 linktitle: hugo-icons
 description: ""
@@ -7,7 +7,7 @@ summary: ""
 
 date: 2022-07-22T19:10:17+07:00
 publishDate: 2022-07-22T19:10:17+07:00
-lastmod: 2022-08-02T21:10:51+07:00
+lastmod: 2022-08-02T21:38:01+07:00
 
 resources:
   - src: github-card-dark.png

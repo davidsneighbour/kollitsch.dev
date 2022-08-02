@@ -1,12 +1,12 @@
 ---
-title: GoHugo Components / Hugo-Internals
+title: Hugo-Internals
 linkTitle: hugo-internals
 description: ""
 summary: ""
 
 date: 2022-07-31T20:50:06+07:00
 publishDate: 2022-07-31T20:50:06+07:00
-lastmod: 2022-08-02T21:10:44+07:00
+lastmod: 2022-08-02T21:38:07+07:00
 
 resources:
   - src: github-card-dark.png

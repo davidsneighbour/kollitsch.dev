@@ -99,6 +99,9 @@
     {
       "name": "sc.kollitsch.dev",
       "path": "../sc.kollitsch.dev"
+    },
+    {
+      "path": "../hugo-templates"
     }
   ],
   "settings": {

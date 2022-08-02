@@ -246,7 +246,10 @@
       "command": "run-s build:critical build:hugo"
     },
     "build:frontmatter": {
-      "command": "node assets/config/frontmatter/build.ts"
+      "command": "node assets/config/frontmatter/build.ts",
+      "files": [
+        "assets/config/frontmatter/**/*.{ts,json}"
+      ]
     },
     "build:hugo": {
       "command": "./bin/build/hugo"

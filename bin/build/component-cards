@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+REQUIRED_TOOLS=(
+  inkscape
+  sed
+  optipng
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
+# file location
+IMAGEPATH="./assets/images"
+COMPONENTPATH="./content/components"
+
+# go through elements
+for DIRNAME in "${COMPONENTPATH}"/*/; do
+  DIR=$(basename "$DIRNAME")
+  TERM=${DIR/hugo\-/}
+  find_string='>NAME<'
+  replace_string=">${TERM^^}<"
+  sed -E "s/${find_string}/${replace_string}/" ${IMAGEPATH}/components-header.svg >"${IMAGEPATH}"/temp.svg
+  inkscape "${IMAGEPATH}"/temp.svg --export-filename="${COMPONENTPATH}"/"${DIR}"/github-card-dark.png &>/dev/null
+  optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/github-card-dark.png
+  rm -f "${IMAGEPATH}"/temp.svg
+done

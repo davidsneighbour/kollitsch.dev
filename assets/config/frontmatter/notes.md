@@ -14,3 +14,11 @@
   - text: The output will be passed as a text file.
   - html: The output will be passed as an HTML file.
   - markdown: The output will be passed as an Markdown file.
+
+# Frontmatter configuration
+
+In `frontMatter.taxonomy.dateFormat` you can define how timestamps are formatted in Hugo. The formatting language is documented at https://date-fns.org/v2.0.1/docs/format. The default string of Hugo would look like this: `"yyyy-MM-dd'T'H:mm:ssxxx"`. The single quotes around the `T` will display the character as-is, all other characters are interpreted as documented above.
+
+```json
+  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
+```

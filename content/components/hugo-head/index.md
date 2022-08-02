@@ -5,7 +5,7 @@ summary: ""
 
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2022-08-01T21:57:09+07:00
+lastmod: 2022-08-02T21:13:16+07:00
 
 resources:
   - src: github-card-dark.png
@@ -23,13 +23,9 @@ component:
   status: release
   list: true
 
-theme:
-  comments: false
-
 github:
   slug: davidsneighbour/hugo-head
 ---
-
 
 This is a GoHugo theme component that solves the old question "What tags belong into the `<head>` tag of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
 

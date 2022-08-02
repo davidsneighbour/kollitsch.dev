@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-27T21:23:50+07:00
 publishDate: 2022-07-27T21:23:50+07:00
-lastmod: 2022-08-01T21:57:20+07:00
+lastmod: 2022-08-02T21:10:56+07:00
 
 resources:
   - src: github-card-dark.png
@@ -23,9 +23,6 @@ component:
   slug: null
   status: release
   list: true
-
-theme:
-  comments: false
 
 github:
   slug: davidsneighbour/hugo-hooks

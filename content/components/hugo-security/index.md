@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-28T20:51:08+07:00
 publishDate: 2022-07-28T20:51:08+07:00
-lastmod: 2022-08-02T19:30:21+07:00
+lastmod: 2022-08-02T21:12:52+07:00
 
 resources:
   - src: github-card-dark.png
@@ -24,14 +24,9 @@ component:
   status: release
   list: true
 
-theme:
-  comments: false
-
 github:
   slug: davidsneighbour/hugo-security
 ---
-
-# David's Neighbour GoHugo Component / Security
 
 This module adds a security.txt file to your Hugo website with information about your preferred procedures to notify the developer team of your website about security issues on your website. Read more about [security.txt](https://securitytxt.org/), a proposed standard which allows websites to define security policies.
 

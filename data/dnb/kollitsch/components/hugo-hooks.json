@@ -1,0 +1,41 @@
+{
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-hooks/releases/70982012",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-hooks/releases/70982012/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-hooks/releases/70982012/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-hooks/releases/tag/v1.3.4",
+  "id": 70982012,
+  "author": {
+    "login": "davidsneighbour",
+    "id": 83281,
+    "node_id": "MDQ6VXNlcjgzMjgx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/83281?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/davidsneighbour",
+    "html_url": "https://github.com/davidsneighbour",
+    "followers_url": "https://api.github.com/users/davidsneighbour/followers",
+    "following_url": "https://api.github.com/users/davidsneighbour/following{/other_user}",
+    "gists_url": "https://api.github.com/users/davidsneighbour/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/davidsneighbour/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/davidsneighbour/subscriptions",
+    "organizations_url": "https://api.github.com/users/davidsneighbour/orgs",
+    "repos_url": "https://api.github.com/users/davidsneighbour/repos",
+    "events_url": "https://api.github.com/users/davidsneighbour/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/davidsneighbour/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "node_id": "RE_kwDOFW1O3s4EOxl8",
+  "tag_name": "v1.3.4",
+  "target_commitish": "main",
+  "name": "Maintenance release",
+  "draft": false,
+  "prerelease": false,
+  "created_at": "2022-06-30T14:04:09Z",
+  "published_at": "2022-06-30T14:07:27Z",
+  "assets": [
+
+  ],
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-hooks/tarball/v1.3.4",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-hooks/zipball/v1.3.4",
+  "body": "Updated dependencies and maintenance."
+}

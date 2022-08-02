@@ -1,0 +1,41 @@
+{
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/70977993",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/70977993/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-pwa/releases/70977993/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-pwa/releases/tag/v1.0.0",
+  "id": 70977993,
+  "author": {
+    "login": "davidsneighbour",
+    "id": 83281,
+    "node_id": "MDQ6VXNlcjgzMjgx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/83281?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/davidsneighbour",
+    "html_url": "https://github.com/davidsneighbour",
+    "followers_url": "https://api.github.com/users/davidsneighbour/followers",
+    "following_url": "https://api.github.com/users/davidsneighbour/following{/other_user}",
+    "gists_url": "https://api.github.com/users/davidsneighbour/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/davidsneighbour/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/davidsneighbour/subscriptions",
+    "organizations_url": "https://api.github.com/users/davidsneighbour/orgs",
+    "repos_url": "https://api.github.com/users/davidsneighbour/repos",
+    "events_url": "https://api.github.com/users/davidsneighbour/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/davidsneighbour/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "node_id": "RE_kwDOGdkmhs4EOwnJ",
+  "tag_name": "v1.0.0",
+  "target_commitish": "main",
+  "name": "Eins",
+  "draft": false,
+  "prerelease": false,
+  "created_at": "2022-06-30T13:34:49Z",
+  "published_at": "2022-06-30T13:36:29Z",
+  "assets": [
+
+  ],
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/tarball/v1.0.0",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/zipball/v1.0.0",
+  "body": "A quick release of the current state of the project. "
+}

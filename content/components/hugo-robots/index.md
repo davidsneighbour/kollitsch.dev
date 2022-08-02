@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-08-01T21:58:06+07:00
+lastmod: 2022-08-02T21:10:15+07:00
 
 resources:
   - src: github-card-dark.png
@@ -23,9 +23,6 @@ component:
   slug: hugo-robots
   status: release
   list: true
-
-theme:
-  comments: false
 
 github:
   slug: davidsneighbour/hugo-robots

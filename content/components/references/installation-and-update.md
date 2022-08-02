@@ -20,9 +20,6 @@ tags:
   - gohugo
   - component
   - reference
-
-theme:
-  comments: false
 ---
 
 ## Installing

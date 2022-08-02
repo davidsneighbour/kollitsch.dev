@@ -7,7 +7,7 @@ summary: ""
 
 date: 2022-07-22T19:10:17+07:00
 publishDate: 2022-07-22T19:10:17+07:00
-lastmod: 2022-08-01T21:57:28+07:00
+lastmod: 2022-08-02T21:10:51+07:00
 
 resources:
   - src: github-card-dark.png
@@ -24,9 +24,6 @@ component:
   slug: null
   status: release
   list: true
-
-theme:
-  comments: false
 
 github:
   slug: davidsneighbour/hugo-icons

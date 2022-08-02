@@ -1,12 +1,12 @@
 ---
-title: GoHugo Components / Security
+title: Security
 linkTitle: hugo-security
 description: ""
 summary: ""
 
 date: 2022-07-28T20:51:08+07:00
 publishDate: 2022-07-28T20:51:08+07:00
-lastmod: 2022-08-02T21:12:52+07:00
+lastmod: 2022-08-02T21:38:29+07:00
 
 resources:
   - src: github-card-dark.png

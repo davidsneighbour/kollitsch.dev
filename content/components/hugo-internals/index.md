@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-31T20:50:06+07:00
 publishDate: 2022-07-31T20:50:06+07:00
-lastmod: 2022-08-03T21:46:46+07:00
+lastmod: 2022-08-03T22:38:55+07:00
 
 resources:
   - src: github-card-dark.png
@@ -74,3 +74,11 @@ enableRobotsTXT = true
 ```
 
 Read more about detailled setup options at [the documentation](https://kollitsch.dev/components/hugo-robots/).
+
+## [hugo-sitemap](https://github.com/davidsneighbour/hugo-sitemap) --- Add a configurable sitemap
+
+## [hugo-youtube](https://github.com/davidsneighbour/hugo-youtube) --- Add youtube videos via shortcode
+
+# Contribute
+
+If you are developing or maintaining a Hugo component or module that replaces one of the internal features of Hugo then feel free to add an [issue](https://github.com/davidsneighbour/hugo-internals/issues) or a [pull request](https://github.com/davidsneighbour/hugo-internals/compare) adding your work.

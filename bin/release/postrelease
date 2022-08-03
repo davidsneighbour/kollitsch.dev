@@ -42,7 +42,7 @@ git push origin main --follow-tags --quiet
 git push origin --tags --quiet
 
 BODY="body"
-URL="${GITHUB_REPO}""releases/new?tag=v""{$VERSION}""&title=v""{$VERSION}""&body=""${BODY}"
+URL="$GITHUB_REPO""releases/new?tag=v""$VERSION""&title=v""$VERSION""&body=""$BODY"
 
 # create a release on GitHub
 xdg-open "${URL}" &>>/dev/null

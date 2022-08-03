@@ -1,6 +1,7 @@
-{{- $slug := .Page.Params.component.slug -}}
-{{- $host := .Page.Params.component.host -}}
-{{- $user := .Page.Params.component.user -}}
+{{- $component := .Page.Params.component -}}
+{{- $slug := $component.slug -}}
+{{- $host := $component.host -}}
+{{- $user := $component.user -}}
 {{- $data := index site.Data.dnb.kollitsch.components $slug -}}
 {{- $year := substr $data.published_at 0 4 -}}
 {{- $month := substr $data.published_at 5 2 -}}

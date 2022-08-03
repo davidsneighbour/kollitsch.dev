@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-08-03T21:21:58+07:00
 publishDate: 2022-08-03T21:21:58+07:00
-lastmod: 2022-08-03T21:26:36+07:00
+lastmod: 2022-08-03T21:31:00+07:00
 
 resources:
   - src: github-card-dark.png
@@ -23,8 +23,6 @@ tags:
 component:
   slug: hugo-youtube
 ---
-
-# GoHugo Component / Youtube
 
 A responsive and very fast shortcode to add youtube videos to your Hugo website.
 

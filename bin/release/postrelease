@@ -33,6 +33,11 @@ if test -f "$FILE"; then
   git add $FILE
 fi
 
+# retrieve component state
+echo "retrieving component state..."
+./bin/build/components-releases
+echo "done"
+
 # adding data directory for new build information
 git add data/dnb
 git commit --signoff --amend --no-edit --quiet

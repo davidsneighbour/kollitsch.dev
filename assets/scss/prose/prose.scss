@@ -73,12 +73,8 @@ table {
     @extend .table-light;
   }
 
-  // .highlight & {
-  //   @extend .table-borderless;
-  // }
   @extend .table;
-  // @extend .table-bordered;
-  // @extend .table-hover;
+  @extend .table-bordered;
   @extend .table-sm;
 }
 

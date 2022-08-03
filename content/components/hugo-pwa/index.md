@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-28T20:50:54+07:00
 publishDate: 2022-07-28T20:50:54+07:00
-lastmod: 2022-08-02T21:38:20+07:00
+lastmod: 2022-08-03T19:17:13+07:00
 
 resources:
   - src: github-card-dark.png
@@ -21,16 +21,13 @@ tags:
 
 component:
   slug: hugo-pwa
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-pwa
 ---
 
 This is a Hugo theme component with helpers to convert your static [GoHugo](https://gohugo.io/) website into a [PWA](https://web.dev/progressive-web-apps/).
 
 This is work in progress and while many parts are already working, some changes to the setup will occur. Please watch the releases of this repository to be alerted about changes.
+
+{{< component-box >}}
 
 ## Features
 

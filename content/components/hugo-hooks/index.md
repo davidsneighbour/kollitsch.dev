@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-27T21:23:50+07:00
 publishDate: 2022-07-27T21:23:50+07:00
-lastmod: 2022-08-02T21:37:56+07:00
+lastmod: 2022-08-03T19:17:31+07:00
 
 resources:
   - src: github-card-dark.png
@@ -20,12 +20,7 @@ tags:
   - seo
 
 component:
-  slug: null
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-hooks
+  slug: hugo-hooks
 ---
 
 Hooks for GoHugo layouts. An easy way for theme developers to let users add partials and blocks at pre-defined safe places to their themes.
@@ -35,6 +30,8 @@ We often want to add locations and places in our templates and layouts where it'
 You name it. `hugo-hooks` is what you need. This module adds these hooks to your theme and provides a simple way **any theme developer** can add these "layout locations" to "hook" additional features in.
 
 **You as the end-user** can add simple layout files to "hook" into these locations and add whatever pizzazz, panache, flair or sparkle your website needs.
+
+{{< component-box >}}
 
 <!--- THINGSTOKNOW BEGIN --->
 

@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-31T20:50:06+07:00
 publishDate: 2022-07-31T20:50:06+07:00
-lastmod: 2022-08-02T21:38:07+07:00
+lastmod: 2022-08-03T19:17:23+07:00
 
 resources:
   - src: github-card-dark.png
@@ -21,14 +21,11 @@ tags:
 
 component:
   slug: hugo-internals
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-internals
 ---
 
 This module attempts to replace internal templates used by Hugo with custom ones and other modules and plugins that add identical features more sophisticated or up-to-date. Internal templates of Hugo are highly opiniated, often out of time and not suitable for use in the production environment of a website. The layouts in this repo and it's modules replace them with our own better setup.
+
+{{< component-box >}}
 
 # Setup
 

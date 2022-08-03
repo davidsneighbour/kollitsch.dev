@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-28T20:48:52+07:00
 publishDate: 2022-07-28T20:48:52+07:00
-lastmod: 2022-08-02T21:38:14+07:00
+lastmod: 2022-08-03T19:17:18+07:00
 
 resources:
   - src: github-card-dark.png
@@ -21,14 +21,11 @@ tags:
 
 component:
   slug: hugo-netlification
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-netlification
 ---
 
 This is a Hugo theme component with helpers to host your [GoHugo](https://gohugo.io/) generated static website on [Netlify](https://www.netlify.com/). If you don't use Netlify, you DO NOT need this module.
+
+{{< component-box >}}
 
 # Features
 

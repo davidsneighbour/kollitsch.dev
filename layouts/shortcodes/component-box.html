@@ -1,12 +1,28 @@
+{{- $slug := .Page.Params.component.slug -}}
+{{- $host := .Page.Params.component.host -}}
+{{- $user := .Page.Params.component.user -}}
+{{- $data := index site.Data.dnb.kollitsch.components $slug -}}
+{{- $year := substr $data.published_at 0 4 -}}
+{{- $month := substr $data.published_at 5 2 -}}
+{{- $day := substr $data.published_at 8 2 -}}
+{{- $publishedAt := printf "%s-%s-%s" $year $month $day -}}
 <table>
 <tbody>
-<tr><th>Installation</th><td><code>install</code></td></tr>
-<tr><th>Latest Version</th><td>1.0.12</td></tr>
+<tr>
+  <th>Add this module</th>
+  <td><code><pre>[[module.imports]]
+path = "{{ $host }}/{{ $user }}/{{ $slug }}"
+disable = false
+ignoreConfig = false
+ignoreImports = false</pre></code></td>
+</tr>
+<tr>
+  <th>Latest Version</th>
+  <td><a href="{{ $data.html_url }}">{{ $data.tag_name }} ({{ $publishedAt }})</a></td>
+</tr>
+<tr>
+  <th>Fix to this version</th>
+  <td><code><pre>hugo mod get {{ $host }}/{{ $user }}/{{ $slug }}@{{ $data.tag_name }}</pre></code></td>
+</tr>
 </tbody>
 </table>
-
-
-{{- /*
-https://api.github.com/repos/davidsneighbour/hugo-debug/releases/latest
-
-*/ -}}}}

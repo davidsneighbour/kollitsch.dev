@@ -3,5 +3,10 @@ cascade:
   theme:
     showdate: false
     comments: false
-lastmod: 2022-08-02T21:09:41+07:00
+  component:
+    host: github.com
+    user: davidsneighbour
+    status: release
+    list: true
+lastmod: 2022-08-03T19:16:58+07:00
 ---

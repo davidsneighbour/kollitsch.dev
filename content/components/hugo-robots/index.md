@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-08-02T21:38:23+07:00
+lastmod: 2022-08-03T19:17:10+07:00
 
 resources:
   - src: github-card-dark.png
@@ -21,16 +21,13 @@ tags:
 
 component:
   slug: hugo-robots
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-robots
 ---
 
 This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website.
 
 See this component in action at [kollitsch.de/robots.txt](https://kollitsch.de/robots.txt)
+
+{{< component-box >}}
 
 <!--- THINGSTOKNOW BEGIN --->
 ## Some things you need to know

@@ -5,7 +5,7 @@ summary: ""
 
 date: 2022-07-27T18:34:57+07:00
 publishDate: 2022-07-27T18:34:57+07:00
-lastmod: 2022-08-02T21:37:45+07:00
+lastmod: 2022-08-03T19:17:50+07:00
 
 resources:
   - src: github-card-dark.png
@@ -19,17 +19,14 @@ tags:
   - design
 
 component:
-  slug: null
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-feeds
+  slug: hugo-feeds
 ---
 
 This is a GoHugo theme component that implements various configurable feed formats. Currently implemented formats are RSS, Atom and JSONfeed.
 
 Find out more about the [RSS](https://cyber.harvard.edu/rss/rss.html), [Atom](https://datatracker.ietf.org/doc/html/rfc4287) and [JSON feed](https://www.jsonfeed.org/version/1.1/) formats
+
+{{< component-box >}}
 
 ## ToDo
 

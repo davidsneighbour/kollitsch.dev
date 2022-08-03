@@ -5,7 +5,7 @@ summary: ""
 
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2022-08-02T21:37:51+07:00
+lastmod: 2022-08-03T19:17:44+07:00
 
 resources:
   - src: github-card-dark.png
@@ -19,17 +19,14 @@ tags:
   - seo
 
 component:
-  slug: null
-  status: release
-  list: true
-
-github:
-  slug: davidsneighbour/hugo-head
+  slug: hugo-head
 ---
 
 This is a GoHugo theme component that solves the old question "What tags belong into the `<head>` tag of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
 
 If you want to independently of this module learn about all that is possible in the `<head>` tag then have a look at [htmlhead.dev](https://htmlhead.dev/)
+
+{{< component-box >}}
 
 <!--- THINGSTOKNOW BEGIN --->
 

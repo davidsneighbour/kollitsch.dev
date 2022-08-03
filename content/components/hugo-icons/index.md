@@ -7,7 +7,7 @@ summary: ""
 
 date: 2022-07-22T19:10:17+07:00
 publishDate: 2022-07-22T19:10:17+07:00
-lastmod: 2022-08-03T19:17:27+07:00
+lastmod: 2022-08-03T21:46:51+07:00
 
 resources:
   - src: github-card-dark.png
@@ -22,6 +22,10 @@ tags:
 
 component:
   slug: hugo-icons
+  host: github.com
+  user: davidsneighbour
+  status: release
+  list: true
 ---
 
 This is a Hugo theme component that adds several icon sets to your Hugo website.

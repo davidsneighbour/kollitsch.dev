@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-28T20:48:52+07:00
 publishDate: 2022-07-28T20:48:52+07:00
-lastmod: 2022-08-03T21:46:42+07:00
+lastmod: 2022-08-07T20:10:51+07:00
 
 resources:
   - src: github-card-dark.png
@@ -134,7 +134,7 @@ You can check your content security policy using these following services and au
 
 # Sample Configuration
 
-Add your configuration in `data/dnb/netlification/config.toml`. A sample configuration can be found in [data/dnb/netlification/sample-config.toml](data/dnb/netlification/sample-config.toml)
+Add your configuration in `data/dnb/netlification/config.toml`. A sample configuration can be found in [data/dnb/netlification/sample-config.toml](https://github.com/davidsneighbour/hugo-netlification/blob/main/data/dnb/netlification/sample-config.toml)
 
 # Updating
 

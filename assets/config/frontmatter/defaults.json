@@ -71,6 +71,7 @@
   "frontMatter.templates.folder": ".frontmatter/templates",
   "frontMatter.templates.prefix": "",
   "frontMatter.framework.startCommand": "npm run server",
+  "frontMatter.file.preserveCasing": false,
   "frontMatter.content.placeholders": [
     {
       "id": "permalink",

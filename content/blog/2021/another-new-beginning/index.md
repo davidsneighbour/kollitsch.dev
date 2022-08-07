@@ -10,7 +10,10 @@ resources:
 tags:
   - davidsneighbour
   - me now
-lastmod: 2022-04-17T18:01:41+07:00
+unsplash:
+  imageid: HcUDHJfd5GY
+lastmod: 2022-08-04T19:55:12+07:00
+type: blog
 ---
 
 **Hello again, Internet!** You might not know me, but you probably already somewhere came across my work or myself if you ended up here. My name is Patrick (born 1975). I am a German, living on Koh Samui in Thailand and I am a web worker. Let me give you a short summary of how we got here and where we go from here :smile:

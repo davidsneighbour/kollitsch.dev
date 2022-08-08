@@ -28,7 +28,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
     let imageData = JSON.parse(rawdata);
     downloadFile(imageData.urls.full, folderArg + "/header.jpg");
 
-    return '{ "frontmatter": { "bla": "fasel" }}';
+    console.log('{ "frontmatter": { "bla": "fasel" }}');
 
   }
 })();

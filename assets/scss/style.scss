@@ -138,7 +138,7 @@ $container-max-widths: (
   --highlight: #{$color-orange-1};
   --highlight2: #{$color-orange-2};
 
-  --bg-page: #{$color-gray-6};
+  --bg-page: #002b36;
 
   --color-title: #{$color-gray-1};
   --color: #{$color-gray-2};
@@ -148,11 +148,11 @@ $container-max-widths: (
   --card-header-link-color-hover: #{$color-gray-2};
 
   --footer-color-fg: #{$color-gray-2};
-  --footer-color-bg: #{$color-gray-6};
+  --footer-color-bg: #002b36;
 
-  --card-border-color: #{$color-gray-6};
+  --card-border-color: #002b36;
 
-  --#{$prefix}pagination-bg: #{$color-gray-6};
+  --#{$prefix}pagination-bg: #002b36;
   --#{$prefix}pagination-border-color: #{$color-gray-1};
 
   // https://drafts.csswg.org/css-ui-4/#widget-accent
@@ -181,7 +181,7 @@ $container-max-widths: (
 }
 
 // color
-$dark: var(--bg-page);
+$dark: #002b36;
 
 $card-bg: #{var(--bg-card)};
 $card-color: #{var(--color)};

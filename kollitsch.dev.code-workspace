@@ -102,6 +102,9 @@
     },
     {
       "path": "../hugo-templates"
+    },
+    {
+      "path": "../hugo-seo"
     }
   ],
   "settings": {

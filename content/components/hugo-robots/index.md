@@ -6,7 +6,7 @@ summary: ""
 
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-08-09T1:08:39+07:00
+lastmod: 2022-08-09T1:27:50+07:00
 
 resources:
   - src: github-card-dark.png
@@ -57,6 +57,32 @@ disallow = ["/nogooglebot/", "/anotherdirectory/"]
 [[dnb.robots.useragents]]
 name = "Googlebot2"
 allow = ["/yesgooglebot/", "/anotherdirectory/"]
+```
+
+## Configure meta-robots tags
+
+Configure the robots tag with the following individual configuration parameters in your frontmatter:
+
+```yaml
+config:
+  follow: true
+  index: false
+```
+
+Add/edit global defaults in config.toml or config/_defaults/params.toml:
+
+```toml
+[dnb.robots]
+index = true
+follow = true
+```
+
+Default without any configuration is `true` in both parameters.
+
+If you are using [davidsneighbour/hugo-head](https://github.com/davidsneighbour/hugo-head) then the meta tag is automatically added to your head-tag. If not you will need to add a call to the meta tag:
+
+```go
+{{- partial "head/robots.html" . -}}
 ```
 
 ## Are you into ASCII-art?

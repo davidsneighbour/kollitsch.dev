@@ -8,7 +8,7 @@ require (
 	github.com/davidsneighbour/hugo-feeds v1.0.2 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.2 // indirect
 	github.com/davidsneighbour/hugo-giscus v1.2.2 // indirect
-	github.com/davidsneighbour/hugo-head v1.1.12 // indirect
+	github.com/davidsneighbour/hugo-head v1.1.13 // indirect
 	github.com/davidsneighbour/hugo-hooks v1.3.5 // indirect
 	github.com/davidsneighbour/hugo-icons v1.2.5 // indirect
 	github.com/davidsneighbour/hugo-internals v1.0.4 // indirect

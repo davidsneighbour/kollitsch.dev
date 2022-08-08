@@ -11,7 +11,7 @@ require (
 	github.com/davidsneighbour/hugo-head v1.1.12 // indirect
 	github.com/davidsneighbour/hugo-hooks v1.3.5 // indirect
 	github.com/davidsneighbour/hugo-icons v1.2.5 // indirect
-	github.com/davidsneighbour/hugo-internals v1.0.2 // indirect
+	github.com/davidsneighbour/hugo-internals v1.0.4 // indirect
 	github.com/davidsneighbour/hugo-netlification v1.2.6 // indirect
 	github.com/davidsneighbour/hugo-opensearch v1.0.2 // indirect
 	github.com/davidsneighbour/hugo-pictures v0.1.1 // indirect

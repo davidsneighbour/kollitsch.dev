@@ -81,6 +81,10 @@ table {
 .highlight {
   margin-bottom: $spacer;
   border: 1pt solid rgba(255, 255, 255, 0.1);
+
+  .chroma {
+    padding: 0.3rem;
+  }
 }
 
 .section-meta {

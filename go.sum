@@ -26,8 +26,6 @@ github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc h1:
 github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc/go.mod h1:BJDdeFXuKloJU3kCs8TExCtjjxULDYbF/IQWFAx9Ks4=
 github.com/davidsneighbour/hugo-pwa v1.0.4 h1:goTKDgvvMc1H2JitwwLc2qj+IJszcgyeko15lIK8CSU=
 github.com/davidsneighbour/hugo-pwa v1.0.4/go.mod h1:W3O4g46pYzCMmiqGnXT/7BVNDfDQ+FXqZoMu/xzaeVQ=
-github.com/davidsneighbour/hugo-robots v1.2.3 h1:m4YqvaM11swCXq09Q9YnZLQ0yu5arDq6wCQKXT6GXWc=
-github.com/davidsneighbour/hugo-robots v1.2.3/go.mod h1:q4YHx8ppcEtXa7bpCC0h+ml6lXCPsvemZrufl5XU+9U=
 github.com/davidsneighbour/hugo-robots v1.2.4 h1:fGbjeUddFiWFyHPRzGf9DGaqpUrYc/Ueeax4GMaThZ8=
 github.com/davidsneighbour/hugo-robots v1.2.4/go.mod h1:q4YHx8ppcEtXa7bpCC0h+ml6lXCPsvemZrufl5XU+9U=
 github.com/davidsneighbour/hugo-search-algolia v0.1.2 h1:YtQMAqEKeXoGQ8jH8D7I0oEzVf2nk7nwcLNSAUdm8Qg=

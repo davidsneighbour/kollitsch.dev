@@ -1,5 +1,24 @@
 @charset 'utf-8';
 
+// adding solarized colorset
+$base03: #002b36;
+$base02: #073642;
+$base01: #586e75;
+$base00: #657b83;
+$base0: #839496;
+$base1: #93a1a1;
+$base2: #eee8d5;
+$base3: #fdf6e3;
+$yellow: #b58900;
+$orange: #cb4b16;
+$red: #dc322f;
+$magenta: #d33682;
+$violet: #6c71c4;
+$blue: #268bd2;
+$cyan: #2aa198;
+$green: #859900;
+//@import 'settings/solarized';
+
 // Font setup
 @import 'settings/fonts';
 
@@ -93,7 +112,7 @@ $table-border-color: var(--primary);
 $btn-border-width: 2px;
 
 // colors
-$primary: #dc322f;
+$primary: $red;
 
 // settings
 $enable-caret: true;
@@ -138,21 +157,21 @@ $container-max-widths: (
   --highlight: #{$color-orange-1};
   --highlight2: #{$color-orange-2};
 
-  --bg-page: #002b36;
+  --bg-page: #{$base03};
 
   --color-title: #{$color-gray-1};
-  --color: #{$color-gray-2};
-  --color2: #{$color-orange-1};
+  --color: #{$base3};
+  --color2: #{$red};
 
   --card-header-link-color: #{$color-gray-1};
   --card-header-link-color-hover: #{$color-gray-2};
 
-  --footer-color-fg: #{$color-gray-2};
-  --footer-color-bg: #002b36;
+  --footer-color-fg: #{$base2};
+  --footer-color-bg: #{$base03};
 
-  --card-border-color: #002b36;
+  --card-border-color: #{$base03};
 
-  --#{$prefix}pagination-bg: #002b36;
+  --#{$prefix}pagination-bg: #{$base03};
   --#{$prefix}pagination-border-color: #{$color-gray-1};
 
   // https://drafts.csswg.org/css-ui-4/#widget-accent
@@ -160,28 +179,16 @@ $container-max-widths: (
   accent-color: var(--primary);
 }
 
-// .light {
-//   --bg-page: #{$color-gray-1};
-
-//   --color-title: #{$color-gray-6};
-//   --color: #{$color-gray-5};
-//   --color2: #{$color-orange-6};
-
-//   --footer-color-fg: #{$color-gray-6};
-//   --footer-color-bg: #{$color-gray-1};
-
-//   --card-border-color: #{$color-gray-2};
-
-//   --#{$prefix}pagination-bg: #{$color-gray-6};
-//   --#{$prefix}pagination-border-color: #{$color-gray-1};
-// }
+.light {
+  // settings for a light theme
+}
 
 .dark {
   // most (or all) of the dark setup is defined as default in :root
 }
 
 // color
-$dark: #002b36;
+$dark: $base03;
 
 $card-bg: #{var(--bg-card)};
 $card-color: #{var(--color)};

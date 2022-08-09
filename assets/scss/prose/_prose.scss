@@ -100,8 +100,11 @@ pre {
 }
 
 code {
+  padding: 0 0.3rem;
 
   font-weight: 400;
+  text-shadow: 1px 1px 1px $red;
+
   background-color: $base02;
 }
 

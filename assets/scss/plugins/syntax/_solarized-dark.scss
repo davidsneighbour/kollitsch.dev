@@ -1,3 +1,5 @@
+/* stylelint-disable block-no-empty, plugin/no-unsupported-browser-features */
+
 /* @todo cleanup */
 
 /* Background */
@@ -363,7 +365,7 @@
 /* GenericError */
 .chroma .gr {
   color: #dc322f;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* GenericHeading */
@@ -384,7 +386,7 @@
 
 /* GenericStrong */
 .chroma .gs {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* GenericSubheading */

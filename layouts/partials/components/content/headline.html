@@ -6,6 +6,6 @@
   {{- $headerlevel = "1" -}}
 {{- end -}}
 
-{{- printf "<h%s>" $headerlevel | safeHTML -}}
-<a class="post-title" href="{{- $post.Permalink -}}">{{- $post.Title -}}</a>
+{{- printf "<h%s class=\"post-title\">" $headerlevel | safeHTML -}}
+<a href="{{- $post.Permalink -}}">{{- $post.Title -}}</a>
 {{- printf "</h%s>" $headerlevel | safeHTML -}}

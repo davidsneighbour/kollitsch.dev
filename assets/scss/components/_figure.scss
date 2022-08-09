@@ -1,4 +1,5 @@
-/* @todo cleanup */figure {
+/* @todo cleanup */
+figure {
   margin-bottom: 0;
   padding: 3px;
   border-radius: $border-radius;
@@ -7,11 +8,32 @@
 
   font-weight: $font-weight-bold;
   font-variant: small-caps;
-
+  position: relative;
   background-color: var(--primary);
 
   figcaption {
     color: $color-orange-1;
+  }
+
+  .inline-icons {
+    position: absolute;
+    right: 1rem;
+    background-color: rgba($base03, 0.1);
+    top: 1rem;
+    line-height: 1;
+    color: $red;
+
+    div {
+      padding: 0.5rem;
+    }
+
+    &:hover {
+      background-color: rgba($base03, 0.5);
+    }
+
+    .is--copyright {}
+
+    .is--publishdate {}
   }
 
   picture,

@@ -1,4 +1,4 @@
-
+/* @todo cleanup */
 // containers (value for one side, the other auto)
 $sizes: 12, 32, 64;
 
@@ -7,6 +7,7 @@ $sizes: 12, 32, 64;
     width: auto;
     height: #{$size}px;
   }
+
   .cw-#{$size} {
     width: #{$size}px;
     height: auto;

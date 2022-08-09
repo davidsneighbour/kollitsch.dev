@@ -1,3 +1,5 @@
+/* @todo cleanup */
+
 /* stylelint-disable plugin/no-unsupported-browser-features */
 
 .shortcode--youtube {
@@ -45,7 +47,7 @@
     content: '';
   }
 
-  lite-youtube > iframe {
+  lite-youtube>iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -56,7 +58,7 @@
   }
 
   /* play button */
-  lite-youtube > .lty-playbtn {
+  lite-youtube>.lty-playbtn {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -77,7 +79,7 @@
     transition: filter 0.1s cubic-bezier(0, 0, 0.2, 1);
   }
 
-  lite-youtube:hover > .lty-playbtn,
+  lite-youtube:hover>.lty-playbtn,
   lite-youtube .lty-playbtn:focus {
     filter: none;
   }
@@ -88,7 +90,7 @@
   }
 
   lite-youtube.lyt-activated::before,
-  lite-youtube.lyt-activated > .lty-playbtn {
+  lite-youtube.lyt-activated>.lty-playbtn {
     opacity: 0%;
 
     pointer-events: none;

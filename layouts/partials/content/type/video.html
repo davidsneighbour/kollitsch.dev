@@ -8,11 +8,28 @@
         <div class="iframe-border">
           {{- partialCached "youtube.html" $settings $settings -}}
         </div>
-        <figcaption class="text-center">{{- $post.Title -}}</figcaption>
+
+        <div class="inline-icons">
+          {{- with $post.Title -}}
+            <div class="is--copyright"
+                title="{{- . -}}"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-title="{{- . -}}">
+              {{- partial "bsicon.html" "camera2" "camera2" -}}
+            </div>
+            {{/* <figcaption class="text-center"></figcaption> */}}
+          {{- end -}}
+          {{- if eq true ($post.Params.theme.showdate | default true) -}}
+            <div class="is--publishdate"
+                title="🤖 {{ $post.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | default ":date_long") -}}">
+              {{- partialCached "bsicon.html" "calendar3" "calendar3" -}}
+            </div>
+          {{- end -}}
+        </div>
       </figure>
   </div>
   <div class="card-header">
-    {{- partialCached "components/content/publishing-date.html" $post $post -}}
+    {{/* {{- partialCached "components/content/publishing-date.html" $post $post -}} */}}
     {{- partial "components/content/headline.html" . -}}
   </div>
   <div class="prose card-body">

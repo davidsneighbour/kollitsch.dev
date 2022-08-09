@@ -57,9 +57,23 @@
             {{- end -}}
           </picture>
         </a>
-        {{- with $title -}}
-          <figcaption class="text-center">{{- . -}}</figcaption>
-        {{- end -}}
+        <div class="inline-icons">
+          {{- with $title -}}
+            <div class="is--copyright"
+                title="{{- . -}}"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-title="{{- . -}}">
+              {{- partial "bsicon.html" "camera2" "camera2" -}}
+            </div>
+            {{/* <figcaption class="text-center"></figcaption> */}}
+          {{- end -}}
+          {{- if eq true ($context.Params.theme.showdate | default true) -}}
+            <div class="is--publishdate"
+                title="🤖 {{ $context.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | default ":date_long") -}}">
+              {{- partialCached "bsicon.html" "calendar3" "calendar3" -}}
+            </div>
+          {{- end -}}
+        </div>
       </figure>
     {{- end -}}
   </div>

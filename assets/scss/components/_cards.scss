@@ -1,4 +1,18 @@
 /* @todo cleanup */
+.post-title {
+  text-transform: uppercase;
+  font-weight: 300;
+  border-bottom: 1px solid $red;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-top: 0.25rem;
+
+  a:hover {
+    text-decoration: none;
+    border-bottom: 1pt dashed $red;
+  }
+}
+
 .component--archive-card {
   .is--date {
     min-width: 175px;

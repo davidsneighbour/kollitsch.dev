@@ -1,3 +1,5 @@
+/* stylelint-disable block-no-empty, plugin/no-unsupported-browser-features */
+
 /* @todo cleanup */
 
 /* Background */
@@ -80,7 +82,7 @@
 /* KeywordConstant */
 .chroma .kc {
   color: #859900;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* KeywordDeclaration */
@@ -91,7 +93,7 @@
 /* KeywordNamespace */
 .chroma .kn {
   color: #dc322f;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* KeywordPseudo */
@@ -107,7 +109,7 @@
 /* KeywordType */
 .chroma .kt {
   color: #859900;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* Name */
@@ -188,7 +190,7 @@
 /* NameTag */
 .chroma .nt {
   color: #268bd2;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* NameVariable */
@@ -299,43 +301,46 @@
 /* LiteralNumber */
 .chroma .m {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* LiteralNumberBin */
 .chroma .mb {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* LiteralNumberFloat */
 .chroma .mf {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* LiteralNumberHex */
 .chroma .mh {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* LiteralNumberInteger */
 .chroma .mi {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* LiteralNumberIntegerLong */
+font-weight: 700;
+font-weight: 700;
+
 .chroma .il {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* LiteralNumberOct */
 .chroma .mo {
   color: #2aa198;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* Operator */

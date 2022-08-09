@@ -1,3 +1,5 @@
+/* @todo cleanup */
+
 /*!
  * Modified from GitHub's Dark Dimmed theme, licensed under the MIT License
  * Copyright (c) 2018 GitHub Inc.
@@ -103,16 +105,16 @@ main .pagination-loader-container {
   padding-bottom: 1rem;
 }
 
-.gsc-comments > .gsc-header {
+.gsc-comments>.gsc-header {
   order: 1;
 }
 
-.gsc-comments > .gsc-comment-box {
+.gsc-comments>.gsc-comment-box {
   order: 2;
   margin-bottom: 1rem;
 }
 
-.gsc-comments > .gsc-timeline {
+.gsc-comments>.gsc-timeline {
   order: 3;
 }
 

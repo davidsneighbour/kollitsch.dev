@@ -1,3 +1,4 @@
+/* @todo cleanup */
 // footer
 #footer {
   color: var(--footer-color-fg);
@@ -26,6 +27,7 @@
       @extend .p-0;
       @extend .m-0;
     }
+
     @extend .px-3;
 
   }
@@ -39,17 +41,17 @@
   }
 
   .is-good {
-    color: $color-green-4;
+    color: $green;
   }
 
   .is-bad {
-    color: $color-red-4;
+    color: $orange;
   }
 
   dl {
     display: inline;
 
-    color: $color-yellow-4;
+    color: $yellow;
 
     >div {
       display: inline;

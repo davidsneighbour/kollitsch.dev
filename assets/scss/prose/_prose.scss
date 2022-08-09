@@ -1,8 +1,11 @@
+/* @todo cleanup */
 .section--content {
   min-height: 100%;
 }
 
 a {
+  font-weight: 400;
+
   box-decoration-break: clone;
 
   @extend .text-gradient-primary;
@@ -94,6 +97,12 @@ table {
 
 pre {
   margin-bottom: 0;
+}
+
+code {
+
+  font-weight: 400;
+  background-color: $base02;
 }
 
 kbd {

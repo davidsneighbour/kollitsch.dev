@@ -1,3 +1,4 @@
+/* @todo cleanup */
 .widget--sharebuttons {
 
   /* share icon left of share buttons */
@@ -31,7 +32,8 @@
 
 }
 
-.widgets { h3 {
+.widgets {
+  h3 {
     color: var(--primary);
     font-size: 1.3rem;
   }

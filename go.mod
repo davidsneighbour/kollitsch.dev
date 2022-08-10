@@ -21,7 +21,7 @@ require (
 	github.com/davidsneighbour/hugo-search-algolia v0.1.2 // indirect
 	github.com/davidsneighbour/hugo-security v1.1.3 // indirect
 	github.com/davidsneighbour/hugo-shortcodes v1.5.3 // indirect
-	github.com/davidsneighbour/hugo-sitemap v1.0.0 // indirect
+	github.com/davidsneighbour/hugo-sitemap v1.0.2 // indirect
 	github.com/davidsneighbour/hugo-social v0.1.7 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.5 // indirect
 )

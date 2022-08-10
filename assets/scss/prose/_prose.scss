@@ -76,6 +76,11 @@ table {
     @extend .table-light;
   }
 
+  code {
+    padding: inherit;
+    background-color: inherit;
+  }
+
   @extend .table;
   @extend .table-bordered;
   @extend .table-sm;
@@ -88,6 +93,15 @@ table {
   .chroma {
     padding: 0.3rem;
   }
+
+
+  code {
+    padding: 0 0.3rem;
+
+    font-weight: 400;
+
+    background-color: $base02;
+  }
 }
 
 .section-meta {
@@ -97,15 +111,6 @@ table {
 
 pre {
   margin-bottom: 0;
-}
-
-code {
-  padding: 0 0.3rem;
-
-  font-weight: 400;
-  text-shadow: 1px 1px 1px $red;
-
-  background-color: $base02;
 }
 
 kbd {

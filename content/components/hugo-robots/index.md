@@ -29,6 +29,8 @@ component:
 
 This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website.
 
+{{< component-box >}}
+
 ## Usage
 
 This component can be used as drop-in without much configuration. However, robots.txt generation needs to be enabled in your configuration, eg. config.toml:

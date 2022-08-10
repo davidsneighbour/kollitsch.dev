@@ -11,19 +11,18 @@
 <tbody>
 <tr>
   <th>Add this module</th>
-  <td><code><pre>[[module.imports]]
+  <td><pre>[[module.imports]]
 path = "{{ $host }}/{{ $user }}/{{ $slug }}"
 disable = false
 ignoreConfig = false
-ignoreImports = false</pre></code></td>
-</tr>
+ignoreImports = false</pre></td></tr>
 <tr>
   <th>Latest Version</th>
   <td><a href="{{ $data.html_url }}">{{ $data.tag_name }} ({{ $publishedAt }})</a></td>
 </tr>
 <tr>
   <th>Fix to this version</th>
-  <td><code><pre>hugo mod get {{ $host }}/{{ $user }}/{{ $slug }}@{{ $data.tag_name }}</pre></code></td>
+  <td><pre>hugo mod get {{ $host }}/{{ $user }}/{{ $slug }}@{{ $data.tag_name }}</pre></td>
 </tr>
 </tbody>
 </table>

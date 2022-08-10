@@ -45,7 +45,7 @@
      inkscape:window-x="58"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showguides="true"
      inkscape:guide-bbox="true">
     <sodipodi:guide
@@ -137,7 +137,7 @@
     <color-profile
        name="sRGB"
        xlink:href="file:///usr/share/color/icc/colord/sRGB.icc"
-       id="color-profile51" />
+       id="color-profile1004" />
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -162,7 +162,7 @@
        inkscape:label="Dark Background"
        style="display:inline">
       <rect
-         style="display:inline;fill:#282828;fill-opacity:1;stroke:none;stroke-width:65.6241;stroke-miterlimit:4;stroke-dasharray:none"
+         style="display:inline;fill:#002b36;fill-opacity:1;stroke:none;stroke-width:65.6241;stroke-miterlimit:4;stroke-dasharray:none"
          id="rect968"
          width="1280"
          height="640"
@@ -176,7 +176,7 @@
      inkscape:label="Description">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:42.7405px;line-height:1.25;font-family:sans-serif;fill:#ff4088;fill-opacity:1;stroke:none;stroke-width:1.60278"
+       style="font-style:normal;font-weight:normal;font-size:42.7405px;line-height:1.25;font-family:sans-serif;fill:#dc322f;fill-opacity:1;stroke:none;stroke-width:1.60278"
        x="54.857174"
        y="441.08548"
        id="text12053"
@@ -185,7 +185,7 @@
          id="tspan12051"
          x="54.857174"
          y="441.08548"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.7405px;font-family:'Tomkin Narrow';-inkscape-font-specification:'Tomkin Narrow';fill:#ff4088;fill-opacity:1;stroke-width:1.60278">GoHugo Components by DNB</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.7405px;font-family:'Tomkin Narrow';-inkscape-font-specification:'Tomkin Narrow';fill:#dc322f;fill-opacity:1;stroke-width:1.60278">GoHugo Components by DNB</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -194,7 +194,7 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:170.963px;line-height:1.25;font-family:sans-serif;fill:#ff4088;fill-opacity:1;stroke:none;stroke-width:1.60278"
+       style="font-style:normal;font-weight:normal;font-size:170.963px;line-height:1.25;font-family:sans-serif;fill:#dc322f;fill-opacity:1;stroke:none;stroke-width:1.60278"
        x="45.881603"
        y="601.56049"
        id="text3215"
@@ -203,7 +203,7 @@
          id="tspan3213"
          x="45.881603"
          y="601.56049"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:170.963px;font-family:'Tomkin Condense';-inkscape-font-specification:'Tomkin Condense Bold';fill:#ff4088;fill-opacity:1;stroke-width:1.60278">NAME</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:170.963px;font-family:'Tomkin Condense';-inkscape-font-specification:'Tomkin Condense Bold';fill:#dc322f;fill-opacity:1;stroke-width:1.60278">NAME</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"

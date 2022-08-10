@@ -299,3 +299,28 @@ concludingComment = '''
 # You're still here? It's over.
 '''
 disableBranding = false
+
+[dnb.sitemap]
+enabled = true
+
+[[dnb.sitemap.htmlmap.item]]
+type = ".Type"
+section = "blog"
+label = "Blog Posts"
+
+[[dnb.sitemap.htmlmap.item]]
+type = ".Type"
+section = "components"
+label = "GoHugo Components by DNB"
+
+[[dnb.sitemap.htmlmap.item]]
+type = ".Type"
+section = "tags"
+selection = "in-pages"
+label = "Tags"
+
+[[dnb.sitemap.htmlmap.item]]
+type = ".Type"
+selection = "not-in"
+section = ["blog", "tags", "components"]
+label = "Other pages"

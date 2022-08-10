@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/72860184",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/72860184/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/72860184/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.0.0",
-  "id": 72860184,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/74106404",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/74106404/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/74106404/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.0.1",
+  "id": 74106404,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,19 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGdkoKs4EV8IY",
-  "tag_name": "v1.0.0",
+  "node_id": "RE_kwDOGdkoKs4EasYk",
+  "tag_name": "v1.0.1",
   "target_commitish": "main",
-  "name": "v1.0.0",
+  "name": "v1.0.1",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-07-26T13:44:57Z",
-  "published_at": "2022-07-26T13:47:57Z",
+  "created_at": "2022-08-10T13:59:20Z",
+  "published_at": "2022-08-10T14:00:26Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.0.0",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.0.0",
-  "body": "Does what it promotes to be doing: creating a sitemap. If you are using [davidsneighbour/hugo-robots](https://github.com/davidsneighbour/hugo-robots) then it will add a sitemap entry to the robots.txt file. See [Issues](https://github.com/davidsneighbour/hugo-sitemap/issues) for future features or suggestions."
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.0.1",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.0.1",
+  "body": "## Exclude page from sitemap\r\n\r\nAdd frontmatter to individual pages with the following setup:\r\n\r\n```yaml\r\nconfig:\r\n  sitemap: true\r\n```\r\n\r\n_sitemap_ (boolean): include this page in the sitemap\r\n\r\nAdd/edit global defaults in `config.toml > params` or `config/_defaults/params.toml`:\r\n\r\n```toml\r\n[dnb.sitemap]\r\nenabled = true\r\n```\r\n\r\nWithout any configuration the default is true, meaning to include any page into the sitemap.\r\n\r\n__DEPRECATED__: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions did result in the page being ommited from the sitemap. This is deprecated, but currently still supported. The module will echo a note on CLI about this.\r\n\r\n## What's Changed\r\n* build: update Github organization & use newer NPM dependencies by @ringods in https://github.com/davidsneighbour/hugo-sitemap/pull/39\r\n\r\n## New Contributors\r\n* @ringods made their first contribution in https://github.com/davidsneighbour/hugo-sitemap/pull/39\r\n\r\n**Full Changelog**: https://github.com/davidsneighbour/hugo-sitemap/compare/v0.0.3...v1.0.1",
+  "mentions_count": 1
 }

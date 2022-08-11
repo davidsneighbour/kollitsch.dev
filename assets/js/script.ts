@@ -1,9 +1,10 @@
-// @ts-ignore
 import Alpine from 'alpinejs';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Collapse, Tab } from 'bootstrap';
-//import './components/menu.ts';
+import { Collapse, Tab, Tooltip } from 'bootstrap';
 import 'web-vitals-element';
+// import 'dotenv/config'
+// import "./components/search.ts";
+
+// const { ALGOLIA_APP_ID, ALGOLIA_API_KEY, ALGOLIA_INDEX_NAME } = process.env;
 
 // change Giscus theme
 // function changeGiscusTheme(theme = 'dark_dimmed') {
@@ -72,3 +73,47 @@ collapseElementList.map(function collapsibles(collapseElement: Element) {
 		toggle: false,
 	}).hide();
 });
+
+// Bootstrap Tooltips
+// const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+// const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+// Algolia search
+// document.addEventListener('alpine:init', () => {
+// 	Alpine.data('app', () => ({
+// 		init() {
+// 			let client = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
+// 			this.index = client.initIndex(ALGOLIA_INDEX_NAME);
+// 			this.searchReady = true;
+// 		},
+// 		index: null,
+// 		term: '',
+// 		searchReady: false,
+// 		noResults: false,
+// 		results: null,
+// 		totalHits: null,
+// 		resultsPerPage: null,
+// 		async search() {
+// 			if (this.term === '') return;
+// 			this.noResults = false;
+// 			console.log(`search for ${this.term}`);
+
+// 			//          let rawResults = await this.index.search(this.term);
+// 			let rawResults = await this.index.search(this.term, {
+// 				attributesToSnippet: ['content']
+// 			});
+
+// 			if (rawResults.nbHits === 0) {
+// 				this.noResults = true;
+// 				return;
+// 			}
+// 			this.totalHits = rawResults.nbHits;
+// 			this.resultsPerPage = rawResults.hitsPerPage;
+// 			this.results = rawResults.hits.map(h => {
+// 				h.snippet = h._snippetResult.content.value;
+// 				h.date = new Intl.DateTimeFormat('en-us').format(new Date(h.date));
+// 				return h;
+// 			});
+// 		}
+// 	}))
+// });

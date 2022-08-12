@@ -68,8 +68,13 @@
             {{/* <figcaption class="text-center"></figcaption> */}}
           {{- end -}}
           {{- if eq true ($context.Params.theme.showdate | default true) -}}
+            {{- $publishingdate := printf
+                  "🤖 %s"
+                  ($context.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | default ":date_long")) -}}
             <div class="is--publishdate"
-                title="🤖 {{ $context.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | default ":date_long") -}}">
+                title="{{- $publishingdate -}}"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-title="{{- $publishingdate -}}">
               {{- partialCached "bsicon.html" "calendar3" "calendar3" -}}
             </div>
           {{- end -}}

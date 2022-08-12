@@ -13,4 +13,14 @@
     color: $color-blue-5;
     @extend .alert-link;
   }
+
+  &-dark {
+    --bs-alert-color: var(--sol-base3);
+    --bs-alert-bg: var(--sol-base02);
+    --bs-alert-border: none;
+
+    .alert-link {
+      color: var(--sol-base3);
+    }
+  }
 }

@@ -157,7 +157,24 @@ $container-max-widths: (
 // Local Bootstrap Setup/Overrides
 
 :root {
-  --primary: #{$primary};
+  --sol-base03: #{$base03};
+  --sol-base02: #{$base02};
+  --sol-base01: #{$base01};
+  --sol-base00: #{$base00};
+  --sol-base0: #{$base0};
+  --sol-base1: #{$base1};
+  --sol-base2: #{$base2};
+  --sol-base3: #{$base3};
+  --sol-yellow: #{$yellow};
+  --sol-orange: #{$orange};
+  --sol-red: #{$red};
+  --sol-magenta: #{$magenta};
+  --sol-violet: #{$violet};
+  --sol-blue: #{$blue};
+  --sol-cyan: #{$cyan};
+  --sol-green: #{$green};
+
+  --primary: var(--sol-red);
   --highlight: #{$color-orange-1};
   --highlight2: #{$color-orange-2};
 
@@ -221,7 +238,7 @@ $navbar-brand-font-size: 2rem;
 @import 'bootstrap/scss/pagination';
 @import 'bootstrap/scss/badge';
 @import 'bootstrap/scss/alert';
-// @import 'bootstrap/scss/progress';
+@import 'bootstrap/scss/progress';
 // @import 'bootstrap/scss/list-group';
 // @import 'bootstrap/scss/close';
 // @import 'bootstrap/scss/toasts';

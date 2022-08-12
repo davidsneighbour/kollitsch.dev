@@ -2,11 +2,12 @@
 # yaml-language-server: $schema=../../config/_schema/frontmatter-blog.json
 title: "#100daystooffload"
 linkTitle: "#100daystooffload"
+slug: 100-days-to-offload
 
 # dates
 date: 2022-03-21T23:27:23+07:00
 publishDate: 2022-03-21T23:27:23+07:00
-lastmod: 2022-05-06T21:23:34+07:00
+lastmod: 2022-08-11T23:32:13+07:00
 
 # add multiple resources to create a slider gallery
 resources:
@@ -35,3 +36,5 @@ I really think a better hashtag would have been #100PostsToOffload. But I have n
 > - Get your friends involved!
 
 I think I learned about this challenge on [Kaushal Modi's blog](https://scripter.co/auto-count-100daystooffload-posts/), whom I am hereby challenging to have a lower period of completion of this challenge. I shall add an indicator of progress in the next days to these posts. Let's make this about [Hugo](https://gohugo.io) and stuff that makes the internet better. Accept the challenge!
+
+{{< 100posts >}}

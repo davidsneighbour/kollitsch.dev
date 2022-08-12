@@ -108,9 +108,9 @@ $kbd-bg: var(--primary);
 // Table
 $table-border-width: 1px;
 $table-border-color: var(--primary);
-$table-color: $base03;
-$table-bg: $base03;
-$table-accent-bg: $base03;
+$table-color: var(--sol-base03);
+$table-bg: var(--sol-base03);
+$table-accent-bg: var(--sol-base03);
 
 // buttons
 $btn-border-width: 2px;
@@ -175,10 +175,10 @@ $container-max-widths: (
   --sol-green: #{$green};
 
   --primary: var(--sol-red);
-  --highlight: #{$color-orange-1};
-  --highlight2: #{$color-orange-2};
+  --highlight: var(--sol-red);
+  --highlight2: var(--sol-orange);
 
-  --bg-page: #{$base03};
+  --bg-page: var(--sol-base03);
 
   --color-title: #{$color-gray-1};
   --color: #{$base3};
@@ -243,7 +243,7 @@ $navbar-brand-font-size: 2rem;
 // @import 'bootstrap/scss/close';
 // @import 'bootstrap/scss/toasts';
 // @import 'bootstrap/scss/modal';
-// @import 'bootstrap/scss/tooltip';
+@import 'bootstrap/scss/tooltip';
 // @import 'bootstrap/scss/popover';
 // @import 'bootstrap/scss/carousel';
 // @import 'bootstrap/scss/spinners';

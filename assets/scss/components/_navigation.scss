@@ -1,4 +1,8 @@
-/* @todo cleanup */.navbar {
+/* @todo cleanup */
+.navbar {
+
+  --bs-navbar-padding-y: 0;
+
   .light & {
     @extend .navbar-light;
     @extend .bg-white;
@@ -49,7 +53,7 @@
     color: #{var(--color)};
 
     &.active {
-      color: #{var(--primary)};
+      color: var(--primary);
     }
   }
 }

@@ -1,4 +1,5 @@
 import Alpine from 'alpinejs';
+import * as Popper from "@popperjs/core";
 import { Collapse, Tab, Tooltip } from 'bootstrap';
 import 'web-vitals-element';
 // import 'dotenv/config'
@@ -75,8 +76,8 @@ collapseElementList.map(function collapsibles(collapseElement: Element) {
 });
 
 // Bootstrap Tooltips
-// const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-// const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new Tooltip(tooltipTriggerEl))
 
 // Algolia search
 // document.addEventListener('alpine:init', () => {

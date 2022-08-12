@@ -5,6 +5,10 @@
       "path": "."
     },
     {
+      "name": "configurations",
+      "path": "../configurations"
+    },
+    {
       "name": "hugo-auditor",
       "path": "../hugo-auditor"
     },

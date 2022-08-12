@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Alpine from 'alpinejs';
-import * as Popper from "@popperjs/core";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import * as Popper from '@popperjs/core';
 import { Collapse, Tab, Tooltip } from 'bootstrap';
 import 'web-vitals-element';
 // import 'dotenv/config'

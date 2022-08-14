@@ -32,27 +32,15 @@ bsicon = "envelope-paper-fill"
 [[configurations]]
 name = "@davidsneighbour/browserslist-config"
 url = "https://www.npmjs.com/package/@davidsneighbour/browserslist-config"
-weight = 100
-[[configurations]]
-name = "@davidsneighbour/cypress-config"
-url = "https://www.npmjs.com/package/@davidsneighbour/cypress-config"
-weight = 200
+weight = 500
 [[configurations]]
 name = "@davidsneighbour/eslint-config"
 url = "https://www.npmjs.com/package/@davidsneighbour/eslint-config"
 weight = 300
 [[configurations]]
-name = "@davidsneighbour/postcss-config"
-url = "https://www.npmjs.com/package/@davidsneighbour/postcss-config"
-weight = 400
-[[configurations]]
-name = "@davidsneighbour/standard-version-config"
-url = "https://www.npmjs.com/package/@davidsneighbour/standard-version-config"
-weight = 500
-[[configurations]]
-name = "All configurations"
-url = "https://www.npmjs.com/search?q=%40davidsneighbour"
-weight = 600
+name = "@davidsneighbour/config"
+url = "https://www.npmjs.com/package/@davidsneighbour/config"
+weight = 100
 
 [[hugomodules]]
 name = "Tags"

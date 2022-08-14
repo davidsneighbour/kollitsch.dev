@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@davidsneighbour/htmlvalidate-config"
+    "@davidsneighbour/config/htmlvalidate"
   ],
   "rules": {
     "allowed-links": "off",

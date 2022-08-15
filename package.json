@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2022.6.121",
+  "version": "2022.6.122",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -46,6 +46,7 @@
     "build:hugo": "wireit",
     "build:script": "wireit",
     "build:tailwind": "npx tailwindcss -i ./assets/css/main.css -o ./assets/dist/style.css",
+    "build:giscustheme": "sass --no-source-map --quiet-deps --quiet assets/scss/giscus.scss static/assets/giscus.css",
     "check-env": "wireit",
     "clean": "run-p clean:*",
     "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",

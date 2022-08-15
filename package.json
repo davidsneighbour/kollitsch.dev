@@ -12,7 +12,7 @@
   },
   "homepage": "https://kollitsch.dev",
   "dependencies": {
-    "@davidsneighbour/config": "^1.0.17",
+    "@davidsneighbour/config": "^1.0.18",
     "algoliasearch": "^4.14.2",
     "alpinejs": "^3.10.3",
     "animate.css": "^4.1.1",
@@ -92,45 +92,12 @@
     }
   },
   "browserslist": [
-    ">= 0.5%",
-    "last 2 major versions",
-    "not dead",
-    "Chrome >= 60",
-    "Firefox >= 60",
-    "Firefox ESR",
-    "iOS >= 12",
-    "Safari >= 12",
-    "not op_mini all",
-    "not op_mob > 0",
-    "not opera > 0",
-    "not IE > 0"
+    "extends @davidsneighbour/browserslist-config"
   ],
   "commitlint": {
     "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "body-max-line-length": [
-        0,
-        "always",
-        100
-      ],
-      "type-enum": [
-        0,
-        "always",
-        [
-          "content",
-          "docs",
-          "feat",
-          "fix",
-          "layouts",
-          "refactor",
-          "test",
-          "chore",
-          "wip"
-        ]
-      ]
-    }
+      "@davidsneighbour/config/commitlint"
+    ]
   },
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"

@@ -1,4 +1,3 @@
-/* @todo cleanup */
 @mixin text-shadow($color: var(--bg-card), $pos1: 2px, $pos2: 2px, $wishy: 5px) {
   text-shadow: $pos1 $pos2 $wishy $color;
 }

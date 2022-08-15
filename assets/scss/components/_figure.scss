@@ -1,5 +1,6 @@
-/* @todo cleanup */
 figure {
+  position: relative;
+
   margin-bottom: 0;
   padding: 3px;
   border-radius: $border-radius;
@@ -8,27 +9,29 @@ figure {
 
   font-weight: $font-weight-bold;
   font-variant: small-caps;
-  position: relative;
+
   background-color: var(--primary);
 
   figcaption {
-    color: $color-orange-1;
+    color: var(--sol-orange);
   }
 
   .inline-icons {
     position: absolute;
-    right: 1rem;
-    background-color: rgba($base03, 0.1);
     top: 1rem;
+    right: 1rem;
+
+    color: var(--sol-red);
     line-height: 1;
-    color: $red;
+
+    background-color: rgba(var(--sol-base03), 0.1);
 
     div {
       padding: 0.5rem;
     }
 
     &:hover {
-      background-color: rgba($base03, 0.5);
+      background-color: rgba(var(--sol-base03), 0.5);
     }
 
     .is--copyright {}

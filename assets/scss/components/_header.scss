@@ -1,4 +1,3 @@
-/* @todo cleanup */
 .site-title {
 
   /* stylelint-disable plugin/no-unsupported-browser-features */
@@ -13,7 +12,6 @@
     }
 
     @include text-shadow();
-    @extend .text-gradient-primary;
   }
 
   @extend .display-1;

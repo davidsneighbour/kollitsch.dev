@@ -1,4 +1,3 @@
-/* @todo cleanup */
 .navbar {
 
   --bs-navbar-padding-y: 0;
@@ -36,8 +35,6 @@
   a {
     font-weight: $font-weight-bolder;
     text-transform: uppercase;
-
-    @extend .text-gradient-primary;
   }
 
   img {

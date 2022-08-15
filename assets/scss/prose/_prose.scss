@@ -1,4 +1,3 @@
-/* @todo cleanup */
 .section--content {
   min-height: 100%;
 }
@@ -7,8 +6,6 @@ a {
   font-weight: 400;
 
   box-decoration-break: clone;
-
-  @extend .text-gradient-primary;
 
 }
 
@@ -23,10 +20,7 @@ h6 {
   a {
     color: var(--primary);
     text-decoration: none;
-    @extend .text-gradient-primary;
   }
-
-  @extend .text-gradient-primary;
 }
 
 h2 {
@@ -56,7 +50,7 @@ blockquote {
   padding-left: 0.95rem;
   border-left: var(--primary) 5px solid;
 
-  background-color: rgba($primary, 0.1);
+  background-color: rgba(var(--primary), 0.1);
 
   cite {
     font-style: italic;
@@ -78,6 +72,7 @@ table {
 
   code {
     padding: inherit;
+
     background-color: inherit;
   }
 
@@ -88,19 +83,18 @@ table {
 
 .highlight {
   margin-bottom: $spacer;
-  border: 1pt solid rgba(255, 255, 255, 0.1);
+  border: 1pt solid var(--sol-base01);
 
   .chroma {
     padding: 0.3rem;
   }
-
 
   code {
     padding: 0 0.3rem;
 
     font-weight: 400;
 
-    background-color: $base02;
+    background-color: var(--sol-base02);
   }
 }
 

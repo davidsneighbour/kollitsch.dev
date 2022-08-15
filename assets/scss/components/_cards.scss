@@ -1,15 +1,16 @@
-/* @todo cleanup */
 .post-title {
-  text-transform: uppercase;
-  font-weight: 300;
-  border-bottom: 1px solid $red;
-  margin-bottom: 1rem;
-  font-size: 2rem;
   margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--sol-red);
+
+  font-weight: 300;
+  font-size: 2rem;
+  text-transform: uppercase;
 
   a:hover {
+    border-bottom: 1pt dashed var(--sol-red);
+
     text-decoration: none;
-    border-bottom: 1pt dashed $red;
   }
 }
 

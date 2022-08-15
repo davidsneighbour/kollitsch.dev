@@ -210,7 +210,7 @@ dataCategoryId = "DIC_kwDOGDHt584B_i3-"
 dataMapping = "specific"
 dataReactionsEnabled = "0"
 dataEmitMetadata = "0"
-dataTheme = "dark"
+dataTheme = "https://kollitsch.dev/assets/giscus.css"
 dataLoading = "lazy"
 
 [dnb.giscus.extended]

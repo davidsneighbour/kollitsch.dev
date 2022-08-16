@@ -1,7 +1,7 @@
 ################################################################################
 # see https://gohugo.io/getting-started/configuration/
 ################################################################################
-baseURL = "https://kollitsch.dev/"
+baseURL = "http://192.168.1.201:1313/"
 defaultContentLanguage = "en"
 disableHugoGeneratorInject = true
 enableEmoji = true

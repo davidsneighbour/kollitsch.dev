@@ -34,7 +34,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Setup development environment
 
-- Copy `.env.sample` to `.env` and fill in the values. This will be used by scripts and build system for various tasks. You MUST NOT commit the `.env` file to the repository for obvious reasons. Take notes of your configuration data in something safe, like [Keybase](https://keybase.io/).
+- Copy `.env.sample` to `.env` and fill in the values. This will be used by scripts and build systems for various tasks. You MUST NOT commit the `.env` file to the repository for obvious reasons. Take notes of your configuration data in something safe, like [Keybase](https://keybase.io/).
 - To setup Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 - Run `npm install` to install all dependencies.
 - Install and setup `pre-commit` if you intend to send commits to the repository. This will ensure that all commits adhere to the quality and security standards of this project.
@@ -48,7 +48,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## pre-commit
 
-If you want then install and setup `pre-commit` to check commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
+If you want then install and set up `pre-commit` to check commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
 
 ```bash
 pip install pre-commit
@@ -96,18 +96,18 @@ This repository is currently optimised for Netlify. To create a local copy of th
 
 # Theme
 
-Currently the theme is part of this repository.
+Currently, the theme is part of this repository.
 
 ## Design paradigms for the used theme
 
 - Spacing is applied from top to bottom, meaning that margins are applied to the bottom of items.
 - Responsive design principles are applied as mobile-first.
 - No rows inside of rows (container>row>col>row>col) if this is not explicitly required. It probably is not required anyway.
-- Do not re-invent the wheel. Reuse, recycle.
+- Do not reinvent the wheel. Reuse, recycle.
 
 # Advanced setup
 
-- To enable step debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
+To enable the step to debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
 
 # Netlify Setup
 

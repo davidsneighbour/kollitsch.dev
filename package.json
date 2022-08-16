@@ -23,7 +23,7 @@
     "lazysizes": "^5.3.2",
     "lite-youtube-embed": "^0.2.0",
     "needle": "^3.1.0",
-    "netlify-cli": "^10.17.4",
+    "netlify-cli": "^10.17.7",
     "ninja-keys": "^1.2.2",
     "pixrem": "^5.0.0",
     "postcss": "^8.4.16",
@@ -42,11 +42,10 @@
     "audit:html": "wireit",
     "audit:hugo": "wireit",
     "build": "wireit",
-    "build:frontmatter": "wireit",
+    "build:frontmatter": "node assets/config/frontmatter/build.ts",
+    "build:giscustheme": "sass --no-source-map --quiet-deps --quiet assets/scss/giscus.scss static/assets/giscus.css",
     "build:hugo": "wireit",
     "build:script": "wireit",
-    "build:tailwind": "npx tailwindcss -i ./assets/css/main.css -o ./assets/dist/style.css",
-    "build:giscustheme": "sass --no-source-map --quiet-deps --quiet assets/scss/giscus.scss static/assets/giscus.css",
     "check-env": "wireit",
     "clean": "run-p clean:*",
     "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
@@ -75,9 +74,10 @@
     "lint:templates": "wireit",
     "prettier": "wireit",
     "prettier:fix": "wireit",
-    "release": "wireit",
-    "release:major": "wireit",
-    "release:minor": "wireit",
+    "release": "npm run release:patch",
+    "release:patch": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:major": "standard-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
     "serve": "wireit",
     "serve:hugo": "wireit",
     "serve:script": "wireit",
@@ -103,9 +103,6 @@
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
   },
-  "watch": {
-    "build:frontmatter": "assets/config/frontmatter/**/*.*"
-  },
   "wireit": {
     "audit:html": {
       "command": "html-validate public/**/*.html --config=tests/html-validator/config.json"
@@ -115,12 +112,6 @@
     },
     "build": {
       "command": "run-s build:critical build:hugo"
-    },
-    "build:frontmatter": {
-      "command": "node assets/config/frontmatter/build.ts",
-      "files": [
-        "assets/config/frontmatter/**/*.{ts,json}"
-      ]
     },
     "build:hugo": {
       "command": "./bin/build/hugo"
@@ -196,15 +187,6 @@
     },
     "prettier:fix": {
       "command": "prettier --write 'assets/**/*.ts'"
-    },
-    "release": {
-      "command": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
-    },
-    "release:major": {
-      "command": "standard-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
-    },
-    "release:minor": {
-      "command": "standard-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
     },
     "serve": {
       "command": "run-p serve:hugo"

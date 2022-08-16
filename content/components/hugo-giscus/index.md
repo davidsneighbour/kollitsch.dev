@@ -1,5 +1,5 @@
 ---
-title: GoHugo Components / Hugo-Giscus
+title: Giscus
 linkTitle: "hugo-giscus"
 description: ""
 summary: ""

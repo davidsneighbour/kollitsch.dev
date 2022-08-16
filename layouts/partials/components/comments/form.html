@@ -18,7 +18,7 @@
   {{- if (eq "true" $commentform) -}}
     <div class="col-12">
       {{- partialCached "content/giscus.html" $context $context -}}
-      <script>
+      {{/* <script>
         const { theme } = localStorage;
         let scheme = 'light';
         if (theme === 'dark') {
@@ -26,7 +26,7 @@
         }
         const giscusScript = document.querySelector('#giscus-script');
         giscusScript.dataset.theme = scheme;
-      </script>
+      </script> */}}
     </div>
   {{- end -}}
 {{- end -}}

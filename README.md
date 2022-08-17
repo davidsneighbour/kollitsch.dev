@@ -1,22 +1,24 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6010b26bb5b4c56affa5e96e7537b24)](https://www.codacy.com/gh/davidsneighbour/kollitsch.dev/dashboard)
+
 This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is currently hosted on Netlify and built via GoHugo and most of this repository is set up to work on Netlify and use its features.
 
 - [Setup](#setup)
-  - [General Notes](#general-notes)
-  - [Requirements](#requirements)
-  - [Setup development environment](#setup-development-environment)
-  - [pre-commit](#pre-commit)
+	- [General Notes](#general-notes)
+	- [Requirements](#requirements)
+	- [Setup development environment](#setup-development-environment)
+	- [pre-commit](#pre-commit)
 - [Development](#development)
-  - [Development server](#development-server)
+	- [Development server](#development-server)
 - [Releasing](#releasing)
 - [Deployment](#deployment)
-  - [Publishing on Netlify](#publishing-on-netlify)
+	- [Publishing on Netlify](#publishing-on-netlify)
 - [Theme](#theme)
-  - [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
+	- [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
 - [Advanced setup](#advanced-setup)
 - [Netlify Setup](#netlify-setup)
 - [Hooks (WIP)](#hooks-wip)
 - [Frontmatter Parameters](#frontmatter-parameters)
-  - [Layout options](#layout-options)
+	- [Layout options](#layout-options)
 - [License](#license)
 
 # Setup

@@ -1,4 +1,4 @@
-This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is currently hosted on Netlify and built via GoHugo and most of this repository is set up to work on Netlify and use its features.
+This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is hosted on Netlify and built via GoHugo and most of this repository is specifically set up to work on Netlify and use its features.
 
 - [Setup](#setup)
 	- [General Notes](#general-notes)
@@ -19,7 +19,15 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 	- [Layout options](#layout-options)
 - [License](#license)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6010b26bb5b4c56affa5e96e7537b24)](https://www.codacy.com/gh/davidsneighbour/kollitsch.dev/dashboard)
+| A bunch of badges (work in progress) |
+| :---: |
+| [![Codacy Badge](https://img.shields.io/codacy/grade/f6010b26bb5b4c56affa5e96e7537b24?style=for-the-badge)](https://www.codacy.com/gh/davidsneighbour/kollitsch.dev/dashboard) ![](https://img.shields.io/github/checks-status/davidsneighbour/kollitsch.dev/main?style=for-the-badge) ![](https://img.shields.io/netlify/02e05c7a-11a0-48e0-988f-7fc12267eb89?style=for-the-badge) ![](https://img.shields.io/github/languages/count/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/directory-file-count/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/size/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/tokei/lines/github/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/sponsors/davidsneighbour?style=for-the-badge) ![](https://img.shields.io/github/issues-raw/davidsneighbour/kollitsch.dev?color=ff7700&style=for-the-badge) ![](https://img.shields.io/github/license/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/stars/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/twitter/follow/davidsneighbour?style=for-the-badge) ![](https://img.shields.io/github/go-mod/go-version/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/package-json/v/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/hsts/preload/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fkollitsch.dev) ![](https://img.shields.io/uptimerobot/ratio/m792489075-c3f0ea7d7b1cab5474e02580?label=Uptime&style=for-the-badge) ![](https://img.shields.io/github/commit-activity/w/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/last-commit/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/discussions/davidsneighbour/kollitsch.dev?style=for-the-badge)|
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 # Setup
 

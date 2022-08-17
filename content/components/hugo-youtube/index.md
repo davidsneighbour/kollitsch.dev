@@ -32,49 +32,6 @@ A responsive and very fast shortcode to add youtube videos to your Hugo website.
 
 {{< component-box >}}
 
-<!--- INSTALLUPDATE BEGIN --->
-
-## Installing
-
-First enable modules in your own repository if you did not already have done so:
-
-```bash
-hugo mod init github.com/username/reponame
-```
-
-Then add this module to your required modules in `config.toml`.
-
-```toml
-[module]
-
-[[module.imports]]
-path = "github.com/davidsneighbour/hugo-youtube"
-disable = false
-ignoreConfig = false
-ignoreImports = false
-
-```
-
-The next time you run `hugo` it will download the latest version of the module.
-
-## Updating
-
-```bash
-# update this module
-hugo mod get -u github.com/davidsneighbour/hugo-youtube
-# update to a specific version
-hugo mod get -u github.com/davidsneighbour/hugo-youtube@v1.0.0
-# update all modules recursively over the whole project
-hugo mod get -u ./...
-```
-<!--- INSTALLUPDATE END --->
-
-## Overriding shortcodes
-
-To override shortcodes just add a file in your own shortcode directory with the name of the shortcode that you want to replace.
-
-[Read more about theme components](https://gohugo.io/themes/theme-components/).
-
 ## Usage
 
 This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive, privacy conscious and unbloated custom element for YouTube videos. It uses [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed).
@@ -98,18 +55,22 @@ Run `hugo server` in this module and a list of sample usages will be presented a
 
 ### Resources
 
-If you are not using the dnb-org asset dropin configuration you need to add JavaScript and SCSS files to your Hugo pipes:
+You need to add the following files to your pipelines:
 
 - `libs/liteyoutube/lite-yt-embed.js`
 - `libs/liteyoutube/lite-yt-embed.scss`
 
-Both resources are mounted into the assets folder, so they can be easily integrated into your pipelines.
+These files are mounted into the `assets` directory. Using `js.Build` in Hugo for instance you can import the script this way:
 
-If you are not using any Hugo pipelines (shame on you) then add the Javascript at the end of the page before the `</body>` tag and CSS in the header before the `</head>` tag. These files are available via mount into the `static` folder.
+```js
+import 'libs/liteyoutube/lite-yt-embed';
+```
+
+If you are not using any Hugo pipelines then add the Javascript at the end of the page before the `</body>` tag and CSS in the header before the `</head>` tag. These files are available via mount into the `static` folder.
 
 ```html
 <link href="/libs/liteyoutube/lite-yt-embed.css" rel="stylesheet">
-<script src="/libs/liteyoutube/lite-yt-embed.js"></script>
+<script src="/libs/liteyoutube/lite-yt-embed.js" async defer></script>
 ```
 
 ## Content Security Policy (CSP) rules for this plugin

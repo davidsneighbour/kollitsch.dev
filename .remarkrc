@@ -1,0 +1,3 @@
+{
+  "plugins": ["@davidsneighbour/config/remark", ["remark-lint-write-good", false]]
+}

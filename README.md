@@ -1,5 +1,3 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6010b26bb5b4c56affa5e96e7537b24)](https://www.codacy.com/gh/davidsneighbour/kollitsch.dev/dashboard)
-
 This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is currently hosted on Netlify and built via GoHugo and most of this repository is set up to work on Netlify and use its features.
 
 - [Setup](#setup)
@@ -20,6 +18,8 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Frontmatter Parameters](#frontmatter-parameters)
 	- [Layout options](#layout-options)
 - [License](#license)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6010b26bb5b4c56affa5e96e7537b24)](https://www.codacy.com/gh/davidsneighbour/kollitsch.dev/dashboard)
 
 # Setup
 

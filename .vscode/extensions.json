@@ -3,6 +3,7 @@
     "ms-vscode-remote.vscode-remote-extensionpack",
     "mutantdino.resourcemonitor",
     "google.wireit",
-    "mjmlio.vscode-mjml"
+    "mjmlio.vscode-mjml",
+    "EditorConfig.EditorConfig"
   ]
 }

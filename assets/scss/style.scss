@@ -1,4 +1,3 @@
-/* @todo cleanup */
 @charset 'utf-8';
 
 // adding solarized colorset
@@ -20,7 +19,7 @@ $cyan: #2aa198;
 $green: #859900;
 //@import 'settings/solarized';
 
-// Font setup
+// font setup
 @import 'settings/fonts';
 
 // Bootstrap - Setup Configuration
@@ -47,11 +46,11 @@ $line-height-base: 1.4;
 $small-font-size: 0.875em;
 $code-font-size: $small-font-size;
 
-// Settings
+// settings
 $border-radius: 10px;
 $border-width: 5px;
 
-// Headings
+// headings
 $headings-line-height: 1.3;
 $headings-font-weight: $font-weight-bold;
 // no need for h1-font-size because we use display-1
@@ -78,12 +77,12 @@ $card-cap-bg: transparent;
 $card-bg: transparent;
 $card-spacer-x: 0;
 
-// Navigation
+// navigation
 $nav-link-color: var(--color);
 $nav-link-hover-color: var(--primary);
 
-// Code
-$code-color: var(--primary);
+// code
+$code-color: var(--sol-base0);
 
 // lines
 $hr-margin-y: $spacer;
@@ -93,7 +92,7 @@ $hr-border-width: 0;
 $hr-height: $border-width;
 $hr-opacity: 1;
 
-// Alerts
+// alerts
 $alert-margin-bottom: 0;
 $alert-border-radius: $border-radius;
 $alert-border-width: $border-width;
@@ -145,9 +144,9 @@ $prefix: $variable-prefix;
 
 // layout
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
 );
 
 @import 'bootstrap/scss/maps';
@@ -157,55 +156,55 @@ $container-max-widths: (
 // Local Bootstrap Setup/Overrides
 
 :root {
-  --sol-base03: #{$base03};
-  --sol-base02: #{$base02};
-  --sol-base01: #{$base01};
-  --sol-base00: #{$base00};
-  --sol-base0: #{$base0};
-  --sol-base1: #{$base1};
-  --sol-base2: #{$base2};
-  --sol-base3: #{$base3};
-  --sol-yellow: #{$yellow};
-  --sol-orange: #{$orange};
-  --sol-red: #{$red};
-  --sol-magenta: #{$magenta};
-  --sol-violet: #{$violet};
-  --sol-blue: #{$blue};
-  --sol-cyan: #{$cyan};
-  --sol-green: #{$green};
+	--sol-base03: #{$base03};
+	--sol-base02: #{$base02};
+	--sol-base01: #{$base01};
+	--sol-base00: #{$base00};
+	--sol-base0: #{$base0};
+	--sol-base1: #{$base1};
+	--sol-base2: #{$base2};
+	--sol-base3: #{$base3};
+	--sol-yellow: #{$yellow};
+	--sol-orange: #{$orange};
+	--sol-red: #{$red};
+	--sol-magenta: #{$magenta};
+	--sol-violet: #{$violet};
+	--sol-blue: #{$blue};
+	--sol-cyan: #{$cyan};
+	--sol-green: #{$green};
 
-  --primary: var(--sol-red);
-  --highlight: var(--sol-red);
-  --highlight2: var(--sol-orange);
+	--primary: var(--sol-red);
+	--highlight: var(--sol-red);
+	--highlight2: var(--sol-orange);
 
-  --bg-page: var(--sol-base03);
+	--bg-page: var(--sol-base03);
 
-  --color-title: #{$color-gray-1};
-  --color: #{$base3};
-  --color2: #{$red};
+	--color-title: #{$color-gray-1};
+	--color: #{$base3};
+	--color2: #{$red};
 
-  --card-header-link-color: #{$color-gray-1};
-  --card-header-link-color-hover: #{$color-gray-2};
+	--card-header-link-color: #{$color-gray-1};
+	--card-header-link-color-hover: #{$color-gray-2};
 
-  --footer-color-fg: #{$base2};
-  --footer-color-bg: #{$base03};
+	--footer-color-fg: #{$base2};
+	--footer-color-bg: #{$base03};
 
-  --card-border-color: #{$base03};
+	--card-border-color: #{$base03};
 
-  --#{$prefix}pagination-bg: #{$base03};
-  --#{$prefix}pagination-border-color: #{$color-gray-1};
+	--#{$prefix}pagination-bg: #{$base03};
+	--#{$prefix}pagination-border-color: #{$color-gray-1};
 
-  // https://drafts.csswg.org/css-ui-4/#widget-accent
-  // https://caniuse.com/?search=accent-color
-  accent-color: var(--primary);
+	// https://drafts.csswg.org/css-ui-4/#widget-accent
+	// https://caniuse.com/?search=accent-color
+	accent-color: var(--primary);
 }
 
 .light {
-  // settings for a light theme
+	// settings for a light theme
 }
 
 .dark {
-  // most (or all) of the dark setup is defined as default in :root
+	// most (or all) of the dark setup is defined as default in :root
 }
 
 // color
@@ -277,8 +276,8 @@ $navbar-brand-font-size: 2rem;
 
 // Prose formatting
 .prose {
-  @import 'prose/prose';
-  @import 'prose/footnotes';
+	@import 'prose/prose';
+	@import 'prose/footnotes';
 }
 
 // plugins
@@ -294,12 +293,12 @@ $navbar-brand-font-size: 2rem;
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
-  @import 'plugins/syntax/dark';
+	@import 'plugins/syntax/dark';
 }
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .light {
-  @import 'plugins/syntax/light';
+	@import 'plugins/syntax/light';
 }
 
 // local overrides for child themes

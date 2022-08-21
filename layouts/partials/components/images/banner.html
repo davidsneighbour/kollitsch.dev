@@ -26,7 +26,7 @@
       {{- $images := slice -}}
       {{- range $index, $value := $imageSizes -}}
         {{- $imagesize := printf "%sx%s" (string $value) (string (index $imageSizes2 $index)) -}}
-        {{- $images = $images | append ($image.Fill $imagesize) -}}
+        {{- $images = $images | append ($image.Resize $imagesize) -}}
       {{- end -}}
 
       <figure>

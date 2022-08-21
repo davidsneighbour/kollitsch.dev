@@ -1,7 +1,7 @@
 ---
 type: blog
-title: "{{ replace .Name \"-\" \" \" | title }}"
-linkTitle: "{{ replace .Name \"-\" \" \" | title }}"
+title: {{ replace .Name "-" " " | title }}
+linkTitle: {{ replace .Name "-" " " | title }}
 description: ""
 summary: ""
 

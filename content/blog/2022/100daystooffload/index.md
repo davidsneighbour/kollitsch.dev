@@ -7,7 +7,7 @@ slug: 100-days-to-offload
 # dates
 date: 2022-03-21T23:27:23+07:00
 publishDate: 2022-03-21T23:27:23+07:00
-lastmod: 2022-08-11T23:32:13+07:00
+lastmod: 2022-08-22T23:22:35+07:00
 
 # add multiple resources to create a slider gallery
 resources:
@@ -18,6 +18,9 @@ tags:
   - 100DaysToOffload
   - selfimprovement
   - davidsneighbour
+
+aliases:
+  - 100daystooffload
 ---
 
 I [recently](/blog/2022/notes-from-the-laboratory-february/) started taking part in the [`#100DaysToOffload`](https://100daystooffload.com/) challenge. It's a challenge that tries to create a larger output of content that is interesting and useful. I will try to write about the topics that I have learned during this time while still staying to be the nerd that I am.

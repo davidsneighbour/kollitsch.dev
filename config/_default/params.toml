@@ -60,23 +60,18 @@ default = "dark" # `dark`, `light` or whatever `dnb.theme.switcher.themes` offer
 # `partial` to indicate the inclusion of the value as cached partial
 icontheme = "bootstrap"
 
-[[dnb.theme.switcher.themes]]
-slug = "light"
-icon = "sun-fill"
-
-[[dnb.theme.switcher.themes]]
-slug = "dark"
-icon = "moon-stars-fill"
-
 ################################################################################
 # some DNB Org Components Configuration.
-# see https://learnxinyminutes.com/docs/toml/ for details about TOML
-# see the components documentation for details about those specific
-# configuration options.
+#
+# @see	https://learnxinyminutes.com/docs/toml/ for details about TOML
+# @see	the components documentation for details about those specific
+# 			configuration options.
 ################################################################################
 #
 ################################################################################
-# hugo-pictures @see https://github.com/davidsneighbour/hugo-pictures
+# hugo-pictures
+#
+# @see https://github.com/davidsneighbour/hugo-pictures
 ################################################################################
 [dnb.pictures]
 default_image = "images/placeholder.jpg"
@@ -96,7 +91,9 @@ image_sizes = ["494", "517"]
 break_points = ["520", "540"]
 
 ################################################################################
-# hugo-head @see https://github.com/davidsneighbour/hugo-head
+# hugo-head
+#
+# @see https://github.com/davidsneighbour/hugo-head
 ################################################################################
 [dnb.head]
 charset = "utf-8"

@@ -8,7 +8,8 @@ resources:
 tags:
   - gitignore
   - developers
-lastmod: 2022-07-24T15:29:15+07:00
+  - 100DaysToOffload
+lastmod: 2022-08-22T23:52:02+07:00
 slug: gitignore-gohugo
 aliases:
   - /blog/2021/gitignore-for-gohugo/

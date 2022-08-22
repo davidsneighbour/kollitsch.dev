@@ -222,7 +222,7 @@
 			"command": "tsc --watch"
 		},
 		"server": {
-			"command": "run-p serve watch"
+			"command": "run-p serve"
 		},
 		"server:paranoid": {
 			"command": "bin/server/run-paranoid"

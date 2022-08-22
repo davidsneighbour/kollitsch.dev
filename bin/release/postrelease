@@ -1,36 +1,36 @@
 #!/bin/bash
 
 REQUIRED_TOOLS=(
-  git
+	git
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
-  if ! command -v "${TOOL}" >/dev/null; then
-    echo "${TOOL} is required... "
-    exit 1
-  fi
+	if ! command -v "${TOOL}" >/dev/null; then
+		echo "${TOOL} is required... "
+		exit 1
+	fi
 done
 
 VERSION=$(node -pe 'require("./package.json")["version"]')
 
 FILE=.env
 if [ -f "$FILE" ]; then
-  echo "exporting .env"
-  set -a # export all variables created next
-  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
-  # see https://github.com/koalaman/shellcheck/wiki/SC1090
-  # shellcheck source=/dev/null
-  source "${FILE}"
-  set +a # stop exporting
+	echo "exporting .env"
+	set -a # export all variables created next
+	# this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+	# see https://github.com/koalaman/shellcheck/wiki/SC1090
+	# shellcheck source=/dev/null
+	source "${FILE}"
+	set +a # stop exporting
 fi
 
 # update version in citation configuration
 FILE=CITATION.cff
 if test -f "$FILE"; then
-  sed -i "s/^version: .*/version: ${VERSION}/" $FILE
-  DATE=$(date +%F)
-  sed -i "s/date-released: .*/date-released: ${DATE}/" $FILE
-  git add $FILE
+	sed -i "s/^version: .*/version: ${VERSION}/" $FILE
+	DATE=$(date +%F)
+	sed -i "s/date-released: .*/date-released: ${DATE}/" $FILE
+	git add $FILE
 fi
 
 # retrieve component state
@@ -46,8 +46,8 @@ git commit --signoff --amend --no-edit --quiet
 git push origin main --follow-tags --quiet
 git push origin --tags --quiet
 
-BODY="body"
-URL="$GITHUB_REPO""releases/new?tag=v""$VERSION""&title=v""$VERSION""&body=""$BODY"
+#BODY="body"
+#URL="$GITHUB_REPO""releases/new?tag=v""$VERSION""&title=v""$VERSION""&body=""$BODY"
 
 # create a release on GitHub
-xdg-open "${URL}" &>>/dev/null
+#xdg-open "${URL}" &>>/dev/null

@@ -1,12 +1,11 @@
 {{- define "main" -}}
-  {{- partial "content/section-tagoverview.html" . -}}
   {{- $counter := 0 -}}
   <section id="menu">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h1 class="h2">Hot {{ .Name }}</h1>
-        </div>
+				<div class="col-12 mb-5 card-header">
+					<h1 class="post-title">Tags</h1>
+				</div>
         {{- range $key, $taxonomy := .Site.Taxonomies.tags.ByCount -}}
           {{- if lt $counter 4 -}}
             {{- with site.GetPage (printf "/tags/%s" .Name) -}}
@@ -23,4 +22,5 @@
       </div>
     </div>
   </section>
+  {{- partial "content/section-tagoverview.html" . -}}
 {{- end -}}

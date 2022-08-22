@@ -56,7 +56,7 @@ dataLang = "en"
 
 The data-parameter correspond with the parameters of Giscus. The four parameters `dataRepo`, `dataRepoId`, `dataCategory`, and `dataCategoryId` are required. All other parameters are optional and have default values as shown in the sample above.
 
-You can find the proper values for your setup by filling out the form on the [Giscus configuration page](https://giscus.app/configuration).
+You can find the proper values for your setup by filling out the form on the [Giscus page](https://giscus.app/).
 
 The default `dataMapping` is set to specific and will use the title of the post as term.
 

@@ -1,10 +1,10 @@
 ---
-title: "@davidsneighbour"
+title: davidsneighbour
 
 resources:
-  - title: DNB Org
+  - title: "@davidsneighbour"
     src: header-logo.png
-lastmod: 2022-07-10T19:31:59+07:00
+lastmod: 2022-08-22T21:52:27+07:00
 alias:
   - /tags/dnb-org/
 ---

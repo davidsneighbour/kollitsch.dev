@@ -83,8 +83,7 @@
 		"server": "wireit",
 		"server:paranoid": "wireit",
 		"tests": "wireit",
-		"update": "wireit",
-		"watch": "wireit"
+		"update": "wireit"
 	},
 	"config": {
 		"commitizen": {
@@ -112,9 +111,6 @@
 	},
 	"eslintConfig": {
 		"extends": "@davidsneighbour/eslint-config"
-	},
-	"watch": {
-		"build:frontmatter": "assets/config/frontmatter/**/*.*"
 	},
 	"wireit": {
 		"audit:html": {
@@ -236,9 +232,6 @@
 		},
 		"update": {
 			"command": "npm-check-updates -u --target minor && npm install && fixpack && npx browserslist@latest --update-db"
-		},
-		"watch": {
-			"command": "npm-watch"
 		}
 	}
 }

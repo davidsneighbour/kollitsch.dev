@@ -8,6 +8,10 @@
   {{- $p := where site.RegularPages "Type" "in" site.Params.mainSections -}}
   {{- $p = slice site.Home | append $p -}}
   {{- $paginator = $.Paginate $p -}}
+{{- else if eq .Section "archive" -}}
+	{{- $p := where $.Site.RegularPages "Section" "blog" -}}
+	{{- $p = sort $p "Date" "desc" -}}
+  {{- $paginator = $.Paginate $p 25 -}}
 {{- else -}}
   {{- $paginator = $.Paginator -}}
 {{- end -}}

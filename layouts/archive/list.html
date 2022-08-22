@@ -7,8 +7,10 @@
           <h1 class="h2"><a href="{{ .Permalink }}">Archive</a></h1>
         </div>
         <div class="prose card-body component--archive-card">
-          {{ $archive := where $.Site.RegularPages "Section" "blog" }}
-          {{ range $index, $item := sort $archive "Date" "desc" }}
+          {{/* {{ $archive := where $.Site.RegularPages "Section" "blog" }}
+          {{ range $index, $item := sort $archive "Date" "desc" }} */}}
+					{{- $paginator := .Scratch.Get "paginator" -}}
+		      {{- range $index, $item := $paginator.Pages -}}
             <div class="flex-row d-flex">
                 <div class="me-3 text-end is--date">
                   {{- $item.PublishDate.Format "January 2, 2006" -}}
@@ -27,6 +29,7 @@
         </div>
       </article>
     </div>
+    {{ partial "components/pagination/pagination-simple.html" . . }}
   </div>
 </section>
 {{- end -}}

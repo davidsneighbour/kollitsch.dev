@@ -55,10 +55,6 @@
         {{- end -}}
       </menu>
 
-      {{- if site.Params.dnb.theme.switcher.enabled -}}
-        {{- partialCached "header/theme-switcher.html" . . -}}
-      {{- end -}}
-
     </div>
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-mainnav" "context" . ) -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-end" "context" . ) -}}

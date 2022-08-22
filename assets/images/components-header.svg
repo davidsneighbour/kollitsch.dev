@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg">
   <title>Template for GitHub Repo Image</title>
-  <g>
-    <rect width="1280" height="640" fill="#002b36"/>
-    <text transform="scale(1.0372 .96415)" x="54.857174" y="441.08548" fill="#dc322f" font-family="sans-serif" font-size="42.74px" stroke-width="1.6028" style="line-height:1.25" xml:space="preserve"><tspan x="54.857174" y="441.08548" fill="#dc322f" font-family="'Tomkin Narrow'" font-size="42.74px" stroke-width="1.6028">GoHugo Components by DNB</tspan></text>
-    <text transform="scale(1.0372 .96415)" x="45.881603" y="601.56049" fill="#dc322f" font-family="sans-serif" font-size="170.96px" stroke-width="1.6028" style="line-height:1.25" xml:space="preserve"><tspan x="45.881603" y="601.56049" fill="#dc322f" font-family="'Tomkin Condense'" font-size="170.96px" font-weight="bold" stroke-width="1.6028">NAME</tspan></text>
-  </g>
+  <rect width="1280" height="640" fill="#fdf6e3"/>
+  <text transform="scale(1.0372 .96414)" x="54.857624" y="441.08908" fill="#dc322f" font-family="sans-serif" font-size="42.74px" stroke-width="1.6028" style="line-height:1.25" xml:space="preserve"><tspan x="54.857624" y="441.08908" fill="#dc322f" font-family="'Tomkin Narrow'" font-size="42.74px" stroke-width="1.6028">GoHugo Components by DNB</tspan></text>
+  <text transform="scale(1.0372 .96414)" x="45.881981" y="601.56543" fill="#dc322f" font-family="sans-serif" font-size="170.96px" stroke-width="1.6028" style="line-height:1.25" xml:space="preserve"><tspan x="45.881981" y="601.56543" fill="#dc322f" font-family="'Tomkin Condense'" font-size="170.96px" font-weight="bold" stroke-width="1.6028">NAME</tspan></text>
 </svg>

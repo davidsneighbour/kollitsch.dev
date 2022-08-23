@@ -1,3 +1,5 @@
+replacements = 'github.com/davidsneighbour/hugo-icons -> ../../hugo-icons'
+
 [hugoVersion]
 extended = true
 min = "0.94.0"
@@ -16,6 +18,12 @@ ignoreImports = false
 path = "github.com/davidsneighbour/hugo-debug"
 
 [[imports]]
+disable = true
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-errors"
+
+[[imports]]
 disable = false
 ignoreConfig = false
 ignoreImports = false
@@ -32,6 +40,12 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/davidsneighbour/hugo-giscus"
+
+[[imports]]
+disable = true
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-github"
 
 [[imports]]
 disable = false

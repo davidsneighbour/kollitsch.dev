@@ -5,7 +5,6 @@ killall -q -9 hugo
 
 # cut a release
 npm run release
-npm install
 
 # get the version number
 VERSION=$(node -pe 'require("./package.json")["version"]')

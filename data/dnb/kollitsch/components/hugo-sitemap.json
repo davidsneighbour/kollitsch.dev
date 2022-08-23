@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/74106404",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/74106404/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/74106404/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.0.1",
-  "id": 74106404,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.1",
+  "id": 75109899,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,19 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGdkoKs4EasYk",
-  "tag_name": "v1.0.1",
+  "node_id": "RE_kwDOGdkoKs4EehYL",
+  "tag_name": "v1.1.1",
   "target_commitish": "main",
-  "name": "v1.0.1",
+  "name": "Configurable HTML Sitemap via partial",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-08-10T13:59:20Z",
-  "published_at": "2022-08-10T14:00:26Z",
+  "created_at": "2022-08-23T15:18:51Z",
+  "published_at": "2022-08-23T15:25:52Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.0.1",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.0.1",
-  "body": "## Exclude page from sitemap\r\n\r\nAdd frontmatter to individual pages with the following setup:\r\n\r\n```yaml\r\nconfig:\r\n  sitemap: true\r\n```\r\n\r\n_sitemap_ (boolean): include this page in the sitemap\r\n\r\nAdd/edit global defaults in `config.toml > params` or `config/_defaults/params.toml`:\r\n\r\n```toml\r\n[dnb.sitemap]\r\nenabled = true\r\n```\r\n\r\nWithout any configuration the default is true, meaning to include any page into the sitemap.\r\n\r\n__DEPRECATED__: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions did result in the page being ommited from the sitemap. This is deprecated, but currently still supported. The module will echo a note on CLI about this.\r\n\r\n## What's Changed\r\n* build: update Github organization & use newer NPM dependencies by @ringods in https://github.com/davidsneighbour/hugo-sitemap/pull/39\r\n\r\n## New Contributors\r\n* @ringods made their first contribution in https://github.com/davidsneighbour/hugo-sitemap/pull/39\r\n\r\n**Full Changelog**: https://github.com/davidsneighbour/hugo-sitemap/compare/v0.0.3...v1.0.1",
-  "mentions_count": 1
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.1.1",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.1.1",
+  "body": "This quick release adds a way to use the [new configurable HTML sitemap](https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.0) as partial:\r\n\r\n```go\r\n{{- $config := site.Params.dnb.sitemap.htmlmap -}}\r\n{{- $sitemapdata := (dict \"config\" $config) -}}\r\n{{- partialCached \"sitemap.html\" $sitemapdata $sitemapdata -}}\r\n```\r\n\r\nThe above is the current shortcode, ehm, code. You can just use the global configuration or build your own configuration `dict`ionary to fill your sitemap. This makes the sitemap also usable to just show a collection of pages anywhere:\r\n\r\n```go\r\n{{ $config := dict \"config\" (dict \"item\" (dict\r\n    \"type\" \".Type\"\r\n    \"section\"  \"components\"\r\n    \"label\" \"GoHugo Components by DNB\"\r\n    \"sortvalue\" \".Title\"\r\n    \"sortdirection\" \"ASC\"\r\n)) }}\r\n{{- partialCached \"sitemap.html\" $config $config -}}\r\n```\r\n\r\nThis template would show all items in my `content/components` section, sorted by title. "
 }

@@ -34,8 +34,8 @@ github.com/davidsneighbour/hugo-security v1.1.3 h1:Gv6uqZ/7YUVjkDrpRLF5XuEHTLy6l
 github.com/davidsneighbour/hugo-security v1.1.3/go.mod h1:MJvazS6ktIK7tbA+pddZopCTs1Rbw4iq21bv4J7GJ3U=
 github.com/davidsneighbour/hugo-shortcodes v1.5.3 h1:v/T8kDlTJER4kriUSnsmOCK64J9X/ZWG9Ee0oUxqjKY=
 github.com/davidsneighbour/hugo-shortcodes v1.5.3/go.mod h1:wkCkKIjJqvQ7IwwjKoIHZAMkUM4cqbrllX+HgOZr/50=
-github.com/davidsneighbour/hugo-sitemap v1.0.4 h1:/bb6MOdlP/j34xkRCgs8QffhubOO7QaJrcTy4zhNR2Y=
-github.com/davidsneighbour/hugo-sitemap v1.0.4/go.mod h1:yg6xByEFv+J1UabtBGluLAF4tuekbcgPkwEQbVdIxAY=
+github.com/davidsneighbour/hugo-sitemap v1.1.1 h1:mLnhpxPUfg+2YM7EhEbBL2uO7ftzazefKlULj5+ypdQ=
+github.com/davidsneighbour/hugo-sitemap v1.1.1/go.mod h1:yg6xByEFv+J1UabtBGluLAF4tuekbcgPkwEQbVdIxAY=
 github.com/davidsneighbour/hugo-social v0.1.9 h1:Qe/92X8bOac7ypPWk8lWsf74K20onId/TV6qmZ3jJ3s=
 github.com/davidsneighbour/hugo-social v0.1.9/go.mod h1:d+S7kYwvMiGflVH+PVKYJ5n5miFvgVB3q7zfpC0EaCE=
 github.com/davidsneighbour/hugo-youtube v1.1.5 h1:bakTLxkVmneoqYpr6Z0355Gzn/5vxr8T0G9nECP6Y6I=

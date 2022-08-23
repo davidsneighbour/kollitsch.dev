@@ -311,15 +311,21 @@ label = "Blog Posts"
 type = ".Type"
 section = "components"
 label = "GoHugo Components by DNB"
+sortvalue = ".Title"
+sortdirection = "ASC"
 
 [[dnb.sitemap.htmlmap.item]]
 type = ".Type"
 section = "tags"
 selection = "in-pages"
 label = "Tags"
+sortvalue = ".Title"
+sortdirection = "ASC"
 
 [[dnb.sitemap.htmlmap.item]]
 type = ".Type"
 selection = "not-in"
 section = ["blog", "tags", "components"]
 label = "Other pages"
+sortvalue = ".Title"
+sortdirection = "ASC"

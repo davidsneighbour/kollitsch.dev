@@ -1,4 +1,4 @@
-replacements = 'github.com/davidsneighbour/hugo-icons -> ../../hugo-icons'
+replacements = 'github.com/davidsneighbour/hugo-sitemap -> ../../hugo-sitemap'
 
 [hugoVersion]
 extended = true

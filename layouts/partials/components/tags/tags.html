@@ -6,7 +6,7 @@
     </li>
     {{- range . -}}
       <li class="list-inline-item">
-        <a rel="tag" href="{{- .Permalink -}}">#{{- .Title -}}</a>
+        <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | lower -}}</a>
       </li>
     {{- end -}}
   </ul>

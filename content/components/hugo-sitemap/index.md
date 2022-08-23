@@ -9,7 +9,7 @@ publishDate: 2022-07-19T17:40:35+07:00
 lastmod: 2022-08-03T21:46:21+07:00
 
 resources:
-  - src: github-card-dark.png
+  - src: header-card.png
 
 categories:
   - components

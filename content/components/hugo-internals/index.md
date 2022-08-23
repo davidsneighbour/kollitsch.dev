@@ -1,8 +1,7 @@
 ---
-title: Hugo-Internals
+title: Internals
 linkTitle: hugo-internals
-description: ""
-summary: ""
+description: "This module attempts to replace internal templates used by Hugo with custom ones and other modules and plugins that add identical features more sophisticated or up-to-date. Internal templates of Hugo are highly opiniated, often out of time and not suitable for use in the production environment of a website. The layouts in this repo and it's modules replace them with our own better setup."
 
 date: 2022-07-31T20:50:06+07:00
 publishDate: 2022-07-31T20:50:06+07:00
@@ -30,38 +29,6 @@ component:
 This module attempts to replace internal templates used by Hugo with custom ones and other modules and plugins that add identical features more sophisticated or up-to-date. Internal templates of Hugo are highly opiniated, often out of time and not suitable for use in the production environment of a website. The layouts in this repo and it's modules replace them with our own better setup.
 
 {{< component-box >}}
-
-# Setup
-
-## Installing
-
-First enable modules in your own repository if you didn't do that already:
-
-```bash
-hugo mod init github.com/username/reponame
-```
-
-Then add this module to your required modules in config.toml.
-
-```toml
-[module]
-[[module.imports]]
-path = "github.com/davidsneighbour/hugo-internals"
-disable = false
-ignoreConfig = false
-ignoreImports = false
-```
-
-The next time you run `hugo` it will download the latest version of this module and its dependencies.
-
-## Updating
-
-```shell
-# update this module only
-hugo mod get -u github.com/davidsneighbour/hugo-internals
-# update all modules
-hugo mod get -u ./...
-```
 
 # Replacements
 

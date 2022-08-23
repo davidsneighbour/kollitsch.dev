@@ -18,6 +18,8 @@ github.com/davidsneighbour/hugo-hooks v1.3.5 h1:2MWcJlsmUMAWTMyb6nkYYhFOCA+yx6c1
 github.com/davidsneighbour/hugo-hooks v1.3.5/go.mod h1:AM5v7lsVWD2tQFSzbDClu5Q0lwqxB7P1kpQGMMSaxXY=
 github.com/davidsneighbour/hugo-icons v1.2.5 h1:lopfuuPbqkeo/0batH4pGqP+ilyPI3L4mYuWMhTGBnw=
 github.com/davidsneighbour/hugo-icons v1.2.5/go.mod h1:cAVY5dLwldd82RY3m0DxJZM58iz9rXrqQWdGUp4NccQ=
+github.com/davidsneighbour/hugo-icons v1.2.6 h1:8ondhEitd7HW80c0g0p5g47hd84duH5ZYNVGVpJRAeA=
+github.com/davidsneighbour/hugo-icons v1.2.6/go.mod h1:wTa+0K5CzeTuByvb1j+LHFb6X1r9OnnoDEAWJlaQfpI=
 github.com/davidsneighbour/hugo-internals v1.0.4 h1:34lfZq2pYdfgnfh/K23lrM5JlLDReiBHTicKb9SexL0=
 github.com/davidsneighbour/hugo-internals v1.0.4/go.mod h1:He/x3RgqBTcIrpsN/KkXgB03/RIikuQTg3XSu7hnM3c=
 github.com/davidsneighbour/hugo-netlification v1.2.6 h1:qFZkD7EoaHLu2qTUAVLn91myMaEOEX8Uc4EF4al0Tt0=
@@ -42,5 +44,9 @@ github.com/davidsneighbour/hugo-sitemap v1.0.4 h1:/bb6MOdlP/j34xkRCgs8QffhubOO7Q
 github.com/davidsneighbour/hugo-sitemap v1.0.4/go.mod h1:yg6xByEFv+J1UabtBGluLAF4tuekbcgPkwEQbVdIxAY=
 github.com/davidsneighbour/hugo-social v0.1.7 h1:cc3amORwcJGsqPEiS67cINXzl0BhKe7xaoXawTyRXl8=
 github.com/davidsneighbour/hugo-social v0.1.7/go.mod h1:lKZch4v+mMMucyoCZyRquD2Fi+y3n+88AkutYO5T3F0=
+github.com/davidsneighbour/hugo-social v0.1.9 h1:Qe/92X8bOac7ypPWk8lWsf74K20onId/TV6qmZ3jJ3s=
+github.com/davidsneighbour/hugo-social v0.1.9/go.mod h1:d+S7kYwvMiGflVH+PVKYJ5n5miFvgVB3q7zfpC0EaCE=
 github.com/davidsneighbour/hugo-youtube v1.1.5 h1:bakTLxkVmneoqYpr6Z0355Gzn/5vxr8T0G9nECP6Y6I=
 github.com/davidsneighbour/hugo-youtube v1.1.5/go.mod h1:qR+p/3TJDmApG4sB+ajqV4vvRwWaRr+HZiMwPrRxE7U=
+github.com/tabler/tabler-icons v1.86.0 h1:DhtjUfnkDPH91JgyWVeKB4uMcXfCtCDTX/JgWH+Cak4=
+github.com/tabler/tabler-icons v1.86.0/go.mod h1:Ap75CRdhXxprnUnPlUCRLvJ2pIFNqwxIipj3GfD6XHE=

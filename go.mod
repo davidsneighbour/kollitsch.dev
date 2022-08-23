@@ -12,7 +12,7 @@ require (
 	github.com/davidsneighbour/hugo-github v0.0.1 // indirect
 	github.com/davidsneighbour/hugo-head v1.1.13 // indirect
 	github.com/davidsneighbour/hugo-hooks v1.3.5 // indirect
-	github.com/davidsneighbour/hugo-icons v1.2.5 // indirect
+	github.com/davidsneighbour/hugo-icons v1.2.6 // indirect
 	github.com/davidsneighbour/hugo-internals v1.0.4 // indirect
 	github.com/davidsneighbour/hugo-netlification v1.2.6 // indirect
 	github.com/davidsneighbour/hugo-opensearch v1.0.2 // indirect
@@ -24,6 +24,7 @@ require (
 	github.com/davidsneighbour/hugo-security v1.1.3 // indirect
 	github.com/davidsneighbour/hugo-shortcodes v1.5.3 // indirect
 	github.com/davidsneighbour/hugo-sitemap v1.0.4 // indirect
-	github.com/davidsneighbour/hugo-social v0.1.7 // indirect
+	github.com/davidsneighbour/hugo-social v0.1.9 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.5 // indirect
+	github.com/tabler/tabler-icons v1.86.0 // indirect
 )

@@ -92,7 +92,9 @@ If you want to add an HTML sitemap you can do so via shortcode:
 {{</* sitemap */>}}
 ```
 
-This sitemap requires additional configuration via `config.toml > params` or `config/_defaults/params.toml`, have a look at this following sample:
+Add the sitemap as shortcode `{{</* sitemap */>}}` anywhere you want.
+
+A sample implementation can be found on [kollitsch.dev](https://kollitsch.dev/sitemap/). The following configuration was used:
 
 ```toml
 [[dnb.sitemap.htmlmap.item]]
@@ -104,23 +106,74 @@ label = "Blog Posts"
 type = ".Type"
 section = "components"
 label = "GoHugo Components by DNB"
+sortvalue = ".Title"
+sortdirection = "ASC"
 
 [[dnb.sitemap.htmlmap.item]]
 type = ".Type"
 section = "tags"
 selection = "in-pages"
 label = "Tags"
+sortvalue = ".Title"
+sortdirection = "ASC"
 
 [[dnb.sitemap.htmlmap.item]]
 type = ".Type"
 selection = "not-in"
 section = ["blog", "tags", "components"]
 label = "Other pages"
+sortvalue = ".Title"
+sortdirection = "ASC"
 ```
 
-Each item of the `htmlmap` needs the following parameters:
+The parameters are as follows:
 
-- `type` - for the "where type in something" enquiry
-- `selection` - in-regular, in-pages, not-in
-- `section` - string or slice that defines the section to load into the page object
-- `label` - headline label for the overview of the object, defaults to titled section string
+- `selection` - Type of page selection.
+  - `in-regular` (default, just omit the parameter) - selects the pages from the `site.RegularPages` collection.
+  - `in-pages` - selects from `site.Pages`
+  - `not-in` - selects all pages NOT in `site.Pages`
+- `type` - field option for the page selection
+- `section` - value option for the page selection
+- `label` - Label for the section headline
+- `sortvalue` - if you wish to sort the selection set this to the field to sort by
+- `sortdirection` (default `ASC`) - direction to sort in, `ASC` or `DESC`
+
+Page selection:
+
+Sample:
+
+```toml
+[[dnb.sitemap.htmlmap.item]]
+type = ".Type"
+section = "tags"
+selection = "in-pages"
+```
+
+Results in the pages being selected via:
+
+```gotemplate
+{{- $pages = (where site.Pages .Type "tags") -}}
+```
+
+You can add a sitemap also to any template as a partial:
+
+```go
+{{- $config := site.Params.dnb.sitemap.htmlmap -}}
+{{- $sitemapdata := (dict "config" $config) -}}
+{{- partialCached "sitemap.html" $sitemapdata $sitemapdata -}}
+```
+
+The above is the current shortcode, ehm, code. You can just use the global configuration or build your own configuration `dict`ionary to fill your sitemap. This makes the sitemap also usable to just show a collection of pages anywhere:
+
+```go
+{{ $config := dict "config" (dict "item" (dict
+    "type" ".Type"
+    "section"  "components"
+    "label" "GoHugo Components by DNB"
+    "sortvalue" ".Title"
+    "sortdirection" "ASC"
+)) }}
+{{- partialCached "sitemap.html" $config $config -}}
+```
+
+This template would show all items in my `content/components` section, sorted by title.

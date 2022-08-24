@@ -1,3 +1,6 @@
-<div class="notices {{ .Get 0 }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>
-  <p>{{ .Inner | markdownify }}</p>
+<div class="alert alert-{{- .Get "type" -}}">
+	{{- with (.Get "heading") -}}
+		<strong class="alert-heading">{{- . -}}</strong>
+	{{- end -}}
+  <p>{{- .Inner | markdownify -}}</p>
 </div>

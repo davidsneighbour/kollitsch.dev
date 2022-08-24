@@ -31,6 +31,17 @@ $green: #859900;
 // layouting
 $spacer: 1rem;
 
+// colors
+$body-color: $base0;
+$primary: $red;
+$secondary: $base2;
+$success: $green ;
+$info: $cyan;
+$warning: $yellow;
+$danger: $orange;
+$light: $base2;
+$dark: $base02;
+
 // typography
 $font-family-sans-serif: 'Exo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 $font-family-monospace: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -104,6 +115,9 @@ $kbd-font-size: $code-font-size * 0.9;
 $kbd-color: var(--color);
 $kbd-bg: var(--primary);
 
+// Tables
+$table-th-font-weight: 300;
+
 // Table
 $table-border-width: 1px;
 $table-border-color: var(--primary);
@@ -113,9 +127,6 @@ $table-accent-bg: var(--sol-base03);
 
 // buttons
 $btn-border-width: 2px;
-
-// colors
-$primary: $red;
 
 // settings
 $enable-caret: true;
@@ -278,6 +289,7 @@ $navbar-brand-font-size: 2rem;
 .prose {
 	@import 'prose/prose';
 	@import 'prose/footnotes';
+	@import 'prose/components';
 }
 
 // plugins

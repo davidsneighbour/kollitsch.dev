@@ -139,3 +139,7 @@ Notes about:
 - caching (with hugo-netlification)
 - preloading (needs implementation)
 - maybe a walkthrough how this module implements current features?
+
+# Further Readings
+
+- [A list of up to date best practices for web images by nucliweb](https://github.com/nucliweb/image-element) (those practices are all implemented in this module)

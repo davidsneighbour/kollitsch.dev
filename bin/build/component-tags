@@ -1,0 +1,28 @@
+#!/bin/bash
+
+REQUIRED_TOOLS=(
+	curl
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+	if ! command -v "${TOOL}" >/dev/null; then
+		echo "${TOOL} is required... "
+		exit 1
+	fi
+done
+
+# file location
+COMPONENTPATH="./content/components"
+
+# go through elements
+
+for DIRNAME in "${COMPONENTPATH}"/*/; do
+	DIR=$(basename "$DIRNAME")
+	if [[ $DIR == 'references' ]]; then
+		continue
+	fi
+
+	URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
+	curl "${URL}" --output ./data/dnb/kollitsch/components/"${DIR}".json &>/dev/null
+
+done

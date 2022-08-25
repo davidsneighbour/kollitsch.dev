@@ -49,20 +49,20 @@ npm run clean:hugo
 hugo mod get -u ./...
 
 # create replacements via environment
-NOT_FIRST_LINE=false
-HUGO_MODULE_REPLACEMENTS=""
-REPLACEMENTS="${CURPATH}"/bin/etc/replacements
-if test -f "${REPLACEMENTS}"; then
-	while read -ra __; do
-		if $NOT_FIRST_LINE; then
-			HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
-		else
-			HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
-			NOT_FIRST_LINE=true
-		fi
-	done <"${REPLACEMENTS}"
-	[[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
-fi
+# NOT_FIRST_LINE=false
+# HUGO_MODULE_REPLACEMENTS=""
+# REPLACEMENTS="${CURPATH}"/bin/etc/replacements
+# if test -f "${REPLACEMENTS}"; then
+# 	while read -ra __; do
+# 		if $NOT_FIRST_LINE; then
+# 			HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
+# 		else
+# 			HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
+# 			NOT_FIRST_LINE=true
+# 		fi
+# 	done <"${REPLACEMENTS}"
+# 	[[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
+# fi
 
 # starting hugo server
 hugo server \

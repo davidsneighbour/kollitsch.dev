@@ -6,7 +6,11 @@
           <div class="col-12">
             <div class="text-center text-gradient site-title">
               <a href="{{- site.BaseURL -}}">
-                {{- site.Title -}}
+								{{- with resources.Get "/images/wordmark.svg" -}}
+								<span class="w-max h-max">
+									{{- .Content | safeHTML -}}
+								</span>
+								{{- end -}}
               </a>
             </div>
           </div>

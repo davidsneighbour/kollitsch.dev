@@ -4,6 +4,7 @@
     "mutantdino.resourcemonitor",
     "google.wireit",
     "mjmlio.vscode-mjml",
-    "EditorConfig.EditorConfig"
+    "editorconfig.editorconfig",
+    "mkhl.shfmt"
   ]
 }

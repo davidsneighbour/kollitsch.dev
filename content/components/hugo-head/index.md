@@ -119,6 +119,8 @@ The title generation is able to add a "(page n)" to the title on list pages if y
 {{- .Scratch.Set "paginator" $paginator -}}
 ```
 
+It is also possible to add an additional `sectiontitle` between page and site title. This is set via `sectiontitle` frontmatter. Either add that value individually per page or via `cascade` in the section's `_index.md`.
+
 ### Speed optimisation
 
 To be written.

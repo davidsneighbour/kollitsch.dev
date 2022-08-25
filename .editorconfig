@@ -12,3 +12,7 @@ insert_final_newline = true
 
 [*.md]
 trim_trailing_whitespace = false
+intent_style = space
+
+[*.(yml|yaml)]
+intent_style = space

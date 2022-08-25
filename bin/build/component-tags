@@ -11,8 +11,19 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 	fi
 done
 
+FILE=.env
+if [ -f "$FILE" ]; then
+	echo "exporting .env"
+	set -a # export all variables created next
+	# shellcheck source=.env
+	source "${FILE}"
+	set +a # stop exporting
+fi
+
 # file location
 COMPONENTPATH="./content/components"
+
+AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
 
 # go through elements
 for DIRNAME in "${COMPONENTPATH}"/*/; do
@@ -22,6 +33,6 @@ for DIRNAME in "${COMPONENTPATH}"/*/; do
 	fi
 
 	URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
-	curl "${URL}" --output ./content/components/"${DIR}"/data.json &>/dev/null
+	curl "${URL}" "${AUTH}" --output ./content/components/"${DIR}"/data.json
 
 done

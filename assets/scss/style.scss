@@ -58,8 +58,8 @@ $small-font-size: 0.875em;
 $code-font-size: $small-font-size;
 
 // settings
-$border-radius: 10px;
-$border-width: 5px;
+// $border-radius: 10px;
+// $border-width: 5px;
 
 // headings
 $headings-font-weight: 300;
@@ -80,7 +80,7 @@ $link-hover-color: var(--primary);
 $link-hover-decoration: underline;
 
 // cards
-$card-border-radius: $border-radius;
+// $card-border-radius: $border-radius;
 $card-border-width: 0;
 $card-border-color: transparent;
 $card-height: 100%;
@@ -100,13 +100,10 @@ $hr-margin-y: $spacer;
 $hr-color: var(--primary);
 $hr-bg-color: currentColor;
 $hr-border-width: 0;
-$hr-height: $border-width;
 $hr-opacity: 1;
 
 // alerts
 $alert-margin-bottom: 0;
-$alert-border-radius: $border-radius;
-$alert-border-width: $border-width;
 
 // Typography
 $kbd-padding-y: 0.1rem;

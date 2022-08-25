@@ -2,7 +2,8 @@
 {{- $slug := $component.slug -}}
 {{- $host := $component.host -}}
 {{- $user := $component.user -}}
-{{- $data := index site.Data.dnb.kollitsch.components $slug -}}
+{{- $datafile := printf "content%sdata.json" .Page.RelPermalink -}}
+{{- $data := getJSON $datafile -}}
 {{- $year := substr $data.published_at 0 4 -}}
 {{- $month := substr $data.published_at 5 2 -}}
 {{- $day := substr $data.published_at 8 2 -}}

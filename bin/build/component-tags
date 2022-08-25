@@ -15,7 +15,6 @@ done
 COMPONENTPATH="./content/components"
 
 # go through elements
-
 for DIRNAME in "${COMPONENTPATH}"/*/; do
 	DIR=$(basename "$DIRNAME")
 	if [[ $DIR == 'references' ]]; then
@@ -23,6 +22,6 @@ for DIRNAME in "${COMPONENTPATH}"/*/; do
 	fi
 
 	URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
-	curl "${URL}" --output ./data/dnb/kollitsch/components/"${DIR}".json &>/dev/null
+	curl "${URL}" --output ./content/components/"${DIR}"/data.json &>/dev/null
 
 done

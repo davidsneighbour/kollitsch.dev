@@ -7,7 +7,7 @@ description: Ok, so this is a cat and a dog living peacefully together. I had to
 
 date: 2022-08-25T23:25:16+07:00
 publishDate: 2022-08-25T23:25:16+07:00
-lastmod: 2022-08-25T23:32:46+07:00
+lastmod: 2022-08-25T23:55:58+07:00
 
 resources:
   - title: Photo by [Andrew S](https://unsplash.com/@sita2) via
@@ -25,4 +25,4 @@ unsplash:
   imageid: ouo1hbizWwo
 ---
 
-Ok, so this is a cat and a dog living peacefully together. I had to add this just for some testing purposes ;) Keep calm and keep walking, there is nothing to see here...
+Ok, so this is a cat and a dog living peacefully together. I had to add this just for some testing purposes ;) Keep calm and keep walking, there is nothing to see here (other than animals proving to us humans that one can live together with other kinds, but, well, whatever...)...

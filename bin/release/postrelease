@@ -2,6 +2,7 @@
 
 REQUIRED_TOOLS=(
 	git
+	curl
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -48,14 +49,22 @@ git push origin --tags --quiet
 
 # create a release on GitHub
 BODY="Just a new release"
-URL="$GITHUB_REPO""releases/new?tag=v""$VERSION""&title=v""$VERSION""&body=""$BODY"
+
+URL="$GITHUB_REPO""releases/edit/v""$VERSION"
 curl \
 	-X POST \
 	-H "Accept: application/vnd.github+json" \
 	-H "Authorization: token ${GITHUB_SECRET}" \
 	https://api.github.com/repos/"${GITHUB_REPOSLUG}"/releases \
-	-d "{\"tag_name\":\"${VERSION}\",\"name\":\"${VERSION}\",\"body\":\"${BODY}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":false}"
+	-d "{\"tag_name\":\"v${VERSION}\",\"name\":\"v${VERSION}\",\"body\":\"${BODY}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":false}"
+
 # open page to edit
 xdg-open "${URL}" &>>/dev/null
 
-# @todo: download release data to the data or static directory
+# get the release info into the static directory
+# AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
+# URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
+# 	curl "${URL}" "${AUTH}" --output ./static/assets/build.json
+# git add static/assets/build.json
+# git commit -m git commit -m
+# git push origin --tags --quiet

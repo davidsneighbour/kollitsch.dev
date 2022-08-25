@@ -46,8 +46,16 @@ git commit --signoff --amend --no-edit --quiet
 git push origin main --follow-tags --quiet
 git push origin --tags --quiet
 
-#BODY="body"
-#URL="$GITHUB_REPO""releases/new?tag=v""$VERSION""&title=v""$VERSION""&body=""$BODY"
-
 # create a release on GitHub
-#xdg-open "${URL}" &>>/dev/null
+BODY="Just a new release"
+URL="$GITHUB_REPO""releases/new?tag=v""$VERSION""&title=v""$VERSION""&body=""$BODY"
+curl \
+	-X POST \
+	-H "Accept: application/vnd.github+json" \
+	-H "Authorization: token ${GITHUB_SECRET}" \
+	https://api.github.com/repos/"${GITHUB_REPOSLUG}"/releases \
+	-d "{\"tag_name\":\"${VERSION}\",\"name\":\"${VERSION}\",\"body\":\"${BODY}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":false}"
+# open page to edit
+xdg-open "${URL}" &>>/dev/null
+
+# @todo: download release data to the data or static directory

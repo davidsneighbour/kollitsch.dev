@@ -17,9 +17,9 @@ lastmod: 2022-07-14T21:26:57+07:00
 
 Personal data (usually referred to just as "data" below) will only be processed by us to the extent necessary and for the purpose of providing a functional and user-friendly website, including its contents, and the services offered there.
 
-Per Art. 4 No. 1 of Regulation (EU) 2016/679, i.e. the General Data Protection Regulation (hereinafter referred to as the "GDPR"), "processing" refers to any operation or set of operations such as collection, recording, organization, structuring, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination, or otherwise making available, alignment, or combination, restriction, erasure, or destruction performed on personal data, whether by automated means or not.
+Per Art. 4 No. 1 of Regulation (EU) 2016/679, i.e. the General Data Protection Regulation (hereinafter referred to as the "GDPR"), "processing" refers to any operation or set of operations such as collection, recording, organisation, structuring, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination, or otherwise making available, alignment, or combination, restriction, erasure, or destruction performed on personal data, whether by automated means or not.
 
-The following privacy policy is intended to inform you in particular about the type, scope, purpose, duration, and legal basis for the processing of such data either under our own control or in conjunction with others. We also inform you below about the third-party components we use to optimize our website and improve the user experience which may result in said third parties also processing data they collect and control.
+The following privacy policy is intended to inform you in particular about the type, scope, purpose, duration, and legal basis for the processing of such data either under our own control or in conjunction with others. We also inform you below about the third-party components we use to optimise our website and improve the user experience which may result in said third parties also processing data they collect and control.
 
 Our privacy policy is structured as follows:
 
@@ -80,7 +80,7 @@ The privacy policy of Twitter can be found at
 
 ### YouTube
 
-We maintain an online presence on YouTube to present our company and our services and to communicate with customers/prospects. YouTube is a service of Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland, a subsidiary of Google LLC, 1600 Amphitheater Parkway, Mountain View, CA 94043 USA.
+We maintain an online presence on YouTube to present our company and our services and to communicate with customers/prospects. YouTube is a service of Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland, a subsidiary of Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA.
 
 We would like to point out that this might cause user data to be processed outside the European Union, particularly in the United States. This may increase risks for users that, for example, may make subsequent access to the user data more difficult. We also do not have access to this user data. Access is only available to YouTube.
 
@@ -102,7 +102,7 @@ The LinkedIn privacy policy can be found here:
 
 To advertise our products and services as well as to communicate with interested parties or customers, we have a presence on the Facebook platform.
 
-On this social media platform, we are jointly responsible with Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbor, Dublin 2, Ireland.
+On this social media platform, we are jointly responsible with Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Ireland.
 
 The data protection officer of Facebook can be reached via this contact form:
 
@@ -120,7 +120,7 @@ When accessing our online presence on the Facebook platform, Facebook Ireland Lt
 
 This data of the user is used for statistical information on the use of our company presence on Facebook. Facebook Ireland Ltd. uses this data for market research and advertising purposes as well as for the creation of user profiles. Based on these profiles, Facebook Ireland Ltd. can provide advertising both within and outside of Facebook based on your interests. If you are logged into Facebook at the time you access our site, Facebook Ireland Ltd. will also link this data to your user account.
 
-If you contact us via Facebook, the personal data your provide at that time will be used to process the request. We will delete this data once we have completely responded to your query, unless there are legal obligations to retain the data, such as for subsequent fulfillment of contracts.
+If you contact us via Facebook, the personal data your provide at that time will be used to process the request. We will delete this data once we have completely responded to your query, unless there are legal obligations to retain the data, such as for subsequent fulfilment of contracts.
 
 Facebook Ireland Ltd. might also set cookies when processing your data.
 
@@ -154,7 +154,7 @@ When accessing our online presence on the Instagram platform, Facebook Ireland L
 
 This data of the user is used for statistical information on the use of our company presence on Instagram. Facebook Ireland Ltd. uses this data for market research and advertising purposes as well as for the creation of user profiles. Based on these profiles, Facebook Ireland Ltd. can provide advertising both within and outside of Instagram based on your interests. If you are logged into Instagram at the time you access our site, Facebook Ireland Ltd. will also link this data to your user account.
 
-If you contact us via Instagram, the personal data your provide at that time will be used to process the request. We will delete this data once we have completely responded to your query, unless there are legal obligations to retain the data, such as for subsequent fulfillment of contracts.
+If you contact us via Instagram, the personal data your provide at that time will be used to process the request. We will delete this data once we have completely responded to your query, unless there are legal obligations to retain the data, such as for subsequent fulfilment of contracts.
 
 Facebook Ireland Ltd. might also set cookies when processing your data.
 
@@ -234,7 +234,7 @@ This connection is required in order to be able to display the respective video 
 
 If you are logged in to YouTube when you access our site, YouTube will assign the connection information to your YouTube account. To prevent this, you must either log out of YouTube before visiting our site or make the appropriate settings in your YouTube account.
 
-For the purpose of functionality and analysis of usage behavior, YouTube permanently stores cookies on your device via your browser. If you do not agree to this processing, you have the option of preventing the installation of cookies by making the appropriate settings in your browser. Further details can be found in the section about cookies above.
+For the purpose of functionality and analysis of usage behaviour, YouTube permanently stores cookies on your device via your browser. If you do not agree to this processing, you have the option of preventing the installation of cookies by making the appropriate settings in your browser. Further details can be found in the section about cookies above.
 
 Further information about the collection and use of data as well as your rights and protection options in Google's privacy policy found at
 

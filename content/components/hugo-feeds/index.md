@@ -81,7 +81,7 @@ hugo mod get -u #
 
 `hugo-feeds` uses a cautious approach at configuring the output of the feeds. Where GoHugo's internal RSS template prints _all_ available pages without a configured limit, `hugo-feeds` will load only the 10 latest pages/posts, but you can configure at your pleasure.
 
-If either `rssLimit` or `services.rss.limit` is defined and NOT overridden by any other configuration then these values will be choosen for RSS. Limits for specific feed formats can be configured explicitly.
+If either `rssLimit` or `services.rss.limit` is defined and NOT overridden by any other configuration then these values will be chosen for RSS. Limits for specific feed formats can be configured explicitly.
 
 ```toml
 [dnb]

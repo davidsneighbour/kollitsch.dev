@@ -14,7 +14,7 @@ tags:
   - notes
   - self-improvement
   - 100DaysToOffload
-lastmod: 2022-06-05T20:43:05+07:00
+lastmod: 2022-08-28T21:08:32+07:00
 ---
 
 > I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
@@ -24,7 +24,7 @@ Slightly delayed comes the May report now:
 - **Focus:** Missing.
 - **Fixing things:** A lot more than I like to admit.
 - **Cleanup:** Closing down nonsense repos and projects. Concentrating on the things I like.
-- **kollitsch.dev:** Fixing the color schemes, fixing plenty of stuff under the hood and upgrading to Bootstrap 5.2. I am not sure if I am doing this right.
+- **kollitsch.dev:** Fixing the colour schemes, fixing plenty of stuff under the hood and upgrading to Bootstrap 5.2. I am not sure if I am doing this right.
 - **Customers:** They are all happy it seems. I am not sure if I am doing this right.
 - **Pokki:** I wonder how many months in the future I will look back at this time and think of it as "the good times" before it all ended. I am not sure if I am doing this right.
 - **Language Learning:** Continuing with my Golang lessons and wondering if I am doing this right.

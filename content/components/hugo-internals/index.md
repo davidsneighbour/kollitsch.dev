@@ -40,7 +40,7 @@ This component uses [hugo-robots](https://github.com/davidsneighbour/hugo-robots
 enableRobotsTXT = true
 ```
 
-Read more about detailled setup options at [the documentation](https://kollitsch.dev/components/hugo-robots/).
+Read more about detailed setup options at [the documentation](https://kollitsch.dev/components/hugo-robots/).
 
 ## [hugo-sitemap](https://github.com/davidsneighbour/hugo-sitemap) --- Add a configurable sitemap
 

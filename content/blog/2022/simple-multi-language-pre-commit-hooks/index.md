@@ -9,7 +9,7 @@ summary: This is one of the posts that spent months in draft (fka ideas) mode. R
   thought I might as well add some context to it.
 date: 2022-08-14T22:28:21+07:00
 publishDate: 2022-08-14T22:28:21+07:00
-lastmod: 2022-08-15T0:17:00+07:00
+lastmod: 2022-08-28T18:44:23+07:00
 
 resources:
   - title: Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
@@ -65,7 +65,7 @@ This will remove trailing whitespaces on all files, but markdown files (because,
   rev: v1.8.1
   hooks:
     - id: typos
-      args: ['--config', './tests/config/typos.toml', './content/']
+      args: ['--config', './config/local/typos.toml', './content/']
       files: ^content|i18n
 ```
 

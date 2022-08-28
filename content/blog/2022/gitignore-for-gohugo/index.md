@@ -9,7 +9,7 @@ tags:
   - gitignore
   - developers
   - 100DaysToOffload
-lastmod: 2022-08-22T23:52:02+07:00
+lastmod: 2022-08-28T21:14:08+07:00
 slug: gitignore-gohugo
 aliases:
   - /blog/2021/gitignore-for-gohugo/
@@ -37,7 +37,7 @@ Let me tell you why:
 
 **/assets/jsconfig.json** is a file that is automatically created by Hugo when running it's pipes. It contains local path information that depends on your local workstation. Your home directory might not be in the same directory seen from root on every computer. So leave this file out of the loop. Recreating it will not take much time.
 
-**hugo.log** is my preferred logfile name. If you use `--log` and `--logFile` parameters for your Hugo server and build commands, then you will have a file that keeps a log of everthing your Hugo process has to tell you. Don't add these logs to your repository. The name might change of course based on your preferences.
+**hugo.log** is my preferred logfile name. If you use `--log` and `--logFile` parameters for your Hugo server and build commands, then you will have a file that keeps a log of everything your Hugo process has to tell you. Don't add these logs to your repository. The name might change of course based on your preferences.
 
 **hugo_stats.json** is created if you run Hugo with the `build > writeStats` configuration enabled. It will list used classes, id's and tags and is a tool to help for instance PurgeCSS to work. Don't put that into your repository, because it will change every time you change something in the layouts folder.
 

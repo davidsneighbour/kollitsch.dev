@@ -166,7 +166,7 @@ The resulting error message will look like this:
 
 `SEVERITY TIMESTAMP [namespaceslug/severity-level] message`
 
-*Note:* GoHugo will print all messages that occure more than once will printed only once. This applies to identical error messages. To work around this (if you wish to for instance notify the user about multiple image transformations not working) you should add an identifier (the image url? the resource id?) to the debugging message.
+*Note:* GoHugo will print all messages that occur more than once will printed only once. This applies to identical error messages. To work around this (if you wish to for instance notify the user about multiple image transformations not working) you should add an identifier (the image url? the resource id?) to the debugging message.
 
 *Note2:* Hugo makes only ERROR and WARN levels available, so all `SEVERITY` stamps in the beginning of each log line will be either a red ERROR (from errors and fatals --- 1 to 4) or a yellow WARN for all others (debug to warn --- 5 to 10).
 

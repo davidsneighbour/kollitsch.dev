@@ -56,7 +56,7 @@ enabled = true
 
 Without any configuration the default is true, meaning to include any page into the sitemap.
 
-__DEPRECATED__: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions did result in the page being ommited from the sitemap. This is deprecated, but currently still supported. The module will echo a note on CLI about this.
+__DEPRECATED__: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions did result in the page being omitted from the sitemap. This is deprecated, but currently still supported. The module will echo a note on CLI about this.
 
 ## HTML Sitemap
 

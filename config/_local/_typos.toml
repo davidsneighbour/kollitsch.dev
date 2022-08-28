@@ -1,0 +1,21 @@
+[default]
+locale = "en-gb"
+
+[default.extend-identifiers]
+monetization = "monetization"
+eq = "eq"
+color = "color"
+
+[default.extend-words]
+acer = "acer"
+idea = "idea"
+commitish = "commitish"
+organizations = "organizations"
+cesar = "cesar" # it's a name :)
+updraft = "updraft"
+armor = "armor" # GPG2 parameter
+color = "color"
+
+[type.json]
+extend-glob = ["*.json"]
+check-file = false

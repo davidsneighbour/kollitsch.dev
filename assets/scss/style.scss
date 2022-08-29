@@ -25,9 +25,6 @@ $green: #859900;
 // Bootstrap - Setup Configuration
 @import 'bootstrap/scss/functions';
 
-/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
-@import 'reasonable-colors/reasonable-colors-hsl.scss';
-
 // layouting
 $spacer: 1rem;
 
@@ -187,12 +184,12 @@ $container-max-widths: (
 
 	--bg-page: var(--sol-base03);
 
-	--color-title: #{$color-gray-1};
+	--color-title: $base0;
 	--color: #{$base3};
 	--color2: #{$red};
 
-	--card-header-link-color: #{$color-gray-1};
-	--card-header-link-color-hover: #{$color-gray-2};
+	--card-header-link-color: $base0;
+	--card-header-link-color-hover: $base1;
 
 	--footer-color-fg: #{$base2};
 	--footer-color-bg: #{$base03};
@@ -200,7 +197,7 @@ $container-max-widths: (
 	--card-border-color: #{$base03};
 
 	--#{$prefix}pagination-bg: #{$base03};
-	--#{$prefix}pagination-border-color: #{$color-gray-1};
+	--#{$prefix}pagination-border-color: $base0;
 
 	// https://drafts.csswg.org/css-ui-4/#widget-accent
 	// https://caniuse.com/?search=accent-color

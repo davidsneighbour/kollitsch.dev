@@ -28,7 +28,6 @@
 		"pixrem": "^5.0.0",
 		"postcss": "^8.4.16",
 		"postcss-cli": "^10.0.0",
-		"reasonable-colors": "^0.4.0",
 		"request": "^2.88.2",
 		"sass": "^1.54.5",
 		"svgo": "^2.8.0",

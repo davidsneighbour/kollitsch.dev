@@ -110,3 +110,13 @@ status = "301"
 from = "/repos/textpattern-plugins/current/"
 to = "https://kollitsch.dev/"
 status = "301"
+
+[[redirects]]
+from = "/blog/2021/gitignore-for-gohugo/"
+to = "/blog/2022/gitignore-gohugo/"
+status = "301"
+
+[[redirects]]
+from = "/blog/2022/100daystooffload/"
+to = "/blog/2022/100-days-to-offload/"
+status = "301"

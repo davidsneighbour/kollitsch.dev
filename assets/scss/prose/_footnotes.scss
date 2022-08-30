@@ -1,25 +1,25 @@
 [id^='fnref'] {
-	color: var(--primary);
+  color: var(--primary);
 }
 
 .footnotes {
+  margin-bottom: 0.5rem;
 
-	margin-bottom: 0.5rem;
+  hr {
+    margin: 0.25rem 0;
+    padding: 0;
+    border-top: 1px solid var(--sol-base0);
+  }
 
-	hr {
-		margin: 0.25rem 0;
-		padding: 0;
-		border-top: 1px solid var(--sol-base0);
-	}
+  .footnote-backref {
+    font-weight: 300;
 
-	.footnote-backref {
-		font-weight: 300;
+    visibility: hidden;
 
-		visibility: hidden;
+    &::before {
+      visibility: visible;
 
-		&::before {
-			content: "↥";
-			visibility: visible;
-		}
-	}
+      content: '↥';
+    }
+  }
 }

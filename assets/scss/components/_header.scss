@@ -1,27 +1,28 @@
 .site-title {
 
-	/* stylelint-disable plugin/no-unsupported-browser-features */
-	font-size: 6vw;
-	text-transform: uppercase;
+  /* stylelint-disable plugin/no-unsupported-browser-features */
+  font-size: 6vw;
+  text-transform: uppercase;
 
-	a {
-		text-decoration: none;
+  a {
+    text-decoration: none;
 
-		&:hover {
-			text-decoration: none;
-		}
+    &:hover {
+      text-decoration: none;
+    }
 
-		@include text-shadow();
-	}
+    @include text-shadow();
+  }
 
-	svg {
-		fill: var(--primary);
-		padding: 0 1rem;
-	}
+  svg {
+    padding: 0 1rem;
 
-	@extend .display-1;
+    fill: var(--primary);
+  }
+
+  @extend .display-1;
 }
 
 menu {
-	margin: 0;
+  margin: 0;
 }

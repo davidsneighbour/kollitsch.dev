@@ -45,7 +45,7 @@ main {
   --color-btn-active-bg: hsl(212deg 12% 18% / 50%);
   --color-btn-active-border: #6e7681;
   --color-btn-selected-bg: rgb(45 51 59 / 50%);
-  --color-btn-primary-text: #fff;
+  --color-btn-primary-text: #ffffff;
   --color-btn-primary-bg: #238636;
   --color-btn-primary-border: rgb(240 246 252 / 10%);
   --color-btn-primary-shadow: 0 0 transparent;
@@ -90,7 +90,7 @@ main {
 }
 
 main .pagination-loader-container {
-  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg");
+  background-image: url('https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg');
 }
 
 .gsc-pagination-button {
@@ -100,6 +100,7 @@ main .pagination-loader-container {
 .gsc-homepage-bg {
   background: linear-gradient(135deg, #05485c, #032e58, #2f0154);
   background-size: 600% 600%;
+
   animation: gradient 21s ease infinite;
 }
 
@@ -118,5 +119,5 @@ main .pagination-loader-container {
 }
 
 main .gsc-loading-image {
-  background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+  background-image: url('https://github.githubassets.com/images/mona-loading-dark.gif');
 }

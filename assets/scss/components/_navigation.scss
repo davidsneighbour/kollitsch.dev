@@ -1,58 +1,57 @@
 .navbar {
 
-  --bs-navbar-padding-y: 0;
+	--bs-navbar-padding-y: 0;
 
-  .light & {
-    @extend .navbar-light;
-    @extend .bg-white;
-  }
+	.light & {
+		@extend .navbar-light;
+		@extend .bg-white;
+	}
 
-  .dark & {
-    background-color: var(--bg-page);
-    @extend .navbar-dark;
-  }
+	.dark & {
+		background-color: var(--bg-page);
+		@extend .navbar-dark;
+	}
 
-  .nav-link {
-    &:hover .icon--bs {
-      color: var(--primary);
-    }
+	.nav-link {
+		&:hover .icon--bs {
+			color: var(--primary);
+		}
 
-    .icon--bs {
-      display: inline-block;
-      margin-right: 0.4rem;
-      margin-bottom: 0.1rem;
+		.icon--bs {
+			display: inline-block;
+			margin-right: 0.4rem;
+			margin-bottom: 0.1rem;
 
-      vertical-align: bottom;
-    }
-  }
+			vertical-align: bottom;
+		}
+	}
 
 }
 
 .navbar-dark .navbar-brand,
 .navbar-light .navbar-brand {
-  margin-bottom: -10px;
 
-  a {
-    font-weight: $font-weight-bolder;
-    text-transform: uppercase;
-  }
+	a {
+		font-weight: $font-weight-bolder;
+		text-transform: uppercase;
+	}
 
-  svg {
-    width: auto;
-    height: 28px;
-    padding-bottom: 5px;
+	svg {
+		width: auto;
+		height: 28px;
+		padding-bottom: 5px;
 
-    fill: var(--primary);
-  }
+		fill: var(--primary);
+	}
 
 }
 
 .is--themeswitcher {
-  >span {
-    color: #{var(--color)};
+	>span {
+		color: #{var(--color)};
 
-    &.active {
-      color: var(--primary);
-    }
-  }
+		&.active {
+			color: var(--primary);
+		}
+	}
 }

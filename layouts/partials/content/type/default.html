@@ -13,7 +13,7 @@
       <p>{{- $post.Summary -}}</p>
   </div>
   <div class="text-end">
-      <a href="{{- $post.Permalink -}}" class="mb-2 btn btn-outline-primary">
+      <a href="{{- $post.Permalink -}}" class="btn btn-link">
         {{- i18n "read_article" | default "Read Article" -}}
         <span class="ps-2">
           {{- partialCached "bsicon.html" "body-text" "body-text" -}}

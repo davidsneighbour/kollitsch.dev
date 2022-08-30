@@ -7,7 +7,8 @@
 ) -}}
 {{- $artist = index $artist 0 -}}
 
-<article class="card music2program2 {{ $artist.slug }}">
+				{{- $articleclasses := partialCached "func/getArticleClasses.html" $post $post -}}
+        <article class="{{- $articleclasses -}} music2program2 {{ $artist.slug }}">
   {{- partialCached "components/content/status.html" $post $post -}}
   {{- $settings := dict "id" $post.Params.video.youtube -}}
   <div class="post-slider">
@@ -35,11 +36,9 @@
         {{/* <figcaption class="text-center">{{ $artist.name }}: {{ $post.Params.video.title }}</figcaption>
       </figure> */}}
   </div>
-  <div class="card-header">
     {{/* {{- partialCached "components/content/publishing-date.html" $post $post -}} */}}
     {{- partial "components/content/headline.html" . -}}
-  </div>
-  <div class="prose card-body">
+  <div class="prose">
    {{- with $post.Content -}}
       {{- . -}}
     {{- end -}}
@@ -62,7 +61,7 @@
       {{- partialCached "components/footer/footer.html" $post $post -}}
   {{ else }}
   </div>
-  <div class="card-footer text-end">
+  <div class="text-end">
     <a href="{{- $post.Permalink -}}" class="mb-2 btn btn-outline-primary">
       {{- i18n "read_article" | default "Read Article" -}}
       <span class="ps-2">

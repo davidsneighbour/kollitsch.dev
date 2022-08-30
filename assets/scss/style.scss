@@ -76,15 +76,6 @@ $link-decoration: none;
 $link-hover-color: var(--primary);
 $link-hover-decoration: underline;
 
-// cards
-// $card-border-radius: $border-radius;
-$card-border-width: 0;
-$card-border-color: transparent;
-$card-height: 100%;
-$card-cap-bg: transparent;
-$card-bg: transparent;
-$card-spacer-x: 0;
-
 // navigation
 $nav-link-color: var(--color);
 $nav-link-hover-color: var(--primary);
@@ -149,9 +140,9 @@ $prefix: $variable-prefix;
 
 // layout
 $container-max-widths: (
-	sm: 540px,
-	md: 720px,
-	lg: 960px,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
 );
 
 @import 'bootstrap/scss/maps';
@@ -161,62 +152,54 @@ $container-max-widths: (
 // Local Bootstrap Setup/Overrides
 
 :root {
-	--sol-base03: #{$base03};
-	--sol-base02: #{$base02};
-	--sol-base01: #{$base01};
-	--sol-base00: #{$base00};
-	--sol-base0: #{$base0};
-	--sol-base1: #{$base1};
-	--sol-base2: #{$base2};
-	--sol-base3: #{$base3};
-	--sol-yellow: #{$yellow};
-	--sol-orange: #{$orange};
-	--sol-red: #{$red};
-	--sol-magenta: #{$magenta};
-	--sol-violet: #{$violet};
-	--sol-blue: #{$blue};
-	--sol-cyan: #{$cyan};
-	--sol-green: #{$green};
+  --sol-base03: #{$base03};
+  --sol-base02: #{$base02};
+  --sol-base01: #{$base01};
+  --sol-base00: #{$base00};
+  --sol-base0: #{$base0};
+  --sol-base1: #{$base1};
+  --sol-base2: #{$base2};
+  --sol-base3: #{$base3};
+  --sol-yellow: #{$yellow};
+  --sol-orange: #{$orange};
+  --sol-red: #{$red};
+  --sol-magenta: #{$magenta};
+  --sol-violet: #{$violet};
+  --sol-blue: #{$blue};
+  --sol-cyan: #{$cyan};
+  --sol-green: #{$green};
 
-	--primary: var(--sol-red);
-	--highlight: var(--sol-red);
-	--highlight2: var(--sol-orange);
+  --primary: var(--sol-red);
+  --highlight: var(--sol-red);
+  --highlight2: var(--sol-orange);
 
-	--bg-page: var(--sol-base03);
+  --bg-page: var(--sol-base03);
 
-	--color-title: $base0;
-	--color: #{$base3};
-	--color2: #{$red};
+  --color-title: $base0;
+  --color: #{$base3};
+  --color2: #{$red};
 
-	--card-header-link-color: $base0;
-	--card-header-link-color-hover: $base1;
+  --footer-color-fg: #{$base2};
+  --footer-color-bg: #{$base03};
 
-	--footer-color-fg: #{$base2};
-	--footer-color-bg: #{$base03};
+  --#{$prefix}pagination-bg: #{$base03};
+  --#{$prefix}pagination-border-color: $base0;
 
-	--card-border-color: #{$base03};
-
-	--#{$prefix}pagination-bg: #{$base03};
-	--#{$prefix}pagination-border-color: $base0;
-
-	// https://drafts.csswg.org/css-ui-4/#widget-accent
-	// https://caniuse.com/?search=accent-color
-	accent-color: var(--primary);
+  // https://drafts.csswg.org/css-ui-4/#widget-accent
+  // https://caniuse.com/?search=accent-color
+  accent-color: var(--primary);
 }
 
 .light {
-	// settings for a light theme
+  // settings for a light theme
 }
 
 .dark {
-	// most (or all) of the dark setup is defined as default in :root
+  // most (or all) of the dark setup is defined as default in :root
 }
 
 // color
 $dark: $base03;
-
-$card-bg: #{var(--bg-card)};
-$card-color: #{var(--color)};
 
 // navbar-brand
 $navbar-brand-font-size: 2rem;
@@ -236,7 +219,7 @@ $navbar-brand-font-size: 2rem;
 // @import 'bootstrap/scss/button-group';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
-@import 'bootstrap/scss/card';
+// @import 'bootstrap/scss/card';
 // @import 'bootstrap/scss/accordion';
 // @import 'bootstrap/scss/breadcrumb';
 @import 'bootstrap/scss/pagination';
@@ -273,7 +256,7 @@ $navbar-brand-font-size: 2rem;
 @import 'components/alerts';
 @import 'components/header';
 @import 'components/navigation';
-@import 'components/cards';
+@import 'components/articles';
 @import 'components/figure';
 @import 'components/widgets';
 @import 'components/features';
@@ -281,9 +264,9 @@ $navbar-brand-font-size: 2rem;
 
 // Prose formatting
 .prose {
-	@import 'prose/prose';
-	@import 'prose/footnotes';
-	@import 'prose/components';
+  @import 'prose/prose';
+  @import 'prose/footnotes';
+  @import 'prose/components';
 }
 
 // plugins
@@ -299,10 +282,10 @@ $navbar-brand-font-size: 2rem;
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
-	@import 'plugins/syntax/dark';
+  @import 'plugins/syntax/dark';
 }
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .light {
-	@import 'plugins/syntax/light';
+  @import 'plugins/syntax/light';
 }

@@ -1,0 +1,76 @@
+.post-title {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--sol-red);
+
+  font-weight: 300;
+  font-size: 2rem;
+  text-transform: uppercase;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.component--archive-card {
+  .is--date {
+    min-width: 175px;
+  }
+
+  .is--content {
+    margin-bottom: 1rem;
+
+    h2 {
+      margin-bottom: 0;
+
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+h2,
+h3 {
+  margin-bottom: 0;
+  padding: 0;
+
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.is--publishdate {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+article {
+  position: relative;
+
+  .ribbon {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    z-index: 99999;
+
+    border-top-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    color: var(--sol-base3);
+    text-align: center;
+
+    &.status--draft {
+      background-color: var(--sol-red);
+    }
+
+    @extend .py-1;
+    @extend .px-2;
+
+  }
+
+}

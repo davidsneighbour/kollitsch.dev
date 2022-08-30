@@ -10,7 +10,8 @@
   {{- partial "head.html" . -}}
 </head>
 
-<body class="dark">
+{{ $classes := partialCached "func/getBodyClasses.html" . . }}
+<body class="dark {{ $classes -}}">
   {{- partial "func/hook.html" ( dict
     "hook" "body-start"
     "context" .

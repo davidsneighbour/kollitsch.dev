@@ -1,5 +1,5 @@
 .alert {
-	& p:last-of-type {
-		@extend .mb-0;
-	}
+  & p:last-of-type {
+    @extend .mb-0;
+  }
 }

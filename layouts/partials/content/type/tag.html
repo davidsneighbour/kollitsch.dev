@@ -1,15 +1,15 @@
 {{- $post := .context -}}
 {{- $fullcontent := .fullcontent | default true -}}
-<article class="card">
+
+				{{- $articleclasses := partialCached "func/getArticleClasses.html" $post $post -}}
+        <article class="{{- $articleclasses -}}">
   {{- partialCached "components/content/status.html" $post $post -}}
   {{- partial "components/images/banner.html" . -}}
-  <div class="card-header">
     {{- partial "components/content/headline.html" . -}}
-  </div>
-  <div class="prose card-body">
+  <div class="prose">
     <p>{{- $post.Summary -}}</p>
   </div>
-  <div class="card-footer text-end">
+  <div class="text-end">
     <a href="{{- $post.Permalink -}}" class="mb-2 btn btn-outline-primary">
       Read posts about <strong>{{ $post.Title -}}</strong>
       <span class="ps-2">

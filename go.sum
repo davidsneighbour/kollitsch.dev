@@ -2,12 +2,16 @@ github.com/davidsneighbour/hugo-auditor v0.1.8 h1:4kjfIqucVL+tdnlZqsLNbog3/3RPlm
 github.com/davidsneighbour/hugo-auditor v0.1.8/go.mod h1:tDKQsFP8F8rgmbswmkL00M0gVlcZ0nvJJ4SrHYXJpqY=
 github.com/davidsneighbour/hugo-debug v1.5.19 h1:ZuJmOfUT7xKe/H5oFsgVGXvKjrWntliIxHDb1f0lnlo=
 github.com/davidsneighbour/hugo-debug v1.5.19/go.mod h1:CmaePQn6TcdiP269YMmB0ShEZI47ySDpeWkBV8T2qcU=
+github.com/davidsneighbour/hugo-errors v0.0.4 h1:VzTg2ueCQ/4d71wHMeQF3jZ92O/3X7cskWvBFcIDd3Q=
+github.com/davidsneighbour/hugo-errors v0.0.4/go.mod h1:J8nwmIjjU053x6rsneyT7BEYSqBwXsFRi3u97q454Pk=
 github.com/davidsneighbour/hugo-feeds v1.0.2 h1:DfV8aIyL2TSK+avLuRc0KGD7Sxt5sDsQin3dy7tqxvc=
 github.com/davidsneighbour/hugo-feeds v1.0.2/go.mod h1:3GFyze9utUXZPaxOPlIJKCh7aKMzkgpIGXgVs/a/PVE=
 github.com/davidsneighbour/hugo-functions v1.1.2 h1:k+nqsfeF6/Z6yFZtnS+67utrF7jiTUA2bO3TfNIu4yo=
 github.com/davidsneighbour/hugo-functions v1.1.2/go.mod h1:vcxVzEHYhArEYMR0w+r6h6xwoV6Tkovl/d9fK2n3dQE=
 github.com/davidsneighbour/hugo-giscus v1.2.3 h1:TDerZGXGrzIynqtGxUQTI9YZSvQlApbKcXjx4YnGyuc=
 github.com/davidsneighbour/hugo-giscus v1.2.3/go.mod h1:9w0WXLNMPZXFS8gPqxkROOBQgmSJMA0zdoxChArDMy0=
+github.com/davidsneighbour/hugo-github v0.0.1 h1:jL5aUfMJeGgXnD9cQPAHUIwXGbUXs6VBF5DdC8L6Zs8=
+github.com/davidsneighbour/hugo-github v0.0.1/go.mod h1:c+8VvOGR1zEcXYMn8dZ9+vlltrHUMKI3qekRN6E5Ycg=
 github.com/davidsneighbour/hugo-head v1.1.14 h1:1/KtgUC94TpVITwJNMIGIye4m/+GB+9hHEy1NUQEgPk=
 github.com/davidsneighbour/hugo-head v1.1.14/go.mod h1:1IFHPoWEu0VneqUKQc+aKSWkTu58sht83tYgMSHRIZA=
 github.com/davidsneighbour/hugo-hooks v1.3.5 h1:2MWcJlsmUMAWTMyb6nkYYhFOCA+yx6c1uGm6jHaGr6Y=

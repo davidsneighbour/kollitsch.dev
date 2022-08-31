@@ -25,9 +25,6 @@ $green: #859900;
 // Bootstrap - Setup Configuration
 @import 'bootstrap/scss/functions';
 
-// layouting
-$spacer: 1rem;
-
 // colors
 $body-color: $base0;
 $primary: $red;
@@ -37,7 +34,7 @@ $info: $cyan;
 $warning: $yellow;
 $danger: $orange;
 $light: $base2;
-$dark: $base02;
+$dark: $base03;
 
 // typography
 $font-family-sans-serif: 'Exo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
@@ -53,10 +50,6 @@ $font-weight-base: $font-weight-normal;
 $line-height-base: 1.4;
 $small-font-size: 0.875em;
 $code-font-size: $small-font-size;
-
-// settings
-// $border-radius: 10px;
-// $border-width: 5px;
 
 // headings
 $headings-font-weight: 300;
@@ -77,14 +70,13 @@ $link-hover-color: var(--primary);
 $link-hover-decoration: underline;
 
 // navigation
-$nav-link-color: var(--color);
+$nav-link-color: var(--sol-base2);
 $nav-link-hover-color: var(--primary);
 
 // code
 $code-color: var(--sol-base0);
 
 // lines
-$hr-margin-y: $spacer;
 $hr-color: var(--primary);
 $hr-bg-color: currentColor;
 $hr-border-width: 0;
@@ -97,7 +89,7 @@ $alert-margin-bottom: 0;
 $kbd-padding-y: 0.1rem;
 $kbd-padding-x: 0.2rem;
 $kbd-font-size: $code-font-size * 0.9;
-$kbd-color: var(--color);
+$kbd-color: var(--sol-base2);
 $kbd-bg: var(--primary);
 
 // Tables
@@ -131,8 +123,7 @@ $enable-negative-margins: false;
 $enable-deprecation-messages: true;
 $enable-important-utilities: true;
 
-// Prefix for :root CSS variables
-
+// Prefix for CSS variables
 $variable-prefix: bs-;
 $prefix: $variable-prefix;
 
@@ -140,9 +131,9 @@ $prefix: $variable-prefix;
 
 // layout
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
 );
 
 @import 'bootstrap/scss/maps';
@@ -152,57 +143,53 @@ $container-max-widths: (
 // Local Bootstrap Setup/Overrides
 
 :root {
-  --sol-base03: #{$base03};
-  --sol-base02: #{$base02};
-  --sol-base01: #{$base01};
-  --sol-base00: #{$base00};
-  --sol-base0: #{$base0};
-  --sol-base1: #{$base1};
-  --sol-base2: #{$base2};
-  --sol-base3: #{$base3};
-  --sol-yellow: #{$yellow};
-  --sol-orange: #{$orange};
-  --sol-red: #{$red};
-  --sol-magenta: #{$magenta};
-  --sol-violet: #{$violet};
-  --sol-blue: #{$blue};
-  --sol-cyan: #{$cyan};
-  --sol-green: #{$green};
+	--sol-base03: #{$base03};
+	--sol-base02: #{$base02};
+	--sol-base01: #{$base01};
+	--sol-base00: #{$base00};
+	--sol-base0: #{$base0};
+	--sol-base1: #{$base1};
+	--sol-base2: #{$base2};
+	--sol-base3: #{$base3};
+	--sol-yellow: #{$yellow};
+	--sol-orange: #{$orange};
+	--sol-red: #{$red};
+	--sol-magenta: #{$magenta};
+	--sol-violet: #{$violet};
+	--sol-blue: #{$blue};
+	--sol-cyan: #{$cyan};
+	--sol-green: #{$green};
 
-  --primary: var(--sol-red);
-  --highlight: var(--sol-red);
-  --highlight2: var(--sol-orange);
+	--primary: var(--sol-red);
+	--highlight: var(--sol-red);
+	--highlight2: var(--sol-orange);
 
-  --bg-page: var(--sol-base03);
+	--sol-base02: var(--sol-base03);
 
-  --color-title: $base0;
-  --color: #{$base3};
-  --color2: #{$red};
+	--color-title: $base0;
+	--color: #{$base3};
+	--color2: #{$red};
 
-  --footer-color-fg: #{$base2};
-  --footer-color-bg: #{$base03};
+	--footer-color-fg: #{$base2};
+	--footer-color-bg: #{$base03};
 
-  --#{$prefix}pagination-bg: #{$base03};
-  --#{$prefix}pagination-border-color: $base0;
+	--#{$prefix}pagination-bg: #{$base03};
+	--#{$prefix}pagination-border-color: $base0;
 
-  // https://drafts.csswg.org/css-ui-4/#widget-accent
-  // https://caniuse.com/?search=accent-color
-  accent-color: var(--primary);
+	// https://drafts.csswg.org/css-ui-4/#widget-accent
+	// https://caniuse.com/?search=accent-color
+	accent-color: var(--primary);
 }
 
 .light {
-  // settings for a light theme
+	// settings for a light theme
+	// most (or all) of the light setup is defined as default in :root if dark is default
 }
 
 .dark {
-  // most (or all) of the dark setup is defined as default in :root
+	// settings for a dark theme
+	// most (or all) of the dark setup is defined as default in :root if dark is default
 }
-
-// color
-$dark: $base03;
-
-// navbar-brand
-$navbar-brand-font-size: 2rem;
 
 // Bootstrap - Layout and components
 @import 'bootstrap/scss/root';
@@ -264,9 +251,9 @@ $navbar-brand-font-size: 2rem;
 
 // Prose formatting
 .prose {
-  @import 'prose/prose';
-  @import 'prose/footnotes';
-  @import 'prose/components';
+	@import 'prose/prose';
+	@import 'prose/footnotes';
+	@import 'prose/components';
 }
 
 // plugins
@@ -282,10 +269,10 @@ $navbar-brand-font-size: 2rem;
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
-  @import 'plugins/syntax/dark';
+	@import 'plugins/syntax/dark';
 }
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .light {
-  @import 'plugins/syntax/light';
+	@import 'plugins/syntax/light';
 }

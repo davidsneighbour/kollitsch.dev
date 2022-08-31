@@ -2,7 +2,7 @@
 title: Debug
 linktitle: hugo-debug
 description: Debug everything in Hugo!
-summary: ""
+summary: "This module for GoHugo adds debugging partials for many use cases."
 
 date: 2022-07-27T21:17:03+07:00
 publishDate: 2022-07-27T21:17:03+07:00

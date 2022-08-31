@@ -5,7 +5,7 @@
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
 siteslug = "kollitsch-de"
 # on updating this value add a redirect to data/dnb/netlification/config.toml
-mainSections = ["blog"]
+mainSections = ["blog", "components"]
 
 ###############################################################################
 # theme setup

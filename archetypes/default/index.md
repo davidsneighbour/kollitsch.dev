@@ -18,7 +18,6 @@ author:
   - name: Patrick Kollitsch
     homepage: https://kollitsch.dev/
     image: /images/patrick-kollitsch.jpg
-    email: patrick@kollitsch.de
 
 categories:
   - category1

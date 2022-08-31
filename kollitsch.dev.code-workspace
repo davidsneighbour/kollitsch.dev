@@ -3,6 +3,15 @@
     {
       "name": "kollitsch.dev",
       "path": "."
+    },
+    {
+      "path": "../hugo-head"
+    },
+    {
+      "path": "../hugo-functions"
+    },
+    {
+      "path": "../configurations"
     }
   ],
   "settings": {

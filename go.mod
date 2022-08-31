@@ -5,11 +5,9 @@ go 1.18
 require (
 	github.com/davidsneighbour/hugo-auditor v0.1.8 // indirect
 	github.com/davidsneighbour/hugo-debug v1.5.19 // indirect
-	github.com/davidsneighbour/hugo-errors v0.0.4 // indirect
 	github.com/davidsneighbour/hugo-feeds v1.0.2 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.2 // indirect
 	github.com/davidsneighbour/hugo-giscus v1.2.3 // indirect
-	github.com/davidsneighbour/hugo-github v0.0.1 // indirect
 	github.com/davidsneighbour/hugo-head v1.1.14 // indirect
 	github.com/davidsneighbour/hugo-hooks v1.3.5 // indirect
 	github.com/davidsneighbour/hugo-icons v1.2.8 // indirect

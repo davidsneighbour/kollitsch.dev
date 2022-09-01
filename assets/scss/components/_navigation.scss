@@ -1,10 +1,5 @@
 .navbar {
 
-	.light & {
-		@extend .navbar-light;
-		@extend .bg-white;
-	}
-
 	.dark & {
 		background-color: var(--sol-base03);
 		@extend .navbar-dark;
@@ -24,21 +19,16 @@
 		}
 	}
 
-}
+	.navbar-brand {
 
-.navbar-dark .navbar-brand,
-.navbar-light .navbar-brand {
-	a {
-		font-weight: $font-weight-bolder;
-		text-transform: uppercase;
-	}
+		svg {
+			width: auto;
+			height: 28px;
+			padding-bottom: 5px;
 
-	svg {
-		width: auto;
-		height: 28px;
-		padding-bottom: 5px;
+			fill: var(--primary);
+		}
 
-		fill: var(--primary);
 	}
 
 }

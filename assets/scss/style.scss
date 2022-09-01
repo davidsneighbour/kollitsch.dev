@@ -230,16 +230,14 @@ $container-max-widths: (
 // Bootstrap - Utilities
 @import 'bootstrap/scss/utilities/api';
 
-// create utility classes
+// Create utility classes
 @import 'settings/utilities';
 @import 'settings/mixins';
 
-// theme
-@import 'utilities';
-@import 'layout';
-@import 'footer';
-
-// components
+// Components
+@import 'components/utilities';
+@import 'components/layout';
+@import 'components/footer';
 @import 'components/alerts';
 @import 'components/header';
 @import 'components/navigation';
@@ -250,7 +248,7 @@ $container-max-widths: (
 @import 'components/scrollbars';
 @import 'components/pagination';
 
-// Prose formatting
+// Article content formatting
 .prose {
 	@import 'prose/prose';
 	@import 'prose/footnotes';

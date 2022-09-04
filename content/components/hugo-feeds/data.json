@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/releases/75331704",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/releases/75331704/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-feeds/releases/75331704/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-feeds/releases/tag/v1.0.2",
-  "id": 75331704,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/releases/76027891",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/releases/76027891/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-feeds/releases/76027891/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-feeds/releases/tag/v1.0.3",
+  "id": 76027891,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGkG7Ec4EfXh4",
-  "tag_name": "v1.0.2",
+  "node_id": "RE_kwDOGkG7Ec4EiBfz",
+  "tag_name": "v1.0.3",
   "target_commitish": "main",
-  "name": "Latest release",
+  "name": "v1.0.3",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-07-28T12:47:53Z",
-  "published_at": "2022-08-25T11:14:40Z",
+  "created_at": "2022-09-01T13:16:15Z",
+  "published_at": "2022-09-01T13:17:43Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/tarball/v1.0.2",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/zipball/v1.0.2",
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/tarball/v1.0.3",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-feeds/zipball/v1.0.3",
   "body": ""
 }

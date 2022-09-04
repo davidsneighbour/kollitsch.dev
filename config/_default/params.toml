@@ -176,7 +176,7 @@ icons = false
 sharetext = true
 
 [[dnb.social.network]]
-url = "https://www.facebook.com/davidsneighbour"
+url = "https://www.facebook.com/patrick.kollitsch/"
 icon = "facebook"
 label = "Follow me on Facebook"
 
@@ -186,12 +186,12 @@ icon = "twitter"
 label = "Follow me on Twitter"
 
 [[dnb.social.network]]
-url = "https://www.instagram.com/davids.neighbour"
+url = "https://www.instagram.com/pkollitsch/"
 icon = "instagram"
 label = "Follow me on Instagram"
 
 [[dnb.social.network]]
-url = "https://th.linkedin.com/company/david%27s-neighbour"
+url = "https://www.linkedin.com/in/patrickkollitsch/"
 icon = "linkedin"
 label = "Follow me on LinkedIn"
 

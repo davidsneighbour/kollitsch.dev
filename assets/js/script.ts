@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import Alpine from 'alpinejs';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as Popper from '@popperjs/core';
 import { Collapse, Tab, Tooltip } from 'bootstrap';
 import 'web-vitals-element';
@@ -12,7 +10,7 @@ window.Alpine = Alpine;
 Alpine.start();
 
 // Bootstrap Tabs
-const triggerTabList = Array.prototype.slice.call(document.querySelectorAll('#myTab button'));
+const triggerTabList = Array.prototype.slice.call(document.querySelectorAll('is--codesample a'));
 triggerTabList.forEach((triggerElement: Element) => {
 	const tabTrigger = new Tab(triggerElement);
 	triggerElement.addEventListener('click', (event: { preventDefault: () => void }) => {

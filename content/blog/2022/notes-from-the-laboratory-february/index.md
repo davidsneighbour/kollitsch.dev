@@ -1,10 +1,13 @@
 ---
 title: "Notes from the Laboratory: February 2022"
-linkTitle: "Laboratory 2022-02"
+linkTitle: Laboratory 2022-02
+description: Another monthly report from the depths of the laboratory of kollitsch.den -
+  February 2022
 date: 2022-03-01T19:58:03+07:00
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 categories:
   - notes-from-the-laboratory
 tags:
@@ -14,6 +17,7 @@ tags:
   - 100DaysToOffload
 aliases:
   - /blog/2022/notes-from-the-laboratory-february-2022
+lastmod: 2022-09-04T21:56:20+07:00
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

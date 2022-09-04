@@ -1,7 +1,8 @@
 ---
 title: "Notes from the Laboratory: May 2022"
 linkTitle: Laboratory 2022-05
-description: ""
+description: Another monthly report from the depths of the laboratory of kollitsch.den -
+  May 2022
 date: 2022-06-05T20:26:36+07:00
 resources:
   - src: header.jpg
@@ -14,7 +15,7 @@ tags:
   - notes
   - self-improvement
   - 100DaysToOffload
-lastmod: 2022-08-28T21:08:32+07:00
+lastmod: 2022-09-04T21:57:08+07:00
 ---
 
 > I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

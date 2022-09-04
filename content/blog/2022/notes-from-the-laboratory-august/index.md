@@ -1,12 +1,12 @@
 ---
 title: "Notes from the Laboratory: August 2022"
 linkTitle: Laboratory 2022-08
-description: Another monthly report from the Laboratories of kollitsch.de for the month of
+description: Another monthly report from the depths of the laboratory of kollitsch.den -
   August 2022
 
 date: 2022-09-04T19:23:45+07:00
 publishDate: 2022-09-04T19:23:45+07:00
-lastmod: 2022-09-04T20:29:52+07:00
+lastmod: 2022-09-04T21:55:53+07:00
 
 resources:
   - src: header.jpg

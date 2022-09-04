@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/70977993",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/70977993/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-pwa/releases/70977993/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-pwa/releases/tag/v1.0.0",
-  "id": 70977993,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/76028693",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/76028693/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-pwa/releases/76028693/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-pwa/releases/tag/v1.0.7",
+  "id": 76028693,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGdkmhs4EOwnJ",
-  "tag_name": "v1.0.0",
+  "node_id": "RE_kwDOGdkmhs4EiBsV",
+  "tag_name": "v1.0.7",
   "target_commitish": "main",
-  "name": "Eins",
+  "name": "v1.0.7",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-06-30T13:34:49Z",
-  "published_at": "2022-06-30T13:36:29Z",
+  "created_at": "2022-09-01T13:23:15Z",
+  "published_at": "2022-09-01T13:25:09Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/tarball/v1.0.0",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/zipball/v1.0.0",
-  "body": "A quick release of the current state of the project. "
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/tarball/v1.0.7",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/zipball/v1.0.7",
+  "body": ""
 }

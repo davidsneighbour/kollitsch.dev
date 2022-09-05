@@ -34,15 +34,18 @@ If you want to independently of this module learn about all that is possible in 
 
 ## General setup
 
-`hugo-head` uses opiniated defaults that can be overridden via configuration:
+`hugo-head` uses opiniated defaults that can be overridden via configuration.
 
 {{< code-sample >}}
 [dnb.head]
 charset = "utf-8"
 viewport = "width=device-width, initial-scale=1"
+nobase = true
 {{< / code-sample >}}
 
-It also uses the `baseURL`-parameter of the global configuration object for the `base`-tag.
+- `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
+- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting.
+- `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
 
 ## `title` generation
 
@@ -107,13 +110,13 @@ To be written.
 method = "postcss"
 
 [dnb.head.styles.options]
-# options for the compilation of CSS
-# see https://gohugo.io/hugo-pipes/scss-sass/#options
 outputStyle = "compressed"
 targetPath = "assets/theme.css"
 enableSourceMap = true
 includePaths = ["node_modules/"]
 {{< / code-sample >}}
+
+options for the compilation of CSS --- see <https://gohugo.io/hugo-pipes/scss-sass/#options>
 
 ## Translations
 
@@ -176,16 +179,27 @@ placename = ""
 
 ## Hooks
 
-`hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and makes the following hooks available:
+`hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and provides the following hooks:
 
 <!-- prettier-ignore -->
+{{< div class="table--hooks" >}}
 | Hook | Description |
 | --- | :--- |
-| head-init | Hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
-| head-start | Hooks in after the initial first tags that belong at the beginning of your `head` section. |
-| head-pre-css | Hooks in before the stylesheets are printed. |
-| head-post-css | Hooks in after the stylesheets are printed. |
-| head-end | Hooks in at the end of the `head` right before the closing tag. |
+| head-init | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
+| head-start | hooks in after the initial first tags that belong at the beginning of your `head` section. |
+| head-post-speed-optimisation ||
+| head-post-description ||
+| head-post-author ||
+| head-pre-css | hooks in before the stylesheets are printed. |
+| head-post-css | hooks in after the stylesheets are printed. |
+| head-post-translations ||
+| head-post-seo ||
+| head-post-series ||
+| head-post-* ||
+| head-post-alternates ||
+| head-post-verification ||
+| head-end | hooks in at the end of the `head` right before the closing tag. |
+{{< /div >}}
 
 ## Sites and Projects using `hugo-head`
 

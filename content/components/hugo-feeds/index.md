@@ -59,8 +59,7 @@ Then add this module to your required modules in config.toml.
 [module]
 
 [[module.imports]]
-path = " $MODULENAME$"
-
+path = "$MODULENAME$"
 ```
 
 The next time you run `hugo` it will download the latest version of the module.
@@ -101,13 +100,6 @@ limit = 10
 Limits are formatted via integers. 0 disables, everything at 1 and over selects the last x items and -1 will list all items.
 
 ### TODO: configuration
-
-```toml
-[dnb.feeds]
-[dnb.feeds.atom]
-[dnb.feeds.rss]
-[dnb.feeds.json]
-```
 
 ### Posts to show in feeds
 

@@ -102,7 +102,7 @@ Notes: right now it expects a galleryid parameter for a folder inside of pagebun
 
 The figure partial executes the end of the shortcode (wording?) and can be called with an options dictionary of the following format:
 
-```json
+```json { single=true }
 {
  "name": "",
  "src": "",

@@ -68,7 +68,7 @@ The next time you run hugo it will download the latest version of the module.
 
 ```toml
 [outputs]
-home = [ ... others ... , "REDIR", "HEADERS" ]
+home = [ "REDIR", "HEADERS" ]
 ```
 
 You should already have an `[outputs]` section, add `"REDIR", "HEADERS"` to it. Add them to the `home` parameter, not to other definitions.

@@ -9,7 +9,7 @@ summary: This is one of the posts that spent months in draft (fka ideas) mode. R
   thought I might as well add some context to it.
 date: 2022-08-14T22:28:21+07:00
 publishDate: 2022-08-14T22:28:21+07:00
-lastmod: 2022-08-28T18:44:23+07:00
+lastmod: 2022-09-06T21:37:19+07:00
 
 resources:
   - title: Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
@@ -49,8 +49,8 @@ Your configuration is situated in `.pre-commit-config.yaml`. Feel free to have a
 
 Some of my favourite examples are the following ones:
 
-```yaml
-- repo: 'https://github.com/pre-commit/pre-commit-hooks'
+```yaml { single=true }
+- repo: "https://github.com/pre-commit/pre-commit-hooks"
   rev: v4.2.0
   hooks:
   - id: trailing-whitespace
@@ -60,7 +60,7 @@ Some of my favourite examples are the following ones:
 
 This will remove trailing whitespaces on all files, but markdown files (because, well, if you do Markdown right then two spaces at the end of a line are the same as an `<br/>` tag, which you of course knew already).
 
-```yaml
+```yaml { single=true }
 - repo: 'https://github.com/crate-ci/typos'
   rev: v1.8.1
   hooks:
@@ -71,7 +71,7 @@ This will remove trailing whitespaces on all files, but markdown files (because,
 
 Typos is a great source code spell checker. Use it, check it.
 
-```yaml
+```yaml { single=true }
 - repo: 'https://github.com/zricethezav/gitleaks'
   rev: v8.8.4
   hooks:

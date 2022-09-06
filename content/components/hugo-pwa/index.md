@@ -102,13 +102,13 @@ To make this component work you need to add the manifest to your _home_ output f
 
 ```toml
 [outputs]
-home = [ ... others ... , "manifest" ]
+home = [ "manifest" ]
 ```
 
 or in `config/_default/outputs.toml`:
 
 ```toml
-home = [ ... others ... , "manifest"]
+home = [ "manifest"]
 ```
 
 You already should have an `[output]` section, add `"manifest"` to it. Do not add it anywhere other than in the `home` directive.

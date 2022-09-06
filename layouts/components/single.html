@@ -8,7 +8,22 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mb-5">
-          {{ partial "content/post.html" $post $post }}
+					{{- $articleclasses := partialCached "func/getArticleClasses.html" $post $post -}}
+					<article class="{{- $articleclasses -}}">
+						{{- partialCached "components/content/status.html" $post $post -}}
+						{{- partial "components/images/banner.html" $post -}}
+
+
+						<h1 class="post-title">
+							<a href="{{- .Permalink -}}">{{- .Title }}						{{ with .Resources.Get "data.json" }}
+						{{- $data := . | unmarshal -}}
+						<small class="text-muted">{{- $data.tag_name -}}</small>
+						{{ end }}</a>
+						</h1>
+						<div class="prose">
+							{{- .Content -}}
+						</div>
+					</article>
         </div>
       </div>
     </div>

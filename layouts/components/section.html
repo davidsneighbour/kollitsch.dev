@@ -1,0 +1,42 @@
+{{- define "main" -}}
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+      {{- $paginator := .Scratch.Get "paginator" -}}
+      <h1 class="visually-hidden h2">
+        Recent Posts (Page {{ $paginator.PageNumber -}})
+      </h1>
+      {{- $fullcontent := false -}}
+      {{- if (eq $.Kind "page") -}}
+        {{- $fullcontent = true -}}
+      {{- end -}}
+      {{- range $index, $item := $paginator.Pages -}}
+				{{- $post := $item -}}
+				<div class="col-12 col-md-6 mb-4">
+					{{- $articleclasses := partialCached "func/getArticleClasses.html" $post $post -}}
+					<article class="{{- $articleclasses -}}">
+						{{- partialCached "components/content/status.html" $post $post -}}
+						{{- partial "components/images/banner.html" (dict "context" $item) -}}
+						{{- $data := $item.Resources.Get "data.json" | unmarshal -}}
+						<h2 class="post-title">
+							<a href="{{- $post.Permalink -}}">{{- $post.Title }} <small class="text-muted">{{- $data.tag_name -}}</small></a>
+						</h2>
+						<div class="prose">
+							<p>{{- $post.Summary -}}</p>
+						</div>
+						<div class="text-end">
+							<a href="{{- $post.Permalink -}}" class="btn btn-link">
+								{{- i18n "read_article" | default "Read Article" -}}
+								<span class="ps-2">
+									{{- partialCached "bsicon.html" "body-text" "body-text" -}}
+								</span>
+							</a>
+						</div>
+					</article>
+				</div>
+      {{- end -}}
+    </div>
+    {{ partial "components/pagination/pagination-simple.html" . . }}
+  </div>
+</section>
+{{- end -}}

@@ -8,6 +8,7 @@
 {{- $month := substr $data.published_at 5 2 -}}
 {{- $day := substr $data.published_at 8 2 -}}
 {{- $publishedAt := printf "%s-%s-%s" $year $month $day -}}
+<div class="table-responsive">
 <table>
 <tbody>
 <tr>
@@ -27,3 +28,4 @@ ignoreImports = false</pre></td></tr>
 </tr>
 </tbody>
 </table>
+</div>

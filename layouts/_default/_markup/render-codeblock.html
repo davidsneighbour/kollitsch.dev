@@ -6,4 +6,64 @@
 {{- end -}}
 {{- $replacement := (printf "%s%s" "code" (substr (md5 .Inner) 0 7)) -}}
 {{- $data.SetInMap "options" "lineanchors" $replacement -}}
-{{- highlight .Inner .Type ($data.Get "options") -}}
+
+{{- $slug := printf "c%s" (partial "func/getRandomString" (dict "limit" 8)) -}}
+
+{{- $fm :=  false -}}
+{{- $type := "config" -}}
+{{- $langs := slice "toml" "yaml" "json" -}}
+{{- $delimiters := dict
+			"toml" "+++"
+			"yaml" "---"
+-}}
+{{- $placeHolder := "#-hugo-placeholder-#" -}}
+
+{{- $configTypes := slice "toml" "yaml" "json" -}}
+
+{{ $type := "single" }}
+{{- if in $configTypes .Type -}}
+	{{- if isset .Attributes "single" -}}
+		{{ $type = "single" }}
+	{{- else -}}
+		{{ $type = "config" }}
+	{{- end -}}
+{{- end -}}
+
+{{- if eq $type "single" -}}
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<button class="nav-link active" id="{{- $slug -}}-tab" data-bs-toggle="tab" data-bs-target="#{{- $slug -}}" type="button" role="tab" aria-controls="{{- $slug -}}" aria-selected="true">{{- .Type -}}</button>
+		</li>
+	</ul>
+{{- else -}}
+	<ul class="nav nav-tabs" role="tablist">
+		{{- range $configTypes -}}
+			<li class="nav-item" role="presentation">
+				<button class="nav-link {{ if eq . "toml" }}active{{ end }}" id="{{- $slug -}}-{{- . -}}-tab" data-bs-toggle="tab" data-bs-target="#{{- $slug -}}-{{- . -}}" type="button" role="tab" aria-controls="{{- $slug -}}-{{- . -}}" aria-selected="true">{{- . | upper -}}</button>
+			</li>
+		{{- end -}}
+		<li class="nav-item">
+			<a class="nav-link disabled">(click to select format)</a>
+		</li>
+	</ul>
+{{- end -}}
+
+{{- if eq $type "single" }}
+	<div class="tab-content">
+		<div class="tab-pane active" id="{{- $slug -}}" role="tabpanel" aria-labelledby="{{- $slug -}}-tab" tabindex="0">
+			{{ highlight  $.Inner .Type ($data.Get "options") | safeHTML }}
+		</div>
+	</div>
+{{ else }}
+	<div class="tab-content">{{- range $configTypes -}}
+		<div class="tab-pane {{ if eq . "toml" }}active{{ end }}" id="{{- $slug -}}-{{- . -}}" role="tabpanel" aria-labelledby="{{- $slug -}}-{{- . -}}-tab" tabindex="0">
+			{{- $hCode := $.Inner | transform.Remarshal . -}}
+			{{- if and $fm (in (slice "toml" "yaml") .) -}}
+				{{- $hCode = printf "%s\n%s\n%s" $placeHolder $hCode $placeHolder -}}
+			{{- end -}}
+			{{- $hCode = $hCode | replaceRE `\n+` "\n" }}
+			{{ highlight $hCode . "" | replaceRE $placeHolder (index $delimiters .) | safeHTML }}
+	</div>
+{{- end -}}
+</div>
+{{ end }}

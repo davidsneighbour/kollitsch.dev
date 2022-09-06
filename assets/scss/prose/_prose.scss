@@ -17,6 +17,7 @@ h5,
 h6 {
 	color: var(--primary);
 	font-weight: 300;
+	border-bottom: 1px solid var(--sol-base01);
 
 	code {
 
@@ -125,4 +126,10 @@ kbd {
 	padding: 0.1rem 0.2rem 0;
 
 	line-height: 1;
+}
+
+picture {
+	img {
+		border: 1px solid var(--sol-base01);
+	}
 }

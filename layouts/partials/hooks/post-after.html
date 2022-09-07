@@ -2,7 +2,7 @@
   {{- $tag100 := (index site.Taxonomies.tags "100daystooffload") -}}
   {{- $allPosts := $tag100.Pages -}}
   {{- $amount := len $allPosts -}}
-  <div class="alert alert-dark mb-3" role="alert">
+  <div class="alert alert-dark mb-3 px-0" role="alert">
     <p class="alert-heading">
       This post is part of <a href="/blog/2022/100-days-to-offload/" class="alert-link">#100DaysToOffload</a> (total posts: {{- $amount -}})
     </p>

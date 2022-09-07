@@ -3,6 +3,7 @@ import * as Popper from '@popperjs/core';
 import { Collapse, Tab, Tooltip } from 'bootstrap';
 import 'web-vitals-element';
 import 'libs/liteyoutube/lite-yt-embed';
+import './components/back-to-top.ts';
 
 // @ts-ignore
 window.Alpine = Alpine;

@@ -36,7 +36,7 @@ If you want to learn about all that is possible in the `<head>` tag then have a 
 
 ## General setup
 
-```go-html-template{ attrName1=attrValue1 attrName2="attr Value 2" }
+```go-html-template
 <head>
   {{ partial "head.html" . }}
 </head>
@@ -59,7 +59,7 @@ nobase = false
 
 ## `title` and `description` generation
 
-The title will be generated from the title frontmatter of the content file. If we are on the home page the site title is used. On subsequent listpages a `(Page n)` is added. On all pages except the homepage a separator and the sites title is added at the end.
+The title will be generated from the title frontmatter of the content file. If we are on the home page the site title is used. On subsequent list-pages a `(Page n)` is added. On all pages except the homepage a separator and the sites title is added at the end.
 
 ```toml
 [dnb.head]
@@ -86,10 +86,9 @@ The description is generated from the description frontmatter of the content fil
 
 To be written.
 
-
 ## Author generation
 
-The author tags generation is quite small still, but expect larger changes in the future. Right now `hugo-head` can transform the following configuration parameters into header tags that add author information:
+`hugo-head` can transform the following configuration parameters into header tags that add author information (Note: this is for compatibility reasons directly under the `author` section in the configuration, NOT the `dnb.head` section):
 
 ```toml
 [author]
@@ -98,21 +97,18 @@ email = "email"
 homepage = "website"
 ```
 
-If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) then it will integrate the [required header tags](https://github.com/davidsneighbour/hugo-humans) automatically for you. Don't forget to individually [configure the module](https://github.com/davidsneighbour/hugo-humans#configuration) in your configuration.
-If you are using [`hugo-publisher`](https://github.com/davidsneighbour/hugo-publisher) then it will integrate the [required header tags](https://github.com/davidsneighbour/hugo-publisher) automatically for you. Don't forget to individually [configure the module](https://github.com/davidsneighbour/hugo-publisher#configuration) in your configuration.
+If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) or [`hugo-publisher`](https://github.com/davidsneighbour/hugo-publisher) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
 
 ## Stylesheets
 
-`hugo-head` adds a simple stylesheet pipeline to your website. It expects a SCSS entry point in `assets/scss/style.scss` or any other configured entry point.
+`hugo-head` adds a simple stylesheet pipeline to your website. It expects an entry point in `assets/scss/style.scss` or any other configured file in `assets`.
 
 ```toml
 [dnb.head.styles]
 entrypoint = "scss/theme.scss"
 ```
 
-### Stylesheet with SCSS via PostCSS
-
-To be written.
+Configuration for GoHugo's SASS/SCSS processing can be piped through via the configuration. The available options for the compilation of SCSS can be found in [GoHugo's documentation](https://gohugo.io/hugo-pipes/scss-sass/#options).
 
 ```toml
 [dnb.head.styles]
@@ -125,11 +121,9 @@ enableSourceMap = true
 includePaths = ["node_modules/"]
 ```
 
-options for the compilation of CSS --- see <https://gohugo.io/hugo-pipes/scss-sass/#options>
-
 ## Translations
 
-If the current page has a translation then it will be linked in your header. I don't see anything that requires configuration here, so please open a new issue if you need specific setups.
+If the current page has a translation then it will be linked in your header. This feature does not require additional configuration.
 
 ## SEO
 
@@ -137,23 +131,31 @@ To be written.
 
 ## Series
 
-If the current page has a page following or coming before then `hugo-head` will automatically create links to those pages in the header. It uses the `.PrevInSection`/`.NextInSection` links for this.
+If the current page has a page following or coming before then `hugo-head` will automatically create `.PrevInSection`/`.NextInSection` links for the head. This feature does not require additional configuration.
 
 ## Social Graph
 
-If you are using [`hugo-social`](https://github.com/davidsneighbour/hugo-social) then it will integrate the [required header tags](https://github.com/davidsneighbour/hugo-social) automatically for you.
+If you are using [`hugo-social`](https://github.com/davidsneighbour/hugo-social) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
 
 ## Open Search
 
-If you are using [`hugo-opensearch`](https://github.com/davidsneighbour/hugo-opensearch) then it will integrate the [required header tags](https://github.com/davidsneighbour/hugo-pwa#setup-layouts) automatically for you. Don't forget to individually [configure the module](https://github.com/davidsneighbour/hugo-opensearch#configuration) in your configuration.
+If you are using [`hugo-opensearch`](https://github.com/davidsneighbour/hugo-opensearch) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
 
 ## PWA
 
-If you are using [`hugo-pwa`](https://github.com/davidsneighbour/hugo-pwa) then it will integrate the [required header tags](https://github.com/davidsneighbour/hugo-pwa#setup-layouts) automatically for you. **Note**, that it does NOT include anything in the footer, so these tags still need to be added in your own templates.
+If you are using [`hugo-pwa`](https://github.com/davidsneighbour/hugo-pwa) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module. **Note**, that it does NOT script inclusion in the site footer, so these tags still need to be added in your footer layouts.
+
+## Humans.txt
+
+If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
+
+## Alternates
+
+`hugo-head` prints all configured alternate links for a page. If you find alternates for output types you do not wish to include, then you have configured your output format wrong. Have a look at the documentation of [`notAlternative`](https://gohugo.io/templates/output-formats#configure-output-formats) and [how to enable/disable output formats](https://gohugo.io/templates/output-formats/#customizing-output-formats).
 
 ## Verification
 
-`hugo-head` can add verification-meta-tag to your header for any of the following services. Just add the value of the meta-tag to your configuration.
+`hugo-head` can add verification-meta-tag to your header for any of the following services. Just add the value of the meta-tag (NOT the full `meta`-tag) to your configuration.
 
 ```toml
 [dnb.head.verification]
@@ -167,13 +169,9 @@ norton = ""
 
 **Note: You should prefer to verify your ownership via a file in your site root or via DNS record to minimise the output on your pages. The less headers you have the better.**
 
-## Alternates
-
-`hugo-head` prints all configured alternate links for a page. If you find alternates for output types you do not wish to include, then you have configured your output format wrong. Have a look at the documentation of [`notAlternative`](https://gohugo.io/templates/output-formats#configure-output-formats) and [how to enable/disable output formats](https://gohugo.io/templates/output-formats/#customizing-output-formats).
-
 ## Others
 
-`hugo-head` can add various obscure and weird other tags to your headers. You can enable and disable them by setting the following parameters. Think about the usefulnes of these tags though, less is more again.
+`hugo-head` can add various obscure and weird other tags to your headers if you configure them. Think about the usefulnes of these tags though, less is more.
 
 ```toml
 [params.dnb.head.verification]
@@ -196,20 +194,23 @@ placename = ""
 | --- | :--- |
 | head-init | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
 | head-start | hooks in after the initial first tags that belong at the beginning of your `head` section. |
-| head-post-speed-optimisation ||
-| head-post-description ||
-| head-post-author ||
+| head-post-speed-optimisation | |
+| head-post-description | |
+| head-post-author | |
 | head-pre-css | hooks in before the stylesheets are printed. |
 | head-post-css | hooks in after the stylesheets are printed. |
-| head-post-translations ||
-| head-post-seo ||
-| head-post-series ||
-| head-post-* ||
-| head-post-alternates ||
-| head-post-verification ||
+| head-post-translations | |
+| head-post-seo | |
+| head-post-series | |
+| head-post-social | |
+| head-post-opensearch | |
+| head-post-pwa | |
+| head-post-humans | |
+| head-post-alternates | |
+| head-post-verification | |
 | head-end | hooks in at the end of the `head` right before the closing tag. |
 {{< /div >}}
 
 ## Sites and Projects using `hugo-head`
 
-- [Kollitsch.de](https://kollitsch.de)
+- [Kollitsch.dev](https://kollitsch.dev)

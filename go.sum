@@ -8,8 +8,8 @@ github.com/davidsneighbour/hugo-functions v1.1.3 h1:9buogAnPwnRX2dWqljc9TkUDG38v
 github.com/davidsneighbour/hugo-functions v1.1.3/go.mod h1:vcxVzEHYhArEYMR0w+r6h6xwoV6Tkovl/d9fK2n3dQE=
 github.com/davidsneighbour/hugo-giscus v1.2.3 h1:TDerZGXGrzIynqtGxUQTI9YZSvQlApbKcXjx4YnGyuc=
 github.com/davidsneighbour/hugo-giscus v1.2.3/go.mod h1:9w0WXLNMPZXFS8gPqxkROOBQgmSJMA0zdoxChArDMy0=
-github.com/davidsneighbour/hugo-head v1.1.17 h1:XYoRr2wdas7m8bAqU+Kv8jPSoC1Hxtg6Q2dl+ZR2CVQ=
-github.com/davidsneighbour/hugo-head v1.1.17/go.mod h1:1Z9f51rfdJsdQSio9gur4iHDqukDNKU2tDVJvKWL2lM=
+github.com/davidsneighbour/hugo-head v1.1.18 h1:IFQdt+lyGmls4rXwnoCQOG65TKfHMKhJRaWAXeoPtZI=
+github.com/davidsneighbour/hugo-head v1.1.18/go.mod h1:1Z9f51rfdJsdQSio9gur4iHDqukDNKU2tDVJvKWL2lM=
 github.com/davidsneighbour/hugo-hooks v1.3.5 h1:2MWcJlsmUMAWTMyb6nkYYhFOCA+yx6c1uGm6jHaGr6Y=
 github.com/davidsneighbour/hugo-hooks v1.3.5/go.mod h1:AM5v7lsVWD2tQFSzbDClu5Q0lwqxB7P1kpQGMMSaxXY=
 github.com/davidsneighbour/hugo-icons v1.2.9 h1:FlOYQZu9XYo1CVq6wg4+hJZA620P17VAqoixZ1vuM3g=

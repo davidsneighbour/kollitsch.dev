@@ -55,15 +55,16 @@
 		</div>
 	</div>
 {{ else }}
-	<div class="tab-content">{{- range $configTypes -}}
-		<div class="tab-pane {{ if eq . "toml" }}active{{ end }}" id="{{- $slug -}}-{{- . -}}" role="tabpanel" aria-labelledby="{{- $slug -}}-{{- . -}}-tab" tabindex="0">
-			{{- $hCode := $.Inner | transform.Remarshal . -}}
-			{{- if and $fm (in (slice "toml" "yaml") .) -}}
-				{{- $hCode = printf "%s\n%s\n%s" $placeHolder $hCode $placeHolder -}}
-			{{- end -}}
-			{{- $hCode = $hCode | replaceRE `\n+` "\n" }}
-			{{ highlight $hCode . "" | replaceRE $placeHolder (index $delimiters .) | safeHTML }}
+	<div class="tab-content">
+		{{- range $configTypes -}}
+			<div class="tab-pane {{ if eq . "toml" }}active{{ end }}" id="{{- $slug -}}-{{- . -}}" role="tabpanel" aria-labelledby="{{- $slug -}}-{{- . -}}-tab" tabindex="0">
+				{{- $hCode := $.Inner | transform.Remarshal . -}}
+				{{- if and $fm (in (slice "toml" "yaml") .) -}}
+					{{- $hCode = printf "%s\n%s\n%s" $placeHolder $hCode $placeHolder -}}
+				{{- end -}}
+				{{- $hCode = $hCode | replaceRE `\n+` "\n" }}
+				{{ highlight $hCode . "" | replaceRE $placeHolder (index $delimiters .) | safeHTML }}
+			</div>
+		{{- end -}}
 	</div>
-{{- end -}}
-</div>
 {{ end }}

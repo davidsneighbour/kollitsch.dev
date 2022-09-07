@@ -25,6 +25,15 @@ show_title = true
 contact_form_action = "https://formspree.io/f/xoqyzooe"
 
 ################################################################################
+# sections setup
+################################################################################
+[dnb.theme.sections]
+[dnb.theme.sections.components]
+sort = "lastmod"
+[dnb.theme.sections.blog]
+sort = "date"
+
+################################################################################
 # footer setup
 ################################################################################
 [dnb.theme.footer]

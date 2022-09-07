@@ -2,34 +2,34 @@
 $sizes: 12, 32, 64;
 
 @each $size in $sizes {
-  .ch-#{$size} {
-    width: auto;
-    height: #{$size}px;
-  }
+	.ch-#{$size} {
+		width: auto;
+		height: #{$size}px;
+	}
 
-  .cw-#{$size} {
-    width: #{$size}px;
-    height: auto;
-  }
+	.cw-#{$size} {
+		width: #{$size}px;
+		height: auto;
+	}
 }
 
 // coloring the selection in the browser
 ::selection {
-  color: #{var(--color2)};
-  text-shadow: none;
+	color: #{var(--sol-base03)};
+	text-shadow: none;
 
-  background-color: #{var(--primary)};
+	background-color: #{var(--sol-base3)};
 }
 
 // font sizes
 $sizes: 0.8, 0.9, 1, 1.1, 1.2;
 
 @each $size in $sizes {
-  .f-#{$size} {
-    font-size: #{$size}rem;
-  }
+	.f-#{$size} {
+		font-size: #{$size}rem;
+	}
 }
 
 .fontsize-1 {
-  font-size: 1rem;
+	font-size: 1rem;
 }

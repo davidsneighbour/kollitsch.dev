@@ -23,6 +23,7 @@ CURPATH="$(pwd -P)"
 typos -- ./content
 
 "${CURPATH}"/bin/build/component-tags
+git add content/components
 
 if test -f "$SCRIPTPATH"/replacements; then
 	while read -ra __; do

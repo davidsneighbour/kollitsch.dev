@@ -60,12 +60,12 @@ curl \
 	-d "{\"tag_name\":\"v${VERSION}\",\"name\":\"v${VERSION}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":true}"
 xdg-open "${URL}" &>>/dev/null
 
-# @TODO
 # get the release info into the static directory
-# AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
-# URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
-# 	curl "${URL}" "${AUTH}" --output ./static/assets/build.json
-# git add static/assets/build.json
-# git commit --amend --no-edit
-# git push --follow-tags origin main --quiet
-# git push --tags --quiet
+AUTH="-u ${GITHUB_USER}:${GITHUB_SECRET}"
+URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
+curl "${URL}" "${AUTH}" --output ./static/assets/build.json
+
+git add static/assets/build.json
+git commit --amend --no-edit
+git push --follow-tags origin main --quiet
+git push --tags --quiet

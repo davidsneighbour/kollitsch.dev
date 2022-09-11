@@ -2,9 +2,11 @@
 
 REQUIRED_TOOLS=(
 	git
-	curl
+	sed
+	node
 )
 
+# check if all requirements are met
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
 	if ! command -v "${TOOL}" >/dev/null; then
 		echo "${TOOL} is required... "
@@ -30,7 +32,7 @@ FILE=CITATION.cff
 if test -f "$FILE"; then
 	sed -i "s/^version: .*/version: ${VERSION}/" $FILE
 	DATE=$(date +%F)
-	sed -i "s/date-released: .*/date-released: ${DATE}/" $FILE
+	sed -i "s/^date-released: .*/date-released: ${DATE}/" $FILE
 	git add $FILE
 fi
 
@@ -39,32 +41,31 @@ echo "retrieving component state..."
 ./bin/build/components-releases
 echo "done"
 
-# adding data directory for new build information
-git add data/dnb
-git commit --signoff --amend --no-edit --quiet
+# add re-versioned files to recent edit
+git add data/dnb/
+git commit --amend --no-edit --quiet --signoff
 
-# push release to GitHub
-git push origin main --follow-tags --quiet
-git push origin --tags --quiet
+# push everything up
+git push --follow-tags origin main --quiet
+git push --tags --quiet
 
 # create a release on GitHub
-BODY="Just a new release"
-
-URL="$GITHUB_REPO""releases/edit/v""$VERSION"
+GITHUB_REPO=https://github.com/${GITHUB_REPOSLUG}
+URL="$GITHUB_REPO"/"releases/edit/v""$VERSION"
 curl \
 	-X POST \
 	-H "Accept: application/vnd.github+json" \
 	-H "Authorization: token ${GITHUB_SECRET}" \
 	https://api.github.com/repos/"${GITHUB_REPOSLUG}"/releases \
-	-d "{\"tag_name\":\"v${VERSION}\",\"name\":\"v${VERSION}\",\"body\":\"${BODY}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":false}"
-
-# open page to edit
+	-d "{\"tag_name\":\"v${VERSION}\",\"name\":\"v${VERSION}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":true}"
 xdg-open "${URL}" &>>/dev/null
 
+# @TODO
 # get the release info into the static directory
 # AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
 # URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
 # 	curl "${URL}" "${AUTH}" --output ./static/assets/build.json
 # git add static/assets/build.json
-# git commit -m git commit -m
-# git push origin --tags --quiet
+# git commit --amend --no-edit
+# git push --follow-tags origin main --quiet
+# git push --tags --quiet

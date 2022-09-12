@@ -1,10 +1,10 @@
 This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is hosted on Netlify and built via GoHugo and most of this repository is specifically set up to work on Netlify and use its features.
 
 - [Setup](#setup)
-	- [General Notes](#general-notes)
+	- [General notes](#general-notes)
 	- [Requirements](#requirements)
 	- [Setup development environment](#setup-development-environment)
-	- [pre-commit](#pre-commit)
+	- [Pre-Commit](#pre-commit)
 - [Development](#development)
 	- [Development server](#development-server)
 - [Releasing](#releasing)
@@ -13,9 +13,9 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Theme](#theme)
 	- [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
 - [Advanced setup](#advanced-setup)
-- [Netlify Setup](#netlify-setup)
+- [Netlify setup](#netlify-setup)
 - [Hooks (WIP)](#hooks-wip)
-- [Frontmatter Parameters](#frontmatter-parameters)
+- [Front matter parameters](#front-matter-parameters)
 	- [Layout options](#layout-options)
 - [License](#license)
 
@@ -31,9 +31,9 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 
 # Setup
 
-## General Notes
+## General notes
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+The key words MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Requirements
 
@@ -44,10 +44,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Setup development environment
 
-- Copy `.env.sample` to `.env` and fill in the values. This will be used by scripts and build systems for various tasks. You MUST NOT commit the `.env` file to the repository for obvious reasons. Take notes of your configuration data in something safe, like [Keybase](https://keybase.io/).
-- To setup Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
+- Copy `.env.sample` to `.env` and fill in the values. This is used by scripts and the build systems for various tasks. You *must* commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like [Keybase](https://keybase.io/).
+To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 - Run `npm install` to install all dependencies.
-- Install and setup `pre-commit` if you intend to send commits to the repository. This will ensure that all commits adhere to the quality and security standards of this project.
+-
+Install and set up `pre-commit` if you intend to send commits to the repository. This ensures that all commits adhere to the quality and security standards of this project.
 
  ```bash
  pip install pre-commit
@@ -56,9 +57,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 - If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit -no-verify`. Use your brain on this one.
 
-## pre-commit
+## Pre-Commit
 
-If you want then install and set up `pre-commit` to check commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
+If you want then install and set up `pre-commit` to lint commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
 
 ```bash
 pip install pre-commit
@@ -78,16 +79,16 @@ pre-commit gc # garbage collection
 
 ## Development server
 
-Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` is badly named, as it could also be a hostname (without protocol in the beginning). If that triggers your OCD then open an issue or a PR in either this repo or over at [davidsneighbour/hugo-bin](https://github.com/davidsneighbour/hugo-bin/).
+Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` can also be a hostname (without protocol in the beginning).
 
 ```ini
 IP=192.168.1.201
 PORT=1313
 ```
 
-This will be used to configure the Hugo server so that you will be able to access the server from other machines (and mobile devices). Again: You MUST NOT commit this file to the repository as it might contain private information.
+This configures the Hugo server so that you can access the server from other machines (and mobile devices). Again: you *must not* commit this file to the repository as it might contain private information.
 
-To start the development server run `npm run server`. This will run the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more the better). Running just `hugo server` will run Hugo on [localhost:1313](http://localhost:1313).
+To start the development server run `npm run server`. This runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more the better). Running just `hugo server` starts Hugo on [localhost:1313](http://localhost:1313).
 
 # Releasing
 
@@ -100,26 +101,26 @@ To start the development server run `npm run server`. This will run the Hugo ser
 
 ## Publishing on Netlify
 
-This repository is currently optimised for Netlify. To create a local copy of the website run `npm run build` or `./bin/netlify/build`.
+This repository is optimised for Netlify. To create a local copy of the website run `npm run build` or `./bin/netlify/build`.
 
-- running `npm run release` will create a new tag in the `main` branch and release on Netlify.
+- running `npm run release` creates a new tag in the `main` branch and release on Netlify.
 
 # Theme
 
-Currently, the theme is part of this repository.
+The theme is part of this repository.
 
 ## Design paradigms for the used theme
 
 - Spacing is applied from top to bottom, meaning that margins are applied to the bottom of items.
 - Responsive design principles are applied as mobile-first.
-- No rows inside of rows (container>row>col>row>col) if this is not explicitly required. It probably is not required anyway.
-- Do not reinvent the wheel. Reuse, recycle.
+- No rows inside of rows (container>row>col>row>col) if this isn't explicitly required. It probably isn't required anyway.
+- Do reuse and recycle styles.
 
 # Advanced setup
 
-To enable the step to debug logging for the Github Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
+To enable the step to debug logging for the GitHub Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
 
-# Netlify Setup
+# Netlify setup
 
 ```shell
 npm install netlify-cli -g && netlify login
@@ -137,7 +138,7 @@ Hooks are listed in their order
 <!-- prettier-ignore-start -->
 | Hook | File | Runs | Depends on | Description |
 | --- | --- | --- | --- | --- |
-| init | partials/init.html | 1 |   | before anything else is executed (before pagination object is created) |
+| init | partials/init.html | 1 |   | before anything else runs (before pagination object is created) |
 | init-end | partials/init.html | 1 |   | after the pagination object is created and in scratch |
 | setup | _default/baseof.html | 1 |   | at the beginning of the main layout |
 | body-start | _default/baseof.html | 1 |   |   |
@@ -146,7 +147,7 @@ Hooks are listed in their order
 | teardown | _default/baseof.html | 1 |   |   |
 <!-- prettier-ignore-end -->
 
-# Frontmatter Parameters
+# Front matter parameters
 
 ## Layout options
 
@@ -157,15 +158,15 @@ theme:
  comments: false
 ```
 
-The following frontmatter parameters exist to fine tune the layouts and theme options:
+The following front matter parameters exist to fine-tune the layouts and theme options:
 
-- *comments* - set to false to disable comment form(s) and display (default: true)
-- *showdate* - set to false to disable date per post display (default: true)
+- `comments` - set to false to turn off comment forms and display (default: true)
+- `showdate` - set to false to turn off date per post display (default: true)
 
 # License
 
 The content of this project itself is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), and the underlying source code used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
 
-White this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is obviously everything in the `content` folder. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in it's full may not be reused, but studied and parts reused.
+White this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in the `content` folder or documentation. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in its full may not be reused, but studied and parts reused.
 
-Long story short: go and create something by yourself and if you want to know how I did realise a feature feel free to have a look.
+Long story short: go and create something by yourself and if you want to know how a feature on this website was realised feel free to have a look.

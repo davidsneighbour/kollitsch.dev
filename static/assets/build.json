@@ -37,5 +37,5 @@
   ],
   "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.20",
   "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.20",
-  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2022.8.20 -->\n\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/2022.7.20...v2022.8.20"
+  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2022.8.20 -->\r\n\r\n\r\n\r\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/2022.7.20...v2022.8.20"
 }

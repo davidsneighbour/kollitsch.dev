@@ -1,93 +1,93 @@
 article {
-	position: relative;
+  position: relative;
 
-	.post-title {
-		margin-top: 0.25rem;
-		margin-bottom: 1rem;
-		border-bottom: 1px solid var(--sol-red);
+  .post-title {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--sol-red);
 
-		font-weight: 300;
-		font-size: 2rem;
-		text-transform: uppercase;
+    font-weight: 300;
+    font-size: 2rem;
+    text-transform: uppercase;
 
-		a:hover {
-			text-decoration: none;
-		}
-	}
+    a:hover {
+      text-decoration: none;
+    }
+  }
 
-	.component--archive-card {
-		.is--date {
-			min-width: 175px;
-		}
+  .component--archive-card {
+    .is--date {
+      min-width: 175px;
+    }
 
-		.is--content {
-			margin-bottom: 1rem;
+    .is--content {
+      margin-bottom: 1rem;
 
-			h2 {
-				margin-bottom: 0;
+      h2 {
+        margin-bottom: 0;
 
-				font-size: 1.2rem;
-			}
+        font-size: 1.2rem;
+      }
 
-			p {
-				margin-bottom: 0;
-			}
-		}
-	}
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
 
-	/**
+  /**
  * This is the article headline in lists and outside of `prose`
  */
-	h1.post-title,
-	h2.post-title {
-		.col-12.col-md-12 & {
-			font-weight: 500;
-			font-size: 1.5rem;
-		}
+  h1.post-title,
+  h2.post-title {
+    .col-12.col-md-12 & {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
 
-		.col-12.col-md-6 & {
-			font-weight: 400;
-			font-size: 1.2rem;
-		}
+    .col-12.col-md-6 & {
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
 
-		small {
-			font-size: 1.4rem;
-			text-transform: lowercase;
-		}
+    small {
+      font-size: 1.4rem;
+      text-transform: lowercase;
+    }
 
-		@extend .text-uppercase;
-	}
+    @extend .text-uppercase;
+  }
 
-	.is--publishdate {
-		font-size: 0.9rem;
-		text-transform: uppercase;
-	}
+  .is--publishdate {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
 
-	.ribbon {
-		position: absolute;
+  .ribbon {
+    position: absolute;
 
-		top: 0;
-		left: 0;
+    top: 0;
+    left: 0;
 
-		z-index: 99999;
+    z-index: 99999;
 
-		border-top-left-radius: $border-radius;
-		border-bottom-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
 
-		color: var(--sol-base3);
-		text-align: center;
+    color: var(--sol-base3);
+    text-align: center;
 
-		&.status--draft {
-			background-color: var(--sol-red);
-		}
+    &.status--draft {
+      background-color: var(--sol-red);
+    }
 
-		@extend .py-1;
-		@extend .px-2;
+    @extend .py-1;
+    @extend .px-2;
 
-	}
+  }
 
-	.is--date {
-		white-space: nowrap;
-	}
+  .is--date {
+    white-space: nowrap;
+  }
 
 }

@@ -1,12 +1,13 @@
 .alert {
-	& p:last-of-type {
-		@extend .mb-0;
-	}
+  & p:last-of-type {
+    @extend .mb-0;
+  }
 }
 
 .nav-link {
-	padding-bottom: 0.1rem;
-	text-transform: uppercase;
+  padding-bottom: 0.1rem;
+
+  text-transform: uppercase;
 }
 
 h1,
@@ -15,13 +16,13 @@ h3,
 h4,
 h5,
 h6 {
-	.heading-tools {
-		@extend .float-end;
-		@extend .ms-2;
-		@extend .d-none;
-	}
+  .heading-tools {
+    @extend .float-end;
+    @extend .ms-2;
+    @extend .d-none;
+  }
 
-	&:hover .heading-tools {
-		@extend .d-inline-block;
-	}
+  &:hover .heading-tools {
+    @extend .d-inline-block;
+  }
 }

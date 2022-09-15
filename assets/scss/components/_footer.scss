@@ -1,76 +1,78 @@
 #footer {
-  color: var(--footer-color-fg);
+	color: var(--footer-color-fg);
 
-  background-color: var(--footer-color-bg);
+	background-color: var(--footer-color-bg);
+	background: linear-gradient(180deg, var(--footer-color-bg) 40%, rgba(0, 0, 0, 1) 100%);
 
-  a {
-    color: var(--footer-color-fg);
-    text-decoration: none;
+	a {
+		color: var(--footer-color-fg);
+		text-decoration: none;
 
-    &:hover {
-      color: var(--primary);
-      text-decoration: none;
-    }
-  }
+		&:hover {
+			color: var(--primary);
+			text-decoration: none;
+		}
+	}
 }
 
 .widget.social-media {
-  a:link,
-  a:hover {
-    text-decoration: none;
 
-    svg {
-      width: 36px;
-      height: 36px;
-      @extend .p-0;
-      @extend .m-0;
-    }
+	a:link,
+	a:hover {
+		text-decoration: none;
 
-    @extend .px-3;
+		svg {
+			width: 36px;
+			height: 36px;
+			@extend .p-0;
+			@extend .m-0;
+		}
 
-  }
+		@extend .px-3;
+
+	}
 }
 
 .widget--web-vitals {
-  strong {
-    display: inline;
-    margin-right: 1rem;
+	strong {
+		display: inline;
+		margin-right: 1rem;
 
-  }
+	}
 
-  .is-good {
-    color: $green;
-  }
+	.is-good {
+		color: $green;
+	}
 
-  .is-bad {
-    color: $orange;
-  }
+	.is-bad {
+		color: $orange;
+	}
 
-  dl {
-    display: inline;
+	dl {
+		display: inline;
 
-    color: $yellow;
+		color: $yellow;
 
-    >div {
-      display: inline;
-    }
+		>div {
+			display: inline;
+		}
 
-    dt {
-      display: inline;
-      margin-right: 1rem;
+		dt {
+			display: inline;
+			margin-right: 1rem;
 
-      font-size: 1rem;
+			font-size: 1rem;
 
-    }
+		}
 
-    dd {
-      display: inline;
-      margin-right: 1rem;
+		dd {
+			display: inline;
+			margin-right: 1rem;
 
-      font-size: 1rem;
-    }
-  }
+			font-size: 1rem;
+		}
+	}
 
-  @extend .text-center;
+	@extend .text-center;
 
 }

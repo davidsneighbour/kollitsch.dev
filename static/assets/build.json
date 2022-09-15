@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/76833701",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/76833701/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/76833701/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2022.8.20",
-  "id": 76833701,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/76833762",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/76833762/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/76833762/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2022.8.21",
+  "id": 76833762,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584ElGOl",
-  "tag_name": "v2022.8.20",
+  "node_id": "RE_kwDOGDHt584ElGPi",
+  "tag_name": "v2022.8.21",
   "target_commitish": "main",
-  "name": "v2022.8.20",
+  "name": "v2022.8.21",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-09-11T15:31:52Z",
-  "published_at": "2022-09-11T15:32:03Z",
+  "created_at": "2022-09-11T15:35:03Z",
+  "published_at": "2022-09-11T15:35:15Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.20",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.20",
-  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2022.8.20 -->\r\n\r\n\r\n\r\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/2022.7.20...v2022.8.20"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.21",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.21",
+  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2022.8.21 -->\r\n\r\n\r\n\r\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/2022.7.20...v2022.8.21"
 }

@@ -46,8 +46,8 @@ git add data/dnb/
 git commit --amend --no-edit --quiet --signoff
 
 # push everything up
-git push --follow-tags origin main --quiet
-git push --tags --quiet
+git push --follow-tags origin main --quiet --force
+git push --tags --quiet --force
 
 # create a release on GitHub
 GITHUB_REPO=https://github.com/${GITHUB_REPOSLUG}

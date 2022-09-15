@@ -134,9 +134,9 @@ $prefix: $variable-prefix;
 
 // layout
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
 );
 
 @import 'bootstrap/scss/maps';
@@ -146,52 +146,52 @@ $container-max-widths: (
 // Local Bootstrap Setup/Overrides
 
 :root {
-  --sol-base03: #{$base03};
-  --sol-base02: #{$base02};
-  --sol-base01: #{$base01};
-  --sol-base00: #{$base00};
-  --sol-base0: #{$base0};
-  --sol-base1: #{$base1};
-  --sol-base2: #{$base2};
-  --sol-base3: #{$base3};
-  --sol-yellow: #{$yellow};
-  --sol-orange: #{$orange};
-  --sol-red: #{$red};
-  --sol-magenta: #{$magenta};
-  --sol-violet: #{$violet};
-  --sol-blue: #{$blue};
-  --sol-cyan: #{$cyan};
-  --sol-green: #{$green};
+	--sol-base03: #{$base03};
+	--sol-base02: #{$base02};
+	--sol-base01: #{$base01};
+	--sol-base00: #{$base00};
+	--sol-base0: #{$base0};
+	--sol-base1: #{$base1};
+	--sol-base2: #{$base2};
+	--sol-base3: #{$base3};
+	--sol-yellow: #{$yellow};
+	--sol-orange: #{$orange};
+	--sol-red: #{$red};
+	--sol-magenta: #{$magenta};
+	--sol-violet: #{$violet};
+	--sol-blue: #{$blue};
+	--sol-cyan: #{$cyan};
+	--sol-green: #{$green};
 
-  --primary: var(--sol-red);
-  --highlight: var(--sol-red);
-  --highlight2: var(--sol-orange);
+	--primary: var(--sol-red);
+	--highlight: var(--sol-red);
+	--highlight2: var(--sol-orange);
 
-  --sol-base02: var(--sol-base03);
+	--sol-base02: var(--sol-base03);
 
-  --color-title: $base0;
-  --color: #{$base3};
-  --color2: #{$red};
+	--color-title: $base0;
+	--color: #{$base3};
+	--color2: #{$red};
 
-  --footer-color-fg: #{$base2};
-  --footer-color-bg: #{$base03};
+	--footer-color-fg: #{$base2};
+	--footer-color-bg: #{$base03}; // note: see components/layout
 
-  --#{$prefix}pagination-bg: #{$base03};
-  --#{$prefix}pagination-border-color: $base0;
+	--#{$prefix}pagination-bg: #{$base03};
+	--#{$prefix}pagination-border-color: $base0;
 
-  // https://drafts.csswg.org/css-ui-4/#widget-accent
-  // https://caniuse.com/?search=accent-color
-  accent-color: var(--primary);
+	// https://drafts.csswg.org/css-ui-4/#widget-accent
+	// https://caniuse.com/?search=accent-color
+	accent-color: var(--primary);
 }
 
 .light {
-  // settings for a light theme
-  // most (or all) of the light setup is defined as default in :root if dark is default
+	// settings for a light theme
+	// most (or all) of the light setup is defined as default in :root if dark is default
 }
 
 .dark {
-  // settings for a dark theme
-  // most (or all) of the dark setup is defined as default in :root if dark is default
+	// settings for a dark theme
+	// most (or all) of the dark setup is defined as default in :root if dark is default
 }
 
 // Bootstrap - Layout and components
@@ -253,10 +253,10 @@ $container-max-widths: (
 
 // Article content formatting
 .prose {
-  @import 'prose/prose';
-  @import 'prose/footnotes';
-  @import 'prose/components';
-  @import 'prose/tables';
+	@import 'prose/prose';
+	@import 'prose/footnotes';
+	@import 'prose/components';
+	@import 'prose/tables';
 }
 
 // plugins
@@ -272,10 +272,10 @@ $container-max-widths: (
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
-  @import 'plugins/syntax/dark';
+	@import 'plugins/syntax/dark';
 }
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .light {
-  @import 'plugins/syntax/light';
+	@import 'plugins/syntax/light';
 }

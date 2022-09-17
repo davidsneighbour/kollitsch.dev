@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/76028693",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/76028693/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-pwa/releases/76028693/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-pwa/releases/tag/v1.0.7",
-  "id": 76028693,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/77449473",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/releases/77449473/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-pwa/releases/77449473/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-pwa/releases/tag/v1.0.8",
+  "id": 77449473,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,19 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGdkmhs4EiBsV",
-  "tag_name": "v1.0.7",
+  "node_id": "RE_kwDOGdkmhs4EnckB",
+  "tag_name": "v1.0.8",
   "target_commitish": "main",
-  "name": "v1.0.7",
+  "name": "v1.0.8",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-09-01T13:23:15Z",
-  "published_at": "2022-09-01T13:25:09Z",
+  "created_at": "2022-09-17T08:49:02Z",
+  "published_at": "2022-09-17T08:49:13Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/tarball/v1.0.7",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/zipball/v1.0.7",
-  "body": ""
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/tarball/v1.0.8",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-pwa/zipball/v1.0.8",
+  "body": "## What's Changed\n* build: update Github organization name & use newer NPM dependencies by @ringods in https://github.com/davidsneighbour/hugo-pwa/pull/78\n* build(deps): bump ejs from 3.1.6 to 3.1.7 by @dependabot in https://github.com/davidsneighbour/hugo-pwa/pull/80\n\n## New Contributors\n* @ringods made their first contribution in https://github.com/davidsneighbour/hugo-pwa/pull/78\n\n**Full Changelog**: https://github.com/davidsneighbour/hugo-pwa/compare/v0.2.0...v1.0.8",
+  "mentions_count": 2
 }

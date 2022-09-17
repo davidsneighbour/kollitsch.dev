@@ -3,6 +3,5 @@
   {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML -}}
   &nbsp;&mdash;&nbsp;
   {{- $data := (index site.Data.dnb "kollitsch").build -}}
-  {{- $versionpath := printf "[v%s](%s/releases/tag/v%s)" $data.version $data.repository $data.version -}}
-  {{- printf "Version %s" $versionpath | markdownify | safeHTML -}}
+  Version <a href="{{- $data.repository -}}/releases/tag/v{{- $data.version -}}" class="is--version"></a>
 </p>

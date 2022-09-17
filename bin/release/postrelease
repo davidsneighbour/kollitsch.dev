@@ -63,9 +63,8 @@ xdg-open "${URL}" &>>/dev/null
 # get the release info into the static directory
 AUTH="-u ${GITHUB_USER}:${GITHUB_SECRET}"
 URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
-curl "${URL}" "${AUTH}" --output ./static/assets/build.json
+curl "${URL}" "${AUTH}" --output ./assets/data/build.json
 
 git add static/assets/build.json
-git commit --amend --no-edit
-git push --follow-tags origin main --quiet
-git push --tags --quiet
+git commit "chore: add build information" --signoff
+git push origin main --quiet

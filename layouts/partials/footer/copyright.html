@@ -1,7 +1,8 @@
 <p class="my-5">
   {{- $year := partialCached "func/getYear.html" . . -}}
   {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML -}}
-  &nbsp;&mdash;&nbsp;
-  {{- $data := (index site.Data.dnb "kollitsch").build -}}
-  Version <a href="{{- $data.repository -}}/releases/tag/v{{- $data.version -}}" class="is--version"></a>
+	<span class="d-none is--site-version">
+		&nbsp;&mdash;&nbsp;
+		Version <a href="#" class="version"></a>
+	</span>
 </p>

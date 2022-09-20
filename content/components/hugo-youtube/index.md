@@ -36,12 +36,12 @@ A responsive and very fast shortcode to add youtube videos to your Hugo website.
 This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive, privacy conscious and unbloated custom element for YouTube videos. It uses [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed).
 
 ```go
-{{</* youtube id="_BM3zCMRPcw" */>}}
-{{</* youtube "_BM3zCMRPcw" */>}}
-{{</* youtube id="_BM3zCMRPcw" title="Lower your eyelids to die with the sun - M83" */>}}
+{{</* youtube id="dQw4w9WgXcQ" */>}}
+{{</* youtube "dQw4w9WgXcQ" */>}}
+{{</* youtube id="dQw4w9WgXcQ" title="Lower your eyelids to die with the sun - M83" */>}}
 ```
 
-In development mode this component adds a sample page at [http://localhost:1313/hugo-youtube/](http://localhost:1313/hugo-youtube/)
+In development mode this component adds a sample page at [/hugo-youtube/](/hugo-youtube/)
 
 ### Parameters
 

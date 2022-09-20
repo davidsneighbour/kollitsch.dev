@@ -22,10 +22,10 @@ $green: #859900;
 // font setup
 @import 'settings/fonts';
 
-// Bootstrap - Setup Configuration
+// bootstrap - setup configuration
 @import 'bootstrap/scss/functions';
 
-// Internal settings
+// internal settings
 $heading-height: 70px;
 
 // colors
@@ -89,17 +89,15 @@ $hr-opacity: 1;
 // alerts
 $alert-margin-bottom: 0;
 
-// Typography
+// typography
 $kbd-padding-y: 0.1rem;
 $kbd-padding-x: 0.2rem;
 $kbd-font-size: $code-font-size * 0.9;
 $kbd-color: var(--sol-base2);
 $kbd-bg: var(--primary);
 
-// Tables
+// tables
 $table-th-font-weight: 300;
-
-// Table
 $table-border-width: 1px;
 $table-border-color: var(--primary);
 $table-color: var(--sol-base03);
@@ -127,7 +125,7 @@ $enable-negative-margins: false;
 $enable-deprecation-messages: true;
 $enable-important-utilities: true;
 
-// Prefix for CSS variables
+// prefix for CSS variables
 $variable-prefix: bs-;
 $prefix: $variable-prefix;
 
@@ -144,8 +142,7 @@ $container-max-widths: (
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/utilities';
 
-// Local Bootstrap Setup/Overrides
-
+// local bootstrap setup/overrides
 :root {
 	--sol-base03: #{$base03};
 	--sol-base02: #{$base02};
@@ -195,7 +192,7 @@ $container-max-widths: (
 	// most (or all) of the dark setup is defined as default in :root if dark is default
 }
 
-// Bootstrap - Layout and components
+// bootstrap - layout and components
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/reboot';
 @import 'bootstrap/scss/type';
@@ -228,17 +225,17 @@ $container-max-widths: (
 // @import 'bootstrap/scss/offcanvas';
 // @import 'bootstrap/scss/placeholders';
 
-// Bootstrap - Helpers
+// bootstrap - helpers
 @import 'bootstrap/scss/helpers';
 
-// Bootstrap - Utilities
+// bootstrap - utilities
 @import 'bootstrap/scss/utilities/api';
 
-// Create utility classes
+// create utility classes
 @import 'settings/utilities';
 @import 'settings/mixins';
 
-// Components
+// components
 @import 'components/utilities';
 @import 'components/layout';
 @import 'components/footer';
@@ -252,7 +249,7 @@ $container-max-widths: (
 @import 'components/scrollbars';
 @import 'components/pagination';
 
-// Article content formatting
+// article content formatting
 .prose {
 	@import 'prose/prose';
 	@import 'prose/footnotes';
@@ -270,7 +267,6 @@ $container-max-widths: (
 @import 'animate.css/animate';
 
 // syntax highlighting
-
 /* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
 	@import 'plugins/syntax/dark';

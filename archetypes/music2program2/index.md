@@ -9,6 +9,8 @@ tags:
   - 100DaysToOffload
 posttype: music
 
+draft: true
+
 resources:
   - src: header.jpg
 

@@ -1,28 +1,3 @@
-## See https://github.com/nicksnyder/go-i18n
-## ID uniquely identifies the message.
-# [id]
-## Zero is the content of the message for the CLDR plural form "zero".
-# zero=""
-## One is the content of the message for the CLDR plural form "one".
-# one=""
-## two is the content of the message for the CLDR plural form "two".
-# two=""
-## Few is the content of the message for the CLDR plural form "few".
-# few=""
-## Many is the content of the message for the CLDR plural form "many".
-# many=""
-## Other is the content of the message for the CLDR plural form "other".
-# other=""
-## Hash uniquely identifies the content of the message
-## that this message was translated from.
-# hash=""
-## Description describes the message to give additional
-## context to translators that may be relevant for translation.
-# description=""
-## LeftDelim is the left Go template delimiter.
-# leftDelim=""
-## RightDelim is the right Go template delimiter.“
-# rightDelim=""
 [name]
 description = ""
 other = "Your Name"

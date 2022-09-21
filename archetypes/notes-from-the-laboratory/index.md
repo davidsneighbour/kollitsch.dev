@@ -3,6 +3,8 @@ title: Notes from the Laboratory: {{ now.Format "January 2006" }}
 linkTitle: Laboratory {{ now.Format "2006-01" }}
 description: ""
 
+draft: true
+
 date: "{{ .Date }}"
 publishDate: "{{ .Date }}"
 lastmod: "{{ .Date }}"

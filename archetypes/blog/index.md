@@ -4,6 +4,8 @@ linkTitle: {{ replace .Name "-" " " | title }}
 description: ""
 summary: ""
 
+draft: true
+
 date: {{ .Date }}
 publishDate: {{ .Date }}
 lastmod: {{ .Date }}

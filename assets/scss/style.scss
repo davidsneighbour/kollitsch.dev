@@ -1,22 +1,32 @@
 @charset 'utf-8';
 
-// adding solarized colorset
-$base03: #002b36;
-$base02: #073642;
-$base01: #586e75;
+// adding selenized colorset
+$base03: #282822;
+$base02: #36362f;
+$base01: #4d4d45;
 $base00: #657b83;
 $base0: #839496;
-$base1: #93a1a1;
-$base2: #eee8d5;
-$base3: #fdf6e3;
-$yellow: #b58900;
-$orange: #cb4b16;
-$red: #dc322f;
-$magenta: #d33682;
-$violet: #6c71c4;
-$blue: #268bd2;
-$cyan: #2aa198;
-$green: #859900;
+$base1: #8a8a83;
+$base2: #ccccc6;
+$base3: #f1f2eb;
+
+$yellow: #e6bc38;
+$orange: #f38a4d;
+$red: #fc5851;
+$magenta: #f87ac3;
+$violet: #b28bee;
+$blue: #4897f9;
+$cyan: #4cd0c1;
+$green: #7bbf3e;
+
+$br_yellow: #facf4b;
+$br_orange : #ff9c5e;
+$br_red: #ff6b61;
+$br_magenta: #ff8cd6;
+$br_violet: #c49dff;
+$br_blue: #5fa8ff;
+$br_cyan: #61e2d3;
+$br_green: #8ed251;
 //@import 'settings/solarized';
 
 // font setup
@@ -262,6 +272,7 @@ $container-max-widths: (
 @import 'plugins/youtube';
 @import 'plugins/devaudit';
 @import 'plugins/transitions';
+@import 'plugins/brands';
 
 // external plugins
 @import 'animate.css/animate';

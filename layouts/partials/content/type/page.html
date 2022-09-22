@@ -12,13 +12,13 @@
     {{- else -}}
       <p>{{- $post.Summary -}}</p>
   </div>
-  <div class="text-end">
-      <a href="{{- $post.Permalink -}}" class="btn btn-link">
-        {{- i18n "read_article" | default "Read Article" -}}
-        <span class="ps-2">
-          {{- partialCached "bsicon.html" "body-text" "body-text" -}}
-        </span>
-      </a>
+	<div class="text-end">
+		<a href="{{- $post.Permalink -}}" class="btn btn-link" aria-label="{{- i18n "read_article" | default "Read Article" -}}: {{ $post.Title -}}">
+			{{- i18n "read_article" | default "Read Article" -}}
+			<span class="ps-2">
+				{{- partialCached "bsicon.html" "body-text" "body-text" -}}
+			</span>
+		</a>
     {{- end -}}
   </div>
 </article>

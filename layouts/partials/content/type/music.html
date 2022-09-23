@@ -62,8 +62,8 @@
   {{ else }}
   </div>
 	<div class="text-end">
-		<a href="{{- $post.Permalink -}}" class="btn btn-link" aria-label="{{- i18n "read_article" | default "Read Article" -}}: {{ $post.Title -}}">
-			{{- i18n "read_article" | default "Read Article" -}}
+		<a href="{{- $post.Permalink -}}" class="btn btn-link" aria-label="{{- i18n "read_article" -}}: {{ $post.Title -}}">
+			{{- i18n "read_article" -}}
 			<span class="ps-2">
 				{{- partialCached "bsicon.html" "body-text" "body-text" -}}
 			</span>

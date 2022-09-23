@@ -254,6 +254,7 @@ $container-max-widths: (
 @import 'components/navigation';
 @import 'components/articles';
 @import 'components/figure';
+@import 'components/form';
 @import 'components/widgets';
 @import 'components/features';
 @import 'components/scrollbars';
@@ -273,6 +274,7 @@ $container-max-widths: (
 @import 'plugins/devaudit';
 @import 'plugins/transitions';
 @import 'plugins/brands';
+@import 'plugins/alpine';
 
 // external plugins
 @import 'animate.css/animate';

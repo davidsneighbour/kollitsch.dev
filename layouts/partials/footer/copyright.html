@@ -1,6 +1,6 @@
 <p class="my-5">
   {{- $year := partialCached "func/getYear.html" . . -}}
-  {{- printf (i18n "copyright-text" | default "&copy %s") (string $year) | .RenderString | safeHTML -}}
+  {{- printf (i18n "copyright-text") (string $year) | .RenderString | safeHTML -}}
 	<span class="d-none is--site-version">
 		&nbsp;&mdash;&nbsp;
 		Version <a href="#" class="version"></a>

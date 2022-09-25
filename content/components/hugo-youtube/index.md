@@ -41,7 +41,7 @@ This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive
 {{</* youtube id="dQw4w9WgXcQ" title="Lower your eyelids to die with the sun - M83" */>}}
 ```
 
-In development mode this component adds a sample page at [/hugo-youtube/](/hugo-youtube/)
+In development mode this component adds a sample page at `/hugo-youtube/`.
 
 ### Parameters
 

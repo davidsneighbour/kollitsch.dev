@@ -1,24 +1,24 @@
 .alert-selenized {
-	@include alert-variant($base02, $base01, $base3);
+  @include alert-variant($base02, $base01, $base3);
 }
 
 .alert {
-	.icon--bs {
-		svg {
-			width: 24px;
-			height: 24px;
-			@extend .me-3;
-		}
+  .icon--bs {
+    svg {
+      width: 24px;
+      height: 24px;
+      @extend .me-3;
+    }
 
-	}
+  }
 
-	&-dark {
-		--bs-alert-color: var(--sol-base3);
-		--bs-alert-bg: var(--sol-base02);
-		--bs-alert-border: none;
+  &-dark {
+    --bs-alert-color: var(--sol-base3);
+    --bs-alert-bg: var(--sol-base02);
+    --bs-alert-border: none;
 
-		.alert-link {
-			color: var(--sol-base3);
-		}
-	}
+    .alert-link {
+      color: var(--sol-base3);
+    }
+  }
 }

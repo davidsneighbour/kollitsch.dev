@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-debug/releases/73280628",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-debug/releases/73280628/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-debug/releases/73280628/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-debug/releases/tag/v1.5.19",
-  "id": 73280628,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-debug/releases/77897940",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-debug/releases/77897940/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-debug/releases/77897940/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-debug/releases/tag/v1.5.20",
+  "id": 77897940,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,30 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOExcvIM4EXix0",
-  "tag_name": "v1.5.19",
+  "node_id": "RE_kwDOExcvIM4EpKDU",
+  "tag_name": "v1.5.20",
   "target_commitish": "main",
-  "name": "Quick fixes, non breakin",
+  "name": "v1.5.20",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-07-31T12:05:42Z",
-  "published_at": "2022-07-31T12:06:36Z",
+  "created_at": "2022-09-22T15:27:26Z",
+  "published_at": "2022-09-22T15:28:04Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-debug/tarball/v1.5.19",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-debug/zipball/v1.5.19",
-  "body": ""
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-debug/tarball/v1.5.20",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-debug/zipball/v1.5.20",
+  "body": "",
+  "reactions": {
+    "url": "https://api.github.com/repos/davidsneighbour/hugo-debug/releases/77897940/reactions",
+    "total_count": 1,
+    "+1": 1,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  }
 }

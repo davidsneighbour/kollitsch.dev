@@ -17,7 +17,7 @@ categories:
 tags:
   - gohugo
   - component
-  - seo
+  - development
 
 component:
   slug: hugo-debug
@@ -36,49 +36,13 @@ This module for GoHugo adds debugging partials for many use cases.
 - This is a GoHugo module to use while you are developing your theme or website. It will slow down the build process. Knowledge about variables in our template and NOT speed is our main priority.
 - This module is based on the work in [kaushalmodi/hugo-debugprint](https://github.com/kaushalmodi/hugo-debugprint).
 
-<!--- INSTALLUPDATE BEGIN --->
-## Installing
-
-First enable modules in your own repository if you did not already have done so:
-
-```bash
-hugo mod init github.com/username/reponame
-```
-
-Then add this module to your required modules in `config.toml`.
-
-```toml
-[module]
-
-[[module.imports]]
-path = "github.com/davidsneighbour/hugo-debug"
-disable = false
-ignoreConfig = false
-ignoreImports = false
-
-```
-
-The next time you run `hugo` it will download the latest version of the module.
-
-## Updating
-
-```bash
-# update this module
-hugo mod get -u github.com/davidsneighbour/hugo-debug
-# update to a specific version
-hugo mod get -u github.com/davidsneighbour/hugo-debug@v1.0.0
-# update all modules recursively over the whole project
-hugo mod get -u ./...
-```
-<!--- INSTALLUPDATE END --->
-
 ## Usage
 
 Either add `disabled = true` to your live server configuration or check, if you are on a development server by using `{{- if site.IsServer -}}` around your calls to the partials.
 
 A quick sample for it's usage is the following partial that I use in my footer area:
 
-```go
+```go-html-template
 {{- if site.IsServer -}}
   <footer id="debugging">
     <div class="container">
@@ -105,7 +69,7 @@ A quick sample for it's usage is the following partial that I use in my footer a
 
 To print a variable in one of your layouts:
 
-```gotemplate
+```go-html-template
 {{ partial "debugprint" . }}
 {{ partial "debugprint" .Params }}
 {{ partial "debugprint" site }}
@@ -139,7 +103,7 @@ Debugging from within Markdown requires very explicit configuration in the short
 
 Some times we developers want to inform and warn our users, or even throw an error. The debug partial is your connection to the CLI with some more options than GoHugo's internal error functionality.
 
-```go-template
+```go-html-template
 {{- partial "debug.html"
       (dict
         "message" "going into PostProcessing"
@@ -176,7 +140,7 @@ While all other debugging options above are flexible options to debug any value,
 
 You can add the following call to any layout file:
 
-```go-template
+```go-html-template
 {{ partialCached "debugpage.html" . . }}
 ```
 
@@ -214,34 +178,6 @@ Formatters are dedicated layout files for a certain type. The component offers r
 ### Configuring formatter
 
 ### Adding formatter layout
-
-## Development
-
-### Setup development environment
-
-- copy `.env.sample` to `.env` and fill with your local information
-- run `npm install` to install all dependencies
-- run `npm run server` to start the server and see the documentation
-
-The development server includes testing via Cypress and examples for (hopefully at the end) all debugging formatters we have added. Every formatter should have a testing page with at least introductory explanations to it's functions.
-
-### Running tests
-
-- to be implemented
-
-### Contributing to _GoHugo Debug_
-
-#### Reporting issues
-
-If you have found a bug in _GoHugo Debug_ or miss some documentation, please use the issue tracker to report. If it's a support request you can do the same, but please note that this is an open source project and I might not be able to invest much time in getting your problem solved.
-
-Whatever your issue is, please be as precise as possible and add enough information to reproduce your problem/suggestion.
-
-#### Submitting pull requests
-
-I welcome contributions in form of pull requests. There are no guidelines yet as to how a pull request should be done, so please be as extensive as possible about the reasoning behind your changes and why you think it will be a good addition. Typos of course can be merged without too much discussion.
-
-DNB Org uses Codacy to keep some modest code quality. Keep an eye on your pull requests Codacy badge (on the README.md top of your branch). "If it's not A it's not Ok" ;)
 
 ## FAQ
 

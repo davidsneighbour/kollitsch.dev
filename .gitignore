@@ -16,6 +16,8 @@ notes/
 .wireit/
 # dynamically created files (pipes)
 assets/dist/*
+# hmm, everything in resources
+resources
 
 #####################################################################
 # ignores via API

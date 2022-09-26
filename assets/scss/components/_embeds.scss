@@ -1,0 +1,87 @@
+.tweet-card {
+  border: 1px solid currentColor;
+
+  &>*+* {
+    margin-top: 1em;
+  }
+
+  .tweet-header {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+    align-items: center;
+
+    white-space: nowrap;
+  }
+
+  .tweet-profile img {
+    display: block;
+    border-radius: 50%;
+
+    color: transparent;
+    text-decoration: none;
+  }
+
+  .tweet-author {
+    display: grid;
+  }
+
+  .tweet-header a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  .tweet-author-name {
+    font-weight: 700;
+  }
+
+  [class^='tweet-media'] {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2;
+
+    object-fit: cover;
+  }
+
+  [class^='tweet-img-grid'],
+  .tweet-video-wrapper,
+  .tweet-media-video {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    overflow: hidden;
+  }
+
+  .tweet-img-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+
+    .tweet-media-img {
+      aspect-ratio: 1.8;
+    }
+
+    :nth-child(1) {
+      grid-row: 1 / span 2;
+
+      .tweet-media-img {
+        aspect-ratio: 0.9;
+      }
+    }
+  }
+
+  .tweet-img-grid-2,
+  .tweet-img-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tweet-footer {
+    text-align: center;
+  }
+
+  .tweet-link {
+    display: block;
+
+    &::after {
+      content: ' →';
+    }
+  }
+}

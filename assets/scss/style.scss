@@ -20,7 +20,7 @@ $cyan: #4cd0c1;
 $green: #7bbf3e;
 
 $br_yellow: #facf4b;
-$br_orange : #ff9c5e;
+$br_orange: #ff9c5e;
 $br_red: #ff6b61;
 $br_magenta: #ff8cd6;
 $br_violet: #c49dff;
@@ -117,23 +117,9 @@ $table-accent-bg: var(--sol-base03);
 // buttons
 $btn-border-width: 2px;
 
-// settings
-$enable-caret: true;
-$enable-rounded: true;
-$enable-shadows: false;
-$enable-gradients: false;
-$enable-transitions: true;
-$enable-reduced-motion: true;
-$enable-smooth-scroll: true;
-$enable-grid-classes: true;
-$enable-container-classes: true;
-$enable-cssgrid: false;
-$enable-button-pointers: true;
-$enable-rfs: true;
-$enable-validation-icons: true;
-$enable-negative-margins: false;
-$enable-deprecation-messages: true;
-$enable-important-utilities: true;
+// settings (non-default)
+$enable-rounded: false;
+$enable-rfs: false;
 
 // prefix for CSS variables
 $variable-prefix: bs-;
@@ -143,9 +129,9 @@ $prefix: $variable-prefix;
 
 // layout
 $container-max-widths: (
-	sm: 540px,
-	md: 720px,
-	lg: 960px,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
 );
 
 @import 'bootstrap/scss/maps';
@@ -154,52 +140,52 @@ $container-max-widths: (
 
 // local bootstrap setup/overrides
 :root {
-	--sol-base03: #{$base03};
-	--sol-base02: #{$base02};
-	--sol-base01: #{$base01};
-	--sol-base00: #{$base00};
-	--sol-base0: #{$base0};
-	--sol-base1: #{$base1};
-	--sol-base2: #{$base2};
-	--sol-base3: #{$base3};
-	--sol-yellow: #{$yellow};
-	--sol-orange: #{$orange};
-	--sol-red: #{$red};
-	--sol-magenta: #{$magenta};
-	--sol-violet: #{$violet};
-	--sol-blue: #{$blue};
-	--sol-cyan: #{$cyan};
-	--sol-green: #{$green};
+  --sol-base03: #{$base03};
+  --sol-base02: #{$base02};
+  --sol-base01: #{$base01};
+  --sol-base00: #{$base00};
+  --sol-base0: #{$base0};
+  --sol-base1: #{$base1};
+  --sol-base2: #{$base2};
+  --sol-base3: #{$base3};
+  --sol-yellow: #{$yellow};
+  --sol-orange: #{$orange};
+  --sol-red: #{$red};
+  --sol-magenta: #{$magenta};
+  --sol-violet: #{$violet};
+  --sol-blue: #{$blue};
+  --sol-cyan: #{$cyan};
+  --sol-green: #{$green};
 
-	--primary: var(--sol-red);
-	--highlight: var(--sol-red);
-	--highlight2: var(--sol-orange);
+  --primary: var(--sol-red);
+  --highlight: var(--sol-red);
+  --highlight2: var(--sol-orange);
 
-	--sol-base02: var(--sol-base03);
+  --sol-base02: var(--sol-base03);
 
-	--color-title: $base0;
-	--color: #{$base3};
-	--color2: #{$red};
+  --color-title: $base0;
+  --color: #{$base3};
+  --color2: #{$red};
 
-	--footer-color-fg: #{$base2};
-	--footer-color-bg: #{$base03}; // note: see components/layout
+  --footer-color-fg: #{$base2};
+  --footer-color-bg: #{$base03}; // note: see components/layout
 
-	--#{$prefix}pagination-bg: #{$base03};
-	--#{$prefix}pagination-border-color: $base0;
+  --#{$prefix}pagination-bg: #{$base03};
+  --#{$prefix}pagination-border-color: $base0;
 
-	// https://drafts.csswg.org/css-ui-4/#widget-accent
-	// https://caniuse.com/?search=accent-color
-	accent-color: var(--primary);
+  // https://drafts.csswg.org/css-ui-4/#widget-accent
+  // https://caniuse.com/?search=accent-color
+  accent-color: var(--primary);
 }
 
 .light {
-	// settings for a light theme
-	// most (or all) of the light setup is defined as default in :root if dark is default
+  // settings for a light theme
+  // most (or all) of the light setup is defined as default in :root if dark is default
 }
 
 .dark {
-	// settings for a dark theme
-	// most (or all) of the dark setup is defined as default in :root if dark is default
+  // settings for a dark theme
+  // most (or all) of the dark setup is defined as default in :root if dark is default
 }
 
 // bootstrap - layout and components
@@ -254,18 +240,19 @@ $container-max-widths: (
 @import 'components/navigation';
 @import 'components/articles';
 @import 'components/figure';
-@import 'components/form';
+@import 'components/forms';
 @import 'components/widgets';
 @import 'components/features';
 @import 'components/scrollbars';
 @import 'components/pagination';
+@import 'components/embeds';
 
 // article content formatting
 .prose {
-	@import 'prose/prose';
-	@import 'prose/footnotes';
-	@import 'prose/components';
-	@import 'prose/tables';
+  @import 'prose/prose';
+  @import 'prose/footnotes';
+  @import 'prose/components';
+  @import 'prose/tables';
 }
 
 // plugins
@@ -280,12 +267,13 @@ $container-max-widths: (
 @import 'animate.css/animate';
 
 // syntax highlighting
+
 /* stylelint-disable-next-line no-duplicate-selectors */
 .dark {
-	@import 'plugins/syntax/dark';
+  @import 'plugins/syntax/dark';
 }
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .light {
-	@import 'plugins/syntax/light';
+  @import 'plugins/syntax/light';
 }

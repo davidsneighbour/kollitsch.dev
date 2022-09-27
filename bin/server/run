@@ -64,25 +64,51 @@ hugo mod get -u ./...
 # 	[[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
 # fi
 
+# DNB bin config
+dnb_server_debug=""
+if [ "$DNB_SERVER_DEBUG" = true ] ; then
+		echo "Debugging ON"
+    dnb_server_debug="--templateMetrics --templateMetricsHints"
+		dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings --printUnusedTemplates"
+		dnb_server_debug="${dnb_server_debug} --debug --verbose "
+else
+	echo "Debugging OFF"
+fi
+dnb_server_future=""
+if [ "$DNB_SERVER_FUTURE" = true ] ; then
+		echo "Future Posts ON"
+    dnb_server_future="--buildFuture "
+else
+	echo "Future Posts OFF"
+fi
+dnb_server_expired=""
+if [ "$DNB_SERVER_EXPIRED" = true ] ; then
+		echo "Expired Posts ON"
+    dnb_server_expired="--buildExpired "
+else
+	echo "Expired Posts OFF"
+fi
+dnb_server_drafts=""
+if [ "$DNB_SERVER_DRAFTS" = true ] ; then
+		echo "Draft Posts ON"
+    dnb_server_drafts="--buildDrafts "
+else
+	echo "Draft Posts OFF"
+fi
+
 # starting hugo server
 hugo server \
 	--environment development \
 	--disableFastRender \
 	--navigateToChanged \
-	--printPathWarnings \
-	--poll 1s \
 	--renderToDisk \
-	--buildFuture \
-	--buildDrafts \
+	${dnb_server_drafts} \
+	${dnb_server_future} \
+	${dnb_server_expired} \
+	${dnb_server_debug} \
 	--watch \
 	--enableGitInfo \
 	--forceSyncStatic \
-	--templateMetrics \
-	--templateMetricsHints \
 	--port "${PORT}" \
 	--baseURL http://"${IP}"/ \
 	--bind "${IP}" 2>&1 | tee -a hugo.log
-
-# TODO: --buildDrafts --buildExpired on request
-# TODO: check --source dev
-# TODO: enable/disable debugging via CLI

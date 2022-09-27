@@ -66,32 +66,32 @@ hugo mod get -u ./...
 
 # DNB bin config
 dnb_server_debug=""
-if [ "$DNB_SERVER_DEBUG" = true ] ; then
-		echo "Debugging ON"
-    dnb_server_debug="--templateMetrics --templateMetricsHints"
-		dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings --printUnusedTemplates"
-		dnb_server_debug="${dnb_server_debug} --debug --verbose "
+if [ "$DNB_SERVER_DEBUG" = true ]; then
+	echo "Debugging ON"
+	dnb_server_debug="--templateMetrics --templateMetricsHints"
+	dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings --printUnusedTemplates"
+	dnb_server_debug="${dnb_server_debug} --debug --verbose "
 else
 	echo "Debugging OFF"
 fi
 dnb_server_future=""
-if [ "$DNB_SERVER_FUTURE" = true ] ; then
-		echo "Future Posts ON"
-    dnb_server_future="--buildFuture "
+if [ "$DNB_SERVER_FUTURE" = true ]; then
+	echo "Future Posts ON"
+	dnb_server_future="--buildFuture "
 else
 	echo "Future Posts OFF"
 fi
 dnb_server_expired=""
-if [ "$DNB_SERVER_EXPIRED" = true ] ; then
-		echo "Expired Posts ON"
-    dnb_server_expired="--buildExpired "
+if [ "$DNB_SERVER_EXPIRED" = true ]; then
+	echo "Expired Posts ON"
+	dnb_server_expired="--buildExpired "
 else
 	echo "Expired Posts OFF"
 fi
 dnb_server_drafts=""
-if [ "$DNB_SERVER_DRAFTS" = true ] ; then
-		echo "Draft Posts ON"
-    dnb_server_drafts="--buildDrafts "
+if [ "$DNB_SERVER_DRAFTS" = true ]; then
+	echo "Draft Posts ON"
+	dnb_server_drafts="--buildDrafts "
 else
 	echo "Draft Posts OFF"
 fi

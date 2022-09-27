@@ -14,6 +14,8 @@ github.com/davidsneighbour/hugo-hooks v1.3.5 h1:2MWcJlsmUMAWTMyb6nkYYhFOCA+yx6c1
 github.com/davidsneighbour/hugo-hooks v1.3.5/go.mod h1:AM5v7lsVWD2tQFSzbDClu5Q0lwqxB7P1kpQGMMSaxXY=
 github.com/davidsneighbour/hugo-icons v1.2.14 h1:g+9Drg00O/e0V/faJGskAuvJkqLF58k/XpoKTrFW+oo=
 github.com/davidsneighbour/hugo-icons v1.2.14/go.mod h1:HogpmzVVhq7WoZ6KmR1e9JYYiS3HhoxhOHpdpJRrYMU=
+github.com/davidsneighbour/hugo-icons v1.2.15 h1:pRkd6fL4CHXcA+vxlWwrXRDnz3vibDnWQE8FdFDFFgc=
+github.com/davidsneighbour/hugo-icons v1.2.15/go.mod h1:jtA+C1C7J4oo7Hjj90pYe9l98V8QjVNhzLI39ryoDsE=
 github.com/davidsneighbour/hugo-internals v1.0.4 h1:34lfZq2pYdfgnfh/K23lrM5JlLDReiBHTicKb9SexL0=
 github.com/davidsneighbour/hugo-internals v1.0.4/go.mod h1:He/x3RgqBTcIrpsN/KkXgB03/RIikuQTg3XSu7hnM3c=
 github.com/davidsneighbour/hugo-netlification v1.2.6 h1:qFZkD7EoaHLu2qTUAVLn91myMaEOEX8Uc4EF4al0Tt0=

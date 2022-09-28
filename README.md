@@ -17,17 +17,10 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Hooks (WIP)](#hooks-wip)
 - [Front matter parameters](#front-matter-parameters)
 	- [Layout options](#layout-options)
+- [Linting](#linting)
+	- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+	- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
 - [License](#license)
-
-| A bunch of badges (work in progress) |
-| :---: |
-| [![Codacy Badge](https://img.shields.io/codacy/grade/f6010b26bb5b4c56affa5e96e7537b24?style=for-the-badge)](https://www.codacy.com/gh/davidsneighbour/kollitsch.dev/dashboard) ![](https://img.shields.io/github/checks-status/davidsneighbour/kollitsch.dev/main?style=for-the-badge) ![](https://img.shields.io/netlify/02e05c7a-11a0-48e0-988f-7fc12267eb89?style=for-the-badge) ![](https://img.shields.io/github/languages/count/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/directory-file-count/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/size/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/tokei/lines/github/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/sponsors/davidsneighbour?style=for-the-badge) ![](https://img.shields.io/github/issues-raw/davidsneighbour/kollitsch.dev?color=ff7700&style=for-the-badge) ![](https://img.shields.io/github/license/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/stars/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/twitter/follow/davidsneighbour?style=for-the-badge) ![](https://img.shields.io/github/go-mod/go-version/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/package-json/v/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/hsts/preload/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fkollitsch.dev) ![](https://img.shields.io/uptimerobot/ratio/m792489075-c3f0ea7d7b1cab5474e02580?label=Uptime&style=for-the-badge) ![](https://img.shields.io/github/commit-activity/w/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/last-commit/davidsneighbour/kollitsch.dev?style=for-the-badge) ![](https://img.shields.io/github/discussions/davidsneighbour/kollitsch.dev?style=for-the-badge)|
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 # Setup
 
@@ -47,7 +40,7 @@ The key words MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, an
 - Copy `.env.sample` to `.env` and fill in the values. This is used by scripts and the build systems for various tasks. You *must* commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like [Keybase](https://keybase.io/).
 To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 - Run `npm install` to install all dependencies.
--
+
 Install and set up `pre-commit` if you intend to send commits to the repository. This ensures that all commits adhere to the quality and security standards of this project.
 
  ```bash
@@ -162,6 +155,32 @@ The following front matter parameters exist to fine-tune the layouts and theme o
 
 - `comments` - set to false to turn off comment forms and display (default: true)
 - `showdate` - set to false to turn off date per post display (default: true)
+
+# Linting
+
+## Vale (wording and grammar checks)
+
+kollitsch.dev uses [Vale](https://vale.sh/docs/vale-cli/installation/) to lint markdown content files. Styles and vocab are saved in `tests/vale`.
+
+**Installation:**
+
+```bash
+snap install --edge vale
+```
+
+**Run tests:**
+
+```bash
+vale content
+vale README.md
+npm run lint:vale
+```
+
+**VSCode Plugin:**
+
+Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server) plugin. No configuration is required.
+
+## Markdownlint (markdown format checks)
 
 # License
 

@@ -5,6 +5,7 @@
     "google.wireit",
     "mjmlio.vscode-mjml",
     "editorconfig.editorconfig",
-    "mkhl.shfmt"
+    "mkhl.shfmt",
+    "errata-ai.vale-server"
   ]
 }

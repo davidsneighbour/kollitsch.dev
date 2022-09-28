@@ -9,3 +9,4 @@ Codacy
 hostname
 MIT
 RFC
+Markdownlint

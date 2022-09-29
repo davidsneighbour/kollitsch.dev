@@ -1,45 +1,46 @@
 .debugprint {
-  font-size: 0.7rem;
+	font-size: 0.85rem;
 
-  #footer & a {
-    color: var(--sol-base1);
-  }
+	td,
+	th {
+		@extend .align-top;
+	}
 
-  td,
-  th {
-    @extend .align-bottom;
-  }
+	th {
+		font-size: 1rem;
+		font-weight: 500;
+	}
 
-  .key {
-    @extend .h5;
-  }
+	.key {
+		@extend .h5;
+	}
 
-  .true {
-    @extend .text-success;
-  }
+	.true {
+		@extend .text-success;
+	}
 
-  .false {
-    @extend .text-danger;
-  }
+	.false {
+		@extend .text-danger;
+	}
 
-  .debugprint {
-    @extend .table;
-    @extend .mb-0;
-  }
+	.debugprint {
+		@extend .table;
+		@extend .mb-0;
+	}
 
-  .dark & {
-    @extend .table-dark;
-  }
+	.dark & {
+		@extend .table-dark;
+	}
 
-  .light & {
-    @extend .table-light;
-  }
+	.light & {
+		@extend .table-light;
+	}
 
-  @extend .table;
-  @extend .table-bordered;
-  @extend .table-sm;
+	@extend .table;
+	@extend .table-bordered;
+	@extend .table-sm;
 
-  @extend .w-100;
-  @extend .overflow-auto;
+	@extend .w-100;
+	@extend .overflow-auto;
 
 }

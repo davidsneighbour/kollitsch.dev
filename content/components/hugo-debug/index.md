@@ -165,20 +165,46 @@ disablenote = false
 
 - **namespace:** (string) namespace slug for your plugin/theme. keep it short. three characters are enough. There is no restriction on this, but think about the look of the loglines with longer namespaces.
 - **debuglevel:** (number, 0 to 10) set the severity level that should maximally be shown. The higher the more info/debug on your CLI. 10 is maximum and can be helpful to debug issues.
-- **disablenote:** (boolean) disables the note at the beginning that the debug module is used.
+- **disablenote:** (bool) disables the note at the beginning that the debug module is used.
 
 ## Styling
 
-A simple Bootstrap 5 based SASS style is mounted into `assets/scss/_debugprint.scss` to be used via `@import "debugprint";`. Depending on your own styles you will probably have to add your own markup.
+A quick Bootstrap 5 based SASS style is mounted into `assets/scss/_debugprint.scss` to be used via `@import "debugprint";`. Depending on your own styles you can add your own styles based on the following structure:
+
+```scss
+.debugprint table,
+table.debugprint {
+  td, th {}
+  .true {}
+  .false {}
+}
+```
 
 ## Formatters
 
-Formatters are dedicated layout files for a certain type. The component offers reusable templates for any structural need (two column, three column tables or plain print) and takes over the markup and styling of the output. The following subsections will explain the procedure by use of some samples.
+Formatters are dedicated layout files for certain variable types. dnb-hugo offers reusable templates for any structural need (two and three column tables or plain printout) and takes over the markup and styling of the output.
 
-### Configuring formatter
+The configuration for a single formatter offers the following parameters:
 
-### Adding formatter layout
+```toml
+[[dnb.debug.formatters]]
+type = "navigation.MenuEntry"
+catch = "navigation\\.MenuEntry$"
+class = "struct"
+internal = "map"
+weight = 100
+slug = "menuentry"
+label = "Menu Entry"
+description = ""
+```
 
-## FAQ
+- **internal** (required, if no `catch` or `type` is used) - Set to `map` or `slice` to give a general indicator of the variable type.
+- **catch** (required, if no `type` or `internal` is used) - A regular expression to match on the type. For instance `"navigation\\.MenuEntry$"`
+- **type** (required, if no `catch` or `internal` is used) - A string expression to match on the type. For instance `boolean`.
+- **class** - A type class to define the output format. Not yet implemented.
+- **weight** - This parameter is used to sort the formatters before they are used to display a variable type. If no weight is given then the order in the configuration is used. First come (based on `type` or `catch`) first serve.
+- **slug** (required) - Filename part for the formatter layout in `layouts/partials/debugging-formatters/SLUG.html`.
+- **label** - A title to show for the debugging-table that is used to debug dictionaries and slices.
+- **description** - A description to show as overlay for the debugging-table that is used to debug dictionaries and slices.
 
-Should there be frequently asked questions then they will appear here.
+Evaluation of the type is done in the order or `internal`, then `catch`, then `type`. First come first serve.

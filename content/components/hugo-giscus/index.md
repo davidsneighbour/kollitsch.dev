@@ -82,7 +82,6 @@ Once added you will find a `giscus.json` in your website root.
 Available options are `oldest` (sorting from oldest to newest comment) and `newest` (sorting newest to oldest).
 
 ```toml
-
 [dnb.giscus.extended]
 defaultCommentOrder = "oldest"
 ```

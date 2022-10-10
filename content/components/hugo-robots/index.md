@@ -83,7 +83,7 @@ Default without any configuration is `true` in both parameters.
 
 If you are using [davidsneighbour/hugo-head](https://github.com/davidsneighbour/hugo-head) then the meta tag is automatically added to your head-tag. If not you will need to add a call to the meta tag:
 
-```go
+```go-html-template
 {{- partial "head/robots.html" . -}}
 ```
 

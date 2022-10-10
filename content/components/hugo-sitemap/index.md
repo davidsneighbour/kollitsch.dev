@@ -62,7 +62,7 @@ __DEPRECATED__: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions
 
 If you want to add an HTML sitemap you can do so via shortcode:
 
-```gotemplate
+```go-html-template
 {{</* sitemap */>}}
 ```
 
@@ -125,13 +125,13 @@ selection = "in-pages"
 
 Results in the pages being selected via:
 
-```gotemplate
+```go-html-template
 {{- $pages = (where site.Pages .Type "tags") -}}
 ```
 
 You can add a sitemap also to any template as a partial:
 
-```go
+```go-html-template
 {{- $config := site.Params.dnb.sitemap.htmlmap -}}
 {{- $sitemapdata := (dict "config" $config) -}}
 {{- partialCached "sitemap.html" $sitemapdata $sitemapdata -}}
@@ -139,7 +139,7 @@ You can add a sitemap also to any template as a partial:
 
 The above is the current shortcode, ehm, code. You can just use the global configuration or build your own configuration `dict`ionary to fill your sitemap. This makes the sitemap also usable to just show a collection of pages anywhere:
 
-```go
+```go-html-template
 {{ $config := dict "config" (dict "item" (dict
     "type" ".Type"
     "section"  "components"

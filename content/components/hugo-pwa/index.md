@@ -44,21 +44,6 @@ This is work in progress and while many parts are already working, some changes 
 - :x: improve configuration of implemented functionality in the service worker
 - :x: add detailed documentation for all configuration options
 
-<!--- THINGSTOKNOW BEGIN --->
-
-## Some things you need to know
-
-These are notes about conventions in this README.md. You might want to make yourself acquainted with them if this is your first visit.
-
-<details>
-
-<summary>:heavy_exclamation_mark: A note about proper configuration formatting. Click to expand!</summary>
-
-The following documentation will refer to all configuration parameters in TOML format and with the assumption of a configuration file for your project at `/config.toml`. There are various formats of configurations (TOML/YAML/JSON) and multiple locations your configuration can reside (config file or config directory). Note that in the case of a config directory the section headers of all samples need to have the respective section title removed. So `[params.dnb.something]` will become `[dnb.something]` if the configuration is done in the file `/config/$CONFIGNAME/params.toml`.
-
-</details>
-<!--- THINGSTOKNOW END --->
-
 <!--- INSTALLUPDATE BEGIN --->
 
 ## Installing
@@ -117,7 +102,7 @@ You already should have an `[output]` section, add `"manifest"` to it. Do not ad
 
 In your themes header (before `</head>`):
 
-```gotemplate
+```go-html-template
 {{ partialCached "head/pwa.html" . }}
 ```
 
@@ -125,7 +110,7 @@ This will add a link to the automatically created webmanifest with options to in
 
 In your footer layout (before `</body>`):
 
-```gotemplate
+```go-html-template
 {{ partialCached "footer/service-worker.html" . }}
 ```
 

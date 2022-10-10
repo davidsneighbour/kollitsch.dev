@@ -37,21 +37,6 @@ You name it. `hugo-hooks` is what you need. This module adds these hooks to your
 
 {{< component-box >}}
 
-<!--- THINGSTOKNOW BEGIN --->
-
-## Some things you need to know
-
-These are notes about conventions in this README.md. You might want to make yourself acquainted with them if this is your first visit.
-
-<details>
-
-<summary>:heavy_exclamation_mark: A note about proper configuration formatting. Click to expand!</summary>
-
-The following documentation will refer to all configuration parameters in TOML format and with the assumption of a configuration file for your project at `/config.toml`. There are various formats of configurations (TOML/YAML/JSON) and multiple locations your configuration can reside (config file or config directory). Note that in the case of a config directory the section headers of all samples need to have the respective section title removed. So `[params.dnb.something]` will become `[dnb.something]` if the configuration is done in the file `/config/$CONFIGNAME/params.toml`.
-
-</details>
-<!--- THINGSTOKNOW END --->
-
 <!--- INSTALLUPDATE BEGIN --->
 
 ## Installing
@@ -97,7 +82,7 @@ If a hook has an added `-cached` to it's name then it will be cached and on re-c
 
 For example:
 
-```golang
+```go-html-template
 {{ partial "func/hook.html" "head-start" }}
 ```
 
@@ -105,7 +90,7 @@ will load `layouts/partials/hooks/head-start.html` and `layouts/partials/hooks/h
 
 You can force caching by loading the hook via `partialCached` instead.
 
-```golang
+```go-html-template
 {{ partialCached "func/hook.html" "head-start" "cachename"}}
 ```
 
@@ -117,7 +102,7 @@ These hooks currently **do not return any values**, they execute the layouts. To
 
 Add the hook name as parameter to simple calls. The context inside of the hook layout will have a hook parameter with that name.
 
-```golang
+```go-html-template
 {{- partial "func/hook.html" "hookname" -}}
 {{- partialCached "func/hook.html" "hookname" $CACHENAME -}}
 ```
@@ -126,7 +111,7 @@ Add the hook name as parameter to simple calls. The context inside of the hook l
 
 If the hook supports adding parameters you can call it by adding a `dict` object to your call. The `hook` parameter is required, everything else will be passed through as-is to the hook layout. You should always add `"context" .` to add the local layout-context to your parameters. Can't go wrong with that :)
 
-```golang
+```go-html-template
 {{- partial "func/hook.html" ( dict "hook" "hookname" "context" . ) -}}
 {{- partialCached "func/hook.html" ( dict "hook" "hookname" "context" . ) $CACHENAME -}}
 ```

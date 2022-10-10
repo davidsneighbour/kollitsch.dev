@@ -52,14 +52,14 @@ Possible call scenarios:
 
 With unnamed parameters (static images preferred):
 
-```gotemplate
+```go-html-template
 {{</* figure "path/to/image" */>}}
 {{</* figure "path/to/image" "alt-title" */>}}
 ```
 
 With named parameters:
 
-```gotemplate
+```go-html-template
 {{</* figure src="path/to/image" title="" alt="" */>}}
 {{</* figure src="path/to/image" title="" alt="" */>}}caption{{</* /figure */>}}
 {{</* figure name="resource name" title="" alt="" */>}}caption{{</* /figure */>}}
@@ -85,7 +85,7 @@ For now we think about device pixel ratios up to 4. (<-- NOTE: what did we mean 
 
 Tagvariants:
 
-```gotemplate
+```go-html-template
 {{</* figure */>}}Something{{</* /figure */>}}
 {{</* figure */>}}
 ```

@@ -10,3 +10,6 @@ hostname
 MIT
 RFC
 Markdownlint
+[fF]ormatters
+kaushalmodi
+shortcode

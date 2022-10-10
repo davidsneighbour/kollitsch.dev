@@ -27,20 +27,20 @@ component:
   list: true
 ---
 
-This module for GoHugo adds debugging partials for many use cases.
+This module for GoHugo adds debugging partials for everything you need to debug.
 
 {{< component-box >}}
 
 ## Notes
 
-- This is a GoHugo module to use while you are developing your theme or website. It will slow down the build process. Knowledge about variables in our template and NOT speed is our main priority.
+- This is a GoHugo module to use while you are developing your theme or website. It slows down the build process. Knowledge about variables in our template and NOT speed is our main priority. It is advised to add the module only the development configuration or check if the layout is processed by the development server to minimise its impact.
 - This module is based on the work in [kaushalmodi/hugo-debugprint](https://github.com/kaushalmodi/hugo-debugprint).
 
 ## Usage
 
 Either add `disabled = true` to your live server configuration or check, if you are on a development server by using `{{- if site.IsServer -}}` around your calls to the partials.
 
-A quick sample for it's usage is the following partial that I use in my footer area:
+A quick sample for its usage is the following debugging of a pages data:
 
 ```go-html-template
 {{- if site.IsServer -}}
@@ -54,10 +54,6 @@ A quick sample for it's usage is the following partial that I use in my footer a
           {{- partial "debugprint.html" .Site.Menus -}}
           {{- partial "debugprint.html" .Resources -}}
           {{- partial "debugprint.html" .File -}}
-          {{- $layoutTrace := .Scratch.Get "trace" -}}
-          {{- with $layoutTrace -}}
-            {{- partial "debugprint.html" . -}}
-          {{- end -}}
         </div>
       </div>
     </div>
@@ -83,7 +79,7 @@ To print a variable in one of your layouts:
 {{ partial "debugprint" .Position }} <!-- this will show where the shortcode was called -->
 ```
 
-Exchange the context `.` with whatever variable you want to debug. Sub-collections or sub-slices might require extra setup to be debugged, depending on the structure and type of the values.
+Exchange the context `.` with whatever variable you want to debug. Sub-collections or sub-slices might require extra setup to be debugged, depending on the structure and the type of the values.
 
 ### Debug from within markdown (content) files
 
@@ -97,7 +93,7 @@ To debug page data from within a Markdown file:
 {{</* debugprint param="bla" */>}} <!-- debugs .Params.bla -->
 ```
 
-Debugging from within Markdown requires very explicit configuration in the shortcode template. [Open a new issue](https://github.com/davidsneighbour/hugo-debug/issues/new) if you require a specific debugging subject.
+Debugging from within Markdown requires explicit configuration in the shortcode template. [Open a new issue](https://github.com/davidsneighbour/hugo-debug/issues/new) if you require a specific debugging subject.
 
 ### Debug from your layout file into the CLI/server log
 
@@ -204,7 +200,7 @@ description = ""
 - **class** - A type class to define the output format. Not yet implemented.
 - **weight** - This parameter is used to sort the formatters before they are used to display a variable type. If no weight is given then the order in the configuration is used. First come (based on `type` or `catch`) first serve.
 - **slug** (required) - Filename part for the formatter layout in `layouts/partials/debugging-formatters/SLUG.html`.
-- **label** - A title to show for the debugging-table that is used to debug dictionaries and slices.
-- **description** - A description to show as overlay for the debugging-table that is used to debug dictionaries and slices.
+- **label** (required) - A title to show for the debugging-table that is used to debug dictionaries and slices.
+- **description** (required) - A description to show as overlay for the debugging-table that is used to debug dictionaries and slices.
 
 Evaluation of the type is done in the order or `internal`, then `catch`, then `type`. First come first serve.

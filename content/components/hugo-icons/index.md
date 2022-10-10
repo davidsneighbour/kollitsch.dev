@@ -48,7 +48,7 @@ This module adds sample pages with a list of all available icons when run in dev
 
 Call these icons as partials:
 
-```gotemplate
+```go-html-template
 {{ partialCached "bsicon.html" "arrow-right" "arrow-right" }}
 {{ partialCached "heroicon.html" "arrow-right" "arrow-right" }}
 {{ partialCached "tablericon.html" "arrow-right" "arrow-right" }}

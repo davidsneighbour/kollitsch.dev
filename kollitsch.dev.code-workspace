@@ -95,6 +95,9 @@
 		{
 			"name": "repo-templates",
 			"path": "../repo-templates"
+		},
+		{
+			"path": "../configurations"
 		}
 	],
 	"settings": {

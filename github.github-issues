@@ -1,7 +1,12 @@
 [
   {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Open Issues"
+  },
+  {
     "kind": 2,
     "language": "github-issues",
-    "value": "repo:davidsneighbour/kollitsch.dev is:open"
+    "value": "repo:davidsneighbour/kollitsch.dev is:open\n"
   }
 ]

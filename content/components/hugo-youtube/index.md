@@ -1,7 +1,7 @@
 ---
 title: Youtube
 linkTitle: hugo-youtube
-description: "This shortcode replaces the internal youtube shortcode and adds an unobtrusive, privacy conscious and unbloated custom element for YouTube videos using lite-youtube-embed."
+description: "A shortcode to replace the internal youtube shortcode and add an unobtrusive, privacy conscious and unbloated custom element for YouTube videos using lite-youtube-embed."
 
 date: 2022-08-03T21:21:58+07:00
 publishDate: 2022-08-03T21:21:58+07:00
@@ -40,8 +40,6 @@ This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive
 {{</* youtube "dQw4w9WgXcQ" */>}}
 {{</* youtube id="dQw4w9WgXcQ" title="Lower your eyelids to die with the sun - M83" */>}}
 ```
-
-In development mode this component adds a sample page at `/hugo-youtube/`.
 
 ### Parameters
 

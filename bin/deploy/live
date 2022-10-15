@@ -3,6 +3,9 @@
 # silently shutting down concurring hugo servers
 killall -q -9 hugo
 
+# switch netlify account if required
+netlify switch
+
 # cut a release
 npm run release
 

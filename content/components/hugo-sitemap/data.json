@@ -1,41 +1,4 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.1",
-  "id": 75109899,
-  "author": {
-    "login": "davidsneighbour",
-    "id": 83281,
-    "node_id": "MDQ6VXNlcjgzMjgx",
-    "avatar_url": "https://avatars.githubusercontent.com/u/83281?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/davidsneighbour",
-    "html_url": "https://github.com/davidsneighbour",
-    "followers_url": "https://api.github.com/users/davidsneighbour/followers",
-    "following_url": "https://api.github.com/users/davidsneighbour/following{/other_user}",
-    "gists_url": "https://api.github.com/users/davidsneighbour/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/davidsneighbour/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/davidsneighbour/subscriptions",
-    "organizations_url": "https://api.github.com/users/davidsneighbour/orgs",
-    "repos_url": "https://api.github.com/users/davidsneighbour/repos",
-    "events_url": "https://api.github.com/users/davidsneighbour/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/davidsneighbour/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "RE_kwDOGdkoKs4EehYL",
-  "tag_name": "v1.1.1",
-  "target_commitish": "main",
-  "name": "Configurable HTML Sitemap via partial",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2022-08-23T15:18:51Z",
-  "published_at": "2022-08-23T15:25:52Z",
-  "assets": [
-
-  ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.1.1",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.1.1",
-  "body": "This quick release adds a way to use the [new configurable HTML sitemap](https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.0) as partial:\r\n\r\n```go\r\n{{- $config := site.Params.dnb.sitemap.htmlmap -}}\r\n{{- $sitemapdata := (dict \"config\" $config) -}}\r\n{{- partialCached \"sitemap.html\" $sitemapdata $sitemapdata -}}\r\n```\r\n\r\nThe above is the current shortcode, ehm, code. You can just use the global configuration or build your own configuration `dict`ionary to fill your sitemap. This makes the sitemap also usable to just show a collection of pages anywhere:\r\n\r\n```go\r\n{{ $config := dict \"config\" (dict \"item\" (dict\r\n    \"type\" \".Type\"\r\n    \"section\"  \"components\"\r\n    \"label\" \"GoHugo Components by DNB\"\r\n    \"sortvalue\" \".Title\"\r\n    \"sortdirection\" \"ASC\"\r\n)) }}\r\n{{- partialCached \"sitemap.html\" $config $config -}}\r\n```\r\n\r\nThis template would show all items in my `content/components` section, sorted by title. "
+  "message": "Bad credentials",
+  "documentation_url": "https://docs.github.com/rest"
 }

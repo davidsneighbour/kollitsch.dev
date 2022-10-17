@@ -28,8 +28,8 @@ github.com/davidsneighbour/hugo-pwa v1.0.8 h1:lpn0Mre1eotTkZxo9RDyeT8bytthCzXme/
 github.com/davidsneighbour/hugo-pwa v1.0.8/go.mod h1:W3O4g46pYzCMmiqGnXT/7BVNDfDQ+FXqZoMu/xzaeVQ=
 github.com/davidsneighbour/hugo-robots v1.2.6 h1:a5i8H6QztyP9Tc15060FFPYRLSq+2AvlXjPEmR26AJ4=
 github.com/davidsneighbour/hugo-robots v1.2.6/go.mod h1:q4YHx8ppcEtXa7bpCC0h+ml6lXCPsvemZrufl5XU+9U=
-github.com/davidsneighbour/hugo-search-algolia v0.1.2 h1:YtQMAqEKeXoGQ8jH8D7I0oEzVf2nk7nwcLNSAUdm8Qg=
-github.com/davidsneighbour/hugo-search-algolia v0.1.2/go.mod h1:zsHubhmSijLhO7UFCsAryCBVhsG2gegoxB60jLHpdpE=
+github.com/davidsneighbour/hugo-search-algolia v0.1.3 h1:+HAFeE2K3qzXDGNnE+Z/7RNMNGSkdHG0DqpcrZKC+p4=
+github.com/davidsneighbour/hugo-search-algolia v0.1.3/go.mod h1:76h96QHScELG5WvxmRCvf+O2uJRnjKoKqUas6EYJGFA=
 github.com/davidsneighbour/hugo-security v1.1.4 h1:MJu/mSz+t2ZiLMWLCJvZUe2pLurIukvQ6zXMM+JwBwo=
 github.com/davidsneighbour/hugo-security v1.1.4/go.mod h1:MJvazS6ktIK7tbA+pddZopCTs1Rbw4iq21bv4J7GJ3U=
 github.com/davidsneighbour/hugo-shortcodes v1.5.3 h1:v/T8kDlTJER4kriUSnsmOCK64J9X/ZWG9Ee0oUxqjKY=

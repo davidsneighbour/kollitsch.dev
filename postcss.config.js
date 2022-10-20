@@ -51,6 +51,14 @@ module.exports = {
 		}),
 		purgecss(({
 			content: ['./hugo_stats.json'],
+			// https://github.com/gohugoio/hugo/issues/10338
+			// https://discourse.gohugo.io/t/purgecss-and-highlighting/41021
+			safelist: {
+				greedy: [/highlight/, /chroma/]
+			},
+			fontFace: true,
+			// variables: true, # @todo check why this breaks font family setup for code
+			keyframes: true,
 			defaultExtractor: content => {
 				const els = JSON.parse(content).htmlElements;
 				return [
@@ -58,8 +66,7 @@ module.exports = {
 					...(els.classes || []),
 					...(els.ids || []),
 				];
-			},
-			safelist: []
+			}
 		})),
 		// https://github.com/cssnano/cssnano
 		cssnano({

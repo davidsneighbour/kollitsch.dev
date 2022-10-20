@@ -180,12 +180,15 @@ $container-max-widths: (
 
 .light {
 	// settings for a light theme
-	// most (or all) of the light setup is defined as default in :root if dark is default
+	// most (or all) of the light setup is defined as default in :root if dark is defaul
+	// 	@import 'plugins/syntax/light';
 }
 
 .dark {
 	// settings for a dark theme
 	// most (or all) of the dark setup is defined as default in :root if dark is default
+
+	@import 'plugins/syntax/dark';
 }
 
 // bootstrap - layout and components
@@ -200,7 +203,7 @@ $container-max-widths: (
 @import 'bootstrap/scss/buttons';
 @import 'bootstrap/scss/transitions';
 // @import 'bootstrap/scss/dropdown';
-// @import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/button-group';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 // @import 'bootstrap/scss/card';
@@ -264,16 +267,4 @@ $container-max-widths: (
 @import 'plugins/alpine';
 
 // external plugins
-@import 'animate.css/animate';
-
-// syntax highlighting
-
-/* stylelint-disable-next-line no-duplicate-selectors */
-.dark {
-	@import 'plugins/syntax/dark';
-}
-
-/* stylelint-disable-next-line no-duplicate-selectors */
-.light {
-	@import 'plugins/syntax/light';
-}
+// @import 'animate.css/animate';

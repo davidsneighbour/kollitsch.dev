@@ -49,7 +49,7 @@ module.exports = {
 			},
 			debug: true,
 		}),
-		purgecss(({
+		purgecss({
 			content: ['./hugo_stats.json'],
 			// https://github.com/gohugoio/hugo/issues/10338
 			// https://discourse.gohugo.io/t/purgecss-and-highlighting/41021
@@ -67,7 +67,7 @@ module.exports = {
 					...(els.ids || []),
 				];
 			}
-		})),
+		}),
 		// https://github.com/cssnano/cssnano
 		cssnano({
 			preset: [

@@ -1,8 +1,15 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.1.0
+    # install with `pre-commit install --hook-type commit-msg`
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ['@davidsneighbour/commitlint-config']
   - repo: 'https://github.com/pre-commit/pre-commit-hooks'
-    rev: v4.2.0
+    rev: v4.3.0
     hooks:
       - id: check-byte-order-marker #- forbids files which have a utf-8 byte-order marker.
       - id: check-case-conflict #- checks for files that would conflict in case-insensitive filesystems.
@@ -46,14 +53,14 @@ repos:
       - id: blocklint
 
   - repo: 'https://github.com/adrienverge/yamllint'
-    rev: v1.26.3
+    rev: v1.28.0
     hooks:
       - id: yamllint
         args: [-c=tests/config/yamllint.yaml]
         exclude: ^(_vendor|.github/workflows|.pre-commit-config.yaml)
 
   - repo: 'https://github.com/jumanjihouse/pre-commit-hooks'
-    rev: 2.1.6
+    rev: 3.0.0
     hooks:
       - id: check-mailmap
       - id: script-must-have-extension
@@ -66,7 +73,7 @@ repos:
       - id: shfmt
 
   - repo: 'https://github.com/zricethezav/gitleaks'
-    rev: v8.8.4
+    rev: v8.15.0
     hooks:
       - id: gitleaks
 

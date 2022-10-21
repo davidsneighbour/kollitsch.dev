@@ -1,9 +1,12 @@
-replacements = 'github.com/davidsneighbour/hugo-head -> ../../hugo-head'
+replacements = 'github.com/davidsneighbour/hugo-search-algolia -> ../../hugo-search-algolia'
 
 [hugoVersion]
 extended = true
 min = "0.94.0"
 #max = ""
+
+[[imports]]
+path = "kollitsch-dev"
 
 [[imports]]
 disable = false

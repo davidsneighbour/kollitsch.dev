@@ -104,11 +104,6 @@
 		"not opera > 0",
 		"not IE > 0"
 	],
-	"commitlint": {
-		"extends": [
-			"@davidsneighbour/config/commitlint"
-		]
-	},
 	"eslintConfig": {
 		"extends": "@davidsneighbour/eslint-config"
 	},

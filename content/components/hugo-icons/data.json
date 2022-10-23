@@ -1,4 +1,41 @@
 {
-  "message": "Bad credentials",
-  "documentation_url": "https://docs.github.com/rest"
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-icons/releases/76714975",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-icons/releases/76714975/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-icons/releases/76714975/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-icons/releases/tag/v1.2.10",
+  "id": 76714975,
+  "author": {
+    "login": "davidsneighbour",
+    "id": 83281,
+    "node_id": "MDQ6VXNlcjgzMjgx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/83281?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/davidsneighbour",
+    "html_url": "https://github.com/davidsneighbour",
+    "followers_url": "https://api.github.com/users/davidsneighbour/followers",
+    "following_url": "https://api.github.com/users/davidsneighbour/following{/other_user}",
+    "gists_url": "https://api.github.com/users/davidsneighbour/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/davidsneighbour/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/davidsneighbour/subscriptions",
+    "organizations_url": "https://api.github.com/users/davidsneighbour/orgs",
+    "repos_url": "https://api.github.com/users/davidsneighbour/repos",
+    "events_url": "https://api.github.com/users/davidsneighbour/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/davidsneighbour/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "node_id": "RE_kwDOGogbAs4EkpPf",
+  "tag_name": "v1.2.10",
+  "target_commitish": "main",
+  "name": "Update tabler icons to v1.95.0",
+  "draft": false,
+  "prerelease": false,
+  "created_at": "2022-09-09T13:11:28Z",
+  "published_at": "2022-09-09T13:12:13Z",
+  "assets": [
+
+  ],
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-icons/tarball/v1.2.10",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-icons/zipball/v1.2.10",
+  "body": ""
 }

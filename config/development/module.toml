@@ -2,7 +2,7 @@ replacements = 'github.com/davidsneighbour/hugo-search-algolia -> ../../hugo-sea
 
 [hugoVersion]
 extended = true
-min = "0.94.0"
+min = "0.104.3"
 #max = ""
 
 [[imports]]

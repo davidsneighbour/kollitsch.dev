@@ -1,7 +1,10 @@
 [hugoVersion]
 extended = true
-min = "0.94.0"
+min = "0.104.3"
 #max = ""
+
+[[imports]]
+path = "kollitsch-dev"
 
 [[imports]]
 disable = false

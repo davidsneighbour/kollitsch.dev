@@ -105,7 +105,7 @@
 		"explorer.confirmDragAndDrop": false,
 		"window.autoDetectColorScheme": true,
 		"workbench.activityBar.visible": true,
-		"workbench.colorTheme": "Solarized Dark",
+		"workbench.colorTheme": "Tomorrow Night Blue",
 		"workbench.editor.closeOnFileDelete": true,
 		"workbench.editor.highlightModifiedTabs": true,
 		"workbench.editor.limit.enabled": true,

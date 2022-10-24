@@ -1,64 +1,64 @@
 {
-  "extends": [
-    "@davidsneighbour/config/htmlvalidate"
-  ],
-  "rules": {
-    "allowed-links": "off",
-    "no-style-tag": "off",
-    "long-title": "off",
-    "valid-id": "off",
-    "no-trailing-whitespace": "off",
-    "element-name": [
-      "warn",
-      {
-        "whitelist": [
-          "menu",
-          "date",
-          "lite-youtube",
-          "web-vitals"
-        ]
-      }
-    ],
-    "element-required-content": "off",
-    "no-inline-style": [
-      "error",
-      {
-        "include": [
-          "lite-youtube"
-        ],
-        "exclude": [],
-        "allowedProperties": [
-          "display"
-        ]
-      }
-    ],
-    "element-required-attributes": "off",
-    "no-dup-id": "off",
-    "doctype-style": "off",
-    "attr-quotes": "off",
-    "script-type": "off",
-    "no-redundant-role": "off",
-    "no-multiple-main": "off",
-    "void-content": "off",
-    "wcag/h30": "off",
-    "prefer-button": "off",
-    "no-raw-characters": "off",
-    "prefer-tbody": "off",
-    "prefer-native-element": "off",
-    "attribute-allowed-values": "off",
-    "attribute-boolean-style": "off",
-    "no-dup-class": "off",
-    "element-permitted-content": "off",
-    "input-attributes": "off",
-    "no-deprecated-attr": "off",
-    "no-dup-attr": "off",
-    "no-autoplay": "off",
-    "wcag/h37": "off",
-    "void-style": "off",
-    "attr-spacing": "off",
-    "require-sri": "off",
-    "no-unknown-elements": "off",
-    "missing-doctype": "off"
-  },
-  "root": true
+	"extends": [
+		"@davidsneighbour/config/html-validate"
+	],
+	"rules": {
+		"allowed-links": "off",
+		"no-style-tag": "off",
+		"long-title": "off",
+		"valid-id": "off",
+		"no-trailing-whitespace": "off",
+		"element-name": [
+			"warn",
+			{
+				"whitelist": [
+					"menu",
+					"date",
+					"lite-youtube",
+					"web-vitals"
+				]
+			}
+		],
+		"element-required-content": "off",
+		"no-inline-style": [
+			"error",
+			{
+				"include": [
+					"lite-youtube"
+				],
+				"exclude": [],
+				"allowedProperties": [
+					"display"
+				]
+			}
+		],
+		"element-required-attributes": "off",
+		"no-dup-id": "off",
+		"doctype-style": "off",
+		"attr-quotes": "off",
+		"script-type": "off",
+		"no-redundant-role": "off",
+		"no-multiple-main": "off",
+		"void-content": "off",
+		"wcag/h30": "off",
+		"prefer-button": "off",
+		"no-raw-characters": "off",
+		"prefer-tbody": "off",
+		"prefer-native-element": "off",
+		"attribute-allowed-values": "off",
+		"attribute-boolean-style": "off",
+		"no-dup-class": "off",
+		"element-permitted-content": "off",
+		"input-attributes": "off",
+		"no-deprecated-attr": "off",
+		"no-dup-attr": "off",
+		"no-autoplay": "off",
+		"wcag/h37": "off",
+		"void-style": "off",
+		"attr-spacing": "off",
+		"require-sri": "off",
+		"no-unknown-elements": "off",
+		"missing-doctype": "off"
+	},
+	"root": true
 }

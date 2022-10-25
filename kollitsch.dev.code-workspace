@@ -105,16 +105,12 @@
 		"explorer.confirmDragAndDrop": false,
 		"window.autoDetectColorScheme": true,
 		"workbench.activityBar.visible": true,
-		"workbench.colorTheme": "Tomorrow Night Blue",
 		"workbench.editor.closeOnFileDelete": true,
 		"workbench.editor.highlightModifiedTabs": true,
 		"workbench.editor.limit.enabled": true,
 		"workbench.editor.limit.perEditorGroup": true,
 		"workbench.editor.limit.value": 5,
-		"workbench.iconTheme": "vs-seti",
 		"workbench.list.smoothScrolling": true,
-		"workbench.preferredDarkColorTheme": "Solarized Dark",
-		"workbench.preferredLightColorTheme": "Solarized Light",
 		"workbench.sideBar.location": "left",
 		"workbench.tree.expandMode": "singleClick",
 		"workbench.tree.indent": 10,
@@ -160,6 +156,7 @@
 				"google.wireit"
 			]
 		},
-		"frontMatter.dashboard.openOnStart": false
+		"frontMatter.dashboard.openOnStart": false,
+		"workbench.colorTheme": "Solarized Light"
 	}
 }

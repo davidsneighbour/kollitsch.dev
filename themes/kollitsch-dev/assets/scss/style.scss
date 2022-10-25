@@ -176,6 +176,8 @@ $container-max-widths: (
 	// https://drafts.csswg.org/css-ui-4/#widget-accent
 	// https://caniuse.com/?search=accent-color
 	accent-color: var(--primary);
+
+	color-scheme: dark;
 }
 
 .light {

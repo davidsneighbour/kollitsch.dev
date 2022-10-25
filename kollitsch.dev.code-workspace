@@ -138,14 +138,14 @@
 		"githubPullRequests.fileListLayout": "tree",
 		"explorer.fileNesting.expand": false,
 		"workbench.colorCustomizations": {
-			"activityBar.activeBackground": "#002b36",
-			"activityBar.activeBorder": "#fdf6e3",
-			"activityBar.background": "#141414",
-			"activityBar.foreground": "#fdf6e3",
-			"activityBar.inactiveForeground": "#fdf6e399",
-			"activityBarBadge.background": "#fdf6e3",
-			"activityBarBadge.foreground": "#073642",
-			"sash.hoverBorder": "#073642"
+			"activityBar.activeBackground": "#36362f",
+			"activityBar.activeBorder": "#fc5851",
+			"activityBar.background": "#36362f",
+			"activityBar.foreground": "#fc5851",
+			"activityBar.inactiveForeground": "#fc5851",
+			"activityBarBadge.background": "#fc5851",
+			"activityBarBadge.foreground": "#36362f",
+			"sash.hoverBorder": "#36362f"
 		},
 		"files.watcherExclude": {
 			"**/.git/**": true,

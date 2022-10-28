@@ -12,13 +12,13 @@
 	},
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
-		"@davidsneighbour/config": "^1.0.33",
+		"@davidsneighbour/config": "^1.0.35",
 		"algoliasearch": "^4.14.2",
-		"alpinejs": "^3.10.4",
+		"alpinejs": "^3.10.5",
 		"animate.css": "^4.1.1",
 		"doiuse": "^4.4.1",
 		"dotenv": "^16.0.3",
-		"instantsearch.js": "^4.48.1",
+		"instantsearch.js": "^4.49.0",
 		"lazysizes": "^5.3.2",
 		"lite-youtube-embed": "^0.2.0",
 		"needle": "^3.1.0",
@@ -65,9 +65,9 @@
 		"lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
 		"lint:scripts": "eslint assets/js --ext .ts",
 		"lint:scripts:fix": "eslint assets/js --ext .ts --fix",
-		"lint:styles": "stylelint assets/scss",
+		"lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
 		"lint:styles:config": "stylelint --print-config index.js",
-		"lint:styles:fix": "stylelint assets/scss --fix",
+		"lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
 		"lint:templates": "bin/audit/lint-template-style",
 		"lint:vale": "vale content",
 		"prettier": "prettier 'assets/**/*.ts'",
@@ -93,6 +93,10 @@
 	],
 	"eslintConfig": {
 		"extends": "@davidsneighbour/eslint-config"
+	},
+	"stylelint": {
+		"extends": "@davidsneighbour/config/stylelint",
+		"rules": {}
 	},
 	"wireit": {
 		"build:frontmatter": {

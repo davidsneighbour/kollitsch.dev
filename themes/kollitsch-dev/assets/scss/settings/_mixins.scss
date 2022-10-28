@@ -1,7 +1,0 @@
-@mixin text-shadow($color: var(--bg-card), $pos1: 2px, $pos2: 2px, $wishy: 5px) {
-  text-shadow: $pos1 $pos2 $wishy $color;
-}
-
-@mixin box-shadow($color: var(--bg-card), $pos1: 2px, $pos2: 2px, $wishy: 5px) {
-  box-shadow: $pos1 $pos2 $wishy $color;
-}

@@ -4,7 +4,10 @@ min = "0.104.3"
 #max = ""
 
 [[imports]]
-path = "kollitsch-dev"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-tech"
 
 [[imports]]
 disable = false

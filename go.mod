@@ -23,7 +23,7 @@ require (
 	github.com/davidsneighbour/hugo-shortcodes v1.5.3 // indirect
 	github.com/davidsneighbour/hugo-sitemap v1.1.1 // indirect
 	github.com/davidsneighbour/hugo-social v0.1.9 // indirect
-	github.com/davidsneighbour/hugo-tech v0.0.0-20221030123820-f44dc422a161 // indirect
+	github.com/davidsneighbour/hugo-tech v0.0.0-20221030153959-fa78b1031578 // indirect
 	github.com/davidsneighbour/hugo-youtube v1.1.9 // indirect
 	github.com/paulirish/lite-youtube-embed v0.2.1-0.20220911020040-be6f03ef53b3 // indirect
 )

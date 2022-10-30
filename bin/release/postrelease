@@ -66,5 +66,5 @@ URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
 curl "${URL}" "${AUTH}" --output ./assets/data/build.json
 
 git add assets/data/build.json
-git commit "chore: add build information" --signoff
+git commit -m "chore: add build information" --signoff
 git push origin main --quiet

@@ -38,8 +38,8 @@ github.com/davidsneighbour/hugo-sitemap v1.1.1 h1:mLnhpxPUfg+2YM7EhEbBL2uO7ftzaz
 github.com/davidsneighbour/hugo-sitemap v1.1.1/go.mod h1:yg6xByEFv+J1UabtBGluLAF4tuekbcgPkwEQbVdIxAY=
 github.com/davidsneighbour/hugo-social v0.1.9 h1:Qe/92X8bOac7ypPWk8lWsf74K20onId/TV6qmZ3jJ3s=
 github.com/davidsneighbour/hugo-social v0.1.9/go.mod h1:d+S7kYwvMiGflVH+PVKYJ5n5miFvgVB3q7zfpC0EaCE=
-github.com/davidsneighbour/hugo-tech v0.0.0-20221030153959-fa78b1031578 h1:D6y48D2A7W8RRCDQOArST+4fxXhF+ye8qC59vJH33dM=
-github.com/davidsneighbour/hugo-tech v0.0.0-20221030153959-fa78b1031578/go.mod h1:uPH6ptsCky3OgTIF9b6C33jSRSCC4bjZDskeax5UQUM=
+github.com/davidsneighbour/hugo-tech v1.2022.0 h1:LDz+YqlsyKeob9r+2g41/539nmQfdQlhAc5eCVNnjHg=
+github.com/davidsneighbour/hugo-tech v1.2022.0/go.mod h1:uPH6ptsCky3OgTIF9b6C33jSRSCC4bjZDskeax5UQUM=
 github.com/davidsneighbour/hugo-youtube v1.1.9 h1:Cx6N6Z+YgIOPp8M6ymEhwFG5aJdsi+oXuiI083WHLGA=
 github.com/davidsneighbour/hugo-youtube v1.1.9/go.mod h1:07uFC+0Varr/jgB3bvCyRGC2AgKpfFc7Df5by89KFwk=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220911020040-be6f03ef53b3 h1:mSoc2S7RFOidzYijyburWi2cPasLfQBvJVoOqZdW4JA=

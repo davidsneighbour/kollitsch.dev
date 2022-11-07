@@ -1,4 +1,4 @@
-replacements = 'github.com/davidsneighbour/hugo-search-algolia -> ../../hugo-search-algolia,github.com/davidsneighbour/hugo-tech -> ../../hugo-tech'
+replacements = 'github.com/davidsneighbour/hugo-functions -> ../../hugo-functions,github.com/davidsneighbour/hugo-search-algolia -> ../../hugo-search-algolia,github.com/davidsneighbour/hugo-tech -> ../../hugo-tech'
 
 [hugoVersion]
 extended = true

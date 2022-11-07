@@ -24,6 +24,25 @@ show_title = true
 # that is listening to POST requests from your local form
 contact_form_action = "https://formspree.io/f/xoqyzooe"
 
+[dnb.theme.contact]
+[[dnb.theme.contact.methods]]
+label = "Address"
+value = '''
+Patrick Kollitsch
+P.O.Box 10, Post Office Nathon
+84140 Suratthani
+Thailand
+'''
+[[dnb.theme.contact.methods]]
+label = "Mastodon"
+value = "[@davidsneighbour@mastodon.in.th](https://mastodon.in.th/@davidsneighbour)"
+[[dnb.theme.contact.methods]]
+label = "Telegram"
+value = "[davidsneighbour](https://t.me/davidsneighbour)"
+
+
+
+
 ################################################################################
 # sections setup
 ################################################################################

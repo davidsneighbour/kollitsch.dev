@@ -10,7 +10,7 @@ jobs:
     name: Update GoHugo version for Netlify
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           ${GITHUB_WORKSPACE}/bin/netlify/update-hugo-version > "${GITHUB_WORKSPACE}/netlify.toml"
       - name: Create Pull Request

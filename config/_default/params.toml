@@ -199,7 +199,7 @@ wordcount = ".WordCount"
 icontheme = "bootstrap"
 
 [dnb.social.sharebuttons]
-networks = ["facebook", "twitter", "linkedin", "telegram"]
+networks = ["facebook", "twitter", "linkedin", "telegram", "mastodon"]
 icons = false
 sharetext = true
 
@@ -222,6 +222,11 @@ label = "Follow me on Instagram"
 url = "https://www.linkedin.com/in/patrickkollitsch/"
 icon = "linkedin"
 label = "Follow me on LinkedIn"
+
+[[dnb.social.network]]
+url = "https://mastodon.in.th/@davidsneighbour"
+icon = "mastodon"
+label = "Me on Mastodon"
 
 ################################################################################
 # hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus

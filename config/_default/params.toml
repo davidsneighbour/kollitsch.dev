@@ -199,7 +199,7 @@ wordcount = ".WordCount"
 icontheme = "bootstrap"
 
 [dnb.social.sharebuttons]
-networks = ["facebook", "twitter", "linkedin", "telegram", "mastodon"]
+networks = ["mastodon", "linkedin", "telegram", "facebook", "twitter"]
 icons = false
 sharetext = true
 

@@ -14,6 +14,8 @@ github.com/davidsneighbour/hugo-hooks v1.3.5 h1:2MWcJlsmUMAWTMyb6nkYYhFOCA+yx6c1
 github.com/davidsneighbour/hugo-hooks v1.3.5/go.mod h1:AM5v7lsVWD2tQFSzbDClu5Q0lwqxB7P1kpQGMMSaxXY=
 github.com/davidsneighbour/hugo-icons v1.2.20 h1:XicDltaAXavQQDLNL2OwTNUXlrzP8jT3VKmUIykVc60=
 github.com/davidsneighbour/hugo-icons v1.2.20/go.mod h1:zbWze60siaPURyBg9BhoK1lfyonuy2YYG35u9m7/pRk=
+github.com/davidsneighbour/hugo-icons v1.2.22 h1:8gLHU2dVQcVTHhrmsypK4RXxJ/NK6y/xEDMODYsOuAE=
+github.com/davidsneighbour/hugo-icons v1.2.22/go.mod h1:P2KIWnT3FOgM2VDBo86B9i1FzRYyvZ4lqQ1nUROH7SA=
 github.com/davidsneighbour/hugo-internals v1.0.4 h1:34lfZq2pYdfgnfh/K23lrM5JlLDReiBHTicKb9SexL0=
 github.com/davidsneighbour/hugo-internals v1.0.4/go.mod h1:He/x3RgqBTcIrpsN/KkXgB03/RIikuQTg3XSu7hnM3c=
 github.com/davidsneighbour/hugo-netlification v1.2.6 h1:qFZkD7EoaHLu2qTUAVLn91myMaEOEX8Uc4EF4al0Tt0=
@@ -40,6 +42,8 @@ github.com/davidsneighbour/hugo-social v0.1.9 h1:Qe/92X8bOac7ypPWk8lWsf74K20onId
 github.com/davidsneighbour/hugo-social v0.1.9/go.mod h1:d+S7kYwvMiGflVH+PVKYJ5n5miFvgVB3q7zfpC0EaCE=
 github.com/davidsneighbour/hugo-tech v1.2022.7 h1:r9CEo+/C1EKxEdRUzZC6VcvFdYr/qXDJVc4MLDCqMpg=
 github.com/davidsneighbour/hugo-tech v1.2022.7/go.mod h1:uPH6ptsCky3OgTIF9b6C33jSRSCC4bjZDskeax5UQUM=
+github.com/davidsneighbour/hugo-tech v1.2022.8 h1:qyNn4TYc9PELK9gavkFlvw0PYu8Xajm6wFC3E1ICdvM=
+github.com/davidsneighbour/hugo-tech v1.2022.8/go.mod h1:uPH6ptsCky3OgTIF9b6C33jSRSCC4bjZDskeax5UQUM=
 github.com/davidsneighbour/hugo-youtube v1.1.9 h1:Cx6N6Z+YgIOPp8M6ymEhwFG5aJdsi+oXuiI083WHLGA=
 github.com/davidsneighbour/hugo-youtube v1.1.9/go.mod h1:07uFC+0Varr/jgB3bvCyRGC2AgKpfFc7Df5by89KFwk=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220911020040-be6f03ef53b3 h1:mSoc2S7RFOidzYijyburWi2cPasLfQBvJVoOqZdW4JA=

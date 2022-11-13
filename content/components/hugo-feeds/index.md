@@ -43,36 +43,6 @@ Find out more about the [RSS](https://cyber.harvard.edu/rss/rss.html), [Atom](ht
 - [ ] partial to output list of available feeds on your website
 - [ ] proper testing, validation and dev-site
 
-<!--- INSTALLUPDATE BEGIN --->
-
-## Installing
-
-First enable modules in your own repository:
-
-```bash
-hugo mod init github.com/username/reponame
-```
-
-Then add this module to your required modules in config.toml.
-
-```toml
-[module]
-
-[[module.imports]]
-path = "$MODULENAME$"
-```
-
-The next time you run `hugo` it will download the latest version of the module.
-
-## Updating
-
-```shell
-# update this module
-hugo mod get -u $REPONAME$
-# update all modules
-hugo mod get -u #
-```
-<!--- INSTALLUPDATE END --->
 
 ## Configuration
 
@@ -113,7 +83,6 @@ Have a read through [@zbetz](https://github.com/zwbetz-gh)'s great article [Disc
 
 `hugo-feeds` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and makes the following hooks available:
 
-<!-- prettier-ignore -->
 | Hook | Description |
 | --- | :--- |
 | feeds-init | Hooks in after the opening tag. Do not open this to output anything. Just for initialising any of your plugins. |

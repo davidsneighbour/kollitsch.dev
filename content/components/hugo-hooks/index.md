@@ -37,43 +37,6 @@ You name it. `hugo-hooks` is what you need. This module adds these hooks to your
 
 {{< component-box >}}
 
-<!--- INSTALLUPDATE BEGIN --->
-
-## Installing
-
-First enable modules in your own repository if you did not already have done so:
-
-```bash
-hugo mod init github.com/username/reponame
-```
-
-Then add this module to your required modules in `config.toml`.
-
-```toml
-[module]
-
-[[module.imports]]
-path = "github.com/davidsneighbour/hugo-hooks"
-disable = false
-ignoreConfig = false
-ignoreImports = false
-
-```
-
-The next time you run `hugo` it will download the latest version of the module.
-
-## Updating
-
-```bash
-# update this module
-hugo mod get -u github.com/davidsneighbour/hugo-hooks
-# update to a specific version
-hugo mod get -u github.com/davidsneighbour/hugo-hooks@v1.0.0
-# update all modules recursively over the whole project
-hugo mod get -u ./...
-```
-<!--- INSTALLUPDATE END --->
-
 ## Hook principle
 
 Theme users save hooks to the `layouts/partials/hooks` directory. There are no errors if a hook is not found (some themes or modules might provide a feedback if their hook is unused and usage of them is required to get important features working).

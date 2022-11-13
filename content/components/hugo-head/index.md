@@ -188,7 +188,6 @@ placename = ""
 
 `hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and provides the following hooks:
 
-<!-- prettier-ignore -->
 {{< div class="table--hooks" >}}
 | Hook | Description |
 | --- | :--- |

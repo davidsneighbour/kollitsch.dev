@@ -44,42 +44,6 @@ This is work in progress and while many parts are already working, some changes 
 - :x: improve configuration of implemented functionality in the service worker
 - :x: add detailed documentation for all configuration options
 
-<!--- INSTALLUPDATE BEGIN --->
-
-## Installing
-
-First enable modules in your own repository if you did not already have done so:
-
-```bash
-hugo mod init github.com/username/reponame
-```
-
-Then add this module to your required modules in `config.toml`.
-
-```toml
-[module]
-
-[[module.imports]]
-path = "github.com/davidsneighbour/github.com/davidsneighbour/hugo-pwa"
-disable = false
-ignoreConfig = false
-ignoreImports = false
-
-```
-
-The next time you run `hugo` it will download the latest version of the module.
-
-## Updating
-
-```bash
-# update this module
-hugo mod get -u github.com/davidsneighbour/github.com/davidsneighbour/hugo-pwa
-# update to a specific version
-hugo mod get -u github.com/davidsneighbour/github.com/davidsneighbour/hugo-pwa@v1.0.0
-# update all modules recursively over the whole project
-hugo mod get -u ./...
-```
-<!--- INSTALLUPDATE END --->
 
 ## Configuration
 

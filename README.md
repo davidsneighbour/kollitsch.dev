@@ -189,3 +189,11 @@ The content of this project itself is licensed under the [CC BY-NC-SA 4.0](http:
 White this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in the `content` folder or documentation. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in its full may not be reused, but studied and parts reused.
 
 Long story short: go and create something by yourself and if you want to know how a feature on this website was realised feel free to have a look.
+
+# Troubleshooting
+
+## Inkscape
+
+```bash
+sudo apt install inkscape optipng
+```

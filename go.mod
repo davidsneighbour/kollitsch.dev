@@ -3,7 +3,7 @@ module github.com/davidsneighbour/kollitsch.dev
 go 1.18
 
 require (
-	github.com/davidsneighbour/hugo-auditor v0.1.8 // indirect
+	github.com/davidsneighbour/hugo-auditor v1.0.0 // indirect
 	github.com/davidsneighbour/hugo-debug v1.5.20 // indirect
 	github.com/davidsneighbour/hugo-feeds v1.0.3 // indirect
 	github.com/davidsneighbour/hugo-functions v1.1.3 // indirect
@@ -16,7 +16,7 @@ require (
 	github.com/davidsneighbour/hugo-opensearch v1.0.2 // indirect
 	github.com/davidsneighbour/hugo-pictures v0.1.3 // indirect
 	github.com/davidsneighbour/hugo-publisher v0.0.0-20220406165408-f18cd8318efc // indirect
-	github.com/davidsneighbour/hugo-pwa v1.0.8 // indirect
+	github.com/davidsneighbour/hugo-pwa v1.0.10 // indirect
 	github.com/davidsneighbour/hugo-robots v1.2.6 // indirect
 	github.com/davidsneighbour/hugo-search-algolia v0.1.3 // indirect
 	github.com/davidsneighbour/hugo-security v1.1.4 // indirect

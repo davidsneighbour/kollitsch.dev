@@ -31,6 +31,8 @@ component:
 
 This module is a component for [GoHugo](https://gohugo.io) that adds auditing tools to your development website. It is not thought for use in a live deployment. It is work in progress.
 
+{{< component-box >}}
+
 ## Headers CT
 
 See [CT.css](https://github.com/csswizardry/ct) for details. Enable this feature only on development setup to see information about optimisation approaches for your header tag order.

@@ -2,14 +2,14 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.custom.scripts": [
     {
-      "title": "Generate social image for Youtube",
+      "command": "~/.config/nvm/versions/node/v18.12.1/bin/node",
       "script": "./assets/config/frontmatter/scripts/create-youtube-header-image.js",
-      "command": "~/.config/nvm/versions/node/v18.0.0/bin/node"
+      "title": "Generate social image for Youtube"
     },
     {
-      "title": "Retrieve Unsplash image",
+      "command": "~/.config/nvm/versions/node/v18.12.1/bin/node",
       "script": "./assets/config/frontmatter/scripts/retrieve-unsplash-header-image-info.js",
-      "command": "~/.config/nvm/versions/node/v18.0.0/bin/node"
+      "title": "Retrieve Unsplash image"
     }
   ]
 }

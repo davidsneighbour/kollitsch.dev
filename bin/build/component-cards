@@ -12,9 +12,9 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 		exit 1
 	fi
 done
-
 # file location
-IMAGEPATH="./assets/images"
+CURPATH="$(pwd -P)"
+IMAGEPATH="${CURPATH}/assets/images"
 COMPONENTPATH="./content/components"
 
 # go through elements
@@ -23,7 +23,7 @@ for DIRNAME in "${COMPONENTPATH}"/*/; do
 	TERM=${DIR/hugo\-/}
 	find_string='>NAME<'
 	replace_string=">${TERM^^}<"
-	sed -E "s/${find_string}/${replace_string}/" ${IMAGEPATH}/components-header.svg >"${IMAGEPATH}"/temp.svg
+	sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/components-header.svg >"${IMAGEPATH}"/temp.svg
 	inkscape "${IMAGEPATH}"/temp.svg --export-filename="${COMPONENTPATH}"/"${DIR}"/header-card.png &>/dev/null
 	optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/header-card.png
 	rm -f "${IMAGEPATH}"/temp.svg

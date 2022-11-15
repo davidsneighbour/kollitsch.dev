@@ -24,16 +24,16 @@ _build:
   list: never
 ---
 
-# Patrick Kollitsch
+## Patrick Kollitsch
 
-## I currently live in:
+### I currently live in:
 
 - ~~Zwickau, Germany~~
 - ~~L&uuml;beck, Germany~~
 - ~~Berlin, Germany~~
 - Koh Samui, Thailand
 
-## Things I have done:
+### Things I have done:
 
 - Taught web development to whoever asked and listened.
 - Lived abroad as an expat for {{< age type="years" date="2005-01-08" >}}+ years.
@@ -44,6 +44,6 @@ _build:
 - Prototyped and programmed a online booking system for local tour companies on Koh Samui.
 - This Site (built with [GoHugo](https://gohugo.io) and my own theme.
 
-## Technical Details of this Site
+### Technical Details of this Site
 
 - Wordmark (kollitsch.dev*): used font is Bahn Pro Regular with diminished character spacing of 6.3 pixels.

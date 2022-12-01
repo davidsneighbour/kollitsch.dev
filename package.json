@@ -29,7 +29,7 @@
 		"ninja-keys": "^1.2.2",
 		"pixrem": "^5.0.0",
 		"postcss": "^8.4.19",
-		"postcss-cli": "^10.0.0",
+		"postcss-cli": "^10.1.0",
 		"request": "^2.88.2",
 		"sass": "^1.56.1",
 		"snoowrap": "^1.23.0",

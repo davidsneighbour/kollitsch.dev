@@ -15,7 +15,7 @@
 		"@davidsneighbour/browserslist-config": "^4.0.25",
 		"@davidsneighbour/commitlint-config": "^4.1.7",
 		"@davidsneighbour/config": "^1.0.42",
-		"@davidsneighbour/eslint-config": "^4.1.22",
+		"@davidsneighbour/eslint-config": "^4.1.24",
 		"algoliasearch": "^4.14.2",
 		"alpinejs": "^3.10.5",
 		"animate.css": "^4.1.1",

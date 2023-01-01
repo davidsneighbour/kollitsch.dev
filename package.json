@@ -16,7 +16,7 @@
 		"@davidsneighbour/commitlint-config": "^4.1.7",
 		"@davidsneighbour/config": "^1.0.42",
 		"@davidsneighbour/eslint-config": "^4.1.22",
-		"algoliasearch": "^4.14.2",
+		"algoliasearch": "^4.14.3",
 		"alpinejs": "^3.10.5",
 		"animate.css": "^4.1.1",
 		"doiuse": "^4.4.1",

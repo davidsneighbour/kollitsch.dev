@@ -21,7 +21,7 @@
 		"animate.css": "^4.1.1",
 		"doiuse": "^4.4.1",
 		"dotenv": "^16.0.3",
-		"instantsearch.js": "^4.49.1",
+		"instantsearch.js": "^4.49.2",
 		"lazysizes": "^5.3.2",
 		"lite-youtube-embed": "^0.2.0",
 		"needle": "^3.1.0",

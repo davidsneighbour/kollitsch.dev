@@ -6,7 +6,7 @@ description: Another monthly report from the depths of the laboratory of kollits
 
 date: 2023-01-02T09:36:01+07:00
 publishDate: 2023-01-02T09:36:01+07:00
-lastmod: 2023-01-02T9:42:36+07:00
+lastmod: 2023-01-02T19:33:22+07:00
 
 resources:
   - src: header.jpg
@@ -23,14 +23,12 @@ tags:
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
 
-- **Focus:** The fact, that I found a bug in my [@davidsneighbour/hugo-pwa module](https://github.com/davidsneighbour/hugo-pwa) while doing this writeup and fixing it subsequently before finishing this writeup is a sign that focusing on important things is still an issue.
-- **Fixing things:** The fact, that I found a bug in my [@davidsneighbour/hugo-pwa module](https://github.com/davidsneighbour/hugo-pwa) while doing this writeup and fixing it subsequently before finishing this writeup is a sign that fixing things is still what I can do on a moments notice.
-- **Cleanup:** I started cleaning up all my [@davidsneighbour](https://github.com/davidsneighbour) modules and projects. This is still work in progress, but I try to be done by the end of February. The plan is to create a maintainable environment for everything without making me looking at how it is set up each time. Not sure how "real" developers do it. Any time I am done with one thing I have an idea to improve it and get lost in that loop.
-- **kollitsch.de:** I added dark/light theming to this website and I wonder, how I never came to think about how to do it this easily. It's just [a bunch of CSS variables](https://github.com/davidsneighbour/kollitsch.dev/blob/18401a326350ef806acfdb2d18848a4719bb0db1/assets/scss/style.scss#L26) and [a couple of lines of Alpine.js](https://github.com/davidsneighbour/kollitsch.dev/blob/18401a326350ef806acfdb2d18848a4719bb0db1/assets/js/script.ts#L11) that make the magic work. The last step on this journey was [this article on web.dev by Adam Argyle](https://web.dev/building-a-color-scheme/). This sound advise combined with a sudden spark of an idea on how to implement it with Bootstrap 5 lead to the current theme switcher. It's still work in progress (I just yesterday made [code samples love their respective theme](https://github.com/davidsneighbour/kollitsch.dev/commit/a7f6051c9fc428c97feef611031a0ae3b7938d9f)). The "dim" theme still needs some work. But I am quite happy with the current display.
+Once again I missed a whole month of reporting. I guess I will pretend that the plan always was to report bi-monthly only :D
 
-  I am also not done with the post headings yet. They look weird right now, I know. Live with it for a while.
-- **Customers:** I am aware that more and more customers just float away. A huge problem is that Covid won't just disappear and the only industry on this island that matters, tourism, is still basically dead. Tour-organisations and promotional campaigns won't be able to hide, that the re-invention and recovery of tourism on Ko Samui is a whole different topic and a massive task in 2022 and beyond that year.
-- **Cooking:** I am experimenting with "Fried rice with vegetables" and several kinds of Tofu (two different meals). Not sure yet if one or the other will make it into my standard repertoire.
-- **Pokki:** My baby (a shihtzu dog, don't worry) is having more and more age related issues. Just yesterday his hind-legs gave up and he was crouching over the grounds for a day or two. He knows that his time is running out and I try to make it as amenable as possible for him. If I get up with the birds in the morning, today at 4am, we don't even need to spend the rest of the morning cleaning the house 🐶 The whole "lets give him all the food he craves at all times" strategy spectacularly backfired. Lots of cleaning. I won't be listening to anyone telling me to give him more food anymore.
-- **Language Learning:** I didn't do much in this resort... well, I started looking into [Golang](https://pkg.go.dev/)... does that count? I am programming a little CLI app that ties into [Hugo](https://gohugo.io) to create new content and objects of content.
-- **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.
+So what happened these past two months?
+
+- **Back to PHP:** This is a longer story, I might write a separate post about it. The short version of it is that in 2020, at the begin of the pandemic I started to transform a tour booking system I wrote in PHP for the "new" PHP version. Covid hit and the program wasn't touched or used for the next 2.5 years. Here in Thailand all tourism was extinct due to the border closures. When businesses restarted old PHP versions were finally deprecated and the program basically stopped working properly. Lots of work, proper typing (finally) refactoring and some months later the program seems to be up to the task again. The haters will have had some form of stroke reading the acronym PHP, but for me it's finally (with v8.1 and v8.2) in a position to take care of all the issues I had with it over the years.
+- **kollitsch.dev:** Nothing much changed on this site, mostly due to the feeling, that one (me) can over-optimise things and I am trying to stop doing that.
+- **Self optimization:** I started making lists and automate export of self-tracking tools and programs I am using. Being a big fan of statistics I can't wait for the patterns to emerge ;)
+- **2022:** Well, I am glad that year is over. Much chaos, lots of lows, and my body started telling me that I am old. I pretty much need two different types of glasses for different types of looking outside of my body. Weird. Oh, and Twitter died. Happy this year is over.
+- **All the other stuff:** As always there was a lot of things that I just ignored or let slide. But that's life. I guess.

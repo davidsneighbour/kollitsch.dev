@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/83115300",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/83115300/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/83115300/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2022.8.58",
-  "id": 83115300,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/87694825",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/87694825/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/87694825/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2022.8.60",
+  "id": 87694825,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584E9D0k",
-  "tag_name": "v2022.8.58",
+  "node_id": "RE_kwDOGDHt584FOh3p",
+  "tag_name": "v2022.8.60",
   "target_commitish": "main",
-  "name": "v2022.8.58",
+  "name": "v2022.8.60",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-11-15T11:58:44Z",
-  "published_at": "2022-11-15T11:59:23Z",
+  "created_at": "2023-01-02T12:53:21Z",
+  "published_at": "2023-01-02T12:53:38Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.58",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.58",
-  "body": "chore(release): v2022.8.58"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.60",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.60",
+  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2022.8.60 -->\n\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2022.8.60"
 }

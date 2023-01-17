@@ -43,6 +43,7 @@
 		"audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",
 		"audit:hugo": "./bin/audit/audit",
 		"build": "run-s build:critical build:hugo",
+		"build:critical": "./bin/build/critical-css",
 		"build:frontmatter": "wireit",
 		"build:hugo": "./bin/build/hugo",
 		"build:script": "tsc",

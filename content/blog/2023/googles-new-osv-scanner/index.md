@@ -6,7 +6,7 @@ description: Google recently published a security scanner, that checks your file
 
 date: 2023-01-18T0:16:01+07:00
 publishDate: 2023-01-18T0:16:27+07:00
-lastmod: 2023-01-18T0:18:09+07:00
+lastmod: 2023-01-18T0:22:35+07:00
 
 resources:
   - src: header.jpg

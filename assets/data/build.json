@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/89280222",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/89280222/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/89280222/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2022.8.62",
-  "id": 89280222,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/89282042",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/89282042/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/89282042/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2022.8.63",
+  "id": 89282042,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584FUk7e",
-  "tag_name": "v2022.8.62",
+  "node_id": "RE_kwDOGDHt584FUlX6",
+  "tag_name": "v2022.8.63",
   "target_commitish": "main",
-  "name": "v2022.8.62",
+  "name": "v2022.8.63",
   "draft": false,
   "prerelease": false,
-  "created_at": "2023-01-17T17:29:47Z",
-  "published_at": "2023-01-17T17:30:00Z",
+  "created_at": "2023-01-17T17:30:01Z",
+  "published_at": "2023-01-17T17:46:32Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.62",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.62",
-  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2022.8.62 -->\n\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2022.8.62"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2022.8.63",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2022.8.63",
+  "body": "<!-- Release notes generated using configuration in .github/release.yml at main -->\n\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2022.8.63"
 }

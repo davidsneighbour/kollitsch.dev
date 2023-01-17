@@ -35,7 +35,7 @@ Thailand
 '''
 [[dnb.theme.contact.methods]]
 label = "Mastodon"
-value = "[@davidsneighbour@mastodon.in.th](https://mastodon.in.th/@davidsneighbour)"
+value = "[davidsneighbour@mas.to](https://mas.to/@davidsneighbour)"
 [[dnb.theme.contact.methods]]
 label = "Telegram"
 value = "[davidsneighbour](https://t.me/davidsneighbour)"
@@ -224,9 +224,9 @@ icon = "linkedin"
 label = "Follow me on LinkedIn"
 
 [[dnb.social.network]]
-url = "https://mastodon.in.th/@davidsneighbour"
+url = "https://mas.to/@davidsneighbour"
 icon = "mastodon"
-label = "Me on Mastodon"
+label = "Me on Mas.to(don)"
 
 ################################################################################
 # hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus

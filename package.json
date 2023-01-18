@@ -17,7 +17,7 @@
 		"@davidsneighbour/config": "^1.0.47",
 		"@davidsneighbour/eslint-config": "^4.1.25",
 		"algoliasearch": "^4.14.3",
-		"alpinejs": "^3.10.5",
+		"alpinejs": "^3.11.1",
 		"animate.css": "^4.1.1",
 		"doiuse": "^4.4.1",
 		"dotenv": "^16.0.3",

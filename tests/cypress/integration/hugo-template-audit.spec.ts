@@ -28,7 +28,7 @@ const items = links.links;
 
 describe('Testing layouts', () => {
 	items.forEach((route): string => {
-		const testName = `${route} has no detectable html violations on load`;
+		const testName = `${route} has no common Hugo issues on load`;
 		it(testName, () => {
 			cy.visit(route);
 			cy.get('html').should('not.contain', 'ZgotmplZ');

@@ -1,7 +1,7 @@
 ---
 title: Centring Content in Markdown
 date: 2022-08-18T00:02:45+07:00
-lastmod: 2022-08-28T21:10:00+07:00
+lastmod: 2023-01-18T22:12:14+07:00
 
 description: ""
 summary: ""
@@ -82,4 +82,4 @@ The headline cell (a table header) seems to be required, so you could add a nice
 ![](/blog/2022/centring-content-in-markdown/nicely-centred-badges.png)
 
 
-[^1]: resulting in those nice `<!-- raw HTML omitted -->` markers in the HTML
+[^1]: resulting in those nice `&lt!-- raw HTML omitted -->` markers in the HTML

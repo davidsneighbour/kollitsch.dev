@@ -25,9 +25,13 @@ const items = links.links;
 // [i18n]
 // This is the placeholder produced instead of the default value or an
 // empty string if a translation is missing.
+//
+// (<nil>) or (&lt;nil&gt;)
+// This string will appear in the rendered HTML when passing a nil value to the
+// printf function.
 
 describe('Testing layouts', () => {
-	items.forEach((route): string => {
+	items.forEach((route: string): string => {
 		const testName = `${route} has no common Hugo issues on load`;
 		it(testName, () => {
 			cy.visit(route);
@@ -35,6 +39,8 @@ describe('Testing layouts', () => {
 			cy.get('html').should('not.contain', '<!-- raw HTML omitted -->');
 			cy.get('html').should('not.contain', 'HAHAHUGO');
 			cy.get('html').should('not.contain', '[i18n]');
+			cy.get('html').should('not.contain', '(<nil>)');
+			cy.get('html').should('not.contain', '(&lt;nil&gt;)');
 		});
 	});
 });

@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: davidsneighbour/kollitsch.dev
+  branch: main
+  cms_label_prefix: content/
+  squash_merges: true # beta
+  commit_messages:
+    create: "content: create {{collection}} '{{slug}}'"
+    update: "content: update {{collection}} '{{slug}}'"
+    delete: "content: delete {{collection}} '{{slug}}'"
+    uploadMedia: "content: upload '{{path}}'"
+    deleteMedia: "content: delete '{{path}}'"
+    openAuthoring: "{{message}}"
+
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "https://kollitsch.dev/"
+display_url: "https://kollitsch.dev/"
+# logo_url: https://your-site.com/images/logo.svg
+locale: "en"
+show_preview_links: true
+search: false # might use up API limits
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Post"
+    folder: "content/blog/2022"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}

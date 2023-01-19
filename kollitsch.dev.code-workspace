@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../hugo-tech"
+		},
+		{
+			"path": "../lupin"
+		},
+		{
+			"path": "../hugo-icons"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"**/layouts/**.html": "go"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"naumovs.color-highlight",
+			"ginfuru.ginfuru-better-solarized-dark-theme",
+			"eliostruyf.vscode-front-matter",
+			"github.copilot",
+			"github.copilot-labs",
+			"christian-kohler.npm-intellisense",
+			"rescuetime.rescuetime",
+			"wayou.vscode-todo-highlight",
+			"gruntfuggly.todo-tree"
+		]
+	}
+}

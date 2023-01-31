@@ -11,6 +11,12 @@
 		},
 		{
 			"path": "../hugo-icons"
+		},
+		{
+			"path": "../hugo-debug"
+		},
+		{
+			"path": "../hugo-mastodon"
 		}
 	],
 	"settings": {

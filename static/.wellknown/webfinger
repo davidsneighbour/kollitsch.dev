@@ -1,0 +1,23 @@
+{
+    "subject": "acct:davidsneighbour@mas.to",
+    "aliases": [
+        "https://mas.to/@davidsneighbour",
+        "https://hachyderm.io/users/davidsneighbour"
+    ],
+    "links": [
+        {
+            "rel": "http://webfinger.net/rel/profile-page",
+            "type": "text/html",
+            "href": "https://mas.to/@davidsneighbour"
+        },
+        {
+            "rel": "self",
+            "type": "application/activity+json",
+            "href": "https://mas.to/users/davidsneighbour"
+        },
+        {
+            "rel": "http://ostatus.org/schema/1.0/subscribe",
+            "template": "https://mas.to/authorize_interaction?uri={uri}"
+        }
+    ]
+}

@@ -11,7 +11,8 @@ lastmod: "{{ .Date }}"
 
 resources:
   - src: header.jpg
-  - title: Photo by [Name](Link) via [Unsplash](https://unsplash.com/)
+    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 
 categories:
   - notes-from-the-laboratory

@@ -1,0 +1,13 @@
+{{ $instance := .Get "instance" }}
+{{ $id := .Get "id" }}
+{{ $urlToGet := print "https://" $instance "/api/v1/statuses/" $id }}
+
+{{ $toot := getJSON $urlToGet }}
+
+{{ range $key, $value := $toot }}
+<h3>{{ $key }}</h3>
+{{ partial "debugprint" $value }}
+{{ end }}
+
+https://docs.joinmastodon.org/methods/statuses/
+https://docs.joinmastodon.org/methods/accounts/

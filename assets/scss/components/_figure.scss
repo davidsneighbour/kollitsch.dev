@@ -1,0 +1,43 @@
+figure {
+  font-variant: small-caps;
+
+  .inline-icons {
+    background-color: rgba($base03, 0.1);
+
+    div {
+      @extend .p-2;
+    }
+
+    &:hover {
+      background-color: rgba($base03, 0.5);
+    }
+
+    @extend .text-primary;
+
+    @extend .top-0;
+    @extend .end-0;
+    @extend .m-3;
+
+    @extend .position-absolute;
+
+    @extend .lh-1;
+
+  }
+
+  picture,
+  img,
+  .iframe-border,
+  video {
+    object-fit: cover;
+    overflow: hidden;
+    aspect-ratio: 2/1;
+    @extend .w-100;
+  }
+
+  @extend .bg-primary;
+
+  @extend .position-relative;
+  @extend .p-1;
+
+  @extend .mb-0;
+}

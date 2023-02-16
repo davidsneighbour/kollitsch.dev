@@ -1,0 +1,23 @@
+{{- /*
+
+type: one of primary, secondary, success, danger, warning, info, light, dark
+heading: title of the box
+containerclasses: adds classes to container
+
+todo:
+- extend links inside of the alert with class `alert-link`
+- make .Inner work with block level markdown
+- markdownify vs https://gohugo.io/functions/renderstring/
+- dismissable via `<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>` and `alert-dismissable`
+- animate showing ` fade show`
+- https://gohugo.io/functions/markdownify
+- https://gohugo.io/functions/renderstring/
+
+*/ -}}
+<div class="alert alert-{{- .Get "type" }} {{ .Get "containerclasses" | default "" -}}"
+     role="alert">
+	{{- with (.Get "heading") -}}
+		<strong class="alert-heading">{{- . -}}</strong>
+	{{- end -}}
+  <p>{{- .Inner | markdownify -}}</p>
+</div>

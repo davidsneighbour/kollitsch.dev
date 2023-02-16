@@ -332,6 +332,9 @@ concludingComment = '''
 '''
 disableBranding = false
 
+#User-agent: CCBot
+#Disallow: /
+
 [dnb.sitemap]
 enabled = true
 

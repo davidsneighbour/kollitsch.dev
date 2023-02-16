@@ -1,0 +1,24 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | default true -}}
+
+				{{- $articleclasses := partialCached "func/getArticleClasses.html" $post $post -}}
+        <article class="{{- $articleclasses -}}">
+  {{- partialCached "components/content/status.html" $post $post -}}
+  {{- partial "components/images/banner.html" . -}}
+    {{- partial "components/content/headline.html" . -}}
+  <div class="prose">
+    {{- with $fullcontent -}}
+      {{- $post.Content -}}
+    {{- else -}}
+      <p>{{- $post.Summary -}}</p>
+  </div>
+	<div class="text-end">
+		<a href="{{- $post.Permalink -}}" class="btn btn-link" aria-label="{{- i18n "read_article" -}}: {{ $post.Title -}}">
+			{{- i18n "read_article" -}}
+			<span class="ps-2">
+				{{- partialCached "bsicon.html" "body-text" "body-text" -}}
+			</span>
+		</a>
+    {{- end -}}
+  </div>
+</article>

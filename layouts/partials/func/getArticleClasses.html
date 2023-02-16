@@ -1,0 +1,20 @@
+{{- $classes := slice -}}
+{{- if eq true .IsHome -}}
+	{{- $classes = $classes | append "home" -}}
+{{- end -}}
+{{- if eq true .IsNode -}}
+	{{- $classes = $classes | append "node" -}}
+{{- end -}}
+{{- if eq true .IsPage -}}
+	{{- $classes = $classes | append "page" -}}
+{{- end -}}
+{{- if eq true .IsSection -}}
+	{{- $classes = $classes | append (printf "section section-%s" .Section ) -}}
+{{- end -}}
+{{- $classes = $classes | append (printf "kind-%s" .Kind) -}}
+{{- $classes = $classes | append (printf "type-%s" .Type) -}}
+{{- if eq true .Draft -}}
+	{{- $classes = $classes | append "draft" -}}
+{{- end -}}
+{{- $classes = delimit $classes " " -}}
+{{- return $classes -}}

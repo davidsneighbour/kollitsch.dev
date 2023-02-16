@@ -1,0 +1,11 @@
+{{- $post := . -}}
+<hr class="text-primary bg-primary" />
+<div class="flex-row d-flex widget--sharebuttons">
+  <div class="p-3">
+    {{- partialCached "bsicon.html" "share-fill" "share-fill" }}
+  </div>
+  <div class="flex-grow-1">
+    {{- partialCached "widgets/share-buttons.html" $post $post -}}
+  </div>
+</div>
+<hr class="text-primary bg-primary" />

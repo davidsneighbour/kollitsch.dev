@@ -1,0 +1,45 @@
+.debugprint {
+  font-size: 0.85rem;
+
+  td,
+  th {
+    @extend .align-top;
+  }
+
+  th {
+    font-size: 1rem;
+  }
+
+  .key {
+    @extend .h5;
+  }
+
+  .true {
+    @extend .text-success;
+  }
+
+  .false {
+    @extend .text-danger;
+  }
+
+  .debugprint {
+    @extend .table;
+    @extend .mb-0;
+  }
+
+  .dark & {
+    @extend .table-dark;
+  }
+
+  .light & {
+    @extend .table-light;
+  }
+
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-sm;
+
+  @extend .w-100;
+  @extend .overflow-auto;
+
+}

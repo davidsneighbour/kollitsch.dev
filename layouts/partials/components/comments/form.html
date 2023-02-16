@@ -1,0 +1,32 @@
+{{- $context := . -}}
+{{- $commentform := "true" -}}
+{{ if isset .Params.theme "comments" }}
+  {{- if (eq false (index .Params.theme "comments")) -}}
+    {{- $commentform = "false" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with (and site.DisqusShortname $commentform) -}}
+  {{- if (eq "true" $commentform) -}}
+    <div class="col-12">
+      {{- template "_internal/disqus.html" . -}}
+    </div>
+  {{- end -}}
+{{- end -}}
+
+{{- with (and site.Params.dnb.giscus $commentform) -}}
+  {{- if (eq "true" $commentform) -}}
+    <div class="col-12">
+      {{- partialCached "content/giscus.html" $context $context -}}
+      {{/* <script>
+        const { theme } = localStorage;
+        let scheme = 'light';
+        if (theme === 'dark') {
+          scheme = 'dark_dimmed';
+        }
+        const giscusScript = document.querySelector('#giscus-script');
+        giscusScript.dataset.theme = scheme;
+      </script> */}}
+    </div>
+  {{- end -}}
+{{- end -}}

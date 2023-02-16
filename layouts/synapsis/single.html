@@ -1,0 +1,20 @@
+{{- define "main" }}
+  {{- $post := dict "context" . "fullcontent" true "responsive" "fullwidth" -}}
+  <section class="section--content">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-5">
+					{{- $articleclasses := partialCached "func/getArticleClasses.html" $post $post -}}
+					<article class="{{- $articleclasses -}}">
+						<h1 class="post-title">
+							<a href="{{- $post.context.Permalink -}}">{{- $post.context.Title }}</a>
+						</h1>
+						<div class="prose">
+							{{- $post.context.Content -}}
+						</div>
+					</article>
+        </div>
+      </div>
+    </div>
+  </section>
+{{- end -}}

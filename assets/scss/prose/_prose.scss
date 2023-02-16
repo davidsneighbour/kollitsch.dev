@@ -1,0 +1,114 @@
+.section--content {
+  min-height: 100%;
+}
+
+a {
+  box-decoration-break: clone;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary;
+
+  code {
+    color: $primary;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+p {
+  text-align: justify;
+  word-wrap: break-word;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- what browser wouldn't support these by now? */
+  overflow-wrap: break-word;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- what browser wouldn't support these by now? */
+  hyphens: auto;
+}
+
+blockquote {
+  padding-left: 0.95rem;
+  border-left: $primary 5px solid;
+
+  background-color: rgba($primary, 0.1);
+
+  cite {
+    font-style: italic;
+  }
+}
+
+.border-primary {
+  border-color: $primary;
+}
+
+table {
+
+  $table-color: $body-color;
+
+  .dark & {
+    @extend .table-dark;
+  }
+
+  .light & {
+    @extend .table-light;
+  }
+
+  code {
+    padding: inherit;
+
+    background-color: inherit;
+  }
+
+  th {
+    font-style: italic;
+  }
+
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-sm;
+
+}
+
+.highlight {
+  margin-bottom: $spacer;
+
+  .chroma {
+    padding: 0.3rem;
+  }
+
+  code {
+    background-color: $base02;
+  }
+}
+
+.section-meta {
+  border-top: 1px solid $primary;
+  @extend .pt-3;
+}
+
+pre {
+  margin-bottom: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.1rem 0.2rem 0;
+
+  line-height: 1;
+}
+
+picture {
+  img {
+    border: 1px solid $base01;
+  }
+}

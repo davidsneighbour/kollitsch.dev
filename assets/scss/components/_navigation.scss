@@ -1,0 +1,39 @@
+/*******************************************************************************
+ * navbar setup
+ *
+ * see
+ * - https://getbootstrap.com/docs/5.2/components/navbar/
+ * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
+ ******************************************************************************/
+.navbar {
+  .dark & {
+    background-color: $base03;
+    @extend .navbar-dark;
+  }
+
+  .nav-link {
+    &:hover .icon--bs {
+      color: $primary;
+    }
+
+    .icon--bs {
+      display: inline-block;
+      margin-right: 0.4rem;
+      margin-bottom: 0.1rem;
+
+      vertical-align: bottom;
+    }
+  }
+
+  .navbar-brand {
+    svg {
+      width: auto;
+      height: 28px;
+      padding-bottom: 5px;
+
+      fill: $primary;
+    }
+
+  }
+
+}

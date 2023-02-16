@@ -1,0 +1,28 @@
+.loader {
+  --size: 10vmin;
+  position: relative;
+
+  width: var(--size);
+  height: var(--size);
+
+  animation: spin 0.75s infinite steps(var(--count));
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 10%;
+    height: 25%;
+
+    background: $primary;
+    transform: translate(-50%, -50%) rotate(calc(((360 / var(--count)) * var(--index)) * 1deg)) translate(0, -125%);
+    opacity: calc(var(--index) / var(--count));
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

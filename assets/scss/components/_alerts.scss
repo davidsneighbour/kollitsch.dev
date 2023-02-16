@@ -1,0 +1,20 @@
+.alert-selenized {
+  @include alert-variant($base02, $base01, $base3);
+}
+
+.alert {
+  a {
+    // adds colors to all links inside alerts
+    @extend .alert-link;
+  }
+
+  .icon--bs {
+    svg {
+      @extend .cy-24;
+      @extend .cx-24;
+      @extend .me-3;
+    }
+
+  }
+
+}

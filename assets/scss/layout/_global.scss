@@ -1,0 +1,80 @@
+/*******************************************************************************
+ * bodysetup
+ ******************************************************************************/
+
+/*******************************************************************************
+ * full bleed grid layout
+ ******************************************************************************/
+$layout-character-width: 65ch !default;
+
+/* @todo find out how to implement css functions like min/calc etc... */
+
+.wrapper {
+  display: grid;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- ignore this for idiot browsers */
+  grid-template-columns: 1fr #{'min(75ch, 100%)'} 1fr;
+
+  >* {
+    grid-column: 2;
+  }
+
+}
+
+.full-bleed {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/*******************************************************************************
+ * content area
+ ******************************************************************************/
+main {
+  z-index: 1029;
+
+  padding-top: $heading-height + 30px;
+
+  background-color: $base03;
+
+  @extend .min-vh-100;
+  @extend .position-relative;
+  @extend .wrapper;
+}
+
+.content {
+  --gap: clamp(1rem, 6vw, 3rem);
+  --full: minmax(var(--gap), 1fr);
+  --content: min(50ch, 100% - var(--gap) * 2);
+  --popout: minmax(0, 2rem);
+  --feature: minmax(0, 5rem);
+
+  /* stylelint-disable plugin/no-unsupported-browser-features -- we can live with that. */
+  display: grid;
+  grid-template-columns: [full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end];
+}
+
+.content>* {
+  grid-column: content;
+}
+
+.popout {
+  grid-column: popout;
+}
+
+.feature {
+  grid-column: feature;
+}
+
+.full {
+  grid-column: full;
+}
+
+/*******************************************************************************
+ *
+ --gap represents a gutter size for the left and right sides of the page. This value leans into the clamp() function for more fluid,
+ flexible sizing. --full stretches an element so that it spans the entire horizontal space. By setting --gap as the min value,
+ it also takes on the role of visible page gutters for smaller screens. --content acts as the main content area. The min() function sets the max-width of this column. Once the available space falls below this value,
+ it then switches to 100% while also subtracting the left and right gutter sizes. --popout and --feature extend elements beyond the content area by 2rem and 5rem respectively. As the available horizontal area tightens,
+ these values collapse down to nothing,
+ aligning elements with the main content space on smaller screens.
+ ******************************************************************************/

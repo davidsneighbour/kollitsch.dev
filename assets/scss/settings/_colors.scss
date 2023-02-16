@@ -1,0 +1,57 @@
+// adding theme colorset
+$base03: #282822;
+$base02: #36362f;
+$base01: #4d4d45;
+$base00: #657b83;
+$base0: #839496;
+$base1: #8a8a83;
+$base2: #ccccc6;
+$base3: #f1f2eb;
+
+$yellow: #e6bc38;
+$orange: #f38a4d;
+$red: #fc5851;
+$magenta: #f87ac3;
+$violet: #b28bee;
+$blue: #4897f9;
+$cyan: #4cd0c1;
+$green: #7bbf3e;
+
+:root {
+  --base03: #282822;
+  --base02: #36362f;
+  --base01: #4d4d45;
+  --base00: #657b83;
+  --base0: #839496;
+  --base1: #8a8a83;
+  --base2: #ccccc6;
+  --base3: #f1f2eb;
+
+  --yellow: #e6bc38;
+  --orange: #f38a4d;
+  --red: #fc5851;
+  --magenta: #f87ac3;
+  --violet: #b28bee;
+  --blue: #4897f9;
+  --cyan: #4cd0c1;
+  --green: #7bbf3e;
+}
+
+/*******************************************************************************
+ * bootstrap defaults
+ ******************************************************************************/
+$primary: $red;
+$secondary: $base2;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $orange;
+$light: $base2;
+$dark: $base03;
+$white: $base0;
+
+/*******************************************************************************
+ * layout settings
+ ******************************************************************************/
+$body-color: $base0;
+$body-bg: $base03;

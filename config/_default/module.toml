@@ -1,13 +1,7 @@
 [hugoVersion]
 extended = true
-min = "0.104.3"
+min = "0.110.0"
 #max = ""
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/davidsneighbour/hugo-tech"
 
 [[imports]]
 disable = false

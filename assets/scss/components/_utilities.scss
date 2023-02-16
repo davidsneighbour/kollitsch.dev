@@ -1,0 +1,7 @@
+// coloring the selection in the browser
+::selection {
+  color: $base03;
+  text-shadow: none;
+
+  background-color: $base3;
+}

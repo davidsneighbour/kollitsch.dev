@@ -9,12 +9,6 @@ min = "0.104.3"
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/davidsneighbour/hugo-tech"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
 path = "github.com/davidsneighbour/hugo-auditor"
 
 [[imports]]

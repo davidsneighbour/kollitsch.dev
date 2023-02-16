@@ -1,0 +1,9 @@
+{{- $post := . -}}
+<div class="section-comments">
+  {{- partialCached "components/comments/form.html" $post $post -}}
+</div>
+<div class="section-meta">
+  {{- partialCached "components/github/bar.html" $post $post -}}
+  {{- partialCached "components/tags/tags.html" $post $post -}}
+  {{- partialCached "components/sharing/links.html" $post $post -}}
+</div>

@@ -1,0 +1,399 @@
+/* stylelint-disable block-no-empty -- empty blocks are here to show opportunities */
+
+/* Background */
+.bg {
+  color: $base1;
+
+  background-color: $base03;
+}
+
+/* PreWrapper */
+.chroma {
+  color: $base3;
+
+  background-color: $base02;
+}
+
+/* Other */
+.chroma .x {
+  color: $orange;
+}
+
+/* Error */
+.chroma .err {}
+
+/* CodeLine */
+.chroma .cl {}
+
+/* LineTableTD */
+.chroma .lntd {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  vertical-align: top;
+}
+
+/* LineTable */
+.chroma .lntable {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-spacing: 0;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  background-color: $base3;
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em;
+
+  color: $base02;
+  white-space: pre;
+
+  user-select: none;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em;
+
+  color: $orange;
+  white-space: pre;
+
+  user-select: none;
+}
+
+/* Line */
+.chroma .line {
+  display: flex;
+}
+
+/* Keyword */
+.chroma .k {
+  color: $green;
+}
+
+/* KeywordConstant */
+.chroma .kc {
+  color: $orange;
+}
+
+/* KeywordDeclaration */
+.chroma .kd {
+  color: $blue;
+}
+
+/* KeywordNamespace */
+.chroma .kn {
+  color: $green;
+}
+
+/* KeywordPseudo */
+.chroma .kp {
+  color: $green;
+}
+
+/* KeywordReserved */
+.chroma .kr {
+  color: $blue;
+}
+
+/* KeywordType */
+.chroma .kt {
+  color: $red;
+}
+
+/* Name */
+.chroma .n {}
+
+/* NameAttribute */
+.chroma .na {}
+
+/* NameBuiltin */
+.chroma .nb {
+  color: $yellow;
+}
+
+/* NameBuiltinPseudo */
+.chroma .bp {
+  color: $blue;
+}
+
+/* NameClass */
+.chroma .nc {
+  color: $blue;
+}
+
+/* NameConstant */
+.chroma .no {
+  color: $orange;
+}
+
+/* NameDecorator */
+.chroma .nd {
+  color: $blue;
+}
+
+/* NameEntity */
+.chroma .ni {
+  color: $orange;
+}
+
+/* NameException */
+.chroma .ne {
+  color: $orange;
+}
+
+/* NameFunction */
+.chroma .nf {
+  color: $blue;
+}
+
+/* NameFunctionMagic */
+.chroma .fm {}
+
+/* NameLabel */
+.chroma .nl {}
+
+/* NameNamespace */
+.chroma .nn {}
+
+/* NameOther */
+.chroma .nx {}
+
+/* NameProperty */
+.chroma .py {}
+
+/* NameTag */
+.chroma .nt {
+  color: $blue;
+}
+
+/* NameVariable */
+.chroma .nv {
+  color: $blue;
+}
+
+/* NameVariableClass */
+.chroma .vc {}
+
+/* NameVariableGlobal */
+.chroma .vg {}
+
+/* NameVariableInstance */
+.chroma .vi {}
+
+/* NameVariableMagic */
+.chroma .vm {}
+
+/* Literal */
+.chroma .l {}
+
+/* LiteralDate */
+.chroma .ld {}
+
+/* LiteralString */
+.chroma .s {
+  color: $cyan;
+}
+
+/* LiteralStringAffix */
+.chroma .sa {
+  color: $cyan;
+}
+
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: $base01;
+}
+
+/* LiteralStringChar */
+.chroma .sc {
+  color: $cyan;
+}
+
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: $cyan;
+}
+
+/* LiteralStringDoc */
+.chroma .sd {}
+
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: $cyan;
+}
+
+/* LiteralStringEscape */
+.chroma .se {
+  color: $orange;
+}
+
+/* LiteralStringHeredoc */
+.chroma .sh {}
+
+/* LiteralStringInterpol */
+.chroma .si {
+  color: $cyan;
+}
+
+/* LiteralStringOther */
+.chroma .sx {
+  color: $cyan;
+}
+
+/* LiteralStringRegex */
+.chroma .sr {
+  color: $red;
+}
+
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: $cyan;
+}
+
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: $cyan;
+}
+
+/* LiteralNumber */
+.chroma .m {
+  color: $cyan;
+}
+
+/* LiteralNumberBin */
+.chroma .mb {
+  color: $cyan;
+}
+
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: $cyan;
+}
+
+/* LiteralNumberHex */
+.chroma .mh {
+  color: $cyan;
+}
+
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: $cyan;
+}
+
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: $cyan;
+}
+
+/* LiteralNumberOct */
+.chroma .mo {
+  color: $cyan;
+}
+
+/* Operator */
+.chroma .o {
+  color: $green;
+}
+
+/* OperatorWord */
+.chroma .ow {
+  color: $green;
+}
+
+/* Punctuation */
+.chroma .p {}
+
+/* Comment */
+.chroma .c {
+  color: $base00;
+}
+
+/* CommentHashbang */
+.chroma .ch {
+  color: $base01;
+}
+
+/* CommentMultiline */
+.chroma .cm {
+  color: $base01;
+}
+
+/* CommentSingle */
+.chroma .c1 {
+  color: $base01;
+}
+
+/* CommentSpecial */
+.chroma .cs {
+  color: $green;
+}
+
+/* CommentPreproc */
+.chroma .cp {
+  color: $green;
+}
+
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: $green;
+}
+
+/* Generic */
+.chroma .g {}
+
+/* GenericDeleted */
+.chroma .gd {
+  color: $red;
+}
+
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+
+/* GenericError */
+.chroma .gr {
+  color: $red;
+}
+
+/* GenericHeading */
+.chroma .gh {
+  color: $orange;
+}
+
+/* GenericInserted */
+.chroma .gi {
+  color: $green;
+}
+
+/* GenericOutput */
+.chroma .go {}
+
+/* GenericPrompt */
+.chroma .gp {}
+
+/* GenericStrong */
+.chroma .gs {}
+
+/* GenericSubheading */
+.chroma .gu {
+  color: $blue;
+}
+
+/* GenericTraceback */
+.chroma .gt {}
+
+/* GenericUnderline */
+.chroma .gl {}
+
+/* TextWhitespace */
+.chroma .w {}

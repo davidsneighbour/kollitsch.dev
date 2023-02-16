@@ -1,0 +1,139 @@
+/*******************************************************************************
+ * prefixes
+ ******************************************************************************/
+$variable-prefix: bs-;
+$prefix: $variable-prefix;
+
+/*******************************************************************************
+ * typography
+ ******************************************************************************/
+$font-family-sans-serif: 'Exo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$font-family-monospace: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+$font-weight-lighter: 100;
+$font-weight-light: 200;
+$font-weight-normal: 300;
+$font-weight-semibold: 500;
+$font-weight-bold: 600;
+$font-weight-bolder: 900;
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.4;
+$font-size-base: 1.2rem;
+
+/*******************************************************************************
+ * headings
+ ******************************************************************************/
+$headings-font-weight: 300;
+$headings-line-height: 1.3;
+$headings-font-weight: $font-weight-normal;
+
+$h1-font-size: $font-size-base * 1.2;
+$h2-font-size: $font-size-base * 1.2;
+$h3-font-size: $font-size-base * 1.2;
+$h4-font-size: $font-size-base * 1.2;
+$h5-font-size: $font-size-base * 1.1;
+$h6-font-size: $font-size-base;
+
+/*******************************************************************************
+ * links
+ ******************************************************************************/
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: $primary;
+$link-hover-decoration: underline;
+
+/*******************************************************************************
+ * navigation
+ * see
+ * - https: //getbootstrap.com/docs/5.2/components/navbar/
+ * - https: //getbootstrap.com/docs/5.2/components/navs-tabs/
+ ******************************************************************************/
+$nav-link-color: $base2;
+$nav-link-hover-color: $primary;
+$navbar-dark-color:                 $primary;
+$navbar-dark-hover-color:           darken($primary, 30%);
+$navbar-dark-active-color:          $white;
+
+/*******************************************************************************
+ * pagination
+ ******************************************************************************/
+$pagination-color: $base03;
+$pagination-bg: $base2;
+$pagination-border-color: $base03;
+$pagination-hover-color: $base3;
+$pagination-hover-bg: $base01;
+$pagination-hover-border-color: $base03;
+$pagination-active-color: $base2;
+
+/*******************************************************************************
+ * code
+ ******************************************************************************/
+$code-color: $base2;
+
+/*******************************************************************************
+ * lines
+ ******************************************************************************/
+$hr-color: $primary;
+$hr-bg-color: currentColor;
+$hr-border-width: 0;
+$hr-opacity: 1;
+
+/*******************************************************************************
+ * alerts
+ ******************************************************************************/
+$alert-margin-bottom: 1rem;
+
+/*******************************************************************************
+ * typography
+ ******************************************************************************/
+$code-font-size: 1rem;
+$kbd-padding-y: 0.1rem;
+$kbd-padding-x: 0.2rem;
+$kbd-font-size: $code-font-size * 0.9;
+$kbd-color: $base2;
+$kbd-bg: $primary;
+
+/*******************************************************************************
+ * tables
+ ******************************************************************************/
+$table-th-font-weight: 300;
+$table-border-width: 1px;
+$table-border-color: $primary;
+$table-color: $base03;
+$table-bg: $base03;
+$table-accent-bg: $base03;
+
+/*******************************************************************************
+ * buttons
+ ******************************************************************************/
+$btn-border-width: 2px;
+
+/*******************************************************************************
+ * tabs
+ ******************************************************************************/
+$nav-tabs-border-width: 0;
+$nav-tabs-link-active-color: $primary;
+$nav-tabs-link-active-bg: $base02;
+
+/*******************************************************************************
+ * settings
+ ******************************************************************************/
+$enable-rounded: false;
+$enable-rfs: false;
+
+/*******************************************************************************
+ * theme relevant settings
+ ******************************************************************************/
+$layout-character-width: 65ch;
+$heading-height: 70px;
+
+/*******************************************************************************
+ * root setup
+ ******************************************************************************/
+:root {
+
+  // https://drafts.csswg.org/css-ui-4/#widget-accent
+  // https://caniuse.com/?search=accent-color
+  accent-color: $primary;
+
+  color-scheme: dark;
+}

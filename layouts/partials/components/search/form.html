@@ -1,0 +1,23 @@
+<div x-data="app" x-cloak style="margin-top:100px;">
+  <input type="search" x-model="term">
+  <button @click="search" :disabled="!searchReady">Search</button>
+  <div x-show="noResults">
+    <p>
+      Sorry, but there were no results.
+    </p>
+  </div>
+  <div x-show="results">
+    <h2>Results</h2>
+    <p>
+      There were <span x-text="totalHits"></span> total matches. Returning the first <span x-text="resultsPerPage"></span> results:
+    </p>
+    <template x-for="result in results">
+      <div>
+        <p>
+          <a :href="result.url"><span x-text="result.title"></span></a> (posted <span x-text="result.date"></span>)
+        </p>
+        <p class="snippet" x-html="result.snippet"></p>
+      </div>
+    </template>
+  </div>
+</div>

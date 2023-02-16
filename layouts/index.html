@@ -1,0 +1,23 @@
+{{- define "main" -}}
+  {{- if lt (.Scratch.Get "paginator").PageNumber 2 -}}
+    <section class="section--sitetitle">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center text-gradient site-title">
+              <a href="{{- site.BaseURL -}}">
+								{{- with resources.Get "/images/wordmark.svg" -}}
+								<span class="w-max h-max">
+									{{- .Content | safeHTML -}}
+								</span>
+								{{- end -}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{- partial "func/hook.html" ( dict "hook" "post-sitetitle" "context" . ) -}}
+    </section>
+  {{- end -}}
+  {{- partial "content/section-posts.html" . -}}
+{{- end -}}

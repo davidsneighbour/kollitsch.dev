@@ -1,0 +1,12 @@
+{{- $context := .context }}
+{{- $posttype := "default" -}}
+
+{{- with $context.Params.posttype -}}
+  {{- $posttype = . -}}
+{{- end -}}
+{{ if eq $context.Type "tags" -}}
+  {{- $posttype = "tag" -}}
+{{- end -}}
+
+{{- /* FIXME: this should be cached, maybe with cachekey ID+posttype */ -}}
+{{- partial (printf "content/type/%s.html" $posttype) . -}}

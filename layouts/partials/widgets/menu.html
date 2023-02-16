@@ -1,0 +1,13 @@
+{{- $config := . -}}
+{{- $menu := index site.Menus $config.slug -}}
+{{- with $menu -}}
+  {{- $level := $config.level | default 2 -}}
+  <div class="col">
+    <h{{- $level -}}>{{- $config.name -}}</h{{- $level -}}>
+    <ul class="list-unstyled">
+      {{- range . -}}
+        <li><a href="{{- .URL -}}">{{- .Name -}}</a></li>
+      {{- end -}}
+    </ul>
+  </div>
+{{- end -}}

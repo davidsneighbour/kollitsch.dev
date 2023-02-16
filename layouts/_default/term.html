@@ -1,0 +1,15 @@
+{{- define "main" -}}
+{{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+<section class="section--title">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-5">
+        <h1 class="post-title">Posts tagged with #{{ .Title }}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+{{- partial "content/section-posts.html" . -}}
+{{- partial "content/section-tagoverview.html" . -}}
+{{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
+{{- end -}}

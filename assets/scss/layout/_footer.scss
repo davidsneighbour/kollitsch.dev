@@ -1,0 +1,77 @@
+#footer {
+  bottom: 0;
+  left: 0;
+
+  color: $base2;
+
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- seems like some browsers have issues with linear-gradients, not we... */
+  background: linear-gradient(180deg, $base03 40%, rgba(0, 0, 0, 1) 100%);
+
+  background-color: $base03;
+
+  a {
+    color: $base2;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+
+
+  @extend .position-sticky;
+  @extend .w-100;
+}
+
+.widget.social-media {
+  a:link,
+  a:hover {
+    text-decoration: none;
+
+    svg {
+      width: 36px;
+      height: 36px;
+      @extend .p-0;
+      @extend .m-0;
+    }
+
+    @extend .px-3;
+
+  }
+}
+
+.widget--web-vitals {
+  strong {
+    @extend .d-inline;
+    @extend .me-3;
+
+  }
+
+  .is-good {
+    @extend .text-success;
+  }
+
+  .is-bad {
+    @extend .text-danger;
+  }
+
+  dl {
+    >div {
+      @extend .d-inline;
+    }
+
+    dt,
+    dd {
+      @extend .fontsize-1;
+      @extend .d-inline;
+      @extend .me-3;
+    }
+
+    @extend .text-warning;
+    @extend .d-inline;
+  }
+
+  @extend .text-center;
+
+}

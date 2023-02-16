@@ -1,0 +1,7 @@
+{{- with .Prev }}
+  <li class="page-item">
+    <a href="{{ .URL }}" aria-label="Previous" class="page-link">
+      {{- partialCached "bsicon.html" "chevron-left" "chevron-left" -}}
+    </a>
+  </li>
+{{- end }}

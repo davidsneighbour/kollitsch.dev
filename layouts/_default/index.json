@@ -1,0 +1,40 @@
+{{- $index := slice -}}
+{{- $pages := where site.RegularPages "Draft" "==" false -}}
+{{- $pages = where $pages "Type" "in" site.Params.mainSections -}}
+{{- range $pages -}}
+  {{- $imagePath := "" -}}
+  {{- $articleimages := .Resources.ByType "image" -}}
+  {{- with $articleimages -}}
+    {{- range first 1 $articleimages -}}
+      {{- $imageSM:= .Fill "460x250" -}}
+      {{- $imagePath = $imageSM.Permalink -}}
+    {{- end -}}
+  {{- else -}}
+    {{- with .Params.images -}}
+      {{- range first 1 . -}}
+        {{- if (fileExists (add `assets/` .)) -}}
+          {{- $image = resources.Get . -}}
+          {{- $imageSM:= $image.Fill "460x250" -}}
+          {{- $imagePath = $imageSM.Permalink -}}
+        {{- else -}}
+          {{- $imagePath = (. | absURL) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $index = $index | append (dict
+        "objectID" .File.UniqueID
+        "title" .Title
+        "description" .Description
+        "summary" .Summary
+        "tags" .Params.tags
+        "categories" .Params.categories
+        "image" $imagePath
+        "content" .Plain
+        "permalink" .Permalink
+        "date" .Date
+        "lastmod" .Lastmod
+        "wordcount" .WordCount
+  ) -}}
+{{- end -}}
+{{- $index | jsonify -}}

@@ -1,0 +1,10 @@
+.table {
+  &--hooks {
+    tbody {
+      td:nth-of-type(1) {
+        white-space: nowrap;
+      }
+    }
+  }
+
+}

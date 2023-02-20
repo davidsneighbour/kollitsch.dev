@@ -1,0 +1,70 @@
+#!/bin/bash
+# shellcheck disable=SC1091
+
+REQUIRED_TOOLS=(
+	inkscape
+	sed
+	optipng
+	curl
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+	if ! command -v "${TOOL}" >/dev/null; then
+		echo "${TOOL} is required... "
+		exit 1
+	fi
+done
+
+FILE=.env
+if [ -f "$FILE" ]; then
+	set -a # export all variables created next
+	# shellcheck source=.env
+	source "${FILE}"
+	set +a # stop exporting
+fi
+
+for FILE in bin/lib/*; do
+	set -a
+	# this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+	# see https://github.com/koalaman/shellcheck/wiki/SC1090
+	# shellcheck source=/dev/null
+	source "${FILE}"
+	set +a
+done
+
+# file location
+CURPATH="$(pwd -P)"
+IMAGEPATH="${CURPATH}/assets/images"
+COMPONENTPATH="./content/components"
+AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
+
+echo -e "${COLOR_YELLOW}"
+echo "Recreating component header images and updating release files..."
+echo "================================================================"
+echo -e "${COLOR_GREEN}"
+
+# go through elements
+for DIRNAME in "${COMPONENTPATH}"/*/; do
+
+	DIR=$(basename "$DIRNAME")
+	echo "for ${DIR}"
+	TERM=${DIR/hugo\-/}
+	find_string='>NAME<'
+	replace_string=">${TERM^^}<"
+	sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/components-header.svg >"${IMAGEPATH}"/temp.svg
+	inkscape "${IMAGEPATH}"/temp.svg --export-filename="${COMPONENTPATH}"/"${DIR}"/header-card.png &>/dev/null
+	optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/header-card.png
+	rm -f "${IMAGEPATH}"/temp.svg
+
+	if [[ $DIR == 'references' ]]; then
+		continue
+	fi
+
+	URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
+	curl "${URL}" "${AUTH}" -s --output ${COMPONENTPATH}/"${DIR}"/data.json
+
+done
+
+echo -e "${COLOR_YELLOW}"
+echo "done."
+echo -e "${COLOR_WHITE}"

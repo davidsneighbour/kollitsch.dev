@@ -116,5 +116,8 @@
         "lint:lockfiles"
       ]
     }
+  },
+  "devDependencies": {
+    "@types/alpinejs": "^3.7.1"
   }
 }

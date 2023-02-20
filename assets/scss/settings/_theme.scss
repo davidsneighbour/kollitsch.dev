@@ -49,9 +49,9 @@ $link-hover-decoration: underline;
  ******************************************************************************/
 $nav-link-color: $base2;
 $nav-link-hover-color: $primary;
-$navbar-dark-color:                 $primary;
-$navbar-dark-hover-color:           darken($primary, 30%);
-$navbar-dark-active-color:          $white;
+$navbar-dark-color: $primary;
+$navbar-dark-hover-color: darken($primary, 30%);
+$navbar-dark-active-color: $white;
 
 /*******************************************************************************
  * pagination

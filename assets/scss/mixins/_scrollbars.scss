@@ -1,5 +1,6 @@
-@mixin dnb_scrollbars($outertag: "*", $width: 8px, $radius: $border-radius, $color: $primary, $track: $base03) {
+@mixin dnb-scrollbars($outertag: '*', $width: 8px, $radius: $border-radius, $color: $primary, $track: $base03) {
   #{$outertag} {
+
     /***************************************************************************
      * firefox
      **************************************************************************/
@@ -21,6 +22,7 @@
     ::-webkit-scrollbar-thumb {
       border: 0;
       border-radius: $radius;
+
       background-color: $color;
     }
   }

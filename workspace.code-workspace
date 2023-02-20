@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../hugo-youtube"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"**/layouts/**.html": "go"
+		}
+	}
+}

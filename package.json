@@ -105,9 +105,9 @@
   },
   "wireit": {
     "build:frontmatter": {
-      "command": "node assets/config/frontmatter/build.ts",
+      "command": "node assets/frontmatter/build.ts",
       "files": [
-        "assets/config/frontmatter/**/*.{ts,json}"
+        "assets/frontmatter/**/*.{ts,json}"
       ]
     },
     "lint": {

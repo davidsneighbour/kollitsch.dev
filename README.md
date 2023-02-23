@@ -21,6 +21,8 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 	- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
 	- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
 - [License](#license)
+- [Troubleshooting](#troubleshooting)
+	- [Inkscape](#inkscape)
 
 # Setup
 
@@ -117,7 +119,7 @@ To enable the step to debug logging for the GitHub Workflows, you must set the f
 
 ```shell
 npm install netlify-cli -g && netlify login
-netlify -telemetry-disable // yeah, well, shouldn't that be default?
+netlify --telemetry-disable // yeah, well, shouldn't that be default?
 netlify init
 netlify build
 ```

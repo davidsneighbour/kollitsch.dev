@@ -1,5 +1,25 @@
 #!/bin/bash
 
+REQUIRED_TOOLS=(
+	hugo
+	netlify
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+	if ! command -v "${TOOL}" >/dev/null; then
+		echo "${TOOL} is required... "
+		exit 1
+	fi
+done
+
+FILE=.env
+if [ -f "$FILE" ]; then
+	set -a
+	# shellcheck source=/dev/null
+	source "${FILE}"
+	set +a
+fi
+
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo
 
@@ -8,6 +28,11 @@ netlify switch
 
 # get the version number
 VERSION=$(node -pe 'require("./package.json")["version"]')
+
+# HASH=$(git log -n 1 | head -n 1 | sed -e 's/^commit //' | head -c 8)
+# BASEURL="https://${HASH}--${NETLIFY_SITE_SLUG}.netlify.app"
+# bin/build/hugo "${BASEURL}"
+# netlify deploy --open --alias "$HASH"
 
 # and deploy
 netlify deploy --build --prod --open --message "Release v${VERSION}"

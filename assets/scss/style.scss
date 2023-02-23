@@ -3,9 +3,6 @@
 // theme colors
 @import 'settings/colors';
 
-// variables
-@import 'settings/colors';
-
 @import 'bootstrap/scss/mixins/banner';
 @include bsBanner('');
 
@@ -90,23 +87,21 @@
 @include dnb-scrollbars('.prose', 3px);
 
 .prose {
-  @import 'prose/prose';
-  @import 'prose/footnotes';
-  @import 'prose/components';
-  @import 'prose/tables';
+	@import 'prose/prose';
+	@import 'prose/footnotes';
+	@import 'prose/components';
+	@import 'prose/tables';
 }
 
 // plugins
 @import 'plugins/debugprint';
-@import 'plugins/youtube';
 @import 'plugins/devaudit';
 @import 'plugins/transitions';
 @import 'plugins/alpine';
 @import 'plugins/syntax';
 @import 'plugins/spinner';
+//@import '../libs/liteyoutube/lite-yt-embed';
+@import 'plugins/youtube';
 
 // external plugins (imported from node_modules)
 @import 'animate.css/animate';
-
-// loading local styles
-@import 'local';

@@ -1,4 +1,4 @@
-replacements = 'github.com/davidsneighbour/hugo-functions -> ../../hugo-functions,github.com/davidsneighbour/hugo-search-algolia -> ../../hugo-search-algolia,github.com/davidsneighbour/hugo-tech -> ../../hugo-tech'
+replacements = 'github.com/davidsneighbour/hugo-functions -> ../../hugo-functions,github.com/davidsneighbour/hugo-search-algolia -> ../../hugo-search-algolia'
 
 [hugoVersion]
 extended = true
@@ -130,9 +130,3 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/davidsneighbour/hugo-social"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/davidsneighbour/hugo-youtube"

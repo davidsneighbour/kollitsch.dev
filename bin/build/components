@@ -40,6 +40,7 @@ COMPONENTPATH="./content/components"
 AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
 
 echo -e "${COLOR_YELLOW}"
+echo "================================================================"
 echo "Recreating component header images and updating release files..."
 echo "================================================================"
 echo -e "${COLOR_LIGHT_GREEN}"
@@ -66,5 +67,7 @@ for DIRNAME in "${COMPONENTPATH}"/*/; do
 done
 
 echo -e "${COLOR_YELLOW}"
+echo "================================================================"
 echo "done."
+echo "================================================================"
 echo -e "${COLOR_WHITE}"

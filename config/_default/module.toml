@@ -33,6 +33,12 @@ ignoreConfig = false
 ignoreImports = false
 path = "github.com/davidsneighbour/hugo-giscus"
 
+# [[imports]]
+# disable = true
+# ignoreConfig = false
+# ignoreImports = false
+# path = "github.com/davidsneighbour/hugo-github"
+
 [[imports]]
 disable = false
 ignoreConfig = false
@@ -122,9 +128,3 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 path = "github.com/davidsneighbour/hugo-social"
-
-[[imports]]
-disable = false
-ignoreConfig = false
-ignoreImports = false
-path = "github.com/davidsneighbour/hugo-youtube"

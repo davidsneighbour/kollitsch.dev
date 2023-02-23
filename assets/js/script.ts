@@ -1,6 +1,6 @@
 import Alpine from 'alpinejs';
 import 'web-vitals-element';
-import 'libs/liteyoutube/lite-yt-embed';
+import './plugins/lite-yt-embed';
 import './components/logger.ts';
 import './components/back-to-top.ts';
 import './components/version.ts';

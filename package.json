@@ -1,7 +1,7 @@
 {
 	"name": "@davidsneighbour/kollitsch-dev",
 	"description": "Website and content for kollitsch.dev",
-	"version": "2023.0.5",
+	"version": "2023.0.6",
 	"license": "CC-BY-NC-SA-4.0 MIT",
 	"private": true,
 	"repository": "davidsneighbour/kollitsch.dev",
@@ -12,10 +12,23 @@
 	},
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
-		"@davidsneighbour/browserslist-config": "^5.0.11",
-		"@davidsneighbour/commitlint-config": "^5.0.12",
-		"@davidsneighbour/eslint-config": "^5.0.14",
-		"@davidsneighbour/standard-version-config": "^5.0.9",
+		"@davidsneighbour/babel-config": "5.0.12",
+		"@davidsneighbour/bootstrap-config": "5.0.13",
+		"@davidsneighbour/browserslist-config": "5.0.11",
+		"@davidsneighbour/commitlint-config": "5.0.12",
+		"@davidsneighbour/cssnano-config": "5.0.12",
+		"@davidsneighbour/cypress-config": "5.0.12",
+		"@davidsneighbour/eslint-config": "5.0.14",
+		"@davidsneighbour/htmlvalidate-config": "5.0.11",
+		"@davidsneighbour/markdownlint-config": "5.0.12",
+		"@davidsneighbour/postcss-config": "5.0.12",
+		"@davidsneighbour/prettier-config": "5.0.12",
+		"@davidsneighbour/remark-config": "5.0.10",
+		"@davidsneighbour/standard-version-config": "5.0.9",
+		"@davidsneighbour/stylelint-config": "5.0.12",
+		"@davidsneighbour/textlint-config": "5.0.13",
+		"@davidsneighbour/tools": "5.0.12",
+		"@davidsneighbour/webpack-config": "5.0.10",
 		"algoliasearch": "^4.14.3",
 		"alpinejs": "^3.11.1",
 		"animate.css": "^4.1.1",
@@ -98,7 +111,7 @@
 		"extends": "@davidsneighbour/eslint-config"
 	},
 	"stylelint": {
-		"extends": "@davidsneighbour/config/stylelint",
+		"extends": "@davidsneighbour/stylelint-config",
 		"rules": {}
 	},
 	"wireit": {

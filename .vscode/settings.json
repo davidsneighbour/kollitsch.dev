@@ -1,10 +1,11 @@
 {
-    "composer.executablePath": "/usr/local/bin/composer",
-    "phpcs.standard": "WordPress",
-    "remote.containers.defaultExtensions": [
-        "mutantdino.resourcemonitor"
-    ],
-    "files.associations": {
-        "**/layouts/**.html": "go"
-    }
+  "composer.executablePath": "/usr/local/bin/composer",
+  "phpcs.standard": "WordPress",
+  "remote.containers.defaultExtensions": ["mutantdino.resourcemonitor"],
+  "files.associations": {
+    "**/layouts/**.html": "go"
+  },
+  "explorer.fileNesting.patterns": {
+    "hugo.log": "hugo_stats.json, .hugo_build.lock"
+  }
 }

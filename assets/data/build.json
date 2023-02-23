@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/93162897",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/93162897/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/93162897/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.0.5",
-  "id": 93162897,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/93439184",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/93439184/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/93439184/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.0.7",
+  "id": 93439184,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584FjY2R",
-  "tag_name": "v2023.0.5",
+  "node_id": "RE_kwDOGDHt584FkcTQ",
+  "tag_name": "v2023.0.7",
   "target_commitish": "main",
-  "name": "v2023.0.5",
+  "name": "v2023.0.7",
   "draft": false,
   "prerelease": false,
-  "created_at": "2023-02-21T13:48:43Z",
-  "published_at": "2023-02-21T13:48:58Z",
+  "created_at": "2023-02-23T13:17:07Z",
+  "published_at": "2023-02-23T13:17:27Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.0.5",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.0.5",
-  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2023.0.5 -->\n\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2023.0.5"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.0.7",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.0.7",
+  "body": "<!-- Release notes generated using configuration in .github/release.yml at v2023.0.7 -->\n\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2023.0.7"
 }

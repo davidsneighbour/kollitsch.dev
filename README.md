@@ -1,7 +1,7 @@
-This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is hosted on Netlify and built via GoHugo and most of this repository is specifically set up to work on Netlify and use its features.
+This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is hosted on Netlify and built via GoHugo and most of this repository is specifically set up to work on Netlify and use its features. Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, find out undocumented details, or to suggest improvements.
 
+- [General notes](#general-notes)
 - [Setup](#setup)
-	- [General notes](#general-notes)
 	- [Requirements](#requirements)
 	- [Setup development environment](#setup-development-environment)
 	- [Pre-Commit](#pre-commit)
@@ -24,33 +24,25 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Troubleshooting](#troubleshooting)
 	- [Inkscape](#inkscape)
 
+# General notes
+
+- The key words MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+- I am working on Ubuntu which means that all code samples in this document are for Ubuntu. If you are using another operating system then you are on your own. I assume though due to the usage of open source that most tools, scripts and procedures will work on other systems too with the appropriate changes.
+
 # Setup
-
-## General notes
-
-The key words MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Requirements
 
 - [Hugo](https://gohugo.io/)
 - [Node.js](https://nodejs.org/)
-- [Bash](https://www.gnu.org/software/bash/) (Patrick loves Bash!)
+- [Bash](https://www.gnu.org/software/bash/)
 - [Shellcheck](https://github.com/koalaman/shellcheck) (`snap install -channel=edge shellcheck`)
 
 ## Setup development environment
 
-- Copy `.env.sample` to `.env` and fill in the values. This is used by scripts and the build systems for various tasks. You *must* commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like [Keybase](https://keybase.io/).
-To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
+- Copy `.env.sample` to `.env` and fill in the values. This is used by scripts and the build systems for various tasks. You MUST NOT commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like [Keybase](https://keybase.io/).
+- To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 - Run `npm install` to install all dependencies.
-
-Install and set up `pre-commit` if you intend to send commits to the repository. This ensures that all commits adhere to the quality and security standards of this project.
-
- ```bash
- pip install pre-commit
- pre-commit install
- ```
-
-- If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit -no-verify`. Use your brain on this one.
 
 ## Pre-Commit
 
@@ -69,6 +61,9 @@ pre-commit run -all-files # check rules on all files
 pre-commit autoupdate # update repositories
 pre-commit gc # garbage collection
 ```
+
+If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit -no-verify`. Use your brain on this one.
+
 
 # Development
 
@@ -117,7 +112,7 @@ To enable the step to debug logging for the GitHub Workflows, you must set the f
 
 # Netlify setup
 
-```shell
+```bash
 npm install netlify-cli -g && netlify login
 netlify --telemetry-disable // yeah, well, shouldn't that be default?
 netlify init
@@ -128,7 +123,7 @@ If any errors come up while running this then fix them.
 
 # Hooks (WIP)
 
-Hooks are listed in their order
+Hooks are listed in their order of appearance
 
 <!-- prettier-ignore-start -->
 | Hook | File | Runs | Depends on | Description |
@@ -195,6 +190,8 @@ Long story short: go and create something by yourself and if you want to know ho
 # Troubleshooting
 
 ## Inkscape
+
+Generating the component cards requires Inkscape and optipng. Install them with:
 
 ```bash
 sudo apt install inkscape optipng

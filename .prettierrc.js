@@ -1,4 +1,4 @@
 module.exports = {
-	...require("@davidsneighbour/config/prettier"),
+	...require("@davidsneighbour/prettier-config"),
 	//semi: false,
 };

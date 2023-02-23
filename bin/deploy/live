@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# silently shutting down concurring hugo servers
+# quietly shutting down concurring hugo servers
 killall -q -9 hugo
 
 # switch netlify account if required

@@ -164,7 +164,7 @@ method = "postcss"
 outputStyle = "compressed"
 targetPath = "theme.css"
 enableSourceMap = true
-includePaths = ["node_modules/"]
+includePaths = ["node_modules/", "assets/"]
 
 ################################################################################
 # hugo-search-algolia @see https://github.com/davidsneighbour/hugo-search-algolia

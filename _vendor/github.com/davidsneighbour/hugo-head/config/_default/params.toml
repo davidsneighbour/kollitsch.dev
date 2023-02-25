@@ -1,0 +1,15 @@
+[dnb.head]
+charset = "utf-8"
+viewport = "width=device-width, initial-scale=1"
+nobase = true
+separator = " | "
+
+[dnb.head.styles]
+entrypoint = "scss/style.scss"
+method = "postcss"
+
+[dnb.head.styles.options]
+outputStyle = "compressed"
+targetPath = "assets/theme.css"
+enableSourceMap = true
+includePaths = ["node_modules/"]

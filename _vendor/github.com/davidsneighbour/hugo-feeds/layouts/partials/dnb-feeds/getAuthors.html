@@ -1,0 +1,24 @@
+{{ with .Params.author -}}
+"authors": [
+{
+"name": "{{ . }}"
+}
+],
+{{ end -}}
+
+
+
+
+
+
+
+
+//  {{   with .Site.Author.name -}}
+// "authors": [
+// {
+// "name": "{{ . }}"{{ with $.Site.Author.url }},
+// "url": "{{ . }}"{{ end }}{{ with $.Site.Author.avatar }},
+// "avatar": "{{ . | absURL }}"{{ end }}
+// }
+// ],
+// {{ end -}}

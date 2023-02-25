@@ -1,0 +1,7 @@
+[dnb.youtube]
+# set the source server that thumbnails are loaded from
+# 1 for googleusercontent.com (default)
+# 2 for ytimg.com
+thumbnail_source = 1
+# disabled = false
+# verbose = true

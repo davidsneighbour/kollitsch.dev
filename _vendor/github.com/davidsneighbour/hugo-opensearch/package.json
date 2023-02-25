@@ -1,0 +1,26 @@
+{
+  "name": "@davidsneighbour/hugo-opensearch",
+  "version": "1.0.2",
+  "license": "MIT",
+  "description": "Opensearch configuration for Hugo",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-opensearch",
+  "repository": "davidsneighbour/hugo-opensearch",
+  "bugs": "https://github.com/davidsneighbour/hugo-opensearch/issues",
+  "devDependencies": {
+    "@davidsneighbour/standard-version-config": "^4.0.4",
+    "@davidsneighbour/tools": "^4.0.4"
+  },
+  "scripts": {
+    "clean": "run-p clean:*",
+    "clean:npm": "rimraf node_modules package-lock.json",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
+  },
+  "private": true
+}

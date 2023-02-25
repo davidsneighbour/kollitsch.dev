@@ -1,0 +1,21 @@
+{
+  "name": "@davidsneighbour/hugo-shortcodes",
+  "description": "Shortcodes for Hugo",
+  "version": "1.5.3",
+  "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
+  "bugs": {
+    "url": "https://github.com/davidsneighbour/hugo-shortcodes/issues"
+  },
+  "devDependencies": {
+    "@davidsneighbour/standard-version-config": "^4.0.8",
+    "@slightlyoff/lite-vimeo": "0.1.2"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-shortcodes",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release-major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh",
+    "release-next": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release-hook-postrelease.sh"
+  }
+}

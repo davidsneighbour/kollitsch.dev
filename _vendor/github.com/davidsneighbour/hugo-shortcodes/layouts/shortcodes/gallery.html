@@ -1,0 +1,36 @@
+{{ $gallery := .Get "gallery" | default "gallery" }}
+{{ $randomId := partial "func/getRandomString" (dict "limit" 8) }}
+{{ $galleryid := .Get "id" | default $randomId }}
+{{ $images := $.Page.Resources.Match (printf "%s/*" $gallery) }}
+<div
+    id="g{{ $galleryid }}"
+    class="carousel{{ with .Get "dark" }} carousel-dark{{ end }} slide{{ with .Get "crossfade" }} carousel-fade{{ end }}"
+    data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {{- with $images -}}
+            {{- range $index, $element := . -}}
+                <button
+                        type="button" data-bs-target="#g{{ $galleryid }}"
+                        data-bs-slide-to="{{ $index }}"{{ if (eq $index 0) }} class="active" aria-current="true"{{ end }}
+                        aria-label="Slide 1"></button>
+            {{- end -}}
+        {{- end -}}
+    </div>
+    <div class="carousel-inner">
+        {{- with $images -}}
+            {{- range $index, $element := . -}}
+                <div class="carousel-item{{ if (eq $index 0) }} active{{ end }}">
+                    <img class="d-block w-100" src="{{ $element.RelPermalink }}" alt="{{ $element.Title }}">
+                </div>
+            {{- end -}}
+        {{- end -}}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#g{{ $galleryid }}" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#g{{ $galleryid }}" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

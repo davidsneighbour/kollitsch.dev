@@ -1,0 +1,36 @@
+{{- $title := "" -}}
+{{- $separator := site.Params.dnb.head.separator | default " | " -}}
+{{- $sitetitle := false -}}
+
+{{- if ne .Title site.Title -}}
+{{- $sitetitle = true -}}
+{{- end -}}
+
+{{- if .IsHome -}}
+{{- $title = site.Title -}}
+{{- else -}}
+{{- $title = .Title -}}
+{{- end -}}
+
+{{- if .IsNode -}}
+{{- $paginator := .Scratch.Get "paginator" -}}
+{{- with $paginator -}}
+{{- if gt .PageNumber 1 -}}
+
+{{- $pagenumber := printf (i18n "page-n") .PageNumber -}}
+{{- $title = printf "%s %s" $title $pagenumber -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- if isset .Params "sectiontitle" -}}
+  {{- with .Params.sectiontitle -}}
+    {{- $title = printf "%s %s %s" $title $separator . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq $sitetitle true -}}
+{{- $title = printf "%s %s %s" $title $separator site.Title -}}
+{{- end -}}
+
+<title>{{- $title -}}</title>

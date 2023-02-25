@@ -1,0 +1,9 @@
+[dnb.netlification]
+upgradeInsecureRequests = true
+mode = "netlify"
+[dnb.netlification.netlify]
+#cms = true
+
+# obsolete, use dnb.netlification.upgradeInsecureRequests
+[netlification]
+upgradeInsecureRequests = true

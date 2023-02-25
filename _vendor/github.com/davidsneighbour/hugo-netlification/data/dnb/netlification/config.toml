@@ -1,0 +1,4 @@
+[csp]
+defaultSrc = [
+  "'self'"
+]

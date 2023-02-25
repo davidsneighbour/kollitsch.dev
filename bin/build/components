@@ -3,8 +3,8 @@
 
 REQUIRED_TOOLS=(
 	inkscape
-	sed
 	optipng
+	sed
 	curl
 )
 

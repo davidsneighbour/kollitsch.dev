@@ -1,0 +1,29 @@
+{{ define "main" }}
+<style>
+.hugoicons {
+background: white;
+}
+.hugoicons .row svg {
+width: 100%;
+height: auto;
+margin-bottom: 1rem;
+fill: currentColor;
+}
+</style>
+<article>
+    <div class="container hugoicons">
+      <header class="title">
+          <h2 class="entry-title">
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h2>
+      </header>
+      <div class="row">
+          {{ range resources.Match "icons/tabler-icons/*.svg" }}
+            {{ $name := substr .Name 19 -4 | lower }}
+            <div class="col-md-1 col-sm-2 col-xs-4">{{ partialCached "tablericon.html" $name $name }}</div>
+            <div class="col-md-3 col-sm-4 col-xs-8" title="{{$name}}">{{$name}}</div>
+          {{ end }}
+      </div>
+    </div>
+</article>
+{{ end }}

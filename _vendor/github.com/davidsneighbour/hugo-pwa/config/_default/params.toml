@@ -1,0 +1,15 @@
+[dnb.pwa]
+dev = true
+
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/start_url
+start_url = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/short_name
+short_name = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/theme_color
+theme_color = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/background_color
+background_color = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/display
+display = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/description
+description = ""

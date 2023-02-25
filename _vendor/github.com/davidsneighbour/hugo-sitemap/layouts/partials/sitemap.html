@@ -1,0 +1,39 @@
+{{- $config := .config -}}
+
+<ul>
+  {{- range $config.item -}}
+    <li><a href="{{- $.Page.Permalink -}}#{{- .label | urlize -}}">{{- .label -}}</a></li>
+  {{- end -}}
+</ul>
+
+{{- range $config.item -}}
+
+  <h2>{{- .label -}}</h2>
+  {{- $pages := slice -}}
+  {{- if eq (.selection | default "in-regular") "in-regular" -}}
+      {{- $pages = (where site.RegularPages .type .section) -}}
+  {{- else if eq .selection "in-pages" -}}
+    {{- $pages = (where site.Pages .type .section) -}}
+  {{- else if eq .selection "not-in" -}}
+    {{- $pages = (where site.Pages .type "not in" .section) -}}
+  {{- end -}}
+
+  {{ if isset . "sortvalue" }}
+    {{- $pages = sort $pages .sortvalue (.sortdirection | default "ASC") -}}
+  {{- end -}}
+
+  {{- partial "range-through-pages.html" $pages -}}
+
+{{- end -}}
+
+{{- define "partials/range-through-pages.html" -}}
+<ul>
+  {{- range . -}}
+    <li>
+      <a href="{{- .Permalink -}}" title="{{- .Description -}}">
+        {{- .Title -}}
+      </a>
+    </li>
+  {{- end -}}
+</ul>
+{{- end -}}

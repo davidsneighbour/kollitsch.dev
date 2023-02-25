@@ -1,0 +1,25 @@
+[hugoVersion]
+extended = false
+min = "0.84.4"
+
+[[mounts]]
+source = "assets"
+target = "assets"
+
+[[mounts]]
+source = "data"
+target = "data"
+
+[[mounts]]
+source = "layouts"
+target = "layouts"
+
+[[mounts]]
+source = "static"
+target = "static"
+
+[[imports]]
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/davidsneighbour/hugo-debug"

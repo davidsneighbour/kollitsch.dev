@@ -1,0 +1,3 @@
+{{- $config := site.Params.dnb.sitemap.htmlmap -}}
+{{- $sitemapdata := (dict "config" $config) -}}
+{{- partialCached "sitemap.html" $sitemapdata $sitemapdata -}}

@@ -1,0 +1,30 @@
+[hugoVersion]
+extended = true
+min = "0.95.0"
+
+[[mounts]]
+source = 'data'
+target = 'data'
+
+[[mounts]]
+source = 'layouts'
+target = 'layouts'
+
+[[imports]]
+# see https://github.com/aFarkas/lazysizes for details
+path = "github.com/aFarkas/lazysizes"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+
+[[imports.mounts]]
+source = "lazysizes-umd.js"
+target = "assets/libs/lazysizes/index.js"
+
+[[imports.mounts]]
+source = "lazysizes.js"
+target = "assets/libs/lazysizes/lazysizes.js"
+
+[[imports.mounts]]
+source = "plugins"
+target = "assets/libs/lazysizes/plugins"

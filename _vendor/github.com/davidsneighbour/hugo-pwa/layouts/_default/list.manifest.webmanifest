@@ -1,0 +1,55 @@
+{{- /*
+see
+- https://web.dev/add-manifest/
+- https://maskable.app/editor
+*/ -}}
+{{- $config := merge (dict
+        "name" site.Title
+        "short_name" site.Title
+        "start_url" site.BaseURL
+        "theme_color" "#ffffff"
+        "background_color" "#ffffff"
+        "display" "minimal-ui"
+        "description" site.Params.Description
+      ) (site.Params.dnb.pwa | default dict)
+-}}
+{{- $manifest := $config -}}
+
+{{/* - TODO maybe only do sizes 192 and 512, see https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs - */}}
+{{- $sizes := slice 36 48 72 96 144 192 256 384 512 -}}
+{{- $icon := resources.Get "favicon/favicon.png" -}}
+{{- if ne nil $icon -}}
+  {{- $icons := slice -}}
+  {{- range $sizes -}}
+    {{- $resize := $icon.Resize (printf "%dx%d" . .) -}}
+    {{- $sizedIcon := dict -}}
+    {{- $sizedIcon = merge $sizedIcon (dict "src" $resize.Permalink) -}}
+    {{- $sizedIcon = merge $sizedIcon (dict "sizes" (printf "%dx%d" . .)) -}}
+    {{- $sizedIcon = merge $sizedIcon (dict "type" (printf "%s/%s" $resize.MediaType.MainType $resize.MediaType.SubType)) -}}
+    {{- $sizedIcon = merge $sizedIcon (dict "density" 0.75) -}}
+    {{- $sizedIcon = merge $sizedIcon (dict "purpose" "any maskable") -}}
+    {{- $icons = $icons | append $sizedIcon -}}
+  {{- end -}}
+  {{- $manifest = merge $manifest (dict "icons" $icons) -}}
+{{- end -}}
+
+{{- $sizes := slice 320 800 1200 1600 2000 2800 -}}
+{{- with $config.screenshots -}}
+  {{- $screenshots := slice -}}
+  {{- range . -}}
+    {{- $icon := resources.Get . -}}
+    {{- $images := slice -}}
+    {{- range $sizes -}}
+      {{- $resize := $icon.Resize (printf "%dx%d" . .) -}}
+      {{- $sizedIcon := dict -}}
+      {{- $sizedIcon = merge $sizedIcon (dict "src" $resize.Permalink) -}}
+      {{- $sizedIcon = merge $sizedIcon (dict "sizes" (printf "%dx%d" . .)) -}}
+      {{- $sizedIcon = merge $sizedIcon (dict "type" (printf "%s/%s" $resize.MediaType.MainType $resize.MediaType.SubType)) -}}
+      {{- $images = $images | append $sizedIcon -}}
+    {{- end -}}
+    {{- $screenshots = $screenshots | append $images -}}
+  {{- end -}}
+  {{- $manifest = merge $manifest (dict "screenshots" $screenshots) -}}
+{{- end -}}
+
+{{- $manifest | jsonify -}}

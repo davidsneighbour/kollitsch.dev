@@ -1,0 +1,101 @@
+[[items]]
+slug = "facebook"
+link = "https://facebook.com/sharer/sharer.php"
+icon = "facebook"
+[items.particles]
+u = "permalink"
+
+[[items]]
+slug = "twitter"
+link = "https://twitter.com/intent/tweet/"
+icon = "twitter"
+[items.particles]
+text = "description"
+url = "permalink"
+
+[[items]]
+slug = "tumblr"
+link = "https://www.tumblr.com/widgets/share/tool"
+[items.particles]
+canonicalUrl = "permalink"
+shareSource = "source"
+title = "title"
+caption = "description"
+content = "description"
+params = "posttype=link"
+
+[[items]]
+slug = "email"
+link = "mailto:"
+icon = "envelope"
+[items.particles]
+body = "permalink"
+subject = "title"
+
+[[items]]
+slug = "pinterest"
+link = "https://pinterest.com/pin/create/button/"
+icon = "pinterest"
+[items.particles]
+url = "permalink"
+media = "permalink"
+description = "description"
+
+[[items]]
+slug = "linkedin"
+link = "https://www.linkedin.com/shareArticle"
+icon = "linkedin"
+[items.particles]
+url = "permalink"
+title = "title"
+summary = "description"
+source = "permalink"
+params = "mini=true"
+
+[[items]]
+slug = "reddit"
+link = "https://reddit.com/submit/"
+icon = "reddit"
+[items.particles]
+url = "permalink"
+title = "title"
+params = "resubmit=true"
+
+[[items]]
+slug = "xing"
+link = "https://www.xing.com/app/user"
+separator = ";"
+[items.particles]
+url = "permalink"
+title = "title"
+params = "op=share"
+
+[[items]]
+slug = "whatsapp"
+link = "whatsapp://send"
+linkintext = true
+icon = "whatsapp"
+[items.particles]
+text = "description"
+
+[[items]]
+slug = "hackernews"
+link = "https://news.ycombinator.com/submitlink"
+[items.particles]
+u = "permalink"
+t = "description"
+
+[[items]]
+slug = "vkontakte"
+link = "http://vk.com/share.php"
+[items.particles]
+title = "title"
+url = "permalink"
+
+[[items]]
+slug = "telegram"
+link = "https://telegram.me/share/url"
+icon = "telegram"
+[items.particles]
+text = "description"
+url = "permalink"

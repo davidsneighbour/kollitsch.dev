@@ -1,0 +1,52 @@
+{
+  "name": "hugo-pwa",
+  "version": "1.0.10",
+  "license": "MIT",
+  "description": "PWA for Hugo",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-pwa",
+  "repository": "davidsneighbour/hugo-pwa",
+  "bugs": "https://github.com/davidsneighbour/hugo-pwa/issues",
+  "dependencies": {
+    "ansi-regex": ">=6.0.1",
+    "mem": ">=9.0.2",
+    "trim": ">=1.0.1",
+    "yargs-parser": ">=21.1.1"
+  },
+  "devDependencies": {
+    "@davidsneighbour/config": "^1.0.27",
+    "workbox-cacheable-response": "^6.5.4",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4",
+    "workbox-webpack-plugin": "^6.5.4"
+  },
+  "scripts": {
+    "build": "npm run build:dev && npm run build:prod",
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "clean": "run-p clean:*",
+    "clean:npm": "rimraf node_modules package-lock.json",
+    "clean:hugo": "rimraf public resources",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "serve:webpack": "webpack --watch --config webpack.dev.js"
+  },
+  "private": true,
+  "browserslist": [
+    "extends @davidsneighbour/browserslist-config"
+  ],
+  "remarkConfig": {
+    "plugins": [
+      "@davidsneighbour/config/remark"
+    ]
+  },
+  "slug": "hugo-pwa"
+}

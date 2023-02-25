@@ -1,0 +1,3 @@
+{{- $resource := resources.GetRemote "REMOTE_URL_TO_IMAGE" -}}
+{{- $resource := $resource.Content | resources.FromString "images/FILENAME.EXT" -}}
+{{- return $resource -}}

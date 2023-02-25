@@ -1,0 +1,5 @@
+[manifest]
+mediaType = "application/manifest+json"
+baseName = "manifest"
+isPlainText = true
+notAlternative = true

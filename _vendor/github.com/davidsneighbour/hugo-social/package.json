@@ -1,0 +1,33 @@
+{
+  "name": "@davidsneighbour/hugo-social",
+  "version": "0.1.9",
+  "license": "MIT",
+  "description": "Social Media functions for Hugo",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-social",
+  "repository": "davidsneighbour/hugo-sitemap",
+  "bugs": "https://github.com/davidsneighbour/hugo-social/issues",
+  "devDependencies": {
+    "@davidsneighbour/config": "^1.0.19",
+    "all-contributors-cli": "^6.20.0"
+  },
+  "scripts": {
+    "clean": "run-p clean:*",
+    "clean:npm": "rimraf node_modules package-lock.json",
+    "contributors:generate": "all-contributors generate",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:major": "standard-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease"
+  },
+  "private": true,
+  "remarkConfig": {
+    "plugins": [
+      "@davidsneighbour/config/remark"
+    ]
+  },
+  "slug": "hugo-social"
+}

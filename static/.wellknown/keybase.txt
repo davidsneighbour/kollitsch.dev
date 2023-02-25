@@ -1,0 +1,56 @@
+================================================================================
+https://keybase.io/davidsneighbour
+--------------------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kollitsch.dev
+  * I am davidsneighbour (https://keybase.io/davidsneighbour) on keybase.
+  * I have a public key ASAHV5UAX6kMR8ABaYyJi_tokRlTJIm1sAOlAoncn0GIVAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209a7c6c2f85751ee8f5725cf291a17d1068f5e8379829a849d909be8a77e466ea0a",
+      "host": "keybase.io",
+      "kid": "0120075795005fa90c47c001698c898bfb689119532489b5b003a50289dc9f4188540a",
+      "uid": "a414651cb1bb26b386ee0e5ecbbd6a19",
+      "username": "davidsneighbour"
+    },
+    "merkle_root": {
+      "ctime": 1677293534,
+      "hash": "f3f14ca6d181a00c75dd373583404edb6191b3ee59b876e3513026f9c7259e1f9b52e950c52d4e0dad1451d0a5765ed105c2c8819f5b2e33af59897bc02fec66",
+      "hash_meta": "6d426f1be46b178a2b43b68de3a5227fdc95c90a1df0bc6cbc4bfd646f77e485",
+      "seqno": 24107318
+    },
+    "service": {
+      "entropy": "NEGE39ee6gBKyyQn36Spfb4V",
+      "hostname": "kollitsch.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.2"
+  },
+  "ctime": 1677293618,
+  "expire_in": 504576000,
+  "prev": "b77e99d6b576354d80270a5c11af9a7e4d50f1713e776fc9cef68e13f7611afd",
+  "seqno": 33,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgB1eVAF+pDEfAAWmMiYv7aJEZUySJtbADpQKJ3J9BiFQKp3BheWxvYWTESpcCIcQgt36Z1rV2NU2AJwpcEa+afk1Q8XE+d2/JzvaOE/dhGv3EIPr8Y/Hv2wRgNt/5/+2shz/8G/6evceMvY32QFYJUYqyAgHCo3NpZ8RAY+s5xWZBwg+3bZL2sZCCg79pTtrCSQjgUIlM/dwOQvtmynAZ9sTzUzkKqH4NVvwQEahChfUcDbwSQMXMmqlsDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIGOS7AHdz8PN5N38vBJaTv6I3VtAA87vrwYsV2PWgJato3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/davidsneighbour
+
+================================================================================

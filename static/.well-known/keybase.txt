@@ -54,3 +54,60 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/davidsneighbour
 
 ================================================================================
+
+================================================================================
+https://keybase.io/pkollitsch
+--------------------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kollitsch.dev
+  * I am pkollitsch (https://keybase.io/pkollitsch) on keybase.
+  * I have a public key ASAKBUx6t6v3pyUBOT6jBGkYuXAM41hgdIWSqrM7WsJQ8wo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120620e28b8a0f1f3dccd960b9c2171c180f649d45ea9d307f1258d4419a0d415ca0a",
+      "host": "keybase.io",
+      "kid": "01200a054c7ab7abf7a72501393ea3046918b9700ce35860748592aab33b5ac250f30a",
+      "uid": "a4892edea82423b84ab9913dfaa7a319",
+      "username": "pkollitsch"
+    },
+    "merkle_root": {
+      "ctime": 1677295566,
+      "hash": "6cc83b0ab380fe3e379700c98d660b1be157d58fa767d818f1a4e89063013efec2dcb08b9e78a3c3a3b02a19783eea8d9b9d64f7feb80c7f41803ebb1e3481e8",
+      "hash_meta": "ee23cd7c3d9303a7764aa08c0f373bd6942d8be2378e45fbb925075117d29280",
+      "seqno": 24107389
+    },
+    "service": {
+      "entropy": "l3A9lbFLq3C6JeMvioGk1yp5",
+      "hostname": "kollitsch.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.2"
+  },
+  "ctime": 1677295595,
+  "expire_in": 504576000,
+  "prev": "d2541084392fed5d375371b294e1003d5524e1dedc83c3ae0f8fa6e3041aa96e",
+  "seqno": 85,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgCgVMerer96clATk+owRpGLlwDONYYHSFkqqzO1rCUPMKp3BheWxvYWTESpcCVcQg0lQQhDkv7V03U3GylOEAPVUk4d7cg8OuD4+m4wQaqW7EIKiZ0GlnZGMDLZeLNNnXk/2e7ei2KAG3mlPwPPpfkJr4AgHCo3NpZ8RASvb7UDalJScQJOQ0j1hVokMF//GzDPd6NDPYyshKyUHatZpKWze/7g83s527yhOwiTyBp9cIeKNF3uBo5zaJCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMXdY3ubFTdGxS8q2enCAtim1YcGom3To1k467Eekkvjo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pkollitsch
+
+================================================================================

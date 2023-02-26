@@ -1,0 +1,15 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.custom.scripts": [
+    {
+      "command": "~/.config/nvm/versions/node/v18.12.1/bin/node",
+      "script": "./assets/frontmatter/scripts/create-youtube-header-image.js",
+      "title": "Generate social image for Youtube"
+    },
+    {
+      "command": "~/.config/nvm/versions/node/v18.12.1/bin/node",
+      "script": "./assets/frontmatter/scripts/retrieve-unsplash-header-image-info.js",
+      "title": "Retrieve Unsplash image"
+    }
+  ]
+}

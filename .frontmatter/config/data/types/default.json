@@ -1,0 +1,106 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "previewPath": "{{permalink}}",
+      "pageBundle": true,
+      "filetype": "md",
+      "fieldGroup": [
+        "resources"
+      ],
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Last modified date",
+          "name": "lastmod",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "Resources",
+          "name": "resources",
+          "type": "block",
+          "fieldGroup": [
+            "resources"
+          ]
+        },
+        {
+          "title": "Weight",
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "title": "Boolean",
+          "name": "isboolean",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Choice",
+          "name": "choice",
+          "type": "choice",
+          "choices": [
+            "",
+            "Choice 1",
+            "Choice 2",
+            "Choice 3"
+          ]
+        },
+        {
+          "title": "Choice",
+          "name": "choice2",
+          "type": "choice",
+          "choices": [
+            {
+              "id": "1",
+              "title": "Choice 1"
+            },
+            {
+              "id": "2",
+              "title": "Choice 2"
+            },
+            {
+              "id": "3",
+              "title": "Choice 3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

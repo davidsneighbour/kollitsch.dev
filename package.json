@@ -97,7 +97,8 @@
 		"release:patch": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
 		"server": "bin/server/run",
 		"tests": "npm run cypress",
-		"update": "npm-check-updates -u --target minor && npm install && fixpack && npx browserslist@latest --update-db"
+		"update": "npm-check-updates -u --target minor && npm install && fixpack && npx browserslist@latest --update-db",
+		"new": "node bin/content/index.mjs"
 	},
 	"config": {
 		"commitizen": {
@@ -129,6 +130,7 @@
 		}
 	},
 	"devDependencies": {
+		"@clack/prompts": "^0.6.0",
 		"@types/alpinejs": "^3.7.1"
 	}
 }

@@ -1,6 +1,9 @@
 ---
-title: Music to program to (Part
-linkTitle: PM##NUM##
+title: {{ replace .Name "-" " " | title }}
+linkTitle: {{ replace .Name "-" " " | title }}
+description: ""
+summary: ""
+
 tags:
   - programming-music
   - music genre

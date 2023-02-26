@@ -64,11 +64,9 @@ async function main() {
 			break;
 
 		case 'm2p2':
-
 			let number;
 			let increment;
 			const filename = "data/dnb/kollitsch/m2p2.json";
-
 			await new Promise((resolve, _reject) => {
 				fs.readFile(filename, 'utf8', function (err, buf) {
 					if (err) {

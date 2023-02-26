@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Reset BASH time counter
+SECONDS=0
+
 REQUIRED_TOOLS=(
 	hugo
 	npm
@@ -96,6 +99,8 @@ else
 	echo "Draft Posts OFF"
 fi
 
+echo "Elapsed: $((SECONDS / 3600))hrs $(((SECONDS / 60) % 60))min $((SECONDS % 60))sec"
+
 # starting hugo server
 hugo server \
 	--environment development \
@@ -112,3 +117,5 @@ hugo server \
 	--port "${PORT}" \
 	--baseURL http://"${IP}"/ \
 	--bind "${IP}" 2>&1 | tee -a hugo.log
+
+echo "Elapsed: $((SECONDS / 3600))hrs $(((SECONDS / 60) % 60))min $((SECONDS % 60))sec"

@@ -67,21 +67,22 @@ async function main() {
 
 			let number;
 			let increment;
-			const filename = "data/dnb/kollitsch/m2p2.txt";
+			const filename = "data/dnb/kollitsch/m2p2.json";
 
-			await new Promise((resolve, reject) => {
-				fs.readFile(filename, function (err, buf) {
+			await new Promise((resolve, _reject) => {
+				fs.readFile(filename, 'utf8', function (err, buf) {
 					if (err) {
 						console.log(err);
 						cancel(`An error occured: ${err}`);
 						process.exit(0);
 					}
-					number = parseInt(buf, 10);
+					let data = JSON.parse(buf);
+					number = data.latest;
 					console.log(number);
 					increment = number + 1;
 					console.log(increment);
-					console.log('' + increment);
-					fs.writeFile(filename, '' + increment, (err) => {
+					data.latest = increment;
+					fs.writeFile(filename, JSON.stringify(data, null, 2), (err) => {
 						if (err) console.log(err);
 					});
 					resolve();
@@ -151,10 +152,10 @@ async function main() {
 
 	spin.start('Creating content files...');
 
-	await new Promise((resolve, reject) => {
+	await new Promise((resolve, _reject) => {
 		exec(command, function (
 			error,
-			stdout,
+			_stdout,
 			stderr
 		) {
 			if (error) {
@@ -173,10 +174,10 @@ async function main() {
 
 	spin.stop('Content created. Opening in VS Code...');
 
-	await new Promise((resolve, reject) => {
+	await new Promise((resolve, _reject) => {
 		exec(command2, function (
 			error,
-			stdout,
+			_stdout,
 			stderr
 		) {
 			if (error) {

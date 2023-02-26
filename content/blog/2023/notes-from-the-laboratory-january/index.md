@@ -1,6 +1,6 @@
 ---
-title: "Notes from the Laboratory: February 2023"
-linkTitle: Laboratory 2023-02
+title: "Notes from the Laboratory: January 2023"
+linkTitle: Laboratory 2023-01
 description: Another monthly report from the depths of the laboratory of kollitsch.dev -
   January 2023
 

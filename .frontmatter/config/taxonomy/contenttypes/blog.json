@@ -1,3 +1,58 @@
 {
-  "$schema": "https://frontmatter.codes/config/taxonomy.contenttypes.schema.json"
+  "$schema": "https://frontmatter.codes/config/taxonomy.contenttypes.schema.json",
+
+  "name": "blog",
+  "previewPath": "yyyy/{{permalink}}",
+  "pageBundle": true,
+  "filetype": "md",
+  "fieldGroup": ["resources"],
+  "fields": [
+    {
+      "title": "Title",
+      "name": "title",
+      "type": "string",
+      "single": true
+    },
+    {
+      "title": "Description",
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "title": "Publishing date",
+      "name": "date",
+      "type": "datetime",
+      "default": "{{now}}",
+      "isPublishDate": true
+    },
+    {
+      "title": "Last modified date",
+      "name": "lastmod",
+      "type": "datetime",
+      "default": "{{now}}",
+      "isModifiedDate": true
+    },
+    {
+      "title": "Draft",
+      "name": "draft",
+      "type": "draft"
+    },
+    {
+      "title": "Tags",
+      "name": "tags",
+      "type": "tags"
+    },
+    {
+      "title": "Categories",
+      "name": "categories",
+      "type": "categories"
+    },
+    {
+      "title": "Resources",
+      "name": "resources",
+      "type": "block",
+      "multiple": true,
+      "fieldGroup": ["resources"]
+    }
+  ]
 }

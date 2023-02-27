@@ -1,6 +1,6 @@
 {
   "$schema": "https://frontmatter.codes/config/custom.scripts.schema.json",
   "command": "~/.config/nvm/versions/node/v18.12.1/bin/node",
-  "script": "./assets/frontmatter/scripts/retrieve-unsplash-header-image-info.js",
+  "script": "./.frontmatter/scripts/retrieve-unsplash-header-image-info.js",
   "title": "Retrieve Unsplash image"
 }

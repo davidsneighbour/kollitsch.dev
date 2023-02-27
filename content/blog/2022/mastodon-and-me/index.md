@@ -8,15 +8,12 @@ description: There were new "like Twitter, but…" networks every two or so year
 
 date: 2022-11-10T18:45:13+07:00
 publishDate: 2022-11-10T18:45:13+07:00
-lastmod: 2022-11-10T18:50:00+07:00
+lastmod: 2023-02-27T20:08:57+07:00
 
 resources:
   - title: Photo by [April Pethybridge](https://unsplash.com/@apriiil) via
       [Unsplash](https://unsplash.com/)
     src: header.jpg
-
-categories:
-  - category1
 
 tags:
   - mastodon

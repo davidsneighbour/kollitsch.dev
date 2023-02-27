@@ -1,0 +1,5 @@
+{
+  "$schema": "https://frontmatter.codes/config/content.placeholders.schema.json",
+  "id": "permalink",
+  "value": "/blog/{{year}}/{{slug}}/index.md"
+}

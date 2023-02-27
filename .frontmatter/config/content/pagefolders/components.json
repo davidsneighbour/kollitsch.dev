@@ -1,0 +1,5 @@
+{
+  "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
+  "title": "Hugo Components",
+  "path": "[[workspace]]/content/components"
+}

@@ -1,0 +1,4 @@
+{
+  "$schema": "https://frontmatter.codes/config/content.snippets.schema.json",
+  "snippet": "{{< caption \"{mediaUrl}\" \"Description\" >}}"
+}

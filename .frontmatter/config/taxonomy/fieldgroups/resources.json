@@ -15,7 +15,7 @@
       "single": true
     },
     {
-      "title": "Name (Identifier)",
+      "title": "Identifier",
       "name": "name",
       "type": "string",
       "single": true

@@ -4,15 +4,12 @@ description: ""
 
 date: 2022-11-09T20:01:35+07:00
 publishDate: 2022-11-09T20:01:35+07:00
-lastmod: 2022-11-09T21:20:15+07:00
+lastmod: 2023-02-27T20:09:09+07:00
 
 resources:
   - title: Photo by [Mila Tovar](https://unsplash.com/@milatovar) via
       [Unsplash](https://unsplash.com/)
     src: header.jpg
-
-categories:
-  - category1
 
 tags:
   - gitlab

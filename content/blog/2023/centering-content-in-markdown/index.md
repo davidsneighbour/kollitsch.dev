@@ -1,7 +1,7 @@
 ---
 title: Centring Content in Markdown
 date: 2022-08-18T00:02:45+07:00
-lastmod: 2023-01-18T22:12:14+07:00
+lastmod: 2023-02-27T20:09:04+07:00
 
 description: ""
 summary: ""
@@ -12,9 +12,6 @@ resources:
       [Unsplash](https://unsplash.com/)
     src: header.jpg
   - src: nicely-centred-badges.png
-
-categories:
-  - category1
 
 tags:
   - tag1

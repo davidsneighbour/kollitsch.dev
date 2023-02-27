@@ -1,0 +1,24 @@
+{
+  "id": "resources",
+  "labelField": "src",
+  "fields": [
+    {
+      "title": "Path/Filename",
+      "name": "src",
+      "type": "image",
+      "isPreviewImage": true
+    },
+    {
+      "title": "Title",
+      "name": "title",
+      "type": "string",
+      "single": true
+    },
+    {
+      "title": "Name (Identifier)",
+      "name": "name",
+      "type": "string",
+      "single": true
+    }
+  ]
+}

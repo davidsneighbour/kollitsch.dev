@@ -1,0 +1,5 @@
+{
+  "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
+  "title": "Tags",
+  "path": "[[workspace]]/content/tags"
+}

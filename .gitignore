@@ -3,8 +3,6 @@
 #####################################################################
 # cache for Netlify CLI
 .netlify/
-# dynamic created
-frontmatter.json
 # replacements for dnb-binaries
 bin/etc/replacements
 # scratch

@@ -1,9 +1,18 @@
-This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/). The site is hosted on Netlify and built via GoHugo and most of this repository is specifically set up to work on Netlify and use its features. Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, find out undocumented details, or to suggest improvements.
+This project is the website setup and content for [kollitsch.dev](https://kollitsch.dev/).
+
+This site's infrastructure is as follows:
+
+- **Domain Registration:** [Google](https://domains.google.com/)
+- **Hosting:** [Netlify](https://netlify.com)
+- **SSG Build:** [Hugo](https://gohugo.io)
+
+Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements.
+
+**Contents:**
 
 - [General notes](#general-notes)
 - [Setup](#setup)
 	- [Requirements](#requirements)
-	- [Setup development environment](#setup-development-environment)
 	- [Pre-Commit](#pre-commit)
 - [Development](#development)
 	- [Development server](#development-server)
@@ -20,28 +29,28 @@ This is the website setup and content for [kollitsch.dev](https://kollitsch.dev/
 - [Linting](#linting)
 	- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
 	- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
-- [License](#license)
+	- [Search (Algolia)](#search-algolia)
 - [Troubleshooting](#troubleshooting)
 	- [Inkscape](#inkscape)
+- [License](#license)
 
 # General notes
 
-- The key words MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-- I am working on Ubuntu which means that all code samples in this document are for Ubuntu. If you are using another operating system then you are on your own. I assume though due to the usage of open source that most tools, scripts and procedures will work on other systems too with the appropriate changes.
+- The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume, though, that most tools, scripts, and procedures will work on other systems with the appropriate changes due to open-source usage.
 
 # Setup
 
 ## Requirements
 
-- [Hugo](https://gohugo.io/)
-- [Node.js](https://nodejs.org/)
-- [Bash](https://www.gnu.org/software/bash/)
-- [Shellcheck](https://github.com/koalaman/shellcheck) (`snap install -channel=edge shellcheck`)
+- **[Hugo](https://gohugo.io/)** ([Installation instructions](https://gohugo.io/getting-started/installing/))
+- **[Node.js](https://nodejs.org/)** ([I recommend using NVM](https://github.com/nvm-sh/nvm
+) to install Node.js)
+- **[Bash](https://www.gnu.org/software/bash/)** (available on any self-respecting operating system)
+- **[Shellcheck](https://github.com/koalaman/shellcheck)** (`snap install -channel=edge shellcheck`)
+- Running **`npm install`** will add all set-up requirements
+- Copy `.env.sample` to **`.env`** and fill in the values used by scripts and the build systems for various tasks. You **MUST NOT** commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like in [Keybase](https://keybase.io) or a password manager.
 
-## Setup development environment
-
-- Copy `.env.sample` to `.env` and fill in the values. This is used by scripts and the build systems for various tasks. You MUST NOT commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like [Keybase](https://keybase.io/).
-- To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 - Run `npm install` to install all dependencies.
 
 ## Pre-Commit
@@ -179,13 +188,10 @@ Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai
 
 ## Markdownlint (markdown format checks)
 
-# License
+## Search (Algolia)
 
-The content of this project itself is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), and the underlying source code used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
+- To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 
-White this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in the `content` folder or documentation. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in its full may not be reused, but studied and parts reused.
-
-Long story short: go and create something by yourself and if you want to know how a feature on this website was realised feel free to have a look.
 
 # Troubleshooting
 
@@ -196,3 +202,14 @@ Generating the component cards requires Inkscape and optipng. Install them with:
 ```bash
 sudo apt install inkscape optipng
 ```
+
+# License
+
+The written `content` of this website itself is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), and the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
+
+While this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in the `content` folder or documentation. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in its full may not be reused, but studied and parts reused.
+
+**TBD: note about fonts that might be licensed**
+
+Long story short: go and create something by yourself and if you want to know how a feature on this website was realised feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions
+).

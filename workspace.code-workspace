@@ -2,6 +2,27 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../hugo-head"
+		},
+		{
+			"path": "../hugo-pictures"
+		},
+		{
+			"path": "../hugo-pwa"
+		},
+		{
+			"path": "../hugo-robots"
+		},
+		{
+			"path": "../hugo-schema"
+		},
+		{
+			"path": "../hugo-security"
+		},
+		{
+			"path": "../hugo-giscus"
 		}
 	],
 	"settings": {

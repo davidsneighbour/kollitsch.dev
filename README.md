@@ -12,16 +12,14 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 - [General notes](#general-notes)
 - [Setup](#setup)
-	- [Requirements](#requirements)
+	- [Prepare the development environment](#prepare-the-development-environment)
+	- [Advanced setup steps](#advanced-setup-steps)
 	- [Pre-Commit](#pre-commit)
 - [Development](#development)
-	- [Development server](#development-server)
-- [Releasing](#releasing)
-- [Deployment](#deployment)
-	- [Publishing on Netlify](#publishing-on-netlify)
+- [Release](#release)
+- [Deploy](#deploy)
 - [Theme](#theme)
-	- [Design paradigms for the used theme](#design-paradigms-for-the-used-theme)
-- [Advanced setup](#advanced-setup)
+	- [Paradigms](#paradigms)
 - [Netlify setup](#netlify-setup)
 - [Hooks (WIP)](#hooks-wip)
 - [Front matter parameters](#front-matter-parameters)
@@ -41,7 +39,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 # Setup
 
-## Requirements
+## Prepare the development environment
 
 - **[Hugo](https://gohugo.io/)** ([Installation instructions](https://gohugo.io/getting-started/installing/))
 - **[Node.js](https://nodejs.org/)** ([I recommend using NVM](https://github.com/nvm-sh/nvm
@@ -50,12 +48,16 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 - **[Shellcheck](https://github.com/koalaman/shellcheck)** (`snap install -channel=edge shellcheck`)
 - Running **`npm install`** will add all set-up requirements
 - Copy `.env.sample` to **`.env`** and fill in the values used by scripts and the build systems for various tasks. You **MUST NOT** commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like in [Keybase](https://keybase.io) or a password manager.
-
+- Setup signed tags with `npm config set sign-git-tag true`
 - Run `npm install` to install all dependencies.
 
-## Pre-Commit
+## Advanced setup steps
 
-If you want then install and set up `pre-commit` to lint commits for quality and security. This requires Python to be installed. Then run the following commands to set up `pre-commit` locally:
+- **Github Actions:** To enable the step to debug logging for the GitHub Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
+
+
+## Pre-Commit
+Install and set up `pre-commit` to lint commits for quality and security. Python is required for this. Then run the following commands to set up `pre-commit` locally:
 
 ```bash
 pip install pre-commit
@@ -63,61 +65,45 @@ pre-commit install
 ```
 
 Other `pre-commit` commands are:
-
-```bash
-pre-commit run blocklint -all-files # check specific hook on all files
-pre-commit run -all-files # check rules on all files
-pre-commit autoupdate # update repositories
-pre-commit gc # garbage collection
-```
-
-If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit -no-verify`. Use your brain on this one.
-
+If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit -no-verify`. So use your brain on this one.
 
 # Development
 
-## Development server
-
-Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` can also be a hostname (without protocol in the beginning).
+Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` *MAY* also be a hostname (without protocol in the beginning).
 
 ```ini
 IP=192.168.1.201
 PORT=1313
 ```
 
-This configures the Hugo server so that you can access the server from other machines (and mobile devices). Again: you *must not* commit this file to the repository as it might contain private information.
+This configures the Hugo server so you can access the site from other machines (and mobile devices) in your local network. Again: you *MUST NOT* commit this file to any public code versioning system as it contains private information.
 
-To start the development server run `npm run server`. This runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more the better). Running just `hugo server` starts Hugo on [localhost:1313](http://localhost:1313).
+To start the development server, run `npm run server`, which runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more, the better). Running just `hugo server` will start Hugo on [localhost:1313](http://localhost:1313).
 
-# Releasing
+# Release
 
-- Setup signed tags with `npm config set sign-git-tag true`
+Sidenote: I use these scripts only if I want to create a new minor or major release of the website. All other "releases" are done when deploying the website (see [Deploy](#deploy)).
+
 - Create patch release with `npm run release` or `npm run release:patch`
 - Create minor release with `npm run release:minor`
 - Create major release with `npm run release:major`
 
-# Deployment
+# Deploy
 
-## Publishing on Netlify
+As noted, this repository is optimized for Netlify. To create a local copy of the website, run `npm run build` or `./bin/netlify/build`.
 
-This repository is optimised for Netlify. To create a local copy of the website run `npm run build` or `./bin/netlify/build`.
-
-- running `npm run release` creates a new tag in the `main` branch and release on Netlify.
+Running `npm run deploy` creates a new tag in the `main` branch and deploys the site on Netlify.
 
 # Theme
 
-The theme is part of this repository.
+The theme is part of this repository, mainly in the `layouts` folder.
 
-## Design paradigms for the used theme
+## Paradigms
 
-- Spacing is applied from top to bottom, meaning that margins are applied to the bottom of items.
-- Responsive design principles are applied as mobile-first.
-- No rows inside of rows (container>row>col>row>col) if this isn't explicitly required. It probably isn't required anyway.
+- Spacing (margin and padding) is applied from top to bottom.
+- We use responsive design principles with mobile-first.
+No unnecessary `row`s inside of `row`s (container>row>col>row>col) if this isn't explicitly required. It probably isn't needed anyway.
 - Do reuse and recycle styles.
-
-# Advanced setup
-
-To enable the step to debug logging for the GitHub Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
 
 # Netlify setup
 
@@ -128,7 +114,7 @@ netlify init
 netlify build
 ```
 
-If any errors come up while running this then fix them.
+If any errors come up while running this, then fix them.
 
 # Hooks (WIP)
 
@@ -160,7 +146,7 @@ theme:
 The following front matter parameters exist to fine-tune the layouts and theme options:
 
 - `comments` - set to false to turn off comment forms and display (default: true)
-- `showdate` - set to false to turn off date per post display (default: true)
+- `showdate` - set to false to turn off the date per post display (default: true)
 
 # Linting
 
@@ -190,14 +176,13 @@ Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai
 
 ## Search (Algolia)
 
-- To set up Algolia search fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
-
+- To set up the Algolia search, fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 
 # Troubleshooting
 
 ## Inkscape
 
-Generating the component cards requires Inkscape and optipng. Install them with:
+Generating the component cards requires Inkscape and optipng. Install them with the following:
 
 ```bash
 sudo apt install inkscape optipng
@@ -207,9 +192,9 @@ sudo apt install inkscape optipng
 
 The written `content` of this website itself is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), and the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
 
-While this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in the `content` folder or documentation. Other parts of this project like `assets` and `layouts` are available for educational uses and can be used. The theme in its full may not be reused, but studied and parts reused.
+While this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in this site's `content` folder or documentation and code. Other parts of this project, like `assets` and `layouts`, are available for educational use and can be copied to your projects. You **MUST NOT** reuse the full (complete) theme, but you **MAY** use parts and principles of it.
 
 **TBD: note about fonts that might be licensed**
 
-Long story short: go and create something by yourself and if you want to know how a feature on this website was realised feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions
+Long story short: go and create something by yourself, and if you want to know how a feature on this website was realised, feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions
 ).

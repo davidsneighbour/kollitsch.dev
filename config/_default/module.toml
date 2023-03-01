@@ -1,3 +1,6 @@
+replacements = "github.com/davidsneighbour/hugo-pictures->/home/patrick/github.com/davidsneighbour/hugo-pictures,github.com/davidsneighbour/hugo-giscus->/home/patrick/github.com/davidsneighbour/hugo-giscus"
+noVendor = "github.com/davidsneighbour/hugo-pictures"
+
 [hugoVersion]
 extended = true
 min = "0.110.0"

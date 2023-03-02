@@ -31,13 +31,16 @@ figure {
     object-fit: cover;
     overflow: hidden;
     aspect-ratio: 2/1;
+
+    @extend .rounded-1;
     @extend .w-100;
   }
 
+  @extend .border;
+  @extend .border-primary;
+  @extend .border-1;
+  @extend .rounded-1;
   @extend .bg-primary;
-
   @extend .position-relative;
-  @extend .p-1;
 
-  @extend .mb-0;
 }

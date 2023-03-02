@@ -16,20 +16,24 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 	- [Advanced setup steps](#advanced-setup-steps)
 	- [Pre-Commit](#pre-commit)
 - [Development](#development)
-- [Release](#release)
-- [Deploy](#deploy)
-- [Theme](#theme)
-	- [Paradigms](#paradigms)
-- [Netlify setup](#netlify-setup)
-- [Hooks (WIP)](#hooks-wip)
-- [Front matter parameters](#front-matter-parameters)
-	- [Layout options](#layout-options)
-- [Linting](#linting)
-	- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
-	- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
-	- [Search (Algolia)](#search-algolia)
+	- [Setup](#setup-1)
+	- [Release](#release)
+	- [Deploy](#deploy)
+	- [Theme](#theme)
+		- [Paradigms](#paradigms)
+	- [Netlify setup](#netlify-setup)
+	- [Hooks (WIP)](#hooks-wip)
+- [Content](#content)
+	- [Archetypes](#archetypes)
+	- [Front matter parameters](#front-matter-parameters)
+		- [Layout options](#layout-options)
+- [Code and Content Quality](#code-and-content-quality)
+	- [Linting](#linting)
+		- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+		- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
 - [Troubleshooting](#troubleshooting)
 	- [Inkscape](#inkscape)
+	- [Search (Algolia)](#search-algolia)
 - [License](#license)
 
 # General notes
@@ -69,6 +73,8 @@ If you installed pre-commit and one of your commits won't "get through" due to s
 
 # Development
 
+## Setup
+
 Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` *MAY* also be a hostname (without protocol in the beginning).
 
 ```ini
@@ -80,7 +86,7 @@ This configures the Hugo server so you can access the site from other machines (
 
 To start the development server, run `npm run server`, which runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more, the better). Running just `hugo server` will start Hugo on [localhost:1313](http://localhost:1313).
 
-# Release
+## Release
 
 Sidenote: I use these scripts only if I want to create a new minor or major release of the website. All other "releases" are done when deploying the website (see [Deploy](#deploy)).
 
@@ -88,24 +94,24 @@ Sidenote: I use these scripts only if I want to create a new minor or major rele
 - Create minor release with `npm run release:minor`
 - Create major release with `npm run release:major`
 
-# Deploy
+## Deploy
 
 As noted, this repository is optimized for Netlify. To create a local copy of the website, run `npm run build` or `./bin/netlify/build`.
 
 Running `npm run deploy` creates a new tag in the `main` branch and deploys the site on Netlify.
 
-# Theme
+## Theme
 
 The theme is part of this repository, mainly in the `layouts` folder.
 
-## Paradigms
+### Paradigms
 
 - Spacing (margin and padding) is applied from top to bottom.
 - We use responsive design principles with mobile-first.
 No unnecessary `row`s inside of `row`s (container>row>col>row>col) if this isn't explicitly required. It probably isn't needed anyway.
 - Do reuse and recycle styles.
 
-# Netlify setup
+## Netlify setup
 
 ```bash
 npm install netlify-cli -g && netlify login
@@ -116,7 +122,7 @@ netlify build
 
 If any errors come up while running this, then fix them.
 
-# Hooks (WIP)
+## Hooks (WIP)
 
 Hooks are listed in their order of appearance
 
@@ -132,9 +138,23 @@ Hooks are listed in their order of appearance
 | teardown | _default/baseof.html | 1 |   |   |
 <!-- prettier-ignore-end -->
 
-# Front matter parameters
+# Content
 
-## Layout options
+## Archetypes
+
+This website has the following archetypes with its respective front matters and features:
+
+- `default` - the default archetype for all content types
+- `blog` - the archetype for blog posts
+- `components` - the archetype for components
+- `hugo-release-notes` - the archetype for Hugo release notes
+- `music2program2` - the archetype for developer music playlists
+- `notes-from-the-laboratory` - the archetype for notes from the laboratory
+- `tags` - the archetype for tags
+
+## Front matter parameters
+
+### Layout options
 
 Sample:
 
@@ -148,9 +168,11 @@ The following front matter parameters exist to fine-tune the layouts and theme o
 - `comments` - set to false to turn off comment forms and display (default: true)
 - `showdate` - set to false to turn off the date per post display (default: true)
 
-# Linting
+# Code and Content Quality
 
-## Vale (wording and grammar checks)
+## Linting
+
+### Vale (wording and grammar checks)
 
 kollitsch.dev uses [Vale](https://vale.sh/docs/vale-cli/installation/) to lint markdown content files. Styles and vocab are saved in `tests/vale`.
 
@@ -172,11 +194,7 @@ npm run lint:vale
 
 Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server) plugin. No configuration is required.
 
-## Markdownlint (markdown format checks)
-
-## Search (Algolia)
-
-- To set up the Algolia search, fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
+### Markdownlint (markdown format checks)
 
 # Troubleshooting
 
@@ -187,6 +205,11 @@ Generating the component cards requires Inkscape and optipng. Install them with 
 ```bash
 sudo apt install inkscape optipng
 ```
+
+## Search (Algolia)
+
+- To set up the Algolia search, fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
+
 
 # License
 

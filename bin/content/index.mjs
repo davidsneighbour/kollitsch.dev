@@ -21,7 +21,7 @@ async function main() {
 	let command;
 	let command2;
 	let title;
-	let slug;
+	let slug, slug_pre;
 	let post;
 
 	intro('Create content:');
@@ -57,7 +57,8 @@ async function main() {
 					if (value.length === 0) return `Title is required, doh!`;
 				}
 			});
-			slug = title.replace(/ /g, '-').toLowerCase();
+			slug_pre = title.replace(/ /g, '-').toLowerCase();
+			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
 			post = `components/${slug}`;
 			command = `hugo new --kind components ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -98,7 +99,8 @@ async function main() {
 					if (value.length === 0) return `Month is required, doh!`;
 				}
 			});
-			slug = title.replace(/ /g, '-').toLowerCase();
+			slug_pre = title.replace(/ /g, '-').toLowerCase();
+			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
 			post = `blog/${year}/notes-from-the-laboratory-${slug}`;
 			command = `hugo new --kind notes-from-the-laboratory ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -111,7 +113,8 @@ async function main() {
 					if (value.length === 0) return `Version is required, doh!`;
 				}
 			});
-			slug = title.replace(/ /g, '-').toLowerCase();
+			slug_pre = title.replace(/ /g, '-').toLowerCase();
+			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
 			post = `blog/${year}/hugo-"${title}"-release-notes`;
 			command = `hugo --kind hugo-release-notes blog ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -124,7 +127,8 @@ async function main() {
 					if (value.length === 0) return `Title is required, doh!`;
 				}
 			});
-			slug = title.replace(/ /g, '-').toLowerCase();
+			slug_pre = title.replace(/ /g, '-').toLowerCase();
+			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
 			post = `tags/${slug}`;
 			command = `hugo new ${post}`;
 			command2 = `code content/${post}/_index.md`;
@@ -133,12 +137,13 @@ async function main() {
 		case 'post':
 		default:
 			title = await text({
-				message: 'Post Title:',
+				message: 'Post Slug (special characters will be removed):',
 				validate(value) {
-					if (value.length === 0) return `Title is required, doh!`;
+					if (value.length === 0) return `Slug is required, doh!`;
 				}
 			});
-			slug = title.replace(/ /g, '-').toLowerCase();
+			slug_pre = title.replace(/ /g, '-').toLowerCase();
+			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
 			post = `blog/${year}/${slug}`;
 			command = `hugo new --kind blog ${post}`;
 			command2 = `code content/${post}/index.md`;

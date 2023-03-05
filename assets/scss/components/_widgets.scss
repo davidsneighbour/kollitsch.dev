@@ -3,15 +3,12 @@
   /* share icon left of share buttons */
   .icon--share-fill .bi {
     @extend .cx-36;
-
   }
 
   /* div wrapper around share buttons */
   .is--sharebuttons {
-
     @extend .d-flex;
     @extend .flex-wrap;
-
   }
 
   /* single share button */
@@ -28,7 +25,6 @@
     @extend .mb-1;
     @extend .flex-grow-1;
   }
-
 }
 
 .widgets {
@@ -36,5 +32,4 @@
   h3 {
     color: $primary;
   }
-
 }

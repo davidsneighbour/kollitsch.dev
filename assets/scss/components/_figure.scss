@@ -1,6 +1,8 @@
 figure {
   font-variant: small-caps;
 
+  transition: border 8000ms ease-out;
+
   .inline-icons {
     background-color: rgba($base03, 0.1);
 
@@ -13,15 +15,11 @@ figure {
     }
 
     @extend .text-primary;
-
     @extend .top-0;
     @extend .end-0;
     @extend .m-3;
-
     @extend .position-absolute;
-
     @extend .lh-1;
-
   }
 
   picture,
@@ -36,11 +34,13 @@ figure {
     @extend .w-100;
   }
 
+  &:hover {
+    @extend .border-secondary;
+  }
+
   @extend .border;
-  @extend .border-primary;
   @extend .border-1;
   @extend .rounded-1;
-  @extend .bg-primary;
+  @extend .border-primary;
   @extend .position-relative;
-
 }

@@ -4,7 +4,6 @@
 
 a {
   box-decoration-break: clone;
-
 }
 
 h1,
@@ -52,7 +51,6 @@ blockquote {
 }
 
 table {
-
   $table-color: $body-color;
 
   .dark & {
@@ -76,7 +74,6 @@ table {
   @extend .table;
   @extend .table-bordered;
   @extend .table-sm;
-
 }
 
 .highlight {

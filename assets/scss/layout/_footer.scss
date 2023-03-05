@@ -38,7 +38,6 @@
     }
 
     @extend .px-3;
-
   }
 }
 
@@ -46,7 +45,6 @@
   strong {
     @extend .d-inline;
     @extend .me-3;
-
   }
 
   .is-good {
@@ -58,7 +56,7 @@
   }
 
   dl {
-    >div {
+    > div {
       @extend .d-inline;
     }
 
@@ -74,5 +72,4 @@
   }
 
   @extend .text-center;
-
 }

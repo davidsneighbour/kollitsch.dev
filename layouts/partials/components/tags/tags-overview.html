@@ -2,11 +2,11 @@
 <ul class="list-inline">
   {{- range (index site.Taxonomies .Type) -}}
     <li class="list-inline-item mx-2">
-      <a href="{{- .Page.Permalink -}}" class="text-decoration-none">
-        {{- if eq $current .Page.Title -}}<strong>{{- end -}}
+      <a href="{{- page.Permalink -}}" class="text-decoration-none">
+        {{- if eq $current page.Title -}}<strong>{{- end -}}
         {{- partialCached "bsicon.html" "tag-fill" "tag-fill" -}}
-        {{- .Page.Title -}} ({{- .Count -}})
-        {{- if eq $current .Page.Title -}}</strong>{{- end -}}
+        {{- page.Title -}} ({{- .Count -}})
+        {{- if eq $current page.Title -}}</strong>{{- end -}}
       </a>
     </li>
   {{- end -}}

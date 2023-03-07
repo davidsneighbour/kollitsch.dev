@@ -130,7 +130,7 @@
 		}
 	},
 	"devDependencies": {
-		"@clack/prompts": "^0.6.1",
+		"@clack/prompts": "^0.6.3",
 		"@types/alpinejs": "^3.7.1"
 	}
 }

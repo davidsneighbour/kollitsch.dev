@@ -1,9 +1,8 @@
-{{- $pageobject := .Page -}}
-{{- $component := $pageobject.Params.component -}}
+{{- $component := page.Params.component -}}
 {{- $slug := $component.slug -}}
 {{- $host := $component.host -}}
 {{- $user := $component.user -}}
-{{- $data := $pageobject.Resources.Get "data.json" | unmarshal -}}
+{{- $data := page.Resources.Get "data.json" | unmarshal -}}
 {{- $year := substr $data.published_at 0 4 -}}
 {{- $month := substr $data.published_at 5 2 -}}
 {{- $day := substr $data.published_at 8 2 -}}

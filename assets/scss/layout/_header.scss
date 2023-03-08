@@ -1,22 +1,19 @@
 .site-title {
-  font-size: 6vw;
-  text-transform: uppercase;
+	font-family: BahnPro;
+	font-size: 11.75vw;
+	font-weight: bold;
+	line-height: 1;
+	margin-bottom: -3vw;
+	margin-top: 2rem;
 
-  a {
-    text-decoration: none;
+	@extend .text-center;
+	@extend .text-primary;
 
-    &:hover {
-      text-decoration: none;
-    }
+	a {
+		text-decoration: none;
 
-    @include text-shadow();
-  }
-
-  svg {
-    padding: 0 1rem;
-
-    fill: $primary;
-  }
-
-  @extend .display-1;
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }

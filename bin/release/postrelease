@@ -38,7 +38,7 @@ fi
 
 # retrieve component state
 echo "retrieving component state..."
-./bin/build/components-releases
+./bin/build/components
 echo "done"
 
 # add re-versioned files to recent edit

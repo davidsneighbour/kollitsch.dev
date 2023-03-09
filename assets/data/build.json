@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/95075163",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/95075163/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/95075163/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.0.23",
-  "id": 95075163,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/95077203",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/95077203/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/95077203/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.0.24",
+  "id": 95077203,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584Fqrtb",
-  "tag_name": "v2023.0.23",
+  "node_id": "RE_kwDOGDHt584FqsNT",
+  "tag_name": "v2023.0.24",
   "target_commitish": "main",
-  "name": "v2023.0.23",
+  "name": "v2023.0.24",
   "draft": false,
   "prerelease": false,
-  "created_at": "2023-03-09T14:09:46Z",
-  "published_at": "2023-03-09T14:10:00Z",
+  "created_at": "2023-03-09T14:21:42Z",
+  "published_at": "2023-03-09T14:23:10Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.0.23",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.0.23",
-  "body": "**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2023.0.23"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.0.24",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.0.24",
+  "body": "**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2023.0.24"
 }

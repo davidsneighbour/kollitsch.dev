@@ -4,7 +4,7 @@ description: "I decided to rewrite my go-to-script to create a screenshot as hea
 
 date: 2023-03-08T21:57:10+07:00
 publishDate: 2023-03-08T21:57:10+07:00
-lastmod: 2023-03-08T22:51:10+07:00
+lastmod: 2023-03-09T19:45:06+07:00
 
 resources:
   - title: Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)

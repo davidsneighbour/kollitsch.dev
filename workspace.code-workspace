@@ -23,6 +23,12 @@
 		},
 		{
 			"path": "../hugo-giscus"
+		},
+		{
+			"path": "../configurations"
+		},
+		{
+			"path": "../hugo-icons"
 		}
 	],
 	"settings": {

@@ -55,10 +55,12 @@
         <uri>{{- with .homepage -}}{{- . -}}{{- else -}}{{- site.BaseURL -}}{{- end -}}</uri>
       </author>
     {{- else -}}
-      <author>
-        <name>{{- with site.Author.name -}}{{- . -}}{{- else -}}{{- site.Title -}}{{- end -}}</name>
-        <uri>{{- with site.Author.homepage -}}{{- . -}}{{- end -}}</uri>
-      </author>
+			{{- with site.Author -}}
+				<author>
+					<name>{{- with .name -}}{{- . -}}{{- else -}}{{- site.Title -}}{{- end -}}</name>
+					<uri>{{- with .homepage -}}{{- . -}}{{- end -}}</uri>
+				</author>
+			{{- end -}}
     {{- end -}}
     <id>{{ .Permalink }}</id>
     {{- if .IsTranslated -}}

@@ -13,6 +13,12 @@ import {
 import { exec as exec } from 'node:child_process';
 import fs from 'node:fs';
 
+async function prepareSlug(title) {
+	const slug_pre = title.replace(/\s+/g, '-').toLowerCase();
+	const slug = slug_pre.replace(/[^a-zA-Z0-9\-]/g, '');
+	return slug;
+}
+
 async function main() {
 
 	const date = new Date();
@@ -57,8 +63,7 @@ async function main() {
 					if (value.length === 0) return `Title is required, doh!`;
 				}
 			});
-			slug_pre = title.replace(/ /g, '-').toLowerCase();
-			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
+			slug = await prepareSlug(title);
 			post = `components/${slug}`;
 			command = `hugo new --kind components ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -99,8 +104,7 @@ async function main() {
 					if (value.length === 0) return `Month is required, doh!`;
 				}
 			});
-			slug_pre = title.replace(/ /g, '-').toLowerCase();
-			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
+			slug = await prepareSlug(title);
 			post = `blog/${year}/notes-from-the-laboratory-${slug}`;
 			command = `hugo new --kind notes-from-the-laboratory ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -113,8 +117,7 @@ async function main() {
 					if (value.length === 0) return `Version is required, doh!`;
 				}
 			});
-			slug_pre = title.replace(/ /g, '-').toLowerCase();
-			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
+			slug = await prepareSlug(title);
 			post = `blog/${year}/hugo-"${title}"-release-notes`;
 			command = `hugo --kind hugo-release-notes blog ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -127,8 +130,7 @@ async function main() {
 					if (value.length === 0) return `Title is required, doh!`;
 				}
 			});
-			slug_pre = title.replace(/ /g, '-').toLowerCase();
-			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
+			slug = await prepareSlug(title);
 			post = `tags/${slug}`;
 			command = `hugo new ${post}`;
 			command2 = `code content/${post}/_index.md`;
@@ -142,8 +144,7 @@ async function main() {
 					if (value.length === 0) return `Slug is required, doh!`;
 				}
 			});
-			slug_pre = title.replace(/ /g, '-').toLowerCase();
-			slug = slug_pre.replace(/[^a-zA-Z0-9]/g, '');
+			slug = await prepareSlug(title);
 			post = `blog/${year}/${slug}`;
 			command = `hugo new --kind blog ${post}`;
 			command2 = `code content/${post}/index.md`;

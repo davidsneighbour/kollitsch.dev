@@ -4,11 +4,11 @@ description: "GitHub CLI has in it's latest version introduced a new feature tha
 
 date: 2023-03-09T20:54:38+07:00
 publishDate: 2023-03-09T20:54:38+07:00
-lastmod: 2023-03-09T21:08:29+07:00
+lastmod: 2023-03-10T20:42:10+07:00
 
 resources:
   - title: GitHub CLI Release v2.24.0
-    src: header.png
+    src: header.jpg
 
 tags:
   - github

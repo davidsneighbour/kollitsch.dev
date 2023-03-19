@@ -41,7 +41,6 @@ article {
 
   .ribbon {
     z-index: 1010;
-
     color: $base3;
 
     &.status--draft {
@@ -49,11 +48,9 @@ article {
     }
 
     @extend .text-center;
-
     @extend .position-absolute;
     @extend .top-0;
     @extend .start-0;
-
     @extend .py-1;
     @extend .px-2;
   }

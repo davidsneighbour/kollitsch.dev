@@ -35,5 +35,10 @@
 		"files.associations": {
 			"**/layouts/**.html": "go"
 		}
+	},
+	"extensions": {
+		"recommendations": [
+			"errata-ai.vale-server"
+		]
 	}
 }

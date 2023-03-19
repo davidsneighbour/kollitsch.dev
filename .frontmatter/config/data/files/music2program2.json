@@ -28,6 +28,7 @@
 			},
 			"description": {
 				"type": "string",
+				"multiline": true,
 				"title": "Description"
 			},
 			"genre": {

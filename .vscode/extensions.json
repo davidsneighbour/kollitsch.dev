@@ -7,6 +7,7 @@
     "christian-kohler.npm-intellisense",
     "rescuetime.rescuetime",
     "wayou.vscode-todo-highlight",
-    "gruntfuggly.todo-tree"
+    "gruntfuggly.todo-tree",
+    "errata-ai.vale-server"
   ]
 }

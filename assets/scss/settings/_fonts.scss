@@ -1,15 +1,14 @@
 @font-face {
 	font-weight: 100 900;
-	font-family: "ExoFont2";
+	font-family: ExoFont2;
 	font-style: italic;
 	src: url('/webfonts/exo/Exo2-Italic-VariableFont_wght.ttf') format('ttf') tech('variations'),
 		url('/webfonts/exo/Exo2-Italic-VariableFont_wght.ttf') format('ttf-variations');
 	font-display: swap;
 }
-
 @font-face {
 	font-weight: 100 900;
-	font-family: "ExoFont2";
+	font-family: ExoFont2;
 	font-style: normal;
 	src: url('/webfonts/exo/Exo2-VariableFont_wght.ttf') format('ttf') tech('variations'),
 		url('/webfonts/exo/Exo2-VariableFont_wght.ttf') format('ttf-variations');
@@ -24,7 +23,6 @@
 		url('/webfonts/jetbrainsmono/jetbrainsmonoi.ttf') format('ttf-variations');
 	font-display: swap;
 }
-
 @font-face {
 	font-weight: 100 800;
 	font-family: JetBrainsMono;
@@ -35,25 +33,22 @@
 }
 
 @font-face {
-	font-family: BahnPro;
+	font-family: 'BahnPro';
 	src: url('/webfonts/bahn/BahnPro_Light.eot'); /* IE9 Compat Modes */
 	src: url('/webfonts/bahn/BahnPro_Light.eot?#iefix') format('embedded-opentype'),
 		/* IE6-IE8 */ url('/webfonts/bahn/BahnPro_Light.woff') format('woff'),
 		/* Modern Browsers */ url('/webfonts/bahn/BahnPro_Light.ttf') format('truetype'); /* Safari, Android, iOS */
-
 	font-style: normal;
-	font-weight: 400;
-	text-rendering: optimizelegibility;
+	font-weight: normal;
+	text-rendering: optimizeLegibility;
 }
-
 @font-face {
-	font-family: BahnPro;
+	font-family: 'BahnPro';
 	src: url('/webfonts/bahn/BahnPro_Regular.eot'); /* IE9 Compat Modes */
 	src: url('/webfonts/bahn/BahnPro_Regular.eot?#iefix') format('embedded-opentype'),
 		/* IE6-IE8 */ url('/webfonts/bahn/BahnPro_Regular.woff') format('woff'),
 		/* Modern Browsers */ url('/webfonts/bahn/BahnPro_Regular.ttf') format('truetype'); /* Safari, Android, iOS */
-
 	font-style: normal;
-	font-weight: 700;
-	text-rendering: optimizelegibility;
+	font-weight: bold;
+	text-rendering: optimizeLegibility;
 }

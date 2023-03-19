@@ -1,11 +1,14 @@
 #footer {
   bottom: 0;
   left: 0;
+
   margin-top: 100vh;
+
   color: $base2;
 
   /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- seems like some browsers have issues with linear-gradients, not we... */
-  background: linear-gradient(180deg, $base03 40%, rgb(0 0 0 / 100%) 100%);
+  background: linear-gradient(180deg, $base03 40%, rgba(0, 0, 0, 1) 100%);
+
   background-color: $base03;
 
   a {
@@ -30,7 +33,6 @@
     svg {
       width: 36px;
       height: 36px;
-
       @extend .p-0;
       @extend .m-0;
     }

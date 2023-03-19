@@ -75,7 +75,7 @@ $code-color: $base2;
  * lines
  ******************************************************************************/
 $hr-color: $primary;
-$hr-bg-color: currentColor;
+$hr-bg-color: currentcolor;
 $hr-border-width: 0;
 $hr-opacity: 1;
 
@@ -135,6 +135,5 @@ $heading-height: 70px;
 	// https://drafts.csswg.org/css-ui-4/#widget-accent
 	// https://caniuse.com/?search=accent-color
 	accent-color: $primary;
-
 	color-scheme: dark;
 }

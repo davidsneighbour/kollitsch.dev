@@ -1,107 +1,107 @@
 @charset 'utf-8';
 
 // theme colors
-@import 'settings/colors';
+@import url('settings/colors');
+@import url('bootstrap/scss/mixins/banner');
 
-@import 'bootstrap/scss/mixins/banner';
 @include bsBanner('');
 
 // Configuration
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
+@import url('bootstrap/scss/functions');
+@import url('bootstrap/scss/variables');
 
 // theme settings
-@import 'settings/theme';
-@import 'settings/fonts';
-@import 'settings/local';
-@import 'settings/layout';
-@import 'settings/utilities';
+@import url('settings/theme');
+@import url('settings/fonts');
+@import url('settings/local');
+@import url('settings/layout');
+@import url('settings/utilities');
 
 // our own mixins
-@import 'settings/mixins';
-@import 'mixins/scrollbars';
+@import url('settings/mixins');
+@import url('mixins/scrollbars');
 
 // continuing with bootstrap
-@import 'bootstrap/scss/maps';
-@import 'bootstrap/scss/mixins';
-@import 'bootstrap/scss/utilities';
+@import url('bootstrap/scss/maps');
+@import url('bootstrap/scss/mixins');
+@import url('bootstrap/scss/utilities');
 
 // Layout & components
-@import 'bootstrap/scss/root';
-@import 'bootstrap/scss/reboot';
-@import 'bootstrap/scss/type';
-@import 'bootstrap/scss/images';
-@import 'bootstrap/scss/containers';
-@import 'bootstrap/scss/grid';
-@import 'bootstrap/scss/tables';
-@import 'bootstrap/scss/forms';
-@import 'bootstrap/scss/buttons';
-@import 'bootstrap/scss/transitions';
-@import 'bootstrap/scss/dropdown';
-@import 'bootstrap/scss/button-group';
-@import 'bootstrap/scss/nav';
-@import 'bootstrap/scss/navbar';
-@import 'bootstrap/scss/card';
-@import 'bootstrap/scss/accordion';
-@import 'bootstrap/scss/breadcrumb';
-@import 'bootstrap/scss/pagination';
-@import 'bootstrap/scss/badge';
-@import 'bootstrap/scss/alert';
-@import 'bootstrap/scss/progress';
-@import 'bootstrap/scss/list-group';
-@import 'bootstrap/scss/close';
-@import 'bootstrap/scss/toasts';
-@import 'bootstrap/scss/modal';
-@import 'bootstrap/scss/tooltip';
-@import 'bootstrap/scss/popover';
-@import 'bootstrap/scss/carousel';
-@import 'bootstrap/scss/spinners';
-@import 'bootstrap/scss/offcanvas';
-@import 'bootstrap/scss/placeholders';
+@import url('bootstrap/scss/root');
+@import url('bootstrap/scss/reboot');
+@import url('bootstrap/scss/type');
+@import url('bootstrap/scss/images');
+@import url('bootstrap/scss/containers');
+@import url('bootstrap/scss/grid');
+@import url('bootstrap/scss/tables');
+@import url('bootstrap/scss/forms');
+@import url('bootstrap/scss/buttons');
+@import url('bootstrap/scss/transitions');
+@import url('bootstrap/scss/dropdown');
+@import url('bootstrap/scss/button-group');
+@import url('bootstrap/scss/nav');
+@import url('bootstrap/scss/navbar');
+@import url('bootstrap/scss/card');
+@import url('bootstrap/scss/accordion');
+@import url('bootstrap/scss/breadcrumb');
+@import url('bootstrap/scss/pagination');
+@import url('bootstrap/scss/badge');
+@import url('bootstrap/scss/alert');
+@import url('bootstrap/scss/progress');
+@import url('bootstrap/scss/list-group');
+@import url('bootstrap/scss/close');
+@import url('bootstrap/scss/toasts');
+@import url('bootstrap/scss/modal');
+@import url('bootstrap/scss/tooltip');
+@import url('bootstrap/scss/popover');
+@import url('bootstrap/scss/carousel');
+@import url('bootstrap/scss/spinners');
+@import url('bootstrap/scss/offcanvas');
+@import url('bootstrap/scss/placeholders');
 
 // Helpers
-@import 'bootstrap/scss/helpers';
+@import url('bootstrap/scss/helpers');
 
 // Utilities
-@import 'bootstrap/scss/utilities/api';
+@import url('bootstrap/scss/utilities/api');
 
 // layout
-@import 'layout/global';
-@import 'layout/header';
-@import 'layout/footer';
+@import url('layout/global');
+@import url('layout/header');
+@import url('layout/footer');
 
 // Global Components
 @include dnb-scrollbars();
 
-@import 'components/utilities';
-@import 'components/alerts';
-@import 'components/navigation';
-@import 'components/articles';
-@import 'components/figure';
-@import 'components/forms';
-@import 'components/widgets';
-@import 'components/features';
-@import 'components/tabs';
+@import url('components/utilities');
+@import url('components/alerts');
+@import url('components/navigation');
+@import url('components/articles');
+@import url('components/figure');
+@import url('components/forms');
+@import url('components/widgets');
+@import url('components/features');
+@import url('components/tabs');
 
 // PROSE: article content formatting
 @include dnb-scrollbars('.prose', 3px);
 
 .prose {
-  @import 'prose/prose';
-  @import 'prose/footnotes';
-  @import 'prose/components';
-  @import 'prose/tables';
+  @import url('prose/prose');
+  @import url('prose/footnotes');
+  @import url('prose/components');
+  @import url('prose/tables');
 }
 
 // plugins
-@import 'plugins/debugprint';
-@import 'plugins/devaudit';
-@import 'plugins/transitions';
-@import 'plugins/alpine';
-@import 'plugins/syntax';
-@import 'plugins/spinner';
+@import url('plugins/debugprint');
+@import url('plugins/devaudit');
+@import url('plugins/transitions');
+@import url('plugins/alpine');
+@import url('plugins/syntax');
+@import url('plugins/spinner');
 //@import '../libs/liteyoutube/lite-yt-embed';
-@import 'plugins/youtube';
+@import url('plugins/youtube');
 
 // external plugins (imported from node_modules)
-@import 'animate.css/animate';
+@import url('animate.css/animate');

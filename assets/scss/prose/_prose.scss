@@ -38,7 +38,6 @@ p {
 blockquote {
 	padding-left: 0.95rem;
 	border-left: $primary 5px solid;
-
 	background-color: rgba($primary, 0.1);
 
 	cite {
@@ -63,7 +62,6 @@ table {
 
 	code {
 		padding: inherit;
-
 		background-color: inherit;
 	}
 
@@ -90,6 +88,7 @@ table {
 
 .section-meta {
 	border-top: 1px solid $primary;
+
 	@extend .pt-3;
 }
 
@@ -100,7 +99,6 @@ pre {
 kbd {
 	display: inline-block;
 	padding: 0.1rem 0.2rem 0;
-
 	line-height: 1;
 }
 

@@ -6,32 +6,31 @@
  * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
 .navbar {
-  .dark & {
-    background-color: $base03;
-    @extend .navbar-dark;
-  }
+	.dark & {
+		background-color: $base03;
 
-  .nav-link {
-    &:hover .icon--bs {
-      color: $primary;
-    }
+		@extend .navbar-dark;
+	}
 
-    .icon--bs {
-      display: inline-block;
-      margin-right: 0.4rem;
-      margin-bottom: 0.1rem;
+	.nav-link {
+		.icon--bs {
+			display: inline-block;
+			margin-right: 0.4rem;
+			margin-bottom: 0.1rem;
+			vertical-align: bottom;
+		}
 
-      vertical-align: bottom;
-    }
-  }
+		&:hover .icon--bs {
+			color: $primary;
+		}
+	}
 
-  .navbar-brand {
-    svg {
-      width: auto;
-      height: 28px;
-      padding-bottom: 5px;
-
-      fill: $primary;
-    }
-  }
+	.navbar-brand {
+		svg {
+			width: auto;
+			height: 28px;
+			padding-bottom: 5px;
+			fill: $primary;
+		}
+	}
 }

@@ -1,12 +1,15 @@
 .site-title {
-	font-family: BahnPro;
+	font-family: BahnPro, sans-serif;
 	font-size: 17vw;
+
 	@include media-breakpoint-up(sm) {
 		font-size: 12vw;
 	}
+
 	@include media-breakpoint-up(xl) {
 		font-size: 145px;
 	}
+
 	font-weight: 700;
 	line-height: 0.5;
 	margin-bottom: 0;

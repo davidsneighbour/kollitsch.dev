@@ -5,7 +5,9 @@
 	src: url('/webfonts/jetbrainsmono/jetbrainsmonoi.ttf') format('ttf') tech('variations'),
 		url('/webfonts/jetbrainsmono/jetbrainsmonoi.ttf') format('ttf-variations');
 	font-display: swap;
+	text-rendering: optimizelegibility;
 }
+
 @font-face {
 	font-weight: 100 800;
 	font-family: JetBrainsMono;
@@ -13,25 +15,29 @@
 	src: url('/webfonts/jetbrainsmono/jetbrainsmono.ttf') format('ttf') tech('variations'),
 		url('/webfonts/jetbrainsmono/jetbrainsmono.ttf') format('ttf-variations');
 	font-display: swap;
+	text-rendering: optimizelegibility;
 }
 
 @font-face {
-	font-family: 'BahnPro';
+	font-family: BahnPro;
 	src: url('/webfonts/bahn/BahnPro_Light.eot'); /* IE9 Compat Modes */
 	src: url('/webfonts/bahn/BahnPro_Light.eot?#iefix') format('embedded-opentype'),
 		/* IE6-IE8 */ url('/webfonts/bahn/BahnPro_Light.woff') format('woff'),
 		/* Modern Browsers */ url('/webfonts/bahn/BahnPro_Light.ttf') format('truetype'); /* Safari, Android, iOS */
+
 	font-style: normal;
-	font-weight: normal;
-	text-rendering: optimizeLegibility;
+	font-weight: 400;
+	text-rendering: optimizelegibility;
 }
+
 @font-face {
-	font-family: 'BahnPro';
+	font-family: BahnPro;
 	src: url('/webfonts/bahn/BahnPro_Regular.eot'); /* IE9 Compat Modes */
 	src: url('/webfonts/bahn/BahnPro_Regular.eot?#iefix') format('embedded-opentype'),
 		/* IE6-IE8 */ url('/webfonts/bahn/BahnPro_Regular.woff') format('woff'),
 		/* Modern Browsers */ url('/webfonts/bahn/BahnPro_Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+
 	font-style: normal;
-	font-weight: bold;
-	text-rendering: optimizeLegibility;
+	font-weight: 700;
+	text-rendering: optimizelegibility;
 }

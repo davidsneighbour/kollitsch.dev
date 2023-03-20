@@ -1,46 +1,45 @@
 figure {
-  font-variant: small-caps;
+	font-variant: small-caps;
+	transition: border 8000ms ease-out;
 
-  transition: border 8000ms ease-out;
+	.inline-icons {
+		background-color: rgba($base03, 0.1);
 
-  .inline-icons {
-    background-color: rgba($base03, 0.1);
+		div {
+			@extend .p-2;
+		}
 
-    div {
-      @extend .p-2;
-    }
+		&:hover {
+			background-color: rgba($base03, 0.5);
+		}
 
-    &:hover {
-      background-color: rgba($base03, 0.5);
-    }
+		@extend .text-primary;
+		@extend .top-0;
+		@extend .end-0;
+		@extend .m-3;
+		@extend .position-absolute;
+		@extend .lh-1;
+	}
 
-    @extend .text-primary;
-    @extend .top-0;
-    @extend .end-0;
-    @extend .m-3;
-    @extend .position-absolute;
-    @extend .lh-1;
-  }
+	picture,
+	img,
+	.iframe-border,
+	video {
+		object-fit: cover;
+		overflow: hidden;
+		aspect-ratio: 2/1;
 
-  picture,
-  img,
-  .iframe-border,
-  video {
-    object-fit: cover;
-    overflow: hidden;
-    aspect-ratio: 2/1;
+		@extend .rounded-1;
+		@extend .w-100;
+	}
 
-    @extend .rounded-1;
-    @extend .w-100;
-  }
+	&:hover {
+		@extend .border-secondary;
+	}
 
-  &:hover {
-    @extend .border-secondary;
-  }
-
-  @extend .border;
-  @extend .border-1;
-  @extend .rounded-1;
-  @extend .border-primary;
-  @extend .position-relative;
+	@extend .border;
+	@extend .border-1;
+	@extend .rounded-1;
+	@extend .border-primary;
+	@extend .position-relative;
 }

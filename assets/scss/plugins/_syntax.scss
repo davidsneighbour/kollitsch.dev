@@ -1,12 +1,9 @@
 .light {
-  // settings for a light theme
-  // most (or all) of the light setup is defined as default in :root if dark is defaul
-  // 	@import 'plugins/syntax/light';
+	// individual settings for a light theme
+	@import 'plugins/syntax/light';
 }
 
 .dark {
-  // settings for a dark theme
-  // most (or all) of the dark setup is defined as default in :root if dark is default
-
-  @import 'plugins/syntax/dark';
+	// individual settings for a dark theme
+	@import 'plugins/syntax/dark';
 }

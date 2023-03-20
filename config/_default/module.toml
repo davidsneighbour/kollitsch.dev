@@ -3,8 +3,7 @@ noVendor = "github.com/davidsneighbour/hugo-pictures"
 
 [hugoVersion]
 extended = true
-min = "0.111.0"
-#max = ""
+min = "0.111.3"
 
 [[imports]]
 disable = false

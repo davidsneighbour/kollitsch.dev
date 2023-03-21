@@ -17,7 +17,7 @@
     "animate.css": "^4.1.1",
     "doiuse": "^4.4.1",
     "dotenv": "^16.0.3",
-    "instantsearch.js": "^4.52.0",
+    "instantsearch.js": "^4.53.0",
     "lazysizes": "^5.3.2",
     "lockfile-lint": "^4.10.1",
     "needle": "^3.2.0",
@@ -51,12 +51,12 @@
     "@davidsneighbour/prettier-config": "5.1.5",
     "@davidsneighbour/remark-config": "5.1.1",
     "@davidsneighbour/standard-version-config": "5.0.16",
-    "@davidsneighbour/stylelint-config": "5.1.8",
+    "@davidsneighbour/stylelint-config": "5.1.11",
     "@davidsneighbour/textlint-config": "5.0.16",
     "@davidsneighbour/tools": "5.1.5",
     "@davidsneighbour/webpack-config": "5.1.5",
     "@types/alpinejs": "^3.7.1",
-    "@types/yargs": "^17.0.22"
+    "@types/yargs": "^17.0.23"
   },
   "scripts": {
     "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",

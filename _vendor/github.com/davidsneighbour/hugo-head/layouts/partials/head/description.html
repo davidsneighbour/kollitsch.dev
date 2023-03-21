@@ -1,9 +1,0 @@
-{{- $description := "" -}}
-{{- with .Params.description -}}
-  {{- $description = . -}}
-{{- else -}}
-  {{- with site.Params.description -}}
-    {{- $description = . -}}
-  {{- end -}}
-{{- end -}}
-<meta name="description" content="{{- $description -}}">

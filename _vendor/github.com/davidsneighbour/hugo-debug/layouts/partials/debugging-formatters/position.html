@@ -1,6 +1,0 @@
-{{- /* see https://pkg.go.dev/github.com/gohugoio/hugo/common/text */ -}}
-{{- $names := slice
-      ".Filename" ".Offset" ".LineNumber" ".ColumnNumber" -}}
-{{- $items := slice
-      .value.Filename .value.Offset .value.LineNumber .value.ColumnNumber -}}
-{{ partial "debugging-partials/struct-table.html" (dict "names" $names "items" $items "config" .config) }}

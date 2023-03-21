@@ -1,7 +1,0 @@
-[hugoVersion]
-extended = true
-min = "0.84.4"
-
-[[mounts]]
-source = 'layouts'
-target = 'layouts'

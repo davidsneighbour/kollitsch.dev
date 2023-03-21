@@ -4,7 +4,19 @@
 			"path": "."
 		},
 		{
+			"path": "../hugo-auditor"
+		},
+		{
+			"path": "../hugo-giscus"
+		},
+		{
 			"path": "../hugo-head"
+		},
+		{
+			"path": "../hugo-hooks"
+		},
+		{
+			"path": "../hugo-icons"
 		},
 		{
 			"path": "../hugo-pictures"
@@ -22,13 +34,7 @@
 			"path": "../hugo-security"
 		},
 		{
-			"path": "../hugo-giscus"
-		},
-		{
 			"path": "../configurations"
-		},
-		{
-			"path": "../hugo-icons"
 		}
 	],
 	"settings": {

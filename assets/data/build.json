@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/96523051",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/96523051/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/96523051/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.1.0",
-  "id": 96523051,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/96526487",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/96526487/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/96526487/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.1.1",
+  "id": 96526487,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584FwNMr",
-  "tag_name": "v2023.1.0",
+  "node_id": "RE_kwDOGDHt584FwOCX",
+  "tag_name": "v2023.1.1",
   "target_commitish": "main",
-  "name": "v2023.1.0",
+  "name": "v2023.1.1",
   "draft": false,
   "prerelease": false,
-  "created_at": "2023-03-22T16:45:40Z",
-  "published_at": "2023-03-22T16:48:10Z",
+  "created_at": "2023-03-22T17:12:44Z",
+  "published_at": "2023-03-22T17:14:58Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.1.0",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.1.0",
-  "body": "**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2023.1.0"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.1.1",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.1.1",
+  "body": "**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2022.7.5...v2023.1.1"
 }

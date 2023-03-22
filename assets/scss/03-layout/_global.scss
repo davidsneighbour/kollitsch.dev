@@ -4,10 +4,10 @@
 
 /*******************************************************************************
  * full bleed grid layout
+ * @see https://ryanmulligan.dev/blog/layout-breakouts/
+ * @todo properly implement inside of a bootstrap container (fluid)
  ******************************************************************************/
 $layout-character-width: 65ch;
-
-/* @todo find out how to implement css functions like min/calc etc... */
 
 .wrapper {
 	display: grid;
@@ -29,10 +29,10 @@ $layout-character-width: 65ch;
  * content area
  ******************************************************************************/
 main {
-	z-index: 1029;
 	padding-top: $heading-height + 30px;
 	padding-bottom: 150px;
-	background-color: $base03;
+	background-color: var(--bs-body-bg);
+	z-index: 1001;
 
 	@extend .min-vh-100;
 	@extend .position-relative;
@@ -70,11 +70,18 @@ main {
 }
 
 /*******************************************************************************
- *
- --gap represents a gutter size for the left and right sides of the page. This value leans into the clamp() function for more fluid,
- flexible sizing. --full stretches an element so that it spans the entire horizontal space. By setting --gap as the min value,
- it also takes on the role of visible page gutters for smaller screens. --content acts as the main content area. The min() function sets the max-width of this column. Once the available space falls below this value,
- it then switches to 100% while also subtracting the left and right gutter sizes. --popout and --feature extend elements beyond the content area by 2rem and 5rem respectively. As the available horizontal area tightens,
- these values collapse down to nothing,
- aligning elements with the main content space on smaller screens.
+ * --gap represents a gutter size for the left and right sides of the page.
+ * This value leans into the clamp() function for more fluid,
+ * flexible sizing.
+ * --full stretches an element so that it spans the entire horizontal space.
+ * By setting --gap as the min value, it also takes on the role of visible page
+ * gutters for smaller screens.
+ * --content acts as the main content area. The min() function sets the
+ * max-width of this column. Once the available space falls below this value,
+ * it then switches to 100% while also subtracting the left and right gutter
+ * sizes.
+ * --popout and --feature extend elements beyond the content area by 2rem and
+ * 5rem respectively. As the available horizontal area tightens, these values
+ * collapse down to nothing, aligning elements with the main content space on
+ * smaller screens.
  ******************************************************************************/

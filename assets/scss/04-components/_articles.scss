@@ -34,7 +34,6 @@ article {
  */
 	h1.post-title a,
 	h2.post-title a {
-		@extend .fontsize-5;
 		@extend .text-uppercase;
 	}
 
@@ -44,7 +43,7 @@ article {
 
 	.ribbon {
 		z-index: 1010;
-		color: $base3;
+		// color: $base3;
 
 		&.status--draft {
 			@extend .bg-primary;

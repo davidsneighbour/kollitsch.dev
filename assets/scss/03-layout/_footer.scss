@@ -36,7 +36,6 @@
 
 		dt,
 		dd {
-			@extend .fontsize-1;
 			@extend .d-inline;
 			@extend .me-3;
 		}
@@ -52,14 +51,11 @@
 	bottom: 0;
 	left: 0;
 	margin-top: 100vh;
-	color: $base2;
-
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- seems like some browsers have issues with linear-gradients, not we... */
-	background: linear-gradient(180deg, $base03 40%, rgb(0, 0, 0) 100%);
-	background-color: $base03;
+	color: var(--bs-tertiary-color);
+	background-color: var(--bs-tertiary-bg);
 
 	a {
-		color: $base2;
+		// color: $base2;
 		text-decoration: none;
 
 		&:hover {

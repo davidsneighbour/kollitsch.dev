@@ -24,16 +24,8 @@ $font-size-base: 1.2rem;
 /*******************************************************************************
  * headings
  ******************************************************************************/
-$headings-font-weight: 300;
-$headings-line-height: 1.3;
+$headings-line-height: 1;
 $headings-font-weight: $font-weight-normal;
-
-$h1-font-size: $font-size-base * 1.2;
-$h2-font-size: $font-size-base * 1.2;
-$h3-font-size: $font-size-base * 1.2;
-$h4-font-size: $font-size-base * 1.2;
-$h5-font-size: $font-size-base * 1.1;
-$h6-font-size: $font-size-base;
 
 /*******************************************************************************
  * links
@@ -49,7 +41,7 @@ $link-hover-decoration: underline;
  * - https: //getbootstrap.com/docs/5.2/components/navbar/
  * - https: //getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
-$nav-link-color: $base2;
+// $nav-link-color: $base2;
 $nav-link-hover-color: $primary;
 $navbar-dark-color: $primary;
 $navbar-dark-hover-color: shade-color($primary, 30%);
@@ -58,18 +50,18 @@ $navbar-dark-active-color: $white;
 /*******************************************************************************
  * pagination
  ******************************************************************************/
-$pagination-color: $base03;
-$pagination-bg: $base2;
-$pagination-border-color: $base03;
-$pagination-hover-color: $base3;
-$pagination-hover-bg: $base01;
-$pagination-hover-border-color: $base03;
-$pagination-active-color: $base2;
+// $pagination-color: $base03;
+// $pagination-bg: $base2;
+// $pagination-border-color: $base03;
+// $pagination-hover-color: $base3;
+// $pagination-hover-bg: $base01;
+// $pagination-hover-border-color: $base03;
+// $pagination-active-color: $base2;
 
 /*******************************************************************************
  * code
  ******************************************************************************/
-$code-color: $base2;
+// $code-color: $base2;
 
 /*******************************************************************************
  * lines
@@ -91,7 +83,7 @@ $code-font-size: 1rem;
 $kbd-padding-y: 0.1rem;
 $kbd-padding-x: 0.2rem;
 $kbd-font-size: $code-font-size * 0.9;
-$kbd-color: $base2;
+// $kbd-color: $base2;
 $kbd-bg: $primary;
 
 /*******************************************************************************
@@ -100,9 +92,9 @@ $kbd-bg: $primary;
 $table-th-font-weight: 300;
 $table-border-width: 1px;
 $table-border-color: $primary;
-$table-color: $base03;
-$table-bg: $base03;
-$table-accent-bg: $base03;
+// $table-color: $base03;
+// $table-bg: $base03;
+// $table-accent-bg: $base03;
 
 /*******************************************************************************
  * buttons
@@ -114,7 +106,7 @@ $btn-border-width: 2px;
  ******************************************************************************/
 $nav-tabs-border-width: 0;
 $nav-tabs-link-active-color: $primary;
-$nav-tabs-link-active-bg: $base02;
+// $nav-tabs-link-active-bg: $base02;
 
 /*******************************************************************************
  * settings

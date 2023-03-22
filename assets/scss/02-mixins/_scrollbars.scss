@@ -1,4 +1,4 @@
-@mixin dnb-scrollbars($outertag: '*', $width: 8px, $radius: $border-radius, $color: $primary, $track: $base03) {
+@mixin dnb-scrollbars($outertag: '*', $width: 8px, $radius: $border-radius, $color: $primary, $track: #000) {
 	#{$outertag} {
 		/***************************************************************************
      * firefox

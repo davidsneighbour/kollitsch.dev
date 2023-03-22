@@ -1,8 +1,5 @@
 @charset 'utf-8';
 
-// theme colors
-@import 'settings/colors';
-
 // bootstrap start
 // @import 'bootstrap/scss/mixins/banner';
 // @include bsBanner('');
@@ -10,17 +7,18 @@
 // Configuration
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
 
 // theme settings
-@import 'settings/theme';
-@import 'settings/fonts';
-@import 'settings/local';
-@import 'settings/layout';
-@import 'settings/utilities';
+@import '01-settings/colors';
+@import '01-settings/theme';
+@import '01-settings/fonts';
+@import '01-settings/layout';
+@import '01-settings/utilities';
 
 // our own mixins
-@import 'settings/mixins';
-@import 'mixins/scrollbars';
+@import '02-mixins/shadows';
+@import '02-mixins/scrollbars';
 
 // continuing with bootstrap
 @import 'bootstrap/scss/maps';
@@ -38,27 +36,27 @@
 @import 'bootstrap/scss/forms';
 @import 'bootstrap/scss/buttons';
 @import 'bootstrap/scss/transitions';
-@import 'bootstrap/scss/dropdown';
-@import 'bootstrap/scss/button-group';
+//@import 'bootstrap/scss/dropdown';
+//@import 'bootstrap/scss/button-group';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 @import 'bootstrap/scss/card';
-@import 'bootstrap/scss/accordion';
-@import 'bootstrap/scss/breadcrumb';
+//@import 'bootstrap/scss/accordion';
+//@import 'bootstrap/scss/breadcrumb';
 @import 'bootstrap/scss/pagination';
-@import 'bootstrap/scss/badge';
+//@import 'bootstrap/scss/badge';
 @import 'bootstrap/scss/alert';
 @import 'bootstrap/scss/progress';
-@import 'bootstrap/scss/list-group';
+//@import 'bootstrap/scss/list-group';
 @import 'bootstrap/scss/close';
-@import 'bootstrap/scss/toasts';
-@import 'bootstrap/scss/modal';
-@import 'bootstrap/scss/tooltip';
-@import 'bootstrap/scss/popover';
-@import 'bootstrap/scss/carousel';
-@import 'bootstrap/scss/spinners';
-@import 'bootstrap/scss/offcanvas';
-@import 'bootstrap/scss/placeholders';
+//@import 'bootstrap/scss/toasts';
+//@import 'bootstrap/scss/modal';
+//@import 'bootstrap/scss/tooltip';
+//@import 'bootstrap/scss/popover';
+//@import 'bootstrap/scss/carousel';
+//@import 'bootstrap/scss/spinners';
+//@import 'bootstrap/scss/offcanvas';
+//@import 'bootstrap/scss/placeholders';
 
 // Helpers
 @import 'bootstrap/scss/helpers';
@@ -67,42 +65,39 @@
 @import 'bootstrap/scss/utilities/api';
 
 // layout
-@import 'layout/global';
-@import 'layout/header';
-@import 'layout/footer';
+@import '03-layout/global';
+@import '03-layout/header';
+@import '03-layout/footer';
 
 // Global Components
 @include dnb-scrollbars();
 
-@import 'components/utilities';
-@import 'components/alerts';
-@import 'components/navigation';
-@import 'components/articles';
-@import 'components/figure';
-@import 'components/forms';
-@import 'components/widgets';
-@import 'components/features';
-@import 'components/tabs';
+@import '04-components/utilities';
+@import '04-components/alerts';
+@import '04-components/navigation';
+@import '04-components/articles';
+@import '04-components/figure';
+@import '04-components/forms';
+@import '04-components/widgets';
+@import '04-components/features';
+@import '04-components/tabs';
 
 // PROSE: article content formatting
 @include dnb-scrollbars('.prose', 3px);
 
 .prose {
-	@import 'prose/prose';
-	@import 'prose/footnotes';
-	@import 'prose/components';
-	@import 'prose/tables';
+	@import '05-prose/prose';
+	@import '05-prose/footnotes';
+	@import '05-prose/components';
+	@import '05-prose/tables';
 }
 
 // plugins
-@import 'plugins/debugprint';
-@import 'plugins/devaudit';
-@import 'plugins/transitions';
-@import 'plugins/alpine';
-@import 'plugins/syntax';
-@import 'plugins/spinner';
-//@import '../libs/liteyoutube/lite-yt-embed';
-@import 'plugins/youtube';
+@import '06-plugins/debugprint';
+@import '06-plugins/devaudit';
+@import '06-plugins/alpine';
+@import '06-plugins/syntax';
+@import '06-plugins/youtube';
 
 // external plugins (imported from node_modules)
 @import 'animate.css/animate';

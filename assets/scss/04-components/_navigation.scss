@@ -6,10 +6,16 @@
  * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
 .navbar {
+	background-color: $orange-300;
+
 	.dark & {
-		background-color: $base03;
+		// background-color: $base03;
 
 		@extend .navbar-dark;
+	}
+
+	.navbar-nav {
+		margin-top: 0;
 	}
 
 	.nav-link {
@@ -23,6 +29,8 @@
 		&:hover .icon--bs {
 			color: $primary;
 		}
+
+		color: $orange-900;
 	}
 
 	.navbar-brand {

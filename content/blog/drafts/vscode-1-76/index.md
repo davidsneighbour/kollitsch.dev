@@ -8,20 +8,18 @@ date: 2023-03-02T20:18:24+07:00
 publishDate: '2023-03-02T20:18:24+07:00'
 lastmod: '2023-03-02T20:54:31+07:00'
 resources:
-- title: Photo by [Ryan Putra](https://unsplash.com/@ryanadhi) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
-categories:
-- category1
-- null
+  - title: Photo by [Ryan Putra](https://unsplash.com/@ryanadhi) via [Unsplash](https://unsplash.com/)
+    src: header.jpg
+categories: []
 tags:
-- tag1
-- tag2
-- tag3
-- 100DaysToOffload
+  - tag1
+  - tag2
+  - tag3
+  - 100DaysToOffload
 keywords:
-- keyword1
-- keyword2
-- keyword3
+  - keyword1
+  - keyword2
+  - keyword3
 type: blog
 ---
 

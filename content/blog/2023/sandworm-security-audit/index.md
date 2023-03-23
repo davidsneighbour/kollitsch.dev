@@ -1,21 +1,17 @@
 ---
 title: Sandworm security audit
-description: ""
-
+description: Secure your project with Sandworm Audit, a free tool that scans for vulnerabilities and license compliance issues. Easy-to-read reports and customizable policies.
 date: 2023-03-13T20:37:22+07:00
 publishDate: 2023-03-13T20:37:22+07:00
-lastmod: 2023-03-13T20:51:20+07:00
-
+lastmod: 2023-03-22T20:56:02+07:00
 resources:
   - title: Screenshot of sandworm.dev
     src: header.png
-
 tags:
   - security
   - linting
   - opsec
   - 100DaysToOffload
-
 type: blog
 ---
 
@@ -60,4 +56,4 @@ After this step you will find a `sandworm` directory in your project root. This 
 
 [Read the documentation](https://docs.sandworm.dev/) for more information on how to use and configure Sandworm Audit.
 
-Note: Currently the audit might fail with an "out of memory" error on large projects, depending on your hardware setup. There is [an issue report](https://github.com/sandworm-hq/sandworm-audit/issues/53) open about this.
+Note: Currently, the audit might fail with an "out of memory" error on large projects, depending on your hardware setup. There is [an issue report](https://github.com/sandworm-hq/sandworm-audit/issues/53) open about this.

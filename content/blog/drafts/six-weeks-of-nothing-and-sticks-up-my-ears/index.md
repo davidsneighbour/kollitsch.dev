@@ -11,12 +11,10 @@ publishDate: 2023-03-01T15:38:20+07:00
 lastmod: 2023-03-01T18:05:25+07:00
 
 resources:
-  - title: Photo by [Sai Manne](https://unsplash.com/@saimanne888) via
-      [Unsplash](https://unsplash.com/)
+  - title: Photo by [Sai Manne](https://unsplash.com/@saimanne888) via [Unsplash](https://unsplash.com/)
     src: header.jpg
 
-categories:
-  - category1
+categories: []
 
 tags:
   - tag1

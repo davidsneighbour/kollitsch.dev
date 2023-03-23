@@ -5,14 +5,13 @@ description: A short summary of how we got here and where we go from here.
 keywords: []
 resources:
   - src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
-    title: Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via
-      [Unsplash](https://unsplash.com)
+    title: Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via [Unsplash](https://unsplash.com)
 tags:
   - davidsneighbour
   - me now
 unsplash:
   imageid: HcUDHJfd5GY
-lastmod: 2022-08-04T19:55:12+07:00
+lastmod: 2023-03-19T16:23:57+07:00
 type: blog
 ---
 

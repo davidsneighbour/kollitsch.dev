@@ -3,14 +3,8 @@ figure {
 	transition: border 8000ms ease-out;
 
 	.inline-icons {
-		// background-color: rgba($base03, 0.1);
-
 		div {
 			@extend .p-2;
-		}
-
-		&:hover {
-			// background-color: rgba($base03, 0.5);
 		}
 
 		@extend .text-primary;

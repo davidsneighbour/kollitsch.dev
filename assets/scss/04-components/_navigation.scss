@@ -6,11 +6,7 @@
  * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
 .navbar {
-	background-color: $orange-300;
-
 	.dark & {
-		// background-color: $base03;
-
 		@extend .navbar-dark;
 	}
 
@@ -25,12 +21,6 @@
 			margin-bottom: 0.1rem;
 			vertical-align: bottom;
 		}
-
-		&:hover .icon--bs {
-			color: $primary;
-		}
-
-		color: $orange-900;
 	}
 
 	.navbar-brand {
@@ -38,7 +28,6 @@
 			width: auto;
 			height: 28px;
 			padding-bottom: 5px;
-			fill: $primary;
 		}
 	}
 }

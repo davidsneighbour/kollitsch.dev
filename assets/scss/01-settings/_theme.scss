@@ -1,39 +1,33 @@
 /*******************************************************************************
- * prefixes
- ******************************************************************************/
-$variable-prefix: bs-;
-$prefix: $variable-prefix;
-
-/*******************************************************************************
  * typography
  ******************************************************************************/
 $font-family-sans-serif: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans',
 	'Liberation Sans', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 $font-family-monospace: 'JetBrainsMono', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono',
 	'Courier New', monospace;
-$font-weight-lighter: 100;
-$font-weight-light: 200;
-$font-weight-normal: 300;
-$font-weight-semibold: 500;
-$font-weight-bold: 600;
-$font-weight-bolder: 900;
-$font-weight-base: $font-weight-normal;
-$line-height-base: 1.4;
-$font-size-base: 1.2rem;
+// $font-weight-lighter: 100;
+// $font-weight-light: 200;
+// $font-weight-normal: 300;
+// $font-weight-semibold: 500;
+// $font-weight-bold: 600;
+// $font-weight-bolder: 900;
+// $font-weight-base: $font-weight-normal;
+// $line-height-base: 1.4;
+// $font-size-base: 1.2rem;
 
 /*******************************************************************************
  * headings
  ******************************************************************************/
-$headings-line-height: 1;
-$headings-font-weight: $font-weight-normal;
+// $headings-line-height: 1;
+// $headings-font-weight: $font-weight-normal;
 
 /*******************************************************************************
  * links
  ******************************************************************************/
-$link-color: $primary;
-$link-decoration: none;
-$link-hover-color: $primary;
-$link-hover-decoration: underline;
+// $link-color: $primary;
+// $link-decoration: none;
+// $link-hover-color: $primary;
+// $link-hover-decoration: underline;
 
 /*******************************************************************************
  * navigation
@@ -42,10 +36,10 @@ $link-hover-decoration: underline;
  * - https: //getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
 // $nav-link-color: $base2;
-$nav-link-hover-color: $primary;
-$navbar-dark-color: $primary;
-$navbar-dark-hover-color: shade-color($primary, 30%);
-$navbar-dark-active-color: $white;
+// $nav-link-hover-color: $primary;
+// $navbar-dark-color: $primary;
+// $navbar-dark-hover-color: shade-color($primary, 30%);
+// $navbar-dark-active-color: $white;
 
 /*******************************************************************************
  * pagination
@@ -66,32 +60,32 @@ $navbar-dark-active-color: $white;
 /*******************************************************************************
  * lines
  ******************************************************************************/
-$hr-color: $primary;
-$hr-bg-color: currentcolor;
-$hr-border-width: 0;
-$hr-opacity: 1;
+// $hr-color: $primary;
+// $hr-bg-color: currentcolor;
+// $hr-border-width: 0;
+// $hr-opacity: 1;
 
 /*******************************************************************************
  * alerts
  ******************************************************************************/
-$alert-margin-bottom: 1rem;
+// $alert-margin-bottom: 1rem;
 
 /*******************************************************************************
  * typography
  ******************************************************************************/
-$code-font-size: 1rem;
-$kbd-padding-y: 0.1rem;
-$kbd-padding-x: 0.2rem;
-$kbd-font-size: $code-font-size * 0.9;
+// $code-font-size: 1rem;
+// $kbd-padding-y: 0.1rem;
+// $kbd-padding-x: 0.2rem;
+// $kbd-font-size: $code-font-size * 0.9;
 // $kbd-color: $base2;
-$kbd-bg: $primary;
+// $kbd-bg: $primary;
 
 /*******************************************************************************
  * tables
  ******************************************************************************/
-$table-th-font-weight: 300;
-$table-border-width: 1px;
-$table-border-color: $primary;
+// $table-th-font-weight: 300;
+// $table-border-width: 1px;
+// $table-border-color: $primary;
 // $table-color: $base03;
 // $table-bg: $base03;
 // $table-accent-bg: $base03;
@@ -99,13 +93,13 @@ $table-border-color: $primary;
 /*******************************************************************************
  * buttons
  ******************************************************************************/
-$btn-border-width: 2px;
+// $btn-border-width: 2px;
 
 /*******************************************************************************
  * tabs
  ******************************************************************************/
-$nav-tabs-border-width: 0;
-$nav-tabs-link-active-color: $primary;
+// $nav-tabs-border-width: 0;
+// $nav-tabs-link-active-color: $primary;
 // $nav-tabs-link-active-bg: $base02;
 
 /*******************************************************************************
@@ -113,6 +107,9 @@ $nav-tabs-link-active-color: $primary;
  ******************************************************************************/
 $enable-rounded: false;
 $enable-rfs: false;
+$enable-dark-mode: true;
+$enable-negative-margins: true;
+$enable-important-utilities: false;
 
 /*******************************************************************************
  * theme relevant settings

@@ -10,7 +10,17 @@
     {{- with $fullcontent -}}
       {{- $post.Content -}}
     {{- else -}}
-      <p>{{- $post.Summary -}}</p>
+		<p>
+			{{- with $post.Summary -}}
+				{{- . | markdownify -}}
+			{{- else -}}
+				{{- with $post.Description -}}
+					{{- . | markdownify -}}
+				{{- else -}}
+					{{- $post.Content | plainify | truncate 200 -}}
+				{{- end -}}
+			{{- end -}}
+		</p>
   </div>
 	<div class="text-end">
 		<a href="{{- $post.Permalink -}}" class="btn btn-link" aria-label="{{- i18n "read_article" -}}: {{ $post.Title -}}">

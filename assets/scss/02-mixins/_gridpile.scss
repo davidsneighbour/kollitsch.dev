@@ -1,0 +1,10 @@
+@mixin dnb-gridpile($outertag: '*') {
+	#{$outertag} {
+		display: grid;
+		place-content: center;
+
+		> * {
+			grid-area: 1/1;
+		}
+	}
+}

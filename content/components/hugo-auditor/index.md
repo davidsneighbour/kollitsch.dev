@@ -1,24 +1,19 @@
 ---
 title: Auditor
 linktitle: hugo-auditor
-description: This module is a component for GoHugo that adds auditing tools to your
-  development website.
-
+description: Improve your GoHugo website's development with this auditing component. These auditing tools ensure you to find hidden performance boosts.
+summary: Improve your GoHugo website's development with this auditing component. These auditing tools ensure you to find hidden performance boosts.
 date: 2022-11-15T15:04:51+07:00
 publishDate: 2022-11-15T15:04:51+07:00
-lastmod: 2022-11-15T15:04:52+07:00
-
+lastmod: 2023-03-24T18:36:41+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - development
-
 component:
   slug: hugo-auditor
   host: github.com
@@ -27,9 +22,7 @@ component:
   list: true
 ---
 
-# GoHugo Component / Auditor
-
-This module is a component for [GoHugo](https://gohugo.io) that adds auditing tools to your development website. It is not thought for use in a live deployment. It is work in progress.
+This component is a module for the static site generator [GoHugo](https://gohugo.io) and adds auditing tools to your website in development. It's not for use in a live deployment and work in progress.
 
 {{< component-box >}}
 

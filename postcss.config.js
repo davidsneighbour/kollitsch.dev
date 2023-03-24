@@ -37,7 +37,7 @@ module.exports = {
 				greedy: [/highlight/, /chroma/, /widget--web-vitals/]
 			},
 			fontFace: true,
-			// variables: true, # @todo check why this breaks font family setup for code
+			//variables: true,
 			keyframes: true,
 			defaultExtractor: content => {
 				const els = JSON.parse(content).htmlElements;

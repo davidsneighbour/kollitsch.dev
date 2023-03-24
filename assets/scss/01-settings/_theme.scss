@@ -1,33 +1,25 @@
 /*******************************************************************************
  * typography
  ******************************************************************************/
-$font-family-sans-serif: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans',
-	'Liberation Sans', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-$font-family-monospace: 'JetBrainsMono', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono',
-	'Courier New', monospace;
-// $font-weight-lighter: 100;
-// $font-weight-light: 200;
-// $font-weight-normal: 300;
-// $font-weight-semibold: 500;
-// $font-weight-bold: 600;
-// $font-weight-bolder: 900;
-// $font-weight-base: $font-weight-normal;
-// $line-height-base: 1.4;
-// $font-size-base: 1.2rem;
 
 /*******************************************************************************
  * headings
  ******************************************************************************/
-// $headings-line-height: 1;
-// $headings-font-weight: $font-weight-normal;
+$headings-font-weight: $font-weight-normal;
+$h1-font-size: $font-size-base * 1.35;
+$h2-font-size: $font-size-base * 1.25;
+$h3-font-size: $font-size-base * 1.15;
+$h4-font-size: $font-size-base;
+$h5-font-size: $font-size-base;
+$h6-font-size: $font-size-base;
 
 /*******************************************************************************
  * links
  ******************************************************************************/
-// $link-color: $primary;
-// $link-decoration: none;
-// $link-hover-color: $primary;
-// $link-hover-decoration: underline;
+$link-color: $red-500;
+$link-hover-color: $red-800;
+$link-decoration: none;
+$link-hover-decoration: underline;
 
 /*******************************************************************************
  * navigation
@@ -35,72 +27,40 @@ $font-family-monospace: 'JetBrainsMono', 'SFMono-Regular', 'Menlo', 'Monaco', 'C
  * - https: //getbootstrap.com/docs/5.2/components/navbar/
  * - https: //getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
-// $nav-link-color: $base2;
-// $nav-link-hover-color: $primary;
-// $navbar-dark-color: $primary;
-// $navbar-dark-hover-color: shade-color($primary, 30%);
-// $navbar-dark-active-color: $white;
+$navbar-padding-y: null; //$spacer * 0.5;
+$navbar-padding-x: null;
 
 /*******************************************************************************
  * pagination
  ******************************************************************************/
-// $pagination-color: $base03;
-// $pagination-bg: $base2;
-// $pagination-border-color: $base03;
-// $pagination-hover-color: $base3;
-// $pagination-hover-bg: $base01;
-// $pagination-hover-border-color: $base03;
-// $pagination-active-color: $base2;
 
 /*******************************************************************************
  * code
  ******************************************************************************/
-// $code-color: $base2;
 
 /*******************************************************************************
  * lines
  ******************************************************************************/
-// $hr-color: $primary;
-// $hr-bg-color: currentcolor;
-// $hr-border-width: 0;
-// $hr-opacity: 1;
 
 /*******************************************************************************
  * alerts
  ******************************************************************************/
-// $alert-margin-bottom: 1rem;
 
 /*******************************************************************************
  * typography
  ******************************************************************************/
-// $code-font-size: 1rem;
-// $kbd-padding-y: 0.1rem;
-// $kbd-padding-x: 0.2rem;
-// $kbd-font-size: $code-font-size * 0.9;
-// $kbd-color: $base2;
-// $kbd-bg: $primary;
 
 /*******************************************************************************
  * tables
  ******************************************************************************/
-// $table-th-font-weight: 300;
-// $table-border-width: 1px;
-// $table-border-color: $primary;
-// $table-color: $base03;
-// $table-bg: $base03;
-// $table-accent-bg: $base03;
 
 /*******************************************************************************
  * buttons
  ******************************************************************************/
-// $btn-border-width: 2px;
 
 /*******************************************************************************
  * tabs
  ******************************************************************************/
-// $nav-tabs-border-width: 0;
-// $nav-tabs-link-active-color: $primary;
-// $nav-tabs-link-active-bg: $base02;
 
 /*******************************************************************************
  * settings

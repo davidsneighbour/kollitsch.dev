@@ -6,20 +6,17 @@
  * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
 .navbar {
-	.dark & {
-		@extend .navbar-dark;
-	}
-
 	.navbar-nav {
-		margin-top: 0;
+		@extend .mt-0;
 	}
 
 	.nav-link {
 		.icon--bs {
-			display: inline-block;
-			margin-right: 0.4rem;
-			margin-bottom: 0.1rem;
-			vertical-align: bottom;
+			margin-bottom: 0.15rem;
+
+			@extend .d-inline-block;
+			@extend .me-1;
+			@extend .align-bottom;
 		}
 	}
 

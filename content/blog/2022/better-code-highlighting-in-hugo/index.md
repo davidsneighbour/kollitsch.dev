@@ -1,20 +1,13 @@
 ---
 type: blog
 title: Better code highlighting for Hugo with render hooks
-description: One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML
-  rules are prone to be ignored or freely interpreted (for instance, in the
-  internal templates). But it offers ways to override and configure things, so
-  not all is lost.
-
+description: One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the internal templates). But it offers ways to override and configure things, so not all is lost.
 date: 2022-05-04T22:11:55+07:00
 publishDate: 2022-05-04T22:11:55+07:00
-lastmod: 2022-05-04T22:25:29+07:00
-
+lastmod: 2023-03-23T21:45:14+07:00
 resources:
-  - title: Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via
-      [Unsplash](https://unsplash.com/)
+  - title: Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via [Unsplash](https://unsplash.com/)
     src: header.jpg
-
 tags:
   - gohugo
   - howto
@@ -28,7 +21,7 @@ Let's talk about the [highlight](https://gohugo.io/content-management/syntax-hig
 
 The `highlight` template can be overridden easily by just adding your own shortcode template. Fixing this for the far more used highlighting markup of MarkDown (three backticks) since v0.93.0 GoHugo also offers [render hooks for code blocks](https://gohugo.io/templates/render-hooks/#render-hooks-for-code-blocks).
 
-Using this render hook we can add the following layout to `layouts/_default/_markup/render-codeblock.html` or any (language or section) specific render hook:
+Using this render hook we can add the following layout to `layouts/​_default/​_markup/​render-codeblock.html` or any (language or section) specific render hook:
 
 ```go-html-template
 {{- $options := .Options -}}
@@ -42,7 +35,7 @@ Using this render hook we can add the following layout to `layouts/_default/_mar
 {{- highlight .Inner .Type ($data.Get "options") -}}
 ```
 
-The same should go into your `highlight` shortcode at `layouts/shortcodes/highlight.html`.
+The same should go into your `highlight` shortcode at `layouts/​shortcodes/​highlight.html`.
 
 What this layout does is, that it exchanges the `lineanchors` option of the code highlighting plugin of GoldMark with an individual string for each separate highlighting code.
 

@@ -1,5 +1,4 @@
-{{- partial "func/hook.html" ( dict "hook" "header-topnav-pre" "context" . ) -}}
-<nav class="navbar fixed-top navbar-expand-md bg-body-tertiary shadow-lg" data-bs-theme="dark">
+<nav class="navbar sticky-top navbar-expand-md bg-body-tertiary shadow-lg" data-bs-theme="dark">
   <div class="container-fluid">
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-start" "context" . ) -}}
     {{- partialCached "header/navbar/brand.html" . -}}
@@ -56,4 +55,3 @@
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-end" "context" . ) -}}
   </div>
 </nav>
-{{- partial "func/hook.html" ( dict "hook" "header-topnav-post" "context" . ) -}}

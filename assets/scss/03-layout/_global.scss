@@ -9,17 +9,6 @@
  ******************************************************************************/
 $layout-character-width: 65ch;
 
-.wrapper {
-	display: grid;
-
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- ignore this for idiot browsers */
-	grid-template-columns: 1fr #{'min(75ch, 100%)'} 1fr;
-
-	> * {
-		grid-column: 2;
-	}
-}
-
 .full-bleed {
 	grid-column: 1 / -1;
 	width: 100%;
@@ -36,7 +25,16 @@ main {
 
 	@extend .min-vh-100;
 	@extend .position-relative;
-	@extend .wrapper;
+
+	display: grid;
+
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features
+				-- we support only current browsers */
+	grid-template-columns: 1fr #{'min(75ch, 100%)'} 1fr;
+
+	> * {
+		grid-column: 2;
+	}
 }
 
 .content {
@@ -46,27 +44,30 @@ main {
 	--popout: minmax(0, 2rem);
 	--feature: minmax(0, 5rem);
 
-	/* stylelint-disable plugin/no-unsupported-browser-features -- we can live with that. */
+	/* stylelint-disable plugin/no-unsupported-browser-features
+				-- we can live with that. */
 	display: grid;
 	grid-template-columns:
 		[full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content)
 		[content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end];
-}
 
-.content > * {
-	grid-column: content;
-}
+	/* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
+				-- ignore this for now */
+	& > * {
+		grid-column: content;
+	}
 
-.popout {
-	grid-column: popout;
-}
+	.popout {
+		grid-column: popout;
+	}
 
-.feature {
-	grid-column: feature;
-}
+	.feature {
+		grid-column: feature;
+	}
 
-.full {
-	grid-column: full;
+	.full {
+		grid-column: full;
+	}
 }
 
 /*******************************************************************************

@@ -1,2 +1,3 @@
+{{- partial "func/hook.html" ( dict "hook" "header-topnav-pre" "context" . ) -}}
 {{- partial "header/topnavigation.html" . -}}
-{{/* {{- partial "components/search/form.html" . -}} */}}
+{{- partial "func/hook.html" ( dict "hook" "header-topnav-post" "context" . ) -}}

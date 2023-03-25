@@ -1,0 +1,17 @@
+.snap-x {
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	overscroll-behavior-x: contain;
+
+	&.snap-align-start > * {
+		scroll-snap-align: start;
+	}
+
+	&.snap-align-center > * {
+		scroll-snap-align: center;
+	}
+
+	&.snap-align-end > * {
+		scroll-snap-align: end;
+	}
+}

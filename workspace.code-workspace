@@ -35,6 +35,39 @@
 		},
 		{
 			"path": "../configurations"
+		},
+		{
+			"path": "../hugo-debug"
+		},
+		{
+			"path": "../hugo-feeds"
+		},
+		{
+			"path": "../hugo-functions"
+		},
+		{
+			"path": "../hugo-internals"
+		},
+		{
+			"path": "../hugo-netlification"
+		},
+		{
+			"path": "../hugo-opensearch"
+		},
+		{
+			"path": "../hugo-publisher"
+		},
+		{
+			"path": "../hugo-search-algolia"
+		},
+		{
+			"path": "../hugo-shortcodes"
+		},
+		{
+			"path": "../hugo-sitemap"
+		},
+		{
+			"path": "../hugo-social"
 		}
 	],
 	"settings": {

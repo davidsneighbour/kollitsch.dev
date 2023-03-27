@@ -96,7 +96,7 @@
 // @import '06-plugins/devaudit';
 @import '06-plugins/alpine';
 @import '06-plugins/syntax';
-// @import '06-plugins/youtube';
+@import '../libs/lite-youtube-embed/lite-yt-embed.css';
 
 // external plugins (imported from node_modules)
 @import 'animate.css/animate';

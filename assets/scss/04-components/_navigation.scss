@@ -21,6 +21,14 @@
 	}
 
 	.navbar-brand {
+		a {
+			font-family: BahnPro, sans-serif;
+			font-weight: 700;
+			font-size: 2rem;
+			margin-top: 0.5rem;
+			display: inline-block;
+		}
+
 		svg {
 			width: auto;
 			height: 28px;

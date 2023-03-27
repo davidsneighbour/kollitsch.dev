@@ -1,6 +1,5 @@
 import Alpine from 'alpinejs';
 import 'web-vitals-element';
-import './plugins/lite-yt-embed';
 import './components/logger.ts';
 import './components/back-to-top.ts';
 import './components/version.ts';

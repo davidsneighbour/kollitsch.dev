@@ -3,5 +3,15 @@
   type="module"
   importance="low"
   src="{{- $scripts.Permalink -}}"
-  async defer
+  async
+  defer
   integrity="{{- $scripts.Data.Integrity -}}"></script>
+
+{{- $script := resources.Get "dist/js/main.js" | minify | fingerprint "sha512" -}}
+<script
+  type="module"
+  importance="low"
+  src="{{- $script.Permalink -}}"
+  async
+  defer
+  integrity="{{- $script.Data.Integrity -}}"></script>

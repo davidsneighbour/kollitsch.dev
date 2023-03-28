@@ -21,15 +21,7 @@ h6 {
 
 p {
 	text-align: justify;
-	word-wrap: break-word;
-
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features
-				-- what browser wouldn't support these by now? */
-	overflow-wrap: break-word;
-
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features
-				-- what browser wouldn't support these by now? */
-	hyphens: auto;
+	@extend .hyphenate;
 }
 
 > p code {

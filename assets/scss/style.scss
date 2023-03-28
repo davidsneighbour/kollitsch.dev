@@ -73,8 +73,8 @@
 // Global Components
 @include dnb-scrollbars();
 
-// @import '04-components/utilities';
-// @import '04-components/alerts';
+@import '04-components/utilities';
+@import '04-components/alerts';
 @import '04-components/navigation';
 @import '04-components/articles';
 @import '04-components/figure';

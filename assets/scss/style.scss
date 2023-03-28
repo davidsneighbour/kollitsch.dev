@@ -15,9 +15,10 @@
 @import '01-settings/utilities';
 
 // our own mixins
-@import '02-mixins/shadows';
-@import '02-mixins/scrollbars';
 @import '02-mixins/gridpile';
+@import '02-mixins/scrollbars';
+@import '02-mixins/scrollsnap';
+@import '02-mixins/shadows';
 
 // continuing with bootstrap
 @import 'bootstrap/scss/maps';
@@ -67,6 +68,7 @@
 @import '03-layout/global';
 @import '03-layout/header';
 @import '03-layout/footer';
+@import '03-layout/responsive';
 
 // Global Components
 @include dnb-scrollbars();
@@ -96,7 +98,9 @@
 // @import '06-plugins/devaudit';
 @import '06-plugins/alpine';
 @import '06-plugins/syntax';
-@import '../libs/lite-youtube-embed/lite-yt-embed.css';
+
+// hugo-blockify
+@import 'blockify';
 
 // external plugins (imported from node_modules)
 @import 'animate.css/animate';

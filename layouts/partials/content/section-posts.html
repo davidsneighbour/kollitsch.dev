@@ -1,11 +1,8 @@
 <section class="section--content">
   <div class="container">
     <div class="row">
-
       {{- $paginator := .Scratch.Get "paginator" -}}
-      <h1 class="visually-hidden h2">
-        Recent Posts (Page {{ $paginator.PageNumber -}})
-      </h1>
+      <h1 class="visually-hidden h2">Recent Posts (Page {{ $paginator.PageNumber -}})</h1>
 
       {{- $fullcontent := false -}}
       {{- if (eq $.Kind "page") -}}
@@ -20,7 +17,7 @@
             {{- $col = "12" -}}
             {{- $post = dict "context" $item "fullcontent" $fullcontent "responsive" "fullwidth" -}}
           {{- end -}}
-          <div class="col-12 col-md-{{ $col }} mb-4">
+          <div class="col-12 col-md-{{ $col }} snap-align-start mb-4 snap-y">
             {{- partial "content/post.html" $post $post -}}
           </div>
         {{ end }}

@@ -1,9 +1,9 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
+# @see https://pre-commit.com for more information
+# @see https://pre-commit.com/hooks.html for more hooks
 repos:
 
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v9.1.0
+    rev: v9.4.0
     # install with `pre-commit install --hook-type commit-msg`
     hooks:
       - id: commitlint
@@ -11,7 +11,7 @@ repos:
         additional_dependencies: ['@davidsneighbour/commitlint-config']
 
   - repo: 'https://github.com/pre-commit/pre-commit-hooks'
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
       - id: check-byte-order-marker #- forbids files which have a utf-8 byte-order marker.
       - id: check-case-conflict #- checks for files that would conflict in case-insensitive filesystems.
@@ -50,12 +50,12 @@ repos:
   #       files: ^content|i18n
 
   - repo: 'https://github.com/PrincetonUniversity/blocklint'
-    rev: v0.2.3
+    rev: v0.2.4
     hooks:
       - id: blocklint
 
   - repo: 'https://github.com/adrienverge/yamllint'
-    rev: v1.28.0
+    rev: v1.30.0
     hooks:
       - id: yamllint
         args: [-c=tests/config/yamllint.yaml]
@@ -75,7 +75,7 @@ repos:
       - id: shfmt
 
   - repo: 'https://github.com/zricethezav/gitleaks'
-    rev: v8.15.0
+    rev: v8.16.1
     hooks:
       - id: gitleaks
 

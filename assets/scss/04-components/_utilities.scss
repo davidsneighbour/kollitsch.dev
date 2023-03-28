@@ -4,3 +4,11 @@
 	text-shadow: none;
 	background-color: var(--bs-color-primary);
 }
+
+// hyphenation for paragraphs and stuff
+.hyphenate {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	hyphens: auto;
+	hyphenate-limit-chars: 10 4 4;
+}

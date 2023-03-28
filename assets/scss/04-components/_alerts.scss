@@ -1,4 +1,6 @@
 .alert {
+	@extend .hyphenate;
+
 	a {
 		// adds colors to all links inside alerts
 		@extend .alert-link;
@@ -10,5 +12,10 @@
 			@extend .cx-24;
 			@extend .me-3;
 		}
+	}
+
+	// remove unnessary margin from last paragraph in alerts
+	p:last-of-type {
+		@extend .mb-0;
 	}
 }

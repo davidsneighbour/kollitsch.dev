@@ -4,76 +4,20 @@
 			"path": "."
 		},
 		{
-			"path": "../hugo-auditor"
-		},
-		{
-			"path": "../hugo-giscus"
-		},
-		{
-			"path": "../hugo-head"
-		},
-		{
-			"path": "../hugo-hooks"
-		},
-		{
-			"path": "../hugo-icons"
-		},
-		{
-			"path": "../hugo-pictures"
-		},
-		{
-			"path": "../hugo-pwa"
-		},
-		{
-			"path": "../hugo-robots"
-		},
-		{
-			"path": "../hugo-schema"
-		},
-		{
-			"path": "../hugo-security"
-		},
-		{
-			"path": "../configurations"
-		},
-		{
-			"path": "../hugo-debug"
-		},
-		{
-			"path": "../hugo-feeds"
-		},
-		{
-			"path": "../hugo-functions"
-		},
-		{
-			"path": "../hugo-internals"
-		},
-		{
-			"path": "../hugo-netlification"
-		},
-		{
-			"path": "../hugo-opensearch"
-		},
-		{
-			"path": "../hugo-publisher"
-		},
-		{
-			"path": "../hugo-search-algolia"
-		},
-		{
-			"path": "../hugo-shortcodes"
-		},
-		{
-			"path": "../hugo-sitemap"
-		},
-		{
-			"path": "../hugo-social"
+			"path": "../hugo-blockify"
 		}
 	],
 	"settings": {
 		"files.associations": {
-			"**/layouts/**.html": "go"
-		}
+		  "**/layouts/**.html": "go"
+		},
+		"explorer.fileNesting.patterns": {
+		  "hugo.log": "hugo_stats.json, .hugo_build.lock"
+		},
+		"html.format.wrapLineLength": 80,
+		"editor.wordWrapColumn": 80,
+		"diffEditor.wordWrap": "on",
+		"js/ts.implicitProjectConfig.checkJs" : true
 	},
 	"extensions": {
 		"recommendations": [

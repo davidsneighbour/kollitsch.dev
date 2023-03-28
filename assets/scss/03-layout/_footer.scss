@@ -50,9 +50,9 @@
 #footer {
 	bottom: 0;
 	left: 0;
-	margin-top: 100vh;
 	color: var(--bs-tertiary-color);
 	background-color: var(--bs-tertiary-bg);
+	padding-top: 100vh;
 
 	a {
 		// color: $base2;
@@ -64,6 +64,8 @@
 		}
 	}
 
+	@extend .z-2;
 	@extend .position-sticky;
 	@extend .w-100;
+	@extend .h-100;
 }

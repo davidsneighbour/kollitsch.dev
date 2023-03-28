@@ -56,7 +56,8 @@
     "@davidsneighbour/tools": "5.1.5",
     "@davidsneighbour/webpack-config": "5.1.12",
     "@types/alpinejs": "^3.7.1",
-    "@types/yargs": "^17.0.23"
+    "@types/yargs": "^17.0.23",
+    "prettier-plugin-go-template": "^0.0.13"
   },
   "scripts": {
     "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",

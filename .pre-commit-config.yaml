@@ -70,7 +70,7 @@ repos:
         types: [shell, non-executable]
       - id: script-must-not-have-extension
         name: Executable shell scripts must not have an extension
-        types: [shell, executable]stages
+        types: [shell, executable]
       - id: shellcheck
       - id: shfmt
 

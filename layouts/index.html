@@ -1,15 +1,11 @@
 {{- define "main" -}}
   {{- if lt (.Scratch.Get "paginator").PageNumber 2 -}}
     <section class="section--sitetitle">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
+
             <div class="site-title">
               <a href="{{- site.BaseURL -}}">{{- site.Title -}}</a>
             </div>
-          </div>
-        </div>
-      </div>
+
       {{- partial "func/hook.html" ( dict "hook" "post-sitetitle" "context" . ) -}}
     </section>
   {{- end -}}

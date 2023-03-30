@@ -9,60 +9,10 @@
   "frontMatter.site.baseURL": "https://kollitsch.dev",
   "frontMatter.content.publicFolder": "static",
   "frontMatter.taxonomy.seoDescriptionLength": 170,
-  "frontMatter.content.supportedFileTypes": [
-    "md"
-  ],
+  "frontMatter.content.supportedFileTypes": ["md"],
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
   "frontMatter.taxonomy.indentArrays": false,
-  "frontMatter.taxonomy.noPropertyValueQuotes": [
-    "date"
-  ],
-  "frontMatter.content.pageFolders": [
-    {
-      "path": "[[workspace]]/content",
-      "title": "content",
-      "originalPath": "[[workspace]]/content"
-    },
-    {
-      "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
-      "title": "Blog Posts",
-      "path": "[[workspace]]/content/blog",
-      "previewPath": "/yyyy/",
-      "contentTypes": [
-        "blog",
-        "music2program2",
-        "notes-from-the-laboratory"
-      ],
-      "originalPath": "[[workspace]]/content/blog"
-    },
-    {
-      "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
-      "title": "Components",
-      "path": "[[workspace]]/content/components",
-      "contentTypes": [
-        "component"
-      ],
-      "originalPath": "[[workspace]]/content/components"
-    },
-    {
-      "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
-      "title": "Synapsis",
-      "path": "[[workspace]]/content/synapsis",
-      "contentTypes": [
-        "synapsis"
-      ],
-      "originalPath": "[[workspace]]/content/synapsis"
-    },
-    {
-      "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
-      "title": "Tags",
-      "path": "[[workspace]]/content/tags",
-      "contentTypes": [
-        "tag"
-      ],
-      "originalPath": "[[workspace]]/content/tags"
-    }
-  ],
+  "frontMatter.taxonomy.noPropertyValueQuotes": ["date"],
   "frontMatter.taxonomy.tags": [
     "100DaysToOffload",
     "CSP",
@@ -176,9 +126,5 @@
     "webdesign",
     "wordpress"
   ],
-  "frontMatter.taxonomy.categories": [
-    "components",
-    "notes-from-the-laboratory",
-    "wordpress"
-  ]
+  "frontMatter.taxonomy.categories": ["components", "notes-from-the-laboratory", "wordpress"]
 }

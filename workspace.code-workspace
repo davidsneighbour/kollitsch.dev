@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../hugo-blockify"
+		},
+		{
+			"path": "../configurations"
 		}
 	],
 	"settings": {

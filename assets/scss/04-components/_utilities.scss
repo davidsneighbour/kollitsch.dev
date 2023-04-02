@@ -1,8 +1,8 @@
 // coloring the selection in the browser
 ::selection {
-	color: var(--bs-primaryy);
+	color: var(--bs-body-bg);
 	text-shadow: none;
-	background-color: var(--bs-body-bg);
+	background-color: var(--bs-primary);
 }
 
 // hyphenation for paragraphs and stuff

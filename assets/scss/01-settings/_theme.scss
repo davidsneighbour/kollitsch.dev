@@ -1,14 +1,14 @@
 /*******************************************************************************
  * typography
  ******************************************************************************/
+$font-size-root: 1.2rem;
 
 /*******************************************************************************
  * headings
  ******************************************************************************/
-$headings-font-weight: $font-weight-normal;
-$h1-font-size: $font-size-base * 1.35;
-$h2-font-size: $font-size-base * 1.25;
-$h3-font-size: $font-size-base * 1.15;
+$h1-font-size: $font-size-base * 1.4;
+$h2-font-size: $font-size-base * 1.15;
+$h3-font-size: $font-size-base * 1.1;
 $h4-font-size: $font-size-base;
 $h5-font-size: $font-size-base;
 $h6-font-size: $font-size-base;
@@ -16,8 +16,8 @@ $h6-font-size: $font-size-base;
 /*******************************************************************************
  * links
  ******************************************************************************/
-$link-color: $red-500;
-$link-hover-color: $red-800;
+$link-color: $primary;
+$link-hover-color: darken($primary, 20%);
 $link-decoration: none;
 $link-hover-decoration: underline;
 

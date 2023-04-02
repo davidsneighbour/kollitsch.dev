@@ -12,11 +12,11 @@ h3,
 h4,
 h5,
 h6 {
-	text-transform: uppercase;
-
 	a {
 		text-decoration: none;
 	}
+	@extend .border-bottom;
+	@extend .border-light-subtle;
 }
 
 p {

@@ -7,6 +7,9 @@
 			"path": "../hugo-blockify"
 		},
 		{
+			"path": "../hugo-blockify.wiki"
+		},
+		{
 			"path": "../configurations"
 		}
 	],

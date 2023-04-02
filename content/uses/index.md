@@ -39,12 +39,6 @@ To be written...
 
 To be written...
 
-## Heads-up
-
-I'll be getting my nerdy brain on starting here. You might want to check out my posts instead and wait for a mention of one of the following.
-
-If not, keep scrolling fellow techie.
-
 ## Shell and terminal
 
 To be written...

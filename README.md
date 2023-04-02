@@ -127,15 +127,15 @@ If any errors come up while running this, then fix them.
 Hooks are listed in their order of appearance
 
 <!-- prettier-ignore-start -->
-| Hook | File | Runs | Depends on | Description |
-| --- | --- | --- | --- | --- |
-| init | partials/init.html | 1 |   | before anything else runs (before pagination object is created) |
-| init-end | partials/init.html | 1 |   | after the pagination object is created and in scratch |
-| setup | _default/baseof.html | 1 |   | at the beginning of the main layout |
-| body-start | _default/baseof.html | 1 |   |   |
-| body-end-pre-script | _default/baseof.html | 1 |   |   |
-| body-end | _default/baseof.html | 1 |   |   |
-| teardown | _default/baseof.html | 1 |   |   |
+| Hook                | File                 | Runs | Depends on | Description                                                     |
+| ------------------- | -------------------- | ---- | ---------- | --------------------------------------------------------------- |
+| init                | partials/init.html   | 1    |            | before anything else runs (before pagination object is created) |
+| init-end            | partials/init.html   | 1    |            | after the pagination object is created and in scratch           |
+| setup               | _default/baseof.html | 1    |            | at the beginning of the main layout                             |
+| body-start          | _default/baseof.html | 1    |            |                                                                 |
+| body-end-pre-script | _default/baseof.html | 1    |            |                                                                 |
+| body-end            | _default/baseof.html | 1    |            |                                                                 |
+| teardown            | _default/baseof.html | 1    |            |                                                                 |
 <!-- prettier-ignore-end -->
 
 # Content
@@ -193,6 +193,12 @@ npm run lint:vale
 **VSCode Plugin:**
 
 Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server) plugin. No configuration is required.
+
+**Updating Vale**
+
+```bash
+vale sync
+```
 
 ### Markdownlint (markdown format checks)
 

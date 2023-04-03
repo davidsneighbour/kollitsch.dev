@@ -171,7 +171,7 @@ norton = ""
 
 ## Others
 
-`hugo-head` can add various obscure and weird other tags to your headers if you configure them. Think about the usefulnes of these tags though, less is more.
+`hugo-head` can add various obscure and weird other tags to your headers if you configure them. Think about the usefulness of these tags though, less is more.
 
 ```toml
 [params.dnb.head.verification]
@@ -189,25 +189,25 @@ placename = ""
 `hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and provides the following hooks:
 
 {{< div class="table--hooks" >}}
-| Hook | Description |
-| --- | :--- |
-| head-init | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
-| head-start | hooks in after the initial first tags that belong at the beginning of your `head` section. |
-| head-post-speed-optimisation | |
-| head-post-description | |
-| head-post-author | |
-| head-pre-css | hooks in before the stylesheets are printed. |
-| head-post-css | hooks in after the stylesheets are printed. |
-| head-post-translations | |
-| head-post-seo | |
-| head-post-series | |
-| head-post-social | |
-| head-post-opensearch | |
-| head-post-pwa | |
-| head-post-humans | |
-| head-post-alternates | |
-| head-post-verification | |
-| head-end | hooks in at the end of the `head` right before the closing tag. |
+| Hook                         | Description                                                                                                         |
+| ---------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| head-init                    | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
+| head-start                   | hooks in after the initial first tags that belong at the beginning of your `head` section.                          |
+| head-post-speed-optimisation |                                                                                                                     |
+| head-post-description        |                                                                                                                     |
+| head-post-author             |                                                                                                                     |
+| head-pre-css                 | hooks in before the stylesheets are printed.                                                                        |
+| head-post-css                | hooks in after the stylesheets are printed.                                                                         |
+| head-post-translations       |                                                                                                                     |
+| head-post-seo                |                                                                                                                     |
+| head-post-series             |                                                                                                                     |
+| head-post-social             |                                                                                                                     |
+| head-post-opensearch         |                                                                                                                     |
+| head-post-pwa                |                                                                                                                     |
+| head-post-humans             |                                                                                                                     |
+| head-post-alternates         |                                                                                                                     |
+| head-post-verification       |                                                                                                                     |
+| head-end                     | hooks in at the end of the `head` right before the closing tag.                                                     |
 {{< /div >}}
 
 ## Sites and Projects using `hugo-head`

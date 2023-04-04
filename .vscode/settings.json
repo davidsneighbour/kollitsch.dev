@@ -5,8 +5,8 @@
   "explorer.fileNesting.patterns": {
     "hugo.log": "hugo_stats.json, .hugo_build.lock"
   },
-  "html.format.wrapLineLength": 80,
-  "editor.wordWrapColumn": 80,
+  "html.format.wrapLineLength": 120,
+  "editor.wordWrapColumn": 120,
   "diffEditor.wordWrap": "on",
   "js/ts.implicitProjectConfig.checkJs": true
 }

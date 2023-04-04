@@ -20,6 +20,9 @@ SCRIPTPATH="$(
 )"
 CURPATH="$(pwd -P)"
 
+# quietly shutting down concurring hugo servers
+killall -q -9 hugo
+
 typos -- ./content
 
 "${CURPATH}"/bin/build/component-tags

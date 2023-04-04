@@ -1,7 +1,4 @@
 {
-  "composer.executablePath": "/usr/local/bin/composer",
-  "phpcs.standard": "WordPress",
-  "remote.containers.defaultExtensions": ["mutantdino.resourcemonitor"],
   "files.associations": {
     "**/layouts/**.html": "go"
   },
@@ -10,5 +7,6 @@
   },
   "html.format.wrapLineLength": 80,
   "editor.wordWrapColumn": 80,
-  "diffEditor.wordWrap": "on"
+  "diffEditor.wordWrap": "on",
+  "js/ts.implicitProjectConfig.checkJs": true
 }

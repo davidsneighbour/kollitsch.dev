@@ -1,11 +1,15 @@
-replacements = 'github.com/davidsneighbour/hugo-blockify -> /home/patrick/github.com/davidsneighbour/hugo-blockify'
-
 [hugoVersion]
 extended = true
 min = "0.111.3"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-blockify"
+path = "hugo-blockify"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+
+[[imports]]
+path = "hugo-theme"
 disable = false
 ignoreConfig = false
 ignoreImports = false

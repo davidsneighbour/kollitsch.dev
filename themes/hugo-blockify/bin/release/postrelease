@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# exit when any command fails
+set -e
+
+REQUIRED_TOOLS=(
+  git
+)
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
+# update version in citation configuration
+FILE=CITATION.cff
+if test -f "$FILE"; then
+  VERSION=$(node -pe 'require("./package.json")["version"]')
+  sed -i "s/^version: .*/version: ${VERSION}/" $FILE
+  DATE=$(date +%F)
+  sed -i "s/date-released: .*/date-released: ${DATE}/" $FILE
+  git add $FILE
+fi
+
+# build static scripts
+npm run build
+git add static/sw-*
+
+# adding data directory for new build information
+git add data/dnb
+git add README.md
+git commit --signoff --amend --no-edit --no-verify
+
+# push release to GitHub
+git push origin main --follow-tags
+git push origin --tags

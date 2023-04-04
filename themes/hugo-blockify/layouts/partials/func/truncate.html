@@ -1,0 +1,43 @@
+{{- /*
+
+@since 1.0.1
+@see https://discourse.gohugo.io/t/create-description-from-summary/36676
+
+{{ range seq 1 200 }}
+  {{ $truncated := partial "func/truncate.html" (dict "content" $.Summary "maxLength" .) }}
+  <pre>{{ $truncated }} (max = {{ . }} actual = {{ strings.RuneCount $truncated }} )</pre>
+{{ end }}
+
+Truncates a submitted string by cutting at word borders. If the truncation occurs inside of a sentence then an ellipsis is added. If the truncation occurs at a sentence border (.?!) no ellipsis is added.
+
+TODO: If the string is within the CJK range then the string is truncated without regards to word or sentence borders and always has an ellipsis added if the string is longer than `maxLength`.
+
+Expects a dictionary with the following content:
+
+- `.content` - content to truncate
+- `.maxlength` - length at which to truncate, defaults to 150 characters
+
+Notes:
+
+- len returns the _byte_ length of a string. characters might be something else in some languages
+
+*/ -}}
+
+{{- $truncated := .content | plainify | replaceRE `\r` "" | replaceRE `\n` " " | replaceRE `\s{2,}` " " -}}
+{{- $maxLength := (.maxLength | default 150) | int -}}
+{{- $endMarks := slice "." "?" "!" "‽" -}}
+{{- $ellipsis := "…" -}}
+
+{{- if gt (len $truncated) $maxLength -}}
+
+  {{- $regex := printf `(?s)^.{0,%d}\W` (sub $maxLength 1) -}}
+  {{- $truncated = index (findRE $regex $truncated) 0 | replaceRE `\s+$` "" -}}
+
+  {{- if not (in $endMarks (substr $truncated -1)) -}}
+    {{- $truncated = replaceRE `\W+$` "" $truncated -}}
+    {{- $truncated = printf "%s%s" $truncated $ellipsis -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- return $truncated -}}

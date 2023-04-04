@@ -1,0 +1,27 @@
+{{- /* https://github.com/gohugoio/hugo/blob/64afb7ca51ef5fd5d4a0afa121183217292daa5e/common/hugo/hugo.go#L222 */ -}}
+{{- $config := .config -}}
+{{- $structure := slice
+      (dict
+        "slug" "Major"
+        "value" .value.Major
+        "type" "string")
+      (dict
+        "slug" "Minor"
+        "value" .value.Minor
+        "type" "string")
+      (dict
+        "slug" "PatchLevel"
+        "value" .value.PatchLevel
+        "type" "string")
+      (dict
+        "slug" "Suffix"
+        "value" .value.Suffix
+        "type" "string")
+-}}
+
+{{- $data := dict
+      "structure" $structure
+      "config" $config
+-}}
+
+{{- partial "debugging-partials/print-table.html" $data -}}

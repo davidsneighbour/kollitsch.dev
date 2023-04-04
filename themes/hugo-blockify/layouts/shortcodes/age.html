@@ -1,0 +1,12 @@
+{{- $type := .Get "type" | default "days" -}}
+{{- $date := .Get "date" | time.AsTime -}}
+{{- $age := 0 -}}
+{{- with $date -}}
+  {{- if eq $type "days" -}}
+    {{- div (sub now.Unix .Unix) 86400 -}}
+  {{- else if eq $type "months" -}}
+    {{- div (sub now.Unix .Unix) 2592000 -}}
+  {{- else if eq $type "years" -}}
+    {{- div (sub now.Unix .Unix) 31536000 -}}
+  {{- end -}}
+{{- end -}}

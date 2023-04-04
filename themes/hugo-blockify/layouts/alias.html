@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{{- /*
+
+  hugo-internals / layouts / alias.html [20230326]
+
+  This is the global alias template. It is used to create a redirect page for aliases taken from frontmatter.
+
+  Most of the [original content](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/alias.html) is removed from this template, because if it is not indexed then we don't need a canonical or title or charset or anything else.
+
+  It's a meta-redirect. Nothing else.
+
+*/ -}}
+<meta name="robots" content="noindex, follow" />
+<meta http-equiv="refresh" content="0; url={{ .Permalink }}">

@@ -1,0 +1,74 @@
+[security]
+mediatype = "text/plain"
+path = "/.well-known/"
+baseName = "security"
+isPlainText = true
+notAlternative = true
+
+[dnblinklist]
+baseName = 'links'
+isPlainText = true
+mediaType = 'application/json'
+permalinkable = false
+notAlternative = true
+
+[rss]
+baseName = "rss"
+
+[jsonfeed]
+mediaType = "application/feed+json"
+path = ""
+baseName = "feed"
+rel = "alternate"
+protocol = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = false
+
+[atom]
+mediaType = "application/rss+xml"
+path = ""
+baseName = "atom"
+rel = "alternate"
+protocol = ""
+isPlainText = false
+isHTML = false
+noUgly = true
+permalinkable = false
+
+[GISCUS]
+baseName = "giscus"
+isPlainText = true
+mediatype = "application/json"
+notAlternative = true
+
+[OpenSearch]
+baseName = "opensearch"
+isPlainText = true
+mediatype = "application/opensearchdescription+xml"
+notAlternative = true
+
+[Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[manifest]
+mediaType = "application/manifest+json"
+baseName = "manifest"
+isPlainText = true
+notAlternative = true
+
+[REDIR]
+baseName = "_redirects"
+isPlainText = true
+mediatype = "text/netlify"
+notAlternative = true
+
+[HEADERS]
+baseName = "_headers"
+isPlainText = true
+mediatype = "text/netlify"
+notAlternative = true

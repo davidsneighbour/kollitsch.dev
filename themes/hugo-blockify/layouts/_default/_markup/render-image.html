@@ -1,0 +1,60 @@
+{{/*
+
+see
+- https://github.com/gj52/HugoSample/blob/master/themes/photon/layouts/_default/_markup/render-image.html
+- https://gohugo.io/getting-started/configuration-markup#markdown-render-hooks
+
+available values:
+.Page - The Page being rendered.
+.Destination - The URL.
+.Title - The title attribute.
+.Text - The rendered (HTML) link text.
+.PlainText - The plain variant of the above.
+
+![Text](Destination "Title")
+
+*/}}
+{{- $config := site.Data.dnb.renderhooks.image -}}
+{{ if eq $config.disabled false}}
+  {{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+  {{ if $image -}}
+    {{ $alt := .PlainText | safeHTML }}
+    {{ $caption := "" }}
+    {{ with .Title }}
+      {{ $caption = . | safeHTML }}
+    {{ end }}
+    {{ $iw := $image.Width }}
+    {{ $ih := $image.Height }}
+    {{ $ms := site.Params.Images.maxSize | default 1024 }}
+    {{ if or (ge $iw $ms) (ge $ih $ms) }}
+      {{ $image = $image.Fit (print $ms "x" $ms) }}
+    {{ end }}
+    {{ $srcset := slice }}
+    {{ range site.Params.Images.setSizes -}}
+      {{ if lt (mul . 1.2) $iw }}
+        {{ $size := print  . "x" . }}
+        {{ $thumb := $image.Fit $size }}
+        {{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width) }}
+      {{ end }}
+    {{- end }}
+    <figure>
+      <img
+        loading="lazy"
+        src="{{ $image.RelPermalink }}"
+        {{ if gt (len $srcset) 0 }}
+          {{ $sl := delimit $srcset ", " }}
+          sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px"
+          srcset="{{ $sl }}"
+        {{ end }}
+        width="{{ $image.Width }}"
+        height="auto"
+        alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ end }}"
+      >
+      {{- with $caption -}}
+        <figcaption>{{ . | markdownify }}</figcaption>
+      {{- end -}}
+    </figure>
+  {{- end }}
+{{ else }}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
+{{ end }}

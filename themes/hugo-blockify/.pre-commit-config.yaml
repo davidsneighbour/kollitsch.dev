@@ -1,0 +1,83 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.4.0
+    # install with `pre-commit install --hook-type commit-msg`
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ['@davidsneighbour/commitlint-config']
+
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+    rev: v4.4.0
+    hooks:
+      - id: check-byte-order-marker #- forbids files which have a utf-8 byte-order marker.
+      - id: check-case-conflict #- checks for files that would conflict in case-insensitive filesystems.
+      - id: check-docstring-first #- checks a common error of defining a docstring after code.
+      - id: check-executables-have-shebangs #- ensures that (non-binary) executables have a shebang.
+      - id: check-json #- checks json files for parseable syntax.
+        exclude: ^(layouts/|themes/kollitsch-dev|.vscode/|tsconfig.json|tests/cypress/tsconfig.json|_vendor)
+      - id: check-shebang-scripts-are-executable #- ensures that (non-binary) files with a shebang are executable.
+      - id: check-merge-conflict #- checks for files that contain merge conflict strings.
+      - id: check-symlinks #- checks for symlinks which do not point to anything.
+      - id: check-toml #- checks toml files for parseable syntax.
+      - id: check-vcs-permalinks #- ensures that links to vcs websites are permalinks.
+      - id: check-xml #- checks xml files for parseable syntax.
+        exclude: ^(layouts/|_vendor)
+      - id: check-yaml #- checks yaml files for parseable syntax.
+      - id: destroyed-symlinks #- detects symlinks which are changed to regular
+          # files with a content of a path which that symlink was pointing to.
+      - id: detect-private-key #- detects the presence of private keys.
+      - id: double-quote-string-fixer #- replaces double quoted strings with single quoted strings.
+      - id: end-of-file-fixer #- ensures that a file is either empty, or ends with one newline.
+        exclude: ^(layouts/|_vendor)
+      - id: fix-byte-order-marker #- removes utf-8 byte order marker.
+      - id: forbid-new-submodules #- prevents addition of new git submodules.
+      - id: mixed-line-ending # replaces or checks mixed line ending.
+          # - id: no-commit-to-branch #- don't commit to branch
+          #   args: [--branch, staging, --branch, master]
+      - id: trailing-whitespace
+        exclude: ^(_vendor)
+        args: [--markdown-linebreak-ext=md]
+
+  # - repo: 'https://github.com/crate-ci/typos'
+  #   rev: v1.8.1
+  #   hooks:
+  #     - id: typos
+  #       args: ['--config', './config/local/typos.toml', './content/']
+  #       files: ^content|i18n
+
+  - repo: 'https://github.com/PrincetonUniversity/blocklint'
+    rev: v0.2.4
+    hooks:
+      - id: blocklint
+
+  - repo: 'https://github.com/adrienverge/yamllint'
+    rev: v1.30.0
+    hooks:
+      - id: yamllint
+        args: [-c=tests/config/yamllint.yaml]
+        exclude: ^(_vendor|.github/workflows|.pre-commit-config.yaml)
+
+  - repo: 'https://github.com/jumanjihouse/pre-commit-hooks'
+    rev: 3.0.0
+    hooks:
+      - id: check-mailmap
+      - id: script-must-have-extension
+        name: Shell libraries must have a .sh extension and should not be executable.
+        types: [shell, non-executable]
+      - id: script-must-not-have-extension
+        name: Executable shell scripts must not have an extension
+        types: [shell, executable]
+      - id: shellcheck
+      - id: shfmt
+
+  - repo: 'https://github.com/zricethezav/gitleaks'
+    rev: v8.16.1
+    hooks:
+      - id: gitleaks
+
+# fail_fast: true
+minimum_pre_commit_version: 2.18.1

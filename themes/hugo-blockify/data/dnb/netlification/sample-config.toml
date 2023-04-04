@@ -1,0 +1,92 @@
+################################################################################
+# |\| [- ~|~ |_ | /= | ( /\ ~|~ | () |\|
+# Setup for David's Neighbour's Hugo Netlification component
+################################################################################
+# Copy to /data/dnb/netlification/config.toml and edit to your needs. Lines with
+# hash (#) in the beginning are comments and can be removed or will be ignored.
+################################################################################
+
+################################################################################
+# Caching Setup
+################################################################################
+[cache.duration]
+################################################################################
+# set the amount of years/months/days that static assets should be cached for
+#
+# remove to have everything cached for 1 year
+################################################################################
+years = 1
+months = 0
+days = 0
+
+################################################################################
+# Content Security Policy Setup
+################################################################################
+[csp]
+################################################################################
+# see https://content-security-policy.com/ for info about CSP
+# see https://report-uri.com/account/setup/ for a reporting tool
+################################################################################
+# Reporting is a feature of CSP that sends the evaluation of CSP lines to a
+# server address. This is useful if you want to see, what activities are blocked
+# due to your resulting settings.
+# Set reportOnly to true to leave the "normal" website running as if no CSP is
+# in place. This will show you what the current setup might prohibit and lets
+# you fine tune the ruleset. Comment out or remove once you are done
+# reportOnly = true
+# Reporting URI - if reportOnly is not set it will report fails to the URI
+reportUri = ""
+# Force https even if http links are called
+upgradeInsecureRequests = true
+################################################################################
+# Rulesets
+#
+# Each CSP ruleset (also future rules that are not in this sample yet) can be
+# added by camelcasing the rule (default-src > defaultSrc etc.). Then add the
+# hosts as an array. Keywords like self, eval-inline etc. need to be set in
+# additional hyphens ("'self'").
+#
+# You can add every CSP rule type by using camel case names instead of dashed
+# names. iframeSrc instead of iframe-src, scriptSrc instead of script-src etc.
+#
+# The default setting is to accept only local scripts/sources
+################################################################################
+defaultSrc = [
+    "'self'"
+]
+connectSrc = [
+  "'self'"
+]
+fontSrc = [
+  "'self'"
+]
+frameAncestors = [
+  "'none'"
+]
+frameSrc = [
+  "'self'"
+]
+imgSrc = [
+  "'self'"
+]
+manifestSrc = [
+  "'self'"
+]
+objectSrc = [
+  "'self'"
+]
+scriptSrc = [
+  "'self'"
+]
+styleSrc = [
+  "'self'"
+]
+
+################################################################################
+# Redirects
+#
+# Manual redirects. Netlify redirect is for the internal netlify-URL to be
+# redirected to the live site URL
+################################################################################
+[[redirects]]
+netlify = ""

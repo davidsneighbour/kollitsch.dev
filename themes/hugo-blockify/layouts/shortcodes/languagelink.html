@@ -1,0 +1,11 @@
+{{/*
+
+Param 1: url
+Param 2: title
+Param 2: language
+
+*/}}
+
+<a href="{{ index .Params 0 }}" rel="noopener noreferrer">
+  <i class="flag-{{ index .Params 2 }}"></i>&nbsp;{{ index .Params 1 }}
+</a>

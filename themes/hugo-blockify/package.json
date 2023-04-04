@@ -1,0 +1,47 @@
+{
+  "name": "hugo-blockify",
+  "description": "@davidsneighbour's reusable gohugo components.",
+  "version": "0.0.14",
+  "author": "Patrick Kollitsch <patrick@davids-neighbour.com> (https://davids-neighbour.com)",
+  "bugs": "https://github.com/davidsneighbour/hugo-blockify/issues",
+  "dependencies": {
+    "@davidsneighbour/eslint-config": "^5.1.13",
+    "@davidsneighbour/markdownlint-config": "^5.1.14",
+    "@davidsneighbour/standard-version-config": "^5.0.16",
+    "@davidsneighbour/stylelint-config": "^5.1.14",
+    "@davidsneighbour/tools": "^5.1.13",
+    "@davidsneighbour/webpack-config": "^5.1.13",
+    "@slightlyoff/lite-vimeo": "0.1.2",
+    "all-contributors-cli": "^6.24.0",
+    "lite-youtube-embed": "^0.2.0",
+    "prettier-plugin-go-template": "^0.0.13",
+    "workbox-cacheable-response": "^6.5.4",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4",
+    "workbox-webpack-plugin": "^6.5.4"
+  },
+  "homepage": "https://github.com/davidsneighbour/hugo-blockify#readme",
+  "license": "MIT",
+  "private": true,
+  "repository": "davidsneighbour/hugo-blockify",
+  "scripts": {
+    "build": "run-p build:*",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.js",
+    "clean": "run-p clean:**",
+    "clean:hugo": "rimraf dev/public dev/resources dev/.hugo_build.lock hugo.log",
+    "clean:node": "rimraf node_modules package-lock.json",
+    "release": "standard-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "release:minor": "standard-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
+    "serve:webpack": "webpack --watch --config webpack.js"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "mini-css-extract-plugin": "^2.7.5",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2"
+  }
+}

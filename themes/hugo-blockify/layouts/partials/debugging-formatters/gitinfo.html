@@ -1,0 +1,13 @@
+{{ $gitInfoVarNames   := (slice "Hash" "AbbreviatedHash" "Subject" "AuthorName" "AuthorEmail" "AuthorDate") }}
+{{ $gitInfoVarSymbols := (slice .value.Hash  .value.AbbreviatedHash  .value.Subject  .value.AuthorName  .value.AuthorEmail  .value.AuthorDate ) }}
+<table class="debugprint">
+  <tr>
+      <th class="align-top" class="key">GitInfo Variable</th>
+      <th class="align-top" class="value">Value</th>
+  </tr>
+  {{ range $idx, $elem := $gitInfoVarNames }}
+    {{ printf `<tr> <td class="align-top" class="key">%s</td> <td class="align-top" class="value">` $elem | safeHTML }}
+    {{ partial "debugprint.html" (index $gitInfoVarSymbols $idx) }}
+    {{ printf "</td></tr>" | safeHTML }}
+  {{ end }}
+</table>

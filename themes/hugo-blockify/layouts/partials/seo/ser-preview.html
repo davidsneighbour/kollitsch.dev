@@ -1,0 +1,17 @@
+{{ $tit := .Title }}
+{{ if .Params.seotitle }}
+  {{ $tit = .Params.seotitle }}
+{{ end }}
+
+<div class="media">
+  <div class="media-left">
+    <figure class="image is-96x96">
+      <img src="{{ with .Params.images }} {{ index . 0 }} {{ end }}" alt="{{ .Params.images }}">
+    </figure>
+  </div>
+  <div class="media-content">
+    <a href= "#">{{ $tit }}</a><br>
+    <span class="has-text-success is-size-7">{{ .Permalink }}</span><br>
+    <span class="has-text-grey is-size-7">{{ .PublishDate.Format "Jan 2, 2006"}} - {{ .Description }}</span>
+  </div>
+</div>

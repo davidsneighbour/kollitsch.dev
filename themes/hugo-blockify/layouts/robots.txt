@@ -1,0 +1,46 @@
+{{- /*
+
+Template for robots.txt
+
+- https://gohugo.io/templates/robots/
+- https://discourse.gohugo.io/t/custom-robots-txt-and-sitemap-xml-templates/11869/2
+
+Add "robotsdisallow: true" to frontmatter of entries to be disallowed.
+
+*/ -}}
+{{- $config := site.Params.dnb.robots -}}
+{{- $branding := true -}}
+{{- with $config.disableBranding -}}
+{{- if eq true . -}}
+{{- $branding = false -}}
+{{- end -}}
+{{- end -}}
+
+{{- with $config.initialComment -}}
+{{ . -}}
+{{ end -}}
+
+{{- range $config.useragents }}
+User-agent: {{ .name }}
+{{- range .disallow }}
+Disallow: {{ . }}
+{{- end -}}
+{{- range .allow }}
+Allow: {{ . }}
+{{- end }}
+{{ end }}
+User-agent: *
+{{- range where .Site.RegularPages "Params.robotsdisallow" true }}
+Disallow: {{ .RelPermalink }}
+{{- end }}
+
+Sitemap: {{ "sitemap.xml" | absLangURL }}
+
+{{ with $config.concludingComment -}}
+{{ . | safeHTML -}}
+{{ end -}}
+
+{{- if $branding }}
+# robots.txt is prepared by @davidsneighbour/hugo-robots
+# visit https://github.com/davidsneighbour/hugo-robots
+{{ end -}}

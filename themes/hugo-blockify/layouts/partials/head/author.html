@@ -1,0 +1,11 @@
+{{- with site.Author -}}
+  {{- with .name -}}
+    <meta name="author" content="{{- . -}}">
+  {{- end -}}
+  {{- with .email -}}
+    <link rel="me" href="mailto:{{- . -}}">
+  {{- end -}}
+  {{- with .homepage -}}
+    <link rel="me" href="{{- . -}}" type="text/html">
+  {{- end -}}
+{{- end -}}

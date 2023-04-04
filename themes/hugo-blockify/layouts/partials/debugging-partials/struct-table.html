@@ -1,0 +1,14 @@
+{{ $names := .names }}
+{{ $items := .items }}
+<table class="debugprint">
+  {{- partialCached "debugging-partials/struct-header.html" . -}}
+  <tbody>
+    {{- range $index, $item := $items -}}
+      {{- $slices := slice
+          (index $names $index)
+          (partial "debugtype" $item)
+          ($item) -}}
+      {{- partial "debugging-partials/struct-row.html" $slices -}}
+    {{- end -}}
+  </tbody>
+</table>

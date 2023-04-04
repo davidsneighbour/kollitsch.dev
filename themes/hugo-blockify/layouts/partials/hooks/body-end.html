@@ -1,0 +1,17 @@
+{{- $context := .context -}}
+{{- $config := site.Params.dnb.netlification -}}
+{{- if eq true $config.netlify.cms | default false -}}
+  {{- if eq "home" $context.Kind -}}
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+  {{- end -}}
+{{- end -}}

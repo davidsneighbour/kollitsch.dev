@@ -1,0 +1,13 @@
+[csp]
+defaultSrc = [
+  "'self'"
+]
+
+
+
+#[headers]
+#for = "/pwa/reset"
+#[headers.rules]
+## https://developer.chrome.com/docs/workbox/remove-buggy-service-workers/
+## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
+#Clear-Site-Data = ["cache", "cookies", "storage", "executionContexts"]

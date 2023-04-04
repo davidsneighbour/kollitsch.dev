@@ -1,0 +1,406 @@
+################################################################################
+# hugo-head
+################################################################################
+[dnb.head]
+charset = "utf-8"
+viewport = "width=device-width, initial-scale=1"
+nobase = true
+separator = " | "
+
+[dnb.head.styles]
+entrypoint = "scss/style.scss"
+method = "postcss"
+
+[dnb.head.styles.options]
+outputStyle = "compressed"
+targetPath = "assets/theme.css"
+enableSourceMap = true
+includePaths = ["node_modules/"]
+
+ignoreErrors = ["dnb-sample-error"]
+
+################################################################################
+# hugo-debug
+################################################################################
+[dnb.debug]
+loglink = "https://dnbql.netlify.app/log"
+namespace = "dnb"
+debuglevel = 8
+development = true
+
+[dnb.debug.formats]
+datetime = ""
+datetime_extended = ""
+
+[dnb.debug.plugins]
+scss = ["scss/_debugprint.scss"]
+
+# formatters setup
+# TODO this will move into the data directory as soon as some issues
+# with availability in partials are fixed
+[[dnb.debug.formatters]]
+type = "bool"
+class = "flat"
+slug = "bool"
+label = "Boolean"
+description = ""
+
+[[dnb.debug.formatters]]
+type = "int"
+class = "flat"
+slug = "int"
+label = "Integer"
+description = "a positive or negative number without a floating point"
+
+[[dnb.debug.formatters]]
+type = "int64"
+class = "flat"
+slug = "int64"
+label = "Integer"
+description = "a positive or negative number without a floating point"
+
+[[dnb.debug.formatters]]
+type = "float64"
+class = "flat"
+slug = "float"
+label = "Integer"
+description = "A positive or negative number with a floating point"
+
+[[dnb.debug.formatters]]
+catch = "^(string|template\\.(CSS|HTML|HTMLAttr|JS|JSStr|URL))$"
+class = "flat"
+slug = "string"
+label = "String"
+description = ""
+
+[[dnb.debug.formatters]]
+type = "*hugo.Dependency"
+class = "struct"
+slug = "dependency"
+label = "Dependency"
+description = "A structure containing information about a dependency of the current project."
+
+[[dnb.debug.formatters]]
+type = "*page.Pager"
+class = "struct"
+slug = "pager"
+label = "Pagination Object"
+description = "an object containing pagination information for the current page"
+
+[[dnb.debug.formatters]]
+type = "text.Position"
+class = "struct"
+slug = "position"
+label = "Position"
+description = "A dictionary containing position information for line that the current shortcode was called in."
+
+[[dnb.debug.formatters]]
+type = "time.Time"
+class = "flat"
+slug = "time"
+label = "Time"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "^([[][]]|.*TaxonomyList|output\\.Formats|resource\\.Resources|.*navigation\\.Menu$|\\*?hugolib\\.Pages$|hugolib\\.OrderedTaxonomy$|hugolib\\.WeightedPages)"
+class = "struct"
+slug = "slice"
+internal = "map"
+label = "Slice"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "^(map[[].+[]]|.*SiteSocial|.*navigation\\.Menus$|hugolib\\.AuthorList|hugolib\\.Taxonomy|maps\\.Params)"
+class = "struct"
+internal = "map"
+slug = "map"
+label = "Map"
+description = ""
+weight = 100
+
+[[dnb.debug.formatters]]
+type = "*hugolib.ShortcodeWithPage"
+class = "struct"
+slug = "shortcode"
+label = "Shortcode"
+description = ""
+
+[[dnb.debug.formatters]]
+type = "*hugolib.SiteInfo"
+class = "struct"
+slug = "siteinfo"
+label = "Siteinfo"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "^.*gitmap\\.GitInfo"
+class = "struct"
+slug = "gitinfo"
+label = "GitInfo"
+description = ""
+
+[[dnb.debug.formatters]]
+type = "output.Format"
+class = "struct"
+slug = "outputformat"
+label = "Outputformat"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "^\\*resource"
+class = "struct"
+slug = "resource"
+label = "Resource"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "^(\\*hugolib\\.Page|.*hugolib\\.pageState)"
+class = "struct"
+slug = "page"
+label = "Page"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "^\\*(hugolib|source)\\.[fF]ileInfo$"
+class = "struct"
+slug = "fileinfo"
+label = "FileInfo"
+description = ""
+
+[[dnb.debug.formatters]]
+catch = "navigation\\.MenuEntry$"
+class = "struct"
+slug = "menuentry"
+label = "Menu Entry"
+description = ""
+
+[[dnb.debug.formatters]]
+type = "hugolib.OrderedTaxonomyEntry"
+class = "struct"
+slug = "orderedtaxonomyentry"
+label = "Ordered Taxonomy Entry"
+description = ""
+
+[[dnb.debug.formatters]]
+type = "hugolib.WeightedPage"
+class = "struct"
+slug = "weightedpage"
+label = "Weighted Page"
+description = ""
+
+################################################################################
+# hugo-hooks
+################################################################################
+[dnb.hooks]
+hooklink="https://dnbql.netlify.app/hooks"
+debug=true
+
+################################################################################
+# hugo-robots
+################################################################################
+[dnb.robots]
+
+# initialComment = '''
+# # add some intial comments to the robots.txt
+# '''
+
+# concludingComment = '''
+# # You're still here? It's over.
+# '''
+
+disableBranding = false
+
+# [[dnb.robots.useragents]]
+# name = "Googlebot"
+# disallow = ["/nogooglebot/", "/anotherdirectory/"]
+
+# [[dnb.robots.useragents]]
+# name = "Googlebot2"
+# allow = ["/nogooglebot/", "/anotherdirectory/"]
+
+################################################################################
+# hugo-security
+################################################################################
+[dnb.security.policy]
+content = ""
+
+[dnb.security.txt]
+# configuration for security.txt - see https://securitytxt.org/ for details
+
+# optional
+# introduction comment for the security.txt file. add empty to disable
+# Don't forget to add comment markers `#` to lines you want to be comments
+intro = "# Information related to reporting security vulnerabilities of this site."
+
+# required
+# A link or e-mail address for people to contact you about security issues.
+# Remember to include "https://" for URLs, and "mailto:" for e-mails.
+contact = ""
+
+# required
+# Will help to create the date and time when the content of the security.txt
+# file should be considered stale (so security researchers should then not trust
+# it). This value should be an integer and will be interpreted as days.
+expires = 365
+
+# optional
+# A link to a key which security researchers should use to securely talk to you.
+# Remember to include "https://".
+encryption = ""
+
+# optional
+# A link to a web page where you say thank you to security researchers who have
+# helped you. Remember to include "https://".
+acknowledgements = ""
+
+# optional
+# A comma-separated list of language codes that your security team speaks.
+# You may include more than one language.
+languages = "en"
+
+# optional
+# The URLs for accessing your security.txt file. It is important to include this
+# if you are digitally signing the security.txt file, so that the location of the
+# security.txt file can be digitally signed too.
+canonical = ""
+
+# optional
+# A link to a policy detailing what security researchers should do when searching
+# for or reporting security issues. Remember to include "https://".
+policy = ""
+
+# optional
+# A link to any security-related job openings in your organisation.
+# Remember to include "https://".
+hiring = ""
+
+################################################################################
+# hugo-auditor
+################################################################################
+[dnb]
+[dnb.auditor]
+ct = false
+
+################################################################################
+# hugo-feeds
+################################################################################
+[dnb.feeds]
+limit = 10
+
+[dnb.feeds.atom]
+limit = 10
+
+[dnb.feeds.rss]
+limit = 10
+
+[dnb.feeds.json]
+limit = 10
+
+################################################################################
+# hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
+################################################################################
+[dnb.giscus]
+src = "https://giscus.app/client.js"
+#dataRepo = "username/reponame"
+#dataRepoId = "ABCDEFGHIJKLMNOPQSTUVXYZABCDEFGH"
+#dataCategory = "Comments"
+#dataCategoryId = "ABCDEFGHIJKLMNOPQRST"
+dataMapping = "specific"
+dataLoading = "lazy"
+dataReactionsEnabled = "1"
+dataEmitMetadata = "0"
+dataInputPosition = "top"  # top, bottom
+dataTheme = "dark" # dark_dimmed, dark, light, light_dimmed
+# dataThemeType = "local" # if set and local then dataTheme is an URL
+# de, en, es, fr, gsw, id, it, ja, ko, pl, ro, ru, tr, vi, zh-CN, zh-TW
+dataLang = "en"
+dataStrict="1"
+
+[dnb.giscus.extended]
+# require giscus.json setup
+# https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md
+origins = []
+originsRegex = []
+defaultCommentOrder = "oldest" # "oldest" (oldest to newest) or "newest"
+
+################################################################################
+# hugo-opensearch
+################################################################################
+[dnb.opensearch]
+hookLink = "https://dnbql.netlify.app/opensearch"
+# title = ""
+# description = ""
+
+################################################################################
+# hugo-search
+################################################################################
+[dnb.search]
+[dnb.search.algolia]
+appId = ""
+apiKey = ""
+indexName = ""
+numberLocale = ""
+
+[dnb.search.algolia.plugins]
+js = [
+  "js/instantsearch.js",
+  "js/search-algolia.js"
+]
+jsTemplates = [
+  "js/algolia-setup.js"
+]
+
+################################################################################
+# hugo-youtube
+################################################################################
+[dnb.youtube]
+# set the source server that thumbnails are loaded from
+# - 1 for googleusercontent.com (default)
+# - 2 for ytimg.com
+thumbnail_source = 1
+# disabled = false
+# verbose = true
+
+################################################################################
+# hugo-pwa
+################################################################################
+[dnb.pwa]
+dev = true
+
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/start_url
+start_url = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/short_name
+short_name = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/theme_color
+theme_color = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/background_color
+background_color = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/display
+display = ""
+# https://developer.mozilla.org/en-US/docs/Web/Manifest/description
+description = ""
+
+################################################################################
+# hugo-netlification
+################################################################################
+[dnb.netlification]
+upgradeInsecureRequests = true
+# modes available
+# netlify = Netlify
+# github = Github Pages
+# gitlab = Gitlab Pages
+# cloudflare = Cloudflare Pages
+mode = "netlify"
+
+# netlify specific settings
+[dnb.netlification.netlify]
+#cms = true
+
+# github specific settings
+[dnb.netlification.github]
+
+# gitlab specific settings
+[dnb.netlification.gitlab]
+
+# cloudflare specific settings
+[dnb.netlification.cloudflare]

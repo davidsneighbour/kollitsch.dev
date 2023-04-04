@@ -1,0 +1,38 @@
+{{- /*
+
+@example
+
+{{- partial "icon" (dict "type" "bs" "icon" "cash") -}}
+{{- partialCached "icon" (dict "type" "bs" "icon" "cash") "cash" -}}
+{{< icon type="bs" icon="cash" >}}
+
+*/ -}}
+
+{{- /*
+
+TODO:
+- check for setup defaults
+- documentation
+
+*/ -}}
+
+{{- $config := site.Data.dnb.icons.config -}}
+{{- $config2 := site.Params.dnb.icons -}}
+{{- $config = $config | merge $config2 -}}
+
+{{- $type := $config.default -}}
+{{- $slug := "bs" -}}
+{{- $path := "icons/bootstrap-icons/%s.svg" -}}
+{{- if eq .Type "hi" -}}
+  {{- $type = "hi" -}}
+  {{- $slug = "heroicon" -}}
+  {{- $path = "icons/heroicons/solid/%s.svg" -}}
+{{- end -}}
+{{- $iconname := .icon -}}
+
+{{- $icon := (printf $path $iconname) -}}
+{{- with resources.Get $icon -}}
+<span class="{{ $slug }} {{ $slug }}--{{- $iconname }} w-max h-max">
+  {{- .Content | safeHTML -}}
+</span>
+{{- end -}}

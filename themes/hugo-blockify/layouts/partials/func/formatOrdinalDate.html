@@ -1,0 +1,11 @@
+{{- $format := .format -}}
+{{- $date := .date -}}
+{{- $shortend := "th" -}}
+{{- if in (slice 1 21 31) $date.Day -}}
+  {{- $shortend = "st" -}}
+{{- else if in (slice 2 22) $date.Day -}}
+  {{- $shortend = "nd" -}}
+{{- else if in (slice 3 23) $date.Day -}}
+  {{- $shortend = "rd" -}}
+{{- end -}}
+{{- return $date.Format (printf $format $shortend) -}}

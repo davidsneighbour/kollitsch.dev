@@ -1,0 +1,14 @@
+# algolia index configuration
+appId = ""
+apiKey = ""
+indexName = ""
+numberLocale = ""
+
+[plugins]
+js = [
+  "js/instantsearch.js",
+  "js/search-algolia.js"
+]
+jsTemplates = [
+  "js/algolia-setup.js"
+]

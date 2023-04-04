@@ -1,0 +1,38 @@
+{
+	"files": [
+		"README.md"
+	],
+	"imageSize": 64,
+	"commit": false,
+	"contributors": [
+		{
+			"login": "davidsneighbour",
+			"name": "Patrick Kollitsch",
+			"avatar_url": "https://avatars.githubusercontent.com/u/83281?v=4",
+			"profile": "https://kollitsch.dev",
+			"contributions": [
+				"maintainer",
+				"code",
+				"doc",
+				"ideas",
+				"maintenance",
+				"test"
+			]
+		},
+		{
+			"login": "jmooring",
+			"name": "Joe Mooring",
+			"avatar_url": "https://avatars.githubusercontent.com/u/335669?v=4",
+			"profile": "https://github.com/jmooring",
+			"contributions": [
+				"code"
+			]
+		}
+	],
+	"contributorsPerLine": 7,
+	"projectName": "hugo-social",
+	"projectOwner": "davidsneighbour",
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"skipCi": true
+}

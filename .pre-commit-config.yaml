@@ -13,7 +13,7 @@ repos:
   - repo: 'https://github.com/pre-commit/pre-commit-hooks'
     rev: v4.4.0
     hooks:
-      - id: check-byte-order-marker #- forbids files which have a utf-8 byte-order marker.
+      - id: fix-byte-order-marker #- fixes files which have a utf-8 byte-order marker.
       - id: check-case-conflict #- checks for files that would conflict in case-insensitive filesystems.
       - id: check-docstring-first #- checks a common error of defining a docstring after code.
       - id: check-executables-have-shebangs #- ensures that (non-binary) executables have a shebang.

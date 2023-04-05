@@ -79,10 +79,10 @@ const scriptDistConfig = {
     main: path.join(__dirname, 'assets/js', 'blockify.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'assets/dist/js'),
+    path: path.resolve(__dirname, 'assets/js'),
     //filename: '[name].[fullhash].js',
     filename: '[name].js',
-    clean: true,
+    //clean: true,
   },
   // plugins: [
   //   new FileListPlugin(),

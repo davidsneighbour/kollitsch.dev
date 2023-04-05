@@ -7,7 +7,7 @@
   defer
   integrity="{{- $scripts.Data.Integrity -}}"></script>
 
-{{- with resources.Get "dist/js/main.js" -}}
+{{- with resources.Get "js/main.js" -}}
   {{- $script := . | minify | fingerprint "sha512" -}}
   <script
     type="module"
@@ -18,7 +18,7 @@
     integrity="{{- $script.Data.Integrity -}}"></script>
 {{- else -}}
   {{- partial "debug.html"
-    (dict "message" "hugo-blockify - dist/js/main.js missing"
+    (dict "message" "hugo-blockify - js/main.js missing"
     "context" .
     "severity" "warn"
     "level" 4

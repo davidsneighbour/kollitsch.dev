@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg">
+  <title>Template for GitHub Repo Image</title>
+  <rect width="1280" height="640" fill="#fdf6e3"/>
+  <text transform="scale(1.0372 .96414)" x="54.857624" y="441.08908" fill="#dc322f" font-family="sans-serif" font-size="42.74px" stroke-width="1.6028" style="line-height:1.25" xml:space="preserve"><tspan x="54.857624" y="441.08908" fill="#dc322f" font-family="'Tomkin Narrow'" font-size="42.74px" stroke-width="1.6028">GoHugo Components by DNB</tspan></text>
+  <text transform="scale(1.0372 .96414)" x="45.881981" y="601.56543" fill="#dc322f" font-family="sans-serif" font-size="170.96px" stroke-width="1.6028" style="line-height:1.25" xml:space="preserve"><tspan x="45.881981" y="601.56543" fill="#dc322f" font-family="'Tomkin Condense'" font-size="170.96px" font-weight="bold" stroke-width="1.6028">PICTURES</tspan></text>
+</svg>

@@ -1,11 +1,10 @@
 @charset 'utf-8';
 
-// Configuration
+// BS: configuration
 @import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/variables-dark';
 
-// theme settings
+// DNB: theme settings
+@import '01-settings/colors';
 @import '01-settings/colormode-default';
 @import '01-settings/colormode-light';
 @import '01-settings/colormode-dark';
@@ -14,18 +13,19 @@
 @import '01-settings/layout';
 @import '01-settings/utilities';
 
-// our own mixins
-@import '02-mixins/gridpile';
-@import '02-mixins/scrollbars';
-@import '02-mixins/scrollsnap';
-@import '02-mixins/shadows';
+// BS: theme settings
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
 
-// continuing with bootstrap
+// DNB: map overrides
+@import '01-settings/maps';
+
+// BS: other required parts
 @import 'bootstrap/scss/maps';
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/utilities';
 
-// Layout & components
+// BS: all other components as required
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/reboot';
 @import 'bootstrap/scss/type';
@@ -58,19 +58,25 @@
 @import 'bootstrap/scss/offcanvas';
 @import 'bootstrap/scss/placeholders';
 
-// Helpers
+// BS: helpers
 @import 'bootstrap/scss/helpers';
 
-// Utilities
+// BS: utilities API
 @import 'bootstrap/scss/utilities/api';
 
-// layout
+// DNB: mixins
+@import '02-mixins/gridpile';
+@import '02-mixins/scrollbars';
+@import '02-mixins/scrollsnap';
+@import '02-mixins/shadows';
+
+// DNB: layout
 @import '03-layout/global';
 @import '03-layout/header';
 @import '03-layout/footer';
 @import '03-layout/responsive';
 
-// Global Components
+// DNB: Global Components
 @include dnb-scrollbars();
 
 @import '04-components/utilities';
@@ -83,7 +89,7 @@
 // @import '04-components/features';
 // @import '04-components/tabs';
 
-// PROSE: article content formatting
+// DNB: prose - article content formatting
 @include dnb-scrollbars('.prose', 3px);
 
 .prose {
@@ -93,15 +99,15 @@
 	// @import '05-prose/tables';
 }
 
-// plugins
+// DNB: plugins
 // @import '06-plugins/debugprint';
 // @import '06-plugins/devaudit';
 @import '06-plugins/alpine';
 @import '06-plugins/syntax';
 
-// hugo-blockify
+// DNB: hugo-blockify
 @import 'blockify';
 @import 'hugo-shortcodes/lite-yt-embed';
 
-// external plugins (imported from node_modules)
+// DNB: external plugins (imported from node_modules)
 @import 'animate.css/animate';

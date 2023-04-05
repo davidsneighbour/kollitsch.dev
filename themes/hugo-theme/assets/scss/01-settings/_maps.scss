@@ -4,18 +4,3 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
 );
-// default settings for colors
-$colors: (
-	'primary': $red,
-	'gray': $gray-500,
-);
-
-
-$primary: $red;
-$secondary: $gray-600;
-$success: $green;
-$info: $cyan;
-$warning: $yellow;
-$danger: $red;
-$light: $gray-100;
-$dark: $gray-900;

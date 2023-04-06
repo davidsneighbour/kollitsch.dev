@@ -1,4 +1,9 @@
 /*******************************************************************************
+ * global elements
+ ******************************************************************************/
+$border-width: 2px;
+
+/*******************************************************************************
  * typography
  ******************************************************************************/
 $font-size-root: 1.2rem;
@@ -25,11 +30,12 @@ $link-hover-decoration: underline;
 /*******************************************************************************
  * navigation
  * see
- * - https: //getbootstrap.com/docs/5.2/components/navbar/
- * - https: //getbootstrap.com/docs/5.2/components/navs-tabs/
+ * - https://getbootstrap.com/docs/5.3/components/navbar/
+ * - https://getbootstrap.com/docs/5.3/components/navs-tabs/
  ******************************************************************************/
-$navbar-padding-y: null; //$spacer * 0.5;
-$navbar-padding-x: null;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-brand-padding-y: 0;
 
 /*******************************************************************************
  * pagination
@@ -69,6 +75,8 @@ $navbar-padding-x: null;
 $enable-rounded: false;
 $enable-rfs: false;
 $enable-dark-mode: true;
+$enable-shadows: true;
+$enable-gradients: true;
 $enable-negative-margins: true;
 $enable-important-utilities: false;
 
@@ -82,8 +90,8 @@ $heading-height: 70px;
  * root setup
  ******************************************************************************/
 :root {
-	// https://drafts.csswg.org/css-ui-4/#widget-accent
-	// https://caniuse.com/?search=accent-color
-	accent-color: $primary;
-	color-scheme: dark;
+  // https://drafts.csswg.org/css-ui-4/#widget-accent
+  // https://caniuse.com/?search=accent-color
+  accent-color: $primary;
+  color-scheme: dark;
 }

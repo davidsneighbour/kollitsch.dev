@@ -4,16 +4,18 @@
       <div class="row">
         {{- $postClasses := partialCached "func/getArticleClasses.html" . . -}}
         <article class="{{- $postClasses -}}">
-          <h1 class="h2"><a href="{{ .Permalink }}">Archive</a></h1>
+          <h1 class="h2 post-title"><a href="{{ .Permalink }}">Archive</a></h1>
           <div class="prose component--archive-card">
             {{- $paginator := .Scratch.Get "paginator" -}}
             {{- range $index, $item := $paginator.Pages -}}
-              <div class="d-flex flex-row">
-                <div class="is--date me-3 text-end">
-                  {{- $item.PublishDate.Format "January 2, 2006" -}}
+              <div class="is--item d-flex align-items-start flex-row">
+                <div class="is--date">
+                  <span>{{- $item.PublishDate.Format "Jan" -}}</span>
+                  <span>{{- $item.PublishDate.Format "2" -}}</span>
+                  <span>{{- $item.PublishDate.Format "2006" -}}</span>
                 </div>
                 <div class="is--content">
-                  <h2>
+                  <h2 class="post-title">
                     <a href="{{ $item.Permalink }}">
                       {{- $item.Title -}}
                     </a>

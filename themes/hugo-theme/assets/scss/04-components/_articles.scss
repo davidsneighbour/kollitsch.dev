@@ -1,32 +1,31 @@
 // @todo move this into prose
 article {
-	h1.post-title,
-	h2.post-title {
-		a {
-			@extend .text-uppercase;
-			@extend .text-decoration-none;
-		}
+  h1.post-title,
+  h2.post-title {
+    a {
+      @extend .text-uppercase;
+      @extend .text-decoration-none;
+    }
 
-		border-bottom: 2px solid $primary;
-		padding-bottom: $spacer/4;
-		margin-bottom: $spacer;
-	}
+    border-bottom: $border-width solid $primary;
+    @extend .mb-3;
+  }
 
-	.ribbon {
-		@extend .z-3;
+  .ribbon {
+    @extend .z-3;
 
-		&.status--draft {
-			color: var(--bs-light);
-			background-color: var(--bs-primary);
-		}
+    &.status--draft {
+      color: var(--bs-light);
+      background-color: var(--bs-primary);
+    }
 
-		@extend .text-center;
-		@extend .position-absolute;
-		@extend .top-0;
-		@extend .start-0;
-		@extend .py-1;
-		@extend .px-2;
-	}
+    @extend .text-center;
+    @extend .position-absolute;
+    @extend .top-0;
+    @extend .start-0;
+    @extend .py-1;
+    @extend .px-2;
+  }
 
-	@extend .position-relative;
+  @extend .position-relative;
 }

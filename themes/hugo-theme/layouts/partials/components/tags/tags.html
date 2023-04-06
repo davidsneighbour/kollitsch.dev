@@ -1,14 +1,9 @@
 {{- with (.GetTerms "tags") -}}
-<div class="gap-2 d-flex">
-  <ul class="mb-0 list-inline">
-    <li class="list-inline-item">
-      {{- partialCached "bsicon.html" "tags-fill" "tags-fill" -}}
-    </li>
+  <div class="is--tags gap-2">
     {{- range . -}}
-      <li class="list-inline-item">
+      <span class="badge text-bg-light">
         <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | lower -}}</a>
-      </li>
+      </span>
     {{- end -}}
-  </ul>
-</div>
+  </div>
 {{- end -}}

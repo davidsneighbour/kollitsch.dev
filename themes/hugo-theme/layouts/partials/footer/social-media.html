@@ -1,8 +1,12 @@
 <div class="widget social-media">
-  <h2 class="mt-3 mb-0">{{- i18n "connect-on-social" -}}</h2>
-  {{- range .network -}}
-    <a href="{{- .url -}}" aria-label="{{- .label -}}" class="mx-3 icon-{{ .icon }}">
-      {{- partialCached "bsicon.html" .icon .icon -}}
-    </a>
-  {{- end -}}
+  <div class="h2 mb-0 mt-3">{{- i18n "connect-on-social" -}}</div>
+  <div class="hstack justify-content-center gap-3">
+    {{- range .network -}}
+      <div class="p-2">
+        <a href="{{- .url -}}" aria-label="{{- .label -}}" class="icon-{{ .icon }}">
+          {{- partialCached "bsicon.html" .icon .icon -}}
+        </a>
+      </div>
+    {{- end -}}
+  </div>
 </div>

@@ -1,8 +1,10 @@
-<p class="my-5">
-  {{- $year := partialCached "func/getYear.html" . . -}}
-  {{- printf (i18n "copyright-text") (string $year) | .RenderString | safeHTML -}}
-	<span class="d-none is--site-version">
-		&nbsp;&mdash;&nbsp;
-		Version <a href="#" class="version"></a>
-	</span>
-</p>
+<div class="hstack justify-content-center my-5 gap-3">
+  <div class="p-2">
+    {{- $year := partialCached "func/getYear.html" . -}}
+    {{- printf (i18n "copyright-text") (string $year) | .RenderString | safeHTML -}}
+  </div>
+  <div class="vr"></div>
+  <div class="p-2">
+    <span class="d-none is--site-version">Version <a href="#" class="version"></a></span>
+  </div>
+</div>

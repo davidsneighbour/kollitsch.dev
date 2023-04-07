@@ -1,26 +1,21 @@
 ---
 title: Giscus
-linkTitle: "hugo-giscus"
+linkTitle: hugo-giscus
 description: ""
 summary: ""
-
 date: 2022-08-16T20:28:30+07:00
 publishDate: 2022-08-16T20:28:30+07:00
-lastmod: 2022-08-16T20:28:30+07:00
-
+lastmod: 2023-04-07T22:45:19+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - content
-
 component:
-  slug: "hugo-giscus"
+  slug: hugo-giscus
   status: release
   list: true
   host: github.com
@@ -50,7 +45,7 @@ dataReactionsEnabled = "1"
 dataEmitMetadata = "0"
 dataInputPosition = "top"  # top, bottom
 dataThemeType = "default"
-dataTheme = "dark"
+dataTheme = "light"
 dataLang = "en"
 ```
 
@@ -69,7 +64,7 @@ This can be done with this module's configuration and future updates to these fe
 To configure the module to create the giscus.json add the custom output format `GISCUS` to your home section:
 
 ```toml
-[outputs]  
+[outputs]
 home = ["HTML", "GISCUS"]
 ```
 

@@ -3,7 +3,7 @@ title: Refactoring my screenshot script
 description: I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit.
 date: 2023-03-08T21:57:10+07:00
 publishDate: 2023-03-08T21:57:10+07:00
-lastmod: 2023-04-07T15:47:28+07:00
+lastmod: 2023-04-07T15:58:15+07:00
 resources:
   - title: Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -16,7 +16,6 @@ type: blog
 ---
 
 My go-to-script to create a screenshot as header images of posts about a website was for a long time this:
-
 
 ```js
 const { chromium } = require('playwright');
@@ -153,9 +152,9 @@ In this modified script, we use the yargs library to parse command-line argument
 To run this script from the CLI, you can save it as a file (e.g. screenshot.js) and then run the following command:
 
 ```shell
-node screenshot.js --url https://example.com --output screenshot.jpg --width 800 --height 600
+node screenshot.js --url=https://example.com --output=screenshot.jpg --width=800 --height=600
 ```
 
 This will capture a screenshot of the "https://example.com" website with a viewport size of 800x600 and save it as "screenshot.jpg".
 
-I feel like this will be enough for now. I hope you enjoyed this post and learned something new. If you have any questions or suggestions, feel free to leave a comment below. If you think I could optimise another part of the script, let me know too. I'm always happy to learn something new.
+I feel like this is enough change for now. If you have any questions or suggestions, feel free to leave a comment below. If you think I could optimise another part of the script, let me know too.

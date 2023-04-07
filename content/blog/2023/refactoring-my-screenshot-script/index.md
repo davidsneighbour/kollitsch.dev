@@ -1,21 +1,17 @@
 ---
 title: Refactoring my screenshot script
-description: "I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit."
-
+description: I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit.
 date: 2023-03-08T21:57:10+07:00
 publishDate: 2023-03-08T21:57:10+07:00
-lastmod: 2023-03-09T19:45:06+07:00
-
+lastmod: 2023-04-07T15:47:28+07:00
 resources:
   - title: Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)
     src: header.jpg
-
 tags:
   - javascript
   - module
   - refactoring
   - 100DaysToOffload
-
 type: blog
 ---
 
@@ -113,30 +109,31 @@ Now lets rewrite this script to be run from the CLI with yargs:
 ```js
 import { chromium } from "playwright";
 import yargs from "yargs";
+import { hideBin } from 'yargs/helpers';
 
-const argv = yargs
-  .option("url", {
-    describe: "URL to capture a screenshot of",
-    demandOption: true,
-    type: "string"
-  })
-  .option("output", {
-    describe: "Output file name",
-    default: "header.jpg",
-    type: "string"
-  })
-  .option("width", {
-    describe: "Viewport width",
-    default: 1200,
-    type: "number"
-  })
-  .option("height", {
-    describe: "Viewport height",
-    default: 600,
-    type: "number"
-  })
-  .help()
-  .alias("help", "h").argv;
+const argv = yargs(hideBin(process.argv))
+	.option("url", {
+		describe: "URL to capture a screenshot of",
+		demandOption: true,
+		type: "string"
+	})
+	.option("output", {
+		describe: "Output file name",
+		default: "header.jpg",
+		type: "string"
+	})
+	.option("width", {
+		describe: "Viewport width",
+		default: 1200,
+		type: "number"
+	})
+	.option("height", {
+		describe: "Viewport height",
+		default: 600,
+		type: "number"
+	})
+	.help()
+	.alias("help", "h").argv;
 
 export const takeScreenshot = async (url, output, width, height) => {
 	const browser = await chromium.launch();
@@ -147,7 +144,8 @@ export const takeScreenshot = async (url, output, width, height) => {
 	await browser.close();
 };
 
-//takeScreenshot(argv.url, argv.output, argv.width, argv.height);
+// @ts-ignore
+takeScreenshot(argv.url, argv.output, argv.width, argv.height);
 ```
 
 In this modified script, we use the yargs library to parse command-line arguments. Notice the extended `option` lines in the beginning. They will be automatically converted to a helpful CLI help message when running the script with the `--help` (or `-h`) parameter.

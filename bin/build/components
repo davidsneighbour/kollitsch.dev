@@ -66,6 +66,10 @@ for DIRNAME in "${COMPONENTPATH}"/*/; do
 
 done
 
+git add content/components
+git commit -m "chore: update component header images and release data"
+git push origin main
+
 echo -e "${COLOR_YELLOW}"
 echo "================================================================"
 echo "done."

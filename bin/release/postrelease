@@ -36,11 +36,6 @@ if test -f "$FILE"; then
 	git add $FILE
 fi
 
-# retrieve component state
-echo "retrieving component state..."
-./bin/build/components
-echo "done"
-
 # add re-versioned files to recent edit
 git add data/dnb/
 git commit --amend --no-edit --quiet --signoff

@@ -1,29 +1,19 @@
 ---
 title: Protected .dotfile files with Keybase
-description: Adding all my secret files, keys, passwords and api strings into an encrypted
-  repository on Keybase to add them to my dotfiles repository.
-
+description: Adding all my secret files, keys, passwords and api strings into an encrypted repository on Keybase to add them to my dotfiles repository.
 date: 2022-11-06T18:29:12+07:00
 publishDate: 2022-11-06T18:29:12+07:00
-lastmod: 2022-11-06T20:39:41+07:00
-
+lastmod: 2023-04-07T16:42:15+07:00
 resources:
-  - title: Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via
-      [Unsplash](https://unsplash.com/)
-    name: image name if other than src
+  - title: Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via [Unsplash](https://unsplash.com/)
     src: header.jpg
-
 tags:
   - keybase
   - dotfiles
   - privacy
   - security
   - 100DaysToOffload
-
 type: blog
-
-unsplash:
-  imageid: HK8IoD-5zpg
 ---
 
 For reasons I don't want to go too deep into (I once again violated my rule to NOT install Ubuntu versions without a LTS in their name and ended up without eyes or ears) I had to reinstall my workstations and computers last week. While that sounds like hard work it isn't much of it due to [my dotfiles repository][1]. I will explain the concept of `.dotfiles` and my own implementation at a later point, for now, just know, that it's a backup of my home directory and settings for pretty much that is happening on my (Linux based) computers these days. I can re-install the programs I use and their configurations and setups with a single command. That's all ;]
@@ -84,7 +74,7 @@ And then, if you wish, some cleanup:
 rm protected_repo
 ```
 
-And that is all that needs to be done. Put your secret files into the encrypted repository and don't forget to push them up to Keybase, then link them from your dotfiles repository.
+And that's all that needs to be done. Put your secret files into the encrypted repository and don't forget to push them up to Keybase, then link them from your dotfiles repository.
 
 I should probably, in some time, write up a post about [my dotfiles repository][1], but, to be blunt, right now it's a mess and nothing to be too proud of. This whole encrypted secrets-set-up though is perfectly fine and I would advise you to implement it or some variety of it into your dotfiles hygiene :)
 

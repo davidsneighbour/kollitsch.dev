@@ -1,22 +1,21 @@
 [id^='fnref'] {
-	color: $primary;
+  color: $primary;
 }
 
 .footnotes {
-	margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 
-	hr {
-		margin: 0.25rem 0;
-		padding: 0;
-		// border-top: 1px solid $base0;
-	}
+  hr {
+    @extend .border;
+    @extend .border-primary;
+  }
 
-	.footnote-backref {
-		visibility: hidden;
+  .footnote-backref {
+    visibility: hidden;
 
-		&::before {
-			visibility: visible;
-			content: '↥';
-		}
-	}
+    &::before {
+      visibility: visible;
+      content: '↥';
+    }
+  }
 }

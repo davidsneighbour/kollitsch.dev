@@ -1,7 +1,7 @@
 {{- with (.GetTerms "tags") -}}
-  <div class="is--tags gap-2">
+  <div class="is--tags">
     {{- range . -}}
-      <span class="badge text-bg-light">
+      <span class="badge text-bg-light ms-2">
         <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | lower -}}</a>
       </span>
     {{- end -}}

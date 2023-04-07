@@ -1,12 +1,12 @@
 {{- $current := .Name -}}
 <ul class="list-inline">
-  {{- range (index site.Taxonomies .Type) -}}
+  {{- range $index, $value := (index site.Taxonomies .Type) -}}
     <li class="list-inline-item mx-2">
-      <a href="{{- page.Permalink -}}" class="text-decoration-none">
-        {{- if eq $current page.Title -}}<strong>{{- end -}}
+      <a href="/tags/{{ $index }}" class="text-decoration-none">
+        {{- if eq $current $index -}}<strong>{{- end -}}
         {{- partialCached "bsicon.html" "tag-fill" "tag-fill" -}}
-        {{- page.Title -}} ({{- .Count -}})
-        {{- if eq $current page.Title -}}</strong>{{- end -}}
+        {{- $index -}} ({{- .Count -}})
+        {{- if eq $current $index -}}</strong>{{- end -}}
       </a>
     </li>
   {{- end -}}

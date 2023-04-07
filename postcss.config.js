@@ -3,7 +3,26 @@ const postcsspresetenv = require('postcss-preset-env');
 const autoprefixer = require('autoprefixer');
 const doiuse = require('doiuse');
 
-const purgecss = require('@fullhuman/postcss-purgecss');
+// running purgecss only in production so we can use all available classes in development
+const purgecss = process.env.HUGO_ENVIRONMENT === 'production' ? require('@fullhuman/postcss-purgecss')({
+	content: ['./hugo_stats.json'],
+	// https://github.com/gohugoio/hugo/issues/10338
+	// https://discourse.gohugo.io/t/purgecss-and-highlighting/41021
+	safelist: {
+		greedy: [/highlight/, /chroma/, /widget--web-vitals/]
+	},
+	fontFace: true,
+	//variables: true,
+	keyframes: true,
+	defaultExtractor: content => {
+		const els = JSON.parse(content).htmlElements;
+		return [
+			...(els.tags || []),
+			...(els.classes || []),
+			...(els.ids || []),
+		];
+	}
+}) : null;
 
 module.exports = {
 	plugins: [
@@ -29,25 +48,8 @@ module.exports = {
 			},
 			debug: true,
 		}),
-		purgecss({
-			content: ['./hugo_stats.json'],
-			// https://github.com/gohugoio/hugo/issues/10338
-			// https://discourse.gohugo.io/t/purgecss-and-highlighting/41021
-			safelist: {
-				greedy: [/highlight/, /chroma/, /widget--web-vitals/]
-			},
-			fontFace: true,
-			//variables: true,
-			keyframes: true,
-			defaultExtractor: content => {
-				const els = JSON.parse(content).htmlElements;
-				return [
-					...(els.tags || []),
-					...(els.classes || []),
-					...(els.ids || []),
-				];
-			}
-		}),
+
+		purgecss,
 		// https://github.com/cssnano/cssnano
 		cssnano({
 			preset: [

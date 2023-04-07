@@ -4,10 +4,12 @@
       <div class="row">
         {{- $paginator := .Scratch.Get "paginator" -}}
         <h1 class="visually-hidden h2">Recent Posts (Page {{ $paginator.PageNumber -}})</h1>
+
         {{- $fullcontent := false -}}
         {{- if (eq $.Kind "page") -}}
           {{- $fullcontent = true -}}
         {{- end -}}
+
         {{- range $index, $item := $paginator.Pages -}}
           {{ if not .IsHome }}
             {{- $post := dict "context" $item "fullcontent" $fullcontent "responsive" "halfwidth" -}}

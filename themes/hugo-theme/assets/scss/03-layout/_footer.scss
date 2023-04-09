@@ -1,4 +1,5 @@
 .widget.social-media {
+
 	a:link,
 	a:hover {
 		text-decoration: none;
@@ -30,7 +31,7 @@
 	}
 
 	dl {
-		> div {
+		>div {
 			@extend .d-inline;
 		}
 
@@ -68,4 +69,23 @@
 	@extend .position-sticky;
 	@extend .w-100;
 	@extend .h-100;
+	@extend .mb-0;
+
+	#hb,
+	#ht {
+		@extend .d-flex;
+		@extend .justify-content-center;
+	}
+
+	#hb {
+		height: 200px;
+		margin-left: -100px;
+		margin-top: -13px;
+		opacity: 0.6;
+	}
+
+	#ht {
+		height: 500px;
+		opacity: 0.2;
+	}
 }

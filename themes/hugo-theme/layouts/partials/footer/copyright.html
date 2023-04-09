@@ -1,4 +1,4 @@
-<div class="hstack justify-content-center my-5 gap-3">
+<div class="hstack justify-content-center mt-5 gap-3">
   <div class="p-2">
     {{- $year := partialCached "func/getYear.html" . -}}
     {{- printf (i18n "copyright-text") (string $year) | .RenderString | safeHTML -}}

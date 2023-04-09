@@ -12,7 +12,10 @@ $layout-character-width: 70ch;
  ******************************************************************************/
 main {
 	padding-top: $heading-height + 30px;
-	padding-bottom: 150px;
+
+	padding-bottom: 0;
+	margin-bottom: 0;
+
 	background-color: var(--bs-body-bg);
 	z-index: 1001;
 
@@ -36,16 +39,9 @@ main {
 	/* stylelint-disable plugin/no-unsupported-browser-features
 				-- we can live with that. */
 	grid-template-columns:
-		[full-start] var(--full)
-		[feature-start] var(--feature)
-		[popout-start] var(--popout)
-		[content-start] var(--content)
-		[content-end] var(--popout)
-		[popout-end] var(--feature)
-		[feature-end] var(--full)
-		[full-end];
+		[full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end];
 
-	> * {
+	>* {
 		grid-column: content;
 	}
 
@@ -59,6 +55,15 @@ main {
 
 	.full {
 		grid-column: full;
+	}
+
+	#bi {
+		opacity: 0.2;
+		margin-top: -59%;
+		grid-column: full;
+		@extend .w-100;
+		z-index: -1;
+		margin-bottom: -10px;
 	}
 }
 

@@ -1,25 +1,20 @@
 ---
 title: Pictures
-linkTitle: "hugo-pictures"
-description: "This component for GoHugo adds partials and shortcodes to handle images on your website. It offers responsive image formats and optimisgit ed loading based on current browser abilities."
-
+linkTitle: hugo-pictures
+description: This component for GoHugo adds partials and shortcodes to handle images on your website. It offers responsive image formats and optimisgit ed loading based on current browser abilities.
 date: 2022-08-24T19:47:25+07:00
-publishDate: "2022-08-24T19:47:25+07:00"
-lastmod: "2022-08-24T19:47:25+07:00"
-
+publishDate: 2022-08-24T19:47:25+07:00
+lastmod: 2023-04-10T20:32:05+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - seo
-
 component:
-  slug: "hugo-pictures"
+  slug: hugo-pictures
   status: prerelease
   list: true
   host: github.com
@@ -28,9 +23,9 @@ component:
 
 This component for [GoHugo](https://gohugo.io/) adds partials and shortcodes to handle images on your website. It offers responsive image formats and optimised loading based on current browser abilities.
 
-{{< notice type="danger" heading="Work in progress!" >}}
+{{< b5/notice type="danger" heading="Work in progress!" >}}
 Check back for better documentation and more features. The following documentation is, as long as this note is here, only partial and might be missing important points. If you have any questions, or ideas, please [add an issue to the issue tracker](https://github.com/davidsneighbour/hugo-pictures/issues).
-{{< /notice >}}
+{{< / b5/notice >}}
 
 # Notes
 

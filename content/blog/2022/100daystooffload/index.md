@@ -1,24 +1,17 @@
 ---
-# yaml-language-server: $schema=../../config/_schema/frontmatter-blog.json
 title: "#100daystooffload"
 linkTitle: "#100daystooffload"
 slug: 100-days-to-offload
-
-# dates
 date: 2022-03-21T23:27:23+07:00
 publishDate: 2022-03-21T23:27:23+07:00
-lastmod: 2022-08-22T23:22:35+07:00
-
-# add multiple resources to create a slider gallery
+lastmod: 2023-04-10T19:59:18+07:00
 resources:
-  - title: Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via
-      [Unsplash](https://unsplash.com/)
+  - title: Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)
     src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 tags:
   - 100DaysToOffload
   - selfimprovement
   - davidsneighbour
-
 aliases:
   - 100daystooffload
 ---
@@ -31,13 +24,11 @@ I really think a better hashtag would have been #100PostsToOffload. But I have n
 
 > There are some simple and reasonable guidelines if you want to take part in #100DaysToOffload:
 >
-> - This needs to be done on a personal blog, not a corporate blog. If you don’t have a personal blog, you can sign up for a free one at Write.as.
-> - There is no specific start date. Your 100 posts can start or end whenever you want them to.
-> - Publish 100 new posts in the space of a year.
-> - There are no limits to what you can post about – write about whatever interests you.
-> - Once you have published an article, don’t forget to post a link on your social media with the hashtag #100DaysToOffload.
-> - Get your friends involved!
+> *   This needs to be done on a personal blog, not a corporate blog. If you don’t have a personal blog, you can sign up for a free one at Write.as.
+> *   There is no specific start date. Your 100 posts can start or end whenever you want them to.
+> *   Publish 100 new posts in the space of a year.
+> *   There are no limits to what you can post about – write about whatever interests you.
+> *   Once you have published an article, don’t forget to post a link on your social media with the hashtag #100DaysToOffload.
+> *   Get your friends involved!
 
 I think I learned about this challenge on [Kaushal Modi's blog](https://scripter.co/auto-count-100daystooffload-posts/), whom I am hereby challenging to have a lower period of completion of this challenge. I shall add an indicator of progress in the next days to these posts. Let's make this about [Hugo](https://gohugo.io) and stuff that makes the internet better. Accept the challenge!
-
-{{< 100posts >}}

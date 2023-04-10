@@ -1,14 +1,12 @@
 ---
 title: "Notes from the Laboratory: April 2022"
 linkTitle: Laboratory 2022-04
-description: Another monthly report from the depths of the laboratory of kollitsch.den -
-  April 2022
+description: Another monthly report from the depths of the laboratory of kollitsch.den - April 2022
 date: 2022-05-02T20:06:40+07:00
-lastmod: 2022-09-04T21:59:18+07:00
+lastmod: 2023-04-10T19:57:14+07:00
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
+    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
 categories:
   - notes-from-the-laboratory
 tags:
@@ -31,7 +29,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
   Nuff said.
 
 - **Cooking:** [I experimented with chicken soup](https://twitter.com/davidsneighbour/status/1521110041281310720) this month. Like it. Now on to wraps ;)
-- **GoHugo:** Let's quote Victor Hugo: "Change your opinions, keep to your principles; change your leaves, keep intact your roots." - After more than 4 years of trying to make [GoHugo](https://gohugo.io) better I realised that my attempts to help were neither appreciated nor in any way helping the project going forward. {{< floatleft >}}![Package Management via XKCD](https://imgs.xkcd.com/comics/dependency.png){{< /floatleft >}}
+- **GoHugo:** Let's quote Victor Hugo: "Change your opinions, keep to your principles; change your leaves, keep intact your roots." - After more than 4 years of trying to make [GoHugo](https://gohugo.io) better I realised that my attempts to help were neither appreciated nor in any way helping the project going forward. {{< b5/floatleft >}}![Package Management via XKCD](https://imgs.xkcd.com/comics/dependency.png){{< / b5/floatleft >}}
 
   Image via [xkcd](https://xkcd.com/2347/).
 

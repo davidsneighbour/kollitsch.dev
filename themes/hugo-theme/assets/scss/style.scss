@@ -70,13 +70,14 @@
 @import '02-mixins/scrollsnap';
 @import '02-mixins/shadows';
 
-// DNB: layout
-@import '03-layout/global';
-@import '03-layout/header';
-@import '03-layout/footer';
-@import '03-layout/responsive';
+// DNB: Global
+@import '03-global/global';
+@import '03-global/header';
+@import '03-global/footer';
+@import '03-global/responsive';
+@import '03-global/transitions';
 
-// DNB: Global Components
+// DNB: Components
 @include dnb-scrollbars();
 
 @import '04-components/archive';
@@ -94,10 +95,10 @@
 @include dnb-scrollbars('.prose', 3px);
 
 .prose {
-  @import '05-prose/prose';
-  @import '05-prose/footnotes';
-  @import '05-prose/components';
-  // @import '05-prose/tables';
+	@import '05-prose/prose';
+	@import '05-prose/footnotes';
+	@import '05-prose/components';
+	// @import '05-prose/tables';
 }
 
 // DNB: plugins

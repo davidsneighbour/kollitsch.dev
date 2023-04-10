@@ -1,5 +1,8 @@
 {{- define "main" -}}
   {{- if lt (.Scratch.Get "paginator").PageNumber 2 -}}
+		<div id="htt">
+			<img src="/ht.png" />
+		</div>
     <section class="section--sitetitle">
 			<div class="site-title">
 				<a href="{{- site.BaseURL -}}">{{- site.Title -}}</a>

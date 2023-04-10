@@ -2,22 +2,17 @@
 title: Head
 linktitle: hugo-head
 summary: ""
-
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2022-08-03T21:47:01+07:00
-
+lastmod: 2023-04-10T20:26:32+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - seo
-
 component:
   slug: hugo-head
   host: github.com
@@ -53,9 +48,9 @@ viewport = "width=device-width, initial-scale=1"
 nobase = false
 ```
 
-- `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
-- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
-- `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
+*   `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
+*   `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
+*   `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
 
 ## `title` and `description` generation
 
@@ -188,7 +183,7 @@ placename = ""
 
 `hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and provides the following hooks:
 
-{{< div class="table--hooks" >}}
+{{< b5/div class="table--hooks" >}}
 | Hook                         | Description                                                                                                         |
 | ---------------------------- | :------------------------------------------------------------------------------------------------------------------ |
 | head-init                    | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
@@ -208,8 +203,8 @@ placename = ""
 | head-post-alternates         |                                                                                                                     |
 | head-post-verification       |                                                                                                                     |
 | head-end                     | hooks in at the end of the `head` right before the closing tag.                                                     |
-{{< /div >}}
+{{< / b5/div >}}
 
 ## Sites and Projects using `hugo-head`
 
-- [Kollitsch.dev](https://kollitsch.dev)
+*   [Kollitsch.dev](https://kollitsch.dev)

@@ -28,3 +28,12 @@
 		}
 	}
 }
+
+#htt img {
+	width: 200px;
+	transform: rotate(-90deg);
+	position: absolute;
+	left: 0;
+	top: -75px;
+	opacity: 0.3;
+}

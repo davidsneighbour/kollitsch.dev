@@ -6,10 +6,11 @@ This site's infrastructure is as follows:
 - **Hosting:** [Netlify](https://netlify.com)
 - **SSG Build:** [Hugo](https://gohugo.io)
 
-Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements.
+Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
 
 **Contents:**
 
+<!--lint ignore-->
 - [General notes](#general-notes)
 - [Setup](#setup)
 	- [Prepare the development environment](#prepare-the-development-environment)
@@ -27,6 +28,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 	- [Archetypes](#archetypes)
 	- [Front matter parameters](#front-matter-parameters)
 		- [Layout options](#layout-options)
+	- [Shortcodes](#shortcodes)
 - [Code and Content Quality](#code-and-content-quality)
 	- [Linting](#linting)
 		- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
@@ -39,7 +41,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 # General notes
 
 - The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume, though, that most tools, scripts, and procedures will work on other systems with the appropriate changes due to open-source usage.
+- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. However, I assume most tools, scripts, and procedures will work on other systems with the appropriate changes due to open-source usage.
 
 # Setup
 
@@ -57,7 +59,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 ## Advanced setup steps
 
-- **Github Actions:** To enable the step to debug logging for the GitHub Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page for this by following `Settings > Secrets > Actions` from the repositories home page.
+- **GitHub Actions:** To enable the step to debug logging for the GitHub Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page by following `Settings > Secrets > Actions` from the repositories home page.
 
 
 ## Pre-Commit
@@ -69,13 +71,13 @@ pre-commit install
 ```
 
 Other `pre-commit` commands are:
-If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, then you can always commit manually via `git commit -no-verify`. So use your brain on this one.
+If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, you can always commit manually via `git commit --no-verify`. So use your brain on this one.
 
 # Development
 
 ## Setup
 
-Make sure to have set `IP` and `PORT` for your local machine in `.env`. `IP` *MAY* also be a hostname (without protocol in the beginning).
+Set `IP` and `PORT` for your local machine in `.env`. `IP` *MAY* also be a hostname (without protocol).
 
 ```ini
 IP=192.168.1.201
@@ -84,7 +86,7 @@ PORT=1313
 
 This configures the Hugo server so you can access the site from other machines (and mobile devices) in your local network. Again: you *MUST NOT* commit this file to any public code versioning system as it contains private information.
 
-To start the development server, run `npm run server`, which runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more, the better). Running just `hugo server` will start Hugo on [localhost:1313](http://localhost:1313).
+To start the development server, run `npm run server`, which runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more, the better). For example, running just `hugo server` will start Hugo on [localhost:1313](http://localhost:1313).
 
 ## Release
 
@@ -108,14 +110,14 @@ The theme is part of this repository, mainly in the `layouts` folder.
 
 - Spacing (margin and padding) is applied from top to bottom.
 - We use responsive design principles with mobile-first.
-No unnecessary `row`s inside of `row`s (container>row>col>row>col) if this isn't explicitly required. It probably isn't needed anyway.
-- Do reuse and recycle styles.
+No unnecessary `row`s inside of `row`s (container>row>col>row>col) if this isn't explicitly required. It isn't needed anyway.
+- Do re-use and recycle styles.
 
 ## Netlify setup
 
 ```bash
 npm install netlify-cli -g && netlify login
-netlify --telemetry-disable // yeah, well, shouldn't that be default?
+netlify --telemetry-disable // shouldn't that be the default?
 netlify init
 netlify build
 ```
@@ -124,25 +126,27 @@ If any errors come up while running this, then fix them.
 
 ## Hooks (WIP)
 
-Hooks are listed in their order of appearance
+Hooks are listed in their order of appearance.
 
 <!-- prettier-ignore-start -->
-| Hook                | File                 | Runs | Depends on | Description                                                     |
-| ------------------- | -------------------- | ---- | ---------- | --------------------------------------------------------------- |
-| init                | partials/init.html   | 1    |            | before anything else runs (before pagination object is created) |
-| init-end            | partials/init.html   | 1    |            | after the pagination object is created and in scratch           |
-| setup               | _default/baseof.html | 1    |            | at the beginning of the main layout                             |
-| body-start          | _default/baseof.html | 1    |            |                                                                 |
-| body-end-pre-script | _default/baseof.html | 1    |            |                                                                 |
-| body-end            | _default/baseof.html | 1    |            |                                                                 |
-| teardown            | _default/baseof.html | 1    |            |                                                                 |
+<!--lint ignore-->
+| Hook  | File  | Runs | Depends on | Description  |
+| --- | --- | --- | --- | --- |
+| init  | partials/init.html  | 1  |  | before anything else runs (before the pagination object is created) |
+| init-end  | partials/init.html  | 1  |  | after the pagination object is created and in scratch  |
+| setup  | _default/baseof.html | 1  |  | at the beginning of the main layout  |
+| body-start  | _default/baseof.html | 1  |  |  |
+| body-end-pre-script | _default/baseof.html | 1  |  |  |
+| body-end  | _default/baseof.html | 1  |  |  |
+| teardown  | _default/baseof.html | 1  |  |  |
+
 <!-- prettier-ignore-end -->
 
 # Content
 
 ## Archetypes
 
-This website has the following archetypes with its respective front matters and features:
+This website has the following archetypes with their respective front matters and features:
 
 - `default` - the default archetype for all content types
 - `blog` - the archetype for blog posts
@@ -167,6 +171,18 @@ The following front matter parameters exist to fine-tune the layouts and theme o
 
 - `comments` - set to false to turn off comment forms and display (default: true)
 - `showdate` - set to false to turn off the date per post display (default: true)
+
+## Shortcodes
+
+The **hugo-theme** implements the following shortcodes:
+
+- `{{< color-table >}}`
+- `{{< component-box >}}`
+- `{{< contact-form >}}`
+- `{{< quote >}}`
+- `{{< taglist >}}`
+
+Other shortcodes are implemented in **hugo-blockify**.
 
 # Code and Content Quality
 
@@ -219,11 +235,11 @@ sudo apt install inkscape optipng
 
 # License
 
-The written `content` of this website itself is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), and the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
+This website's written `content` is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). In addition, the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
 
-While this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in this site's `content` folder or documentation and code. Other parts of this project, like `assets` and `layouts`, are available for educational use and can be copied to your projects. You **MUST NOT** reuse the full (complete) theme, but you **MAY** use parts and principles of it.
+While this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in this site's `content` folder or documentation and code. Other parts of this project, like `assets` and `layouts`, are available for educational use and can be copied to your projects. You **MUST NOT** re-use the full (complete) theme, but you **MAY** use parts and principles of it.
 
 **TBD: note about fonts that might be licensed**
 
-Long story short: go and create something by yourself, and if you want to know how a feature on this website was realised, feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions
+Long story short: go and create something by yourself, and if you want to know how a feature on this website was realized, feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions
 ).

@@ -1,21 +1,18 @@
-{{/*
+{{/* see
+  - https://github.com/gj52/HugoSample/blob/master/themes/photon/layouts/_default/_markup/render-image.html
+  - https://gohugo.io/getting-started/configuration-markup#markdown-render-hooks
 
-see
-- https://github.com/gj52/HugoSample/blob/master/themes/photon/layouts/_default/_markup/render-image.html
-- https://gohugo.io/getting-started/configuration-markup#markdown-render-hooks
+  available values:
+  .Page - The Page being rendered.
+  .Destination - The URL.
+  .Title - The title attribute.
+  .Text - The rendered (HTML) link text.
+  .PlainText - The plain variant of the above.
 
-available values:
-.Page - The Page being rendered.
-.Destination - The URL.
-.Title - The title attribute.
-.Text - The rendered (HTML) link text.
-.PlainText - The plain variant of the above.
-
-![Text](Destination "Title")
-
+  ![Text](Destination "Title")
 */}}
 {{- $config := site.Data.dnb.renderhooks.image -}}
-{{ if eq $config.disabled false}}
+{{ if eq $config.disabled false }}
   {{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
   {{ if $image -}}
     {{ $alt := .PlainText | safeHTML }}
@@ -43,18 +40,26 @@ available values:
         src="{{ $image.RelPermalink }}"
         {{ if gt (len $srcset) 0 }}
           {{ $sl := delimit $srcset ", " }}
-          sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px"
-          srcset="{{ $sl }}"
+          sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw,
+          {{ $image.Width }}px" srcset="{{ $sl }}"
         {{ end }}
         width="{{ $image.Width }}"
         height="auto"
-        alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ end }}"
-      >
+        alt="{{ if $alt }}
+          {{ $alt }}
+        {{ else if $caption }}
+          {{ $caption | markdownify | plainify }}
+        {{ end }}"
+      />
       {{- with $caption -}}
         <figcaption>{{ . | markdownify }}</figcaption>
       {{- end -}}
     </figure>
   {{- end }}
 {{ else }}
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
+  <img
+    src="{{ .Destination | safeURL }}"
+    alt="{{ .Text }}"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+  />
 {{ end }}

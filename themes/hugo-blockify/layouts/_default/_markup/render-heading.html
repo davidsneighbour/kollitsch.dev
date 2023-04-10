@@ -16,7 +16,17 @@ usage sample:
 */ -}}
 {{- $config := site.Data.dnb.renderhooks.heading -}}
 {{ if eq $config.disabled false}}
-  <h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }} <a href="#{{ .Anchor | safeURL }}">¶</a></h{{ .Level }}>
+  <h{{ .Level }} id="{{ .Anchor | safeURL }}">
+    {{ .Text | safeHTML }}
+  	<span class="heading-tools">
+      <a href="#{{ .Anchor | safeURL }}">
+        {{- partialCached "bsicon.html" "bookmark" "bookmark" -}}
+      </a>
+      <a href="#" class="is--back-to-top">
+        {{- partialCached "bsicon.html" "caret-up-fill" "caret-up-fill" -}}
+      </a>
+    </span>
+  </h{{ .Level }}>
 {{ else }}
   <h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
 {{ end }}

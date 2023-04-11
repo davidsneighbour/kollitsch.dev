@@ -58,11 +58,14 @@ main {
 	}
 
 	#bi {
-		opacity: 0.2;
-		margin-top: -59%;
 		grid-column: full;
-		@extend .w-100;
 		z-index: -1;
+
+		img {
+			@extend .w-100;
+			@extend .opacity-25;
+			margin-top: -59%;
+		}
 	}
 }
 

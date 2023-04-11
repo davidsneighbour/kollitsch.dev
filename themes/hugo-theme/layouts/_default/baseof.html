@@ -14,7 +14,10 @@
       {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
       {{- block "main" . -}}{{- end -}}
       {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
-      <img id="bi" src="/IAT39.png" />
+      <div id="bi">
+        {{- $opts := dict "path" "images/embellishments/IAT39.png" "directions" "1800x q90 webp drawing" -}}
+        {{- partialCached "content/embellishments.html" $opts $opts -}}
+      </div>
     </main>
     {{- partial "footer.html" . . -}}
     {{- partial "func/hook.html" ( dict "hook" "body-end-pre-script" "context" . ) -}}

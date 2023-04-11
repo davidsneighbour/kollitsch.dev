@@ -6,3 +6,9 @@
 resampleFilter = "lanczos"
 quality = 70
 anchor = "smart"
+
+[exif]
+disableDate = true
+disableLatLong = true
+excludeFields = ".*"
+includeFields = ""

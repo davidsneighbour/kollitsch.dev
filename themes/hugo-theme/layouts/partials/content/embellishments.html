@@ -1,0 +1,5 @@
+{{- $embellishment := resources.GetMatch .path -}}
+{{- $embellishment = ($embellishment.Resize .directions) -}}
+
+
+<img src="{{- $embellishment.RelPermalink -}}" alt="" />

@@ -1,15 +1,13 @@
 <footer id="footer">
   <div id="ht">
-    <img src="/ht.png" />
+    {{- $opts := dict "path" "images/embellishments/ht.png" "directions" "x500 q90 webp drawing" -}}
+    {{- partialCached "content/embellishments.html" $opts $opts -}}
   </div>
   {{- partial "func/hook.html" ( dict "hook" "footer-start" "context" . ) -}}
   <div class="widgets container mb-5">
     {{- partial "func/hook.html" ( dict "hook" "footer-widgets-start" "context" . ) -}}
     {{- with site.Params.dnb.theme.footer.menus -}}
       <div class="row justify-content-center align-items-start">
-        <div class="d-flex justify-content-center">
-          <img src="/ht.png" />
-        </div>
         {{ range . -}}
           {{- partialCached "widgets/menu.html" . . -}}
         {{ end }}
@@ -36,7 +34,8 @@
     </div>
   </div>
   <div id="hb">
-    <img src="/hb.png" />
+    {{- $opts := dict "path" "images/embellishments/hb.png" "directions" "x200 q90 webp drawing" -}}
+    {{- partialCached "content/embellishments.html" $opts $opts -}}
   </div>
   {{- partial "func/hook.html" ( dict "hook" "footer-end" "context" . ) -}}
 </footer>

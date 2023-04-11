@@ -24,12 +24,6 @@ main {
 
 	display: grid;
 
-	// @TODO: old grid setup. delete after making sure the new one below works.
-	// grid-template-columns: 1fr #{'min(85ch, 100%)'} 1fr;
-	// > * {
-	// 	grid-column: 2;
-	// }
-
 	--gap: clamp(1rem, 6vw, 3rem);
 	--full: minmax(var(--gap), 1fr);
 	--content: min(#{$layout-character-width}, 100%);

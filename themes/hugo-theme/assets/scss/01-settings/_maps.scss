@@ -1,6 +1,18 @@
 // layout setup
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+);
+
+// adding some more negative levels to z-index
+// @see https://getbootstrap.com/docs/5.3/utilities/z-index/
+$zindex-levels: (
+	n3: -3,
+	n2: -2,
+	n1: -1,
+	0: 0,
+	1: 1,
+	2: 2,
+	3: 3
 );

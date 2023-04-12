@@ -1,10 +1,8 @@
-/**
- * fix navigation overflow for anchor links
- */
+// fix navigation overflow for anchor links
 :target::before {
-  display: block;
-  height: $heading-height;
-  margin: -$heading-height 0 0;
+	display: block;
+	height: $heading-height;
+	margin: -$heading-height 0 0;
 
-  content: '';
+	content: '';
 }

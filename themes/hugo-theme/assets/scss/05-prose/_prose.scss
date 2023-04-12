@@ -4,6 +4,8 @@
 
 a {
 	box-decoration-break: clone;
+	@extend .link-underline-secondary;
+	@extend .link-offset-2;
 }
 
 h1,
@@ -15,6 +17,7 @@ h6 {
 	a {
 		text-decoration: none;
 	}
+
 	@extend .border-bottom;
 	@extend .border-light-subtle;
 }
@@ -24,7 +27,7 @@ p {
 	@extend .hyphenate;
 }
 
-> p code {
+>p code {
 	background-color: var(--bs-tertiary-bg);
 	padding: 0.2rem 0.35rem;
 }
@@ -42,13 +45,13 @@ blockquote {
 table {
 	$table-color: $body-color;
 
-	// .dark & {
-	// 	@extend .table-dark;
-	// }
+	.dark & {
+		@extend .table-dark;
+	}
 
-	// .light & {
-	// 	@extend .table-light;
-	// }
+	.light & {
+		@extend .table-light;
+	}
 
 	code,
 	pre {
@@ -60,27 +63,27 @@ table {
 	@extend .table-sm;
 }
 
-// .highlight {
-// 	margin-bottom: $spacer;
+.highlight {
+	margin-bottom: $spacer;
 
-// 	.chroma {
-// 		padding: 0.3rem;
-// 	}
+	.chroma {
+		padding: 0.3rem;
+	}
 
-// }
+}
 
-// .section-meta {
-// 	border-top: 1px solid $primary;
+.section-meta {
+	border-top: 1px solid $primary;
 
-// 	@extend .pt-3;
-// }
+	@extend .pt-3;
+}
 
-// pre {
-// 	margin-bottom: 0;
-// }
+pre {
+	margin-bottom: 0;
+}
 
-// kbd {
-// 	display: inline-block;
-// 	padding: 0.1rem 0.2rem 0;
-// 	line-height: 1;
-// }
+kbd {
+	display: inline-block;
+	padding: 0.1rem 0.2rem 0;
+	line-height: 1;
+}

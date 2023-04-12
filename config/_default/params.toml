@@ -16,7 +16,6 @@ mainSections = ["blog", "components"]
 # value of `dnb.theme.switcher.default` is used.
 slug = "dark-skies"
 theme = "dark"
-#logo = "/logo/logo.png"
 logo_height = "40"
 logo_width = "40"
 show_title = true
@@ -140,8 +139,16 @@ monetization = ""
 [dnb.head.speedoptimisation]
 control = "on" # on/off - off disables all prefetching
 prefetch = [
-  "/assets/webfonts/tomkin/Tomkin/TomkinLight/Tomkin-Light.woff",
-  "/assets/webfonts/tomkin/Tomkin/TomkinSemiLight/Tomkin-SemiLight.woff",
+	'/assets/webfonts/jetbrainsmono/jetbrainsmonoi.ttf',
+	'/assets/webfonts/jetbrainsmono/jetbrainsmonoi.ttf',
+	'/assets/webfonts/jetbrainsmono/jetbrainsmono.ttf',
+	'/assets/webfonts/jetbrainsmono/jetbrainsmono.ttf',
+	'/assets/webfonts/bahn/bahnpro_regular-webfont.woff2',
+	'/assets/webfonts/bahnpro_regular-webfont.woff',
+	'/assets/webfonts/bahnpro_regular-webfont.ttf',
+	'/assets/webfonts/bahnpro_light-webfont.woff2',
+	'/assets/webfonts/bahnpro_light-webfont.woff',
+	'/assets/webfonts/bahnpro_light-webfont.ttf'
 ]
 preconnect = []
 prerender = []

@@ -1,0 +1,40 @@
+# https://blog.picnic.nl/how-to-use-yaml-schema-to-validate-your-yaml-files-c82c049c2097
+# https://asdf-standard.readthedocs.io/en/1.5.0/schemas/yaml_schema.html#:~:text=YAML%20Schema%20is%20a%20small,at%20json%2Dschema.org.
+type: "//rec"
+required:
+  type: "//str"
+  title: "//str"
+  description: "//str"
+
+  date: "//str"
+
+  resources:
+    - title: "//str"
+      name: "//str"
+      src: "//str"
+
+  tags:
+    type: "//arr"
+    contents: "//str"
+
+optional:
+  draft: "//bool"
+  linkTitle: "//str"
+  summary: "//str"
+
+  publishDate: "//str"
+  lastmod: "//str"
+
+  author:
+    - name: "//str"
+      homepage: "//str"
+      image: "//str"
+      email: "//str"
+
+  categories:
+    type: "//arr"
+    contents: "//str"
+
+  keywords:
+    type: "//arr"
+    contents: "//str"

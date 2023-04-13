@@ -1,5 +1,5 @@
 {
-  "include": ["**/*.ts"],
+  "include": ["assets/**/*.ts", "themes/*/assets/**/*.ts"],
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",

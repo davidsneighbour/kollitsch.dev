@@ -34,6 +34,7 @@
     "be5invis.toml",
     "google.wireit",
     "redhat.vscode-xml",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "unifiedjs.vscode-remark"
   ]
 }

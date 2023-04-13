@@ -39,7 +39,6 @@ async function main() {
 			{ value: "component", label: "Component", hint: "Documentation page for a Hugo component" },
 			{ value: "m2p2", label: "Music to program to" },
 			{ value: "labnotes", label: "Notes from the Lab" },
-			{ value: "hugonotes", label: "Hugo Release Notes" },
 			{ value: "tag", label: "Tag", hint: "Tag description page" },
 			{ value: "quit", label: "Quit" },
 		]
@@ -73,7 +72,7 @@ async function main() {
 			let number;
 			let increment;
 			const filename = "data/dnb/kollitsch/m2p2.json";
-			await new Promise((resolve, _reject) => {
+			await /** @type {Promise<void>} */(new Promise((resolve, _reject) => {
 				fs.readFile(filename, 'utf8', function (err, buf) {
 					if (err) {
 						console.log(err);
@@ -91,7 +90,7 @@ async function main() {
 					});
 					resolve();
 				});
-			});
+			}));
 			post = `blog/${year}/music-to-program-to-` + increment;
 			command = `hugo new --kind music2program2 ${post}`;
 			command2 = `code content/${post}/index.md`;
@@ -107,19 +106,6 @@ async function main() {
 			slug = await prepareSlug(title);
 			post = `blog/${year}/notes-from-the-laboratory-${slug}`;
 			command = `hugo new --kind notes-from-the-laboratory ${post}`;
-			command2 = `code content/${post}/index.md`;
-			break;
-
-		case 'hugonotes':
-			title = await text({
-				message: 'Hugo Version:',
-				validate(value) {
-					if (value.length === 0) return `Version is required, doh!`;
-				}
-			});
-			slug = await prepareSlug(title);
-			post = `blog/${year}/hugo-"${title}"-release-notes`;
-			command = `hugo --kind hugo-release-notes blog ${post}`;
 			command2 = `code content/${post}/index.md`;
 			break;
 
@@ -153,10 +139,9 @@ async function main() {
 	}
 
 	// @todo check if content file already exists and fail gracefully
-
 	spin.start('Creating content files...');
 
-	await new Promise((resolve, _reject) => {
+	await /** @type {Promise<void>} */(new Promise((resolve, _reject) => {
 		exec(command, function (
 			error,
 			_stdout,
@@ -174,11 +159,11 @@ async function main() {
 			}
 			resolve();
 		});
-	});
+	}));
 
 	spin.stop('Content created. Opening in VS Code...');
 
-	await new Promise((resolve, _reject) => {
+	await /** @type {Promise<void>} */(new Promise((resolve, _reject) => {
 		exec(command2, function (
 			error,
 			_stdout,
@@ -196,7 +181,7 @@ async function main() {
 			}
 			resolve();
 		});
-	});
+	}));
 
 	outro('All done :)');
 	process.exit(1);

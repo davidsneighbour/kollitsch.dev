@@ -2,16 +2,16 @@
 title: Fixing package dependency issues on Ubuntu with APT
 description: Have you ever tried installing a program on your Ubuntu and ran into error messages about unconfigured dependencies? Don't worry; it happens to the best of us.
 date: 2023-03-06T19:07:56+07:00
-publishDate: '2023-03-06T19:07:56+07:00'
-lastmod: '2023-03-06T21:25:53+07:00'
+publishDate: 2023-03-06T19:07:56+07:00
+lastmod: 2023-04-13T18:04:00+07:00
 resources:
-- title: Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- troubleshooting
-- shell
-- ubuntu
-- 100DaysToOffload
+  - troubleshooting
+  - shell
+  - ubuntu
+  - 100DaysToOffload
 type: blog
 ---
 
@@ -48,10 +48,10 @@ What to do now?
 
 The good news is that fixing this issue is easy with the `sudo apt install -f` command. This command checks for any broken dependencies in the package management system and automatically fixes them. Let's break down what each part of the command does:
 
-- `sudo`: The sudo command runs the command following with administrative or root privileges.
-- `apt`: The apt command is a package management utility in Ubuntu and other Debian-based Linux distributions used to manage software packages.
-- `install`: The install command is used to install packages.
-- `-f`: The -f option stands for "fix" and is used to fix broken dependencies in the package management system.
+*   `sudo`: The sudo command runs the command following with administrative or root privileges.
+*   `apt`: The apt command is a package management utility in Ubuntu and other Debian-based Linux distributions used to manage software packages.
+*   `install`: The install command is used to install packages.
+*   `-f`: The -f option stands for "fix" and is used to fix broken dependencies in the package management system.
 
 When you run `sudo apt install -f`, the command will check for any missing or broken dependencies and attempt to fix them automatically. Afterward, it sets up all unconfigured packages. This can help ensure that your system runs smoothly and that all the necessary software packages are installed correctly.
 
@@ -95,4 +95,4 @@ Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
 $[patrick@main]~❯
 ```
 
-So, if you ever encounter any unconfigured dependencies while installing a program on Ubuntu, just remember to run `sudo apt install -f`, and you'll be good to go.
+Long story short: if you ever encounter any unconfigured dependencies while installing a program on Ubuntu, just remember to run `sudo apt install -f`, and you'll be good to go.

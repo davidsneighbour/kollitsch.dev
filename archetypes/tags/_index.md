@@ -1,4 +1,5 @@
 ---
+'$schema': static/_schemata/tag.schema.yaml
 title: "{{ .Name }}"
 date: {{ .Date }}
 publishDate: "{{ .Date }}"

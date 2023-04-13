@@ -1,4 +1,5 @@
 ---
+'$schema': static/_schemata/blog.schema.yaml
 title: {{ replace .Name "-" " " | title }}
 linkTitle: {{ replace .Name "-" " " | title }}
 description: ""

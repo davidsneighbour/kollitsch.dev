@@ -1,4 +1,5 @@
 ---
+'$schema': static/_schemata/m2p2.schema.yaml
 title: {{ replace .Name "-" " " | title }}
 linkTitle: {{ replace .Name "-" " " | title }}
 description: ""

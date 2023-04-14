@@ -3,7 +3,7 @@ title: Refactoring my screenshot script
 description: I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit.
 date: 2023-03-08T21:57:10+07:00
 publishDate: 2023-03-08T21:57:10+07:00
-lastmod: 2023-04-07T15:58:15+07:00
+lastmod: 2023-04-14T21:06:25+07:00
 resources:
   - title: Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -71,8 +71,12 @@ In this modified script, we import the "yargs" library and parse the command-lin
 
 You can now run the script using the following command:
 
-```
-node script.js --url=https://example.com --width=800 --height=600 --output=screenshot.jpg
+```bash
+node script.js \
+  --url=https://example.com \
+  --width=800 \
+  --height=600 \
+  --output=screenshot.jpg
 ```
 
 This will capture a screenshot of the "https://example.com" website with a viewport size of 800x600 and save it as "screenshot.jpg". If you don't specify any of the parameters, the script will use the default values.

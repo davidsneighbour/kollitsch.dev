@@ -206,31 +206,31 @@ wordcount = ".WordCount"
 icontheme = "bootstrap"
 
 [dnb.social.sharebuttons]
-networks = ["mastodon", "linkedin", "telegram", "facebook", "twitter"]
+networks = ["mastodon", "linkedin", "instagram", "facebook", "twitter"]
 icons = false
 sharetext = true
 
-[[dnb.social.network]]
+[dnb.social.network.facebook]
 url = "https://www.facebook.com/patrick.kollitsch/"
 icon = "facebook"
 label = "Follow me on Facebook"
 
-[[dnb.social.network]]
+[dnb.social.network.twitter]
 url = "https://www.twitter.com/davidsneighbour"
 icon = "twitter"
 label = "Follow me on Twitter"
 
-[[dnb.social.network]]
+[dnb.social.network.instagram]
 url = "https://www.instagram.com/pkollitsch/"
 icon = "instagram"
 label = "Follow me on Instagram"
 
-[[dnb.social.network]]
+[dnb.social.network.linkedin]
 url = "https://www.linkedin.com/in/patrickkollitsch/"
 icon = "linkedin"
 label = "Follow me on LinkedIn"
 
-[[dnb.social.network]]
+[dnb.social.network.mastodon]
 url = "https://mas.to/@davidsneighbour"
 icon = "mastodon"
 label = "Me on Mas.to(don)"

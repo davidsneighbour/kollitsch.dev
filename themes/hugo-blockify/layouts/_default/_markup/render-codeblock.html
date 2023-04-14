@@ -50,7 +50,8 @@
         type="button"
         role="tab"
         aria-controls="{{- $slug -}}"
-        aria-selected="true">
+        aria-selected="true"
+      >
         {{- .Type -}}
       </button>
     </li>
@@ -67,7 +68,8 @@
           type="button"
           role="tab"
           aria-controls="{{- $slug -}}-{{- . -}}"
-          aria-selected="true">
+          aria-selected="true"
+        >
           {{- . | upper -}}
         </button>
       </li>
@@ -80,7 +82,13 @@
 
 {{- if eq $type "single" }}
   <div class="tab-content">
-    <div class="tab-pane active" id="{{- $slug -}}" role="tabpanel" aria-labelledby="{{- $slug -}}-tab" tabindex="0">
+    <div
+      class="tab-pane active"
+      id="{{- $slug -}}"
+      role="tabpanel"
+      aria-labelledby="{{- $slug -}}-tab"
+      tabindex="0"
+    >
       {{ highlight  $.Inner .Type ($data.Get "options") | safeHTML }}
     </div>
   </div>
@@ -92,7 +100,8 @@
         id="{{- $slug -}}-{{- . -}}"
         role="tabpanel"
         aria-labelledby="{{- $slug -}}-{{- . -}}-tab"
-        tabindex="0">
+        tabindex="0"
+      >
         {{- $hCode := $.Inner | transform.Remarshal . -}}
         {{- if and $fm (in (slice "toml" "yaml") .) -}}
           {{- $hCode = printf "%s\n%s\n%s" $placeHolder $hCode $placeHolder -}}

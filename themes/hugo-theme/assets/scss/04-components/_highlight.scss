@@ -1,0 +1,12 @@
+.component--highlight {
+
+	.nav-item {
+
+		button,
+		a {
+			@extend .text-uppercase;
+			font-size: 0.75rem;
+			padding: 0.25rem 0.5rem;
+		}
+	}
+}

@@ -13,7 +13,6 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "algoliasearch": "^4.17.0",
-    "alpinejs": "^3.12.0",
     "animate.css": "^4.1.1",
     "doiuse": "^4.4.1",
     "dotenv": "^16.0.3",
@@ -56,7 +55,6 @@
     "@davidsneighbour/textlint-config": "5.0.16",
     "@davidsneighbour/tools": "5.1.16",
     "@davidsneighbour/webpack-config": "5.1.16",
-    "@types/alpinejs": "^3.7.1",
     "@types/yargs": "^17.0.24",
     "prettier-plugin-go-template": "^0.0.13",
     "remark": "^14.0.2",

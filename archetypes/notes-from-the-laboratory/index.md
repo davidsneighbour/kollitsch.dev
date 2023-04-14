@@ -1,6 +1,6 @@
 ---
-'$schema': static/_schemata/laboratory.schema.yaml
-title: "Notes from the Laboratory: {{ now.Format "January 2006" }}"
+'$schema': /static/_schemata/laboratory.schema.yaml
+title: Notes from the Laboratory: {{ now.Format "January 2006" }}
 linkTitle: Laboratory {{ now.Format "2006-01" }}
 description: ""
 

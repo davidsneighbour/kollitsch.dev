@@ -7,7 +7,7 @@
   </head>
 
   {{- $classes := partialCached "func/getBodyClasses.html" . . -}}
-  <body class="{{ $classes -}}">
+  <body class="light {{ $classes -}}">
     {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
     {{- partial "header.html" . -}}
     <main>

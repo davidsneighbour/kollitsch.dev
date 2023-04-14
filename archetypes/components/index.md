@@ -1,5 +1,5 @@
 ---
-'$schema': static/_schemata/components.schema.yaml
+'$schema': /static/_schemata/components.schema.yaml
 title: GoHugo Components / {{ .Name | title }}
 linkTitle: "{{ .Name }}"
 description: ""

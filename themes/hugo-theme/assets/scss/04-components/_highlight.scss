@@ -1,12 +1,43 @@
 .component--highlight {
 
+	.ln {
+		width: 15px;
+		padding: 0 !important;
+
+		a {
+			font-size: 0.7rem;
+		}
+	}
+
+	.tab-content {
+		border-left: 1px solid var(--bs-border-color);
+	}
+
+	.highlight {
+
+		border-right: 1px solid var(--bs-border-color);
+
+		border-bottom: 1px solid var(--bs-border-color);
+	}
+
 	.nav-item {
+
+		@extend .me-1;
+
+		.active {
+			background-color: #fafafa;
+		}
 
 		button,
 		a {
 			@extend .text-uppercase;
 			font-size: 0.75rem;
 			padding: 0.25rem 0.5rem;
+			border-bottom: 0;
+		}
+
+		a {
+			font-size: 0.6rem;
 		}
 	}
 }

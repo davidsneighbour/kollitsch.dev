@@ -1,9 +1,9 @@
 import 'web-vitals-element';
-import './components/logger.ts';
-import './components/back-to-top.ts';
-import './components/version.ts';
+import './scripts/logger.js';
+import './scripts/back-to-top.js';
+import './scripts/version.js';
 
 // import bootstrap scripts
-import './components/bs-collapsibles.ts';
-import './components/bs-tabs.ts';
-import './components/bs-tooltips.ts';
+import './scripts/bs-collapsibles.js';
+import './scripts/bs-tabs.js';
+import './scripts/bs-tooltips.js';

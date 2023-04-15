@@ -5,7 +5,7 @@ description: ""
 summary: ""
 date: 2022-08-16T20:28:30+07:00
 publishDate: 2022-08-16T20:28:30+07:00
-lastmod: 2023-04-07T22:45:19+07:00
+lastmod: 2023-04-14T23:57:12+07:00
 resources:
   - src: header-card.png
 categories:
@@ -22,15 +22,13 @@ component:
   user: davidsneighbour
 ---
 
-This is a Hugo theme component to add the Giscus comment system to static websites.
+This is a Hugo theme component to add the [Giscus comment system](https://giscus.app/), powered by GitHub Discussions, to static websites.
 
-[Giscus](https://giscus.app/) is a comments system powered by GitHub Discussions.
-
-**Note:** Giscus is still under active development. GitHub is also still actively developing Discussions and its API. Thus, some features of Giscus may break or change over time. We will keep an eye out for any updates and implement them here in time.
+{{< b5/notice type="info" heading="Note:">}}Giscus is still under active development. GitHub is also still actively developing Discussions and its API. Thus, some features of Giscus may break or change over time. We will keep an eye out for any updates and implement them here in time.{{< / b5/notice >}}
 
 ## Configuration
 
-The module accepts configuration via params section in your configuration file.
+The module accepts configuration via the `[params]` section in your configuration file.
 
 ```toml
 [dnb.giscus]

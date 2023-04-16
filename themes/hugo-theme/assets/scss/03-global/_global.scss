@@ -17,6 +17,13 @@ main {
 	margin-bottom: 0;
 
 	background-color: var(--bs-body-bg);
+
+	&::before {
+		// .embellishment-one setup
+		opacity: .4;
+		background-position: 0 100px;
+	}
+
 	z-index: 1001;
 
 	@extend .min-vh-100;
@@ -32,8 +39,7 @@ main {
 
 	/* stylelint-disable plugin/no-unsupported-browser-features
 				-- we can live with that. */
-	grid-template-columns:
-		[full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end];
+	grid-template-columns: [full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end];
 
 	>* {
 		grid-column: content;

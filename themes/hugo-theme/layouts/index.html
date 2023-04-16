@@ -1,9 +1,5 @@
 {{- define "main" -}}
   {{- if lt (.Scratch.Get "paginator").PageNumber 2 -}}
-		<div id="htt">
-			{{- $opts := dict "path" "images/embellishments/ht.png" "directions" "300x r90 q90 webp drawing" -}}
-			{{- partialCached "content/embellishments.html" $opts $opts -}}
-		</div>
     <section class="section--sitetitle">
 			<div class="site-title">
 				<a href="{{- site.BaseURL -}}">{{- site.Title -}}</a>

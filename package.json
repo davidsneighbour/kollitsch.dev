@@ -131,10 +131,6 @@
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
   },
-  "stylelint": {
-    "extends": "@davidsneighbour/stylelint-config",
-    "rules": {}
-  },
   "wireit": {
     "build:frontmatter": {
       "command": "node assets/frontmatter/build.ts",

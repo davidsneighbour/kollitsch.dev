@@ -1,0 +1,4 @@
+{
+  "extends": "@davidsneighbour/stylelint-config",
+  "rules": {}
+}

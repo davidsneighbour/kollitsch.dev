@@ -4,7 +4,7 @@ linktitle: hugo-head
 summary: ""
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2023-04-10T20:26:32+07:00
+lastmod: 2023-04-16T15:53:58+07:00
 resources:
   - src: header-card.png
 categories:
@@ -103,7 +103,7 @@ If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans)
 entrypoint = "scss/theme.scss"
 ```
 
-Configuration for GoHugo's SASS/SCSS processing can be piped through via the configuration. The available options for the compilation of SCSS can be found in [GoHugo's documentation](https://gohugo.io/hugo-pipes/scss-sass/#options).
+Configuration for GoHugo's SASS/SCSS processing can be piped through via the configuration. The available options for the compilation of SCSS can be found in [GoHugo's documentation](https://gohugo.io/hugo-pipes/transform-to-css/#options).
 
 ```toml
 [dnb.head.styles]

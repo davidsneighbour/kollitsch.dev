@@ -10,7 +10,7 @@
   <body class="light {{ $classes -}}">
     {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
     {{- partial "header.html" . -}}
-    <main>
+    <main class="embellishment embellishment-one">
       {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
       {{- block "main" . -}}{{- end -}}
       {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}

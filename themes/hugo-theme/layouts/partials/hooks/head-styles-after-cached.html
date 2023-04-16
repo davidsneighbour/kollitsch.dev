@@ -1,0 +1,8 @@
+{{- $config := dict "outputStyle" "compressed" "targetPath" "embellishments.css" -}}
+{{- $sassTemplate := resources.Get "scss/embellishments.scss" -}}
+{{- $styles := $sassTemplate | resources.ExecuteAsTemplate "embellishments.css" . | resources.ToCSS $config -}}
+{{- $styles = $styles | resources.PostCSS -}}
+{{- $styles = $styles | minify -}}
+{{- $styles = $styles | fingerprint "sha512" -}}
+{{- $styles = $styles | resources.PostProcess -}}
+<link rel="stylesheet" media="all" integrity="{{- $styles.Data.Integrity -}}" href="{{- $styles.Permalink -}}" />

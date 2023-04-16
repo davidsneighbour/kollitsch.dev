@@ -7,32 +7,76 @@
   data-netlify="true"
   netlify-honeypot="{{- $random -}}"
   method="post"
-  name="kontakt"
+  name="contact"
   id="contact"
 >
   <div class="row g-3">
     <div class="col-sm-6">
       <div class="mb-3">
-        <label class="form-label">{{ i18n "name" }}</label>
-        <input class="form-control" name="Name" type="text" />
+        <label
+          class="form-label"
+          for="{{ i18n "shortcodes.contactform.fieldnames.name" }}"
+          >{{ i18n "shortcodes.contactform.name" }}</label
+        >
+        <input
+          class="form-control"
+          name="{{ i18n "shortcodes.contactform.fieldnames.name" }}"
+          id="{{ i18n "shortcodes.contactform.fieldnames.name" }}"
+          type="text"
+          required
+        />
       </div>
+
       <div class="mb-3">
-        <label class="form-label">{{ i18n "email" }}</label>
-        <input class="form-control" name="_replyto" type="email" />
+        <label
+          for="{{ i18n "shortcodes.contactform.fieldnames.subject" }}"
+          class="form-label"
+          >{{ i18n "shortcodes.contactform.subject" }}</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="{{ i18n "shortcodes.contactform.fieldnames.subject" }}"
+          name="{{ i18n "shortcodes.contactform.fieldnames.subject" }}"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="_replyto"
+          >{{ i18n "shortcodes.contactform.email" }}</label
+        >
+        <input
+          class="form-control"
+          name="_replyto"
+          id="_replyto"
+          type="email"
+          required
+        />
       </div>
       <div data-netlify-recaptcha="true"></div>
       <input type="text" name="{{- $random -}}" class="invisible" />
     </div>
     <div class="col-sm-6">
       <div class="mb-3">
-        <label class="form-label">{{ i18n "message" }}</label>
-        <textarea class="form-control" name="Nachricht" rows="11"></textarea>
+        <label
+          class="form-label"
+          for="{{ i18n "shortcodes.contactform.fieldnames.message" }}"
+          >{{ i18n "shortcodes.contactform.message" }}</label
+        >
+        <textarea
+          class="form-control"
+          id="{{ i18n "shortcodes.contactform.fieldnames.message" }}"
+          name="{{ i18n "shortcodes.contactform.fieldnames.message" }}"
+          rows="11"
+          required
+        ></textarea>
       </div>
       <div class="mb-3">
         <input
           class="btn btn-primary"
           type="submit"
-          value="{{ i18n "send_message" }}"
+          value="{{ i18n "shortcodes.contactform.send_message" }}"
         />
       </div>
     </div>

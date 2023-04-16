@@ -4,7 +4,7 @@ linktitle: hugo-head
 summary: ""
 date: 2022-07-27T21:25:17+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2023-04-16T15:53:58+07:00
+lastmod: 2023-04-16T15:54:51+07:00
 resources:
   - src: header-card.png
 categories:
@@ -92,7 +92,7 @@ email = "email"
 homepage = "website"
 ```
 
-If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) or [`hugo-publisher`](https://github.com/davidsneighbour/hugo-publisher) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
+If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) or [`hugo-publisher`](https://github.com/davidsneighbour/hugo-publisher) then `hugo-head` will integrate these header tags in addition to these modules features automatically for you after you configure the module.
 
 ## Stylesheets
 

@@ -1,23 +1,38 @@
-[name]
-description = ""
+################################################################################
+# Shortcodes: Contact Form
+################################################################################
+[shortcodes.contactform.name]
+description = "Form label for the name field"
 other = "Your Name"
 
-[email]
-description = ""
+[shortcodes.contactform.email]
+description = "Form label for the email field"
 other = "Email Address"
 
-[subject]
-description = ""
+[shortcodes.contactform.subject]
+description = "Form label for the subject field"
 other = "Subject"
 
-[message]
-description = ""
-other = "Your Message Here"
+[shortcodes.contactform.message]
+description = "Form label for the message field"
+other = "Your Message"
 
-[send_message]
-description = ""
+[shortcodes.contactform.send_message]
+description = "Label for the submit button"
 other = "Send Message"
 
+[shortcodes.contactform.fieldnames.name]
+other = "Name"
+[shortcodes.contactform.fieldnames.email]
+other = "Email"
+[shortcodes.contactform.fieldnames.subject]
+other = "Subject"
+[shortcodes.contactform.fieldnames.message]
+other = "Message"
+
+################################################################################
+# others
+################################################################################
 [read_article]
 description = ""
 other = "Read Article"

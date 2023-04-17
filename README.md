@@ -11,6 +11,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 **Contents:**
 
 <!--lint ignore-->
+
 - [General notes](#general-notes)
 - [Setup](#setup)
 	- [Prepare the development environment](#prepare-the-development-environment)
@@ -48,8 +49,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 ## Prepare the development environment
 
 - **[Hugo](https://gohugo.io/)** ([Installation instructions](https://gohugo.io/getting-started/installing/))
-- **[Node.js](https://nodejs.org/)** ([I recommend using NVM](https://github.com/nvm-sh/nvm
-) to install Node.js)
+- **[Node.js](https://nodejs.org/)** ([I recommend using NVM](https://github.com/nvm-sh/nvm) to install Node.js)
 - **[Bash](https://www.gnu.org/software/bash/)** (available on any self-respecting operating system)
 - **[Shellcheck](https://github.com/koalaman/shellcheck)** (`snap install -channel=edge shellcheck`)
 - Running **`npm install`** will add all set-up requirements
@@ -61,8 +61,8 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 - **GitHub Actions:** To enable the step to debug logging for the GitHub Workflows, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. You find the settings page by following `Settings > Secrets > Actions` from the repositories home page.
 
-
 ## Pre-Commit
+
 Install and set up `pre-commit` to lint commits for quality and security. Python is required for this. Then run the following commands to set up `pre-commit` locally:
 
 ```bash
@@ -77,14 +77,14 @@ If you installed pre-commit and one of your commits won't "get through" due to s
 
 ## Setup
 
-Set `IP` and `PORT` for your local machine in `.env`. `IP` *MAY* also be a hostname (without protocol).
+Set `IP` and `PORT` for your local machine in `.env`. `IP` _MAY_ also be a hostname (without protocol).
 
 ```ini
 IP=192.168.1.201
 PORT=1313
 ```
 
-This configures the Hugo server so you can access the site from other machines (and mobile devices) in your local network. Again: you *MUST NOT* commit this file to any public code versioning system as it contains private information.
+This configures the Hugo server so you can access the site from other machines (and mobile devices) in your local network. Again: you _MUST NOT_ commit this file to any public code versioning system as it contains private information.
 
 To start the development server, run `npm run server`, which runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more, the better). For example, running just `hugo server` will start Hugo on [localhost:1313](http://localhost:1313).
 
@@ -110,7 +110,7 @@ The theme is part of this repository, mainly in the `layouts` folder.
 
 - Spacing (margin and padding) is applied from top to bottom.
 - We use responsive design principles with mobile-first.
-No unnecessary `row`s inside of `row`s (container>row>col>row>col) if this isn't explicitly required. It isn't needed anyway.
+  No unnecessary `row`s inside of `row`s (container>row>col>row>col) if this isn't explicitly required. It isn't needed anyway.
 - Do re-use and recycle styles.
 
 ## Netlify setup
@@ -136,6 +136,10 @@ Hooks are listed in their order of appearance.
 | init-end  | partials/init.html  | 1  |  | after the pagination object is created and in scratch  |
 | setup  | _default/baseof.html | 1  |  | at the beginning of the main layout  |
 | body-start  | _default/baseof.html | 1  |  |  |
+| body-pre-main | _default/baseof.html | 1  |  |  |
+| body-main-start | _default/baseof.html | 1  |  |  |
+| body-main-end | _default/baseof.html | 1  |  |  |
+| body-post-main | _default/baseof.html | 1  |  |  |
 | body-end-pre-script | _default/baseof.html | 1  |  |  |
 | body-end  | _default/baseof.html | 1  |  |  |
 | teardown  | _default/baseof.html | 1  |  |  |
@@ -164,7 +168,7 @@ Sample:
 
 ```yaml
 theme:
- comments: false
+  comments: false
 ```
 
 The following front matter parameters exist to fine-tune the layouts and theme options:
@@ -232,7 +236,6 @@ sudo apt install inkscape optipng
 
 - To set up the Algolia search, fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 
-
 # License
 
 This website's written `content` is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). In addition, the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
@@ -241,5 +244,4 @@ While this repository is available publicly, all `content` is subject to copyrig
 
 **TBD: note about fonts that might be licensed**
 
-Long story short: go and create something by yourself, and if you want to know how a feature on this website was realized, feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions
-).
+Long story short: go and create something by yourself, and if you want to know how a feature on this website was realized, feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions).

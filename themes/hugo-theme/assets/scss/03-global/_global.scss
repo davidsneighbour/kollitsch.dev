@@ -24,10 +24,7 @@ main {
 		background-position: 0 100px;
 	}
 
-	z-index: 1001;
-
 	@extend .min-vh-100;
-	@extend .position-relative;
 
 	display: grid;
 

@@ -10,15 +10,17 @@
   <body class="light {{ $classes -}}">
     {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
     {{- partial "header.html" . -}}
+    {{- partial "func/hook.html" ( dict "hook" "body-pre-main" "context" . ) -}}
     <main class="embellishment embellishment-one">
-      {{- partial "func/hook.html" ( dict "hook" "container-start" "context" . ) -}}
+      {{- partial "func/hook.html" ( dict "hook" "body-main-start" "context" . ) -}}
       {{- block "main" . -}}{{- end -}}
-      {{- partial "func/hook.html" ( dict "hook" "container-end" "context" . ) -}}
+      {{- partial "func/hook.html" ( dict "hook" "body-main-end" "context" . ) -}}
       <div id="bi">
         {{- $opts := dict "path" "images/embellishments/IAT39.png" "directions" "1800x q90 webp drawing" -}}
         {{- partialCached "content/embellishments.html" $opts $opts -}}
       </div>
     </main>
+    {{- partial "func/hook.html" ( dict "hook" "body-post-main" "context" . ) -}}
     {{- partial "footer.html" . . -}}
     {{- partial "func/hook.html" ( dict "hook" "body-end-pre-script" "context" . ) -}}
     {{- partial "footer/script.html" . -}}

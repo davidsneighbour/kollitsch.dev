@@ -49,14 +49,11 @@
 }
 
 #footer {
-	bottom: 0;
-	left: 0;
+	padding: 250px 0;
 	color: var(--bs-tertiary-color);
 	background-color: var(--bs-tertiary-bg);
-	padding-top: 100vh;
 
 	a {
-		// color: $base2;
 		text-decoration: none;
 
 		&:hover {
@@ -65,27 +62,6 @@
 		}
 	}
 
-	@extend .z-2;
-	@extend .position-sticky;
-	@extend .w-100;
-	@extend .h-100;
 	@extend .mb-0;
 
-	#hb,
-	#ht {
-		@extend .d-flex;
-		@extend .justify-content-center;
-	}
-
-	#hb {
-		height: 200px;
-		margin-left: -100px;
-		margin-top: -13px;
-		opacity: 0.6;
-	}
-
-	#ht {
-		height: 400px;
-		opacity: 0.2;
-	}
 }

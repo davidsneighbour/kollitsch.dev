@@ -23,10 +23,6 @@ fi
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo
 
-# switch netlify account if required
-notify-send "VSCode/Netlify: switch to the proper account now..."
-netlify switch
-
 # get the version number
 VERSION=$(node -pe 'require("./package.json")["version"]')
 

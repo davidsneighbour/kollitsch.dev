@@ -10,7 +10,7 @@
       </div>
     {{- end -}}
   </div>
-  <div class="widgets container">
+  <div class="widgets container mb-5">
     <div class="row">
       <div class="col-12 text-center">
         {{- with site.Params.subscription -}}
@@ -27,6 +27,11 @@
           {{- partial "footer/debugging.html" . -}}
         {{- end -}}
       </div>
+    </div>
+  </div>
+  <div class="widgets container">
+    <div class="site-title">
+      <a href="{{- site.BaseURL -}}">{{- site.Title -}}</a>
     </div>
   </div>
   {{- partial "func/hook.html" ( dict "hook" "footer-end" "context" . ) -}}

@@ -1,24 +1,20 @@
 .embellishment {
 
-	&::before, &::after {
-		content: " ";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 1000;
-		background-repeat: no-repeat;
-		background-attachment: scroll;
-	}
+	// &::before, &::after {
+	// 	content: " ";
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	background-repeat: no-repeat;
+	// 	background-attachment: scroll;
+	// }
 
-	&-one::before {
-		{{- /* finger from left, 300px wide */ -}}
-		{{- $path := "images/embellishments/ht.png" -}}
-		{{- $directions := "300x r90 q90 webp drawing" -}}
-		{{- $embellishment1 := resources.GetMatch $path -}}
-		{{- $embellishment1 = ($embellishment1.Resize $directions) -}}
-		background-image: url("{{- $embellishment1.RelPermalink -}}");
-	}
+	// &-one::before {
+	// 	{{- /* finger from left, 300px wide */ -}}
+	// 	{{- $path := "images/embellishments/ht.png" -}}
+	// 	{{- $directions := "300x r90 q90 webp drawing" -}}
+	// 	{{- $embellishment1 := resources.GetMatch $path -}}
+	// 	{{- $embellishment1 = ($embellishment1.Resize $directions) -}}
+	// 	background-image: url("{{- $embellishment1.RelPermalink -}}");
+	// }
 
 }

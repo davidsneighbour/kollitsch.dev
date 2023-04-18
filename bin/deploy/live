@@ -34,5 +34,8 @@ VERSION=$(node -pe 'require("./package.json")["version"]')
 # and deploy
 netlify deploy --build --prod --open --message "Release v${VERSION}"
 
+# update algolia index
+node bin/algolia/algolia-reindex.ts
+
 # and clear cloudflare cache
 node bin/cloudflare/purge-cache.mjs

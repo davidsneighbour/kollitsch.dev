@@ -11,7 +11,7 @@
     {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
     {{- partial "header.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "body-pre-main" "context" . ) -}}
-    <main class="embellishment embellishment-one">
+    <main>
       {{- partial "func/hook.html" ( dict "hook" "body-main-start" "context" . ) -}}
       {{- block "main" . -}}{{- end -}}
       {{- partial "func/hook.html" ( dict "hook" "body-main-end" "context" . ) -}}

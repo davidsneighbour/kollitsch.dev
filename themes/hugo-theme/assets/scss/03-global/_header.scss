@@ -2,6 +2,8 @@
 	font-family: BahnPro, sans-serif;
 	font-size: 17vw;
 
+	animation: colorRotate 6s linear 0s infinite;
+
 	// @todo clamp it
 	// @see https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
 	@include media-breakpoint-up(sm) {
@@ -25,6 +27,7 @@
 
 		&:hover {
 			text-decoration: none;
+			animation: colorRotate 6s linear 0s infinite;
 		}
 	}
 }

@@ -1,5 +1,5 @@
 
-import { createRoot } from 'react-dom/client';
+//import { createRoot } from 'react-dom/client';
 
 import 'web-vitals-element';
 import './scripts/logger.js';
@@ -12,8 +12,8 @@ import './scripts/bs-tabs.js';
 import './scripts/bs-tooltips.js';
 
 // import react components
-import { Profile } from './components/sample.js';
+//import { Profile } from './components/sample.js';
 
-const domNode = document.getElementById('reacttest');
-const root = createRoot(domNode);
-root.render('<Profile />');
+// const domNode = document.getElementById('reacttest');
+// const root = createRoot(domNode);
+// root.render('<Profile />');

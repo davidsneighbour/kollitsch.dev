@@ -42,6 +42,7 @@
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-preset-env": "1.7.0",
     "babel-preset-es2015": "6.24.1",
+    "browserslist": "^4.21.5",
     "css-loader": "6.7.3",
     "doiuse": "4.4.1",
     "dotenv": "16.0.3",
@@ -59,10 +60,6 @@
     "prettier-plugin-go-template": "0.0.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "remark": "14.0.2",
-    "remark-cli": "11.0.0",
-    "remark-frontmatter": "4.0.1",
-    "remark-lint-frontmatter-schema": "3.15.2",
     "request": "2.88.2",
     "sass": "1.62.0",
     "sass-loader": "13.2.2",
@@ -110,6 +107,7 @@
     "deploy:test": "bin/deploy/test",
     "lighthouse": "bin/audit/lighthouse",
     "lint": "wireit",
+    "lint:remark": "remark content/**/*.md",
     "lint:html": "html-validate --config=tests/html-validator/config.json public",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
@@ -131,10 +129,7 @@
     "server": "bin/server/run",
     "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "tests": "npm run cypress",
-    "update": "run-p update:pre:* && run-s update:post:*",
-    "update:post:npm": "fixpack && npx browserslist@latest --update-db",
-    "update:pre:npm": "npm-check-updates -u --target minor && npm install",
-    "update:pre:vale": "vale sync"
+    "update": "wireit"
   },
   "config": {
     "commitizen": {
@@ -145,7 +140,18 @@
     "extends @davidsneighbour/browserslist-config"
   ],
   "eslintConfig": {
-    "extends": "@davidsneighbour/eslint-config"
+    "extends": "@davidsneighbour/eslint-config",
+    "overrides": [
+      {
+        "files": [
+          "*.md",
+          "*.mdx"
+        ],
+        "extends": [
+          "plugin:mdx/recommended"
+        ]
+      }
+    ]
   },
   "wireit": {
     "build:frontmatter": {
@@ -159,6 +165,32 @@
         "lint:html",
         "lint:lockfiles"
       ]
+    },
+    "update": {
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:vale",
+        "update:post:npm"
+      ]
+    },
+    "update:post:npm": {
+      "command": "fixpack && npx browserslist@latest --update-db"
+    },
+    "update:pre:npm": {
+      "command": "npm-check-updates -u --target minor && npm install"
+    },
+    "update:pre:vale": {
+      "command": "vale sync"
     }
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-mdx": "^2.0.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "remark": "^14.0.2",
+    "remark-cli": "^11.0.0",
+    "remark-frontmatter": "^4.0.1",
+    "remark-lint-frontmatter-schema": "^3.15.2"
   }
 }

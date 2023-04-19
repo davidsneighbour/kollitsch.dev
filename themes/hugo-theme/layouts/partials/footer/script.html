@@ -1,21 +1,9 @@
 {{- $scripts := resources.Get "js/script.ts" | js.Build | minify | fingerprint "sha512" -}}
-<script
-  type="module"
-  importance="low"
-  src="{{- $scripts.Permalink -}}"
-  async
-  defer
-  integrity="{{- $scripts.Data.Integrity -}}"></script>
+<script src="{{- $scripts.Permalink -}}" async defer integrity="{{- $scripts.Data.Integrity -}}"></script>
 
 {{- with resources.Get "js/main.js" -}}
   {{- $script := . | minify | fingerprint "sha512" -}}
-  <script
-    type="module"
-    importance="low"
-    src="{{- $script.Permalink -}}"
-    async
-    defer
-    integrity="{{- $script.Data.Integrity -}}"></script>
+  <script src="{{- $script.Permalink -}}" async defer integrity="{{- $script.Data.Integrity -}}"></script>
 {{- else -}}
   {{- partial "debug.html"
     (dict "message" "hugo-blockify - js/main.js missing"

@@ -1,31 +1,43 @@
 // @todo move this into prose
 article {
-  h1.post-title,
-  h2.post-title {
-    a {
-      @extend .text-uppercase;
-      @extend .text-decoration-none;
-    }
 
-    border-bottom: $border-width solid $primary;
-    @extend .mb-3;
-  }
+	.post-title {
 
-  .ribbon {
-    @extend .z-3;
+		.col-md-12 & {
+			font-size: 1.25rem;
+		}
 
-    &.status--draft {
-      color: var(--bs-light);
-      background-color: var(--bs-primary);
-    }
+		.col-md-6 & {
+			font-size: 1.05rem;
+		}
+	}
 
-    @extend .text-center;
-    @extend .position-absolute;
-    @extend .top-0;
-    @extend .start-0;
-    @extend .py-1;
-    @extend .px-2;
-  }
+	h1.post-title,
+	h2.post-title {
+		a {
+			@extend .text-uppercase;
+			@extend .text-decoration-none;
+		}
 
-  @extend .position-relative;
+		border-bottom: $border-width solid $primary;
+		@extend .mb-3;
+	}
+
+	.ribbon {
+		@extend .z-3;
+
+		&.status--draft {
+			color: var(--bs-light);
+			background-color: var(--bs-primary);
+		}
+
+		@extend .text-center;
+		@extend .position-absolute;
+		@extend .top-0;
+		@extend .start-0;
+		@extend .py-1;
+		@extend .px-2;
+	}
+
+	@extend .position-relative;
 }

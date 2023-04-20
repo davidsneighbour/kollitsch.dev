@@ -51,6 +51,7 @@
     "eslint-plugin-mdx": "^2.0.5",
     "eslint-plugin-prettier": "^4.2.1",
     "html-webpack-plugin": "5.5.1",
+    "imagemin-lint-staged": "^0.5.1",
     "instantsearch.js": "4.54.1",
     "lazysizes": "5.3.2",
     "lint-staged": "^13.2.1",
@@ -140,8 +141,8 @@
     "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "tests": "npm run cypress",
     "update": "wireit",
-
-		"hooks:update": "simple-git-hooks"
+    "hooks:update": "simple-git-hooks",
+    "lint:hook:commit": "lint-staged"
   },
   "config": {
     "commitizen": {

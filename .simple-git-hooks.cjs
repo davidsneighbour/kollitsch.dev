@@ -1,4 +1,4 @@
 module.exports = {
-	"pre-commit": "npx lint-staged",
+	"pre-commit": "npm run lint:hook:commit",
 	"preserveUnused": true,
 };

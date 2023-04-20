@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/99907846",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/99907846/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/99907846/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.1.42",
-  "id": 99907846,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/100189729",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/100189729/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/100189729/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.1.43",
+  "id": 100189729,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,19 +24,19 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584F9HkG",
-  "tag_name": "v2023.1.42",
+  "node_id": "RE_kwDOGDHt584F-MYh",
+  "tag_name": "v2023.1.43",
   "target_commitish": "main",
-  "name": "v2023.1.42",
+  "name": "v2023.1.43",
   "draft": false,
   "prerelease": false,
-  "created_at": "2023-04-18T12:55:07Z",
-  "published_at": "2023-04-18T12:55:24Z",
+  "created_at": "2023-04-20T12:08:15Z",
+  "published_at": "2023-04-20T12:08:30Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.1.42",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.1.42",
-  "body": "## What's Changed\n* build(deps): bump peter-evans/create-pull-request from 4 to 5 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/219\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2023.1.16...v2023.1.42",
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.1.43",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.1.43",
+  "body": "## What's Changed\n* build(deps): bump peter-evans/create-pull-request from 4 to 5 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/219\n\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2023.1.16...v2023.1.43",
   "mentions_count": 1
 }

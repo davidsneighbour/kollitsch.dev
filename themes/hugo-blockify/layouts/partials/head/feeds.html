@@ -1,0 +1,9 @@
+{{- with site.Home.AlternativeOutputFormats -}}
+  {{- partial "func/printCommentHeader.html" "@davidsneighbour/hugo-feeds" }}
+  {{ range $index, $item := . -}}
+    {{- $type := printf " type=%q" $item.MediaType.Type | safeHTMLAttr -}}
+    {{- $href := printf " href=%q" $item.Permalink | safeHTMLAttr -}}
+    {{- $rel := printf " rel=%q" $item.Rel | safeHTMLAttr -}}
+    <link {{- $rel -}} {{- $type -}} {{- $href -}} />
+  {{ end -}}
+{{- end -}}

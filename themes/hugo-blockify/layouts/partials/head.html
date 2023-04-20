@@ -1,14 +1,17 @@
 {{- $page := . -}}
 {{- $config := site.Params.dnb.head -}}
 {{- partial "func/hook.html" ( dict "hook" "head-init" "context" . ) -}}
-<meta charset="{{- site.Params.dnb.head.charset | default "utf-8" -}}">
-<meta name="viewport" content="{{- site.Params.dnb.head.viewport | default "width=device-width, initial-scale=1" -}}">
+<meta charset="{{- site.Params.dnb.head.charset | default "utf-8" -}}" />
+<meta
+  name="viewport"
+  content="{{- site.Params.dnb.head.viewport | default "width=device-width, initial-scale=1" -}}"
+/>
 {{- partial "head/title.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-start" "context" . ) -}}
 {{- partialCached "head/speed-optimisation.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-post-speed-optimisation" "context" . ) -}}
 {{- if and (isset $config "nobase") (eq false $config.nobase) -}}
-<base href="{{- site.BaseURL -}}">
+  <base href="{{- site.BaseURL -}}" />
 {{- end -}}
 {{- partial "head/description.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-post-description" "context" . ) -}}
@@ -23,16 +26,16 @@
 {{- partial "func/hook.html" ( dict "hook" "head-post-seo" "context" . ) -}}
 {{- partialCached "head/series.html" . . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-post-series" "context" . ) -}}
-{{- $modules := slice "social" "opensearch" "pwa" "humans" -}}
+{{/* external modules */}}
+{{- $modules := slice "social" "opensearch" "pwa" "humans" "feeds" -}}
 {{- range $modules -}}
-	{{- $template := printf "head/%s.html" . -}}
+  {{- $template := printf "head/%s.html" . -}}
   {{- if templates.Exists ( printf "partials/%s" $template ) -}}
+    {{- partial "func/hook.html" ( dict "hook" (printf "head-pre-module-%s" .) "context" . ) -}}
     {{- partialCached $template $page $page -}}
-    {{- partial "func/hook.html" ( dict "hook" (printf "head-post-%s" .) "context" . ) -}}
+    {{- partial "func/hook.html" ( dict "hook" (printf "head-post-module-%s" .) "context" . ) -}}
   {{- end -}}
 {{- end -}}
-{{- partialCached "head/alternates.html" . "sitefeeds" -}}
-{{- partial "func/hook.html" ( dict "hook" "head-post-alternates" "context" . ) -}}
 {{- partialCached "head/verification.html" . -}}
 {{- partial "func/hook.html" ( dict "hook" "head-post-verification" "context" . ) -}}
 {{- partial "head/others.html" . -}}

@@ -1,7 +1,0 @@
-{{- with site.Home.AlternativeOutputFormats -}}
-  {{- range . -}}
-    {{ $type := printf "type=%q" .MediaType.Type | safeHTMLAttr -}}
-    {{ $href := printf "href=%q" .Permalink | safeHTMLAttr -}}
-    <link rel="{{- .Rel -}}" {{ $type }} {{ $href }} />
-  {{- end -}}
-{{- end -}}

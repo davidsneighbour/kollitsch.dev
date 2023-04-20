@@ -206,7 +206,7 @@ wordcount = ".WordCount"
 icontheme = "bootstrap"
 
 [dnb.social.sharebuttons]
-networks = ["mastodon", "linkedin", "instagram", "facebook", "twitter"]
+networks = ["rss", "mastodon", "linkedin", "instagram", "facebook", "twitter"]
 icons = false
 sharetext = true
 
@@ -234,6 +234,11 @@ label = "Follow me on LinkedIn"
 url = "https://mas.to/@davidsneighbour"
 icon = "mastodon"
 label = "Me on Mas.to(don)"
+
+[dnb.social.network.rss]
+url = "https://kollitsch.dev/rss.xml"
+icon = "rss"
+label = "Subscribe to RSS feed"
 
 ################################################################################
 # hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus

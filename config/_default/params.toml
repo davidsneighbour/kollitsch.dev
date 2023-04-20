@@ -39,21 +39,14 @@ value = "[davidsneighbour@mas.to](https://mas.to/@davidsneighbour)"
 label = "Telegram"
 value = "[davidsneighbour](https://t.me/davidsneighbour)"
 
-
-
-
-################################################################################
 # sections setup
-################################################################################
 [dnb.theme.sections]
 [dnb.theme.sections.components]
 sort = "lastmod"
 [dnb.theme.sections.blog]
 sort = "date"
 
-################################################################################
 # footer setup
-################################################################################
 [dnb.theme.footer]
 show_version = true
 show_tag_as_version = true
@@ -97,8 +90,7 @@ icontheme = "bootstrap"
 #
 ################################################################################
 # hugo-pictures
-#
-# @see https://github.com/davidsneighbour/hugo-pictures
+# @see https://kollitsch.dev/components/hugo-pictures
 ################################################################################
 [dnb.pictures]
 default_image = "images/placeholder.jpg"
@@ -240,8 +232,19 @@ url = "https://kollitsch.dev/rss.xml"
 icon = "rss"
 label = "Subscribe to RSS feed"
 
+[dnb.social.network.buymeacoffee]
+url = "https://www.buymeacoffee.com/davidsneigbour"
+icon = "buymeacoffee"
+label = "Buy me a coffee"
+
+[dnb.social.network.substack]
+url = "https://davidsneighbour.substack.com/"
+icon = "substack"
+label = "Follow me on Substack"
+
 ################################################################################
-# hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
+# hugo-giscus
+# @see https://kollitsch.dev/components/hugo-giscus
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"

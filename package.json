@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2023.1.44",
+  "version": "2023.1.45",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -87,6 +87,9 @@
     "xml2js": "0.5.0",
     "yargs": "17.7.1"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",
     "audit:hugo": "./bin/audit/audit",
@@ -116,12 +119,14 @@
     "deploy:minor": "npm run release:minor && bin/deploy/live",
     "deploy:stage": "notify-send \"VSCode/Netlify: switch to the proper account now...\" && netlify switch",
     "deploy:test": "bin/deploy/test",
+    "hooks:update": "simple-git-hooks",
     "lighthouse": "bin/audit/lighthouse",
     "lint": "wireit",
-    "lint:remark": "remark content/**/*.md",
+    "lint:hook:commit": "lint-staged",
     "lint:html": "html-validate --config=tests/html-validator/config.json public",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
+    "lint:remark": "remark content/**/*.md",
     "lint:scripts": "eslint assets/js --ext .ts",
     "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
     "lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
@@ -140,18 +145,13 @@
     "server": "bin/server/run",
     "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "tests": "npm run cypress",
-    "update": "wireit",
-    "hooks:update": "simple-git-hooks",
-    "lint:hook:commit": "lint-staged"
+    "update": "wireit"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
     }
   },
-  "browserslist": [
-    "extends @davidsneighbour/browserslist-config"
-  ],
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config",
     "overrides": [

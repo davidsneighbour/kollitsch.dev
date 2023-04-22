@@ -1,12 +1,14 @@
 .site-title {
 	font-family: BahnPro, sans-serif;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 	font-size: 17vw;
-
-	animation: colorRotate 6s linear 0s infinite;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
+	animation: color-rotate 6s linear 0s infinite;
 
 	// @todo clamp it
 	// @see https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
 	@include media-breakpoint-up(sm) {
+		/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 		font-size: 12vw;
 	}
 
@@ -27,7 +29,8 @@
 
 		&:hover {
 			text-decoration: none;
-			animation: colorRotate 6s linear 0s infinite;
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
+			animation: color-rotate 6s linear 0s infinite;
 		}
 	}
 }

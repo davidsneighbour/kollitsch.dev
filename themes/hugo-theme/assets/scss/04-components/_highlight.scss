@@ -1,5 +1,4 @@
 .component--highlight {
-
 	.ln {
 		width: 15px;
 		padding: 0 !important;
@@ -14,14 +13,11 @@
 	}
 
 	.highlight {
-
 		border-right: 1px solid var(--bs-border-color);
-
 		border-bottom: 1px solid var(--bs-border-color);
 	}
 
 	.nav-item {
-
 		@extend .me-1;
 
 		.active {
@@ -31,6 +27,7 @@
 		button,
 		a {
 			@extend .text-uppercase;
+
 			font-size: 0.75rem;
 			padding: 0.25rem 0.5rem;
 			border-bottom: 0;

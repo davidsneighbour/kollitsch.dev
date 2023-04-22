@@ -20,6 +20,7 @@
 
 		::-webkit-scrollbar-thumb {
 			border: 0;
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 			border-radius: $radius;
 			background-color: $color;
 		}

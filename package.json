@@ -131,7 +131,7 @@
     "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
     "lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
     "lint:styles:config": "stylelint --print-config index.js",
-    "lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables **/assets/scss",
+    "lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables themes/hugo-theme/assets/scss",
     "lint:templates": "bin/audit/lint-template-style",
     "lint:vale": "vale content",
     "new": "node bin/content/index.mjs",

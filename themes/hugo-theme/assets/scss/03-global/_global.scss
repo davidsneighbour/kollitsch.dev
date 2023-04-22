@@ -26,6 +26,7 @@ main {
 
 	display: grid;
 
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 	--gap: clamp(1rem, 6vw, 3rem);
 	--full: minmax(var(--gap), 1fr);
 	--content: min(#{$layout-character-width}, 100%);
@@ -59,6 +60,7 @@ main {
 		img {
 			@extend .w-100;
 			@extend .opacity-25;
+
 
 			margin-top: -59%;
 		}

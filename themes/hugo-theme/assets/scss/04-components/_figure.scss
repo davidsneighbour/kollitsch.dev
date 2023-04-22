@@ -1,5 +1,6 @@
 figure {
 	font-variant: small-caps;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 	transition: border 8000ms ease-out;
 
 	.inline-icons {

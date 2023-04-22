@@ -1,4 +1,9 @@
 {
   "extends": "@davidsneighbour/stylelint-config",
-  "rules": {}
+  "rules": {},
+  "ignoreFiles": [
+    "./themes/hugo-theme/assets/scss/01-settings/template*.scss",
+    "./themes/hugo-theme/assets/scss/embellishments.scss",
+    "./themes/hugo-theme/assets/scss/notes.md"
+  ]
 }

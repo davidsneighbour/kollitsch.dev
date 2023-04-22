@@ -1,8 +1,6 @@
 // @todo move this into prose
 article {
-
 	.post-title {
-
 		.col-md-12 & {
 			font-size: 1.25rem;
 		}
@@ -20,6 +18,7 @@ article {
 		}
 
 		border-bottom: $border-width solid $primary;
+
 		@extend .mb-3;
 	}
 

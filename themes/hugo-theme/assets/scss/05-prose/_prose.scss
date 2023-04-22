@@ -4,6 +4,7 @@
 
 a {
 	box-decoration-break: clone;
+
 	@extend .link-underline-secondary;
 	@extend .link-offset-2;
 }
@@ -24,6 +25,7 @@ h6 {
 
 p {
 	text-align: justify;
+
 	@extend .hyphenate;
 }
 
@@ -40,6 +42,10 @@ blockquote {
 	cite {
 		font-style: italic;
 	}
+}
+
+pre {
+	margin-bottom: 0;
 }
 
 table {
@@ -76,10 +82,6 @@ table {
 	border-top: 1px solid $primary;
 
 	@extend .pt-3;
-}
-
-pre {
-	margin-bottom: 0;
 }
 
 kbd {

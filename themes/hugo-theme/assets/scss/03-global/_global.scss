@@ -12,10 +12,8 @@ $layout-character-width: 70ch;
  ******************************************************************************/
 main {
 	padding-top: $heading-height + 30px;
-
 	padding-bottom: 0;
 	margin-bottom: 0;
-
 	background-color: var(--bs-body-bg);
 
 	&::before {
@@ -61,6 +59,7 @@ main {
 		img {
 			@extend .w-100;
 			@extend .opacity-25;
+
 			margin-top: -59%;
 		}
 	}

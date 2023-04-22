@@ -1,24 +1,61 @@
-{{ $order := slice }}
-{{ $networks := .network }}
-{{ $sharebuttons := .sharebuttons }}
+{{- /*
+
+  ```toml
+  [dnb.social.sharebuttons]
+  networks = ["slug1", "slug2", ...]
+  icons = true
+  sharetext = false
+
+  [dnb.social.network.slug1]
+  url = ""
+  icon = "bootstrap icon"
+  label = ""
+
+  [dnb.social.network.slug2]
+  url = ""
+  icon = "bootstrap icon"
+  label = ""
+  ```
+
+  */
+-}}
+
+{{- $order := slice -}}
+{{- $networks := .network | default dict -}}
+{{- $sharebuttons := .sharebuttons | default slice -}}
 
 {{- with $sharebuttons -}}
-  {{ $order = .networks }}
-{{ else }}
-  {{ range $key, $item := $networks }}
-    {{ $order = $order | append $key }}
-  {{ end }}
-{{ end }}
+  {{- $order = .networks -}}
+{{- else -}}
+  {{- range $key, $item := $networks -}}
+    {{- $order = $order | append $key -}}
+  {{- end -}}
+{{- end -}}
 
 
 <div class="widget social-media">
-  <div class="h2 mb-0 mt-3">{{- i18n "connect-on-social" -}}</div>
+  <strong class="mb-0 mt-3">{{- i18n "connect-on-social" -}}</strong>
   <div class="hstack justify-content-center gap-3">
     {{- range $order -}}
       {{- $network := index $networks . -}}
       <div class="p-2">
-        <a href="{{- $network.url -}}" aria-label="{{- $network.label -}}" class="icon-{{ $network.icon }}">
-          {{- partialCached "bsicon.html" $network.icon $network.icon -}}
+        <a
+          href="{{- $network.url -}}"
+          aria-label="{{- $network.label -}}"
+          class="icon-{{ $network.icon }}"
+          title="{{- $network.label -}}">
+          {{- with (site.Params.dnb.social.sharebuttons.icons | default true) -}}
+            {{- if eq . true -}}
+              <span aria-hidden="true" class="icon">
+                {{- partialCached "bsicon.html" $network.icon $network.icon -}}
+              </span>
+            {{- end -}}
+          {{- end -}}
+          {{- with (site.Params.dnb.social.sharebuttons.sharetext | default false) -}}
+            {{- if eq . true -}}
+              {{- $network.label -}}
+            {{- end -}}
+          {{- end -}}
         </a>
       </div>
     {{- end -}}

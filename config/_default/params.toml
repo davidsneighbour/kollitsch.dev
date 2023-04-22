@@ -190,17 +190,8 @@ wordcount = ".WordCount"
 ################################################################################
 # hugo-social @see https://github.com/davidsneighbour/hugo-social
 ################################################################################
-[dnb.social]
-# selected icon theme.
-# can be one of the identifiers of dnb-hugo-icons OR
-# `specific` to indicate use values of `icon` values as individual classes OR
-# `partial` to indicate the inclusion of the value as cached partial
-icontheme = "bootstrap"
-
 [dnb.social.sharebuttons]
-networks = ["rss", "mastodon", "linkedin", "instagram", "facebook", "twitter"]
-icons = false
-sharetext = true
+networks = ["rss", "buymeacoffee", "substack", "mastodon", "linkedin", "instagram", "facebook", "twitter"]
 
 [dnb.social.network.facebook]
 url = "https://www.facebook.com/patrick.kollitsch/"
@@ -229,17 +220,17 @@ label = "Me on Mas.to(don)"
 
 [dnb.social.network.rss]
 url = "https://kollitsch.dev/rss.xml"
-icon = "rss"
+icon = "rss-fill"
 label = "Subscribe to RSS feed"
 
 [dnb.social.network.buymeacoffee]
 url = "https://www.buymeacoffee.com/davidsneigbour"
-icon = "buymeacoffee"
+icon = "cup-hot-fill"
 label = "Buy me a coffee"
 
 [dnb.social.network.substack]
 url = "https://davidsneighbour.substack.com/"
-icon = "substack"
+icon = "stack"
 label = "Follow me on Substack"
 
 ################################################################################

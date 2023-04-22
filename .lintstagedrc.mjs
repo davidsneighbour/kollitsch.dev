@@ -1,6 +1,6 @@
 export default {
 	"*.js": "eslint",
 	"*.css": "stylelint",
-	"*.scss": "stylelint --syntax=scss",
+	"*.scss": "stylelint",
 	"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged"
 }

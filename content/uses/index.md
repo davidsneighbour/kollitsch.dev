@@ -21,19 +21,19 @@ The following is a collection of tools helping me with my digital and work life.
 
 ## Operating System
 
-To be written...
+[Ubuntu](https://ubuntu.com/) is my main operating system. I use it on my desktop, and it's running on a server I am using. The last time I used Windows on my desktop was in 2004
 
 ## Productivity
 
-Todoist... to be written...
+[Todoist](https://todoist.com/) is my main task manager. I use it to manage my daily tasks, and I am using it to manage my projects. I am using it on the phone, via the Linux app, and via webinterface
 
 ## Privacy and Security
 
-To be written...
+My password manager of choice is [Enpass](https://www.enpass.io/) and I am using it on all my devices.
 
 ## Notes, drafts and writing
 
-To be written...
+For handwritten notes I am using [reMarkable](https://remarkable.com) and for digital notes I am using [Joplin](https://joplinapp.org/).
 
 ## UI
 

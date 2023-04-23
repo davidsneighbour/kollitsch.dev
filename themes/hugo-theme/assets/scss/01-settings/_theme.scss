@@ -76,7 +76,7 @@ $enable-rounded: false;
 $enable-rfs: false;
 $enable-dark-mode: true;
 $enable-shadows: true;
-$enable-gradients: true;
+$enable-gradients: false;
 $enable-negative-margins: true;
 $enable-important-utilities: false;
 
@@ -90,8 +90,8 @@ $heading-height: 70px;
  * root setup
  ******************************************************************************/
 :root {
-  // https://drafts.csswg.org/css-ui-4/#widget-accent
-  // https://caniuse.com/?search=accent-color
-  accent-color: $primary;
-  color-scheme: dark;
+	// https://drafts.csswg.org/css-ui-4/#widget-accent
+	// https://caniuse.com/?search=accent-color
+	accent-color: $primary;
+	color-scheme: dark;
 }

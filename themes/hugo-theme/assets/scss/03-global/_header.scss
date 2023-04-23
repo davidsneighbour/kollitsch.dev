@@ -2,8 +2,6 @@
 	font-family: BahnPro, sans-serif;
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 	font-size: 17vw;
-	/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
-	animation: color-rotate 6s linear 0s infinite;
 
 	// @todo clamp it
 	// @see https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
@@ -29,8 +27,6 @@
 
 		&:hover {
 			text-decoration: none;
-			/* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
-			animation: color-rotate 6s linear 0s infinite;
 		}
 	}
 }

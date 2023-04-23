@@ -9,6 +9,10 @@ const onClick = () => {
 		: 'light'
 
 	setPreference()
+
+
+	changeGiscusTheme();
+	setTimeout(changeGiscusTheme, 5000);
 }
 
 const getColorPreference = () => {
@@ -67,3 +71,24 @@ window
 		theme.value = isDark ? 'dark' : 'light'
 		setPreference()
 	})
+
+// @todo move into hugo-giscus component
+function changeGiscusTheme() {
+	const theme = document.firstElementChild.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light'
+
+	function sendMessage(message) {
+		const iframe = document.querySelector('iframe.giscus-frame');
+		if (!iframe) return;
+		iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+	}
+
+	sendMessage({
+		setConfig: {
+			theme: theme
+		}
+	});
+
+}
+changeGiscusTheme();
+setTimeout(changeGiscusTheme, 5000);
+

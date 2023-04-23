@@ -53,18 +53,18 @@ main {
 		grid-column: full;
 	}
 
-	#bi {
-		grid-column: full;
-		z-index: -1;
+	// #bi {
+	// 	grid-column: full;
+	// 	z-index: -1;
 
-		img {
-			@extend .w-100;
-			@extend .opacity-25;
+	// 	img {
+	// 		@extend .w-100;
+	// 		@extend .opacity-25;
 
 
-			margin-top: -59%;
-		}
-	}
+	// 		margin-top: -59%;
+	// 	}
+	// }
 }
 
 /*******************************************************************************

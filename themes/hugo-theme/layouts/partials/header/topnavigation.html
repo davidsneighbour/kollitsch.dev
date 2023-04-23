@@ -6,7 +6,7 @@
     {{- partialCached "header/navbar/toggle-button.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-pre-mainnav" "context" . ) -}}
     <div class="navbar-collapse collapse" id="navbarSupportedContent">
-      <menu class="navbar-nav ms-auto me-auto me-md-0">
+      <menu class="navbar-nav me-md-0 me-auto ms-auto">
         {{- $current := . -}}
         {{- range site.Menus.main -}}
           {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
@@ -49,6 +49,7 @@
             </li>
           {{- end -}}
         {{- end -}}
+        {{- partialCached "header/navbar/theme-selector.html" . -}}
       </menu>
     </div>
     {{- partial "func/hook.html" ( dict "hook" "header-topnav-post-mainnav" "context" . ) -}}

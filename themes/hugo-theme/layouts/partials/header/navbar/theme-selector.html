@@ -1,35 +1,15 @@
 <li class="nav-item dropdown">
   <button
-    class="btn btn-link nav-link px-lg-2 dropdown-toggle d-flex align-items-center px-0 py-2"
-    id="bd-theme"
-    type="button"
-    aria-expanded="false"
-    data-bs-toggle="dropdown"
-    data-bs-display="static">
-    <svg class="bi theme-icon-active my-1"><use href="#sun-fill"></use></svg>
-    <span class="d-lg-none ms-2">Toggle theme</span>
+    class="btn btn-secondary rounded-pill"
+    id="theme-toggle"
+    title="Toggles light & dark"
+    aria-label="auto"
+    aria-live="polite">
+    <span class="d-none" id="toggle-button-light">
+      {{- partialCached "bsicon.html" "sun-fill" "sun-fill" -}}
+    </span>
+    <span class="d-none" id="toggle-button-dark">
+      {{- partialCached "bsicon.html" "moon-stars-fill" "moon-stars-fill" -}}
+    </span>
   </button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme" style="--bs-dropdown-min-width: 8rem;">
-    <li>
-      <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
-        <svg class="bi theme-icon me-2 opacity-50"><use href="#sun-fill"></use></svg>
-        Light
-        <svg class="bi d-none ms-auto"><use href="#check2"></use></svg>
-      </button>
-    </li>
-    <li>
-      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
-        <svg class="bi theme-icon me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
-        Dark
-        <svg class="bi d-none ms-auto"><use href="#check2"></use></svg>
-      </button>
-    </li>
-    <li>
-      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
-        <svg class="bi theme-icon me-2 opacity-50"><use href="#circle-half"></use></svg>
-        Auto
-        <svg class="bi d-none ms-auto"><use href="#check2"></use></svg>
-      </button>
-    </li>
-  </ul>
 </li>

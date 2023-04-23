@@ -49,7 +49,7 @@ module.exports = {
 			debug: true,
 		}),
 
-		purgecss,
+		// purgecss,
 		// https://github.com/cssnano/cssnano
 		cssnano({
 			preset: [

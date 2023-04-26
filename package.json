@@ -49,6 +49,7 @@
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-mdx": "^2.0.5",
+    "eslint-plugin-package-json": "^0.1.4",
     "eslint-plugin-prettier": "^4.2.1",
     "html-webpack-plugin": "5.5.1",
     "imagemin-lint-staged": "^0.5.1",
@@ -95,7 +96,6 @@
     "audit:hugo": "./bin/audit/audit",
     "build": "run-s build:critical build:hugo",
     "build:critical": "./bin/build/critical-css",
-    "build:frontmatter": "wireit",
     "build:hugo": "./bin/build/hugo",
     "build:script": "tsc",
     "build:tailwind": "npx tailwindcss -i ./assets/css/main.css -o ./assets/dist/style.css",
@@ -167,12 +167,6 @@
     ]
   },
   "wireit": {
-    "build:frontmatter": {
-      "command": "node assets/frontmatter/build.ts",
-      "files": [
-        "assets/frontmatter/**/*.{ts,json}"
-      ]
-    },
     "lint": {
       "dependencies": [
         "lint:html",
@@ -195,8 +189,5 @@
     "update:pre:vale": {
       "command": "vale sync"
     }
-  },
-  "devDependencies": {
-    "eslint-plugin-package-json": "^0.1.4"
   }
 }

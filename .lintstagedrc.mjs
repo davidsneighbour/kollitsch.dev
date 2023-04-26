@@ -12,11 +12,13 @@ const removeIgnoredFiles = async (files) => {
 }
 
 export default {
-	'**/*.{ts,tsx,js,jsx}': async (files) => {
+	'*.{ts,tsx,(m|c)js,jsx}': async (files) => {
 		const filesToLint = await removeIgnoredFiles(files)
-		return [`eslint --max-warnings=0 ${filesToLint}`]
+		return [`eslint --max-warnings=0 ${filesToLint}`, "prettier --write"]
 	},
-	"*.css": "stylelint",
-	"*.scss": "stylelint --fix",
-	"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged"
+	"*.{scss,css}": "stylelint --fix",
+	"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
+	"*.{js,jsx}": "flow focus-check",
+	'**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
+	//'**/*.js?(x)': (filenames) => filenames.map((filename) => `prettier --write '${filename}'`),
 }

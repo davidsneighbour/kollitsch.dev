@@ -119,3 +119,6 @@ status = "301"
 from = "/blog/2022/100daystooffload/"
 to = "/blog/2022/100-days-to-offload/"
 status = "301"
+
+[[headers]]
+'Access-Control-Allow-Origin' = '*'

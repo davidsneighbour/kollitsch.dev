@@ -1,6 +1,6 @@
 {{- $feed := dict -}}
 {{- $config := site.Params.dnb.giscus.extended -}}
-
+{{- /* @see https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#giscusjson */ -}}
 {{- /* set up origins */ -}}
 {{- with $config.origins -}}
   {{- $feed = merge $feed ( dict "origins" . ) -}}

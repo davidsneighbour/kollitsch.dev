@@ -1,3 +1,8 @@
+
+headers = [
+	"Access-Control-Allow-Origin: *"
+]
+
 [csp]
 reportOnly = false
 reportUri = "https://kollitschdev.report-uri.com/r/d/csp/reportOnly"
@@ -120,5 +125,3 @@ from = "/blog/2022/100daystooffload/"
 to = "/blog/2022/100-days-to-offload/"
 status = "301"
 
-[[headers]]
-'Access-Control-Allow-Origin' = '*'

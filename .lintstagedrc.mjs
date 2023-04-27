@@ -16,7 +16,7 @@ const removeIgnoredFiles = async (files) => {
 export default {
 	'*.{ts,tsx,(m|c)js,jsx}': async (files) => {
 		const filesToLint = await removeIgnoredFiles(files)
-		return [`eslint --max-warnings=0 ${filesToLint}`, "prettier --write"]
+		return [`eslint --max-warnings=0 ${filesToLint}`]
 	},
 	"*.{scss,css}": "stylelint --fix",
 	"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",

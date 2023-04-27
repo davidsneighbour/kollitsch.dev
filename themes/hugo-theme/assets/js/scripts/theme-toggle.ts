@@ -3,16 +3,14 @@
 const storageKey = 'theme-preference'
 
 // set giscus theme urls
-const url = window.location.href;
-const urlParsed = url.split("/");
-const giscusDarkTheme = urlParsed[0] + "//" + urlParsed[2] + '/hugo-giscus/dark.css';
-const giscusLightTheme = urlParsed[0] + "//" + urlParsed[2] + '/hugo-giscus/light.css';
+const giscusDarkTheme = 'dark';
+const giscusLightTheme = 'light';
 
 const onClick = () => {
 	theme.value = theme.value === 'light' ? 'dark' : 'light';
 	setPreference();
 	changeGiscusTheme();
-	setTimeout(changeGiscusTheme, 1000);
+	setTimeout(changeGiscusTheme, 2000);
 }
 
 const getColorPreference = () => {
@@ -73,7 +71,7 @@ const theme = {
 reflectPreference()
 window.onload = () => {
 	reflectPreference();
-	document.querySelector('#theme-toggle').addEventListener('click', onClick);
+	document.querySelector('#theme-toggle')?.addEventListener('click', onClick);
 }
 
 window

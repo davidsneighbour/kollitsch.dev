@@ -25,7 +25,9 @@ The following is a collection of tools helping me with my digital and work life.
 
 ## Productivity
 
-[Todoist](https://todoist.com/) is my main task manager. I use it to manage my daily tasks, and I am using it to manage my projects. I am using it on the phone, via the Linux app, and via webinterface
+[Todoist](https://todoist.com/) is my main task manager. I use it to manage my daily tasks, and I am using it to manage my projects. I am using it on the phone, via the Linux app, and via webinterface.
+
+I stay up to date with news and development by using [Feedly](https://feedly.com/) as online feed reader.
 
 ## Privacy and Security
 

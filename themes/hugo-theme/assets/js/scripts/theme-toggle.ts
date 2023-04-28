@@ -71,7 +71,7 @@ const theme = {
 reflectPreference()
 window.onload = () => {
 	reflectPreference();
-	document.querySelector('#theme-toggle')?.addEventListener('click', onClick);
+	document.querySelector('#theme-toggle').addEventListener('click', onClick);
 }
 
 window

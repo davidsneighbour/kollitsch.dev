@@ -43,7 +43,7 @@
     "clipboard": "^2.0.11",
     "cross-env": "^7.0.3",
     "eslint": "^8.30.0",
-    "fantasticon": "^1.2.3",
+    "fantasticon": "^2.0.0",
     "find-unused-sass-variables": "^4.0.5",
     "hugo-bin": "^0.97.0",
     "list.js": "^2.3.1",

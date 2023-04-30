@@ -8,10 +8,11 @@
 
   {{- $classes := partialCached "func/getBodyClasses.html" . . -}}
   <body class="light {{ $classes -}}">
+		<a class="visually-hidden-focusable" href="#maincontent">{{- i18n "theme.skip_to_content" -}}</a>
     {{- partial "func/hook.html" ( dict "hook" "body-start" "context" . ) -}}
     {{- partial "header.html" . -}}
     {{- partial "func/hook.html" ( dict "hook" "body-pre-main" "context" . ) -}}
-    <main>
+    <main class="maincontent">
       {{- partial "func/hook.html" ( dict "hook" "body-main-start" "context" . ) -}}
       {{- block "main" . -}}{{- end -}}
       {{- partial "func/hook.html" ( dict "hook" "body-main-end" "context" . ) -}}

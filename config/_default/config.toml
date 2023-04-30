@@ -16,6 +16,7 @@ rssLimit = 10
 summaryLength = 40
 timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
+themes = ["hugo-blockify", "hugo-theme"]
 
 # hack: adding a crazy timeout to prevent hugo from... timing out...
 timeout = 100000000000000

@@ -13,3 +13,7 @@ path = "hugo-theme"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+
+[[mounts]]
+source = "node_modules"
+target = "assets/node_modules"

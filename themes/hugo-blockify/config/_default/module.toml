@@ -26,15 +26,15 @@ target = "layouts"
 source = "static"
 target = "static"
 
-[[imports]]
-path = "github.com/twbs/icons"
-disable = false
-ignoreConfig = true
-ignoreImports = true
+# [[imports]]
+# path = "github.com/twbs/icons"
+# disable = false
+# ignoreConfig = true
+# ignoreImports = true
 
-[[imports.mounts]]
-source = "icons"
-target = "assets/icons/bootstrap-icons"
+# [[imports.mounts]]
+# source = "icons"
+# target = "assets/icons/bootstrap-icons"
 
 # [[imports]]
 # path = "github.com/tailwindlabs/heroicons"

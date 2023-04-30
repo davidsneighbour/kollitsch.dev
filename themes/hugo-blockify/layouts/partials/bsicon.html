@@ -1,9 +1,3 @@
-{{- /*
-  @example
-  `{{-
-  partialCached "bsicon.html" "cart" "cart"
--}}`
-*/ -}}
 {{- $iconname := . -}}
 {{- $icon := (printf "node_modules/bootstrap-icons/icons/%s.svg" $iconname) -}}
 {{- with resources.Get $icon -}}

@@ -1,4 +1,4 @@
-const data = require("../../data/build.json");
+const data = require("./assets/data/build.json");
 const versionList = Array.prototype.slice.call(document.querySelectorAll('.is--site-version a.version'));
 versionList.forEach((element: Element) => {
 	element.innerText = data.tag_name;

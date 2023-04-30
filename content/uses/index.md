@@ -21,7 +21,7 @@ The following is a collection of tools helping me with my digital and work life.
 
 ## Operating System
 
-[Ubuntu](https://ubuntu.com/) is my main operating system. I use it on my desktop, and it's running on a server I am using. The last time I used Windows on my desktop was in 2004
+[Ubuntu](https://ubuntu.com/) is my main operating system. I use it on my desktop, and it's running on a server I am using. The last time I used Windows on my desktop was in 2004.
 
 ## Productivity
 
@@ -37,29 +37,29 @@ My password manager of choice is [Enpass](https://www.enpass.io/) and I am using
 
 For handwritten notes I am using [reMarkable](https://remarkable.com) and for digital notes I am using [Joplin](https://joplinapp.org/).
 
-## UI
-
-To be written...
-
 ## Shell and terminal
 
-To be written...
+To be written... Default Terminal with a bunch of Dotfiles.
 
 ## Code Editor
 
-To be written...
+To be written... VSCode, PHPStorm, Sublime Text
 
 ## Look and feel
 
-To be written...
+To be written... Nothing ;) I stopped trying to optimize my look and feel. I am using the default theme of Ubuntu and the default theme of VSCode.
+
+## UI
+
+To be written... Isn't that what Look and Feel is about?
 
 ## Extensions
 
-To be written...
+To be written... Not sure what I was thinking here... I am using a lot of extensions in VSCode, but I am not sure if I want to list them all here.
 
 ## Hardware
 
-To be written...
+To be written... Two very mediocre all in one stations, one by Acer (never again), one by HP (fake strong).
 
 ## About /uses
 

@@ -23,7 +23,7 @@ $h6-font-size: $font-size-base;
  * links
  ******************************************************************************/
 $link-color: $primary;
-$link-hover-color: darken($primary, 20%);
+$link-hover-color: $primary;
 $link-decoration: none;
 $link-hover-decoration: underline;
 
@@ -83,7 +83,6 @@ $enable-important-utilities: false;
 /*******************************************************************************
  * theme relevant settings
  ******************************************************************************/
-$layout-character-width: 65ch;
 $heading-height: 70px;
 
 /*******************************************************************************
@@ -93,5 +92,5 @@ $heading-height: 70px;
 	// https://drafts.csswg.org/css-ui-4/#widget-accent
 	// https://caniuse.com/?search=accent-color
 	accent-color: $primary;
-	color-scheme: dark;
+	// color-scheme: dark;
 }

@@ -84,10 +84,14 @@
 {{- if and (isset $config "pictures") (isset $config.pictures "default_image") -}}
 {{- with $config.pictures.default_image -}}
   {{- $image = resources.Get . -}}
-  {{- $image = $image.Resize "1200x630" -}}
-  {{- $metaProperties = $metaProperties | append (dict
-      "property" "og:image"
-      "content" $image.Permalink) -}}
+  {{- with $image -}}
+
+    {{- $image = .Resize "1200x630" -}} }}
+    {{- $metaProperties = $metaProperties | append (dict
+        "property" "og:image"
+        "content" $image.Permalink) -}}
+
+  {{- end -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}

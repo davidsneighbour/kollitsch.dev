@@ -31,8 +31,11 @@ VERSION=$(node -pe 'require("./package.json")["version"]')
 # bin/build/hugo "${BASEURL}"
 # netlify deploy --open --alias "$HASH"
 
+./bin/build/hugo
+npm run pagefind
+
 # and deploy
-netlify deploy --build --prod --open --message "Release v${VERSION}"
+netlify deploy --prod --open --message "Release v${VERSION}"
 
 # update algolia index
 node bin/algolia/algolia-reindex.ts

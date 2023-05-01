@@ -1,6 +1,0 @@
-{{- $type := .type -}}
-{{- $content := .content -}}
-
-{{- range $content -}}
-<meta {{ $type -}}="{{ .property }}" content="{{ .content }}">
-{{ end -}}

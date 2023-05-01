@@ -46,6 +46,8 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 # Setup
 
+Install this repository and all submodules via `git clone --recurse-submodules https://gitlab.com/davidsneighbour/kollitsch.dev.git`. If you already cloned the repository, run `git submodule update --init --recursive` to get the submodules.
+
 ## Prepare the development environment
 
 - **[Hugo](https://gohugo.io/)** ([Installation instructions](https://gohugo.io/getting-started/installing/))

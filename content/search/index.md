@@ -4,7 +4,6 @@ title: Search on kollitsch.dev
 linktitle: Search
 description: Find the post or information you are looking for. Missing something? Feel free
   to contact me!
-draft: true
 menu:
   main:
     weight: 4
@@ -21,5 +20,9 @@ resources:
 theme:
   comments: false
 ---
+
+{{< b5/notice type="success" >}}
+Search function in 🔨 development... Things might be broken, don't 🧑‍⚖️ judge me!
+{{< / b5/notice >}}
 
 {{< search >}}

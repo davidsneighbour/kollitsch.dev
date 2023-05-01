@@ -1,7 +1,7 @@
 ---
 layout: search
-title: Search on kollitsch.dev
-linktitle: Search
+title: Find on kollitsch.dev
+linktitle: Find
 description: Find the post or information you are looking for. Missing something? Feel free
   to contact me!
 menu:

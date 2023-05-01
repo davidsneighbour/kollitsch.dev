@@ -22,7 +22,7 @@
     "@davidsneighbour/eslint-config": "5.1.24",
     "@davidsneighbour/htmlvalidate-config": "5.1.20",
     "@davidsneighbour/markdownlint-config": "5.1.24",
-    "@davidsneighbour/postcss-config": "5.1.24",
+    "@davidsneighbour/postcss-config": "5.1.25",
     "@davidsneighbour/prettier-config": "5.1.24",
     "@davidsneighbour/remark-config": "5.1.1",
     "@davidsneighbour/standard-version-config": "5.0.16",

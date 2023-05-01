@@ -1,9 +1,0 @@
-<input class="form-check-input me-1" type="checkbox" value=""
-   {{ if gt .WordCount 300 }} checked{{ end }}
-   disabled>
-<a href="https://yoa.st/34n" target="_blank">Wordcount</a> is
-{{ if gt .WordCount 300 }}
-  longer than 300 words.
-{{ else }}
-  too short: {{ .WordCount }} words.
-{{ end }}

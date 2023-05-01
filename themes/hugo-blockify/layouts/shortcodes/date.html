@@ -1,4 +1,0 @@
-{{ $type := .Get "type" | default "days" }}
-{{ with .Get "date" -}}
-<span class="is--datediff" data-date="{{ . }}" data-type="{{ $type }}"></span>&nbsp;
-{{- end }}

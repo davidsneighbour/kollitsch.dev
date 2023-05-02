@@ -1,6 +1,6 @@
 ---
-date: 2023-05-02T18:09:26+07:00
-lastmod: 2023-05-02T19:28:54+07:00
+date: 2023-05-02T19:31:30+07:00
+lastmod: 2023-05-02T19:31:35+07:00
 title: What if Wes Anderson... (Part 1)
 tags:
   - wes-anderson

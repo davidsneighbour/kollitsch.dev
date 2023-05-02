@@ -16,6 +16,8 @@ notes/
 assets/dist/*
 # hmm, everything in resources
 resources
+# search
+static/search
 
 #####################################################################
 # ignores via API

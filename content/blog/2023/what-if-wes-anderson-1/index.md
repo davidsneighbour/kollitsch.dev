@@ -1,6 +1,6 @@
 ---
 date: 2023-05-02T19:31:30+07:00
-lastmod: 2023-05-02T19:31:35+07:00
+lastmod: 2023-05-02T19:46:25+07:00
 title: What if Wes Anderson... (Part 1)
 tags:
   - wes-anderson
@@ -17,6 +17,6 @@ video:
 
 This might be just the first in many "What if Wes Anderson..." posts ;) This time, what if he would have directed a Star Wars movie? I think it would have been awesome. Ficticiously starring Timothee Chalamet, Owen Wilson, and Bill Murray, Scarlett Johansson, Edward Norton, Jeff Goldblum, Willem Dafoe, Adrian Brody (as Chewbacca, hehe) and Owen Wilson.
 
-The prospect of Owen Wilson portraying the iconic character of Darth Vader is particularly fascinating. Wilson, known for his longstanding collaboration with Anderson and his unique brand of deadpan humor, would undoubtedly infuse the character with a quirky charm that has never been seen before in the Star Wars universe. Imagine the possibilities of how Anderson would craft the narrative, visually depict the stunning intergalactic landscapes, and flesh out the characters in his inimitable way.
+The prospect of Owen Wilson portraying the iconic character of Darth Vader is particularly fascinating. Wilson, known for his longstanding collaboration with Anderson and his unique brand of deadpan humor, would undoubtedly infuse the character with a quirky charm that has never been seen before in the Star Wars universe.
 
 PS: I love how I can just write "in the style of Wes Anderson" these days and don't need to explain the movement of the camera, the layout of scenes, and composition of the shots.

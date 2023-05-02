@@ -36,6 +36,7 @@ async function main() {
 		message: 'Pick a content type.',
 		options: [
 			{ value: "post", label: "Post" },
+			{ value: "video", label: "Video Post" },
 			{ value: "component", label: "Component", hint: "Documentation page for a Hugo component" },
 			{ value: "m2p2", label: "Music to program to" },
 			{ value: "labnotes", label: "Notes from the Lab" },
@@ -120,6 +121,19 @@ async function main() {
 			post = `tags/${slug}`;
 			command = `hugo new ${post}`;
 			command2 = `code content/${post}/_index.md`;
+			break;
+
+		case 'video':
+			title = await text({
+				message: 'Post Slug (special characters will be removed):',
+				validate(value) {
+					if (value.length === 0) return `Slug is required, doh!`;
+				}
+			});
+			slug = await prepareSlug(title);
+			post = `blog/${year}/${slug}`;
+			command = `hugo new --kind video ${post}`;
+			command2 = `code content/${post}/index.md`;
 			break;
 
 		case 'post':

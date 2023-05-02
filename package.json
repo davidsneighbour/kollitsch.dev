@@ -146,8 +146,9 @@
     "release:major": "standard-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
     "release:minor": "standard-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
     "release:patch": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
-    "server": "bin/server/run",
+    "server": "npm run pagefind && bin/server/run",
     "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
+    "server:pagefind": "pagefind --watch",
     "tests": "npm run cypress",
     "update": "wireit"
   },

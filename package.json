@@ -31,7 +31,7 @@
     "@davidsneighbour/tools": "5.1.20",
     "@davidsneighbour/webpack-config": "5.1.21",
     "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
+    "@types/react-dom": "18.2.3",
     "@types/yargs": "17.0.24",
     "algoliasearch": "4.17.0",
     "animate.css": "4.1.1",

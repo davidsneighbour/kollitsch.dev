@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/102126162",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/102126162/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/102126162/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.2.29",
-  "id": 102126162,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/102128462",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/102128462/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/102128462/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2023.2.30",
+  "id": 102128462,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,19 +24,19 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584GFlJS",
-  "tag_name": "v2023.2.29",
+  "node_id": "RE_kwDOGDHt584GFltO",
+  "tag_name": "v2023.2.30",
   "target_commitish": "main",
-  "name": "v2023.2.29",
+  "name": "v2023.2.30",
   "draft": false,
   "prerelease": false,
-  "created_at": "2023-05-07T13:17:02Z",
-  "published_at": "2023-05-07T13:17:14Z",
+  "created_at": "2023-05-07T14:36:48Z",
+  "published_at": "2023-05-07T14:37:00Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.2.29",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.2.29",
-  "body": "## What's Changed\n* build(deps): bump peter-evans/create-pull-request from 4 to 5 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/219\n* Configure Renovate by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/221\n* fix(deps): update dependency @davidsneighbour/markdownlint-config to v5.1.24 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/232\n* fix(deps): update dependency @davidsneighbour/eslint-config to v5.1.24 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/230\n* chore(deps): update dependency bootstrap to v5.3.0-alpha3 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/229\n* chore(deps): update node.js to v18.16.0 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/237\n* chore(deps): update dependency hugo-bin to ^0.102.0 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/236\n* fix(deps): update dependency @davidsneighbour/webpack-config to v5.1.21 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/235\n* fix(deps): update dependency @davidsneighbour/tools to v5.1.20 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/234\n* fix(deps): update dependency @davidsneighbour/stylelint-config to v5.1.21 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/233\n* fix(deps): update dependency all-contributors-cli to v6.25.0 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/238\n* chore(deps): update actions/checkout action to v3 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/239\n* chore(deps): update dependency fantasticon to v2 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/240\n* chore(deps): update dependency stylelint to v15 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/242\n* chore(deps): update dependency vnu-jar to v23 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/245\n* fix(deps): update dependency @davidsneighbour/stylelint-config to v5.1.25 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/248\n* fix(deps): update dependency @davidsneighbour/postcss-config to v5.1.25 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/247\n* build(deps): bump webpack from 5.81.0 to 5.82.0 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/252\n* build(deps): bump @types/react-dom from 18.2.1 to 18.2.3 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/251\n* build(deps): bump eslint-plugin-mdx from 2.0.5 to 2.1.0 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/250\n* build(deps): bump @types/react from 18.2.0 to 18.2.5 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/249\n\n## New Contributors\n* @renovate made their first contribution in https://github.com/davidsneighbour/kollitsch.dev/pull/221\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2023.1.16...v2023.2.29",
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2023.2.30",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2023.2.30",
+  "body": "## What's Changed\n* build(deps): bump peter-evans/create-pull-request from 4 to 5 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/219\n* Configure Renovate by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/221\n* fix(deps): update dependency @davidsneighbour/markdownlint-config to v5.1.24 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/232\n* fix(deps): update dependency @davidsneighbour/eslint-config to v5.1.24 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/230\n* chore(deps): update dependency bootstrap to v5.3.0-alpha3 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/229\n* chore(deps): update node.js to v18.16.0 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/237\n* chore(deps): update dependency hugo-bin to ^0.102.0 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/236\n* fix(deps): update dependency @davidsneighbour/webpack-config to v5.1.21 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/235\n* fix(deps): update dependency @davidsneighbour/tools to v5.1.20 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/234\n* fix(deps): update dependency @davidsneighbour/stylelint-config to v5.1.21 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/233\n* fix(deps): update dependency all-contributors-cli to v6.25.0 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/238\n* chore(deps): update actions/checkout action to v3 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/239\n* chore(deps): update dependency fantasticon to v2 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/240\n* chore(deps): update dependency stylelint to v15 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/242\n* chore(deps): update dependency vnu-jar to v23 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/245\n* fix(deps): update dependency @davidsneighbour/stylelint-config to v5.1.25 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/248\n* fix(deps): update dependency @davidsneighbour/postcss-config to v5.1.25 by @renovate in https://github.com/davidsneighbour/kollitsch.dev/pull/247\n* build(deps): bump webpack from 5.81.0 to 5.82.0 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/252\n* build(deps): bump @types/react-dom from 18.2.1 to 18.2.3 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/251\n* build(deps): bump eslint-plugin-mdx from 2.0.5 to 2.1.0 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/250\n* build(deps): bump @types/react from 18.2.0 to 18.2.5 by @dependabot in https://github.com/davidsneighbour/kollitsch.dev/pull/249\n\n## New Contributors\n* @renovate made their first contribution in https://github.com/davidsneighbour/kollitsch.dev/pull/221\n\n**Full Changelog**: https://github.com/davidsneighbour/kollitsch.dev/compare/v2023.1.16...v2023.2.30",
   "mentions_count": 2
 }

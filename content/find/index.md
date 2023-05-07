@@ -9,7 +9,6 @@ menu:
     weight: 4
     params:
       bsicon: binoculars-fill
-robotsdisallow: true
 posttype: page
 lastmod: 2022-07-28T21:20:13+07:00
 

@@ -93,7 +93,7 @@ icontheme = "bootstrap"
 # @see https://kollitsch.dev/components/hugo-pictures
 ################################################################################
 [dnb.pictures]
-default_image = "images/placeholder.jpg"
+default_image = "images/placeholder.png"
 # 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
 # this needs to be a string and needs to be two floats separated by a colon
 # aspect_ratio = "16:9"

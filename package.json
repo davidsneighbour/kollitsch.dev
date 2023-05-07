@@ -17,7 +17,7 @@
     "@davidsneighbour/bootstrap-config": "5.1.15",
     "@davidsneighbour/browserslist-config": "5.1.23",
     "@davidsneighbour/commitlint-config": "5.1.26",
-    "@davidsneighbour/cssnano-config": "5.1.24",
+    "@davidsneighbour/cssnano-config": "5.1.26",
     "@davidsneighbour/cypress-config": "5.1.24",
     "@davidsneighbour/eslint-config": "5.1.24",
     "@davidsneighbour/htmlvalidate-config": "5.1.20",

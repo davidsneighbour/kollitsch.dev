@@ -10,6 +10,8 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 **Contents:**
 
+<!-- markdownlint-disable MD010 MD007 -->
+
 <!--lint ignore-->
 
 - [General notes](#general-notes)
@@ -32,12 +34,16 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 	- [Shortcodes](#shortcodes)
 - [Code and Content Quality](#code-and-content-quality)
 	- [Linting](#linting)
-		- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
-		- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
+		- [On Save](#on-save)
+			- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+			- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
+		- [On Commit](#on-commit)
 - [Troubleshooting](#troubleshooting)
 	- [Inkscape](#inkscape)
 	- [Search (Algolia)](#search-algolia)
 - [License](#license)
+
+<!-- markdownlint-enable MD010 MD007 -->
 
 # General notes
 
@@ -194,7 +200,9 @@ Other shortcodes are implemented in **hugo-blockify**.
 
 ## Linting
 
-### Vale (wording and grammar checks)
+### On Save
+
+#### Vale (wording and grammar checks)
 
 kollitsch.dev uses [Vale](https://vale.sh/docs/vale-cli/installation/) to lint markdown content files. Styles and vocab are saved in `tests/vale`.
 
@@ -222,7 +230,9 @@ Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai
 vale sync
 ```
 
-### Markdownlint (markdown format checks)
+#### Markdownlint (markdown format checks)
+
+### On Commit
 
 # Troubleshooting
 

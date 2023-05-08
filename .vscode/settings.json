@@ -1,15 +1,26 @@
 {
-  "yaml.schemas": {
-    "http://json-schema.org/draft-07/schema#": ["./static/_schemata/*.schema.yaml"]
-  },
-  "files.associations": {
-    "**/layouts/**.html": "go"
-  },
-  "explorer.fileNesting.patterns": {
-    "hugo.log": "hugo_stats.json, .hugo_build.lock"
-  },
-  "html.format.wrapLineLength": 120,
-  "editor.wordWrapColumn": 120,
-  "diffEditor.wordWrap": "on",
-  "js/ts.implicitProjectConfig.checkJs": true
+	"yaml.schemas": {
+		"http://json-schema.org/draft-07/schema#": [
+			"./static/_schemata/*.schema.yaml"
+		]
+	},
+	"files.associations": {
+		"**/layouts/**.html": "go"
+	},
+	"explorer.fileNesting.patterns": {
+		"hugo.log": "hugo_stats.json, .hugo_build.lock"
+	},
+	"html.format.wrapLineLength": 120,
+	"editor.wordWrapColumn": 120,
+	"diffEditor.wordWrap": "on",
+	"js/ts.implicitProjectConfig.checkJs": true,
+	"markdownlint.run": "onSave",
+	"markdownlint.config": {
+		"extends": "@davidsneighbour/markdownlint-config"
+	},
+	"markdown.extension.list.indentationSize": "inherit",
+	"markdown.extension.syntax.decorationFileSizeLimit": 500000,
+	"markdown.extension.syntax.plainTheme": true,
+	"markdown.extension.tableFormatter.delimiterRowNoPadding": true,
+	"markdown.extension.tableFormatter.normalizeIndentation": true
 }

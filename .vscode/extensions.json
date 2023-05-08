@@ -35,6 +35,6 @@
     "google.wireit",
     "redhat.vscode-xml",
     "redhat.vscode-yaml",
-    "unifiedjs.vscode-remark"
+    "davidanson.vscode-markdownlint"
   ]
 }

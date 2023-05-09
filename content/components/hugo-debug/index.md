@@ -2,23 +2,18 @@
 title: Debug
 linktitle: hugo-debug
 description: Debug everything in Hugo!
-summary: "This module for GoHugo adds debugging partials for many use cases."
-
+summary: This module for GoHugo adds debugging partials for many use cases.
 date: 2022-07-27T21:17:03+07:00
 publishDate: 2022-07-27T21:17:03+07:00
-lastmod: 2022-08-03T21:47:14+07:00
-
+lastmod: 2023-05-09T19:15:22+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - development
-
 component:
   slug: hugo-debug
   host: github.com
@@ -93,7 +88,7 @@ To debug page data from within a Markdown file:
 {{</* debugprint param="bla" */>}} <!-- debugs .Params.bla -->
 ```
 
-Debugging from within Markdown requires explicit configuration in the shortcode template. [Open a new issue](https://github.com/davidsneighbour/hugo-debug/issues/new) if you require a specific debugging subject.
+Debugging from within Markdown requires explicit configuration in the shortcode template. [Open a new issue](https://github.com/davidsneighbour/hugo-blockify/issues) if you require a specific debugging subject.
 
 ### Debug from your layout file into the CLI/server log
 
@@ -111,7 +106,7 @@ Some times we developers want to inform and warn our users, or even throw an err
 -}}
 ```
 
-*Note:* Multiline layout functions are supported since Hugo 0.81.0. In older versions remove the new lines in these samples.
+_Note:_ Multiline layout functions are supported since Hugo 0.81.0. In older versions remove the new lines in these samples.
 
 The dictionary options are as follows:
 
@@ -126,9 +121,9 @@ The resulting error message will look like this:
 
 `SEVERITY TIMESTAMP [namespaceslug/severity-level] message`
 
-*Note:* GoHugo will print all messages that occur more than once will printed only once. This applies to identical error messages. To work around this (if you wish to for instance notify the user about multiple image transformations not working) you should add an identifier (the image url? the resource id?) to the debugging message.
+_Note:_ GoHugo will print all messages that occur more than once will printed only once. This applies to identical error messages. To work around this (if you wish to for instance notify the user about multiple image transformations not working) you should add an identifier (the image url? the resource id?) to the debugging message.
 
-*Note2:* Hugo makes only ERROR and WARN levels available, so all `SEVERITY` stamps in the beginning of each log line will be either a red ERROR (from errors and fatals --- 1 to 4) or a yellow WARN for all others (debug to warn --- 5 to 10).
+_Note2:_ Hugo makes only ERROR and WARN levels available, so all `SEVERITY` stamps in the beginning of each log line will be either a red ERROR (from errors and fatals --- 1 to 4) or a yellow WARN for all others (debug to warn --- 5 to 10).
 
 ### Debug pages in a comprehensive format
 
@@ -157,6 +152,7 @@ The debug component is configurable via the `params` section in your configurati
 namespace = "dnb"
 debuglevel = 8
 disablenote = false
+
 ```
 
 - **namespace:** (string) namespace slug for your plugin/theme. keep it short. three characters are enough. There is no restriction on this, but think about the look of the loglines with longer namespaces.
@@ -170,9 +166,13 @@ A quick Bootstrap 5 based SASS style is mounted into `assets/scss/_debugprint.sc
 ```scss
 .debugprint table,
 table.debugprint {
-  td, th {}
-  .true {}
-  .false {}
+  td,
+  th {
+  }
+  .true {
+  }
+  .false {
+  }
 }
 ```
 
@@ -192,6 +192,7 @@ weight = 100
 slug = "menuentry"
 label = "Menu Entry"
 description = ""
+
 ```
 
 - **internal** (required, if no `catch` or `type` is used) - Set to `map` or `slice` to give a general indicator of the variable type.

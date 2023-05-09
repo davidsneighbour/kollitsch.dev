@@ -1,54 +1,63 @@
 This project is the website setup and content for [kollitsch.dev](https://kollitsch.dev/).
 
+![module structure](.github/images/rm001.png)
+
+- [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
+- [hugo-theme](https://github.com/davidsneighbour/hugo-theme) - the theme used for the website
+- [hugo-blockify](https://github.com/davidsneighbour/hugo-blockify) - a module that adds reusable components to any Hugo website.
+
 This site's infrastructure is as follows:
 
-- **Domain Registration:** [Google](https://domains.google.com/)
-- **Hosting:** [Netlify](https://netlify.com)
-- **SSG Build:** [Hugo](https://gohugo.io)
+<!--lint ignore-->
+
+|          Domain Registration          |             DNS and CDN              |            Hosting             |         SSG Build         |
+| :-----------------------------------: | :----------------------------------: | :----------------------------: | :-----------------------: |
+| [Google](https://domains.google.com/) | [Cloudflare](https://cloudflare.com) | [Netlify](https://netlify.com) | [Hugo](https://gohugo.io) |
 
 Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
 
-**Contents:**
+---
 
 <!-- markdownlint-disable MD010 MD007 -->
-
 <!--lint ignore-->
 
 - [General notes](#general-notes)
 - [Setup](#setup)
-	- [Prepare the development environment](#prepare-the-development-environment)
-	- [Advanced setup steps](#advanced-setup-steps)
-	- [Pre-Commit](#pre-commit)
+  - [Prepare the development environment](#prepare-the-development-environment)
+  - [Advanced setup steps](#advanced-setup-steps)
+  - [Pre-Commit](#pre-commit)
 - [Development](#development)
-	- [Setup](#setup-1)
-	- [Release](#release)
-	- [Deploy](#deploy)
-	- [Theme](#theme)
-		- [Paradigms](#paradigms)
-	- [Netlify setup](#netlify-setup)
-	- [Hooks (WIP)](#hooks-wip)
+  - [Setup](#setup-1)
+  - [Release](#release)
+  - [Deploy](#deploy)
+  - [Theme](#theme)
+    - [Paradigms](#paradigms)
+  - [Netlify setup](#netlify-setup)
+  - [Hooks (WIP)](#hooks-wip)
 - [Content](#content)
-	- [Archetypes](#archetypes)
-	- [Front matter parameters](#front-matter-parameters)
-		- [Layout options](#layout-options)
-	- [Shortcodes](#shortcodes)
+  - [Archetypes](#archetypes)
+  - [Front matter parameters](#front-matter-parameters)
+    - [Layout options](#layout-options)
+  - [Shortcodes](#shortcodes)
 - [Code and Content Quality](#code-and-content-quality)
-	- [Linting](#linting)
-		- [On Save](#on-save)
-			- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
-			- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
-		- [On Commit](#on-commit)
+  - [Linting](#linting)
+    - [On Save](#on-save)
+      - [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+      - [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
+    - [On Commit](#on-commit)
 - [Troubleshooting](#troubleshooting)
-	- [Inkscape](#inkscape)
-	- [Search (Algolia)](#search-algolia)
+  - [Inkscape](#inkscape)
+  - [Search (Algolia)](#search-algolia)
 - [License](#license)
 
 <!-- markdownlint-enable MD010 MD007 -->
 
+---
+
 # General notes
 
 - The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. However, I assume most tools, scripts, and procedures will work on other systems with the appropriate changes due to open-source usage.
+- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. However, I assume most tools, scripts, and procedures will work on other systems with the appropriate changes due to me using mostly open-source programs and scripts.
 
 # Setup
 

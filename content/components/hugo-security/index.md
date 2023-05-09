@@ -1,24 +1,19 @@
 ---
 title: Security
 linkTitle: hugo-security
-description: ""
-summary: ""
-
+description: ''
+summary: ''
 date: 2022-07-28T20:51:08+07:00
 publishDate: 2022-07-28T20:51:08+07:00
-lastmod: 2022-08-03T21:46:27+07:00
-
+lastmod: 2023-05-09T19:16:01+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - seo
-
 component:
   slug: hugo-security
   host: github.com
@@ -50,6 +45,7 @@ languages = "en"
 canonical = ""
 policy = ""
 hiring = ""
+
 ```
 
 The values in this sample display the default configuration. The only required parameters are `contact` and `expires` (the latter being set to 365 days = 1 year by default). So the following configuration would be minimal and within the scope of the requirements:
@@ -57,6 +53,7 @@ The values in this sample display the default configuration. The only required p
 ```toml
 [dnb.security.txt]
 contact = "https://yourwebsite.com/contact/"
+
 ```
 
 The module will warn you in the CLI log if this parameter is missing.

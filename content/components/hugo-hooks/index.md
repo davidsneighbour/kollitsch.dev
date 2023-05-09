@@ -1,24 +1,19 @@
 ---
 title: Hooks
 linktitle: hugo-hooks
-description: ""
-summary: ""
-
+description: ''
+summary: ''
 date: 2022-07-27T21:23:50+07:00
 publishDate: 2022-07-27T21:23:50+07:00
-lastmod: 2022-08-03T21:46:55+07:00
-
+lastmod: 2023-05-09T19:18:43+07:00
 resources:
   - src: header-card.png
-
 categories:
   - components
-
 tags:
   - gohugo
   - component
   - seo
-
 component:
   slug: hugo-hooks
   host: github.com
@@ -57,7 +52,7 @@ You can force caching by loading the hook via `partialCached` instead.
 {{ partialCached "func/hook.html" "head-start" "cachename"}}
 ```
 
-These hooks currently **do not return any values**, they execute the layouts. To read more about ideas to extend the hooks to return values read [#2 RFC: Hooks that return values](https://github.com/davidsneighbour/hugo-hooks/issues/2).
+These hooks currently **do not return any values**, they execute the layouts. To read more about ideas to extend the hooks to return values read [#2 RFC: Hooks that return values](https://github.com/davidsneighbour/hugo-blockify/issues/14).
 
 ## Call hooks in layouts
 
@@ -85,20 +80,16 @@ You can configure the module by setting the following options in the `params` se
 
 ```toml
 [dnb.hooks]
-disable_messages = [
-  "unused_hooks",
-  "running_hooks",
-  "running_cached_hooks",
-  "running_uncached_hooks",
-]
+disable_messages = ["unused_hooks", "running_hooks", "running_cached_hooks", "running_uncached_hooks"]
+
 ```
 
 **disable_messages**:
 
--   `unused_hooks` - silences "unused hooks" messages
--   `running_hooks` - silences ALL "running hook x" messages
--   `running_cached_hooks` - silences all "running cached hook x" messages (`false` if `running_hooks` is false)
--   `running_uncached_hooks` - silences all "running uncached hook x" messages (`false` if `running_hooks` is false)
+- `unused_hooks` - silences "unused hooks" messages
+- `running_hooks` - silences ALL "running hook x" messages
+- `running_cached_hooks` - silences all "running cached hook x" messages (`false` if `running_hooks` is false)
+- `running_uncached_hooks` - silences all "running uncached hook x" messages (`false` if `running_hooks` is false)
 
 The messages system also uses the methods implemented in `hugo-debug` to silence based on verbosity level.
 
@@ -121,28 +112,28 @@ Implementing the hooks system in your theme or module is easy. There are several
 
 To be very portable between themes the following hooks should be used at the appropriate locations in implementing themes and modules. All of @davidsneighbours GoHugo themes and modules will do so and to support the overall portable format of the underlying idea of the hook system we hope others will too:
 
-| Hookname | Runs | Location |
-| :--- | :---: | :--- |
-| **setup** | 1 | Runs before anything is put out. Use this hook to set up and configure your scripts. |
-| **head-init** | 1 | Runs right after the `<head>` tag. Layouts using this hook should not print anything out so that the three initial head-tags are printed first. Use `head-start` for things you want in the beginning of the page head. |
-| **head-start** | 1 | Runs after the three initial head-tags. |
-| **head-pre-css** | 1 | Runs inside the head before the stylesheets are added. |
-| **head-post-css** | 1 | Runs inside the head after the stylesheets are added. |
-| **head-end** | 1 | Runs at the end of the head, before the `</head>` tag. |
-| **body-start** | 1 | |
-| **container-start** | 1 | |
-| **content-start** | 1 | |
-| **content-end** | 1 | |
-| **container-end** | 1 | |
-| **footer-start** | 1 | |
-| **footer-inside-start** | 1+ | |
-| **footer-widget-start** | 1+ | |
-| **footer-widget-end** | 1+ | |
-| **footer-inside-end** | 1+ | |
-| **footer-end** | 1 | |
-| **body-end-pre-script** | 1 | Runs at the end of the body BEFORE the deferred theme javascripts are added. |
-| **body-end** | 1 | Runs at the end of the body AFTER the deferred theme javascripts are added and right before the `</body>` tag. |
-| **teardown** | 1 | Runs after everything is printed to output. Use this hook to cleanup for your scripts. |
+| Hookname                | Runs | Location                                                                                                                                                                                                                |
+| :---------------------- | :--: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **setup**               |  1   | Runs before anything is put out. Use this hook to set up and configure your scripts.                                                                                                                                    |
+| **head-init**           |  1   | Runs right after the `<head>` tag. Layouts using this hook should not print anything out so that the three initial head-tags are printed first. Use `head-start` for things you want in the beginning of the page head. |
+| **head-start**          |  1   | Runs after the three initial head-tags.                                                                                                                                                                                 |
+| **head-pre-css**        |  1   | Runs inside the head before the stylesheets are added.                                                                                                                                                                  |
+| **head-post-css**       |  1   | Runs inside the head after the stylesheets are added.                                                                                                                                                                   |
+| **head-end**            |  1   | Runs at the end of the head, before the `</head>` tag.                                                                                                                                                                  |
+| **body-start**          |  1   |                                                                                                                                                                                                                         |
+| **container-start**     |  1   |                                                                                                                                                                                                                         |
+| **content-start**       |  1   |                                                                                                                                                                                                                         |
+| **content-end**         |  1   |                                                                                                                                                                                                                         |
+| **container-end**       |  1   |                                                                                                                                                                                                                         |
+| **footer-start**        |  1   |                                                                                                                                                                                                                         |
+| **footer-inside-start** |  1+  |                                                                                                                                                                                                                         |
+| **footer-widget-start** |  1+  |                                                                                                                                                                                                                         |
+| **footer-widget-end**   |  1+  |                                                                                                                                                                                                                         |
+| **footer-inside-end**   |  1+  |                                                                                                                                                                                                                         |
+| **footer-end**          |  1   |                                                                                                                                                                                                                         |
+| **body-end-pre-script** |  1   | Runs at the end of the body BEFORE the deferred theme javascripts are added.                                                                                                                                            |
+| **body-end**            |  1   | Runs at the end of the body AFTER the deferred theme javascripts are added and right before the `</body>` tag.                                                                                                          |
+| **teardown**            |  1   | Runs after everything is printed to output. Use this hook to cleanup for your scripts.                                                                                                                                  |
 
 ### Namespaced Hooks
 

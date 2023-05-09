@@ -21,7 +21,7 @@
     "@davidsneighbour/cypress-config": "5.1.24",
     "@davidsneighbour/eslint-config": "5.1.26",
     "@davidsneighbour/htmlvalidate-config": "5.1.26",
-    "@davidsneighbour/markdownlint-config": "5.1.28",
+    "@davidsneighbour/markdownlint-config": "5.1.29",
     "@davidsneighbour/postcss-config": "5.1.25",
     "@davidsneighbour/prettier-config": "5.1.24",
     "@davidsneighbour/remark-config": "5.1.1",

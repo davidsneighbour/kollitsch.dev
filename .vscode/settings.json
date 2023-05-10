@@ -15,9 +15,6 @@
 	"diffEditor.wordWrap": "on",
 	"js/ts.implicitProjectConfig.checkJs": true,
 	"markdownlint.run": "onSave",
-	"markdownlint.config": {
-		"extends": "@davidsneighbour/markdownlint-config"
-	},
 	"markdown.extension.list.indentationSize": "inherit",
 	"markdown.extension.syntax.decorationFileSizeLimit": 500000,
 	"markdown.extension.syntax.plainTheme": true,

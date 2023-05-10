@@ -21,7 +21,7 @@
     "@davidsneighbour/cypress-config": "5.1.24",
     "@davidsneighbour/eslint-config": "5.1.26",
     "@davidsneighbour/htmlvalidate-config": "5.1.26",
-    "@davidsneighbour/markdownlint-config": "5.1.28",
+    "@davidsneighbour/markdownlint-config": "5.1.29",
     "@davidsneighbour/postcss-config": "5.1.25",
     "@davidsneighbour/prettier-config": "5.1.24",
     "@davidsneighbour/remark-config": "5.1.1",
@@ -87,7 +87,7 @@
     "vfile-reporter": "7.0.5",
     "web-vitals-element": "github:davidsneighbour/web-vitals-element",
     "webpack": "5.82.0",
-    "webpack-cli": "5.1.0",
+    "webpack-cli": "5.1.1",
     "xml2js": "0.5.0",
     "yargs": "17.7.2"
   },
@@ -95,7 +95,6 @@
     "provenance": true
   },
   "scripts": {
-    "pagefind": "pagefind",
     "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",
     "audit:hugo": "./bin/audit/audit",
     "build": "run-s build:critical build:hugo",
@@ -139,6 +138,7 @@
     "lint:templates": "bin/audit/lint-template-style",
     "lint:vale": "vale content",
     "new": "node bin/content/index.mjs",
+    "pagefind": "pagefind",
     "pipeline": "tsx pipeline.ts",
     "prettier": "prettier 'assets/**/*.ts'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
@@ -147,10 +147,14 @@
     "release:minor": "standard-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
     "release:patch": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease",
     "server": "npm run pagefind && bin/server/run",
-    "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "server:pagefind": "pagefind --watch",
+    "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "tests": "npm run cypress",
-    "update": "wireit"
+    "update": "wireit",
+    "update:post:npm": "wireit",
+    "update:pre:npm": "wireit",
+    "update:pre:submodules": "wireit",
+    "update:pre:vale": "wireit"
   },
   "config": {
     "commitizen": {

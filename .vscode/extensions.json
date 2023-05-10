@@ -35,6 +35,7 @@
     "google.wireit",
     "redhat.vscode-xml",
     "redhat.vscode-yaml",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "yoavbls.pretty-ts-errors"
   ]
 }

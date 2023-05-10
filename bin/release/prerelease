@@ -23,6 +23,21 @@ CURPATH="$(pwd -P)"
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo
 
+# update submodules
+declare -a modules=(
+	"themes/hugo-blockify"
+	"themes/hugo-theme"
+)
+for i in "${modules[@]}"; do
+	cd "$CURPATH/$i" || exit
+	npm run release
+	cd "$CURPATH" || exit
+	git add "$i"
+done
+cd "$CURPATH" || exit
+git commit -m "chore(git): update submodules"
+# done: update submodules
+
 typos -- ./content
 
 if test -f "$SCRIPTPATH"/replacements; then

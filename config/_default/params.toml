@@ -2,83 +2,10 @@
 ###############################################################################
 # some defaults
 ###############################################################################
-description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
-siteslug = "kollitsch-de"
+description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Koh Samui in Thailand."
+siteslug = "kollitsch-dev"
 # on updating this value add a redirect to data/dnb/netlification/config.toml
 mainSections = ["blog", "components"]
-
-###############################################################################
-# theme setup
-###############################################################################
-[dnb.theme]
-# select a theme
-# this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
-# value of `dnb.theme.switcher.default` is used.
-slug = "dark-skies"
-theme = "dark"
-logo_height = "40"
-logo_width = "40"
-show_title = true
-# contact form works with https://formspree.io or any other email service
-# that is listening to POST requests from your local form
-contact_form_action = "https://formspree.io/f/xoqyzooe"
-
-[dnb.theme.contact]
-[[dnb.theme.contact.methods]]
-label = "Address"
-value = '''
-Patrick Kollitsch
-P.O.Box 10, Post Office Nathon
-84140 Suratthani
-Thailand
-'''
-[[dnb.theme.contact.methods]]
-label = "Mastodon"
-value = "[davidsneighbour@mas.to](https://mas.to/@davidsneighbour)"
-[[dnb.theme.contact.methods]]
-label = "Telegram"
-value = "[davidsneighbour](https://t.me/davidsneighbour)"
-
-# sections setup
-[dnb.theme.sections]
-[dnb.theme.sections.components]
-sort = "lastmod"
-[dnb.theme.sections.blog]
-sort = "date"
-
-# footer setup
-[dnb.theme.footer]
-show_version = true
-show_tag_as_version = true
-show_release_as_version = true
-repository = "https://github.com/davidsneighbour/kollitsch.dev"
-
-# [[dnb.theme.footer.menus]]
-# slug = "configurations"
-# name = "Configurations"
-# [[dnb.theme.footer.menus]]
-# slug = "hugomodules"
-# name = "GoHugo Modules"
-# [[dnb.theme.footer.menus]]
-# slug = "projects"
-# name = "Projects"
-
-[dnb.theme.colors]
-primary = "#d02d19"
-
-[dnb.theme.dateformat]
-long = "Mon, Jan 2, 2006"
-short = "Jan 2 2006"
-timestamp = "2006-01-02T15:04:05-07:00"
-
-[dnb.theme.switcher]
-enabled = true   # boolean
-default = "dark" # `dark`, `light` or whatever `dnb.theme.switcher.themes` offers
-# selected icon theme.
-# can be one of the identifiers of dnb-hugo-icons OR
-# `specific` to indicate use values of `icon` values as individual classes OR
-# `partial` to indicate the inclusion of the value as cached partial
-icontheme = "bootstrap"
 
 ################################################################################
 # some DNB Org Components Configuration.
@@ -115,8 +42,6 @@ break_points = ["520", "540"]
 # @see https://github.com/davidsneighbour/hugo-head
 ################################################################################
 [dnb.head]
-charset = "utf-8"
-viewport = "width=device-width, initial-scale=1"
 latitude = "9.578492"
 longitude = "99.958311"
 # https://en.wikipedia.org/wiki/ISO_3166

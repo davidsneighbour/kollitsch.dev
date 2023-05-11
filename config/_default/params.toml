@@ -8,6 +8,12 @@ siteslug = "kollitsch-dev"
 mainSections = ["blog", "components"]
 
 ################################################################################
+# individual theme setup options
+################################################################################
+[dnb.theme]
+repository = "https://github.com/davidsneighbour/kollitsch.dev"
+
+################################################################################
 # some DNB Org Components Configuration.
 #
 # @see	https://learnxinyminutes.com/docs/toml/ for details about TOML

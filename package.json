@@ -166,7 +166,6 @@
     "overrides": [
       {
         "files": [
-          "*.md",
           "*.mdx"
         ],
         "extends": [

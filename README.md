@@ -1,3 +1,5 @@
+<!--lint disable no-multiple-toplevel-headings -->
+
 This project is the website setup and content for [kollitsch.dev](https://kollitsch.dev/).
 
 ![module structure](.github/images/rm001.png)
@@ -57,11 +59,11 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 # General notes
 
 - The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. However, I assume most tools, scripts, and procedures will work on other systems with the appropriate changes due to me using mostly open-source programs and scripts.
+- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open-source programs and scripts.
 
 # Setup
 
-Install this repository and all submodules via `git clone --recurse-submodules https://gitlab.com/davidsneighbour/kollitsch.dev.git`. If you already cloned the repository, run `git submodule update --init --recursive` to get the submodules.
+Install this repository and all submodules via `git clone --recurse-submodules https://gitlab.com/davidsneighbour/kollitsch.dev.git`. If you have cloned the repository before reading this, run `git submodule update --init --recursive` to get the submodules up-to-date.
 
 ## Prepare the development environment
 

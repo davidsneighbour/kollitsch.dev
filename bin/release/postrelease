@@ -38,7 +38,7 @@ fi
 
 # add re-versioned files to recent edit
 git add data/dnb/
-git commit --amend --no-edit --quiet --signoff
+git commit --amend --no-edit --quiet --signoff --no-verify
 
 # push everything up
 git push --follow-tags origin main --quiet --force
@@ -61,5 +61,5 @@ URL="https://api.github.com/repos/${GITHUB_REPOSLUG}/releases/latest"
 curl "${URL}" "${AUTH}" --output ./assets/data/build.json
 
 git add assets/data/build.json
-git commit -m "chore: add build information" --signoff
+git commit -m "chore: add build information" --signoff --no-verify
 git push origin main --quiet

@@ -35,7 +35,7 @@ for i in "${modules[@]}"; do
 	git add "$i"
 done
 cd "$CURPATH" || exit
-git commit -m "chore(git): update submodules"
+git commit -m "chore(git): update submodules" --no-verify
 # done: update submodules
 
 typos -- ./content

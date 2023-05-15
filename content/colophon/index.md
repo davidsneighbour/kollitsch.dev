@@ -2,8 +2,8 @@
 type: blog
 title: Colophon
 linkTitle: Colophon
-description: ""
-summary: ""
+description: ''
+summary: ''
 
 menu:
   footer:
@@ -24,26 +24,24 @@ _build:
   list: never
 ---
 
-## Patrick Kollitsch
-
-### I currently live in:
+## I currently live in:
 
 - ~~Zwickau, Germany~~
 - ~~L&uuml;beck, Germany~~
 - ~~Berlin, Germany~~
 - Koh Samui, Thailand
 
-### Things I have done:
+## Things I have done:
 
 - Taught web development to whoever asked and listened.
 - Lived abroad as an expat for {{< age type="years" date="2005-01-08" >}}+ years.
 - Offering fullstack web and app development services.
 - Offering WordPress and PHP programming services.
 - Offering full service online strategy and marketing services as a one man ~~army~~ agency.
-- Prototyped and launched a successful German weblog update check app in the 90s of past century.
+- Prototyped and launched a successful German weblog update checker in the 90's of past century.
 - Prototyped and programmed a online booking system for local tour companies on Koh Samui.
-- This Site (built with [GoHugo](https://gohugo.io) and my own theme.
+- This Site (built with [GoHugo](https://gohugo.io) and my own theme).
 
-### Technical Details of this Site
+## Technical Details of this Site
 
-- Wordmark (kollitsch.dev*): used font is Bahn Pro Regular with diminished character spacing of 6.3 pixels.
+- Wordmark (KOLLITSCH.dev\*): used font is BahnPro.

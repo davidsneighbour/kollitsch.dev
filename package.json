@@ -23,7 +23,7 @@
     "@davidsneighbour/htmlvalidate-config": "5.1.31",
     "@davidsneighbour/markdownlint-config": "5.1.29",
     "@davidsneighbour/postcss-config": "5.1.25",
-    "@davidsneighbour/prettier-config": "5.1.24",
+    "@davidsneighbour/prettier-config": "5.1.31",
     "@davidsneighbour/remark-config": "5.1.1",
     "@davidsneighbour/standard-version-config": "5.0.16",
     "@davidsneighbour/stylelint-config": "5.1.26",

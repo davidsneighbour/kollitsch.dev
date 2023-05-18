@@ -29,7 +29,7 @@
     "@davidsneighbour/stylelint-config": "5.1.31",
     "@davidsneighbour/textlint-config": "5.0.16",
     "@davidsneighbour/tools": "5.1.32",
-    "@davidsneighbour/webpack-config": "5.1.30",
+    "@davidsneighbour/webpack-config": "5.1.32",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@types/yargs": "17.0.24",

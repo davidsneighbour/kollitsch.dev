@@ -12,6 +12,9 @@ menu:
 
 posttype: page
 lastmod: 2022-07-28T21:20:06+07:00
+resources:
+  - title: Photo by [John Barkiple](https://unsplash.com/@barkiple) via [Unsplash](https://unsplash.com/)
+    src: header.jpg
 
 theme:
   comments: false

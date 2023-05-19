@@ -45,7 +45,7 @@
     "bootstrap-icons": "1.10.5",
     "browserslist": "4.21.5",
     "caniuse-lite": "1.0.30001487",
-    "css-loader": "6.7.3",
+    "css-loader": "6.7.4",
     "doiuse": "4.4.1",
     "dotenv": "16.0.3",
     "eslint": "8.40.0",

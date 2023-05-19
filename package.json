@@ -79,7 +79,7 @@
     "sass-loader": "13.2.2",
     "simple-git-hooks": "2.8.1",
     "snoowrap": "1.23.0",
-    "style-loader": "3.3.2",
+    "style-loader": "3.3.3",
     "trim": "1.0.1",
     "ts-node": "10.9.1",
     "tsx": "3.12.7",

@@ -17,9 +17,7 @@ hugo mod tidy
 rm -rf public/
 ./bin/build/hugo
 npm run pagefind
-node ./bin/algolia/algolia-reindex.ts
 
 # cleaning up
 rm -f index.json
 rm -f links.json
-rm -f algolia.json

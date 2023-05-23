@@ -37,8 +37,5 @@ npm run pagefind
 # and deploy
 netlify deploy --prod --open --message "Release v${VERSION}"
 
-# update algolia index
-node bin/algolia/algolia-reindex.ts
-
 # and clear cloudflare cache
 node bin/cloudflare/purge-cache.mjs

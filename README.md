@@ -25,31 +25,30 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 - [General notes](#general-notes)
 - [Setup](#setup)
-  - [Prepare the development environment](#prepare-the-development-environment)
-  - [Advanced setup steps](#advanced-setup-steps)
-  - [Pre-Commit](#pre-commit)
+	- [Prepare the development environment](#prepare-the-development-environment)
+	- [Advanced setup steps](#advanced-setup-steps)
+	- [Pre-Commit](#pre-commit)
 - [Development](#development)
-  - [Setup](#setup-1)
-  - [Release](#release)
-  - [Deploy](#deploy)
-  - [Theme](#theme)
-    - [Paradigms](#paradigms)
-  - [Netlify setup](#netlify-setup)
-  - [Hooks (WIP)](#hooks-wip)
+	- [Setup](#setup-1)
+	- [Release](#release)
+	- [Deploy](#deploy)
+	- [Theme](#theme)
+		- [Paradigms](#paradigms)
+	- [Netlify setup](#netlify-setup)
+	- [Hooks (WIP)](#hooks-wip)
 - [Content](#content)
-  - [Archetypes](#archetypes)
-  - [Front matter parameters](#front-matter-parameters)
-    - [Layout options](#layout-options)
-  - [Shortcodes](#shortcodes)
+	- [Archetypes](#archetypes)
+	- [Front matter parameters](#front-matter-parameters)
+		- [Layout options](#layout-options)
+	- [Shortcodes](#shortcodes)
 - [Code and Content Quality](#code-and-content-quality)
-  - [Linting](#linting)
-    - [On Save](#on-save)
-      - [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
-      - [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
-    - [On Commit](#on-commit)
+	- [Linting](#linting)
+		- [On Save](#on-save)
+			- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+			- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
+		- [On Commit](#on-commit)
 - [Troubleshooting](#troubleshooting)
-  - [Inkscape](#inkscape)
-  - [Search (Algolia)](#search-algolia)
+	- [Inkscape](#inkscape)
 - [License](#license)
 
 <!-- markdownlint-enable MD010 MD007 -->
@@ -254,10 +253,6 @@ Generating the component cards requires Inkscape and optipng. Install them with 
 ```bash
 sudo apt install inkscape optipng
 ```
-
-## Search (Algolia)
-
-- To set up the Algolia search, fill in the API information from your [Algolia-Dashboard](https://www.algolia.com/account/api-keys/all) &gt; API keys.
 
 # License
 

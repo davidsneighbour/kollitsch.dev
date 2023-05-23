@@ -33,7 +33,6 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@types/yargs": "17.0.24",
-    "algoliasearch": "4.17.0",
     "animate.css": "4.1.1",
     "autoprefixer": "10.4.14",
     "babel-cli": "6.26.0",

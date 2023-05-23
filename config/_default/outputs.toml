@@ -2,7 +2,6 @@ home = [
   "HTML",
   "JSON",
   "security",
-  "Algolia",
   "manifest",
   "REDIR",
   "HEADERS",

@@ -1,12 +1,6 @@
 ################################################################################
 # see http://gohugo.io/templates/output-formats/
 ################################################################################
-[Algolia]
-baseName = "algolia"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
-
 [HEADERS]
 mediatype = "text/netlify"
 baseName = "_headers"

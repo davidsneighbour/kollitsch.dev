@@ -20,7 +20,7 @@
     "@davidsneighbour/cssnano-config": "5.1.26",
     "@davidsneighbour/cypress-config": "5.1.35",
     "@davidsneighbour/eslint-config": "5.1.35",
-    "@davidsneighbour/htmlvalidate-config": "5.1.31",
+    "@davidsneighbour/htmlvalidate-config": "5.1.35",
     "@davidsneighbour/markdownlint-config": "5.1.29",
     "@davidsneighbour/postcss-config": "5.1.34",
     "@davidsneighbour/prettier-config": "5.1.31",

@@ -85,7 +85,7 @@
     "typescript": "5.0.4",
     "vfile-reporter": "7.0.5",
     "web-vitals-element": "github:davidsneighbour/web-vitals-element",
-    "webpack": "5.83.1",
+    "webpack": "5.84.1",
     "webpack-cli": "5.1.1",
     "xml2js": "0.5.0",
     "yargs": "17.7.2"

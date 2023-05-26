@@ -62,7 +62,7 @@
     "ninja-keys": "1.2.2",
     "pagefind": "0.12.0",
     "pixrem": "5.0.0",
-    "playwright": "1.34.0",
+    "playwright": "1.34.3",
     "postcss": "8.4.23",
     "postcss-cli": "10.1.0",
     "postcss-loader": "7.3.0",

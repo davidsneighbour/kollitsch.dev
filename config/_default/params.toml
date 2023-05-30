@@ -247,8 +247,9 @@ concludingComment = '''
 '''
 disableBranding = false
 
-#User-agent: CCBot
-#Disallow: /
+[[dnb.robots.useragents]]
+name = "*"
+disallow = ["/cdn-cgi/"]
 
 [dnb.sitemap]
 enabled = true

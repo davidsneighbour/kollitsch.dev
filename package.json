@@ -24,7 +24,7 @@
     "@davidsneighbour/markdownlint-config": "5.1.29",
     "@davidsneighbour/postcss-config": "5.1.37",
     "@davidsneighbour/prettier-config": "5.1.31",
-    "@davidsneighbour/remark-config": "5.1.31",
+    "@davidsneighbour/remark-config": "5.1.38",
     "@davidsneighbour/standard-version-config": "5.0.16",
     "@davidsneighbour/stylelint-config": "5.1.37",
     "@davidsneighbour/textlint-config": "5.0.16",

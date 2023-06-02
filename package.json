@@ -14,7 +14,7 @@
   "dependencies": {
     "@clack/prompts": "0.6.3",
     "@davidsneighbour/babel-config": "5.1.38",
-    "@davidsneighbour/bootstrap-config": "5.1.37",
+    "@davidsneighbour/bootstrap-config": "5.1.39",
     "@davidsneighbour/browserslist-config": "5.1.38",
     "@davidsneighbour/commitlint-config": "5.1.38",
     "@davidsneighbour/cssnano-config": "5.1.38",

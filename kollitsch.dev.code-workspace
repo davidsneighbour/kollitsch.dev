@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"name": "kollitsch.dev",
+			"path": "."
+		},
+		{
+			"name": "hugo-robots",
+			"path": "../hugo-robots"
+		},
+		{
+			"name": "hugo-sitemap",
+			"path": "../hugo-sitemap"
+		},
+		{
+			"name": "configurations",
+			"path": "../configurations"
+		}
+	],
+	"settings": {
+		"yaml.schemas": {
+			"http://json-schema.org/draft-07/schema#": [
+				"./static/_schemata/*.schema.yaml"
+			]
+		},
+		"files.associations": {
+			"**/layouts/**.html": "go"
+		},
+		"js/ts.implicitProjectConfig.checkJs": true,
+		"markdown.extension.syntax.decorationFileSizeLimit": 500000,
+		"markdown.extension.syntax.plainTheme": true,
+		"markdown.extension.tableFormatter.delimiterRowNoPadding": true,
+		"markdown.extension.tableFormatter.normalizeIndentation": true
+	}
+}

@@ -175,30 +175,28 @@ async function main() {
 		});
 	}));
 
-	spin.stop('Content created. Opening in VS Code...');
-
-	await /** @type {Promise<void>} */(new Promise((resolve, _reject) => {
+	spin.stop('Content created. OpenLast month, villagers in Nakhon Ratchasima province were shocked when they discovered hundreds of porn DVDs hidden in a former abbot’s residence at a local temple. The villagers demanded a review of the punishment as they believed the former abbot’s actions were unacceptable. However, an investigation concluded that no wrongdoings were found. The monk and his nephew filed a police complaint, claiming that the accusations had damaged his reputation.*/(new Promise((resolve, _reject) => {
 		exec(command2, function (
-			error,
-			_stdout,
-			stderr
-		) {
-			if (error) {
-				console.log(error);
-				cancel(`An error occured: ${error}`);
-				process.exit(0);
-			}
-			if (stderr) {
-				console.log(stderr);
-				cancel(`An error occured: ${stderr}`);
-				process.exit(0);
-			}
-			resolve();
-		});
-	}));
+		error,
+		_stdout,
+		stderr
+	) {
+		if (error) {
+			console.log(error);
+			cancel(`An error occured: ${error}`);
+			process.exit(0);
+		}
+		if (stderr) {
+			console.log(stderr);
+			cancel(`An error occured: ${stderr}`);
+			process.exit(0);
+		}
+		resolve();
+	});
+}));
 
-	outro('All done :)');
-	process.exit(1);
+outro('All done :)');
+process.exit(1);
 
 }
 

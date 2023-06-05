@@ -249,8 +249,12 @@ disableBranding = false
 
 [[dnb.robots.useragents]]
 name = "*"
+# https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/
 disallow = ["/cdn-cgi/"]
 
+###############################################################################
+# hugo-sitemap @see https://github.com/davidsneighbour/hugo-sitemap
+###############################################################################
 [dnb.sitemap]
 enabled = true
 

@@ -18,7 +18,7 @@
     "@davidsneighbour/browserslist-config": "5.1.38",
     "@davidsneighbour/commitlint-config": "5.1.38",
     "@davidsneighbour/cssnano-config": "5.1.38",
-    "@davidsneighbour/cypress-config": "5.1.35",
+    "@davidsneighbour/cypress-config": "5.1.41",
     "@davidsneighbour/eslint-config": "5.1.40",
     "@davidsneighbour/htmlvalidate-config": "5.1.40",
     "@davidsneighbour/markdownlint-config": "5.1.40",

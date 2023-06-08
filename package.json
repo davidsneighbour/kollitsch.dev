@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@clack/prompts": "0.6.3",
-    "@davidsneighbour/configurations": "5.2.0",
+    "@davidsneighbour/configurations": "5.2.1",
     "@types/react": "18.2.9",
     "@types/react-dom": "18.2.4",
     "@types/yargs": "17.0.24",
@@ -74,9 +74,6 @@
     "xml2js": "0.6.0",
     "yargs": "17.7.2"
   },
-  "publishConfig": {
-    "provenance": true
-  },
   "scripts": {
     "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",
     "audit:hugo": "./bin/audit/audit",
@@ -133,11 +130,7 @@
     "server:pagefind": "pagefind --watch",
     "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "tests": "npm run cypress",
-    "update": "wireit",
-    "update:post:npm": "wireit",
-    "update:pre:npm": "wireit",
-    "update:pre:submodules": "wireit",
-    "update:pre:vale": "wireit"
+    "update": "wireit"
   },
   "wireit": {
     "lint": {
@@ -148,20 +141,22 @@
     },
     "update": {
       "dependencies": [
-        "update:pre:npm",
-        "update:pre:vale",
-        "update:pre:submodules",
-        "update:post:npm"
+        "update:post"
       ]
     },
-    "update:post:npm": {
-      "command": "fixpack && browserslist --update-db"
+    "update:post": {
+      "command": "fixpack && browserslist --update-db",
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:vale",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
     },
     "update:pre:npm": {
-      "command": "npm-check-updates -u --target minor && npm install"
+      "command": "npm-check-updates -u --target minor"
     },
     "update:pre:vale": {
       "command": "vale sync"
@@ -171,6 +166,9 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "publishConfig": {
+    "provenance": true
   },
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config",

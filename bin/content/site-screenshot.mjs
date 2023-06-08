@@ -1,8 +1,11 @@
 import { chromium } from "playwright";
 import yargs from "yargs";
 import { hideBin } from 'yargs/helpers';
+import version from "../../package.json" assert { type: "json" };
 
 const argv = yargs(hideBin(process.argv))
+
+
 	.option("url", {
 		describe: "URL to capture a screenshot of",
 		demandOption: true,
@@ -24,6 +27,7 @@ const argv = yargs(hideBin(process.argv))
 		type: "number"
 	})
 	.help()
+	.version(version.version)
 	.alias("help", "h").argv;
 
 export const takeScreenshot = async (url, output, width, height) => {

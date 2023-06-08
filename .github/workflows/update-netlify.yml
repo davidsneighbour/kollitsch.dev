@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: google/wireit@setup-github-actions-caching/v1
       - run: |
           ${GITHUB_WORKSPACE}/bin/netlify/update-hugo-version > "${GITHUB_WORKSPACE}/netlify.toml"
       - name: Create Pull Request

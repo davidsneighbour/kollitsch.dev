@@ -78,7 +78,6 @@ Install this repository and all submodules via `git clone --recurse-submodules h
 - Running **`npm install`** will add all set-up requirements
 - Copy `.env.sample` to **`.env`** and fill in the values used by scripts and the build systems for various tasks. You **MUST NOT** commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like in [Keybase](https://keybase.io) or a password manager.
 - Setup signed tags with `npm config set sign-git-tag true`
-- Run `npm install` to install all dependencies.
 
 ## Advanced setup steps
 

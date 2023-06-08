@@ -2,6 +2,10 @@
 
 This project is the website setup and content for [kollitsch.dev](https://kollitsch.dev/).
 
+![Screenshot of kollitsch.dev](.github/images/screenshot.png)
+
+# Site structure
+
 ![module structure](.github/images/rm001.png)
 
 - [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
@@ -23,32 +27,33 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 <!-- markdownlint-disable MD010 MD007 -->
 <!--lint ignore-->
 
+- [Site structure](#site-structure)
 - [General notes](#general-notes)
 - [Setup](#setup)
-	- [Prepare the development environment](#prepare-the-development-environment)
-	- [Advanced setup steps](#advanced-setup-steps)
-	- [Pre-Commit](#pre-commit)
+  - [Prepare the development environment](#prepare-the-development-environment)
+  - [Advanced setup steps](#advanced-setup-steps)
+  - [Pre-Commit](#pre-commit)
 - [Development](#development)
-	- [Setup](#setup-1)
-	- [Release](#release)
-	- [Deploy](#deploy)
-	- [Theme](#theme)
-		- [Paradigms](#paradigms)
-	- [Netlify setup](#netlify-setup)
-	- [Hooks (WIP)](#hooks-wip)
+  - [Setup](#setup-1)
+  - [Release](#release)
+  - [Deploy](#deploy)
+  - [Theme](#theme)
+    - [Paradigms](#paradigms)
+  - [Netlify setup](#netlify-setup)
+  - [Hooks (WIP)](#hooks-wip)
 - [Content](#content)
-	- [Archetypes](#archetypes)
-	- [Front matter parameters](#front-matter-parameters)
-		- [Layout options](#layout-options)
-	- [Shortcodes](#shortcodes)
+  - [Archetypes](#archetypes)
+  - [Front matter parameters](#front-matter-parameters)
+    - [Layout options](#layout-options)
+  - [Shortcodes](#shortcodes)
 - [Code and Content Quality](#code-and-content-quality)
-	- [Linting](#linting)
-		- [On Save](#on-save)
-			- [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
-			- [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
-		- [On Commit](#on-commit)
+  - [Linting](#linting)
+    - [On Save](#on-save)
+      - [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+      - [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
+    - [On Commit](#on-commit)
 - [Troubleshooting](#troubleshooting)
-	- [Inkscape](#inkscape)
+  - [Inkscape](#inkscape)
 - [License](#license)
 
 <!-- markdownlint-enable MD010 MD007 -->

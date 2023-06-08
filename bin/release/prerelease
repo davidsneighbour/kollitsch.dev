@@ -14,11 +14,28 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 	fi
 done
 
+VERSION=$(node -pe 'require("./package.json")["version"]')
+
+FILE=.env
+if [ -f "$FILE" ]; then
+	echo "exporting .env"
+	set -a # export all variables created next
+	# this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+	# see https://github.com/koalaman/shellcheck/wiki/SC1090
+	# shellcheck source=/dev/null
+	source "${FILE}"
+	set +a # stop exporting
+fi
+
 SCRIPTPATH="$(
 	cd "$(dirname "$0")" >/dev/null 2>&1 || exit
 	pwd -P
 )"
 CURPATH="$(pwd -P)"
+
+SCREENSHOTHOST="http://${IP}:${PORT}"
+node --no-warnings bin/content/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png
+git add "$CURPATH"/.github/screenshot.png
 
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo

@@ -16,6 +16,12 @@ disable = false
 ignoreConfig = false
 ignoreImports = false
 
+[[imports]]
+path = "github.com/davidsneighbour/hugo-debug"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+
 [[mounts]]
 source = "node_modules"
 target = "assets/node_modules"

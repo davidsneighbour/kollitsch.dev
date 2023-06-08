@@ -63,7 +63,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 # General notes
 
 - The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open-source programs and scripts.
+- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open source programs and scripts.
 
 # Setup
 
@@ -76,7 +76,7 @@ Install this repository and all submodules via `git clone --recurse-submodules h
 - **[Bash](https://www.gnu.org/software/bash/)** (available on any self-respecting operating system)
 - **[Shellcheck](https://github.com/koalaman/shellcheck)** (`snap install -channel=edge shellcheck`)
 - Running **`npm install`** will add all set-up requirements
-- Copy `.env.sample` to **`.env`** and fill in the values used by scripts and the build systems for various tasks. You **MUST NOT** commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like in [Keybase](https://keybase.io) or a password manager.
+- Copy `.env.sample` to **`.env`** and specify the values used by scripts and the build systems for various tasks. You **MUST NOT** commit the `.env` file to the repository for privacy and security reasons. Take notes of your configuration data somewhere safe, like in [Keybase](https://keybase.io) or a password manager.
 - Setup signed tags with `npm config set sign-git-tag true`
 
 ## Advanced setup steps
@@ -93,7 +93,7 @@ pre-commit install
 ```
 
 Other `pre-commit` commands are:
-If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, you can always commit manually via `git commit --no-verify`. So use your brain on this one.
+If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, you can always commit manually via `git commit --no-verify`; use your brain on this one.
 
 # Development
 
@@ -234,7 +234,7 @@ vale README.md
 npm run lint:vale
 ```
 
-**VSCode Plugin:**
+**Visual Studio Code Plugin:**
 
 Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server) plugin. No configuration is required.
 

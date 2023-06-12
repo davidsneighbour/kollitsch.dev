@@ -1,16 +1,15 @@
 ---
 title: Giscus Module for GoHugo
 date: 2021-10-27T20:25:27+07:00
-description: ""
+description: ''
 resources:
   - src: gerry-roarty-slkENpP5PbI-unsplash.jpg
-    title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via
-      [Unsplash](https://unsplash.com)
+    title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via [Unsplash](https://unsplash.com)
 tags:
   - gohugo
   - static websites
   - giscus
-lastmod: 2022-04-15T0:23:35+07:00
+lastmod: 2023-06-12T22:33:47+07:00
 ---
 
 [Giscus](https://github.com/giscus/giscus) is a new star on the comment systems for static website generators orbit. It is inspired by the wonderful [utterances](https://github.com/utterance/utterances) and uses Github Discussions to save comments. It's open source, easily configurable, themeable, translatable, and you can [host it on your own server](https://github.com/giscus/giscus/blob/main/SELF-HOSTING.md) (it's JavaScript based) if you like. I tried it, but ran into problems setting it up, so this will be a topic for a later post.
@@ -19,7 +18,7 @@ In my opinion this tool is very useful for development websites or smaller devel
 
 You can see Giscus in action at the end of this post or any other post on this website. Feel free to test, but please try to add a useful comment :wink:
 
-I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](https://github.com/davidsneighbour/hugo-giscus/) that you can use easily to add Giscus to your website. The plan is to add the script as unobstrusive as possible to your website and add belated loading and easy design options to it. Just follow these steps to add it to your GoHugo website:
+I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](https://github.com/davidsneighbour/hugo-giscus/) that you can use easily to add Giscus to your website. The plan is to add the script as unobtrusive as possible to your website and add belated loading and easy design options to it. Just follow these steps to add it to your GoHugo website:
 
 1. Go to [giscus.app/](https://giscus.app/) and fill out the form in the "Configuration" section. Copy the resulting code and paste into your scratch pad.
 

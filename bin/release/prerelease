@@ -35,7 +35,7 @@ CURPATH="$(pwd -P)"
 
 SCREENSHOTHOST="http://${IP}:${PORT}"
 node --no-warnings bin/content/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png
-git add "$CURPATH"/.github/screenshot.png
+git add "$CURPATH"/.github/images
 
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo

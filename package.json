@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@clack/prompts": "0.6.3",
-    "@davidsneighbour/configurations": "5.2.3",
+    "@davidsneighbour/configurations": "5.2.2",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "@types/yargs": "17.0.24",

@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2023.2.72",
+  "version": "2023.2.73",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -132,9 +132,9 @@
     "update": "wireit"
   },
   "wireit": {
-		"new": {
-			"command": "node bin/content/index.mjs"
-		},
+    "new": {
+      "command": "node bin/content/index.mjs"
+    },
     "lint": {
       "dependencies": [
         "lint:html",

@@ -4,26 +4,26 @@
 SECONDS=0
 
 REQUIRED_TOOLS=(
-	hugo
-	npm
-	export
-	trap
+  hugo
+  npm
+  export
+  trap
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
-	if ! command -v "${TOOL}" >/dev/null; then
-		echo "${TOOL} is required... "
-		exit 1
-	fi
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
 done
 
 for FILE in bin/lib/*; do
-	set -a
-	# this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
-	# see https://github.com/koalaman/shellcheck/wiki/SC1090
-	# shellcheck source=/dev/null
-	source "${FILE}"
-	set +a
+  set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
 done
 
 # SCRIPTPATH="$(
@@ -36,13 +36,13 @@ trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
 
 FILE=${CURPATH}/.env
 if [ -f "$FILE" ]; then
-	echo "exporting .env"
-	set -a
-	# this routine calls a file that we don't explicitly know (@davidsneighbour)
-	# see https://github.com/koalaman/shellcheck/wiki/SC1090
-	# shellcheck source=/dev/null
-	source "${FILE}"
-	set +a
+  echo "exporting .env"
+  set -a
+  # this routine calls a file that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
 fi
 
 # cleanup hugo logging
@@ -70,58 +70,59 @@ hugo mod get -u ./...
 # DNB bin config
 dnb_server_debug=""
 if [ "$DNB_SERVER_DEBUG" = true ]; then
-	echo "Debugging ON"
-	dnb_server_debug="--templateMetrics --templateMetricsHints"
-	dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings --printUnusedTemplates"
-	dnb_server_debug="${dnb_server_debug} --debug --verbose "
+  echo "Debugging ON"
+  dnb_server_debug="--templateMetrics --templateMetricsHints"
+  dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings --printUnusedTemplates"
+  dnb_server_debug="${dnb_server_debug} --debug --verbose "
 else
-	echo "Debugging OFF"
+  echo "Debugging OFF"
 fi
 dnb_server_future=""
 if [ "$DNB_SERVER_FUTURE" = true ]; then
-	echo "Future Posts ON"
-	dnb_server_future="--buildFuture "
+  echo "Future Posts ON"
+  dnb_server_future="--buildFuture "
 else
-	echo "Future Posts OFF"
+  echo "Future Posts OFF"
 fi
 dnb_server_expired=""
 if [ "$DNB_SERVER_EXPIRED" = true ]; then
-	echo "Expired Posts ON"
-	dnb_server_expired="--buildExpired "
+  echo "Expired Posts ON"
+  dnb_server_expired="--buildExpired "
 else
-	echo "Expired Posts OFF"
+  echo "Expired Posts OFF"
 fi
 dnb_server_drafts=""
 if [ "$DNB_SERVER_DRAFTS" = true ]; then
-	echo "Draft Posts ON"
-	dnb_server_drafts="--buildDrafts "
+  echo "Draft Posts ON"
+  dnb_server_drafts="--buildDrafts "
 else
-	echo "Draft Posts OFF"
+  echo "Draft Posts OFF"
 fi
 
 echo "Elapsed: $((SECONDS / 3600))hrs $(((SECONDS / 60) % 60))min $((SECONDS % 60))sec"
 
 # starting hugo server
 hugo server \
-	--environment development \
-	--disableFastRender \
-	--navigateToChanged \
-	--renderToDisk \
-	${dnb_server_drafts} \
-	${dnb_server_future} \
-	${dnb_server_expired} \
-	${dnb_server_debug} \
-	--watch \
-	--enableGitInfo \
-	--forceSyncStatic \
-	--port "${PORT}" \
-	--baseURL http://"${IP}"/ \
-	--printI18nWarnings \
-	--printMemoryUsage \
-	--printPathWarnings \
-	--printUnusedTemplates \
-	--templateMetrics \
-	--templateMetricsHints \
-	--bind "${IP}" 2>&1 | tee -a hugo.log
+  --environment development \
+  --disableFastRender \
+  --navigateToChanged \
+  --renderToDisk \
+  ${dnb_server_drafts} \
+  ${dnb_server_future} \
+  ${dnb_server_expired} \
+  ${dnb_server_debug} \
+  --watch \
+  --enableGitInfo \
+  --forceSyncStatic \
+  --printI18nWarnings \
+  --printMemoryUsage \
+  --printPathWarnings \
+  --printUnusedTemplates \
+  --templateMetrics \
+  --templateMetricsHints \
+  --tlsAuto \
+  --baseURL https://"${IP}"/ \
+  --port "${PORT}" \
+  --bind "${IP}" 2>&1 | tee -a hugo.log
 
 echo "Elapsed: $((SECONDS / 3600))hrs $(((SECONDS / 60) % 60))min $((SECONDS % 60))sec"

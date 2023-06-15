@@ -116,7 +116,7 @@
     "lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables themes/hugo-theme/assets/scss",
     "lint:templates": "bin/audit/lint-template-style",
     "lint:vale": "vale content",
-    "new": "node bin/content/index.mjs",
+    "new": "wireit",
     "pagefind": "pagefind",
     "pipeline": "tsx pipeline.ts",
     "prettier": "prettier 'assets/**/*.ts'",
@@ -132,6 +132,9 @@
     "update": "wireit"
   },
   "wireit": {
+		"new": {
+			"command": "node bin/content/index.mjs"
+		},
     "lint": {
       "dependencies": [
         "lint:html",

@@ -33,6 +33,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
   - [Prepare the development environment](#prepare-the-development-environment)
   - [Advanced setup steps](#advanced-setup-steps)
   - [Pre-Commit](#pre-commit)
+	- [SSL/TLS setup](#ssltls-setup)
 - [Development](#development)
   - [Setup](#setup-1)
   - [Release](#release)
@@ -94,6 +95,15 @@ pre-commit install
 
 Other `pre-commit` commands are:
 If you installed pre-commit and one of your commits won't "get through" due to some weird overzealous configuration, you can always commit manually via `git commit --no-verify`; use your brain on this one.
+
+## SSL/TLS setup
+
+Hugo introduced a new SSL feature in v0.113.0. The setup is still quite manual, but it's a start. To enable SSL/TLS, you need to do the following:
+
+- install mkcert (see [mkcert](https://github.com/FiloSottile/mkcert))
+  ```bash
+	hugo server trust
+	```
 
 # Development
 

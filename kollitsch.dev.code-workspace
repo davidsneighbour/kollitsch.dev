@@ -3,18 +3,6 @@
 		{
 			"name": "kollitsch.dev",
 			"path": "."
-		},
-		{
-			"name": "hugo-robots",
-			"path": "../hugo-robots"
-		},
-		{
-			"name": "hugo-sitemap",
-			"path": "../hugo-sitemap"
-		},
-		{
-			"name": "configurations",
-			"path": "../configurations"
 		}
 	],
 	"settings": {

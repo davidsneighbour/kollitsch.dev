@@ -71,7 +71,7 @@ prefetch = [
 	'/assets/webfonts/bahnpro_regular-webfont.ttf',
 	'/assets/webfonts/bahnpro_light-webfont.woff2',
 	'/assets/webfonts/bahnpro_light-webfont.woff',
-	'/assets/webfonts/bahnpro_light-webfont.ttf'
+	'/assets/webfonts/bahnpro_light-webfont.ttf',
 ]
 preconnect = []
 prerender = []
@@ -100,7 +100,16 @@ includePaths = ["node_modules/", "assets/"]
 # hugo-social @see https://github.com/davidsneighbour/hugo-social
 ################################################################################
 [dnb.social.sharebuttons]
-networks = ["rss", "buymeacoffee", "substack", "mastodon", "linkedin", "instagram", "facebook", "twitter"]
+networks = [
+	"rss",
+	"buymeacoffee",
+	"substack",
+	"mastodon",
+	"linkedin",
+	"instagram",
+	"facebook",
+	"twitter",
+]
 
 [dnb.social.network.facebook]
 url = "https://www.facebook.com/patrick.kollitsch/"

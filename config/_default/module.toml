@@ -1,6 +1,6 @@
 [hugoVersion]
 extended = true
-min = "0.111.3"
+min = "0.113.0"
 
 # importing the modules with them residing in the themes directory.
 # better for developing, but might be buggy when deploying, we'll see.
@@ -15,6 +15,23 @@ path = "hugo-theme"
 disable = false
 ignoreConfig = false
 ignoreImports = false
+
+################################################################################
+# from hugo-blockify, for some reason not loading when building
+[[imports]]
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/csswizardry/ct"
+
+[[imports.mounts]]
+source = 'ct.css'
+target = 'assets/css/libs/ct.css'
+
+[[imports.mounts]]
+source = 'ct.css'
+target = 'static/css/libs/ct.css'
+################################################################################
 
 [[mounts]]
 source = "node_modules"

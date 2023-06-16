@@ -1,6 +1,0 @@
-[submodule "themes/hugo-theme"]
-	path = themes/hugo-theme
-	url = git@github.com:davidsneighbour/hugo-theme.git
-[submodule "themes/hugo-blockify"]
-	path = themes/hugo-blockify
-	url = git@github.com:davidsneighbour/hugo-blockify.git

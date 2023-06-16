@@ -3,6 +3,12 @@
 		{
 			"name": "kollitsch.dev",
 			"path": "."
+		},
+		{
+			"path": "../hugo-blockify"
+		},
+		{
+			"path": "../hugo-theme"
 		}
 	],
 	"settings": {

@@ -1,6 +1,6 @@
 [hugoVersion]
 extended = true
-min = "0.111.3"
+min = "0.113.0"
 
 # importing the modules with them residing in the themes directory.
 # better for developing, but might be buggy when deploying, we'll see.

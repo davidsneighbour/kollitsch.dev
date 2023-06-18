@@ -5,19 +5,21 @@ min = "0.113.0"
 # importing the modules with them residing in the themes directory.
 # better for developing, but might be buggy when deploying, we'll see.
 [[imports]]
-path = "hugo-blockify"
+path = "github.com/davidsneighbour/hugo-blockify"
 disable = false
 ignoreConfig = false
 ignoreImports = false
 
 [[imports]]
-path = "hugo-theme"
+path = "github.com/davidsneighbour/hugo-theme"
 disable = false
 ignoreConfig = false
 ignoreImports = false
 
-################################################################################
-# from hugo-blockify, for some reason not loading when building
+[[mounts]]
+source = "node_modules"
+target = "assets/node_modules"
+
 [[imports]]
 disable = false
 ignoreConfig = true
@@ -31,8 +33,3 @@ target = 'assets/css/libs/ct.css'
 [[imports.mounts]]
 source = 'ct.css'
 target = 'static/css/libs/ct.css'
-################################################################################
-
-[[mounts]]
-source = "node_modules"
-target = "assets/node_modules"

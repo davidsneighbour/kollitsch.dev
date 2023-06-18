@@ -1,7 +1,0 @@
-#!/bin/bash
-
-find . -type f -not -path './node_modules*' \
-  -a -not -path '*.git*' \
-  -a -not -path './public*' \
-  -a -not -name '*~' \
-  >listOfFiles.list

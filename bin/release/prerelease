@@ -57,10 +57,10 @@ killall -q -9 hugo
 
 typos -- ./content
 
-if test -f "$SCRIPTPATH"/bin/etc/replacements; then
+if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
   while read -ra __; do
     go mod edit -dropreplace "${__[0]}"
-  done <"$SCRIPTPATH"/bin/etc/replacements
+  done <"$SCRIPTPATH"/bin/etc/hugo/replacements
 fi
 
 #"${CURPATH}"/bin/build/prepare-docs
@@ -74,8 +74,8 @@ if test -f "$FILE"; then
   git add go.sum
 fi
 
-if test -f "$SCRIPTPATH"/replacements; then
+if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
   while read -ra __; do
     go mod edit -replace "${__[0]}"="${__[1]}"
-  done <"$SCRIPTPATH"/replacements
+  done <"$SCRIPTPATH"/bin/etc/hugo/replacements
 fi

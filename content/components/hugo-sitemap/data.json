@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/75109899/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.1",
-  "id": 75109899,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/107348656",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/releases/107348656/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-sitemap/releases/107348656/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.6",
+  "id": 107348656,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,19 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGdkoKs4EehYL",
-  "tag_name": "v1.1.1",
+  "node_id": "RE_kwDOGdkoKs4GZgKw",
+  "tag_name": "v1.1.6",
   "target_commitish": "main",
-  "name": "Configurable HTML Sitemap via partial",
+  "name": "v1.1.6",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-08-23T15:18:51Z",
-  "published_at": "2022-08-23T15:25:52Z",
+  "created_at": "2023-06-05T12:49:35Z",
+  "published_at": "2023-06-05T12:49:47Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.1.1",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.1.1",
-  "body": "This quick release adds a way to use the [new configurable HTML sitemap](https://github.com/davidsneighbour/hugo-sitemap/releases/tag/v1.1.0) as partial:\r\n\r\n```go\r\n{{- $config := site.Params.dnb.sitemap.htmlmap -}}\r\n{{- $sitemapdata := (dict \"config\" $config) -}}\r\n{{- partialCached \"sitemap.html\" $sitemapdata $sitemapdata -}}\r\n```\r\n\r\nThe above is the current shortcode, ehm, code. You can just use the global configuration or build your own configuration `dict`ionary to fill your sitemap. This makes the sitemap also usable to just show a collection of pages anywhere:\r\n\r\n```go\r\n{{ $config := dict \"config\" (dict \"item\" (dict\r\n    \"type\" \".Type\"\r\n    \"section\"  \"components\"\r\n    \"label\" \"GoHugo Components by DNB\"\r\n    \"sortvalue\" \".Title\"\r\n    \"sortdirection\" \"ASC\"\r\n)) }}\r\n{{- partialCached \"sitemap.html\" $config $config -}}\r\n```\r\n\r\nThis template would show all items in my `content/components` section, sorted by title. "
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/tarball/v1.1.6",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-sitemap/zipball/v1.1.6",
+  "body": "## What's Changed\n* build: update Github organization & use newer NPM dependencies by @ringods in https://github.com/davidsneighbour/hugo-sitemap/pull/39\n\n## New Contributors\n* @ringods made their first contribution in https://github.com/davidsneighbour/hugo-sitemap/pull/39\n\n**Full Changelog**: https://github.com/davidsneighbour/hugo-sitemap/compare/v0.0.3...v1.1.6",
+  "mentions_count": 1
 }

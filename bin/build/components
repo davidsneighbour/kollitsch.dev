@@ -2,35 +2,26 @@
 # shellcheck disable=SC1091
 
 REQUIRED_TOOLS=(
-	inkscape
-	optipng
-	sed
-	curl
+  inkscape
+  optipng
+  sed
+  curl
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
-	if ! command -v "${TOOL}" >/dev/null; then
-		echo "${TOOL} is required... "
-		exit 1
-	fi
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
 done
 
 FILE=.env
 if [ -f "$FILE" ]; then
-	set -a # export all variables created next
-	# shellcheck source=.env
-	source "${FILE}"
-	set +a # stop exporting
+  set -a # export all variables created next
+  # shellcheck source=.env
+  source "${FILE}"
+  set +a # stop exporting
 fi
-
-for FILE in bin/lib/*; do
-	set -a
-	# this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
-	# see https://github.com/koalaman/shellcheck/wiki/SC1090
-	# shellcheck source=/dev/null
-	source "${FILE}"
-	set +a
-done
 
 # file location
 CURPATH="$(pwd -P)"
@@ -38,6 +29,16 @@ IMAGEPATH="${CURPATH}/assets/images"
 TEMPIMAGEPATH="${CURPATH}/assets/images/temp.svg"
 COMPONENTPATH="./content/components"
 AUTH="-u ${GITHUB_USERNAME}:${GITHUB_SECRET}"
+
+# load libraries
+for FILE in bin/lib/*; do
+  set -a
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
+done
 
 echo -e "${COLOR_YELLOW}"
 echo "================================================================"
@@ -47,22 +48,22 @@ echo -e "${COLOR_LIGHT_GREEN}"
 
 for DIRNAME in "${COMPONENTPATH}"/*/; do
 
-	DIR=$(basename "$DIRNAME")
-	echo "for ${DIR}"
-	TERM=${DIR/hugo\-/}
-	find_string='>NAME<'
-	replace_string=">${TERM^^}<"
-	sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/components-header.svg >"${IMAGEPATH}"/temp.svg
-	inkscape "${TEMPIMAGEPATH}" --export-filename="${COMPONENTPATH}"/"${DIR}"/header-card.png &>/dev/null
-	optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/header-card.png
-	rm -f "${TEMPIMAGEPATH}"
+  DIR=$(basename "$DIRNAME")
+  echo "for ${DIR}"
+  TERM=${DIR/hugo\-/}
+  find_string='>NAME<'
+  replace_string=">${TERM^^}<"
+  sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/components-header.svg >"${IMAGEPATH}"/temp.svg
+  inkscape "${TEMPIMAGEPATH}" --export-filename="${COMPONENTPATH}"/"${DIR}"/header-card.png &>/dev/null
+  optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/header-card.png
+  rm -f "${TEMPIMAGEPATH}"
 
-	if [[ $DIR == 'references' ]]; then
-		continue
-	fi
+  if [[ $DIR == 'references' ]]; then
+    continue
+  fi
 
-	URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
-	curl "${URL}" "${AUTH}" -s --output ${COMPONENTPATH}/"${DIR}"/data.json
+  URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
+  curl "${URL}" "${AUTH}" -s --output ${COMPONENTPATH}/"${DIR}"/data.json
 
 done
 

@@ -32,7 +32,9 @@ done
 # )"
 CURPATH="$(pwd -P)"
 
-trap "{ echo 'Terminated with Ctrl+C'; }" SIGINT
+trap "{
+	echo 'Terminated with Ctrl+C';
+}" SIGINT
 
 FILE=${CURPATH}/.env
 if [ -f "$FILE" ]; then
@@ -67,33 +69,37 @@ if test -f "${REPLACEMENTS}"; then
   [[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
 fi
 
-echo $HUGO_MODULE_REPLACEMENTS
-
 # DNB bin config
 dnb_server_debug=""
+# shellcheck disable=SC2153
 if [ "$DNB_SERVER_DEBUG" = true ]; then
   echo "Debugging ON"
   dnb_server_debug="--templateMetrics --templateMetricsHints"
-  dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings --printUnusedTemplates"
-  dnb_server_debug="${dnb_server_debug} --debug --verbose "
+  dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings "
+  dnb_server_debug="${dnb_server_debug} --printUnusedTemplates --debug --verbose "
 else
   echo "Debugging OFF"
 fi
 dnb_server_future=""
+# shellcheck disable=SC2153
 if [ "$DNB_SERVER_FUTURE" = true ]; then
   echo "Future Posts ON"
   dnb_server_future="--buildFuture "
 else
   echo "Future Posts OFF"
 fi
+
 dnb_server_expired=""
+# shellcheck disable=SC2153
 if [ "$DNB_SERVER_EXPIRED" = true ]; then
   echo "Expired Posts ON"
   dnb_server_expired="--buildExpired "
 else
   echo "Expired Posts OFF"
 fi
+
 dnb_server_drafts=""
+# shellcheck disable=SC2153
 if [ "$DNB_SERVER_DRAFTS" = true ]; then
   echo "Draft Posts ON"
   dnb_server_drafts="--buildDrafts "
@@ -104,12 +110,12 @@ fi
 echo "Elapsed: $((SECONDS / 3600))hrs $(((SECONDS / 60) % 60))min $((SECONDS % 60))sec"
 
 # starting hugo server
+# shellcheck disable=SC2086
 env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   hugo server \
   --environment development \
   --disableFastRender \
   --navigateToChanged \
-  --renderToDisk \
   ${dnb_server_drafts} \
   ${dnb_server_future} \
   ${dnb_server_expired} \
@@ -117,12 +123,6 @@ env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   --watch \
   --enableGitInfo \
   --forceSyncStatic \
-  --printI18nWarnings \
-  --printMemoryUsage \
-  --printPathWarnings \
-  --printUnusedTemplates \
-  --templateMetrics \
-  --templateMetricsHints \
   --tlsAuto \
   --baseURL https://"${IP}"/ \
   --port "${PORT}" \

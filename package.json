@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2023.2.82",
+  "version": "2023.2.83",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -77,7 +77,6 @@
     "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",
     "audit:hugo": "./bin/audit/audit",
     "build": "run-s build:critical build:hugo",
-    "build:critical": "./bin/build/critical-css",
     "build:hugo": "./bin/build/hugo",
     "build:script": "tsc",
     "build:tailwind": "npx tailwindcss -i ./assets/css/main.css -o ./assets/dist/style.css",

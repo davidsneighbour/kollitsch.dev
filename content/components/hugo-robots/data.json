@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/hugo-robots/releases/73919378",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-robots/releases/73919378/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-robots/releases/73919378/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/hugo-robots/releases/tag/v1.2.5",
-  "id": 73919378,
+  "url": "https://api.github.com/repos/davidsneighbour/hugo-robots/releases/107096078",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/hugo-robots/releases/107096078/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/hugo-robots/releases/107096078/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/hugo-robots/releases/tag/v1.2.13",
+  "id": 107096078,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,19 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGdknPM4EZ-uS",
-  "tag_name": "v1.2.5",
+  "node_id": "RE_kwDOGdknPM4GYigO",
+  "tag_name": "v1.2.13",
   "target_commitish": "main",
-  "name": "Adding robots meta tag",
+  "name": "v1.2.13",
   "draft": false,
   "prerelease": false,
-  "created_at": "2022-08-08T18:29:44Z",
-  "published_at": "2022-08-08T18:47:26Z",
+  "created_at": "2023-06-04T13:03:55Z",
+  "published_at": "2023-06-04T13:04:04Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-robots/tarball/v1.2.5",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-robots/zipball/v1.2.5",
-  "body": ""
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/hugo-robots/tarball/v1.2.13",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/hugo-robots/zipball/v1.2.13",
+  "body": "## What's Changed\n* build(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 by @dependabot in https://github.com/davidsneighbour/hugo-robots/pull/61\n* Configure Renovate by @renovate in https://github.com/davidsneighbour/hugo-robots/pull/65\n\n## New Contributors\n* @dependabot made their first contribution in https://github.com/davidsneighbour/hugo-robots/pull/61\n* @renovate made their first contribution in https://github.com/davidsneighbour/hugo-robots/pull/65\n\n**Full Changelog**: https://github.com/davidsneighbour/hugo-robots/compare/v1.2.6...v1.2.13",
+  "mentions_count": 2
 }

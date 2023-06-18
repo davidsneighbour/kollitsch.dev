@@ -1,10 +1,11 @@
 #!/bin/bash
 
+# check required tools
 REQUIRED_TOOLS=(
   hugo
+  git
   npm
 )
-
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
   if ! command -v "${TOOL}" >/dev/null; then
     echo "${TOOL} is required... "
@@ -12,6 +13,7 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
   fi
 done
 
+# load .env variables
 FILE=.env
 if [ -f "$FILE" ]; then
   set -a
@@ -21,11 +23,11 @@ if [ -f "$FILE" ]; then
 fi
 
 # check if modules are up to date
-declare -a modules=(
+declare -a MODULES=(
   "hugo-blockify"
   "hugo-theme"
 )
-for i in "${modules[@]}"; do
+for i in "${MODULES[@]}"; do
   cd "../$i" || exit
   if [[ $(git diff --stat) != '' ]]; then
     echo "${i} is dirty"
@@ -33,7 +35,6 @@ for i in "${modules[@]}"; do
   fi
 done
 cd "$CURPATH" || exit
-git commit -m "chore(git): update submodules" --no-verify
 
 # @todo find out what we intended here ;] (@davidsneighbour)
 BASE_URL_PARAM=""

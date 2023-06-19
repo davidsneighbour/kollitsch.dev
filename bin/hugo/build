@@ -3,6 +3,12 @@
 set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
 IFS=$'\n\t'
 
+# SCRIPTPATH="$(
+#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+#   pwd -P
+# )"
+CURPATH="$(pwd -P)"
+
 # check required tools
 REQUIRED_TOOLS=(
   hugo
@@ -40,10 +46,10 @@ done
 cd "$CURPATH" || exit
 
 # @todo find out what we intended here ;] (@davidsneighbour)
-BASE_URL_PARAM=""
-if [ -n "${1}" ]; then
-  BASE_URL_PARAM="-b=${1}"
-fi
+# BASE_URL_PARAM=""
+# if [ -n "${1}" ]; then
+#   BASE_URL_PARAM="-b=${1}"
+# fi
 
 # cleanup hugo logging
 npm run clean:hugo
@@ -62,5 +68,5 @@ hugo \
   --log=true \
   --logFile hugo.log \
   --verbose \
-  --verboseLog \
-  "${BASE_URL_PARAM}"
+  --verboseLog
+# "${BASE_URL_PARAM}"

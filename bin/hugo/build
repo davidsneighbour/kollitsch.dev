@@ -58,6 +58,7 @@ npm run clean:hugo
 hugo mod get -u ./...
 
 # running hugo
+# @TODO remove paranoid settings and make into a cli option to debug more
 hugo \
   --printI18nWarnings \
   --templateMetrics \

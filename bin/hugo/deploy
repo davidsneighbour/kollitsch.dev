@@ -1,23 +1,23 @@
 #!/bin/bash
 
 REQUIRED_TOOLS=(
-	hugo
-	netlify
+  hugo
+  netlify
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
-	if ! command -v "${TOOL}" >/dev/null; then
-		echo "${TOOL} is required... "
-		exit 1
-	fi
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
 done
 
 FILE=.env
 if [ -f "$FILE" ]; then
-	set -a
-	# shellcheck source=/dev/null
-	source "${FILE}"
-	set +a
+  set -a
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a
 fi
 
 # quietly shutting down concurring hugo servers
@@ -31,11 +31,11 @@ VERSION=$(node -pe 'require("./package.json")["version"]')
 # bin/build/hugo "${BASEURL}"
 # netlify deploy --open --alias "$HASH"
 
-./bin/build/hugo
+./bin/hugo/build
 npm run pagefind
 
 # and deploy
 netlify deploy --prod --open --message "Release v${VERSION}"
 
 # and clear cloudflare cache
-node bin/cloudflare/purge-cache.mjs
+node bin/services/purge-cloudflare-cache.mjs

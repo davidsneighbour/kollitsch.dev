@@ -95,7 +95,7 @@
     "cypress:install": "cypress install",
     "cypress:run": "cypress open --config-file tests/cypress/cypress.config.ts",
     "cypress:verify": "cypress verify",
-    "deploy": "npm run deploy:stage && npm run release:patch && bin/deploy/live",
+    "deploy": "npm run deploy:stage && npm run release:patch && bin/hugo/deploy",
     "deploy:major": "npm run release:major && bin/deploy/live",
     "deploy:minor": "npm run release:minor && bin/deploy/live",
     "deploy:stage": "notify-send \"VSCode/Netlify: switch to the proper account now...\" && netlify switch",

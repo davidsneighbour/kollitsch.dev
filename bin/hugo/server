@@ -33,7 +33,8 @@ done
 CURPATH="$(pwd -P)"
 
 trap "{
-	echo 'Terminated with Ctrl+C';
+	echo 'Terminated with Ctrl+C\n';
+	echo
 }" SIGINT
 
 FILE=${CURPATH}/.env
@@ -52,6 +53,9 @@ npm run clean:hugo
 
 # update modules
 hugo mod get -u ./...
+
+# recreate ssl certificates
+hugo server trust
 
 # create replacements via environment
 NOT_FIRST_LINE=false

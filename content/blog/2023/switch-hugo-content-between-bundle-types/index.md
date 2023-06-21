@@ -5,11 +5,10 @@ description: Optimize your content organization in Hugo with page bundles and le
 summary: ""
 date: 2023-06-19T19:45:19+07:00
 publishDate: 2023-06-19T19:45:19+07:00
-lastmod: 2023-06-19T21:45:04+07:00
+lastmod: 2023-06-21T18:41:57+07:00
 resources:
   - title: Photo by [Hitoshi Suzuki](https://unsplash.com/@hitoshi_suzuki) via [Unsplash](https://unsplash.com/)
-    name: image name if other than src
-    src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+    src: header.jpg
 tags:
   - gohugo
   - bash

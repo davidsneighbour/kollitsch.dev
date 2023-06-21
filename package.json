@@ -74,10 +74,10 @@
     "yargs": "17.7.2"
   },
   "scripts": {
-    "audit:html": "html-validate public/**/*.html --config=tests/html-validator/config.json",
+    "audit:html": "hugo && html-validate public/**/*.html --config=tests/html-validator/config.json",
     "audit:hugo": "./bin/audit/audit",
     "build": "run-s build:critical build:hugo",
-    "build:hugo": "./bin/build/hugo",
+    "build:hugo": "./bin/hugo/build",
     "build:script": "tsc",
     "build:tailwind": "npx tailwindcss -i ./assets/css/main.css -o ./assets/dist/style.css",
     "build:webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",

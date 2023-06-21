@@ -1,9 +1,9 @@
 ---
 title: Changes to Hugo's debugging abilities on the CLI
-description: ""
+description: Hugo v0.114.0 dropped and deprecated various CLI flags, introducing --logLevel for verbosity. Theme developers though can only access WARN and ERROR loglines.
 date: 2023-06-21T22:54:26+07:00
 publishDate: 2023-06-21T22:54:26+07:00
-lastmod: 2023-06-21T23:05:56+07:00
+lastmod: 2023-06-21T23:13:35+07:00
 resources:
   - title: Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)
     src: header.jpg

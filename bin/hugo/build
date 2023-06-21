@@ -60,14 +60,6 @@ hugo mod get -u ./...
 # running hugo
 # @TODO remove paranoid settings and make into a cli option to debug more
 hugo \
-  --printI18nWarnings \
-  --templateMetrics \
-  --templateMetricsHints \
-  --printPathWarnings \
+  --logLevel "${LOGLEVEL}" \
   --cleanDestinationDir \
-  --enableGitInfo \
-  --log=true \
-  --logFile hugo.log \
-  --verbose \
-  --verboseLog
-# "${BASE_URL_PARAM}"
+  --enableGitInfo

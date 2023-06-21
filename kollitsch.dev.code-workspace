@@ -1,7 +1,6 @@
 {
 	"folders": [
 		{
-			"name": "kollitsch.dev",
 			"path": "."
 		},
 		{
@@ -20,10 +19,6 @@
 		"files.associations": {
 			"**/layouts/**.html": "go"
 		},
-		"js/ts.implicitProjectConfig.checkJs": true,
-		"markdown.extension.syntax.decorationFileSizeLimit": 500000,
-		"markdown.extension.syntax.plainTheme": true,
-		"markdown.extension.tableFormatter.delimiterRowNoPadding": true,
-		"markdown.extension.tableFormatter.normalizeIndentation": true
+		"js/ts.implicitProjectConfig.checkJs": true
 	}
 }

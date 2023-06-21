@@ -3,7 +3,7 @@ title: How to handle key issues with apt on Ubuntu
 description: ""
 date: 2023-06-21T18:41:26+07:00
 publishDate: 2023-06-21T18:41:26+07:00
-lastmod: 2023-06-21T20:40:36+07:00
+lastmod: 2023-06-21T20:44:30+07:00
 resources:
   - title: Choose a key
     src: header.jpg
@@ -94,6 +94,19 @@ For a non-armored key (save it with a .gpg extension), the output will be along 
 ```
 
 Running `sudo apt update` after all keys are imported should result in a clean run without any warnings.
+
+Again, this whole procedure could be circumvented by running the following script:
+
+```bash
+#!/bin/sh -e
+tmp="$(mktemp)"
+sudo apt-get update 2>&1 | sed -En 's/.*NO_PUBKEY ([[:xdigit:]]+).*/\1/p' | sort -u >"${tmp}"
+cat "${tmp}" | xargs sudo gpg --keyserver "hkps://keyserver.ubuntu.com:443" --recv-keys
+cat "${tmp}" | xargs -L 1 sh -c 'sudo gpg --yes --output "/etc/apt/trusted.gpg.d/$1.gpg" --export "$1"' sh
+rm "${tmp}"
+```
+
+It will run `apt update`, parse the output for missing keys, retrieve them from the Ubuntu keyserver, and finally export them to the proper location.
 
 Done.
 

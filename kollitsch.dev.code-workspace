@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../hugo-theme"
+		},
+		{
+			"path": "../renovate-config"
 		}
 	],
 	"settings": {

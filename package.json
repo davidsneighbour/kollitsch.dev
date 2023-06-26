@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2023.2.102",
+  "version": "2023.2.103",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@clack/prompts": "0.6.3",
-    "@davidsneighbour/configurations": "5.2.9",
+    "@davidsneighbour/configurations": "5.2.10",
     "@davidsneighbour/remark-config": "5.1.38",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",

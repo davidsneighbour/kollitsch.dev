@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../renovate-config"
+		},
+		{
+			"path": "../configurations"
 		}
 	],
 	"settings": {

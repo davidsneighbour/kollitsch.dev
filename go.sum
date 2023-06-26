@@ -1,6 +1,6 @@
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXqDQMVeFfgyXgP9yY40bbx0h2qS+8=
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
-github.com/davidsneighbour/hugo-blockify v0.0.82 h1:EpLx1gbuHQGNAa5Dq/48ORCNh6ejsTlUduiTs4InI7k=
-github.com/davidsneighbour/hugo-blockify v0.0.82/go.mod h1:3pb4yQ6cmgfZ8fuu0NLbGk8+QIAPKOH80M/+u8EOyGg=
-github.com/davidsneighbour/hugo-theme v0.0.78 h1:Xhul9XewBi5b03CqRpZG9yWWpvwKPmxJ0lv6+rro1fU=
-github.com/davidsneighbour/hugo-theme v0.0.78/go.mod h1:gMZ4CIy7D1lzuXlpvvMaU4H5n4NFT+XK1EA1lmr75nY=
+github.com/davidsneighbour/hugo-blockify v0.0.83 h1:V2+ckwUA1dgJUu+JmiQhAYrRm3T5i3JMYv0jJTRJpsc=
+github.com/davidsneighbour/hugo-blockify v0.0.83/go.mod h1:3pb4yQ6cmgfZ8fuu0NLbGk8+QIAPKOH80M/+u8EOyGg=
+github.com/davidsneighbour/hugo-theme v0.0.79 h1:NJ8uyj1hUowlv3M6muAjMxTy8JBhJ3Vouiop4uc334I=
+github.com/davidsneighbour/hugo-theme v0.0.79/go.mod h1:gMZ4CIy7D1lzuXlpvvMaU4H5n4NFT+XK1EA1lmr75nY=

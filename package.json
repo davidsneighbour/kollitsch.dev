@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2023.2.104",
+  "version": "2023.2.105",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -45,6 +45,7 @@
     "browserslist": "4.21.9",
     "caniuse-lite": "1.0.30001508",
     "css-loader": "6.8.1",
+    "cssnano": "^6.0.1",
     "doiuse": "4.4.1",
     "dotenv": "16.3.1",
     "eslint": "8.43.0",

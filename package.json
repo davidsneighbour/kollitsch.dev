@@ -43,7 +43,7 @@
     "babel-preset-es2015": "6.24.1",
     "bootstrap-icons": "1.10.5",
     "browserslist": "4.21.9",
-    "caniuse-lite": "1.0.30001508",
+    "caniuse-lite": "1.0.30001509",
     "css-loader": "6.8.1",
     "cssnano": "^6.0.1",
     "doiuse": "4.4.1",

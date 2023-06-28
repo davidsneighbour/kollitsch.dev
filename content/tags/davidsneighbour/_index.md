@@ -1,13 +1,11 @@
 ---
-title: davidsneighbour
-
+title: David's Neighbour
 resources:
-  - title: '@davidsneighbour'
+  - title: "@davidsneighbour"
     src: header-logo.png
-lastmod: 2022-08-22T21:52:27+07:00
+lastmod: 2023-06-26T23:59:37+07:00
 alias:
   - /tags/dnb-org/
-
 icon: person-bounding-box
 class: info
 ---

@@ -1,25 +1,20 @@
 ---
 title: "Notes from the Laboratory: August 2022"
 linkTitle: Laboratory 2022-08
-description: Another monthly report from the depths of the laboratory of kollitsch.den -
-  August 2022
-
+description: Another monthly report from the depths of the laboratory of kollitsch.den - August 2022
 date: 2022-09-04T19:23:45+07:00
 publishDate: 2022-09-04T19:23:45+07:00
-lastmod: 2022-09-04T21:55:53+07:00
-
+lastmod: 2023-06-26T23:45:33+07:00
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
-
+    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
 categories:
   - notes-from-the-laboratory
-
 tags:
   - laboratory
   - notes
   - self-improvement
+  - davidsneighbour
   - 100DaysToOffload
 ---
 

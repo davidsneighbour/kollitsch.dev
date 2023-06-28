@@ -1,25 +1,20 @@
 ---
 title: "Notes from the Laboratory: October 2022 (and September too)"
 linkTitle: Laboratory 2022-10
-description: Another monthly report from the depths of the laboratory of kollitsch.dev -
-  October 2022 (and also September 2022, not that you missed it ;)
-
+description: Another monthly report from the depths of the laboratory of kollitsch.dev - October 2022 (and also September 2022, not that you missed it ;)
 date: 2022-11-01T22:01:40+07:00
 publishDate: 2022-11-01T22:01:40+07:00
-lastmod: 2022-11-01T22:59:39+07:00
-
+lastmod: 2023-06-26T23:46:11+07:00
 resources:
   - src: header.jpg
-  - title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
-
+  - title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
 categories:
   - notes-from-the-laboratory
-
 tags:
   - laboratory
   - notes
   - self-improvement
+  - davidsneighbour
   - 100DaysToOffload
 ---
 

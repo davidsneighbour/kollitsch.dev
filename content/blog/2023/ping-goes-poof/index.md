@@ -4,10 +4,9 @@ title: Ping Goes Poof
 linkTitle: Ping Goes Poof
 description: ""
 summary: ""
-draft: true
 date: 2023-06-28T20:33:58+07:00
 publishDate: 2023-06-28T20:33:58+07:00
-lastmod: 2023-06-28T20:51:46+07:00
+lastmod: 2023-06-28T21:01:21+07:00
 resources:
   - title: Photo by [Pascal Meier](https://unsplash.com/@zhpix) via [Unsplash](https://unsplash.com/)
     src: header.jpg

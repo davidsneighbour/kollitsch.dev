@@ -264,9 +264,6 @@ disallow = ["/cdn-cgi/"]
 ###############################################################################
 # hugo-sitemap @see https://github.com/davidsneighbour/hugo-sitemap
 ###############################################################################
-[dnb.sitemap]
-enabled = true
-
 [[dnb.sitemap.htmlmap.item]]
 type = ".Type"
 section = "blog"

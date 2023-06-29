@@ -10,10 +10,16 @@
 			"path": "../hugo-theme"
 		},
 		{
-			"path": "../renovate-config"
+			"path": "../hugo-head"
 		},
 		{
-			"path": "../configurations"
+			"path": "../hugo-robots"
+		},
+		{
+			"path": "../hugo-sitemap"
+		},
+		{
+			"path": "../hugo-social"
 		}
 	],
 	"settings": {

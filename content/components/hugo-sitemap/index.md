@@ -2,9 +2,9 @@
 title: Sitemap
 linktitle: hugo-sitemap
 description: Elevate your website's sitemap with a versatile Hugo theme component. Customizable setup options per page. Discover more!
-date: 2022-07-19T17:40:35+07:00
+date: 2023-06-29T21:44:47+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2023-06-28T18:21:04+07:00
+lastmod: 2023-06-29T21:44:53+07:00
 resources:
   - src: header-card.png
 categories:

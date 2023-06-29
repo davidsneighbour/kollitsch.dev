@@ -2,9 +2,9 @@
 title: Robots
 linktitle: hugo-robots
 description: This component for GoHugo adds a customizable robots.txt to your website.
-date: 2022-07-19T17:40:35+07:00
+date: 2023-06-29T19:21:43+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2023-06-25T20:04:59+07:00
+lastmod: 2023-06-29T19:22:28+07:00
 resources:
   - src: header-card.png
 categories:
@@ -32,7 +32,6 @@ This component can be used as drop-in without much configuration. However, robot
 
 ```toml
 enableRobotsTXT = true
-
 ```
 
 You can add configuration parameters per content page in its frontmatter:
@@ -55,7 +54,6 @@ disallow = ["/nogooglebot/", "/anotherdirectory/"]
 [[dnb.robots.useragents]]
 name = "Googlebot2"
 allow = ["/yesgooglebot/", "/anotherdirectory/"]
-
 ```
 
 ## Configure meta-robots tags
@@ -74,7 +72,6 @@ Add or edit global defaults in the `[params]` section of `config.toml` or in `co
 [dnb.robots]
 index = true
 follow = true
-
 ```
 
 The default without any configuration is `true` for both parameters.
@@ -99,7 +96,6 @@ If you like to do your robots.txt proud --- if you catch my drift --- then you c
 [dnb.robots]
 concludingComment = "# comment at the end of robots.txt\n"
 initialComment = "# comment at the beginning of robots.txt\n"
-
 ```
 
 Be careful to properly comment out these parts.
@@ -111,7 +107,6 @@ The plugin adds some branding notes to your robots.txt. It's a free plugin. If y
 ```toml
 [dnb.robots]
 disableBranding = true
-
 ```
 
 ## See this module in action

@@ -6,6 +6,7 @@ REQUIRED_TOOLS=(
   optipng
   sed
   curl
+  jq
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
@@ -48,24 +49,34 @@ echo -e "${COLOR_LIGHT_GREEN}"
 
 for DIRNAME in "${COMPONENTPATH}"/*/; do
 
-  DIR=$(basename "$DIRNAME")
-  echo "for ${DIR}"
-  TERM=${DIR/hugo\-/}
-  find_string='>NAME<'
-  replace_string=">${TERM^^}<"
-  sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/components-header.svg >"${IMAGEPATH}"/temp.svg
-  inkscape "${TEMPIMAGEPATH}" --export-filename="${COMPONENTPATH}"/"${DIR}"/header-card.png &>/dev/null
-  optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/header-card.png
-  rm -f "${TEMPIMAGEPATH}"
-
   if [[ $DIR == 'references' ]]; then
     continue
   fi
 
+  DIR=$(basename "$DIRNAME")
+  echo "for ${DIR}"
+
   URL="https://api.github.com/repos/davidsneighbour/${DIR}/releases/latest"
   curl "${URL}" "${AUTH}" -s --output ${COMPONENTPATH}/"${DIR}"/data.json
 
+  TERM=${DIR/hugo\-/}
+  find_string='id="componentname">NAME<'
+  replace_string=">${TERM^^}<"
+  sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/components-header.svg >"${IMAGEPATH}"/temp2.svg
+
+  version=($(jq -r '.tag_name' ${COMPONENTPATH}/"${DIR}"/data.json))
+  find_string='id="componentversion">NAME<'
+  replace_string=">${version}<"
+  sed -E "s/${find_string}/${replace_string}/" "${IMAGEPATH}"/temp2.svg >"${IMAGEPATH}"/temp.svg
+
+  inkscape "${TEMPIMAGEPATH}" --export-filename="${COMPONENTPATH}"/"${DIR}"/header-card.png &>/dev/null
+  optipng -strip all -quiet -o7 "${COMPONENTPATH}"/"${DIR}"/header-card.png
+  rm -f "${TEMPIMAGEPATH}"
+
 done
+
+rm "${CURPATH}/assets/images/temp.svg"
+rm "${CURPATH}/assets/images/temp2.svg"
 
 git add content/components
 git commit -m "chore: update component header images and release data" --no-verify

@@ -1,3 +1,5 @@
+github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXqDQMVeFfgyXgP9yY40bbx0h2qS+8=
+github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/davidsneighbour/hugo-blockify v0.0.85 h1:WdJWq+wqf4HSJno60/KIEBGEivmDrjpmrljqCKdWxPs=
 github.com/davidsneighbour/hugo-blockify v0.0.85/go.mod h1:B2Qk0Vg5LyimLw1hNIa7n0xBj8SkXKHJP+AaPZlbt28=
 github.com/davidsneighbour/hugo-theme v0.0.81 h1:9QgIDWX6sjIyJa1lBqMsQgrebyiFfjwK8RPp9Q2QLnQ=

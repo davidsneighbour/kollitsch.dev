@@ -31,6 +31,10 @@
 		"files.associations": {
 			"**/layouts/**.html": "go"
 		},
-		"js/ts.implicitProjectConfig.checkJs": true
+		"js/ts.implicitProjectConfig.checkJs": true,
+		"search.exclude": {
+			"_vendor": true,
+			"**/_vendor": true
+		}
 	}
 }

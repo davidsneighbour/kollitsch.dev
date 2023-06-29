@@ -22,6 +22,13 @@ weight = 100
 bsicon = "house-fill"
 
 [[footer]]
+name = "Hugo Components"
+url = "/components/"
+weight = 400
+[footer.params]
+bsicon = "puzzle-fill"
+
+[[footer]]
 name = "Contact"
 url = "/contact/"
 weight = 900

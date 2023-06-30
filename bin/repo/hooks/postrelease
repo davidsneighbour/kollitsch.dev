@@ -1,39 +1,42 @@
 #!/bin/bash
 
 REQUIRED_TOOLS=(
-	git
-	sed
-	node
+  git
+  sed
+  node
 )
 
 # check if all requirements are met
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
-	if ! command -v "${TOOL}" >/dev/null; then
-		echo "${TOOL} is required... "
-		exit 1
-	fi
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
 done
 
 VERSION=$(node -pe 'require("./package.json")["version"]')
 
 FILE=.env
 if [ -f "$FILE" ]; then
-	echo "exporting .env"
-	set -a # export all variables created next
-	# this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
-	# see https://github.com/koalaman/shellcheck/wiki/SC1090
-	# shellcheck source=/dev/null
-	source "${FILE}"
-	set +a # stop exporting
+  echo "exporting .env"
+  set -a # export all variables created next
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a # stop exporting
+else
+  echo "no .env file found"
+  exit 0
 fi
 
 # update version in citation configuration
 FILE=CITATION.cff
 if test -f "$FILE"; then
-	sed -i "s/^version: .*/version: ${VERSION}/" $FILE
-	DATE=$(date +%F)
-	sed -i "s/^date-released: .*/date-released: ${DATE}/" $FILE
-	git add $FILE
+  sed -i "s/^version: .*/version: ${VERSION}/" $FILE
+  DATE=$(date +%F)
+  sed -i "s/^date-released: .*/date-released: ${DATE}/" $FILE
+  git add $FILE
 fi
 
 # add re-versioned files to recent edit
@@ -48,12 +51,12 @@ git push --tags --quiet --force
 GITHUB_REPO=https://github.com/${GITHUB_REPOSLUG}
 URL="$GITHUB_REPO"/"releases/edit/v""$VERSION"
 curl \
-	-X POST \
-	-H "Accept: application/vnd.github+json" \
-	-H "Authorization: token ${GITHUB_SECRET}" \
-	https://api.github.com/repos/"${GITHUB_REPOSLUG}"/releases \
-	-d "{\"tag_name\":\"v${VERSION}\",\"name\":\"v${VERSION}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":true}"
-//xdg-open "${URL}" &>>/dev/null
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: token ${GITHUB_SECRET}" \
+  https://api.github.com/repos/"${GITHUB_REPOSLUG}"/releases \
+  -d "{\"tag_name\":\"v${VERSION}\",\"name\":\"v${VERSION}\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":true}"
+xdg-open "${URL}" &>>/dev/null
 
 # get the release info into the static directory
 AUTH="-u ${GITHUB_USER}:${GITHUB_SECRET}"

@@ -2,9 +2,9 @@
 title: Head
 linktitle: hugo-head
 summary: ""
-date: 2022-07-27T21:25:17+07:00
+date: 2023-06-30T17:31:25+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2023-04-16T15:54:51+07:00
+lastmod: 2023-06-30T17:31:32+07:00
 resources:
   - src: header-card.png
 categories:
@@ -33,7 +33,7 @@ If you want to learn about all that is possible in the `<head>` tag then have a 
 
 ```go-html-template
 <head>
-  {{ partial "head.html" . }}
+ {{ partial "head.html" . }}
 </head>
 ```
 
@@ -48,9 +48,9 @@ viewport = "width=device-width, initial-scale=1"
 nobase = false
 ```
 
-*   `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
-*   `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
-*   `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
+* `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
+* `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
+* `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
 
 ## `title` and `description` generation
 
@@ -66,9 +66,9 @@ The title generation is able to add a "(page n)" to the title on list pages if y
 ```go-html-template
 {{- $paginator := dict -}}
 {{- if eq "home" .Kind -}}
-  {{- $paginator = $.Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
+ {{- $paginator = $.Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
 {{- else if .IsNode -}}
-  {{- $paginator = $.Paginator -}}
+ {{- $paginator = $.Paginator -}}
 {{- end -}}
 {{- .Scratch.Set "paginator" $paginator -}}
 ```
@@ -184,27 +184,27 @@ placename = ""
 `hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and provides the following hooks:
 
 {{< b5/div class="table--hooks" >}}
-| Hook                         | Description                                                                                                         |
-| ---------------------------- | :------------------------------------------------------------------------------------------------------------------ |
-| head-init                    | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
-| head-start                   | hooks in after the initial first tags that belong at the beginning of your `head` section.                          |
-| head-post-speed-optimisation |                                                                                                                     |
-| head-post-description        |                                                                                                                     |
-| head-post-author             |                                                                                                                     |
-| head-pre-css                 | hooks in before the stylesheets are printed.                                                                        |
-| head-post-css                | hooks in after the stylesheets are printed.                                                                         |
-| head-post-translations       |                                                                                                                     |
-| head-post-seo                |                                                                                                                     |
-| head-post-series             |                                                                                                                     |
-| head-post-social             |                                                                                                                     |
-| head-post-opensearch         |                                                                                                                     |
-| head-post-pwa                |                                                                                                                     |
-| head-post-humans             |                                                                                                                     |
-| head-post-alternates         |                                                                                                                     |
-| head-post-verification       |                                                                                                                     |
-| head-end                     | hooks in at the end of the `head` right before the closing tag.                                                     |
+| Hook | Description |
+| --- | :--- |
+| head-init | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
+| head-start | hooks in after the initial first tags that belong at the beginning of your `head` section. |
+| head-post-speed-optimisation | |
+| head-post-description | |
+| head-post-author | |
+| head-pre-css | hooks in before the stylesheets are printed. |
+| head-post-css | hooks in after the stylesheets are printed. |
+| head-post-translations | |
+| head-post-seo | |
+| head-post-series | |
+| head-post-social | |
+| head-post-opensearch | |
+| head-post-pwa | |
+| head-post-humans | |
+| head-post-alternates | |
+| head-post-verification | |
+| head-end | hooks in at the end of the `head` right before the closing tag. |
 {{< / b5/div >}}
 
 ## Sites and Projects using `hugo-head`
 
-*   [Kollitsch.dev](https://kollitsch.dev)
+* [Kollitsch.dev](https://kollitsch.dev)

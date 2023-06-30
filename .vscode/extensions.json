@@ -35,6 +35,8 @@
 		"redhat.vscode-xml",
 		"redhat.vscode-yaml",
 		"davidanson.vscode-markdownlint",
-		"yoavbls.pretty-ts-errors"
+		"yoavbls.pretty-ts-errors",
+		"github.copilot-nightly",
+		"github.copilot-chat"
 	]
 }

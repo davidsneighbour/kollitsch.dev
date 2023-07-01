@@ -1,7 +1,11 @@
 #!/bin/bash
 
+set -e
+
 REQUIRED_TOOLS=(
   hugo
+  node
+  npm
   netlify
 )
 

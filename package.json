@@ -58,7 +58,7 @@
     "instantsearch.js": "4.56.3",
     "lazysizes": "5.3.2",
     "lint-staged": "13.2.3",
-    "lockfile-lint": "^4.10.5",
+    "lockfile-lint": "^4.10.6",
     "needle": "3.2.0",
     "ninja-keys": "1.2.2",
     "npm-package-json-lint": "^6.4.0",

@@ -14,6 +14,7 @@ const removeIgnoredFiles = async (files) => {
 }
 
 export default {
+	'package-lock.json': "lockfile-lint --path package-lock.json --validate-https",
 	'*.{ts,tsx,(m|c)js,jsx}': async (files) => {
 		const filesToLint = await removeIgnoredFiles(files)
 		return [`eslint --max-warnings=0 ${filesToLint}`]

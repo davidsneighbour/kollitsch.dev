@@ -1,4 +1,4 @@
-# Listen: https://www.youtube.com/watch?v=6TGDakBYk90
+# Listen: https://www.youtube.com/watch?v=dVr8uI2nx5M
 ###############################################################################
 # some defaults
 ###############################################################################
@@ -26,7 +26,7 @@ repository = "https://github.com/davidsneighbour/kollitsch.dev"
 # @see https://kollitsch.dev/components/hugo-pictures
 ################################################################################
 [dnb.pictures]
-default_image = "images/placeholder.png"
+default_image = "images/og_sitewide.png"
 # 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
 # this needs to be a string and needs to be two floats separated by a colon
 # aspect_ratio = "16:9"

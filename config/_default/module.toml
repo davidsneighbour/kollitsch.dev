@@ -2,6 +2,11 @@
 extended = true
 min = "0.113.0"
 
+# issue davidsneighbour/kollitsch.dev#338
+[[mounts]]
+source = "assets"
+target = "assets"
+
 # importing the modules with them residing in the themes directory.
 # better for developing, but might be buggy when deploying, we'll see.
 [[imports]]

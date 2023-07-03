@@ -1,4 +1,5 @@
 #!/bin/bash
+# v2023.07.03
 
 REQUIRED_TOOLS=(
   git
@@ -13,8 +14,6 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     exit 1
   fi
 done
-
-VERSION=$(node -pe 'require("./package.json")["version"]')
 
 FILE=.env
 if [ -f "$FILE" ]; then
@@ -33,9 +32,9 @@ SCRIPTPATH="$(
 )"
 CURPATH="$(pwd -P)"
 
-SCREENSHOTHOST="https://${IP}:${PORT}"
-node --no-warnings bin/hugo/content/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png
-git add "$CURPATH"/.github/images
+# SCREENSHOTHOST="https://${IP}:${PORT}"
+# node --no-warnings bin/hugo/content/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png
+# git add "$CURPATH"/.github/images
 
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo

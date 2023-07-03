@@ -1,4 +1,5 @@
 #!/bin/bash
+# v2023.07.03
 
 REQUIRED_TOOLS=(
   git

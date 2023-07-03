@@ -23,9 +23,9 @@ const defaultStandardVersion = {
 		{ type: "test", section: "Tests" },
 		{ type: "theme", section: "Theme" },
 	],
-	"skip": {
-		"changelog": true,
-	}
+	// "skip": {
+	// 	"changelog": true,
+	// }
 };
 
 module.exports = defaultStandardVersion;

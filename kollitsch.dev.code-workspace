@@ -10,7 +10,22 @@
 			"path": "../hugo-theme"
 		},
 		{
+			"path": "../hugo-head"
+		},
+		{
+			"path": "../hugo-robots"
+		},
+		{
+			"path": "../hugo-sitemap"
+		},
+		{
 			"path": "../hugo-social"
+		},
+		{
+			"path": "../hugo-feeds"
+		},
+		{
+			"path": "../configurations"
 		}
 	],
 	"settings": {

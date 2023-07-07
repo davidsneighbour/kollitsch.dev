@@ -26,6 +26,15 @@
 		},
 		{
 			"path": "../configurations"
+		},
+		{
+			"path": "../hugo-opensearch"
+		},
+		{
+			"path": "../hugo-humans"
+		},
+		{
+			"path": "../hugo-pwa"
 		}
 	],
 	"settings": {

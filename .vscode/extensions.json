@@ -6,7 +6,6 @@
 		"github.copilot-labs",
 		"christian-kohler.npm-intellisense",
 		"rescuetime.rescuetime",
-		"errata-ai.vale-server",
 		"dunstontc.vscode-go-syntax",
 		"esbenp.prettier-vscode",
 		"rvest.vs-code-prettier-eslint",
@@ -14,7 +13,6 @@
 		"bungcip.better-toml",
 		"mikestead.dotenv",
 		"editorconfig.editorconfig",
-		"pomdtr.excalidraw-editor",
 		"tamasfe.even-better-toml",
 		"kdcro101.favorites",
 		"github.vscode-github-actions",
@@ -37,6 +35,7 @@
 		"davidanson.vscode-markdownlint",
 		"yoavbls.pretty-ts-errors",
 		"github.copilot-nightly",
-		"github.copilot-chat"
+		"github.copilot-chat",
+		"pomdtr.excalidraw-editor"
 	]
 }

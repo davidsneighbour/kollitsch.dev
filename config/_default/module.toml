@@ -7,13 +7,83 @@ min = "0.113.0"
 source = "assets"
 target = "assets"
 
-# importing the modules with them residing in the themes directory.
-# better for developing, but might be buggy when deploying, we'll see.
 [[imports]]
-path = "github.com/davidsneighbour/hugo-blockify"
-disable = false
-ignoreConfig = false
-ignoreImports = false
+path = "github.com/davidsneighbour/hugo-modules/modules/debug"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/functions"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/modder"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/head"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/humans"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/icons"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/netlification"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/opensearch"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/pictures"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/publisher"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/pwa"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/robots"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/schema"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/security"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/seo"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/sitemap"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/social"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-blockify"
+# disable = false
+# ignoreConfig = false
+# ignoreImports = false
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-theme"

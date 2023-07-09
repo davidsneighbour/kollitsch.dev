@@ -8,6 +8,9 @@ source = "assets"
 target = "assets"
 
 [[imports]]
+path = "github.com/davidsneighbour/hugo-modules"
+
+[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
 
 [[imports]]
@@ -15,6 +18,9 @@ path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/functions"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/internals"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/modder"

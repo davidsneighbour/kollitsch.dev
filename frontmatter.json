@@ -9,10 +9,14 @@
   "frontMatter.site.baseURL": "https://kollitsch.dev",
   "frontMatter.content.publicFolder": "static",
   "frontMatter.taxonomy.seoDescriptionLength": 170,
-  "frontMatter.content.supportedFileTypes": ["md"],
+  "frontMatter.content.supportedFileTypes": [
+    "md"
+  ],
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
   "frontMatter.taxonomy.indentArrays": false,
-  "frontMatter.taxonomy.noPropertyValueQuotes": ["date"],
+  "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "date"
+  ],
   "frontMatter.taxonomy.tags": [
     "100DaysToOffload",
     "CSP",
@@ -126,5 +130,10 @@
     "webdesign",
     "wordpress"
   ],
-  "frontMatter.taxonomy.categories": ["components", "notes-from-the-laboratory", "wordpress"]
+  "frontMatter.taxonomy.categories": [
+    "components",
+    "notes-from-the-laboratory",
+    "wordpress"
+  ],
+  "frontMatter.content.pageFolders": []
 }

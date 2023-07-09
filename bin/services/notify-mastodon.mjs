@@ -1,22 +1,20 @@
+// todo document
 import fetch from 'node-fetch';
 import 'dotenv/config';
 
 import { parseString } from 'xml2js';
-
+const { MASTODON_ACCESS_TOKEN } = process.env;
 const { FEED_LINK } = process.env;
-const { DISCORD_WEBHOOK } = process.env;
 
-// https://discord.com/developers/docs/resources/webhook#execute-webhook
 function sendMessage(message) {
-	fetch(DISCORD_WEBHOOK, {
+	fetch('https://mas.to/api/v1/statuses', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
+			'Authorization': 'Bearer ' + MASTODON_ACCESS_TOKEN
 		},
 		body: JSON.stringify({
-			username: 'DNBot',
-			content: message,
-			// avatar_url: '',
+			status: message
 		}),
 	});
 }

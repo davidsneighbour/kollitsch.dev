@@ -3,6 +3,20 @@
 # Reset BASH time counter
 SECONDS=0
 
+############################################################
+# Help                                                     #
+############################################################
+Help() {
+  # Display Help
+  echo "A quick setup script for local GoHugo dev servers."
+  echo
+  echo "Syntax: server [-v|h]"
+  echo "options:"
+  echo "h     Print this Help."
+  echo "v     Verbose mode."
+  echo
+}
+
 REQUIRED_TOOLS=(
   hugo
   npm
@@ -16,6 +30,32 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     exit 1
   fi
 done
+
+while getopts ":hn:" option; do
+  case $option in
+  h) # display Help
+    Help
+    exit
+    ;;
+  n) # Enter a name
+    Name=$OPTARG ;;
+  \?) # Invalid option
+    echo "Error: Invalid option"
+    exit
+    ;;
+  esac
+done
+
+while getopts u:a:f: flag; do
+  case "${flag}" in
+  u) username=${OPTARG} ;;
+  a) age=${OPTARG} ;;
+  f) fullname=${OPTARG} ;;
+  esac
+done
+echo "Username: $username"
+echo "Age: $age"
+echo "Full Name: $fullname"
 
 for FILE in bin/lib/*; do
   set -a
@@ -52,7 +92,7 @@ fi
 npm run clean:hugo
 
 # update modules
-hugo mod get -u ./...
+#hugo mod get -u ./...
 
 # recreate ssl certificates
 hugo server trust
@@ -72,6 +112,9 @@ if test -f "${REPLACEMENTS}"; then
   done <"${REPLACEMENTS}"
   [[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
 fi
+
+# echo "REPLACEMENTS:"
+# echo ${HUGO_MODULE_REPLACEMENTS}
 
 # DNB bin config
 dnb_server_debug=""

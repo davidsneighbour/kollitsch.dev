@@ -1,6 +1,6 @@
 {
   "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
   "title": "Components",
-  "path": "[[workspace]]/content/components",
+  "path": "[[workspace]]/../hugo-modules/documentation",
   "contentTypes": ["component"]
 }

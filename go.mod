@@ -4,9 +4,9 @@ go 1.20
 
 require (
 	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
-	github.com/davidsneighbour/hugo-modules v1.2023.3 // indirect
+	github.com/davidsneighbour/hugo-modules v1.2023.4 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.1 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.2 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.4 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.1 // indirect
@@ -29,5 +29,5 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.15 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.4 // indirect
-	github.com/davidsneighbour/hugo-theme v0.0.82 // indirect
+	github.com/davidsneighbour/hugo-theme v0.0.84 // indirect
 )

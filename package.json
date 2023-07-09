@@ -21,7 +21,7 @@
     "autoprefixer": "10.4.14",
     "bootstrap-icons": "1.10.5",
     "browserslist": "4.21.9",
-    "caniuse-lite": "1.0.30001513",
+    "caniuse-lite": "1.0.30001514",
     "css-loader": "6.8.1",
     "cssnano": "^6.0.1",
     "doiuse": "6.0.1",

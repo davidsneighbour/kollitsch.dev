@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
 
 REQUIRED_TOOLS=(
   hugo

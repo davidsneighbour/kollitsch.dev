@@ -1,16 +1,15 @@
 home = [
-  "HTML",
-  "JSON",
-  "security",
-  "manifest",
-  "REDIR",
-  "HEADERS",
-  "GISCUS",
-  "RSS",
-  "jsonfeed",
-  "atom",
-  "dnblinklist",
-  "opensearch",
+	"HTML",
+	"security",
+	"manifest",
+	"REDIR",
+	"HEADERS",
+	"GISCUS",
+	"RSS",
+	"jsonfeed",
+	"atom",
+	"dnblinklist",
+	"opensearch",
 ]
 page = ["HTML"]
 post = ["HTML"]

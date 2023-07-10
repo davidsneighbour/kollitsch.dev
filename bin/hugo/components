@@ -1,6 +1,8 @@
 #!/bin/bash
 # shellcheck disable=SC1091
 
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+
 REQUIRED_TOOLS=(
   inkscape
   optipng

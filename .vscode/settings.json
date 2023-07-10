@@ -5,7 +5,7 @@
 		]
 	},
 	"files.associations": {
-		"**/layouts/**.html": "go"
+		"**/layouts/**.*": "go"
 	},
 	"explorer.fileNesting.patterns": {
 		"hugo.log": "hugo_stats.json, .hugo_build.lock"

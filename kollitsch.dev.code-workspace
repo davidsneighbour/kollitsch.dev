@@ -15,7 +15,9 @@
 	],
 	"settings": {
 		"files.associations": {
-			"**/layouts/**.html": "go"
+			"**/layouts/**.html": "go",
+			"**/layouts/**.xml": "go",
+			"**/layouts/**.json": "go",
 		},
 		"js/ts.implicitProjectConfig.checkJs": true
 	},

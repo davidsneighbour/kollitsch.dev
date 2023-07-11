@@ -1,7 +1,7 @@
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXqDQMVeFfgyXgP9yY40bbx0h2qS+8=
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
-github.com/davidsneighbour/hugo-modules v1.2023.4 h1:IYdiP7bgW2s5ZEFh6ADj/vqlqkNW2yJErxE/CbbAI78=
-github.com/davidsneighbour/hugo-modules v1.2023.4/go.mod h1:++jW3Xy5/Gjjroc70w+8s7Bkqlxmy5bIG/gNTXMAAKw=
+github.com/davidsneighbour/hugo-modules v1.2023.5 h1:FrCO1rN9zJQ3bP++dTI6tDHJHRdCUcrfJUZqsgPWrHc=
+github.com/davidsneighbour/hugo-modules v1.2023.5/go.mod h1:++jW3Xy5/Gjjroc70w+8s7Bkqlxmy5bIG/gNTXMAAKw=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.1 h1:f7/Kf6sWdtX0klxOnXGJjWu5f916yWHZ/xPNPezoMnY=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.1/go.mod h1:kIIlBoVvLP5eDNTXkTbKttMtRYSdixKakLwKjmEgLYY=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.4 h1:+Exn89uJOclLx5KR8X/xuMCgCsRybn9F2okC37nYOqM=
@@ -50,5 +50,5 @@ github.com/davidsneighbour/hugo-modules/modules/social v0.1.15 h1:an9bCaqh5QTcSx
 github.com/davidsneighbour/hugo-modules/modules/social v0.1.15/go.mod h1:OXMTs54iydt2ltrv71ZF91z/mgFKPd1wrhLbJszgXYo=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.4 h1:s2GXSrS0PZT5zn7H1QHIJQSRxzXKl1e5hn4VIFxpxoQ=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.4/go.mod h1:wrcevhpDuz9549HT4ZHFD4tbSa8mORZ1En1C1H6Y6t0=
-github.com/davidsneighbour/hugo-theme v0.0.84 h1:9kUSHzAMSYvEml79cn6jxTgvtFenjSAIdfMHu3cGAMw=
-github.com/davidsneighbour/hugo-theme v0.0.84/go.mod h1:gMZ4CIy7D1lzuXlpvvMaU4H5n4NFT+XK1EA1lmr75nY=
+github.com/davidsneighbour/hugo-theme v0.1.1 h1:dVhq+ihhaSPvdDI625hfbGNkI+HkDWQ1DO04sJ9wtG0=
+github.com/davidsneighbour/hugo-theme v0.1.1/go.mod h1:gMZ4CIy7D1lzuXlpvvMaU4H5n4NFT+XK1EA1lmr75nY=

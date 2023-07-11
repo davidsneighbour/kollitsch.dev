@@ -32,3 +32,4 @@ if [ -f "$FILE" ]; then
 fi
 
 grep --color=auto -irnoE "\{\{\-\ \/\*\ TODO.*|- TODO.*" layouts/
+grep --color=auto -irnoE ".*\{\{(\-)?[\s].*" layouts/

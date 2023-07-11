@@ -1,10 +1,9 @@
-import { chromium } from "playwright";
+import puppeteer from 'puppeteer';
 import yargs from "yargs";
 import { hideBin } from 'yargs/helpers';
 import version from "../../package.json" assert { type: "json" };
 
 const argv = yargs(hideBin(process.argv))
-
 
 	.option("url", {
 		describe: "URL to capture a screenshot of",
@@ -31,10 +30,14 @@ const argv = yargs(hideBin(process.argv))
 	.alias("help", "h").argv;
 
 export const takeScreenshot = async (url, output, width, height) => {
-	const browser = await chromium.launch();
+
+	const browser = await puppeteer.launch({ headless: "new", defaultViewport: { width: 1920, height: 1080 } });
 	const page = await browser.newPage();
-	await page.setViewportSize({ width, height });
+
 	await page.goto(url);
+	await page.emulateMediaFeatures([{
+		name: 'prefers-color-scheme', value: 'dark'
+	}]);
 	await page.screenshot({ path: output });
 	await browser.close();
 };

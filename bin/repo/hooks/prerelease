@@ -32,9 +32,9 @@ SCRIPTPATH="$(
 )"
 CURPATH="$(pwd -P)"
 
-# SCREENSHOTHOST="https://${IP}:${PORT}"
-# node --no-warnings bin/hugo/content/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png
-# git add "$CURPATH"/.github/images
+SCREENSHOTHOST="https://${IP}:${PORT}"
+node --no-warnings bin/services/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png
+git add "$CURPATH"/.github/images
 
 # quietly shutting down concurring hugo servers
 killall -q -9 hugo

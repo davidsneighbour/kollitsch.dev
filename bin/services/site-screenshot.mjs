@@ -31,7 +31,7 @@ const argv = yargs(hideBin(process.argv))
 
 export const takeScreenshot = async (url, output, width, height) => {
 
-	const browser = await puppeteer.launch({ headless: "new", defaultViewport: { width: 1920, height: 1080 } });
+	const browser = await puppeteer.launch({ headless: "new", defaultViewport: { width: 1200, height: 800 } });
 	const page = await browser.newPage();
 
 	await page.goto(url);

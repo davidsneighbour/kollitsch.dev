@@ -1,7 +1,7 @@
 import { chromium } from "playwright";
 import yargs from "yargs";
 import { hideBin } from 'yargs/helpers';
-import version from "../../../package.json" assert { type: "json" };
+import version from "../../package.json" assert { type: "json" };
 
 const argv = yargs(hideBin(process.argv))
 

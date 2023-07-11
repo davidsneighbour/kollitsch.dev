@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2023.2.141",
+  "version": "2023.2.142",
   "license": "CC-BY-NC-SA-4.0 MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -29,6 +29,7 @@
     "ninja-keys": "1.2.2",
     "pagefind": "0.12.0",
     "playwright": "1.35.1",
+    "puppeteer": "^20.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "request": "2.88.2",

@@ -23,7 +23,8 @@
 	},
 	"extensions": {
 		"recommendations": [
-			"pomdtr.excalidraw-editor"
+			"pomdtr.excalidraw-editor",
+			"eliostruyf.vscode-front-matter"
 		]
 	}
 }

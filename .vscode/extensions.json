@@ -1,7 +1,6 @@
 {
 	"recommendations": [
 		"naumovs.color-highlight",
-		"eliostruyf.vscode-front-matter",
 		"github.copilot",
 		"github.copilot-labs",
 		"christian-kohler.npm-intellisense",
@@ -36,6 +35,7 @@
 		"yoavbls.pretty-ts-errors",
 		"github.copilot-nightly",
 		"github.copilot-chat",
-		"pomdtr.excalidraw-editor"
+		"pomdtr.excalidraw-editor",
+		"eliostruyf.vscode-front-matter"
 	]
 }

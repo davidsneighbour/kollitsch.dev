@@ -67,3 +67,8 @@ else
   echo -e "\e[1;36m[================================================]\e[m"
   exit 1
 fi
+
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+IFS=$'\n\t'
+
+# nc -w 10 -z 192.168.1.201 1313

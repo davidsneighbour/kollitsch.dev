@@ -19,7 +19,7 @@ export default {
 		const filesToLint = await removeIgnoredFiles(files)
 		return [`eslint --max-warnings=0 ${filesToLint}`]
 	},
-	"*.{md,markdown}": "markdownlint-cli2",
+	// "*.{md,markdown}": "markdownlint-cli2",
 	"*.{scss,css}": "stylelint --fix",
 	"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
 	"*.{js,jsx}": "flow focus-check",

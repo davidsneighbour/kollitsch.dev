@@ -1,6 +1,9 @@
 #!/bin/bash
 # v2023.07.03
 
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+IFS=$'\n\t'
+
 REQUIRED_TOOLS=(
   git
   hugo
@@ -31,6 +34,8 @@ SCRIPTPATH="$(
   pwd -P
 )"
 CURPATH="$(pwd -P)"
+
+/bin/bash "${CURPATH}"/bin/repo/maintenance/dependencies
 
 SCREENSHOTHOST="https://${IP}:${PORT}"
 node --no-warnings bin/services/site-screenshot.mjs --url "$SCREENSHOTHOST" --output "$CURPATH"/.github/images/screenshot.png

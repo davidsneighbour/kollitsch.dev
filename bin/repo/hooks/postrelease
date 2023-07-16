@@ -1,6 +1,9 @@
 #!/bin/bash
 # v2023.07.03
 
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+IFS=$'\n\t'
+
 REQUIRED_TOOLS=(
   git
   sed

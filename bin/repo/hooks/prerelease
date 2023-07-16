@@ -83,3 +83,5 @@ if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
     go mod edit -replace "${__[0]}"="${__[1]}"
   done <"$SCRIPTPATH"/bin/etc/hugo/replacements
 fi
+
+git commit --no-verify -m "chore: release preparation"

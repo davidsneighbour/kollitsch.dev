@@ -62,7 +62,6 @@ if [ ${CHANGES} = false ]; then
   echo "Nothing to do."
   echo "Completed in ${SECONDS}s"
   echo -e "\e[1;36m[================================================]\e[m"
-  exit 0
 else
   echo "Completed in ${SECONDS}s"
   echo -e "\e[1;36m[================================================]\e[m"

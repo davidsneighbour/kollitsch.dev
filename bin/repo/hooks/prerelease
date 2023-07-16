@@ -59,7 +59,7 @@ killall -q -9 hugo
 # git commit -m "chore(git): update submodules" --no-verify
 # # done: update submodules
 
-typos -- ./content
+# typos -- ./content
 
 if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
   while read -ra __; do

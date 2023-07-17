@@ -14,6 +14,8 @@ github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.1 h1:IFCZoCvQeTnw
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.1/go.mod h1:UtvC11yHLO6uWveizt01+j4FoKZo2l3mdJhrTgZ6ETo=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2023.3 h1:bvx0jMXuEZONSylEf6zffiG420YBqajF3GyKbLG5I4I=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2023.3/go.mod h1:ApAunj2RW6I1oCcMV88Dmh6VXVC8XV7YV+Cz4BS3KOg=
+github.com/davidsneighbour/hugo-modules/modules/head v1.2023.4 h1:1jL2RNLkSW+WsJlB68O1rHbPlFeQGkkJSaD4NRirPJo=
+github.com/davidsneighbour/hugo-modules/modules/head v1.2023.4/go.mod h1:ApAunj2RW6I1oCcMV88Dmh6VXVC8XV7YV+Cz4BS3KOg=
 github.com/davidsneighbour/hugo-modules/modules/hooks v1.2023.1 h1:YcTdVjcy7yP6ImShRsCVk+abvToSmyqtVsOzhuDZ58I=
 github.com/davidsneighbour/hugo-modules/modules/hooks v1.2023.1/go.mod h1:Ns6gV76cIBDePrfzCEWOgygq4YUIJNo5CDqUT3u625s=
 github.com/davidsneighbour/hugo-modules/modules/icons v1.2023.1 h1:QXYKQ9/U3BMZ6V4sKfFfRgrl95NDj49DamIpkWWkuMc=

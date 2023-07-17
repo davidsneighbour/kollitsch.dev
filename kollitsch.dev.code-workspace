@@ -24,7 +24,9 @@
 	"extensions": {
 		"recommendations": [
 			"pomdtr.excalidraw-editor",
-			"eliostruyf.vscode-front-matter"
+			"eliostruyf.vscode-front-matter",
+			"davidanson.vscode-markdownlint",
+			"yzhang.markdown-all-in-one"
 		]
 	}
 }

@@ -31,11 +31,12 @@
 		"google.wireit",
 		"redhat.vscode-xml",
 		"redhat.vscode-yaml",
-		"davidanson.vscode-markdownlint",
 		"yoavbls.pretty-ts-errors",
 		"github.copilot-nightly",
 		"github.copilot-chat",
 		"pomdtr.excalidraw-editor",
-		"eliostruyf.vscode-front-matter"
+		"eliostruyf.vscode-front-matter",
+		"davidanson.vscode-markdownlint",
+		"yzhang.markdown-all-in-one"
 	]
 }

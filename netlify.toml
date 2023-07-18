@@ -10,6 +10,9 @@ HUGO_ENV = "production"
 GO_VERSION = "1.17"
 NODE_ENV = "development"
 
+[functions]
+directory = "assets/functions"
+
 [[plugins]]
 package = "/bin/netlify/plugins/hugo-helper"
 

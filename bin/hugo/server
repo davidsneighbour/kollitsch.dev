@@ -88,7 +88,7 @@ if [ -f "$FILE" ]; then
 fi
 
 # cleanup hugo logging
-npm run clean:hugo
+# npm run clean:hugo
 
 # update modules
 #hugo mod get -u ./...
@@ -166,6 +166,7 @@ env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   ${dnb_server_future} \
   ${dnb_server_expired} \
   ${dnb_server_debug} \
+  --renderToDisk \
   --watch \
   --enableGitInfo \
   --forceSyncStatic \

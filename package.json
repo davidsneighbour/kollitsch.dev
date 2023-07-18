@@ -14,6 +14,7 @@
   "dependencies": {
     "@clack/prompts": "0.6.3",
     "@davidsneighbour/configurations": "^5.2.24",
+    "@netlify/functions": "^1.6.0",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@types/yargs": "17.0.24",
@@ -93,13 +94,25 @@
     "release:major": "commit-and-tag-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
-    "server": "bin/hugo/server",
-    "server:pagefind": "pagefind --watch",
-    "server:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
+    "server": "run-p server:* -- --watch",
+		"server:hugo": "wireit",
+    "server:pagefind": "wireit",
+		"server:functions": "netlify functions:serve",
+    "server2:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
     "tests": "npm run cypress",
     "update": "wireit"
   },
   "wireit": {
+		"server:pagefind": {
+			"command": "pagefind",
+			"files": ["content/**/*.md"]
+		},
+		"server:hugo": {
+			"command": "bin/hugo/server",
+			"readyWhen": {
+				"lineMatches": "Web Server is available at https://\\d+.\\d+.\\d+.\\d+:\\d+/ (bind address \\d+.\\d+.\\d+.\\d+) \\d+"
+			}
+		},
     "lint": {
       "dependencies": [
         "lint:html",

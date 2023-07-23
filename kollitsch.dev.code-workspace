@@ -16,8 +16,9 @@
 	"settings": {
 		"files.associations": {
 			"**/layouts/**.html": "gohtml",
-			"**/layouts/**.xml": "gohtml",
-			"**/layouts/**.json": "gohtml",
+			"**/layouts/**.xml": "gotemplate",
+			"**/layouts/**.json": "gojson",
+			"**/layouts/**.txt": "gotemplate",
 		},
 		"js/ts.implicitProjectConfig.checkJs": true
 	},
@@ -26,7 +27,9 @@
 			"pomdtr.excalidraw-editor",
 			"eliostruyf.vscode-front-matter",
 			"davidanson.vscode-markdownlint",
-			"yzhang.markdown-all-in-one"
+			"yzhang.markdown-all-in-one",
+			"golang.go",
+			"casualjim.gotemplate"
 		]
 	}
 }

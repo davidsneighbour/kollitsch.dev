@@ -20,8 +20,4 @@ theme:
   comments: false
 ---
 
-{{< b5/notice type="success" >}}
-Search function in 🔨 development... Things might be broken, don't 🧑‍⚖️ judge me!
-{{< / b5/notice >}}
-
 {{< search >}}

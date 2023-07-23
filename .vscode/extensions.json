@@ -15,8 +15,6 @@
 		"tamasfe.even-better-toml",
 		"kdcro101.favorites",
 		"github.vscode-github-actions",
-		"jinliming2.vscode-go-template",
-		"casualjim.gotemplate",
 		"znck.grammarly",
 		"nhoizey.gremlins",
 		"unifiedjs.vscode-remark",
@@ -37,6 +35,8 @@
 		"pomdtr.excalidraw-editor",
 		"eliostruyf.vscode-front-matter",
 		"davidanson.vscode-markdownlint",
-		"yzhang.markdown-all-in-one"
+		"yzhang.markdown-all-in-one",
+		"golang.go",
+		"casualjim.gotemplate"
 	]
 }

@@ -14,7 +14,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/hooks v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/icons v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/internals v1.2023.1 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.1 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/netlification v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/opensearch v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/pictures v0.1.8 // indirect
@@ -28,6 +28,6 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2023.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.15 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.5 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2023.1 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.6 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2023.2 // indirect
 )

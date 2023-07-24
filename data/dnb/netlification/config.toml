@@ -1,6 +1,6 @@
 
 headers = [
-	"Access-Control-Allow-Origin: *"
+	# "Access-Control-Allow-Origin: *"
 ]
 
 [csp]
@@ -12,29 +12,29 @@ upgradeInsecureRequests = true
 base-uri = ["'self'"]
 defaultSrc = ["'none'"]
 script-src = [
-  "'self'",
-  "'unsafe-eval'",
-  "'unsafe-inline'",
+	"'self'",
+	"'unsafe-eval'",
+	"'unsafe-inline'",
 	"'wasm-unsafe-eval'",
-  #"'strict-dynamic'",
-  "https://d33wubrfki0l68.cloudfront.net",
-  "https://giscus.app/",
-  'https://unpkg.com',
-  "https://identity.netlify.com",
-  #"'nonce-dnb-components-sw'",
-  "static.cloudflareinsights.com"
+	#"'strict-dynamic'",
+	"https://d33wubrfki0l68.cloudfront.net",
+	"https://giscus.app/",
+	'https://unpkg.com',
+	"https://identity.netlify.com",
+	#"'nonce-dnb-components-sw'",
+	"static.cloudflareinsights.com",
 ]
 style-src = [
-  "'self'",
-  "'unsafe-inline'",
-  "https://d33wubrfki0l68.cloudfront.net",
-  "https://giscus.app/"
+	"'self'",
+	"'unsafe-inline'",
+	"https://d33wubrfki0l68.cloudfront.net",
+	"https://giscus.app/",
 ]
 img-src = [
-  "'self'",
-  "https://d33wubrfki0l68.cloudfront.net",
-  "data:",
-  "https://i.ytimg.com",
+	"'self'",
+	"https://d33wubrfki0l68.cloudfront.net",
+	"data:",
+	"https://i.ytimg.com",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
 connect-src = ["'self'", "https://api.github.com/", 'cloudflareinsights.com']
@@ -42,10 +42,11 @@ media-src = ["'self'"]
 object-src = ["'none'"]
 child-src = ["'self'"]
 frame-src = [
-  "'self'",
-  "https://giscus.app/",
-  "https://www.youtube-nocookie.com",
+	"'self'",
+	"https://giscus.app/",
+	"https://www.youtube-nocookie.com",
 ]
+frame-ancestors = ["'self'"]
 worker-src = ["'self'"]
 form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
 manifest-src = ["'self'"]
@@ -125,4 +126,3 @@ status = "301"
 from = "/blog/2022/100daystooffload/"
 to = "/blog/2022/100-days-to-offload/"
 status = "301"
-

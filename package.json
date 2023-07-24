@@ -12,7 +12,6 @@
 	},
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
-		"@clack/prompts": "0.6.3",
 		"@davidsneighbour/configurations": "^5.2.25",
 		"@netlify/functions": "^1.6.0",
 		"@types/react": "18.2.15",
@@ -44,6 +43,9 @@
 		"web-vitals-element": "github:davidsneighbour/web-vitals-element",
 		"xml2js": "0.6.0",
 		"yargs": "17.7.2"
+	},
+	"devDependencies": {
+		"@clack/prompts": "0.6.3"
 	},
 	"scripts": {
 		"audit:html": "hugo && html-validate public/**/*.html --config=tests/html-validator/config.json",
@@ -152,16 +154,6 @@
 		"provenance": true
 	},
 	"eslintConfig": {
-		"extends": "@davidsneighbour/eslint-config",
-		"overrides": [
-			{
-				"files": [
-					"*.mdx"
-				],
-				"extends": [
-					"plugin:mdx/recommended"
-				]
-			}
-		]
+		"extends": "@davidsneighbour/eslint-config"
 	}
 }

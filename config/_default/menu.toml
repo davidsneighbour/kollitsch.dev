@@ -30,7 +30,7 @@ bsicon = "puzzle-fill"
 
 [[footer]]
 name = "Contact"
-url = "/contact/"
+url = "/connect/"
 weight = 900
 [footer.params]
 bsicon = "envelope-paper-fill"

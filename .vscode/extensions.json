@@ -9,10 +9,8 @@
 		"esbenp.prettier-vscode",
 		"rvest.vs-code-prettier-eslint",
 		"dbaeumer.vscode-eslint",
-		"bungcip.better-toml",
 		"mikestead.dotenv",
 		"editorconfig.editorconfig",
-		"tamasfe.even-better-toml",
 		"kdcro101.favorites",
 		"github.vscode-github-actions",
 		"znck.grammarly",
@@ -37,6 +35,7 @@
 		"davidanson.vscode-markdownlint",
 		"yzhang.markdown-all-in-one",
 		"golang.go",
-		"casualjim.gotemplate"
+		"casualjim.gotemplate",
+		"tamasfe.even-better-toml"
 	]
 }

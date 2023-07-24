@@ -37,16 +37,8 @@ bsicon = "envelope-paper-fill"
 
 ### Footer submenus ###
 [[configurations]]
-name = "@davidsneighbour/browserslist-config"
-url = "https://www.npmjs.com/package/@davidsneighbour/browserslist-config"
-weight = 500
-[[configurations]]
-name = "@davidsneighbour/eslint-config"
-url = "https://www.npmjs.com/package/@davidsneighbour/eslint-config"
-weight = 300
-[[configurations]]
-name = "@davidsneighbour/config"
-url = "https://www.npmjs.com/package/@davidsneighbour/config"
+name = "@davidsneighbour/configurations"
+url = "https://www.npmjs.com/package/@davidsneighbour/configurations"
 weight = 100
 
 [[hugomodules]]

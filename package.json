@@ -12,7 +12,7 @@
 	},
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
-		"@davidsneighbour/configurations": "^5.2.25",
+		"@davidsneighbour/configurations": "^5.2.26",
 		"@netlify/functions": "^1.6.0",
 		"@types/react": "18.2.15",
 		"@types/react-dom": "18.2.7",

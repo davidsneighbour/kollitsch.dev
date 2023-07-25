@@ -16,10 +16,6 @@
 		"znck.grammarly",
 		"nhoizey.gremlins",
 		"unifiedjs.vscode-remark",
-		"foxundermoon.shell-format",
-		"timonwong.shellcheck",
-		"remisa.shellman",
-		"mkhl.shfmt",
 		"snappify.snappify",
 		"wayou.vscode-todo-highlight",
 		"be5invis.toml",
@@ -36,6 +32,10 @@
 		"golang.go",
 		"casualjim.gotemplate",
 		"tamasfe.even-better-toml",
-		"stylelint.vscode-stylelint"
+		"stylelint.vscode-stylelint",
+		"foxundermoon.shell-format",
+		"timonwong.shellcheck",
+		"remisa.shellman",
+		"mkhl.shfmt"
 	]
 }

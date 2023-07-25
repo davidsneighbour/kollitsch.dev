@@ -21,7 +21,6 @@
 		"remisa.shellman",
 		"mkhl.shfmt",
 		"snappify.snappify",
-		"stylelint.vscode-stylelint",
 		"wayou.vscode-todo-highlight",
 		"be5invis.toml",
 		"google.wireit",
@@ -36,6 +35,7 @@
 		"yzhang.markdown-all-in-one",
 		"golang.go",
 		"casualjim.gotemplate",
-		"tamasfe.even-better-toml"
+		"tamasfe.even-better-toml",
+		"stylelint.vscode-stylelint"
 	]
 }

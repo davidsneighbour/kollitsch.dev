@@ -5,9 +5,9 @@ set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
 # Reset BASH time counter
 SECONDS=0
 
-############################################################
-# Help                                                     #
-############################################################
+################################################################################
+# Help                                                                         #
+################################################################################
 Help() {
   # Display Help
   echo "A quick setup script for local GoHugo dev servers."
@@ -121,11 +121,12 @@ dnb_server_debug=""
 if [ "$DNB_SERVER_DEBUG" = true ]; then
   echo "Debugging ON"
   dnb_server_debug="--templateMetrics --templateMetricsHints"
-  dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printMemoryUsage --printPathWarnings "
-  dnb_server_debug="${dnb_server_debug} --printUnusedTemplates --debug --verbose "
+  dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printPathWarnings "
+  dnb_server_debug="${dnb_server_debug} --printUnusedTemplates --debug --verbose --logLevel debug "
 else
   echo "Debugging OFF"
 fi
+
 dnb_server_future=""
 # shellcheck disable=SC2153
 if [ "$DNB_SERVER_FUTURE" = true ]; then

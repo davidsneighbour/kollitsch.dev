@@ -35,7 +35,11 @@
 			"golang.go",
 			"casualjim.gotemplate",
 			"tamasfe.even-better-toml",
-			"stylelint.vscode-stylelint"
+			"stylelint.vscode-stylelint",
+			"foxundermoon.shell-format",
+			"timonwong.shellcheck",
+			"remisa.shellman",
+			"mkhl.shfmt"
 		]
 	}
 }

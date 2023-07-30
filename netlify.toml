@@ -14,7 +14,7 @@ NODE_ENV = "development"
 directory = "assets/functions"
 
 [[plugins]]
-package = "/bin/netlify/plugins/hugo-helper"
+package = "./bin/netlify/plugins/hugo-helper"
 
 [plugins.inputs]
 debug = false

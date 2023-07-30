@@ -87,6 +87,8 @@ if [ -f "$FILE" ]; then
   set +a
 fi
 
+rm -rf public
+
 # cleanup hugo logging
 # npm run clean:hugo
 

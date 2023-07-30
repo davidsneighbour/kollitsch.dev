@@ -12,7 +12,7 @@
 	},
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
-		"@davidsneighbour/configurations": "^5.2.26",
+		"@davidsneighbour/configurations": "^5.2.27",
 		"@netlify/functions": "^1.6.0",
 		"@types/react": "18.2.17",
 		"@types/react-dom": "18.2.7",
@@ -41,7 +41,7 @@
 		"tsx": "3.12.7",
 		"typescript": "5.1.6",
 		"web-vitals-element": "github:davidsneighbour/web-vitals-element",
-		"xml2js": "0.6.0",
+		"xml2js": "0.6.1",
 		"yargs": "17.7.2"
 	},
 	"devDependencies": {
@@ -155,5 +155,8 @@
 	},
 	"eslintConfig": {
 		"extends": "@davidsneighbour/eslint-config"
+	},
+	"stylelint": {
+		"extends": "@davidsneighbour/stylelint-config"
 	}
 }

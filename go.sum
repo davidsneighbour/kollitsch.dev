@@ -2,6 +2,8 @@ github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXq
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/davidsneighbour/hugo-modules v1.2023.11 h1:zvy1/8pqnMuIGUXmkJGvaNZkQzss3QtF0lk5mWOCr3M=
 github.com/davidsneighbour/hugo-modules v1.2023.11/go.mod h1:++jW3Xy5/Gjjroc70w+8s7Bkqlxmy5bIG/gNTXMAAKw=
+github.com/davidsneighbour/hugo-modules v1.2023.12 h1:HLHMFF9B4Epqf+JIw9aulbVR4stDS4DF7A54Txl8NcQ=
+github.com/davidsneighbour/hugo-modules v1.2023.12/go.mod h1:++jW3Xy5/Gjjroc70w+8s7Bkqlxmy5bIG/gNTXMAAKw=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.11 h1:yl9vCKtZbn6aefp8ugT5vrvy/XQKp9ia/7xo18eNO+Q=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.11/go.mod h1:kIIlBoVvLP5eDNTXkTbKttMtRYSdixKakLwKjmEgLYY=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.6 h1:F3HV074OsHebnVYpcubqfCmvUopDRRN4wySW1WGQbgI=

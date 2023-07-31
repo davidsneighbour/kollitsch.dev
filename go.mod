@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
-	github.com/davidsneighbour/hugo-modules v1.2023.11 // indirect
+	github.com/davidsneighbour/hugo-modules v1.2023.12 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.11 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.6 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.5 // indirect

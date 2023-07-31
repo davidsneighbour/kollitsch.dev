@@ -28,6 +28,6 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.16 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.12 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.13 // indirect
 	github.com/davidsneighbour/hugo-theme v1.2023.4 // indirect
 )

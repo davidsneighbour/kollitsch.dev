@@ -12,4 +12,6 @@ home = [
 	"opensearch",
 ]
 page = ["HTML"]
-post = ["HTML"]
+# section = [	"HTML", "RSS" ]
+# taxonomy = [	"HTML", "RSS" ]
+# term = [	"HTML", "RSS" ]

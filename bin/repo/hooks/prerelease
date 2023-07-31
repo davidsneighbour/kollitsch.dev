@@ -2,7 +2,7 @@
 # v2023.07.03
 
 set -e
-IFS=$'\n\t'
+# IFS=$'\n\t'
 
 REQUIRED_TOOLS=(
   git
@@ -69,19 +69,19 @@ fi
 
 #"${CURPATH}"/bin/build/prepare-docs
 
-hugo mod get -u ./...
-hugo mod tidy
+# hugo mod get -u ./...
+# hugo mod tidy
 
-git add "${CURPATH}"/go.mod
-FILE="${CURPATH}"/go.sum
-if test -f "$FILE"; then
-  git add go.sum
-fi
+# git add "${CURPATH}"/go.mod
+# FILE="${CURPATH}"/go.sum
+# if test -f "$FILE"; then
+#   git add go.sum
+# fi
 
-if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
-  while read -ra __; do
-    go mod edit -replace "${__[0]}"="${__[1]}"
-  done <"$SCRIPTPATH"/bin/etc/hugo/replacements
-fi
+# if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
+#   while read -ra __; do
+#     go mod edit -replace "${__[0]}"="${__[1]}"
+#   done <"$SCRIPTPATH"/bin/etc/hugo/replacements
+# fi
 
-git commit --no-verify -m "chore: release preparation"
+# git commit --no-verify -m "chore: release preparation"

@@ -1,7 +1,7 @@
 {
 	"name": "@davidsneighbour/kollitsch-dev",
 	"description": "Website and content for kollitsch.dev",
-	"version": "2023.2.149",
+	"version": "2023.2.150",
 	"license": "CC-BY-NC-SA-4.0 MIT",
 	"private": true,
 	"repository": "davidsneighbour/kollitsch.dev",
@@ -69,13 +69,10 @@
 		"cypress:install": "cypress install",
 		"cypress:run": "cypress open --config-file tests/cypress/cypress.config.ts",
 		"cypress:verify": "cypress verify",
-
 		"deploy": "npm run deploy:stage && npm run release:patch && bin/hugo/deploy",
 		"deploy:major": "npm run deploy:stage && npm run release:major && bin/hugo/deploy",
 		"deploy:minor": "npm run deploy:stage && npm run release:minor && bin/hugo/deploy",
-
 		"deploy:stage": "notify-send \"VSCode/Netlify: switch to the proper account now...\" && netlify switch",
-
 		"eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
 		"eslint-fix": "npm run eslint -- --fix",
 		"hooks:update": "simple-git-hooks",

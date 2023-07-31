@@ -1,20 +1,20 @@
 #!/bin/bash
 
 REQUIRED_TOOLS=(
-	cat
+  cat
 )
 
 for TOOL in "${REQUIRED_TOOLS[@]}"; do
-	if ! command -v "${TOOL}" >/dev/null; then
-		echo "${TOOL} is required... "
-		exit 1
-	fi
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
 done
 
 get_latest_release() {
-	curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" |
-		grep '"tag_name":' |
-		sed -E 's/.*"v([^"]+)".*/\1/'
+  curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" |
+    grep '"tag_name":' |
+    sed -E 's/.*"v([^"]+)".*/\1/'
 }
 
 cat <<EOF
@@ -30,8 +30,11 @@ HUGO_ENV = "production"
 GO_VERSION = "1.17"
 NODE_ENV = "development"
 
+[functions]
+directory = "assets/functions"
+
 [[plugins]]
-package = "/bin/netlify/plugins/hugo-helper"
+package = "./bin/netlify/plugins/hugo-helper"
 
 [plugins.inputs]
 debug = false

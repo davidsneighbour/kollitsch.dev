@@ -63,7 +63,7 @@
 		"clean:hugo": "rimraf hugo{.log,_stats.json} resources public assets/jsconfig.json .hugo_build.lock",
 		"clean:netlify": "rimraf .netlify/cache .netlify/functions",
 		"clean:npm": "rimraf node_modules package-lock.json",
-		"commit": "commit",
+		"commit": "cz",
 		"cypress": "npm run cypress:run",
 		"cypress:info": "cypress info",
 		"cypress:install": "cypress install",

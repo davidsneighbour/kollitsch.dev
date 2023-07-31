@@ -50,5 +50,7 @@ github.com/davidsneighbour/hugo-modules/modules/social v0.1.16 h1:mzmptsxs6L04vb
 github.com/davidsneighbour/hugo-modules/modules/social v0.1.16/go.mod h1:OXMTs54iydt2ltrv71ZF91z/mgFKPd1wrhLbJszgXYo=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.12 h1:y/Yp9AGBLzrDirugcNBVgf84n6INSvcYG2+7/YJWnJc=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.12/go.mod h1:wrcevhpDuz9549HT4ZHFD4tbSa8mORZ1En1C1H6Y6t0=
+github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.13 h1:z6HMXiSmE5qPtEyX1VkPdXClTK+LzylG1EDJLxvvAfw=
+github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.13/go.mod h1:wrcevhpDuz9549HT4ZHFD4tbSa8mORZ1En1C1H6Y6t0=
 github.com/davidsneighbour/hugo-theme v1.2023.4 h1:73NKoHuql4o3Ibb+lIJeWLlhX9+6QllWEmy9WVwrlpU=
 github.com/davidsneighbour/hugo-theme v1.2023.4/go.mod h1:84MRmotC5nA4I4VCXURlDaQ2gJRSfIWI2uHcJFMH6sc=

@@ -1,6 +1,18 @@
 #!/bin/bash
 
-set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+# Short notation	Long notation	Result
+# set -f # set -o noglob	Disable file name generation using metacharacters (globbing).
+# set -v # set -o verbose	Prints shell input lines as they are read.
+# set -x # set -o xtrace	Print command traces before executing command.
+
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode/
+IFS=$'\n\t'
+
+scratch=$(mktemp -d -t tmp.XXXXXXXXXX)
+function finish {
+  rm -rf "$scratch"
+}
+trap finish EXIT
 
 REQUIRED_TOOLS=(
   hugo
@@ -17,28 +29,31 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
 done
 
 FILE=.env
+set +u
 if [ -f "$FILE" ]; then
   set -a
   # shellcheck source=/dev/null
   source "${FILE}"
   set +a
 fi
+set -u
 
 # quietly shutting down concurring hugo servers
+set +e
 killall -q -9 hugo
+set -e
 
 # get the version number
 VERSION=$(node -pe 'require("./package.json")["version"]')
-
-# HASH=$(git log -n 1 | head -n 1 | sed -e 's/^commit //' | head -c 8)
-# BASEURL="https://${HASH}--${NETLIFY_SITE_SLUG}.netlify.app"
-# bin/build/hugo "${BASEURL}"
-# netlify deploy --open --alias "$HASH"
 
 ./bin/hugo/build
 npm run pagefind
 
 # and deploy
+# HASH=$(git log -n 1 | head -n 1 | sed -e 's/^commit //' | head -c 8)
+# BASEURL="https://${HASH}--${NETLIFY_SITE_SLUG}.netlify.app"
+# bin/build/hugo "${BASEURL}"
+# netlify deploy --open --alias "$HASH"
 netlify deploy --prod --open --message "Release v${VERSION}"
 
 # and clear cloudflare cache

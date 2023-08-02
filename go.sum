@@ -62,3 +62,5 @@ github.com/davidsneighbour/hugo-theme v1.2023.4 h1:73NKoHuql4o3Ibb+lIJeWLlhX9+6Q
 github.com/davidsneighbour/hugo-theme v1.2023.4/go.mod h1:84MRmotC5nA4I4VCXURlDaQ2gJRSfIWI2uHcJFMH6sc=
 github.com/davidsneighbour/hugo-theme v1.2023.5 h1:uLFkeRlaLgs7dr2d1VY8/jGvswn2VRPMef/AVp+42M8=
 github.com/davidsneighbour/hugo-theme v1.2023.5/go.mod h1:s6ECE4JNXjIhhaoYka/b76Mx8M9DraTJZoHZzbmyQKk=
+github.com/davidsneighbour/hugo-theme v1.2023.6 h1:bVkYx6lv721IYycv6W3uvdsLDFjSAjBKEWLsHxfe/TY=
+github.com/davidsneighbour/hugo-theme v1.2023.6/go.mod h1:s6ECE4JNXjIhhaoYka/b76Mx8M9DraTJZoHZzbmyQKk=

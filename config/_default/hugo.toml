@@ -16,8 +16,11 @@ rssLimit = 10
 summaryLength = 40
 timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
-titleCaseStyle = "chicago"
-themes = ["hugo-blockify", "hugo-theme"]
+titleCaseStyle = "Chicago"
 
-# hack: adding a crazy timeout to prevent hugo from... timing out...
+# hack: increasing timeout to prevent hugo from... timing out while recreating
+# images. this is no more required for this website, because "we got RAM", but
+# kept to find it when working on client projects.
+# MUST be string, MUST contain digits and s for seconds, probably m for minutes
+# (untested)
 timeout = "60s"

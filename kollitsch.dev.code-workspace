@@ -39,7 +39,8 @@
 			"foxundermoon.shell-format",
 			"timonwong.shellcheck",
 			"remisa.shellman",
-			"mkhl.shfmt"
+			"mkhl.shfmt",
+			"mjmlio.vscode-mjml"
 		]
 	}
 }

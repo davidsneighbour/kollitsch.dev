@@ -88,7 +88,7 @@
 		"lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
 		"lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables themes/hugo-theme/assets/scss",
 		"lint:templates": "bin/audit/lint-template-style",
-		"lint:vale": "vale content",
+		"lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
 		"new": "node bin/hugo/content.mjs",
 		"pagefind": "pagefind",
 		"pipeline": "tsx pipeline.ts",
@@ -145,7 +145,7 @@
 			"command": "npm-check-updates -u --target minor"
 		},
 		"update:pre:vale": {
-			"command": "vale sync"
+			"command": "vale --config='.github/vale/.vale.ini' --no-exit sync"
 		}
 	},
 	"config": {

@@ -25,7 +25,7 @@ publish = "./public"
 command = "./bin/netlify/build"
 
 [context.production.environment]
-HUGO_VERSION = "0.104.3"
+HUGO_VERSION = "$(get_latest_release)"
 HUGO_ENV = "production"
 GO_VERSION = "1.17"
 NODE_ENV = "development"
@@ -41,4 +41,7 @@ debug = false
 
 # [[plugins]]
 # package = "netlify-plugin-image-optim"
+
+[[plugins]]
+package = "@netlify/plugin-emails"
 EOF

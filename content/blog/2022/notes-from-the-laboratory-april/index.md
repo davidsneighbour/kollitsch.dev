@@ -3,7 +3,7 @@ title: "Notes from the Laboratory: April 2022"
 linkTitle: Laboratory 2022-04
 description: Another monthly report from the depths of the laboratory of kollitsch.den - April 2022
 date: 2022-05-02T20:06:40+07:00
-lastmod: 2023-06-26T23:45:24+07:00
+lastmod: 2023-08-07T20:29:21+07:00
 resources:
   - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
@@ -21,7 +21,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
 - **Focus:** The focus thing stays a point of work ;) I still tend to find distraction in issues and ideas. But at least I could put those ideas to good work this month.
 - **Header tags and social media tags:** For a while now I was working on a module that creates all the header tags a website could possibly need. After some cleaning up and fine tuning it's finally ready to be released as a proper module. In it's wake we have two other modules that take care of "everything social" and "everything image" on my websites.
-- **kollitsch.de(v):** Adding a V to the DE! Long story short: People kept asking me why I am writing English on a weblog in a .de-domain. It appears ;) that being German is not not a reason enough for this and clearly having a German domain name will probably make "easy" SEO harder. No target audience in Germany and no target language with German. So I bit in the sour cherry and decided to donate a _v_ to the _de_.
+- **kollitsch.de(v):** Adding a V to the DE! Long story short: People kept asking me why I am writing English on a weblog in a .de-domain. It appears ;) that being German is not a reason enough for this and clearly having a German domain name will probably make "easy" SEO harder. No target audience in Germany and no target language with German. So I bit in the sour cherry and decided to donate a _v_ to the _de_.
 
   I also got out the screwdriver and moved to a _Cloudflare to Netlify_ based hosting setup, which results in a very much speedier delivery of the pages.
 

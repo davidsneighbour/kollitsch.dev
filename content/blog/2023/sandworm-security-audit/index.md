@@ -3,7 +3,7 @@ title: Sandworm security audit
 description: Secure your project with Sandworm Audit, a free tool that scans for vulnerabilities and license compliance issues. Easy-to-read reports and customizable policies.
 date: 2023-03-13T20:37:22+07:00
 publishDate: 2023-03-13T20:37:22+07:00
-lastmod: 2023-03-22T20:56:02+07:00
+lastmod: 2023-08-07T20:35:05+07:00
 resources:
   - title: Screenshot of sandworm.dev
     src: header.png
@@ -19,7 +19,7 @@ type: blog
 
 It works with any modern JavaScript package manager and supports custom license policies. With Sandworm Audit, you can generate easy-to-read reports that include JSON issue and license usage reports, CSV files of all dependencies and license information, and SVG dependency tree and treemap visualizations.
 
-It is is powered by D3 and puts security vulnerabilities and package license information into nice looking charts. Additionally, it supports configurable conditions to fail CI/GIT hook workflows, making it a powerful tool for maintaining the security and license compliance of your application on commits or pushes.
+It is powered by D3 and puts security vulnerabilities and package license information into nice looking charts. Additionally, it supports configurable conditions to fail CI/GIT hook workflows, making it a powerful tool for maintaining the security and license compliance of your application on commits or pushes.
 
 To get started, install Sandworm Audit globally via your favorite package manager and run it in the root directory of your application.
 

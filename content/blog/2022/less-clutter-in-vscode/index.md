@@ -4,7 +4,7 @@ title: Less Clutter in Vscode
 description: A strategy to declutter enabled extensions in VSCode by using a workspace specific extension setup.
 date: 2022-07-13T17:52:34+07:00
 publishDate: 2022-07-13T17:52:34+07:00
-lastmod: 2023-04-10T20:29:06+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
   - title: Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -18,7 +18,7 @@ tags:
 
 I am one of these kind of people that install plenty of extensions and tools and experiment around in VSCode (or any other code editor I am working with). Some time ago I realised, that this lead to a slow program and many of these plugins are only useful for a limited number of projects. So I deleted everything and restarted from scratch.
 
-A week later I was back where I was before: Too many extensions, many of them useless for most projects. This is probably an issue every fullstack developer experiences once it gets to the details. I have projects where I need Golang support, or PHP support, or Docker support, or WordPress support, or whatever support... It fills up.
+A week later I was back where I was before: Too many extensions, many of them useless for most projects. This is probably an issue every fullstack developer experiences once it gets to the details. I have projects where I need Golang support, or PHP support, or Docker support, or WordPress support, or whatever support… It fills up.
 
 Well, after some clicking around I found an interesting new strategy to cope with "extension overflow". While I was clicking around I found, that on the extensions screen, in any extension, we can find an "enable/disable" button. This button has a dropdown and hides a sub selection "enable/disable (Workspace)". Yay! VSCode allows a workspace specific extension setup. Which lead me to the following "workflow" on new installations:
 

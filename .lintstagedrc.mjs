@@ -23,7 +23,7 @@ export default {
 	"*.{scss,css}": "stylelint --fix",
 	"*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
 	"*.{js,jsx}": "flow focus-check",
-	"!(CHANGELOG)**/*.{md,markdown}": ["vale"],
+	"!(CHANGELOG)**/*.{md,markdown}": ["npm run lint:vale"],
 	'**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
 	//'**/*.js?(x)': (filenames) => filenames.map((filename) => `prettier --write '${filename}'`),
 }

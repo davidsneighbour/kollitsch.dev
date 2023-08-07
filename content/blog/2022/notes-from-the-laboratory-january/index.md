@@ -15,7 +15,7 @@ tags:
   - davidsneighbour
 aliases:
   - /blog/2022/notes-from-the-laboratory-january-2022
-lastmod: 2023-06-26T23:45:44+07:00
+lastmod: 2023-08-07T20:16:40+07:00
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
@@ -28,8 +28,8 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
   I am also not done with the post headings yet. They look weird right now, I know. Live with it for a while.
 - **Customers:** I am aware that more and more customers just float away. A huge problem is that Covid won't just disappear and the only industry on this island that matters, tourism, is still basically dead. Tour-organisations and promotional campaigns won't be able to hide, that the re-invention and recovery of tourism on Ko Samui is a whole different topic and a massive task in 2022 and beyond that year.
 - **Cooking:** I am experimenting with "Fried rice with vegetables" and several kinds of Tofu (two different meals). Not sure yet if one or the other will make it into my standard repertoire.
-- **Pokki:** My baby (a shihtzu dog, don't worry) is having more and more age related issues. Just yesterday his hind-legs gave up and he was crouching over the grounds for a day or two. He knows that his time is running out and I try to make it as amenable as possible for him. If I get up with the birds in the morning, today at 4am, we don't even need to spend the rest of the morning cleaning the house 🐶 The whole "lets give him all the food he craves at all times" strategy spectacularly backfired. Lots of cleaning. I won't be listening to anyone telling me to give him more food anymore.
-- **Language Learning:** I didn't do much in this resort... well, I started looking into [Golang](https://pkg.go.dev/)... does that count? I am programming a little CLI app that ties into [Hugo](https://gohugo.io) to create new content and objects of content.
+- **Pokki:** My baby (a shihtzu dog, don't worry) is having more and more age related issues. Just yesterday his hind-legs gave up and he was crouching over the grounds for a day or two. He knows that his time is running out and I try to make it as amenable as possible for him. If I get up with the birds in the morning, today at 4 AM, we don't even need to spend the rest of the morning cleaning the house 🐶 The whole "lets give him all the food he craves at all times" strategy spectacularly backfired. Lots of cleaning. I won't be listening to anyone telling me to give him more food anymore.
+- **Language Learning:** I didn't do much in this resort… well, I started looking into [Golang](https://pkg.go.dev/)… does that count? I am programming a little CLI app that ties into [Hugo](https://gohugo.io) to create new content and objects of content.
 - **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.
 
 {{< taglist tag="laboratory" limit="-1" title="Recent Notes" >}}

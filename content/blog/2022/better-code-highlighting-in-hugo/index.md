@@ -4,7 +4,7 @@ title: Better code highlighting for Hugo with render hooks
 description: One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the internal templates). But it offers ways to override and configure things, so not all is lost.
 date: 2022-05-04T22:11:55+07:00
 publishDate: 2022-05-04T22:11:55+07:00
-lastmod: 2023-03-23T21:45:14+07:00
+lastmod: 2023-08-07T19:29:59+07:00
 resources:
   - title: Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -17,7 +17,7 @@ tags:
 
 One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the [internal templates](https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates)). But it offers ways to override and configure things, so not all is lost.
 
-Let's talk about the [highlight](https://gohugo.io/content-management/syntax-highlighting/)ing [shortcode](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/highlight.html) (or the default markup rendering for highlighting code). If you choose to display your highlighting section with line numbers that can be deep-linked, then you are in hot water, if you use two of these sections on a single page. The deeplinks are done via a counter system that is identical if both sections start with the line 1 (which they typically do) resulting in multiple id attributes of `#code-1`, `#code-2`, etc. for each first, second, etc. line.
+Let's talk about the [highlight](https://gohugo.io/content-management/syntax-highlighting/)ing [shortcode](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/highlight.html) (or the default markup rendering for highlighting code). If you choose to display your highlighting section with line numbers that can be deep-linked, then you are in hot water, if you use two of these sections on a single page. The deeplinks are done via a counter system that is identical if both sections start with the line 1 (which they typically do) resulting in multiple id attributes of `#code-1`, `#code-2`, and so on for each first, second, and so on line.
 
 The `highlight` template can be overridden easily by just adding your own shortcode template. Fixing this for the far more used highlighting markup of MarkDown (three backticks) since v0.93.0 GoHugo also offers [render hooks for code blocks](https://gohugo.io/templates/render-hooks/#render-hooks-for-code-blocks).
 

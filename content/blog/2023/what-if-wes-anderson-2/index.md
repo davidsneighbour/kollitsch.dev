@@ -1,7 +1,7 @@
 ---
 date: 2023-05-24T20:37:19+07:00
-lastmod: 2023-05-24T20:37:27+07:00
-title: What if Wes Anderson... (Part 2)
+lastmod: 2023-08-07T19:33:03+07:00
+title: What if Wes Anderson… (Part 2)
 description: What if Wes Anderson would have directed a horror movie? I think it would have been awesome.
 summary: What if Wes Anderson would have directed a horror movie? I think it would have been awesome.
 tags:

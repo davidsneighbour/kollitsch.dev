@@ -1,7 +1,7 @@
 ---
 title: Giscus Module for GoHugo
 date: 2021-10-27T20:25:27+07:00
-description: ''
+description: ""
 resources:
   - src: gerry-roarty-slkENpP5PbI-unsplash.jpg
     title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via [Unsplash](https://unsplash.com)
@@ -9,12 +9,12 @@ tags:
   - gohugo
   - static websites
   - giscus
-lastmod: 2023-06-12T22:33:47+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 ---
 
 [Giscus](https://github.com/giscus/giscus) is a new star on the comment systems for static website generators orbit. It is inspired by the wonderful [utterances](https://github.com/utterance/utterances) and uses Github Discussions to save comments. It's open source, easily configurable, themeable, translatable, and you can [host it on your own server](https://github.com/giscus/giscus/blob/main/SELF-HOSTING.md) (it's JavaScript based) if you like. I tried it, but ran into problems setting it up, so this will be a topic for a later post.
 
-In my opinion this tool is very useful for development websites or smaller developer blogs (like this one) because the discussion can be continued over at Github or on the website, whatever you or your visitors prefer. And... aren't comments discussions? They finally arrived where they belong (at least in Github based websites and projects).
+In my opinion this tool is very useful for development websites or smaller developer blogs (like this one) because the discussion can be continued over at Github or on the website, whatever you or your visitors prefer. And… aren't comments discussions? They finally arrived where they belong (at least in Github based websites and projects).
 
 You can see Giscus in action at the end of this post or any other post on this website. Feel free to test, but please try to add a useful comment :wink:
 
@@ -44,7 +44,7 @@ I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](
 4. Update your modules
 
    ```bash {lineAnchors=code3}
-   hugo mod get -u ./...
+   hugo mod get -u ./…
    ```
 
 5. Add the giscus-partial to your single.html or any post layout you are using in your theme:

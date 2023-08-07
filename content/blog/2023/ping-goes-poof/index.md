@@ -6,7 +6,7 @@ description: ""
 summary: ""
 date: 2023-06-28T20:33:58+07:00
 publishDate: 2023-06-28T20:33:58+07:00
-lastmod: 2023-06-28T21:01:21+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
   - title: Photo by [Pascal Meier](https://unsplash.com/@zhpix) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -30,6 +30,6 @@ On the other hand, Google continues to ignore the changefreq and priority elemen
 
 With these latest updates, Google is streamlining the use of sitemaps and at the same time cutting off some spammers. It also becomes clear that the sitemap as a tool to discover new content should not be used to force Google to crawl a site:
 
-> ...it needs to consistently match reality: if your page changed 7 years ago, but you're telling us in the lastmod element that it changed yesterday, eventually we're not going to believe you anymore when it comes to the last modified date of your pages.
+> …it needs to consistently match reality: if your page changed 7 years ago, but you're telling us in the lastmod element that it changed yesterday, eventually we're not going to believe you anymore when it comes to the last modified date of your pages.
 
 My [sitemap module for GoHugo](/components/hugo-sitemap/) by the way is already only displaying updates when the content of a page is updated. It does not change the date on changes of unrelated page elements. It also does not include the changefreq and priority elements in the sitemap.xml file in it's [latest release](https://github.com/davidsneighbour/hugo-blockify/releases/tag/v0.0.84).

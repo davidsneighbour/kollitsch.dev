@@ -1,26 +1,22 @@
 ---
 title: Install and link Firefox Developer Edition on Ubuntu
 description: ""
-
 date: 2023-03-10T21:44:58+07:00
 publishDate: 2023-03-10T21:44:58+07:00
-lastmod: 2023-03-10T23:43:38+07:00
-
+lastmod: 2023-08-07T19:30:54+07:00
 resources:
   - title: Firefox Developer Edition
     src: header.jpg
-
 tags:
   - firefox
   - browser
   - howto
   - ubuntu
   - 100DaysToOffload
-
 type: blog
 ---
 
-[Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) is a specialized version of the Firefox browser, designed for developers and early adopters. It's kind of a beta version, but with much more features. It comes with various tools, such as the Visual Editing, Debugging, an inspector that shows you details about the used CSS Grid, unused CSS etc. I often use it to debug website issues that come up.
+[Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) is a specialized version of the Firefox browser, designed for developers and early adopters. It's kind of a beta version, but with much more features. It comes with various tools, such as the Visual Editing, Debugging, an inspector that shows you details about the used CSS Grid, unused CSS and so on. I often use it to debug website issues that come up.
 
 Every time I have to reinstall my Ubuntu system, I have to go through the process of installing Firefox Developer Edition again. Manually. They do not offer a PPA and the PPAs you find online are not official and very seldom updated. There is also no simple `apt install` method to get the browser. This is a bit annoying, so I decided to write a quick step-by-step list on how to install and link Firefox Developer Edition on Ubuntu that I can refer to anytime I need to re-configure my system.
 

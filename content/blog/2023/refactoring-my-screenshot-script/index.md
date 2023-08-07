@@ -3,7 +3,7 @@ title: Refactoring my screenshot script
 description: I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit.
 date: 2023-03-08T21:57:10+07:00
 publishDate: 2023-03-08T21:57:10+07:00
-lastmod: 2023-04-14T21:06:25+07:00
+lastmod: 2023-08-07T20:32:31+07:00
 resources:
   - title: Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -64,7 +64,7 @@ let browser = await chromium.launch();
 
 In this modified script, we import the "yargs" library and parse the command-line arguments using argv. The script now accepts the following parameters:
 
-- `--url`: The URL to capture a screenshot of (default: https://example.com/).
+- `--url`: The URL to capture a screenshot of (default: <https://example.com/>).
 - `--width`: The width of the viewport (default: 1200).
 - `--height`: The height of the viewport (default: 600).
 - `--output`: The file name to save the screenshot as (default: header.jpg).
@@ -79,7 +79,7 @@ node script.js \
   --output=screenshot.jpg
 ```
 
-This will capture a screenshot of the "https://example.com" website with a viewport size of 800x600 and save it as "screenshot.jpg". If you don't specify any of the parameters, the script will use the default values.
+This will capture a screenshot of the "<https://example.com>" website with a viewport size of 800×600 and save it as "screenshot.jpg". If you don't specify any of the parameters, the script will use the default values.
 
 To rewrite this script as an ESM module, we need to change the way we import and export the code. Here's how:
 
@@ -115,36 +115,36 @@ import yargs from "yargs";
 import { hideBin } from 'yargs/helpers';
 
 const argv = yargs(hideBin(process.argv))
-	.option("url", {
-		describe: "URL to capture a screenshot of",
-		demandOption: true,
-		type: "string"
-	})
-	.option("output", {
-		describe: "Output file name",
-		default: "header.jpg",
-		type: "string"
-	})
-	.option("width", {
-		describe: "Viewport width",
-		default: 1200,
-		type: "number"
-	})
-	.option("height", {
-		describe: "Viewport height",
-		default: 600,
-		type: "number"
-	})
-	.help()
-	.alias("help", "h").argv;
+ .option("url", {
+  describe: "URL to capture a screenshot of",
+  demandOption: true,
+  type: "string"
+ })
+ .option("output", {
+  describe: "Output file name",
+  default: "header.jpg",
+  type: "string"
+ })
+ .option("width", {
+  describe: "Viewport width",
+  default: 1200,
+  type: "number"
+ })
+ .option("height", {
+  describe: "Viewport height",
+  default: 600,
+  type: "number"
+ })
+ .help()
+ .alias("help", "h").argv;
 
 export const takeScreenshot = async (url, output, width, height) => {
-	const browser = await chromium.launch();
-	const page = await browser.newPage();
-	await page.setViewportSize({ width, height });
-	await page.goto(url);
-	await page.screenshot({ path: output });
-	await browser.close();
+ const browser = await chromium.launch();
+ const page = await browser.newPage();
+ await page.setViewportSize({ width, height });
+ await page.goto(url);
+ await page.screenshot({ path: output });
+ await browser.close();
 };
 
 // @ts-ignore
@@ -153,12 +153,12 @@ takeScreenshot(argv.url, argv.output, argv.width, argv.height);
 
 In this modified script, we use the yargs library to parse command-line arguments. Notice the extended `option` lines in the beginning. They will be automatically converted to a helpful CLI help message when running the script with the `--help` (or `-h`) parameter.
 
-To run this script from the CLI, you can save it as a file (e.g. screenshot.js) and then run the following command:
+To run this script from the CLI, you can save it as a file (for example screenshot.js) and then run the following command:
 
 ```shell
 node screenshot.js --url=https://example.com --output=screenshot.jpg --width=800 --height=600
 ```
 
-This will capture a screenshot of the "https://example.com" website with a viewport size of 800x600 and save it as "screenshot.jpg".
+This will capture a screenshot of the "<https://example.com>" website with a viewport size of 800×600 and save it as "screenshot.jpg".
 
 I feel like this is enough change for now. If you have any questions or suggestions, feel free to leave a comment below. If you think I could optimise another part of the script, let me know too.

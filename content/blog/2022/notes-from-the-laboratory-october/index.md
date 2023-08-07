@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-10
 description: Another monthly report from the depths of the laboratory of kollitsch.dev - October 2022 (and also September 2022, not that you missed it ;)
 date: 2022-11-01T22:01:40+07:00
 publishDate: 2022-11-01T22:01:40+07:00
-lastmod: 2023-06-26T23:46:11+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
   - src: header.jpg
   - title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
@@ -22,7 +22,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
 First of all: **PSYCH!!!!111One**. There was no September report. You probably totally realise that and knew it and were wondering throughout the month of October what might have been wrong. On the other side, I know you didn't ;) Talking to a non-existent audience has it's perks.
 
-Anyway... I had a slight health scare in September and decided in the aftermath that it might be a good idea to re-align some priorities, move some weight (mostly my own) and concentrate on making sure I will be still alive in some years time.
+Anyway… I had a slight health scare in September and decided in the aftermath that it might be a good idea to re-align some priorities, move some weight (mostly my own) and concentrate on making sure I will be still alive in some years time.
 
 This whole process also lead to me acquiring an unhealthy bunch of gadgets to control, monitor and obsess over my [bodily KPIs](https://www.klipfolio.com/resources/articles/what-is-a-key-performance-indicator). I am a proud owner of a [Galaxy Watch 4](https://www.samsung.com/sg/watches/galaxy-watch/galaxy-watch4-classic-black-bluetooth-sm-r890nzkaasa/) that keeps me moving, a [Withings Body Cardio scale](https://www.withings.com/eu/en/body-cardio) that tells me how fat of a slob I am, and a [Withings BPM Core](https://www.withings.com/eu/en/bpm-core) blood pressure measurement thingy that keeps a log of my unhealthy heart. I also did help to kickstart the [Ultrahuman Ring on Kickstarter](https://www.kickstarter.com/projects/ultrahuman/ultrahuman-ring-decode-your-metabolism). Lets see what this whole monitoring will bring. I'll report more about this all in a bit ;]
 

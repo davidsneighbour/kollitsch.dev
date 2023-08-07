@@ -4,7 +4,7 @@ linkTitle: Hugo 0.96
 description: ""
 date: 2022-03-28T17:58:49+07:00
 publishDate: 2022-03-28T17:58:49+07:00
-lastmod: 2022-05-18T1:39:34+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
   - title: GoHugo
     src: header.png
@@ -91,4 +91,4 @@ Logging commands in Hugo's dartsass implementation were ignored until now. This 
 
 ### Under the hood
 
-Bep continued to add features new in Go 1.18 to this release. All else are smaller fixes and improvements. You can find all changes on [Github](https://github.com/gohugoio/hugo/compare/v0.95.0...v0.96.0).
+Bep continued to add features new in Go 1.18 to this release. All else are smaller fixes and improvements. You can find all changes on [Github](https://github.com/gohugoio/hugo/compare/v0.95.0…v0.96.0).

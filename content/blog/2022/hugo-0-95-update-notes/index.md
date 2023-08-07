@@ -1,13 +1,13 @@
 ---
-title: "Hugo 0.95 - Update Notes"
-linkTitle: "Hugo 0.95"
+title: Hugo 0.95 - Update Notes
+linkTitle: Hugo 0.95
 description: ""
 date: 2022-03-16T23:16:55+07:00
 publishDate: 2022-03-16T23:16:55+07:00
-lastmod: 2022-03-16T23:16:55+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
-  - title: "GoHugo"
-    src: "header.png"
+  - title: GoHugo
+    src: header.png
 tags:
   - gohugo
   - notes
@@ -66,7 +66,7 @@ The following snippet previously did throw an error for the second part `(eq .Fi
 {{ end }}
 ```
 
-This feature request to Golang is only three years old ;) Well... good things will take time.
+This feature request to Golang is only three years old ;) Well… good things will take time.
 
 ### Golang 1.18
 

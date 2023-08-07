@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-08
 description: Another monthly report from the depths of the laboratory of kollitsch.den - August 2022
 date: 2022-09-04T19:23:45+07:00
 publishDate: 2022-09-04T19:23:45+07:00
-lastmod: 2023-06-26T23:45:33+07:00
+lastmod: 2023-08-07T20:27:49+07:00
 resources:
   - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
@@ -20,7 +20,7 @@ tags:
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
 
-- **Focus:** This month I tried the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) in various methods (typically it's 25 minute work intervals with 5 minutes downtime between them, but I also tried [90 minutes with 20 minute breaks](https://todoist.com/productivity-methods/pomodoro-technique#experiment-with-the-length-of-your-pomodoros). It's not really working, because so many interruptions just come up. I am not giving up on the concept of _timed work-blocks_... let's see what else is possible.
+- **Focus:** This month I tried the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) in various methods (typically it's 25 minute work intervals with 5 minutes downtime between them, but I also tried [90 minutes with 20 minute breaks](https://todoist.com/productivity-methods/pomodoro-technique#experiment-with-the-length-of-your-pomodoros). It's not really working, because so many interruptions just come up. I am not giving up on the concept of _timed work-blocks_… let's see what else is possible.
 - **Hugo Modules:** I moved the documentation of stable modules for GoHugo that I developed here into the [kollitsch.dev](https://kollitsch.dev/components/)-Website. They still need some more fixing and formatting.
 - **kollitsch.de:** Lots of work under the hood. I am nearly done moving the theme to a "Dark Solarized"-based one. The devil is in the details.
 - **Small steps:** I am planning on posting more frequent and less concerned on this website. Let's see where THIS is going. I think the way I posted before was too worried about quality and kept some nice posts away in the depths of `draft: true`.

@@ -2,18 +2,13 @@
 type: blog
 title: Mark word break opportunities in HTML
 linkTitle: Mark word break opportunities in HTML
-description: Every now and then it might be helpful, if we could just break a word in two
-  on smaller screens. We can. Introducing `<wbr>`.
-
+description: Every now and then it might be helpful, if we could just break a word in two on smaller screens. We can. Introducing `<wbr>`.
 date: 2022-08-21T18:52:10+07:00
 publishDate: 2022-08-21T18:52:10+07:00
-lastmod: 2022-08-21T19:52:53+07:00
-
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
-  - title: Screenshots and artistically putting together two images by Patrick
-      Kollitsch of [kollitsch.dev](https://kollitsch.dev)
+  - title: Screenshots and artistically putting together two images by Patrick Kollitsch of [kollitsch.dev](https://kollitsch.dev)
     src: header.png
-
 tags:
   - html
   - today i learned
@@ -31,7 +26,7 @@ I am taking part in the
 <a href="/blog/2022/100-days-to-offload/">
 	#100DaysToOffload
 </a>
-project... 100 posts within a year.
+project… 100 posts within a year.
 ```
 
 The after:
@@ -41,9 +36,9 @@ I am taking part in the
 <a href="/blog/2022/100-days-to-offload/">
 	#100Days<wbr>To<wbr>Offload
 </a>
-project... 100 posts within a year.
+project… 100 posts within a year.
 ```
 
 You can see the result above. A nice formatted box on mobile, a normal text flow on desktop.
 
-Now... that is not the last word in this discussion. I remember there are CSS properties to properly break words with a dash, based on the language of the text. Let's look into these next.
+Now… that is not the last word in this discussion. I remember there are CSS properties to properly break words with a dash, based on the language of the text. Let's look into these next.

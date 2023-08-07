@@ -3,7 +3,7 @@ title: How to handle key issues with apt on Ubuntu
 description: ""
 date: 2023-06-21T18:41:26+07:00
 publishDate: 2023-06-21T18:41:26+07:00
-lastmod: 2023-06-21T20:44:30+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
   - title: Choose a key
     src: header.jpg
@@ -90,7 +90,7 @@ The output for an ASCII-armored key  (save it with a .asc extension) should be s
 For a non-armored key (save it with a .gpg extension), the output will be along the lines of:
 
 ```plain
-/dev/stdin: OpenPGP Public Key Version 4, Created ..., RSA (Encrypt or Sign, 4096 bits); User ID; Signature; OpenPGP Certificate
+/dev/stdin: OpenPGP Public Key Version 4, Created …, RSA (Encrypt or Sign, 4096 bits); User ID; Signature; OpenPGP Certificate
 ```
 
 Running `sudo apt update` after all keys are imported should result in a clean run without any warnings.

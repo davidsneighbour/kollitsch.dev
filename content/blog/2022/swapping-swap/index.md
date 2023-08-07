@@ -3,16 +3,12 @@ type: blog
 title: Swapping swap
 description: ""
 summary: ""
-
 date: 2022-06-06T19:33:56+07:00
 publishDate: 2022-06-06T19:33:56+07:00
-lastmod: 2022-07-14T21:28:05+07:00
-
+lastmod: 2023-08-07T20:23:27+07:00
 resources:
-  - title: Photo by [Glen Noble](https://unsplash.com/@glennoble) via
-      [Unsplash](https://unsplash.com/)
+  - title: Photo by [Glen Noble](https://unsplash.com/@glennoble) via [Unsplash](https://unsplash.com/)
     src: header.jpg
-
 tags:
   - ubuntu
   - howto
@@ -46,13 +42,13 @@ You can easily list the available swap space with the following command:
 SwapTotal:      8290300 kB
 ```
 
-As you can see the amount of swap space is pretty low (8GB, the same amount as my RAM), so I had to add more swap space.
+As you can see the amount of swap space is pretty low (8 GB, the same amount as my RAM), so I had to add more swap space.
 
 **How to extend the swap space:**
 
 The process of adding more swapspace is quite easy and concise. We first switch off the current swap, then add a new swapfile, then restart the swap space. In a last step the swap is made permanent on reboots by adding the new swapfile to the `/etc/fstab` file.
 
-Before you start this procedure you might want to close down all unnecessary programs that are running in the background (messenger, Dropbox, etc.), because everything in the current swap space will be loaded into your RAM.
+Before you start this procedure you might want to close down all unnecessary programs that are running in the background (messenger, Dropbox, and so on), because everything in the current swap space will be loaded into your RAM.
 
 The following commands will do the job:
 
@@ -64,7 +60,7 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 ```
 
-The first command (`swapoff`) will stop the use of swap for now and can take several minutes to complete, because everything currently in the swap file will be moved into your RAM. `dd` creates a file named `swapfile` in your system root directory with the size of 16GB (base size of 1GB times count of 16), `chmod` will make sure that the file can be read and written to by the system, `mkswap` will activate the file as swap and `swapon` will restart the swapping.
+The first command (`swapoff`) will stop the use of swap for now and can take several minutes to complete, because everything currently in the swap file will be moved into your RAM. `dd` creates a file named `swapfile` in your system root directory with the size of 16 GB (base size of 1 GB times count of 16), `chmod` will make sure that the file can be read and written to by the system, `mkswap` will activate the file as swap and `swapon` will restart the swapping.
 
 After these steps edit `/etc/fstab` and add the following line to make the change persistent after reboots:
 

@@ -3,9 +3,9 @@ title: Understanding SVG paths
 description: Nanda Syahrasyad has created a perfect little course for us to learn, how SVG paths work. Including paths, animations, and, of course, tests if we understood the lesson.
 date: 2023-07-10T21:17:23+07:00
 publishDate: 2023-07-10T21:17:23+07:00
-lastmod: 2023-08-02T20:17:13+07:00
+lastmod: 2023-08-07T19:33:03+07:00
 resources:
-  - title: Paths...
+  - title: Paths…
     src: header.jpg
 tags:
   - svg

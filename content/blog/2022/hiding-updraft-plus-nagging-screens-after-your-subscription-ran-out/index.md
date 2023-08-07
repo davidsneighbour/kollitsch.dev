@@ -1,10 +1,10 @@
 ---
-title: "Hiding UpdraftPlus nagging screens after your subscription ran out"
+title: Hiding UpdraftPlus nagging screens after your subscription ran out
 date: 2022-03-10T22:18:32+07:00
 resources:
-  - title: "Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via [Unsplash](https://unsplash.com/)"
-    name: "image name if other than src"
-    src: "nagara-oyodo-cBPSOscB5Z0-unsplash.jpg"
+  - title: Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via [Unsplash](https://unsplash.com/)
+    name: image name if other than src
+    src: nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
 categories:
   - wordpress
 tags:
@@ -13,6 +13,7 @@ tags:
   - plugin
   - nagging
   - 100DaysToOffload
+lastmod: 2023-08-07T20:18:28+07:00
 ---
 
 Nagscreens. You know them. Very annoying. Long story short: I recently stopped updating my subscription to a paid WordPress plugin and it started using nag screens to guilt me into renewing the subscription again. In this specific case we have the [UpdraftPlus](https://updraftplus.com/) plugin that I really suggest everyone to use, but it did not really add new features or did anything else to make me feel like having a yearly subscription for the simple backup plugin would be something I want to do.
@@ -57,4 +58,4 @@ add_filter('site_transient_update_plugins', 'dnb_remove_updraft_update_notificat
 
 This will hide updates for the plugin.
 
-The one pain-point I need to figure out is how to check if a legit update is available, like [the one recently when a security issue was discovered](https://updraftplus.com/updraftplus-security-release-1-22-3-2-22-3/). In those cases most of the yearly-subscription-based plugins will offer an update to users with expired subscriptions too. This specific update will be hidden by the last addition to your `functions.php`. I keep an eye on these issues and comment the `add_filter` method in the last line out to receive a working update notification, then update, then uncomment the line again.
+The one pain-point I need to figure out is how to check if a legit update is available, like [the one recently when a security issue was discovered](https://updraftplus.com/updraftplus-security-release-1-22-3-2-22-3/). In those cases most of the yearly subscription-based plugins will offer an update to users with expired subscriptions too. This specific update will be hidden by the last addition to your `functions.php`. I keep an eye on these issues and comment the `add_filter` method in the last line out to receive a working update notification, then update, then uncomment the line again.

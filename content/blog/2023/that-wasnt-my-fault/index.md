@@ -3,7 +3,7 @@ $schema: /static/_schemata/blog.schema.yaml
 title: That wasn't my fault
 date: 2023-04-21T21:33:04+07:00
 publishDate: 2023-04-21T21:33:04+07:00
-lastmod: 2023-04-21T21:54:13+07:00
+lastmod: 2023-08-07T20:33:28+07:00
 resources:
   - title: That wasn't my fault
     src: header.png
@@ -16,7 +16,7 @@ type: blog
 
 A slight spoiler warning for the third season of "Star Trek: Picard" ahead.
 
-I am binging currently (maybe later some notes about this habit) the third and final season of "Star Trek: Picard." So many of my "peers" were unhappy about it and the whole three-season run. I don't get why (well, I get it; they are stuck in the 90s), and I love every little bit of it. I am not going to spoil anything, but I am going to talk about Enterprise E.
+I am binging currently (maybe later some notes about this habit) the third and final season of "Star Trek: Picard." So many of my "peers" were unhappy about it and the whole three-season run. I don't get why (well, I get it; they are stuck in the 90's), and I love every little bit of it. I am not going to spoil anything, but I am going to talk about Enterprise E.
 
 It appears there was an Enterprise E that was destroyed at some point. In episode 3 of season 3, Geordi La Forge (LeVar Burton) reveals that he rebuilt Enterprise-D. However, he also mentioned that he couldn't use Enterprise-E. He says, "And obviously, we can't use the Enterprise E." Which implies that Enterprise-E was unfixably destroyed. But how?
 

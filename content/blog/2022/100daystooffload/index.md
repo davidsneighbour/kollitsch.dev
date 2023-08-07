@@ -4,7 +4,7 @@ linkTitle: "#100daystooffload"
 slug: 100-days-to-offload
 date: 2022-03-21T23:27:23+07:00
 publishDate: 2022-03-21T23:27:23+07:00
-lastmod: 2023-04-10T19:59:18+07:00
+lastmod: 2023-08-07T20:24:49+07:00
 resources:
   - title: Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)
     src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
@@ -27,7 +27,7 @@ I really think a better hashtag would have been #100PostsToOffload. But I have n
 > *   This needs to be done on a personal blog, not a corporate blog. If you don’t have a personal blog, you can sign up for a free one at Write.as.
 > *   There is no specific start date. Your 100 posts can start or end whenever you want them to.
 > *   Publish 100 new posts in the space of a year.
-> *   There are no limits to what you can post about – write about whatever interests you.
+> *   There are no limits to what you can post about --- write about whatever interests you.
 > *   Once you have published an article, don’t forget to post a link on your social media with the hashtag #100DaysToOffload.
 > *   Get your friends involved!
 

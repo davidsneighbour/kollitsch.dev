@@ -17,7 +17,7 @@ lastmod: 2022-07-14T21:26:57+07:00
 
 Personal data (usually referred to just as "data" below) will only be processed by us to the extent necessary and for the purpose of providing a functional and user-friendly website, including its contents, and the services offered there.
 
-Per Art. 4 No. 1 of Regulation (EU) 2016/679, i.e. the General Data Protection Regulation (hereinafter referred to as the "GDPR"), "processing" refers to any operation or set of operations such as collection, recording, organisation, structuring, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination, or otherwise making available, alignment, or combination, restriction, erasure, or destruction performed on personal data, whether by automated means or not.
+Per Art. 4 No. 1 of Regulation (EU) 2016/679, that is the General Data Protection Regulation (hereinafter referred to as the "GDPR"), "processing" refers to any operation or set of operations such as collection, recording, organisation, structuring, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination, or otherwise making available, alignment, or combination, restriction, erasure, or destruction performed on personal data, whether by automated means or not.
 
 The following privacy policy is intended to inform you in particular about the type, scope, purpose, duration, and legal basis for the processing of such data either under our own control or in conjunction with others. We also inform you below about the third-party components we use to optimise our website and improve the user experience which may result in said third parties also processing data they collect and control.
 
@@ -116,7 +116,7 @@ The legal basis for the processing of the resulting and subsequently disclosed p
 
 The legal basis may also be your consent per Art. 6 para. 1 lit. a GDPR granted to the platform operator. Per Art. 7 para. 3 GDPR, you may revoke this consent with the platform operator at any time with future effect.
 
-When accessing our online presence on the Facebook platform, Facebook Ireland Ltd. as the operator of the platform in the EU will process your data (e.g. personal information, IP address, etc.).
+When accessing our online presence on the Facebook platform, Facebook Ireland Ltd. as the operator of the platform in the EU will process your data (for example personal information, IP address, and so on).
 
 This data of the user is used for statistical information on the use of our company presence on Facebook. Facebook Ireland Ltd. uses this data for market research and advertising purposes as well as for the creation of user profiles. Based on these profiles, Facebook Ireland Ltd. can provide advertising both within and outside of Facebook based on your interests. If you are logged into Facebook at the time you access our site, Facebook Ireland Ltd. will also link this data to your user account.
 
@@ -150,7 +150,7 @@ The legal basis for the processing of the resulting and subsequently disclosed p
 
 The legal basis may also be your consent per Art. 6 para. 1 lit. a GDPR granted to the platform operator. Per Art. 7 para. 3 GDPR, you may revoke this consent with the platform operator at any time with future effect.
 
-When accessing our online presence on the Instagram platform, Facebook Ireland Ltd. as the operator of the platform in the EU will process your data (e.g. personal information, IP address, etc.).
+When accessing our online presence on the Instagram platform, Facebook Ireland Ltd. as the operator of the platform in the EU will process your data (for example personal information, IP address, and so on).
 
 This data of the user is used for statistical information on the use of our company presence on Instagram. Facebook Ireland Ltd. uses this data for market research and advertising purposes as well as for the creation of user profiles. Based on these profiles, Facebook Ireland Ltd. can provide advertising both within and outside of Instagram based on your interests. If you are logged into Instagram at the time you access our site, Facebook Ireland Ltd. will also link this data to your user account.
 
@@ -172,7 +172,7 @@ We also integrate the following social media sites into our website. The integra
 
 Once you click, that network may record information about you and your visit to our site. It cannot be ruled out that such data will be processed in the United States.
 
-Initially, this data includes such things as your IP address, the date and time of your visit, and the page visited. If you are logged into your user account on that network, however, the network operator might assign the information collected about your visit to our site to your personal account. If you interact by clicking Like, Share, etc., this information can be stored your personal user account and possibly posted on the respective network. To prevent this, you need to log out of your social media account before clicking on the graphic. The various social media networks also offer settings that you can configure accordingly.
+Initially, this data includes such things as your IP address, the date and time of your visit, and the page visited. If you are logged into your user account on that network, however, the network operator might assign the information collected about your visit to our site to your personal account. If you interact by clicking Like, Share, and so on, this information can be stored your personal user account and possibly posted on the respective network. To prevent this, you need to log out of your social media account before clicking on the graphic. The various social media networks also offer settings that you can configure accordingly.
 
 The following social networks are integrated into our site by linked graphics:
 

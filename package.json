@@ -12,14 +12,14 @@
 	},
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
-		"@davidsneighbour/configurations": "^5.2.29",
+		"@davidsneighbour/configurations": "^5.2.31",
 		"@netlify/functions": "^1.6.0",
 		"@types/react": "18.2.20",
 		"@types/react-dom": "18.2.7",
 		"@types/yargs": "17.0.24",
 		"animate.css": "4.1.1",
 		"bootstrap-icons": "^1.10.5",
-		"caniuse-lite": "1.0.30001519",
+		"caniuse-lite": "1.0.30001520",
 		"doiuse": "6.0.2",
 		"dotenv": "^16.3.1",
 		"imagemin-lint-staged": "0.5.1",
@@ -30,7 +30,7 @@
 		"oauth-1.0a": "^2.2.6",
 		"pagefind": "0.12.0",
 		"playwright": "1.37.0",
-		"puppeteer": "^21.0.1",
+		"puppeteer": "^21.0.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"request": "2.88.2",
@@ -48,10 +48,10 @@
 		"yargs": "17.7.2"
 	},
 	"devDependencies": {
-		"@clack/prompts": "0.6.3",
-		"@commitlint/cli": "^17.6.7",
-		"@commitlint/config-conventional": "^17.6.7",
-		"@commitlint/prompt-cli": "^17.6.7"
+		"@clack/prompts": "0.7.0",
+		"@commitlint/cli": "^17.7.1",
+		"@commitlint/config-conventional": "^17.7.0",
+		"@commitlint/prompt-cli": "^17.7.1"
 	},
 	"scripts": {
 		"audit:html": "hugo && html-validate public/**/*.html --config=tests/html-validator/config.json",

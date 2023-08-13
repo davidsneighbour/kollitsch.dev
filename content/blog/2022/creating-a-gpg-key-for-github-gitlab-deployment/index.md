@@ -4,7 +4,7 @@ description: ""
 summary: ""
 date: 2022-02-23T22:43:14+07:00
 publishDate: 2022-02-23T22:43:14+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+lastmod: 2023-08-13T19:47:08+07:00
 resources:
   - title: Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via [Unsplash](https://unsplash.com/)
     src: mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
@@ -23,7 +23,7 @@ gpg2 --full-generate-key
 
 This command creates a new GPG key. You will be asked to select a key type (I chose RSA/RSA), a key length (I chose 4096 bits) and a key expiration date (I chose 1 year from now). After this you get to setup the key configuration with your real name, email address and a comment. I chose the name and email address I use with Github and as comment a nice "GPG key for github/lab commits". After that you are asked to verify your setup and the key is created.
 
-A popup will ask you for a password. In my case the setup is so that the key is saved to my local keychain that is loaded once per log in to my machine. This way I will have to enter my keys password once a day in normal cases, which is safe and nicely secure. Based on your local setup you might want to choose an empty password (if for instance your session is password secured and your computer will never be stolen or hacked, which will probably never happen, or once and then… well… ok, just choose a password here!). But don't. Add a secure password and your key is prepared.
+A pop-up will ask you for a password. In my case the setup is so that the key is saved to my local keychain that is loaded once per log in to my machine. This way I will have to enter my keys password once a day in normal cases, which is safe and nicely secure. Based on your local setup you might want to choose an empty password (if for instance your session is password secured and your computer will never be stolen or hacked, which will probably never happen, or once and then… well… ok, just choose a password here!). But don't. Add a secure password and your key is prepared.
 
 After this let GPG show your new key:
 

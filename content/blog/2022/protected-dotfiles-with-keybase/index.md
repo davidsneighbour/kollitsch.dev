@@ -3,7 +3,7 @@ title: Protected .dotfile files with Keybase
 description: Adding all my secret files, keys, passwords and api strings into an encrypted repository on Keybase to add them to my dotfiles repository.
 date: 2022-11-06T18:29:12+07:00
 publishDate: 2022-11-06T18:29:12+07:00
-lastmod: 2023-08-07T19:49:03+07:00
+lastmod: 2023-08-13T19:36:44+07:00
 resources:
   - title: Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -46,7 +46,7 @@ This creates the repository `keybase://private/USERNAME/protected`.
 
 (1) Select the Git section, then (2) select a new personal or team repository, (3) name and create it. I chose to name it `protected` because I feel like my secrets are as protected as possible in this setup.
 
-![keybase-git.png](keybase-git.png)
+![The Git screen in the Keybase application](keybase-git.png)
 
 In the next step I checked out my new repository[^1] and added my `.env` file with API keys and secrets and other private stuff not meant for the world. `davidsneighbour` is my username, use your own accordingly.
 

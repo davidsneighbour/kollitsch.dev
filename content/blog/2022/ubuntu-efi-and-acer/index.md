@@ -1,23 +1,20 @@
 ---
-title: "Ubuntu, EFI and Acer"
-description: "A quick fix for the \"No Bootable Device found\" error on Acer notebooks after installing Ubuntu."
+title: Ubuntu, EFI and Acer
+description: A quick fix for the "No Bootable Device found" error on Acer notebooks after installing Ubuntu.
 date: 2022-03-02T21:22:28+07:00
-
 images:
-- /blog/2022/ubuntu-efi-and-acer/artiom-vallat-mx9axbKqKW8-unsplash.jpg
-
+  - /blog/2022/ubuntu-efi-and-acer/artiom-vallat-mx9axbKqKW8-unsplash.jpg
 resources:
   - title: Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unsplash](https://unsplash.com)
     src: artiom-vallat-mx9axbKqKW8-unsplash.jpg
-
 tags:
-- howto
-- ubuntu
-- acer
-- UEFI
-- EFI
-- 100DaysToOffload
-
+  - howto
+  - ubuntu
+  - acer
+  - UEFI
+  - EFI
+  - 100DaysToOffload
+lastmod: 2023-08-13T19:46:55+07:00
 ---
 
 A while ago I found myself in front of my little baby-notebooks screen telling me in no uncertain terms, that "No Bootable Device (was) found". Hmm. Somehow I remembered that. I also remembered that it's just a little renaming routine that would solve this annoying issue.
@@ -26,12 +23,12 @@ The problem in short: Most Acer notebooks expect the [UEFI](https://en.wikipedia
 
 The following steps should solve this issue:
 
-- Install Ubuntu (or any other OS you like).
-- After the installation reboot into the Live-CD or USB-stick that you installed the system from.
-- Mount your EFI partition (let's assume it's mounted at /media/EFI).
-- Go into /media/EFI/EFI and `ls -al` the contents of the directory.
-- You should see a directory named `ubuntu`. Either copy it to the folder `Linux` or rename it to `Linux`, depending on your adventurism level.
-- Reboot and Ubuntu should boot up.
+*   Install Ubuntu (or any other operating system you like).
+*   After the installation reboot into the Live-CD or USB-stick that you installed the system from.
+*   Mount your EFI partition (let's assume it's mounted at /media/EFI).
+*   Go into /media/EFI/EFI and `ls -al` the contents of the directory.
+*   You should see a directory named `ubuntu`. Either copy it to the folder `Linux` or rename it to `Linux`, depending on your adventurism level.
+*   Reboot and Ubuntu should boot up.
 
 I wonder why this is not something that Ubuntu could somehow do itself on a new installation.
 

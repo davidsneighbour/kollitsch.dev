@@ -5,7 +5,7 @@
   "frontMatter.experimental": true,
   "frontMatter.dashboard.openOnStart": true,
   "frontMatter.framework.startCommand": "npm run server",
-  "frontMatter.preview.host": "https://192.168.1.201:1313",
+  "frontMatter.preview.host": "https://behemoth:1313",
   "frontMatter.site.baseURL": "https://kollitsch.dev",
   "frontMatter.content.publicFolder": "static",
   "frontMatter.taxonomy.seoDescriptionLength": 170,

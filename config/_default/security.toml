@@ -4,11 +4,14 @@
 enableInlineShortcodes = false
 
 [exec]
-allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$']
-osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|HOME|TMP|TEMP|TERM|HUGO_ENV)$']
+allow = ['^((dart-)?sass(-embedded)?|go|npx|postcss)$']
+osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|HOME|TMP|TEMP|TERM)$']
 
 [funcs]
-getenv = ['^HUGO_']
+getenv = ['^(HUGO_|REPOSITORY_URL|^BRANCH$)']
+
+[goTemplates]
+allowActionJSTmpl = false
 
 [http]
 methods = ['(?i)GET|POST']

@@ -14,12 +14,6 @@
 		},
 		{
 			"path": "../hugo-asylum"
-		},
-		{
-			"path": "../hugo-testcontent"
-		},
-		{
-			"path": "../hugo-workflows"
 		}
 	],
 	"settings": {

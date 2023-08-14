@@ -1,0 +1,39 @@
+---
+name: Update Hugo version for Netlify
+on  :
+  workflow_dispatch:
+  schedule:
+  - cron: 0 0 * * *
+
+jobs:
+  build:
+    name: Update Hugo version for Netlify
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - id: gohugohugo
+      uses: pozetroninc/github-action-get-latest-release@master
+      with:
+        owner: gohugoio
+        repo: hugo
+        excludes: prerelease, draft
+    - run: |
+        ${GITHUB_WORKSPACE}/bin/update-hugo-on-netlify.sh "${{ steps.gohugohugo.outputs.release }}" > "${GITHUB_WORKSPACE}/netlify.toml"
+    - name: Create Pull Request
+      id: createpr
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: 'chore(config): update Netlify configuration'
+        committer: Patrick Kollitsch <patrick@davids-neighbour.com>
+        author: Patrick Kollitsch <patrick@davids-neighbour.com>
+        signoff: true
+        branch: config/netlify
+        delete-branch: true
+        title: 'chore(config): update GoHugo version in netlify.toml'
+        body: Update netlify.toml with current latest GoHugo version number
+        assignees: davidsneighbour
+        reviewers: davidsneighbour
+    - name: Check outputs
+      run: |
+        echo "Pull Request Number - ${{ steps.createpr.outputs.pull-request-number }}"
+        echo "Pull Request URL - ${{ steps.createpr.outputs.pull-request-url }}"

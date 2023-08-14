@@ -1,0 +1,15 @@
+name: Stage production
+on:
+  push:
+    tags:
+      - "v*"
+  # schedule:
+  #   # Run at 0815 daily
+  #   - cron: '15 8 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    name: Request Netlify Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}?trigger_branch=main&trigger_title=Release+${{github.ref_name}}

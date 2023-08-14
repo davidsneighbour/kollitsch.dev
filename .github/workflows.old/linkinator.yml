@@ -1,0 +1,20 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+  create:
+    tags:
+      - v*
+
+name: Daily Audit
+jobs:
+  linkinator:
+    name: Link Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "*.md"
+          markdown: true
+          linksToSkip: https://github.com/*/*/commit/

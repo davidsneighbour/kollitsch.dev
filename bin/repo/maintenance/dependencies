@@ -1,8 +1,8 @@
 #!/bin/bash
 # v20230716001
 
-set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
-IFS=$'\n\t'
+# set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+# IFS=$'\n\t'
 
 # @todo quick check (just return status code)
 # @todo only list changed repositories

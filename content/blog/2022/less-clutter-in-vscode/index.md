@@ -4,7 +4,7 @@ title: Less Clutter in Vscode
 description: A strategy to declutter enabled extensions in VSCode by using a workspace specific extension setup.
 date: 2022-07-13T17:52:34+07:00
 publishDate: 2022-07-13T17:52:34+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+lastmod: 2023-08-20T13:21:36+07:00
 resources:
   - title: Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via [Unsplash](https://unsplash.com/)
     src: header.jpg
@@ -28,11 +28,11 @@ Well, after some clicking around I found an interesting new strategy to cope wit
 *   add the extension to the recommended extensions for this workspace
 *   save `.vscode/extensions.json` and `workspacename.code-workspace` in my repository
 
-![workspace enable](/blog/2022/less-clutter-in-vscode/workspace-enable.png)
+![workspace enable](workspace-enable.png)
 
 To add the extension to the recommended extension click the little gearwheel at the end of the function buttons and select "Add to Workspace Recommendations". This will either create a file `.vscode/extensions.json` with this extension or adds the extension to the existing list of recommendations. Add this file to your repository. The next time you will initially open this repository on a new workstation a message will pop up and ask if you want to install recommended extensions.
 
-![workspace enable](/blog/2022/less-clutter-in-vscode/workspace-recommendations.png)
+![workspace enable](workspace-recommendations.png)
 
 This way I end up with exactly the functionality I need per project and still have all the plugins up-to-date and available if needed. VSCode shows what I need when I need it. Nice.
 

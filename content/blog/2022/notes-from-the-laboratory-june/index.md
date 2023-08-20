@@ -7,7 +7,7 @@ resources:
   - src: header.jpg
     name: header
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
-  - src: all-thats-left.jpg
+  - src: iallthatsleft.jpg
     name: pokki
 categories:
   - notes-from-the-laboratory
@@ -17,13 +17,13 @@ tags:
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
-lastmod: 2023-08-07T19:33:03+07:00
+lastmod: 2023-08-20T19:22:58+07:00
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
 
 - **Focus:** I didn't had much focus this month due to travelling and subsequent "other" life events. I dove into work and smaller things to fix. July will go better I guess.
 - **Pokki:** well…
-  ![All that's left](/blog/2022/notes-from-the-laboratory-june/all-thats-left.jpg)
+  ![All that's left](iallthatsleft.jpg)
 - **Language Learning:** Not much done on this front either.
 - **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.

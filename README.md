@@ -10,17 +10,22 @@ This project is the website setup and content for [kollitsch.dev](https://kollit
 
 - [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
 - [hugo-theme](https://github.com/davidsneighbour/hugo-theme) - the theme used for the website
-- [hugo-blockify](https://github.com/davidsneighbour/hugo-blockify) - a module that adds reusable components to any Hugo website.
+- [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
+- [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.
 
 This site's infrastructure is as follows:
 
 <!--lint ignore-->
 
-|          Domain Registration          |             DNS and CDN              |            Hosting             |         SSG Build         |
-| :-----------------------------------: | :----------------------------------: | :----------------------------: | :-----------------------: |
+| Domain Registration | DNS and CDN | Hosting | SSG Build |
+| :---: | :---: | :---: | :---: |
 | [Google](https://domains.google.com/) | [Cloudflare](https://cloudflare.com) | [Netlify](https://netlify.com) | [Hugo](https://gohugo.io) |
 
 Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
+
+---
+
+Codacy: ![Codacy grade kollitsch.dev](https://img.shields.io/codacy/grade/f6010b26bb5b4c56affa5e96e7537b24?style=for-the-badge&logo=codacy&logoColor=%23cccccc&label=kollitsch.dev&link=https%3A%2F%2Fapp.codacy.com%2Fgh%2Fdavidsneighbour%2Fkollitsch.dev%2Fdashboard) ![Codacy grade for hugo-theme](https://img.shields.io/codacy/grade/98d3cf7365f4413a8465f9a772068f80?style=for-the-badge&logo=codacy&logoColor=%23cccccc&label=hugo-theme&link=https%3A%2F%2Fapp.codacy.com%2Fgh%2Fdavidsneighbour%2Fhugo-theme%2Fdashboard) ![Codacy grade](https://img.shields.io/codacy/grade/ba388dd2c5de4f698bc0e4fd903b8a56?style=for-the-badge&logo=codacy&logoColor=%23cccccc&label=hugo-modules&link=https%3A%2F%2Fapp.codacy.com%2Fgh%2Fdavidsneighbour%2Fhugo-modules%2Fdashboard) ![Codacy grade](https://img.shields.io/codacy/grade/dc398b66acca45ab8a69fb1baa842af6?style=for-the-badge&logo=codacy&logoColor=%23cccccc&label=configurations&link=https%3A%2F%2Fapp.codacy.com%2Fgh%2Fdavidsneighbour%2Fconfigurations%2Fdashboard)
 
 ---
 
@@ -33,7 +38,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
   - [Prepare the development environment](#prepare-the-development-environment)
   - [Advanced setup steps](#advanced-setup-steps)
   - [Pre-Commit](#pre-commit)
-	- [SSL/TLS setup](#ssltls-setup)
+  - [SSL/TLS setup](#ssltls-setup)
 - [Development](#development)
   - [Dev Setup](#dev-setup)
   - [Release](#release)
@@ -51,6 +56,7 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
   - [Linting](#linting)
     - [On Save](#on-save)
       - [Vale (wording and grammar checks)](#vale-wording-and-grammar-checks)
+        - [Updating Vale](#updating-vale)
       - [Markdownlint (markdown format checks)](#markdownlint-markdown-format-checks)
     - [On Commit](#on-commit)
 - [Troubleshooting](#troubleshooting)

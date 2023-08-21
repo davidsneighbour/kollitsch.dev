@@ -1,42 +1,6 @@
 {
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"timezone": "Asia/Bangkok",
-	"schedule": [
-		"after 5pm every weekday",
-		"before 5am every weekday"
-	],
-	"extends": [
-		"config:base",
-		":disableDependencyDashboard"
-	],
-	"major": {
-		"dependencyDashboardApproval": true
-	},
-	"packageRules": [
-		{
-			"matchPackagePatterns": [
-				"^@davidsneighbour"
-			],
-			"dependencyDashboardApproval": false,
-			"automerge": true
-		},
-		{
-			"matchDepTypes": [
-				"devDependencies"
-			],
-			"matchPackagePatterns": [
-				"lint",
-				"prettier"
-			],
-			"automerge": true
-		},
-		{
-			"matchUpdateTypes": [
-				"minor",
-				"patch"
-			],
-			"matchCurrentVersion": "!/^0/",
-			"automerge": true
-		}
-	]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>davidsneighbour/renovate-config"
+  ]
 }

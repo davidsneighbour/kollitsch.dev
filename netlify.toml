@@ -13,9 +13,6 @@ NODE_ENV = "development"
 [functions]
 directory = "assets/functions"
 
-# [functions.status]
-# schedule = "*/10 * * * *"
-
 [[plugins]]
 package = "./bin/netlify/plugins/hugo-helper"
 

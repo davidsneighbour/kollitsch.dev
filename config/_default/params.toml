@@ -114,16 +114,16 @@ monetization = ""
 [dnb.head.speedoptimisation]
 control = "on" # on/off - off disables all prefetching
 prefetch = [
-	'/assets/webfonts/jetbrainsmono/jetbrainsmonoi.ttf',
-	'/assets/webfonts/jetbrainsmono/jetbrainsmonoi.ttf',
-	'/assets/webfonts/jetbrainsmono/jetbrainsmono.ttf',
-	'/assets/webfonts/jetbrainsmono/jetbrainsmono.ttf',
-	'/assets/webfonts/bahn/bahnpro_regular-webfont.woff2',
-	'/assets/webfonts/bahnpro_regular-webfont.woff',
-	'/assets/webfonts/bahnpro_regular-webfont.ttf',
-	'/assets/webfonts/bahnpro_light-webfont.woff2',
-	'/assets/webfonts/bahnpro_light-webfont.woff',
-	'/assets/webfonts/bahnpro_light-webfont.ttf',
+  '/assets/webfonts/jetbrainsmono/jetbrainsmonoi.ttf',
+  '/assets/webfonts/jetbrainsmono/jetbrainsmonoi.ttf',
+  '/assets/webfonts/jetbrainsmono/jetbrainsmono.ttf',
+  '/assets/webfonts/jetbrainsmono/jetbrainsmono.ttf',
+  '/assets/webfonts/bahn/bahnpro_regular-webfont.woff2',
+  '/assets/webfonts/bahnpro_regular-webfont.woff',
+  '/assets/webfonts/bahnpro_regular-webfont.ttf',
+  '/assets/webfonts/bahnpro_light-webfont.woff2',
+  '/assets/webfonts/bahnpro_light-webfont.woff',
+  '/assets/webfonts/bahnpro_light-webfont.ttf',
 ]
 preconnect = []
 prerender = []
@@ -153,14 +153,14 @@ includePaths = ["node_modules/", "assets/"]
 ################################################################################
 [dnb.social.sharebuttons]
 networks = [
-	"rss",
-	"buymeacoffee",
-	"substack",
-	"mastodon",
-	"linkedin",
-	"instagram",
-	"facebook",
-	"twitter",
+  "rss",
+  "buymeacoffee",
+  "substack",
+  "mastodon",
+  "linkedin",
+  "instagram",
+  "facebook",
+  "twitter",
 ]
 
 [dnb.social.network.facebook]
@@ -313,6 +313,10 @@ name = "*"
 # https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/
 disallow = ["/cdn-cgi/"]
 
+[[dnb.robots.useragents]]
+name = "GPTBot"
+disallow = ["/"]
+
 ###############################################################################
 # hugo-sitemap @see https://github.com/davidsneighbour/hugo-sitemap
 ###############################################################################
@@ -349,9 +353,9 @@ sortdirection = "ASC"
 ###############################################################################
 [dnb.netlification]
 headers = [
-	# "Access-Control-Allow-Origin: *",
-	"Report-To: {\"group\":\"default\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"https://kollitsch.report-uri.com/a/d/g\"}],\"include_subdomains\":true}",
-	"NEL: {\"report_to\":\"default\",\"max_age\":31536000,\"include_subdomains\":true}",
+  # "Access-Control-Allow-Origin: *",
+  "Report-To: {\"group\":\"default\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"https://kollitsch.report-uri.com/a/d/g\"}],\"include_subdomains\":true}",
+  "NEL: {\"report_to\":\"default\",\"max_age\":31536000,\"include_subdomains\":true}",
 ]
 upgradeInsecureRequests = true
 mode = "netlify"
@@ -366,29 +370,29 @@ upgradeInsecureRequests = true
 base-uri = ["'self'"]
 defaultSrc = ["'none'"]
 script-src = [
-	"'self'",
-	"'unsafe-eval'",
-	"'unsafe-inline'",
-	"'wasm-unsafe-eval'",
-	#"'strict-dynamic'",
-	"https://d33wubrfki0l68.cloudfront.net",
-	"https://giscus.app/",
-	'https://unpkg.com',
-	"https://identity.netlify.com",
-	#"'nonce-dnb-components-sw'",
-	"static.cloudflareinsights.com",
+  "'self'",
+  "'unsafe-eval'",
+  "'unsafe-inline'",
+  "'wasm-unsafe-eval'",
+  #"'strict-dynamic'",
+  "https://d33wubrfki0l68.cloudfront.net",
+  "https://giscus.app/",
+  'https://unpkg.com',
+  "https://identity.netlify.com",
+  #"'nonce-dnb-components-sw'",
+  "static.cloudflareinsights.com",
 ]
 style-src = [
-	"'self'",
-	"'unsafe-inline'",
-	"https://d33wubrfki0l68.cloudfront.net",
-	"https://giscus.app/",
+  "'self'",
+  "'unsafe-inline'",
+  "https://d33wubrfki0l68.cloudfront.net",
+  "https://giscus.app/",
 ]
 img-src = [
-	"'self'",
-	"https://d33wubrfki0l68.cloudfront.net",
-	"data:",
-	"https://i.ytimg.com",
+  "'self'",
+  "https://d33wubrfki0l68.cloudfront.net",
+  "data:",
+  "https://i.ytimg.com",
 ]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
 connect-src = ["'self'", "https://api.github.com/", 'cloudflareinsights.com']
@@ -396,9 +400,9 @@ media-src = ["'self'"]
 object-src = ["'none'"]
 child-src = ["'self'"]
 frame-src = [
-	"'self'",
-	"https://giscus.app/",
-	"https://www.youtube-nocookie.com",
+  "'self'",
+  "https://giscus.app/",
+  "https://www.youtube-nocookie.com",
 ]
 frame-ancestors = ["'self'"]
 worker-src = ["'self'"]

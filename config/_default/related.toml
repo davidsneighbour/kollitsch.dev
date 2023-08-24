@@ -3,27 +3,31 @@ includeNewer = true
 threshold = 5
 toLower = true
 
-[[related.indices]]
-name = 'fragmentrefs'
-weight = 80
-type = 'fragments'
-applyFilter = false
+# [[related.indices]]
+# name = 'fragmentrefs'
+# weight = 80
+# type = 'fragments'
+# applyFilter = false
 
-[[related.indices]]
-name = 'keywords'
-weight = 100
-type = 'basic' # default
-cardinalityThreshold = 0 #default
+# [[related.indices]]
+# name = 'keywords'
+# weight = 100
+# type = 'basic' # default
+# cardinalityThreshold = 0 #default
+
+# [[related.indices]]
+# name = 'tags'
+# weight = 100
+# type = 'basic' # default
+# cardinalityThreshold = 0 #default
+
+# [[related.indices]]
+# name = 'date'
+# weight = 100
+# type = 'basic' # default
+# cardinalityThreshold = 0 #default
+# pattern = '2006'
 
 [[related.indices]]
 name = 'tags'
-weight = 100
-type = 'basic' # default
-cardinalityThreshold = 0 #default
-
-[[related.indices]]
-name = 'date'
-weight = 100
-type = 'basic' # default
-cardinalityThreshold = 0 #default
-pattern = '2006'
+weight = 0

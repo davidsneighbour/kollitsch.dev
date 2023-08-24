@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-10
 description: Another monthly report from the depths of the laboratory of kollitsch.dev - October 2022 (and also September 2022, not that you missed it ;)
 date: 2022-11-01T22:01:40+07:00
 publishDate: 2022-11-01T22:01:40+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+lastmod: 2023-08-21T22:06:30+07:00
 resources:
   - src: header.jpg
   - title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)

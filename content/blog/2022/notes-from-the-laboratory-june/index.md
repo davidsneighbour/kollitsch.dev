@@ -8,7 +8,6 @@ resources:
     name: header
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
   - src: iallthatsleft.jpg
-    name: pokki
 categories:
   - notes-from-the-laboratory
 tags:
@@ -17,7 +16,7 @@ tags:
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
-lastmod: 2023-08-20T19:22:58+07:00
+lastmod: 2023-08-22T20:47:41+07:00
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

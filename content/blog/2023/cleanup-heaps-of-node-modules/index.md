@@ -4,7 +4,7 @@ description: Discover npkill, a command-line tool to clean up space wasted by no
 summary: Discover npkill, a command-line tool to clean up space wasted by node_modules folders. Easy to use, fast, and minimal dependencies.
 date: 2023-06-21T22:10:52+07:00
 publishDate: 2023-06-21T22:10:52+07:00
-lastmod: 2023-08-20T10:51:58+07:00
+lastmod: 2023-08-22T20:48:25+07:00
 resources:
   - title: Heaps of garbage
     src: header.jpg

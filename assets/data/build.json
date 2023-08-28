@@ -1,4 +1,4 @@
 {
-  "message": "Discussion could not be created. Make sure you passed a valid category name.",
+  "message": "Problems parsing JSON",
   "documentation_url": "https://docs.github.com/rest/releases/releases#create-a-release"
 }

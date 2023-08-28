@@ -85,12 +85,6 @@ path = "github.com/davidsneighbour/hugo-modules/modules/social"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
 
-# [[imports]]
-# path = "github.com/davidsneighbour/hugo-blockify"
-# disable = false
-# ignoreConfig = false
-# ignoreImports = false
-
 [[imports]]
 path = "github.com/davidsneighbour/hugo-theme"
 disable = false

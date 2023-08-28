@@ -1,4 +1,4 @@
 {
-  "message": "Bad credentials",
-  "documentation_url": "https://docs.github.com/rest"
+  "message": "Discussion could not be created. Make sure you passed a valid category name.",
+  "documentation_url": "https://docs.github.com/rest/releases/releases#create-a-release"
 }

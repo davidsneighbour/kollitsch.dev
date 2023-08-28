@@ -51,6 +51,25 @@ fi
 #   BASE_URL_PARAM="-b=${1}"
 # fi
 
+# recreate ssl certificates
+hugo server trust
+
+# create replacements via environment
+NOT_FIRST_LINE=false
+HUGO_MODULE_REPLACEMENTS=""
+REPLACEMENTS="${CURPATH}"/bin/etc/hugo/replacements
+if test -f "${REPLACEMENTS}"; then
+  while read -ra __; do
+    if $NOT_FIRST_LINE; then
+      HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS},${__[0]} -> ${__[1]}"
+    else
+      HUGO_MODULE_REPLACEMENTS="${__[0]} -> ${__[1]}"
+      NOT_FIRST_LINE=true
+    fi
+  done <"${REPLACEMENTS}"
+  [[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
+fi
+
 # cleanup hugo logging
 npm run clean:hugo
 
@@ -59,7 +78,10 @@ hugo mod get -u ./...
 
 # running hugo
 # @TODO remove paranoid settings and make into a cli option to debug more
-hugo \
+# starting hugo server
+# shellcheck disable=SC2086
+env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
+  hugo \
   --logLevel "${LOGLEVEL}" \
   --cleanDestinationDir \
   --enableGitInfo

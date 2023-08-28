@@ -42,7 +42,7 @@ CURPATH="$(pwd -P)"
 # git add "$CURPATH"/.github/images
 
 # quietly shutting down concurring hugo servers
-killall -q -9 hugo
+/bin/bash -c '/usr/bin/killall -q -9 hugo; exit 0'
 
 # # update submodules
 # declare -a modules=(

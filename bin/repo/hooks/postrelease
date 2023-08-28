@@ -65,7 +65,6 @@ curl \
       \"name\":\"${TAGNAME}\", \
       \"body\":\"${TAGNAME}\", \
       \"generate_release_notes\":true, \
-      \"discussion_category_name\":\"Releases\" \
   }" \
   >assets/data/build.json
 

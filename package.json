@@ -30,7 +30,7 @@
 		"oauth-1.0a": "2.2.6",
 		"pagefind": "0.12.0",
 		"playwright": "1.37.1",
-		"puppeteer": "21.1.0",
+		"puppeteer": "21.1.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"request": "2.88.2",

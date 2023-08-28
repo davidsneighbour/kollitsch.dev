@@ -88,6 +88,8 @@ github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.13 h1:z6HMXiSmE5
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.13/go.mod h1:wrcevhpDuz9549HT4ZHFD4tbSa8mORZ1En1C1H6Y6t0=
 github.com/davidsneighbour/hugo-theme v1.2023.15 h1:n1uuEMrv3V1hbjmI1BRfHQVQ1KlGKHt4gFX+tZvQt78=
 github.com/davidsneighbour/hugo-theme v1.2023.15/go.mod h1:CW8gLg1MLkZj+7Ujs4x0BypYecYLd916ZJYyury9++g=
+github.com/davidsneighbour/hugo-theme v1.2023.16 h1:Wv0iHxgg0RPBcEKyMme6CzapeG/bshU2b4ZK3y4WMvQ=
+github.com/davidsneighbour/hugo-theme v1.2023.16/go.mod h1:El2p3VjFG5jGLulsYBonEvUQr3g53TMpsRawV5pAVTk=
 github.com/paulirish/lite-youtube-embed v0.2.0 h1:n5HzpYk6HrL+60Ogj1c9hJ1RaOoLj1cysscQfDh67Rw=
 github.com/paulirish/lite-youtube-embed v0.2.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/paulirish/lite-youtube-embed v0.2.1-0.20220911020040-be6f03ef53b3 h1:mSoc2S7RFOidzYijyburWi2cPasLfQBvJVoOqZdW4JA=

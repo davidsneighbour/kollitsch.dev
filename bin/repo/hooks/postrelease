@@ -64,7 +64,7 @@ curl \
       \"tag_name\":\"${TAGNAME}\", \
       \"name\":\"${TAGNAME}\", \
       \"body\":\"${TAGNAME}\", \
-      \"generate_release_notes\":true, \
+      \"generate_release_notes\":true \
   }" \
   >assets/data/build.json
 

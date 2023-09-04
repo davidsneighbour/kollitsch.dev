@@ -18,7 +18,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/netlification v1.2023.9 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/opensearch v1.2023.2 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/pictures v1.2023.7 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/pictures v1.2023.12 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/pwa v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2023.2 // indirect
@@ -28,9 +28,9 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/seo v0.0.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2023.5 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/social v0.1.17 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/social v0.1.21 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.13 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2023.16 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2023.19 // indirect
 	github.com/paulirish/lite-youtube-embed v0.2.1-0.20220911020040-be6f03ef53b3 // indirect
 	github.com/tabler/tabler-icons v2.32.0+incompatible // indirect
 	github.com/tailwindlabs/heroicons v2.0.18+incompatible // indirect

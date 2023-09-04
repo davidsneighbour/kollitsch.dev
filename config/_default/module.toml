@@ -8,9 +8,6 @@ source = "assets"
 target = "assets"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
 
 [[imports]]
@@ -84,6 +81,9 @@ path = "github.com/davidsneighbour/hugo-modules/modules/social"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-theme"

@@ -122,7 +122,8 @@ dnb_server_debug=""
 # shellcheck disable=SC2153
 if [ "$DNB_SERVER_DEBUG" = true ]; then
   echo "Debugging ON"
-  dnb_server_debug="--templateMetrics --templateMetricsHints"
+  dnb_server_debug=""
+  # dnb_server_debug="${dnb_server_debug} --templateMetrics --templateMetricsHints"
   dnb_server_debug="${dnb_server_debug} --printI18nWarnings --printPathWarnings "
   dnb_server_debug="${dnb_server_debug} --printUnusedTemplates --debug --verbose --logLevel debug "
 else

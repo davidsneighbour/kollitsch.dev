@@ -83,5 +83,4 @@ hugo mod get -u ./...
 env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   hugo \
   --logLevel "${LOGLEVEL}" \
-  --cleanDestinationDir \
   --enableGitInfo

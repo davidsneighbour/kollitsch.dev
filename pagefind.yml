@@ -1,2 +1,2 @@
-source: public
-bundle_dir: ../static/search/
+site: public
+output_path: static/search

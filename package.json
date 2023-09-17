@@ -13,6 +13,8 @@
 	"homepage": "https://kollitsch.dev",
 	"dependencies": {
 		"@davidsneighbour/configurations": "5.2.40",
+		"@davidsneighbour/markdownlint-config": "^5.2.40",
+		"@davidsneighbour/remark-config": "^5.2.40",
 		"@netlify/functions": "2.0.2",
 		"@types/react": "18.2.21",
 		"@types/react-dom": "18.2.7",

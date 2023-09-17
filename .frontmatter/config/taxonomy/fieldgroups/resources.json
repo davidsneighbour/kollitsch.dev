@@ -6,7 +6,8 @@
       "title": "Path/Filename",
       "name": "src",
       "type": "image",
-      "isPreviewImage": true
+      "isPreviewImage": true,
+      "required": true
     },
     {
       "title": "Title",

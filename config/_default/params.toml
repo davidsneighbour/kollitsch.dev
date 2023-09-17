@@ -80,6 +80,7 @@ timestamp = "2006-01-02T15:04:05-07:00"
 ################################################################################
 [dnb.pictures]
 default_image = "images/og_sitewide.png"
+default_format = "webp"                  # one of webp, png, jpg
 # 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
 # this needs to be a string and needs to be two floats separated by a colon
 # aspect_ratio = "16:9"

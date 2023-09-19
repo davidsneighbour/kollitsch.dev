@@ -23,7 +23,7 @@
 		"@davidsneighbour/standard-version-config": "^5.2.41",
 		"@davidsneighbour/tools": "^5.2.40",
 		"@netlify/functions": "2.0.2",
-		"@types/react": "18.2.21",
+		"@types/react": "18.2.22",
 		"@types/react-dom": "18.2.7",
 		"@types/yargs": "17.0.24",
 		"animate.css": "4.1.1",

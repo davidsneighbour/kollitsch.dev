@@ -118,8 +118,8 @@
 		"server:pagefind": "wireit",
 		"server:functions": "netlify functions:serve",
 		"server2:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
-		"tests": "npm run cypress",
-		"update": "wireit"
+		"update": "wireit",
+		"tests": "npm run cypress"
 	},
 	"wireit": {
 		"server:pagefind": {

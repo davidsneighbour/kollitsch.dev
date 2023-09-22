@@ -1,183 +1,180 @@
 {
-	"name": "@davidsneighbour/kollitsch-dev",
-	"description": "Website and content for kollitsch.dev",
-	"version": "2023.3.10",
-	"license": "CC-BY-NC-SA-4.0 MIT",
-	"private": true,
-	"repository": "davidsneighbour/kollitsch.dev",
-	"author": {
-		"name": "Patrick Kollitsch",
-		"email": "patrick@davids-neighbour.com",
-		"web": "https://davids-neighbour.com"
-	},
-	"homepage": "https://kollitsch.dev",
-	"dependencies": {
-		"@davidsneighbour/bootstrap-config": "5.2.41",
-		"@davidsneighbour/browserslist-config": "5.2.41",
-		"@davidsneighbour/commitlint-config": "5.2.41",
-		"@davidsneighbour/cssnano-config": "5.2.41",
-		"@davidsneighbour/eslint-config": "5.2.41",
-		"@davidsneighbour/markdownlint-config": "5.2.41",
-		"@davidsneighbour/postcss-config": "5.2.41",
-		"@davidsneighbour/remark-config": "5.2.41",
-		"@davidsneighbour/standard-version-config": "5.2.41",
-		"@davidsneighbour/tools": "5.2.41",
-		"@netlify/functions": "2.0.2",
-		"@types/react": "18.2.22",
-		"@types/react": "18.2.22",
-		"@types/react-dom": "18.2.7",
-		"@types/yargs": "17.0.24",
-		"animate.css": "4.1.1",
-		"bootstrap-icons": "1.11.1",
-		"caniuse-lite": "1.0.30001538",
-		"caniuse-lite": "1.0.30001538",
-		"doiuse": "6.0.2",
-		"dotenv": "16.3.1",
-		"imagemin-lint-staged": "0.5.1",
-		"lazysizes": "5.3.2",
-		"lint-staged": "14.0.1",
-		"needle": "3.2.0",
-		"ninja-keys": "1.2.2",
-		"oauth-1.0a": "2.2.6",
-		"pagefind": "1.0.3",
-		"playwright": "1.38.1",
-		"puppeteer": "21.3.1",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"request": "2.88.2",
-		"sass": "1.68.0",
-		"sass": "1.68.0",
-		"simple-git-hooks": "2.9.0",
-		"snoowrap": "1.23.0",
-		"trim": "1.0.1",
-		"ts-node": "10.9.1",
-		"tsx": "3.12.10",
-		"twit": "2.2.11",
-		"twitter-api-sdk": "1.2.1",
-		"typescript": "5.2.2",
-		"web-vitals-element": "1.3.7",
-		"xml2js": "0.6.2",
-		"yargs": "17.7.2"
-	},
-	"devDependencies": {
-		"@clack/prompts": "0.7.0",
-		"@commitlint/cli": "17.7.1",
-		"@commitlint/config-conventional": "17.7.0",
-		"@commitlint/prompt-cli": "17.7.1"
-	},
-	"scripts": {
-		"audit:html": "hugo && html-validate public/**/*.html --config=tests/html-validator/config.json",
-		"audit:hugo": "./bin/hugo/audit",
-		"build:hugo": "./bin/hugo/build",
-		"build:webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
-		"build:webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
-		"check-env": "node -e 'console.log(process.env)' | grep npm_config_",
-		"clean": "run-p clean:audit clean:cypress clean:hugo clean:netlify && npm run clean:npm",
-		"clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
-		"clean:cypress": "rimraf tests/cypress/{downloads,screenshots,videos}/*",
-		"clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
-		"clean:netlify": "rimraf .netlify/cache .netlify/functions",
-		"clean:npm": "rimraf node_modules package-lock.json .wireit",
-		"commit": "cz",
-		"cypress": "npm run cypress:run",
-		"cypress:info": "cypress info",
-		"cypress:install": "cypress install",
-		"cypress:run": "cypress open --config-file tests/cypress/cypress.config.ts",
-		"cypress:verify": "cypress verify",
-		"deploy": "npm run deploy:stage && npm run release:patch && bin/hugo/deploy",
-		"deploy:major": "npm run deploy:stage && npm run release:major && bin/hugo/deploy",
-		"deploy:minor": "npm run deploy:stage && npm run release:minor && bin/hugo/deploy",
-		"deploy:stage": "notify-send \"VSCode/Netlify: switch to the proper account now...\" && netlify switch",
-		"eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
-		"eslint-fix": "npm run eslint -- --fix",
-		"hooks:update": "simple-git-hooks",
-		"lighthouse": "bin/audit/lighthouse",
-		"lint": "wireit",
-		"lint:hook:commit": "lint-staged",
-		"lint:html": "html-validate --config=tests/html-validator/config.json public",
-		"lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
-		"lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
-		"lint:remark": "remark content/**/*.md",
-		"lint:scripts": "eslint assets/js --ext .ts",
-		"lint:scripts:fix": "eslint assets/js --ext .ts --fix",
-		"lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
-		"lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables themes/hugo-theme/assets/scss",
-		"lint:templates": "bin/audit/lint-template-style",
-		"lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
-		"new": "node bin/hugo/content.mjs",
-		"pagefind": "pagefind",
-		"pipeline": "tsx pipeline.ts",
-		"prettier": "prettier 'assets/**/*.ts'",
-		"prettier:fix": "prettier --write 'assets/**/*.ts'",
-		"release": "./bin/repo/maintenance/dependencies && npm run release:patch",
-		"release:major": "commit-and-tag-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
-		"release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
-		"release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
-		"server": "run-p server:* -- --watch",
-		"server:hugo": "wireit",
-		"server:pagefind": "wireit",
-		"server:functions": "netlify functions:serve",
-		"server2:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
-		"update": "wireit",
-		"tests": "npm run cypress"
-	},
-	"wireit": {
-		"server:pagefind": {
-			"dependencies": [
-				"server:hugo"
-			],
-			"command": "pagefind",
-			"files": [
-				"content/**/*.md"
-			]
-		},
-		"server:hugo": {
-			"command": "bin/hugo/server",
-			"readyWhen": {
-				"lineMatches": "Web Server is available at *"
-			}
-		},
-		"lint": {
-			"dependencies": [
-				"lint:html",
-				"lint:lockfiles"
-			]
-		},
-		"update": {
-			"dependencies": [
-				"update:post"
-			]
-		},
-		"update:post": {
-			"command": "fixpack && browserslist --update-db",
-			"dependencies": [
-				"update:pre:npm",
-				"update:pre:vale",
-				"update:pre:submodules"
-			]
-		},
-		"update:pre:submodules": {
-			"command": "git submodule update --recursive --remote"
-		},
-		"update:pre:npm": {
-			"command": "npm-check-updates -u --target minor"
-		},
-		"update:pre:vale": {
-			"command": "vale --config='.github/vale/.vale.ini' --no-exit sync"
-		}
-	},
-	"config": {
-		"commitizen": {
-			"path": "node_modules/cz-git"
-		}
-	},
-	"publishConfig": {
-		"provenance": true
-	},
-	"eslintConfig": {
-		"extends": "@davidsneighbour/eslint-config"
-	},
-	"stylelint": {
-		"extends": "@davidsneighbour/stylelint-config"
-	}
+  "name": "@davidsneighbour/kollitsch-dev",
+  "description": "Website and content for kollitsch.dev",
+  "version": "2023.3.10",
+  "license": "CC-BY-NC-SA-4.0 MIT",
+  "private": true,
+  "repository": "davidsneighbour/kollitsch.dev",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
+    "web": "https://davids-neighbour.com"
+  },
+  "homepage": "https://kollitsch.dev",
+  "dependencies": {
+    "@davidsneighbour/bootstrap-config": "5.2.41",
+    "@davidsneighbour/browserslist-config": "5.2.41",
+    "@davidsneighbour/commitlint-config": "5.2.41",
+    "@davidsneighbour/cssnano-config": "5.2.41",
+    "@davidsneighbour/eslint-config": "5.2.41",
+    "@davidsneighbour/markdownlint-config": "5.2.41",
+    "@davidsneighbour/postcss-config": "5.2.41",
+    "@davidsneighbour/remark-config": "5.2.41",
+    "@davidsneighbour/standard-version-config": "5.2.41",
+    "@davidsneighbour/tools": "5.2.41",
+    "@netlify/functions": "2.0.2",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "@types/yargs": "17.0.24",
+    "animate.css": "4.1.1",
+    "bootstrap-icons": "1.11.1",
+    "caniuse-lite": "1.0.30001538",
+    "doiuse": "6.0.2",
+    "dotenv": "16.3.1",
+    "imagemin-lint-staged": "0.5.1",
+    "lazysizes": "5.3.2",
+    "lint-staged": "14.0.1",
+    "needle": "3.2.0",
+    "ninja-keys": "1.2.2",
+    "oauth-1.0a": "2.2.6",
+    "pagefind": "1.0.3",
+    "playwright": "1.38.1",
+    "puppeteer": "21.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "request": "2.88.2",
+    "sass": "1.68.0",
+    "simple-git-hooks": "2.9.0",
+    "snoowrap": "1.23.0",
+    "trim": "1.0.1",
+    "ts-node": "10.9.1",
+    "tsx": "3.12.10",
+    "twit": "2.2.11",
+    "twitter-api-sdk": "1.2.1",
+    "typescript": "5.2.2",
+    "web-vitals-element": "1.3.7",
+    "xml2js": "0.6.2",
+    "yargs": "17.7.2"
+  },
+  "devDependencies": {
+    "@clack/prompts": "0.7.0",
+    "@commitlint/cli": "17.7.1",
+    "@commitlint/config-conventional": "17.7.0",
+    "@commitlint/prompt-cli": "17.7.1"
+  },
+  "scripts": {
+    "audit:html": "hugo && html-validate public/**/*.html --config=tests/html-validator/config.json",
+    "audit:hugo": "./bin/hugo/audit",
+    "build:hugo": "./bin/hugo/build",
+    "build:webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
+    "build:webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "check-env": "node -e 'console.log(process.env)' | grep npm_config_",
+    "clean": "run-p clean:audit clean:cypress clean:hugo clean:netlify && npm run clean:npm",
+    "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
+    "clean:cypress": "rimraf tests/cypress/{downloads,screenshots,videos}/*",
+    "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
+    "clean:netlify": "rimraf .netlify/cache .netlify/functions",
+    "clean:npm": "rimraf node_modules package-lock.json .wireit",
+    "commit": "cz",
+    "cypress": "npm run cypress:run",
+    "cypress:info": "cypress info",
+    "cypress:install": "cypress install",
+    "cypress:run": "cypress open --config-file tests/cypress/cypress.config.ts",
+    "cypress:verify": "cypress verify",
+    "deploy": "npm run deploy:stage && npm run release:patch && bin/hugo/deploy",
+    "deploy:major": "npm run deploy:stage && npm run release:major && bin/hugo/deploy",
+    "deploy:minor": "npm run deploy:stage && npm run release:minor && bin/hugo/deploy",
+    "deploy:stage": "notify-send \"VSCode/Netlify: switch to the proper account now...\" && netlify switch",
+    "eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
+    "eslint-fix": "npm run eslint -- --fix",
+    "hooks:update": "simple-git-hooks",
+    "lighthouse": "bin/audit/lighthouse",
+    "lint": "wireit",
+    "lint:hook:commit": "lint-staged",
+    "lint:html": "html-validate --config=tests/html-validator/config.json public",
+    "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
+    "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
+    "lint:remark": "remark content/**/*.md",
+    "lint:scripts": "eslint assets/js --ext .ts",
+    "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
+    "lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
+    "lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables themes/hugo-theme/assets/scss",
+    "lint:templates": "bin/audit/lint-template-style",
+    "lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
+    "new": "node bin/hugo/content.mjs",
+    "pagefind": "pagefind",
+    "pipeline": "tsx pipeline.ts",
+    "prettier": "prettier 'assets/**/*.ts'",
+    "prettier:fix": "prettier --write 'assets/**/*.ts'",
+    "release": "./bin/repo/maintenance/dependencies && npm run release:patch",
+    "release:major": "commit-and-tag-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
+    "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
+    "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
+    "server": "run-p server:* -- --watch",
+    "server2:webpack": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.js",
+    "server:functions": "netlify functions:serve",
+    "server:hugo": "wireit",
+    "server:pagefind": "wireit",
+    "tests": "npm run cypress",
+    "update": "wireit"
+  },
+  "wireit": {
+    "server:pagefind": {
+      "dependencies": [
+        "server:hugo"
+      ],
+      "command": "pagefind",
+      "files": [
+        "content/**/*.md"
+      ]
+    },
+    "server:hugo": {
+      "command": "bin/hugo/server",
+      "readyWhen": {
+        "lineMatches": "Web Server is available at *"
+      }
+    },
+    "lint": {
+      "dependencies": [
+        "lint:html",
+        "lint:lockfiles"
+      ]
+    },
+    "update": {
+      "dependencies": [
+        "update:post"
+      ]
+    },
+    "update:post": {
+      "command": "fixpack && browserslist --update-db",
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:vale",
+        "update:pre:submodules"
+      ]
+    },
+    "update:pre:submodules": {
+      "command": "git submodule update --recursive --remote"
+    },
+    "update:pre:npm": {
+      "command": "npm-check-updates -u --target minor"
+    },
+    "update:pre:vale": {
+      "command": "vale --config='.github/vale/.vale.ini' --no-exit sync"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "eslintConfig": {
+    "extends": "@davidsneighbour/eslint-config"
+  },
+  "stylelint": {
+    "extends": "@davidsneighbour/stylelint-config"
+  }
 }

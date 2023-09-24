@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../renovate-config"
+		},
+		{
+			"path": "../quicklinks"
 		}
 	],
 	"settings": {

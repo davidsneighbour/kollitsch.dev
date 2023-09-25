@@ -1,6 +1,6 @@
 [hugoVersion]
 extended = true
-min = "0.116.0"
+min = "0.119.0"
 
 # issue davidsneighbour/kollitsch.dev#338
 [[mounts]]

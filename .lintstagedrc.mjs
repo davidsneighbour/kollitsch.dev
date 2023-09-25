@@ -20,6 +20,7 @@ export default {
     return [`eslint --max-warnings=0 ${filesToLint}`]
   },
   // "*.{md,markdown}": "markdownlint-cli2",
+  "*.{md,markdown}": ["npm run lint:vale"],
   "*.{scss,css}": "stylelint --fix",
   "*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
   "*.{js,jsx}": "flow focus-check",

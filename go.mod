@@ -29,7 +29,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2023.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.24 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.15 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2023.26 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2023.27 // indirect
 	github.com/paulirish/lite-youtube-embed v0.2.0 // indirect
 	github.com/tabler/tabler-icons v2.34.0+incompatible // indirect
 	github.com/tailwindlabs/heroicons v2.0.18+incompatible // indirect

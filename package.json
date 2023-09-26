@@ -16,7 +16,7 @@
     "@davidsneighbour/browserslist-config": "5.2.42",
     "@davidsneighbour/commitlint-config": "5.2.41",
     "@davidsneighbour/cssnano-config": "5.2.42",
-    "@davidsneighbour/eslint-config": "5.2.41",
+    "@davidsneighbour/eslint-config": "5.2.42",
     "@davidsneighbour/markdownlint-config": "5.2.41",
     "@davidsneighbour/postcss-config": "5.2.41",
     "@davidsneighbour/remark-config": "5.2.41",

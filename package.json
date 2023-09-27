@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@davidsneighbour/bootstrap-config": "5.2.43",
-    "@davidsneighbour/browserslist-config": "5.2.42",
+    "@davidsneighbour/browserslist-config": "5.2.43",
     "@davidsneighbour/commitlint-config": "5.2.42",
     "@davidsneighbour/cssnano-config": "5.2.42",
     "@davidsneighbour/eslint-config": "5.2.42",

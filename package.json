@@ -28,7 +28,7 @@
     "@types/yargs": "17.0.25",
     "animate.css": "4.1.1",
     "bootstrap-icons": "1.11.1",
-    "caniuse-lite": "1.0.30001539",
+    "caniuse-lite": "1.0.30001541",
     "doiuse": "6.0.2",
     "dotenv": "16.3.1",
     "imagemin-lint-staged": "0.5.1",

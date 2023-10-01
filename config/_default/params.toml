@@ -161,7 +161,7 @@ networks = [
   "linkedin",
   "instagram",
   "facebook",
-  "twitter",
+  "bluesky",
 ]
 
 [dnb.social.network.facebook]
@@ -169,10 +169,10 @@ url = "https://www.facebook.com/patrick.kollitsch/"
 icon = "facebook"
 label = "Follow me on Facebook"
 
-[dnb.social.network.twitter]
-url = "https://www.twitter.com/davidsneighbour"
-icon = "twitter"
-label = "Follow me on Twitter"
+[dnb.social.network.bluesky]
+url = "https://bsky.app/profile/kollitsch.dev"
+icon = "square-fill"
+label = "Follow me on Bluesky"
 
 [dnb.social.network.instagram]
 url = "https://www.instagram.com/pkollitsch/"

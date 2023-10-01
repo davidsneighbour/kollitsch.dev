@@ -3,6 +3,7 @@ module github.com/davidsneighbour/kollitsch.dev
 go 1.20
 
 require (
+	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
 	github.com/davidsneighbour/hugo-modules v0.0.0-20230927123258-dd6687e8c887 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20230927123258-dd6687e8c887 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/pictures v1.2023.18 // indirect

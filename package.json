@@ -14,7 +14,7 @@
   "dependencies": {
     "@davidsneighbour/bootstrap-config": "5.2.44",
     "@davidsneighbour/browserslist-config": "5.2.44",
-    "@davidsneighbour/commitlint-config": "5.2.43",
+    "@davidsneighbour/commitlint-config": "5.2.44",
     "@davidsneighbour/cssnano-config": "5.2.44",
     "@davidsneighbour/eslint-config": "5.2.43",
     "@davidsneighbour/markdownlint-config": "5.2.43",

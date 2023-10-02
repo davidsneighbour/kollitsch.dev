@@ -95,11 +95,7 @@
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:remark": "remark content/**/*.md",
-    "lint:scripts": "eslint assets/js --ext .ts",
-    "lint:scripts:fix": "eslint assets/js --ext .ts --fix",
-    "lint:styles": "stylelint --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables assets/scss",
-    "lint:styles:fix": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables themes/hugo-theme/assets/scss",
-    "lint:templates": "bin/audit/lint-template-style",
+
     "lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
     "new": "node bin/hugo/content.mjs",
     "pagefind": "pagefind",

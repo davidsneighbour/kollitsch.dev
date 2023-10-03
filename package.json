@@ -21,7 +21,7 @@
     "@davidsneighbour/postcss-config": "5.2.44",
     "@davidsneighbour/remark-config": "5.2.44",
     "@davidsneighbour/standard-version-config": "5.2.43",
-    "@davidsneighbour/tools": "5.2.43",
+    "@davidsneighbour/tools": "5.2.44",
     "@netlify/functions": "2.1.0",
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.8",

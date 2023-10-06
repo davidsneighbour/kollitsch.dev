@@ -34,7 +34,7 @@ module.exports = {
       ignore: ['rem'],
       ignoreFiles: ['**/normalize.css'],
     }),
-    purgecss,
+    //purgecss,
     // https://github.com/postcss/autoprefixer
     autoprefixer(),
     // https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env
@@ -49,8 +49,6 @@ module.exports = {
       },
       debug: true,
     }),
-
-    // purgecss,
     // https://github.com/cssnano/cssnano
     cssnano({
       preset: [

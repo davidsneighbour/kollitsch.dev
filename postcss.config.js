@@ -9,7 +9,7 @@ const purgecss = process.env.HUGO_ENVIRONMENT === 'production' ? require('@fullh
   // https://github.com/gohugoio/hugo/issues/10338
   // https://discourse.gohugo.io/t/purgecss-and-highlighting/41021
   safelist: {
-    greedy: [/highlight/, /chroma/, /widget--web-vitals/]
+    greedy: [/highlight/, /chroma/, /widget--web-vitals/, /dark/]
   },
   fontFace: true,
   //variables: true,

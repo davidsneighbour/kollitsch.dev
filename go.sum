@@ -2,8 +2,12 @@ github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXq
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/davidsneighbour/hugo-modules v0.0.0-20230927123258-dd6687e8c887 h1:U/o8mnZY5Pe+vXR8pnI4EfFFVAMtJBU9eI8P/x+LD7E=
 github.com/davidsneighbour/hugo-modules v0.0.0-20230927123258-dd6687e8c887/go.mod h1:++jW3Xy5/Gjjroc70w+8s7Bkqlxmy5bIG/gNTXMAAKw=
+github.com/davidsneighbour/hugo-modules v0.0.0-20231002121612-8db0a40372ca h1:4orzYXg3ISCRZfBygRYow+k6gCttZC8WHaBb6C9nxDM=
+github.com/davidsneighbour/hugo-modules v0.0.0-20231002121612-8db0a40372ca/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
 github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20230927123258-dd6687e8c887 h1:QhtyNDhgPDqzMBjYuznQlkbE8ABgFx6nr7KvQVOCb74=
 github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20230927123258-dd6687e8c887/go.mod h1:bOqsJdpxzt+N1E88uFQGuuQ/p9lLnkn8Ptzw6pTmOPU=
+github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20231002121612-8db0a40372ca h1:U7C8gKhqKPkIG539zWNMgDacp1nxKIxEmg7dRmNIMHk=
+github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20231002121612-8db0a40372ca/go.mod h1:bOqsJdpxzt+N1E88uFQGuuQ/p9lLnkn8Ptzw6pTmOPU=
 github.com/davidsneighbour/hugo-modules/modules/pictures v1.2023.18 h1:fss2B6YOD3On4mezhz5DBbtz1T/4GI8kOKtjuIz0ZP4=
 github.com/davidsneighbour/hugo-modules/modules/pictures v1.2023.18/go.mod h1:7uMtGk3WBOPZ+oIeUPktjQES2QnbE43To7AH9rRDpRY=
 github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2023.5 h1:tUvbNxwMEsn5JkBaNH/bYwXo6nq0ELsiAP0SPfOz+ik=
@@ -12,6 +16,8 @@ github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.15 h1:aC/w5ve5xo
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.15/go.mod h1:X+QK/U8TcGlLHZPuWef0eJCACqE1vG6jhffAn3b/TL4=
 github.com/davidsneighbour/hugo-theme v1.2023.30 h1:C47FxDoMxZiTnRBdFgzveP5wB/dxEfGqWoKYCrTjE7Y=
 github.com/davidsneighbour/hugo-theme v1.2023.30/go.mod h1:A0spY1XfcaBZ1d3U0pjcWvdNW3OxwFPXyOXIJZUYtTg=
+github.com/davidsneighbour/hugo-theme v1.2023.31 h1:IMqzqYGP+ls63IefHqHd8asCVMVf08gE6qxIEjMLnNg=
+github.com/davidsneighbour/hugo-theme v1.2023.31/go.mod h1:LBkERAMNhVY8l1EIGfaASvxqPcjb4QPx2nuLUEzQ/k4=
 github.com/tabler/tabler-icons v2.37.0+incompatible h1:iXh6e58JijiMDYZ6Upiu2f4poXeWhjadQHCGW2avkeE=
 github.com/tabler/tabler-icons v2.37.0+incompatible/go.mod h1:Ap75CRdhXxprnUnPlUCRLvJ2pIFNqwxIipj3GfD6XHE=
 github.com/tailwindlabs/heroicons v2.0.18+incompatible h1:9rm5lZcJ6mT4j9F/9LDaS/Roz6hgyKkaLVbm+b4l9YY=

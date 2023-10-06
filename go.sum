@@ -18,6 +18,8 @@ github.com/davidsneighbour/hugo-theme v1.2023.30 h1:C47FxDoMxZiTnRBdFgzveP5wB/dx
 github.com/davidsneighbour/hugo-theme v1.2023.30/go.mod h1:A0spY1XfcaBZ1d3U0pjcWvdNW3OxwFPXyOXIJZUYtTg=
 github.com/davidsneighbour/hugo-theme v1.2023.31 h1:IMqzqYGP+ls63IefHqHd8asCVMVf08gE6qxIEjMLnNg=
 github.com/davidsneighbour/hugo-theme v1.2023.31/go.mod h1:LBkERAMNhVY8l1EIGfaASvxqPcjb4QPx2nuLUEzQ/k4=
+github.com/davidsneighbour/hugo-theme v1.2023.33 h1:4Dfk7t3YFxedje21PrN+RGOgM+3U7ZGUHbOzGO/M1u8=
+github.com/davidsneighbour/hugo-theme v1.2023.33/go.mod h1:LBkERAMNhVY8l1EIGfaASvxqPcjb4QPx2nuLUEzQ/k4=
 github.com/tabler/tabler-icons v2.37.0+incompatible h1:iXh6e58JijiMDYZ6Upiu2f4poXeWhjadQHCGW2avkeE=
 github.com/tabler/tabler-icons v2.37.0+incompatible/go.mod h1:Ap75CRdhXxprnUnPlUCRLvJ2pIFNqwxIipj3GfD6XHE=
 github.com/tailwindlabs/heroicons v2.0.18+incompatible h1:9rm5lZcJ6mT4j9F/9LDaS/Roz6hgyKkaLVbm+b4l9YY=

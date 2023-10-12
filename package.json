@@ -38,7 +38,7 @@
     "ninja-keys": "1.2.2",
     "oauth-1.0a": "2.2.6",
     "pagefind": "1.0.3",
-    "playwright": "1.38.1",
+    "playwright": "1.39.0",
     "puppeteer": "21.3.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",

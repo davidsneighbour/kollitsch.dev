@@ -22,7 +22,7 @@
     "@davidsneighbour/remark-config": "5.5.2",
     "@davidsneighbour/standard-version-config": "5.5.2",
     "@davidsneighbour/tools": "5.5.2",
-    "@netlify/functions": "2.2.1",
+    "@netlify/functions": "2.3.0",
     "@types/react": "18.2.28",
     "@types/react-dom": "18.2.13",
     "@types/yargs": "17.0.28",

@@ -1,10 +1,9 @@
 ---
 title: Update Npm Packages in All Available Nvm Environments
-description: ""
-summary: ""
+description: Automate the update of global npm packages across multiple Node.js versions using nvm and a bash script. Schedule it with cron for hassle-free maintenance.
 date: 2023-10-12T18:53:01+07:00
 publishDate: 2023-10-12T18:53:01+07:00
-lastmod: 2023-10-12T19:48:03+07:00
+lastmod: 2023-10-12T19:49:43+07:00
 resources:
 - title: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
   src: header.jpg

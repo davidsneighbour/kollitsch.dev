@@ -3,5 +3,6 @@
   "title": "Generate social image for Youtube",
   "script": "./.frontmatter/scripts/create-youtube-header-image.js",
   "command": "~/.nvm/versions/node/v20.4.0/bin/node",
-  "type": "content"
+  "type": "content",
+  "contentTypes": ["blog"]
 }

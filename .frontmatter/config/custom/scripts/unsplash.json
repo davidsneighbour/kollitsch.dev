@@ -2,5 +2,6 @@
   "$schema": "https://frontmatter.codes/config/custom.scripts.schema.json",
   "command": "~/.nvm/versions/node/v20.4.0/bin/node",
   "script": "./.frontmatter/scripts/retrieve-unsplash-header-image-info.mjs",
-  "title": "Retrieve Unsplash image"
+  "title": "Retrieve Unsplash image",
+  "contentTypes": ["blog"]
 }

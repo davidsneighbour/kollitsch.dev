@@ -8,6 +8,8 @@ github.com/davidsneighbour/hugo-modules v0.0.0-20231015094607-1601fbbed1e8 h1:Lh
 github.com/davidsneighbour/hugo-modules v0.0.0-20231015094607-1601fbbed1e8/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
 github.com/davidsneighbour/hugo-modules v0.0.0-20231015122120-24a2a7b23f1e h1:dllk4HvAsrcAMz37kZ4JRPoPtqE46IAOKChT0Sp8HSQ=
 github.com/davidsneighbour/hugo-modules v0.0.0-20231015122120-24a2a7b23f1e/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
+github.com/davidsneighbour/hugo-modules v0.0.0-20231016125517-f23d0e03c3ff h1:huEMZcaBZ+V3ATPuMdTImY+H+pyaSzUlpbMrFfh4awg=
+github.com/davidsneighbour/hugo-modules v0.0.0-20231016125517-f23d0e03c3ff/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
 github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20230927123258-dd6687e8c887 h1:QhtyNDhgPDqzMBjYuznQlkbE8ABgFx6nr7KvQVOCb74=
 github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20230927123258-dd6687e8c887/go.mod h1:bOqsJdpxzt+N1E88uFQGuuQ/p9lLnkn8Ptzw6pTmOPU=
 github.com/davidsneighbour/hugo-modules/modules/icons v0.0.0-20231002121612-8db0a40372ca h1:U7C8gKhqKPkIG539zWNMgDacp1nxKIxEmg7dRmNIMHk=
@@ -28,6 +30,8 @@ github.com/davidsneighbour/hugo-theme v1.2023.33 h1:4Dfk7t3YFxedje21PrN+RGOgM+3U
 github.com/davidsneighbour/hugo-theme v1.2023.33/go.mod h1:LBkERAMNhVY8l1EIGfaASvxqPcjb4QPx2nuLUEzQ/k4=
 github.com/davidsneighbour/hugo-theme v1.2023.37 h1:zK9S9KxemHfi5tXuzAs70un1fxg0CfKhQbcwNcgxg10=
 github.com/davidsneighbour/hugo-theme v1.2023.37/go.mod h1:aOtc3zWNiZ03XPjmeYB48sJvNtY1lGyP3lwBA5PGVIo=
+github.com/davidsneighbour/hugo-theme v1.2023.40 h1:NRhK+EpXE9HB54221+tUZIppmTrGqiyNsZ4Re/9uiJo=
+github.com/davidsneighbour/hugo-theme v1.2023.40/go.mod h1:FkQc6b7rN7OAaKGScaDy77Zp3uwAiO55Faw6QWYAlqU=
 github.com/tabler/tabler-icons v2.37.0+incompatible h1:iXh6e58JijiMDYZ6Upiu2f4poXeWhjadQHCGW2avkeE=
 github.com/tabler/tabler-icons v2.37.0+incompatible/go.mod h1:Ap75CRdhXxprnUnPlUCRLvJ2pIFNqwxIipj3GfD6XHE=
 github.com/tailwindlabs/heroicons v2.0.18+incompatible h1:9rm5lZcJ6mT4j9F/9LDaS/Roz6hgyKkaLVbm+b4l9YY=

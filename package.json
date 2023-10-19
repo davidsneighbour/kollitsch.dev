@@ -19,21 +19,21 @@
     "@davidsneighbour/eslint-config": "5.5.3",
     "@davidsneighbour/markdownlint-config": "5.5.3",
     "@davidsneighbour/postcss-config": "5.5.3",
-    "@davidsneighbour/remark-config": "5.5.2",
-    "@davidsneighbour/standard-version-config": "5.5.2",
-    "@davidsneighbour/tools": "5.5.2",
+    "@davidsneighbour/remark-config": "5.5.3",
+    "@davidsneighbour/standard-version-config": "5.5.3",
+    "@davidsneighbour/tools": "5.5.3",
     "@netlify/functions": "2.3.0",
-    "@types/react": "18.2.28",
-    "@types/react-dom": "18.2.13",
-    "@types/yargs": "17.0.28",
+    "@types/react": "18.2.29",
+    "@types/react-dom": "18.2.14",
+    "@types/yargs": "17.0.29",
     "animate.css": "4.1.1",
     "bootstrap-icons": "1.11.1",
-    "caniuse-lite": "1.0.30001550",
+    "caniuse-lite": "1.0.30001551",
     "doiuse": "6.0.2",
     "dotenv": "16.3.1",
     "imagemin-lint-staged": "0.5.1",
     "lazysizes": "5.3.2",
-    "lint-staged": "15.0.1",
+    "lint-staged": "15.0.2",
     "needle": "3.2.0",
     "ninja-keys": "1.2.2",
     "oauth-1.0a": "2.2.6",
@@ -48,7 +48,7 @@
     "snoowrap": "1.23.0",
     "trim": "1.0.1",
     "ts-node": "10.9.1",
-    "tsx": "3.13.0",
+    "tsx": "3.14.0",
     "twit": "2.2.11",
     "twitter-api-sdk": "1.2.1",
     "typescript": "5.2.2",
@@ -168,8 +168,5 @@
   },
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
-  },
-  "stylelint": {
-    "extends": "@davidsneighbour/stylelint-config"
   }
 }

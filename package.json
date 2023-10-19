@@ -19,7 +19,7 @@
     "@davidsneighbour/eslint-config": "5.5.3",
     "@davidsneighbour/markdownlint-config": "5.5.3",
     "@davidsneighbour/postcss-config": "5.5.2",
-    "@davidsneighbour/remark-config": "5.5.2",
+    "@davidsneighbour/remark-config": "5.5.3",
     "@davidsneighbour/standard-version-config": "5.5.2",
     "@davidsneighbour/tools": "5.5.2",
     "@netlify/functions": "2.3.0",

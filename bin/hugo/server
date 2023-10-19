@@ -5,58 +5,23 @@ set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
 # Reset BASH time counter
 SECONDS=0
 
-################################################################################
-# Help                                                                         #
-################################################################################
 Help() {
   # Display Help
   echo "A quick setup script for local GoHugo dev servers."
   echo
-  echo "Syntax: server [-v|h]"
+  echo "Syntax: bin/hugo/server [-v|h]"
   echo "options:"
   echo "h     Print this Help."
   echo "v     Verbose mode."
   echo
 }
 
-REQUIRED_TOOLS=(
-  hugo
-  npm
-  export
-  trap
-)
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" >/dev/null 2>&1 || exit
+  pwd -P
+)"
 
-for TOOL in "${REQUIRED_TOOLS[@]}"; do
-  if ! command -v "${TOOL}" >/dev/null; then
-    echo "${TOOL} is required... "
-    exit 1
-  fi
-done
-
-while getopts ":hn:" option; do
-  case $option in
-  h) # display Help
-    Help
-    exit
-    ;;
-  n) # Enter a name
-    Name=$OPTARG ;;
-  \?) # Invalid option
-    echo "Error: Invalid option"
-    exit
-    ;;
-  esac
-done
-
-while getopts u:a:f: flag; do
-  case "${flag}" in
-  u) username=${OPTARG} ;;
-  a) age=${OPTARG} ;;
-  f) fullname=${OPTARG} ;;
-  esac
-done
-
-for FILE in bin/lib/*; do
+for FILE in "$SCRIPTPATH"/../lib/*; do
   set -a
   # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
   # see https://github.com/koalaman/shellcheck/wiki/SC1090
@@ -65,16 +30,29 @@ for FILE in bin/lib/*; do
   set +a
 done
 
-# SCRIPTPATH="$(
-#   cd "$(dirname "$0")" >/dev/null 2>&1 || exit
-#   pwd -P
-# )"
+check_and_exit_on_missing_tools hugo npm export trap
+
+while getopts ":h:" option; do
+  case $option in
+  h) # display Help
+    Help
+    exit
+    ;;
+  \?) # Invalid option
+    echo "Error: Invalid option"
+    exit
+    ;;
+  esac
+done
+
 CURPATH="$(pwd -P)"
 
-trap "{
-	echo 'Terminated with Ctrl+C\n';
-	echo
-}" SIGINT
+trap '{
+  clear
+	echo "Terminated with Ctrl+C"
+  echo "Elapsed: $((SECONDS / 3600))hrs $(((SECONDS / 60) % 60))min $((SECONDS % 60))sec"
+	exit 0
+}' SIGINT
 
 FILE=${CURPATH}/.env
 if [ -f "$FILE" ]; then
@@ -88,12 +66,6 @@ if [ -f "$FILE" ]; then
 fi
 
 rm -rf public
-
-# cleanup hugo logging
-# npm run clean:hugo
-
-# update modules
-#hugo mod get -u ./...
 
 # recreate ssl certificates
 hugo server trust
@@ -113,9 +85,6 @@ if test -f "${REPLACEMENTS}"; then
   done <"${REPLACEMENTS}"
   [[ -n "${HUGO_MODULE_REPLACEMENTS}" ]] && export HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" || echo "No replacements found"
 fi
-
-# echo "REPLACEMENTS:"
-# echo ${HUGO_MODULE_REPLACEMENTS}
 
 # DNB bin config
 dnb_server_debug=""

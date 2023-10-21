@@ -66,9 +66,9 @@
   "scripts": {
     "audit:html": "wireit",
     "build:hugo": "./bin/hugo/build",
+    "build:pagefind": "pagefind",
     "clean": "wireit",
     "clean:full": "wireit",
-    "commit": "cz",
     "cypress": "npm run cypress:run",
     "cypress:info": "cypress info",
     "cypress:install": "cypress install",
@@ -84,13 +84,11 @@
     "lighthouse": "bin/audit/lighthouse",
     "lint": "wireit",
     "lint:hook:commit": "lint-staged",
-    "lint:html": "html-validate --config=tests/html-validator/config.json public",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:remark": "remark content/**/*.md",
     "lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
     "new": "node bin/hugo/content.mjs",
-    "pagefind": "pagefind",
     "pipeline": "tsx pipeline.ts",
     "prettier": "prettier 'assets/**/*.ts'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
@@ -126,7 +124,6 @@
     },
     "lint": {
       "dependencies": [
-        "lint:html",
         "lint:lockfiles"
       ]
     },
@@ -181,7 +178,7 @@
       "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
     },
     "clean:netlify": {
-      "command": "rimraf .netlify/cache .netlify/functions"
+      "command": "rimraf .netlify/*/*"
     }
   },
   "config": {

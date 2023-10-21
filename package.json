@@ -65,14 +65,9 @@
   },
   "scripts": {
     "audit:html": "wireit",
-    "audit:hugo": "./bin/hugo/audit",
     "build:hugo": "./bin/hugo/build",
-    "clean": "run-p clean:audit clean:cypress clean:hugo clean:netlify && npm run clean:npm",
-    "clean:audit": "rimraf tests/lighthouse/reports/*.{csv,html,json}",
-    "clean:cypress": "rimraf tests/cypress/{downloads,screenshots,videos}/*",
-    "clean:hugo": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock",
-    "clean:netlify": "rimraf .netlify/cache .netlify/functions",
-    "clean:npm": "rimraf node_modules package-lock.json .wireit",
+    "clean": "wireit",
+    "clean:full": "wireit",
     "commit": "cz",
     "cypress": "npm run cypress:run",
     "cypress:info": "cypress info",
@@ -156,6 +151,37 @@
     },
     "update:pre:vale": {
       "command": "vale --config='.github/vale/.vale.ini' --no-exit sync"
+    },
+    "clean": {
+      "dependencies": [
+        "clean:audit",
+        "clean:cypress",
+        "clean:hugo"
+      ]
+    },
+    "clean:full": {
+      "command": "rimraf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:audit",
+        "clean:cypress",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
+    },
+    "clean:audit": {
+      "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
+    },
+    "clean:cypress": {
+      "command": "rimraf tests/cypress/{downloads,screenshots,videos}/*"
+    },
+    "clean:hugo": {
+      "command": "rimraf hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
+    },
+    "clean:hugo:full": {
+      "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
+    },
+    "clean:netlify": {
+      "command": "rimraf .netlify/cache .netlify/functions"
     }
   },
   "config": {

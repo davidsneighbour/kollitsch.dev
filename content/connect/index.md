@@ -25,7 +25,7 @@ aliases:
   - contact
 ---
 
-{{< contact-form >}}
+{{< form id="contactform" >}}
 
 ## Follow my exploits on Social Media
 

@@ -68,7 +68,7 @@ if test -f "${REPLACEMENTS}"; then
 fi
 
 # cleanup hugo logging
-npm run clean:hugo
+npm run clean
 
 # update modules
 hugo mod get -u ./...

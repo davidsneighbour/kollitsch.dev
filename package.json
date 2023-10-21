@@ -17,6 +17,7 @@
     "@davidsneighbour/commitlint-config": "5.5.3",
     "@davidsneighbour/cssnano-config": "5.5.3",
     "@davidsneighbour/eslint-config": "5.5.3",
+    "@davidsneighbour/htmlvalidate-config": "^5.5.3",
     "@davidsneighbour/markdownlint-config": "5.5.3",
     "@davidsneighbour/postcss-config": "5.5.3",
     "@davidsneighbour/remark-config": "5.5.3",
@@ -63,7 +64,7 @@
     "@commitlint/prompt-cli": "18.0.0"
   },
   "scripts": {
-    "audit:html": "hugo && html-validate public/**/*.html --config=tests/html-validator/config.json",
+    "audit:html": "wireit",
     "audit:hugo": "./bin/hugo/audit",
     "build:hugo": "./bin/hugo/build",
     "check-env": "node -e 'console.log(process.env)' | grep npm_config_",
@@ -111,6 +112,9 @@
     "update": "wireit"
   },
   "wireit": {
+    "audit:html": {
+      "command": "npm run build:hugo && html-validate public/**/*.html --config=tests/html-validator/config.json"
+    },
     "server:pagefind": {
       "dependencies": [
         "server:hugo"

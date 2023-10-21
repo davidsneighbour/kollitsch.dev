@@ -45,7 +45,7 @@ fi
 # done
 # cd "$CURPATH" || exit
 
-# @todo find out what we intended here ;] (@davidsneighbour)
+# read base url from first argument, if empty use empty value
 BASE_URL_PARAM=""
 if [ -n "${1}" ]; then
   BASE_URL_PARAM="--baseURL=${1}"

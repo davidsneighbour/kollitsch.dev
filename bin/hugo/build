@@ -46,13 +46,10 @@ fi
 # cd "$CURPATH" || exit
 
 # @todo find out what we intended here ;] (@davidsneighbour)
-# BASE_URL_PARAM=""
-# if [ -n "${1}" ]; then
-#   BASE_URL_PARAM="-b=${1}"
-# fi
-
-# recreate ssl certificates
-hugo server trust
+BASE_URL_PARAM=""
+if [ -n "${1}" ]; then
+  BASE_URL_PARAM="--baseURL=${1}"
+fi
 
 # create replacements via environment
 NOT_FIRST_LINE=false
@@ -77,10 +74,9 @@ npm run clean:hugo
 hugo mod get -u ./...
 
 # running hugo
-# @TODO remove paranoid settings and make into a cli option to debug more
-# starting hugo server
 # shellcheck disable=SC2086
 env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   hugo \
   --logLevel "${LOGLEVEL}" \
-  --enableGitInfo
+  --enableGitInfo \
+  $BASE_URL_PARAM

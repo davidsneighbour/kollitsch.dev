@@ -33,7 +33,9 @@
 			"*.redir": "gotemplate",
 			"_redir": "gotemplate",
 		},
-		"js/ts.implicitProjectConfig.checkJs": true
+		"js/ts.implicitProjectConfig.checkJs": true,
+		"markdown.extension.orderedList.marker": "one",
+		"markdown.extension.toc.unorderedList.marker": "-"
 	},
 	"extensions": {
 		"recommendations": [

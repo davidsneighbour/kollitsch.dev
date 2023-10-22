@@ -4,7 +4,7 @@ linkTitle: Reusable Gohugo Forms via Configuration
 description: ""
 date: 2023-10-22T17:29:40+07:00
 publishDate: 2023-10-22T17:29:40+07:00
-lastmod: 2023-10-22T22:00:32+07:00
+lastmod: 2023-10-22T22:11:42+07:00
 resources:
 - title: Carefully implemented forms
   src: header.jpg
@@ -30,10 +30,10 @@ Some quick sidenotes:
 
 I added the shortcode to my shortcodes module. That makes it easier to transport to other sites I am working on. At the time of writing this article, the files in use are the following:
 
-* `config/_default/params.toml` - the configuration
-* `i18n/en.toml` - the internationalization
-* `layouts/shortcodes/form.html` - the form generation
-* `layouts/partials/func/getRandomString.html` - random string generator used (part of the functions module)
+* [`config/_default/params.toml`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/config/_default/params.toml) - the configuration
+* [`i18n/en.toml`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/i18n/en.toml) - the internationalization
+* [`layouts/shortcodes/form.html`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/layouts/shortcodes/form.html) - the form generation
+* [`layouts/partials/func/getRandomString.html`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/functions/layouts/partials/func/getRandomString.html) - random string generator used (part of the functions module)
 
 Things might change because this is a "work in progress" with plenty of features I want to add. But for now, let's dive into the details of the first incarnation: A contact form.
 

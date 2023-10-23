@@ -3,7 +3,7 @@ title: Howto get the next semver version number in a bash script
 description: Discover how to automate Semver version updates with a Bash script for a smoother release management process in your projects.
 date: 2023-10-23T22:09:53+07:00
 publishDate: 2023-10-23T22:09:53+07:00
-lastmod: 2023-10-23T22:35:15+07:00
+lastmod: 2023-10-23T22:56:28+07:00
 resources:
 - title: Versions of versions
   src: header.jpg
@@ -62,6 +62,7 @@ get_next_version() {
   esac
 
   local NEXT_VERSION="$MAJOR.$MINOR.$PATCH"
+  echo "$NEXT_VERSION"
 }
 ```
 

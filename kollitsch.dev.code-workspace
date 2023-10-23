@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "../quicklinks"
+		},
+		{
+			"path": "../namespace"
 		}
 	],
 	"settings": {

@@ -19,9 +19,6 @@
 			"path": "../renovate-config"
 		},
 		{
-			"path": "../quicklinks"
-		},
-		{
 			"path": "../namespace"
 		}
 	],

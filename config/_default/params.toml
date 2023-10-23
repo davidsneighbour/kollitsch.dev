@@ -204,6 +204,10 @@ url = "https://davidsneighbour.substack.com/"
 icon = "stack"
 label = "Follow me on Substack"
 
+[dnb.social.twitter]
+profile = "davidsneighbour"
+domain = "davids-neighbour.com"
+
 ################################################################################
 # hugo-giscus
 # @see https://kollitsch.dev/components/hugo-giscus

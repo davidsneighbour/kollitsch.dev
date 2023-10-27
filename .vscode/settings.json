@@ -4,12 +4,6 @@
 			"./static/_schemata/*.schema.yaml"
 		]
 	},
-	"files.associations": {
-		"**/layouts/**.html": "gohtml",
-		"**/layouts/**.xml": "gotemplate",
-		"**/layouts/**.json": "gojson",
-		"**/layouts/**.txt": "gotemplate",
-	},
 	"explorer.fileNesting.patterns": {
 		"hugo.log": "hugo_stats.json, .hugo_build.lock"
 	},

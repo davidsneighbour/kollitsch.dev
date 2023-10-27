@@ -1,57 +1,61 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../hugo-theme"
-		},
-		{
-			"path": "../hugo-modules"
-		},
-		{
-			"path": "../configurations"
-		},
-		{
-			"path": "../hugo-asylum"
-		},
-		{
-			"path": "../renovate-config"
-		},
-		{
-			"path": "../namespace"
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"*.html": "gohtml",
-			"*.xml": "gotemplate",
-			"*.json": "gojson",
-			"*.txt": "gotemplate",
-			"*.headers": "gotemplate",
-			"_headers": "gotemplate",
-			"*.redir": "gotemplate",
-			"_redir": "gotemplate",
-		},
-		"js/ts.implicitProjectConfig.checkJs": true,
-		"markdown.extension.orderedList.marker": "one",
-		"markdown.extension.toc.unorderedList.marker": "-"
-	},
-	"extensions": {
-		"recommendations": [
-			"pomdtr.excalidraw-editor",
-			"eliostruyf.vscode-front-matter",
-			"davidanson.vscode-markdownlint",
-			"yzhang.markdown-all-in-one",
-			"golang.go",
-			"casualjim.gotemplate",
-			"tamasfe.even-better-toml",
-			"stylelint.vscode-stylelint",
-			"foxundermoon.shell-format",
-			"timonwong.shellcheck",
-			"remisa.shellman",
-			"mkhl.shfmt",
-			"mjmlio.vscode-mjml"
-		]
-	}
+  "folders": [
+    {
+      "path": ".",
+      "name": "kollitsch.dev"
+    },
+    {
+      "path": "../hugo-theme"
+    },
+    {
+      "path": "../hugo-modules"
+    },
+    {
+      "path": "../configurations"
+    },
+    {
+      "path": "../hugo-asylum"
+    },
+    {
+      "path": "../renovate-config"
+    },
+    {
+      "path": "../namespace"
+    },
+    {
+      "path": "../hugo-theme/layouts"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "*.html": "gohtml",
+      "*.xml": "gotemplate",
+      "*.json": "gojson",
+      "*.txt": "gotemplate",
+      "*.headers": "gotemplate",
+      "_headers": "gotemplate",
+      "*.redir": "gotemplate",
+      "_redir": "gotemplate",
+    },
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "markdown.extension.orderedList.marker": "one",
+    "markdown.extension.toc.unorderedList.marker": "-"
+  },
+  "extensions": {
+    "recommendations": [
+      "pomdtr.excalidraw-editor",
+      "eliostruyf.vscode-front-matter",
+      "davidanson.vscode-markdownlint",
+      "yzhang.markdown-all-in-one",
+      "golang.go",
+      "casualjim.gotemplate",
+      "tamasfe.even-better-toml",
+      "stylelint.vscode-stylelint",
+      "foxundermoon.shell-format",
+      "timonwong.shellcheck",
+      "remisa.shellman",
+      "mkhl.shfmt",
+      "mjmlio.vscode-mjml"
+    ]
+  }
 }

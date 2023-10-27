@@ -24,12 +24,12 @@
     "@davidsneighbour/standard-version-config": "5.5.5",
     "@davidsneighbour/tools": "5.5.5",
     "@netlify/functions": "2.3.0",
-    "@types/react": "18.2.31",
+    "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",
     "@types/yargs": "17.0.29",
     "animate.css": "4.1.1",
     "bootstrap-icons": "1.11.1",
-    "caniuse-lite": "1.0.30001553",
+    "caniuse-lite": "1.0.30001554",
     "doiuse": "6.0.2",
     "dotenv": "16.3.1",
     "imagemin-lint-staged": "0.5.1",
@@ -44,7 +44,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "request": "2.88.2",
-    "sass": "1.69.4",
+    "sass": "1.69.5",
     "simple-git-hooks": "2.9.0",
     "snoowrap": "1.23.0",
     "trim": "1.0.1",
@@ -57,9 +57,9 @@
   },
   "devDependencies": {
     "@clack/prompts": "0.7.0",
-    "@commitlint/cli": "18.0.0",
-    "@commitlint/config-conventional": "18.0.0",
-    "@commitlint/prompt-cli": "18.0.0"
+    "@commitlint/cli": "18.2.0",
+    "@commitlint/config-conventional": "18.1.0",
+    "@commitlint/prompt-cli": "18.2.0"
   },
   "scripts": {
     "audit:html": "wireit",

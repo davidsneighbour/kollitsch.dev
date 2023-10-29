@@ -32,6 +32,7 @@
     "caniuse-lite": "1.0.30001557",
     "doiuse": "6.0.2",
     "dotenv": "16.3.1",
+    "esm": "^3.2.25",
     "imagemin-lint-staged": "0.5.1",
     "lazysizes": "5.3.2",
     "lint-staged": "15.0.2",

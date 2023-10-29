@@ -1,24 +1,8 @@
 // utils.tumblr.mjs
-
-import tumblr from 'tumblr.js';
 import fs from 'node:fs';
-import fetch from 'node-fetch';
-import { parseStringPromise } from 'xml2js';
 import path from 'path';
-import https from 'https';
-import { pipeline } from 'stream/promises';
-import { promises as fsPromises } from 'fs';
 
-export const loadEnv = async () => {
-  try {
-    const envFileContent = await fsPromises.readFile('.env', 'utf8');
-    dotenvConfig({ path: '.env' });
-  } catch (error) {
-    console.error('Error loading .env file:', error);
-  }
-};
-
-export const preparePostObject = (feed) => {
+export const preparePostObject = (feed, localFileName) => {
   const link = path.parse(feed.rss.channel[0].item[0].link[0]).dir;
 
   return {

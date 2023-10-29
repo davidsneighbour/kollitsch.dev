@@ -2,13 +2,10 @@
 // https://www.tumblr.com/docs/npf
 // notify.tumblr.mjs
 
-
 import tumblr from 'tumblr.js';
-import fs from 'node:fs';
 import 'dotenv/config';
-import { getFeed, getArticleImage } from './utils.mjs'; // Import getFeed and getArticleImage from utils.mjs
+import { loadFeed, downloadImage, loadEnv } from './utils.mjs';
 import { preparePostObject } from './utils.tumblr.mjs';
-
 
 const main = async () => {
   try {
@@ -17,10 +14,10 @@ const main = async () => {
 
     // Load feed using the getFeed function
     const { FEED_LINK } = process.env;
-    const feed = await getFeed(FEED_LINK);
+    const feed = await loadFeed(FEED_LINK);
 
     // Download article image using the getArticleImage function
-    await getArticleImage(feed);
+    await downloadImage(feed);
 
     // Create post object using the preparePostObject function
     const client = tumblr.createClient({
@@ -29,7 +26,7 @@ const main = async () => {
       token: process.env.TUMBLR_TOKEN,
       token_secret: process.env.TUMBLR_TOKEN_SECRET,
     });
-    client.createPost(process.env.TUMBLR_BLOGID, preparePostObject(feed));
+    client.createPost(process.env.TUMBLR_BLOGID, preparePostObject(feed, localFileName));
   } catch (error) {
     console.error('Error:', error);
   }
@@ -44,10 +41,7 @@ main();
 
 // import { loadFeed, downloadImage } from './utils.mjs'; // Import functions from feedUtils.js
 
-
 // dotenv.config(); // Load environment variables from .env
-
-
 
 // const postToTumblr = async (feed, localFilePath) => {
 //   try {
@@ -76,52 +70,6 @@ main();
 //   }
 // };
 
-// const preparePostObject = (feed, localFilePath) => {
-//   const link = path.parse(feed.rss.channel[0].item[0].link[0]).dir;
-
-//   return {
-//     content: [
-//       {
-//         type: 'text',
-//         subtype: 'heading1',
-//         text: feed.rss.channel[0].item[0].title[0],
-//       },
-//       {
-//         type: 'image',
-//         media: fs.createReadStream(localFilePath),
-//         alt_text: 'Article header image',
-//       },
-//       {
-//         type: 'text',
-//         text: feed.rss.channel[0].item[0].description[0],
-//       },
-//       {
-//         type: 'text',
-//         text: 'Read on at kollitsch.dev',
-//         formatting: [
-//           {
-//             start: 11,
-//             end: 24,
-//             type: 'link',
-//             url: feed.rss.channel[0].item[0].link[0],
-//           },
-//         ],
-//       },
-//     ],
-//     layout: [
-//       {
-//         type: 'rows',
-//         display: [
-//           { blocks: [0] },
-//           { blocks: [1] },
-//           { blocks: [2] },
-//           { blocks: [3] },
-//         ],
-//       },
-//     ],
-//     slug: link,
-//   };
-// };
 
 // const processPost = async () => {
 //   const feedLink = process.env.FEED_LINK;
@@ -215,54 +163,7 @@ main();
 // //   }))
 // // }
 
-// // const preparePostObject = (feed) => {
 
-// //   var link = path.parse(feed.rss.channel[0].item[0].link[0]).dir;
-
-// //   return {
-// //     content: [
-// //       {
-// //         type: "text",
-// //         "subtype": "heading1",
-// //         text: feed.rss.channel[0].item[0].title[0]
-// //       },
-// //       {
-// //         type: 'image',
-// //         media: fs.createReadStream(new URL(localFileName, import.meta.url)),
-// //         alt_text: 'Article header image',
-// //       },
-// //       {
-// //         type: "text",
-// //         text: feed.rss.channel[0].item[0].description[0]
-// //       },
-// //       {
-// //         type: "text",
-// //         text: "Read on at kollitsch.dev",
-// //         formatting: [
-// //           {
-// //             start: 11,
-// //             end: 24,
-// //             type: "link",
-// //             url: feed.rss.channel[0].item[0].link[0]
-// //           }
-// //         ]
-// //       }
-// //     ],
-// //     layout: [
-// //       {
-// //         type: "rows",
-// //         display: [
-// //           { blocks: [0] },
-// //           { blocks: [1] },
-// //           { blocks: [2] },
-// //           { blocks: [3] }
-// //         ]
-// //       }
-// //     ],
-// //     slug: link,
-// //   }
-
-// // }
 // // /**
 // //  * @todo Add error handling
 // //  * @todo Add logging

@@ -29,7 +29,7 @@
     "@types/yargs": "17.0.29",
     "animate.css": "4.1.1",
     "bootstrap-icons": "1.11.1",
-    "caniuse-lite": "1.0.30001557",
+    "caniuse-lite": "1.0.30001558",
     "doiuse": "6.0.2",
     "dotenv": "16.3.1",
     "esm": "^3.2.25",

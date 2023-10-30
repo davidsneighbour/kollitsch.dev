@@ -15,7 +15,7 @@
     "@davidsneighbour/bootstrap-config": "5.5.12",
     "@davidsneighbour/browserslist-config": "5.5.12",
     "@davidsneighbour/commitlint-config": "5.5.8",
-    "@davidsneighbour/cssnano-config": "5.5.8",
+    "@davidsneighbour/cssnano-config": "5.5.12",
     "@davidsneighbour/eslint-config": "5.5.8",
     "@davidsneighbour/htmlvalidate-config": "^5.5.8",
     "@davidsneighbour/markdownlint-config": "5.5.8",

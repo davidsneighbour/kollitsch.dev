@@ -5,6 +5,9 @@
       "name": "kollitsch.dev"
     },
     {
+      "path": "../hugo-theme/theme/"
+    },
+    {
       "path": "../hugo-theme"
     },
     {
@@ -21,9 +24,6 @@
     },
     {
       "path": "../namespace"
-    },
-    {
-      "path": "../hugo-theme/layouts"
     }
   ],
   "settings": {

@@ -12,14 +12,9 @@ const { MASTODON_ACCESS_TOKEN, FEED_LINK } = process.env;
 
 const main = async () => {
   try {
-    // Load feed using the loadFeed function
     const feed = await loadFeed(FEED_LINK);
-
-    // Create a message for Mastodon
     let message = `New post on ${feed.rss.channel[0].title[0]}`;
     message += ` titled: [${feed.rss.channel[0].item[0].title[0]}](${feed.rss.channel[0].item[0].link[0]})`;
-
-    // Send the message to Mastodon using the sendMessage function
     sendMessage(MASTODON_ACCESS_TOKEN, message);
   } catch (error) {
     console.error('Error:', error);

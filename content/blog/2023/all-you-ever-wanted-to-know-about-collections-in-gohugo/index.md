@@ -6,7 +6,7 @@ summary: ""
 draft: true
 date: 2023-10-31T17:00:58+07:00
 publishDate: 2023-10-31T17:00:58+07:00
-lastmod: 2023-10-31T17:03:37+07:00
+lastmod: 2023-10-31T17:10:58+07:00
 resources:
 - title: Photo by [Name](Link) via [Unsplash](https://unsplash.com/)
   name: image name if other than src
@@ -52,3 +52,6 @@ unsplash:
 | [collections.Intersect]() | compare | compare two or more collections and return elements that are in all collections |
 | [collections.Union]() | compare | compare two collections and return elements that belong to one or both collection only once |
 | [collections.SymDiff]() | compare | compare two or more collections and return the symetric difference |
+
+<https://gohugo.io/templates/lists/#order-content>
+<https://gohugo.io/templates/lists/#group-content>

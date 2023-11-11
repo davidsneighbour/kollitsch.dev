@@ -9,17 +9,10 @@ import { preparePostObject } from './utils.tumblr.mjs';
 
 const main = async () => {
   try {
-    // Load environment variables using loadEnv function
     await loadEnv();
-
-    // Load feed using the getFeed function
     const { FEED_LINK } = process.env;
     const feed = await loadFeed(FEED_LINK);
-
-    // Download article image using the getArticleImage function
     await downloadImage(feed);
-
-    // Create post object using the preparePostObject function
     const client = tumblr.createClient({
       consumer_key: process.env.TUMBLR_CONSUMER_KEY,
       consumer_secret: process.env.TUMBLR_CONSUMER_SECRET,

@@ -2,7 +2,7 @@ import { defineConfig } from 'cypress';
 import htmlvalidate from 'cypress-html-validate/plugin';
 
 export default defineConfig({
-  extends: '@davidsneighbour/config/cypress-base-hugo.json',
+  extends: '@davidsneighbour/cypress-config/cypress-base-hugo.json',
   env: {},
   projectId: 'q89kap',
   e2e: {

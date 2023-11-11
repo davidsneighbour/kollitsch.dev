@@ -5,6 +5,9 @@
 .netlify/
 # replacements for dnb-binaries
 bin/etc/replacements
+chrome
+firefox
+feedCache.json
 # scratch
 notes/
 # experimental vscode configs

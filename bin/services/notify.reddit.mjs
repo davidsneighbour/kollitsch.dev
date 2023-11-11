@@ -2,9 +2,6 @@
 // run npx reddit-oauth-helper
 
 // https://www.reddit.com/r/davidsneighbour/
-
-// notify.reddit.mjs
-
 import 'dotenv/config';
 import { submitRedditPost } from './utils.reddit.mjs';
 
@@ -12,7 +9,6 @@ const { REDDIT_API_ID, REDDIT_SECRET, REDDIT_REFRESH_TOKEN, FEED_LINK } = proces
 
 const main = async () => {
   try {
-    // Submit a post to Reddit using the submitRedditPost function
     await submitRedditPost(REDDIT_API_ID, REDDIT_SECRET, REDDIT_REFRESH_TOKEN, FEED_LINK);
   } catch (error) {
     console.error('Error:', error);

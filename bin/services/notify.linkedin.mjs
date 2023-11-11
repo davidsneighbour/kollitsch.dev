@@ -9,17 +9,10 @@ const main = async () => {
   const { LINKEDIN_ACCESS_TOKEN, FEED_LINK } = process.env;
 
   try {
-    // Load user profile from LinkedIn
     const profile = await getUserProfile(LINKEDIN_ACCESS_TOKEN);
-
-    // Load feed using the loadFeed function
     const feed = await loadFeed(FEED_LINK);
-
-    // Download image using the downloadImage function
     const localFilePath = 'image' + path.parse(feed.rss.channel[0].item[0]['media:content'][0]['$']['url']).ext;
     await downloadImage(feed.rss.channel[0].item[0]['media:content'][0]['$']['url'], localFilePath);
-
-    // Post to LinkedIn using the postToLinkedIn function
     const postResponse = await postToLinkedIn(feed, profile, LINKEDIN_ACCESS_TOKEN);
 
     console.log(postResponse);

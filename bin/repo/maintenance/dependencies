@@ -1,74 +1,78 @@
 #!/bin/bash
-# v20230716001
+# v20231106001
 
-# set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
-# IFS=$'\n\t'
+set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
+IFS=$'\n\t'
 
 # @todo quick check (just return status code)
-# @todo only list changed repositories
-# @todo better output formatting
 
 REQUIRED_TOOLS=(
   git
 )
 
-# check if all requirements are met
-for TOOL in "${REQUIRED_TOOLS[@]}"; do
-  if ! command -v "${TOOL}" >/dev/null; then
-    echo "${TOOL} is required... "
+check_tool() {
+  if ! command -v "$1" >/dev/null; then
+    echo "$1 is required..."
     exit 1
   fi
+}
+
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  check_tool "$TOOL"
 done
 
-echo -e "\e[1;36m[================================================]\e[m"
+FILE=.env
+if [ -f "$FILE" ]; then
+  set -a # export all variables created next
+  # this routine ranges through a folder of files that we don't explicitly know (@davidsneighbour)
+  # see https://github.com/koalaman/shellcheck/wiki/SC1090
+  # shellcheck source=/dev/null
+  source "${FILE}"
+  set +a # stop exporting
+fi
 
-DEPENDENCIES=(
-  configurations
-  hugo-modules
-  hugo-theme
-  kollitsch.dev
-)
+# load required dependencies
+IFS=' ' read -ra DEPENDENCIES_PARSED <<<"$DEPENDENCIES"
+IFS=$'\n\t'
 
 # check if all requirements are met
 CHANGES=false
-for DEPENDENCY in "${DEPENDENCIES[@]}"; do
+for DEPENDENCY in "${DEPENDENCIES_PARSED[@]}"; do
   cd ../"${DEPENDENCY}" >/dev/null || return
-  if [ "$(git status --porcelain | wc -l)" -eq "0" ]; then
-    continue
-  else
-    CHANGES=true
-    echo -e "\e[1;36m[================== ${DEPENDENCY} ==================]\e[m"
-    if [ -d .git ]; then
+  if [ -d .git ]; then
+    if [ "$(git status --porcelain | wc -l)" -ne "0" ]; then
+      CHANGES=true
+      echo -e "\e[1;36m${DEPENDENCY}\e[m"
       git status -s
+    fi
+    if [ "$(git stash list | wc -l)" -ne "0" ]; then
+
+      printf "\e[1;36m%s\e[m\n${DEPENDENCY}\e[m"
+      git stash list
     fi
   fi
 done
 
 # list changed repositories
 if [ ${CHANGES} = true ]; then
-  echo -e "\e[1;36m[================== Unstashed Changes ==================]\e[m"
-  for DEPENDENCY in "${DEPENDENCIES[@]}"; do
-    cd ../"${DEPENDENCY}" >/dev/null || return
+  echo -e "\e[1;36mUnhandled changes\e[m"
+  for DEPENDENCY in "${DEPENDENCIES_PARSED[@]}"; do
+    cd ../"${DEPENDENCY}" >/dev/null || echo ${DEPENDENCY} not found
     if [ "$(git status --porcelain | wc -l)" -eq "0" ]; then
-      echo "🟢 ${DEPENDENCY}"
+      printf "\e[1;36m%s\e[m\n" "🟢 ${DEPENDENCY}"
     else
-      echo "🔴 ${DEPENDENCY}"
+      printf "\e[1;36m%s\e[m\n" "🟠 ${DEPENDENCY}"
     fi
   done
 fi
 
 # ending
 if [ ${CHANGES} = false ]; then
-  echo "Nothing to do."
-  echo "Completed in ${SECONDS}s"
-  echo -e "\e[1;36m[================================================]\e[m"
+  true
 else
   echo "Completed in ${SECONDS}s"
-  echo -e "\e[1;36m[================================================]\e[m"
+  echo
   exit 1
 fi
-
-set -euo pipefail # http://redsymbol.net/articles/unofficial-bash-strict-mode
-IFS=$'\n\t'
 
 # nc -w 10 -z 192.168.1.201 1313

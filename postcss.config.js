@@ -14,7 +14,7 @@ const purgecss = process.env.HUGO_ENVIRONMENT === 'production' ? require('@fullh
   fontFace: true,
   //variables: true,
   keyframes: true,
-  defaultExtractor: content => {
+  defaultExtractor: (/** @type {string} */ content) => {
     const els = JSON.parse(content).htmlElements;
     return [
       ...(els.tags || []),
@@ -52,7 +52,7 @@ module.exports = {
     // https://github.com/cssnano/cssnano
     cssnano({
       preset: [
-        'default',
+        'advanced',
         {
           discardComments: {
             removeAll: true,

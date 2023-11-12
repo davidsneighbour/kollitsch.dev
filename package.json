@@ -12,6 +12,10 @@
   },
   "homepage": "https://kollitsch.dev",
   "devDependencies": {
+    "@clack/prompts": "0.7.0",
+    "@commitlint/cli": "18.4.1",
+    "@commitlint/config-conventional": "18.4.0",
+    "@commitlint/prompt-cli": "18.4.1",
     "@davidsneighbour/bootstrap-config": "5.5.15",
     "@davidsneighbour/browserslist-config": "5.5.15",
     "@davidsneighbour/commitlint-config": "5.5.15",
@@ -55,11 +59,7 @@
     "web-vitals-element": "1.3.7",
     "winston": "^3.11.0",
     "xml2js": "0.6.2",
-    "yargs": "17.7.2",
-    "@clack/prompts": "0.7.0",
-    "@commitlint/cli": "18.4.1",
-    "@commitlint/config-conventional": "18.4.0",
-    "@commitlint/prompt-cli": "18.4.1"
+    "yargs": "17.7.2"
   },
   "scripts": {
     "audit:html": "wireit",

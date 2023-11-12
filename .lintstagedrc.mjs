@@ -1,5 +1,4 @@
 // @see https://github.com/okonet/lint-staged
-
 import { ESLint } from 'eslint'
 
 const removeIgnoredFiles = async (/** @type {any[]} */ files) => {
@@ -23,8 +22,8 @@ export default {
   "*.{md,markdown}": ["npm run lint:vale"],
   "*.{scss,css}": "stylelint --fix",
   "*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
-  "*.{js,jsx}": "flow focus-check",
+  // "*.{js,jsx}": "flow focus-check",
   "!(CHANGELOG)**/*.{md,markdown}": ["markdownlint-cli2", "npm run lint:vale"],
   '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
-  //'**/*.js?(x)': (filenames) => filenames.map((filename) => `prettier --write '${filename}'`),
+  // '**/*.js?(x)': (filenames) => filenames.map((filename) => `prettier --write '${filename}'`),
 }

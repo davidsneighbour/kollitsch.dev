@@ -52,7 +52,7 @@ module.exports = {
     // https://github.com/cssnano/cssnano
     cssnano({
       preset: [
-        'advanced',
+        'default',
         {
           discardComments: {
             removeAll: true,

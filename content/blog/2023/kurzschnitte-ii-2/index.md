@@ -5,7 +5,7 @@ description: ""
 draft: true
 date: 2023-09-25T18:03:28+07:00
 publishDate: 2023-09-25T18:03:28+07:00
-lastmod: 2023-10-27T17:09:50+07:00
+lastmod: 2023-11-12T19:16:18+07:00
 resources:
 - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
   src: header.jpg
@@ -29,3 +29,8 @@ Welcome to Kurzschnitte II, a collection of links I came across in recent weeks.
 <https://brandfetch.com/>
 
 <https://free-for.dev/#/>
+
+https://monaspace.githubnext.com/
+
+Introducing Monaspace: Revolutionizing Code Display with Texture Healing
+Monaspace is an innovative font superfamily designed specifically for coding, offering a unique feature called Texture Healing. This groundbreaking technique addresses the longstanding issue of uneven texture in monospaced typefaces, which typically arises from trying to fit each character into a uniform space. Texture Healing works by intelligently swapping adjacent characters, balancing narrow and wide characters to create a more uniform and visually appealing text density. This approach, leveraging OpenType's "contextual alternates," transforms the display of code, making Monaspace not just a font but a sophisticated tool for enhancing code readability and aesthetics.

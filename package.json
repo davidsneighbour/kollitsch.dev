@@ -25,7 +25,7 @@
     "@davidsneighbour/markdownlint-config": "5.5.16",
     "@davidsneighbour/postcss-config": "5.5.16",
     "@davidsneighbour/remark-config": "5.5.15",
-    "@davidsneighbour/standard-version-config": "5.5.15",
+    "@davidsneighbour/standard-version-config": "5.5.16",
     "@davidsneighbour/tools": "5.5.15",
     "@netlify/functions": "2.4.0",
     "@types/alpinejs": "^3.13.5",

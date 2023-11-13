@@ -26,7 +26,7 @@
     "@davidsneighbour/postcss-config": "5.5.16",
     "@davidsneighbour/remark-config": "5.5.15",
     "@davidsneighbour/standard-version-config": "5.5.16",
-    "@davidsneighbour/tools": "5.5.15",
+    "@davidsneighbour/tools": "5.5.16",
     "@netlify/functions": "2.4.0",
     "@types/alpinejs": "^3.13.5",
     "@types/yargs": "17.0.31",

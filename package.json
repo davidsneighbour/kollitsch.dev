@@ -24,7 +24,7 @@
     "@davidsneighbour/htmlvalidate-config": "5.5.16",
     "@davidsneighbour/markdownlint-config": "5.5.16",
     "@davidsneighbour/postcss-config": "5.5.16",
-    "@davidsneighbour/remark-config": "5.5.15",
+    "@davidsneighbour/remark-config": "5.5.16",
     "@davidsneighbour/standard-version-config": "5.5.16",
     "@davidsneighbour/tools": "5.5.15",
     "@netlify/functions": "2.4.0",

@@ -190,5 +190,8 @@
   },
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.13.2"
   }
 }

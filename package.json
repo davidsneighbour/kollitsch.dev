@@ -11,6 +11,9 @@
     "web": "https://davids-neighbour.com"
   },
   "homepage": "https://kollitsch.dev",
+  "dependencies": {
+    "@alpinejs/collapse": "^3.13.2"
+  },
   "devDependencies": {
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "18.4.2",
@@ -85,6 +88,7 @@
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:remark": "remark content/**/*.md",
+    "lint:remark2": "remark .",
     "lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
     "new": "node bin/hugo/content.mjs",
     "prettier": "prettier 'assets/**/*.ts'",
@@ -190,8 +194,5 @@
   },
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
-  },
-  "dependencies": {
-    "@alpinejs/collapse": "^3.13.2"
   }
 }

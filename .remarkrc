@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    "@davidsneighbour/remark-config"
+  ]
+}

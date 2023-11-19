@@ -2,7 +2,6 @@
 // @see https://code.visualstudio.com/docs/editor/userdefinedsnippets
 {
   "hugo-i18n": {
-    // supported languages see https://github.com/alecthomas/chroma#supported-languages
     "scope": "toml",
     "prefix": "hugo-i18n",
     "body": [
@@ -10,7 +9,7 @@
       "description = \"\"",
       "other = \"$0\""
     ],
-    "description": "Highlight Shortcode"
+    "description": "I18n Shortcode"
   },
   "hugo-highlight": {
     // supported languages see https://github.com/alecthomas/chroma#supported-languages
@@ -32,7 +31,7 @@
       "$0",
       "```"
     ],
-    "description": "Highlight Shortcode"
+    "description": "Highlight Markdown Code Block"
   },
   "Frontmatter Dates": {
     "scope": "yaml",

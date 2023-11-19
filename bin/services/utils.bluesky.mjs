@@ -30,13 +30,19 @@ export function parseMentions(text) {
 
   let m;
   while ((m = mentionRegex.exec(text)) !== null) {
-    spans.push({
-      start: m.index + 1,
-      end: m.index + m[1].length,
-      handle: m[1].substring(1)
-    });
+    // spans.push({
+    //   index: {
+    //     byteStart: m.index + 1,
+    //     byteEnd: m.index + m[1].length
+    //   },
+    //   features: [
+    //     {
+    //       "$type": "app.bsky.richtext.facet#mention",
+    //       handle: m[1].substring(1)
+    //     }
+    //   ]
+    // });
   }
-
   return spans;
 }
 
@@ -48,9 +54,16 @@ export function parseUrls(text) {
   let m;
   while ((m = urlRegex.exec(text)) !== null) {
     spans.push({
-      start: m.index + 1,
-      end: m.index + m[1].length,
-      url: m[1]
+      index: {
+        byteStart: m.index + 1,
+        byteEnd: m.index + m[1].length
+      },
+      features: [
+        {
+          "$type": "app.bsky.richtext.facet#link",
+          uri: m[1],
+        }
+      ]
     });
   }
 

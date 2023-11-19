@@ -37,7 +37,7 @@ CURPATH="$(pwd -P)"
 
 /bin/bash "${CURPATH}"/bin/repo/maintenance/dependencies
 
-node --no-warnings bin/services/site-screenshot.mjs --url "https://${HOSTNAME}:${PORT}" --output "$CURPATH"/.github/images/screenshot.png
+node --no-warnings bin/utilities/site-screenshot.mjs --url "https://${HOSTNAME}:${PORT}" --output "$CURPATH"/.github/images/screenshot.png
 git add "$CURPATH"/.github/images
 
 # quietly shutting down concurring hugo servers

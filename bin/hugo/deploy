@@ -57,4 +57,4 @@ npm run pagefind
 netlify deploy --prod --open --message "Release v${VERSION}"
 
 # and clear cloudflare cache
-node bin/services/purge-cloudflare-cache.mjs
+node bin/utilities/purge-cloudflare-cache.mjs

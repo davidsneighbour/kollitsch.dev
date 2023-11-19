@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 import { parseStringPromise } from 'xml2js';
-import https from 'https';
 import { pipeline } from 'stream/promises';
 import fs from 'fs';
 import { config as dotenvConfig } from 'dotenv';

@@ -33,7 +33,7 @@
     "@davidsneighbour/tools": "5.5.17",
     "@netlify/functions": "2.4.0",
     "@types/alpinejs": "^3.13.5",
-    "@types/yargs": "17.0.31",
+    "@types/yargs": "17.0.32",
     "alpinejs": "^3.13.3",
     "animate.css": "4.1.1",
     "axios": "^1.6.2",

@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
  *
  * @param {*} webhook
  * @param {*} message
+ * @todo error handling
  */
 export const sendMessage = (webhook, message) => {
   fetch(webhook, {

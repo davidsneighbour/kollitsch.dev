@@ -22,14 +22,13 @@ export const createBlueskyEmbed = async (post, blob) => {
  *
  * @param {*} post
  * @returns
+ * @todo add description to the post
  */
 export const createBlueSkyPost = async (post) => {
   let content = "A new post on KOLLITSCH.dev* titled: ";
   content += post.title[0];
   content += "\n\n";
   content += post.link[0];
-  content += "\n\n";
-  content += "via @kollitsch.dev";
 
   return content;
 }
@@ -38,6 +37,7 @@ export const createBlueSkyPost = async (post) => {
  *
  * @param {*} text
  * @returns
+ * @todo retrieve the account data from the server
  */
 export function parseMentions(text) {
   const spans = [];

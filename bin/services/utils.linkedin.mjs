@@ -25,8 +25,11 @@ export const getUserProfile = async (accessToken) => {
  * @returns
  */
 export const postToLinkedIn = async (feed, profile, accessToken) => {
+
   const headers = {
     'Authorization': `Bearer ${accessToken}`,
+    'LinkedIn-Version': '202306',
+    'X-Restli-Protocol-Version': '2.0.0',
     'Content-Type': 'application/json'
   };
 

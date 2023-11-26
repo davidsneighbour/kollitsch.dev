@@ -1,9 +1,11 @@
 import { postToFacebookPage } from './utils.facebook.mjs'; // Import the utility function
 import { config as dotenvConfig } from 'dotenv';
+import { loadFeed, loadEnv } from './utils.mjs';
 
 const main = async () => {
   try {
-    dotenvConfig();
+
+    await loadEnv();
 
     const pageId = process.env.FACEBOOK_PAGE_ID;
     const accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;

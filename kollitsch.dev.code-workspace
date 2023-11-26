@@ -39,7 +39,18 @@
     },
     "js/ts.implicitProjectConfig.checkJs": true,
     "markdown.extension.orderedList.marker": "one",
-    "markdown.extension.toc.unorderedList.marker": "-"
+    "markdown.extension.toc.unorderedList.marker": "-",
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#ff6433",
+      "activityBar.background": "#ff6433",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#00ff3d",
+      "activityBarBadge.foreground": "#15202b",
+      "editorGroup.border": "#ff6433",
+      "sash.hoverBorder": "#ff6433"
+    },
+    "peacock.color": "#ff3d00"
   },
   "extensions": {
     "recommendations": [

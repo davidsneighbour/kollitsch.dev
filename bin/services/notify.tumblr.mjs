@@ -1,6 +1,5 @@
 // https://www.tumblr.com/docs/en/api/v2#posts---createreblog-a-post-neue-post-format
 // https://www.tumblr.com/docs/npf
-// notify.tumblr.mjs
 
 import tumblr from 'tumblr.js';
 import 'dotenv/config';

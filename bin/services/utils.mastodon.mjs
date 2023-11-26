@@ -1,7 +1,10 @@
-// utils.mastodon.mjs
-
 import fetch from 'node-fetch';
 
+/**
+ *
+ * @param {*} accessToken
+ * @param {*} message
+ */
 export const sendMessage = (accessToken, message) => {
   fetch('https://mas.to/api/v1/statuses', {
     method: 'POST',

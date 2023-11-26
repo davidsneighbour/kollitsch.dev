@@ -1,7 +1,10 @@
-// utils.linkedin.mjs
-
 import fetch from 'node-fetch';
 
+/**
+ *
+ * @param {*} accessToken
+ * @returns
+ */
 export const getUserProfile = async (accessToken) => {
   const headers = {
     'Authorization': `Bearer ${accessToken}`,
@@ -14,6 +17,13 @@ export const getUserProfile = async (accessToken) => {
   return await apiResp.json();
 };
 
+/**
+ *
+ * @param {*} feed
+ * @param {*} profile
+ * @param {*} accessToken
+ * @returns
+ */
 export const postToLinkedIn = async (feed, profile, accessToken) => {
   const headers = {
     'Authorization': `Bearer ${accessToken}`,

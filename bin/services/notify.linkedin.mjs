@@ -1,5 +1,3 @@
-// notify.linkedin.mjs
-
 import { loadFeed, downloadImage } from './utils.mjs';
 import { getUserProfile, postToLinkedIn } from './utils.linkedin.mjs';
 import 'dotenv/config';

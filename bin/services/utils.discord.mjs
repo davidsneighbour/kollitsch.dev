@@ -1,8 +1,10 @@
-
-// utils.discord.mjs
-
 import fetch from 'node-fetch';
 
+/**
+ *
+ * @param {*} webhook
+ * @param {*} message
+ */
 export const sendMessage = (webhook, message) => {
   fetch(webhook, {
     method: 'POST',

@@ -3,7 +3,7 @@ import { config as dotenvConfig } from 'dotenv';
 
 const main = async () => {
   try {
-    dotenvConfig(); // Load environment variables from .env
+    dotenvConfig();
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const channelId = process.env.TELEGRAM_CHANNEL_ID;

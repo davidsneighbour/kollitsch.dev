@@ -1,6 +1,13 @@
 import axios from 'axios'; // You may choose to use axios or another HTTP library
 import fs from 'node:fs';
 
+/**
+ *
+ * @param {*} pageId
+ * @param {*} accessToken
+ * @param {*} message
+ * @param {*} imageUrl
+ */
 export async function postToFacebookPage(pageId, accessToken, message, imageUrl) {
   try {
     // Create a FormData object for posting with an image

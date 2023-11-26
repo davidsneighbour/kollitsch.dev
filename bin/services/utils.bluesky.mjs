@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {*} post
+ * @param {*} blob
+ * @returns
+ */
 export const createBlueskyEmbed = async (post, blob) => {
   let embed = {
     "$type": "app.bsky.embed.external",
@@ -12,6 +18,11 @@ export const createBlueskyEmbed = async (post, blob) => {
   return embed;
 }
 
+/**
+ *
+ * @param {*} post
+ * @returns
+ */
 export const createBlueSkyPost = async (post) => {
   let content = "A new post on KOLLITSCH.dev* titled: ";
   content += post.title[0];
@@ -23,6 +34,11 @@ export const createBlueSkyPost = async (post) => {
   return content;
 }
 
+/**
+ *
+ * @param {*} text
+ * @returns
+ */
 export function parseMentions(text) {
   const spans = [];
   // regex based on: https://atproto.com/specs/handle#handle-identifier-syntax
@@ -46,6 +62,11 @@ export function parseMentions(text) {
   return spans;
 }
 
+/**
+ *
+ * @param {*} text
+ * @returns
+ */
 export function parseUrls(text) {
   const spans = [];
   // partial/naive URL regex based on: https://stackoverflow.com/a/3809435

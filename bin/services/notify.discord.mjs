@@ -1,6 +1,6 @@
 // https://www.npmjs.com/package/node-fetch
 // https://stackabuse.com/making-http-requests-in-node-js-with-node-fetch/
-// notify.discord.mjs
+
 
 import { loadFeed } from './utils.mjs';
 import { sendMessage } from './utils.discord.mjs';

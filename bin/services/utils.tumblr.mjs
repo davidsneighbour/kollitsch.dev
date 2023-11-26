@@ -1,7 +1,12 @@
-// utils.tumblr.mjs
 import fs from 'node:fs';
 import path from 'path';
 
+/**
+ *
+ * @param {*} feed
+ * @param {*} localFileName
+ * @returns
+ */
 export const preparePostObject = (feed, localFileName) => {
   const link = path.parse(feed.rss.channel[0].item[0].link[0]).dir;
 

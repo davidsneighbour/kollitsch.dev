@@ -11,6 +11,13 @@
 
 import fetch from 'node-fetch';
 
+/**
+ *
+ * @param {*} botToken
+ * @param {*} channelId
+ * @param {*} message
+ * @param {*} imageUrl
+ */
 export async function postToTelegramChannel(botToken, channelId, message, imageUrl) {
   try {
     const apiUrl = `https://api.telegram.org/bot${botToken}/sendPhoto`;

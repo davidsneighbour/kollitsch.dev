@@ -24,13 +24,17 @@ const main = async () => {
     });
     const rt = new RichText({ text: fileContent.body });
 
-    await downloadImage(feed.rss.channel[0].item[0]['media:content'][0]['$'].url, "./image");
+    await downloadImage(
+      feed.rss.channel[0].item[0]['media:content'][0]['$'].url,
+      "./image"
+    );
 
     // Read the image file
     const imgBytes = await fs.readFile("./image");
 
     // Check size limit
     if (imgBytes.length > 1000000) {
+
       throw new Error(`Image file size too large. 1000000 bytes maximum, got: ${imgBytes.length}`);
     }
 

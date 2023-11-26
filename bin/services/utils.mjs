@@ -1,11 +1,17 @@
 import fetch from 'node-fetch';
 import { parseStringPromise } from 'xml2js';
 import { pipeline } from 'stream/promises';
-import fs from 'fs';
 import { config as dotenvConfig } from 'dotenv';
 import { promisify } from 'util';
+import fs from 'fs';
 import { promises as fsPromises } from 'fs';
 
+/**
+ * Loads a feed from the given URL and parses it
+ *
+ * @param   {String}  feedLink  URL of the feed to load
+ * @returns {Promise}           Promise object representing the parsed feed
+ */
 export async function loadFeed(feedLink) {
   try {
     const response = await fetch(feedLink);
@@ -24,6 +30,12 @@ export async function loadFeed(feedLink) {
   }
 }
 
+/**
+ * Downloads an image from the given URL and stores it locally
+ *
+ * @param {String} imageUrl       URL of the image to download
+ * @param {String} localFilePath  Local path where to store the image
+ */
 export async function downloadImage(imageUrl, localFilePath) {
   try {
     const response = await fetch(imageUrl);
@@ -40,8 +52,11 @@ export async function downloadImage(imageUrl, localFilePath) {
   }
 }
 
-// loading the .env file using async/await
-// @todo find out why it doesn't work without this
+/**
+ * Loading the .env file using async/await
+ *
+ * @todo find out why it doesn't work without this
+ */
 export const loadEnv = async () => {
   try {
     const envFileContent = await fsPromises.readFile('.env', 'utf8');
@@ -53,5 +68,8 @@ export const loadEnv = async () => {
   }
 };
 
+/**
+ * Promisifying the fs module
+ */
 export const readFileSync = async () => { promisify(fs.readFile); }
 export const writeFileSync = async () => { promisify(fs.writeFile); }

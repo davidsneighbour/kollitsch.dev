@@ -1,8 +1,6 @@
 // @todo document
 // @see https://docs.joinmastodon.org/methods/statuses/#create
 
-// notify.mastodon.mjs
-
 import { loadFeed } from './utils.mjs';
 import { sendMessage } from './utils.mastodon.mjs';
 import 'dotenv/config';

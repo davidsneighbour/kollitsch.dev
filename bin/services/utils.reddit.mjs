@@ -1,9 +1,15 @@
-// utils.reddit.mjs
-
 import fetch from 'node-fetch';
 import { parseString } from 'xml2js';
 import snoowrap from 'snoowrap';
 
+/**
+ *
+ * @param {*} apiId
+ * @param {*} secret
+ * @param {*} refreshToken
+ * @param {*} feedLink
+ * @returns
+ */
 export const submitRedditPost = async (apiId, secret, refreshToken, feedLink) => {
   try {
     // Load feed using the loadFeed function

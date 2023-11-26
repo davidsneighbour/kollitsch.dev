@@ -6,7 +6,7 @@ summary: ""
 draft: true
 date: 2023-10-31T17:00:58+07:00
 publishDate: 2023-10-31T17:00:58+07:00
-lastmod: 2023-11-18T16:42:55+07:00
+lastmod: 2023-11-26T20:35:48+07:00
 resources:
 - title: Photo by [Name](Link) via [Unsplash](https://unsplash.com/)
   name: image name if other than src
@@ -55,6 +55,8 @@ unsplash:
 | [collections.SymDiff](https://gohugo.io/functions/collections/symdiff/) | compare | compare two or more collections and return the symetric difference |
 | [collections.Querify](https://gohugo.io/functions/collections/querify/) | process | converts a map to a query string |
 | [collections.NewScratch](https://gohugo.io/functions/collections/newscratch/) | process | creates a new locally scoped scratch |
+| [reflect.isMap](https://gohugo.io/functions/reflect/ismap/) | typing | reports whether its argument is a map |
+| [reflect.isSlice](https://gohugo.io/functions/reflect/isslice/) | typing | reports whether its argument is a slice |
 
 <https://gohugo.io/templates/lists/#order-content>
 <https://gohugo.io/templates/lists/#group-content>
@@ -86,3 +88,4 @@ unsplash:
 | 18| The War of the Worlds                 | H.G. Wells        | Science Fiction  | 1898 | 4.2    |
 | 19| The Catcher in the Rye                | J.D. Salinger     | Classic Fiction  | 1951 | 4.0    |
 | 20| The Time Machine                      | H.G. Wells        | Science Fiction  | 1895 | 4.3    |
+

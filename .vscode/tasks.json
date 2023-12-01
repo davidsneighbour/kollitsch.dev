@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Hugo Server",
+      "type": "shell",
+      "command": "npm run server",
+      "windows": {
+        "command": "npm run server",
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen",
+      }
+    }
+  ]
+}

@@ -26,7 +26,7 @@
     "@davidsneighbour/cypress-config": "5.5.17",
     "@davidsneighbour/eslint-config": "5.5.17",
     "@davidsneighbour/htmlvalidate-config": "5.5.17",
-    "@davidsneighbour/markdownlint-config": "5.5.17",
+    "@davidsneighbour/markdownlint-config": "5.5.19",
     "@davidsneighbour/postcss-config": "5.5.17",
     "@davidsneighbour/remark-config": "^5.5.17",
     "@davidsneighbour/standard-version-config": "5.5.17",

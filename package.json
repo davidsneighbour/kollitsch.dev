@@ -30,7 +30,7 @@
     "@davidsneighbour/postcss-config": "5.5.17",
     "@davidsneighbour/remark-config": "^5.5.17",
     "@davidsneighbour/standard-version-config": "5.5.17",
-    "@davidsneighbour/tools": "5.5.17",
+    "@davidsneighbour/tools": "5.5.19",
     "@netlify/functions": "2.4.0",
     "@types/alpinejs": "^3.13.5",
     "@types/yargs": "17.0.31",

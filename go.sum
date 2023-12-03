@@ -62,5 +62,7 @@ github.com/tailwindlabs/heroicons v2.0.18+incompatible h1:9rm5lZcJ6mT4j9F/9LDaS/
 github.com/tailwindlabs/heroicons v2.0.18+incompatible/go.mod h1:2SHGOdw86jviBkoeQINcTfkzAAao9dciip4RsMS9xIg=
 github.com/twbs/icons v1.11.1 h1:lMKkMwupTDfBJWXx6RFLwfYuCmqG/uUAu2LaOf7bZjU=
 github.com/twbs/icons v1.11.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
+github.com/zachleat/pagefind-search v1.0.2 h1:9mFv0XOKFQ1lLgOW+0W9QmKRVKKEkMeUq9YCk01iGqw=
+github.com/zachleat/pagefind-search v1.0.2/go.mod h1:CDloFTV/WPKHcP0ZblOVMKiR1HijYudQTTelwV6ZpYk=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible h1:7CuKQrvR4w3t2USxwGDNiGGXVtZYZWthBD6DMfnbiLE=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible/go.mod h1:O4LYrBFJk1EQ3l9TUhF+Df4JmeMW5eApvdsQmgg8z0E=

@@ -12,6 +12,7 @@
   },
   "homepage": "https://kollitsch.dev",
   "dependencies": {
+    "@11ty/is-land": "^4.0.0",
     "@alpinejs/collapse": "^3.13.3",
     "@atproto/api": "^0.6.24"
   },

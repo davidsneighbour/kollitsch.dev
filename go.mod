@@ -35,5 +35,6 @@ require (
 	github.com/tabler/tabler-icons v2.40.0+incompatible // indirect
 	github.com/tailwindlabs/heroicons v2.0.18+incompatible // indirect
 	github.com/twbs/icons v1.11.1 // indirect
+	github.com/zachleat/pagefind-search v1.0.2 // indirect
 	github.com/zenorocha/clipboard.js v2.0.11+incompatible // indirect
 )

@@ -1,17 +1,15 @@
 ---
-title: Back to Top without Javascript
-linkTitle: Back to Top without Javascript
-description: ""
-summary: ""
+title: Back to the Top without Javascript
+description: In my lifelong quest to minimize the code to display my view of the world (aka this website) I realised, that I can get rid of all JS to display my "Back to top" button.
 date: 2023-12-03T22:51:00+07:00
 publishDate: 2023-12-03T22:51:00+07:00
-lastmod: 2023-12-03T23:04:45+07:00
+lastmod: 2023-12-04T0:46:14+07:00
 resources:
 - src: header.jpg
 tags:
-- tag1
-- tag2
-- tag3
+- javascript
+- css
+- back to top
 - 100DaysToOffload
 unsplash:
   imageid: bEOrxHU2Op8

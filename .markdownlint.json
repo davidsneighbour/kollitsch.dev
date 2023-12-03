@@ -1,3 +1,4 @@
 {
-	"extends": "@davidsneighbour/markdownlint-config"
+	"extends": "@davidsneighbour/markdownlint-config",
+  "MD040": "dash"
 }

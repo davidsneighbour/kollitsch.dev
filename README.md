@@ -218,7 +218,6 @@ The following front matter parameters exist to fine-tune the layouts and theme o
 The **hugo-theme** implements the following shortcodes:
 
 - `{{< color-table >}}`
-- `{{< component-box >}}`
 - `{{< contact-form >}}`
 - `{{< quote >}}`
 - `{{< taglist >}}`

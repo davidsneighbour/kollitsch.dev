@@ -262,6 +262,7 @@ policy = "https://davids-neighbour.com/security-policy/"
 ###############################################################################
 [dnb.debug]
 enable = true
+debuglevel = 9
 
 ###############################################################################
 # hugo-pwa @see https://github.com/davidsneighbour/hugo-pwa

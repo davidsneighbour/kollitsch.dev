@@ -8,7 +8,6 @@ enableEmoji = true
 enableGitInfo = true
 enableRobotsTXT = true
 footnoteReturnLinkContents = "^"
-ignoreErrors = []
 languageCode = "en-us"
 linenos = true
 paginate = 6
@@ -17,6 +16,8 @@ summaryLength = 40
 timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
 titleCaseStyle = "Chicago"
+
+ignoreErrors = ['deprecation.debug', 'deprecation.debugprint']
 
 # hack: increasing timeout to prevent hugo from... timing out while recreating
 # images. this is no more required for this website, because "we got RAM", but

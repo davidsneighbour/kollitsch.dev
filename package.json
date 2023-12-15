@@ -22,7 +22,7 @@
     "@commitlint/config-conventional": "18.4.3",
     "@commitlint/prompt-cli": "18.4.3",
     "@davidsneighbour/bootstrap-config": "5.5.21",
-    "@davidsneighbour/browserslist-config": "5.5.21",
+    "@davidsneighbour/browserslist-config": "5.5.23",
     "@davidsneighbour/commitlint-config": "5.5.21",
     "@davidsneighbour/cypress-config": "5.5.21",
     "@davidsneighbour/eslint-config": "5.5.21",

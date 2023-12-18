@@ -14,7 +14,9 @@
   "dependencies": {
     "@11ty/is-land": "^4.0.0",
     "@alpinejs/collapse": "^3.13.3",
-    "@atproto/api": "^0.7.4"
+    "@atproto/api": "^0.7.4",
+    "@davidsneighbour/stylelint-config": "^5.5.23",
+    "@github/hotkey": "^3.1.0"
   },
   "devDependencies": {
     "@clack/prompts": "0.7.0",

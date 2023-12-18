@@ -9,6 +9,7 @@ menu:
     weight: 4
     params:
       bsicon: binoculars-fill
+      hotkey: k+f,Control+f
 posttype: page
 lastmod: 2022-07-28T21:20:13+07:00
 

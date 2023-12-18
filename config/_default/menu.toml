@@ -5,6 +5,7 @@ url = "/"
 weight = 1
 [main.params]
 bsicon = "house-fill"
+hotkey = "k+h,Control+h"
 
 ############################# Footer Menu ########################
 [[footer]]

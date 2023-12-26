@@ -2,6 +2,7 @@
 title: key combinations to use this website
 date: 2023-12-17T22:59:11+07:00
 lastmod: 2023-12-17T22:59:13+07:00
+draft: true
 ---
 
 | Key combination | Action |

@@ -36,6 +36,9 @@ fi
 echo "Deploying ${VERSION} to Netlify:"
 echo
 
+killall -9 hugo || true
+killall -9 hugo || true
+
 netlify switch
 npm run release
 npm run build:hugo

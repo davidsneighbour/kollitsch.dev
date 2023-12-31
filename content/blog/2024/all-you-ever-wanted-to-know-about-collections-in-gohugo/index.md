@@ -88,4 +88,3 @@ unsplash:
 | 18| The War of the Worlds                 | H.G. Wells        | Science Fiction  | 1898 | 4.2    |
 | 19| The Catcher in the Rye                | J.D. Salinger     | Classic Fiction  | 1951 | 4.0    |
 | 20| The Time Machine                      | H.G. Wells        | Science Fiction  | 1895 | 4.3    |
-

@@ -4,7 +4,7 @@
 ###############################################################################
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Koh Samui in Thailand."
 # on updating this value add a redirect to data/dnb/netlification/config.toml
-mainSections = ["blog", "components", "quicky"]
+mainSections = ["blog", "components"]
 
 ###############################################################################
 # theme setup

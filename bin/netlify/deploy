@@ -7,6 +7,7 @@
 REQUIRED_TOOLS=(
   git
   node
+  hugo
 )
 
 # check if all requirements are met
@@ -35,6 +36,8 @@ fi
 
 echo "Deploying ${VERSION} to Netlify:"
 echo
+
+hugo mod get -u ./...
 
 killall -9 hugo || true
 killall -9 hugo || true

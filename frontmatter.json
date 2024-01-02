@@ -13,13 +13,5 @@
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
   "frontMatter.taxonomy.indentArrays": false,
   "frontMatter.taxonomy.noPropertyValueQuotes": ["date"],
-  "frontMatter.panel.actions.disabled": [
-    "openDashboard",
-    "createContent",
-    "optimizeSlug",
-    //"preview",
-    //"openOnWebsite",
-    "startStopServer",
-    "customActions"
-  ]
+  "frontMatter.panel.actions.disabled": ["createContent", "optimizeSlug", "startStopServer"]
 }

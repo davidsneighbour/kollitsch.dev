@@ -2,7 +2,6 @@
   "$schema": "https://frontmatter.codes/config/custom.scripts.schema.json",
   "title": "Generate social image for Youtube",
   "script": "./.frontmatter/scripts/create-youtube-header-image.js",
-  "command": "~/.nvm/versions/node/v20.4.0/bin/node",
-  "type": "content",
-  "contentTypes": ["blog"]
+  "command": "~/.nvm/versions/node/v20.9.0/bin/node",
+  "type": "content"
 }

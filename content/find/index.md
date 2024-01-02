@@ -10,7 +10,7 @@ menu:
     params:
       bsicon: binoculars-fill
       hotkey: k+f,Control+f
-posttype: page
+type: page
 lastmod: 2022-07-28T21:20:13+07:00
 
 resources:

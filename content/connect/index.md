@@ -11,7 +11,7 @@ menu:
       bsicon: envelope-paper-fill
       hotkey: k+c,Control+c
 
-posttype: page
+type: page
 lastmod: 2022-07-28T21:20:06+07:00
 resources:
   - title: Photo by [John Barkiple](https://unsplash.com/@barkiple) via [Unsplash](https://unsplash.com/)

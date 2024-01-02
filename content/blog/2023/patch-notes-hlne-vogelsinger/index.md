@@ -2,18 +2,18 @@
 $schema: /static/_schemata/blog.schema.yaml
 title: "Patch Notes: Hélène Vogelsinger"
 description: As part of the practice behind Hélène Vogelsinger's modular synth compositions, the French singer and sound designer explores abandoned places and connects with their energies to create immersive and suspended moments.
-posttype: video
+type: video
 date: 2023-05-05T19:38:04+07:00
 publishDate: 2023-05-05T19:38:04+07:00
-lastmod: 2023-05-05T20:45:02+07:00
+lastmod: 2024-01-02T18:45:52+07:00
 resources:
-  - title: "Patch Notes: Hélène Vogelsinger"
-    src: header.jpg
+- title: "Patch Notes: Hélène Vogelsinger"
+  src: header.jpg
 tags:
-  - helene vogelsinger
-  - synthesizer
-  - video
-  - 100DaysToOffload
+- helene vogelsinger
+- synthesizer
+- video
+- 100DaysToOffload
 video:
   youtube: kYxheEGl2oM
 ---

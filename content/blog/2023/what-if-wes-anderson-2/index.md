@@ -1,18 +1,18 @@
 ---
 date: 2023-05-24T20:37:19+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+lastmod: 2024-01-02T18:45:52+07:00
 title: What if Wes Anderson… (Part 2)
 description: What if Wes Anderson would have directed a horror movie? I think it would have been awesome.
 summary: What if Wes Anderson would have directed a horror movie? I think it would have been awesome.
 tags:
-  - wes-anderson
-  - video
-  - 100DaysToOffload
-  - horror movie
-posttype: video
+- wes-anderson
+- video
+- 100DaysToOffload
+- horror movie
+type: video
 resources:
-  - src: header.jpg
-    title: What if Wes Anderson directed a horror movie?
+- src: header.jpg
+  title: What if Wes Anderson directed a horror movie?
 video:
   youtube: gfDIAZCwHQE
 ---

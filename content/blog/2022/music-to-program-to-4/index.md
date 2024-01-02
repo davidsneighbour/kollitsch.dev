@@ -3,18 +3,18 @@ title: Music to program to (Part 4)
 date: 2022-03-20T23:25:03+07:00
 linkTitle: PM4
 tags:
-  - programming-music
-  - rammstein
-  - 100DaysToOffload
-posttype: music
+- programming-music
+- rammstein
+- 100DaysToOffload
+type: music
 resources:
-  - src: header.jpg
+- src: header.jpg
 video:
   youtube: oQ10_EzMvtQ
   artist: rammstein
   name: Rammstein feat Ólafur Arnalds
   title: Zeit
-lastmod: 2022-07-17T17:13:40+07:00
+lastmod: 2024-01-02T18:45:52+07:00
 ---
 
 Ólafur Arnalds remix of Rammstein's "Zeit" is something perfect.

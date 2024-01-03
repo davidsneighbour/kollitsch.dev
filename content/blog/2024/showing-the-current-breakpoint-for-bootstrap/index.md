@@ -5,7 +5,7 @@ description: ""
 summary: ""
 date: 2024-01-03T21:42:52+07:00
 publishDate: 2024-01-03T21:42:52+07:00
-lastmod: 2024-01-03T21:53:37+07:00
+lastmod: 2024-01-03T22:00:32+07:00
 resources:
 - src: header.jpg
 tags:
@@ -43,10 +43,9 @@ Shortcode or partial "show-breakpoints.html":
     {{- end -}}
   </div>
 {{- end -}}
-
 ```
 
-If you are suing different breakpoints from the ones defined in Bootstrap you can redefine them in line 3.
+If you are using different breakpoints from the ones defined in Bootstrap you can redefine them in line 3.
 
 Using this partial in your template:
 

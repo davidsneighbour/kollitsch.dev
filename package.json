@@ -23,7 +23,7 @@
     "@davidsneighbour/browserslist-config": "5.6.0",
     "@davidsneighbour/commitlint-config": "5.6.0",
     "@davidsneighbour/cypress-config": "5.6.0",
-    "@davidsneighbour/eslint-config": "5.6.0",
+    "@davidsneighbour/eslint-config": "5.6.1",
     "@davidsneighbour/htmlvalidate-config": "5.6.0",
     "@davidsneighbour/markdownlint-config": "5.6.0",
     "@davidsneighbour/postcss-config": "5.6.0",

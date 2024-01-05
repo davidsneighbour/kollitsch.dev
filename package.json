@@ -14,7 +14,7 @@
   "dependencies": {
     "@11ty/is-land": "4.0.0",
     "@alpinejs/collapse": "3.13.3",
-    "@atproto/api": "0.7.4",
+    "@atproto/api": "0.8.0",
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",

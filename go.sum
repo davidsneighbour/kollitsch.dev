@@ -10,6 +10,8 @@ github.com/davidsneighbour/hugo-modules v0.0.0-20231231112715-973c629cf2a3 h1:rS
 github.com/davidsneighbour/hugo-modules v0.0.0-20231231112715-973c629cf2a3/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
 github.com/davidsneighbour/hugo-modules v0.0.0-20240102133602-d7e7d78eb354 h1:cwfve04Hs35VPBVxayw7m4dO+/C91aRm1/jdzMEsUCE=
 github.com/davidsneighbour/hugo-modules v0.0.0-20240102133602-d7e7d78eb354/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
+github.com/davidsneighbour/hugo-modules v0.0.0-20240107132742-b13e60e448e6 h1:eBxAeqUFT+LQb7qey+B1nzl3DrWTSX3aIoKc0Z7JdQU=
+github.com/davidsneighbour/hugo-modules v0.0.0-20240107132742-b13e60e448e6/go.mod h1:BoCreEOs9gAQQ8O44MJiEA4pYpDnkMDx8kF8IdjF5+E=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 h1:TNjqpiXkwVflELokzo+UTXdRT2b7M3Qtb2YnKbKI8A8=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13/go.mod h1:SPSKhU4HI79zYM91EpgFvJD3uC4hZjx0bwkXTyfSIhc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.16 h1:Rej9W+VEKSbrhICLyoT6peOEkGYc/LigiBlKaD9RH8o=
@@ -24,6 +26,8 @@ github.com/davidsneighbour/hugo-modules/modules/functions v1.2023.13 h1:Y2yN1A3J
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2023.13/go.mod h1:mMpTa/CPuBifHgzsHWORFM32ICKhDKjREQ1hKPk3oeU=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2023.14 h1:j2YyQQrP+IKepC7hy2I89LegOFZTR0sTzkptRXMnb5o=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2023.14/go.mod h1:mMpTa/CPuBifHgzsHWORFM32ICKhDKjREQ1hKPk3oeU=
+github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0 h1:4TZhXQQ3PCVqj8jIkEZ2Mkkh+I6est3XMVMmESJdXGs=
+github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0/go.mod h1:mMpTa/CPuBifHgzsHWORFM32ICKhDKjREQ1hKPk3oeU=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.3 h1:Pr7WJ5/gWJSWri2GTCrLEndarcLyKRUS6SnUZgfrYUM=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.3/go.mod h1:UtvC11yHLO6uWveizt01+j4FoKZo2l3mdJhrTgZ6ETo=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2023.12 h1:qZNEZvyk50xwKFAIVAZ+WTO9klzVx1+X7H4UkMScYkc=
@@ -78,6 +82,8 @@ github.com/davidsneighbour/hugo-theme v1.2023.103 h1:UvuywAKzpK1SvNm7oP+OkPoRTVu
 github.com/davidsneighbour/hugo-theme v1.2023.103/go.mod h1:5CFd70crKq9m5N+oT0R8RO2INqANJ3L0exjyATvIBC4=
 github.com/davidsneighbour/hugo-theme v1.2024.4 h1:h9Zhw1148GKt6j1JXSgFz097ttMetA5KT0wXpDZ/v80=
 github.com/davidsneighbour/hugo-theme v1.2024.4/go.mod h1:KdJl93XqOZ7whEIrUlgn7RQSCOlL/egV7X7aers1qpA=
+github.com/davidsneighbour/hugo-theme v1.2024.6 h1:MTynUidc4cxP+QIum+9F14+SfUYFAKtPdSGYc5l+MCk=
+github.com/davidsneighbour/hugo-theme v1.2024.6/go.mod h1:ittHZ5wEvEV/NgV2xwLb+Qsl64TO4KTYJRIiUk3XCVA=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tabler/tabler-icons v2.40.0+incompatible h1:vjRu826GHhTvg1fHqpdo6+epZ/5BkiSubYCFxYUduoo=
@@ -94,6 +100,8 @@ github.com/twbs/icons v1.11.1 h1:lMKkMwupTDfBJWXx6RFLwfYuCmqG/uUAu2LaOf7bZjU=
 github.com/twbs/icons v1.11.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
 github.com/twbs/icons v1.11.2 h1:I0zuO+pk4F1jKGautLPFUQyU2uQyir0GBGb4ArpXZLg=
 github.com/twbs/icons v1.11.2/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
+github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=
+github.com/twbs/icons v1.11.3/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
 github.com/zachleat/pagefind-search v1.0.2 h1:9mFv0XOKFQ1lLgOW+0W9QmKRVKKEkMeUq9YCk01iGqw=
 github.com/zachleat/pagefind-search v1.0.2/go.mod h1:CDloFTV/WPKHcP0ZblOVMKiR1HijYudQTTelwV6ZpYk=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible h1:7CuKQrvR4w3t2USxwGDNiGGXVtZYZWthBD6DMfnbiLE=

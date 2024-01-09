@@ -90,6 +90,8 @@ github.com/davidsneighbour/hugo-theme v1.2024.6 h1:MTynUidc4cxP+QIum+9F14+SfUYFA
 github.com/davidsneighbour/hugo-theme v1.2024.6/go.mod h1:ittHZ5wEvEV/NgV2xwLb+Qsl64TO4KTYJRIiUk3XCVA=
 github.com/davidsneighbour/hugo-theme v1.2024.8 h1:ImOuj6l3GNMsUAR8WVKTtR2WF13eBjqytDz0dJneCdI=
 github.com/davidsneighbour/hugo-theme v1.2024.8/go.mod h1:4Rpcc7WdK0Tvo9fcSeK4DgC2VqFszrB+r1CTwZWnWhs=
+github.com/davidsneighbour/hugo-theme v1.2024.9 h1:JXbcqXijRd9a9QEiSY20AizV/bJY8KYhWogplDj75n8=
+github.com/davidsneighbour/hugo-theme v1.2024.9/go.mod h1:4Rpcc7WdK0Tvo9fcSeK4DgC2VqFszrB+r1CTwZWnWhs=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tabler/tabler-icons v2.40.0+incompatible h1:vjRu826GHhTvg1fHqpdo6+epZ/5BkiSubYCFxYUduoo=

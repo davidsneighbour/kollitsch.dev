@@ -33,7 +33,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2023.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.36 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2024.8 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2024.9 // indirect
 	github.com/paulirish/lite-youtube-embed v0.3.0 // indirect
 	github.com/tabler/tabler-icons v2.45.0+incompatible // indirect
 	github.com/tailwindlabs/heroicons v2.1.1+incompatible // indirect

@@ -26,7 +26,7 @@
     "@davidsneighbour/htmlvalidate-config": "5.8.1",
     "@davidsneighbour/hugo-theme": "1.2024.9",
     "@davidsneighbour/markdownlint-config": "5.8.1",
-    "@davidsneighbour/postcss-config": "5.8.1",
+    "@davidsneighbour/postcss-config": "5.8.2",
     "@davidsneighbour/prettier-config": "5.8.1",
     "@davidsneighbour/remark-config": "5.8.1",
     "@netlify/functions": "2.4.1",

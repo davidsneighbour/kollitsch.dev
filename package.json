@@ -22,7 +22,7 @@
     "@davidsneighbour/browserslist-config": "5.8.1",
     "@davidsneighbour/commitlint-config": "5.8.1",
     "@davidsneighbour/cypress-config": "5.8.1",
-    "@davidsneighbour/eslint-config": "5.8.1",
+    "@davidsneighbour/eslint-config": "5.8.2",
     "@davidsneighbour/htmlvalidate-config": "5.8.1",
     "@davidsneighbour/hugo-theme": "1.2024.9",
     "@davidsneighbour/markdownlint-config": "5.8.1",

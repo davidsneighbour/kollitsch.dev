@@ -44,7 +44,10 @@
       "editorGroup.border": "#ff6433",
       "sash.hoverBorder": "#ff6433"
     },
-    "peacock.color": "#ff3d00"
+    "peacock.color": "#ff3d00",
+    "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
+    "vale.enableSpellcheck": true,
+    "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini"
   },
   "extensions": {
     "recommendations": [

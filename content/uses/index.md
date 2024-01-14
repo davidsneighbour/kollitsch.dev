@@ -19,17 +19,17 @@ theme:
 
 The following is a collection of tools helping me with my digital and work life. My main focus lies in applications that are open source and usable across operating systems. This is a collection in progress, so check back or subscribe to updates to know when there is something new to know about.
 
-## Operating System
+## Operating system
 
 [Ubuntu](https://ubuntu.com/) is my main operating system. I use it on my desktop, and it's running on a server I am using. The last time I used Windows on my desktop was in 2004.
 
 ## Productivity
 
-[Todoist](https://todoist.com/) is my main task manager. I use it to manage my daily tasks, and I am using it to manage my projects. I am using it on the phone, via the Linux app, and via webinterface.
+[Todoist](https://todoist.com/) is my main task manager. I use it to manage my tasks, and I am using it to manage my projects. I am using it on the phone, via the Linux app, and via web interface.
 
 I stay up to date with news and development by using [Feedly](https://feedly.com/) as online feed reader.
 
-## Privacy and Security
+## Privacy and security
 
 My password manager of choice is [Enpass](https://www.enpass.io/) and I am using it on all my devices.
 

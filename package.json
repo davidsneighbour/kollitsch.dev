@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2024.0.10",
+  "version": "2024.0.11",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -84,7 +84,8 @@
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:remark": "remark content/**/*.md",
     "lint:remark2": "remark .",
-    "lint:vale": "vale --config='.github/vale/.vale.ini' --no-exit content",
+    "lint:vale": "vale --config='.github/vale/vale.ini' --no-exit --output='dnb.tmpl' content",
+    "lint:vale:update": "cd .github/vale && vale sync && cd ../..",
     "new": "node bin/hugo/content.mjs",
     "prettier": "prettier 'assets/**/*.ts'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
@@ -97,7 +98,8 @@
     "server:hugo": "wireit",
     "server:pagefind": "wireit",
     "tests": "npm run cypress",
-    "update": "wireit"
+    "update": "wireit",
+    "lint:secrets": "secretlint content"
   },
   "wireit": {
     "audit:html": {
@@ -190,5 +192,9 @@
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
   },
-  "prettier": "@davidsneighbour/prettier-config"
+  "prettier": "@davidsneighbour/prettier-config",
+  "devDependencies": {
+    "@secretlint/secretlint-rule-preset-recommend": "^8.1.0",
+    "secretlint": "^8.1.0"
+  }
 }

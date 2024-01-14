@@ -2,22 +2,25 @@
 name: contentreview
 
 on:
+  pull_request:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
   vale:
-    name: runner/vale
+    name: vale
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: errata-ai/vale-action@reviewdog
         with:
-          vale_flags: "--config=.github/vale/.vale.ini"
+          vale_flags: "--config=.github/vale/vale.ini"
+          files: content/
+          reporter: github-check
 
   remark-lint:
-    name: runner / remark-lint
+    name: remark-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -13,18 +13,14 @@ const removeIgnoredFiles = async (/** @type {any[]} */ files) => {
 }
 
 export default {
-  'package-lock.json': "lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm",
+  'package-lock.json': 'lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm',
   '*.{ts,tsx,(m|c)js,jsx}': async (/** @type {any} */ files) => {
     const filesToLint = await removeIgnoredFiles(files)
     return [`eslint --max-warnings=0 ${filesToLint}`]
   },
-  // "*.{md,markdown}": "markdownlint-cli2",
-  "*.{md,markdown}": ["npm run lint:vale"],
-  "*.{scss,css}": "stylelint --fix",
-  "*.{png,jpeg,jpg,gif,svg}": "imagemin-lint-staged",
-  // "*.{js,jsx}": "flow focus-check",
-  "!(CHANGELOG)**/*.{md,markdown}": ["markdownlint-cli2", "npm run lint:vale"],
-  '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
-  // '**/*.js?(x)': (filenames) => filenames.map((filename) => `prettier --write '${filename}'`),
-  '**/*.*': 'npx secretlint'
+  '*.{scss,css}': ['stylelint --fix'],
+  '*.{png,jpeg,jpg,gif,svg}': ['imagemin-lint-staged'],
+  '!(CHANGELOG)**/*.{md,markdown}': ['markdownlint-cli2', 'npm run lint:vale'],
+  '**/*.ts?(x)': () => ['tsc -p tsconfig.json --noEmit'],
+  '**/*.*': ['npx secretlint']
 }

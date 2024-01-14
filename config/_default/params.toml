@@ -319,9 +319,9 @@ name = "*"
 # https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/
 disallow = ["/cdn-cgi/"]
 
-[[dnb.robots.useragents]]
-name = "GPTBot"
-disallow = ["/"]
+# [[dnb.robots.useragents]]
+# name = "GPTBot"
+# disallow = ["/"]
 
 ###############################################################################
 # hugo-sitemap @see https://github.com/davidsneighbour/hugo-sitemap

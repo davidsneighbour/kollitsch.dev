@@ -2,3 +2,6 @@ davidsneighbour
 David's Neighbour
 (kK)ollitsch
 VSCode
+(Ff)rontmatter
+(Bb)oolean
+(Ss)hortcode

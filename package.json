@@ -97,7 +97,8 @@
     "server:hugo": "wireit",
     "server:pagefind": "wireit",
     "tests": "npm run cypress",
-    "update": "wireit"
+    "update": "wireit",
+    "lint:secrets": "secretlint content"
   },
   "wireit": {
     "audit:html": {
@@ -190,5 +191,9 @@
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
   },
-  "prettier": "@davidsneighbour/prettier-config"
+  "prettier": "@davidsneighbour/prettier-config",
+  "devDependencies": {
+    "@secretlint/secretlint-rule-preset-recommend": "^8.1.0",
+    "secretlint": "^8.1.0"
+  }
 }

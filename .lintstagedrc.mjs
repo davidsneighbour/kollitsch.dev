@@ -26,4 +26,5 @@ export default {
   "!(CHANGELOG)**/*.{md,markdown}": ["markdownlint-cli2", "npm run lint:vale"],
   '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
   // '**/*.js?(x)': (filenames) => filenames.map((filename) => `prettier --write '${filename}'`),
+  '**/*.*': 'npx secretlint'
 }

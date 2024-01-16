@@ -95,7 +95,6 @@
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "server": "run-p server:hugo -- --watch",
     "server:functions": "netlify functions:serve",
-    "server:hugo": "wireit",
     "server:pagefind": "wireit",
     "tests": "npm run cypress",
     "update": "wireit",
@@ -172,7 +171,7 @@
       "command": "rimraf tests/cypress/{downloads,screenshots,videos}/*"
     },
     "clean:hugo": {
-      "command": "rimraf hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
+      "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
     },
     "clean:hugo:full": {
       "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"

@@ -12,19 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: google/wireit@setup-github-actions-caching/v1
-      - run: |
-          ${GITHUB_WORKSPACE}/bin/netlify/update-hugo-version > "${GITHUB_WORKSPACE}/netlify.toml"
+      - run: ${GITHUB_WORKSPACE}/bin/netlify/update-hugo-version"
       - name: Create Pull Request
         id: pr
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "chore(config): update Netlify configuration"
+          commit-message: 'chore(config): update Netlify configuration'
           committer: Patrick Kollitsch <patrick@davids-neighbour.com>
           author: Patrick Kollitsch <patrick@davids-neighbour.com>
           signoff: true
           branch: config/netlify
           delete-branch: true
-          title: "chore(config): update GoHugo version in netlify.toml"
+          title: 'chore(config): update GoHugo version in netlify.toml'
           body: Update netlify.toml with current latest GoHugo version number
           assignees: davidsneighbour
           reviewers: davidsneighbour

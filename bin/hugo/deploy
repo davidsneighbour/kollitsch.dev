@@ -46,8 +46,12 @@ set -e
 # get the version number
 VERSION=$(node -pe 'require("./package.json")["version"]')
 
-./bin/hugo/build
-npm run pagefind
+rm -rf public
+
+hugo
+npm run build:pagefind
+rm -f index.json
+rm -f links.json
 
 # and deploy
 # HASH=$(git log -n 1 | head -n 1 | sed -e 's/^commit //' | head -c 8)

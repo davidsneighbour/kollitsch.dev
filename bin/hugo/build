@@ -32,18 +32,18 @@ if [ -f "$FILE" ]; then
 fi
 
 # check if modules are up to date
-# declare -a MODULES=(
-#   "hugo-blockify"
-#   "hugo-theme"
-# )
-# for i in "${MODULES[@]}"; do
-#   cd "../$i" || exit
-#   if [[ $(git diff --stat) != '' ]]; then
-#     echo "${i} is dirty"
-#     exit 128
-#   fi
-# done
-# cd "$CURPATH" || exit
+declare -a MODULES=(
+  "hugo-modules"
+  "hugo-theme"
+)
+for i in "${MODULES[@]}"; do
+  cd "../$i" || exit
+  if [[ $(git diff --stat) != '' ]]; then
+    echo "${i} is dirty"
+    exit 128
+  fi
+done
+cd "$CURPATH" || exit
 
 # read base url from first argument, if empty use empty value
 BASE_URL_PARAM=""

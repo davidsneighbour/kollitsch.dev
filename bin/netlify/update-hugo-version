@@ -1,50 +1,25 @@
 #!/bin/bash
 
-REQUIRED_TOOLS=(
-  cat
-)
-
-for TOOL in "${REQUIRED_TOOLS[@]}"; do
-  if ! command -v "${TOOL}" >/dev/null; then
-    echo "${TOOL} is required... "
-    exit 1
-  fi
-done
-
+# Function to get the latest Hugo release
 get_latest_release() {
   curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" |
     grep '"tag_name":' |
     sed -E 's/.*"v([^"]+)".*/\1/'
 }
 
-cat <<EOF
-[build]
-publish = "./public"
+# The path to the TOML file
+TOML_FILE="netlify.toml"
 
-[context.production]
-command = "./bin/netlify/build"
+# Fetch the new HUGO version
+NEW_VERSION="$(get_latest_release)"
 
-[context.production.environment]
-HUGO_VERSION = "$(get_latest_release)"
-HUGO_ENV = "production"
-GO_VERSION = "1.17"
-NODE_ENV = "development"
+# Check if TOML file exists
+if [ ! -f "$TOML_FILE" ]; then
+  echo "TOML file not found: $TOML_FILE"
+  exit 1
+fi
 
-[functions]
-directory = "assets/functions"
+# Update the HUGO_VERSION in the TOML file
+sed -i "s/^HUGO_VERSION = \".*\"/HUGO_VERSION = \"$NEW_VERSION\"/" "$TOML_FILE"
 
-# [functions.status]
-# schedule = "*/10 * * * *"
-
-[[plugins]]
-package = "./bin/netlify/plugins/hugo-helper"
-
-[plugins.inputs]
-debug = false
-
-# [[plugins]]
-# package = "netlify-plugin-image-optim"
-
-[[plugins]]
-package = "@netlify/plugin-emails"
-EOF
+echo "Updated HUGO_VERSION to $NEW_VERSION in $TOML_FILE"

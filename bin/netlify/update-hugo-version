@@ -1,5 +1,18 @@
 #!/bin/bash
 
+REQUIRED_TOOLS=(
+  sed
+  curl
+)
+
+# check if all requirements are met
+for TOOL in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "${TOOL}" >/dev/null; then
+    echo "${TOOL} is required... "
+    exit 1
+  fi
+done
+
 # Function to get the latest Hugo release
 get_latest_release() {
   curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" |

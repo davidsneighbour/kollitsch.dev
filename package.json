@@ -94,6 +94,7 @@
     "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "server": "run-p server:hugo -- --watch",
+    "server:hugo": "wireit",
     "server:functions": "netlify functions:serve",
     "server:pagefind": "wireit",
     "tests": "npm run cypress",

@@ -55,17 +55,13 @@ properties:
     type: string
     pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$'
 
-  image:
-    description: |
-      Absolute or relative URL to image file.
-      Used for hero header and page thumbnail.
-    type: string
-
   type:
     type: string
     enum:
       - blog
       - video
+      - music
+      - page
 
   tags:
     type: array

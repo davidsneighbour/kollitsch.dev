@@ -47,6 +47,7 @@
     "pagefind": "1.0.4",
     "playwright": "1.40.1",
     "puppeteer": "21.7.0",
+    "remark": "^15.0.1",
     "request": "2.88.2",
     "sass": "1.69.7",
     "simple-git-hooks": "2.9.0",

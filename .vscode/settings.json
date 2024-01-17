@@ -1,9 +1,4 @@
 {
-	"yaml.schemas": {
-		"http://json-schema.org/draft-07/schema#": [
-			"./static/_schemata/*.schema.yaml"
-		]
-	},
 	"explorer.fileNesting.patterns": {
 		"hugo.log": "hugo_stats.json, .hugo_build.lock"
 	},
@@ -27,5 +22,8 @@
 	},
 	"[ignore]": {
 		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+  "yaml.schemas": {
+		"http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
 	}
 }

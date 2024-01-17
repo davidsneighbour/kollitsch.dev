@@ -21,6 +21,11 @@
     }
   ],
   "settings": {
+    "yaml.schemas": {
+      "http://json-schema.org/draft-07/schema#": [
+        "static/**/*.schema.yaml"
+      ]
+    },
     "files.associations": {
       "*.html": "gohtml",
       "*.xml": "gotemplate",

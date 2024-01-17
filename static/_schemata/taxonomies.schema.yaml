@@ -1,0 +1,26 @@
+title: blog post
+
+properties:
+  tags:
+    type: array
+    description: |
+      Used for SEO and filtering.
+      Tags are case insensitive.
+    items:
+      type: string
+
+  keywords:
+    type: array
+    description: |
+      Used for indexability. Keywords are case insensitive.
+      Add as many as you wish.
+    items:
+      type: string
+
+  categories:
+    type: array
+    items:
+      type: string
+
+required:
+  - tags

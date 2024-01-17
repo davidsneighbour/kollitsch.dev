@@ -1,0 +1,16 @@
+title: blog post
+
+properties:
+  draft:
+    type: boolean
+
+  type:
+    type: string
+    enum:
+      - blog
+      - video
+      - music
+      - page
+
+required:
+  - type

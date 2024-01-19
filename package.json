@@ -34,7 +34,7 @@
     "animate.css": "4.1.1",
     "axios": "1.6.5",
     "bootstrap-icons": "1.11.3",
-    "caniuse-lite": "1.0.30001577",
+    "caniuse-lite": "1.0.30001579",
     "dotenv": "16.3.1",
     "esm": "3.2.25",
     "imagemin-lint-staged": "0.5.1",

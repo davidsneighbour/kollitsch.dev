@@ -7,7 +7,7 @@ properties:
       Used for sorting and SEO.
       Format: YYYY-MM-DDTHH:MM:SS+HH:MM
     type: string
-    pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$'
+    pattern: '^\d{4}-\d{2}-\d{2}T([01]\d|2[0-3]):[0-5]\d:[0-5]\d[+-][01]\d:[0-5]\d$'
 
   publishDate:
     title: Publish date
@@ -15,7 +15,7 @@ properties:
       Used for sorting and SEO.
       Format: YYYY-MM-DDTHH:MM:SS+HH:MM
     type: string
-    pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$'
+    pattern: '^\d{4}-\d{2}-\d{2}T([01]\d|2[0-3]):[0-5]\d:[0-5]\d[+-][01]\d:[0-5]\d$'
 
   lastmod:
     title: Last modified date
@@ -23,7 +23,7 @@ properties:
       Used for sorting and SEO.
       Format: YYYY-MM-DDTHH:MM:SS+HH:MM
     type: string
-    pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$'
+    pattern: '^\d{4}-\d{2}-\d{2}T([01]\d|2[0-3]):[0-5]\d:[0-5]\d[+-][01]\d:[0-5]\d$'
 
 required:
   - date

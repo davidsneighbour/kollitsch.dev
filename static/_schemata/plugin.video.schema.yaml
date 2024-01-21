@@ -1,0 +1,13 @@
+title: blog post
+
+properties:
+  video:
+    type: object
+
+    properties:
+      youtube:
+        type: string
+      artist:
+        type: string
+      title:
+        type: string

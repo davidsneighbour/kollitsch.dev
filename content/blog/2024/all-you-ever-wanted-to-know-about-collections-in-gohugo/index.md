@@ -1,16 +1,17 @@
 ---
-title: All You Ever Wanted to Know about Collections in Gohugo
-linkTitle: All You Ever Wanted to Know about Collections in Gohugo
+title: All you ever wanted to know about collections in GoHugo, and more
+linkTitle: GoHugo collections
 description: ""
 summary: ""
 draft: true
-date: 2023-10-31T17:00:58+07:00
-publishDate: 2023-10-31T17:00:58+07:00
-lastmod: 2023-11-26T20:35:48+07:00
+date: 2024-01-17T21:51:27+07:00
+publishDate: 2024-01-17T21:51:27+07:00
+lastmod: 2024-01-21T19:47:17+07:00
 resources:
-- title: Photo by [Name](Link) via [Unsplash](https://unsplash.com/)
-  name: image name if other than src
-  src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+- title: Collections in Gohugo, by DALL-E
+  src: header.png
+- src: collections.png
+  title: Collections in Gohugo, by DALL-E
 categories:
 - category1
 tags:
@@ -26,6 +27,14 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 ---
+
+{{< living-documentation >}}
+
+## Introduction
+
+Collections are a powerful feature of GoHugo. They are used to create, modify, select, lookup, compare, process, and type *a bunch of somethings*. These *somethings* might be pages in your website, pieces of information, or just anything comparable to arrays and objects in your mother-(programming-)language. This post will cover all of these aspects and how to deal with them in GoHugo.
+
+## Quick reference
 
 | function | type | description |
 | --- | --- | --- |
@@ -61,7 +70,11 @@ unsplash:
 <https://gohugo.io/templates/lists/#order-content>
 <https://gohugo.io/templates/lists/#group-content>
 
-# Sample collections
+## Sample collections
+
+The following collections of books will be used throughout this post to demonstrate the different functions. The rating is a random value between 0 and 5. This is not my opinion on the books, but just a random value to demonstrate the functions. We will work with two collections, either collection 1 or collectio"the full collection" to refer to both collections.
+
+### Collection 1
 
 | # | Title                                 | Author            | Genre            | Year | Rating |
 |---|---------------------------------------|-------------------|------------------|------|--------|
@@ -76,6 +89,8 @@ unsplash:
 | 9 | Frankenstein                          | Mary Shelley      | Gothic Fiction   | 1818 | 4.2    |
 | 10| To Kill a Mockingbird                 | Harper Lee        | Classic Fiction  | 1960 | 4.6    |
 
+### Collection 2
+
 | # | Title                                 | Author            | Genre            | Year | Rating |
 |---|---------------------------------------|-------------------|------------------|------|--------|
 | 11| The Great Gatsby                      | F. Scott Fitzgerald| Classic Fiction | 1925 | 4.3    |
@@ -88,3 +103,17 @@ unsplash:
 | 18| The War of the Worlds                 | H.G. Wells        | Science Fiction  | 1898 | 4.2    |
 | 19| The Catcher in the Rye                | J.D. Salinger     | Classic Fiction  | 1951 | 4.0    |
 | 20| The Time Machine                      | H.G. Wells        | Science Fiction  | 1895 | 4.3    |
+
+## Create a collection
+
+## Modify a collection
+
+## Select from a collection
+
+## Lookup in a collection
+
+## Compare collections
+
+## Process collections
+
+## Typ(ecasting|ing) collections

@@ -9,6 +9,7 @@
   "frontMatter.site.baseURL": "https://kollitsch.dev",
   "frontMatter.content.publicFolder": "static",
   "frontMatter.taxonomy.seoDescriptionLength": 170,
+  "frontMatter.taxonomy.seoTitleLength": 75,
   "frontMatter.content.supportedFileTypes": ["md"],
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
   "frontMatter.taxonomy.indentArrays": false,

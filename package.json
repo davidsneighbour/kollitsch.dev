@@ -25,6 +25,7 @@
     "@davidsneighbour/eslint-config": "5.8.7",
     "@davidsneighbour/htmlvalidate-config": "5.8.7",
     "@davidsneighbour/hugo-theme": "1.2024.18",
+    "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "5.8.7",
     "@davidsneighbour/postcss-config": "5.8.7",
     "@davidsneighbour/prettier-config": "5.8.7",
@@ -37,7 +38,6 @@
     "caniuse-lite": "1.0.30001579",
     "dotenv": "16.3.2",
     "esm": "3.2.25",
-    "imagemin-lint-staged": "0.5.1",
     "lazysizes": "5.3.2",
     "lint-staged": "15.2.0",
     "needle": "3.3.1",
@@ -62,6 +62,10 @@
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
   },
+  "devDependencies": {
+    "@secretlint/secretlint-rule-preset-recommend": "^8.1.0",
+    "secretlint": "^8.1.0"
+  },
   "scripts": {
     "audit:html": "wireit",
     "build:hugo": "./bin/hugo/build",
@@ -85,6 +89,7 @@
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:remark": "remark content/**/*.md",
     "lint:remark2": "remark .",
+    "lint:secrets": "secretlint content",
     "lint:vale": "vale --config='.github/vale/vale.ini' --no-exit --output='dnb.tmpl' content",
     "lint:vale:update": "cd .github/vale && vale sync && cd ../..",
     "new": "node bin/hugo/content.mjs",
@@ -95,12 +100,11 @@
     "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "server": "run-p server:hugo -- --watch",
-    "server:hugo": "wireit",
     "server:functions": "netlify functions:serve",
+    "server:hugo": "wireit",
     "server:pagefind": "wireit",
     "tests": "npm run cypress",
-    "update": "wireit",
-    "lint:secrets": "secretlint content"
+    "update": "wireit"
   },
   "wireit": {
     "audit:html": {
@@ -193,9 +197,5 @@
   "eslintConfig": {
     "extends": "@davidsneighbour/eslint-config"
   },
-  "prettier": "@davidsneighbour/prettier-config",
-  "devDependencies": {
-    "@secretlint/secretlint-rule-preset-recommend": "^8.1.0",
-    "secretlint": "^8.1.0"
-  }
+  "prettier": "@davidsneighbour/prettier-config"
 }

@@ -87,6 +87,7 @@
     "lint:secrets": "secretlint content",
     "lint:vale": "vale --config='.github/vale/vale.ini' --no-exit --output='dnb.tmpl' content",
     "lint:vale:update": "cd .github/vale && vale sync && cd ../..",
+    "lint:accessibility": "pa11y --runner=htmlcs --runner=axe --include-notices --include-warnings",
     "new": "node bin/hugo/content.mjs",
     "prettier": "prettier 'assets/**/*.ts'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",

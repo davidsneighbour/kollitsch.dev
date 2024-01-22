@@ -72,11 +72,6 @@
     "build:pagefind": "pagefind",
     "clean": "wireit",
     "clean:full": "wireit",
-    "cypress": "npm run cypress:run",
-    "cypress:info": "cypress info",
-    "cypress:install": "cypress install",
-    "cypress:run": "cypress open --config-file tests/cypress/cypress.config.ts",
-    "cypress:verify": "cypress verify",
     "deploy": "./bin/netlify/deploy",
     "eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
     "eslint-fix": "npm run eslint -- --fix",
@@ -103,7 +98,7 @@
     "server:functions": "netlify functions:serve",
     "server:hugo": "wireit",
     "server:pagefind": "wireit",
-    "tests": "npm run cypress",
+    "tests": "wireit",
     "update": "wireit"
   },
   "wireit": {
@@ -184,6 +179,23 @@
     },
     "clean:netlify": {
       "command": "rimraf .netlify/*/*"
+    },
+    "tests": {
+      "command": "cypress open --config-file tests/cypress/cypress.config.ts",
+      "dependencies": [
+        "tests:install",
+        "tests:verify",
+        "tests:info"
+      ]
+    },
+    "tests:install": {
+      "command": "cypress install"
+    },
+    "tests:info": {
+      "command": "cypress info"
+    },
+    "tests:verify": {
+      "command": "cypress verify"
     }
   },
   "config": {

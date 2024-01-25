@@ -21,9 +21,9 @@ export default {
     return [`eslint --max-warnings=0 ${filesToLint}`]
   },
   '*.{scss,css}': ['stylelint --fix'],
-  '*.{png,jpeg,jpg,gif,svg}': [
-    'imagemin-lint-staged' // @davidsneighbour/imagemin-lint-staged
-  ],
+  // '*.{png,jpeg,jpg,gif,svg}': [
+  //   'imagemin-lint-staged' // @davidsneighbour/imagemin-lint-staged
+  // ],
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2',
     'npm run lint:vale'

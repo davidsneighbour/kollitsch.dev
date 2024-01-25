@@ -6,7 +6,7 @@ summary: ""
 draft: true
 date: 2024-01-17T21:51:27+07:00
 publishDate: 2024-01-17T21:51:27+07:00
-lastmod: 2024-01-21T19:47:17+07:00
+lastmod: 2024-01-22T22:49:38+07:00
 resources:
 - title: Collections in Gohugo, by DALL-E
   src: header.png
@@ -106,14 +106,105 @@ The following collections of books will be used throughout this post to demonstr
 
 ## Create a collection
 
+Certainly! Let's rewrite the section on creating collections in GoHugo to include the full definition of $collection1 and $collection2, a sample using `collections.KeyVals`, and a slice of integers from 0 to 100 using the `collections.Seq` function.
+
+***
+
+## Creating Collections in GoHugo
+
+### Defining Book Collections
+
+In GoHugo, collections can be defined using built-in functions. Here's how you can comprehensively define $collection1 and $collection2:
+
+```go
+{{ $collection1 := slice
+    (dict "Title" "Mystery of the Ancient Ruins" "Author" "Alex Johnson" "Genre" "Mystery" "Year" 2018 "Rating" 4.5)
+    (dict "Title" "Dune" "Author" "Frank Herbert" "Genre" "Science Fiction" "Year" 1965 "Rating" 4.8)
+    (dict "Title" "The Art of Cooking" "Author" "John Doe" "Genre" "Non-Fiction" "Year" 2015 "Rating" 4.0)
+    (dict "Title" "Animal Farm" "Author" "George Orwell" "Genre" "Dystopian" "Year" 1945 "Rating" 4.5)
+    ... // and so on for other books in Collection 1
+}}
+
+{{ $collection2 := slice
+    (dict "Title" "The Great Gatsby" "Author" "F. Scott Fitzgerald" "Genre" "Classic Fiction" "Year" 1925 "Rating" 4.3)
+    (dict "Title" "Foundation" "Author" "Isaac Asimov" "Genre" "Science Fiction" "Year" 1951 "Rating" 4.6)
+    (dict "Title" "Pride and Prejudice" "Author" "Jane Austen" "Genre" "Classic Fiction" "Year" 1813 "Rating" 4.5)
+    (dict "Title" "Neuromancer" "Author" "William Gibson" "Genre" "Science Fiction" "Year" 1984 "Rating" 4.3)
+    ... // and so on for other books in Collection 2
+}}
+```
+
+### Using `collections.KeyVals`
+
+`collections.KeyVals` is useful for creating a collection with a key and values. Here's an example using part of Collection 1:
+
+```go
+{{ $keyValSample := keyVals "FavoriteBooks" (slice (index $collection1 0) (index $collection1 1)) }}
+```
+
+This will create a collection with the key "FavoriteBooks" and the first two books from $collection1 as its values.
+
+### Creating a Sequence with `collections.Seq`
+
+The `collections.Seq` function generates a sequence of numbers. Here's how to create a sequence from 0 to 100:
+
+```go
+{{ $numberSequence := seq 0 100 }}
+```
+
+This command will create a slice containing integers from 0 to 100.
+
 ## Modify a collection
+
+Let's modify $collection1 and $collection2 using functions like `collections.Append` and `collections.Merge`:
+
+```go
+{{ $extendedCollection1 := append $collection1 (dict "Title" "New Book" "Author" "New Author" "Genre" "New Genre" "Year" 2024 "Rating" 4.7) }}
+{{ $mergedCollections := merge $collection1 $collection2 }}
+```
 
 ## Select from a collection
 
+Select specific elements from $collection1 and $collection2:
+
+```go
+{{ $firstTwoBooks := first 2 $collection1 }}
+{{ $lastTwoBooks := last 2 $collection2 }}
+```
+
 ## Lookup in a collection
+
+Check if a specific element is in $collection1 or $collection2:
+
+```go
+{{ range $collection1 }}
+    {{ if eq .Title "Dune" }}
+        Found Dune in Collection 1.
+    {{ end }}
+{{ end }}
+```
 
 ## Compare collections
 
+Compare $collection1 and $collection2:
+
+```go
+{{ $uniqueInCollection2 := complement $collection2 $collection1 }}
+{{ $commonBooks := intersect $collection1 $collection2 }}
+```
+
 ## Process collections
 
+Transform $collection1 into a different form:
+
+```go
+{{ $bookTitlesQuery := querify "titles" (pluck "Title" $collection1) }}
+```
+
 ## Typ(ecasting|ing) collections
+
+Determine the type of $collection1:
+
+```go
+{{ if reflect.isSlice $collection1 }}$collection1 is a slice.{{ end }}
+```

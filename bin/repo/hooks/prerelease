@@ -68,14 +68,14 @@ fi
 
 #"${CURPATH}"/bin/build/prepare-docs
 
-# hugo mod get -u ./...
-# hugo mod tidy
+hugo mod get -u ./...
+hugo mod tidy
 
-# git add "${CURPATH}"/go.mod
-# FILE="${CURPATH}"/go.sum
-# if test -f "$FILE"; then
-#   git add go.sum
-# fi
+git add "${CURPATH}"/go.mod
+FILE="${CURPATH}"/go.sum
+if test -f "$FILE"; then
+  git add go.sum
+fi
 
 # if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
 #   while read -ra __; do

@@ -77,6 +77,8 @@ if test -f "$FILE"; then
   git add go.sum
 fi
 
+rm -rf public/
+
 # if test -f "$SCRIPTPATH"/bin/etc/hugo/replacements; then
 #   while read -ra __; do
 #     go mod edit -replace "${__[0]}"="${__[1]}"

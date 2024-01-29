@@ -10,7 +10,6 @@ require (
 	github.com/davidsneighbour/hugo-modules v0.0.0-20240129115842-dcee5f362a4a // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.31 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.9 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.3 // indirect

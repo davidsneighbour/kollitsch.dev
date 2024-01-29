@@ -2,16 +2,12 @@ github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 h1:K8ukOfj0MOBEW
 github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579/go.mod h1:xl3heUINAn0oPowV1biDQ2Pyw1w3x66I7KEbWkaxox0=
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXqDQMVeFfgyXgP9yY40bbx0h2qS+8=
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
-github.com/davidsneighbour/hugo-modules v0.0.0-20240128131724-ef7ba4a5430a h1:op++ySbYS0av1Mb30S3qw/brXYve1cgRV2JCWHGjC+8=
-github.com/davidsneighbour/hugo-modules v0.0.0-20240128131724-ef7ba4a5430a/go.mod h1:8uLGnOljtEG4ADvpgPTCQc1EztPd7AsS4optwohezr0=
 github.com/davidsneighbour/hugo-modules v0.0.0-20240129115842-dcee5f362a4a h1:0MFhxXC+GJBq0h6Rx/WMrnJdwFD4KHHAaMSOG2LP4D0=
 github.com/davidsneighbour/hugo-modules v0.0.0-20240129115842-dcee5f362a4a/go.mod h1:8uLGnOljtEG4ADvpgPTCQc1EztPd7AsS4optwohezr0=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 h1:TNjqpiXkwVflELokzo+UTXdRT2b7M3Qtb2YnKbKI8A8=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13/go.mod h1:SPSKhU4HI79zYM91EpgFvJD3uC4hZjx0bwkXTyfSIhc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.31 h1:z9TDfRoZEyDy1R0OhgIU3jlLhxk6z1DIzFCGdz79Sio=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.31/go.mod h1:V4vumiTgQkeNnLEz0FR8YcOEqZ+Vv1FZIrKiTGmjQ8A=
-github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2 h1:jB1ZydmetkISznCgSqHTfxh9C1TbZBce0h6vKnd9ovA=
-github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2/go.mod h1:Iyq5Rt20xteCblwje1Jwf87cqaSTaYpJjNRoweH13YY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.9 h1:NiR5PEPv4GtGYXsFkekHwN2YSQQi4J6I9Eb022oXxSE=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.9/go.mod h1:ysQ8xSjrNvnkUVQOxjDiM+E8xFeNyRN6Lgb40cjpV00=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0 h1:4TZhXQQ3PCVqj8jIkEZ2Mkkh+I6est3XMVMmESJdXGs=
@@ -22,8 +18,6 @@ github.com/davidsneighbour/hugo-modules/modules/head v1.2023.12 h1:qZNEZvyk50xwK
 github.com/davidsneighbour/hugo-modules/modules/head v1.2023.12/go.mod h1:e0X6/KZNIMZ1XRtC+6TKQiONKyoLBoCpOc6SysCgT2E=
 github.com/davidsneighbour/hugo-modules/modules/hooks v1.2024.1 h1:NiLbUFMJ/xk5gHw9rKm+pyjh7fcfb3Wsx8D7FFp811I=
 github.com/davidsneighbour/hugo-modules/modules/hooks v1.2024.1/go.mod h1:JXvDMNx+6XC22EoBq+4ttPBMZJZUd4r5oCS2IRS/J0s=
-github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.1 h1:NDXas6J8XsZOvOL8WW0t0kjDDyPfUxVBn+cjXOCQEVM=
-github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.1/go.mod h1:BQHz25uzhgvoMJyydRTLXp3vjjWTYZjk1vdWmEIxPKA=
 github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.2 h1:mG7G2nts6l6T2ZBpdVpIfE3VjGcBOuYyKlPAQEcBi+o=
 github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.2/go.mod h1:BQHz25uzhgvoMJyydRTLXp3vjjWTYZjk1vdWmEIxPKA=
 github.com/davidsneighbour/hugo-modules/modules/internals v1.2023.5 h1:Exk2HqvPcsU4Q5vCFrMAuEb40pEQ5VHcuzJZdPvR4Kc=
@@ -58,10 +52,6 @@ github.com/davidsneighbour/hugo-modules/modules/social v0.1.36 h1:UdWpjAFfybpuF2
 github.com/davidsneighbour/hugo-modules/modules/social v0.1.36/go.mod h1:cGvgLFrYislDML/mP0sjROxRHhEhliaZ7Tt+F1FwItU=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16 h1:wRpglyhxPhKilhDp4/7XdJAYBlSmwgWgmXwtZReVLKw=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16/go.mod h1:/bWhtvmL38s7cgV+YRCXdgpe+iJ8elIRXiNB9TRCh+g=
-github.com/davidsneighbour/hugo-theme v1.2024.20 h1:I+5Czv4wX02uFipNMK8Eh/bIv4qN814MrDOpq7N4IUY=
-github.com/davidsneighbour/hugo-theme v1.2024.20/go.mod h1:VAUnNnTud0ZL79H855sHU9iXhgOufwYYEb9FqE8pQxo=
-github.com/davidsneighbour/hugo-theme v1.2024.21 h1:iWGKeZyS2D0IV43okt9fS2Ud9M+jXJMmxVRxGMQ6fW4=
-github.com/davidsneighbour/hugo-theme v1.2024.21/go.mod h1:5/ghSB0/ETll0WGVV/i3utPTANH+e0NgDChGL33rUhw=
 github.com/davidsneighbour/hugo-theme v1.2024.22 h1:RblK5eHnLbxYNokM4ju4CI+fcmP4uK+oZJpcPYu3hTE=
 github.com/davidsneighbour/hugo-theme v1.2024.22/go.mod h1:5/ghSB0/ETll0WGVV/i3utPTANH+e0NgDChGL33rUhw=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=

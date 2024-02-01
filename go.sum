@@ -8,6 +8,8 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 h1:TNjqpiXkwV
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13/go.mod h1:SPSKhU4HI79zYM91EpgFvJD3uC4hZjx0bwkXTyfSIhc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.31 h1:z9TDfRoZEyDy1R0OhgIU3jlLhxk6z1DIzFCGdz79Sio=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.31/go.mod h1:V4vumiTgQkeNnLEz0FR8YcOEqZ+Vv1FZIrKiTGmjQ8A=
+github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2 h1:jB1ZydmetkISznCgSqHTfxh9C1TbZBce0h6vKnd9ovA=
+github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2/go.mod h1:Iyq5Rt20xteCblwje1Jwf87cqaSTaYpJjNRoweH13YY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.9 h1:NiR5PEPv4GtGYXsFkekHwN2YSQQi4J6I9Eb022oXxSE=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2023.9/go.mod h1:ysQ8xSjrNvnkUVQOxjDiM+E8xFeNyRN6Lgb40cjpV00=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0 h1:4TZhXQQ3PCVqj8jIkEZ2Mkkh+I6est3XMVMmESJdXGs=

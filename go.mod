@@ -10,7 +10,6 @@ require (
 	github.com/davidsneighbour/hugo-modules v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.0 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2023.3 // indirect
@@ -33,7 +32,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.36 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2024.23 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2024.24 // indirect
 	github.com/paulirish/lite-youtube-embed v0.3.0 // indirect
 	github.com/tabler/tabler-icons v2.46.0+incompatible // indirect
 	github.com/tailwindlabs/heroicons v2.1.1+incompatible // indirect

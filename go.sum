@@ -8,8 +8,6 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 h1:TNjqpiXkwV
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13/go.mod h1:SPSKhU4HI79zYM91EpgFvJD3uC4hZjx0bwkXTyfSIhc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.0 h1:Zbuh73iqTRjs62/s7fB0pLeZ4n59jAllbmT76794bEs=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.0/go.mod h1:llu9bxa3/HSDaeJDTh0QyNa7snE9AdV+IyuNaLVFQ4E=
-github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2 h1:jB1ZydmetkISznCgSqHTfxh9C1TbZBce0h6vKnd9ovA=
-github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2/go.mod h1:Iyq5Rt20xteCblwje1Jwf87cqaSTaYpJjNRoweH13YY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.0 h1:SyrlaVvxAYBMaikSOIWIkK1BXXyRYvJOPl+KRZ+nVW8=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.0/go.mod h1:B+h0GNzYnwX+GqWcFGJig/58xj2rLy3U5bM+cilxdxc=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.0 h1:4TZhXQQ3PCVqj8jIkEZ2Mkkh+I6est3XMVMmESJdXGs=
@@ -54,8 +52,8 @@ github.com/davidsneighbour/hugo-modules/modules/social v0.1.36 h1:UdWpjAFfybpuF2
 github.com/davidsneighbour/hugo-modules/modules/social v0.1.36/go.mod h1:cGvgLFrYislDML/mP0sjROxRHhEhliaZ7Tt+F1FwItU=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16 h1:wRpglyhxPhKilhDp4/7XdJAYBlSmwgWgmXwtZReVLKw=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16/go.mod h1:/bWhtvmL38s7cgV+YRCXdgpe+iJ8elIRXiNB9TRCh+g=
-github.com/davidsneighbour/hugo-theme v1.2024.23 h1:+SgqD2Zm+OiEDfywjFafUzDlLkoyZxeu+Pz+oi+Ilu8=
-github.com/davidsneighbour/hugo-theme v1.2024.23/go.mod h1:ZcA414fCxz+GS4AQqiWNqo9USFbZy/TQM2pH1fVeOAQ=
+github.com/davidsneighbour/hugo-theme v1.2024.24 h1:SCtG5QNVB+8nsbq8sLmweYlH1vbhW4xddYBtZfNOSu0=
+github.com/davidsneighbour/hugo-theme v1.2024.24/go.mod h1:ZcA414fCxz+GS4AQqiWNqo9USFbZy/TQM2pH1fVeOAQ=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/tabler/tabler-icons v2.46.0+incompatible h1:KGuULX9iohUaGOsXHsBxoMuPiWsJDZ7Dw4bLaJB21o0=

@@ -39,7 +39,7 @@
     "dotenv": "16.4.1",
     "esm": "3.2.25",
     "lazysizes": "5.3.2",
-    "lint-staged": "15.2.0",
+    "lint-staged": "15.2.1",
     "needle": "3.3.1",
     "ninja-keys": "1.2.2",
     "node-fetch": "3.3.2",

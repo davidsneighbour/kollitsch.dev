@@ -28,7 +28,7 @@
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "5.8.7",
     "@davidsneighbour/postcss-config": "5.8.7",
-    "@davidsneighbour/prettier-config": "5.8.7",
+    "@davidsneighbour/prettier-config": "5.8.9",
     "@davidsneighbour/remark-config": "5.8.7",
     "@netlify/functions": "2.5.1",
     "@types/yargs": "17.0.32",

@@ -6,15 +6,17 @@
       "type": "shell",
       "command": "npm run server",
       "windows": {
-        "command": "npm run server",
+        "command": "npm run server"
       },
       "group": "none",
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared",
+        "showReuseMessage": false,
+        "close": true
       },
       "runOptions": {
-        "runOn": "folderOpen",
+        "runOn": "folderOpen"
       }
     }
   ]

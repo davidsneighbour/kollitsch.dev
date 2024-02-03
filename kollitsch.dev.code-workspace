@@ -76,7 +76,8 @@
       "timonwong.shellcheck",
       "remisa.shellman",
       "mkhl.shfmt",
-      "mjmlio.vscode-mjml"
+      "mjmlio.vscode-mjml",
+      "ms-vscode.vscode-speech"
     ]
   }
 }

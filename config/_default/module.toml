@@ -7,6 +7,10 @@ source = "assets"
 target = "assets"
 
 [[mounts]]
+source = "package.json"
+target = "assets/versions/kollitsch.json"
+
+[[mounts]]
 source = "node_modules"
 target = "assets/node_modules"
 

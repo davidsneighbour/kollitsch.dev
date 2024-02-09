@@ -32,7 +32,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.1.37 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2024.29 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2024.30 // indirect
 	github.com/paulirish/lite-youtube-embed v0.3.0 // indirect
 	github.com/twbs/icons v1.11.3 // indirect
 	github.com/zenorocha/clipboard.js v2.0.11+incompatible // indirect

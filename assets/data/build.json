@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/141532271",
-  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/141532271/assets",
-  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/141532271/assets{?name,label}",
-  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2024.0.38",
-  "id": 141532271,
+  "url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/141533787",
+  "assets_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/141533787/assets",
+  "upload_url": "https://uploads.github.com/repos/davidsneighbour/kollitsch.dev/releases/141533787/assets{?name,label}",
+  "html_url": "https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v2024.0.39",
+  "id": 141533787,
   "author": {
     "login": "davidsneighbour",
     "id": 83281,
@@ -24,18 +24,18 @@
     "type": "User",
     "site_admin": false
   },
-  "node_id": "RE_kwDOGDHt584Ib5xv",
-  "tag_name": "v2024.0.38",
+  "node_id": "RE_kwDOGDHt584Ib6Jb",
+  "tag_name": "v2024.0.39",
   "target_commitish": "main",
-  "name": "v2024.0.38",
+  "name": "v2024.0.39",
   "draft": false,
   "prerelease": false,
-  "created_at": "2024-02-11T12:32:43Z",
-  "published_at": "2024-02-11T12:32:51Z",
+  "created_at": "2024-02-11T13:25:33Z",
+  "published_at": "2024-02-11T13:25:39Z",
   "assets": [
 
   ],
-  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2024.0.38",
-  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2024.0.38",
-  "body": "v2024.0.38"
+  "tarball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/tarball/v2024.0.39",
+  "zipball_url": "https://api.github.com/repos/davidsneighbour/kollitsch.dev/zipball/v2024.0.39",
+  "body": "v2024.0.39"
 }

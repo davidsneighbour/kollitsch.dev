@@ -8,6 +8,10 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13 h1:TNjqpiXkwV
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2023.13/go.mod h1:SPSKhU4HI79zYM91EpgFvJD3uC4hZjx0bwkXTyfSIhc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.0 h1:Zbuh73iqTRjs62/s7fB0pLeZ4n59jAllbmT76794bEs=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.0/go.mod h1:llu9bxa3/HSDaeJDTh0QyNa7snE9AdV+IyuNaLVFQ4E=
+github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.1 h1:kG4M/hiS3sdrBRKdU7mqo75t28lgYcGt+F/qnPXZfGo=
+github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.1/go.mod h1:76X02tSGrofgyJsHXpdXoohRvtdxKDhxWJt8atxrOUI=
+github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2 h1:jB1ZydmetkISznCgSqHTfxh9C1TbZBce0h6vKnd9ovA=
+github.com/davidsneighbour/hugo-modules/modules/devtools v1.2023.2/go.mod h1:Iyq5Rt20xteCblwje1Jwf87cqaSTaYpJjNRoweH13YY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.0 h1:SyrlaVvxAYBMaikSOIWIkK1BXXyRYvJOPl+KRZ+nVW8=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.0/go.mod h1:B+h0GNzYnwX+GqWcFGJig/58xj2rLy3U5bM+cilxdxc=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.1 h1:1KvjWVXMTqyEls1m+1s05GgFRgfy9V1+Y1LUjcfd0tY=
@@ -36,6 +40,8 @@ github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5 h1:1RLPhQCipIlUMeO
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5/go.mod h1:jyLk6tI9/nKikkowncTYHHYyq+6ygWofh9Ukn0Bg+bc=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2023.6 h1:K6YhX/wiqUSB4XB1GSsFnteZNZA2S2XC+B25EU5Nlpc=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2023.6/go.mod h1:TehDVW7LXnrui4g1T4hNc9CqMNNp1YpNDg3S8sO77tA=
+github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.0 h1:W7rgNlgFhaB1fLEBYQnZ/9jlCsep4NqY6ZFtHFYBhqg=
+github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.0/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2023.6 h1:eysfvV3kjN+kHfXMAmG9WDh9SxPnw/J8xPyWrapVW0o=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2023.6/go.mod h1:b9sTyM727ZlKujiXbppysnFycDtuwanV70lh0Tuo56Y=
 github.com/davidsneighbour/hugo-modules/modules/schema v0.0.6 h1:g6HVeeTEkYW2WT750r/P0xAxh3sHuAKJEi5UAyMUr34=
@@ -50,10 +56,14 @@ github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.5 h1:qmp0ybmjxkE
 github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.5/go.mod h1:qpCcVaaPTn1zv4k+eW0iFsiozxlBxcZgaoMRf2yVOWg=
 github.com/davidsneighbour/hugo-modules/modules/social v0.1.37 h1:8imZOZPJ4DrdI7czrqJTYtpFiIbLmohLx21LQjsS1ko=
 github.com/davidsneighbour/hugo-modules/modules/social v0.1.37/go.mod h1:dUnMGOQL1lp1BZSRCRKV34NcyxQYZv5apnRNYJBmcus=
+github.com/davidsneighbour/hugo-modules/modules/social v0.1.38 h1:kavVJ2aB9gOHOau6GKA+bP7F4MNTMbSBNsWP/TNHcTU=
+github.com/davidsneighbour/hugo-modules/modules/social v0.1.38/go.mod h1:gJbzUDNebkNi/a5tKb4e3zcZfxqXYdSPmn0e62Ibwjw=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16 h1:wRpglyhxPhKilhDp4/7XdJAYBlSmwgWgmXwtZReVLKw=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2023.16/go.mod h1:/bWhtvmL38s7cgV+YRCXdgpe+iJ8elIRXiNB9TRCh+g=
 github.com/davidsneighbour/hugo-theme v1.2024.33 h1:LznN7xzbr0c3nRLJngPfEeTnku2JIvmKZcjkJtsgJDM=
 github.com/davidsneighbour/hugo-theme v1.2024.33/go.mod h1:ZaLXaeWdPsm/CVVhPcoiQ8L9JI91N8bxsak+gJVf+Go=
+github.com/davidsneighbour/hugo-theme v1.2024.35 h1:5KOF9jRUJFbhAWsZB4K/iPcAq5yPi3gRmuP3YEJzEgs=
+github.com/davidsneighbour/hugo-theme v1.2024.35/go.mod h1:1ssJnhdAI3ZpSO8JYQiCavOJUqBhohH4VTCheU1TLQA=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

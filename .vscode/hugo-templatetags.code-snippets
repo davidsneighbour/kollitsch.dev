@@ -1,0 +1,10 @@
+// shortcode helpers for GoHugo internal shortcodes
+// @see https://code.visualstudio.com/docs/editor/userdefinedsnippets
+{
+  "hugo-comment": {
+    "scope": "gohtml,html,markdown",
+    "prefix": "hugo-comment",
+    "body": ["{{- /* $0 */ -}}"],
+    "description": "Insert Hugo Comment",
+  },
+}

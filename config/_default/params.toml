@@ -76,7 +76,7 @@ timestamp = "2006-01-02T15:04:05-07:00"
 
 ################################################################################
 # hugo-pictures
-# @see https://kollitsch.dev/components/hugo-pictures
+# @see https://kollitsch.dev/gohugo/pictures
 ################################################################################
 [dnb.pictures]
 default_image = "images/og_sitewide.png"
@@ -210,7 +210,7 @@ domain = "davids-neighbour.com"
 
 ################################################################################
 # hugo-giscus
-# @see https://kollitsch.dev/components/hugo-giscus
+# @see https://kollitsch.dev/gohugo/giscus
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"

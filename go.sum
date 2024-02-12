@@ -56,6 +56,8 @@ github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.0 h1:I2AjMRpXLc1
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.0/go.mod h1:+J7VUjPj6FSc7wzSLKGm/gI5zJR8GGbxb5IdrpguoZ8=
 github.com/davidsneighbour/hugo-theme v1.2024.37 h1:OJ7oo92f5dzgq/ulxfFfJAbP9tTV6SwjwTj9G5fprAw=
 github.com/davidsneighbour/hugo-theme v1.2024.37/go.mod h1:wwSOJte47Hhs08veXmSn9Fzurr05fFuF12EP45kCiDs=
+github.com/davidsneighbour/hugo-theme v1.2024.38 h1:iZcEA+8igGYjqQWtbvqDviRSMP/IKdj4zfpPJAZ8Rgw=
+github.com/davidsneighbour/hugo-theme v1.2024.38/go.mod h1:wwSOJte47Hhs08veXmSn9Fzurr05fFuF12EP45kCiDs=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

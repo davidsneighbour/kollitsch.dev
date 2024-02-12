@@ -3,9 +3,10 @@ title: Fall 2024 Emoji Update
 linkTitle: Fall 2024 Emoji Update
 description: ""
 summary: ""
+draft: true
 date: 2024-02-11T22:40:50+07:00
 publishDate: 2024-02-11T22:40:50+07:00
-lastmod: 2024-02-11T23:00:07+07:00
+lastmod: 2024-02-12T15:43:57+07:00
 resources:
 - title: "DALL·E: A dense collection of emojis from the Unicode standard, filling the entire image space on a plain white background without gradients."
   src: header.webp

@@ -6,10 +6,12 @@ import { loadFeed, downloadImage, loadEnv } from './utils.mjs';
 import { createBlueSkyPost, createBlueskyEmbed, parseMentions, parseUrls } from './utils.bluesky.mjs';
 
 const main = async () => {
+  // @ts-ignore
   const { BskyAgent, RichText } = blue;
   try {
     await loadEnv();
     const { FEED_LINK, BLUESKY_BOT_USERNAME, BLUESKY_BOT_PASSWORD } = process.env;
+    // @ts-ignore
     const feed = await loadFeed(FEED_LINK);
 
     const fileContent = {
@@ -17,7 +19,9 @@ const main = async () => {
     };
     console.log(fileContent);
 
-    const agent = new BskyAgent({ service: "https://bsky.social/" });
+    const agent = new BskyAgent({
+      service: "https://bsky.social/"
+    });
     await agent.login({
       identifier: BLUESKY_BOT_USERNAME,
       password: BLUESKY_BOT_PASSWORD,
@@ -51,7 +55,7 @@ const main = async () => {
       $type: "app.bsky.feed.post",
       text: rt.text,
       facets: facets,
-      langs: ["end"],
+      langs: ["en"],
       createdAt: new Date().toISOString(),
       embed: await createBlueskyEmbed(feed.rss.channel[0].item[0], testUpload.data.blob),
     };

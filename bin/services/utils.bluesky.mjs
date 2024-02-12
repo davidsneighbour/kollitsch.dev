@@ -1,5 +1,4 @@
 /**
- *
  * @param {*} post
  * @param {*} blob
  * @returns
@@ -19,7 +18,6 @@ export const createBlueskyEmbed = async (post, blob) => {
 }
 
 /**
- *
  * @param {*} post
  * @returns
  * @todo add description to the post
@@ -34,7 +32,6 @@ export const createBlueSkyPost = async (post) => {
 }
 
 /**
- *
  * @param {*} text
  * @returns
  * @todo retrieve the account data from the server
@@ -63,7 +60,6 @@ export function parseMentions(text) {
 }
 
 /**
- *
  * @param {*} text
  * @returns
  */

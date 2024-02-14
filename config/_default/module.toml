@@ -21,6 +21,9 @@ path = "github.com/davidsneighbour/hugo-modules/modules/debug"
 path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
 
 [[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/errors"
+
+[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/functions"
 
 [[imports]]

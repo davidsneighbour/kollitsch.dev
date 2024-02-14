@@ -2,6 +2,7 @@ github.com/davidsneighbour/hugo-theme ../../hugo-theme
 github.com/davidsneighbour/hugo-modules ../../hugo-modules
 github.com/davidsneighbour/hugo-modules/modules/auditor ../../hugo-modules/modules/auditor
 github.com/davidsneighbour/hugo-modules/modules/debug ../../hugo-modules/modules/debug
+github.com/davidsneighbour/hugo-modules/modules/errors ../../hugo-modules/modules/errors
 github.com/davidsneighbour/hugo-modules/modules/feeds ../../hugo-modules/modules/feeds
 github.com/davidsneighbour/hugo-modules/modules/functions ../../hugo-modules/modules/functions
 github.com/davidsneighbour/hugo-modules/modules/giscus ../../hugo-modules/modules/giscus

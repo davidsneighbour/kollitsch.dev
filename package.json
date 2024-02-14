@@ -26,10 +26,8 @@
     "@davidsneighbour/htmlvalidate-config": "5.8.18",
     "@davidsneighbour/hugo-theme": "1.2024.42",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "5.8.18",
     "@davidsneighbour/postcss-config": "5.8.18",
     "@davidsneighbour/prettier-config": "5.8.18",
-    "@davidsneighbour/remark-config": "5.8.18",
     "@netlify/functions": "2.5.1",
     "@types/yargs": "17.0.32",
     "animate.css": "4.1.1",
@@ -47,7 +45,6 @@
     "pagefind": "1.0.4",
     "playwright": "1.41.2",
     "puppeteer": "22.0.0",
-    "remark": "^15.0.1",
     "request": "2.88.2",
     "sass": "1.70.0",
     "simple-git-hooks": "2.9.0",
@@ -63,6 +60,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
+    "@davidsneighbour/markdownlint-config": "5.8.18",
+    "@davidsneighbour/remark-config": "5.8.18",
+    "remark": "^15.0.1",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.1",
     "secretlint": "^8.1.1"
   },

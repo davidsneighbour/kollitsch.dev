@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@11ty/is-land": "4.0.0",
-    "@atproto/api": "0.9.6",
+    "@atproto/api": "0.9.7",
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "18.6.1",
     "@commitlint/config-conventional": "18.6.2",

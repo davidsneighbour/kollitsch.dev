@@ -1,0 +1,27 @@
+title: authors setup
+
+properties:
+  authors:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        homepage:
+          type: string
+        image:
+          type: string
+  author:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      homepage:
+        type: string
+      image:
+        type: string

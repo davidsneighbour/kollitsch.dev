@@ -1,0 +1,10 @@
+{{- if hugo.IsServer -}}
+  {{ partialCached "indicator.html" . . }}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        {{- partials.IncludeCached "infotabs.html" page page -}}
+      </div>
+    </div>
+  </div>
+{{- end -}}

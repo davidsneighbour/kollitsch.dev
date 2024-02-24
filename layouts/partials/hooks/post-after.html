@@ -1,0 +1,39 @@
+{{ if in .context.Params.tags "100DaysToOffload" }}
+  {{- $year := math.Sub now.Year 1 }}
+  {{- $month := now.Month -}}
+  {{- $day := now.Day -}}
+  {{- $startOfYear := time.AsTime (fmt.Printf "%04d-%02d-%02dT00:00:00" $year $month $day) -}}
+  {{- $tag100 := (index site.Taxonomies.tags "100daystooffload") -}}
+  {{- $allPosts := $tag100.Pages -}}
+  {{- $pages := where $allPosts "Date" "gt" $startOfYear -}}
+  {{- $amount := $pages | len -}}
+  {{- $rest := sub 100 $amount -}}
+  <div class="alert alert-dark mb-3" role="alert">
+    <p class="alert-heading d-flex justify-content-between">
+      <span>
+        This post is part of <a href="/blog/2022/100-days-to-offload/" class="alert-link">#100DaysToOffload</a>
+      </span>
+      <small>
+        {{- $amount }} posts since {{ $startOfYear.Format "Jan 02, 2006" }} &mdash; {{ $allPosts | len }} total posts
+      </small>
+    </p>
+    <div class="progress-stacked">
+      <div class="progress" role="progressbar" aria-label="Posts done"
+            aria-valuenow="{{- $amount -}}"
+            aria-valuemin="0" aria-valuemax="100"
+            style="width: {{- $amount -}}%">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary text-dark">
+          {{- $amount -}}
+        </div>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Posts to fulfill pledge"
+            aria-valuenow="{{- $rest -}}"
+            aria-valuemin="0" aria-valuemax="100"
+            style="width: {{- $rest -}}%">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark">
+          {{- $rest -}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

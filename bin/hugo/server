@@ -139,7 +139,6 @@ env HUGO_MODULE_REPLACEMENTS="${HUGO_MODULE_REPLACEMENTS}" \
   ${dnb_server_future} \
   ${dnb_server_expired} \
   ${dnb_server_debug} \
-  --renderToDisk \
   --watch \
   --enableGitInfo \
   --forceSyncStatic \

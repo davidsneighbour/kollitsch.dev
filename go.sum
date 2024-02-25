@@ -54,8 +54,8 @@ github.com/davidsneighbour/hugo-modules/modules/social v0.2024.0 h1:LkJ0U88hk+fT
 github.com/davidsneighbour/hugo-modules/modules/social v0.2024.0/go.mod h1:6fBthrqf3MHdUEV4R8eT+PmhoEXzCjDTMKMVPeVmQEE=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.0 h1:I2AjMRpXLc1AOOoGoQ2XWk2JibjLHv85RX0QmN3abz8=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.0/go.mod h1:+J7VUjPj6FSc7wzSLKGm/gI5zJR8GGbxb5IdrpguoZ8=
-github.com/davidsneighbour/hugo-theme v1.2024.49 h1:3K+0gD2iOAtMFv7KMLPc2yEP0fC74B8jReqm+fI7hDc=
-github.com/davidsneighbour/hugo-theme v1.2024.49/go.mod h1:wjpPlrGybqi9Wr4to+8dTl7bfEb3NX5Pi4wUs4Rv94o=
+github.com/davidsneighbour/hugo-theme v1.2024.50 h1:rp1ycMmD+LvbsouIMTkRcx6z+nbotFjfcVX3rDoOqQA=
+github.com/davidsneighbour/hugo-theme v1.2024.50/go.mod h1:wjpPlrGybqi9Wr4to+8dTl7bfEb3NX5Pi4wUs4Rv94o=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

@@ -20,6 +20,8 @@ github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240224112325-ed5
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240224112325-ed58d93403e8/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240224140641-356c6569cb65 h1:dUjMQv0017OsYHLm5bEdBMTWD9cRMSH7fQyY8iRR3dg=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240224140641-356c6569cb65/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240225105456-acb130446e73 h1:bp+4cKJ4odvU16ZxSRPQBDrUC4iFC+HSMFA5Guc4+Yw=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240225105456-acb130446e73/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.1 h1:GplpIzSgapoORXDFMBDG9dBdUUJFsat5sXqyiVK5CTE=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.1/go.mod h1:rw/rZX42wK/dzgPRtcEjst77/HTgSwUwdmH7xIt0bCo=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.3 h1:hQzjd3iBC/kClzatTW1VaizkFMm+GZ20ataZI+gAOmk=
@@ -76,6 +78,8 @@ github.com/davidsneighbour/hugo-theme v1.2024.46 h1:I9d0N/1PbyQrFL/FR9RTHJtLXZ0n
 github.com/davidsneighbour/hugo-theme v1.2024.46/go.mod h1:DduOtP6LXukvVgmBqNGxO8LSVtw1s0Qh0kOFY3rRELQ=
 github.com/davidsneighbour/hugo-theme v1.2024.47 h1:/dwmDVS1X5j6cptB6s7zTb2tU/aLVyI7sa+E678JZ54=
 github.com/davidsneighbour/hugo-theme v1.2024.47/go.mod h1:WWpomNIN9D/6B3x8SgjNO36eYL5mKuNy1RakckMN4v4=
+github.com/davidsneighbour/hugo-theme v1.2024.49 h1:3K+0gD2iOAtMFv7KMLPc2yEP0fC74B8jReqm+fI7hDc=
+github.com/davidsneighbour/hugo-theme v1.2024.49/go.mod h1:wjpPlrGybqi9Wr4to+8dTl7bfEb3NX5Pi4wUs4Rv94o=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

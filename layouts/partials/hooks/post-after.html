@@ -1,13 +1,13 @@
-{{ if in .context.Params.tags "100DaysToOffload" }}
+{{ if collections.In .context.Params.tags "100DaysToOffload" }}
   {{- $year := math.Sub now.Year 1 }}
   {{- $month := now.Month -}}
   {{- $day := now.Day -}}
   {{- $startOfYear := time.AsTime (fmt.Printf "%04d-%02d-%02dT00:00:00" $year $month $day) -}}
-  {{- $tag100 := (index site.Taxonomies.tags "100daystooffload") -}}
+  {{- $tag100 := (collections.Index site.Taxonomies.tags "100daystooffload") -}}
   {{- $allPosts := $tag100.Pages -}}
-  {{- $pages := where $allPosts "Date" "gt" $startOfYear -}}
+  {{- $pages := collections.Where $allPosts "Date" "gt" $startOfYear -}}
   {{- $amount := $pages | len -}}
-  {{- $rest := sub 100 $amount -}}
+  {{- $rest := math.Sub 100 $amount -}}
   <div class="alert alert-dark mb-3" role="alert">
     <p class="alert-heading d-flex justify-content-between">
       <span>

@@ -17,6 +17,7 @@ show_title = true
 # that is listening to POST requests from your local form
 contact_form_action = "https://formspree.io/f/xoqyzooe"
 repository = "https://github.com/davidsneighbour/kollitsch.dev"
+prepagenotecontent = "I am taking part in the [#100Days<wbr>To<wbr>Offload](/blog/2022/100-days-to-offload/) project... 100 posts within a year. [Read the posts](/tags/100daystooffload/)..."
 
 [dnb.theme.contact]
 [[dnb.theme.contact.methods]]
@@ -261,8 +262,9 @@ policy = "https://davids-neighbour.com/security-policy/"
 # hugo-debug @see https://github.com/davidsneighbour/hugo-debug
 ###############################################################################
 [dnb.debug]
-enable = true
-debuglevel = 9
+enable = false
+disablenote = true
+debuglevel = 1
 
 ###############################################################################
 # hugo-pwa @see https://github.com/davidsneighbour/hugo-pwa

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+usage() {
+  echo "Usage: $0 <directory>"
+  exit 1
+}
+
+if [ $# -ne 1 ]; then
+  usage
+fi
+
+directory=$1
+script_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+conversion_file="$script_directory/aliases.toml"
+
+if [ ! -d "$directory" ]; then
+  echo "Directory '$directory' not found."
+  exit 1
+fi
+if [ ! -f "$conversion_file" ]; then
+  echo "Conversion file '$conversion_file' not found."
+  exit 1
+fi
+
+while IFS='=' read -r search_string replace_string; do
+  search_string=$(echo "$search_string" | tr -d '[:space:]' | tr -d '-')
+  replace_string=$(echo "$replace_string" | tr -d '[:space:]' | tr -d '"' | tr -d '-')
+
+  find "$directory" -type f -exec sed -i -E "s/(\s|\(|\{)($search_string)(\s|\)|\})/\1$replace_string\3/g" {} +
+
+  echo "Replaced '$search_string' with '$replace_string'"
+done <"$conversion_file"
+
+echo "Replacement complete."

@@ -1,15 +1,8 @@
-<div
-  class="alert alert-primary d-flex align-items-center z-3 mb-0 px-3 rounded-0"
+<div class="alert alert-primary d-flex align-items-center z-3 mb-0 px-3 rounded-0"
   role="alert"
-  style="padding-top: 0.25rem; padding-bottom: 0.25rem;"
->
+  style="padding-top: 0.25rem; padding-bottom: 0.25rem;">
   {{ partials.Include "icon.html" "tags-fill" -}}
   <div class="ps-2">
-    I am taking part in the
-    <a href="/blog/2022/100-days-to-offload/"
-      >#100Days<wbr>To<wbr>Offload</a
-    >
-    project... 100 posts within a year.
-    <a href="/tags/100daystooffload/">Read the posts</a>...
+    {{ site.Params.dnb.theme.prepagenotecontent | safe.HTML | transform.Markdownify  }}
   </div>
 </div>

@@ -1,7 +1,7 @@
 {{ if collections.In .context.Params.tags "100DaysToOffload" }}
   {{- $year := math.Sub now.Year 1 }}
   {{- $month := now.Month -}}
-  {{- $day := now.Day -}}
+  {{- $day := math.Sub now.Day 1 -}}
   {{- $startOfYear := time.AsTime (fmt.Printf "%04d-%02d-%02dT00:00:00" $year $month $day) -}}
   {{- $tag100 := (collections.Index site.Taxonomies.tags "100daystooffload") -}}
   {{- $allPosts := $tag100.Pages -}}

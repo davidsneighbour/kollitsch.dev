@@ -43,7 +43,7 @@
     "node-fetch": "3.3.2",
     "oauth-1.0a": "2.2.6",
     "pagefind": "1.0.4",
-    "playwright": "1.41.2",
+    "playwright": "1.42.0",
     "puppeteer": "22.3.0",
     "request": "2.88.2",
     "sass": "1.71.1",

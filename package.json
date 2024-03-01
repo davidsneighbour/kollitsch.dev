@@ -18,7 +18,7 @@
     "@commitlint/cli": "18.6.1",
     "@commitlint/config-conventional": "18.6.2",
     "@commitlint/prompt-cli": "18.6.1",
-    "@davidsneighbour/bootstrap-config": "5.9.3",
+    "@davidsneighbour/bootstrap-config": "5.9.4",
     "@davidsneighbour/browserslist-config": "5.9.3",
     "@davidsneighbour/commitlint-config": "5.9.3",
     "@davidsneighbour/cypress-config": "^5.9.3",

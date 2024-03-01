@@ -17,7 +17,7 @@
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "18.6.1",
     "@commitlint/config-conventional": "18.6.2",
-    "@commitlint/prompt-cli": "18.6.1",
+    "@commitlint/prompt-cli": "19.0.3",
     "@davidsneighbour/bootstrap-config": "5.9.3",
     "@davidsneighbour/browserslist-config": "5.9.3",
     "@davidsneighbour/commitlint-config": "5.9.3",

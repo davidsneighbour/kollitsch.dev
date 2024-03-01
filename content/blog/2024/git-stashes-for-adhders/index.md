@@ -4,7 +4,7 @@ description: ""
 summary: ""
 date: 2024-03-01T19:19:32+07:00
 publishDate: 2024-03-01T19:19:32+07:00
-lastmod: 2024-03-01T21:37:41+07:00
+lastmod: 2024-03-01T21:59:15+07:00
 type: blog
 resources:
 - title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)
@@ -21,7 +21,7 @@ I, however, thought, wouldn't it be nice if `git stash` would show me a list of 
 
 A while back I wrote about my [`git status` hook system](/blog/2023/git-status-hook). This can be used as a starter  for an extension of the `git stash` command.
 
-The idea is simple: I want to see a list of stashes when I type `git stash`. I want to see the list of stashes when I type `git stash list`. I want to see the list of stashes when I type `git stash show`. I want to see the list of stashes when I type `git stash apply`. I want to see the list of stashes when I type `git stash pop`. I want to see the list of stashes when I type `git stash drop`. I want to see the list of stashes when I type `git stash clear`.
+The idea is simple: I want to see a list of stashes when I type `git stash`.
 
 ```bash
 git() {

@@ -12,6 +12,8 @@ github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.8 h1:s5f70UT1vhtUq
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.8/go.mod h1:yqyD21ZzFmSSgc2PjXUYBZ0lNG4UkHNnFrEDEfrurc8=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.9 h1:lahrBv3Bq+QVSoOrijGVUHDVUYM2Bjd/mRVPnMuRLf4=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.9/go.mod h1:yqyD21ZzFmSSgc2PjXUYBZ0lNG4UkHNnFrEDEfrurc8=
+github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.11 h1:3L+ycbhd6D+av9CoxXlTdIQqak4zAEZhewDzutL/v3E=
+github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.11/go.mod h1:yqyD21ZzFmSSgc2PjXUYBZ0lNG4UkHNnFrEDEfrurc8=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240226131003-9df88feedd83 h1:WSWutxZq2mSy0Q9M8T4AQAieLI6zxCIQ/oP05D8BoXI=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240226131003-9df88feedd83/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240226143357-b53706e6fc8d h1:X2BQphic1+icDYSdUPB5lV4CxfoqwxOMarKQmmztDZI=
@@ -20,6 +22,8 @@ github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240226150854-281
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240226150854-281cba0bc7b6/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240229221221-5a84615dd71e h1:vQAyPlSGwf+FB35YaQqzEBODx0qDuj5LAgfjLxx9ZMY=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240229221221-5a84615dd71e/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240301121445-391f5c802e04 h1:b2SC4c/nJ+bFwC+rHRaMFFr32dN0KXHP2gPqnGv91o4=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240301121445-391f5c802e04/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.3 h1:hQzjd3iBC/kClzatTW1VaizkFMm+GZ20ataZI+gAOmk=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.3/go.mod h1:fEBnXrvtGuO69gTrdf9KrjJAywtZlX0DOScKE03JG/c=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.2 h1:PmTuazaQsNSvGAWe7upBmE8FYj3W750DSi8bTeKPXeE=
@@ -48,6 +52,8 @@ github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5 h1:1RLPhQCipIlUMeO
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5/go.mod h1:jyLk6tI9/nKikkowncTYHHYyq+6ygWofh9Ukn0Bg+bc=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.0 h1:W7rgNlgFhaB1fLEBYQnZ/9jlCsep4NqY6ZFtHFYBhqg=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.0/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
+github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.3 h1:eAm2f3gDnR1H8JlL/5Hiap7YRlTntIKWjZvxg9yLMWo=
+github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.3/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.0 h1:EQdwC5VdnObhXl4/TDuI5sSFn1ntwsG7+/gmtuQtu9A=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.0/go.mod h1:g5vOSsvyZOfZde3BB2GxHWHvipnfbAoWUj/xPTW9Czg=
 github.com/davidsneighbour/hugo-modules/modules/schema v0.0.6 h1:g6HVeeTEkYW2WT750r/P0xAxh3sHuAKJEi5UAyMUr34=
@@ -72,6 +78,8 @@ github.com/davidsneighbour/hugo-theme v1.2024.53 h1:YEn7fPq2zYjYZlq9SDaroinKqO6u
 github.com/davidsneighbour/hugo-theme v1.2024.53/go.mod h1:unE2YolqDl1sNRu/3XPr4saos1u2padsEpMLwgdGpVg=
 github.com/davidsneighbour/hugo-theme v1.2024.54 h1:WD1Qbd9Uozlj5QpwZeDsUeS6BvUuN1+b+YH3HaZ448A=
 github.com/davidsneighbour/hugo-theme v1.2024.54/go.mod h1:unE2YolqDl1sNRu/3XPr4saos1u2padsEpMLwgdGpVg=
+github.com/davidsneighbour/hugo-theme v1.2024.55 h1:fPp+O7Gz/X2AauKFrQX7mdcf+Yl9UIq3HW2kQQkdrHE=
+github.com/davidsneighbour/hugo-theme v1.2024.55/go.mod h1:gvZvZv6E/ouxE+IQ//1CtY3ShJjiuqt7lIUpIfmjBxk=
 github.com/paulirish/lite-youtube-embed v0.3.0 h1:y00yCitI7lBPFcfTtN/RuU9FjEL2ZQfxsJqwYRCghao=
 github.com/paulirish/lite-youtube-embed v0.3.0/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

@@ -27,7 +27,7 @@
     "@davidsneighbour/hugo-theme": "1.2024.52",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/postcss-config": "5.9.3",
-    "@davidsneighbour/prettier-config": "5.9.3",
+    "@davidsneighbour/prettier-config": "5.9.4",
     "@netlify/functions": "2.6.0",
     "@types/yargs": "17.0.32",
     "animate.css": "4.1.1",

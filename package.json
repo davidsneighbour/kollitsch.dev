@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@davidsneighbour/markdownlint-config": "5.9.3",
-    "@davidsneighbour/remark-config": "5.9.3",
+    "@davidsneighbour/remark-config": "5.9.4",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",
     "remark": "^15.0.1",
     "secretlint": "^8.1.2"

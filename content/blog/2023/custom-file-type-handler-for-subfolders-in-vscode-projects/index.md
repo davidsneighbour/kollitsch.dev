@@ -3,14 +3,14 @@ title: How to create custom file type handlers for individual folders in VSCode 
 description: "Unlock VSCode's full potential: Customize file handlers for subfolders. A quick guide to boost productivity in Visual Studio Code."
 date: 2023-10-27T21:14:21+07:00
 publishDate: 2023-10-27T21:14:21+07:00
-lastmod: 2023-10-27T21:14:30+07:00
+lastmod: 2024-03-03T21:33:16+07:00
 resources:
 - title: Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)
   src: header.jpg
 tags:
 - vscode
 - configuration
-- project management
+- project-management
 - 100DaysToOffload
 type: blog
 unsplash:
@@ -62,7 +62,7 @@ Initially, one might think that the `file.associations` configuration in VSCode 
 }
 ```
 
-However, I quickly discovered that VSCode ignores these settings. It turns out that the `file.associations` configuration object supports global file extensions (like `*.ext) but not globs. Sadly.
+However, I quickly discovered that VSCode ignores these settings. It turns out that the `file.associations` configuration object supports global file extensions (like \`\*.ext) but not globs. Sadly.
 
 ## Attempt 2: Configuration in per folder
 

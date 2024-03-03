@@ -4,14 +4,14 @@ date: 2021-10-21T20:00:00+07:00
 description: A short summary of how we got here and where we go from here.
 keywords: []
 resources:
-  - src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
-    title: Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via [Unsplash](https://unsplash.com)
+- src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+  title: Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via [Unsplash](https://unsplash.com)
 tags:
-  - davidsneighbour
-  - me now
+- davidsneighbour
+- me-now
 unsplash:
   imageid: HcUDHJfd5GY
-lastmod: 2023-03-19T16:23:57+07:00
+lastmod: 2024-03-03T21:36:19+07:00
 type: blog
 ---
 

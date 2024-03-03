@@ -1,6 +1,6 @@
 ---
 date: 2023-05-02T19:31:30+07:00
-lastmod: 2024-01-02T18:45:52+07:00
+lastmod: 2024-03-03T21:35:15+07:00
 title: What if Wes Anderson… (Part 1)
 description: What if Wes Anderson would have directed a Star Wars movie? I think it would have been awesome.
 summary: What if Wes Anderson would have directed a Star Wars movie? I think it would have been awesome.
@@ -8,7 +8,7 @@ tags:
 - wes-anderson
 - video
 - 100DaysToOffload
-- artificial intelligence
+- artificial-intelligence
 type: video
 resources:
 - src: header.jpg

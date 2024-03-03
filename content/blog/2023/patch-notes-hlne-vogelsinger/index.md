@@ -5,12 +5,12 @@ description: As part of the practice behind Hélène Vogelsinger's modular synth
 type: video
 date: 2023-05-05T19:38:04+07:00
 publishDate: 2023-05-05T19:38:04+07:00
-lastmod: 2024-01-02T18:45:52+07:00
+lastmod: 2024-03-03T21:34:20+07:00
 resources:
 - title: "Patch Notes: Hélène Vogelsinger"
   src: header.jpg
 tags:
-- helene vogelsinger
+- helene-vogelsinger
 - synthesizer
 - video
 - 100DaysToOffload

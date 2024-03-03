@@ -11,5 +11,5 @@ video:
   youtube: 49FXjBiccG4
   artist: chromatics
   title: Tick Of The Clock (Extended Overdrive)
-lastmod: 2024-01-02T18:45:52+07:00
+lastmod: 2024-03-03T21:31:01+07:00
 ---

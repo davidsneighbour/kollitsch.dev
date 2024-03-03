@@ -1,17 +1,17 @@
 ---
-title: "The Pentaverate"
+title: The Pentaverate
 date: 2022-03-16T22:01:37+07:00
-description: "Mike Myers does that thing where he plays multiple roles in the same movie."
+description: Mike Myers does that thing where he plays multiple roles in the same movie.
 publishDate: 2022-03-16T22:01:37+07:00
-lastmod: 2022-03-16T22:01:37+07:00
+lastmod: 2024-03-03T21:32:45+07:00
 resources:
-  - title: "Photo via Netflix"
-    src: "mike-myers-the-pentaverate.jpg"
+- title: Photo via Netflix
+  src: mike-myers-the-pentaverate.jpg
 tags:
-  - "mike myers"
-  - "movies"
-  - "trailers"
-  - "100DaysToOffload"
+- mike-myers
+- movies
+- trailers
+- 100DaysToOffload
 ---
 
 Mike Myers does that thing where he plays multiple roles in the same movie.

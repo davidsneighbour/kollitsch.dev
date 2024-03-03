@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Key combination</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range page.Params.keycombinations }}
+      <tr>
+        <td>
+          {{ $combinations := split .combination " + " }}
+          {{ range $index, $combination := $combinations }}
+            {{ if $index }} + {{ end }}
+            <kbd>{{ . }}</kbd>
+          {{ end }}
+        </td>
+        <td>
+          {{ .action | markdownify }}
+        </td>
+      </tr>
+    {{ end }}
+  </tbody>
+</table>

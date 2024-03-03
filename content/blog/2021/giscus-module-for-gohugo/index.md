@@ -3,13 +3,13 @@ title: Giscus Module for GoHugo
 date: 2021-10-27T20:25:27+07:00
 description: ""
 resources:
-  - src: gerry-roarty-slkENpP5PbI-unsplash.jpg
-    title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via [Unsplash](https://unsplash.com)
+- src: gerry-roarty-slkENpP5PbI-unsplash.jpg
+  title: Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via [Unsplash](https://unsplash.com)
 tags:
-  - gohugo
-  - static websites
-  - giscus
-lastmod: 2023-08-07T19:33:03+07:00
+- gohugo
+- static-websites
+- giscus
+lastmod: 2024-03-03T21:36:18+07:00
 ---
 
 [Giscus](https://github.com/giscus/giscus) is a new star on the comment systems for static website generators orbit. It is inspired by the wonderful [utterances](https://github.com/utterance/utterances) and uses Github Discussions to save comments. It's open source, easily configurable, themeable, translatable, and you can [host it on your own server](https://github.com/giscus/giscus/blob/main/SELF-HOSTING.md) (it's JavaScript based) if you like. I tried it, but ran into problems setting it up, so this will be a topic for a later post.
@@ -57,19 +57,19 @@ I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](
 
 ## Available Configuration Parameters
 
-- **src**: (default `https://giscus.app/client.js`) - useful if you host your own version of Giscus
-- **dataRepo**: (required, your-github-username/reponame)
-- **dataRepoId**: (required)
-- **dataCategory**: (required) it's recommended to create a category "Comments" before you start configuration, so all your comments are in the same dedicated category.
-- **dataCategoryId**: (required)
-- **dataMapping**: (default "title") set up if
-- **dataReactionsEnabled**: (default "0")
-- **dataEmitMetadata**: (default "0")
-- **dataTheme**: (default "light")
-- **dataLang**: (default "en") currently available are en, fr, id, pl, ro
+* **src**: (default `https://giscus.app/client.js`) - useful if you host your own version of Giscus
+* **dataRepo**: (required, your-github-username/reponame)
+* **dataRepoId**: (required)
+* **dataCategory**: (required) it's recommended to create a category "Comments" before you start configuration, so all your comments are in the same dedicated category.
+* **dataCategoryId**: (required)
+* **dataMapping**: (default "title") set up if
+* **dataReactionsEnabled**: (default "0")
+* **dataEmitMetadata**: (default "0")
+* **dataTheme**: (default "light")
+* **dataLang**: (default "en") currently available are en, fr, id, pl, ro
 
 ## Coming soon
 
-- loading the JS without impacting page performance
-- add SASS files for theme creation via configuration
-- if you have any ideas feel free to [open an issue](https://github.com/davidsneighbour/hugo-giscus/issues).
+* loading the JS without impacting page performance
+* add SASS files for theme creation via configuration
+* if you have any ideas feel free to [open an issue](https://github.com/davidsneighbour/hugo-giscus/issues).

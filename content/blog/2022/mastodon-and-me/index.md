@@ -4,15 +4,15 @@ linkTitle: Mastodon and Me
 description: There were new "like Twitter, but…" networks every two or so years and along came Mastodon about 6 years ago. I recently got my first follower over there and decided to go on and give Mastodon a chance. If you feel that way, then follow me along.
 date: 2022-11-10T18:45:13+07:00
 publishDate: 2022-11-10T18:45:13+07:00
-lastmod: 2023-08-07T20:19:32+07:00
+lastmod: 2024-03-03T21:30:57+07:00
 resources:
-  - title: Photo by [April Pethybridge](https://unsplash.com/@apriiil) via [Unsplash](https://unsplash.com/)
-    src: header.jpg
+- title: Photo by [April Pethybridge](https://unsplash.com/@apriiil) via [Unsplash](https://unsplash.com/)
+  src: header.jpg
 tags:
-  - mastodon
-  - social media
-  - twitter
-  - 100DaysToOffload
+- mastodon
+- social-media
+- twitter
+- 100DaysToOffload
 type: blog
 ---
 

@@ -5,14 +5,14 @@ linkTitle: Mark word break opportunities in HTML
 description: Every now and then it might be helpful, if we could just break a word in two on smaller screens. We can. Introducing `<wbr>`.
 date: 2022-08-21T18:52:10+07:00
 publishDate: 2022-08-21T18:52:10+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+lastmod: 2024-03-03T21:36:16+07:00
 resources:
-  - title: Screenshots and artistically putting together two images by Patrick Kollitsch of [kollitsch.dev](https://kollitsch.dev)
-    src: header.png
+- title: Screenshots and artistically putting together two images by Patrick Kollitsch of [kollitsch.dev](https://kollitsch.dev)
+  src: header.png
 tags:
-  - html
-  - today i learned
-  - 100DaysToOffload
+- html
+- today-i-learned
+- 100DaysToOffload
 ---
 
 Today I tried to check my website, while frolicking on a beach somewhere on Koh Samui and was presented with the view on the left in the image above. That box looked weird, and of course that very long hashtag was the reason for it. On desktop it looks relatively ok. Now I could start playing around with the sentence structure and word order, but I remembered, that HTML has indeed a tag that marks a potential word break.
@@ -24,7 +24,7 @@ The before:
 ```html
 I am taking part in the
 <a href="/blog/2022/100-days-to-offload/">
-	#100DaysToOffload
+ #100DaysToOffload
 </a>
 project… 100 posts within a year.
 ```
@@ -34,7 +34,7 @@ The after:
 ```html
 I am taking part in the
 <a href="/blog/2022/100-days-to-offload/">
-	#100Days<wbr>To<wbr>Offload
+ #100Days<wbr>To<wbr>Offload
 </a>
 project… 100 posts within a year.
 ```

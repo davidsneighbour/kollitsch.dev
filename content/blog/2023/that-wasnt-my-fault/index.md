@@ -3,14 +3,14 @@ $schema: /static/_schemata/blog.schema.yaml
 title: That wasn't my fault
 date: 2023-04-21T21:33:04+07:00
 publishDate: 2023-04-21T21:33:04+07:00
-lastmod: 2023-08-07T20:33:28+07:00
+lastmod: 2024-03-03T21:35:00+07:00
 resources:
-  - title: That wasn't my fault
-    src: header.png
+- title: That wasn't my fault
+  src: header.png
 tags:
-  - star trek
-  - picard
-  - 100DaysToOffload
+- star-trek
+- picard
+- 100DaysToOffload
 type: blog
 ---
 

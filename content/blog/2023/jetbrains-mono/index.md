@@ -5,12 +5,12 @@ description: ""
 summary: ""
 date: 2023-02-21T20:12:30+07:00
 publishDate: 2023-02-21T20:12:30+07:00
-lastmod: 2024-03-03T16:34:13+07:00
+lastmod: 2024-03-03T21:36:15+07:00
 resources:
 - title: Ligatures in Jetbrains Mono
   src: header.png
 tags:
-- developer fonts
+- developer-fonts
 - typography
 - 100DaysToOffload
 type: blog

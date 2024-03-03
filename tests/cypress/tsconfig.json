@@ -1,14 +1,10 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "types": [
-      "cypress",
-      "cypress-axe"
-    ],
-    "strict": true,
+    "types": ["cypress", "cypress-axe"],
+    "strict": true
   },
-  "include": [
-    "integration/*.*"
-  ]
+  "include": ["integration/*.*"]
 }

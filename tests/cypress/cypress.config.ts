@@ -9,9 +9,8 @@ export default defineConfig({
     baseUrl: `http://192.168.1.201:1313`,
     specPattern: './tests/cypress/integration/**/*.spec.ts',
     excludeSpecPattern: ['**/accessibility/*.spec.ts', '**/htmlvalidation/*.spec.js'],
-    setupNodeEvents(on, config) {
+    setupNodeEvents(on) {
       htmlvalidate.install(on);
-      return config;
     },
     supportFile: './tests/cypress/support/e2e.ts',
     downloadsFolder: './tests/cypress/downloads',

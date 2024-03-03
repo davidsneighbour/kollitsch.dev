@@ -15,7 +15,7 @@ rssLimit = 10
 summaryLength = 40
 timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
-titleCaseStyle = "Chicago"
+titleCaseStyle = "chicago"
 
 ignoreErrors = ['deprecation.debug', 'deprecation.debugprint']
 

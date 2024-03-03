@@ -4,7 +4,7 @@ linkTitle: Reusable Gohugo Forms via Configuration
 description: ""
 date: 2023-10-22T17:29:40+07:00
 publishDate: 2023-10-22T17:29:40+07:00
-lastmod: 2023-10-22T22:11:42+07:00
+lastmod: 2024-03-03T16:37:14+07:00
 resources:
 - title: Carefully implemented forms
   src: header.jpg
@@ -17,8 +17,6 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 ---
-
-<!--lint disable-->
 
 A while back (pre-COVID-19 era), I had the idea to create a [GoHugo](https://gohugo.io) module that would allow me to create forms via configuration files. I also wanted to easily translate the form into different languages. I sketched out a solution but never got around to implementing it. I recently stumbled upon the scratch pad and decided to finally implement it. This article is a write-up of the process, and the first final result can be seen with [the contact form](/connect) on this site.
 

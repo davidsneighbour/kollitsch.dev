@@ -17,25 +17,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#ff8b66",
-    "activityBar.background": "#ff8b66",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b",
-    "activityBarBadge.background": "#bfffcf",
-    "activityBarBadge.foreground": "#15202b",
-    "sash.hoverBorder": "#ff8b66",
-    "commandCenter.border": "#15202b",
-    "statusBar.background": "#ff8b66",
-    "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#ff8b66",
-    "statusBarItem.remoteBackground": "#ff8b66",
-    "statusBarItem.remoteForeground": "#15202b",
-    "titleBar.activeBackground": "#ff8b66",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#ff8b66",
-    "titleBar.inactiveForeground": "#15202b"
-  },
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },

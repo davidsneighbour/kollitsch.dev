@@ -48,7 +48,7 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@atproto/api": "0.10.4",
+    "@atproto/api": "0.10.5",
     "@davidsneighbour/bootstrap-config": "5.9.5",
     "@davidsneighbour/browserslist-config": "5.9.5",
     "@davidsneighbour/commitlint-config": "5.9.5",

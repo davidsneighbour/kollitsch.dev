@@ -59,7 +59,7 @@
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "5.9.5",
     "@davidsneighbour/postcss-config": "5.9.5",
-    "@davidsneighbour/prettier-config": "5.9.5",
+    "@davidsneighbour/prettier-config": "5.9.7",
     "@davidsneighbour/remark-config": "5.9.5",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",
     "remark": "^15.0.1",

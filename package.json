@@ -53,7 +53,7 @@
     "@davidsneighbour/browserslist-config": "5.9.5",
     "@davidsneighbour/commitlint-config": "5.9.5",
     "@davidsneighbour/cypress-config": "^5.9.5",
-    "@davidsneighbour/eslint-config": "5.9.5",
+    "@davidsneighbour/eslint-config": "5.9.7",
     "@davidsneighbour/htmlvalidate-config": "^5.9.5",
     "@davidsneighbour/hugo-theme": "1.2024.56",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",

@@ -8,6 +8,9 @@ properties:
       Tags are case insensitive.
     items:
       type: string
+      pattern: "^[\\w-]+$"
+      format: lowercase # lowercase for validation, does not actually lowercase the value
+      errorMessage: 'Tags must contain only lowercase characters, digits, and dashes, with no spaces.'
 
   keywords:
     type: array

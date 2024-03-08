@@ -50,7 +50,7 @@
   "devDependencies": {
     "@atproto/api": "0.10.4",
     "@davidsneighbour/bootstrap-config": "5.9.5",
-    "@davidsneighbour/browserslist-config": "5.9.5",
+    "@davidsneighbour/browserslist-config": "5.9.7",
     "@davidsneighbour/commitlint-config": "5.9.5",
     "@davidsneighbour/cypress-config": "^5.9.5",
     "@davidsneighbour/eslint-config": "5.9.5",

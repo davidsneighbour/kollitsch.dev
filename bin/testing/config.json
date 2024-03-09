@@ -1,4 +1,0 @@
-{
-  "releases": ["stable", "beta", "dev", "canary"],
-  "cypressConfigPath": "tests/cypress/cypress.config.ts"
-}

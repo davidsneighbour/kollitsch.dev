@@ -1,2 +1,2 @@
 site: public
-output_path: static/search
+output_subdir: search

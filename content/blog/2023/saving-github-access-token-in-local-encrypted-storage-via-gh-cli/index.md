@@ -1,25 +1,21 @@
 ---
 title: Saving Github Access Token in Local Encrypted Storage via Gh Cli
-description: "GitHub CLI has in it's latest version introduced a new feature that allows users to store their access token in an encrypted local storage system."
-
+description: GitHub CLI has in it's latest version introduced a new feature that allows users to store their access token in an encrypted local storage system.
 date: 2023-03-09T20:54:38+07:00
 publishDate: 2023-03-09T20:54:38+07:00
-lastmod: 2023-03-10T20:42:10+07:00
-
+lastmod: 2024-03-10T11:30:33+07:00
 resources:
-  - title: GitHub CLI Release v2.24.0
-    src: header.jpg
-
+- title: GitHub CLI Release v2.24.0
+  src: header.jpg
 tags:
-  - github
-  - cli
-  - authentication
-  - 100DaysToOffload
-
+- github
+- cli
+- authentication
+- 100DaysToOffload
 type: blog
 ---
 
-[GitHub CLI has in it's latest version introduced](https://github.com/cli/cli/releases/tag/v2.24.0) a new feature that allows users to store their access token in an encrypted local storage system. This new option is available through the `--secure-storage` flag when using the gh auth login and gh auth refresh commands.
+[GitHub CLI has in it's latest version introduced](https://github.com/cli/cli/releases/tag/v2.24.0) a new feature that allows users to store their access token in an encrypted local storage system. This new option is available through the `--secure-storage` flag when using the `gh auth login` and `gh auth refresh` commands.
 
 The new feature is designed to improve the security of users' access tokens by storing them in the system keyring, which is an encrypted storage system provided by the operating system. This replaces the previous method of storing access tokens in plain text configuration files, which was less secure.
 

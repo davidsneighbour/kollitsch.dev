@@ -17,7 +17,7 @@ directory = "assets/functions"
 # schedule = "*/10 * * * *"
 
 [[plugins]]
-package = "./bin/netlify/plugins/hugo-helper"
+package = "@davidsneighbour/netlify-plugin-hugo-helper"
 
 [plugins.inputs]
 debug = false

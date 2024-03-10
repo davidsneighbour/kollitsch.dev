@@ -15,10 +15,10 @@ properties:
 
   description:
     title: Description
-    description: Used for SEO
+    description: Used for the meta description tag (optimally 110 to 160 characters)
     type: string
-    maxLength: 170
-    minLength: 140
+    maxLength: 160
+    minLength: 110
 
   summary:
     title: Summary

@@ -64,10 +64,12 @@
     "@davidsneighbour/remark-config": "5.9.7",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",
     "remark": "^15.0.1",
-    "secretlint": "^8.1.2"
+    "secretlint": "^8.1.2",
+    "toml": "^3.0.0"
   },
   "scripts": {
     "audit:html": "wireit",
+    "build": "npm run build:hugo && npm run build:pagefind",
     "build:hugo": "./bin/hugo/build",
     "build:pagefind": "pagefind",
     "clean": "wireit",

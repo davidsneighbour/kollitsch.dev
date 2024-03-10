@@ -492,3 +492,8 @@ status = "301"
 from = "/blog/2022/100daystooffload/"
 to = "/blog/2022/100-days-to-offload/"
 status = "301"
+
+[[dnb.netlification.redirects]]
+from = "/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg"
+to = "https://kollitsch.dev/"
+status = "301"

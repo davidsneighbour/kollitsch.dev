@@ -21,6 +21,9 @@
     },
     {
       "path": "../hugo-asylum"
+    },
+    {
+      "path": "../netlify-plugin-hugo-helper"
     }
   ],
   "settings": {

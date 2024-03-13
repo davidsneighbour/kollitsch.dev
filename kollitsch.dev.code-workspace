@@ -24,6 +24,12 @@
     },
     {
       "path": "../netlify-plugin-hugo-helper"
+    },
+    {
+      "path": "../hugo-bin"
+    },
+    {
+      "path": "../renovate-config"
     }
   ],
   "settings": {
@@ -44,7 +50,7 @@
     },
     "js/ts.implicitProjectConfig.checkJs": true,
     "markdown.extension.orderedList.marker": "one",
-    "markdown.extension.toc.unorderedList.marker": "-",
+    "markdown.extension.toc.unorderedList.marker": "*",
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#ff8b66",
       "activityBar.background": "#ff8b66",
@@ -69,7 +75,8 @@
     "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
     "stylelint.configFile": ".stylelintrc.json",
     "markdownlint.run": "onSave",
-    "html.format.wrapLineLength": 100
+    "html.format.wrapLineLength": 100,
+    "frontMatter.dashboard.openOnStart": true
   },
   "extensions": {
     "recommendations": [

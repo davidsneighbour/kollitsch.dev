@@ -7,3 +7,5 @@ VSCode
 [Ss]hortcode
 [Ss]hortcodes
 Netlify
+[Nn]amespaced
+[Tt]eardown

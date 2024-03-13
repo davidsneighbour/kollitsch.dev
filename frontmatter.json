@@ -10,9 +10,18 @@
   "frontMatter.content.publicFolder": "static",
   "frontMatter.taxonomy.seoDescriptionLength": 170,
   "frontMatter.taxonomy.seoTitleLength": 75,
-  "frontMatter.content.supportedFileTypes": ["md"],
+  "frontMatter.content.supportedFileTypes": [
+    "md"
+  ],
   "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
   "frontMatter.taxonomy.indentArrays": false,
-  "frontMatter.taxonomy.noPropertyValueQuotes": ["date"],
-  "frontMatter.panel.actions.disabled": ["createContent", "optimizeSlug", "startStopServer"]
+  "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "date"
+  ],
+  "frontMatter.panel.actions.disabled": [
+    "createContent",
+    "optimizeSlug",
+    "startStopServer"
+  ],
+  "frontMatter.git.enabled": false
 }

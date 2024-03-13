@@ -9,9 +9,9 @@ This project is the website setup and content for [kollitsch.dev](https://kollit
 <!-- markdownlint-disable MD010 MD007 -->
 <!--lint ignore-->
 
-- [Site structure](#site-structure)
-- [General notes](#general-notes)
-- [License](#license)
+* [Site structure](#site-structure)
+* [General notes](#general-notes)
+* [License](#license)
 
 <!-- markdownlint-enable MD010 MD007 -->
 
@@ -19,25 +19,27 @@ This project is the website setup and content for [kollitsch.dev](https://kollit
 
 ![module structure](.github/images/rm001.png)
 
-- [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
-- [hugo-theme](https://github.com/davidsneighbour/hugo-theme) - the theme used for the website
-- [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
-- [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.
+* [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
+* [hugo-theme](https://github.com/davidsneighbour/hugo-theme) - the theme used for the website
+* [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
+* [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.
 
 This site's infrastructure is as follows:
 
 <!--lint ignore-->
-
-| Domain Registration | DNS and CDN | Hosting | SSG Build |
-| :---: | :---: | :---: | :---: |
-| [Google](https://domains.google.com/) | [Cloudflare](https://cloudflare.com) | [Netlify](https://netlify.com) | [Hugo](https://gohugo.io) |
+|  |  |
+| --- | --- |
+| **Domain Registration** | [Google](https://domains.google.com/) |
+| **DNS and CDN** | [Cloudflare](https://cloudflare.com) |
+| **Hosting** | [Netlify](https://netlify.com) |
+| **Static Site Generator** | [Hugo](https://gohugo.io) |
 
 Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
 
 # General notes
 
-- The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-- I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open-source programs and scripts.
+* The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+* I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open-source programs and scripts.
 
 # License
 

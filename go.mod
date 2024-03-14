@@ -1,17 +1,15 @@
 module github.com/davidsneighbour/kollitsch.dev
 
-go 1.21
-
-toolchain go1.21.5
+go 1.21.8
 
 require (
 	github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 // indirect
 	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
-	github.com/davidsneighbour/hugo-modules v1.2024.16 // indirect
+	github.com/davidsneighbour/hugo-modules v1.2024.17 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.13 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240313122522-3414ae068dea // indirect
-	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.3 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240314130447-e3691fdac4ea // indirect
+	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/head v1.2024.4 // indirect
@@ -33,7 +31,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.1 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2024.61 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2024.62 // indirect
 	github.com/paulirish/lite-youtube-embed v0.3.2 // indirect
 	github.com/twbs/icons v1.11.3 // indirect
 	github.com/zenorocha/clipboard.js v2.0.11+incompatible // indirect

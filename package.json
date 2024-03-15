@@ -34,7 +34,7 @@
     "playwright": "1.42.1",
     "puppeteer": "22.4.1",
     "request": "2.88.2",
-    "sass": "1.71.1",
+    "sass": "1.72.0",
     "simple-git-hooks": "2.10.0",
     "snoowrap": "1.23.0",
     "trim": "1.0.1",

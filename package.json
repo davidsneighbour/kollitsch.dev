@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@clack/prompts": "0.7.0",
-    "@commitlint/cli": "19.1.0",
+    "@commitlint/cli": "19.2.0",
     "@commitlint/config-conventional": "19.1.0",
     "@commitlint/prompt-cli": "19.1.0",
     "@netlify/functions": "2.6.0",

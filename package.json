@@ -16,6 +16,7 @@
     "@commitlint/cli": "19.1.0",
     "@commitlint/config-conventional": "19.1.0",
     "@commitlint/prompt-cli": "19.1.0",
+    "@frontmatter/extensibility": "^0.0.14",
     "@netlify/functions": "2.6.0",
     "@types/yargs": "17.0.32",
     "animate.css": "4.1.1",

@@ -503,3 +503,37 @@ status = "301"
 from = "/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg"
 to = "https://kollitsch.dev/"
 status = "301"
+
+################################################################################
+# hooks setup
+################################################################################
+[dnb.hooks]
+debug = true
+
+[[dnb.hooks.items.theme.body-main-end]]
+file = "body-main-end"
+cached = false
+
+[[dnb.hooks.items.theme.footer-widgets-start]]
+file = "footer-widgets-start"
+cached = true
+
+[[dnb.hooks.items.theme.head-post-css]]
+file = "head-post-css"
+cached = false
+
+[[dnb.hooks.items.theme.head-pre-css]]
+file = "head-pre-css"
+cached = true
+
+[[dnb.hooks.items.theme.head-start]]
+file = "head-start"
+cached = true
+
+[[dnb.hooks.items.theme.header-topnav-pre]]
+file = "header-topnav-pre"
+cached = false
+
+[[dnb.hooks.items.theme.post-after]]
+file = "post-after"
+cached = false

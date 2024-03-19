@@ -15,7 +15,7 @@
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "19.1.0",
     "@commitlint/config-conventional": "19.1.0",
-    "@commitlint/prompt-cli": "19.1.0",
+    "@commitlint/prompt-cli": "19.2.0",
     "@frontmatter/extensibility": "^0.0.14",
     "@netlify/functions": "2.6.0",
     "@types/yargs": "17.0.32",

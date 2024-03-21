@@ -10,6 +10,8 @@ github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.19 h1:ul3TXpjsPreO
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.19/go.mod h1:RNHwHaIFANFp+t6QRPsIoFeUz3gERr8K2vw5+NhVl5Q=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240319100338-d05739b645bd h1:KWXisT6SGLT5rpb7N1QnubqTfvasLafidUwMaRs8bT0=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240319100338-d05739b645bd/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240320190917-05d38ad03e84 h1:kJngWnVbd7YfCnyVkndcB0aR7HZQ2XW41ZHpbIUHm1s=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240320190917-05d38ad03e84/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.5 h1:68l82DFmWuqebkMRl1N1tejWoMMhKMkO2D0e21Nv/2s=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.5/go.mod h1:PLYderlhl7SVcRMriL6it9mHZevTpEY839U95RmboUI=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.6 h1:ANj17Z2la3ZPtHjHiG9QV/CtoThkzIMo0WjlYfDKTwg=
@@ -36,6 +38,8 @@ github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.4 h1:I002hg/R23oP
 github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.4/go.mod h1:YpZUhvwb7jAnh6qSZPZWKZ/xaWaTZK7xo6sUGQWCyt8=
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5 h1:1RLPhQCipIlUMeOxnUB+a9ZD2eeVbqJV+XMhmWifHfE=
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5/go.mod h1:jyLk6tI9/nKikkowncTYHHYyq+6ygWofh9Ukn0Bg+bc=
+github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.6 h1:etxLiR8m0uKb4lOiC7oeweOgBhgZXYeCn7uI3g8brOc=
+github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.6/go.mod h1:CCZtuiMwYsOUf5U3iEj6TLwk45nKE9DYcfpNe4EcpvE=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.3 h1:eAm2f3gDnR1H8JlL/5Hiap7YRlTntIKWjZvxg9yLMWo=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.3/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.1 h1:SSzQ90CglnxtEE4fM4ZdxU9KbHhks81Evrwq9zxzs84=

@@ -56,7 +56,7 @@
     "@davidsneighbour/commitlint-config": "5.10.2",
     "@davidsneighbour/cypress-config": "^5.10.2",
     "@davidsneighbour/eslint-config": "5.10.2",
-    "@davidsneighbour/htmlvalidate-config": "^5.10.2",
+    "@davidsneighbour/htmlvalidate-config": "^5.11.0",
     "@davidsneighbour/hugo-theme": "1.2024.64",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "5.10.2",

@@ -1,27 +1,5 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.content.autoUpdateDate": true,
-  "frontMatter.framework.id": "hugo",
-  "frontMatter.experimental": true,
-  "frontMatter.dashboard.openOnStart": true,
-  "frontMatter.framework.startCommand": "npm run server",
-  "frontMatter.preview.host": "https://behemoth:1313",
-  "frontMatter.site.baseURL": "https://kollitsch.dev",
-  "frontMatter.content.publicFolder": "static",
-  "frontMatter.taxonomy.seoDescriptionLength": 170,
-  "frontMatter.taxonomy.seoTitleLength": 75,
-  "frontMatter.content.supportedFileTypes": [
-    "md"
-  ],
-  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
-  "frontMatter.taxonomy.indentArrays": false,
-  "frontMatter.taxonomy.noPropertyValueQuotes": [
-    "date"
-  ],
-  "frontMatter.panel.actions.disabled": [
-    "createContent",
-    "optimizeSlug",
-    "startStopServer"
-  ],
-  "frontMatter.git.enabled": false
+  "frontMatter.config.dynamicFilePath": "[[workspace]]/frontmatter.config.js",
+  "frontMatter.site.baseURL": "https://kollitsch.dev"
 }

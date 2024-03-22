@@ -1,4 +1,5 @@
 {
+"schema": "https://frontmatter.codes/config/taxonomy.fieldgroups.schema.json",
   "id": "author",
   "labelField": "name",
   "fields": [

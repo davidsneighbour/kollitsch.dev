@@ -59,7 +59,7 @@
     "@davidsneighbour/htmlvalidate-config": "^5.10.2",
     "@davidsneighbour/hugo-theme": "1.2024.64",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "5.10.2",
+    "@davidsneighbour/markdownlint-config": "5.11.0",
     "@davidsneighbour/netlify-plugin-hugo-helper": "^0.1.5",
     "@davidsneighbour/postcss-config": "5.10.2",
     "@davidsneighbour/prettier-config": "^5.10.2",

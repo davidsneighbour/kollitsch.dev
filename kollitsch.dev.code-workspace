@@ -27,9 +27,6 @@
     },
     {
       "path": "../hugo-bin"
-    },
-    {
-      "path": "../renovate-config"
     }
   ],
   "settings": {

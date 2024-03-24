@@ -1,5 +1,6 @@
-title: authors setup
+title: author(s) information
 
+type: object
 properties:
   authors:
     type: array
@@ -21,7 +22,10 @@ properties:
     properties:
       name:
         type: string
-      homepage:
-        type: string
-      image:
-        type: string
+        homepage:
+          type: string
+        image:
+          type: string
+oneOf:
+  - required: [authors]
+  - required: [author]

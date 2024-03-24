@@ -11,6 +11,8 @@ properties:
       pattern: "^[\\w-]+$"
       format: lowercase # lowercase for validation, does not actually lowercase the value
       errorMessage: 'Tags must contain only lowercase characters, digits, and dashes, with no spaces.'
+    minItems: 1
+    uniqueItems: true
 
   keywords:
     type: array
@@ -19,11 +21,15 @@ properties:
       Add as many as you wish.
     items:
       type: string
+    minItems: 1
+    uniqueItems: true
 
   categories:
     type: array
     items:
       type: string
+    minItems: 1
+    uniqueItems: true
 
 required:
   - tags

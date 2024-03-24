@@ -29,7 +29,7 @@ This site's infrastructure is as follows:
 <!--lint ignore-->
 |  |  |
 | --- | --- |
-| **Domain Registration** | [Google](https://domains.google.com/) |
+| **Domain Registration** | [Porkbun](https://porkbun.com/products/domains) |
 | **DNS and CDN** | [Cloudflare](https://cloudflare.com) |
 | **Hosting** | [Netlify](https://netlify.com) |
 | **Static Site Generator** | [Hugo](https://gohugo.io) |

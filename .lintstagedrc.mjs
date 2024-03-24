@@ -20,7 +20,7 @@ export default {
     const filesToLint = await removeIgnoredFiles(files)
     return [`eslint --max-warnings=0 ${filesToLint}`]
   },
-  '*.{scss,css}': ['stylelint --fix'],
+  '*.{scss,css}': ['stylelint --fix', "prettier --write"],
   // '*.{png,jpeg,jpg,gif,svg}': [
   //   'imagemin-lint-staged' // @davidsneighbour/imagemin-lint-staged
   // ],
@@ -29,7 +29,7 @@ export default {
     'npm run lint:vale'
   ],
   '**/*.ts?(x)': () => [
-    'tsc -p tsconfig.json --noEmit'
+    'tsc -p tsconfig.json --noEmit', "prettier --write"
   ],
   '**/*.*': [
     'npx secretlint'

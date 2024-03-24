@@ -12,6 +12,8 @@ NODE_ENV = "development"
 
 [functions]
 directory = "assets/functions"
+node_bundler = "esbuild"
+included_files = ["./assets/functions/data/*.json"]
 
 # [functions.status]
 # schedule = "*/10 * * * *"

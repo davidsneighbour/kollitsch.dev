@@ -8,12 +8,8 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.1 h1:3+WmzSYysAi
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.1/go.mod h1:LibI1IDZCBBzIo/klOpNTLTZ3H6DeZc0K0qyh7j6Zus=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.19 h1:ul3TXpjsPreOWQPDfWbZvhKZochHgiTOXCxdXSVLcpY=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.19/go.mod h1:RNHwHaIFANFp+t6QRPsIoFeUz3gERr8K2vw5+NhVl5Q=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240319100338-d05739b645bd h1:KWXisT6SGLT5rpb7N1QnubqTfvasLafidUwMaRs8bT0=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240319100338-d05739b645bd/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240320190917-05d38ad03e84 h1:kJngWnVbd7YfCnyVkndcB0aR7HZQ2XW41ZHpbIUHm1s=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240320190917-05d38ad03e84/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240322120741-a266f7e20996 h1:5FBHa+Kpfc4kBO9sN5KbHvaISdMVgC3cPceuoSGQcQg=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240322120741-a266f7e20996/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240322233426-8b1622060bad h1:cABnusNmoV9AvycW2rZ1WISADyyYuQXEvT6axAJAHR8=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240322233426-8b1622060bad/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.5 h1:68l82DFmWuqebkMRl1N1tejWoMMhKMkO2D0e21Nv/2s=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.5/go.mod h1:PLYderlhl7SVcRMriL6it9mHZevTpEY839U95RmboUI=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.6 h1:ANj17Z2la3ZPtHjHiG9QV/CtoThkzIMo0WjlYfDKTwg=
@@ -38,8 +34,6 @@ github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.0 h1:61HOIqWjYL
 github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.0/go.mod h1:wHveSSBmVY6BKY2fsBC+0S1rjDIa66CJh9tWkngvBhw=
 github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.4 h1:I002hg/R23oPZGbwmXQ7NA4A1WvK3i/K7Q6RYIDYIKM=
 github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.4/go.mod h1:YpZUhvwb7jAnh6qSZPZWKZ/xaWaTZK7xo6sUGQWCyt8=
-github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5 h1:1RLPhQCipIlUMeOxnUB+a9ZD2eeVbqJV+XMhmWifHfE=
-github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.5/go.mod h1:jyLk6tI9/nKikkowncTYHHYyq+6ygWofh9Ukn0Bg+bc=
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.6 h1:etxLiR8m0uKb4lOiC7oeweOgBhgZXYeCn7uI3g8brOc=
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.6/go.mod h1:CCZtuiMwYsOUf5U3iEj6TLwk45nKE9DYcfpNe4EcpvE=
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.3 h1:eAm2f3gDnR1H8JlL/5Hiap7YRlTntIKWjZvxg9yLMWo=
@@ -60,8 +54,8 @@ github.com/davidsneighbour/hugo-modules/modules/social v0.2024.0 h1:LkJ0U88hk+fT
 github.com/davidsneighbour/hugo-modules/modules/social v0.2024.0/go.mod h1:6fBthrqf3MHdUEV4R8eT+PmhoEXzCjDTMKMVPeVmQEE=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.1 h1:q4uCMuHH+bZb+3AyroI9GKXfkouo3GLbXn/auGa5JRQ=
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.1/go.mod h1:LBzrL27zCCSNYE6lAnX1L5nOvvJyShubj/OqdDkeVjA=
-github.com/davidsneighbour/hugo-theme v1.2024.64 h1:Qc8X7S+qah/0NcpYLIfUzYPwmnFdX3HqLtjlcIIoq/M=
-github.com/davidsneighbour/hugo-theme v1.2024.64/go.mod h1:WVNavJb/CrUGSTiZ8Nq6Fa3xXnwZOXbjnVH/05Q6xuY=
+github.com/davidsneighbour/hugo-theme v1.2024.66 h1:lKMsliZMfDOkBen4ZlGztbFbtZ2ICqqvRrJGVrSQW7U=
+github.com/davidsneighbour/hugo-theme v1.2024.66/go.mod h1:QXG46yuR3VMJj1PuCf5WXrR2oyidEwmmDR3tHrJ8HoE=
 github.com/paulirish/lite-youtube-embed v0.3.2 h1:VRSrJIlgui0Ldrl+/RmNvphLjour/W6CB0QtrZVJrpE=
 github.com/paulirish/lite-youtube-embed v0.3.2/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

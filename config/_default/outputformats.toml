@@ -13,9 +13,9 @@ baseName = "index"
 notAlternative = true
 isPlainText = true
 
-[HEADERIMAGE]
-baseName = "index"
-isPlainText = false
-notAlternative = true
-mediaType = "image/svg+xml"
-permalinkable = true
+# [HEADERIMAGE]
+# baseName = "index"
+# isPlainText = false
+# notAlternative = true
+# mediaType = "image/svg+xml"
+# permalinkable = true

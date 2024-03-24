@@ -21,7 +21,7 @@ module.exports = async (config) => {
     "frontMatter.content.supportedFileTypes": [
       "md"
     ],
-    "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'H:mm:ssxxx",
+    "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
     "frontMatter.taxonomy.indentArrays": false,
     "frontMatter.taxonomy.noPropertyValueQuotes": [
       "date"

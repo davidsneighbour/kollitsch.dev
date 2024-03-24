@@ -22,6 +22,7 @@
       "name": "date",
       "type": "datetime",
       "default": "{{now}}",
+      "format": "yyyy-MM-dd'T'HH:mm:ssxxx",
       "isPublishDate": true
     },
     {
@@ -29,6 +30,7 @@
       "name": "lastmod",
       "type": "datetime",
       "default": "{{now}}",
+      "format": "yyyy-MM-dd'T'HH:mm:ssxxx",
       "isModifiedDate": true
     },
     {

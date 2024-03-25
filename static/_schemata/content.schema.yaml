@@ -17,7 +17,7 @@ properties:
     title: Description
     description: Used for the meta description tag (optimally 110 to 160 characters)
     type: string
-    maxLength: 160
+    maxLength: 170
     minLength: 110
 
   summary:

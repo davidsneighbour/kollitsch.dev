@@ -9,3 +9,4 @@ VSCode
 Netlify
 [Nn]amespaced
 [Tt]eardown
+GoHugo

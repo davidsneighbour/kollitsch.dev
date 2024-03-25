@@ -24,9 +24,6 @@
     },
     {
       "path": "../netlify-plugin-hugo-helper"
-    },
-    {
-      "path": "../hugo-bin"
     }
   ],
   "settings": {

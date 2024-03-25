@@ -5,10 +5,10 @@ go 1.21.8
 require (
 	github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 // indirect
 	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
-	github.com/davidsneighbour/hugo-modules v1.2024.19 // indirect
+	github.com/davidsneighbour/hugo-modules v1.2024.22 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.19 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240322233426-8b1622060bad // indirect
+	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240325153924-6a88ca611642 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.6 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 // indirect
@@ -31,7 +31,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.1 // indirect
-	github.com/davidsneighbour/hugo-theme v1.2024.66 // indirect
+	github.com/davidsneighbour/hugo-theme v1.2024.67 // indirect
 	github.com/paulirish/lite-youtube-embed v0.3.2 // indirect
 	github.com/twbs/icons v1.11.3 // indirect
 	github.com/zenorocha/clipboard.js v2.0.11+incompatible // indirect

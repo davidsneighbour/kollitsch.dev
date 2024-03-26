@@ -1,6 +1,5 @@
-<div class="alert alert-primary d-flex align-items-center z-3 mb-0 px-3 rounded-0"
-  role="alert"
-  style="padding-top: 0.25rem; padding-bottom: 0.25rem;">
+<div data-nosnippet class="alert alert-primary d-flex align-items-center z-3 mb-0 px-3 py-1 rounded-0"
+  role="alert">
   {{ partials.Include "icon.html" "tags-fill" -}}
   <div class="ps-2">
     {{ site.Params.dnb.theme.prepagenotecontent | safe.HTML | transform.Markdownify }}

@@ -8,7 +8,7 @@
   {{- $pages := collections.Where $allPosts "Date" "gt" $startOfYear -}}
   {{- $amount := $pages | len -}}
   {{- $rest := math.Sub 100 $amount -}}
-  <div class="alert alert-dark mb-3" role="alert">
+  <div data-nosnippet class="alert alert-dark mb-3" role="alert">
     <p class="alert-heading d-flex justify-content-between">
       <span>
         This post is part of <a href="/blog/2022/100-days-to-offload/" class="alert-link">#100DaysToOffload</a>
@@ -17,7 +17,7 @@
         {{- $amount }} posts since {{ $startOfYear.Format "Jan 02, 2006" }} &mdash; {{ $allPosts | len }} total posts
       </small>
     </p>
-    <div class="progress-stacked">
+    <div class="progress-stacked" x-data="{ amount: '{{- $amount -}}' }">
       <div
         class="progress"
         role="progressbar"
@@ -25,7 +25,7 @@
         aria-valuenow="{{- $amount -}}"
         aria-valuemin="0"
         aria-valuemax="100"
-        style="width: {{- $amount -}}%">
+        :style="{ width: amount + '%' }">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary text-dark">
           {{- $amount -}}
         </div>
@@ -37,7 +37,7 @@
         aria-valuenow="{{- $rest -}}"
         aria-valuemin="0"
         aria-valuemax="100"
-        style="width: {{- $rest -}}%">
+        :style="{ width: (100-amount) + '%' }">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark">
           {{- $rest -}}
         </div>

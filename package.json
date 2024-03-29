@@ -37,7 +37,7 @@
     "puppeteer": "22.6.1",
     "request": "2.88.2",
     "sass": "1.72.0",
-    "simple-git-hooks": "2.11.0",
+    "simple-git-hooks": "2.11.1",
     "snoowrap": "1.23.0",
     "trim": "1.0.1",
     "ts-node": "10.9.2",

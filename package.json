@@ -54,7 +54,7 @@
     "@davidsneighbour/bootstrap-config": "2024.0.3",
     "@davidsneighbour/browserslist-config": "2024.0.3",
     "@davidsneighbour/commitlint-config": "2024.0.3",
-    "@davidsneighbour/cypress-config": "^2024.0.3",
+    "@davidsneighbour/cypress-config": "^2024.1.0",
     "@davidsneighbour/eslint-config": "2024.0.3",
     "@davidsneighbour/htmlvalidate-config": "^2024.0.3",
     "@davidsneighbour/hugo-theme": "1.2024.67",

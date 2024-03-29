@@ -61,7 +61,7 @@
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2024.0.3",
     "@davidsneighbour/netlify-plugin-hugo-helper": "^0.1.5",
-    "@davidsneighbour/postcss-config": "2024.0.3",
+    "@davidsneighbour/postcss-config": "2024.1.0",
     "@davidsneighbour/prettier-config": "^2024.0.3",
     "@davidsneighbour/remark-config": "2024.0.3",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",

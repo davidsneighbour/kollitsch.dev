@@ -29,14 +29,14 @@ xhtml = false
 
 [highlight]
 lineNos = true
-lineNoStart = 1
+lineNumbersInTable = false
 anchorLineNos = true
+# no need for this, we do this in layouts/_default/_markup/render-codeblock.html
+# lineAnchors = "code"
+lineNoStart = 1
 codeFences = true
 guessSyntax = true
 hl_Lines = ""
-# no need for this, we do this in layouts/_default/_markup/render-codeblock.html
-# lineAnchors = "code"
-lineNumbersInTable = false
 noClasses = false
 noHl = false
 style = "xcode"

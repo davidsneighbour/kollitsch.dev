@@ -1,11 +1,11 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
+$schema: https://kollitsch.dev/_schemata/blog.schema.yaml
 title: Highlighting blockquotes in GitHub Markdown format
 description: Discover how to use GitHub's new Markdown features to highlight notes, warnings, and more, enhancing your documentation's readability.
 summary: GitHub recently introduced an innovative feature for Markdown documents that allows users to highlight "Note", "Warning", and other notification blocks more effectively. An enhancement useful for developers who want to draw attention to important information in their documentation or discussions.
 date: 2024-03-25T20:48:04+07:00
 publishDate: 2024-03-25T20:48:04+07:00
-lastmod: 2024-03-25T22:14:36+07:00
+lastmod: 2024-03-28T19:10:43+07:00
 resources:
 - title: Setting up highlighted notes in GitHub Markdown
   src: header.jpg

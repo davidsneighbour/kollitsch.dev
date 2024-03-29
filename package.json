@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@atproto/api": "0.12.2",
-    "@davidsneighbour/bootstrap-config": "2024.0.3",
+    "@davidsneighbour/bootstrap-config": "2024.1.0",
     "@davidsneighbour/browserslist-config": "2024.0.3",
     "@davidsneighbour/commitlint-config": "2024.0.3",
     "@davidsneighbour/cypress-config": "^2024.0.3",

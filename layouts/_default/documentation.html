@@ -46,6 +46,7 @@
           <hr/>
           <h2>Overview</h2>
           {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
+          {{- partial "debug-print.html" $options -}}
           {{- partial "func/getSectionNavigation.html" $options $options -}}
         </div>
       </div>

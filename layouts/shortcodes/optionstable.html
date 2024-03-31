@@ -1,0 +1,32 @@
+<table class="table-options">
+  <caption>Options</caption>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- $table := .Inner -}}
+    {{- $table = strings.Split $table "\n" -}}
+    {{- range $table -}}
+      <tr>
+      {{- $row := strings.Split . "|" -}}
+      {{- range $index, $item := $row -}}
+        {{- if eq $index 0 -}}
+          {{- continue -}}
+        {{- end -}}
+        {{- if eq $index 5 -}}
+          {{- continue -}}
+        {{- end -}}
+        {{- if eq $index 4 -}}
+          {{- $item = $item | transform.Markdownify -}}
+        {{- end -}}
+        <td>{{- $item -}}</td>
+      {{- end -}}
+      </tr>
+    {{- end -}}
+  </tbody>
+</table>

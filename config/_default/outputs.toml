@@ -1,17 +1,18 @@
 home = [
-	"HTML",
-	"security",
-	"manifest",
-	"REDIR",
-	"HEADERS",
-	"GISCUS",
-	"RSS",
-	"jsonfeed",
-	"atom",
-	"dnblinklist",
-	"opensearch",
+  "HTML",
+  "security",
+  "manifest",
+  "REDIR",
+  "HEADERS",
+  "GISCUS",
+  "RSS",
+  "jsonfeed",
+  "atom",
+  "dnblinklist",
+  "opensearch",
+  "headerimage",
 ]
-page = ["HTML"]
-# section = [	"HTML", "RSS" ]
-# taxonomy = [	"HTML", "RSS" ]
-# term = [	"HTML", "RSS" ]
+page = ["HTML", "headerimage"]
+section = ["HTML", "headerimage"]
+taxonomy = ["HTML", "headerimage"]
+term = ["HTML", "headerimage"]

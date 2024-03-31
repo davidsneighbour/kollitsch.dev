@@ -3,3 +3,6 @@
 ################################################################################
 #useResourceCacheWhen = "never"
 writeStats = true
+
+[buildStats]
+enable = true

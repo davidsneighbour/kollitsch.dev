@@ -15,6 +15,12 @@ source = "node_modules"
 target = "assets/node_modules"
 
 [[imports]]
+path = "github.com/davidsneighbour/hugo-theme"
+disable = false
+ignoreConfig = false
+ignoreImports = false
+
+[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
 
 [[imports]]
@@ -34,19 +40,6 @@ path = "github.com/davidsneighbour/hugo-modules/modules/pictures"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/icons"
-
-[[imports]]
-# we need this for the documentation of the modules below `/components/`
-path = "github.com/davidsneighbour/hugo-modules"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-theme"
-disable = false
-ignoreConfig = false
-ignoreImports = false
 
 [[imports]]
 disable = false

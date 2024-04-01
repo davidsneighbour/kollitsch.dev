@@ -1,0 +1,23 @@
+{{- $context := . -}}
+{{- $commentform := "true" -}}
+{{ if and (collections.IsSet .Params "theme") (collections.IsSet .Params.theme "comments") }}
+  {{- if (compare.Eq false (collections.Index .Params.theme "comments")) -}}
+    {{- $commentform = "false" -}}
+  {{- end -}}
+{{- end -}}
+{{- with (and site.Config.Services.Disqus.Shortname $commentform) -}}
+  {{- if (compare.Eq "true" $commentform) -}}
+    <div class="col-12">
+      {{- template "_internal/disqus.html" . -}}
+    </div>
+  {{- end -}}
+{{- end -}}
+{{- if not hugo.IsServer -}}
+  {{- with (and site.Params.dnb.giscus $commentform) -}}
+    {{- if (compare.Eq "true" $commentform) -}}
+      <div class="col-12">
+        {{- partials.IncludeCached "content/giscus.html" $context $context -}}
+      </div>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

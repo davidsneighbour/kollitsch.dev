@@ -1,0 +1,21 @@
+{{- /* hooking into module head hook head-post-css */ -}}
+{{- with resources.Get "js/scripts/theme-toggle.js" -}}
+  {{- $options := dict -}}
+  {{- $options = partials.Include "func/filter.html" ( collections.Dictionary
+                  "hook" "pre-jsbuild-options"
+                  "context" $options ) -}}
+  {{- with resources.Get "data/build.json" -}}
+    {{- $options = dict "params" (transform.Unmarshal .Content) -}}
+  {{- end -}}
+  {{- $options = partials.Include "func/filter.html" ( collections.Dictionary
+                  "hook" "post-jsbuild-options"
+                  "context" $options ) -}}
+  {{- $scripts := . | js.Build $options -}}
+  {{- $scripts := $scripts | resources.Minify | resources.Fingerprint "sha512" -}}
+  <script integrity="{{- $scripts.Data.Integrity -}}">
+    {{- $scripts.Content | safe.JS -}}
+  </script>
+  {{- $options = partials.Include "func/filter.html" ( collections.Dictionary
+                  "hook" "post-jsbuild-output"
+                  "context" $scripts ) -}}
+{{- end -}}

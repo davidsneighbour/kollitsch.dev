@@ -1,0 +1,149 @@
+.section--content {
+  min-height: 100%;
+}
+
+a {
+  box-decoration-break: clone;
+
+  @extend .link-underline-primary;
+  @extend .link-offset-2;
+
+  @include word-wrap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    text-decoration: none;
+  }
+
+}
+
+h1,
+h2,
+h3 {
+  @extend .border-bottom;
+  @extend .border-light-subtle;
+}
+
+p,
+li,
+dd,
+td {
+  text-wrap: pretty;
+
+  @extend .hyphenate;
+
+  @include word-wrap;
+}
+
+>p code {
+  background-color: var(--bs-tertiary-bg);
+  padding: 0.2rem 0.35rem;
+}
+
+blockquote {
+  padding-left: 0.95rem;
+  border-left: $primary 5px solid;
+  background-color: var(--bs-tertiary-bg);
+
+  cite {
+    font-style: italic;
+  }
+}
+
+pre {
+  margin-bottom: 0;
+}
+
+table {
+  $table-color: $body-color;
+
+  .dark & {
+    @extend .table-dark;
+  }
+
+  .light & {
+    @extend .table-light;
+  }
+
+  code,
+  pre {
+    padding: 0.25rem;
+  }
+
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-sm;
+
+
+  td {
+    @extend .px-2;
+    @extend .py-1;
+
+    &:nth-of-type(1) {
+      white-space: nowrap;
+    }
+  }
+
+  th {
+    @extend .px-2;
+    @extend .py-1;
+  }
+
+}
+
+.highlight {
+  font-size: 1rem;
+  margin-bottom: $spacer;
+
+  .chroma {
+    padding: 0.3rem;
+  }
+
+}
+
+.section--meta {
+  border-top: 1px solid $primary;
+  font-size: 0.9rem;
+
+  @extend .pt-3;
+
+  a {
+    @extend .text-primary;
+
+    &:hover {
+      @extend .text-secondary;
+    }
+  }
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.1rem 0.2rem 0;
+  line-height: 1;
+}
+
+.text-small {
+  /* @todo see if this can be done with rem */
+  font-size: 90%;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  // background-color: #272822;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+
+.component--highlight {
+  .nav.nav-tabs {
+    border-bottom: 1px solid #444444;
+  }
+}

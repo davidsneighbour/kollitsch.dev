@@ -1,0 +1,39 @@
+/*******************************************************************************
+ * content area
+ ******************************************************************************/
+main {
+  padding-top: $heading-height + 30px;
+
+  @extend .min-vh-100;
+  @extend .mb-0;
+
+  background-color: var(--bs-body-bg);
+}
+
+#sitetitle {
+  position: fixed;
+
+  h1 {
+    left: 100px;
+    position: absolute;
+    top: 0;
+    transform: translateX(-99%) rotate(-90deg);
+    transform-origin: right;
+    font-size: 200px;
+    z-index: 99999999;
+    color: var(--bs-primary);
+    font-family: BahnPro;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.scroll-container {
+  scroll-snap-type: y mandatory; // proximity
+}
+
+.scroll-child {
+  scroll-snap-align: start;
+}

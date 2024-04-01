@@ -1,0 +1,68 @@
+.component--archive-card {
+  .is--item {
+    @extend .mb-5;
+  }
+
+  .is--content {
+    @extend .flex-grow-1;
+
+    p {
+      @extend .mb-0;
+    }
+  }
+
+  .is--tags {
+    @extend .text-end;
+
+    .badge {
+      @extend .ms-3;
+    }
+
+    a {
+      @extend .text-dark;
+    }
+  }
+
+  .is--date {
+    line-height: 0.85;
+
+    @extend .me-3;
+
+    border: $border-width solid $primary;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+
+    @extend .mb-3;
+
+    span {
+      width: 75px;
+
+      @extend .text-center;
+
+      display: inline-block;
+
+      @include media-breakpoint-up(sm) {
+        display: block;
+
+        &:nth-child(1) {
+          font-size: 25px;
+          text-transform: uppercase;
+        }
+
+        &:nth-child(2) {
+          font-size: 50px;
+          margin-bottom: 0.3rem;
+        }
+
+        &:nth-child(3) {
+          font-size: 22px;
+        }
+      }
+    }
+
+  }
+}

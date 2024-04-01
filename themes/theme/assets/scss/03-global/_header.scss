@@ -1,0 +1,23 @@
+.site-title {
+
+  font-size: 17vw;
+
+  // @todo clamp it
+  // @link https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+  @include media-breakpoint-up(sm) {
+    font-size: 12vw;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 180px;
+  }
+
+  @extend .fw-semibold;
+  @extend .lh-1;
+  @extend .text-center;
+  @extend .text-primary;
+
+  a {
+    @extend .text-decoration-none;
+  }
+}

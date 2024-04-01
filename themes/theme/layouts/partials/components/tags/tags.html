@@ -1,0 +1,18 @@
+{{- with (.GetTerms "tags") -}}
+  <div class="is--tags">
+    {{- range . -}}
+      <span
+        class="badge {{ with .Params.class -}}
+          text-bg-{{ . }}
+        {{ else }}
+          text-bg-light
+        {{ end }} ms-2"
+      >
+        {{ with .Params.icon -}}
+          {{ partials.Include "icon.html" . }}
+        {{ end }}
+        <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | strings.ToLower -}}</a>
+      </span>
+    {{- end -}}
+  </div>
+{{- end -}}

@@ -1,0 +1,8 @@
+input:autofill {
+  @extend .border-1;
+  @extend .border-primary;
+}
+
+textarea {
+  field-sizing: content; // default is `fixed`
+}

@@ -1,0 +1,34 @@
+{{- define "main" -}}
+  <section class="section--content">
+    <div class="container">
+      <div class="row">
+        {{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" . . -}}
+        <article class="{{- $postClasses -}}">
+          <h1 class="h2 post-title"><a href="{{ .Permalink }}">Archive</a></h1>
+          <div class="prose component--archive-card">
+            {{- $paginator := .Scratch.Get "paginator" -}}
+            {{- range $index, $item := $paginator.Pages -}}
+              <div class="is--item d-flex align-items-start flex-column flex-sm-row">
+                <div class="is--date">
+                  <span>{{- $item.Date.Format "Jan" -}}</span>
+                  <span>{{- $item.Date.Format "2" -}}</span>
+                  <span>{{- $item.Date.Format "2006" -}}</span>
+                </div>
+                <div class="is--content">
+                  <h2 class="post-title">
+                    <a href="{{ $item.Permalink }}">
+                      {{- $item.Title -}}
+                    </a>
+                  </h2>
+                  <p class="text-truncate text-truncate-5">{{- $item.Summary -}}</p>
+                  {{- partials.IncludeCached "components/tags/tags.html" . . -}}
+                </div>
+              </div>
+            {{- end -}}
+          </div>
+        </article>
+      </div>
+      {{ partials.Include "components/pagination/pagination-simple.html" . }}
+    </div>
+  </section>
+{{- end -}}

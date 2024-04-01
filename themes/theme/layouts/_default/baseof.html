@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+{{- partials.Include "init.html" . -}}
+{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "setup" "context" . ) -}}
+{{- $sitelang := site.LanguageCode | compare.Default "en-US" -}}
+<html lang="{{- $sitelang -}}" data-bs-theme="{{- site.Params.dnb.theme.colorscheme -}}">
+  <head>
+    {{- /* loading head module
+           see https://github.com/davidsneighbour/hugo-modules/tree/main/modules/head */ -}}
+    {{- partials.Include "head.html" . -}}
+  </head>
+  {{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
+  <body class="{{- $classes -}}" id="top">
+    <a class="visually-hidden-focusable skip-to-main-link" href="#maincontent">
+      {{- lang.Translate "theme.skip_to_content" -}}
+    </a>
+    <span id="top" class="d-none" aria-hidden="true"></span>
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre" "context" . ) -}}
+    <nav class="navbar sticky-top navbar-expand-md" aria-label="Top Navigation Bar">
+      <div class="container">
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-start" "context" . ) -}}
+        {{- /* Logo/Brand name */ -}}
+        <div class="navbar-brand fsize-12 fw-bold text-decoration-none ff-headline">
+          {{- if site.Params.dnb.theme.logo -}}
+          <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
+            <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | urls.AbsURL  -}}"
+                alt="Logo of {{ site.Title -}}"
+                height="{{- site.Params.dnb.theme.logo_height -}}"
+                width="{{- site.Params.dnb.theme.logo_width -}}">
+          </a>
+          {{- else -}}
+          <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
+            {{- site.Title -}}
+          </a>
+          {{- end -}}
+        </div>
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post-logo" "context" . ) -}}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre-mainnav" "context" . ) -}}
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+          <menu class="navbar-nav mt-0 me-md-0 me-auto ms-auto">
+            {{- $current := . -}}
+            {{- range site.Menus.main -}}
+
+              {{- $active := "" -}}
+              {{- if or ($current.HasMenuCurrent .Menu .) ($current.IsMenuCurrent .Menu .) -}}
+                {{- $active = "active text-primary link-primary" -}}
+              {{- else  }}
+                {{ if (and $current.IsHome (compare.Eq .Name "Home"))}}
+                  {{- $active = "active text-primary link-primary" -}}
+                {{ end }}
+              {{- end -}}
+
+              {{- if .HasChildren -}}
+                <li class="nav-item dropdown">
+                  <div
+                    class="nav-link dropdown-toggle d-inline-block {{ if $active -}}
+                      active
+                    {{- end -}}"
+                    data-toggle="dropdown"
+                    aria-expanded="false">
+                    {{- with .Params.bsicon -}}
+                      {{- partials.Include "icon.html" . -}}
+                    {{- end -}}
+                    {{- .Name -}}
+                  </div>
+                  <ul class="dropdown-menu">
+                    {{- range .Children -}}
+                      <li>
+                        <a class="dropdown-item" href="{{- .URL | urls.AbsLangURL -}}"
+                            {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
+                          {{- with .Params.bsicon -}}
+                            {{- partials.Include "icon.html" . -}}
+                          {{- end -}}
+                          {{- .Name -}}
+                        </a>
+                      </li>
+                    {{- end -}}
+                  </ul>
+                </li>
+              {{- else -}}
+                <li class="nav-item {{ $active -}}">
+                  <a class="nav-link
+
+                  d-flex flex-row  align-items-center column-gap-2 {{ $active -}}
+                  " href="{{- .URL | urls.AbsLangURL -}}"
+                            {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
+                    {{- with .Params.bsicon -}}
+                      {{- partials.Include "icon.html" . -}}
+                    {{- end -}}
+                    <span>
+                      {{- .Name -}}
+                    </span>
+                  </a>
+                </li>
+              {{- end -}}
+            {{- end -}}
+            <li class="nav-item" id="themeswitcher" x-data="themeSwitcher()">
+              <div
+                id="theme-toggle"
+                title="Toggles between light and dark mode"
+                aria-live="polite"
+                x-on:click="toggleTheme"
+                data-hotkey="k+t">
+                <span :class="{ 'd-none': theme !== 'light', 'd-inline-block': theme === 'light' }" id="toggle-button-light" title="Switch to light mode">
+                  {{- partials.Include "icon.html" "sun-fill" -}}
+                </span>
+                <span :class="{ 'd-none': theme !== 'dark', 'd-inline-block': theme === 'dark' }" id="toggle-button-dark" title="Switch to dark mode">
+                  {{- partials.Include "icon.html" "moon-stars-fill" -}}
+                </span>
+              </div>
+            </li>
+          </menu>
+        </div>
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post-mainnav" "context" . ) -}}
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-end" "context" . ) -}}
+      </div>
+    </nav>
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post" "context" . ) -}}
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}
+    {{- $pagefindMarker := "" -}}
+    {{- if collections.In (collections.Slice "page") page.Kind }}
+      {{- $pagefindMarker = "data-pagefind-body" -}}
+    {{- end -}}
+    <main id="maincontent" {{ $pagefindMarker | safe.HTMLAttr }} tabindex="-1">
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-main-start" "context" . ) -}}
+      {{- block "main" . -}}{{- end -}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-main-end" "context" . ) -}}
+    </main>
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-post-main" "context" . ) -}}
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-pre" "context" . ) -}}
+    <footer id="footer" class="p-2 p-md-7">
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-start" "context" . ) -}}
+      <div class="widgets container text-center">
+        <h2 class="d-none invisible">Footer Items</h2>
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-widgets-start" "context" . ) -}}
+        {{- with site.Params.subscription -}}
+          {{- partials.IncludeCached "footer/newsletter.html" site.Params.subscription site.Params.subscription -}}
+        {{- end -}}
+        {{- with site.Menus.footer -}}
+          <div class="widget footer-navigation">
+            <h3 class="fs-6 my-5 fw-bold text-uppercase">{{ lang.Translate "theme.footer_menu_header" }}</h3>
+            <ul class="mb-0 list-inline">
+              {{- range . -}}
+                <li class="px-2 list-inline-item">
+                  <a href="{{- .URL | urls.AbsLangURL -}}">
+                    {{- with .Params.bsicon }}
+                      {{ $options := dict "icon" . "size" "1.5em" "class" "me-2" }}
+                      {{ partials.Include "icon.html" $options }}
+                    {{ end -}}
+                    {{- .Name -}}
+                  </a>
+                </li>
+              {{- end -}}
+            </ul>
+          </div>
+        {{- end -}}
+        {{- with site.Params.dnb.social -}}
+          {{- /*
+
+            ```toml
+            [dnb.social.sharebuttons]
+            networks = ["slug1", "slug2", ...]
+            icons = true
+            sharetext = false
+
+            [dnb.social.network.slug1]
+            url = ""
+            icon = "bootstrap icon"
+            label = ""
+
+            [dnb.social.network.slug2]
+            url = ""
+            icon = "bootstrap icon"
+            label = ""
+            ```
+
+          */ -}}
+          {{- $order := collections.Slice -}}
+          {{- $networks := .network | compare.Default collections.Dictionary -}}
+          {{- $sharebuttons := .sharebuttons | compare.Default collections.Slice -}}
+          {{- $config := site.Params.dnb.social.sharebuttons -}}
+          {{- with $sharebuttons -}}
+            {{- $order = .networks -}}
+          {{- else -}}
+            {{- range $key, $item := $networks -}}
+              {{- $order = $order | collections.Append $key -}}
+            {{- end -}}
+          {{- end -}}
+          <div class="widget social-media">
+            <h3 class="fs-6 my-5 fw-bold text-uppercase">{{- lang.Translate "theme.connect-on-social" -}}</h3>
+            <div class="container">
+              <div class="row row-cols-4 row-cols-md-6 justify-content-md-center">
+                {{- range $order -}}
+                  {{- $network := collections.Index $networks . -}}
+                  <div class="col text-center">
+                    <a
+                      href="{{- $network.url -}}"
+                      aria-label="{{- $network.label -}}"
+                      class="icon-{{ $network.icon }} p-2 d-inline-block"
+                      title="{{- $network.label -}}">
+                      {{- with ($config.icons | compare.Default true) -}}
+                        {{- if compare.Eq . true -}}
+                          {{- $options := dict "icon" $network.icon "class" "c-20" "width" "32" "height" "32" -}}
+                          {{- partials.Include "icon.html" $options -}}
+                        {{- end -}}
+                      {{- end -}}
+                      <span class="visually-hidden">
+                      {{- with ($config.sharetext | compare.Default false) -}}
+                        {{- if compare.Eq . true -}}
+                          {{- $network.label -}}
+                        {{- end -}}
+                      {{- end -}}
+                      </span>
+                    </a>
+                  </div>
+                {{- end -}}
+              </div>
+            </div>
+          </div>
+        {{- end -}}
+        <div class="d-flex flex-column flex-md-row justify-content-center mt-6 column-gap-3 row-gap-2">
+          <div>
+            {{- $year := partials.IncludeCached "func/getYear.html" . -}}
+            {{- fmt.Printf (lang.Translate "theme.copyright-text") (cast.ToString $year) | .RenderString | safe.HTML -}}
+          </div>
+          <div class="d-none d-md-inline-block vr"></div>
+          <div x-data="versionData">
+            {{ lang.Translate "theme.version" }}
+            <a :href="url" class="version" x-text="version" target="_blank"></a>
+          </div>
+        </div>
+        {{- if hugo.IsServer -}}
+          {{- /* debugging area */ -}}
+        {{- end -}}
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-widgets-end" "context" . ) -}}
+      </div>
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-end" "context" . ) -}}
+    </footer>
+    {{- $config := site.Params.dnb.theme -}}
+    {{- if compare.Eq true $config.backtotop.enabled -}}
+      {{- $icon := $config.backtotop.icon -}}
+      {{- $class := $config.backtotop.class -}}
+      {{- $top_id := $config.backtotop.top_id -}}
+      <div class="{{- $class }}
+                  d-flex justify-content-end sticky-bottom
+                  btn btn-dark
+                  bottom-0 mb-4 end-0 me-4 vh-120 w-100">
+        <a href="#{{- $top_id -}}" class="text-decoration-none">
+          <span class="me-2">
+            {{- partials.Include "icon.html" $icon -}}
+          </span>
+          {{- lang.Translate "theme.back_to_top" -}}
+        </a>
+      </div>
+    {{- end -}}
+    {{- if templates.Exists "partials/schema.html" -}}
+      {{- partials.Include "schema.html" . . -}}
+    {{- end -}}
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-post" "context" . ) -}}
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-end-pre-script" "context" . ) -}}
+    {{- $options := site.Params.dnb.theme.jsbuild.options -}}
+    {{- $params := dict }}
+    {{- with resources.Get "data/build.json" -}}
+      {{- $params = dict "params" (transform.Unmarshal .Content) -}}
+    {{- end -}}
+    {{- $options = collections.Merge $options $params -}}
+    {{- $scripts := resources.Get "js/script.js" |
+          js.Build (
+            collections.Merge $options (collections.Dictionary "targetPath" "assets/js/script.js")
+          ) | resources.Fingerprint "sha512" -}}
+    <script src="{{- $scripts.Permalink -}}" async defer integrity="{{- $scripts.Data.Integrity -}}"></script>
+    {{- with resources.Get "js/main.js" -}}
+      {{- $script := . | resources.ExecuteAsTemplate "plugins.js" . -}}
+      {{- $script = $script |
+            js.Build (
+              collections.Merge $options (collections.Dictionary "targetPath" "assets/js/main.js")
+            ) | resources.Fingerprint "sha512" -}}
+      <script src="{{- $script.Permalink -}}" async defer integrity="{{- $script.Data.Integrity -}}"></script>
+    {{- else -}}
+      {{- partials.Include "debug-cli.html" (dict
+            "message" "[modder] js/main.js missing, module modder is probably not configured properly"
+            "context" .
+            "severity" "warn"
+            "level" 8
+      ) -}}
+    {{- end -}}
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-end" "context" . ) -}}
+    {{- partials.Include "footer/service-worker.html" . -}}
+    <a href="javascript:history.back();" data-hotkey="k+ArrowLeft" class="d-none">Back</a>
+    <a href="javascript:history.forward();" data-hotkey="k+ArrowRight" class="d-none">Forward</a>
+  </body>
+</html>
+{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "teardown" "context" . ) -}}

@@ -1,0 +1,22 @@
+{{- define "main" }}
+	{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-start" "context" . ) -}}
+	<section class="section--404">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mb-5">
+					<article class="404">
+						<h1>
+							{{ lang.Translate "theme.404_header" }}
+						</h1>
+						<div class="prose">
+							<p>
+              {{ lang.Translate "theme.404_description" }}
+              </p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+	{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
+{{- end -}}

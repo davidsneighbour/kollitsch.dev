@@ -67,8 +67,23 @@ $mark-bg: var(--bs-primary);
   // transition setup and default values
   --duration: 0.5s;
   --timing: ease;
-  transition:
-    color var(--duration) var(--timing),
-    background-color var(--duration) var(--timing);
+
+  transition: color var(--duration) var(--timing), background-color var(--duration) var(--timing);
 
 }
+
+/// breadcrums setup
+/* stylelint-disable-next-line scss/no-global-function-names -- quote alone is ok */
+$breadcrumb-divider: quote(⟩);
+$breadcrumb-font-size: 1rem;
+
+// $breadcrumb-padding-y: 0;
+// $breadcrumb-padding-x: 0;
+// $breadcrumb-item-padding-x: .5rem;
+// $breadcrumb-margin-bottom: 1rem;
+// $breadcrumb-bg: null;
+$breadcrumb-divider-color: var(--bs-tertiary-color);
+
+// $breadcrumb-active-color: var(--#{$prefix}secondary-color);
+// $breadcrumb-divider-flipped: $breadcrumb-divider;
+// $breadcrumb-border-radius: null;

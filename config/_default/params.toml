@@ -1,12 +1,11 @@
 # Listen: https://www.youtube.com/watch?v=dVr8uI2nx5M
-###############################################################################
+################################################################################
 # some defaults
-###############################################################################
+################################################################################
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Koh Samui in Thailand."
 # on updating this value add a redirect to data/dnb/netlification/config.toml
 mainSections = ["blog", "components", "music", "video"]
 
-################################################################################
 # theme setup
 ################################################################################
 [dnb.theme]
@@ -117,9 +116,7 @@ limit = 5
 #      specific module configuration options.
 ################################################################################
 
-################################################################################
-# hugo-pictures
-# @see https://kollitsch.dev/gohugo/pictures
+# pictures - @see https://dnbhub.xyz/pictures
 ################################################################################
 [dnb.pictures]
 default_image = "images/og_sitewide.png"
@@ -139,9 +136,7 @@ break_points = ["520", "540", "720", "960"]
 image_sizes = ["494", "517"]
 break_points = ["520", "540"]
 
-################################################################################
-# hugo-head
-# @see https://github.com/davidsneighbour/hugo-head
+# head - @see https://dnbhub.xyz/head
 ################################################################################
 [dnb.head]
 latitude = "9.578492"
@@ -193,9 +188,9 @@ targetPath = "theme.css"
 enableSourceMap = true
 includePaths = ["node_modules/", "assets/"]
 
+# social - @see https://dnbhub.xyz/social
 ################################################################################
-# hugo-social @see https://github.com/davidsneighbour/hugo-social
-################################################################################
+[dnb.social]
 [dnb.social.sharebuttons]
 networks = [
   "rss",
@@ -252,9 +247,7 @@ label = "Follow me on Substack"
 profile = "davidsneighbour"
 domain = "davids-neighbour.com"
 
-################################################################################
-# hugo-giscus
-# @see https://kollitsch.dev/gohugo/giscus
+# giscus - @see https://dnbhub.xyz/giscus
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"
@@ -274,9 +267,8 @@ dataLoading = "lazy"
 defaultCommentOrder = "oldest"
 origins = ["htttps://kollitsch.dev", "http://192.168.1.201:1313"]
 
-###############################################################################
-# hugo-security @see https://github.com/davidsneighbour/hugo-security
-###############################################################################
+# security - @see https://dnbhub.xyz/security
+################################################################################
 [dnb.security.txt]
 intro = '''
 ##############################################################################
@@ -301,17 +293,15 @@ expires = 365
 languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
 
-###############################################################################
-# hugo-debug @see https://github.com/davidsneighbour/hugo-debug
-###############################################################################
+# debug - @see https://dnbhub.xyz/debug
+################################################################################
 [dnb.debug]
 enable = false
 disablenote = true
 debuglevel = 1
 
-###############################################################################
-# hugo-pwa @see https://github.com/davidsneighbour/hugo-pwa
-###############################################################################
+# pwa - @see https://dnbhub.xyz/pwa
+################################################################################
 [dnb.pwa]
 dev = true
 short_name = "kollitsch.dev"
@@ -320,9 +310,8 @@ background_color = "#3e3e3e"
 display = "fullscreen"
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
 
-###############################################################################
-# hugo-robots @see https://github.com/davidsneighbour/hugo-robots
-###############################################################################
+# robots - @see https://dnbhub.xyz/robots
+################################################################################
 [dnb.robots]
 initialComment = '''
 #                  ,--.    ,--.
@@ -368,9 +357,8 @@ disallow = ["/cdn-cgi/"]
 # name = "GPTBot"
 # disallow = ["/"]
 
-###############################################################################
-# hugo-sitemap @see https://github.com/davidsneighbour/hugo-sitemap
-###############################################################################
+# sitemap - @see https://dnbhub.xyz/sitemap
+################################################################################
 [[dnb.sitemap.htmlmap.item]]
 type = ".Type"
 section = "blog"
@@ -399,9 +387,8 @@ label = "Other pages"
 sortvalue = ".Title"
 sortdirection = "ASC"
 
-###############################################################################
-# hugo-netlification
-###############################################################################
+# netlification - @see https://dnbhub.xyz/netlification
+################################################################################
 [dnb.netlification]
 headers = [
   # "Access-Control-Allow-Origin: *",
@@ -547,8 +534,7 @@ from = "/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-
 to = "https://kollitsch.dev/"
 status = "301"
 
-################################################################################
-# hooks setup
+# hooks - @see https://dnbhub.xyz/hooks
 ################################################################################
 [dnb.hooks]
 debug = true

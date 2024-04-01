@@ -1,0 +1,63 @@
+#pagefind {
+
+  .pagefind-ui__form {
+
+    @extend .input-group;
+    @extend .mb-3;
+
+    .pagefind-ui__search-input {
+      @extend .form-control;
+      @extend .mb-3;
+    }
+
+    .pagefind-ui__search-clear {
+      @extend .btn;
+      @extend .btn-outline-secondary;
+      @extend .mb-3;
+    }
+
+    .pagefind-ui__drawer {
+      @extend .container;
+    }
+
+  }
+
+  .pagefind-ui__button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+
+  .pagefind-ui__results {
+    @extend .row;
+    @extend .list-unstyled;
+
+    .pagefind-ui__result {
+      @extend .card;
+      @extend .col-md-4;
+      @extend .col-12;
+      border: 0;
+
+
+      .pagefind-ui__result-thumb {
+
+        img {
+          max-width: 100%;
+        }
+      }
+
+      .pagefind-ui__result-inner {
+
+        .pagefind-ui__result-title {}
+
+        .pagefind-ui__result-excerpt {
+
+          mark {
+            background-color: var(--bs-primary);
+            color: var(--bs-gray-dark);
+          }
+        }
+      }
+    }
+  }
+}

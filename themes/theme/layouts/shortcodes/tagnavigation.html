@@ -1,0 +1,18 @@
+{{ $tag := "" }}
+
+{{ if .IsNamedParams }}
+  {{ $tag = .Get "tag" }}
+{{ else }}
+  {{ $tag = .Get 0 }}
+{{ end }}
+
+<ul>
+  {{ range .Site.RegularPages.ByDate.Reverse }}
+    {{ $page := . }}
+    {{ range .Params.tags }}
+      {{ if compare.Eq . $tag }}
+        <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</ul>

@@ -1,0 +1,26 @@
+/*******************************************************************************
+ * navbar setup
+ *
+ * see
+ * - https://getbootstrap.com/docs/5.2/components/navbar/
+ * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
+ ******************************************************************************/
+.navbar {
+  body.dark & {
+    background-color: rgb(33, 37, 41)
+  }
+
+  body.light & {
+    background-color: rgb(255, 255, 255)
+  }
+
+  &-brand a:hover {
+    text-decoration: none;
+  }
+
+  // svg {
+  //   margin: 0;
+  //   vertical-align: text-bottom;
+  //   margin-bottom: 4px;
+  // }
+}

@@ -1,0 +1,23 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | compare.Default true -}}
+{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
+<article class="{{- $articleclasses -}}">
+  {{- partials.IncludeCached "components/content/status.html" $post $post -}}
+  {{- partials.Include "components/images/banner.html" . -}}
+    {{- partials.Include "components/content/headline.html" . -}}
+  <div class="prose">
+    {{- with $fullcontent -}}
+      {{- $post.Content -}}
+    {{- else -}}
+      <p class="text-truncate text-truncate-5">{{- $post.Summary -}}</p>
+  </div>
+	<div class="text-end">
+		<a href="{{- $post.Permalink -}}" class="btn btn-link stretched-link" aria-label="{{- lang.Translate "theme.read_article" -}}: {{ $post.Title -}}">
+			{{- lang.Translate "theme.read_article" -}}
+			<span class="ps-2">
+				{{- partials.Include "icon.html" "body-text" -}}
+			</span>
+		</a>
+    {{- end -}}
+  </div>
+</article>

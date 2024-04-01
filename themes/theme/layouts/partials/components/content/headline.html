@@ -1,0 +1,9 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | compare.Default true -}}
+{{- $headerlevel := "2" -}}
+{{- with $fullcontent -}}
+  {{- $headerlevel = "1" -}}
+{{- end -}}
+{{- fmt.Printf "<h%s class=\"post-title text-truncate text-truncate-2\">" $headerlevel | safe.HTML -}}
+<a href="{{- $post.Permalink -}}" title="{{- $post.Title -}}">{{- $post.Title -}}</a>
+{{- fmt.Printf "</h%s>" $headerlevel | safe.HTML -}}

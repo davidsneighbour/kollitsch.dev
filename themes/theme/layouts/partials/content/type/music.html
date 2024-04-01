@@ -1,0 +1,93 @@
+{{- $post := .context -}}
+{{- $fullcontent := .fullcontent | compare.Default true -}}
+{{- $artist := collections.First 1 (where
+            site.Data.dnb.kollitsch.music
+            "slug"
+            $post.Params.video.artist
+) -}}
+{{- $artist = collections.Index $artist 0 -}}
+{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
+<article class="{{- $articleclasses -}} music2program2 {{ $artist.slug }}">
+  {{- partials.IncludeCached "components/content/status.html" $post $post -}}
+  {{- $settings := collections.Dictionary "id" $post.Params.video.youtube -}}
+  <div class="post-slider">
+      <figure>
+        <div class="iframe-border">
+          {{- partials.IncludeCached "youtube.html" $settings $settings -}}
+        </div>
+        <div class="inline-icons">
+          {{- with $post.Title -}}
+            <div class="is--copyright"
+                title="{{- . -}}"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-title="{{- . -}}">
+              {{- partials.Include "icon.html" "camera2" -}}
+            </div>
+            {{/* <figcaption class="text-center"></figcaption> */}}
+          {{- end -}}
+          {{- if compare.Eq true ($post.Params.theme.showdate | compare.Default true) -}}
+            <div class="is--publishdate"
+                title="🤖 {{ $post.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | compare.Default ":date_long") -}}">
+              {{- partials.Include "icon.html" "calendar3" -}}
+            </div>
+          {{- end -}}
+        </div>
+      </figure>
+        {{/* <figcaption class="text-center">{{ $artist.name }}: {{ $post.Params.video.title }}</figcaption>
+      </figure> */}}
+  </div>
+    {{/* {{- partials.IncludeCached "components/content/publishing-date.html" $post $post -}} */}}
+    {{- partials.Include "components/content/headline.html" . -}}
+  <div class="prose">
+
+    {{- with $fullcontent -}}
+
+      {{- with $post.Content -}}
+        {{- . -}}
+      {{- end -}}
+      {{- $name := $artist.name -}}
+      {{- with $post.Params.video.name -}}
+        {{- $name = . -}}
+      {{- end -}}
+      <p>
+        {{ lang.Translate "theme.this_is" }} "{{ $post.Params.video.title }}" {{ lang.Translate "theme.by" }}
+        <a href="{{ $artist.link }}">
+          {{ $artist.name }}
+        </a>.
+      </p>
+      <p>
+        {{$artist.description | transform.Markdownify }}
+      </p>
+
+      {{- else -}}
+        <p class="text-truncate text-truncate-5">
+          {{- with $post.Summary -}}
+            {{- . | transform.Markdownify -}}
+          {{- else -}}
+            {{- with $post.Description -}}
+              {{- . | transform.Markdownify -}}
+            {{- else -}}
+              {{- $post.Content | transform.Plainify | strings.Truncate 200 -}}
+            {{- end -}}
+          {{- end -}}
+        </p>
+      {{ end }}
+
+      {{- with $fullcontent -}}
+          {{- partials.IncludeCached "content/taglist_filtered.html" "programming-music" "programming-music" -}}
+          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
+          {{- partials.IncludeCached "content/meta/footer.html" $post $post -}}
+
+      {{ else }}
+    </div>
+    <div class="text-end">
+      <a href="{{- $post.Permalink -}}" class="btn btn-link stretched-link"
+          aria-label="{{- lang.Translate "theme.read_article" -}}: {{ $post.Title -}}">
+        {{- lang.Translate "theme.read_article" -}}
+        <span class="ps-2">
+          {{- partials.Include "icon.html" "body-text" -}}
+        </span>
+      </a>
+    {{- end -}}
+  </div>
+</article>

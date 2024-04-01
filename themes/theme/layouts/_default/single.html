@@ -1,0 +1,17 @@
+{{- define "main" }}
+  {{- $fullcontent := false -}}
+  {{- if (compare.Eq $.Kind "page") -}}
+    {{- $fullcontent = true -}}
+  {{- end -}}
+  {{- $post := collections.Dictionary "context" . "fullcontent" $fullcontent "responsive" "fullwidth" -}}
+  <section class="section--content">
+    <div class="container">
+      <div class="row">
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "single-pre-article" "context" . ) -}}
+        <div class="col-12 mb-5">
+          {{ partials.Include "content/post.html" $post $post }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{- end -}}

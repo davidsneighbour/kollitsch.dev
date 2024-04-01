@@ -1,0 +1,8 @@
+<div class="alert alert-light
+            d-flex align-items-center"
+    role="alert">
+    {{ partials.Include "icon.html" "note" }}
+  <div>
+    {{ .Inner | transform.Markdownify }}
+  </div>
+</div>

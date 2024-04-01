@@ -1,0 +1,61 @@
+////
+/// A collection of utility classes for Bootstrap, using the utility API.
+///
+/// @link https://getbootstrap.com/docs/5.3/utilities/api/
+/// @group utilities
+/// @author Patrick Kollitsch
+/// @access private
+////
+
+/// Setup responsive containers
+$containers: (
+  12: 12px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  36: 36px,
+  48: 48px,
+  60: 60px,
+);
+
+/// setup utilities
+$utilities: (
+  'fsize': (property: font-size,
+    class: fontsize,
+    values: (1: 0.8rem,
+      2: 0.9rem,
+      3: 1rem,
+      4: 1.1rem,
+      5: 1.2rem,
+      12: 2rem,
+    ),
+  ),
+  /// containery utility
+  'containery': (property: height,
+    values: $containers,
+    class: cy,
+  ),
+  'containerx': (property: width,
+    values: $containers,
+    class: cx,
+  ),
+  'container': (property: width,
+    values: $containers,
+    class: c,
+  ),
+  'fontsize2': (property: font-size,
+    class: fsv,
+    values: (12: 12vm,
+      17: 17vm,
+    ),
+  ),
+  'viewport': (property: margin-top,
+    class: vh,
+    values: (120: 120vh,
+      100: 100vh,
+      50: 50vh,
+      25: 25vh,
+      75: 75vh,
+    ),
+  )
+);

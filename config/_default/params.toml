@@ -6,10 +6,23 @@ description = "This is the online playground of Patrick Kollitsch, David's Neigh
 # on updating this value add a redirect to data/dnb/netlification/config.toml
 mainSections = ["blog", "components", "music", "video"]
 
-###############################################################################
+################################################################################
 # theme setup
-###############################################################################
+################################################################################
 [dnb.theme]
+slug = "dark-skies"
+
+# default color scheme (dark/light)
+# this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
+# value of `dnb.theme.switcher.default` is used.
+colorscheme = "dark"
+
+# selected icon theme.
+# can be one of the identifiers of the icons module OR
+# `specific` to indicate use values of `icon` values as individual classes OR
+# `partial` to indicate the inclusion of the value as cached partial
+icontheme = "bootstrap"
+
 logo_height = "40"
 logo_width = "40"
 show_title = true
@@ -67,6 +80,35 @@ long = "Mon, Jan 2, 2006"
 short = "Jan 2 2006"
 timestamp = "2006-01-02T15:04:05-07:00"
 
+[dnb.theme.switcher]
+enabled = true   # boolean
+default = "dark" # `dark`, `light` or any theme of `dnb.theme.switcher.themes`
+
+[dnb.theme.backtotop]
+enabled = true
+icon = "chevron-double-up"
+class = "widget--back-to-top"
+top_id = "top"
+
+[dnb.theme.jsbuild.options]
+# options for the js.Build method
+# see https://gohugo.io/hugo-pipes/js/
+minify = false
+format = "iife"
+target = "es2020"
+# [dnb.theme.jsbuild.options.externals]
+# - "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+# - "node_modules/jquery/dist/jquery.min.js"
+# [dnb.theme.jsbuild.options.inject]
+# - "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+# - "node_modules/jquery/dist/jquery.min.js"
+# [dnb.theme.jsbuild.options.params]
+# api = "https://example.org/api"
+
+[dnb.theme.related]
+exclude_tags = ["100DaysToOffload"]
+limit = 5
+
 ################################################################################
 # some DNB Org Components Configuration.
 #
@@ -112,6 +154,7 @@ disable = []
 notranslate = false     # tell Google not to provide a translation for this document
 # https://webmonetization.org/docs/getting-started
 monetization = ""
+colorschemeOrder = "dark light"
 
 [dnb.head.speedoptimisation]
 control = "on" # on/off - off disables all prefetching
@@ -536,4 +579,8 @@ cached = false
 
 [[dnb.hooks.items.theme.post-after]]
 file = "post-after"
+cached = false
+
+[[dnb.hooks.items.theme.head-post-css]]
+file = "head-post-css"
 cached = false

@@ -1,0 +1,20 @@
+@function css-function($function, $values... ) {
+  @return $function +unquote('(')+$values +unquote(')');
+}
+
+@function css-min($values... ) {
+  @return css-function(min, $values );
+}
+
+@function css-max($values... ) {
+  @return css-function(max, $values );
+}
+
+@function css-clamp($values... ) {
+  @return css-function(clamp, $values );
+}
+
+
+/// .my-selector {
+///   width: css-min( #{ $width-abs }, #{ $width-rel } );
+/// }

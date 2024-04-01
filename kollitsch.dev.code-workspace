@@ -5,10 +5,7 @@
       "name": "kollitsch.dev"
     },
     {
-      "path": "../hugo-theme/theme/"
-    },
-    {
-      "path": "../hugo-theme"
+      "path": "./theme"
     },
     {
       "path": "../hugo-modules"

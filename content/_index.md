@@ -1,3 +1,4 @@
 ---
 hasSitemap: false
+linkTitle: Home
 ---

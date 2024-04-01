@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "path": "./theme"
+      "path": "./themes/theme"
     },
     {
       "path": "./content"

@@ -118,7 +118,7 @@
     "release:major": "commit-and-tag-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
-    "sassdoc": "sassdoc theme/assets/scss/ --dest theme/static/theme-documentation/styles --strict",
+    "sassdoc": "sassdoc themes/theme/assets/scss/ --dest themes/theme/static/theme-documentation/styles --strict",
     "server": "run-p server:hugo -- --watch",
     "server:functions": "netlify functions:serve",
     "server:hugo": "wireit",

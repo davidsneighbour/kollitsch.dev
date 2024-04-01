@@ -1,11 +1,14 @@
 {
   "folders": [
     {
-      "path": ".",
-      "name": "kollitsch.dev"
+      "path": "./theme"
     },
     {
-      "path": "./theme"
+      "path": "./content"
+    },
+    {
+      "path": ".",
+      "name": "kollitsch.dev"
     },
     {
       "path": "../hugo-modules"
@@ -15,9 +18,6 @@
     },
     {
       "path": "../namespace"
-    },
-    {
-      "path": "../hugo-asylum"
     },
     {
       "path": "../netlify-plugin-hugo-helper"

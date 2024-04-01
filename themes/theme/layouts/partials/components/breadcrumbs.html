@@ -1,5 +1,5 @@
 {{- if not .IsHome -}}
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
   {{- range .Ancestors.Reverse }}
     <li class="breadcrumb-item"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
@@ -7,4 +7,30 @@
     <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
   </ol>
 </nav>
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+  {{- $counter := 1 }}
+  {{- range .Ancestors.Reverse }}
+    {
+      "@type": "ListItem",
+      "position": {{ $counter }},
+      "name": "{{ .LinkTitle | default site.Title | safeJS}}",
+      "url": {{ .Permalink }},
+      "item": {{ .Permalink }}
+    },
+    {{- $counter = add $counter 1 -}}
+  {{ end }}
+    {
+      "@type": "ListItem",
+      "position": {{ $counter }},
+      "name": "{{ .LinkTitle | safeJS }}",
+      "url": {{ .Permalink }},
+      "item": {{ .Permalink }}
+    }
+  ]
+}
+</script>
 {{- end -}}

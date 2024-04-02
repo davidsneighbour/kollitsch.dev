@@ -7,6 +7,7 @@ This project is the website setup and content for [kollitsch.dev](https://kollit
 ![Screenshot of kollitsch.dev](.github/images/screenshot.png)
 
 <!-- markdownlint-disable MD010 MD007 -->
+
 <!--lint ignore-->
 
 * [Site structure](#site-structure)
@@ -15,7 +16,7 @@ This project is the website setup and content for [kollitsch.dev](https://kollit
 
 <!-- markdownlint-enable MD010 MD007 -->
 
-# Site structure
+## Site structure
 
 ![module structure](.github/images/rm001.png)
 
@@ -27,6 +28,7 @@ This project is the website setup and content for [kollitsch.dev](https://kollit
 This site's infrastructure is as follows:
 
 <!--lint ignore-->
+
 |  |  |
 | --- | --- |
 | **Domain Registration** | [Porkbun](https://porkbun.com/products/domains) |
@@ -34,14 +36,14 @@ This site's infrastructure is as follows:
 | **Hosting** | [Netlify](https://netlify.com) |
 | **Static Site Generator** | [Hugo](https://gohugo.io) |
 
-Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour&labels=state%3Aunconfirmed&template=custom.md&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
+Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour\&labels=state%3Aunconfirmed\&template=custom.md\&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
 
-# General notes
+## General notes
 
 * The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 * I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open-source programs and scripts.
 
-# License
+## License
 
 This website's written `content` is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). In addition, the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
 

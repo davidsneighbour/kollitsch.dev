@@ -17,6 +17,7 @@ tags:
   - gohugo
   - component
   - reference
+type: documentation
 ---
 
 ## Installing

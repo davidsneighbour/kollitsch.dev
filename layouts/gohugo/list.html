@@ -1,0 +1,60 @@
+{{- define "main" -}}
+
+  {{- $packageFile := printf "dnb/%s.json" (.Permalink | path.Base) -}}
+  {{/* {{- $packageFile := printf "dnb/%s.json" (.CurrentSection.Path | path.Base) -}} */}}
+  {{- $package := resources.Get $packageFile -}}
+
+  {{- with $package -}}
+    {{- $package = . | transform.Unmarshal -}}
+  {{- else -}}
+    {{- $package = dict -}}
+  {{- end -}}
+
+  <section class="section--content">
+    <div class="container">
+      <div class="row">
+
+        {{- if or .IsPage .IsNode -}}
+          <div class="post-slider">
+            <figure>
+              <picture>
+                {{- $options := dict -}}
+                {{- if isset $package "version" }}
+                  {{- $options = dict
+                      "tagline" "GOHUGO COMPONENTS by DNB"
+                      "title" (.Title | strings.ToUpper)
+                      "subtitle" (printf "v%s" $package.version) -}}
+                {{ else }}
+                  {{- $options = dict
+                      "tagline" "GOHUGO COMPONENTS by DNB"
+                      "title" (.Title | strings.ToUpper) -}}
+                {{ end }}
+                {{- partial "documentation/headerimage.html" $options $options -}}
+              </picture>
+            </figure>
+          </div>
+        {{- else -}}
+          <h1>
+            <a href="{{.Permalink}}">
+              {{- .Title -}}
+            </a>
+          </h1>
+          <hr/>
+        {{- end -}}
+
+        <div class="prose">
+          {{ .Content }}
+        </div>
+
+        <h2>More information</h2>
+        {{- range $index, $item := page.Pages -}}
+          {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}
+          <div class="col-12 col-md-6 mb-5">
+            {{- partials.Include "content/post-preview.html" $post $post -}}
+          </div>
+        {{- end -}}
+
+      </div>
+    </div>
+  </section>
+{{- end -}}

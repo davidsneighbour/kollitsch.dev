@@ -17,8 +17,8 @@ properties:
     title: Description
     description: Used for the meta description tag (optimally 110 to 160 characters)
     type: string
-    maxLength: 170
     minLength: 110
+    maxLength: 170
 
   summary:
     title: Summary
@@ -26,6 +26,7 @@ properties:
       Used for blog post summary.
       If not set, first paragraph of content is used.
     type: string
+    minLength: 100
     maxLength: 300
 
 required:

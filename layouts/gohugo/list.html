@@ -1,59 +1,57 @@
 {{- define "main" -}}
-
-  {{- $packageFile := printf "dnb/%s.json" (.Permalink | path.Base) -}}
-  {{/* {{- $packageFile := printf "dnb/%s.json" (.CurrentSection.Path | path.Base) -}} */}}
-  {{- $package := resources.Get $packageFile -}}
-
-  {{- with $package -}}
-    {{- $package = . | transform.Unmarshal -}}
-  {{- else -}}
-    {{- $package = dict -}}
-  {{- end -}}
-
+  {{- $package := partialCached "func/getPackageFile.html" page page -}}
   <section class="section--content">
     <div class="container">
       <div class="row">
-
-        {{- if or .IsPage .IsNode -}}
-          <div class="post-slider">
-            <figure>
-              <picture>
-                {{- $options := dict -}}
-                {{- if isset $package "version" }}
-                  {{- $options = dict
-                      "tagline" "GOHUGO COMPONENTS by DNB"
-                      "title" (.Title | strings.ToUpper)
-                      "subtitle" (printf "v%s" $package.version) -}}
-                {{ else }}
-                  {{- $options = dict
-                      "tagline" "GOHUGO COMPONENTS by DNB"
-                      "title" (.Title | strings.ToUpper) -}}
-                {{ end }}
-                {{- partial "documentation/headerimage.html" $options $options -}}
-              </picture>
-            </figure>
+        <div class="col-12 mb-5">
+          {{- partials.IncludeCached "components/breadcrumbs.html" . . -}}
+          {{- if or .IsPage .IsNode -}}
+            <div class="post-slider">
+              <figure>
+                <picture>
+                  {{- $options := dict -}}
+                  {{- if isset $package "version" }}
+                    {{- $options = dict
+                          "tagline" page.Params.sectiontitle
+                          "title" (.Title | strings.ToUpper)
+                          "subtitle" (printf "v%s" $package.version) -}}
+                  {{- else -}}
+                    {{- $options = dict
+                          "tagline" page.Params.sectiontitle
+                          "title" (.Title | strings.ToUpper) -}}
+                  {{- end -}}
+                  {{- partial "documentation/headerimage.html" $options $options -}}
+                </picture>
+              </figure>
+            </div>
+          {{- else -}}
+            <h1>
+              <a href="{{- .Permalink -}}">
+                {{- .Title -}}
+              </a>
+            </h1>
+            <hr/>
+          {{- end -}}
+          <div class="prose">
+            {{- .Content -}}
           </div>
-        {{- else -}}
-          <h1>
-            <a href="{{.Permalink}}">
-              {{- .Title -}}
-            </a>
-          </h1>
           <hr/>
-        {{- end -}}
-
-        <div class="prose">
-          {{ .Content }}
-        </div>
-
-        <h2>More information</h2>
-        {{- range $index, $item := page.Pages -}}
-          {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}
-          <div class="col-12 col-md-6 mb-5">
-            {{- partials.Include "content/post-preview.html" $post $post -}}
+          <h2>
+            {{- if .IsNode -}}
+              More Information
+            {{- else -}}
+              More Modules
+            {{- end -}}
+          </h2>
+          <div class="row">
+          {{- range $index, $item := sort page.Pages "Title" "asc" -}}
+            {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}
+            <div class="col-12 col-md-6 mb-5">
+              {{- partials.Include "content/post-preview.html" $post $post -}}
+            </div>
+          {{- end -}}
           </div>
-        {{- end -}}
-
+        </div>
       </div>
     </div>
   </section>

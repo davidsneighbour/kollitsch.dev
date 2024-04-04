@@ -6,6 +6,11 @@ description = "This is the online playground of Patrick Kollitsch, David's Neigh
 # on updating this value add a redirect to data/dnb/netlification/config.toml
 mainSections = ["blog", "components", "music", "video"]
 
+# documentation theme setup
+################################################################################
+[dnb.documentation]
+package_path = "dnb/%s.json"
+
 # theme setup
 ################################################################################
 [dnb.theme]

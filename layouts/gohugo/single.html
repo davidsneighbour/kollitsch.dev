@@ -1,50 +1,48 @@
 {{- define "main" -}}
-  {{- $packageFile := printf "dnb/%s.json" (.Permalink | path.Base) -}}
-  {{/* {{- $packageFile := printf "dnb/%s.json" (.CurrentSection.Path | path.Base) -}} */}}
-  {{- $package := resources.Get $packageFile -}}
-
-  {{- with $package -}}
-    {{- $package = . | transform.Unmarshal -}}
-  {{- else -}}
-    {{- $package = dict -}}
-  {{- end -}}
-
+  {{- $package := partialCached "func/getPackageFile.html" page page -}}
   <section class="section--content">
     <div class="container">
       <div class="row">
         <div class="col-12 mb-5">
+          {{- partials.IncludeCached "components/breadcrumbs.html" . . -}}
           {{- if or .IsPage .IsNode -}}
-          <div class="post-slider">
-            <figure>
-              <picture>
-                {{- $options := dict -}}
-                {{- if isset $package "version" }}
-                  {{- $options = dict
-                      "tagline" "GOHUGO COMPONENTS by DNB"
-                      "title" (.Title | strings.ToUpper)
-                      "subtitle" (printf "v%s" $package.version) -}}
-                {{ else }}
-                  {{- $options = dict
-                      "tagline" "GOHUGO COMPONENTS by DNB"
-                      "title" (.Title | strings.ToUpper) -}}
-                {{ end }}
-                {{- partial "documentation/headerimage.html" $options $options -}}
-              </picture>
-            </figure>
-          </div>
+            <div class="post-slider">
+              <figure>
+                <picture>
+                  {{- $options := dict -}}
+                  {{- if isset $package "version" }}
+                    {{- $options = dict
+                          "tagline" page.Params.sectiontitle
+                          "title" (.Title | strings.ToUpper)
+                          "subtitle" (printf "v%s" $package.version) -}}
+                  {{- else -}}
+                    {{- $options = dict
+                          "tagline" page.Params.sectiontitle
+                          "title" (.Title | strings.ToUpper) -}}
+                  {{- end -}}
+                  {{- partial "documentation/headerimage.html" $options $options -}}
+                </picture>
+              </figure>
+            </div>
           {{- else -}}
-          <h1>
-            <a href="{{.Permalink}}">
-              {{- .Title -}}
-            </a>
-          </h1>
-          <hr/>
+            <h1>
+              <a href="{{- .Permalink -}}">
+                {{- .Title -}}
+              </a>
+            </h1>
+            <hr/>
           {{- end -}}
           <div class="prose">
             {{- .Content -}}
           </div>
           <hr/>
-          <h2>Overview</h2>
+          <h2>
+            {{- if .IsNode -}}
+              More Information
+            {{- else -}}
+              More Modules
+            {{- end -}}
+          </h2>
           {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
           {{- partial "debug-print.html" $options -}}
           {{- partial "func/getSectionNavigation.html" $options $options -}}

@@ -4,5 +4,5 @@
 		"**/*.ts",
 		"**/*.js",
 		"package.json"
-	]
+	],"exclude": ["node_modules", ".next"]
 }

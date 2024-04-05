@@ -1,6 +1,6 @@
-.section--content {
-  min-height: 100%;
-}
+// .section--content {
+//   min-height: 100%;
+// }
 
 a {
   box-decoration-break: clone;
@@ -18,7 +18,7 @@ h4,
 h5,
 h6 {
   a {
-    text-decoration: none;
+    @extend .text-decoration-none;
   }
 
 }
@@ -139,4 +139,5 @@ kbd {
   border-top-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
+  border-bottom: 0;
 }

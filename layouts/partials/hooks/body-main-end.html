@@ -1,4 +1,8 @@
 {{- if hugo.IsServer -}}
+{{- /*
+MARK: Debugging
+*/ -}}
+<section class="section--debug">
   {{ partials.IncludeCached "indicator.html" . . }}
   <div class="container-fluid">
     <div class="row">
@@ -7,4 +11,5 @@
       </div>
     </div>
   </div>
+</section>
 {{- end -}}

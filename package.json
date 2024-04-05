@@ -110,21 +110,26 @@
     "lint:vale:update": "cd .github/vale && vale sync && cd ../..",
     "new": "node bin/hugo/content.mjs",
     "prettier": "prettier 'assets/**/*.ts'",
-    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
     "release": "./bin/repo/maintenance/dependencies && npm run release:patch",
     "release:major": "commit-and-tag-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/hooks/postrelease",
-    "sassdoc": "sassdoc themes/theme/assets/scss/ --dest themes/theme/static/theme-documentation/styles --strict",
+    "sassdoc": "wireit",
     "server": "run-p server:hugo -- --watch",
-    "server:functions": "netlify functions:serve",
+    "server:functions": "wireit",
     "server:hugo": "wireit",
     "server:pagefind": "wireit",
     "tests": "wireit",
     "update": "wireit"
   },
   "wireit": {
+    "sassdoc": {
+      "build": "sassdoc themes/theme/assets/scss/ --dest themes/theme/static/theme-documentation/styles --strict",
+      "files": [
+        "themes/theme/assets/scss/**/*.scss"
+      ]
+    },
     "clean": {
       "dependencies": [
         "clean:audit",
@@ -172,6 +177,9 @@
           "lineMatches": "Web Server is available at *"
         }
       }
+    },
+    "server:functions": {
+      "command": "netlify functions:serve"
     },
     "lint": {
       "dependencies": [

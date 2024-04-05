@@ -33,6 +33,14 @@ I stay up to date with news and development by using [Feedly](https://feedly.com
 
 My password manager of choice is [Enpass](https://www.enpass.io/) and I am using it on all my devices.
 
+## Email
+
+Tbd.
+
+## Organization
+
+Calendar via Google Calendar, Contacts via Google Contacts, Notes via Google Keep, Files via Google Drive.
+
 ## Notes, drafts and writing
 
 For handwritten notes I am using [reMarkable](https://remarkable.com) and for digital notes I am using [Joplin](https://joplinapp.org/).
@@ -44,6 +52,14 @@ To be written… Default Terminal with a bunch of Dotfiles.
 ## Code Editor
 
 To be written… VSCode, PHPStorm, Sublime Text
+
+## RSS reader
+
+## Bookmarks
+
+Raindrop.
+
+## Cloud storage
 
 ## Look and feel
 
@@ -61,10 +77,10 @@ To be written… Not sure what I was thinking here… I am using a lot of extens
 
 To be written… ~~Two mediocre all in one stations, one by Acer (never again), one by HP (fake strong).~~
 
+## Password Management
+
+## Shopping List
+
 ## About /uses
 
 [/uses](https://github.com/wesbos/awesome-uses) is a project that collects what tools, hardware and system setup _people like me_&trade; have to enable or easen up their daily work, creation and art. Find more at [uses.tech](https://uses.tech/).
-
-## Colleagues and Friends using /uses
-
-Feel free to [drop me a note](/contact/) if we are "acquainted" and I will link your /uses page here.

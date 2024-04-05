@@ -1,5 +1,5 @@
 {{- define "main" -}}
-  {{- $packageFile := printf "dnb/modules/%s/package.json" (.CurrentSection.Path | path.Base) -}}
+  {{- $packageFile := fmt.Printf "dnb/modules/%s/package.json" (.CurrentSection.Path | path.Base) -}}
   {{/* {{- $packageFile -}}
   {{- $package := resources.Get $packageFile | transform.Unmarshal -}} */}}
   <section class="section--content">
@@ -15,7 +15,7 @@
                   <rect width="1280" height="640" fill="#0a1922" />
                   <text x="54.857788" y="472.20642" style="line-height:1.25;font-weight:300;">
                     <tspan x="54.857788" y="472.20642" fill="var(--bs-primary)" font-size="42px" stroke-width="1.6">
-                      {{- printf "%s" "GOHUGO COMPONENTS by DNB" -}}
+                      {{- fmt.Printf "%s" "GOHUGO COMPONENTS by DNB" -}}
                     </tspan>
                   </text>
                   <text x="45.881981" y="601.56543" style="line-height:1.25;">
@@ -46,8 +46,8 @@
           <hr/>
           <h2>Overview</h2>
           {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
-          {{- partial "debug-print.html" $options -}}
-          {{- partial "func/getSectionNavigation.html" $options $options -}}
+          {{- partials.Include "debug-print.html" $options -}}
+          {{- partials.Include "func/getSectionNavigation.html" $options $options -}}
         </div>
       </div>
     </div>

@@ -9,14 +9,14 @@
     {{ range page.Params.keycombinations }}
       <tr>
         <td>
-          {{- $combinations := split .combination " + " -}}
+          {{- $combinations := strings.Split .combination " + " -}}
           {{- range $index, $combination := $combinations -}}
             {{- if $index -}}+{{- end -}}
             <kbd>{{- . -}}</kbd>
           {{- end -}}
         </td>
         <td>
-          {{- .action | markdownify -}}
+          {{- .action | transform.Markdownify -}}
         </td>
       </tr>
     {{- end -}}

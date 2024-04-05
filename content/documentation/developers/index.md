@@ -1,7 +1,6 @@
 ---
 title: "Developernotes"
 date: 2023-12-08T15:39:08+07:00
-layout: documentation
 weight: 100
 ---
 

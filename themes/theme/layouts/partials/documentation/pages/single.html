@@ -1,0 +1,53 @@
+{{- $package := partials.IncludeCached "func/getPackageFile.html" page page -}}
+{{- $config := .Params.options -}}
+{{- $banner := true -}}
+{{- if or (not .IsPage) (not .IsNode) -}}
+  {{- $banner = true -}}
+{{- end -}}
+{{- if index $config "banner" -}}
+  {{- $banner = index $config "banner" -}}
+{{- end -}}
+<section class="section--content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-5">
+        {{- partials.IncludeCached "components/breadcrumbs.html" . . -}}
+        {{- if $banner -}}
+          <div class="post-slider">
+            <figure>
+              <picture>
+                {{- $options := dict -}}
+                {{- if collections.IsSet $package "version" }}
+                  {{- $options = dict
+                        "tagline" page.Params.sectiontitle
+                        "title" (.LinkTitle | strings.ToUpper)
+                        "subtitle" (fmt.Printf "v%s" $package.version) -}}
+                {{- else -}}
+                  {{- $options = dict
+                        "tagline" page.Params.sectiontitle
+                        "title" (.LinkTitle | strings.ToUpper) -}}
+                {{- end -}}
+                {{- partials.Include "documentation/headerimage.html" $options $options -}}
+              </picture>
+            </figure>
+          </div>
+        {{- else -}}
+          <h1>
+            <a href="{{- .Permalink -}}">
+              {{- .Title -}}
+            </a>
+          </h1>
+          <hr/>
+        {{- end -}}
+        <div class="prose">
+          {{- .Content -}}
+        </div>
+        <hr/>
+        <h2>In this section</h2>
+        {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
+        {{- partials.Include "debug-print.html" $options -}}
+        {{- partials.Include "func/getSectionNavigation.html" $options $options -}}
+      </div>
+    </div>
+  </div>
+</section>

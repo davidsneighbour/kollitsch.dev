@@ -1,8 +1,26 @@
 {{- $post := .context -}}
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
+{{- $package := partials.IncludeCached "func/getPackageFile.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
-  {{- partials.Include "components/images/banner.html" . -}}
-  {{- partials.Include "components/content/headline.html" . -}}
+
+	<div class="post-slider">
+		<figure>
+			<picture>
+			{{- $options := dict -}}
+			{{- if collections.IsSet $package "version" }}
+				{{- $options = dict
+					"tagline" page.Params.sectiontitle
+					"title" ($post.LinkTitle | strings.ToUpper)
+					"subtitle" (fmt.Printf "v%s" $package.version) -}}
+			{{- else -}}
+				{{- $options = dict
+					"tagline" page.Params.sectiontitle
+					"title" ($post.LinkTitle | strings.ToUpper) -}}
+			{{- end -}}
+			{{- partials.Include "documentation/headerimage.html" $options $options -}}
+			</picture>
+		</figure>
+	</div>
   <div class="prose">
 		<p class="text-truncate text-truncate-3">
 			{{- with $post.Summary -}}

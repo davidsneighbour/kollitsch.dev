@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting
 summary: ""
-layout: documentation
 weight: 100
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Hook and Filters
 summary: ""
-layout: documentation
 weight: 100
 ---
 

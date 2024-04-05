@@ -1,5 +1,5 @@
 {{- define "main" -}}
-  {{- $package := partialCached "func/getPackageFile.html" page page -}}
+  {{- $package := partials.IncludeCached "func/getPackageFile.html" page page -}}
   <section class="section--content">
     <div class="container">
       <div class="row">
@@ -10,17 +10,17 @@
               <figure>
                 <picture>
                   {{- $options := dict -}}
-                  {{- if isset $package "version" }}
+                  {{- if collections.IsSet $package "version" }}
                     {{- $options = dict
                           "tagline" page.Params.sectiontitle
                           "title" (.Title | strings.ToUpper)
-                          "subtitle" (printf "v%s" $package.version) -}}
+                          "subtitle" (fmt.Printf "v%s" $package.version) -}}
                   {{- else -}}
                     {{- $options = dict
                           "tagline" page.Params.sectiontitle
                           "title" (.Title | strings.ToUpper) -}}
                   {{- end -}}
-                  {{- partial "documentation/headerimage.html" $options $options -}}
+                  {{- partials.Include "documentation/headerimage.html" $options $options -}}
                 </picture>
               </figure>
             </div>
@@ -44,7 +44,7 @@
             {{- end -}}
           </h2>
           <div class="row">
-          {{- range $index, $item := sort page.Pages "Title" "asc" -}}
+          {{- range $index, $item := collections.Sort page.Pages "Title" "asc" -}}
             {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}
             <div class="col-12 col-md-6 mb-5">
               {{- partials.Include "content/post-preview.html" $post $post -}}

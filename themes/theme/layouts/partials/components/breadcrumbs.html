@@ -17,16 +17,16 @@
     {
       "@type": "ListItem",
       "position": {{ $counter }},
-      "name": "{{ .LinkTitle | default site.Title | safeJS}}",
+      "name": "{{ .LinkTitle | compare.Default site.Title | safe.JS}}",
       "url": {{ .Permalink }},
       "item": {{ .Permalink }}
     },
-    {{- $counter = add $counter 1 -}}
+    {{- $counter = math.Add $counter 1 -}}
   {{ end }}
     {
       "@type": "ListItem",
       "position": {{ $counter }},
-      "name": "{{ .LinkTitle | safeJS }}",
+      "name": "{{ .LinkTitle | safe.JS }}",
       "url": {{ .Permalink }},
       "item": {{ .Permalink }}
     }

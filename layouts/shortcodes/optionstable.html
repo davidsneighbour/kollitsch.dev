@@ -15,13 +15,13 @@
       <tr>
       {{- $row := strings.Split . "|" -}}
       {{- range $index, $item := $row -}}
-        {{- if eq $index 0 -}}
+        {{- if compare.Eq $index 0 -}}
           {{- continue -}}
         {{- end -}}
-        {{- if eq $index 5 -}}
+        {{- if compare.Eq $index 5 -}}
           {{- continue -}}
         {{- end -}}
-        {{- if eq $index 4 -}}
+        {{- if compare.Eq $index 4 -}}
           {{- $item = $item | transform.Markdownify -}}
         {{- end -}}
         <td>{{- $item -}}</td>

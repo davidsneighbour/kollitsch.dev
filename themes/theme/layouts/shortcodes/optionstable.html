@@ -1,5 +1,8 @@
+{{- $caption := .Get "caption" | default "Options" -}}
+
+
 <table class="table-options">
-  <caption>Options</caption>
+  <caption>{{- $caption -}}</caption>
   <thead>
     <tr>
       <th>Option</th>

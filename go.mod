@@ -8,7 +8,7 @@ require (
 	github.com/davidsneighbour/hugo-modules v1.2024.22 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.19 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240405163805-a33238213bfe // indirect
+	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240405220927-dd46f852e532 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 // indirect

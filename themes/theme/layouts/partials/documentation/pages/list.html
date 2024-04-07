@@ -4,8 +4,8 @@
 {{- if or (not .IsPage) (not .IsNode) -}}
   {{- $banner = true -}}
 {{- end -}}
-{{- if index $config "banner" -}}
-  {{- $banner = index $config "banner" -}}
+{{- if collections.Index $config "banner" -}}
+  {{- $banner = collections.Index $config "banner" -}}
 {{- end -}}
 <section class="section--content">
   <div class="container">

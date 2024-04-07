@@ -1,22 +1,22 @@
 <svg version="1.1" viewBox="0 0 1280 640"
   xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-  <rect width="1280" height="640" fill="#0a1922" />
-  <text x="54.857788" y="472.20642" style="line-height:1.25;font-weight:300;">
+  <rect width="1280" height="640" fill="#114c5a" />
+  <text x="55" y="510" font-weight="300">
     {{- with page.Params.sectiontitle -}}
-      <tspan x="54.857788" y="472.20642" fill="var(--bs-primary)" font-size="42px" stroke-width="1.6">
+      <tspan fill="#ff9932" font-size="42px" stroke-width="1.6">
         {{- . -}}
       </tspan>
     {{- end -}}
   </text>
-  <text x="45.881981" y="601.56543" style="line-height:1.25;">
-    <tspan x="45.881981" y="601.56543" fill="var(--bs-primary)" font-weight="300" stroke-width="1.6">
-      <tspan style="font-size:90px">
+  <text x="50" y="600">
+    <tspan fill="#ff9932" font-weight="500" stroke-width="1.6">
+      <tspan font-size="90px">
         {{- if (collections.IsSet . "title") -}}
           {{- .title -}}
         {{- end -}}
         {{- if (collections.IsSet . "subtitle") -}}
-          <tspan style="font-size:50px;">
-            {{- .subtitle -}}
+          <tspan font-size="50px">
+            {{- fmt.Printf "  %s" .subtitle -}}
           </tspan>
         {{- end -}}
       </tspan>

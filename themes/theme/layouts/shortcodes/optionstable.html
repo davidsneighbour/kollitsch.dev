@@ -1,4 +1,4 @@
-{{- $caption := .Get "caption" | default "Options" -}}
+{{- $caption := .Get "caption" | compare.Default "Options" -}}
 
 
 <table class="table-options">

@@ -55,10 +55,10 @@ Here's how you can use these markers in your Markdown documents:
 > Now this could be risky, so be careful and proceed with caution.
 ```
 
-{{< figure name="input.jpg" />}}
+![](input.jpg)
 
 These blocks automatically render with an icon and background color corresponding to their type, enhancing the visual hierarchy of the document and making critical information immediately apparent. The following is the current rendering on GitHub.com:
 
-{{< figure name="header.jpg" />}}
+![](header.jpg)
 
 For more detailed information on this feature visit the [official discussion on GitHub](https://github.com/orgs/community/discussions/16925).

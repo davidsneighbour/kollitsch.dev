@@ -65,6 +65,11 @@ other = "this is %s"
 description = ""
 other = "via"
 
+[theme.words]
+description = "word count for articles"
+one = "%d word"
+other = "%d words"
+
 [theme.connect-on-social]
 description = ""
 other = "Connect on Social Media"

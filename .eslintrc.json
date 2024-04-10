@@ -1,5 +1,0 @@
-{
-  "extends": [
-    "@davidsneighbour/eslint-config"
-  ]
-}

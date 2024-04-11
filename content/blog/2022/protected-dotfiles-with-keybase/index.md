@@ -15,6 +15,7 @@ tags:
   - privacy
   - security
   - 100DaysToOffload
+  - git
 type: blog
 ---
 

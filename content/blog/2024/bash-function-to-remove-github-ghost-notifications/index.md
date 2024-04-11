@@ -13,6 +13,7 @@ resources:
   src: screenshot.jpg
 tags:
 - bash
+- git
 - github
 - rest-api
 - 100DaysToOffload

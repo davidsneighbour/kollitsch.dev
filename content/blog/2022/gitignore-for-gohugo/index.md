@@ -5,6 +5,7 @@ resources:
   - src: header.jpg
     title: Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) via [Unsplash](https://unsplash.com/)
 tags:
+  - git
   - gitignore
   - developers
   - 100DaysToOffload

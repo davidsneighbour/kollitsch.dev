@@ -34,7 +34,7 @@
         {{- else -}}
           <h1>
             <a href="{{- .Permalink -}}">
-              {{- .Title -}}
+              {{- .Title | markdownify -}}
             </a>
           </h1>
           <hr/>

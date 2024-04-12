@@ -1,6 +1,7 @@
 ---
 title: Git `push.default` setup
 description: "Pushing a new branch to a repository's remote often requires two attempts by the scatterbrained developer, but there is help in `push.autoSetupRemote`."
+summary: "Pushing a new branch to a repository's remote often requires two attempts by the scatterbrained developer, but there is help in `push.autoSetupRemote`."
 resources:
 - title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)
   src: header.jpg
@@ -9,9 +10,9 @@ tags:
   - configuration
   - 100DaysToOffload
 type: blog
-date: 2024-03-12T19:19:32+07:00
-publishDate: 2024-03-12T19:19:32+07:00
-lastmod: 2024-03-12T19:19:32+07:00
+date: 2024-04-12T21:09:32+07:00
+publishDate: 2024-04-12T21:09:32+07:00
+lastmod: 2024-04-12T21:09:32+07:00
 ---
 
 Pushing a new branch to a repository's remote often requires two attempts by the scatterbrained developer:

@@ -117,8 +117,9 @@
 @import "06-plugins/theme-toggle";
 
 /// DNB: external plugins (imported from node_modules)
-@import "lite-yt-embed";
+// @import "lite-yt-embed";
 @import "animate.css/animate";
-@import "debugprint";
-@import "plugins/clipboard";
+
+// @import "debugprint";
+// @import "plugins/clipboard";
 @import "local";

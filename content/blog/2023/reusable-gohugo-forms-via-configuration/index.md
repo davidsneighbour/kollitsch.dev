@@ -130,7 +130,7 @@ This needs much improvement. For instance, we currently do not have `upload`, `s
 
 ## Internationalization in `i18n/en.toml`
 
-The `labelling` attribute in the form configuration above sets the way of labelling the form to `i18n`. All fields can be configured via `i18n/en.toml`.
+The `labelling` attribute in the form configuration preceding sets the way of labelling the form to `i18n`. All fields can be configured via `i18n/en.toml`.
 
 ```toml
 [shortcodes.contactform.name]
@@ -253,7 +253,6 @@ This partial checks the type of the field and renders the appropriate HTML. The 
 Then there is the button partial:
 
 ```go-html-template
-
 {{- define "partials/dnb-forms-inlinetemplate-button" -}}
   {{- $buttonAttributes := printf "class=\"%s\" type=\"%s\" value=\"%s\""
       .class

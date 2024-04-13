@@ -1,5 +1,5 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.config.dynamicFilePath": "[[workspace]]/frontmatter.config.js",
+  "frontMatter.config.dynamicFilePath": "[[workspace]]/frontmatter.config.cjs",
   "frontMatter.site.baseURL": "https://kollitsch.dev"
 }

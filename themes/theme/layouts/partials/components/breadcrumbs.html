@@ -4,7 +4,7 @@
   {{- range .Ancestors.Reverse }}
     <li class="breadcrumb-item"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
-    <li class="breadcrumb-item active" aria-current="page">{{ .Title | markdownify }}</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title | transform.Markdownify }}</li>
   </ol>
 </nav>
 <script type='application/ld+json'>

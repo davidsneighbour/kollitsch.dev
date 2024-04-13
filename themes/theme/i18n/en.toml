@@ -159,3 +159,11 @@ other = "The information you were looking for was not found on this website. May
 [theme.pagination.information]
 description = "showing information about the totals below the pagination, first variable is total posts, second is total pages"
 other = "{{ .posts }} posts on {{ .pages }} pages"
+
+[100daystooffload.note]
+description = ""
+other = "This post is part of [#100DaysToOffload](/blog/2022/100-days-to-offload/)"
+
+[100daystooffload.counter]
+description = ""
+other = "{{ .numsince }} posts since {{ .datesince }} &mdash; {{ .numtotal }} total posts"

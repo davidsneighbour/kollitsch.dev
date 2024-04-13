@@ -13,7 +13,6 @@
     <a class="visually-hidden-focusable skip-to-main-link" href="#maincontent">
       {{- lang.Translate "theme.skip_to_content" -}}
     </a>
-    <span id="top" class="d-none" aria-hidden="true"></span>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre" "context" . ) -}}
     <nav class="navbar sticky-top navbar-expand-md" aria-label="Top Navigation Bar">
@@ -245,18 +244,17 @@
     {{- $config := site.Params.dnb.theme -}}
     {{- if compare.Eq true $config.backtotop.enabled -}}
       {{- $icon := $config.backtotop.icon -}}
-      {{- $class := $config.backtotop.class -}}
-      {{- $top_id := $config.backtotop.top_id -}}
-      <div class="{{- $class }}
-                  d-flex justify-content-end sticky-bottom
-                  btn btn-dark
-                  bottom-0 mb-4 end-0 me-4 vh-120 w-100">
-        <a href="#{{- $top_id -}}" class="text-decoration-none">
+      <div x-data="{ showBackToTop: false }"
+          x-on:scroll.window="showBackToTop = window.pageYOffset >= 200"
+          class="scroll-to-top p-3 me-1 mb-1">
+        <div x-show="showBackToTop"
+              x-transition.duration.500ms
+              x-on:click.once.prevent="window.scrollTo({top: 0, behavior: 'smooth'});">
           <span class="me-2">
             {{- partials.Include "icon.html" $icon -}}
           </span>
           {{- lang.Translate "theme.back_to_top" -}}
-        </a>
+        </div>
       </div>
     {{- end -}}
     {{- if templates.Exists "partials/schema.html" -}}

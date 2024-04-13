@@ -90,8 +90,6 @@ default = "dark" # `dark`, `light` or any theme of `dnb.theme.switcher.themes`
 [dnb.theme.backtotop]
 enabled = true
 icon = "chevron-double-up"
-class = "widget--back-to-top"
-top_id = "top"
 
 [dnb.theme.jsbuild.options]
 # options for the js.Build method

@@ -16,7 +16,6 @@ summaryLength = 40
 timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
 titleCaseStyle = "chicago"
-theme = "theme"
 
 ################################################################################
 # error configuration

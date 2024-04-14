@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.16](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.15...v2024.1.16) (2024-04-14)
+
+
+### Bug Fixes
+
+* make section overview title configurable via frontmatter ([4c75075](https://github.com/davidsneighbour/kollitsch.dev/commit/4c750757c64da39c23694f6957cd35a0a9378a37))
+
+
+### Refactors
+
+* rework the b5/alert shortcode ([55b1f0c](https://github.com/davidsneighbour/kollitsch.dev/commit/55b1f0c923f44509cee085598692f4f3e63d939a))
+
 ## [2024.1.15](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.14...v2024.1.15) (2024-04-14)
 
 

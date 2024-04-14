@@ -1,7 +1,8 @@
-<div class="alert alert-light
-            d-flex align-items-center"
-    role="alert">
-    {{ partials.Include "icon.html" "note" }}
+{{- $type := printf "alert-%s" (.Get "type" | default "light") -}}
+<div class="alert {{ $type -}}"
+     role="alert">
+  {{ $options := dict "icon" "info-square" "width" "48" "height" "48" "class" "me-3" }}
+  {{ partials.Include "icon.html" $options }}
   <div>
     {{ .Inner | transform.Markdownify }}
   </div>

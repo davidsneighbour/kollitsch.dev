@@ -3,7 +3,6 @@ const defaultStandardVersion = {
   scripts: {
     prerelease: "./bin/repo/hooks/prerelease",
   },
-  "releaseCount": 0,
   bumpFiles: [
     {
       filename: "package.json",

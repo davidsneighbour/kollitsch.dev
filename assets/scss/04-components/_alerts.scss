@@ -1,16 +1,13 @@
 .alert {
+  @extend .d-flex;
+  @extend .flex-row;
+  @extend .justify-content-between;
+  @extend .align-items-start;
   @extend .hyphenate;
 
   a {
     // adds colors to all links inside alerts
     @extend .alert-link;
-  }
-
-  .icon--bs {
-    svg {
-      @extend .cy-24;
-      @extend .cx-24;
-    }
   }
 
   // remove unnessary margin from last paragraph in alerts

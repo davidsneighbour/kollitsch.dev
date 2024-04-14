@@ -1,8 +1,0 @@
-{{- $abbreviation := .Inner -}}
-{{- $description := "" -}}
-{{- if .IsNamedParams -}}
-  {{- $description = .Get "description" -}}
-{{- else -}}
-  {{- $description = .Get 0 -}}
-{{- end -}}
-<abbr title="{{ $description }}">{{ $abbreviation }}</abbr>

@@ -12,18 +12,6 @@
     },
     {
       "path": "../hugo-modules"
-    },
-    {
-      "path": "../configurations"
-    },
-    {
-      "path": "../namespace"
-    },
-    {
-      "path": "../netlify-plugin-hugo-helper"
-    },
-    {
-      "path": "../hugo-versioning"
     }
   ],
   "settings": {

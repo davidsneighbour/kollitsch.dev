@@ -127,9 +127,9 @@
   },
   "wireit": {
     "sassdoc": {
-      "build": "sassdoc themes/theme/assets/scss/ --dest themes/theme/static/theme-documentation/styles --strict",
+      "build": "sassdoc assets/scss/ --dest static/theme-documentation/styles --strict",
       "files": [
-        "themes/theme/assets/scss/**/*.scss"
+        "assets/scss/**/*.scss"
       ]
     },
     "clean": {

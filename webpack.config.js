@@ -1,5 +1,6 @@
 import path from 'path';
 import TerserPlugin from "terser-webpack-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __dirname = import.meta.dirname;
 
@@ -30,7 +31,7 @@ class FileListPlugin {
 
 let config = {
 
-  mode: 'development',
+  mode: 'production',
 
   entry: {
     main: path.resolve(__dirname, "themes/theme/assets/js", "script.js"),
@@ -78,6 +79,7 @@ let config = {
     },
     mangleWasmImports: true,
     mangleExports: "deterministic",
+
   },
 
   devtool: "eval-source-map",
@@ -92,9 +94,10 @@ let config = {
       {
         test: /\.scss$/i,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader",
+          "postcss-loader",
         ],
       },
       {
@@ -114,6 +117,10 @@ let config = {
 
   plugins: [
     new FileListPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
 
 };

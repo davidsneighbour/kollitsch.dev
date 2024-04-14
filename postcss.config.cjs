@@ -25,6 +25,7 @@ const purgecss = process.env.HUGO_ENVIRONMENT === 'production' ? require('@fullh
 }) : null;
 
 module.exports = {
+  syntax: 'postcss-scss',
   plugins: [
     // https://github.com/anandthakker/doiuse
     doiuse({

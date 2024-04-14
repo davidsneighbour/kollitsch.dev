@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.15](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.14...v2024.1.15) (2024-04-14)
+
+
+### Documentation
+
+* prepare changelog generation ([8c86214](https://github.com/davidsneighbour/kollitsch.dev/commit/8c862147c73203b4e5ae8bd43c8a9f8f9c3a934b))
+
 ## [2024.1.14](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.13...v2024.1.14) (2024-04-14)
 
 ### Chore

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.20](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.17...v2024.1.20) (2024-04-14)
+
+
+### Chore
+
+* **git:** changes in bin submodule ([bf33630](https://github.com/davidsneighbour/kollitsch.dev/commit/bf336303566e2b71dcac4d2b8423a61a1b0d871b))
+* **git:** update bin submodule ([3a334df](https://github.com/davidsneighbour/kollitsch.dev/commit/3a334df0921b8c05fff336007efd901ba50f7a3f))
+* **git:** update bin submodule ([dbef208](https://github.com/davidsneighbour/kollitsch.dev/commit/dbef2081ed9feca47a6f9839b24b6b8bde424985))
+* **release:** v2024.1.17 ([5faf780](https://github.com/davidsneighbour/kollitsch.dev/commit/5faf780d2defdcc828a12318b1ff8f8947fe56d9))
+* **release:** v2024.1.18 ([059f82c](https://github.com/davidsneighbour/kollitsch.dev/commit/059f82ce289d1cd16b52d2089aebc6b371fd047a))
+* **release:** v2024.1.19 ([fedbbc4](https://github.com/davidsneighbour/kollitsch.dev/commit/fedbbc497f38ddc3e2cb0d30faf36ba854f9c52d))
+
 ## [2024.1.19](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.17...v2024.1.19) (2024-04-14)
 
 

@@ -43,7 +43,11 @@
           {{- .Content -}}
         </div>
         <hr/>
-        <h2>In this section</h2>
+        {{- $label := "In this section" -}}
+        {{- with index page.Params.config "overviewLabel" -}}
+          {{- $label = . | markdownify -}}
+        {{- end -}}
+        <h2>{{- $label -}}</h2>
         <div class="row">
         {{- range $index, $item := collections.Sort page.Pages "Title" "asc" -}}
           {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}

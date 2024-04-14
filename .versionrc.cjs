@@ -3,6 +3,7 @@ const defaultStandardVersion = {
   scripts: {
     prerelease: "./bin/repo/hooks/prerelease",
   },
+  "releaseCount": 0,
   bumpFiles: [
     {
       filename: "package.json",
@@ -22,10 +23,7 @@ const defaultStandardVersion = {
     { type: "style", section: "Styling" },
     { type: "test", section: "Tests" },
     { type: "theme", section: "Theme" },
-  ],
-  "skip": {
-    "changelog": true,
-  }
+  ]
 };
 
 module.exports = defaultStandardVersion;

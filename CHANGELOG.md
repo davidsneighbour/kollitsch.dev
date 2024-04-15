@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.21](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.20...v2024.1.21) (2024-04-15)
+
+
+### Chore
+
+* **git:** update bin submodule ([1a63601](https://github.com/davidsneighbour/kollitsch.dev/commit/1a636010cbed6604dfd6a15813757da38caf795d))
+
 ## [2024.1.20](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.17...v2024.1.20) (2024-04-14)
 
 

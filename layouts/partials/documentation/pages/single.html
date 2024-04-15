@@ -19,11 +19,13 @@
                 {{- $options := dict -}}
                 {{- if collections.IsSet $package "version" }}
                   {{- $options = dict
+                        "type" "page"
                         "tagline" page.Params.sectiontitle
                         "title" (.LinkTitle | strings.ToUpper)
                         "subtitle" (fmt.Printf "v%s" $package.version) -}}
                 {{- else -}}
                   {{- $options = dict
+                        "type" "page"
                         "tagline" page.Params.sectiontitle
                         "title" (.LinkTitle | strings.ToUpper) -}}
                 {{- end -}}

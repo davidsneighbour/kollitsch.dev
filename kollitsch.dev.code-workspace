@@ -12,6 +12,9 @@
     },
     {
       "path": "../hugo-modules"
+    },
+    {
+      "path": "../configurations"
     }
   ],
   "settings": {

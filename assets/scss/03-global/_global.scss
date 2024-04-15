@@ -6,7 +6,6 @@ main {
 
   @extend .min-vh-100;
   @extend .mb-0;
-
 }
 
 #sitetitle {
@@ -35,4 +34,13 @@ main {
 
 .scroll-child {
   scroll-snap-align: start;
+}
+
+svg.docs_svg {
+  rect {
+    fill: var(--theme-color-nocturnal-expedition);
+  }
+  tspan {
+    fill: var(--theme-color-forsythia);
+  }
 }

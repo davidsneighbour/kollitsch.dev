@@ -10,16 +10,16 @@
 {{- end -}}
 <svg version="1.1" viewBox="{{- $viewbox -}}"
   xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-  <rect width="1280" height="{{- $height -}}" fill="#172b36" />
+  <rect width="1280" height="{{- $height -}}" fill="#114c5a" />
   <text x="55" y="{{ math.Sub 510 $subtractor }}" font-weight="300">
     {{- with page.Params.sectiontitle -}}
-      <tspan fill="#ff9932" font-size="42px" stroke-width="1.6">
+      <tspan fill="#d9e8e3" font-size="42px" stroke-width="1.6">
         {{- . -}}
       </tspan>
     {{- end -}}
   </text>
   <text x="50" y="{{ math.Sub 600 $subtractor }}">
-    <tspan fill="#ff9932" font-weight="500" stroke-width="1.6">
+    <tspan fill="#d9e8e3" font-weight="500" stroke-width="1.6">
       <tspan font-size="90px">
         {{- if (collections.IsSet . "title") -}}
           {{- .title -}}

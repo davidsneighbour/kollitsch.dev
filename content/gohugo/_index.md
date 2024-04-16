@@ -11,6 +11,10 @@ theme:
   noheader: true
 aliases:
 - components/
+cascade:
+  params:
+    config:
+      overviewLabel: "All components"
 ---
 
 [I am the creator](https://www.youtube.com/watch?v=r2Xhlb0bRXg) of a bunch of [GoHugo](https://gohugo.io) modules that you can use to perfect your projects.

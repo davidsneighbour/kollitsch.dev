@@ -1,6 +1,14 @@
 {
   "folders": [
     {
+      "name": "javascript",
+      "path": "./assets/ja"
+    },
+    {
+      "name": "styles",
+      "path": "./assets/scss"
+    },
+    {
       "path": "./content"
     },
     {

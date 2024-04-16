@@ -1,5 +1,4 @@
 table.table-options {
-
   caption {
     @extend .caption-top;
     @extend .text-uppercase;
@@ -23,7 +22,6 @@ table.table-options {
   tbody {
     tr {
       td {
-
         &:first-child {
           @extend .fst-italic;
         }
@@ -34,10 +32,9 @@ table.table-options {
           @extend .text-uppercase;
         }
 
-        &:last-child {}
-
+        &:last-child {
+        }
       }
     }
-
   }
 }

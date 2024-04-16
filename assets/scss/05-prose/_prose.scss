@@ -20,7 +20,6 @@ h6 {
   a {
     @extend .text-decoration-none;
   }
-
 }
 
 h1,
@@ -28,6 +27,23 @@ h2,
 h3 {
   @extend .border-bottom;
   @extend .border-light-subtle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .heading-tools {
+    @extend .float-end;
+    @extend .ms-2;
+    @extend .d-none;
+  }
+
+  &:hover .heading-tools {
+    @extend .d-inline-block;
+  }
 }
 
 p,
@@ -41,7 +57,7 @@ td {
   @include word-wrap;
 }
 
->p code {
+> p code {
   background-color: var(--bs-tertiary-bg);
   padding: 0.2rem 0.35rem;
 }
@@ -60,43 +76,6 @@ pre {
   margin-bottom: 0;
 }
 
-table {
-  $table-color: $body-color;
-
-  .dark & {
-    @extend .table-dark;
-  }
-
-  .light & {
-    @extend .table-light;
-  }
-
-  code,
-  pre {
-    padding: 0.25rem;
-  }
-
-  @extend .table;
-  @extend .table-bordered;
-  @extend .table-sm;
-
-
-  td {
-    @extend .px-2;
-    @extend .py-1;
-
-    &:nth-of-type(1) {
-      white-space: nowrap;
-    }
-  }
-
-  th {
-    @extend .px-2;
-    @extend .py-1;
-  }
-
-}
-
 .highlight {
   font-size: 1rem;
   margin-bottom: $spacer;
@@ -104,7 +83,6 @@ table {
   .chroma {
     padding: 0.3rem;
   }
-
 }
 
 .section--meta {

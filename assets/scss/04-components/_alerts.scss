@@ -1,8 +1,4 @@
 .alert {
-  @extend .d-flex;
-  @extend .flex-row;
-  @extend .justify-content-between;
-  @extend .align-items-start;
   @extend .hyphenate;
 
   a {
@@ -13,5 +9,12 @@
   // remove unnessary margin from last paragraph in alerts
   p:last-of-type {
     @extend .mb-0;
+  }
+
+  &-box {
+    @extend .d-flex;
+    @extend .flex-row;
+    @extend .justify-content-between;
+    @extend .align-items-start;
   }
 }

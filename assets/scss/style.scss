@@ -100,13 +100,13 @@
 @import "04-components/tabs";
 @import "04-components/text";
 @import "04-components/utilities";
+@import "04-components/gohugo";
 
 /// DNB: prose - article content formatting
 @include dnb-scrollbars(".prose", 3px);
 
 .prose {
   @import "05-prose/prose";
-  @import "05-prose/footnotes";
   @import "05-prose/images";
   @import "05-prose/tables";
 }
@@ -121,4 +121,3 @@
 @import "animate.css/animate";
 @import "debugprint";
 @import "plugins/clipboard";
-@import "local";

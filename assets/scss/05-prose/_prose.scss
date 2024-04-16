@@ -119,3 +119,24 @@ kbd {
   border-right-width: 1px;
   border-bottom: 0;
 }
+[id^="fnref"] {
+  color: $primary;
+}
+
+.footnotes {
+  margin-bottom: 0.5rem;
+
+  hr {
+    @extend .border;
+    @extend .border-primary;
+  }
+
+  .footnote-backref {
+    visibility: hidden;
+
+    &::before {
+      visibility: visible;
+      content: "↥";
+    }
+  }
+}

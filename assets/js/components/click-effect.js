@@ -13,7 +13,13 @@ class ClickSpark extends HTMLElement {
   connectedCallback() {
     this.setupSpark();
 
+    // @ts-ignore
+    this.svg.style.left = "0px";
+    // @ts-ignore
+    this.svg.style.top = "0px";
+
     this.root.addEventListener("click", (e) => {
+      // @ts-ignore
       if (this.activeEls && !e.target.matches(this.activeEls)) return;
 
       this.setSparkPosition(e);
@@ -22,7 +28,9 @@ class ClickSpark extends HTMLElement {
   }
 
   animateSpark() {
+    // @ts-ignore
     let sparks = [...this.svg.children];
+    // @ts-ignore
     let size = parseInt(sparks[0].getAttribute("y1"));
     let offset = size / 2 + "px";
 
@@ -47,13 +55,16 @@ class ClickSpark extends HTMLElement {
       fill: "forwards",
     };
 
+    // @ts-ignore
     sparks.forEach((spark, i) => spark.animate(keyframes(i), options));
   }
 
   setSparkPosition(e) {
     let rect = this.root.getBoundingClientRect();
 
+    // @ts-ignore
     this.svg.style.left = e.clientX - rect.left - this.svg.clientWidth / 2 + "px";
+    // @ts-ignore
     this.svg.style.top = e.clientY - rect.top - this.svg.clientHeight / 2 + "px";
   }
 
@@ -82,7 +93,9 @@ class ClickSpark extends HTMLElement {
       </svg>
     `;
 
+    // @ts-ignore
     this.shadowRoot.innerHTML = template;
+    // @ts-ignore
     this.svg = this.shadowRoot.querySelector("svg");
   }
 }

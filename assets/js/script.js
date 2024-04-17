@@ -23,10 +23,30 @@ document.onreadystatechange = () => {
     window.Alpine = Alpine;
     window.themeSwitcher = themeSwitcher;
     Alpine.plugin(collapse);
-    Alpine.data('versionData', function () {
+    // Define the Alpine.js data component with initial placeholder values
+    Alpine.data('versionData', () => {
       return {
-        'version': params.tag_name,
-        'url': params.html_url,
+        version: 'Loading...',
+        url: '#',
+        init() {
+          this.fetchVersionData();
+        },
+        async fetchVersionData() {
+          const apiUrl = `https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/tags/v${params.version}`;
+          try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            this.version = data.tag_name;
+            this.url = data.html_url;
+          } catch (error) {
+            console.error('Failed to fetch version data:', error);
+            this.version = 'Error';
+            this.url = '#';
+          }
+        }
       };
     });
     Alpine.start();

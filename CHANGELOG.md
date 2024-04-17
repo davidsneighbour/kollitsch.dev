@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.24](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.23...v2024.1.24) (2024-04-17)
+
+
+### Bug Fixes
+
+* load and execute all javascript instead of the inline method ([10188d6](https://github.com/davidsneighbour/kollitsch.dev/commit/10188d6c8eae061905cc01658a5c2239cbaeb8b3))
+* position the spark before shown the first time ([c1a2b72](https://github.com/davidsneighbour/kollitsch.dev/commit/c1a2b72f8251339d7c9260c54174a1130d05b4ba)), closes [#858](https://github.com/davidsneighbour/kollitsch.dev/issues/858)
+
 ## [2024.1.23](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.22...v2024.1.23) (2024-04-16)
 
 
@@ -12,6 +20,7 @@ All notable changes to this project will be documented in this file. See [commit
 * fix broken merges ([ea056b5](https://github.com/davidsneighbour/kollitsch.dev/commit/ea056b58746bbd22b20fc37e57144995acb4eda1))
 * **fix:** proper path to js assets ([a0ee9cc](https://github.com/davidsneighbour/kollitsch.dev/commit/a0ee9cc8d810844fc6144e22dc0ad243d1d94416))
 * **git:** update bin submodule ([475671e](https://github.com/davidsneighbour/kollitsch.dev/commit/475671e86901a8679e17629d8258df05107b3c29))
+* **release:** v2024.1.23 ([15fda35](https://github.com/davidsneighbour/kollitsch.dev/commit/15fda35560a28aa18c9502a0795b3f6c1a3fa32d))
 
 
 ### Features

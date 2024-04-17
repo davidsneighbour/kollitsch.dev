@@ -7,11 +7,11 @@
  ******************************************************************************/
 .navbar {
   body.dark & {
-    background-color: rgb(33, 37, 41)
+    background-color: $nocturnal-expedition;
   }
 
   body.light & {
-    background-color: rgb(255, 255, 255)
+    background-color: $mystic-mint;
   }
 
   &-brand a:hover {

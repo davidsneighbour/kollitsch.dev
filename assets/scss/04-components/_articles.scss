@@ -28,12 +28,12 @@ article {
 
     &.status--draft {
       color: var(--bs-light);
-      background-color: #b9484b;
+      background-color: $deep-saffron;
     }
 
     &.status--gohugo {
       color: #0a1922;
-      background-color: #ff4088;
+      background-color: $deep-saffron;
     }
 
     @extend .text-center;

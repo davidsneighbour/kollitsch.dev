@@ -4,7 +4,6 @@
     svg {
       @extend .cx-36;
       @extend .cy-36;
-
       @extend .p-0;
       @extend .m-0;
     }
@@ -53,8 +52,16 @@
 }
 
 #footer {
-  color: #989da3; //var(--bs-tertiary-color);
-  background-color: var(--bs-tertiary-bg);
+  .light & {
+    color: $nocturnal-expedition;
+    background-color: $mystic-mint;
+  }
+
+  .dark & {
+    color: $mystic-mint;
+    background-color: $nocturnal-expedition;
+  }
+
   // min-height: 100vw;
 
   .container {
@@ -62,11 +69,13 @@
   }
 
   a {
-    color: #ff5e7f;
+    color: $deep-saffron;
+
     @extend .text-decoration-none;
 
     &:hover {
       color: var(--bs-primary-color);
+
       @extend .text-decoration-none;
     }
   }

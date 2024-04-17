@@ -19,6 +19,7 @@ notes/
 assets/dist/*
 # hmm, everything in resources
 resources
+static/documentation/styles
 
 #####################################################################
 # ignores via API

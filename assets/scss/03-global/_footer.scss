@@ -53,16 +53,14 @@
 
 #footer {
   .light & {
-    color: $nocturnal-expedition;
-    background-color: $mystic-mint;
+    color: $organic-noir;
+    background-color: $arctic-powder;
   }
 
   .dark & {
-    color: $mystic-mint;
-    background-color: $nocturnal-expedition;
+    color: $arctic-powder;
+    background-color: $organic-noir;
   }
-
-  // min-height: 100vw;
 
   .container {
     max-width: 1200px;

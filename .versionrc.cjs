@@ -9,6 +9,10 @@ const defaultStandardVersion = {
       filename: "package.json",
       type: "json",
     },
+    {
+      filename: "assets/data/build.json",
+      type: "json",
+    }
   ],
   types: [
     { type: "build", section: "Build System" },

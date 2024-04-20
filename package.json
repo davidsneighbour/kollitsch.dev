@@ -19,7 +19,7 @@
     "@commitlint/config-conventional": "19.2.2",
     "@commitlint/prompt-cli": "19.2.2",
     "@davidsneighbour/babel-config": "^2024.3.3",
-    "@davidsneighbour/bootstrap-config": "^2024.3.2",
+    "@davidsneighbour/bootstrap-config": "^2024.3.3",
     "@davidsneighbour/browserslist-config": "^2024.3.3",
     "@davidsneighbour/commitlint-config": "^2024.3.3",
     "@davidsneighbour/cypress-config": "^2024.3.3",

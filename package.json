@@ -21,7 +21,7 @@
     "@davidsneighbour/babel-config": "^2024.3.2",
     "@davidsneighbour/bootstrap-config": "^2024.3.2",
     "@davidsneighbour/browserslist-config": "^2024.3.2",
-    "@davidsneighbour/commitlint-config": "^2024.3.2",
+    "@davidsneighbour/commitlint-config": "^2024.3.3",
     "@davidsneighbour/cypress-config": "^2024.3.2",
     "@davidsneighbour/eslint-config": "^2024.3.2",
     "@davidsneighbour/htmlvalidate-config": "^2024.3.2",

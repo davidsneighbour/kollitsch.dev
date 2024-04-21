@@ -1,5 +1,6 @@
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
+import intersect from '@alpinejs/intersect'
 
 import { themeSwitcher } from './scripts/theme-switcher';
 import ClickSpark from './components/click-effect.js';
@@ -23,6 +24,7 @@ document.onreadystatechange = () => {
     window.Alpine = Alpine;
     window.themeSwitcher = themeSwitcher;
     Alpine.plugin(collapse);
+    Alpine.plugin(intersect)
     // Define the Alpine.js data component with initial placeholder values
     Alpine.data('versionData', () => {
       return {

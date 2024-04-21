@@ -66,10 +66,12 @@
     "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
     "vale.enableSpellcheck": true,
     "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
-    "stylelint.configFile": ".stylelintrc.json",
     "markdownlint.run": "onSave",
     "html.format.wrapLineLength": 100,
-    "favorites.sortDirection": "ASC"
+    "favorites.sortDirection": "ASC",
+    "stylelint.reportDescriptionlessDisables": true,
+    "stylelint.reportInvalidScopeDisables": true,
+    "stylelint.reportNeedlessDisables": true
   },
   "extensions": {
     "recommendations": [

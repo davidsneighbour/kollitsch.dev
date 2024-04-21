@@ -7,4 +7,10 @@
     "body": ["{{- /* $0 */ -}}"],
     "description": "Insert Hugo Comment",
   },
+  "hugo-todocomment": {
+    "scope": "gohtml,html,markdown",
+    "prefix": "hugo-todocomment",
+    "body": ["{{- /* @todo $0 */ -}}"],
+    "description": "Insert Hugo Comment with a @todo tag",
+  },
 }

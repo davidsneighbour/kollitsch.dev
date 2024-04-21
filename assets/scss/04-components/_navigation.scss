@@ -6,21 +6,21 @@
  * - https://getbootstrap.com/docs/5.2/components/navs-tabs/
  ******************************************************************************/
 .navbar {
+  transition: background-color 2s;
+
   body.dark & {
-    background-color: $nocturnal-expedition;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   body.light & {
-    background-color: $mystic-mint;
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
-  &-brand a:hover {
-    text-decoration: none;
+  body.dark.title-invisible & {
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
-  // svg {
-  //   margin: 0;
-  //   vertical-align: text-bottom;
-  //   margin-bottom: 4px;
-  // }
+  body.light.title-invisible & {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 }

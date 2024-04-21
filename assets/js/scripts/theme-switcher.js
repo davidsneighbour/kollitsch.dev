@@ -34,8 +34,9 @@ export function themeSwitcher() {
       if (document.firstElementChild) {
         document.firstElementChild.setAttribute('data-bs-theme', this.theme);
       }
-      document.body.className = '';
+      //document.body.className = '';
       document.body.classList.add(this.theme);
+      document.body.classList.remove(this.theme === 'dark' ? 'light' : 'dark');
     },
     changeGiscusTheme: function () {
       const giscusTheme = this.theme === 'dark' ? 'dark' : 'light';

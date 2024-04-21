@@ -3,7 +3,7 @@ const defaultStandardVersion = {
   scripts: {
     prerelease: "./bin/repo/hooks/prerelease",
   },
-  "releaseCount": 0,
+  "releaseCount": 1,
   bumpFiles: [
     {
       filename: "package.json",
@@ -15,18 +15,18 @@ const defaultStandardVersion = {
     }
   ],
   types: [
-    { type: "build", section: "Build System" },
-    { type: "chore", section: "Chore" },
-    { type: "ci", section: "CI" },
-    { type: "docs", section: "Documentation" },
     { type: "feat", section: "Features" },
+    { type: "theme", section: "Theme" },
+    { type: "style", section: "Styling" },
+    { type: "docs", section: "Documentation" },
     { type: "fix", section: "Bug Fixes" },
     { type: "perf", section: "Performance" },
     { type: "refactor", section: "Refactors" },
     { type: "revert", section: "Reverts" },
-    { type: "style", section: "Styling" },
     { type: "test", section: "Tests" },
-    { type: "theme", section: "Theme" },
+    { type: "chore", section: "Chore" },
+    { type: "build", section: "Build System" },
+    { type: "ci", section: "CI" },
   ]
 };
 

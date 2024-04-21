@@ -2,9 +2,12 @@
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
 {{- $package := partials.IncludeCached "func/getPackageFile.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
+  {{- partial "template-note" (dict "note" "post-preview.html") -}}
 
+  {{- /* @todo either implement post slider or remove this wrapper */ -}}
 	<div class="post-slider">
 		<figure>
+      {{- /* @todo use image component */ -}}
 			<picture>
 			{{- $options := dict -}}
 			{{- if collections.IsSet $package "version" }}
@@ -25,6 +28,7 @@
 	</div>
   <div class="prose">
 		<p class="text-truncate text-truncate-3">
+      {{- /* @todo move into summary function */ -}}
 			{{- with $post.Summary -}}
 				{{- . | transform.Markdownify -}}
 			{{- else -}}
@@ -37,6 +41,7 @@
 		</p>
   </div>
 	<div class="text-end">
+    {{- /* @todo move into button component */ -}}
     {{- $label := printf "%s: %s" (lang.Translate "theme.read_article") $post.Title -}}
 		<a href="{{- $post.Permalink -}}"
         class="d-inline-flex flex-row justify-content-end align-items-center"

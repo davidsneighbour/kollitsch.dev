@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.28](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.27...v2024.1.28) (2024-04-21)
+
+
+### Chore
+
+* **audit:** add template audit to post-preview ([12618f5](https://github.com/davidsneighbour/kollitsch.dev/commit/12618f5aab60cd52b4eabf73b8eba5676f203961))
+* cleanup and refactor ([0fe61c6](https://github.com/davidsneighbour/kollitsch.dev/commit/0fe61c643986612e7a10d49c38083b434baf1d9b))
+* **feat:** add comment tag to template tag snippets ([992a101](https://github.com/davidsneighbour/kollitsch.dev/commit/992a101864a4ce2143ab03768983d2e6ac6d557f))
+* **fix:** update versioning settings ([d3bae81](https://github.com/davidsneighbour/kollitsch.dev/commit/d3bae814d4bb04ba9e9897231261dfe09a6a2dbb))
+
 ## [2024.1.27](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.26...v2024.1.27) (2024-04-21)
 
 

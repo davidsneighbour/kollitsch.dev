@@ -1,4 +1,24 @@
-/// @group settings
+////
+/// @group theme setup
+////
+
+/// we use two color modes currently, `dark` (default) and `light`
+///
+/// @example scss - enables the color-mode feature
+///   @include color-mode(dark) {
+///     .element {
+///       color: var(--bs-primary-text-emphasis);
+///       background-color: var(--bs-primary-bg-subtle);
+///     }
+///   }
+///
+///   // outputs to:
+///
+///   // [data-bs-theme=dark] .element {
+///   //   color: var(--bs-primary-text-emphasis);
+///   //   background-color: var(--bs-primary-bg-subtle);
+///   // }
+$color-mode-type: data;
 
 /// @deprecated
 $primary: $deep-saffron;
@@ -13,23 +33,9 @@ $body-bg: #f1f6f4;
 /// typography
 /// $font-size-root: 16px;
 $font-size-base: 1.5rem;
-$font-family-sans-serif:
-  "Exo 2",
-  system-ui,
-  -apple-system,
-  "Segoe UI",
-  roboto,
-  "Helvetica Neue",
-  "Noto Sans",
-  "Liberation Sans",
-  arial,
-  sans-serif,
-  "Apple Color Emoji",
-  "Segoe UI Emoji",
-  "Segoe UI Symbol",
-  "Noto Color Emoji";
+$font-family-sans-serif: "Exo 2";
 
-// /// headings
+/// headings
 $h1-font-size: $font-size-base * 1.75;
 $h2-font-size: $font-size-base * 1.5;
 $h3-font-size: $font-size-base * 1.25;
@@ -37,12 +43,7 @@ $h4-font-size: $font-size-base * 1.15;
 $h5-font-size: $font-size-base;
 $h6-font-size: $font-size-base;
 
-// $headings-font-family: null;
-// $headings-font-style: null;
-// $headings-font-weight: 500;
-// $headings-line-height: 1.2;
-// $headings-color: inherit;
-
+/// component color
 $component-active-color: var(--bs-dark);
 
 /// links

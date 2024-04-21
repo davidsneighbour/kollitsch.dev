@@ -1,5 +1,4 @@
 .site-title {
-
   font-size: 17vw;
 
   // @todo clamp it
@@ -19,5 +18,9 @@
 
   a {
     @extend .text-decoration-none;
+
+    :hover {
+      @extend .text-decoration-none;
+    }
   }
 }

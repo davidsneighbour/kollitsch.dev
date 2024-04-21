@@ -6,7 +6,7 @@ description: Find the post or information you are looking for. Missing something
   to contact me!
 menu:
   main:
-    weight: 4
+    weight: 40
     params:
       bsicon: binoculars-fill
       hotkey: k+f

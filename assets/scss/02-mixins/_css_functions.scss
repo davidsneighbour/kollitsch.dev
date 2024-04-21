@@ -1,19 +1,34 @@
-@function css-function($function, $values... ) {
-  @return $function +unquote('(')+$values +unquote(')');
+////
+/// @group functions
+/// @author Patrick Kollitsch
+////
+
+/// helper function to create a CSS function
+@function css-function($function, $values...) {
+  @return $function + unquote("(") + $values + unquote(")");
 }
 
-@function css-min($values... ) {
-  @return css-function(min, $values );
+/// A helper function to create a CSS min() function.
+///
+/// All parameters are passed to the CSS original min() function.
+/// @example scss - sample use
+///   .my-selector {
+///     width: css-min( #{ $width-abs }, #{ $width-rel } );
+///   }
+/// @param {any} $values [null] - The values to pass to the CSS min() function.
+@function css-min($values...) {
+  @return css-function(min, $values);
 }
 
-@function css-max($values... ) {
-  @return css-function(max, $values );
+/// helper function to create a CSS max() function
+@function css-max($values...) {
+  @return css-function(max, $values);
 }
 
-@function css-clamp($values... ) {
-  @return css-function(clamp, $values );
+/// helper function to create a CSS clamp() function
+@function css-clamp($values...) {
+  @return css-function(clamp, $values);
 }
-
 
 /// .my-selector {
 ///   width: css-min( #{ $width-abs }, #{ $width-rel } );

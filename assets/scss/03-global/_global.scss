@@ -8,6 +8,10 @@ main {
   @extend .mb-0;
 }
 
+a.text-hover-decoration-none:hover {
+  @extend .text-decoration-none;
+}
+
 #sitetitle {
   position: fixed;
 

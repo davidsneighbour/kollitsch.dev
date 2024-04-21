@@ -1,7 +1,11 @@
+////
 /// @group settings
+////
 
+:root,
 [data-bs-theme="dark"] {
   color-scheme: dark;
 
   --bs-body-bg: var(--theme-color-organic-noir);
+  --bs-primary: var(--theme-color-deep-saffron);
 }

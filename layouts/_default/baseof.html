@@ -19,7 +19,7 @@
       <div class="container">
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-start" "context" . ) -}}
         {{- /* Logo/Brand name */ -}}
-        <div class="navbar-brand fsize-12 fw-bold text-decoration-none ff-headline">
+        <div class="navbar-brand fsize-12 fw-bold ff-headline">
           {{- if site.Params.dnb.theme.logo -}}
           <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
             <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | urls.AbsURL  -}}"
@@ -28,7 +28,7 @@
                 width="{{- site.Params.dnb.theme.logo_width -}}">
           </a>
           {{- else -}}
-          <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
+          <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none text-hover-decoration-none">
             {{- site.Title -}}
           </a>
           {{- end -}}

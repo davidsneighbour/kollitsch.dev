@@ -18,7 +18,9 @@
           {{ if (compare.Lt $index 6) }}d-md-block d-lg-block d-xl-block {{ else }}d-sm-none {{ end }}
           {{ if (compare.Lt $index 8) }}d-xxl-block {{ else }}d-md-none d-lg-none d-xl-none {{ end }}
       ">
-        {{- partials.IncludeCached "content/views/small-image-with-title" $item $item -}}
+        <div class="">
+          {{- partials.Include "components/images/banner.html" (collections.Dictionary "context" $item "showcontrols" false) -}}
+        </div>
       </div>
     {{- end -}}
   </div>

@@ -3,7 +3,7 @@ title: Archive
 menu:
   main:
     name: Archive
-    weight: 2
+    weight: 25
     params:
       bsicon: archive-fill
       hotkey: k+a

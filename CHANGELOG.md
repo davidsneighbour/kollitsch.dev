@@ -2,12 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.27](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.26...v2024.1.27) (2024-04-21)
+
+
+### Chore
+
+* add templates for existing theme settings in bootstrap to scss settings ([4ed054e](https://github.com/davidsneighbour/kollitsch.dev/commit/4ed054ec8f530120de101c30b0bfd1959e2efd7e))
+* **deps:** update dependencies and workspace ([72391a7](https://github.com/davidsneighbour/kollitsch.dev/commit/72391a76ac84ff66df158fbe1f5307be076ead6e))
+
+
+### Features
+
+* add navbar transition with intersection observer ([b476142](https://github.com/davidsneighbour/kollitsch.dev/commit/b4761422d8f74c9aa94817a1d58f4797ed04a003))
+
+
+### Bug Fixes
+
+* refactor and rework styles ([3c42551](https://github.com/davidsneighbour/kollitsch.dev/commit/3c42551f8301517e5500eccbba1df2ba1b1d2062))
+* sassdoc generation into documentation folder and ignore ([219655a](https://github.com/davidsneighbour/kollitsch.dev/commit/219655afe6ac3b5b72dc4759977973a90272c546))
+* theme switcher empties class list instead of toggling theme class ([9c6114b](https://github.com/davidsneighbour/kollitsch.dev/commit/9c6114b4703948d24d8a6e996ed7f9b5df9a8f9f))
+
+
+### Theme
+
+* **wip:** color changes ([73c1b9d](https://github.com/davidsneighbour/kollitsch.dev/commit/73c1b9d068e74d5c11fc6aefa657afec398957a1))
+* **wip:** footer colors ([99a293e](https://github.com/davidsneighbour/kollitsch.dev/commit/99a293e28d2a0fdce9aaac7b0b567d99ef3be98a))
+
 ## [2024.1.26](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.25...v2024.1.26) (2024-04-17)
 
 
 ### Chore
 
 * **git:** update bin submodule ([3d48adc](https://github.com/davidsneighbour/kollitsch.dev/commit/3d48adc8ac4c056b4201eff9a8cc7b24dd01e345))
+* **release:** v2024.1.26 ([ecf1f3e](https://github.com/davidsneighbour/kollitsch.dev/commit/ecf1f3e2c56b3203fe524a65aa10642d29f14b60))
 
 
 ### Bug Fixes

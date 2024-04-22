@@ -21,14 +21,14 @@
                     </a>
                   </h2>
                   <p class="text-truncate text-truncate-5">{{- $item.Summary -}}</p>
-                  {{- partials.IncludeCached "components/tags/tags.html" . . -}}
+                  {{- partials.IncludeCached "content/components/tags/tags.html" . . -}}
                 </div>
               </div>
             {{- end -}}
           </div>
         </article>
       </div>
-      {{ partials.Include "components/pagination/pagination-simple.html" . }}
+      {{ partials.Include "content/components/pagination/pagination-simple.html" . }}
     </div>
   </section>
 {{- end -}}

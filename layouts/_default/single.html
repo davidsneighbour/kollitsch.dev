@@ -9,7 +9,7 @@
       <div class="row">
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "single-pre-article" "context" . ) -}}
         <div class="col-12 mb-5">
-          {{- partials.IncludeCached "components/breadcrumbs.html" . . -}}
+          {{- partials.IncludeCached "content/components/breadcrumbs.html" . . -}}
           {{ partials.Include "content/post.html" $post $post }}
         </div>
       </div>

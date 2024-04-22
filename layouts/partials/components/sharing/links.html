@@ -1,9 +1,0 @@
-{{- $post := . -}}
-<div class="gap-2 d-flex">
-  <ul class="mb-0 list-inline">
-    <li class="list-inline-item">
-      {{- partials.Include "icon.html" "share-fill" -}}
-    </li>
-    {{- partials.IncludeCached "widgets/share-links.html" $post $post -}}
-  </ul>
-</div>

@@ -8,7 +8,7 @@
 {{- $artist = collections.Index $artist 0 -}}
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}} music2program2 {{ $artist.slug }}">
-  {{- partials.IncludeCached "components/content/status.html" $post $post -}}
+  {{- partials.IncludeCached "content/components/status.html" $post $post -}}
   {{- $settings := collections.Dictionary "id" $post.Params.video.youtube -}}
   <div class="post-slider">
       <figure>
@@ -36,8 +36,7 @@
         {{/* <figcaption class="text-center">{{ $artist.name }}: {{ $post.Params.video.title }}</figcaption>
       </figure> */}}
   </div>
-    {{/* {{- partials.IncludeCached "components/content/publishing-date.html" $post $post -}} */}}
-    {{- partials.Include "components/content/headline.html" . -}}
+    {{- partials.Include "content/components/headline.html" . -}}
   <div class="prose">
 
     {{- with $fullcontent -}}

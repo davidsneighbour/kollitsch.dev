@@ -1,6 +1,6 @@
 {{- $page := . -}}
 <div class="section--comments">
-  {{- partials.IncludeCached "components/comments/form.html" $page $page -}}
+  {{- partials.IncludeCached "content/components/comment-form.html" $page $page -}}
 </div>
 <div class="section--meta">
   {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-start" "context" . ) -}}

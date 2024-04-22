@@ -5,5 +5,7 @@
   {{- $headerlevel = "1" -}}
 {{- end -}}
 {{- fmt.Printf "<h%s class=\"post-title text-truncate text-truncate-2\">" $headerlevel | safe.HTML -}}
-<a href="{{- $post.Permalink -}}" title="{{- $post.Title -}}">{{- $post.Title | transform.Markdownify -}}</a>
+<a href="{{- $post.Permalink -}}" title="{{- $post.Title -}}">
+  {{- $post.Title | transform.Markdownify -}}
+</a>
 {{- fmt.Printf "</h%s>" $headerlevel | safe.HTML -}}

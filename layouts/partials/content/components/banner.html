@@ -1,12 +1,12 @@
-{{- $context := .context -}}
-{{- $responsive := .responsive -}}
+{{- $context := . -}}
+{{- $responsive := "fullwidth" -}}
 {{- $articleimages := $context.Resources.ByType "image" -}}
 {{- $link := $context.Permalink -}}
 {{- $aspectRatio := (strings.Split site.Params.dnb.pictures.aspect_ratio ":") -}}
 {{- $breakPoints := site.Params.dnb.pictures.responsive.halfwidth.break_points -}}
 {{- $imageSizes := site.Params.dnb.pictures.responsive.halfwidth.image_sizes -}}
 
-{{- $showControls := .showcontrols | compare.Default "true" -}}
+{{- $showControls := "true" -}}
 
 {{- $config := partials.IncludeCached "func/pictures/getConfiguration.html" . -}}
 {{- $default_format := $config.default_format | compare.Default "webp" -}}

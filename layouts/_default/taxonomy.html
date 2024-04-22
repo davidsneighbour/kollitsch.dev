@@ -12,7 +12,7 @@
               {{- if compare.Ne .Content "" -}}
                 {{- $post := collections.Dictionary "context" . "fullcontent" false "responsive" "halfwidth" -}}
                 <div class="col-md-6 mb-3">
-                  {{- partials.Include "content/post.html" $post -}}
+                  {{- partials.Include "content/post-preview.html" . -}}
                 </div>
                 {{- $counter = math.Add $counter 1 -}}
               {{- end -}}

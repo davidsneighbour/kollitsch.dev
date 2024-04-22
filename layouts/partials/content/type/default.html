@@ -3,8 +3,8 @@
 				{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
         <article class="{{- $articleclasses -}}">
   {{- partials.IncludeCached "content/components/status.html" $post $post -}}
-  {{- partials.Include "content/components/banner.html" . -}}
-    {{- partials.Include "content/components/headline.html" . -}}
+  {{- partials.Include "content/components/banner.html" $post -}}
+    {{- partials.Include "content/components/headline.html" $post -}}
   <div class="prose">
     {{- with $fullcontent -}}
       {{- $post.Content -}}

@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.29](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.28...v2024.1.29) (2024-04-22)
+
+
+### Bug Fixes
+
+* disable is--hotkey-post ([632fe92](https://github.com/davidsneighbour/kollitsch.dev/commit/632fe92c9cd28c6f8f28e54865203ad574d5cdf7))
+* home page layout changes ([cf746d5](https://github.com/davidsneighbour/kollitsch.dev/commit/cf746d5efa8c1f1af91768db9c02d3f9d8f7e4b2))
+* lower case tags in titles ([76ce495](https://github.com/davidsneighbour/kollitsch.dev/commit/76ce49505f9315a6c015524e12cf0055b9245470))
+* new post view layout ([b8e4d13](https://github.com/davidsneighbour/kollitsch.dev/commit/b8e4d1389b23c6612af9fe92fc59839a967b1dd8))
+* proper font type in excalidraw image ([5bb1605](https://github.com/davidsneighbour/kollitsch.dev/commit/5bb1605ed68f4b502e3410ddd641c5cf429c0b4c))
+* show content instead of summary on tag overviews ([fc52fb2](https://github.com/davidsneighbour/kollitsch.dev/commit/fc52fb24f378f30221ced21fa840c1e7a7926663))
+* topnavigation order ([0687884](https://github.com/davidsneighbour/kollitsch.dev/commit/0687884bd8f243b1e3ea921c53c5c7217b2224a4))
+
+
+### Refactors
+
+* move partials around and fix paths ([c841a3b](https://github.com/davidsneighbour/kollitsch.dev/commit/c841a3b3110f4ce1ccec470ba4af8c60f8223072))
+
+
+### Chore
+
+* **deps:** update dependencies ([5a33ef3](https://github.com/davidsneighbour/kollitsch.dev/commit/5a33ef34f5dfa6751f832b3d1dc24c77d01b81f3))
+* **fit:** update bin submodule ([e219cc1](https://github.com/davidsneighbour/kollitsch.dev/commit/e219cc10823c54664498d413b9d66c2e41f15137))
+
 ## [2024.1.28](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.27...v2024.1.28) (2024-04-21)
 
 

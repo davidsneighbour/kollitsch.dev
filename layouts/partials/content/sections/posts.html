@@ -4,7 +4,7 @@
     {{- with $paginator -}}
       {{- $currentPageNumber := .PageNumber -}}
       {{ if compare.Ne $currentPageNumber 1 }}
-        {{ partials.Include "components/pagination/pagination-simple.html" page }}
+        {{ partials.Include "content/components/pagination/pagination-simple.html" page }}
       {{ end }}
     {{- end -}}
     <div class="row">
@@ -30,6 +30,6 @@
         {{ end }}
       {{- end -}}
     </div>
-    {{ partials.Include "components/pagination/pagination-simple.html" . }}
+    {{ partials.Include "content/components/pagination/pagination-simple.html" . }}
   </div>
 </section>

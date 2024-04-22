@@ -2,9 +2,9 @@
 {{- $fullcontent := .fullcontent | compare.Default true -}}
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
-  {{- partials.IncludeCached "components/content/status.html" $post $post -}}
-  {{- partials.Include "components/images/banner.html" . -}}
-    {{- partials.Include "components/content/headline.html" . -}}
+  {{- partials.IncludeCached "content/components/status.html" $post $post -}}
+  {{- partials.Include "content/components/banner.html" . -}}
+    {{- partials.Include "content/components/headline.html" . -}}
   <div class="prose">
     <p>{{- $post.Content -}}</p>
   </div>

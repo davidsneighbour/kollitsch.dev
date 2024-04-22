@@ -5,11 +5,11 @@
       <ul class="pagination align-self-center mb-0">
         {{- with $paginator -}}
           {{- $currentPageNumber := .PageNumber -}}
-          {{- partials.Include "components/pagination/item-first.html" . . -}}
-          {{- partials.Include "components/pagination/item-previous.html" . . -}}
-          {{- partials.Include "components/pagination/item-current.html" . . -}}
-          {{- partials.Include "components/pagination/item-next.html" . . -}}
-          {{- partials.Include "components/pagination/item-last.html" . . -}}
+          {{- partials.Include "content/components/pagination/item-first.html" . . -}}
+          {{- partials.Include "content/components/pagination/item-previous.html" . . -}}
+          {{- partials.Include "content/components/pagination/item-current.html" . . -}}
+          {{- partials.Include "content/components/pagination/item-next.html" . . -}}
+          {{- partials.Include "content/components/pagination/item-last.html" . . -}}
         {{- end -}}
       </ul>
     {{- end -}}

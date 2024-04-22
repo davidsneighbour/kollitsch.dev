@@ -38,7 +38,7 @@
   {{- with $fullcontent -}}
 			{{- $post.Content -}}
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
-      {{- partials.IncludeCached "content/meta/footer.html" $post $post -}}
+      {{- partials.IncludeCached "content/components/meta.html" $post $post -}}
   {{ else }}
 		<p class="text-truncate text-truncate-5">
 			{{- with $post.Summary -}}

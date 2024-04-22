@@ -1,32 +1,26 @@
 {{- $post := .context -}}
-{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
-{{- $package := partials.IncludeCached "func/getPackageFile.html" $post $post -}}
+
+{{- $posttype := partial "func/getType.html" $post -}}
+{{- $config := partial "func/getPostSetup.html" $posttype -}}
+
+{{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
   {{- partial "template-note" (dict "note" "post-preview.html") -}}
 
-  {{- /* @todo either implement post slider or remove this wrapper */ -}}
-	<div class="post-slider">
-		<figure>
-      {{- /* @todo use image component */ -}}
-			<picture>
-			{{- $options := dict -}}
-			{{- if collections.IsSet $package "version" }}
-				{{- $options = dict
-          "type" "page"
-					"tagline" page.Params.sectiontitle
-					"title" ($post.LinkTitle | strings.ToUpper)
-					"subtitle" (fmt.Printf "v%s" $package.version) -}}
-			{{- else -}}
-				{{- $options = dict
-          "type" "page"
-					"tagline" page.Params.sectiontitle
-					"title" ($post.LinkTitle | strings.ToUpper) -}}
-			{{- end -}}
-			{{- partials.Include "documentation/headerimage.html" $options $options -}}
-			</picture>
-		</figure>
-	</div>
+  {{- if ne $config.banner false -}}
+    {{- partials.Include "content/components/banner.html" . -}}
+  {{- end -}}
+
+  {{- if ne $config.headline false -}}
+    {{- partials.Include "content/components/headline.html" . -}}
+  {{- end -}}
+
+  {{- if ne $config.bannerheadline false -}}
+    {{- partials.Include "content/components/headline-banner.html" . -}}
+  {{- end -}}
+
   <div class="prose">
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-before" "context" $post ) -}}
 		<p class="text-truncate text-truncate-3">
       {{- /* @todo move into summary function */ -}}
 			{{- with $post.Summary -}}
@@ -39,6 +33,7 @@
 				{{- end -}}
 			{{- end -}}
 		</p>
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-after" "context" $post ) -}}
   </div>
 	<div class="text-end">
     {{- /* @todo move into button component */ -}}

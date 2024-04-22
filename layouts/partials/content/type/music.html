@@ -75,7 +75,7 @@
       {{- with $fullcontent -}}
           {{- partials.IncludeCached "content/taglist_filtered.html" "programming-music" "programming-music" -}}
           {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
-          {{- partials.IncludeCached "content/meta/footer.html" $post $post -}}
+          {{- partials.IncludeCached "content/components/meta.html" $post $post -}}
 
       {{ else }}
     </div>

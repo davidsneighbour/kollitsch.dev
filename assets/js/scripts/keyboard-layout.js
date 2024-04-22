@@ -11,10 +11,11 @@ for (var _i = 0, _a = document.querySelectorAll('[data-hotkey]'); _i < _a.length
 }
 
 // click event for posts on post overviews
-var triggerList = Array.prototype.slice.call(document.querySelectorAll('.is--hotkey-post'));
-triggerList.forEach(function (triggerElement) {
-  triggerElement.addEventListener('click', function (event) {
-    event.preventDefault();
-    window.location.href = triggerElement.dataset.link ?? '';
-  });
-});
+// @todo fix implementation
+// var triggerList = Array.prototype.slice.call(document.querySelectorAll('.is--hotkey-post'));
+// triggerList.forEach(function (triggerElement) {
+//   triggerElement.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     window.location.href = triggerElement.dataset.link ?? '';
+//   });
+// });

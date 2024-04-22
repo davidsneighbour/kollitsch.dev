@@ -6,7 +6,7 @@
   {{- partials.Include "components/images/banner.html" . -}}
     {{- partials.Include "components/content/headline.html" . -}}
   <div class="prose">
-    <p>{{- $post.Summary -}}</p>
+    <p>{{- $post.Content -}}</p>
   </div>
   <div class="text-end">
     {{- $label := printf "%s: %s" (lang.Translate "theme.read_article") $post.Title -}}

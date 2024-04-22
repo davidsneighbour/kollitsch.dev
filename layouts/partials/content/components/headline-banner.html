@@ -1,4 +1,4 @@
-  {{- $post := .context -}}
+  {{- $post := . -}}
 
   {{- /* @todo either implement post slider or remove this wrapper */ -}}
   {{- $package := partials.IncludeCached "func/getPackageFile.html" $post $post -}}

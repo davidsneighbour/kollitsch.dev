@@ -25,7 +25,7 @@
           {{- end -}}
           <div class="col-12 col-md-{{ $col }} snap-align-start mb-5 snap-y is--hotkey-post"
                 data-hotkey="k+{{- $index -}}" data-link="{{ $post.context.Permalink -}}">
-            {{- partials.Include "content/post.html" $post $post -}}
+            {{- partials.Include "content/post-preview.html" $item -}}
           </div>
         {{ end }}
       {{- end -}}

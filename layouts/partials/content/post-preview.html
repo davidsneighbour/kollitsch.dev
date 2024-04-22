@@ -1,4 +1,4 @@
-{{- $post := .context -}}
+{{- $post := . -}}
 
 {{- $posttype := partial "func/getType.html" $post -}}
 {{- $config := partial "func/getPostSetup.html" $posttype -}}
@@ -8,15 +8,15 @@
   {{- partial "template-note" (dict "note" "post-preview.html") -}}
 
   {{- if ne $config.banner false -}}
-    {{- partials.Include "content/components/banner.html" . -}}
+    {{- partials.Include "content/components/banner.html" $post -}}
   {{- end -}}
 
   {{- if ne $config.headline false -}}
-    {{- partials.Include "content/components/headline.html" . -}}
+    {{- partials.Include "content/components/headline.html" $post -}}
   {{- end -}}
 
   {{- if ne $config.bannerheadline false -}}
-    {{- partials.Include "content/components/headline-banner.html" . -}}
+    {{- partials.Include "content/components/headline-banner.html" $post -}}
   {{- end -}}
 
   <div class="prose">

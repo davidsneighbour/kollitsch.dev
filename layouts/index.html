@@ -22,7 +22,7 @@
             {{ $class := "col-md-6" }}
             {{ if eq $counter 0 }}
               <div class="col-12 snap-align-start mb-5 snap-y is--hotkey-post" data-hotkey="k+{{- $index -}}">
-                {{- partials.Include "content/post-new.html" $item $item -}}
+                {{- partials.Include "content/post.html" $item -}}
               </div>
             {{ else }}
               {{ if eq $counter 1 }}
@@ -31,7 +31,7 @@
               <div class="col-12 col-md-4 snap-align-start mb-5 snap-y is--hotkey-post"
                   data-hotkey="k+{{- $index -}}">
                 {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}
-                {{- partials.Include "content/post-preview.html" $post $post -}}
+                {{- partials.Include "content/post-preview.html" $item $item -}}
               </div>
             {{ end }}
             {{- $counter = add $counter 1 -}}

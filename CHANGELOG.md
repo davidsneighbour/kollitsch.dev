@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.30](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.29...v2024.1.30) (2024-04-22)
+
+
+### Bug Fixes
+
+* clean up post display ([5624f9d](https://github.com/davidsneighbour/kollitsch.dev/commit/5624f9d9aa996a35e19468085027992b253d23b5))
+
 ## [2024.1.29](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.28...v2024.1.29) (2024-04-22)
 
 

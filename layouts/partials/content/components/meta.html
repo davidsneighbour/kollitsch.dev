@@ -1,0 +1,112 @@
+{{- $post := . -}}
+
+{{- $posttype := partialCached "func/getType.html" . -}}
+{{- $postsetup := partialCached "func/getPostSetup.html" $posttype -}}
+
+<div class="section--meta">
+  {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-start" "context" . ) -}}
+  {{- /* ranging through the meta lines */ -}}
+  {{- if reflect.IsSlice $postsetup.meta -}}
+
+    {{- $config := site.Params.dnb.theme -}}
+
+    {{- $published := $post.Date.Format "Mon, Jan 2, 2006 at 3:04pm" -}}
+    {{- $last_modified := $post.Lastmod.Format "Mon, Jan 2, 2006 at 3:04pm" -}}
+    {{- $githash := partials.IncludeCached "func/getGitHash.html" $post $post -}}
+    {{- $hashlink := "" -}}
+    {{- with $githash }}
+      {{- $hash1 := fmt.Printf "<a href=\"%s/commit/%s\">%s</a>"
+        $config.repository
+        $post.GitInfo.Hash
+        $githash
+      -}}
+      {{- $hash2 := fmt.Printf "<a href=\"%s/commits/main/content%sindex.md\">%s</a>"
+        $config.repository
+        $post.RelPermalink
+        "History"
+      -}}
+      {{- $hash3 := fmt.Printf "<a href=\"%s/blame/main/content/%s\">%s</a>"
+        $config.repository
+        $post.File.Path
+        "Blame"
+      -}}
+      {{- $hashlink = fmt.Printf "%s / %s / %s" $hash1 $hash2 $hash3 -}}
+    {{- end -}}
+
+    {{ if in $postsetup.meta "publisher" }}
+      <div class="d-flex flex-row gap-2">
+        <div class="icon">
+          {{- partials.Include "icon.html" "calendar3" }}
+        </div>
+        <div class="d-flex flex-row gap-0 column-gap-2 flex-wrap">
+          <span>Published: {{ $published }}</span>
+          <span class="align-self-end text-body-secondary text-small">
+            (Last Modified: {{ $last_modified -}})
+          </span>
+          {{- if hugo.IsServer -}}
+            <a
+              href="vscode://file/{{- .File.Filename -}}"
+              aria-label="Edit collections.In VSCode"
+            >
+              {{- partials.Include "icon.html" "vector-pen" -}}
+            </a>
+          {{- end -}}
+        </div>
+      </div>
+    {{ end }}
+
+    {{ if in $postsetup.meta "git"}}
+    {{ with $hashlink }}
+      <div class="d-flex flex-row gap-2">
+        <div class="icon">
+          {{- partials.Include "icon.html" "github" }}
+        </div>
+        <div class="d-flex flex-row gap-2">
+          <span>Git: {{ . | safe.HTML }}</span>
+          <a
+            href="{{ $config.repository }}/edit/main/content/{{ $post.File.Path }}"
+            target="_blank"
+            rel="nofollow,noreferrer"
+          >
+            {{- partials.Include "icon.html" "vector-pen" }}
+            {{ lang.Translate "theme.suggest_edit" }}
+          </a>
+        </div>
+      </div>
+    {{ end }}
+    {{ end }}
+
+    {{ if in $postsetup.meta "tags" }}
+    {{- with (.GetTerms "tags") -}}
+      <div class="d-flex flex-row gap-2">
+        <div class="icon">
+          {{- partials.Include "icon.html" "tags" }}
+        </div>
+        <div class="d-flex flex-row gap-2">
+          <span>{{ lang.Translate "theme.tags" }}: </span>
+          {{- range . -}}
+            <a rel="tag" href="{{- .Permalink -}}"
+              >#{{- .Title | urls.URLize | strings.ToLower -}}</a
+            >
+          {{- end -}}
+        </div>
+      </div>
+    {{- end -}}
+    {{ end }}
+
+    {{ if in $postsetup.meta "share" -}}
+
+    <div class="d-flex flex-row gap-2">
+      <div class="icon">
+        {{- partials.Include "icon.html" "share-fill" -}}
+      </div>
+      <div class="d-flex flex-row gap-2">
+        {{- partials.IncludeCached "widgets/share-links.html" $post $post -}}
+      </div>
+    </div>
+    {{ end }}
+
+  {{- end -}}
+
+  {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-end" "context" . ) -}}
+</div>

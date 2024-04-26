@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.31](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.30...v2024.1.31) (2024-04-26)
+
 ## [2024.1.30](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.29...v2024.1.30) (2024-04-22)
 
 

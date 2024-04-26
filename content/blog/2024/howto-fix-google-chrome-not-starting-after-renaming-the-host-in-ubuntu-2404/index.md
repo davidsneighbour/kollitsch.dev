@@ -1,8 +1,8 @@
 ---
 '$schema': /static/_schemata/blog.schema.yaml
 title: HowTo fix Google Chrome not starting after renaming the host in Ubuntu 24.04
-description: ""
-summary: ""
+description: "My recent days were marked by the biennial (as in every two years) prematurely (I'll explain that in a later post) installation of a new Ubuntu LTS (**long** **term** **support**) version."
+summary: "My recent days were marked by the biennial (as in every two years) prematurely (I'll explain that in a later post) installation of a new Ubuntu LTS (**long** **term** **support**) version."
 
 date: 2024-04-26T19:09:08+07:00
 publishDate: 2024-04-26T19:09:08+07:00
@@ -18,12 +18,9 @@ tags:
   - 100DaysToOffload
 
 type: blog
-
-unsplash:
-  imageid: abcdefghijk
 ---
 
-My recent days were marked by the bi-annual (as in every two years) prematurely (I'll explain that in a later post) installation of a new Ubuntu LTS (**long** **term** **support**) version. In 2022 I stopped "playing" around and jumping distributions and upgrading every 6 months to the latest release and saved plenty of time researching why things that worked fine before now stopped working. Yesterday though, April 25th, Ubuntu's latest LTS release 24.04 was released and I upgraded. With this came some issues whose solution I will work through in the next few posts.
+My recent days were marked by the biennial (as in every two years) prematurely (I'll explain that in a later post) installation of a new Ubuntu LTS (**long** **term** **support**) version. In 2022 I stopped "playing" around and jumping distributions and upgrading every 6 months to the latest release and saved plenty of time researching why things that worked fine before now stopped working. Yesterday though, April 25th, Ubuntu's latest LTS release 24.04 was released and I upgraded. With this came some issues whose solution I will work through in the next few posts.
 
 The first issue was, that my Google Chrome profile suddenly was locked with a weird error message amongst a garble of other notes:
 
@@ -41,12 +38,12 @@ After some searching I came across this Bug Report in the Google Chrome bugtrack
 
 The core of the problem lies in how Chrome associates its profile information with the system's hostname. When the hostname is altered, Chrome fails to recognize the existing profile because it continues to reference the old hostname. This mismatch prevents the browser from starting properly. This seems to be a safety feature more than a bug.
 
-With a bug report being open for more than a decade now I don't think the developers have any interest in fixing this, so I went to look for hacks to fix it by myself and it's astonishingly easy:
+With a bug report being open for more than a decade now I don't think the developers have any interest in fixing this, so we will have to look to hacks to fix it by ourself and it's astonishingly easy:
 
 ```bash
 rm -rf ~/.config/google-chrome/Singleton*
 ```
 
-Just delete all `Singleton*` files from the profile. Done.
+Just delete all `Singleton*` files from the profile. Done. On the other side, how often are we renaming our hostnames ;)
 
 For more details on this issue, you might want to [visit the discussions on Chromium's issue tracker](https://issues.chromium.org/issues/41103620).

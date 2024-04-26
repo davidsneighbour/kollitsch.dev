@@ -63,7 +63,7 @@
     "openai": "4.38.2",
     "pagefind": "1.1.0",
     "playwright": "1.43.1",
-    "puppeteer": "22.6.5",
+    "puppeteer": "22.7.1",
     "remark": "15.0.1",
     "request": "2.88.2",
     "sass": "1.75.0",

@@ -263,7 +263,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@alpinejs/intersect": "^3.13.8",
+    "@alpinejs/intersect": "^3.13.10",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0"
   }

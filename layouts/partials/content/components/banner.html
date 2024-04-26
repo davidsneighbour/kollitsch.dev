@@ -19,7 +19,8 @@
 {{- range $imageSizes -}}
   {{- $imageSizes2 = $imageSizes2 | collections.Append (math.Ceil (math.Div (math.Mul (cast.ToFloat .) (cast.ToFloat (collections.Index $aspectRatio 1))) (cast.ToFloat (collections.Index $aspectRatio 0)))) -}}
 {{- end -}}
-{{- with collections.First 1 $articleimages -}}
+{{- with $articleimages -}}
+{{- with collections.First 1 . -}}
   <div class="post-slider">
     {{- range $counter, $image := . -}}
       {{- $title := "" -}}
@@ -88,4 +89,5 @@
       </figure>
     {{- end -}}
   </div>
+{{- end -}}
 {{- end -}}

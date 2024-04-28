@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2024.1.32](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.31...v2024.1.32) (2024-04-28)
+
+
+### Bug Fixes
+
+* issues with empty dicts in banner and related posts ([d066564](https://github.com/davidsneighbour/kollitsch.dev/commit/d0665640d96695f114ff6f6c7982124fe8475d11))
+
+
+### Chore
+
+* **deps:** fix up dependencies ([f6397e8](https://github.com/davidsneighbour/kollitsch.dev/commit/f6397e8d006fb9661552aaa9f6acac1dca91210d))
+* **deps:** update dependencies ([49eda7b](https://github.com/davidsneighbour/kollitsch.dev/commit/49eda7ba9cc2811d0eca53565d0a6309687e4943))
+
 ## [2024.1.31](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.30...v2024.1.31) (2024-04-26)
 
 ## [2024.1.30](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.29...v2024.1.30) (2024-04-22)

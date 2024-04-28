@@ -1,6 +1,9 @@
 #####################################################################
 # local ignores
 #####################################################################
+# release process
+changes.md
+response.json
 # cache for Netlify CLI
 .netlify/
 # replacements for dnb-binaries

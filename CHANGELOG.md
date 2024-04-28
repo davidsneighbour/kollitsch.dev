@@ -1,6 +1,16 @@
-# Changelog
+Changelog
+## [2024.1.33](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.32...v2024.1.33) (2024-04-28)
 
-All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+### Bug Fixes
+
+* release config must be commonjs format ([849d6ef](https://github.com/davidsneighbour/kollitsch.dev/commit/849d6ef217a9072acdf9fb41416bc33488b078a8))
+
+
+### Chore
+
+* **config:** update release configuration ([35b330c](https://github.com/davidsneighbour/kollitsch.dev/commit/35b330cfbecac9e5fcd1708a955196ba7bd1704a))
+* **deps:** update dependencies ([4cbcd0d](https://github.com/davidsneighbour/kollitsch.dev/commit/4cbcd0d6a90f533704b7c536df74d7762ad5b2b1))
 
 ## [2024.1.32](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.31...v2024.1.32) (2024-04-28)
 

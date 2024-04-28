@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.35](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.34...v2024.1.35) (2024-04-28)
+
+
+### Chore
+
+* **deps:** update dependencies ([fdb40c4](https://github.com/davidsneighbour/kollitsch.dev/commit/fdb40c4ed2e3cd65abec13a745c1a36febc74d55))
+
 ## [2024.1.34](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.33...v2024.1.34) (2024-04-28)
 
 ## [2024.1.33](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.32...v2024.1.33) (2024-04-28)

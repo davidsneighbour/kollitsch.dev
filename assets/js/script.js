@@ -8,6 +8,7 @@ import ClickSpark from './components/click-effect.js';
 import 'web-vitals-element';
 import './scripts/keyboard-layout';
 import './scripts/theme-changes';
+import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity';
 
 // import bootstrap scripts
 import './scripts/bs-tabs.js';
@@ -18,6 +19,9 @@ import * as params from '@params';
 
 // import custom elements
 customElements.define("click-effect", ClickSpark);
+
+// initialize navbar opacity
+document.addEventListener('DOMContentLoaded', initializeAndSwitchClassOnScroll);
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
@@ -52,5 +56,6 @@ document.onreadystatechange = () => {
       };
     });
     Alpine.start();
+
   }
 };

@@ -9,7 +9,7 @@
     {{- partials.Include "head.html" . -}}
   </head>
   {{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
-  <body class="{{- $classes -}}" id="top">
+  <body class="{{- $classes }} nav-state1" id="top">
     <a class="visually-hidden-focusable skip-to-main-link" href="#maincontent">
       {{- lang.Translate "theme.skip_to_content" -}}
     </a>

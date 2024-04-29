@@ -1,8 +1,6 @@
 {{- define "main" -}}
   {{- if compare.Lt (.Scratch.Get "paginator").PageNumber 2 -}}
-    <section class="section--sitetitle" x-data="{}"
-        x-intersect:enter="document.body.classList.add('title-visible');document.body.classList.remove('title-invisible')"
-        x-intersect:leave="document.body.classList.add('title-invisible'); document.body.classList.remove('title-visible')">
+    <section class="section--sitetitle">
       <div class="container">
         <div class="site-title ff-headline">
           <a href="{{- site.BaseURL -}}">{{- site.Title -}}</a>

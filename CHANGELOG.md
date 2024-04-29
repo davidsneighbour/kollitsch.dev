@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.37](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.36...v2024.1.37) (2024-04-29)
+
+
+### Content
+
+* **fix:** proper frontmatter for latest post ([bacfade](https://github.com/davidsneighbour/kollitsch.dev/commit/bacfade9f6ee5270496b3c10df2c96a2ac54b523))
+
 ## [2024.1.36](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.35...v2024.1.36) (2024-04-29)
 
 

@@ -1,4 +1,24 @@
 Changelog
+## [2024.1.39](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.38...v2024.1.39) (2024-04-29)
+
+
+### Bug Fixes
+
+* disable tags display (for now) ([a9fa7bb](https://github.com/davidsneighbour/kollitsch.dev/commit/a9fa7bbe2f81ee98d5b838daca3a83021c4a5dc6))
+* greedy caching ([fde6ec9](https://github.com/davidsneighbour/kollitsch.dev/commit/fde6ec9711e2cac5538131e87619c71b7544c693))
+* open social links in new tab/window ([106361c](https://github.com/davidsneighbour/kollitsch.dev/commit/106361c74269ebfc1a41f544519bf2af92884caf)), closes [#891](https://github.com/davidsneighbour/kollitsch.dev/issues/891)
+* remove all  setups ([03a3fce](https://github.com/davidsneighbour/kollitsch.dev/commit/03a3fcebce4ba0c352025e3799702e0cbf35be83)), closes [#809](https://github.com/davidsneighbour/kollitsch.dev/issues/809)
+* some refactoring ([061a94a](https://github.com/davidsneighbour/kollitsch.dev/commit/061a94a9f39dd1a21bc7df4e6547fc9d53306ac2)), closes [#878](https://github.com/davidsneighbour/kollitsch.dev/issues/878)
+
+
+### CI
+
+* **feat:** remove labels from closed issues ([be014d8](https://github.com/davidsneighbour/kollitsch.dev/commit/be014d88ad0f983753c455c66672a162074521c2))
+* **fix:** don't remove state labels that explain why the issue is not solved ([d14acf6](https://github.com/davidsneighbour/kollitsch.dev/commit/d14acf63608bd1dd8bd556250572075824410f37))
+* **fix:** download submodules in netlify update action ([76f537c](https://github.com/davidsneighbour/kollitsch.dev/commit/76f537ce239199ff3d6a06011e7314262e7b2139))
+* **fix:** remove netlify action from github workflows ([6b6deea](https://github.com/davidsneighbour/kollitsch.dev/commit/6b6deeafa036380a072d5c3f6719d985c53074f0))
+* **fix:** update hugo version in netlify.toml ([d31fe76](https://github.com/davidsneighbour/kollitsch.dev/commit/d31fe7631dba178dfc1a4fc4071bb3b241be5bf6))
+
 ## [2024.1.38](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.37...v2024.1.38) (2024-04-29)
 
 

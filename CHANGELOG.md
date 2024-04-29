@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.38](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.37...v2024.1.38) (2024-04-29)
+
+
+### Bug Fixes
+
+* navbar opacity on all pages ([6bdd294](https://github.com/davidsneighbour/kollitsch.dev/commit/6bdd294a079885bba708e99900422d6f892c1bef)), closes [#879](https://github.com/davidsneighbour/kollitsch.dev/issues/879)
+
 ## [2024.1.37](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.36...v2024.1.37) (2024-04-29)
 
 

@@ -76,8 +76,8 @@
     {{ end }}
     {{ end }}
 
-    {{ if in $postsetup.meta "tags" }}
-    {{- with (.GetTerms "tags") -}}
+    {{ if in $postsetup.meta "tags.disabled" }}
+    {{- with .GetTerms "tags" -}}
       <div class="d-flex flex-row gap-2">
         <div class="icon">
           {{- partials.Include "icon.html" "tags" }}

@@ -202,7 +202,8 @@
                       href="{{- $network.url -}}"
                       aria-label="{{- $network.label -}}"
                       class="icon-{{ $network.icon }} p-2 d-inline-block"
-                      title="{{- $network.label -}}">
+                      title="{{- $network.label -}}"
+                      target="_blank">
                       {{- with ($config.icons | compare.Default true) -}}
                         {{- if compare.Eq . true -}}
                           {{- $options := dict "icon" $network.icon "class" "c-20" "width" "32" "height" "32" -}}

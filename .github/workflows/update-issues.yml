@@ -16,9 +16,6 @@ jobs:
             dependencies
             javascript
             state:confirmed
-            state:duplicate
             state:inprogress
-            state:invalid
             state:question
             state:unconfirmed
-            state:wontfix

@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.36](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.35...v2024.1.36) (2024-04-29)
+
+
+### Content
+
+* post of 2024-04-29 ([30ceac7](https://github.com/davidsneighbour/kollitsch.dev/commit/30ceac7b10e3c19e8cc1a702ac3ae0408e198a69))
+
 ## [2024.1.35](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.34...v2024.1.35) (2024-04-28)
 
 

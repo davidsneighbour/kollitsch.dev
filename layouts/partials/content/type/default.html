@@ -1,41 +1,12 @@
 {{- $post := .context -}}
-{{- $fullcontent := .fullcontent | compare.Default true -}}
-				{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
-        <article class="{{- $articleclasses -}}">
+{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
+<article class="{{- $articleclasses -}}">
   {{- partials.IncludeCached "content/components/status.html" $post $post -}}
   {{- partials.Include "content/components/banner.html" $post -}}
     {{- partials.Include "content/components/headline.html" $post -}}
   <div class="prose">
-    {{- with $fullcontent -}}
       {{- $post.Content -}}
-    {{- else -}}
-		<p class="text-truncate text-truncate-5">
-			{{- with $post.Summary -}}
-				{{- . | transform.Markdownify -}}
-			{{- else -}}
-				{{- with $post.Description -}}
-					{{- . | transform.Markdownify -}}
-				{{- else -}}
-					{{- $post.Content | transform.Plainify | strings.Truncate 200 -}}
-				{{- end -}}
-			{{- end -}}
-		</p>
-  </div>
-	<div class="text-end">
-    {{- $label := printf "%s: %s" (lang.Translate "theme.read_article") $post.Title -}}
-		<a href="{{- $post.Permalink -}}"
-        class="d-inline-flex flex-row justify-content-end align-items-center"
-        aria-label="{{- $label }}">
-      <span class="d-inline-block pe-2">
-        {{- lang.Translate "theme.read_article" -}}
-      </span>
-      {{- $options := dict "icon" "chevron-double-right" "class" "d-inline-block mb-1" "width" "24" "height" "24" -}}
-			{{- partials.Include "icon.html" $options -}}
-		</a>
-    {{- end -}}
-    {{- with $fullcontent -}}
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
       {{- partials.IncludeCached "content/components/meta.html" $post $post -}}
-    {{- end -}}
   </div>
 </article>

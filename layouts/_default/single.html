@@ -1,9 +1,5 @@
 {{- define "main" }}
-  {{- $fullcontent := false -}}
-  {{- if (compare.Eq $.Kind "page") -}}
-    {{- $fullcontent = true -}}
-  {{- end -}}
-  {{- $post := collections.Dictionary "context" . "fullcontent" $fullcontent "responsive" "fullwidth" -}}
+  {{- $post := collections.Dictionary "context" . "responsive" "fullwidth" -}}
   <section class="section--content">
     <div class="container">
       <div class="row">

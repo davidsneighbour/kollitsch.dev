@@ -1,5 +1,4 @@
 {{- $post := .context -}}
-{{- $fullcontent := .fullcontent | compare.Default true -}}
 {{- $artist := collections.First 1 (where
             site.Data.dnb.kollitsch.music
             "slug"
@@ -39,8 +38,6 @@
     {{- partials.Include "content/components/headline.html" . -}}
   <div class="prose">
 
-    {{- with $fullcontent -}}
-
       {{- with $post.Content -}}
         {{- . -}}
       {{- end -}}
@@ -58,38 +55,10 @@
         {{$artist.description | transform.Markdownify }}
       </p>
 
-      {{- else -}}
-        <p class="text-truncate text-truncate-5">
-          {{- with $post.Summary -}}
-            {{- . | transform.Markdownify -}}
-          {{- else -}}
-            {{- with $post.Description -}}
-              {{- . | transform.Markdownify -}}
-            {{- else -}}
-              {{- $post.Content | transform.Plainify | strings.Truncate 200 -}}
-            {{- end -}}
-          {{- end -}}
-        </p>
-      {{ end }}
-
-      {{- with $fullcontent -}}
           {{- partials.IncludeCached "content/taglist_filtered.html" "programming-music" "programming-music" -}}
           {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
           {{- partials.IncludeCached "content/components/meta.html" $post $post -}}
 
-      {{ else }}
-    </div>
-    <div class="text-end">
-    {{- $label := printf "%s: %s" (lang.Translate "theme.read_article") $post.Title -}}
-		<a href="{{- $post.Permalink -}}"
-        class="d-inline-flex flex-row justify-content-end align-items-center"
-        aria-label="{{- $label }}">
-      <span class="d-inline-block pe-2">
-        {{- lang.Translate "theme.read_article" -}}
-      </span>
-      {{- $options := dict "icon" "chevron-double-right" "class" "d-inline-block mb-1" "width" "24" "height" "24" -}}
-			{{- partials.Include "icon.html" $options -}}
-		</a>
-    {{- end -}}
+
   </div>
 </article>

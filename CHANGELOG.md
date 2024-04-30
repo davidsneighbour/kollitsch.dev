@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.41](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.40...v2024.1.41) (2024-04-30)
+
+
+### Configuration
+
+* **fix:** readd build.json to bump files ([f727ff1](https://github.com/davidsneighbour/kollitsch.dev/commit/f727ff193b07dab5906bde499d19051986fe55de))
+
 ## [2024.1.40](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.39...v2024.1.40) (2024-04-30)
 
 

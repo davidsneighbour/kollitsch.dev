@@ -76,23 +76,22 @@
     {{ end }}
     {{ end }}
 
-    {{ if in $postsetup.meta "tags.disabled" }}
-    {{- with .GetTerms "tags" -}}
-      <div class="d-flex flex-row gap-2">
-        <div class="icon">
-          {{- partials.Include "icon.html" "tags" }}
-        </div>
+    {{- if in $postsetup.meta "tags" -}}
+      {{- $taxonomy := "tags" -}}
+      {{- with .Page.GetTerms $taxonomy -}}
         <div class="d-flex flex-row gap-2">
-          <span>{{ lang.Translate "theme.tags" }}: </span>
-          {{- range . -}}
-            <a rel="tag" href="{{- .Permalink -}}"
-              >#{{- .Title | urls.URLize | strings.ToLower -}}</a
-            >
-          {{- end -}}
+          <div class="icon">
+            {{- partials.Include "icon.html" "tags" -}}
+          </div>
+          <div class="d-flex flex-row gap-2">
+            <span>{{ lang.Translate "theme.tags" }}: </span>
+            {{- range . -}}
+              <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | strings.ToLower | urls.URLize -}}</a>
+            {{- end -}}
+          </div>
         </div>
-      </div>
+      {{- end -}}
     {{- end -}}
-    {{ end }}
 
     {{ if in $postsetup.meta "share" -}}
 

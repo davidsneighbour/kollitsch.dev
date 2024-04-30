@@ -13,6 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "devDependencies": {
     "@alpinejs/collapse": "3.13.10",
+    "@alpinejs/intersect": "^3.13.10",
     "@atproto/api": "0.12.7",
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "19.3.0",
@@ -38,6 +39,7 @@
     "@frontmatter/extensibility": "0.0.15",
     "@github/hotkey": "3.1.0",
     "@netlify/functions": "2.6.0",
+    "@octokit/core": "^6.1.2",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "@types/alpinejs": "3.13.10",
     "@types/alpinejs__collapse": "3.13.4",
@@ -63,6 +65,8 @@
     "openai": "4.39.0",
     "pagefind": "1.1.0",
     "playwright": "1.43.1",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
     "puppeteer": "22.7.1",
     "remark": "15.0.1",
     "request": "2.88.2",
@@ -258,14 +262,8 @@
     "provenance": true
   },
   "engines": {
-    "node": ">=20.9.0",
-    "npm": ">=10.4.0"
+    "node": ">=20.12.0",
+    "npm": ">=10.5.0"
   },
-  "type": "module",
-  "dependencies": {
-    "@alpinejs/intersect": "^3.13.10",
-    "@octokit/core": "^6.1.2",
-    "postcss": "^8.4.38",
-    "postcss-cli": "^11.0.0"
-  }
+  "type": "module"
 }

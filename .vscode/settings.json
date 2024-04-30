@@ -24,7 +24,9 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "yaml.schemas": {
-    "http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
+    "http://json-schema.org/draft-07/schema#": [
+      "static/**/*.schema.yaml"
+    ]
   },
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -49,5 +51,11 @@
     "sass",
     "scss"
   ],
-  "html.format.wrapLineLength": 100
+  "deno.enable": true,
+  "deno.enablePaths": [
+    "assets/edge-functions"
+  ],
+  "deno.unstable": true,
+  "deno.importMap": ".netlify/edge-functions-import-map.json",
+  "deno.path": "/home/patrick/.config/netlify/deno-cli/deno"
 }

@@ -1,4 +1,32 @@
 Changelog
+## [2024.1.40](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.39...v2024.1.40) (2024-04-30)
+
+
+### Theme
+
+* **fix:** font name fix ([44c31c1](https://github.com/davidsneighbour/kollitsch.dev/commit/44c31c15291897ce2edb3939509ce2fdd9dcc79c)), closes [#892](https://github.com/davidsneighbour/kollitsch.dev/issues/892)
+
+
+### Bug Fixes
+
+* tag line in meta info ([e0c8e37](https://github.com/davidsneighbour/kollitsch.dev/commit/e0c8e377aefec4909ecff32d2d05e20233bc7dde))
+
+
+### Refactors
+
+* proper file naming ([ec25e87](https://github.com/davidsneighbour/kollitsch.dev/commit/ec25e87bb1e1bb864c0d9e720a7dda1a81ae42bb))
+
+
+### Chore
+
+* **deps:** cleanup package.json file ([641d415](https://github.com/davidsneighbour/kollitsch.dev/commit/641d415ec31affff647a4822437a42bb7c4e7928))
+* **deps:** update dependencies ([9bd0ca2](https://github.com/davidsneighbour/kollitsch.dev/commit/9bd0ca2bd2d740367d56831ab865426430800a34))
+
+
+### Configuration
+
+* update workspace configuration ([643e154](https://github.com/davidsneighbour/kollitsch.dev/commit/643e15497b7e414097d49a9cce709c5f1b622ca6))
+
 ## [2024.1.39](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.38...v2024.1.39) (2024-04-29)
 
 

@@ -1,2 +1,18 @@
 const defaultStandardVersion = require('@davidsneighbour/release-config');
-module.exports = defaultStandardVersion;
+const localStandardVersion = {
+  bumpFiles: [
+    {
+      filename: "package.json",
+      type: "json",
+    },
+    {
+      filename: "assets/data/build.json",
+      type: "json",
+    },
+  ],
+};
+const standardVersion = {
+  ...defaultStandardVersion,
+  ...localStandardVersion,
+};
+module.exports = standardVersion;

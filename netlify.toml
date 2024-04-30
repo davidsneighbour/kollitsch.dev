@@ -1,5 +1,6 @@
 [build]
 publish = "./public"
+edge_functions = "assets/edge-functions"
 
 [context.production]
 command = "./bin/netlify/build"
@@ -14,6 +15,10 @@ NODE_ENV = "development"
 directory = "assets/functions"
 node_bundler = "esbuild"
 included_files = ["./assets/functions/data/*.json"]
+
+[[edge_functions]]
+function = "block-bots"
+path = "/*"
 
 # [functions.status]
 # schedule = "*/10 * * * *"

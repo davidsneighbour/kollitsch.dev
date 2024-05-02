@@ -55,9 +55,9 @@
         {{$artist.description | transform.Markdownify }}
       </p>
 
-          {{- partials.IncludeCached "content/taglist-filtered.html" "programming-music" "programming-music" -}}
-          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
-          {{- partials.Include "content/components/meta.html" $post -}}
+      {{/* {{- partials.IncludeCached "content/taglist-filtered.html" "programming-music" "programming-music" -}} */}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
+      {{- partials.Include "content/components/meta.html" $post -}}
 
 
   </div>

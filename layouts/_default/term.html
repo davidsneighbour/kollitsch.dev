@@ -16,6 +16,7 @@
     </div>
   </section>
   {{- partials.Include "content/sections/posts.html" . -}}
-  {{- partials.Include "content/sections/tagoverview.html" . -}}
+  {{- $options := dict "type" "list" "context" . -}}
+  {{- partial "content/components/tags/tags-overview.html" $options -}}
   {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
 {{- end -}}

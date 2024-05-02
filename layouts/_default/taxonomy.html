@@ -22,5 +22,6 @@
       </div>
     </div>
   </section>
-  {{- partials.Include "content/sections/tagoverview.html" . -}}
+  {{- $options := dict "type" "list" "context" . -}}
+  {{- partial "content/components/tags/tags-overview.html" $options -}}
 {{- end -}}

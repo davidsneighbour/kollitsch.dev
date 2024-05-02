@@ -1,15 +1,67 @@
-{{- $current := .Name -}}
-<ul class="list-inline">
-  {{- range $index, $value := (collections.Index site.Taxonomies .Type) -}}
-    {{- if compare.Gt .Count 1 -}}
-    <li class="list-inline-item mx-2">
-      <a href="/tags/{{ $index }}/" class="text-decoration-none">
-        {{- if compare.Eq $current $index -}}<strong>{{- end -}}
-        {{- partials.Include "icon.html" "tag-fill" -}}
-        {{- $index -}} ({{- .Count -}})
-        {{- if compare.Eq $current $index -}}</strong>{{- end -}}
-      </a>
-    </li>
-    {{- end -}}
+{{- $type := "list" -}}
+{{- with .type -}}
+  {{- $type = . -}}
+{{- end -}}
+
+{{- $icon := "tag-fill" -}}
+{{- with .icon -}}
+  {{- $icon = . -}}
+{{- end -}}
+
+{{- if eq (.type | default "page") "page" -}}
+  {{- range .tags -}}
+    {{- partialCached "tags/single-tag.html" . -}}
   {{- end -}}
-</ul>
+{{- else -}}
+  {{- partialCached "tags/taglist.html" .context -}}
+{{- end -}}
+
+{{- define "partials/tags/taglist.html" -}}
+
+  {{- $current := page.Name -}}
+  <div class="container">
+    <div class="row py-6">
+      <div class="col text-center">
+        <ul class="list-inline">
+          {{- range $index, $value := (collections.Index site.Taxonomies .Type) -}}
+            {{- if compare.Gt .Count 1 -}}
+            <li class="list-inline-item mx-2">
+              <a href="/tags/{{ $index }}/" class="text-decoration-none">
+                {{- if compare.Eq $current $index -}}<strong>{{- end -}}
+                {{- partials.Include "icon.html" "tag-fill" -}}
+                {{- $index -}} ({{- .Count -}})
+                {{- if compare.Eq $current $index -}}</strong>{{- end -}}
+              </a>
+            </li>
+            {{- end -}}
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {{- end -}}
+
+{{- define "partials/tags/single-tag.html" -}}
+
+  <span class="badge">
+    <a href="{{- .Permalink -}}">
+      {{- partials.Include "icon.html" "tag-fill" -}}
+      {{- .Title -}}
+      {{/* ({{- .Count -}}) */}}
+    </a>
+  </span>
+
+      <span
+        class="badge {{ with .Params.class -}}
+          text-bg-{{ . }}
+        {{ else }}
+          text-bg-light
+        {{ end }} ms-2"
+      >
+        {{ with .Params.icon -}}
+          {{ partials.Include "icon.html" . }}
+        {{ end }}
+        <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | strings.ToLower -}}</a>
+      </span>
+
+{{- end -}}

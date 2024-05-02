@@ -23,6 +23,8 @@ figure {
   video {
     object-fit: cover;
     overflow: hidden;
+    max-width: max-content;
+    margin: 0 auto;
 
     @extend .rounded-1;
     @extend .w-100;

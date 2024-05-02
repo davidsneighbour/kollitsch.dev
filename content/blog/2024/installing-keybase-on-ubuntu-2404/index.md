@@ -9,6 +9,7 @@ lastmod: 2024-04-29T17:03:49+07:00
 resources:
 - title: Ubuntu 24.04 - official wallpaper
   src: ubuntu-wallpaper-d.png
+- src: xxselection_002.png
 
 tags:
   - ubuntu 24.04

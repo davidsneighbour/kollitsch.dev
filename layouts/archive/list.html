@@ -21,7 +21,7 @@
                     </a>
                   </h2>
                   <p class="text-truncate text-truncate-5">{{- $item.Summary -}}</p>
-                  {{- partials.IncludeCached "content/components/tags/tags.html" . . -}}
+                  {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
                 </div>
               </div>
             {{- end -}}

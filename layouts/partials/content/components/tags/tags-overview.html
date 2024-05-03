@@ -10,7 +10,7 @@
 
 {{- if eq (.type | default "page") "page" -}}
   {{- range .tags -}}
-    {{- partialCached "tags/single-tag.html" . -}}
+    {{- partialCached "tags/single-tag.html" . . -}}
   {{- end -}}
 {{- else -}}
   {{- partialCached "tags/taglist.html" .context -}}
@@ -42,15 +42,6 @@
   {{- end -}}
 
 {{- define "partials/tags/single-tag.html" -}}
-
-  <span class="badge">
-    <a href="{{- .Permalink -}}">
-      {{- partials.Include "icon.html" "tag-fill" -}}
-      {{- .Title -}}
-      {{/* ({{- .Count -}}) */}}
-    </a>
-  </span>
-
       <span
         class="badge {{ with .Params.class -}}
           text-bg-{{ . }}

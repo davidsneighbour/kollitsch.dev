@@ -1,4 +1,29 @@
 Changelog
+## [2024.1.42](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.41...v2024.1.42) (2024-05-03)
+
+
+### Theme
+
+* **fix:** slighly slimmer fonts ([ed1f8d9](https://github.com/davidsneighbour/kollitsch.dev/commit/ed1f8d93df5a5ecc89f6283858252aa62f5d434f))
+
+
+### Content
+
+* **fix:** add missing image resources ([74b28a0](https://github.com/davidsneighbour/kollitsch.dev/commit/74b28a00ea04ef60be25100ffdc39e9fc0ec7c87)), closes [#899](https://github.com/davidsneighbour/kollitsch.dev/issues/899)
+* post of 2024-05-03 ([d816d11](https://github.com/davidsneighbour/kollitsch.dev/commit/d816d1151986a9b6d3a10ece4236994ebd84ad5f))
+
+
+### Bug Fixes
+
+* move tag generation and lists around ([7c20b83](https://github.com/davidsneighbour/kollitsch.dev/commit/7c20b8329a68d788b1a60327330a34b6e2a1ab33)), closes [#893](https://github.com/davidsneighbour/kollitsch.dev/issues/893)
+* remove filtered taglist partial ([ba3b6f8](https://github.com/davidsneighbour/kollitsch.dev/commit/ba3b6f851ad390c654645dabf79e0ce2bd5533d8))
+* small prose images are scaled up to 100% ([0138a98](https://github.com/davidsneighbour/kollitsch.dev/commit/0138a98a756634566c1d5ab4e41d840e7735f20d)), closes [#901](https://github.com/davidsneighbour/kollitsch.dev/issues/901)
+
+
+### Chore
+
+* **deps:** update dependencies ([cc953bd](https://github.com/davidsneighbour/kollitsch.dev/commit/cc953bd8fc681581c635860eda644c9c64f2567a))
+
 ## [2024.1.41](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.40...v2024.1.41) (2024-04-30)
 
 

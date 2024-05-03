@@ -1,6 +1,6 @@
 {{- $post := . -}}
 
-{{- $posttype := partialCached "func/getType.html" . -}}
+{{- $posttype := $post.Type -}}
 {{- $postsetup := partialCached "func/getPostSetup.html" $posttype -}}
 
 <div class="section--meta">

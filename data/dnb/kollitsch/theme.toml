@@ -1,6 +1,7 @@
 [types.default]
 status = true
 banner = true
+videobanner = false
 headline = true
 bannerheadline = false
 comments = true
@@ -25,3 +26,13 @@ headline = false
 bannerheadline = true
 meta = false
 transform = ["headline", "content", "preview"]
+
+[types.video]
+videobanner = true
+banner = false
+
+[types.music]
+videobanner = true
+banner = false
+
+[types.page]

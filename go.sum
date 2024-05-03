@@ -10,10 +10,16 @@ github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21 h1:JXhP+4nYwUOA
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21/go.mod h1:CYzEyrne+zP2qNG2S68PZP5eAqHjznaljh8S+9bDzIA=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240502121957-c0e475f59bbe h1:N4S6FbII67tV5QJG/GWX7gkBQUDa9BXrx8CKV+X4Lz0=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240502121957-c0e475f59bbe/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240503131920-af5afdb5f2eb h1:lr+GXjnObkq2ndPeWeiUxwFaBEjFyyXU8QsVsanZMfo=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240503131920-af5afdb5f2eb/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240503132753-915d4d463d38 h1:SYWm21ro6keOPqABZilXiV6Ab1f3Ca8snpePVjTgYp0=
+github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240503132753-915d4d463d38/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 h1:BYO18szo7l06FUJW9YBR88g0A8QXLOBDOqx8iwQ5kDU=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7/go.mod h1:IYXVLZBw+dk+6YPWtUz5bHO7UzFWLu5NrM4Hy+qwj6c=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.7 h1:6fWAwj+aQv7vPAFEj+2VOKLkWOnscrY6+HLqGmwYz70=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.7/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
+github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.11 h1:KnzjIGA9KMTcObez1WmlcHghORNpN3VEEyyYgJQRix4=
+github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.11/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 h1:9MyACinsdCt6x9B/REHSvQQ0pL6TigKfjbs/07JUQAA=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0/go.mod h1:F4PJUjhwfl1GzpoHeups4V5KQcbGIvqzgpROFrGrhCo=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2024.4 h1:u1Nd4o1GgTW7dw7ZoTg/bNHQPCUPufjDtjKzvQylKTk=

@@ -147,8 +147,9 @@ longitude = "99.958311"
 region = "TH-84"
 placename = "Koh Samui"
 separator = " ↭ "
+hometitle = "Welcome on KOLLITSCH.dev*"
 disable = []
-notranslate = false     # tell Google not to provide a translation for this document
+notranslate = false                     # tell Google not to provide a translation for this document
 # https://webmonetization.org/docs/getting-started
 monetization = ""
 colorschemeOrder = "dark light"

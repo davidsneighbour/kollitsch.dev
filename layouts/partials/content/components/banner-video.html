@@ -1,0 +1,11 @@
+{{- $post := . -}}
+{{- $artist := collections.First 1 (where site.Data.dnb.kollitsch.music "slug" $post.Params.video.artist) -}}
+{{- $artist = collections.Index $artist 0 -}}
+{{- $settings := collections.Dictionary "id" $post.Params.video.youtube -}}
+<div class="post-slider">
+  <figure>
+    <div class="iframe-border">
+      {{- partials.IncludeCached "youtube.html" $settings $settings -}}
+    </div>
+  </figure>
+</div>

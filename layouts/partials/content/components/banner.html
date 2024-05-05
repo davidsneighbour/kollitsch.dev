@@ -19,75 +19,75 @@
 {{- range $imageSizes -}}
   {{- $imageSizes2 = $imageSizes2 | collections.Append (math.Ceil (math.Div (math.Mul (cast.ToFloat .) (cast.ToFloat (collections.Index $aspectRatio 1))) (cast.ToFloat (collections.Index $aspectRatio 0)))) -}}
 {{- end -}}
-{{- with $articleimages -}}
-{{- with collections.First 1 . -}}
+
+{{ $articleimage :=  partialCached "content/components/articleimage.html" $articleimages $articleimages }}
+
+{{- with $articleimage -}}
   <div class="post-slider">
-    {{- range $counter, $image := . -}}
-      {{- $title := "" -}}
-      {{- if compare.Ne $image.Title $image.Name -}}
-        {{- $title = $image.Title | transform.Markdownify -}}
-      {{- end -}}
-      {{- $images := collections.Slice -}}
-      {{- range $index, $value := $imageSizes -}}
-        {{- $imagesize := fmt.Printf "%sx%s %s" (cast.ToString $value) (cast.ToString (collections.Index $imageSizes2 $index)) $default_format -}}
-        {{- $images = $images | collections.Append ($image.Fit $imagesize) -}}
-      {{- end -}}
-      <figure>
-        <a href="{{- $link -}}">
-          <picture>
-            {{- range $index, $image := $images -}}
-              <source
-                srcset="{{- $image.Permalink -}}"
-                media="(max-width: {{- collections.Index $breakPoints $index -}}px)">
-              {{- if compare.Eq $index (math.Sub (len $images) 1) -}}
-                <source srcset="{{- $image.Permalink -}}">
-                {{- $alt := $title -}}
-                {{- if compare.Eq $alt "" -}}
-                  {{- $alt = $context.Title -}}
-                {{- end -}}
-                <img
-                  class="img-fluid"
-                  src="{{- $image.Permalink -}}"
-                  alt="{{- $alt | transform.Plainify -}}"
-                  width="{{- $image.Width -}}"
-                  height="{{- $image.Height -}}"
-                  {{ if (compare.Eq $responsive "fullwidth") -}}
-                    loading="eager" fetchpriority="high"
-                  {{- else -}}
-                    loading="lazy" fetchpriority="low"
-                  {{- end -}}>
-              {{- end -}}
-            {{- end -}}
-          </picture>
-        </a>
-        {{ with $showControls -}}
-        <div class="inline-icons">
-          {{- with $title -}}
-            <div class="is--copyright"
-                role="button"
-                title="{{- . -}}"
-                data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-title="{{- . -}}">
-              {{- partials.Include "icon.html" "camera2" -}}
-            </div>
-            {{/* @todo <figcaption class="text-center"></figcaption> */}}
-          {{- end -}}
-          {{- if compare.Eq true ($context.Params.theme.showdate | compare.Default true) -}}
-            {{- $publishingdate := printf
-                  "🤖 %s"
-                  ($context.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | compare.Default ":date_long")) -}}
-            <div class="is--publishdate"
-                role="button"
-                title="{{- $publishingdate -}}"
-                data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-title="{{- $publishingdate -}}">
-              {{- partials.Include "icon.html" "calendar3" -}}
-            </div>
-          {{- end -}}
-        </div>
-        {{- end -}}
-      </figure>
+  {{- $image := . -}}
+    {{- $title := "" -}}
+    {{- if compare.Ne ($image.Title | default "") $image.Name -}}
+      {{- $title = $image.Title | transform.Markdownify -}}
     {{- end -}}
+    {{- $images := collections.Slice -}}
+    {{- range $index, $value := $imageSizes -}}
+      {{- $imagesize := fmt.Printf "%sx%s %s" (cast.ToString $value) (cast.ToString (collections.Index $imageSizes2 $index)) $default_format -}}
+      {{- $images = $images | collections.Append ($image.Fit $imagesize) -}}
+    {{- end -}}
+    <figure>
+      <a href="{{- $link -}}">
+        <picture>
+          {{- range $index, $image := $images -}}
+            <source
+              srcset="{{- $image.Permalink -}}"
+              media="(max-width: {{- collections.Index $breakPoints $index -}}px)">
+            {{- if compare.Eq $index (math.Sub (len $images) 1) -}}
+              <source srcset="{{- $image.Permalink -}}">
+              {{- $alt := $title -}}
+              {{- if compare.Eq $alt "" -}}
+                {{- $alt = $context.Title -}}
+              {{- end -}}
+              <img
+                class="img-fluid"
+                src="{{- $image.Permalink -}}"
+                alt="{{- $alt | transform.Plainify -}}"
+                width="{{- $image.Width -}}"
+                height="{{- $image.Height -}}"
+                {{ if (compare.Eq $responsive "fullwidth") -}}
+                  loading="eager" fetchpriority="high"
+                {{- else -}}
+                  loading="lazy" fetchpriority="low"
+                {{- end -}}>
+            {{- end -}}
+          {{- end -}}
+        </picture>
+      </a>
+      {{ with $showControls -}}
+      <div class="inline-icons">
+        {{- with $title -}}
+          <div class="is--copyright"
+              role="button"
+              title="{{- . -}}"
+              data-bs-toggle="tooltip" data-bs-placement="top"
+              data-bs-title="{{- . -}}">
+            {{- partials.Include "icon.html" "camera2" -}}
+          </div>
+          {{/* @todo <figcaption class="text-center"></figcaption> */}}
+        {{- end -}}
+        {{- if compare.Eq true ($context.Params.theme.showdate | compare.Default true) -}}
+          {{- $publishingdate := printf
+                "🤖 %s"
+                ($context.PublishDate | time.Format (site.Params.dnb.theme.dateformat.timestamp | compare.Default ":date_long")) -}}
+          <div class="is--publishdate"
+              role="button"
+              title="{{- $publishingdate -}}"
+              data-bs-toggle="tooltip" data-bs-placement="top"
+              data-bs-title="{{- $publishingdate -}}">
+            {{- partials.Include "icon.html" "calendar3" -}}
+          </div>
+        {{- end -}}
+      </div>
+      {{- end -}}
+    </figure>
   </div>
-{{- end -}}
 {{- end -}}

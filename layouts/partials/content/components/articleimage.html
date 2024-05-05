@@ -1,0 +1,12 @@
+{{- $articleimages := . -}}
+{{- $articleimage := dict -}}
+
+{{- with $articleimages.GetMatch "*header*" -}}
+  {{- $articleimage = . -}}
+{{- else -}}
+  {{- with $articleimages -}}
+    {{- $articleimage = collections.First 1 . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $articleimage -}}

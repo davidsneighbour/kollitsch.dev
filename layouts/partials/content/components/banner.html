@@ -26,8 +26,10 @@
   <div class="post-slider">
   {{- $image := . -}}
     {{- $title := "" -}}
-    {{- if compare.Ne ($image.Title | default "") $image.Name -}}
-      {{- $title = $image.Title | transform.Markdownify -}}
+    {{- with $image.Title -}}
+      {{- if compare.Ne (. | default "") $image.Name -}}
+        {{- $title = . | transform.Markdownify -}}
+      {{- end -}}
     {{- end -}}
     {{- $images := collections.Slice -}}
     {{- range $index, $value := $imageSizes -}}

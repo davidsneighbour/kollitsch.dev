@@ -1,4 +1,22 @@
 Changelog
+## [2024.1.48](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.47...v2024.1.48) (2024-05-05)
+
+
+### Theme
+
+* **fix:** add level option to headline partial ([aeaf01b](https://github.com/davidsneighbour/kollitsch.dev/commit/aeaf01b44bf6c50e96810a29df393d865c2870a7)), closes [#898](https://github.com/davidsneighbour/kollitsch.dev/issues/898)
+* **fix:** headline level on the homepage ([81786c1](https://github.com/davidsneighbour/kollitsch.dev/commit/81786c1f7d7b12fbb5679a3a861c1c30e09e66da)), closes [#898](https://github.com/davidsneighbour/kollitsch.dev/issues/898)
+
+
+### Content
+
+* **fix:** remove unused resource objects ([7fa1877](https://github.com/davidsneighbour/kollitsch.dev/commit/7fa187760449f5f438362739a6fe7e30de1fdf23)), closes [#899](https://github.com/davidsneighbour/kollitsch.dev/issues/899)
+
+
+### Chore
+
+* **deps:** update hugomod dependencies ([a7656d1](https://github.com/davidsneighbour/kollitsch.dev/commit/a7656d1997338d1880d9389941182b14fc6a754f))
+
 ## [2024.1.47](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.46...v2024.1.47) (2024-05-05)
 
 

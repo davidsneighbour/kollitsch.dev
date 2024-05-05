@@ -24,7 +24,8 @@
   {{- /* MARK: Headline
   */ -}}
   {{- if ne $config.headline false -}}
-    {{- partials.Include "content/components/headline.html" $post -}}
+    {{- $options := dict "post" $post "level" "3" -}}
+    {{- partials.Include "content/components/headline.html" $options -}}
   {{- end -}}
 
   {{- /* MARK: Headline-Banner

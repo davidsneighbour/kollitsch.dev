@@ -1,4 +1,34 @@
 Changelog
+## [2024.1.43](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.42...v2024.1.43) (2024-05-05)
+
+
+### Theme
+
+* **fix:** show video banner for video and music post types ([1e2ce3f](https://github.com/davidsneighbour/kollitsch.dev/commit/1e2ce3fbd42e0dd5caf6d2e09095ce2ee869d2bb))
+
+
+### Content
+
+* **fix:** remove empty colors tag content ([14059fb](https://github.com/davidsneighbour/kollitsch.dev/commit/14059fb731c6ebbb543b8ab1a4f47e0d58dc6030))
+* **new:** recovering a missing keybase git repository ([293811f](https://github.com/davidsneighbour/kollitsch.dev/commit/293811fbb9e1497c4f8771864723c8308adeba32))
+
+
+### Bug Fixes
+
+* check if .Title exists before comparing it ([0d7ea3d](https://github.com/davidsneighbour/kollitsch.dev/commit/0d7ea3d0cdef5b67cfc16fd17bb4ca77048b9448))
+* configure homepage title ([bd161ad](https://github.com/davidsneighbour/kollitsch.dev/commit/bd161ada1cef88d83c0da3e732321d5eb44b1965)), closes [#904](https://github.com/davidsneighbour/kollitsch.dev/issues/904)
+* more issues with banner images ([0643130](https://github.com/davidsneighbour/kollitsch.dev/commit/06431305ddd3c7cea6a516827307acfdd8e8008d))
+* proper display of individual tags ([450df45](https://github.com/davidsneighbour/kollitsch.dev/commit/450df456a35b61fd093a3bdb1ec6a8c51223719a)), closes [#908](https://github.com/davidsneighbour/kollitsch.dev/issues/908)
+* proper evaluation of header image ([5fe9fd3](https://github.com/davidsneighbour/kollitsch.dev/commit/5fe9fd37e12d04b727d1c13db82968b018d08726)), closes [#909](https://github.com/davidsneighbour/kollitsch.dev/issues/909)
+* urlize term titles ([07eefa9](https://github.com/davidsneighbour/kollitsch.dev/commit/07eefa9dd1c9a2993cc4a60727b83c1cab5b6ed1))
+
+
+### Chore
+
+* **deps:** update dependencies ([4bf982a](https://github.com/davidsneighbour/kollitsch.dev/commit/4bf982a7af57e58db5df2e66a312ab323daa99c2))
+* **deps:** update dependencies ([a809c25](https://github.com/davidsneighbour/kollitsch.dev/commit/a809c256adffbbf84fa193c376d02d2075776b2c))
+* **git:** update bin submodule ([c27b0bb](https://github.com/davidsneighbour/kollitsch.dev/commit/c27b0bb9a4da795583a22a8c48ebef76b7dfb2f8))
+
 ## [2024.1.42](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.41...v2024.1.42) (2024-05-03)
 
 

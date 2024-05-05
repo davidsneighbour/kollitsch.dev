@@ -8,8 +8,6 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6 h1:Ionw4Y+eJnY
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6/go.mod h1:LibI1IDZCBBzIo/klOpNTLTZ3H6DeZc0K0qyh7j6Zus=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21 h1:JXhP+4nYwUOAhbg9WJCteJdaONjujTgGWCF19uXuPkU=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21/go.mod h1:CYzEyrne+zP2qNG2S68PZP5eAqHjznaljh8S+9bDzIA=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505140006-7c4e49266626 h1:X3UjmiQrZxDmIJVFBLEO881akUwfXpeGC6HXJRyzR3k=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505140006-7c4e49266626/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505145921-d25a2c7203a8 h1:ucSBD9WUBhWImyBcABqG/R/w9o89u7fSiUsYffNBd5I=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505145921-d25a2c7203a8/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 h1:BYO18szo7l06FUJW9YBR88g0A8QXLOBDOqx8iwQ5kDU=
@@ -18,8 +16,6 @@ github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.12 h1:DphG2TWI
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.12/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 h1:9MyACinsdCt6x9B/REHSvQQ0pL6TigKfjbs/07JUQAA=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0/go.mod h1:F4PJUjhwfl1GzpoHeups4V5KQcbGIvqzgpROFrGrhCo=
-github.com/davidsneighbour/hugo-modules/modules/head v1.2024.4 h1:u1Nd4o1GgTW7dw7ZoTg/bNHQPCUPufjDtjKzvQylKTk=
-github.com/davidsneighbour/hugo-modules/modules/head v1.2024.4/go.mod h1:bpGi4IUWcolDqbnEVeZa8uB3518mGS82HtM4jLLr4qE=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2024.5 h1:UmsrcE30XgHFz6Api2D4Kpur6GOjUttsFIBo0aKZS0g=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2024.5/go.mod h1:3lV+Sj6BthfzlRU3LX/F6WPHbsZmE+hfgrFBGkqxEPI=
 github.com/davidsneighbour/hugo-modules/modules/headerimage v1.2024.0 h1:17xhGKy+DnrdkvcJuTzwf5vrtaXifSe7pYmuE49h0H8=

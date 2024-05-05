@@ -1,4 +1,21 @@
 Changelog
+## [2024.1.47](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.46...v2024.1.47) (2024-05-05)
+
+
+### Theme
+
+* **fix:** do not include current page context in related posts ([9436c17](https://github.com/davidsneighbour/kollitsch.dev/commit/9436c17d353f62c049bb74e09dcd22f8f2bba152))
+
+
+### Chore
+
+* **deps:** update hugomod dependencies ([0691c7b](https://github.com/davidsneighbour/kollitsch.dev/commit/0691c7bdb43c379d944abf35f70cd4c5614d1504)), closes [#906](https://github.com/davidsneighbour/kollitsch.dev/issues/906)
+
+
+### Build System
+
+* **feat:** add hugo-dd for a quick debug partial snippet ([b0d7ad4](https://github.com/davidsneighbour/kollitsch.dev/commit/b0d7ad48b2d0e71a80707dddd7939e8d0a636ecc))
+
 ## [2024.1.46](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.45...v2024.1.46) (2024-05-05)
 
 

@@ -13,4 +13,11 @@
     "body": ["{{- /* @todo $0 */ -}}"],
     "description": "Insert Hugo Comment with a @todo tag",
   },
+  "hugo-debugprint": {
+    "scope": "gohtml, html, markdown",
+    "prefix": "hugo-dd",
+    "body": [
+      "{{- partial \"debug-print.html\" $0 -}}"
+    ]
+  }
 }

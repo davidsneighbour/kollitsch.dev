@@ -8,8 +8,6 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6 h1:Ionw4Y+eJnY
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6/go.mod h1:LibI1IDZCBBzIo/klOpNTLTZ3H6DeZc0K0qyh7j6Zus=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21 h1:JXhP+4nYwUOAhbg9WJCteJdaONjujTgGWCF19uXuPkU=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21/go.mod h1:CYzEyrne+zP2qNG2S68PZP5eAqHjznaljh8S+9bDzIA=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505094839-2ac55bc1af6f h1:ddCcLFBpPWDe8z48S8B2DlOsOwWGk1r5BCiP6r/nC4Y=
-github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505094839-2ac55bc1af6f/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505113115-0f390f50db3e h1:jh61HbGHzoAE4gP5Mfx31zvr8q22ZV7JbQdcjhmH3No=
 github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505113115-0f390f50db3e/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 h1:BYO18szo7l06FUJW9YBR88g0A8QXLOBDOqx8iwQ5kDU=
@@ -34,8 +32,6 @@ github.com/davidsneighbour/hugo-modules/modules/netlification v1.2024.3 h1:sJL+e
 github.com/davidsneighbour/hugo-modules/modules/netlification v1.2024.3/go.mod h1:5ewL7ZhqJAioSM8nSHWWMKfm3MnNz9klX/JdOzZAxvY=
 github.com/davidsneighbour/hugo-modules/modules/opensearch v1.2024.1 h1:1LMIlz64YGzmGxQCoIzivtIdCg7382WOX3CvHP2C8Uo=
 github.com/davidsneighbour/hugo-modules/modules/opensearch v1.2024.1/go.mod h1:XmxFP1dqNoiLxL0hUFs8udbtG3qgSzZDFRQSDg5pGDs=
-github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.1 h1:M83v+3XWDfn0JFH3Gk4vmlKIoYBkqzeSBIMI1OoyuOg=
-github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.1/go.mod h1:wHveSSBmVY6BKY2fsBC+0S1rjDIa66CJh9tWkngvBhw=
 github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.2 h1:mEgdZFqO5fCpjQEZpeLuygWyFdEeyYA5VDSItE1SAxU=
 github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.2/go.mod h1:wHveSSBmVY6BKY2fsBC+0S1rjDIa66CJh9tWkngvBhw=
 github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.4 h1:I002hg/R23oPZGbwmXQ7NA4A1WvK3i/K7Q6RYIDYIKM=

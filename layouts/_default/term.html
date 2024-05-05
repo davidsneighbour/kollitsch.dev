@@ -9,7 +9,7 @@
             {{ with .Params.icon }}
               {{ partials.Include "icon.html" . }}
             {{ end }}
-            #{{ .Title | strings.ToLower }}
+            #{{ .Title | urls.URLize | strings.ToLower }}
           </h1>
         </div>
       </div>

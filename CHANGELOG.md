@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.44](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.43...v2024.1.44) (2024-05-05)
+
+
+### Chore
+
+* **deps:** update hugomod depencencies ([dc7e0ad](https://github.com/davidsneighbour/kollitsch.dev/commit/dc7e0ade01bf8b1d4770a795e3b23ea4b1014095))
+
 ## [2024.1.43](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.42...v2024.1.43) (2024-05-05)
 
 

@@ -10,8 +10,6 @@ lastmod: 2024-05-05T16:02:34+07:00
 resources:
   - title: Photo by [Michael Dziedzic](https://unsplash.com/@lazycreekimages) via [Unsplash](https://unsplash.com/)
     src: header.jpg
-  - src: broken.png
-  - src: fixed.png
 
 tags:
   - keybase

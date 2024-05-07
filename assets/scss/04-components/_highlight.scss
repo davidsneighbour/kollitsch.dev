@@ -50,6 +50,9 @@
 
     .btn-clipboard {
       padding-bottom: 0.3rem;
+
+      /* @TODO make this working */
+      transition: visibility 1s, opacity 1s;
     }
   }
 }

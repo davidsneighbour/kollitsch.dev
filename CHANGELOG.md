@@ -1,4 +1,30 @@
 Changelog
+## [2024.1.50](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.49...v2024.1.50) (2024-05-07)
+
+
+### Theme
+
+* **fix:** add transition to copy button in highlighting component ([f0f3116](https://github.com/davidsneighbour/kollitsch.dev/commit/f0f3116a4991bd986b112aaac119aed56130f653))
+* **fix:** color contrast in draft status ([5e7da46](https://github.com/davidsneighbour/kollitsch.dev/commit/5e7da46e825eaef7f7e9d29f407797024f0e02e3))
+* **fix:** color fixes ([24cafd4](https://github.com/davidsneighbour/kollitsch.dev/commit/24cafd4d101aebeaded818ac8066c585c35c97c8))
+* **fix:** proper copy button handling on highlighting component ([f0c5ded](https://github.com/davidsneighbour/kollitsch.dev/commit/f0c5dedf27a088ccc67564cdb0a0dd26d631c29b)), closes [#849](https://github.com/davidsneighbour/kollitsch.dev/issues/849)
+* **fix:** remove gap below copy button in highlight component ([2a37891](https://github.com/davidsneighbour/kollitsch.dev/commit/2a3789195f712fb279bee62b5c4471cfa8a38b57)), closes [#914](https://github.com/davidsneighbour/kollitsch.dev/issues/914)
+* **fix:** remove template notices from dev server ([f57883c](https://github.com/davidsneighbour/kollitsch.dev/commit/f57883cc5b833937baa83da5b6f8e6cd1afe3975))
+* **wip:** fixing code highlighting copy button ([124a566](https://github.com/davidsneighbour/kollitsch.dev/commit/124a56608887c37ad63cd0859602c43ce9d18b0e))
+
+
+### Chore
+
+* **deps:** update dependency @netlify/functions to v2.6.3 ([#913](https://github.com/davidsneighbour/kollitsch.dev/issues/913)) ([767c611](https://github.com/davidsneighbour/kollitsch.dev/commit/767c61174ac46c1e83a1d3b76a6761b2cf8bb71e))
+* **deps:** update node dependencies ([414d22a](https://github.com/davidsneighbour/kollitsch.dev/commit/414d22af148dc3a436e787b0d566bbc88aa148f3))
+* **git:** update bin submodule ([c7b8145](https://github.com/davidsneighbour/kollitsch.dev/commit/c7b81458917499b7abb1b10445d10794d600d068))
+
+
+### Build System
+
+* **fix:** move exclude property to proper place in tsconfig.json ([88f550f](https://github.com/davidsneighbour/kollitsch.dev/commit/88f550f1045ef7ba24e4797f59fecc0b2fd1b4bf))
+* **refactor:** move simple-git-hooks into package.json ([1eeb81d](https://github.com/davidsneighbour/kollitsch.dev/commit/1eeb81d04d1b0a76306fb482cd60321c104ce325))
+
 ## [2024.1.49](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.48...v2024.1.49) (2024-05-05)
 
 ## [2024.1.48](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.47...v2024.1.48) (2024-05-05)

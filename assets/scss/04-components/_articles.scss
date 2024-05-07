@@ -27,12 +27,12 @@ article {
     @extend .z-3;
 
     &.status--draft {
-      color: var(--bs-light);
+      color: $nocturnal-expedition;
       background-color: $deep-saffron;
     }
 
     &.status--gohugo {
-      color: #0a1922;
+      color: $organic-noir;
       background-color: $deep-saffron;
     }
 

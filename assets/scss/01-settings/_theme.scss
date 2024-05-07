@@ -20,6 +20,9 @@
 ///   // }
 $color-mode-type: data;
 
+/// color settings
+$danger-text-emphasis: $deep-saffron;
+
 /// @deprecated
 $primary: $deep-saffron;
 
@@ -27,8 +30,8 @@ $primary: $deep-saffron;
 $border-width: 2px;
 
 /// body
-$body-bg-dark: #172b36;
-$body-bg: #f1f6f4;
+$body-bg-dark: $organic-noir;
+$body-bg: $arctic-powder;
 
 /// typography
 /// $font-size-root: 16px;

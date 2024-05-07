@@ -40,12 +40,16 @@
       @extend .text-uppercase;
 
       font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
+      padding: .25rem .5rem .15rem;
       border-bottom: 0;
     }
 
     a {
       font-size: 0.6rem;
+    }
+
+    .btn-clipboard {
+      padding-bottom: 0.3rem;
     }
   }
 }

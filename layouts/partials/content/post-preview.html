@@ -7,8 +7,6 @@
 {{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
 
-  {{- partial "template-note" (dict "note" "post-preview.html") -}}
-
   {{- /* MARK: Banner
   */ -}}
   {{- if ne $config.banner false -}}

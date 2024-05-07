@@ -11,7 +11,7 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px
+  xxl: 1400px,
 );
 
 /// adding some more negative and positive levels to z-index
@@ -49,8 +49,8 @@ $zindex-levels: (
 $spacer: 1rem;
 $spacers: (
   0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
@@ -70,10 +70,10 @@ $font-sizes: (
   4: $h4-font-size,
   5: $h5-font-size,
   6: $h6-font-size,
-  7: $font-size-base * .85,
-  8: $font-size-base * .75,
-  9: $font-size-base * .6,
-  10: $font-size-base * .5,
+  7: $font-size-base * 0.85,
+  8: $font-size-base * 0.75,
+  9: $font-size-base * 0.6,
+  10: $font-size-base * 0.5,
 );
 
 /// @link https://getbootstrap.com/docs/5.3/helpers/ratio/#sass-maps
@@ -82,5 +82,17 @@ $aspect-ratios: (
   "2x1": 50%,
   "4x3": calc(3 / 4 * 100%),
   "16x9": calc(9 / 16 * 100%),
-  "21x9": calc(9 / 21 * 100%)
+  "21x9": calc(9 / 21 * 100%),
+);
+
+///
+$theme-colors-text: (
+  "primary": $primary-text-emphasis,
+  "secondary": $secondary-text-emphasis,
+  "success": $success-text-emphasis,
+  "info": $info-text-emphasis,
+  "warning": $warning-text-emphasis,
+  "danger": $danger-text-emphasis,
+  "light": $light-text-emphasis,
+  "dark": $dark-text-emphasis,
 );

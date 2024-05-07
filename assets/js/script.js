@@ -11,7 +11,7 @@ import './scripts/theme-changes';
 import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity';
 
 // import bootstrap scripts
-import './scripts/bs-tabs.js';
+// import './scripts/bs-tabs.js';
 import './scripts/bs-tooltips.js';
 
 // @ts-ignore - importing parameters from GoHugo

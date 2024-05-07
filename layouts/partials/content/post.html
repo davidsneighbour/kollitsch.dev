@@ -4,7 +4,6 @@
 
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
-  {{- partial "template-note" (dict "note" "post.html") -}}
 
   {{- /* MARK: Status
   */ -}}

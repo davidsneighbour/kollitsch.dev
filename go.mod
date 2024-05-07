@@ -8,7 +8,7 @@ require (
 	github.com/davidsneighbour/hugo-modules v1.2024.22 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/errors v0.0.0-20240505145921-d25a2c7203a8 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.12 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 // indirect
@@ -23,7 +23,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/publisher v0.0.4 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.6 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.8 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.9 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/schema v0.0.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/security v1.2023.3 // indirect

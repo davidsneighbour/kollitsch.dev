@@ -459,13 +459,10 @@ manifest-src = ["'self'"]
 [[dnb.netlification.redirects]]
 netlify = "https://kollitsch-dev.netlify.app/"
 
-# redirect main sections to home page
-# this should correspond to mainSections in config/_default/params/mainSections
 [[dnb.netlification.redirects]]
-from = "/blog/"
-to = "/"
+from = "/_schemata"
+to = "https://kollitsch.dev"
 status = "301"
-# END redirect main sections to home page
 
 [[dnb.netlification.redirects]]
 from = "/repos/*"

@@ -7,6 +7,12 @@
 {{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
 
+  {{- /* MARK: Status
+  */ -}}
+  {{- if ne $config.status false -}}
+    {{- partials.IncludeCached "content/components/status.html" $post $post -}}
+  {{- end -}}
+
   {{- /* MARK: Banner
   */ -}}
   {{- if ne $config.banner false -}}

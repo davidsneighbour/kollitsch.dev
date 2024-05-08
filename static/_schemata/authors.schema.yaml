@@ -1,5 +1,4 @@
-title: author(s) information
-
+title: Author Information
 type: object
 properties:
   authors:
@@ -13,6 +12,7 @@ properties:
           type: string
         homepage:
           type: string
+          format: uri
         image:
           type: string
   author:
@@ -22,10 +22,15 @@ properties:
     properties:
       name:
         type: string
-        homepage:
-          type: string
-        image:
-          type: string
+      homepage:
+        type: string
+        format: uri
+      image:
+        type: string
 oneOf:
   - required: [authors]
   - required: [author]
+  - not:
+      anyOf:
+        - required: [authors]
+        - required: [author]

@@ -1,4 +1,16 @@
 Changelog
+## [2024.1.51](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.50...v2024.1.51) (2024-05-08)
+
+
+### Content
+
+* **fix:** proper schema for authors ([40090bd](https://github.com/davidsneighbour/kollitsch.dev/commit/40090bd089b68e0d427512e363f9812ebf91b5fd))
+
+
+### Chore
+
+* **deps:** update dependencies ([5cd13da](https://github.com/davidsneighbour/kollitsch.dev/commit/5cd13da1f21a1e24212025832d468eb3f402db6a))
+
 ## [2024.1.50](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.49...v2024.1.50) (2024-05-07)
 
 

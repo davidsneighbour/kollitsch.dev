@@ -30,9 +30,10 @@ aliases:
 
 ## Follow my exploits on Social Media
 
+* Bluesky: [@kollitsch.dev](https://bsky.app/profile/kollitsch.dev)
 * Mastodon: [mas.to/@davidsneighbour](https://mas.to/@davidsneighbour)
 * Linkedin: [linkedin.com/in/patrickkollitsch](https://www.linkedin.com/in/patrickkollitsch)
 * Discord: [Neighbourhood News](https://discord.gg/Jw4J6hNAyu)
 * Reddit: [r/davidsneighbour](https://www.reddit.com/r/davidsneighbour/)
 
-{{< figure name="social-media.jpg" />}}
+{{< figure name="social-media.jpg" title="Connect now." />}}

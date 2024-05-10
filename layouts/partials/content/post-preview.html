@@ -42,18 +42,8 @@
   */ -}}
   <div class="prose">
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-before" "context" $post ) -}}
-		<p class="text-truncate text-truncate-3">
-      {{- /* @todo move into summary function */ -}}
-			{{- with $post.Summary -}}
-				{{- . | transform.Markdownify -}}
-			{{- else -}}
-				{{- with $post.Description -}}
-					{{- . | transform.Markdownify -}}
-				{{- else -}}
-					{{- $post.Content | transform.Plainify | strings.Truncate 200 -}}
-				{{- end -}}
-			{{- end -}}
-		</p>
+    {{- $options := dict "type" $posttype "post" $post -}}
+    {{- partials.Include "content/components/content.html" $options $options -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-after" "context" $post ) -}}
   </div>
 

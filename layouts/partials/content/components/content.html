@@ -11,25 +11,52 @@
   {{- $artist = (index $artist 0) -}}
 {{ end }}
 
-{{- with $post.Content -}}
-  {{- . -}}
-{{- end -}}
+{{ if and (page.IsNode) (ne .is_preview false) }}
 
-{{- if eq $type "music" -}}
-  {{- $name := $artist.name -}}
-  {{- with $post.Params.video.name -}}
-    {{- $name = . -}}
+  {{- $output := "" -}}
+  {{- with $post.Summary -}}
+    {{- $output = . | transform.Markdownify -}}
+  {{- else -}}
+    {{- with $post.Description -}}
+      {{- $output = . | transform.Markdownify -}}
+    {{- else -}}
+      {{- $output = $post.Content | transform.Plainify | strings.Truncate 200 -}}
+    {{- end -}}
   {{- end -}}
-  <div class="alert alert-light" role="alert">
-    <p>
-      {{- lang.Translate "theme.this_is" }} "{{- $post.Params.video.title -}}" {{ lang.Translate "theme.by" }}
-      <a href="{{- $artist.link -}}">
-        {{- $artist.name -}}
-      </a>.
-    </p>
-    <p>
-      {{- $artist.description | transform.Markdownify -}}
-    </p>
-  </div>
-{{- end -}}
+
+  <p class="text-truncate text-truncate-3">
+  {{- if eq "" $output -}}
+    {{- lang.Translate "theme.this_is" }} "{{- $post.Params.video.title -}}" {{ lang.Translate "theme.by" }}
+    <a href="{{- $artist.link -}}">
+      {{- $artist.name -}}
+    </a>. {{ $artist.description | transform.Markdownify -}}
+  {{ else }}
+    {{- $output -}}
+  {{- end -}}
+  </p>
+
+{{ else }}
+
+  {{- with $post.Content -}}
+    {{- . -}}
+  {{- end -}}
+
+  {{- if eq $type "music" -}}
+    {{- $name := $artist.name -}}
+    {{- with $post.Params.video.name -}}
+      {{- $name = . -}}
+    {{- end -}}
+    <div class="alert alert-light" role="alert">
+      <p>
+        {{- lang.Translate "theme.this_is" }} "{{- $post.Params.video.title -}}" {{ lang.Translate "theme.by" }}
+        <a href="{{- $artist.link -}}">
+          {{- $artist.name -}}
+        </a>.
+      </p>
+      <p>
+        {{- $artist.description | transform.Markdownify -}}
+      </p>
+    </div>
+  {{- end -}}
+{{ end }}
 

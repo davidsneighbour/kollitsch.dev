@@ -40,7 +40,8 @@
     {{- /* MARK: Content
     */ -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-before" "context" $post ) -}}
-    {{- $post.Content -}}
+    {{- $options := dict "type" $posttype "post" $post -}}
+    {{- partials.Include "content/components/content.html" $options $options -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
 
     {{- /* MARK: Comments

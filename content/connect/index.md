@@ -36,4 +36,4 @@ aliases:
 * Discord: [Neighbourhood News](https://discord.gg/Jw4J6hNAyu)
 * Reddit: [r/davidsneighbour](https://www.reddit.com/r/davidsneighbour/)
 
-{{< figure name="social-media.jpg" title="Connect now." />}}
+{{< figure name="social-media.jpg" />}}

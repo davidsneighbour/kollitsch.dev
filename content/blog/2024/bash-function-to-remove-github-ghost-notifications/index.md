@@ -22,7 +22,7 @@ type: blog
 
 Every now and then my inbox in Github shows x total unread updates without having actual updates. When I click on it, there are no unread notifications. This is a known issue and it's been around for a while. The notifications are called "ghost notifications" and they are not visible in the UI. They are only visible in the API and have probably already their own support response template.
 
-{{< figure name="screenshot.jpg" >}}{{< /figure >}}
+{{< figure name="screenshot.jpg" title="screenshot" alt="screenshot">}}Screenshot{{< /figure >}}
 
 Even clicking around and loading any separate repository that indicates having updates does not clear them. The only way to clear them is to use the API --- which is why I now have a bash function that does this for me.
 

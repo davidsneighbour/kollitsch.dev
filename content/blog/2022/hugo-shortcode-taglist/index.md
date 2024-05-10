@@ -1,7 +1,7 @@
 ---
 title: "Hugo Shortcode: Taglist"
 description: I needed a Hugo shortcode to show a list of posts that belonged to a [certain](/tags/laboratory/) tag, which is quite easy. Add the following to `layouts/shortcodes/taglist.html` or whatever name you like to use for the shortcode.
-summary: I needed a Hugo shortcode to show a list of posts that belonged to a [certain](/tags/laboratory/) tag, which is quite easy. Add the following to `layouts/shortcodes/taglist.html` or whatever name you like to use for the shortcode.
+summary: I needed a Hugo shortcode to show a list of posts that belonged to a certain tag, which is quite easy. Add the following to a layout file in `layouts/shortcodes` to use for the shortcode.
 date: 2022-03-01T21:18:21+07:00
 publishDate: 2022-03-01T21:18:21+07:00
 lastmod: 2023-08-07T20:27:13+07:00

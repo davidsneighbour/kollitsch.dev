@@ -1,0 +1,35 @@
+{{- $type := .type | default "blog" -}}
+{{- $post := .post -}}
+{{- $artist := dict -}}
+
+{{ if eq $type "music" }}
+  {{- $artist = collections.First 1 (where
+        site.Data.dnb.kollitsch.music
+        "slug"
+        $post.Params.video.artist
+  ) -}}
+  {{- $artist = (index $artist 0) -}}
+{{ end }}
+
+{{- with $post.Content -}}
+  {{- . -}}
+{{- end -}}
+
+{{- if eq $type "music" -}}
+  {{- $name := $artist.name -}}
+  {{- with $post.Params.video.name -}}
+    {{- $name = . -}}
+  {{- end -}}
+  <div class="alert alert-light" role="alert">
+    <p>
+      {{- lang.Translate "theme.this_is" }} "{{- $post.Params.video.title -}}" {{ lang.Translate "theme.by" }}
+      <a href="{{- $artist.link -}}">
+        {{- $artist.name -}}
+      </a>.
+    </p>
+    <p>
+      {{- $artist.description | transform.Markdownify -}}
+    </p>
+  </div>
+{{- end -}}
+

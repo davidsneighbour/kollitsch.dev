@@ -20,7 +20,7 @@
     {{- with $post.Description -}}
       {{- $output = . | transform.Markdownify -}}
     {{- else -}}
-      {{- $output = $post.Content | transform.Plainify | strings.Truncate 200 -}}
+      {{- $output = $post.Content | transform.Markdownify | strings.Truncate 200 -}}
     {{- end -}}
   {{- end -}}
 

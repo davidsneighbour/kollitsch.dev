@@ -8,6 +8,8 @@ github.com/davidsneighbour/hugo-modules v1.2024.22 h1:24b5FpIy4e64GCBjVxTk+GDB1i
 github.com/davidsneighbour/hugo-modules v1.2024.22/go.mod h1:w9hEyd2lQiIDyYRXl1xGkma4kx6Eh8P7MPc9CqhBXIc=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6 h1:Ionw4Y+eJnYyGk87HJ4itatAyYqIsae2GD3MIBfuzq4=
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.6/go.mod h1:LibI1IDZCBBzIo/klOpNTLTZ3H6DeZc0K0qyh7j6Zus=
+github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.7 h1:YZny3pin2q8wtpAF79TkFJnt17xhJ8w1jM0U1SHd/+o=
+github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.7/go.mod h1:Zjhg0WuSFxQcwAcIzaNO46K+sRyMyeb+Wwk7G+tytKc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21 h1:JXhP+4nYwUOAhbg9WJCteJdaONjujTgGWCF19uXuPkU=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21/go.mod h1:CYzEyrne+zP2qNG2S68PZP5eAqHjznaljh8S+9bDzIA=
 github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.2 h1:vAIxKOTor0MtpDa5ltVljPqyjpZAU7LYBAzsoIpstGY=
@@ -16,6 +18,8 @@ github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 h1:BYO18szo7l06F
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7/go.mod h1:IYXVLZBw+dk+6YPWtUz5bHO7UzFWLu5NrM4Hy+qwj6c=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.12 h1:DphG2TWIlaDj/w30qqyZWFHbvestK6EK8t+oi3iKTAo=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.12/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
+github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.13 h1:RD9cR0aDgFka+Rr7WNuvGUDCiYeO8FyJxEgy5YVqN+w=
+github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.13/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 h1:9MyACinsdCt6x9B/REHSvQQ0pL6TigKfjbs/07JUQAA=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0/go.mod h1:F4PJUjhwfl1GzpoHeups4V5KQcbGIvqzgpROFrGrhCo=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2024.5 h1:UmsrcE30XgHFz6Api2D4Kpur6GOjUttsFIBo0aKZS0g=

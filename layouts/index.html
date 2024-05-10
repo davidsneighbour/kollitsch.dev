@@ -16,7 +16,7 @@
       {{- $homePosts := first 8 $paginator.Pages -}}
       <div class="row">
         {{- range $index, $item := $homePosts -}}
-          {{ if not .IsHome }}
+          {{ if not .IsHome }}{{/* a quick hack to leave the home page itself out of the loop */}}
             {{ $class := "col-md-6" }}
             {{ if eq $counter 0 }}
               <div class="col-12 snap-align-start mb-5 snap-y is--hotkey-post" data-hotkey="k+{{- $index -}}">

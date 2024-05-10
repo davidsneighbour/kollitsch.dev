@@ -26,6 +26,8 @@ github.com/davidsneighbour/hugo-modules/modules/hooks v1.2024.9 h1:27q3Kn+zj1OMa
 github.com/davidsneighbour/hugo-modules/modules/hooks v1.2024.9/go.mod h1:4IPmOuOlQhte2TgYsMxD1M1aFcoNVlZLZUqvrCb/GUY=
 github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.7 h1:2xmMqH/mzLRMeCdTwIysq7BzitrboEUkQS6lgPTzej4=
 github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.7/go.mod h1:xQdg+wdJCM6R5L10OBw5rhDQN4U/1usX56GOdN1CMFw=
+github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.8 h1:0VCBhUH5RheM8R7zLKYHEdVwoIXAksRENpz8+OZQFHU=
+github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.8/go.mod h1:YBL/vJE7ghoYfVfZ5+G2woslIK0P5vWYs5tMv5NmKBg=
 github.com/davidsneighbour/hugo-modules/modules/internals v1.2024.0 h1:UNvcpugZNxl4ycLsq6XxRFjNHBg1R1jW71fUOWPSmII=
 github.com/davidsneighbour/hugo-modules/modules/internals v1.2024.0/go.mod h1:jXeR2s6KyOuUdR+GBPUPml27qXK2chH9G3Nfrwlea6c=
 github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.4 h1:RCS7ibIsn3q1EQvRHLCkZOqkS9TaPnodBSje20NAXeo=

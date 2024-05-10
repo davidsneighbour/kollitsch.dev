@@ -61,7 +61,7 @@
     "ninja-keys": "1.2.2",
     "node-fetch": "3.3.2",
     "oauth-1.0a": "2.2.6",
-    "openai": "4.43.0",
+    "openai": "4.44.0",
     "pagefind": "1.1.0",
     "playwright": "1.44.0",
     "postcss": "8.4.38",

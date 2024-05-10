@@ -3,7 +3,8 @@
 {{- with .Last }}
   {{- if compare.Ne $currentPageNumber .PageNumber }}
     <li class="page-item">
-      <a href="{{ .URL }}" aria-label="{{ lang.Translate "theme.last" }}" class="page-link">
+      {{- $copy := lang.Translate "theme.last" }}
+      <a href="{{ .URL }}" aria-label="{{- $copy -}}" class="page-link">
         {{- partials.Include "icon.html" "chevron-double-right" -}}
       </a>
     </li>

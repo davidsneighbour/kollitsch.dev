@@ -1,4 +1,33 @@
 Changelog
+## [2024.1.52](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.51...v2024.1.52) (2024-05-10)
+
+
+### Theme
+
+* **feat:** add auditor to stylesheets ([198e77a](https://github.com/davidsneighbour/kollitsch.dev/commit/198e77a0d48d85b33e33e73ca12038ed3d728927))
+* **fix:** add music type content to post and post-preview ([7a3ad55](https://github.com/davidsneighbour/kollitsch.dev/commit/7a3ad55904790b1685bc03194b496250f09ceb5f)), closes [#907](https://github.com/davidsneighbour/kollitsch.dev/issues/907) [#896](https://github.com/davidsneighbour/kollitsch.dev/issues/896) [#895](https://github.com/davidsneighbour/kollitsch.dev/issues/895)
+* **fix:** remove unused type partials ([7c24af4](https://github.com/davidsneighbour/kollitsch.dev/commit/7c24af493f49a4fcb7a1f0f783d9b27efe915f23))
+* **fix:** show first post on home page in full ([28f7fdb](https://github.com/davidsneighbour/kollitsch.dev/commit/28f7fdb77d444d7fad88c4b24d330918317574a3)), closes [#921](https://github.com/davidsneighbour/kollitsch.dev/issues/921)
+* **fix:** show status flags on post-preview ([cfe9051](https://github.com/davidsneighbour/kollitsch.dev/commit/cfe9051821f62946d20606293e74e6ec4f24735e)), closes [#915](https://github.com/davidsneighbour/kollitsch.dev/issues/915)
+* **fix:** use markdownify instead of plainify for content summary on post-preview ([ad8db1c](https://github.com/davidsneighbour/kollitsch.dev/commit/ad8db1cd505619b813133e41faeb11629c39a7a1))
+* **refactor:** move template tags out of HTML properties ([5bee2b1](https://github.com/davidsneighbour/kollitsch.dev/commit/5bee2b1960bea1f17f0a8d0fe347fb496578aba8))
+
+
+### Content
+
+* **fix:** add bluesky account to connect page ([c12bfe8](https://github.com/davidsneighbour/kollitsch.dev/commit/c12bfe88ebbbf4b1f33ee344660820b8a1cbabb0))
+* **fix:** add Bluesky to social media links ([4c7876a](https://github.com/davidsneighbour/kollitsch.dev/commit/4c7876aa8cdc74f34988cec5ae1e90a4cc6f017e))
+* **fix:** fix summary for proper display ([707c3e2](https://github.com/davidsneighbour/kollitsch.dev/commit/707c3e209e9188c335581bfe1bd65176c1b4a1ed)), closes [#920](https://github.com/davidsneighbour/kollitsch.dev/issues/920)
+* **fix:** proper figure calls ([3da111c](https://github.com/davidsneighbour/kollitsch.dev/commit/3da111c47b58f7ade3d68cb9e50348624f1af8dc)), closes [#919](https://github.com/davidsneighbour/kollitsch.dev/issues/919)
+
+
+### Chore
+
+* **deps:** update dependencies ([27b3e54](https://github.com/davidsneighbour/kollitsch.dev/commit/27b3e5419c594463a9a6d5098210c2794bcac4c9))
+* **deps:** update dependencies ([6c99411](https://github.com/davidsneighbour/kollitsch.dev/commit/6c994119d741d1ab4c562dfc96cd79a61240cf42))
+* **deps:** update gohugo modules ([117c603](https://github.com/davidsneighbour/kollitsch.dev/commit/117c60332eaa8874b8a49fc1dc58cac0817b82a9))
+* **deps:** update gohugo modules ([5217ade](https://github.com/davidsneighbour/kollitsch.dev/commit/5217ade3d59ebb9eff99be90f60e51b5b3db71e4)), closes [#905](https://github.com/davidsneighbour/kollitsch.dev/issues/905)
+
 ## [2024.1.51](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.50...v2024.1.51) (2024-05-08)
 
 

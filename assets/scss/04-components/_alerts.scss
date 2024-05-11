@@ -1,20 +1,12 @@
 .alert {
-  @extend .hyphenate;
 
   a {
-    // adds colors to all links inside alerts
+    /// adds colors to all links inside alerts
     @extend .alert-link;
   }
 
-  // remove unnessary margin from last paragraph in alerts
+  /// remove unnessary margin from last paragraph in alerts
   p:last-of-type {
     @extend .mb-0;
-  }
-
-  &-box {
-    @extend .d-flex;
-    @extend .flex-row;
-    @extend .justify-content-between;
-    @extend .align-items-start;
   }
 }

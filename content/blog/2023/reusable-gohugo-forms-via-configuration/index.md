@@ -161,7 +161,7 @@ Then, the form itself is generated. As I wrote above, the only implemented `grou
 <form {{ $formAttributes | safe.HTMLAttr }} class="{{ $formConfig.classes | safeHTMLAttr }}">
   {{- $groups := $formConfig.groups | default "false" -}}
   {{- if eq $groups "false" -}}
-    {{- /* @todo ungrouped forms */ -}}
+    {{- /* ungrouped forms */ -}}
   {{- else -}}
     <div class="row g-3">
       {{ range $formConfig.fields }}

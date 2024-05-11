@@ -10,9 +10,9 @@
           {{- if compare.Lt $counter 4 -}}
             {{- with site.GetPage (fmt.Printf "/tags/%s/" .Name) -}}
               {{- if compare.Ne .Content "" -}}
-                {{- $post := collections.Dictionary "context" . "fullcontent" false "responsive" "halfwidth" -}}
                 <div class="col-md-6 mb-3">
-                  {{- partials.Include "content/post-preview.html" . -}}
+                  {{- $post := collections.Dictionary "context" . "level" "3" "index" (add $key 1) -}}
+                  {{- partials.Include "content/post-preview.html" $post -}}
                 </div>
                 {{- $counter = math.Add $counter 1 -}}
               {{- end -}}

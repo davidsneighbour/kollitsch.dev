@@ -19,9 +19,9 @@
             {{- $col = "12" -}}
             {{- $post = collections.Dictionary "context" $item "responsive" "fullwidth" -}}
           {{- end -}}
-          <div class="col-12 col-md-{{ $col }} snap-align-start mb-5 snap-y is--hotkey-post"
-                data-hotkey="k+{{- $index -}}" data-link="{{ $post.context.Permalink -}}">
-            {{- partials.Include "content/post-preview.html" $item -}}
+          <div class="col-12 col-md-{{ $col }} snap-align-start mb-5 snap-y">
+            {{- $post := collections.Dictionary "context" $item "level" "3" "index" (add $index 1) -}}
+            {{- partials.Include "content/post-preview.html" $post -}}
           </div>
         {{ end }}
       {{- end -}}

@@ -269,7 +269,7 @@
       {{- $params = dict "params" (transform.Unmarshal .Content) -}}
     {{- end -}}
     {{- $options = collections.Merge $options $params -}}
-    {{- $scripts := resources.Get "js/script.js" |
+    {{- $scripts := resources.Get "js/script.ts" |
           js.Build (
             collections.Merge $options (collections.Dictionary "targetPath" "assets/js/script.js")
           ) | resources.Fingerprint "sha512" -}}

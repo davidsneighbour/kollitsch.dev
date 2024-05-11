@@ -1,4 +1,4 @@
-export function themeSwitcher() {
+export function themeSwitcher(this: any) {
   let _this = this;
   return {
     theme: 'dark',
@@ -40,7 +40,7 @@ export function themeSwitcher() {
     },
     changeGiscusTheme: function () {
       const giscusTheme = this.theme === 'dark' ? 'dark' : 'light';
-      let iframe = document.querySelector('iframe.giscus-frame');
+      let iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
       if (iframe && iframe.contentWindow) {
         iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');
       }

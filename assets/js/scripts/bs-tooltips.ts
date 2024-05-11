@@ -1,5 +1,5 @@
-var Popper = require('@popperjs/core');
-var Tooltip = require('bootstrap').Tooltip;
+// import { createPopper } from '@popperjs/core';
+import { Tooltip } from 'bootstrap';
 
 // Bootstrap Tooltips
 var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');

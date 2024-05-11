@@ -1,4 +1,25 @@
 Changelog
+## [2024.1.54](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.53...v2024.1.54) (2024-05-11)
+
+
+### Theme
+
+* **feat:** move js to ts ([cfb7617](https://github.com/davidsneighbour/kollitsch.dev/commit/cfb761744330c0c8c23baf5b32c645790cb698be))
+* **feat:** show 50 items on archive page (instead of 25) ([3944e02](https://github.com/davidsneighbour/kollitsch.dev/commit/3944e02edc983fbe80d362bb9d226820c68a1115))
+* **fix:** keyboard navigation for post lists ([49139b9](https://github.com/davidsneighbour/kollitsch.dev/commit/49139b9ea46668e6a00fc99062acd91634139eab)), closes [#925](https://github.com/davidsneighbour/kollitsch.dev/issues/925)
+* **fix:** no padding around banner images ([2f966f6](https://github.com/davidsneighbour/kollitsch.dev/commit/2f966f6768eee9817dc7f3c999ff4694b73b460a)), closes [#927](https://github.com/davidsneighbour/kollitsch.dev/issues/927)
+* **fix:** proper icon for blog navbar link ([4f5a9dd](https://github.com/davidsneighbour/kollitsch.dev/commit/4f5a9ddff9d424a38aca0581e815dfa6856e988b)), closes [#926](https://github.com/davidsneighbour/kollitsch.dev/issues/926)
+
+
+### Content
+
+* **fix:** remove todo tag from code sample ([f4edd01](https://github.com/davidsneighbour/kollitsch.dev/commit/f4edd01cbca72346e711b5d159f8bda03ab7aa31))
+
+
+### Chore
+
+* **git:** update bin submodule ([d7e0838](https://github.com/davidsneighbour/kollitsch.dev/commit/d7e083833bee0951d34d8ccfdb3297408926853f))
+
 ## [2024.1.53](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.52...v2024.1.53) (2024-05-11)
 
 

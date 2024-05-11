@@ -91,7 +91,7 @@
     "build:pagefind": "pagefind",
     "clean": "wireit",
     "clean:full": "wireit",
-    "deploy": "./bin/netlify/deploy",
+    "deploy": "npm run release && npm run build:hugo && npm run build:pagefind && netlify deploy --prod --open",
     "eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
     "eslint-fix": "npm run eslint -- --fix",
     "hooks:update": "simple-git-hooks",

@@ -1,6 +1,7 @@
 {{- with .Prev }}
   <li class="page-item">
-    <a href="{{ .URL }}" aria-label="{{ lang.Translate "theme.previous" }}" class="page-link">
+    {{- $copy := lang.Translate "theme.previous" }}
+    <a href="{{ .URL }}" aria-label="{{ $copy }}" class="page-link">
       {{- partials.Include "icon.html" "chevron-left" -}}
     </a>
   </li>

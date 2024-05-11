@@ -17,6 +17,10 @@ other = "Showing posts from"
 description = ""
 other = "Recent Posts (Page %d)"
 
+[theme.recentposts]
+description = ""
+other = "Recent Posts"
+
 [theme.home]
 description = ""
 other = "Home"
@@ -167,3 +171,55 @@ other = "This post is part of [#100DaysToOffload](/blog/2022/100-days-to-offload
 [100daystooffload.counter]
 description = ""
 other = "{{ .numsince }} posts since {{ .datesince }} &mdash; {{ .numtotal }} total posts"
+
+[meta.edit]
+description = ""
+other = "Edit in VSCode"
+
+[meta.published]
+description = ""
+other = "Published: %s"
+
+[meta.modified]
+description = ""
+other = "(Last Modified: %s)"
+
+[theme.page]
+description = ""
+other = "Page %s"
+
+[theme.navigationlabel]
+description = ""
+other = "Page navigation"
+
+[theme.relatedposts]
+description = ""
+other = "Related Posts"
+
+[theme.webvitals]
+description = ""
+other = "This page's web vitals: "
+
+[shortcode.keycombinations.label]
+other = "Keycombinations"
+
+[shortcode.keycombinations.action]
+other = "Action"
+
+[shortcode.options.caption]
+other = "Options"
+
+[shortcode.options.option]
+other = "Option"
+
+[shortcode.options.type]
+other = "Type"
+
+[shortcode.options.default]
+other = "Default"
+
+[shortcode.options.description]
+other = "Description"
+
+[theme.readall]
+other = "Read All Posts"

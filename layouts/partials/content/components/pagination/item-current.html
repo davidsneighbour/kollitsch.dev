@@ -7,12 +7,13 @@
   {{- $start = math.Max 1 (math.Add (math.Sub $end $slots) 1) }}
 {{- end }}
 {{- range $k := collections.Seq $start $end }}
+  {{- $copy := printf (i18n "theme.page") $k -}}
   {{- if compare.Eq $paginator.PageNumber $k }}
     <li class="page-item active">
       <a
         href="#"
         aria-current="page"
-        aria-label="Page {{ $k }}"
+        aria-label="{{- $copy -}}"
         class="page-link"
         >{{ $k }}</a
       >
@@ -21,7 +22,7 @@
     <li class="page-item">
       <a
         href="{{ (collections.Index $paginator.Pagers (math.Sub $k 1)).URL }}"
-        aria-label="Page {{ $k }}"
+        aria-label="{{- $copy -}}"
         class="page-link"
         >{{ $k }}</a
       >

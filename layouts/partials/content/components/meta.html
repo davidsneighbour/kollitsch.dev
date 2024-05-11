@@ -39,15 +39,13 @@
           {{- partials.Include "icon.html" "calendar3" }}
         </div>
         <div class="d-flex flex-row gap-0 column-gap-2 flex-wrap">
-          <span>Published: {{ $published }}</span>
+          <span>{{- printf (i18n "meta.published") $published -}}</span>
           <span class="align-self-end text-body-secondary text-small">
-            (Last Modified: {{ $last_modified -}})
+            {{- printf (i18n "meta.modified") $last_modified -}}
           </span>
           {{- if hugo.IsServer -}}
-            <a
-              href="vscode://file/{{- .File.Filename -}}"
-              aria-label="Edit collections.In VSCode"
-            >
+            {{- $copy := i18n "meta.edit" -}}
+            <a href="vscode://file/{{- .File.Filename -}}" aria-label="{{- $copy -}}" title="{{- $copy -}}">
               {{- partials.Include "icon.html" "vector-pen" -}}
             </a>
           {{- end -}}

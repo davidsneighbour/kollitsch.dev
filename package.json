@@ -176,7 +176,7 @@
       ]
     },
     "server:hugo": {
-      "command": "bin/hugo/server",
+      "command": "node bin/hugo/server.js",
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at *"

@@ -1,4 +1,25 @@
 Changelog
+## [2024.1.53](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.52...v2024.1.53) (2024-05-11)
+
+
+### Theme
+
+* **feat:** move stray strings from layouts into i18n ([fad41ee](https://github.com/davidsneighbour/kollitsch.dev/commit/fad41ee56e1ef0bfccb77ba301ad38b4cdebd552))
+* **fix:** move alert classes into shortcode ([c12b8f2](https://github.com/davidsneighbour/kollitsch.dev/commit/c12b8f2dfdefd8e20496622b680f69f3ec3c5be3))
+* **refactor:** cleanup stylesheets ([9e461fb](https://github.com/davidsneighbour/kollitsch.dev/commit/9e461fbc470f10d8b24dbbff56b7ed2a479f436d))
+
+
+### Chore
+
+* **deps:** update dependencies ([126f4ee](https://github.com/davidsneighbour/kollitsch.dev/commit/126f4ee9575be64fe6f79c4219258a2887d7a5da))
+* **git:** update bin submodule ([18762ec](https://github.com/davidsneighbour/kollitsch.dev/commit/18762ec04e2c1a4441e959b546aa7e20e8398dc4))
+
+
+### Build System
+
+* **feat:** refactor deploy function ([963d0eb](https://github.com/davidsneighbour/kollitsch.dev/commit/963d0eb6f82116a8ba84003d55001b508093c786))
+* **feat:** set node script as server script ([ac48910](https://github.com/davidsneighbour/kollitsch.dev/commit/ac4891041338d1165e4b6c4aeda4a229869f7819))
+
 ## [2024.1.52](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.51...v2024.1.52) (2024-05-10)
 
 

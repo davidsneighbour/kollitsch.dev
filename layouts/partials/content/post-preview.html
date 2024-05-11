@@ -1,6 +1,7 @@
-{{- $post := . -}}
+{{- $post := .context -}}
 {{- $posttype := $post.Type -}}
 {{- $config := partial "func/getPostSetup.html" $posttype -}}
+{{- $index := .index | default false -}}
 
 {{- /* create content parts based on content type */ -}}
 
@@ -54,7 +55,11 @@
     {{- $label := printf "%s: %s" (lang.Translate "theme.read_article") $post.Title -}}
 		<a href="{{- $post.Permalink -}}"
         class="d-inline-flex flex-row justify-content-end align-items-center"
-        aria-label="{{- $label }}">
+        aria-label="{{- $label }}"
+        {{ with $index }}
+          data-hotkey="k+{{- $index -}}"
+        {{ end }}
+        >
       <span class="d-inline-block pe-2">
         {{- lang.Translate "theme.read_article" -}}
       </span>

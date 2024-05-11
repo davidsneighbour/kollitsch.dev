@@ -14,7 +14,8 @@
               {{- $post = collections.Dictionary "context" $item "responsive" "fullwidth" -}}
             {{- end -}}
             <div class="col-12 col-md-{{ $col }} mb-5">
-              {{- partials.Include "content/post-preview.html" $item -}}
+              {{- $post := collections.Dictionary "context" $item "level" "3" "index" (add $index 1) -}}
+              {{- partials.Include "content/post-preview.html" $post -}}
             </div>
           {{ end }}
         {{- end -}}

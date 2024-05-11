@@ -52,9 +52,9 @@
         <h2>{{- $label -}}</h2>
         <div class="row">
         {{- range $index, $item := collections.Sort page.Pages "Title" "asc" -}}
-          {{- $post := collections.Dictionary "context" $item "fullcontent" false "responsive" "halfwidth" -}}
           <div class="col-12 col-md-6 mb-5">
-            {{- partials.Include "content/post-preview.html" $item $item -}}
+            {{- $post := collections.Dictionary "context" $item "level" "3" "index" (add $index 1) -}}
+            {{- partials.Include "content/post-preview.html" $post -}}
           </div>
         {{- end -}}
         </div>

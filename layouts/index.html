@@ -24,7 +24,7 @@
               </div>
             {{ else }}
               {{ if eq $counter 1 }}
-                <h2 class="text-center text-primary m-5"><a href="{{- site.BaseURL -}}/blog">Recent Posts</a></h2>
+                <h2 class="text-center text-primary m-5"><a href="{{- site.BaseURL -}}/blog">{{ i18n "theme.recentposts" }}</a></h2>
               {{ end }}
               <div class="col-12 col-md-4 snap-align-start mb-5 snap-y is--hotkey-post"
                   data-hotkey="k+{{- $index -}}">
@@ -39,7 +39,11 @@
       <div class="row">
         <div class="col text-center">
           {{- /* @todo put link into configuration */ -}}
-          <h3><a href="{{- site.BaseURL -}}/blog" class="btn btn-outline-primary btn-lg">Read All Posts</a></h3>
+          <h3>
+            <a href="{{- site.BaseURL -}}/blog" class="btn btn-outline-primary btn-lg">
+              {{- i18n "theme.readall" -}}
+            </a>
+          </h3>
         </div>
       </div>
     </div>

@@ -1,14 +1,13 @@
-{{- $caption := .Get "caption" | compare.Default "Options" -}}
-
+{{- $caption := .Get "caption" | compare.Default (i18n "shortcode.options.caption") -}}
 
 <table class="table-options">
   <caption>{{- $caption -}}</caption>
   <thead>
     <tr>
-      <th>Option</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
+      <th>{{ i18n "shortcode.options.option" }}</th>
+      <th>{{ i18n "shortcode.options.type" }}</th>
+      <th>{{ i18n "shortcode.options.default" }}</th>
+      <th>{{ i18n "shortcode.options.description" }}</th>
     </tr>
   </thead>
   <tbody>

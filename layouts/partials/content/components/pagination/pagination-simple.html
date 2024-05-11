@@ -1,4 +1,5 @@
-<nav class="row" aria-label="Page Navigation">
+{{- $copy := i18n "theme.navigationlabel" -}}
+<nav class="row" aria-label="{{- $copy -}}">
   <div class="d-flex flex-column">
     {{- $paginator := .Scratch.Get "paginator" -}}
     {{- if compare.Gt $paginator.TotalPages 1 -}}

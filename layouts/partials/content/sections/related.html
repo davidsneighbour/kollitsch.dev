@@ -20,7 +20,7 @@
 
   {{- with $relatedPages.Limit ($config.limit | cast.ToInt) -}}
     <div class="section--related mt-5">
-      <h3 class="section__title">Related Posts</h3>
+      <h3 class="section__title">{{- i18n "theme.relatedposts" -}}</h3>
       <ul>
         {{- range . -}}
           <li><a href="{{- .RelPermalink -}}">{{- .Title -}}</a></li>

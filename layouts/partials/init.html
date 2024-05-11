@@ -15,7 +15,7 @@
 {{- else if compare.Eq .Section "archive" -}}
   {{- $p := collections.Where site.RegularPages "Type" "in" site.Params.mainSections -}}
   {{- $p = collections.Sort $p "Date" "desc" -}}
-  {{- $paginator = $.Paginate $p 25 -}}
+  {{- $paginator = $.Paginate $p 50 -}}
 {{- else if .IsNode -}}
   {{- $paginator = $.Paginator -}}
 {{- end -}}

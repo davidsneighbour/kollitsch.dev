@@ -6,6 +6,6 @@ menu:
     name: Blog
     weight: 20
     params:
-      bsicon: chat-right-text
+      bsicon: chat-right-text-fill
       hotkey: k+b
 ---

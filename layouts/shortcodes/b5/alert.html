@@ -1,5 +1,5 @@
 {{- $type := printf "alert-%s" (.Get "type" | default "light") -}}
-<div class="alert alert-box {{ $type -}}"
+<div class="alert d-flex flex-row justify-content-between align-items-start {{ $type -}}"
      role="alert">
   {{ $options := dict "icon" "info-square" "width" "48" "height" "48" "class" "me-3" }}
   {{ partials.Include "icon.html" $options }}

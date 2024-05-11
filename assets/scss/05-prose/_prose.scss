@@ -46,6 +46,8 @@ h6 {
   }
 }
 
+/// hyphenation for various content types
+.alert,
 p,
 li,
 dd,
@@ -55,11 +57,6 @@ td {
   @extend .hyphenate;
 
   @include word-wrap;
-}
-
-> p code {
-  background-color: var(--bs-tertiary-bg);
-  padding: 0.2rem 0.35rem;
 }
 
 blockquote {
@@ -119,6 +116,7 @@ kbd {
   border-right-width: 1px;
   border-bottom: 0;
 }
+
 [id^="fnref"] {
   color: $primary;
 }

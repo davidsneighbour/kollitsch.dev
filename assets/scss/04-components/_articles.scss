@@ -1,26 +1,9 @@
 /// @todo move this into prose
 article {
-  // .post-title {
-  //   .col-md-12 & {
-  //     font-size: 1.25rem;
-  //   }
-
-  //   .col-md-6 & {
-  //     font-size: 1.05rem;
-  //   }
-  // }
 
   h1.post-title,
   h2.post-title {
-    // font-size: css-max(#{30px}, #{3.5vw});
-
-    // a {
-    //   @extend .text-decoration-none;
-    // }
-
     border-bottom: $border-width solid $primary;
-
-    // @extend .mb-3;
   }
 
   .ribbon {
@@ -45,4 +28,16 @@ article {
   }
 
   @extend .position-relative;
+}
+
+
+.section--content {
+  article {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.05);
+
+    @extend .rounded;
+  }
+
 }

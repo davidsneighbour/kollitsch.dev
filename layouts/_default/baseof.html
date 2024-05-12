@@ -193,8 +193,8 @@
           {{- end -}}
           <div class="widget social-media">
             <h3 class="fs-6 my-5 fw-bold text-uppercase">{{- lang.Translate "theme.connect-on-social" -}}</h3>
-            <div class="container">
-              <div class="row row-cols-4 row-cols-md-6 justify-content-md-center">
+            <div class="container-sm">
+              <div class="row row-cols-4 justify-content-md-center">
                 {{- range $order -}}
                   {{- $network := collections.Index $networks . -}}
                   <div class="col text-center">

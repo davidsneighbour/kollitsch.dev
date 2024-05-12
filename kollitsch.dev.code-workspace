@@ -73,7 +73,8 @@
     "stylelint.reportInvalidScopeDisables": true,
     "stylelint.reportNeedlessDisables": true,
     "workbench.editor.customLabels.patterns": {
-      "**/modules/**/*.*": "MOD ${filename}.${extname}"
+      "**/modules/**/*.*": "MOD ${filename}.${extname}",
+      "**/modules/**/*": "MOD ${filename}"
     },
     "workbench.editor.customLabels.enabled": true,
     "workbench.editor.enablePreview": true,

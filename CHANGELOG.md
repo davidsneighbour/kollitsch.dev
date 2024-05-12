@@ -1,4 +1,21 @@
 Changelog
+## [2024.1.57](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.56...v2024.1.57) (2024-05-12)
+
+
+### Theme
+
+* **fix:** proper slashed section URL for blog section ([0b0d706](https://github.com/davidsneighbour/kollitsch.dev/commit/0b0d706c94f51e29d1e0fbc31b8657d0ddb3f490))
+
+
+### Chore
+
+* **deps:** updating youtube submodule, fixes 404 error ([7962953](https://github.com/davidsneighbour/kollitsch.dev/commit/7962953c414059d1c59c915b631dbe68e2dbd603))
+
+
+### Configuration
+
+* **vscode:** update workspace configuration ([ccc4b3d](https://github.com/davidsneighbour/kollitsch.dev/commit/ccc4b3d5cc3b5e3eb74a01ca07ab9c6b897b0ef4))
+
 ## [2024.1.56](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.55...v2024.1.56) (2024-05-12)
 
 

@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.58](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.57...v2024.1.58) (2024-05-12)
+
+
+### Content
+
+* **new:** A Masterpiece about the Meisterstück ([2c637bc](https://github.com/davidsneighbour/kollitsch.dev/commit/2c637bcc1b0cb1e744612c4047ac4f02b534acec))
+
 ## [2024.1.57](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.56...v2024.1.57) (2024-05-12)
 
 

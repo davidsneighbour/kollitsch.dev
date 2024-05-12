@@ -1,3 +1,5 @@
+
+
 {{- $type := "list" -}}
 {{- with .type -}}
   {{- $type = . -}}
@@ -20,6 +22,7 @@
 
 {{- define "partials/tags/taglist.html" -}}
 
+  {{- $config := site.Params.dnb.theme -}}
   {{- $page := .context -}}
   {{- $current := dict -}}
   {{ with $page.Name }}
@@ -31,7 +34,7 @@
       <div class="col text-center">
         <ul class="list-inline">
           {{- range (collections.Index site.Taxonomies $page.Type) -}}
-            {{- if compare.Gt .Count 1 -}}
+            {{- if compare.Gt .Count ($config.tags.threshold_for_overview) -}}
               <li class="list-inline-item mx-2">
                 <a href="{{- .Page.RelPermalink -}}" class="text-decoration-none">
                   {{- if compare.Eq $current .Page.Name -}}<strong>{{- end -}}
@@ -46,20 +49,18 @@
       </div>
     </div>
   </div>
-  {{- end -}}
+{{- end -}}
 
 {{- define "partials/tags/single-tag.html" -}}
-      <span
-        class="badge {{ with .Params.class -}}
-          text-bg-{{ . }}
-        {{ else }}
-          text-bg-light
-        {{ end }} ms-2"
-      >
-        {{ with .Params.icon -}}
-          {{ partials.Include "icon.html" . }}
-        {{ end }}
-        <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | strings.ToLower -}}</a>
-      </span>
-
+  <span
+    class="badge {{ with .Params.class -}}
+      text-bg-{{ . }}
+    {{ else }}
+      text-bg-light
+    {{ end }} ms-2">
+    {{ with .Params.icon -}}
+      {{ partials.Include "icon.html" . }}
+    {{ end }}
+    <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | strings.ToLower -}}</a>
+  </span>
 {{- end -}}

@@ -8,32 +8,38 @@
   {{- $icon = . -}}
 {{- end -}}
 
+{{- $page := .context -}}
+
 {{- if eq (.type | default "page") "page" -}}
   {{- range .tags -}}
     {{- partialCached "tags/single-tag.html" . . -}}
   {{- end -}}
 {{- else -}}
-  {{- partialCached "tags/taglist.html" .context -}}
+  {{- partial "tags/taglist.html" (dict "context" $page) -}}
 {{- end -}}
 
 {{- define "partials/tags/taglist.html" -}}
 
-  {{- $current := page.Name -}}
+  {{- $page := .context -}}
+  {{- $current := dict -}}
+  {{ with $page.Name }}
+    {{- $current = . -}}
+  {{ end }}
+
   <div class="container">
     <div class="row py-6">
       <div class="col text-center">
         <ul class="list-inline">
-          {{- range $index, $value := (collections.Index site.Taxonomies .Type) -}}
+          {{- range (collections.Index site.Taxonomies $page.Type) -}}
             {{- if compare.Gt .Count 1 -}}
-            <li class="list-inline-item mx-2">
-              {{- /* @todo do this with page object methods */ -}}
-              <a href="/tags/{{ $index }}/" class="text-decoration-none">
-                {{- if compare.Eq $current $index -}}<strong>{{- end -}}
-                {{- partials.Include "icon.html" "tag-fill" -}}
-                {{- $index -}} ({{- .Count -}})
-                {{- if compare.Eq $current $index -}}</strong>{{- end -}}
-              </a>
-            </li>
+              <li class="list-inline-item mx-2">
+                <a href="{{- .Page.RelPermalink -}}" class="text-decoration-none">
+                  {{- if compare.Eq $current .Page.Name -}}<strong>{{- end -}}
+                  {{- partials.Include "icon.html" "tag-fill" -}}
+                  {{- .Page.Name }} ({{ .Count -}})
+                  {{- if compare.Eq $current .Page.Name -}}</strong>{{- end -}}
+                </a>
+              </li>
             {{- end -}}
           {{- end -}}
         </ul>

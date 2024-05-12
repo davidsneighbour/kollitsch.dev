@@ -1,6 +1,7 @@
+{{- $page := . -}}
 {{- with (.GetTerms "tags") -}}
   <div class="is--tags">
-    {{- $options := dict "tags" . "type" "page" "icon" "tag-fill" -}}
+    {{- $options := dict "tags" . "type" "page" "icon" "tag-fill" "context" $page -}}
     {{- partial "content/components/tags/tags-overview.html" $options -}}
   </div>
 {{- end -}}

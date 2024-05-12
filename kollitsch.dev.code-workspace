@@ -71,7 +71,13 @@
     "favorites.sortDirection": "ASC",
     "stylelint.reportDescriptionlessDisables": true,
     "stylelint.reportInvalidScopeDisables": true,
-    "stylelint.reportNeedlessDisables": true
+    "stylelint.reportNeedlessDisables": true,
+    "workbench.editor.customLabels.patterns": {
+      "**/modules/**/*.*": "MOD ${filename}.${extname}"
+    },
+    "workbench.editor.customLabels.enabled": true,
+    "workbench.editor.enablePreview": true,
+    "editor.suggest.showCustomcolors": true
   },
   "extensions": {
     "recommendations": [

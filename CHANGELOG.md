@@ -1,4 +1,22 @@
 Changelog
+## [2024.1.56](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.55...v2024.1.56) (2024-05-12)
+
+
+### Theme
+
+* **fix:** broken link in tagoverview ([630f240](https://github.com/davidsneighbour/kollitsch.dev/commit/630f240f4173289ba49145cf25684416a7139281)), closes [#930](https://github.com/davidsneighbour/kollitsch.dev/issues/930)
+* **fix:** double slash in resulting URL ([a1d9325](https://github.com/davidsneighbour/kollitsch.dev/commit/a1d93250b4afbf9798ee20a45d590d96816c730f)), closes [#931](https://github.com/davidsneighbour/kollitsch.dev/issues/931)
+
+
+### Content
+
+* **fix:** 404 links to repo files ([6c419af](https://github.com/davidsneighbour/kollitsch.dev/commit/6c419afdd13a9f36aa56680336458866dc394495))
+
+
+### Chore
+
+* **dev:** update workspace configuration ([5b067d0](https://github.com/davidsneighbour/kollitsch.dev/commit/5b067d0d69ce10c37afffebecf2e67e5744ff603))
+
 ## [2024.1.55](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.54...v2024.1.55) (2024-05-11)
 
 ## [2024.1.54](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.53...v2024.1.54) (2024-05-11)

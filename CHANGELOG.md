@@ -1,4 +1,16 @@
 Changelog
+## [2024.1.59](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.58...v2024.1.59) (2024-05-12)
+
+
+### Content
+
+* **new:** The official Netflix trailer for Exploding Kittens (the series) is out ([019b817](https://github.com/davidsneighbour/kollitsch.dev/commit/019b817a7d50c26358395fdb164a71e86e2000cb))
+
+
+### Configuration
+
+* **fix:** proper frontmatter properties for video archetype ([7db04ea](https://github.com/davidsneighbour/kollitsch.dev/commit/7db04eabe7475cd291137c4b428a6c56e2ac8d24)), closes [#932](https://github.com/davidsneighbour/kollitsch.dev/issues/932)
+
 ## [2024.1.58](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.57...v2024.1.58) (2024-05-12)
 
 

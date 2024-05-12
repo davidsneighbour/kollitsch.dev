@@ -18,32 +18,13 @@ resources:
     name: image name if other than src
     src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
 
-author:
-  name: Patrick Kollitsch
-  homepage: https://kollitsch.dev/
-  image: /images/patrick-kollitsch.jpg
-
-authors:
-  - name: Patrick Kollitsch
-    homepage: https://kollitsch.dev/
-    image: /images/patrick-kollitsch.jpg
-
-categories:
-  - category1
-
 tags:
   - tag1
   - tag2
   - tag3
   - 100DaysToOffload
 
-keywords:
-  - keyword1
-  - keyword2
-  - keyword3
-
-type: blog
-
-unsplash:
-  imageid: abcdefghijk
+video:
+  youtube: slug (either youtube or vimeo)
+  vimeo: slug (either youtube or vimeo)
 ---

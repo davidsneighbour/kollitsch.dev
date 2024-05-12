@@ -1,4 +1,15 @@
 Changelog
+## [2024.1.60](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.59...v2024.1.60) (2024-05-12)
+
+
+### Theme
+
+* **config:** add tag overview threshold and singular main section for index template ([e596798](https://github.com/davidsneighbour/kollitsch.dev/commit/e596798bb406d97112272f25733943dd7eaa94ae))
+* **fix:** add parameter to show tag items with more than x items ([83364c5](https://github.com/davidsneighbour/kollitsch.dev/commit/83364c5867c2cd7fc5cf2eecee32958e1ed410b6))
+* **fix:** links to main section ([217b258](https://github.com/davidsneighbour/kollitsch.dev/commit/217b25823d0c8ad5d62f2d1013b270468484b607))
+* **fix:** remove todos and readd progress styles from bootstrap ([155ea3c](https://github.com/davidsneighbour/kollitsch.dev/commit/155ea3c854033d3a96ccfc8c0bf8fa0723db5294))
+* **fix:** social networks arrangement ([3946ffc](https://github.com/davidsneighbour/kollitsch.dev/commit/3946ffc98c89f56c41bea67db398b3ff33c478ba))
+
 ## [2024.1.59](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.58...v2024.1.59) (2024-05-12)
 
 

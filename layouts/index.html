@@ -24,7 +24,7 @@
               </div>
             {{ else }}
               {{ if eq $counter 1 }}
-                <h2 class="text-center text-primary m-5"><a href="{{- site.BaseURL -}}/blog">{{ i18n "theme.recentposts" }}</a></h2>
+                <h2 class="text-center text-primary m-5"><a href="{{- site.BaseURL -}}blog">{{ i18n "theme.recentposts" }}</a></h2>
               {{ end }}
               <div class="col-12 col-md-4 snap-align-start mb-5 snap-y">
                 {{- $post := collections.Dictionary "context" $item "level" "3" "index" $counter -}}
@@ -39,7 +39,7 @@
         <div class="col text-center">
           {{- /* @todo put link into configuration */ -}}
           <h3>
-            <a href="{{- site.BaseURL -}}/blog" class="btn btn-outline-primary btn-lg">
+            <a href="{{- site.BaseURL -}}blog" class="btn btn-outline-primary btn-lg">
               {{- i18n "theme.readall" -}}
             </a>
           </h3>

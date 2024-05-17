@@ -25,7 +25,7 @@
     "@davidsneighbour/commitlint-config": "2024.3.11",
     "@davidsneighbour/cypress-config": "2024.3.11",
     "@davidsneighbour/eslint-config": "2024.3.11",
-    "@davidsneighbour/htmlvalidate-config": "2024.3.11",
+    "@davidsneighbour/htmlvalidate-config": "2024.3.12",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2024.3.11",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",

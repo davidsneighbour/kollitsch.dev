@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.63](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.62...v2024.1.63) (2024-05-17)
+
+
+### Bug Fixes
+
+* analytics tag ([bba7d71](https://github.com/davidsneighbour/kollitsch.dev/commit/bba7d71d237f498fd307c662ea21458efb8bcd03))
+
 ## [2024.1.62](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.61...v2024.1.62) (2024-05-17)
 
 

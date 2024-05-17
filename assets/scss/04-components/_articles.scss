@@ -34,7 +34,7 @@ article {
     border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 0, 0, 0.05);
 
-    @extend .rounded;
+    @extend .rounded-4;
 
     .article-content {
       padding: 1.2rem;

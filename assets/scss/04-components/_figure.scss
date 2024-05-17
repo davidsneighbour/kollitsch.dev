@@ -24,7 +24,7 @@ figure {
     object-fit: cover;
     overflow: hidden;
 
-    @extend .rounded-1;
+    @extend .rounded-4;
     @extend .w-100;
   }
 
@@ -43,7 +43,7 @@ figure {
 
   // @extend .border;
   // @extend .border-1;
-  @extend .rounded-1;
+  @extend .rounded-4;
 
   // @extend .border-primary;
   @extend .position-relative;

@@ -1,4 +1,16 @@
 Changelog
+## [2024.1.65](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.64...v2024.1.65) (2024-05-17)
+
+
+### Theme
+
+* **fix:** border radius for media items ([c5cea89](https://github.com/davidsneighbour/kollitsch.dev/commit/c5cea89add00ce00de949f065dd4a638061ebc2f))
+
+
+### Chore
+
+* **deps:** update dependencies ([e401082](https://github.com/davidsneighbour/kollitsch.dev/commit/e401082e86e779d0dd025127209e178e7f5fb3bb))
+
 ## [2024.1.64](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.63...v2024.1.64) (2024-05-17)
 
 

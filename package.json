@@ -49,7 +49,7 @@
     "animate.css": "4.1.1",
     "axios": "1.6.8",
     "bootstrap-icons": "1.11.3",
-    "caniuse-lite": "1.0.30001617",
+    "caniuse-lite": "1.0.30001620",
     "cypress-html-validate": "6.1.0",
     "dotenv": "^16.4.5",
     "esm": "3.2.25",

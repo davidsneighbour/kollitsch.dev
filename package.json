@@ -69,7 +69,7 @@
     "puppeteer": "22.8.0",
     "remark": "15.0.1",
     "request": "2.88.2",
-    "sass": "1.77.1",
+    "sass": "1.77.2",
     "secretlint": "8.2.4",
     "simple-git-hooks": "2.11.1",
     "snoowrap": "1.23.0",

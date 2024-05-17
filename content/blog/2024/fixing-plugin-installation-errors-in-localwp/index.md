@@ -14,6 +14,7 @@ resources:
 
 tags:
 - wordpress
+- localwp
 - ubuntu 24.04
 - howto
 - 100DaysToOffload

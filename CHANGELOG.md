@@ -1,4 +1,18 @@
 Changelog
+## [2024.1.61](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.60...v2024.1.61) (2024-05-17)
+
+
+### Content
+
+* **fix:** add localwp tag ([efac132](https://github.com/davidsneighbour/kollitsch.dev/commit/efac1324d51c2d439f9fb6fcc177d88b2f564f6a))
+* **new:** Fixing installation and plugin errors in LocalWP ([4b302da](https://github.com/davidsneighbour/kollitsch.dev/commit/4b302da64727a85bc2200bcf7f1f7c85ae83548d))
+
+
+### Chore
+
+* **deps:** update dependencies ([6ff2438](https://github.com/davidsneighbour/kollitsch.dev/commit/6ff243838a9713709fab02cd8bf54f023fd95a6e))
+* **deps:** update dependency @netlify/functions to v2.7.0 ([#936](https://github.com/davidsneighbour/kollitsch.dev/issues/936)) ([7f63ef7](https://github.com/davidsneighbour/kollitsch.dev/commit/7f63ef7197ca8f0c163b8a523e8295c24f78099b))
+
 ## [2024.1.60](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.59...v2024.1.60) (2024-05-12)
 
 

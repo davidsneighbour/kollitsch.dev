@@ -1,4 +1,22 @@
 Changelog
+## [2024.1.62](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.61...v2024.1.62) (2024-05-17)
+
+
+### Bug Fixes
+
+* analytics code ([38100d7](https://github.com/davidsneighbour/kollitsch.dev/commit/38100d7bf06867a6ffa4ed8dc014e51ca017f537))
+
+
+### Build System
+
+* **deps-dev:** bump @atproto/api from 0.12.9 to 0.12.10 ([#949](https://github.com/davidsneighbour/kollitsch.dev/issues/949)) ([6bb57c9](https://github.com/davidsneighbour/kollitsch.dev/commit/6bb57c9fdc2822d27cdb699b6bbe156f9bd252f7))
+* **deps-dev:** bump @netlify/functions from 2.6.3 to 2.7.0 ([#944](https://github.com/davidsneighbour/kollitsch.dev/issues/944)) ([6069ed9](https://github.com/davidsneighbour/kollitsch.dev/commit/6069ed96a65b45929986c5c7c0e8ebe737963e2c))
+* **deps-dev:** bump @types/node from 20.12.11 to 20.12.12 ([#950](https://github.com/davidsneighbour/kollitsch.dev/issues/950)) ([6f1a705](https://github.com/davidsneighbour/kollitsch.dev/commit/6f1a70598d7028227911cc4cbc85f6a74d7048ee))
+* **deps-dev:** bump caniuse-lite from 1.0.30001617 to 1.0.30001620 ([#956](https://github.com/davidsneighbour/kollitsch.dev/issues/956)) ([197a6ba](https://github.com/davidsneighbour/kollitsch.dev/commit/197a6ba7876f40716c0468a12649acb10f5745f9))
+* **deps-dev:** bump openai from 4.45.0 to 4.47.1 ([#958](https://github.com/davidsneighbour/kollitsch.dev/issues/958)) ([21e21d0](https://github.com/davidsneighbour/kollitsch.dev/commit/21e21d090bbf94a8a42d68bdaa1a6c4affc815ba))
+* **deps-dev:** bump sass from 1.77.1 to 1.77.2 ([#943](https://github.com/davidsneighbour/kollitsch.dev/issues/943)) ([aa24726](https://github.com/davidsneighbour/kollitsch.dev/commit/aa24726f13a72e598ec583a60aabced9da2e78e5))
+* **deps-dev:** bump tsx from 4.9.4 to 4.10.4 ([#953](https://github.com/davidsneighbour/kollitsch.dev/issues/953)) ([cbc3015](https://github.com/davidsneighbour/kollitsch.dev/commit/cbc3015e8e84f47d84af781fb92e0da3bddd6b11))
+
 ## [2024.1.61](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.60...v2024.1.61) (2024-05-17)
 
 

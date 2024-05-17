@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.64](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.63...v2024.1.64) (2024-05-17)
+
+
+### Bug Fixes
+
+* proper Google Analytics tag ([eaea54c](https://github.com/davidsneighbour/kollitsch.dev/commit/eaea54c6fe0226efcc4f8961ae56b87cf05fe4cd))
+
 ## [2024.1.63](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.62...v2024.1.63) (2024-05-17)
 
 

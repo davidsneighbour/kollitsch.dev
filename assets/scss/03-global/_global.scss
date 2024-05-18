@@ -12,6 +12,20 @@ a.text-hover-decoration-none:hover {
   @extend .text-decoration-none;
 }
 
+.alert {
+
+  a {
+    /// adds colors to all links inside alerts
+    @extend .alert-link;
+  }
+
+  /// remove unnessary margin from last paragraph in alerts
+  p:last-of-type {
+    @extend .mb-0;
+  }
+}
+
+
 #sitetitle {
   position: fixed;
 

@@ -28,8 +28,6 @@ unsplash:
   imageid: abcdefghijk
 ---
 
-{{< living-documentation >}}
-
 ## Introduction
 
 Collections are a powerful feature of GoHugo. They are used to create, modify, select, lookup, compare, process, and type *a bunch of somethings*. These *somethings* might be pages in your website, pieces of information, or just anything comparable to arrays and objects in your mother-(programming-)language. This post will cover all of these aspects and how to deal with them in GoHugo.

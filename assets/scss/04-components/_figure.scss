@@ -29,6 +29,7 @@ figure {
   }
 
   .post-slider & {
+
     picture,
     img,
     .iframe-border,
@@ -41,10 +42,6 @@ figure {
     @extend .border-secondary;
   }
 
-  // @extend .border;
-  // @extend .border-1;
   @extend .rounded-4;
-
-  // @extend .border-primary;
   @extend .position-relative;
 }

@@ -1,9 +1,9 @@
-.light {
+.light & {
   // individual settings for a light theme
-  @import '05-prose/syntax/light';
+  @import "05-prose/syntax/light";
 }
 
-.dark {
+.dark & {
   // individual settings for a dark theme
-  @import '05-prose/syntax/dark';
+  @import "05-prose/syntax/dark";
 }

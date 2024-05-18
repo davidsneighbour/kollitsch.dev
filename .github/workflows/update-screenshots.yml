@@ -1,0 +1,69 @@
+name: Take screenshots
+
+on:
+  push:
+    branches:
+      - main
+
+  schedule:
+    - cron: '5 0 * * *'  # every day at 5am UTC
+
+# https://alexwlchan.net/2024/scheduled-screenshots/
+# https://playwright.dev/docs/screenshots
+
+jobs:
+  take-screenshots:
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        include:
+          - url: kollitsch.dev
+            filename_prefix: kollitsch.dev
+      # serial, so jobs don't interfere with each other
+      max-parallel: 1
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+        with:
+          ref: main
+          lfs: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright and browser
+        run: |
+          npm install playwright
+          npx playwright install chromium
+
+      - name: Take screenshot
+        run: |
+          today=$(date +"%Y-%m-%d")
+          screenshot_path=".github/screenshots/${{ matrix.filename_prefix }}.$today.png"
+
+          # Make these variables available to subsequent steps
+          # See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+          echo "today=$today" >> "$GITHUB_ENV"
+          echo "screenshot_path=$screenshot_path" >> "$GITHUB_ENV"
+
+          mkdir -p "$(dirname "$screenshot_path")"
+
+          # If there's already a screenshot for today, don't
+          # bother overwriting it.
+          if [[ -f "$screenshot_path" ]]; then exit 0; fi
+
+          npx playwright screenshot \
+            --full-page \
+            --wait-for-timeout 10000 \
+            "${{ matrix.url }}" "$screenshot_path"
+
+      - name: Push changes to GitHub
+        run: |
+          git add "$screenshot_path"
+          git commit -m "chore(screenshots): add screenshot for $today" || exit 0
+          git push origin main

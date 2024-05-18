@@ -63,3 +63,22 @@ svg.docs_svg {
     fill: var(--theme-color-forsythia);
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.is--clickable {
+  cursor: pointer;
+}
+
+input:autofill {
+  @extend .border-1;
+  @extend .border-primary;
+}
+
+textarea {
+  field-sizing: content; // default is `fixed`
+  height: 10rem;
+  min-height: 10rem;
+}

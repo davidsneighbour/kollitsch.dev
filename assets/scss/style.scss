@@ -101,6 +101,7 @@
 @import "04-components/text";
 @import "04-components/utilities";
 @import "04-components/gohugo";
+@import "04-components/theme-toggle";
 
 /// DNB: prose - article content formatting
 @include dnb-scrollbars(".prose", 3px);
@@ -109,14 +110,10 @@
   @import "05-prose/prose";
   @import "05-prose/images";
   @import "05-prose/tables";
+  @import "05-prose/syntax";
 }
 
-/// DNB: plugins
-@import "06-plugins/shortcodes";
-@import "06-plugins/syntax";
-@import "06-plugins/theme-toggle";
-
-/// DNB: external plugins (imported from node_modules)
+/// DNB: plugins (imported from node_modules)
 @import "lite-yt-embed";
 @import "animate.css/animate";
 @import "debugprint";

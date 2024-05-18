@@ -1,4 +1,26 @@
 Changelog
+## [2024.1.67](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.66...v2024.1.67) (2024-05-18)
+
+
+### Theme
+
+* **fix:** archive layout fixes ([c20a114](https://github.com/davidsneighbour/kollitsch.dev/commit/c20a1148d9aa244d35b9412fb079ee7e05c3934d))
+* **fix:** consolidate theme styles ([a0ab28b](https://github.com/davidsneighbour/kollitsch.dev/commit/a0ab28b0bb48ad0a35f3b8738a63d2d183608f16))
+* **fix:** move alerts styles to global ([1f4485a](https://github.com/davidsneighbour/kollitsch.dev/commit/1f4485a4ac73bd3d56e00dbc549436d9aa1278e4))
+* **fix:** move more stylesheets around ([e938ab1](https://github.com/davidsneighbour/kollitsch.dev/commit/e938ab1ed03696e5887b8bde2309bdb211860dd8))
+* **fix:** stop width blinking of theme switcher button ([64fb1b8](https://github.com/davidsneighbour/kollitsch.dev/commit/64fb1b8557e0e4957805fab830fc5d983a7e331c))
+
+
+### Chore
+
+* **screenshots:** add screenshot for 2024-05-18 ([0ed32ce](https://github.com/davidsneighbour/kollitsch.dev/commit/0ed32ce1cfaca4b3987ecc70b7d8132774a9aabb))
+
+
+### Build System
+
+* **feat:** add workflow to capture site screenshot ([4d13739](https://github.com/davidsneighbour/kollitsch.dev/commit/4d13739414d1425ad11d8181f48dc70e75921eb8))
+* **fix:** enable screenshot workflow to be run by hand ([7dbc645](https://github.com/davidsneighbour/kollitsch.dev/commit/7dbc645020b4823553831ff77801a6078d8e3e67))
+
 ## [2024.1.66](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.65...v2024.1.66) (2024-05-18)
 
 

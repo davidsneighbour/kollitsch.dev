@@ -1,5 +1,10 @@
 #themeswitcher {
 
+  // giving it a max width so no jumping around in the navigation
+  max-width: 59.31px;
+  max-height: 52px;
+  overflow: hidden;
+
   border-left: 1px solid var(--bs-gray-700);
   padding-left: $spacer * .75;
   margin-left: $spacer;

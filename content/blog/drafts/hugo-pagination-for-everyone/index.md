@@ -21,8 +21,6 @@ keywords:
 type: blog
 ---
 
-{{< living-documentation >}}
-
 https://gohugo.io/templates/pagination/
 https://gohugo.io/methods/page/paginate/
 https://gohugo.io/methods/page/paginator/

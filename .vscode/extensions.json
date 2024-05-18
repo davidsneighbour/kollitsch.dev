@@ -2,7 +2,6 @@
 	"recommendations": [
 		"naumovs.color-highlight",
 		"github.copilot-labs",
-		"christian-kohler.npm-intellisense",
 		"rescuetime.rescuetime",
 		"dunstontc.vscode-go-syntax",
 		"esbenp.prettier-vscode",
@@ -37,6 +36,6 @@
 		"remisa.shellman",
 		"mkhl.shfmt",
 		"mjmlio.vscode-mjml",
-		"ms-vscode.vscode-speech"
+		"christian-kohler.npm-intellisense"
 	]
 }

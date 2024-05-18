@@ -12,7 +12,19 @@ linkifyProtocol = "https"
 strikethrough = true
 table = true
 taskList = true
+# https://gohugo.io/getting-started/configuration-markup/#typographer-extension
 typographer = true
+
+# https://gohugo.io/getting-started/configuration-markup/#extras-extension
+[goldmark.extensions.extras]
+[goldmark.extensions.extras.insert]
+enable = true
+[goldmark.extensions.extras.mark]
+enable = true
+[goldmark.extensions.extras.subscript]
+enable = true
+[goldmark.extensions.extras.superscript]
+enable = true
 
 [goldmark.parser]
 autoHeadingID = true

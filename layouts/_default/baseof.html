@@ -273,14 +273,14 @@
           js.Build (
             collections.Merge $options (collections.Dictionary "targetPath" "assets/js/script.js")
           ) | resources.Fingerprint "sha512" -}}
-    <script src="{{- $scripts.Permalink -}}" async defer integrity="{{- $scripts.Data.Integrity -}}"></script>
+    <script src="{{- $scripts.Permalink -}}" async fetchpriority="high" defer integrity="{{- $scripts.Data.Integrity -}}"></script>
     {{- with resources.Get "js/main.js" -}}
       {{- $script := . | resources.ExecuteAsTemplate "plugins.js" . -}}
       {{- $script = $script |
             js.Build (
               collections.Merge $options (collections.Dictionary "targetPath" "assets/js/main.js")
             ) | resources.Fingerprint "sha512" -}}
-      <script src="{{- $script.Permalink -}}" async defer integrity="{{- $script.Data.Integrity -}}"></script>
+      <script src="{{- $script.Permalink -}}" async fetchpriority="high" defer integrity="{{- $script.Data.Integrity -}}"></script>
     {{- else -}}
       {{- partials.Include "debug-cli.html" (dict
             "message" "[modder] js/main.js missing, module modder is probably not configured properly"

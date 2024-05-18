@@ -91,6 +91,7 @@
     "build:pagefind": "pagefind",
     "clean": "wireit",
     "clean:full": "wireit",
+    "commitlint": "commitlint --edit",
     "deploy": "npm run release && npm run build:hugo && npm run build:pagefind && netlify deploy --prod --open",
     "eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
     "eslint-fix": "npm run eslint -- --fix",
@@ -193,7 +194,7 @@
     },
     "update": {
       "dependencies": [
-        "update:post"
+        "update:git-hooks"
       ]
     },
     "update:post": {
@@ -211,7 +212,13 @@
       "command": "npm-check-updates -u --target minor"
     },
     "update:pre:vale": {
-      "command": "vale --config='.github/vale/.vale.ini' --no-exit sync"
+      "command": "vale --config='.github/vale/vale.ini' --no-exit sync"
+    },
+    "update:git-hooks": {
+      "command": "npx simple-git-hooks",
+      "dependencies": [
+        "update:post"
+      ]
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",

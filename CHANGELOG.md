@@ -1,4 +1,41 @@
 Changelog
+## [2024.1.66](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.65...v2024.1.66) (2024-05-18)
+
+
+### Content
+
+* **new:** Music to Program to (Part 9) ([1423006](https://github.com/davidsneighbour/kollitsch.dev/commit/1423006603050b0c10fc9219c9c20a4315e06fae))
+
+
+### Theme
+
+* **fix:** add fetch priority to script tags ([17adab5](https://github.com/davidsneighbour/kollitsch.dev/commit/17adab50532b1f630fdd4039955809f45aaf61d3))
+* **fix:** better transparency effect for navigation bar ([1ddfa38](https://github.com/davidsneighbour/kollitsch.dev/commit/1ddfa38be4a5099fa0d75aa3fbc7dfa11aa974a3))
+* **fix:** proper highlighting specificity ([2360ef4](https://github.com/davidsneighbour/kollitsch.dev/commit/2360ef48a3dcb586d661897d796cb7356a759691))
+
+
+### Refactors
+
+* moving styles around and remove unused styles ([dbbd63b](https://github.com/davidsneighbour/kollitsch.dev/commit/dbbd63b1d5beecde01977dc1d742df5c84295f4f))
+
+
+### Chore
+
+* **cleanup:** remove unused shortcode ([520ab25](https://github.com/davidsneighbour/kollitsch.dev/commit/520ab252a6175f6e28fa78da15feee2bf108dcd1))
+* **git:** update binary submodule ([445aa4b](https://github.com/davidsneighbour/kollitsch.dev/commit/445aa4bac7a466b8058451cb36d1897df86158d6))
+
+
+### Configuration
+
+* **feat:** set up goldmark extensions ([0b2bbe0](https://github.com/davidsneighbour/kollitsch.dev/commit/0b2bbe0942d8ed1e877eef9e78eae3cb404644f7))
+* **fix:** add git hook update to update script ([ac991fb](https://github.com/davidsneighbour/kollitsch.dev/commit/ac991fb6f54ba9648457dcdb1473bbc674c60d8b))
+* **vscode:** update workspace configuration ([f66414c](https://github.com/davidsneighbour/kollitsch.dev/commit/f66414ccca038d82a4650eef5c97a45968ee02cb))
+
+
+### Build System
+
+* **feat:** setup commitlint ([2005de6](https://github.com/davidsneighbour/kollitsch.dev/commit/2005de6a1d719c20c3b8b20db269d30ce0cfa790))
+
 ## [2024.1.65](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.64...v2024.1.65) (2024-05-17)
 
 

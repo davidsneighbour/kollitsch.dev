@@ -1,4 +1,19 @@
 Changelog
+## [2024.1.68](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.67...v2024.1.68) (2024-05-19)
+
+
+### Theme
+
+* **fix:** headline level on single post pages to h1 ([e59aeb2](https://github.com/davidsneighbour/kollitsch.dev/commit/e59aeb2e3c0c4244d0b8f0eb8ed3183c4894e045)), closes [#965](https://github.com/davidsneighbour/kollitsch.dev/issues/965)
+* **fix:** proper headline level for previews ([aa00e71](https://github.com/davidsneighbour/kollitsch.dev/commit/aa00e713942408c494e9caebf68ef0a2dee7320a))
+* **fix:** remove id from inner themeswitcher div ([d795b74](https://github.com/davidsneighbour/kollitsch.dev/commit/d795b744f0c4805a53f200aa1e67e1b416fc7471))
+* **refactor:** more of styles moving around ([6b088bf](https://github.com/davidsneighbour/kollitsch.dev/commit/6b088bf477c323095f328820be4a5b112fba0951))
+
+
+### Chore
+
+* **screenshots:** add screenshot for 2024-05-19 ([f618a5d](https://github.com/davidsneighbour/kollitsch.dev/commit/f618a5dcd36017f1332c02d9a949ddcbc04a5663))
+
 ## [2024.1.67](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.66...v2024.1.67) (2024-05-18)
 
 

@@ -31,7 +31,7 @@
     {{- /* MARK: Headline
     */ -}}
     {{- if ne $config.headline false -}}
-      {{- $options := dict "post" $post "level" "3" -}}
+      {{- $options := dict "post" $post "level" 3 -}}
       {{- partials.Include "content/components/headline.html" $options -}}
     {{- end -}}
 

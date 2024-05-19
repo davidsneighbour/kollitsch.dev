@@ -46,7 +46,7 @@
     {{- with $post.Params.video.name -}}
       {{- $name = . -}}
     {{- end -}}
-    <div class="alert alert-light" role="alert">
+    <div class="alert alert-light alert-dnb-dark" role="alert">
       <p>
         {{- lang.Translate "theme.this_is" }} "{{- $post.Params.video.title -}}" {{ lang.Translate "theme.by" }}
         <a href="{{- $artist.link -}}">

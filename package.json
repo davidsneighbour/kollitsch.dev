@@ -274,5 +274,8 @@
     "pre-commit": "npm run lint:hook:commit",
     "commit-msg": "npx commitlint -e \"$@\""
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "netlify-cli": "^17.23.5"
+  }
 }

@@ -80,6 +80,7 @@
 @import "03-global/global";
 @import "03-global/footer";
 @import "03-global/responsive";
+@import "03-global/utilities";
 @import "03-global/transitions";
 
 /// adding scrollbars
@@ -88,13 +89,9 @@
 /// DNB: Components
 @import "04-components/archive";
 @import "04-components/articles";
-@import "04-components/figure";
 @import "04-components/highlight";
 @import "04-components/navigation";
 @import "04-components/search";
-@import "04-components/tabs";
-@import "04-components/text";
-@import "04-components/utilities";
 @import "04-components/gohugo";
 @import "04-components/theme-toggle";
 

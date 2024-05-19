@@ -21,7 +21,8 @@ $containers: (
 );
 
 /// setup utilities
-$utilities: ();
+$utilities: (
+);
 
 ///
 ///
@@ -29,26 +30,22 @@ $utilities: ();
 ///
 $utils-fsize: (
   /// fsize utility
-  "fsize":
-    (
-      property: font-size,
-      class: fontsize,
-      values: (
-        1: 0.8rem,
-        2: 0.9rem,
-        3: 1rem,
-        4: 1.1rem,
-        5: 1.2rem,
-        12: 2rem,
-      ),
-    )
+  "fsize": (property: font-size,
+    class: fontsize,
+    values: (1: 0.8rem,
+      2: 0.9rem,
+      3: 1rem,
+      4: 1.1rem,
+      5: 1.2rem,
+      12: 2rem,
+    ),
+  )
 );
 $utilities: map-merge($utilities, $utils-fsize);
 
 /// container utilities
 $utils-containery: (
-  "containery": (
-    property: height,
+  "containery": (property: height,
     values: $containers,
     class: cy,
   ),
@@ -57,8 +54,7 @@ $utilities: map-merge($utilities, $utils-containery);
 
 /// container utilities
 $utils-containerx: (
-  "containerx": (
-    property: width,
+  "containerx": (property: width,
     values: $containers,
     class: cx,
   ),
@@ -67,8 +63,7 @@ $utilities: map-merge($utilities, $utils-containerx);
 
 /// container utilities
 $utils-container: (
-  "container": (
-    property: width,
+  "container": (property: width,
     values: $containers,
     class: c,
   ),
@@ -77,11 +72,9 @@ $utilities: map-merge($utilities, $utils-container);
 
 /// font-size utilities
 $utils-fontsize2: (
-  "fontsize2": (
-    property: font-size,
+  "fontsize2": (property: font-size,
     class: fsv,
-    values: (
-      12: 12vm,
+    values: (12: 12vm,
       17: 17vm,
     ),
   ),
@@ -90,11 +83,9 @@ $utilities: map-merge($utilities, $utils-fontsize2);
 
 /// viewport utilities
 $utils-viewport: (
-  "viewport": (
-    property: margin-top,
+  "viewport": (property: margin-top,
     class: vh,
-    values: (
-      120: 120vh,
+    values: (120: 120vh,
       100: 100vh,
       50: 50vh,
       25: 25vh,
@@ -107,5 +98,10 @@ $utilities: map-merge($utilities, $utils-viewport);
 /// alerts
 .alert-dnb-dark {
   --bs-alert-bg: rgba(0, 0, 0, 0.1) !important;
+  --bs-alert-border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.alert-dnb-light {
+  --bs-alert-bg: rgba(, 0.1) !important;
   --bs-alert-border-color: rgba(0, 0, 0, 0.2) !important;
 }

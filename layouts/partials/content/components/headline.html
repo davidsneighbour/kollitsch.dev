@@ -1,7 +1,7 @@
 {{- $post := .post -}}
 {{- $headerlevel := .level | default "2" -}}
-{{- fmt.Printf "<h%s class=\"post-title text-truncate text-truncate-2\">" $headerlevel | safe.HTML -}}
-<a href="{{- $post.Permalink -}}" title="{{- $post.Title -}}">
+{{- fmt.Printf "<h%d class=\"post-title text-truncate text-truncate-2\">" $headerlevel | safe.HTML -}}
+<a href="{{- $post.Permalink -}}" title="{{- $post.Title | transform.Markdownify -}}">
   {{- $post.Title | transform.Markdownify -}}
 </a>
-{{- fmt.Printf "</h%s>" $headerlevel | safe.HTML -}}
+{{- fmt.Printf "</h%d>" $headerlevel | safe.HTML -}}

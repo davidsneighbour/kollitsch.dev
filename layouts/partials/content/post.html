@@ -28,7 +28,11 @@
     {{- /* MARK: Headline
     */ -}}
     {{- if ne $config.headline false -}}
-      {{- $options := dict "post" $post -}}
+      {{- $level := 2 -}}
+      {{- if $post.IsPage -}}
+        {{- $level = 1 -}}
+      {{- end -}}
+      {{- $options := dict "post" $post "level" $level -}}
       {{- partials.Include "content/components/headline.html" $options -}}
     {{- end -}}
 

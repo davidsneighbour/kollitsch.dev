@@ -1,7 +1,6 @@
+/* stylelint-disable selector-class-pattern --- can't be changed due to its being a plugin */
 #pagefind {
-
   .pagefind-ui__form {
-
     @extend .input-group;
     @extend .mb-3;
 
@@ -27,7 +26,6 @@
     @extend .btn-primary;
   }
 
-
   .pagefind-ui__results {
     @extend .row;
     @extend .list-unstyled;
@@ -36,28 +34,18 @@
       @extend .card;
       @extend .col-md-4;
       @extend .col-12;
-      border: 0;
+      @extend .border;
+      @extend .border-0;
 
-
+      /* stylelint-disable-next-line selector-max-compound-selectors --- can't be changed */
       .pagefind-ui__result-thumb {
 
+        /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors --- can't be changed */
         img {
-          max-width: 100%;
+          @extend .mw-100;
         }
       }
 
-      .pagefind-ui__result-inner {
-
-        .pagefind-ui__result-title {}
-
-        .pagefind-ui__result-excerpt {
-
-          mark {
-            background-color: var(--bs-primary);
-            color: var(--bs-gray-dark);
-          }
-        }
-      }
     }
   }
 }

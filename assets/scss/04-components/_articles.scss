@@ -1,36 +1,11 @@
-/// @todo move this into prose
 article {
+
   h1.post-title,
   h2.post-title {
     border-bottom: $border-width solid $primary;
   }
 
-  .ribbon {
-    @extend .z-3;
-
-    &.status--draft {
-      color: $nocturnal-expedition;
-      background-color: $deep-saffron;
-    }
-
-    &.status--gohugo {
-      color: $organic-noir;
-      background-color: $deep-saffron;
-    }
-
-    @extend .text-center;
-    @extend .position-absolute;
-    @extend .top-0;
-    @extend .start-0;
-    @extend .py-1;
-    @extend .px-2;
-  }
-
-  @extend .position-relative;
-}
-
-.section--content {
-  article {
+  .section--content & {
     border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 0, 0, 0.05);
 
@@ -40,4 +15,51 @@ article {
       padding: 1.2rem;
     }
   }
+}
+
+figure {
+  @extend .mx-auto;
+
+  font-variant: small-caps;
+
+  .inline-icons {
+    div {
+      @extend .p-2;
+    }
+
+    @extend .text-primary;
+    @extend .top-0;
+    @extend .end-0;
+    @extend .m-3;
+    @extend .position-absolute;
+    @extend .lh-1;
+  }
+
+  picture,
+  img,
+  .iframe-border,
+  video {
+    object-fit: cover;
+    overflow: hidden;
+
+    @extend .rounded-4;
+    @extend .w-100;
+  }
+
+  .post-slider & {
+
+    picture,
+    img,
+    .iframe-border,
+    video {
+      aspect-ratio: 2/1;
+    }
+  }
+
+  &:hover {
+    @extend .border-secondary;
+  }
+
+  @extend .rounded-4;
+  @extend .position-relative;
 }

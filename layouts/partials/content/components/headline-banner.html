@@ -1,25 +1,28 @@
-  {{- $post := . -}}
+{{- $post := . -}}
+{{- $link := $post.Permalink -}}
 
-  {{- /* @todo either implement post slider or remove this wrapper */ -}}
-  {{- $package := partials.IncludeCached "func/getPackageFile.html" $post $post -}}
-	<div class="post-slider">
-		<figure>
+{{- /* @todo either implement post slider or remove this wrapper */ -}}
+{{- $package := partials.IncludeCached "func/getPackageFile.html" $post $post -}}
+<div class="post-slider">
+  <figure>
+    <a href="{{- $link -}}">
       {{- /* @todo use image component */ -}}
-			<picture>
-			{{- $options := dict -}}
-			{{- if collections.IsSet $package "version" }}
-				{{- $options = dict
+      <picture>
+      {{- $options := dict -}}
+      {{- if collections.IsSet $package "version" }}
+        {{- $options = dict
           "type" "page"
-					"tagline" page.Params.sectiontitle
-					"title" ($post.LinkTitle | strings.ToUpper)
-					"subtitle" (fmt.Printf "v%s" $package.version) -}}
-			{{- else -}}
-				{{- $options = dict
+          "tagline" page.Params.sectiontitle
+          "title" ($post.LinkTitle | strings.ToUpper)
+          "subtitle" (fmt.Printf "v%s" $package.version) -}}
+      {{- else -}}
+        {{- $options = dict
           "type" "page"
-					"tagline" page.Params.sectiontitle
-					"title" ($post.LinkTitle | strings.ToUpper) -}}
-			{{- end -}}
-			{{- partials.Include "documentation/headerimage.html" $options $options -}}
-			</picture>
-		</figure>
-	</div>
+          "tagline" page.Params.sectiontitle
+          "title" ($post.LinkTitle | strings.ToUpper) -}}
+      {{- end -}}
+      {{- partials.Include "documentation/headerimage.html" $options $options -}}
+      </picture>
+    </a>
+  </figure>
+</div>

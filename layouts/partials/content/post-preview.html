@@ -26,6 +26,12 @@
     {{- partials.Include "content/components/banner-video.html" $post -}}
   {{- end -}}
 
+  {{- /* MARK: Headline-Banner
+  */ -}}
+  {{- if ne $config.bannerheadline false -}}
+    {{- partials.Include "content/components/headline-banner.html" $post -}}
+  {{- end -}}
+
   <div class="article-content">
 
     {{- /* MARK: Headline
@@ -33,12 +39,6 @@
     {{- if ne $config.headline false -}}
       {{- $options := dict "post" $post "level" 3 -}}
       {{- partials.Include "content/components/headline.html" $options -}}
-    {{- end -}}
-
-    {{- /* MARK: Headline-Banner
-    */ -}}
-    {{- if ne $config.bannerheadline false -}}
-      {{- partials.Include "content/components/headline-banner.html" $post -}}
     {{- end -}}
 
     {{- /* MARK: Content

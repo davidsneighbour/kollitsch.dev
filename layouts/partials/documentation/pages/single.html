@@ -12,46 +12,54 @@
     <div class="row">
       <div class="col-12 mb-5">
         {{- partials.IncludeCached "content/components/breadcrumbs.html" . . -}}
-        {{- if $banner -}}
-          <div class="post-slider">
-            <figure>
-              <picture>
-                {{- $options := dict -}}
-                {{- if collections.IsSet $package "version" }}
-                  {{- $options = dict
-                        "type" "page"
-                        "tagline" page.Params.sectiontitle
-                        "title" (.LinkTitle | strings.ToUpper)
-                        "subtitle" (fmt.Printf "v%s" $package.version) -}}
-                {{- else -}}
-                  {{- $options = dict
-                        "type" "page"
-                        "tagline" page.Params.sectiontitle
-                        "title" (.LinkTitle | strings.ToUpper) -}}
-                {{- end -}}
-                {{- partials.Include "documentation/headerimage.html" $options $options -}}
-              </picture>
-            </figure>
+        {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" page page -}}
+        <article class="{{- $articleclasses -}}">
+          {{- if $banner -}}
+            <div class="post-slider">
+              <figure>
+                <a href="{{ page.Permalink -}}">
+                  <picture>
+                    {{- $options := dict -}}
+                    {{- if collections.IsSet $package "version" }}
+                      {{- $options = dict
+                            "type" "page"
+                            "tagline" page.Params.sectiontitle
+                            "title" (.LinkTitle | strings.ToUpper)
+                            "subtitle" (fmt.Printf "v%s" $package.version) -}}
+                    {{- else -}}
+                      {{- $options = dict
+                            "type" "page"
+                            "tagline" page.Params.sectiontitle
+                            "title" (.LinkTitle | strings.ToUpper) -}}
+                    {{- end -}}
+                    {{- partials.Include "documentation/headerimage.html" $options $options -}}
+                  </picture>
+                </a>
+              </figure>
+            </div>
+          {{- else -}}
+            <h1>
+              <a href="{{- .Permalink -}}">
+                {{- .Title | transform.Markdownify -}}
+              </a>
+            </h1>
+            <hr/>
+          {{- end -}}
+
+          <div class="article-content">
+            <div class="prose">
+              {{- .Content -}}
+            </div>
+            <hr/>
+            {{- $label := "In this section" -}}
+            {{- with index page.Params.config "overviewLabel" -}}
+              {{- $label = . | markdownify -}}
+            {{- end -}}
+            <h2>{{- $label -}}</h2>
+            {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
+            {{- partials.Include "func/getSectionNavigation.html" $options $options -}}
           </div>
-        {{- else -}}
-          <h1>
-            <a href="{{- .Permalink -}}">
-              {{- .Title | transform.Markdownify -}}
-            </a>
-          </h1>
-          <hr/>
-        {{- end -}}
-        <div class="prose">
-          {{- .Content -}}
-        </div>
-        <hr/>
-        {{- $label := "In this section" -}}
-        {{- with index page.Params.config "overviewLabel" -}}
-          {{- $label = . | markdownify -}}
-        {{- end -}}
-        <h2>{{- $label -}}</h2>
-        {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
-        {{- partials.Include "func/getSectionNavigation.html" $options $options -}}
+        </article>
       </div>
     </div>
   </div>

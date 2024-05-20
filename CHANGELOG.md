@@ -1,4 +1,38 @@
 Changelog
+## [2024.1.69](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.68...v2024.1.69) (2024-05-20)
+
+
+### Theme
+
+* **fix:** image positioning in component list pages ([ebd9094](https://github.com/davidsneighbour/kollitsch.dev/commit/ebd909453c1313da799df4f075cb8d6474cb3c21))
+* **fix:** light alert mode ([2c99802](https://github.com/davidsneighbour/kollitsch.dev/commit/2c998025b991dace618dce7894b813fc8923b23c))
+* **fix:** make headline-banner clickable to post page ([90a4b35](https://github.com/davidsneighbour/kollitsch.dev/commit/90a4b35f716f5a95352c727506a8ef0b59421a47))
+* **fix:** music alert box with transparent background ([e73dbbe](https://github.com/davidsneighbour/kollitsch.dev/commit/e73dbbecfcf00bcb9865b7aa5c29926cf741b949))
+* **fix:** proper containers for component documentation ([561af86](https://github.com/davidsneighbour/kollitsch.dev/commit/561af86cd78c15438155ae4d73ad40e1dce4c9cb))
+
+
+### Chore
+
+* **deps:** update dependencies ([ce4a25f](https://github.com/davidsneighbour/kollitsch.dev/commit/ce4a25fb1e492a95b73e8e28e82465c7a73e297c))
+* **screenshots:** add screenshot ([c3f0026](https://github.com/davidsneighbour/kollitsch.dev/commit/c3f00269b88525dd49de3c339f5a9410176d485c))
+* **screenshots:** add screenshot ([208194e](https://github.com/davidsneighbour/kollitsch.dev/commit/208194e191a302e609ecd4a35f0a67afb2fd3c35))
+* **screenshots:** add screenshot ([3d3264a](https://github.com/davidsneighbour/kollitsch.dev/commit/3d3264ab1349f29baeb6e4b984fc94eca8c23fb9))
+* **screenshots:** add screenshot for 2024-05-20 ([c6ae4dc](https://github.com/davidsneighbour/kollitsch.dev/commit/c6ae4dc630c4c3839219e7555194ab2cdf6802b8))
+
+
+### Configuration
+
+* **workspace:** add cached debugging partial shortcode ([3cb2b57](https://github.com/davidsneighbour/kollitsch.dev/commit/3cb2b5768ae5d935ded88e13a26ab024b4f6d1c0))
+
+
+### Build System
+
+* **feat:** add netlify cli with debugging to workspace configuration ([048db8d](https://github.com/davidsneighbour/kollitsch.dev/commit/048db8deb95a58e7caeb59b9a53b139d83fab14b))
+* **fix:** disabling screenshot script ([18bbc29](https://github.com/davidsneighbour/kollitsch.dev/commit/18bbc29863b4e3403398c68602dad313b704b8ed))
+* **workflow:** add proper screenshot script ([258d47f](https://github.com/davidsneighbour/kollitsch.dev/commit/258d47f906ffe29ab3051a02d449b002e8971c39))
+* **workflow:** fix datestamp in screenshot workflow ([819554a](https://github.com/davidsneighbour/kollitsch.dev/commit/819554abab183920e0c5a9ba6e44ce8a00ad291d))
+* **workflow:** run screenshot script only on push ([9cd339a](https://github.com/davidsneighbour/kollitsch.dev/commit/9cd339aadc8d87cd0699f914e249e851c2bff950))
+
 ## [2024.1.68](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.67...v2024.1.68) (2024-05-19)
 
 

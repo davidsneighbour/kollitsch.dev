@@ -7,11 +7,11 @@ require (
 	github.com/aFarkas/lazysizes v0.0.0-20210517092641-1523a4ff4579 // indirect
 	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
 	github.com/davidsneighbour/hugo-modules v1.2024.22 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.9 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.21 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.10 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.22 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.13 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.14 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/head v1.2024.5 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/headerimage v1.2024.0 // indirect

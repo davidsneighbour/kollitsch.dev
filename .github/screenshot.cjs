@@ -28,11 +28,15 @@ async function getData(screenshotDir = "./.github/screenshots") {
     now.getHours().toString().padStart(2, '0') +
     now.getMinutes().toString().padStart(2, '0') +
     now.getSeconds().toString().padStart(2, '0');
-  const screenshotPath = path.join(screenshotDir, `screenshot_${timestamp}.png`);
+  const screenshotPathWithTimestamp = path.join(screenshotDir, `screenshot_${timestamp}.png`);
+  const screenshotPathDefault = path.join(screenshotDir, `screenshot.png`);
 
-  await page.screenshot({ path: screenshotPath, fullPage: true });
+  // Take screenshot and save to both paths
+  await page.screenshot({ path: screenshotPathWithTimestamp, fullPage: true });
+  await page.screenshot({ path: screenshotPathDefault, fullPage: true });
   await browser.close();
-  console.log(`Screenshot saved to ${screenshotPath}`);
+  console.log(`Screenshot saved to ${screenshotPathWithTimestamp} and ${screenshotPathDefault}`);
+
 }
 
 getData();

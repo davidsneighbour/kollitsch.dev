@@ -17,7 +17,16 @@
     "scope": "gohtml, html, markdown",
     "prefix": "hugo-dd",
     "body": [
-      "{{- partial \"debug-print.html\" $0 -}}"
+      "{{- partials.Include \"debug-print.html\" $1 -}}",
+      "$0"
+    ]
+  },
+  "hugo-debugprint2": {
+    "scope": "gohtml, html, markdown",
+    "prefix": "hugo-ddd",
+    "body": [
+      "{{- partials.IncludeCached \"debug-print.html\" $1 $2 -}}",
+      "$0"
     ]
   }
 }

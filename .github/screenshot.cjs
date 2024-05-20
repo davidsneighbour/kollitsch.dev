@@ -21,7 +21,13 @@ async function getData(screenshotDir = "./.github/screenshots") {
     fs.mkdirSync(screenshotDir, { recursive: true });
   }
 
-  const timestamp = new Date().toISOString().replace(/[-:.]/g, "");
+  const now = new Date();
+  const timestamp = now.getFullYear().toString() +
+    (now.getMonth() + 1).toString().padStart(2, '0') +
+    now.getDate().toString().padStart(2, '0') +
+    now.getHours().toString().padStart(2, '0') +
+    now.getMinutes().toString().padStart(2, '0') +
+    now.getSeconds().toString().padStart(2, '0');
   const screenshotPath = path.join(screenshotDir, `screenshot_${timestamp}.png`);
 
   await page.screenshot({ path: screenshotPath, fullPage: true });

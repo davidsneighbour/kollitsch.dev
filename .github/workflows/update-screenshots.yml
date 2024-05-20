@@ -6,8 +6,8 @@ on:
     branches:
       - main
 
-  schedule:
-    - cron: '5 0 * * *'  # every day at 5am UTC
+  # schedule:
+  #   - cron: '5 0 * * *'  # every day at 5am UTC
 
 # https://alexwlchan.net/2024/scheduled-screenshots/
 # https://playwright.dev/docs/screenshots

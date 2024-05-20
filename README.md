@@ -4,7 +4,7 @@
 
 This project is the website setup and content for [kollitsch.dev](https://kollitsch.dev/).
 
-![Screenshot of kollitsch.dev](.github/images/screenshot.png)
+![Screenshot of kollitsch.dev](.github/screenshots/screenshot.png)
 
 <!-- markdownlint-disable MD010 MD007 -->
 

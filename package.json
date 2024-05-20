@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2024.1.68",
+  "version": "2024.1.69",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -121,10 +121,7 @@
     "release:minor": "commit-and-tag-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
     "release:patch": "commit-and-tag-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
     "sassdoc": "wireit",
-    "server": "run-p server:hugo -- --watch",
-    "server:functions": "wireit",
-    "server:hugo": "wireit",
-    "server:pagefind": "wireit",
+    "server": "wireit",
     "tests": "wireit",
     "update": "wireit"
   },
@@ -165,6 +162,12 @@
     },
     "audit:html": {
       "command": "npm run build:hugo && html-validate public/**/*.html --config=tests/html-validator/config.json"
+    },
+    "server": {
+      "dependencies": [
+        "server:hugo",
+        "server:pagefind"
+      ]
     },
     "server:pagefind": {
       "dependencies": [

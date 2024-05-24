@@ -35,7 +35,7 @@
     "@davidsneighbour/remark-config": "2024.3.12",
     "@davidsneighbour/stylelint-config": "2024.3.12",
     "@davidsneighbour/tools": "2024.3.12",
-    "@davidsneighbour/webpack-config": "2024.3.12",
+    "@davidsneighbour/webpack-config": "2024.3.13",
     "@frontmatter/extensibility": "0.0.15",
     "@github/hotkey": "3.1.1",
     "@netlify/functions": "2.7.0",

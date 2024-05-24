@@ -20,7 +20,9 @@
                       {{- $item.Title -}}
                     </a>
                   </h2>
-                  <p class="text-truncate text-truncate-5 mb-0">{{- $item.Summary -}}</p>
+                  <p class="text-truncate text-truncate-5 mb-0">
+                    {{- partialCached "func/getSummary.html" $item $item -}}
+                  </p>
                   {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
                 </div>
               </div>

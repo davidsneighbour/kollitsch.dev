@@ -279,6 +279,6 @@
   },
   "type": "module",
   "dependencies": {
-    "netlify-cli": "^17.23.5"
+    "netlify-cli": "^17.23.7"
   }
 }

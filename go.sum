@@ -14,6 +14,8 @@ github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.2 h1:vAIxKOTor0Mt
 github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.2/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7 h1:BYO18szo7l06FUJW9YBR88g0A8QXLOBDOqx8iwQ5kDU=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.7/go.mod h1:IYXVLZBw+dk+6YPWtUz5bHO7UzFWLu5NrM4Hy+qwj6c=
+github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.8 h1:rVA9LVWrMsb97Qgkv8htZYdm13Le86YxLhr6inmod8U=
+github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.8/go.mod h1:vXAqXbG6SDPMpneFtk+XYX5CCvlTzUYIbVW1Z0reizc=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.14 h1:WuR37dqsOoneAZ8aYITWn1mi0vuSf9ivWqzfSpdvKlc=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.14/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.15 h1:5xR2QguZy3qumcjsbpmNFyiOm4rqTPNStq0F5NetmmA=

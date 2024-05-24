@@ -47,7 +47,7 @@
     "@types/yargs": "17.0.32",
     "alpinejs": "3.13.10",
     "animate.css": "4.1.1",
-    "axios": "1.7.0",
+    "axios": "1.7.2",
     "bootstrap-icons": "1.11.3",
     "caniuse-lite": "1.0.30001620",
     "cypress-html-validate": "6.1.0",

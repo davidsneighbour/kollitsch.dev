@@ -21,7 +21,7 @@
     "@commitlint/prompt-cli": "19.3.1",
     "@davidsneighbour/babel-config": "2024.3.12",
     "@davidsneighbour/bootstrap-config": "2024.3.12",
-    "@davidsneighbour/browserslist-config": "2024.3.12",
+    "@davidsneighbour/browserslist-config": "2024.3.13",
     "@davidsneighbour/commitlint-config": "2024.3.12",
     "@davidsneighbour/cypress-config": "2024.3.12",
     "@davidsneighbour/eslint-config": "2024.3.12",

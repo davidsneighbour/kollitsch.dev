@@ -2,19 +2,15 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/02e05c7a-11a0-48e0-988f-7fc12267eb89/deploy-status)](https://app.netlify.com/sites/kollitsch-dev/deploys)
 
-This project is the website setup and content for [kollitsch.dev](https://kollitsch.dev/).
+This project is the website setup, theme, and content for [kollitsch.dev](https://kollitsch.dev/).
 
 ![Screenshot of kollitsch.dev](.github/screenshots/screenshot.png)
-
-<!-- markdownlint-disable MD010 MD007 -->
 
 <!--lint ignore-->
 
 * [Site structure](#site-structure)
 * [General notes](#general-notes)
 * [License](#license)
-
-<!-- markdownlint-enable MD010 MD007 -->
 
 ## Site structure
 

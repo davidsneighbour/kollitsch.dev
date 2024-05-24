@@ -45,7 +45,7 @@
     "@types/jest": "29.5.12",
     "@types/node": "20.12.12",
     "@types/yargs": "17.0.32",
-    "alpinejs": "3.13.10",
+    "alpinejs": "3.14.0",
     "animate.css": "4.1.1",
     "axios": "1.7.0",
     "bootstrap-icons": "1.11.3",

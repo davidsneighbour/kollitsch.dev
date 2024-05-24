@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "devDependencies": {
     "@alpinejs/collapse": "3.13.10",
-    "@alpinejs/intersect": "3.13.10",
+    "@alpinejs/intersect": "3.14.0",
     "@atproto/api": "0.12.10",
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "19.3.0",

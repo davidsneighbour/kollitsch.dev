@@ -26,8 +26,8 @@ github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.8 h1:0VCBhUH5RheM8
 github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.8/go.mod h1:YBL/vJE7ghoYfVfZ5+G2woslIK0P5vWYs5tMv5NmKBg=
 github.com/davidsneighbour/hugo-modules/modules/internals v1.2024.0 h1:UNvcpugZNxl4ycLsq6XxRFjNHBg1R1jW71fUOWPSmII=
 github.com/davidsneighbour/hugo-modules/modules/internals v1.2024.0/go.mod h1:jXeR2s6KyOuUdR+GBPUPml27qXK2chH9G3Nfrwlea6c=
-github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.4 h1:RCS7ibIsn3q1EQvRHLCkZOqkS9TaPnodBSje20NAXeo=
-github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.4/go.mod h1:bQv1ENXGHqr/0hnupRz/gWz0UYOrUTDS2Dtvvz3rBko=
+github.com/davidsneighbour/hugo-modules/modules/modder v1.2024.0 h1:5TkXks3lM5v6sUPNDskWATOXiw3F3iYI+dRnz1qFQ0Y=
+github.com/davidsneighbour/hugo-modules/modules/modder v1.2024.0/go.mod h1:pf5St0mlfEsYYt5K+1n4BqrqkbVZkEAhxjvYu9sc+zU=
 github.com/davidsneighbour/hugo-modules/modules/netlification v1.2024.3 h1:sJL+eM4sEFCk8qwYcfz75uUFiuifThPRvTcAKGB/S5Y=
 github.com/davidsneighbour/hugo-modules/modules/netlification v1.2024.3/go.mod h1:5ewL7ZhqJAioSM8nSHWWMKfm3MnNz9klX/JdOzZAxvY=
 github.com/davidsneighbour/hugo-modules/modules/opensearch v1.2024.1 h1:1LMIlz64YGzmGxQCoIzivtIdCg7382WOX3CvHP2C8Uo=

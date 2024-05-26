@@ -17,7 +17,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/hooks v1.2024.10 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/icons v1.2024.8 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/internals v1.2024.0 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/modder v1.2023.4 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/modder v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/netlification v1.2024.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/opensearch v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/pictures v1.2024.2 // indirect

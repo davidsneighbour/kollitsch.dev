@@ -21,7 +21,13 @@ export default {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: (pathData) => {
+        if (pathData.chunk.name === "main") {
+          return 'index.css'
+        }
+
+        return '[name].css'
+      },
     }),
   ],
   optimization: {

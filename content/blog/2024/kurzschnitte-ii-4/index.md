@@ -40,4 +40,6 @@ Two is company, three's a crowd, and four? Four is an outright party where even 
 
 * [Free Ambient Sounds:](https://moodist.app/) Discover calming audio with Moodist, a free open-source ambient sound generator. Explore curated sounds like streams, waves, cafes, and more, or create personalized soundscapes with adjustable volume. Enjoy binaural beats, color noise, and serene nature to boost focus, sleep, and relaxation.
 
+### What you missed
+
 {{< tagnavigation "kurzschnitte" >}}

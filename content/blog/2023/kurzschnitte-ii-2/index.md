@@ -36,3 +36,7 @@ Welcome to Kurzschnitte II, a collection of links I came across in recent weeks.
 - Asep Bagja's blog post on "[Making Music with Google Sheets and Web MIDI API](https://www.asepbagja.com/programming/making-music-with-google-sheets)" is a fascinating exploration of how modern web browsers can interact with real musical instruments. Using the [Web MIDI API](https://developer.mozilla.org/en-US/docs/Web/API/Web_MIDI_API), the author demonstrates how Google Sheets can be transformed into a grid-based music sequencer, akin to those used in the 80s and 90s. This creative approach not only showcases the potential of combining technology and art but also offers a unique perspective on using everyday tools like Google Sheets in unexpected and imaginative ways. I am definitely revisiting this post as soon as my synthesizer collection arrives ;]
 
 That's all for today's list of orphaned links of interest.
+
+### What you missed
+
+{{< tagnavigation "kurzschnitte" >}}

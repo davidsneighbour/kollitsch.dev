@@ -4,7 +4,7 @@
 # See https://github.com/disintegration/imaging
 ################################################################################
 resampleFilter = "lanczos"
-quality = 75
+quality = 85
 anchor = "smart"
 
 [exif]

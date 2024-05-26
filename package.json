@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2024.1.70",
+  "version": "2024.1.71",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -87,7 +87,7 @@
     "winston": "3.13.0",
     "xml2js": "0.6.2",
     "yargs": "17.7.2",
-        "css-minimizer-webpack-plugin": "7.0.0",
+    "css-minimizer-webpack-plugin": "7.0.0",
     "mini-css-extract-plugin": "2.9.0"
   },
   "scripts": {

@@ -12,7 +12,7 @@
   },
   "homepage": "https://kollitsch.dev",
   "dependencies": {
-    "netlify-cli": "^17.23.7"
+    "netlify-cli": "^17.23.8"
   },
   "devDependencies": {
     "@alpinejs/collapse": "3.14.0",
@@ -58,7 +58,7 @@
     "esm": "3.2.25",
     "jest": "29.7.0",
     "lazysizes": "5.3.2",
-    "lint-staged": "15.2.4",
+    "lint-staged": "15.2.5",
     "mock-fs": "5.2.0",
     "needle": "3.3.1",
     "ninja-keys": "1.2.2",

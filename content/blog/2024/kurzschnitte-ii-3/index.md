@@ -37,6 +37,6 @@ Two is a company, three's a crowd. … But three is also a magic number. So here
 
 - Delve into the importance of web accessibility with the W3C's guide on [Building the Business Case for Web Accessibility](https://www.w3.org/WAI/business-case/). This resource outlines the benefits, including enhanced brand reputation, broader market reach, and reduced legal risks, providing a strong argument for adopting accessible web practices.
 
-## Older Kurzschnitte II Editions
+### What you missed
 
-{{< tagnavigation tag="kurzschnitte" >}}
+{{< tagnavigation "kurzschnitte" >}}

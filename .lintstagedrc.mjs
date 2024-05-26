@@ -1,4 +1,4 @@
-// @see https://github.com/okonet/lint-staged
+// @see https://github.com/lint-staged/lint-staged
 import { ESLint } from 'eslint'
 
 const removeIgnoredFiles = async (/** @type {any[]} */ files) => {

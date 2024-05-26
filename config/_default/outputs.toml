@@ -11,6 +11,7 @@ home = [
   "dnblinklist",
   "opensearch",
   "headerimage",
+  "modder",
 ]
 page = ["HTML", "headerimage"]
 section = ["HTML", "headerimage"]

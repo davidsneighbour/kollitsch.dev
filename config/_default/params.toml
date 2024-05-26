@@ -189,7 +189,8 @@ method = "postcss"
 [dnb.head.styles.options]
 # options for the compilation of CSS
 # see https://gohugo.io/hugo-pipes/scss-sass/#options
-#transpiler = "dartsass"
+# transpiler = "dartsass"
+outputType = "direct"
 outputStyle = "compressed"
 targetPath = "theme.css"
 enableSourceMap = true

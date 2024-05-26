@@ -1,4 +1,11 @@
 Changelog
+## [2024.1.72](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.71...v2024.1.72) (2024-05-26)
+
+
+### Chore
+
+* **fix:** let release script decide which version to release ([153520e](https://github.com/davidsneighbour/kollitsch.dev/commit/153520e51ec5be757b64888a19a3054e43cfc634))
+
 ## [2024.1.71](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.68...v2024.1.71) (2024-05-26)
 
 

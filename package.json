@@ -12,6 +12,7 @@
   },
   "homepage": "https://kollitsch.dev",
   "dependencies": {
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "netlify-cli": "^17.23.8"
   },
   "devDependencies": {
@@ -38,7 +39,7 @@
     "@davidsneighbour/remark-config": "2024.3.13",
     "@davidsneighbour/stylelint-config": "2024.3.13",
     "@davidsneighbour/tools": "2024.3.13",
-    "@davidsneighbour/webpack-config": "2024.3.13",
+    "@davidsneighbour/webpack-config": "^2024.3.13",
     "@frontmatter/extensibility": "0.0.15",
     "@github/hotkey": "3.1.1",
     "@netlify/functions": "2.7.0",
@@ -85,13 +86,16 @@
     "web-vitals-element": "1.3.7",
     "winston": "3.13.0",
     "xml2js": "0.6.2",
-    "yargs": "17.7.2"
+    "yargs": "17.7.2",
+        "css-minimizer-webpack-plugin": "7.0.0",
+    "mini-css-extract-plugin": "2.9.0"
   },
   "scripts": {
     "audit:html": "wireit",
     "build": "npm run build:hugo && npm run build:pagefind",
     "build:hugo": "./bin/hugo/build",
     "build:pagefind": "pagefind",
+    "build:webpack": "webpack",
     "clean": "wireit",
     "clean:full": "wireit",
     "deploy": "npm run release && npm run build:hugo && npm run build:pagefind && netlify deploy --prod --open",

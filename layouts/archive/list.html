@@ -2,33 +2,33 @@
   <section class="section--content">
     <div class="container">
       <div class="row">
-        {{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" . . -}}
-        <article class="{{- $postClasses -}}">
-          <h1 class="h2 post-title"><a href="{{ .Permalink }}">Archive</a></h1>
-          <div class="prose component--archive-card">
-            {{- $paginator := .Scratch.Get "paginator" -}}
-            {{- range $index, $item := $paginator.Pages -}}
-              <div class="is--item">
-                <div class="is--date">
-                  <span>{{- $item.Date.Format "Jan" -}}</span>
-                  <span>{{- $item.Date.Format "2" -}}</span>
-                  <span>{{- $item.Date.Format "2006" -}}</span>
-                </div>
-                <div class="is--content">
-                  <h2 class="post-title">
-                    <a href="{{ $item.Permalink }}">
-                      {{- $item.Title -}}
-                    </a>
-                  </h2>
-                  <p class="text-truncate text-truncate-5 mb-0">
-                    {{- partialCached "func/getSummary.html" $item $item -}}
-                  </p>
-                  {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
+        <h1 class="h2 post-title"><a href="{{ .Permalink }}">Archive</a></h1>
+          {{- $paginator := .Scratch.Get "paginator" -}}
+          {{- range $index, $item := $paginator.Pages -}}
+            {{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" $item $item -}}
+            <article class="{{- $postClasses }} mb-3">
+              <div class="prose component--archive-card">
+                <div class="is--item">
+                  <div class="is--date">
+                    <span>{{- $item.Date.Format "Jan" -}}</span>
+                    <span>{{- $item.Date.Format "2" -}}</span>
+                    <span>{{- $item.Date.Format "2006" -}}</span>
+                  </div>
+                  <div class="is--content">
+                    <h2 class="post-title">
+                      <a href="{{ $item.Permalink }}">
+                        {{- $item.Title -}}
+                      </a>
+                    </h2>
+                    <p class="text-truncate text-truncate-5 mb-0">
+                      {{- partialCached "func/getSummary.html" $item $item -}}
+                    </p>
+                    {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
+                  </div>
                 </div>
               </div>
-            {{- end -}}
-          </div>
-        </article>
+            </article>
+          {{- end -}}
       </div>
       {{ partials.Include "content/components/pagination/pagination-simple.html" . }}
     </div>

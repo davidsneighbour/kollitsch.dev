@@ -1,5 +1,8 @@
 /* stylelint-disable selector-max-compound-selectors --- sometimes it's required */
 .component--archive-card {
+  @extend .px-3;
+  @extend .py-2;
+
   .is--tags {
     @extend .text-end;
 
@@ -17,7 +20,6 @@
     @extend .align-items-start;
     @extend .flex-column;
     @extend .flex-sm-row;
-    @extend .mb-5;
 
     .is--date {
       line-height: 0.85;

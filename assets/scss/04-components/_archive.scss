@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-compound-selectors --- sometimes it's required */
 .component--archive-card {
   .is--tags {
     @extend .text-end;
@@ -11,40 +12,60 @@
     }
   }
 
-  .is--date {
-    line-height: 0.85;
-    border: $border-width solid $primary;
-    padding: 0.5rem 1rem;
+  .is--item {
+    @extend .d-flex;
+    @extend .align-items-start;
+    @extend .flex-column;
+    @extend .flex-sm-row;
+    @extend .mb-5;
 
-    &:hover {
-      background-color: $primary;
-      color: $white;
-    }
+    .is--date {
+      line-height: 0.85;
 
-    span {
-      width: 75px;
+      @extend .me-3;
+      @extend .mb-3;
+      @extend .mt-2;
+      @extend .px-3;
+      @extend .py-2;
+      @extend .border;
+      @extend .border-primary-subtle;
+      @extend .border-3;
+      @extend .rounded-4;
 
-      @extend .text-center;
+      &:hover {
+        background-color: $primary;
+        color: $dark;
+      }
 
-      display: inline-block;
+      span {
+        width: 75px;
 
-      @include media-breakpoint-up(sm) {
-        display: block;
+        @extend .text-center;
 
-        &:nth-child(1) {
-          font-size: 25px;
-          text-transform: uppercase;
-        }
+        display: inline-block;
 
-        &:nth-child(2) {
-          font-size: 50px;
-          margin-bottom: 0.3rem;
-        }
+        @include media-breakpoint-up(sm) {
+          display: block;
 
-        &:nth-child(3) {
-          font-size: 22px;
+          &:nth-child(1) {
+            font-size: 25px;
+            text-transform: uppercase;
+          }
+
+          &:nth-child(2) {
+            font-size: 50px;
+            margin-bottom: 0.3rem;
+          }
+
+          &:nth-child(3) {
+            font-size: 22px;
+          }
         }
       }
+    }
+
+    .is--content {
+      @extend .flex-grow-1;
     }
   }
 }

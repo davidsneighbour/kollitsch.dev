@@ -8,13 +8,13 @@
           <div class="prose component--archive-card">
             {{- $paginator := .Scratch.Get "paginator" -}}
             {{- range $index, $item := $paginator.Pages -}}
-              <div class="is--item d-flex align-items-start flex-column flex-sm-row mb-5">
-                <div class="is--date me-3 mb-3 mt-2">
+              <div class="is--item">
+                <div class="is--date">
                   <span>{{- $item.Date.Format "Jan" -}}</span>
                   <span>{{- $item.Date.Format "2" -}}</span>
                   <span>{{- $item.Date.Format "2006" -}}</span>
                 </div>
-                <div class="is--content flex-grow-1">
+                <div class="is--content">
                   <h2 class="post-title">
                     <a href="{{ $item.Permalink }}">
                       {{- $item.Title -}}

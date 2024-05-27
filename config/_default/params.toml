@@ -112,7 +112,7 @@ target = "es2020"
 
 [dnb.theme.related]
 exclude_tags = ["100DaysToOffload"]
-limit = 5
+limit = 3
 
 ################################################################################
 # some DNB Org Components Configuration.

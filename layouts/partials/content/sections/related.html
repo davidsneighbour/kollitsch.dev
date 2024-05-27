@@ -21,11 +21,10 @@
   {{- with $relatedPages.Limit ($config.limit | cast.ToInt) -}}
     <div class="section--related mt-5">
       <h3 class="section__title">{{- i18n "theme.relatedposts" -}}</h3>
-      <ul>
-        {{- range . -}}
-          <li><a href="{{- .RelPermalink -}}">{{- .Title -}}</a></li>
-        {{- end -}}
-      </ul>
+      {{- range . -}}
+        {{- $options := dict "context" . "lines" 2 -}}
+        {{- partials.Include "content/post-preview-flat.html" $options -}}
+      {{- end -}}
     </div>
   {{- end -}}
 

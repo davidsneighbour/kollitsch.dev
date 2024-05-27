@@ -64,12 +64,12 @@
       {{- end -}}
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-after" "context" $post ) -}}
 
-      {{- /* MARK: Related Posts
-      */ -}}
-      {{- if ne $config.related false -}}
-        {{- partials.IncludeCached "content/sections/related.html" $post $post.Params.tags -}}
-      {{- end -}}
-
     </div>
   </div>
 </article>
+
+{{- /* MARK: Related Posts
+*/ -}}
+{{- if ne $config.related false -}}
+  {{- partials.IncludeCached "content/sections/related.html" $post $post.Params.tags -}}
+{{- end -}}

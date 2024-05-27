@@ -1,0 +1,24 @@
+{{- $item := .context -}}
+{{- $lines := .lines | default 3 -}}
+{{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" $item $item -}}
+<article class="{{- $postClasses }} mb-3 prose component--archive-card">
+  <div class="is--item">
+    <div class="is--date">
+      <span>{{- $item.Date.Format "Jan" -}}</span>
+      <span>{{- $item.Date.Format "2" -}}</span>
+      <span>{{- $item.Date.Format "2006" -}}</span>
+    </div>
+    <div class="is--content">
+      <h2 class="post-title h3">
+        <a href="{{ $item.Permalink }}">
+          {{- $item.Title -}}
+        </a>
+      </h2>
+      {{- $truncateLevel := printf "text-truncate-%d" $lines -}}
+      <p class="text-truncate {{ $truncateLevel }} mb-0">
+        {{- partialCached "func/getSummary.html" $item $item -}}
+      </p>
+      {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
+    </div>
+  </div>
+</article>

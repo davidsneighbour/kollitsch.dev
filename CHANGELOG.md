@@ -1,4 +1,103 @@
 Changelog
+## [2024.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.68...v2024.3.0) (2024-05-27)
+
+
+### Content
+
+* **fix:** kurzschnitte previous links ([4f0e238](https://github.com/davidsneighbour/kollitsch.dev/commit/4f0e2384e7d96579d848fe5559e09314ad33ea75))
+* **fix:** proper date format in frontmatter ([f79be33](https://github.com/davidsneighbour/kollitsch.dev/commit/f79be33dd34452d9205905fcbc901bb7172ad8cf))
+* **new:** kurzschnitte II - number 4 ([0131aaf](https://github.com/davidsneighbour/kollitsch.dev/commit/0131aaf73e53cfdee1450165a9df7aa6c09506b9))
+
+
+### Documentation
+
+* add proper screenshot ([ded5d6f](https://github.com/davidsneighbour/kollitsch.dev/commit/ded5d6f85a234d2e99fbe4e6da7d6053660c314a))
+* update README.md ([f4858fc](https://github.com/davidsneighbour/kollitsch.dev/commit/f4858fc23646d3a67e80be12e38e185c51e86d94))
+
+
+### Features
+
+* **wip:** js/scss processing via modder module ([8a729ff](https://github.com/davidsneighbour/kollitsch.dev/commit/8a729ffa4558af151139e018b69de7909e5f87a8))
+
+
+### Theme
+
+* **fix:** add better summary for music posts ([6568cee](https://github.com/davidsneighbour/kollitsch.dev/commit/6568cee8f2fcda650cefcc82cd281b8c0d3e1995)), closes [#964](https://github.com/davidsneighbour/kollitsch.dev/issues/964)
+* **fix:** article boxes for archive items, hovereffect for cards ([773e84f](https://github.com/davidsneighbour/kollitsch.dev/commit/773e84f8dc8ff21b54277373c2302f6974103884))
+* **fix:** consolidate archive article cards ([ebfa478](https://github.com/davidsneighbour/kollitsch.dev/commit/ebfa47898039641c37e10dba29d388994d102c56))
+* **fix:** image positioning in component list pages ([ebd9094](https://github.com/davidsneighbour/kollitsch.dev/commit/ebd909453c1313da799df4f075cb8d6474cb3c21))
+* **fix:** light alert mode ([2c99802](https://github.com/davidsneighbour/kollitsch.dev/commit/2c998025b991dace618dce7894b813fc8923b23c))
+* **fix:** make headline-banner clickable to post page ([90a4b35](https://github.com/davidsneighbour/kollitsch.dev/commit/90a4b35f716f5a95352c727506a8ef0b59421a47))
+* **fix:** move classes into css ([db88d15](https://github.com/davidsneighbour/kollitsch.dev/commit/db88d1555fb366a0fa0c07fe3f65fa4fc99728e2))
+* **fix:** move flat preview into component and re-use for related posts ([8f6fc3c](https://github.com/davidsneighbour/kollitsch.dev/commit/8f6fc3c2a188791353c9e0346046aecd34e1533e))
+* **fix:** music alert box with transparent background ([e73dbbe](https://github.com/davidsneighbour/kollitsch.dev/commit/e73dbbecfcf00bcb9865b7aa5c29926cf741b949))
+* **fix:** proper containers for component documentation ([561af86](https://github.com/davidsneighbour/kollitsch.dev/commit/561af86cd78c15438155ae4d73ad40e1dce4c9cb))
+* **fix:** show 'this is' content only for music post type ([8411f26](https://github.com/davidsneighbour/kollitsch.dev/commit/8411f26755eac950b3d9b9caea42ce206056bc86))
+* **fix:** youtube videos are cut off at the bottom ([5ef95c7](https://github.com/davidsneighbour/kollitsch.dev/commit/5ef95c707c1bdec0c1ebb0416d6a6be9fa359a46)), closes [#992](https://github.com/davidsneighbour/kollitsch.dev/issues/992)
+
+
+### Bug Fixes
+
+* add direct or preload type to head processing of scss ([0eef7fb](https://github.com/davidsneighbour/kollitsch.dev/commit/0eef7fb794a9b42a8225c12d408c6a39d593821f))
+* remove hugo-modules repo from modules ([5a8353a](https://github.com/davidsneighbour/kollitsch.dev/commit/5a8353a65af71f57bcab20701204293b035254c0))
+
+
+### Chore
+
+* adding dependencies and webpack config (wip) ([c436fa5](https://github.com/davidsneighbour/kollitsch.dev/commit/c436fa5fef1adfa8e1a06a106ea6330ff433e981))
+* **deps:** update dependencies ([5dcb796](https://github.com/davidsneighbour/kollitsch.dev/commit/5dcb79627b725819b546fc69d7a7b25b47efb7c2))
+* **deps:** update dependencies ([3abfbbb](https://github.com/davidsneighbour/kollitsch.dev/commit/3abfbbb2eddd0d316208a026b346d0c6b74ae143))
+* **deps:** update dependencies ([32df429](https://github.com/davidsneighbour/kollitsch.dev/commit/32df4294c79b9cdd146a5d4e0c181a7eedeeabaa))
+* **deps:** update dependencies ([ce4a25f](https://github.com/davidsneighbour/kollitsch.dev/commit/ce4a25fb1e492a95b73e8e28e82465c7a73e297c))
+* **fix:** let release script decide which version to release ([b5d0aba](https://github.com/davidsneighbour/kollitsch.dev/commit/b5d0aba4d6698467318c723353fab023be75d4d0))
+* **git:** add .git-blame-ignore-revs file ([28e82f3](https://github.com/davidsneighbour/kollitsch.dev/commit/28e82f343600e3961fb2400871cfff242cba0645))
+* **git:** update bin submodule ([7d95ed0](https://github.com/davidsneighbour/kollitsch.dev/commit/7d95ed06350a5e491a6caba7ddeb431857768e64))
+* **git:** update bin submodule, fix replacements issues ([07b4432](https://github.com/davidsneighbour/kollitsch.dev/commit/07b443281504e685ec12fbdcabfa2aebd96bf9b9))
+* **git:** update binary submodule ([a662e17](https://github.com/davidsneighbour/kollitsch.dev/commit/a662e172358d86c00a179cb56da3318ec4abb333))
+* **git:** update binary submodule ([d99a999](https://github.com/davidsneighbour/kollitsch.dev/commit/d99a999a6128d68dfad39038e28a7bc6126f33d9))
+* **release:** v2024.1.69 ([089fafe](https://github.com/davidsneighbour/kollitsch.dev/commit/089fafed8bd7be3caa74d15125c1c441c2a4b8e6))
+* **release:** v2024.1.70 ([bfc516d](https://github.com/davidsneighbour/kollitsch.dev/commit/bfc516de1eb8a3c96b2334d697904d8459356528))
+* **release:** v2024.1.71 ([1e77d72](https://github.com/davidsneighbour/kollitsch.dev/commit/1e77d722d236b3f564dcffa0392afd7c663090fc))
+* **release:** v2024.1.72 ([6a3fa54](https://github.com/davidsneighbour/kollitsch.dev/commit/6a3fa547f2861239e65d43504dd30f12e1c63590))
+* **release:** v2024.2.0 ([3872e6c](https://github.com/davidsneighbour/kollitsch.dev/commit/3872e6c4ccbcbccfa5d93e4ce13c25f39d37c6e2))
+* **screenshots:** add screenshot ([ad0b424](https://github.com/davidsneighbour/kollitsch.dev/commit/ad0b4249dba15885793b97dcca500e011bfdbfe2))
+* **screenshots:** add screenshot ([4bcf80b](https://github.com/davidsneighbour/kollitsch.dev/commit/4bcf80bfd319add7265e98e02ae4ba9a8ac637e4))
+* **screenshots:** add screenshot ([f26ce32](https://github.com/davidsneighbour/kollitsch.dev/commit/f26ce32579fcf06cd04e09e86e52ceae34db5c5c))
+* **screenshots:** add screenshot ([70d995c](https://github.com/davidsneighbour/kollitsch.dev/commit/70d995c8dec9b9715fe0a86d4fbeaa92807f07b9))
+* **screenshots:** add screenshot ([1b21c49](https://github.com/davidsneighbour/kollitsch.dev/commit/1b21c497e76ed3b77a09e44885d8526501673512))
+* **screenshots:** add screenshot ([fe82cf1](https://github.com/davidsneighbour/kollitsch.dev/commit/fe82cf1d67654d6a3cd793d04bad7e59ba8145de))
+* **screenshots:** add screenshot ([28fee96](https://github.com/davidsneighbour/kollitsch.dev/commit/28fee96f2db9f3593464d9bbdec3c807434c6d0d))
+* **screenshots:** add screenshot ([0296d3c](https://github.com/davidsneighbour/kollitsch.dev/commit/0296d3c0bd49cc91f339cca9ad0fd5d409c11622))
+* **screenshots:** add screenshot ([0850951](https://github.com/davidsneighbour/kollitsch.dev/commit/0850951ea90e25bf599820042084a38b41d581ed))
+* **screenshots:** add screenshot ([2715627](https://github.com/davidsneighbour/kollitsch.dev/commit/271562727843ef3eca28b2634eda240365bee341))
+* **screenshots:** add screenshot ([fb6d5ce](https://github.com/davidsneighbour/kollitsch.dev/commit/fb6d5ce8f7d3538d5e02932be4085bde068ea213))
+* **screenshots:** add screenshot ([c17557b](https://github.com/davidsneighbour/kollitsch.dev/commit/c17557be5d8974fab60f7ce967e3dfb3c9cfd499))
+* **screenshots:** add screenshot ([c3f0026](https://github.com/davidsneighbour/kollitsch.dev/commit/c3f00269b88525dd49de3c339f5a9410176d485c))
+* **screenshots:** add screenshot ([208194e](https://github.com/davidsneighbour/kollitsch.dev/commit/208194e191a302e609ecd4a35f0a67afb2fd3c35))
+* **screenshots:** add screenshot ([3d3264a](https://github.com/davidsneighbour/kollitsch.dev/commit/3d3264ab1349f29baeb6e4b984fc94eca8c23fb9))
+* **screenshots:** add screenshot for 2024-05-20 ([c6ae4dc](https://github.com/davidsneighbour/kollitsch.dev/commit/c6ae4dc630c4c3839219e7555194ab2cdf6802b8))
+
+
+### Configuration
+
+* **fix:** increase image quality after processing from 75 to 85 ([e5b8a9d](https://github.com/davidsneighbour/kollitsch.dev/commit/e5b8a9d42cb2bf8f57b8e46d7be5ffcf92e36e25))
+* **fix:** string in date string is not shown properly ([5aca6c3](https://github.com/davidsneighbour/kollitsch.dev/commit/5aca6c34a833e790eaaebce3edbff6faaabb5d36))
+* **workspace:** add cached debugging partial shortcode ([3cb2b57](https://github.com/davidsneighbour/kollitsch.dev/commit/3cb2b5768ae5d935ded88e13a26ab024b4f6d1c0))
+
+
+### Build System
+
+* **feat:** add netlify cli with debugging to workspace configuration ([048db8d](https://github.com/davidsneighbour/kollitsch.dev/commit/048db8deb95a58e7caeb59b9a53b139d83fab14b))
+* **feat:** add prio tags to be removed on closed issues ([3d6d912](https://github.com/davidsneighbour/kollitsch.dev/commit/3d6d912c70fdfa2ca9a1038a8d1ea29227ed33c9))
+* **fix:** create a default screenshot ([06fde96](https://github.com/davidsneighbour/kollitsch.dev/commit/06fde9621ad4081d4a98a18f1fbf9e5a209a36bf))
+* **fix:** disabling screenshot script ([18bbc29](https://github.com/davidsneighbour/kollitsch.dev/commit/18bbc29863b4e3403398c68602dad313b704b8ed))
+* **fix:** proper minicssextractplugin configuration in webpack ([e7da360](https://github.com/davidsneighbour/kollitsch.dev/commit/e7da360dd154e73e2503e5a4103cde2490aa613e))
+* **fix:** remove autorun of server on vscode start ([d0d6188](https://github.com/davidsneighbour/kollitsch.dev/commit/d0d6188e9028a47ccc4d2a7a724ba32af701be59))
+* **fix:** remove unused screenshot ([687d267](https://github.com/davidsneighbour/kollitsch.dev/commit/687d267c151c89bc23aa3c856e079d0085a49659))
+* **workflow:** add proper screenshot script ([258d47f](https://github.com/davidsneighbour/kollitsch.dev/commit/258d47f906ffe29ab3051a02d449b002e8971c39))
+* **workflow:** fix datestamp in screenshot workflow ([819554a](https://github.com/davidsneighbour/kollitsch.dev/commit/819554abab183920e0c5a9ba6e44ce8a00ad291d))
+* **workflow:** run screenshot script only on push ([9cd339a](https://github.com/davidsneighbour/kollitsch.dev/commit/9cd339aadc8d87cd0699f914e249e851c2bff950))
+
 ## [2024.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.68...v2024.2.0) (2024-05-26)
 
 

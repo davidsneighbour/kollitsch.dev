@@ -6,25 +6,23 @@
           {{- $paginator := .Scratch.Get "paginator" -}}
           {{- range $index, $item := $paginator.Pages -}}
             {{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" $item $item -}}
-            <article class="{{- $postClasses }} mb-3">
-              <div class="prose component--archive-card">
-                <div class="is--item">
-                  <div class="is--date">
-                    <span>{{- $item.Date.Format "Jan" -}}</span>
-                    <span>{{- $item.Date.Format "2" -}}</span>
-                    <span>{{- $item.Date.Format "2006" -}}</span>
-                  </div>
-                  <div class="is--content">
-                    <h2 class="post-title">
-                      <a href="{{ $item.Permalink }}">
-                        {{- $item.Title -}}
-                      </a>
-                    </h2>
-                    <p class="text-truncate text-truncate-5 mb-0">
-                      {{- partialCached "func/getSummary.html" $item $item -}}
-                    </p>
-                    {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
-                  </div>
+            <article class="{{- $postClasses }} mb-3 prose component--archive-card">
+              <div class="is--item">
+                <div class="is--date">
+                  <span>{{- $item.Date.Format "Jan" -}}</span>
+                  <span>{{- $item.Date.Format "2" -}}</span>
+                  <span>{{- $item.Date.Format "2006" -}}</span>
+                </div>
+                <div class="is--content">
+                  <h2 class="post-title h3">
+                    <a href="{{ $item.Permalink }}">
+                      {{- $item.Title -}}
+                    </a>
+                  </h2>
+                  <p class="text-truncate text-truncate-5 mb-0">
+                    {{- partialCached "func/getSummary.html" $item $item -}}
+                  </p>
+                  {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
                 </div>
               </div>
             </article>

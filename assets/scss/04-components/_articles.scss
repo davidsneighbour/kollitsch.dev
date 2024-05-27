@@ -1,5 +1,4 @@
 article {
-
   h1.post-title,
   h2.post-title {
     border-bottom: $border-width solid $primary;
@@ -8,6 +7,11 @@ article {
   .section--content & {
     border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 0, 0, 0.05);
+    transition: background 2s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
 
     @extend .rounded-4;
 
@@ -47,7 +51,6 @@ figure {
   }
 
   .post-slider & {
-
     picture,
     img,
     .iframe-border,

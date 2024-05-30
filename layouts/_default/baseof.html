@@ -249,15 +249,13 @@
       {{- $icon := $config.backtotop.icon -}}
       <div x-data="{ showBackToTop: false }"
           x-on:scroll.window="showBackToTop = window.pageYOffset >= 200"
-          class="scroll-to-top p-3 me-1 mb-1">
-        <div x-show="showBackToTop"
-              x-transition.duration.500ms
-              x-on:click.once.prevent="window.scrollTo({top: 0, behavior: 'smooth'});">
-          <span class="me-2">
-            {{- partials.Include "icon.html" $icon -}}
-          </span>
-          {{- lang.Translate "theme.back_to_top" -}}
-        </div>
+          class="scroll-to-top p-3 me-1 mb-1" x-show="showBackToTop"
+          x-transition.duration.500ms
+          x-on:click.once.prevent="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <span class="me-2">
+          {{- partials.Include "icon.html" $icon -}}
+        </span>
+        {{- lang.Translate "theme.back_to_top" -}}
       </div>
     {{- end -}}
     {{- if templates.Exists "partials/schema.html" -}}

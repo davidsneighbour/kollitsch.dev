@@ -61,6 +61,7 @@
                     class="nav-link dropdown-toggle d-inline-block {{ if $active -}}
                       active
                     {{- end -}}"
+                    {{- if $active }} aria-current="page" {{ end -}}
                     data-toggle="dropdown"
                     aria-expanded="false">
                     {{- with .Params.bsicon -}}
@@ -72,6 +73,7 @@
                     {{- range .Children -}}
                       <li>
                         <a class="dropdown-item" href="{{- .URL | urls.AbsLangURL -}}"
+                        {{- if $active }} aria-current="page" {{ end -}}
                             {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
                           {{- with .Params.bsicon -}}
                             {{- partials.Include "icon.html" . -}}
@@ -88,6 +90,7 @@
 
                   d-flex flex-row  align-items-center column-gap-2 {{ $active -}}
                   " href="{{- .URL | urls.AbsLangURL -}}"
+                    {{- if $active }} aria-current="page" {{ end -}}
                             {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
                     {{- with .Params.bsicon -}}
                       {{- partials.Include "icon.html" . -}}

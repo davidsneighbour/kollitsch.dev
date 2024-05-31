@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "css-minimizer-webpack-plugin": "^7.0.0",
-    "netlify-cli": "^17.23.8"
+    "netlify-cli": "^17.25.0"
   },
   "devDependencies": {
     "@alpinejs/collapse": "3.14.0",

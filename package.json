@@ -18,7 +18,7 @@
   "devDependencies": {
     "@alpinejs/collapse": "3.14.0",
     "@alpinejs/intersect": "3.14.0",
-    "@atproto/api": "0.12.13",
+    "@atproto/api": "0.12.14",
     "@clack/prompts": "0.7.0",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",

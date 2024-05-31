@@ -38,6 +38,7 @@ jobs:
 
       - name: Push changes to GitHub
         run: |
+          git pull origin main
           git add .github
           git config --global user.name 'Patrick Kollitsch'
           git config --global user.email 'patrick@davids-neighbour.com'

@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.4...v2024.3.5) (2024-06-02)
+
+
+### Chore
+
+* **git:** update binaries submodule ([3320331](https://github.com/davidsneighbour/kollitsch.dev/commit/332033179a3819e991022f63d3e25103936d1d0f))
+
 ## [2024.3.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.3...v2024.3.4) (2024-06-02)
 
 ## [2024.3.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.2...v2024.3.3) (2024-06-02)

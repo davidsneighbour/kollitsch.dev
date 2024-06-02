@@ -91,7 +91,7 @@
     "audit:html": "wireit",
     "build": "npm run build:hugo && npm run build:pagefind",
     "build:hugo": "./bin/hugo/build",
-    "build:pagefind": "pagefind",
+    "build:pagefind": "pagefind --site public --output-subdir search",
     "build:webpack": "webpack",
     "clean": "wireit",
     "clean:full": "wireit",

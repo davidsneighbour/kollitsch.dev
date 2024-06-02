@@ -89,10 +89,7 @@
   },
   "scripts": {
     "audit:html": "wireit",
-    "build": "npm run build:hugo && npm run build:pagefind",
-    "build:hugo": "./bin/hugo/build",
-    "build:pagefind": "pagefind --site public --output-subdir search",
-    "build:webpack": "webpack",
+    "build": "./bin/hugo/build.mjs",
     "clean": "wireit",
     "clean:full": "wireit",
     "deploy": "npm run release && npm run build:hugo && npm run build:pagefind && netlify deploy --prod --open",

@@ -1,20 +1,6 @@
 {
   "folders": [
     {
-      "name": "javascript",
-      "path": "./assets/js"
-    },
-    {
-      "name": "styles",
-      "path": "./assets/scss"
-    },
-    {
-      "path": "./content"
-    },
-    {
-      "path": "./layouts"
-    },
-    {
       "path": ".",
       "name": "kollitsch.dev"
     },

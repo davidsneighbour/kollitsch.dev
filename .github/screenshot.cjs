@@ -1,6 +1,8 @@
 const fs = require('fs');
 const playwright = require("playwright");
 const path = require("path");
+const PNG = require('pngjs').PNG;
+const pixelmatch = require('pixelmatch');
 
 async function getData(screenshotDir = "./.github/screenshots", retries = 3) {
   const browser = await playwright.chromium.launch();
@@ -24,12 +26,57 @@ async function getData(screenshotDir = "./.github/screenshots", retries = 3) {
         fs.mkdirSync(screenshotDir, { recursive: true });
       }
 
-      const screenshotPathDefault = path.join(screenshotDir, `new-screenshot.png`);
+      const screenshotPathDefault = path.join(screenshotDir, `screenshot.png`);
+      const diffPath = path.join(screenshotDir, 'diff.png');
 
-      // Take screenshot and save to both paths
-      await page.screenshot({ path: screenshotPathDefault, fullPage: true });
+      const now = new Date();
+      const timestamp = now.getFullYear().toString() +
+        (now.getMonth() + 1).toString().padStart(2, '0') +
+        now.getDate().toString().padStart(2, '0') +
+        now.getHours().toString().padStart(2, '0') +
+        now.getMinutes().toString().padStart(2, '0') +
+        now.getSeconds().toString().padStart(2, '0');
+      const screenshotPathWithTimestamp = path.join(screenshotDir, `screenshot_${timestamp}.png`);
+
+      // take screenshot and save to both paths
+      await page.screenshot({ path: screenshotPathWithTimestamp, fullPage: true });
+      console.log(`Screenshot saved to ${screenshotPathWithTimestamp}`);
+
+      //fs.copyFileSync(screenshotPathDefault, screenshotPathWithTimestamp);
+      //console.log(`Timestamped screenshot saved to ${screenshotPathWithTimestamp}`);
+
+      if (fs.existsSync(screenshotPathDefault) && fs.existsSync(screenshotPathWithTimestamp)) {
+        const img1 = PNG.sync.read(fs.readFileSync(screenshotPathDefault));
+        const img2 = PNG.sync.read(fs.readFileSync(screenshotPathWithTimestamp));
+        const { width, height } = img1;
+        const diff = new PNG({ width, height });
+        const numDiffPixels = pixelmatch(img1.data, img2.data, diff.data, width, height, { threshold: 0.1 });
+        fs.writeFileSync(diffPath, PNG.sync.write(diff));
+
+        if (numDiffPixels > 0) {
+          fs.copyFileSync(screenshotPathWithTimestamp, screenshotPathDefault);
+          console.log('Changes detected, updating screenshot.');
+          process.stdout.write('::set-output name=changes::true');
+        } else {
+          console.log('No changes detected.');
+          process.stdout.write('::set-output name=changes::false');
+        }
+      } else {
+        fs.copyFileSync(screenshotPathWithTimestamp, screenshotPathDefault);
+        console.log('No previous screenshot found, saving new one.');
+        process.stdout.write('::set-output name=changes::true');
+      }
+
       await browser.close();
-      console.log(`Screenshot saved to ${screenshotPathDefault}`);
+
+      // Set output using environment files
+      //fs.appendFileSync(process.env.GITHUB_ENV, `CHANGES=${changesDetected}\n`);
+
+      // Delete diff.png regardless of changes
+      if (fs.existsSync(diffPath)) {
+        fs.unlinkSync(diffPath);
+      }
+
       return;
     } catch (error) {
       console.error(`Attempt ${attempt} failed: ${error.message}`);
@@ -41,6 +88,7 @@ async function getData(screenshotDir = "./.github/screenshots", retries = 3) {
       console.log('Retrying...');
     }
   }
+
 }
 
 getData();

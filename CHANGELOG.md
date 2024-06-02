@@ -1,4 +1,42 @@
 Changelog
+## [2024.3.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.0...v2024.3.1) (2024-06-02)
+
+
+### Theme
+
+* **feat:** add aria-current to active navigation links ([3e6f145](https://github.com/davidsneighbour/kollitsch.dev/commit/3e6f145d58571566ab0ad976a8dfbcb444e10ff2))
+* **fix:** back-to-top link changes ([3c192c3](https://github.com/davidsneighbour/kollitsch.dev/commit/3c192c3e08b1c6435aa4931befcc2b3baaaec2fd))
+
+
+### Chore
+
+* **config:** move pagefind config to package file ([1865d03](https://github.com/davidsneighbour/kollitsch.dev/commit/1865d03b2a7351ffa68593e8e4348666852ff385))
+* **config:** update workspace configuration ([3dab600](https://github.com/davidsneighbour/kollitsch.dev/commit/3dab60033a9cb917b79e0cde90f7bb72eff5ccc8))
+* **deps:** cleanup dependencies and remove submodule deps ([31d5f29](https://github.com/davidsneighbour/kollitsch.dev/commit/31d5f298b99dda94ad09d8b2c2b70b3e9d8f87c5))
+* **deps:** remove unused dependencies and scripts ([fcb6cca](https://github.com/davidsneighbour/kollitsch.dev/commit/fcb6ccaf377e5ec1b3c29f1b236e8e800ff8d648))
+* **deps:** update dependencies ([91683e4](https://github.com/davidsneighbour/kollitsch.dev/commit/91683e4cb32121ee46de5eae373f47f9815b2dc0))
+* **git:** update binaries submodule ([14992a6](https://github.com/davidsneighbour/kollitsch.dev/commit/14992a6438c999a4469c201c056bdc43a7c96fae))
+* **screenshots:** add screenshot ([cc1a841](https://github.com/davidsneighbour/kollitsch.dev/commit/cc1a8416cf6f34ea1ebebcf5c8641ab13e52c28a))
+* **screenshots:** add screenshot ([3d4d187](https://github.com/davidsneighbour/kollitsch.dev/commit/3d4d187bb8101a246a9d67a940283b31fdc2897a))
+* **screenshots:** add screenshot ([b95fc67](https://github.com/davidsneighbour/kollitsch.dev/commit/b95fc6761690d6bddf40143ca1bf7d308e257a98))
+* **screenshots:** add screenshot ([21a0d55](https://github.com/davidsneighbour/kollitsch.dev/commit/21a0d555b8c4bccbce4ba1c54822902c90f73706))
+
+
+### Build System
+
+* **deps-dev:** bump @atproto/api from 0.12.13 to 0.12.14 ([#998](https://github.com/davidsneighbour/kollitsch.dev/issues/998)) ([bea483e](https://github.com/davidsneighbour/kollitsch.dev/commit/bea483e561aa4fcdfdcab7b102dc35fed3d78185))
+* **deps-dev:** bump @types/node from 20.12.12 to 20.12.13 ([#1000](https://github.com/davidsneighbour/kollitsch.dev/issues/1000)) ([74f3055](https://github.com/davidsneighbour/kollitsch.dev/commit/74f3055ac4660d23a20c28be266449c04163b61d))
+* **deps-dev:** bump caniuse-lite from 1.0.30001621 to 1.0.30001625 ([#999](https://github.com/davidsneighbour/kollitsch.dev/issues/999)) ([6956a0b](https://github.com/davidsneighbour/kollitsch.dev/commit/6956a0bda9037e20a50161cf62a767db0058a272))
+* **deps-dev:** bump openai from 4.47.1 to 4.47.2 ([#995](https://github.com/davidsneighbour/kollitsch.dev/issues/995)) ([ac89259](https://github.com/davidsneighbour/kollitsch.dev/commit/ac89259e5a70516de09ffab8390f6d8793863f37))
+* **deps-dev:** bump sass from 1.77.2 to 1.77.4 ([#996](https://github.com/davidsneighbour/kollitsch.dev/issues/996)) ([eb99ff9](https://github.com/davidsneighbour/kollitsch.dev/commit/eb99ff9175f4699d5aedd131af01a6ef8d676baf))
+* **deps:** bump netlify-cli from 17.23.8 to 17.25.0 ([#997](https://github.com/davidsneighbour/kollitsch.dev/issues/997)) ([7f6dc1a](https://github.com/davidsneighbour/kollitsch.dev/commit/7f6dc1ac9da24b0733aba88e38eb4be6969b8d8a))
+* **feat:** move to js build script with integrated pagefind index creation ([91bac19](https://github.com/davidsneighbour/kollitsch.dev/commit/91bac196524ceb0dacbdaad1713a65b5447aa3de))
+
+
+### CI
+
+* **fix:** pull before push ([9b9463b](https://github.com/davidsneighbour/kollitsch.dev/commit/9b9463b650f075f8e7fc228a3773de14d37f4cc6))
+
 ## [2024.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.1.68...v2024.3.0) (2024-05-27)
 
 

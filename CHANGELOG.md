@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.2...v2024.3.3) (2024-06-02)
+
+
+### Build System
+
+* **fix:** proper build routine ([54f764e](https://github.com/davidsneighbour/kollitsch.dev/commit/54f764e124d67ddc030106043a1c2527a18a280e))
+
 ## [2024.3.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.1...v2024.3.2) (2024-06-02)
 
 

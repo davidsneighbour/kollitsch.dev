@@ -1,4 +1,19 @@
 Changelog
+## [2024.3.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.1...v2024.3.2) (2024-06-02)
+
+
+### Chore
+
+* **screenshots:** add screenshot ([5bc28c2](https://github.com/davidsneighbour/kollitsch.dev/commit/5bc28c2b1d916cf5ddbe5afcb62c120384c12879))
+* **screenshots:** add screenshot ([ccd9572](https://github.com/davidsneighbour/kollitsch.dev/commit/ccd9572e7bc47a3db09e61f3ff81ee5baa5d1ce7))
+
+
+### CI
+
+* **feat:** better screenshots ([1c047e2](https://github.com/davidsneighbour/kollitsch.dev/commit/1c047e2f19d8079e899ebe6fffa447769c643a40))
+* **wip:** changes to screenshot script ([ac65b91](https://github.com/davidsneighbour/kollitsch.dev/commit/ac65b91a1c65e6f4e9b1a0901b29b61e50bac6b4))
+* **wip:** changes to screenshot script ([d2df42d](https://github.com/davidsneighbour/kollitsch.dev/commit/d2df42df0e579493bedb8322e6e7e697b37fbf29))
+
 ## [2024.3.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.0...v2024.3.1) (2024-06-02)
 
 

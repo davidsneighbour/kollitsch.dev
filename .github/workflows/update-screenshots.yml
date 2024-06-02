@@ -20,23 +20,20 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Playwright and other dependencies
         run: |
-          npm install playwright
-          npm install pixelmatch
+          npm install playwright pixelmatch
           npx playwright install chromium
 
       - name: Take screenshot
         run: node .github/screenshot.cjs
-
-      - name: Compare screenshots
-        id: compare-screenshots
-        run: node .github/compare-screenshots.cjs
+        id: take-and-compare-screenshots
 
       - name: Push changes to GitHub
-        if: steps.compare-screenshots.outputs.changes == 'true'
+        if: steps.take-and-compare-screenshots.outputs.changes == 'true'
+        # if: env.CHANGES == 'true'
         run: |
           git pull origin main
           git add .github/screenshots

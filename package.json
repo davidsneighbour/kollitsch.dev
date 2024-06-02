@@ -63,7 +63,7 @@
     "build": "./bin/hugo/build.mjs",
     "clean": "wireit",
     "clean:full": "wireit",
-    "deploy": "npm run release && npm run build:hugo && npm run build:pagefind && netlify deploy --prod --open",
+    "deploy": "npm run release && npm run build && netlify deploy --prod --open",
     "eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
     "eslint-fix": "npm run eslint -- --fix",
     "hooks:update": "simple-git-hooks",
@@ -130,7 +130,7 @@
       "command": "commit-and-tag-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease && npm publish"
     },
     "audit:html": {
-      "command": "npm run build:hugo && html-validate public/**/*.html --config=tests/html-validator/config.json"
+      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
     },
     "server": {
       "dependencies": [

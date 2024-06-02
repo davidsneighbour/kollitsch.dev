@@ -92,3 +92,4 @@ async function getData(screenshotDir = "./.github/screenshots", retries = 3) {
 }
 
 getData();
+

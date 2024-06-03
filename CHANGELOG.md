@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.5...v2024.3.6) (2024-06-03)
+
+
+### Theme
+
+* **fix:** bug in documentation page layout with ambiguous paths ([cd14719](https://github.com/davidsneighbour/kollitsch.dev/commit/cd1471954acefcc1b02a403d9506ee384e1d8943))
+
 ## [2024.3.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.4...v2024.3.5) (2024-06-02)
 
 

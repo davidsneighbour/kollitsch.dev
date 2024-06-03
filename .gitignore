@@ -23,6 +23,7 @@ assets/dist/*
 # hmm, everything in resources
 resources
 static/documentation/styles
+.frontmatter/database/mediaDb.json
 
 #####################################################################
 # ignores via API

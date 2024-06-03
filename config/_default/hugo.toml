@@ -17,6 +17,9 @@ timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
 titleCaseStyle = "chicago"
 
+# disable author lists
+disableKinds = ['term']
+
 ################################################################################
 # error configuration
 ################################################################################

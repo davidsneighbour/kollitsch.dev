@@ -56,7 +56,10 @@
               {{- $label = . | markdownify -}}
             {{- end -}}
             <h2>{{- $label -}}</h2>
-            {{- $options := dict "section" (.CurrentSection.Path | path.Base) "summary" true -}}
+
+
+
+            {{- $options := dict "section" .CurrentSection.Path "summary" true -}}
             {{- partials.Include "func/getSectionNavigation.html" $options $options -}}
           </div>
         </article>

@@ -13,6 +13,16 @@ h3,
 h4,
 h5,
 h6 {
+  .heading-tools {
+    @extend .float-end;
+    @extend .ms-2;
+    @extend .d-none;
+  }
+
+  &:hover .heading-tools {
+    @extend .d-inline-block;
+  }
+
   a {
     @extend .text-decoration-none;
   }
@@ -23,23 +33,6 @@ h2,
 h3 {
   @extend .border-bottom;
   @extend .border-light-subtle;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  .heading-tools {
-    @extend .float-end;
-    @extend .ms-2;
-    @extend .d-none;
-  }
-
-  &:hover .heading-tools {
-    @extend .d-inline-block;
-  }
 }
 
 /// hyphenation for various content types

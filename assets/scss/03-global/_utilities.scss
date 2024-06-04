@@ -35,12 +35,10 @@
   @extend .py-1;
   @extend .px-2;
 
-  /* stylelint-disable-next-line plugin/no-unsupported-browser-features, scss/selector-no-redundant-nesting-selector --- part of modern browsers */
   article:has(&) {
     @extend .position-relative;
   }
 }
-
 
 /* stylelint-disable plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
 /// coloring the selection in the browser

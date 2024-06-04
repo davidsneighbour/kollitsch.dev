@@ -1,3 +1,12 @@
+html:has(.kind-404) {
+  background: url(/assets/images/404.jpg) no-repeat center center fixed;
+  background-size: cover;
+
+  body {
+    background-color: color-mix(in srgb, var(--bs-body-bg) 90%, transparent);
+  }
+}
+
 h1,
 h2,
 h3,

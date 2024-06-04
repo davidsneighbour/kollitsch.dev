@@ -1,5 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+
 html:has(.kind-404) {
-  background: url(/assets/images/404.jpg) no-repeat center center fixed;
+  background: url("/assets/images/404.jpg") no-repeat center center fixed;
   background-size: cover;
 
   body {
@@ -29,7 +33,6 @@ a.text-hover-decoration-none:hover {
 }
 
 .alert {
-
   a {
     /// adds colors to all links inside alerts
     @extend .alert-link;
@@ -41,47 +44,12 @@ a.text-hover-decoration-none:hover {
   }
 }
 
-
-#sitetitle {
-  position: fixed;
-
-  h1 {
-    left: 100px;
-    position: absolute;
-    top: 0;
-    transform: translateX(-99%) rotate(-90deg);
-    transform-origin: right;
-    font-size: 200px;
-    z-index: 99999999;
-    color: var(--bs-primary);
-    font-family: BahnPro;
-
-    a:hover {
-      text-decoration: none;
-    }
-  }
-}
-
 .scroll-container {
   scroll-snap-type: y mandatory; // proximity
 }
 
 .scroll-child {
   scroll-snap-align: start;
-}
-
-svg.docs_svg {
-  rect {
-    fill: var(--theme-color-nocturnal-expedition);
-  }
-
-  tspan {
-    fill: var(--theme-color-forsythia);
-  }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 .is--clickable {

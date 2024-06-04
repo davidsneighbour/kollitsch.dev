@@ -20,20 +20,15 @@ table.table-options {
   }
 
   tbody {
-    tr {
-      td {
-        &:first-child {
-          @extend .fst-italic;
-        }
+    td {
+      &:first-child {
+        @extend .fst-italic;
+      }
 
-        &:nth-child(2) {
-          @extend .fontsize-2;
-          @extend .align-middle;
-          @extend .text-uppercase;
-        }
-
-        &:last-child {
-        }
+      &:nth-child(2) {
+        @extend .fontsize-2;
+        @extend .align-middle;
+        @extend .text-uppercase;
       }
     }
   }

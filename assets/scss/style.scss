@@ -102,7 +102,16 @@
   @import "05-prose/prose";
   @import "05-prose/images";
   @import "05-prose/tables";
-  @import "05-prose/syntax";
+
+  .light & {
+    // individual settings for a light theme
+    @import "05-prose/syntax/light";
+  }
+
+  .dark & {
+    // individual settings for a dark theme
+    @import "05-prose/syntax/dark";
+  }
 }
 
 /// DNB: plugins (imported from node_modules)

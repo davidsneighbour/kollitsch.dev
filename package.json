@@ -15,7 +15,7 @@
     "@alpinejs/collapse": "3.14.0",
     "@alpinejs/intersect": "3.14.0",
     "@davidsneighbour/bootstrap-config": "2024.3.19",
-    "@davidsneighbour/browserslist-config": "2024.3.19",
+    "@davidsneighbour/browserslist-config": "2024.3.21",
     "@davidsneighbour/commitlint-config": "2024.3.19",
     "@davidsneighbour/cypress-config": "2024.3.19",
     "@davidsneighbour/eslint-config": "2024.3.19",

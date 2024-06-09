@@ -28,7 +28,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/schema v0.0.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/security v1.2023.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/seo v0.0.4 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2023.13 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2023.14 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.7 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v0.2024.3 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.3 // indirect

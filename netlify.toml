@@ -3,7 +3,7 @@ publish = "./public"
 edge_functions = "assets/edge-functions"
 
 [context.production]
-command = "./bin/netlify/build"
+command = "./bin/hugo/build.mjs"
 
 [context.production.environment]
 HUGO_VERSION = "0.125.4"

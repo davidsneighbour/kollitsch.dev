@@ -1,4 +1,12 @@
 Changelog
+## [2024.3.14](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.12...v2024.3.14) (2024-06-09)
+
+
+### Chore
+
+* changes ([3fed705](https://github.com/davidsneighbour/kollitsch.dev/commit/3fed705e9f9e3acbba0b1ca2ea01aeb9d1ad8e67))
+* move optionstable shortcode to shortcode module ([8396d6b](https://github.com/davidsneighbour/kollitsch.dev/commit/8396d6b9ff4be0ef446641b83bf892cc068449f2))
+
 ## [2024.3.13](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.12...v2024.3.13) (2024-06-09)
 
 

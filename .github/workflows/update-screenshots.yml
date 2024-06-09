@@ -3,8 +3,10 @@ name: Take screenshots
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
+    tags:
+    - '**'
 
 jobs:
   take-screenshots:

@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2024.3.7",
+  "version": "2024.3.8",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -246,5 +246,8 @@
     "pre-commit": "npm run lint:hook:commit",
     "commit-msg": "npx commitlint -e \"$@\""
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "1.8.0"
+  }
 }

@@ -13,12 +13,13 @@ const removeIgnoredFiles = async (/** @type {any[]} */ files) => {
 }
 
 export default {
+  '*.{json,jsonc}': ['biome check --staged'],
   'package-lock.json': [
     'lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm',
   ],
   '*.{ts,tsx,(m|c)js,jsx}': async (/** @type {any} */ files) => {
     const filesToLint = await removeIgnoredFiles(files)
-    return [`eslint --max-warnings=0 ${filesToLint}`]
+    return [`eslint --max-warnings=0 ${filesToLint}`, 'biome check --staged']
   },
   '*.{scss,css}': ['stylelint --fix', "prettier --write"],
   // '*.{png,jpeg,jpg,gif,svg}': [

@@ -1,4 +1,28 @@
 Changelog
+## [2024.3.7](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.6...v2024.3.7) (2024-06-09)
+
+
+### Theme
+
+* **feat:** background image for 404 page ([fb33ba2](https://github.com/davidsneighbour/kollitsch.dev/commit/fb33ba21c5adf2f5da586ac3d0dd6a4a5fa61c69))
+* **fix:** remove animate.css library ([8132803](https://github.com/davidsneighbour/kollitsch.dev/commit/813280368d69f0f873a7ccd8f48dea912ef7fed3))
+* **fix:** stylelint issues and less clutter ([c101be8](https://github.com/davidsneighbour/kollitsch.dev/commit/c101be865e8f18c0a361c56ed5b7c44b9237b879))
+
+
+### Chore
+
+* **ccnfig:** remove frontmatter mediaDb from repo ([4259f40](https://github.com/davidsneighbour/kollitsch.dev/commit/4259f409442e5541f36448fc742b97e48bf15a97))
+* **deps:** update dependencies ([dcc7b82](https://github.com/davidsneighbour/kollitsch.dev/commit/dcc7b82f5813d99e389961688cba7b3711435031))
+* **deps:** update dependencies ([313ddf6](https://github.com/davidsneighbour/kollitsch.dev/commit/313ddf6955aeba8918f961e683b9eaa99a93814d))
+* **fix:** proper submodule setup ([8c1ded3](https://github.com/davidsneighbour/kollitsch.dev/commit/8c1ded35f72243f1db892833b9a91866974f6284))
+
+
+### Build System
+
+* **go:** update go version in go.mod ([8a15d84](https://github.com/davidsneighbour/kollitsch.dev/commit/8a15d8442143d09f85e9d845a17a5553d72ae2f8))
+* **netlify:** remove go version constraints ([3b64644](https://github.com/davidsneighbour/kollitsch.dev/commit/3b64644745c548a93d82a4875fb1095d56bce6b4))
+* **netlify:** update build script for netlify ([6abccfa](https://github.com/davidsneighbour/kollitsch.dev/commit/6abccfa73b61eecfebc9415deffa11b91b76e96c))
+
 ## [2024.3.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.5...v2024.3.6) (2024-06-03)
 
 

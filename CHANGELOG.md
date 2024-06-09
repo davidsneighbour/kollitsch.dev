@@ -1,4 +1,27 @@
 Changelog
+## [2024.3.12](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.11...v2024.3.12) (2024-06-09)
+
+
+### Content
+
+* **cleanup:** image assets re-factoring ([e64b0cf](https://github.com/davidsneighbour/kollitsch.dev/commit/e64b0cf0fe5f34a77be60c6080052740c54c6e28))
+
+
+### Theme
+
+* **fix:** more contrast in primary color ([4c8e284](https://github.com/davidsneighbour/kollitsch.dev/commit/4c8e284a0bfa65f55888faed75a2fe309ce16876))
+
+
+### Configuration
+
+* **feat:** set up theme documentation outside of content directory for development ([e9e6781](https://github.com/davidsneighbour/kollitsch.dev/commit/e9e67817392ecd231a6467b4893b91736f9e2f54))
+* **vscode:** update workspace configuration ([c358461](https://github.com/davidsneighbour/kollitsch.dev/commit/c358461c5ab009eac5ae48291a91f6d308445349))
+
+
+### CI
+
+* **fix:** screenshot script removal and updates ([18df6aa](https://github.com/davidsneighbour/kollitsch.dev/commit/18df6aa778619c1ea41f037f1b20baf63309983f))
+
 ## [2024.3.11](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.10...v2024.3.11) (2024-06-09)
 
 

@@ -57,5 +57,8 @@
   ],
   "deno.unstable": true,
   "deno.importMap": ".netlify/edge-functions-import-map.json",
-  "deno.path": "/home/patrick/.config/netlify/deno-cli/deno"
+  "deno.path": "/home/patrick/.config/netlify/deno-cli/deno",
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.10](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.9...v2024.3.10) (2024-06-09)
+
+
+### Chore
+
+* **screenshots:** add screenshot ([b55f018](https://github.com/davidsneighbour/kollitsch.dev/commit/b55f01851a9d7edcd81f0904c73160d7cac821c2))
+
 ## [2024.3.9](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.7...v2024.3.9) (2024-06-09)
 
 

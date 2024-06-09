@@ -1,6 +1,6 @@
 module github.com/davidsneighbour/kollitsch.dev
 
-go 1.21.8
+go 1.21
 
 require (
 	github.com/Heydon/REVENGE.CSS v0.0.0-20200622155810-b5f5f04ac1b5 // indirect

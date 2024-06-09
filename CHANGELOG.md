@@ -1,4 +1,30 @@
 Changelog
+## [2024.3.9](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.7...v2024.3.9) (2024-06-09)
+
+
+### Content
+
+* **fix:** add indexNow config file ([dbcdb49](https://github.com/davidsneighbour/kollitsch.dev/commit/dbcdb49e7cd34635ac878f4f89437b35c5017a80))
+
+
+### Chore
+
+* **screenshots:** add screenshot ([788b67b](https://github.com/davidsneighbour/kollitsch.dev/commit/788b67b1d79816a040b942b54a4b46f82c110728))
+
+
+### Configuration
+
+* **biome:** add biome configuration ([1dcb1f6](https://github.com/davidsneighbour/kollitsch.dev/commit/1dcb1f61451ca20ea7c9a0ee1bfb0b810f97725d))
+* **fix:** disable biome lintstaged checks ([90778bf](https://github.com/davidsneighbour/kollitsch.dev/commit/90778bf2e222d00457e5663dc0bc54432f79a854))
+* **frontmatter:** fix trailing commas ([25d1488](https://github.com/davidsneighbour/kollitsch.dev/commit/25d1488e9376c8d4e25ac14bf5e4bb12129c58f0))
+* **lintstaged:** update config for json and js files ([15966c0](https://github.com/davidsneighbour/kollitsch.dev/commit/15966c083200650a5a235e28a9302b2b26e73227))
+
+
+### CI
+
+* **feat:** add biome workflow ([5e26cbe](https://github.com/davidsneighbour/kollitsch.dev/commit/5e26cbe84fa973bac65d9cc5d71554fa8e948c5e))
+* **fix:** run screenshot workflow only on new tags ([4a98455](https://github.com/davidsneighbour/kollitsch.dev/commit/4a98455c3e961b5f3018b3edd5cfa4ec1b1ffa43))
+
 ## [2024.3.8](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.7...v2024.3.8) (2024-06-09)
 
 

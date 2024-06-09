@@ -15,6 +15,10 @@ source = "node_modules"
 target = "assets/node_modules"
 
 [[mounts]]
+source = "content"
+target = "content"
+
+[[mounts]]
 source = "documentation"
 target = "content/documentation"
 

@@ -37,7 +37,7 @@
 			"slug": {
 				"type": "string",
 				"title": "Kurzschnitt-Post"
-			},
+			}
 		}
 	}
 }

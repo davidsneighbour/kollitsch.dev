@@ -14,6 +14,14 @@ target = "assets/versions/kollitsch.json"
 source = "node_modules"
 target = "assets/node_modules"
 
+[[mounts]]
+source = "content"
+target = "content"
+
+[[mounts]]
+source = "documentation"
+target = "content/documentation"
+
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
 

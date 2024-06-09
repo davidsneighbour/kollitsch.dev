@@ -10,4 +10,3 @@ The **hugo-theme** implements the following shortcodes:
 - `{{/*< contact-form >*/}}`
 - `{{/*< quote >*/}}`
 - `{{/*< taglist >*/}}`
-

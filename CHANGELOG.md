@@ -1,4 +1,12 @@
 Changelog
+## [2024.3.11](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.10...v2024.3.11) (2024-06-09)
+
+
+### Chore
+
+* **deps:** update dependencies ([a246e85](https://github.com/davidsneighbour/kollitsch.dev/commit/a246e853dd0d825727a18cf8f2b677839f9b791d))
+* **screenshots:** add screenshot ([df8dbdf](https://github.com/davidsneighbour/kollitsch.dev/commit/df8dbdfd8d1af82258b7d084bc36414ef3d184d8))
+
 ## [2024.3.10](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.9...v2024.3.10) (2024-06-09)
 
 

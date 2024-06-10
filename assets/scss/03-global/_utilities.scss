@@ -20,12 +20,12 @@
 
   &.status--draft {
     color: $nocturnal-expedition;
-    background-color: $deep-saffron;
+    background-color: $primary;
   }
 
   &.status--gohugo {
     color: $organic-noir;
-    background-color: $deep-saffron;
+    background-color: $primary;
   }
 
   @extend .text-center;

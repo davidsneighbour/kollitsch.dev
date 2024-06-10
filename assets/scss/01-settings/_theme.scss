@@ -20,11 +20,11 @@
 ///   // }
 $color-mode-type: data;
 
-/// color settings
-$danger-text-emphasis: $deep-saffron;
-
 /// @deprecated
 $primary: #dc322f;
+
+/// color settings
+$danger-text-emphasis: $primary;
 
 /// global elements
 $border-width: 2px;

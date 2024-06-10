@@ -8,10 +8,11 @@ import ClickSpark from './components/click-effect';
 import 'web-vitals-element';
 import './scripts/keyboard-layout';
 import './scripts/theme-changes';
-import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity';
+import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity.ts';
 
 // import bootstrap scripts
 import './scripts/bs-tooltips';
+import './scripts/bs-collapse';
 
 // @ts-ignore - importing parameters from GoHugo
 import * as params from '@params';
@@ -20,6 +21,7 @@ import * as params from '@params';
 customElements.define("click-effect", ClickSpark);
 
 // initialize navbar opacity
+window.onload = initializeAndSwitchClassOnScroll;
 document.addEventListener('DOMContentLoaded', initializeAndSwitchClassOnScroll);
 
 document.onreadystatechange = () => {

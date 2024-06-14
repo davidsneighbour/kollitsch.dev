@@ -14,7 +14,7 @@
   "dependencies": {
     "@alpinejs/collapse": "3.14.0",
     "@alpinejs/intersect": "3.14.0",
-    "@davidsneighbour/bootstrap-config": "2024.3.22",
+    "@davidsneighbour/bootstrap-config": "2024.3.23",
     "@davidsneighbour/browserslist-config": "2024.3.22",
     "@davidsneighbour/commitlint-config": "2024.3.22",
     "@davidsneighbour/cypress-config": "2024.3.22",

@@ -20,7 +20,7 @@
             {{- $post = collections.Dictionary "context" $item "responsive" "fullwidth" -}}
           {{- end -}}
           <div class="col-12 col-md-{{ $col }} snap-align-start mb-5 snap-y">
-            {{- $post := collections.Dictionary "context" $item "level" "3" "index" (add $index 1) -}}
+            {{- $post := collections.Dictionary "context" $item "level" "3" "index" (math.Add $index 1) -}}
             {{- partials.Include "content/post-preview.html" $post -}}
           </div>
         {{ end }}

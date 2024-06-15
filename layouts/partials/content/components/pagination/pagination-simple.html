@@ -1,4 +1,4 @@
-{{- $copy := i18n "theme.navigationlabel" -}}
+{{- $copy := lang.Translate "theme.navigationlabel" -}}
 <nav class="row" aria-label="{{- $copy -}}">
   <div class="d-flex flex-column">
     {{- $paginator := .Scratch.Get "paginator" -}}

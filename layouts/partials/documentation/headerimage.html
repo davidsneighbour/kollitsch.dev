@@ -1,9 +1,9 @@
-{{- $type := .type | default "ogimage" -}}
+{{- $type := .type | compare.Default "ogimage" -}}
 {{- $viewbox := "0 0 1280 640" -}}
 {{- $width := 1280 -}}
 {{- $height := 640 -}}
 {{- $subtractor := 0 -}}
-{{- if eq $type "page" -}}
+{{- if compare.Eq $type "page" -}}
   {{- $viewbox = "0 0 1280 320" -}}
   {{- $height = 320 -}}
   {{- $subtractor = 320 -}}

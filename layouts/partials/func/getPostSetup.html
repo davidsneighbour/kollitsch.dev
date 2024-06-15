@@ -1,9 +1,9 @@
 {{- $posttype := . -}}
 
-{{- $config := index site.Data.dnb.kollitsch.theme.types "default"  -}}
+{{- $config := collections.Index site.Data.dnb.kollitsch.theme.types "default"  -}}
 {{- $typeConfig := dict -}}
 
-{{- with index site.Data.dnb.kollitsch.theme.types $posttype -}}
+{{- with collections.Index site.Data.dnb.kollitsch.theme.types $posttype -}}
   {{- $typeConfig = . -}}
   {{- $config = collections.Merge $config $typeConfig -}}
 {{- end -}}

@@ -1,7 +1,7 @@
 {{- $post := . -}}
 
 {{- $posttype := $post.Type -}}
-{{- $postsetup := partialCached "func/getPostSetup.html" $posttype -}}
+{{- $postsetup := partials.IncludeCached "func/getPostSetup.html" $posttype -}}
 
 <div class="section--meta">
   {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-start" "context" . ) -}}
@@ -33,18 +33,18 @@
       {{- $hashlink = fmt.Printf "%s / %s / %s" $hash1 $hash2 $hash3 -}}
     {{- end -}}
 
-    {{ if in $postsetup.meta "publisher" }}
+    {{ if collections.In $postsetup.meta "publisher" }}
       <div class="d-flex flex-row gap-2">
         <div class="icon">
           {{- partials.Include "icon.html" "calendar3" }}
         </div>
         <div class="d-flex flex-row gap-0 column-gap-2 flex-wrap">
-          <span>{{- printf (i18n "meta.published") $published -}}</span>
+          <span>{{- fmt.Printf (lang.Translate "meta.published") $published -}}</span>
           <span class="align-self-end text-body-secondary text-small">
-            {{- printf (i18n "meta.modified") $last_modified -}}
+            {{- fmt.Printf (lang.Translate "meta.modified") $last_modified -}}
           </span>
           {{- if hugo.IsServer -}}
-            {{- $copy := i18n "meta.edit" -}}
+            {{- $copy := lang.Translate "meta.edit" -}}
             <a href="vscode://file/{{- .File.Filename -}}" aria-label="{{- $copy -}}" title="{{- $copy -}}">
               {{- partials.Include "icon.html" "vector-pen" -}}
             </a>
@@ -53,7 +53,7 @@
       </div>
     {{ end }}
 
-    {{ if in $postsetup.meta "git"}}
+    {{ if collections.In $postsetup.meta "git"}}
     {{ with $hashlink }}
       <div class="d-flex flex-row gap-2">
         <div class="icon">
@@ -74,7 +74,7 @@
     {{ end }}
     {{ end }}
 
-    {{- if in $postsetup.meta "tags" -}}
+    {{- if collections.In $postsetup.meta "tags" -}}
       {{- $taxonomy := "tags" -}}
       {{- with .Page.GetTerms $taxonomy -}}
         <div class="d-flex flex-row gap-2">
@@ -91,7 +91,7 @@
       {{- end -}}
     {{- end -}}
 
-    {{ if in $postsetup.meta "share" -}}
+    {{ if collections.In $postsetup.meta "share" -}}
 
     <div class="d-flex flex-row gap-2">
       <div class="icon">

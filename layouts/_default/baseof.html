@@ -15,7 +15,7 @@
     </a>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre" "context" . ) -}}
-    <nav class="navbar sticky-top navbar-expand-md" aria-label="Top Navigation Bar">
+    <nav class="navbar navbar-expand-md sticky-top" aria-label="Top Navigation Bar">
       <div class="container">
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-start" "context" . ) -}}
         {{- /* Logo/Brand name */ -}}
@@ -41,7 +41,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre-mainnav" "context" . ) -}}
-        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <menu class="navbar-nav mt-0 me-md-0 me-auto ms-auto">
             {{- $current := . -}}
             {{- range site.Menus.main -}}

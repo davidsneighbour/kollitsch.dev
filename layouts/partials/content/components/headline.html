@@ -1,5 +1,5 @@
 {{- $post := .post -}}
-{{- $headerlevel := .level | default 2 -}}
+{{- $headerlevel := .level | compare.Default 2 -}}
 {{- fmt.Printf "<h%d class=\"post-title text-truncate text-truncate-2\">" $headerlevel | safe.HTML -}}
 <a href="{{- $post.Permalink -}}" title="{{- $post.Title | transform.Markdownify -}}">
   {{- $post.Title | transform.Markdownify -}}

@@ -2,13 +2,14 @@
 {{- partials.Include "init.html" . -}}
 {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "setup" "context" . ) -}}
 {{- $sitelang := site.LanguageCode | compare.Default "en-US" -}}
+{{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
 <html lang="{{- $sitelang -}}" data-bs-theme="{{- site.Params.dnb.theme.colorscheme -}}">
   <head>
     {{- /* loading head module
            see https://github.com/davidsneighbour/hugo-modules/tree/main/modules/head */ -}}
     {{- partials.Include "head.html" . -}}
   </head>
-  {{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
+
   <body class="{{- $classes }} nav-state1" id="top">
     <a class="visually-hidden-focusable skip-to-main-link" href="#maincontent">
       {{- lang.Translate "theme.skip_to_content" -}}
@@ -58,9 +59,7 @@
               {{- if .HasChildren -}}
                 <li class="nav-item dropdown">
                   <div
-                    class="nav-link dropdown-toggle d-inline-block {{ if $active -}}
-                      active
-                    {{- end -}}"
+                    class="nav-link dropdown-toggle d-inline-block {{ if $active -}}active{{- end -}}"
                     {{- if $active }} aria-current="page" {{ end -}}
                     data-toggle="dropdown"
                     aria-expanded="false">
@@ -86,10 +85,7 @@
                 </li>
               {{- else -}}
                 <li class="nav-item {{ $active -}}">
-                  <a class="nav-link
-
-                  d-flex flex-row  align-items-center column-gap-2 {{ $active -}}
-                  " href="{{- .URL | urls.AbsLangURL -}}"
+                  <a class="nav-link {{ $active -}}" href="{{- .URL | urls.AbsLangURL -}}"
                     {{- if $active }} aria-current="page" {{ end -}}
                             {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
                     {{- with .Params.bsicon -}}

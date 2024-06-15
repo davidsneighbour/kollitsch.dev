@@ -30,7 +30,7 @@
   }
 
   dl {
-    > div {
+    >div {
       @extend .d-inline;
     }
 
@@ -60,14 +60,13 @@
 }
 
 #footer {
+
   .light & {
     color: $organic-noir;
-    background-color: $arctic-powder;
   }
 
   .dark & {
     color: $arctic-powder;
-    background-color: $organic-noir;
   }
 
   .container {

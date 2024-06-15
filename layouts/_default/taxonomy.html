@@ -11,7 +11,7 @@
             {{- with site.GetPage (fmt.Printf "/tags/%s/" .Name) -}}
               {{- if compare.Ne .Content "" -}}
                 <div class="col-md-6 mb-3">
-                  {{- $post := collections.Dictionary "context" . "level" "3" "index" (add $key 1) -}}
+                  {{- $post := collections.Dictionary "context" . "level" "3" "index" (math.Add $key 1) -}}
                   {{- partials.Include "content/post-preview.html" $post -}}
                 </div>
                 {{- $counter = math.Add $counter 1 -}}
@@ -23,5 +23,5 @@
     </div>
   </section>
   {{- $options := dict "type" "list" "context" . -}}
-  {{- partial "content/components/tags/tags-overview.html" $options -}}
+  {{- partials.Include "content/components/tags/tags-overview.html" $options -}}
 {{- end -}}

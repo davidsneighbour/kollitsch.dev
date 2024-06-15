@@ -12,12 +12,12 @@
 
 {{- $page := .context -}}
 
-{{- if eq (.type | default "page") "page" -}}
+{{- if compare.Eq (.type | compare.Default "page") "page" -}}
   {{- range .tags -}}
-    {{- partialCached "tags/single-tag.html" . . -}}
+    {{- partials.IncludeCached "tags/single-tag.html" . . -}}
   {{- end -}}
 {{- else -}}
-  {{- partial "tags/taglist.html" (dict "context" $page) -}}
+  {{- partials.Include "tags/taglist.html" (dict "context" $page) -}}
 {{- end -}}
 
 {{- define "partials/tags/taglist.html" -}}

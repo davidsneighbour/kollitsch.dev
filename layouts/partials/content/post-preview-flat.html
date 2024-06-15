@@ -1,5 +1,5 @@
 {{- $item := .context -}}
-{{- $lines := .lines | default 3 -}}
+{{- $lines := .lines | compare.Default 3 -}}
 {{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" $item $item -}}
 <article class="{{- $postClasses }} mb-3 prose component--archive-card">
   <div class="is--item">
@@ -14,9 +14,9 @@
           {{- $item.Title -}}
         </a>
       </h2>
-      {{- $truncateLevel := printf "text-truncate-%d" $lines -}}
+      {{- $truncateLevel := fmt.Printf "text-truncate-%d" $lines -}}
       <p class="text-truncate {{ $truncateLevel }} mb-0">
-        {{- partialCached "func/getSummary.html" $item $item -}}
+        {{- partials.IncludeCached "func/getSummary.html" $item $item -}}
       </p>
       {{- partials.IncludeCached "content/components/tags/tags.html" $item $item -}}
     </div>

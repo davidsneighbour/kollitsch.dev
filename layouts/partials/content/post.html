@@ -1,31 +1,31 @@
 {{- $post := . -}}
-{{- $posttype := $post.Type | default "default" -}}
-{{- $config := partialCached "func/getPostSetup.html" $posttype $posttype -}}
+{{- $posttype := $post.Type | compare.Default "default" -}}
+{{- $config := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}
 
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
 <article class="{{- $articleclasses -}}">
 
   {{- /* MARK: Status
   */ -}}
-  {{- if ne $config.status false -}}
+  {{- if compare.Ne $config.status false -}}
     {{- partials.IncludeCached "content/components/status.html" $post $post -}}
   {{- end -}}
 
   {{- /* MARK: Banner
   */ -}}
-  {{- if ne $config.banner false -}}
+  {{- if compare.Ne $config.banner false -}}
     {{- partials.Include "content/components/banner.html" $post -}}
   {{- end -}}
 
   {{- /* MARK: Video banner
   */ -}}
-  {{- if ne $config.videobanner false -}}
+  {{- if compare.Ne $config.videobanner false -}}
     {{- partials.Include "content/components/banner-video.html" $post -}}
   {{- end -}}
 
   {{- /* MARK: Headline-banner
   */ -}}
-  {{- if ne $config.bannerheadline false -}}
+  {{- if compare.Ne $config.bannerheadline false -}}
     {{- partials.Include "content/components/headline-banner.html" $post -}}
   {{- end -}}
 
@@ -33,7 +33,7 @@
 
     {{- /* MARK: Headline
     */ -}}
-    {{- if ne $config.headline false -}}
+    {{- if compare.Ne $config.headline false -}}
       {{- $level := 2 -}}
       {{- if $post.IsPage -}}
         {{- $level = 1 -}}
@@ -59,8 +59,8 @@
       {{- /* MARK: Meta
       */ -}}
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-before" "context" $post ) -}}
-      {{- if ne $config.meta false -}}
-        {{ partial "content/components/meta.html" $post -}}
+      {{- if compare.Ne $config.meta false -}}
+        {{ partials.Include "content/components/meta.html" $post -}}
       {{- end -}}
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-after" "context" $post ) -}}
 
@@ -70,6 +70,6 @@
 
 {{- /* MARK: Related Posts
 */ -}}
-{{- if ne $config.related false -}}
+{{- if compare.Ne $config.related false -}}
   {{- partials.IncludeCached "content/sections/related.html" $post $post.Params.tags -}}
 {{- end -}}

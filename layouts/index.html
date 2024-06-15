@@ -13,21 +13,21 @@
     <div class="container">
       {{- $paginator := .Scratch.Get "paginator" -}}
       {{- $counter := 0 -}}
-      {{- $homePosts := first 8 $paginator.Pages -}}
+      {{- $homePosts := collections.First 8 $paginator.Pages -}}
       <div class="row">
-        {{- $mainsectionlink := printf "%s%s/" "/" site.Params.mainSection -}}
+        {{- $mainsectionlink := fmt.Printf "%s%s/" "/" site.Params.mainSection -}}
         {{- range $index, $item := $homePosts -}}
           {{ if not .IsHome }}{{/* a quick hack to leave the home page itself out of the loop */}}
             {{ $class := "col-md-6" }}
-            {{ if eq $counter 0 }}
+            {{ if compare.Eq $counter 0 }}
               <div class="col-12 snap-align-start mb-5 snap-y">
                 {{- partials.Include "content/post.html" $item -}}
               </div>
             {{ else }}
-              {{ if eq $counter 1 }}
+              {{ if compare.Eq $counter 1 }}
                 <h2 class="text-center text-primary m-5">
                   <a href="{{- $mainsectionlink -}}">
-                    {{- i18n "theme.recentposts" -}}
+                    {{- lang.Translate "theme.recentposts" -}}
                   </a>
                 </h2>
               {{ end }}
@@ -36,14 +36,14 @@
                 {{- partials.Include "content/post-preview.html" $post -}}
               </div>
             {{ end }}
-            {{- $counter = add $counter 1 -}}
+            {{- $counter = math.Add $counter 1 -}}
           {{ end }}
         {{- end -}}
       </div>
       <div class="row">
         <div class="col text-center">
           <a href="{{- $mainsectionlink -}}" class="btn btn-outline-primary btn-lg">
-            {{- i18n "theme.readall" -}}
+            {{- lang.Translate "theme.readall" -}}
           </a>
         </div>
       </div>

@@ -1,17 +1,17 @@
-{{- $type := .type | default "blog" -}}
+{{- $type := .type | compare.Default "blog" -}}
 {{- $post := .post -}}
 {{- $artist := dict -}}
 
-{{ if eq $type "music" }}
+{{ if compare.Eq $type "music" }}
   {{- $artist = collections.First 1 (where
         site.Data.dnb.kollitsch.music
         "slug"
         $post.Params.video.artist
   ) -}}
-  {{- $artist = (index $artist 0) -}}
+  {{- $artist = (collections.Index $artist 0) -}}
 {{ end }}
 
-{{ if and (page.IsNode) (ne .is_preview false) }}
+{{ if and (page.IsNode) (compare.Ne .is_preview false) }}
 
   {{- $output := "" -}}
   {{- with $post.Summary -}}
@@ -25,7 +25,7 @@
   {{- end -}}
 
   <p class="text-truncate text-truncate-3">
-  {{- if and (eq "" $output) (eq "music" $post.Type) -}}
+  {{- if and (compare.Eq "" $output) (compare.Eq "music" $post.Type) -}}
     {{- lang.Translate "theme.this_is" }} "{{- $post.Params.video.title -}}" {{ lang.Translate "theme.by" }}
     <a href="{{- $artist.link -}}">
       {{- $artist.name -}}
@@ -41,7 +41,7 @@
     {{- . -}}
   {{- end -}}
 
-  {{- if eq $type "music" -}}
+  {{- if compare.Eq $type "music" -}}
     {{- $name := $artist.name -}}
     {{- with $post.Params.video.name -}}
       {{- $name = . -}}

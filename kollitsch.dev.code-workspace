@@ -9,6 +9,9 @@
     },
     {
       "path": "../configurations"
+    },
+    {
+      "path": "../namespace"
     }
   ],
   "settings": {

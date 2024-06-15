@@ -51,6 +51,7 @@
     "sass": "1.77.4",
     "secretlint": "8.2.4",
     "simple-git-hooks": "2.11.1",
+    "toml": "^3.0.0",
     "trim": "1.0.1",
     "ts-node": "10.9.2",
     "tsx": "4.15.1",

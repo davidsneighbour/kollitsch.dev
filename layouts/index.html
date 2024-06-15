@@ -5,7 +5,7 @@
         <div class="site-title ff-headline">
           <a href="{{- site.BaseURL -}}">{{- site.Title -}}</a>
         </div>
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle" "context" . ) -}}
+        {{- partial "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle" "context" . ) -}}
 			</div>
     </section>
   {{- end -}}

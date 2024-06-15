@@ -1,4 +1,33 @@
 Changelog
+## [2024.3.16](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.15...v2024.3.16) (2024-06-15)
+
+
+### Theme
+
+* **fix:** add rel=bookmark to article links ([00d268a](https://github.com/davidsneighbour/kollitsch.dev/commit/00d268a9a9960c12f65d9fa2fb344f04a95b2f8c))
+* **fix:** adding collapse script to script setup ([c24612b](https://github.com/davidsneighbour/kollitsch.dev/commit/c24612bfef33995c9c89eec4a073fa5aae5b05bd))
+* **fix:** background image and rainbow line ([2fd199e](https://github.com/davidsneighbour/kollitsch.dev/commit/2fd199ebe0d2fc3289b8b97ac5311a7a9f7fcda1))
+* **fix:** footer primary color ([244dd27](https://github.com/davidsneighbour/kollitsch.dev/commit/244dd27561b2de9dc5e3477d34a2f26db270db82))
+* **fix:** remove stray warnf ([bf325f5](https://github.com/davidsneighbour/kollitsch.dev/commit/bf325f55c1a828f668d1f4233757826da5a333a3))
+
+
+### Refactors
+
+* proper hugo method calls ([02ec331](https://github.com/davidsneighbour/kollitsch.dev/commit/02ec3315b48bc05091c635f104cb482453ebc6cb))
+* testing lintstaged configuration ([bcbe177](https://github.com/davidsneighbour/kollitsch.dev/commit/bcbe177fe2db2174ced08c425beda3cb892aa7f1))
+* testing lintstaged configuration ([67c6687](https://github.com/davidsneighbour/kollitsch.dev/commit/67c6687a8b8830bfc003b60cc9183af3aa1fd681))
+
+
+### Chore
+
+* **deps:** add toml package back ([b8138d9](https://github.com/davidsneighbour/kollitsch.dev/commit/b8138d91feb719fc5f3bb847dd7aa4b27632e27f))
+
+
+### Configuration
+
+* add layout refactoring to lintstaged ([5ce1ec3](https://github.com/davidsneighbour/kollitsch.dev/commit/5ce1ec3395f3f29d43c1a7f010fb520270520776))
+* cleanup configurations ([dfc69a8](https://github.com/davidsneighbour/kollitsch.dev/commit/dfc69a830b4182b26b6b68391cacc24ca5daa9be))
+
 ## [2024.3.15](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.14...v2024.3.15) (2024-06-10)
 
 ## [2024.3.14](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.12...v2024.3.14) (2024-06-09)

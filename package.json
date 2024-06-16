@@ -27,7 +27,7 @@
     "@davidsneighbour/prettier-config": "2024.3.22",
     "@davidsneighbour/release-config": "2024.3.22",
     "@davidsneighbour/remark-config": "2024.3.22",
-    "@davidsneighbour/stylelint-config": "2024.3.22",
+    "@davidsneighbour/stylelint-config": "2024.3.23",
     "@davidsneighbour/tools": "2024.3.22",
     "@davidsneighbour/webpack-config": "2024.3.22",
     "@frontmatter/extensibility": "0.0.16",

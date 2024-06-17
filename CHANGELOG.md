@@ -1,4 +1,42 @@
 Changelog
+## [2024.3.17](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.16...v2024.3.17) (2024-06-17)
+
+
+### Content
+
+* **new:** music to program to (part 9) ([da52ac8](https://github.com/davidsneighbour/kollitsch.dev/commit/da52ac834388240484a72e359381d59d3006c5ea))
+
+
+### Theme
+
+* **fix:** navbar collapse on small devices ([0b1c123](https://github.com/davidsneighbour/kollitsch.dev/commit/0b1c123c49b2731f656a3f73a201be066f8bf36a)), closes [#1019](https://github.com/davidsneighbour/kollitsch.dev/issues/1019)
+
+
+### Bug Fixes
+
+* back to top link only works once ([f4c5827](https://github.com/davidsneighbour/kollitsch.dev/commit/f4c582723121c512d7a84a52ba8477750b76ddb5)), closes [#1001](https://github.com/davidsneighbour/kollitsch.dev/issues/1001)
+* move rainbow around ([027a819](https://github.com/davidsneighbour/kollitsch.dev/commit/027a81989fdc7c383a1512a172349e64ff7613fd))
+
+
+### Chore
+
+* **deps:** update dependencies ([dc780aa](https://github.com/davidsneighbour/kollitsch.dev/commit/dc780aa56b7a91dc7779305d596f7eb49dd47e44))
+* **deps:** update dependencies ([d4c5a84](https://github.com/davidsneighbour/kollitsch.dev/commit/d4c5a84d26d27faf8477ef819736de1e235c5630))
+* **git:** update binaries submodule ([2ef091b](https://github.com/davidsneighbour/kollitsch.dev/commit/2ef091baffa40a937c8061febf2f75acfe3b4747))
+
+
+### Build System
+
+* **deps:** bump @frontmatter/extensibility from 0.0.15 to 0.0.16 ([#1021](https://github.com/davidsneighbour/kollitsch.dev/issues/1021)) ([f5262be](https://github.com/davidsneighbour/kollitsch.dev/commit/f5262be646a0de8985e9622303c625e28cc4d96f))
+* **deps:** bump caniuse-lite from 1.0.30001629 to 1.0.30001634 ([#1020](https://github.com/davidsneighbour/kollitsch.dev/issues/1020)) ([fc260b8](https://github.com/davidsneighbour/kollitsch.dev/commit/fc260b82a94d65f1f88cd8c63155e17925c40403))
+* **fix:** mjs endings and proper node version for frontmatter scripts ([4935aa5](https://github.com/davidsneighbour/kollitsch.dev/commit/4935aa5333139523f8153cae724df6f5a215d8f2))
+
+
+### CI
+
+* add automerge workflow for dependabot ([efa1112](https://github.com/davidsneighbour/kollitsch.dev/commit/efa1112779b2181b2ae008c7a7619d8838f890e0))
+* remove dependabot auto update ([d10a32f](https://github.com/davidsneighbour/kollitsch.dev/commit/d10a32f30eb67f3feb452c279903cf5dcafbd8d8))
+
 ## [2024.3.16](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.15...v2024.3.16) (2024-06-15)
 
 

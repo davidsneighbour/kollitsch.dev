@@ -12,7 +12,6 @@ import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity.ts';
 
 // import bootstrap scripts
 import './scripts/bs-tooltips';
-import './scripts/bs-collapse';
 
 // @ts-ignore - importing parameters from GoHugo
 import * as params from '@params';

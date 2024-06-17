@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.18](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.17...v2024.3.18) (2024-06-17)
+
+
+### Bug Fixes
+
+* ellipsis color ([1e44d7e](https://github.com/davidsneighbour/kollitsch.dev/commit/1e44d7e22d4d490ed67ad4684c3f8d8f66079417)), closes [#1044](https://github.com/davidsneighbour/kollitsch.dev/issues/1044)
+
 ## [2024.3.17](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.16...v2024.3.17) (2024-06-17)
 
 

@@ -1,13 +1,13 @@
 const path = require('path');
 const util = require('util');
 const fs = require('fs');
-const arguments = process.argv;
+const args = process.argv;
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 (async () => {
-  if (arguments && arguments.length > 0) {
-    const folderArg = path.dirname(arguments[3]);
-    const frontmatterArg = arguments[4];
+  if (args && args.length > 0) {
+    const folderArg = path.dirname(args[3]);
+    const frontmatterArg = args[4];
     const data = frontmatterArg && typeof frontmatterArg === "string" ? JSON.parse(frontmatterArg) : null;
     const videoId = data.video.youtube;
     // https://i.ytimg.com/vi/49FXjBiccG4/sddefault.jpg

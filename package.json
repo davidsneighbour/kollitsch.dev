@@ -48,7 +48,7 @@
     "postcss-cli": "11.0.0",
     "puppeteer": "22.11.1",
     "remark": "15.0.1",
-    "sass": "1.77.5",
+    "sass": "1.77.6",
     "secretlint": "8.2.4",
     "simple-git-hooks": "2.11.1",
     "toml": "^3.0.0",

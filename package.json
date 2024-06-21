@@ -12,7 +12,7 @@
   },
   "homepage": "https://kollitsch.dev",
   "dependencies": {
-    "@alpinejs/collapse": "3.14.0",
+    "@alpinejs/collapse": "3.14.1",
     "@alpinejs/intersect": "3.14.0",
     "@davidsneighbour/bootstrap-config": "2024.3.23",
     "@davidsneighbour/browserslist-config": "2024.3.23",

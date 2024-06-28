@@ -30,7 +30,7 @@
     "@davidsneighbour/stylelint-config": "2024.3.23",
     "@davidsneighbour/tools": "2024.3.23",
     "@davidsneighbour/webpack-config": "2024.3.23",
-    "@frontmatter/extensibility": "0.0.16",
+    "@frontmatter/extensibility": "0.0.17",
     "@github/hotkey": "3.1.1",
     "@netlify/functions": "2.7.0",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",

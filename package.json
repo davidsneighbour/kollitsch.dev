@@ -32,7 +32,7 @@
     "@davidsneighbour/webpack-config": "2024.3.23",
     "@frontmatter/extensibility": "0.0.16",
     "@github/hotkey": "3.1.1",
-    "@netlify/functions": "2.7.0",
+    "@netlify/functions": "2.8.1",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "alpinejs": "3.14.0",
     "bootstrap-icons": "1.11.3",

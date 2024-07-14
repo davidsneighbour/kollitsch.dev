@@ -1,4 +1,23 @@
 Changelog
+## [2024.3.19](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.18...v2024.3.19) (2024-07-14)
+
+
+### Theme
+
+* **fix:** no large sizes for banner srcset ([cc7575f](https://github.com/davidsneighbour/kollitsch.dev/commit/cc7575ffa227edd012e1afee3e97ac3a49f7e075)), closes [#1077](https://github.com/davidsneighbour/kollitsch.dev/issues/1077)
+
+
+### Chore
+
+* **deps:** update dependencies ([ec3139b](https://github.com/davidsneighbour/kollitsch.dev/commit/ec3139b9fded76106495fd4039f989bc64f9219d))
+* **deps:** update dependency @netlify/functions to v2.8.0 ([#1054](https://github.com/davidsneighbour/kollitsch.dev/issues/1054)) ([dacf4da](https://github.com/davidsneighbour/kollitsch.dev/commit/dacf4da1667e5cdfcca6ab77ed73a54e5916b42a))
+* **deps:** update dependency @netlify/functions to v2.8.1 ([#1069](https://github.com/davidsneighbour/kollitsch.dev/issues/1069)) ([e12e14c](https://github.com/davidsneighbour/kollitsch.dev/commit/e12e14c52710787e1605c0dde7cc369f2f6a3ed6))
+
+
+### Build System
+
+* **deps:** bump ws from 8.17.0 to 8.17.1 ([#1076](https://github.com/davidsneighbour/kollitsch.dev/issues/1076)) ([b32e6c6](https://github.com/davidsneighbour/kollitsch.dev/commit/b32e6c6fb2a2be9bc4aec03296be55541d988187))
+
 ## [2024.3.18](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.17...v2024.3.18) (2024-06-17)
 
 

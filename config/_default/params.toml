@@ -138,6 +138,7 @@ aspect_ratio = "2:1"
 [dnb.pictures.responsive.fullwidth]
 image_sizes = ["494", "517", "674", "914"]
 break_points = ["520", "540", "720", "960"]
+
 [dnb.pictures.responsive.halfwidth]
 image_sizes = ["494", "517"]
 break_points = ["520", "540"]

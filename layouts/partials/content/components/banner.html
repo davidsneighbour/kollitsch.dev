@@ -44,6 +44,7 @@
                                       $default_format -}}
         {{- $images = $images | collections.Append ($image.Fit $imagesize) -}}
       {{- end -}}
+      {{- $largestImage := $image.Fit (fmt.Printf "1600x800 %s" $default_format) -}}
       <figure>
         <a href="{{- $link -}}">
           <picture>
@@ -52,7 +53,7 @@
                 srcset="{{- $image.Permalink -}}"
                 media="(max-width: {{- collections.Index $breakPoints $index -}}px)">
               {{- if compare.Eq $index (math.Sub (len $images) 1) -}}
-                <source srcset="{{- $image.Permalink -}}">
+                <source srcset="{{- $largestImage.Permalink -}}" media="(min-width: {{- collections.Index $breakPoints $index -}}px)">
                 {{- $alt := $title -}}
                 {{- if compare.Eq $alt "" -}}
                   {{- $alt = $context.Title -}}

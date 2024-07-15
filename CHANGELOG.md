@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.20](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.19...v2024.3.20) (2024-07-15)
+
+
+### Theme
+
+* **fix:** remove analytics configuration that blocked tracking ([bd78339](https://github.com/davidsneighbour/kollitsch.dev/commit/bd78339ed6eec0d2c65f2b66bd852e7ab223df82))
+
 ## [2024.3.19](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.18...v2024.3.19) (2024-07-14)
 
 

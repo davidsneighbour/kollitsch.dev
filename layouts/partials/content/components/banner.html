@@ -29,10 +29,10 @@
 {{ with $articleimage }}
   {{ if compare.Eq "image" .ResourceType -}}
     <div class="post-slider">
-      {{- $image := . -}}
+      {{- $mainImage := . -}}
       {{- $title := "" -}}
-      {{- with $image.Title -}}
-        {{- if compare.Ne (. | compare.Default "") $image.Name -}}
+      {{- with $mainImage.Title -}}
+        {{- if compare.Ne (. | compare.Default "") $mainImage.Name -}}
           {{- $title = . | transform.Markdownify -}}
         {{- end -}}
       {{- end -}}
@@ -42,9 +42,9 @@
                                       (cast.ToString $value)
                                       (cast.ToString (collections.Index $imageSizes2 $index))
                                       $default_format -}}
-        {{- $images = $images | collections.Append ($image.Fit $imagesize) -}}
+        {{- $images = $images | collections.Append ($mainImage.Fit $imagesize) -}}
       {{- end -}}
-      {{- $largestImage := $image.Fit (fmt.Printf "1600x800 %s" $default_format) -}}
+      {{- $largestImage := $mainImage.Fit (fmt.Printf "1600x800 %s" $default_format) -}}
       <figure>
         <a href="{{- $link -}}">
           <picture>
@@ -60,10 +60,10 @@
                 {{- end -}}
                 <img
                   class="img-fluid"
-                  src="{{- $image.Permalink -}}"
+                  src="{{- $largestImage.RelPermalink -}}"
                   alt="{{- $alt | transform.Plainify -}}"
-                  width="{{- $image.Width -}}"
-                  height="{{- $image.Height -}}"
+                  width="{{- $largestImage.Width -}}"
+                  height="{{- $largestImage.Height -}}"
                   {{ if (compare.Eq $responsive "fullwidth") -}}
                     loading="eager" fetchpriority="high"
                   {{- else -}}
@@ -83,7 +83,6 @@
                 data-bs-title="{{- . -}}">
               {{- partials.Include "icon.html" "camera2" -}}
             </div>
-            {{/* @todo <figcaption class="text-center"></figcaption> */}}
           {{- end -}}
           {{- if compare.Eq true ($context.Params.theme.showdate | compare.Default true) -}}
             {{- $publishingdate := printf
@@ -99,6 +98,9 @@
           {{- end -}}
         </div>
         {{- end -}}
+        {{/* {{- with $title -}}
+          <figcaption class="text-center">{{- $title -}}</figcaption>
+        {{- end -}} */}}
       </figure>
     </div>
   {{ end }}

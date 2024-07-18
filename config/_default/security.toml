@@ -4,7 +4,7 @@
 enableInlineShortcodes = false
 
 [exec]
-allow = ['^((dart-)?sass(-embedded)?|go|npx|postcss)$']
+allow = ['^((dart-)?sass(-embedded)?|go|git|npx|postcss)$']
 osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|HOME|TMP|TEMP|TERM)$']
 
 [funcs]

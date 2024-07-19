@@ -39,7 +39,7 @@
     "caniuse-lite": "1.0.30001642",
     "cypress-html-validate": "6.1.0",
     "lint-staged": "15.2.7",
-    "netlify-cli": "17.33.3",
+    "netlify-cli": "17.33.4",
     "ninja-keys": "1.2.2",
     "pagefind": "1.1.0",
     "pixelmatch": "6.0.0",

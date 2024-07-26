@@ -28,7 +28,7 @@
     "@davidsneighbour/release-config": "2024.3.24",
     "@davidsneighbour/remark-config": "2024.3.24",
     "@davidsneighbour/stylelint-config": "2024.3.24",
-    "@davidsneighbour/tools": "2024.3.24",
+    "@davidsneighbour/tools": "2024.3.25",
     "@davidsneighbour/webpack-config": "2024.3.24",
     "@frontmatter/extensibility": "0.0.17",
     "@github/hotkey": "3.1.1",

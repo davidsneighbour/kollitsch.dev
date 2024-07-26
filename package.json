@@ -17,7 +17,7 @@
     "@davidsneighbour/bootstrap-config": "2024.3.24",
     "@davidsneighbour/browserslist-config": "2024.3.24",
     "@davidsneighbour/commitlint-config": "2024.3.24",
-    "@davidsneighbour/cypress-config": "2024.3.24",
+    "@davidsneighbour/cypress-config": "2024.3.25",
     "@davidsneighbour/eslint-config": "2024.3.24",
     "@davidsneighbour/htmlvalidate-config": "2024.3.24",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",

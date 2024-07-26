@@ -23,7 +23,7 @@
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2024.3.24",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
-    "@davidsneighbour/postcss-config": "2024.3.24",
+    "@davidsneighbour/postcss-config": "2024.3.25",
     "@davidsneighbour/prettier-config": "2024.3.24",
     "@davidsneighbour/release-config": "2024.3.24",
     "@davidsneighbour/remark-config": "2024.3.24",

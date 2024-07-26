@@ -16,7 +16,7 @@
     "@alpinejs/intersect": "3.14.1",
     "@davidsneighbour/bootstrap-config": "2024.3.24",
     "@davidsneighbour/browserslist-config": "2024.3.24",
-    "@davidsneighbour/commitlint-config": "2024.3.24",
+    "@davidsneighbour/commitlint-config": "2024.3.25",
     "@davidsneighbour/cypress-config": "2024.3.24",
     "@davidsneighbour/eslint-config": "2024.3.24",
     "@davidsneighbour/htmlvalidate-config": "2024.3.24",

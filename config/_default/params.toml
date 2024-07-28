@@ -549,10 +549,6 @@ debug = true
 file = "body-main-end"
 cached = false
 
-[[dnb.hooks.items.theme.footer-widgets-start]]
-file = "footer-widgets-start"
-cached = true
-
 [[dnb.hooks.items.theme.head-post-css]]
 file = "head-post-css"
 cached = false

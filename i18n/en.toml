@@ -196,10 +196,6 @@ other = "Page navigation"
 description = ""
 other = "Related Posts"
 
-[theme.webvitals]
-description = ""
-other = "This page's web vitals: "
-
 [shortcode.keycombinations.label]
 other = "Keycombinations"
 

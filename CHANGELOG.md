@@ -1,4 +1,16 @@
 Changelog
+## [2024.3.24](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.23...v2024.3.24) (2024-07-28)
+
+
+### Theme
+
+* **fix:** cards don't have same height ([7a62e6b](https://github.com/davidsneighbour/kollitsch.dev/commit/7a62e6b6232678114b2c3c58a0e7b98d3cc31a1e)), closes [#928](https://github.com/davidsneighbour/kollitsch.dev/issues/928)
+
+
+### Bug Fixes
+
+* remove web vitals component ([eaf795c](https://github.com/davidsneighbour/kollitsch.dev/commit/eaf795c5aa86c7dd1bfc67f7e5d070ffa9c0e174))
+
 ## [2024.3.23](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.22...v2024.3.23) (2024-07-28)
 
 ## [2024.3.22](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.21...v2024.3.22) (2024-07-28)

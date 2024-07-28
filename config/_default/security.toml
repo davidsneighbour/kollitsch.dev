@@ -4,11 +4,20 @@
 enableInlineShortcodes = false
 
 [exec]
-allow = ['^((dart-)?sass(-embedded)?|go|git|npx|postcss)$']
-osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|HOME|TMP|TEMP|TERM)$']
+allow = [
+  '^(dart-)?sass(-embedded)?$',
+  '^go$',
+  '^npx$',
+  '^postcss$',
+  '^tailwindcss$',
+  '^git$',
+]
+osEnv = [
+  '(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$',
+]
 
 [funcs]
-getenv = ['^(HUGO_|REPOSITORY_URL|^BRANCH$)']
+getenv = ['^(HUGO_|REPOSITORY_URL|^BRANCH$|^CI$)']
 
 [goTemplates]
 allowActionJSTmpl = false

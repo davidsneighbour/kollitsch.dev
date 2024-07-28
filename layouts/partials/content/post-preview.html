@@ -6,7 +6,7 @@
 {{- /* create content parts based on content type */ -}}
 
 {{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
-<article class="{{- $articleclasses -}}">
+<article class="card h-100 {{ $articleclasses -}}">
 
   {{- /* MARK: Status
   */ -}}
@@ -32,7 +32,7 @@
     {{- partials.Include "content/components/headline-banner.html" $post -}}
   {{- end -}}
 
-  <div class="article-content">
+  <div class="card-body article-content">
 
     {{- /* MARK: Headline
     */ -}}

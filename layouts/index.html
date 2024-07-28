@@ -1,4 +1,5 @@
 {{- define "main" -}}
+
   {{- if compare.Lt (.Scratch.Get "paginator").PageNumber 2 -}}
     <section class="section--sitetitle">
       <div class="container">
@@ -10,37 +11,43 @@
 			</div>
     </section>
   {{- end -}}
+
+  {{- $mainsectionlink := fmt.Printf "%s%s/" "/" site.Params.mainSection -}}
   <section class="section--content">
     <div class="container">
+
       {{- $paginator := .Scratch.Get "paginator" -}}
       {{- $counter := 0 -}}
-      {{- $homePosts := collections.First 8 $paginator.Pages -}}
+      {{- $home := collections.First 1 $paginator.Pages -}}
+      {{- $first := collections.Complement $home (collections.First 2 $paginator.Pages) -}}
+      {{- $homePosts := collections.Complement $home $first (collections.First 8 $paginator.Pages) -}}
+
       <div class="row">
-        {{- $mainsectionlink := fmt.Printf "%s%s/" "/" site.Params.mainSection -}}
+        <div class="col-12 snap-align-start mb-5 snap-y">
+          {{- partials.Include "content/post.html" (collections.Index $first 0) -}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center text-primary m-5">
+            <a href="{{- $mainsectionlink -}}">
+              {{- lang.Translate "theme.recentposts" -}}
+            </a>
+          </h2>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-lg-3">
         {{- range $index, $item := $homePosts -}}
-          {{ if not .IsHome }}{{/* a quick hack to leave the home page itself out of the loop */}}
-            {{ $class := "col-md-6" }}
-            {{ if compare.Eq $counter 0 }}
-              <div class="col-12 snap-align-start mb-5 snap-y">
-                {{- partials.Include "content/post.html" $item -}}
-              </div>
-            {{ else }}
-              {{ if compare.Eq $counter 1 }}
-                <h2 class="text-center text-primary m-5">
-                  <a href="{{- $mainsectionlink -}}">
-                    {{- lang.Translate "theme.recentposts" -}}
-                  </a>
-                </h2>
-              {{ end }}
-              <div class="col-12 col-md-4 snap-align-start mb-5 snap-y">
-                {{- $post := collections.Dictionary "context" $item "level" "3" "index" $counter -}}
-                {{- partials.Include "content/post-preview.html" $post -}}
-              </div>
-            {{ end }}
-            {{- $counter = math.Add $counter 1 -}}
-          {{ end }}
+          <div class="col mb-5">
+            {{- $post := collections.Dictionary "context" $item "level" "3" "index" $counter -}}
+            {{- partials.Include "content/post-preview.html" $post -}}
+          </div>
+          {{- $counter = math.Add $counter 1 -}}
         {{- end -}}
       </div>
+
       <div class="row">
         <div class="col text-center">
           <a href="{{- $mainsectionlink -}}" class="btn btn-outline-primary btn-lg">
@@ -48,6 +55,7 @@
           </a>
         </div>
       </div>
+
     </div>
   </section>
 {{- end -}}

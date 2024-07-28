@@ -1,5 +1,6 @@
 export function themeSwitcher(this: any) {
   let _this = this;
+  const _giscusPath = 'https://giscus.app';
   return {
     theme: 'dark',
     init: function () {
@@ -34,7 +35,7 @@ export function themeSwitcher(this: any) {
       if (document.firstElementChild) {
         document.firstElementChild.setAttribute('data-bs-theme', this.theme);
       }
-      //document.body.className = '';
+      //* document.body.className = '';
       document.body.classList.add(this.theme);
       document.body.classList.remove(this.theme === 'dark' ? 'light' : 'dark');
     },
@@ -42,7 +43,7 @@ export function themeSwitcher(this: any) {
       const giscusTheme = this.theme === 'dark' ? 'dark' : 'light';
       let iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
       if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');
+        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, _giscusPath);
       }
     }
   };

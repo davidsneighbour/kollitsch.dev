@@ -1,4 +1,37 @@
 Changelog
+## [2024.3.22](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.21...v2024.3.22) (2024-07-28)
+
+
+### Content
+
+* **fix:** add header image for post ([f274641](https://github.com/davidsneighbour/kollitsch.dev/commit/f2746413f294e375aacddbf96c92cbc8c672e9ef))
+
+
+### Documentation
+
+* update setup documentation ([4640515](https://github.com/davidsneighbour/kollitsch.dev/commit/46405157131e653fbec8b49e719e9e70ca70ec0f))
+
+
+### Theme
+
+* **fix:** breadcrumb configuration ([4bb4f35](https://github.com/davidsneighbour/kollitsch.dev/commit/4bb4f351cdd73fa833fa87d2d44d62de65640afd))
+* **fix:** make giscus path configurable ([bf8e08a](https://github.com/davidsneighbour/kollitsch.dev/commit/bf8e08aa3ec94f8494f36576482cd8c151a4e7e8))
+* **fix:** use larger default image ([6e13a0f](https://github.com/davidsneighbour/kollitsch.dev/commit/6e13a0f8b75540199b84d27bb5fd082056446190)), closes [#1078](https://github.com/davidsneighbour/kollitsch.dev/issues/1078)
+
+
+### Chore
+
+* **config:** update configuration ([2f6a2e4](https://github.com/davidsneighbour/kollitsch.dev/commit/2f6a2e4c0ff08efa8950c5bc080e3f04446fd90a))
+* **config:** update workspace configuration ([2e35ada](https://github.com/davidsneighbour/kollitsch.dev/commit/2e35ada7173a7c81f91f163c1b72a87576f528dd))
+* **deps:** update dependencies ([ebd579f](https://github.com/davidsneighbour/kollitsch.dev/commit/ebd579f2999b507aba53ea7c785b3a2b5a0256c9))
+* **deps:** update hugo modules ([3e50d6b](https://github.com/davidsneighbour/kollitsch.dev/commit/3e50d6b776f9b775782ed55e11296b52f828432e))
+* **git:** update binaries submodule ([26059c4](https://github.com/davidsneighbour/kollitsch.dev/commit/26059c4dab1d5d5002d2704958130837888c6011))
+
+
+### Configuration
+
+* **fix:** add git to allowed executables ([bda8416](https://github.com/davidsneighbour/kollitsch.dev/commit/bda8416a11661fdd306fcbf2b6f4307ae1e9e1e2))
+
 ## [2024.3.21](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.20...v2024.3.21) (2024-07-15)
 
 ## [2024.3.20](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.19...v2024.3.20) (2024-07-15)

@@ -5,7 +5,6 @@ import intersect from '@alpinejs/intersect'
 import { themeSwitcher } from './scripts/theme-switcher';
 import ClickSpark from './components/click-effect';
 
-import 'web-vitals-element';
 import './scripts/keyboard-layout';
 import './scripts/theme-changes';
 import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity.ts';

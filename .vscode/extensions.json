@@ -15,8 +15,7 @@
 		"nhoizey.gremlins",
 		"unifiedjs.vscode-remark",
 		"snappify.snappify",
-		"wayou.vscode-todo-highlight",
-		"be5invis.toml",
+    "be5invis.toml",
 		"google.wireit",
 		"redhat.vscode-xml",
 		"redhat.vscode-yaml",
@@ -36,6 +35,9 @@
 		"remisa.shellman",
 		"mkhl.shfmt",
 		"mjmlio.vscode-mjml",
-		"christian-kohler.npm-intellisense"
+		"christian-kohler.npm-intellisense",
+    "aaron-bond.better-comments",
+    "wayou.vscode-todo-highlight",
+    "gruntfuggly.todo-tree"
 	]
 }

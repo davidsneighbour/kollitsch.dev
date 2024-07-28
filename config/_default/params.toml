@@ -269,7 +269,7 @@ dataReactionsEnabled = "1"
 dataEmitMetadata = "0"
 #dataThemeType = "local"
 #dataTheme = "/assets/giscus.css"
-dataTheme = "preferred_color_scheme"
+#dataTheme = "preferred_color_scheme"
 dataLoading = "lazy"
 
 [dnb.giscus.extended]

@@ -7,6 +7,16 @@ description = "This is the online playground of Patrick Kollitsch, David's Neigh
 mainSections = ["blog", "components", "music", "video"]
 mainSection = "blog"
 
+################################################################################
+# author setup
+################################################################################
+[author]
+name = "Patrick Kollitsch"
+homepage = "https://kollitsch.dev/"
+#image = "/images/patrick-kollitsch.jpg"
+email = "patrick@kollitsch.de"
+#twitter = "davidsneighbour"
+
 # documentation theme setup
 ################################################################################
 [dnb.documentation]

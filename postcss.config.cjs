@@ -27,13 +27,13 @@ const purgecss = process.env.HUGO_ENVIRONMENT === 'production' ? require('@fullh
 module.exports = {
   plugins: [
     // https://github.com/anandthakker/doiuse
-    doiuse({
-      browsers: [
-        "extends @davidsneighbour/browserslist-config",
-      ],
-      ignore: ['rem'],
-      ignoreFiles: ['**/normalize.css'],
-    }),
+    // doiuse({
+    //   browsers: [
+    //     "extends @davidsneighbour/browserslist-config",
+    //   ],
+    //   ignore: ['rem'],
+    //   ignoreFiles: ['**/normalize.css'],
+    // }),
     //purgecss,
     // https://github.com/postcss/autoprefixer
     autoprefixer(),
@@ -47,7 +47,7 @@ module.exports = {
       features: {
         'nesting-rules': true,
       },
-      debug: true,
+      //debug: true,
     }),
     // https://github.com/cssnano/cssnano
     cssnano({

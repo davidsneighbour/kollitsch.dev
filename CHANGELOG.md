@@ -1,4 +1,28 @@
 Changelog
+## [2024.3.28](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.27...v2024.3.28) (2024-07-30)
+
+
+### Content
+
+* **fix:** slash in front of aliases for root sections ([1688fa2](https://github.com/davidsneighbour/kollitsch.dev/commit/1688fa2c4cd4f547799bea8f36eb4730fa1896e1))
+
+
+### Bug Fixes
+
+* move author markup from site to site.Params ([4cd17ae](https://github.com/davidsneighbour/kollitsch.dev/commit/4cd17ae95fbde3f881082efbba4ab9ab27f86423))
+
+
+### Chore
+
+* **deps:** update go modules ([f7488bc](https://github.com/davidsneighbour/kollitsch.dev/commit/f7488bc29cd225c36ca509b49c6c12e6ada8417c))
+
+
+### Build System
+
+* **deps:** bump fast-xml-parser from 4.4.0 to 4.4.1 ([#1104](https://github.com/davidsneighbour/kollitsch.dev/issues/1104)) ([22daa45](https://github.com/davidsneighbour/kollitsch.dev/commit/22daa45d22661bf68bbc2559d1d670fb493643d7))
+* **fix:** cleanup netlify errors ([d3d83e8](https://github.com/davidsneighbour/kollitsch.dev/commit/d3d83e8f15fff59001b4c4bd730fac618a1ae942))
+* **fix:** cleanup netlify notices and errors ([02c6ef5](https://github.com/davidsneighbour/kollitsch.dev/commit/02c6ef5aa1747e32c8b30382e51bdaeabc6bc281))
+
 ## [2024.3.27](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.26...v2024.3.27) (2024-07-28)
 
 ## [2024.3.26](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.25...v2024.3.26) (2024-07-28)

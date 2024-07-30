@@ -20,22 +20,8 @@ included_files = ["./assets/functions/data/*.json"]
 function = "block-bots"
 path = "/*"
 
-# [functions.status]
-# schedule = "*/10 * * * *"
-
 [[plugins]]
 package = "@davidsneighbour/netlify-plugin-hugo-helper"
 
 [plugins.inputs]
 debug = false
-
-# [[plugins]]
-# package = "netlify-plugin-image-optim"
-
-[[plugins]]
-package = "@netlify/plugin-emails"
-
-[[headers]]
-for = "/_schemata/*"
-[headers.values]
-Content-Type = "text/plain"

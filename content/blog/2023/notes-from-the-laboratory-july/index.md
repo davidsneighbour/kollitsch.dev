@@ -16,7 +16,7 @@ tags:
   - self-improvement
   - 100DaysToOffload
 aliases:
-  - notes-from-the-laboratory-july-2023
+  - /notes-from-the-laboratory-july-2023
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain period this year, and monthly reviews just sound like something normal people would do. Bear with me while I am typing up this report.

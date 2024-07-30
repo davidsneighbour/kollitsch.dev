@@ -23,7 +23,7 @@ theme:
   comments: false
 
 aliases:
-  - contact
+  - /contact
 ---
 
 {{< form id="contactform" >}}

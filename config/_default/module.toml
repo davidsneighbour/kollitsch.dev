@@ -32,8 +32,8 @@ path = "github.com/davidsneighbour/hugo-modules/modules/modder"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/errors"
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/errors"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
@@ -77,8 +77,8 @@ path = "github.com/davidsneighbour/hugo-modules/modules/schema"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/security"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/seo"
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/seo"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"

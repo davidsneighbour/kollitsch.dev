@@ -90,7 +90,7 @@
     "release": "npm run release:patch",
     "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
     "sassdoc": "wireit",
-    "server": "wireit",
+    "server": "node bin/hugo/server.js",
     "tests": "wireit",
     "update": "wireit"
   },

@@ -1,4 +1,88 @@
 Changelog
+## [2024.3.35](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.35) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
+## [2024.3.34](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.34) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
+## [2024.3.33](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.33) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
+## [2024.3.32](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.32) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
+## [2024.3.31](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.31) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
+## [2024.3.30](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.30) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
+## [2024.3.29](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.29) (2024-07-31)
+
+
+### Documentation
+
+* update license formatting ([d284904](https://github.com/davidsneighbour/kollitsch.dev/commit/d2849046267048a4524c8f4630550bf4ec8eb375))
+
+
+### Build System
+
+* **fix:** run hugo server without wireit ([2b8542d](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8542d47b3c074ec30ad245054fae0c758313ee))
+
 ## [2024.3.28](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.27...v2024.3.28) (2024-07-30)
 
 

@@ -2,7 +2,6 @@ import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
 import intersect from '@alpinejs/intersect'
 
-import { themeSwitcher } from './scripts/theme-switcher';
 import ClickSpark from './components/click-effect';
 
 import './scripts/keyboard-layout';
@@ -22,10 +21,55 @@ customElements.define("click-effect", ClickSpark);
 window.onload = initializeAndSwitchClassOnScroll;
 document.addEventListener('DOMContentLoaded', initializeAndSwitchClassOnScroll);
 
+// initialize theme switcher
+document.addEventListener('alpine:init', () => {
+  Alpine.data('themeSwitcher', () => ({
+    theme: 'dark',
+    _giscusPath: 'https://giscus.app',
+    init() {
+      this.theme = this.getColorPreference();
+      this.reflectPreference();
+      this.changeGiscusTheme();
+      setTimeout(() => this.changeGiscusTheme(), 2000);
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        this.theme = e.matches ? 'dark' : 'light';
+        this.setPreference();
+      });
+    },
+    toggleTheme() {
+      this.theme = this.theme === 'light' ? 'dark' : 'light';
+      this.setPreference();
+      this.changeGiscusTheme();
+      setTimeout(() => this.changeGiscusTheme(), 2000);
+    },
+    getColorPreference() {
+      return localStorage.getItem('dnb-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    },
+    setPreference() {
+      localStorage.setItem('dnb-theme', this.theme);
+      this.reflectPreference();
+    },
+    reflectPreference() {
+      if (document.firstElementChild) {
+        document.firstElementChild.setAttribute('data-bs-theme', this.theme);
+      }
+      document.body.classList.add(this.theme);
+      document.body.classList.remove(this.theme === 'dark' ? 'light' : 'dark');
+    },
+    changeGiscusTheme() {
+      const giscusTheme = this.theme === 'dark' ? 'dark' : 'light';
+      let iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, this._giscusPath);
+      }
+    }
+  }));
+});
+
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
     window.Alpine = Alpine;
-    window.themeSwitcher = themeSwitcher;
     Alpine.plugin(collapse);
     Alpine.plugin(intersect)
     // Define the Alpine.js data component with initial placeholder values

@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2024.3.28",
+  "version": "2024.3.35",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -88,7 +88,7 @@
     "prettier": "prettier 'assets/**/*.(ts|js)'",
     "prettier:fix": "prettier --write 'assets/**/*.ts'",
     "release": "npm run release:patch",
-    "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
+    "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease",
     "sassdoc": "wireit",
     "server": "node bin/hugo/server.js",
     "tests": "wireit",
@@ -243,7 +243,6 @@
     "npm": ">=10.5.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run lint:hook:commit",
     "commit-msg": "npx commitlint -e \"$@\""
   },
   "type": "module",

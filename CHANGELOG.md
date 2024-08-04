@@ -1,4 +1,31 @@
 Changelog
+## [2024.3.36](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.35...v2024.3.36) (2024-08-04)
+
+
+### Content
+
+* **new:** /blog/2024/image-creation-timeouts-with-gohugo-131/ ([12de6c4](https://github.com/davidsneighbour/kollitsch.dev/commit/12de6c42a6934fcfc63a7fbb9630ecf73d104aa3))
+
+
+### Theme
+
+* **fix:** prolong image creation timeout ([a496ffd](https://github.com/davidsneighbour/kollitsch.dev/commit/a496ffdc44d0ed44fa526f2dadc64cb3e6bd0a5c))
+
+
+### Refactors
+
+* remove excessive empty lines ([ec5c16e](https://github.com/davidsneighbour/kollitsch.dev/commit/ec5c16e18fc808348ee22365c050da64526a4675))
+
+
+### Chore
+
+* **deps:** update hugo modules ([a7d4d71](https://github.com/davidsneighbour/kollitsch.dev/commit/a7d4d71128e8f9e1428a01150539027e5db19df5))
+
+
+### Configuration
+
+* **fix:** update development module mounts ([82b459c](https://github.com/davidsneighbour/kollitsch.dev/commit/82b459c0f4cefb54a306c86be944ce75b4001810))
+
 ## [2024.3.35](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.28...v2024.3.35) (2024-07-31)
 
 

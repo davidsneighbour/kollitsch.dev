@@ -8,8 +8,6 @@ github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.15 h1:9Pge2dRRqf
 github.com/davidsneighbour/hugo-modules/modules/auditor v1.2024.15/go.mod h1:Zjhg0WuSFxQcwAcIzaNO46K+sRyMyeb+Wwk7G+tytKc=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.27 h1:QupPdOhv4DAYZ8F6mB8InWU7q92ahA7O7nAbpKhQGmE=
 github.com/davidsneighbour/hugo-modules/modules/debug v1.2024.27/go.mod h1:URThzoZUs6mf6c2b0TJMW7jm2SkmG2IhZDUBq9jxjOY=
-github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.3 h1:kgK51e0NFB8Lasu8V71XoLOmdO7yKgxNPFhm8e+7ck0=
-github.com/davidsneighbour/hugo-modules/modules/errors v1.2024.3/go.mod h1:19ZtwsMLIs2XThZd6c+gMnktRW2DfuMXRgKouWgnTpY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.10 h1:e0BhYWY5ZoYAXstGxkdDxYAcQm82HOWB6YQplgFsdkY=
 github.com/davidsneighbour/hugo-modules/modules/feeds v1.2024.10/go.mod h1:3BVnAOaEbdaAWv7qqQsg6jGTlmw/NCYNiNtCE/yQ71U=
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.19 h1:sPAR0OMQ3N+Tg1S7AF22sqzs/HCthut4mxofCZKYXik=
@@ -44,8 +42,6 @@ github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0 h1:lyEOUF54/JXM
 github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0/go.mod h1:wrw9k+WtwgzbOHBk5DvBy4WUB1AY2YAgpdrDWO0oWUk=
 github.com/davidsneighbour/hugo-modules/modules/security v1.2024.1 h1:RokqnnuSCW7K3smfKVMBOzAEYbDrsElTWu64itjFUKY=
 github.com/davidsneighbour/hugo-modules/modules/security v1.2024.1/go.mod h1:F0q9Gy4c+4MmZDmNaqPSpL79bLjWrJFUnNam4QHMMmg=
-github.com/davidsneighbour/hugo-modules/modules/seo v1.2024.0 h1:kTXzD26qvXNnx0AAAO3R3BjkIZ5Urf4FUN6jI1rB6eo=
-github.com/davidsneighbour/hugo-modules/modules/seo v1.2024.0/go.mod h1:b4Pu0WC6nEPxJvcrZkK8wtiPM5WrdlzLzJTFBPalRh4=
 github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.0 h1:X7aDwUJ+ra6Y5xRI13DtG2wZPLduuxT9Hy4441u3Kwc=
 github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.0/go.mod h1:DwYSv5Lnx6UsCN47gLsWUIwhcSm63S65TBDEF2hrp3A=
 github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.9 h1:g8TBtNLW5+BTIoysfQeJfuv2vWgz0CvIIayq4KsnRj4=

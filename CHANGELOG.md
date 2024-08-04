@@ -1,4 +1,11 @@
 Changelog
+## [2024.3.38](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.37...v2024.3.38) (2024-08-04)
+
+
+### Content
+
+* **fix:** after some thinking, rewrite some of the language ([f103889](https://github.com/davidsneighbour/kollitsch.dev/commit/f103889a65cec323a0fa2d7370ab780e30cab374))
+
 ## [2024.3.37](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.36...v2024.3.37) (2024-08-04)
 
 

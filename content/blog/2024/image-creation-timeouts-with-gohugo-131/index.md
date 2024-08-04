@@ -22,7 +22,7 @@ type: blog
 
 ---
 
-In Hugo v0.131.0, there's an exciting update: the image hashing process now uses `xxHash`, which is a speed demon compared to the old MD5 hashing. Not only does this tackle those rare hash collision issues, but it also trims down those lengthy processed image filenames. Efficiency boost, anyone?
+In Hugo v0.131.0, there's an exciting update: the image hashing process now uses `xxHash`, which is much speedier compared to the old MD5 hashing. It trims down those lengthy processed image filenames to a minimum.
 
 But, here is the catch: this nifty update means all your images will be re-processed, potentially causing longer initial build times and even some timeouts. No worries, though! Just add this line to your `hugo.toml` or `config.toml`:
 

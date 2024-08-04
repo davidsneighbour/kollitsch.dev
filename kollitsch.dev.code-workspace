@@ -16,9 +16,7 @@
   ],
   "settings": {
     "yaml.schemas": {
-      "http://json-schema.org/draft-07/schema#": [
-        "static/**/*.schema.yaml"
-      ]
+      "http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
     },
     "files.associations": {
       "*.html": "gohtml",
@@ -28,7 +26,7 @@
       "*.headers": "gotemplate",
       "_headers": "gotemplate",
       "*.redir": "gotemplate",
-      "_redir": "gotemplate",
+      "_redir": "gotemplate"
     },
     "js/ts.implicitProjectConfig.checkJs": true,
     "markdown.extension.orderedList.marker": "one",

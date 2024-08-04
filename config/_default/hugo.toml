@@ -29,4 +29,4 @@ ignoreErrors = ['deprecation.debug', 'deprecation.debugprint']
 # MUST be string, MUST contain digits and s for seconds, probably m for minutes
 # (untested)
 ################################################################################
-#timeout = "60s"
+timeout = "600s"

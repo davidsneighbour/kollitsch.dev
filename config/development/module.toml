@@ -14,6 +14,8 @@ target = "assets/versions/kollitsch.json"
 source = "node_modules"
 target = "assets/node_modules"
 
+################################################################################
+# local development mounts
 [[mounts]]
 source = "content"
 target = "content"
@@ -21,6 +23,7 @@ target = "content"
 [[mounts]]
 source = "documentation"
 target = "content/documentation"
+################################################################################
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
@@ -31,14 +34,17 @@ path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/functions"
 
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/internals"
+
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/modder"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/errors"
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/errors"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
@@ -82,8 +88,8 @@ path = "github.com/davidsneighbour/hugo-modules/modules/schema"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/security"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/seo"
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/seo"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"

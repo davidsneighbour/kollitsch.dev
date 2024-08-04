@@ -24,7 +24,13 @@ type: blog
 
 In Hugo v0.131.0, there's an exciting update: the image hashing process now uses `xxHash`, which is much speedier compared to the old MD5 hashing. It trims down those lengthy processed image filenames to a minimum.
 
-But, here is the catch: this nifty update means all your images will be re-processed, potentially causing longer initial build times and even some timeouts. No worries, though! Just add this line to your `hugo.toml` or `config.toml`:
+But, here is the catch: this nifty update means all your images will be re-processed, potentially causing longer initial build times and even some timeouts.
+
+```plaintext
+Error: error building site: render: failed to render pages: render of "page" failed: "/home/patrick/github.com/davidsneighbour/kollitsch.dev/layouts/_default/single.html:9:22": execute of template failed: template: _default/single.html:9:22: executing "main" at <partials.Include>: error calling Include: partial "content/post.html" timed out after 30s. This is most likely due to infinite recursion. If this is just a slow template, you can try to increase the 'timeout' config setting.
+```
+
+No worries, though! Just add this line to your `hugo.toml` or `config.toml`:
 
 ```toml
 timeout = "600s"

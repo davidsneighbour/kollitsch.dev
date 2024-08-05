@@ -14,6 +14,7 @@ aliases:
 cascade:
   params:
     config:
+      band: gohugo
       overviewLabel: "All components"
 ---
 

@@ -119,10 +119,7 @@
           {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-end" "context" . ) -}}
         </div>
       </nav>
-      <div class="progress" role="progressbar" aria-label="Basic example"
-            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: 2px">
-        <div class="progress-bar" style="width: var(--scroll);"></div>
-      </div>
+      <progress-bar></progress-bar>
     </div>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}

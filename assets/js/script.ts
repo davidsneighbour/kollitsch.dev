@@ -3,6 +3,7 @@ import collapse from '@alpinejs/collapse';
 import intersect from '@alpinejs/intersect'
 
 import ClickSpark from './components/click-effect';
+import ProgressBar from './components/progress-bar';
 
 import './scripts/keyboard-layout';
 import './scripts/theme-changes';
@@ -16,6 +17,7 @@ import * as params from '@params';
 
 // import custom elements
 customElements.define("click-effect", ClickSpark);
+customElements.define('progress-bar', ProgressBar);
 
 // initialize navbar opacity
 window.onload = initializeAndSwitchClassOnScroll;

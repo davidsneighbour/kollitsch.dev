@@ -1,4 +1,27 @@
 Changelog
+## [2024.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.39...v2024.4.0) (2024-08-09)
+
+
+### Content
+
+* add gohugo module documentation ([56dab8a](https://github.com/davidsneighbour/kollitsch.dev/commit/56dab8a0debb84fbe48d86e6b00755e08918ab90))
+
+
+### Features
+
+* progress bar/reading progress ([168f667](https://github.com/davidsneighbour/kollitsch.dev/commit/168f667ac59e4a39599a587832159b55ffd62a9c)), closes [#1110](https://github.com/davidsneighbour/kollitsch.dev/issues/1110)
+
+
+### Bug Fixes
+
+* cleanup js in baseof.html ([930ad69](https://github.com/davidsneighbour/kollitsch.dev/commit/930ad692e92bce634d00dbc752be5eb02f3854eb))
+
+
+### Chore
+
+* **deps:** update dependencies ([9319f3c](https://github.com/davidsneighbour/kollitsch.dev/commit/9319f3c66f58a5f10fbb15efcfd1aa77942ce6f8))
+* **deps:** update dependencies ([b4641c8](https://github.com/davidsneighbour/kollitsch.dev/commit/b4641c8657b817e4f6479e6e9d4dd1f6555f03c7))
+
 ## [2024.3.39](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.38...v2024.3.39) (2024-08-04)
 
 

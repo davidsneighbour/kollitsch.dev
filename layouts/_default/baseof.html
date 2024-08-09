@@ -10,114 +10,133 @@
     {{- partials.Include "head.html" . -}}
   </head>
 
-  <body class="{{- $classes }} nav-state1" id="top">
+  <body class="{{- $classes }} nav-state1 scroll" id="top">
     <a class="visually-hidden-focusable skip-to-main-link" href="#maincontent">
       {{- lang.Translate "theme.skip_to_content" -}}
     </a>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre" "context" . ) -}}
-    <nav class="navbar navbar-expand-md sticky-top" aria-label="Top Navigation Bar">
-      <div class="container">
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-start" "context" . ) -}}
-        {{- /* Logo/Brand name */ -}}
-        <div class="navbar-brand fsize-12 fw-bold ff-headline">
-          {{- if site.Params.dnb.theme.logo -}}
-          <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
-            <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | urls.AbsURL  -}}"
-                alt="Logo of {{ site.Title -}}"
-                height="{{- site.Params.dnb.theme.logo_height -}}"
-                width="{{- site.Params.dnb.theme.logo_width -}}">
-          </a>
-          {{- else -}}
-          <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none text-hover-decoration-none">
-            {{- site.Title -}}
-          </a>
-          {{- end -}}
-        </div>
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post-logo" "context" . ) -}}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-          aria-controls="navbarContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre-mainnav" "context" . ) -}}
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <menu class="navbar-nav mt-0 me-md-0 me-auto ms-auto">
-            {{- $current := . -}}
-            {{- range site.Menus.main -}}
-
-              {{- $active := "" -}}
-              {{- if or ($current.HasMenuCurrent .Menu .) ($current.IsMenuCurrent .Menu .) -}}
-                {{- $active = "active text-primary link-primary" -}}
-              {{- else  }}
-                {{ if (and $current.IsHome (compare.Eq .Name "Home"))}}
-                  {{- $active = "active text-primary link-primary" -}}
-                {{ end }}
-              {{- end -}}
-
-              {{- if .HasChildren -}}
-                <li class="nav-item dropdown">
-                  <div
-                    class="nav-link dropdown-toggle d-inline-block {{ if $active -}}active{{- end -}}"
-                    {{- if $active }} aria-current="page" {{ end -}}
-                    data-toggle="dropdown"
-                    aria-expanded="false">
-                    {{- with .Params.bsicon -}}
-                      {{- partials.Include "icon.html" . -}}
-                    {{- end -}}
-                    {{- .Name -}}
-                  </div>
-                  <ul class="dropdown-menu">
-                    {{- range .Children -}}
-                      <li>
-                        <a class="dropdown-item" href="{{- .URL | urls.AbsLangURL -}}"
-                        {{- if $active }} aria-current="page" {{ end -}}
-                            {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
-                          {{- with .Params.bsicon -}}
-                            {{- partials.Include "icon.html" . -}}
-                          {{- end -}}
-                          {{- .Name -}}
-                        </a>
-                      </li>
-                    {{- end -}}
-                  </ul>
-                </li>
-              {{- else -}}
-                <li class="nav-item {{ $active -}}">
-                  <a class="nav-link {{ $active -}}" href="{{- .URL | urls.AbsLangURL -}}"
-                    {{- if $active }} aria-current="page" {{ end -}}
-                            {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
-                    {{- with .Params.bsicon -}}
-                      {{- partials.Include "icon.html" . -}}
-                    {{- end -}}
-                    <span>
-                      {{- .Name -}}
-                    </span>
-                  </a>
-                </li>
-              {{- end -}}
+    <div class="sticky-top">
+      <nav class="navbar navbar-expand-md" aria-label="Top Navigation Bar">
+        <div class="container">
+          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-start" "context" . ) -}}
+          {{- /* Logo/Brand name */ -}}
+          <div class="navbar-brand fsize-12 fw-bold ff-headline">
+            {{- if site.Params.dnb.theme.logo -}}
+            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
+              <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | urls.AbsURL  -}}"
+                  alt="Logo of {{ site.Title -}}"
+                  height="{{- site.Params.dnb.theme.logo_height -}}"
+                  width="{{- site.Params.dnb.theme.logo_width -}}">
+            </a>
+            {{- else -}}
+            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none text-hover-decoration-none">
+              {{- site.Title -}}
+            </a>
             {{- end -}}
-            <li class="nav-item" id="themeswitcher" x-data="themeSwitcher()">
-              <div
-                title="Toggles between light and dark mode"
-                aria-live="polite"
-                x-on:click="toggleTheme"
-                data-hotkey="k+t">
-                <span :class="{ 'd-none': theme !== 'light', 'd-inline-block': theme === 'light' }" id="toggle-button-light" title="Switch to light mode">
-                  {{- partials.Include "icon.html" "sun-fill" -}}
-                </span>
-                <span :class="{ 'd-none': theme !== 'dark', 'd-inline-block': theme === 'dark' }" id="toggle-button-dark" title="Switch to dark mode">
-                  {{- partials.Include "icon.html" "moon-stars-fill" -}}
-                </span>
-              </div>
-            </li>
-          </menu>
+          </div>
+          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post-logo" "context" . ) -}}
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre-mainnav" "context" . ) -}}
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <menu class="navbar-nav mt-0 me-md-0 me-auto ms-auto">
+              {{- $current := . -}}
+              {{- range site.Menus.main -}}
+
+                {{- $active := "" -}}
+                {{- if or ($current.HasMenuCurrent .Menu .) ($current.IsMenuCurrent .Menu .) -}}
+                  {{- $active = "active text-primary link-primary" -}}
+                {{- else  }}
+                  {{ if (and $current.IsHome (compare.Eq .Name "Home"))}}
+                    {{- $active = "active text-primary link-primary" -}}
+                  {{ end }}
+                {{- end -}}
+
+                {{- if .HasChildren -}}
+                  <li class="nav-item dropdown">
+                    <div
+                      class="nav-link dropdown-toggle d-inline-block {{ if $active -}}active{{- end -}}"
+                      {{- if $active }} aria-current="page" {{ end -}}
+                      data-toggle="dropdown"
+                      aria-expanded="false">
+                      {{- with .Params.bsicon -}}
+                        {{- partials.Include "icon.html" . -}}
+                      {{- end -}}
+                      {{- .Name -}}
+                    </div>
+                    <ul class="dropdown-menu">
+                      {{- range .Children -}}
+                        <li>
+                          <a class="dropdown-item" href="{{- .URL | urls.AbsLangURL -}}"
+                          {{- if $active }} aria-current="page" {{ end -}}
+                              {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
+                            {{- with .Params.bsicon -}}
+                              {{- partials.Include "icon.html" . -}}
+                            {{- end -}}
+                            {{- .Name -}}
+                          </a>
+                        </li>
+                      {{- end -}}
+                    </ul>
+                  </li>
+                {{- else -}}
+                  <li class="nav-item {{ $active -}}">
+                    <a class="nav-link {{ $active -}}" href="{{- .URL | urls.AbsLangURL -}}"
+                      {{- if $active }} aria-current="page" {{ end -}}
+                              {{- with .Params.hotkey }} data-hotkey="{{ . }}"{{ end }}>
+                      {{- with .Params.bsicon -}}
+                        {{- partials.Include "icon.html" . -}}
+                      {{- end -}}
+                      <span>
+                        {{- .Name -}}
+                      </span>
+                    </a>
+                  </li>
+                {{- end -}}
+              {{- end -}}
+              <li class="nav-item" id="themeswitcher" x-data="themeSwitcher()">
+                <div
+                  title="Toggles between light and dark mode"
+                  aria-live="polite"
+                  x-on:click="toggleTheme"
+                  data-hotkey="k+t">
+                  <span :class="{ 'd-none': theme !== 'light', 'd-inline-block': theme === 'light' }" id="toggle-button-light" title="Switch to light mode">
+                    {{- partials.Include "icon.html" "sun-fill" -}}
+                  </span>
+                  <span :class="{ 'd-none': theme !== 'dark', 'd-inline-block': theme === 'dark' }" id="toggle-button-dark" title="Switch to dark mode">
+                    {{- partials.Include "icon.html" "moon-stars-fill" -}}
+                  </span>
+                </div>
+              </li>
+            </menu>
+          </div>
+          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post-mainnav" "context" . ) -}}
+          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-end" "context" . ) -}}
         </div>
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post-mainnav" "context" . ) -}}
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-end" "context" . ) -}}
+      </nav>
+      <div class="progress" role="progressbar" aria-label="Basic example"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: 2px">
+        <div class="progress-bar" style="width: var(--scroll);"></div>
       </div>
-    </nav>
+      <script>
+      var h = document.documentElement,
+        b = document.body,
+        st = 'scrollTop',
+        sh = 'scrollHeight',
+        progress = document.querySelector('.progress'),
+        scroll;
+      document.addEventListener('scroll', function() {
+        scroll = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+        progress.style.setProperty('--scroll', scroll + '%');
+        progress.setAttribute('aria-valuenow', scroll);
+      });
+      </script>
+    </div>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}
     {{- $pagefindMarker := "" -}}

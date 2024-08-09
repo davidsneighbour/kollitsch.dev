@@ -123,19 +123,6 @@
             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: 2px">
         <div class="progress-bar" style="width: var(--scroll);"></div>
       </div>
-      <script>
-      var h = document.documentElement,
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight',
-        progress = document.querySelector('.progress'),
-        scroll;
-      document.addEventListener('scroll', function() {
-        scroll = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-        progress.style.setProperty('--scroll', scroll + '%');
-        progress.setAttribute('aria-valuenow', scroll);
-      });
-      </script>
     </div>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}

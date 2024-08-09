@@ -102,3 +102,10 @@ document.onreadystatechange = () => {
 
   }
 };
+
+document.addEventListener('scroll', function () {
+  const scroll = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight) * 100;
+  const progress = document.querySelector('.progress');
+  progress.style.setProperty('--scroll', scroll + '%');
+  progress.setAttribute('aria-valuenow', scroll);
+});

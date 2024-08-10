@@ -1,14 +1,14 @@
 html {
   scroll-behavior: smooth;
 
-  // background: url("/assets/images/background.jpg") no-repeat center center fixed;
+  // background: url("/assets/images/bg.jpg") no-repeat center center fixed;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
 
   /* https://unsplash.com/photos/the-night-sky-with-stars-and-the-milky-dUezo60XCZE */
-  background-image: url("/assets/images/background.jpg");
+  background-image: url("/assets/images/bg.jpg");
 
   &:has(.kind-404) {
     background: url("/assets/images/404.jpg") no-repeat center center fixed;

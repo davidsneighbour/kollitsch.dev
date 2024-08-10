@@ -1,4 +1,16 @@
 Changelog
+## [2024.4.7](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.6...v2024.4.7) (2024-08-10)
+
+
+### Content
+
+* **fix:** typo in head documentation ([5740112](https://github.com/davidsneighbour/kollitsch.dev/commit/57401129e84378fcb5ec77d8c953ffe57d5048f2))
+
+
+### Theme
+
+* **fix:** compact background image rule ([83fd408](https://github.com/davidsneighbour/kollitsch.dev/commit/83fd408128c7c71593dc7d2f95278c4135892f0c))
+
 ## [2024.4.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.5...v2024.4.6) (2024-08-10)
 
 ## [2024.4.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.4...v2024.4.5) (2024-08-10)

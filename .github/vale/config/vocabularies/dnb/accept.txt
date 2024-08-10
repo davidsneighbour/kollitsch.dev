@@ -10,3 +10,4 @@ Netlify
 [Nn]amespaced
 [Tt]eardown
 GoHugo
+config

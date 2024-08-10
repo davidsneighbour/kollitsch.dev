@@ -1,4 +1,11 @@
 Changelog
+## [2024.4.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.3...v2024.4.4) (2024-08-10)
+
+
+### Theme
+
+* **fix:** background image hack ([741d276](https://github.com/davidsneighbour/kollitsch.dev/commit/741d2763e6436032c20582bfa7c692648c6d47ec))
+
 ## [2024.4.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.2...v2024.4.3) (2024-08-10)
 
 ## [2024.4.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.1...v2024.4.2) (2024-08-10)

@@ -3,7 +3,6 @@ $schema: /static/_schemata/laboratory.schema.yaml
 title: "Notes from the Laboratory: April 2023"
 linkTitle: Laboratory 2023-04
 description: ""
-draft: false
 date: 2023-05-01T19:31:37+07:00
 publishDate: 2023-04-28T21:55:59+07:00
 lastmod: 2023-08-07T19:31:10+07:00

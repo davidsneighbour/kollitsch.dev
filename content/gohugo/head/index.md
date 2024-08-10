@@ -32,13 +32,13 @@ If you want to learn about all that is possible in the `<head>` tag then have a 
 
 Set up `hugo-head` by adding it to your `head` tag and remove all other tags from your `head` -- they are included in `hugo-head`. Then configure the module, setup all other features and forget about it.
 
-`hugo-head` uses opiniated defaults that can be overridden via configuration.
+`hugo-head` uses opinionated defaults that can be overridden via configuration.
 
 ```toml
 [dnb.head]
 charset = "utf-8"
-viewport = "width=device-width, initial-scale=1"
 nobase = false
+viewport = "width=device-width, initial-scale=1"
 ```
 
 * `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.

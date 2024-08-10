@@ -2,6 +2,7 @@
 ################################################################################
 # some defaults
 ################################################################################
+_merge = 'deep'
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Koh Samui in Thailand."
 # on updating this value add a redirect to data/dnb/netlification/config.toml
 mainSections = ["blog", "components", "music", "video"]
@@ -332,6 +333,7 @@ description = "This is the online playground of Patrick Kollitsch, David's Neigh
 # robots - @see https://dnbhub.xyz/robots
 ################################################################################
 [dnb.robots]
+disableBranding = true
 initialComment = '''
 #                  ,--.    ,--.
 #                 ((O ))--((O ))
@@ -362,19 +364,15 @@ initialComment = '''
 #              |        ||        |
 #              |--------||--------|
 '''
-concludingComment = '''
-# You're still here? It's over.
-'''
-disableBranding = false
 
 [[dnb.robots.useragents]]
 name = "*"
 # https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/
 disallow = ["/cdn-cgi/"]
 
-# [[dnb.robots.useragents]]
-# name = "GPTBot"
-# disallow = ["/"]
+[[dnb.robots.useragents]]
+name = "GPTBot"
+disallow = ["/"]
 
 # sitemap - @see https://dnbhub.xyz/sitemap
 ################################################################################

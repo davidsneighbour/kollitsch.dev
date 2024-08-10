@@ -3,9 +3,7 @@ title: Robots
 description: This component for GoHugo adds a customizable robots.txt to your website.
 date: 2023-06-29T19:21:43+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2024-02-01T19:47:25+07:00
-resources:
-- src: header-card.png
+lastmod: 2024-08-10T19:47:25+07:00
 categories:
 - components
 tags:
@@ -17,25 +15,31 @@ aliases:
 - /components/hugo-robots
 ---
 
-This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website. This module overrides the internal robots.txt generation of Hugo and lets you configure what robots.txt in your public folder will contain. It also offers a meta-robots tag for your head section.
+This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website. This module overrides the internal `robots.txt` generation of Hugo and lets you configure what's in your robots.txt. It also offers a meta-robots tag for your head section.
 
 ## Usage
 
-This component can be used as drop-in without much configuration. However, robots.txt generation must be enabled in your main configuration, for instance `config.toml` or `hugo.toml`:
+This component can be used as drop-in without much configuration. However, `robots.txt` generation must be enabled in your main configuration, for instance `config.toml` or `hugo.toml`:
 
 ```toml
 enableRobotsTXT = true
 ```
 
-You can add configuration parameters per content page in its frontmatter:
+In most themes this might be already the standard setup. [Read more about this.](https://gohugo.io/templates/robots/)
+
+## Individual configuration
+
+Add configuration parameters per content page in its frontmatter to add this page to the `disallow` section:
 
 ```yaml
-robotsdisallow: true
+options:
+  robots:
+    disallow: true
 ```
 
-This will add a `Disallow` line for the current URL. Note, that with clean URLs this will disallow bot-access for all sub-folders and sub-urls of the current item.
+This adds a `Disallow` line for the current URL to `User-agent: *`. Note, that with clean URLs this will disallow bot-access for all sub-folders and sub-urls of the current item.
 
-## Adding global (dis)allows
+## Adding global (dis)allows for specific bots
 
 You can add global additions to your robots.txt via `config/_default/params.toml` configuration:
 
@@ -54,7 +58,7 @@ allow = ["/yesgooglebot/", "/anotherdirectory/"]
 Configure the robots tag with the following individual configuration parameters in your frontmatter:
 
 ```yaml
-config:
+options:
   robots:
     follow: true
     index: false
@@ -70,15 +74,15 @@ follow = true
 
 The default without any configuration is `true` for both parameters.
 
-If you are using [davidsneighbour/hugo-head](https://github.com/davidsneighbour/hugo-head) then the `robots` meta tag is automatically added to your head section. If not, you need to add a call to the meta tag:
+If you are using [my head module for GoHugo](https://dnbhub.xyz/head) then the `robots` meta tag is automatically added to your head section. If not, you need to add a call to the meta tag somewhere before the closing `</head>` tag.
 
 ```go-html-template
 {{- partial "head/robots.html" . -}}
 ```
 
-You can cache this partial, but based on a per-page level:
+You could cache this partial on a per-page level:
 
-```go-htmml-template
+```go-html-template
 {{- partialCached "head/robots.html" . page -}}
 ```
 
@@ -92,11 +96,11 @@ concludingComment = "# comment at the end of robots.txt\n"
 initialComment = "# comment at the beginning of robots.txt\n"
 ```
 
-Be careful to properly comment out these parts.
+Be careful to properly comment out these parts or your `robots.txt` will be invalid.
 
-## Remove dnb-org notices
+## Remove branding
 
-The plugin adds some branding notes to your robots.txt. It's a free plugin. If you need to remove these mentions feel _free_ to set the `disableBranding` option in your `config/_default/params.toml` to true:
+The plugin adds some branding notes to your robots.txt. It's a free plugin. If you need to remove these mentions feel *free* to set the `disableBranding` option in your `config/_default/params.toml` to true:
 
 ```toml
 [dnb.robots]
@@ -105,4 +109,4 @@ disableBranding = true
 
 ## See this module in action
 
-- [kollitsch.dev/robots.txt](https://kollitsch.dev/robots.txt)
+* [kollitsch.dev/robots.txt](https://kollitsch.dev/robots.txt)

@@ -1,4 +1,31 @@
 Changelog
+## [2024.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.0...v2024.4.1) (2024-08-10)
+
+
+### Content
+
+* **fix:** add background image in static for proper linking ([6c4e532](https://github.com/davidsneighbour/kollitsch.dev/commit/6c4e53286122166b0516ded60629c8a1bb331055))
+* **fix:** remove false draft front matter ([00293a5](https://github.com/davidsneighbour/kollitsch.dev/commit/00293a588cffdc411a0f62bfd86aa302bf442868))
+* **fix:** remove unused drafts ([15ca4e3](https://github.com/davidsneighbour/kollitsch.dev/commit/15ca4e3b75a9d478cc3f94217aaaa881700bdc24))
+* **fix:** rework robots documentation ([4285ae5](https://github.com/davidsneighbour/kollitsch.dev/commit/4285ae5fc3b16d014dc9607ff64856447b32863c))
+
+
+### Theme
+
+* **fix:** proper primary color for documentation header ([54ccb8f](https://github.com/davidsneighbour/kollitsch.dev/commit/54ccb8f53c64f00d06ce5f3be3dc3036ccd2f97c))
+
+
+### Bug Fixes
+
+* move progress bar into web component ([767353e](https://github.com/davidsneighbour/kollitsch.dev/commit/767353e0216cf59a347a6398e9963ce44291b5c7)), closes [#1111](https://github.com/davidsneighbour/kollitsch.dev/issues/1111)
+
+
+### Chore
+
+* **config:** update vale vocabulary configuration ([fa67f0b](https://github.com/davidsneighbour/kollitsch.dev/commit/fa67f0b51107f4385ca32901796342821c49b7d3))
+* **deps:** update dependencies ([7d1c763](https://github.com/davidsneighbour/kollitsch.dev/commit/7d1c76306ab4cb884e21f21578c2455ed3d23067))
+* **deps:** update hugo module dependencies ([07639ac](https://github.com/davidsneighbour/kollitsch.dev/commit/07639ac38de9ebebd1a297da0c1606ce01aeb672))
+
 ## [2024.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.3.39...v2024.4.0) (2024-08-09)
 
 

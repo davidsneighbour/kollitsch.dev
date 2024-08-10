@@ -38,6 +38,8 @@ github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.10 h1:hzpc8X
 github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.10/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.3 h1:6ly7675s97ORAIbZFbylqBmXS0xw28JuGu83z0yUV8A=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.3/go.mod h1:g5vOSsvyZOfZde3BB2GxHWHvipnfbAoWUj/xPTW9Czg=
+github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.4 h1:7nznTx1m+pqEbUn5zna3MeYMkQo9JbLrv6viq9rmyD0=
+github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.4/go.mod h1:g5vOSsvyZOfZde3BB2GxHWHvipnfbAoWUj/xPTW9Czg=
 github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0 h1:lyEOUF54/JXMchfqGPeVn5AtAW67EwlYqBoQ+JBW5RQ=
 github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0/go.mod h1:wrw9k+WtwgzbOHBk5DvBy4WUB1AY2YAgpdrDWO0oWUk=
 github.com/davidsneighbour/hugo-modules/modules/security v1.2024.1 h1:RokqnnuSCW7K3smfKVMBOzAEYbDrsElTWu64itjFUKY=
@@ -52,6 +54,8 @@ github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.5 h1:s6whFsnzAi7
 github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.5/go.mod h1:YH0dMkkSN+pqoFrf17S2a+Xrp6J93LmVQbReCDNQEZE=
 github.com/paulirish/lite-youtube-embed v0.3.2 h1:VRSrJIlgui0Ldrl+/RmNvphLjour/W6CB0QtrZVJrpE=
 github.com/paulirish/lite-youtube-embed v0.3.2/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
+github.com/paulirish/lite-youtube-embed v0.3.3 h1:AP8TnWs7WZGe3Svuhfl+RMsFk7by6z6D3mhWFsY3cR0=
+github.com/paulirish/lite-youtube-embed v0.3.3/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=
 github.com/twbs/icons v1.11.3/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible h1:7CuKQrvR4w3t2USxwGDNiGGXVtZYZWthBD6DMfnbiLE=

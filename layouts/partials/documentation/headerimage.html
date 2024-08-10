@@ -13,13 +13,13 @@
   <rect width="1280" height="{{- $height -}}" fill="#114c5a" />
   <text x="55" y="{{ math.Sub 510 $subtractor }}">
     {{- with page.Params.sectiontitle -}}
-      <tspan fill="#ff9932" font-size="42px">
+      <tspan fill="#dc322f" font-size="42px">
         {{- . -}}
       </tspan>
     {{- end -}}
   </text>
   <text x="50" y="{{ math.Sub 600 $subtractor }}">
-    <tspan fill="#ff9932">
+    <tspan fill="#dc322f">
       <tspan font-size="90px">
         {{- if (collections.IsSet . "title") -}}
           {{- .title -}}

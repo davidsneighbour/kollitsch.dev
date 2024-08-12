@@ -1,0 +1,16 @@
+/*******************************************************************************
+ * Keep styles in files, only `@import`s here
+ ******************************************************************************/
+ @import "tailwindcss/base";
+
+ /* @import "01-base/fonts"; */
+
+ @import "tailwindcss/components";
+
+ /* @import "03-components/headernavigation"; */
+
+ @import "tailwindcss/utilities";
+
+ /* @import "05-utilities/icons"; */
+
+ @import "tailwindcss/variants";

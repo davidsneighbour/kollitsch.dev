@@ -1,42 +1,30 @@
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import config from '@davidsneighbour/webpack-config';
+import { dirname, resolve as _resolve, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-export default {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+let localConfig = {
+  context: _resolve(__dirname, 'assets'),
   entry: {
-    index: ['./assets/js/script.ts'],
-    main: ['./assets/scss/style.scss'],
-  },
-  mode: 'none',
-  module: {
-    rules: [
-      {
-        test: /\.(scss|css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
-      },
-    ],
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: (pathData) => {
-        if (pathData.chunk.name === "main") {
-          return 'index.css'
-        }
-
-        return '[name].css'
-      },
-    }),
-  ],
-  optimization: {
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
-    minimize: true,
+    main: join(__dirname, 'assets/js', 'script.ts'),
+    // theme: join(__dirname, 'assets/css', 'tailwind.css'),
   },
   output: {
-    filename: '[name].js',
+    path: join(__dirname, 'static/assets/dist'),
   },
+  watch: true,
 };
+
+console.log(config());
+
+console.log({
+  ...config,
+  ...localConfig,
+});
+
+// export default {
+//   ...config,
+//   ...localConfig,
+// };

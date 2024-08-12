@@ -19,6 +19,7 @@
     "@davidsneighbour/commitlint-config": "2024.3.27",
     "@davidsneighbour/cypress-config": "2024.3.27",
     "@davidsneighbour/eslint-config": "2024.3.27",
+    "@davidsneighbour/frontmatter-config": "^2024.3.27",
     "@davidsneighbour/htmlvalidate-config": "2024.3.27",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2024.3.27",

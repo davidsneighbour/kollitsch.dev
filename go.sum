@@ -14,8 +14,6 @@ github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.19 h1:sPAR0OMQ
 github.com/davidsneighbour/hugo-modules/modules/functions v1.2024.19/go.mod h1:y7hfQJQUUQNeOtprPVvfLp82KhwsS1ZuxU7/bEE6u1w=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.3 h1:pPkUb+s/CpypY3+octINYGwtjbzKdxxzJfeUPnt5eqM=
 github.com/davidsneighbour/hugo-modules/modules/giscus v1.2024.3/go.mod h1:F4PJUjhwfl1GzpoHeups4V5KQcbGIvqzgpROFrGrhCo=
-github.com/davidsneighbour/hugo-modules/modules/head v1.2024.12 h1:hiwmaWDtUCMP5dtw4UbBVYAuPxPthVPU2Oc3ytTHn1Y=
-github.com/davidsneighbour/hugo-modules/modules/head v1.2024.12/go.mod h1:T5bYxWMLmm4mHpE+aiFLkBhk2eqMC7rAKsJyU2QCV9I=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2024.14 h1:VANccX922XRe5HichULWaOcDjbji0XR4vhvn4urh+84=
 github.com/davidsneighbour/hugo-modules/modules/head v1.2024.14/go.mod h1:T5bYxWMLmm4mHpE+aiFLkBhk2eqMC7rAKsJyU2QCV9I=
 github.com/davidsneighbour/hugo-modules/modules/headerimage v1.2024.1 h1:Rc5jkYQSvaRuENVTe3Kg+fnUNK4dJmeCOt6FogANEtg=

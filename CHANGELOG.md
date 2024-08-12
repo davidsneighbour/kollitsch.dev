@@ -1,4 +1,30 @@
 Changelog
+## [2024.4.8](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.7...v2024.4.8) (2024-08-12)
+
+
+### Content
+
+* **fix:** gohugo module docs updates ([a0aa0ef](https://github.com/davidsneighbour/kollitsch.dev/commit/a0aa0ef7fd46823ee103f8b8a21ab248223608c1))
+* how to fix `referencerror: __dirname is not defined in es module scope` ([d9df323](https://github.com/davidsneighbour/kollitsch.dev/commit/d9df323d44be88c8a582b343f91b4e77d493fea8))
+
+
+### Theme
+
+* **fix:** lower resolution in bg image and remove unused bg image ([b173eeb](https://github.com/davidsneighbour/kollitsch.dev/commit/b173eeb73aa14f3906ee5db61abe233a3e18c5d8))
+* **fix:** smaller font sizes ([e1f4b3f](https://github.com/davidsneighbour/kollitsch.dev/commit/e1f4b3f61f7379a7b20f4ccc2276e0d5bcc432c8))
+
+
+### Chore
+
+* **cleanup:** more cleanup ([d71d542](https://github.com/davidsneighbour/kollitsch.dev/commit/d71d54225ab4b25caf98a660871c27f9228c1478))
+* **deps:** update gohugo module dependencies ([0884a32](https://github.com/davidsneighbour/kollitsch.dev/commit/0884a3217d7bc6c17474557ea12ad688032c6516))
+
+
+### Build System
+
+* **fix:** ignore frontmatter databases ([d708abd](https://github.com/davidsneighbour/kollitsch.dev/commit/d708abd2d7fc22f608b8c3bd533f18917f3d23c4))
+* **fix:** move frontmatter configuration into package ([25e53d0](https://github.com/davidsneighbour/kollitsch.dev/commit/25e53d0614972b32de6c02cb7cf6d4de688850f9))
+
 ## [2024.4.7](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.6...v2024.4.7) (2024-08-10)
 
 

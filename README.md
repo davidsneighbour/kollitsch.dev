@@ -14,8 +14,6 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 
 ## Site structure
 
-![module structure](.github/images/rm001.png)
-
 * [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
 * [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
 * [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.

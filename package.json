@@ -14,23 +14,23 @@
   "dependencies": {
     "@alpinejs/collapse": "3.14.1",
     "@alpinejs/intersect": "3.14.1",
-    "@davidsneighbour/bootstrap-config": "2024.3.27",
-    "@davidsneighbour/browserslist-config": "2024.3.27",
-    "@davidsneighbour/commitlint-config": "2024.3.27",
-    "@davidsneighbour/cypress-config": "2024.3.27",
-    "@davidsneighbour/eslint-config": "2024.3.27",
-    "@davidsneighbour/frontmatter-config": "^2024.3.27",
-    "@davidsneighbour/htmlvalidate-config": "2024.3.27",
+    "@davidsneighbour/bootstrap-config": "2024.3.31",
+    "@davidsneighbour/browserslist-config": "2024.3.31",
+    "@davidsneighbour/commitlint-config": "2024.3.31",
+    "@davidsneighbour/cypress-config": "2024.3.31",
+    "@davidsneighbour/eslint-config": "2024.3.31",
+    "@davidsneighbour/frontmatter-config": "2024.3.31",
+    "@davidsneighbour/htmlvalidate-config": "2024.3.31",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "2024.3.27",
+    "@davidsneighbour/markdownlint-config": "2024.3.31",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
-    "@davidsneighbour/postcss-config": "2024.3.27",
-    "@davidsneighbour/prettier-config": "2024.3.27",
-    "@davidsneighbour/release-config": "2024.3.27",
-    "@davidsneighbour/remark-config": "2024.3.27",
-    "@davidsneighbour/stylelint-config": "2024.3.27",
-    "@davidsneighbour/tools": "2024.3.27",
-    "@davidsneighbour/webpack-config": "2024.3.27",
+    "@davidsneighbour/postcss-config": "2024.3.31",
+    "@davidsneighbour/prettier-config": "2024.3.31",
+    "@davidsneighbour/release-config": "2024.3.31",
+    "@davidsneighbour/remark-config": "2024.3.31",
+    "@davidsneighbour/stylelint-config": "2024.3.31",
+    "@davidsneighbour/tools": "2024.3.31",
+    "@davidsneighbour/webpack-config": "2024.3.31",
     "@frontmatter/extensibility": "0.0.17",
     "@github/hotkey": "3.1.1",
     "@netlify/functions": "2.8.1",
@@ -56,9 +56,10 @@
     "trim": "1.0.1",
     "ts-node": "10.9.2",
     "tsx": "4.17.0",
-    "typescript": "5.5.4",
     "xml2js": "0.6.2",
-    "yargs": "17.7.2"
+    "yargs": "17.7.2",
+    "@biomejs/biome": "1.8.3",
+    "tailwindcss": "^3.4.9"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -91,9 +92,11 @@
     "release": "npm run release:patch",
     "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease",
     "sassdoc": "wireit",
-    "server": "node bin/hugo/server.js",
+    "server": "node bin/hugo/server.js && npm run server:tailwind",
+    "server:tailwind": "wireit",
     "tests": "wireit",
-    "update": "wireit"
+    "update": "wireit",
+    "server:webpack": "webpack --config webpack.config.js --mode development"
   },
   "wireit": {
     "sassdoc": {
@@ -101,6 +104,9 @@
       "files": [
         "assets/scss/**/*.scss"
       ]
+    },
+    "server:tailwind": {
+      "command": "tailwindcss -i assets/css/tailwind.css -o assets/css/theme.css --watch"
     },
     "clean": {
       "dependencies": [
@@ -246,8 +252,5 @@
   "simple-git-hooks": {
     "commit-msg": "npx commitlint -e \"$@\""
   },
-  "type": "module",
-  "devDependencies": {
-    "@biomejs/biome": "1.8.3"
-  }
+  "type": "module"
 }

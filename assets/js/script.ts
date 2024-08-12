@@ -2,18 +2,18 @@ import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
 import intersect from '@alpinejs/intersect'
 
-import ClickSpark from './components/click-effect';
-import ProgressBar from './components/progress-bar';
+import ClickSpark from './components/click-effect.ts';
+import ProgressBar from './components/progress-bar.js';
 
-import './scripts/keyboard-layout';
-import './scripts/theme-changes';
+import './scripts/keyboard-layout.ts';
+import './scripts/theme-changes.ts';
 import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity.ts';
 
 // import bootstrap scripts
-import './scripts/bs-tooltips';
+import './scripts/bs-tooltips.ts';
 
 // @ts-ignore - importing parameters from GoHugo
-import * as params from '@params';
+// import * as params from '@params';
 
 // import custom elements
 customElements.define("click-effect", ClickSpark);

@@ -17,7 +17,6 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 ![module structure](.github/images/rm001.png)
 
 * [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
-* [hugo-theme](https://github.com/davidsneighbour/hugo-theme) - the theme used for the website
 * [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
 * [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.
 
@@ -41,10 +40,10 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 ## License
 
-This website's written `content` is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). In addition, the underlying `source code` used to format and display that content is licensed under the [MIT License](LICENSE-MIT.md).
+This website's written `content` (everything in the `content` directory) is licensed under the [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). Everything else is licensed under the [MIT License](LICENSE-MIT.md).
 
 While this repository is available publicly, all `content` is subject to copyright and may not be re-used or copied into other website projects. The `content` is everything in this site's `content` folder or documentation and code. Other parts of this project, like `assets` and `layouts`, are available for educational use and can be copied to your projects. You **MUST NOT** re-use the full (complete) theme, but you **MAY** use parts and principles of it.
 
-TBD: note about fonts that might be licensed
+There will be fonts within this theme that are licensed to me personally. This will be indicated by README.md files within those font folders. Do not use those fonts for your own use without having a license.
 
 Long story short: go and create something by yourself, and if you want to know how a feature on this website was realized, feel free to have a look or [ask](https://github.com/davidsneighbour/kollitsch.dev/discussions/new?category=questions).

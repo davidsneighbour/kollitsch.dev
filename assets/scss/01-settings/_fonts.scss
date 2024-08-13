@@ -3,10 +3,9 @@
 $fontdir: "/assets/webfonts";
 
 @font-face {
-  font-family: "Exo Font Number 2";
-  src:
-    url("#{$fontdir}/exo/normal.woff2") format("woff2") tech("variations"),
-    url("#{$fontdir}/exo/normal.woff2") format("woff2-variations");
+  font-family: "Exo2";
+  src: url("#{$fontdir}/exo/normal.woff2") format("woff2") tech("variations"),
+  url("#{$fontdir}/exo/normal.woff2") format("woff2-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -14,10 +13,9 @@ $fontdir: "/assets/webfonts";
 }
 
 @font-face {
-  font-family: "Exo Font Number 2";
-  src:
-    url("#{$fontdir}/exo/italic.woff2") format("woff2") tech("variations"),
-    url("#{$fontdir}/exo/italic.woff2") format("woff2-variations");
+  font-family: "Exo2";
+  src: url("#{$fontdir}/exo/italic.woff2") format("woff2") tech("variations"),
+  url("#{$fontdir}/exo/italic.woff2") format("woff2-variations");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -26,9 +24,8 @@ $fontdir: "/assets/webfonts";
 
 @font-face {
   font-family: JetBrainsMono;
-  src:
-    url("#{$fontdir}/jetbrainsmono/jetbrainsmonoi.woff2") format("woff2") tech("variations"),
-    url("#{$fontdir}/jetbrainsmono/jetbrainsmonoi.woff2") format("woff2-variations");
+  src: url("#{$fontdir}/jetbrainsmono/jetbrainsmonoi.woff2") format("woff2") tech("variations"),
+  url("#{$fontdir}/jetbrainsmono/jetbrainsmonoi.woff2") format("woff2-variations");
   font-weight: 100 800;
   font-style: italic;
   font-display: swap;
@@ -37,9 +34,8 @@ $fontdir: "/assets/webfonts";
 
 @font-face {
   font-family: JetBrainsMono;
-  src:
-    url("#{$fontdir}/jetbrainsmono/jetbrainsmono.woff2") format("woff2") tech("variations"),
-    url("#{$fontdir}/jetbrainsmono/jetbrainsmono.woff2") format("woff2-variations");
+  src: url("#{$fontdir}/jetbrainsmono/jetbrainsmono.woff2") format("woff2") tech("variations"),
+  url("#{$fontdir}/jetbrainsmono/jetbrainsmono.woff2") format("woff2-variations");
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
@@ -48,10 +44,9 @@ $fontdir: "/assets/webfonts";
 
 @font-face {
   font-family: BahnPro;
-  src:
-    url("#{$fontdir}/bahn/bahnpro_regular-webfont.woff2") format("woff2"),
-    url("#{$fontdir}/bahnpro_regular-webfont.woff") format("woff"),
-    url("#{$fontdir}/bahnpro_regular-webfont.ttf") format("truetype");
+  src: url("#{$fontdir}/bahn/bahnpro_regular-webfont.woff2") format("woff2"),
+  url("#{$fontdir}/bahnpro_regular-webfont.woff") format("woff"),
+  url("#{$fontdir}/bahnpro_regular-webfont.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

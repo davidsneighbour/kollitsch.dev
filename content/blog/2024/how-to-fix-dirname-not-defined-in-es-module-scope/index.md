@@ -54,4 +54,4 @@ And so we have our `__dirname` and `__filename` back. This is particularly usefu
 
 And isn't that what we all want?
 
-[^1]: Those are two underscores in front of the variables `dirname` and `filename`. Sadly the style of my code-ing font on this website seems to think that a wide underscore is enough to envision that. I don't, so bear with me while I fix the font. Just know it's two underscores, as in `_ _ d i r n a m e`.
+[^1]: ~~Those are two underscores in front of the variables `dirname` and `filename`. Sadly the style of my code-ing font on this website seems to think that a wide underscore is enough to envision that. I don't, so bear with me while I fix the font. Just know it's two underscores, as in `_ _ d i r n a m e`.~~

@@ -5,7 +5,15 @@
 
 /// DNB: theme settings
 @import "01-settings/fonts";
-@import "01-settings/colors";
+
+/// Theme colors setup
+$arctic-powder: #f1f6f4;
+$mystic-mint: #d9e8e3;
+$forsythia: #ffc801;
+$deep-saffron: #ff9932;
+$nocturnal-expedition: #114c5a;
+$organic-noir: #172b36;
+
 @import "01-settings/colormode-light";
 @import "01-settings/colormode-dark";
 @import "01-settings/theme";

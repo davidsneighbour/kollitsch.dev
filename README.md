@@ -9,6 +9,7 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 <!--lint ignore-->
 
 * [Site structure](#site-structure)
+* [Ask questions](#ask-questions)
 * [General notes](#general-notes)
 * [License](#license)
 
@@ -18,16 +19,16 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 * [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
 * [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.
 
-This site's infrastructure is as follows:
-
 <!--lint ignore-->
-
-|  |  |
+|||
 | --- | --- |
 | **Domain Registration** | [Porkbun](https://porkbun.com/products/domains) |
-| **DNS and CDN** | [Cloudflare](https://cloudflare.com) |
+| **DNS** | [Cloudflare](https://cloudflare.com) |
+| **CDN** | [Cloudflare](https://cloudflare.com) |
 | **Hosting** | [Netlify](https://netlify.com) |
 | **Static Site Generator** | [Hugo](https://gohugo.io) |
+
+## Ask questions
 
 Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour\&labels=state%3Aunconfirmed\&template=custom.md\&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
 

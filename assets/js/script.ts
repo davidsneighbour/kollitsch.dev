@@ -13,7 +13,7 @@ import { initializeAndSwitchClassOnScroll } from './scripts/navbar-opacity.ts';
 import './scripts/bs-tooltips.ts';
 
 // @ts-ignore - importing parameters from GoHugo
-// import * as params from '@params';
+import * as params from '@params';
 
 // import custom elements
 customElements.define("click-effect", ClickSpark);

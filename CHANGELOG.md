@@ -1,4 +1,32 @@
 Changelog
+## [2024.4.9](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.8...v2024.4.9) (2024-08-13)
+
+
+### Documentation
+
+* update README.md ([7304a37](https://github.com/davidsneighbour/kollitsch.dev/commit/7304a3775c8d27adade5f3609e91c273c440069e))
+* update README.md ([97dc8cf](https://github.com/davidsneighbour/kollitsch.dev/commit/97dc8cfbf69d731aacd33ec1cf1904c32732d1ad))
+* update README.md ([a77f2b2](https://github.com/davidsneighbour/kollitsch.dev/commit/a77f2b26c013fe9e3599a8d754fbd6c40cf06246))
+
+
+### Theme
+
+* **fix:** better badge font size ([d8dec85](https://github.com/davidsneighbour/kollitsch.dev/commit/d8dec85a9121dcf152dd01e0706233351d317e5f))
+* **fix:** proper font for code ([ca59efb](https://github.com/davidsneighbour/kollitsch.dev/commit/ca59efb2fca2ceacfb0e75c4646fb0c9db80e5d0))
+* **fix:** remove capitalization from figure content ([25a3e23](https://github.com/davidsneighbour/kollitsch.dev/commit/25a3e23fd1928e741f124627e7d4f85851ab5c0d))
+
+
+### Bug Fixes
+
+* re-add [@params](https://github.com/params) setup in script.ts ([3dba7cd](https://github.com/davidsneighbour/kollitsch.dev/commit/3dba7cd0410210343af43233781488f51301aadd))
+* remove tailwind processing from server task ([22737da](https://github.com/davidsneighbour/kollitsch.dev/commit/22737da52be030b10c3fdafc2ca470c9668b12df))
+
+
+### Chore
+
+* add screenshot ([e973595](https://github.com/davidsneighbour/kollitsch.dev/commit/e97359554fc85f5e893360c351261d37be0f4c2e))
+* remove pre-commit configuration ([ba39150](https://github.com/davidsneighbour/kollitsch.dev/commit/ba39150c53a8ea9b67821298e589909b2432e889))
+
 ## [2024.4.8](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.7...v2024.4.8) (2024-08-12)
 
 

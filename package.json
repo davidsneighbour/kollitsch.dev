@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2024.4.8",
+  "version": "2024.4.9",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -39,7 +39,7 @@
     "bootstrap-icons": "1.11.3",
     "caniuse-lite": "1.0.30001651",
     "cypress-html-validate": "6.1.0",
-    "lint-staged": "15.2.8",
+    "lint-staged": "15.2.9",
     "netlify-cli": "17.34.0",
     "ninja-keys": "1.2.2",
     "pagefind": "1.1.0",

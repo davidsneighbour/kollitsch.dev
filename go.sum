@@ -34,8 +34,8 @@ github.com/davidsneighbour/hugo-modules/modules/publisher v1.2024.0 h1:JaVb78sx1
 github.com/davidsneighbour/hugo-modules/modules/publisher v1.2024.0/go.mod h1:CE+KzNh9eIMZYoZPXeTP/CtvLYIbAsCq+UWTZWsGBk4=
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.7 h1:PXtORENH5oyjUO2z/ed0uKblB2CGfvI5bX2uF5XCr9Y=
 github.com/davidsneighbour/hugo-modules/modules/pwa v1.2024.7/go.mod h1:/hNhhuFfmGyHWkNlhm0oE0m8aW1QjgxJ2fvxfglEQz0=
-github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.10 h1:hzpc8XHkPbZR4eidXsLDa1tSrwEkEMmt3Eda6ZUMcho=
-github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.10/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
+github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.12 h1:wSF5YfucGys4gQhIfYZa0W70RLFlitfN6ehLfdIRr+U=
+github.com/davidsneighbour/hugo-modules/modules/renderhooks v1.2024.12/go.mod h1:hJKaduN/zO1Fekx3ouydAr80DZRRlG7I7zjZZDJvqNs=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.4 h1:7nznTx1m+pqEbUn5zna3MeYMkQo9JbLrv6viq9rmyD0=
 github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.4/go.mod h1:g5vOSsvyZOfZde3BB2GxHWHvipnfbAoWUj/xPTW9Czg=
 github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0 h1:lyEOUF54/JXMchfqGPeVn5AtAW67EwlYqBoQ+JBW5RQ=

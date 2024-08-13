@@ -7,6 +7,6 @@
 [data-bs-theme="light"] {
   color-scheme: light;
 
-  --bs-body-bg: var(--theme-color-arctic-powder);
-  --bs-primary: var(--theme-color-nocturnal-expedition);
+  --bs-body-bg: $arctic-powder;
+  --bs-primary: $nocturnal-expedition;
 }

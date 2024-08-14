@@ -77,26 +77,10 @@ $navbar-padding-y: 0;
 $navbar-padding-x: 0;
 $navbar-brand-padding-y: 0;
 $nav-link-font-size: 1.2rem;
-
-// /// gh
-// $navbar-light-color: rgba(var(--#{$prefix}emphasis-color-rgb), .65);
-// $navbar-light-hover-color: rgba(var(--#{$prefix}emphasis-color-rgb), .8);
-// $navbar-light-active-color: rgba(var(--#{$prefix}emphasis-color-rgb), 1);
-// $navbar-light-disabled-color: rgba(var(--#{$prefix}emphasis-color-rgb), .3);
-// $navbar-light-icon-color: rgba($body-color, .75);
-// $navbar-light-toggler-border-color: rgba(var(--#{$prefix}emphasis-color-rgb), .15);
-// $navbar-light-brand-color: $navbar-light-active-color;
-// $navbar-light-brand-hover-color: $navbar-light-active-color;
-
-// /// j
-// $navbar-dark-color: red;
-// $navbar-dark-hover-color: blue;
-// $navbar-dark-active-color: yellow;
-// $navbar-dark-disabled-color: rgba($white, .25);
-// $navbar-dark-icon-color: $navbar-dark-color;
-// $navbar-dark-toggler-border-color: rgba($white, .1);
-// $navbar-dark-brand-color: $navbar-dark-active-color;
-// $navbar-dark-brand-hover-color: $navbar-dark-active-color;
+$navbar-light-hover-color: $primary;
+$navbar-light-active-color: $primary;
+$navbar-dark-hover-color: $primary;
+$navbar-dark-active-color: $primary;
 
 /// settings
 $enable-shadows: true;

@@ -1,4 +1,19 @@
 Changelog
+## [2024.4.10](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.9...v2024.4.10) (2024-08-14)
+
+
+### Theme
+
+* **fix:** lowercase band slugs ([77a7f0c](https://github.com/davidsneighbour/kollitsch.dev/commit/77a7f0c17b394d51c7fbcd2fc0d1f1c21a69ae4f))
+* **fix:** refactor theme setup ([b50b284](https://github.com/davidsneighbour/kollitsch.dev/commit/b50b2848ce6dd295e2e76deb30f0f57fdcff76da))
+* **fix:** theme colors for the navigation ([b822146](https://github.com/davidsneighbour/kollitsch.dev/commit/b82214673841140b92d596dc53870ce52c541e9e))
+
+
+### Chore
+
+* **deps:** update dependencies ([c572588](https://github.com/davidsneighbour/kollitsch.dev/commit/c5725883d355e3a5d00ae7b0b45a78ea3022aee5))
+* **deps:** update dependencies ([6b5a986](https://github.com/davidsneighbour/kollitsch.dev/commit/6b5a98643e04b101d5d07856be451c53d4d08e99))
+
 ## [2024.4.9](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.8...v2024.4.9) (2024-08-13)
 
 

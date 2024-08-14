@@ -1,4 +1,17 @@
 Changelog
+## [2024.4.11](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.10...v2024.4.11) (2024-08-14)
+
+
+### Theme
+
+* **fix:** better formatting for code in headlines ([b8a0b8b](https://github.com/davidsneighbour/kollitsch.dev/commit/b8a0b8b380b239f98ee7862ac917c91ebfca7a29))
+* **fix:** better max content width ([fd15b32](https://github.com/davidsneighbour/kollitsch.dev/commit/fd15b32290aa311a11496ece6671d421288978f0))
+
+
+### Chore
+
+* update bin submodule ([d71998c](https://github.com/davidsneighbour/kollitsch.dev/commit/d71998c5bf5e657a623a45278d0c269b9e78141c))
+
 ## [2024.4.10](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.9...v2024.4.10) (2024-08-14)
 
 

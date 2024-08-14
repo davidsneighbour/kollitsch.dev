@@ -2,10 +2,5 @@
   <div class="ribbon status--draft">{{- lang.Translate "theme.draft" | strings.ToUpper -}}</div>
 {{- end -}}
 {{- with .Params.config.band -}}
-  <div class="ribbon status--{{ . }}">{{ . | strings.ToUpper }}</div>
+  <div class="ribbon status--{{ . | strings.ToLower }}">{{ . | strings.ToUpper }}</div>
 {{- end -}}
-{{- /*
-  .ExpiryDate
-  .PublishDate
-  */
--}}

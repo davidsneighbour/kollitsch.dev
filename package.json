@@ -29,7 +29,7 @@
     "@davidsneighbour/release-config": "2024.3.31",
     "@davidsneighbour/remark-config": "2024.3.31",
     "@davidsneighbour/stylelint-config": "2024.3.31",
-    "@davidsneighbour/tools": "2024.3.31",
+    "@davidsneighbour/tools": "2024.3.32",
     "@davidsneighbour/webpack-config": "2024.3.31",
     "@frontmatter/extensibility": "0.0.17",
     "@github/hotkey": "3.1.1",

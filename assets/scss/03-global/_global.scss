@@ -13,6 +13,9 @@ html {
 
 body {
   background-color: color-mix(in srgb, var(--bs-body-bg) 90%, transparent);
+  font-feature-settings: "liga" on, "calt" on;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
 }
 
 h1,

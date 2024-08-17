@@ -1,14 +1,17 @@
 article {
 
-  h1,
-  h2 {
-    code {
+  code {
 
-      &::before,
-      &::after {
-        content: "`";
-      }
+    &::before,
+    &::after {
+      content: "`";
     }
+
+    [data-bs-theme="light"] & {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   h1.post-title,

@@ -3,7 +3,7 @@
 {{- $config := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}
 
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
-<article class="{{- $articleclasses -}}">
+<article class="full-post {{ $articleclasses -}}">
 
   {{- /* MARK: Status
   */ -}}

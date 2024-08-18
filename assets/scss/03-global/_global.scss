@@ -49,6 +49,8 @@ h4 {
  ******************************************************************************/
 main {
   padding-top: $heading-height + 30px;
+  max-width: 70rem;
+  margin: 0 auto;
 
   @extend .min-vh-100;
   @extend .mb-0;

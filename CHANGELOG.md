@@ -1,4 +1,18 @@
 Changelog
+## [2024.4.12](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.11...v2024.4.12) (2024-08-18)
+
+
+### Theme
+
+* **fix:** background color for code in headlines ([dd52145](https://github.com/davidsneighbour/kollitsch.dev/commit/dd52145a37144b72e54a658318e852851c4ba0c5)), closes [#1135](https://github.com/davidsneighbour/kollitsch.dev/issues/1135)
+* **fix:** font features for body text ([788aaf3](https://github.com/davidsneighbour/kollitsch.dev/commit/788aaf35eef587b2399e55e327708c800c0fba36))
+* **fix:** proper width for preview cards ([a01fac6](https://github.com/davidsneighbour/kollitsch.dev/commit/a01fac674f5ec29ac3ebc65202a340b8c7998629)), closes [#1136](https://github.com/davidsneighbour/kollitsch.dev/issues/1136)
+
+
+### Chore
+
+* **deps:** update dependencies ([428e949](https://github.com/davidsneighbour/kollitsch.dev/commit/428e9499c0cad88ca7e6dcaea704549ba2d04a04))
+
 ## [2024.4.11](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.10...v2024.4.11) (2024-08-14)
 
 

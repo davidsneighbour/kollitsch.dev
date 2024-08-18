@@ -25,7 +25,7 @@ require (
 	github.com/davidsneighbour/hugo-modules/modules/robots v1.2024.4 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/security v1.2024.1 // indirect
-	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.0 // indirect
+	github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.2 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.9 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/social v1.2024.1 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/youtube v1.2024.5 // indirect

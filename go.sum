@@ -42,8 +42,8 @@ github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0 h1:lyEOUF54/JXM
 github.com/davidsneighbour/hugo-modules/modules/schema v1.2024.0/go.mod h1:wrw9k+WtwgzbOHBk5DvBy4WUB1AY2YAgpdrDWO0oWUk=
 github.com/davidsneighbour/hugo-modules/modules/security v1.2024.1 h1:RokqnnuSCW7K3smfKVMBOzAEYbDrsElTWu64itjFUKY=
 github.com/davidsneighbour/hugo-modules/modules/security v1.2024.1/go.mod h1:F0q9Gy4c+4MmZDmNaqPSpL79bLjWrJFUnNam4QHMMmg=
-github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.0 h1:X7aDwUJ+ra6Y5xRI13DtG2wZPLduuxT9Hy4441u3Kwc=
-github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.0/go.mod h1:DwYSv5Lnx6UsCN47gLsWUIwhcSm63S65TBDEF2hrp3A=
+github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.2 h1:PhoDaihr1XimTaD+YGWn2Ri8QQxoGWQZ4eBDKuRuNhU=
+github.com/davidsneighbour/hugo-modules/modules/shortcodes v1.2024.2/go.mod h1:DwYSv5Lnx6UsCN47gLsWUIwhcSm63S65TBDEF2hrp3A=
 github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.9 h1:g8TBtNLW5+BTIoysfQeJfuv2vWgz0CvIIayq4KsnRj4=
 github.com/davidsneighbour/hugo-modules/modules/sitemap v1.2024.9/go.mod h1:qpCcVaaPTn1zv4k+eW0iFsiozxlBxcZgaoMRf2yVOWg=
 github.com/davidsneighbour/hugo-modules/modules/social v1.2024.1 h1:FWNbeI5whlLqKZ4nRQw6bhHd/BiGyh2gBePd2TyYnTo=

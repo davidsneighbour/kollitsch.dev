@@ -38,7 +38,7 @@
         <div class="icon">
           {{- partials.Include "icon.html" "calendar3" }}
         </div>
-        <div class="d-flex flex-row gap-0 column-gap-2 flex-wrap">
+        <div class="d-flex column-gap-2 flex-row flex-wrap gap-0">
           <span>{{- fmt.Printf (lang.Translate "meta.published") $published -}}</span>
           <span class="align-self-end text-body-secondary text-small">
             {{- fmt.Printf (lang.Translate "meta.modified") $last_modified -}}
@@ -77,12 +77,12 @@
     {{- if collections.In $postsetup.meta "tags" -}}
       {{- $taxonomy := "tags" -}}
       {{- with .Page.GetTerms $taxonomy -}}
-        <div class="d-flex flex-row gap-2">
+        <div class="d-flex column-gap-2 flex-row">
           <div class="icon">
             {{- partials.Include "icon.html" "tags" -}}
           </div>
-          <div class="d-flex flex-row gap-2">
-            <span>{{ lang.Translate "theme.tags" }}: </span>
+          <span>{{ lang.Translate "theme.tags" }}: </span>
+          <div class="d-flex column-gap-2 flex-row flex-wrap">
             {{- range . -}}
               <a rel="tag" href="{{- .Permalink -}}">#{{- .Title | strings.ToLower | urls.URLize -}}</a>
             {{- end -}}

@@ -14,7 +14,7 @@
 
   {{- $mainsectionlink := fmt.Printf "%s%s/" "/" site.Params.mainSection -}}
   <section class="section--content">
-    <div class="container">
+    <div class="container-fluid">
 
       {{- $paginator := .Scratch.Get "paginator" -}}
       {{- $counter := 0 -}}
@@ -23,14 +23,14 @@
       {{- $homePosts := collections.Complement $home $first (collections.First 8 $paginator.Pages) -}}
 
       <div class="row">
-        <div class="col-12 snap-align-start mb-5 snap-y">
+        <div class="col-12 snap-align-start snap-y mb-5">
           {{- partials.Include "content/post.html" (collections.Index $first 0) -}}
         </div>
       </div>
 
       <div class="row">
         <div class="col-12">
-          <h2 class="text-center text-primary m-5">
+          <h2 class="text-primary m-5 text-center">
             <a href="{{- $mainsectionlink -}}">
               {{- lang.Translate "theme.recentposts" -}}
             </a>

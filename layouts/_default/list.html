@@ -1,6 +1,6 @@
 {{- define "main" -}}
   <section class="section--content">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         {{- $paginator := .Scratch.Get "paginator" -}}
         {{- $heading := fmt.Printf (lang.Translate "theme.recent_posts") $paginator.PageNumber -}}

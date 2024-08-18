@@ -13,6 +13,14 @@ article {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  pre code {
+
+    &::before,
+    &::after {
+      content: "";
+    }
+  }
+
   h1.post-title,
   h2.post-title {
     border-bottom: $border-width solid $primary;

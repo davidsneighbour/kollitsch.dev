@@ -1,4 +1,34 @@
 Changelog
+## [2024.4.13](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.12...v2024.4.13) (2024-08-19)
+
+
+### Content
+
+* **new:** how to install a specific version of a program via snap ([e5867b9](https://github.com/davidsneighbour/kollitsch.dev/commit/e5867b9495ecb953d7a2c5ff571d2e0461888899))
+
+
+### Theme
+
+* **fix:** changes in assets don't trigger sass pipeline ([caf3f9f](https://github.com/davidsneighbour/kollitsch.dev/commit/caf3f9fb02214f674b7dca0ae30e2a847a83625c)), closes [#1140](https://github.com/davidsneighbour/kollitsch.dev/issues/1140)
+* **fix:** check if empty post exist before using it ([9d74f35](https://github.com/davidsneighbour/kollitsch.dev/commit/9d74f3506461ceb3e9ff5a87296b7f34d8f34b44)), closes [#1141](https://github.com/davidsneighbour/kollitsch.dev/issues/1141)
+* **fix:** less background for code ([5fa025e](https://github.com/davidsneighbour/kollitsch.dev/commit/5fa025e4a1f408c676ea15b8180469afb99b42b6))
+* **fix:** max width fluid on smaller screens for all layouts ([3894f47](https://github.com/davidsneighbour/kollitsch.dev/commit/3894f47b36ec86932766465051032f4c55e2e709))
+* **fix:** max width for the whole content area, not only the inside of articles ([efc644a](https://github.com/davidsneighbour/kollitsch.dev/commit/efc644a12d2625223582775730df892835eb75ca))
+* **fix:** proper column gaps in tags ([5ac0572](https://github.com/davidsneighbour/kollitsch.dev/commit/5ac057237afd4c261f57298384ba7f05eb45b30d)), closes [#1138](https://github.com/davidsneighbour/kollitsch.dev/issues/1138)
+* **fix:** remove backticks from multiline code and shortcode ([6788d36](https://github.com/davidsneighbour/kollitsch.dev/commit/6788d3646776c070e7a8e5e4de695a48a1016d04)), closes [#1137](https://github.com/davidsneighbour/kollitsch.dev/issues/1137)
+* **fix:** smaller h2 size ([bb254b2](https://github.com/davidsneighbour/kollitsch.dev/commit/bb254b2a57bc1a0b2f038ee7438d9c87a3ed3d51))
+* **fix:** using primary color for inline code background ([5f83f64](https://github.com/davidsneighbour/kollitsch.dev/commit/5f83f64fb2ca6d0d02d6c6f5e35ac21d6dfd63bb))
+
+
+### Chore
+
+* **git:** update bin submodule ([8190adb](https://github.com/davidsneighbour/kollitsch.dev/commit/8190adb1a6e837974d82d25fecc40af5f182e3eb))
+
+
+### Build System
+
+* **fix:** reconfigure local development environment gugin ([de977c8](https://github.com/davidsneighbour/kollitsch.dev/commit/de977c81e0fc97ed691cbeb6003f0848488a3e6f))
+
 ## [2024.4.12](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.11...v2024.4.12) (2024-08-18)
 
 

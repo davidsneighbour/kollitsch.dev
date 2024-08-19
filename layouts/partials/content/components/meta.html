@@ -76,7 +76,7 @@
 
     {{- if collections.In $postsetup.meta "tags" -}}
       {{- $taxonomy := "tags" -}}
-      {{- with .Page.GetTerms $taxonomy -}}
+      {{- with (.Page.GetTerms $taxonomy).ByTitle -}}
         <div class="d-flex column-gap-2 flex-row">
           <div class="icon">
             {{- partials.Include "icon.html" "tags" -}}

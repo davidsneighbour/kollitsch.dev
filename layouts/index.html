@@ -24,7 +24,9 @@
 
       <div class="row">
         <div class="col-12 snap-align-start snap-y mb-5">
-          {{- partials.Include "content/post.html" (collections.Index $first 0) -}}
+          {{- with (collections.Index $first 0) -}}
+            {{- partials.Include "content/post.html" . -}}
+          {{- end -}}
         </div>
       </div>
 

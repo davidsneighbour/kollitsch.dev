@@ -35,7 +35,8 @@ article {
       background-color: rgba(0, 0, 0, 0.1);
     }
 
-    @extend .rounded-4;
+    // @extend .rounded-4;
+    @extend .rounded;
 
     .article-content {
       padding: 1.2rem;
@@ -68,7 +69,7 @@ figure {
     object-fit: cover;
     overflow: hidden;
 
-    @extend .rounded-4;
+    @extend .rounded;
     @extend .w-100;
   }
 
@@ -86,6 +87,6 @@ figure {
     @extend .border-secondary;
   }
 
-  @extend .rounded-4;
+  @extend .rounded;
   @extend .position-relative;
 }

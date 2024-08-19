@@ -55,7 +55,7 @@
   padding: 0.5rem 1rem;
   line-height: 1;
   background-color: rgba(0, 0, 0, 0.85);
-  border-radius: 1rem;
+  @extend .rounded;
   font-weight: 300;
 }
 

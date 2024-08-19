@@ -18,6 +18,8 @@
 .ribbon {
   @extend .z-3;
 
+  font-size: 1rem;
+
   &.status--draft {
     color: $nocturnal-expedition;
     background-color: $primary;

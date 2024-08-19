@@ -26,7 +26,7 @@ figure {
     max-width: max-content;
     margin: 0 auto;
 
-    @extend .rounded-4;
+    @extend .rounded;
     @extend .w-100;
   }
 
@@ -44,6 +44,6 @@ figure {
     @extend .border-secondary;
   }
 
-  @extend .rounded-4;
+  @extend .rounded;
   @extend .position-relative;
 }

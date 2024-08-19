@@ -10,7 +10,7 @@
   >div {
     @extend .btn;
     @extend .btn-link;
-    @extend .rounded-pill;
+    @extend .rounded;
 
     [data-bs-theme="light"] & .icon--bs {
       @extend .text-dark;

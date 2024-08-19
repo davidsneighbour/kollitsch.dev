@@ -32,7 +32,7 @@
       @extend .border;
       @extend .border-primary-subtle;
       @extend .border-3;
-      @extend .rounded-4;
+      @extend .rounded;
 
       &:hover {
         background-color: $primary;

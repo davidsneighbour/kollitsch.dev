@@ -92,7 +92,7 @@
     "release": "npm run release:patch",
     "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease",
     "sassdoc": "wireit",
-    "server": "node bin/hugo/server.js",
+    "server": "hugo server --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://gugin/",
     "server:tailwind": "wireit",
     "server:pagefind": "wireit",
     "tests": "wireit",

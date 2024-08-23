@@ -1,4 +1,42 @@
 Changelog
+## [2024.4.14](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.13...v2024.4.14) (2024-08-23)
+
+
+### Content
+
+* **wip:** adding draft fixes ([bbd5d3b](https://github.com/davidsneighbour/kollitsch.dev/commit/bbd5d3b40d56da623a3bd51894f4d8e891c90a76))
+
+
+### Theme
+
+* **fix:** less extreme border radiuses ([5b28316](https://github.com/davidsneighbour/kollitsch.dev/commit/5b283168f248bb7de36a6cd492bb9ac113f529e7))
+* **fix:** less extreme border radiuses ([edd2a6d](https://github.com/davidsneighbour/kollitsch.dev/commit/edd2a6d091b381c4610b237b51c8bb7571386728))
+* **fix:** mark highlighting and accessiblity content before and after ([8054a82](https://github.com/davidsneighbour/kollitsch.dev/commit/8054a827bd583b57e62a9a4c5884932a00769f66))
+* **fix:** sort tags ([8985576](https://github.com/davidsneighbour/kollitsch.dev/commit/8985576420d8ccb088a65f2dfba1d4378238bc3e)), closes [#1142](https://github.com/davidsneighbour/kollitsch.dev/issues/1142)
+* **fix:** top padding of main area ([40a5f18](https://github.com/davidsneighbour/kollitsch.dev/commit/40a5f1874a7cc62d2c812ebec5eadbe26bdf7669))
+
+
+### Chore
+
+* **deps:** update dependencies ([f7a1a3a](https://github.com/davidsneighbour/kollitsch.dev/commit/f7a1a3a9ac569e96a86a7e174c03ec231808e802))
+
+
+### Configuration
+
+* **fix:** remove chatgpt from robots.txt ([0adda0c](https://github.com/davidsneighbour/kollitsch.dev/commit/0adda0cecc070131844c7731cdc73d6d9d830dc5))
+* **fix:** remove config for robots.txt ([971516d](https://github.com/davidsneighbour/kollitsch.dev/commit/971516d4ce88cb224a2f2a3071ecfccc8febb021))
+
+
+### Build System
+
+* **fix:** npm run server command fixed ([c5fddac](https://github.com/davidsneighbour/kollitsch.dev/commit/c5fddac324840c01e66d34c4c87752fe08d356d5))
+
+
+### CI
+
+* **feat:** add osv-scanner workflow ([c09e1fd](https://github.com/davidsneighbour/kollitsch.dev/commit/c09e1fda03ae541eff5f1f7a90502e4bfe7a02fc))
+* **fix:** let osv-scanner workflow run manually ([790b73d](https://github.com/davidsneighbour/kollitsch.dev/commit/790b73db5ffcc57d38a167ba60812f64be6116a4))
+
 ## [2024.4.13](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.12...v2024.4.13) (2024-08-19)
 
 

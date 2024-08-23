@@ -124,3 +124,36 @@ textarea {
     }
   }
 }
+
+/* highlighting via `mark` tag */
+$mark-lighten-percentage: 20%; // Configurable percentage for lightening
+
+@each $name, $color in $colors {
+  $light-color: mix(white, $color, $mark-lighten-percentage);
+
+  /* lighten($color, $mark-lighten-percentage); */
+
+  .mark-#{$name} {
+    display: inline-block;
+    background: linear-gradient(100deg,
+      #{$light-color}00 1%,
+      #{$light-color} 2.5%,
+      #{$light-color}80 5.7%,
+      #{$light-color}1a 93%,
+      #{$light-color}b4 95%,
+      #{$light-color}00 98%),
+    linear-gradient(182deg, #{$light-color}00, #{$light-color}4d 8%, #{$light-color}00 15%);
+  }
+}
+
+mark {
+  @extend .mark-orange;
+}
+
+mark::before {
+  content: " [highlight start] ";
+}
+
+mark::after {
+  content: " [highlight end] ";
+}

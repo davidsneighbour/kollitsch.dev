@@ -1,4 +1,11 @@
 Changelog
+## [2024.4.15](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.14...v2024.4.15) (2024-08-23)
+
+
+### Theme
+
+* **fix:** remove width of rainbow box section under site title ([d03bc5d](https://github.com/davidsneighbour/kollitsch.dev/commit/d03bc5d41b7ae6f1c873735fc56c08e815fbeeb9))
+
 ## [2024.4.14](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.13...v2024.4.14) (2024-08-23)
 
 

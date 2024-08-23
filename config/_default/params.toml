@@ -370,9 +370,9 @@ name = "*"
 # https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/
 disallow = ["/cdn-cgi/"]
 
-[[dnb.robots.useragents]]
-name = "GPTBot"
-disallow = ["/"]
+# [[dnb.robots.useragents]]
+# name = "GPTBot"
+# disallow = ["/"]
 
 # sitemap - @see https://dnbhub.xyz/sitemap
 ################################################################################

@@ -14,6 +14,7 @@
   "dependencies": {
     "@alpinejs/collapse": "3.14.1",
     "@alpinejs/intersect": "3.14.1",
+    "@biomejs/biome": "1.8.3",
     "@davidsneighbour/bootstrap-config": "2024.3.37",
     "@davidsneighbour/browserslist-config": "2024.3.37",
     "@davidsneighbour/commitlint-config": "2024.3.37",
@@ -52,14 +53,13 @@
     "sass": "1.77.8",
     "secretlint": "8.2.4",
     "simple-git-hooks": "2.11.1",
+    "tailwindcss": "^3.4.10",
     "toml": "^3.0.0",
     "trim": "1.0.1",
     "ts-node": "10.9.2",
     "tsx": "4.18.0",
     "xml2js": "0.6.2",
-    "yargs": "17.7.2",
-    "@biomejs/biome": "1.8.3",
-    "tailwindcss": "^3.4.10"
+    "yargs": "17.7.2"
   },
   "scripts": {
     "audit:html": "wireit",

@@ -1,5 +1,5 @@
 {{- $post := . -}}
-{{- $artist := collections.First 1 (collections.Where site.Data.dnb.kollitsch.music "slug" $post.Params.video.artist) -}}
+{{- $artist := collections.First 1 (collections.Where site.Data.dnb.kollitsch.music.data "slug" $post.Params.video.artist) -}}
 {{- $artist = collections.Index $artist 0 -}}
 {{- $settings := collections.Dictionary "id" $post.Params.video.youtube -}}
 <div class="post-slider">

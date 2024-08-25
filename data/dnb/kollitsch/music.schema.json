@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "slug": {
+        "type": "string",
+        "description": "A unique identifier for the entity."
+      },
+      "name": {
+        "type": "string",
+        "description": "The name of the entity."
+      },
+      "link": {
+        "type": "string",
+        "format": "uri",
+        "description": "The main URL associated with the entity."
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the entity."
+      },
+      "links": {
+        "type": "object",
+        "description": "An optional object containing additional predefined social media links.",
+        "properties": {
+          "twitter": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the Twitter profile."
+          },
+          "instagram": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the Instagram profile."
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the official website.",
+            "minLength": 1
+          },
+          "facebook": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the Facebook profile."
+          },
+          "tiktok": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the TikTok profile."
+          }
+        },
+        "required": ["website"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["slug", "name", "description"],
+    "additionalProperties": false,
+    "oneOf": [
+      { "required": ["link"] },
+      { "required": ["links"] }
+    ]
+  }
+}

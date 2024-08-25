@@ -188,6 +188,10 @@ other = "(Last Modified: %s)"
 description = ""
 other = "Page %s"
 
+[page-n]
+other = " (Page %d)"
+description = "Page %d of %d"
+
 [theme.navigationlabel]
 description = ""
 other = "Page navigation"

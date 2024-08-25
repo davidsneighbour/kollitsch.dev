@@ -1,7 +1,7 @@
-import myconfig from "@davidsneighbour/eslint-config";
+import dnbConfig from "@davidsneighbour/eslint-config";
 
 export default [
-  ...myconfig,
+  ...dnbConfig,
   {
     rules: {
 

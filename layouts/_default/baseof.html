@@ -4,12 +4,15 @@
 {{- $sitelang := site.LanguageCode | compare.Default "en-US" -}}
 {{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
 <html lang="{{- $sitelang -}}" data-bs-theme="{{- site.Params.dnb.theme.colorscheme -}}">
+  {{- /* MARK: Head
+  */ -}}
   <head>
     {{- /* loading head module
            see https://github.com/davidsneighbour/hugo-modules/tree/main/modules/head */ -}}
     {{- partials.Include "head.html" . -}}
   </head>
-
+  {{- /* MARK: Body
+  */ -}}
   <body class="{{- $classes }} nav-state1 scroll" id="top">
     <a class="visually-hidden-focusable skip-to-main-link" href="#maincontent">
       {{- lang.Translate "theme.skip_to_content" -}}
@@ -23,14 +26,14 @@
           {{- /* Logo/Brand name */ -}}
           <div class="navbar-brand fsize-12 fw-bold ff-headline">
             {{- if site.Params.dnb.theme.logo -}}
-            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none">
+            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block text-decoration-none mt-2">
               <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | urls.AbsURL  -}}"
                   alt="Logo of {{ site.Title -}}"
                   height="{{- site.Params.dnb.theme.logo_height -}}"
                   width="{{- site.Params.dnb.theme.logo_width -}}">
             </a>
             {{- else -}}
-            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block mt-2 text-decoration-none text-hover-decoration-none">
+            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block text-decoration-none text-hover-decoration-none mt-2">
               {{- site.Title -}}
             </a>
             {{- end -}}
@@ -44,7 +47,7 @@
           </button>
           {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre-mainnav" "context" . ) -}}
           <div class="collapse navbar-collapse" id="navbarContent">
-            <menu class="navbar-nav mt-0 me-md-0 me-auto ms-auto">
+            <menu class="navbar-nav me-md-0 me-auto ms-auto mt-0">
               {{- $current := . -}}
               {{- range site.Menus.main -}}
 
@@ -134,7 +137,7 @@
     </main>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-post-main" "context" . ) -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-pre" "context" . ) -}}
-    <footer id="footer" class="p-2 p-md-7">
+    <footer id="footer" class="p-md-7 p-2">
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-start" "context" . ) -}}
       <div class="widgets container text-center">
         <h2 class="d-none invisible">Footer Items</h2>
@@ -144,10 +147,10 @@
         {{- end -}}
         {{- with site.Menus.footer -}}
           <div class="widget footer-navigation">
-            <h3 class="fs-6 my-5 fw-bold text-uppercase">{{ lang.Translate "theme.footer_menu_header" }}</h3>
-            <ul class="mb-0 list-inline">
+            <h3 class="fs-6 fw-bold text-uppercase my-5">{{ lang.Translate "theme.footer_menu_header" }}</h3>
+            <ul class="list-inline mb-0">
               {{- range . -}}
-                <li class="px-2 list-inline-item">
+                <li class="list-inline-item px-2">
                   <a href="{{- .URL | urls.AbsLangURL -}}">
                     {{- with .Params.bsicon }}
                       {{ $options := dict "icon" . "size" "1.5em" "class" "me-2" }}
@@ -193,7 +196,7 @@
             {{- end -}}
           {{- end -}}
           <div class="widget social-media">
-            <h3 class="fs-6 my-5 fw-bold text-uppercase">{{- lang.Translate "theme.connect-on-social" -}}</h3>
+            <h3 class="fs-6 fw-bold text-uppercase my-5">{{- lang.Translate "theme.connect-on-social" -}}</h3>
             <div class="container-sm">
               <div class="row row-cols-4 justify-content-md-center">
                 {{- range $order -}}
@@ -225,7 +228,7 @@
             </div>
           </div>
         {{- end -}}
-        <div class="d-flex flex-column flex-md-row justify-content-center mt-6 column-gap-3 row-gap-2">
+        <div class="d-flex flex-column flex-md-row justify-content-center column-gap-3 row-gap-2 mt-6">
           <div>
             {{- $year := partials.IncludeCached "func/getYear.html" . -}}
             {{- fmt.Printf (lang.Translate "theme.copyright-text") (cast.ToString $year) | .RenderString | safe.HTML -}}
@@ -248,7 +251,7 @@
       {{- $icon := $config.backtotop.icon -}}
       <div x-data="{ showBackToTop: false }"
           x-on:scroll.window="showBackToTop = window.pageYOffset >= 200"
-          class="scroll-to-top p-3 me-1 mb-1" x-show="showBackToTop"
+          class="scroll-to-top me-1 p-3 mb-1" x-show="showBackToTop"
           x-transition.duration.500ms
           x-on:click.prevent="window.scrollTo({top: 0, behavior: 'smooth'});">
         <span class="me-2">

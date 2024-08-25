@@ -10,6 +10,11 @@ menu:
     params:
       bsicon: envelope-paper-fill
       hotkey: k+c
+  footer:
+    name: Contact
+    weight: 900
+    params:
+      bsicon: envelope-paper-fill
 
 type: page
 lastmod: 2022-07-28T21:20:06+07:00

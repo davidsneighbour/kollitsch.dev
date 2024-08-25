@@ -1,4 +1,31 @@
 Changelog
+## [2024.4.16](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.15...v2024.4.16) (2024-08-25)
+
+
+### Content
+
+* **fix:** linktitle and frontmatter config in components ([0dd366b](https://github.com/davidsneighbour/kollitsch.dev/commit/0dd366b83452f4ac0d27aba15a2931532cbc2648))
+* music to program to 10 ([cb0789a](https://github.com/davidsneighbour/kollitsch.dev/commit/cb0789ade89cbad777664dc2e831f89830ce4487))
+
+
+### Theme
+
+* **fix:** add count to tags and remove linking from tags with only one item ([5fe0d0c](https://github.com/davidsneighbour/kollitsch.dev/commit/5fe0d0ca91bbb97f2b699eec980af8229024e995))
+* **fix:** add runaway i18n slug ([2217d2c](https://github.com/davidsneighbour/kollitsch.dev/commit/2217d2cc635abcf8dec98039b1cc781e19d5a93a))
+* **fix:** adding schema and structure for m2p2 format ([3e061e2](https://github.com/davidsneighbour/kollitsch.dev/commit/3e061e2531d1368448e991b2ea721c6087a1b286))
+
+
+### Refactors
+
+* eslint configuration ([000ef54](https://github.com/davidsneighbour/kollitsch.dev/commit/000ef545ccba619df3956584668ec265b6516d32))
+
+
+### Chore
+
+* **config:** remove existing frontmatter configuration ([078f438](https://github.com/davidsneighbour/kollitsch.dev/commit/078f438ffa6c7f15f19c565b28d138608d2ac69e))
+* **deps:** move deps between dev and default ([1121ef1](https://github.com/davidsneighbour/kollitsch.dev/commit/1121ef1273fae1b90f1a2ee9f7a102fa3a84f01c))
+* **deps:** update dependencies ([b67867a](https://github.com/davidsneighbour/kollitsch.dev/commit/b67867a07e38a3484b89107eaf74038e3994e94e))
+
 ## [2024.4.15](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.14...v2024.4.15) (2024-08-23)
 
 

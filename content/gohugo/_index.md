@@ -15,6 +15,12 @@ cascade:
     config:
       band: gohugo
       overviewLabel: "All components"
+menu:
+  footer:
+    name: Components
+    weight: 400
+    params:
+      bsicon: puzzle-fill
 ---
 
 [I am the creator](https://www.youtube.com/watch?v=r2Xhlb0bRXg) of a bunch of [GoHugo](https://gohugo.io) modules that you can use to optimize your projects.

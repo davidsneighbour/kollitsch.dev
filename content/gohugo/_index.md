@@ -1,6 +1,5 @@
 ---
 title: GoHugo Components
-linktitle: Components
 cascade:
   theme:
     showdate: false
@@ -18,4 +17,4 @@ cascade:
       overviewLabel: "All components"
 ---
 
-[I am the creator](https://www.youtube.com/watch?v=r2Xhlb0bRXg) of a bunch of [GoHugo](https://gohugo.io) modules that you can use to perfect your projects.
+[I am the creator](https://www.youtube.com/watch?v=r2Xhlb0bRXg) of a bunch of [GoHugo](https://gohugo.io) modules that you can use to optimize your projects.

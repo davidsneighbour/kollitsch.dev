@@ -3,7 +3,12 @@
 {{- $posttype := $post.Type -}}
 {{- $postsetup := partials.IncludeCached "func/getPostSetup.html" $posttype -}}
 
-<div class="section--meta">
+<div class="text-end">
+<a data-bs-toggle="collapse" data-bs-target="#metainformation" aria-expanded="false" aria-controls="collapseExample" title="Meta information">
+  {{- partials.IncludeCached "icon.html" "info-circle" "info-circle" }}
+</a>
+</div>
+<div class="section--meta collapse" id="metainformation">
   {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-start" "context" . ) -}}
   {{- /* ranging through the meta lines */ -}}
   {{- if reflect.IsSlice $postsetup.meta -}}

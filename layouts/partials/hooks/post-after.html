@@ -9,10 +9,10 @@
   {{- $amount := $pages | len -}}
   {{- $rest := math.Sub 100 $amount -}}
   <div data-nosnippet class="alert alert-dark mb-3" role="alert">
-    <p class="alert-heading d-flex justify-content-between">
-      <span>
+    <p class="alert-heading d-flex flex-column flex-md-row justify-content-center justify-content-md-between text-center">
+      <small>
         {{- lang.Translate "100daystooffload.note" | transform.Markdownify -}}
-      </span>
+      </small>
       <small>
         {{- $options := dict "numsince" $amount
                              "datesince" ($startOfYear.Format "Jan 02, 2006")

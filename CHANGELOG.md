@@ -1,4 +1,35 @@
 Changelog
+## [2024.4.17](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.16...v2024.4.17) (2024-08-26)
+
+
+### Content
+
+* **data:** link local schema to music.json ([275af03](https://github.com/davidsneighbour/kollitsch.dev/commit/275af036ffefee36b8e2bc55a9ecfd3edfcb07c4))
+* **fix:** frontmatter has two cascade items ([513e4b8](https://github.com/davidsneighbour/kollitsch.dev/commit/513e4b8c0318fbd3413d8660c63a159caa608afb))
+* **fix:** header image for latest post ([3a4497b](https://github.com/davidsneighbour/kollitsch.dev/commit/3a4497b33134b723e85cf09e9582b16209cad899))
+* **fix:** move menu configuration into content files ([06b6f6b](https://github.com/davidsneighbour/kollitsch.dev/commit/06b6f6b8082d3d3b83f478720ca54d43743a07d0))
+* **fix:** proper image name ([4b53a14](https://github.com/davidsneighbour/kollitsch.dev/commit/4b53a14441df5fc9f94cb1b4861fc2b80fa948e8))
+* **fix:** proper weight for tag index ([e701a33](https://github.com/davidsneighbour/kollitsch.dev/commit/e701a33b7242c76c2a5d6f1591cc3e2bf22c22c7))
+
+
+### Theme
+
+* **feat:** move meta information into a collapsible ([7872a32](https://github.com/davidsneighbour/kollitsch.dev/commit/7872a32216e1fadc8d70381a4484c612dcb1b8c0))
+* **fix:** disable those little out of place icons on top of article images ([2a601a1](https://github.com/davidsneighbour/kollitsch.dev/commit/2a601a1359ba884feb550203029d7b4376ebc3b4))
+* **fix:** move kbd from local b5-shortcodes to shortcodes module ([a550a41](https://github.com/davidsneighbour/kollitsch.dev/commit/a550a41deab8d782b0097e51a7812367ee18c1a4))
+* **fix:** remove unused shortcodes ([fdb7637](https://github.com/davidsneighbour/kollitsch.dev/commit/fdb763706ccaacee5cee1d80904de0dd3463f60c))
+
+
+### Chore
+
+* **config:** update workspace configuration ([a0a460d](https://github.com/davidsneighbour/kollitsch.dev/commit/a0a460dfa6829edadc67b62f5f1921eb386cba32))
+* **deps:** update gohugo dependencies ([efe7875](https://github.com/davidsneighbour/kollitsch.dev/commit/efe7875dd350cff5dbe6cf0bac5eb9159bca600d))
+
+
+### Build System
+
+* **config:** re-add front matter configuration ([be728b4](https://github.com/davidsneighbour/kollitsch.dev/commit/be728b4373471243d714cc9533d163720e0dd51a))
+
 ## [2024.4.16](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.15...v2024.4.16) (2024-08-25)
 
 

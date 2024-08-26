@@ -1,5 +1,5 @@
 {
-  "$schema": "https://example.com/my-schema.json",
+  "$schema": "music.schema.json",
   "data": [
     {
       "slug": "ben-lukas-boysen",

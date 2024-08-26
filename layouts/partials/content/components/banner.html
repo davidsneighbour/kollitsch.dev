@@ -6,7 +6,7 @@
 {{- $breakPoints := site.Params.dnb.pictures.responsive.halfwidth.break_points -}}
 {{- $imageSizes := site.Params.dnb.pictures.responsive.halfwidth.image_sizes -}}
 
-{{- $showControls := "true" -}}
+{{- $showControls := false -}}
 
 {{- $config := partials.IncludeCached "func/pictures/getConfiguration.html" . -}}
 {{- $default_format := $config.default_format | compare.Default "webp" -}}

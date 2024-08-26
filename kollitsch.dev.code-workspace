@@ -8,9 +8,6 @@
       "path": "../hugo-modules"
     },
     {
-      "path": "../configurations"
-    },
-    {
       "path": "../namespace"
     }
   ],

@@ -5,16 +5,15 @@ cascade:
     showdate: false
     comments: false
   sectiontitle: GoHugo components by DNB
-lastmod: 2024-03-10T11:24:42+07:00
-theme:
-  noheader: true
-aliases:
-- /components
-cascade:
   params:
     config:
       band: gohugo
-      overviewLabel: "All components"
+      overviewLabel: All components
+lastmod: 2024-08-26T12:04:18.015Z
+theme:
+  noheader: true
+aliases:
+  - /components
 menu:
   footer:
     name: Components

@@ -4,7 +4,7 @@ date: 2023-12-17T22:59:11+07:00
 lastmod: 2023-12-17T22:59:13+07:00
 keycombinations:
 - combination: k + NUMBER
-  action: Go to post {{< b5/kbd >}}NUMBER{{< /b5/kbd >}} (on list pages)
+  action: Go to post {{< kbd >}}NUMBER{{< /kbd >}} (on list pages)
 - combination: k + h
   action: Go to home
 - combination: k + a

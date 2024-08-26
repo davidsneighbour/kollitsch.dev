@@ -15,6 +15,10 @@ import './scripts/bs-tooltips.ts';
 // @ts-ignore - importing parameters from GoHugo
 import * as params from '@params';
 
+// youtube element
+import LiteYTEmbed from './lite-yt-embed.js';
+customElements.define('lite-youtube', LiteYTEmbed);
+
 // import custom elements
 customElements.define("click-effect", ClickSpark);
 customElements.define('progress-bar', ProgressBar);

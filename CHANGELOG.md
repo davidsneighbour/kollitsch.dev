@@ -1,4 +1,11 @@
 Changelog
+## [2024.4.18](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.17...v2024.4.18) (2024-08-26)
+
+
+### Theme
+
+* **fix:** fix youtube lite component ([bd68b5c](https://github.com/davidsneighbour/kollitsch.dev/commit/bd68b5c6fbd366683c04accc498f0e32fe0543f9))
+
 ## [2024.4.17](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.16...v2024.4.17) (2024-08-26)
 
 

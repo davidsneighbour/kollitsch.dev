@@ -1,26 +1,21 @@
 ---
-'$schema': /static/_schemata/blog.schema.yaml
+$schema: /static/_schemata/blog.schema.yaml
 title: How to install a specific version of a program via Snap
 description: ""
 summary: ""
-
 date: 2024-08-19T21:12:37+07:00
 publishDate: 2024-08-19T21:12:37+07:00
-lastmod: 2024-08-19T21:12:37+07:00
-
+lastmod: 2024-08-26T11:03:44.971Z
 resources:
   - title: Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via [Unsplash](https://unsplash.com/)
-    src: sleeping-monkey-during-daytime-B0aJBySo8dc
-
+    src: kumas_taverne-B0aJBySo8dc-unsplash.jpg
 tags:
   - ubuntu
   - snap
   - howto
   - golang
   - 100DaysToOffload
-
 type: blog
-
 unsplash:
   imageid: B0aJBySo8dc
 ---

@@ -16,7 +16,7 @@
     "@alpinejs/intersect": "3.14.1",
     "@biomejs/biome": "1.8.3",
     "@davidsneighbour/bootstrap-config": "2024.3.37",
-    "@davidsneighbour/browserslist-config": "2024.3.37",
+    "@davidsneighbour/browserslist-config": "2024.3.39",
     "@davidsneighbour/commitlint-config": "2024.3.37",
     "@davidsneighbour/cypress-config": "2024.3.37",
     "@davidsneighbour/eslint-config": "2024.3.37",

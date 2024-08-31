@@ -7,23 +7,16 @@ source = "assets"
 target = "assets"
 
 [[mounts]]
-source = "package.json"
-target = "assets/versions/kollitsch.json"
-
-[[mounts]]
-source = "node_modules"
-target = "assets/node_modules"
-
-################################################################################
-# local development mounts
-[[mounts]]
 source = "content"
 target = "content"
 
 [[mounts]]
-source = "documentation"
-target = "content/documentation"
-################################################################################
+source = "i18n"
+target = "i18n"
+
+[[mounts]]
+source = "layouts"
+target = "layouts"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
@@ -102,17 +95,3 @@ path = "github.com/davidsneighbour/hugo-modules/modules/social"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
-
-[[imports]]
-disable = false
-ignoreConfig = true
-ignoreImports = true
-path = "github.com/csswizardry/ct"
-
-[[imports.mounts]]
-source = 'ct.css'
-target = 'assets/css/libs/ct.css'
-
-[[imports.mounts]]
-source = 'ct.css'
-target = 'static/css/libs/ct.css'

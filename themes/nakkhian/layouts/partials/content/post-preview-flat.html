@@ -1,14 +1,14 @@
 {{- $item := .context -}}
 {{- $lines := .lines | compare.Default 3 -}}
 {{- $postClasses := partials.IncludeCached "func/getArticleClasses.html" $item $item -}}
-<article class="{{- $postClasses }} mb-3 prose component--archive-card">
-  <div class="is--item">
-    <div class="is--date">
+<article class="{{- $postClasses }} mb-3 prose px-3 py-2 component--archive-card">
+  <div class="is--item d-flex align-items-start flex-column flex-sm-row">
+    <div class="px-3 py-2 mt-2 mb-3 text-center border rounded is--date me-3 border-primary-subtle border-3">
       <span>{{- $item.Date.Format "Jan" -}}</span>
       <span>{{- $item.Date.Format "2" -}}</span>
       <span>{{- $item.Date.Format "2006" -}}</span>
     </div>
-    <div class="is--content">
+    <div class="flex-grow-1">
       <h2 class="post-title h3">
         <a href="{{ $item.Permalink }}" rel="bookmark">
           {{- $item.Title | transform.Markdownify -}}

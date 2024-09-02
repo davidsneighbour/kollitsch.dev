@@ -1,4 +1,35 @@
 Changelog
+## [2024.4.19](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.18...v2024.4.19) (2024-09-02)
+
+
+### Content
+
+* **gohugo:** update getTitle documentation ([8987b1e](https://github.com/davidsneighbour/kollitsch.dev/commit/8987b1edf622ecd3a4aa9cd9be4bab3283cd716b))
+
+
+### Theme
+
+* **config:** update configuration and workspace setup ([5ab0e7c](https://github.com/davidsneighbour/kollitsch.dev/commit/5ab0e7cb262d4da385c37085a686683003c7e30e))
+* **fix:** better layouting for after-post hook ([e45b7d1](https://github.com/davidsneighbour/kollitsch.dev/commit/e45b7d17b7fe9b98fe68be13f29f3a6f64cdcde0))
+* **fix:** layout issues in 100daystooffload hook ([54d111a](https://github.com/davidsneighbour/kollitsch.dev/commit/54d111a4b86eb16fe5ee19eedff70f5a2a537cf3))
+* **fix:** more scss refactoring and removing unused classes ([03cd65e](https://github.com/davidsneighbour/kollitsch.dev/commit/03cd65eea340bcaa3db561dd191a01d5fa4497ff))
+* **fix:** remove unused mixins and add scss hooks ([09d828d](https://github.com/davidsneighbour/kollitsch.dev/commit/09d828d72ff05ec723278f0bb0137c70a48fb8e7))
+
+
+### Refactors
+
+* moving theme into theme directory ([64a93b1](https://github.com/davidsneighbour/kollitsch.dev/commit/64a93b1eac7a078a198f652bfc666572d7eb0f98))
+
+
+### Chore
+
+* **deps:** update dependencies ([1c94f79](https://github.com/davidsneighbour/kollitsch.dev/commit/1c94f79298ec40fbf1166a4304a21d7160f65c34))
+
+
+### Build System
+
+* **config:** update vale vocabulary ([239e3df](https://github.com/davidsneighbour/kollitsch.dev/commit/239e3df1f80fc5a954b14be6b93648be8d50a406))
+
 ## [2024.4.18](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.17...v2024.4.18) (2024-08-26)
 
 

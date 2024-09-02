@@ -1,8 +1,6 @@
 /* stylelint-disable selector-max-compound-selectors --- sometimes it's required */
 .component--archive-card {
-  @extend .px-3;
-  @extend .py-2;
-
+  /* @todo make tags a component */
   .is--tags {
     @extend .text-end;
 
@@ -16,23 +14,8 @@
   }
 
   .is--item {
-    @extend .d-flex;
-    @extend .align-items-start;
-    @extend .flex-column;
-    @extend .flex-sm-row;
-
     .is--date {
       line-height: 0.85;
-
-      @extend .me-3;
-      @extend .mb-3;
-      @extend .mt-2;
-      @extend .px-3;
-      @extend .py-2;
-      @extend .border;
-      @extend .border-primary-subtle;
-      @extend .border-3;
-      @extend .rounded;
 
       &:hover {
         background-color: $primary;
@@ -41,8 +24,6 @@
 
       span {
         width: 75px;
-
-        @extend .text-center;
 
         display: inline-block;
 
@@ -64,10 +45,6 @@
           }
         }
       }
-    }
-
-    .is--content {
-      @extend .flex-grow-1;
     }
   }
 }

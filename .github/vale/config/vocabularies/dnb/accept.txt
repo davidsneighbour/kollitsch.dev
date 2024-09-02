@@ -11,3 +11,4 @@ Netlify
 [Tt]eardown
 GoHugo
 config
+[Cc]acheability

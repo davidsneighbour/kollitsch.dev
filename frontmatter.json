@@ -3,23 +3,27 @@
   "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.js",
   "frontMatter.content.pageFolders": [
     {
-      "contentTypes": ["blog", "music2program2", "notes-from-the-laboratory"],
+      "contentTypes": [
+        "blog",
+        "music2program2",
+        "notes-from-the-laboratory"
+      ],
       "path": "[[workspace]]/content/blog",
       "title": "Blog"
     },
     {
-      "contentTypes": ["component"],
+      "contentTypes": [
+        "component"
+      ],
       "path": "[[workspace]]/content/gohugo",
       "title": "Modules"
     },
     {
-      "contentTypes": ["tag"],
+      "contentTypes": [
+        "tag"
+      ],
       "path": "[[workspace]]/content/tags",
       "title": "Tags"
-    },
-    {
-      "path": "[[workspace]]/documentation",
-      "title": "Documentation"
     }
   ],
   "frontmatter.content.placeholders.permalink": "/blog/{{year}}/{{slug}}/index.md",
@@ -43,7 +47,7 @@
     },
     {
       "command": "~/.nvm/versions/node/v22.7.0/bin/node",
-      "script": "./bin/frontmatter/create-youtube-header-image.cjs",
+      "script": "./bin/frontmatter/create-youtube-header-image.js",
       "title": "Generate social image for Youtube"
     }
   ],
@@ -79,7 +83,11 @@
             "type": "string"
           }
         },
-        "required": ["title", "link", "slug"],
+        "required": [
+          "title",
+          "link",
+          "slug"
+        ],
         "title": "Kurzschnitte",
         "type": "object"
       },
@@ -117,7 +125,11 @@
             "type": "string"
           }
         },
-        "required": ["name", "link", "slug"],
+        "required": [
+          "name",
+          "link",
+          "slug"
+        ],
         "title": "Sponsors",
         "type": "object"
       },
@@ -171,7 +183,9 @@
       "previewPath": null
     },
     {
-      "fieldGroup": ["resources"],
+      "fieldGroup": [
+        "resources"
+      ],
       "fields": [
         {
           "name": "title",
@@ -216,7 +230,9 @@
           "type": "categories"
         },
         {
-          "fieldGroup": ["resources"],
+          "fieldGroup": [
+            "resources"
+          ],
           "multiple": true,
           "name": "resources",
           "title": "Resources",
@@ -274,7 +290,9 @@
           "type": "categories"
         },
         {
-          "fieldGroup": ["resources"],
+          "fieldGroup": [
+            "resources"
+          ],
           "name": "resources",
           "title": "Resources",
           "type": "block"

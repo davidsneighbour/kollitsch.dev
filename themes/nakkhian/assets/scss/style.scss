@@ -1,12 +1,14 @@
-// @charset 'utf-8';
+@charset 'utf-8';
 
-/// BS: configuration
+/// BS: Configuration
 @import "bootstrap/scss/functions";
 
 /// DNB: theme settings
+@import "09-hooks/settings-pre";
 @import "01-settings/fonts";
 
 /// Theme colors setup
+/// @todo move into configuration
 $arctic-powder: #f1f6f4;
 $mystic-mint: #d9e8e3;
 $forsythia: #ffc801;
@@ -18,13 +20,16 @@ $organic-noir: #172b36;
 @import "01-settings/colormode-dark";
 @import "01-settings/theme";
 @import "01-settings/utilities";
+@import "09-hooks/settings-post";
 
 /// BS: theme settings
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
+@import "09-hooks/settings-variables-post";
 
 /// DNB: map overrides
 @import "01-settings/maps";
+@import "09-hooks/settings-maps-post";
 
 /// BS: other required parts
 @import "bootstrap/scss/maps";
@@ -42,7 +47,7 @@ $organic-noir: #172b36;
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
-@import 'bootstrap/scss/dropdown';
+@import "bootstrap/scss/dropdown";
 
 // @import 'bootstrap/scss/button-group';
 @import "bootstrap/scss/nav";
@@ -76,25 +81,25 @@ $organic-noir: #172b36;
 /// BS: utilities API
 @import "bootstrap/scss/utilities/api";
 
-/// DNB: mixins
-@import "02-mixins/colors";
-@import "02-mixins/css_functions";
-@import "02-mixins/scrollbars";
-@import "02-mixins/scrollsnap";
-@import "02-mixins/shadows";
-@import "02-mixins/typography";
+/// DNB: Mixins
+@import "09-hooks/mixins-pre";
+@import "02-mixins/mixins";
+@import "09-hooks/mixins-post";
 
-/// DNB: Global
-@import "03-global/global";
-@import "03-global/footer";
-@import "03-global/responsive";
-@import "03-global/utilities";
-@import "03-global/transitions";
+/// DNB: Theme
+@import "09-hooks/theme-pre";
+@import "03-theme/global";
+@import "03-theme/footer";
+@import "03-theme/responsive";
+@import "03-theme/utilities";
+@import "03-theme/transitions";
+@import "09-hooks/theme-post";
 
 /// adding scrollbars
 @include dnb-scrollbars;
 
 /// DNB: Components
+@import "09-hooks/components-pre";
 @import "04-components/archive";
 @import "04-components/articles";
 @import "04-components/highlight";
@@ -102,11 +107,13 @@ $organic-noir: #172b36;
 @import "04-components/search";
 @import "04-components/gohugo";
 @import "04-components/theme-toggle";
+@import "09-hooks/components-post";
 
 /// DNB: prose - article content formatting
 @include dnb-scrollbars(".prose", 3px);
 
 .prose {
+  @import "09-hooks/prose-pre";
   @import "05-prose/prose";
   @import "05-prose/images";
   @import "05-prose/tables";
@@ -120,12 +127,14 @@ $organic-noir: #172b36;
     // individual settings for a dark theme
     @import "05-prose/syntax/dark";
   }
+
+  @import "09-hooks/prose-post";
 }
 
 /// DNB: plugins (imported from node_modules)
+@import "09-hooks/plugins-pre";
 @import "lite-yt-embed";
-
-// @import "animate.css/animate";
 @import "debugprint";
 @import "plugins/clipboard";
 @import "auditor";
+@import "09-hooks/plugins-post";

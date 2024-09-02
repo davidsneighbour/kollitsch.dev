@@ -1,5 +1,4 @@
 class ProgressBar extends HTMLElement {
-
   connectedCallback() {
     this.innerHTML = `
       <div class="progress"
@@ -9,11 +8,10 @@ class ProgressBar extends HTMLElement {
             aria-valuemin="0"
             aria-valuemax="100"
             style="height:2px">
-        <div class="progress-bar" style="width: var(--scroll);"></div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: var(--scroll);"></div>
       </div>
     `;
   }
-
 }
 
 export default ProgressBar;

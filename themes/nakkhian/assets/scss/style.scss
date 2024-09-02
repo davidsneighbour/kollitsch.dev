@@ -91,6 +91,8 @@ $organic-noir: #172b36;
 @import "03-theme/global";
 @import "03-theme/footer";
 @import "03-theme/responsive";
+@import "03-theme/article";
+@import "03-theme/navigation";
 @import "03-theme/utilities";
 @import "03-theme/transitions";
 @import "09-hooks/theme-post";
@@ -101,9 +103,7 @@ $organic-noir: #172b36;
 /// DNB: Components
 @import "09-hooks/components-pre";
 @import "04-components/archive";
-@import "04-components/articles";
 @import "04-components/highlight";
-@import "04-components/navigation";
 @import "04-components/search";
 @import "04-components/gohugo";
 @import "04-components/theme-toggle";

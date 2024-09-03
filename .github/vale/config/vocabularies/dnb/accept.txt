@@ -12,3 +12,4 @@ Netlify
 GoHugo
 config
 [Cc]acheability
+Kurzschnitte

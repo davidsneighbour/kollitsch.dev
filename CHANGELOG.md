@@ -1,4 +1,23 @@
 Changelog
+## [2024.4.21](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.20...v2024.4.21) (2024-09-03)
+
+
+### Content
+
+* add post of 2024-09-03 ([6c271cc](https://github.com/davidsneighbour/kollitsch.dev/commit/6c271ccd1a9aa155596c1588c3174a4a0e5a062d))
+
+
+### Theme
+
+* **fix:** animate reading progress ([76fdc4d](https://github.com/davidsneighbour/kollitsch.dev/commit/76fdc4ddde6743be160fc98e7663929609e9c711))
+* **fix:** moving js/ts components around ([b8333bd](https://github.com/davidsneighbour/kollitsch.dev/commit/b8333bdbdfe53127249511d71adc6ddcbdfe2e86))
+
+
+### Chore
+
+* **deps:** update dependencies ([15c6968](https://github.com/davidsneighbour/kollitsch.dev/commit/15c6968ceb7337538e50fe565a8a76e410e5df13))
+* **deps:** update dependencies ([251f430](https://github.com/davidsneighbour/kollitsch.dev/commit/251f4309bd0fc7096b0555c922f3798d031e4594))
+
 ## [2024.4.20](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.19...v2024.4.20) (2024-09-02)
 
 ## [2024.4.19](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.18...v2024.4.19) (2024-09-02)

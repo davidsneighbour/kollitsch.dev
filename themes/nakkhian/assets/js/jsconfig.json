@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "../../../../hugo-modules/modules/youtube/assets/js/*",
+        "../../../node_modules/*",
+        "../../../themes/nakkhian/assets/*"
+      ]
+    }
+  }
+}

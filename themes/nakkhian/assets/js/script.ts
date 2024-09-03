@@ -1,9 +1,9 @@
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
-import intersect from '@alpinejs/intersect'
+import intersect from '@alpinejs/intersect';
 
 import ClickSpark from './components/click-effect.ts';
-import ProgressBar from './components/progress-bar.js';
+import ProgressBar from './components/progress-bar.ts';
 
 import './scripts/keyboard-layout.ts';
 import './scripts/theme-changes.ts';
@@ -20,7 +20,7 @@ import LiteYTEmbed from './lite-yt-embed.js';
 customElements.define('lite-youtube', LiteYTEmbed);
 
 // import custom elements
-customElements.define("click-effect", ClickSpark);
+customElements.define('click-effect', ClickSpark);
 customElements.define('progress-bar', ProgressBar);
 
 // initialize navbar opacity
@@ -50,7 +50,10 @@ document.addEventListener('alpine:init', () => {
       setTimeout(() => this.changeGiscusTheme(), 2000);
     },
     getColorPreference() {
-      return localStorage.getItem('dnb-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      return (
+        localStorage.getItem('dnb-theme') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+      );
     },
     setPreference() {
       localStorage.setItem('dnb-theme', this.theme);
@@ -69,7 +72,7 @@ document.addEventListener('alpine:init', () => {
       if (iframe && iframe.contentWindow) {
         iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, this._giscusPath);
       }
-    }
+    },
   }));
 });
 
@@ -77,7 +80,7 @@ document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
     window.Alpine = Alpine;
     Alpine.plugin(collapse);
-    Alpine.plugin(intersect)
+    Alpine.plugin(intersect);
     // Define the Alpine.js data component with initial placeholder values
     Alpine.data('versionData', () => {
       return {
@@ -101,16 +104,18 @@ document.onreadystatechange = () => {
             this.version = 'Error';
             this.url = '#';
           }
-        }
+        },
       };
     });
     Alpine.start();
-
   }
 };
 
 document.addEventListener('scroll', function () {
-  const scroll = (document.documentElement.scrollTop || document.body.scrollTop) / ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight) * 100;
+  const scroll =
+    ((document.documentElement.scrollTop || document.body.scrollTop) /
+      ((document.documentElement.scrollHeight || document.body.scrollHeight) - document.documentElement.clientHeight)) *
+    100;
   const progress = document.querySelector('.progress');
   progress.style.setProperty('--scroll', scroll + '%');
   progress.setAttribute('aria-valuenow', scroll);

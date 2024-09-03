@@ -20,7 +20,7 @@
     "@davidsneighbour/commitlint-config": "2024.3.42",
     "@davidsneighbour/cypress-config": "2024.3.42",
     "@davidsneighbour/eslint-config": "2024.3.42",
-    "@davidsneighbour/frontmatter-config": "^2024.3.42",
+    "@davidsneighbour/frontmatter-config": "2024.3.42",
     "@davidsneighbour/htmlvalidate-config": "2024.3.42",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2024.3.42",
@@ -251,8 +251,11 @@
   },
   "type": "module",
   "devDependencies": {
-    "@types/alpinejs": "^3.13.10",
-    "@types/alpinejs__collapse": "^3.13.4",
-    "@types/alpinejs__intersect": "^3.13.4"
-  }
+    "@types/alpinejs": "3.13.10",
+    "@types/alpinejs__collapse": "3.13.4",
+    "@types/alpinejs__intersect": "3.13.4"
+  },
+  "browserslist": [
+    "extends @davidsneighbour/browserslist-config"
+  ]
 }

@@ -5,21 +5,22 @@ description: ""
 summary: ""
 date: 2022-08-16T20:28:30+07:00
 publishDate: 2022-08-16T20:28:30+07:00
-lastmod: 2024-03-03T16:07:55+07:00
+lastmod: 2024-09-03T15:41:55.477Z
 resources:
-- src: header-card.png
+  - src: header-card.png
 categories:
-- components
+  - components
 tags:
-- gohugo
-- component
-- content
+  - gohugo
+  - component
+  - content
 aliases:
-- /components/hugo-functions/
+  - /components/hugo-functions/
 cascade:
   params:
     config:
-      overviewLabel: "All functions"
+      overviewLabel: All functions
+      band: GoHugo
 ---
 
 This documentation is work in progress. Please check back later.

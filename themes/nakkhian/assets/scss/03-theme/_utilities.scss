@@ -16,8 +16,6 @@
 
 /// ribbons
 .ribbon {
-  @extend .z-3;
-
   font-size: 1rem;
 
   &.status--draft {
@@ -29,13 +27,6 @@
     color: $organic-noir;
     background-color: $primary;
   }
-
-  @extend .text-center;
-  @extend .position-absolute;
-  @extend .top-0;
-  @extend .start-0;
-  @extend .py-1;
-  @extend .px-2;
 
   article:has(&) {
     @extend .position-relative;

@@ -1,6 +1,5 @@
 article {
   code {
-
     &::before,
     &::after {
       content: "`";
@@ -14,7 +13,6 @@ article {
   }
 
   pre code {
-
     &::before,
     &::after {
       content: "";
@@ -35,7 +33,6 @@ article {
       background-color: rgba(0, 0, 0, 0.1);
     }
 
-    // @extend .rounded-4;
     @extend .rounded;
 
     .article-content {
@@ -46,8 +43,6 @@ article {
 
 figure {
   @extend .mx-auto;
-
-  // font-variant: small-caps;
 
   .inline-icons {
     div {
@@ -74,7 +69,6 @@ figure {
   }
 
   .post-slider & {
-
     picture,
     img,
     .iframe-border,

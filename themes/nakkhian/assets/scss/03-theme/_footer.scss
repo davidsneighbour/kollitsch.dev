@@ -1,7 +1,4 @@
 .widget.social-media {
-  // max-width: 720px;
-  // margin: 0 auto;
-
   a:link,
   a:hover {
     svg {
@@ -30,7 +27,7 @@
   }
 
   dl {
-    >div {
+    > div {
       @extend .d-inline;
     }
 

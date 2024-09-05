@@ -34,14 +34,17 @@
     "@davidsneighbour/webpack-config": "2024.3.42",
     "@github/hotkey": "3.1.1",
     "@netlify/functions": "2.8.1",
+    "@notionhq/client": "^2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "alpinejs": "3.14.1",
     "bootstrap-icons": "1.11.3",
     "caniuse-lite": "1.0.30001655",
     "cypress-html-validate": "6.1.0",
+    "dotenv": "^16.4.5",
     "lint-staged": "15.2.10",
     "netlify-cli": "17.34.3",
     "ninja-keys": "1.2.2",
+    "notion-to-md": "^3.1.1",
     "pagefind": "1.1.1",
     "pixelmatch": "6.0.0",
     "playwright": "1.46.1",
@@ -253,7 +256,8 @@
   "devDependencies": {
     "@types/alpinejs": "3.13.10",
     "@types/alpinejs__collapse": "3.13.4",
-    "@types/alpinejs__intersect": "3.13.4"
+    "@types/alpinejs__intersect": "3.13.4",
+    "prettier-plugin-go-template": "^0.0.15"
   },
   "browserslist": [
     "extends @davidsneighbour/browserslist-config"

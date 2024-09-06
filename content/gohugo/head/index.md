@@ -3,7 +3,7 @@ title: Head
 summary: ""
 date: 2023-06-30T17:31:25+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2024-09-06T13:06:40.881Z
+lastmod: 2024-09-06T13:48:52.444Z
 resources:
   - src: header-card.png
 categories:
@@ -16,9 +16,10 @@ aliases:
   - /components/hugo-head/
 ---
 
-This is a GoHugo theme component that solves the old question "What tags belong into the `<head>` tag of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
+This is a GoHugo theme component that solves the old question "What tags belong between the `<head>` tags of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
 
-If you want to learn about all that is possible in the `<head>` tag then have a look at [htmlhead.dev](https://htmlhead.dev/) --- or just trust this module to do "all the right things".
+> [!TIP]
+> If you want to learn about all that is possible in the `<head>` tag then have a look at [htmlhead.dev](https://htmlhead.dev/) --- or just trust this module to do "all the right things".
 
 {{< toc >}}
 
@@ -199,3 +200,4 @@ placename = ""
 ## Sites and Projects using `hugo-head`
 
 - [Kollitsch.dev](https://kollitsch.dev)
+- [Samui? Samui!](https://samui-samui.de)

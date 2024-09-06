@@ -31,20 +31,18 @@
     "@davidsneighbour/remark-config": "2024.3.42",
     "@davidsneighbour/stylelint-config": "2024.3.42",
     "@davidsneighbour/tools": "2024.3.42",
-    "@davidsneighbour/webpack-config": "2024.3.42",
     "@github/hotkey": "3.1.1",
     "@netlify/functions": "2.8.1",
-    "@notionhq/client": "^2.2.15",
+    "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "alpinejs": "3.14.1",
     "bootstrap-icons": "1.11.3",
     "caniuse-lite": "1.0.30001655",
     "cypress-html-validate": "6.1.0",
-    "dotenv": "^16.4.5",
+    "dotenv": "16.4.5",
     "lint-staged": "15.2.10",
     "netlify-cli": "17.34.3",
     "ninja-keys": "1.2.2",
-    "notion-to-md": "^3.1.1",
     "pagefind": "1.1.1",
     "pixelmatch": "6.0.0",
     "playwright": "1.46.1",
@@ -55,13 +53,18 @@
     "sass": "1.77.8",
     "secretlint": "8.2.4",
     "simple-git-hooks": "2.11.1",
-    "tailwindcss": "3.4.10",
     "toml": "3.0.0",
     "trim": "1.0.1",
     "ts-node": "10.9.2",
     "tsx": "4.19.0",
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
+  },
+  "devDependencies": {
+    "@types/alpinejs": "3.13.10",
+    "@types/alpinejs__collapse": "3.13.4",
+    "@types/alpinejs__intersect": "3.13.4",
+    "prettier-plugin-go-template": "0.0.15"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -94,12 +97,10 @@
     "release": "npm run release:patch",
     "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease",
     "sassdoc": "wireit",
-    "server": "hugo server -D -E -F --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://gugin/",
-    "server:tailwind": "wireit",
+    "server": "hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://gugin/",
     "server:pagefind": "wireit",
     "tests": "wireit",
-    "update": "wireit",
-    "server:webpack": "webpack --config webpack.config.js --mode development"
+    "update": "wireit"
   },
   "wireit": {
     "sassdoc": {
@@ -107,9 +108,6 @@
       "files": [
         "assets/scss/**/*.scss"
       ]
-    },
-    "server:tailwind": {
-      "command": "tailwindcss -i assets/css/tailwind.css -o assets/css/theme.css --watch"
     },
     "clean": {
       "dependencies": [
@@ -249,17 +247,11 @@
     "node": ">=20.12.0",
     "npm": ">=10.5.0"
   },
+  "browserslist": [
+    "extends @davidsneighbour/browserslist-config"
+  ],
   "simple-git-hooks": {
     "commit-msg": "npx commitlint -e \"$@\""
   },
-  "type": "module",
-  "devDependencies": {
-    "@types/alpinejs": "3.13.10",
-    "@types/alpinejs__collapse": "3.13.4",
-    "@types/alpinejs__intersect": "3.13.4",
-    "prettier-plugin-go-template": "^0.0.15"
-  },
-  "browserslist": [
-    "extends @davidsneighbour/browserslist-config"
-  ]
+  "type": "module"
 }

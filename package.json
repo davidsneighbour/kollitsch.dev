@@ -47,7 +47,7 @@
     "playwright": "1.46.1",
     "postcss": "8.4.44",
     "postcss-cli": "11.0.0",
-    "puppeteer": "23.2.2",
+    "puppeteer": "23.3.0",
     "remark": "15.0.1",
     "sass": "1.77.8",
     "secretlint": "8.2.4",

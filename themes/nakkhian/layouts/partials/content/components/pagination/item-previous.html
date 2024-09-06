@@ -1,8 +1,0 @@
-{{- with .Prev }}
-  <li class="page-item">
-    {{- $copy := lang.Translate "theme.previous" }}
-    <a href="{{ .URL }}" aria-label="{{ $copy }}" class="page-link">
-      {{- partials.Include "icon.html" "chevron-left" -}}
-    </a>
-  </li>
-{{- end }}

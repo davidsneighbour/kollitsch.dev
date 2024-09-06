@@ -24,9 +24,7 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "yaml.schemas": {
-    "http://json-schema.org/draft-07/schema#": [
-      "static/**/*.schema.yaml"
-    ]
+    "http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
   },
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -37,27 +35,8 @@
   "stylelint.reportDescriptionlessDisables": true,
   "stylelint.reportInvalidScopeDisables": true,
   "stylelint.reportNeedlessDisables": true,
-  "stylelint.snippet": [
-    "css",
-    "less",
-    "postcss",
-    "scss",
-    "sass"
-  ],
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "sass",
-    "scss"
-  ],
-  "deno.enable": true,
-  "deno.enablePaths": [
-    "assets/edge-functions"
-  ],
-  "deno.unstable": true,
-  "deno.importMap": ".netlify/edge-functions-import-map.json",
-  "deno.path": "/home/patrick/.config/netlify/deno-cli/deno",
+  "stylelint.snippet": ["css", "less", "postcss", "scss", "sass"],
+  "stylelint.validate": ["css", "less", "postcss", "sass", "scss"],
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   }

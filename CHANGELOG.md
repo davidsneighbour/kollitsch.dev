@@ -1,4 +1,51 @@
 Changelog
+## [2024.4.22](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.21...v2024.4.22) (2024-09-06)
+
+
+### Content
+
+* **fix:** proper banner ribbons in gohugo ([e183d6b](https://github.com/davidsneighbour/kollitsch.dev/commit/e183d6b8a8ffb53c509cff45687f24852306ace7))
+* **fix:** remove drafts folder ([2c5f2ff](https://github.com/davidsneighbour/kollitsch.dev/commit/2c5f2fffc0df025980252caf0d94f0d70f72351e))
+
+
+### Documentation
+
+* **fix:** update SECURITY.md ([ec91be0](https://github.com/davidsneighbour/kollitsch.dev/commit/ec91be0b10bb404e60ca6f762a689d5de70c06a9))
+
+
+### Theme
+
+* **fix:** add global definition file with declaration of Alpine ([15efaf1](https://github.com/davidsneighbour/kollitsch.dev/commit/15efaf15b9e4f2c25857846a9114f081d40ce14f))
+* **fix:** add markers to baseof.html ([d271872](https://github.com/davidsneighbour/kollitsch.dev/commit/d271872c3508ebb7bc4c819262cc7cc29fec7498))
+* **fix:** cleanup styles and move classes to layout ([83777cf](https://github.com/davidsneighbour/kollitsch.dev/commit/83777cf12becf9e21d85ed601de16460f850635c))
+* **fix:** deep merge of outputs settings ([1e83724](https://github.com/davidsneighbour/kollitsch.dev/commit/1e83724f70c6e77527358c9913bde7d81c3e95a8)), closes [#1164](https://github.com/davidsneighbour/kollitsch.dev/issues/1164)
+* **fix:** re-add purgecss ([3c2e703](https://github.com/davidsneighbour/kollitsch.dev/commit/3c2e70356f2b61f286db09d770c6815a9b649a3f))
+* **fix:** remove some left-overs of nakhian ([d587831](https://github.com/davidsneighbour/kollitsch.dev/commit/d58783197321cf5e116cc30c9ca9f74b5adf89b9))
+* **fix:** remove tailwindcss setup ([6717e05](https://github.com/davidsneighbour/kollitsch.dev/commit/6717e05929c0b00be203cbf999a7758c990739bc))
+
+
+### Refactors
+
+* move theme into module ([8d1a734](https://github.com/davidsneighbour/kollitsch.dev/commit/8d1a734dbacd39db5e6179492f180bab6eff02a0))
+
+
+### Chore
+
+* **cleanup:** remove netlify functions ([ef1cbfd](https://github.com/davidsneighbour/kollitsch.dev/commit/ef1cbfd2a638d3aec8f51088698942c4cd388763))
+* **cleanup:** remove typescript ([386c2b7](https://github.com/davidsneighbour/kollitsch.dev/commit/386c2b72244ff5baf682f39a0dd61904f70d6ee2))
+* **config:** update hugo version in netlify.toml ([a01fcab](https://github.com/davidsneighbour/kollitsch.dev/commit/a01fcab97800e9419b3c5a7fb790456742b4928f))
+* **deps:** update dependencies ([b7d8d72](https://github.com/davidsneighbour/kollitsch.dev/commit/b7d8d72ecdcfe1002461f522e13842ff4d87f6d5))
+* **deps:** update dependencies ([fcb97e1](https://github.com/davidsneighbour/kollitsch.dev/commit/fcb97e15eb384ebfa1a5aae87e58539c8ed9b3f5))
+* **deps:** update workspace configuration ([09c119d](https://github.com/davidsneighbour/kollitsch.dev/commit/09c119dae9e72f2d3dc1082d305e937ec0742d1e))
+* **git:** update bin submodule ([fac8b3b](https://github.com/davidsneighbour/kollitsch.dev/commit/fac8b3bbfe6c7f84cd1bc6b98b3c8558f9ad56fc))
+
+
+### Build System
+
+* **config:** move browserslist config into package.json ([cfc29f3](https://github.com/davidsneighbour/kollitsch.dev/commit/cfc29f35f64ead57569ae56c4195e56bd1416e00))
+* **config:** update vale vocabulary ([3f35191](https://github.com/davidsneighbour/kollitsch.dev/commit/3f351915c2c0d9af88dd7d657ca51b933d9ed1d2))
+* **deps:** bump netlify-cli from 17.34.4 to 17.35.0 ([#1185](https://github.com/davidsneighbour/kollitsch.dev/issues/1185)) ([79917db](https://github.com/davidsneighbour/kollitsch.dev/commit/79917dba52f43229188de97e1bb3e9a0d537b1d3))
+
 ## [2024.4.21](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.20...v2024.4.21) (2024-09-03)
 
 

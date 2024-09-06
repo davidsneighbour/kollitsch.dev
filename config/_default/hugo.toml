@@ -17,8 +17,6 @@ timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
 titleCaseStyle = "chicago"
 
-theme = ["nakkhian"]
-
 ################################################################################
 # error configuration
 ################################################################################

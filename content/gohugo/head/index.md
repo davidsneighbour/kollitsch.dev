@@ -3,17 +3,17 @@ title: Head
 summary: ""
 date: 2023-06-30T17:31:25+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2024-02-01T19:44:33+07:00
+lastmod: 2024-09-06T13:06:40.881Z
 resources:
-- src: header-card.png
+  - src: header-card.png
 categories:
-- components
+  - components
 tags:
-- gohugo
-- component
-- seo
+  - gohugo
+  - component
+  - seo
 aliases:
-- /components/hugo-head/
+  - /components/hugo-head/
 ---
 
 This is a GoHugo theme component that solves the old question "What tags belong into the `<head>` tag of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
@@ -41,9 +41,9 @@ nobase = false
 viewport = "width=device-width, initial-scale=1"
 ```
 
-* `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
-* `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
-* `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
+- `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
+- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
+- `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
 
 ## `title` and `description` generation
 
@@ -85,7 +85,7 @@ email = "email"
 homepage = "website"
 ```
 
-If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) or [`hugo-publisher`](https://github.com/davidsneighbour/hugo-publisher) then `hugo-head` will integrate these header tags in addition to these modules features automatically for you after you configure the module.
+If you are using [`hugo-humans`](https://dnbhub.xyz/humans) or [`hugo-publisher`](https://dnbhub.xyz/publisher) then `hugo-head` will integrate these header tags in addition to these modules features automatically for you after you configure the module.
 
 ## Stylesheets
 
@@ -123,19 +123,19 @@ If the current page has a page following or coming before then `hugo-head` will 
 
 ## Social Graph
 
-If you are using [`hugo-social`](https://github.com/davidsneighbour/hugo-social) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
+If you are using [`hugo-social`](https://dnbhub.xyz/social) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
 
 ## Open Search
 
-If you are using [`hugo-opensearch`](https://github.com/davidsneighbour/hugo-opensearch) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
+If you are using [`hugo-opensearch`](https://dnbhub.xyz/opensearch) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
 
 ## PWA
 
-If you are using [`hugo-pwa`](https://github.com/davidsneighbour/hugo-pwa) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module. **Note**, that it does NOT script inclusion in the site footer, so these tags still need to be added in your footer layouts.
+If you are using [`hugo-pwa`](https://dnbhub.xyz/pwa) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module. **Note**, that it does NOT script inclusion in the site footer, so these tags still need to be added in your footer layouts.
 
 ## Humans.txt
 
-If you are using [`hugo-humans`](https://github.com/davidsneighbour/hugo-humans) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
+If you are using [`hugo-humans`](https://dnbhub.xyz/humans) then `hugo-head` will integrate these header tags in additon to these modules features automatically for you after you configure the module.
 
 ## Alternates
 
@@ -155,7 +155,7 @@ pinterest = ""
 norton = ""
 ```
 
-**Note: You should prefer to verify your ownership via a file in your site root or via DNS record to minimise the output on your pages. The less headers you have the better.**
+**Note: you should prefer to verify your ownership via a file in your site root or via DNS record to minimise the output on your pages. The less headers you have the better.**
 
 ## Others
 
@@ -174,28 +174,28 @@ placename = ""
 
 ## Hooks
 
-`hugo-head` implements template hooks via [`hugo-hooks`](https://github.com/davidsneighbour/hugo-hooks) and provides the following hooks:
+`hugo-head` implements template hooks via [`hugo-hooks`](https://dnbhub.xyz/hooks) and provides the following hooks:
 
-| Hook | Description |
-| --- | :--- |
-| head-init | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
-| head-start | hooks in after the initial first tags that belong at the beginning of your `head` section. |
-| head-post-speed-optimisation | |
-| head-post-description | |
-| head-post-author | |
-| head-pre-css | hooks in before the stylesheets are printed. |
-| head-post-css | hooks in after the stylesheets are printed. |
-| head-post-translations | |
-| head-post-seo | |
-| head-post-series | |
-| head-post-social | |
-| head-post-opensearch | |
-| head-post-pwa | |
-| head-post-humans | |
-| head-post-alternates | |
-| head-post-verification | |
-| head-end | hooks in at the end of the `head` right before the closing tag. |
+| Hook                         | Description                                                                                                         |
+| ---------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| head-init                    | hooks in after the opening `head` tag. Do not open this to output anything. Just to initialise any of your plugins. |
+| head-start                   | hooks in after the initial first tags that belong at the beginning of your `head` section.                          |
+| head-post-speed-optimisation |                                                                                                                     |
+| head-post-description        |                                                                                                                     |
+| head-post-author             |                                                                                                                     |
+| head-pre-css                 | hooks in before the stylesheets are printed.                                                                        |
+| head-post-css                | hooks in after the stylesheets are printed.                                                                         |
+| head-post-translations       |                                                                                                                     |
+| head-post-seo                |                                                                                                                     |
+| head-post-series             |                                                                                                                     |
+| head-post-social             |                                                                                                                     |
+| head-post-opensearch         |                                                                                                                     |
+| head-post-pwa                |                                                                                                                     |
+| head-post-humans             |                                                                                                                     |
+| head-post-alternates         |                                                                                                                     |
+| head-post-verification       |                                                                                                                     |
+| head-end                     | hooks in at the end of the `head` right before the closing tag.                                                     |
 
 ## Sites and Projects using `hugo-head`
 
-* [Kollitsch.dev](https://kollitsch.dev)
+- [Kollitsch.dev](https://kollitsch.dev)

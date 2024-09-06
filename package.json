@@ -36,7 +36,7 @@
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "alpinejs": "3.14.1",
     "bootstrap-icons": "1.11.3",
-    "caniuse-lite": "1.0.30001655",
+    "caniuse-lite": "1.0.30001658",
     "cypress-html-validate": "6.1.0",
     "dotenv": "16.4.5",
     "lint-staged": "15.2.10",

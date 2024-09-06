@@ -30,7 +30,7 @@
     "@davidsneighbour/release-config": "2024.3.42",
     "@davidsneighbour/remark-config": "2024.3.42",
     "@davidsneighbour/stylelint-config": "2024.3.42",
-    "@davidsneighbour/tools": "2024.3.42",
+    "@davidsneighbour/tools": "2024.3.43",
     "@github/hotkey": "3.1.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",

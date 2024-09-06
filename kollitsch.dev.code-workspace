@@ -1,91 +1,92 @@
 {
-  "folders": [
-    {
-      "name": "kollitsch.dev",
-      "path": "."
-    },
-    {
-      "name": "hugo-darksky",
-      "path": "../hugo-darksky"
-    },
-    {
-      "name": "hugo-modules",
-      "path": "../hugo-modules"
-    },
-    {
-      "name": "namespace",
-      "path": "../namespace"
-    }
-  ],
-  "settings": {
-    "yaml.schemas": {
-      "http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
-    },
-    "files.associations": {
-      "*.html": "gohtml",
-      "*.xml": "gotemplate",
-      "*.json": "gojson",
-      "*.txt": "gotemplate",
-      "*.headers": "gotemplate",
-      "_headers": "gotemplate",
-      "*.redir": "gotemplate",
-      "_redir": "gotemplate"
-    },
-    "js/ts.implicitProjectConfig.checkJs": true,
-    "markdown.extension.orderedList.marker": "one",
-    "markdown.extension.toc.unorderedList.marker": "*",
-    "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
-    "vale.enableSpellcheck": true,
-    "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
-    "markdownlint.run": "onSave",
-    "html.format.wrapLineLength": 100,
-    "favorites.sortDirection": "ASC",
-    "stylelint.reportDescriptionlessDisables": true,
-    "stylelint.reportInvalidScopeDisables": true,
-    "stylelint.reportNeedlessDisables": true,
-    "workbench.editor.customLabels.patterns": {
-      "**/modules/**/*.*": "MOD ${filename}.${extname}",
-      "**/modules/**/*": "MOD ${filename}"
-    },
-    "workbench.editor.customLabels.enabled": true,
-    "workbench.editor.enablePreview": true,
-    "editor.suggest.showCustomcolors": true,
-    "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#ff7733",
-      "activityBar.background": "#ff7733",
-      "activityBar.foreground": "#15202b",
-      "activityBar.inactiveForeground": "#15202b99",
-      "activityBarBadge.background": "#60ff95",
-      "activityBarBadge.foreground": "#15202b",
-      "commandCenter.border": "#e7e7e799",
-      "sash.hoverBorder": "#ff7733",
-      "statusBar.background": "#ff5500",
-      "statusBar.foreground": "#e7e7e7",
-      "statusBarItem.hoverBackground": "#ff7733",
-      "statusBarItem.remoteBackground": "#ff5500",
-      "statusBarItem.remoteForeground": "#e7e7e7",
-      "titleBar.activeBackground": "#ff5500",
-      "titleBar.activeForeground": "#e7e7e7",
-      "titleBar.inactiveBackground": "#ff550099",
-      "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.color": "#ff5500"
-  },
-  "extensions": {
-    "recommendations": [
-      "pomdtr.excalidraw-editor",
-      "eliostruyf.vscode-front-matter",
-      "davidanson.vscode-markdownlint",
-      "yzhang.markdown-all-in-one",
-      "golang.go",
-      "casualjim.gotemplate",
-      "tamasfe.even-better-toml",
-      "stylelint.vscode-stylelint",
-      "foxundermoon.shell-format",
-      "timonwong.shellcheck",
-      "remisa.shellman",
-      "mkhl.shfmt",
-      "mjmlio.vscode-mjml"
-    ]
-  }
+	"folders": [
+		{
+			"name": "kollitsch.dev",
+			"path": "."
+		},
+		{
+			"name": "hugo-darksky",
+			"path": "../hugo-darksky"
+		},
+		{
+			"name": "hugo-modules",
+			"path": "../hugo-modules"
+		},
+		{
+			"name": "namespace",
+			"path": "../namespace"
+		}
+	],
+	"settings": {
+		"yaml.schemas": {
+			"http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
+		},
+		"files.associations": {
+			"*.html": "gohtml",
+			"*.xml": "gotemplate",
+			"*.json": "gojson",
+			"*.txt": "gotemplate",
+			"*.headers": "gotemplate",
+			"_headers": "gotemplate",
+			"*.redir": "gotemplate",
+			"_redir": "gotemplate"
+		},
+		"js/ts.implicitProjectConfig.checkJs": true,
+		"markdown.extension.orderedList.marker": "one",
+		"markdown.extension.toc.unorderedList.marker": "*",
+		"vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
+		"vale.enableSpellcheck": true,
+		"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
+		"markdownlint.run": "onSave",
+		"html.format.wrapLineLength": 100,
+		"favorites.sortDirection": "ASC",
+		"stylelint.reportDescriptionlessDisables": true,
+		"stylelint.reportInvalidScopeDisables": true,
+		"stylelint.reportNeedlessDisables": true,
+		"workbench.editor.customLabels.patterns": {
+			"**/modules/**/*.*": "MOD ${filename}.${extname}",
+			"**/modules/**/*": "MOD ${filename}"
+		},
+		"workbench.editor.customLabels.enabled": true,
+		"workbench.editor.enablePreview": true,
+		"editor.suggest.showCustomcolors": true,
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#ff7733",
+			"activityBar.background": "#ff7733",
+			"activityBar.foreground": "#15202b",
+			"activityBar.inactiveForeground": "#15202b99",
+			"activityBarBadge.background": "#60ff95",
+			"activityBarBadge.foreground": "#15202b",
+			"commandCenter.border": "#e7e7e799",
+			"sash.hoverBorder": "#ff7733",
+			"statusBar.background": "#ff5500",
+			"statusBar.foreground": "#e7e7e7",
+			"statusBarItem.hoverBackground": "#ff7733",
+			"statusBarItem.remoteBackground": "#ff5500",
+			"statusBarItem.remoteForeground": "#e7e7e7",
+			"titleBar.activeBackground": "#ff5500",
+			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.inactiveBackground": "#ff550099",
+			"titleBar.inactiveForeground": "#e7e7e799"
+		},
+		"peacock.color": "#ff5500",
+		"javascript.validate.enable": true
+	},
+	"extensions": {
+		"recommendations": [
+			"pomdtr.excalidraw-editor",
+			"eliostruyf.vscode-front-matter",
+			"davidanson.vscode-markdownlint",
+			"yzhang.markdown-all-in-one",
+			"golang.go",
+			"casualjim.gotemplate",
+			"tamasfe.even-better-toml",
+			"stylelint.vscode-stylelint",
+			"foxundermoon.shell-format",
+			"timonwong.shellcheck",
+			"remisa.shellman",
+			"mkhl.shfmt",
+			"mjmlio.vscode-mjml"
+		]
+	}
 }

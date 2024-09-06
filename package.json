@@ -44,7 +44,7 @@
     "ninja-keys": "1.2.2",
     "pagefind": "1.1.1",
     "pixelmatch": "6.0.0",
-    "playwright": "1.46.1",
+    "playwright": "1.47.0",
     "postcss": "8.4.44",
     "postcss-cli": "11.0.0",
     "puppeteer": "23.2.2",

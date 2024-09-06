@@ -1,6 +1,0 @@
-<div x-data="{ expanded: false }">
-  <a class="btn btn-link ps-0" @click="expanded = ! expanded">{{- .Get "title" -}}</a>
-  <div x-show="expanded" x-collapse.duration.1000ms>
-    {{- .Inner | transform.Markdownify -}}
-  </div>
-</div>

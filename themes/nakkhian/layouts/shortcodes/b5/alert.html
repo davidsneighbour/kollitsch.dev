@@ -1,9 +1,0 @@
-{{- $type := fmt.Printf "alert-%s" (.Get "type" | compare.Default "light") -}}
-<div class="alert d-flex flex-row justify-content-between align-items-start {{ $type -}}"
-     role="alert">
-  {{ $options := dict "icon" "info-square" "width" "48" "height" "48" "class" "me-3" }}
-  {{ partials.Include "icon.html" $options }}
-  <div>
-    {{ .Inner | transform.Markdownify }}
-  </div>
-</div>

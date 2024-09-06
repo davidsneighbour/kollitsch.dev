@@ -17,6 +17,5 @@ target = "assets/versions/kollitsch.json"
 source = "node_modules"
 target = "assets/node_modules"
 
-# Import the theme, for now locally
 [[imports]]
-path = "nakkhian"
+path = "github.com/davidsneighbour/hugo-darksky"

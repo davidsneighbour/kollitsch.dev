@@ -1,6 +1,5 @@
 [build]
 publish = "./public"
-edge_functions = "assets/edge-functions"
 
 [context.production]
 command = "./bin/hugo/build.mjs"
@@ -10,15 +9,6 @@ HUGO_VERSION = "0.133.1"
 HUGO_ENV = "production"
 #GO_VERSION = "1.17"
 NODE_ENV = "development"
-
-[functions]
-directory = "assets/functions"
-node_bundler = "esbuild"
-included_files = ["./assets/functions/data/*.json"]
-
-[[edge_functions]]
-function = "block-bots"
-path = "/*"
 
 [[plugins]]
 package = "@davidsneighbour/netlify-plugin-hugo-helper"

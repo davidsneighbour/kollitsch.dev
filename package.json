@@ -32,7 +32,6 @@
     "@davidsneighbour/stylelint-config": "2024.3.42",
     "@davidsneighbour/tools": "2024.3.42",
     "@github/hotkey": "3.1.1",
-    "@netlify/functions": "2.8.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "alpinejs": "3.14.1",
@@ -159,9 +158,6 @@
           "lineMatches": "Web Server is available at *"
         }
       }
-    },
-    "server:functions": {
-      "command": "netlify functions:serve"
     },
     "lint": {
       "dependencies": [

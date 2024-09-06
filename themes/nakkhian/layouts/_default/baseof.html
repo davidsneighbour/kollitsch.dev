@@ -18,6 +18,8 @@
       {{- lang.Translate "theme.skip_to_content" -}}
     </a>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
+    {{- /* MARK: Topnavigation
+    */ -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre" "context" . ) -}}
     <div class="sticky-top">
       <nav class="navbar navbar-expand-md" aria-label="Top Navigation Bar">
@@ -26,14 +28,14 @@
           {{- /* Logo/Brand name */ -}}
           <div class="navbar-brand fsize-12 fw-bold ff-headline">
             {{- if site.Params.dnb.theme.logo -}}
-            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block text-decoration-none mt-2">
+            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="mt-2 d-inline-block text-decoration-none">
               <img class="rounded-circle" src="{{- site.Params.dnb.theme.logo | urls.AbsURL  -}}"
                   alt="Logo of {{ site.Title -}}"
                   height="{{- site.Params.dnb.theme.logo_height -}}"
                   width="{{- site.Params.dnb.theme.logo_width -}}">
             </a>
             {{- else -}}
-            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="d-inline-block text-decoration-none text-hover-decoration-none mt-2">
+            <a href="{{- site.BaseURL | urls.RelLangURL -}}" class="mt-2 d-inline-block text-decoration-none text-hover-decoration-none">
               {{- site.Title -}}
             </a>
             {{- end -}}
@@ -47,7 +49,7 @@
           </button>
           {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-pre-mainnav" "context" . ) -}}
           <div class="collapse navbar-collapse" id="navbarContent">
-            <menu class="navbar-nav me-md-0 me-auto ms-auto mt-0">
+            <menu class="mt-0 navbar-nav me-md-0 me-auto ms-auto">
               {{- $current := . -}}
               {{- range site.Menus.main -}}
 
@@ -125,6 +127,8 @@
       <progress-bar></progress-bar>
     </div>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "header-topnav-post" "context" . ) -}}
+    {{- /* MARK: Main Content
+    */ -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}
     {{- $pagefindMarker := "" -}}
     {{- if collections.In (collections.Slice "page") page.Kind }}
@@ -136,21 +140,23 @@
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-main-end" "context" . ) -}}
     </main>
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-post-main" "context" . ) -}}
+    {{- /* MARK: Footer
+    */ -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-pre" "context" . ) -}}
-    <footer id="footer" class="p-md-7 p-2">
+    <footer id="footer" class="p-2 p-md-7">
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-start" "context" . ) -}}
-      <div class="widgets container text-center">
-        <h2 class="d-none invisible">Footer Items</h2>
+      <div class="container text-center widgets">
+        <h2 class="invisible d-none">Footer Items</h2>
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-widgets-start" "context" . ) -}}
         {{- with site.Params.subscription -}}
           {{- partials.IncludeCached "footer/newsletter.html" site.Params.subscription site.Params.subscription -}}
         {{- end -}}
         {{- with site.Menus.footer -}}
           <div class="widget footer-navigation">
-            <h3 class="fs-6 fw-bold text-uppercase my-5">{{ lang.Translate "theme.footer_menu_header" }}</h3>
-            <ul class="list-inline mb-0">
+            <h3 class="my-5 fs-6 fw-bold text-uppercase">{{ lang.Translate "theme.footer_menu_header" }}</h3>
+            <ul class="mb-0 list-inline">
               {{- range . -}}
-                <li class="list-inline-item px-2">
+                <li class="px-2 list-inline-item">
                   <a href="{{- .URL | urls.AbsLangURL -}}">
                     {{- with .Params.bsicon }}
                       {{ $options := dict "icon" . "size" "1.5em" "class" "me-2" }}
@@ -196,12 +202,12 @@
             {{- end -}}
           {{- end -}}
           <div class="widget social-media">
-            <h3 class="fs-6 fw-bold text-uppercase my-5">{{- lang.Translate "theme.connect-on-social" -}}</h3>
+            <h3 class="my-5 fs-6 fw-bold text-uppercase">{{- lang.Translate "theme.connect-on-social" -}}</h3>
             <div class="container-sm">
               <div class="row row-cols-4 justify-content-md-center">
                 {{- range $order -}}
                   {{- $network := collections.Index $networks . -}}
-                  <div class="col text-center">
+                  <div class="text-center col">
                     <a
                       href="{{- $network.url -}}"
                       aria-label="{{- $network.label -}}"
@@ -228,7 +234,7 @@
             </div>
           </div>
         {{- end -}}
-        <div class="d-flex flex-column flex-md-row justify-content-center column-gap-3 row-gap-2 mt-6">
+        <div class="row-gap-2 mt-6 d-flex flex-column flex-md-row justify-content-center column-gap-3">
           <div>
             {{- $year := partials.IncludeCached "func/getYear.html" . -}}
             {{- fmt.Printf (lang.Translate "theme.copyright-text") (cast.ToString $year) | .RenderString | safe.HTML -}}
@@ -251,7 +257,7 @@
       {{- $icon := $config.backtotop.icon -}}
       <div x-data="{ showBackToTop: false }"
           x-on:scroll.window="showBackToTop = window.pageYOffset >= 200"
-          class="scroll-to-top me-1 p-3 mb-1" x-show="showBackToTop"
+          class="p-3 mb-1 scroll-to-top me-1" x-show="showBackToTop"
           x-transition.duration.500ms
           x-on:click.prevent="window.scrollTo({top: 0, behavior: 'smooth'});">
         <span class="me-2">

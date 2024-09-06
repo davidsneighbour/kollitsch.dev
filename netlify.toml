@@ -6,7 +6,7 @@ edge_functions = "assets/edge-functions"
 command = "./bin/hugo/build.mjs"
 
 [context.production.environment]
-HUGO_VERSION = "0.125.4"
+HUGO_VERSION = "0.133.1"
 HUGO_ENV = "production"
 #GO_VERSION = "1.17"
 NODE_ENV = "development"

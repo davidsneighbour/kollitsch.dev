@@ -17,16 +17,23 @@ timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
 titleCaseStyle = "chicago"
 
-################################################################################
+##################################################################################
 # error configuration
-################################################################################
+##################################################################################
 ignoreErrors = ['deprecation.debug', 'deprecation.debugprint']
 
-################################################################################
+##################################################################################
 # hack: increasing timeout to prevent hugo from... timing out while recreating
 # images. this is no more required for this website, because "we got RAM", but
 # kept to find it when working on client projects.
 # MUST be string, MUST contain digits and s for seconds, probably m for minutes
 # (untested)
-################################################################################
+##################################################################################
 timeout = "600s"
+
+##################################################################################
+# https://gohugo.io/getting-started/configuration/#merge-configuration-from-themes
+# some configurations require different merge settings from the default
+##################################################################################
+[outputs]
+_merge = 'deep'

@@ -1,0 +1,4 @@
+[dnb.hooks]
+[[dnb.hooks.items.kollitsch.head-end]]
+file = "head-end-matomo"
+cached = true

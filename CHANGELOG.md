@@ -1,4 +1,19 @@
 Changelog
+## [2024.4.26](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.25...v2024.4.26) (2024-09-08)
+
+
+### Content
+
+* **fix:** proper links for module links ([2fd937e](https://github.com/davidsneighbour/kollitsch.dev/commit/2fd937e069796d4a0cf9d99506c532571a321d2b))
+* **gohugo:** update head module documentation ([e276a4a](https://github.com/davidsneighbour/kollitsch.dev/commit/e276a4a8920d33f70e05c82b69c636108305296e))
+
+
+### Chore
+
+* **config:** add matomo header hook ([d3350ae](https://github.com/davidsneighbour/kollitsch.dev/commit/d3350ae6780c879c1453f01da193ee36d2b5a4fc))
+* **deps:** update dependencies ([f048e59](https://github.com/davidsneighbour/kollitsch.dev/commit/f048e59ce49f1c724708516b0c2718ed6ea299ec))
+* smaller mixed changes ([c1d3f72](https://github.com/davidsneighbour/kollitsch.dev/commit/c1d3f729d316e379788a0546be078d1f7dcd6eed))
+
 ## [2024.4.25](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.24...v2024.4.25) (2024-09-06)
 
 ## [2024.4.24](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.23...v2024.4.24) (2024-09-06)

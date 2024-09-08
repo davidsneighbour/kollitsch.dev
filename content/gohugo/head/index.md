@@ -3,7 +3,7 @@ title: Head
 summary: ""
 date: 2023-06-30T17:31:25+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2024-09-06T13:48:52.444Z
+lastmod: 2024-09-06T16:05:33.193Z
 resources:
   - src: header-card.png
 categories:
@@ -16,7 +16,7 @@ aliases:
   - /components/hugo-head/
 ---
 
-This is a GoHugo theme component that solves the old question "What tags belong between the `<head>` tags of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
+This is a GoHugo theme component that solves the old question "What belongs between the `<head>` tags of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
 
 > [!TIP]
 > If you want to learn about all that is possible in the `<head>` tag then have a look at [htmlhead.dev](https://htmlhead.dev/) --- or just trust this module to do "all the right things".
@@ -24,6 +24,8 @@ This is a GoHugo theme component that solves the old question "What tags belong 
 {{< toc >}}
 
 ## General setup
+
+![General Setup](zhead-tag.png)
 
 ```go-html-template
 <head>
@@ -35,6 +37,8 @@ Set up `hugo-head` by adding it to your `head` tag and remove all other tags fro
 
 `hugo-head` uses opinionated defaults that can be overridden via configuration.
 
+### Top three tags
+
 ```toml
 [dnb.head]
 charset = "utf-8"
@@ -43,19 +47,20 @@ viewport = "width=device-width, initial-scale=1"
 ```
 
 - `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
-- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that pages URL.
-- `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default setting will be used.
+- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that page's URL.
+- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that page's URL.
+- `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default settings are used.
 
 ## `title` and `description` generation
 
-The title will be generated from the title frontmatter of the content file. If we are on the home page the site title is used. On subsequent list-pages a `(Page n)` is added. On all pages except the homepage a separator and the sites title is added at the end.
+The title is generated from the title frontmatter of the content file. If we are on the home page the site title is used. On following list-pages a `(Page n)` is added. On all pages except the homepage a separator and the sites title is added at the end.
 
 ```toml
 [dnb.head]
 separator = " | "
 ```
 
-The title generation is able to add a "(page n)" to the title on list pages if you save your pagination dictionary in a scratch called `paginator`. The following would be a sample of how to accomplish that:
+The title generation is able to add a "(page n)" to the title on list pages if you save your pagination dictionary in a scratch called `paginator`. The following would be a sample of how to achieve that:
 
 ```go-html-template
 {{- $paginator := dict -}}
@@ -67,11 +72,11 @@ The title generation is able to add a "(page n)" to the title on list pages if y
 {{- .Scratch.Set "paginator" $paginator -}}
 ```
 
-It is also possible to add an additional `sectiontitle` between page and site title. This is set via `sectiontitle` frontmatter. Either add that value individually per page or via `cascade` in the section's `_index.md`.
+It's also possible to add an extra `sectiontitle` between page and site title. This is set via `sectiontitle` frontmatter. Either add that value individually per page or via `cascade` in the section's `_index.md`.
 
 The description is generated from the description frontmatter of the content file. If no description is configured then `site.Params.description` is used.
 
-## Speed optimisation
+## Speed optimization
 
 To be written.
 

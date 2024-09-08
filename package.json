@@ -92,19 +92,12 @@
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "npm run release:patch",
     "release:patch": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease",
-    "sassdoc": "wireit",
     "server": "hugo config --format json > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://gugin/",
     "server:pagefind": "wireit",
     "tests": "wireit",
     "update": "wireit"
   },
   "wireit": {
-    "sassdoc": {
-      "build": "sassdoc assets/scss/ --dest static/documentation/styles --strict",
-      "files": [
-        "assets/scss/**/*.scss"
-      ]
-    },
     "clean": {
       "dependencies": [
         "clean:audit",

@@ -1,4 +1,50 @@
 Changelog
+## [2024.5.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.26...v2024.5.0) (2024-09-09)
+
+
+### Content
+
+* add post of 2024-09-09 ([a2cb801](https://github.com/davidsneighbour/kollitsch.dev/commit/a2cb801282c441ec798e61e19cb5dc0f1a3a1e6b))
+* **fix:** remove categories ([2d2c250](https://github.com/davidsneighbour/kollitsch.dev/commit/2d2c2505f6d8b875acf84229ffdf50d3f9dfdfc4))
+* **fix:** remove erroneous categories path ([0f36970](https://github.com/davidsneighbour/kollitsch.dev/commit/0f36970971bdd0c9e692ecd2cd3bf85d1d576f3b))
+
+
+### Features
+
+* export config before running server for auditor ([333667f](https://github.com/davidsneighbour/kollitsch.dev/commit/333667f6a0f98d62631aa395e86d49d2da90018b))
+
+
+### Theme
+
+* **fix:** move font setup around ([b48e156](https://github.com/davidsneighbour/kollitsch.dev/commit/b48e1568d6e5f2cd44e1dbd21a153dd94a1c9eb2))
+* **fix:** remove categories from archetypes ([3143eba](https://github.com/davidsneighbour/kollitsch.dev/commit/3143eba95d1d9aa7ed6c1188e1b8b942d2b4c2ff))
+
+
+### Bug Fixes
+
+* **config:** remove config.json from repo files ([dddfe97](https://github.com/davidsneighbour/kollitsch.dev/commit/dddfe976a50bc4c2952f3a69404f239347400847))
+
+
+### Refactors
+
+* move sassdoc generation to theme module ([6620531](https://github.com/davidsneighbour/kollitsch.dev/commit/662053169fc89eb18a3e648151ff684fd6492b01))
+
+
+### Chore
+
+* **config:** add require for theme ([b1c70ec](https://github.com/davidsneighbour/kollitsch.dev/commit/b1c70ec2206c25e051f1f855452b3d378b621a42))
+* **config:** move kollitsch.dev relevant config to this repo ([3b5a09a](https://github.com/davidsneighbour/kollitsch.dev/commit/3b5a09a08f8091fadb8543016508f686dd15b386))
+* **config:** trying to fix the issue with non-compiled scss changes ([4a483d2](https://github.com/davidsneighbour/kollitsch.dev/commit/4a483d2a4be426a5645521fdd72dfdf17d532266))
+* **deps:** update dependenceis ([bdefbb7](https://github.com/davidsneighbour/kollitsch.dev/commit/bdefbb7ad95cf5a37f9fe7fc51b3ce8bc7131447))
+
+
+### Configuration
+
+* cleanup ([6ac1b5b](https://github.com/davidsneighbour/kollitsch.dev/commit/6ac1b5b09a82a0cf7a0e7b1a08a3d26e72d1cbce))
+* **fix:** build configuration merge setup ([1e475cc](https://github.com/davidsneighbour/kollitsch.dev/commit/1e475ccd2fdb74c35b944ae36257aed9c4669ed0))
+* **fix:** move deprecated paginate config to [pagination] ([d1b5cdc](https://github.com/davidsneighbour/kollitsch.dev/commit/d1b5cdc4c21b976ea15ebd87363be6fb520ecf7f))
+* update workspace configuration ([4e1d47d](https://github.com/davidsneighbour/kollitsch.dev/commit/4e1d47d0b3e487733fc25fba82e460668e0b0249))
+
 ## [2024.4.26](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.4.25...v2024.4.26) (2024-09-08)
 
 

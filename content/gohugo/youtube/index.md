@@ -3,20 +3,18 @@ title: Youtube
 description: A shortcode to replace the internal youtube shortcode and add an unobtrusive, privacy conscious and unbloated custom element for YouTube videos using lite-youtube-embed.
 date: 2023-09-17T18:23:07+07:00
 publishDate: 2022-08-03T21:21:58+07:00
-lastmod: 2024-02-01T19:49:12+07:00
+lastmod: 2024-09-09T11:07:15.833Z
 resources:
-- src: header-card.png
-categories:
-- components
+  - src: header-card.png
 tags:
-- gohugo
-- component
-- shortcode
-- media
+  - gohugo
+  - component
+  - shortcode
+  - media
 summary: A responsive and very fast shortcode to add youtube videos to your Hugo website.
 aliases:
-- /components/hugo-youtube/
-- /gohugo/youtube/
+  - /components/hugo-youtube/
+  - /gohugo/youtube/
 ---
 
 A responsive and very fast shortcode to add youtube videos to your Hugo website.
@@ -33,19 +31,19 @@ This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive
 
 ### Parameters
 
-| parameter | default | notes |
-| --- | --- | --- |
-| *class* | w-100 | classnames to add to the video container |
-| *id* |  | ID of the YouTube video to embed |
-| *params* |  | [custom parameters](https://developers.google.com/youtube/player_parameters#Parameters) to be added to influence the display and functionality of the player. These parameters should be URLized. |
-| *title* |  | title of the video, will be displayed as banner on top of the preview image |
+| parameter | default | notes                                                                                                                                                                                             |
+| --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _class_   | w-100   | classnames to add to the video container                                                                                                                                                          |
+| _id_      |         | ID of the YouTube video to embed                                                                                                                                                                  |
+| _params_  |         | [custom parameters](https://developers.google.com/youtube/player_parameters#Parameters) to be added to influence the display and functionality of the player. These parameters should be URLized. |
+| _title_   |         | title of the video, will be displayed as banner on top of the preview image                                                                                                                       |
 
 ### Resources
 
 You need to add the following files to your pipelines:
 
-* `assets/js/lite-yt-embed.js`
-* `assets/scss/_lite-yt-embed.scss`
+- `assets/js/lite-yt-embed.js`
+- `assets/scss/_lite-yt-embed.scss`
 
 These files are mounted into the `assets` directory. Using `js.Build` in Hugo for instance you can import the script this way:
 

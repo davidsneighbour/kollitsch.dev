@@ -7,8 +7,6 @@ publishDate: 2022-07-22T19:10:17+07:00
 lastmod: 2024-02-03T16:57:43+07:00
 resources:
 - src: header-card.png
-categories:
-- components
 tags:
 - gohugo
 - component
@@ -21,19 +19,19 @@ This GoHugo module streamlines the addition of SVG-based icon sets to your Hugo 
 
 ## Key features
 
-* **Flexible Icon Integration**: Add any SVG-based icon set to your website.
-* **Efficient Caching Mechanism**: Icons are defined once and reused, improving performance.
-* **Bootstrap Icons Included**: The Bootstrap Icons set is provided by default for immediate use and as an example for integrating other icon sets.
+- **Flexible Icon Integration**: Add any SVG-based icon set to your website.
+- **Efficient Caching Mechanism**: Icons are defined once and reused, improving performance.
+- **Bootstrap Icons Included**: The Bootstrap Icons set is provided by default for immediate use and as an example for integrating other icon sets.
 
 ## Documentation links
 
-* SVG `<symbol>` Element: [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)
-* SVG `<use>` Element: [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use)
+- SVG `<symbol>` Element: [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)
+- SVG `<use>` Element: [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use)
 
 ## Included icon sets
 
-* [**Bootstrap Icons**](https://icons.getbootstrap.com/)
-* [**Tabler Icons**](https://github.com/tabler/tabler-icons)
+- [**Bootstrap Icons**](https://icons.getbootstrap.com/)
+- [**Tabler Icons**](https://github.com/tabler/tabler-icons)
 
 ## Usage
 
@@ -56,7 +54,7 @@ Another option is to include the icon as a shortcode from your content files:
 
 When running your Hugo site in development mode, the module provides sample pages listing all available icons from the included sets:
 
-* Access Bootstrap Icons at `http://localhost:1313/icons/bootstrap-icons/`.
+- Access Bootstrap Icons at `http://localhost:1313/icons/bootstrap-icons/`.
 
 ### Adding custom icon sets
 
@@ -86,6 +84,6 @@ This module is designed to support any SVG-based icon set. To add a new set:
 
 Older versions of this module may have added icons directly each time a shortcode or partial was called, leading to performance issues. The current version improves upon this by including icons once and then reusing them by reference. To migrate to the latest version:
 
-* There are **no breaking changes**; update your partials and shortcodes according to the usage guide.
-* Replace direct calls to specific icon sets (for example `bsicon`, `heroicon`) with calls to `icon.html`, passing the icon name or setting a global icon type.
-* **Do not cache** the icon-partial calls in your layouts; the module handles this for you.
+- There are **no breaking changes**; update your partials and shortcodes according to the usage guide.
+- Replace direct calls to specific icon sets (for example `bsicon`, `heroicon`) with calls to `icon.html`, passing the icon name or setting a global icon type.
+- **Do not cache** the icon-partial calls in your layouts; the module handles this for you.

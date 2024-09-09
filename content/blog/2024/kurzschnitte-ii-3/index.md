@@ -4,16 +4,14 @@ slug: kurzschnitte-ii-3
 description: "Explore the latest in web development and design with Kurzschnitte II: from open-source insights to CSS animations and favicon tips. Dive in now!"
 date: 2024-02-10T20:56:51+07:00
 publishDate: 2024-02-10T20:56:51+07:00
-lastmod: 2024-02-10T20:56:57+07:00
+lastmod: 2024-09-09T11:07:35.545Z
 resources:
-- title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
-categories:
-- kurzschnitte
+  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- kurzschnitte
-- bookmarks
-- 100DaysToOffload
+  - kurzschnitte
+  - bookmarks
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o

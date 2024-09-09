@@ -4,12 +4,10 @@ linkTitle: Kurzschnitte II - Pt. 5
 description: The fifth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks.
 date: 2024-09-03T11:53:38.370Z
 publishDate: 2024-09-03T11:53:38.370Z
-lastmod: 2024-09-03T11:57:32.638Z
+lastmod: 2024-09-09T11:07:34.430Z
 resources:
   - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
     src: header.jpg
-categories:
-  - kurzschnitte
 tags:
   - kurzschnitte
   - bookmarks

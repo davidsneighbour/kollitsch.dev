@@ -6,8 +6,6 @@ publishDate: 2022-07-31T20:50:06+07:00
 lastmod: 2024-02-11T20:40:20+07:00
 resources:
 - src: header-card.png
-categories:
-- components
 tags:
 - gohugo
 - component

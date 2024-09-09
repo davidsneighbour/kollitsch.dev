@@ -26,19 +26,11 @@ authors:
     homepage: https://kollitsch.dev/
     image: /images/patrick-kollitsch.jpg
 
-categories:
-  - category1
-
 tags:
   - tag1
   - tag2
   - tag3
   - 100DaysToOffload
-
-keywords:
-  - keyword1
-  - keyword2
-  - keyword3
 
 type: blog
 

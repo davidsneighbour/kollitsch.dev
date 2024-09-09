@@ -4,12 +4,10 @@ linkTitle: Laboratory 2022-07
 description: Another monthly report from the depths of the laboratory of kollitsch.den - July 2022
 date: 2022-08-01T20:22:57+07:00
 publishDate: 2022-08-01T20:22:57+07:00
-lastmod: 2023-06-26T23:45:48+07:00
+lastmod: 2024-09-09T11:07:46.830Z
 resources:
   - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
-categories:
-  - notes-from-the-laboratory
 tags:
   - laboratory
   - notes
@@ -35,6 +33,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
   - [hugo-sitemap](/components/hugo-sitemap/)
 
   I am also playing around with the thought of bundling some of these modules into collections to decrease the impact of loading them each time the server starts. It's probably just a nice build script that is missing.
+
 - **kollitsch.de:** Away with the boxes and playing around with the theme.
 - **Language Learning:** I am still following my GoLang online course. I am pretty sure whoever invented this language is located somewhere on a certain spectrum.
 - **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.

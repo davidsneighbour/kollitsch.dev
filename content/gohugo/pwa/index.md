@@ -4,17 +4,15 @@ description: ""
 summary: ""
 date: 2022-07-28T20:50:54+07:00
 publishDate: 2022-07-28T20:50:54+07:00
-lastmod: 2024-02-01T19:47:02+07:00
+lastmod: 2024-09-09T11:07:22.416Z
 resources:
-- src: header-card.png
-categories:
-- components
+  - src: header-card.png
 tags:
-- gohugo
-- component
-- seo
+  - gohugo
+  - component
+  - seo
 aliases:
-- /components/hugo-pwa
+  - /components/hugo-pwa
 ---
 
 This is a Hugo theme component with helpers to convert your static [GoHugo](https://gohugo.io/) website into a [PWA](https://web.dev/progressive-web-apps/).

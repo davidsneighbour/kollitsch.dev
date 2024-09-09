@@ -3,24 +3,22 @@ title: Pictures
 description: This component for GoHugo adds partials and shortcodes to resolve and process images on your website. It offers responsive image formats and optimisgit ed loading based on current browser abilities.
 date: 2023-08-21T19:03:35+07:00
 publishDate: 2023-08-21T19:03:35+07:00
-lastmod: 2024-02-01T19:46:31+07:00
+lastmod: 2024-09-09T11:07:23.103Z
 resources:
-- src: header-card.png
-  name: aheader
-  title: aheader
-- src: dog-1.jpg
-- src: dog-2.jpg
-- src: dog-3.jpg
-categories:
-- components
+  - src: header-card.png
+    name: aheader
+    title: aheader
+  - src: dog-1.jpg
+  - src: dog-2.jpg
+  - src: dog-3.jpg
 tags:
-- gohugo
-- component
-- seo
-- markdown
-- media
+  - gohugo
+  - component
+  - seo
+  - markdown
+  - media
 aliases:
-- /components/hugo-pictures/
+  - /components/hugo-pictures/
 ---
 
 This component for [GoHugo](https://gohugo.io/) adds partials and shortcodes to resolve and process images on your website. It offers responsive image formats and optimised loading based on current browser abilities.
@@ -36,7 +34,7 @@ ToDo:
 - [ ] image shortcode
 - [ ] gallery shortcode
 - [ ] testing framework
-{{< / b5/notice >}}
+      {{< / b5/notice >}}
 
 - [Notes](#notes)
 - [Shortcodes](#shortcodes)
@@ -96,19 +94,19 @@ With named parameters:
 
 #### Parameters
 
-| Option | Type | Notes |
-| --- | --- | --- |
-| `name` | string | Resource name to show (*required*, if no `src` parameter is used, resources are defined in frontmatter or it's the filename of the image in a page bundle) |
-| `src` | string | Image to show (*required*, if no `name` parameter is used). must be relative to the static folder |
-| `link` | string | Links the image to an URL |
-| `linktarget` | string | Target of the link (*optional*, default is to open the link in the same tab. Typically you would want `_blank` as value for a new window, but anything goes here) |
-| `class` | string | Additional classes for the image (*optional*) |
-| `alt` | string | `alt` attribute for the image (*optional*, suggested) |
-| `title` | string | `title` attribute for the image (*optional*) |
-| `command` | string | Command for image processing (*optional*, required with `options`) |
-| `options` | string | Options for image processing (*optional*, required with `command`) |
-| `width` | number | Width of the image (*optional*, could be evaluated from the resulting image) |
-| `height` | number | Height of the image (*optional*, could be evaluated from the resulting image) |
+| Option       | Type   | Notes                                                                                                                                                             |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`       | string | Resource name to show (_required_, if no `src` parameter is used, resources are defined in frontmatter or it's the filename of the image in a page bundle)        |
+| `src`        | string | Image to show (_required_, if no `name` parameter is used). must be relative to the static folder                                                                 |
+| `link`       | string | Links the image to an URL                                                                                                                                         |
+| `linktarget` | string | Target of the link (_optional_, default is to open the link in the same tab. Typically you would want `_blank` as value for a new window, but anything goes here) |
+| `class`      | string | Additional classes for the image (_optional_)                                                                                                                     |
+| `alt`        | string | `alt` attribute for the image (_optional_, suggested)                                                                                                             |
+| `title`      | string | `title` attribute for the image (_optional_)                                                                                                                      |
+| `command`    | string | Command for image processing (_optional_, required with `options`)                                                                                                |
+| `options`    | string | Options for image processing (_optional_, required with `command`)                                                                                                |
+| `width`      | number | Width of the image (_optional_, could be evaluated from the resulting image)                                                                                      |
+| `height`     | number | Height of the image (_optional_, could be evaluated from the resulting image)                                                                                     |
 
 #### Notes
 
@@ -138,8 +136,8 @@ Notes: right now it expects a galleryid parameter for a folder inside of pagebun
 #### Parameters
 
 | Option | Type | Notes |
-| --- | --- | --- |
-| | | |
+| ------ | ---- | ----- |
+|        |      |       |
 
 ## Partials
 

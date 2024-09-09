@@ -1,15 +1,10 @@
 ---
 title: Installation and Update
-description: "Guide to installing and updating modules in GoHugo"
-summary: "Learn how to enable and manage GoHugo modules in your project."
-
+description: Guide to installing and updating modules in GoHugo
+summary: Learn how to enable and manage GoHugo modules in your project.
 date: 2022-07-19T17:40:35+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2022-08-02T20:58:29+07:00
-
-categories:
-  - components
-
+lastmod: 2024-09-09T11:07:21.850Z
 tags:
   - gohugo
   - component

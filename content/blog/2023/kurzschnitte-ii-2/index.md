@@ -4,16 +4,14 @@ slug: kurzschnitte-ii-2
 description: ""
 date: 2023-12-03T17:37:20+07:00
 publishDate: 2023-12-03T17:37:20+07:00
-lastmod: 2023-12-30T19:11:23+07:00
+lastmod: 2024-09-09T11:07:42.195Z
 resources:
-- title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
-categories:
-- kurzschnitte
+  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- kurzschnitte
-- bookmarks
-- 100DaysToOffload
+  - kurzschnitte
+  - bookmarks
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
@@ -21,7 +19,7 @@ unsplash:
 
 Welcome to Kurzschnitte II, a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.
 
-- The English language (at least according to [dictionary.com](https://www.dictionary.com/e/new-dictionary-words-fall-2023/)) now too has an entry for "verschlimmbessern" (I explained that nice German word in my [July notes](/blog/2023/notes-from-the-laboratory-july)). It's to pessimize --- and I fully agree. This word comes as antonym of *to optimize* and can be used to describe the act of making something worse while trying to improve it. I'm not sure if I like the (new English) word, but I like the idea behind it, it's needed.
+- The English language (at least according to [dictionary.com](https://www.dictionary.com/e/new-dictionary-words-fall-2023/)) now too has an entry for "verschlimmbessern" (I explained that nice German word in my [July notes](/blog/2023/notes-from-the-laboratory-july)). It's to pessimize --- and I fully agree. This word comes as antonym of _to optimize_ and can be used to describe the act of making something worse while trying to improve it. I'm not sure if I like the (new English) word, but I like the idea behind it, it's needed.
 
 - [Classnames](https://classnames.paulrobertlloyd.com/) is a guide to the naming of HTML classes, CSS properties, or JavaScript functions in our daily developer lifes. It offers curated word lists, categorized thematically, combining creativity with usefulness. Or as the tagline says: "Naming things needn't be hard."
 

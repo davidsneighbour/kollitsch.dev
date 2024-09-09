@@ -3,12 +3,10 @@ title: "Notes from the Laboratory: April 2022"
 linkTitle: Laboratory 2022-04
 description: Another monthly report from the depths of the laboratory of kollitsch.den - April 2022
 date: 2022-05-02T20:06:40+07:00
-lastmod: 2023-08-22T20:46:32+07:00
+lastmod: 2024-09-09T11:07:49.404Z
 resources:
   - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
-categories:
-  - notes-from-the-laboratory
 tags:
   - laboratory
   - notes

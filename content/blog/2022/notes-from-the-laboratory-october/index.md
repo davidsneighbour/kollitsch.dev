@@ -4,12 +4,10 @@ linkTitle: Laboratory 2022-10
 description: Another monthly report from the depths of the laboratory of kollitsch.dev - October 2022 (and also September 2022, not that you missed it ;)
 date: 2022-11-01T22:01:40+07:00
 publishDate: 2022-11-01T22:01:40+07:00
-lastmod: 2023-08-21T22:06:30+07:00
+lastmod: 2024-09-09T11:07:44.036Z
 resources:
   - src: header.jpg
   - title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
-categories:
-  - notes-from-the-laboratory
 tags:
   - laboratory
   - notes
@@ -41,4 +39,4 @@ Long story short, there is no better time than **now** to actually read all thes
 
   > Penpot is the first Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG). For all and empowered by the community.
 
-- Dan Hollick wrote a much-linked summary of [how QR - codes work](https://typefully.com/DanHollick/qr-codes-T7tLlNi). QR is short for Quick Response code and was invented by Toyota to track car parts over the course of their production, did you know that? There is a lot to learn about the code, how it works in general and around missing parts and its great way to cover this with its integrated error correction. Geek out. And if you want to create your own quick QR codes have a look at  [QR-Code Monkey](https://www.qrcode-monkey.com/), which I often use to create quick stylish codes for my customers.
+- Dan Hollick wrote a much-linked summary of [how QR - codes work](https://typefully.com/DanHollick/qr-codes-T7tLlNi). QR is short for Quick Response code and was invented by Toyota to track car parts over the course of their production, did you know that? There is a lot to learn about the code, how it works in general and around missing parts and its great way to cover this with its integrated error correction. Geek out. And if you want to create your own quick QR codes have a look at [QR-Code Monkey](https://www.qrcode-monkey.com/), which I often use to create quick stylish codes for my customers.

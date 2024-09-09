@@ -3,16 +3,14 @@ title: Robots
 description: This component for GoHugo adds a customizable robots.txt to your website.
 date: 2023-06-29T19:21:43+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2024-08-10T19:47:25+07:00
-categories:
-- components
+lastmod: 2024-09-09T11:07:18.122Z
 tags:
-- gohugo
-- component
-- seo
-- robots.txt
+  - gohugo
+  - component
+  - seo
+  - robots.txt
 aliases:
-- /components/hugo-robots
+  - /components/hugo-robots
 ---
 
 This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website. This module overrides the internal `robots.txt` generation of Hugo and lets you configure what's in your robots.txt. It also offers a meta-robots tag for your head section.
@@ -100,7 +98,7 @@ Be careful to properly comment out these parts or your `robots.txt` will be inva
 
 ## Remove branding
 
-The plugin adds some branding notes to your robots.txt. It's a free plugin. If you need to remove these mentions feel *free* to set the `disableBranding` option in your `config/_default/params.toml` to true:
+The plugin adds some branding notes to your robots.txt. It's a free plugin. If you need to remove these mentions feel _free_ to set the `disableBranding` option in your `config/_default/params.toml` to true:
 
 ```toml
 [dnb.robots]
@@ -109,4 +107,4 @@ disableBranding = true
 
 ## See this module in action
 
-* [kollitsch.dev/robots.txt](https://kollitsch.dev/robots.txt)
+- [kollitsch.dev/robots.txt](https://kollitsch.dev/robots.txt)

@@ -2,15 +2,13 @@
 title: Styling
 date: 2023-11-16T15:46:21+07:00
 resources:
-- src: header-card.png
-categories:
-- components
+  - src: header-card.png
 draft: true
 tags:
-- gohugo
-- component
-- development
-lastmod: 2024-03-15T20:21:17+07:00
+  - gohugo
+  - component
+  - development
+lastmod: 2024-09-09T11:07:30.534Z
 ---
 
 ## Styling

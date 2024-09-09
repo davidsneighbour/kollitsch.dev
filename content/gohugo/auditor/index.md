@@ -4,17 +4,15 @@ description: Improve your GoHugo website's development with this auditing compon
 summary: Improve your GoHugo website's development with this auditing component. These auditing tools ensure you to find hidden performance boosts.
 date: 2022-11-15T15:04:51+07:00
 publishDate: 2022-11-15T15:04:51+07:00
-lastmod: 2024-02-01T19:41:14+07:00
+lastmod: 2024-09-09T11:07:33.805Z
 resources:
-- src: header-card.png
-categories:
-- components
+  - src: header-card.png
 tags:
-- gohugo
-- component
-- development
+  - gohugo
+  - component
+  - development
 aliases:
-- /components/hugo-auditor
+  - /components/hugo-auditor
 ---
 
 This component is a module for the static site generator [GoHugo](https://gohugo.io) and adds auditing tools to your website in development. It's not for use in a live deployment and work in progress.

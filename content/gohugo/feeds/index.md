@@ -6,8 +6,6 @@ publishDate: 2022-07-27T18:34:57+07:00
 lastmod: 2024-02-01T19:42:24+07:00
 resources:
 - src: header-card.png
-categories:
-- components
 tags:
 - gohugo
 - component
@@ -57,10 +55,10 @@ Without configuration this module hides all drafts (posts with `draft` in their 
 
 `hugo-feeds` implements template [hooks](https://github.com/davidsneighbour/hugo-modules/modules/hooks) and makes the following hooks available:
 
-| Hook | Description |
-| --- | :--- |
+| Hook           | Description                                                                                                       |
+| -------------- | :---------------------------------------------------------------------------------------------------------------- |
 | **feeds-init** | Hooks in after the opening tag. Do not open this to output anything. Use it for initialising any of your plugins. |
-| **feed-start** | Hooks in after the initial first tags that define your feeds purpose and before items of the feed are printed. |
-| **feeds-end** | Hooks in at the end of the feed after the items are printed. |
+| **feed-start** | Hooks in after the initial first tags that define your feeds purpose and before items of the feed are printed.    |
+| **feeds-end**  | Hooks in at the end of the feed after the items are printed.                                                      |
 
 All hooks exist in a second form containing the feed type and will run then only in that format. For example `feeds-atom-init` runs only at the init stage of the atom feed, `feeds-rss-init` in rss and `feed-json-init` in JSONfeeds.

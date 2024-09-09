@@ -6,8 +6,6 @@ date: 2022-01-30T21:12:06+07:00
 resources:
   - src: header.jpg
     title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
-categories:
-  - notes-from-the-laboratory
 tags:
   - laboratory
   - notes
@@ -15,7 +13,7 @@ tags:
   - davidsneighbour
 aliases:
   - /blog/2022/notes-from-the-laboratory-january-2022
-lastmod: 2023-08-07T20:16:40+07:00
+lastmod: 2024-09-09T11:07:47.516Z
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
@@ -26,6 +24,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 - **kollitsch.de:** I added dark/light theming to this website and I wonder, how I never came to think about how to do it this easily. It's just [a bunch of CSS variables](https://github.com/davidsneighbour/kollitsch.dev/blob/18401a326350ef806acfdb2d18848a4719bb0db1/assets/scss/style.scss#L26) and [a couple of lines of Alpine.js](https://github.com/davidsneighbour/kollitsch.dev/blob/18401a326350ef806acfdb2d18848a4719bb0db1/assets/js/script.ts#L11) that make the magic work. The last step on this journey was [this article on web.dev by Adam Argyle](https://web.dev/building-a-color-scheme/). This sound advise combined with a sudden spark of an idea on how to implement it with Bootstrap 5 lead to the current theme switcher. It's still work in progress (I just yesterday made [code samples love their respective theme](https://github.com/davidsneighbour/kollitsch.dev/commit/a7f6051c9fc428c97feef611031a0ae3b7938d9f)). The "dim" theme still needs some work. But I am quite happy with the current display.
 
   I am also not done with the post headings yet. They look weird right now, I know. Live with it for a while.
+
 - **Customers:** I am aware that more and more customers just float away. A huge problem is that Covid won't just disappear and the only industry on this island that matters, tourism, is still basically dead. Tour-organisations and promotional campaigns won't be able to hide, that the re-invention and recovery of tourism on Ko Samui is a whole different topic and a massive task in 2022 and beyond that year.
 - **Cooking:** I am experimenting with "Fried rice with vegetables" and several kinds of Tofu (two different meals). Not sure yet if one or the other will make it into my standard repertoire.
 - **Pokki:** My baby (a shihtzu dog, don't worry) is having more and more age related issues. Just yesterday his hind-legs gave up and he was crouching over the grounds for a day or two. He knows that his time is running out and I try to make it as amenable as possible for him. If I get up with the birds in the morning, today at 4 AM, we don't even need to spend the rest of the morning cleaning the house 🐶 The whole "lets give him all the food he craves at all times" strategy spectacularly backfired. Lots of cleaning. I won't be listening to anyone telling me to give him more food anymore.

@@ -10,7 +10,6 @@ enableRobotsTXT = true
 footnoteReturnLinkContents = "^"
 languageCode = "en-us"
 linenos = true
-paginate = 10
 rssLimit = 10
 summaryLength = 40
 timeZone = "Asia/Bangkok"

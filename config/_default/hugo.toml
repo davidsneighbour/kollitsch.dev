@@ -43,3 +43,5 @@ _merge = 'deep'
 _merge = 'deep'
 [build]
 _merge = 'deep'
+[taxonomies]
+_merge = 'shallow'

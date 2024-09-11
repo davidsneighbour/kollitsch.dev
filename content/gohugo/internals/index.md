@@ -3,36 +3,27 @@ title: Internals
 description: This module attempts to replace internal templates used by Hugo with custom ones and other modules and plugins that add identical features more sophisticated or up-to-date. Internal templates of Hugo are highly opiniated, often out of time and not suitable for use in the production environment of a website. The layouts in this repo and it's modules replace them with our own better setup.
 date: 2022-07-31T20:50:06+07:00
 publishDate: 2022-07-31T20:50:06+07:00
-lastmod: 2024-02-11T20:40:20+07:00
+lastmod: 2024-09-11T05:37:45.340Z
 resources:
-- src: header-card.png
+  - src: header-card.png
 tags:
-- gohugo
-- component
-- seo
+  - gohugo
+  - component
+  - seo
 aliases:
-- /components/hugo-internals/
+  - /components/hugo-internals/
 ---
 
-This module attempts to replace internal templates used by Hugo with custom ones and other modules and plugins that add identical features more sophisticated or up-to-date. Internal templates of Hugo are highly opiniated, often out of time and not suitable for use in the production environment of a website. The layouts in this repo and it's modules replace them with our own better setup.
+This module attempts to replace internal templates used by Hugo with custom ones and other modules and plugins that add identical features more sophisticated or up-to-date. Internal templates of Hugo are highly opinionated, often out of time and not suitable for use in the production environment of a website. The layouts in this repository and the linked modules replace them with our own better[^1] setup.
 
-# Replacements
+| Function | Internal layouts | Replacement option |
+| --- | --- | --- |
+| [robots.txt](https://gohugo.io/templates/robots/) | [robots.txt](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/robots.txt) | [hugo-robots](https://dnbhub.xyz/robots) |
+| [Sitemap](https://gohugo.io/templates/sitemap/) | [sitemap](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/sitemap.xml) and [index](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/sitemapindex.xml) | [hugo-sitemap](https://dnbhub.xyz/sitemap) |
 
-## [hugo-robots](https://github.com/davidsneighbour/hugo-robots) --- Creating a robots.txt
+| Shortcode | Internal layouts | Replacement option |
+| --- | --- | --- |
+| [Youtube](https://gohugo.io/content-management/shortcodes/#youtube) | [youtube](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/youtube.html) | [hugo-youtube](https://dnbhub.xyz/youtube) [^2] |
 
-This component uses [hugo-robots](https://github.com/davidsneighbour/hugo-robots) to create a robots.txt without much configuration. The only step to take is that robots.txt generation needs to be enabled in your configuration, eg. config.toml:
-
-```toml
-enableRobotsTXT = true
-
-```
-
-Read more about detailed setup options at [the documentation](https://kollitsch.dev/gohugo/robots/).
-
-## [hugo-sitemap](https://github.com/davidsneighbour/hugo-sitemap) --- Add a configurable sitemap
-
-## [hugo-youtube](https://github.com/davidsneighbour/hugo-youtube) --- Add youtube videos via shortcode
-
-# Contribute
-
-If you are developing or maintaining a Hugo component or module that replaces one of the internal features of Hugo then feel free to add an [issue](https://github.com/davidsneighbour/hugo-blockify/issues) or a [pull request](https://github.com/davidsneighbour/hugo-internals/compare) adding your work.
+[^1]: in our own opinion
+[^2]: SEO optimized

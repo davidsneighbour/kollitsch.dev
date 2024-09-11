@@ -4,12 +4,13 @@ cascade:
   theme:
     showdate: false
     comments: false
-  sectiontitle: GoHugo components by DNB
+  sectiontitle: GoHugo components
   params:
     config:
       band: gohugo
       overviewLabel: All components
-lastmod: 2024-08-26T12:04:18.015Z
+      overviewSort: title
+lastmod: 2024-09-11T06:25:21.015Z
 theme:
   noheader: true
 aliases:

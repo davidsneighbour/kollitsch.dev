@@ -323,6 +323,6 @@ longitude = "99.958311"
 # https://en.wikipedia.org/wiki/ISO_3166
 region = "TH-84"
 placename = "Koh Samui"
-separator = " ↭ "
+separator = " — "
 hometitle = "Welcome on KOLLITSCH.dev*"
 colorschemeOrder = "dark light"

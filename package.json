@@ -23,7 +23,7 @@
     "@davidsneighbour/frontmatter-config": "2024.3.44",
     "@davidsneighbour/htmlvalidate-config": "2024.3.44",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "2024.3.44",
+    "@davidsneighbour/markdownlint-config": "2024.3.45",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
     "@davidsneighbour/postcss-config": "2024.3.44",
     "@davidsneighbour/prettier-config": "2024.3.44",

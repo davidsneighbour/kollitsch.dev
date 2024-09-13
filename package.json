@@ -40,7 +40,7 @@
     "cypress-html-validate": "6.1.0",
     "dotenv": "16.4.5",
     "lint-staged": "15.2.10",
-    "netlify-cli": "17.35.0",
+    "netlify-cli": "17.36.0",
     "ninja-keys": "1.2.2",
     "pagefind": "1.1.1",
     "pixelmatch": "6.0.0",

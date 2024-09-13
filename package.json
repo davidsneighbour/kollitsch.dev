@@ -19,7 +19,7 @@
     "@davidsneighbour/browserslist-config": "2024.3.44",
     "@davidsneighbour/commitlint-config": "2024.3.44",
     "@davidsneighbour/cypress-config": "2024.3.44",
-    "@davidsneighbour/eslint-config": "2024.3.44",
+    "@davidsneighbour/eslint-config": "2024.3.45",
     "@davidsneighbour/frontmatter-config": "2024.3.44",
     "@davidsneighbour/htmlvalidate-config": "2024.3.44",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",

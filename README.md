@@ -16,8 +16,9 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 ## Site structure
 
 * [kollitsch.dev](https://github.com/davidsneighbour/kollitsch.dev) - this repository, website configuration and content
-* [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - Hugo modules that add reusable components to any Hugo website.
-* [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various tools used in this project.
+* [hugo-darksky](https://github.com/davidsneighbour/hugo-darksky) - the theme for the website
+* [hugo-modules](https://github.com/davidsneighbour/hugo-modules) - GoHugo modules that add reusable components to any Hugo website
+* [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various linting and development tools used in this project
 
 <!--lint ignore-->
 |||
@@ -26,7 +27,7 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 | **DNS** | [Cloudflare](https://cloudflare.com) |
 | **CDN** | [Cloudflare](https://cloudflare.com) |
 | **Hosting** | [Netlify](https://netlify.com) |
-| **Static Site Generator** | [Hugo](https://gohugo.io) |
+| **Static Site Generator** | [GoHugo](https://gohugo.io) |
 
 ## Ask questions
 

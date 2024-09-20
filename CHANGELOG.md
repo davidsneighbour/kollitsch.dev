@@ -1,4 +1,11 @@
 Changelog
+## [2024.5.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.5...v2024.5.6) (2024-09-20)
+
+
+### Chore
+
+* **config:** add dnbhub.xyz to connect-src and img-src in CSP ([0d38925](https://github.com/davidsneighbour/kollitsch.dev/commit/0d3892588e4ff49597d52404baad134c8fb9d0cc)), closes [#1211](https://github.com/davidsneighbour/kollitsch.dev/issues/1211)
+
 ## [2024.5.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.4...v2024.5.5) (2024-09-20)
 
 

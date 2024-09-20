@@ -119,6 +119,7 @@ script-src = [
   #"'nonce-dnb-components-sw'",
   "static.cloudflareinsights.com",
   "www.googletagmanager.com/gtag/js",
+  'https://analytics.dnbhub.xyz/',
 ]
 style-src = ["'self'", "'unsafe-inline'", "https://d33wubrfki0l68.cloudfront.net", "https://giscus.app/"]
 img-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net", "data:", "https://i.ytimg.com"]

@@ -1,4 +1,6 @@
 Changelog
+## [2024.5.9](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.8...v2024.5.9) (2024-09-20)
+
 ## [2024.5.8](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.7...v2024.5.8) (2024-09-20)
 
 

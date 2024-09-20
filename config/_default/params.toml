@@ -105,7 +105,7 @@ reportUri = "https://kollitsch.report-uri.com/r/d/csp/enforce"
 #require-trusted-types-for = ["'script'"]
 upgradeInsecureRequests = true
 base-uri = ["'self'"]
-default-src = ["'none'"]
+default-src = ["'self'"]
 script-src = [
   "'self'",
   "'unsafe-eval'",

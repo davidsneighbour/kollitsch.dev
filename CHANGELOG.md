@@ -1,4 +1,54 @@
 Changelog
+## [2024.5.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.0...v2024.5.2) (2024-09-20)
+
+
+### Content
+
+* **fix:** adding tag setup for kurzschnitte ([fc3ac79](https://github.com/davidsneighbour/kollitsch.dev/commit/fc3ac79ce178ff3719d5af32750a64451ca4755c))
+* **fix:** remove devtools docs, deprecated ([3029993](https://github.com/davidsneighbour/kollitsch.dev/commit/3029993c7586765abc2ac9705a2ca718453de8f9))
+* **new:** kurzschnitte II - 6ix ([bde0cd3](https://github.com/davidsneighbour/kollitsch.dev/commit/bde0cd314e3c52d59204924312069891b3a35f75))
+
+
+### Documentation
+
+* add hugo-darksky to README.md ([f164cc9](https://github.com/davidsneighbour/kollitsch.dev/commit/f164cc97a6bfd96f4cb4755554221c0088b4b6ed))
+* **components:** update internals docs ([482af46](https://github.com/davidsneighbour/kollitsch.dev/commit/482af46b18dc7b51f6b3c822fd9472f94a076357))
+* **gohugo:** shorten section title ([9a7c998](https://github.com/davidsneighbour/kollitsch.dev/commit/9a7c998f27b601998025d286718ac28845533378))
+
+
+### Theme
+
+* **feat:** add local theme hooks ([4072851](https://github.com/davidsneighbour/kollitsch.dev/commit/40728519aa75c31ce57dccc2b0e314057cf8fb00))
+* **fix:** make summary required ([4b9ed2f](https://github.com/davidsneighbour/kollitsch.dev/commit/4b9ed2fa5f72ace71d6179b92033a1905dc09dbf))
+
+
+### Refactors
+
+* reformat scss ([4e2d975](https://github.com/davidsneighbour/kollitsch.dev/commit/4e2d975f8c44d2469133d9b2945ccc655360339f))
+
+
+### Chore
+
+* **config:** update biome configuration to v1.9 ([d32bc04](https://github.com/davidsneighbour/kollitsch.dev/commit/d32bc04f30bdfe6d7e62f1b4c7f93b0bdd899d39))
+* **deps:** add security relevant dependencies suggested by dependabot ([6ff46a5](https://github.com/davidsneighbour/kollitsch.dev/commit/6ff46a5cfbd7748dfa7d544fbce9a540135c136e))
+* **deps:** update dependencies ([8a78b04](https://github.com/davidsneighbour/kollitsch.dev/commit/8a78b04b27c8b19bead3fdcbdc3be3d650c18de7))
+* **deps:** update dependencies ([96f2f4d](https://github.com/davidsneighbour/kollitsch.dev/commit/96f2f4dd7e9a6b92b5f03c21ceb6c71ee358d4b1))
+* **deps:** update google/osv-scanner-action action to v1.8.5 ([#1188](https://github.com/davidsneighbour/kollitsch.dev/issues/1188)) ([b0454fe](https://github.com/davidsneighbour/kollitsch.dev/commit/b0454feb6259195880959fd4310aa63f2702ecf3))
+* **release:** v2024.5.1 ([5b7e2a9](https://github.com/davidsneighbour/kollitsch.dev/commit/5b7e2a9ae0ef7e8857d2794f945f6389f0c4b829))
+
+
+### Configuration
+
+* **fix:** make markup config deep merged ([5fac90e](https://github.com/davidsneighbour/kollitsch.dev/commit/5fac90eed29da4cf4d92a27bbc7b4881205d84a1))
+* **fix:** move to mdash as title separator ([6a3708d](https://github.com/davidsneighbour/kollitsch.dev/commit/6a3708dcb9a4df7b6260aef39cf338f2af967e45))
+* **fix:** shorten excerpt ([64bc17f](https://github.com/davidsneighbour/kollitsch.dev/commit/64bc17f00d1ee77c05e3a77dbf93493abdeaccdc))
+* **fix:** smaller length for summaries ([d15306e](https://github.com/davidsneighbour/kollitsch.dev/commit/d15306eb852e432e8267dc4acc8917b029cc5e39))
+
+
+### Build System
+
+* **deps:** bump google/osv-scanner-action from 1.8.4 to 1.8.5 ([#1189](https://github.com/davidsneighbour/kollitsch.dev/issues/1189)) ([f8bd3a9](https://github.com/davidsneighbour/kollitsch.dev/commit/f8bd3a9cacb72eccf0a4a3ee9e7a9218c8854510))
+
 ## [2024.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.0...v2024.5.1) (2024-09-20)
 
 

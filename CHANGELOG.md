@@ -1,4 +1,11 @@
 Changelog
+## [2024.5.7](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.6...v2024.5.7) (2024-09-20)
+
+
+### Chore
+
+* **config:** add self to default-src in CSP ([bcf2ce9](https://github.com/davidsneighbour/kollitsch.dev/commit/bcf2ce9bebd91e42ce0d86705912ba03fbbb93a2)), closes [#1211](https://github.com/davidsneighbour/kollitsch.dev/issues/1211)
+
 ## [2024.5.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.5...v2024.5.6) (2024-09-20)
 
 

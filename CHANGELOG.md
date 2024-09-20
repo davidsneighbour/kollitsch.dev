@@ -1,4 +1,11 @@
 Changelog
+## [2024.5.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.4...v2024.5.5) (2024-09-20)
+
+
+### Chore
+
+* **config:** add open.spotify.com to frame-src in CSP ([7e87d04](https://github.com/davidsneighbour/kollitsch.dev/commit/7e87d04a282068972c5fb072bcd857c6a4d912e7)), closes [#1211](https://github.com/davidsneighbour/kollitsch.dev/issues/1211)
+
 ## [2024.5.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.3...v2024.5.4) (2024-09-20)
 
 

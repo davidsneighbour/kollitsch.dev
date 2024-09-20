@@ -8,7 +8,8 @@
     "lineEnding": "lf",
     "lineWidth": 80,
     "attributePosition": "auto",
-    "ignore": ["**/build", "**/coverage"]
+    "ignore": ["**/build", "**/coverage"],
+    "useEditorconfig": true
   },
   "organizeImports": {
     "enabled": true

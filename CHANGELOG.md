@@ -1,4 +1,11 @@
 Changelog
+## [2024.5.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.3...v2024.5.4) (2024-09-20)
+
+
+### Chore
+
+* **config:** add dnbhub.xyz to script-src in CSP ([9125327](https://github.com/davidsneighbour/kollitsch.dev/commit/912532768a9a4da3f6ef60584303a5a67b013965)), closes [#1211](https://github.com/davidsneighbour/kollitsch.dev/issues/1211)
+
 ## [2024.5.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.2...v2024.5.3) (2024-09-20)
 
 ## [2024.5.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.0...v2024.5.2) (2024-09-20)

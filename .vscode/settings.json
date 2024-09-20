@@ -39,5 +39,8 @@
   "stylelint.validate": ["css", "less", "postcss", "sass", "scss"],
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }

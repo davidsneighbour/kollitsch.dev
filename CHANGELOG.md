@@ -1,4 +1,21 @@
 Changelog
+## [2024.5.8](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.7...v2024.5.8) (2024-09-20)
+
+
+### Content
+
+* **new:** kurzschnitte II - pt. 7 ([b091fb3](https://github.com/davidsneighbour/kollitsch.dev/commit/b091fb37e658504d8f039d033bcb35e32b40e8da))
+
+
+### Chore
+
+* **deps:** update dependencies ([f60597e](https://github.com/davidsneighbour/kollitsch.dev/commit/f60597e4c4a44fbf77219ef7d1e2a373511fe5e6))
+
+
+### Build System
+
+* **fix:** running hugo server with --panicOnWarning ([f50dbe9](https://github.com/davidsneighbour/kollitsch.dev/commit/f50dbe9d1058e157c82151d34c7f3729c1fc310e))
+
 ## [2024.5.7](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.6...v2024.5.7) (2024-09-20)
 
 

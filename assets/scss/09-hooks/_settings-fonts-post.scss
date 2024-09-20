@@ -1,9 +1,8 @@
 @font-face {
   font-family: BahnPro;
-  src:
-    url("#{$fontdir}/bahn/bahnpro_regular-webfont.woff2") format("woff2"),
-    url("#{$fontdir}/bahn/bahnpro_regular-webfont.woff") format("woff"),
-    url("#{$fontdir}/bahn/bahnpro_regular-webfont.ttf") format("truetype");
+  src: url("#{$fontdir}/bahn/bahnpro_regular-webfont.woff2") format("woff2"),
+  url("#{$fontdir}/bahn/bahnpro_regular-webfont.woff") format("woff"),
+  url("#{$fontdir}/bahn/bahnpro_regular-webfont.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

@@ -3,9 +3,9 @@ title: Kurzschnitte II - 6ix
 linkTitle: Kurzschnitte II - Pt. 6
 description: The sixth edition of Kurzschnitte II. Did you know that six is the smallest positive integer which is neither a square number nor a prime number? Now you know.
 summary: The sixth edition of Kurzschnitte II. Did you know that six is the smallest positive integer which is neither a square number nor a prime number? Now you know.
-date: 2024-09-20T05:13:27.333Z
-publishDate: 2024-09-20T05:13:27.333Z
-lastmod: 2024-09-20T05:13:27.333Z
+date: 2024-09-20T17:13:27+07:00
+publishDate: 2024-09-20T17:13:27+07:00
+lastmod: 2024-09-20T17:13:27+07:00
 resources:
   - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
     src: header.jpg

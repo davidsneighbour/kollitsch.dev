@@ -108,8 +108,37 @@
     "update": "wireit"
   },
   "wireit": {
+    "deploy": {
+      "dependencies": [
+        "release",
+        "build:deploy",
+        "deploy:netlify",
+        "deploy:clearcache"
+      ]
+    },
+    "deploy:netlify": {
+      "command": "netlify deploy --prod --open",
+      "dependencies": [
+        "build"
+      ]
+    },
+    "deploy:clearcache": {
+      "command": "node ./scripts/cloudflare-purge.mjs",
+      "dependencies": [
+        "deploy:netlify"
+      ]
+    },
     "build": {
       "dependencies": [
+        "clean:dist",
+        "build:hugoconfig",
+        "build:hugo",
+        "build:pagefind"
+      ]
+    },
+    "build:deploy": {
+      "dependencies": [
+        "release",
         "clean:dist",
         "build:hugoconfig",
         "build:hugo",
@@ -158,7 +187,7 @@
       "command": "bin/hugo/lint-templates"
     },
     "release": {
-      "command": "commit-and-tag-version --release-as patch -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease && npm publish"
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "release:minor": {
       "command": "commit-and-tag-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease && npm publish"

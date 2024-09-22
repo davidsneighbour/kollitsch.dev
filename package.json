@@ -74,7 +74,7 @@
   },
   "scripts": {
     "audit:html": "wireit",
-    "build": "./bin/hugo/build.mjs",
+    "build": "wireit",
     "clean": "wireit",
     "clean:full": "wireit",
     "deploy": "npm run release && npm run build && netlify deploy --prod --open && npx playwright install chromium && ./bin/utilities/screenshot-changes.mjs",
@@ -108,6 +108,30 @@
     "update": "wireit"
   },
   "wireit": {
+    "build": {
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig",
+        "build:hugo",
+        "build:pagefind"
+      ]
+    },
+    "build:hugo": {
+      "command": "hugo --environment gugin --verbose --logLevel debug --debug --minify",
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig"
+      ]
+    },
+    "build:hugoconfig": {
+      "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
+    },
+    "build:pagefind": {
+      "command": "node ./scripts/pagefind.mjs",
+      "dependencies": [
+        "build:hugo"
+      ]
+    },
     "clean": {
       "dependencies": [
         "clean:audit",
@@ -117,6 +141,9 @@
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
+    },
+    "clean:dist": {
+      "command": "rimraf public"
     },
     "clean:wireit": {
       "command": "rimraf .wireit"

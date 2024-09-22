@@ -1,4 +1,22 @@
 Changelog
+## [2024.5.18](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.17...v2024.5.18) (2024-09-22)
+
+
+### Content
+
+* **new:** nacho ([67cb55c](https://github.com/davidsneighbour/kollitsch.dev/commit/67cb55c010cc6fd0df841f0677262369ac50f504))
+
+
+### Theme
+
+* **test:** add typocaster ([0c5fd5e](https://github.com/davidsneighbour/kollitsch.dev/commit/0c5fd5e6f5e67f06362fa025ddd1f623afdeb297))
+
+
+### Build System
+
+* **fix:** add check for .env variables in cf-cache-purge script ([1164425](https://github.com/davidsneighbour/kollitsch.dev/commit/11644251dd7a6a63afa8947b301810cea6753d5b))
+* **fix:** remove relase:minor script ([92ba9e2](https://github.com/davidsneighbour/kollitsch.dev/commit/92ba9e2860141085bd558a7820bf69a1e962ce4d))
+
 ## [2024.5.17](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.16...v2024.5.17) (2024-09-22)
 
 

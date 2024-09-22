@@ -1,4 +1,25 @@
 Changelog
+## [2024.5.17](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.16...v2024.5.17) (2024-09-22)
+
+
+### Chore
+
+* **config:** add ignored files to gitignore ([101a3d6](https://github.com/davidsneighbour/kollitsch.dev/commit/101a3d60f8e00d7b68d7e6b453ae04ee8e0deddf))
+* **config:** update title of homepage ([2a1494c](https://github.com/davidsneighbour/kollitsch.dev/commit/2a1494cefb869a9fefdde26c076988ed47ed41eb))
+* **config:** update workspace configuration ([5e2c971](https://github.com/davidsneighbour/kollitsch.dev/commit/5e2c971cf1a376a2b661711703aa11fb36e10060))
+* **deps:** update dependencies ([8486d99](https://github.com/davidsneighbour/kollitsch.dev/commit/8486d99659e92112298887b2406f6d60b8630e22))
+* **deps:** update dependencies ([f2b58f4](https://github.com/davidsneighbour/kollitsch.dev/commit/f2b58f4cefef3ac90898686a23918ce19b6a1626))
+* **git:** remove binaries submodule ([c1a8e8f](https://github.com/davidsneighbour/kollitsch.dev/commit/c1a8e8feb6a601e1bc1b5e9f776637301ed8f8e9))
+
+
+### Build System
+
+* **feat:** add kurzschnitte as content type to new script ([bfc0900](https://github.com/davidsneighbour/kollitsch.dev/commit/bfc0900480cdb9e67dddad650bbcc390033123f3)), closes [#1213](https://github.com/davidsneighbour/kollitsch.dev/issues/1213)
+* **fix:** deploy workflow and cloudflare purge script ([e8116a3](https://github.com/davidsneighbour/kollitsch.dev/commit/e8116a3d62b50fb6a5e10a27c3e8d86922294cd1))
+* **fix:** double release command ([299ae41](https://github.com/davidsneighbour/kollitsch.dev/commit/299ae412afe7dfefdc51b6cb1d54aa640940a7a7))
+* **fix:** rename contentOptions to contentOption ([5c0e462](https://github.com/davidsneighbour/kollitsch.dev/commit/5c0e462afdec8592d94817ff3e9f2d38328148c2))
+* **fix:** restore pagefind generation and build script fixes ([45b7712](https://github.com/davidsneighbour/kollitsch.dev/commit/45b77126958678ae535cdc0feb108aaaecfdb82e)), closes [#1215](https://github.com/davidsneighbour/kollitsch.dev/issues/1215)
+
 ## [2024.5.16](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.15...v2024.5.16) (2024-09-20)
 
 ## [2024.5.15](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.14...v2024.5.15) (2024-09-20)

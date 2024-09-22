@@ -1,14 +1,16 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Firefox vs. external SVGs
-description: ""
-summary: ""
+description: "While I was working on my Content Security Policies (CSP) last week I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. "
+summary: "While I was working on my Content Security Policies (CSP) last week I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. "
 date: 2024-09-22T17:10:11+07:00
 publishDate: 2024-09-22T17:10:11+07:00
-lastmod: 2024-09-22T11:44:59.874Z
+lastmod: 2024-09-22T11:54:20.155Z
 resources:
   - title: Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via [Unsplash](https://unsplash.com/)
-    src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+    src: asimone-dinoia-L9JMv_ACMK0-unsplash.jpg
+  - title: default-src 'none' and Firefox
+    src: default-src-report.png
 tags:
   - CSP
   - howto

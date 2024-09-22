@@ -10,11 +10,12 @@ cascade:
       band: gohugo
       overviewLabel: All components
       overviewSort: title
-lastmod: 2024-09-11T06:25:21.015Z
+lastmod: 2024-09-22T12:01:59.280Z
 theme:
   noheader: true
 aliases:
   - /components
+  - /gohugo/devtools/
 menu:
   footer:
     name: Components

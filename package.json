@@ -188,9 +188,6 @@
     "release": {
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
-    "release:minor": {
-      "command": "commit-and-tag-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/release/postrelease && npm publish"
-    },
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
     },

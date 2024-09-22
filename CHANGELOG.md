@@ -1,4 +1,11 @@
 Changelog
+## [2024.5.21](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.20...v2024.5.21) (2024-09-22)
+
+
+### Content
+
+* **new:** firefox vs external svg ([f87a664](https://github.com/davidsneighbour/kollitsch.dev/commit/f87a66495d9fd2821fb6dab4b8046fad287ed20d))
+
 ## [2024.5.20](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.19...v2024.5.20) (2024-09-22)
 
 ## [2024.5.19](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.18...v2024.5.19) (2024-09-22)

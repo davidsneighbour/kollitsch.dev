@@ -38,7 +38,7 @@
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "alpinejs": "3.14.1",
     "bootstrap-icons": "1.11.3",
-    "caniuse-lite": "1.0.30001662",
+    "caniuse-lite": "1.0.30001663",
     "consola": "3.2.3",
     "cypress-html-validate": "6.1.0",
     "dotenv": "16.4.5",
@@ -64,6 +64,7 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": ">=11.7.0",
     "body-parser": ">=1.20.3",
     "express": ">=4.21.0",
     "micromatch": ">=4.0.8",

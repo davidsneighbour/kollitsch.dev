@@ -2,7 +2,7 @@
 title: /uses
 date: 2022-02-13T18:29:07+07:00
 lastmod: 2022-07-28T21:21:43+07:00
-
+url: /uses
 resources:
   - title: Photo by [Cesar Carlevarino Aragon](https://unsplash.com/@carlevarino)
       via [Unsplash](https://unsplash.com/)

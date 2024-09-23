@@ -1,4 +1,33 @@
 Changelog
+## [2024.5.22](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.21...v2024.5.22) (2024-09-23)
+
+
+### Content
+
+* **fix:** add redirects for missing images ([0a11603](https://github.com/davidsneighbour/kollitsch.dev/commit/0a11603976bae68dae8d284c7961281927af0f3c))
+* **fix:** another fix... this time really... probably ([538c5d6](https://github.com/davidsneighbour/kollitsch.dev/commit/538c5d6e4cc494c84e0dfa4b659c6a8d1f53dff2))
+* **fix:** article image file name ([9a6a3cf](https://github.com/davidsneighbour/kollitsch.dev/commit/9a6a3cffe057053eaecc0027e9d010fa641fcac1))
+* **fix:** file name fix for header image ([11a27ff](https://github.com/davidsneighbour/kollitsch.dev/commit/11a27ffb646079643e8fd6e1ff23682d4f3f0209))
+* **fix:** move sitemap into slashes section ([1bf6c3b](https://github.com/davidsneighbour/kollitsch.dev/commit/1bf6c3b73d3283c078e817b7c55293c7e6f7b901))
+* **fix:** move uses and contact to slash pages ([f234499](https://github.com/davidsneighbour/kollitsch.dev/commit/f234499eeac5c751455ee006bd4aa9b852f6f2ae))
+* **fix:** proper imagepaths and summaries ([e6e6a0c](https://github.com/davidsneighbour/kollitsch.dev/commit/e6e6a0c1b5c3cb64f3684d13282753e438b7e95d))
+* **fix:** redirect for /gohugo/devtools ([15957a6](https://github.com/davidsneighbour/kollitsch.dev/commit/15957a605d87f6985548c1f92ad000b2b2896848))
+
+
+### Theme
+
+* **fix:** remove bahn font setup ([ca9ebbc](https://github.com/davidsneighbour/kollitsch.dev/commit/ca9ebbc22421b6e849656bd9859d5d05f0d2dc7d))
+
+
+### Chore
+
+* **config:** add euro GA host to connect-src in CSP ([3e7275e](https://github.com/davidsneighbour/kollitsch.dev/commit/3e7275e04fee2bf5f75ff2c2fc2a4dd270979513))
+* **config:** allow all subdomains on google-analytics.com in CSP connect-src ([3bda95c](https://github.com/davidsneighbour/kollitsch.dev/commit/3bda95c7788d99d6dcb7a255fecf8eae7154e703))
+* **config:** allow all subdomains on googletagmanager.com in CSP img-src ([22ed91d](https://github.com/davidsneighbour/kollitsch.dev/commit/22ed91d06e42f9234b48ad6063cea10a119e8c9c))
+* **config:** front matter configuration (date fields and formats ([6161c9f](https://github.com/davidsneighbour/kollitsch.dev/commit/6161c9ffdb692850d2d46545507b947adfb9934e))
+* **deps:** update dependencies ([9d8c8e6](https://github.com/davidsneighbour/kollitsch.dev/commit/9d8c8e6ed30ad37e5e8d604924f69785881d3c74))
+* **deps:** update dependencies ([11e02d7](https://github.com/davidsneighbour/kollitsch.dev/commit/11e02d724a3b5a7d90d1c2c330a2cfd514ae0e0c))
+
 ## [2024.5.21](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.20...v2024.5.21) (2024-09-22)
 
 

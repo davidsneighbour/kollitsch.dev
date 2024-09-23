@@ -1,7 +1,7 @@
 ---
 title: /sitemap
 date: 2022-04-01T19:25:42+07:00
-permalink: /sitemap/
+url: /sitemap/
 menu:
   footer:
     weight: 800

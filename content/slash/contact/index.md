@@ -1,6 +1,5 @@
 ---
-title: Connect with me
-linktitle: Connect
+title: /contact
 description: Find a way to get into contact with me. I prefer written contact before you
   cold call me ;)
 menu:
@@ -27,8 +26,7 @@ resources:
 theme:
   comments: false
 
-aliases:
-  - /contact
+url: /contact
 ---
 
 {{< form id="contactform" >}}

@@ -5,16 +5,20 @@
 			"path": "."
 		},
 		{
-			"name": "hugo-darksky",
+			"name": "Theme",
 			"path": "../hugo-darksky"
 		},
 		{
-			"name": "hugo-modules",
+			"name": "Modules",
 			"path": "../hugo-modules"
 		},
 		{
-			"name": "namespace",
+			"name": "Namespace",
 			"path": "../namespace"
+		},
+		{
+			"name": "Configurations",
+			"path": "../configurations"
 		}
 	],
 	"settings": {
@@ -57,15 +61,15 @@
 			"activityBar.inactiveForeground": "#15202b99",
 			"activityBarBadge.background": "#60ff95",
 			"activityBarBadge.foreground": "#15202b",
-			"commandCenter.border": "#e7e7e799",
+			"commandCenter.border": "#000000",
 			"sash.hoverBorder": "#ff7733",
 			"statusBar.background": "#ff5500",
-			"statusBar.foreground": "#e7e7e7",
+			"statusBar.foreground": "#000000",
 			"statusBarItem.hoverBackground": "#ff7733",
 			"statusBarItem.remoteBackground": "#ff5500",
-			"statusBarItem.remoteForeground": "#e7e7e7",
+			"statusBarItem.remoteForeground": "#000000",
 			"titleBar.activeBackground": "#ff5500",
-			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.activeForeground": "#000000",
 			"titleBar.inactiveBackground": "#ff550099",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},

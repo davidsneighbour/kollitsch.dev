@@ -51,7 +51,7 @@
     "postcss": "8.4.47",
     "postcss-cli": "11.0.0",
     "prettier-plugin-go-template": "0.0.15",
-    "puppeteer": "23.4.0",
+    "puppeteer": "23.4.1",
     "remark": "15.0.1",
     "sass": "1.79.3",
     "secretlint": "8.2.4",

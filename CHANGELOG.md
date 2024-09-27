@@ -1,4 +1,11 @@
 Changelog
+## [2024.5.24](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.23...v2024.5.24) (2024-09-27)
+
+
+### Content
+
+* **fix:** update robots documentation ([ee71663](https://github.com/davidsneighbour/kollitsch.dev/commit/ee716639bc3353b3016582949aa45b64d231e1ce))
+
 ## [2024.5.23](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.22...v2024.5.23) (2024-09-27)
 
 

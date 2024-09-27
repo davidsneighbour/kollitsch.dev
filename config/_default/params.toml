@@ -257,6 +257,8 @@ initialComment = '''
 #              |--------||--------|
 '''
 
+blockAIBots = true
+
 # [[dnb.robots.useragents]]
 # name = "*"
 # # https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/

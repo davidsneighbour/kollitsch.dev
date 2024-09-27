@@ -1,9 +1,9 @@
 ---
 title: Robots
-description: This component for GoHugo adds a customizable robots.txt to your website.
+description: This GoHugo Module adds a customizable robots.txt to your website.
 date: 2023-06-29T19:21:43+07:00
-publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2024-09-09T11:07:18.122Z
+publishDate: 2023-06-29T19:21:43+07:00
+lastmod: 2024-09-27T12:46:01.542Z
 tags:
   - gohugo
   - component
@@ -13,7 +13,7 @@ aliases:
   - /components/hugo-robots
 ---
 
-This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website. This module overrides the internal `robots.txt` generation of Hugo and lets you configure what's in your robots.txt. It also offers a meta-robots tag for your head section.
+This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website. This module overrides the internal `robots.txt` generation of GoHugo and lets you configure what's in your robots.txt. It also offers a meta-robots tag for your head section.
 
 ## Usage
 
@@ -50,6 +50,17 @@ disallow = ["/nogooglebot/", "/anotherdirectory/"]
 name = "Googlebot2"
 allow = ["/yesgooglebot/", "/anotherdirectory/"]
 ```
+
+## Add disallows for common AI and website scraping bots
+
+You can add disallows for common bots via `config/_default/params.toml` configuration:
+
+```toml
+[dnb.robots]
+blockAIBots = true
+```
+
+This feature will use the list available at [ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt) and is by default disabled.
 
 ## Configure meta-robots tags
 

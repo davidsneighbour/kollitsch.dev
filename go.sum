@@ -12,6 +12,8 @@ github.com/davidsneighbour/hugo-darksky v0.2024.6 h1:PMTy0B3u01DY0ps1sK4S2N+WmOD
 github.com/davidsneighbour/hugo-darksky v0.2024.6/go.mod h1:G7IXz8sqmcaRCP1YW+/W+nFeYJ6Td5faNTIR89o6Bgg=
 github.com/davidsneighbour/hugo-darksky v0.2024.7 h1:ISFiFAUOJSJ/fzGNMkeruBkN7nVTWOs4Lzjq1VPhVNg=
 github.com/davidsneighbour/hugo-darksky v0.2024.7/go.mod h1:m613xcRIpbtbQk7Rk5Rwv0yJ/y/Iasp3mv34N7RYLfY=
+github.com/davidsneighbour/hugo-darksky v0.2024.11 h1:gPAOn1tEKVAKREc/LaFiMTZZT6VY92LGd/q9Po1hyfc=
+github.com/davidsneighbour/hugo-darksky v0.2024.11/go.mod h1:m613xcRIpbtbQk7Rk5Rwv0yJ/y/Iasp3mv34N7RYLfY=
 github.com/paulirish/lite-youtube-embed v0.3.3 h1:AP8TnWs7WZGe3Svuhfl+RMsFk7by6z6D3mhWFsY3cR0=
 github.com/paulirish/lite-youtube-embed v0.3.3/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

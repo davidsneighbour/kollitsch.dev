@@ -1,4 +1,13 @@
 Changelog
+## [2024.5.23](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.22...v2024.5.23) (2024-09-27)
+
+
+### Chore
+
+* **config:** fix theme colors for vscode workspace ([faae543](https://github.com/davidsneighbour/kollitsch.dev/commit/faae543035ffe0307fcb80c5c08c8cb2b0f23ded))
+* **config:** move frontmatter configuration into frontmatter package ([6481ad3](https://github.com/davidsneighbour/kollitsch.dev/commit/6481ad3d44276b801dea40763b950864289390be))
+* **deps:** update dependencies ([4ff86ce](https://github.com/davidsneighbour/kollitsch.dev/commit/4ff86ce77edadf01d8a94f7aa62d12e4186dca6e))
+
 ## [2024.5.22](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.21...v2024.5.22) (2024-09-23)
 
 

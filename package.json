@@ -19,7 +19,7 @@
     "@davidsneighbour/bootstrap-config": "2024.3.45",
     "@davidsneighbour/browserslist-config": "2024.3.45",
     "@davidsneighbour/commitlint-config": "2024.3.45",
-    "@davidsneighbour/cypress-config": "2024.3.45",
+    "@davidsneighbour/cypress-config": "2024.3.46",
     "@davidsneighbour/eslint-config": "2024.3.45",
     "@davidsneighbour/frontmatter-config": "2024.3.45",
     "@davidsneighbour/htmlvalidate-config": "2024.3.45",

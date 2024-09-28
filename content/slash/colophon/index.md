@@ -1,6 +1,6 @@
 ---
-type: blog
-title: Colophon
+title: /colophon
+url: /colophon
 linkTitle: Colophon
 description: ''
 summary: ''
@@ -42,7 +42,3 @@ _build:
 * Prototyped and launched a successful German weblog update checker in the 90's of past century.
 * Prototyped and programmed an online booking system for local tour companies on Koh Samui.
 * This Site (built with [GoHugo](https://gohugo.io) and my own theme).
-
-## Technical Details of this Site
-
-* Wordmark (KOLLITSCH.dev\*): used font is BahnPro.

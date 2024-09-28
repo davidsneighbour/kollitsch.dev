@@ -5,7 +5,7 @@ description: "While I was working on my Content Security Policies (CSP) last wee
 summary: "While I was working on my Content Security Policies (CSP) last week I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. "
 date: 2024-09-22T17:10:11+07:00
 publishDate: 2024-09-22T17:10:11+07:00
-lastmod: 2024-09-23T15:52:36+07:00
+lastmod: 2024-09-28T09:08:14.915Z
 resources:
   - title: Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via [Unsplash](https://unsplash.com/)
     src: simone-dinoia-L9JMv_ACMK0-unsplash.jpg
@@ -28,7 +28,7 @@ It turned out, that there is [a known bug](https://bugzilla.mozilla.org/show_bug
 
 The interesting thing for me was, that it was not a problem on `image-src` or any other explicit directive, but directly on the `default-src` directive.
 
-![default-src 'none' and Firefox](default-src-report.png)
+[![default-src 'none' and Firefox](default-src-report.png)](default-src-report.png)
 
 When implementing a Content Security Policy (CSP) to secure your website, a common recommendation is to start with a restrictive policy like `default-src 'none'`. This approach ensures that no external resources are loaded unless specifically allowed. A typical setup might look something like this:
 

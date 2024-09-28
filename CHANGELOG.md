@@ -1,4 +1,19 @@
 Changelog
+## [2024.5.25](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.24...v2024.5.25) (2024-09-28)
+
+
+### Content
+
+* **fix:** link image with larger version ([56fc3b9](https://github.com/davidsneighbour/kollitsch.dev/commit/56fc3b99ce3d4aa077a5c4115484ce789b84279b))
+* **fix:** move slash pages around and clean up type issues ([2b2c4e8](https://github.com/davidsneighbour/kollitsch.dev/commit/2b2c4e86b5f661d19f3e1bc3471a4b2267f482c7))
+* **new:** swiss made 2069 ([ce8dae5](https://github.com/davidsneighbour/kollitsch.dev/commit/ce8dae57e1afce53749da7ec06ebef546eff0c0c))
+
+
+### Chore
+
+* **config:** remove google analytics ([9ae2b82](https://github.com/davidsneighbour/kollitsch.dev/commit/9ae2b8285dd04efb716fddd95bcdb84c38e11561))
+* **deps:** update dependencies ([2f581d1](https://github.com/davidsneighbour/kollitsch.dev/commit/2f581d19f944d7bdd52045621ee0fa81a091b6ff))
+
 ## [2024.5.24](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.23...v2024.5.24) (2024-09-27)
 
 

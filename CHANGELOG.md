@@ -1,4 +1,17 @@
 Changelog
+## [2024.5.26](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.25...v2024.5.26) (2024-09-28)
+
+
+### Content
+
+* **fix:** various fixes to content files ([62291d0](https://github.com/davidsneighbour/kollitsch.dev/commit/62291d0e761bb11cc2169c050bd0f579dec72d41))
+* **new:** how to install flatpak on ubuntu 24.04 ([9f10d2c](https://github.com/davidsneighbour/kollitsch.dev/commit/9f10d2cececaf9c50ad142ee5a5ce1419e7fb03a))
+
+
+### Chore
+
+* **deps:** update dependencies ([8e24060](https://github.com/davidsneighbour/kollitsch.dev/commit/8e24060065d229c7581e617f0319d2890771bcf2))
+
 ## [2024.5.25](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.24...v2024.5.25) (2024-09-28)
 
 

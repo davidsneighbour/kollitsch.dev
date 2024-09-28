@@ -119,7 +119,7 @@ script-src = [
   'https://analytics.dnbhub.xyz/',
 ]
 style-src = ["'self'", "'unsafe-inline'", "https://d33wubrfki0l68.cloudfront.net", "https://giscus.app/"]
-img-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://d33wubrfki0l68.cloudfront.net", "data:", "https://i.ytimg.com"]
+img-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://d33wubrfki0l68.cloudfront.net", "ytimg.googleusercontent.com", "https://i.ytimg.com"]
 font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
 connect-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://api.github.com/", 'cloudflareinsights.com']
 media-src = ["'self'"]

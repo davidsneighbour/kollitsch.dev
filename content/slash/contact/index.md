@@ -26,6 +26,8 @@ theme:
   comments: false
 
 url: /contact
+aliases:
+- /connect
 ---
 
 {{< form id="contactform" >}}

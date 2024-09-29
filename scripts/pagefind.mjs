@@ -6,20 +6,22 @@ import * as pagefind from "pagefind";
  * @todo configurability
  */
 async function buildPagefindIndex() {
-	const { index } = await pagefind.createIndex({
-		rootSelector: "html",
-		verbose: true,
-		logfile: "debug.log",
-	});
+  const { index } = await pagefind.createIndex({
+    rootSelector: "html",
+    verbose: true,
+    logfile: "debug.log",
+  });
 
-	if (index) {
-		await index.addDirectory({
-			path: "public",
-		});
-		await index.writeFiles({
-			outputPath: "public/search",
-		});
-	}
+  if (index) {
+    await index.addDirectory({
+      path: "public",
+    });
+    await index.writeFiles({
+      outputPath: "public/search",
+    });
+  }
 }
 
 await buildPagefindIndex();
+
+await pagefind.close();

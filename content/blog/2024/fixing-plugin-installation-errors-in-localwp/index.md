@@ -155,6 +155,7 @@ Categories=Development;"
 
   echo "Desktop entry created at ${DESKTOP_FILE_PATH}"
 }
+
 ```
 
 Put this function into your `.bashrc` setup and you can run `create_local_desktop` to create your starter script. The function accepts two options:

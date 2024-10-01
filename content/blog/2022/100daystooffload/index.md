@@ -1,10 +1,10 @@
 ---
-title: "#100daystooffload"
-linkTitle: "#100daystooffload"
+title: "#100DaysToOffload"
+linkTitle: "#100DaysToOffload"
 slug: 100-days-to-offload
 date: 2022-03-21T23:27:23+07:00
 publishDate: 2022-03-21T23:27:23+07:00
-lastmod: 2023-08-07T20:24:49+07:00
+lastmod: 2024-10-01T14:36:37.806Z
 resources:
   - title: Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)
     src: marcel-eberle-SCBREPQuYoM-unsplash.jpg

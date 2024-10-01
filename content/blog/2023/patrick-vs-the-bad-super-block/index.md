@@ -3,15 +3,15 @@ title: Patrick vs. the Bad Super Block
 description: Join me in tackling a superblock error on a 20TB LUKS-encrypted drive in Ubuntu, featuring step-by-step recovery insights and practical tips.
 date: 2023-11-26T17:05:13+07:00
 publishDate: 2023-11-26T17:05:13+07:00
-lastmod: 2024-03-03T21:36:14+07:00
+lastmod: 2024-10-01T10:11:40.902Z
 resources:
-- title: Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- patrick-versus
-- hardware
-- troubleshooting
-- 100DaysToOffload
+  - patrick-versus
+  - hardware
+  - troubleshooting
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: 1iVKwElWrPA
@@ -25,11 +25,9 @@ This setup worked quite nicely for me until it didn't. Imagine my surprise and d
 
 *Error mounting /dev/dm-0 at /media/username/mountname: can't read superblock on /dev/mapper/drivename* typically means an encrypted hard drive has a broken superblock.
 
-{{< b5/alert >}}
-**What is a superblock?**
-
-A superblock is a vital part of a filesystem, acting like a directory. It holds key information about the filesystem's size, structure, and status, such as where to find files and free space. It's like a map for the operating system to navigate and manage the data on a storage device. If the superblock is damaged, accessing files becomes challenging, like finding a chapter in a book without a table of contents.
-{{< / b5/alert >}}
+> **What is a superblock?**
+> 
+> A superblock is a vital part of a filesystem, acting like a directory. It holds key information about the filesystem's size, structure, and status, such as where to find files and free space. It's like a map for the operating system to navigate and manage the data on a storage device. If the superblock is damaged, accessing files becomes challenging, like finding a chapter in a book without a table of contents.
 
 Recovering an encrypted hard drive in Ubuntu can be a daunting task. Still, it's entirely feasible with the right commands and understanding of what they do. I decided to not just wing it and reformat everything.
 

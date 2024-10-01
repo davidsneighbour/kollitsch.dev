@@ -1,5 +1,0 @@
----
-title: "Typocaster Testing"
----
-
-{{< typocaster >}}

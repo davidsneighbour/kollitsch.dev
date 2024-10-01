@@ -1,4 +1,39 @@
 Changelog
+## [2024.5.27](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.26...v2024.5.27) (2024-10-01)
+
+
+### Content
+
+* **fix:** add alias for old connect url ([b00392e](https://github.com/davidsneighbour/kollitsch.dev/commit/b00392e012303d70057a220be3dfc1c963302a0c))
+* **fix:** hide html sitemap from search index ([1faf6e6](https://github.com/davidsneighbour/kollitsch.dev/commit/1faf6e679f5175c0e6325e156ddb11b13a0178eb))
+* **fix:** move themetest to theme ([3454ea4](https://github.com/davidsneighbour/kollitsch.dev/commit/3454ea401d641eb0bd2b18d8200bc7860dc6d4f2))
+* **fix:** proper date formats in renderhooks documentation ([109aa89](https://github.com/davidsneighbour/kollitsch.dev/commit/109aa89350cc205f4509be603ccff283279cb6ac))
+* **fix:** proper version number in title ([e83f13e](https://github.com/davidsneighbour/kollitsch.dev/commit/e83f13e916e4beaad2529ff8b7c223adf486368e))
+* **fix:** smaller changes to keyboard combinations and contact page ([bb6934f](https://github.com/davidsneighbour/kollitsch.dev/commit/bb6934f3b681e4d5d4cbf3caad4602dcf2ba191f))
+* **fix:** update and cleanup post remove github ghost notifications ([a58d752](https://github.com/davidsneighbour/kollitsch.dev/commit/a58d75207cae442bbcee096c84217469fea8afd7))
+* **fix:** various smaller content fixes ([7842382](https://github.com/davidsneighbour/kollitsch.dev/commit/78423826e76ccc2fc1e1a4d21411aa16df07be2a))
+
+
+### Theme
+
+* **fix:** move documentation layouts out of the theme ([3bf6ed4](https://github.com/davidsneighbour/kollitsch.dev/commit/3bf6ed4226e80bfcc2b8cce5aa43e8894622ce9d))
+* **fix:** remove alert shortcode in favour of new blockquote renderhook ([1826d22](https://github.com/davidsneighbour/kollitsch.dev/commit/1826d22f8bd4f72d32a0514c26c3995863304776))
+
+
+### Chore
+
+* **deps:** bump @davidsneighbour/hugo-darksky to 1.2024.15 ([e3f16be](https://github.com/davidsneighbour/kollitsch.dev/commit/e3f16be349bc92bbd3ab295e0e916baa523f4605))
+
+
+### Configuration
+
+* **fix:** add youtube preview image to CSP ([ee30f3e](https://github.com/davidsneighbour/kollitsch.dev/commit/ee30f3ef980a6fb95271b4b2fb86b2ee3180d846))
+
+
+### Build System
+
+* **fix:** add sub results to pagefind index ([68a8c2a](https://github.com/davidsneighbour/kollitsch.dev/commit/68a8c2a19e4a3c8d02601259cb294acb94171b0f))
+
 ## [2024.5.26](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.25...v2024.5.26) (2024-09-28)
 
 

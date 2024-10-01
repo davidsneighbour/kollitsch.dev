@@ -10,7 +10,7 @@ menu:
       bsicon: envelope-paper-fill
       hotkey: k+c
   footer:
-    name: Contact
+    name: /contact
     weight: 900
     params:
       bsicon: envelope-paper-fill

@@ -3,20 +3,25 @@ title: key combinations to use this website
 date: 2023-12-17T22:59:11+07:00
 lastmod: 2023-12-17T22:59:13+07:00
 keycombinations:
-- combination: k + NUMBER
+- combination: K + NUMBER
   action: Go to post {{< kbd >}}NUMBER{{< /kbd >}} (on list pages)
-- combination: k + h
+- combination: K + H
   action: Go to home
-- combination: k + a
+- combination: K + A
   action: Go to archive
-- combination: k + f
+- combination: K + F
   action: Go to find
-- combination: k + c
+- combination: K + C
   action: Go to connect
-- combination: k + ←
+- combination: K + ←
   action: Go to previously visited page
-- combination: k + →
+- combination: K + →
   action: Go to next visited page (if there is a page in the browsing history)
+
+unsplash:
+  imageid: polina-kuzovkova-Nzlzf7e3g8k-unsplash
 ---
+
+{{< figure src="images/pictures/polina-kuzovkova-Nzlzf7e3g8k-unsplash.jpg" alt="A person typing on a laptop" caption="Photo by [Polina Kuzovkova](https://unsplash.com/@polinakuzovkova) via [Unsplash](https://unsplash.com/)" / >}}
 
 {{< keycombinations >}}

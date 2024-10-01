@@ -5,10 +5,13 @@ description: ""
 summary: ""
 date: 2024-03-07T07:53:38+07:00
 publishDate: 2024-03-07T07:53:38+07:00
-lastmod: 2024-09-29T23:59:44.161Z
+lastmod: 2024-10-01T09:24:38.533Z
 resources:
   - title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)
     src: header.jpg
+    name: header
+  - title: Ghost notifications on Github
+    src: github-ghost-notifications.png
   - title: Screenshot Github support email
     src: screenshot.jpg
 tags:
@@ -22,9 +25,11 @@ type: blog
 
 Every now and then my inbox in Github shows x total unread updates without having actual updates. When I click on it, there are no unread notifications. This is a known issue and it's been around for a while. The notifications are called "ghost notifications" and they are not visible in the UI. They are only visible in the API and have probably already their own support response template.
 
-![Screenshot](screenshot.jpg)
+![Ghost notifications on Github](github-ghost-notifications.png)
 
 Even clicking around and loading any separate repository that indicates having updates does not clear them. The only way to clear them is to use the API --- which is why I now have a bash function that does this for me.
+
+![Screenshot Github support email](screenshot.jpg)
 
 To make this work you need an personal Github token - not the new format, but the old one. It needs to have the `notifications` scope. You can create one in your [developer settings](https://github.com/settings/tokens). More about the [notifications API](https://docs.github.com/en/rest/activity/notifications?apiVersion=2022-11-287). Put it in your `.env` file. or remove lines 2-6 and make the token available in your preferred way.
 

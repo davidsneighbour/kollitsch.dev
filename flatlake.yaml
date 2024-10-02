@@ -1,0 +1,8 @@
+collections:
+  - output_key: posts
+    inputs:
+      - path: content/blog
+  - output_key: tags
+    inputs:
+      - path: content/tags
+dest: public/api

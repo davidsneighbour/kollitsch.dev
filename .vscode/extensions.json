@@ -37,6 +37,7 @@
 		"christian-kohler.npm-intellisense",
     "aaron-bond.better-comments",
     "wayou.vscode-todo-highlight",
-    "gruntfuggly.todo-tree"
+	"gruntfuggly.todo-tree",
+	"rafikis75.vscode-sassdoc"
 	]
 }

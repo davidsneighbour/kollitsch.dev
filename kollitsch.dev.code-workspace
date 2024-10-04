@@ -1,101 +1,102 @@
 {
-	"folders": [
-		{
-			"name": "kollitsch.dev",
-			"path": "."
-		},
-		{
-			"name": "Theme",
-			"path": "../hugo-darksky"
-		},
-		{
-			"name": "Modules",
-			"path": "../hugo-modules"
-		},
-		{
-			"name": "Namespace",
-			"path": "../namespace"
-		},
-		{
-			"name": "Configurations",
-			"path": "../configurations"
-		},
-		{
-			"name": "Asylum",
-			"path": "../hugo-asylum"
-		}
-	],
-	"settings": {
-		"yaml.schemas": {
-			"http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
-		},
-		"files.associations": {
-			"*.html": "gohtml",
-			"*.xml": "gotemplate",
-			"*.json": "gojson",
-			"*.txt": "gotemplate",
-			"*.headers": "gotemplate",
-			"_headers": "gotemplate",
-			"*.redir": "gotemplate",
-			"_redir": "gotemplate"
-		},
-		"js/ts.implicitProjectConfig.checkJs": true,
-		"markdown.extension.orderedList.marker": "one",
-		"markdown.extension.toc.unorderedList.marker": "*",
-		"vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
-		"vale.enableSpellcheck": true,
-		"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
-		"markdownlint.run": "onSave",
-		"html.format.wrapLineLength": 100,
-		"favorites.sortDirection": "ASC",
-		"stylelint.reportDescriptionlessDisables": true,
-		"stylelint.reportInvalidScopeDisables": true,
-		"stylelint.reportNeedlessDisables": true,
-		"workbench.editor.customLabels.patterns": {
-			"**/modules/**/*.*": "MOD ${filename}.${extname}",
-			"**/modules/**/*": "MOD ${filename}"
-		},
-		"workbench.editor.customLabels.enabled": true,
-		"workbench.editor.enablePreview": true,
-		"editor.suggest.showCustomcolors": true,
-		"workbench.colorCustomizations": {
-			"activityBar.activeBackground": "#FFCA80",
-			"activityBar.background": "#FFCA80",
-			"activityBar.foreground": "#15202b",
-			"activityBar.inactiveForeground": "#15202b99",
-			"activityBarBadge.background": "#60ff95",
-			"activityBarBadge.foreground": "#15202b",
-			"commandCenter.border": "#000000",
-			"sash.hoverBorder": "#FFCA80",
-			"statusBar.background": "#FFCA80",
-			"statusBar.foreground": "#000000",
-			"statusBarItem.hoverBackground": "#FFCA80",
-			"statusBarItem.remoteBackground": "#FFCA80",
-			"statusBarItem.remoteForeground": "#000000",
-			"titleBar.activeBackground": "#FFCA80",
-			"titleBar.activeForeground": "#000000",
-			"titleBar.inactiveBackground": "#FFCA80",
-			"titleBar.inactiveForeground": "#e7e7e799"
-		},
-		"peacock.color": "#FFCA80",
-		"javascript.validate.enable": true,
-		"cSpell.words": ["htmlhead"]
-	},
-	"extensions": {
-		"recommendations": [
-			"pomdtr.excalidraw-editor",
-			"eliostruyf.vscode-front-matter",
-			"davidanson.vscode-markdownlint",
-			"yzhang.markdown-all-in-one",
-			"golang.go",
-			"casualjim.gotemplate",
-			"tamasfe.even-better-toml",
-			"stylelint.vscode-stylelint",
-			"foxundermoon.shell-format",
-			"timonwong.shellcheck",
-			"remisa.shellman",
-			"mkhl.shfmt",
-			"mjmlio.vscode-mjml"
-		]
-	}
+  "folders": [
+    {
+      "name": "kollitsch.dev",
+      "path": "."
+    },
+    {
+      "name": "Theme",
+      "path": "../hugo-darksky"
+    },
+    {
+      "name": "Modules",
+      "path": "../hugo-modules"
+    },
+    {
+      "name": "Namespace",
+      "path": "../namespace"
+    },
+    {
+      "name": "Configurations",
+      "path": "../configurations"
+    },
+    {
+      "name": "Asylum",
+      "path": "../hugo-asylum"
+    }
+  ],
+  "settings": {
+    "yaml.schemas": {
+      "http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
+    },
+    "files.associations": {
+      "*.html": "gohtml",
+      "*.xml": "gotemplate",
+      "*.json": "gojson",
+      "*.txt": "gotemplate",
+      "*.headers": "gotemplate",
+      "_headers": "gotemplate",
+      "*.redir": "gotemplate",
+      "_redir": "gotemplate"
+    },
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "markdown.extension.orderedList.marker": "one",
+    "markdown.extension.toc.unorderedList.marker": "*",
+    "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
+    "vale.enableSpellcheck": true,
+    "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
+    "markdownlint.run": "onSave",
+    "html.format.wrapLineLength": 100,
+    "favorites.sortDirection": "ASC",
+    "stylelint.reportDescriptionlessDisables": true,
+    "stylelint.reportInvalidScopeDisables": true,
+    "stylelint.reportNeedlessDisables": true,
+    "workbench.editor.customLabels.patterns": {
+      "**/modules/**/*.*": "MOD ${filename}.${extname}",
+      "**/modules/**/*": "MOD ${filename}"
+    },
+    "workbench.editor.customLabels.enabled": true,
+    "workbench.editor.enablePreview": true,
+    "editor.suggest.showCustomcolors": true,
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#FFCA80",
+      "activityBar.background": "#FFCA80",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#60ff95",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#000000",
+      "sash.hoverBorder": "#FFCA80",
+      "statusBar.background": "#FFCA80",
+      "statusBar.foreground": "#000000",
+      "statusBarItem.hoverBackground": "#FFCA80",
+      "statusBarItem.remoteBackground": "#FFCA80",
+      "statusBarItem.remoteForeground": "#000000",
+      "titleBar.activeBackground": "#FFCA80",
+      "titleBar.activeForeground": "#000000",
+      "titleBar.inactiveBackground": "#FFCA80",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#FFCA80",
+    "javascript.validate.enable": true,
+    "cSpell.words": ["htmlhead"]
+  },
+  "extensions": {
+    "recommendations": [
+      "pomdtr.excalidraw-editor",
+      "eliostruyf.vscode-front-matter",
+      "davidanson.vscode-markdownlint",
+      "yzhang.markdown-all-in-one",
+      "golang.go",
+      "casualjim.gotemplate",
+      "tamasfe.even-better-toml",
+      "stylelint.vscode-stylelint",
+      "foxundermoon.shell-format",
+      "timonwong.shellcheck",
+      "remisa.shellman",
+      "mkhl.shfmt",
+      "mjmlio.vscode-mjml",
+      "rafikis75.vscode-sassdoc"
+    ]
+  }
 }

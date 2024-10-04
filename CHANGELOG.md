@@ -1,4 +1,37 @@
 Changelog
+## [2024.5.28](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.27...v2024.5.28) (2024-10-04)
+
+
+### Content
+
+* **fix:** 100daystooffload fixes ([1299f52](https://github.com/davidsneighbour/kollitsch.dev/commit/1299f524f5b4bfb288b020fab01564b8c35878b5))
+
+
+### Theme
+
+* **wip:** add flatlake api configuration ([0550554](https://github.com/davidsneighbour/kollitsch.dev/commit/055055465627259937071470b0d936e7fe06df2c))
+
+
+### Bug Fixes
+
+* **wip:** flatlake configuration updates ([4dd9638](https://github.com/davidsneighbour/kollitsch.dev/commit/4dd96387d67367bd3680f78743ccaa41f3fd6fc1))
+
+
+### Chore
+
+* **config:** remove prettier from vscode configuration ([c1c38fe](https://github.com/davidsneighbour/kollitsch.dev/commit/c1c38fede69125f0de6e595c27cfd1ea4ff4beaa))
+* **deps:** update go modules ([975222c](https://github.com/davidsneighbour/kollitsch.dev/commit/975222c44a16d1841e7ddeab08978d83c3f116a5))
+* **deps:** update google/osv-scanner-action action to v1.9.0 ([#1240](https://github.com/davidsneighbour/kollitsch.dev/issues/1240)) ([ba5bdfa](https://github.com/davidsneighbour/kollitsch.dev/commit/ba5bdfa934828c116479a6ec04a6ce4837dfaea8))
+
+
+### Build System
+
+* **config:** update eslint configuration ([f63a04b](https://github.com/davidsneighbour/kollitsch.dev/commit/f63a04b349f6c0aea1d1a99d7cbe6cf4205a2938))
+* **deps:** bump @biomejs/biome from 1.9.2 to 1.9.3 ([#1244](https://github.com/davidsneighbour/kollitsch.dev/issues/1244)) ([ef2e720](https://github.com/davidsneighbour/kollitsch.dev/commit/ef2e7205aab279524318adbdfeeab2983340e35b))
+* **deps:** bump caniuse-lite from 1.0.30001664 to 1.0.30001667 ([#1241](https://github.com/davidsneighbour/kollitsch.dev/issues/1241)) ([44394b1](https://github.com/davidsneighbour/kollitsch.dev/commit/44394b132c7838a305a87872cf3e1b473ba8a277))
+* **deps:** bump netlify-cli from 17.36.3 to 17.36.4 ([#1242](https://github.com/davidsneighbour/kollitsch.dev/issues/1242)) ([04e9d86](https://github.com/davidsneighbour/kollitsch.dev/commit/04e9d8666a6f7f54d2fed1c57be3097ae47b891a))
+* **deps:** bump puppeteer from 23.4.1 to 23.5.0 ([#1243](https://github.com/davidsneighbour/kollitsch.dev/issues/1243)) ([10bbd93](https://github.com/davidsneighbour/kollitsch.dev/commit/10bbd93d3ea5fc99e738ded9b11a05c3e51cb37b))
+
 ## [2024.5.27](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.26...v2024.5.27) (2024-10-01)
 
 

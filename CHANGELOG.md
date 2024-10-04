@@ -1,4 +1,16 @@
 Changelog
+## [2024.5.30](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.29...v2024.5.30) (2024-10-04)
+
+
+### Chore
+
+* **config:** update workspace configuration ([40a2f7f](https://github.com/davidsneighbour/kollitsch.dev/commit/40a2f7fd921befbf6fa89c9abc467e063abf6e6f))
+
+
+### Build System
+
+* **config:** update postcss configuration and package ([477d26c](https://github.com/davidsneighbour/kollitsch.dev/commit/477d26c5fcd77ff016bd66ee2bb1f5db45bd6272))
+
 ## [2024.5.29](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.28...v2024.5.29) (2024-10-04)
 
 

@@ -2,7 +2,29 @@ collections:
   - output_key: posts
     inputs:
       - path: content/blog
+    single_elements:
+      - "data"
+      - "content"
+    list_elements:
+      - "data"
+      - "content"
   - output_key: tags
     inputs:
       - path: content/tags
+    single_elements:
+      - "data"
+      - "content"
+    list_elements:
+      - "data"
+      - "content"
 dest: public/api
+verbose: true
+logfile: debug.log
+global:
+  page_size: 25
+  sort_key: date
+  sort_direction: desc
+  outputs:
+    - "single"
+    - "list"
+    - "aggregate"

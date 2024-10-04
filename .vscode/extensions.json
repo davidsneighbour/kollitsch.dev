@@ -4,7 +4,6 @@
 		"github.copilot-labs",
 		"rescuetime.rescuetime",
 		"dunstontc.vscode-go-syntax",
-		"esbenp.prettier-vscode",
 		"rvest.vs-code-prettier-eslint",
 		"dbaeumer.vscode-eslint",
 		"mikestead.dotenv",

@@ -1,4 +1,13 @@
 Changelog
+## [2024.5.29](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.28...v2024.5.29) (2024-10-04)
+
+
+### Chore
+
+* **config:** update image assets ([6aa1413](https://github.com/davidsneighbour/kollitsch.dev/commit/6aa141327e8269af118d5e5aa4a3e94721999feb))
+* **deps:** update dependencies ([a34e94c](https://github.com/davidsneighbour/kollitsch.dev/commit/a34e94c3cb032a93fa0662c06aa32971e7f0e0a6))
+* multiple smaller changes, blogroll as draft ([a1c26ba](https://github.com/davidsneighbour/kollitsch.dev/commit/a1c26baa673ccea08d6f00ad45b3a1d6227fb4e9))
+
 ## [2024.5.28](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.27...v2024.5.28) (2024-10-04)
 
 

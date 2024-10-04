@@ -1,10 +1,3 @@
 import dnbConfig from "@davidsneighbour/eslint-config";
 
-export default [
-  ...dnbConfig,
-  {
-    rules: {
-
-    }
-  }
-];
+export default [...dnbConfig];

@@ -114,10 +114,40 @@
           }
         },
         "required": ["name", "link", "slug"],
-        "title": "Sponsors",
         "type": "object"
       },
       "title": "Music to program to"
+    },
+    {
+      "file": "[[workspace]]/data/dnb/kollitsch/blogroll.json",
+      "fileType": "json",
+      "id": "blogroll",
+      "labelField": "name",
+      "title": "Blogroll",
+      "schema": {
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "multiline": true,
+            "title": "Description",
+            "type": "string"
+          },
+          "link": {
+            "title": "Link",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string",
+            "enum": ["blog", "podcast", "youtube"]
+          }
+        },
+        "required": ["name", "link"],
+        "type": "object"
+      }
     }
   ],
   "frontMatter.taxonomy.contentTypes": [

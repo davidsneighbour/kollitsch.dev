@@ -1,4 +1,4 @@
-const defaultStandardVersion = require('@davidsneighbour/release-config');
+const defaultStandardVersion = require("@davidsneighbour/release-config");
 const localStandardVersion = {
   bumpFiles: [
     {
@@ -10,6 +10,7 @@ const localStandardVersion = {
       type: "json",
     },
   ],
+  header: "# Changelog",
 };
 const standardVersion = {
   ...defaultStandardVersion,

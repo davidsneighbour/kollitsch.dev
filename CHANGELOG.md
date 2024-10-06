@@ -1,4 +1,16 @@
 Changelog
+## [2024.5.31](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.30...v2024.5.31) (2024-10-06)
+
+
+### Chore
+
+* **deps:** update dependencies ([c38ccb9](https://github.com/davidsneighbour/kollitsch.dev/commit/c38ccb936d3f13314e1131f0791ef9ec535369f2))
+
+
+### Build System
+
+* **feat:** add copilot instructions for vscode ([ad8a437](https://github.com/davidsneighbour/kollitsch.dev/commit/ad8a437d802dcca630d82a8e19e5fa8d6adb22d0))
+
 ## [2024.5.30](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.29...v2024.5.30) (2024-10-04)
 
 

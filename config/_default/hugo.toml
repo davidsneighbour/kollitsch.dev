@@ -19,7 +19,7 @@ titleCaseStyle = "chicago"
 ##################################################################################
 # error configuration
 ##################################################################################
-ignoreErrors = ['deprecation.debug', 'deprecation.debugprint']
+ignoreErrors = []
 
 ##################################################################################
 # hack: increasing timeout to prevent hugo from... timing out while recreating

@@ -1,4 +1,26 @@
-Changelog
+# Changelog
+## [2024.5.32](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.31...v2024.5.32) (2024-10-07)
+
+
+### Content
+
+* **new:** tom cruises directing debut ([503af65](https://github.com/davidsneighbour/kollitsch.dev/commit/503af65df905971cd3d4fa4194bf52387a9d8591))
+
+
+### Chore
+
+* **config:** move renovate config into .github directory ([d625f29](https://github.com/davidsneighbour/kollitsch.dev/commit/d625f29ce9504b659d6b1e2e50a37715a791a918))
+* **config:** update configuration ([d8e1884](https://github.com/davidsneighbour/kollitsch.dev/commit/d8e1884e72466baad7437de111340ac8631b3d70))
+* **deps:** update dependencies ([c2b1521](https://github.com/davidsneighbour/kollitsch.dev/commit/c2b1521d5e281d03876a4167180a4f27bead4e5a))
+* **fix:** stashing issues ([972f9cb](https://github.com/davidsneighbour/kollitsch.dev/commit/972f9cbea22b7473132903d7a5d7d5ea0695669e))
+* rename theme to darkskies ([b5fa576](https://github.com/davidsneighbour/kollitsch.dev/commit/b5fa576b343f053dbb5bcd94ca1a75283f754766))
+
+
+### Build System
+
+* **deps:** bump the npm_and_yarn group with 2 updates ([#1245](https://github.com/davidsneighbour/kollitsch.dev/issues/1245)) ([8b7ac10](https://github.com/davidsneighbour/kollitsch.dev/commit/8b7ac10c4d3e3ed035ec93454e40adbdc4a9b206))
+* **fix:** changelog header fix ([2e2bdc2](https://github.com/davidsneighbour/kollitsch.dev/commit/2e2bdc227a1389bed3bc22b82345509e46701c64))
+
 ## [2024.5.31](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.30...v2024.5.31) (2024-10-06)
 
 

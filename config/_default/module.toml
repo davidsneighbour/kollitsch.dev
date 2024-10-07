@@ -15,4 +15,4 @@ source = "node_modules"
 target = "assets/node_modules"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-darksky"
+path = "github.com/davidsneighbour/hugo-darkskies"

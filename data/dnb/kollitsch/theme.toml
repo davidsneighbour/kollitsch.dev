@@ -36,3 +36,5 @@ videobanner = true
 banner = false
 
 [types.page]
+comments = false
+related = false

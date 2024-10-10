@@ -1,4 +1,11 @@
 # Changelog
+## [2024.5.35](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.34...v2024.5.35) (2024-10-10)
+
+
+### Content
+
+* **fix:** update pictures module docs ([9a41622](https://github.com/davidsneighbour/kollitsch.dev/commit/9a41622e771a312bee82f14350ae5ba3afefebfa))
+
 ## [2024.5.34](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.33...v2024.5.34) (2024-10-10)
 
 

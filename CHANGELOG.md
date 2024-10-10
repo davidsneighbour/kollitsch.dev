@@ -1,4 +1,21 @@
 # Changelog
+## [2024.5.34](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.33...v2024.5.34) (2024-10-10)
+
+
+### Content
+
+* **new:** kurzschnitte II/8 ([d029a4a](https://github.com/davidsneighbour/kollitsch.dev/commit/d029a4adc3161e538ea2a5525a4bf0f0fafc082a))
+
+
+### Theme
+
+* **fix:** shorten 100posts hook ([1ecb516](https://github.com/davidsneighbour/kollitsch.dev/commit/1ecb51619ee934df15bb84a383864307cfd5292f))
+
+
+### Build System
+
+* **deps:** bump the npm_and_yarn group with 2 updates ([#1248](https://github.com/davidsneighbour/kollitsch.dev/issues/1248)) ([cb441f5](https://github.com/davidsneighbour/kollitsch.dev/commit/cb441f5f12d73441be24d051abc554656e896d24))
+
 ## [2024.5.33](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.32...v2024.5.33) (2024-10-07)
 
 ## [2024.5.32](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.31...v2024.5.32) (2024-10-07)

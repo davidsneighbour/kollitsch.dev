@@ -3,7 +3,7 @@ title: Pictures
 description: This component for GoHugo adds partials and shortcodes to resolve and process images on your website. It offers responsive image formats and optimisgit ed loading based on current browser abilities.
 date: 2023-08-21T19:03:35+07:00
 publishDate: 2023-08-21T19:03:35+07:00
-lastmod: 2024-09-09T11:07:23.103Z
+lastmod: 2024-10-10T12:24:09.988Z
 resources:
   - src: header-card.png
     name: aheader
@@ -25,16 +25,16 @@ This component for [GoHugo](https://gohugo.io/) adds partials and shortcodes to 
 
 The simplest way is to use this module as a drop-in. Just install it and forget you ever did. It will work out of the box with the default settings and replace the internal handling of image markdown (`![alt text](image path)`) and the `{{</* figure */>}}` shortcode. You can adapt it's features to your needs by using the partials and global configuration options.
 
-{{< b5/notice type="danger" heading="Work in progress!" >}}
-Check back for better documentation and more features. The following documentation is, as long as this note is here, only partial and might be missing important points. If you have any questions, or ideas, please [add an issue to the issue tracker](https://github.com/davidsneighbour/hugo-blockify/issues).
-
-ToDo:
-
-- [x] markdown render hook for images
-- [ ] image shortcode
-- [ ] gallery shortcode
-- [ ] testing framework
-      {{< / b5/notice >}}
+> ### Work in progress!
+>
+> Check back for better documentation and more features. The following documentation is, as long as this note is here, only partial and might be missing important points. If you have any questions, or ideas, please [add an issue to the issue tracker](https://github.com/davidsneighbour/hugo-modules/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen).
+>
+> ToDo:
+>
+> - [x] markdown render hook for images
+> - [ ] image shortcode
+> - [ ] gallery shortcode
+> - [ ] testing framework
 
 - [Notes](#notes)
 - [Shortcodes](#shortcodes)
@@ -121,7 +121,7 @@ The two samples above have the same output. Using the `title`-attribute removes 
 
 **Commands:**
 
-TODO: Currently this allows for only one `command`/`options` combination. The future way will be to add an "array" of commands and options that are executed successively.
+Note: Currently this allows for only one `command`/`options` combination. The future way will be to add an "array" of commands and options that are executed successively.
 
 **Image Shortcode:**
 

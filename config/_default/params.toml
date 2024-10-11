@@ -329,3 +329,33 @@ colorschemeOrder = "dark light"
 
 [dnb.head.fediverse]
 creator = '@davidsneighbour@mas.to'
+
+# sitemap - @see https://dnbhub.xyz/sitemap
+################################################################################
+[[dnb.sitemap.htmlmap.item]]
+label = "Blog Posts"
+section = "blog"
+type = ".Type"
+
+[[dnb.sitemap.htmlmap.item]]
+label = "GoHugo Components by DNB"
+section = "gohugo"
+sortdirection = "ASC"
+sortvalue = ".Title"
+type = ".Type"
+
+[[dnb.sitemap.htmlmap.item]]
+label = "Tags"
+section = "tags"
+selection = "in-pages"
+sortdirection = "ASC"
+sortvalue = ".Title"
+type = ".Type"
+
+[[dnb.sitemap.htmlmap.item]]
+label = "Other pages"
+section = ["blog", "tags", "components"]
+selection = "not-in"
+sortdirection = "ASC"
+sortvalue = ".Title"
+type = ".Type"

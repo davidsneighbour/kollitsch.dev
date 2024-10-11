@@ -326,3 +326,6 @@ placename = "Koh Samui"
 separator = " — "
 hometitle = "Welcome! This is KOLLITSCH.dev*. The online playground of Patrick Kollitsch, David's Neighbour."
 colorschemeOrder = "dark light"
+
+[dnb.head.fediverse]
+creator = '@davidsneighbour@mas.to'

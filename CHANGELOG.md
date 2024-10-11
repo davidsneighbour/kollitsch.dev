@@ -1,4 +1,13 @@
 # Changelog
+## [2024.5.36](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.35...v2024.5.36) (2024-10-11)
+
+
+### Chore
+
+* **config:** add fediverse creator tag ([1cb4820](https://github.com/davidsneighbour/kollitsch.dev/commit/1cb482068ead0552bf86c1009301d26a6038e8aa))
+* **deps:** update dependencies ([bae9600](https://github.com/davidsneighbour/kollitsch.dev/commit/bae9600914318495aa2de50f8b463ae1a21ba887))
+* **deps:** update packages ([fba45e0](https://github.com/davidsneighbour/kollitsch.dev/commit/fba45e024e5420db020b25653b23b031fb8a5fe0))
+
 ## [2024.5.35](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.34...v2024.5.35) (2024-10-10)
 
 

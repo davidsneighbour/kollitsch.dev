@@ -1,4 +1,16 @@
 # Changelog
+## [2024.5.37](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.36...v2024.5.37) (2024-10-12)
+
+
+### Content
+
+* **fix:** update documentation for gohugo/sitemaps ([715cb90](https://github.com/davidsneighbour/kollitsch.dev/commit/715cb90d84ceb5eddc4c56589fc044f2ff088141))
+
+
+### Chore
+
+* **config:** add sitemap configuration ([06d8784](https://github.com/davidsneighbour/kollitsch.dev/commit/06d878454ee8d3ea9760272513750b2edbbbc43b))
+
 ## [2024.5.36](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.35...v2024.5.36) (2024-10-11)
 
 

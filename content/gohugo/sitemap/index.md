@@ -4,7 +4,7 @@ description: Elevate your website's sitemap with a versatile Hugo theme componen
 summary: This is a Hugo theme component with layouts to add a configurable sitemap to your website. Hugo itself has internal templates that add sitemaps, but this component extends this by providing setup options per page and keeping up-to-date with current SEO practices.
 date: 2024-01-14T18:11:57+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2024-09-09T11:07:16.656Z
+lastmod: 2024-10-12T12:16:46.648Z
 resources:
   - src: header-card.png
 tags:
@@ -70,6 +70,29 @@ You can edit the following additional configuration parameters:
 - format (string, default "2006-01-02") - date format for `lastmod` tag
 
 **DEPRECATED**: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions did result in the page being omitted from the sitemap. This is deprecated, but currently still supported. The module will echo a note on CLI about this.
+
+### Disable/enable list pages in the sitemap
+
+```toml
+[dnb.sitemap]
+listpages = false
+```
+
+Set `listpages` to `true` in the global Hugo configuration to include list pages in the sitemap. This is set to `false` by default.
+
+### Add pages via site configuration
+
+```toml
+[[dnb.sitemap.pages]]
+loc = "somewhere"
+priority = 0.5
+
+[[dnb.sitemap.pages]]
+loc = "somewhere-else"
+priority = 0.5
+```
+
+The `loc` parameter must contain the full URL to a page, priority can be left out.
 
 ### HTML Sitemap
 

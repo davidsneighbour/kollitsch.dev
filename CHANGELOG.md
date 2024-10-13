@@ -1,4 +1,11 @@
 # Changelog
+## [2024.5.39](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.38...v2024.5.39) (2024-10-13)
+
+
+### Content
+
+* **new:** gohugo module guide ([9cc5fa3](https://github.com/davidsneighbour/kollitsch.dev/commit/9cc5fa3f30c2cf13fd52cd566fad7f693254464f))
+
 ## [2024.5.38](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.37...v2024.5.38) (2024-10-13)
 
 

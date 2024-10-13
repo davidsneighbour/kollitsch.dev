@@ -1,5 +1,6 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.logging": "verbose",
   "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.cjs",
   "frontMatter.content.pageFolders": [
     {

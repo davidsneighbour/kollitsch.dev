@@ -4,15 +4,15 @@ description: ""
 summary: ""
 date: 2022-07-22T19:10:17+07:00
 publishDate: 2022-07-22T19:10:17+07:00
-lastmod: 2024-02-03T16:57:43+07:00
+lastmod: 2024-10-13T04:41:06.659Z
 resources:
-- src: header-card.png
+  - src: header-card.png
 tags:
-- gohugo
-- component
-- design
+  - gohugo
+  - component
+  - design
 aliases:
-- /components/hugo-icons/
+  - /components/hugo-icons/
 ---
 
 This GoHugo module streamlines the addition of SVG-based icon sets to your Hugo website, utilizing the efficient method of defining icons once using `<symbol>` and reusing them with `<use>`. By default, the module includes icon sets as an example, but is designed to support any SVG icon set you wish to integrate.
@@ -78,12 +78,6 @@ This module is designed to support any SVG-based icon set. To add a new set:
 
 3. Reference your custom icons using the partials methods preceding.
 
-## Migration guide
+## Notes 
 
-### From versions 1.2024.0 and below
-
-Older versions of this module may have added icons directly each time a shortcode or partial was called, leading to performance issues. The current version improves upon this by including icons once and then reusing them by reference. To migrate to the latest version:
-
-- There are **no breaking changes**; update your partials and shortcodes according to the usage guide.
-- Replace direct calls to specific icon sets (for example `bsicon`, `heroicon`) with calls to `icon.html`, passing the icon name or setting a global icon type.
 - **Do not cache** the icon-partial calls in your layouts; the module handles this for you.

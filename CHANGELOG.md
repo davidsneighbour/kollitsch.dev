@@ -1,4 +1,24 @@
 # Changelog
+## [2024.5.38](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.37...v2024.5.38) (2024-10-13)
+
+
+### Content
+
+* **gohugo:** update icons documentation ([1419ae4](https://github.com/davidsneighbour/kollitsch.dev/commit/1419ae4ead1430d0cf7bd8d3acac900821e21f4d))
+
+
+### Theme
+
+* **feat:** add lastmod shortcode ([0ebbff5](https://github.com/davidsneighbour/kollitsch.dev/commit/0ebbff5a5ca5be5a162035627f4ebabd4b500b27))
+
+
+### Chore
+
+* **config:** update frontmatter configuration ([c19005e](https://github.com/davidsneighbour/kollitsch.dev/commit/c19005eacc6ec62557aeeb8b08e26400c30cc4a4))
+* **config:** update workspace configuration ([bcd2f76](https://github.com/davidsneighbour/kollitsch.dev/commit/bcd2f765e05fbe3f8521133c0d383110f6f1585a))
+* **config:** update workspace configuration ([c23f53f](https://github.com/davidsneighbour/kollitsch.dev/commit/c23f53fc7549dd168538315f1a69e5272eef4364))
+* **deps:** update dependencies ([c0a44de](https://github.com/davidsneighbour/kollitsch.dev/commit/c0a44dee3d34ad516dcf59b14437459d840fff82))
+
 ## [2024.5.37](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.36...v2024.5.37) (2024-10-12)
 
 

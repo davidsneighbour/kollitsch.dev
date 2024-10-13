@@ -70,22 +70,22 @@
 		"vale.enableSpellcheck": true,
 		"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
 		"workbench.colorCustomizations": {
-			"activityBar.activeBackground": "#FFCA80",
-			"activityBar.background": "#FFCA80",
+			"activityBar.activeBackground": "#FF5555",
+			"activityBar.background": "#FF5555",
 			"activityBar.foreground": "#15202b",
 			"activityBar.inactiveForeground": "#15202b99",
 			"activityBarBadge.background": "#60ff95",
 			"activityBarBadge.foreground": "#15202b",
 			"commandCenter.border": "#000000",
-			"sash.hoverBorder": "#FFCA80",
-			"statusBar.background": "#FFCA80",
+			"sash.hoverBorder": "#FF5555",
+			"statusBar.background": "#FF5555",
 			"statusBar.foreground": "#000000",
-			"statusBarItem.hoverBackground": "#FFCA80",
-			"statusBarItem.remoteBackground": "#FFCA80",
+			"statusBarItem.hoverBackground": "#FF5555",
+			"statusBarItem.remoteBackground": "#FF5555",
 			"statusBarItem.remoteForeground": "#000000",
-			"titleBar.activeBackground": "#FFCA80",
+			"titleBar.activeBackground": "#FF5555",
 			"titleBar.activeForeground": "#000000",
-			"titleBar.inactiveBackground": "#FFCA80",
+			"titleBar.inactiveBackground": "#FF5555",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},
 		"workbench.editor.customLabels.enabled": true,
@@ -98,6 +98,44 @@
 			"http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
 		},
 		"scss.lint.validProperties": ["interpolate-size"],
-		"css.lint.validProperties": ["interpolate-size"]
+		"css.lint.validProperties": ["interpolate-size"],
+		"todo-tree.general.showActivityBarBadge": false,
+		"todo-tree.general.tagGroups": {},
+		"todo-tree.general.tags": [
+			"BUG",
+			"HACK",
+			"FIXME",
+			"TODO",
+			"XXX",
+			"[ ]",
+			"[x]",
+			"@todo",
+			"@TODO"
+		],
+		"todo-tree.highlights.backgroundColourScheme": [
+			"red",
+			"orange",
+			"yellow",
+			"green",
+			"blue",
+			"indigo",
+			"violet",
+			"green",
+			"green"
+		],
+		"todo-tree.filtering.ignoreGitSubmodules": true,
+		"todo-tree.filtering.includeHiddenFiles": false,
+		"todo-tree.tree.labelFormat": "${after}",
+		"todo-tree.tree.scanAtStartup": true,
+		"todo-tree.filtering.excludeGlobs": [
+			"**/node_modules/*/**",
+			"**/.vscode/**"
+		],
+		"todo-tree.tree.showCountsInTree": true,
+		"todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
+		"todo-tree.regex.regexCaseSensitive": false,
+		"todo-tree.tree.buttons.filter": false,
+		"todo-tree.tree.buttons.groupByTag": false,
+		"todo-tree.tree.buttons.viewStyle": false
 	}
 }

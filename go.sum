@@ -6,6 +6,8 @@ github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXq
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/davidsneighbour/hugo-darkskies v1.2024.27 h1:EVH05KyHn1iz+qjw5IkSjhKeVLKDuFZ0Cf5XqOW9hns=
 github.com/davidsneighbour/hugo-darkskies v1.2024.27/go.mod h1:LjsnYQTkwMiL6iMHqJ4yALPGumj+XAeWF0H1GrI4ZNw=
+github.com/davidsneighbour/hugo-darkskies v1.2024.29 h1:tRfav2qqT5oN4xOWD/XkRJPyiRp/lvE5j/0h68tByBM=
+github.com/davidsneighbour/hugo-darkskies v1.2024.29/go.mod h1:4vsqdzusKFH2NzA3ckWAu4NFWAj02u3vNJ0a/TYu00Q=
 github.com/paulirish/lite-youtube-embed v0.3.3 h1:AP8TnWs7WZGe3Svuhfl+RMsFk7by6z6D3mhWFsY3cR0=
 github.com/paulirish/lite-youtube-embed v0.3.3/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=

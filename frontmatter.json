@@ -1,359 +1,359 @@
 {
-  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.logging": "verbose",
-  "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.cjs",
-  "frontMatter.content.pageFolders": [
-    {
-      "contentTypes": ["blog", "music2program2", "notes-from-the-laboratory"],
-      "path": "[[workspace]]/content/blog",
-      "title": "Blog"
-    },
-    {
-      "contentTypes": ["component"],
-      "path": "[[workspace]]/content/gohugo",
-      "title": "Modules"
-    },
-    {
-      "contentTypes": ["tag"],
-      "path": "[[workspace]]/content/tags",
-      "title": "Tags"
-    }
-  ],
-  "frontmatter.content.placeholders.permalink": "/blog/{{year}}/{{slug}}/index.md",
-  "frontMatter.content.snippets": {
-    "Caption": {
-      "description": "caption",
-      "body": "{{< caption >}}",
-      "fields": []
-    }
-  },
-  "frontMatter.custom.scripts": [
-    {
-      "command": "~/.nvm/versions/node/v22.7.0/bin/node",
-      "script": "./bin/frontmatter/screenshot-header-image.cjs",
-      "title": "Retrieve Screenshot"
-    },
-    {
-      "command": "~/.nvm/versions/node/v22.7.0/bin/node",
-      "script": "./bin/frontmatter/retrieve-unsplash-header-image-info.cjs",
-      "title": "Retrieve Unsplash image"
-    },
-    {
-      "command": "~/.nvm/versions/node/v22.7.0/bin/node",
-      "script": "./bin/frontmatter/create-youtube-header-image.js",
-      "title": "Generate social image for Youtube"
-    }
-  ],
-  "frontMatter.data.files": [
-    {
-      "file": "[[workspace]]/data/dnb/kollitsch/kurzschnitte.json",
-      "fileType": "json",
-      "id": "kurzschnitte",
-      "labelField": "title",
-      "schema": {
-        "properties": {
-          "description": {
-            "multiline": true,
-            "title": "Description",
-            "type": "string"
-          },
-          "labels": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "link": {
-            "title": "Link",
-            "type": "string"
-          },
-          "slug": {
-            "title": "Kurzschnitt-Post",
-            "type": "string"
-          },
-          "title": {
-            "title": "Title",
-            "type": "string"
-          }
-        },
-        "required": ["title", "link", "slug"],
-        "title": "Kurzschnitte",
-        "type": "object"
-      },
-      "singleEntry": false,
-      "title": "Kurzschnitte"
-    },
-    {
-      "file": "[[workspace]]/data/dnb/kollitsch/music.json",
-      "fileType": "json",
-      "id": "music2program2",
-      "labelField": "name",
-      "schema": {
-        "properties": {
-          "description": {
-            "multiline": true,
-            "title": "Description",
-            "type": "string"
-          },
-          "genre": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "link": {
-            "title": "Link",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "slug": {
-            "title": "Slug",
-            "type": "string"
-          }
-        },
-        "required": ["name", "link", "slug"],
-        "type": "object"
-      },
-      "title": "Music to program to"
-    },
-    {
-      "file": "[[workspace]]/data/dnb/kollitsch/blogroll.json",
-      "fileType": "json",
-      "id": "blogroll",
-      "labelField": "name",
-      "title": "Blogroll",
-      "schema": {
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "description": {
-            "multiline": true,
-            "title": "Description",
-            "type": "string"
-          },
-          "link": {
-            "title": "Link",
-            "type": "string"
-          },
-          "type": {
-            "title": "Type",
-            "type": "string",
-            "enum": ["blog", "podcast", "youtube"]
-          }
-        },
-        "required": ["name", "link"],
-        "type": "object"
-      }
-    }
-  ],
-  "frontMatter.taxonomy.contentTypes": [
-    {
-      "fields": [
-        {
-          "name": "title",
-          "title": "Title",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "title": "Description",
-          "type": "string"
-        },
-        {
-          "default": "{{now}}",
-          "isPublishDate": true,
-          "name": "date",
-          "title": "Publishing date",
-          "type": "datetime"
-        },
-        {
-          "name": "preview",
-          "title": "Content preview",
-          "type": "image"
-        },
-        {
-          "name": "draft",
-          "title": "Is in draft",
-          "type": "draft"
-        },
-        {
-          "name": "tags",
-          "title": "Tags",
-          "type": "tags"
-        },
-        {
-          "name": "categories",
-          "title": "Categories",
-          "type": "categories"
-        }
-      ],
-      "name": "default",
-      "pageBundle": false,
-      "previewPath": null
-    },
-    {
-      "fieldGroup": ["resources"],
-      "fields": [
-        {
-          "name": "title",
-          "single": true,
-          "title": "Title",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "title": "Description",
-          "type": "string"
-        },
-        {
-          "default": "{{now}}",
-          "format": "yyyy-MM-dd'T'HH:mm:ssxxx",
-          "isPublishDate": true,
-          "name": "date",
-          "title": "Publishing date",
-          "type": "datetime"
-        },
-        {
-          "default": "{{now}}",
-          "format": "yyyy-MM-dd'T'HH:mm:ssxxx",
-          "isModifiedDate": true,
-          "name": "lastmod",
-          "title": "Last modified date",
-          "type": "datetime"
-        },
-        {
-          "name": "draft",
-          "title": "Draft",
-          "type": "draft"
-        },
-        {
-          "name": "tags",
-          "title": "Tags",
-          "type": "tags"
-        },
-        {
-          "name": "categories",
-          "title": "Categories",
-          "type": "categories"
-        },
-        {
-          "fieldGroup": ["resources"],
-          "multiple": true,
-          "name": "resources",
-          "title": "Resources",
-          "type": "block"
-        }
-      ],
-      "filetype": "md",
-      "name": "blog",
-      "pageBundle": true,
-      "previewPath": "yyyy/{{permalink}}"
-    },
-    {
-      "fields": [
-        {
-          "name": "title",
-          "single": true,
-          "title": "Title",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "single": true,
-          "title": "Description",
-          "type": "string"
-        },
-        {
-          "default": "{{now}}",
-          "format": "yyyy-MM-dd'T'HH:mm:ssxxx",
-          "isPublishDate": true,
-          "name": "date",
-          "title": "Publishing date",
-          "type": "datetime"
-        },
-        {
-          "default": "{{now}}",
-          "format": "yyyy-MM-dd'T'HH:mm:ssxxx",
-          "isModifiedDate": true,
-          "name": "lastmod",
-          "title": "Last modified date",
-          "type": "datetime"
-        },
-        {
-          "name": "draft",
-          "title": "Draft",
-          "type": "draft"
-        },
-        {
-          "name": "tags",
-          "title": "Tags",
-          "type": "tags"
-        },
-        {
-          "name": "categories",
-          "title": "Categories",
-          "type": "categories"
-        },
-        {
-          "fieldGroup": ["resources"],
-          "name": "resources",
-          "title": "Resources",
-          "type": "block"
-        }
-      ],
-      "name": "default",
-      "pageBundle": true,
-      "previewPath": "{{permalink}}"
-    }
-  ],
-  "frontMatter.taxonomy.fieldGroups": [
-    {
-      "fields": [
-        {
-          "isPreviewImage": true,
-          "name": "src",
-          "required": true,
-          "title": "Path/Filename",
-          "type": "image"
-        },
-        {
-          "name": "title",
-          "single": true,
-          "title": "Title",
-          "type": "string"
-        },
-        {
-          "name": "name",
-          "single": true,
-          "title": "Identifier",
-          "type": "string"
-        }
-      ],
-      "id": "resources",
-      "labelField": "src"
-    },
-    {
-      "fields": [
-        {
-          "name": "name",
-          "single": true,
-          "title": "Author Name",
-          "type": "string"
-        },
-        {
-          "name": "social",
-          "single": true,
-          "title": "Social link",
-          "type": "string"
-        }
-      ],
-      "id": "author",
-      "labelField": "name"
-    }
-  ]
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.logging": "verbose",
+	"frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.cjs",
+	"frontMatter.content.pageFolders": [
+		{
+			"contentTypes": ["blog", "music2program2", "notes-from-the-laboratory"],
+			"path": "[[workspace]]/content/blog",
+			"title": "Blog"
+		},
+		{
+			"contentTypes": ["component"],
+			"path": "[[workspace]]/content/gohugo",
+			"title": "Modules"
+		},
+		{
+			"contentTypes": ["tag"],
+			"path": "[[workspace]]/content/tags",
+			"title": "Tags"
+		}
+	],
+	"frontmatter.content.placeholders.permalink": "/blog/{{year}}/{{slug}}/index.md",
+	"frontMatter.content.snippets": {
+		"Caption": {
+			"description": "caption",
+			"body": "{{< caption >}}",
+			"fields": []
+		}
+	},
+	"frontMatter.custom.scripts": [
+		{
+			"command": "~/.nvm/versions/node/v22.7.0/bin/node",
+			"script": "./bin/frontmatter/screenshot-header-image.cjs",
+			"title": "Retrieve Screenshot"
+		},
+		{
+			"command": "~/.nvm/versions/node/v22.7.0/bin/node",
+			"script": "./bin/frontmatter/retrieve-unsplash-header-image-info.cjs",
+			"title": "Retrieve Unsplash image"
+		},
+		{
+			"command": "~/.nvm/versions/node/v22.7.0/bin/node",
+			"script": "./bin/frontmatter/create-youtube-header-image.js",
+			"title": "Generate social image for Youtube"
+		}
+	],
+	"frontMatter.data.files": [
+		{
+			"file": "[[workspace]]/data/dnb/kollitsch/kurzschnitte.json",
+			"fileType": "json",
+			"id": "kurzschnitte",
+			"labelField": "title",
+			"schema": {
+				"properties": {
+					"description": {
+						"multiline": true,
+						"title": "Description",
+						"type": "string"
+					},
+					"labels": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"link": {
+						"title": "Link",
+						"type": "string"
+					},
+					"slug": {
+						"title": "Kurzschnitt-Post",
+						"type": "string"
+					},
+					"title": {
+						"title": "Title",
+						"type": "string"
+					}
+				},
+				"required": ["title", "link", "slug"],
+				"title": "Kurzschnitte",
+				"type": "object"
+			},
+			"singleEntry": false,
+			"title": "Kurzschnitte"
+		},
+		{
+			"file": "[[workspace]]/data/dnb/kollitsch/music.json",
+			"fileType": "json",
+			"id": "music2program2",
+			"labelField": "name",
+			"schema": {
+				"properties": {
+					"description": {
+						"multiline": true,
+						"title": "Description",
+						"type": "string"
+					},
+					"genre": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"link": {
+						"title": "Link",
+						"type": "string"
+					},
+					"name": {
+						"title": "Name",
+						"type": "string"
+					},
+					"slug": {
+						"title": "Slug",
+						"type": "string"
+					}
+				},
+				"required": ["name", "link", "slug"],
+				"type": "object"
+			},
+			"title": "Music to program to"
+		},
+		{
+			"file": "[[workspace]]/data/dnb/kollitsch/blogroll.json",
+			"fileType": "json",
+			"id": "blogroll",
+			"labelField": "name",
+			"title": "Blogroll",
+			"schema": {
+				"properties": {
+					"name": {
+						"title": "Name",
+						"type": "string"
+					},
+					"description": {
+						"multiline": true,
+						"title": "Description",
+						"type": "string"
+					},
+					"link": {
+						"title": "Link",
+						"type": "string"
+					},
+					"type": {
+						"title": "Type",
+						"type": "string",
+						"enum": ["blog", "podcast", "youtube"]
+					}
+				},
+				"required": ["name", "link"],
+				"type": "object"
+			}
+		}
+	],
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"fields": [
+				{
+					"name": "title",
+					"title": "Title",
+					"type": "string"
+				},
+				{
+					"name": "description",
+					"title": "Description",
+					"type": "string"
+				},
+				{
+					"default": "{{now}}",
+					"isPublishDate": true,
+					"name": "date",
+					"title": "Publishing date",
+					"type": "datetime"
+				},
+				{
+					"name": "preview",
+					"title": "Content preview",
+					"type": "image"
+				},
+				{
+					"name": "draft",
+					"title": "Is in draft",
+					"type": "draft"
+				},
+				{
+					"name": "tags",
+					"title": "Tags",
+					"type": "tags"
+				},
+				{
+					"name": "categories",
+					"title": "Categories",
+					"type": "categories"
+				}
+			],
+			"name": "default",
+			"pageBundle": false,
+			"previewPath": null
+		},
+		{
+			"fieldGroup": ["resources"],
+			"fields": [
+				{
+					"name": "title",
+					"single": true,
+					"title": "Title",
+					"type": "string"
+				},
+				{
+					"name": "description",
+					"title": "Description",
+					"type": "string"
+				},
+				{
+					"default": "{{now}}",
+					"dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+					"isPublishDate": true,
+					"name": "date",
+					"title": "Publishing date",
+					"type": "datetime"
+				},
+				{
+					"default": "{{now}}",
+					"dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+					"isModifiedDate": true,
+					"name": "lastmod",
+					"title": "Last modified date",
+					"type": "datetime"
+				},
+				{
+					"name": "draft",
+					"title": "Draft",
+					"type": "draft"
+				},
+				{
+					"name": "tags",
+					"title": "Tags",
+					"type": "tags"
+				},
+				{
+					"name": "categories",
+					"title": "Categories",
+					"type": "categories"
+				},
+				{
+					"fieldGroup": ["resources"],
+					"multiple": true,
+					"name": "resources",
+					"title": "Resources",
+					"type": "block"
+				}
+			],
+			"filetype": "md",
+			"name": "blog",
+			"pageBundle": true,
+			"previewPath": "yyyy/{{permalink}}"
+		},
+		{
+			"fields": [
+				{
+					"name": "title",
+					"single": true,
+					"title": "Title",
+					"type": "string"
+				},
+				{
+					"name": "description",
+					"single": true,
+					"title": "Description",
+					"type": "string"
+				},
+				{
+					"default": "{{now}}",
+					"dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+					"isPublishDate": true,
+					"name": "date",
+					"title": "Publishing date",
+					"type": "datetime"
+				},
+				{
+					"default": "{{now}}",
+					"dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+					"isModifiedDate": true,
+					"name": "lastmod",
+					"title": "Last modified date",
+					"type": "datetime"
+				},
+				{
+					"name": "draft",
+					"title": "Draft",
+					"type": "draft"
+				},
+				{
+					"name": "tags",
+					"title": "Tags",
+					"type": "tags"
+				},
+				{
+					"name": "categories",
+					"title": "Categories",
+					"type": "categories"
+				},
+				{
+					"fieldGroup": ["resources"],
+					"name": "resources",
+					"title": "Resources",
+					"type": "block"
+				}
+			],
+			"name": "default",
+			"pageBundle": true,
+			"previewPath": "{{permalink}}"
+		}
+	],
+	"frontMatter.taxonomy.fieldGroups": [
+		{
+			"fields": [
+				{
+					"isPreviewImage": true,
+					"name": "src",
+					"required": true,
+					"title": "Path/Filename",
+					"type": "image"
+				},
+				{
+					"name": "title",
+					"single": true,
+					"title": "Title",
+					"type": "string"
+				},
+				{
+					"name": "name",
+					"single": true,
+					"title": "Identifier",
+					"type": "string"
+				}
+			],
+			"id": "resources",
+			"labelField": "src"
+		},
+		{
+			"fields": [
+				{
+					"name": "name",
+					"single": true,
+					"title": "Author Name",
+					"type": "string"
+				},
+				{
+					"name": "social",
+					"single": true,
+					"title": "Social link",
+					"type": "string"
+				}
+			],
+			"id": "author",
+			"labelField": "name"
+		}
+	]
 }

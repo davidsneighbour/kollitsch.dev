@@ -1,0 +1,44 @@
+<div class="input-group mb-3">
+ <input type="text" class="form-control" id="searchInput" placeholder="Search for configuration items">
+<button class="btn btn-secondary" type="button" onclick="scrollToRow()">Search</button>
+</div>
+<div id="configuration">
+  {{ partial "inline/table.html" (dict "value" site.Data.dnb.kollitsch.config) }}
+</div>
+
+{{ define "partials/inline/table.html" }}
+  <table class="w-100 mb-0">
+    {{ range $key, $value := .value}}
+      <tr>
+        <td>{{ $key }}</td>
+        {{ if reflect.IsMap $value }}
+          <td>
+            {{ partial "inline/table.html" (dict "value" $value) }}
+          </td>
+        {{ else }}
+          <td>
+            {{ $value }}
+          </td>
+        {{ end }}
+      </tr>
+    {{ end }}
+  </table>
+{{ end }}
+
+<script>
+document.getElementById('searchInput').addEventListener('keyup', function(event) {
+  scrollToRow();
+});
+function scrollToRow() {
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  const rows = document.querySelectorAll('#configuration tr');
+  rows.forEach(row => row.classList.remove('table-info'));
+  for (const row of rows) {
+    if (row.innerText.toLowerCase().includes(searchTerm)) {
+      row.classList.add('table-info');
+      row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      break;
+    }
+  }
+}
+</script>

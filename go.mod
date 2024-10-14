@@ -2,5 +2,4 @@ module github.com/davidsneighbour/kollitsch.dev
 
 go 1.21
 
-require (
-)
+require github.com/davidsneighbour/hugo-darkskies v1.2024.29 // indirect

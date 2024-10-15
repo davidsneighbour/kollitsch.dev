@@ -18,4 +18,4 @@ unsplash:
   imageid: yLVPQvU2KEc
 ---
 
-{{< configuration >}}
+{{< configuration config="params.dnb.hooks" >}}

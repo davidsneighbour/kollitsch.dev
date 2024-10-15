@@ -1,19 +1,45 @@
-<div class="input-group mb-3">
- <input type="text" class="form-control" id="searchInput" placeholder="Search for configuration items">
-<button class="btn btn-secondary" type="button" onclick="scrollToRow()">Search</button>
-</div>
-<div id="configuration">
-  {{ partial "inline/table.html" (dict "value" site.Data.dnb.kollitsch.config) }}
+{{- $config := .Get "config" | default "full" -}}
+{{- $config = strings.Split $config "." -}}
+{{- $options := site.Data.dnb.kollitsch.config -}}
+{{- if ne "full" $config -}}
+  {{- $options = collections.Index site.Data.dnb.kollitsch.config $config -}}
+{{- end -}}
+
+<style>
+#configsearch {
+  position:sticky;
+  top: 55px;
+}
+#configcontainer {
+ max-height: 100%;
+}
+</style>
+
+<div id="configcontainer">
+  <div id="configsearch" class="input-group mb-3">
+    <input type="text" class="form-control form-control-lg" id="searchInput"
+      placeholder="Search for configuration items">
+    <button class="btn btn-secondary" type="button" onclick="scrollToRow()">Search</button>
+  </div>
+  <div id="configuration">
+    {{ partials.Include "inline/table.html" (collections.Dictionary "value" $options) }}
+  </div>
 </div>
 
 {{ define "partials/inline/table.html" }}
-  <table class="w-100 mb-0">
-    {{ range $key, $value := .value}}
+  <table>
+    {{- range $key, $value := .value -}}
       <tr>
-        <td>{{ $key }}</td>
+        <td>{{- $key -}}</td>
         {{ if reflect.IsMap $value }}
           <td>
-            {{ partial "inline/table.html" (dict "value" $value) }}
+            {{ partials.Include "inline/table.html" (collections.Dictionary "value" $value) }}
+          </td>
+        {{ else if reflect.IsSlice $value}}
+          <td>
+            {{ range $value }}
+              {{ partials.Include "inline/table.html" (collections.Dictionary "value" $value) }}
+            {{ end }}
           </td>
         {{ else }}
           <td>
@@ -21,7 +47,7 @@
           </td>
         {{ end }}
       </tr>
-    {{ end }}
+    {{- end -}}
   </table>
 {{ end }}
 

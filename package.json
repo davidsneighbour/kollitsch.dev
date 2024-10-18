@@ -14,7 +14,7 @@
   "dependencies": {
     "@alpinejs/collapse": "3.14.1",
     "@alpinejs/intersect": "3.14.1",
-    "@biomejs/biome": "1.9.3",
+    "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.7.0",
     "@davidsneighbour/bootstrap-config": "2024.4.5",
     "@davidsneighbour/biome-config": "2024.4.5",

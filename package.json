@@ -37,7 +37,7 @@
     "@github/hotkey": "3.1.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
-    "alpinejs": "3.14.1",
+    "alpinejs": "3.14.3",
     "bootstrap-icons": "1.11.3",
     "caniuse-lite": "1.0.30001668",
     "consola": "3.2.3",

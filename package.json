@@ -52,7 +52,7 @@
     "prettier-plugin-go-template": "0.0.15",
     "puppeteer": "23.5.3",
     "remark": "15.0.1",
-    "sass": "1.79.5",
+    "sass": "1.80.2",
     "secretlint": "9.0.0",
     "simple-git-hooks": "2.11.1",
     "toml": "3.0.0",

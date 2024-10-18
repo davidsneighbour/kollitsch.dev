@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@alpinejs/collapse": "3.14.1",
-    "@alpinejs/intersect": "3.14.1",
+    "@alpinejs/intersect": "3.14.3",
     "@biomejs/biome": "1.9.3",
     "@clack/prompts": "0.7.0",
     "@davidsneighbour/bootstrap-config": "2024.4.5",

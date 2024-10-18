@@ -48,7 +48,7 @@
     "netlify-cli": "17.37.0",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
-    "playwright": "1.48.0",
+    "playwright": "1.48.1",
     "prettier-plugin-go-template": "0.0.15",
     "puppeteer": "23.5.3",
     "remark": "15.0.1",

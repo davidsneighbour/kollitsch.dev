@@ -13,3 +13,5 @@ GoHugo
 config
 [Cc]acheability
 Kurzschnitte
+WSL
+XFCE

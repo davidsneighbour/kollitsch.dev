@@ -1,11 +1,11 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: How to use GoHugo modules
-description: ""
-summary: ""
+description: In the world of GoHugo, **modules** serve as the building blocks that allow you to structure and manage your website's components efficiently. A **GoHugo Module** is a self-contained package of resources, such as themes, content, layouts, or even custom features like shortcodes. These modules can be shared across projects, versioned, and updated seamlessly.
+summary: In the world of GoHugo, **modules** serve as the building blocks that allow you to structure and manage your website's components efficiently. A **GoHugo Module** is a self-contained package of resources, such as themes, content, layouts, or even custom features like shortcodes. These modules can be shared across projects, versioned, and updated seamlessly.
 date: 2024-10-13T18:10:46+07:00
 publishDate: 2024-10-13T18:10:46+07:00
-lastmod: 2024-10-13T13:48:11.977Z
+lastmod: 2024-10-14T22:01:38+07:00
 resources:
   - title: Puzzle pieces
     src: nigel-hoare-pswcXNE8690-unsplash.jpg
@@ -18,8 +18,6 @@ type: blog
 unsplash:
   imageid: pswcXNE8690
 ---
-
-{{< lastmod >}}
 
 ## What are GoHugo modules
 
@@ -74,7 +72,9 @@ Once Go and Git are installed, the next step is to set up your project as a GoHu
 To initialize your project as a Hugo module, follow these steps:
 
 1. **Navigate to your project directory** in a terminal.
+
 2. Run the following command:
+
    ```bash
    hugo mod init github.com/<your_user>/<your_project>
    ```

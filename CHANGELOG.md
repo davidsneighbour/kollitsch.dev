@@ -1,4 +1,30 @@
 # Changelog
+## [2024.5.40](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.39...v2024.5.40) (2024-10-21)
+
+
+### Content
+
+* **feat:** adding configuration shortcode and slash page ([1cfc726](https://github.com/davidsneighbour/kollitsch.dev/commit/1cfc72676adb0fe3c4c6169bef106d9ed7fbbe65))
+* **fix:** add summary/description to module post ([2f85ba2](https://github.com/davidsneighbour/kollitsch.dev/commit/2f85ba2447d936148aef6a48f6341afbb48faa04))
+* **fix:** too many folders for the 100daystooffload tag ([950c2f6](https://github.com/davidsneighbour/kollitsch.dev/commit/950c2f6cbdfe23267da01c7d0be18f2bea8ecd79))
+* **new:** post wsl on windows 11 ([5c24244](https://github.com/davidsneighbour/kollitsch.dev/commit/5c24244a7eacb53377d2e3c8336d8ed081e9e7a3))
+
+
+### Theme
+
+* **feat:** add configuration shortcode (wip) ([3946ef1](https://github.com/davidsneighbour/kollitsch.dev/commit/3946ef113edf8bb9f9066f5ec0641d25aea053a3))
+* **fix:** remove useless shortcode ([fc930a6](https://github.com/davidsneighbour/kollitsch.dev/commit/fc930a65accf45663868b5d345ea1c653116d219))
+
+
+### Chore
+
+* **config:** fix frontmatter date configuration ([154442b](https://github.com/davidsneighbour/kollitsch.dev/commit/154442b29a5aebe0723b10c726b64f52d4d59b25))
+* **config:** update configuration ([8ea4e68](https://github.com/davidsneighbour/kollitsch.dev/commit/8ea4e68522f107100561e97787c33572c69d4f38))
+* **config:** update netlify.toml ([f5a67bb](https://github.com/davidsneighbour/kollitsch.dev/commit/f5a67bbfa9a93b2b656e63136dc12df3eb162919))
+* **config:** update vale vocabulary ([0558011](https://github.com/davidsneighbour/kollitsch.dev/commit/0558011da34b40435a4c5914cc91bcc67d187430))
+* **deps:** update dependencies ([331426a](https://github.com/davidsneighbour/kollitsch.dev/commit/331426aeaa745a22697364f04def0cc45cb44ea2))
+* **deps:** update dependencies ([66c617d](https://github.com/davidsneighbour/kollitsch.dev/commit/66c617ddef3b5954bb18181172a19f8379b4f1b4))
+
 ## [2024.5.39](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.38...v2024.5.39) (2024-10-13)
 
 

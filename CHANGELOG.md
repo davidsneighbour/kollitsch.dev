@@ -1,4 +1,11 @@
 # Changelog
+## [2024.5.41](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.40...v2024.5.41) (2024-10-21)
+
+
+### Content
+
+* **new:** andrew garfield and elmo ([0980b0b](https://github.com/davidsneighbour/kollitsch.dev/commit/0980b0bc20a841520d658ffe7779507329b1def7))
+
 ## [2024.5.40](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.39...v2024.5.40) (2024-10-21)
 
 

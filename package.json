@@ -20,7 +20,7 @@
     "@davidsneighbour/biome-config": "2024.4.5",
     "@davidsneighbour/browserslist-config": "2024.4.5",
     "@davidsneighbour/commitlint-config": "2024.4.5",
-    "@davidsneighbour/cypress-config": "2024.4.5",
+    "@davidsneighbour/cypress-config": "2024.4.6",
     "@davidsneighbour/eslint-config": "2024.4.5",
     "@davidsneighbour/frontmatter-config": "2024.4.5",
     "@davidsneighbour/htmlvalidate-config": "2024.4.5",

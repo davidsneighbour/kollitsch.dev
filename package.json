@@ -30,7 +30,7 @@
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
     "@davidsneighbour/postcss-config": "2024.4.5",
     "@davidsneighbour/prettier-config": "2024.4.5",
-    "@davidsneighbour/release-config": "2024.4.5",
+    "@davidsneighbour/release-config": "2024.4.6",
     "@davidsneighbour/remark-config": "2024.4.5",
     "@davidsneighbour/stylelint-config": "2024.4.5",
     "@davidsneighbour/tools": "2024.4.5",

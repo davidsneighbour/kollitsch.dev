@@ -41,6 +41,9 @@
 		{
 			"name": "Asylum",
 			"path": "../hugo-asylum"
+		},
+		{
+			"path": "../hugov"
 		}
 	],
 	"settings": {

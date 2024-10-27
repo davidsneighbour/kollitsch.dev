@@ -1,4 +1,30 @@
 # Changelog
+## [2024.5.42](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.41...v2024.5.42) (2024-10-27)
+
+
+### Content
+
+* **new:** bambie vs. godzilla ([a2d35ac](https://github.com/davidsneighbour/kollitsch.dev/commit/a2d35acd1afa4703d408166e7b05279fa1a517d9))
+
+
+### Theme
+
+* **fix:** move to sass-embedded ([bb24498](https://github.com/davidsneighbour/kollitsch.dev/commit/bb24498cd4b48f782a3f5186afd323459780c8e4))
+
+
+### Chore
+
+* **config:** update module configuration ([4a51aee](https://github.com/davidsneighbour/kollitsch.dev/commit/4a51aee3ace7d73acfacf21d1709b7a2c5084585))
+* **config:** update npm location in frontmatter config ([edb1b68](https://github.com/davidsneighbour/kollitsch.dev/commit/edb1b6809699a9436be1b41c9154472bb5ffa8cc))
+* **config:** update vale vocabulary ([6065c2d](https://github.com/davidsneighbour/kollitsch.dev/commit/6065c2d186b874afa6690f671d5a6e34a4b8f1b6))
+* **deps:** update dependencies ([7aaa405](https://github.com/davidsneighbour/kollitsch.dev/commit/7aaa4058f887e49efcabb640f74575e84efd51c9))
+* **deps:** update dependencies ([6e67b44](https://github.com/davidsneighbour/kollitsch.dev/commit/6e67b442d368c851160ad66ecb0b8ce5da43f157))
+
+
+### Build System
+
+* **deps:** bump the npm_and_yarn group with 2 updates ([#1250](https://github.com/davidsneighbour/kollitsch.dev/issues/1250)) ([2e37d75](https://github.com/davidsneighbour/kollitsch.dev/commit/2e37d75da42618b3e9a7eab9b7c708f0332d13c4))
+
 ## [2024.5.41](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.40...v2024.5.41) (2024-10-21)
 
 

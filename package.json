@@ -46,9 +46,7 @@
     "netlify-cli": "17.37.1",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
-    "playwright": "1.48.2",
     "prettier-plugin-go-template": "0.0.15",
-    "puppeteer": "23.6.0",
     "remark": "15.0.1",
     "secretlint": "9.0.0",
     "simple-git-hooks": "2.11.1",
@@ -64,9 +62,12 @@
     "@playwright/test": "^1.48.2",
     "@types/node": "^22.8.1",
     "body-parser": ">=1.20.3",
+    "chai": "^5.1.2",
     "express": ">=4.21.1",
     "micromatch": ">=4.0.8",
+    "mocha": "^10.7.3",
     "path-to-regexp": ">=8.2.0",
+    "playwright": "1.48.2",
     "send": ">=1.1.0",
     "serve-static": ">=1.16.2"
   },
@@ -100,9 +101,11 @@
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
-    "server": "rm -rf ./public && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/ --panicOnWarning",
+    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/ --panicOnWarning",
+    "server2": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --baseURL http://localhost/ --panicOnWarning",
     "server:pagefind": "wireit",
-    "update": "wireit"
+    "update": "wireit",
+    "tests": "npx playwright test"
   },
   "wireit": {
     "deploy": {
@@ -201,12 +204,18 @@
       ]
     },
     "server:hugo": {
+      "dependencies": [
+        "server:hugo-certificates"
+      ],
       "command": "node bin/hugo/server.js",
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at *"
         }
       }
+    },
+    "server:hugo-certificates": {
+      "command": "hugo server trust"
     },
     "lint": {
       "dependencies": [

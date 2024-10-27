@@ -16,24 +16,23 @@
     "@alpinejs/intersect": "3.14.3",
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.7.0",
-    "@davidsneighbour/biome-config": "2024.4.6",
-    "@davidsneighbour/bootstrap-config": "2024.4.6",
-    "@davidsneighbour/browserslist-config": "2024.4.6",
-    "@davidsneighbour/commitlint-config": "2024.4.6",
-    "@davidsneighbour/cypress-config": "2024.4.6",
-    "@davidsneighbour/eslint-config": "2024.4.6",
-    "@davidsneighbour/frontmatter-config": "2024.4.6",
-    "@davidsneighbour/htmlvalidate-config": "2024.4.6",
+    "@davidsneighbour/biome-config": "2024.4.7",
+    "@davidsneighbour/bootstrap-config": "2024.4.7",
+    "@davidsneighbour/browserslist-config": "2024.4.7",
+    "@davidsneighbour/commitlint-config": "2024.4.7",
+    "@davidsneighbour/eslint-config": "2024.4.7",
+    "@davidsneighbour/frontmatter-config": "2024.4.7",
+    "@davidsneighbour/htmlvalidate-config": "2024.4.7",
     "@davidsneighbour/hugo-darkskies": "^1.2024.29",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "2024.4.6",
+    "@davidsneighbour/markdownlint-config": "2024.4.7",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
-    "@davidsneighbour/postcss-config": "2024.4.6",
-    "@davidsneighbour/prettier-config": "2024.4.6",
-    "@davidsneighbour/release-config": "2024.4.6",
-    "@davidsneighbour/remark-config": "2024.4.6",
-    "@davidsneighbour/stylelint-config": "2024.4.6",
-    "@davidsneighbour/tools": "2024.4.6",
+    "@davidsneighbour/postcss-config": "2024.4.7",
+    "@davidsneighbour/prettier-config": "2024.4.7",
+    "@davidsneighbour/release-config": "2024.4.7",
+    "@davidsneighbour/remark-config": "2024.4.7",
+    "@davidsneighbour/stylelint-config": "2024.4.7",
+    "@davidsneighbour/tools": "2024.4.7",
     "@github/hotkey": "3.1.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
@@ -41,7 +40,6 @@
     "bootstrap-icons": "1.11.3",
     "caniuse-lite": "1.0.30001672",
     "consola": "3.2.3",
-    "cypress-html-validate": "6.1.0",
     "dotenv": "16.4.5",
     "flatlake": "^0.4.3",
     "lint-staged": "15.2.10",
@@ -102,7 +100,6 @@
     "release": "wireit",
     "server": "rm -rf ./public && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/ --panicOnWarning",
     "server:pagefind": "wireit",
-    "tests": "wireit",
     "update": "wireit"
   },
   "wireit": {
@@ -162,7 +159,6 @@
     "clean": {
       "dependencies": [
         "clean:audit",
-        "clean:cypress",
         "clean:hugo"
       ]
     },
@@ -247,7 +243,6 @@
       "command": "rimraf node_modules package-lock.json .wireit",
       "dependencies": [
         "clean:audit",
-        "clean:cypress",
         "clean:hugo:full",
         "clean:netlify"
       ]
@@ -255,31 +250,11 @@
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
     },
-    "clean:cypress": {
-      "command": "rimraf tests/cypress/{downloads,screenshots,videos}/*"
-    },
     "clean:hugo:full": {
       "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
     },
     "clean:netlify": {
       "command": "rimraf .netlify/*/*"
-    },
-    "tests": {
-      "command": "cypress open --config-file tests/cypress/cypress.config.js",
-      "dependencies": [
-        "tests:install",
-        "tests:verify",
-        "tests:info"
-      ]
-    },
-    "tests:install": {
-      "command": "cypress install"
-    },
-    "tests:info": {
-      "command": "cypress info"
-    },
-    "tests:verify": {
-      "command": "cypress verify"
     }
   },
   "config": {

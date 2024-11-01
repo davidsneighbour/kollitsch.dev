@@ -43,7 +43,7 @@
     "dotenv": "16.4.5",
     "flatlake": "^0.4.3",
     "lint-staged": "15.2.10",
-    "netlify-cli": "17.37.1",
+    "netlify-cli": "17.37.2",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
     "prettier-plugin-go-template": "0.0.15",

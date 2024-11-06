@@ -16,38 +16,36 @@
     "@alpinejs/intersect": "3.14.3",
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.7.0",
-    "@davidsneighbour/biome-config": "2024.4.7",
-    "@davidsneighbour/bootstrap-config": "2024.4.7",
+    "@davidsneighbour/biome-config": "2024.4.8",
+    "@davidsneighbour/bootstrap-config": "2024.4.8",
     "@davidsneighbour/browserslist-config": "2024.4.7",
-    "@davidsneighbour/commitlint-config": "2024.4.7",
-    "@davidsneighbour/eslint-config": "2024.4.7",
-    "@davidsneighbour/frontmatter-config": "2024.4.7",
+    "@davidsneighbour/commitlint-config": "2024.4.8",
+    "@davidsneighbour/eslint-config": "2024.4.8",
+    "@davidsneighbour/frontmatter-config": "2024.4.8",
     "@davidsneighbour/htmlvalidate-config": "2024.4.7",
     "@davidsneighbour/hugo-darkskies": "^1.2024.29",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "2024.4.7",
+    "@davidsneighbour/markdownlint-config": "2024.4.8",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
-    "@davidsneighbour/postcss-config": "2024.4.7",
-    "@davidsneighbour/prettier-config": "2024.4.7",
-    "@davidsneighbour/release-config": "2024.4.7",
-    "@davidsneighbour/remark-config": "2024.4.7",
-    "@davidsneighbour/stylelint-config": "2024.4.7",
-    "@davidsneighbour/tools": "2024.4.7",
+    "@davidsneighbour/postcss-config": "2024.4.8",
+    "@davidsneighbour/prettier-config": "2024.4.8",
+    "@davidsneighbour/release-config": "2024.4.8",
+    "@davidsneighbour/remark-config": "2024.4.8",
+    "@davidsneighbour/stylelint-config": "2024.4.8",
+    "@davidsneighbour/tools": "2024.4.8",
     "@github/hotkey": "3.1.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
     "alpinejs": "3.14.3",
-    "bootstrap-icons": "1.11.3",
-    "caniuse-lite": "1.0.30001672",
+    "caniuse-lite": "1.0.30001677",
     "consola": "3.2.3",
     "dotenv": "16.4.5",
     "flatlake": "^0.4.3",
     "lint-staged": "15.2.10",
-    "netlify-cli": "17.37.1",
+    "netlify-cli": "17.37.2",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
     "prettier-plugin-go-template": "0.0.15",
-    "remark": "15.0.1",
     "secretlint": "9.0.0",
     "simple-git-hooks": "2.11.1",
     "toml": "3.0.0",
@@ -56,20 +54,6 @@
     "tsx": "4.19.2",
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
-  },
-  "devDependencies": {
-    "@apidevtools/json-schema-ref-parser": ">=11.7.2",
-    "@playwright/test": "^1.48.2",
-    "@types/node": "^22.8.1",
-    "body-parser": ">=1.20.3",
-    "chai": "^5.1.2",
-    "express": ">=4.21.1",
-    "micromatch": ">=4.0.8",
-    "mocha": "^10.7.3",
-    "path-to-regexp": ">=8.2.0",
-    "playwright": "1.48.2",
-    "send": ">=1.1.0",
-    "serve-static": ">=1.16.2"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -101,7 +85,7 @@
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
-    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/ --panicOnWarning",
+    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/",
     "server2": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --baseURL http://localhost/ --panicOnWarning",
     "server:pagefind": "wireit",
     "update": "wireit",
@@ -118,6 +102,12 @@
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
+      "dependencies": [
+        "build"
+      ]
+    },
+    "deploy:netlify:debug": {
+      "command": "set DEBUG=* & netlify deploy --prod --open",
       "dependencies": [
         "build"
       ]
@@ -286,5 +276,9 @@
   "simple-git-hooks": {
     "commit-msg": "npx commitlint -e \"$@\""
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.9.0"
+  }
 }

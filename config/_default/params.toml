@@ -89,18 +89,13 @@ cached = true
 # netlification - @see https://dnbhub.xyz/netlification
 ################################################################################
 [dnb.netlification]
-headers = [
-  # "Access-Control-Allow-Origin: *",
-  "Report-To: {\"group\":\"default\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"https://kollitsch.report-uri.com/a/d/g\"}],\"include_subdomains\":true}",
-  "NEL: {\"report_to\":\"default\",\"max_age\":31536000,\"include_subdomains\":true}",
-]
 upgradeInsecureRequests = true
 mode = "netlify"
 extensions = ["youtube", "cloudflare.insights"]
 
 [dnb.netlification.csp]
 reportOnly = false
-reportUri = "https://kollitsch.report-uri.com/r/d/csp/enforce"
+# reportUri = ""
 
 #require-trusted-types-for = ["'script'"]
 upgradeInsecureRequests = true

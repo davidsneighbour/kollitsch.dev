@@ -35,8 +35,8 @@ This GoHugo module simplifies adding SVG-based icon sets to your site. Icons are
 To include an icon in your template or layout files, use it as a partial. Here's an example with the default Bootstrap icon set:
 
 ```go-html-template
-{{- partial "icon.html" "arrow-right" -}}
-{{- partial "icon.html" (dict "icon" "arrow-right") -}}
+{{- partials.Include "icon.html" "arrow-right" -}}
+{{- partials.Include "icon.html" (dict "icon" "arrow-right") -}}
 ```
 
 You can also add it with the `icon` shortcode in your markdown files:

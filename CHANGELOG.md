@@ -1,4 +1,33 @@
 # Changelog
+## [2024.5.44](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.43...v2024.5.44) (2024-11-07)
+
+
+### Content
+
+* **fix:** proper gohugo methods for partial calls ([18914d8](https://github.com/davidsneighbour/kollitsch.dev/commit/18914d876cc42f1fe3787730b8cce3e1169dc074))
+* **new:** add hugov blog post ([ae1e00d](https://github.com/davidsneighbour/kollitsch.dev/commit/ae1e00d3313318e5efb8d06720cd8499996228af))
+* **new:** archetype of a synthesizer post ([932290e](https://github.com/davidsneighbour/kollitsch.dev/commit/932290e92e78f883e3099096414b85dc50eb24b6))
+
+
+### Refactors
+
+* cleanup config file ([f2581f1](https://github.com/davidsneighbour/kollitsch.dev/commit/f2581f1685cae6658bec727182ce05a9065eb997))
+
+
+### Chore
+
+* **deps:** update dependencies ([bb5ecbc](https://github.com/davidsneighbour/kollitsch.dev/commit/bb5ecbc5a6ac5ab1b7da135a71d5bb4b0c510653))
+
+
+### Configuration
+
+* update lychee configuration ([7e01d59](https://github.com/davidsneighbour/kollitsch.dev/commit/7e01d5961b01130a4eca3819bd9040622ea3cb47))
+
+
+### Build System
+
+* **deps:** bump the npm_and_yarn group with 2 updates ([#1280](https://github.com/davidsneighbour/kollitsch.dev/issues/1280)) ([e0b29a4](https://github.com/davidsneighbour/kollitsch.dev/commit/e0b29a4481533947ffb0bc8d23cc1c75205832f9))
+
 ## [2024.5.43](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.42...v2024.5.43) (2024-11-07)
 
 

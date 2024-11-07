@@ -1,4 +1,24 @@
 # Changelog
+## [2024.5.43](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.42...v2024.5.43) (2024-11-07)
+
+
+### Content
+
+* **fix:** icon shortcode ([76ecca0](https://github.com/davidsneighbour/kollitsch.dev/commit/76ecca0f2765cab34d4ba184045fafbd478ff6b9))
+* **update:** update dnb-icons documentation ([ccc8213](https://github.com/davidsneighbour/kollitsch.dev/commit/ccc8213c0e5143e29cab9656824445c174f1c290))
+
+
+### Chore
+
+* **deps:** update module dependencies ([0d8a13c](https://github.com/davidsneighbour/kollitsch.dev/commit/0d8a13cb8d1aaa94f6a97fdf36f63c9ac8074b53))
+
+
+### Build System
+
+* **config:** add admonitions to remark configuration ([1e7f074](https://github.com/davidsneighbour/kollitsch.dev/commit/1e7f0748c5416ae0824ba09b5ef8083f691397d1))
+* **config:** remove report-uri configuration ([9484a76](https://github.com/davidsneighbour/kollitsch.dev/commit/9484a76b076189c94068e5ad50052acd34fe9b3f))
+* **config:** update workspace configuration ([46da18c](https://github.com/davidsneighbour/kollitsch.dev/commit/46da18ca835ad39f099321e2e9859298ae33c424))
+
 ## [2024.5.42](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.41...v2024.5.42) (2024-10-27)
 
 

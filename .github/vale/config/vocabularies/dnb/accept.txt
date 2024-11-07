@@ -16,3 +16,10 @@ Kurzschnitte
 WSL
 XFCE
 GNU
+Font Awesome
+Tabler
+CSS
+Boxicons
+Iconoir
+MIT License
+Lineicons

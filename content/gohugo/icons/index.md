@@ -1,7 +1,7 @@
 ---
 title: Icons
-description: ""
-summary: ""
+description: "This GoHugo module helps you to add SVG-based icon sets to your site. Icons are efficiently used, offering seamless integration of any SVG icon set you choose."
+summary: "This GoHugo module simplifies adding SVG-based icon sets to your site. Icons are efficiently defined once with `<symbol>` and reused with `<use>`, offering seamless integration of any SVG icon set you choose."
 date: 2022-07-22T19:10:17+07:00
 publishDate: 2022-07-22T19:10:17+07:00
 lastmod: 2024-10-13T04:41:06.659Z
@@ -15,69 +15,325 @@ aliases:
   - /components/hugo-icons/
 ---
 
-This GoHugo module streamlines the addition of SVG-based icon sets to your Hugo website, utilizing the efficient method of defining icons once using `<symbol>` and reusing them with `<use>`. By default, the module includes icon sets as an example, but is designed to support any SVG icon set you wish to integrate.
+This GoHugo module simplifies adding SVG-based icon sets to your site. Icons are efficiently defined once with `<symbol>` and reused with `<use>`, offering seamless integration of any SVG icon set you choose.
 
 ## Key features
 
-- **Flexible Icon Integration**: Add any SVG-based icon set to your website.
-- **Efficient Caching Mechanism**: Icons are defined once and reused, improving performance.
-- **Bootstrap Icons Included**: The Bootstrap Icons set is provided by default for immediate use and as an example for integrating other icon sets.
+* **Flexible Integration**: Add any SVG icon set.
+* **Performance-Optimized**: Icons are cached and reused for faster load times.
+* **Defaults**: [Bootstrap Icons](https://icons.getbootstrap.com/) are included as a ready-to-use example.
 
-## Documentation links
+## Resources
 
-- SVG `<symbol>` Element: [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)
-- SVG `<use>` Element: [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use)
-
-## Included icon sets
-
-- [**Bootstrap Icons**](https://icons.getbootstrap.com/)
-- [**Tabler Icons**](https://github.com/tabler/tabler-icons)
+* **[SVG `<symbol>` Element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)**
+* **[SVG `<use>` Element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use)**
 
 ## Usage
 
-### Adding icons
+### Adding Icons
 
-To use an icon in your layout, call it as a partial in your templates. The example below demonstrates how to include a Bootstrap icon, but the same method applies to any SVG icon you add to the module:
+To include an icon in your template or layout files, use it as a partial. Here's an example with the default Bootstrap icon set:
 
 ```go-html-template
-{{- includes.Partial "icon.html" "arrow-right" -}}
-{{- includes.Partial "icon.html" (dict "icon" "arrow-right") -}}
+{{- partial "icon.html" "arrow-right" -}}
+{{- partial "icon.html" (dict "icon" "arrow-right") -}}
 ```
 
-Another option is to include the icon as a shortcode from your content files:
+You can also add it with the `icon` shortcode in your markdown files:
 
 ```markdown
 {{</* icon "arrow-right" */>}}
+{{</* icon icon="arrow-right" */>}}
 ```
 
-### Development mode
+> [!WARNING]
+> **Avoid caching** any icon partials in layouts, as the module already manages caching for optimal performance.
 
-When running your Hugo site in development mode, the module provides sample pages listing all available icons from the included sets:
+Both methods apply the following parameters to the icon partial:
 
-- Access Bootstrap Icons at `http://localhost:1313/icons/bootstrap-icons/`.
+* `icon`: The icon name.
+* `set` (optional): The icon set name (default is `bootstrap`).
+
+### Overview Shortcode
+
+Showing a list of all icons configured is easy, but should not be done in production. It will slow down the creation of your site and might lead to timeouts. To see a list of all icons, use the following shortcode. Using the configured slug of your icon set for the `set` parameter. The default is `bootstrap`.
+
+```markdown
+{{</* icons/overview set="bootstrap" */>}}
+```
+
+### Set default icon set
+
+By default `bootstrap` is used as the icon set. To change the default icon set you can add the following to your `params.toml`:
+
+```toml
+[dnb.icons]
+default = "custom"
+```
+
+Set `custom` to the slug of the icon set you want to use as the default.
 
 ### Adding custom icon sets
 
-This module is designed to support any SVG-based icon set. To add a new set:
+This module is compatible with any SVG-based icon set. To add a custom icon set:
 
-1. Place your SVG icons in the appropriate directory within your Hugo site.
-2. Add a configuration to the `config.toml` file, specifying the path to your icons and the icon set name:
+1. **Mount the icons as module** in your Hugo project.
+
+   ```toml
+   [[imports]]
+   path = "github.com/tabler/tabler-icons"
+   disable = false
+   ignoreConfig = true
+   ignoreImports = true
+
+   [[imports.mounts]]
+   source = "icons/filled"
+   target = "assets/icons/tabler-filled"
+   ```
+
+2. **Configure your icon set** in `params.dnb.icons`
 
    ```toml
    [dnb.icons]
-   default = "custom"
-
-   [dnb.icons.custom]
-   path = "node_modules/custom-icon-set/icons/%s.svg"
-   slug = "custom"
+   default = "tabler-filled"
+   [dnb.icons.tabler-filled]
+   slug = "tbf"
    ```
 
-   Make sure to replace `custom` with the name of your icon set and `node_modules/custom-icon-set/icons/%s.svg` with the path to your icons. The `%s` placeholder is being replaced with the icon name when the icon is called.
+3. **Use them** in your templates and content files.
 
-   The `slug` parameter is used to reference the icon set in your layouts and shortcodes and add classes to format them. The classes created in the preceding sample would be `icon--custom` and `icon--iconname` where `iconname` is the icon loaded.
+Check out the [Icon set examples](#icon-set-examples) for more details.
 
-3. Reference your custom icons using the partials methods preceding.
+### CSS class naming convention
 
-## Notes 
+Icons are assigned classes like `icon--custom` and `icon--$iconname`, where `$iconname` is the icon's name. You can use these classes to style based on the icon.
 
-- **Do not cache** the icon-partial calls in your layouts; the module handles this for you.
+## Icon set examples
+
+The following is a list of configurations for popular icon sets. You can use these as a reference to configure your own icon sets or quickly add one of these sets to your project.
+
+> [!WARNING]
+> Again. Do not configure icon sets that you do not use. This can slow down the creation of your site, lead to large and unused deployments, and might lead to timeouts.
+
+* [Tabler Icons](#tabler-icons)
+* [Font Awesome Icons](#font-awesome-icons)
+* [Lineicons](#lineicons)
+* [Iconoir](#iconoir)
+* [Boxicons](#boxicons)
+
+### Tabler Icons
+
+[Tabler icons](https://tabler.io/icons) are available under a [MIT License](https://github.com/tabler/tabler-icons?tab=MIT-1-ov-file#readme).
+
+In your `module.toml`, add the following configuration:
+
+```toml
+[[imports]]
+path = "github.com/tabler/tabler-icons"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "icons/filled"
+target = "assets/icons/tabler-filled"
+
+[[imports.mounts]]
+source = "icons/outline"
+target = "assets/icons/tabler-outline"
+```
+
+Then, in your `params.toml`, add the following configuration:
+
+```toml
+[dnb.icons.tabler-filled]
+slug = "tbf"
+[dnb.icons.tabler-outline]
+slug = "tbo"
+```
+
+Use the following shortcodes to display Tabler icons overviews:
+
+```markdown
+{{</* icons/overview set="tabler-filled" */>}}
+{{</* icons/overview set="tabler-outline" */>}}
+```
+
+### Font Awesome icons
+
+[Font Awesome icons](https://fontawesome.com/) are available under a [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/).
+
+> [!IMPORTANT]
+> Due to some weird behaviour of the Font Awesome repository you need to explicitly require the `6.x` branch of the site to require the SVG icons. You can do this by running the following command in your Hugo project:
+>
+> ```bash
+> hugo mod get -u github.com/FortAwesome/Font-Awesome@6.x
+> ```
+>
+> This leads to the following line (or similar) in your go.mod file:
+>
+> ```go
+> github.com/FortAwesome/Font-Awesome v0.0.0-20240716171331-37eff7fa00de // indirect
+> ```
+>
+> If it shows something like v4.7.0, you need to run the command again.
+
+In your `module.toml`, add the following configuration:
+
+```toml
+[[imports]]
+path = "github.com/FortAwesome/Font-Awesome"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "svgs/brands"
+target = "assets/icons/fa-brands"
+
+[[imports.mounts]]
+source = "svgs/regular"
+target = "assets/icons/fa-regular"
+
+[[imports.mounts]]
+source = "svgs/solid"
+target = "assets/icons/fa-solid"
+```
+
+Then, in your `params.toml`, add the following configuration:
+
+```toml
+[dnb.icons.fa-brands]
+slug = "fab"
+
+[dnb.icons.fa-regular]
+slug = "far"
+
+[dnb.icons.fa-solid]
+slug = "fas"
+```
+
+Use the following shortcodes to display Font Awesome icons overviews:
+
+```markdown
+{{</* icons/overview set="fa-regular" */>}}
+{{</* icons/overview set="fa-solid" */>}}
+{{</* icons/overview set="fa-brands" */>}}
+```
+
+### Lineicons
+
+[Lineicons](https://lineicons.com/) are available under a [MIT License](https://github.com/LineiconsHQ/Lineicons/blob/main/LICENSE.md).
+
+In your `module.toml`, add the following configuration:
+
+```toml
+[[imports]]
+path = "github.com/LineiconsHQ/Lineicons"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "assets/svgs/regular"
+target = "assets/icons/lineicons"
+```
+
+Then, in your `params.toml`, add the following configuration:
+
+```toml
+[dnb.icons.lineicons]
+slug = "li"
+```
+
+Use the following shortcodes to display a Lineicons overview:
+
+```markdown
+{{</* icons/overview set="lineicons" */>}}
+```
+
+### Iconoir
+
+[Iconoir](https://github.com/iconoir-icons/iconoir) icons are available under a [MIT license](https://github.com/iconoir-icons/iconoir/blob/main/LICENSE).
+
+In your `module.toml`, add the following configuration:
+
+```toml
+[[imports]]
+path = "github.com/iconoir-icons/iconoir"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "icons/regular"
+target = "assets/icons/iconoir-regular"
+
+[[imports.mounts]]
+source = "icons/outline"
+target = "assets/icons/iconoir-solid"
+```
+
+Then, in your `params.toml`, add the following configuration:
+
+```toml
+[dnb.icons.iconoir-regular]
+slug = "inr"
+
+[dnb.icons.iconoir-solid]
+slug = "ins"
+```
+
+Use the following shortcodes to display an Iconoir overview:
+
+```markdown
+{{</* icons/overview set="iconoir-regular" */>}}
+{{</* icons/overview set="iconoir-solid" */>}}
+```
+
+### Boxicons
+
+[Boxicons](https://github.com/atisawd/boxicons) icons are available under a [MIT License](https://github.com/atisawd/boxicons?tab=MIT-1-ov-file#readme).
+
+In your `module.toml`, add the following configuration:
+
+```toml
+[[imports]]
+path = "github.com/atisawd/boxicons"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+
+[[imports.mounts]]
+source = "svg/logos"
+target = "assets/icons/boxicons-logos"
+
+[[imports.mounts]]
+source = "svg/regular"
+target = "assets/icons/boxicons-regular"
+
+[[imports.mounts]]
+source = "svg/solid"
+target = "assets/icons/boxicons-solid"
+```
+
+Then, in your `params.toml`, add the following configuration:
+
+```toml
+[dnb.icons.boxicons-logos]
+slug = "bxl"
+
+[dnb.icons.boxicons-regular]
+slug = "bxr"
+
+[dnb.icons.boxicons-solid]
+slug = "bxs"
+```
+
+Use the following shortcodes to display a Boxicons overview:
+
+```markdown
+{{</* icons/overview set="boxicons-logos" */>}}
+{{</* icons/overview set="boxicons-regular" */>}}
+{{</* icons/overview set="boxicons-solid" */>}}
+```

@@ -65,7 +65,6 @@
 		"markdown.extension.orderedList.marker": "one",
 		"markdown.extension.toc.unorderedList.marker": "*",
 		"markdownlint.run": "onSave",
-		"peacock.color": "#FFCA80",
 		"stylelint.reportDescriptionlessDisables": true,
 		"stylelint.reportInvalidScopeDisables": true,
 		"stylelint.reportNeedlessDisables": true,

@@ -12,6 +12,8 @@ github.com/davidsneighbour/hugo-darkskies v1.2024.29 h1:tRfav2qqT5oN4xOWD/XkRJPy
 github.com/davidsneighbour/hugo-darkskies v1.2024.29/go.mod h1:4vsqdzusKFH2NzA3ckWAu4NFWAj02u3vNJ0a/TYu00Q=
 github.com/paulirish/lite-youtube-embed v0.3.3 h1:AP8TnWs7WZGe3Svuhfl+RMsFk7by6z6D3mhWFsY3cR0=
 github.com/paulirish/lite-youtube-embed v0.3.3/go.mod h1:9nuUWCzbFF/vvl3ClpZ1KsYFi/hlKjVOkmG8E+nsGDY=
+github.com/tabler/tabler-icons v3.21.0+incompatible h1:FYnn/0Rfo88bsif0aKYecKrUceREuyG5XoB/q3JO1f8=
+github.com/tabler/tabler-icons v3.21.0+incompatible/go.mod h1:Ap75CRdhXxprnUnPlUCRLvJ2pIFNqwxIipj3GfD6XHE=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=
 github.com/twbs/icons v1.11.3/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible h1:7CuKQrvR4w3t2USxwGDNiGGXVtZYZWthBD6DMfnbiLE=

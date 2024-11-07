@@ -30,22 +30,22 @@ exclude_tags = ["100DaysToOffload"]
 
 # footer setup
 [dnb.theme.footer]
-show_version = true
-show_tag_as_version = true
-show_release_as_version = true
 repository = "https://github.com/davidsneighbour/kollitsch.dev"
+show_release_as_version = true
+show_tag_as_version = true
+show_version = true
 
 # giscus - @see https://dnbhub.xyz/giscus
 ################################################################################
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"
-dataRepo = "davidsneighbour/kollitsch.dev"
-dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
 dataCategory = "Comments"
 dataCategoryId = "DIC_kwDOGDHt584B_i3-"
+dataEmitMetadata = "0"
 dataMapping = "specific"
 dataReactionsEnabled = "1"
-dataEmitMetadata = "0"
+dataRepo = "davidsneighbour/kollitsch.dev"
+dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
 #dataThemeType = "local"
 #dataTheme = "/assets/giscus.css"
 #dataTheme = "preferred_color_scheme"
@@ -58,6 +58,8 @@ origins = ["htttps://kollitsch.dev", "http://192.168.1.201:1313"]
 # security - @see https://dnbhub.xyz/security
 ################################################################################
 [dnb.security.txt]
+contact = "https://kollitsch.dev/contact/"
+expires = 365
 intro = '''
 ##############################################################################
 #                                                                            #
@@ -76,31 +78,38 @@ intro = '''
 #                                                                            #
 ##############################################################################
 '''
-contact = "https://kollitsch.dev/contact/"
-expires = 365
 languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
 
 [dnb.hooks]
 [[dnb.hooks.items.kollitsch.head-end]]
-file = "head-end-matomo"
 cached = true
+file = "head-end-matomo"
 
 # netlification - @see https://dnbhub.xyz/netlification
 ################################################################################
 [dnb.netlification]
-upgradeInsecureRequests = true
-mode = "netlify"
 extensions = ["youtube", "cloudflare.insights"]
+mode = "netlify"
+upgradeInsecureRequests = true
 
 [dnb.netlification.csp]
 reportOnly = false
 # reportUri = ""
 
 #require-trusted-types-for = ["'script'"]
-upgradeInsecureRequests = true
 base-uri = ["'self'"]
+child-src = ["'self'"]
+connect-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://api.github.com/", 'cloudflareinsights.com']
 default-src = ["'self'"] # @todo move to 'none' after fixing all issues
+font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
+form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
+frame-ancestors = ["'self'"]
+frame-src = ["'self'", "https://open.spotify.com/", "https://giscus.app/", "https://www.youtube-nocookie.com"]
+img-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://d33wubrfki0l68.cloudfront.net", "ytimg.googleusercontent.com", "https://i.ytimg.com"]
+manifest-src = ["'self'"]
+media-src = ["'self'"]
+object-src = ["'none'"]
 script-src = [
   "'self'",
   "'unsafe-eval'",
@@ -114,105 +123,96 @@ script-src = [
   'https://analytics.dnbhub.xyz/',
 ]
 style-src = ["'self'", "'unsafe-inline'", "https://d33wubrfki0l68.cloudfront.net", "https://giscus.app/"]
-img-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://d33wubrfki0l68.cloudfront.net", "ytimg.googleusercontent.com", "https://i.ytimg.com"]
-font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
-connect-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://api.github.com/", 'cloudflareinsights.com']
-media-src = ["'self'"]
-object-src = ["'none'"]
-child-src = ["'self'"]
-frame-src = ["'self'", "https://open.spotify.com/", "https://giscus.app/", "https://www.youtube-nocookie.com"]
-frame-ancestors = ["'self'"]
+upgradeInsecureRequests = true
 worker-src = ["'self'"]
-form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
-manifest-src = ["'self'"]
 
 [[dnb.netlification.redirects]]
 netlify = "https://kollitsch-dev.netlify.app/"
 
 [[dnb.netlification.redirects]]
 from = "/_schemata"
-to = "https://kollitsch.dev"
 status = "301"
+to = "https://kollitsch.dev"
 
 [[dnb.netlification.redirects]]
 from = "/repos/*"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/2005/*"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/2006/*"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/2007/*"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/2008/*"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/tags/kollitsch.de/"
-to = "https://kollitsch.dev/tags/davidsneighbour/"
 status = "301"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
 
 [[dnb.netlification.redirects]]
 from = "/tags/dnb/"
-to = "https://kollitsch.dev/tags/davidsneighbour/"
 status = "301"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
 
 [[dnb.netlification.redirects]]
 from = "/tags/dnb-org/"
-to = "https://kollitsch.dev/tags/davidsneighbour/"
 status = "301"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
 
 [[dnb.netlification.redirects]]
 from = "/repos/textpattern-plugins/current/"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/dnb/*"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/repos/textpattern-plugins/current/"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 [[dnb.netlification.redirects]]
 from = "/blog/2021/gitignore-for-gohugo/"
-to = "/blog/2022/gitignore-gohugo/"
 status = "301"
+to = "/blog/2022/gitignore-gohugo/"
 
 [[dnb.netlification.redirects]]
 from = "/blog/2022/100daystooffload/"
-to = "/blog/2022/100-days-to-offload/"
 status = "301"
+to = "/blog/2022/100-days-to-offload/"
 
 [[dnb.netlification.redirects]]
 from = "/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg"
-to = "https://kollitsch.dev/"
 status = "301"
+to = "https://kollitsch.dev/"
 
 # pwa - @see https://dnbhub.xyz/pwa
 ################################################################################
 [dnb.pwa]
+background_color = "#3e3e3e"
+description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
 dev = true
+display = "fullscreen"
 short_name = "kollitsch.dev"
 theme_color = "#cd3c00"
-background_color = "#3e3e3e"
-display = "fullscreen"
-description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Ko Samui, Thailand."
 
 # robots - @see https://dnbhub.xyz/robots
 ################################################################################
@@ -264,51 +264,46 @@ blockAIBots = true
 ################################################################################
 [dnb.social]
 [dnb.social.sharebuttons]
-networks = ["rss", "buymeacoffee", "substack", "mastodon", "linkedin", "instagram", "facebook", "bluesky"]
+networks = ["rss", "buymeacoffee", "mastodon", "linkedin", "instagram", "facebook", "bluesky"]
 
 [dnb.social.network.facebook]
-url = "https://www.facebook.com/patrick.kollitsch/"
 icon = "facebook"
 label = "Follow me on Facebook"
+url = "https://www.facebook.com/patrick.kollitsch/"
 
 [dnb.social.network.bluesky]
-url = "https://bsky.app/profile/kollitsch.dev"
 icon = "square-fill"
 label = "Follow me on Bluesky"
+url = "https://bsky.app/profile/kollitsch.dev"
 
 [dnb.social.network.instagram]
-url = "https://www.instagram.com/pkollitsch/"
 icon = "instagram"
 label = "Follow me on Instagram"
+url = "https://www.instagram.com/pkollitsch/"
 
 [dnb.social.network.linkedin]
-url = "https://www.linkedin.com/in/patrickkollitsch/"
 icon = "linkedin"
 label = "Follow me on LinkedIn"
+url = "https://www.linkedin.com/in/patrickkollitsch/"
 
 [dnb.social.network.mastodon]
-url = "https://mas.to/@davidsneighbour"
 icon = "mastodon"
 label = "Me on Mas.to(don)"
+url = "https://mas.to/@davidsneighbour"
 
 [dnb.social.network.rss]
-url = "https://kollitsch.dev/rss.xml"
 icon = "rss-fill"
 label = "Subscribe to RSS feed"
+url = "https://kollitsch.dev/rss.xml"
 
 [dnb.social.network.buymeacoffee]
-url = "https://www.buymeacoffee.com/davidsneigbour"
 icon = "cup-hot-fill"
 label = "Buy me a coffee"
-
-[dnb.social.network.substack]
-url = "https://davidsneighbour.substack.com/"
-icon = "stack"
-label = "Follow me on Substack"
+url = "https://www.buymeacoffee.com/davidsneigbour"
 
 [dnb.social.twitter]
-profile = "davidsneighbour"
 domain = "davids-neighbour.com"
+profile = "davidsneighbour"
 
 # head - @see https://dnbhub.xyz/head
 ################################################################################
@@ -316,11 +311,11 @@ domain = "davids-neighbour.com"
 latitude = "9.578492"
 longitude = "99.958311"
 # https://en.wikipedia.org/wiki/ISO_3166
-region = "TH-84"
-placename = "Koh Samui"
-separator = " — "
-hometitle = "Welcome! This is KOLLITSCH.dev*. The online playground of Patrick Kollitsch, David's Neighbour."
 colorschemeOrder = "dark light"
+hometitle = "Welcome! This is KOLLITSCH.dev*. The online playground of Patrick Kollitsch, David's Neighbour."
+placename = "Koh Samui"
+region = "TH-84"
+separator = " — "
 
 [dnb.head.fediverse]
 creator = '@davidsneighbour@mas.to'

@@ -140,6 +140,10 @@
 						"title": "Link",
 						"type": "string"
 					},
+					"feed": {
+						"title": "Feed",
+						"type": "string"
+					},
 					"type": {
 						"title": "Type",
 						"type": "string",

@@ -1,3 +1,5 @@
+// see https://github.com/google/jsonnet
+// see https://jsonnet.org/ref/language.html
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
@@ -6,8 +8,8 @@
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
   "author": {
-    "email": "patrick@davids-neighbour.com",
     "name": "Patrick Kollitsch",
+    "email": "patrick@davids-neighbour.com",
     "web": "https://davids-neighbour.com"
   },
   "homepage": "https://kollitsch.dev",
@@ -55,10 +57,6 @@
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
   },
-  "devDependencies": {
-    "@playwright/test": "^1.48.2",
-    "@types/node": "^22.9.0"
-  },
   "scripts": {
     "audit:html": "wireit",
     "build": "wireit",
@@ -92,12 +90,35 @@
     "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/",
     "server2": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --baseURL http://localhost/ --panicOnWarning",
     "server:pagefind": "wireit",
-    "tests": "npx playwright test",
-    "update": "wireit"
+    "update": "wireit",
+    "tests": "npx playwright test"
   },
   "wireit": {
-    "audit:html": {
-      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+    "deploy": {
+      "dependencies": [
+        "release",
+        "build:deploy",
+        "deploy:netlify",
+        "deploy:clearcache"
+      ]
+    },
+    "deploy:netlify": {
+      "command": "netlify deploy --prod --open",
+      "dependencies": [
+        "build"
+      ]
+    },
+    "deploy:netlify:debug": {
+      "command": "set DEBUG=* & netlify deploy --prod --open",
+      "dependencies": [
+        "build"
+      ]
+    },
+    "deploy:clearcache": {
+      "command": "node ./scripts/cloudflare-purge.mjs",
+      "dependencies": [
+        "deploy:netlify"
+      ]
     },
     "build": {
       "dependencies": [
@@ -138,62 +159,14 @@
         "clean:hugo"
       ]
     },
-    "clean:audit": {
-      "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
+    "clean:hugo": {
+      "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
     },
     "clean:dist": {
       "command": "rimraf public"
     },
-    "clean:full": {
-      "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo:full",
-        "clean:netlify"
-      ]
-    },
-    "clean:hugo": {
-      "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
-    },
-    "clean:hugo:full": {
-      "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
-    },
-    "clean:netlify": {
-      "command": "rimraf .netlify/*/*"
-    },
     "clean:wireit": {
       "command": "rimraf .wireit"
-    },
-    "deploy": {
-      "dependencies": [
-        "release",
-        "build:deploy",
-        "deploy:netlify",
-        "deploy:clearcache"
-      ]
-    },
-    "deploy:clearcache": {
-      "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": [
-        "deploy:netlify"
-      ]
-    },
-    "deploy:netlify": {
-      "command": "netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
-    },
-    "deploy:netlify:debug": {
-      "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
-    },
-    "lint": {
-      "dependencies": [
-        "lint:lockfiles"
-      ]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -207,17 +180,26 @@
     "release": {
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
+    "audit:html": {
+      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+    },
     "server": {
       "dependencies": [
         "server:hugo",
         "server:pagefind"
       ]
     },
+    "server:pagefind": {
+      "command": "pagefind ",
+      "files": [
+        "content/**/*.md"
+      ]
+    },
     "server:hugo": {
-      "command": "node bin/hugo/server.js",
       "dependencies": [
         "server:hugo-certificates"
       ],
+      "command": "node bin/hugo/server.js",
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at *"
@@ -227,21 +209,14 @@
     "server:hugo-certificates": {
       "command": "hugo server trust"
     },
-    "server:pagefind": {
-      "command": "pagefind ",
-      "files": [
-        "content/**/*.md"
+    "lint": {
+      "dependencies": [
+        "lint:lockfiles"
       ]
     },
     "update": {
       "dependencies": [
         "update:git-hooks"
-      ]
-    },
-    "update:git-hooks": {
-      "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
       ]
     },
     "update:post": {
@@ -252,14 +227,37 @@
         "update:pre:submodules"
       ]
     },
-    "update:pre:npm": {
-      "command": "npm-check-updates -u --target minor"
-    },
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
     },
+    "update:pre:npm": {
+      "command": "npm-check-updates -u --target minor"
+    },
     "update:pre:vale": {
       "command": "vale --config='.github/vale/vale.ini' --no-exit sync"
+    },
+    "update:git-hooks": {
+      "command": "npx simple-git-hooks",
+      "dependencies": [
+        "update:post"
+      ]
+    },
+    "clean:full": {
+      "command": "rimraf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
+    },
+    "clean:audit": {
+      "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
+    },
+    "clean:hugo:full": {
+      "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
+    },
+    "clean:netlify": {
+      "command": "rimraf .netlify/*/*"
     }
   },
   "config": {
@@ -280,5 +278,9 @@
   "simple-git-hooks": {
     "commit-msg": "npx commitlint -e \"$@\""
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.9.0"
+  }
 }

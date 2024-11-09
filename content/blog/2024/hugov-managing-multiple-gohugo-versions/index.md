@@ -41,7 +41,7 @@ Here's a breakdown of what `hugov` offers:
 
 ## How to use `hugov`
 
-To get started, [clone the repository](https://github.com/davidsneighbour/hugov) and make it executable:
+To get started, [clone the repository](https://github.com/davidsneighbour/hugov) and make the script executable:
 
 ```bash
 git clone git@github.com:davidsneighbour/hugov.git

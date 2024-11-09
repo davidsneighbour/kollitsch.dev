@@ -1,4 +1,31 @@
 # Changelog
+## [2024.5.45](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.44...v2024.5.45) (2024-11-09)
+
+
+### Content
+
+* **fix:** make clear what to make executable ;) ([333e1cf](https://github.com/davidsneighbour/kollitsch.dev/commit/333e1cf3fab895af51242fea81e37eaeb6f1307a))
+
+
+### Theme
+
+* **fix:** move documentation layouts to theme ([be3ef78](https://github.com/davidsneighbour/kollitsch.dev/commit/be3ef7814e29855bc96857a31c2c8f2abeba3408))
+
+
+### Bug Fixes
+
+* update blogroll setup and add item ([16d4e5e](https://github.com/davidsneighbour/kollitsch.dev/commit/16d4e5e65a92003eb7402a9c03f92f597e3de13c))
+
+
+### Chore
+
+* **cleanup:** remove unused components header ([5460613](https://github.com/davidsneighbour/kollitsch.dev/commit/546061399fab0555e06ccd26fadd166b9fe07150))
+
+
+### Build System
+
+* **fix:** add jsonnet config for package.json ([59de1e3](https://github.com/davidsneighbour/kollitsch.dev/commit/59de1e3ef2443ded56b0e05ff96611bbf01d81db))
+
 ## [2024.5.44](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.43...v2024.5.44) (2024-11-07)
 
 

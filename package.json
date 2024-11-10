@@ -276,6 +276,7 @@
     "extends @davidsneighbour/browserslist-config"
   ],
   "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint -e \"$@\""
   },
   "type": "module"

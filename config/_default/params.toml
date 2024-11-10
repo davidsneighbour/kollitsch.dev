@@ -264,7 +264,7 @@ blockAIBots = true
 ################################################################################
 [dnb.social]
 [dnb.social.sharebuttons]
-networks = ["rss", "buymeacoffee", "mastodon", "linkedin", "instagram", "facebook", "bluesky"]
+networks = ["rss", "buymeacoffee", "spotify", "mastodon", "linkedin", "instagram", "facebook", "bluesky"]
 
 [dnb.social.network.facebook]
 icon = "facebook"
@@ -285,6 +285,11 @@ url = "https://www.instagram.com/pkollitsch/"
 icon = "linkedin"
 label = "Follow me on LinkedIn"
 url = "https://www.linkedin.com/in/patrickkollitsch/"
+
+[dnb.social.network.spotify]
+icon = "spotify"
+label = "Listen to music I like on Spotify"
+url = "https://open.spotify.com/user/21u54jpyeywpwxzgsuc24uaba?si=9c32f80f6dfd4bc9"
 
 [dnb.social.network.mastodon]
 icon = "mastodon"

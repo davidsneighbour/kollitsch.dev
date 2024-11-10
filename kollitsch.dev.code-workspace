@@ -44,6 +44,12 @@
 		},
 		{
 			"path": "../hugov"
+		},
+		{
+			"path": "../hugor"
+		},
+		{
+			"path": "../hugo-darkskies-template"
 		}
 	],
 	"settings": {

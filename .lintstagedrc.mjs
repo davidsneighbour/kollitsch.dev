@@ -28,5 +28,5 @@ export default {
   // ],
   "!(CHANGELOG)**/*.{md,markdown}": ["markdownlint-cli2", "npm run lint:vale"],
   "layouts/**/*.*": ["./bin/hugo/refactor layouts"],
-  "**/*.*": ["npx secretlint"],
+  "*": ["secretlint"],
 };

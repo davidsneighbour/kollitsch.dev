@@ -11,6 +11,7 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 * [Site structure](#site-structure)
 * [Ask questions](#ask-questions)
 * [General notes](#general-notes)
+* [Setup repository](#setup-repository)
 * [License](#license)
 
 ## Site structure
@@ -21,13 +22,13 @@ This project is the website setup, theme, and content for [kollitsch.dev](https:
 * [configurations](https://github.com/davidsneighbour/configurations) - Configuration files for various linting and development tools used in this project
 
 <!--lint ignore-->
-|||
-| --- | --- |
-| **Domain Registration** | [Porkbun](https://porkbun.com/products/domains) |
-| **DNS** | [Cloudflare](https://cloudflare.com) |
-| **CDN** | [Cloudflare](https://cloudflare.com) |
-| **Hosting** | [Netlify](https://netlify.com) |
-| **Static Site Generator** | [GoHugo](https://gohugo.io) |
+|                           |                                                 |
+| ------------------------- | ----------------------------------------------- |
+| **Domain Registration**   | [Porkbun](https://porkbun.com/products/domains) |
+| **DNS**                   | [Cloudflare](https://cloudflare.com)            |
+| **CDN**                   | [Cloudflare](https://cloudflare.com)            |
+| **Hosting**               | [Netlify](https://netlify.com)                  |
+| **Static Site Generator** | [GoHugo](https://gohugo.io)                     |
 
 ## Ask questions
 
@@ -37,6 +38,12 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 * The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 * I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open-source programs and scripts.
+
+## Setup repository
+
+```bash
+npx simple-git-hooks
+```
 
 ## License
 

@@ -35,7 +35,7 @@
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
     "alpinejs": "3.14.3",
-    "caniuse-lite": "1.0.30001679",
+    "caniuse-lite": "1.0.30001680",
     "consola": "3.2.3",
     "dotenv": "16.4.5",
     "lint-staged": "15.2.10",

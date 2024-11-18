@@ -9,6 +9,7 @@ response.json
 # replacements for dnb-binaries
 bin/etc/replacements
 chrome
+cache
 firefox
 feedCache.json
 # scratch

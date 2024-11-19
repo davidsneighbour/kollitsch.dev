@@ -15,7 +15,7 @@
     "@alpinejs/collapse": "3.14.3",
     "@alpinejs/intersect": "3.14.3",
     "@biomejs/biome": "1.9.4",
-    "@clack/prompts": "0.7.0",
+    "@clack/prompts": "0.8.1",
     "@davidsneighbour/biome-config": "2024.4.8",
     "@davidsneighbour/browserslist-config": "2024.4.8",
     "@davidsneighbour/commitlint-config": "2024.4.8",

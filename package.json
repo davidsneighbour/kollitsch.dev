@@ -15,14 +15,14 @@
     "@alpinejs/collapse": "3.14.3",
     "@alpinejs/intersect": "3.14.3",
     "@biomejs/biome": "1.9.4",
-    "@clack/prompts": "0.7.0",
+    "@clack/prompts": "0.8.1",
     "@davidsneighbour/biome-config": "2024.4.8",
     "@davidsneighbour/browserslist-config": "2024.4.8",
     "@davidsneighbour/commitlint-config": "2024.4.8",
     "@davidsneighbour/eslint-config": "2024.4.8",
     "@davidsneighbour/frontmatter-config": "2024.4.8",
     "@davidsneighbour/htmlvalidate-config": "2024.4.8",
-    "@davidsneighbour/hugo-darkskies": "1.2024.31",
+    "@davidsneighbour/hugo-darkskies": "1.2024.32",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2024.4.8",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
@@ -35,7 +35,7 @@
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
     "alpinejs": "3.14.3",
-    "caniuse-lite": "1.0.30001679",
+    "caniuse-lite": "1.0.30001680",
     "consola": "3.2.3",
     "dotenv": "16.4.5",
     "lint-staged": "15.2.10",
@@ -54,8 +54,8 @@
   },
   "devDependencies": {
     "@atproto/api": "0.13.16",
-    "@playwright/test": "1.48.2",
-    "@types/node": "22.9.0",
+    "@playwright/test": "1.49.0",
+    "@types/node": "22.9.1",
     "masto": "6.10.1",
     "oauth-1.0a": "2.2.6",
     "twitter-api-v2": "1.18.2"
@@ -118,25 +118,17 @@
     },
     "build:hugo": {
       "command": "hugo --environment gugin --verbose --logLevel debug --debug --minify",
-      "dependencies": [
-        "clean:dist",
-        "build:hugoconfig"
-      ]
+      "dependencies": ["clean:dist", "build:hugoconfig"]
     },
     "build:hugoconfig": {
       "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
     },
     "build:pagefind": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": [
-        "build:hugo"
-      ]
+      "dependencies": ["build:hugo"]
     },
     "clean": {
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo"]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -146,11 +138,7 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo:full",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -174,26 +162,18 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": [
-        "deploy:netlify"
-      ]
+      "dependencies": ["deploy:netlify"]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "lint": {
-      "dependencies": [
-        "lint:lockfiles"
-      ]
+      "dependencies": ["lint:lockfiles"]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -208,16 +188,11 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": [
-        "server:hugo",
-        "server:pagefind"
-      ]
+      "dependencies": ["server:hugo", "server:pagefind"]
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
-      "dependencies": [
-        "server:hugo-certificates"
-      ],
+      "dependencies": ["server:hugo-certificates"],
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at *"
@@ -229,20 +204,14 @@
     },
     "server:pagefind": {
       "command": "pagefind ",
-      "files": [
-        "content/**/*.md"
-      ]
+      "files": ["content/**/*.md"]
     },
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
@@ -274,9 +243,7 @@
     "node": ">=20.12.0",
     "npm": ">=10.5.0"
   },
-  "browserslist": [
-    "extends @davidsneighbour/browserslist-config"
-  ],
+  "browserslist": ["extends @davidsneighbour/browserslist-config"],
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint -e \"$@\""

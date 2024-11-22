@@ -1,4 +1,50 @@
 # Changelog
+## [2024.5.46](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.45...v2024.5.46) (2024-11-22)
+
+
+### Theme
+
+* **fix:** move postcss configuration into theme ([b2150b6](https://github.com/davidsneighbour/kollitsch.dev/commit/b2150b65ed79ea295fea03da2fc40d0d54e1f48f))
+
+
+### Bug Fixes
+
+* **posterboy:** changes to posterboy scripts ([29f8c66](https://github.com/davidsneighbour/kollitsch.dev/commit/29f8c661dbab5fac3e4da943e806113ad7139a9c))
+* **posterboy:** changes to posterboy scripts ([5447418](https://github.com/davidsneighbour/kollitsch.dev/commit/5447418a9ad991113607930f10add42d8ffbfef0))
+
+
+### Chore
+
+* cleanup packages ([d53bac5](https://github.com/davidsneighbour/kollitsch.dev/commit/d53bac5e2c90bef1342cdf411181caa64b7344d7))
+* **config:** add spotify as social network, remove stack... thingy... what's its name? ([9804523](https://github.com/davidsneighbour/kollitsch.dev/commit/9804523803af7a17348f27cbaaa20024733f1e36))
+* **config:** set dependabot to monthly runs ([eb691a5](https://github.com/davidsneighbour/kollitsch.dev/commit/eb691a5d2437f5c0e8514fe5543ae7d8fecf8502))
+* **config:** update git hooks ([0f2d788](https://github.com/davidsneighbour/kollitsch.dev/commit/0f2d788f6a4d8bc9623fbe5aeec326c72597a156))
+* **config:** update lintstaged config for secretlint ([0a8d556](https://github.com/davidsneighbour/kollitsch.dev/commit/0a8d556ff5015aaaf9b47277ee42c0f3a3487573))
+* **config:** update workspace configuration ([a43f45d](https://github.com/davidsneighbour/kollitsch.dev/commit/a43f45d7fdc7c0547cac2d93feddb6e790cdc2a4))
+* **config:** update workspace configuration ([6c4b7f2](https://github.com/davidsneighbour/kollitsch.dev/commit/6c4b7f2261ae1ad509af67e2132ca0bb0cd97e13))
+* **deps:** remove flatlake integration ([e2e5b2d](https://github.com/davidsneighbour/kollitsch.dev/commit/e2e5b2d4ecb755c387ce08b9e58168baeae3b254))
+
+
+### Configuration
+
+* update server script ([128ee25](https://github.com/davidsneighbour/kollitsch.dev/commit/128ee258797c1c5d924b4b502ad31419019f168e))
+
+
+### Build System
+
+* **deps:** bump @eslint/plugin-kit ([#1296](https://github.com/davidsneighbour/kollitsch.dev/issues/1296)) ([b6a118f](https://github.com/davidsneighbour/kollitsch.dev/commit/b6a118fbb3d445c7bd6c4099687cf39a0db2fd40))
+* **deps:** bump @eslint/plugin-kit in the npm_and_yarn group ([#1292](https://github.com/davidsneighbour/kollitsch.dev/issues/1292)) ([9a8ae55](https://github.com/davidsneighbour/kollitsch.dev/commit/9a8ae55bf8565be3d6fc06f799e0685f6b58a8a8))
+* **deps:** bump caniuse-lite from 1.0.30001679 to 1.0.30001680 ([#1290](https://github.com/davidsneighbour/kollitsch.dev/issues/1290)) ([aff20dd](https://github.com/davidsneighbour/kollitsch.dev/commit/aff20dd907abed970c647902a6fd9f9f6a6049a8))
+* **deps:** update dependencies ([fc2048a](https://github.com/davidsneighbour/kollitsch.dev/commit/fc2048a7e0c569c1e0c4da8ebba77a115e389161))
+* **deps:** update dependencies ([cfc6118](https://github.com/davidsneighbour/kollitsch.dev/commit/cfc61189b03aea4a75659c5d8420aae71857ae43))
+* **fix:** proper lintstaged config for biome ([3d259a4](https://github.com/davidsneighbour/kollitsch.dev/commit/3d259a4cb6728ae647331c8e995ab86cc11eb6ea))
+* **fix:** remove eslint, add biome to lint-staged config ([6acc854](https://github.com/davidsneighbour/kollitsch.dev/commit/6acc854912e77a7cd29f9b0e770b651fd92857f8))
+
+
+### CI
+
+* **fix:** remove playwright workflow ([d5eb1f6](https://github.com/davidsneighbour/kollitsch.dev/commit/d5eb1f6d5affcf567687bf008ed75d86642731be))
+
 ## [2024.5.45](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.44...v2024.5.45) (2024-11-09)
 
 

@@ -1,27 +1,26 @@
 ---
 title: Youtube
-description: A shortcode to replace the internal youtube shortcode and add an unobtrusive, privacy conscious and unbloated custom element for YouTube videos using lite-youtube-embed.
+description: A GoHugo Shortcode to replace the internal youtube shortcode. Adding an unobtrusive, privacy-conscious and unbloated custom component for YouTube videos.
+summary: A GoHugo Shortcode to replace the internal youtube shortcode. Adding an unobtrusive, privacy-conscious and unbloated custom component for YouTube videos.
 date: 2023-09-17T18:23:07+07:00
 publishDate: 2022-08-03T21:21:58+07:00
-lastmod: 2024-09-09T11:07:15.833Z
-resources:
-  - src: header-card.png
+lastmod: 2024-11-22T15:02:10+07:00
 tags:
-  - gohugo
-  - component
-  - shortcode
-  - media
-summary: A responsive and very fast shortcode to add youtube videos to your Hugo website.
+- gohugo
+- component
+- shortcode
+- media
+- youtube
 aliases:
-  - /components/hugo-youtube/
-  - /gohugo/youtube/
+- /components/hugo-youtube/
+- /gohugo/youtube/
 ---
 
-A responsive and very fast shortcode to add youtube videos to your Hugo website.
+A GoHugo Shortcode to replace the internal `{{</* youtube */>}}` shortcode and add an unobtrusive, privacy conscious and unbloated custom element for YouTube videos. It uses [paulirish/lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed).
 
 ## Usage
 
-This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive, privacy conscious and unbloated custom element for YouTube videos. It uses [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed).
+As a shortcode this replaces the internal `youtube` shortcode.
 
 ```go-html-template
 {{</* youtube id="dQw4w9WgXcQ" */>}}
@@ -29,21 +28,29 @@ This shortcode replaces the internal `youtube` shortcode and adds an unobtrusive
 {{</* youtube id="dQw4w9WgXcQ" title="Lower your eyelids to die with the sun - M83" */>}}
 ```
 
+The partial works the same way. You can use it in your templates like this:
+
+```go-html-template
+{{ partial "youtube" (dict "id" "dQw4w9WgXcQ" "title" "Lower your eyelids to die with the sun - M83") }}
+```
+
 ### Parameters
 
-| parameter | default | notes                                                                                                                                                                                             |
-| --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _class_   | w-100   | classnames to add to the video container                                                                                                                                                          |
-| _id_      |         | ID of the YouTube video to embed                                                                                                                                                                  |
-| _params_  |         | [custom parameters](https://developers.google.com/youtube/player_parameters#Parameters) to be added to influence the display and functionality of the player. These parameters should be URLized. |
-| _title_   |         | title of the video, will be displayed as banner on top of the preview image                                                                                                                       |
+| param | default | notes |
+| --- | --- | --- |
+| *id* | | ID of the YouTube video to embed |
+| *class* | w-100 | class names to add to the video container |
+| *params* | | [custom parameters][1] to be added to influence the display and features of the player. These parameters should be URLized. |
+| *title* | | title of the video, displayed as banner on top of the preview image |
+| *playlabel* | "Play video" | label for the play button, used as `aria-label`. |
+| *jsapi* | false | enable the YouTube JavaScript API for the video |
 
 ### Resources
 
 You need to add the following files to your pipelines:
 
-- `assets/js/lite-yt-embed.js`
-- `assets/scss/_lite-yt-embed.scss`
+* `assets/js/lite-yt-embed.js`
+* `assets/scss/_lite-yt-embed.scss`
 
 These files are mounted into the `assets` directory. Using `js.Build` in Hugo for instance you can import the script this way:
 
@@ -58,13 +65,25 @@ and import the styles into your SASS pipeline with
 @import 'lite-yt-embed';
 ```
 
-If you have your own templating going on you can use the parmeters in `site.params.­dnb.­youtube.­config.­plugins` to add to your pipelines.
+If you have your own templating going on you can use the parameters in `site.params.­dnb.­youtube.­config.­plugins` to add to your pipelines.
 
-## Content Security Policy (CSP) rules for this plugin
+## Disable YouTube videos globally
 
-Using a CSP on your website you will need to whitelist YouTube frame-src for the video and img-src for the preview thumbnail, if you have no local preview thumbnail available. The following rules are required in addition to your normal setup to allow videos to load:
+Setting `disable` to `true` in [GoHugo's privacy setup](https://gohugo.io/about/privacy/#all-privacy-settings) will disable all YouTube videos created by this module globally. `privacyEnhanced` has no effect on this module, because all YouTube videos are already embedded with the privacy-enhanced mode.
+
+```toml
+[privacy.youtube]
+disable = true
+privacyEnhanced = false
+```
+
+## Content security policy rules for this plugin
+
+The following `frame-src` for the video and `img-src` for the preview thumbnail are required, if you are using a Content Security Policy (CSP) and have no local preview thumbnail available:
 
 ```ini
 frame-src = ["https://www.youtube-nocookie.com"]
 img-src = ["https://i.ytimg.com", "https://ytimg.googleusercontent.com"]
 ```
+
+[1]: https://developers.google.com/youtube/player_parameters#Parameters

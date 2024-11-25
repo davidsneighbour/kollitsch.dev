@@ -117,7 +117,7 @@
       ]
     },
     "build:hugo": {
-      "command": "hugo --environment gugin --verbose --logLevel debug --debug --minify",
+      "command": "hugo --environment gugin --logLevel debug --minify",
       "dependencies": ["clean:dist", "build:hugoconfig"]
     },
     "build:hugoconfig": {

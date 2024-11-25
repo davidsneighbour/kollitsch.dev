@@ -85,8 +85,8 @@
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
-    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --tlsAuto --baseURL https://localhost/",
-    "server2": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --debug --baseURL http://localhost/ --panicOnWarning",
+    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --tlsAuto --baseURL https://localhost/",
+    "server2": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --verbose --logLevel debug --baseURL http://localhost/ --panicOnWarning",
     "server:pagefind": "wireit",
     "update": "wireit",
     "tests": "npx playwright test"
@@ -136,7 +136,7 @@
       ]
     },
     "build:hugo": {
-      "command": "hugo --environment gugin --verbose --logLevel debug --debug --minify",
+      "command": "hugo --environment gugin --verbose --logLevel debug --minify",
       "dependencies": [
         "clean:dist",
         "build:hugoconfig"

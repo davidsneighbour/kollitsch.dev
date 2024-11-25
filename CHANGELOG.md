@@ -1,4 +1,23 @@
 # Changelog
+## [2024.5.47](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.46...v2024.5.47) (2024-11-25)
+
+
+### Content
+
+* **fix:** update youtube component documentation ([0849f5e](https://github.com/davidsneighbour/kollitsch.dev/commit/0849f5e92cccb35c1d278f9e4a30edd6c137e38e))
+* **new:** shutdown raspberry pi via ssh ([ed067ab](https://github.com/davidsneighbour/kollitsch.dev/commit/ed067ab43f79028e17aade3468a544e7fc70ed21))
+
+
+### Chore
+
+* **config:** update workspace configuration ([2b4c47f](https://github.com/davidsneighbour/kollitsch.dev/commit/2b4c47f8eadc2959f7569073e207a1f443a5ae65))
+
+
+### Build System
+
+* **deps:** update dependencies ([2318fee](https://github.com/davidsneighbour/kollitsch.dev/commit/2318fee29bcc0847bb1b1b1333af0d3f73e56523))
+* **fix:** re-add binaries module ([b9ad2b6](https://github.com/davidsneighbour/kollitsch.dev/commit/b9ad2b6f9d2554428b7ea001035d4ee5acdb0d0c))
+
 ## [2024.5.46](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.45...v2024.5.46) (2024-11-22)
 
 

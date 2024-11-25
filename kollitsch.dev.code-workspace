@@ -24,33 +24,16 @@
       "path": "."
     },
     {
-      "name": "Theme",
       "path": "../hugo-darkskies"
     },
     {
-      "name": "Modules",
+      "path": "../hugo-darkskies-template"
+    },
+    {
       "path": "../hugo-modules"
     },
     {
-      "name": "Namespace",
-      "path": "../namespace"
-    },
-    {
-      "name": "Configurations",
-      "path": "../configurations"
-    },
-    {
-      "name": "Asylum",
-      "path": "../hugo-asylum"
-    },
-    {
-      "path": "../hugov"
-    },
-    {
-      "path": "../hugor"
-    },
-    {
-      "path": "../hugo-darkskies-template"
+      "path": "../binaries"
     }
   ],
   "settings": {

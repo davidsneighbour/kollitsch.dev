@@ -28,7 +28,6 @@ static/documentation/styles
 # generated tailwind files
 assets/css/theme.css
 data/dnb/kollitsch/config.json
-bin
 
 #####################################################################
 # ignores via API

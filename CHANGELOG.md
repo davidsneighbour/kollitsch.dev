@@ -1,4 +1,25 @@
 # Changelog
+## [2024.5.48](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.47...v2024.5.48) (2024-11-30)
+
+
+### Content
+
+* **fix:** add nav config for gohugo section ([1717487](https://github.com/davidsneighbour/kollitsch.dev/commit/1717487b26971898b971eb12b665e54e005fd1bc))
+* **fix:** remove archive page ([d896a72](https://github.com/davidsneighbour/kollitsch.dev/commit/d896a729bb7415a93c459cadbff0a0c4ee8b2c8f))
+* **fix:** remove docs for obsolete modules ([408a3a2](https://github.com/davidsneighbour/kollitsch.dev/commit/408a3a24fac79f859ba9490c9aade090366d4e80))
+* **fix:** update pwa documentation ([4623316](https://github.com/davidsneighbour/kollitsch.dev/commit/4623316ca4c01e56af0b5c1682d39da8171c25a9))
+* **new:** alfred hitchcock ([ea1a0fb](https://github.com/davidsneighbour/kollitsch.dev/commit/ea1a0fbbd88351a3deb469d5d977867da36d63d0))
+
+
+### Configuration
+
+* **fix:** update vale vocabulary ([1af965c](https://github.com/davidsneighbour/kollitsch.dev/commit/1af965c47ab26a102dfaa2917676cbd738a7752f))
+
+
+### Build System
+
+* **fix:** add discord and telegram posterboys ([119827f](https://github.com/davidsneighbour/kollitsch.dev/commit/119827fca79a4dff3969f66bfc3c25e21f5851ed))
+
 ## [2024.5.47](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.46...v2024.5.47) (2024-11-25)
 
 

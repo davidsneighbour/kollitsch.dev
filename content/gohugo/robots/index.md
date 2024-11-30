@@ -3,14 +3,19 @@ title: Robots
 description: This GoHugo Module adds a customizable robots.txt to your website.
 date: 2023-06-29T19:21:43+07:00
 publishDate: 2023-06-29T19:21:43+07:00
-lastmod: 2024-09-27T12:46:01.542Z
+lastmod: 2024-11-30T18:39:59+07:00
 tags:
-  - gohugo
-  - component
-  - seo
-  - robots.txt
+- gohugo
+- component
+- seo
+- robots.txt
 aliases:
-  - /components/hugo-robots
+- /components/hugo-robots
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This component for [GoHugo](https://gohugo.io/) adds a customizable robots.txt to your website. This module overrides the internal `robots.txt` generation of GoHugo and lets you configure what's in your robots.txt. It also offers a meta-robots tag for your head section.
@@ -118,4 +123,4 @@ disableBranding = true
 
 ## See this module in action
 
-- [kollitsch.dev/robots.txt](https://kollitsch.dev/robots.txt)
+* [kollitsch.dev/robots.txt](https://kollitsch.dev/robots.txt)

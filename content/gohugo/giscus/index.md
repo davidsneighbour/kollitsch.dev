@@ -4,7 +4,7 @@ description: ""
 summary: ""
 date: 2022-08-16T20:28:30+07:00
 publishDate: 2022-08-16T20:28:30+07:00
-lastmod: 2024-02-01T19:43:32+07:00
+lastmod: 2024-11-30T18:37:43+07:00
 resources:
 - src: header-card.png
 tags:
@@ -13,6 +13,11 @@ tags:
 - content
 aliases:
 - /components/hugo-giscus/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This is a Hugo theme component to add the [Giscus comment system](https://giscus.app/), powered by GitHub Discussions, to static websites.

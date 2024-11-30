@@ -3,67 +3,73 @@ title: Pictures
 description: This component for GoHugo adds partials and shortcodes to resolve and process images on your website. It offers responsive image formats and optimisgit ed loading based on current browser abilities.
 date: 2023-08-21T19:03:35+07:00
 publishDate: 2023-08-21T19:03:35+07:00
-lastmod: 2024-10-10T12:24:09.988Z
+lastmod: 2024-11-30T18:37:46+07:00
 resources:
-  - src: header-card.png
-    name: aheader
-    title: aheader
-  - src: dog-1.jpg
-  - src: dog-2.jpg
-  - src: dog-3.jpg
+- src: header-card.png
+  name: aheader
+  title: aheader
+- src: dog-1.jpg
+- src: dog-2.jpg
+- src: dog-3.jpg
 tags:
-  - gohugo
-  - component
-  - seo
-  - markdown
-  - media
+- gohugo
+- component
+- seo
+- markdown
+- media
 aliases:
-  - /components/hugo-pictures/
+- /components/hugo-pictures/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This component for [GoHugo](https://gohugo.io/) adds partials and shortcodes to resolve and process images on your website. It offers responsive image formats and optimised loading based on current browser abilities.
 
 The simplest way is to use this module as a drop-in. Just install it and forget you ever did. It will work out of the box with the default settings and replace the internal handling of image markdown (`![alt text](image path)`) and the `{{</* figure */>}}` shortcode. You can adapt it's features to your needs by using the partials and global configuration options.
 
-> ### Work in progress!
+> ### Work in progress
 >
 > Check back for better documentation and more features. The following documentation is, as long as this note is here, only partial and might be missing important points. If you have any questions, or ideas, please [add an issue to the issue tracker](https://github.com/davidsneighbour/hugo-modules/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen).
 >
 > ToDo:
 >
-> - [x] markdown render hook for images
-> - [ ] image shortcode
-> - [ ] gallery shortcode
-> - [ ] testing framework
+> * [x] markdown render hook for images
+> * [ ] image shortcode
+> * [ ] gallery shortcode
+> * [ ] testing framework
 
-- [Notes](#notes)
-- [Shortcodes](#shortcodes)
-  - [Figure](#figure)
-    - [Parameters](#parameters)
-    - [Notes](#notes-1)
-  - [Gallery](#gallery)
-    - [Parameters](#parameters-1)
-- [Partials](#partials)
-  - [Figure](#figure-1)
-  - [Gallery](#gallery-1)
-- [Global Configuration](#global-configuration)
-- [Optimisation](#optimisation)
-- [Further Readings](#further-readings)
-- [Usage Examples](#usage-examples)
-  - [Markdown Render Hook](#markdown-render-hook)
-  - [Gallery Shortcode](#gallery-shortcode)
-  - [Image Shortcode](#image-shortcode)
-- [Sample Photo Sources](#sample-photo-sources)
+* [Notes](#notes)
+* [Markdown](#markdown)
+* [Shortcodes](#shortcodes)
+  * [Figure](#figure)
+    * [Parameters](#parameters)
+    * [Notes](#notes-1)
+  * [Gallery](#gallery)
+    * [Parameters](#parameters-1)
+* [Partials](#partials)
+  * [Figure](#figure-1)
+  * [Gallery](#gallery-1)
+* [Global Configuration](#global-configuration)
+* [Optimisation](#optimisation)
+* [Further Readings](#further-readings)
+* [Usage Examples](#usage-examples)
+  * [Markdown Render Hook](#markdown-render-hook)
+  * [Gallery Shortcode](#gallery-shortcode)
+  * [Image Shortcode](#image-shortcode)
+* [Sample Photo Sources](#sample-photo-sources)
 
 ## Notes
 
-- Image processing (aka. resizing, filters, cropping etc) is only available in Global and Page Resources. Global Resources are located in the `assets` folder of your repository, Page Resources are located within the `content` directory with your content files in so called Page Bundles. The images in your `static` directory are loaded as they are, not processed (other than evaluation of content type and sizing) and will not result in responsive image tags. All other features or options will work.
-- Lookup order of images:
-  - page bundle
-  - global resources (`assets` folder)
-  - static folder
-  - after that, a warning about the image not being found is issued on CLI and on the page itself it fails silently
-- Using the `name` attribute implies that page resources are used, and no further lookup will be done if the image is not found in the page bundle.
+* Image processing (aka. resizing, filters, cropping etc) is only available in Global and Page Resources. Global Resources are located in the `assets` folder of your repository, Page Resources are located within the `content` directory with your content files in so called Page Bundles. The images in your `static` directory are loaded as they are, not processed (other than evaluation of content type and sizing) and will not result in responsive image tags. All other features or options will work.
+* Lookup order of images:
+  * page bundle
+  * global resources (`assets` folder)
+  * static folder
+  * after that, a warning about the image not being found is issued on CLI and on the page itself it fails silently
+* Using the `name` attribute implies that page resources are used, and no further lookup will be done if the image is not found in the page bundle.
 
 ## Markdown
 
@@ -196,14 +202,14 @@ To be written.
 
 Notes about:
 
-- resources directory
-- caching (with hugo-netlification)
-- preloading (needs implementation)
-- maybe a walkthrough how this module implements current features?
+* resources directory
+* caching (with hugo-netlification)
+* preloading (needs implementation)
+* maybe a walkthrough how this module implements current features?
 
 ## Further Readings
 
-- [A list of up to date best practices for web images by nucliweb](https://github.com/nucliweb/image-element) (those practices are all implemented in this module)
+* [A list of up to date best practices for web images by nucliweb](https://github.com/nucliweb/image-element) (those practices are all implemented in this module)
 
 ## Usage Examples
 
@@ -263,4 +269,4 @@ Notes about:
 
 ## Sample Photo Sources
 
-- [Good Dog 1](https://unsplash.com/photos/PjgeDNHhg_8), [Good Dog 2](https://unsplash.com/photos/itru42lAV6E), [Good Dog 3](https://unsplash.com/photos/ah63B7-mo3w), [Static Cat](https://unsplash.com/photos/YQlNLVYckRk), [Assets Cat](https://unsplash.com/photos/67HBaxCvA8M) --- License: [Unsplash+ License](https://unsplash.com/plus/license)
+* [Good Dog 1](https://unsplash.com/photos/PjgeDNHhg_8), [Good Dog 2](https://unsplash.com/photos/itru42lAV6E), [Good Dog 3](https://unsplash.com/photos/ah63B7-mo3w), [Static Cat](https://unsplash.com/photos/YQlNLVYckRk), [Assets Cat](https://unsplash.com/photos/67HBaxCvA8M) --- License: [Unsplash+ License](https://unsplash.com/plus/license)

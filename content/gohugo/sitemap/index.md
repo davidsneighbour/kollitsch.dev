@@ -4,27 +4,32 @@ description: Elevate your website's sitemap with a versatile Hugo theme componen
 summary: This is a Hugo theme component with layouts to add a configurable sitemap to your website. Hugo itself has internal templates that add sitemaps, but this component extends this by providing setup options per page and keeping up-to-date with current SEO practices.
 date: 2024-01-14T18:11:57+07:00
 publishDate: 2022-07-19T17:40:35+07:00
-lastmod: 2024-10-12T12:16:46.648Z
+lastmod: 2024-11-30T18:38:59+07:00
 resources:
-  - src: header-card.png
+- src: header-card.png
 tags:
-  - gohugo
-  - component
-  - seo
+- gohugo
+- component
+- seo
 keywords:
-  - gohugo
-  - hugo
-  - component
-  - module
-  - sitemap
-  - google
-  - searchengine
-  - layout
-  - template
-  - seo
-  - optimization
+- gohugo
+- hugo
+- component
+- module
+- sitemap
+- google
+- searchengine
+- layout
+- template
+- seo
+- optimization
 aliases:
-  - /components/hugo-sitemap
+- /components/hugo-sitemap
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This is a Hugo theme component with layouts to add a configurable sitemap to your website. Hugo itself has internal templates that add sitemaps, but this component extends this by providing setup options per page and keeping up-to-date with current SEO practices.
@@ -66,8 +71,8 @@ enabled = true
 
 You can edit the following additional configuration parameters:
 
-- full (boolean, default false) - show `priority` and `changefreq` tags (ignored by Google)
-- format (string, default "2006-01-02") - date format for `lastmod` tag
+* full (boolean, default false) - show `priority` and `changefreq` tags (ignored by Google)
+* format (string, default "2006-01-02") - date format for `lastmod` tag
 
 **DEPRECATED**: Frontmatter `robotsdisallow` from earlier `hugo-robots` versions did result in the page being omitted from the sitemap. This is deprecated, but currently still supported. The module will echo a note on CLI about this.
 
@@ -138,15 +143,15 @@ sortdirection = "ASC"
 
 The parameters are as follows:
 
-- `selection` - Type of page selection.
-  - `in-regular` (default, just omit the parameter) - selects the pages from the `site.RegularPages` collection.
-  - `in-pages` - selects from `site.Pages`
-  - `not-in` - selects all pages NOT in `site.Pages`
-- `type` - field option for the page selection
-- `section` - value option for the page selection
-- `label` - Label for the section headline
-- `sortvalue` - if you wish to sort the selection set this to the field to sort by
-- `sortdirection` (default `ASC`) - direction to sort in, `ASC` or `DESC`
+* `selection` - Type of page selection.
+  * `in-regular` (default, just omit the parameter) - selects the pages from the `site.RegularPages` collection.
+  * `in-pages` - selects from `site.Pages`
+  * `not-in` - selects all pages NOT in `site.Pages`
+* `type` - field option for the page selection
+* `section` - value option for the page selection
+* `label` - Label for the section headline
+* `sortvalue` - if you wish to sort the selection set this to the field to sort by
+* `sortdirection` (default `ASC`) - direction to sort in, `ASC` or `DESC`
 
 Page selection:
 

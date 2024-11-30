@@ -2,22 +2,27 @@
 title: Hooks
 description: This module provides hooks and filters as an easy way for theme developers to let users add partials and blocks at pre-defined safe places in their themes or modules.
 summary: This module provides **Hooks and filters for GoHugo layouts** as an easy way for theme developers to let users add partials and blocks at pre-defined safe places in their themes or modules.
-lastmod: 2024-09-09T11:07:26.448Z
+lastmod: 2024-11-30T18:37:44+07:00
 date: 2024-03-13T22:57:56+07:00
 resources:
-  - src: header-card.png
+- src: header-card.png
 tags:
-  - gohugo
-  - component
-  - themeing
-  - extension
-  - plugin
-  - filter
-  - hooks
-  - module
-  - documentation
+- gohugo
+- component
+- themeing
+- extension
+- plugin
+- filter
+- hooks
+- module
+- documentation
 aliases:
-  - /components/hugo-hooks/
+- /components/hugo-hooks/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 * [Key features](#key-features)
@@ -43,10 +48,10 @@ This module provides a simple way **any theme developer** can add these "layout 
 
 ## Key features
 
-- **Customization:** Users can add custom layout files to predefined locations in their themes, allowing for personalized enhancements and modifications.
-- **Flexibility:** Suitable for a wide range of additions, from simple text blocks to complex scripts, making it adaptable to various needs and purposes.
-- **Caching:** Hooks can be cached for improved performance, reducing creation times.
-- **Ease of Integration:** Hooks can be added to other plugins or themes through configuration settings, facilitating seamless integration and expansion of features. This allows for greater interoperability and adaptability within the GoHugo ecosystem, enabling developers to enhance their themes or plugins with capabilities without extensive coding.
+* **Customization:** Users can add custom layout files to predefined locations in their themes, allowing for personalized enhancements and modifications.
+* **Flexibility:** Suitable for a wide range of additions, from simple text blocks to complex scripts, making it adaptable to various needs and purposes.
+* **Caching:** Hooks can be cached for improved performance, reducing creation times.
+* **Ease of Integration:** Hooks can be added to other plugins or themes through configuration settings, facilitating seamless integration and expansion of features. This allows for greater interoperability and adaptability within the GoHugo ecosystem, enabling developers to enhance their themes or plugins with capabilities without extensive coding.
 
 ## Hook and filter principle
 
@@ -83,9 +88,9 @@ cached = "boolean/string"
 
 Notes:
 
-- hookname without cached at the end. The hook must exist and be called by the calling template so that this hook is added. If the hookname does not exist, this hook will be ignored.
-- weight is used for sorting hooks. Please leave this out to have the hook run in the order it is added. the default weight is 0. Use this only if you want a hook run before or after others.
-- cached is either a boolean defining if the result of the hook is cached per page or run every time it's called or a string. in that case, it is cached with this string as an identifier. This string might be a simple string, which will cache the result globally (NOT per page), or it might contain a %random%, which will be replaced with a random string.
+* hookname without cached at the end. The hook must exist and be called by the calling template so that this hook is added. If the hookname does not exist, this hook will be ignored.
+* weight is used for sorting hooks. Please leave this out to have the hook run in the order it is added. the default weight is 0. Use this only if you want a hook run before or after others.
+* cached is either a boolean defining if the result of the hook is cached per page or run every time it's called or a string. in that case, it is cached with this string as an identifier. This string might be a simple string, which will cache the result globally (NOT per page), or it might contain a %random%, which will be replaced with a random string.
 
 Note that the cached option is a work in progress. I'll need to find ways to cache, for instance, according to section. This might change over time.-
 
@@ -128,9 +133,9 @@ cached = false
 
 Notes:
 
-- `filtername` - The filter must exist and be called by the calling template so that this filter is added. If the `filtername` does not exist as a partial, then this filter is ignored.
-- weight is used for sorting filter. Please leave this out to have the filter run in the order it is added. the default weight is 0. Use this only if you want a filter run before or after others.
-- cached is either a boolean defining if the result of the filter is cached per page or run every time it's called or a string. in that case, it is cached with this string as an identifier. This string might be a simple string, which will cache the result globally (NOT per page), or it might contain a %random%, which will be replaced with a random string.
+* `filtername` - The filter must exist and be called by the calling template so that this filter is added. If the `filtername` does not exist as a partial, then this filter is ignored.
+* weight is used for sorting filter. Please leave this out to have the filter run in the order it is added. the default weight is 0. Use this only if you want a filter run before or after others.
+* cached is either a boolean defining if the result of the filter is cached per page or run every time it's called or a string. in that case, it is cached with this string as an identifier. This string might be a simple string, which will cache the result globally (NOT per page), or it might contain a %random%, which will be replaced with a random string.
 
 Note that the cached option is a work in progress. I'll need to find ways to cache, for instance, according to section. This might change over time.-
 
@@ -162,10 +167,10 @@ disable_messages = [
 
 **disable_messages**:
 
-- `unused_hooks` - silences "unused hooks" messages
-- `running_hooks` - silences ALL "running hook x" messages
-- `running_cached_hooks` - silences all "running cached hook x" messages (`false` if `running_hooks` is false)
-- `running_uncached_hooks` - silences all "running uncached hook x" messages (`false` if `running_hooks` is false)
+* `unused_hooks` - silences "unused hooks" messages
+* `running_hooks` - silences ALL "running hook x" messages
+* `running_cached_hooks` - silences all "running cached hook x" messages (`false` if `running_hooks` is false)
+* `running_uncached_hooks` - silences all "running uncached hook x" messages (`false` if `running_hooks` is false)
 
 The messages system also uses the methods implemented in [`debug`][1] to silence based on verbosity level.
 
@@ -208,8 +213,8 @@ For specific modules use a namespaced hook name (like `dnb.netlification.headers
 
 Have a look a the following projects to see usage of this module:
 
-- [Hooks in the theme of kollitsch.dev][4]
-- [Filters in the theme of kollitsch.dev][5]
+* [Hooks in the theme of kollitsch.dev][4]
+* [Filters in the theme of kollitsch.dev][5]
 
 [^1]: If you know about actions and filters in WordPress then you already have an idea how hooks and filters will work.
 

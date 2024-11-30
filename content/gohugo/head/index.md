@@ -3,15 +3,20 @@ title: Head
 summary: ""
 date: 2023-06-30T17:31:25+07:00
 publishDate: 2022-07-27T21:25:17+07:00
-lastmod: 2024-09-09T11:07:26.983Z
+lastmod: 2024-11-30T18:37:44+07:00
 resources:
-  - src: header-card.png
+- src: header-card.png
 tags:
-  - gohugo
-  - component
-  - seo
+- gohugo
+- component
+- seo
 aliases:
-  - /components/hugo-head/
+- /components/hugo-head/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This is a GoHugo theme component that solves the old question "What belongs between the `<head>` tags of my website?" Set it up, configure it, forget it's there. This component adds a multitude of tags and is extensively configurable.
@@ -44,10 +49,10 @@ nobase = false
 viewport = "width=device-width, initial-scale=1"
 ```
 
-- `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
-- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that page's URL.
-- `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that page's URL.
-- `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default settings are used.
+* `charset`: Sets the global charset for the page. Do not set or change this if you have no reason for it. UTF8 is the proper way to encode your content. If your content (language, encoding) is located in a multibyte region this might change to UTF16 or UTF32.
+* `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that page's URL.
+* `nobase`: Use the websites BaseURL as base tag. This means all relative links will be based on this URL. Depending on your way of writing markup this might be useful to fix local links and references. If you keep this setting out of your configuration then the base-tag will be set to your BaseURL setting. Set it to true and no `base` tag will be used, all references on any page will be based on that page's URL.
+* `viewport`: This is a tag that defines how to display the website on various devices and with what setup. If you don't know about this, then keep it out of your config and the best default settings are used.
 
 ## `title` and `description` generation
 
@@ -202,5 +207,5 @@ placename = ""
 
 ## Sites and Projects using `hugo-head`
 
-- [Kollitsch.dev](https://kollitsch.dev)
-- [Samui? Samui!](https://samui-samui.de)
+* [Kollitsch.dev](https://kollitsch.dev)
+* [Samui? Samui!](https://samui-samui.de)

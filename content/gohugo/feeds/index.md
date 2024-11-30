@@ -3,7 +3,7 @@ title: Feeds
 summary: ""
 date: 2022-07-27T18:34:57+07:00
 publishDate: 2022-07-27T18:34:57+07:00
-lastmod: 2024-02-01T19:42:24+07:00
+lastmod: 2024-11-30T18:37:40+07:00
 resources:
 - src: header-card.png
 tags:
@@ -12,6 +12,11 @@ tags:
 - design
 aliases:
 - /components/hugo-feeds/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This is a GoHugo module that implements three configurable feed formats: RSS, Atom, and JSONfeed.

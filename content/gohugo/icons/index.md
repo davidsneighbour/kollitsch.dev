@@ -1,18 +1,23 @@
 ---
 title: Icons
-description: "This GoHugo module helps you to add SVG-based icon sets to your site. Icons are efficiently used, offering seamless integration of any SVG icon set you choose."
-summary: "This GoHugo module simplifies adding SVG-based icon sets to your site. Icons are efficiently defined once with `<symbol>` and reused with `<use>`, offering seamless integration of any SVG icon set you choose."
+description: This GoHugo module helps you to add SVG-based icon sets to your site. Icons are efficiently used, offering seamless integration of any SVG icon set you choose.
+summary: This GoHugo module simplifies adding SVG-based icon sets to your site. Icons are efficiently defined once with `<symbol>` and reused with `<use>`, offering seamless integration of any SVG icon set you choose.
 date: 2022-07-22T19:10:17+07:00
 publishDate: 2022-07-22T19:10:17+07:00
-lastmod: 2024-10-13T04:41:06.659Z
+lastmod: 2024-11-30T18:40:00+07:00
 resources:
-  - src: header-card.png
+- src: header-card.png
 tags:
-  - gohugo
-  - component
-  - design
+- gohugo
+- component
+- design
 aliases:
-  - /components/hugo-icons/
+- /components/hugo-icons/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This GoHugo module simplifies adding SVG-based icon sets to your site. Icons are efficiently defined once with `<symbol>` and reused with `<use>`, offering seamless integration of any SVG icon set you choose.

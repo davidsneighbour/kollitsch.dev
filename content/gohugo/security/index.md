@@ -4,15 +4,20 @@ description: ""
 summary: ""
 date: 2022-07-28T20:51:08+07:00
 publishDate: 2022-07-28T20:51:08+07:00
-lastmod: 2024-09-09T11:07:17.375Z
+lastmod: 2024-11-30T18:39:00+07:00
 resources:
-  - src: header-card.png
+- src: header-card.png
 tags:
-  - gohugo
-  - component
-  - seo
+- gohugo
+- component
+- seo
 aliases:
-  - /components/hugo-security
+- /components/hugo-security
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This module adds a security.txt file to your Hugo website with information about your preferred procedures to notify the developer team of your website about security issues on your website. Read more about [security.txt](https://securitytxt.org/), a proposed standard which allows websites to define security policies.
@@ -53,10 +58,10 @@ The module will warn you in the CLI log if this parameter is missing.
 
 A few real-world implementation examples of `security.txt`
 
-- <https://www.bbc.com/.well-known/security.txt>
-- <https://www.theguardian.com/.well-known/security.txt>
-- <https://www.google.com/.well-known/security.txt>
+* <https://www.bbc.com/.well-known/security.txt>
+* <https://www.theguardian.com/.well-known/security.txt>
+* <https://www.google.com/.well-known/security.txt>
 
 ... and a few websites that are using `hugo-security`:
 
-- <https://kollitsch.de/.well-known/security.txt>
+* <https://kollitsch.de/.well-known/security.txt>

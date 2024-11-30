@@ -4,7 +4,7 @@ description: A GoHugo Shortcode to replace the internal youtube shortcode. Addin
 summary: A GoHugo Shortcode to replace the internal youtube shortcode. Adding an unobtrusive, privacy-conscious and unbloated custom component for YouTube videos.
 date: 2023-09-17T18:23:07+07:00
 publishDate: 2022-08-03T21:21:58+07:00
-lastmod: 2024-11-22T15:02:10+07:00
+lastmod: 2024-11-30T18:38:56+07:00
 tags:
 - gohugo
 - component
@@ -14,6 +14,11 @@ tags:
 aliases:
 - /components/hugo-youtube/
 - /gohugo/youtube/
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 A GoHugo Shortcode to replace the internal `{{</* youtube */>}}` shortcode and add an unobtrusive, privacy conscious and unbloated custom element for YouTube videos. It uses [paulirish/lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed).

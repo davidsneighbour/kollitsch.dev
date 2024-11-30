@@ -4,15 +4,20 @@ description: ""
 summary: ""
 date: 2022-07-28T20:48:52+07:00
 publishDate: 2022-07-28T20:48:52+07:00
-lastmod: 2024-09-09T11:07:23.770Z
+lastmod: 2024-11-30T18:37:45+07:00
 resources:
-  - src: header-card.png
+- src: header-card.png
 tags:
-  - gohugo
-  - component
-  - seo
+- gohugo
+- component
+- seo
 aliases:
-  - /components/hugo-netlification
+- /components/hugo-netlification
+menus:
+  main:
+    parent: GoHugo
+    params:
+      bsicon: puzzle-fill
 ---
 
 This is a Hugo theme component with helpers to host your [GoHugo](https://gohugo.io/) generated static website on [Netlify](https://www.netlify.com/). If you don't use Netlify, you DO NOT need this module.
@@ -97,9 +102,9 @@ Note: Make sure the urls in your aliases have a leading slash or a leading domai
 
 ### Additional Redirects
 
-- A redirect for 404 errors to Hugo's 404 page (`/layouts/404.html`) - no action by you required
+* A redirect for 404 errors to Hugo's 404 page (`/layouts/404.html`) - no action by you required
 
-- A redirect for your default netlify.com URL to your live URL via data configuration in `data/dnb/netlification/config.toml`
+* A redirect for your default netlify.com URL to your live URL via data configuration in `data/dnb/netlification/config.toml`
 
   ```toml
   [[redirects]]
@@ -108,7 +113,7 @@ Note: Make sure the urls in your aliases have a leading slash or a leading domai
 
   The URL will be redirected to your `baseURL`. Right now this feature requires a trailing slash on both, baseURL and netlify parameter
 
-- Add more redirects as required. Each redirect requires a header `[[redirects]]` followed by at least the parameters `from` and `to`:
+* Add more redirects as required. Each redirect requires a header `[[redirects]]` followed by at least the parameters `from` and `to`:
 
   ```toml
   [[redirects]]
@@ -135,7 +140,7 @@ Have a look in [data/dnb/netlification/config.toml](https://github.com/davidsnei
 
 You can check your content security policy using these following services and audits:
 
-- [https://csp-evaluator.withgoogle.com/?csp=https://kollitsch.dev](https://csp-evaluator.withgoogle.com/?csp=https://kollitsch.dev)
+* [https://csp-evaluator.withgoogle.com/?csp=https://kollitsch.dev](https://csp-evaluator.withgoogle.com/?csp=https://kollitsch.dev)
 
 # Sample Configuration
 
@@ -161,11 +166,11 @@ hugo mod get -u
 
 # Notes
 
-- [Netlify's redirects engine](https://docs.netlify.com/routing/redirects/#rule-processing-order) will process the first matching rule it finds, reading from top to bottom. Rules in the `_redirects` file are always processed first, followed by rules in the Netlify configuration file.
+* [Netlify's redirects engine](https://docs.netlify.com/routing/redirects/#rule-processing-order) will process the first matching rule it finds, reading from top to bottom. Rules in the `_redirects` file are always processed first, followed by rules in the Netlify configuration file.
 
 # Testing output
 
-- [Netlify Playground for redirects](https://play.netlify.com/redirects)
+* [Netlify Playground for redirects](https://play.netlify.com/redirects)
 
 # Troubleshooting
 

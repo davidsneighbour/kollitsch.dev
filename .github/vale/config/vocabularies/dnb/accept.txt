@@ -25,3 +25,6 @@ MIT License
 Lineicons
 SASS
 YouTube
+crossorigin
+CORS
+Google Fonts

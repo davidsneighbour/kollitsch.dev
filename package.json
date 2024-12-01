@@ -19,7 +19,7 @@
     "@davidsneighbour/biome-config": "2024.4.9",
     "@davidsneighbour/browserslist-config": "2024.4.9",
     "@davidsneighbour/commitlint-config": "2024.4.9",
-    "@davidsneighbour/eslint-config": "2024.4.9",
+    "@davidsneighbour/eslint-config": "2024.4.10",
     "@davidsneighbour/frontmatter-config": "2024.4.9",
     "@davidsneighbour/htmlvalidate-config": "2024.4.9",
     "@davidsneighbour/hugo-darkskies": "1.2024.32",

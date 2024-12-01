@@ -18,7 +18,7 @@
     "@clack/prompts": "0.8.1",
     "@davidsneighbour/biome-config": "2024.4.9",
     "@davidsneighbour/browserslist-config": "2024.4.9",
-    "@davidsneighbour/commitlint-config": "2024.4.9",
+    "@davidsneighbour/commitlint-config": "2024.4.10",
     "@davidsneighbour/eslint-config": "2024.4.9",
     "@davidsneighbour/frontmatter-config": "2024.4.9",
     "@davidsneighbour/htmlvalidate-config": "2024.4.9",

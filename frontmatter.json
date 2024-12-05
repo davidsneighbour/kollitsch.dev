@@ -38,16 +38,6 @@
   "frontMatter.custom.scripts": [
     {
       "command": "~/.nvm/versions/node/v20.18.0/bin/node",
-      "script": ".frontmatter/scripts/screenshot-header-image.cjs",
-      "title": "Retrieve Screenshot"
-    },
-    {
-      "command": "~/.nvm/versions/node/v20.18.0/bin/node",
-      "script": ".frontmatter/scripts/retrieve-unsplash-header-image-info.cjs",
-      "title": "Retrieve Unsplash image"
-    },
-    {
-      "command": "~/.nvm/versions/node/v20.18.0/bin/node",
       "script": ".frontmatter/scripts/create-youtube-header-image.js",
       "title": "Generate social image for Youtube"
     }

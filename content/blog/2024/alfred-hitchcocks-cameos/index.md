@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Alfred Hitchcocks Cameos
 linkTitle: Alfred Hitchcocks Cameos
 description: Alfred Hitchcock makes various cameos in his films, often blending humor with suspense. This video highlights his unique storytelling style when it comes to including himself.
@@ -7,10 +6,9 @@ summary: Alfred Hitchcock makes various cameos in his films, often blending humo
 type: video
 date: 2024-11-30T18:54:20+07:00
 publishDate: 2024-11-30T18:54:20+07:00
-lastmod: 2024-11-30T19:22:05+07:00
+lastmod: 2024-12-05T18:12:59+07:00
 resources:
-- title: header
-  src: header.jpg
+- src: header.jpg
 tags:
 - alfred hitchcock
 - video

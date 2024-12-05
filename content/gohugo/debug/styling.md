@@ -3,7 +3,6 @@ title: Styling
 date: 2023-11-16T15:46:21+07:00
 resources:
   - src: header-card.png
-draft: true
 tags:
   - gohugo
   - component

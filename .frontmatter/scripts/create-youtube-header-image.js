@@ -17,7 +17,8 @@ const args = process.argv;
         const response = await fetch(url);
 
         // Check if response is OK and content type is an image
-        if (!response.ok || !response.headers.get('content-type').includes('image')) {
+        const contentType = response.headers.get('content-type');
+        if (!response.ok || !contentType || !contentType.includes('image')) {
           throw new Error('Failed to download image');
         }
 

@@ -1,26 +1,18 @@
-const dnbConfig = require("@davidsneighbour/frontmatter-config");
+const path = require('path');
+require('dotenv').config({
+  path: path.join(__dirname, '../', `.env`)
+});
 
-module.exports = async function (config) {
-  let resolvedDnbConfig;
+console.log(process.env);
 
-  try {
-    resolvedDnbConfig = await (typeof dnbConfig === "function"
-      ? dnbConfig()
-      : dnbConfig);
-  } catch (error) {
-    throw new Error(`Failed to load dnbConfig: ${error.message}`);
-  }
+// @ts-ignore
+module.exports = async (config) => ({
+  ...config,
+  'frontMatter.extends': [
+    'https://dnbhub.xyz/frontmatter/settings.global.json',
+  ],
+  'frontMatter.preview.host': `https://${process.env.HOSTNAME}:${process.env.PORT}`,
+  'frontMatter.taxonomy.seoTitleLength': process.env.SEO_TITLE_LENGTH,
+  'frontMatter.site.baseURL': process.env.WEBSITE_URL,
 
-  if (typeof resolvedDnbConfig !== "object") {
-    throw new Error("dnbConfig must resolve to an object.");
-  }
-
-  if (typeof config !== "object") {
-    throw new Error("The provided config must be an object.");
-  }
-
-  return {
-    ...resolvedDnbConfig,
-    ...config,
-  };
-};
+});

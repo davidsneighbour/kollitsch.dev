@@ -38,17 +38,17 @@
   "frontMatter.custom.scripts": [
     {
       "command": "~/.nvm/versions/node/v20.18.0/bin/node",
-      "script": "./bin/frontmatter/screenshot-header-image.cjs",
+      "script": ".frontmatter/scripts/screenshot-header-image.cjs",
       "title": "Retrieve Screenshot"
     },
     {
       "command": "~/.nvm/versions/node/v20.18.0/bin/node",
-      "script": "./bin/frontmatter/retrieve-unsplash-header-image-info.cjs",
+      "script": ".frontmatter/scripts/retrieve-unsplash-header-image-info.cjs",
       "title": "Retrieve Unsplash image"
     },
     {
       "command": "~/.nvm/versions/node/v20.18.0/bin/node",
-      "script": "./bin/frontmatter/create-youtube-header-image.js",
+      "script": ".frontmatter/scripts/create-youtube-header-image.js",
       "title": "Generate social image for Youtube"
     }
   ],

@@ -1,40 +1,37 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.logging": "verbose",
-  "frontMatter.extends": [
-    "https://dnbhub.xyz/frontmatter/settings.global.json"
-  ],
-  "frontMatter.framework.id": "hugo",
-  "frontMatter.content.publicFolder": "static",
-  "frontmatter.content.autoUpdateDate": true,
-  "frontMatter.dashboard.content.card.fields.date": true,
-  "frontMatter.taxonomy.noPropertyValueQuotes": ["date"],
-  "frontMatter.taxonomy.dateField": "publishDate",
-  "frontMatter.taxonomy.modifiedField": "lastmod",
+  "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.cjs",
   "frontMatter.content.autoUpdateDate": true,
-  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
   "frontMatter.content.pageFolders": [
     {
-      "contentTypes": ["blog", "music2program2", "notes-from-the-laboratory"],
+      "contentTypes": [
+        "blog",
+        "music2program2",
+        "notes-from-the-laboratory"
+      ],
       "path": "[[workspace]]/content/blog",
       "title": "Blog"
     },
     {
-      "contentTypes": ["component"],
+      "contentTypes": [
+        "component"
+      ],
       "path": "[[workspace]]/content/gohugo",
       "title": "Modules"
     },
     {
-      "contentTypes": ["tag"],
+      "contentTypes": [
+        "tag"
+      ],
       "path": "[[workspace]]/content/tags",
       "title": "Tags"
     }
   ],
-  "frontmatter.content.placeholders.permalink": "/blog/{{year}}/{{slug}}/index.md",
+  "frontMatter.content.publicFolder": "static",
   "frontMatter.content.snippets": {
     "Caption": {
-      "description": "caption",
       "body": "{{< caption >}}",
+      "description": "caption",
       "fields": []
     }
   },
@@ -55,6 +52,8 @@
       "title": "Generate social image for Youtube"
     }
   ],
+  "frontMatter.dashboard.content.card.fields.date": true,
+  "frontMatter.dashboard.content.card.fields.status": true,
   "frontMatter.data.files": [
     {
       "file": "[[workspace]]/data/dnb/kollitsch/kurzschnitte.json",
@@ -87,7 +86,11 @@
             "type": "string"
           }
         },
-        "required": ["title", "link", "slug"],
+        "required": [
+          "title",
+          "link",
+          "slug"
+        ],
         "title": "Kurzschnitte",
         "type": "object"
       },
@@ -125,7 +128,11 @@
             "type": "string"
           }
         },
-        "required": ["name", "link", "slug"],
+        "required": [
+          "name",
+          "link",
+          "slug"
+        ],
         "type": "object"
       },
       "title": "Music to program to"
@@ -135,37 +142,83 @@
       "fileType": "json",
       "id": "blogroll",
       "labelField": "name",
-      "title": "Blogroll",
       "schema": {
         "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
           "description": {
             "multiline": true,
             "title": "Description",
-            "type": "string"
-          },
-          "link": {
-            "title": "Link",
             "type": "string"
           },
           "feed": {
             "title": "Feed",
             "type": "string"
           },
+          "link": {
+            "title": "Link",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
           "type": {
+            "enum": [
+              "blog",
+              "podcast",
+              "youtube"
+            ],
             "title": "Type",
-            "type": "string",
-            "enum": ["blog", "podcast", "youtube"]
+            "type": "string"
           }
         },
-        "required": ["name", "link"],
+        "required": [
+          "name",
+          "link"
+        ],
         "type": "object"
+      },
+      "title": "Blogroll"
+    }
+  ],
+  "frontMatter.experimental": true,
+  "frontMatter.extends": [
+    "https://dnbhub.xyz/frontmatter/settings.global.json"
+  ],
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.git.commitMessage": "chore: update content",
+  "frontMatter.git.disableOnBranches": [
+    "main"
+  ],
+  "frontMatter.git.enabled": true,
+  "frontMatter.logging": "verbose",
+  "frontMatter.panel.freeform": true,
+  "frontMatter.projects": [
+    {
+      "name": "blog",
+      "default": true,
+      "configuration": {
+        "frontMatter.content.pageFolders": [{
+          "title": "Blog posts",
+          "path": "[[workspace]]/content/blog"
+        }]
+        //"frontMatter.content.publicFolder": "[[workspace]]/websites/blog/public"
+      }
+    },
+    {
+      "name": "gohugo",
+      "configuration": {
+        "frontMatter.content.pageFolders": [{
+          "title": "Portfolio",
+          "path": "[[workspace]]/content/gohugo"
+        }]
+       // "frontMatter.content.publicFolder": "[[workspace]]/websites/portfolio/public"
       }
     }
   ],
+  // "frontMatter.taxonomy.commaSeparatedFields": [
+  //   "tags",
+  //   "categories"
+  // ],
   "frontMatter.taxonomy.contentTypes": [
     {
       "fields": [
@@ -212,7 +265,6 @@
       "previewPath": null
     },
     {
-      "fieldGroup": ["resources"],
       "fields": [
         {
           "name": "title",
@@ -226,16 +278,16 @@
           "type": "string"
         },
         {
-          "default": "{{now}}",
           "dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+          "default": "{{now}}",
           "isPublishDate": true,
           "name": "date",
           "title": "Publishing date",
           "type": "datetime"
         },
         {
-          "default": "{{now}}",
           "dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+          "default": "{{now}}",
           "isModifiedDate": true,
           "name": "lastmod",
           "title": "Last modified date",
@@ -257,14 +309,15 @@
           "type": "categories"
         },
         {
-          "fieldGroup": ["resources"],
+          "fieldGroup": [
+            "resources"
+          ],
           "multiple": true,
           "name": "resources",
           "title": "Resources",
           "type": "block"
         }
       ],
-      "filetype": "md",
       "name": "blog",
       "pageBundle": true,
       "previewPath": "yyyy/{{permalink}}"
@@ -284,16 +337,16 @@
           "type": "string"
         },
         {
-          "default": "{{now}}",
           "dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+          "default": "{{now}}",
           "isPublishDate": true,
           "name": "date",
           "title": "Publishing date",
           "type": "datetime"
         },
         {
-          "default": "{{now}}",
           "dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+          "default": "{{now}}",
           "isModifiedDate": true,
           "name": "lastmod",
           "title": "Last modified date",
@@ -315,7 +368,9 @@
           "type": "categories"
         },
         {
-          "fieldGroup": ["resources"],
+          "fieldGroup": [
+            "resources"
+          ],
           "name": "resources",
           "title": "Resources",
           "type": "block"
@@ -326,6 +381,8 @@
       "previewPath": "{{permalink}}"
     }
   ],
+  "frontMatter.taxonomy.dateField": "publishDate",
+  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
   "frontMatter.taxonomy.fieldGroups": [
     {
       "fields": [
@@ -370,5 +427,13 @@
       "id": "author",
       "labelField": "name"
     }
-  ]
+  ],
+  "frontMatter.taxonomy.frontMatterType": "YAML",
+  "frontMatter.taxonomy.modifiedField": "lastmod",
+  "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "date"
+  ],
+  "frontMatter.taxonomy.seoDescriptionLength": 180,
+  "frontmatter.content.autoUpdateDate": true,
+  "frontmatter.content.placeholders.permalink": "/blog/{{year}}/{{slug}}/index.md"
 }

@@ -31,9 +31,6 @@
     },
     {
       "path": "../hugo-modules"
-    },
-    {
-      "path": "../binaries"
     }
   ],
   "settings": {

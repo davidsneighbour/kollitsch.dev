@@ -12,6 +12,3 @@ properties:
       - music
       - page
       - documentation
-
-required:
-  - type

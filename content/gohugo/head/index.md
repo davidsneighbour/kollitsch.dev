@@ -28,8 +28,6 @@ This is a GoHugo theme component that solves the old question "What belongs betw
 
 ## General setup
 
-![General Setup](zhead-tag.png)
-
 ```go-html-template
 <head>
  {{ partial "head.html" . }}

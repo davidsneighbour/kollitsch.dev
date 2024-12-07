@@ -1,7 +1,7 @@
-{{- $config := .Get "config" | default "full" -}}
+{{- $config := .Get "config" | compare.Default "full" -}}
 {{- $config = strings.Split $config "." -}}
 {{- $options := site.Data.dnb.kollitsch.config -}}
-{{- if ne "full" $config -}}
+{{- if compare.Ne "full" $config -}}
   {{- $options = collections.Index site.Data.dnb.kollitsch.config $config -}}
 {{- end -}}
 

@@ -1,4 +1,46 @@
 # Changelog
+## [2024.5.49](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.48...v2024.5.49) (2024-12-07)
+
+
+### Content
+
+* **fix:** remove draft from post ([ff675dc](https://github.com/davidsneighbour/kollitsch.dev/commit/ff675dcb47ec2b25e1b9c472dd3b9a310aac614a))
+* **fix:** update head documentation ([ee1fabb](https://github.com/davidsneighbour/kollitsch.dev/commit/ee1fabb6c8408636111e2202b684b0a171dd5500))
+* **fix:** update header image for blog post ([0a6f1b8](https://github.com/davidsneighbour/kollitsch.dev/commit/0a6f1b8f65481bcdbef364809e3e51655d77e588))
+
+
+### Theme
+
+* **fix:** stats icon on the after post hook ([4fd3874](https://github.com/davidsneighbour/kollitsch.dev/commit/4fd3874d2fefdf88b71e84af760106ef877c383a))
+* **fix:** stats icon on the after post hook ([88c58f2](https://github.com/davidsneighbour/kollitsch.dev/commit/88c58f2f97a7f0950a890b7fe4b846c3e8fd2aac))
+
+
+### Chore
+
+* **config:** update workspace configuration ([21174a1](https://github.com/davidsneighbour/kollitsch.dev/commit/21174a11a4f85db91ec5128e5eb66f7f6d37f3f5))
+* **config:** update workspace configuration ([ba28a6d](https://github.com/davidsneighbour/kollitsch.dev/commit/ba28a6d157bfb33012b631cb72ea53d2b334152d))
+
+
+### Configuration
+
+* **fix:** cleanup configuration ([48dd04f](https://github.com/davidsneighbour/kollitsch.dev/commit/48dd04f02e4c06f39ddc47450c715e1dd5449d29))
+
+
+### Build System
+
+* **deps:** update gomodules ([c0e7e0a](https://github.com/davidsneighbour/kollitsch.dev/commit/c0e7e0a8388541df2f71a67374fe4d25df939a2b))
+* **fix:** add linkedin posterboy ([6f1092c](https://github.com/davidsneighbour/kollitsch.dev/commit/6f1092c743bf195a0de896778762abf0625d96db))
+* **fix:** clearout frontmatter scripts ([5fc03b8](https://github.com/davidsneighbour/kollitsch.dev/commit/5fc03b89359b2b0daca1dcd304b88a9543c7fa7a))
+* **fix:** frontmatter script fixes ([488e452](https://github.com/davidsneighbour/kollitsch.dev/commit/488e452f9491e00582da36d2e72b3bc21ab502ec))
+* **fix:** remove background image to theme ([a0868e5](https://github.com/davidsneighbour/kollitsch.dev/commit/a0868e535f538ad7d907f4203a7425ed72e8f555))
+* **fix:** update frontmatter configuration ([de8e676](https://github.com/davidsneighbour/kollitsch.dev/commit/de8e676f17b6ee93200853fc1f9ce529f1021b0a))
+
+
+### CI
+
+* **feat:** add cspell workflow ([e0034bf](https://github.com/davidsneighbour/kollitsch.dev/commit/e0034bf0d260ed5e3748119341f45f6c4fb5562c))
+* **fix:** make type optional ([761ca74](https://github.com/davidsneighbour/kollitsch.dev/commit/761ca74a65b694adbed2dcde2593ab74ed676e4e))
+
 ## [2024.5.48](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.47...v2024.5.48) (2024-11-30)
 
 

@@ -13,7 +13,7 @@ repository = "https://github.com/davidsneighbour/kollitsch.dev"
 label = "Address"
 value = '''
 Patrick Kollitsch
-P.O.Box 10, Post Office Nathon
+1/6 Moo 5, Ban Maenam
 84140 Suratthani
 Thailand
 '''
@@ -53,7 +53,7 @@ dataLoading = "lazy"
 
 [dnb.giscus.extended]
 defaultCommentOrder = "oldest"
-origins = ["htttps://kollitsch.dev", "http://192.168.1.201:1313"]
+origins = ["htttps://kollitsch.dev", "https://127.0.0.1:1313", "https://192.168.1.201:1313"]
 
 # security - @see https://dnbhub.xyz/security
 ################################################################################

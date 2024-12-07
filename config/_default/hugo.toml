@@ -14,26 +14,32 @@ rssLimit = 10
 summaryLength = 15
 timeZone = "Asia/Bangkok"
 title = "KOLLITSCH.dev*"
+
+################################################################################
+# Title style configuration
+################################################################################
+capitalizeListTitles = false
+pluralizeListTitles = false
 titleCaseStyle = "chicago"
 
-##################################################################################
+################################################################################
 # error configuration
-##################################################################################
+################################################################################
 ignoreErrors = []
 
-##################################################################################
+################################################################################
 # hack: increasing timeout to prevent hugo from... timing out while recreating
 # images. this is no more required for this website, because "we got RAM", but
 # kept to find it when working on client projects.
 # MUST be string, MUST contain digits and s for seconds, probably m for minutes
 # (untested)
-##################################################################################
+################################################################################
 timeout = "600s"
 
-##################################################################################
+################################################################################
 # https://gohugo.io/getting-started/configuration/#merge-configuration-from-themes
 # some configurations require different merge settings from the default
-##################################################################################
+################################################################################
 [outputs]
 _merge = 'deep'
 [caches]
@@ -48,3 +54,11 @@ _merge = 'deep'
 _merge = 'deep'
 [taxonomies]
 _merge = 'shallow'
+
+################################################################################
+# pagination
+################################################################################
+[pagination]
+# disableAliases = false
+pagerSize = 10
+# path = 'page'

@@ -3,9 +3,9 @@
   {{- $allPosts := (collections.Index site.Taxonomies.tags "100daystooffload").Pages -}}
   {{- $amount := (collections.Where $allPosts "Date" "gt" $startOfYear) | len -}}
   {{- $rest := math.Sub 100 $amount -}}
-  <div data-nosnippet class="alert alert-dark mb-3" role="alert">
-    <p class="alert-heading d-flex flex-column flex-md-row
-                justify-content-center justify-content-md-between text-center">
+  <div data-nosnippet class="mb-3 alert alert-dark" role="alert">
+    {{ partial "icon.html" (dict "icon" "bar-chart") }}
+    <p class="text-center alert-heading d-flex flex-column flex-md-row justify-content-center justify-content-md-between">
       <small>
         {{- lang.Translate "100daystooffload.note" | transform.Markdownify -}}
       </small>

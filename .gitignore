@@ -30,6 +30,13 @@ assets/css/theme.css
 data/dnb/kollitsch/config.json
 release.json
 
+# playwright output
+test-results.json
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 #####################################################################
 # ignores via API
 #####################################################################
@@ -319,7 +326,3 @@ fabric.properties
 !.idea/runConfigurations
 
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm+all
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/

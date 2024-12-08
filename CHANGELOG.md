@@ -1,4 +1,18 @@
 # Changelog
+## [2024.5.50](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.49...v2024.5.50) (2024-12-08)
+
+
+### Chore
+
+* **config:** update workspace configuration ([24f0718](https://github.com/davidsneighbour/kollitsch.dev/commit/24f07180d42e8cce9ce95203cf73da343c27a099))
+
+
+### Build System
+
+* **deps:** update dependencies ([aeba8a1](https://github.com/davidsneighbour/kollitsch.dev/commit/aeba8a1e62b07bd4a4bb01e0cb43d5c3c6877a74))
+* **deps:** update dependencies ([38cf1a6](https://github.com/davidsneighbour/kollitsch.dev/commit/38cf1a6b22eef4383d21b0203f4a23a0cbc4ef13))
+* **deps:** update dependencies ([3e596e5](https://github.com/davidsneighbour/kollitsch.dev/commit/3e596e52ef2a6e775464f91d5be675df0d4fe196))
+
 ## [2024.5.49](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.48...v2024.5.49) (2024-12-07)
 
 

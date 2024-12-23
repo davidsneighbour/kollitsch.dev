@@ -36,7 +36,7 @@
     "consola": "3.2.3",
     "dotenv": "16.4.7",
     "lint-staged": "15.2.10",
-    "netlify-cli": "17.38.0",
+    "netlify-cli": "17.38.1",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
     "prettier-plugin-go-template": "0.0.15",

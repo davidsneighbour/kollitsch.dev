@@ -39,9 +39,22 @@ test('Verify each link in links.json is reachable', async ({ page }) => {
   }
 
   for (const link of links) {
+    const errors = [];
     await page.goto(link);
     expect(page.url()).toBe(link);
     //console.log(`Successfully navigated to ${link}`);
+
+    page.on('console', (message) => {
+      if (message.type() === 'error') {
+        errors.push(`Error message: ${message.text()}`);
+      }
+    });
+
+    page.on('pageerror', (err) => {
+      console.log(err.message);
+    });
+
+    expect(errors).toHaveLength(0);
   }
 });
 

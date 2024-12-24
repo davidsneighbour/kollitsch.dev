@@ -8,6 +8,9 @@ mainSections = ["blog", "components", "music", "video"]
 contact_form_action = "https://formspree.io/f/xoqyzooe"
 repository = "https://github.com/davidsneighbour/kollitsch.dev"
 
+[dnb.theme.styles.bgimage]
+url = 'images/marc-sendra-martorell-5sF5IxMXrrI-unsplash.jpg' # relative to /assets
+
 [dnb.theme.contact]
 [[dnb.theme.contact.methods]]
 label = "Address"

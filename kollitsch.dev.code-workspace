@@ -24,12 +24,15 @@
       "path": "."
     },
     {
+      "name": "hugo-darkskies",
       "path": "../hugo-darkskies"
     },
     {
+      "name": "hugo-darkskies-template",
       "path": "../hugo-darkskies-template"
     },
     {
+      "name": "hugo-modules",
       "path": "../hugo-modules"
     }
   ],

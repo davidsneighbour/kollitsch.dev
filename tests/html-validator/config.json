@@ -10,7 +10,7 @@
     "element-name": [
       "warn",
       {
-        "whitelist": ["menu", "date", "lite-youtube", "web-vitals"]
+        "whitelist": ["menu", "date", "lite-youtube"]
       }
     ],
     "element-required-content": "off",
@@ -59,7 +59,6 @@
           ":[a-z0-9-]+",
           "x-[a-z0-9-]+:[a-z0-9-]+",
           "x-[a-z0-9-]+.[a-z0-9-]+.[a-z0-9-]+"
-
         ]
       }
     ]

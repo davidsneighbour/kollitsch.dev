@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@biomejs/biome": "1.9.4",
-    "@clack/prompts": "0.8.2",
+    "@clack/prompts": "0.9.0",
     "@davidsneighbour/biome-config": "2024.4.12",
     "@davidsneighbour/browserslist-config": "2024.4.12",
     "@davidsneighbour/commitlint-config": "2024.4.12",
@@ -32,11 +32,12 @@
     "@github/hotkey": "3.1.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
-    "caniuse-lite": "1.0.30001687",
-    "consola": "3.2.3",
+    "caniuse-lite": "1.0.30001690",
+    "commitizen": "^4.3.1",
+    "consola": "3.3.3",
     "dotenv": "16.4.7",
-    "lint-staged": "15.2.10",
-    "netlify-cli": "17.38.0",
+    "lint-staged": "15.2.11",
+    "netlify-cli": "17.38.1",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
     "prettier-plugin-go-template": "0.0.15",
@@ -50,12 +51,12 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@atproto/api": "0.13.19",
-    "@playwright/test": "1.49.0",
-    "@types/node": "22.10.1",
+    "@atproto/api": "0.13.23",
+    "@playwright/test": "1.49.1",
+    "@types/node": "22.10.2",
     "masto": "6.10.1",
     "oauth-1.0a": "2.2.6",
-    "twitter-api-v2": "1.18.2"
+    "twitter-api-v2": "1.19.0"
   },
   "scripts": {
     "audit:html": "wireit",

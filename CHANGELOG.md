@@ -1,4 +1,29 @@
 # Changelog
+## [2024.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.50...v2024.6.0) (2025-01-01)
+
+
+### Content
+
+* blog post from 2025-01-01 ([a5dd54f](https://github.com/davidsneighbour/kollitsch.dev/commit/a5dd54f760d0fc0ad1058b55de540ddbcaa64fc1))
+
+
+### Theme
+
+* **fix:** add default background image and config ([a1c4727](https://github.com/davidsneighbour/kollitsch.dev/commit/a1c4727ab1678d2e31edca2df971fa4e2d1e4275))
+
+
+### Chore
+
+* **deps:** update dependencies ([34dbca7](https://github.com/davidsneighbour/kollitsch.dev/commit/34dbca74ba53205d8d4d803636f6b7d442a8ef24))
+* **git:** update binaries submodule ([374b64b](https://github.com/davidsneighbour/kollitsch.dev/commit/374b64b6eca9c70b4f21c449ca6c3fd5b6c3b8ea))
+* **setup:** update mailmap file ([c706a6d](https://github.com/davidsneighbour/kollitsch.dev/commit/c706a6d258fdc0f16147a3e135721e65d665a436))
+* **setup:** update workspace configuration ([b133b00](https://github.com/davidsneighbour/kollitsch.dev/commit/b133b00f33f3e536d2a86dcc5681089210fa1422))
+
+
+### Build System
+
+* **fix:** a couple of backed up scripts and script updates ([528652f](https://github.com/davidsneighbour/kollitsch.dev/commit/528652fbd8e9590df1357b584f2a8432a676c9b5))
+
 ## [2024.5.50](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.5.49...v2024.5.50) (2024-12-08)
 
 

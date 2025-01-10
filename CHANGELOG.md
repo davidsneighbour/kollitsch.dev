@@ -1,4 +1,6 @@
 # Changelog
+## [2025.0.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.2...v2025.0.3) (2025-01-10)
+
 ## [2025.0.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.1...v2025.0.2) (2025-01-10)
 
 

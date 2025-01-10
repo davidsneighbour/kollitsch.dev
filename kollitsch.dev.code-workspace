@@ -60,7 +60,7 @@
     "stylelint.reportNeedlessDisables": true,
     "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
     "vale.enableSpellcheck": true,
-    "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.github/vale/vale.ini",
+    "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.vale.ini",
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#FF5555",
       "activityBar.background": "#FF5555",

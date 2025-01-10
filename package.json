@@ -1,7 +1,7 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2025.0.3",
+  "version": "2025.0.4",
   "license": "UNLICENSED",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
@@ -150,8 +150,12 @@
     "clean:wireit": {
       "command": "rimraf .wireit"
     },
+    "stopserver": {
+      "command": "killall -9 hugo"
+    },
     "deploy": {
       "dependencies": [
+        "stopserver",
         "release",
         "build:deploy",
         "deploy:netlify",

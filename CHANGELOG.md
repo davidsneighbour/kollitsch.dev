@@ -1,4 +1,28 @@
 # Changelog
+## [2025.0.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.1...v2025.0.2) (2025-01-10)
+
+
+### Content
+
+* **new:** post of 2025-01-10 ([f5df662](https://github.com/davidsneighbour/kollitsch.dev/commit/f5df662536d903dfe26ad7c5a10bda423776db69))
+
+
+### Chore
+
+* **setup:** add dnb package to vale configuration ([6253a4b](https://github.com/davidsneighbour/kollitsch.dev/commit/6253a4b9b79baed58a299da8c0991fba46b61528))
+* **setup:** fix vale setup to new package ([61c3b59](https://github.com/davidsneighbour/kollitsch.dev/commit/61c3b592cf4506ec8104ba847b868b3d399962c8))
+
+
+### Build System
+
+* **deps:** update dependencies ([7c319c1](https://github.com/davidsneighbour/kollitsch.dev/commit/7c319c1e6ca7351a5ae2e5324933785eb0d6f8c3))
+
+
+### CI
+
+* **fix:** proper vale setup ([50d109c](https://github.com/davidsneighbour/kollitsch.dev/commit/50d109c08fd090ee5f26b13dedce36365a6e7658))
+* **fix:** update vale configuration ([2f0e16c](https://github.com/davidsneighbour/kollitsch.dev/commit/2f0e16c1f0ad6be1831369efd699376b3d3d87fd))
+
 ## [2025.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.0...v2025.0.1) (2025-01-01)
 
 ## [2025.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2024.6.0...v2025.0.0) (2025-01-01)

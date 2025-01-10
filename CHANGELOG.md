@@ -1,4 +1,16 @@
 # Changelog
+## [2025.0.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.4...v2025.0.5) (2025-01-10)
+
+
+### Content
+
+* **new:** post of 2025-01-10 ([6628a7c](https://github.com/davidsneighbour/kollitsch.dev/commit/6628a7c0350d0abbcd4457a3106903e88ecb0083))
+
+
+### Build System
+
+* **deps:** update google/osv-scanner-action action to v1.9.2 ([#1318](https://github.com/davidsneighbour/kollitsch.dev/issues/1318)) ([740874a](https://github.com/davidsneighbour/kollitsch.dev/commit/740874a04463e2fa9ba75c3e11a7ba60908120fc))
+
 ## [2025.0.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.3...v2025.0.4) (2025-01-10)
 
 ## [2025.0.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.2...v2025.0.3) (2025-01-10)

@@ -1,4 +1,21 @@
 # Changelog
+## [2025.0.9](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.8...v2025.0.9) (2025-01-12)
+
+
+### Content
+
+* **new:** post of 2025-01-12 ([11cf6b4](https://github.com/davidsneighbour/kollitsch.dev/commit/11cf6b40a6b94895955bd2e636e9adfa4b2bfe4a))
+
+
+### Documentation
+
+* **fix:** typo in README.md ([2c1fa9a](https://github.com/davidsneighbour/kollitsch.dev/commit/2c1fa9a60378c3173d7bde784b790a6b6725fe3e))
+
+
+### Build System
+
+* **deps:** update dependencies ([1904756](https://github.com/davidsneighbour/kollitsch.dev/commit/1904756f7c0c4cddd8979f1f23e5b35ecb6a2a7e))
+
 ## [2025.0.8](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.6...v2025.0.8) (2025-01-11)
 
 

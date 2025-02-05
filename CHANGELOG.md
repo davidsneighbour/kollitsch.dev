@@ -1,4 +1,24 @@
 # Changelog
+## [2025.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.12...v2025.1.0) (2025-02-05)
+
+
+### Features
+
+* update scss to latest dartsass version ([2ea9786](https://github.com/davidsneighbour/kollitsch.dev/commit/2ea9786a7f0c7ed682ac7a99a73917707ec0e93c))
+
+
+### Chore
+
+* **fix:** proper username attribution in CODEOWNERS ([5755202](https://github.com/davidsneighbour/kollitsch.dev/commit/57552021564f3a3892ec4200fde966f75f0b505f))
+* **release:** v2025.0.13 ([71a8c9a](https://github.com/davidsneighbour/kollitsch.dev/commit/71a8c9ae7524e6930a841f14884a8eaba3439b46))
+* **release:** v2025.0.14 ([4851013](https://github.com/davidsneighbour/kollitsch.dev/commit/485101327a5f7146bc68ddeb85ffe4e45e3dbe8b))
+
+
+### Build System
+
+* **deps:** update dependencies ([7a35c6c](https://github.com/davidsneighbour/kollitsch.dev/commit/7a35c6c9cb0ad9db5872ff282056cc0e703af310))
+* **fix:** update required node version ([7829bd3](https://github.com/davidsneighbour/kollitsch.dev/commit/7829bd38cf1040c5cf8f75c3c028c3b3cdd71a66))
+
 ## [2025.0.14](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.13...v2025.0.14) (2025-02-05)
 
 ## [2025.0.13](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.12...v2025.0.13) (2025-02-05)

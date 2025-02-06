@@ -13,7 +13,7 @@
   "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@biomejs/biome": "1.9.4",
-    "@clack/prompts": "0.9.1",
+    "@clack/prompts": "0.10.0",
     "@davidsneighbour/biome-config": "2025.0.1",
     "@davidsneighbour/browserslist-config": "2025.0.1",
     "@davidsneighbour/commitlint-config": "2025.0.1",
@@ -32,16 +32,16 @@
     "@github/hotkey": "3.1.1",
     "@notionhq/client": "2.2.15",
     "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
-    "caniuse-lite": "1.0.30001692",
-    "commitizen": "^4.3.1",
+    "caniuse-lite": "1.0.30001697",
+    "commitizen": "4.3.1",
     "consola": "3.4.0",
     "dotenv": "16.4.7",
-    "lint-staged": "15.4.1",
-    "netlify-cli": "18.0.1",
+    "lint-staged": "15.4.3",
+    "netlify-cli": "18.0.3",
     "ninja-keys": "1.2.2",
     "pixelmatch": "6.0.0",
     "prettier-plugin-go-template": "0.0.15",
-    "sass": "^1.83.4",
+    "sass": "1.84.0",
     "secretlint": "9.0.0",
     "simple-git-hooks": "2.11.1",
     "toml": "3.0.0",
@@ -52,12 +52,12 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@atproto/api": "0.13.27",
-    "@playwright/test": "1.49.1",
-    "@types/node": "22.10.7",
-    "masto": "6.10.2",
+    "@atproto/api": "0.13.33",
+    "@playwright/test": "1.50.1",
+    "@types/node": "22.13.1",
+    "masto": "6.10.3",
     "oauth-1.0a": "2.2.6",
-    "twitter-api-v2": "1.19.0"
+    "twitter-api-v2": "1.19.1"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -88,8 +88,7 @@
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
-    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --logLevel debug --tlsAuto --baseURL https://localhost/",
-    "server2": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --logLevel debug --baseURL http://localhost/ --panicOnWarning",
+    "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --logLevel debug --tlsAuto --baseURL https://localhost/ 2>&1 | tee -a hugo.log",
     "server:pagefind": "wireit",
     "tests": "npx playwright test",
     "update": "wireit"

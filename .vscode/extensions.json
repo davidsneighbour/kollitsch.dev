@@ -2,7 +2,6 @@
   "recommendations": [
     "naumovs.color-highlight",
     "github.copilot-labs",
-    "rescuetime.rescuetime",
     "dunstontc.vscode-go-syntax",
     "dbaeumer.vscode-eslint",
     "mikestead.dotenv",

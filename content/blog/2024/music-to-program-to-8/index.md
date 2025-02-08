@@ -1,23 +1,31 @@
 ---
-title: Music to Program to, Part 8
+title: 'Music to Program to, Part 8'
 linktitle: PM8
-description: \"Flow State\" by Above & Beyond is in my opinion an ideal soundtrack for enhancing concentration and workflow.
-summary: "\"Flow State\" by Above & Beyond is ideal for enhancing concentration and workflow. The album's ambient compositions and neo-classical soundscapes create a serene and non-intrusive background, conducive to entering a state of deep focus, often referred to as the \"flow state\" in programming and other cognitive-intensive tasks."
+description: >-
+  \"Flow State\" by Above & Beyond is in my opinion an ideal soundtrack for
+  enhancing concentration and workflow.
+summary: >-
+  "Flow State" by Above & Beyond is ideal for enhancing concentration and
+  workflow. The album's ambient compositions and neo-classical soundscapes
+  create a serene and non-intrusive background, conducive to entering a state of
+  deep focus, often referred to as the "flow state" in programming and other
+  cognitive-intensive tasks.
 tags:
-- programming-music
-- above-and-beyond
-- 100DaysToOffload
-- programming-environment
+  - programming-music
+  - above-and-beyond
+  - 100DaysToOffload
+  - programming-environment
 type: music
 resources:
-- src: header.jpg
+  - src: header.jpg
 video:
   youtube: CNfmij_Cpq8
   artist: above-and-beyond
   title: Flow State
-date: 2024-01-02T17:26:42+07:00
-publishDate: 2024-01-02T17:26:42+07:00
-lastmod: 2024-03-19T16:11:42+07:00
+date: 2024-01-02T10:26:42.000Z
+publishDate: 2024-01-02T10:26:42.000Z
+lastmod: 2024-03-19T09:11:42.000Z
+fmContentType: blog
 ---
 
 "Flow State" by Above & Beyond is in my opinion an ideal soundtrack for enhancing concentration and workflow. The album's 49 minutes of ambient compositions and neo-classical soundscapes create a serene and non-intrusive background, conducive to entering a state of deep focus, often referred to as the "flow state" in programming and other cognitive-intensive tasks.

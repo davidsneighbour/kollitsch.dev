@@ -1,6 +1,6 @@
 ---
 linkTitle: Weblog
-lastmod: 2024-04-01T21:20:09+07:00
+lastmod: 2024-04-01T14:20:09.000Z
 menu:
   main:
     name: Blog
@@ -8,4 +8,6 @@ menu:
     params:
       bsicon: chat-right-text-fill
       hotkey: k+b
+fmContentType: blog
 ---
+

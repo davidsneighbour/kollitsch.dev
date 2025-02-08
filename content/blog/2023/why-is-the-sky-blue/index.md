@@ -1,18 +1,21 @@
 ---
 title: Why is the sky blue?
-description: "Did you ever ask yourself why the sky is blue? Here is what you need to know: The color of the sky is a result of a phenomenon called Rayleigh scattering."
-date: 2023-10-01T18:59:22+07:00
-publishDate: 2023-10-01T18:59:22+07:00
-lastmod: 2024-03-03T21:36:13+07:00
+description: >-
+  Did you ever ask yourself why the sky is blue? Here is what you need to know:
+  The color of the sky is a result of a phenomenon called Rayleigh scattering.
+date: 2023-10-01T11:59:22.000Z
+publishDate: 2023-10-01T11:59:22.000Z
+lastmod: 2024-03-03T14:36:13.000Z
 resources:
-- src: johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
+  - src: johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
 tags:
-- physics
-- social-media
-- 100DaysToOffload
+  - physics
+  - social-media
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: A-V2Vb6R9NQ
+fmContentType: blog
 ---
 
 Did you ever ask yourself why the sky is blue? Here is what you need to know:

@@ -1,25 +1,28 @@
 ---
-'$schema': /static/_schemata/blog.schema.yaml
+$schema: /static/_schemata/blog.schema.yaml
 title: hugov - a tool for managing Hugo versions
-description: "hugov is a Bash tool for managing Hugo versions. Download and link versions easily, and update to the latest version with simple commands."
-summary: "`hugov` streamlines Hugo version management with options to download only missing versions, list available downloads, and symlink specific versions. Set custom directories, update to the latest version, and pick standard or extended versions—all from the command line."
-
-date: 2024-11-07T16:24:38+07:00
-publishDate: 2024-11-07T16:24:38+07:00
-lastmod: 2024-11-07T16:24:38+07:00
-
+description: >-
+  hugov is a Bash tool for managing Hugo versions. Download and link versions
+  easily, and update to the latest version with simple commands.
+summary: >-
+  `hugov` streamlines Hugo version management with options to download only
+  missing versions, list available downloads, and symlink specific versions. Set
+  custom directories, update to the latest version, and pick standard or
+  extended versions—all from the command line.
+date: 2024-11-07T09:24:38.000Z
+publishDate: 2024-11-07T09:24:38.000Z
+lastmod: 2024-11-07T09:24:38.000Z
 resources:
   - title: hugov - a tool for managing Hugo versions
     src: getty-images-M0Ozda1sRYs-unsplash.jpg
-
 tags:
   - gohugo
   - bash
   - script
   - 100DaysToOffload
-
 unsplash:
   imageid: M0Ozda1sRYs
+fmContentType: blog
 ---
 
 This blog post introduces [`hugov`](https://github.com/davidsneighbour/hugov), a Bash utility script I wrote to streamline my workflow with Hugo. Whether I need to download, list, or link specific Hugo versions, `hugov` simplifies these tasks with minimal effort and command-line familiarity.

@@ -1,13 +1,21 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - The eighth
-description: Explore web development tools, learning resources on CSS and JavaScript, plus fun AI tools and emoji innovations in Kurzschnitte II's 8th edition.
-summary: Dive into the latest in web development, CSS guides, and JavaScript tips in Kurzschnitte II's edition 8. Includes unique AI text transformations, emoji creativity, and tips for efficient DOM manipulation, plus resources for enhancing your coding and design skills.
+description: >-
+  Explore web development tools, learning resources on CSS and JavaScript, plus
+  fun AI tools and emoji innovations in Kurzschnitte II's 8th edition.
+summary: >-
+  Dive into the latest in web development, CSS guides, and JavaScript tips in
+  Kurzschnitte II's edition 8. Includes unique AI text transformations, emoji
+  creativity, and tips for efficient DOM manipulation, plus resources for
+  enhancing your coding and design skills.
 date: 2024-10-10T11:10:57.557Z
 publishDate: 2024-10-10T11:10:57.557Z
 lastmod: 2024-10-10T11:12:01.180Z
 resources:
-  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 categories:
   - kurzschnitte
@@ -18,6 +26,7 @@ tags:
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
+fmContentType: blog
 ---
 
 Welcome to the eight edition of Kurzschnitte II. The number eight, also the atomic number of oxygen, holds significant interest in various contexts. It has been argued that, since the cardinal number seven is the highest number of items that can be universally processed as a single set, the etymology of "eight" might reflect a composite nature, seen as "twice four" or "two short of ten." In our Solar System, following Pluto's reclassification as a dwarf planet on August 24th, 2006 (meh), eight bodies are now recognized as planets orbiting the Sun. Additionally, eight is the first composite number, neither prime nor semiprime.

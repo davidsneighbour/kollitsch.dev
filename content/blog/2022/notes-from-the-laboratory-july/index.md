@@ -1,19 +1,24 @@
 ---
-title: "Notes from the Laboratory: July 2022"
+title: 'Notes from the Laboratory: July 2022'
 linkTitle: Laboratory 2022-07
-description: Another monthly report from the depths of the laboratory of kollitsch.den - July 2022
-date: 2022-08-01T20:22:57+07:00
-publishDate: 2022-08-01T20:22:57+07:00
+description: >-
+  Another monthly report from the depths of the laboratory of kollitsch.den -
+  July 2022
+date: 2022-08-01T13:22:57.000Z
+publishDate: 2022-08-01T13:22:57.000Z
 lastmod: 2024-09-09T11:07:46.830Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

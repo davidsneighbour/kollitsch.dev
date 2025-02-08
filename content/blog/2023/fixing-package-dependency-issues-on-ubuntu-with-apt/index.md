@@ -1,11 +1,16 @@
 ---
 title: Fixing package dependency issues on Ubuntu with APT
-description: Have you ever tried installing a program on your Ubuntu and ran into error messages about unconfigured dependencies? Don't worry; it happens to the best of us.
-date: 2023-03-06T19:07:56+07:00
-publishDate: 2023-03-06T19:07:56+07:00
-lastmod: 2023-08-07T20:33:10+07:00
+description: >-
+  Have you ever tried installing a program on your Ubuntu and ran into error
+  messages about unconfigured dependencies? Don't worry; it happens to the best
+  of us.
+date: 2023-03-06T12:07:56.000Z
+publishDate: 2023-03-06T12:07:56.000Z
+lastmod: 2023-08-07T13:33:10.000Z
 resources:
-  - title: Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - troubleshooting
@@ -13,6 +18,7 @@ tags:
   - ubuntu
   - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 Have you ever tried installing a program on your Ubuntu and ran into error messages about unconfigured dependencies? Don't worry; it happens to the best of us. For example, when you install a program, it might rely on other software packages to run correctly; if those dependencies are not met, the program won't work.

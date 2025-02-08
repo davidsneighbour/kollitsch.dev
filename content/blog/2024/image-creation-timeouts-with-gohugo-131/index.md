@@ -1,25 +1,21 @@
 ---
-'$schema': /static/_schemata/blog.schema.yaml
+$schema: /static/_schemata/blog.schema.yaml
 title: Image creation timeouts with Gohugo v0.131.0
-description: ""
-summary: ""
-
-date: 2024-08-04T19:47:01+07:00
-publishDate: 2024-08-04T19:47:01+07:00
-lastmod: 2024-08-04T19:47:01+07:00
-
+description: ''
+summary: ''
+date: 2024-08-04T12:47:01.000Z
+publishDate: 2024-08-04T12:47:01.000Z
+lastmod: 2024-08-04T12:47:01.000Z
 resources:
   - title: GoHugo v0.131.0
     src: hugo-0.131.0.png
-
 tags:
   - gohugo
   - tag2
   - tag3
   - 100DaysToOffload
-
 type: blog
-
+fmContentType: blog
 ---
 
 In Hugo v0.131.0, there's an exciting update: the image hashing process now uses `xxHash`, which is much speedier compared to the old MD5 hashing. It trims down those lengthy processed image filenames to a minimum.

@@ -1,23 +1,30 @@
 ---
-$schema: https://kollitsch.dev/_schemata/blog.schema.yaml
+$schema: 'https://kollitsch.dev/_schemata/blog.schema.yaml'
 title: Highlighting blockquotes in GitHub Markdown format
-description: Discover how to use GitHub's new Markdown features to highlight notes, warnings, and more, enhancing your documentation's readability.
-summary: GitHub recently introduced an innovative feature for Markdown documents that allows users to highlight "Note", "Warning", and other notification blocks more effectively. An enhancement useful for developers who want to draw attention to important information in their documentation or discussions.
-date: 2024-03-25T20:48:04+07:00
-publishDate: 2024-03-25T20:48:04+07:00
-lastmod: 2024-03-28T19:10:43+07:00
+description: >-
+  Discover how to use GitHub's new Markdown features to highlight notes,
+  warnings, and more, enhancing your documentation's readability.
+summary: >-
+  GitHub recently introduced an innovative feature for Markdown documents that
+  allows users to highlight "Note", "Warning", and other notification blocks
+  more effectively. An enhancement useful for developers who want to draw
+  attention to important information in their documentation or discussions.
+date: 2024-03-25T13:48:04.000Z
+publishDate: 2024-03-25T13:48:04.000Z
+lastmod: 2024-03-28T12:10:43.000Z
 resources:
-- title: Setting up highlighted notes in GitHub Markdown
-  src: header.jpg
-- title: Setting up highlighted notes in GitHub Markdown
-  src: input.jpg
+  - title: Setting up highlighted notes in GitHub Markdown
+    src: header.jpg
+  - title: Setting up highlighted notes in GitHub Markdown
+    src: input.jpg
 tags:
-- markdown
-- github
-- documentation
-- howto
-- 100DaysToOffload
+  - markdown
+  - github
+  - documentation
+  - howto
+  - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 GitHub recently introduced an innovative feature for Markdown documents that allows users to highlight "Note", "Warning", and other notification blocks more effectively. This enhancement is especially useful for developers who want to draw attention to important information within their documentation or discussions.

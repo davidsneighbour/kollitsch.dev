@@ -1,19 +1,24 @@
 ---
 title: Git's missing status Hook
-description: Discover how a custom Git status hook can automate tasks, improve code quality, and streamline your development workflow.
-date: 2023-10-17T16:21:54+07:00
-publishDate: 2023-10-17T16:21:54+07:00
-lastmod: 2023-10-19T19:03:44+07:00
+description: >-
+  Discover how a custom Git status hook can automate tasks, improve code
+  quality, and streamline your development workflow.
+date: 2023-10-17T09:21:54.000Z
+publishDate: 2023-10-17T09:21:54.000Z
+lastmod: 2023-10-19T12:03:44.000Z
 resources:
-- title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: >-
+      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- bash
-- git
-- 100DaysToOffload
+  - bash
+  - git
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: wX2L8L-fGeA
+fmContentType: blog
 ---
 
 Despite its many advantages and nifty features of Git, there's one feature it lacks: a status hook.

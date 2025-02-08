@@ -1,11 +1,16 @@
 ---
 title: Changes to Hugo's debugging abilities on the CLI
-description: Hugo v0.114.0 dropped and deprecated various CLI flags, introducing --logLevel for verbosity. Theme developers though can only access WARN and ERROR loglines.
-date: 2023-06-21T22:54:26+07:00
-publishDate: 2023-06-21T22:54:26+07:00
-lastmod: 2023-06-21T23:13:35+07:00
+description: >-
+  Hugo v0.114.0 dropped and deprecated various CLI flags, introducing --logLevel
+  for verbosity. Theme developers though can only access WARN and ERROR
+  loglines.
+date: 2023-06-21T15:54:26.000Z
+publishDate: 2023-06-21T15:54:26.000Z
+lastmod: 2023-06-21T16:13:35.000Z
 resources:
-  - title: Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge)
+      via [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - gohugo
@@ -17,6 +22,7 @@ tags:
 type: blog
 unsplash:
   imageid: abcdefghijk
+fmContentType: blog
 ---
 
 [Hugo](https://gohugo.io) in [version 0.114.0](https://github.com/gohugoio/hugo/releases/tag/v0.114.0) finally introduced the changes [I wrote about a while back](/blog/2022/piping-output-to-files-in-bash/).

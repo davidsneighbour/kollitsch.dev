@@ -1,19 +1,24 @@
 ---
-title: "Notes from the Laboratory: March 2023"
+title: 'Notes from the Laboratory: March 2023'
 linkTitle: Laboratory 2023-03
-description: Another monthly report from the depths of the laboratory of kollitsch.dev - March 2023
-date: 2023-04-03T18:05:07+07:00
-publishDate: 2023-04-03T18:05:07+07:00
+description: >-
+  Another monthly report from the depths of the laboratory of kollitsch.dev -
+  March 2023
+date: 2023-04-03T11:05:07.000Z
+publishDate: 2023-04-03T11:05:07.000Z
 lastmod: 2024-09-09T11:07:36.828Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

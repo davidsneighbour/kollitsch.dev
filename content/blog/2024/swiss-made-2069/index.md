@@ -1,7 +1,11 @@
 ---
-title: "Swiss Made 2069: H.R. Giger's First Cinematic Monster(s)"
-description: "*Swiss Made 2069* (1968) marked the very first appearance of H.R. Giger's iconic creatures on the big screen."
-summary: "*Swiss Made 2069* (1968) marked the very first appearance of H.R. Giger's iconic creatures on the big screen."
+title: 'Swiss Made 2069: H.R. Giger''s First Cinematic Monster(s)'
+description: >-
+  *Swiss Made 2069* (1968) marked the very first appearance of H.R. Giger's
+  iconic creatures on the big screen.
+summary: >-
+  *Swiss Made 2069* (1968) marked the very first appearance of H.R. Giger's
+  iconic creatures on the big screen.
 date: 2024-09-28T12:26:56.628Z
 publishDate: 2024-09-28T12:26:56.628Z
 lastmod: 2024-09-28T16:50:26.484Z
@@ -16,6 +20,7 @@ tags:
   - 100DaysToOffload
 video:
   youtube: _jLCFpU8HPM
+fmContentType: blog
 ---
 
 In the late 1960s, Swiss cinema witnessed a groundbreaking moment with the release of *Swiss Made 2069* (1968). Directed by Fredi M. Murer and co-written with Yves Yersin, the film pushed boundaries in more ways than one, featuring the futuristic dystopia of a state-controlled Switzerland. While the plot and themes of the film sparked their own discussions, one significant aspect has continued to resonate with cinema enthusiasts and art lovers alike: it marked the very first appearance of H.R. Giger's iconic creatures on the big screen.

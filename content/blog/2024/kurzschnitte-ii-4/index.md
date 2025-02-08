@@ -1,11 +1,15 @@
 ---
 title: Kurzschnitte II - Number 4
-description: The fourth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks.
-date: 2024-05-26T19:32:43+07:00
-publishDate: 2024-05-26T19:32:43+07:00
+description: >-
+  The fourth installment of Kurzschnitte II, where I'm sharing a collection of
+  articles and tutorials that caught my attention in the past few weeks.
+date: 2024-05-26T12:32:43.000Z
+publishDate: 2024-05-26T12:32:43.000Z
 lastmod: 2024-09-09T11:07:34.971Z
 resources:
-  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - kurzschnitte
@@ -14,6 +18,7 @@ tags:
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
+fmContentType: blog
 ---
 
 Two is company, three's a crowd, and four? Four is an outright party where even the furniture insists on joining the dance floor! Welcome to the fourth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. Enjoy the read and let me know what you think!

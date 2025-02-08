@@ -1,12 +1,16 @@
 ---
 title: Kurzschnitte II - Third Linkdump
 slug: kurzschnitte-ii-3
-description: "Explore the latest in web development and design with Kurzschnitte II: from open-source insights to CSS animations and favicon tips. Dive in now!"
-date: 2024-02-10T20:56:51+07:00
-publishDate: 2024-02-10T20:56:51+07:00
+description: >-
+  Explore the latest in web development and design with Kurzschnitte II: from
+  open-source insights to CSS animations and favicon tips. Dive in now!
+date: 2024-02-10T13:56:51.000Z
+publishDate: 2024-02-10T13:56:51.000Z
 lastmod: 2024-09-09T11:07:35.545Z
 resources:
-  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - kurzschnitte
@@ -15,6 +19,7 @@ tags:
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
+fmContentType: blog
 ---
 
 Two is a company, three's a crowd. … But three is also a magic number. So here's the third installment of my linkdump series, Kurzschnitte II. I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. From open-source reflections to CSS animations and favicon best practices, these resources offer valuable insights and practical tips for web developers and designers. Enjoy the read and let me know what you think!

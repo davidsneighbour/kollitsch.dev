@@ -1,13 +1,18 @@
 ---
-title: "Notes from the Laboratory: July 2023"
+title: 'Notes from the Laboratory: July 2023'
 linkTitle: Laboratory 2023-07
-description: I am trying this new "thing" of "reporting" what I was up to in a certain period this year, and monthly reviews just sound like something normal people would do. Bear with me while I am typing up this report.
-date: 2023-08-02T16:43:48+07:00
-publishDate: 2023-08-02T16:43:48+07:00
+description: >-
+  I am trying this new "thing" of "reporting" what I was up to in a certain
+  period this year, and monthly reviews just sound like something normal people
+  would do. Bear with me while I am typing up this report.
+date: 2023-08-02T09:43:48.000Z
+publishDate: 2023-08-02T09:43:48.000Z
 lastmod: 2024-09-09T11:07:38.087Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -15,6 +20,7 @@ tags:
   - 100DaysToOffload
 aliases:
   - /notes-from-the-laboratory-july-2023
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain period this year, and monthly reviews just sound like something normal people would do. Bear with me while I am typing up this report.

@@ -1,17 +1,18 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: That wasn't my fault
-date: 2023-04-21T21:33:04+07:00
-publishDate: 2023-04-21T21:33:04+07:00
-lastmod: 2024-03-03T21:35:00+07:00
+date: 2023-04-21T14:33:04.000Z
+publishDate: 2023-04-21T14:33:04.000Z
+lastmod: 2024-03-03T14:35:00.000Z
 resources:
-- title: That wasn't my fault
-  src: header.png
+  - title: That wasn't my fault
+    src: header.png
 tags:
-- star-trek
-- picard
-- 100DaysToOffload
+  - star-trek
+  - picard
+  - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 A slight spoiler warning for the third season of "Star Trek: Picard" ahead.

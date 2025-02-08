@@ -1,18 +1,21 @@
 ---
 title: (Another) new beginning
-date: 2021-10-21T20:00:00+07:00
+date: 2021-10-21T13:00:00.000Z
 description: A short summary of how we got here and where we go from here.
 keywords: []
 resources:
-- src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
-  title: Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via [Unsplash](https://unsplash.com)
+  - src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+    title: >-
+      Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via
+      [Unsplash](https://unsplash.com)
 tags:
-- davidsneighbour
-- me-now
+  - davidsneighbour
+  - me-now
 unsplash:
   imageid: HcUDHJfd5GY
-lastmod: 2024-03-03T21:36:19+07:00
+lastmod: 2024-03-03T14:36:19.000Z
 type: blog
+fmContentType: blog
 ---
 
 **Hello again, Internet!** You might not know me, but you probably already somewhere came across my work or myself if you ended up here. My name is Patrick (born 1975). I am a German, living on Koh Samui in Thailand and I am a web worker. Let me give you a short summary of how we got here and where we go from here :smile:

@@ -1,13 +1,19 @@
 ---
 title: Kurzschnitte II - The fifth
 linkTitle: Kurzschnitte II - Pt. 5
-description: The fifth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks.
-summary: The fifth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks.
+description: >-
+  The fifth installment of Kurzschnitte II, where I'm sharing a collection of
+  articles and tutorials that caught my attention in the past few weeks.
+summary: >-
+  The fifth installment of Kurzschnitte II, where I'm sharing a collection of
+  articles and tutorials that caught my attention in the past few weeks.
 date: 2024-09-03T11:53:38.370Z
 publishDate: 2024-09-03T11:53:38.370Z
 lastmod: 2024-09-13T06:41:19.316Z
 resources:
-  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - kurzschnitte
@@ -16,6 +22,7 @@ tags:
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
+fmContentType: blog
 ---
 
 Welcome to the fifth edition of Kurzschnitte II, where coding mets quintessence!

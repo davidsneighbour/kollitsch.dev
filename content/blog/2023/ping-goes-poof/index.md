@@ -2,13 +2,15 @@
 $schema: /static/_schemata/blog.schema.yaml
 title: Ping Goes Poof
 linkTitle: Ping Goes Poof
-description: ""
-summary: ""
-date: 2023-06-28T20:33:58+07:00
-publishDate: 2023-06-28T20:33:58+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+description: ''
+summary: ''
+date: 2023-06-28T13:33:58.000Z
+publishDate: 2023-06-28T13:33:58.000Z
+lastmod: 2023-08-07T12:33:03.000Z
 resources:
-  - title: Photo by [Pascal Meier](https://unsplash.com/@zhpix) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Pascal Meier](https://unsplash.com/@zhpix) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - google
@@ -18,6 +20,7 @@ tags:
 type: blog
 unsplash:
   imageid: abcdefghijk
+fmContentType: blog
 ---
 
 Google on Monday announced that [they will change several things regarding to sitemaps and pinging the search engine about updates of the sitemap](https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping).

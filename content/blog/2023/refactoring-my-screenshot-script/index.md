@@ -1,11 +1,15 @@
 ---
 title: Refactoring my screenshot script
-description: I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit.
-date: 2023-03-08T21:57:10+07:00
-publishDate: 2023-03-08T21:57:10+07:00
-lastmod: 2023-08-07T20:32:31+07:00
+description: >-
+  I decided to rewrite my go-to-script to create a screenshot as header images
+  of posts about a website a little bit.
+date: 2023-03-08T14:57:10.000Z
+publishDate: 2023-03-08T14:57:10.000Z
+lastmod: 2023-08-07T13:32:31.000Z
 resources:
-  - title: Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - javascript
@@ -13,6 +17,7 @@ tags:
   - refactoring
   - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 My go-to-script to create a screenshot as header images of posts about a website was for a long time this:

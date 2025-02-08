@@ -1,11 +1,15 @@
 ---
-title: "Notes from the Laboratory: May 2022"
+title: 'Notes from the Laboratory: May 2022'
 linkTitle: Laboratory 2022-05
-description: Another monthly report from the depths of the laboratory of kollitsch.den - May 2022
-date: 2022-06-05T20:26:36+07:00
+description: >-
+  Another monthly report from the depths of the laboratory of kollitsch.den -
+  May 2022
+date: 2022-06-05T13:26:36.000Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -13,6 +17,7 @@ tags:
   - davidsneighbour
   - 100DaysToOffload
 lastmod: 2024-09-09T11:07:44.755Z
+fmContentType: blog
 ---
 
 > I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

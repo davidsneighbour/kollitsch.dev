@@ -1,20 +1,25 @@
 ---
-date: 2023-05-24T20:37:19+07:00
-lastmod: 2024-03-03T21:35:24+07:00
+date: 2023-05-24T13:37:19.000Z
+lastmod: 2024-03-03T14:35:24.000Z
 title: What if Wes Anderson… (Part 2)
-description: What if Wes Anderson would have directed a horror movie? I think it would have been awesome.
-summary: What if Wes Anderson would have directed a horror movie? I think it would have been awesome.
+description: >-
+  What if Wes Anderson would have directed a horror movie? I think it would have
+  been awesome.
+summary: >-
+  What if Wes Anderson would have directed a horror movie? I think it would have
+  been awesome.
 tags:
-- wes-anderson
-- video
-- 100DaysToOffload
-- horror-movie
+  - wes-anderson
+  - video
+  - 100DaysToOffload
+  - horror-movie
 type: video
 resources:
-- src: header.jpg
-  title: What if Wes Anderson directed a horror movie?
+  - src: header.jpg
+    title: What if Wes Anderson directed a horror movie?
 video:
   youtube: gfDIAZCwHQE
+fmContentType: blog
 ---
 
 Wes Anderson is renowned in filmmaking for his distinct visual style, whimsical storytelling, and eccentric characters. Anderson has carved out a niche in indie cinema with his signature pastel color palettes, meticulous set designs, and quirky narratives. However, what if the acclaimed director were to step out of his comfort zone and delve into the unsettling world of horror?

@@ -1,11 +1,15 @@
 ---
-title: "Notes from the Laboratory: January 2022"
+title: 'Notes from the Laboratory: January 2022'
 linkTitle: Laboratory 2022-01
-description: Another monthly report from the depths of the laboratory of kollitsch.den - January 2022
-date: 2022-01-30T21:12:06+07:00
+description: >-
+  Another monthly report from the depths of the laboratory of kollitsch.den -
+  January 2022
+date: 2022-01-30T14:12:06.000Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -14,6 +18,7 @@ tags:
 aliases:
   - /blog/2022/notes-from-the-laboratory-january-2022
 lastmod: 2024-09-09T11:07:47.516Z
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

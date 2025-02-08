@@ -1,8 +1,10 @@
 ---
 title: Hiding UpdraftPlus nagging screens after your subscription ran out
-date: 2022-03-10T22:18:32+07:00
+date: 2022-03-10T15:18:32.000Z
 resources:
-  - title: Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via
+      [Unsplash](https://unsplash.com/)
     name: image name if other than src
     src: nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
 tags:
@@ -12,6 +14,7 @@ tags:
   - nagging
   - 100DaysToOffload
 lastmod: 2024-09-09T11:07:50.207Z
+fmContentType: blog
 ---
 
 Nagscreens. You know them. Very annoying. Long story short: I recently stopped updating my subscription to a paid WordPress plugin and it started using nag screens to guilt me into renewing the subscription again. In this specific case we have the [UpdraftPlus](https://updraftplus.com/) plugin that I really suggest everyone to use, but it did not really add new features or did anything else to make me feel like having a yearly subscription for the simple backup plugin would be something I want to do.

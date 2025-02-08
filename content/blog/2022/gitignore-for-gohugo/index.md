@@ -1,18 +1,21 @@
 ---
 title: .gitignore for GoHugo
-date: 2022-07-22T0:02:35+07:00
+date: 2022-07-21T17:02:35.000Z
 resources:
   - src: header.jpg
-    title: Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - git
   - gitignore
   - developers
   - 100DaysToOffload
-lastmod: 2023-08-07T19:30:09+07:00
+lastmod: 2023-08-07T12:30:09.000Z
 slug: gitignore-gohugo
 aliases:
   - /blog/2021/gitignore-for-gohugo/
+fmContentType: blog
 ---
 
 This is a slight update on my previous post about the perfect `.gitignore` file for GoHugo. TLDR: The current optimum `.gitignore` content for a [GoHugo project](https://gohugo.io) is the following (in addition to your own ignored files and folders):

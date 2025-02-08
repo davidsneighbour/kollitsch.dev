@@ -1,24 +1,33 @@
 ---
 title: Switching from Ubuntu to Windows with WSL
-description: "Learn how to set up WSL on Windows 11 and run Linux like Ubuntu alongside Windows, with tips on installation, file system challenges, and long filename errors."
-summary: "Setting up WSL on Windows 11 allows you to run Linux distributions like Ubuntu, giving you a familiar Linux environment within Windows. This guide covers installation steps, file system limitations, and potential issues like \"Filename too long\" errors. While WSL offers a functional Linux-like experience, there are challenges, especially with mounting Linux file systems and certain development tools. However, it provides a decent solution for developers needing Linux on a Windows system."
-date: 2024-10-18T19:10:37+07:00
-lastmod: 2024-10-18T19:10:37+07:00
-
+description: >-
+  Learn how to set up WSL on Windows 11 and run Linux like Ubuntu alongside
+  Windows, with tips on installation, file system challenges, and long filename
+  errors.
+summary: >-
+  Setting up WSL on Windows 11 allows you to run Linux distributions like
+  Ubuntu, giving you a familiar Linux environment within Windows. This guide
+  covers installation steps, file system limitations, and potential issues like
+  "Filename too long" errors. While WSL offers a functional Linux-like
+  experience, there are challenges, especially with mounting Linux file systems
+  and certain development tools. However, it provides a decent solution for
+  developers needing Linux on a Windows system.
+date: 2024-10-18T12:10:37.000Z
+lastmod: 2024-10-18T12:10:37.000Z
 resources:
-  - title: Photo by [Clint Patterson](https://unsplash.com/@cbpsc1) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Clint Patterson](https://unsplash.com/@cbpsc1) via
+      [Unsplash](https://unsplash.com/)
     src: clint-patterson-yGPxCYPS8H4-unsplash.jpg
-
 tags:
   - ubuntu
   - windows 11
   - WSL 2
   - 100DaysToOffload
-
 type: blog
-
 unsplash:
   imageid: yGPxCYPS8H4
+fmContentType: blog
 ---
 
 Recently, I had to install a development environment on Windows 11. As a long-time Linux user, the idea of working in a Windows environment raised some concerns, particularly around maintaining my usual workflow. But knowing that there is something called *Windows Subsystem for Linux* (WSL), I was able to setup my environment as if I was on Ubuntu... Well, mostly. Here's how I jumped ship.

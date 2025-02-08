@@ -1,19 +1,20 @@
 ---
 title: How to make browsers download a linked file
-description: ""
+description: ''
 links:
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download
-- https://www.w3schools.com/tags/att_a_download.asp
-date: 2023-11-12T20:29:27+07:00
-lastmod: 2023-11-12T21:03:01+07:00
-publishDate: 2023-11-12T20:29:27+07:00
+  - 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download'
+  - 'https://www.w3schools.com/tags/att_a_download.asp'
+date: 2023-11-12T13:29:27.000Z
+lastmod: 2023-11-12T14:03:01.000Z
+publishDate: 2023-11-12T13:29:27.000Z
 resources:
-- src: header.jpg
+  - src: header.jpg
 tags:
-- html
-- howto
-- 100DaysToOffload
+  - html
+  - howto
+  - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 The download attribute for anchor (`<a>`) tags is a nifty feature that often flies under the radar but can significantly enhance the user experience on a website. This attribute, when added to an `<a>` tag, instructs the browser to download the resource linked by the anchor tag instead of navigating to it. This functionality is particularly useful for creating direct download links for files like PDFs, images, or documents.

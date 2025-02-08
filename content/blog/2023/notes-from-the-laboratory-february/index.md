@@ -1,20 +1,26 @@
 ---
-title: "Notes from the Laboratory: February 2023"
+title: 'Notes from the Laboratory: February 2023'
 linkTitle: Laboratory 2023-02
-description: I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
+description: >-
+  I am trying this new "thing" of "reporting" what I was up to in a certain time
+  period this year, and monthly reviews just sound like something normal people
+  would do. So bear with me while I am typing up this report.
 type: blog
-date: 2023-02-26T21:27:05+07:00
-publishDate: 2023-02-26T21:27:05+07:00
+date: 2023-02-26T14:27:05.000Z
+publishDate: 2023-02-26T14:27:05.000Z
 lastmod: 2024-09-09T11:07:39.994Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

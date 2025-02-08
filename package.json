@@ -36,6 +36,7 @@
     "commitizen": "4.3.1",
     "consola": "3.4.0",
     "dotenv": "16.4.7",
+    "gray-matter": "^4.0.3",
     "lint-staged": "15.4.3",
     "netlify-cli": "18.0.3",
     "ninja-keys": "1.2.2",
@@ -116,17 +117,25 @@
     },
     "build:hugo": {
       "command": "hugo --environment gugin --logLevel debug --minify",
-      "dependencies": ["clean:dist", "build:hugoconfig"]
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig"
+      ]
     },
     "build:hugoconfig": {
       "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
     },
     "build:pagefind": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": ["build:hugo"]
+      "dependencies": [
+        "build:hugo"
+      ]
     },
     "clean": {
-      "dependencies": ["clean:audit", "clean:hugo"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo"
+      ]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -136,7 +145,11 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -164,18 +177,26 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": ["deploy:netlify"]
+      "dependencies": [
+        "deploy:netlify"
+      ]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "lint": {
-      "dependencies": ["lint:lockfiles"]
+      "dependencies": [
+        "lint:lockfiles"
+      ]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -190,11 +211,16 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": ["server:hugo", "server:pagefind"]
+      "dependencies": [
+        "server:hugo",
+        "server:pagefind"
+      ]
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
-      "dependencies": ["server:hugo-certificates"],
+      "dependencies": [
+        "server:hugo-certificates"
+      ],
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at *"
@@ -206,14 +232,20 @@
     },
     "server:pagefind": {
       "command": "pagefind ",
-      "files": ["content/**/*.md"]
+      "files": [
+        "content/**/*.md"
+      ]
     },
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
@@ -245,7 +277,9 @@
     "node": ">=20.12.0",
     "npm": ">=10.3.0"
   },
-  "browserslist": ["extends @davidsneighbour/browserslist-config"],
+  "browserslist": [
+    "extends @davidsneighbour/browserslist-config"
+  ],
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint -e \"$@\""

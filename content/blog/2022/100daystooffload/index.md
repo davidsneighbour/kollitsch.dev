@@ -1,12 +1,14 @@
 ---
-title: "#100DaysToOffload"
-linkTitle: "#100DaysToOffload"
+title: '#100DaysToOffload'
+linkTitle: '#100DaysToOffload'
 slug: 100-days-to-offload
-date: 2022-03-21T23:27:23+07:00
-publishDate: 2022-03-21T23:27:23+07:00
+date: 2022-03-21T16:27:23.000Z
+publishDate: 2022-03-21T16:27:23.000Z
 lastmod: 2024-10-01T14:36:37.806Z
 resources:
-  - title: Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via
+      [Unsplash](https://unsplash.com/)
     src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 tags:
   - 100DaysToOffload
@@ -14,6 +16,7 @@ tags:
   - davidsneighbour
 aliases:
   - /100daystooffload
+fmContentType: blog
 ---
 
 I [recently](/blog/2022/notes-from-the-laboratory-february/) started taking part in the [`#100DaysToOffload`](https://100daystooffload.com/) challenge. It's a challenge that tries to create a larger output of content that is interesting and useful. I will try to write about the topics that I have learned during this time while still staying to be the nerd that I am.

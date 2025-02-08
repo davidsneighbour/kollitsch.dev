@@ -1,16 +1,19 @@
 ---
 title: Well… that's a unique… logo?
-summary: I had a weird reaction (""well… that’s a unique logo?") to my really great weblog logo above recently, so I thought I might as well explain it.
-date: 2021-10-29T19:47:48+07:00
-lastmod: 2024-03-03T21:36:18+07:00
-publishDate: 2021-10-29T19:47:48+07:00
+summary: >-
+  I had a weird reaction (""well… that’s a unique logo?") to my really great
+  weblog logo above recently, so I thought I might as well explain it.
+date: 2021-10-29T12:47:48.000Z
+lastmod: 2024-03-03T14:36:18.000Z
+publishDate: 2021-10-29T12:47:48.000Z
 resources:
-- src: logo.png
-  title: The greatest logo of them all
+  - src: logo.png
+    title: The greatest logo of them all
 tags:
-- davidsneighbour
-- me-now
-- logos
+  - davidsneighbour
+  - me-now
+  - logos
+fmContentType: blog
 ---
 
 I had a weird reaction ("well… that's a unique logo?") to my really great weblog logo above recently, so I thought I might as well explain it.

@@ -36,4 +36,6 @@ type: blog
 
 unsplash:
   imageid: abcdefghijk
+
+fmContentType: blog
 ---

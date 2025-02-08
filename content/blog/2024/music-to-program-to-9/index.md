@@ -14,9 +14,10 @@ video:
   youtube: h7UsQIx14CE
   artist: glass-animals
   title: Exxus
-date: 2024-06-17T20:41:40+07:00
-publishDate: 2024-06-17T20:41:40+07:00
-lastmod: 2024-06-17T20:41:40+07:00
+date: 2024-06-17T13:41:40.000Z
+publishDate: 2024-06-17T13:41:40.000Z
+lastmod: 2024-06-17T13:41:40.000Z
+fmContentType: blog
 ---
 
 A very nice song by Glass Animals from before they were TikTok famous.

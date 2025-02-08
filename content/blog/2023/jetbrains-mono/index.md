@@ -1,19 +1,20 @@
 ---
 title: Jetbrains Mono
 linkTitle: Jetbrains Mono
-description: ""
-summary: ""
-date: 2023-02-21T20:12:30+07:00
-publishDate: 2023-02-21T20:12:30+07:00
-lastmod: 2024-03-03T21:36:15+07:00
+description: ''
+summary: ''
+date: 2023-02-21T13:12:30.000Z
+publishDate: 2023-02-21T13:12:30.000Z
+lastmod: 2024-03-03T14:36:15.000Z
 resources:
-- title: Ligatures in Jetbrains Mono
-  src: header.png
+  - title: Ligatures in Jetbrains Mono
+    src: header.png
 tags:
-- developer-fonts
-- typography
-- 100DaysToOffload
+  - developer-fonts
+  - typography
+  - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 My currently favourite developer font is Jetbrains Mono. ([Stefon](https://www.youtube.com/watch?v=vwm_N2PCUz8) voice on) It has everything! Distinctive characters (no more wondering if that is a zero or an uppercase O), code ligatures and more more more (Stefon voice off). I personally like the way the ligatures give a unique and coherent look to my editor experience. `=> <> !==` (the code display on this site is by the way formatted using Jetbrains Mono) and they look nice, quickly identifiable and compact.

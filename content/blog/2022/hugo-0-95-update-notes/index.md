@@ -1,10 +1,10 @@
 ---
 title: Hugo 0.95 - Update Notes
 linkTitle: Hugo 0.95
-description: ""
-date: 2022-03-16T23:16:55+07:00
-publishDate: 2022-03-16T23:16:55+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+description: ''
+date: 2022-03-16T16:16:55.000Z
+publishDate: 2022-03-16T16:16:55.000Z
+lastmod: 2023-08-07T12:33:03.000Z
 resources:
   - title: GoHugo
     src: header.png
@@ -13,6 +13,7 @@ tags:
   - notes
   - golang
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 [Hugo 0.95.0](https://github.com/gohugoio/hugo/releases/tag/v0.95.0) brings some really useful features (next to smaller speed increases as always) and upgrades the used [Golang version to 1.18](https://go.dev/blog/go1.18).

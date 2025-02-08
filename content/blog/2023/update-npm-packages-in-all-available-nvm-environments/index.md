@@ -1,21 +1,27 @@
 ---
 title: Update Npm Packages in All Available Nvm Environments
-description: Automate the update of global npm packages across multiple Node.js versions using nvm and a bash script. Schedule it with cron for hassle-free maintenance.
-date: 2023-10-12T18:53:01+07:00
-publishDate: 2023-10-12T18:53:01+07:00
-lastmod: 2023-10-12T19:49:43+07:00
+description: >-
+  Automate the update of global npm packages across multiple Node.js versions
+  using nvm and a bash script. Schedule it with cron for hassle-free
+  maintenance.
+date: 2023-10-12T11:53:01.000Z
+publishDate: 2023-10-12T11:53:01.000Z
+lastmod: 2023-10-12T12:49:43.000Z
 resources:
-- title: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: >-
+      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- node
-- npm
-- nvm
-- cronjob
-- 100DaysToOffload
+  - node
+  - npm
+  - nvm
+  - cronjob
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: oZMUrWFHOB4
+fmContentType: blog
 ---
 
 If you are like me, then you are probably using [nvm](https://github.com/nvm-sh/nvm) to manage your node environments. I have a few projects that are using different node versions, and I have to switch between them from time to time. Sometimes then I forget having switched and type some globally installed npm command and end up, not having it installed in the current environment or not updated to the latest version.

@@ -1,10 +1,14 @@
 ---
 title: npkill - cleanup heaps of node_modules
-description: Discover npkill, a command-line tool to clean up space wasted by node_modules folders. Easy to use, fast, and minimal dependencies.
-summary: Discover npkill, a command-line tool to clean up space wasted by node_modules folders. Easy to use, fast, and minimal dependencies.
-date: 2023-06-21T22:10:52+07:00
-publishDate: 2023-06-21T22:10:52+07:00
-lastmod: 2023-08-22T20:48:25+07:00
+description: >-
+  Discover npkill, a command-line tool to clean up space wasted by node_modules
+  folders. Easy to use, fast, and minimal dependencies.
+summary: >-
+  Discover npkill, a command-line tool to clean up space wasted by node_modules
+  folders. Easy to use, fast, and minimal dependencies.
+date: 2023-06-21T15:10:52.000Z
+publishDate: 2023-06-21T15:10:52.000Z
+lastmod: 2023-08-22T13:48:25.000Z
 resources:
   - title: Heaps of garbage
     src: header.jpg
@@ -17,6 +21,7 @@ tags:
 type: blog
 unsplash:
   imageid: abcdefghijk
+fmContentType: blog
 ---
 
 If you are like me a developer that uses lots of npm packages you will know the amount of mega- or even gigabytes that are used up by `node_module` directories in every project. Having to remove them all tediously by hand or keeping them - both solutions are annoying, when you try to backup your projects - is just annoying.

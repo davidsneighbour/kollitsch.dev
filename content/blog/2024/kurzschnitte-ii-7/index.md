@@ -1,13 +1,25 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - Pt. 7
-description: Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically notable as a prime followed by a cube and is a popular favorite culturally, spiritually, and in gaming, particularly in craps. Nature aligns with this pattern, structuring a week into seven days. Now, let's continue with our curated links of interest.
-summary: Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically notable as a prime followed by a cube and is a popular favorite culturally, spiritually, and in gaming, particularly in craps. Nature aligns with this pattern, structuring a week into seven days. Now, let's continue with our curated links of interest.
-date: 2024-09-20T18:50:23+07:00
-publishDate: 2024-09-20T18:50:23+07:00
+description: >-
+  Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically
+  notable as a prime followed by a cube and is a popular favorite culturally,
+  spiritually, and in gaming, particularly in craps. Nature aligns with this
+  pattern, structuring a week into seven days. Now, let's continue with our
+  curated links of interest.
+summary: >-
+  Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically
+  notable as a prime followed by a cube and is a popular favorite culturally,
+  spiritually, and in gaming, particularly in craps. Nature aligns with this
+  pattern, structuring a week into seven days. Now, let's continue with our
+  curated links of interest.
+date: 2024-09-20T11:50:23.000Z
+publishDate: 2024-09-20T11:50:23.000Z
 lastmod: 2024-09-20T11:51:15.308Z
 resources:
-  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 categories:
   - kurzschnitte
@@ -18,6 +30,7 @@ tags:
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
+fmContentType: blog
 ---
 
 Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathematics, the first prime number followed by a cube. Statistically, it appears as a common favorite number over many fields in daily life, religions, and mythologies. It also plays a crucial role in gaming, where rolling a seven can be pivotal in games like craps. In nature, there are seven days in a week, and it goes on... as do we with our list of links of interest.

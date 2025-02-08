@@ -1,23 +1,22 @@
 ---
 title: Automatically load workspace when starting VSCode
-description: ""
-summary: ""
-
-date: 2024-04-11T21:15:08+07:00
-publishDate: 2024-04-11T21:15:08+07:00
-lastmod: 2024-04-11T21:15:08+07:00
-
+description: ''
+summary: ''
+date: 2024-04-11T14:15:08.000Z
+publishDate: 2024-04-11T14:15:08.000Z
+lastmod: 2024-04-11T14:15:08.000Z
 resources:
-  - title: Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
-
 tags:
   - vscode
   - howto
   - workspace
   - 100DaysToOffload
-
 type: blog
+fmContentType: blog
 ---
 
 Workspaces are a great feature in VSCode. But they have their issues. For instance starting VSCode in a folder will not automatically load the workspace file. This can be annoying if you have a workspace file in the folder and you want to open it directly. This is a feature that is [often requested (and denied)](https://github.com/microsoft/vscode/issues/64565) in the official VSCode repository.

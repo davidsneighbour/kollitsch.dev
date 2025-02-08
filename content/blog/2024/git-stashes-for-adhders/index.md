@@ -1,18 +1,21 @@
 ---
 title: Git stashes for ADHDers
-description: ""
-summary: ""
-date: 2024-03-01T19:19:32+07:00
-publishDate: 2024-03-01T19:19:32+07:00
-lastmod: 2024-03-01T21:59:15+07:00
+description: ''
+summary: ''
+date: 2024-03-01T12:19:32.000Z
+publishDate: 2024-03-01T12:19:32.000Z
+lastmod: 2024-03-01T14:59:15.000Z
 type: blog
 resources:
-- title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: >-
+      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- bash
-- git
-- 100DaysToOffload
+  - bash
+  - git
+  - 100DaysToOffload
+fmContentType: blog
 ---
 
 If you are like me you probably typed more than once `git stash` and meant `git stash list` while working on many different things at the same time. If not, then feel free to go [somewhere else and don't waste your time here](https://en.wikipedia.org/wiki/The_Big_Lebowski) :]

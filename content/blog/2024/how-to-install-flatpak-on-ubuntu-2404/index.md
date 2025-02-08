@@ -1,8 +1,14 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: How to Install Flatpak on Ubuntu 24.04
-description: In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository.
-summary: In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository.
+description: >-
+  In this guide, I'll walk you through the steps I took to set up Flatpak on
+  Ubuntu, allowing to access a wide range of applications from Flathub, the
+  leading Flatpak repository.
+summary: >-
+  In this guide, I'll walk you through the steps I took to set up Flatpak on
+  Ubuntu, allowing to access a wide range of applications from Flathub, the
+  leading Flatpak repository.
 date: 2024-09-28T14:59:41.751Z
 publishDate: 2024-09-28T14:59:41.751Z
 lastmod: 2024-09-28T16:16:42.869Z
@@ -15,6 +21,7 @@ tags:
   - flatpak
   - quicky
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 Flatpak offers a modern way for me to install and manage applications across different Linux distributions, providing greater compatibility and security. In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository. Whether you're using Ubuntu 18.10 or a newer version like 24.04, this straightforward process will help you get up and running with Flatpak quickly. Let's dive into the setup, from installing Flatpak itself to adding the Flathub repository.

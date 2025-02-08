@@ -1,20 +1,23 @@
 ---
 $schema: /static/_schemata/laboratory.schema.yaml
-title: "Notes from the Laboratory: April 2023"
+title: 'Notes from the Laboratory: April 2023'
 linkTitle: Laboratory 2023-04
-description: ""
-date: 2023-05-01T19:31:37+07:00
-publishDate: 2023-04-28T21:55:59+07:00
+description: ''
+date: 2023-05-01T12:31:37.000Z
+publishDate: 2023-04-28T14:55:59.000Z
 lastmod: 2024-09-09T11:07:41.348Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

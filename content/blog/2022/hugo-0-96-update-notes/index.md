@@ -1,10 +1,10 @@
 ---
 title: Hugo 0.96 update notes
 linkTitle: Hugo 0.96
-description: ""
-date: 2022-03-28T17:58:49+07:00
-publishDate: 2022-03-28T17:58:49+07:00
-lastmod: 2023-08-07T19:33:03+07:00
+description: ''
+date: 2022-03-28T10:58:49.000Z
+publishDate: 2022-03-28T10:58:49.000Z
+lastmod: 2023-08-07T12:33:03.000Z
 resources:
   - title: GoHugo
     src: header.png
@@ -13,6 +13,7 @@ tags:
   - notes
   - golang
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 [Hugo 0.96.0](https://github.com/gohugoio/hugo/releases/tag/v0.96.0) was published last weekend with two new features and many smaller changes and fixes under the hood. Here is a quick overview of the release.

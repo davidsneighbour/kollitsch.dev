@@ -1,18 +1,21 @@
 ---
 type: blog
 title: Swapping swap
-description: ""
-summary: ""
-date: 2022-06-06T19:33:56+07:00
-publishDate: 2022-06-06T19:33:56+07:00
-lastmod: 2023-08-07T20:23:27+07:00
+description: ''
+summary: ''
+date: 2022-06-06T12:33:56.000Z
+publishDate: 2022-06-06T12:33:56.000Z
+lastmod: 2023-08-07T13:23:27.000Z
 resources:
-  - title: Photo by [Glen Noble](https://unsplash.com/@glennoble) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Glen Noble](https://unsplash.com/@glennoble) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 tags:
   - ubuntu
   - howto
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 Short Interlude: The following problems and it's solution seems to be an Ubuntu 22.04 issue, because that is when the new OOM service was introduced. Read on if your Ubuntu system closes applications when it seems to be overwhelmed by tasks and if it's a 22.04 one. If not, this might not be your issue (and solution).

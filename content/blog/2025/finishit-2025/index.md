@@ -1,19 +1,20 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
-title: FiniSh💩t 2025
-description: FiniSh💩t! is my productivity project to finish one task weekly in two hours. Follow my blog for insights, challenges, and tips to overcome procrastination.
-summary: FiniSh💩t! is a year-long initiative to complete unfinished projects by dedicating two focused hours each week. Through weekly blog posts, I’ll share insights, challenges, and lessons learned, encouraging others to tackle their own lingering tasks and embrace the power of finishing.
-date: 2025-01-01T09:21:40+07:00
-publishDate: 2025-01-01T09:21:40+07:00
-lastmod: 2025-01-01T02:57:59+00:00
+title: "FiniSh\U0001F4A9t 2025"
+description: "FiniSh\U0001F4A9t! is my productivity project to finish one task weekly in two hours. Follow my blog for insights, challenges, and tips to overcome procrastination."
+summary: "FiniSh\U0001F4A9t! is a year-long initiative to complete unfinished projects by dedicating two focused hours each week. Through weekly blog posts, I’ll share insights, challenges, and lessons learned, encouraging others to tackle their own lingering tasks and embrace the power of finishing."
+date: 2025-01-01T02:21:40.000Z
+publishDate: 2025-01-01T02:21:40.000Z
+lastmod: 2025-02-07T08:02:02.000Z
 resources:
-- title: FiniSh💩t 2025
-  src: alexander-mils-ULL-cyKjpd4-unsplash.jpg
+  - title: "FiniSh\U0001F4A9t 2025"
+    src: alexander-mils-ULL-cyKjpd4-unsplash.jpg
 tags:
-- finishit
-- self improvement
-- kollitsch.dev
-- 100DaysToOffload
+  - finishit
+  - self improvement
+  - kollitsch.dev
+  - 100DaysToOffload
+fmContentType: blog
 ---
 
 *pronunciation: /fɪˈnɪʃɪt/&#x20;*

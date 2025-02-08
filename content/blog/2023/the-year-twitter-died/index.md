@@ -1,19 +1,24 @@
 ---
 title: The Year Twitter Died
 linkTitle: The Year Twitter Died
-description: "Explore The Verge's 2023 series on Twitter's impact: its news dominance, unique work culture, role in harassment, and humorous legacy."
-summary: There is this really well-written collection of articles on 2023, the year Twitter died on The Verge.
-date: 2023-12-17T13:18:54+07:00
-publishDate: 2023-12-17T13:18:54+07:00
-lastmod: 2023-12-17T18:14:34+07:00
+description: >-
+  Explore The Verge's 2023 series on Twitter's impact: its news dominance,
+  unique work culture, role in harassment, and humorous legacy.
+summary: >-
+  There is this really well-written collection of articles on 2023, the year
+  Twitter died on The Verge.
+date: 2023-12-17T06:18:54.000Z
+publishDate: 2023-12-17T06:18:54.000Z
+lastmod: 2023-12-17T11:14:34.000Z
 resources:
-- title: The year Twitter died
-  src: header.jpg
+  - title: The year Twitter died
+    src: header.jpg
 tags:
-- twitter
-- links
-- 100DaysToOffload
+  - twitter
+  - links
+  - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 There is this really well-written collection of articles on [2023, the year Twitter died](https://www.theverge.com/c/23972308/twitter-x-death-tweets-history-elon-musk) on The Verge.

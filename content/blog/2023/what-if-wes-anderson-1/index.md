@@ -1,20 +1,25 @@
 ---
-date: 2023-05-02T19:31:30+07:00
-lastmod: 2024-03-03T21:35:15+07:00
+date: 2023-05-02T12:31:30.000Z
+lastmod: 2024-03-03T14:35:15.000Z
 title: What if Wes Anderson… (Part 1)
-description: What if Wes Anderson would have directed a Star Wars movie? I think it would have been awesome.
-summary: What if Wes Anderson would have directed a Star Wars movie? I think it would have been awesome.
+description: >-
+  What if Wes Anderson would have directed a Star Wars movie? I think it would
+  have been awesome.
+summary: >-
+  What if Wes Anderson would have directed a Star Wars movie? I think it would
+  have been awesome.
 tags:
-- wes-anderson
-- video
-- 100DaysToOffload
-- artificial-intelligence
+  - wes-anderson
+  - video
+  - 100DaysToOffload
+  - artificial-intelligence
 type: video
 resources:
-- src: header.jpg
-  title: What if Wes Anderson directed a Star Wars movie?
+  - src: header.jpg
+    title: What if Wes Anderson directed a Star Wars movie?
 video:
   youtube: d-8DT5Q8kzI
+fmContentType: blog
 ---
 
 This might be just the first in many "What if Wes Anderson…" posts ;) This time, what if he would have directed a Star Wars movie? I think it would have been awesome. Ficticiously starring Timothee Chalamet, Owen Wilson, and Bill Murray, Scarlett Johansson, Edward Norton, Jeff Goldblum, Willem Dafoe, Adrian Brody (as Chewbacca, hehe) and Owen Wilson.

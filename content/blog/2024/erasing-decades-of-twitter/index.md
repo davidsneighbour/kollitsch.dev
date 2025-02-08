@@ -1,22 +1,25 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Erasing ~2 decades of Twitter
-description: ""
-summary: ""
-date: 2024-03-08T16:03:00+07:00
-publishDate: 2024-03-08T16:03:00+07:00
-lastmod: 2024-03-08T21:16:59+07:00
+description: ''
+summary: ''
+date: 2024-03-08T09:03:00.000Z
+publishDate: 2024-03-08T09:03:00.000Z
+lastmod: 2024-03-08T14:16:59.000Z
 resources:
-- title: "Twitter as imagined by DALL-E (disclaimer: the prompt might have been passive agressive)"
-  src: header.webp
-- title: Barely Legal
-  src: zbarely-legal.jpg
+  - title: >-
+      Twitter as imagined by DALL-E (disclaimer: the prompt might have been
+      passive agressive)
+    src: header.webp
+  - title: Barely Legal
+    src: zbarely-legal.jpg
 tags:
-- twitter
-- howto
-- erasing-social-media
-- 100DaysToOffload
+  - twitter
+  - howto
+  - erasing-social-media
+  - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 A while back (about 15 months ago), I stopped using Twitter. At first, I thought I might delete my account, but then I realized that somewhere along the lines, Twitter has begun to enforce a "you have to have an account to watch this content" rule. So I decided to keep my account but delete all my tweets, retweets, likes, and unfollow people.

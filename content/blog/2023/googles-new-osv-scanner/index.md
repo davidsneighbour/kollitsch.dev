@@ -1,9 +1,12 @@
 ---
 title: Google's new OSV scanner
-description: Google recently published a security scanner, that checks your files for vulnerabilities in your code. It connects and checks for all issues collected on the OSV database
-date: 2023-01-18T0:16:01+07:00
-publishDate: 2023-01-18T0:16:27+07:00
-lastmod: 2023-08-07T20:38:45+07:00
+description: >-
+  Google recently published a security scanner, that checks your files for
+  vulnerabilities in your code. It connects and checks for all issues collected
+  on the OSV database
+date: 2023-01-17T17:16:01.000Z
+publishDate: 2023-01-17T17:16:27.000Z
+lastmod: 2023-08-07T13:38:45.000Z
 resources:
   - src: header.jpg
     title: A hacker hacking away doing mischievous stuff.
@@ -13,6 +16,7 @@ tags:
   - opsec
   - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 Google recently published a security scanner named [OSV Scanner](https://github.com/google/osv-scanner), that checks your files for vulnerabilities that hide in your code. It connects and checks for all issues collected on the [OSV database](https://osv.dev/). It is a great tool for developers to quickly check their code for vulnerabilities before they are released to the public.

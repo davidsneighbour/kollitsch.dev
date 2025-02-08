@@ -10,6 +10,7 @@ tags:
   - shell
   - electron
   - link
+fmContentType: blog
 ---
 
 There is [nothing, you can't do with Electron](https://github.com/sindresorhus/awesome-electron), apparently. Newest proof is [Hyper, a shell inside of Electron](https://hyper.is/) (you read that right). Developed by Vercel, the app is theme-able and extensible by plugins, like any other Electron app. It doesn't look though like any init scripts like `.bashrc` are loaded. I'll be testing the program for a while.

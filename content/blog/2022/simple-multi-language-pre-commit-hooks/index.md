@@ -1,20 +1,29 @@
 ---
 type: blog
 title: Simple multi-language pre-commit hooks
-description: This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert some people to use the tool described by this post, so I thought I might as well add some context to it.
-summary: This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert some people to use the tool described by this post, so I thought I might as well add some context to it.
-date: 2022-08-14T22:28:21+07:00
-publishDate: 2022-08-14T22:28:21+07:00
-lastmod: 2024-03-03T21:32:25+07:00
+description: >-
+  This is one of the posts that spent months in draft (fka ideas) mode. Recently
+  I got to convert some people to use the tool described by this post, so I
+  thought I might as well add some context to it.
+summary: >-
+  This is one of the posts that spent months in draft (fka ideas) mode. Recently
+  I got to convert some people to use the tool described by this post, so I
+  thought I might as well add some context to it.
+date: 2022-08-14T15:28:21.000Z
+publishDate: 2022-08-14T15:28:21.000Z
+lastmod: 2024-03-03T14:32:25.000Z
 resources:
-- title: Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: >-
+      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- pre-commit
-- git
-- code-quality
-- automation
-- 100DaysToOffload
+  - pre-commit
+  - git
+  - code-quality
+  - automation
+  - 100DaysToOffload
+fmContentType: blog
 ---
 
 This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert [some](https://github.com/danielfdickinson/dfd-template/commit/aecb3a68dfcb7a63492cf79df7c3b58b86f29095) people to use the tool described by this post, so I thought I might as well add some context to it. This is one of the posts that will be posted "quick and dirty" and I will update and optimise them over time.

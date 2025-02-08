@@ -1,18 +1,22 @@
 ---
 title: Back to the Top without Javascript
-description: In my lifelong quest to minimize the code to display my view of the world (aka this website) I realised, that I can get rid of all JS to display my "Back to top" button.
-date: 2023-12-03T22:51:00+07:00
-publishDate: 2023-12-03T22:51:00+07:00
-lastmod: 2024-03-03T21:36:15+07:00
+description: >-
+  In my lifelong quest to minimize the code to display my view of the world (aka
+  this website) I realised, that I can get rid of all JS to display my "Back to
+  top" button.
+date: 2023-12-03T15:51:00.000Z
+publishDate: 2023-12-03T15:51:00.000Z
+lastmod: 2024-03-03T14:36:15.000Z
 resources:
-- src: header.jpg
+  - src: header.jpg
 tags:
-- javascript
-- css
-- back-to-top
-- 100DaysToOffload
+  - javascript
+  - css
+  - back-to-top
+  - 100DaysToOffload
 unsplash:
   imageid: bEOrxHU2Op8
+fmContentType: blog
 ---
 
 In my lifelong quest to minimize the code required to display my view of the world (aka this website) I today realised, that I can get rid of all the Javascript to display my "Back to top" button. Just look at [this commit](https://github.com/davidsneighbour/hugo-theme/commit/519ce475cd81488ceafd846eeb5549e4de1dff95).

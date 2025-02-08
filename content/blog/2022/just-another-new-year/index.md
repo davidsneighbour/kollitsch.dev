@@ -1,15 +1,19 @@
 ---
 title: Just another New Year
-description: ""
-date: 2022-01-04T19:21:48+07:00
-publishDate: 2022-01-04T19:21:48+07:00
-lastmod: 2024-03-03T21:36:17+07:00
+description: ''
+date: 2022-01-04T12:21:48.000Z
+publishDate: 2022-01-04T12:21:48.000Z
+lastmod: 2024-03-03T14:36:17.000Z
 resources:
-- title: Photo by [Glenn Carstens-Peters](https://unsplash.com/@glenncarstenspeters) via [Unsplash](https://unsplash.com/)
-  src: glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg
+  - title: >-
+      Photo by [Glenn
+      Carstens-Peters](https://unsplash.com/@glenncarstenspeters) via
+      [Unsplash](https://unsplash.com/)
+    src: glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg
 tags:
-- todo
-- me-now
+  - todo
+  - me-now
+fmContentType: blog
 ---
 
 Every year my feeds (yes, I am still reading my news via feeds) are filled with New Years resolutions and Old Year reviews. I myself dabbled in it a while, but for the past 10 years I gave up on this. 90% of good intentions are dead after the first 6 months of the year and the rest… well, just doesn't make me a better person. So I started counting in a decimal based system (more about that later, on my 17.000th birthday).

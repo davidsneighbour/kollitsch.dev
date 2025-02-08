@@ -1,13 +1,15 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Bash Function to Remove Github Ghost Notifications
-description: ""
-summary: ""
-date: 2024-03-07T07:53:38+07:00
-publishDate: 2024-03-07T07:53:38+07:00
+description: ''
+summary: ''
+date: 2024-03-07T00:53:38.000Z
+publishDate: 2024-03-07T00:53:38.000Z
 lastmod: 2024-10-01T09:24:38.533Z
 resources:
-  - title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
     name: header
   - title: Ghost notifications on Github
@@ -21,6 +23,7 @@ tags:
   - rest-api
   - 100DaysToOffload
 type: blog
+fmContentType: blog
 ---
 
 Every now and then my inbox in Github shows x total unread updates without having actual updates. When I click on it, there are no unread notifications. This is a known issue and it's been around for a while. The notifications are called "ghost notifications" and they are not visible in the UI. They are only visible in the API and have probably already their own support response template.

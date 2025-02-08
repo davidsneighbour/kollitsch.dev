@@ -1,19 +1,24 @@
 ---
-title: "Notes from the Laboratory: December 2022 (and November too)"
+title: 'Notes from the Laboratory: December 2022 (and November too)'
 linkTitle: Laboratory 2022-12
-description: Another monthly report from the depths of the laboratory of kollitsch.dev - December 2022 (and also November 2022, not that you missed it ;)
-date: 2023-01-02T09:36:01+07:00
-publishDate: 2023-01-02T09:36:01+07:00
+description: >-
+  Another monthly report from the depths of the laboratory of kollitsch.dev -
+  December 2022 (and also November 2022, not that you missed it ;)
+date: 2023-01-02T02:36:01.000Z
+publishDate: 2023-01-02T02:36:01.000Z
 lastmod: 2024-09-09T11:07:40.719Z
 resources:
   - src: header.jpg
-    title: Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
+fmContentType: blog
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

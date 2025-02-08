@@ -3,16 +3,23 @@ $schema: /static/_schemata/blog.schema.yaml
 title: Alias Expansion in Bash
 linkTitle: Alias Expansion in Bash
 description: Learn how alias expansion works and how to use builtin to override it.
-summary: Bash aliases expand dynamically, meaning for instance an alias referencing cd will use the modified version if cd is aliased. This post explains how alias expansion works, what happens when aliases reference other aliases, and how to use builtin to ensure the original command runs.
-date: 2025-02-05T08:34:49+07:00
-publishDate: 2025-02-05T16:08:49+07:00
-lastmod: 2025-02-05T09:12:41+00:00
+summary: >-
+  Bash aliases expand dynamically, meaning for instance an alias referencing cd
+  will use the modified version if cd is aliased. This post explains how alias
+  expansion works, what happens when aliases reference other aliases, and how to
+  use builtin to ensure the original command runs.
+date: 2025-02-05T01:34:49.000Z
+publishDate: 2025-02-05T09:08:49.000Z
+lastmod: 2025-02-07T08:05:27.000Z
 resources:
-- title: Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)
-  src: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
+  - title: >-
+      Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via
+      [Unsplash](https://unsplash.com/)
+    src: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
 tags:
-- bash
-- 100DaysToOffload
+  - bash
+  - 100DaysToOffload
+fmContentType: blog
 ---
 
 Aliases in Bash are a powerful way to simplify repetitive commands or add parameters you *always* use, but they can also lead to problems when one alias calls another. One common issue that comes up is whether an alias that references another alias uses the original command or an aliased version of it --- if the alias overrides the original command.

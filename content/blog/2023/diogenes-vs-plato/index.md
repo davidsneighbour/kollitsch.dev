@@ -1,20 +1,26 @@
 ---
 title: Diogenes vs. Plato
-description: When Plato gave the definition of man as "featherless bipeds", Diogenes plucked a chicken and brought it into Plato's Academy, saying, "Behold! I've brought you a man".
-date: 2023-11-20T21:49:15+07:00
-publishDate: 2023-11-20T21:49:15+07:00
-lastmod: 2023-11-20T21:54:51+07:00
+description: >-
+  When Plato gave the definition of man as "featherless bipeds", Diogenes
+  plucked a chicken and brought it into Plato's Academy, saying, "Behold! I've
+  brought you a man".
+date: 2023-11-20T14:49:15.000Z
+publishDate: 2023-11-20T14:49:15.000Z
+lastmod: 2023-11-20T14:54:51.000Z
 resources:
-- title: Photo by [Mystery Cat](https://unsplash.com/@themysterycat) via [Unsplash](https://unsplash.com/)
-  src: header.jpg
+  - title: >-
+      Photo by [Mystery Cat](https://unsplash.com/@themysterycat) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-- philosophy
-- quotes
-- knowledge
-- 100DaysToOffload
+  - philosophy
+  - quotes
+  - knowledge
+  - 100DaysToOffload
 type: blog
 unsplash:
   imageid: OlAoxfMngZ4
+fmContentType: blog
 ---
 
 > According to Diogenes Laërtius, when Plato gave the tongue-in-cheek definition of man as "featherless bipeds", Diogenes plucked a chicken and brought it into Plato's Academy, saying, "Behold! I've brought you a man", and so the academy added "with broad flat nails" to the definition.

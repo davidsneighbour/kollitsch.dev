@@ -1,30 +1,29 @@
 ---
-'$schema': /static/_schemata/blog.schema.yaml
-type: blog
-title: {{ replace .Name "-" " " | title }}
-linkTitle: {{ replace .Name "-" " " | title }}
+$schema: /static/_schemata/blog.schema.yaml
+title:
+  '{ replace .Name "-" " " | title }': null
+linkTitle:
+  '{ replace .Name "-" " " | title }': null
 description: ""
 summary: ""
-
 draft: true
-
-date: "{{ .Date }}"
+date:
+  "{ .Date }": null
 publishDate: "{{ .Date }}"
 lastmod: "{{ .Date }}"
-
 resources:
-  - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
-    src: header.jpg
+- title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  src: header.jpg
 categories:
-  - kurzschnitte
+- kurzschnitte
 tags:
-  - kurzschnitte
-  - bookmarks
-  - 100DaysToOffload
+- kurzschnitte
+- bookmarks
+- 100DaysToOffload
 type: blog
 unsplash:
   imageid: UcEzgZ6k19o
-
+fmContentType: blog
 ---
 
 INTRODUCTION
@@ -42,7 +41,7 @@ INTRODUCTION
 ## Listen
 
 ## Watch
- 
+
 ## What you missed
 
 {{< tagnavigation "kurzschnitte" >}}

@@ -20,7 +20,7 @@
     "@davidsneighbour/eslint-config": "2025.0.1",
     "@davidsneighbour/frontmatter-config": "2025.0.1",
     "@davidsneighbour/htmlvalidate-config": "2025.0.1",
-    "@davidsneighbour/hugo-darkskies": "1.2025.3",
+    "@davidsneighbour/hugo-darkskies": "1.2026.0",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
     "@davidsneighbour/markdownlint-config": "2025.0.1",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",

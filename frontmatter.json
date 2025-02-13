@@ -1,7 +1,7 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.cjs",
-  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.content.autoUpdateDate": false,
   "frontMatter.content.pageFolders": [
     {
       "contentTypes": [

@@ -1,10 +1,10 @@
-import { readFile, writeFile, access, mkdir } from 'fs/promises';
-import path from 'path';
-import fs from 'fs';
-import xml2js from 'xml2js';
-import dotenv from 'dotenv';
-import fetch from 'node-fetch';
-import { homedir } from 'os';
+import fs from "fs";
+import { homedir } from "os";
+import path from "path";
+import dotenv from "dotenv";
+import { access, mkdir, readFile, writeFile } from "fs/promises";
+import fetch from "node-fetch";
+import xml2js from "xml2js";
 
 // https://developers.facebook.com/docs/threads/get-started
 // https://developers.facebook.com/docs/threads/posts/
@@ -12,8 +12,8 @@ import { homedir } from 'os';
 const userHomeDir = homedir();
 
 // Load .env files
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
 
 /**
  * Load environment variables from a file if it exists.
@@ -33,19 +33,19 @@ const localEnv = loadEnvFile(LOCAL_ENV_PATH);
 process.env = { ...globalEnv, ...process.env, ...localEnv };
 
 // Default configurations
-const DEFAULT_CACHE_DIR = './cache';
-const DEFAULT_CACHE_FILE = 'rss-threads.json';
-const DEFAULT_RSS_FEED_URL = 'https://kollitsch.dev/rss.xml';
+const DEFAULT_CACHE_DIR = "./cache";
+const DEFAULT_CACHE_FILE = "rss-threads.json";
+const DEFAULT_RSS_FEED_URL = "https://kollitsch.dev/rss.xml";
 
 // Parse command-line arguments
 const args = process.argv.slice(2);
 const getArgValue = (argName, defaultValue) => {
-  const arg = args.find(arg => arg.startsWith(`--${argName}=`));
-  return arg ? arg.split('=')[1] : defaultValue;
+  const arg = args.find((arg) => arg.startsWith(`--${argName}=`));
+  return arg ? arg.split("=")[1] : defaultValue;
 };
 
 // Check for --help argument
-if (args.includes('--help')) {
+if (args.includes("--help")) {
   console.log(`
 Usage: node threads.mjs [options]
 
@@ -78,14 +78,25 @@ const THREADS_APP_ID = process.env.THREADS_APP_ID;
 const THREADS_APP_SECRET = process.env.THREADS_APP_SECRET;
 const THREADS_CLIENT_TOKEN = process.env.THREADS_CLIENT_TOKEN;
 
-const RSS_FEED_URL = getArgValue('feed', process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL);
-const CACHE_DIR = getArgValue('cache-dir', process.env.CACHE_DIR || DEFAULT_CACHE_DIR);
-const CACHE_FILE = getArgValue('cache-file', process.env.CACHE_FILE || DEFAULT_CACHE_FILE);
+const RSS_FEED_URL = getArgValue(
+  "feed",
+  process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL,
+);
+const CACHE_DIR = getArgValue(
+  "cache-dir",
+  process.env.CACHE_DIR || DEFAULT_CACHE_DIR,
+);
+const CACHE_FILE = getArgValue(
+  "cache-file",
+  process.env.CACHE_FILE || DEFAULT_CACHE_FILE,
+);
 const CACHE_FILE_PATH = path.join(CACHE_DIR, CACHE_FILE);
 
 // Ensure required credentials are available
 if (!THREADS_APP_ID || !THREADS_APP_SECRET || !THREADS_CLIENT_TOKEN) {
-  console.error('Missing required THREADS credentials. Ensure THREADS_APP_ID, THREADS_APP_SECRET, and THREADS_CLIENT_TOKEN are set in your .env file or passed as arguments.');
+  console.error(
+    "Missing required THREADS credentials. Ensure THREADS_APP_ID, THREADS_APP_SECRET, and THREADS_CLIENT_TOKEN are set in your .env file or passed as arguments.",
+  );
   process.exit(1);
 }
 
@@ -112,7 +123,7 @@ async function ensureCacheDirectory() {
  */
 async function readCache() {
   try {
-    const data = await readFile(CACHE_FILE_PATH, 'utf8');
+    const data = await readFile(CACHE_FILE_PATH, "utf8");
     return JSON.parse(data) || [];
   } catch {
     return [];
@@ -165,10 +176,10 @@ async function postToThreads(message) {
   try {
     const url = `https://graph.facebook.com/v17.0/${THREADS_APP_ID}/threads`;
     const response = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${THREADS_CLIENT_TOKEN}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${THREADS_CLIENT_TOKEN}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         message,
@@ -183,7 +194,7 @@ async function postToThreads(message) {
     const result = await response.json();
     console.log(`Posted to Threads successfully. Post ID: ${result.id}`);
   } catch (err) {
-    console.error('Failed to post to Threads:', err.message);
+    console.error("Failed to post to Threads:", err.message);
   }
 }
 
@@ -200,10 +211,10 @@ async function main() {
       const message = `New post: ${latestItem.title} - ${latestItem.link}`;
       await postToThreads(message);
     } else {
-      console.log('No new RSS items to post.');
+      console.log("No new RSS items to post.");
     }
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error("Error:", err.message);
   }
 }
 

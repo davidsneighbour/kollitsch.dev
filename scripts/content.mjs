@@ -1,11 +1,11 @@
 // @see https://github.com/natemoo-re/clack/tree/main/packages/prompt
 import {
+  cancel,
   intro,
+  isCancel,
   outro,
   select,
   spinner,
-  isCancel,
-  cancel,
   text,
 } from "@clack/prompts";
 
@@ -14,8 +14,8 @@ import { consola, createConsola } from "consola";
 
 import { exec as exec } from "node:child_process";
 import fs from "node:fs";
-import toml from "toml";
 import path from "node:path";
+import toml from "toml";
 
 import { fileURLToPath } from "node:url";
 

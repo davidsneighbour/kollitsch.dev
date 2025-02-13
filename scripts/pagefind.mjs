@@ -26,14 +26,6 @@ await buildPagefindIndex();
 
 await pagefind.close();
 
-
-
-
-
-
-
-
-
 // #!/usr/bin / env node
 
 // import { execSync, spawnSync } from 'child_process';

@@ -1,16 +1,16 @@
-import { readFile, writeFile, access, mkdir } from 'fs/promises';
-import path from 'path';
-import fs from 'fs';
-import xml2js from 'xml2js';
-import dotenv from 'dotenv';
-import fetch from 'node-fetch';
-import { homedir } from 'os';
+import fs from "fs";
+import { homedir } from "os";
+import path from "path";
+import dotenv from "dotenv";
+import { access, mkdir, readFile, writeFile } from "fs/promises";
+import fetch from "node-fetch";
+import xml2js from "xml2js";
 
 const userHomeDir = homedir();
 
 // Load .env files
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
 
 /**
  * Load environment variables from a file if it exists.
@@ -30,22 +30,22 @@ const localEnv = loadEnvFile(LOCAL_ENV_PATH);
 process.env = { ...globalEnv, ...process.env, ...localEnv };
 
 // Default configurations
-const DEFAULT_CACHE_DIR = './cache';
-const DEFAULT_CACHE_FILE = 'rss-reddit.json';
-const DEFAULT_RSS_FEED_URL = 'https://kollitsch.dev/rss.xml';
-const DEBUG = process.env.DEBUG === 'true';
+const DEFAULT_CACHE_DIR = "./cache";
+const DEFAULT_CACHE_FILE = "rss-reddit.json";
+const DEFAULT_RSS_FEED_URL = "https://kollitsch.dev/rss.xml";
+const DEBUG = process.env.DEBUG === "true";
 
 // Parse command-line arguments
 const args = process.argv.slice(2);
 const getArgValue = (argName, defaultValue) => {
-  const arg = args.find(arg => arg.startsWith(`--${argName}=`));
-  return arg ? arg.split('=')[1] : defaultValue;
+  const arg = args.find((arg) => arg.startsWith(`--${argName}=`));
+  return arg ? arg.split("=")[1] : defaultValue;
 };
 
-const isDebugEnabled = DEBUG || args.includes('--debug');
+const isDebugEnabled = DEBUG || args.includes("--debug");
 
 // Check for --help argument
-if (args.includes('--help')) {
+if (args.includes("--help")) {
   console.log(`
 Usage: node reddit.mjs [options]
 
@@ -77,14 +77,25 @@ Examples:
 // Configurable values
 const REDDIT_CLIENT_ID = process.env.REDDIT_CLIENT_ID;
 const REDDIT_CLIENT_SECRET = process.env.REDDIT_CLIENT_SECRET;
-const RSS_FEED_URL = getArgValue('feed', process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL);
-const CACHE_DIR = getArgValue('cache-dir', process.env.CACHE_DIR || DEFAULT_CACHE_DIR);
-const CACHE_FILE = getArgValue('cache-file', process.env.CACHE_FILE || DEFAULT_CACHE_FILE);
+const RSS_FEED_URL = getArgValue(
+  "feed",
+  process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL,
+);
+const CACHE_DIR = getArgValue(
+  "cache-dir",
+  process.env.CACHE_DIR || DEFAULT_CACHE_DIR,
+);
+const CACHE_FILE = getArgValue(
+  "cache-file",
+  process.env.CACHE_FILE || DEFAULT_CACHE_FILE,
+);
 const CACHE_FILE_PATH = path.join(CACHE_DIR, CACHE_FILE);
 
 // Ensure required credentials are available
 if (!REDDIT_CLIENT_ID || !REDDIT_CLIENT_SECRET) {
-  console.error('Missing required Reddit credentials. Ensure REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET are set in your .env file.');
+  console.error(
+    "Missing required Reddit credentials. Ensure REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET are set in your .env file.",
+  );
   process.exit(1);
 }
 
@@ -94,7 +105,7 @@ if (!REDDIT_CLIENT_ID || !REDDIT_CLIENT_SECRET) {
  */
 function debugLog(...args) {
   if (isDebugEnabled) {
-    console.log('[DEBUG]', ...args);
+    console.log("[DEBUG]", ...args);
   }
 }
 
@@ -121,7 +132,7 @@ async function ensureCacheDirectory() {
  */
 async function readCache() {
   try {
-    const data = await readFile(CACHE_FILE_PATH, 'utf8');
+    const data = await readFile(CACHE_FILE_PATH, "utf8");
     return JSON.parse(data) || [];
   } catch {
     return [];
@@ -143,13 +154,13 @@ async function writeCache(data) {
 async function fetchLatestRSSItem() {
   const response = await fetch(RSS_FEED_URL);
   const feedData = await response.text();
-  debugLog('Fetched RSS feed:', feedData);
+  debugLog("Fetched RSS feed:", feedData);
 
   const parsedFeed = await xml2js.parseStringPromise(feedData);
   const items = parsedFeed.rss.channel[0].item;
 
   const cachedIds = await readCache();
-  debugLog('Cached IDs:', cachedIds);
+  debugLog("Cached IDs:", cachedIds);
 
   // Find the first item with a valid GUID that isn't already cached
   const newItem = items.find((item) => {
@@ -176,58 +187,62 @@ async function fetchLatestRSSItem() {
  */
 async function postToReddit(title, url) {
   try {
-    debugLog('Starting Reddit OAuth2 flow...');
-    const tokenResponse = await fetch('https://www.reddit.com/api/v1/access_token', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${Buffer.from(`${REDDIT_CLIENT_ID}:${REDDIT_CLIENT_SECRET}`).toString('base64')}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+    debugLog("Starting Reddit OAuth2 flow...");
+    const tokenResponse = await fetch(
+      "https://www.reddit.com/api/v1/access_token",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Basic ${Buffer.from(`${REDDIT_CLIENT_ID}:${REDDIT_CLIENT_SECRET}`).toString("base64")}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          grant_type: "client_credentials",
+        }),
       },
-      body: new URLSearchParams({
-        grant_type: 'client_credentials',
-      }),
-    });
+    );
 
     const tokenData = await tokenResponse.json();
-    debugLog('Reddit OAuth2 Response:', tokenData);
+    debugLog("Reddit OAuth2 Response:", tokenData);
 
     if (!tokenResponse.ok || !tokenData.access_token) {
-      throw new Error(`Failed to authenticate with Reddit: ${tokenData.error || 'Unknown error'}`);
+      throw new Error(
+        `Failed to authenticate with Reddit: ${tokenData.error || "Unknown error"}`,
+      );
     }
 
     const accessToken = tokenData.access_token;
 
-    debugLog('Posting to Reddit...');
-    const postResponse = await fetch('https://oauth.reddit.com/api/submit', {
-      method: 'POST',
+    debugLog("Posting to Reddit...");
+    const postResponse = await fetch("https://oauth.reddit.com/api/submit", {
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        sr: 'davidsneighbour', // Subreddit name
-        kind: 'link',
+        sr: "davidsneighbour", // Subreddit name
+        kind: "link",
         title,
         url,
       }),
     });
 
     const postData = await postResponse.json();
-    debugLog('Reddit Post Response:', postData);
+    debugLog("Reddit Post Response:", postData);
 
     // Check if the post was successful
     if (!postResponse.ok || postData.success === false) {
       throw new Error(
-        `Failed to post to Reddit: ${postData.jquery?.[1]?.[3]?.[0]?.[0] || 'Unknown error'}`
+        `Failed to post to Reddit: ${postData.jquery?.[1]?.[3]?.[0]?.[0] || "Unknown error"}`,
       );
     }
 
     console.log(`Posted to Reddit successfully. Post ID: ${postData.id}`);
   } catch (err) {
-    console.error('Failed to post to Reddit:', err);
+    console.error("Failed to post to Reddit:", err);
   }
 }
-
 
 /**
  * Main function to fetch the latest RSS item and post it to Reddit.
@@ -239,13 +254,13 @@ async function main() {
     const latestItem = await fetchLatestRSSItem();
 
     if (latestItem) {
-      debugLog('Latest RSS Item:', latestItem);
+      debugLog("Latest RSS Item:", latestItem);
       await postToReddit(latestItem.title, latestItem.link);
     } else {
-      console.log('No new RSS items to post.');
+      console.log("No new RSS items to post.");
     }
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error("Error:", err.message);
   }
 }
 

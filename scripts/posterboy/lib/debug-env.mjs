@@ -1,11 +1,11 @@
-import fs from 'fs';
-import path from 'path';
-import dotenv from 'dotenv';
-import { homedir } from 'os';
+import fs from "fs";
+import { homedir } from "os";
+import path from "path";
+import dotenv from "dotenv";
 
 const userHomeDir = homedir();
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
 
 function loadEnvFile(filePath) {
   if (fs.existsSync(filePath)) {
@@ -38,12 +38,12 @@ function debugEnvVariable(variableName, sources) {
   }
 
   if (variableName in process.env) {
-    result['runtime'] = process.env[variableName];
+    result["runtime"] = process.env[variableName];
   }
 
   console.log(`Tracing variable "${variableName}":`, result);
 }
 
 // Debug specific variables
-debugEnvVariable('TUMBLR_CONSUMER_KEY', sources);
-debugEnvVariable('TUMBLR_CONSUMER_SECRET', sources);
+debugEnvVariable("TUMBLR_CONSUMER_KEY", sources);
+debugEnvVariable("TUMBLR_CONSUMER_SECRET", sources);

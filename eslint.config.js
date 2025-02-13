@@ -1,3 +1,3 @@
-import dnbConfig from "@davidsneighbour/eslint-config";
+import dnbConfig from '@davidsneighbour/eslint-config';
 
 export default [...dnbConfig];

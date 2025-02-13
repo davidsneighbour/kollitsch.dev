@@ -19,7 +19,9 @@ const remarkConfig = {
       remarkLintFrontmatterSchema,
       {
         schemas: {
-          "./static/_schemata/blog.schema.yaml": ["./content/blog/**/*.{md,mdx}"],
+          "./static/_schemata/blog.schema.yaml": [
+            "./content/blog/**/*.{md,mdx}",
+          ],
         },
       },
     ],

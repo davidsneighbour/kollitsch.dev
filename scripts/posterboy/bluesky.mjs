@@ -1,10 +1,10 @@
-import { readFile, writeFile, access, mkdir } from 'fs/promises';
-import path from 'path';
-import fs from 'fs';
-import xml2js from 'xml2js';
-import dotenv from 'dotenv';
-import { AtpAgent } from '@atproto/api';
-import { homedir } from 'os';
+import fs from "fs";
+import { homedir } from "os";
+import path from "path";
+import { AtpAgent } from "@atproto/api";
+import dotenv from "dotenv";
+import { access, mkdir, readFile, writeFile } from "fs/promises";
+import xml2js from "xml2js";
 
 // @todo add link with preview
 // @todo add post message template
@@ -12,8 +12,8 @@ import { homedir } from 'os';
 const userHomeDir = homedir();
 
 // Load .env files
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
 
 /**
  * Load environment variables from a file if it exists.
@@ -33,21 +33,21 @@ const localEnv = loadEnvFile(LOCAL_ENV_PATH);
 process.env = { ...globalEnv, ...process.env, ...localEnv };
 
 // Default configurations
-const DEFAULT_BLUESKY_USERNAME = '';
-const DEFAULT_BLUESKY_APP_PASSWORD = '';
-const DEFAULT_CACHE_DIR = './cache';
-const DEFAULT_CACHE_FILE = 'rss-bluesky.json';
-const DEFAULT_RSS_FEED_URL = 'https://kollitsch.dev/rss.xml';
+const DEFAULT_BLUESKY_USERNAME = "";
+const DEFAULT_BLUESKY_APP_PASSWORD = "";
+const DEFAULT_CACHE_DIR = "./cache";
+const DEFAULT_CACHE_FILE = "rss-bluesky.json";
+const DEFAULT_RSS_FEED_URL = "https://kollitsch.dev/rss.xml";
 
 // Parse command-line arguments
 const args = process.argv.slice(2);
 const getArgValue = (argName, defaultValue) => {
-  const arg = args.find(arg => arg.startsWith(`--${argName}=`));
-  return arg ? arg.split('=')[1] : defaultValue;
+  const arg = args.find((arg) => arg.startsWith(`--${argName}=`));
+  return arg ? arg.split("=")[1] : defaultValue;
 };
 
 // Check for --help argument
-if (args.includes('--help')) {
+if (args.includes("--help")) {
   console.log(`
 Usage: node bluesky.mjs [options]
 
@@ -80,11 +80,26 @@ Examples:
 }
 
 // Configurable values
-const BLUESKY_USERNAME = getArgValue('username', process.env.BLUESKY_USERNAME || DEFAULT_BLUESKY_USERNAME);
-const BLUESKY_APP_PASSWORD = getArgValue('app-password', process.env.BLUESKY_APP_PASSWORD || DEFAULT_BLUESKY_APP_PASSWORD);
-const RSS_FEED_URL = getArgValue('feed', process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL);
-const CACHE_DIR = getArgValue('cache-dir', process.env.CACHE_DIR || DEFAULT_CACHE_DIR);
-const CACHE_FILE = getArgValue('cache-file', process.env.CACHE_FILE || DEFAULT_CACHE_FILE);
+const BLUESKY_USERNAME = getArgValue(
+  "username",
+  process.env.BLUESKY_USERNAME || DEFAULT_BLUESKY_USERNAME,
+);
+const BLUESKY_APP_PASSWORD = getArgValue(
+  "app-password",
+  process.env.BLUESKY_APP_PASSWORD || DEFAULT_BLUESKY_APP_PASSWORD,
+);
+const RSS_FEED_URL = getArgValue(
+  "feed",
+  process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL,
+);
+const CACHE_DIR = getArgValue(
+  "cache-dir",
+  process.env.CACHE_DIR || DEFAULT_CACHE_DIR,
+);
+const CACHE_FILE = getArgValue(
+  "cache-file",
+  process.env.CACHE_FILE || DEFAULT_CACHE_FILE,
+);
 const CACHE_FILE_PATH = path.join(CACHE_DIR, CACHE_FILE);
 
 /**
@@ -110,7 +125,7 @@ async function ensureCacheDirectory() {
  */
 async function readCache() {
   try {
-    const data = await readFile(CACHE_FILE_PATH, 'utf8');
+    const data = await readFile(CACHE_FILE_PATH, "utf8");
     return JSON.parse(data) || [];
   } catch {
     return [];
@@ -161,7 +176,7 @@ async function fetchLatestRSSItem() {
  */
 async function postToBluesky(message) {
   try {
-    const agent = new AtpAgent({ service: 'https://bsky.social' });
+    const agent = new AtpAgent({ service: "https://bsky.social" });
 
     await agent.login({
       identifier: BLUESKY_USERNAME,
@@ -171,15 +186,15 @@ async function postToBluesky(message) {
     await agent.api.app.bsky.feed.post.create(
       { repo: agent.session?.did },
       {
-        $type: 'app.bsky.feed.post',
+        $type: "app.bsky.feed.post",
         text: message,
         createdAt: new Date().toISOString(),
-      }
+      },
     );
 
-    console.log('Posted to Bluesky successfully.');
+    console.log("Posted to Bluesky successfully.");
   } catch (err) {
-    console.error('Failed to post to Bluesky:', err.message);
+    console.error("Failed to post to Bluesky:", err.message);
   }
 }
 
@@ -196,10 +211,10 @@ async function main() {
       const message = `New post: ${latestItem.title} - ${latestItem.link}`;
       await postToBluesky(message);
     } else {
-      console.log('No new RSS items to post.');
+      console.log("No new RSS items to post.");
     }
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error("Error:", err.message);
   }
 }
 

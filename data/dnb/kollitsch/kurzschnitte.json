@@ -4,9 +4,6 @@
     "link": "https://github.com/LaniJ/invoice-dragon",
     "title": "Invoice Dragon",
     "slug": "kz1",
-    "labels": [
-      "react",
-      "app"
-    ]
+    "labels": ["react", "app"]
   }
 ]

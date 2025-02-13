@@ -1,18 +1,18 @@
-import { readFile, writeFile, access, mkdir } from 'fs/promises';
-import path from 'path';
-import fs from 'fs';
-import xml2js from 'xml2js';
-import dotenv from 'dotenv';
-import { createRestAPIClient } from 'masto';
-import { homedir } from 'node:os'
+import fs from "fs";
+import { homedir } from "node:os";
+import path from "path";
+import dotenv from "dotenv";
+import { access, mkdir, readFile, writeFile } from "fs/promises";
+import { createRestAPIClient } from "masto";
+import xml2js from "xml2js";
 
 // @todo add post message template
 
-const userHomeDir = homedir()
+const userHomeDir = homedir();
 
 // Load .env files
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
 
 /**
  * Load environment variables from a file if it exists.
@@ -32,21 +32,21 @@ const localEnv = loadEnvFile(LOCAL_ENV_PATH);
 process.env = { ...globalEnv, ...process.env, ...localEnv };
 
 // Default configurations
-const DEFAULT_MASTODON_INSTANCE_URL = 'https://mas.to';
-const DEFAULT_MASTODON_ACCESS_TOKEN = '';
-const DEFAULT_CACHE_DIR = './cache';
-const DEFAULT_CACHE_FILE = 'rss-mastodon.json';
-const DEFAULT_RSS_FEED_URL = 'https://kollitsch.dev/rss.xml';
+const DEFAULT_MASTODON_INSTANCE_URL = "https://mas.to";
+const DEFAULT_MASTODON_ACCESS_TOKEN = "";
+const DEFAULT_CACHE_DIR = "./cache";
+const DEFAULT_CACHE_FILE = "rss-mastodon.json";
+const DEFAULT_RSS_FEED_URL = "https://kollitsch.dev/rss.xml";
 
 // Parse command-line arguments
 const args = process.argv.slice(2);
 const getArgValue = (argName, defaultValue) => {
-  const arg = args.find(arg => arg.startsWith(`--${argName}=`));
-  return arg ? arg.split('=')[1] : defaultValue;
+  const arg = args.find((arg) => arg.startsWith(`--${argName}=`));
+  return arg ? arg.split("=")[1] : defaultValue;
 };
 
 // Check for --help argument
-if (args.includes('--help')) {
+if (args.includes("--help")) {
   console.log(`
 Usage: node mastodon.mjs [options]
 
@@ -79,11 +79,26 @@ Examples:
 }
 
 // Configurable values
-const MASTODON_INSTANCE_URL = getArgValue('mastodon-url', process.env.MASTODON_INSTANCE_URL || DEFAULT_MASTODON_INSTANCE_URL);
-const MASTODON_ACCESS_TOKEN = getArgValue('mastodon-token', process.env.MASTODON_ACCESS_TOKEN || DEFAULT_MASTODON_ACCESS_TOKEN);
-const RSS_FEED_URL = getArgValue('feed', process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL);
-const CACHE_DIR = getArgValue('cache-dir', process.env.CACHE_DIR || DEFAULT_CACHE_DIR);
-const CACHE_FILE = getArgValue('cache-file', process.env.CACHE_FILE || DEFAULT_CACHE_FILE);
+const MASTODON_INSTANCE_URL = getArgValue(
+  "mastodon-url",
+  process.env.MASTODON_INSTANCE_URL || DEFAULT_MASTODON_INSTANCE_URL,
+);
+const MASTODON_ACCESS_TOKEN = getArgValue(
+  "mastodon-token",
+  process.env.MASTODON_ACCESS_TOKEN || DEFAULT_MASTODON_ACCESS_TOKEN,
+);
+const RSS_FEED_URL = getArgValue(
+  "feed",
+  process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL,
+);
+const CACHE_DIR = getArgValue(
+  "cache-dir",
+  process.env.CACHE_DIR || DEFAULT_CACHE_DIR,
+);
+const CACHE_FILE = getArgValue(
+  "cache-file",
+  process.env.CACHE_FILE || DEFAULT_CACHE_FILE,
+);
 const CACHE_FILE_PATH = path.join(CACHE_DIR, CACHE_FILE);
 
 /**
@@ -109,7 +124,7 @@ async function ensureCacheDirectory() {
  */
 async function readCache() {
   try {
-    const data = await readFile(CACHE_FILE_PATH, 'utf8');
+    const data = await readFile(CACHE_FILE_PATH, "utf8");
     return JSON.parse(data) || [];
   } catch {
     return [];
@@ -166,9 +181,9 @@ async function postToMastodon(message) {
     });
 
     await client.v1.statuses.create({ status: message });
-    console.log('Posted to Mastodon successfully.');
+    console.log("Posted to Mastodon successfully.");
   } catch (err) {
-    console.error('Failed to post to Mastodon:', err.message);
+    console.error("Failed to post to Mastodon:", err.message);
   }
 }
 
@@ -180,7 +195,7 @@ async function cleanCache() {
   const cachedIds = await readCache();
   const validIds = cachedIds.filter((id) => id !== null && id !== undefined);
   if (validIds.length !== cachedIds.length) {
-    console.log('Cleaning invalid entries from cache...');
+    console.log("Cleaning invalid entries from cache...");
     await writeCache(validIds);
   }
 }
@@ -199,10 +214,10 @@ async function main() {
       const message = `New post: ${latestItem.title} - ${latestItem.link}`;
       await postToMastodon(message);
     } else {
-      console.log('No new RSS items to post.');
+      console.log("No new RSS items to post.");
     }
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error("Error:", err.message);
   }
 }
 

@@ -1,13 +1,12 @@
+import fs from 'fs';
 import path from 'node:path';
 import util from 'node:util';
-import fs from 'fs';
 import fetch from 'node-fetch';
 
 const args = process.argv;
 
 (async () => {
   if (args && args.length > 0) {
-
     /**
      * @param {string} url
      * @param {fs.PathOrFileDescriptor} outputPath
@@ -33,20 +32,30 @@ const args = process.argv;
 
     const folderArg = path.dirname(args[3]);
     const frontmatterArg = args[4];
-    const data = frontmatterArg && typeof frontmatterArg === 'string' ? JSON.parse(frontmatterArg) : null;
+    const data =
+      frontmatterArg && typeof frontmatterArg === 'string'
+        ? JSON.parse(frontmatterArg)
+        : null;
     const videoId = data?.video?.youtube;
     const videoThumbnailHighRes = `https://ytimg.googleusercontent.com/vi/${videoId}/maxresdefault.jpg`;
     const videoThumbnailLowRes = `https://ytimg.googleusercontent.com/vi/${videoId}/sddefault.jpg`;
     const writeFilePromise = util.promisify(fs.writeFile);
 
-    const downloadSuccessful = await downloadFile(videoThumbnailHighRes, path.join(folderArg, 'header.jpg'));
+    const downloadSuccessful = await downloadFile(
+      videoThumbnailHighRes,
+      path.join(folderArg, 'header.jpg'),
+    );
 
     // If the high resolution download fails, try the low resolution
     if (!downloadSuccessful) {
-      console.log('High resolution image download failed, trying low resolution...');
-      await downloadFile(videoThumbnailLowRes, path.join(folderArg, 'header.jpg'));
+      console.log(
+        'High resolution image download failed, trying low resolution...',
+      );
+      await downloadFile(
+        videoThumbnailLowRes,
+        path.join(folderArg, 'header.jpg'),
+      );
     }
-
   }
 })();
 // https://i.ytimg.com/vi/49FXjBiccG4/sddefault.jpg

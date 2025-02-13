@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
-import dotenv from 'dotenv';
-import fetch from 'node-fetch';
+import dotenv from "dotenv";
+import fetch from "node-fetch";
 
 dotenv.config();
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
   try {
-    console.log('Clearing Cloudflare cache…');
+    console.log("Clearing Cloudflare cache…");
 
     // Cloudflare client credentials
     const { CLOUDFLARE_TOKEN } = process.env;
@@ -17,15 +17,15 @@ dotenv.config();
     const url = `https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONEID}/purge_cache`;
 
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       body: '{"purge_everything":true}',
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${CLOUDFLARE_TOKEN}`,
       },
     })
       .then((response) => response.json())
-      .then(() => console.log('success'))
+      .then(() => console.log("success"))
       .catch((error) => console.log(error));
   } catch (error) {
     console.error(error);

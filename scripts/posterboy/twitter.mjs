@@ -1,17 +1,17 @@
-import dotenv from 'dotenv';
-import fs from 'fs';
-import path from 'path';
-import { TwitterApi } from 'twitter-api-v2';
-import { homedir } from 'os';
-import { readFile, writeFile, mkdir, access } from 'fs/promises';
-import xml2js from 'xml2js';
-import fetch from 'node-fetch';
+import fs from "fs";
+import { homedir } from "os";
+import path from "path";
+import dotenv from "dotenv";
+import { access, mkdir, readFile, writeFile } from "fs/promises";
+import fetch from "node-fetch";
+import { TwitterApi } from "twitter-api-v2";
+import xml2js from "xml2js";
 
 const userHomeDir = homedir();
 
 // Load .env files
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
 
 /**
  * Load environment variables from a file if it exists.
@@ -31,19 +31,19 @@ const localEnv = loadEnvFile(LOCAL_ENV_PATH);
 process.env = { ...globalEnv, ...process.env, ...localEnv };
 
 // Twitter API credentials
-const TWITTER_API_KEY = process.env.TWITTER_API_KEY || '';
-const TWITTER_API_SECRET = process.env.TWITTER_API_SECRET || '';
-const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN || '';
+const TWITTER_API_KEY = process.env.TWITTER_API_KEY || "";
+const TWITTER_API_SECRET = process.env.TWITTER_API_SECRET || "";
+const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN || "";
 
 if (!TWITTER_API_KEY || !TWITTER_API_SECRET || !TWITTER_BEARER_TOKEN) {
-  console.error('Missing required Twitter API credentials in .env.');
+  console.error("Missing required Twitter API credentials in .env.");
   process.exit(1);
 }
 
 // RSS Feed and Cache Configuration
-const DEFAULT_CACHE_DIR = './cache';
-const DEFAULT_CACHE_FILE = 'rss-twitter.json';
-const DEFAULT_RSS_FEED_URL = 'https://kollitsch.dev/rss.xml';
+const DEFAULT_CACHE_DIR = "./cache";
+const DEFAULT_CACHE_FILE = "rss-twitter.json";
+const DEFAULT_RSS_FEED_URL = "https://kollitsch.dev/rss.xml";
 const CACHE_DIR = path.resolve(DEFAULT_CACHE_DIR);
 const CACHE_FILE_PATH = path.join(CACHE_DIR, DEFAULT_CACHE_FILE);
 const RSS_FEED_URL = process.env.RSS_FEED_URL || DEFAULT_RSS_FEED_URL;
@@ -65,7 +65,7 @@ async function ensureCacheDirectory() {
 // Read and write cache
 async function readCache() {
   try {
-    const data = await readFile(CACHE_FILE_PATH, 'utf8');
+    const data = await readFile(CACHE_FILE_PATH, "utf8");
     return JSON.parse(data) || [];
   } catch {
     return [];
@@ -106,7 +106,7 @@ async function fetchLatestRSSItem() {
 
     return null;
   } catch (err) {
-    console.error('Error fetching RSS feed:', err.message);
+    console.error("Error fetching RSS feed:", err.message);
     return null;
   }
 }
@@ -121,11 +121,11 @@ async function postToTwitter(message) {
     });
 
     const tweet = await client.v2.tweet(message);
-    console.log('Tweeted successfully:', tweet.data);
+    console.log("Tweeted successfully:", tweet.data);
   } catch (err) {
-    console.error('Failed to post to Twitter:', err.message);
+    console.error("Failed to post to Twitter:", err.message);
     if (err.response) {
-      console.error('Error details:', err.response.data);
+      console.error("Error details:", err.response.data);
     }
   }
 }
@@ -137,14 +137,14 @@ async function main() {
 
     const latestItem = await fetchLatestRSSItem();
     if (!latestItem) {
-      console.log('No new RSS items to post.');
+      console.log("No new RSS items to post.");
       return;
     }
 
     const message = `New post: ${latestItem.title} - ${latestItem.link}`;
     await postToTwitter(message);
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error("Error:", err.message);
   }
 }
 

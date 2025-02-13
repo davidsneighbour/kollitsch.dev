@@ -1,16 +1,16 @@
-import { readFile, writeFile, access, mkdir } from 'fs/promises';
-import path from 'path';
-import fs from 'fs';
-import xml2js from 'xml2js';
-import dotenv from 'dotenv';
-import { homedir } from 'os';
-import fetch from 'node-fetch';
+import fs from "fs";
+import { homedir } from "os";
+import path from "path";
+import dotenv from "dotenv";
+import { access, mkdir, readFile, writeFile } from "fs/promises";
+import fetch from "node-fetch";
+import xml2js from "xml2js";
 
 // Load .env files
 const userHomeDir = homedir();
-const GLOBAL_ENV_PATH = path.join(userHomeDir, '.env');
-const LOCAL_ENV_PATH = path.resolve('.env');
-console.log('Resolved GLOBAL_ENV_PATH:', GLOBAL_ENV_PATH);
+const GLOBAL_ENV_PATH = path.join(userHomeDir, ".env");
+const LOCAL_ENV_PATH = path.resolve(".env");
+console.log("Resolved GLOBAL_ENV_PATH:", GLOBAL_ENV_PATH);
 
 /**
  * Load environment variables from a file if it exists.
@@ -19,8 +19,8 @@ console.log('Resolved GLOBAL_ENV_PATH:', GLOBAL_ENV_PATH);
  */
 function loadEnvFile(filePath) {
   if (fs.existsSync(filePath)) {
-    const envContent = fs.readFileSync(filePath, 'utf8');
-    console.log('Loaded .env content:', envContent); // Debug the content
+    const envContent = fs.readFileSync(filePath, "utf8");
+    console.log("Loaded .env content:", envContent); // Debug the content
     return dotenv.parse(envContent);
   }
   return {};
@@ -31,26 +31,31 @@ const globalEnv = loadEnvFile(GLOBAL_ENV_PATH);
 const localEnv = loadEnvFile(LOCAL_ENV_PATH);
 process.env = { ...globalEnv, ...process.env, ...localEnv };
 
-
-
 // Tumblr API keys from environment variables
-const TUMBLR_CONSUMER_KEY = process.env.TUMBLR_CONSUMER_KEY || '';
-const TUMBLR_CONSUMER_SECRET = process.env.TUMBLR_CONSUMER_SECRET || '';
-const TUMBLR_BLOG_IDENTIFIER = process.env.TUMBLR_BLOG_IDENTIFIER || 'davidsneighbour.tumblr.com'; // e.g., myblog.tumblr.com
+const TUMBLR_CONSUMER_KEY = process.env.TUMBLR_CONSUMER_KEY || "";
+const TUMBLR_CONSUMER_SECRET = process.env.TUMBLR_CONSUMER_SECRET || "";
+const TUMBLR_BLOG_IDENTIFIER =
+  process.env.TUMBLR_BLOG_IDENTIFIER || "davidsneighbour.tumblr.com"; // e.g., myblog.tumblr.com
 
-console.log('TUMBLR_CONSUMER_KEY:', TUMBLR_CONSUMER_KEY);
-console.log('TUMBLR_CONSUMER_SECRET:', TUMBLR_CONSUMER_SECRET);
-console.log('TUMBLR_BLOG_IDENTIFIER:', TUMBLR_BLOG_IDENTIFIER);
+console.log("TUMBLR_CONSUMER_KEY:", TUMBLR_CONSUMER_KEY);
+console.log("TUMBLR_CONSUMER_SECRET:", TUMBLR_CONSUMER_SECRET);
+console.log("TUMBLR_BLOG_IDENTIFIER:", TUMBLR_BLOG_IDENTIFIER);
 
-if (!TUMBLR_CONSUMER_KEY || !TUMBLR_CONSUMER_SECRET || !TUMBLR_BLOG_IDENTIFIER) {
-  console.error('Missing Tumblr API keys or blog identifier in environment variables.');
+if (
+  !TUMBLR_CONSUMER_KEY ||
+  !TUMBLR_CONSUMER_SECRET ||
+  !TUMBLR_BLOG_IDENTIFIER
+) {
+  console.error(
+    "Missing Tumblr API keys or blog identifier in environment variables.",
+  );
   process.exit(1);
 }
 
 // Default configurations
-const DEFAULT_CACHE_DIR = './cache';
-const DEFAULT_CACHE_FILE = 'rss-tumblr.json';
-const DEFAULT_RSS_FEED_URL = 'https://kollitsch.dev/rss.xml';
+const DEFAULT_CACHE_DIR = "./cache";
+const DEFAULT_CACHE_FILE = "rss-tumblr.json";
+const DEFAULT_RSS_FEED_URL = "https://kollitsch.dev/rss.xml";
 
 const CACHE_DIR = DEFAULT_CACHE_DIR;
 const CACHE_FILE = DEFAULT_CACHE_FILE;
@@ -78,7 +83,7 @@ async function ensureCacheDirectory() {
  */
 async function readCache() {
   try {
-    const data = await readFile(CACHE_FILE_PATH, 'utf8');
+    const data = await readFile(CACHE_FILE_PATH, "utf8");
     return JSON.parse(data) || [];
   } catch {
     return [];
@@ -104,7 +109,7 @@ async function fetchLatestRSSItem() {
 
   const cachedIds = await readCache();
 
-  const newItem = items.find(item => {
+  const newItem = items.find((item) => {
     const guid = item.guid?.[0]?._ || item.guid?.[0];
     return guid && !cachedIds.includes(guid);
   });
@@ -125,16 +130,18 @@ async function fetchLatestRSSItem() {
  * Fetches an OAuth 2.0 Bearer Token.
  */
 async function fetchBearerToken() {
-  const tokenUrl = 'https://api.tumblr.com/v2/oauth2/token';
-  const credentials = Buffer.from(`${TUMBLR_CONSUMER_KEY}:${TUMBLR_CONSUMER_SECRET}`).toString('base64');
+  const tokenUrl = "https://api.tumblr.com/v2/oauth2/token";
+  const credentials = Buffer.from(
+    `${TUMBLR_CONSUMER_KEY}:${TUMBLR_CONSUMER_SECRET}`,
+  ).toString("base64");
 
   const response = await fetch(tokenUrl, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Authorization': `Basic ${credentials}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Basic ${credentials}`,
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: new URLSearchParams({ grant_type: 'client_credentials' }),
+    body: new URLSearchParams({ grant_type: "client_credentials" }),
   });
 
   if (!response.ok) {
@@ -156,12 +163,12 @@ async function postToTumblr(bearerToken, title, body) {
   const url = `https://api.tumblr.com/v2/blog/${TUMBLR_BLOG_IDENTIFIER}/post`;
 
   const response = await fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Authorization': `Bearer ${bearerToken}`,
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${bearerToken}`,
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ type: 'text', title, body }),
+    body: JSON.stringify({ type: "text", title, body }),
   });
 
   if (!response.ok) {
@@ -169,7 +176,7 @@ async function postToTumblr(bearerToken, title, body) {
     throw new Error(`Failed to post to Tumblr: ${error}`);
   }
 
-  console.log('Posted to Tumblr successfully.');
+  console.log("Posted to Tumblr successfully.");
 }
 
 /**
@@ -187,10 +194,10 @@ async function main() {
       const body = `<a href="${latestItem.link}">${latestItem.title}</a>`;
       await postToTumblr(bearerToken, title, body);
     } else {
-      console.log('No new RSS items to post.');
+      console.log("No new RSS items to post.");
     }
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error("Error:", err.message);
   }
 }
 

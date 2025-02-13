@@ -58,9 +58,6 @@
     },
     "required": ["slug", "name", "description"],
     "additionalProperties": false,
-    "oneOf": [
-      { "required": ["link"] },
-      { "required": ["links"] }
-    ]
+    "oneOf": [{ "required": ["link"] }, { "required": ["links"] }]
   }
 }

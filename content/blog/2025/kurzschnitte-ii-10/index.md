@@ -61,6 +61,8 @@ For reasons. January 20, 1946 --- January 15, 2025. Thank you. And see you on th
 
 > Sugar does make people happy, but then you fall off the edge after a few minutes, so I've really pretty much cut it out of my diet. Except for cupcakes. I like those.
 
+> I like darkness and confusion and absurdity, but I like to know that there could be a little door that you could go out into a safe life area of happiness.
+
 ## What you missed
 
 {{< tagnavigation "kurzschnitte" >}}

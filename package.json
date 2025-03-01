@@ -17,7 +17,7 @@
     "@davidsneighbour/biome-config": "2025.0.1",
     "@davidsneighbour/browserslist-config": "2025.0.1",
     "@davidsneighbour/commitlint-config": "2025.0.1",
-    "@davidsneighbour/eslint-config": "2025.0.1",
+    "@davidsneighbour/eslint-config": "2025.0.2",
     "@davidsneighbour/frontmatter-config": "2025.0.1",
     "@davidsneighbour/htmlvalidate-config": "2025.0.1",
     "@davidsneighbour/hugo-darkskies": "1.2025.3",

@@ -43,7 +43,7 @@
     "pixelmatch": "6.0.0",
     "prettier-plugin-go-template": "0.0.15",
     "sass": "1.84.0",
-    "secretlint": "9.0.0",
+    "secretlint": "9.2.0",
     "simple-git-hooks": "2.11.1",
     "toml": "3.0.0",
     "trim": "1.0.1",

@@ -58,7 +58,7 @@
     "@types/node": "22.13.1",
     "masto": "6.10.3",
     "oauth-1.0a": "2.2.6",
-    "twitter-api-v2": "1.19.1"
+    "twitter-api-v2": "1.20.2"
   },
   "scripts": {
     "audit:html": "wireit",

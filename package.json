@@ -53,7 +53,7 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@atproto/api": "0.13.33",
+    "@atproto/api": "0.14.7",
     "@playwright/test": "1.50.1",
     "@types/node": "22.13.1",
     "masto": "6.10.3",

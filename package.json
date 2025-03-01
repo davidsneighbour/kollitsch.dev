@@ -40,7 +40,7 @@
     "lint-staged": "15.4.3",
     "netlify-cli": "18.0.3",
     "ninja-keys": "1.2.2",
-    "pixelmatch": "6.0.0",
+    "pixelmatch": "7.1.0",
     "prettier-plugin-go-template": "0.0.15",
     "sass": "1.84.0",
     "secretlint": "9.0.0",

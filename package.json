@@ -55,7 +55,7 @@
   "devDependencies": {
     "@atproto/api": "0.13.33",
     "@playwright/test": "1.50.1",
-    "@types/node": "22.13.1",
+    "@types/node": "22.13.8",
     "masto": "6.10.3",
     "oauth-1.0a": "2.2.6",
     "twitter-api-v2": "1.19.1"

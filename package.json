@@ -14,51 +14,52 @@
   "dependencies": {
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.10.0",
-    "@davidsneighbour/biome-config": "2025.0.1",
-    "@davidsneighbour/browserslist-config": "2025.0.1",
-    "@davidsneighbour/commitlint-config": "2025.0.1",
-    "@davidsneighbour/eslint-config": "2025.0.1",
-    "@davidsneighbour/frontmatter-config": "2025.0.1",
-    "@davidsneighbour/htmlvalidate-config": "2025.0.1",
+    "@davidsneighbour/biome-config": "2025.0.2",
+    "@davidsneighbour/browserslist-config": "2025.0.2",
+    "@davidsneighbour/commitlint-config": "2025.0.2",
+    "@davidsneighbour/eslint-config": "2025.0.2",
+    "@davidsneighbour/frontmatter-config": "2025.0.2",
+    "@davidsneighbour/htmlvalidate-config": "2025.0.2",
     "@davidsneighbour/hugo-darkskies": "1.2025.3",
     "@davidsneighbour/imagemin-lint-staged": "0.6.0",
-    "@davidsneighbour/markdownlint-config": "2025.0.1",
+    "@davidsneighbour/markdownlint-config": "2025.0.2",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
-    "@davidsneighbour/prettier-config": "2025.0.1",
-    "@davidsneighbour/release-config": "2025.0.1",
-    "@davidsneighbour/remark-config": "2025.0.1",
-    "@davidsneighbour/stylelint-config": "2025.0.1",
-    "@davidsneighbour/tools": "2025.0.1",
+    "@davidsneighbour/prettier-config": "2025.0.2",
+    "@davidsneighbour/release-config": "2025.0.2",
+    "@davidsneighbour/remark-config": "2025.0.2",
+    "@davidsneighbour/stylelint-config": "2025.0.2",
+    "@davidsneighbour/tools": "2025.0.2",
     "@github/hotkey": "3.1.1",
-    "@notionhq/client": "2.2.15",
-    "@secretlint/secretlint-rule-preset-recommend": "9.0.0",
-    "caniuse-lite": "1.0.30001697",
+    "@notionhq/client": "2.2.16",
+    "@secretlint/secretlint-rule-preset-recommend": "9.2.0",
+    "caniuse-lite": "1.0.30001701",
     "commitizen": "4.3.1",
     "consola": "3.4.0",
     "dotenv": "16.4.7",
     "gray-matter": "^4.0.3",
     "lint-staged": "15.4.3",
-    "netlify-cli": "18.0.3",
+    "netlify-cli": "19.0.0",
     "ninja-keys": "1.2.2",
-    "pixelmatch": "6.0.0",
+    "pixelmatch": "7.1.0",
     "prettier-plugin-go-template": "0.0.15",
-    "sass": "1.84.0",
-    "secretlint": "9.0.0",
+    "sass": "1.85.1",
+    "secretlint": "9.2.0",
     "simple-git-hooks": "2.11.1",
+    "stylelint": "^16.15.0",
     "toml": "3.0.0",
     "trim": "1.0.1",
     "ts-node": "10.9.2",
-    "tsx": "4.19.2",
+    "tsx": "4.19.3",
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@atproto/api": "0.13.33",
+    "@atproto/api": "0.14.7",
     "@playwright/test": "1.50.1",
-    "@types/node": "22.13.1",
+    "@types/node": "22.13.9",
     "masto": "6.10.3",
     "oauth-1.0a": "2.2.6",
-    "twitter-api-v2": "1.19.1"
+    "twitter-api-v2": "1.20.2"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -117,25 +118,17 @@
     },
     "build:hugo": {
       "command": "hugo --environment gugin --logLevel debug --minify",
-      "dependencies": [
-        "clean:dist",
-        "build:hugoconfig"
-      ]
+      "dependencies": ["clean:dist", "build:hugoconfig"]
     },
     "build:hugoconfig": {
       "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
     },
     "build:pagefind": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": [
-        "build:hugo"
-      ]
+      "dependencies": ["build:hugo"]
     },
     "clean": {
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo"]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -145,11 +138,7 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo:full",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -177,26 +166,18 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": [
-        "deploy:netlify"
-      ]
+      "dependencies": ["deploy:netlify"]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "lint": {
-      "dependencies": [
-        "lint:lockfiles"
-      ]
+      "dependencies": ["lint:lockfiles"]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -211,16 +192,11 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": [
-        "server:hugo",
-        "server:pagefind"
-      ]
+      "dependencies": ["server:hugo", "server:pagefind"]
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
-      "dependencies": [
-        "server:hugo-certificates"
-      ],
+      "dependencies": ["server:hugo-certificates"],
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at *"
@@ -232,20 +208,14 @@
     },
     "server:pagefind": {
       "command": "pagefind ",
-      "files": [
-        "content/**/*.md"
-      ]
+      "files": ["content/**/*.md"]
     },
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
@@ -277,9 +247,7 @@
     "node": ">=20.12.0",
     "npm": ">=10.3.0"
   },
-  "browserslist": [
-    "extends @davidsneighbour/browserslist-config"
-  ],
+  "browserslist": ["extends @davidsneighbour/browserslist-config"],
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint -e \"$@\""

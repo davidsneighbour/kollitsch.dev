@@ -40,6 +40,9 @@ show_version = true
 
 # giscus - @see https://dnbhub.xyz/giscus
 ################################################################################
+[dnb.theme.giscus]
+enabledDev = true # set to false to disable giscus on localhost and development
+
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"
 dataCategory = "Comments"
@@ -56,7 +59,10 @@ dataLoading = "lazy"
 
 [dnb.giscus.extended]
 defaultCommentOrder = "oldest"
-origins = ["htttps://kollitsch.dev", "https://127.0.0.1:1313", "https://192.168.1.201:1313"]
+origins = ["https://kollitsch.dev", "https://127.0.0.1:1313", "https://192.168.1.201:1313"]
+originsRegex = [
+  "http(s)?://localhost:[0-9]+",
+]
 
 # security - @see https://dnbhub.xyz/security
 ################################################################################

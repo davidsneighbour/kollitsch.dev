@@ -22,9 +22,9 @@ fmContentType: blog
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.
 
-- **Focus:** The focus thing stays a point of work ;) I still tend to find distraction in issues and ideas. But at least I could put those ideas to good work this month.
-- **Header tags and social media tags:** For a while now I was working on a module that creates all the header tags a website could possibly need. After some cleaning up and fine tuning it's finally ready to be released as a proper module. In it's wake we have two other modules that take care of "everything social" and "everything image" on my websites.
-- **kollitsch.de(v):** Adding a V to the DE! Long story short: People kept asking me why I am writing English on a weblog in a .de-domain. It appears ;) that being German is not a reason enough for this and clearly having a German domain name will probably make "easy" SEO harder. No target audience in Germany and no target language with German. So I bit in the sour cherry and decided to donate a _v_ to the _de_.
+* **Focus:** The focus thing stays a point of work ;) I still tend to find distraction in issues and ideas. But at least I could put those ideas to good work this month.
+* **Header tags and social media tags:** For a while now I was working on a module that creates all the header tags a website could possibly need. After some cleaning up and fine tuning it's finally ready to be released as a proper module. In it's wake we have two other modules that take care of "everything social" and "everything image" on my websites.
+* **kollitsch.de(v):** Adding a V to the DE! Long story short: People kept asking me why I am writing English on a weblog in a .de-domain. It appears ;) that being German is not a reason enough for this and clearly having a German domain name will probably make "easy" SEO harder. No target audience in Germany and no target language with German. So I bit in the sour cherry and decided to donate a _v_ to the _de_.
 
   I also got out the screwdriver and moved to a _Cloudflare to Netlify_ based hosting setup, which results in a very much speedier delivery of the pages.
 
@@ -32,8 +32,9 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
   Nuff said.
 
-- **Cooking:** [I experimented with chicken soup](https://twitter.com/davidsneighbour/status/1521110041281310720) this month. Like it. Now on to wraps ;)
-- **GoHugo:** Let's quote Victor Hugo: "Change your opinions, keep to your principles; change your leaves, keep intact your roots." - After more than 4 years of trying to make [GoHugo](https://gohugo.io) better I realised that my attempts to help were neither appreciated nor in any way helping the project going forward. {{< b5/floatleft >}}![Package Management via XKCD](https://imgs.xkcd.com/comics/dependency.png){{< / b5/floatleft >}}
+* **Cooking:** [I experimented with chicken soup](https://twitter.com/davidsneighbour/status/1521110041281310720) this month. Like it. Now on to wraps ;)
+* **GoHugo:** Let's quote Victor Hugo: "Change your opinions, keep to your principles; change your leaves, keep intact your roots." - After more than 4 years of trying to make [GoHugo](https://gohugo.io) better I realised that my attempts to help were neither appreciated nor in any way helping the project going forward.
+  ![Package Management via XKCD](./dependency.png "Package Management via XKCD")
 
   Image via [xkcd](https://xkcd.com/2347/).
 
@@ -59,4 +60,4 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
   Well. Bye, [forum](https://discourse.gohugo.io/).
 
-- **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.
+* **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess.

@@ -41,7 +41,7 @@ show_version = true
 # giscus - @see https://dnbhub.xyz/giscus
 ################################################################################
 [dnb.theme.giscus]
-enabledDev = true # set to false to disable giscus on localhost and development
+enabledDev = false # set to false to disable giscus on localhost and development
 
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"

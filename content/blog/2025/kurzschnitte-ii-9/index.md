@@ -3,10 +3,9 @@ $schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - a ninth part
 description: ""
 summary: ""
-draft: true
-date: 2025-02-08T20:50:07+07:00
-publishDate: 2025-02-08T20:50:07+07:00
-lastmod: 2025-02-10T12:33:31+00:00
+date: 2025-03-21T11:42:40+00:00
+publishDate: 2025-03-21T11:42:40+00:00
+lastmod: 2025-03-21T11:45:30+00:00
 resources:
 - title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
   src: header.jpg
@@ -16,12 +15,10 @@ tags:
 - kurzschnitte
 - bookmarks
 - 100DaysToOffload
-type: blog
-unsplash:
-  imageid: UcEzgZ6k19o
+fmContentType: blog
 ---
 
-INTRODUCTION
+It's been a minute—so let's call this the slightly-belated-but-still-worth-it edition of interesting links around the web. From playful coding companions to government UFO footage, here are the latest (and overdue) links I was hording in my todo list that are worth checking out.
 
 ## Webdev
 
@@ -41,9 +38,9 @@ INTRODUCTION
 * In his article, ["Do I Need This Node Dependency?"](https://brianmuenzenmeyer.com/posts/2024-do-i-need-this-node-dependency/), Brian Muenzenmeyer explores recent advancements in Node.js that enhance its out-of-the-box capabilities. He discusses features such as native argument parsing, environment variable management, and output styling, which can reduce reliance on external packages like yargs, dotenv, and chalk. Muenzenmeyer emphasizes the importance of evaluating whether additional dependencies are necessary, given Node.js's evolving standard library.
 * In his article, ["Faux Containers in CSS Grids"](https://cloudfour.com/thinks/faux-containers-in-css-grids/), Tyler Sticka introduces a technique for creating visual containers that allow certain elements to break out of their bounds, enhancing design flexibility. By decoupling the containing shape from its content using CSS Grid and pseudo-elements, developers can achieve complex layouts without resorting to negative margins or absolute positioning. This approach simplifies the implementation of designs where images or buttons extend beyond their containers, providing a cleaner and more maintainable codebase.
 
-## Auditing
-
 ## Food for though
+
+* In his recent article, ["Part 1: The Shitball"](https://bradfrost.com/blog/post/part-1-the-shitball/), Brad Frost examines how malignant narcissists exploit the modern media landscape to hijack public attention. He introduces the concept of "The Shitball" to describe these individuals and their enablers, highlighting the detrimental impact they have on society. Frost emphasizes the importance of redirecting our focus toward positive and constructive endeavors to counteract this pervasive influence. 
 
 ## Fun and stuff
 
@@ -53,10 +50,6 @@ INTRODUCTION
 * For those seeking inspiration in data visualization, the [Data Viz Project](https://datavizproject.com/) offers a comprehensive collection of chart types and diagrams. Curated by the design agency Ferdio, this resource categorizes visualizations by function, shape, and input, making it easier to find the most effective way to present your data. Each visualization includes a description and example, serving as a valuable reference for both novice and experienced designers.
 * For those intrigued by the U.S. government's documentation of Unidentified Aerial Phenomena (UAP), [Beautiful Public Data](https://www.beautifulpublicdata.com/us-government-ufo-uap-footage/) offers a curated collection of declassified videos and reports. This compilation includes historical footage, such as 1950s newsreels reporting on suspected alien spacecraft, as well as more recent releases by the Pentagon. Notably, in April 2020, the Department of Defense officially released three videos captured by U.S. Navy pilots, commonly referred to as "FLIR," "GIMBAL," and "GOFAST," which depict encounters with unexplained aerial objects. These releases have contributed to ongoing discussions and investigations into UAPs, including congressional hearings and the establishment of the All-domain Anomaly Resolution Office (AARO) in 2022 to standardize the collection and reporting of such phenomena. citeturn0search0turn0search3
 * In celebration of YouTube's 20th anniversary, the platform has introduced a refreshed brand palette, featuring a softer red hue complemented by a dynamic red-to-magenta gradient. This subtle yet meaningful shift aims to modernize YouTube's iconic identity while addressing technical issues associated with the previous pure red, such as screen burn-in and color inconsistencies. The design team carefully selected magenta for its connotations of imagination and evolution, enhancing the platform's visual appeal and aligning with its mission to be welcoming and dynamic. This updated color scheme is thoughtfully applied to key UI elements, including the logo, progress bar, and action buttons like "Like" and "Subscribe," ensuring a cohesive and engaging user experience.
-
-## IT got political
-
-## Listen
 
 ## Watch
 

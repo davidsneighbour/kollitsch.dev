@@ -1,5 +1,6 @@
 ---
 title: /colophon
+linktitle: colophon
 url: /colophon
 linkTitle: Colophon
 description: ''

@@ -1,5 +1,6 @@
 ---
 title: /contact
+linktitle: contact
 description: Find a way to get into contact with me. I prefer written contact before you
   cold call me ;)
 menu:

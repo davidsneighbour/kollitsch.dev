@@ -1,6 +1,7 @@
 ---
 '$schema': /static/_schemata/blog.schema.yaml
 title: /blogroll
+linktitle: blogroll
 description: ""
 summary: ""
 

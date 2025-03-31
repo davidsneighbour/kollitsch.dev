@@ -1,0 +1,108 @@
+{{- $copy := lang.Translate "theme.navigationlabel" -}}
+<nav class="row" aria-label="{{- $copy -}}">
+  <div class="d-flex flex-column">
+    {{- $paginator := .Scratch.Get "paginator" -}}
+    {{- if compare.Gt $paginator.TotalPages 1 -}}
+      <ul class="mb-0 pagination align-self-center">
+        {{- with $paginator -}}
+          {{- $currentPageNumber := .PageNumber -}}
+          {{- partials.Include "dnb/pagination/item-first.html" . . -}}
+          {{- partials.Include "dnb/pagination/item-previous.html" . . -}}
+          {{- partials.Include "dnb/pagination/item-current.html" . . -}}
+          {{- partials.Include "dnb/pagination/item-next.html" . . -}}
+          {{- partials.Include "dnb/pagination/item-last.html" . . -}}
+        {{- end -}}
+      </ul>
+    {{- end -}}
+    <p class="align-self-center text-body-secondary fs-8">
+      {{- lang.Translate "theme.pagination.information" (dict
+            "posts" $paginator.TotalNumberOfElements
+            "pages" $paginator.TotalPages) -}}
+    </p>
+  </div>
+</nav>
+
+{{ define "partials/dnb/pagination/item-first.html" }}
+  {{- $currentPageNumber := .PageNumber }}
+  {{- with .First }}
+    {{- if compare.Ne $currentPageNumber .PageNumber }}
+      <li class="page-item">
+        {{- $copy := lang.Translate "theme.first" -}}
+        <a href="{{ .URL }}" aria-label="{{- $copy -}}" class="page-link">
+          {{- partials.Include "icon.html" "chevron-double-left" -}}
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ define "partials/dnb/pagination/item-previous.html" }}
+  {{- with .Prev }}
+    <li class="page-item">
+      {{- $copy := lang.Translate "theme.previous" }}
+      <a href="{{ .URL }}" aria-label="{{ $copy }}" class="page-link">
+        {{- partials.Include "icon.html" "chevron-left" -}}
+      </a>
+    </li>
+  {{- end }}
+{{ end }}
+
+{{ define "partials/dnb/pagination/item-current.html" }}
+  {{- $paginator := . }}
+  {{- $currentPageNumber := .PageNumber }}
+  {{- $slots := 5 }}
+  {{- $start := math.Max 1 (math.Sub .PageNumber (math.Floor (math.Div $slots 2))) }}
+  {{- $end := math.Min .TotalPages (math.Sub (math.Add $start $slots) 1) }}
+  {{- if compare.Lt (math.Add (math.Sub $end $start) 1) $slots }}
+    {{- $start = math.Max 1 (math.Add (math.Sub $end $slots) 1) }}
+  {{- end }}
+  {{- range $k := collections.Seq $start $end }}
+    {{- $copy := fmt.Printf (lang.Translate "theme.page") $k -}}
+    {{- if compare.Eq $paginator.PageNumber $k }}
+      <li class="page-item active">
+        <a
+          href="#"
+          aria-current="page"
+          aria-label="{{- $copy -}}"
+          class="page-link"
+          >{{ $k }}</a
+        >
+      </li>
+    {{- else }}
+      <li class="page-item">
+        <a
+          href="{{ (collections.Index $paginator.Pagers (math.Sub $k 1)).URL }}"
+          aria-label="{{- $copy -}}"
+          class="page-link"
+          >{{ $k }}</a
+        >
+      </li>
+    {{- end }}
+  {{- end }}
+{{ end }}
+
+{{ define "partials/dnb/pagination/item-next.html" }}
+  {{- with .Next }}
+    <li class="page-item">
+      {{- $copy := lang.Translate "theme.next" }}
+      <a href="{{ .URL }}" aria-label="{{ $copy }}" class="page-link">
+        {{- partials.Include "icon.html" "chevron-right" -}}
+      </a>
+    </li>
+  {{- end }}
+{{ end }}
+
+{{ define "partials/dnb/pagination/item-last.html" }}
+  {{- $paginator := . }}
+  {{- $currentPageNumber := .PageNumber }}
+  {{- with .Last }}
+    {{- if compare.Ne $currentPageNumber .PageNumber }}
+      <li class="page-item">
+        {{- $copy := lang.Translate "theme.last" }}
+        <a href="{{ .URL }}" aria-label="{{- $copy -}}" class="page-link">
+          {{- partials.Include "icon.html" "chevron-double-right" -}}
+        </a>
+      </li>
+    {{- end }}
+  {{- end }}
+{{ end }}

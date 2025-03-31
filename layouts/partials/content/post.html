@@ -1,0 +1,83 @@
+{{- $post := . -}}
+{{- $posttype := $post.Type | compare.Default "default" -}}
+{{- $config := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}
+
+{{- $pagefindMarker := "" -}}
+{{- if collections.In (collections.Slice "page") page.Kind }}
+  {{- $pagefindMarker = "data-pagefind-body" -}}
+  {{- if compare.Eq $post.Params.config.pagefind false | compare.Default true -}}
+    {{- $pagefindMarker = "" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
+<article {{ $pagefindMarker | safe.HTMLAttr }} class="full-post {{ $articleclasses -}}">
+
+  {{- /* MARK: Status
+  */ -}}
+  {{- if compare.Ne $config.status false -}}
+    {{- partials.IncludeCached "content/components/status.html" $post $post -}}
+  {{- end -}}
+
+  {{- /* MARK: Banner
+  */ -}}
+  {{- if compare.Ne $config.banner false -}}
+    {{- partials.Include "content/components/banner.html" $post -}}
+  {{- end -}}
+
+  {{- /* MARK: Video banner
+  */ -}}
+  {{- if compare.Ne $config.videobanner false -}}
+    {{- partials.Include "content/components/banner-video.html" $post -}}
+  {{- end -}}
+
+  {{- /* MARK: Headline-banner
+  */ -}}
+  {{- if compare.Ne $config.bannerheadline false -}}
+    {{- partials.Include "content/components/headline-banner.html" $post -}}
+  {{- end -}}
+
+  <div class="px-3">
+
+    {{- /* MARK: Headline
+    */ -}}
+    {{- if compare.Ne $config.headline false -}}
+      {{- $level := 2 -}}
+      {{- if $post.IsPage -}}
+        {{- $level = 1 -}}
+      {{- end -}}
+      {{- $options := dict "post" $post "level" $level -}}
+      {{- partials.Include "content/components/headline.html" $options -}}
+    {{- end -}}
+
+    <div class="prose">
+      {{- /* MARK: Content
+      */ -}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-before" "context" $post ) -}}
+      {{- $options := dict "type" $posttype "post" $post "is_preview" false -}}
+      {{- partials.Include "content/components/content.html" $options $options -}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
+
+      {{- /* MARK: Comments
+      */ -}}
+      <div class="section--comments">
+        {{- partials.IncludeCached "content/components/comment-form.html" $post $post -}}
+      </div>
+
+      {{- /* MARK: Meta
+      */ -}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-before" "context" $post ) -}}
+      {{- if compare.Ne $config.meta false -}}
+        {{ partials.Include "content/components/meta.html" $post -}}
+      {{- end -}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-after" "context" $post ) -}}
+
+    </div>
+  </div>
+</article>
+
+{{- /* MARK: Related Posts
+*/ -}}
+{{- if compare.Ne $config.related false -}}
+  {{- partials.IncludeCached "content/sections/related.html" $post $post.Params.tags -}}
+{{- end -}}

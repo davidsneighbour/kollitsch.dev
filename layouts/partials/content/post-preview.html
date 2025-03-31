@@ -1,0 +1,76 @@
+{{- $post := .context -}}
+{{- $posttype := $post.Type -}}
+{{- $config := partials.Include "func/getPostSetup.html" $posttype -}}
+{{- $index := .index | compare.Default false -}}
+
+{{- /* create content parts based on content type */ -}}
+
+{{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
+<article class="card h-100 {{ $articleclasses -}}">
+
+  {{- /* MARK: Status
+  */ -}}
+  {{- if compare.Ne $config.status false -}}
+    {{- partials.IncludeCached "content/components/status.html" $post $post  -}}
+  {{- end -}}
+
+  {{- /* MARK: Banner
+  */ -}}
+  {{- if compare.Ne $config.banner false -}}
+    {{- partials.Include "content/components/banner.html" $post -}}
+  {{- end -}}
+
+  {{- /* MARK: Video banner
+  */ -}}
+  {{- if compare.Ne $config.videobanner false -}}
+    {{- partials.Include "content/components/banner-video.html" $post -}}
+  {{- end -}}
+
+  {{- /* MARK: Headline-Banner
+  */ -}}
+  {{- if compare.Ne $config.bannerheadline false -}}
+    {{- partials.Include "content/components/headline-banner.html" $post -}}
+  {{- end -}}
+
+  <div class="card-body px-3">
+
+    {{- /* MARK: Headline
+    */ -}}
+    {{- if compare.Ne $config.headline false -}}
+      {{- $options := dict "post" $post "level" 3 -}}
+      {{- partials.Include "content/components/headline.html" $options -}}
+    {{- end -}}
+
+    {{- /* MARK: Content
+    */ -}}
+    <div>
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-before" "context" $post ) -}}
+      {{- $options := dict "type" $posttype "post" $post "is_preview" true -}}
+      {{- partials.Include "content/components/content.html" $options $options -}}
+      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-after" "context" $post ) -}}
+    </div>
+
+    {{- /* MARK: Read more button
+    */ -}}
+    <div class="text-end">
+      {{- /* @todo move into button component */ -}}
+      {{- $label := fmt.Printf "%s: %s" (lang.Translate "theme.read_article") $post.Title -}}
+      <button
+          class="btn btn-link text-decoration-none ff-body fw-bold"
+          aria-label="{{- $label }}"
+          {{ with $index }}
+            data-hotkey="k+{{- $index -}}"
+          {{ end }}
+          rel="bookmark"
+          >
+        <a href="{{- $post.Permalink -}}">
+          {{- lang.Translate "theme.read_article" -}}
+          {{- $options := dict "icon" "chevron-double-right" "class" "d-inline-block" "width" "24" "height" "24" -}}
+          {{- partials.Include "icon.html" $options -}}
+        </a>
+      </button>
+    </div>
+
+  </div>
+
+</article>

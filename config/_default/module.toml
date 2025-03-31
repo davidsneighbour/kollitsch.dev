@@ -14,5 +14,84 @@ target = "assets/versions/kollitsch.json"
 source = "node_modules"
 target = "assets/node_modules"
 
+[[mounts]]
+source = "hugo_stats.json"
+target = "assets/watching/hugo_stats.json"
+
 [[imports]]
-path = "github.com/davidsneighbour/hugo-darkskies"
+path = "github.com/davidsneighbour/hugo-modules/modules/debug"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/functions"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/internals"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/modder"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/errors"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/head"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/headerimage"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/icons"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/netlification"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/opensearch"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/pictures"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/publisher"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/pwa"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/robots"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/schema"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/security"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/seo"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/sitemap"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/social"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/youtube"

@@ -1,0 +1,100 @@
+replacements = "github.com/davidsneighbour/hugo-modules/modules/auditor -> ../../hugo-modules/modules/auditor,github.com/davidsneighbour/hugo-modules/modules/debug -> ../../hugo-modules/modules/debug,github.com/davidsneighbour/hugo-modules/modules/devtools -> ../../hugo-modules/modules/devtools,github.com/davidsneighbour/hugo-modules/modules/errors -> ../../hugo-modules/modules/errors,github.com/davidsneighbour/hugo-modules/modules/feeds -> ../../hugo-modules/modules/feeds,github.com/davidsneighbour/hugo-modules/modules/functions -> ../../hugo-modules/modules/functions,github.com/davidsneighbour/hugo-modules/modules/giscus -> ../../hugo-modules/modules/giscus,github.com/davidsneighbour/hugo-modules/modules/head -> ../../hugo-modules/modules/head,github.com/davidsneighbour/hugo-modules/modules/headerimage -> ../../hugo-modules/modules/headerimage,github.com/davidsneighbour/hugo-modules/modules/hooks -> ../../hugo-modules/modules/hooks,github.com/davidsneighbour/hugo-modules/modules/icons -> ../../hugo-modules/modules/icons,github.com/davidsneighbour/hugo-modules/modules/iliad -> ../../hugo-modules/modules/iliad,github.com/davidsneighbour/hugo-modules/modules/internals -> ../../hugo-modules/modules/internals,github.com/davidsneighbour/hugo-modules/modules/modder -> ../../hugo-modules/modules/modder,github.com/davidsneighbour/hugo-modules/modules/netlification -> ../../hugo-modules/modules/netlification,github.com/davidsneighbour/hugo-modules/modules/opensearch -> ../../hugo-modules/modules/opensearch,github.com/davidsneighbour/hugo-modules/modules/pictures -> ../../hugo-modules/modules/pictures,github.com/davidsneighbour/hugo-modules/modules/publisher -> ../../hugo-modules/modules/publisher,github.com/davidsneighbour/hugo-modules/modules/pwa -> ../../hugo-modules/modules/pwa,github.com/davidsneighbour/hugo-modules/modules/renderhooks -> ../../hugo-modules/modules/renderhooks,github.com/davidsneighbour/hugo-modules/modules/robots -> ../../hugo-modules/modules/robots,github.com/davidsneighbour/hugo-modules/modules/schema -> ../../hugo-modules/modules/schema,github.com/davidsneighbour/hugo-modules/modules/security -> ../../hugo-modules/modules/security,github.com/davidsneighbour/hugo-modules/modules/seo -> ../../hugo-modules/modules/seo,github.com/davidsneighbour/hugo-modules/modules/shortcodes -> ../../hugo-modules/modules/shortcodes,github.com/davidsneighbour/hugo-modules/modules/sitemap -> ../../hugo-modules/modules/sitemap,github.com/davidsneighbour/hugo-modules/modules/social -> ../../hugo-modules/modules/social,github.com/davidsneighbour/hugo-modules/modules/webcomponents -> ../../hugo-modules/modules/webcomnents,github.com/davidsneighbour/hugo-modules/modules/youtube -> ../../hugo-modules/modules/youtube,github.com/davidsneighbour/hugo-darkskies -> ../../hugo-darkskies"
+vendorClosest = true
+
+[hugoVersion]
+extended = true
+min = "0.135.0"
+
+[[mounts]]
+source = "assets"
+target = "assets"
+
+[[mounts]]
+source = "package.json"
+target = "assets/versions/kollitsch.json"
+
+[[mounts]]
+source = "node_modules"
+target = "assets/node_modules"
+
+[[mounts]]
+source = "hugo_stats.json"
+target = "assets/watching/hugo_stats.json"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/debug"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/functions"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/internals"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/modder"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/errors"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/head"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/headerimage"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/icons"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/netlification"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/opensearch"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/pictures"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/publisher"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/pwa"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/robots"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/schema"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/security"
+
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/seo"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/sitemap"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/social"
+
+[[imports]]
+path = "github.com/davidsneighbour/hugo-modules/modules/youtube"

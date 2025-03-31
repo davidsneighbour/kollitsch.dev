@@ -1,0 +1,225 @@
+################################################################################
+# Theme
+################################################################################
+[theme.skip_to_content]
+description = "Text for the skip to content link"
+other = "Skip to main content"
+
+[theme.read_article]
+description = ""
+other = "Read Article"
+
+[theme.showing_posts_from]
+description = ""
+other = "Showing posts from"
+
+[theme.recent_posts]
+description = ""
+other = "Recent Posts (Page %d)"
+
+[theme.recentposts]
+description = ""
+other = "Recent Posts"
+
+[theme.home]
+description = ""
+other = "Home"
+
+[theme.search]
+description = ""
+other = "Search"
+
+[theme.categories]
+description = ""
+other = "Categories"
+
+[theme.tags]
+description = ""
+other = "Tags"
+
+[theme.posts_tagged_with]
+other = "{{ . }} Posts tagged with"
+description = ""
+
+[theme.social]
+description = ""
+other = "Social"
+
+[theme.copyright-text]
+description = "copyright description text"
+other = "&copy; 2021 to %s --- Webwork done by [David&apos;s Neighbour](https://davids-neighbour.com)"
+
+[theme.at]
+description = ""
+other = "at"
+
+[theme.this_is]
+description = ""
+other = "This is"
+
+[theme.by]
+description = ""
+other = "by"
+
+[theme.this-is]
+description = ""
+other = "this is %s"
+
+[theme.via]
+description = ""
+other = "via"
+
+[theme.words]
+description = "word count for articles"
+one = "%d word"
+other = "%d words"
+
+[theme.connect-on-social]
+description = ""
+other = "Connect on Social Media"
+
+[theme.draft]
+description = ""
+other = "Draft"
+
+[theme.first]
+description = ""
+other = "First"
+
+[theme.last]
+description = ""
+other = "Last"
+
+[theme.next]
+description = ""
+other = "Next"
+
+[theme.previous]
+description = ""
+other = "Previous"
+
+[theme.search_no_results]
+description = ""
+other = "Sorry, but there were no results."
+
+[theme.search_results]
+description = ""
+other = "Results"
+
+[theme.search_result_info]
+description = ""
+other = "There were <span x-text=\"totalHits\"></span> total matches. Returning the first <span x-text=\"resultsPerPage\"></span> results:"
+
+[theme.search_result_posted]
+description = ""
+other = "(posted <span x-text=\"result.date\"></span>)"
+
+[theme.view_history]
+description = ""
+other = "View history"
+
+[theme.suggest_edit]
+description = ""
+other = "Suggest edits on GitHub"
+
+[theme.title]
+description = ""
+other = "Title"
+
+[theme.description]
+description = ""
+other = "Description"
+
+[theme.characters]
+description = ""
+other = "chars"
+
+[theme.related]
+description = ""
+other = "See Also"
+
+[theme.read_posts_about]
+description = ""
+other = "Read posts about"
+
+[theme.back_to_top]
+description = ""
+other = "Back to top"
+
+[theme.version]
+other = "Version"
+
+[theme.footer_menu_header]
+other = "All the things you need to know"
+
+[theme.404_header]
+description = ""
+other = "Four Oh Four: Page Not Found!"
+
+[theme.404_description]
+description = ""
+other = "The information you were looking for was not found on this website. Maybe the link is broken? Feel free to search for other results."
+
+[theme.pagination.information]
+description = "showing information about the totals below the pagination, first variable is total posts, second is total pages"
+other = "{{ .posts }} posts on {{ .pages }} pages"
+
+[100daystooffload.note]
+description = ""
+other = "This post is part of [#100DaysToOffload](/blog/2022/100-days-to-offload/)"
+
+[100daystooffload.counter]
+description = ""
+other = "{{ .numsince }} posts since {{ .datesince }} &mdash; {{ .numtotal }} total posts"
+
+[meta.edit]
+description = ""
+other = "Edit in VSCode"
+
+[meta.published]
+description = ""
+other = "Published: %s"
+
+[meta.modified]
+description = ""
+other = "(Last Modified: %s)"
+
+[theme.page]
+description = ""
+other = "Page %s"
+
+[page-n]
+other = " (Page %d)"
+description = "Page %d of %d"
+
+[theme.navigationlabel]
+description = ""
+other = "Page navigation"
+
+[theme.relatedposts]
+description = ""
+other = "Related Posts"
+
+[shortcode.keycombinations.label]
+other = "Keycombinations"
+
+[shortcode.keycombinations.action]
+other = "Action"
+
+[shortcode.options.caption]
+other = "Options"
+
+[shortcode.options.option]
+other = "Option"
+
+[shortcode.options.type]
+other = "Type"
+
+[shortcode.options.default]
+other = "Default"
+
+[shortcode.options.description]
+other = "Description"
+
+[theme.readall]
+other = "Read All Posts"

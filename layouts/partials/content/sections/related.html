@@ -1,0 +1,31 @@
+{{- $config := site.Params.dnb.theme.related -}}
+
+{{- $exclude := $config.exclude_tags -}}
+{{- $posttags := page.Params.tags -}}
+
+{{- /* @todo this should be done via collections.SymDiff, but
+    "execute of template failed at <collections.SymDiff>: error calling
+     SymDiff: arguments must be slices or arrays" */ -}}
+{{- $tags := collections.Slice -}}
+{{- range $posttags -}}
+  {{- if not (collections.In $exclude .) -}}
+    {{- $tags = $tags | collections.Append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $pages := collections.Where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $pages = $pages | collections.Complement (collections.Slice page) }}
+{{- with $pages -}}
+  {{- $relatedPages := (collections.Where . ".Params.tags" "intersect" $tags) | collections.Shuffle -}}
+
+  {{- with $relatedPages.Limit ($config.limit | cast.ToInt) -}}
+    <div class="section--related mt-5">
+      <h3 class="section__title">{{- lang.Translate "theme.relatedposts" -}}</h3>
+      {{- range . -}}
+        {{- $options := dict "context" . "lines" 2 -}}
+        {{- partials.Include "content/post-preview-flat.html" $options -}}
+      {{- end -}}
+    </div>
+  {{- end -}}
+
+{{- end -}}

@@ -1,0 +1,14 @@
+{{- define "main" }}
+  {{- $post := collections.Dictionary "context" . "responsive" "fullwidth" -}}
+  <section class="section--content">
+    <div class="container-fluid">
+      <div class="row">
+        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "single-pre-article" "context" . ) -}}
+        <div class="col-12 mb-5">
+          {{- partials.IncludeCached "content/components/breadcrumbs.html" . . -}}
+          {{- partials.Include "content/post.html" . -}}
+        </div>
+      </div>
+    </div>
+  </section>
+{{- end -}}

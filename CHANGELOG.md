@@ -1,4 +1,71 @@
 # Changelog
+## [2025.1.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.12...v2025.1.1) (2025-03-31)
+
+
+### Content
+
+* **fix:** add .well-known/avatar image ([5889ed1](https://github.com/davidsneighbour/kollitsch.dev/commit/5889ed1cc1e795266caf15820db39f60afefeb62))
+* **fix:** fix breadcrumbs for slash pages ([5ae278c](https://github.com/davidsneighbour/kollitsch.dev/commit/5ae278c1b4d96b79f08498e8f5c876f285ce8b21))
+* **fix:** proper header image ([0c4ae79](https://github.com/davidsneighbour/kollitsch.dev/commit/0c4ae79db458166043c8fc5e91f65e88b318677e))
+* **fix:** smaller fixes ([7de8ac9](https://github.com/davidsneighbour/kollitsch.dev/commit/7de8ac915cdd314b919593c0b990eff093c715d0))
+* **new:** add another blog post of 2024-02-08 ([32dd01c](https://github.com/davidsneighbour/kollitsch.dev/commit/32dd01c461c00a7eda0bfa05a39aa4b4c4861f56))
+* **new:** add blog post about npx link ([1e0c63f](https://github.com/davidsneighbour/kollitsch.dev/commit/1e0c63f52e8d6deb7ba9a16a7ca9571ad24d10f1))
+* **new:** add blog post of 2024-02-08 ([52ea4a8](https://github.com/davidsneighbour/kollitsch.dev/commit/52ea4a89d88cf6275e6c328001c323a2d4ec91d2))
+* **new:** add blogpost of 2025-03-21 ([9e39b33](https://github.com/davidsneighbour/kollitsch.dev/commit/9e39b3358e46f3929a4f14d4d2f30e749a2344c1))
+* **update:** kurzschnitte tag content ([fd22f7b](https://github.com/davidsneighbour/kollitsch.dev/commit/fd22f7b6ad479479925d0b34d59015f85a622ed9))
+
+
+### Theme
+
+* **fix:** site title section rework ([ca5681e](https://github.com/davidsneighbour/kollitsch.dev/commit/ca5681e655b6fd8da21af1bf4b6e054a44f12619))
+* re-add theme to repository ([b5887ef](https://github.com/davidsneighbour/kollitsch.dev/commit/b5887ef0347fbdb0dea6597f30f2278c61cbff0e))
+
+
+### Bug Fixes
+
+* add fmContentType to blog content and add to archetype ([e4cad19](https://github.com/davidsneighbour/kollitsch.dev/commit/e4cad192446aa7bf6c7846392a73f65af77946e9)), closes [estruyf/vscode-front-matter#908](https://github.com/estruyf/vscode-front-matter/issues/908)
+* remove icon thingy from after post hook ([71a0ca6](https://github.com/davidsneighbour/kollitsch.dev/commit/71a0ca60ab29902daa64e2bcf94be505f2c68492))
+
+
+### Refactors
+
+* code changes due to biome lint ([e14932c](https://github.com/davidsneighbour/kollitsch.dev/commit/e14932c751ab27990e4ed9ac7eb2ba57e2e068f2))
+
+
+### Chore
+
+* fixes to merged config and theme files ([f35430a](https://github.com/davidsneighbour/kollitsch.dev/commit/f35430afef8b7536dc09ab736e70ed57c352d65b))
+* **fix:** proper username attribution in CODEOWNERS ([5755202](https://github.com/davidsneighbour/kollitsch.dev/commit/57552021564f3a3892ec4200fde966f75f0b505f))
+* **release:** v2025.0.13 ([55974f3](https://github.com/davidsneighbour/kollitsch.dev/commit/55974f325912d5622a9f8e81a34c1dbb01898034))
+* **release:** v2025.0.14 ([45a5cfe](https://github.com/davidsneighbour/kollitsch.dev/commit/45a5cfe5cfeb085d51111256b478b6ef259ad4b8))
+* **release:** v2025.1.0 ([ff857a3](https://github.com/davidsneighbour/kollitsch.dev/commit/ff857a31cb620b1968439196375fad901a960a9b))
+
+
+### Configuration
+
+* add devmode configuration ([613b4d0](https://github.com/davidsneighbour/kollitsch.dev/commit/613b4d05de5e487f58ff6b77be1f98805385c52c))
+* disable local comment form ([97b1e4f](https://github.com/davidsneighbour/kollitsch.dev/commit/97b1e4f94375e69666863c3d62b407ec1f5f3b24))
+* **fix:** proper header image frontmatter for video previews ([3240767](https://github.com/davidsneighbour/kollitsch.dev/commit/32407679ed217cdf13ceafbb32d8825ce5545ae3))
+
+
+### Build System
+
+* **chore:** add qodo to ignored files ([3aa5b3a](https://github.com/davidsneighbour/kollitsch.dev/commit/3aa5b3ae2926f2c3d5f1be43213e409ddf93ae87))
+* **chore:** update binaries submodule ([12b64dc](https://github.com/davidsneighbour/kollitsch.dev/commit/12b64dca6bb4b666216de9fdaa152e7f5791a43b))
+* **chore:** update dependencies ([5766d27](https://github.com/davidsneighbour/kollitsch.dev/commit/5766d275af810e7b60380273a93641ebf881c7e1))
+* **config:** add link.config.json for npx link usage ([bd0f9bc](https://github.com/davidsneighbour/kollitsch.dev/commit/bd0f9bcaabb10ac81495ef7903f3ea10ec02578b))
+* **deps:** bump the npm_and_yarn group across 1 directory with 2 updates ([#1347](https://github.com/davidsneighbour/kollitsch.dev/issues/1347)) ([3d73f7a](https://github.com/davidsneighbour/kollitsch.dev/commit/3d73f7abd5cccd602cd5b9ed6ce8d6b38c5a2209))
+* **deps:** update dependencies ([cb736ec](https://github.com/davidsneighbour/kollitsch.dev/commit/cb736ecd71ece179969e4c970ea6f6b1e90df8d5))
+* **deps:** update dependencies ([7a35c6c](https://github.com/davidsneighbour/kollitsch.dev/commit/7a35c6c9cb0ad9db5872ff282056cc0e703af310))
+* **deps:** update dependencies and server command ([04b8945](https://github.com/davidsneighbour/kollitsch.dev/commit/04b894580e50506edb5bbbb0c2c286a0510a7c44))
+* **deps:** update dependency versions ([76b0024](https://github.com/davidsneighbour/kollitsch.dev/commit/76b00244ec20ffc8b4b74966c1ee11755237494a))
+* **deps:** update google/osv-scanner-action action to v2 ([#1349](https://github.com/davidsneighbour/kollitsch.dev/issues/1349)) ([afc2801](https://github.com/davidsneighbour/kollitsch.dev/commit/afc2801a21f9c4d566cb0f87394ebc51ca3c50fa))
+* **fix:** remove rescuetime plugin ([1be0446](https://github.com/davidsneighbour/kollitsch.dev/commit/1be0446aaa282a92e651633e407aafaf3178f04e))
+* **fix:** update copilot instructions ([7357af5](https://github.com/davidsneighbour/kollitsch.dev/commit/7357af59d9438563778e045ab1efa3bf1709b470))
+* **fix:** update required node version ([f67fc7c](https://github.com/davidsneighbour/kollitsch.dev/commit/f67fc7c9af46b5adfa87afd1771ebb64d72a911f))
+* **setup:** disable auto update date front matter ([061b941](https://github.com/davidsneighbour/kollitsch.dev/commit/061b941deadfea6a59d14bab056491ed39b3b7fe))
+* **submodule:** update binaries ([c416a80](https://github.com/davidsneighbour/kollitsch.dev/commit/c416a80a99aa4147f556c2e5de8db7f6a4dc96d5))
+
 ## [2025.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.12...v2025.1.0) (2025-02-05)
 
 

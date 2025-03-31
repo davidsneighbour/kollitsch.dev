@@ -480,54 +480,22 @@ textarea {
   min-height: 10rem;
 }
 
-.section--sitetitle {
+.sitetitle {
+  font-size: clamp(1.8rem, 8vw, 8rem);
   background-color: rgba(0, 0, 0, .2);
   transition: background-color 2s;
-}
 
-@include color-mode(light) {
-  .section--sitetitle {
+  [data-bs-theme="light"] & {
     background-color: rgba(255, 255, 255, .2);
-  }
-}
-
-.site-title {
-
-  display: inline-block;
-  padding: 0;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 1;
-  white-space: nowrap;
-  font-weight: 600;
-  --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity));
-
-
-  @include media-breakpoint-down(sm) {
-    font-size: 6vw;
-  }
-
-  @include media-breakpoint-up(sm) {
-    font-size: 12vw;
-  }
-
-  @include media-breakpoint-up(xl) {
-    font-size: 800%;
   }
 
   a {
     text-decoration: none;
 
-    :hover {
+    &:hover {
       text-decoration: none;
     }
   }
-
-  &:hover {
-    text-decoration: none;
-  }
-
 }
 
 /* highlighting via `mark` tag */

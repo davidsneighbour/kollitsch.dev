@@ -75,6 +75,7 @@ value = "[davidsneighbour](https://t.me/davidsneighbour)"
 
 [dnb.theme.related]
 exclude_tags = ["100DaysToOffload"]
+limit = 3
 
 # footer setup
 [dnb.theme.footer]
@@ -129,9 +130,6 @@ target = "es2020"
 # [dnb.theme.jsbuild.options.params]
 # api = "https://example.org/api"
 
-[dnb.theme.related]
-limit = 3
-
 ################################################################################
 # some DNB Org Components Configuration.
 #
@@ -168,29 +166,11 @@ contact = "https://kollitsch.dev/contact/"
 expires = 365
 intro = '''
 ##############################################################################
-#                                                                            #
 # Information related to reporting security vulnerabilities on kollitsch.dev #
-#                                                                            #
-#                        ,     ,                                             #
-#                       (\____/)                                             #
-#                        (_oo_)                                              #
-#                          (O)                                               #
-#                        __||__    \)                                        #
-#                     []/______\[] /                                         #
-#                     / \______/ \/                                          #
-#                    /    /__\                                               #
-#                   (\   /____\                                              #
-#                                                                            #
-#                                                                            #
 ##############################################################################
 '''
 languages = "en,de"
 policy = "https://davids-neighbour.com/security-policy/"
-
-[dnb.hooks]
-[[dnb.hooks.items.kollitsch.head-end]]
-cached = true
-file = "head-end-matomo"
 
 # netlification - @see https://dnbhub.xyz/netlification
 ################################################################################
@@ -516,6 +496,10 @@ enable = false
 ################################################################################
 [dnb.hooks]
 debug = true
+
+[[dnb.hooks.items.kollitsch.head-end]]
+cached = true
+file = "head-end-matomo"
 
 [[dnb.hooks.items.theme.body-main-end]]
 cached = false

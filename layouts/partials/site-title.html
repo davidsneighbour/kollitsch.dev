@@ -1,0 +1,59 @@
+{{ $title := site.Title }}
+<div class="container-md site-header bg-dark text-light section--sitetitle">
+  <div class="text-center">
+    <h1 class="visually-hidden">{{- $title -}}</h1>
+    <a
+     x-init="() => {
+        const el = $el;
+        const measureText = (text, fontSize, refEl) => {
+          const span = document.createElement('span');
+          const computed = getComputedStyle(refEl);
+          span.style.position = 'absolute';
+          span.style.visibility = 'hidden';
+          span.style.whiteSpace = 'nowrap';
+          span.style.fontSize = fontSize + 'px';
+          span.style.fontFamily = computed.fontFamily;
+          span.style.fontWeight = computed.fontWeight;
+          span.style.letterSpacing = computed.letterSpacing;
+          span.style.fontStyle = computed.fontStyle;
+          span.style.fontVariant = computed.fontVariant;
+          span.style.textTransform = computed.textTransform;
+          span.style.lineHeight = computed.lineHeight;
+          span.style.padding = '0';
+          span.style.border = '0';
+          span.style.boxSizing = 'content-box';
+          span.textContent = text;
+          document.body.appendChild(span);
+          const width = span.getBoundingClientRect().width;
+          document.body.removeChild(span);
+          return width;
+        };
+        const fitText = () => {
+          const text = el.textContent.trim();
+          const containerWidth = el.parentElement.offsetWidth;
+          let fontSize = 300;
+          while (fontSize > 1) {
+            const textWidth = measureText(text, fontSize, el);
+            if (textWidth <= containerWidth) break;
+            fontSize--;
+          }
+          el.style.fontSize = fontSize + 'px';
+        };
+        // Resize observer for container-aware updates
+        const ro = new ResizeObserver(fitText);
+        ro.observe(el.parentElement);
+        // Trigger initial fit
+        fitText();
+        // Fallback resize event for full page changes
+        window.addEventListener('resize', fitText);
+      }"
+      class="site-title ff-headline"
+      role="heading"
+      aria-level="1"
+      href="{{- site.BaseURL -}}"
+    >
+      {{- $title -}}
+    </a>
+    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle" "context" . ) -}}
+  </div>
+</div>

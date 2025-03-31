@@ -1,16 +1,60 @@
 description = "This is the online playground of Patrick Kollitsch, David's Neighbour, in Germany produced, digital native living & working on Koh Samui in Thailand."
+
 # on updating this value add a redirect to data/dnb/netlification/config.toml
-mainSections = ["blog", "components", "music", "video"]
+mainSections = ["blog"]
 
+# documentation theme setup
+################################################################################
+[dnb.documentation]
+package_path = "dnb/%s.json"
+
+# theme setup
+################################################################################
 [dnb.theme]
-devmode = true
-# contact form works with https://formspree.io or any other email service
-# that is listening to POST requests from your local form
-contact_form_action = "https://formspree.io/f/xoqyzooe"
-repository = "https://github.com/davidsneighbour/kollitsch.dev"
+devmode = false
+mainsection = "blog"
+slug = "darkskies"
 
+# default color scheme (dark/light)
+# this is ignored if `dnb.theme.switcher.enabled` is true. In that case the
+# value of `dnb.theme.switcher.default` is used.
+colorscheme = "dark"
+
+# selected icon theme.
+# can be one of the identifiers of the icons module OR
+# `specific` to indicate use values of `icon` values as individual classes OR
+# `partial` to indicate the inclusion of the value as cached partial
+icontheme = "bootstrap"
+
+logo_height = "40"
+logo_width = "40"
+show_title = true
+
+[dnb.theme.limits]
+archive = 25 
+home = 10 # 1 full plus 9
+list = 10 
+
+# stylesheet modifications
+################################################################################
+[dnb.theme.styles]
+# bgimage = 'images/background.jpg' # relative to /assets
 [dnb.theme.styles.bgimage]
-url = 'images/marc-sendra-martorell-5sF5IxMXrrI-unsplash.jpg' # relative to /assets
+enabled = true 
+format = 'jpg' 
+quality = 'q40' 
+resize = '1200x' 
+url = 'images/background.jpg' # relative to /assets
+################################################################################
+
+[dnb.theme.sectionlayout]
+# force the use of a layout system per section
+# section slug = "layout name"
+documentation = "documentation"
+gohugo = "documentation"
+
+[dnb.theme.giscus]
+enabledDev = true # set to false to disable giscus on localhost and development
 
 [dnb.theme.contact]
 [[dnb.theme.contact.methods]]
@@ -39,10 +83,62 @@ show_release_as_version = true
 show_tag_as_version = true
 show_version = true
 
-# giscus - @see https://dnbhub.xyz/giscus
+[dnb.theme.tags]
+threshold_for_overview = 2
+
+# sections setup
+[dnb.theme.sections]
+[dnb.theme.sections.components]
+sort = "lastmod"
+[dnb.theme.sections.blog]
+sort = "date"
+
+[dnb.theme.colors]
+primary = "#d02d19"
+
+[dnb.theme.dateformat]
+long = "Mon, Jan 2, 2006"
+short = "Jan 2 2006"
+timestamp = "2006-01-02T15:04:05-07:00"
+
+[dnb.theme.switcher]
+default = "dark" # `dark`, `light` or any theme of `dnb.theme.switcher.themes`
+enabled = true # boolean
+
+[dnb.theme.backtotop]
+enabled = true
+icon = "chevron-double-up"
+
+[dnb.theme.js]
+# script generation settings
+entrypoint = "js/script.ts" # relative to /assets
+script_type = "typescript" # one of "javascript", "typescript"
+
+[dnb.theme.jsbuild.options]
+# options for the js.Build method
+# see https://gohugo.io/hugo-pipes/js/
+format = "iife"
+minify = false
+target = "es2020"
+# [dnb.theme.jsbuild.options.externals]
+# - "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+# - "node_modules/jquery/dist/jquery.min.js"
+# [dnb.theme.jsbuild.options.inject]
+# - "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+# - "node_modules/jquery/dist/jquery.min.js"
+# [dnb.theme.jsbuild.options.params]
+# api = "https://example.org/api"
+
+[dnb.theme.related]
+limit = 3
+
 ################################################################################
-[dnb.theme.giscus]
-enabledDev = false # set to false to disable giscus on localhost and development
+# some DNB Org Components Configuration.
+#
+# @see https://learnxinyminutes.com/docs/toml/ for details about TOML
+# @see https://github.com/davidsneighbour/hugo-modules for details about
+#      specific module configuration options.
+################################################################################
 
 [dnb.giscus]
 #src="https://dnb-comm.vercel.app/client.js"
@@ -320,11 +416,37 @@ url = "https://www.buymeacoffee.com/davidsneigbour"
 domain = "davids-neighbour.com"
 profile = "davidsneighbour"
 
+# pictures - @see https://dnbhub.xyz/pictures
+################################################################################
+[dnb.pictures]
+# webp requires the extended gohugo version
+default_format = "jpg" # one of webp, png, jpg
+default_image = "images/og_sitewide.png" 
+# 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
+# this needs to be a string and needs to be two floats separated by a colon
+# aspect_ratio = "16:9"
+# changing this requires changes in assets/scss/components/_figure.scss
+aspect_ratio = "1.618033:1"
+[dnb.pictures.responsive]
+# collection of image sizes for responsive image sizes. this takes the aspect_ratio
+# above into account, so only the long side length is required here.
+[dnb.pictures.responsive.fullwidth]
+break_points = ["520", "540", "720", "960"]
+image_sizes = ["494", "517", "674", "914"]
+
+[dnb.pictures.responsive.halfwidth]
+break_points = ["520", "540"]
+image_sizes = ["494", "517"]
+
 # head - @see https://dnbhub.xyz/head
 ################################################################################
 [dnb.head]
+disable = [] 
+notranslate = false # tell Google not to provide a translation for this document
+# https://webmonetization.org/docs/getting-started
 latitude = "9.578492"
 longitude = "99.958311"
+monetization = ""
 # https://en.wikipedia.org/wiki/ISO_3166
 colorschemeOrder = "dark light"
 hometitle = "Welcome! This is KOLLITSCH.dev*. The online playground of Patrick Kollitsch, David's Neighbour."
@@ -334,6 +456,94 @@ separator = " — "
 
 [dnb.head.fediverse]
 creator = '@davidsneighbour@mas.to'
+
+[dnb.head.speedoptimisation]
+enable = true # either true or false, or an array of enable options like ["preconnect", "prefetch", "prerender", "preload"]
+# careful what you prefetch... this can lead to issues if you preload too much, but can also speed up your site.
+# IMHO prefetching all woff(2) fonts is a good idea. Those fonts are supported in all modern browsers.
+preconnect = []
+prefetch = [
+  '/assets/webfonts/jetbrainsmono/jetbrainsmonoi.woff2',
+  '/assets/webfonts/jetbrainsmono/jetbrainsmono.woff2',
+  '/assets/webfonts/exo/italic.woff2',
+  '/assets/webfonts/exo/normal.woff2',
+  '/assets/webfonts/anton/regular.woff',
+]
+prerender = []
+
+[dnb.head.verification]
+alexa = ""
+bing = ""
+google = ""
+norton = ""
+pinterest = ""
+yandex = ""
+
+[dnb.head.styles]
+# external, postcss, tailwind
+entrypoint = "scss/style.scss"
+method = "postcss"
+
+[dnb.head.styles.sassOptions]
+# options for the compilation of CSS
+# see https://gohugo.io/hugo-pipes/scss-sass/#options
+enableSourceMap = true
+includePaths = ["node_modules/", "assets/"]
+outputStyle = "compressed"
+targetPath = "theme.css"
+transpiler = "dartsass"
+
+[dnb.head.styles.postcssOptions]
+# see https://gohugo.io/functions/css/postcss/#options
+config = "postcss.config.mjs"
+# noMap = false
+# inlineImports = false
+# skipInlineImportsNotFound = false
+# options without config file
+# use = ""
+# parser = ""
+# stringifier = ""
+# syntax = ""
+
+# debug - @see https://dnbhub.xyz/debug
+################################################################################
+[dnb.debug]
+debuglevel = 1
+disablenote = true
+enable = false
+
+# hooks - @see https://dnbhub.xyz/hooks
+################################################################################
+[dnb.hooks]
+debug = true
+
+[[dnb.hooks.items.theme.body-main-end]]
+cached = false
+file = "body-main-end"
+
+[[dnb.hooks.items.theme.head-post-css]]
+cached = false
+file = "head-post-css"
+
+[[dnb.hooks.items.theme.head-pre-css]]
+cached = true
+file = "head-pre-css"
+
+[[dnb.hooks.items.theme.head-start]]
+cached = true
+file = "head-start"
+
+[[dnb.hooks.items.theme.head-end]]
+cached = false
+file = "head-end"
+
+[[dnb.hooks.items.theme.header-topnav-pre]]
+cached = false
+file = "header-topnav-pre"
+
+[[dnb.hooks.items.theme.post-after]]
+cached = false
+file = "post-after"
 
 # sitemap - @see https://dnbhub.xyz/sitemap
 ################################################################################

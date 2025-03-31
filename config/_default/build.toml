@@ -1,0 +1,37 @@
+################################################################################
+# https://gohugo.io/getting-started/configuration/#configure-build
+################################################################################
+_merge = "deep"
+
+[buildStats]
+enable = true            # default is false
+# disableClasses = false # default is false
+# disableIDs = false     # default is false
+# disableTags = false    # default is false
+
+# tracking changes to SASS source files
+[[cachebusters]]
+source = "assets/scss/.*\\.scss"
+target = "*\\.css"
+[[cachebusters]]
+source = "assets/scss/*/.*\\.scss"
+target = "*\\.css"
+[[cachebusters]]
+source = "assets/scss/*/*/.*\\.scss"
+target = "*\\.css"
+
+# tracking changes to used tags, classes and ids
+[[cachebusters]]
+source = "assets/watching/hugo_stats\\.json"
+target = "*\\.css"
+
+# tracking changes to JS source files
+[[cachebusters]]
+source = "assets/js/.*\\.js"
+target = "js"
+[[cachebusters]]
+source = "assets/js/*/.*\\.js"
+target = "js"
+[[cachebusters]]
+source = "assets/js/*/*/.*\\.js"
+target = "js"

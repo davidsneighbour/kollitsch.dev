@@ -1,0 +1,8 @@
+################################################################################
+# see http://gohugo.io/templates/output-formats/
+################################################################################
+[JSON]
+mediaType = "application/json"
+baseName = "index"
+notAlternative = true
+isPlainText = true

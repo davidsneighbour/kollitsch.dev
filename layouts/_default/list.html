@@ -1,0 +1,26 @@
+{{- define "main" -}}
+  <section class="section--content">
+    <div class="container-fluid">
+      <div class="row">
+        {{- $paginator := .Scratch.Get "paginator" -}}
+        {{- $heading := fmt.Printf (lang.Translate "theme.recent_posts") $paginator.PageNumber -}}
+        <h1 class="visually-hidden">{{- $heading -}}</h1>
+        {{- range $index, $item := $paginator.Pages -}}
+          {{ if not .IsHome }}
+            {{- $post := collections.Dictionary "context" $item "responsive" "halfwidth" -}}
+            {{- $col := "6" -}}
+            {{- if and (compare.Eq $index 1) (compare.Eq $paginator.PageNumber 1) (compare.Eq "home" $.Kind) -}}
+              {{- $col = "12" -}}
+              {{- $post = collections.Dictionary "context" $item "responsive" "fullwidth" -}}
+            {{- end -}}
+            <div class="col-12 col-md-{{ $col }} mb-5">
+              {{- $post := collections.Dictionary "context" $item "level" "3" "index" (math.Add $index 1) -}}
+              {{- partials.Include "content/post-preview.html" $post -}}
+            </div>
+          {{ end }}
+        {{- end -}}
+      </div>
+      {{ partials.Include "content/components/pagination.html" . }}
+    </div>
+  </section>
+{{- end -}}

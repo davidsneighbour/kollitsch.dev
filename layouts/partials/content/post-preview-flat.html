@@ -1,0 +1,40 @@
+{{- $post := .context -}}
+{{- $lines := .lines | compare.Default 3 -}}
+{{- $postClasses := partials.Include "func/getArticleClasses.html" $post -}}
+{{- $posttype := $post.Type -}}
+{{- $config := partials.Include "func/getPostSetup.html" $posttype -}}
+<article class="{{- $postClasses }} mb-3 px-3 py-2 component--archive-card">
+  <div class="is--item row">
+    <div class="col-12 col-sm-6 col-md-4">
+      {{- /* MARK: Banner
+      */ -}}
+      {{- if compare.Ne $config.banner false -}}
+        {{- partials.Include "content/components/banner.html" $post -}}
+      {{- end -}}
+
+      {{- /* MARK: Video banner
+      */ -}}
+      {{- if compare.Ne $config.videobanner false -}}
+        {{- partials.Include "content/components/banner-video.html" $post -}}
+      {{- end -}}
+
+      {{- /* MARK: Headline-Banner
+      */ -}}
+      {{- if compare.Ne $config.bannerheadline false -}}
+        {{- partials.Include "content/components/headline-banner.html" $post -}}
+      {{- end -}}
+    </div>
+    <div class="col-12 col-sm-6 col-md-8">
+      <h2 class="post-title h3">
+        <a href="{{ $post.Permalink }}" rel="bookmark">
+          {{- $post.Title | transform.Markdownify -}}
+        </a>
+      </h2>
+      {{- $truncateLevel := fmt.Printf "text-truncate-%d" $lines -}}
+      <p class="text-truncate {{ $truncateLevel }}">
+        {{- partials.IncludeCached "func/getSummary.html" $post $post -}}
+      </p>
+      {{- partials.IncludeCached "content/components/tags/tags.html" $post $post -}}
+    </div>
+  </div>
+</article>

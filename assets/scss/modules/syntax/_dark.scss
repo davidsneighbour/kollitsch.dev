@@ -1,0 +1,138 @@
+/* stylelint-disable block-no-empty -- keeping empty blocks for later changes */
+////
+/// @group 05-prose
+/// @author Patrick Kollitsch
+/// @access public
+/// @since 1.2024.0
+////
+
+@use "sass:map";
+@use "modules/colors" as dnb-colors;
+
+.bg,
+.chroma {
+  color: map.get(dnb-colors.$colors, "whitesmoke");
+  background-color: rgba(map.get(dnb-colors.$colors, "black"), 0.5);
+}
+
+.chroma .err {
+  color: map.get(dnb-colors.$colors, "purple");
+}
+
+.chroma .lnlinks {
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.chroma .lntd,
+.chroma .lntable {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.chroma .lntable {
+  border-spacing: 0;
+}
+
+.chroma .hl {
+  background-color: rgba(map.get(dnb-colors.$colors, "veryblack"), 0.1);
+}
+
+.chroma .ln,
+.chroma .lnt {
+  white-space: pre;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Opera Mini, muahahaha */
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em;
+  color: map.get(dnb-colors.$colors, "lightslategray");
+}
+
+.chroma .line {
+  display: flex;
+}
+
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt {
+  color: map.get(dnb-colors.$colors, "aqua");
+}
+
+.chroma .kn,
+.chroma .nt,
+.chroma .o,
+.chroma .ow,
+.chroma .gd {
+  color: map.get(dnb-colors.$colors, "deeppink");
+}
+
+.chroma .na,
+.chroma .nc,
+.chroma .nd,
+.chroma .ne,
+.chroma .nf,
+.chroma .nx,
+.chroma .gi {
+  color: map.get(dnb-colors.$colors, "chartreuse");
+}
+
+.chroma .no {
+  color: map.get(dnb-colors.$colors, "aqua");
+}
+
+.chroma .l,
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo {
+  color: map.get(dnb-colors.$colors, "plum");
+}
+
+.chroma .ld,
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .sr,
+.chroma .s1,
+.chroma .ss {
+  color: map.get(dnb-colors.$colors, "khaki");
+}
+
+.chroma .se {
+  color: map.get(dnb-colors.$colors, "plum");
+}
+
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .cp,
+.chroma .cpf,
+.chroma .gu {
+  color: map.get(dnb-colors.$colors, "gray");
+}
+
+.chroma .ge {
+  font-style: italic;
+}
+
+.chroma .gs {
+  font-weight: 700;
+}

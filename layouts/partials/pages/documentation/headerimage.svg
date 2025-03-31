@@ -1,0 +1,35 @@
+{{- $type := .type | compare.Default "ogimage" -}}
+{{- $viewbox := "0 0 1280 640" -}}
+{{- $width := 1280 -}}
+{{- $height := 640 -}}
+{{- $subtractor := 0 -}}
+{{- if compare.Eq $type "page" -}}
+  {{- $viewbox = "0 0 1280 320" -}}
+  {{- $height = 320 -}}
+  {{- $subtractor = 320 -}}
+{{- end -}}
+<svg version="1.1" viewBox="{{- $viewbox -}}"
+  xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <rect width="1280" height="{{- $height -}}" fill="#00000044" />
+  <text x="20" y="{{ math.Sub 510 $subtractor }}">
+    {{- with page.Params.sectiontitle -}}
+      <tspan fill="#dc322f" font-size="42px">
+        {{- . -}}
+      </tspan>
+    {{- end -}}
+  </text>
+  <text x="20" y="{{ math.Sub 600 $subtractor }}">
+    <tspan fill="#dc322f">
+      <tspan font-size="90px" style="font-family:Changa;">
+        {{- if (collections.IsSet . "title") -}}
+          {{- .title -}}
+        {{- end -}}
+        {{- if (collections.IsSet . "subtitle") -}}
+          <tspan font-size="50px" style="font-family:Changa;">
+            {{- fmt.Printf "  %s" .subtitle -}}
+          </tspan>
+        {{- end -}}
+      </tspan>
+    </tspan>
+  </text>
+</svg>

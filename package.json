@@ -61,7 +61,7 @@
     "sassdoc": "2.7.4",
     "sassdoc-extras": "3.0.0",
     "sassdoc-theme-herman": "6.0.2",
-    "secretlint": "9.2.0",
+    "secretlint": "9.3.0",
     "simple-git-hooks": "2.12.1",
     "stylelint": "16.17.0",
     "toml": "3.0.0",

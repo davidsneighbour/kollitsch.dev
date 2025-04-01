@@ -57,7 +57,7 @@
     "postcss": "8.5.3",
     "postcss-preset-env": "10.1.5",
     "prettier-plugin-go-template": "0.0.15",
-    "sass": "1.86.0",
+    "sass": "1.86.1",
     "sassdoc": "2.7.4",
     "sassdoc-extras": "3.0.0",
     "sassdoc-theme-herman": "6.0.2",

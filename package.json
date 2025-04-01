@@ -41,7 +41,7 @@
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",
     "@types/alpinejs__intersect": "3.13.4",
-    "@types/node": "22.13.14",
+    "@types/node": "22.13.16",
     "alpinejs": "3.14.9",
     "caniuse-lite": "1.0.30001707",
     "commitizen": "4.3.1",
@@ -74,7 +74,7 @@
   "devDependencies": {
     "@atproto/api": "0.14.16",
     "@playwright/test": "1.51.1",
-    "@types/node": "22.13.14",
+    "@types/node": "22.13.16",
     "masto": "6.10.3",
     "oauth-1.0a": "2.2.6",
     "twitter-api-v2": "1.22.0"

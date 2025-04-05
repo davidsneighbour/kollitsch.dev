@@ -20,6 +20,9 @@ updates:
       separator: /
     labels:
       - type:dependencies
+    ignore:
+      # do not update @davidsneighbour packages, that is done via renovate
+      - dependency-name: "@davidsneighbour/*"
 
   - package-ecosystem: gomod
     directory: /

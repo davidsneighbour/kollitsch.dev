@@ -1,5 +1,5 @@
 ---
-'$schema': /static/_schemata/blog.schema.yaml
+'$schema': /assets/schemas/blog.schema.yaml
 title: {{ replace .Name "-" " " | title }}
 linkTitle: {{ replace .Name "-" " " | title }}
 description: ""

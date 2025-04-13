@@ -7,28 +7,12 @@ no_progress = false
 output = ".lychee.report.md"
 verbose = "trace"
 
-#############################  Requests  ############################
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
 
-# User agent to send with each request.
-user_agent = "curl/7.83. 1"
-
-# Website timeout from connect to response finished.
-timeout = 20
-
-# Minimum wait time in seconds between retries of failed requests.
-retry_wait_time = 2
-
-# Comma-separated list of accepted status codes for valid links.
-# Supported values are:
-#
-# accept = ["200..=204", "429"]
-# accept = "200..=204, 429"
-# accept = ["200", "429"]
-# accept = "200, 429"
-accept = ["200", "429"]
-
-# Proceed for server connections considered insecure (invalid TLS).
-insecure = false
+accept = ["200", "429"] # list of accepted status codes for valid links. 
+insecure = false # Proceed for server connections considered insecure (invalid TLS).
+retry_wait_time = 2 # Minimum wait time in seconds between retries of failed requests.
+timeout = 20 # Website timeout from connect to response finished.
 
 # Only test links with the given schemes (e.g. https).
 # Omit to check links with any other scheme.
@@ -45,15 +29,14 @@ method = "get"
 headers = []
 
 # Remap URI matching pattern to different URI.
-remap = ["https://example.com http://example.invalid"]
+# remap = ["https://example.com http://example.invalid"]
 
-# Base URL or website root directory to check relative URLs.
-base = "https://example.com"
+base = "https://kollitsch.dev" # Base URL or website root directory to check relative URLs.
 
 # HTTP basic auth support. This will be the username and password passed to the
 # authorization HTTP header. See
 # <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization>
-basic_auth = ["example.com user:pwd"]
+# basic_auth = ["example.com user:pwd"]
 
 #############################  Exclusions  ##########################
 
@@ -69,16 +52,15 @@ glob_ignore_case = false
 
 # Exclude URLs and mail addresses from checking (supports regex).
 exclude = [
-  '^https://www\.linkedin\.com',
-  '^https://web\.archive\.org/web/',
-  '^https://github.com',
-  '^https://caniuse.com',
+  '^https://www\.linkedin\.com', # 2025-04-11 - blocks bots  # '^https://web\.archive\.org/web/', # 2025-04-11 - blocks bots
+  # '^https://github\.com', # 2025-04-11 - blocks bots
+  # '^https://caniuse\.com', # 2025-04-11 - blocks bots
+  # '^https://reddit\.com', # 2025-04-11 - blocks bots
 ]
 
 # Exclude these filesystem paths from getting checked.
 exclude_path = [
-  "file/path/to/Ignore",
-  "./other/file/path/to/Ignore",
+  "layouts/",
 ]
 
 # URLs to check (supports regex). Has preference over all excludes.

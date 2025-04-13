@@ -163,7 +163,7 @@
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
     },
     "lint:links": {
-      "command": "lychee --mode emoji content"
+      "command": "lychee --verbose --config lychee.toml --mode emoji content"
     },
     "clean:hugo:full": {
       "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"

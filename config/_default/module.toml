@@ -19,6 +19,9 @@ source = "hugo_stats.json"
 target = "assets/watching/hugo_stats.json"
 
 [[imports]]
+path = "github.com/davidsneighbour/kollitsch.dev-content"
+
+[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"
 
 [[imports]]
@@ -75,8 +78,8 @@ path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/robots"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/schema"
+# [[imports]]
+# path = "github.com/davidsneighbour/hugo-modules/modules/schema"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/security"

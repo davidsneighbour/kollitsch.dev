@@ -1,11 +1,11 @@
-import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
 import intersect from '@alpinejs/intersect';
+import DebugLogger from '@davidsneighbour/debuglogger';
+import Alpine from 'alpinejs';
 import ClickSpark from './components/click-effect.js';
 import ProgressBar from './components/progress-bar.js';
-import DebugLogger from '@davidsneighbour/debuglogger';
 import './scripts/keyboard-layout.js';
-import './plugins/clipboard.js';
+import './plugins/lib/clipboard.js';
 import './scripts/bs-tooltips.js';
 
 // Import parameters from GoHugo

@@ -48,9 +48,6 @@ path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
 # path = "github.com/davidsneighbour/hugo-modules/modules/errors"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
 
 [[imports]]

@@ -7,9 +7,6 @@ export default {
   plugins: [
     // https://github.com/anandthakker/doiuse
     // doiuse({
-    //   browsers: [
-    //     "extends @davidsneighbour/browserslist-config",
-    //   ],
     //   ignore: ['rem'],
     //   ignoreFiles: ['**/normalize.css'],
     // }),
@@ -38,7 +35,6 @@ export default {
     // @ts-ignore
     postcsspresetenv({
       stage: 2,
-      browsers: ["extends @davidsneighbour/browserslist-config"],
       // https://github.com/csstools/postcss-plugins/blob/main/plugin-packs/postcss-preset-env/FEATURES.md
       features: {
         "nesting-rules": true,

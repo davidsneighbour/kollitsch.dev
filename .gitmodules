@@ -1,3 +1,8 @@
 [submodule "bin"]
 	path = bin
 	url = git@github.com:davidsneighbour/binaries.git
+[submodule ".frontmatter"]
+	path = .frontmatter
+	url = git@github.com:davidsneighbour/kollitsch.dev-content.git
+	branch = main
+	update = merge

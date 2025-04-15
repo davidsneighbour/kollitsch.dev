@@ -1,0 +1,37 @@
+{{- partials.Include "func/hook.html" ( dict "hook" "head-styles-before" "context" . ) -}}
+{{- $config := site.Params.dnb.head.styles -}}
+
+
+
+{{ $dev := site.Params.dnb.theme.devmode | compare.Default false }}
+{{/* {{ $options := dict "targetPath" "style.css" "vars" (dict "devmode" $dev) }}
+{{ $style := resources.Get "scss/style.scss" | resources.ToCSS $options }}
+<link rel="stylesheet" href="{{ $style.Permalink }}"> */}}
+
+
+{{- if compare.Eq "postcss" ($config.method | compare.Default "postcss") -}}
+  {{- $entrypoint := $config.entrypoint | compare.Default "scss/style.scss" -}}
+  {{- $styles := resources.Get $entrypoint -}}
+  {{- $styles = $styles | css.Sass ($config.sassOptions | compare.Default dict) -}}
+  {{- $styles = $styles | css.PostCSS ($config.sassOptions | compare.Default dict) -}}
+  {{- $styles = $styles | resources.Minify -}}
+  {{- $styles = $styles | resources.Fingerprint "sha512" -}}
+  {{- $styles = $styles | resources.PostProcess -}}
+  <link rel="stylesheet" media="all" integrity="{{- $styles.Data.Integrity -}}" href="{{- $styles.Permalink -}}">
+{{- else if compare.Eq "tailwind" $config.method -}}
+  {{- with resources.Get $config.entrypoint -}}
+    {{- with . | css.TailwindCSS ($config.tailwindOptions | compare.Default dict) -}}
+      {{- if hugo.IsDevelopment -}}
+        <link rel="stylesheet" href="{{- .RelPermalink -}}">
+      {{- else -}}
+        {{- with . | resources.Fingerprint "sha512" -}}
+          <link rel="stylesheet" href="{{- .RelPermalink -}}" integrity="{{- .Data.Integrity -}}" crossorigin="anonymous">
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else if compare.Eq "disabled" $config.method -}}
+{{- else -}}
+  <link rel="stylesheet" media="all" href="{{- $config.externalOptions.target -}}">
+{{- end -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-styles-after" "context" . ) -}}

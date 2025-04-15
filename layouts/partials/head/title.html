@@ -1,0 +1,6 @@
+{{- $title := partials.Include "func/getTitle.html" page -}}
+{{- if compare.Eq $title "" -}}
+  {{- $title = "TITLE MISSING" -}}
+  {{- partials.Include "debug-cli.html" (dict "severity" "info" "message" (fmt.Printf "There is no strings.Title set up, neither site strings.Title nor page strings.Title could be found.")) -}}
+{{- end -}}
+<title>{{- $title -}}</title>

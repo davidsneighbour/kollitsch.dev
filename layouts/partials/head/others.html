@@ -1,0 +1,31 @@
+{{- $config := site.Params.dnb.head -}}
+{{- if (collections.In $config.disable "referrer") -}}
+  <meta name="referrer" content="no-referrer">
+{{- end -}}
+{{- if (collections.In $config.disable "phone_transcription") -}}
+  <meta name="format-detection" content="telephone=no">
+{{- end -}}
+{{- with $config.notranslate -}}
+  {{- if compare.Eq . true -}}
+    <meta name="google" content="notranslate">
+  {{- end -}}
+{{- end -}}
+{{- with $config.monetization -}}
+  <meta name="monetization" content="{{- . -}}">
+{{- end -}}
+{{- with (and $config.latitude $config.longitude) -}}
+  <meta
+    name="ICBM"
+    content="{{- $config.latitude -}},{{- $config.longitude -}}">
+  <meta
+    name="geo.position"
+    content="{{- $config.latitude -}};{{- $config.longitude -}}">
+{{- end -}}
+{{- with $config.region -}}
+  <meta name="geo.region" content="{{- $config.region -}}">
+{{- end -}}
+{{- with $config.placename -}}
+  <meta name="geo.placename" content="{{- $config.placename -}}">
+{{- end -}}
+<meta name="color-scheme" content="{{- $config.colorschemeOrder -}}">
+<meta name="view-transition" content="same-origin" />

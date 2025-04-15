@@ -1,0 +1,57 @@
+{{- partials.Include "func/printCommentHeader.html" "@davidsneighbour/head" -}}
+{{- $page := . -}}
+{{- $config := site.Params.dnb.head -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-init" "context" . ) -}}
+{{- $charset := site.Params.dnb.head.charset | compare.Default "utf-8" -}}
+<meta charset="{{- $charset -}}">
+{{- $viewport := site.Params.dnb.head.viewport | compare.Default "width=device-width, initial-scale=1" -}}
+<meta name="viewport" content="{{- $viewport -}}">
+{{- partials.IncludeCached "head/theme.html" . -}}
+{{- partials.Include "head/title.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-start" "context" . ) -}}
+{{- if and (collections.IsSet $config "nobase") (compare.Eq false $config.nobase) -}}
+  <base href="{{- site.BaseURL -}}">
+{{- end -}}
+{{- partials.IncludeCached "head/speed-optimisation.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-speed-optimisation" "context" . ) -}}
+{{- partials.Include "head/description.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-description" "context" . ) -}}
+{{- partials.Include "head/author.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-author" "context" . ) -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-pre-css" "context" . ) -}}
+{{- partials.IncludeCached "head/style.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-css" "context" . ) -}}
+{{- partials.Include "head/translations.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-translations" "context" . ) -}}
+{{- partials.Include "head/seo.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-seo" "context" . ) -}}
+{{- partials.IncludeCached "head/series.html" . . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-post-series" "context" . ) -}}
+{{/* external modules, uncached */}}
+{{- $modules := collections.Slice "social" -}}
+{{- range $modules -}}
+  {{- partials.Include "func/printCommentHeader.html" (fmt.Printf "@davidsneighbour/%s" .) }}
+  {{- $template := fmt.Printf "head/%s.html" . -}}
+  {{- if templates.Exists ( fmt.Printf "partials/%s" $template ) -}}
+    {{- partials.Include "func/hook.html" ( dict "hook" (fmt.Printf "head-pre-module-%s" .) "context" . ) -}}
+    {{- partials.Include $template $page $page -}}
+    {{- partials.Include "func/hook.html" ( dict "hook" (fmt.Printf "head-post-module-%s" .) "context" . ) -}}
+  {{- end -}}
+{{- end -}}
+{{/* external modules, cached */}}
+{{- $modules := collections.Slice "opensearch" "pwa" "humans" "feeds" -}}
+{{- range $modules -}}
+  {{- partials.Include "func/printCommentHeader.html" (fmt.Printf "@davidsneighbour/%s" .) }}
+  {{- $template := fmt.Printf "head/%s.html" . -}}
+  {{- if templates.Exists ( fmt.Printf "partials/%s" $template ) -}}
+    {{- partials.Include "func/hook.html" ( dict "hook" (fmt.Printf "head-pre-module-%s" .) "context" . ) -}}
+    {{- partials.Include $template $page $page -}}
+    {{- partials.Include "func/hook.html" ( dict "hook" (fmt.Printf "head-post-module-%s" .) "context" . ) -}}
+  {{- end -}}
+{{- end -}}
+{{- partials.Include "func/printCommentHeader.html" "@davidsneighbour/head - the rest" -}}
+{{- partials.IncludeCached "head/verification.html" . -}}
+{{- partials.IncludeCached "func/hook.html" ( dict "hook" "head-post-verification" "context" . ) -}}
+{{- partials.Include "head/others.html" . -}}
+{{- partials.Include "func/hook.html" ( dict "hook" "head-end" "context" . ) -}}
+{{- partials.Include "func/printCommentHeader.html" "@davidsneighbour/head end" }}

@@ -31,19 +31,19 @@ logo_width = "40"
 show_title = true
 
 [dnb.theme.limits]
-archive = 25
+archive = 25 
 home = 10 # 1 full plus 9
-list = 10
+list = 10 
 
 # stylesheet modifications
 ################################################################################
 [dnb.theme.styles]
 # bgimage = 'images/background.jpg' # relative to /assets
 [dnb.theme.styles.bgimage]
-enabled = true
-format = 'jpg'
-quality = 'q40'
-resize = '1200x'
+enabled = true 
+format = 'jpg' 
+quality = 'q40' 
+resize = '1200x' 
 url = 'images/background.jpg' # relative to /assets
 ################################################################################
 
@@ -401,7 +401,7 @@ profile = "davidsneighbour"
 [dnb.pictures]
 # webp requires the extended gohugo version
 default_format = "jpg" # one of webp, png, jpg
-default_image = "images/og_sitewide.png"
+default_image = "images/og_sitewide.png" 
 # 16:9, 4:3, 1:1 or whatever ratio you want for thumbnails
 # this needs to be a string and needs to be two floats separated by a colon
 # aspect_ratio = "16:9"
@@ -421,8 +421,11 @@ image_sizes = ["494", "517"]
 # head - @see https://dnbhub.xyz/head
 ################################################################################
 [dnb.head]
-disable = []
+charset = "utf-8" 
+disable = [] 
+nobase = true 
 notranslate = false # tell Google not to provide a translation for this document
+viewport = "width=device-width, initial-scale=1" 
 # https://webmonetization.org/docs/getting-started
 latitude = "9.578492"
 longitude = "99.958311"
@@ -484,6 +487,19 @@ config = "postcss.config.mjs"
 # parser = ""
 # stringifier = ""
 # syntax = ""
+
+[dnb.head.styles.tailwindOptions]
+# tailwind options, see https://gohugo.io/functions/css/tailwindcss/#options
+# minify = false
+# optimize = false
+# inlineImports = false
+# skipInlineImportsNotFound = false
+enableSourceMap = "false"
+includePaths = ["node_modules/"]
+targetPath = "twtheme.css"
+
+[dnb.head.styles.externalOptions]
+target = "/styles.css"
 
 # debug - @see https://dnbhub.xyz/debug
 ################################################################################

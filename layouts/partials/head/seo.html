@@ -1,0 +1,17 @@
+{{- if templates.Exists "partials/head/robots.html" -}}
+  {{- partials.Include "head/robots.html" . -}}
+{{- else -}}
+  {{- with .Params.robots -}}
+  <meta name="robots" content="{{- . -}}">
+  {{- else -}}
+    {{- if compare.Ne .Page.Kind "404" -}}
+      <meta name="robots" content="index,follow">
+    {{- else -}}
+      <meta name="robots" content="noindex,follow">
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if compare.Ne .Page.Kind "404" -}}
+  <link rel="canonical" href="{{- .Permalink -}}">
+{{- end -}}

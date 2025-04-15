@@ -1,0 +1,9 @@
+{{- with site.Home.AlternativeOutputFormats -}}
+  {{- range . -}}
+  <link
+    rel="{{- .Rel -}}"
+    {{- fmt.Printf "type=%q" .MediaType.Type | safe.HTMLAttr -}}
+    {{- fmt.Printf "href=%q" .Permalink | safe.HTMLAttr -}}
+   >
+  {{- end -}}
+{{- end -}}

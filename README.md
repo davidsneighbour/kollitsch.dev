@@ -4,14 +4,17 @@
 
 This project is the website setup, features, and theme for [kollitsch.dev](https://kollitsch.dev/).
 
-![Screenshot of kollitsch.dev](.github/screenshots/screenshot.png)
-
 <!--lint ignore-->
 
+* [Preview of the current state of the website](#preview-of-the-current-state-of-the-website)
 * [Site structure](#site-structure)
 * [Ask questions](#ask-questions)
 * [General notes](#general-notes)
 * [Setup repository](#setup-repository)
+
+## Preview of the current state of the website
+
+![Screenshot of kollitsch.dev](.github/screenshots/screenshot.png)
 
 ## Site structure
 

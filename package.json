@@ -20,7 +20,7 @@
     "@davidsneighbour/bootstrap-config": "2025.1.1",
     "@davidsneighbour/browserslist-config": "2025.1.1",
     "@davidsneighbour/commitlint-config": "2025.1.1",
-    "@davidsneighbour/debuglogger": "0.1.1",
+    "@davidsneighbour/debuglogger": "0.2.0",
     "@davidsneighbour/eslint-config": "2025.1.1",
     "@davidsneighbour/frontmatter-config": "2025.1.1",
     "@davidsneighbour/htmlvalidate-config": "2025.1.1",
@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@atproto/api": "0.14.22",
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "1.51.1",
     "@types/node": "22.14.1",
     "masto": "6.10.4",
     "oauth-1.0a": "2.2.6",

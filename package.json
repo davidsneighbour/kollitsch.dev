@@ -2,7 +2,7 @@
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
   "version": "2025.1.1",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
   "author": {

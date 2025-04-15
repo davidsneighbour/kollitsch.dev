@@ -1,3 +1,9 @@
+import DebugLogger from '@davidsneighbour/debuglogger';
+
+// Import parameters from GoHugo
+// @ts-ignore - injected at runtime by GoHugo
+import * as params from '@params';
+
 class ProgressBar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -13,7 +19,11 @@ class ProgressBar extends HTMLElement {
     `;
   }
   static {
-    console.log('ProgressBar loaded');
+    // enable logger for local debugging
+    const logger = new DebugLogger(params.debug);
+    logger.setPrefix('⚡ DEBUG:', '#00aa00');
+    logger.enableDebug();
+    logger.log('ProgressBar loaded');
   }
 }
 

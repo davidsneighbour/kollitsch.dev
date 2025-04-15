@@ -60,6 +60,8 @@ config:
 
 to remove this specific page from the search index.
 
+Run `build:pagefind` to create the search index.
+
 ## Date setup for individual pages
 
 This theme customizes how GoHugo handles date fields in the frontmatter. These changes override GoHugo's default behavior to provide more control over date metadata, including utilizing Git history timestamps (`:git`) when applicable.
@@ -193,19 +195,6 @@ Hugo introduced a new SSL feature in v0.113.0. The setup is still quite manual, 
   ```
 
 ## Development
-
-### Dev Setup
-
-Set `IP` and `PORT` for your local machine in `.env`. `IP` *MAY* also be a hostname (without protocol).
-
-```ini
-IP=192.168.1.201
-PORT=1313
-```
-
-This configures the Hugo server so you can access the site from other machines (and mobile devices) in your local network. Again: you *MUST NOT* commit this file to any public code versioning system as it contains private information.
-
-To start the development server, run `npm run server`, which runs the Hugo server with more or less paranoid settings (show translation issues, template issues, be verbose, debug, the more, the better). For example, running just `hugo server` will start Hugo on [localhost:1313](http://localhost:1313).
 
 ### Release
 

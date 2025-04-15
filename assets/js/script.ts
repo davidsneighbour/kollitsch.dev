@@ -14,6 +14,8 @@ import * as params from '@params';
 
 // enable logger for local debugging
 const logger = new DebugLogger(params.debug);
+logger.setPrefix('⚡ DEBUG:', '#00aa00');
+logger.enableDebug();
 
 // YouTube element
 // @ts-ignore - mounted at runtime by GoHugo

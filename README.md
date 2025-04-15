@@ -43,8 +43,8 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 
 ```bash
 
-git submodule add -b main git@github.com:davidsneighbour/kollitsch.dev-content.git .frontmatter
 git submodule update --init --recursive --remote
+git submodule foreach git checkout main
 git config -f .gitmodules submodule.".frontmatter".update merge
 
 

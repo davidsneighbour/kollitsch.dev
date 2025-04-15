@@ -35,17 +35,11 @@ path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/functions"
 
-# [[imports]]
-# path = "github.com/davidsneighbour/hugo-modules/modules/internals"
-
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/modder"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
-
-# [[imports]]
-# path = "github.com/davidsneighbour/hugo-modules/modules/errors"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
@@ -77,14 +71,8 @@ path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/robots"
 
-# [[imports]]
-# path = "github.com/davidsneighbour/hugo-modules/modules/schema"
-
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/security"
-
-# [[imports]]
-# path = "github.com/davidsneighbour/hugo-modules/modules/seo"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"

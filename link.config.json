@@ -1,7 +1,6 @@
 {
   "packages": [
     "../configurations/packages/bootstrap-config",
-    "../configurations/packages/browserslist-config",
     "../configurations/packages/commitlint-config",
     "../configurations/packages/htmlvalidate-config",
     "../configurations/packages/markdownlint-config",

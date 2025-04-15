@@ -54,9 +54,6 @@ path = "github.com/davidsneighbour/hugo-modules/modules/feeds"
 path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/head"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/headerimage"
 
 [[imports]]

@@ -9,7 +9,7 @@ async function buildPagefindIndex() {
   const { index } = await pagefind.createIndex({
     rootSelector: "html",
     verbose: true,
-    logfile: "debug.log",
+    logfile: "logs/pagefind.log",
   });
 
   if (index) {

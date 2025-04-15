@@ -150,22 +150,22 @@
       Kind - page, section
       Layout - set manual via frontmatter (and override Type)
       Type - set manual via frontmatter
-      Section - everything in the content folder level 1
+      Section - everything collections.In the content folder level 1
       */}}
 
       {{ if collections.IsSet $config.sectionlayout .Section }}
 
         {{/* MARK: >> Section Layout
         */}}
-        {{ if eq .Kind "section" }}
-          {{- $path := printf "pages/%s/list.html" (index $config.sectionlayout .Section) -}}
+        {{ if compare.Eq .Kind "section" }}
+          {{- $path := fmt.Printf "pages/%s/list.html" (collections.Index $config.sectionlayout .Section) -}}
           {{- partials.Include $path . -}}
         {{ else }}
-          {{- $path := printf "pages/%s/single.html" (index $config.sectionlayout .Section) -}}
+          {{- $path := fmt.Printf "pages/%s/single.html" (collections.Index $config.sectionlayout .Section) -}}
           {{- partials.Include $path . -}}
         {{ end }}
 
-      {{ else if eq .Kind "home" }}
+      {{ else if compare.Eq .Kind "home" }}
 
         {{/* MARK: >> Home Page
         */}}
@@ -218,7 +218,7 @@
           </div>
         </section>
 
-      {{ else if eq .Kind "term" }}
+      {{ else if compare.Eq .Kind "term" }}
 
         {{/* MARK: >> Term Page
         */}}
@@ -250,7 +250,7 @@
         {{- partials.Include "content/components/tags/tags-overview.html" $options -}}
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
 
-      {{ else if eq .Kind "taxonomy" }}
+      {{ else if compare.Eq .Kind "taxonomy" }}
 
         {{/* MARK: >> Taxonomy Page
         */}}

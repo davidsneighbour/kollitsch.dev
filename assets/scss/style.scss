@@ -10,6 +10,7 @@
 @use "sass:color";
 @use "sass:math";
 @use "sass:string";
+@use "sass:list";
 @use "modules/colors" as dnbcolors;
 @use "modules/typography" as dnbtypography;
 
@@ -31,10 +32,10 @@ $fontdir: "/assets/webfonts" !default;
   );
 
 @each $format in $formats {
-  $formatType: nth($format, 1);
-  $tech: if(length($format) > 1, ' tech("#{nth($format, 2)}")', '');
-  $sources: append($sources,
-      unquote('url("#{$fontdir}/#{$subdir}/#{$file}") format("#{$formatType}")#{$tech}'),
+  $formatType: list.nth($format, 1);
+  $tech: if(list.length($format) > 1, ' tech("#{list.nth($format, 2)}")', '');
+  $sources: list.append($sources,
+      string.unquote('url("#{$fontdir}/#{$subdir}/#{$file}") format("#{$formatType}")#{$tech}'),
       comma);
 }
 
@@ -205,10 +206,9 @@ $enable-important-utilities: false;
 
 /// theme settings
 $heading-height: 70px;
+
+// 2:1. 2 would be enough, but then we would forget how to set other aspect ratios until next time ;]
 $aspect-ratio: math.div(2, 1);
-/* 2:1. 2 would be enough, but then we would
-  forget how to set other aspect ratios
-  until next time ;] */
 
 /// mark tag
 $mark-color: var(--bs-gray-dark);
@@ -225,7 +225,6 @@ $mark-padding: 0 0.1875em;
   // transition setup and default values
   --duration: 0.5s;
   --timing: ease;
-
   --flow-space: var($spacer * 2, 1em);
 
   transition:
@@ -341,12 +340,9 @@ body {
 }
 
 a {
-
   transition: color 0.5s linear;
-
   text-decoration-skip-ink: all;
   text-decoration-skip: leading-spaces edges;
-
   box-decoration-break: clone;
 
 }
@@ -356,7 +352,6 @@ main {
   padding-top: 30px;
   margin: 0 auto;
   max-width: clamp(320px, 90%, 60rem);
-
   min-height: 100vh;
 
   @include media-breakpoint-up(md) {
@@ -374,7 +369,6 @@ article {
 
 /// A container for the article image
 .post-slider {
-
   figure {
     width: 100%;
     overflow: hidden;
@@ -388,7 +382,6 @@ article {
     video {
       object-fit: cover;
       aspect-ratio: 2/1;
-
       overflow: hidden;
       border-radius: var(--bs-border-radius);
       width: 100%;
@@ -431,7 +424,6 @@ abbr {
 }
 
 .alert {
-
   // @todo make this look good
   // @include media-breakpoint-up(md) {
   // display: block;
@@ -469,8 +461,9 @@ abbr {
 }
 
 input:autofill {
-  border-width: 1px;
   --bs-border-opacity: 1;
+
+  border-width: 1px;
   border-color: rgba(var(--bs-primary-rgb), var(--bs-border-opacity));
 }
 
@@ -505,6 +498,7 @@ $mark-lighten-percentage: 20%; // Configurable percentage for lightening
 /// @param {Color} $base-color - The base Bootstrap color to use
 @mixin mark-background($base-color) {
   $light-color: color.mix(white, $base-color, $mark-lighten-percentage);
+
   background: linear-gradient(100deg,
     #{$light-color}00 1%,
     #{$light-color} 2.5%,
@@ -555,19 +549,12 @@ figcaption {
 @include dnbtypography.scrollbar(".prose", 3px);
 
 .prose {
-
   /* max-inline-size: 55rem; */
   margin-inline: auto;
-
   margin-bottom: 1rem;
 
-  font-variant-numeric: oldstyle-nums;
-
   /* @link https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
   text-size-adjust: none;
-
   line-height: 1.5;
   text-decoration-skip-ink: auto;
   font-optical-sizing: auto;
@@ -579,12 +566,8 @@ figcaption {
   font-variant-numeric: oldstyle-nums proportional-nums;
   font-size-adjust: 0.458;
 
-  /* hyphenation
-   @link https://clagnut.com/blog/2395/ */
-  -webkit-hyphens: auto;
-  -webkit-hyphenate-limit-before: 4;
-  -webkit-hyphenate-limit-after: 3;
-  -webkit-hyphenate-limit-lines: 2;
+  // hyphenation
+  // @link https://clagnut.com/blog/2395/
   hyphens: auto;
   hyphenate-limit-chars: 7 4 3;
   hyphenate-limit-lines: 2;
@@ -592,7 +575,7 @@ figcaption {
   hyphenate-limit-last: always;
 
   // MARK: DNB Prose
-  /// universal block formatting reset
+  // universal block formatting reset
   >*+* {
     margin-block-start: var(--flow-space, 1em);
   }
@@ -652,11 +635,11 @@ figcaption {
   }
 
   /// hyphenation for various content types
-  .alert,
   p,
   li,
   dd,
-  td {
+  td,
+  .alert {
     text-wrap: pretty;
 
     @include dnbtypography.hyphenate;
@@ -664,10 +647,7 @@ figcaption {
   }
 
   blockquote {
-    padding-left: 0.95rem;
-    padding-top: $spacer;
-    padding-bottom: $spacer;
-    padding-right: $spacer;
+    padding: $spacer $spacer $spacer 0.95rem;
     border-left: $primary 5px solid;
     background-color: var(--bs-tertiary-bg);
 
@@ -705,15 +685,16 @@ figcaption {
   .section--meta {
     border-top: 1px solid $primary;
     font-size: 0.9rem;
-
     padding-top: 1rem;
 
     a {
       --bs-text-opacity: 1;
+
       color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity));
 
       &:hover {
         --bs-text-opacity: 1;
+
         color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
       }
     }
@@ -890,9 +871,9 @@ figcaption {
 
   /// global figcaption design
   figcaption {
+    --bs-text-opacity: 1;
 
     text-align: right;
-    --bs-text-opacity: 1;
     color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
     font-style: italic;
     margin-top: 0;
@@ -909,29 +890,31 @@ figcaption {
     $table-color: $body-color;
 
     .dark & {
-      --bs-table-color: #fff;
+      --bs-table-color: #ffffff;
       --bs-table-bg: #212529;
       --bs-table-border-color: #4d5154;
       --bs-table-striped-bg: #2c3034;
-      --bs-table-striped-color: #fff;
+      --bs-table-striped-color: #ffffff;
       --bs-table-active-bg: #373b3e;
-      --bs-table-active-color: #fff;
+      --bs-table-active-color: #ffffff;
       --bs-table-hover-bg: #323539;
-      --bs-table-hover-color: #fff;
+      --bs-table-hover-color: #ffffff;
+
       color: var(--bs-table-color);
       border-color: var(--bs-table-border-color);
     }
 
     .light & {
-      --bs-table-color: #000;
+      --bs-table-color: #000000;
       --bs-table-bg: #f8f9fa;
       --bs-table-border-color: #c6c7c8;
       --bs-table-striped-bg: #ecedee;
-      --bs-table-striped-color: #000;
+      --bs-table-striped-color: #000000;
       --bs-table-active-bg: #dfe0e1;
-      --bs-table-active-color: #000;
+      --bs-table-active-color: #000000;
       --bs-table-hover-bg: #e5e6e7;
-      --bs-table-hover-color: #000;
+      --bs-table-hover-color: #000000;
+
       color: var(--bs-table-color);
       border-color: var(--bs-table-border-color);
     }
@@ -946,10 +929,7 @@ figcaption {
     @extend .table-sm;
 
     td {
-      padding-right: .5rem;
-      padding-left: .5rem;
-      padding-top: .25rem;
-      padding-bottom: .25rem;
+      padding: .25rem .5rem;
 
       &:nth-of-type(1) {
         white-space: nowrap;
@@ -961,10 +941,7 @@ figcaption {
     }
 
     th {
-      padding-right: .5rem;
-      padding-left: .5rem;
-      padding-top: .25rem;
-      padding-bottom: .25rem;
+      padding: .25rem .5rem;
     }
 
     margin-bottom:0;
@@ -1062,20 +1039,19 @@ figcaption {
 
 // MARK: DNB Footer
 #footer {
-
   .widget.social-media {
 
     a:link,
     a:hover {
+      padding-right: 1rem;
+      padding-left: 1rem;
+
       svg {
         width: 36px;
         height: 36px;
         padding: 0;
         margin: 0;
       }
-
-      padding-right:1rem;
-      padding-left:1rem;
     }
   }
 
@@ -1093,12 +1069,10 @@ figcaption {
 
   a {
     color: $primary;
-
     text-decoration: none;
 
     &:hover {
       color: var(--bs-primary-color);
-
       text-decoration: none;
     }
   }
@@ -1119,13 +1093,13 @@ figcaption {
 
   .navbar-brand {
     transition: opacity 1.5s ease, transform 0.3s ease;
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(-10px); // Start slightly above
     display: block; // Ensure the element is always in the document flow
     visibility: hidden; // Ensure it's hidden from screen readers when invisible
 
     &.sticky-visible {
-      opacity: 1;
+      opacity: 100%;
       transform: translateY(0); // Move back to its normal position
       visibility: visible; // Make it accessible to screen readers
     }
@@ -1159,6 +1133,7 @@ figcaption {
 }
 
 .progress {
+  /* stylelint-disable-next-line scss/function-no-unknown -- not unknown, it's part of baseline */
   background: linear-gradient(90deg,
       map.get(dnbcolors.$colors, "red") 0%,
       map.get(dnbcolors.$colors, "orange") 12.5%,
@@ -1257,7 +1232,7 @@ figcaption {
 
 }
 
-// DNB: plugins (imported from node_modules)
+// DNB: plugins (imported from GoHugo mounts)
 @import "lite-yt-embed";
 @import "debugprint";
 @import "plugins/clipboard";

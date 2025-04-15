@@ -11,10 +11,6 @@ export default {
 
   "*.{scss,css}": ["stylelint --fix", "prettier --write"],
 
-  // '*.{png,jpeg,jpg,gif,svg}': [
-  //   'imagemin-lint-staged' // @davidsneighbour/imagemin-lint-staged
-  // ],
-
   "!(CHANGELOG)**/*.{md,markdown}": ["markdownlint-cli2", "npm run lint:vale"],
 
   "layouts/**/*.*": ["./bin/hugo/refactor layouts"],

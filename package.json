@@ -230,7 +230,7 @@
       "command": "hugo server trust"
     },
     "server:pagefind": {
-      "command": "pagefind ",
+      "command": "node scripts/pagefind.mjs",
       "files": ["content/**/*.md"]
     },
     "update": {

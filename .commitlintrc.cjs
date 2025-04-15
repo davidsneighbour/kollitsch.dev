@@ -1,6 +1,5 @@
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
-  extends: ["@davidsneighbour/commitlint-config"],
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
   },

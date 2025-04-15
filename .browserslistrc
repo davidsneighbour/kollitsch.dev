@@ -1,5 +1,4 @@
 last 1 version
->= 0.5 %
 Chrome >= 112
 Firefox >= 121
 iOS >= 16

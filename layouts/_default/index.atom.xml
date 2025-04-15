@@ -1,0 +1,116 @@
+{{- $drafts := partials.IncludeCached "func/feeds/getDrafts.html" "atom" . -}}
+{{- $items := partials.IncludeCached "func/feeds/getItemsToShow.html" "atom" . -}}
+
+{{- $context := . -}}
+{{- if .IsHome -}}
+  {{- $context = .Site -}}
+{{- end -}}
+
+{{- $pages := $context.RegularPages -}}
+{{- with site.Params.mainSections -}}
+  {{- $pages = collections.Where site.RegularPages "Type" "in" . -}}
+{{- end -}}
+
+{{- with $drafts -}}
+  {{- $pages = collections.Where $pages "Draft" "==" . -}}
+{{- end -}}
+
+{{- $limit := partials.IncludeCached "func/feeds/getLimit.html" "atom" . -}}
+{{- $pages = $pages | collections.First $limit -}}
+
+{{ fmt.Printf "<?xml version= \"1.0\" encoding= \"utf-8\" standalone= \"yes\"?>" | safe.HTML }}
+{{ fmt.Printf "<?xml-stylesheet href=\"/dnb/feeds/atom.xslt\" type=\"text/xsl\"?>" | safe.HTML }}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.LanguageCode }}">
+  <title>{{ site.Title }}</title>
+  {{- with site.Params.brand.tagline }}
+    <subtitle>{{ . }}</subtitle>
+  {{- end }}
+  <id>{{ "/" | urls.AbsLangURL }}</id>
+  <author>
+    <name>{{ site.Title }}</name>
+    <uri>{{ "/" | urls.AbsLangURL }}</uri>
+  </author>
+  <generator>Hugo gohugo.io</generator>
+  {{- with site.Copyright }}
+    <rights>{{ . }}</rights>
+  {{- end }}
+  {{- with site.Params.brand.icon }}
+    <icon>{{ . | urls.AbsURL }}</icon>
+  {{- end }}
+  {{- with site.Params.brand.logo }}
+    <logo>{{ . | urls.AbsURL }}</logo>
+  {{- end }}
+  <updated>{{ time.Format "2006-01-02T15:04:05Z" now.UTC | safe.HTML }}</updated>
+  {{- with .OutputFormats.Get "ATOM" }}
+    {{ fmt.Printf `<link rel="self" type="%s" href="%s" hreflang="%s" />`
+              .MediaType.Type
+              .Permalink
+              site.LanguageCode | safe.HTML }}
+  {{- end }}
+  {{- range .AlternativeOutputFormats }}
+    {{ fmt.Printf `<link rel="alternate" type="%s" href="%s" hreflang="%s" />`
+              .MediaType.Type
+              .Permalink
+              site.LanguageCode | safe.HTML }}
+  {{- end }}
+  {{- range $pages }}
+    <entry>
+      <title>{{ .Title }}</title>
+      {{- with .Params.author -}}
+        <author>
+          <name>
+            {{- with .name -}}
+              {{- . -}}
+            {{- else -}}
+              {{- site.Title -}}
+            {{- end -}}
+          </name>
+          <uri>
+            {{- with .homepage -}}
+              {{- . -}}
+            {{- else -}}
+              {{- site.BaseURL -}}
+            {{- end -}}
+          </uri>
+        </author>
+      {{- else -}}
+        <author>
+          <name>
+            {{- with site.Params.Author.name -}}
+              {{- . -}}
+            {{- else -}}
+              {{- site.Title -}}
+            {{- end -}}
+          </name>
+          {{- with site.Params.Author.homepage -}}
+            <uri>{{- . -}}</uri>
+          {{- end -}}
+        </author>
+      {{- end -}}
+      <id>{{ .Permalink }}</id>
+      {{- if .IsTranslated -}}
+        {{ range .Translations }}
+          <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Language.Lang }}" />
+        {{- end -}}
+      {{ end }}
+      <updated>{{ time.Format "2006-01-02T15:04:05Z" .Lastmod.UTC | safe.HTML }}</updated>
+      <published>{{ time.Format "2006-01-02T15:04:05Z" .Date.UTC | safe.HTML }}</published>
+      <content type="html">
+        {{- $image := partials.IncludeCached "func/getArticleImage.html" . . -}}
+        {{- with $image -}}
+          {{- $image := .Resize "1200x webp" -}}
+          {{- with $image }}
+            {{- $image = .Crop "1200x630 webp" -}}
+          {{- end -}}
+          <p>
+            <img src="{{- $image.Permalink -}}" width="{{- $image.Width -}}" height="{{- $image.Height -}}" />
+          </p>
+        {{- end -}}
+        <p>
+          {{- $description := partials.IncludeCached "func/getDescription.html" . . -}}
+          {{- $description | html -}}
+        </p>
+      </content>
+    </entry>
+  {{- end }}
+</feed>

@@ -19,7 +19,7 @@ export default defineConfig({
     ? 'github'
     : [
         ['list'],
-        ['json', { outputFile: 'test-results.json' }],
+        ['json', { outputFile: 'logs/test-results.json' }],
         ['html', { open: 'on-failure', outputFile: 'test-results.html' }],
       ],
   // @see https://playwright.dev/docs/api/class-testoptions
@@ -28,13 +28,22 @@ export default defineConfig({
 
     // @see https://playwright.dev/docs/trace-viewer
     trace: 'on-first-retry',
+
     ignoreHTTPSErrors: true,
     colorScheme: 'dark',
+
     // geolocation: { longitude: 12.492507, latitude: 41.889938 },
     // isMobile: false,
     screenshot: { mode: 'only-on-failure', fullPage: true },
     serviceWorkers: 'allow',
     video: 'retain-on-failure',
+
+    // Emulates the user locale.
+    locale: 'en-US',
+    // Emulates the user timezone.
+    timezoneId: 'Asia/Bangkok',
+    // Viewport used for all pages in the context.
+    viewport: { width: 1280, height: 720 },
   },
 
   projects: [
@@ -42,14 +51,14 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
   ],
   webServer: {
     command: 'npm run server',

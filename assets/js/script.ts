@@ -124,7 +124,7 @@ document.onreadystatechange = () => {
 
     logger.log('Script loaded');
 
-    const placeholder = document.querySelector('.section--sitetitle');
+    const placeholder = document.querySelector('h1.sitetitle');
     const stickyBrand = document.querySelector('.sticky-top .navbar-brand');
 
     logger.log('Elements found:', { placeholder, stickyBrand });

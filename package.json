@@ -20,7 +20,7 @@
     "@davidsneighbour/bootstrap-config": "2025.1.1",
     "@davidsneighbour/browserslist-config": "2025.1.1",
     "@davidsneighbour/commitlint-config": "2025.1.1",
-    "@davidsneighbour/debuglogger": "0.1.0",
+    "@davidsneighbour/debuglogger": "0.1.1",
     "@davidsneighbour/eslint-config": "2025.1.1",
     "@davidsneighbour/frontmatter-config": "2025.1.1",
     "@davidsneighbour/htmlvalidate-config": "2025.1.1",
@@ -82,6 +82,7 @@
   "scripts": {
     "audit:html": "wireit",
     "build": "wireit",
+    "build:pagefindindex": "node scripts/pagefind.mjs",
     "clean": "wireit",
     "clean:full": "wireit",
     "deploy": "wireit",
@@ -110,7 +111,6 @@
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
     "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --logLevel debug --tlsAuto --baseURL https://localhost/ 2>&1 | tee -a logs/hugo.log",
-    "server:pagefind": "wireit",
     "tests": "npx playwright test",
     "tests:ui": "npx playwright test --ui",
     "update": "wireit"
@@ -124,7 +124,7 @@
         "clean:dist",
         "build:hugoconfig",
         "build:hugo",
-        "build:pagefind"
+        "build:pagefind2"
       ]
     },
     "build:deploy": {
@@ -133,7 +133,7 @@
         "clean:dist",
         "build:hugoconfig",
         "build:hugo",
-        "build:pagefind"
+        "build:pagefind2"
       ]
     },
     "build:hugo": {
@@ -143,7 +143,7 @@
     "build:hugoconfig": {
       "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
     },
-    "build:pagefind": {
+    "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
       "dependencies": ["build:hugo"]
     },
@@ -215,23 +215,22 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": ["server:hugo", "server:pagefind"]
+      "dependencies": ["server:hugo", "server:pagefind2"]
+    },
+    "server:pagefind2": {
+      "command": "node ./scripts/pagefind.mjs"
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
       "dependencies": ["server:hugo-certificates"],
       "service": {
         "readyWhen": {
-          "lineMatches": "Web Server is available at *"
+          "lineMatches": "Web Server is available at (.*)"
         }
       }
     },
     "server:hugo-certificates": {
       "command": "hugo server trust"
-    },
-    "server:pagefind": {
-      "command": "node scripts/pagefind.mjs",
-      "files": ["content/**/*.md"]
     },
     "update": {
       "dependencies": ["update:git-hooks"]

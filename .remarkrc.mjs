@@ -20,7 +20,7 @@ const remarkConfig = {
       {
         schemas: {
           "./static/_schemata/blog.schema.yaml": [
-            "./content/blog/**/*.{md,mdx}",
+            "./.frontmatter/content/blog/**/*.{md,mdx}",
           ],
         },
       },

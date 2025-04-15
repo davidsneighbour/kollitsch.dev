@@ -1,11 +1,8 @@
 {
   "packages": [
-    "../configurations/packages/biome-config",
     "../configurations/packages/bootstrap-config",
     "../configurations/packages/browserslist-config",
     "../configurations/packages/commitlint-config",
-    "../configurations/packages/eslint-config",
-    "../configurations/packages/frontmatter-config",
     "../configurations/packages/htmlvalidate-config",
     "../configurations/packages/markdownlint-config",
     "../configurations/packages/postcss-config",

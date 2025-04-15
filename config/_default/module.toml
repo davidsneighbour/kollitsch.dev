@@ -1,6 +1,6 @@
 [hugoVersion]
 extended = true
-min = "0.135.0"
+min = "0.146.4"
 
 [[mounts]]
 source = ".frontmatter/content"

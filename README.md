@@ -42,6 +42,12 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 ## Setup repository
 
 ```bash
+
+git submodule add -b main git@github.com:davidsneighbour/kollitsch.dev-content.git .frontmatter
+git submodule update --init --recursive --remote
+git config -f .gitmodules submodule.".frontmatter".update merge
+
+
 npx simple-git-hooks
 ```
 

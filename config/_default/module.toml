@@ -3,6 +3,14 @@ extended = true
 min = "0.135.0"
 
 [[mounts]]
+source = ".frontmatter/content"
+target = "content"
+
+[[mounts]]
+source = ".frontmatter/static"
+target = "static"
+
+[[mounts]]
 source = "assets"
 target = "assets"
 
@@ -17,9 +25,6 @@ target = "assets/node_modules"
 [[mounts]]
 source = "hugo_stats.json"
 target = "assets/watching/hugo_stats.json"
-
-[[imports]]
-path = "github.com/davidsneighbour/kollitsch.dev-content"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/debug"

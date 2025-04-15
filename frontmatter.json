@@ -9,21 +9,21 @@
         "music2program2",
         "notes-from-the-laboratory"
       ],
-      "path": "[[workspace]]/content/blog",
+      "path": "[[workspace]]/.frontmatter/content/blog",
       "title": "Blog"
     },
     {
       "contentTypes": [
         "component"
       ],
-      "path": "[[workspace]]/content/gohugo",
+      "path": "[[workspace]]/.frontmatter/content/gohugo",
       "title": "Modules"
     },
     {
       "contentTypes": [
         "tag"
       ],
-      "path": "[[workspace]]/content/tags",
+      "path": "[[workspace]]/.frontmatter/content/tags",
       "title": "Tags"
     }
   ],
@@ -189,7 +189,7 @@
       "configuration": {
         "frontMatter.content.pageFolders": [{
           "title": "Blog posts",
-          "path": "[[workspace]]/content/blog"
+          "path": "[[workspace]]/.frontmatter/content/blog"
         }]
         //"frontMatter.content.publicFolder": "[[workspace]]/websites/blog/public"
       }
@@ -199,7 +199,7 @@
       "configuration": {
         "frontMatter.content.pageFolders": [{
           "title": "Portfolio",
-          "path": "[[workspace]]/content/gohugo"
+          "path": "[[workspace]]/.frontmatter/content/gohugo"
         }]
        // "frontMatter.content.publicFolder": "[[workspace]]/websites/portfolio/public"
       }

@@ -1,0 +1,40 @@
+<nav aria-label="Breadcrumbs">
+  <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+
+      <a href="{{  .Site.BaseURL  }}" itemprop="item">
+        <span itemprop="name">
+          Home
+        </span>
+        <meta itemprop="position" content="1">
+      </a>
+
+    </li>
+
+    {{ $findUrl := collections.Slice }}
+
+    {{ range $index, $el := (strings.Split .URL "/") }}
+    {{ if compare.Gt (len . ) 0 }}
+
+    {{ $findUrl = collections.Uniq ($findUrl | collections.Append .) | collections.Sort }}
+
+    {{ end }}
+    {{ end }}
+
+    {{ $url := "/" }}
+    {{ range $index, $el := $findUrl }}
+
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      {{ $url = "/" | math.Add . | math.Add $url  }}
+
+      <a href="{{ $url }}" itemprop="item">
+        <span itemprop="name"> {{ . }} </span>
+        {{ $index = $index | math.Add 2 }}
+        <meta itemprop="position" content="{{ $index }}">
+      </a>
+    </li>
+    {{ end }}
+
+
+</nav>

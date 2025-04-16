@@ -31,3 +31,18 @@ isPlainText = false
 isHTML = false
 noUgly = true
 permalinkable = false
+
+[dnblinklist]
+baseName = 'links'
+isPlainText = true
+mediaType = 'application/json'
+permalinkable = false
+notAlternative = true
+
+[modder]
+baseName = 'modder'
+isPlainText = true
+mediaType = 'application/json'
+notAlternative = true
+permalinkable = false
+ugly = true

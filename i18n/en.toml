@@ -252,3 +252,54 @@ other = "This shortcode is deprecated. Please use `debug` instead."
 
 [dnb.head.hometitle]
 other = "Welcome"
+
+# renderhooks
+[dnb.renderhooks.caution]
+other = 'Caution'
+[dnb.renderhooks.important]
+other = 'Important'
+[dnb.renderhooks.note]
+other = 'Note'
+[dnb.renderhooks.tip]
+other = 'Tip'
+[dnb.renderhooks.warning]
+other = 'Warning'
+
+# shortcodes
+################################################################################
+# Shortcodes: Form
+################################################################################
+[shortcodes.form.name]
+description = "Form label for the name field"
+other = "Your Name"
+
+[shortcodes.form.email]
+description = "Form label for the email field"
+other = "Email Address"
+
+[shortcodes.form.subject]
+description = "Form label for the subject field"
+other = "Subject"
+
+[shortcodes.form.message]
+description = "Form label for the message field"
+other = "Your Message"
+
+[shortcodes.form.submit]
+description = "Label for the submit button"
+other = "Send Message"
+
+[shortcodes.form.fieldnames.name]
+other = "Name"
+
+[shortcodes.form.fieldnames.email]
+other = "Email"
+
+[shortcodes.form.fieldnames.subject]
+other = "Subject"
+
+[shortcodes.form.fieldnames.message]
+other = "Message"
+
+[shortcodes.form.fieldnames.submit]
+other = "submit"

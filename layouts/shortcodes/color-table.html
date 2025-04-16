@@ -1,0 +1,336 @@
+{{- /* @todo cleanup usage and move into lang.Translate */ -}}
+<table class="table table-swatches">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 340px;">Description</th>
+        <th scope="col" style="width: 200px;" class="ps-0">Swatch</th>
+        <th scope="col">Variables</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2">
+          <strong>Body —</strong> Default foreground (color) and background, including components.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2" style="background-color: var(--bs-body-color);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-body-color</code><br><code>--bs-body-color-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="p-3 rounded-2 border" style="background-color: var(--bs-body-bg);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-body-bg</code><br><code>--bs-body-bg-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2">
+          <strong>Secondary —</strong> Use the <code>color</code> option for lighter text. Use the <code>bg</code> option for dividers and to indicate disabled component states.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2" style="background-color: var(--bs-secondary-color);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-secondary-color</code><br><code>--bs-secondary-color-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="p-3 rounded-2 border" style="background-color: var(--bs-secondary-bg);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-secondary-bg</code><br><code>--bs-secondary-bg-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2">
+          <strong>Tertiary —</strong> Use the <code>color</code> option for even lighter text. Use the <code>bg</code> option to style backgrounds for hover states, accents, and wells.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2" style="background-color: var(--bs-tertiary-color);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-tertiary-color</code><br><code>--bs-tertiary-color-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="p-3 rounded-2 border" style="background-color: var(--bs-tertiary-bg);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-tertiary-bg</code><br><code>--bs-tertiary-bg-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Emphasis —</strong> For higher contrast text. Not applicable for backgrounds.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2" style="background-color: var(--bs-emphasis-color);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-emphasis-color</code><br><code>--bs-emphasis-color-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Border —</strong> For component borders, dividers, and rules. Use <code>--bs-border-color-translucent</code> to blend with backgrounds with an <code>rgba()</code> value.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2" style="background-color: var(--bs-border-color);">&nbsp;</div>
+        </td>
+        <td>
+          <code>--bs-border-color</code><br><code>--bs-border-color-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Primary —</strong> Main theme color, used for hyperlinks, focus styles, and component and form active states.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-primary">Primary</div>
+        </td>
+        <td>
+          <code>--bs-primary</code><br><code>--bs-primary-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-primary-bg-subtle); --bs-border-color: var(--bs-primary-border-subtle); color: var(--bs-primary-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-primary-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-primary-border-subtle); color: var(--bs-primary-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-primary-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-primary-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-primary-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Success —</strong> Theme color used for positive or successful actions and information.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-success">Success</div>
+        </td>
+        <td>
+          <code>--bs-success</code><br><code>--bs-success-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-success-bg-subtle); --bs-border-color: var(--bs-success-border-subtle); color: var(--bs-success-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-success-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-success-border-subtle); color: var(--bs-success-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-success-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-success-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-success-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Danger —</strong> Theme color used for errors and dangerous actions.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-danger">Danger</div>
+        </td>
+        <td>
+          <code>--bs-danger</code><br><code>--bs-danger-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-danger-bg-subtle); --bs-border-color: var(--bs-danger-border-subtle); color: var(--bs-danger-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-danger-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-danger-border-subtle); color: var(--bs-danger-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-danger-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-danger-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-danger-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Warning —</strong> Theme color used for non-destructive warning messages.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-warning">Warning</div>
+        </td>
+        <td>
+          <code>--bs-warning</code><br><code>--bs-warning-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-warning-bg-subtle); --bs-border-color: var(--bs-warning-border-subtle); color: var(--bs-warning-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-warning-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-warning-border-subtle); color: var(--bs-warning-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-warning-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-warning-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-warning-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Info —</strong> Theme color used for neutral and informative content.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-info">Info</div>
+        </td>
+        <td>
+          <code>--bs-info</code><br><code>--bs-info-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-info-bg-subtle); --bs-border-color: var(--bs-info-border-subtle); color: var(--bs-info-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-info-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-info-border-subtle); color: var(--bs-info-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-info-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 h-100 rounded-2" style="background-color: var(--bs-info-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-info-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Light —</strong> Additional theme option for less contrasting colors.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-light border">Light</div>
+        </td>
+        <td>
+          <code>--bs-light</code><br><code>--bs-light-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-light-bg-subtle); --bs-border-color: var(--bs-light-border-subtle); color: var(--bs-light-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-light-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-light-border-subtle); color: var(--bs-light-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-light-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 h-100 rounded-2" style="background-color: var(--bs-light-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-light-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4">
+          <strong>Dark —</strong> Additional theme option for higher contrasting colors.
+        </td>
+        <td class="ps-0">
+          <div class="p-3 rounded-2 text-bg-dark border">Dark</div>
+        </td>
+        <td>
+          <code>--bs-dark</code><br><code>--bs-dark-rgb</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2 border" style="background-color: var(--bs-dark-bg-subtle); --bs-border-color: var(--bs-dark-border-subtle); color: var(--bs-dark-text);">Background subtle</div>
+        </td>
+        <td>
+          <code>--bs-dark-bg-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 rounded-2" style="background-color: var(--bs-dark-border-subtle); color: var(--bs-dark-text);">Border subtle</div>
+        </td>
+        <td>
+          <code>--bs-dark-border-subtle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="px-3 py-2 h-100 rounded-2" style="background-color: var(--bs-dark-text); color: var(--bs-body-bg);">Text</div>
+        </td>
+        <td>
+          <code>--bs-dark-text</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>

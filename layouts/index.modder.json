@@ -1,0 +1,34 @@
+{{- $output := dict -}}
+{{- $jsImports := collections.Slice -}}
+{{- $jsCalls := collections.Slice -}}
+{{- $scssImports := collections.Slice -}}
+{{- with site.Params.dnb -}}
+
+  {{- range $key, $values := . -}}
+    {{- if collections.Index $values "config" "plugins" "js" "imports" -}}
+      {{- range $values.config.plugins.js.imports -}}
+        {{- $jsImports = $jsImports | collections.Append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- range $key, $values := . -}}
+    {{- if collections.Index $values "config" "plugins" "js" "calls" -}}
+      {{- range $values.config.plugins.js.calls -}}
+        {{- $jsCalls = $jsCalls | collections.Append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- range $key, $values := . -}}
+    {{- if collections.Index $values "config" "plugins" "scss" "imports" -}}
+      {{- range $values.config.plugins.scss.imports -}}
+        {{- $scssImports = $scssImports | collections.Append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- $output = dict "js" (dict "imports" $jsImports "calls" $jsCalls) "scss" (dict "imports" $scssImports) -}}
+{{- $output | encoding.Jsonify (dict "indent" "  ") -}}

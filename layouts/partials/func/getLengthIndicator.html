@@ -1,0 +1,22 @@
+{{- $length := .length -}}
+{{- $class := "danger" -}}
+{{- $minLength := .minlength -}}
+{{- $maxLength := .maxlength -}}
+{{- $threshold := .threshold -}}
+
+{{- if compare.Gt $length $maxLength -}}
+  {{- if compare.Gt $length (math.Add $maxLength $threshold) -}}
+    {{- $class = "danger" -}}
+  {{- else -}}
+    {{- $class = "warning" -}}
+  {{- end -}}
+{{- else if compare.Lt $length $minLength}}
+  {{- if compare.Lt $length (math.Sub $minLength $threshold) -}}
+    {{- $class = "danger" -}}
+  {{- else -}}
+    {{- $class = "warning" -}}
+  {{- end -}}
+{{- else -}}
+  {{- $class = "success" -}}
+{{- end -}}
+{{- return $class -}}

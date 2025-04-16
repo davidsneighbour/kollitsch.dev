@@ -1,0 +1,38 @@
+{{- /*
+
+  Range through all pages and check:
+
+  - strings.Title length
+  - description length
+  - strings.Title uniqueness
+  - description uniqueness
+  - words per article
+
+
+  .WordCount
+  .Description
+  .Title
+  .Site.RegularPages
+  .Site.Pages
+
+  */
+-}}
+
+
+<ol>
+  {{ range site.Pages }}
+    {{ $page := . }}
+    <li>
+      <ul>
+        {{ with .Title }}
+          <li><a href="{{ $page.Permalink }}">{{ . }}</a></li>
+        {{ else }}
+          <li><a href="{{ $page.Permalink }}">{{ $page.Permalink }}</a></li>
+        {{ end }}
+        <li>Title: {{ .Title | len }}</li>
+        <li>Description: {{ .Description | len }}</li>
+        <li>WordCount: {{ .WordCount }}</li>
+      </ul>
+    </li>
+  {{ end }}
+</ol>

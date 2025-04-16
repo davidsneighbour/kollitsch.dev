@@ -1,0 +1,136 @@
+{{- /*
+
+@see
+- https://gohugo.io/content-management/syntax-highlighting/
+
+@todo
+- https://github.com/davidsneighbour/hugo-modules/issues/464
+
+*/ -}}
+
+{{- $options := .Options -}}
+{{- $attributes := .Attributes -}}
+{{- $showIcons := false -}}
+
+{{- $data := newScratch -}}
+{{- $data.Set "options" dict -}}
+{{- range $key, $value := $options -}}
+  {{- $data.SetInMap "options" (strings.ToLower $key) $value -}}
+{{- end -}}
+{{- $replacement := (fmt.Printf "%s%s" "code" (strings.Substr (crypto.MD5 .Inner) 0 7)) -}}
+{{- $data.SetInMap "options" "lineanchors" $replacement -}}
+
+{{- $slug := fmt.Printf "c%s" (partials.Include "func/getRandomString" (dict "limit" 8)) -}}
+
+{{- $fm :=  false -}}
+{{- $type := "config" -}}
+{{- $langs := collections.Slice "toml" "yaml" "json" -}}
+{{- $delimiters := dict
+  "toml" "+++"
+  "yaml" "---"
+-}}
+{{- $placeHolder := "#-hugo-placeholder-#" -}}
+
+{{- $configTypes := collections.Slice "toml" "yaml" "json" -}}
+
+{{- $type := "single" -}}
+{{- if collections.In $configTypes .Type -}}
+  {{- with .Attributes.noconfig -}}
+    {{- $type = "single" -}}
+  {{- else -}}
+    {{- if collections.IsSet .Attributes "single" -}}
+      {{- $type = "single" -}}
+    {{- else -}}
+      {{- $type = "config" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="component component--highlight">
+  <ul class="nav nav-tabs justify-content-start flex-row" role="tablist">
+    {{- if compare.Eq $type "single" -}}
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="{{- $slug -}}-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#{{- $slug -}}"
+          type="button"
+          role="tab"
+          aria-controls="{{- $slug -}}"
+          aria-selected="true"
+        >
+          {{- if eq true $showIcons -}}
+            {{ partial "icon.html" (dict "icon" "terminal" "size" "sm") }}&nbsp;
+          {{- end -}}
+          {{- .Type -}}
+        </button>
+      </li>
+    {{- else -}}
+      {{- range $configTypes -}}
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link {{ if compare.Eq . "toml" }}active{{ end }}"
+            id="{{- $slug -}}-{{- . -}}-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#{{- $slug -}}-{{- . -}}"
+            type="button"
+            role="tab"
+            aria-controls="{{- $slug -}}-{{- . -}}"
+            aria-selected="true"
+          >
+            {{- if eq true $showIcons -}}
+              {{ partial "icon.html" (dict "icon" "terminal" "size" "sm") }}&nbsp;
+            {{- end -}}
+            {{- . | strings.ToUpper -}}
+          </button>
+        </li>
+      {{- end -}}
+      <li class="nav-item">
+        <a class="nav-link disabled">(click to select config format)</a>
+      </li>
+    {{- end -}}
+    <li class="nav-item ms-auto">
+      <a class="nav-link active btn-clipboard invisible"
+          data-clipboard-target="#{{- $slug -}}"
+          data-bs-toggle="tooltip" data-bs-placement="top"
+          data-bs-title="Copy code to clipboard">
+        COPY
+      </a>
+    </li>
+  </ul>
+
+  {{- if compare.Eq $type "single" }}
+    <div class="tab-content">
+      <div
+        class="tab-pane active"
+        id="{{- $slug -}}"
+        role="tabpanel"
+        aria-labelledby="{{- $slug -}}-tab"
+        tabindex="0"
+      >
+        {{ transform.Highlight  $.Inner .Type ($data.Get "options") | safe.HTML }}
+      </div>
+    </div>
+  {{- else -}}
+    <div class="tab-content">
+      {{- range $configTypes -}}
+        <div
+          class="tab-pane {{ if compare.Eq . "toml" }}active{{ end }}"
+          id="{{- $slug -}}-{{- . -}}"
+          role="tabpanel"
+          aria-labelledby="{{- $slug -}}-{{- . -}}-tab"
+          tabindex="0"
+        >
+          {{- $hCode := $.Inner | transform.Remarshal . -}}
+          {{- if and $fm (collections.In (collections.Slice "toml" "yaml") .) -}}
+            {{- $hCode = fmt.Printf "%s\n%s\n%s" $placeHolder $hCode $placeHolder -}}
+          {{- end -}}
+          {{- $hCode = $hCode | strings.ReplaceRE `\n+` "\n" }}
+          {{ transform.Highlight $hCode . "" | strings.ReplaceRE $placeHolder (collections.Index $delimiters .) | safe.HTML }}
+        </div>
+      {{- end -}}
+    </div>
+  {{- end -}}
+
+</div>

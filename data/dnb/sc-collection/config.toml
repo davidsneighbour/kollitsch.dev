@@ -1,0 +1,4 @@
+[plugins]
+js = [
+  'libs/lite-vimeo/lite-vimeo.js'
+]

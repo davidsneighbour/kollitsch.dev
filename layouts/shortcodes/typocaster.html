@@ -1,0 +1,162 @@
+<div class="font-selector">
+  <label for="font-select">Choose a font: </label>
+  <select id="font-select">
+    <option value="Exo2">Exo2</option>
+    <option value="JetBrainsMono">JetBrainsMono</option>
+    <option value="Changa">Changa</option>
+  </select>
+</div>
+
+<div class="font-weight-selector">
+  <label for="font-weight-select">Choose a font weight: </label>
+  <select id="font-weight-select">
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="300">300</option>
+    <option value="400">400</option>
+    <option value="500">500</option>
+    <option value="600">600</option>
+    <option value="700">700</option>
+    <option value="800">800</option>
+    <option value="900">900</option>
+  </select>
+</div>
+
+<div class="font-size-selector">
+  <label for="font-size-select">Choose a font size: </label>
+  <select id="font-size-select">
+    <option value="10">10px</option>
+    <option value="12">12px</option>
+    <option value="14">14px</option>
+    <option value="16">16px</option>
+    <option value="18">18px</option>
+    <option value="20" selected>20px</option>
+    <option value="22">22px</option>
+    <option value="24">24px</option>
+    <option value="26">26px</option>
+    <option value="28">28px</option>
+    <option value="30">30px</option>
+  </select>
+</div>
+
+<div class="typography-info" id="typography-info">
+</div>
+
+<script>
+  const typographyInfoContainer = document.getElementById('typography-info');
+  const fontSelect = document.getElementById('font-select');
+  const fontWeightSelect = document.getElementById('font-weight-select');
+  const fontSizeSelect = document.getElementById('font-size-select');
+
+   // Function to dynamically create and insert the Google Font link
+  function createFontLink(fontName) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `https://fonts.googleapis.com/css2?family=${fontName}:wght@100;200;300;400;500;600;700;800;900&display=swap`;
+    document.head.appendChild(link); // Append the link to the head
+  }
+
+  // Function to remove any previously created font link (to prevent duplicates)
+  function removeExistingFontLinks() {
+    const existingLinks = document.querySelectorAll('link[href*="fonts.googleapis.com"]');
+    existingLinks.forEach(link => link.remove());
+  }
+
+  // Function to display characters from the Latin and special characters range
+  function displayCharacters() {
+    typographyInfoContainer.innerHTML = ''; // Clear the container
+
+    // Basic Latin (U+0020 to U+007E) and Latin-1 Supplement (U+00A0 to U+00FF)
+    const startCode = 32; // U+0020 (space)
+    const endCode = 255;  // U+00FF (ÿ)
+
+    for (let code = startCode; code <= endCode; code++) {
+      if (isPrintableCharacter(code)) {
+        const charBox = document.createElement('div');
+        charBox.classList.add('char-box');
+        charBox.innerHTML = `<div>${String.fromCharCode(code)}</div><div class="char-description">U+${code.toString(16).toUpperCase()}</div>`;
+        typographyInfoContainer.appendChild(charBox);
+      }
+    }
+  }
+
+  // Function to filter out non-printable characters
+  function isPrintableCharacter(code) {
+    // Skip control characters (0x00-0x1F and 0x7F-0x9F)
+    if ((code >= 0x00 && code <= 0x1F) || (code >= 0x7F && code <= 0x9F)) {
+      return false;
+    }
+    // Exclude reserved or surrogate pairs
+    if (code >= 0xD800 && code <= 0xDFFF) {
+      return false;
+    }
+    return true;
+  }
+
+  // Function to update the font, font weight, and font size when selected from the dropdown
+  function updateFont() {
+    const selectedFont = fontSelect.value;
+    const selectedFontWeight = fontWeightSelect.value;
+    const selectedFontSize = fontSizeSelect.value;
+
+    removeExistingFontLinks(); // Remove any previous Google Fonts link
+    createFontLink(selectedFont); // Create and append the new font link
+
+    // Apply the selected font, font weight, and font size in one operation
+    typographyInfoContainer.style.cssText = `
+            font-family: '${selectedFont.replace('+', ' ')}', sans-serif;
+            font-weight: ${selectedFontWeight};
+            font-size: ${selectedFontSize}px;
+        `;
+  }
+
+  // Event listeners for font, weight, and size changes
+  fontSelect.addEventListener('change', updateFont);
+  fontWeightSelect.addEventListener('change', updateFont);
+  fontSizeSelect.addEventListener('change', updateFont);
+
+  // Initialize display
+  displayCharacters();
+
+  // Initialize with the default font
+  createFontLink('Roboto');
+</script>
+<style>
+  #typography-info {
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .char-box {
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .char-description {
+      font-size: 1rem;
+    }
+
+    .font-selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 1rem;
+    }
+  }
+</style>

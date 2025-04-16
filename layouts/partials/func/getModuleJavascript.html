@@ -1,0 +1,30 @@
+{{- $jsImports := collections.Slice -}}
+{{- $jsCalls := collections.Slice -}}
+
+{{- with site.Params.dnb -}}
+
+  {{- range $key, $values := . -}}
+    {{- if and (isset $values "config")
+               (isset $values.config "plugins")
+               (isset $values.config.plugins "js")
+               (isset $values.config.plugins.js "imports")  -}}
+      {{- range $values.config.plugins.js.imports -}}
+        {{- $jsImports = $jsImports | collections.Append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- range $key, $values := . -}}
+    {{- if and (isset $values "config")
+               (isset $values.config "plugins")
+               (isset $values.config.plugins "js")
+               (isset $values.config.plugins.js "calls")  -}}
+      {{- range $values.config.plugins.js.calls -}}
+        {{- $jsCalls = $jsCalls | collections.Append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{ return (dict "imports" $jsImports "calls" $jsCalls) }}

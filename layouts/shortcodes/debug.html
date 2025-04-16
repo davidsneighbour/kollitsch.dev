@@ -1,0 +1,24 @@
+{{- $types := collections.Slice "page" "version" "dependencies" "print" -}}
+{{- $type := .Get "type" | compare.Default "page" -}}
+{{- if not collections.In $types $type -}}
+    {{- fmt.Errorf "Invalid type %q, expected one of %q" $type $types -}}
+{{- end -}}
+{{- if compare.Eq "print" $type -}}
+  {{- $param := .Get "param" -}}
+  {{- if (compare.Eq "params" $param) -}}
+    <h3>.Page.Params:</h3>
+    {{- partials.Include "debug-print.html" page.Params -}}
+  {{- else if (compare.Eq "page" $param) -}}
+    <h3>.Page:</h3>
+    {{- partials.Include "debug-print.html" page -}}
+  {{- else if (compare.Eq "site" $param) -}}
+    <h3>.Site/site:</h3>
+    {{- partials.Include "debug-print.html" site -}}
+  {{- else -}}
+    {{- fmt.Printf `<h3>.Page.Param "%s":</h3>` $param | safe.HTML -}}
+    {{- partials.Include "debug-print.html" (page.Param $param) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $path := fmt.Printf "debug-%s.html" $type -}}
+  {{- partials.IncludeCached $path page page -}}
+{{- end -}}

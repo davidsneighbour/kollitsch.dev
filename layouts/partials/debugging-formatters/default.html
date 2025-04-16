@@ -1,0 +1,24 @@
+{{- $config := site.Params.dnb.debug -}}
+
+{{- $errorLabel := lang.Translate "error.no-formatter-configured" -}}
+{{- if compare.Eq ($config.disablenote | compare.Default false) false -}}
+  {{- fmt.Warnf "[dnb-debug] %T - %s" .value $errorLabel -}}
+{{- end -}}
+
+{{- $issuePath := "https://github.com/davidsneighbour/hugo-modules/issues/new" -}}
+{{- $parameters := collections.Slice
+  (collections.Querify "title" (fmt.Printf "debug: create type formatter for %T" .value))
+  (collections.Querify "body" (fmt.Printf (lang.Translate "issue.body") hugo.Version))
+  (collections.Querify "labels" "enhancement")
+  (collections.Querify "assignees" "davidsneighbour")
+-}}
+{{- $issueUrl := fmt.Printf "%s?%s" $issuePath (collections.Delimit $parameters "&") -}}
+
+<table class="debugprint border border-warning-subtle"
+       title='{{- $errorLabel -}}'>
+  <tr>
+    <td class="align-top" onclick="window.open('{{ $issueUrl -}}', '_blank')">
+      {{ fmt.Printf "%#v" .value | safe.HTML }}
+    </td>
+  </tr>
+</table>

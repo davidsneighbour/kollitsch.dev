@@ -1,0 +1,7 @@
+{{- /*
+
+@since 1.0.0
+
+*/ -}}
+{{- $year := time.Format "2006" time.Now -}}
+{{- return (cast.ToInt $year) -}}

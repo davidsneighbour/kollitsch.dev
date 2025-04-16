@@ -1,0 +1,14 @@
+{{ $page := . }}
+{{- $description := "" -}}
+{{- with .Description -}}
+  {{- $description = . -}}
+{{- else -}}
+  {{ $description = $page.Summary }}
+{{- end -}}
+{{ with $description }}
+{{ else }}
+  {{- with site.Params.description -}}
+    {{- $description = . -}}
+  {{- end -}}
+{{ end }}
+{{- return $description -}}

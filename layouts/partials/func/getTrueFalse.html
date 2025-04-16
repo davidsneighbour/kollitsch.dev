@@ -1,0 +1,10 @@
+  {{- /* @TODO keep an eye on https://github.com/gohugoio/hugo/pull/10666 */ -}}
+  {{ $value := false }}
+  {{ $true := collections.Slice 1 "1" "TRUE" "true" "True" true "y" "Y" "yes" "Yes" "YES" "on" "On" "ON" }}
+  {{ $false := collections.Slice 0 "0" "FALSE" "false" "False" false "n" "N" "no" "No" "NO" "off" "Off" "OFF" }}
+  {{ if collections.In $true . }}
+    {{ $value = true }}
+  {{ else if not (collections.In $false .) }}
+    {{/* TODO send message to CLI about non compliant value */}}
+  {{ end }}
+  {{ return $value }}

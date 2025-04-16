@@ -1,0 +1,52 @@
+{{- $value      := . -}}
+{{- $type       := (fmt.Printf "%T" $value) -}}
+{{- $config     := site.Params.dnb.debug -}}
+{{- $formatters := site.Data.dnb.debug.formatters.formatters -}}
+{{- $printed    := false -}}
+
+{{- /*
+range through configured formatters and fmt.Print if it matches
+if `internal` is set check for slices and maps
+elseif `catch` is configured it will be used to try to match the type against
+else type is checked against type
+*/ -}}
+{{- range $index, $item := collections.Sort $formatters "weight" "asc" -}}
+
+  {{- $print := false -}}
+  {{ if not $printed }}
+
+    {{ with $item.internal }}
+      {{ if compare.Eq . "map" }}
+        {{ if reflect.IsMap . }}
+          {{ $print = true}}
+        {{ end }}
+      {{ end }}
+      {{ if compare.Eq . "slice" }}
+        {{ if reflect.IsSlice . }}
+          {{ $print = true}}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if not $print }}
+
+    {{- with $item.catch }}
+      {{ if (strings.FindRE $item.catch $type) -}}
+        {{- $print = true -}}
+      {{ end }}
+    {{- else }}
+      {{ if compare.Eq $type .type -}}
+        {{- $print = true -}}
+      {{- end -}}
+    {{ end }}
+    {{ end }}
+    {{- if $print -}}
+      {{- $formatterPath := fmt.Printf "debugging-formatters/%s.html" .slug -}}
+      {{- partials.Include $formatterPath (dict "value" $value "config" $item) -}}
+      {{- $printed = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{ if not $printed }}
+  {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "The type '%s' is unknown to dnb-debug." $type) "severity" "debug") -}}
+  {{- partials.Include "debugging-formatters/default.html" (dict "value" $value) -}}
+{{ end }}

@@ -1,0 +1,24 @@
+{{- /*
+
+@since 1.2024.0
+
+```gotemplate
+{{- $random := partials.IncludeCached "func/getRandomString" . -}}
+```
+
+- call with `partials.IncludeCached` and a unique seed to reuse the random string
+
+*/ -}}
+{{- $limit := 12 -}}
+{{- $characters := collections.Slice "a" "b" "c" "d" "e" "f" "g"
+     "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
+     "t" "u" "v" "w" "x" "y" "z" "A" "B" "C" "D" "E"
+     "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q"
+     "R" "S" "T" "U" "V" "W" "X" "Y" "Z" -}}
+{{- $ranger := collections.Seq 1 $limit -}}
+
+{{- $output := "" -}}
+{{- range $ranger -}}
+  {{- $output = fmt.Printf "%s%s" $output (collections.Index (collections.Shuffle $characters) 0) -}}
+{{- end -}}
+{{- return $output -}}

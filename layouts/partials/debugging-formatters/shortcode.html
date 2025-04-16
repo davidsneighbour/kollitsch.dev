@@ -1,0 +1,59 @@
+{{/*
+    &hugolib.ShortcodeWithPage{
+      Params:map[string]interface {}{"name":"name"},
+      Inner:"",
+      Page:(*hugolib.pageForShortcode)(0xc00704e600),
+      Parent:(*hugolib.ShortcodeWithPage)(nil),
+      Name:"figure",
+      IsNamedParams:true,
+      Ordinal:0,
+      posInit:sync.Once{done:0x0, m:sync.Mutex{state:0, sema:0x0}},
+      posOffset:812,
+      pos:text.Position{Filename:"", Offset:0, LineNumber:0, ColumnNumber:0},
+      scratch:(*maps.Scratch)(nil)
+    } (type:*hugolib.ShortcodeWithPage)
+  */}}
+      <div class="table-responsive">
+<table class="debugprint">
+  <thead>
+    <tr>
+      <th scope="col" class="align-top key">Shortcode Variable</th>
+      <th scope="col" class="align-top value">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td class="align-top key">Name</td>
+        <td class="align-top value">{{ .value.Name }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">Ordinal</td>
+        <td class="align-top value">{{ .value.Ordinal }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">Parent</td>
+        <td class="align-top value">{{ .value.Parent }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">Page</td>
+        <td class="align-top value">{{ partials.Include "debugprint" .value.Page }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">Position</td>
+        <td class="align-top value">{{ partials.Include "debugprint" .value.Position }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">IsNamedParams</td>
+        <td class="align-top value">{{ partials.Include "debugprint" .value.IsNamedParams }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">Params</td>
+        <td class="align-top value">{{ partials.Include "debugprint" .value.Params }}</td>
+    </tr>
+    <tr>
+        <td class="align-top key">Inner</td>
+        <td class="align-top value">{{ partials.Include "debugprint" .value.Inner }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

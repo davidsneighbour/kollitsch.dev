@@ -1,0 +1,29 @@
+
+      <div class="table-responsive">
+<table class="debugprint">
+  <tr>
+    <th scope="col" class="align-top key">FileInfo Variable</th>
+    <th scope="col" class="align-top type">Type</th>
+    <th scope="col" class="align-top value">Value</th>
+  </tr>
+  {{- $value := .value -}}
+  {{- range site.Data.dnb.debug.types.fileinfo.fields -}}
+    {{- $valuePrinted := partials.Include "func/eval.html" (dict "context" $value "cmd" (fmt.Printf ".%s" .variable)) -}}
+    <tr>
+      <td class="align-top key nowrap" title="{{ .description }}">
+        {{- partials.IncludeCached "debugging-partials/field.html" . . -}}
+      </td>
+      <td class="align-top type nowrap">
+        {{- partials.Include "debug-type.html" $valuePrinted -}}
+      </td>
+      <td class="align-top value">
+        {{- with $valuePrinted -}}
+          {{- partials.Include "debug-print.html" . -}}
+        {{- else -}}
+          {{- partials.IncludeCached "debugging-partials/empty.html" . -}}
+        {{- end -}}
+      </td>
+    </tr>
+  {{- end -}}
+</table>
+</div>

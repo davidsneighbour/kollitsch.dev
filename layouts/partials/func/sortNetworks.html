@@ -1,0 +1,13 @@
+{{- $networks := .networks -}}
+{{- $setups := .setups -}}
+
+{{- $output := collections.Slice -}}
+{{- range $networks -}}
+  {{- $network := . -}}
+  {{- range $setups -}}
+    {{- if compare.Eq .slug $network -}}
+      {{- $output = $output | collections.Append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $output -}}

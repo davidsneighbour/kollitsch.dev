@@ -1,0 +1,134 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 px-0">
+      {{- $names := slice
+            ".AlternativeOutputFormats"
+            ".Aliases"
+            ".Content"
+            ".Data"
+            ".Date"
+            ".Description"
+            ".Draft"
+            ".ExpiryDate"
+            ".File"
+            ".FuzzyWordCount"
+            ".IsHome"
+            ".IsNode"
+            ".IsPage"
+            ".IsSection"
+            ".Keywords"
+            ".Kind"
+            ".Language"
+            ".Lastmod"
+            ".Layout"
+            ".Name"
+            ".LinkTitle"
+            ".Next"
+            ".NextInSection"
+            ".NextPage"
+            ".OutputFormats"
+            ".Pages"
+            ".Permalink"
+            ".Plain"
+            ".PlainWords"
+            ".Prev"
+            ".PrevInSection"
+            ".PrevPage"
+            ".PublishDate"
+            ".RawContent"
+            ".ReadingTime"
+            ".Resources"
+            ".ResourceType"
+            ".RelPermalink"
+            ".Section"
+            ".Site"
+            ".Sites"
+            ".Sites.First"
+            ".Summary"
+            ".TableOfContents"
+            ".Title"
+            ".Translations"
+            ".TranslationKey"
+            ".Truncated"
+            ".Type"
+            ".Weight"
+            ".WordCount" -}}
+      {{- $items := slice
+            .AlternativeOutputFormats
+            .Aliases
+            .Content
+            .Data
+            .Date
+            .Description
+            .Draft
+            .ExpiryDate
+            .File
+            .FuzzyWordCount
+            .IsHome
+            .IsNode
+            .IsPage
+            .IsSection
+            .Keywords
+            .Kind
+            .Language
+            .Lastmod
+            .Layout
+            .Name
+            .LinkTitle
+            .Next
+            .NextInSection
+            .NextPage
+            .OutputFormats
+            .Pages
+            .Permalink
+            .Plain
+            .PlainWords
+            .Prev
+            .PrevInSection
+            .PrevPage
+            .PublishDate
+            .RawContent
+            .ReadingTime
+            .Resources
+            .ResourceType
+            .RelPermalink
+            .Section
+            .Site
+            .Sites
+            .Sites.First
+            .Summary
+            .TableOfContents
+            .Title
+            .Translations
+            .TranslationKey
+            .Truncated
+            .Type
+            .Weight
+            .WordCount -}}
+      <div class="table-responsive">
+        <table class="debugprint">
+          <thead>
+            <tr>
+              <th scope="col" class="key">Key</th>
+              <th scope="col" class="type">Type</th>
+              <th scope="col" class="value">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+          {{- range $index, $item := $items -}}
+              {{- $slices := slice
+                  (collections.Index $names $index)
+                  (partials.Include "debug-type.html" $item)
+                  (partials.Include "debug-print.html" $item) -}}
+              <tr>
+                  <th scope="row">{{- collections.Index $slices 0 -}}</th>
+                  <td>{{- collections.Index $slices 1 -}}</td>
+                  <td>{{- collections.Index $slices 2 -}}</td>
+              </tr>
+            {{- end -}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

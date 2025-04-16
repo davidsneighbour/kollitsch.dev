@@ -1,0 +1,27 @@
+{{- define "xmlElement" -}}
+  {{- $name := .name -}}
+  {{- $attributes := dict -}}
+  {{- $children := dict -}}
+  {{- range $key, $value := . -}}
+    {{- if compare.Eq $key "attributes" -}}
+      {{- range $attrKey, $attrValue := $value -}}
+        {{- $attributes = collections.Merge $attributes (dict $attrKey $attrValue) -}}
+      {{- end -}}
+    {{- else if not (collections.In (collections.Slice "name" "value") $key) -}}
+      {{- $children = collections.Merge $children (dict $key $value) -}}
+    {{- end -}}
+  {{- end -}}
+  <{{ $name }}{{ range $key, $value := $attributes }} {{ $key }}="{{ $value | transform.HTMLEscape }}"{{ end }}>
+  {{- if .value -}}
+    {{ .value | transform.HTMLEscape }}
+  {{ end }}
+  {{- range $key, $value := $children -}}
+    {{- $subelement := collections.Merge (dict "name" $key) $value -}}
+    {{- template "xmlElement" $subelement -}}
+  {{- end -}}
+  </{{ $name }}>
+{{- end -}}
+
+{{- fmt.Printf "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" | safe.HTML -}}
+{{- $root := collections.Merge (dict "name" "book") .Site.Params.book -}}
+{{- template "xmlElement" $root -}}

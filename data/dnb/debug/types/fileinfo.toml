@@ -1,0 +1,84 @@
+# https://github.com/gohugoio/hugo/blob/master/hugolib/fileInfo.go (*hugolib.fileInfo - used by regular pages)
+# https://github.com/gohugoio/hugo/blob/master/source/fileInfo.go (*source.FileInfo - used by term pages)
+# https://gohugo.io/methods/page/file/ - Hugo docs on page file variables/methods
+
+[[type]]
+name = "FileInfo"
+type = "hugolib.fileInfo"
+
+[[fields]]
+title = "UniqueID"
+variable = "UniqueID"
+description = "The MD5 hash of .File.Path."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "Filename"
+variable = "Filename"
+description = "The absolute file path."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "BaseFileName"
+variable = "BaseFileName"
+description = "The file name, excluding the extension."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "ContentBaseName"
+variable = "ContentBaseName"
+description = "If the page is a branch or leaf bundle, the name of the containing directory, else the TranslationBaseName."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "TranslationBaseName"
+variable = "TranslationBaseName"
+description = "The file name, excluding the extension and language identifier."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "Lang"
+variable = "Lang"
+description = "The language associated with the given file."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "Section"
+variable = "Section"
+description = ""
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "LogicalName"
+variable = "LogicalName"
+description = "The file name."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "Dir"
+variable = "Dir"
+description = "The file path, excluding the file name, relative to the content directory."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "Ext"
+variable = "Ext"
+description = "The file extension."
+type = "string"
+fieldtype = "variable"
+
+[[fields]]
+title = "Path"
+variable = "Path"
+description = "The file path, relative to the content directory."
+type = "string"
+fieldtype = "variable"

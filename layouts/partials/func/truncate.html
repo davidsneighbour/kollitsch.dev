@@ -1,0 +1,43 @@
+{{- /*
+
+@since 1.0.1
+@see https://discourse.gohugo.io/t/create-description-from-summary/36676
+
+{{ range collections.Seq 1 200 }}
+  {{ $truncated := partials.Include "func/truncate.html" (dict "content" $.Summary "maxLength" .) }}
+  <pre>{{ $truncated }} (max = {{ . }} actual = {{ strings.RuneCount $truncated }} )</pre>
+{{ end }}
+
+Truncates a submitted cast.ToString by cutting at word borders. If the truncation occurs inside of a sentence then an ellipsis is added. If the truncation occurs at a sentence border (.?!) no ellipsis is added.
+
+TODO: If the cast.ToString is within the CJK range then the cast.ToString is truncated without regards to word or sentence borders and always has an ellipsis added if the cast.ToString is longer than `maxLength`.
+
+Expects a collections.Dictionary with the following content:
+
+- `.content` - content to truncate
+- `.maxlength` - length at which to truncate, defaults to 150 characters
+
+Notes:
+
+- len returns the _byte_ length of a string. characters might be something else collections.In some languages
+
+*/ -}}
+
+{{- $truncated := .content | transform.Plainify | strings.ReplaceRE `\r` "" | strings.ReplaceRE `\n` " " | strings.ReplaceRE `\s{2,}` " " -}}
+{{- $maxLength := (.maxLength | compare.Default 150) | cast.ToInt -}}
+{{- $endMarks := collections.Slice "." "?" "!" "‽" -}}
+{{- $ellipsis := "…" -}}
+
+{{- if compare.Gt (len $truncated) $maxLength -}}
+
+  {{- $regex := fmt.Printf `(?s)^.{0,%d}\W` (math.Sub $maxLength 1) -}}
+  {{- $truncated = collections.Index (strings.FindRE $regex $truncated) 0 | strings.ReplaceRE `\s+$` "" -}}
+
+  {{- if not (collections.In $endMarks (strings.Substr $truncated -1)) -}}
+    {{- $truncated = strings.ReplaceRE `\W+$` "" $truncated -}}
+    {{- $truncated = fmt.Printf "%s%s" $truncated $ellipsis -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- return $truncated -}}

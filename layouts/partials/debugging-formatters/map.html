@@ -1,0 +1,27 @@
+{{ if (compare.Gt (len .value) 0) }}
+      <div class="table-responsive">
+  <table class="debugprint">
+    <tr>
+        <th scope="col" class="align-top key">Key</th>
+        <th scope="col" class="align-top type">Type</th>
+        <th scope="col" class="align-top value">Value</th>
+    </tr>
+    {{ range $key1, $value1 := .value }}
+      {{ $type1       := (fmt.Printf "%T" $value1) }}
+      {{ $type1IsTime := (compare.Eq "time.Time" $type1) }}
+      {{ if $type1IsTime }}
+        <!-- Print the date only if it is not at its initial value of Jan 1, 0001 -->
+        {{ if (compare.Ne "0001-01-01" ($value1.Format "2006-01-02")) }}
+          {{ fmt.Printf `<tr> <td class="align-top key">%s</td> <td class="align-top type">%s</td> <td class="align-top value">` $key1 $type1 | safe.HTML }}
+          {{ partials.Include "debug-print.html" $value1 }}
+          {{ fmt.Printf "</td></tr>" | safe.HTML }}
+        {{ end }}
+      {{ else }}
+        {{ fmt.Printf `<tr> <td class="align-top key">%s</td> <td class="align-top type">%s</td> <td class="align-top value">` $key1 $type1 | safe.HTML }}
+        {{ partials.Include "debug-print.html" $value1 }}
+        {{ fmt.Printf "</td></tr>" | safe.HTML }}
+      {{ end }}
+    {{ end }}
+  </table>
+  </div>
+{{ end }}

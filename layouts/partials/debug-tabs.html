@@ -1,0 +1,95 @@
+{{- $versioninfo := "true" -}}
+{{- $dependencies := "true" -}}
+{{- $pageinfo := "true" -}}
+{{- $page := . -}}
+{{- $firsttab := false -}}
+
+<nav>
+  <div class="nav nav-tabs" role="tablist" id="infotabs-nav">
+
+    {{ with $versioninfo }}
+      {{ $active := "" }}
+      {{ with $firsttab }}{{ else }}
+        {{ $firsttab = true }}
+        {{ $active = " active"}}
+      {{ end }}
+      <button class="nav-link{{ $active }}" type="button" role="tab"
+              id="nav-versioninfo-tab" aria-current="page"
+              data-bs-toggle="tab" data-bs-target="#nav-versioninfo"
+              aria-controls="nav-versioninfo" aria-selected="true">
+        Versioninfo
+      </button>
+    {{ end }}
+
+    {{ with $dependencies }}
+      {{ $active := "" }}
+      {{ with $firsttab }}{{ else }}
+        {{ $firsttab = true }}
+        {{ $active = " active"}}
+      {{ end }}
+      <button class="nav-link{{ $active }}" type="button" role="tab"
+              id="nav-dependencies-tab" aria-current="page"
+              data-bs-toggle="tab" data-bs-target="#nav-dependencies"
+              aria-controls="nav-dependencies" aria-selected="true">
+        Dependencies
+      </button>
+    {{ end }}
+
+    {{ with $pageinfo }}
+      {{ $active := "" }}
+      {{ with $firsttab }}{{ else }}
+        {{ $firsttab = true }}
+        {{ $active = " active"}}
+      {{ end }}
+      <button class="nav-link{{ $active }}" type="button" role="tab"
+              id="nav-pageinfo-tab" aria-current="page"
+              data-bs-toggle="tab" data-bs-target="#nav-pageinfo"
+              aria-controls="nav-pageinfo" aria-selected="true">
+        Pageinfo
+      </button>
+    {{ end }}
+
+  </div>
+</nav>
+
+{{- $firsttab := false -}}
+
+<div class="tab-content" id="nav-tabContent">
+
+    {{ with $versioninfo }}
+      {{ $active := "" }}
+      {{ with $firsttab }}{{ else }}
+        {{ $firsttab = true }}
+        {{ $active = " show active"}}
+      {{ end }}
+      <div class="tab-pane fade{{ $active }}" id="nav-versioninfo" role="tabpanel"
+          aria-labelledby="nav-versioninfo-tab" tabindex="0">
+        {{ partials.IncludeCached "debug-version.html" $page $page }}
+      </div>
+    {{ end }}
+
+    {{ with $dependencies }}
+      {{ $active := "" }}
+      {{ with $firsttab }}{{ else }}
+        {{ $firsttab = true }}
+        {{ $active = " show active"}}
+      {{ end }}
+      <div class="tab-pane fade{{ $active }}" id="nav-dependencies" role="tabpanel"
+          aria-labelledby="nav-dependencies-tab" tabindex="0">
+        {{ partials.IncludeCached "debug-dependencies.html" $page $page }}
+      </div>
+    {{ end }}
+
+    {{ with $pageinfo }}
+      {{ $active := "" }}
+      {{ with $firsttab }}{{ else }}
+        {{ $firsttab = true }}
+        {{ $active = " show active"}}
+      {{ end }}
+      <div class="tab-pane fade{{ $active }}" id="nav-pageinfo" role="tabpanel"
+          aria-labelledby="nav-pageinfo-tab" tabindex="0">
+        {{ partials.IncludeCached "debug-page.html" $page $page }}
+      </div>
+    {{ end }}
+
+</div>

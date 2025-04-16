@@ -1,0 +1,37 @@
+{{ $PageVarNames   := (collections.Slice "Name" "Title" "ResourceType" "Kind" "Section" "Draft" "Type" "Layout" "Permalink" "RelPermalink" "Data") }}
+{{ $PageVarSymbols := (collections.Slice .value.Name  .value.Title  .value.ResourceType  .value.Kind  .value.Section  .value.Draft  .value.Type
+                              .value.Layout  .value.Permalink  .value.RelPermalink  .value.Data ) }}
+
+      <div class="table-responsive">
+      <table class="debugprint">
+  <tr>
+      <th scope="col" class="align-top key">Page Variable</th>
+      <th scope="col" class="align-top value">Value</th>
+  </tr>
+  {{ range $idx, $elem := $PageVarNames }}
+    {{ fmt.Printf `<tr> <td class="align-top key">%s</td> <td class="align-top value">` $elem | safe.HTML }}
+    {{ partials.Include "debug-print.html" (collections.Index $PageVarSymbols $idx) }}
+    {{ fmt.Printf "</td></tr>" | safe.HTML }}
+  {{ end }}
+  {{ with .value.NextPage }}
+    {{ fmt.Printf `<tr> <td class="align-top key">NextPage</td> <td class="align-top value"><a href="%s">%s</a></td></tr>` .Permalink .Title | safe.HTML }}
+  {{ else }}
+    {{ fmt.Printf `<tr> <td class="align-top key">NextPage</td> <td class="align-top value">None</td></tr>` | safe.HTML }}
+  {{ end }}
+  {{ with .value.PrevPage }}
+    {{ fmt.Printf `<tr> <td class="align-top key">PrevPage</td> <td class="align-top value"><a href="%s">%s</a></td></tr>` .Permalink .Title | safe.HTML }}
+  {{ else }}
+    {{ fmt.Printf `<tr> <td class="align-top key">PrevPage</td> <td class="align-top value">None</td></tr>` | safe.HTML }}
+  {{ end }}
+  {{ with .value.NextInSection }}
+    {{ fmt.Printf `<tr> <td class="align-top key">NextInSection</td> <td class="align-top value"><a href="%s">%s</a></td></tr>` .Permalink .Title | safe.HTML }}
+  {{ else }}
+    {{ fmt.Printf `<tr> <td class="align-top key">NextInSection</td> <td class="align-top value">None</td></tr>` | safe.HTML }}
+  {{ end }}
+  {{ with .value.PrevInSection }}
+    {{ fmt.Printf `<tr> <td class="align-top key">PrevInSection</td> <td class="align-top value"><a href="%s">%s</a></td></tr>` .Permalink .Title | safe.HTML }}
+  {{ else }}
+    {{ fmt.Printf `<tr> <td class="align-top key">PrevInSection</td> <td class="align-top value">None</td></tr>` | safe.HTML }}
+  {{ end }}
+</table>
+</div>

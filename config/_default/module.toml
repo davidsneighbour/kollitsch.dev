@@ -27,15 +27,6 @@ source = "hugo_stats.json"
 target = "assets/watching/hugo_stats.json"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/debug"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/hooks"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/functions"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/modder"
 
 [[imports]]

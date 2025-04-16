@@ -1,0 +1,33 @@
+{{- /* parameters for jsBuild */ -}}
+{{ $params := dict }}
+{{ range $key, $value := $.Site.Data.dnb }}
+  {{ if (and (collections.IsSet $value "config") (collections.IsSet $value.config "plugins") (collections.IsSet $value.config.plugins "esBuildParams")) }}
+    {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading esBuildParams configuration %s" $key) "severity" "debug") -}}
+    {{ range $esKey, $esValue := $value.config.plugins.esBuildParams }}
+      {{ $params = $params | collections.Merge (dict $esKey $esValue) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{- /*
+      options for jsBuild
+      requires Hugo 0.78+
+*/ -}}
+{{ $minify := true }}
+{{ $avoidTDZ := true }}
+{{ $target := "es2018" }}{{- /* one of es5, es2015, es2016, es2017, es2018, es2019, es2020 or esnext */ -}}
+{{ $externals := collections.Slice }}{{- /* If a dependency should not be included collections.In the bundle (Ex. library loaded from a CDN.),
+          it should be listed here.*/ -}}
+{{ $defines := dict }}{{- /* Allow to define a set of cast.ToString replacement to be performed when building. Should be a map
+          collections.Where each key is to be replaced by its value.*/ -}}
+{{ $format := "iife" }}{{- /* The output format. One of: iife, cjs, esm. Default is iife, a self-executing function,
+          suitable for inclusion as a tag. */ -}}
+{{ $sourceMap := "inline" }}{{- /* Whether to generate source maps. Enum, currently only inline (we will improve that). */ -}}
+{{ $options := ( dict "params" $params "minify" $minify "avoidTDZ" $avoidTDZ "target" $target "externals" $externals "defines" $defines "format" $format "sourceMap" $sourceMap ) }}
+
+{{ $js := resources.Get "js/theme.js" }}
+{{ with $js }}
+  {{ $js | js.Build $options}}
+  {{ $js = $js | resources.Fingerprint "sha384"}}
+  {{ return $js }}
+{{ end }}

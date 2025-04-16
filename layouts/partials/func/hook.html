@@ -1,0 +1,175 @@
+{{- $context := collections.Dictionary -}}
+{{- $config := site.Params.dnb.hooks -}}
+
+{{- /* create context from extended or simple hook */ -}}
+{{- if reflect.IsMap . -}}
+  {{- /* extended use case */ -}}
+  {{- $context = collections.Merge $context . }}
+  {{- $context = collections.Merge $context (collections.Dictionary "type" "full") }}
+{{- else -}}
+  {{- /* simple use case */ -}}
+  {{- $context = collections.Merge
+                  $context
+                  (collections.Dictionary "hook" . "context" collections.Dictionary) -}}
+  {{- $context = collections.Merge $context (collections.Dictionary "type" "simple") }}
+{{- end -}}
+
+{{- /* add hook to collector */ -}}
+{{- partials.Include "func/hooks/collector.html" (collections.Dictionary
+    "hook" $context.hook
+    "context" $context
+) -}}
+
+{{- /* a quick note */ -}}
+{{- partials.Include "debug-cli.html" (collections.Dictionary
+    "message" (fmt.Printf "dnb-hooks - see %s for details" $config.hooklink)
+    "context" .
+    "severity" "info"
+    "level" 9
+) -}}
+
+{{- $loaded := false -}}
+
+{{- with $config.items -}}
+  {{/* @todo fix weighting of hooks */}}
+  {{/* @todo fix logging output */}}
+  {{/* @todo document this mess */}}
+  {{ range $key, $hooks := . -}}
+    {{- with (collections.Index $hooks $context.hook) -}}
+      {{- range . -}}
+        {{- $partialName := fmt.Printf "hooks/%s.html" .file -}}
+        {{- $partialHook := fmt.Printf "partials/%s" $partialName -}}
+        {{- if templates.Exists $partialHook -}}
+          {{- if compare.Eq true (.cached | compare.Default false) -}}
+            {{- partials.IncludeCached $partialName $context -}}
+            {{- $loaded = true -}}
+          {{- else -}}
+            {{- partials.Include $partialName $context -}}
+            {{- $loaded = true -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+
+  {{- /* @todo remove collections.After 2024-05-12 */ -}}
+  {{- partials.Include "debug-cli.html" (collections.Dictionary
+    "message" "Please note, that the system of including hooks by filename is deprecated and will be removed collections.In the future."
+    "context" .
+    "severity" "warning"
+    "level" 5
+  ) -}}
+
+  {{- /* create hook paths and variables */ -}}
+  {{- $partialName := fmt.Printf "hooks/%s.html" $context.hook}}
+  {{- $partialHook := fmt.Printf "partials/%s" $partialName -}}
+  {{- $partialNameCached := fmt.Printf "hooks/%s-cached.html" $context.hook}}
+  {{- $partialHookCached := fmt.Printf "partials/%s" $partialNameCached -}}
+
+  {{- /* execute hook if it exists */ -}}
+  {{- if templates.Exists $partialHook -}}
+    {{- if not (
+            or
+              (collections.In $config.disable_messages "running_hooks")
+              (collections.In $config.disable_messages "running_uncached_hooks")
+    ) -}}
+      {{- partials.Include "debug-cli.html" (collections.Dictionary
+          "message" (fmt.Printf "running hook `%s`" (fmt.Printf "%s" $context.hook))
+          "context" .
+          "severity" "info"
+          "level" 9
+      ) -}}
+    {{- end -}}
+    {{- partials.Include $partialName $context -}}
+    {{- $loaded = true -}}
+  {{- end -}}
+
+  {{- /* execute cached hook if it exists */ -}}
+  {{- if templates.Exists $partialHookCached -}}
+    {{- if not (
+            or
+              (collections.In $config.disable_messages "running_hooks")
+              (collections.In $config.disable_messages "running_cached_hooks")
+      ) -}}
+      {{- partials.Include "debug-cli.html" (collections.Dictionary
+          "message" (fmt.Printf "running cached hook `%s`" (fmt.Printf "%s" $context.hook))
+          "context" .
+          "severity" "info"
+          "level" 9
+        ) -}}
+    {{- end -}}
+    {{- partials.IncludeCached $partialNameCached $context $context.hook -}}
+    {{- $loaded = true -}}
+  {{- end -}}
+
+  {{- /* if no file based hooks ran then check for folder based hooks */ -}}
+  {{- if compare.Eq $loaded false -}}
+    {{- $partialHookFolder := fmt.Printf "layouts/partials/hooks/%s/" $context.hook -}}
+    {{- if os.FileExists $partialHookFolder -}}
+      {{- partials.Include "debug-cli.html" (collections.Dictionary
+        "message" (fmt.Printf "running folder hooks for `%s`" (fmt.Printf "%s" $context.hook))
+        "context" .
+        "severity" "info"
+        "level" 9
+      ) -}}
+      {{- range os.ReadDir $partialHookFolder -}}
+        {{- if not .IsDir }}
+          {{- $partialHook := fmt.Printf "%s%s" $partialHookFolder .Name -}}
+          {{- partials.Include $partialHook $context $context.hook -}}
+          {{- $loaded = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{/* find plugin hooks */}}
+  {{/* @todo fix weighting of hooks */}}
+  {{- with collections.Index $config $context.hook -}}
+    {{- fmt.Warnf "plugin hooks are experimental" -}}
+    {{- range . -}}
+      {{- /* execute hook if it exists */ -}}
+      {{- if templates.Exists .partials.Include -}}
+          {{- partials.Include "debug-cli.html" (collections.Dictionary
+              "message" (fmt.Printf
+                          "running hook `%s` from `%s`"
+                          (fmt.Printf "%s" $context.hook)
+                          .partial)
+              "context" .
+              "severity" "info"
+              "level" 9
+          ) -}}
+          {{- if .cached -}}
+            {{- partials.IncludeCached .partials.Include $context . -}}
+          {{- else -}}
+            {{- partials.Include .partials.Include $context -}}
+          {{- end -}}
+          {{- $loaded = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- /* send out a note if the hook is not used */ -}}
+{{- if compare.Eq $loaded false -}}
+  {{- if not (collections.In $config.disable_messages "unused_hooks") -}}
+    {{- partials.Include "debug-cli.html" (collections.Dictionary
+        "message" (fmt.Printf "unused hook `%s`" (fmt.Printf "%s" $context.hook))
+        "context" .
+        "severity" "info"
+        "level" 9
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+
+{{- partials.Include "debug-cli.html" (collections.Dictionary
+  "message" (printf "hooks[%d]: %s processed for %v (%s)"
+              math.Counter
+              $context.hook
+              $context.context
+              $context.type
+            )
+  "level" 9
+) -}}

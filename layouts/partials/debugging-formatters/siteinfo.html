@@ -1,0 +1,17 @@
+{{ $siteVarNames   := (collections.Slice "Title" "Social" "LastChange" "GoogleAnalytics" "Copyright" "RSSLink" "LanguageCode" "BuildDrafts" "Params") }}
+{{ $siteVarSymbols := (collections.Slice .value.Title .value.Social .value.LastChange .value.GoogleAnalytics
+              .value.Copyright .value.RSSLink .value.LanguageCode .value.BuildDrafts .value.Params ) }}
+
+      <div class="table-responsive">
+      <table class="debugprint">
+  <tr>
+      <th scope="col" class="align-top key">SiteInfo Variable</th>
+      <th scope="col" class="align-top value">Value</th>
+  </tr>
+  {{ range $idx, $elem := $siteVarNames }}
+    {{ fmt.Printf `<tr> <td class="align-top key">%s</td> <td class="align-top value">` $elem | safe.HTML }}
+    {{ partials.Include "debug-print.html" (collections.Index $siteVarSymbols $idx) }}
+    {{ fmt.Printf "</td></tr>" | safe.HTML }}
+  {{ end }}
+</table>
+</div>

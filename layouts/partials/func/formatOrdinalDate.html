@@ -1,0 +1,11 @@
+{{- $format := .format -}}
+{{- $date := .date -}}
+{{- $shortend := "th" -}}
+{{- if collections.In (collections.Slice 1 21 31) $date.Day -}}
+  {{- $shortend = "st" -}}
+{{- else if collections.In (collections.Slice 2 22) $date.Day -}}
+  {{- $shortend = "nd" -}}
+{{- else if collections.In (collections.Slice 3 23) $date.Day -}}
+  {{- $shortend = "rd" -}}
+{{- end -}}
+{{- return $date.Format (fmt.Printf $format $shortend) -}}

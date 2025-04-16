@@ -1,0 +1,3 @@
+{{- if compare.Ne hugo.Environment "production" }}
+  {{- fmt.Printf "<!-- %s -->" . | safe.HTML -}}
+{{- end -}}

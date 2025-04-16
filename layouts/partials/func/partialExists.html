@@ -1,0 +1,6 @@
+{{ $path := . }}
+{{ $exists := false }}
+{{ if templates.Exists ( fmt.Printf "partials/%s" $path ) }}
+{{ $exists = true }}
+{{ end }}
+{{ return $exists }}

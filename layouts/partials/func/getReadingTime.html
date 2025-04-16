@@ -1,0 +1,22 @@
+{{- /*
+
+@since 1.0.0
+
+*/ -}}
+{{- $wordsPerMinute := cast.ToFloat (site.Params.dnb.functions.readingtime.wordsPerMinute | compare.Default 220.0) -}}
+{{- $minsecs := site.Params.dnb.functions.readingtime.minutesandseconds | compare.Default true -}}
+{{- $words := strings.CountWords .Content -}}
+{{- $readTime := math.Mul (math.Div $words $wordsPerMinute) 60 -}}
+{{- $minutes := 0 -}}
+{{- $seconds := 0 -}}
+
+{{- if $minsecs -}}
+  {{- $minutes = math.Floor (math.Div $readTime 60) -}}
+  {{- $seconds = math.Mod $readTime 60 -}}
+{{- else -}}
+  {{- $minutes = math.Ceil (math.Div $readTime 60) -}}
+  {{- $seconds = 0 -}}
+{{- end -}}
+
+{{- $output := (dict "minutes" (cast.ToInt $minutes) "seconds" (cast.ToInt $seconds) "words" (cast.ToInt $words)) -}}
+{{- return $output -}}

@@ -1,0 +1,33 @@
+{{/* Returns the article image for the given context as a resource object or an empty dict */}}
+{{/*
+
+Path of checking
+
+- resource named `*header*`
+- resource on a path `**\/header.*`
+- if resources exist then return the collections.First image
+- placeholder image
+
+*/}}
+
+{{- $context := . -}}
+
+{{- $articleimage := dict -}}
+{{- with $context.Resources.GetMatch "**/header*" -}}
+  {{- $articleimage = . -}}
+{{- else -}}
+  {{- $articleimages := $context.Resources.ByType "image" -}}
+  {{- range collections.First 1 $articleimages -}}
+    {{- if compare.Ne "image/gif" .MediaType.Type -}}
+      {{- $articleimage = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with $articleimage -}}{{- else -}}
+  {{- $config := site.Params.dnb.pictures -}}
+  {{- $default_image := $config.default_image | compare.Default "images/default.png" -}}
+  {{- $articleimage = resources.Get $default_image -}}
+{{- end -}}
+
+{{- return $articleimage -}}

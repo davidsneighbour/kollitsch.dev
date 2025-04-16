@@ -1,0 +1,309 @@
+[[type]]
+name = "Page"
+type = ""
+
+[[fields]]
+title = ".AlternativeOutputFormats"
+variable = "AlternativeOutputFormats"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Aliases"
+variable = "Aliases"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Content"
+variable = "Content"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Data"
+variable = "Data"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Date"
+variable = "Date"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Description"
+variable = "Description"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Draft"
+variable = "Draft"
+description = ""
+type = ""
+
+[[fields]]
+title = ".ExpiryDate"
+variable = "ExpiryDate"
+description = ""
+type = ""
+
+[[fields]]
+title = ".File"
+variable = "File"
+description = ""
+type = ""
+
+[[fields]]
+title = ".FuzzyWordCount"
+variable = "FuzzyWordCount"
+description = ""
+type = ""
+
+[[fields]]
+title = ".IsHome"
+variable = "IsHome"
+description = ""
+type = ""
+
+[[fields]]
+title = ".IsNode"
+variable = "IsNode"
+description = ""
+type = ""
+
+[[fields]]
+title = ".IsPage"
+variable = "IsPage"
+description = ""
+type = ""
+
+[[fields]]
+title = ".IsSection"
+variable = "IsSection"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Keywords"
+variable = "Keywords"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Kind"
+variable = "Kind"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Language"
+variable = "Language"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Lastmod"
+variable = "Lastmod"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Layout"
+variable = "Layout"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Name"
+variable = "Name"
+description = ""
+type = ""
+
+[[fields]]
+title = ".LinkTitle"
+variable = "LinkTitle"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Next"
+variable = "Next"
+description = ""
+type = ""
+
+[[fields]]
+title = ".NextInSection"
+variable = "NextInSection"
+description = ""
+type = ""
+
+[[fields]]
+title = ".NextPage"
+variable = "NextPage"
+description = ""
+type = ""
+
+[[fields]]
+title = ".OutputFormats"
+variable = "OutputFormats"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Pages"
+variable = "Pages"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Permalink"
+variable = "Permalink"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Plain"
+variable = "Plain"
+description = ""
+type = ""
+
+[[fields]]
+title = ".PlainWords"
+variable = "PlainWords"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Prev"
+variable = "Prev"
+description = ""
+type = ""
+
+[[fields]]
+title = ".PrevInSection"
+variable = "PrevInSection"
+description = ""
+type = ""
+
+[[fields]]
+title = ".PrevPage"
+variable = "PrevPage"
+description = ""
+type = ""
+
+[[fields]]
+title = ".PublishDate"
+variable = "PublishDate"
+description = ""
+type = ""
+
+[[fields]]
+title = ".RawContent"
+variable = "RawContent"
+description = ""
+type = ""
+
+[[fields]]
+title = ".ReadingTime"
+variable = "ReadingTime"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Resources"
+variable = "Resources"
+description = ""
+type = ""
+
+[[fields]]
+title = ".ResourceType"
+variable = "ResourceType"
+description = ""
+type = ""
+
+[[fields]]
+title = ".RelPermalink"
+variable = "RelPermalink"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Section"
+variable = "Section"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Site"
+variable = "Site"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Sites"
+variable = "Sites"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Sites.First"
+variable = "Sites.First"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Summary"
+variable = "Summary"
+description = ""
+type = ""
+
+[[fields]]
+title = ".TableOfContents"
+variable = "TableOfContents"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Title"
+variable = "Title"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Translations"
+variable = "Translations"
+description = ""
+type = ""
+
+[[fields]]
+title = ".TranslationKey"
+variable = "TranslationKey"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Truncated"
+variable = "Truncated"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Type"
+variable = "Type"
+description = ""
+type = ""
+
+[[fields]]
+title = ".Weight"
+variable = "Weight"
+description = ""
+type = ""
+
+[[fields]]
+title = ".WordCount"
+variable = "WordCount"
+description = ""
+type = ""

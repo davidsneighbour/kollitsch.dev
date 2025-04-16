@@ -1,0 +1,9 @@
+<tr>
+  {{- range $index, $item := . -}}
+    {{- if (compare.Eq $index 0) -}}
+      <th scope="row">{{- . -}}</th>
+    {{- else -}}
+      <td>{{- . -}}</td>
+    {{- end -}}
+  {{- end -}}
+</tr>

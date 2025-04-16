@@ -1,0 +1,10 @@
+{{- $config := site.Params.dnb.documentation -}}
+{{- $packageFile := fmt.Printf ($config.package_path | compare.Default "dnb/%s.json") (.Permalink | path.Base) -}}
+{{/* {{- $packageFile := fmt.Printf "dnb/%s.json" (.CurrentSection.Path | path.Base) -}} */}}
+{{- $package := resources.Get $packageFile -}}
+{{- with $package -}}
+    {{- $package = . | transform.Unmarshal -}}
+{{- else -}}
+    {{- $package = dict -}}
+{{- end -}}
+{{- return $package -}}

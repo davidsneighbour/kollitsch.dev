@@ -1,0 +1,17 @@
+{{ $OutputFormatVarNames   := (collections.Slice "Name" "MediaType" "Path" "BaseName" "Rel" "Protocol" "IsPlainText" "IsHTML" "NoUgly" "NotAlternative") }}
+{{ $OutputFormatVarSymbols := (collections.Slice .value.Name  .value.MediaType  .value.Path  .value.BaseName
+                                .value.Rel  .value.Protocol  .value.IsPlainText  .value.IsHTML  .NoUgly  .NotAlternative ) }}
+
+      <div class="table-responsive">
+      <table class="debugprint">
+  <tr>
+      <th scope="col" class="align-top key">OutputFormat Variable</th>
+      <th scope="col" class="align-top value">Value</th>
+  </tr>
+  {{ range $idx, $elem := $OutputFormatVarNames }}
+    {{ fmt.Printf `<tr> <td class="align-top key">%s</td> <td class="align-top value">` $elem | safe.HTML }}
+    {{ partials.Include "debug-print.html" (collections.Index $OutputFormatVarSymbols $idx) }}
+    {{ fmt.Printf "</td></tr>" | safe.HTML }}
+  {{ end }}
+</table>
+</div>

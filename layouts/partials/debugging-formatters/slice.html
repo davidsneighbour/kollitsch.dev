@@ -1,0 +1,7 @@
+<span class="type-slice">
+  {{- range .value -}}
+    <span class="type-slice-item">
+      {{- partials.Include "debug-print.html" . -}}
+    </span>
+  {{- end -}}
+</span>

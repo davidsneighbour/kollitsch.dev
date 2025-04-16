@@ -1,0 +1,35 @@
+{{- $config := site.Params.dnb.debug -}}
+
+{{- if collections.In site.Params.dnb.debug.ignoreErrors .slug -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if compare.Eq ($config.disablenote | compare.Default false) false -}}
+  {{- fmt.Warnf "[%s/debug-0] additional logging by dnb-debug (see %s)" $config.namespace $config.loglink -}}
+{{- end -}}
+{{- $namespace := $config.namespace | compare.Default "dnb" -}}
+{{- $severity := .severity | compare.Default "info" -}}
+{{- $level := 0 -}}
+
+{{- if compare.Eq $severity "debug" -}}
+  {{- $level = 9 -}}
+{{- else if compare.Eq $severity "info" -}}
+  {{- $level = 7 -}}
+{{- else if compare.Eq $severity "warn" -}}
+  {{- $level = 5 -}}
+{{- else if compare.Eq $severity "error" -}}
+  {{- $level = 3 -}}
+{{- else if compare.Eq $severity "fatal" -}}
+  {{- $level = 1 -}}
+{{- end -}}
+{{- if collections.IsSet . "level" -}}
+  {{- $level = (cast.ToInt .level) -}}
+{{- end -}}
+
+{{- if compare.Le $level (cast.ToInt $config.debuglevel) -}}
+  {{- if compare.Le $level 3 -}}
+    {{- fmt.Errorf (fmt.Printf "[%s/%s-%v] %s" $namespace $severity $level .message) -}}
+  {{- else -}}
+    {{- fmt.Warnf (fmt.Printf "[%s/%s-%v] %s" $namespace $severity $level .message) -}}
+  {{- end -}}
+{{- end -}}

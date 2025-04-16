@@ -1,0 +1,114 @@
+/* stylelint-disable plugin/no-unsupported-browser-features */
+.debugprint table,
+table.debugprint {
+  @extend .table;
+  @extend .table-sm;
+  @extend .table-dark;
+  @extend .table-striped;
+  @extend .table-bordered;
+  @extend .table-hover;
+  @extend .mb-0;
+  @extend .overflow-x-scroll;
+
+  font-size: 0.85rem;
+
+  td {
+    @extend .align-top;
+    @extend .p-2;
+    @extend .text-start;
+  }
+
+  th {
+    @extend .align-top;
+    @extend .p-2;
+    @extend .fw-bold;
+
+    &.type {
+      @extend .fst-normal;
+    }
+  }
+
+  .true {
+    @extend .text-success;
+    @extend .fst-italic;
+  }
+
+  .false {
+    @extend .text-danger;
+    @extend .fst-italic;
+  }
+
+  [data-bs-toggle="collapse"] {
+
+    /* stylelint-disable-next-line rule-empty-line-before */
+    /* stylelint-disable-next-line selector-max-compound-selectors */
+    &.collapsed .if-not-collapsed,
+    &:not(.collapsed) .if-collapsed {
+      @extend .d-none;
+    }
+  }
+
+  .nowrap {
+    white-space: nowrap;
+    word-break: unset;
+    word-wrap: unset;
+    overflow-wrap: unset;
+  }
+
+  .wrap {
+    @extend .text-wrap;
+    @extend .text-break;
+  }
+
+  td:has(+ table) {
+    @extend .fst-italic;
+  }
+
+  .type {
+    font-style: italic;
+
+    &-string {
+
+      &::before,
+      &::after {
+        @extend .text-warning;
+      }
+
+      &::before {
+        content: '<';
+      }
+
+      &::after {
+        content: '>';
+      }
+
+    }
+
+    &-slice {
+
+      &::before,
+      &::after {
+        @extend .text-warning;
+      }
+
+      &::before {
+        content: '[';
+      }
+
+      &::after {
+        content: ']';
+      }
+
+      &-item {
+        &::after {
+          content: ',';
+        }
+
+        &:last-child::after {
+          content: '';
+        }
+      }
+    }
+
+  }
+}

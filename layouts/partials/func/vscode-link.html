@@ -1,0 +1,11 @@
+{{- if hugo.IsServer -}}
+<div class="d-inline-block">
+  {{- $copy := lang.Translate "functions.meta.edit" | default "Edit in VSCode" -}}
+  <a href="vscode://file/{{- .File.Filename -}}"
+      aria-label="{{- $copy -}}"
+      title="{{- $copy -}}"
+      style="font-size:75%">
+    {{- lang.Translate "functions.meta.editSlug" | default "EDIT" -}}
+  </a>
+</div>
+{{- end -}}

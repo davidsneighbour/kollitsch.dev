@@ -1,0 +1,6 @@
+{{/* {{ fmt.Printf "%s" .value | safe.HTML }} */}}
+{{ if (compare.Ne "0001-01-01" (.value.Format "2006-01-02")) }}
+  {{ .value }}
+{{ else }}
+  <em class="text-info">no date/time set</em>
+{{ end }}

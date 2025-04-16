@@ -38,8 +38,8 @@ description = ""
 other = "Tags"
 
 [theme.posts_tagged_with]
-other = "{{ . }} Posts tagged with"
 description = ""
+other = "{{ . }} Posts tagged with"
 
 [theme.social]
 description = ""
@@ -189,8 +189,8 @@ description = ""
 other = "Page %s"
 
 [page-n]
-other = " (Page %d)"
 description = "Page %d of %d"
+other = " (Page %d)"
 
 [theme.navigationlabel]
 description = ""
@@ -223,3 +223,32 @@ other = "Description"
 
 [theme.readall]
 other = "Read All Posts"
+
+# debug module
+[error.no-formatter-configured]
+description = ""
+other = "This type has no debugging formatter in dnb-debug configured."
+
+[issue.body]
+description = "template for issue report of unconfigured types"
+other = '''
+<!--
+
+add an explanation and sample code for the debugged type and please make sure,
+that this type is not already requested in the issue tracker.
+
+-->
+
+Hugo Version: %s
+'''
+
+[deprecation.debug]
+other = "This shortcode is deprecated. Please use `debug` instead."
+
+# [deprecation.debugprint]
+# other = "The partial `debugprint.html` is deprecated. Please use `debug-print.html` instead."
+
+# dnb.functions
+
+[dnb.head.hometitle]
+other = "Welcome"

@@ -1,0 +1,41 @@
+{{- $title := "" -}}
+{{- $config := site.Params.dnb.head -}}
+{{- $separator := $config.separator | compare.Default "|" -}}
+{{- $sitetitle := false -}}
+
+{{- if compare.Ne .Title site.Title -}}
+  {{- $sitetitle = true -}}
+{{- end -}}
+
+{{- if .IsHome -}}
+  {{- $title = $config.hometitle | compare.Default (lang.Translate "dnb.head.hometitle") -}}
+{{- else -}}
+  {{- if compare.Eq "" .Title -}}
+    {{- $title = fmt.Printf "%s" .Section | strings.Title -}}
+  {{- else -}}
+    {{- $title = .Title -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if .IsNode -}}
+  {{- $paginator := .Scratch.Get "paginator" -}}
+  {{- with $paginator -}}
+    {{- if compare.Gt .PageNumber 1 -}}
+      {{- $pagenumber := fmt.Printf (lang.Translate "page-n") .PageNumber -}}
+      {{- $title = fmt.Printf "%s %s" $title $pagenumber -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if collections.IsSet .Params "sectiontitle" -}}
+  {{- with .Params.sectiontitle -}}
+    {{- $title = fmt.Printf "%s %s %s" $title $separator . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if compare.Eq $sitetitle true -}}
+  {{- $title = fmt.Printf "%s %s %s" $title $separator site.Title -}}
+{{- end -}}
+
+{{ $title = $title | transform.Markdownify | transform.Plainify | transform.HTMLUnescape }}
+{{ return $title }}

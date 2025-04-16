@@ -1,0 +1,17 @@
+{{ $names := .names }}
+{{ $items := .items }}
+
+      <div class="table-responsive">
+      <table class="debugprint">
+  {{- partials.IncludeCached "debugging-partials/struct-header.html" . -}}
+  <tbody>
+    {{- range $index, $item := $items -}}
+      {{- $slices := slice
+          (collections.Index $names $index)
+          (partials.Include "debug-type.html" $item)
+          ($item) -}}
+      {{- partials.Include "debugging-partials/struct-row.html" $slices -}}
+    {{- end -}}
+  </tbody>
+</table>
+</div>

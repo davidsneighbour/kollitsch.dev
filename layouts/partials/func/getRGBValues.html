@@ -1,0 +1,30 @@
+{{- $hex := . -}}
+{{- if strings.HasPrefix $hex "#" -}}
+  {{- $hex = strings.TrimPrefix $hex "#" -}}
+{{- end -}}
+
+{{- $validHex := and (strings.FindRE "^[0-9A-Fa-f]+$" $hex) (or (compare.Eq (len $hex) 3) (compare.Eq (len $hex) 6)) -}}
+
+{{- $r := 0 -}}
+{{- $g := 0 -}}
+{{- $b := 0 -}}
+
+{{- $hexIndex := dict }}
+{{- $rHex := "" -}}
+
+{{- if $validHex -}}
+
+  {{- if compare.Eq (len $hex) 3 -}}
+    {{- $hex = fmt.Printf "%c%c%c%c%c%c"
+                            (collections.Index $hex 0) (collections.Index $hex 0)
+                            (collections.Index $hex 1) (collections.Index $hex 1)
+                            (collections.Index $hex 2) (collections.Index $hex 2) -}}
+  {{- end -}}
+
+  {{- $r = cast.ToInt (fmt.Printf "0x%s" (strings.Substr $hex 0 2)) -}}
+  {{- $g = cast.ToInt (fmt.Printf "0x%s" (strings.Substr $hex 2 2)) -}}
+  {{- $b = cast.ToInt (fmt.Printf "0x%s" (strings.Substr $hex 4 2)) -}}
+
+{{- end -}}
+
+{{- return dict "Hex" (fmt.Printf "#%s" $hex) "R" $r "G" $g "B" $b -}}

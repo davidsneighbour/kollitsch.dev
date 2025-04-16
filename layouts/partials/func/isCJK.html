@@ -1,0 +1,32 @@
+{{- /*
+
+@since 1.0.1
+
+{{ $isCJK := partials.IncludeCached "func/isCJK.html" (dict "content" "丹为" "against" "cjk") "丹为" }}
+{{ $isCJK }} <-- true
+{{ $isCJK := partials.IncludeCached "func/isCJK.html" "blafasel" "blafasel" }}
+{{ $isCJK }} <-- false
+
+*/ -}}
+{{- $isCJK := false -}}
+{{- $matchPhrases := dict
+      "cjk" "[\u4E00-\u9FFF]"
+      "th" "[\u0E00-\u0E7F]"
+      "mm" "([\u1000-\u109F]|[\uAA60-\uAA7F]|[\uA9E0-\uA9FF])"
+      "mn" "[\u1800-\u18AF]"
+-}}
+{{- $against := collections.Index $matchPhrases "cjk" -}}
+{{- $content := cast.ToString "" -}}
+{{- if reflect.IsMap . -}}
+  {{- with .against -}}
+    {{- $against = collections.Index $matchPhrases . -}}
+  {{- end -}}
+  {{- $content = .content -}}
+{{- else -}}
+  {{- $content = . -}}
+{{- end -}}
+{{- $matches := strings.FindRE $against $content -}}
+{{- if compare.Gt (len $matches) 0 -}}
+  {{- $isCJK = true -}}
+{{- end -}}
+{{- return $isCJK -}}

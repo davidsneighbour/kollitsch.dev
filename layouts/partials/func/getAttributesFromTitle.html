@@ -1,0 +1,36 @@
+{{- /*
+
+  see https://discourse.gohugo.io/t/how-can-i-add-rel-nofollow-or-target-blank-or-rel-external-or-other-similar-attributes-to-specific-links-in-my-posts-in-markdown/32131/7
+
+[Hugo Forum](https://discourse.gohugo.io/ "The Hugo Forum {rel='nofollow' foo='bar'}")
+[Hugo Forum](https://discourse.gohugo.io/ "The Hugo Forum {rel='nofollow'}")
+[Hugo Forum](https://discourse.gohugo.io/ "{rel='nofollow'}")
+[Hugo Forum](https://discourse.gohugo.io/ "Hello World")
+[Hugo Forum](https://discourse.gohugo.io/ " ")
+[Hugo Forum](https://discourse.gohugo.io/ "")
+[Hugo Forum](https://discourse.gohugo.io/)
+
+*/ -}}
+{{- /* Split .Title into two parts, strings.Title and attributes. */ -}}
+{{- $parts := strings.Split . "{" -}}
+{{- $parts = collections.Apply $parts "trim" "." " " -}}
+{{- $parts = collections.Apply $parts "trim" "." "}" -}}
+
+{{- /* Extract strings.Title into a string. */ -}}
+{{- $title := collections.Index $parts 0 -}}
+
+{{- /* Extract attributes into a dictionary. */ -}}
+{{- $temp := collections.Index $parts 1 -}}
+{{- $temp = strings.Split $temp "'" -}}
+{{- $temp = collections.First (math.Sub (len $temp) 1) $temp -}}
+{{- $temp = collections.Apply $temp "replace" "." "=" "" -}}
+{{- $temp = collections.Apply $temp "trim" "." " " -}}
+{{- $attributes := dict -}}
+{{- if $temp -}}
+  {{- range (collections.Seq 0 2 (math.Sub (len $temp) 1)) -}}
+    {{- $attributes = collections.Merge $attributes (dict (collections.Index $temp . ) (collections.Index $temp (math.Add 1 .))) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $parsedTitle := dict "title" $title "attributes" $attributes -}}
+{{- return $parsedTitle -}}

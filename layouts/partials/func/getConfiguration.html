@@ -1,0 +1,22 @@
+{{- /*
+
+Retrieves a namespaced configuration
+
+- checks collections.In data/NAMESPACE/MODULENAME/config.toml
+- merges config/_defaults/params.toml > [NAMESPACE.MODULENAME] on top
+
+returns collections.Dictionary or value of the specified key
+
+Usage:
+
+```gohtml
+{{- $key := collections.Slice "dnb" "modulename" -}}
+{{- with (partials.Include "func/getConfiguration.html" $key $key -}}
+  {{ . }} -> content of (data|params).dnb.modulename
+{{- end -}}
+```
+
+*/ -}}
+
+{{- $dataConfig := (collections.Index site.Data .) -}}
+{{- $paramsConfig := (collections.Index site.Params .) -}}

@@ -1,0 +1,9 @@
+{{- $type := .type | compare.Default "name" -}}
+{{- $content := .content -}}
+
+{{- range $content -}}
+  {{- $item := . -}}
+  {{- with $item.property -}}
+	  <meta {{ $type -}}="{{- $item.property -}}" content="{{- $item.content -}}">
+  {{- end }}
+{{ end }}

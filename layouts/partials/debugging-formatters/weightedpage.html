@@ -1,0 +1,7 @@
+<!-- https://github.com/gohugoio/hugo/blob/master/hugolib/taxonomy.go -->
+
+      <div class="table-responsive">
+      <table class="debugprint">
+  {{ fmt.Printf "<tr> <td class=\"align-top\">%s</td> <td class=\"align-top\">W:%d</td></tr>" .value.Page.Title .value.Weight | safe.HTML }}
+</table>
+</div>

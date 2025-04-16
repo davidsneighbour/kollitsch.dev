@@ -1,0 +1,16 @@
+{{- if hugo.IsServer -}}
+
+  {{- $data := "" -}}
+  {{- $path := "dnb/debug/files/filelist.json" -}}
+  {{- with resources.Get $path -}}
+    {{- $options := dict "delimiter" "," -}}
+    {{- $data = . | transform.Unmarshal $options -}}
+  {{- else -}}
+    {{- fmt.Errorf "Unable to get resource %q" $path -}}
+  {{- end -}}
+
+  {{- with $data.js.filename -}}
+    <script src="/assets/js/{{- . -}}" async fetchpriority="low" defer></script>
+  {{- end -}}
+
+{{- end -}}

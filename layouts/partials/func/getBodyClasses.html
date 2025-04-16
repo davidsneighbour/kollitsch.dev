@@ -1,0 +1,21 @@
+{{- $classes := collections.Slice -}}
+{{- if compare.Eq true .IsHome -}}
+  {{- $classes = $classes | collections.Append "is-home" -}}
+{{- end -}}
+{{- if compare.Eq true .IsNode -}}
+  {{- $classes = $classes | collections.Append "is-node" -}}
+{{- end -}}
+{{- if compare.Eq true .IsPage -}}
+  {{- $classes = $classes | collections.Append "is-page" -}}
+{{- end -}}
+{{- if compare.Eq true .IsSection -}}
+  {{- $classes = $classes | collections.Append (fmt.Printf "section section-%s" .Section ) -}}
+{{- end -}}
+{{- $classes = $classes | collections.Append (fmt.Printf "kind-%s" .Kind) -}}
+{{- $classes = $classes | collections.Append (fmt.Printf "type-%s" .Type) -}}
+{{- if compare.Eq true .Draft -}}
+  {{- $classes = $classes | collections.Append "draft" -}}
+{{- end -}}
+{{- $classes = $classes | collections.Append site.Params.dnb.theme.colorscheme -}}
+{{- $classes = collections.Delimit $classes " " -}}
+{{- return $classes -}}

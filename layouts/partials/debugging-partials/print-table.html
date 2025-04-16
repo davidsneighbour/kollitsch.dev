@@ -1,0 +1,30 @@
+{{- $structure := .structure | compare.Default collections.Slice -}}
+{{- $config := .config | compare.Default dict -}}
+
+<div class="table-responsive">
+  <table class="debugprint">
+    <tr>
+        <th scope="col" class="align-top key">
+          <span class="font-weight-normal text-uppercase">
+            {{- $config.label -}}
+          </span>
+        </th>
+        <th scope="col" class="align-top type">Type</th>
+        <th scope="col" class="align-top value">Value</th>
+    </tr>
+    {{- range $structure -}}
+      {{- $type := fmt.Printf "%T" .value -}}
+      <tr>
+        <th>{{ .slug }}</th>
+        <td>{{ .type | compare.Default $type }}</td>
+        <td>
+          {{- with .value -}}
+            {{- partials.Include "debug-print.html" . -}}
+          {{- else -}}
+            {{- partials.IncludeCached "debugging-partials/nil.html" . -}}
+          {{- end -}}
+        </td>
+      </tr>
+    {{- end -}}
+  </table>
+</div>

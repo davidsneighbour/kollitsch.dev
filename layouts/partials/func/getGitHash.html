@@ -1,0 +1,15 @@
+{{- /*
+
+expects page object collections.In context
+
+TODO:
+- configure length of substring
+- maybe create a nil solution instead of empty return
+
+*/ -}}
+{{- $page := . -}}
+{{- $hash := "" -}}
+{{- with $page.GitInfo -}}
+  {{- $hash = strings.Substr .Hash 0 10 -}}
+{{- end -}}
+{{- return $hash -}}

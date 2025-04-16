@@ -1,0 +1,58 @@
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-12 px-0">
+          {{- $names := slice
+                ".BuildDate"
+                ".CommitHash"
+                ".Environment"
+                ".Generator"
+                ".GoVersion"
+                ".IsDevelopment"
+                ".IsExtended"
+                ".IsProduction"
+                ".IsServer"
+                ".Version"
+                ".WorkingDir" -}}
+          {{- $items := slice
+                hugo.BuildDate
+                hugo.CommitHash
+                hugo.Environment
+                hugo.Generator
+                hugo.GoVersion
+                hugo.IsDevelopment
+                hugo.IsExtended
+                hugo.IsProduction
+                hugo.IsServer
+                hugo.Version
+                hugo.WorkingDir -}}
+      <div class="table-responsive">
+          <table class="debugprint">
+            <thead>
+              <tr>
+                <th scope="col" class="key">
+                  <span title="Hugo version information">hugo</span>
+                </th>
+                <th scope="col" class="type">Type</th>
+                <th scope="col" class="value">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{- range $index, $item := $items -}}
+                {{- $slices := slice
+                    (collections.Index $names $index)
+                    (partials.Include "debug-type.html" $item)
+                    (partials.Include "debug-print.html" $item) -}}
+                <tr>{{- range $index, $item := $slices -}}
+                  {{- if (compare.Eq $index 0) -}}
+                    <th scope="row">{{- . -}}</th>
+                  {{- else -}}
+                    <td>{{- . -}}</td>
+                  {{- end -}}
+                {{- end -}}</tr>
+              {{- end -}}
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>

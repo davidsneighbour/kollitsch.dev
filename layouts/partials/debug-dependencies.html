@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 px-0">
+  <div class="table-responsive">
+      <table class="debugprint">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Path</th>
+            <th scope="col">Version</th>
+            <th scope="col">Time</th>
+            <th scope="col">Vendor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{/* @todo range through all deps and resort by owner collections.In a map structure */}}
+          {{- range $index, $element := hugo.Deps -}}
+          <tr>
+            <th scope="row">{{- math.Add $index 1 -}}</th>
+            <td>{{- with $element.Owner -}}{{- .Path -}}{{- end -}}</td>
+            <td>
+              {{- $element.Path -}}
+              {{- with $element.Replace -}} => {{- .Path -}}{{- end -}}
+            </td>
+            <td>{{- $element.Version -}}</td>
+            <td>{{- with $element.Time -}}{{- . -}}{{- end -}}</td>
+            <td>{{- $element.Vendor -}}</td>
+          </tr>
+          {{- end -}}
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>

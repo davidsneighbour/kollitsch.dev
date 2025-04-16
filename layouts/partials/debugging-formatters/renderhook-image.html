@@ -1,0 +1,34 @@
+{{- $config := .config -}}
+{{- $structure := slice
+      (dict
+        "slug" "Attributes"
+        "value" .value.Attributes)
+      (dict
+        "slug" "Destination"
+        "value" .value.Destination)
+      (dict
+        "slug" "Title"
+        "value" .value.Title)
+      (dict
+        "slug" "Text"
+        "value" .value.Text)
+      (dict
+        "slug" "PlainText"
+        "value" .value.PlainText)
+      (dict
+        "slug" "Ordinal"
+        "value" .value.Ordinal)
+      (dict
+        "slug" "IsBlock"
+        "value" .value.IsBlock)
+      (dict
+        "slug" "Page"
+        "value" .value.Page)
+-}}
+
+{{- $data := dict
+      "structure" $structure
+      "config" $config
+-}}
+
+{{- partials.Include "debugging-partials/print-table.html" $data -}}

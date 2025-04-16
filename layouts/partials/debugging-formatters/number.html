@@ -1,0 +1,12 @@
+<!-- Use %#v for strings so that their values always get double-quoted.
+      That is helpful to tell if a space char is within a string. -->
+
+      <div class="table-responsive">
+      <table class="debugprint">
+  <tr>
+    <td>
+      {{ fmt.Printf "%#v" .value | transform.HTMLUnescape }}
+    </td>
+  </tr>
+</table>
+</div>

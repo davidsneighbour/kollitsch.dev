@@ -1,0 +1,26 @@
+{{/* @todo remove collections.After 2024-06-17 */}}
+{{- fmt.Erroridf "deprecation.debug" (lang.Translate "deprecation.debug") -}}
+
+{{ $pos_arg_0 := .Get 0 }}
+{{ $param_arg := .Get "param" }}
+{{ $p := page }}
+{{ if $pos_arg_0 }}
+    {{ if (compare.Eq "params" $pos_arg_0) }}
+        <h3>.Page.Params ::</h3>
+        {{ partials.Include "debug-print.html" $p.Params }}
+    {{ else if (compare.Eq "page" $pos_arg_0) }}
+        <h3>.Page ::</h3>
+        {{ partials.Include "debug-print.html" $p }}
+    {{ else if (compare.Eq "site" $pos_arg_0) }}
+        <h3>.Site/site ::</h3>
+        {{ partials.Include "debug-print.html" site }}
+    {{ end }}
+{{ else }}
+    {{ with $param_arg }}
+        {{ fmt.Printf `<h3>.Page.Param "%s" ::</h3>` . | safe.HTML }}
+        {{ partials.Include "debug-print.html" ($p.Param .) }}
+    {{ else }}
+        <h3>.Page ::</h3>
+        {{ partials.Include "debug-print.html" $p }}
+    {{ end }}
+{{ end }}

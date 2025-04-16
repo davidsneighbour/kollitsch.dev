@@ -567,6 +567,12 @@ file = "debugprint-head-post-css"
 cached = false
 file = "debugprint-footer-widgets-end"
 
+[[dnb.hooks.items.auditor.article-meta-end]]
+file = "meta-seo"
+
+# [[dnb.hooks.items.auditor.body-end]]
+# file = "post-body-button"
+
 # sitemap - @see https://dnbhub.xyz/sitemap
 ################################################################################
 [[dnb.sitemap.htmlmap.item]]
@@ -643,3 +649,25 @@ wordsperminute = 220.0
 # should the function return minutes and seconds or only minutes (the latter
 # will be rounded up for the seconds in addition).
 minutesandseconds = true
+
+[dnb.auditor]
+ct = false
+descriptionMaxLength = 160
+descriptionMinLength = 110
+descriptionThreshold = 10
+titleMaxLength = 60
+titleMinLength = 50
+titleThreshold = 10
+
+[dnb.renderhooks]
+[dnb.renderhooks.heading]
+disabled = false
+
+[dnb.renderhooks.image]
+disabled = false
+
+[dnb.renderhooks.link]
+disabled = false
+
+[dnb.renderhooks.config.plugins.js]
+imports = ["import './plugins/clipboard.js';"]

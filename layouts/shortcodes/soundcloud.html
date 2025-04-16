@@ -1,0 +1,36 @@
+{{- /* https://developers.soundcloud.com/docs/api/html5-widget */ -}}
+
+{{- $parameters := dict
+  "visual" (.Get "visual" | compare.Default true)
+  "auto_play" (.Get "auto_play" | compare.Default false)
+  "color"	((.Get "color" | urlquery) | compare.Default "%23ff7700")
+  "buying" (.Get "buying" | compare.Default false)
+  "sharing" (.Get "sharing" | compare.Default false)
+  "download" (.Get "download" | compare.Default false)
+  "show_artwork" (.Get "show_artwork" | compare.Default true)
+  "show_comments" (.Get "show_comments" | compare.Default true)
+  "show_reposts" (.Get "show_reposts" | compare.Default false)
+  "show_teaser" (.Get "show_teaser" | compare.Default false)
+  "show_playcount" (.Get "show_playcount" | compare.Default false)
+  "show_user" (.Get "show_user" | compare.Default false)
+  "start_track" (.Get "start_track" | compare.Default false)
+  "single_active" (.Get "single_active" | compare.Default true)
+  "hide_related" (.Get "hide_related" | compare.Default true)
+-}}
+
+{{- $id := .Get "id" | compare.Default "1775417439" -}}
+
+{{- $url := "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/" -}}
+{{- $output := (fmt.Printf "%s%s" $url $id) -}}
+{{- range $key, $value := $parameters -}}
+  {{- if or (compare.Eq $value true) (compare.Eq $value false) -}}
+    {{- $output = fmt.Printf "%s&%s=%t" $output $key $value -}}
+  {{- else -}}
+    {{- $output = fmt.Printf "%s&%s=%s" $output $key $value -}}
+  {{- end -}}
+{{- end -}}
+{{- $height := .Get "height" | compare.Default "600" -}}
+
+<iframe width="100%" height="{{- $height -}}"
+      scrolling="no" frameborder="no" allow="autoplay"
+      src="{{- $output | safe.URL -}}"></iframe>

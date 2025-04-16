@@ -8,4 +8,5 @@ require (
 	github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff // indirect
 	github.com/davidsneighbour/kollitsch.dev-content v0.0.0-20250415161628-48b833ba5188 // indirect
 	github.com/twbs/icons v1.11.3 // indirect
+	github.com/zenorocha/clipboard.js v2.0.11+incompatible // indirect
 )

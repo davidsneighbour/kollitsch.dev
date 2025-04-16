@@ -1,0 +1,55 @@
+{{- if hugo.IsServer -}}
+  {{- $page := page -}}
+  {{- if page.IsHome -}}
+    {{- $page = .context -}}
+  {{- end -}}
+  {{- $config := site.Params.dnb.auditor -}}
+  <div class="d-flex flex-row gap-2">
+    <div class="icon">
+      {{- partials.Include "icon.html" "shield-check" -}}
+    </div>
+
+    {{/* strings.Title length evaluation */}}
+    {{- $titleLength := len $page.Title -}}
+    {{- $options := dict
+                    "length" $titleLength
+                    "minlength" $config.titleminlength
+                    "maxlength" $config.titlemaxlength
+                    "threshold" $config.titlethreshold -}}
+    {{- $titleClass := partials.Include "func/getLengthIndicator.html" $options $options -}}
+
+    {{- /* description length evaluation */ -}}
+    {{- $descriptionLength := len $page.Description -}}
+    {{- $options := dict
+                    "length" $descriptionLength
+                    "minlength" $config.descriptionminlength
+                    "maxlength" $config.descriptionmaxlength
+                    "threshold" $config.descriptionthreshold -}}
+    {{- $descriptionClass := partials.Include "func/getLengthIndicator.html" $options $options -}}
+
+    <div class="d-flex flex-row gap-2">
+      <span>
+        {{ lang.Translate "theme.title" }}:
+        <span class="text-{{- $titleClass -}}">{{- $titleLength }} {{ lang.Translate "theme.characters" }}</span>
+      </span>
+      <span> / </span>
+      <span>
+        {{ lang.Translate "theme.description" }}:
+        <span class="text-{{ $descriptionClass }}"
+          >{{ $descriptionLength }} {{ lang.Translate "theme.characters" }}
+        </span>
+      </span>
+      <span> / </span>
+      <span>
+        {{- $postType := "too short" -}}
+        {{ if compare.Ge $page.WordCount 300 }}
+          {{- $postType = "regular" -}}
+        {{ else if compare.Ge $page.WordCount 900 }}
+          {{- $postType = "cornerstone" -}}
+        {{ end  }}
+        {{- $string := fmt.Printf (lang.Translate "theme.words") $page.WordCount -}}
+        {{- $string }} ({{- $postType -}})
+      </span>
+    </div>
+  </div>
+{{- end -}}

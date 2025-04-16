@@ -1,0 +1,30 @@
+{{- if hugo.IsServer -}}
+  <div class="responsive-indicator">
+    <div>
+
+      {{- /* name active responsive break point */ -}}
+      {{- partials.Include "icon.html" "arrows-expand-vertical" -}}
+      {{- $breakpoints := collections.Slice "xs" "sm" "md" "lg" "xl" "xxl" -}}
+      <div>
+        {{- range $index, $value := $breakpoints -}}
+          {{- $classes := fmt.Printf "col d-%s-inline-block" $value -}}
+          {{- if compare.Eq $index 0 -}}
+            {{- $classes = fmt.Printf "d-inline-block %s" $classes -}}
+          {{- else -}}
+            {{- $classes = fmt.Printf "d-none %s %s" $classes (fmt.Printf "d-%s-none" (collections.Index $breakpoints (math.Sub $index 1))) -}}
+          {{- end -}}
+          {{- if compare.Lt $index (math.Sub ($breakpoints | len) 1) -}}
+            {{- $classes = fmt.Printf "%s %s" $classes (fmt.Printf "d-%s-none" (collections.Index $breakpoints (math.Add $index 1))) -}}
+          {{- end -}}
+          <div class="{{- $classes -}}">
+            <div class="identifier">{{- . -}}</div>
+          </div>
+        {{- end -}}
+      </div>
+
+      {{- /* inner window measurements */ -}}
+      {{- partials.Include "icon.html" "rulers" -}}
+      <div class="measurements"></div>
+    </div>
+  </div>
+{{- end -}}

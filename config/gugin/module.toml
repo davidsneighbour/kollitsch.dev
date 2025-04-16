@@ -30,12 +30,6 @@ source = "hugo_stats.json"
 target = "assets/watching/hugo_stats.json"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/modder"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
 
 [[imports]]
@@ -60,16 +54,10 @@ path = "github.com/davidsneighbour/hugo-modules/modules/publisher"
 path = "github.com/davidsneighbour/hugo-modules/modules/pwa"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/robots"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/security"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/sitemap"
@@ -79,3 +67,37 @@ path = "github.com/davidsneighbour/hugo-modules/modules/social"
 
 [[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
+
+[[imports]]
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/Heydon/REVENGE.CSS"
+
+[[imports.mounts]]
+source = 'revenge.css'
+target = 'assets/css/libs/revenge.css'
+
+[[imports]]
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/csswizardry/ct"
+
+[[imports.mounts]]
+source = 'ct.css'
+target = 'assets/css/libs/ct.css'
+
+[[imports.mounts]]
+source = 'ct.css'
+target = 'static/css/libs/ct.css'
+
+[[imports]]
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/zenorocha/clipboard.js"
+
+[[imports.mounts]]
+source = 'dist/clipboard.js'
+target = 'assets/js/plugins/lib/clipboard.js'

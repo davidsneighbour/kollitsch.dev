@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.dnbhub.xyz/modder.schema.json",
+  "title": "Modder assets schema",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "js": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "imports": {
+          "description": "",
+          "type": "string",
+          "items": {
+            "type": "string"
+          }
+        },
+        "calls": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scss": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "imports": {
+          "description": "",
+          "type": "string",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

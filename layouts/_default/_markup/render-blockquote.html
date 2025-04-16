@@ -1,0 +1,28 @@
+{{- $emojis := dict
+  "caution" ":exclamation:"
+  "important" ":information_source:"
+  "note" ":information_source:"
+  "tip" ":bulb:"
+  "warning" ":information_source:"
+-}}
+
+{{- if eq .Type "alert" -}}
+  <blockquote class="alert alert-{{ .AlertType }}">
+    <p class="alert-heading">
+      {{ transform.Emojify (index $emojis .AlertType) }}
+      {{ or (i18n (printf "dnb.renderhooks.%s" .AlertType)) (title .AlertType) }}
+    </p>
+    {{ .Text | safeHTML }}
+  </blockquote>
+{{- else -}}
+  <figure>
+    <blockquote {{ with .Attributes.cite -}}cite="{{- . -}}"{{- end -}}>
+      {{ .Text | safeHTML }}
+    </blockquote>
+    {{- with .Attributes.caption -}}
+      <figcaption class="blockquote-caption">
+        {{ . | safeHTML }}
+      </figcaption>
+    {{- end -}}
+  </figure>
+{{- end -}}

@@ -1,0 +1,25 @@
+<!--
+Parameters:
+    type - (Required) album / track / playlist / artist
+    id - (Required) Target ID
+    width - (Optional) width
+    height - (Optional) height
+-->
+
+{{ if .IsNamedParams }}
+  <iframe
+    src="https://open.spotify.com/embed/{{ .Get "type" }}/{{ .Get "id" }}"
+    width="{{ compare.Default "100%" (.Get "width") }}"
+    height="{{ compare.Default "380" (.Get "height") }}"
+    frameborder="0"
+    allowtransparency="true"
+    allow="encrypted-media"></iframe>
+{{ else }}
+  <iframe
+    src="https://open.spotify.com/embed/{{ .Get 0 }}/{{ .Get 1 }}"
+    width="{{ compare.Default "100%" (.Get 2) }}"
+    height="{{ compare.Default "380" (.Get 3) }}"
+    frameborder="0"
+    allowtransparency="true"
+    allow="encrypted-media"></iframe>
+{{ end }}

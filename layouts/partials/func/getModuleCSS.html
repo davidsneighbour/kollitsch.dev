@@ -1,0 +1,30 @@
+{{ $scssImports := collections.Slice }}
+{{ $cssImports := collections.Slice }}
+
+{{ with site.Params.dnb }}
+
+  {{ range $key, $values := . }}
+    {{ if and (isset $values "config")
+               (isset $values.config "plugins")
+               (isset $values.config.plugins "scss")
+               (isset $values.config.plugins.js "imports")  }}
+      {{ range $values.config.plugins.scss.imports }}
+        {{ $scssImports = $scssImports | collections.Append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ range $key, $values := . }}
+    {{ if and (isset $values "config")
+               (isset $values.config "plugins")
+               (isset $values.config.plugins "css")
+               (isset $values.config.plugins.js "imports")  }}
+      {{ range $values.config.plugins.css.imports }}
+        {{ $cssImports = $cssImports | collections.Append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+{{ end }}
+
+{{ return (dict "scssImports" $scssImports "cssImports" $cssImports) }}

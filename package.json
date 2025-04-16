@@ -72,6 +72,7 @@
     "pixelmatch": "7.1.0",
     "postcss": "8.5.3",
     "postcss-cli": "11.0.1",
+    "postcss-discard-comments": "^7.0.3",
     "postcss-loader": "8.1.1",
     "postcss-preset-env": "10.1.5",
     "prettier-plugin-go-template": "0.0.15",
@@ -289,6 +290,32 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "browserslist": {
+    "production": [
+      "last 1 version",
+      "Chrome >= 112",
+      "Firefox >= 121",
+      "iOS >= 16",
+      "Safari >= 16.4",
+      "Edge >= 112",
+      "not ie > 0",
+      "not ie_mob > 0",
+      "not dead",
+      "not op_mini all",
+      "not op_mob > 0",
+      "not opera > 0",
+      "not ucandroid > 0",
+      "not and_uc > 0",
+      "not and_qq > 0",
+      "not kaios 2.5"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
   },
   "publishConfig": {
     "provenance": true

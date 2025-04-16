@@ -1,4 +1,100 @@
 # Changelog
+## [2025.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.1.1...v2025.2.0) (2025-04-16)
+
+
+### Content
+
+* move content and static to content module ([000a05e](https://github.com/davidsneighbour/kollitsch.dev/commit/000a05e3e55fbb20c7e1c180b2b0a5ac0af47611))
+* update content module ([3766198](https://github.com/davidsneighbour/kollitsch.dev/commit/37661983b2ecac72558d2f217ba668a0d4ea369c))
+
+
+### Documentation
+
+* add note about params in js ([30c21a9](https://github.com/davidsneighbour/kollitsch.dev/commit/30c21a952ece00650527b68c5de521a515520ec1))
+* fix license for this repo ([ddee8aa](https://github.com/davidsneighbour/kollitsch.dev/commit/ddee8aac5b11c5d3c8f9a135802bd6e2c6b140d6))
+* move documentation around ([cd378b5](https://github.com/davidsneighbour/kollitsch.dev/commit/cd378b59c2f7195fa9f82e5f8ae77b0f9a8699e4))
+* update README.md ([1cf317b](https://github.com/davidsneighbour/kollitsch.dev/commit/1cf317b0699e4e52a4e7fa62e1c8bfeddaff9183))
+* update README.md ([a191703](https://github.com/davidsneighbour/kollitsch.dev/commit/a1917032426ec1f9df54a32ecca70b54776b538f))
+* update setup information ([5a29c3c](https://github.com/davidsneighbour/kollitsch.dev/commit/5a29c3c0afe85523ba478eefd9e3877755b7d71a))
+
+
+### Features
+
+* move all remaining modules in ([6f07076](https://github.com/davidsneighbour/kollitsch.dev/commit/6f07076a312f5018e15e685a0be28323f2d1aa19))
+* move content, static, and .frontmatter into submodule and mount from there ([047b22f](https://github.com/davidsneighbour/kollitsch.dev/commit/047b22f739445cea8629509dfd78f5a14eeddc63))
+* move debug, hooks, and functions module in ([c332810](https://github.com/davidsneighbour/kollitsch.dev/commit/c332810f43a04b6a9dcd2e1157b55cb7482bf666))
+* move renderhooks, shortcodes, modder, and auditor  module in ([dc5bde7](https://github.com/davidsneighbour/kollitsch.dev/commit/dc5bde7f69732f0e018082632863aba4f9a5c8c8))
+
+
+### Theme
+
+* **feat:** move feeds module in ([c7415da](https://github.com/davidsneighbour/kollitsch.dev/commit/c7415daad1397ce205c3c4a758704aa9b909d29f))
+* **feat:** move head module in ([5621c8c](https://github.com/davidsneighbour/kollitsch.dev/commit/5621c8c4a5d8bf21088d1e50ea1e1a6b1d15bf82))
+* **fix:** add main.js drop-in ([54f372a](https://github.com/davidsneighbour/kollitsch.dev/commit/54f372a6b1262e0bf2f821353502ad5ec8210be5))
+* **fix:** layout file ending in SVG is encoded on output ([a5ec833](https://github.com/davidsneighbour/kollitsch.dev/commit/a5ec83326f446bea8bc42b0387199f04607d31b7))
+* **fix:** pagefind setup fix ([544c107](https://github.com/davidsneighbour/kollitsch.dev/commit/544c107c38c7ba5f03b1f3804263613367b8f0ec))
+* **fix:** proper targets for scroll title effects ([be21417](https://github.com/davidsneighbour/kollitsch.dev/commit/be214172579fdf5acd8a277a862afd3cf7645706))
+* **fix:** update modules and fix file paths ([9342b5a](https://github.com/davidsneighbour/kollitsch.dev/commit/9342b5a0cdb294b8ba19a4634149134277f9457a))
+* **fix:** use debuglogger for console logging ([83cd8de](https://github.com/davidsneighbour/kollitsch.dev/commit/83cd8de0f37742592f85b3d37b3bb8be0423f9af))
+
+
+### Bug Fixes
+
+* update screenshot script and add current screenshot ([a7f8ca1](https://github.com/davidsneighbour/kollitsch.dev/commit/a7f8ca1b6adf8766b07b4d60d86ddf25a51a3358))
+
+
+### Refactors
+
+* code quality fixes ([26570e9](https://github.com/davidsneighbour/kollitsch.dev/commit/26570e998f4c843404562476f3fe8dcf413a1b46))
+* proper gohugo layout method names ([ed1b5f4](https://github.com/davidsneighbour/kollitsch.dev/commit/ed1b5f429f29ad712ccfb6bfb1a63db6e8afbe52))
+* proper gohugo layout method names ([2443f46](https://github.com/davidsneighbour/kollitsch.dev/commit/2443f467b21459e27f731c5e01e0076b0a82baaf))
+
+
+### Chore
+
+* **deps:** update google/osv-scanner-action action to v2.0.1 ([#1354](https://github.com/davidsneighbour/kollitsch.dev/issues/1354)) ([60bbd9d](https://github.com/davidsneighbour/kollitsch.dev/commit/60bbd9d27408008b641c1b79ad90a609746c023c))
+* fixes to merged config and theme files ([868ca34](https://github.com/davidsneighbour/kollitsch.dev/commit/868ca3418cc27fb7f7513c4bf74c25433beedb6c))
+
+
+### Configuration
+
+* add content module ([6ae0a36](https://github.com/davidsneighbour/kollitsch.dev/commit/6ae0a36a65e48a3dc4e3d7559d6d5363a2fa238d))
+* add content module redirect ([d9e55cb](https://github.com/davidsneighbour/kollitsch.dev/commit/d9e55cbf588a4d6f52fd2a43c35d19975d5dc085))
+* disable giscus on dev ([3264acb](https://github.com/davidsneighbour/kollitsch.dev/commit/3264acbd5dd16a0a2ed97521196aac8cccb9fde1))
+* **fix:** move browserslist inline ([c245523](https://github.com/davidsneighbour/kollitsch.dev/commit/c24552341356c1d5aed9db7648cef90767bdd15f))
+* **fix:** move schemas around ([ab46991](https://github.com/davidsneighbour/kollitsch.dev/commit/ab46991ecf2acf5b0ca2eee2c47795ee7689a80d))
+* **fix:** proper paths to content for .frontmatter ([766bd79](https://github.com/davidsneighbour/kollitsch.dev/commit/766bd794fe6228bd81de226e59321cc9eba81ad6))
+* **fix:** setup frontmatter to extend from .frontmatter/frontmatter.json ([2aa4d52](https://github.com/davidsneighbour/kollitsch.dev/commit/2aa4d526841bc61884e372fa4568cfb65f10f14f))
+* remove unused modules ([1569a61](https://github.com/davidsneighbour/kollitsch.dev/commit/1569a61c949604b4983215774918036fab2767c9))
+* update minimum hugo version ([ef7fbef](https://github.com/davidsneighbour/kollitsch.dev/commit/ef7fbef8eaa45739b7aa0df9b7aff2d29a68e580))
+
+
+### Build System
+
+* **config:** disable davidsneighbour packages on dependabot (done via renovate) ([acd9857](https://github.com/davidsneighbour/kollitsch.dev/commit/acd98573db0a4ace909ffb06fde9b17ca9fb7539))
+* **deps:** bump vite in the npm_and_yarn group across 1 directory ([#1355](https://github.com/davidsneighbour/kollitsch.dev/issues/1355)) ([d1a0230](https://github.com/davidsneighbour/kollitsch.dev/commit/d1a02308a534373487e81cbe80d26819ce37ab6c))
+* **deps:** bump vite in the npm_and_yarn group across 1 directory ([#1357](https://github.com/davidsneighbour/kollitsch.dev/issues/1357)) ([ef315ee](https://github.com/davidsneighbour/kollitsch.dev/commit/ef315ee455fe2f29cef5232980fddd9496b55eb8))
+* **deps:** update bin submodule ([eab9ac7](https://github.com/davidsneighbour/kollitsch.dev/commit/eab9ac75ba0e2f88c056ca56c8b8496917600543))
+* **deps:** update content submodule ([ce22ef4](https://github.com/davidsneighbour/kollitsch.dev/commit/ce22ef4f5240e3a734b726e6090ea5a23034ddda))
+* **deps:** update debuglogger ([9426b36](https://github.com/davidsneighbour/kollitsch.dev/commit/9426b368a34b578049faa73ff05c88d63201ec49))
+* **deps:** update dependencies ([4a839b4](https://github.com/davidsneighbour/kollitsch.dev/commit/4a839b4fe1ec8f818afa804087e320eaea5cd991))
+* **deps:** update dependencies ([0f066cd](https://github.com/davidsneighbour/kollitsch.dev/commit/0f066cd60d82ac4b5fc4b2923751c97dd020c931))
+* **deps:** update dependencies ([0f6d7c3](https://github.com/davidsneighbour/kollitsch.dev/commit/0f6d7c3f427f2ab98d7504f711475f8d79e5ed65))
+* **deps:** update frontmatter submodule ([04edce5](https://github.com/davidsneighbour/kollitsch.dev/commit/04edce59a81f81abae77af80e17b7a3eeff960fc))
+* **deps:** update gomod dependencies ([c25a3bf](https://github.com/davidsneighbour/kollitsch.dev/commit/c25a3bfb0206c4e440944eb052e613d2c9c6e47a))
+* **fix:** log file location for pagefind ([2409e99](https://github.com/davidsneighbour/kollitsch.dev/commit/2409e99e32b62bab58072f411faf34351c782b40))
+* **fix:** move eslint inside ([3e84402](https://github.com/davidsneighbour/kollitsch.dev/commit/3e84402501b666b6a100920eb00410f5cf7dd494))
+* **fix:** remove [@davidsneighbour](https://github.com/davidsneighbour) occurences ([ca6b194](https://github.com/davidsneighbour/kollitsch.dev/commit/ca6b19463a9aaf3c8e6269886a8d5ebd7f015d61))
+* **fix:** remove errant comma from package.json ([68c3dc6](https://github.com/davidsneighbour/kollitsch.dev/commit/68c3dc6306b79110bd1d72e153886c778019e05f))
+* **fix:** update .frontmatter submodule ([b7e0a99](https://github.com/davidsneighbour/kollitsch.dev/commit/b7e0a99913753478781d89248fa4024e5e560e59))
+* **fix:** update postcss configuration ([9cf3765](https://github.com/davidsneighbour/kollitsch.dev/commit/9cf37656015d98064da9f887d32cf51b5e357549))
+
+
+### CI
+
+* **fix:** add schemas softlink ([c6f0069](https://github.com/davidsneighbour/kollitsch.dev/commit/c6f006926bc3b696a66c3005149fedc4379c8e86))
+* **lychee:** update lychee setup ([dcf07b2](https://github.com/davidsneighbour/kollitsch.dev/commit/dcf07b283c8768c3884b0ea48b6830d5b8f1eeea))
+
 ## [2025.1.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.0.12...v2025.1.1) (2025-03-31)
 
 

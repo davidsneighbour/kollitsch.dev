@@ -14,45 +14,90 @@
   "dependencies": {
     "@alpinejs/collapse": "3.14.9",
     "@alpinejs/intersect": "3.14.9",
+    "@atproto/api": "0.15.0",
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.10.1",
-    "@davidsneighbour/browserslist-config": "2025.1.1",
     "@davidsneighbour/debuglogger": "0.2.0",
-    "@davidsneighbour/eslint-config": "2025.1.1",
     "@davidsneighbour/release-config": "2025.1.1",
-    "@davidsneighbour/tools": "2025.1.1",
-    "@davidsneighbour/webpack-config": "2025.1.1",
     "@frontmatter/extensibility": "0.0.18",
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@github/hotkey": "3.1.1",
+    "@j9t/obsohtml": "1.8.0",
     "@notionhq/client": "2.3.0",
+    "@playwright/test": "1.51.1",
     "@popperjs/core": "2.11.8",
+    "@secretlint/secretlint-rule-no-dotenv": "9.3.1",
+    "@secretlint/secretlint-rule-no-homedir": "9.3.1",
+    "@secretlint/secretlint-rule-no-k8s-kind-secret": "9.3.1",
+    "@secretlint/secretlint-rule-openai": "9.3.1",
+    "@secretlint/secretlint-rule-pattern": "9.3.1",
+    "@secretlint/secretlint-rule-preset-recommend": "9.3.1",
+    "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.1",
+    "@types/alpinejs": "3.13.11",
+    "@types/alpinejs__collapse": "3.13.4",
+    "@types/alpinejs__intersect": "3.13.4",
+    "@types/bootstrap": "5.2.10",
+    "@types/node": "22.14.1",
     "alpinejs": "3.14.9",
+    "autoprefixer": "10.4.21",
     "bootstrap": "5.3.5",
     "browserslist": "4.24.4",
-    "caniuse-lite": "1.0.30001713",
+    "caniuse-lite": "1.0.30001714",
     "commitizen": "4.3.1",
     "consola": "3.4.2",
+    "cross-env": "7.0.3",
+    "css-loader": "7.1.2",
+    "cssnano": "7.0.6",
     "cssnano-preset-advanced": "7.0.6",
+    "debug": "4.4.0",
+    "deepmerge": "4.3.1",
     "dotenv": "16.5.0",
+    "fixpack": "4.0.0",
     "gray-matter": "4.0.3",
+    "html-webpack-plugin": "5.6.3",
     "lint-staged": "15.5.1",
-    "netlify-cli": "20.0.0",
+    "lockfile-lint": "4.14.0",
+    "masto": "6.10.4",
+    "mini-css-extract-plugin": "2.9.2",
+    "ncp": "2.0.0",
+    "netlify-cli": "20.0.1",
     "ninja-keys": "1.2.2",
+    "node-fetch": "3.3.2",
+    "npm-check-updates": "17.1.18",
+    "npm-package-json-lint": "8.0.0",
+    "npm-run-all2": "7.0.2",
+    "npm-watch": "0.13.0",
+    "oauth-1.0a": "2.2.6",
     "pagefind": "1.3.0",
     "pixelmatch": "7.1.0",
+    "postcss": "8.5.3",
+    "postcss-cli": "11.0.1",
+    "postcss-loader": "8.1.1",
     "postcss-preset-env": "10.1.5",
     "prettier-plugin-go-template": "0.0.15",
+    "rimraf": "6.0.1",
     "sass": "1.86.3",
+    "sass-loader": "16.0.5",
     "sassdoc": "2.7.4",
     "sassdoc-extras": "3.0.0",
     "sassdoc-theme-herman": "6.0.2",
+    "secretlint": "9.3.1",
+    "semver": "7.7.1",
     "simple-git-hooks": "2.12.1",
+    "style-loader": "4.0.0",
     "stylelint": "16.18.0",
+    "terser-webpack-plugin": "5.3.14",
     "toml": "3.0.0",
     "trim": "1.0.1",
+    "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
     "tsx": "4.19.3",
+    "twitter-api-v2": "1.22.0",
+    "typescript": "5.8.3",
+    "webpack": "5.99.5",
+    "webpack-cli": "6.0.1",
+    "webpack-merge": "6.0.1",
+    "wireit": "0.14.12",
     "workbox-cacheable-response": "7.3.0",
     "workbox-core": "7.3.0",
     "workbox-expiration": "7.3.0",
@@ -62,24 +107,6 @@
     "workbox-webpack-plugin": "7.3.0",
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
-  },
-  "devDependencies": {
-    "@atproto/api": "0.14.22",
-    "@playwright/test": "1.51.1",
-    "@secretlint/secretlint-rule-preset-recommend": "9.3.1",
-    "@types/alpinejs": "3.13.11",
-    "@types/alpinejs__collapse": "3.13.4",
-    "@types/alpinejs__intersect": "3.13.4",
-    "@types/bootstrap": "5.2.10",
-    "@types/node": "22.14.1",
-    "autoprefixer": "^10.4.21",
-    "cssnano": "^7.0.6",
-    "masto": "6.10.4",
-    "oauth-1.0a": "2.2.6",
-    "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.1",
-    "secretlint": "9.3.1",
-    "twitter-api-v2": "1.22.0"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -139,25 +166,17 @@
     },
     "build:hugo": {
       "command": "hugo --environment gugin --logLevel debug --minify",
-      "dependencies": [
-        "clean:dist",
-        "build:hugoconfig"
-      ]
+      "dependencies": ["clean:dist", "build:hugoconfig"]
     },
     "build:hugoconfig": {
       "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": [
-        "build:hugo"
-      ]
+      "dependencies": ["build:hugo"]
     },
     "clean": {
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo"]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -167,11 +186,7 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo:full",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -202,26 +217,18 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": [
-        "deploy:netlify"
-      ]
+      "dependencies": ["deploy:netlify"]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "lint": {
-      "dependencies": [
-        "lint:lockfiles"
-      ]
+      "dependencies": ["lint:lockfiles"]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -236,19 +243,14 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": [
-        "server:hugo",
-        "server:pagefind2"
-      ]
+      "dependencies": ["server:hugo", "server:pagefind2"]
     },
     "server:pagefind2": {
       "command": "node ./scripts/pagefind.mjs"
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
-      "dependencies": [
-        "server:hugo-certificates"
-      ],
+      "dependencies": ["server:hugo-certificates"],
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at (.*)"
@@ -259,15 +261,11 @@
       "command": "hugo server trust"
     },
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",

@@ -1,56 +1,41 @@
-import purgecss from "@fullhuman/postcss-purgecss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
-import postcsspresetenv from "postcss-preset-env";
+import removeComments from "postcss-discard-comments";
+import postcssPresetEnv from "postcss-preset-env";
 
 export default {
   plugins: [
-    // https://github.com/anandthakker/doiuse
-    // doiuse({
-    //   ignore: ['rem'],
-    //   ignoreFiles: ['**/normalize.css'],
-    // }),
-    // purgecss({
-    //   content: ['./hugo_stats.json'],
-    //   // https://github.com/gohugoio/hugo/issues/10338
-    //   // https://discourse.gohugo.io/t/purgecss-and-highlighting/41021
-    //   safelist: {
-    //     greedy: [/highlight/, /chroma/, /dark/],
-    //   },
-    //   fontFace: true,
-    //   //variables: true,
-    //   keyframes: true,
-    //   defaultExtractor: (/** @type {string} */ content) => {
-    //     const els = JSON.parse(content).htmlElements;
-    //     return [
-    //       ...(els.tags || []),
-    //       ...(els.classes || []),
-    //       ...(els.ids || []),
-    //     ];
-    //   },
-    // }),
     // https://github.com/postcss/autoprefixer
-    autoprefixer(),
-    // https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env
-    // @ts-ignore
-    postcsspresetenv({
+    autoprefixer({
+      env: process.env.HUGO_ENVIRONMENT,
+      remove: false,
+      ignoreUnknownVersions: true,
+      grid: true,
+    }),
+
+    // https://www.npmjs.com/package/postcss-preset-env
+    postcssPresetEnv({
       stage: 2,
-      // https://github.com/csstools/postcss-plugins/blob/main/plugin-packs/postcss-preset-env/FEATURES.md
+      minimumVendorImplementations: 2,
+      env: process.env.HUGO_ENVIRONMENT,
       features: {
         "nesting-rules": true,
       },
-      debug: true,
+      debug: process.env.HUGO_ENVIRONMENT !== "debug" ? false : true,
+      autoprefixer: {
+        grid: true,
+      },
+    }),
+
+    // https://www.npmjs.com/package/postcss-discard-comments
+    removeComments({
+      removeAll: true,
     }),
 
     // https://cssnano.github.io/cssnano
     cssnano({
       preset: [
-        "advanced",
-        {
-          discardComments: {
-            removeAll: true,
-          },
-        },
+        process.env.HUGO_ENVIRONMENT !== "development" ? "advanced" : "lite",
       ],
     }),
   ],

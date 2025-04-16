@@ -776,6 +776,8 @@ method = "postcss"
 enableSourceMap = true
 includePaths = ["node_modules/", "assets/"]
 outputStyle = "compressed"
+silenceDependencyDeprecations = true
+silenceDeprecations = true
 targetPath = "theme.css"
 transpiler = "dartsass"
 

@@ -2,42 +2,42 @@
 # see http://gohugo.io/templates/output-formats/
 ################################################################################
 [JSON]
-mediaType = "application/json"
 baseName = "index"
-notAlternative = true
 isPlainText = true
+mediaType = "application/json"
+notAlternative = true
 
 [rss]
 baseName = "rss"
 
 [jsonfeed]
-mediaType = "application/json"
-path = ""
 baseName = "feed"
-rel = "alternate"
-protocol = ""
-isPlainText = true
 isHTML = false
+isPlainText = true
+mediaType = "application/json"
 noUgly = false
+path = ""
 permalinkable = false
+protocol = ""
+rel = "alternate"
 
 [atom]
-mediaType = "application/rss+xml"
-path = ""
 baseName = "atom"
-rel = "alternate"
-protocol = ""
-isPlainText = false
 isHTML = false
+isPlainText = false
+mediaType = "application/rss+xml"
 noUgly = true
+path = ""
 permalinkable = false
+protocol = ""
+rel = "alternate"
 
 [dnblinklist]
 baseName = 'links'
 isPlainText = true
 mediaType = 'application/json'
-permalinkable = false
 notAlternative = true
+permalinkable = false
 
 [modder]
 baseName = 'modder'
@@ -46,3 +46,48 @@ mediaType = 'application/json'
 notAlternative = true
 permalinkable = false
 ugly = true
+
+[GISCUS]
+baseName = "giscus"
+isPlainText = true
+mediatype = "application/json"
+notAlternative = true
+
+[headerimage]
+baseName = 'headerimage'
+isPlainText = true
+mediaType = 'image/svg+xml'
+notAlternative = true
+protocol = 'https://'
+ugly = false
+
+[REDIR]
+baseName = "_redirects"
+isPlainText = true
+mediatype = "text/netlify"
+notAlternative = true
+
+[HEADERS]
+baseName = "_headers"
+isPlainText = true
+mediatype = "text/netlify"
+notAlternative = true
+
+[OpenSearch]
+baseName = "opensearch"
+isPlainText = true
+mediatype = "application/opensearchdescription+xml"
+notAlternative = true
+
+[security]
+baseName = "security"
+isPlainText = true
+mediatype = "text/plain"
+notAlternative = true
+path = "/.well-known/"
+
+[manifest]
+baseName = "manifest"
+isPlainText = true
+mediaType = "application/manifest+json"
+notAlternative = true

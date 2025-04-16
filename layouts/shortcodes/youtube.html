@@ -1,0 +1,39 @@
+{{- /*
+
+see
+- https://web.dev/iframe-lazy-loading/ (not used in this shortcode, just for
+      learning purposes)
+- https://github.com/paulirish/lite-youtube-embed
+- https://developers.google.com/youtube/player_parameters#Parameters (check for
+      parameters that can be used with the youtube player)
+
+- @todo background image locally instead of URL
+- @todo config param for JS inline or via external file
+- @todo documentation about $pc.Disable
+- @todo fix `title` attribute - does not seem to be working
+
+Maybe do the whole implementation via partials.Include that can be reused by the youtube partials.Include and shortcode
+
+*/ -}}
+
+{{- $pc := site.Config.Privacy.YouTube -}}
+{{- if not $pc.Disable -}}
+  {{- $id     := .Get "id"    | compare.Default (.Get 0) -}}
+  {{- $class  := .Get "class" | compare.Default (.Get 1) -}}
+  {{- $title  := .Get "title" | compare.Default (.Get 2) -}}
+  {{- $playlabel := .Get "playlabel" | compare.Default "Play video" -}}
+  {{- $params := .Get "params" | compare.Default (partials.IncludeCached "func/prepareApiParams.html" .) -}}
+  {{- $thumbnailUrl := partials.IncludeCached "func/getYTPreviewUrl.html" $id $id -}}
+  <div class="shortcode--youtube {{ with $class -}}{{- . -}}{{- end -}}">
+    <lite-youtube
+      videoid="{{- $id -}}" {{ with $playlabel -}}
+      playlabel="{{- . -}}" {{ end -}} {{ with $title -}}
+      title="{{- . -}}" {{ end -}}
+      params="{{- $params -}}"
+      style="background-image: url('{{- $thumbnailUrl.maxres -}}');">
+      <button type="button" class="lty-playbtn" aria-label="{{- $playlabel -}}">
+        {{- with $playlabel -}}<span class="lyt-visually-hidden">{{- . -}}</span>{{- end -}}
+      </button>
+    </lite-youtube>
+  </div>
+{{- end -}}

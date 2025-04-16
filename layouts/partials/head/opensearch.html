@@ -1,0 +1,6 @@
+{{- partials.Include "func/printCommentHeader.html" "@davidsneighbour/hugo-opensearch" -}}
+<link rel="search" {{/* clear */ -}}
+      type="application/opensearchdescription+xml" {{/* clear */ -}}
+      title="{{- lang.Translate "dnb-opensearch-search-title" site.Title -}}" {{/* clear */ -}}
+      href="{{- "opensearch.xml" | urls.AbsLangURL -}}">
+{{- /* clearup */ -}}

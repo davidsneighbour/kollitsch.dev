@@ -1,0 +1,41 @@
+{{- $link := .link -}}
+{{- $label := .label -}}
+{{- $images := .images -}}
+{{- $break_points := .break_points -}}
+{{- $title := .title -}}
+{{- $context := .context -}}
+{{- $class := .class | compare.Default "img-fluid" -}}
+
+{{- $largest := (math.Sub (len $images) 1) -}}
+{{ $largestImage := (collections.Index $images $largest) }}
+
+<figure class="aspect-auto" style="max-width: {{ $largestImage.Width }}px;">
+  {{- with $link -}}<a href="{{- . -}}">{{- end -}}
+  <picture>
+    {{- range $index, $image := $images -}}
+      <source
+        srcset="{{- $image.Permalink -}}"
+        media="(max-width: {{- collections.Index $break_points $index -}}px)"
+      />
+      {{- if compare.Eq $index (math.Sub (len $images) 1) -}}
+        <source srcset="{{- $image.Permalink -}}" />
+        {{- $alt := $title -}} {{- if compare.Eq $alt "" -}} {{- $alt = $context.Title -}}{{- end -}}
+        <img
+          class="{{- $class -}}"
+          src="{{- $image.Permalink -}}"
+          alt="{{- $alt | transform.Plainify -}}"
+          {{ if compare.Eq .MediaType.SubType "svg" }}{{/* no image processing for non-raster images */}}{{ else }}
+            width="{{- $image.Width -}}"
+            height="{{- $image.Height -}}"
+          {{ end }}
+          loading="lazy"
+          fetchpriority="low"
+        />
+      {{- end -}}
+    {{- end -}}
+  </picture>
+  {{ with $label -}}
+    <figcaption>{{- . -}}</figcaption>
+  {{- end -}}
+  {{- with $link -}}</a>{{- end -}}
+</figure>

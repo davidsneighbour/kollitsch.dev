@@ -1,0 +1,6 @@
+{{- if or (compare.Eq "gugin" hugo.Environment) hugo.IsDevelopment -}}
+  {{- range $key, $value := site.Data.dnb.netlification.headers -}}
+    <h3>{{- $key -}}</h3>
+    {{- $value | partials.Include "debug-print.html" -}}
+  {{- end -}}
+{{- end -}}

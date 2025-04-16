@@ -1,0 +1,37 @@
+{{- /*
+
+requires two parameters:
+
+- path: the path to the image, typically `.Destination` of the render hook
+- page: the `.RelPermalink` of the contextual page. NOTE: careful, the `page`
+        method might return a page containing the specific page and lead not the
+        image not being shown
+
+*/ -}}
+
+{{- $path := (fmt.Printf "%s" (.path | safe.URL)) -}}
+{{- $page := site.GetPage (fmt.Printf "%s" (.page | safe.URL)) -}}
+{{- $localimage := false -}}
+{{- with try ($page.Resources.GetMatch $path) -}}
+  {{- with .Err -}}
+    {{- fmt.Warnf "%s" . -}}
+  {{- else with .Value -}}
+    {{- $localimage = . -}}
+  {{ else }}
+    {{ warnf "Unable to get remote resource %q" $path }}
+  {{- end -}}
+{{- end -}}
+
+{{- with $localimage -}}{{- else -}}
+  {{- with try (resources.Get $path) -}}
+    {{- with .Err -}}
+      {{- fmt.Warnf "%s" . -}}
+    {{- else with .Value -}}
+      {{- $localimage = . -}}
+    {{ else }}
+      {{ warnf "Unable to get remote resource %q" $path }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $localimage -}}

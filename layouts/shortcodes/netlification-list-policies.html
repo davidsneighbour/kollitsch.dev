@@ -1,0 +1,17 @@
+{{- if or (compare.Eq "gugin" hugo.Environment) hugo.IsDevelopment -}}
+  {{- range $key, $value := site.Data.dnb.netlification.policies -}}
+    <h3>{{- $key -}}</h3>
+    <p>
+      {{- $value.description -}}
+    </p>
+    <p>
+      <strong>More Information: </strong>
+      [
+        {{- range $counter,$link := $value.more -}}
+          <a href="{{- $link -}}" target="_blank">{{- (math.Add $counter 1) -}}</a>
+        {{- end -}}
+      ]
+    </p>
+    {{- $value.policies | partials.Include "debug-print.html" -}}
+  {{- end -}}
+{{- end -}}

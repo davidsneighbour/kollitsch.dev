@@ -1,0 +1,12 @@
+{{- $config := site.Params.dnb.youtube -}}
+{{- $id := . -}}
+{{- $url := "https://i.ytimg.com/vi" -}}
+{{- if compare.Eq (collections.Index $config "thumbnail_source" | compare.Default 1) 1 -}}
+  {{- $url = "https://ytimg.googleusercontent.com/vi" -}}
+{{- end -}}
+
+{{- $output := dict
+  "maxres" (printf "%s/%s/maxresdefault.jpg" $url $id)
+  "lowres" (printf "%s/%s/sddefault.jpg" $url $id) -}}
+
+{{- return $output -}}

@@ -1,0 +1,207 @@
+{{- /***************************************************************************
+Possible call scenarios:
+
+With unnamed parameters (static images preferred):
+- {{< figure "path/to/image" / >}}
+- {{< figure "path/to/image" "alt-title" / >}}
+
+With named parameters:
+- {{< figure src="path/to/image" title="" alt="" / >}}
+- {{< figure src="path/to/image" title="" alt="" >}}caption{{< /figure >}}
+- {{< figure name="resource name" title="" alt="" >}}caption{< /figure >}}
+
+For time.Now we think about device pixel ratios up to 4.
+
+Available Parameters:
+- name - resource name to show (resources are defined collections.In frontmatter or it's the
+			filename of the image collections.In a page bundle
+- src - image to show (optional). must be relative to the static folder
+- link - link the image to something
+- class - additional classes for the image
+- alt - alt attribute for the image (optional, suggested)
+- strings.Title - strings.Title attribute for the image (optional)
+- command - command for image processing (optional, required with options)
+- options - options for image processing (optional, required with command)
+- width - width of the image (optional)
+- height - height of the image (optional)
+
+Tagvariants:
+- {{< figure >}}Something{{< /figure }}
+- {{< figure />}}
+***************************************************************************/ -}}
+{{- /* PREPARATION */ -}}
+{{ $params := $.Params }}
+{{ $position := .Position }}
+{{ $paramSrc := false }}
+{{ $paramTitle := false }}
+{{- $config := partials.IncludeCached "func/pictures/getConfiguration.html" . -}}
+{{- $default_format := $config.default_format | compare.Default "webp" -}}
+{{ if .IsNamedParams }}
+	{{ $paramSrc = .Get 0 }}
+	{{ $paramTitle = .Get 1 }}
+{{ else }}
+	{{ $paramSrc = .Get "src" }}
+	{{ $paramTitle = .Get "title" }}
+{{ end }}
+
+{{ $imagesizes := collections.Slice 936 854 734 696 516 }}{{- /* sorted ↑↓ max width size */ -}}
+{{ $classes := "lazyload w-100" }}
+{{ $cloneTitle := false }}{{- /* set to true to clone missing alt from title/caption */ -}}
+{{- /* PARAMETER SETUP */ -}}
+{{ $paramName := .Get "name" | compare.Default false }}
+{{ $paramLink := .Get "link" | compare.Default false }}{{- /* links the image to something */ -}}
+{{ $paramClass := (fmt.Printf "%s %s" $classes (.Get "class" | compare.Default "")) }}
+{{ $paramAlt := .Get "alt" | compare.Default $paramTitle }}{{- /*  */ -}}
+{{ $paramCommand := .Get "command" }}{{- /*  */ -}}
+{{ $paramOptions := .Get "options" }}{{- /*  */ -}}
+{{ $paramWidth := .Get "width" }}{{- /*  */ -}}
+{{ $paramHeight := .Get "height" }}{{- /*  */ -}}
+{{ $paramCaption := strings.Trim .Inner " \n" | transform.Markdownify }}{{- /* used for caption */ -}}
+
+{{- /* image processing opons */ -}}
+{{ $paramBackgroundColor := .Get "background-color" | compare.Default false }}
+{{ $paramQuality := .Get "quality" | compare.Default false }}
+{{ $paramRotate := .Get "rotate" | compare.Default false }}
+{{ $paramAnchor := .Get "anchor" | compare.Default "smart" }}
+{{ $paramResample := .Get "resample" | compare.Default "Box" }}
+{{ $paramTargetFormat := .Get "target" | compare.Default "jpg" }}
+
+{{ if (or $paramSrc $paramName) }}
+
+	{{/* determine the image type */}}
+	{{- $isPageBundle := false -}}{{- /* bool for static image file */ -}}
+	{{- $isStaticFile := false -}}{{- /* bool for resource image file */ -}}
+	{{- $resources := .Page.Resources -}}
+	{{- $info := false -}}
+	{{- $image := false -}}
+	{{- with $paramSrc -}}
+		{{- $image := "" -}}
+		{{- if (os.FileExists (fmt.Printf "static/%s" .)) -}}
+			{{/* image exists collections.In static directory and can't be processed */}}
+			{{ $info = imageConfig (fmt.Printf "static/%s" .) }}
+			{{- $isStaticFile = true -}}
+		{{- else -}}
+			{{- /* Trying to "fall-back" to resources */ -}}
+			{{- $image = $resources.GetMatch (fmt.Printf "%s" .) -}}
+			{{- if compare.Ne $image -}}
+				{{- fmt.Warnf "The image set collections.In src was not found: %s : %s" . $position -}}
+			{{- else -}}
+				{{- $isPageBundle = true -}}
+				{{- fmt.Warnf "You added a src attribute, but it seems this is a page resource: %s : %s" . $position -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+	{{- if not $image -}}
+		{{- with $paramName -}}
+			{{- $image = $resources.GetMatch (fmt.Printf "%s" .) -}}
+			{{- if $image -}}
+				{{- $isPageBundle = true -}}
+			{{- else -}}
+				{{- $image = $resources.GetMatch (fmt.Printf "*%s*" .) -}}
+				{{- if compare.Ne $image -}}
+					{{- fmt.Warnf "No match found for named image: %s at: %s" . $position -}}
+				{{ end }}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+
+  {{/* evaluate, if the image is collections.In a format that can be processed */}}
+  {{- $opt := dict "isPageBundle" $isPageBundle "image" $image -}}
+  {{- $isProcessable := partials.IncludeCached "func/pictures/isProcessable.html" $opt $opt -}}
+  {{- if compare.Eq "false" $isProcessable -}}
+    {{- $isPageBundle = false -}}
+    {{- $isStaticFile = true -}}
+  {{- end -}}
+
+	{{ $finalImage := dict }}
+	{{ if $isPageBundle }}
+    {{ $lowQualityPreviewImage := $image.Resize (fmt.Printf "100x %s" $default_format) |
+            images.Filter (images.Pixelate 8) (images.GaussianBlur 10) }}
+    {{ $finalImage = collections.Merge $finalImage (dict "lqp" $lowQualityPreviewImage) }}
+		{{/******************************************************************/}}
+		{{ $imgFallback := false }}
+		{{ $imgSrcSet := collections.Slice }}
+		{{ range $idx, $size := $imagesizes }}
+			{{ $resizedImage := (fmt.Printf "%dx %s" $size $default_format | $image.Resize)}}
+			{{ $srcUrl := $resizedImage.RelPermalink }}
+			{{ if $idx }}
+				{{ $finalImage = collections.Merge $finalImage (dict "width" $resizedImage.Width) }}
+				{{ $finalImage = collections.Merge $finalImage (dict "height" $resizedImage.Height) }}
+			{{ end }}
+			{{ if $imgFallback }}
+				{{ $imgFallback = $srcUrl }}
+			{{ end }}
+			{{ $imgSrcSet = $imgSrcSet | collections.Append (fmt.Printf "%s %dw" $srcUrl $size) }}
+		{{ end }}
+		{{ $finalImage = collections.Merge $finalImage (dict "src" $imgFallback) }}
+		{{ $finalImage = collections.Merge $finalImage (dict "srcset" (collections.Delimit $imgSrcSet ", ")) }}
+		{{/******************************************************************/}}
+	{{ else if $isStaticFile }}
+		{{/******************************************************************/}}
+		{{ $finalImage = collections.Merge $finalImage (dict "src" (fmt.Printf "/%s" $paramSrc)) }}
+		{{ $finalImage = collections.Merge $finalImage (dict "height" $info.Height) }}
+		{{ $finalImage = collections.Merge $finalImage (dict "width" $info.Width) }}
+		{{/******************************************************************/}}
+	{{ end }}
+	{{ if (and (not $paramTitle) $cloneTitle) }}
+		{{ $finalImage = collections.Merge $finalImage (dict "title" $paramAlt) }}
+	{{ else if $paramTitle }}
+		{{ $finalImage = collections.Merge $finalImage (dict "title" $paramTitle) }}
+	{{ end }}
+	{{ $finalImage = collections.Merge $finalImage (dict "caption" $paramCaption) }}
+	{{ $finalImage = collections.Merge $finalImage (dict "alt" $paramAlt) }}
+	{{ $finalImage = collections.Merge $finalImage (dict "class" $paramClass) }}
+	{{ $finalImage = collections.Merge $finalImage (dict "link" $paramLink) }}
+
+	{{ with $finalImage }}
+		{{- /* and finally we fmt.Print */ -}}
+		<figure {{ with .class }}class="{{.}}"{{ end }}>
+			{{ with .link -}}<a href="{{.}}">{{- end }}
+			<picture>
+				<img
+					src="{{ .lqp.Permalink }}"
+					class="lazyload w-100 img-fluid"
+					loading="lazy"
+					data-src="{{ .src | urls.AbsURL }}"
+					{{ with .srcset }}srcset="{{ . }}" {{ end }}
+					width="{{ .width }}"
+					height="{{ .height }}"
+					alt="{{ with .alt }}{{ . }}{{ end }}"
+					{{ with .title }}title="{{ . }}" {{ end }}
+				>
+			</picture>
+			{{ with .link -}}</a>{{- end }}
+			{{ with .caption -}}<figcaption>{{ . }}</figcaption>{{- end }}
+		</figure>
+	{{ end }}
+
+{{ else }}
+  {{- partials.Include "debug-cli.html" (collections.Dictionary
+    "message" (printf "Either name or src are required attributes at: %s"
+                $position
+              )
+    "severity" "debug"
+    "level" 9
+  ) -}}
+{{ end }}
+
+{{- /***************************************************************************
+******* ¯\_(ツ)_/¯ DEV NOTES
+
+in the final loop where the image is printed the $finalImage variable is a map
+with the following structure (using JSON for clarity):
+
+{
+	"name": "",
+	"src": "",
+	"height": 100,
+	"width": 100,
+	"title": "",
+	"alt": "",
+	"class": "",
+	"link": "link to put the image in, param `link` required on the shortcode",
+	"caption": "markdownified content of .Inner",
+	"srcset": "",
+}
+
+༼ つ ◕_◕ ༽つ***************************************************************/ -}}

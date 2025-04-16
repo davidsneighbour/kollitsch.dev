@@ -1,0 +1,56 @@
+{{- /*
+
+Template for robots.txt
+
+- https://gohugo.io/templates/robots/
+
+Add "robotsdisallow: true" to frontmatter of entries to be disallowed.
+
+*/ -}}
+{{- $config := site.Params.dnb.robots -}}
+{{- $globaldisallow := collections.Where site.Pages "Params.options.robots.disallow" true -}}
+
+{{- with $config.initialComment -}}
+{{ . -}}
+{{ end -}}
+
+{{ if eq ($config.blockAIBots | default false) true -}}
+{{ $aiBots := partial "func/getAIRobots.html" . . }}
+{{ range $bot, $values := $aiBots -}}
+User-agent: {{ $bot }}
+{{ end -}}
+Disallow: /
+{{ end -}}
+
+{{ range $index, $item := $config.useragents }}
+User-agent: {{ $item.name -}}
+{{ if eq $item.name "*" -}}
+{{ with $globaldisallow -}}
+{{- range . }}
+Disallow: {{ .RelPermalink }}
+{{- end }}
+{{- end -}}
+{{- end -}}
+{{- range $item.disallow }}
+Disallow: {{ . }}
+{{- end -}}
+{{- range $item.allow }}
+Allow: {{ . }}
+{{- end }}
+{{ end }}
+
+Sitemap: {{ "sitemap.xml" | urls.AbsLangURL }}
+
+{{ with $config.concludingComment -}}
+{{ . | safe.HTML -}}
+{{ end -}}
+
+{{- $branding := true -}}
+{{- with $config.disableBranding -}}
+  {{- if compare.Eq true . -}}
+    {{- $branding = false -}}
+  {{- end -}}
+{{- end -}}
+{{- if compare.Eq $branding true }}
+# robots.txt is prepared by https://github.com/davidsneighbour/hugo-modules/tree/main/modules/robots#readme
+{{ end -}}

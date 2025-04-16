@@ -1,4 +1,5 @@
-{{- $galleryid := .Get "id" | compare.Default (partials.Include "func/getRandomString" (dict "limit" 8)) -}}
+{{- $defaultid := partials.Include "func/getRandomString" (dict "limit" "12") -}}
+{{- $galleryid := .Get "id" | compare.Default $defaultid -}}
 {{- $gallery := .Get "gallery" | compare.Default "gallery" -}}
 {{- $type := .Get "type" | compare.Default "bootstrap5" -}}
 {{- $storage := .Get "storage" | compare.Default "gallery" -}}

@@ -1,0 +1,28 @@
+{{- $icontype := site.Params.dnb.icons.default -}}
+{{- with .type -}}
+  {{- $icontype = . -}}
+{{- end -}}
+{{- $config := collections.Index site.Params.dnb.icons $icontype -}}
+{{- $iconname := .icon | compare.Default "dash-square-dotted" -}}
+{{- $width := .width | compare.Default 20 -}}
+{{- $height := .height | compare.Default 20 -}}
+{{- $class := .class | compare.Default "" -}}
+
+<svg width="{{- $width -}}" height="{{- $height -}}" class="icon icon-{{- $iconname }} {{ $class -}}">
+  {{- $icons := .Scratch.Get "icons" -}}
+  {{- if compare.Eq (collections.Index $icons $iconname) true -}}
+  {{- else -}}
+    {{- $iconpath := fmt.Printf $config.path $iconname -}}
+    {{- $content := "" -}}
+    {{- with resources.Get $iconpath }}
+      {{- $content = .Content | safe.HTML -}}
+      {{- $replaceId := fmt.Printf "id=%q" $iconname | safe.HTMLAttr -}}
+      {{- $replacement := fmt.Printf "<symbol %s " $replaceId -}}
+      {{- $content = strings.Replace $content "<svg " $replacement 1 -}}
+      {{- $content = strings.Replace $content "</svg>" "</symbol>" 1 -}}
+      {{- $icons.SetInMap "icons" $iconname true -}}
+    {{- end -}}
+    {{- $content | safe.HTML -}}
+  {{- end -}}
+  <use href="#{{- $iconname -}}"{{ with .width }} width="{{- . -}}"{{ end }}{{ with .height }} height="{{- . -}}"{{ end }} />
+</svg>

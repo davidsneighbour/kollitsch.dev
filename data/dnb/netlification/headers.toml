@@ -1,0 +1,97 @@
+[[headers]]
+for = "/"
+[headers.values]
+Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+Accept-Encoding = "gzip, deflate, br"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "no-referrer"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/*.html"
+[headers.values]
+Accept-Encoding = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.manifest"
+[headers.values]
+"Content-Type" = "application/manifest+json; charset=utf-8"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.js"
+[headers.values]
+"Content-Type" = "text/javascript; charset=utf-8"
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.ico"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.css"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.jpg"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.jpeg"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.png"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.gif"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.eot"
+[headers.values]
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/*.ttf"
+[headers.values]
+"Accept-Encoding" = "gzip, deflate, br"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/images/*"
+[headers.values]
+"Expires" = "%default"
+"Cache-Control" = "public, max-age=31536000, immutable"

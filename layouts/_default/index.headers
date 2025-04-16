@@ -1,0 +1,135 @@
+{{- /* see https://docs.netlify.com/routing/headers/ */ -}}
+{{- $config := site.Params.dnb.netlification -}}
+{{- $headers := site.Data.dnb.netlification.headers -}}
+{{- fmt.Printf $config.internals.banner site.Data.dnb.modder.netlification.version -}}
+{{- partials.Include "func/processHeaders.html" $headers -}}
+{{- partials.Include "func/processNetlifyHeaders.html" site.Data.netlification -}}
+
+{{- define "partials/func/getCSPHeader.html" -}}
+
+  {{- $config := .csp -}}
+
+  {{- $nonrules := collections.Slice "upgradeinsecurerequests" "reporturi" "reportonly" -}}
+  {{- $output := "" -}}
+
+  {{- with $config -}}
+
+    {{- $output = "\n  Content-Security-Policy: " -}}
+    {{ if (compare.Eq $config.reportOnly true) -}}
+      {{- $output = "\n  Content-Security-Policy-Report-Only: " -}}
+    {{- end -}}
+
+    {{- range $key, $values := $config -}}
+      {{- if not (collections.In $nonrules $key) -}}
+        {{- with (collections.Index $config $key) -}}
+          {{- $output = printf "%s %s"
+                          $output
+                          (strings.Replace ($key | inflect.Humanize | strings.ToLower) " " "-" ) -}}
+          {{- range . -}}
+            {{- $output = printf "%s %s" $output . -}}
+          {{- end -}}
+          {{- $output = printf "%s;" $output -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- with $config.upgradeInsecureRequests -}}
+      {{- if (compare.Eq $config.upgradeInsecureRequests true) -}}
+        {{- $output = printf "%s upgrade-insecure-requests;" $output -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- with $config.reportUri -}}
+      {{- $output = printf "%s report-uri %s;" $output . -}}
+    {{- end -}}
+
+  {{- end -}}
+
+  {{ return $output }}
+
+{{- end -}}
+
+{{- define "partials/func/getReplacement.html" -}}
+
+  {{ $value := . }}
+  {{ $value = strings.Replace
+                $value
+                "%default"
+                (partials.IncludeCached "func/getReplacementExpiryAge.html" "default") }}
+  {{ return $value }}
+
+{{- end -}}
+
+{{- define "partials/func/getReplacementExpiryAge.html" -}}
+
+  {{ $duration := . }}
+  {{ $config := site.Params.dnb.netlification }}
+  {{ $value := ""}}
+
+  {{ if collections.In (slice "default") $duration }}
+    {{ $dateformat := "Mon, 02-Jan-2006 15:04:05 GMT-0700" }}
+    {{/* {{ $day := 86400 }}
+    {{ $month := 2628000 }}
+    {{ $year := 31536000 }} */}}
+    {{ $cacheYears := cast.ToInt $config.cache.duration.years | compare.Default 1 }}
+    {{ $cacheMonths := cast.ToInt $config.cache.duration.months | compare.Default 0 }}
+    {{ $cacheDays := cast.ToInt $config.cache.duration.days | compare.Default 0 }}
+    {{/* {{ $cacheSeconds := math.Add (math.Mul $cacheDays $day)
+                                  (math.Add (math.Mul $cacheMonths $month)
+                                            (math.Mul $cacheYears $year)) }}
+    {{ $cacheControl := fmt.Printf $config.defaults.cacheControl $cacheSeconds }} */}}
+    {{ $expiryAge := now.AddDate $cacheYears $cacheMonths $cacheDays }}
+    {{ $value = $expiryAge | time.Format $dateformat }}
+  {{ end }}
+  {{ return $value -}}
+
+{{- end -}}
+
+{{- define "partials/func/processHeaders.html" -}}
+
+  {{- $items := . -}}
+  {{- $config := site.Params.dnb.netlification -}}
+
+  {{- range $items -}}
+    {{- range . -}}
+      {{- fmt.Printf "\n\n%s" .for -}}
+      {{- if eq "/*" .for -}}
+        {{ partials.Include "func/getCSPHeader.html" $config -}}
+      {{- end -}}
+      {{- partials.Include "func/processHeadersInner.html" .values -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- define "partials/func/processHeadersInner.html" -}}
+
+  {{- $items := . -}}
+  {{- range $key, $value := $items -}}
+    {{- $value = partials.Include "func/getReplacement.html" $value -}}
+    {{- fmt.Printf "\n  %s: %s" $key ($value | safeHTML) -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- define "partials/func/processNetlifyHeaders.html" -}}
+
+  {{- fmt.Printf "\n\n%s" "# headers created via data configuration from other modules" -}}
+  {{- $items := . -}}
+  {{- with site.Data.dnb -}}
+    {{- range $index, $item := . -}}
+      {{- if (collections.Index $item "netlification") -}}
+        {{- with $item.netlification.headers -}}
+          {{- fmt.Printf "\n# from %s" $index -}}
+          {{- range . -}}
+            {{- if .for -}}
+              {{- fmt.Printf "\n%s" .for -}}
+              {{- partials.Include "func/processHeadersInner.html" .values -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}

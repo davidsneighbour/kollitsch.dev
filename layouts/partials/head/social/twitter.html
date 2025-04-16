@@ -1,0 +1,52 @@
+{{- $config := site.Params.dnb.social.twitter -}}
+{{- $page := false -}}
+{{- if .IsPage -}}
+	{{- $page = true -}}
+{{- end -}}
+
+{{- $dict := dict -}}
+
+{{- /* twitter:card */ -}}
+{{- $card := partials.IncludeCached "head/social/twitter/get.html"
+              (dict
+                "context" .
+                "key" "card"
+                "default" "summary_large_image") . -}}
+{{- $cards := collections.Slice "summary" "summary_large_image" -}}
+{{- if not (collections.In $cards $card) -}}
+	{{- $card = "summary" -}}
+	{{- /* TODO: notice about this card type not being supported */ -}}
+{{- end -}}
+{{- $dict = $dict | collections.Merge ( dict "twitter:card" $card ) -}}
+
+{{/* twitter:title */}}
+{{- $dict = $dict | collections.Merge ( dict "twitter:title" (partials.IncludeCached "func/getTitle.html" page page) ) -}}
+{{- $dict = $dict | collections.Merge ( dict "twitter:text:title" (partials.IncludeCached "func/getTitle.html" page page) ) -}}{{/* Title of content (max 70 characters) */}}
+
+{{/* twitter:description */}}
+{{- $dict = $dict | collections.Merge ( dict "twitter:description" (partials.IncludeCached "func/getDescription.html" . .) ) -}}{{/* Description of content (maximum 200 characters) */}}
+
+{{/* twitter:profile */}}
+{{- if collections.IsSet $config "profile" -}}
+	{{- $dict = $dict | collections.Merge ( dict "twitter:site" (fmt.Printf "@%s" $config.profile) ) -}}{{/* max 15 character s */}}
+{{- else -}}
+	{{- fmt.Warnf "Please define your Twitter setup. You need to math.Add a params/dnb/social/networks.twitter.toml configuration!" . -}}
+{{- end -}}
+
+{{/* twitter:creator */}}
+{{- with site.Params.Author.twitter -}}
+	{{- $dict = $dict | collections.Merge ( dict "twitter:creator" (fmt.Printf "@%s" .) ) -}}
+{{- end -}}
+
+{{- range collections.First 1 (.Resources.ByType "image") -}}
+	{{- $image := .Resize "1200x630" -}}
+	{{- $dict = $dict | collections.Merge ( dict "twitter:image" $image.Permalink ) -}}
+	{{- $dict = $dict | collections.Merge ( dict "twitter:image:width" $image.Width ) -}}
+	{{- $dict = $dict | collections.Merge ( dict "twitter:image:height" $image.Height ) -}}
+
+{{- end -}}
+
+{{- range $key, $value := $dict -}}
+	<meta name="{{$key}}" content="{{$value}}">
+{{ end -}}
+<meta name="twitter:dnt" content="on">

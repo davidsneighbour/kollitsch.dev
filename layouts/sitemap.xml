@@ -1,0 +1,56 @@
+{{- fmt.Printf "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" | safe.HTML -}}
+
+{{- $global := site.Params.dnb.sitemap -}}
+{{- $full := false -}}
+{{- with collections.Index $global "full" -}}
+  {{- $full = . -}}
+{{- end -}}
+
+{{- $listpages := "false" -}}
+{{- with collections.Index $global "listpages" -}}
+  {{- $listpages = . -}}
+{{- end -}}
+
+{{- $pages := site.Pages -}}
+{{- if eq $listpages "false" -}}
+  {{- $pages = site.RegularPages -}}
+{{- end -}}
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{- range $global.pages -}}
+    <url>
+      <loc>{{- .loc -}}</loc>
+      {{- with .priority -}}
+        <priority>{{- . -}}</priority>
+      {{- end -}}
+    </url>
+  {{- end -}}
+  {{- range collections.Where $pages "Draft" false -}}
+    {{- $isSitemapped := partials.IncludeCached "func/isSitemapped.html" . . -}}
+    {{- if compare.Eq true $isSitemapped -}}
+      <url>
+        <loc>{{- .Permalink -}}</loc>
+
+        {{- if not .Lastmod.IsZero -}}
+          <lastmod>{{- safe.HTML ( .Lastmod.Format (fmt.Printf "%s" $global.format) ) -}}</lastmod>
+        {{- end -}}
+
+        {{ if (compare.Eq $global.full true) }}
+          {{- with .Sitemap.ChangeFreq -}}
+            <changefreq>{{- . -}}</changefreq>
+          {{- end -}}
+          {{- if compare.Ge .Sitemap.Priority 0.0 -}}
+            <priority>{{- .Sitemap.Priority -}}</priority>
+          {{- end -}}
+        {{ end }}
+
+        {{- if .IsTranslated -}}
+          {{- range .Translations -}}
+            <xhtml:link rel="alternate" hreflang="{{- .Language.Lang -}}" href="{{- .Permalink -}}"></xhtml:link>
+          {{- end -}}
+          <xhtml:link rel="alternate" hreflang="{{- .Language.Lang -}}" href="{{- .Permalink -}}"></xhtml:link>
+        {{- end -}}
+      </url>
+    {{- end -}}
+  {{- end -}}
+</urlset>

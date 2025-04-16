@@ -1,6 +1,6 @@
 [hugoVersion]
 extended = true
-min = "0.146.4"
+min = "0.146.5"
 
 [[mounts]]
 source = ".frontmatter/content"
@@ -27,52 +27,67 @@ source = "hugo_stats.json"
 target = "assets/watching/hugo_stats.json"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/modder"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/auditor"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/giscus"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/headerimage"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/icons"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/netlification"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/opensearch"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/pictures"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/publisher"
-
-[[imports]]
 path = "github.com/davidsneighbour/hugo-modules/modules/pwa"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/renderhooks"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/Heydon/REVENGE.CSS"
+
+[[imports.mounts]]
+source = 'revenge.css'
+target = 'assets/css/libs/revenge.css'
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/robots"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/csswizardry/ct"
+
+[[imports.mounts]]
+source = 'ct.css'
+target = 'assets/css/libs/ct.css'
+
+[[imports.mounts]]
+source = 'ct.css'
+target = 'static/css/libs/ct.css'
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/security"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/zenorocha/clipboard.js"
+
+[[imports.mounts]]
+source = 'dist/clipboard.js'
+target = 'assets/js/plugins/lib/clipboard.js'
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/shortcodes"
+disable = false
+ignoreConfig = true
+ignoreImports = true
+path = "github.com/twbs/icons"
+
+[[imports.mounts]]
+source = "icons"
+target = "assets/icons/bootstrap-icons"
 
 [[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/sitemap"
+# see https://github.com/aFarkas/lazysizes for details
+disable = false
+ignoreConfig = false
+ignoreImports = false
+path = "github.com/aFarkas/lazysizes"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/social"
+[[imports.mounts]]
+source = "lazysizes-umd.js"
+target = "assets/libs/lazysizes/index.js"
 
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/youtube"
+[[imports.mounts]]
+source = "lazysizes.js"
+target = "assets/libs/lazysizes/lazysizes.js"
+
+[[imports.mounts]]
+source = "plugins"
+target = "assets/libs/lazysizes/plugins"

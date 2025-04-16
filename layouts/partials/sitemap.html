@@ -1,0 +1,41 @@
+{{- $config := .config -}}
+
+<ul>
+  {{- range $config.item -}}
+    <li><a href="{{- $.Page.Permalink -}}#{{- .label | urls.URLize -}}">{{- .label -}}</a></li>
+  {{- end -}}
+</ul>
+
+{{- range $config.item -}}
+
+  <h2>{{- .label -}}</h2>
+  {{- $pages := collections.Slice -}}
+  {{- if compare.Eq (.selection | compare.Default "in-regular") "in-regular" -}}
+      {{- $pages = (collections.Where site.RegularPages .type .section) -}}
+  {{- else if compare.Eq .selection "in-pages" -}}
+    {{- $pages = (collections.Where site.Pages .type .section) -}}
+  {{- else if compare.Eq .selection "not-in" -}}
+    {{- $pages = (collections.Where site.Pages .type "not in" .section) -}}
+  {{- end -}}
+
+  {{ if collections.IsSet . "sortvalue" }}
+    {{- $pages = collections.Sort $pages .sortvalue (.sortdirection | compare.Default "ASC") -}}
+  {{- end -}}
+
+  {{- partials.Include "range-through-pages.html" $pages -}}
+
+{{- end -}}
+
+{{- define "partials/range-through-pages.html" -}}
+<ul>
+  {{- range . -}}
+    {{- if (compare.Ne .Params.hasSitemap false) -}}
+      <li>
+        <a href="{{- .Permalink -}}" title="{{- .Description -}}">
+          {{- .Title -}}
+        </a>
+      </li>
+    {{- end -}}
+  {{- end -}}
+</ul>
+{{- end -}}

@@ -1,0 +1,70 @@
+################################################################################
+# Netlification v{{ site.Data.dnb.netlification.build.version }}
+################################################################################
+
+################################################################################
+# redirects from content aliases
+################################################################################
+{{/* range through single aliases */}}
+{{ range $p := site.Pages -}}
+  {{ range .Aliases -}}
+    {{- partial
+          "dnb-netlification/redirection.html" (
+          slice "%s %s %d" (. | fmt.Printf "%-40s") $p.RelPermalink (cast.ToInt 301)
+    ) -}}
+  {{- end -}}
+{{- end }}
+################################################################################
+# redirects from configuration in site.Params.dnb.netlification.redirects
+################################################################################
+{{/* range through configured redirects */}}
+{{- with site.Params.dnb.netlification.redirects -}}
+  {{ range . -}}
+    {{- if (collections.Index . "netlify") -}}
+      {{- partial
+            "dnb-netlification/redirection.html" (
+            slice "%s %s %d!" (printf "%s%s" .netlify "*") (site.BaseURL | fmt.Printf "%s:splat") (cast.ToInt 301)
+      ) -}}
+    {{- else -}}
+      {{- partial
+            "dnb-netlification/redirection.html" (
+            slice "%s %s %d" .from .to (.status | compare.Default 301)
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end }}
+################################################################################
+# error pages redirections
+################################################################################
+{{/* error pages */}}
+{{- partial
+      "dnb-netlification/redirection.html" (
+      slice "%s %s %d" "/*" "/404" 404
+) -}}
+
+{{- /* partial to print redirections */ -}}
+{{ define "partials/dnb-netlification/redirection.html" }}
+  {{- printf (collections.Index . 0)
+        (collections.Index . 1 | fmt.Printf "%-50s")
+        (collections.Index . 2 | fmt.Printf "%-50s")
+        (collections.Index . 3 | cast.ToInt) }}
+{{ end }}
+
+{{ define "partials/dnb-netlification/redirect_request.html" }}
+
+{{- $from := "" -}}
+{{- $to := "" -}}
+{{- $status := 200 -}}
+{{- $force := false -}}
+{{- $query := dict -}}
+{{- $conditions := dict -}}
+
+{{/* [[redirects]]
+  from = "/old-path"
+  to = "/new-path"
+  status = 301
+  force = false
+  query = {path = ":path"} #  apply this rule for /old-path?path=example
+  conditions = {Language = ["en","es"], Country = ["US"]} */}}
+
+{{ end }}

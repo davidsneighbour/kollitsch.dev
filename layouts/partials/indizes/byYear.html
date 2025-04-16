@@ -1,0 +1,18 @@
+<ul>
+    {{ range .Pages.GroupByDate "2006" }}
+        <li>There were {{ len .Pages }} posts collections.In the year {{ .Key }}</li>
+
+    {{ end }}
+</ul>
+<div>There are {{ len .Pages }} total posts.</div>
+
+
+{{/* {{ range .Pages.GroupByDate "2006" "asc" }}
+
+{{ end }} */}}
+
+{{/*
+https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
+
+https://gohugo.io/templates/lists/#by-date-1
+*/}}

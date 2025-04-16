@@ -1,0 +1,50 @@
+{{/* @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag */}}
+{{- $config := .Params.options -}}
+{{- $global := site.Params.dnb.robots -}}
+
+{{/* check if $config is used, then fmt.Warnf about it being deprecated */}}
+
+{{/* {{- partials.Include "debug-cli.html"
+      (dict
+        "message" "Note: `follow` as frontmatter is deprecated. Use options > robots > follow instead."
+        "severity" "warn"
+        "level" 4
+        "slug" "hugo-robots"
+      )
+-}} */}}
+
+{{- $follow := "follow" -}}
+{{- with $config.follow -}}
+  {{- if compare.Eq true . -}}
+    {{- $follow = "follow" -}}
+  {{- else -}}
+    {{- $follow = "nofollow" -}}
+  {{- end -}}
+{{- else -}}
+  {{- if collections.IsSet $global "follow" -}}
+    {{- if compare.Ne $global.follow true | compare.Default true -}}
+      {{- $follow = "nofollow" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $index := "index" -}}
+{{- with $config.index -}}
+  {{- if compare.Eq true . -}}
+    {{- $index = "index" -}}
+  {{- else -}}
+    {{- $index = "noindex" -}}
+  {{- end -}}
+{{- else -}}
+  {{- if collections.In (collections.Slice "section" "taxonomy") page.Kind -}}
+    {{- $index = "noindex" -}}
+  {{- end -}}
+  {{- if collections.IsSet $global "follow" -}}
+    {{- if compare.Ne $global.index true | compare.Default true -}}
+      {{- $index = "noindex" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* and finally printing the robots tag */ -}}
+<meta name="robots" content="{{- $index -}},{{- $follow -}}" />

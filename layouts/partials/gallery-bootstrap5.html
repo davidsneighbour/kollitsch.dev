@@ -1,0 +1,37 @@
+{{- $images := .images -}}
+{{- $galleryid := .galleryid -}}
+{{- $dark := compare.Eq "true" .dark | compare.Default "false" -}}
+{{- $crossfade := compare.Eq "true" .crossfade | compare.Default "false" -}}
+
+{{- /* using bootstrap 5 */ -}}
+<div id="g{{ $galleryid }}"
+      class="carousel slide {{ if $dark -}}carousel-dark{{- end }} {{ if $crossfade -}}carousel-fade{{- end }}"
+      data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {{- with $images -}}
+      {{- range $index, $element := . -}}
+        <button
+          type="button" data-bs-target="#g{{ $galleryid }}"
+          data-bs-slide-to="{{ $index }}"{{ if (compare.Eq $index 0) }} class="active" aria-current="true"{{ end }}
+          aria-label="Slide 1"></button>
+      {{- end -}}
+    {{- end -}}
+  </div>
+  <div class="carousel-inner">
+    {{- with $images -}}
+      {{- range $index, $element := . -}}
+        <div class="carousel-item{{ if (compare.Eq $index 0) }} active{{ end }}">
+          <img class="d-block w-100" src="{{ $element.RelPermalink }}" alt="{{ $element.Title }}" />
+        </div>
+      {{- end -}}
+    {{- end -}}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#g{{ $galleryid }}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#g{{ $galleryid }}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

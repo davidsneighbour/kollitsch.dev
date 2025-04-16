@@ -16,8 +16,12 @@
     "@alpinejs/intersect": "3.14.9",
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.10.1",
+    "@davidsneighbour/browserslist-config": "2025.1.1",
     "@davidsneighbour/debuglogger": "0.2.0",
+    "@davidsneighbour/eslint-config": "2025.1.1",
     "@davidsneighbour/release-config": "2025.1.1",
+    "@davidsneighbour/tools": "2025.1.1",
+    "@davidsneighbour/webpack-config": "2025.1.1",
     "@frontmatter/extensibility": "0.0.18",
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@github/hotkey": "3.1.1",
@@ -49,6 +53,13 @@
     "trim": "1.0.1",
     "ts-node": "10.9.2",
     "tsx": "4.19.3",
+    "workbox-cacheable-response": "7.3.0",
+    "workbox-core": "7.3.0",
+    "workbox-expiration": "7.3.0",
+    "workbox-precaching": "7.3.0",
+    "workbox-routing": "7.3.0",
+    "workbox-strategies": "7.3.0",
+    "workbox-webpack-plugin": "7.3.0",
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
   },
@@ -99,7 +110,11 @@
     "server": "rm -rf ./public && hugo server trust && hugo config --format json --environment gugin > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --environment gugin --logLevel debug --tlsAuto --baseURL https://localhost/ 2>&1 | tee -a logs/hugo.log",
     "tests": "npx playwright test",
     "tests:ui": "npx playwright test --ui",
-    "update": "wireit"
+    "update": "wireit",
+    "webpack": "npm run build:dev && npm run build:prod",
+    "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.cjs",
+    "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.cjs",
+    "webpack:server": "webpack --watch --config webpack.dev.js"
   },
   "wireit": {
     "audit:html": {
@@ -124,17 +139,25 @@
     },
     "build:hugo": {
       "command": "hugo --environment gugin --logLevel debug --minify",
-      "dependencies": ["clean:dist", "build:hugoconfig"]
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig"
+      ]
     },
     "build:hugoconfig": {
       "command": "hugo config --format json --environment gugin > data/dnb/kollitsch/config.json"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": ["build:hugo"]
+      "dependencies": [
+        "build:hugo"
+      ]
     },
     "clean": {
-      "dependencies": ["clean:audit", "clean:hugo"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo"
+      ]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -144,7 +167,11 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -175,18 +202,26 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": ["deploy:netlify"]
+      "dependencies": [
+        "deploy:netlify"
+      ]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "lint": {
-      "dependencies": ["lint:lockfiles"]
+      "dependencies": [
+        "lint:lockfiles"
+      ]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -201,14 +236,19 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": ["server:hugo", "server:pagefind2"]
+      "dependencies": [
+        "server:hugo",
+        "server:pagefind2"
+      ]
     },
     "server:pagefind2": {
       "command": "node ./scripts/pagefind.mjs"
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
-      "dependencies": ["server:hugo-certificates"],
+      "dependencies": [
+        "server:hugo-certificates"
+      ],
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at (.*)"
@@ -219,11 +259,15 @@
       "command": "hugo server trust"
     },
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",

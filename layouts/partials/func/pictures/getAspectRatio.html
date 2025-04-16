@@ -1,0 +1,4 @@
+{{- $config := partials.IncludeCached "func/pictures/getConfiguration.html" . -}}
+{{- $aspect_ratio := $config.aspect_ratio | compare.Default "false" -}}
+{{- $aspect_ratio = (strings.Split $aspect_ratio ":") -}}
+{{- return $aspect_ratio -}}

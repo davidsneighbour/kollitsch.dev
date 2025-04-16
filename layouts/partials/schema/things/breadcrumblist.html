@@ -1,0 +1,16 @@
+{{ if not .IsHome }}
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+  {{- $counter := 1 }}
+  {{- range .Ancestors.Reverse }}
+    {{- partials.Include "schema/things/listItem.html" . -}}
+    {{- $counter = math.Add $counter 1 -}}
+  {{ end }}
+    {{- partials.Include "schema/things/listItem.html" . -}}
+  ]
+}
+</script>
+{{ end }}

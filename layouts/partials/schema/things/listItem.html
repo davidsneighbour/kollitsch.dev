@@ -1,0 +1,9 @@
+
+
+{
+      "@type": "ListItem",
+      "name": "{{ .LinkTitle | compare.Default site.Title | safe.JS}}",
+      "url": {{ .Permalink }},
+      "item": {{ .Permalink }}
+    },
+

@@ -1,0 +1,32 @@
+{{- partials.Include "func/printCommentHeader.html" "@davidsneighbour/hugo-pwa" -}}
+
+{{- $config := site.Params.dnb.pwa -}}
+
+<link rel="manifest" href="/manifest.webmanifest">
+{{- /* @todo configurable favicon path */ -}}
+{{- $icon := resources.Get $config.favicon -}}
+{{- if compare.Ne nil $icon -}}
+  {{- $sizes := dict
+    "apple-touch-icon" (collections.Slice "180x180" "192x192")
+    "icon" (collections.Slice "32x32" "16x16") -}}
+  {{- range $key, $value := $sizes -}}
+    {{- range $value -}}
+      {{- $size := . -}}
+      {{- $icon := $icon.Resize $size }}
+<link rel="{{- $key -}}" sizes="{{- $size -}}" {{/* clear */ -}}
+      type="{{- $icon.MediaType.Type -}}" href="{{- $icon.Permalink -}}">
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* https://web.dev/building-an-adaptive-favicon/ */ -}}
+  {{- with resources.Get "favicon/favicon.svg" }}
+<link rel="icon" href="{{- .Permalink -}}" type="image/svg+xml">
+  {{- end }}
+{{- $maskicon := $icon.Resize "192x192" }}
+<link rel="mask-icon" href="{{- $maskicon.Permalink -}}" color="{{- $config.theme_color -}}">
+<meta name="theme-color" content="{{- $config.theme_color -}}">
+{{- else -}}
+  {{- fmt.Warnf "No favicon defined. " -}}
+{{- end -}}
+
+{{- /* clearup */ -}}

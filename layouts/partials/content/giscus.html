@@ -1,0 +1,49 @@
+{{- $context := . -}}
+{{- with site.Params.dnb.giscus -}}
+  {{- $dataMapping := .dataMapping | compare.Default "specific" -}}
+  {{- with .dataRepo -}}{{- else -}}
+    {{- fmt.Warnf "dataRepo needs to be configured in [params.dnb.giscus]" -}}
+  {{- end -}}
+  {{- with .dataRepoId -}}{{- else -}}
+    {{- fmt.Warnf "dataRepoId needs to be configured in [params.dnb.giscus]" -}}
+  {{- end -}}
+  {{- with .dataCategory -}}{{- else -}}
+    {{- fmt.Warnf "dataCategory needs to be configured in [params.dnb.giscus]" -}}
+  {{- end -}}
+  {{- with .dataCategoryId -}}{{- else -}}
+    {{- fmt.Warnf "dataCategoryId needs to be configured in [params.dnb.giscus]" -}}
+  {{- end -}}
+  <div id="giscus-comments" class="giscus"></div>
+  {{- $dataStrict := .dataStrict | compare.Default "1" -}}
+  {{- $dataEmitMetadata := .dataEmitMetadata | compare.Default "0" -}}
+  {{- $dataInputPosition := .dataInputPosition | compare.Default "top" -}}
+  {{- $dataTheme := .dataTheme | compare.Default "dark" -}}
+  {{- with .dataThemeType -}}
+    {{- if compare.Eq . "local" -}}
+      {{- $dataTheme = site.Params.dnb.giscus.dataTheme | urls.AbsURL -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $dataLoading := .dataLoading | compare.Default "lazy" -}}
+  {{- $dataLang := .dataLang | compare.Default "en" -}}
+  {{- $dataReactionsEnabled := .dataReactionsEnabled | compare.Default "1" -}}
+  {{- $dataSrc := .src | compare.Default "https://giscus.app/client.js" -}}
+  <script
+    src="{{- $dataSrc -}}"
+    data-repo="{{- .dataRepo -}}"
+    data-repo-id="{{- .dataRepoId -}}"
+    data-category="{{- .dataCategory -}}"
+    data-category-id="{{- .dataCategoryId -}}"
+    data-mapping="{{- $dataMapping -}}"
+    {{- if (compare.Eq $dataMapping "specific") }} data-term="{{- $context.Title -}}" {{ end -}}
+    {{- with $dataLoading }} data-loading="{{- . -}}" {{ end -}}
+    data-reactions-enabled="{{- $dataReactionsEnabled -}}"
+    data-emit-metadata="{{- $dataEmitMetadata -}}"
+    data-input-position="{{- $dataInputPosition -}}"
+    data-theme="{{- $dataTheme -}}"
+    data-lang="{{- $dataLang -}}"
+    crossorigin="anonymous"
+    async fetchpriority="high"
+    defer
+    id="giscus-script">
+  </script>
+{{- end -}}

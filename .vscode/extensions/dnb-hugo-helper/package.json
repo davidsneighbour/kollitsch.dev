@@ -1,0 +1,60 @@
+{
+  "name": "dnb-hugo-helper",
+  "description": "Ctrl+Click to open GoHugo partials/includes in gohtml templates",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "10.0.10",
+    "@types/node": "22.14.1",
+    "mocha": "11.1.0",
+    "typescript": "5.8.3",
+    "vscode": "1.1.37",
+    "vscode-test": "1.6.1"
+  },
+  "scripts": {
+    "compile:prepare": "rm -rf node_modules out && npm install",
+    "compile": "tsc -p .",
+    "test": "npm run compile && node ./out/test/runTest.js 2>&1 | grep -v 'UtilityProcess id:'",
+    "vscode:prepublish": "npm run compile"
+  },
+  "main": "./out/extension.js",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:gohtml",
+    "onLanguage:gotmpl"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "DNB GoHugo helper",
+      "properties": {
+        "gohtmlLinker.patterns": {
+          "type": "array",
+          "default": [
+            {
+              "regex": "partials\\\\.Include(?:Cached)?\\\\s+\"([^\"]+)\"",
+              "folder": "layouts/partials/"
+            }
+          ],
+          "description": "Each entry maps a regex (with one capture group) to a folder under your workspace root."
+        },
+        "gohtmlLinker.languages": {
+          "type": "array",
+          "default": [
+            "gohtml"
+          ],
+          "description": "Language identifiers for which to enable Ctrl+Click linking."
+        },
+        "gohtmlLinker.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable verbose debug logging."
+        }
+      }
+    }
+  },
+  "displayName": "GoHugo Partial Linker",
+  "publisher": "davidsneighbour"
+}

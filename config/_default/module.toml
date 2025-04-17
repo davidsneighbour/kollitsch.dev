@@ -22,13 +22,6 @@ target = "assets/versions/kollitsch.json"
 source = "node_modules"
 target = "assets/node_modules"
 
-[[mounts]]
-source = "hugo_stats.json"
-target = "assets/watching/hugo_stats.json"
-
-[[imports]]
-path = "github.com/davidsneighbour/hugo-modules/modules/pwa"
-
 [[imports]]
 disable = false
 ignoreConfig = true

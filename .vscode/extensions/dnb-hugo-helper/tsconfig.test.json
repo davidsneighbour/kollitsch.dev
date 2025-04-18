@@ -2,14 +2,14 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "ES2019",
-    "outDir": "out",
-    "rootDir": "src",
+    "outDir": "test",
+    "rootDir": "test",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "types": ["node", "vscode"]
+    "types": ["node", "mocha", "glob", "vscode"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["test/**/*.ts"],
   "exclude": ["node_modules"]
 }

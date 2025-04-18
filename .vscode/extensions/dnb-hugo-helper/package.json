@@ -1,6 +1,6 @@
 {
   "name": "dnb-hugo-helper",
-  "description": "Ctrl+Click to open GoHugo partials/includes in gohtml templates",
+  "description": "A couple of helpers for GoHugo theme development.",
   "version": "0.0.1",
   "devDependencies": {
     "@types/glob": "^8.1.0",
@@ -13,8 +13,8 @@
   },
   "scripts": {
     "compile:prepare": "rm -rf node_modules out && npm install",
-    "compile": "tsc -p .",
-    "test": "npm run compile && node ./out/test/runTest.js 2>&1 | grep -v 'UtilityProcess id:'",
+    "compile": "tsc -p tsconfig.json && tsc -p tsconfig.test.json",
+    "test": "npm run compile && node test/runTest.js 2>&1 | grep -v 'UtilityProcess id:'",
     "vscode:prepublish": "npm run compile"
   },
   "main": "./out/extension.js",
@@ -42,9 +42,7 @@
         },
         "gohtmlLinker.languages": {
           "type": "array",
-          "default": [
-            "gohtml"
-          ],
+          "default": ["gohtml"],
           "description": "Language identifiers for which to enable Ctrl+Click linking."
         },
         "gohtmlLinker.debug": {

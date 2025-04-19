@@ -8,7 +8,7 @@
 {{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
 <article class="card h-100 {{ $articleclasses -}}">
 
-  {{- /* MARK: Status
+  {{- /* MARK: Status ribbon
   */ -}}
   {{- if compare.Ne $config.status false -}}
     {{- partials.IncludeCached "content/components/status.html" $post $post  -}}

@@ -41,6 +41,10 @@ This theme's source code is licensed under the [MIT License](https://github.com/
 
 ## Requirements
 
+```bash
+npm install -g netlify-cli
+```
+
 ### Dart SASS
 
 ```bash

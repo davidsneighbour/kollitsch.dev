@@ -37,6 +37,22 @@
     "wayou.vscode-todo-highlight",
     "gruntfuggly.todo-tree",
     "rafikis75.vscode-sassdoc",
-    "biomejs.biome"
+    "biomejs.biome",
+          "pomdtr.excalidraw-editor",
+      "eliostruyf.vscode-front-matter",
+      "davidanson.vscode-markdownlint",
+      "yzhang.markdown-all-in-one",
+      "golang.go",
+      "casualjim.gotemplate",
+      "tamasfe.even-better-toml",
+      "stylelint.vscode-stylelint",
+      "foxundermoon.shell-format",
+      "timonwong.shellcheck",
+      "remisa.shellman",
+      "mkhl.shfmt",
+      "mjmlio.vscode-mjml",
+      "rafikis75.vscode-sassdoc",
+      "biomejs.biome",
+      "bradlc.vscode-tailwindcss"
   ]
 }

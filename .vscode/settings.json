@@ -21,7 +21,9 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "yaml.schemas": {
-    "http://json-schema.org/draft-07/schema#": ["static/**/*.schema.yaml"]
+    "http://json-schema.org/draft-07/schema#": [
+      "static/**/*.schema.yaml"
+    ]
   },
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -32,8 +34,20 @@
   "stylelint.reportDescriptionlessDisables": true,
   "stylelint.reportInvalidScopeDisables": true,
   "stylelint.reportNeedlessDisables": true,
-  "stylelint.snippet": ["css", "less", "postcss", "scss", "sass"],
-  "stylelint.validate": ["css", "less", "postcss", "sass", "scss"],
+  "stylelint.snippet": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "sass"
+  ],
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss"
+  ],
   "[jsonc]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
@@ -48,5 +62,104 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "editor.suggest.showCustomcolors": true,
+  "favorites.sortDirection": "ASC",
+  "files.associations": {
+    "*.headers": "gotemplate",
+    "*.html": "gohtml",
+    "*.json": "gojson",
+    "*.redir": "gotemplate",
+    "*.txt": "gotemplate",
+    "*.xml": "gotemplate",
+    "_headers": "gotemplate",
+    "_redir": "gotemplate"
+  },
+  "html.format.wrapLineLength": 100,
+  "javascript.validate.enable": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "markdown.extension.orderedList.marker": "one",
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "markdownlint.run": "onSave",
+  "stylelint.reportDescriptionlessDisables": true,
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
+  "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
+  "vale.enableSpellcheck": true,
+  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.vale.ini",
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/modules/**/*": "MOD ${filename}",
+    "**/modules/**/*.*": "MOD ${filename}.${extname}"
+  },
+  "workbench.editor.enablePreview": true,
+  "yaml.schemas": {
+    "http://json-schema.org/draft-07/schema#": [
+      "static/**/*.schema.yaml"
+    ]
+  },
+  "scss.lint.validProperties": [
+    "interpolate-size"
+  ],
+  "css.lint.validProperties": [
+    "interpolate-size"
+  ],
+  "todo-tree.general.showActivityBarBadge": false,
+  "todo-tree.general.tagGroups": {},
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "@todo",
+    "@TODO"
+  ],
+  "todo-tree.highlights.backgroundColourScheme": [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "indigo",
+    "violet",
+    "green",
+    "green"
+  ],
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.filtering.includeHiddenFiles": false,
+  "todo-tree.tree.labelFormat": "${after}",
+  "todo-tree.tree.scanAtStartup": true,
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/*/**",
+    "**/.vscode/**"
+  ],
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
+  "todo-tree.regex.regexCaseSensitive": false,
+  "todo-tree.tree.buttons.filter": false,
+  "todo-tree.tree.buttons.groupByTag": false,
+  "todo-tree.tree.buttons.viewStyle": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ff7733",
+    "activityBar.background": "#ff7733",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#60ff95",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#ff7733",
+    "statusBar.background": "#ff5500",
+    "statusBar.foreground": "#000",
+    "statusBarItem.hoverBackground": "#ff7733",
+    "statusBarItem.remoteBackground": "#ff5500",
+    "statusBarItem.remoteForeground": "#000",
+    "titleBar.activeBackground": "#ff5500",
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveBackground": "#ff550099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#ff5500"
 }

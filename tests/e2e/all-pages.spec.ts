@@ -39,7 +39,7 @@ test('Verify each link in links.json is reachable', async ({ page }) => {
   }
 
   for (const link of links) {
-    const errors = [];
+    const errors: string[] = [];
     await page.goto(link);
     expect(page.url()).toBe(link);
     //console.log(`Successfully navigated to ${link}`);

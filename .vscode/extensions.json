@@ -53,6 +53,7 @@
       "mjmlio.vscode-mjml",
       "rafikis75.vscode-sassdoc",
       "biomejs.biome",
-      "bradlc.vscode-tailwindcss"
+      "bradlc.vscode-tailwindcss",
+      "arktypeio.arkdark"
   ]
 }

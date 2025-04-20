@@ -152,14 +152,22 @@
     "commandCenter.border": "#e7e7e799",
     "sash.hoverBorder": "#ff7733",
     "statusBar.background": "#ff5500",
-    "statusBar.foreground": "#000",
+    "statusBar.foreground": "#000000",
     "statusBarItem.hoverBackground": "#ff7733",
     "statusBarItem.remoteBackground": "#ff5500",
-    "statusBarItem.remoteForeground": "#000",
+    "statusBarItem.remoteForeground": "#000000",
     "titleBar.activeBackground": "#ff5500",
-    "titleBar.activeForeground": "#000",
+    "titleBar.activeForeground": "#000000",
     "titleBar.inactiveBackground": "#ff550099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#ff5500"
+  "peacock.color": "#ff5500",
+  // allow autocomplete for ArkType expressions like "string | num"
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  // prioritize ArkType's "type" for autoimports
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+    "^(node:)?os$"
+  ],
 }

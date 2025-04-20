@@ -6,7 +6,7 @@
   "private": true,
   "repository": "davidsneighbour/kollitsch.dev",
   "author": {
-    "email": "patrick@davids-neighbour.com",
+    "email": "83281+davidsneighbour@users.noreply.github.com",
     "name": "Patrick Kollitsch",
     "web": "https://davids-neighbour.com"
   },
@@ -167,25 +167,17 @@
     },
     "build:hugo": {
       "command": "hugo --logLevel debug --minify",
-      "dependencies": [
-        "clean:dist",
-        "build:hugoconfig"
-      ]
+      "dependencies": ["clean:dist", "build:hugoconfig"]
     },
     "build:hugoconfig": {
       "command": "hugo config --format json > data/dnb/kollitsch/config.json"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": [
-        "build:hugo"
-      ]
+      "dependencies": ["build:hugo"]
     },
     "clean": {
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo"]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -195,11 +187,7 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:audit",
-        "clean:hugo:full",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -230,26 +218,18 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": [
-        "deploy:netlify"
-      ]
+      "dependencies": ["deploy:netlify"]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": [
-        "build"
-      ]
+      "dependencies": ["build"]
     },
     "lint": {
-      "dependencies": [
-        "lint:lockfiles"
-      ]
+      "dependencies": ["lint:lockfiles"]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -264,19 +244,14 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": [
-        "server:hugo",
-        "server:pagefind2"
-      ]
+      "dependencies": ["server:hugo", "server:pagefind2"]
     },
     "server:pagefind2": {
       "command": "node ./scripts/pagefind.mjs"
     },
     "server:hugo": {
       "command": "node bin/hugo/server.js",
-      "dependencies": [
-        "server:hugo-certificates"
-      ],
+      "dependencies": ["server:hugo-certificates"],
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at (.*)"
@@ -287,15 +262,11 @@
       "command": "hugo server trust"
     },
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",

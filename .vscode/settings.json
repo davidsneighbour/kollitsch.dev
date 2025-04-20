@@ -1,34 +1,69 @@
 {
-  "explorer.fileNesting.patterns": {
-    "hugo.log": "hugo_stats.json, .hugo_build.lock"
-  },
-  "html.format.wrapLineLength": 100,
-  "editor.wordWrapColumn": 120,
-  "diffEditor.wordWrap": "on",
-  "js/ts.implicitProjectConfig.checkJs": true,
-  "markdownlint.run": "onSave",
-  "markdown.extension.list.indentationSize": "inherit",
-  "markdown.extension.syntax.decorationFileSizeLimit": 500000,
-  "markdown.extension.syntax.plainTheme": true,
-  "markdown.extension.tableFormatter.delimiterRowNoPadding": true,
-  "markdown.extension.tableFormatter.normalizeIndentation": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "yaml.schemas": {
-    "http://json-schema.org/draft-07/schema#": [
-      "static/**/*.schema.yaml"
-    ]
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "css.lint.validProperties": [
+    "interpolate-size"
+  ],
+  "diffEditor.wordWrap": "on",
+  "editor.formatOnSave": true,
   "editor.linkedEditing": true,
+  // allow autocomplete for ArkType expressions like "string | num"
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "editor.suggest.showCustomcolors": true,
+  "editor.wordWrapColumn": 120,
+  "explorer.fileNesting.patterns": {
+    "hugo.log": "hugo_stats.json, .hugo_build.lock"
+  },
+  "favorites.sortDirection": "ASC",
+  "files.associations": {
+    "_headers": "gotemplate",
+    "_redir": "gotemplate",
+    "*.headers": "gotemplate",
+    "*.html": "gohtml",
+    "*.json": "gojson",
+    "*.redir": "gotemplate",
+    "*.txt": "gotemplate",
+    "*.xml": "gotemplate"
+  },
+  "html.format.wrapLineLength": 100,
+  "javascript.validate.enable": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "markdown.extension.list.indentationSize": "inherit",
+  "markdown.extension.orderedList.marker": "one",
+  "markdown.extension.syntax.decorationFileSizeLimit": 500000,
+  "markdown.extension.syntax.plainTheme": true,
+  "markdown.extension.tableFormatter.delimiterRowNoPadding": true,
+  "markdown.extension.tableFormatter.normalizeIndentation": true,
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "markdownlint.run": "onSave",
+  "peacock.color": "#ff5500",
+  "scss.lint.validProperties": [
+    "interpolate-size"
+  ],
   "stylelint.configFile": "",
   "stylelint.packageManager": "npm",
   "stylelint.reportDescriptionlessDisables": true,
@@ -48,62 +83,12 @@
     "sass",
     "scss"
   ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "editor.suggest.showCustomcolors": true,
-  "favorites.sortDirection": "ASC",
-  "files.associations": {
-    "*.headers": "gotemplate",
-    "*.html": "gohtml",
-    "*.json": "gojson",
-    "*.redir": "gotemplate",
-    "*.txt": "gotemplate",
-    "*.xml": "gotemplate",
-    "_headers": "gotemplate",
-    "_redir": "gotemplate"
-  },
-  "html.format.wrapLineLength": 100,
-  "javascript.validate.enable": true,
-  "js/ts.implicitProjectConfig.checkJs": true,
-  "markdown.extension.orderedList.marker": "one",
-  "markdown.extension.toc.unorderedList.marker": "*",
-  "markdownlint.run": "onSave",
-  "stylelint.reportDescriptionlessDisables": true,
-  "stylelint.reportInvalidScopeDisables": true,
-  "stylelint.reportNeedlessDisables": true,
-  "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
-  "vale.enableSpellcheck": true,
-  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.vale.ini",
-  "workbench.editor.customLabels.enabled": true,
-  "workbench.editor.customLabels.patterns": {
-    "**/modules/**/*": "MOD ${filename}",
-    "**/modules/**/*.*": "MOD ${filename}.${extname}"
-  },
-  "workbench.editor.enablePreview": true,
-  "yaml.schemas": {
-    "http://json-schema.org/draft-07/schema#": [
-      "static/**/*.schema.yaml"
-    ]
-  },
-  "scss.lint.validProperties": [
-    "interpolate-size"
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/*/**",
+    "**/.vscode/**"
   ],
-  "css.lint.validProperties": [
-    "interpolate-size"
-  ],
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.filtering.includeHiddenFiles": false,
   "todo-tree.general.showActivityBarBadge": false,
   "todo-tree.general.tagGroups": {},
   "todo-tree.general.tags": [
@@ -128,20 +113,21 @@
     "green",
     "green"
   ],
-  "todo-tree.filtering.ignoreGitSubmodules": true,
-  "todo-tree.filtering.includeHiddenFiles": false,
-  "todo-tree.tree.labelFormat": "${after}",
-  "todo-tree.tree.scanAtStartup": true,
-  "todo-tree.filtering.excludeGlobs": [
-    "**/node_modules/*/**",
-    "**/.vscode/**"
-  ],
-  "todo-tree.tree.showCountsInTree": true,
-  "todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
   "todo-tree.regex.regexCaseSensitive": false,
   "todo-tree.tree.buttons.filter": false,
   "todo-tree.tree.buttons.groupByTag": false,
   "todo-tree.tree.buttons.viewStyle": false,
+  "todo-tree.tree.labelFormat": "${after}",
+  "todo-tree.tree.scanAtStartup": true,
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
+  // prioritize ArkType's "type" for autoimports
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+    "^(node:)?os$"
+  ],
+  "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
+  "vale.enableSpellcheck": true,
+  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.vale.ini",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff7733",
     "activityBar.background": "#ff7733",
@@ -161,13 +147,15 @@
     "titleBar.inactiveBackground": "#ff550099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#ff5500",
-  // allow autocomplete for ArkType expressions like "string | num"
-  "editor.quickSuggestions": {
-    "strings": "on"
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/modules/**/*": "MOD ${filename}",
+    "**/modules/**/*.*": "MOD ${filename}.${extname}"
   },
-  // prioritize ArkType's "type" for autoimports
-  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
-    "^(node:)?os$"
-  ],
+  "workbench.editor.enablePreview": true,
+  "yaml.schemas": {
+    "http://json-schema.org/draft-07/schema#": [
+      ".frontmatter/schemas/**/*.schema.yaml"
+    ]
+  },
 }

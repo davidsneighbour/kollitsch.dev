@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "typeRoots": ["./assets/js"],
+    "extensions": [".js", ".ts"],
+    "strict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "exactOptionalPropertyTypes": true,
+  }
+}

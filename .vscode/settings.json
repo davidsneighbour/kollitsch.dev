@@ -23,9 +23,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "css.lint.validProperties": [
-    "interpolate-size"
-  ],
+  "css.lint.validProperties": ["interpolate-size"],
   "diffEditor.wordWrap": "on",
   "editor.formatOnSave": true,
   "editor.linkedEditing": true,
@@ -61,32 +59,15 @@
   "markdown.extension.toc.unorderedList.marker": "*",
   "markdownlint.run": "onSave",
   "peacock.color": "#ff5500",
-  "scss.lint.validProperties": [
-    "interpolate-size"
-  ],
+  "scss.lint.validProperties": ["interpolate-size"],
   "stylelint.configFile": "",
   "stylelint.packageManager": "npm",
   "stylelint.reportDescriptionlessDisables": true,
   "stylelint.reportInvalidScopeDisables": true,
   "stylelint.reportNeedlessDisables": true,
-  "stylelint.snippet": [
-    "css",
-    "less",
-    "postcss",
-    "scss",
-    "sass"
-  ],
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "sass",
-    "scss"
-  ],
-  "todo-tree.filtering.excludeGlobs": [
-    "**/node_modules/*/**",
-    "**/.vscode/**"
-  ],
+  "stylelint.snippet": ["css", "less", "postcss", "scss", "sass"],
+  "stylelint.validate": ["css", "less", "postcss", "sass", "scss"],
+  "todo-tree.filtering.excludeGlobs": ["**/node_modules/*/**", "**/.vscode/**"],
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.filtering.includeHiddenFiles": false,
   "todo-tree.general.showActivityBarBadge": false,
@@ -122,9 +103,7 @@
   "todo-tree.tree.showCountsInTree": true,
   "todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
   // prioritize ArkType's "type" for autoimports
-  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
-    "^(node:)?os$"
-  ],
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": ["^(node:)?os$"],
   "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
   "vale.enableSpellcheck": true,
   "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.vale.ini",
@@ -158,4 +137,15 @@
       ".frontmatter/schemas/**/*.schema.yaml"
     ]
   },
+  "gohtmlLinker.snippetLanguages": ["gohtml", "gotmpl", "html"],
+  // filepath: /home/patrick/github.com/davidsneighbour/kollitsch.dev/.vscode/settings.json
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.ts$",
+        "cmd": "npm run compile"
+      }
+    ]
+  },
+  "problems.autoReveal": true
 }

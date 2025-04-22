@@ -38,6 +38,7 @@
     "wayou.vscode-todo-highlight",
     "yoavbls.pretty-ts-errors",
     "yzhang.markdown-all-in-one",
-    "znck.grammarly"
+    "znck.grammarly",
+    "emeraldwalk.runonsave"
   ]
 }

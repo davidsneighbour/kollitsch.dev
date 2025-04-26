@@ -11,16 +11,16 @@
     {{- $valuePrinted := partials.Include "func/eval.html" (dict "context" $value "cmd" (fmt.Printf ".%s" .variable)) -}}
     <tr>
       <td class="align-top key nowrap" title="{{ .description }}">
-        {{- partials.IncludeCached "debugging-partials/field.html" . . -}}
+        {{- partials.IncludeCached "debug/debugging-partials/field.html" . . -}}
       </td>
       <td class="align-top type nowrap">
-        {{- partials.Include "debug-type.html" $valuePrinted -}}
+        {{- partials.Include "debugtype.html" $valuePrinted -}}
       </td>
       <td class="align-top value">
         {{- with $valuePrinted -}}
-          {{- partials.Include "debug-print.html" . -}}
+          {{- partials.Include "debugprint.html" . -}}
         {{- else -}}
-          {{- partials.IncludeCached "debugging-partials/empty.html" . -}}
+          {{- partials.IncludeCached "debug/debugging-partials/empty.html" . -}}
         {{- end -}}
       </td>
     </tr>

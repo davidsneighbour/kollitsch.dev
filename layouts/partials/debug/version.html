@@ -40,8 +40,8 @@
               {{- range $index, $item := $items -}}
                 {{- $slices := slice
                     (collections.Index $names $index)
-                    (partials.Include "debug-type.html" $item)
-                    (partials.Include "debug-print.html" $item) -}}
+                    (partials.Include "debugtype.html" $item)
+                    (partials.Include "debugprint.html" $item) -}}
                 <tr>{{- range $index, $item := $slices -}}
                   {{- if (compare.Eq $index 0) -}}
                     <th scope="row">{{- . -}}</th>

@@ -426,7 +426,7 @@
             ) | resources.Fingerprint "sha512" -}}
       <script src="{{- $script.Permalink -}}" async fetchpriority="high" defer integrity="{{- $script.Data.Integrity -}}"></script>
     {{- else -}}
-      {{- partials.Include "debug-cli.html" (dict
+      {{- partials.Include "debug/cli.html" (dict
             "message" "[modder] js/main.js missing, module modder is probably not configured properly"
             "context" .
             "severity" "warn"

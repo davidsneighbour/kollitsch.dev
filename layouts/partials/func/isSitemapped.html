@@ -2,7 +2,7 @@
 {{- $isSitemapped := $config.enabled | compare.Default true -}}
 
 {{- if collections.IsSet .Params "robotsdisallow" -}}
-  {{- partials.Include "debug-cli.html"
+  {{- partials.Include "debug/cli.html"
         (dict
           "message" (lang.Translate "dnb.sitemap.deprecation")
           "severity" "warn"

@@ -4,13 +4,13 @@
 
 {{- /* load plugged collections.In templated scripts from modules */ -}}
 {{/* {{ range $key, $value := $.Site.Data.dnb }}
-  {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Checking SCSSTemplate configuration %s" $key) "severity" "debug") -}}
+  {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Checking SCSSTemplate configuration %s" $key) "severity" "debug") -}}
   {{ if collections.IsSet $value "config" }}
     {{ if collections.IsSet $value.config "plugins" }}
       {{ if collections.IsSet $value.config.plugins "scssTemplates" }}
         {{ fmt.Warnf "%v" $value.config.plugins.scssTemplates }}
         {{ range $value.config.plugins.scssTemplates }}
-          {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading SCSSTemplate %s" .) "severity" "debug") -}}
+          {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading SCSSTemplate %s" .) "severity" "debug") -}}
           {{ $template := . }}
           {{ $scss := resources.Get $template | resources.ExecuteAsTemplate (fmt.Print now.Unix $template) . }}
           {{ $collection = $collection | collections.Append ($scss) }}
@@ -22,13 +22,13 @@
 
 {{/* load plugged collections.In scripts from modules */}}
 {{/* {{ range $key, $value := $.Site.Data.dnb }}
-  {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Checking SCSS configuration %s" $key) "severity" "debug") -}}
+  {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Checking SCSS configuration %s" $key) "severity" "debug") -}}
   {{ if collections.IsSet $value "config" }}
     {{ if collections.IsSet $value.config "plugins" }}
       {{ if collections.IsSet $value.config.plugins "scss" }}
         {{ fmt.Warnf "%v" $value.config.plugins.scss }}
         {{ range $value.config.plugins.scss }}
-          {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading SCSSFile %s" .) "severity" "debug") -}}
+          {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading SCSSFile %s" .) "severity" "debug") -}}
           {{ $collection = $collection | collections.Append (resources.Get .) }}
         {{ end }}
       {{ end }}
@@ -45,7 +45,7 @@
 {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" true "precision" 6 "includePaths" (collections.Slice "node_modules")) }}
 {{ $style := $collection | css.Sass $options | css.PostCSS (dict "config" "postcss.config.js") | resources.Minify |  resources.Fingerprint "sha512" }}
 {{ with $config.postprocess }}
-  {{- partials.Include "debug-cli.html" (dict "message" "going into PostProcessing" "context" . "severity" "debug") -}}
+  {{- partials.Include "debug/cli.html" (dict "message" "going into PostProcessing" "context" . "severity" "debug") -}}
   {{ $style = $style | resources.PostProcess }}
 {{ end }}
 {{ return $style }}

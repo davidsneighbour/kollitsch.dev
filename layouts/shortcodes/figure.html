@@ -176,8 +176,8 @@ Tagvariants:
 	{{ end }}
 
 {{ else }}
-  {{- partials.Include "debug-cli.html" (collections.Dictionary
-    "message" (printf "Either name or src are required attributes at: %s"
+  {{- partials.Include "debug/cli.html" (collections.Dictionary
+    "message" (fmt.Printf "Either name or src are required attributes at: %s"
                 $position
               )
     "severity" "debug"
@@ -188,7 +188,7 @@ Tagvariants:
 {{- /***************************************************************************
 ******* ¯\_(ツ)_/¯ DEV NOTES
 
-in the final loop where the image is printed the $finalImage variable is a map
+in the final loop collections.Where the image is printed the $finalImage variable is a map
 with the following structure (using JSON for clarity):
 
 {

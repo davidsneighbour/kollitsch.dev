@@ -19,9 +19,9 @@
         <td>{{ .type | compare.Default $type }}</td>
         <td>
           {{- with .value -}}
-            {{- partials.Include "debug-print.html" . -}}
+            {{- partials.Include "debugprint.html" . -}}
           {{- else -}}
-            {{- partials.IncludeCached "debugging-partials/nil.html" . -}}
+            {{- partials.IncludeCached "debug/debugging-partials/nil.html" . -}}
           {{- end -}}
         </td>
       </tr>

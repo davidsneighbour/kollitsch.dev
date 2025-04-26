@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- $types := collections.Slice "page" "version" "dependencies" "print" -}}
 {{- $type := .Get "type" | compare.Default "page" -}}
 {{- if not collections.In $types $type -}}

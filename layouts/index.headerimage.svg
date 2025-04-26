@@ -1,1 +1,2 @@
+{{- /* @todo refactor */ -}}
 {{- partials.Include "headerimage.svg" . . -}}

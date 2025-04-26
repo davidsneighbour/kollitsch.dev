@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{ range (collections.Where .Site.RegularPages "Section" "posts").GroupByDate "January 2006" "asc" }}
 
     {{ $.Scratch.Set "current" false }}

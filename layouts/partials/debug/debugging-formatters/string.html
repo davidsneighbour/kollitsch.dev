@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- $value := fmt.Printf "%s" .value | transform.HTMLUnescape }}
 {{- $short := strings.Substr $value 0 300 -}}
 {{- $length := len $value -}}

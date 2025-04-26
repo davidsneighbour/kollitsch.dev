@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- /* see https://docs.netlify.com/routing/headers/ */ -}}
 {{- $config := site.Params.dnb.netlification -}}
 {{- $headers := site.Data.dnb.netlification.headers -}}

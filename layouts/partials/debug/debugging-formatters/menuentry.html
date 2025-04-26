@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{ $MenuEntryVarNames   := (collections.Slice "ConfiguredURL" "Name" "Menu" "Identifier" "Title" "Pre" "Post" "Weight" "Parent" "Children") }}
 {{ $MenuEntryVarSymbols := (collections.Slice .value.ConfiguredURL  .value.Name  .value.Menu  .value.Identifier  .value.Title
                                   .value.Pre  .value.Post  .value.Weight  .value.Parent  .value.Children ) }}

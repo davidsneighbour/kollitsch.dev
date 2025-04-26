@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{ $type := .Get "type" | compare.Default "days" }}
 {{ with .Get "date" -}}
 <span class="is--datediff" data-date="{{ . }}" data-type="{{ $type }}"></span>&nbsp;

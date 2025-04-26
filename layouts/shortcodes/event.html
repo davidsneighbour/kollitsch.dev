@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 <div class="event">
 	<h4>{{ with .Get "date" }}{{ . }}{{ end }}: {{ with .Get "name" }}{{ . }}{{ end }}</h4>
 	{{ with .Inner }}{{ . }}{{ end }}

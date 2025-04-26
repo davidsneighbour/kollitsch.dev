@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- $drafts := partials.IncludeCached "func/feeds/getDrafts.html" "atom" . -}}
 {{- $items := partials.IncludeCached "func/feeds/getItemsToShow.html" "atom" . -}}
 

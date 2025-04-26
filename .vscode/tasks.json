@@ -17,7 +17,11 @@
         "clear": true
       },
       "options": {
-        "cwd": "${workspaceFolder}/.vscode/extensions/dnb-hugo-helper"
+        "cwd": "${workspaceFolder}/.vscode/extensions/vscode.dnb-hugo-helper",
+        "env": {
+          // @TODO this is a workaround for the PATH issue, find a better solution that upgrades without fixes
+          "PATH": "/usr/bin:/usr/local/bin:/home/patrick/.nvm/versions/node/v23.6.1/bin:${env:PATH}"
+        }
       },
       "runOptions": {
         "runOn": "folderOpen"

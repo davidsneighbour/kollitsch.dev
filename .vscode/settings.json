@@ -42,7 +42,7 @@
     "_redir": "gotemplate",
     "*.headers": "gotemplate",
     "*.html": "gohtml",
-    "*.json": "gojson",
+    "*.json": "json",
     "*.redir": "gotemplate",
     "*.txt": "gotemplate",
     "*.xml": "gotemplate"

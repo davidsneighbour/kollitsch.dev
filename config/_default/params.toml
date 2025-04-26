@@ -481,60 +481,10 @@ theme_color = "#cd3c00"
 # robots - @see https://dnbhub.xyz/robots
 ################################################################################
 [dnb.robots]
-disableBranding = true
-initialComment = '''
-#                  ,--.    ,--.
-#                 ((O ))--((O ))
-#               ,|_`--|____`--|_`.
-#              _:  ____________  :_
-#             | | ||==========|| | |
-#             | | ||==========|| | |
-#             | | ||==========|| | |
-#             |_| |/__________\| |_|
-#               |________________|
-#            __..-|kollitsch.dev|-..__
-#         .-| : .----------------. : |-.
-#       ,\ || | |\______________/| | || /.
-#      /`.\:| | ||  __  __  __  || | |;/,|\
-#     :`-._\;.| || |--||--||--| || |,:/_.-|:
-#     |    :  | || .----------. || |  :    |
-#     |    |  | || |---XXXX---| || |  |    |
-#     |    |  | ||   _   _   _  || |  |    |
-#     :.--.:  | ||  (_) (_) (_) || |  :.--.:
-#     (|-||)  | ||______________|| |  (||-|)
-#      \--/   | |/______________\| |   \--/
-#             |____________________|
-#              `.________________,|
-#               (_______)(_______)
-#               (_______)(_______)
-#               (_______)(_______)
-#               (_______)(_______)
-#              |        ||        |
-#              |--------||--------|
-'''
-
 blockAIBots = true
-
-# [[dnb.robots.useragents]]
-# name = "*"
-# # https://developers.cloudflare.com/fundamentals/get-started/reference/cdn-cgi-endpoint/
-# disallow = ["/cdn-cgi/"]
-
-# [[dnb.robots.useragents]]
-# name = "GPTBot"
-# disallow = ["/"]
-
-concludingComment = '''
-# You're still here? It's over. Go home. Go.
-'''
-
-# [[dnb.robots.useragents]]
-# name = "Googlebot"
-# disallow = ["/nogooglebot/", "/anotherdirectory/"]
-
-# [[dnb.robots.useragents]]
-# name = "Googlebot2"
-# allow = ["/nogooglebot/", "/anotherdirectory/"]
+# initialComment = ""
+# concludingComment = ""
+disableBranding = false
 
 [[dnb.robots.useragents]]
 allow = ["/"]
@@ -881,6 +831,10 @@ file = "meta-seo"
 [[dnb.hooks.items.netlification.body-end]]
 cached = true
 file = 'netlification-body-end'
+
+[[dnb.hooks.items.robots."robots.sitemap"]]
+cached = true
+file = 'robots/sitemap'
 
 # sitemap - @see https://dnbhub.xyz/sitemap
 ################################################################################

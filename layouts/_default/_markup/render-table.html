@@ -1,14 +1,14 @@
 <table
   {{- range $k, $v := .Attributes }}
     {{- if $v }}
-      {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+      {{- fmt.Printf " %s=%q" $k $v | safe.HTMLAttr }}
     {{- end }}
   {{- end }}>
   <thead>
     {{- range .THead }}
       <tr>
         {{- range . }}
-          <th {{ printf "style=%q" (printf "text-align: %s" .Alignment) | safeHTMLAttr }}>
+          <th {{ fmt.Printf "style=%q" (fmt.Printf "text-align: %s" .Alignment) | safe.HTMLAttr }}>
             {{- .Text -}}
           </th>
         {{- end }}
@@ -19,7 +19,7 @@
     {{- range .TBody }}
       <tr>
         {{- range . }}
-          <td {{ printf "style=%q" (printf "text-align: %s" .Alignment) | safeHTMLAttr }}>
+          <td {{ fmt.Printf "style=%q" (fmt.Printf "text-align: %s" .Alignment) | safe.HTMLAttr }}>
             {{- .Text -}}
           </td>
         {{- end }}

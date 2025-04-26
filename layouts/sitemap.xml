@@ -12,7 +12,7 @@
 {{- end -}}
 
 {{- $pages := site.Pages -}}
-{{- if eq $listpages "false" -}}
+{{- if compare.Eq $listpages "false" -}}
   {{- $pages = site.RegularPages -}}
 {{- end -}}
 

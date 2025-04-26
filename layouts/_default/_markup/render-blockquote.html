@@ -6,22 +6,22 @@
   "warning" ":information_source:"
 -}}
 
-{{- if eq .Type "alert" -}}
+{{- if compare.Eq .Type "alert" -}}
   <blockquote class="alert alert-{{ .AlertType }}">
     <p class="alert-heading">
-      {{ transform.Emojify (index $emojis .AlertType) }}
-      {{ or (i18n (printf "dnb.renderhooks.%s" .AlertType)) (title .AlertType) }}
+      {{ transform.Emojify (collections.Index $emojis .AlertType) }}
+      {{ or (lang.Translate (fmt.Printf "dnb.renderhooks.%s" .AlertType)) (strings.Title .AlertType) }}
     </p>
-    {{ .Text | safeHTML }}
+    {{ .Text | safe.HTML }}
   </blockquote>
 {{- else -}}
   <figure>
     <blockquote {{ with .Attributes.cite -}}cite="{{- . -}}"{{- end -}}>
-      {{ .Text | safeHTML }}
+      {{ .Text | safe.HTML }}
     </blockquote>
     {{- with .Attributes.caption -}}
       <figcaption class="blockquote-caption">
-        {{ . | safeHTML }}
+        {{ . | safe.HTML }}
       </figcaption>
     {{- end -}}
   </figure>

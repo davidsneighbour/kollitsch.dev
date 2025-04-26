@@ -2,16 +2,16 @@
 {{- with site.Params.dnb.giscus -}}
   {{- $dataMapping := .dataMapping | compare.Default "specific" -}}
   {{- with .dataRepo -}}{{- else -}}
-    {{- fmt.Warnf "dataRepo needs to be configured in [params.dnb.giscus]" -}}
+    {{- fmt.Warnf "dataRepo needs to be configured collections.In [params.dnb.giscus]" -}}
   {{- end -}}
   {{- with .dataRepoId -}}{{- else -}}
-    {{- fmt.Warnf "dataRepoId needs to be configured in [params.dnb.giscus]" -}}
+    {{- fmt.Warnf "dataRepoId needs to be configured collections.In [params.dnb.giscus]" -}}
   {{- end -}}
   {{- with .dataCategory -}}{{- else -}}
-    {{- fmt.Warnf "dataCategory needs to be configured in [params.dnb.giscus]" -}}
+    {{- fmt.Warnf "dataCategory needs to be configured collections.In [params.dnb.giscus]" -}}
   {{- end -}}
   {{- with .dataCategoryId -}}{{- else -}}
-    {{- fmt.Warnf "dataCategoryId needs to be configured in [params.dnb.giscus]" -}}
+    {{- fmt.Warnf "dataCategoryId needs to be configured collections.In [params.dnb.giscus]" -}}
   {{- end -}}
   <div id="giscus-comments" class="giscus"></div>
   {{- $dataStrict := .dataStrict | compare.Default "1" -}}

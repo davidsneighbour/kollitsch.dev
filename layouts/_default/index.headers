@@ -22,25 +22,25 @@
     {{- range $key, $values := $config -}}
       {{- if not (collections.In $nonrules $key) -}}
         {{- with (collections.Index $config $key) -}}
-          {{- $output = printf "%s %s"
+          {{- $output = fmt.Printf "%s %s"
                           $output
                           (strings.Replace ($key | inflect.Humanize | strings.ToLower) " " "-" ) -}}
           {{- range . -}}
-            {{- $output = printf "%s %s" $output . -}}
+            {{- $output = fmt.Printf "%s %s" $output . -}}
           {{- end -}}
-          {{- $output = printf "%s;" $output -}}
+          {{- $output = fmt.Printf "%s;" $output -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
 
     {{- with $config.upgradeInsecureRequests -}}
       {{- if (compare.Eq $config.upgradeInsecureRequests true) -}}
-        {{- $output = printf "%s upgrade-insecure-requests;" $output -}}
+        {{- $output = fmt.Printf "%s upgrade-insecure-requests;" $output -}}
       {{- end -}}
     {{- end -}}
 
     {{- with $config.reportUri -}}
-      {{- $output = printf "%s report-uri %s;" $output . -}}
+      {{- $output = fmt.Printf "%s report-uri %s;" $output . -}}
     {{- end -}}
 
   {{- end -}}
@@ -66,7 +66,7 @@
   {{ $config := site.Params.dnb.netlification }}
   {{ $value := ""}}
 
-  {{ if collections.In (slice "default") $duration }}
+  {{ if collections.In (collections.Slice "default") $duration }}
     {{ $dateformat := "Mon, 02-Jan-2006 15:04:05 GMT-0700" }}
     {{/* {{ $day := 86400 }}
     {{ $month := 2628000 }}
@@ -93,7 +93,7 @@
   {{- range $items -}}
     {{- range . -}}
       {{- fmt.Printf "\n\n%s" .for -}}
-      {{- if eq "/*" .for -}}
+      {{- if compare.Eq "/*" .for -}}
         {{ partials.Include "func/getCSPHeader.html" $config -}}
       {{- end -}}
       {{- partials.Include "func/processHeadersInner.html" .values -}}
@@ -107,7 +107,7 @@
   {{- $items := . -}}
   {{- range $key, $value := $items -}}
     {{- $value = partials.Include "func/getReplacement.html" $value -}}
-    {{- fmt.Printf "\n  %s: %s" $key ($value | safeHTML) -}}
+    {{- fmt.Printf "\n  %s: %s" $key ($value | safe.HTML) -}}
   {{- end -}}
 
 {{- end -}}

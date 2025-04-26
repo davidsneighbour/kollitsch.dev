@@ -17,5 +17,5 @@ if (window.netlifyIdentity) {
 {{- end -}}
 
 <script type="speculationrules">
-  {{ site.Params.dnb.netlification.speculationrules | jsonify }}
+  {{ site.Params.dnb.netlification.speculationrules | encoding.Jsonify }}
 </script>

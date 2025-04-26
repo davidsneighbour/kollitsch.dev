@@ -23,7 +23,7 @@
 
   {{ with try (resources.GetRemote $thumbnailUrl.maxres) }}
     {{ with .Err }}
-      {{ warnf "%s" . }}
+      {{ fmt.Warnf "%s" . }}
     {{ else with .Value }}
       {{- $remoteThumbnail = . -}}
       {{- with resources.Copy (fmt.Printf "assets/img/%s.jpg" $id) . -}}
@@ -32,7 +32,7 @@
     {{ else }}
       {{ with try (resources.GetRemote $thumbnailUrl.lowres) }}
         {{ with .Err }}
-          {{ warnf "%s" . }}
+          {{ fmt.Warnf "%s" . }}
         {{ else with .Value }}
           {{- $remoteThumbnail = . -}}
           {{- with resources.Copy (fmt.Printf "assets/img/%s.jpg" $id) . -}}
@@ -45,7 +45,7 @@
     {{ end -}}
   {{- end -}}
 
-  {{- if eq "" $remoteThumbnail -}}
+  {{- if compare.Eq "" $remoteThumbnail -}}
     {{- $remoteThumbnail = resources.Get "images/broken.webp" -}}
   {{- end -}}
 

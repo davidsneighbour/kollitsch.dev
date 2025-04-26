@@ -18,7 +18,7 @@ requires two parameters:
   {{- else with .Value -}}
     {{- $localimage = . -}}
   {{ else }}
-    {{ warnf "Unable to get remote resource %q" $path }}
+    {{ fmt.Warnf "Unable to get remote resource %q" $path }}
   {{- end -}}
 {{- end -}}
 
@@ -29,7 +29,7 @@ requires two parameters:
     {{- else with .Value -}}
       {{- $localimage = . -}}
     {{ else }}
-      {{ warnf "Unable to get remote resource %q" $path }}
+      {{ fmt.Warnf "Unable to get remote resource %q" $path }}
     {{- end -}}
   {{- end -}}
 {{- end -}}

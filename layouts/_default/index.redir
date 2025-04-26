@@ -10,12 +10,12 @@
   {{ range .Aliases -}}
     {{- partial
           "dnb-netlification/redirection.html" (
-          slice "%s %s %d" (. | fmt.Printf "%-40s") $p.RelPermalink (cast.ToInt 301)
+          collections.Slice "%s %s %d" (. | fmt.Printf "%-40s") $p.RelPermalink (cast.ToInt 301)
     ) -}}
   {{- end -}}
 {{- end }}
 ################################################################################
-# redirects from configuration in site.Params.dnb.netlification.redirects
+# redirects from configuration collections.In site.Params.dnb.netlification.redirects
 ################################################################################
 {{/* range through configured redirects */}}
 {{- with site.Params.dnb.netlification.redirects -}}
@@ -23,12 +23,12 @@
     {{- if (collections.Index . "netlify") -}}
       {{- partial
             "dnb-netlification/redirection.html" (
-            slice "%s %s %d!" (printf "%s%s" .netlify "*") (site.BaseURL | fmt.Printf "%s:splat") (cast.ToInt 301)
+            collections.Slice "%s %s %d!" (fmt.Printf "%s%s" .netlify "*") (site.BaseURL | fmt.Printf "%s:splat") (cast.ToInt 301)
       ) -}}
     {{- else -}}
       {{- partial
             "dnb-netlification/redirection.html" (
-            slice "%s %s %d" .from .to (.status | compare.Default 301)
+            collections.Slice "%s %s %d" .from .to (.status | compare.Default 301)
       ) -}}
     {{- end -}}
   {{- end -}}
@@ -39,12 +39,12 @@
 {{/* error pages */}}
 {{- partial
       "dnb-netlification/redirection.html" (
-      slice "%s %s %d" "/*" "/404" 404
+      collections.Slice "%s %s %d" "/*" "/404" 404
 ) -}}
 
-{{- /* partial to print redirections */ -}}
+{{- /* partials.Include to fmt.Print redirections */ -}}
 {{ define "partials/dnb-netlification/redirection.html" }}
-  {{- printf (collections.Index . 0)
+  {{- fmt.Printf (collections.Index . 0)
         (collections.Index . 1 | fmt.Printf "%-50s")
         (collections.Index . 2 | fmt.Printf "%-50s")
         (collections.Index . 3 | cast.ToInt) }}
@@ -64,7 +64,7 @@
   to = "/new-path"
   status = 301
   force = false
-  query = {path = ":path"} #  apply this rule for /old-path?path=example
+  query = {path = ":path"} #  collections.Apply this rule for /old-path?path=example
   conditions = {Language = ["en","es"], Country = ["US"]} */}}
 
 {{ end }}

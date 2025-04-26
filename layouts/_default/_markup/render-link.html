@@ -37,7 +37,7 @@
 {{- $u := urls.Parse .Destination -}}
 {{- $href := $u.String -}}
 {{- if strings.HasPrefix $u.String "#" }}
-  {{- $href = printf "%s#%s" .PageInner.RelPermalink $u.Fragment }}
+  {{- $href = fmt.Printf "%s#%s" .PageInner.RelPermalink $u.Fragment }}
 {{- else if not $u.IsAbs -}}
   {{- $path := strings.TrimPrefix "./" $u.Path }}
   {{- with or
@@ -47,10 +47,10 @@
   -}}
     {{- $href = .RelPermalink -}}
     {{- with $u.RawQuery -}}
-      {{- $href = printf "%s?%s" $href . -}}
+      {{- $href = fmt.Printf "%s?%s" $href . -}}
     {{- end -}}
     {{- with $u.Fragment -}}
-      {{- $href = printf "%s#%s" $href . -}}
+      {{- $href = fmt.Printf "%s#%s" $href . -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -58,7 +58,7 @@
 <a
   {{- range $k, $v := $attributes -}}
     {{- if $v -}}
-      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+      {{- fmt.Printf " %s=%q" $k $v | safe.HTMLAttr -}}
     {{- end -}}
   {{- end -}}
   {{ if $isRemote }}

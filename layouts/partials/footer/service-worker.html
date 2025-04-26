@@ -5,7 +5,7 @@
 {{- end -}}
 
 <script nonce="dnb-components-sw">
-if ("serviceWorker" in navigator) {
+if ("serviceWorker" collections.In navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("{{- $path -}}service-worker.js")

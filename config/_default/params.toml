@@ -727,7 +727,8 @@ enableSourceMap = true
 includePaths = ["node_modules/", "assets/"]
 outputStyle = "compressed"
 silenceDependencyDeprecations = true
-silenceDeprecations = true
+# @TODO fix up silenced deprecations
+silenceDeprecations = ["import"]
 targetPath = "theme.css"
 transpiler = "dartsass"
 

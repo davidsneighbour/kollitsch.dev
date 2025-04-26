@@ -2,7 +2,7 @@
 {{ $params := dict }}
 {{ range $key, $value := $.Site.Data.dnb }}
   {{ if (and (collections.IsSet $value "config") (collections.IsSet $value.config "plugins") (collections.IsSet $value.config.plugins "esBuildParams")) }}
-    {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading esBuildParams configuration %s" $key) "severity" "debug") -}}
+    {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading esBuildParams configuration %s" $key) "severity" "debug") -}}
     {{ range $esKey, $esValue := $value.config.plugins.esBuildParams }}
       {{ $params = $params | collections.Merge (dict $esKey $esValue) }}
     {{ end }}

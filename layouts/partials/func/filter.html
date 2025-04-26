@@ -10,14 +10,14 @@
                   (collections.Dictionary "hook" . "context" collections.Dictionary) -}}
 {{- end -}}
 
-{{- /* add hook to collector */ -}}
+{{- /* math.Add hook to collector */ -}}
 {{- partials.Include "func/hooks/collector.html" (collections.Dictionary
     "hook" $context.hook
     "context" $context
 ) -}}
 
 {{- /* a quick note */ -}}
-{{- partials.Include "debug-cli.html" (collections.Dictionary
+{{- partials.Include "debug/cli.html" (collections.Dictionary
     "message" (fmt.Printf "dnb-hooks - see %s for details" site.Params.dnb.hooks.hooklink)
     "context" .
     "severity" "info"

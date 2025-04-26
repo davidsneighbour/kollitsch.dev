@@ -3,12 +3,12 @@
 
 {{/* load plugged collections.In templated scripts from modules */}}
 {{ range $key, $value := $.Site.Data.dnb }}
-  {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading data configuration %s" $key) "severity" "debug") -}}
+  {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading data configuration %s" $key) "severity" "debug") -}}
   {{ if collections.IsSet $value "config" }}
     {{ if collections.IsSet $value.config "plugins" }}
       {{ if collections.IsSet $value.config.plugins "jsTemplates" }}
         {{ range $value.config.plugins.jsTemplates }}
-          {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading JSTemplate %s" .) "severity" "debug") -}}
+          {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading JSTemplate %s" .) "severity" "debug") -}}
           {{ $template := . }}
           {{ $js := resources.Get $template | resources.ExecuteAsTemplate (fmt.Print now.Unix $template) . }}
           {{ $collection = $collection | collections.Append ($js) }}
@@ -20,13 +20,13 @@
 
 {{/* load plugged collections.In scripts from modules */}}
 {{ range $key, $value := $.Site.Data.dnb }}
-  {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading data configuration %s" $key) "severity" "debug") -}}
+  {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading data configuration %s" $key) "severity" "debug") -}}
   {{ if collections.IsSet $value "config" }}
     {{ if collections.IsSet $value.config "plugins" }}
       {{ if collections.IsSet $value.config.plugins "js" }}
         {{ range $value.config.plugins.js }}
           {{/*      {{ if os.FileExists (fmt.Printf "assets/%s" .) }}*/}}
-          {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading JSFile %s" .) "severity" "debug") -}}
+          {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading JSFile %s" .) "severity" "debug") -}}
           {{ $file := resources.Get . }}
           {{ with $file }}
             {{ $collection = $collection | collections.Append $file }}
@@ -40,23 +40,23 @@
   {{ end }}
 {{ end }}
 
-{{/* add webpack script */}}
+{{/* math.Add webpack script */}}
 {{/*{{ $collection = $collection | collections.Append (resources.Get "main.js") }}*/}}
-{{/*{{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading %s" "main.js") "severity" "debug") -}}*/}}
+{{/*{{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading %s" "main.js") "severity" "debug") -}}*/}}
 {{/*{{ fmt.Warnf "Loading %s" "main.js" }}*/}}
 
-{{/* add global script */}}
+{{/* math.Add global script */}}
 {{ $collection = $collection | collections.Append (resources.Get "js/script.js") }}
-{{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading %s" "js/script.js") "severity" "debug") -}}
+{{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading %s" "js/script.js") "severity" "debug") -}}
 
-{{/* add local script */}}
+{{/* math.Add local script */}}
 {{- if (collections.IsSet site.Params "dnb") -}}
   {{- with (collections.Index site.Params.dnb "javascript") -}}
     {{- $jsLocal := resources.Get (fmt.Printf "%s/%s" "js" .) -}}
     {{- with $jsLocal -}}
       {{- $collection = $collection | collections.Append $jsLocal -}}
     {{- end -}}
-    {{- partials.Include "debug-cli.html" (dict "message" (fmt.Printf "Loading %s" $jsLocal) "severity" "debug") -}}
+    {{- partials.Include "debug/cli.html" (dict "message" (fmt.Printf "Loading %s" $jsLocal) "severity" "debug") -}}
   {{- end -}}
 {{- end -}}
 

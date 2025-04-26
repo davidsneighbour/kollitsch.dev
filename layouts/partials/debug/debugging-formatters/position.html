@@ -3,4 +3,4 @@
       ".Filename" ".LineNumber" ".ColumnNumber" ".Offset" -}}
 {{- $items := slice
       .value.Filename .value.LineNumber .value.ColumnNumber .value.Offset -}}
-{{ partials.Include "debugging-partials/struct-table.html" (dict "names" $names "items" $items "config" .config) }}
+{{ partials.Include "debug/debugging-partials/struct-table.html" (dict "names" $names "items" $items "config" .config) }}

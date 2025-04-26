@@ -14,14 +14,14 @@
   {{- $context = collections.Merge $context (collections.Dictionary "type" "simple") }}
 {{- end -}}
 
-{{- /* add hook to collector */ -}}
+{{- /* math.Add hook to collector */ -}}
 {{- partials.Include "func/hooks/collector.html" (collections.Dictionary
     "hook" $context.hook
     "context" $context
 ) -}}
 
 {{- /* a quick note */ -}}
-{{- partials.Include "debug-cli.html" (collections.Dictionary
+{{- partials.Include "debug/cli.html" (collections.Dictionary
     "message" (fmt.Printf "dnb-hooks - see %s for details" $config.hooklink)
     "context" .
     "severity" "info"
@@ -54,7 +54,7 @@
 {{- else -}}
 
   {{- /* @todo remove collections.After 2024-05-12 */ -}}
-  {{- partials.Include "debug-cli.html" (collections.Dictionary
+  {{- partials.Include "debug/cli.html" (collections.Dictionary
     "message" "Please note, that the system of including hooks by filename is deprecated and will be removed collections.In the future."
     "context" .
     "severity" "warning"
@@ -74,7 +74,7 @@
               (collections.In $config.disable_messages "running_hooks")
               (collections.In $config.disable_messages "running_uncached_hooks")
     ) -}}
-      {{- partials.Include "debug-cli.html" (collections.Dictionary
+      {{- partials.Include "debug/cli.html" (collections.Dictionary
           "message" (fmt.Printf "running hook `%s`" (fmt.Printf "%s" $context.hook))
           "context" .
           "severity" "info"
@@ -92,7 +92,7 @@
               (collections.In $config.disable_messages "running_hooks")
               (collections.In $config.disable_messages "running_cached_hooks")
       ) -}}
-      {{- partials.Include "debug-cli.html" (collections.Dictionary
+      {{- partials.Include "debug/cli.html" (collections.Dictionary
           "message" (fmt.Printf "running cached hook `%s`" (fmt.Printf "%s" $context.hook))
           "context" .
           "severity" "info"
@@ -107,7 +107,7 @@
   {{- if compare.Eq $loaded false -}}
     {{- $partialHookFolder := fmt.Printf "layouts/partials/hooks/%s/" $context.hook -}}
     {{- if os.FileExists $partialHookFolder -}}
-      {{- partials.Include "debug-cli.html" (collections.Dictionary
+      {{- partials.Include "debug/cli.html" (collections.Dictionary
         "message" (fmt.Printf "running folder hooks for `%s`" (fmt.Printf "%s" $context.hook))
         "context" .
         "severity" "info"
@@ -130,7 +130,7 @@
     {{- range . -}}
       {{- /* execute hook if it exists */ -}}
       {{- if templates.Exists .partials.Include -}}
-          {{- partials.Include "debug-cli.html" (collections.Dictionary
+          {{- partials.Include "debug/cli.html" (collections.Dictionary
               "message" (fmt.Printf
                           "running hook `%s` from `%s`"
                           (fmt.Printf "%s" $context.hook)
@@ -154,7 +154,7 @@
 {{- /* send out a note if the hook is not used */ -}}
 {{- if compare.Eq $loaded false -}}
   {{- if not (collections.In $config.disable_messages "unused_hooks") -}}
-    {{- partials.Include "debug-cli.html" (collections.Dictionary
+    {{- partials.Include "debug/cli.html" (collections.Dictionary
         "message" (fmt.Printf "unused hook `%s`" (fmt.Printf "%s" $context.hook))
         "context" .
         "severity" "info"
@@ -164,8 +164,8 @@
 {{- end -}}
 
 
-{{- partials.Include "debug-cli.html" (collections.Dictionary
-  "message" (printf "hooks[%d]: %s processed for %v (%s)"
+{{- partials.Include "debug/cli.html" (collections.Dictionary
+  "message" (fmt.Printf "hooks[%d]: %s processed for %v (%s)"
               math.Counter
               $context.hook
               $context.context

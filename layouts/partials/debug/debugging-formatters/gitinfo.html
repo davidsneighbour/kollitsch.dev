@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{ $gitInfoVarNames   := (collections.Slice "Hash" "AbbreviatedHash" "Subject" "AuthorName"
                                 "AuthorEmail" "AuthorDate" "CommitDate" "Body") }}
 {{ $gitInfoVarSymbols := (collections.Slice .value.Hash .value.AbbreviatedHash .value.Subject .value.AuthorName

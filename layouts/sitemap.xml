@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- fmt.Printf "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" | safe.HTML -}}
 
 {{- $global := site.Params.dnb.sitemap -}}

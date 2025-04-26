@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- $post := . -}}
 {{- $posttype := $post.Type | compare.Default "default" -}}
 {{- $config := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}

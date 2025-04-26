@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{ if collections.In .context.Params.tags "100DaysToOffload" }}
   {{- $startOfYear := time.AsTime (fmt.Printf "%04d-%02d-%02dT00:00:00" (math.Sub now.Year 1) now.Month  now.Day) -}}
   {{- $allPosts := (collections.Index site.Taxonomies.tags "100daystooffload").Pages -}}

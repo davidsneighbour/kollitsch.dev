@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- $ID := .Get "id" | compare.Default "form" -}}
 {{- $formConfig := collections.Index site.Params.dnb.forms $ID -}}
 {{- $formAttributes := "" }}

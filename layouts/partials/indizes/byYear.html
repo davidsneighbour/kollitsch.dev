@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 <ul>
     {{ range .Pages.GroupByDate "2006" }}
         <li>There were {{ len .Pages }} posts collections.In the year {{ .Key }}</li>

@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 <svg version="1.1" viewBox="0 0 1280 640"
   xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
   <rect width="1280" height="640" fill="#0a1922" />

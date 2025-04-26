@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{ $OutputFormatVarNames   := (collections.Slice "Name" "MediaType" "Path" "BaseName" "Rel" "Protocol" "IsPlainText" "IsHTML" "NoUgly" "NotAlternative") }}
 {{ $OutputFormatVarSymbols := (collections.Slice .value.Name  .value.MediaType  .value.Path  .value.BaseName
                                 .value.Rel  .value.Protocol  .value.IsPlainText  .value.IsHTML  .NoUgly  .NotAlternative ) }}

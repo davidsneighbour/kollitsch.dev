@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 <div class="row">
 	{{ range $index, $item := collections.Sort .Site.Data.archive ".slug" "desc" }}
 		<div class="{{ with $item.container }}{{.}}{{else}}col-sm-4{{end}} mb-3">

@@ -1,3 +1,4 @@
+{{- /* @todo refactor */ -}}
 {{- $post := .post -}}
 {{- $headerlevel := .level | compare.Default 2 -}}
 {{- fmt.Printf "<h%d class=\"post-title\">" $headerlevel | safe.HTML -}}

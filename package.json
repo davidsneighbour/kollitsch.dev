@@ -129,8 +129,6 @@
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit",
-    "lint:vale": "vale --no-exit --output='ci/vale/config/templates/dnb.tmpl' content",
-    "lint:vale:update": "vale sync",
     "new": "node scripts/content.mjs",
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
@@ -270,20 +268,13 @@
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:vale",
-        "update:pre:submodules"
-      ]
+      "dependencies": ["update:pre:npm", "update:pre:submodules"]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
     },
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
-    },
-    "update:pre:vale": {
-      "command": "vale --config='.github/vale/vale.ini' --no-exit sync"
     }
   },
   "config": {

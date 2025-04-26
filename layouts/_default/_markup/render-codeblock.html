@@ -60,8 +60,8 @@
           aria-controls="{{- $slug -}}"
           aria-selected="true"
         >
-          {{- if eq true $showIcons -}}
-            {{ partial "icon.html" (dict "icon" "terminal" "size" "sm") }}&nbsp;
+          {{- if compare.Eq true $showIcons -}}
+            {{ partials.Include "icon.html" (dict "icon" "terminal" "size" "sm") }}&nbsp;
           {{- end -}}
           {{- .Type -}}
         </button>
@@ -79,8 +79,8 @@
             aria-controls="{{- $slug -}}-{{- . -}}"
             aria-selected="true"
           >
-            {{- if eq true $showIcons -}}
-              {{ partial "icon.html" (dict "icon" "terminal" "size" "sm") }}&nbsp;
+            {{- if compare.Eq true $showIcons -}}
+              {{ partials.Include "icon.html" (dict "icon" "terminal" "size" "sm") }}&nbsp;
             {{- end -}}
             {{- . | strings.ToUpper -}}
           </button>

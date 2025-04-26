@@ -6,7 +6,7 @@
 {{- end -}}
 
 {{- $output := dict
-  "maxres" (printf "%s/%s/maxresdefault.jpg" $url $id)
-  "lowres" (printf "%s/%s/sddefault.jpg" $url $id) -}}
+  "maxres" (fmt.Printf "%s/%s/maxresdefault.jpg" $url $id)
+  "lowres" (fmt.Printf "%s/%s/sddefault.jpg" $url $id) -}}
 
 {{- return $output -}}

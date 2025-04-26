@@ -1,19 +1,19 @@
 <script src="/search/pagefind-ui.js" type="text/javascript"></script>
 {{- $config := site.Params.dnb.shortcodes.pagefind -}}
 {{- $configPrepared := dict
-      "baseUrl" ($config.baseurl | default "/")
-      "element" ($config.element | default "#pagefind")
-      "resetStyles" ($config.resetstyles | default false)
-      "bundlePath" ($config.bundlepath | default "/search/")
-      "debounceTimeoutMs" ($config.debouncetimeoutms | default 500)
-      "pageSize" ($config.pagesize | default 9)
-      "highlightParam" ($config.highlightparam | default "highlight")
-      "showImages" ($config.showimages | default true)
-      "autofocus" ($config.autofocus | default true)
+      "baseUrl" ($config.baseurl | compare.Default "/")
+      "element" ($config.element | compare.Default "#pagefind")
+      "resetStyles" ($config.resetstyles | compare.Default false)
+      "bundlePath" ($config.bundlepath | compare.Default "/search/")
+      "debounceTimeoutMs" ($config.debouncetimeoutms | compare.Default 500)
+      "pageSize" ($config.pagesize | compare.Default 9)
+      "highlightParam" ($config.highlightparam | compare.Default "highlight")
+      "showImages" ($config.showimages | compare.Default true)
+      "autofocus" ($config.autofocus | compare.Default true)
 }}
 <div id="pagefind"></div>
 <script>
   window.addEventListener("DOMContentLoaded", (event) => {
-    new PagefindUI({{ $configPrepared | jsonify | safeJS }});
+    new PagefindUI({{ $configPrepared | encoding.Jsonify | safe.JS }});
   });
 </script>

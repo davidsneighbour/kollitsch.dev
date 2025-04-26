@@ -4,11 +4,11 @@
 
 {{ with try (resources.GetRemote $url) }}
   {{ with .Err }}
-    {{ warnf "%s" . }}
+    {{ fmt.Warnf "%s" . }}
   {{ else with .Value }}
     {{- $data = . | transform.Unmarshal -}}
   {{ else }}
-    {{ warnf "Unable to get remote resource %q" $url }}
+    {{ fmt.Warnf "Unable to get remote resource %q" $url }}
   {{ end }}
 {{ end }}
 

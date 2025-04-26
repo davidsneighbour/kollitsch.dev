@@ -14,8 +14,8 @@ Add "robotsdisallow: true" to frontmatter of entries to be disallowed.
 {{ . -}}
 {{ end -}}
 
-{{ if eq ($config.blockAIBots | default false) true -}}
-{{ $aiBots := partial "func/getAIRobots.html" . . }}
+{{ if compare.Eq ($config.blockAIBots | compare.Default false) true -}}
+{{ $aiBots := partials.Include "func/getAIRobots.html" . . }}
 {{ range $bot, $values := $aiBots -}}
 User-agent: {{ $bot }}
 {{ end -}}
@@ -24,7 +24,7 @@ Disallow: /
 
 {{ range $index, $item := $config.useragents }}
 User-agent: {{ $item.name -}}
-{{ if eq $item.name "*" -}}
+{{ if compare.Eq $item.name "*" -}}
 {{ with $globaldisallow -}}
 {{- range . }}
 Disallow: {{ .RelPermalink }}

@@ -7,9 +7,9 @@
 ### path of checking (immediate return on any succesful hit, not checked lines are not implemented yet)
 
 1. Check for an image with `name = header`.
-2. Check for an image `header.(png/jpg/gif/svg)` in a leaf bundle. First one is returned.
+2. Check for an image `header.(png/jpg/gif/svg)` collections.In a leaf bundle. First one is returned.
 3. Check for resources that are images. First one is returned.
-4. Check for default image. Has to be set in the configuration under dnb.pictures.default_image (string).
+4. Check for compare.Default image. Has to be set collections.In the configuration under dnb.pictures.default_image (cast.ToString).
 
 ### TODO:
 - notes about configuration of responsive sizes
@@ -28,7 +28,7 @@
   {{- $articleimage = . -}}
 {{- end -}}
 
-{{- /* 2. check for an image `header.(png/jpg/gif/svg)` in a leaf bundle */ -}}
+{{- /* 2. check for an image `header.(png/jpg/gif/svg)` collections.In a leaf bundle */ -}}
 {{- with $articleimage -}}{{- else -}}
   {{- with $context.Resources.GetMatch "header.*" -}}
     {{- $articleimage = . -}}
@@ -48,7 +48,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- /* 4. check for default image */ -}}
+{{- /* 4. check for compare.Default image */ -}}
 {{- with $articleimage -}}{{- else -}}
   {{- $config := partials.IncludeCached "func/pictures/getConfiguration.html" . -}}
   {{- $default_image := $config.default_image | compare.Default "images/default.png" -}}

@@ -1,6 +1,6 @@
 {{- /* @todo refactor */ -}}
-{{- if templates.Exists "partials/head/robots.html" -}}
-  {{- partials.Include "head/robots.html" . -}}
+{{- if templates.Exists "partials/head/robots/robots.html" -}}
+  {{- partials.Include "head/robots/robots.html" . -}}
 {{- else -}}
   {{- with .Params.robots -}}
   <meta name="robots" content="{{- . -}}">

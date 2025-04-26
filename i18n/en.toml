@@ -383,3 +383,8 @@ other = "Telegram"
 
 [share_label]
 other = "Share: "
+
+
+# dnb-hugo-robots
+[dnb.robots.branding]
+other = "# this robots.txt is cooked with love by https://dnbhug.xyz/robots"

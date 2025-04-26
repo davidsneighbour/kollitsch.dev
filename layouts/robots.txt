@@ -1,26 +1,20 @@
-{{- /*
-
-Template for robots.txt
-
-- https://gohugo.io/templates/robots/
-
-Add "robotsdisallow: true" to frontmatter of entries to be disallowed.
-
-*/ -}}
+{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.start" "context" . ) -}}
 {{- $config := site.Params.dnb.robots -}}
 {{- $globaldisallow := collections.Where site.Pages "Params.options.robots.disallow" true -}}
 
 {{- with $config.initialComment -}}
-{{ . -}}
+{{ . | strings.TrimSpace }}
 {{ end -}}
 
 {{ if compare.Eq ($config.blockAIBots | compare.Default false) true -}}
-{{ $aiBots := partials.Include "func/getAIRobots.html" . . }}
+{{ $aiBots := partials.IncludeCached "func/robots/getAIRobots.html" . . }}
 {{ range $bot, $values := $aiBots -}}
 User-agent: {{ $bot }}
 {{ end -}}
 Disallow: /
 {{ end -}}
+
+{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.postai" "context" . ) -}}
 
 {{ range $index, $item := $config.useragents }}
 User-agent: {{ $item.name -}}
@@ -37,12 +31,12 @@ Disallow: {{ . }}
 {{- range $item.allow }}
 Allow: {{ . }}
 {{- end }}
-{{ end }}
+{{ end -}}
 
-Sitemap: {{ "sitemap.xml" | urls.AbsLangURL }}
+{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.sitemap" "context" . ) -}}
 
 {{ with $config.concludingComment -}}
-{{ . | safe.HTML -}}
+{{ . | strings.TrimSpace -}}
 {{ end -}}
 
 {{- $branding := true -}}
@@ -52,5 +46,7 @@ Sitemap: {{ "sitemap.xml" | urls.AbsLangURL }}
   {{- end -}}
 {{- end -}}
 {{- if compare.Eq $branding true }}
-# robots.txt is prepared by https://github.com/davidsneighbour/hugo-modules/tree/main/modules/robots#readme
+{{ lang.Translate "dnb.robots.branding" }}
 {{ end -}}
+
+{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.end" "context" . ) -}}

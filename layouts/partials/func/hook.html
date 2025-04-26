@@ -32,9 +32,9 @@
 {{- $loaded := false -}}
 
 {{- with $config.items -}}
-  {{/* @todo fix weighting of hooks */}}
-  {{/* @todo fix logging output */}}
-  {{/* @todo document this mess */}}
+  {{- /* @todo fix weighting of hooks */ -}}
+  {{- /* @todo fix logging output */ -}}
+  {{- /* @todo document this mess */ -}}
   {{ range $key, $hooks := . -}}
     {{- with (collections.Index $hooks $context.hook) -}}
       {{- range . -}}
@@ -124,8 +124,8 @@
     {{- end -}}
   {{- end -}}
 
-  {{/* find plugin hooks */}}
-  {{/* @todo fix weighting of hooks */}}
+  {{- /* find plugin hooks */ -}}
+  {{- /* @todo fix weighting of hooks */ -}}
   {{- with collections.Index $config $context.hook -}}
     {{- fmt.Warnf "plugin hooks are experimental" -}}
     {{- range . -}}
@@ -163,7 +163,6 @@
     ) -}}
   {{- end -}}
 {{- end -}}
-
 
 {{- partials.Include "debug/cli.html" (collections.Dictionary
   "message" (fmt.Printf "hooks[%d]: %s processed for %v (%s)"

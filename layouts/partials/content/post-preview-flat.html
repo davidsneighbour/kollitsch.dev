@@ -5,6 +5,9 @@
 {{- $posttype := $post.Type -}}
 {{- $config := partials.Include "func/getPostSetup.html" $posttype -}}
 <article class="{{- $postClasses }} mb-3 px-3 py-2 component--archive-card">
+
+  {{- partials.IncludeCached "schema/things/breadcrumbList.html" . . -}}
+
   <div class="is--item row">
     <div class="col-12 col-sm-6 col-md-4">
       {{- /* MARK: Banner

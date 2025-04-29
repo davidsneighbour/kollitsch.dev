@@ -14,6 +14,8 @@
 {{- $articleclasses := partials.IncludeCached "func/getArticleClasses.html" $post $post -}}
 <article {{ $pagefindMarker | safe.HTMLAttr }} class="full-post {{ $articleclasses -}}">
 
+  {{- partials.IncludeCached "schema/things/newsArticle.html" $post $post -}}
+
   {{- /* MARK: Status
   */ -}}
   {{- if compare.Ne $config.status false -}}

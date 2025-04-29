@@ -9,6 +9,8 @@
 {{- $articleclasses := partials.Include "func/getArticleClasses.html" $post $post -}}
 <article class="card h-100 {{ $articleclasses -}}">
 
+  {{- partials.IncludeCached "schema/things/breadcrumbList.html" . . -}}
+
   {{- /* MARK: Status ribbon
   */ -}}
   {{- if compare.Ne $config.status false -}}

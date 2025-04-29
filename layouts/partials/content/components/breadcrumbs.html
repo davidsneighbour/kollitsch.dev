@@ -9,33 +9,8 @@
       <li class="breadcrumb-item active" aria-current="page">{{ .LinkTitle | transform.Markdownify }}</li>
     </ol>
   </nav>
-  {{/* @todo make this a partials.Include */}}
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-    {{- $counter := 1 }}
-    {{- range .Ancestors.Reverse }}
-      {
-        "@type": "ListItem",
-        "position": {{ $counter }},
-        "name": "{{ .LinkTitle | compare.Default site.Title | safe.JS}}",
-        "url": {{ .Permalink }},
-        "item": {{ .Permalink }}
-      },
-      {{- $counter = math.Add $counter 1 -}}
-    {{ end }}
-      {
-        "@type": "ListItem",
-        "position": {{ $counter }},
-        "name": "{{ .LinkTitle | safe.JS }}",
-        "url": {{ .Permalink }},
-        "item": {{ .Permalink }}
-      }
-    ]
-  }
-  </script>
-  {{ partials.Include "func/vscode-link.html" . }}
+
+  {{- partials.IncludeCached "schema/things/breadcrumbList.html" . . -}}
+  {{- partials.IncludeCached "func/vscode-link.html" . . -}}
 </div>
 {{- end -}}

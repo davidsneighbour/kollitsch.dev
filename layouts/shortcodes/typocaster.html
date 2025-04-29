@@ -101,9 +101,9 @@
     const selectedFontSize = fontSizeSelect.value;
 
     removeExistingFontLinks(); // Remove any previous Google Fonts link
-    createFontLink(selectedFont); // Create and append the new font link
+    createFontLink(selectedFont); // Create the new font link
 
-    // Apply the selected font, font weight, and font size in one operation
+    // Apply the selected styling one operation
     typographyInfoContainer.style.cssText = `
             font-family: '${selectedFont.replace('+', ' ')}', sans-serif;
             font-weight: ${selectedFontWeight};
@@ -119,7 +119,7 @@
   // Initialize display
   displayCharacters();
 
-  // Initialize with the default font
+  // Initialize with the preferred font
   createFontLink('Roboto');
 </script>
 <style>

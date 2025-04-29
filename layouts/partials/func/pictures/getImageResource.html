@@ -19,7 +19,13 @@ requires two parameters:
   {{- else with .Value -}}
     {{- $localimage = . -}}
   {{ else }}
-    {{ fmt.Warnf "Unable to get remote resource %q" $path }}
+    {{- partials.Include "debug/cli.html"
+      (dict
+        "message" (fmt.Printf (lang.Translate "dnb.pictures.error1001") $path)
+        "context" .
+        "severity" "warn"
+      )
+    -}}
   {{- end -}}
 {{- end -}}
 
@@ -30,7 +36,13 @@ requires two parameters:
     {{- else with .Value -}}
       {{- $localimage = . -}}
     {{ else }}
-      {{ fmt.Warnf "Unable to get remote resource %q" $path }}
+      {{- partials.Include "debug/cli.html"
+        (dict
+          "message" (fmt.Printf (lang.Translate "dnb.pictures.error1002") $path)
+          "context" .
+          "severity" "warn"
+        )
+      -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

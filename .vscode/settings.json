@@ -32,7 +32,6 @@
     "strings": "on"
   },
   "editor.suggest.showCustomcolors": true,
-  "editor.wordWrapColumn": 120,
   "explorer.fileNesting.patterns": {
     "hugo.log": "hugo_stats.json, .hugo_build.lock"
   },
@@ -147,5 +146,6 @@
       }
     ]
   },
-  "problems.autoReveal": true
+  "problems.autoReveal": false,
+  "editor.insertSpaces": false
 }

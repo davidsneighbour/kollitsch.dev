@@ -58,7 +58,7 @@
     "html-webpack-plugin": "5.6.3",
     "lint-staged": "15.5.1",
     "lockfile-lint": "4.14.0",
-    "masto": "6.10.4",
+    "masto": "7.0.0",
     "mini-css-extract-plugin": "2.9.2",
     "ncp": "2.0.0",
     "ninja-keys": "1.2.2",

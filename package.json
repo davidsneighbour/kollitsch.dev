@@ -29,7 +29,7 @@
     "@secretlint/secretlint-rule-no-k8s-kind-secret": "9.3.1",
     "@secretlint/secretlint-rule-openai": "9.3.1",
     "@secretlint/secretlint-rule-pattern": "9.3.1",
-    "@secretlint/secretlint-rule-preset-recommend": "9.3.1",
+    "@secretlint/secretlint-rule-preset-recommend": "9.3.2",
     "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.1",
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",

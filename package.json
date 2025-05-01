@@ -83,7 +83,7 @@
     "semver": "7.7.1",
     "simple-git-hooks": "2.12.1",
     "style-loader": "4.0.0",
-    "stylelint": "16.18.0",
+    "stylelint": "16.19.1",
     "stylelint-config-standard-scss": "14.0.0",
     "stylelint-no-unsupported-browser-features": "8.0.4",
     "stylelint-order": "7.0.0",

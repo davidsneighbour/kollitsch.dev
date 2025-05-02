@@ -147,5 +147,6 @@
     ]
   },
   "problems.autoReveal": false,
-  "editor.insertSpaces": false
+  "editor.insertSpaces": false,
+  "prettier.enable": false
 }

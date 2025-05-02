@@ -1,0 +1,34 @@
+################################################################################
+# hugo-giscus @see https://github.com/davidsneighbour/hugo-giscus
+################################################################################
+[dnb.giscus]
+#src="https://dnb-comm.vercel.app/client.js"
+dataCategory = "Comments"
+dataCategoryId = "DIC_kwDOGDHt584B_i3-"
+dataEmitMetadata = "0"
+dataMapping = "specific"
+dataReactionsEnabled = "1"
+dataRepo = "davidsneighbour/kollitsch.dev"
+dataRepoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
+#dataThemeType = "local"
+#dataTheme = "/assets/giscus.css"
+#dataTheme = "preferred_color_scheme"
+dataLoading = "lazy"
+src = "https://giscus.app/client.js"
+#dataRepo = "username/reponame"
+#dataRepoId = "ABCDEFGHIJKLMNOPQSTUVXYZABCDEFGH"
+#dataCategory = "Comments"
+#dataCategoryId = "ABCDEFGHIJKLMNOPQRST"
+dataInputPosition = "top" # top, bottom
+dataTheme = "dark" # dark_dimmed, dark, light, light_dimmed
+# dataThemeType = "local" # if set and local then dataTheme is an URL
+# de, en, es, fr, gsw, id, it, ja, ko, pl, ro, ru, tr, vi, zh-CN, zh-TW
+dataLang = "en"
+dataStrict = "1"
+
+[dnb.giscus.extended]
+defaultCommentOrder = "oldest"
+origins = ["https://kollitsch.dev", "https://127.0.0.1:1313", "https://192.168.1.201:1313"]
+originsRegex = [
+  "http(s)?://localhost:[0-9]+",
+]

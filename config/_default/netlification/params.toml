@@ -1,0 +1,230 @@
+
+# netlification - @see https://dnbhub.xyz/netlification
+################################################################################
+[dnb.netlification]
+extensions = ["youtube", "cloudflare.insights"]
+upgradeInsecureRequests = true
+# mode - defines output formats
+# netlify = Netlify
+# github = Github Pages (tbd)
+# gitlab = Gitlab Pages (tbd)
+# cloudflare = Cloudflare Pages (tbd)
+mode = "netlify"
+# extensions (tbd)
+# extensions = ["youtube", "cloudflare.insights"]
+# ignored header fields
+# @todo move to netlify specific settings
+ignored_headers = [
+  "Accept-Ranges",
+  "Age",
+  "Allow",
+  "Alt-Svc",
+  "Connection",
+  "Content-Encoding",
+  "Content-Length",
+  "Content-Range",
+  "Date",
+  "Location",
+  "Server",
+  "Set-Cookie",
+  "Trailer",
+  "Transfer-Encoding",
+  "Upgrade",
+]
+ignored_headers_info = "https://docs.netlify.com/routing/headers/#limitations"
+
+[dnb.netlification.defaults]
+# default value of "Accept-Encoding: gzip, deflate, br"
+# @deprecated, use data-headers instead
+acceptEncoding = "gzip, deflate, br"
+# default value of "Cache-Control: public, max-age={{- $cacheSeconds -}}, immutable"
+cacheControl = "public, max-age=%d, immutable"
+
+[dnb.netlification.csp]
+reportOnly = false
+# reportUri = ""
+
+#require-trusted-types-for = ["'script'"]
+base-uri = ["'self'"]
+child-src = ["'self'"]
+connect-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://api.github.com/", 'cloudflareinsights.com']
+default-src = ["'self'"] # @todo move to 'none' after fixing all issues
+font-src = ["'self'", "https://d33wubrfki0l68.cloudfront.net"]
+form-action = ["'self'", "https://formspree.io/f/xoqyzooe"]
+frame-ancestors = ["'self'"]
+frame-src = ["'self'", "https://open.spotify.com/", "https://giscus.app/", "https://www.youtube-nocookie.com"]
+img-src = ["'self'", 'https://analytics.dnbhub.xyz/', "https://d33wubrfki0l68.cloudfront.net", "ytimg.googleusercontent.com", "https://i.ytimg.com"]
+manifest-src = ["'self'"]
+media-src = ["'self'"]
+object-src = ["'none'"]
+script-src = [
+  "'self'",
+  "'unsafe-eval'",
+  "'unsafe-inline'",
+  "'wasm-unsafe-eval'",
+  "https://d33wubrfki0l68.cloudfront.net",
+  "https://giscus.app/",
+  'https://unpkg.com',
+  "https://identity.netlify.com",
+  "static.cloudflareinsights.com",
+  'https://analytics.dnbhub.xyz/',
+]
+style-src = ["'self'", "'unsafe-inline'", "https://d33wubrfki0l68.cloudfront.net", "https://giscus.app/"]
+upgradeInsecureRequests = true
+worker-src = ["'self'"]
+
+# set caching duration, default is 1 year
+[dnb.netlification.cache.duration]
+days = 0
+months = 0
+years = 1
+
+#[headers]
+#for = "/pwa/reset"
+#[headers.rules]
+## https://developer.chrome.com/docs/workbox/remove-buggy-service-workers/
+## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
+#Clear-Site-Data = ["cache", "cookies", "storage", "executionContexts"]
+
+# netlify specific settings
+[dnb.netlification.netlify]
+#cms = true
+ignored_headers = [
+  "Accept-Ranges",
+  "Age",
+  "Allow",
+  "Alt-Svc",
+  "Connection",
+  "Content-Encoding",
+  "Content-Length",
+  "Content-Range",
+  "Date",
+  "Location",
+  "Server",
+  "Set-Cookie",
+  "Trailer",
+  "Transfer-Encoding",
+  "Upgrade",
+]
+ignored_headers_info = "https://docs.netlify.com/routing/headers/#limitations"
+
+# github specific settings
+[dnb.netlification.github]
+
+# gitlab specific settings
+[dnb.netlification.gitlab]
+
+# cloudflare specific settings
+[dnb.netlification.cloudflare]
+
+[dnb.netlification.internals]
+banner = '''
+################################################################################
+# |\| [- ~|~ |_ | /= | ( /\ ~|~ | () |\|
+# Netlification v%s - see https://dnbhub.xyz/netlification
+################################################################################
+'''
+
+[[dnb.netlification.speculationrules.prerender]]
+[[dnb.netlification.speculationrules.prerender.where.and]]
+href_matches = "/*"
+
+[[dnb.netlification.speculationrules.prerender.where.and]]
+[dnb.netlification.speculationrules.prerender.where.and.not]
+href_matches = "/logout"
+
+[[dnb.netlification.speculationrules.prerender.where.and]]
+[dnb.netlification.speculationrules.prerender.where.and.not]
+href_matches = "/*\\?*(^|&)add-to-cart=*"
+
+[[dnb.netlification.speculationrules.prerender.where.and]]
+[dnb.netlification.speculationrules.prerender.where.and.not]
+selector_matches = ".no-prerender"
+
+[[dnb.netlification.speculationrules.prerender.where.and]]
+[dnb.netlification.speculationrules.prerender.where.and.not]
+selector_matches = "[rel~=nofollow]"
+
+[[dnb.netlification.speculationrules.prefetch]]
+referrer_policy = "no-referrer"
+requires = ["anonymous-client-ip-when-cross-origin"]
+urls = ["/find/", "/"]
+
+[[dnb.netlification.redirects]]
+netlify = "https://kollitsch-dev.netlify.app/"
+
+[[dnb.netlification.redirects]]
+from = "/_schemata"
+status = "301"
+to = "https://kollitsch.dev"
+
+[[dnb.netlification.redirects]]
+from = "/repos/*"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/2005/*"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/2006/*"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/2007/*"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/2008/*"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/tags/kollitsch.de/"
+status = "301"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
+
+[[dnb.netlification.redirects]]
+from = "/tags/dnb/"
+status = "301"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
+
+[[dnb.netlification.redirects]]
+from = "/tags/dnb-org/"
+status = "301"
+to = "https://kollitsch.dev/tags/davidsneighbour/"
+
+[[dnb.netlification.redirects]]
+from = "/repos/textpattern-plugins/current/"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/dnb/*"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/repos/textpattern-plugins/current/"
+status = "301"
+to = "https://kollitsch.dev/"
+
+[[dnb.netlification.redirects]]
+from = "/blog/2021/gitignore-for-gohugo/"
+status = "301"
+to = "/blog/2022/gitignore-gohugo/"
+
+[[dnb.netlification.redirects]]
+from = "/blog/2022/100daystooffload/"
+status = "301"
+to = "/blog/2022/100-days-to-offload/"
+
+[[dnb.netlification.redirects]]
+from = "/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg"
+status = "301"
+to = "https://kollitsch.dev/"
+

@@ -1,0 +1,159 @@
+
+# social - @see https://dnbhub.xyz/social
+################################################################################
+[dnb.social]
+[dnb.social.sharebuttons]
+icons = true
+networks = ["rss", "buymeacoffee", "spotify", "mastodon", "linkedin", "instagram", "facebook", "bluesky"]
+sharetext = true
+
+[dnb.social.network.facebook]
+icon = "facebook"
+label = "Follow me on Facebook"
+url = "https://www.facebook.com/patrick.kollitsch/"
+
+[dnb.social.network.bluesky]
+icon = "square-fill"
+label = "Follow me on Bluesky"
+url = "https://bsky.app/profile/kollitsch.dev"
+
+[dnb.social.network.instagram]
+icon = "instagram"
+label = "Follow me on Instagram"
+url = "https://www.instagram.com/pkollitsch/"
+
+[dnb.social.network.linkedin]
+icon = "linkedin"
+label = "Follow me on LinkedIn"
+url = "https://www.linkedin.com/in/patrickkollitsch/"
+
+[dnb.social.network.spotify]
+icon = "spotify"
+label = "Listen to music I like on Spotify"
+url = "https://open.spotify.com/user/21u54jpyeywpwxzgsuc24uaba?si=9c32f80f6dfd4bc9"
+
+[dnb.social.network.mastodon]
+icon = "mastodon"
+label = "Me on Mas.to(don)"
+url = "https://mas.to/@davidsneighbour"
+
+[dnb.social.network.rss]
+icon = "rss-fill"
+label = "Subscribe to RSS feed"
+url = "https://kollitsch.dev/rss.xml"
+
+[dnb.social.network.buymeacoffee]
+icon = "cup-hot-fill"
+label = "Buy me a coffee"
+url = "https://www.buymeacoffee.com/davidsneigbour"
+
+[dnb.social.twitter]
+domain = "davids-neighbour.com"
+profile = "davidsneighbour"
+
+[dnb.social.facebook]
+admins = "1234567890"
+app_id = "1234567890"
+
+# social media network share link setups
+[[dnb.social.shares.items]]
+icon = "facebook"
+link = "https://facebook.com/sharer/sharer.php"
+slug = "facebook"
+[dnb.social.shares.items.particles]
+u = "permalink"
+
+[[dnb.social.shares.items]]
+icon = "twitter"
+link = "https://twitter.com/intent/tweet/"
+slug = "twitter"
+[dnb.social.shares.items.particles]
+text = "description"
+url = "permalink"
+
+[[dnb.social.shares.items]]
+link = "https://www.tumblr.com/widgets/share/tool"
+slug = "tumblr"
+[dnb.social.shares.items.particles]
+canonicalUrl = "permalink"
+caption = "description"
+content = "description"
+params = "posttype=link"
+shareSource = "source"
+title = "title"
+
+[[dnb.social.shares.items]]
+icon = "envelope"
+link = "mailto:"
+slug = "email"
+[dnb.social.shares.items.particles]
+body = "permalink"
+subject = "title"
+
+[[dnb.social.shares.items]]
+icon = "pinterest"
+link = "https://pinterest.com/pin/create/button/"
+slug = "pinterest"
+[dnb.social.shares.items.particles]
+description = "description"
+media = "permalink"
+url = "permalink"
+
+[[dnb.social.shares.items]]
+icon = "linkedin"
+link = "https://www.linkedin.com/shareArticle"
+slug = "linkedin"
+[dnb.social.shares.items.particles]
+params = "mini=true"
+source = "permalink"
+summary = "description"
+title = "title"
+url = "permalink"
+
+[[dnb.social.shares.items]]
+icon = "reddit"
+link = "https://reddit.com/submit/"
+slug = "reddit"
+[dnb.social.shares.items.particles]
+params = "resubmit=true"
+title = "title"
+url = "permalink"
+
+[[dnb.social.shares.items]]
+link = "https://www.xing.com/app/user"
+separator = ";"
+slug = "xing"
+[dnb.social.shares.items.particles]
+params = "op=share"
+title = "title"
+url = "permalink"
+
+[[dnb.social.shares.items]]
+icon = "whatsapp"
+link = "whatsapp://send"
+linkintext = true
+slug = "whatsapp"
+[dnb.social.shares.items.particles]
+text = "description"
+
+[[dnb.social.shares.items]]
+link = "https://news.ycombinator.com/submitlink"
+slug = "hackernews"
+[dnb.social.shares.items.particles]
+t = "description"
+u = "permalink"
+
+[[dnb.social.shares.items]]
+link = "http://vk.com/share.php"
+slug = "vkontakte"
+[dnb.social.shares.items.particles]
+title = "title"
+url = "permalink"
+
+[[dnb.social.shares.items]]
+icon = "telegram"
+link = "https://telegram.me/share/url"
+slug = "telegram"
+[dnb.social.shares.items.particles]
+text = "description"
+url = "permalink"

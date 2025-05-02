@@ -133,7 +133,7 @@
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
-    "server": "rm -rf ./public && hugo server trust && hugo config --format json > data/dnb/kollitsch/config.json && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://localhost/ 2>&1 | tee -a logs/hugo.log",
+    "server": "wireit",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "update": "wireit",
@@ -168,7 +168,7 @@
       "dependencies": ["clean:dist", "build:hugoconfig"]
     },
     "build:hugoconfig": {
-      "command": "hugo config --format json > data/dnb/kollitsch/config.json"
+      "command": "hugo config --format toml > data/dnb/kollitsch/config.toml"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
@@ -248,8 +248,7 @@
       "command": "node ./scripts/pagefind.mjs"
     },
     "server:hugo": {
-      "command": "node bin/hugo/server.js",
-      "dependencies": ["server:hugo-certificates"],
+      "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://localhost/ 2>&1 | tee -a logs/hugo.log",
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at (.*)"

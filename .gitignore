@@ -27,7 +27,7 @@ static/documentation/styles
 .frontmatter/database/*
 # generated tailwind files
 assets/css/theme.css
-data/dnb/kollitsch/config.json
+data/dnb/kollitsch/config.*
 release.json
 
 # playwright output

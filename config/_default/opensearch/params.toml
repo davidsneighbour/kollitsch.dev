@@ -1,0 +1,8 @@
+
+################################################################################
+# dnb.opensearch # @see dnbhub.xyz/opensearch
+################################################################################
+[dnb.opensearch]
+hookLink = "https://dnbql.netlify.app/opensearch"
+# title = ""
+# description = ""

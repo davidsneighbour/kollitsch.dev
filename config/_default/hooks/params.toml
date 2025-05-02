@@ -1,0 +1,61 @@
+
+# hooks - @see https://dnbhub.xyz/hooks
+################################################################################
+[dnb.hooks]
+debug = true
+hooklink = "https://dnbhub.xyz/hooks"
+
+[[dnb.hooks.items.kollitsch.head-end]]
+cached = true
+file = "head-end-matomo"
+
+[[dnb.hooks.items.theme.body-main-end]]
+cached = false
+file = "body-main-end"
+
+[[dnb.hooks.items.theme.head-post-css]]
+cached = false
+file = "head-post-css"
+
+[[dnb.hooks.items.theme.head-pre-css]]
+cached = true
+file = "head-pre-css"
+
+[[dnb.hooks.items.theme.head-start]]
+cached = true
+file = "head-start"
+
+[[dnb.hooks.items.theme.head-end]]
+cached = false
+file = "head-end"
+
+[[dnb.hooks.items.theme.header-topnav-pre]]
+cached = false
+file = "header-topnav-pre"
+
+[[dnb.hooks.items.theme.post-after]]
+cached = false
+file = "post-after"
+
+[[dnb.hooks.items.debug.head-post-css]]
+cached = true
+file = "debugprint-head-post-css"
+
+[[dnb.hooks.items.debug.footer-widgets-end]]
+cached = false
+file = "debugprint-footer-widgets-end"
+
+[[dnb.hooks.items.auditor.article-meta-end]]
+file = "meta-seo"
+
+# [[dnb.hooks.items.auditor.body-end]]
+# file = "post-body-button"
+
+[[dnb.hooks.items.netlification.body-end]]
+cached = true
+file = 'netlification-body-end'
+
+[[dnb.hooks.items.robots."robots.sitemap"]]
+cached = true
+file = 'robots/sitemap'
+

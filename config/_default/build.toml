@@ -1,8 +1,6 @@
 ################################################################################
 # https://gohugo.io/getting-started/configuration/#configure-build
 ################################################################################
-_merge = "deep"
-
 [buildStats]
 enable = true            # default is false
 # disableClasses = false # default is false

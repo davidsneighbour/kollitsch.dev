@@ -36,28 +36,6 @@ ignoreErrors = []
 ##################################################################################
 timeout = "600s"
 
-##################################################################################
-# https://gohugo.io/getting-started/configuration/#merge-configuration-from-themes
-# some configurations require different merge settings from the default
-#
-# Note that you don't need to be so verbose as in the default setup below;
-# a `_merge` value higher up will be inherited if not set.
-##################################################################################
-[outputs]
-_merge = 'deep'
-[caches]
-_merge = 'deep'
-[build]
-_merge = 'deep'
-[markup]
-_merge = 'deep'
-[module]
-_merge = 'deep'
-[frontmatter]
-_merge = 'deep'
-[taxonomies]
-_merge = 'shallow'
-
 ################################################################################
 # pagination
 ################################################################################

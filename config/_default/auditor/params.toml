@@ -1,0 +1,11 @@
+
+[dnb.auditor]
+ct = false
+descriptionMaxLength = 160
+descriptionMinLength = 110
+descriptionThreshold = 10
+titleMaxLength = 60
+titleMinLength = 50
+titleThreshold = 10
+
+

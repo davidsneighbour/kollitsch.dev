@@ -1,0 +1,22 @@
+################################################################################
+# dnb.youtube # @see dnbhub.xyz/youtube
+################################################################################
+[dnb.youtube]
+# set the source server that thumbnails are loaded from
+# - 1 for googleusercontent.com (default)
+# - 2 for ytimg.com
+thumbnail_source = 1
+
+[dnb.youtube.apiparams]
+# see https://developers.google.com/youtube/player_parameters#Parameters
+controls = 0
+iv_load_policy = 3
+rel = 0
+
+# @todo rework into modder config
+[dnb.youtube.config.plugins.js]
+calls = ["customElements.define('lite-youtube', LiteYTEmbed);"]
+imports = ["import LiteYTEmbed from './lite-yt-embed-esm.js';"]
+
+[dnb.youtube.config.plugins.scss]
+imports = ["lite-yt-embed"]

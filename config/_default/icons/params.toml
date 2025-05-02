@@ -1,0 +1,9 @@
+################################################################################
+# dnb.icons # @see dnbhub.xyz/icons
+################################################################################
+[dnb.icons]
+default = "bootstrap"
+
+[dnb.icons.bootstrap]
+path = "icons/bootstrap-icons/%s.svg"
+slug = "bs"

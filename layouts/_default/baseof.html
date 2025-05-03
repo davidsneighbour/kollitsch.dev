@@ -20,10 +20,13 @@
     </a>
     <h1 class="p-0 mx-auto my-0 text-center container-md sitetitle">
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "pre-sitetitle" "context" . ) -}}
-      <a class="p-0 mx-auto my-0 d-inline-block lh-1 text-nowrap" href="{{- site.BaseURL -}}">
+      <a aria-label="{{- site.Title -}}"
+         class="p-0 mx-auto my-0 d-inline-block lh-1 text-nowrap" href="{{- site.BaseURL -}}">
+         <dnb-textscramble>
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "pre-sitetitle-inner" "context" . ) -}}
         {{- site.Title -}}
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle-inner" "context" . ) -}}
+        </dnb-textscramble>
       </a>
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle" "context" . ) -}}
     </h1>

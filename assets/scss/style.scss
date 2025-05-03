@@ -3,22 +3,17 @@
 /// @access public
 /// @since 1.2024.0
 ////
-
 @charset 'utf-8';
-
 // internals
 @use "sass:map";
 @use "sass:color";
 @use "sass:math";
 @use "sass:string";
 @use "sass:list";
-
 // modules
 @use "modules/colors" as dnbcolors;
 @use "modules/typography" as dnbtypography;
-
 // MARK: Settings Fonts
-
 /// default directory to locate webfonts
 /// @type string
 $fontdir: "/assets/webfonts" !default;
@@ -58,44 +53,34 @@ $fontdir: "/assets/webfonts" !default;
 @include fontface("JetBrainsMono", "jetbrainsmono", "JetBrainsMono-Italic[wght].woff2", 100 800, italic, swap, (("woff2", "variations"), ("woff2-variations")));
 @include fontface("Changa", "changa", "changaone-regular-webfont.woff2", normal, normal, fallback, (("woff2"), ("woff")));
 @include fontface("Changa", "changa", "changaone-italic-webfont.woff2", normal, italic, swap, (("woff2"), ("woff")));
-
 /// font family setup
 $ff-headline: Changa, sans-serif !default;
 $ff-body: Exo2, sans-serif !default;
 $ff-mono: JetBrainsMono, monospace !default;
-
 // MARK: Settings Colors
-
 // :root {
 //   @each $name, $value in dnbcolors.$colors {
 //     --color-#{$name}: #{$value};
 //   }
 // }
-
 /// default dark background color
 /// @type color
 $dark-1: map.get(dnbcolors.$colors, "black") !default;
-
 /// default dark accented background color
 /// @type color
 $dark-2: map.get(dnbcolors.$colors, "midnightblue") !default;
-
 /// default light background color
 /// @type color
 $light-1: map.get(dnbcolors.$colors, "whitesmoke") !default;
-
 /// default light accented background color
 /// @type color
 $light-2: map.get(dnbcolors.$colors, "gainsboro") !default;
-
 /// theme primary (accent) color
 /// @type color
 $primary: map.get(dnbcolors.$colors, "red") !default;
-
 /// contrast between sections in dark theme
 /// @type percentage
 $dark-contrast: 12% !default;
-
 /// contrast between sections in light theme
 /// @type percentage
 $light-contrast: 7% !default;
@@ -108,14 +93,12 @@ $light-contrast: 7% !default;
 
 [data-bs-theme="dark"] {
   color-scheme: dark;
-
   --bs-body-bg: $dark-2;
   --bs-primary: $primary;
 }
 
 [data-bs-theme="light"] {
   color-scheme: light;
-
   --bs-body-bg: $light-1;
   --bs-primary: $dark-2;
 }
@@ -123,17 +106,13 @@ $light-contrast: 7% !default;
 /// [data-bs-theme=dark] instead of media-queries
 /// @link https://getbootstrap.com/docs/5.3/customize/color-modes/#custom-color-modes
 $color-mode-type: data;
-
 /// color settings
 $danger-text-emphasis: $primary;
-
 /// global elements
 $border-width: 2px;
-
 /// body
 $body-bg-dark: $dark-1;
 $body-bg: $light-1;
-
 /// typography
 /// based on golden ratio
 ///
@@ -148,7 +127,6 @@ $font-size-root: 18px;
 $font-size-base: 1rem;
 $font-family-sans-serif: $ff-body;
 $font-family-monospace: $ff-mono;
-
 /// font sizes
 $font-weight-lighter: 100;
 $font-weight-light: 200;
@@ -157,7 +135,6 @@ $font-weight-medium: 400;
 $font-weight-semibold: 500;
 $font-weight-bold: 600;
 $font-weight-bolder: 700;
-
 /// headings
 $headings-font-family: $ff-headline;
 $headings-font-weight: 400;
@@ -167,24 +144,19 @@ $h3-font-size: $font-size-base * 1.25;
 $h4-font-size: $font-size-base;
 $h5-font-size: $font-size-base * 0.8;
 $h6-font-size: $font-size-base * 0.8;
-
 /// component color
 $component-active-color: var(--bs-dark);
-
 /// links
 $link-color: $primary;
 $link-color-dark: $primary;
 $link-hover-color: $primary;
 $link-decoration: none;
 $link-hover-decoration: underline;
-
 /// badges
 $badge-font-weight: 400;
 $badge-font-size: 0.75em;
-
 /// buttons
 $btn-font-family: $ff-headline;
-
 /// navigation
 /// @link https://getbootstrap.com/docs/5.3/components/navbar/
 /// @link https://getbootstrap.com/docs/5.3/components/navs-tabs/
@@ -195,24 +167,19 @@ $navbar-light-hover-color: $primary;
 $navbar-light-active-color: $primary;
 $navbar-dark-hover-color: $primary;
 $navbar-dark-active-color: $primary;
-
 /// navbar toggler
 $navbar-toggler-padding-y: .25rem;
 $navbar-toggler-padding-x: .5rem;
 $navbar-toggler-transition: box-shadow .15s ease-in-out;
-
 /// settings
 $enable-shadows: true;
 $enable-negative-margins: true;
 $enable-rounded: true;
 $enable-important-utilities: false;
-
 /// theme settings
 $heading-height: 70px;
-
 // 2:1. 2 would be enough, but then we would forget how to set other aspect ratios until next time ;]
 $aspect-ratio: math.div(2, 1);
-
 /// mark tag
 $mark-color: var(--bs-gray-dark);
 $mark-bg: var(--bs-primary);
@@ -224,12 +191,10 @@ $mark-padding: 0 0.1875em;
   // @link https://caniuse.com/?search=accent-color
   accent-color: var(--bs-primary);
   color-scheme: dark light;
-
   // transition setup and default values
   --duration: 0.5s;
   --timing: ease;
   --flow-space: var($spacer * 2, 1em);
-
   transition:
     color var(--duration) var(--timing),
     background-color var(--duration) var(--timing);
@@ -252,29 +217,22 @@ $breadcrumb-divider: string.quote(∕) !default;
 $breadcrumb-font-size: 0.8rem;
 $breadcrumb-margin-bottom: 0.25rem;
 $breadcrumb-divider-color: var(--bs-tertiary-color);
-
 $border-radius: 5px;
-
 /// code
 $code-font-size: 90%;
-
 // MARK: Bootstrap Modules
-
 // BS: theme settings
 // A note about @import vs @use
 // Bootstrap seems to not yet support @use, so we use @import for now.
 // In regards to the DNB theme, we @use modules and all @imports are deprecated.
-
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
-
 // DNB: map overrides should be added here
 // BS: other required parts
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
-
 // BS: all other components as required
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
@@ -287,44 +245,34 @@ $code-font-size: 90%;
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/dropdown";
-
 // @import 'bootstrap/scss/button-group';
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar";
 @import "bootstrap/scss/card";
-
 // @import 'bootstrap/scss/accordion';
 @import "bootstrap/scss/breadcrumb";
 @import "bootstrap/scss/pagination";
 @import "bootstrap/scss/badge";
 @import "bootstrap/scss/alert";
 @import "bootstrap/scss/progress";
-
 // @import 'bootstrap/scss/list-group';
 @import "bootstrap/scss/close";
-
 // @import 'bootstrap/scss/toasts';
 // @import 'bootstrap/scss/modal';
 @import "bootstrap/scss/tooltip";
-
 // @import 'bootstrap/scss/popover';
 // @import "bootstrap/scss/carousel";
-
 // @import 'bootstrap/scss/spinners';
 // @import 'bootstrap/scss/offcanvas';
 // @import 'bootstrap/scss/placeholders';
-
 // BS: helpers
 @import "bootstrap/scss/helpers";
-
 // BS: utilities API
 @import "bootstrap/scss/utilities/api";
 
 // MARK: DNB Dark Skies Theme
-
 html {
   scroll-behavior: smooth;
-
   background: var(--dnb-bg-image) no-repeat center center fixed;
   background-size: cover;
 
@@ -332,7 +280,6 @@ html {
     background: url("/assets/images/404.jpg") no-repeat center center fixed;
     background-size: cover;
   }
-
 }
 
 body {
@@ -347,7 +294,6 @@ a {
   text-decoration-skip-ink: all;
   text-decoration-skip: leading-spaces edges;
   box-decoration-break: clone;
-
 }
 
 /* content area */
@@ -389,7 +335,6 @@ article {
       border-radius: var(--bs-border-radius);
       width: 100%;
     }
-
   }
 }
 
@@ -402,9 +347,7 @@ article {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-
   border-radius:var(--bs-border-radius);
-
 }
 
 .breadcrumb {
@@ -427,12 +370,12 @@ abbr {
 }
 
 .alert {
+
   // @todo make this look good
   // @include media-breakpoint-up(md) {
   // display: block;
   // margin: 0 -60px;
   // }
-
   a {
     /// adds colors to all links inside alerts
     font-weight: 700;
@@ -456,7 +399,6 @@ abbr {
     top: -15px;
     left: -25px;
   }
-
 }
 
 .is--clickable {
@@ -465,7 +407,6 @@ abbr {
 
 input:autofill {
   --bs-border-opacity: 1;
-
   border-width: 1px;
   border-color: rgba(var(--bs-primary-rgb), var(--bs-border-opacity));
 }
@@ -477,6 +418,8 @@ textarea {
 }
 
 .sitetitle {
+  // font-family: $ff-mono;
+  // font-weight: 900;
   font-size: clamp(1.8rem, 8vw, 8rem);
   background-color: rgba(0, 0, 0, .2);
   transition: background-color 2s;
@@ -501,7 +444,6 @@ $mark-lighten-percentage: 20%; // Configurable percentage for lightening
 /// @param {Color} $base-color - The base Bootstrap color to use
 @mixin mark-background($base-color) {
   $light-color: color.mix(white, $base-color, $mark-lighten-percentage);
-
   background: linear-gradient(100deg,
     #{$light-color}00 1%,
     #{$light-color} 2.5%,
@@ -516,7 +458,6 @@ $mark-lighten-percentage: 20%; // Configurable percentage for lightening
 //   @include mark-background(map.get($colors, "success"));
 //   border-radius: var(--bs-border-radius);
 // }
-
 code,
 kbd,
 pre,
@@ -555,7 +496,6 @@ figcaption {
   /* max-inline-size: 55rem; */
   margin-inline: auto;
   margin-bottom: 1rem;
-
   /* @link https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
   text-size-adjust: none;
   line-height: 1.5;
@@ -563,12 +503,10 @@ figcaption {
   font-optical-sizing: auto;
   font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
   font-kerning: normal;
-
   /* @todo balance for headings, pretty for floating text */
   text-wrap: pretty;
   font-variant-numeric: oldstyle-nums proportional-nums;
   font-size-adjust: 0.458;
-
   // hyphenation
   // @link https://clagnut.com/blog/2395/
   hyphens: auto;
@@ -589,12 +527,10 @@ figcaption {
 
   a {
     box-decoration-break: clone;
-
     --bs-link-underline-opacity: 1;
     -webkit-text-decoration-color: rgba(var(--bs-primary-rgb), var(--bs-link-underline-opacity));
     text-decoration-color: rgba(var(--bs-primary-rgb), var(--bs-link-underline-opacity));
     text-underline-offset: 0.25em;
-
     @include dnbtypography.word-wrap;
   }
 
@@ -608,10 +544,8 @@ figcaption {
   h4,
   h5,
   h6 {
-
     font-family: $ff-body;
     font-weight: 500;
-
     margin-top: 3rem;
 
     .heading-tools {
@@ -632,7 +566,6 @@ figcaption {
   h1,
   h2,
   h3 {
-
     border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
     border-color: var(--bs-light-border-subtle);
   }
@@ -644,7 +577,6 @@ figcaption {
   td,
   .alert {
     text-wrap: pretty;
-
     @include dnbtypography.hyphenate;
     @include dnbtypography.word-wrap;
   }
@@ -692,12 +624,10 @@ figcaption {
 
     a {
       --bs-text-opacity: 1;
-
       color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity));
 
       &:hover {
         --bs-text-opacity: 1;
-
         color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
       }
     }
@@ -764,7 +694,6 @@ figcaption {
   }
 
   /* Apply both historic and discretionary */
-
   .pnum {
     font-variant-numeric: proportional-nums;
   }
@@ -844,7 +773,6 @@ figcaption {
     hyphens: manual;
   }
 
-
   code {
 
     &::before,
@@ -856,8 +784,8 @@ figcaption {
   }
 
   pre code {
-    /* fix: disable the backticks in highlighted code */
 
+    /* fix: disable the backticks in highlighted code */
     &::before,
     &::after {
       content: "";
@@ -875,7 +803,6 @@ figcaption {
   /// global figcaption design
   figcaption {
     --bs-text-opacity: 1;
-
     text-align: right;
     color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
     font-style: italic;
@@ -902,7 +829,6 @@ figcaption {
       --bs-table-active-color: #ffffff;
       --bs-table-hover-bg: #323539;
       --bs-table-hover-color: #ffffff;
-
       color: var(--bs-table-color);
       border-color: var(--bs-table-border-color);
     }
@@ -917,7 +843,6 @@ figcaption {
       --bs-table-active-color: #000000;
       --bs-table-hover-bg: #e5e6e7;
       --bs-table-hover-color: #000000;
-
       color: var(--bs-table-color);
       border-color: var(--bs-table-border-color);
     }
@@ -948,7 +873,6 @@ figcaption {
     }
 
     margin-bottom:0;
-
   }
 
   // @TODO perfect candidate for a module to @use with color settings.
@@ -961,7 +885,6 @@ figcaption {
     // dark theme syntax highlighting
     @import "modules/syntax/dark";
   }
-
 }
 
 /// alerts
@@ -1037,8 +960,6 @@ figcaption {
   text-shadow: none;
   background-color: var(--bs-primary);
 }
-
-
 
 // MARK: DNB Footer
 #footer {
@@ -1132,7 +1053,6 @@ figcaption {
   .icon--bootstrap {
     margin-right: 0.25rem;
   }
-
 }
 
 .progress {
@@ -1232,7 +1152,6 @@ figcaption {
     right: 1rem;
     top: 5rem;
   }
-
 }
 
 // MARK: DNB Plugins

@@ -4,6 +4,7 @@ import DebugLogger from '@davidsneighbour/debuglogger';
 import Alpine from 'alpinejs';
 import ClickSpark from './components/click-effect.js';
 import ProgressBar from './components/progress-bar.js';
+import DnbTextScramble from './components/text-scramble.js';
 import './scripts/keyboard-layout.js';
 import './plugins/lib/clipboard.js';
 import './scripts/bs-tooltips.js';
@@ -29,6 +30,7 @@ import LiteYTEmbed from './lite-yt-embed-esm.js';
 customElements.define('lite-youtube', LiteYTEmbed);
 customElements.define('click-effect', ClickSpark);
 customElements.define('progress-bar', ProgressBar);
+customElements.define('dnb-textscramble', DnbTextScramble);
 
 // Extend the Window interface to include the Alpine property
 declare global {

@@ -1,4 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "_version": "12.1.0",
+  "include": [
+    "**/*.(js|ts)"
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true,
@@ -7,8 +12,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "typeRoots": ["./assets/js"],
-    "extensions": [".js", ".ts"],
+    "typeRoots": [
+      "./assets/js"
+    ],
     "strict": true,
     "strictNullChecks": true,
     "skipLibCheck": true,

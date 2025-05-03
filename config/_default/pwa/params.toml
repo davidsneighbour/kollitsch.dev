@@ -8,3 +8,7 @@ display = "fullscreen"
 favicon = "favicon/favicon.png"
 short_name = "kollitsch.dev"
 theme_color = "#cd3c00"
+
+[[dnb.hooks.filters.pwa."js.buildoptions.params"]]
+cached = true
+file = 'pwa/buildoptions'

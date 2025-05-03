@@ -156,7 +156,7 @@
 
       {{ if collections.IsSet $config.sectionlayout .Section }}
 
-        {{/* MARK: >> Section Layout
+        {{/* MARK: 🔗 Section Layout
         */}}
         {{ if compare.Eq .Kind "section" }}
           {{- $path := fmt.Printf "pages/%s/list.html" (collections.Index $config.sectionlayout .Section) -}}
@@ -168,7 +168,7 @@
 
       {{ else if compare.Eq .Kind "home" }}
 
-        {{/* MARK: >> Home Page
+        {{/* MARK: 🔗 Home Page
         */}}
         {{- $mainsectionlink := fmt.Printf "%s%s/" "/" $config.mainsection -}}
         <section class="section--content">
@@ -221,7 +221,7 @@
 
       {{ else if compare.Eq .Kind "term" }}
 
-        {{/* MARK: >> Term Page
+        {{/* MARK: 🔗 Term Page
         */}}
         {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-start" "context" . ) -}}
 
@@ -253,7 +253,7 @@
 
       {{ else if compare.Eq .Kind "taxonomy" }}
 
-        {{/* MARK: >> Taxonomy Page
+        {{/* MARK: 🔗 Taxonomy Page
         */}}
         {{- $counter := 0 -}}
         <section class="section--content">
@@ -283,7 +283,7 @@
 
       {{ else }}
 
-        {{/* MARK: >> All others
+        {{/* MARK: 🔗 All others
         */}}
         {{- block "main" . -}}{{- end -}}
 
@@ -405,11 +405,19 @@
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-end-pre-script" "context" . ) -}}
     {{- $buildoptions := $config.jsbuild.options -}}
     {{- $params := (dict "debug" hugo.IsServer) }}
+    {{- /*
+      Add whatever you need to the build options and return the $params object
+    */ -}}
+    {{- $params := partials.Include "func/filter.html"
+          ( collections.Dictionary
+              "filter" "js.buildoptions.params"
+              "context" $params
+          ) -}}
     {{- with resources.Get "data/build.json" -}}
       {{- $params = dict
             "params" (collections.Merge
                 (transform.Unmarshal .Content)
-                (dict "debug" hugo.IsServer)
+                $params
             ) -}}
     {{- end -}}
     {{- $buildoptions = collections.Merge $buildoptions $params -}}
@@ -435,7 +443,6 @@
       ) -}}
     {{- end -}}
     {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-end" "context" . ) -}}
-    {{- partials.Include "footer/service-worker.html" . -}}
     <a href="javascript:history.back();" data-hotkey="k+ArrowLeft" class="d-none">Back</a>
     <a href="javascript:history.forward();" data-hotkey="k+ArrowRight" class="d-none">Forward</a>
   </body>

@@ -13,7 +13,7 @@ export default {
 
   '!(CHANGELOG)**/*.{md,markdown}': ['markdownlint-cli2', 'npm run lint:vale'],
 
-  'layouts/**/*.*': ['./bin/hugo/refactor layouts'],
+  // 'layouts/**/*.*': ['./bin/hugo/refactor layouts'],
 
   '*.jsonnet': ['jsonnetfmt --in-place'],
 

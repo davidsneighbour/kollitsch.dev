@@ -1,9 +1,9 @@
 import { setCacheNameDetails } from "workbox-core";
 import { registerRoute, setCatchHandler } from "workbox-routing";
 import {
-	NetworkFirst,
-	StaleWhileRevalidate,
-	CacheFirst,
+  NetworkFirst,
+  StaleWhileRevalidate,
+  CacheFirst,
 } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
@@ -12,22 +12,20 @@ import Data from "../../package.json";
 
 import DebugLogger from "@davidsneighbour/debuglogger";
 
-// Import parameters from GoHugo
-// @ts-ignore - injected at runtime by GoHugo
-import * as params from "@params";
-
 // enable logger for local debugging
-const logger = new DebugLogger(params.debug);
+const logger = new DebugLogger(__IS_DEV__);
 logger.setPrefix("⚡ DEBUG:", "#00aa00");
-logger.enableDebug();
+if (__IS_DEV__) {
+  logger.enableDebug();
+}
 
 setCacheNameDetails({
-	prefix: "davidsneighbour-hugo-pwa",
-	suffix: Data.version,
+  prefix: "davidsneighbour-hugo-pwa",
+  suffix: Data.version,
 });
 
 // Force development builds
-workbox.setConfig({ debug: true });
+workbox.setConfig({ debug: __IS_DEV__ });
 self.__WB_DISABLE_DEV_LOGS = false;
 
 // registerRoute(
@@ -40,62 +38,62 @@ self.__WB_DISABLE_DEV_LOGS = false;
 
 // cache page navigations (html) with a network First strategy
 registerRoute(
-	// Check to see if the request is a navigation to a new page
-	({ request }) => request.mode === "navigate",
-	// Use a Network First caching strategy
-	new NetworkFirst({
-		// Put all cached files in a cache named 'pages'
-		cacheName: "pages",
-		plugins: [
-			// Ensure that only requests that result in a 200 status are cached
-			new CacheableResponsePlugin({
-				statuses: [200],
-			}),
-		],
-	}),
+  // Check to see if the request is a navigation to a new page
+  ({ request }) => request.mode === "navigate",
+  // Use a Network First caching strategy
+  new NetworkFirst({
+    // Put all cached files in a cache named 'pages'
+    cacheName: "pages",
+    plugins: [
+      // Ensure that only requests that result in a 200 status are cached
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+    ],
+  }),
 );
 
 // cache CSS, JS, and Web Worker requests with a stale while revalidate strategy
 registerRoute(
-	// Check to see if the request's destination is style for stylesheets, script for JavaScript, or worker for web worker
-	({ request }) =>
-		request.destination === "style" ||
-		request.destination === "script" ||
-		request.destination === "worker",
-	// Use a Stale While Revalidate caching strategy
-	new StaleWhileRevalidate({
-		// Put all cached files in a cache named 'assets'
-		cacheName: "assets",
-		plugins: [
-			// Ensure that only requests that result in a 200 status are cached
-			new CacheableResponsePlugin({
-				statuses: [200],
-			}),
-		],
-	}),
+  // Check to see if the request's destination is style for stylesheets, script for JavaScript, or worker for web worker
+  ({ request }) =>
+    request.destination === "style" ||
+    request.destination === "script" ||
+    request.destination === "worker",
+  // Use a Stale While Revalidate caching strategy
+  new StaleWhileRevalidate({
+    // Put all cached files in a cache named 'assets'
+    cacheName: "assets",
+    plugins: [
+      // Ensure that only requests that result in a 200 status are cached
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+    ],
+  }),
 );
 
 // cache images with a cache-first strategy
 registerRoute(
-	// Check to see if the request's destination is style for an image
-	({ request }) => request.destination === "image",
-	// Use a Cache First caching strategy
-	new CacheFirst({
-		// Put all cached files in a cache named 'images'
-		cacheName: "images",
-		plugins: [
-			// Ensure that only requests that result in a 200 status are cached
-			new CacheableResponsePlugin({
-				statuses: [200],
-			}),
-			// Don't cache more than 50 items, and expire them after 30 days
-			new ExpirationPlugin({
-				maxEntries: 200,
-				maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
-				purgeOnQuotaError: true, // Automatically cleanup if quota is exceeded.
-			}),
-		],
-	}),
+  // Check to see if the request's destination is style for an image
+  ({ request }) => request.destination === "image",
+  // Use a Cache First caching strategy
+  new CacheFirst({
+    // Put all cached files in a cache named 'images'
+    cacheName: "images",
+    plugins: [
+      // Ensure that only requests that result in a 200 status are cached
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+      // Don't cache more than 50 items, and expire them after 30 days
+      new ExpirationPlugin({
+        maxEntries: 200,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+        purgeOnQuotaError: true, // Automatically cleanup if quota is exceeded.
+      }),
+    ],
+  }),
 );
 logger.log(navigator.storage.estimate());
 
@@ -106,12 +104,12 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 // catch routing errors, eg. if the user is offline
 setCatchHandler(async ({ event }) => {
-	// Return the precached offline page if a document is being requested
-	if (event.request.destination === "document") {
-		return matchPrecache("/offline.html");
-	}
+  // Return the precached offline page if a document is being requested
+  if (event.request.destination === "document") {
+    return matchPrecache("/offline.html");
+  }
 
-	return Response.error();
+  return Response.error();
 });
 
 logger.log("Hello from service-worker.js");

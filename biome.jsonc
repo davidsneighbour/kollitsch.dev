@@ -94,6 +94,7 @@
       "attributePosition": "auto"
     },
     "globals": [
+      "ENVIRONMENT",
       "OffscreenCanvas",
       "onpointerleave",
       "onpointerenter",

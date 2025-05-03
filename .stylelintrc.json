@@ -1,3 +1,3 @@
 {
-  "extends": "ci/stylelint/index.js"
+  "extends": "./ci/stylelint/index.js"
 }

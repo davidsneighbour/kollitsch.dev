@@ -11,7 +11,7 @@
                   (collections.Dictionary "hook" . "context" collections.Dictionary) -}}
 {{- end -}}
 
-{{- /* math.Add hook to collector */ -}}
+{{- /* add hook to collector */ -}}
 {{- partials.Include "func/hooks/collector.html" (collections.Dictionary
     "hook" $context.hook
     "context" $context
@@ -34,15 +34,16 @@
   {{/* @todo fix logging output */}}
   {{/* @todo document this mess */}}
   {{ range $key, $hooks := . -}}
-    {{- with (collections.Index $hooks $context.hook) -}}
+    {{- with (collections.Index $hooks $context.filter) -}}
       {{- range . -}}
-        {{- $partialHook := fmt.Printf "partials/hooks/%s.html" .file -}}
+        {{- $partialName := fmt.Printf "hooks/%s.html" .file -}}
+        {{- $partialHook := fmt.Printf "partials/%s" $partialName -}}
         {{- if templates.Exists $partialHook -}}
           {{- if compare.Eq true (.cached | compare.Default false) -}}
-            {{- $output = partials.IncludeCached $partialHook $context -}}
+            {{- $output = partials.IncludeCached $partialName $output -}}
             {{- $loaded = true -}}
           {{- else -}}
-            {{- $output = partials.Include $partialHook $context -}}
+            {{- $output = partials.Include $partialName $output -}}
             {{- $loaded = true -}}
           {{- end -}}
         {{- end -}}

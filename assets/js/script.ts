@@ -7,6 +7,7 @@ import ProgressBar from './components/progress-bar.js';
 import './scripts/keyboard-layout.js';
 import './plugins/lib/clipboard.js';
 import './scripts/bs-tooltips.js';
+import './plugins/pwa.js';
 
 // Import parameters from GoHugo
 // @ts-ignore - injected at runtime by GoHugo
@@ -16,6 +17,9 @@ import * as params from '@params';
 const logger = new DebugLogger(params.debug);
 logger.setPrefix('⚡ DEBUG:', '#00aa00');
 logger.enableDebug();
+
+// debug params from hugo
+logger.table('Hugo injected params', params);
 
 // YouTube element
 // @ts-ignore - mounted at runtime by GoHugo

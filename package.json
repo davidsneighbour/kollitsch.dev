@@ -14,7 +14,7 @@
   "dependencies": {
     "@alpinejs/collapse": "3.14.9",
     "@alpinejs/intersect": "3.14.9",
-    "@atproto/api": "0.15.3",
+    "@atproto/api": "0.15.5",
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.10.1",
     "@davidsneighbour/browserslist-config": "^2025.1.1",

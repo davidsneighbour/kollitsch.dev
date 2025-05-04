@@ -1,4 +1,105 @@
 # Changelog
+## [2025.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.2.0...v2025.3.0) (2025-05-04)
+
+
+### Content
+
+* move schemas to content module ([984649e](https://github.com/davidsneighbour/kollitsch.dev/commit/984649eaf3c21f9c3a7173b9d475ad7d5e4cb85d))
+
+
+### Documentation
+
+* update list of involved repositories ([b89f344](https://github.com/davidsneighbour/kollitsch.dev/commit/b89f344f43749efc932395c773d7b8becee70c15))
+
+
+### Features
+
+* add hugo helper extension ([bec656b](https://github.com/davidsneighbour/kollitsch.dev/commit/bec656b0666438c4b3677554aad6c3ca25a57ab2))
+* **robots:** refactor and fix robots module ([a360eca](https://github.com/davidsneighbour/kollitsch.dev/commit/a360eca26d3824ba3767f07eca07a327e6682f45))
+
+
+### Theme
+
+* **feat:** add breadcrumb schema and article schema ([b3d935f](https://github.com/davidsneighbour/kollitsch.dev/commit/b3d935f3d88bef3d6a6a9081bcea4662925c39c9))
+* **feat:** add debugging partial for templates ([74fad75](https://github.com/davidsneighbour/kollitsch.dev/commit/74fad7549a7ad28b39c0666fd2cfece098583c40))
+* **feat:** add title text scrambling effect ([82a851a](https://github.com/davidsneighbour/kollitsch.dev/commit/82a851af414bbf86a6a5d269b1e0b270fa127af3))
+* **fix:** add notes to codeblock render hook ([73aced9](https://github.com/davidsneighbour/kollitsch.dev/commit/73aced98270d90814b42384ffc23adc64a0d77cf))
+* **fix:** add todo code to all layouts ([f8ada39](https://github.com/davidsneighbour/kollitsch.dev/commit/f8ada39cb40b99a3cfa2bdfba5319249b1e63618))
+* **fix:** hooks module (filter part) and move pwa into js pipe ([e4c6966](https://github.com/davidsneighbour/kollitsch.dev/commit/e4c6966323e5247349591c41c0cdb7f3cab56923))
+* **fix:** move scss plugins into plugins subfolder ([6a7922e](https://github.com/davidsneighbour/kollitsch.dev/commit/6a7922e5aef28f447a489cff922332918a88a756))
+* **fix:** proper cli debugging for pictures partial ([7e280b1](https://github.com/davidsneighbour/kollitsch.dev/commit/7e280b18a4639818d49895e05a1b38ed4013e93b))
+* **fix:** proper path handling for dnb-debug js ([c8fff18](https://github.com/davidsneighbour/kollitsch.dev/commit/c8fff18b8a45112521a1a91a48469c7889f88ba0))
+* **fix:** proper setup for dev vs. production in service-worker.js ([3933434](https://github.com/davidsneighbour/kollitsch.dev/commit/39334348ac95ba60a564c80dcaa58c67bb24f145))
+* **fix:** remove double brackets ([1d41f0a](https://github.com/davidsneighbour/kollitsch.dev/commit/1d41f0a090175933648fed7f4c1b7c32fce97a85))
+* **fix:** remove unused local mounts ([258509a](https://github.com/davidsneighbour/kollitsch.dev/commit/258509aa3340120433ede6c7be5e1bc7ae4c820a))
+* **fix:** rewrite comments so that the refactoring is not messing it up ([b476c12](https://github.com/davidsneighbour/kollitsch.dev/commit/b476c126e32cd68b4c34cf109b8a842605fb351f))
+* **fix:** separate translations into files per module ([6171fc9](https://github.com/davidsneighbour/kollitsch.dev/commit/6171fc970007deb14a41ccccbc36a5cb07e3cf16))
+
+
+### Bug Fixes
+
+* **linting:** remove refactoring of hugo layouts from lintstaged config ([ab3d845](https://github.com/davidsneighbour/kollitsch.dev/commit/ab3d8454ff89ea2411d287dbc6230ae19319dc0d))
+* remove spaces and indentation from func/hook.html ([8af94c3](https://github.com/davidsneighbour/kollitsch.dev/commit/8af94c3b577052c490ee240c67e8ad6dd0e86d68))
+* **vscode-extension:** update compilation structure ([88274fd](https://github.com/davidsneighbour/kollitsch.dev/commit/88274fd814737753dbba2dd1b2f108e8348c0bc5))
+
+
+### Refactors
+
+* add refactoring note to all layouts ([059070f](https://github.com/davidsneighbour/kollitsch.dev/commit/059070f6e41f76dab8103ee4cb2d44c5be5d5ba9))
+* move from debug-.html to debug/.html ([7109444](https://github.com/davidsneighbour/kollitsch.dev/commit/71094449a4b26e34ab135d2cde0a29c6e7336197))
+* replace gohugo methods with full calls ([3093ccf](https://github.com/davidsneighbour/kollitsch.dev/commit/3093ccf7da85e9c4320bfc9edd37060056d0b00c))
+
+
+### Tests
+
+* fixes to config and typing ([896df8e](https://github.com/davidsneighbour/kollitsch.dev/commit/896df8e68fdec3a0495c543b2586888a23a523aa))
+
+
+### Chore
+
+* **config:** refactor hugo configuration ([f256c87](https://github.com/davidsneighbour/kollitsch.dev/commit/f256c873a9a88e19e40b44a5b50e8f3cca833d1f))
+* **config:** update prettier config and packages ([69bdbd1](https://github.com/davidsneighbour/kollitsch.dev/commit/69bdbd10932aa5d9c24ad6fe2745984bc8ffb8f0))
+* **config:** update workspace configuration ([b6c9928](https://github.com/davidsneighbour/kollitsch.dev/commit/b6c9928d54fc0555ba98572c27f4e01d0b8ce978))
+* **config:** workspace configuration updates ([6c0abc1](https://github.com/davidsneighbour/kollitsch.dev/commit/6c0abc1224f3fb105c9a02d7db5b53ae227249c8))
+* **git:** update content submodule ([2858b2c](https://github.com/davidsneighbour/kollitsch.dev/commit/2858b2cc74c4ed2b2909c45e6433854adee597d1))
+* **git:** update extension submodule ([a9e70f6](https://github.com/davidsneighbour/kollitsch.dev/commit/a9e70f6cff3cef44de302521813ed6edc7685fea))
+* **git:** update git modules ([fed3055](https://github.com/davidsneighbour/kollitsch.dev/commit/fed305575ad74759cdf67c0ec9ac3eebdeef1192))
+* **git:** update submodules ([1a6fb1a](https://github.com/davidsneighbour/kollitsch.dev/commit/1a6fb1ae92c60a56be59d7405802400df126bd78))
+* move extension into git submodule ([da81a2f](https://github.com/davidsneighbour/kollitsch.dev/commit/da81a2f04be0e90e3ae1204c62f444e956403f81))
+
+
+### Configuration
+
+* **fix:** change git user email address ([e9e8ac9](https://github.com/davidsneighbour/kollitsch.dev/commit/e9e8ac95f2c33b1213832070d04df2c8f9332f90))
+* **fix:** proper way to silence deprecations in SASS ([8a517f1](https://github.com/davidsneighbour/kollitsch.dev/commit/8a517f16afe14e669728e36aa376afc840850485))
+* **fix:** remove merge configuration ([7e25053](https://github.com/davidsneighbour/kollitsch.dev/commit/7e25053fffa7db9f61942bb5ff3290a18b8598c1))
+* **hugo:** set minimal version to 0.147.1 ([8ffeb2b](https://github.com/davidsneighbour/kollitsch.dev/commit/8ffeb2bb59f830ecb261089fe254a71c576a1c6b))
+* update configurations ([e846831](https://github.com/davidsneighbour/kollitsch.dev/commit/e846831fb8e1c983cc546a338123e4cdb7bcd9c1))
+* update workspace configuration ([910afcf](https://github.com/davidsneighbour/kollitsch.dev/commit/910afcf3d81952fa59931534dd2e791395a79b75))
+* **vscode:** update workspace configuration ([ca60a50](https://github.com/davidsneighbour/kollitsch.dev/commit/ca60a50ac0fde6873d1bdd037c0195eec5c511b1))
+
+
+### Build System
+
+* **ci:** move vale config to content module ([c6ff062](https://github.com/davidsneighbour/kollitsch.dev/commit/c6ff0622cf8743f508a1fd8fc6c75417c132b535))
+* **config:** update recommended extensions ([f86bd88](https://github.com/davidsneighbour/kollitsch.dev/commit/f86bd888d9ec677878e6733b7c385fcfe4bc3e87))
+* **config:** update workspace configuration ([9e23304](https://github.com/davidsneighbour/kollitsch.dev/commit/9e2330432e60f0a98433c4880550cbd0812809db))
+* **deps:** remove issue creating packages ([585dc33](https://github.com/davidsneighbour/kollitsch.dev/commit/585dc33a6f2b0ee8212e72cf0e21286e1e7fb174))
+* **deps:** update dependencies ([41adfb6](https://github.com/davidsneighbour/kollitsch.dev/commit/41adfb662e193bf29c89611dbcbc3deb467cb840))
+* **feat:** set up ArkType ([15c043d](https://github.com/davidsneighbour/kollitsch.dev/commit/15c043d889401d2b07813322b89f647e5211f301))
+* **fix:** reconfigure biome and stylelint ([d3340c1](https://github.com/davidsneighbour/kollitsch.dev/commit/d3340c1b0009f26e9cb44fd8fbf15c092abd7292))
+* **git:** update binaries submodule ([8a2412e](https://github.com/davidsneighbour/kollitsch.dev/commit/8a2412e3f1d2fe68a010fa4a5ac4b8d01b21f75b))
+* **git:** update content submodule ([03c60d7](https://github.com/davidsneighbour/kollitsch.dev/commit/03c60d7906094b7097fa03f8489ccb001b8896ef))
+* **git:** update frontmatter submodule ([314f627](https://github.com/davidsneighbour/kollitsch.dev/commit/314f627e900b0da3fef203678dd74ececc622f56))
+
+
+### CI
+
+* **fix:** move content workflows to content module ([329c06b](https://github.com/davidsneighbour/kollitsch.dev/commit/329c06ba843661f850d138fe47ab93f33a6575c9))
+* **fix:** move lychee config to content module ([7d51bd5](https://github.com/davidsneighbour/kollitsch.dev/commit/7d51bd55c3d6fe72b7e8b40fe539759f900238b8))
+* **fix:** move Vale to content module ([a91bb70](https://github.com/davidsneighbour/kollitsch.dev/commit/a91bb707bb0d8f1918f42785005b3a6202506b80))
+* **fix:** update lintstaged configuration for jsonnet ([82a1cd6](https://github.com/davidsneighbour/kollitsch.dev/commit/82a1cd64121713e0a63cb1d39c472ee04902577f))
+
 ## [2025.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.1.1...v2025.2.0) (2025-04-16)
 
 

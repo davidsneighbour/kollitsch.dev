@@ -2,7 +2,7 @@
 {{- if hugo.IsServer -}}
 
   {{- $data := "" -}}
-  {{- $assetPath := "dnb/debug/files" -}}}}
+  {{- $assetPath := "dnb/debug/files" -}}
   {{- $path := printf "%s/filelist.json" $assetPath -}}
   {{- with resources.Get $path -}}
     {{- $options := dict "delimiter" "," -}}

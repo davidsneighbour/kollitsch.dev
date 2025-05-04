@@ -4,21 +4,19 @@
 {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "setup" "context" . ) -}}
 {{- $config := site.Params.dnb.theme -}}
 {{- $sitelang := site.LanguageCode | compare.Default "en-US" -}}
-{{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
 <html lang="{{- $sitelang -}}" data-bs-theme="{{- $config.colorscheme -}}">
   {{- /* MARK: Head
   */ -}}
-  <head>
-    {{- /* loading head module, see https://dnbhub.xyz/head/ */ -}}
-    {{- partials.Include "head.html" . -}}
-  </head>
+  {{- /* loading head module, see https://dnbhub.xyz/head/ */ -}}
+  <head>{{- partials.Include "head.html" . -}}</head>
   {{- /* MARK: Body
   */ -}}
+  {{- $classes := partials.IncludeCached "func/getBodyClasses.html" . . -}}
   <body class="{{- $classes }} nav-state1 scroll" id="top">
     <a class="visually-hidden-focusable" href="#maincontent">
       {{- lang.Translate "theme.skip_to_content" -}}
     </a>
-    <h1 class="p-0 mx-auto my-0 text-center container-md sitetitle">
+    <h1 class="p-0 mx-auto my-0 text-center sitetitle">
       {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "pre-sitetitle" "context" . ) -}}
       <a aria-label="{{- site.Title -}}"
          class="p-0 mx-auto my-0 d-inline-block lh-1 text-nowrap" href="{{- site.BaseURL -}}">

@@ -22,7 +22,6 @@ notes/
 # dynamically created files (pipes)
 assets/dist/*
 # hmm, everything in resources
-resources
 static/documentation/styles
 .frontmatter/database/*
 # generated tailwind files

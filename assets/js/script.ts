@@ -9,6 +9,8 @@ import './scripts/keyboard-layout.js';
 import './plugins/lib/clipboard.js';
 import './scripts/bs-tooltips.js';
 import './plugins/pwa.js';
+// @dnb-youtube - YouTube element
+import LiteYTEmbed from './mods/youtube/lite-yt-embed-esm.js';
 
 // Import parameters from GoHugo
 // @ts-ignore - injected at runtime by GoHugo
@@ -22,9 +24,6 @@ logger.enableDebug();
 // debug params from hugo
 logger.table('Hugo injected params', params);
 
-// YouTube element
-// @ts-ignore - mounted at runtime by GoHugo
-import LiteYTEmbed from './lite-yt-embed-esm.js';
 
 // Initiate custom elements
 customElements.define('lite-youtube', LiteYTEmbed);

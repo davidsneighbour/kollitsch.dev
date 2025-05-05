@@ -1,4 +1,44 @@
 # Changelog
+## [2025.3.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.3.0...v2025.3.1) (2025-05-05)
+
+
+### Theme
+
+* **fix:** add test images for pictures module ([44c7fae](https://github.com/davidsneighbour/kollitsch.dev/commit/44c7faef939f3ffa8b723f766c2cc0ccee9b909e))
+* **fix:** remove spacing box from site title ([e71c71d](https://github.com/davidsneighbour/kollitsch.dev/commit/e71c71d175a7266578ebe803dcf1db6c87c39cb6))
+* **refactor:** coding style for assets folder ([8ef2f81](https://github.com/davidsneighbour/kollitsch.dev/commit/8ef2f812c3237f9b2faa03abcb00e628a5ab516c))
+
+
+### Refactors
+
+* cleanup youtube module js ([a8083c1](https://github.com/davidsneighbour/kollitsch.dev/commit/a8083c10568174d91c8ee778bb8a7e162e705ada))
+
+
+### Chore
+
+* **git:** update gitignore file ([adb72ce](https://github.com/davidsneighbour/kollitsch.dev/commit/adb72ced3c5905c1af582cae5b36bdd1161446d5))
+
+
+### Configuration
+
+* **fix:** add bluesky icon to social media network setup ([dc33030](https://github.com/davidsneighbour/kollitsch.dev/commit/dc33030efee9f739c804f75163dc7728c4e8d8b6))
+* **fix:** proper module configuration ([5fa5130](https://github.com/davidsneighbour/kollitsch.dev/commit/5fa51307fe540eacf067b757e48655404dc5d19d))
+* **refactor:** cleanup configuration ([02d121b](https://github.com/davidsneighbour/kollitsch.dev/commit/02d121b8474f385489496251302a95bff170a134))
+* **refactor:** cleanup configuration ([bf6ff01](https://github.com/davidsneighbour/kollitsch.dev/commit/bf6ff010fee5770c22a2151baf84a0b314640ca3))
+
+
+### Build System
+
+* **deps:** remove hugo modules workflow ([74a6534](https://github.com/davidsneighbour/kollitsch.dev/commit/74a653439ff1fc968d1b6825243e0fdaa87c79c1))
+* **deps:** update dependencies ([b4dd506](https://github.com/davidsneighbour/kollitsch.dev/commit/b4dd50675fdf588e088130fca6fe333581e2e171))
+* **deps:** update dependencies ([fe8952d](https://github.com/davidsneighbour/kollitsch.dev/commit/fe8952d886c59ebad8f807572b8190ac90fa1a31))
+
+
+### CI
+
+* **feat:** add hugo module update workflow ([6f57eb6](https://github.com/davidsneighbour/kollitsch.dev/commit/6f57eb6a9f1dbc337bc0aa4ee6c47a92e2822971))
+* **fix:** add hugo to playwright testing ([9f71a95](https://github.com/davidsneighbour/kollitsch.dev/commit/9f71a9542813a1e4aa18e751fce203bf5e982bb0))
+
 ## [2025.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.2.0...v2025.3.0) (2025-05-04)
 
 

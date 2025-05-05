@@ -22,24 +22,73 @@ capitalizeListTitles = false
 pluralizeListTitles = false
 titleCaseStyle = "chicago"
 
-##################################################################################
+################################################################################
 # error configuration
-##################################################################################
+################################################################################
 ignoreErrors = []
 
-##################################################################################
+################################################################################
 # hack: increasing timeout to prevent hugo from... timing out while recreating
 # images. this is no more required for this website, because "we got RAM", but
 # kept to find it when working on client projects.
 # MUST be string, MUST contain digits and s for seconds, probably m for minutes
 # (untested)
-##################################################################################
+################################################################################
 timeout = "600s"
 
 ################################################################################
-# pagination
+# pagination - see https://gohugo.io/configuration/pagination/
 ################################################################################
 [pagination]
 # disableAliases = false
 pagerSize = 10
 # path = 'page'
+
+################################################################################
+# see https://gohugo.io/getting-started/configuration/#configure-build
+################################################################################
+[build.buildStats]
+enable = true # default is false
+
+################################################################################
+# see https://gohugo.io/configuration/imaging/
+################################################################################
+[imaging]
+# Default resample filter used for resizing. Default is Box,
+# a simple and fast averaging filter appropriate for downscaling.
+# See https://github.com/disintegration/imaging
+resampleFilter = "Box"
+hint = 'photo'
+quality = 90
+anchor = "Smart"
+
+[imaging.exif]
+# see https://gohugo.io/content-management/image-processing/#exif-data
+disableDate = true
+disableLatLong = true
+excludeFields = ".*"
+includeFields = ""
+
+################################################################################
+# see https://gohugo.io/configuration/outputs/
+################################################################################
+[outputs]
+home = [
+  "HTML",
+  "security",
+  "manifest",
+  "REDIR",
+  "HEADERS",
+  "GISCUS",
+  "RSS",
+  "jsonfeed",
+  "atom",
+  "dnblinklist",
+  "opensearch",
+  "headerimage",
+  "modder",
+]
+page = ["HTML", "headerimage"]
+section = ["HTML", "headerimage"]
+taxonomy = ["HTML", "headerimage"]
+term = ["HTML", "headerimage"]

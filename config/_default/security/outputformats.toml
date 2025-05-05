@@ -1,18 +1,9 @@
 ################################################################################
 # see https://gohugo.io/configuration/output-formats/
 ################################################################################
-[modder]
-baseName = 'modder'
+[security]
+baseName = "security"
 isPlainText = true
-mediaType = 'application/json'
+mediatype = "text/plain"
 notAlternative = true
-permalinkable = false
-ugly = true
-
-[headerimage]
-baseName = 'headerimage'
-isPlainText = true
-mediaType = 'image/svg+xml'
-notAlternative = true
-protocol = 'https://'
-ugly = false
+path = "/.well-known/"

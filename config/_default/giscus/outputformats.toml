@@ -1,4 +1,8 @@
 ################################################################################
-# see https://gohugo.io/content-management/urls/
+# see https://gohugo.io/configuration/output-formats/
 ################################################################################
-page = "/:title/"
+[GISCUS]
+baseName = "giscus"
+isPlainText = true
+mediatype = "application/json"
+notAlternative = true

@@ -1,6 +1,2 @@
-["text/netlify"]
-delimiter = ""
-suffixes = [""]
-
 ["application/opensearchdescription+xml"]
 suffixes = ["xml"]

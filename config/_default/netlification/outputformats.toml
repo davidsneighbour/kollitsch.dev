@@ -1,18 +1,14 @@
 ################################################################################
 # see https://gohugo.io/configuration/output-formats/
 ################################################################################
-[modder]
-baseName = 'modder'
+[REDIR]
+baseName = "_redirects"
 isPlainText = true
-mediaType = 'application/json'
+mediatype = "text/netlify"
 notAlternative = true
-permalinkable = false
-ugly = true
 
-[headerimage]
-baseName = 'headerimage'
+[HEADERS]
+baseName = "_headers"
 isPlainText = true
-mediaType = 'image/svg+xml'
+mediatype = "text/netlify"
 notAlternative = true
-protocol = 'https://'
-ugly = false

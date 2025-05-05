@@ -7,6 +7,10 @@ source = ".frontmatter/content"
 target = "content"
 
 [[mounts]]
+source = "static"
+target = "static"
+
+[[mounts]]
 source = ".frontmatter/static"
 target = "static"
 

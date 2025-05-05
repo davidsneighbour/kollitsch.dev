@@ -100,13 +100,6 @@ enable = true
 [markup.goldmark.extensions.extras.superscript]
 enable = true
 
-# https://gohugo.io/content-management/mathematics/
-[markup.goldmark.extensions.passthrough]
-enable = true
-[markup.goldmark.extensions.passthrough.delimiters]
-block = [['\[', '\]'], ['$$', '$$']]
-inline = [['\(', '\)']]
-
 [markup.goldmark.parser]
 autoHeadingID = true
 autoHeadingIDType = "github"
@@ -128,7 +121,6 @@ lineNumbersInTable = false
 # lineAnchors = "code"
 codeFences = true
 guessSyntax = true
-hl_Lines = ""
 lineNoStart = 1
 noClasses = false
 noHl = false

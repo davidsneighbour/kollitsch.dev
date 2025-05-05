@@ -1,18 +1,8 @@
 ################################################################################
 # see https://gohugo.io/configuration/output-formats/
 ################################################################################
-[modder]
-baseName = 'modder'
+[OpenSearch]
+baseName = "opensearch"
 isPlainText = true
-mediaType = 'application/json'
+mediatype = "application/opensearchdescription+xml"
 notAlternative = true
-permalinkable = false
-ugly = true
-
-[headerimage]
-baseName = 'headerimage'
-isPlainText = true
-mediaType = 'image/svg+xml'
-notAlternative = true
-protocol = 'https://'
-ugly = false

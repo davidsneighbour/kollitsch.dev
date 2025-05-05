@@ -13,7 +13,7 @@ label = "Follow me on Facebook"
 url = "https://www.facebook.com/patrick.kollitsch/"
 
 [dnb.social.network.bluesky]
-icon = "square-fill"
+icon = "bluesky"
 label = "Follow me on Bluesky"
 url = "https://bsky.app/profile/kollitsch.dev"
 

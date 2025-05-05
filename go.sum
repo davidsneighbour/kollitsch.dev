@@ -6,5 +6,7 @@ github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff h1:nV9EWy0+/rvtipXq
 github.com/csswizardry/ct v0.0.0-20230131155739-4e0d88c1a9ff/go.mod h1:OG5Jqzdk8/OaniOKZRA9w8agzQBskTkDYFCfDjwuz1A=
 github.com/twbs/icons v1.11.3 h1:XhvrQ1XDom9ggBbQx3wQCFGEr8qAQwQP/dAcw8OXMtA=
 github.com/twbs/icons v1.11.3/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
+github.com/twbs/icons v1.12.1 h1:6R1KGdI0Rvup2NoM3X+7v62jJMVX29+N2x9PcM37Fv8=
+github.com/twbs/icons v1.12.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible h1:7CuKQrvR4w3t2USxwGDNiGGXVtZYZWthBD6DMfnbiLE=
 github.com/zenorocha/clipboard.js v2.0.11+incompatible/go.mod h1:O4LYrBFJk1EQ3l9TUhF+Df4JmeMW5eApvdsQmgg8z0E=

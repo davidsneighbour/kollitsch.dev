@@ -1,206 +1,166 @@
+################################################################################
+# Theme
+################################################################################
+[theme.skip_to_content]
+description = "Text for the skip to content link"
+other = "Skip to main content"
 
+[theme.read_article]
+other = "Read Article"
 
-[100daystooffload.note]
-description = ""
-other = "This post is part of [#100DaysToOffload](/blog/2022/100-days-to-offload/)"
+[theme.showing_posts_from]
+other = "Showing posts from"
 
-[100daystooffload.counter]
-description = ""
-other = "{{ .numsince }} posts since {{ .datesince }} &mdash; {{ .numtotal }} total posts"
+[theme.recent_posts]
+other = "Recent Posts (Page %d)"
 
-[meta.edit]
+[theme.recentposts]
+other = "Recent Posts"
+
+[theme.home]
+other = "Home"
+
+[theme.search]
+other = "Search"
+
+[theme.categories]
+other = "Categories"
+
+[theme.tags]
+other = "Tags"
+
+[theme.posts_tagged_with]
+other = "{{ . }} Posts tagged with"
+
+[theme.social]
+other = "Social"
+
+[theme.copyright-text]
+description = "copyright description text"
+other = "&copy; 2021 to %s --- Webwork done by [David&apos;s Neighbour](https://davids-neighbour.com)"
+
+[theme.at]
+other = "at"
+
+[theme.this_is]
+other = "This is"
+
+[theme.by]
+other = "by"
+
+[theme.this-is]
+other = "this is %s"
+
+[theme.via]
+other = "via"
+
+[theme.words]
+description = "word count for articles"
+one = "%d word"
+other = "%d words"
+
+[theme.connect-on-social]
+other = "Connect on Social Media"
+
+[theme.draft]
+other = "Draft"
+
+[theme.first]
+other = "First"
+
+[theme.last]
+other = "Last"
+
+[theme.next]
+other = "Next"
+
+[theme.previous]
+other = "Previous"
+
+[theme.search_no_results]
+other = "Sorry, but there were no results."
+
+[theme.search_results]
+other = "Results"
+
+[theme.search_result_info]
+other = "There were <span x-text=\"totalHits\"></span> total matches. Returning the first <span x-text=\"resultsPerPage\"></span> results:"
+
+[theme.search_result_posted]
+other = "(posted <span x-text=\"result.date\"></span>)"
+
+[theme.view_history]
+other = "View history"
+
+[theme.suggest_edit]
+other = "Suggest edits on GitHub"
+
+[theme.title]
+other = "Title"
+
+[theme.description]
+other = "Description"
+
+[theme.characters]
+other = "chars"
+
+[theme.related]
+other = "See Also"
+
+[theme.read_posts_about]
+other = "Read posts about"
+
+[theme.back_to_top]
+other = "Back to top"
+
+[theme.version]
+other = "Version"
+
+[theme.footer_menu_header]
+other = "All the things you need to know"
+
+[theme.404_header]
+other = "Four Oh Four: Page Not Found!"
+
+[theme.404_description]
+other = "The information you were looking for was not found on this website. Maybe the link is broken? Feel free to search for other results."
+
+[theme.pagination.information]
+description = "showing information about the totals below the pagination, first variable is total posts, second is total pages"
+other = "{{ .posts }} posts on {{ .pages }} pages"
+
+[theme.page]
+other = "Page %s"
+
+[theme.navigationlabel]
+other = "Page navigation"
+
+[theme.relatedposts]
+other = "Related Posts"
+
+[theme.readall]
+other = "Read All Posts"
+
+[theme.meta.edit]
 description = ""
 other = "Edit in VSCode"
 
-[meta.published]
+[theme.meta.published]
 description = ""
 other = "Published: %s"
 
-[meta.modified]
+[theme.meta.modified]
 description = ""
 other = "(Last Modified: %s)"
 
-[page-n]
+[theme.100daystooffload.note]
+description = ""
+other = "This post is part of [#100DaysToOffload](/blog/2022/100-days-to-offload/)"
+
+[theme.100daystooffload.counter]
+description = ""
+other = "{{ .numsince }} posts since {{ .datesince }} &mdash; {{ .numtotal }} total posts"
+
+[theme.page-n]
 description = "Page %d of %d"
 other = " (Page %d)"
-
-[shortcode.keycombinations.label]
-other = "Keycombinations"
-
-[shortcode.keycombinations.action]
-other = "Action"
-
-[shortcode.options.caption]
-other = "Options"
-
-[shortcode.options.option]
-other = "Option"
-
-[shortcode.options.type]
-other = "Type"
-
-[shortcode.options.default]
-other = "Default"
-
-[shortcode.options.description]
-other = "Description"
-
-# debug module
-[error.no-formatter-configured]
-description = ""
-other = "This type has no debugging formatter in dnb-debug configured."
-
-[issue.body]
-description = "template for issue report of unconfigured types"
-other = '''
-<!--
-
-add an explanation and sample code for the debugged type and please make sure,
-that this type is not already requested in the issue tracker.
-
--->
-
-Hugo Version: %s
-'''
-
-[deprecation.debug]
-other = "This shortcode is deprecated. Please use `debug` instead."
-
-# [deprecation.debugprint]
-# other = "The partial `debugprint.html` is deprecated. Please use `debug-print.html` instead."
-
-# dnb.functions
-
-[dnb.head.hometitle]
-other = "Welcome"
-
-# renderhooks
-[dnb.renderhooks.caution]
-other = 'Caution'
-[dnb.renderhooks.important]
-other = 'Important'
-[dnb.renderhooks.note]
-other = 'Note'
-[dnb.renderhooks.tip]
-other = 'Tip'
-[dnb.renderhooks.warning]
-other = 'Warning'
-
-# shortcodes
-################################################################################
-# Shortcodes: Form
-################################################################################
-[shortcodes.form.name]
-description = "Form label for the name field"
-other = "Your Name"
-
-[shortcodes.form.email]
-description = "Form label for the email field"
-other = "Email Address"
-
-[shortcodes.form.subject]
-description = "Form label for the subject field"
-other = "Subject"
-
-[shortcodes.form.message]
-description = "Form label for the message field"
-other = "Your Message"
-
-[shortcodes.form.submit]
-description = "Label for the submit button"
-other = "Send Message"
-
-[shortcodes.form.fieldnames.name]
-other = "Name"
-
-[shortcodes.form.fieldnames.email]
-other = "Email"
-
-[shortcodes.form.fieldnames.subject]
-other = "Subject"
-
-[shortcodes.form.fieldnames.message]
-other = "Message"
-
-[shortcodes.form.fieldnames.submit]
-other = "submit"
-
-[dnb-opensearch-error-url]
-description = "telling the client that a default search url is used (/search?q=searchterm)"
-other = "using default site search URL"
-
-[dnb-opensearch-error-form]
-description = "telling the client that a default search form URL is used"
-other = "using default site search form URL"
-
-[dnb-opensearch-error-icon]
-other = "using default site search icon"
-
-[dnb-opensearch-error-description]
-other = "parameter description must be 1024 or less characters"
-
-[dnb-opensearch-error-title]
-other = "parameter title must be 16 or less characters"
-
-[dnb-opensearch-search-title]
-description = "Variable is the site title"
-other = "Search on {{ . }}"
-
-[dnb.sitemap.deprecation]
-description = ""
-other = "Note: .Params.robotsdisallow is deprecated. Check the docs for details."
-
-# David's Neighbour Hugo Components / Social / English template strings
-[share_title]
-other = "Sharing"
-
-[share_facebook]
-other = "Facebook"
-
-[share_twitter]
-other = "Twitter"
-
-[share_linkedin]
-other = "LinkedIn"
-
-[socialmedia_sidebar]
-other = "Social Media"
-
-[share_on_facebook]
-other = "Facebook"
-
-[share_on_twitter]
-other = "Twitter"
-
-[share_on_tumblr]
-other = "Tumblr"
-
-[share_on_email]
-other = "E-Mail"
-
-[share_on_pinterest]
-other = "Pinterest"
-
-[share_on_linkedin]
-other = "LinkedIn"
-
-[share_on_reddit]
-other = "Reddit"
-
-[share_on_xing]
-other = "XING"
-
-[share_on_whatsapp]
-other = "WhatsApp"
-
-[share_on_hackernews]
-other = "Hacker News"
-
-[share_on_vkontakte]
-other = "VK"
-
-[share_on_telegram]
-other = "Telegram"
-
-[share_label]
-other = "Share: "

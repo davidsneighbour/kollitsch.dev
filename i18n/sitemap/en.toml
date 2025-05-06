@@ -1,0 +1,4 @@
+
+[dnb.sitemap.deprecation]
+description = ""
+other = "Note: .Params.robotsdisallow is deprecated. Check the docs for details."

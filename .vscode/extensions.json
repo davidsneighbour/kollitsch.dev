@@ -1,3 +1,10 @@
 {
-  "recommendations": ["be5invis.toml", "tamasfe.even-better-toml"]
+  "recommendations": [
+    "be5invis.toml",
+    "tamasfe.even-better-toml",
+    "editorconfig.editorconfig",
+    "eliostruyf.vscode-front-matter",
+    "redhat.vscode-yaml",
+    "biomejs.biome"
+  ]
 }

@@ -1,7 +1,7 @@
 {{- /* @todo refactor */ -}}
 {{- $config := site.Params.dnb.debug -}}
 
-{{- $errorLabel := lang.Translate "error.no-formatter-configured" -}}
+{{- $errorLabel := lang.Translate "dnb.debug.error-no-formatter" -}}
 {{- if compare.Eq ($config.disablenote | compare.Default false) false -}}
   {{- fmt.Warnf "[dnb-debug] %T - %s" .value $errorLabel -}}
 {{- end -}}
@@ -9,7 +9,7 @@
 {{- $issuePath := "https://github.com/davidsneighbour/hugo-modules/issues/new" -}}
 {{- $parameters := collections.Slice
   (collections.Querify "title" (fmt.Printf "debug: create type formatter for %T" .value))
-  (collections.Querify "body" (fmt.Printf (lang.Translate "issue.body") hugo.Version))
+  (collections.Querify "body" (fmt.Printf (lang.Translate "dnb.debug.issue-body") hugo.Version))
   (collections.Querify "labels" "enhancement")
   (collections.Querify "assignees" "davidsneighbour")
 -}}

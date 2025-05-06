@@ -204,7 +204,7 @@ Hugo introduced a new SSL feature in v0.113.0. The setup is still quite manual, 
 
 JavaScripts have `params` injected via GoHugo @params feature. Currently only the following params are set:
 
-* in `assets/data/build.json`: `version` - the current version of the site.
+* in `data/dnb/kollitsch/build.json`: `version` - the current version of the site.
 * via template injection: `debug` - true on dev server, false on production server.
 
 ```toml

@@ -39,27 +39,22 @@ export default {
       {
         value: 'test',
         name: 'test:     Adding missing tests or correcting existing tests',
-        emoji: ':white_check_mark:',
       },
       {
         value: 'build',
         name: 'build:    Changes that affect the build system or external dependencies',
-        emoji: ':package:',
       },
       {
         value: 'ci',
         name: 'ci:       Changes to our CI configuration files and scripts',
-        emoji: ':ferris_wheel:',
       },
       {
         value: 'chore',
         name: "chore:    Other changes that don't modify src or test files",
-        emoji: ':hammer:',
       },
       {
         value: 'revert',
         name: 'revert:   Reverts a previous commit',
-        emoji: ':rewind:',
       },
     ],
     useEmoji: false,
@@ -67,6 +62,10 @@ export default {
     scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
+    scopeOverrides: {
+      theme: ['fix', 'feat'],
+      build: ['deps', 'deps-dev'],
+    },
     customScopesAlias: 'custom',
     emptyScopesAlias: 'empty',
     upperCaseSubject: false,
@@ -88,7 +87,6 @@ export default {
     maxHeaderLength: Number.POSITIVE_INFINITY,
     maxSubjectLength: Number.POSITIVE_INFINITY,
     minSubjectLength: 0,
-    scopeOverrides: undefined,
     defaultBody: '',
     defaultIssues: '',
     defaultScope: '',

@@ -112,6 +112,8 @@
   },
   "scripts": {
     "audit:html": "wireit",
+    "allow:hugo": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow Hugo dev server on LAN\" || true'",
+    "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
     "build": "wireit",
     "build:pagefindindex": "node scripts/pagefind.mjs",
     "clean": "wireit",
@@ -249,7 +251,7 @@
       "command": "node ./scripts/pagefind.mjs"
     },
     "server:hugo": {
-      "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://localhost/ 2>&1 | tee -a logs/hugo.log",
+      "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://192.168.1.201:1313/ --bind 192.168.1.201 2>&1 | tee -a logs/hugo.log",
       "service": {
         "readyWhen": {
           "lineMatches": "Web Server is available at (.*)"

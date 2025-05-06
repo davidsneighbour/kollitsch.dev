@@ -52,6 +52,7 @@
     "cssnano": "7.0.7",
     "cssnano-preset-advanced": "7.0.7",
     "cssnano-preset-lite": "4.0.4",
+    "cz-git": "^1.11.1",
     "debug": "4.4.0",
     "deepmerge": "4.3.1",
     "dotenv": "16.5.0",
@@ -282,11 +283,6 @@
     },
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "publishConfig": {

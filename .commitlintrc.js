@@ -1,4 +1,5 @@
-const configuration = {
+/** @type {import('cz-git').UserConfig} */
+export default {
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
   },
@@ -28,28 +29,37 @@ const configuration = {
         name: 'docs:     Documentation only changes',
       },
       {
+        value: 'theme',
+        name: 'theme:    Theme changes',
+      },
+      {
         value: 'refactor',
         name: 'refactor: A code change that neither fixes a bug nor adds a feature',
       },
       {
         value: 'test',
         name: 'test:     Adding missing tests or correcting existing tests',
+        emoji: ':white_check_mark:',
       },
       {
         value: 'build',
         name: 'build:    Changes that affect the build system or external dependencies',
+        emoji: ':package:',
       },
       {
         value: 'ci',
         name: 'ci:       Changes to our CI configuration files and scripts',
+        emoji: ':ferris_wheel:',
       },
       {
         value: 'chore',
         name: "chore:    Other changes that don't modify src or test files",
+        emoji: ':hammer:',
       },
       {
         value: 'revert',
         name: 'revert:   Reverts a previous commit',
+        emoji: ':rewind:',
       },
     ],
     useEmoji: false,
@@ -86,4 +96,3 @@ const configuration = {
     // https://cz-git.qbb.sh/config/engineer.html
   },
 };
-export default configuration;

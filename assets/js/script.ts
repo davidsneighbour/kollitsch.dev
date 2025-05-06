@@ -107,7 +107,7 @@ document.onreadystatechange = () => {
         init() {
           this.version = 'v' + params.version;
           this.url =
-            'https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v' +
+            'https://github.com/davidsneighbour/kollitsch.dev/releases/tag/' +
             this.version;
         },
       };

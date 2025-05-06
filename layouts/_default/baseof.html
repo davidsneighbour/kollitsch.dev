@@ -414,10 +414,10 @@
               "filter" "js.buildoptions.params"
               "context" $params
           ) -}}
-    {{- with resources.Get "data/build.json" -}}
+    {{- with site.Data.dnb.kollitsch.build -}}
       {{- $params = dict
             "params" (collections.Merge
-                (transform.Unmarshal .Content)
+                .
                 $params
             ) -}}
     {{- end -}}

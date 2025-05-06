@@ -28,6 +28,7 @@ static/documentation/styles
 assets/css/theme.css
 data/dnb/kollitsch/config.*
 release.json
+static/jsconfig.json
 
 # playwright output
 test-results.json

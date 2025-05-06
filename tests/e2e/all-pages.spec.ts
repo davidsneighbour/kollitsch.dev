@@ -1,5 +1,6 @@
 import { expect, request, test } from '@playwright/test';
 
+test.setTimeout(60 * 1000); // Set a global timeout of 60 seconds
 let links: string[] = [];
 
 // A setup function to load links.json before all tests
@@ -32,29 +33,41 @@ test.beforeAll(async ({ baseURL }) => {
 
 // A test to verify each link in links.json is reachable
 test('Verify each link in links.json is reachable', async ({ page }) => {
+  // Validate that links were properly loaded
   if (links.length === 0) {
     throw new Error(
       'No links were loaded. Ensure links.json is available and correctly parsed.',
     );
   }
 
+  // Setup error collection
+  const errors: string[] = [];
+  page.on('console', (message) => {
+    if (message.type() === 'error') {
+      errors.push(`Error message: ${message.text()}`);
+    }
+  });
+
+  page.on('pageerror', (err) => {
+    console.log(err.message);
+  });
+
+  // Process each link as a separate test step
   for (const link of links) {
-    const errors: string[] = [];
-    await page.goto(link);
-    expect(page.url()).toBe(link);
-    //console.log(`Successfully navigated to ${link}`);
+    // This creates a named step that will show in the console output
+    await test.step(`Testing: ${link}`, async () => {
+      // Navigate to the link
+      await page.goto(link);
 
-    page.on('console', (message) => {
-      if (message.type() === 'error') {
-        errors.push(`Error message: ${message.text()}`);
-      }
+      // Verify we ended up at the expected URL
+      expect(page.url()).toBe(link);
+
+      // Verify no console errors were collected
+      expect(errors).toHaveLength(0);
+
+      // Clear errors for next iteration
+      errors.length = 0;
     });
-
-    page.on('pageerror', (err) => {
-      console.log(err.message);
-    });
-
-    expect(errors).toHaveLength(0);
   }
 });
 

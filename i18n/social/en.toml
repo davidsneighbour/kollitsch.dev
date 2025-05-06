@@ -1,54 +1,54 @@
 # David's Neighbour Hugo Components / Social / English template strings
-[share_title]
+[dnb.social.share_title]
 other = "Sharing"
 
-[share_facebook]
+[dnb.social.share_facebook]
 other = "Facebook"
 
-[share_twitter]
+[dnb.social.share_twitter]
 other = "Twitter"
 
-[share_linkedin]
+[dnb.social.share_linkedin]
 other = "LinkedIn"
 
-[socialmedia_sidebar]
+[dnb.social.share_sidebar]
 other = "Social Media"
 
-[share_on_facebook]
+[dnb.social.share_on_facebook]
 other = "Facebook"
 
-[share_on_twitter]
+[dnb.social.share_on_twitter]
 other = "Twitter"
 
-[share_on_tumblr]
+[dnb.social.share_on_tumblr]
 other = "Tumblr"
 
-[share_on_email]
+[dnb.social.share_on_email]
 other = "E-Mail"
 
-[share_on_pinterest]
+[dnb.social.share_on_pinterest]
 other = "Pinterest"
 
-[share_on_linkedin]
+[dnb.social.share_on_linkedin]
 other = "LinkedIn"
 
-[share_on_reddit]
+[dnb.social.share_on_reddit]
 other = "Reddit"
 
-[share_on_xing]
+[dnb.social.share_on_xing]
 other = "XING"
 
-[share_on_whatsapp]
+[dnb.social.share_on_whatsapp]
 other = "WhatsApp"
 
-[share_on_hackernews]
+[dnb.social.share_on_hackernews]
 other = "Hacker News"
 
-[share_on_vkontakte]
+[dnb.social.share_on_vkontakte]
 other = "VK"
 
-[share_on_telegram]
+[dnb.social.share_on_telegram]
 other = "Telegram"
 
-[share_label]
+[dnb.social.share_label]
 other = "Share: "

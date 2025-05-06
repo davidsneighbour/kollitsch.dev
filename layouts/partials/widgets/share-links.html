@@ -9,7 +9,7 @@
 {{- $setups = partials.IncludeCached "func/sortNetworks.html" (dict "networks" $networks "setups" $setups) -}}
 
 <span>
-  {{ lang.Translate "share_label" }}
+  {{ lang.Translate "dnb.social.share_label" }}
 </span>
 {{- range $network, $setup := $setups -}}
 
@@ -40,7 +40,7 @@
     {{- end -}}
   {{- end -}}
 
-  {{- $sharetext := lang.Translate (fmt.Printf "share_on_%s" $setup.slug) -}}
+  {{- $sharetext := lang.Translate (fmt.Printf "dnb.social.share_on_%s" $setup.slug) -}}
 
   {{- with site.Params.dnb.social.sharebuttons.icons | compare.Default true -}}
     <span aria-hidden="true" class="icon">

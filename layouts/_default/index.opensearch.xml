@@ -10,7 +10,7 @@
 {{- if compare.Gt (len $title) 16 }}
   {{- partials.Include "debug/cli.html"
     (dict
-      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb-opensearch-error-title") $config.hookLink)
+      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb.opensearch.error-title") $config.hookLink)
       "context" .
       "severity" "debug"
     )
@@ -20,7 +20,7 @@
 {{- if compare.Gt (len $description) 1024 }}
   {{- partials.Include "debug/cli.html"
     (dict
-      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb-opensearch-error-description") $config.hookLink)
+      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb.opensearch.error-description") $config.hookLink)
       "context" .
       "severity" "debug"
     )
@@ -33,7 +33,7 @@
   {{- $searchUrl = fmt.Printf "%s%s" site.BaseURL "search/?q={searchTerms}" }}
   {{- partials.Include "debug/cli.html"
     (dict
-      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb-opensearch-error-url") $config.hookLink)
+      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb.opensearch.error-url") $config.hookLink)
       "context" .
       "severity" "debug"
     )
@@ -46,7 +46,7 @@
   {{- $searchForm = fmt.Printf "%s%s" site.BaseURL "search/" }}
   {{- partials.Include "debug/cli.html"
     (dict
-      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb-opensearch-error-form") $config.hookLink)
+      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb.opensearch.error-form") $config.hookLink)
       "context" .
       "severity" "debug"
     )
@@ -59,7 +59,7 @@
   {{- $image = fmt.Printf "%s%s" site.BaseURL "favicon.png" }}
   {{- partials.Include "debug/cli.html"
     (dict
-      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb-opensearch-error-icon") $config.hookLink)
+      "message" (fmt.Printf $messageslug $slug (lang.Translate "dnb.opensearch.error-icon") $config.hookLink)
       "context" .
       "severity" "debug"
     )

@@ -127,11 +127,3 @@ target = "es2020"
 # - "node_modules/jquery/dist/jquery.min.js"
 # [dnb.theme.jsbuild.options.params]
 # api = "https://example.org/api"
-
-################################################################################
-# some DNB Org Components Configuration overriding their defaults.
-#
-# @see https://learnxinyminutes.com/docs/toml/ for details about TOML
-# @see https://github.com/davidsneighbour/hugo-modules for details about
-#      specific module configuration options.
-################################################################################

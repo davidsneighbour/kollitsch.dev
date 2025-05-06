@@ -300,7 +300,7 @@ a {
 main {
   padding-top: 30px;
   margin: 0 auto;
-  max-width: clamp(320px, 90%, 60rem);
+  max-width: min(98%, 60rem);
   min-height: 100vh;
 
   @include media-breakpoint-up(md) {

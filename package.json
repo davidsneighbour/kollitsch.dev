@@ -111,14 +111,18 @@
     "xml2js": "0.6.2",
     "yargs": "17.7.2"
   },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
   "scripts": {
-    "audit:html": "wireit",
     "allow:hugo": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow Hugo dev server on LAN\" || true'",
-    "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "audit:html": "wireit",
     "build": "wireit",
     "build:pagefindindex": "node scripts/pagefind.mjs",
     "clean": "wireit",
     "clean:full": "wireit",
+    "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "commit": "cz",
     "deploy": "wireit",
     "hooks:update": "simple-git-hooks",
     "lighthouse": "bin/audit/lighthouse",
@@ -144,8 +148,7 @@
     "webpack": "npm run webpack:dev && npm run webpack:prod",
     "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
     "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
-    "webpack:server": "webpack --watch --config webpack.dev.js",
-    "commit": "cz"
+    "webpack:server": "webpack --watch --config webpack.dev.js"
   },
   "wireit": {
     "audit:html": {
@@ -281,6 +284,11 @@
       "command": "git submodule update --recursive --remote"
     }
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "publishConfig": {
     "provenance": true
   },
@@ -317,13 +325,5 @@
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
-  "type": "module",
-  "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  "type": "module"
 }

@@ -1,0 +1,11 @@
+# renderhooks
+[dnb.renderhooks.caution]
+other = 'Caution'
+[dnb.renderhooks.important]
+other = 'Important'
+[dnb.renderhooks.note]
+other = 'Note'
+[dnb.renderhooks.tip]
+other = 'Tip'
+[dnb.renderhooks.warning]
+other = 'Warning'

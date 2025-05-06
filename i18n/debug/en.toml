@@ -1,0 +1,23 @@
+# debug module
+[error.no-formatter-configured]
+description = ""
+other = "This type has no debugging formatter in dnb-debug configured."
+
+[issue.body]
+description = "template for issue report of unconfigured types"
+other = '''
+<!--
+
+add an explanation and sample code for the debugged type and please make sure,
+that this type is not already requested in the issue tracker.
+
+-->
+
+Hugo Version: %s
+'''
+
+[deprecation.debug]
+other = "This shortcode is deprecated. Please use `debug` instead."
+
+# [deprecation.debugprint]
+# other = "The partial `debugprint.html` is deprecated. Please use `debug-print.html` instead."

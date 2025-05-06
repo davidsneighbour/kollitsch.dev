@@ -7,13 +7,13 @@
   <div data-nosnippet class="mb-3 alert alert-dark" role="alert">
     <p class="text-center alert-heading d-flex flex-column flex-md-row justify-content-center justify-content-md-between">
       <small>
-        {{- lang.Translate "100daystooffload.note" | transform.Markdownify -}}
+        {{- lang.Translate "theme.100daystooffload.note" | transform.Markdownify -}}
       </small>
       <small>
         {{- $options := dict "numsince" $amount
                              "datesince" ($startOfYear.Format "Jan 02, 2006")
                              "numtotal" (len $allPosts) -}}
-        {{- lang.Translate "100daystooffload.counter" $options | transform.Markdownify -}}
+        {{- lang.Translate "theme.100daystooffload.counter" $options | transform.Markdownify -}}
       </small>
     </p>
     <div class="progress-stacked" x-data="{ amount: '{{- $amount -}}' }">

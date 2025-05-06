@@ -22,7 +22,7 @@
   {{- $paginator := .Scratch.Get "paginator" -}}
   {{- with $paginator -}}
     {{- if compare.Gt .PageNumber 1 -}}
-      {{- $pagenumber := fmt.Printf (lang.Translate "page-n") .PageNumber -}}
+      {{- $pagenumber := fmt.Printf (lang.Translate "theme.page-n") .PageNumber -}}
       {{- $title = fmt.Printf "%s %s" $title $pagenumber -}}
     {{- end -}}
   {{- end -}}

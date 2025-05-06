@@ -40,12 +40,12 @@
           {{- partials.Include "icon.html" "calendar3" }}
         </div>
         <div class="d-flex column-gap-2 flex-row flex-wrap gap-0">
-          <span>{{- fmt.Printf (lang.Translate "meta.published") $published -}}</span>
+          <span>{{- fmt.Printf (lang.Translate "theme.meta.published") $published -}}</span>
           <span class="align-self-end text-body-secondary text-small">
-            {{- fmt.Printf (lang.Translate "meta.modified") $last_modified -}}
+            {{- fmt.Printf (lang.Translate "theme.meta.modified") $last_modified -}}
           </span>
           {{- if hugo.IsServer -}}
-            {{- $copy := lang.Translate "meta.edit" -}}
+            {{- $copy := lang.Translate "theme.meta.edit" -}}
             <a href="vscode://file/{{- .File.Filename -}}" aria-label="{{- $copy -}}" title="{{- $copy -}}">
               {{- partials.Include "icon.html" "vector-pen" -}}
             </a>

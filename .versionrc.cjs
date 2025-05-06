@@ -35,7 +35,7 @@ const defaultStandardVersion = {
     { type: "config", section: "Configuration" },
     { type: "build", section: "Build System" },
     { type: "ci", section: "CI" },
-  ]
+  ],
 };
 const localStandardVersion = {
   bumpFiles: [
@@ -44,7 +44,7 @@ const localStandardVersion = {
       type: "json",
     },
     {
-      filename: "assets/data/build.json",
+      filename: "data/dnb/kollitsch/build.json",
       type: "json",
     },
   ],

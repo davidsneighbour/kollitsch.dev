@@ -143,7 +143,8 @@
     "webpack": "npm run webpack:dev && npm run webpack:prod",
     "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
     "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
-    "webpack:server": "webpack --watch --config webpack.dev.js"
+    "webpack:server": "webpack --watch --config webpack.dev.js",
+    "commit": "cz"
   },
   "wireit": {
     "audit:html": {

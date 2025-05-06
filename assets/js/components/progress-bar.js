@@ -21,7 +21,7 @@ class ProgressBar extends HTMLElement {
   static {
     // enable logger for local debugging
     const logger = new DebugLogger(params.debug);
-    logger.setPrefix('⚡ DEBUG:', '#00aa00');
+    logger.setPrefix('⚡', '#00aa00');
     logger.enableDebug();
     logger.log('ProgressBar loaded');
   }

@@ -44,7 +44,7 @@ class DnbTextScramble extends HTMLElement {
     super();
 
     this._logger = new DebugLogger(true);
-    this._logger.setPrefix('⚡ DEBUG: [textscramble]', '#00aa00');
+    this._logger.setPrefix('⚡ [textscramble]', '#00aa00');
     this._logger.enableDebug();
 
     this._logger.info('Element constructed');

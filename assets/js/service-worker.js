@@ -14,7 +14,7 @@ import DebugLogger from "@davidsneighbour/debuglogger";
 
 // enable logger for local debugging
 const logger = new DebugLogger(__IS_DEV__);
-logger.setPrefix("⚡ DEBUG:", "#00aa00");
+logger.setPrefix("⚡", "#00aa00");
 if (__IS_DEV__) {
   logger.enableDebug();
 }

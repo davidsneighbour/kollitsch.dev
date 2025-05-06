@@ -24,7 +24,6 @@ logger.enableDebug();
 // debug params from hugo
 logger.table('Hugo injected params', params);
 
-
 // Initiate custom elements
 customElements.define('lite-youtube', LiteYTEmbed);
 customElements.define('click-effect', ClickSpark);
@@ -106,24 +105,10 @@ document.onreadystatechange = () => {
         version: 'Loading...',
         url: '#',
         init() {
-          this.fetchVersionData();
-        },
-        async fetchVersionData() {
-          const apiUrl = `https://api.github.com/repos/davidsneighbour/kollitsch.dev/releases/tags/v${params.version}`;
-          logger.log(apiUrl);
-          try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            this.version = data.tag_name;
-            this.url = data.html_url;
-          } catch (error) {
-            logger.error('Failed to fetch version data:', error);
-            this.version = 'Error';
-            this.url = '#';
-          }
+          this.version = 'v' + params.version;
+          this.url =
+            'https://github.com/davidsneighbour/kollitsch.dev/releases/tag/v' +
+            this.version;
         },
       };
     });

@@ -49,7 +49,7 @@
       {{- if $post.IsPage -}}
         {{- $level = 1 -}}
       {{- end -}}
-      {{- $options := dict "post" $post "level" $level -}}
+      {{- $options := dict "post" $post "level" $level "truncate" false -}}
       {{- partials.Include "content/components/headline.html" $options -}}
     {{- end -}}
 

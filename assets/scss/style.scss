@@ -1165,3 +1165,34 @@ figcaption {
 // @import "plugins/auditor";
 @import "plugins/debugprint";
 @import "plugins/clipboard";
+
+// Animation to fade in the dropdown menus
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// Assigning the above animation to all dropdown menus
+.dropdown-menu {
+  &.show {
+    -webkit-animation: fadeIn 0.3s alternate;
+    /* Safari 4.0 - 8.0 */
+    animation: fadeIn 0.3s alternate;
+  }
+}
+
+// Mega Menu adjustments
+.nav-item.dropdown.dropdown-mega {
+  position: static;
+
+  .dropdown-menu {
+    width: 90%;
+    top: auto;
+    left: 5%;
+  }
+}

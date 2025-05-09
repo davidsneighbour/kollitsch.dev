@@ -2,5 +2,5 @@
 
 1. Install Commitizen globally:
    ```bash
-   npm install -g commitizen
+   npm install -g commitizen cz-git
    ```

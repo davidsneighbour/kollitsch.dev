@@ -20,17 +20,17 @@ export default {
       confirmCommit: 'Are you sure you want to proceed with the commit above?',
     },
     // https://github.com/sindresorhus/xterm-colors
-    themeColorCode: '38;5;160',
+    themeColorCode: '38;5;159',
     types: [
+      {
+        value: 'theme',
+        name: 'theme:    Theme changes',
+      },
       { value: 'fix', name: 'fix:      A bug fix' },
       { value: 'feat', name: 'feat:     A new feature' },
       {
         value: 'docs',
         name: 'docs:     Documentation only changes',
-      },
-      {
-        value: 'theme',
-        name: 'theme:    Theme changes',
       },
       {
         value: 'refactor',

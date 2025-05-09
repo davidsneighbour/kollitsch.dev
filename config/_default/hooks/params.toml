@@ -9,6 +9,10 @@ hooklink = "https://dnbhub.xyz/hooks"
 cached = true
 file = "head-end-matomo"
 
+[[dnb.hooks.items.kollitsch.body-end]]
+cached = true
+file = "matomo-tracking"
+
 [[dnb.hooks.items.theme.body-main-end]]
 cached = false
 file = "body-main-end"
@@ -58,4 +62,3 @@ file = 'netlification-body-end'
 [[dnb.hooks.items.robots."robots.sitemap"]]
 cached = true
 file = 'robots/sitemap'
-

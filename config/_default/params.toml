@@ -6,6 +6,23 @@ Germany produced, digital native living & working on Koh Samui in Thailand."""
 mainSections = ["blog"]
 
 ################################################################################
+# site setup
+################################################################################
+[dnb.site]
+
+[dnb.site.author]
+default = "patrick-kollitsch" # set a default author slug for the site
+type = "data" # single, data, taxonomy
+
+# [dnb.site.author.single]
+# avatar = "images/avatar.jpg" # relative to /assets
+# description = "Digital Native living & working on Koh Samui in Thailand"
+# email = ""
+# name = "Patrick Kollitsch"
+# twitter = "davidsneighbour"
+# url = ""
+
+################################################################################
 # theme setup
 ################################################################################
 [dnb.theme]
@@ -29,19 +46,19 @@ logo_width = "40"
 show_title = true
 
 [dnb.theme.limits]
-archive = 25
+archive = 25 
 home = 10 # 1 full plus 9
-list = 10
+list = 10 
 
 # stylesheet modifications
 ################################################################################
 [dnb.theme.styles]
 # bgimage = 'images/background.jpg' # relative to /assets
 [dnb.theme.styles.bgimage]
-enabled = true
-format = 'jpg'
-quality = 'q40'
-resize = '1200x'
+enabled = true 
+format = 'jpg' 
+quality = 'q40' 
+resize = '1200x' 
 url = 'images/background.jpg' # relative to /assets
 ################################################################################
 
@@ -127,3 +144,21 @@ target = "es2020"
 # - "node_modules/jquery/dist/jquery.min.js"
 # [dnb.theme.jsbuild.options.params]
 # api = "https://example.org/api"
+
+################################################################################
+# matomo analytics setup
+################################################################################
+[dnb.matomo]
+enabled = true 
+site_id = 1 # Administration > Websites > Manage
+tracking_url = "https://analytics.dnbhub.xyz" # no trailing slash is important
+
+# Administration > Websites > Custom Dimensions > Action Dimensions
+[dnb.matomo.tracking.nojs]
+custom_action = 4
+enabled = true
+
+# @todo integration
+[dnb.matomo.tracking.printed]
+custom_action = 3
+enabled = false

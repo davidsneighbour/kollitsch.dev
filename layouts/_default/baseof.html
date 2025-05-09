@@ -6,8 +6,7 @@
 {{- $sitelang := site.LanguageCode | compare.Default "en-US" -}}
 <html lang="{{- $sitelang -}}" data-bs-theme="{{- $config.colorscheme -}}">
   {{- /* MARK: Head
-  */ -}}
-  {{- /* loading head module, see https://dnbhub.xyz/head/ */ -}}
+  */ -}}{{- /* loading head module, see https://dnbhub.xyz/head/ */ -}}
   <head>{{- partials.Include "head.html" . -}}</head>
   {{- /* MARK: Body
   */ -}}

@@ -1,0 +1,28 @@
+{{- $config := site.Params.dnb.matomo -}}
+{{- with $config.enabled -}}
+  {{- $URL := $config.tracking_url -}}
+  {{- $ID := $config.site_id -}}
+
+  {{- $ca := "" -}}
+  {{- with $config.tracking.nojs.enabled -}}
+    {{- $ca = printf "&ca=%d" $config.tracking.nojs.custom_action -}}
+  {{- end -}}
+
+  {{- $trackingUrl := printf "%s/matomo.php?idsite=%d&rec=1%s" $URL $ID $ca -}}
+
+  {{- with $config.tracking.nojs.enabled -}}
+    <noscript>
+      <img {{ printf "src=%q" $trackingUrl | safeHTMLAttr }} style="border:0" alt="">
+    </noscript>
+  {{- end -}}
+
+{{- end -}}
+
+{{-
+/*
+
+https://developer.matomo.org/api-reference/tracking-api
+https://matomo.org/faq/how-to/faq_176/
+
+*/
+-}}

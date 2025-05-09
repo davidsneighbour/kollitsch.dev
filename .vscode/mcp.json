@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "kollitsch.dev Docs": {
+      "type": "sse",
+      "url": "https://gitmcp.io/davidsneighbour/kollitsch.dev"
+    }
+  }
+}

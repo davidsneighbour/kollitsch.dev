@@ -5,6 +5,7 @@
     "editorconfig.editorconfig",
     "eliostruyf.vscode-front-matter",
     "redhat.vscode-yaml",
-    "biomejs.biome"
+    "biomejs.biome",
+    "ms-playwright.playwright"
   ]
 }

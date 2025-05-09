@@ -3,8 +3,8 @@
 {{ range $context.Resources.ByType "image" }}
   {{ $images = $images | collections.Append .Permalink }}
 {{ end }}
-{{- $authors := site.Data.wle.en.authors -}}{{/* hardcoded for now, translation currently not required */}}
-{{- $defaultAuthor := "jonathan-hale" -}}{{/* hardcoded for now, author system is collections.In rework */}}
+{{- $authors := site.Data.dnb.kollitsch.authors -}}{{/* hardcoded for now, translation currently not required */}}
+{{- $defaultAuthor := "patrick-kollitsch" -}}{{/* hardcoded for now, author system is collections.In rework */}}
 {{- $author := collections.Slice -}}
 {{- with $context.Params.authors -}}
   {{- range . -}}

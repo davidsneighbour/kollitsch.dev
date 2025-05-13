@@ -6,8 +6,8 @@
   {{ $class = "" }}
 {{ end }}
 {{- fmt.Printf "<h%d class=\"post-title\">" $headerlevel | safe.HTML -}}
-<a href="{{- $post.Permalink -}}" 
-   title="{{- $post.Title | transform.Markdownify -}}" 
+<a href="{{- $post.Permalink -}}"
+   title="{{- $post.Title | transform.Markdownify -}}"
    class="{{- $class -}}">
   {{- $post.Title | transform.Markdownify -}}
 </a>

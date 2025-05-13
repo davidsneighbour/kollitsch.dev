@@ -64,5 +64,3 @@
 {{/* create and return javascript */}}
 {{ $js := $collection | resources.Concat "script.js" | resources.Minify | resources.Fingerprint "sha384" }}
 {{ return $js }}
-
-

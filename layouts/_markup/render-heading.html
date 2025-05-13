@@ -19,7 +19,7 @@ usage sample:
 {{ if compare.Eq $config.disabled false}}
   <h{{ .Level }} id="{{ .Anchor | safe.URL }}">
     {{ .Text | safe.HTML }}
-  	<span class="heading-tools">
+	<span class="heading-tools">
       <a href="#{{ .Anchor | safe.URL }}">
         {{- partials.Include "icon.html" "bookmark" -}}
       </a>

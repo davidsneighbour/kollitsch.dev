@@ -8,6 +8,7 @@
           "url" .Permalink
           "item" .Permalink
           "counter" $counter
+          "position" $counter
     -}}
     {{- $items = $items | collections.Append $item -}}
     {{- $counter = math.Add $counter 1 -}}
@@ -18,6 +19,7 @@
         "url" .Permalink
         "item" .Permalink
         "counter" $counter
+        "position" $counter
   -}}
   {{- $items = $items | collections.Append $item -}}
   {{- $schema := collections.Dictionary

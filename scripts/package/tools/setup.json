@@ -1,0 +1,36 @@
+{
+   "dependencies": { },
+   "devDependencies": {
+      "@davidsneighbour/release-config": "2025.2.1"
+   },
+   "scripts": {
+      "hooks:update": "simple-git-hooks",
+      "update": "wireit"
+   },
+   "wireit": {
+      "update": {
+         "dependencies": [
+            "update:git-hooks"
+         ]
+      },
+      "update:git-hooks": {
+         "command": "npx simple-git-hooks",
+         "dependencies": [
+            "update:post"
+         ]
+      },
+      "update:post": {
+         "command": "fixpack && browserslist --update-db",
+         "dependencies": [
+            "update:pre:npm",
+            "update:pre:submodules"
+         ]
+      },
+      "update:pre:npm": {
+         "command": "npm-check-updates -u --target minor"
+      },
+      "update:pre:submodules": {
+         "command": "git submodule update --recursive --remote"
+      }
+   }
+}

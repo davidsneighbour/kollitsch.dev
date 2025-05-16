@@ -1,18 +1,18 @@
 [build]
 publish = "./public"
 
-[context.production]
-command = "./bin/hugo/build.mjs"
-[context.production.environment]
-GO_VERSION = "1.23"
-HUGO_ENV = "production"
-HUGO_VERSION = "0.135.0"
-NODE_ENV = "development"
+# [context.development]
+# command = "./bin/hugo/build.mjs"
+# [context.production.environment]
+# GO_VERSION = "1.23"
+# HUGO_ENV = "production"
+# HUGO_VERSION = "0.135.0"
+# NODE_ENV = "development"
 
-[[plugins]]
-package = "@davidsneighbour/netlify-plugin-hugo-helper"
-[plugins.inputs]
-debug = false
+# [[plugins]]
+# package = "@davidsneighbour/netlify-plugin-hugo-helper"
+# [plugins.inputs]
+# debug = false
 
 [[headers]]
 for = "/.well-known/avatar"

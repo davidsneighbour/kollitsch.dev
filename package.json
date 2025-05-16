@@ -2,48 +2,64 @@
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
   "version": "2025.3.1",
-  "license": "MIT",
-  "private": true,
-  "repository": "davidsneighbour/kollitsch.dev",
   "author": {
-    "email": "83281+davidsneighbour@users.noreply.github.com",
+    "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
     "web": "https://davids-neighbour.com"
   },
-  "homepage": "https://kollitsch.dev",
+  "browserslist": {
+    "production": [
+      "last 1 version",
+      "Chrome >= 112",
+      "Firefox >= 121",
+      "iOS >= 16",
+      "Safari >= 16.4",
+      "Edge >= 112",
+      "not ie > 0",
+      "not ie_mob > 0",
+      "not dead",
+      "not op_mini all",
+      "not op_mob > 0",
+      "not opera > 0",
+      "not ucandroid > 0",
+      "not and_uc > 0",
+      "not and_qq > 0",
+      "not kaios 2.5"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
+  },
+  "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "dependencies": {
     "@alpinejs/collapse": "3.14.9",
     "@alpinejs/intersect": "3.14.9",
     "@atproto/api": "0.15.6",
     "@biomejs/biome": "1.9.4",
     "@clack/prompts": "0.10.1",
-    "@davidsneighbour/browserslist-config": "^2025.1.5",
+    "@davidsneighbour/browserslist-config": "^2025.2.1",
     "@davidsneighbour/debuglogger": "0.2.0",
-    "@davidsneighbour/release-config": "^2025.1.5",
+    "@davidsneighbour/release-config": "^2025.2.1",
     "@frontmatter/extensibility": "0.0.18",
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@github/hotkey": "3.1.1",
     "@j9t/obsohtml": "1.8.0",
     "@playwright/test": "1.52.0",
     "@popperjs/core": "2.11.8",
-    "@secretlint/secretlint-rule-no-dotenv": "9.3.2",
-    "@secretlint/secretlint-rule-no-homedir": "9.3.2",
-    "@secretlint/secretlint-rule-no-k8s-kind-secret": "9.3.2",
-    "@secretlint/secretlint-rule-openai": "9.3.2",
-    "@secretlint/secretlint-rule-pattern": "9.3.2",
-    "@secretlint/secretlint-rule-preset-recommend": "9.3.2",
-    "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.2",
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",
     "@types/alpinejs__intersect": "3.13.4",
     "@types/bootstrap": "5.2.10",
-    "@types/node": "22.15.17",
+    "@types/node": "22.15.18",
     "alpinejs": "3.14.9",
     "arktype": "2.1.20",
     "autoprefixer": "10.4.21",
     "bootstrap": "5.3.6",
     "browserslist": "4.24.5",
-    "caniuse-lite": "1.0.30001717",
+    "caniuse-lite": "1.0.30001718",
     "commit-and-tag-version": "12.5.1",
     "commitizen": "^4.3.1",
     "consola": "3.4.2",
@@ -53,14 +69,14 @@
     "cssnano-preset-advanced": "7.0.7",
     "cssnano-preset-lite": "4.0.4",
     "cz-git": "^1.11.1",
-    "debug": "4.4.0",
+    "debug": "4.4.1",
     "deepmerge": "4.3.1",
     "dotenv": "16.5.0",
     "fixpack": "4.0.0",
     "git-cz": "^4.9.0",
     "gray-matter": "4.0.3",
     "html-webpack-plugin": "5.6.3",
-    "lint-staged": "15.5.2",
+    "lint-staged": "16.0.0",
     "lockfile-lint": "4.14.1",
     "masto": "7.1.0",
     "mini-css-extract-plugin": "2.9.2",
@@ -80,15 +96,15 @@
     "postcss-loader": "8.1.1",
     "postcss-preset-env": "10.1.6",
     "prettier-plugin-go-template": "0.0.15",
+    "resend": "^4.5.1",
     "rimraf": "6.0.1",
-    "sass": "1.87.0",
+    "sass": "1.88.0",
     "sass-loader": "16.0.5",
-    "secretlint": "9.3.2",
-    "semver": "7.7.1",
+    "semver": "7.7.2",
     "simple-git-hooks": "2.13.0",
     "style-loader": "4.0.0",
     "stylelint": "16.19.1",
-    "stylelint-config-standard-scss": "14.0.0",
+    "stylelint-config-standard-scss": "15.0.0",
     "stylelint-no-unsupported-browser-features": "8.0.4",
     "stylelint-order": "7.0.0",
     "terser-webpack-plugin": "5.3.14",
@@ -97,7 +113,7 @@
     "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
     "tsx": "4.19.4",
-    "twitter-api-v2": "1.23.0",
+    "twitter-api-v2": "1.23.2",
     "typescript": "5.8.3",
     "webpack": "5.99.8",
     "webpack-cli": "6.0.1",
@@ -114,16 +130,58 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
+    "@alpinejs/collapse": "3.14.9",
+    "@alpinejs/intersect": "3.14.9",
+    "@biomejs/biome": "1.9.4",
+    "@csstools/postcss-is-pseudo-class": "^5.0.1",
+    "@davidsneighbour/eslint-config": "2025.2.1",
     "@davidsneighbour/netlify-plugin-hugo-helper": "^0.1.6",
+    "@davidsneighbour/release-config": "2025.2.1",
+    "@popperjs/core": "2.11.8",
+    "@secretlint/secretlint-rule-no-dotenv": "9.3.2",
+    "@secretlint/secretlint-rule-no-homedir": "9.3.2",
+    "@secretlint/secretlint-rule-no-k8s-kind-secret": "9.3.2",
+    "@secretlint/secretlint-rule-openai": "9.3.2",
+    "@secretlint/secretlint-rule-pattern": "9.3.2",
+    "@secretlint/secretlint-rule-preset-recommend": "9.3.2",
+    "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.2",
     "@total-typescript/ts-reset": "^0.6.1",
+    "@types/alpinejs": "3.13.11",
+    "@types/alpinejs__collapse": "3.13.4",
+    "@types/alpinejs__intersect": "3.13.4",
+    "@types/bootstrap": "5.2.10",
+    "@types/node": "22.15.18",
+    "alpinejs": "3.14.9",
+    "bootstrap": "5.3.6",
+    "browserslist": "4.24.5",
     "cz-conventional-changelog": "^3.3.0",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "secretlint": "9.3.2",
+    "workbox-cacheable-response": "7.3.0",
+    "workbox-core": "7.3.0",
+    "workbox-expiration": "7.3.0",
+    "workbox-precaching": "7.3.0",
+    "workbox-routing": "7.3.0",
+    "workbox-strategies": "7.3.0",
+    "workbox-webpack-plugin": "7.3.0"
   },
+  "engines": {
+    "node": ">=23.6.1",
+    "npm": ">=11.1.0"
+  },
+  "homepage": "https://kollitsch.dev",
+  "license": "MIT",
+  "private": true,
+  "publishConfig": {
+    "provenance": true
+  },
+  "repository": "davidsneighbour/kollitsch.dev",
   "scripts": {
     "allow:hugo": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow Hugo dev server on LAN\" || true'",
     "audit:html": "wireit",
     "build": "wireit",
     "build:pagefindindex": "node scripts/pagefind.mjs",
+    "build:postcss": "postcss assets/scss/style.scss -o assets/scss/theme.css --config ./postcss.manual.config.js",
     "clean": "wireit",
     "clean:full": "wireit",
     "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
@@ -146,8 +204,8 @@
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "release": "wireit",
-    "server": "wireit",
     "serve": "http-server -S --cert scripts/server/server.crt --key scripts/server/server.key --cors -p 1313 ./public",
+    "server": "wireit",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "update": "wireit",
@@ -156,6 +214,10 @@
     "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "webpack:server": "webpack --watch --config webpack.dev.js"
   },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "type": "module",
   "wireit": {
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
@@ -179,17 +241,25 @@
     },
     "build:hugo": {
       "command": "hugo --logLevel debug --minify",
-      "dependencies": ["clean:dist", "build:hugoconfig"]
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig"
+      ]
     },
     "build:hugoconfig": {
       "command": "hugo config --format toml > data/dnb/kollitsch/config.toml"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": ["build:hugo"]
+      "dependencies": [
+        "build:hugo"
+      ]
     },
     "clean": {
-      "dependencies": ["clean:audit", "clean:hugo"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo"
+      ]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -199,7 +269,11 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -230,18 +304,26 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": ["deploy:netlify"]
+      "dependencies": [
+        "deploy:netlify"
+      ]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "lint": {
-      "dependencies": ["lint:lockfiles"]
+      "dependencies": [
+        "lint:lockfiles"
+      ]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -256,7 +338,10 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
     },
     "server": {
-      "dependencies": ["server:hugo", "server:pagefind2"]
+      "dependencies": [
+        "server:hugo",
+        "server:pagefind2"
+      ]
     },
     "server:pagefind2": {
       "command": "node ./scripts/pagefind.mjs"
@@ -273,15 +358,22 @@
       "command": "hugo server trust"
     },
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -289,43 +381,5 @@
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
     }
-  },
-  "publishConfig": {
-    "provenance": true
-  },
-  "engines": {
-    "node": ">=23.6.1",
-    "npm": ">=11.1.0"
-  },
-  "browserslist": {
-    "production": [
-      "last 1 version",
-      "Chrome >= 112",
-      "Firefox >= 121",
-      "iOS >= 16",
-      "Safari >= 16.4",
-      "Edge >= 112",
-      "not ie > 0",
-      "not ie_mob > 0",
-      "not dead",
-      "not op_mini all",
-      "not op_mob > 0",
-      "not opera > 0",
-      "not ucandroid > 0",
-      "not and_uc > 0",
-      "not and_qq > 0",
-      "not kaios 2.5"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 ie version"
-    ]
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "type": "module",
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  }
 }

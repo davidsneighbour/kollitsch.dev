@@ -1,0 +1,44 @@
+{
+  "sortToTop": [
+    "name",
+    "description",
+    "version",
+    "author"
+  ],
+  "required": [
+    "name",
+    "version"
+  ],
+  "warn": [
+    "description",
+    "author",
+    "repository",
+    "keywords",
+    "bugs",
+    "homepage",
+    "license"
+  ],
+  "requiredOnPrivate": [],
+  "warnOnPrivate": [
+    "name",
+    "version",
+    "description"
+  ],
+  "sortedSubItems": [
+    "dependencies",
+    "devDependencies",
+    "jshintConfig",
+    "scripts",
+    "keywords"
+  ],
+  "quiet": false,
+  "files": [
+    "package.json",
+    "package-new.json"
+  ],
+  "dryRun": false,
+  "wipe": false,
+  "indent": null,
+  "newLine": null,
+  "finalNewLine": null
+}

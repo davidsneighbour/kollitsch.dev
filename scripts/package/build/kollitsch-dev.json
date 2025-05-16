@@ -1,0 +1,56 @@
+{
+   "dependencies": { },
+   "devDependencies": {
+      "@alpinejs/collapse": "3.14.9",
+      "@alpinejs/intersect": "3.14.9",
+      "@popperjs/core": "2.11.8",
+      "@types/alpinejs": "3.13.11",
+      "@types/alpinejs__collapse": "3.13.4",
+      "@types/alpinejs__intersect": "3.13.4",
+      "@types/bootstrap": "5.2.10",
+      "@types/node": "22.15.18",
+      "alpinejs": "3.14.9",
+      "bootstrap": "5.3.6"
+   },
+   "scripts": {
+      "build": "wireit",
+      "build:pagefindindex": "node scripts/pagefind.mjs",
+      "build:postcss": "postcss assets/scss/style.scss -o assets/scss/theme.css --config ./postcss.manual.config.js",
+      "new": "node scripts/content.mjs"
+   },
+   "wireit": {
+      "build": {
+         "dependencies": [
+            "clean:dist",
+            "build:hugoconfig",
+            "build:hugo",
+            "build:pagefind2"
+         ]
+      },
+      "build:deploy": {
+         "dependencies": [
+            "release",
+            "clean:dist",
+            "build:hugoconfig",
+            "build:hugo",
+            "build:pagefind2"
+         ]
+      },
+      "build:hugo": {
+         "command": "hugo --logLevel debug --minify",
+         "dependencies": [
+            "clean:dist",
+            "build:hugoconfig"
+         ]
+      },
+      "build:hugoconfig": {
+         "command": "hugo config --format toml > data/dnb/kollitsch/config.toml"
+      },
+      "build:pagefind2": {
+         "command": "node ./scripts/pagefind.mjs",
+         "dependencies": [
+            "build:hugo"
+         ]
+      }
+   }
+}

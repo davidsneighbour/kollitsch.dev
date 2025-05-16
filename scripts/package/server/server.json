@@ -1,0 +1,30 @@
+{
+   "dependencies": { },
+   "devDependencies": { },
+   "scripts": {
+      "serve": "http-server -S --cert scripts/server/server.crt --key scripts/server/server.key --cors -p 1313 ./public",
+      "server": "wireit"
+   },
+   "wireit": {
+      "server": {
+         "dependencies": [
+            "server:hugo",
+            "server:pagefind2"
+         ]
+      },
+      "server:hugo": {
+         "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://192.168.1.201:1313/ --bind 192.168.1.201 2>&1 | tee -a logs/hugo.log",
+         "service": {
+            "readyWhen": {
+               "lineMatches": "Web Server is available at (.*)"
+            }
+         }
+      },
+      "server:hugo-certificates": {
+         "command": "hugo server trust"
+      },
+      "server:pagefind2": {
+         "command": "node ./scripts/pagefind.mjs"
+      }
+   }
+}

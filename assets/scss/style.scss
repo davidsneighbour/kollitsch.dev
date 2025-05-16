@@ -522,7 +522,17 @@ figcaption {
   }
 
   p {
-    text-align: justify;
+    //text-align: justify;
+    margin-block: 1lh;
+    margin-trim: block;
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 
   a {
@@ -1181,12 +1191,10 @@ figcaption {
 .dropdown-menu {
   &.show {
     -webkit-animation: fadeIn 0.3s alternate;
-    /* Safari 4.0 - 8.0 */
     animation: fadeIn 0.3s alternate;
   }
 }
 
-// Mega Menu adjustments
 .nav-item.dropdown.dropdown-mega {
   position: static;
 

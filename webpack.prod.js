@@ -1,8 +1,5 @@
-// file: webpack.prod.mjs
-
 import path from 'path';
 import { fileURLToPath } from 'url';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { merge } from 'webpack-merge';
 import common from './webpack.common.js';
 import webpack from 'webpack';

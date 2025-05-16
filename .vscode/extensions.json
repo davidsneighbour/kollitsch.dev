@@ -6,6 +6,7 @@
     "eliostruyf.vscode-front-matter",
     "redhat.vscode-yaml",
     "biomejs.biome",
-    "ms-playwright.playwright"
+    "ms-playwright.playwright",
+    "grafana.vscode-jsonnet"
   ]
 }

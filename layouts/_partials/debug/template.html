@@ -1,7 +1,7 @@
 <div class="container"><div class="row"><div class="col">
 {{ with templates.Current }}
   <table class="debugprint">
-	<tr>
+  	<tr>
 		<th>Call Stack for {{ templates.Current.Filename }}</th>
 	</tr>
 	{{ range .Ancestors.Reverse }}

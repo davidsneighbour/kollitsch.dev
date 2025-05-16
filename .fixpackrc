@@ -33,8 +33,7 @@
   ],
   "quiet": false,
   "files": [
-    "package.json",
-    "package-new.json"
+    "package.json"
   ],
   "dryRun": false,
   "wipe": false,

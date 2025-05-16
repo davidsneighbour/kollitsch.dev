@@ -1,42 +1,45 @@
 {
-   "dependencies": { },
-   "devDependencies": { },
-   "scripts": { },
-   "wireit": {
-      "clean": {
-         "dependencies": [
-            "clean:audit",
-            "clean:hugo"
-         ]
-      },
-      "clean:audit": {
-         "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
-      },
-      "clean:dist": {
-         "command": "rimraf public"
-      },
-      "clean:full": {
-         "command": "rimraf node_modules package-lock.json .wireit",
-         "dependencies": [
-            "clean:audit",
-            "clean:hugo:full",
-            "clean:netlify"
-         ]
-      },
-      "clean:hugo": {
-         "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
-      },
-      "clean:hugo:full": {
-         "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
-      },
-      "clean:netlify": {
-         "command": "rimraf .netlify/*/*"
-      },
-      "clean:wireit": {
-         "command": "rimraf .wireit"
-      },
-      "lint:links": {
-         "command": "lychee --verbose --config lychee.toml --mode emoji content"
-      }
-   }
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "clean": "wireit",
+    "clean:full": "wireit"
+  },
+  "wireit": {
+    "clean": {
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo"
+      ]
+    },
+    "clean:audit": {
+      "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
+    },
+    "clean:dist": {
+      "command": "rimraf public"
+    },
+    "clean:full": {
+      "command": "rimraf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
+    },
+    "clean:hugo": {
+      "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
+    },
+    "clean:hugo:full": {
+      "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
+    },
+    "clean:netlify": {
+      "command": "rimraf .netlify/*/*"
+    },
+    "clean:wireit": {
+      "command": "rimraf .wireit"
+    },
+    "lint:links": {
+      "command": "lychee --verbose --config lychee.toml --mode emoji content"
+    }
+  }
 }

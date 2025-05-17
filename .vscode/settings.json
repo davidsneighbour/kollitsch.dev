@@ -126,7 +126,7 @@
   ],
   "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
   "vale.enableSpellcheck": true,
-  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.vale.ini",
+  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/.frontmatter/.vale.ini",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff7733",
     "activityBar.background": "#ff7733",

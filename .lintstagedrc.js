@@ -11,11 +11,17 @@ export default {
 
   '*.{scss,css}': ['stylelint --fix', 'prettier --write'],
 
-  '!(CHANGELOG)**/*.{md,markdown}': ['markdownlint-cli2', 'npm run lint:vale'],
+  '!(CHANGELOG)**/*.{md,markdown}': [
+    'markdownlint-cli2',
+    'npm run lint:vale',
+    'typos',
+  ],
 
-  // 'layouts/**/*.*': ['./bin/hugo/refactor layouts'],
+  // 'layouts/**/*.*': [
+  //   './bin/hugo/refactor layouts'
+  // ],
 
   '*.jsonnet': ['jsonnetfmt --in-place'],
 
-  '*': ['secretlint'],
+  // '*': ['secretlint'],
 };

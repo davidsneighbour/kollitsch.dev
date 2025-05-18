@@ -1,9 +1,0 @@
-{
-   "dependencies": { },
-   "devDependencies": { },
-   "scripts": {
-      "test": "npx playwright test",
-      "test:ui": "npx playwright test --ui"
-   },
-   "wireit": { }
-}

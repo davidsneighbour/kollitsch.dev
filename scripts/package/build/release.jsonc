@@ -1,0 +1,12 @@
+{
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "release": "wireit"
+  },
+  "wireit": {
+    "release": {
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  // see https://github.com/henrikjoreteg/fixpack
+  // @todo make fixpack return a zero exit code when changes are made, but no error occurred
+  "scripts": {
+    "lint:fixpack": "wireit"
+  },
+  "wireit": {
+    "lint:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
+      "description": "Fix package.json files"
+    }
+  },
+  "devDependencies": {
+    "fixpack": "4.0.0"
+  }
+}

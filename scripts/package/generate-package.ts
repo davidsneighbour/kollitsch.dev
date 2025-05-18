@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import glob from 'glob';
+import { parse } from 'jsonc-parser';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, '../..');
@@ -124,7 +125,7 @@ async function main() {
   const { pkgPath, verbose, dryRun } = parseArgs();
 
   // discover all JSON files
-  const configPaths = glob.sync('scripts/package/**/*.json', {
+  const configPaths = glob.sync('scripts/package/**/*.jsonc', {
     cwd: projectRoot,
     absolute: true,
   });
@@ -137,7 +138,7 @@ async function main() {
   // load package.json
   let pkg;
   try {
-    pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+    pkg = parse(fs.readFileSync(pkgPath, 'utf8'));
     if (verbose) {
       console.error(`> Project Name: ${pkg.name}`);
       console.error(`> Description: ${pkg.description}`);
@@ -156,7 +157,7 @@ async function main() {
     if (verbose) console.error(`> Merging values from ${cfgPath}`);
     let cfg;
     try {
-      cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
+      cfg = parse(fs.readFileSync(cfgPath, 'utf8'));
       mergeDeep(filteredPkg, cfg);
     } catch (err) {
       console.error(`✖ Failed to parse ${cfgPath}: ${err.message}`);

@@ -1,9 +1,0 @@
-{
-   "dependencies": { },
-   "devDependencies": { },
-   "scripts": {
-      "prettier": "prettier 'assets/**/*.js'",
-      "prettier:fix": "prettier --write ''assets/**/*.js'"
-   },
-   "wireit": { }
-}

@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@atproto/api": "0.15.6",
     "@clack/prompts": "0.10.1",
     "@davidsneighbour/browserslist-config": "2025.2.1",
     "@davidsneighbour/debuglogger": "0.2.0",
@@ -24,13 +23,11 @@
     "debug": "4.4.1",
     "deepmerge": "4.3.1",
     "dotenv": "16.5.0",
-    "fixpack": "4.0.0",
     "git-cz": "4.9.0",
     "gray-matter": "4.0.3",
     "html-webpack-plugin": "5.6.3",
     "lint-staged": "16.0.0",
     "lockfile-lint": "4.14.1",
-    "masto": "7.1.0",
     "mini-css-extract-plugin": "2.9.2",
     "ncp": "2.0.0",
     "ninja-keys": "1.2.2",
@@ -63,9 +60,7 @@
     "trim": "1.0.1",
     "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
-    "tsx": "4.19.4",
     "twitter-api-v2": "1.23.2",
-    "typescript": "5.8.3",
     "webpack": "5.99.8",
     "webpack-cli": "6.0.1",
     "webpack-merge": "6.0.1",
@@ -76,7 +71,6 @@
   "devDependencies": {
     "@csstools/postcss-is-pseudo-class": "5.0.1",
     "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
-    "@total-typescript/ts-reset": "0.6.1",
     "cz-conventional-changelog": "3.3.0",
     "http-server": "14.1.1"
   }

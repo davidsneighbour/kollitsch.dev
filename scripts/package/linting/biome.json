@@ -1,8 +1,0 @@
-{
-   "dependencies": { },
-   "devDependencies": {
-      "@biomejs/biome": "1.9.4"
-   },
-   "scripts": { },
-   "wireit": { }
-}

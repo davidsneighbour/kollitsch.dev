@@ -34,87 +34,12 @@
     ]
   },
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
-  "dependencies": {
-    "@atproto/api": "0.15.7",
-    "@clack/prompts": "0.10.1",
-    "@davidsneighbour/browserslist-config": "2025.2.2",
-    "@davidsneighbour/debuglogger": "0.2.0",
-    "@frontmatter/extensibility": "0.0.18",
-    "@fullhuman/postcss-purgecss": "7.0.2",
-    "@github/hotkey": "3.1.1",
-    "@j9t/obsohtml": "1.8.0",
-    "@playwright/test": "1.52.0",
-    "arktype": "2.1.20",
-    "autoprefixer": "10.4.21",
-    "caniuse-lite": "1.0.30001718",
-    "commit-and-tag-version": "12.5.1",
-    "commitizen": "4.3.1",
-    "consola": "3.4.2",
-    "cross-env": "7.0.3",
-    "css-loader": "7.1.2",
-    "cssnano": "7.0.7",
-    "cssnano-preset-advanced": "7.0.7",
-    "cssnano-preset-lite": "4.0.4",
-    "cz-git": "1.11.1",
-    "debug": "4.4.1",
-    "deepmerge": "4.3.1",
-    "dotenv": "16.5.0",
-    "fixpack": "4.0.0",
-    "git-cz": "4.9.0",
-    "gray-matter": "4.0.3",
-    "html-webpack-plugin": "5.6.3",
-    "lint-staged": "16.0.0",
-    "lockfile-lint": "4.14.1",
-    "masto": "7.1.0",
-    "mini-css-extract-plugin": "2.9.2",
-    "ncp": "2.0.0",
-    "ninja-keys": "1.2.2",
-    "node-fetch": "3.3.2",
-    "npm-check-updates": "18.0.1",
-    "npm-package-json-lint": "8.0.0",
-    "npm-run-all2": "8.0.2",
-    "npm-watch": "0.13.0",
-    "oauth-1.0a": "2.2.6",
-    "pagefind": "1.3.0",
-    "pixelmatch": "7.1.0",
-    "postcss": "8.5.3",
-    "postcss-cli": "11.0.1",
-    "postcss-discard-comments": "7.0.4",
-    "postcss-loader": "8.1.1",
-    "postcss-preset-env": "10.1.6",
-    "prettier-plugin-go-template": "0.0.15",
-    "rimraf": "6.0.1",
-    "sass": "1.89.0",
-    "sass-loader": "16.0.5",
-    "semver": "7.7.2",
-    "simple-git-hooks": "2.13.0",
-    "style-loader": "4.0.0",
-    "stylelint": "16.19.1",
-    "stylelint-config-standard-scss": "15.0.0",
-    "stylelint-no-unsupported-browser-features": "8.0.4",
-    "stylelint-order": "7.0.0",
-    "terser-webpack-plugin": "5.3.14",
-    "toml": "3.0.0",
-    "trim": "1.0.1",
-    "ts-loader": "9.5.2",
-    "ts-node": "10.9.2",
-    "tsx": "4.19.4",
-    "twitter-api-v2": "1.23.2",
-    "typescript": "5.8.3",
-    "webpack": "5.99.8",
-    "webpack-cli": "6.0.1",
-    "webpack-merge": "6.0.1",
-    "wireit": "0.14.12",
-    "xml2js": "0.6.2",
-    "yargs": "17.7.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@alpinejs/collapse": "3.14.9",
     "@alpinejs/intersect": "3.14.9",
     "@biomejs/biome": "1.9.4",
-    "@csstools/postcss-is-pseudo-class": "5.0.1",
     "@davidsneighbour/eslint-config": "2025.2.2",
-    "@davidsneighbour/netlify-plugin-hugo-helper": "0.1.6",
     "@davidsneighbour/release-config": "2025.2.2",
     "@popperjs/core": "2.11.8",
     "@secretlint/secretlint-rule-no-dotenv": "9.3.2",
@@ -124,7 +49,6 @@
     "@secretlint/secretlint-rule-pattern": "9.3.2",
     "@secretlint/secretlint-rule-preset-recommend": "9.3.2",
     "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.2",
-    "@total-typescript/ts-reset": "0.6.1",
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",
     "@types/alpinejs__intersect": "3.13.4",
@@ -133,8 +57,7 @@
     "alpinejs": "3.14.9",
     "bootstrap": "5.3.6",
     "browserslist": "4.24.5",
-    "cz-conventional-changelog": "3.3.0",
-    "http-server": "14.1.1",
+    "fixpack": "4.0.0",
     "secretlint": "9.3.2",
     "workbox-cacheable-response": "7.3.0",
     "workbox-core": "7.3.0",
@@ -159,16 +82,17 @@
     "allow:hugo": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow Hugo dev server on LAN\" || true'",
     "audit:html": "wireit",
     "build": "wireit",
-    "build:package": "wireit",
     "build:pagefindindex": "node scripts/pagefind.mjs",
     "build:postcss": "postcss assets/scss/style.scss -o assets/scss/theme.css --config ./postcss.manual.config.js",
     "clean": "wireit",
     "clean:full": "wireit",
     "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "compile:package": "wireit",
     "deploy": "wireit",
     "hooks:update": "simple-git-hooks",
     "lighthouse": "bin/audit/lighthouse",
     "lint": "wireit",
+    "lint:fixpack": "wireit",
     "lint:hook:commit": "lint-staged",
     "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
@@ -176,7 +100,7 @@
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:remark": "remark content/**/*.md",
     "lint:remark2": "remark .",
-    "lint:secretlint": "secretlint",
+    "lint:secretlint": "secretlint --config .secretlintrc.json",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit",
@@ -189,6 +113,7 @@
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "update": "wireit",
+    "watch:package": "wireit",
     "webpack": "npm run webpack:dev && npm run webpack:prod",
     "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
     "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
@@ -200,7 +125,10 @@
   "type": "module",
   "wireit": {
     "clean": {
-      "dependencies": ["clean:audit", "clean:hugo"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo"
+      ]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -210,7 +138,11 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
@@ -238,15 +170,21 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": ["deploy:netlify"]
+      "dependencies": [
+        "deploy:netlify"
+      ]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "stopserver": {
       "command": "killall -9 hugo"
@@ -270,33 +208,46 @@
     },
     "build:hugo": {
       "command": "hugo --logLevel debug --minify",
-      "dependencies": ["clean:dist", "build:hugoconfig"]
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig"
+      ]
     },
     "build:hugoconfig": {
       "command": "hugo config --format toml > data/dnb/kollitsch/config.toml"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": ["build:hugo"]
+      "dependencies": [
+        "build:hugo"
+      ]
     },
-    "build:package": {
-      "dependencies": ["build:package:jsonnet", "build:package:fixpack"]
+    "compile:package": {
+      "command": "npm run lint:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ]
     },
-    "build:package:fixpack": {
-      "command": "fixpack",
-      "dependencies": ["build:package:jsonnet"]
+    "compile:package:run": {
+      "command": "node ./scripts/package/generate-package.ts"
     },
-    "build:package:jsonnet": {
-      "command": "node ./scripts/package/generate-jsonnet.js --verbose"
+    "watch:packages": {
+      "command": "watch -d -p ./scripts/package/**/*.* -- npm run compile:package:run"
     },
     "release": {
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
+    },
+    "lint:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
+      "description": "Fix package.json files"
     },
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
     },
     "lint": {
-      "dependencies": ["lint:lockfiles"]
+      "dependencies": [
+        "lint:lockfiles"
+      ]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -308,7 +259,10 @@
       "command": "bin/hugo/lint-templates"
     },
     "server": {
-      "dependencies": ["server:hugo", "server:pagefind2"]
+      "dependencies": [
+        "server:hugo",
+        "server:pagefind2"
+      ]
     },
     "server:hugo": {
       "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://192.168.1.201:1313/ --bind 192.168.1.201 2>&1 | tee -a logs/hugo.log",
@@ -325,15 +279,22 @@
       "command": "node ./scripts/pagefind.mjs"
     },
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"

@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "compile:package": "wireit",
+    "watch:package": "wireit"
+  },
+  "wireit": {
+    "compile:package": {
+      "command": "npm run lint:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ]
+    },
+    "compile:package:run": {
+      "command": "node ./scripts/package/generate-package.ts"
+    },
+    "watch:packages": {
+      // @todo make this a proper wireit watch task
+      "command": "watch -d -p ./scripts/package/**/*.* -- npm run compile:package:run"
+    }
+  }
+}

@@ -1,8 +1,0 @@
-{
-   "dependencies": { },
-   "devDependencies": {
-      "@davidsneighbour/eslint-config": "2025.2.1"
-   },
-   "scripts": { },
-   "wireit": { }
-}

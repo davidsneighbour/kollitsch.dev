@@ -1,29 +1,16 @@
-#####################################################################
-# local ignores
-#####################################################################
 # release process
 changes.md
 response.json
+
 # cache for Netlify CLI
 .netlify/
-# replacements for dnb-binaries
-bin/etc/replacements
-chrome
-cache
-firefox
-feedCache.json
-# scratch
-notes/
-# experimental vscode configs
-.vscode/test-snippets.code-snippets
-.devcontainer/notes.md
-# WireIT cache
+
+# wireit cache
 .wireit/
+
 # dynamically created files (pipes)
 assets/dist/*
-# hmm, everything in resources
-static/documentation/styles
-.frontmatter/database/*
+
 # generated tailwind files
 assets/css/theme.css
 data/dnb/kollitsch/config.*
@@ -329,4 +316,3 @@ fabric.properties
 !.idea/runConfigurations
 
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm+all
-.qodo

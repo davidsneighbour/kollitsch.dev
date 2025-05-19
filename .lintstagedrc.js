@@ -1,5 +1,4 @@
 // @see https://github.com/lint-staged/lint-staged
-
 export default {
   'package-lock.json': [
     'lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm',
@@ -15,7 +14,7 @@ export default {
     'markdownlint-cli2',
     'vale --config=".frontmatter/config/ci/vale/vale.ini" --no-exit',
     'lychee --no-progress --config ./.frontmatter/config/ci/lychee/lychee.toml --require-https --format detailed --mode color -vv',
-    'typos',
+    'typos --config ./.frontmatter/config/ci/typos.toml',
   ],
 
   // 'layouts/**/*.*': [

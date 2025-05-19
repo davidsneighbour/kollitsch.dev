@@ -10,18 +10,18 @@ export default {
 
   '*.{scss,css}': ['stylelint --fix', 'prettier --write'],
 
-  '!(CHANGELOG)**/*.{md,markdown}': [
-    'markdownlint-cli2 --config "ci/.markdownlint.json"',
-    'vale --config=".frontmatter/config/ci/vale/vale.ini" --no-exit',
-    'lychee --no-progress --config .frontmatter/config/ci/lychee/lychee.toml --require-https --format detailed --mode color -vv',
-    'typos --config ./.frontmatter/config/ci/typos.toml',
-  ],
-
   // 'layouts/**/*.*': [
   //   './bin/hugo/refactor layouts'
   // ],
 
   // '*.jsonnet': ['jsonnetfmt --in-place'],
+
+  '!(CHANGELOG)**/*.{md,markdown}': [
+    'markdownlint-cli2 --config "ci/.markdownlint.json"',
+    'vale --config="ci/vale/vale.ini" --no-exit',
+    'lychee --no-progress --config ci/lychee/lychee.toml --require-https --format detailed --mode color -vv',
+    'typos --config ci/typos.toml',
+  ],
 
   '*': ['secretlint --secretlintrc ci/.secretlintrc.json'],
 };

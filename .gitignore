@@ -30,6 +30,9 @@ data/dnb/kollitsch/config.*
 release.json
 static/jsconfig.json
 
+# vale configurations
+ci/vale/configs
+
 # playwright output
 test-results.json
 /test-results/

@@ -1,0 +1,5 @@
+[default]
+extend-ignore-re = [
+  # custom ignore regex patterns: https://github.com/crate-ci/typos/blob/master/docs/reference.md#example-configurations
+  "(?s)//\\s*spellchecker:ignore-next-line[^\\n]*\\n[^\\n]*",
+]

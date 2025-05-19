@@ -4,7 +4,7 @@
   },
   "wireit": {
     "lint:lychee": {
-      "command": "lychee --no-progress --config ./.frontmatter/config/ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
+      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
     }
   }
 }

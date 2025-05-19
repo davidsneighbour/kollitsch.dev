@@ -110,7 +110,7 @@
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit",
-    "lint:vale": "vale --config='.frontmatter/config/ci/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "lint:vale": "vale --config='ci/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
     "new": "node scripts/content.mjs",
     "prettier": "prettier 'assets/**/*.js'",
     "prettier:fix": "prettier --write ''assets/**/*.js'",
@@ -167,10 +167,10 @@
       "command": "node ./scripts/pagefind.mjs"
     },
     "update:pre:vale": {
-      "command": "vale --config='.frontmatter/config/ci/vale/vale.ini' --no-exit sync"
+      "command": "vale --config='ci/vale/vale.ini' --no-exit sync"
     },
     "lint:lychee": {
-      "command": "lychee --no-progress --config ./.frontmatter/config/ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
+      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
     },
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"

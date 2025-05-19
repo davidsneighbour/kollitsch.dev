@@ -5,6 +5,9 @@ response.json
 # cache for Netlify CLI
 .netlify/
 
+# symlinks
+content
+
 # wireit cache
 .wireit/
 

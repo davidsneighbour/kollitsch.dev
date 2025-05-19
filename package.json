@@ -63,6 +63,8 @@
     "browserslist": "4.24.5",
     "fixpack": "4.0.0",
     "glob": "^11.0.2",
+    "markdownlint": "0.38.0",
+    "markdownlint-cli2": "0.18.1",
     "secretlint": "9.3.2",
     "workbox-cacheable-response": "7.3.0",
     "workbox-core": "7.3.0",
@@ -104,6 +106,7 @@
     "lint:links": "wireit",
     "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
     "lint:lychee": "wireit",
+    "lint:markdown": "markdownlint-cli2 --config 'ci/.markdownlint.json'",
     "lint:remark": "remark content/**/*.md",
     "lint:remark2": "remark .",
     "lint:secretlint": "secretlint --config .secretlintrc.json",
@@ -192,7 +195,7 @@
       "description": "Fix package.json files"
     },
     "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
     },
     "compile:package": {
       "command": "npm run lint:fixpack",

@@ -9,13 +9,13 @@
     "ms-playwright.playwright",
     "grafana.vscode-jsonnet",
     "tekumara.typos-vscode",
-    "davidanson.vscode-markdownlint",
     "foxundermoon.shell-format",
     "yzhang.markdown-all-in-one",
     "unifiedjs.vscode-remark",
     "stylelint.vscode-stylelint",
     "emeraldwalk.runonsave",
     "esbenp.prettier-vscode",
-    "rvest.vs-code-prettier-eslint"
+    "rvest.vs-code-prettier-eslint",
+    "davidanson.vscode-markdownlint"
   ]
 }

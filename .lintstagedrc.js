@@ -11,7 +11,7 @@ export default {
   '*.{scss,css}': ['stylelint --fix', 'prettier --write'],
 
   '!(CHANGELOG)**/*.{md,markdown}': [
-    'markdownlint-cli2',
+    'markdownlint-cli2 --config "ci/.markdownlint.json"',
     'vale --config=".frontmatter/config/ci/vale/vale.ini" --no-exit',
     'lychee --no-progress --config ./.frontmatter/config/ci/lychee/lychee.toml --require-https --format detailed --mode color -vv',
     'typos --config ./.frontmatter/config/ci/typos.toml',

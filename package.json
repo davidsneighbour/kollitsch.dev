@@ -109,7 +109,7 @@
     "lint:markdown": "markdownlint-cli2 --config 'ci/.markdownlint.json'",
     "lint:remark": "remark content/**/*.md",
     "lint:remark2": "remark .",
-    "lint:secretlint": "secretlint --config .secretlintrc.json",
+    "lint:secretlint": "secretlint --secretlintrc ci/.secretlintrc.json",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit",

@@ -14,6 +14,7 @@ export default {
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2',
     'vale --config=".frontmatter/config/ci/vale/vale.ini" --no-exit',
+    'lychee --no-progress --config ./.frontmatter/config/ci/lychee/lychee.toml --require-https --format detailed --mode color -vv',
     'typos',
   ],
 

@@ -1,4 +1,7 @@
 {
+  "devDependencies": {
+    "glob": "^11.0.2"
+  },
   "scripts": {
     "compile:package": "wireit",
     "watch:package": "wireit"
@@ -13,7 +16,7 @@
     "compile:package:run": {
       "command": "node ./scripts/package/generate-package.ts"
     },
-    "watch:packages": {
+    "watch:package": {
       // @todo make this a proper wireit watch task
       "command": "watch -d -p ./scripts/package/**/*.* -- npm run compile:package:run"
     }

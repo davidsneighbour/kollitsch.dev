@@ -1,0 +1,13 @@
+{
+  "devDependencies": {},
+  "dependencies": {},
+  "scripts": {
+    "lint:vale": "vale --config='.frontmatter/config/ci/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "update:pre:vale": "wireit"
+  },
+  "wireit": {
+    "update:pre:vale": {
+      "command": "vale --config='.frontmatter/config/ci/vale/vale.ini' --no-exit sync"
+    }
+  }
+}

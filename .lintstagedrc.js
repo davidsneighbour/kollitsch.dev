@@ -13,7 +13,7 @@ export default {
 
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2',
-    'npm run lint:vale',
+    'vale --config=".frontmatter/config/ci/vale/vale.ini" --no-exit',
     'typos',
   ],
 

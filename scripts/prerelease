@@ -1,0 +1,24 @@
+#!/bin/bash
+# v2024.11.24.01
+
+set -e
+
+# Check for required tools
+REQUIRED_TOOLS=(curl sed git)
+# shellcheck disable=SC2034
+CURPATH="$(pwd -P)"
+# shellcheck disable=SC2034
+SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Verbosity flag (set to 'true' for verbose output, 'false' for silent mode)
+# shellcheck disable=SC2034
+verbose=true
+# shellcheck disable=SC1091
+source "${CURPATH}/scripts/lib/b/_get_lib.sh"
+
+check_requirements "${REQUIRED_TOOLS[@]}"
+load_env
+create_repopath
+get_next_version
+update_citation "$NEW_VERSION"
+create_changelog

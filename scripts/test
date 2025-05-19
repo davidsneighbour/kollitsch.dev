@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Extract the new version from commit-and-tag-version dry-run output
+NEW_VERSION=$(npx commit-and-tag-version --dry-run 2>/dev/null | awk '/tagging release/ {print $NF}')
+
+if [ -n "$NEW_VERSION" ]; then
+  echo "The new version is: ${NEW_VERSION}"
+else
+  echo "Failed to extract the new version."
+  exit 1
+fi

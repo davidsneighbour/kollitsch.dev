@@ -1,0 +1,27 @@
+#!/bin/bash
+# v2024.11.24.01
+
+# Exit immediately on any command failure and print commands for debugging
+set -e
+
+# Check for required tools
+REQUIRED_TOOLS=(curl sed git)
+# shellcheck disable=SC2034
+CURPATH="$(pwd -P)"
+# shellcheck disable=SC2034
+SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Verbosity flag (set to 'true' for verbose output, 'false' for silent mode)
+# shellcheck disable=SC2034
+verbose=false
+# shellcheck disable=SC1091
+source "${CURPATH}/scripts/lib/b/_get_lib.sh"
+
+check_requirements "${REQUIRED_TOOLS[@]}"
+load_env
+create_repopath
+
+# Push release to GitHub
+git push origin main --follow-tags
+
+create_ghrelease

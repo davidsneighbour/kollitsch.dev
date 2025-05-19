@@ -37,7 +37,6 @@
   "explorer.fileNesting.patterns": {
     "hugo.log": "hugo_stats.json, .hugo_build.lock"
   },
-  "favorites.sortDirection": "ASC",
   "files.associations": {
     "_headers": "gotemplate",
     "_redir": "gotemplate",
@@ -82,44 +81,6 @@
     "sass",
     "scss"
   ],
-  "todo-tree.filtering.excludeGlobs": [
-    "**/node_modules/*/**",
-    "**/.vscode/**"
-  ],
-  "todo-tree.filtering.ignoreGitSubmodules": true,
-  "todo-tree.filtering.includeHiddenFiles": false,
-  "todo-tree.general.showActivityBarBadge": false,
-  "todo-tree.general.tagGroups": {},
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]",
-    "@todo",
-    "@TODO"
-  ],
-  "todo-tree.highlights.backgroundColourScheme": [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "indigo",
-    "violet",
-    "green",
-    "green"
-  ],
-  "todo-tree.regex.regexCaseSensitive": false,
-  "todo-tree.tree.buttons.filter": false,
-  "todo-tree.tree.buttons.groupByTag": false,
-  "todo-tree.tree.buttons.viewStyle": false,
-  "todo-tree.tree.labelFormat": "${after}",
-  "todo-tree.tree.scanAtStartup": true,
-  "todo-tree.tree.showCountsInTree": true,
-  "todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
   // prioritize ArkType's "type" for autoimports
   "typescript.preferences.autoImportSpecifierExcludeRegexes": [
     "^(node:)?os$"
@@ -157,48 +118,7 @@
       ".frontmatter/schemas/**/*.schema.yaml"
     ]
   },
-  "gohtmlLinker.snippetLanguages": [
-    "gohtml",
-    "gotmpl",
-    "html"
-  ],
-  // filepath: /home/patrick/github.com/davidsneighbour/kollitsch.dev/.vscode/settings.json
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": "\\.ts$",
-        "cmd": "npm run compile"
-      }
-    ]
-  },
   "problems.autoReveal": false,
   "editor.insertSpaces": false,
-  "prettier.enable": false,
-  "dnbHugoHelper.patterns": [
-    {
-      "regex": "partials\\.Include(?:Cached)?\\s+\"([^\"]+)\"",
-      "folder": "layouts/partials/"
-    }
-  ],
-  "dnbHugoHelper.languages": [
-    "gohtml",
-    "GoHTML",
-    "gojs",
-    "gojson",
-    "gotmpl",
-    "go-template",
-    "GoTemplate",
-    "gotemplate",
-  ],
-  "dnbHugoHelper.snippetLanguages": [
-    "GoHTML",
-    "gohtml",
-    "gojs",
-    "gojson",
-    "gotmpl",
-    "go-template",
-    "GoTemplate",
-    "gotemplate",
-  ],
-  "dnbHugoHelper.debug": true
+  "prettier.enable": false
 }

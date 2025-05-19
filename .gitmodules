@@ -6,6 +6,3 @@
 	url = git@github.com:davidsneighbour/kollitsch.dev-content.git
 	branch = main
 	update = merge
-[submodule ".vscode/extensions/vscode.dnb-hugo-helper"]
-	path = .vscode/extensions/vscode.dnb-hugo-helper
-	url = git@github.com:davidsneighbour/vscode.dnb-hugo-helper.git

@@ -1,4 +1,11 @@
 # Changelog
+## [2025.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.0...v2025.4.1) (2025-05-20)
+
+
+### Build System
+
+* **fix:** proper version in CITATION.cff ([71bec6f](https://github.com/davidsneighbour/kollitsch.dev/commit/71bec6f56837bb2652bc5697010d49451c16edf5))
+
 ## 2025.4.0 (2025-05-20)
 
 

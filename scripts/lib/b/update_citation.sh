@@ -13,6 +13,7 @@ update_citation() {
   if [ -z "$version" ]; then
     if [ -f "./package.json" ]; then
       version=$(node -pe 'require("./package.json")["version"]')
+      version=$(echo "$version" | sed 's/\x1B\[[0-9;]*[a-zA-Z]//g')
       if [ "$is_verbose" == "true" ]; then
         echo "Extracted version from package.json: ${version}"
       fi

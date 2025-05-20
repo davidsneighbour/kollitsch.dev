@@ -1,6 +1,6 @@
 const defaultStandardVersion = {
   scripts: {
-    prerelease: ".scripts/prerelease",
+    prerelease: "./scripts/prerelease",
     // prerelease:
     // prebump / postbump
     // prechangelog / postchangelog

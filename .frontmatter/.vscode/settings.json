@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.json": "json",
+    "*.txt": "plaintext",
+    "*.xml": "xml"
+  },
+  "yaml.schemas": {
+    "http://json-schema.org/draft-07/schema#": [
+      "schemas/**/*.schema.yaml"
+    ]
+  }
+}

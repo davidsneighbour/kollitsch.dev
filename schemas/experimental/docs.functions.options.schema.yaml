@@ -1,0 +1,30 @@
+title: setup for functions module
+
+definitions: &enumTypes
+  type: string
+  enum:
+    - string
+    - htmlstring
+    - integer
+    - boolean
+    - nil
+
+properties:
+  resources:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          <<: *enumTypes
+  returns:
+    <<: *enumTypes
+
+required:
+  - returns

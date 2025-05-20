@@ -10,9 +10,7 @@
     "../configurations/packages/remark-config",
     "../configurations/packages/stylelint-config",
     "../configurations/packages/tools",
-
     "../debuglogger",
-    "../hugo-darkskies",
     "../imagemin-lint-staged",
     "../netlify-plugin-hugo-helper"
   ]

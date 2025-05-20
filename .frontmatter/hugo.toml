@@ -1,0 +1,12 @@
+[module]
+[[module.mounts]]
+disableWatch = false
+lang = 'en'
+source = 'content'
+target = 'content'
+
+[[module.mounts]]
+disableWatch = false
+lang = 'en'
+source = 'static'
+target = 'static'

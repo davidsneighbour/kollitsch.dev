@@ -1,0 +1,10 @@
+title: blog post
+
+properties:
+  unsplash:
+    type: object
+    required:
+      - imageid
+    properties:
+      imageid:
+        type: string

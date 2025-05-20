@@ -1,0 +1,13 @@
+allOf:
+  # global schemata
+  - $ref: ./particles/global.schema.yaml
+
+  # content schemata
+  - $ref: ./particles/content.schema.yaml
+  - $ref: ./particles/authors.schema.yaml
+  - $ref: ./particles/dates.schema.yaml
+  - $ref: ./particles/taxonomies.schema.yaml
+  - $ref: ./particles/resources.schema.yaml
+
+  # plugin schemata
+  - $ref: ./plugin.unsplash.schema.yaml

@@ -1,0 +1,26 @@
+{
+  "name": "@davidsneighbour/kollitsch-dev-content",
+  "description": "Content for kollitsch.dev",
+  "version": "2025.1.0",
+  "author": "Patrick Kollitsch <davidsneighbourdev-gh@gmail.com> (https://kollitsch.dev)",
+  "dependencies": {
+    "@davidsneighbour/release-config": "2025.2.2",
+    "wireit": "0.14.12"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": "davidsneighbour/kollitsch-dev-content",
+  "scripts": {
+    "release": "wireit",
+    "release:major": "wireit"
+  },
+  "type": "module",
+  "wireit": {
+    "release:major": {
+      "command": "commit-and-tag-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
+    },
+    "release": {
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./bin/repo/release/postrelease"
+    }
+  }
+}

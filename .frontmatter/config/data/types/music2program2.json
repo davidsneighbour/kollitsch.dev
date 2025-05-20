@@ -1,0 +1,41 @@
+{
+  "$schema": "https://frontmatter.codes/config/data.types.schema.json",
+  "file": "[[workspace]]/data/dnb/kollitsch/music.json",
+  "fileType": "json",
+  "id": "music2program2",
+  "labelField": "name",
+  "schema": {
+    "properties": {
+      "description": {
+        "multiline": true,
+        "title": "Description",
+        "type": "string"
+      },
+      "genre": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "link": {
+        "title": "Link",
+        "type": "string"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "slug": {
+        "title": "Slug",
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "link",
+      "slug"
+    ],
+    "type": "object"
+  },
+  "title": "Music to program to"
+}

@@ -66,8 +66,8 @@ The response was a list of contexts, each with its own endpoint:
 
 ```plaintext
 NAME            DESCRIPTION                               DOCKER ENDPOINT                                    ERROR
-default         Current DOCKER_HOST based configuration   unix:///var/run/docker.sock
-desktop-linux * Docker Desktop                            unix:///home/patrick/.docker/desktop/docker.sock
+default         Current DOCKER_HOST based configuration   unix:///var/run/docker.sock                        
+desktop-linux * Docker Desktop                            unix:///home/patrick/.docker/desktop/docker.sock   
 ```
 
 And thus, my friend, it became clear that the daemon had been misled by the context. I was not in the right place, and Docker was confused.

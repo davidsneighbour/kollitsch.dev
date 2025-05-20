@@ -108,7 +108,7 @@ To add a module, you just need to include it in your `config.toml`, `config.yaml
 path = "github.com/davidsneighbour/hugo-darkskies"
 ```
 
-This pulls in a module from the specified source.
+This pulls in a module from the specified source. 
 
 To ensure all modules are up to date, run:
 

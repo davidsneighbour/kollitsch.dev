@@ -31,7 +31,7 @@ This setup worked quite nicely for me until it didn't. Imagine my surprise and d
 *Error mounting /dev/dm-0 at /media/username/mountname: can't read superblock on /dev/mapper/drivename* typically means an encrypted hard drive has a broken superblock.
 
 > **What is a superblock?**
->
+> 
 > A superblock is a vital part of a filesystem, acting like a directory. It holds key information about the filesystem's size, structure, and status, such as where to find files and free space. It's like a map for the operating system to navigate and manage the data on a storage device. If the superblock is damaged, accessing files becomes challenging, like finding a chapter in a book without a table of contents.
 
 Recovering an encrypted hard drive in Ubuntu can be a daunting task. Still, it's entirely feasible with the right commands and understanding of what they do. I decided to not just wing it and reformat everything.

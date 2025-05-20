@@ -58,7 +58,7 @@ Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathema
 
 ## Fun and stuff
 
-- Explore [the 2024 Ig Nobel Prize winners](https://arstechnica.com/science/2024/09/meet-the-winners-of-the-2024-ig-nobel-prizes/) on Ars Technica, highlighting the quirky and humorous achievements in science that first make people laugh, then think. This year's honorees include birds guiding missiles, detecting drunk worms via chromotography, and research into coin flips (they tend to land on the same side they are are started on).
+- Explore [the 2024 Ig Nobel Prize winners](https://arstechnica.com/science/2024/09/meet-the-winners-of-the-2024-ig-nobel-prizes/) on Ars Technica, highlighting the quirky and humorous achievements in science that first make people laugh, then think. This year's honorees include birds guiding missiles, detecting drunk worms via chromotography, and research into coin flips (they tend to land on the same side they are are started on). 
 
 ## What you missed
 

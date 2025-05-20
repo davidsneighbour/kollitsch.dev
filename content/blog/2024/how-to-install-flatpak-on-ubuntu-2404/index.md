@@ -46,7 +46,7 @@ sudo apt install gnome-software-plugin-flatpak
 
 **Step 3: Restart Your System**
 
-After setup, restart your system to finalize everything.
+After setup, restart your system to finalize everything. 
 
 **Step 4: Add Flathub Repository**
 

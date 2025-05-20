@@ -18,7 +18,7 @@ type: blog
 fmContentType: blog
 ---
 
-Everyone loves a creamy, smooth nacho cheese sauce, but achieving that perfect texture at home can be tricky. Often, when you melt cheese, it separates into a greasy mess. The secret to avoiding this? Sodium Citrate (Na~3~C~6~H~5~O~7~). It's commonly used in the food industry as an emulsifier and preservative.
+Everyone loves a creamy, smooth nacho cheese sauce, but achieving that perfect texture at home can be tricky. Often, when you melt cheese, it separates into a greasy mess. The secret to avoiding this? Sodium Citrate (Na~3~C~6~H~5~O~7~). It's commonly used in the food industry as an emulsifier and preservative. 
 
 When you melt cheese, the fats and proteins naturally want to separate. Sodium citrate works by binding the proteins in the cheese with the water in the sauce, keeping the fats evenly distributed. This means no more clumpy or greasy cheese --- just a smooth, velvety consistency that's perfect for nachos.
 

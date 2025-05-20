@@ -1,16 +1,26 @@
 {
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "pagefind": "1.3.0",
+    "@github/hotkey": "3.1.1",
+    "autoprefixer": "10.4.21",
+    "cssnano": "7.0.7",
+    "cssnano-preset-advanced": "7.0.7",
+    "cssnano-preset-lite": "4.0.4",
+    "postcss": "8.5.3",
+    "postcss-cli": "11.0.1",
+    "postcss-discard-comments": "7.0.4",
+    "postcss-loader": "8.1.1",
+    "postcss-preset-env": "10.1.6",
+    "@davidsneighbour/debuglogger": "0.2.0"
+  },
   "scripts": {
     "serve": "http-server -S --cert scripts/server/server.crt --key scripts/server/server.key --cors -p 1313 ./public",
     "server": "wireit"
   },
   "wireit": {
     "server": {
-      "dependencies": [
-        "server:hugo",
-        "server:pagefind2"
-      ]
+      "dependencies": ["server:hugo", "server:pagefind2"]
     },
     "server:hugo": {
       "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://192.168.1.201:1313/ --bind 192.168.1.201 2>&1 | tee -a logs/hugo.log",

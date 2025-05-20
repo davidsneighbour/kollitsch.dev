@@ -4,9 +4,8 @@ import removeComments from "postcss-discard-comments";
 import postcssPresetEnv from "postcss-preset-env";
 
 export default {
-  syntax: 'postcss-scss',
+  // syntax: 'postcss-scss',
   plugins: [
-
     // https://github.com/postcss/autoprefixer
     autoprefixer({
       env: process.env.HUGO_ENVIRONMENT,

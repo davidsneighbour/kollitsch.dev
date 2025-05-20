@@ -1,4 +1,11 @@
 # Changelog
+## [2025.4.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.1...v2025.4.2) (2025-05-20)
+
+
+### Build System
+
+* **fix:** remove ANSI formatting from version number ([e46d1ca](https://github.com/davidsneighbour/kollitsch.dev/commit/e46d1ca4c9aa40394cbabce363d57e031f3c83a1))
+
 ## [2025.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.0...v2025.4.1) (2025-05-20)
 
 

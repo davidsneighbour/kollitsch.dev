@@ -9,8 +9,8 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 // @see https://playwright.dev/docs/test-configuration
 export default defineConfig({
-  testDir: './tests/e2e',
-  outputDir: './logs/playwright',
+  testDir: './e2e',
+  outputDir: '../logs/playwright',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -20,10 +20,10 @@ export default defineConfig({
     ? 'github'
     : [
         ['list'],
-        ['json', { outputFile: 'logs/test-results.json' }],
+        ['json', { outputFile: '../logs/test-results.json' }],
         [
           'html',
-          { open: 'on-failure', outputFolder: 'logs/playwright-report' },
+          { open: 'on-failure', outputFolder: '../logs/playwright-report' },
         ],
       ],
   // @see https://playwright.dev/docs/api/class-testoptions

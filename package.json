@@ -36,11 +36,14 @@
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "dependencies": {
     "@davidsneighbour/release-config": "2025.2.2",
+    "@tailwindcss/postcss": "*",
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",
     "@types/alpinejs__intersect": "3.13.4",
     "@types/bootstrap": "5.2.10",
     "@types/node": "22.15.21",
+    "postcss": "*",
+    "tailwindcss": "*",
     "tsx": "4.19.4",
     "typescript": "5.8.3"
   },
@@ -153,15 +156,22 @@
   "type": "module",
   "wireit": {
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -170,7 +180,10 @@
       "command": "git submodule update --recursive --remote"
     },
     "server": {
-      "dependencies": ["server:hugo", "server:pagefind2"]
+      "dependencies": [
+        "server:hugo",
+        "server:pagefind2"
+      ]
     },
     "server:hugo": {
       "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://192.168.1.201:1313/ --bind 192.168.1.201 2>&1 | tee -a logs/hugo.log",
@@ -196,7 +209,9 @@
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
     },
     "lint": {
-      "dependencies": ["lint:lockfiles"]
+      "dependencies": [
+        "lint:lockfiles"
+      ]
     },
     "lint:styles": {
       "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
@@ -216,7 +231,9 @@
     },
     "compile:package": {
       "command": "npm run lint:fixpack",
-      "dependencies": ["compile:package:run"]
+      "dependencies": [
+        "compile:package:run"
+      ]
     },
     "compile:package:run": {
       "command": "node ./scripts/package/generate-package.ts"
@@ -243,14 +260,19 @@
     },
     "build:hugo": {
       "command": "hugo --logLevel debug --minify",
-      "dependencies": ["clean:dist", "build:hugoconfig"]
+      "dependencies": [
+        "clean:dist",
+        "build:hugoconfig"
+      ]
     },
     "build:hugoconfig": {
       "command": "hugo config --format toml > data/dnb/kollitsch/config.toml"
     },
     "build:pagefind2": {
       "command": "node ./scripts/pagefind.mjs",
-      "dependencies": ["build:hugo"]
+      "dependencies": [
+        "build:hugo"
+      ]
     },
     "stopserver": {
       "command": "killall -9 hugo"
@@ -266,18 +288,27 @@
     },
     "deploy:clearcache": {
       "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": ["deploy:netlify"]
+      "dependencies": [
+        "deploy:netlify"
+      ]
     },
     "deploy:netlify": {
       "command": "netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "deploy:netlify:debug": {
       "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": ["build"]
+      "dependencies": [
+        "build"
+      ]
     },
     "clean": {
-      "dependencies": ["clean:audit", "clean:hugo"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo"
+      ]
     },
     "clean:audit": {
       "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
@@ -287,7 +318,11 @@
     },
     "clean:full": {
       "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
+      "dependencies": [
+        "clean:audit",
+        "clean:hugo:full",
+        "clean:netlify"
+      ]
     },
     "clean:hugo": {
       "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"

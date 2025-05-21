@@ -66,7 +66,7 @@ channels:
   1.22/candidate:      1.22.6       2024-08-07 (10679)  64MB classic
   1.22/beta:           ↑
   1.22/edge:           ↑
-...
+…
 ```
 
 This shows some info about the package and all versions that are available to install.

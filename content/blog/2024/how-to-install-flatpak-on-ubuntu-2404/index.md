@@ -13,7 +13,7 @@ date: 2024-09-28T14:59:41.751Z
 publishDate: 2024-09-28T14:59:41.751Z
 lastmod: 2024-09-28T16:16:42.869Z
 resources:
-  - title: All the packages...
+  - title: All the packages…
     src: getty-images-Hh_4mKRYAPM-unsplash.jpg
 tags:
   - how to
@@ -46,7 +46,7 @@ sudo apt install gnome-software-plugin-flatpak
 
 **Step 3: Restart Your System**
 
-After setup, restart your system to finalize everything. 
+After setup, restart your system to finalize everything.
 
 **Step 4: Add Flathub Repository**
 

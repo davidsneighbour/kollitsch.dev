@@ -32,7 +32,7 @@ I didn't want to delete my tweets by hand (I tried, but it required plenty of cl
 
 After a while, "all" tweets were deleted. All tweets? No, not all tweets. There were some undeleteable tweets left that I removed by hand. Twitter also still showed around 2000 tweets and 200 likes on my profile. So I visited again and again over time, and after about two weeks, the missing items appeared. I deleted them and now have 27 posts and 4 likes that don't exist but are still counted, maybe in a week or so.
 
-My Twitter profile of nearly 2 decades is empty, and I can move on. See you down somewhere on the social...
+My Twitter profile of nearly 2 decades is empty, and I can move on. See you down somewhere on the social…
 
 And here, for posterity's sake, is my all-time most funny, sarcastic tweet. That was the highest point of my Twitter life. I am ashamed. Because, you know, freshly vs. fresh ;)
 

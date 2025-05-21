@@ -29,10 +29,10 @@ As an example, I have a `cd` alias, that changes the directory and runs `nvm` if
 ```bash
 alias cd='change_directory'
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+alias …='cd ../..'
+alias ….='cd ../../..'
+alias …..='cd ../../../..'
+alias ……='cd ../../../../..'
 alias cdhist='dirs -v'
 ```
 

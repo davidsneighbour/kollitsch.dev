@@ -107,7 +107,7 @@ path = 'github.com/theNewDynamic/gohugo-theme-ananke/v2'
 **Update the Module Configuration:**
 
 ```bash
-hugo mod get -u ./...
+hugo mod get -u ./…
 hugo mod tidy
 ```
 

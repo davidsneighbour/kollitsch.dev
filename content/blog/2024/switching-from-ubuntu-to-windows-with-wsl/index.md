@@ -30,7 +30,7 @@ unsplash:
 fmContentType: blog
 ---
 
-Recently, I had to install a development environment on Windows 11. As a long-time Linux user, the idea of working in a Windows environment raised some concerns, particularly around maintaining my usual workflow. But knowing that there is something called *Windows Subsystem for Linux* (WSL), I was able to setup my environment as if I was on Ubuntu... Well, mostly. Here's how I jumped ship.
+Recently, I had to install a development environment on Windows 11. As a long-time Linux user, the idea of working in a Windows environment raised some concerns, particularly around maintaining my usual workflow. But knowing that there is something called *Windows Subsystem for Linux* (WSL), I was able to setup my environment as if I was on Ubuntu… Well, mostly. Here's how I jumped ship.
 
 **Setting up WSL on Windows 11** is easy, after you sat through hours of "just some more moments" of setting up Windows 11. Do your Windows Update chores, install a proper Antivirus program and remove all bloat ware. Then you are good to go.
 
@@ -42,7 +42,7 @@ Open a PowerShell window with admin rights. You can do that by clicking the WIN-
 wsl --install
 ```
 
-This is all. You will be asked a bunch of set up questions, it will install all required packages and --- if missing --- the whole WSL, and then Windows wants to restart... again. After the restart a popup window asks you to create your user (with root rights) and you are good to go.
+This is all. You will be asked a bunch of set up questions, it will install all required packages and --- if missing --- the whole WSL, and then Windows wants to restart… again. After the restart a popup window asks you to create your user (with root rights) and you are good to go.
 
 After that you will find an item named "Ubuntu" in your start menu, that will basically start a terminal within your new Ubuntu installation. You can start installing packages and set up your dotfiles. Have fun.
 
@@ -52,7 +52,7 @@ If you wish to know on what operating system you are running just run
 lsb_release -a
 ```
 
-in your Ubuntu. In my case it returned _Ubuntu 24.04.1 LTS_.
+in your Ubuntu. In my case it returned *Ubuntu 24.04.1 LTS*.
 
 While I was happy with the default Ubuntu installation, WSL also supports other distributions like Debian, OpenSUSE, and Kali Linux. To view the available distributions, open your PowerShell again (NOT your Ubunutu shell) and run:
 
@@ -92,11 +92,11 @@ If I [understand the concept right](https://learn.microsoft.com/en-us/windows/ws
 
 **What about a graphical interface on WSL?** This is a tempting but not-so-great idea. There is the possibility of running a graphical interface on top of WSL, allowing users to work with a full Linux desktop environment or window manager. For example, you can set up a window manager like i3 or XFCE on top of WSL2. If you're curious, you can follow a guide like [this one](https://aymen-furter.medium.com/running-a-window-manager-on-top-of-wsl2-a82bdc8f3c88) for doing that.
 
-It's a performance overhead though, slow, some programs don't behave like expected... not worth the time.
+It's a performance overhead though, slow, some programs don't behave like expected… not worth the time.
 
 ## Issues
 
-If it sounded like the whole world is full of flowers and butterflies with Ubuntu on WSL... I am sorry to bring up some issues I experienced.
+If it sounded like the whole world is full of flowers and butterflies with Ubuntu on WSL… I am sorry to bring up some issues I experienced.
 
 ### Mounting Linux file systems on Windows 11
 

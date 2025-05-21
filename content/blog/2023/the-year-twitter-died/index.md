@@ -1,6 +1,5 @@
 ---
 title: The Year Twitter Died
-linkTitle: The Year Twitter Died
 description: >-
   Explore The Verge's 2023 series on Twitter's impact: its news dominance,
   unique work culture, role in harassment, and humorous legacy.
@@ -23,7 +22,7 @@ fmContentType: blog
 
 There is this really well-written collection of articles on [2023, the year Twitter died](https://www.theverge.com/c/23972308/twitter-x-death-tweets-history-elon-musk) on The Verge.
 
-> Twitter was so many things... Elon Musk killed Twitter. First he did it figuratively: firing most employees destabilizing it as a technology and a business, leaving the platform virtually unusable for those who remained. Then he killed it literally: renaming it X, giving Twitter a final ending after fifteen years of chaotic existence.
+> Twitter was so many things… Elon Musk killed Twitter. First he did it figuratively: firing most employees destabilizing it as a technology and a business, leaving the platform virtually unusable for those who remained. Then he killed it literally: renaming it X, giving Twitter a final ending after fifteen years of chaotic existence.
 >
 > But in death there is understanding --- now that it's over, we can reckon with what Twitter really was:
 >
@@ -32,7 +31,7 @@ There is this really well-written collection of articles on [2023, the year Twit
 > * an idealistic money-losing workplace,
 > * and an infinite joke machine.
 >
-> 2023 will go down as... THE YEAR TWITTER DIED.
+> 2023 will go down as… THE YEAR TWITTER DIED.
 
 Four long reads are part of the collection, each offering a different perspective on what exactly Twitter was:
 

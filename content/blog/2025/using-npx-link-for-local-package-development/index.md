@@ -40,7 +40,7 @@ I defined my local packages in a configuration file (`link.config.json`) in my p
   "packages": [
     "../configurations/packages/biome-config",
     "../configurations/packages/bootstrap-config",
-    // ...more packages...
+    // …more packages…
     "../configurations/packages/stylelint-config",
     "../configurations/packages/tools",
     "../debuglogger",

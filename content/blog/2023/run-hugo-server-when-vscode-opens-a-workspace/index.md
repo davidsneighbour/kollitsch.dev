@@ -53,15 +53,15 @@ Here is the content of my `tasks.json` file:
 
 **Explanation of Properties:**
 
-- **label**: A unique name for the task, here it's `"Hugo Server"`.
-- **type**: The type of task, `"shell"` in this case, indicating a shell command.
-- **command**: The command to be executed, `"npm run server"` for starting the Hugo server
-- **windows**: Platform-specific settings. Here, it repeats the same command for Windows.
-- **group**: The group classification of the task, `"none"` means it's not part of any predefined group.
-- **presentation**: How the task's output is displayed.
-  - **reveal**: When to show the terminal, `"always"` in this case.
-  - **panel**: Where to display the output, `"new"` opens a new panel.
-- **runOptions**: Additional execution settings.
-  - **runOn**: When the task should run, `"folderOpen"` means it executes when the project folder (or workspace) is opened.
+* **label**: A unique name for the task, here it's `"Hugo Server"`.
+* **type**: The type of task, `"shell"` in this case, indicating a shell command.
+* **command**: The command to be executed, `"npm run server"` for starting the Hugo server
+* **windows**: Platform-specific settings. Here, it repeats the same command for Windows.
+* **group**: The group classification of the task, `"none"` means it's not part of any predefined group.
+* **presentation**: How the task's output is displayed.
+  * **reveal**: When to show the terminal, `"always"` in this case.
+  * **panel**: Where to display the output, `"new"` opens a new panel.
+* **runOptions**: Additional execution settings.
+  * **runOn**: When the task should run, `"folderOpen"` means it executes when the project folder (or workspace) is opened.
 
-This configuration ensures that every time the specified workspace is opened, the Hugo server is automatically started, which saves a lot of my precious time ;)... it's also convenient.
+This configuration ensures that every time the specified workspace is opened, the Hugo server is automatically started, which saves a lot of my precious time ;)… it's also convenient.

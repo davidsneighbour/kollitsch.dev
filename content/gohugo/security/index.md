@@ -62,6 +62,6 @@ A few real-world implementation examples of `security.txt`
 * <https://www.theguardian.com/.well-known/security.txt>
 * <https://www.google.com/.well-known/security.txt>
 
-... and a few websites that are using `hugo-security`:
+… and a few websites that are using `hugo-security`:
 
 * <https://kollitsch.de/.well-known/security.txt>

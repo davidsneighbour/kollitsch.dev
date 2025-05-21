@@ -108,12 +108,12 @@ To add a module, you just need to include it in your `config.toml`, `config.yaml
 path = "github.com/davidsneighbour/hugo-darkskies"
 ```
 
-This pulls in a module from the specified source. 
+This pulls in a module from the specified source.
 
 To ensure all modules are up to date, run:
 
 ```bash
-hugo mod get -u ./...
+hugo mod get -u ./…
 ```
 
 ## Replacing modules with a local directory
@@ -134,7 +134,7 @@ Using this method, you can run GoHugo with a local environment name where you've
 To update all modules to the latest version, run:
 
 ```bash
-hugo mod get -u ./...
+hugo mod get -u ./…
 ```
 
 This command fetches the latest versions of all modules in your project.

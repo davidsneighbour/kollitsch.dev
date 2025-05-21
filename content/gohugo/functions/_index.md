@@ -55,7 +55,7 @@ hugo mod get -u github.com/davidsneighbour/hugo-functions
 # update to a specific version
 hugo mod get -u github.com/davidsneighbour/hugo-functions@v1.0.0
 # update all modules recursively over the whole project
-hugo mod get -u ./...
+hugo mod get -u ./…
 ```
 
 ### Working principle

@@ -44,7 +44,7 @@ And in my template, I initialized the theme switcher like this:
 
 ```go-template
 <li class="nav-item" id="themeswitcher" x-data="themeSwitcher()">
-  ...
+  …
 </li>
 ```
 

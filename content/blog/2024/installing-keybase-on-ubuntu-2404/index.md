@@ -27,9 +27,9 @@ Trying to install Keybase "the normal way" on Ubuntu leads to errors about missi
 ❯ sudo dpkg -i Downloads/keybase_amd64.deb
 [sudo] password for patrick:
 Selecting previously unselected package keybase.
-(Reading database ... 224676 files and directories currently installed.)
-Preparing to unpack Downloads/keybase_amd64.deb ...
-Unpacking keybase (6.2.8-20240306193933.e38523abbe) ...
+(Reading database … 224676 files and directories currently installed.)
+Preparing to unpack Downloads/keybase_amd64.deb …
+Unpacking keybase (6.2.8-20240306193933.e38523abbe) …
 dpkg: dependency problems prevent configuration of keybase:
  keybase depends on libappindicator1 | libayatana-appindicator1; however:
   Package libappindicator1 is not installed.
@@ -39,18 +39,18 @@ dpkg: dependency problems prevent configuration of keybase:
 
 dpkg: error processing package keybase (--install):
  dependency problems - leaving unconfigured
-Processing triggers for gnome-menus (3.36.0-1.1ubuntu3) ...
-Processing triggers for desktop-file-utils (0.27-2build1) ...
-Processing triggers for hicolor-icon-theme (0.17-2) ...
-Processing triggers for shared-mime-info (2.4-4) ...
+Processing triggers for gnome-menus (3.36.0-1.1ubuntu3) …
+Processing triggers for desktop-file-utils (0.27-2build1) …
+Processing triggers for hicolor-icon-theme (0.17-2) …
+Processing triggers for shared-mime-info (2.4-4) …
 Errors were encountered while processing:
  keybase
 
 ❯ sudo apt --fix-broken install
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-Correcting dependencies... Done
+Reading package lists… Done
+Building dependency tree… Done
+Reading state information… Done
+Correcting dependencies… Done
 The following packages will be REMOVED:
   keybase
 0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
@@ -85,4 +85,4 @@ And then I read the notice on the snap page:
 
 > NOTE: The keybase snap has a number of limitations due to the nature of the snap sandbox. In particular the git integration is not currently working and whilst it is possible to view files within keybase itself it is not possible to download them or upload them directly. Otherwise it should be quite functional.
 
-Well... can't have everything :( On the other side, encrypted Git repositories are one of the main reasons for me to use Keybase, so this won't be the last time me and Keybase are squaring up.
+Well… can't have everything :( On the other side, encrypted Git repositories are one of the main reasons for me to use Keybase, so this won't be the last time me and Keybase are squaring up.

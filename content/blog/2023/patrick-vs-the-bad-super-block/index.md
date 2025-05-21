@@ -31,7 +31,7 @@ This setup worked quite nicely for me until it didn't. Imagine my surprise and d
 *Error mounting /dev/dm-0 at /media/username/mountname: can't read superblock on /dev/mapper/drivename* typically means an encrypted hard drive has a broken superblock.
 
 > **What is a superblock?**
-> 
+>
 > A superblock is a vital part of a filesystem, acting like a directory. It holds key information about the filesystem's size, structure, and status, such as where to find files and free space. It's like a map for the operating system to navigate and manage the data on a storage device. If the superblock is damaged, accessing files becomes challenging, like finding a chapter in a book without a table of contents.
 
 Recovering an encrypted hard drive in Ubuntu can be a daunting task. Still, it's entirely feasible with the right commands and understanding of what they do. I decided to not just wing it and reformat everything.
@@ -62,7 +62,7 @@ Last mounted on:          /media/patrick/Glacier
 Filesystem UUID:          883d30a6-b7a7-4fd0-9c0e-50583b5b67dc
 Filesystem magic number:  0xEF53
 Filesystem revision #:    1 (dynamic)
-...
+…
 ```
 
 This output provides detailed information about the file system, including the last mount point, UUID, and other critical details.
@@ -105,7 +105,7 @@ dumpe2fs 1.46.5 (30-Dec-2021)
   Backup superblock at 98304, Group descriptors at 98305-100633
   Backup superblock at 163840, Group descriptors at 163841-166169
   Backup superblock at 229376, Group descriptors at 229377-231705
-...
+…
 ```
 
 This output shows the primary superblock location and the locations of (in my case, 24) backup superblocks. One of them *must* be good, I guess ;)
@@ -128,9 +128,9 @@ sudo fsck.ext4 -b 32768 /dev/mapper/luks-drive
 e2fsck 1.45.5 (07-Jan-2020)
 /dev/mapper/luks-drive: recovering journal
 Clearing orphaned inode 12345 (uid=1000, gid=1000, mode=0100644, size=123456)
-...
+…
 /dev/mapper/luks-drive: clean, 11/65536 files, 12345/262144 blocks
-...
+…
 ```
 
 This output indicates that `fsck.ext4` is repairing the file system, clearing orphaned inodes, and recovering the journal. This took quite a while. In my case, hours, because the hard drive is 20TB large and all sectors were probed and recovered.

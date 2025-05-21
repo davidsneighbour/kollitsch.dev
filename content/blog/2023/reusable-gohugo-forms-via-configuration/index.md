@@ -138,7 +138,7 @@ The `labelling` attribute in the form configuration preceding sets the way of la
 description = "Form label for the name field"
 other = "Your Name"
 
-# ... (more translations for other form elements)
+# … (more translations for other form elements)
 
 [shortcodes.contactform.fieldnames.name]
 other = "Name"
@@ -190,7 +190,7 @@ The actual execution of the form field and button creation is done by [inline pa
 
 I don't really like inline partials too much because of the following sentence in the documentation:
 
-> ... remember that template namespace is global, so you need to make sure that the names are unique to avoid conflicts.
+> … remember that template namespace is global, so you need to make sure that the names are unique to avoid conflicts.
 
 This means it's a gamble if you are not obsessively specific with your partial name (like the ones I used here). It also means that the partial is not confined to the file it is used in. I can't wrap my head around this yet. Besides having everything nice and neatly in one file, I don't see any advantage of inline partials.
 

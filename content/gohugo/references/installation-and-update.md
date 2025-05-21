@@ -49,7 +49,7 @@ hugo mod get -u github.com/davidsneighbour/hugo-robots
 ### Update all modules
 
 ```bash
-hugo mod get -u ./...
+hugo mod get -u ./…
 ```
 
 Running these commands ensures that your project is using the most up-to-date versions of the modules.

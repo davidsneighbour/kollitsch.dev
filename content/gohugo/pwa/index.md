@@ -65,7 +65,7 @@ You already should have an `[output]` section, add `"manifest"` to it. Do not ad
 
 The module creates a [manifest.json](https://w3c.github.io/manifest/) file for your website. This file is used by browsers to display your website as an app on mobile devices. The file is created automatically by the module and can be configured in your `[params]` section:
 
-... to be written ...
+… to be written …
 
 ### Other configuration options
 

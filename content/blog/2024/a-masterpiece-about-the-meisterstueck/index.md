@@ -30,6 +30,6 @@ In the short film, Anderson himself acts and is joined by Rupert Friend and Jaso
 
 The Meisterstück pen is celebrated for its historical influence and timeless elegance and somehow I believe that this is exactly Andersons type of pen :) and the commercial is scripted hilariously unscriptedly with lots of over-talking and detail nibbling.
 
-The commercial also hints at Montblanc's other luxury products --- "And also, ehm, watches" --- "And leather..." --- "And more leather goods".
+The commercial also hints at Montblanc's other luxury products --- "And also, ehm, watches" --- "And leather…" --- "And more leather goods".
 
 Entertaining. And: "There's two slogans!"

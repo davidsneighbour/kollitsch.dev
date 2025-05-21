@@ -1,5 +1,5 @@
 ---
-title: 'Well, well, well, not so fast...'
+title: 'Well, well, well, not so fast…'
 description: >-
   As I reported a while ago, I embarked on an exhilarating journey with the
   \#100DaysToOffload challenge, a quest to enrich my blog with 100 posts within

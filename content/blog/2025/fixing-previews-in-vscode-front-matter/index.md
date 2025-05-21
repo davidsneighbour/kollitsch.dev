@@ -96,7 +96,7 @@ The following **Node.js script** automates this process by:
            process.stdin.once('data', (answer) => {
                answer = answer.trim().toLowerCase();
                if (answer === 'y') {
-                   console.log(`\nInstalling ${packageName}...\n`);
+                   console.log(`\nInstalling ${packageName}…\n`);
                    try {
                        execSync(`npm install ${packageName}`, { stdio: 'inherit' });
                        console.log(`\n✅ ${packageName} installed. Please run the script again.\n`);

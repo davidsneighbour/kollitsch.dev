@@ -23,6 +23,10 @@ export default {
     themeColorCode: '38;5;159',
     types: [
       {
+        value: 'content',
+        name: 'content:  Content changes',
+      },
+      {
         value: 'theme',
         name: 'theme:    Theme changes',
       },

@@ -1,4 +1,24 @@
 # Changelog
+## [2025.4.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.4...v2025.4.5) (2025-05-21)
+
+
+### Theme
+
+* **fix:** add copyright line to theme files ([9849992](https://github.com/davidsneighbour/kollitsch.dev/commit/9849992e07100b2f25614da16dad90554bdfdea6))
+* **fix:** remove text scrambler from title ([644eb5b](https://github.com/davidsneighbour/kollitsch.dev/commit/644eb5b554af9302b75e48e7ccc9d1dabe5c0f53))
+
+
+### Bug Fixes
+
+* move setup configuration into its own environment ([d796e70](https://github.com/davidsneighbour/kollitsch.dev/commit/d796e700125dffc79ff4bd6fad5d02b45834400f))
+
+
+### Chore
+
+* **git:** remove binaries submodule ([d566fe7](https://github.com/davidsneighbour/kollitsch.dev/commit/d566fe74f4e0862005dada8bd8ef9e44d9920845))
+* remove .git-blame-ignore-revs ([cc3e0df](https://github.com/davidsneighbour/kollitsch.dev/commit/cc3e0df50ed08be4b2c7bff64613ffdfea34902c))
+* remove .gitmodules ([5ff7aef](https://github.com/davidsneighbour/kollitsch.dev/commit/5ff7aefb8321978978c82e65cd47358f0b060224))
+
 ## [2025.4.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.3...v2025.4.4) (2025-05-21)
 
 

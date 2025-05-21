@@ -1,3 +1,4 @@
+{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
 {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.start" "context" . ) -}}
 {{- $config := site.Params.dnb.robots -}}
 {{- $globaldisallow := collections.Where site.Pages "Params.options.robots.disallow" true -}}

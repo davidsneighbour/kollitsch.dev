@@ -1,3 +1,4 @@
+{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
 {{- /* @todo refactor */ -}}
 {{- $drafts := partials.IncludeCached "func/feeds/getDrafts.html" "rss" . -}}
 {{- $items := partials.IncludeCached "func/feeds/getItemsToShow.html" "rss" . -}}

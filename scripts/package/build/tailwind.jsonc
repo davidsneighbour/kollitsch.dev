@@ -1,7 +1,17 @@
 {
   "dependencies": {
-    "tailwindcss": "*",
-    "@tailwindcss/postcss": "*",
-    "postcss": "*"
+    "tailwindcss": "4.1.7",
+    "@tailwindcss/cli": "4.1.7"
+  },
+  "scripts": {
+    "build:tailwindcss": "wireit"
+  },
+  "wireit": {
+    "build:tailwindcss": {
+      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --optimize"
+    },
+    "build:tailwindcss:prod": {
+      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --minify"
+    }
   }
 }

@@ -36,14 +36,13 @@
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "dependencies": {
     "@davidsneighbour/release-config": "2025.2.2",
-    "@tailwindcss/postcss": "*",
+    "@tailwindcss/cli": "4.1.7",
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",
     "@types/alpinejs__intersect": "3.13.4",
     "@types/bootstrap": "5.2.10",
     "@types/node": "22.15.21",
-    "postcss": "*",
-    "tailwindcss": "*",
+    "tailwindcss": "4.1.7",
     "tsx": "4.19.4",
     "typescript": "5.8.3"
   },
@@ -111,6 +110,7 @@
     "build": "wireit",
     "build:pagefindindex": "node scripts/pagefind.mjs",
     "build:postcss": "postcss assets/scss/style.scss -o assets/scss/theme.css --config ./postcss.manual.config.js",
+    "build:tailwindcss": "wireit",
     "clean": "wireit",
     "clean:full": "wireit",
     "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
@@ -225,6 +225,9 @@
     "lint:fixpack": {
       "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
       "description": "Fix package.json files"
+    },
+    "build:tailwindcss": {
+      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --optimize"
     },
     "release": {
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"

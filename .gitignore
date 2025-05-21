@@ -11,6 +11,10 @@ response.json
 # dynamically created files (pipes)
 assets/dist/*
 
+# tailwind output
+static/assets/theme.css
+static/assets/theme.min.css
+
 # generated tailwind files
 assets/css/theme.css
 data/dnb/kollitsch/config.*

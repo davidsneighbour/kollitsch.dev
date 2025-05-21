@@ -16,6 +16,8 @@
     "emeraldwalk.runonsave",
     "esbenp.prettier-vscode",
     "rvest.vs-code-prettier-eslint",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "bradlc.vscode-tailwindcss",
+    "heybourn.headwind"
   ]
 }

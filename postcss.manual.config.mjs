@@ -2,10 +2,13 @@ import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import removeComments from "postcss-discard-comments";
 import postcssPresetEnv from "postcss-preset-env";
+import tailwindcss from "@tailwindcss/postcss";
 
 export default {
   syntax: 'postcss-scss',
   plugins: [
+
+    tailwindcss(),
 
     // https://github.com/postcss/autoprefixer
     autoprefixer({

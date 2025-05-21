@@ -22,6 +22,7 @@
 {{- partials.Include "func/hook.html" ( dict "hook" "head-post-author" "context" . ) -}}
 {{- partials.Include "func/hook.html" ( dict "hook" "head-pre-css" "context" . ) -}}
 {{- partials.IncludeCached "head/style.html" . -}}
+<link rel="stylesheet" href="/assets/theme.css">
 {{- partials.Include "func/hook.html" ( dict "hook" "head-post-css" "context" . ) -}}
 {{- partials.Include "head/translations.html" . -}}
 {{- partials.Include "func/hook.html" ( dict "hook" "head-post-translations" "context" . ) -}}

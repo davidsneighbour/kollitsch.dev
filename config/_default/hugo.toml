@@ -28,15 +28,6 @@ titleCaseStyle = "chicago"
 ignoreErrors = []
 
 ################################################################################
-# hack: increasing timeout to prevent hugo from... timing out while recreating
-# images. this is no more required for this website, because "we got RAM", but
-# kept to find it when working on client projects.
-# MUST be string, MUST contain digits and s for seconds, probably m for minutes
-# (untested)
-################################################################################
-timeout = "600s"
-
-################################################################################
 # pagination - see https://gohugo.io/configuration/pagination/
 ################################################################################
 [pagination]
@@ -57,10 +48,10 @@ enable = true # default is false
 # Default resample filter used for resizing. Default is Box,
 # a simple and fast averaging filter appropriate for downscaling.
 # See https://github.com/disintegration/imaging
-resampleFilter = "Box"
+anchor = "Smart"
 hint = 'photo'
 quality = 90
-anchor = "Smart"
+resampleFilter = "Box"
 
 [imaging.exif]
 # see https://gohugo.io/content-management/image-processing/#exif-data
@@ -77,13 +68,13 @@ includeFields = ""
 [markup.goldmark]
 
 [markup.goldmark.extensions]
-definitionList = true
-footnote = true
-linkify = false
-linkifyProtocol = "https"
+definitionList = true 
+footnote = true 
+linkify = false 
+linkifyProtocol = "https" 
 strikethrough = false # needs to be disabled because of extras.subscript and extras.superscript
-table = true
-taskList = true
+table = true 
+taskList = true 
 # https://gohugo.io/getting-started/configuration-markup/#typographer-extension
 typographer = true
 
@@ -225,5 +216,5 @@ page = "/:title/"
 # see https://gohugo.io/configuration/taxonomies/
 ################################################################################
 [taxonomies]
-tag = "tags"
 keyword = "keywords"
+tag = "tags"

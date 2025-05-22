@@ -1,5 +1,5 @@
 {{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.start" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "robots.start" "context" . ) -}}
 {{- $config := site.Params.dnb.robots -}}
 {{- $globaldisallow := collections.Where site.Pages "Params.options.robots.disallow" true -}}
 
@@ -15,7 +15,7 @@ User-agent: {{ $bot }}
 Disallow: /
 {{ end -}}
 
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.postai" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "robots.postai" "context" . ) -}}
 
 {{ range $index, $item := $config.useragents }}
 User-agent: {{ $item.name -}}
@@ -34,7 +34,7 @@ Allow: {{ . }}
 {{- end }}
 {{ end -}}
 
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.sitemap" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "robots.sitemap" "context" . ) -}}
 
 {{ with $config.concludingComment -}}
 {{ . | strings.TrimSpace -}}
@@ -50,4 +50,4 @@ Allow: {{ . }}
 {{ lang.Translate "dnb.robots.branding" }}
 {{ end -}}
 
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "robots.end" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "robots.end" "context" . ) -}}

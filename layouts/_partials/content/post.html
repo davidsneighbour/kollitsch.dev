@@ -57,10 +57,10 @@
     <div class="prose">
       {{- /* MARK: Content
       */ -}}
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-before" "context" $post ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-before" "context" $post ) -}}
       {{- $options := dict "type" $posttype "post" $post "is_preview" false -}}
       {{- partials.Include "content/components/content.html" $options $options -}}
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-after" "context" $post ) -}}
 
       {{- /* MARK: Comments
       */ -}}
@@ -70,11 +70,11 @@
 
       {{- /* MARK: Meta
       */ -}}
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-before" "context" $post ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-meta-before" "context" $post ) -}}
       {{- if compare.Ne $config.meta false -}}
         {{ partials.Include "content/components/meta.html" $post -}}
       {{- end -}}
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-meta-after" "context" $post ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-meta-after" "context" $post ) -}}
 
     </div>
   </div>

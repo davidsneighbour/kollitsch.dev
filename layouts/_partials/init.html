@@ -1,6 +1,6 @@
 {{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
 {{- /* @todo refactor */ -}}
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "init" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "init" "context" . ) -}}
 {{- $config := site.Params.dnb.theme -}}
 {{- $paginator := collections.Dictionary -}}
 {{- if compare.Eq "home" .Kind -}}
@@ -24,4 +24,4 @@
   {{- $paginator = $.Paginator -}}
 {{- end -}}
 {{- .Scratch.Set "paginator" $paginator -}}
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "init-end" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "init-end" "context" . ) -}}

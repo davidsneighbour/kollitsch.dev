@@ -6,7 +6,7 @@
 {{- $postsetup := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}
 
 <div class="section--meta" id="metainformation">
-  {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-start" "context" . ) -}}
+  {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "article-meta-start" "context" . ) -}}
   {{- /* ranging through the meta lines */ -}}
   {{- if reflect.IsSlice $postsetup.meta -}}
 
@@ -110,7 +110,7 @@
 
   {{- end -}}
 
-  {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "article-meta-end" "context" . ) -}}
+  {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "article-meta-end" "context" . ) -}}
 </div>
 
 

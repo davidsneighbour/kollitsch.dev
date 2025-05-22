@@ -1,6 +1,6 @@
 {{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
 {{- /* @todo refactor */ -}}
-{{- partials.Include "func/hook.html" ( dict "hook" "head-styles-before" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( dict "hook" "head-styles-before" "context" . ) -}}
 {{- $config := site.Params.dnb.head.styles -}}
 
 
@@ -36,4 +36,4 @@
 {{- else -}}
   <link rel="stylesheet" media="all" href="{{- $config.externalOptions.target -}}">
 {{- end -}}
-{{- partials.Include "func/hook.html" ( dict "hook" "head-styles-after" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( dict "hook" "head-styles-after" "context" . ) -}}

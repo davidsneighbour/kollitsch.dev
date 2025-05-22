@@ -48,10 +48,10 @@
     {{- /* MARK: Content
     */ -}}
     <div>
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-before" "context" $post ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-preview-before" "context" $post ) -}}
       {{- $options := dict "type" $posttype "post" $post "is_preview" true -}}
       {{- partials.Include "content/components/content.html" $options $options -}}
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-preview-after" "context" $post ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-preview-after" "context" $post ) -}}
     </div>
 
     {{- /* MARK: Read more button

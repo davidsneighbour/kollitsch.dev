@@ -1,7 +1,7 @@
 {{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
 {{- /* @todo refactor */ -}}
 {{- define "main" }}
-	{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-start" "context" . ) -}}
+	{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "container-start" "context" . ) -}}
 	<section class="section--404">
 		<div class="container">
 			<div class="row">
@@ -20,5 +20,5 @@
 			</div>
 		</div>
 	</section>
-	{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
+	{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
 {{- end -}}

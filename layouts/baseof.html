@@ -2,7 +2,7 @@
 {{- /* @todo refactor */ -}}
 <!DOCTYPE html>
 {{- partials.Include "init.html" . -}}
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "setup" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "setup" "context" . ) -}}
 {{- $config := site.Params.dnb.theme -}}
 {{- $sitelang := site.LanguageCode | compare.Default "en-US" -}}
 <html lang="{{- $sitelang -}}" data-bs-theme="{{- $config.colorscheme -}}">
@@ -17,24 +17,24 @@
       {{- lang.Translate "theme.skip_to_content" -}}
     </a>
     <h1 class="p-0 mx-auto my-0 text-center sitetitle">
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "pre-sitetitle" "context" . ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "pre-sitetitle" "context" . ) -}}
       <a aria-label="{{- site.Title -}}"
          class="p-0 mx-auto my-0 d-inline-block lh-1 text-nowrap" href="{{- site.BaseURL -}}">
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "pre-sitetitle-inner" "context" . ) -}}
+        {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "pre-sitetitle-inner" "context" . ) -}}
         {{- site.Title -}}
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle-inner" "context" . ) -}}
+        {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-sitetitle-inner" "context" . ) -}}
       </a>
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "post-sitetitle" "context" . ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "post-sitetitle" "context" . ) -}}
     </h1>
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-start" "context" . ) -}}
     {{- /* MARK: Topnavigation
     */ -}}
     {{- partials.IncludeCached "header/topnavigation.html" . page -}}
     {{- /* MARK: Main Content
     */ -}}
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-pre-main" "context" . ) -}}
     <main id="maincontent" class="min-vh-100" tabindex="-1">
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-main-start" "context" . ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-main-start" "context" . ) -}}
 
       {{/*
       Kind - page, section
@@ -112,7 +112,7 @@
 
         {{/* MARK: 🔗 Term Page
         */}}
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-start" "context" . ) -}}
+        {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "container-start" "context" . ) -}}
 
         {{- $paginator := .Scratch.Get "paginator" -}}
 
@@ -138,7 +138,7 @@
         {{- partials.Include "content/sections/posts.html" . -}}
         {{- $options := dict "type" "list" "context" . -}}
         {{- partials.Include "content/components/tags/tags-overview.html" $options -}}
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
+        {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "container-end" "context" . ) -}}
 
       {{ else if compare.Eq .Kind "taxonomy" }}
 
@@ -177,17 +177,17 @@
         {{- block "main" . -}}{{- end -}}
 
       {{ end }}
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-main-end" "context" . ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-main-end" "context" . ) -}}
     </main>
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-post-main" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-post-main" "context" . ) -}}
     {{- /* MARK: Footer
     */ -}}
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-pre" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-pre" "context" . ) -}}
     <footer id="footer" class="p-2 p-md-7">
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-start" "context" . ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-start" "context" . ) -}}
       <div class="container text-center widgets">
         <h2 class="invisible d-none">Footer Items</h2>
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-widgets-start" "context" . ) -}}
+        {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-widgets-start" "context" . ) -}}
         {{- with site.Menus.footer -}}
           <div class="widget footer-navigation">
             <h3 class="my-5">{{ lang.Translate "theme.footer_menu_header" }}</h3>
@@ -263,11 +263,11 @@
           </div>
         </div>
         {{- if hugo.IsServer -}}
-          {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-debugging" "context" . ) -}}
+          {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-debugging" "context" . ) -}}
         {{- end -}}
-        {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-widgets-end" "context" . ) -}}
+        {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-widgets-end" "context" . ) -}}
       </div>
-      {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-end" "context" . ) -}}
+      {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-end" "context" . ) -}}
     </footer>
     {{- /* MARK: Back to Top
     */ -}}
@@ -290,14 +290,14 @@
     {{- if templates.Exists "partials/schema.html" -}}
       {{- partials.Include "schema.html" . . -}}
     {{- end -}}
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "footer-post" "context" . ) -}}
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-end-pre-script" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "footer-post" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-end-pre-script" "context" . ) -}}
     {{- $buildoptions := $config.jsbuild.options -}}
     {{- $params := (dict "debug" hugo.IsServer) }}
     {{- /*
       Add whatever you need to the build options and return the $params object
     */ -}}
-    {{- $params := partials.Include "func/filter.html"
+    {{- $params := partials.Include "func/hooks/filter.html"
           ( collections.Dictionary
               "filter" "js.buildoptions.params"
               "context" $params
@@ -331,12 +331,12 @@
             "level" 8
       ) -}}
     {{- end -}}
-    {{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "body-end" "context" . ) -}}
+    {{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "body-end" "context" . ) -}}
     <a href="javascript:history.back();" data-hotkey="k+ArrowLeft" class="d-none">Back</a>
     <a href="javascript:history.forward();" data-hotkey="k+ArrowRight" class="d-none">Forward</a>
   </body>
 </html>
-{{- partials.Include "func/hook.html" ( collections.Dictionary "hook" "teardown" "context" . ) -}}
+{{- partials.Include "func/hooks/hook.html" ( collections.Dictionary "hook" "teardown" "context" . ) -}}
 
 
 {{ define "partials/func/getBodyClasses.html" }}

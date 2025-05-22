@@ -41,4 +41,4 @@ aliases:
 * Discord: [Neighbourhood News](https://discord.gg/Jw4J6hNAyu)
 * Reddit: [r/davidsneighbour](https://www.reddit.com/r/davidsneighbour/)
 
-{{< figure name="social-media.jpg" alt="social-media.jpg" title="social-media.jpg" />}}
+![social-media.jpg](social-media.jpg)

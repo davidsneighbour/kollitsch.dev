@@ -19,8 +19,10 @@ keycombinations:
 
 unsplash:
   imageid: polina-kuzovkova-Nzlzf7e3g8k-unsplash
----
 
-{{< figure src="images/pictures/polina-kuzovkova-Nzlzf7e3g8k-unsplash.jpg" alt="A person typing on a laptop" caption="Photo by [Polina Kuzovkova](https://unsplash.com/@polinakuzovkova) via [Unsplash](https://unsplash.com/)" / >}}
+resources:
+  - title: Photo by [Polina Kuzovkova](https://unsplash.com/@polinakuzovkova) via [Unsplash](https://unsplash.com/)
+    src: /images/pictures/polina-kuzovkova-Nzlzf7e3g8k-unsplash.jpg
+---
 
 {{< keycombinations >}}

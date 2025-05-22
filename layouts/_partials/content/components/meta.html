@@ -134,3 +134,72 @@ TODO:
 {{- end -}}
 {{- return $hash -}}
 {{ end }}
+
+
+
+
+{{ define "partials/widgets/share-links.html" }}
+
+{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
+{{- /* @todo refactor */ -}}
+{{- $context := . -}}
+
+{{- $networks := site.Params.dnb.social.sharebuttons.networks -}}
+{{- $setups := (collections.Where site.Params.dnb.social.shares.items "slug" "in" $networks) -}}
+{{- /* This here is an ugly workaround for Hugo's missing sortByArray feature.
+  Cache it so it does not take away too much time. */
+-}}
+{{- $setups = partials.IncludeCached "func/sortNetworks.html" (dict "networks" $networks "setups" $setups) -}}
+
+<span>
+  {{ lang.Translate "dnb.social.share_label" }}
+</span>
+{{- range $network, $setup := $setups -}}
+
+  {{- $separator := "&" -}}
+  {{ $icon := false }}
+  {{ with $setup.icon }}
+    {{- $icon = . -}}
+  {{ end }}
+  {{- $title := (partials.IncludeCached "func/getTitle.html" page page) | transform.HTMLEscape -}}
+  {{- $description := $context.Summary | transform.HTMLEscape -}}
+  {{- $permalink := $context.Permalink | transform.HTMLEscape -}}
+  {{- with $setup.separator -}}
+    {{- $separator = . -}}
+  {{- end -}}
+  {{- $link := fmt.Printf "%s%s" $setup.link "?" -}}
+
+  {{- range $key, $value := $setup.particles -}}
+    {{- if compare.Eq $key "params" -}}
+      {{- $link = fmt.Printf "%s%s%s" $link $separator $value -}}
+    {{- else -}}
+      {{- if compare.Eq $value "description" -}}
+        {{- $link = fmt.Printf "%s%s%s" $link $separator (collections.Querify $key $description) -}}
+      {{- else if compare.Eq $value "title" -}}
+        {{- $link = fmt.Printf "%s%s%s" $link $separator (collections.Querify $key $title) -}}
+      {{- else if compare.Eq $value "permalink" -}}
+        {{- $link = fmt.Printf "%s%s%s" $link $separator (collections.Querify $key $permalink) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $sharetext := lang.Translate (fmt.Printf "dnb.social.share_on_%s" $setup.slug) -}}
+
+  {{- with site.Params.dnb.social.sharebuttons.icons | compare.Default true -}}
+    <span aria-hidden="true" class="icon">
+      {{- partials.Include "icon.html" $icon -}}
+    </span>
+  {{- end -}}
+  <a
+    href="{{- $link -}}"
+    target="_blank"
+    rel="noopener"
+    aria-label="{{- $sharetext -}}"
+  >
+    {{- with site.Params.dnb.social.sharebuttons.sharetext | compare.Default true -}}
+      {{- $sharetext -}}
+    {{- end -}}
+  </a>
+{{- end -}}
+
+{{ end }}

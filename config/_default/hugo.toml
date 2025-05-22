@@ -100,9 +100,8 @@ block = false
 title = true
 
 [markup.goldmark.renderer]
-hardWraps = false
-unsafe = false
-xhtml = false
+# set to true so we can use inline HTML in markdown for the migration
+unsafe = true
 
 [markup.highlight]
 anchorLineNos = true

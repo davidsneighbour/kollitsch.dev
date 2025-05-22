@@ -1,4 +1,18 @@
 # Changelog
+## [2025.4.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.5...v2025.4.6) (2025-05-22)
+
+
+### Theme
+
+* **feat:** add TailwindCSS setup ([cd6b79d](https://github.com/davidsneighbour/kollitsch.dev/commit/cd6b79d5be5d4146f08e0cc7d970b147f7249268))
+* **fix:** move hooks and filters into func/hooks ([d3b0ff9](https://github.com/davidsneighbour/kollitsch.dev/commit/d3b0ff93deca655abc91113f5ffa9ca722df294a))
+* **fix:** remove unused func partials and move single use partials inline ([f8cf981](https://github.com/davidsneighbour/kollitsch.dev/commit/f8cf981196b8ea37ca77091c3c5201581ec5ffb5))
+
+
+### Refactors
+
+* cleanup and moving configs around ([b2a3cad](https://github.com/davidsneighbour/kollitsch.dev/commit/b2a3cad6c06824b1d0efcdeccff4356014b81690))
+
 ## [2025.4.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.4...v2025.4.5) (2025-05-21)
 
 

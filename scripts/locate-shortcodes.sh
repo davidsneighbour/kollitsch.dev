@@ -17,6 +17,12 @@ show_help() {
   echo "  --help               Show this help message"
 }
 
+# Matches both {{< shortcode >}} and {{% shortcode %}}
+build_shortcode_regex() {
+  local shortcode="${1}"
+  echo "{{[%<][[:space:]]*${shortcode}\\b"
+}
+
 list_shortcodes_and_usage() {
   local shortcodes_folder="${1}"
   local content_folder="${2}"
@@ -27,7 +33,9 @@ list_shortcodes_and_usage() {
   echo "=== Task 1: Files using any shortcode ==="
   local used_files=()
   for shortcode in "${shortcode_names[@]}"; do
-    mapfile -t matches < <(grep -rl "{{< *${shortcode}\b" "${content_folder}")
+    local pattern
+    pattern=$(build_shortcode_regex "${shortcode}")
+    mapfile -t matches < <(grep -rlE "${pattern}" "${content_folder}")
     used_files+=("${matches[@]}")
   done
 
@@ -36,7 +44,9 @@ list_shortcodes_and_usage() {
   echo
   echo "=== Task 2: Unused shortcodes ==="
   for shortcode in "${shortcode_names[@]}"; do
-    if ! grep -qr "{{< *${shortcode}\b" "${content_folder}"; then
+    local pattern
+    pattern=$(build_shortcode_regex "${shortcode}")
+    if ! grep -qrE "${pattern}" "${content_folder}"; then
       echo "${shortcode}"
     fi
   done
@@ -45,9 +55,11 @@ list_shortcodes_and_usage() {
 search_single_shortcode() {
   local content_folder="${1}"
   local shortcode="${2}"
+  local pattern
+  pattern=$(build_shortcode_regex "${shortcode}")
 
   echo "=== Files using shortcode '${shortcode}' ==="
-  grep -rl "{{< *${shortcode}\b" "${content_folder}" || echo "No files found using shortcode '${shortcode}'"
+  grep -rlE "${pattern}" "${content_folder}" || echo "No files found using shortcode '${shortcode}'"
 }
 
 main() {

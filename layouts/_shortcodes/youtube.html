@@ -21,8 +21,8 @@ see
   {{- $class  := .Get "class" | compare.Default (.Get 1) -}}
   {{- $title  := .Get "title" | compare.Default (.Get 2) -}}
   {{- $playlabel := .Get "playlabel" | compare.Default "Play video" -}}
-  {{- $params := .Get "params" | compare.Default (partials.IncludeCached "func/prepareApiParams.html" .) -}}
-  {{- $thumbnailUrl := partials.IncludeCached "func/getYTPreviewUrl.html" $id $id -}}
+  {{- $params := .Get "params" | compare.Default (partials.IncludeCached "func/youtube/prepareApiParams.html" .) -}}
+  {{- $thumbnailUrl := partials.IncludeCached "func/youtube/getYTPreviewUrl.html" $id $id -}}
   <div class="shortcode--youtube {{ with $class -}}{{- . -}}{{- end -}}">
     <lite-youtube
       videoid="{{- $id -}}" {{ with $playlabel -}}

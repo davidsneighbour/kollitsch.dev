@@ -1,31 +1,53 @@
 {{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
 {{- /* @todo refactor */ -}}
-
-      <div class="table-responsive">
-<table class="debugprint">
-  <tr>
-    <th scope="col" class="align-top key">FileInfo Variable</th>
-    <th scope="col" class="align-top type">Type</th>
-    <th scope="col" class="align-top value">Value</th>
-  </tr>
-  {{- $value := .value -}}
-  {{- range site.Data.dnb.debug.types.fileinfo.fields -}}
-    {{- $valuePrinted := partials.Include "func/eval.html" (dict "context" $value "cmd" (fmt.Printf ".%s" .variable)) -}}
+<div class="table-responsive">
+  <table class="debugprint">
     <tr>
-      <td class="align-top key nowrap" title="{{ .description }}">
-        {{- partials.IncludeCached "debug/debugging-partials/field.html" . . -}}
-      </td>
-      <td class="align-top type nowrap">
-        {{- partials.Include "debugtype.html" $valuePrinted -}}
-      </td>
-      <td class="align-top value">
-        {{- with $valuePrinted -}}
-          {{- partials.Include "debugprint.html" . -}}
-        {{- else -}}
-          {{- partials.IncludeCached "debug/debugging-partials/empty.html" . -}}
-        {{- end -}}
-      </td>
+      <th scope="col" class="align-top key">FileInfo Variable</th>
+      <th scope="col" class="align-top type">Type</th>
+      <th scope="col" class="align-top value">Value</th>
     </tr>
-  {{- end -}}
-</table>
+    {{- $value := .value -}}
+    {{- range site.Data.dnb.debug.types.fileinfo.fields -}}
+      {{- $valuePrinted := partials.Include "func/eval.html" (dict "context" $value "cmd" (fmt.Printf ".%s" .variable)) -}}
+      <tr>
+        <td class="align-top key nowrap" title="{{ .description }}">
+          {{- partials.IncludeCached "debug/debugging-partials/field.html" . . -}}
+        </td>
+        <td class="align-top type nowrap">
+          {{- partials.Include "debugtype.html" $valuePrinted -}}
+        </td>
+        <td class="align-top value">
+          {{- with $valuePrinted -}}
+            {{- partials.Include "debugprint.html" . -}}
+          {{- else -}}
+            {{- partials.IncludeCached "debug/debugging-partials/empty.html" . -}}
+          {{- end -}}
+        </td>
+      </tr>
+    {{- end -}}
+  </table>
 </div>
+
+{{ define "partials/func/eval.html" }}
+  {{- /*
+
+  evaluates template functionality
+
+  call:
+  {{ partials.Include "func/eval.html" (dict "context" . "cmd" "command") }}
+  or
+  {{ $setup := (dict "context" . "cmd" "command") }}
+  {{ partials.IncludeCached "func/eval.html" $setup $setup }}
+
+  where the `command` is a template string to execute. No `{{` required.
+
+  @see https://discourse.gohugo.io/t/transform-a-string-variable-into-the-variable-itself
+  @since 1.0.0
+
+  */ -}}
+  {{- $filename := fmt.Printf "%d.txt" now.UnixNano -}}
+  {{- $template := fmt.Printf "{{ %s }}" .cmd | resources.FromString $filename -}}
+  {{- $template = $template | resources.ExecuteAsTemplate $filename .context -}}
+  {{- return $template.Content -}}
+{{ end }}

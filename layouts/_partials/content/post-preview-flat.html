@@ -4,7 +4,7 @@
 {{- $lines := .lines | compare.Default 3 -}}
 {{- $postClasses := partials.Include "func/getArticleClasses.html" $post -}}
 {{- $posttype := $post.Type -}}
-{{- $config := partials.Include "func/getPostSetup.html" $posttype -}}
+{{- $config := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}
 <article class="{{- $postClasses }} mb-3 px-3 py-2 component--archive-card">
 
   {{- partials.IncludeCached "schema/things/breadcrumbList.html" . . -}}
@@ -43,3 +43,33 @@
     </div>
   </div>
 </article>
+
+
+{{ define "partials/func/getSummary.html" }}
+{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
+{{- /* @todo refactor */ -}}
+{{- $context := . -}}
+{{- $summary := $context.Summary -}}
+
+{{- $type := $context.Type | compare.Default "blog" -}}
+{{- $artist := dict -}}
+
+{{- /* TODO move this into a filter hook */ -}}
+{{- if and (compare.Eq "" $summary) (compare.Eq $type "music") -}}
+  {{- $artist = collections.First 1 (where
+        site.Data.dnb.kollitsch.music.data
+        "slug"
+        $context.Params.video.artist
+  ) -}}
+  {{- $artist = (collections.Index $artist 0) -}}
+  {{ $summary = fmt.Printf "%s \"%s\" %s"
+                  (lang.Translate "theme.this_is")
+                  $context.Params.video.title
+                  (lang.Translate "theme.by") }}
+  {{ $summary = fmt.Printf "%s <a href=\"%s\">%s</a>." $summary  $artist.link $artist.name -}}
+  {{ $summary = fmt.Printf "%s %s" $summary ($artist.description | transform.Markdownify) }}
+  {{ $summary = $summary | safe.HTML }}
+{{- end -}}
+
+{{- return $summary -}}
+{{ end }}

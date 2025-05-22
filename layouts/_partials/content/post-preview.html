@@ -2,7 +2,7 @@
 {{- /* @todo refactor */ -}}
 {{- $post := .context -}}
 {{- $posttype := $post.Type -}}
-{{- $config := partials.Include "func/getPostSetup.html" $posttype -}}
+{{- $config := partials.IncludeCached "func/getPostSetup.html" $posttype $posttype -}}
 {{- $index := .index | compare.Default false -}}
 
 {{- /* create content parts based on content type */ -}}

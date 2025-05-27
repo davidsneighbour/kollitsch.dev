@@ -1,4 +1,28 @@
 # Changelog
+## [2025.4.7](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.6...v2025.4.7) (2025-05-27)
+
+
+### Theme
+
+* **config:** enable markup.goldmark.renderer.unsafe for use of inline HTML ([b69cf1b](https://github.com/davidsneighbour/kollitsch.dev/commit/b69cf1b2d8cba782f5a29d46f29cff75247fb336))
+* **fix:** clear out unused templates ([b2f8175](https://github.com/davidsneighbour/kollitsch.dev/commit/b2f8175e1e27f4552bd6171d483fd20b00507eb4))
+* **fix:** refactor shortcodes and remove unused shortcodes ([cfdc8d4](https://github.com/davidsneighbour/kollitsch.dev/commit/cfdc8d4be7be2b3d6d393da8c9884b8b313b7661))
+
+
+### Chore
+
+* smaller changes to hugo setup ([1776280](https://github.com/davidsneighbour/kollitsch.dev/commit/1776280078e2a4b05dd55e06b1be2b91b5701f20))
+
+
+### Build System
+
+* script to find/audit shortcodes ([6775fc9](https://github.com/davidsneighbour/kollitsch.dev/commit/6775fc9991afd60fe09b447fcbc512a6a1da6921))
+
+
+### CI
+
+* **fix:** proper capture of {{%-based shortcodes ([c349bb6](https://github.com/davidsneighbour/kollitsch.dev/commit/c349bb6f51855c22666238d721dd15a56101da24))
+
 ## [2025.4.6](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.5...v2025.4.6) (2025-05-22)
 
 

@@ -1,7 +1,0 @@
-(function () {
-  var ct = document.createElement('link');
-  ct.rel = 'stylesheet';
-  ct.href = '/css/libs/ct.css';
-  ct.classList.add('ct');
-  document.body.appendChild(ct);
-})();

@@ -1,11 +1,237 @@
 {
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
-  "version": "2025.4.8",
+  "version": "2025.4.6",
   "author": {
     "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
     "web": "https://davids-neighbour.com"
+  },
+  "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
+  "engines": {
+    "node": ">=23.6.1",
+    "npm": ">=11.1.0"
+  },
+  "homepage": "https://kollitsch.dev",
+  "license": "MIT",
+  "private": true,
+  "repository": "davidsneighbour/kollitsch.dev",
+  "publishConfig": {
+    "provenance": true
+  },
+  "type": "module",
+  "dependencies": {
+    "typescript": "5.8.3",
+    "tsx": "4.19.4",
+    "@astrojs/check": "0.9.4",
+    "@astrojs/partytown": "2.1.4",
+    "@astrojs/react": "4.3.0",
+    "@astrojs/rss": "4.0.11",
+    "@astrojs/sitemap": "3.4.0",
+    "@astrojs/ts-plugin": "1.10.4",
+    "@headlessui/react": "2.2.4",
+    "@heroicons/react": "2.2.0",
+    "@tailwindcss/vite": "4.1.7",
+    "@types/react": "19.1.5",
+    "@types/react-dom": "19.1.5",
+    "astro": "5.8.0",
+    "astro-matomo": "1.8.1",
+    "astro-pagefind": "1.8.3",
+    "clsx": "2.1.1",
+    "framer-motion": "12.14.0",
+    "glob": "11.0.2",
+    "gray-matter": "4.0.3",
+    "netlify-cli": "21.5.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwindcss": "4.1.7",
+    "@tailwindcss/cli": "4.1.7",
+    "@davidsneighbour/release-config": "2025.2.2"
+  },
+  "devDependencies": {
+    "@total-typescript/ts-reset": "0.6.1",
+    "@davidsneighbour/release-config": "2025.2.2",
+    "browserslist": "4.24.5",
+    "@playwright/test": "1.52.0",
+    "@tailwindcss/forms": "0.5.10",
+    "@tailwindcss/typography": "0.5.16",
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "@secretlint/secretlint-rule-no-dotenv": "9.3.3",
+    "@secretlint/secretlint-rule-no-homedir": "9.3.3",
+    "@secretlint/secretlint-rule-no-k8s-kind-secret": "9.3.3",
+    "@secretlint/secretlint-rule-openai": "9.3.3",
+    "@secretlint/secretlint-rule-pattern": "9.3.3",
+    "@secretlint/secretlint-rule-preset-recommend": "9.3.3",
+    "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.3",
+    "secretlint": "9.3.3",
+    "remark-frontmatter": "*",
+    "remark-lint-frontmatter-schema": "*",
+    "@davidsneighbour/remark-config": "2025.2.2",
+    "markdownlint": "0.38.0",
+    "markdownlint-cli2": "0.18.1",
+    "fixpack": "4.0.0",
+    "@davidsneighbour/eslint-config": "2025.2.2",
+    "@biomejs/biome": "1.9.4",
+    "workbox-cacheable-response": "7.3.0",
+    "workbox-core": "7.3.0",
+    "workbox-expiration": "7.3.0",
+    "workbox-precaching": "7.3.0",
+    "workbox-routing": "7.3.0",
+    "workbox-strategies": "7.3.0",
+    "workbox-webpack-plugin": "7.3.0",
+    "glob": "11.0.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "scripts": {
+    "hooks:update": "simple-git-hooks",
+    "update": "wireit",
+    "test": "npx playwright test --config=tests/playwright.config.ts",
+    "test:ui": "npx playwright test --ui --config=tests/playwright.config.ts",
+    "astro": "astro",
+    "build": "astro check && astro build",
+    "check": "astro check",
+    "deploy": "wireit",
+    "dev": "DEBUG_FRONTMATTER=true astro dev --verbose",
+    "preview": "astro preview",
+    "upgrade": "npx @astrojs/upgrade",
+    "lint:vale": "vale --config='ci/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "update:pre:vale": "wireit",
+    "lint:secretlint": "secretlint --secretlintrc ci/.secretlintrc.json",
+    "prettier": "prettier 'assets/**/*.js'",
+    "prettier:fix": "prettier --write ''assets/**/*.js'",
+    "lint:markdown": "markdownlint-cli2 --config 'ci/.markdownlint.json'",
+    "lint:lychee": "wireit",
+    "audit:html": "wireit",
+    "lighthouse": "bin/audit/lighthouse",
+    "lint": "wireit",
+    "lint:hook:commit": "lint-staged",
+    "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
+    "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
+    "lint:links": "wireit",
+    "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
+    "lint:remark": "remark content/**/*.md",
+    "lint:remark2": "remark .",
+    "lint:styles": "wireit",
+    "lint:styles:fix": "wireit",
+    "lint:templates": "wireit",
+    "lint:fixpack": "wireit",
+    "build:tailwindcss": "wireit",
+    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
+    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "release": "wireit",
+    "webpack": "npm run webpack:dev && npm run webpack:prod",
+    "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
+    "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "webpack:server": "webpack --watch --config webpack.dev.js",
+    "compile:package": "wireit",
+    "watch:package": "wireit",
+    "clean": "wireit",
+    "clean:netlify": "wireit",
+    "clean:full": "wireit"
+  },
+  "wireit": {
+    "update": {
+      "dependencies": [
+        "update:git-hooks"
+      ]
+    },
+    "update:git-hooks": {
+      "command": "npx simple-git-hooks",
+      "dependencies": [
+        "update:post"
+      ]
+    },
+    "update:post": {
+      "command": "fixpack && browserslist --update-db",
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
+    },
+    "update:pre:npm": {
+      "command": "npm-check-updates -u --target minor"
+    },
+    "update:pre:submodules": {
+      "command": "git submodule update --recursive --remote"
+    },
+    "update:pre:vale": {
+      "command": "vale --config='ci/vale/vale.ini' --no-exit sync"
+    },
+    "lint:lychee": {
+      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
+    },
+    "audit:html": {
+      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+    },
+    "lint": {
+      "dependencies": [
+        "lint:lockfiles"
+      ]
+    },
+    "lint:styles": {
+      "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
+    },
+    "lint:styles:fix": {
+      "command": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
+    },
+    "lint:templates": {
+      "command": "bin/hugo/lint-templates"
+    },
+    "lint:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
+      "description": "Fix package.json files"
+    },
+    "build:tailwindcss": {
+      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --optimize"
+    },
+    "build:tailwindcss:prod": {
+      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --minify"
+    },
+    "release": {
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
+    },
+    "compile:package": {
+      "command": "npm run lint:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ]
+    },
+    "compile:package:run": {
+      "command": "node ./src/packages/generate-package.ts"
+    },
+    "watch:package": {
+      "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
+    },
+    "deploy": {
+      "command": "netlify deploy --prod --open"
+    },
+    "clean": {
+      "dependencies": [
+        "clean:audit",
+        "clean:astro"
+      ]
+    },
+    "clean:audit": {
+      "command": "rm -rf tests/lighthouse/reports/*.{csv,html,json}"
+    },
+    "clean:full": {
+      "command": "rm -rf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:audit",
+        "clean:astro",
+        "clean:netlify"
+      ]
+    },
+    "clean:astro": {
+      "command": "rm -rf .astro dist"
+    },
+    "clean:netlify": {
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+    }
   },
   "browserslist": {
     "development": [
@@ -32,283 +258,5 @@
       "not and_qq > 0",
       "not kaios 2.5"
     ]
-  },
-  "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
-  "dependencies": {
-    "@davidsneighbour/release-config": "2025.2.2",
-    "@tailwindcss/cli": "4.1.7",
-    "@types/alpinejs": "3.13.11",
-    "@types/alpinejs__collapse": "3.13.4",
-    "@types/alpinejs__intersect": "3.13.4",
-    "@types/bootstrap": "5.2.10",
-    "@types/node": "22.15.21",
-    "tailwindcss": "4.1.7",
-    "tsx": "4.19.4",
-    "typescript": "5.8.3"
-  },
-  "devDependencies": {
-    "@alpinejs/collapse": "3.14.9",
-    "@alpinejs/intersect": "3.14.9",
-    "@biomejs/biome": "1.9.4",
-    "@davidsneighbour/debuglogger": "0.2.0",
-    "@davidsneighbour/eslint-config": "2025.2.2",
-    "@davidsneighbour/release-config": "2025.2.2",
-    "@davidsneighbour/remark-config": "2025.2.2",
-    "@github/hotkey": "3.1.1",
-    "@playwright/test": "1.52.0",
-    "@popperjs/core": "2.11.8",
-    "@secretlint/secretlint-rule-no-dotenv": "9.3.2",
-    "@secretlint/secretlint-rule-no-homedir": "9.3.2",
-    "@secretlint/secretlint-rule-no-k8s-kind-secret": "9.3.2",
-    "@secretlint/secretlint-rule-openai": "9.3.2",
-    "@secretlint/secretlint-rule-pattern": "9.3.2",
-    "@secretlint/secretlint-rule-preset-recommend": "9.3.2",
-    "@secretlint/secretlint-rule-secp256k1-privatekey": "9.3.2",
-    "@total-typescript/ts-reset": "0.6.1",
-    "alpinejs": "3.14.9",
-    "autoprefixer": "10.4.21",
-    "bootstrap": "5.3.6",
-    "browserslist": "4.24.5",
-    "cssnano": "7.0.7",
-    "cssnano-preset-advanced": "7.0.7",
-    "cssnano-preset-lite": "4.0.4",
-    "fixpack": "4.0.0",
-    "glob": "^11.0.2",
-    "markdownlint": "0.38.0",
-    "markdownlint-cli2": "0.18.1",
-    "pagefind": "1.3.0",
-    "postcss": "8.5.3",
-    "postcss-cli": "11.0.1",
-    "postcss-discard-comments": "7.0.4",
-    "postcss-loader": "8.1.1",
-    "postcss-preset-env": "10.1.6",
-    "remark-frontmatter": "*",
-    "remark-lint-frontmatter-schema": "*",
-    "secretlint": "9.3.2",
-    "workbox-cacheable-response": "7.3.0",
-    "workbox-core": "7.3.0",
-    "workbox-expiration": "7.3.0",
-    "workbox-precaching": "7.3.0",
-    "workbox-routing": "7.3.0",
-    "workbox-strategies": "7.3.0",
-    "workbox-webpack-plugin": "7.3.0"
-  },
-  "engines": {
-    "node": ">=23.6.1",
-    "npm": ">=11.1.0"
-  },
-  "homepage": "https://kollitsch.dev",
-  "license": "MIT",
-  "private": true,
-  "publishConfig": {
-    "provenance": true
-  },
-  "repository": "davidsneighbour/kollitsch.dev",
-  "scripts": {
-    "allow:hugo": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow Hugo dev server on LAN\" || true'",
-    "audit:html": "wireit",
-    "build": "wireit",
-    "build:pagefindindex": "node scripts/pagefind.mjs",
-    "build:postcss": "postcss assets/scss/style.scss -o assets/scss/theme.css --config ./postcss.manual.config.js",
-    "build:tailwindcss": "wireit",
-    "clean": "wireit",
-    "clean:full": "wireit",
-    "cleanup:hugo": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
-    "compile:package": "wireit",
-    "deploy": "wireit",
-    "hooks:update": "simple-git-hooks",
-    "lighthouse": "bin/audit/lighthouse",
-    "lint": "wireit",
-    "lint:fixpack": "wireit",
-    "lint:hook:commit": "lint-staged",
-    "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
-    "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
-    "lint:links": "wireit",
-    "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
-    "lint:lychee": "wireit",
-    "lint:markdown": "markdownlint-cli2 --config 'ci/.markdownlint.json'",
-    "lint:remark": "remark content/**/*.md",
-    "lint:remark2": "remark .",
-    "lint:secretlint": "secretlint --secretlintrc ci/.secretlintrc.json",
-    "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
-    "lint:templates": "wireit",
-    "lint:vale": "vale --config='ci/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
-    "new": "node scripts/content.mjs",
-    "prettier": "prettier 'assets/**/*.js'",
-    "prettier:fix": "prettier --write ''assets/**/*.js'",
-    "release": "wireit",
-    "serve": "http-server -S --cert scripts/server/server.crt --key scripts/server/server.key --cors -p 1313 ./public",
-    "server": "wireit",
-    "test": "npx playwright test --config=tests/playwright.config.ts",
-    "test:ui": "npx playwright test --ui --config=tests/playwright.config.ts",
-    "update": "wireit",
-    "update:pre:vale": "wireit",
-    "watch:package": "wireit",
-    "webpack": "npm run webpack:dev && npm run webpack:prod",
-    "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
-    "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
-    "webpack:server": "webpack --watch --config webpack.dev.js"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "type": "module",
-  "wireit": {
-    "update": {
-      "dependencies": ["update:git-hooks"]
-    },
-    "update:git-hooks": {
-      "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
-    },
-    "update:post": {
-      "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
-    },
-    "update:pre:npm": {
-      "command": "npm-check-updates -u --target minor"
-    },
-    "update:pre:submodules": {
-      "command": "git submodule update --recursive --remote"
-    },
-    "server": {
-      "dependencies": ["server:hugo", "server:pagefind2"]
-    },
-    "server:hugo": {
-      "command": "rm -rf ./public && hugo server trust && hugo config --format toml > data/dnb/kollitsch/config.toml && hugo server -D -E -F --disableFastRender --logLevel debug --tlsAuto --baseURL https://192.168.1.201:1313/ --bind 192.168.1.201 2>&1 | tee -a logs/hugo.log",
-      "service": {
-        "readyWhen": {
-          "lineMatches": "Web Server is available at (.*)"
-        }
-      }
-    },
-    "server:hugo-certificates": {
-      "command": "hugo server trust"
-    },
-    "server:pagefind2": {
-      "command": "node ./scripts/pagefind.mjs"
-    },
-    "update:pre:vale": {
-      "command": "vale --config='ci/vale/vale.ini' --no-exit sync"
-    },
-    "lint:lychee": {
-      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
-    },
-    "audit:html": {
-      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
-    },
-    "lint": {
-      "dependencies": ["lint:lockfiles"]
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
-    },
-    "lint:templates": {
-      "command": "bin/hugo/lint-templates"
-    },
-    "lint:fixpack": {
-      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
-      "description": "Fix package.json files"
-    },
-    "build:tailwindcss": {
-      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --optimize"
-    },
-    "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
-    },
-    "compile:package": {
-      "command": "npm run lint:fixpack",
-      "dependencies": ["compile:package:run"]
-    },
-    "compile:package:run": {
-      "command": "node ./scripts/package/generate-package.ts"
-    },
-    "watch:package": {
-      "command": "watch -d -p ./scripts/package/**/*.* -- npm run compile:package:run"
-    },
-    "build": {
-      "dependencies": [
-        "clean:dist",
-        "build:hugoconfig",
-        "build:hugo",
-        "build:pagefind2"
-      ]
-    },
-    "build:deploy": {
-      "dependencies": [
-        "release",
-        "clean:dist",
-        "build:hugoconfig",
-        "build:hugo",
-        "build:pagefind2"
-      ]
-    },
-    "build:hugo": {
-      "command": "hugo --logLevel debug --minify",
-      "dependencies": ["clean:dist", "build:hugoconfig"]
-    },
-    "build:hugoconfig": {
-      "command": "hugo config --format toml > data/dnb/kollitsch/config.toml"
-    },
-    "build:pagefind2": {
-      "command": "node ./scripts/pagefind.mjs",
-      "dependencies": ["build:hugo"]
-    },
-    "stopserver": {
-      "command": "killall -9 hugo"
-    },
-    "deploy": {
-      "dependencies": [
-        "stopserver",
-        "release",
-        "build:deploy",
-        "deploy:netlify",
-        "deploy:clearcache"
-      ]
-    },
-    "deploy:clearcache": {
-      "command": "node ./scripts/cloudflare-purge.mjs",
-      "dependencies": ["deploy:netlify"]
-    },
-    "deploy:netlify": {
-      "command": "netlify deploy --prod --open",
-      "dependencies": ["build"]
-    },
-    "deploy:netlify:debug": {
-      "command": "set DEBUG=* & netlify deploy --prod --open",
-      "dependencies": ["build"]
-    },
-    "clean": {
-      "dependencies": ["clean:audit", "clean:hugo"]
-    },
-    "clean:audit": {
-      "command": "rimraf tests/lighthouse/reports/*.{csv,html,json}"
-    },
-    "clean:dist": {
-      "command": "rimraf public"
-    },
-    "clean:full": {
-      "command": "rimraf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:audit", "clean:hugo:full", "clean:netlify"]
-    },
-    "clean:hugo": {
-      "command": "rimraf public hugo.log hugo_stats.json assets/jsconfig.json .hugo_build.lock"
-    },
-    "clean:hugo:full": {
-      "command": "rimraf hugo.log hugo_stats.json resources public assets/jsconfig.json .hugo_build.lock"
-    },
-    "clean:netlify": {
-      "command": "rimraf .netlify/*/*"
-    },
-    "clean:wireit": {
-      "command": "rimraf .wireit"
-    },
-    "lint:links": {
-      "command": "lychee --verbose --config lychee.toml --mode emoji content"
-    }
   }
 }

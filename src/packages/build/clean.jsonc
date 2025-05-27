@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "clean": "wireit",
+    "clean:netlify": "wireit",
+    "clean:full": "wireit"
+  },
+  "wireit": {
+    "clean": {
+      "dependencies": [
+        "clean:audit",
+        "clean:astro"
+      ]
+    },
+    "clean:audit": {
+      "command": "rm -rf tests/lighthouse/reports/*.{csv,html,json}"
+    },
+    "clean:full": {
+      "command": "rm -rf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:audit",
+        "clean:astro",
+        "clean:netlify"
+      ]
+    },
+    "clean:astro": {
+      "command": "rm -rf .astro dist"
+    },
+    "clean:netlify": {
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+    }
+  }
+}

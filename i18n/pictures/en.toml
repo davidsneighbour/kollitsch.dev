@@ -1,8 +1,0 @@
-################################################################################
-# dnb-hugo-pictures
-################################################################################
-[dnb.pictures.error1001]
-other = "[1001] Unable to get remote resource %q"
-
-[dnb.pictures.error1002]
-other = "[1002] Unable to get remote resource %q"

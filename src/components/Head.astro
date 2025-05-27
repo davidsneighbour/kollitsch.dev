@@ -1,0 +1,43 @@
+---
+// import Favicon from "@assets/Favicon.astro";
+// import SomeOtherTags from "./SomeOtherTags.astro";
+import { ClientRouter } from "astro:transitions";
+
+import type { MetaConfig } from '../types/MetaConfig';
+import metaDataRaw from '@data/meta.json';
+const metaData = metaDataRaw as MetaConfig;
+
+const { title, description, image, ...props } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{props.title}</title>
+<meta name="description" content={props.description} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<meta property="og:title" content={props.title} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:description" content={props.description} />
+<meta property="og:image" content={props.image} />
+<meta property="og:image:alt" content="" />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={props.title} />
+<meta property="twitter:description" content={props.description} />
+<meta property="twitter:image" content={props.image} />
+
+<ClientRouter />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+{Object.entries(metaData.name).map(([name, content]) => (
+  <meta name={name} content={content} />
+))}
+{Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
+  <meta http-equiv={httpEquiv} content={content} />
+))}

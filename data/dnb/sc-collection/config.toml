@@ -1,4 +1,0 @@
-[plugins]
-js = [
-  'js/plugins/lite-vimeo.js',
-]

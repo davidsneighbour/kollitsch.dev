@@ -1,22 +1,9 @@
 {
   "recommendations": [
-    "be5invis.toml",
-    "tamasfe.even-better-toml",
-    "eliostruyf.vscode-front-matter",
-    "redhat.vscode-yaml",
-    "biomejs.biome",
-    "ms-playwright.playwright",
-    "grafana.vscode-jsonnet",
-    "tekumara.typos-vscode",
-    "foxundermoon.shell-format",
-    "yzhang.markdown-all-in-one",
-    "unifiedjs.vscode-remark",
-    "stylelint.vscode-stylelint",
-    "emeraldwalk.runonsave",
-    "rvest.vs-code-prettier-eslint",
-    "davidanson.vscode-markdownlint",
+    "astro-build.astro-vscode",
     "bradlc.vscode-tailwindcss",
     "heybourn.headwind",
     "editorconfig.editorconfig"
-  ]
+  ],
+  "unwantedRecommendations": []
 }

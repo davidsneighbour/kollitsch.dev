@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Home",
+    "link": "/",
+    "icon": "home"
+  },
+  {
+    "label": "Blog",
+    "link": "/blog/",
+    "icon": "blog",
+    "children": [
+      {
+        "label": "Latest",
+        "link": "/blog/latest/",
+        "icon": "clock"
+      },
+      {
+        "label": "Archive",
+        "link": "/blog/archive/",
+        "icon": "archive"
+      }
+    ]
+  },
+  {
+    "label": "Find",
+    "link": "/find/",
+    "icon": "info"
+  },
+  {
+    "label": "Connect",
+    "link": "/connect/",
+    "icon": "info"
+  }
+]

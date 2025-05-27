@@ -1,9 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{- $page := . -}}
-{{- with (.GetTerms "tags") -}}
-  <div class="is--tags d-flex flex-row flex-wrap justify-content-end gap-2">
-    {{- $options := dict "tags" . "type" "page" "icon" "tag-fill" "context" $page -}}
-    {{- partials.Include "content/components/tags/tags-overview.html" $options -}}
-  </div>
-{{- end -}}

@@ -1,9 +1,0 @@
-################################################################################
-# see https://gohugo.io/configuration/output-formats/
-################################################################################
-[security]
-baseName = "security"
-isPlainText = true
-mediatype = "text/plain"
-notAlternative = true
-path = "/.well-known/"

@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "glob": "11.0.2"
+  },
+  "scripts": {
+    "compile:package": "wireit",
+    "watch:package": "wireit"
+  },
+  "wireit": {
+    "compile:package": {
+      "command": "npm run lint:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ]
+    },
+    "compile:package:run": {
+      "command": "node ./src/packages/generate-package.ts"
+    },
+    "watch:package": {
+      // @todo make this a proper wireit watch task
+      "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
+    }
+  }
+}

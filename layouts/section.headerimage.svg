@@ -1,3 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{- partials.Include "headerimage.svg" . . -}}

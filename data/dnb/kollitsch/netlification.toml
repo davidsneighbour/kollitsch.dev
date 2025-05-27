@@ -1,7 +1,0 @@
-# see https://docs.netlify.com/routing/headers/ for details on formatting headers
-
-[[headers]]
-for = "/feed.json"
-[headers.values]
-Content-Type = "text/javascript; charset=utf-8"
-Accept-Encoding = "gzip, deflate, br"

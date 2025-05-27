@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import { Debug } from 'astro:components';
+
+import Layout from '@layouts/DefaultPage.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  return allPosts
+    .map((post) => {
+      const parts = post.slug.split('/');
+      if (parts.length !== 2) {
+        console.warn(`[blog] Skipping invalid slug: ${post.slug}`);
+        return null;
+      }
+      const [year, slug] = parts;
+      return { params: { year, slug } };
+    })
+    .filter(Boolean);
+}
+
+const { params } = Astro;
+const slug = `${params.year}/${params.slug}`;
+const posts = await getCollection('blog');
+const post = posts.find((p) => p.slug === slug);
+
+if (!post) {
+  console.error(`[blog] Failed to load: ${slug}`);
+  throw new Error(`Blog post not found for slug: ${slug}`);
+}
+
+const { data } = post;
+const html = post.rendered?.html ?? '';
+---
+
+<Layout title={data.title} description={data.description ?? ''}>
+  <article>
+    <h1>{data.title}</h1>
+    <p>{data.date.toLocaleDateString()}</p>
+    <div set:html={html} />
+  </article>
+  <Debug data={post} />
+</Layout>

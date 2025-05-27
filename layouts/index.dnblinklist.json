@@ -1,9 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{- $collection := collections.Slice -}}
-{{- range site.Pages -}}
-{{- if compare.Ne .Params.audit false -}}
-{{- $collection = $collection | collections.Append .Permalink -}}
-{{- end -}}
-{{- end -}}
-{{- dict "links" $collection | encoding.Jsonify -}}

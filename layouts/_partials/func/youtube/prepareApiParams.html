@@ -1,9 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{- $params := site.Params.dnb.youtube.apiparams -}}
-{{- $params = collections.Merge (dict "hl" site.Language.Lang) $params -}}
-{{- $paramsCollected := "" -}}
-{{- range $key, $value := $params -}}
-  {{- $paramsCollected = fmt.Printf "%s&%s=%s" $paramsCollected $key $value -}}
-{{- end -}}
-{{- return $params -}}

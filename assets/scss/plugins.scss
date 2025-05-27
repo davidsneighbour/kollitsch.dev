@@ -1,9 +1,0 @@
-{{ with site.Params.dnb }}
-  {{ range $key, $values := . }}
-    {{ if index $values "config" "plugins" "scss" "imports" }}
-      {{ range $values.config.plugins.scss.imports }}
-        {{ . }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}

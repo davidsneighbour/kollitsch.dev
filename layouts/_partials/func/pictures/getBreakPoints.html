@@ -1,8 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{- $config := partials.IncludeCached "func/pictures/getConfiguration.html" . -}}
-{{- $break_points := $config.responsive.break_points | compare.Default (collections.Slice "520" "540" "720" "960") -}}
-{{- $common_break_points := collections.Slice "320" "480" "768" "1024" "1280" "1440" -}}
-{{- $break_points = collections.Union $break_points $common_break_points -}}
-{{- $break_points = collections.Sort $break_points -}}
-{{- return $break_points -}}

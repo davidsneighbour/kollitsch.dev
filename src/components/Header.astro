@@ -1,0 +1,15 @@
+---
+import NavMenu from '@components/NavMenu';
+import navData from '@data/navigation.json';
+
+const currentPath = Astro.url.pathname;
+---
+
+<NavMenu items={navData} currentPath={currentPath} client:load />
+
+<style is:inline>
+.active-child {
+  font-style: italic;
+  text-decoration: underline;
+}
+</style>

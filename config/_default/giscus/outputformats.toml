@@ -1,8 +1,0 @@
-################################################################################
-# see https://gohugo.io/configuration/output-formats/
-################################################################################
-[GISCUS]
-baseName = "giscus"
-isPlainText = true
-mediatype = "application/json"
-notAlternative = true

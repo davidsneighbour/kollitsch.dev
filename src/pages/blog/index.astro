@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/DefaultPage.astro';
+
+const posts = await getCollection('blog');
+const sorted = posts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout title="Blog | My Personal Website">
+  <h1>Blog</h1>
+  <ul>
+    {sorted.map((post) => {
+      const [year, slug] = post.slug.split('/');
+      return (
+        <li>
+          <a href={`/blog/${year}/${slug}/`}>{post.data.title}</a>
+          <span> — {post.data.date.toISOString().split('T')[0]}</span>
+        </li>
+      );
+    })}
+  </ul>
+</Layout>

@@ -1,8 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{ $scratch := page.Scratch.Get "dnb.hooks" }}
-{{ if compare.Eq $scratch "" }}
-  {{ $scratch = collections.Slice }}
-{{ end }}
-{{- page.Scratch.Add "dnb.hooks" (collections.Slice .hook) -}}
-

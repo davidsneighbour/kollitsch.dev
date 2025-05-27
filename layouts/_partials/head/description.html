@@ -1,7 +1,0 @@
-{{/* ©️ 2025 dnb - kollitsch.dev - theme */}}
-{{- /* @todo refactor */ -}}
-{{- $description := partials.IncludeCached "func/getDescription.html" page page -}}
-{{ if compare.Gt (len $description) 170 }}
-  {{ $description = fmt.Printf "%s%s" (strings.Substr $description 0 169) "…" }}
-{{ end }}
-<meta name="description" content="{{- $description -}}">

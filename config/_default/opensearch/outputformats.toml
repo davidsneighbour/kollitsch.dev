@@ -1,8 +1,0 @@
-################################################################################
-# see https://gohugo.io/configuration/output-formats/
-################################################################################
-[OpenSearch]
-baseName = "opensearch"
-isPlainText = true
-mediatype = "application/opensearchdescription+xml"
-notAlternative = true

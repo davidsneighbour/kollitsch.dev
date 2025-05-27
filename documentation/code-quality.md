@@ -1,3 +1,0 @@
-## Prettier
-
-## JSONNET

@@ -2,7 +2,6 @@
   "recommendations": [
     "be5invis.toml",
     "tamasfe.even-better-toml",
-    "editorconfig.editorconfig",
     "eliostruyf.vscode-front-matter",
     "redhat.vscode-yaml",
     "biomejs.biome",
@@ -14,10 +13,10 @@
     "unifiedjs.vscode-remark",
     "stylelint.vscode-stylelint",
     "emeraldwalk.runonsave",
-    "esbenp.prettier-vscode",
     "rvest.vs-code-prettier-eslint",
     "davidanson.vscode-markdownlint",
     "bradlc.vscode-tailwindcss",
-    "heybourn.headwind"
+    "heybourn.headwind",
+    "editorconfig.editorconfig"
   ]
 }

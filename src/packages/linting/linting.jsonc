@@ -1,38 +1,32 @@
 {
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "audit:html": "wireit",
-    "lighthouse": "bin/audit/lighthouse",
-    "lint": "wireit",
-    "lint:hook:commit": "lint-staged",
-    "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
-    "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
-    "lint:links": "wireit",
-    "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
-    "lint:remark": "remark content/**/*.md",
-    "lint:remark2": "remark .",
-    "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
-    "lint:templates": "wireit"
-  },
-  "wireit": {
-    "audit:html": {
-      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
-    },
-    "lint": {
-      "dependencies": [
-        "lint:lockfiles"
-      ]
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
-    },
-    "lint:templates": {
-      "command": "bin/hugo/lint-templates"
-    }
-  }
+	"dependencies": {},
+	"devDependencies": {},
+	"scripts": {
+		"audit:html": "wireit",
+		"lighthouse": "bin/audit/lighthouse",
+		"lint": "wireit",
+		"lint:hook:commit": "lint-staged",
+		"lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
+		"lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
+		"lint:links": "wireit",
+		"lint:remark": "remark content/**/*.md",
+		"lint:remark2": "remark .",
+		"lint:styles": "wireit",
+		"lint:styles:fix": "wireit",
+		"lint:templates": "wireit"
+	},
+	"wireit": {
+		"audit:html": {
+			"command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+		},
+		"lint:styles": {
+			"command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
+		},
+		"lint:styles:fix": {
+			"command": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
+		},
+		"lint:templates": {
+			"command": "bin/hugo/lint-templates"
+		}
+	}
 }

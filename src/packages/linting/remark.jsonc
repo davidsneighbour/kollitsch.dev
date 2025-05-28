@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "remark-frontmatter": "*",
-    "remark-lint-frontmatter-schema": "*",
+    "remark-frontmatter": "5.0.0",
+    "remark-lint-frontmatter-schema": "3.15.4",
     "@davidsneighbour/remark-config": "2025.2.2"
   }
 }

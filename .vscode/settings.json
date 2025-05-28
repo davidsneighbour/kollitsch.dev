@@ -2,5 +2,6 @@
   "astro.content-intellisense": true,
   "files.associations": {
     ".astro": "astro"
-  }
+  },
+  "vale.valeCLI.config": "src/config/vale/vale.ini"
 }

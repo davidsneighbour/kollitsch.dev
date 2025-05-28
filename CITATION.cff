@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use code or cite this website, please cite it as below."
+authors:
+  - family-names: "Kollitsch"
+    given-names: "Patrick"
+    orcid: "https://orcid.org/0000-0001-6250-2135"
+title: "kollitsch.dev"
+version: v2025.4.8
+date-released: 2025-05-27
+url: "https://github.com/davidsneighbour/kollitsch.dev"

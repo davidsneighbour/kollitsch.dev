@@ -1,9 +1,9 @@
 {
   "recommendations": [
-    "astro-build.astro-vscode",
     "bradlc.vscode-tailwindcss",
     "heybourn.headwind",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "astro-build.astro-vscode"
   ],
   "unwantedRecommendations": []
 }

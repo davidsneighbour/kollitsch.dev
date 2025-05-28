@@ -1,3 +1,6 @@
 {
-	"astro.content-intellisense": true
+  "astro.content-intellisense": true,
+  "files.associations": {
+    ".astro": "astro"
+  }
 }

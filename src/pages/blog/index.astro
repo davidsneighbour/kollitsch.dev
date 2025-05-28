@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/DefaultPage.astro';
+import { Debug } from 'astro:components';
 
 const posts = await getCollection('blog');
 const sorted = posts
@@ -21,4 +22,10 @@ const sorted = posts
       );
     })}
   </ul>
+
+
+  <div class="w-7xl mx-auto">
+    <Debug posts={sorted} />
+  </div>
+
 </Layout>

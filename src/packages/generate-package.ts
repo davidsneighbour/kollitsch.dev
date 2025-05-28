@@ -28,12 +28,6 @@ let keysToPreserve: string[] = [
 ];
 
 /**
- * Options type for CLI argument parsing.
- * @typedef {Object} Options
- * @property {string}  pkgPath  Absolute path to package.json
- * @property {boolean} verbose  Whether to log each change
- * @property {boolean} dryRun   If true, do not write file
- *
  * @returns {Options}
  */
 type Options = {

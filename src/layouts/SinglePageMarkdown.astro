@@ -1,0 +1,24 @@
+---
+
+import Layout from '@layouts/DefaultPage.astro';
+const { frontmatter } = Astro.props;
+import { Debug } from 'astro:components';
+---
+
+<Layout>
+  <Debug frontmatter={frontmatter} />
+  <!-- <p><em>{frontmatter.description}</em></p>
+  <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
+
+  <p>Written by: {frontmatter.author}</p>
+
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+
+  <div class="tags">
+    {frontmatter.tags.map((tag: string) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div> -->
+
+  <!-- <slot /> -->
+</Layout>

@@ -1,9 +1,11 @@
 {
-  "recommendations": [
-    "bradlc.vscode-tailwindcss",
-    "heybourn.headwind",
-    "editorconfig.editorconfig",
-    "astro-build.astro-vscode"
-  ],
-  "unwantedRecommendations": []
+	"recommendations": [
+		"bradlc.vscode-tailwindcss",
+		"heybourn.headwind",
+		"editorconfig.editorconfig",
+		"astro-build.astro-vscode",
+		"esbenp.prettier-vscode",
+		"rvest.vs-code-prettier-eslint"
+	],
+	"unwantedRecommendations": []
 }

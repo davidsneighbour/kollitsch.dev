@@ -1,7 +1,12 @@
 {
-  "astro.content-intellisense": true,
-  "files.associations": {
-    ".astro": "astro"
-  },
-  "vale.valeCLI.config": "src/config/vale/vale.ini"
+	"astro.content-intellisense": true,
+	"files.associations": {
+		".astro": "astro"
+	},
+	"vale.valeCLI.config": "src/config/vale/vale.ini",
+	"prettier.configPath": "prettier.config.ts",
+	"prettier.bracketSpacing": true,
+	"prettier.requireConfig": true,
+	"prettier.singleAttributePerLine": true,
+	"prettier.trailingComma": "all"
 }

@@ -3,7 +3,6 @@
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import '@styles/global.css';
-import Banner from '@components/Banner'
 import Head from '@components/Head.astro';
 
 ---
@@ -13,7 +12,7 @@ import Head from '@components/Head.astro';
   <head>
     <Head />
   </head>
-  <body class="bg-white dark:bg-black min-h-screen">
+  <body class="bg-white dark:bg-black min-h-screen overflow-y-scroll">
     <div class="min-h-screen flex flex-col">
       <Header />
       <main class="flex-grow">

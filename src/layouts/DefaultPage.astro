@@ -1,9 +1,13 @@
 ---
 
+import { Debug } from 'astro:components';
+
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import '@styles/global.css';
 import Head from '@components/Head.astro';
+
+const props = Astro.props;
 
 ---
 
@@ -19,6 +23,8 @@ import Head from '@components/Head.astro';
         <slot />
       </main>
       <Footer />
+      <Debug props={Astro.props} />
+      <Debug properties={props} />
     </div>
   </body>
 </html>

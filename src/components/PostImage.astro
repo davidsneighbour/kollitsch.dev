@@ -1,0 +1,52 @@
+---
+// src/components/PostImage.astro
+
+// import { Markdown } from '@astro/components';
+// import type { AstroComponentFactory } from '@astro/types';
+
+export interface Props {
+  /** path under `src/content` (e.g. "blog/2025/topic") */
+  postId: string;
+}
+export let postId: Props['postId'];
+
+interface Resource {
+  src: string;
+  title?: string;
+  name?: string;
+}
+
+// load all your markdown posts at build time
+const posts = import.meta.glob('../content/**/index.md', { eager: true }) as Record<string, any>;
+const lookupKey = `../content/${postId}/index.md`;
+const post = posts[lookupKey];
+
+if (!post) {
+  console.error(`[PostImage] could not find content at "${lookupKey}"`);
+}
+
+const resource: Resource | undefined = post?.frontmatter?.resources?.[0];
+
+let imageUrl: string | undefined;
+let altText: string | undefined;
+if (resource?.src) {
+  try {
+    imageUrl = new URL(resource.src, import.meta.url).href;
+  } catch (err) {
+    console.error(`[PostImage] failed to resolve "${resource.src}"`, err);
+  }
+  altText = resource.name || resource.src;
+}
+---
+
+{imageUrl && (
+  <figure>
+    <img src={imageUrl} alt={altText} loading="lazy" />
+
+    {resource?.title && (
+      <figcaption>
+        {resource.title}
+      </figcaption>
+    )}
+  </figure>
+)}

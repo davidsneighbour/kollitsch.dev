@@ -145,6 +145,8 @@ export default defineConfig({
 	},
 	image: {
 		experimentalLayout: "constrained",
+		// https://github.com/withastro/astro/releases/tag/astro%405.8.1
+		experimentalDefaultStyles: false,
 	},
 	markdown: {
 		shikiConfig: {

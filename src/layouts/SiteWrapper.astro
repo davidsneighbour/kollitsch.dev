@@ -1,0 +1,20 @@
+---
+
+import '@styles/global.css';
+import Head from '@components/Head.astro';
+
+// Add a full="true" prop to control full height for the page
+// @todo consider adding that as default class to the layout
+const { full } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en" class={`dark scheme-light dark:scheme-dark scroll-smooth ${full ? 'h-full' : ''}`}>
+  <head>
+    <Head />
+  </head>
+  <body class={`min-h-screen overflow-y-scroll ${full ? 'h-full' : ''}`}>
+    <slot />
+  </body>
+</html>

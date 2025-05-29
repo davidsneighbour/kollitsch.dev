@@ -5,7 +5,7 @@
 	},
 	//"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
 	"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
-	"prettier.configPath": "${workspaceFolder}/prettier.config.ts",
+	"prettier.configPath": "prettier.config.js",
 	"prettier.bracketSpacing": true,
 	"prettier.requireConfig": true,
 	"prettier.singleAttributePerLine": true,

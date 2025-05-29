@@ -1,10 +1,12 @@
 /**
  * @see https://prettier.io/docs/configuration
+ */
+/**
+ * The vscode extension for prettier does not support typescript config files.
+ *
  * @type {import("prettier").Config}
  */
-import type { Config } from "prettier";
-
-const config: Config = {
+const config = {
 	printWidth: 100,
 	tabWidth: 2,
 	useTabs: false,

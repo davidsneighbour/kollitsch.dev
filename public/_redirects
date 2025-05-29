@@ -1,0 +1,64 @@
+################################################################################
+# redirects from content aliases
+################################################################################
+
+/components                                        /gohugo/                                           301
+/gohugo/devtools/                                  /gohugo/                                           301
+/components/hugo-hooks/                            /gohugo/hooks/                                     301
+/components/hugo-sitemap                           /gohugo/sitemap/                                   301
+/components/hugo-debug/debugging                   /gohugo/debug/debugging/                           301
+/gohugo/hugo-debug/debugging                       /gohugo/debug/debugging/                           301
+/components/hugo-youtube/                          /gohugo/youtube/                                   301
+/gohugo/youtube/                                   /gohugo/youtube/                                   301
+/categories                                        /tags/                                             301
+/components/hugo-pictures/                         /gohugo/pictures/                                  301
+/notes-from-the-laboratory-july-2023               /blog/2023/notes-from-the-laboratory-july/         301
+/components/hugo-head/                             /gohugo/head/                                      301
+/components/hugo-robots                            /gohugo/robots/                                    301
+/components/hugo-auditor                           /gohugo/auditor/                                   301
+/components/modder                                 /gohugo/modder/                                    301
+/components/hugo-modder                            /gohugo/modder/                                    301
+/gohugo/modder                                     /gohugo/modder/                                    301
+/components/hugo-functions/                        /gohugo/functions/                                 301
+/components/hugo-giscus/                           /gohugo/giscus/                                    301
+/components/hugo-internals/                        /gohugo/internals/                                 301
+/connect                                           /contact/                                          301
+/components/hugo-security                          /gohugo/security/                                  301
+/components/hugo-pwa                               /gohugo/pwa/                                       301
+/components/hugo-netlification                     /gohugo/netlification/                             301
+/components/hugo-debug                             /gohugo/debug/                                     301
+/gohugo/hugo-debug                                 /gohugo/debug/                                     301
+/components/hugo-feeds/                            /gohugo/feeds/                                     301
+/components/hugo-icons/                            /gohugo/icons/                                     301
+/blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/                       301
+/sitemap/                                          /sitemap/                                          301
+/100daystooffload                                  /blog/2022/100-days-to-offload/                    301
+/blog/2022/notes-from-the-laboratory-february-2022 /blog/2022/notes-from-the-laboratory-february/     301
+/blog/2022/notes-from-the-laboratory-january-2022  /blog/2022/notes-from-the-laboratory-january/      301
+/blog/2023/install-and-link-firefox-developer-edition-on-ubuntu/header_hud55dad2bee384b19f45d00ef51224f7b_54442_1200x630_resize_q85_lanczos.jpg /                                                  301
+/blog/2023/removing-all-local-and-remote-tags-in-git/header_hu53eb3c777c5176ec74654e56bb2d1dce_1624610_1200x630_resize_q85_lanczos.jpg /                                                  301
+
+################################################################################
+# redirects from configuration collections.In site.Params.dnb.netlification.redirects
+################################################################################
+https://kollitsch-dev.netlify.app/*                https://kollitsch.dev/:splat                       301!
+/_schemata                                         https://kollitsch.dev                              301
+/repos/*                                           https://kollitsch.dev/                             301
+/2005/*                                            https://kollitsch.dev/                             301
+/2006/*                                            https://kollitsch.dev/                             301
+/2007/*                                            https://kollitsch.dev/                             301
+/2008/*                                            https://kollitsch.dev/                             301
+/tags/kollitsch.de/                                https://kollitsch.dev/tags/davidsneighbour/        301
+/tags/dnb/                                         https://kollitsch.dev/tags/davidsneighbour/        301
+/tags/dnb-org/                                     https://kollitsch.dev/tags/davidsneighbour/        301
+/repos/textpattern-plugins/current/                https://kollitsch.dev/                             301
+/dnb/*                                             https://kollitsch.dev/                             301
+/repos/textpattern-plugins/current/                https://kollitsch.dev/                             301
+/blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/                       301
+/blog/2022/100daystooffload/                       /blog/2022/100-days-to-offload/                    301
+/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg https://kollitsch.dev/                             301
+
+################################################################################
+# error pages redirections
+################################################################################
+/*                                                 /404                                               404

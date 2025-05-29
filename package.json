@@ -19,6 +19,7 @@
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/sitemap": "3.4.0",
 		"@astrojs/ts-plugin": "1.10.4",
+		"@axe-core/playwright": "^4.10.1",
 		"@headlessui/react": "2.2.4",
 		"@heroicons/react": "2.2.0",
 		"@sentry/astro": "9.23.0",
@@ -115,8 +116,8 @@
 		"prettier:fix": "prettier --write ''assets/**/*.js'",
 		"preview": "astro preview",
 		"release": "wireit",
-		"test": "npx playwright test --config=tests/playwright.config.ts",
-		"test:ui": "npx playwright test --ui --config=tests/playwright.config.ts",
+		"test": "npx playwright test",
+		"test:ui": "npx playwright test --ui",
 		"update": "wireit",
 		"update:pre:vale": "wireit",
 		"upgrade": "npx @astrojs/upgrade",
@@ -128,15 +129,22 @@
 	},
 	"wireit": {
 		"update": {
-			"dependencies": ["update:git-hooks"]
+			"dependencies": [
+				"update:git-hooks"
+			]
 		},
 		"update:git-hooks": {
 			"command": "npx simple-git-hooks",
-			"dependencies": ["update:post"]
+			"dependencies": [
+				"update:post"
+			]
 		},
 		"update:post": {
 			"command": "fixpack && browserslist --update-db",
-			"dependencies": ["update:pre:npm", "update:pre:submodules"]
+			"dependencies": [
+				"update:pre:npm",
+				"update:pre:submodules"
+			]
 		},
 		"update:pre:npm": {
 			"command": "npm-check-updates -u --target minor"
@@ -177,7 +185,9 @@
 		},
 		"compile:package": {
 			"command": "npm run lint:fixpack",
-			"dependencies": ["compile:package:run"]
+			"dependencies": [
+				"compile:package:run"
+			]
 		},
 		"compile:package:run": {
 			"command": "node ./src/packages/generate-package.ts"
@@ -189,14 +199,21 @@
 			"command": "netlify deploy --prod --open"
 		},
 		"clean": {
-			"dependencies": ["clean:audit", "clean:astro"]
+			"dependencies": [
+				"clean:audit",
+				"clean:astro"
+			]
 		},
 		"clean:audit": {
 			"command": "rm -rf tests/lighthouse/reports/*.{csv,html,json}"
 		},
 		"clean:full": {
 			"command": "rm -rf node_modules package-lock.json .wireit",
-			"dependencies": ["clean:audit", "clean:astro", "clean:netlify"]
+			"dependencies": [
+				"clean:audit",
+				"clean:astro",
+				"clean:netlify"
+			]
 		},
 		"clean:astro": {
 			"command": "rm -rf .astro dist"

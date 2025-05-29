@@ -7,17 +7,12 @@
   "wireit": {
     "clean": {
       "dependencies": [
-        "clean:audit",
         "clean:astro"
       ]
-    },
-    "clean:audit": {
-      "command": "rm -rf tests/lighthouse/reports/*.{csv,html,json}"
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
       "dependencies": [
-        "clean:audit",
         "clean:astro",
         "clean:netlify"
       ]

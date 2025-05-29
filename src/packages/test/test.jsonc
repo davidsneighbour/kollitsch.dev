@@ -1,11 +1,12 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@playwright/test": "1.52.0"
+    "@playwright/test": "1.52.0",
+    "@axe-core/playwright": "4.10.1",
   },
   "scripts": {
-    "test": "npx playwright test --config=tests/playwright.config.ts",
-    "test:ui": "npx playwright test --ui --config=tests/playwright.config.ts"
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
   },
-  "wireit": {}
+  "wireit": {},
 }

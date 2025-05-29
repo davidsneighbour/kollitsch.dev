@@ -1,0 +1,24 @@
+name: Remove outdated labels
+on:
+  issues:
+    types:
+      - closed
+jobs:
+  remove-closed-issue-labels:
+    name: Remove closed issue labels
+    if: github.event.issue.state == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            dependencies
+            javascript
+            state:confirmed
+            state:inprogress
+            state:question
+            state:unconfirmed
+            prio:1
+            prio:2
+            prio:3

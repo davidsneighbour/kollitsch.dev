@@ -21,6 +21,8 @@
 		"@astrojs/ts-plugin": "1.10.4",
 		"@headlessui/react": "2.2.4",
 		"@heroicons/react": "2.2.0",
+		"@sentry/astro": "9.23.0",
+		"@spotlightjs/astro": "3.2.3",
 		"@tailwindcss/cli": "4.1.8",
 		"@tailwindcss/vite": "4.1.8",
 		"@types/react": "19.1.6",

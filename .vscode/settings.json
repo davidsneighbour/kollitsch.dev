@@ -3,8 +3,9 @@
 	"files.associations": {
 		".astro": "astro"
 	},
-	"vale.valeCLI.config": "src/config/vale/vale.ini",
-	"prettier.configPath": "prettier.config.ts",
+	//"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
+	"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
+	"prettier.configPath": "${workspaceFolder}/prettier.config.ts",
 	"prettier.bracketSpacing": true,
 	"prettier.requireConfig": true,
 	"prettier.singleAttributePerLine": true,

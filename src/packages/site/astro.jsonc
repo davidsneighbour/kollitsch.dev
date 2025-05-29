@@ -37,7 +37,7 @@
 		"astro": "astro",
 		"build": "astro check && astro build",
 		"check": "astro check",
-		"deploy": "netlify deploy",
+		"deploy": "netlify deploy --prod --open",
 		"dev": "DEBUG_FRONTMATTER=true astro dev --verbose",
 		"preview": "astro preview",
 		"upgrade": "npx @astrojs/upgrade"

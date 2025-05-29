@@ -1,4 +1,5 @@
 import path from "node:path";
+import netlify from "@astrojs/netlify";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -19,6 +20,12 @@ export default defineConfig({
 		prefetchAll: true,
 		defaultStrategy: "viewport",
 	},
+	adapter: netlify({
+		imageCDN: false,
+	}),
+	// redirects: {
+	//   '/blog/old-post': '/blog/new-post',
+	// },
 	integrations: [
 		react(),
 		sitemap(), // https://github.com/shishkin/astro-pagefind

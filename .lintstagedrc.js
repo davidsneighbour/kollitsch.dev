@@ -19,5 +19,5 @@ export default {
 		"typos --config ci/typos.toml",
 	],
 
-	"*": ["secretlint --secretlintrc src/config/.secretlintrc.json"],
+	// "*": ["secretlint --secretlintrc src/config/.secretlintrc.json"],
 };

@@ -13,10 +13,10 @@ export default {
 	// '*.jsonnet': ['jsonnetfmt --in-place'],
 
 	"!(CHANGELOG)**/*.{md,markdown}": [
-		'markdownlint-cli2 --config "ci/.markdownlint.json"',
-		'vale --config="ci/vale/vale.ini" --no-exit',
-		"lychee --no-progress --config ci/lychee/lychee.toml --require-https --format detailed --mode color -vv",
-		"typos --config ci/typos.toml",
+		'markdownlint-cli2 --config "src/config/.markdownlint.json"',
+		'vale --config="src/config/vale/vale.ini" --no-exit',
+		"lychee --no-progress --config src/config/lychee.toml --require-https --format detailed --mode color -vv",
+		"typos --config src/config/typos.toml",
 	],
 
 	// "*": ["secretlint --secretlintrc src/config/.secretlintrc.json"],

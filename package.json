@@ -103,7 +103,7 @@
 		"lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
 		"lint:links": "wireit",
 		"lint:lychee": "wireit",
-		"lint:markdown": "markdownlint-cli2 --config 'ci/.markdownlint.json'",
+		"lint:markdown": "markdownlint-cli2 --config 'src/config/.markdownlint.json'",
 		"lint:remark": "remark content/**/*.md",
 		"lint:remark2": "remark .",
 		"lint:secretlint": "secretlint --secretlintrc ci/.secretlintrc.json",

@@ -9,5 +9,6 @@
 	"prettier.bracketSpacing": true,
 	"prettier.requireConfig": true,
 	"prettier.singleAttributePerLine": true,
-	"prettier.trailingComma": "all"
+	"prettier.trailingComma": "all",
+	"markdownlint.configFile": "src/config/.markdownlint.json"
 }

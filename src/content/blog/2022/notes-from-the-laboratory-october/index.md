@@ -7,7 +7,7 @@ description: >-
 date: '2022-11-01'
 resources:
   - src: header.jpg
-  - title: >-
+    title: >-
       Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
       [Unsplash](https://unsplash.com/)
 tags:

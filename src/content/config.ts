@@ -9,7 +9,14 @@ export const blog = defineCollection({
       date: z.string().transform((s) => new Date(s)),
       tags: z.array(z.string()).optional(),
       draft: z.boolean().optional(),
-    })
+      resources: z.array(
+        z.object({
+          src: z.string(),
+          title: z.string().optional(),
+          name: z.string().optional(),
+        })
+      ).optional(),
+    }),
 });
 
 export const collections = { blog };

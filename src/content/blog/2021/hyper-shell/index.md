@@ -2,8 +2,8 @@
 title: Hyper Shell
 date: '2021-11-16'
 resources:
-  src: hyper-shell.png
-  title: Hyper shell
+  - src: hyper-shell.png
+    title: Hyper shell
 tags:
   - shell
   - electron

@@ -4,8 +4,7 @@
 		"heybourn.headwind",
 		"editorconfig.editorconfig",
 		"astro-build.astro-vscode",
-		"esbenp.prettier-vscode",
-		"rvest.vs-code-prettier-eslint"
+		"esbenp.prettier-vscode"
 	],
 	"unwantedRecommendations": []
 }

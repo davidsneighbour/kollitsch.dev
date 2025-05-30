@@ -1,5 +1,9 @@
 ---
+
+import siteInfo from '@data/siteinfo';
+
 const currentYear = new Date().getFullYear();
+
 ---
 
 <footer class=" pt-16 pb-8">
@@ -46,7 +50,11 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="border-t border-gray-800 pt-8 text-sm text-gray-400 text-center">
-      <p>&copy; {currentYear} Personal Website. All rights reserved.</p>
+      <p>&copy; <span id="footer-year">{currentYear}</span> {siteInfo.title}. All rights reserved.</p>
     </div>
   </div>
 </footer>
+
+<script is:inline data-astro-rerun>
+  document.getElementById("footer-year").innerText = new Date().getFullYear();
+</script>

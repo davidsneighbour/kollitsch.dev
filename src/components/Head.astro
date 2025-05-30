@@ -3,6 +3,8 @@
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
 
+import ThemeManager from '@components/ThemeManager.astro';
+
 import type { MetaConfig } from '../types/MetaConfig';
 import metaDataRaw from '@data/meta.json';
 const metaData = metaDataRaw as MetaConfig;
@@ -28,6 +30,7 @@ const { title, description, image, ...props } = Astro.props;
 <meta property="twitter:description" content={props.description} />
 <meta property="twitter:image" content={props.image} />
 <ClientRouter />
+<ThemeManager defaultTheme="auto" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 {Object.entries(metaData.name).map(([name, content]) => (
   <meta name={name} content={content} />

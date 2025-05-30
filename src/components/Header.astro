@@ -1,6 +1,8 @@
 ---
 import navData from '@data/navigation.json';
 
+import ThemeSelect from '@components/ThemeSelect.astro';
+
 const currentPath = Astro.url.pathname;
 console.log('Current Path:', currentPath);
 
@@ -31,6 +33,7 @@ console.log('Current Path:', currentPath);
       {navData.map(value => (
         <a href={value.link} class="text-sm/6 font-semibold text-gray-900">{value.label}</a>
       ))}
+      <ThemeSelect hideAuto />
     </div>
   </nav>
   <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -64,9 +67,18 @@ console.log('Current Path:', currentPath);
                 {value.label}
               </a>
             ))}
+            <ThemeSelect hideAuto />
           </div>
         </div>
       </div>
     </div>
   </div>
 </header>
+<style is:global>
+  :root[data-theme="light"] {
+    /* CSS variables */
+  }
+  :root[data-theme="dark"] {
+    /* CSS variables */
+  }
+</style>

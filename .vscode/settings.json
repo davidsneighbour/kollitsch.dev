@@ -3,6 +3,11 @@
 	"files.associations": {
 		".astro": "astro"
 	},
+  // settings for the prettier astro plugin
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 	//"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
 	"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
 	"prettier.configPath": "prettier.config.js",

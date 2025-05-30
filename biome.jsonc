@@ -94,6 +94,7 @@
       "attributePosition": "auto"
     },
     "globals": [
+      "Astro",
       "ENVIRONMENT",
       "OffscreenCanvas",
       "onpointerleave",
@@ -214,6 +215,11 @@
       "include": ["*.astro"],
       "linter": {
         "rules": {
+          "correctness": {
+            // requrred for Astro components
+            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            "noUnusedVariables": "off"
+          },
           "style": {
             "useConst": "off",
             "useImportType": "off"

@@ -77,3 +77,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-changa);
   font-weight: 400;
 }
+
+
+/* if the user hjas no scripting capabilities then use the light theme if they prefer it */
+@layer base {
+	@media (scripting: none) {
+    #theme-toggle {
+      display: none;
+    }
+		@media (prefers-color-scheme: light) {
+			:root {
+				/* @apply light; */
+			}
+		}
+	}
+}

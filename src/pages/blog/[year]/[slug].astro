@@ -39,6 +39,31 @@ const html = post.rendered?.html ?? '';
     <p>{data.date.toLocaleDateString()}</p>
     <div set:html={html} />
   </article>
+
+  <div class="section--comments">
+    <section class="giscus mx-auto mt-10 w-full"></section>
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="davidsneighbour/kollitsch.dev"
+      data-repo-id="MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
+      data-category="Comments"
+      data-category-id="DIC_kwDOGDHt584B_i3-"
+      data-mapping="specific"
+      data-term={data.title}
+      data-loading="lazy"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark"
+      data-lang="en"
+      crossorigin="anonymous"
+      fetchpriority="high"
+      async
+      defer
+      id="giscus-script">
+    </script>
+  </div>
+
   <Debug data={post} />
   <Debug params={params} />
 </Layout>

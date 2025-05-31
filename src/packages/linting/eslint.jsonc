@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@davidsneighbour/eslint-config": "2025.2.2"
+    "@davidsneighbour/eslint-config": "2025.2.3"
   },
   "scripts": {},
   "wireit": {}

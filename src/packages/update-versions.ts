@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parse } from 'jsonc-parser';
 import glob from 'fast-glob';
+import type { JsonSourceFile } from 'typescript';
 
 /**
  * Load JSONC file (allowing comments)
@@ -40,7 +41,7 @@ function replaceVersions(
  */
 async function main() {
   const rootPkgPath = path.resolve('./package.json');
-  const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8'));
+  const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8')) as JsonSourceFile;
 
   const files = await glob('./src/packages/*/*.jsonc');
 

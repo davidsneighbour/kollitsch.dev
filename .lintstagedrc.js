@@ -6,11 +6,7 @@ export default {
 
   '*.{scss,css}': ['stylelint --fix', 'prettier --write'],
 
-  // 'layouts/**/*.*': [
-  //   './bin/hugo/refactor layouts'
-  // ],
-
-  // '*.jsonnet': ['jsonnetfmt --in-place'],
+  '*.jsonnet': ['jsonnetfmt --in-place'],
 
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.json"',

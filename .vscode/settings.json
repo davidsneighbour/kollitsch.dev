@@ -1,23 +1,23 @@
 {
-	"astro.content-intellisense": true,
-	"files.associations": {
-		".astro": "astro"
-	},
+  "astro.content-intellisense": true,
+  "files.associations": {
+    ".astro": "astro"
+  },
   // settings for the prettier astro plugin
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-	//"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
-	"vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
-	"prettier.configPath": "prettier.config.js",
-	"prettier.bracketSpacing": true,
-	"prettier.requireConfig": true,
-	"prettier.singleAttributePerLine": true,
-	"prettier.trailingComma": "all",
-	"markdownlint.configFile": "src/config/.markdownlint.json",
-	"markdown.extension.toc.levels": "2..6",
-	"markdown.extension.toc.unorderedList.marker": "*",
+  //"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
+  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
+  "prettier.configPath": "prettier.config.js",
+  "prettier.bracketSpacing": true,
+  "prettier.requireConfig": true,
+  "prettier.singleAttributePerLine": true,
+  "prettier.trailingComma": "all",
+  "markdownlint.configFile": "src/config/.markdownlint.json",
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.unorderedList.marker": "*",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff7733",
     "activityBar.background": "#ff7733",
@@ -37,4 +37,15 @@
     "titleBar.inactiveBackground": "#ff550099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
+  // stylelint setup
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "stylelint.configFile": "./src/config/stylelint/index.js",
+  "stylelint.validate": ["css", "scss", "less", "astro"],
+
+  // eslint setup
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro"]
 }

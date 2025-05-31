@@ -24,9 +24,9 @@
  * The `static` leads to the variables being referenced without the requirement
  * of being used. The other @theme sections will only compile used variables.
  ******************************************************************************/
- @theme static {
+@theme static {
 
- }
+}
 
 /* THEME DEFAULTS
 

@@ -47,6 +47,7 @@
     "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
+    "@davidsneighbour/browserslist-config": "^2025.2.2",
     "@davidsneighbour/eslint-config": "2025.2.2",
     "@davidsneighbour/release-config": "2025.2.2",
     "@davidsneighbour/remark-config": "2025.2.2",
@@ -67,10 +68,16 @@
     "glob": "11.0.2",
     "markdownlint": "0.38.0",
     "markdownlint-cli2": "0.18.1",
+    "postcss-html": "^1.8.0",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.12",
     "secretlint": "9.3.3",
+    "stylelint": "16.19.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard-scss": "15.0.0",
+    "stylelint-no-unsupported-browser-features": "8.0.4",
+    "stylelint-order": "7.0.0",
     "ts-node": "10.9.2",
     "workbox-cacheable-response": "7.3.0",
     "workbox-core": "7.3.0",
@@ -126,15 +133,22 @@
   },
   "wireit": {
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -145,17 +159,17 @@
     "update:pre:vale": {
       "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
     },
+    "lint:styles": {
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:styles:fix": {
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
     "lint:lychee": {
       "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
     },
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables theme/assets/**/*.scss"
     },
     "lint:templates": {
       "command": "bin/hugo/lint-templates"
@@ -175,7 +189,9 @@
     },
     "compile:package": {
       "command": "npm run lint:fixpack",
-      "dependencies": ["compile:package:run"]
+      "dependencies": [
+        "compile:package:run"
+      ]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -184,11 +200,16 @@
       "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
     },
     "clean": {
-      "dependencies": ["clean:astro"]
+      "dependencies": [
+        "clean:astro"
+      ]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist"
@@ -232,6 +253,9 @@
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
+  },
+  "stylelint": {
+    "configFile": "./src/config/stylelint/index.js"
   },
   "type": "module"
 }

@@ -6,7 +6,8 @@
 		"astro-build.astro-vscode",
 		"esbenp.prettier-vscode",
 		"biomejs.biome",
-		"oderwat.indent-rainbow"
+		"oderwat.indent-rainbow",
+		"stylelint.vscode-stylelint"
 	],
 	"unwantedRecommendations": []
 }

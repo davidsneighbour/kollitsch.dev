@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "@atproto/api": "0.15.6",
+    "@atproto/api": "0.15.12",
     "masto": "7.1.0"
   },
   "scripts": {

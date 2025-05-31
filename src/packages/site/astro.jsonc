@@ -23,7 +23,7 @@
     "react-dom": "19.1.0",
     "tailwindcss": "4.1.8",
     "typescript": "5.8.3",
-    "@sentry/astro": "9.23.0",
+    "@sentry/astro": "9.24.0",
     "@spotlightjs/astro": "3.2.3"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@tailwindcss/typography": "0.5.16",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.6.11",
+    "prettier-plugin-tailwindcss": "0.6.12",
     "@astrojs/netlify": "6.3.4"
   },
   "scripts": {

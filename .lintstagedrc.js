@@ -1,5 +1,12 @@
 // @see https://github.com/lint-staged/lint-staged
 export default {
+
+  '*.y(aml|ml)': [
+
+    'yamllint --config-file src/config/yamllint.yml',
+
+  ],
+
   '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}': [
     'biome check --write --no-errors-on-unmatched',
   ],

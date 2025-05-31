@@ -17,5 +17,24 @@
 	"prettier.trailingComma": "all",
 	"markdownlint.configFile": "src/config/.markdownlint.json",
 	"markdown.extension.toc.levels": "2..6",
-	"markdown.extension.toc.unorderedList.marker": "*"
+	"markdown.extension.toc.unorderedList.marker": "*",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ff7733",
+    "activityBar.background": "#ff7733",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#60ff95",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#ff7733",
+    "statusBar.background": "#ff5500",
+    "statusBar.foreground": "#000000",
+    "statusBarItem.hoverBackground": "#ff7733",
+    "statusBarItem.remoteBackground": "#ff5500",
+    "statusBarItem.remoteForeground": "#000000",
+    "titleBar.activeBackground": "#ff5500",
+    "titleBar.activeForeground": "#000000",
+    "titleBar.inactiveBackground": "#ff550099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
 }

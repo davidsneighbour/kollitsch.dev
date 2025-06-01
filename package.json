@@ -75,7 +75,6 @@
     "secretlint": "9.3.3",
     "stylelint": "16.20.0",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-standard-scss": "15.0.1",
     "stylelint-no-unsupported-browser-features": "8.0.4",
     "stylelint-order": "7.0.0",
     "ts-node": "10.9.2",
@@ -133,22 +132,15 @@
   },
   "wireit": {
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:submodules"
-      ]
+      "dependencies": ["update:pre:npm", "update:pre:submodules"]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -189,9 +181,7 @@
     },
     "compile:package": {
       "command": "npm run lint:fixpack",
-      "dependencies": [
-        "compile:package:run"
-      ]
+      "dependencies": ["compile:package:run"]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -200,16 +190,11 @@
       "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
     },
     "clean": {
-      "dependencies": [
-        "clean:astro"
-      ]
+      "dependencies": ["clean:astro"]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:astro",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:astro", "clean:netlify"]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist"

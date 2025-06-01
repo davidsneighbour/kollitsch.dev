@@ -36,7 +36,7 @@
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "dependencies": {
     "@davidsneighbour/release-config": "2025.2.2",
-    "@tailwindcss/cli": "4.1.7",
+    "@tailwindcss/cli": "4.1.8",
     "@types/alpinejs": "3.13.11",
     "@types/alpinejs__collapse": "3.13.4",
     "@types/alpinejs__intersect": "3.13.4",

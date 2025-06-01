@@ -15,6 +15,7 @@ tags:
 aliases:
   - /100daystooffload
 fmContentType: blog
+cover: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 ---
 
 I [recently](/blog/2022/notes-from-the-laboratory-february/) started taking part in the [`#100DaysToOffload`](https://100daystooffload.com/) challenge. It's a challenge that tries to create a larger output of content that is interesting and useful. I will try to write about the topics that I have learned during this time while still staying to be the nerd that I am.

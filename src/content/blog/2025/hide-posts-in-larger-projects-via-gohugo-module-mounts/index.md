@@ -20,6 +20,7 @@ tags:
   - website management
   - 100DaysToOffload
 fmContentType: blog
+cover: valeria-nikitina-li709Gx8v_w-unsplash.jpg
 ---
 
 I have a webblog running under GoHugo that has a lot of posts. By a lot I mean it has [musings about my life in Thailand since 2005](https://samui-samui.de/) (yep, 20 years ago) in it. Which is great for me to look back and see what I did, but it's not so great for development. Every time I run `hugo server` it takes ages (6 to 12 minutes) to build the site. Rebuilds are a little bit faster (4 to 10 Minutes). I don't want to wait for that though, so I found a way to exclude posts from certain years from the build process. Here's how you can do it too.

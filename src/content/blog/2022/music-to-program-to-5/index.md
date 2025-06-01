@@ -15,5 +15,6 @@ video:
   artist: dannykreutzfeldt
   title: Verge
 fmContentType: blog
+cover: header.jpg
 ---
 

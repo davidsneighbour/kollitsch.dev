@@ -24,6 +24,7 @@ video:
   title: Flow State
 date: '2024-01-02T17:26:42+07:00'
 fmContentType: blog
+cover: header.jpg
 ---
 
 "Flow State" by Above & Beyond is in my opinion an ideal soundtrack for enhancing concentration and workflow. The album's 49 minutes of ambient compositions and neo-classical soundscapes create a serene and non-intrusive background, conducive to entering a state of deep focus, often referred to as the "flow state" in programming and other cognitive-intensive tasks.

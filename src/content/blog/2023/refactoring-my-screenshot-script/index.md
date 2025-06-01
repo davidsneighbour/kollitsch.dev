@@ -16,6 +16,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 My go-to-script to create a screenshot as header images of posts about a website was for a long time this:

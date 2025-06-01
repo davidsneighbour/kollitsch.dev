@@ -16,6 +16,7 @@ type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog
+cover: header.jpg
 ---
 
 Welcome to Kurzschnitte II, a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.

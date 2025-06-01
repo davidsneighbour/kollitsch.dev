@@ -19,6 +19,7 @@ resources:
 video:
   youtube: gfDIAZCwHQE
 fmContentType: blog
+cover: header.jpg
 ---
 
 Wes Anderson is renowned in filmmaking for his distinct visual style, whimsical storytelling, and eccentric characters. Anderson has carved out a niche in indie cinema with his signature pastel color palettes, meticulous set designs, and quirky narratives. However, what if the acclaimed director were to step out of his comfort zone and delve into the unsettling world of horror?

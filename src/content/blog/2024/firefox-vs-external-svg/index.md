@@ -27,6 +27,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: simone-dinoia-L9JMv_ACMK0-unsplash.jpg
 ---
 
 While I was working on my Content Security Policies (CSP) [last week](https://github.com/davidsneighbour/kollitsch.dev/issues/1211) I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. 

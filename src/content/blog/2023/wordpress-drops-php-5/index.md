@@ -17,6 +17,7 @@ type: blog
 unsplash:
   imageid: Zk--Ydz2IAs
 fmContentType: blog
+cover: header.jpg
 ---
 
 The WordPress blog [announced on July 6th](https://make.wordpress.org/core/2023/07/05/dropping-support-for-php-5/) that starting from the next release (WP 6.3 on August 8th, 2023), the CMS will no longer support PHP 5.

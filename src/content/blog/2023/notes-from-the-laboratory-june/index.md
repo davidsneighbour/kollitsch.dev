@@ -15,6 +15,7 @@ tags:
   - davidsneighbour
   - 100DaysToOffload
 fmContentType: blog
+cover: header.jpg
 ---
 
 It's that time of the month again where I am trying this "new thing" of "reporting" what I was up to in a certain time period this year. So bear with me while I am typing up this report.

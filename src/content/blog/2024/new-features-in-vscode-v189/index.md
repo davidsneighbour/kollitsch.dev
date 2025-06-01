@@ -15,6 +15,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 Some of the latest features that have landed in Visual Studio Code (VSCode) today . As an avid user myself, I'm always excited to see how the VSCode team continues to enhance our coding experience. Let's dive right in and explore these new additions:

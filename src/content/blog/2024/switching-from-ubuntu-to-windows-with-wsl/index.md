@@ -27,6 +27,7 @@ type: blog
 unsplash:
   imageid: yGPxCYPS8H4
 fmContentType: blog
+cover: clint-patterson-yGPxCYPS8H4-unsplash.jpg
 ---
 
 Recently, I had to install a development environment on Windows 11. As a long-time Linux user, the idea of working in a Windows environment raised some concerns, particularly around maintaining my usual workflow. But knowing that there is something called *Windows Subsystem for Linux* (WSL), I was able to setup my environment as if I was on Ubuntu… Well, mostly. Here's how I jumped ship.

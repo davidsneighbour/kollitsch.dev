@@ -23,6 +23,7 @@ tags:
 video:
   youtube: 5R-rbzcEM8A
 fmContentType: blog
+cover: header.jpg
 ---
 
 Animation has long been a medium that pushes creative boundaries. [Marv Newland](https://en.wikipedia.org/wiki/Marv_Newland)'s iconic short "Bambi Meets Godzilla" does this. Originally released in 1969, this subversive animation with its minimalist style and dark humor, earned a lasting place in animation history. Created on a shoestring budget of less than $300, Newland's hand-drawn work showcases what can be achieved with creativity and a touch of absurdity.

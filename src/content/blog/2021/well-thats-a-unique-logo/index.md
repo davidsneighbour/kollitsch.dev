@@ -12,6 +12,7 @@ tags:
   - me-now
   - logos
 fmContentType: blog
+cover: logo.png
 ---
 
 I had a weird reaction ("well… that's a unique logo?") to my really great weblog logo above recently, so I thought I might as well explain it.

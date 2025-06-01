@@ -19,6 +19,7 @@ resources:
 video:
   youtube: d-8DT5Q8kzI
 fmContentType: blog
+cover: header.jpg
 ---
 
 This might be just the first in many "What if Wes Anderson…" posts ;) This time, what if he would have directed a Star Wars movie? I think it would have been awesome. Ficticiously starring Timothee Chalamet, Owen Wilson, and Bill Murray, Scarlett Johansson, Edward Norton, Jeff Goldblum, Willem Dafoe, Adrian Brody (as Chewbacca, hehe) and Owen Wilson.

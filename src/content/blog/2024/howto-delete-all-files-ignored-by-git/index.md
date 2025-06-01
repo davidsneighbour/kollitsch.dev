@@ -13,6 +13,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 The `.gitignore` file in a Git repository serves as a configuration file that specifies files and directories that Git should --- as the name implies --- ignore. When Git encounters a file or directory listed in .gitignore, it automatically excludes them from being tracked, preventing them from showing up in commands like git status and git add.

@@ -18,6 +18,7 @@ tags:
 video:
   youtube: kYxheEGl2oM
 fmContentType: blog
+cover: header.jpg
 ---
 
 I am a huge fan of electrically created soundscapes. People with cables punching them into holes connecting things that rotate elecrons, reverb waves, negate sounds, and create, what is not there. Hélène Vogelsinger is one of these artists. She creates beautiful soundscapes with her modular synthesizers. In this video, she is playing in an abandoned castle. The music is beautiful, the video is beautiful, and the location is beautiful. I love it.

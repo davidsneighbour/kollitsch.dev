@@ -16,6 +16,7 @@ video:
   title: Exxus
 date: '2024-06-17T20:41:40+07:00'
 fmContentType: blog
+cover: header.jpg
 ---
 
 A very nice song by Glass Animals from before they were TikTok famous.

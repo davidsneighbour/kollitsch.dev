@@ -15,6 +15,7 @@ tags:
   - development
   - 100DaysToOffload
 fmContentType: blog
+cover: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
 ---
 
 When working on multiple interdependent packages, managing them efficiently within a monorepo or a workspace structure is crucial. Traditionally, `npm link` was used to create symlinks between local packages, but it has its pitfalls, including version mismatches and unintended dependencies.

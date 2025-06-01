@@ -14,6 +14,7 @@ tags:
   - howto
   - 100DaysToOffload
 fmContentType: blog
+cover: resource-database-qvbZz5rKAxI-unsplash.jpg
 ---
 
 TOML (Tom's Obvious, Minimal Language) sits quietly between the noisy intendation drama of YAML and the rigid uncommentable structure of JSON. It's not flashy, but it's reliable. It wants to be clear, unambiguous, and readable - all while avoiding all the guns that other formats keep loaded to shoot your self in the foot.

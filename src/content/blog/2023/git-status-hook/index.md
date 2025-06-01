@@ -17,6 +17,7 @@ type: blog
 unsplash:
   imageid: wX2L8L-fGeA
 fmContentType: blog
+cover: header.jpg
 ---
 
 Despite its many advantages and nifty features of Git, there's one feature it lacks: a status hook.

@@ -15,6 +15,7 @@ unsplash:
   imageid: HcUDHJfd5GY
 type: blog
 fmContentType: blog
+cover: ave-calvar-HcUDHJfd5GY-unsplash.jpg
 ---
 
 **Hello again, Internet!** You might not know me, but you probably already somewhere came across my work or myself if you ended up here. My name is Patrick (born 1975). I am a German, living on Koh Samui in Thailand and I am a web worker. Let me give you a short summary of how we got here and where we go from here :smile:

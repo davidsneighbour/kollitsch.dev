@@ -14,6 +14,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.png
 ---
 
 Today, I reworked my theme changer script from vanilla JavaScript to an [Alpine.js](https://alpinejs.dev/)-based component. This change cut down the code lines by 50%. However, initially, it didn't work. The console error messages indicated that my theme switcher function was unrecognized. Intrigued, I decided to investigate.

@@ -18,6 +18,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 One of the first things I do after a new installation of myt OS of choice Ubuntu, is to clone *all* my repositories from GitHub. This way, I have all my code and configuration files available locally, and I can start working on them right away instead of loading them each time I start working on any project. I like to put all my files into `~/github.com/davidsneighbour/reponame` - which leads to an URL-like path for my repos and makes it easier for me to find them online too.

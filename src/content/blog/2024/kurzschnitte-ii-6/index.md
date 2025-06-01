@@ -25,6 +25,7 @@ type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog
+cover: header.jpg
 ---
 
 Welcome to the sixth edition of Kurzschnitte II. Did you know that six is the smallest positive integer which is neither a square number nor a prime number? Now you know.

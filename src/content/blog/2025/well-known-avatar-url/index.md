@@ -20,6 +20,7 @@ tags:
   - well-known
   - 100DaysToOffload
 fmContentType: blog
+cover: imkara-visual-3blY8iC2o5M-unsplash.jpg
 ---
 
 The idea of a well-known avatar URL has been floating around for a while, and it just makes sense. Instead of manually setting profile images across various services, a standardized `.well-known/avatar` endpoint provides a predictable way to retrieve a user's avatar.

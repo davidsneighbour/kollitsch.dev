@@ -19,6 +19,7 @@ type: blog
 unsplash:
   imageid: ouo1hbizWwo
 fmContentType: blog
+cover: header.jpg
 ---
 
 Ok, so this is a cat and a dog living peacefully together. I had to add this just for some testing purposes ;) Keep calm and keep walking, there is nothing to see here (other than animals proving to us humans that one can live together with other kinds, but, well, whatever…)…

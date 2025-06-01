@@ -19,6 +19,7 @@ type: blog
 unsplash:
   imageid: OlAoxfMngZ4
 fmContentType: blog
+cover: header.jpg
 ---
 
 > According to Diogenes Laërtius, when Plato gave the tongue-in-cheek definition of man as "featherless bipeds", Diogenes plucked a chicken and brought it into Plato's Academy, saying, "Behold! I've brought you a man", and so the academy added "with broad flat nails" to the definition.

@@ -9,6 +9,7 @@ tags:
   - newsletter
   - web-development
 fmContentType: blog
+cover: stefanjudis.com.jpg
 ---
 
 … subscribe to [Stefan Judis' Newsletter](https://www.stefanjudis.com/) (click this link, load his site, scroll to the footer and subscribe). Trust me. It's good. Weekly. His topics touch everything web development related and there is never an issue from which I don't learn something new. Subscribe now and grow his subscriber list over 2k ;)

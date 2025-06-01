@@ -14,6 +14,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 [GitHub CLI has in it's latest version introduced](https://github.com/cli/cli/releases/tag/v2.24.0) a new feature that allows users to store their access token in an encrypted local storage system. This new option is available through the `--secure-storage` flag when using the `gh auth login` and `gh auth refresh` commands.

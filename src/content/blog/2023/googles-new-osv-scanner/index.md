@@ -15,6 +15,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 Google recently published a security scanner named [OSV Scanner](https://github.com/google/osv-scanner), that checks your files for vulnerabilities that hide in your code. It connects and checks for all issues collected on the [OSV database](https://osv.dev/). It is a great tool for developers to quickly check their code for vulnerabilities before they are released to the public.

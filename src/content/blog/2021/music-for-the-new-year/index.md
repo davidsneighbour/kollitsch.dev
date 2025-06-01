@@ -15,6 +15,7 @@ video:
   title: Khruangbin @ Villain | Pitchfork Live
   youtube: q4xKvHANqjk
 fmContentType: blog
+cover: hero.png
 ---
 
 Some mellow music to let the year run out to. No more programming for at least 10 hours ;)

@@ -19,6 +19,7 @@ tags:
   - SRI
   - CSP
 fmContentType: blog
+cover: christopher-gower-m_HRfLhgABo-unsplash.jpg
 ---
 
 If you are using the code styling functionality of GoHugo then you might have stumbled over a common issue when you are using Content Security Policies (CSP) and inline styles. Using CSPs is the proper way these days to secure your site code but it is considered (in the realm of CSPs) bad style to have your style sheets or JavaScript inlined into your page.

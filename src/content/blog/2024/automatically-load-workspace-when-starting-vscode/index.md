@@ -15,6 +15,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 Workspaces are a great feature in VSCode. But they have their issues. For instance starting VSCode in a folder will not automatically load the workspace file. This can be annoying if you have a workspace file in the folder and you want to open it directly. This is a feature that is [often requested (and denied)](https://github.com/microsoft/vscode/issues/64565) in the official VSCode repository.

@@ -13,6 +13,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 The download attribute for anchor (`<a>`) tags is a nifty feature that often flies under the radar but can significantly enhance the user experience on a website. This attribute, when added to an `<a>` tag, instructs the browser to download the resource linked by the anchor tag instead of navigating to it. This functionality is particularly useful for creating direct download links for files like PDFs, images, or documents.

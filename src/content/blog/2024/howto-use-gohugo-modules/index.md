@@ -26,6 +26,7 @@ type: blog
 unsplash:
   imageid: pswcXNE8690
 fmContentType: blog
+cover: nigel-hoare-pswcXNE8690-unsplash.jpg
 ---
 
 ## What are GoHugo modules

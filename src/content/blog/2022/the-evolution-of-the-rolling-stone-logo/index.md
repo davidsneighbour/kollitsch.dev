@@ -15,6 +15,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: Rolling-Stone-1967-logo.png
 ---
 
 The [Rolling Stone Magazine](https://www.rollingstone.com/) has a new logo, which one might have overlooked due to its references to its history. XYZ Type, the designer(s) behind the rework [give a little insight](https://xyztype.com/custom/project/rolling_stone) into the illustrious history of the logo through the decades and the reasoning behind their updates. Worth your time to read!

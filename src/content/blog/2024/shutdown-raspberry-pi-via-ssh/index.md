@@ -22,6 +22,7 @@ tags:
 unsplash:
   imageid: MaDXpqp1vM0
 fmContentType: blog
+cover: louis-reed-MaDXpqp1vM0-unsplash.jpg
 ---
 
 I recently tried to shutdown my raspberry pi (a little headless machine for the boring tasks) via SSH with a single command, but experienced some issues. Here's a quick guide to help you shutdown your Raspberry Pi via SSH without having to use a `sudo` password. The initial situation is a Raspberry Pi server running headless, with an SSH key for authentication.

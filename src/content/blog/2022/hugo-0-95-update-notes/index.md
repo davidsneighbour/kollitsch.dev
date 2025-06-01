@@ -12,6 +12,7 @@ tags:
   - golang
   - 100DaysToOffload
 fmContentType: blog
+cover: header.png
 ---
 
 [Hugo 0.95.0](https://github.com/gohugoio/hugo/releases/tag/v0.95.0) brings some really useful features (next to smaller speed increases as always) and upgrades the used [Golang version to 1.18](https://go.dev/blog/go1.18).

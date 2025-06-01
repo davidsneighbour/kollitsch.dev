@@ -20,6 +20,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: ubuntu-wallpaper-d.png
 ---
 
 My recent days were marked by the biennial (as in every two years) prematurely (I'll explain that in a later post) installation of a new Ubuntu LTS (**long** **term** **support**) version. In 2022 I stopped "playing" around and jumping distributions and upgrading every 6 months to the latest release and saved plenty of time researching why things that worked fine before now stopped working. Yesterday though, April 25th, Ubuntu's latest LTS release 24.04 was released and I upgraded. With this came some issues whose solution I will work through in the next few posts.

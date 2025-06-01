@@ -20,6 +20,7 @@ type: blog
 unsplash:
   imageid: oZMUrWFHOB4
 fmContentType: blog
+cover: header.jpg
 ---
 
 A while back I started consolidating all my release scripts and ran into an issue, that on the second look is quite obvious to solve, but I still wanted to share it with you.

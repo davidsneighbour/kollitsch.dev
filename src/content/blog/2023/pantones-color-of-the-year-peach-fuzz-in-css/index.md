@@ -18,6 +18,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: pantone-color-of-the-year-2024-article-1-image-1.webp
 ---
 
 During difficult times, [Pantone has chosen Peach Fuzz as its color of the year 2024](https://www.pantone.com/articles/color-of-the-year/what-is-peach-fuzz/). Peach Fuzz promotes community, togetherness, and self-awareness. It conveys a message of compassion and empathy, reflecting our desire for simpler times with a contemporary touch.

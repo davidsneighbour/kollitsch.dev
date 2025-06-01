@@ -13,6 +13,7 @@ tags:
   - kollitsch.dev
   - 100DaysToOffload
 fmContentType: blog
+cover: alexander-mils-ULL-cyKjpd4-unsplash.jpg
 ---
 
 *pronunciation: /fɪˈnɪʃɪt/&#x20;*

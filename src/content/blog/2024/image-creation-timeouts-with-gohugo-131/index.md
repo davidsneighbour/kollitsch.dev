@@ -14,6 +14,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: hugo-0.131.0.png
 ---
 
 In Hugo v0.131.0, there's an exciting update: the image hashing process now uses `xxHash`, which is much speedier compared to the old MD5 hashing. It trims down those lengthy processed image filenames to a minimum.

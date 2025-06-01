@@ -14,6 +14,7 @@ tags:
   - 100DaysToOffload
 type: link
 fmContentType: blog
+cover: header.jpg
 ---
 
 Nanda Syahrasyad ([not a number](https://www.nan.fyi/)) has created a [perfect little course for us to learn, how SVG paths work](https://www.nan.fyi/svg-paths). Including paths, animations, and, of course, tests if we really understood what we learned.

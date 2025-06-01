@@ -29,6 +29,7 @@ type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog
+cover: header.jpg
 ---
 
 Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathematics, the first prime number followed by a cube. Statistically, it appears as a common favorite number over many fields in daily life, religions, and mythologies. It also plays a crucial role in gaming, where rolling a seven can be pivotal in games like craps. In nature, there are seven days in a week, and it goes on… as do we with our list of links of interest.

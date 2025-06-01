@@ -11,6 +11,7 @@ tags:
   - learning
   - quicklink
 fmContentType: blog
+cover: yancy-min-842ofHC6MaI-unsplash.jpg
 ---
 
 I like to learn things by doing them. Recently I found a couple of interesting game formats that teach certain aspects of full stack developer's life by playing a game. Let's play?

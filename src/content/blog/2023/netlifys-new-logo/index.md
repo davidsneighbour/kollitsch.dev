@@ -14,6 +14,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.png
 ---
 
 Netlify, one of my favorite deployment options and a web development platform, has recently introduced a new logo, marking a significant step towards a new overall visual identity. The company has used its signature teal gem logo for the past eight years, which has remained unchanged since its inception. However, with the recent acquisition of Gatsby and exceptional growth, they felt it was the perfect time to renovate their visual identity from the ground up.

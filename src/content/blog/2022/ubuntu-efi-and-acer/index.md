@@ -19,6 +19,7 @@ tags:
   - EFI
   - 100DaysToOffload
 fmContentType: blog
+cover: artiom-vallat-mx9axbKqKW8-unsplash.jpg
 ---
 
 A while ago I found myself in front of my little baby-notebooks screen telling me in no uncertain terms, that "No Bootable Device (was) found". Hmm. Somehow I remembered that. I also remembered that it's just a little renaming routine that would solve this annoying issue.

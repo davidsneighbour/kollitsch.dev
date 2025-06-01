@@ -17,6 +17,7 @@ type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog
+cover: header.jpg
 ---
 
 Two is company, three's a crowd, and four? Four is an outright party where even the furniture insists on joining the dance floor! Welcome to the fourth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. Enjoy the read and let me know what you think!

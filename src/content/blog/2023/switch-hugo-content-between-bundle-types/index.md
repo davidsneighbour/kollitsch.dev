@@ -20,6 +20,7 @@ type: blog
 unsplash:
   imageid: 1COcTd3pRCg
 fmContentType: blog
+cover: header.jpg
 ---
 
 Hugo, the [little static site generator](https://gohugo.io) that powers this website, offers two main content organization options known as [*page bundles*](https://gohugo.io/content-management/page-bundles/). Page bundles provide a way to group page resources in leaf and branch bundles, allowing for more structured content management. In this quick guide, I will show you how to easily switch between the two types without much manual work. All you need is a Bash shell and a text editor. Let's get started!

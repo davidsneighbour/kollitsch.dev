@@ -19,6 +19,7 @@ type: blog
 unsplash:
   imageid: B0aJBySo8dc
 fmContentType: blog
+cover: kumas_taverne-B0aJBySo8dc-unsplash.jpg
 ---
 
 I recently had to debug an issue with Go(lang), that I thought was connected to an update of Go. As far as I remembered there was no way to install a specific version of any Snap package, but I thought, it might have changed over time. And having changed it did. It's actually very easy now to fix any Snap package to a minor version. It then receives updates in the patch versions of that minor version, but not upgrade to the latest version.

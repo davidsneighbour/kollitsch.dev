@@ -22,6 +22,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.png
 ---
 
 [Local](https://localwp.com/) (or LocalWP as I like to call the program so I can find it on Google when I need it) is a developer-friendly local development tool for WordPress sites (think of containers for each WordPress website you work on). It allows developers and designers to quickly create, configure, and manage local WordPress environments, offers features such as one-click WordPress installations, flexible environment configurations, and [seamless integrations with two hosting providers](https://localwp.com/connect/) (Flywheel and WP Engine). But also easy export and import to use the websites with other providers.

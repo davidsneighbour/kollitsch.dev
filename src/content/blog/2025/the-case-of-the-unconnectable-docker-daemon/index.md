@@ -21,6 +21,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: docker-forensics.png
 ---
 
 It was a dreary April afternoon when I returned to my terminal, only to be met with a chilling refusal:

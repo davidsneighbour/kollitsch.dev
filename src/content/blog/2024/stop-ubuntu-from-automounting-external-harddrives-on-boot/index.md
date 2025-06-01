@@ -21,6 +21,7 @@ tags:
 unsplash:
   imageid: l2nY0rP07DI
 fmContentType: blog
+cover: curated-lifestyle-l2nY0rP07DI-unsplash.jpg
 ---
 
 Aaaargh Ubuntu! Sometimes it's so easy to hate you!

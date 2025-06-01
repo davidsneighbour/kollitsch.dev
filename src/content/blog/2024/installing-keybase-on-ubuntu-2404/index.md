@@ -17,6 +17,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: ubuntu-wallpaper-d.png
 ---
 
 Trying to install Keybase "the normal way" on Ubuntu leads to errors about missing packages. Trying then to run `apt install -f` to fix the issues will lead to Keybase being uninstalled again. In older releases this worked. Now it doesn't.

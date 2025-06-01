@@ -16,6 +16,7 @@ type: blog
 unsplash:
   imageid: a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4
 fmContentType: blog
+cover: header.jpg
 ---
 
 In my projects, I often encounter situations where I need to update the version number of the project before making a release. I follow the [Semantic Versioning (Semver)](https://semver.org/) standard for versioning. In this blog post, I'll demonstrate how to retrieve the next Semver version number using a Bash script. This script allows me to update the version number before finalizing the release, ensuring that the release commit and tags are correctly synchronized.

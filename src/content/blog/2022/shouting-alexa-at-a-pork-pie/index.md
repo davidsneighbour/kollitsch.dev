@@ -11,6 +11,7 @@ tags:
   - 100DaysToOffload
 fmContentType: blog
 date: '2022-03-21T20:44:52+07:00'
+cover: header.png
 ---
 
 This really important video about Alexa is a great example of how to use the Alexa API to create a skill. Not really, but watch it until the end to understand ;)

@@ -24,6 +24,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: roman-synkevych-wX2L8L-fGeA-unsplash.jpg
 ---
 
 

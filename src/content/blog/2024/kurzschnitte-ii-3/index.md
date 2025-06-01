@@ -18,6 +18,7 @@ type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog
+cover: header.jpg
 ---
 
 Two is a company, three's a crowd. … But three is also a magic number. So here's the third installment of my linkdump series, Kurzschnitte II. I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. From open-source reflections to CSS animations and favicon best practices, these resources offer valuable insights and practical tips for web developers and designers. Enjoy the read and let me know what you think!

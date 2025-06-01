@@ -14,6 +14,7 @@ tags:
   - nagging
   - 100DaysToOffload
 fmContentType: blog
+cover: nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
 ---
 
 Nagscreens. You know them. Very annoying. Long story short: I recently stopped updating my subscription to a paid WordPress plugin and it started using nag screens to guilt me into renewing the subscription again. In this specific case we have the [UpdraftPlus](https://updraftplus.com/) plugin that I really suggest everyone to use, but it did not really add new features or did anything else to make me feel like having a yearly subscription for the simple backup plugin would be something I want to do.

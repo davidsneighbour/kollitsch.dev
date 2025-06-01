@@ -20,6 +20,7 @@ tags:
   - git
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 For reasons I don't want to go too deep into (I once again violated my rule to NOT install Ubuntu versions without a LTS in their name and ended up without eyes or ears) I had to reinstall my workstations and computers last week. While that sounds like hard work it isn't much of it due to [my dotfiles repository][1]. I will explain the concept of `.dotfiles` and my own implementation at a later point, for now, just know, that it's a backup of my home directory and settings for pretty much that is happening on my (Linux based) computers these days. I can re-install the programs I use and their configurations and setups with a single command. That's all ;]

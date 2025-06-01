@@ -13,6 +13,7 @@ tags:
   - giscus
   - git
 fmContentType: blog
+cover: gerry-roarty-slkENpP5PbI-unsplash.jpg
 ---
 
 [Giscus](https://github.com/giscus/giscus) is a new star on the comment systems for static website generators orbit. It is inspired by the wonderful [utterances](https://github.com/utterance/utterances) and uses Github Discussions to save comments. It's open source, easily configurable, themeable, translatable, and you can [host it on your own server](https://github.com/giscus/giscus/blob/main/SELF-HOSTING.md) (it's JavaScript based) if you like. I tried it, but ran into problems setting it up, so this will be a topic for a later post.

@@ -15,6 +15,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.png
 ---
 
 [Sandworm Audit](https://sandworm.dev/) is a free and open source command-line tool designed to scan your project and dependencies for security vulnerabilities, license compliance issues, and other metadata problems.

@@ -16,6 +16,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 I recently cut out a feature from this website that exported all the content to a JSON file, which I then used to populate my Algolia search index. However, I removed this functionality because I found a more efficient search engine for my small blog.

@@ -18,6 +18,7 @@ tags:
 type: blog
 date: '2024-04-12T21:09:32+07:00'
 fmContentType: blog
+cover: header.jpg
 ---
 
 Pushing a new branch to a repository's remote often requires two attempts by the scatterbrained developer:

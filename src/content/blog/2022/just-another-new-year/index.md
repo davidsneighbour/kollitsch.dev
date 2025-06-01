@@ -12,6 +12,7 @@ tags:
   - todo
   - me-now
 fmContentType: blog
+cover: glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg
 ---
 
 Every year my feeds (yes, I am still reading my news via feeds) are filled with New Years resolutions and Old Year reviews. I myself dabbled in it a while, but for the past 10 years I gave up on this. 90% of good intentions are dead after the first 6 months of the year and the rest… well, just doesn't make me a better person. So I started counting in a decimal based system (more about that later, on my 17.000th birthday).

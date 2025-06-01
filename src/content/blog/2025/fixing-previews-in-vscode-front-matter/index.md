@@ -20,6 +20,7 @@ tags:
   - gohugo
   - 100DaysToOffload
 fmContentType: blog
+cover: frontmatter.png
 ---
 
 If you are using the VSCode plugin [Front Matter](https://frontmatter.codes/) to manage your content in GoHugo, you might have run into this issue: The preview sometimes fails to recognize your posts article image correctly.

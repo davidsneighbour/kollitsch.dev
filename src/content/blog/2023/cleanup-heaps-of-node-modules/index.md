@@ -20,6 +20,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: header.jpg
 ---
 
 If you are like me a developer that uses lots of npm packages you will know the amount of mega- or even gigabytes that are used up by `node_module` directories in every project. Having to remove them all tediously by hand or keeping them - both solutions are annoying, when you try to backup your projects - is just annoying.

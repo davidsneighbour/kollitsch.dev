@@ -11,6 +11,7 @@ tags:
   - trailers
   - 100DaysToOffload
 fmContentType: blog
+cover: mike-myers-the-pentaverate.jpg
 ---
 
 Mike Myers does that thing where he plays multiple roles in the same movie.

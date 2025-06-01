@@ -11,6 +11,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.png
 ---
 
 A slight spoiler warning for the third season of "Star Trek: Picard" ahead.

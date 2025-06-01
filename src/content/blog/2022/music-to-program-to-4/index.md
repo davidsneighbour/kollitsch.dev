@@ -15,6 +15,7 @@ video:
   name: Rammstein feat Ólafur Arnalds
   title: Zeit
 fmContentType: blog
+cover: header.jpg
 ---
 
 Ólafur Arnalds remix of Rammstein's "Zeit" is something perfect.

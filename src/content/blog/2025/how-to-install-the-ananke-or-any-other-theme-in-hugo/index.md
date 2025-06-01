@@ -15,6 +15,7 @@ tags:
   - howto
   - 100DaysToOffload
 fmContentType: blog
+cover: ave-calvar-HcUDHJfd5GY-unsplash.jpg
 ---
 
 > **Note:** While this guide focuses on installing the Ananke theme, the same methods can be applied to any other Hugo theme by replacing the URLs and module paths accordingly. The process for installing themes via **Hugo Modules** or **Git Submodules** remains the same for any theme you choose.

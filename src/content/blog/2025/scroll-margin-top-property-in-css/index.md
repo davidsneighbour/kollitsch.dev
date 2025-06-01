@@ -18,6 +18,7 @@ tags:
   - hacks
   - 100DaysToOffload
 fmContentType: blog
+cover: getty-images-ltpb_WinC3Y-unsplash.jpg
 ---
 
 Navigating the world of CSS can be a mix of discovering creative workarounds and celebrating modern solutions. A great example is handling anchor link navigation, where overflowing content often creates frustrating visual issues. In the past, developers relied on clever hacks to fix this, but CSS has evolved to make it easier than ever.

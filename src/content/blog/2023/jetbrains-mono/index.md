@@ -13,6 +13,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.png
 ---
 
 My currently favourite developer font is Jetbrains Mono. ([Stefon](https://www.youtube.com/watch?v=vwm_N2PCUz8) voice on) It has everything! Distinctive characters (no more wondering if that is a zero or an uppercase O), code ligatures and more more more (Stefon voice off). I personally like the way the ligatures give a unique and coherent look to my editor experience. `=> <> !==` (the code display on this site is by the way formatted using Jetbrains Mono) and they look nice, quickly identifiable and compact.

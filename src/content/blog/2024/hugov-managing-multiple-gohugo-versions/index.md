@@ -21,6 +21,7 @@ tags:
 unsplash:
   imageid: M0Ozda1sRYs
 fmContentType: blog
+cover: getty-images-M0Ozda1sRYs-unsplash.jpg
 ---
 
 This blog post introduces [`hugov`](https://github.com/davidsneighbour/hugov), a Bash utility script I wrote to streamline my workflow with Hugo. Whether I need to download, list, or link specific Hugo versions, `hugov` simplifies these tasks with minimal effort and command-line familiarity.

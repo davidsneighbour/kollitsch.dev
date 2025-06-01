@@ -17,6 +17,7 @@ tags:
 unsplash:
   imageid: robot-playing-piano-U3sOwViXhkY
 fmContentType: blog
+cover: header.jpg
 ---
 
 I recently realised that every time I opened a certain project, I was running the same sequence of actions and commands to start the Hugo server. This involved opening a terminal, navigating to the project folder, and executing `npm run server`.

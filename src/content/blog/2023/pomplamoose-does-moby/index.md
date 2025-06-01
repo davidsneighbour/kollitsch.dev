@@ -15,6 +15,7 @@ type: video
 video:
   youtube: s0OWyoXNjcw
 fmContentType: blog
+cover: header.jpg
 ---
 
 Today I learned, that Pomplamoose did a cover of Moby's "Extreme Ways." Nuff said.

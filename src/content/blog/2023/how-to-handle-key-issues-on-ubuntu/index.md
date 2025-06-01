@@ -16,6 +16,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: header.jpg
 ---
 
 For some time now, I was receiving the following warnings after an otherwise successful run of `apt update`:

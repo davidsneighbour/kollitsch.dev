@@ -20,6 +20,7 @@ type: blog
 unsplash:
   imageid: oZMUrWFHOB4
 fmContentType: blog
+cover: header.jpg
 ---
 
 If you are like me, then you are probably using [nvm](https://github.com/nvm-sh/nvm) to manage your node environments. I have a few projects that are using different node versions, and I have to switch between them from time to time. Sometimes then I forget having switched and type some globally installed npm command and end up, not having it installed in the current environment or not updated to the latest version.

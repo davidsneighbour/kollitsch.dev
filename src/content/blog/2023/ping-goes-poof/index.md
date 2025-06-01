@@ -19,6 +19,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: header.jpg
 ---
 
 Google on Monday announced that [they will change several things regarding to sitemaps and pinging the search engine about updates of the sitemap](https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping).

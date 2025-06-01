@@ -20,6 +20,7 @@ tags:
   - quicky
   - 100DaysToOffload
 fmContentType: blog
+cover: getty-images-Hh_4mKRYAPM-unsplash.jpg
 ---
 
 Flatpak offers a modern way for me to install and manage applications across different Linux distributions, providing greater compatibility and security. In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository. Whether you're using Ubuntu 18.10 or a newer version like 24.04, this straightforward process will help you get up and running with Flatpak quickly. Let's dive into the setup, from installing Flatpak itself to adding the Flathub repository.

@@ -18,6 +18,7 @@ tags:
   - bash
   - 100DaysToOffload
 fmContentType: blog
+cover: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
 ---
 
 Aliases in Bash are a powerful way to simplify repetitive commands or add parameters you *always* use, but they can also lead to problems when one alias calls another. One common issue that comes up is whether an alias that references another alias uses the original command or an aliased version of it --- if the alias overrides the original command.

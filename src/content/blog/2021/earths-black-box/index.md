@@ -12,6 +12,7 @@ tags:
   - earth
   - logging
 fmContentType: blog
+cover: earths-black-box.jpg
 ---
 
 It looks like earths climate catastrophe now has it's own black box.

@@ -22,6 +22,7 @@ tags:
 video:
   youtube: mAZXRpPX-hI
 fmContentType: blog
+cover: header.jpg
 ---
 
 Did you know that Tom Cruise made his directorial debut back in 1993, long before he started jumping out of planes and buildings? He directed an episode of the noir TV series *Fallen Angels*, an obscure little gem titled "Mitch Allison, Boozer, Grifter, and Loser," that no one seems to remember. Let's dive into this fascinating piece of television history.

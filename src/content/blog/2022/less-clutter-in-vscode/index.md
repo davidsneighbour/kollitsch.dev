@@ -17,6 +17,7 @@ tags:
   - how i work
   - 100DaysToOffload
 fmContentType: blog
+cover: header.jpg
 ---
 
 I am one of these kind of people that install plenty of extensions and tools and experiment around in VSCode (or any other code editor I am working with). Some time ago I realised, that this lead to a slow program and many of these plugins are only useful for a limited number of projects. So I deleted everything and restarted from scratch.

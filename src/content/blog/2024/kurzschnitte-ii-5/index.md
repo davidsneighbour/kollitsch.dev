@@ -21,6 +21,7 @@ type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog
+cover: header.jpg
 ---
 
 Welcome to the fifth edition of Kurzschnitte II, where coding mets quintessence!

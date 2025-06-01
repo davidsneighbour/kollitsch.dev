@@ -17,6 +17,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 Have you ever tried installing a program on your Ubuntu and ran into error messages about unconfigured dependencies? Don't worry; it happens to the best of us. For example, when you install a program, it might rely on other software packages to run correctly; if those dependencies are not met, the program won't work.

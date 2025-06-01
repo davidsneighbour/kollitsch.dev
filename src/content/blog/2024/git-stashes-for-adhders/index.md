@@ -14,6 +14,7 @@ tags:
   - git
   - 100DaysToOffload
 fmContentType: blog
+cover: header.jpg
 ---
 
 If you are like me you probably typed more than once `git stash` and meant `git stash list` while working on many different things at the same time. If not, then feel free to go [somewhere else and don't waste your time here](https://en.wikipedia.org/wiki/The_Big_Lebowski) :]

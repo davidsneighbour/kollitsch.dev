@@ -19,6 +19,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 When Twitter was sold and bought (after plenty of pretending and peacocking) a couple of weeks by the worlds leading vapor ware promoter many complained about "their Twitter" being opened up to misogyny and hate speech. Let's not talk about that ;) I myself never found a "home" in Twitter and use(d) it more or less to add my own noise to the already existing noises only.

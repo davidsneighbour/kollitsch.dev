@@ -13,6 +13,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 A while back I realized, that every time I pushed some commits to a branch on GitLab _two_ separate CI pipelines started. That soon took up lots of free CI-minutes and became a problem. After some research I found out that this is, while it's to be expected due to the design of the system, avoidable with a specific configuration addition.

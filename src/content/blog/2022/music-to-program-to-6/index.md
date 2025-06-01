@@ -15,6 +15,7 @@ video:
   artist: nineinchnails
   title: This isn't the place
 fmContentType: blog
+cover: header.jpg
 ---
 
 A song written for David Lynch's Twin Peaks revival, but ultimately denied by Lynch. He asked for something different and received a very well fitting [She's gone away](https://www.youtube.com/watch?v=r2bL7DU21Wg) which lead into the probably [greatest episode of TV of all time](https://en.wikipedia.org/wiki/Part_8_\(Twin_Peaks\)).

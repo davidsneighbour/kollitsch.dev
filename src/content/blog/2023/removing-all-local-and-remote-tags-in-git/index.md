@@ -13,6 +13,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 Every now and then I find myself in the situation of needing to tidy up my projects and remove large amounts of local and remote tags in my Git repositories. The procedure is not too hard, but I have to look it up again each time, so why not just writing it up.

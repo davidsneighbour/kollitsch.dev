@@ -13,6 +13,7 @@ resources:
 type: blog
 description: 'How to convert frontmatter in GoHugo between TOML, YAML and JSON.'
 fmContentType: blog
+cover: ferenc-almasi-HfFoo4d061A-unsplash.jpg
 ---
 
 Some days ago I realised, that I keep all my configurations for GoHugo in the TOML format, while using YAML for the frontmatters in my content folder. That did not seem right ;) so I changed those too to TOML.

@@ -16,6 +16,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 There is this really well-written collection of articles on [2023, the year Twitter died](https://www.theverge.com/c/23972308/twitter-x-death-tweets-history-elon-musk) on The Verge.

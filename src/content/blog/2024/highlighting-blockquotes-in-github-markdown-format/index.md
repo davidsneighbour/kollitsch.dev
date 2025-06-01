@@ -23,6 +23,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 GitHub recently introduced an innovative feature for Markdown documents that allows users to highlight "Note", "Warning", and other notification blocks more effectively. This enhancement is especially useful for developers who want to draw attention to important information within their documentation or discussions.

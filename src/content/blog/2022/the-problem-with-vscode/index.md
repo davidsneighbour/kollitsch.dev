@@ -16,6 +16,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: header.png
 ---
 
 Geoffrey Huntley writes an extensive explanation on how "[Visual Studio Code is designed to fracture](https://ghuntley.com/fracture/)" and unburies some (well, expected) shadyness on the part of Microsoft.

@@ -13,6 +13,7 @@ tags:
   - projects
   - planning
 fmContentType: blog
+cover: hero.png
 ---
 
 [Game Off 2021](https://itch.io/jam/game-off-2021) is this years iteration of a regular game development contest hosted by [itch.io](https://itch.io).

@@ -14,6 +14,7 @@ tags:
   - github
   - gitlab
 fmContentType: blog
+cover: mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
 ---
 
 Every now and then I have to add a GPG-key to one of my projects. Last week for instance a key expired that I used for a year to sign my commits. And every time that happens, I have to google how to create my key again. So let's go through the motions of how to create a new GPG key (which once you read through it all is astonishingly easy).

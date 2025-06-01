@@ -15,5 +15,6 @@ video:
   artist: queensryche
   title: Silent Lucidity
 fmContentType: blog
+cover: header.jpg
 ---
 

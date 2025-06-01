@@ -14,6 +14,7 @@ type: blog
 unsplash:
   imageid: A-V2Vb6R9NQ
 fmContentType: blog
+cover: johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
 ---
 
 Did you ever ask yourself why the sky is blue? Here is what you need to know:

@@ -20,6 +20,7 @@ tags:
   - shortcode
   - 100DaysToOffload
 fmContentType: blog
+cover: joanna-kosinska-1_CMoFsPfso-unsplash.jpg
 ---
 
 I needed a Hugo shortcode to show a list of posts that belonged to a [certain](/tags/laboratory/) tag, which is quite easy. Add the following to `layouts/shortcodes/taglist.html` or whatever name you like to use for the shortcode.

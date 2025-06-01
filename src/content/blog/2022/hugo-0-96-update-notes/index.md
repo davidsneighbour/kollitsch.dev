@@ -12,6 +12,7 @@ tags:
   - golang
   - 100DaysToOffload
 fmContentType: blog
+cover: header.png
 ---
 
 [Hugo 0.96.0](https://github.com/gohugoio/hugo/releases/tag/v0.96.0) was published last weekend with two new features and many smaller changes and fixes under the hood. Here is a quick overview of the release.

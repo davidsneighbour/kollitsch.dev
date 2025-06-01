@@ -17,6 +17,7 @@ tags:
   - encryption
   - 100DaysToOffload
 fmContentType: blog
+cover: header.jpg
 ---
 
 A while back I wrote a post about [how I am saving my protected dotfiles in a Keybase-hosted Git repository](/blog/2022/protected-dotfiles-with-keybase/) and some days back I wrote about how I upgraded to Ubuntu 24.04, the second it came out and [Keybase was uninstallable](/blog/2024/installing-keybase-on-ubuntu-2404/). Well. Turns out Keybase will be topic of this post again, followed by one final swansong post about sunsetting my Keybase use. After that we will not speak of it anymore, promised ;)

@@ -18,6 +18,7 @@ type: blog
 unsplash:
   imageid: 1iVKwElWrPA
 fmContentType: blog
+cover: header.jpg
 ---
 
 On my desk, I have a 20TB external hard drive, which is encrypted using [LUKS](https://gitlab.com/cryptsetup/cryptsetup). This is the default on Ubuntu when you choose to encrypt your hard drive during installation or when you format a drive using the Disks utility and choose encryption.

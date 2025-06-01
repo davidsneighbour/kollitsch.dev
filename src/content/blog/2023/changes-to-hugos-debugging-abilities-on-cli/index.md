@@ -21,6 +21,7 @@ type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
+cover: header.jpg
 ---
 
 [Hugo](https://gohugo.io) in [version 0.114.0](https://github.com/gohugoio/hugo/releases/tag/v0.114.0) finally introduced the changes [I wrote about a while back](/blog/2022/piping-output-to-files-in-bash/).

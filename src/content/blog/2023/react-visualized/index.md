@@ -13,6 +13,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 Are you new to React and feeling overwhelmed by its concepts and syntax? Or maybe you're a seasoned developer looking for a quick refresher on React's fundamentals? Either way, the folks at [react.gg](https://react.gg) and [ui.dev](https://ui.dev/) got you covered with their just released visualized guide to React. It's a great way to get a quick overview of the framework, its pillars, and its ecosystem, and you can find it at [react.gg/visualized](https://react.gg/visualized).

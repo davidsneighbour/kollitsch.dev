@@ -12,6 +12,7 @@ tags:
   - 100DaysToOffload
 type: blog
 fmContentType: blog
+cover: header.jpg
 ---
 
 As I reported a while ago, I embarked on an exhilarating journey with the [#100DaysToOffload challenge](https://kollitsch.dev/blog/2022/100-days-to-offload/), a quest to enrich my blog with 100 posts within a year.

@@ -1,20 +1,20 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - a ninth part
-description: ''
-summary: ''
-date: '2025-03-21'
+description: ""
+summary: ""
+date: 2025-03-21T11:42:40+00:00
+publishDate: 2025-03-21T11:42:40+00:00
+lastmod: 2025-03-21T11:45:30+00:00
 resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+- title: Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)
+  src: header.jpg
 categories:
-  - kurzschnitte
+- kurzschnitte
 tags:
-  - kurzschnitte
-  - bookmarks
-  - 100DaysToOffload
+- kurzschnitte
+- bookmarks
+- 100DaysToOffload
 fmContentType: blog
 ---
 

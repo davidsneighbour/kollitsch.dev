@@ -2,7 +2,9 @@
 title: Automatically load workspace when starting VSCode
 description: ''
 summary: ''
-date: '2024-04-11'
+date: 2024-04-11T14:15:08.000Z
+publishDate: 2024-04-11T14:15:08.000Z
+lastmod: 2024-04-11T14:15:08.000Z
 resources:
   - title: >-
       Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via

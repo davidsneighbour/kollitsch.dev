@@ -3,7 +3,9 @@ title: Earth's Black Box
 description: >-
   It looks like earths climate catastrophe now has it's own black box which will
   record every step we take towards this catastrophe.
-date: '2021-12-10'
+date: 2021-12-10T11:25:14.000Z
+publishDate: 2021-12-10T11:25:14.000Z
+lastmod: 2023-08-07T12:29:46.000Z
 resources:
   - title: 'Earth''s Black Box by [earthsblackbox.com](https://www.earthsblackbox.com/)'
     src: earths-black-box.jpg

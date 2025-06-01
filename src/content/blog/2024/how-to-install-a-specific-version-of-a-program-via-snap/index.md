@@ -3,7 +3,9 @@ $schema: /static/_schemata/blog.schema.yaml
 title: How to install a specific version of a program via Snap
 description: ''
 summary: ''
-date: '2024-08-19'
+date: 2024-08-19T14:12:37.000Z
+publishDate: 2024-08-19T14:12:37.000Z
+lastmod: 2024-08-26T11:03:44.971Z
 resources:
   - title: >-
       Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via

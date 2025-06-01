@@ -9,7 +9,9 @@ summary: >-
   On Ubuntu, external hard drives are automatically mounted when plugged in
   while booting the computer. Which leads to that hard drive being mounted all
   the time.
-date: '2024-09-09'
+date: 2024-09-09T07:52:46.000Z
+publishDate: 2024-09-09T07:52:46.000Z
+lastmod: 2024-09-28T13:47:45.667Z
 resources:
   - title: The improper way to keep Ubuntu from mounting drives automatically
     src: curated-lifestyle-l2nY0rP07DI-unsplash.jpg

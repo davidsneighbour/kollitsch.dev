@@ -1,7 +1,9 @@
 ---
 title: The Pentaverate
-date: '2022-03-16'
+date: 2022-03-16T15:01:37.000Z
 description: Mike Myers does that thing where he plays multiple roles in the same movie.
+publishDate: 2022-03-16T15:01:37.000Z
+lastmod: 2024-03-03T14:32:45.000Z
 resources:
   - title: Photo via Netflix
     src: mike-myers-the-pentaverate.jpg

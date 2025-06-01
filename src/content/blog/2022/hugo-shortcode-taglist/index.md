@@ -9,7 +9,9 @@ summary: >-
   I needed a Hugo shortcode to show a list of posts that belonged to a certain
   tag, which is quite easy. Add the following to a layout file in
   `layouts/shortcodes` to use for the shortcode.
-date: '2022-03-01'
+date: 2022-03-01T14:18:21.000Z
+publishDate: 2022-03-01T14:18:21.000Z
+lastmod: 2023-08-07T13:27:13.000Z
 resources:
   - title: >-
       Photo by [Joanna Kosinska](https://unsplash.com/@joannakosinska) via

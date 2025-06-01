@@ -1,6 +1,8 @@
 ---
 title: Shouting Alexa at a Pork Pie
 summary: ''
+publishDate: 2022-03-21T13:44:52.000Z
+lastmod: 2022-03-21T13:44:52.000Z
 resources:
   - title: A pork pie Alexa
     src: header.png
@@ -10,7 +12,6 @@ tags:
   - video
   - 100DaysToOffload
 fmContentType: blog
-date: '2022-03-21'
 ---
 
 This really important video about Alexa is a great example of how to use the Alexa API to create a skill. Not really, but watch it until the end to understand ;)

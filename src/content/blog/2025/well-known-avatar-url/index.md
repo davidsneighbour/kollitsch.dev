@@ -1,24 +1,18 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: .well-known avatar URL for kollitsch.dev
-description: >-
-  This post explains how I set up a .well-known/avatar URL on my site using
-  Netlify, with caching headers and image placement, and plans for future
-  improvements.
-summary: >-
-  A .well-known/avatar URL provides a standardized way to retrieve profile
-  images. I implemented it on my site using Netlify, configuring caching headers
-  and placing the image in static/.well-known/. Future updates may include
-  support for different sizes, formats, and dynamic avatars for greater
-  flexibility.
-date: '2025-02-08'
+description: This post explains how I set up a .well-known/avatar URL on my site using Netlify, with caching headers and image placement, and plans for future improvements.
+summary: A .well-known/avatar URL provides a standardized way to retrieve profile images. I implemented it on my site using Netlify, configuring caching headers and placing the image in static/.well-known/. Future updates may include support for different sizes, formats, and dynamic avatars for greater flexibility.
+date: 2025-02-08T19:50:44+07:00
+publishDate: 2025-02-08T19:50:44+07:00
+lastmod: 2025-02-08T13:04:18+00:00
 resources:
-  - title: I'm just an avatar
-    src: imkara-visual-3blY8iC2o5M-unsplash.jpg
+- title: I'm just an avatar
+  src: imkara-visual-3blY8iC2o5M-unsplash.jpg
 tags:
-  - internals
-  - well-known
-  - 100DaysToOffload
+- internals
+- well-known
+- 100DaysToOffload
 fmContentType: blog
 ---
 

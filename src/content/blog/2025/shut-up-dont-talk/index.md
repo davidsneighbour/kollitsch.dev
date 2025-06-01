@@ -1,19 +1,26 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
-title: 'Shut Up, Don''t Talk'
-description: ''
-summary: ''
+'$schema': /assets/schemas/blog.schema.yaml
+title: Shut Up, Don't Talk
+description: ""
+summary: ""
 resources:
   - src: header.jpg
-date: '2025-03-06'
+
+date: 2025-03-06T19:48:07+07:00
+publishDate: 2025-03-06T19:48:07+07:00
+lastmod: 2025-03-06T19:48:07+07:00
+
 tags:
   - john lithgow
   - geoffrey rush
   - video
   - 100DaysToOffload
+
 type: video
 video:
   youtube: GSIB8W3KGsM
+
+
 fmContentType: blog
 ---
 

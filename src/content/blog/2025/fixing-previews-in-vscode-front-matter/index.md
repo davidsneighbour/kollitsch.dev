@@ -1,24 +1,19 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: Fixing post previews in VSCode with Front Matter
-description: >-
-  VSCode Front Matter may not recognize Hugo blog posts if fmContentType is
-  missing. This post explains how to automate front matter updates using a
-  Node.js script.
-summary: >-
-  VSCode Front Matter sometimes fails to recognize Hugo blog posts due to
-  missing fmContentType. This post explores the issue, explains why it happens,
-  and provides a Node.js script to automate front matter updates. The script
-  ensures proper previews by setting fmContentType across all Markdown files.
-date: '2025-02-08'
+description: VSCode Front Matter may not recognize Hugo blog posts if fmContentType is missing. This post explains how to automate front matter updates using a Node.js script.
+summary: VSCode Front Matter sometimes fails to recognize Hugo blog posts due to missing fmContentType. This post explores the issue, explains why it happens, and provides a Node.js script to automate front matter updates. The script ensures proper previews by setting fmContentType across all Markdown files.
+date: 2025-02-08T14:09:39+07:00
+publishDate: 2025-02-08T14:09:39+07:00
+lastmod: 2025-02-08T11:33:29+00:00
 resources:
-  - title: Front Matter
-    src: frontmatter.png
+- title: Front Matter
+  src: frontmatter.png
 tags:
-  - nodejs
-  - frontmatter
-  - gohugo
-  - 100DaysToOffload
+- nodejs
+- frontmatter
+- gohugo
+- 100DaysToOffload
 fmContentType: blog
 ---
 

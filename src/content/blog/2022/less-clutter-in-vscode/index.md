@@ -4,7 +4,9 @@ title: Less Clutter in Vscode
 description: >-
   A strategy to declutter enabled extensions in VSCode by using a workspace
   specific extension setup.
-date: '2022-07-13'
+date: 2022-07-13T10:52:34.000Z
+publishDate: 2022-07-13T10:52:34.000Z
+lastmod: 2024-08-26T13:14:03.324Z
 resources:
   - title: >-
       Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via

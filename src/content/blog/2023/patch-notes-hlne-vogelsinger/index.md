@@ -6,7 +6,9 @@ description: >-
   compositions, the French singer and sound designer explores abandoned places
   and connects with their energies to create immersive and suspended moments.
 type: video
-date: '2023-05-05'
+date: 2023-05-05T12:38:04.000Z
+publishDate: 2023-05-05T12:38:04.000Z
+lastmod: 2024-03-03T14:34:20.000Z
 resources:
   - title: 'Patch Notes: Hélène Vogelsinger'
     src: header.jpg

@@ -1,19 +1,23 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
+'$schema': /assets/schemas/blog.schema.yaml
 title: Using `npx link` for local package development
-description: ''
-summary: ''
-date: '2025-03-05'
+description: ""
+summary: ""
+
+date: 2025-03-05T18:54:58+07:00
+publishDate: 2025-03-05T18:54:58+07:00
+lastmod: 2025-03-05T18:54:58+07:00
+
 resources:
-  - title: >-
-      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
-      [Unsplash](https://unsplash.com/)
+  - title: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
     src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+
 tags:
   - npm
   - how to
   - development
   - 100DaysToOffload
+
 fmContentType: blog
 ---
 

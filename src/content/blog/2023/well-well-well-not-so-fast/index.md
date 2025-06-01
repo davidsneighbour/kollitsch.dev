@@ -4,7 +4,9 @@ description: >-
   As I reported a while ago, I embarked on an exhilarating journey with the
   \#100DaysToOffload challenge, a quest to enrich my blog with 100 posts within
   a year.
-date: '2023-11-26'
+date: 2023-11-26T12:23:44.000Z
+publishDate: 2023-11-26T12:23:44.000Z
+lastmod: 2023-11-26T14:04:58.000Z
 resources:
   - src: header.jpg
 tags:

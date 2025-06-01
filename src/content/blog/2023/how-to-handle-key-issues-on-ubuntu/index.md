@@ -1,7 +1,9 @@
 ---
 title: How to handle key issues with apt on Ubuntu
 description: ''
-date: '2023-06-21'
+date: 2023-06-21T11:41:26.000Z
+publishDate: 2023-06-21T11:41:26.000Z
+lastmod: 2023-08-07T12:33:03.000Z
 resources:
   - title: Choose a key
     src: header.jpg

@@ -1,7 +1,9 @@
 ---
 title: How to delete all files ignored by Git
 summary: ''
-date: '2024-04-11'
+date: 2024-04-11T12:31:26.000Z
+publishDate: 2024-04-11T12:31:26.000Z
+lastmod: 2024-04-11T12:31:26.000Z
 resources:
   - title: >-
       Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via

@@ -4,7 +4,8 @@ linkTitle: Laboratory 2022-04
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   April 2022
-date: '2022-05-02'
+date: 2022-05-02T13:06:40.000Z
+lastmod: 2024-10-01T10:07:25.664Z
 resources:
   - src: header.jpg
     title: >-

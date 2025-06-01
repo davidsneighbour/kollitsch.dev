@@ -2,7 +2,9 @@
 title: 'Notes from the Laboratory: June 2023'
 linkTitle: Laboratory 2023-06
 description: ''
-date: '2023-07-01'
+date: 2023-07-01T12:31:21.000Z
+publishDate: 2023-07-01T12:31:21.000Z
+lastmod: 2024-09-09T11:07:37.462Z
 resources:
   - src: header.jpg
     title: >-

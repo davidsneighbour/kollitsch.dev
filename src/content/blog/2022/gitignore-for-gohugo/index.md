@@ -1,6 +1,6 @@
 ---
 title: .gitignore for GoHugo
-date: '2022-07-21'
+date: 2022-07-21T17:02:35.000Z
 resources:
   - src: header.jpg
     title: >-
@@ -11,6 +11,8 @@ tags:
   - gitignore
   - developers
   - 100DaysToOffload
+lastmod: 2023-08-07T12:30:09.000Z
+slug: gitignore-gohugo
 aliases:
   - /blog/2021/gitignore-for-gohugo/
 fmContentType: blog

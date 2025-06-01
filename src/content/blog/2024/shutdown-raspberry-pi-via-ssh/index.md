@@ -8,7 +8,9 @@ description: >-
 summary: >-
   Learn how to enable passwordless shutdown and reboot for your Raspberry Pi via
   SSH. Configure sudoers for secure commands and streamline access with aliases.
-date: '2024-11-25'
+date: 2024-11-25T21:59:18.000Z
+publishDate: 2024-11-25T21:59:18.000Z
+lastmod: 2024-11-25T22:35:16.000Z
 resources:
   - title: >-
       Photo by [Louis Reed](https://unsplash.com/@_louisreed) via

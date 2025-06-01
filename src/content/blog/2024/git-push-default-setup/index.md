@@ -16,7 +16,9 @@ tags:
   - configuration
   - 100DaysToOffload
 type: blog
-date: '2024-04-12'
+date: 2024-04-12T14:09:32.000Z
+publishDate: 2024-04-12T14:09:32.000Z
+lastmod: 2024-04-12T14:09:32.000Z
 fmContentType: blog
 ---
 

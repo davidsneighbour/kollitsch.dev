@@ -2,7 +2,9 @@
 title: Reusable Gohugo Forms via Configuration
 linkTitle: Reusable Gohugo Forms via Configuration
 description: ''
-date: '2023-10-22'
+date: 2023-10-22T10:29:40.000Z
+publishDate: 2023-10-22T10:29:40.000Z
+lastmod: 2024-03-03T09:37:14.000Z
 resources:
   - title: Carefully implemented forms
     src: header.jpg

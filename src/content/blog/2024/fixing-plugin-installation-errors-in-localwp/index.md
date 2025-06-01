@@ -10,7 +10,9 @@ summary: >-
   Ubuntu 24.04. It covers common issues such as missing packages, errors with
   older PHP versions, and problems installing add-ons due to `TEMP_DIR`
   unavailability.
-date: '2024-05-17'
+date: 2024-05-17T09:26:12.000Z
+publishDate: 2024-05-17T09:26:12.000Z
+lastmod: 2024-05-17T09:26:12.000Z
 resources:
   - title: '[LocalWP](https://localwp.com/)'
     src: header.png

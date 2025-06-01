@@ -1,6 +1,6 @@
 ---
 title: Game Off 2021 Part I
-date: '2021-10-23'
+date: '2021-10-23T16:35:44+07:00'
 description: ''
 resources:
   - params: null

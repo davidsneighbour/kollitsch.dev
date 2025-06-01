@@ -1,7 +1,10 @@
 ---
 title: '#100DaysToOffload'
 linkTitle: '#100DaysToOffload'
-date: '2022-03-21'
+slug: 100-days-to-offload
+date: 2022-03-21T16:27:23.000Z
+publishDate: 2022-03-21T16:27:23.000Z
+lastmod: 2024-10-01T14:36:37.806Z
 resources:
   - title: >-
       Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via

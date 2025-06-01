@@ -6,7 +6,9 @@ description: >-
   period this year, and monthly reviews just sound like something normal people
   would do. So bear with me while I am typing up this report.
 type: blog
-date: '2023-02-26'
+date: 2023-02-26T14:27:05.000Z
+publishDate: 2023-02-26T14:27:05.000Z
+lastmod: 2024-09-09T11:07:39.994Z
 resources:
   - src: header.jpg
     title: >-

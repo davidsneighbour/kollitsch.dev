@@ -4,7 +4,9 @@ linkTitle: Laboratory 2022-07
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   July 2022
-date: '2022-08-01'
+date: 2022-08-01T13:22:57.000Z
+publishDate: 2022-08-01T13:22:57.000Z
+lastmod: 2024-09-09T11:07:46.830Z
 resources:
   - src: header.jpg
     title: >-

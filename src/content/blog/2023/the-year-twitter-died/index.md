@@ -6,7 +6,9 @@ description: >-
 summary: >-
   There is this really well-written collection of articles on 2023, the year
   Twitter died on The Verge.
-date: '2023-12-17'
+date: 2023-12-17T06:18:54.000Z
+publishDate: 2023-12-17T06:18:54.000Z
+lastmod: 2023-12-17T11:14:34.000Z
 resources:
   - title: The year Twitter died
     src: header.jpg

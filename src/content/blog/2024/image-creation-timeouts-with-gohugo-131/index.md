@@ -3,7 +3,9 @@ $schema: /static/_schemata/blog.schema.yaml
 title: Image creation timeouts with Gohugo v0.131.0
 description: ''
 summary: ''
-date: '2024-08-04'
+date: 2024-08-04T12:47:01.000Z
+publishDate: 2024-08-04T12:47:01.000Z
+lastmod: 2024-08-04T12:47:01.000Z
 resources:
   - title: GoHugo v0.131.0
     src: hugo-0.131.0.png

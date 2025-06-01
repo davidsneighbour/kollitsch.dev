@@ -3,7 +3,9 @@ $schema: /static/_schemata/laboratory.schema.yaml
 title: 'Notes from the Laboratory: April 2023'
 linkTitle: Laboratory 2023-04
 description: ''
-date: '2023-05-01'
+date: 2023-05-01T12:31:37.000Z
+publishDate: 2023-04-28T14:55:59.000Z
+lastmod: 2024-09-09T11:07:41.348Z
 resources:
   - src: header.jpg
     title: >-

@@ -1,6 +1,6 @@
 ---
 title: Learning to git with git
-date: '2021-11-02'
+date: '2021-11-02T18:48:49+07:00'
 resources:
   - src: yancy-min-842ofHC6MaI-unsplash.jpg
     title: >-

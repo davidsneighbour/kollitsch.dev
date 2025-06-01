@@ -3,7 +3,9 @@ type: blog
 title: VSCode Remote SSH plugin vs. Dreamhost shared hosting
 description: ''
 summary: ''
-date: '2022-05-20'
+date: 2022-05-20T15:10:32.000Z
+publishDate: 2022-05-20T15:10:32.000Z
+lastmod: 2024-03-03T14:36:16.000Z
 resources:
   - title: >-
       Photo by [NASA](https://unsplash.com/@nasa) via

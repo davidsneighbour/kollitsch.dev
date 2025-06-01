@@ -1,9 +1,12 @@
 ---
 title: Kurzschnitte II - Third Linkdump
+slug: kurzschnitte-ii-3
 description: >-
   Explore the latest in web development and design with Kurzschnitte II: from
   open-source insights to CSS animations and favicon tips. Dive in now!
-date: '2024-02-10'
+date: 2024-02-10T13:56:51.000Z
+publishDate: 2024-02-10T13:56:51.000Z
+lastmod: 2024-09-09T11:07:35.545Z
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

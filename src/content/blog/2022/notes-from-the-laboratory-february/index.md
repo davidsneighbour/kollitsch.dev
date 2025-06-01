@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-02
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   February 2022
-date: '2022-03-01'
+date: 2022-03-01T12:58:03.000Z
 resources:
   - src: header.jpg
     title: >-
@@ -18,6 +18,7 @@ tags:
   - 100DaysToOffload
 aliases:
   - /blog/2022/notes-from-the-laboratory-february-2022
+lastmod: 2024-09-09T11:07:48.151Z
 fmContentType: blog
 ---
 

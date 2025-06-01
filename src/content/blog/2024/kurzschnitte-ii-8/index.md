@@ -9,7 +9,9 @@ summary: >-
   Kurzschnitte II's edition 8. Includes unique AI text transformations, emoji
   creativity, and tips for efficient DOM manipulation, plus resources for
   enhancing your coding and design skills.
-date: '2024-10-10'
+date: 2024-10-10T11:10:57.557Z
+publishDate: 2024-10-10T11:10:57.557Z
+lastmod: 2024-10-10T11:12:01.180Z
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

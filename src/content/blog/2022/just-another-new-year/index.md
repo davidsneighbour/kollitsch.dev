@@ -1,7 +1,9 @@
 ---
 title: Just another New Year
 description: ''
-date: '2022-01-04'
+date: 2022-01-04T12:21:48.000Z
+publishDate: 2022-01-04T12:21:48.000Z
+lastmod: 2024-03-03T14:36:17.000Z
 resources:
   - title: >-
       Photo by [Glenn

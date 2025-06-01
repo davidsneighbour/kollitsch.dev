@@ -4,7 +4,9 @@ title: Creating a Hugo site index
 description: >-
   How to export all the content of your Hugo website to a JSON file, to populate
   a search index.
-date: '2023-05-23'
+date: 2023-05-23T14:53:48.000Z
+publishDate: 2023-05-23T14:53:48.000Z
+lastmod: 2023-05-23T14:54:56.000Z
 resources:
   - title: >-
       Photo by [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) via

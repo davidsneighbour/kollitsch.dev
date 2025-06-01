@@ -3,7 +3,9 @@ title: Saving Github Access Token in Local Encrypted Storage via Gh Cli
 description: >-
   GitHub CLI has in it's latest version introduced a new feature that allows
   users to store their access token in an encrypted local storage system.
-date: '2023-03-09'
+date: 2023-03-09T13:54:38.000Z
+publishDate: 2023-03-09T13:54:38.000Z
+lastmod: 2024-03-10T04:30:33.000Z
 resources:
   - title: GitHub CLI Release v2.24.0
     src: header.jpg

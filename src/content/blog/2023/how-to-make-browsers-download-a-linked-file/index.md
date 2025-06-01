@@ -4,7 +4,9 @@ description: ''
 links:
   - 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download'
   - 'https://www.w3schools.com/tags/att_a_download.asp'
-date: '2023-11-12'
+date: 2023-11-12T13:29:27.000Z
+lastmod: 2023-11-12T14:03:01.000Z
+publishDate: 2023-11-12T13:29:27.000Z
 resources:
   - src: header.jpg
 tags:

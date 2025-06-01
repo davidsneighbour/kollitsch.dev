@@ -7,7 +7,9 @@ description: >-
 summary: >-
   The fifth installment of Kurzschnitte II, where I'm sharing a collection of
   articles and tutorials that caught my attention in the past few weeks.
-date: '2024-09-03'
+date: 2024-09-03T11:53:38.370Z
+publishDate: 2024-09-03T11:53:38.370Z
+lastmod: 2024-09-13T06:41:19.316Z
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

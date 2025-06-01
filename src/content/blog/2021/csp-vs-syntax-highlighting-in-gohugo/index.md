@@ -1,10 +1,12 @@
 ---
 title: CSP vs. syntax highlighting in GoHugo
-date: '2021-10-27'
+date: '2021-10-27T21:52:14+07:00'
 description: >-
   If you are using the codestyling functionality of Hugo then you might have
   stumbled over a common issue in connection with Content Security Policies
   (CSP) and inline styles.
+lastmod: '2021-10-27T21:52:14+07:00'
+publishDate: '2021-10-27T21:52:14+07:00'
 resources:
   - name: image name if other than src
     src: christopher-gower-m_HRfLhgABo-unsplash.jpg

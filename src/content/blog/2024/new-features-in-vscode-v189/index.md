@@ -3,7 +3,9 @@ title: New features in VSCode v1.89
 description: >-
   Three VSCode updates this month, that I find useful. VSCode keeps adding
   useful features every month.
-date: '2024-05-03'
+date: 2024-05-03T11:10:07.000Z
+publishDate: 2024-05-03T11:10:07.000Z
+lastmod: 2024-05-03T11:10:07.000Z
 resources:
   - title: >-
       Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via

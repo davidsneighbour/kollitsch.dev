@@ -3,7 +3,9 @@ title: Well… that's a unique… logo?
 summary: >-
   I had a weird reaction (""well… that’s a unique logo?") to my really great
   weblog logo above recently, so I thought I might as well explain it.
-date: '2021-10-29'
+date: 2021-10-29T12:47:48.000Z
+lastmod: 2024-03-03T14:36:18.000Z
+publishDate: 2021-10-29T12:47:48.000Z
 resources:
   - src: logo.png
     title: The greatest logo of them all

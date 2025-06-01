@@ -4,7 +4,9 @@ linkTitle: Laboratory 2022-12
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.dev -
   December 2022 (and also November 2022, not that you missed it ;)
-date: '2023-01-02'
+date: 2023-01-02T02:36:01.000Z
+publishDate: 2023-01-02T02:36:01.000Z
+lastmod: 2024-09-09T11:07:40.719Z
 resources:
   - src: header.jpg
     title: >-

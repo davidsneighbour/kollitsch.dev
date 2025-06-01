@@ -3,7 +3,9 @@ $schema: /static/_schemata/blog.schema.yaml
 title: Erasing ~2 decades of Twitter
 description: ''
 summary: ''
-date: '2024-03-08'
+date: 2024-03-08T09:03:00.000Z
+publishDate: 2024-03-08T09:03:00.000Z
+lastmod: 2024-03-08T14:16:59.000Z
 resources:
   - title: >-
       Twitter as imagined by DALL-E (disclaimer: the prompt might have been

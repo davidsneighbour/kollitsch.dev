@@ -3,7 +3,9 @@ title: Netlify's new logo
 description: >-
   The company has used its signature teal gem logo for the past eight years.
   However, they felt it was the perfect time to renovate their visual identity.
-date: '2023-03-09'
+date: 2023-03-09T11:57:48.000Z
+publishDate: 2023-03-09T11:57:48.000Z
+lastmod: 2023-03-09T12:38:08.000Z
 resources:
   - title: Netlify's new logo
     src: header.png

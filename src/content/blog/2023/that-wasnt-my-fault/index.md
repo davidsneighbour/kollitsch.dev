@@ -1,7 +1,9 @@
 ---
 $schema: /static/_schemata/blog.schema.yaml
 title: That wasn't my fault
-date: '2023-04-21'
+date: 2023-04-21T14:33:04.000Z
+publishDate: 2023-04-21T14:33:04.000Z
+lastmod: 2024-03-03T14:35:00.000Z
 resources:
   - title: That wasn't my fault
     src: header.png

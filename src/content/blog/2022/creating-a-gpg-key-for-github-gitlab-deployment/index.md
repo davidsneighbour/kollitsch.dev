@@ -2,7 +2,9 @@
 title: Creating a GPG Key for Github/Gitlab Deployment
 description: ''
 summary: ''
-date: '2022-02-23'
+date: 2022-02-23T15:43:14.000Z
+publishDate: 2022-02-23T15:43:14.000Z
+lastmod: 2023-08-13T12:47:08.000Z
 resources:
   - title: >-
       Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via

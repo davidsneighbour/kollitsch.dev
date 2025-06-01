@@ -3,7 +3,9 @@ title: Pantone's color of the year Peach Fuzz in CSS
 description: >-
   Explore the significance of Pantone's 2024 Color of the Year, Peach Fuzz, and
   its digital equivalents in HEX, RGB, HSL, and CMYK for web design.
-date: '2023-12-17'
+date: 2023-12-17T09:46:19.000Z
+publishDate: 2023-12-17T09:46:19.000Z
+lastmod: 2023-12-17T11:13:20.000Z
 resources:
   - title: >-
       Photo by

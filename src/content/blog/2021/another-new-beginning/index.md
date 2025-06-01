@@ -1,6 +1,6 @@
 ---
 title: (Another) new beginning
-date: '2021-10-21'
+date: 2021-10-21T13:00:00.000Z
 description: A short summary of how we got here and where we go from here.
 keywords: []
 resources:

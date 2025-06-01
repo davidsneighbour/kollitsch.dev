@@ -6,7 +6,9 @@ description: >-
 summary: >-
   *Swiss Made 2069* (1968) marked the very first appearance of H.R. Giger's
   iconic creatures on the big screen.
-date: '2024-09-28'
+date: 2024-09-28T12:26:56.628Z
+publishDate: 2024-09-28T12:26:56.628Z
+lastmod: 2024-09-28T16:50:26.484Z
 resources:
   - title: Humanoid meets a true Swiss.
     src: swiss-made-2069.jpg

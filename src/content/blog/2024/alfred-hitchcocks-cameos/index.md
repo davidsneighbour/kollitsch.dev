@@ -10,7 +10,9 @@ summary: >-
   suspense. This video highlights his unique storytelling style when it comes to
   including himself.
 type: video
-date: '2024-11-30'
+date: 2024-11-30T11:54:20.000Z
+publishDate: 2024-11-30T11:54:20.000Z
+lastmod: 2024-12-05T11:12:59.000Z
 resources:
   - src: header.jpg
 tags:

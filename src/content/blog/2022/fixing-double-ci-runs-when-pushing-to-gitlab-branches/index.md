@@ -1,7 +1,9 @@
 ---
 title: Fixing Double Ci Runs When Pushing to Gitlab Branches
 description: ''
-date: '2022-11-09'
+date: 2022-11-09T13:01:35.000Z
+publishDate: 2022-11-09T13:01:35.000Z
+lastmod: 2023-02-27T13:09:09.000Z
 resources:
   - title: >-
       Photo by [Mila Tovar](https://unsplash.com/@milatovar) via

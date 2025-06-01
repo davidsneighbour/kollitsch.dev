@@ -1,6 +1,6 @@
 ---
 title: Music to program to (Part 4)
-date: '2022-03-20'
+date: 2022-03-20T16:25:03.000Z
 linkTitle: PM4
 tags:
   - programming-music
@@ -14,6 +14,7 @@ video:
   artist: rammstein
   name: Rammstein feat Ólafur Arnalds
   title: Zeit
+lastmod: 2024-01-02T11:45:52.000Z
 fmContentType: blog
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Hiding UpdraftPlus nagging screens after your subscription ran out
-date: '2022-03-10'
+date: 2022-03-10T15:18:32.000Z
 resources:
   - title: >-
       Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via
@@ -13,6 +13,7 @@ tags:
   - plugin
   - nagging
   - 100DaysToOffload
+lastmod: 2024-09-09T11:07:50.207Z
 fmContentType: blog
 ---
 

@@ -12,7 +12,9 @@ summary: >-
   iconic storytelling and meticulous visuals, highlighting Montblanc's luxury
   craftsmanship.
 type: video
-date: '2024-05-12'
+date: 2024-05-12T12:55:46.000Z
+publishDate: 2024-05-12T12:55:46.000Z
+lastmod: 2024-05-12T12:55:46.000Z
 tags:
   - wes-anderson
   - advertisement

@@ -5,7 +5,9 @@ linkTitle: Cloning All My Repos on a New Ubuntu Installation
 description: >-
   A script to automatically clone all my GitHub repos to a local Ubuntu system
   using GitHub's REST API.
-date: '2024-04-28'
+date: 2024-04-28T08:15:56.000Z
+publishDate: 2024-04-28T08:15:56.000Z
+lastmod: 2024-04-28T08:15:56.000Z
 resources:
   - title: >-
       Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via

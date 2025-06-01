@@ -1,6 +1,8 @@
 ---
 title: Piping output to files in Bash
-date: '2022-05-08'
+date: 2022-05-08T08:18:20.000Z
+publishDate: 2022-05-08T08:18:20.000Z
+lastmod: 2022-05-17T18:39:10.000Z
 resources:
   - title: >-
       Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge)

@@ -3,7 +3,7 @@ title: 'Ubuntu, EFI and Acer'
 description: >-
   A quick fix for the "No Bootable Device found" error on Acer notebooks after
   installing Ubuntu.
-date: '2022-03-02'
+date: 2022-03-02T14:22:28.000Z
 images:
   - /blog/2022/ubuntu-efi-and-acer/artiom-vallat-mx9axbKqKW8-unsplash.jpg
 resources:
@@ -18,6 +18,7 @@ tags:
   - UEFI
   - EFI
   - 100DaysToOffload
+lastmod: 2023-08-13T12:46:55.000Z
 fmContentType: blog
 ---
 

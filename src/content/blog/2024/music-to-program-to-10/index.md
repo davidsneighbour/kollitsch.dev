@@ -14,7 +14,9 @@ video:
   youtube: H7Dr-qwWEqk
   artist: floating-points
   title: Ocotillo
-date: '2024-08-25'
+date: 2024-08-25T11:41:03.000Z
+publishDate: 2024-08-25T11:41:03.000Z
+lastmod: 2024-08-25T15:12:08.499Z
 fmContentType: blog
 ---
 

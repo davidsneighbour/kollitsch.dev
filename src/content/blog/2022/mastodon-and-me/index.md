@@ -6,7 +6,9 @@ description: >-
   came Mastodon about 6 years ago. I recently got my first follower over there
   and decided to go on and give Mastodon a chance. If you feel that way, then
   follow me along.
-date: '2022-11-10'
+date: 2022-11-10T11:45:13.000Z
+publishDate: 2022-11-10T11:45:13.000Z
+lastmod: 2024-03-03T14:30:57.000Z
 resources:
   - title: >-
       Photo by [April Pethybridge](https://unsplash.com/@apriiil) via

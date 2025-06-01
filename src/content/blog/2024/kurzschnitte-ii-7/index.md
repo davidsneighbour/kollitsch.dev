@@ -13,7 +13,9 @@ summary: >-
   spiritually, and in gaming, particularly in craps. Nature aligns with this
   pattern, structuring a week into seven days. Now, let's continue with our
   curated links of interest.
-date: '2024-09-20'
+date: 2024-09-20T11:50:23.000Z
+publishDate: 2024-09-20T11:50:23.000Z
+lastmod: 2024-09-20T11:51:15.308Z
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

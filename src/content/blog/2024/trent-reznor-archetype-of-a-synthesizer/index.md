@@ -11,7 +11,9 @@ summary: >-
   musician, emphasizing the importance of synthesizers in his creative process
   and the evolution of music technology.
 type: video
-date: '2024-10-30'
+date: 2024-10-30T10:56:14.000Z
+publishDate: 2024-10-30T10:56:14.000Z
+lastmod: 2024-10-30T10:56:14.000Z
 tags:
   - trent reznor
   - nine inch nails

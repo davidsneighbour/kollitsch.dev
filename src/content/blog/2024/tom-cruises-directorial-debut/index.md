@@ -11,7 +11,9 @@ summary: >-
   Peter Gallagher, Isabella Rossellini, and John C. Reilly, it's a dark, quirky
   noir full of cons and twists.
 type: video
-date: '2024-10-07'
+date: 2024-10-07T12:26:11.511Z
+publishDate: 2024-10-07T12:26:11.511Z
+lastmod: 2024-10-07T13:31:34.091Z
 resources:
   - title: An older couple.
     src: header.jpg

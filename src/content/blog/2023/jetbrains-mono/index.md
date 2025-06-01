@@ -3,7 +3,9 @@ title: Jetbrains Mono
 linkTitle: Jetbrains Mono
 description: ''
 summary: ''
-date: '2023-02-21'
+date: 2023-02-21T13:12:30.000Z
+publishDate: 2023-02-21T13:12:30.000Z
+lastmod: 2024-03-03T14:36:15.000Z
 resources:
   - title: Ligatures in Jetbrains Mono
     src: header.png

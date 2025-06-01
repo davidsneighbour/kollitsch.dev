@@ -9,7 +9,9 @@ summary: >-
   missing versions, list available downloads, and symlink specific versions. Set
   custom directories, update to the latest version, and pick standard or
   extended versions—all from the command line.
-date: '2024-11-07'
+date: 2024-11-07T09:24:38.000Z
+publishDate: 2024-11-07T09:24:38.000Z
+lastmod: 2024-11-07T09:24:38.000Z
 resources:
   - title: hugov - a tool for managing Hugo versions
     src: getty-images-M0Ozda1sRYs-unsplash.jpg

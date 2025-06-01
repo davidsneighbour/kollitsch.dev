@@ -22,7 +22,9 @@ video:
   youtube: CNfmij_Cpq8
   artist: above-and-beyond
   title: Flow State
-date: '2024-01-02'
+date: 2024-01-02T10:26:42.000Z
+publishDate: 2024-01-02T10:26:42.000Z
+lastmod: 2024-03-19T09:11:42.000Z
 fmContentType: blog
 ---
 

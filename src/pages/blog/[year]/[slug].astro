@@ -31,6 +31,8 @@ if (!post) {
 
 const { data } = post;
 const html = post.rendered?.html ?? '';
+
+
 ---
 
 <Layout title={data.title} description={data.description ?? ''}>
@@ -63,6 +65,7 @@ const html = post.rendered?.html ?? '';
       id="giscus-script">
     </script>
   </div>
+
 
   <Debug data={post} />
   <Debug params={params} />

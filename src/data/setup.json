@@ -1,0 +1,7 @@
+{
+  "overrides": {
+    "showDraftsInDev": true,
+    "showDraftsInProd": false,
+    "showDraftsInTest": true
+  }
+}

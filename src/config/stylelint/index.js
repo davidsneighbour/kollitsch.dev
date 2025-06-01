@@ -6,12 +6,10 @@ import rules from "./rules/rules.js";
 import order from "./order/order.js";
 
 const config = {
-  customSyntax: "postcss-scss",
   cache: true,
   extends: [
-    "stylelint-config-standard-scss",
-    "stylelint-config-html/html",
     "stylelint-config-html/astro",
+    "stylelint-config-html/html",
   ],
   ignoreFiles: [],
   plugins: [

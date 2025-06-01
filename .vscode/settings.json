@@ -55,5 +55,8 @@
     "astro"
   ],
   "eslint.debug": true,
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "files.exclude": {
+    "**/scratch": true
+  }
 }

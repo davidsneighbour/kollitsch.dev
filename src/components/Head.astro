@@ -10,14 +10,16 @@ import metaDataRaw from '@data/meta.json';
 const metaData = metaDataRaw as MetaConfig;
 
 const { title, description, image, ...props } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{props.title}</title>
+<base href={baseUrl} target="_self">
 <meta name="description" content={props.description} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="generator" content={Astro.generator} />
 <meta property="og:title" content={props.title} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
@@ -38,3 +40,5 @@ const { title, description, image, ...props } = Astro.props;
 {Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
   <meta http-equiv={httpEquiv} content={content} />
 ))}
+
+<meta name="generator" content={Astro.generator} />

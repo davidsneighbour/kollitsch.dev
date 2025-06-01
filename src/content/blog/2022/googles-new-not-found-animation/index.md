@@ -2,14 +2,13 @@
 title: Google's new (?) Not Found animation
 description: ''
 summary: ''
-date: 2022-01-19T13:27:49.000Z
+date: '2022-01-19T20:27:49+07:00'
 resources:
   - title: Google's new Not Found animation
     src: header.png
 tags:
   - google
   - webdesign
-lastmod: 2023-08-07T12:33:03.000Z
 fmContentType: blog
 ---
 

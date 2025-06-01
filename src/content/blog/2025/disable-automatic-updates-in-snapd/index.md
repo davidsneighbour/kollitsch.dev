@@ -1,21 +1,19 @@
 ---
-'$schema': /assets/schemas/blog.schema.yaml
+$schema: /assets/schemas/blog.schema.yaml
 title: Disable automatic updates in Snapd
-description: ""
-summary: ""
-
-date: 2025-04-16T18:31:39+07:00
-
+description: ''
+summary: ''
+date: '2025-04-16T18:31:39+07:00'
 resources:
-  - title: Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) via
+      [Unsplash](https://unsplash.com/)
     src: markus-winkler-qPjV8XaXPTQ-unsplash.jpg
-
 tags:
   - ubuntu
   - snapd
   - gohugo
   - 100DaysToOffload
-
 fmContentType: blog
 ---
 

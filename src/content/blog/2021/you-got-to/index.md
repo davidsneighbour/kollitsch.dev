@@ -1,6 +1,6 @@
 ---
 title: You got to…
-date: 2021-11-15T14:45:44.000Z
+date: '2021-11-15T21:45:44+07:00'
 description: … subscribe to Stefan Judis' Newsletter. Trust me. It's good. Weekly
 resources:
   - src: stefanjudis.com.jpg
@@ -8,7 +8,6 @@ resources:
 tags:
   - newsletter
   - web-development
-lastmod: 2024-03-03T14:29:47.000Z
 fmContentType: blog
 ---
 

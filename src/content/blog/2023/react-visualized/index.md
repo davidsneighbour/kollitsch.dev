@@ -3,9 +3,7 @@ title: 'React, visualized'
 description: >-
   The people at react.gg and ui.dev (they're the same) released a new React
   introduction today that is a visualized guide to React
-date: 2023-04-11T12:39:05.000Z
-publishDate: 2023-04-11T12:39:05.000Z
-lastmod: 2023-04-11T13:47:29.000Z
+date: '2023-04-11T19:39:05+07:00'
 resources:
   - title: 'React, visualized'
     src: header.jpg

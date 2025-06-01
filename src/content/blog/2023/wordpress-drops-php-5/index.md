@@ -3,9 +3,7 @@ title: WordPress Drops PHP 5
 description: >-
   WordPress announces end of support for PHP 5 in upcoming release. Learn about
   the impact and challenges of updating PHP versions. Read more here.
-date: 2023-07-19T14:01:33.000Z
-publishDate: 2023-07-19T14:01:33.000Z
-lastmod: 2023-07-19T15:56:03.000Z
+date: '2023-07-19T21:01:33+07:00'
 resources:
   - title: >-
       Photo by [Fikret tozak](https://unsplash.com/@tozakfikret) via

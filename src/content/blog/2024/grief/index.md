@@ -12,9 +12,7 @@ summary: >-
   explain that feeling sad when someone important is gone is normal, and sharing
   feelings with others can be helpful.
 type: video
-date: 2024-10-21T13:56:05.000Z
-publishDate: 2024-10-21T13:56:05.000Z
-lastmod: 2024-10-21T13:56:05.000Z
+date: '2024-10-21T20:56:05+07:00'
 tags:
   - elmo
   - andrew garfield

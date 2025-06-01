@@ -4,8 +4,8 @@ date: '2021-11-16T19:52:00+07:00'
 lastmod: '2021-11-16T19:52:00+07:00'
 publishDate: '2021-11-16T19:52:00+07:00'
 resources:
-  src: hyper-shell.png
-  title: Hyper shell
+  - src: hyper-shell.png
+    title: Hyper shell
 tags:
   - shell
   - electron

@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-06
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   June 2022
-date: 2022-07-03T10:04:11.000Z
+date: '2022-07-03T17:04:11+07:00'
 resources:
   - src: header.jpg
     name: header
@@ -18,7 +18,6 @@ tags:
   - self-improvement
   - davidsneighbour
   - 100DaysToOffload
-lastmod: 2024-09-09T11:07:46.212Z
 fmContentType: blog
 ---
 

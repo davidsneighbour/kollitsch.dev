@@ -2,9 +2,7 @@
 title: Git stashes for ADHDers
 description: ''
 summary: ''
-date: 2024-03-01T12:19:32.000Z
-publishDate: 2024-03-01T12:19:32.000Z
-lastmod: 2024-03-01T14:59:15.000Z
+date: '2024-03-01T19:19:32+07:00'
 type: blog
 resources:
   - title: >-

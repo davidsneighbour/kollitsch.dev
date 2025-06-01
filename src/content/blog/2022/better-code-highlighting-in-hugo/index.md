@@ -6,9 +6,7 @@ description: >-
   rules are prone to be ignored or freely interpreted (for instance, in the
   internal templates). But it offers ways to override and configure things, so
   not all is lost.
-date: 2022-05-04T15:11:55.000Z
-publishDate: 2022-05-04T15:11:55.000Z
-lastmod: 2023-08-07T12:29:59.000Z
+date: '2022-05-04T22:11:55+07:00'
 resources:
   - title: >-
       Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via

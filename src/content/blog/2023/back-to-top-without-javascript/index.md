@@ -4,9 +4,7 @@ description: >-
   In my lifelong quest to minimize the code to display my view of the world (aka
   this website) I realised, that I can get rid of all JS to display my "Back to
   top" button.
-date: 2023-12-03T15:51:00.000Z
-publishDate: 2023-12-03T15:51:00.000Z
-lastmod: 2024-03-03T14:36:15.000Z
+date: '2023-12-03T22:51:00+07:00'
 resources:
   - src: header.jpg
 tags:

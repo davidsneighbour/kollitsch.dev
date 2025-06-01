@@ -4,9 +4,7 @@ title: Autostart a development server in VSCode
 description: >-
   An easy way to automatically start a development server each time you open a
   VSCode workspace or folder. 
-date: 2022-04-12T16:26:46.000Z
-publishDate: 2022-04-12T16:26:46.000Z
-lastmod: 2024-08-26T13:13:59.420Z
+date: '2022-04-12T23:26:46+07:00'
 resources:
   - title: >-
       Photo by [Douglas Lopes](https://unsplash.com/@douglasamarelo) via

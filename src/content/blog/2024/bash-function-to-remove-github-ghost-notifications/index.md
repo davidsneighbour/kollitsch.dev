@@ -3,9 +3,7 @@ $schema: /static/_schemata/blog.schema.yaml
 title: Bash Function to Remove Github Ghost Notifications
 description: ''
 summary: ''
-date: 2024-03-07T00:53:38.000Z
-publishDate: 2024-03-07T00:53:38.000Z
-lastmod: 2024-10-01T09:24:38.533Z
+date: '2024-03-07T07:53:38+07:00'
 resources:
   - title: >-
       Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via

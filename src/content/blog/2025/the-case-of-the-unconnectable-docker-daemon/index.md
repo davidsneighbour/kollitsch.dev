@@ -1,13 +1,17 @@
 ---
-'$schema': /assets/schemas/blog.schema.yaml
+$schema: /assets/schemas/blog.schema.yaml
 title: The Case of the Unconnectable Docker Daemon
-description: "I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses to respond. From sneaking into group permissions and examining socket ownership to navigating Docker contexts and rootless environments, I follow each clue until the service speaks again."
-summary: "I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses to respond. From sneaking into group permissions and examining socket ownership to navigating Docker contexts and rootless environments, I follow each clue until the service speaks again."
-
-date: 2025-04-26T06:35:29+07:00
-publishDate: 2025-04-26T06:35:29+07:00
-lastmod: 2025-04-26T06:35:29+07:00
-
+description: >-
+  I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses
+  to respond. From sneaking into group permissions and examining socket
+  ownership to navigating Docker contexts and rootless environments, I follow
+  each clue until the service speaks again.
+summary: >-
+  I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses
+  to respond. From sneaking into group permissions and examining socket
+  ownership to navigating Docker contexts and rootless environments, I follow
+  each clue until the service speaks again.
+date: '2025-04-26T06:35:29+07:00'
 resources:
   - src: docker-forensics.png
 tags:
@@ -15,9 +19,7 @@ tags:
   - troubleshooting
   - forensics
   - 100DaysToOffload
-
 type: blog
-
 fmContentType: blog
 ---
 

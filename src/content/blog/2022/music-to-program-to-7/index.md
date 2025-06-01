@@ -1,6 +1,5 @@
 ---
-date: 2022-07-11T17:36:16.000Z
-lastmod: 2024-01-02T11:45:52.000Z
+date: '2022-07-12T00:36:16+07:00'
 title: Music to program to (Part 7)
 linkTitle: PM7
 tags:

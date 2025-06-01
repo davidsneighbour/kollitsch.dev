@@ -1,9 +1,7 @@
 ---
 title: Removing all local and remote tags in Git
 description: ''
-date: 2023-07-09T11:44:36.000Z
-publishDate: 2023-07-09T11:44:36.000Z
-lastmod: 2023-07-09T13:10:27.000Z
+date: '2023-07-09T18:44:36+07:00'
 resources:
   - title: >-
       Photo by [Henry & Co.](https://unsplash.com/@hngstrm) via

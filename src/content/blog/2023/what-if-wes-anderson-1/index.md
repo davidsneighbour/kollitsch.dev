@@ -1,6 +1,5 @@
 ---
-date: 2023-05-02T12:31:30.000Z
-lastmod: 2024-03-03T14:35:15.000Z
+date: '2023-05-02T19:31:30+07:00'
 title: What if Wes Anderson… (Part 1)
 description: >-
   What if Wes Anderson would have directed a Star Wars movie? I think it would

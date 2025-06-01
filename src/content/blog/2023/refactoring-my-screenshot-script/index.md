@@ -3,9 +3,7 @@ title: Refactoring my screenshot script
 description: >-
   I decided to rewrite my go-to-script to create a screenshot as header images
   of posts about a website a little bit.
-date: 2023-03-08T14:57:10.000Z
-publishDate: 2023-03-08T14:57:10.000Z
-lastmod: 2023-08-07T13:32:31.000Z
+date: '2023-03-08T21:57:10+07:00'
 resources:
   - title: >-
       Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via

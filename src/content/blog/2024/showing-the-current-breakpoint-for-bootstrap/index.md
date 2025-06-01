@@ -3,9 +3,7 @@ title: Showing the Current Breakpoint for Bootstrap
 linkTitle: Showing the Current Breakpoint for Bootstrap
 description: ''
 summary: ''
-date: 2024-01-03T14:42:52.000Z
-publishDate: 2024-01-03T14:42:52.000Z
-lastmod: 2024-01-03T15:00:32.000Z
+date: '2024-01-03T21:42:52+07:00'
 resources:
   - src: header.jpg
 tags:

@@ -4,9 +4,7 @@ description: >-
   Discover how I solved an ESBuild issue removing the unused 'themeSwitcher'
   function in my Alpine.js integration, and learn about Alpine.js startup
   nuances.
-date: 2023-11-11T14:16:05.000Z
-publishDate: 2023-11-11T14:16:05.000Z
-lastmod: 2023-11-11T14:35:27.000Z
+date: '2023-11-11T21:16:05+07:00'
 resources:
   - src: header.png
 tags:

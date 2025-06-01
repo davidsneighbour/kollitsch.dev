@@ -3,9 +3,7 @@ title: Howto get the next semver version number in a bash script
 description: >-
   Discover how to automate Semver version updates with a Bash script for a
   smoother release management process in your projects.
-date: 2023-10-23T15:09:53.000Z
-publishDate: 2023-10-23T15:09:53.000Z
-lastmod: 2023-10-23T15:56:28.000Z
+date: '2023-10-23T22:09:53+07:00'
 resources:
   - title: Versions of versions
     src: header.jpg

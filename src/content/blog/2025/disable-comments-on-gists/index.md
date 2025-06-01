@@ -10,9 +10,7 @@ summary: >-
   GitHub now allows users to disable comments on Gists, offering enhanced
   control and helping reduce spam and distractions. Learn how to enable this
   feature and keep your code snippets focused.
-date: 2025-01-10T14:26:18.000Z
-publishDate: 2025-01-10T14:26:18.000Z
-lastmod: 2025-01-10T14:32:48.000Z
+date: '2025-01-10T21:26:18+07:00'
 resources:
   - title: >-
       Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via

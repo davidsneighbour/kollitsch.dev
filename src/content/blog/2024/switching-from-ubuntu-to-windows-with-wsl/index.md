@@ -12,8 +12,7 @@ summary: >-
   experience, there are challenges, especially with mounting Linux file systems
   and certain development tools. However, it provides a decent solution for
   developers needing Linux on a Windows system.
-date: 2024-10-18T12:10:37.000Z
-lastmod: 2024-10-18T12:10:37.000Z
+date: '2024-10-18T19:10:37+07:00'
 resources:
   - title: >-
       Photo by [Clint Patterson](https://unsplash.com/@cbpsc1) via

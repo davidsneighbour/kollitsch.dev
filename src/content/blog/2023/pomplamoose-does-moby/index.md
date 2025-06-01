@@ -1,7 +1,5 @@
 ---
-date: 2023-07-25T16:16:02.000Z
-publishDate: 2023-07-25T16:16:02.000Z
-lastmod: 2024-01-02T11:45:52.000Z
+date: '2023-07-25T23:16:02+07:00'
 title: Pomplamoose does Moby
 description: >-
   Today I learned, that Pomplamoose did a cover of Moby's "Extreme Ways". Nuff

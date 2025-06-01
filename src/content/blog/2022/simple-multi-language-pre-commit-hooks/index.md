@@ -9,9 +9,7 @@ summary: >-
   This is one of the posts that spent months in draft (fka ideas) mode. Recently
   I got to convert some people to use the tool described by this post, so I
   thought I might as well add some context to it.
-date: 2022-08-14T15:28:21.000Z
-publishDate: 2022-08-14T15:28:21.000Z
-lastmod: 2024-03-03T14:32:25.000Z
+date: '2022-08-14T22:28:21+07:00'
 resources:
   - title: >-
       Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via

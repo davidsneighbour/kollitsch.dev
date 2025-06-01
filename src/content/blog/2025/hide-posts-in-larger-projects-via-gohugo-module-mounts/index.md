@@ -10,9 +10,7 @@ summary: >-
   older posts. Learn how a simple configuration hides content from specific
   years, reducing rebuild times for testing layouts, pagination, and other
   features. Ideal for blogs with decade-spanning archives.
-date: 2025-01-10T10:40:43.000Z
-publishDate: 2025-01-10T10:40:43.000Z
-lastmod: 2025-01-10T11:39:54.000Z
+date: '2025-01-10T17:40:43+07:00'
 resources:
   - title: Hiding in plain sight
     src: valeria-nikitina-li709Gx8v_w-unsplash.jpg

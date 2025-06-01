@@ -4,9 +4,7 @@ description: >-
   Google recently published a security scanner, that checks your files for
   vulnerabilities in your code. It connects and checks for all issues collected
   on the OSV database
-date: 2023-01-17T17:16:01.000Z
-publishDate: 2023-01-17T17:16:27.000Z
-lastmod: 2023-08-07T13:38:45.000Z
+date: '2023-01-18T00:16:01+07:00'
 resources:
   - src: header.jpg
     title: A hacker hacking away doing mischievous stuff.

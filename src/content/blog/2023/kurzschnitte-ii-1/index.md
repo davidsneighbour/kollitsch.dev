@@ -4,9 +4,7 @@ description: >-
   A collection of links I came across in recent weeks. These links were
   noteworthy to me, but I don't want to write a full blog post about them.
   Instead, I've gathered them here for you to enjoy.
-date: 2023-08-14T10:17:16.000Z
-publishDate: 2023-08-14T10:17:16.000Z
-lastmod: 2024-09-09T11:07:43.195Z
+date: '2023-08-14T17:17:16+07:00'
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

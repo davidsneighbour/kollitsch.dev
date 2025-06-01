@@ -4,9 +4,7 @@ description: >-
   Discover how to seamlessly handle optional npm scripts in various build
   environments using the --if-present flag. Avoid errors and streamline CI
   processes.
-date: 2023-11-19T11:15:06.000Z
-publishDate: 2023-11-19T11:15:06.000Z
-lastmod: 2023-11-20T13:18:22.000Z
+date: '2023-11-19T18:15:06+07:00'
 resources:
   - title: >-
       Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via

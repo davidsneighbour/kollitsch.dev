@@ -3,9 +3,7 @@ title: Protected .dotfile files with Keybase
 description: >-
   Adding all my secret files, keys, passwords and api strings into an encrypted
   repository on Keybase to add them to my dotfiles repository.
-date: 2022-11-06T11:29:12.000Z
-publishDate: 2022-11-06T11:29:12.000Z
-lastmod: 2023-08-22T13:48:13.000Z
+date: '2022-11-06T18:29:12+07:00'
 resources:
   - title: >-
       Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via

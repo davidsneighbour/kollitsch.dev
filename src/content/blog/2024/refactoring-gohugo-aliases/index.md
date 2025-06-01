@@ -3,9 +3,7 @@ $schema: /static/_schemata/blog.schema.yaml
 title: Refactoring Gohugo Aliases
 description: ''
 summary: ''
-date: 2024-02-26T11:29:02.000Z
-publishDate: 2024-02-26T11:29:02.000Z
-lastmod: 2024-02-26T13:15:20.000Z
+date: '2024-02-26T18:29:02+07:00'
 resources:
   - src: header.jpg
 tags:

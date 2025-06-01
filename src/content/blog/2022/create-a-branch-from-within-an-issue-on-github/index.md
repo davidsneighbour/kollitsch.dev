@@ -5,9 +5,7 @@ description: >-
   that's correlated to that issue. Branches connected to an issue are shown
   under the "Development" section, which has replaced "Linked pull requests", in
   the sidebar of an issue.
-date: 2022-03-02T16:46:51.000Z
-publishDate: 2022-03-02T16:46:51.000Z
-lastmod: 2022-03-02T16:46:51.000Z
+date: '2022-03-02T23:46:51+07:00'
 resources:
   - title: >-
       Photo by [Yancy Min](https://unsplash.com/@yancymin) via

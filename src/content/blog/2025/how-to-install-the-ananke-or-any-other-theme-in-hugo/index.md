@@ -1,26 +1,19 @@
 ---
-'$schema': /assets/schemas/blog.schema.yaml
+$schema: /assets/schemas/blog.schema.yaml
 title: How to install the Ananke (or any other) theme in GoHugo
-description: ""
-summary: ""
-
+description: ''
+summary: ''
 draft: true
-
-date: 2025-03-15T07:35:56+07:00
-publishDate: 2025-03-15T07:35:56+07:00
-lastmod: 2025-03-15T07:35:56+07:00
-
+date: '2025-03-15T07:35:56+07:00'
 resources:
-  - title: Photo by [Name](Link) via [Unsplash](https://unsplash.com/)
+  - title: 'Photo by [Name](Link) via [Unsplash](https://unsplash.com/)'
     name: image name if other than src
     src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
-
 tags:
   - ananke
   - gohugo
   - howto
   - 100DaysToOffload
-
 fmContentType: blog
 ---
 

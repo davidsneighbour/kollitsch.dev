@@ -4,9 +4,7 @@ linkTitle: Laboratory 2022-10
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.dev -
   October 2022 (and also September 2022, not that you missed it ;)
-date: 2022-11-01T15:01:40.000Z
-publishDate: 2022-11-01T15:01:40.000Z
-lastmod: 2024-09-09T11:07:44.036Z
+date: '2022-11-01T22:01:40+07:00'
 resources:
   - src: header.jpg
   - title: >-

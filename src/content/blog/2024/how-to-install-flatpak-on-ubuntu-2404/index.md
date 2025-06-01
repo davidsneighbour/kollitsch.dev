@@ -9,9 +9,7 @@ summary: >-
   In this guide, I'll walk you through the steps I took to set up Flatpak on
   Ubuntu, allowing to access a wide range of applications from Flathub, the
   leading Flatpak repository.
-date: 2024-09-28T14:59:41.751Z
-publishDate: 2024-09-28T14:59:41.751Z
-lastmod: 2024-09-28T16:16:42.869Z
+date: '2024-09-28T21:59:41+07:00'
 resources:
   - title: All the packages…
     src: getty-images-Hh_4mKRYAPM-unsplash.jpg

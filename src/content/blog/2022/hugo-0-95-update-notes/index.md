@@ -2,9 +2,7 @@
 title: Hugo 0.95 - Update Notes
 linkTitle: Hugo 0.95
 description: ''
-date: 2022-03-16T16:16:55.000Z
-publishDate: 2022-03-16T16:16:55.000Z
-lastmod: 2023-08-07T12:33:03.000Z
+date: '2022-03-16T23:16:55+07:00'
 resources:
   - title: GoHugo
     src: header.png

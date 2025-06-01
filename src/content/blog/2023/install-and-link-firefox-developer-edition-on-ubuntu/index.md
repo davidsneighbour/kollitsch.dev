@@ -1,9 +1,7 @@
 ---
 title: Install and link Firefox Developer Edition on Ubuntu
 description: ''
-date: 2023-03-10T14:44:58.000Z
-publishDate: 2023-03-10T14:44:58.000Z
-lastmod: 2023-08-07T12:30:54.000Z
+date: '2023-03-10T21:44:58+07:00'
 resources:
   - title: Firefox Developer Edition
     src: header.jpg

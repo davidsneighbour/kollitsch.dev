@@ -9,9 +9,7 @@ summary: >-
   My recent days were marked by the biennial (as in every two years) prematurely
   (I'll explain that in a later post) installation of a new Ubuntu LTS (**long**
   **term** **support**) version.
-date: 2024-04-26T12:09:08.000Z
-publishDate: 2024-04-26T12:09:08.000Z
-lastmod: 2024-04-26T12:09:08.000Z
+date: '2024-04-26T19:09:08+07:00'
 resources:
   - title: Ubuntu 24.04 - official wallpaper
     src: ubuntu-wallpaper-d.png

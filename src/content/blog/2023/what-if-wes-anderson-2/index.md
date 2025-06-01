@@ -1,6 +1,5 @@
 ---
-date: 2023-05-24T13:37:19.000Z
-lastmod: 2024-03-03T14:35:24.000Z
+date: '2023-05-24T20:37:19+07:00'
 title: What if Wes Anderson… (Part 2)
 description: >-
   What if Wes Anderson would have directed a horror movie? I think it would have

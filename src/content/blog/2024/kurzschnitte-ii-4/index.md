@@ -3,9 +3,7 @@ title: Kurzschnitte II - Number 4
 description: >-
   The fourth installment of Kurzschnitte II, where I'm sharing a collection of
   articles and tutorials that caught my attention in the past few weeks.
-date: 2024-05-26T12:32:43.000Z
-publishDate: 2024-05-26T12:32:43.000Z
-lastmod: 2024-09-09T11:07:34.971Z
+date: '2024-05-26T19:32:43+07:00'
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

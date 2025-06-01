@@ -5,9 +5,7 @@ description: >-
   Optimize your content organization in Hugo with page bundles and learn how to
   switch between leaf and branch bundles for optimal SEO and site structure.
 summary: ''
-date: 2023-06-19T12:45:19.000Z
-publishDate: 2023-06-19T12:45:19.000Z
-lastmod: 2023-06-21T11:41:57.000Z
+date: '2023-06-19T19:45:19+07:00'
 resources:
   - title: >-
       Photo by [Hitoshi Suzuki](https://unsplash.com/@hitoshi_suzuki) via

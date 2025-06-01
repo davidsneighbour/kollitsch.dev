@@ -4,9 +4,7 @@ title: 'How to fix `ReferenceError: __dirname is not defined in ES module scope`
 description: >-
   Replicate the missing `__dirname` and `__filename` variables from CommonJS in
   ES modules.
-date: 2024-08-12T12:04:31.000Z
-publishDate: 2024-08-12T12:04:31.000Z
-lastmod: 2024-08-12T12:04:31.000Z
+date: '2024-08-12T19:04:31+07:00'
 resources:
   - title: >-
       Photo by [Andrew Wulf](https://unsplash.com/@andreuuuw) via

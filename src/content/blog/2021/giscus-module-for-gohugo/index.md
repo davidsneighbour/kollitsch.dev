@@ -1,6 +1,6 @@
 ---
 title: Giscus Module for GoHugo
-date: 2021-10-27T13:25:27.000Z
+date: '2021-10-27T20:25:27+07:00'
 description: ''
 resources:
   - src: gerry-roarty-slkENpP5PbI-unsplash.jpg
@@ -12,7 +12,6 @@ tags:
   - static-websites
   - giscus
   - git
-lastmod: 2024-03-03T14:36:18.000Z
 fmContentType: blog
 ---
 

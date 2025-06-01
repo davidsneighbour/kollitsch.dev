@@ -5,9 +5,7 @@ title: >-
 description: >-
   Unlock VSCode's full potential: Customize file handlers for subfolders. A
   quick guide to boost productivity in Visual Studio Code.
-date: 2023-10-27T14:14:21.000Z
-publishDate: 2023-10-27T14:14:21.000Z
-lastmod: 2024-03-03T14:33:16.000Z
+date: '2023-10-27T21:14:21+07:00'
 resources:
   - title: >-
       Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via

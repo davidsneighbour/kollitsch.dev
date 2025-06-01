@@ -1,24 +1,18 @@
 ---
-'$schema': /assets/schemas/blog.schema.yaml
+$schema: /assets/schemas/blog.schema.yaml
 title: TOML - the misunderstood middle-child of configuration
-description: ""
-summary: ""
+description: ''
+summary: ''
 draft: true
-
-date: 2025-05-02T09:11:40+07:00
-publishDate: 2025-05-02T09:11:40+07:00
-lastmod: 2025-05-02T09:11:40+07:00
-
+date: '2025-05-02T09:11:40+07:00'
 resources:
   - title: Boxes.
     src: resource-database-qvbZz5rKAxI-unsplash.jpg
-
 tags:
   - toml
   - configuration
   - howto
   - 100DaysToOffload
-
 fmContentType: blog
 ---
 

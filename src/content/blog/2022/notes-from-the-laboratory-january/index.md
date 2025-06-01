@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-01
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   January 2022
-date: 2022-01-30T14:12:06.000Z
+date: '2022-01-30T21:12:06+07:00'
 resources:
   - src: header.jpg
     title: >-
@@ -17,7 +17,6 @@ tags:
   - davidsneighbour
 aliases:
   - /blog/2022/notes-from-the-laboratory-january-2022
-lastmod: 2024-09-09T11:07:47.516Z
 fmContentType: blog
 ---
 

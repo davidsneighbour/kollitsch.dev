@@ -4,9 +4,7 @@ description: >-
   Geoffrey Huntley writes an extensive explanation on how "Visual Studio Code is
   designed to fracture" and unburies some (well, expected) shadyness on the part
   of Microsoft.
-date: 2022-09-09T14:53:58.000Z
-publishDate: 2022-09-09T14:53:58.000Z
-lastmod: 2022-09-09T15:18:36.000Z
+date: '2022-09-09T21:53:58+07:00'
 resources:
   - title: 'The problem with VSCode, quote by Geoffrey Huntley'
     src: header.png

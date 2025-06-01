@@ -3,9 +3,7 @@ title: Music for the New Year
 description: >-
   Khruangbin @ Villain | Pitchfork Live - Some mellow music to let the year run
   out to. No more programming for last 10 hours ;)
-date: 2021-12-31T06:24:14.000Z
-publishDate: 2021-12-31T06:24:14.000Z
-lastmod: 2024-01-02T11:45:52.000Z
+date: '2021-12-31T13:24:14+07:00'
 resources:
   - src: hero.png
     title: Khruangbin @ Villain | Pitchfork Live

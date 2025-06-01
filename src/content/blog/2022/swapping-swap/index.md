@@ -3,9 +3,7 @@ type: blog
 title: Swapping swap
 description: ''
 summary: ''
-date: 2022-06-06T12:33:56.000Z
-publishDate: 2022-06-06T12:33:56.000Z
-lastmod: 2023-08-07T13:23:27.000Z
+date: '2022-06-06T19:33:56+07:00'
 resources:
   - title: >-
       Photo by [Glen Noble](https://unsplash.com/@glennoble) via

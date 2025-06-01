@@ -5,9 +5,7 @@ description: >-
   I am trying this new "thing" of "reporting" what I was up to in a certain
   period this year, and monthly reviews just sound like something normal people
   would do. Bear with me while I am typing up this report.
-date: 2023-08-02T09:43:48.000Z
-publishDate: 2023-08-02T09:43:48.000Z
-lastmod: 2024-09-09T11:07:38.087Z
+date: '2023-08-02T16:43:48+07:00'
 resources:
   - src: header.jpg
     title: >-

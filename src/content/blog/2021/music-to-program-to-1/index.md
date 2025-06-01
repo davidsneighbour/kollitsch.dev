@@ -1,6 +1,6 @@
 ---
 title: Music to program to (Part I)
-date: 2021-10-26T15:08:33.000Z
+date: '2021-10-26T22:08:33+07:00'
 linkTitle: Music to program to I
 tags:
   - programming-music
@@ -11,7 +11,6 @@ video:
 type: music
 resources:
   - src: header.jpg
-lastmod: 2024-01-02T11:45:52.000Z
 fmContentType: blog
 ---
 

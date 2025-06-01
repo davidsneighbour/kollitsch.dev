@@ -4,9 +4,7 @@ linkTitle: Laboratory 2023-05
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.dev -
   May 2023
-date: 2023-06-03T12:35:55.000Z
-publishDate: 2023-06-03T12:35:55.000Z
-lastmod: 2024-09-09T11:07:36.284Z
+date: '2023-06-03T19:35:55+07:00'
 resources:
   - src: header.jpg
     title: >-

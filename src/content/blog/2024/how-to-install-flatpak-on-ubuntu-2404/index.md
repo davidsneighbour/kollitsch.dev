@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: How to Install Flatpak on Ubuntu 24.04
 description: >-
   In this guide, I'll walk you through the steps I took to set up Flatpak on

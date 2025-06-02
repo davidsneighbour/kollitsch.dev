@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Tom Cruise's directorial debut
 description: >-
   Discover Tom Cruise's directorial debut in Fallen Angels. Grifter Mitch

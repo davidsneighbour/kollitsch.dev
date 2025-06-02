@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: How to use GoHugo modules
 description: >-
   In the world of GoHugo, **modules** serve as the building blocks that allow

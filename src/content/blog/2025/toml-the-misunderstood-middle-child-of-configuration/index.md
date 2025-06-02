@@ -1,5 +1,4 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
 title: TOML - the misunderstood middle-child of configuration
 description: ''
 summary: ''

@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Ping Goes Poof
 linkTitle: Ping Goes Poof
 description: ''

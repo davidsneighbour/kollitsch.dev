@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Grief
 linkTitle: Grief
 description: >-

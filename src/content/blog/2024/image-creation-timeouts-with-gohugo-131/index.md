@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Image creation timeouts with Gohugo v0.131.0
 description: ''
 summary: ''

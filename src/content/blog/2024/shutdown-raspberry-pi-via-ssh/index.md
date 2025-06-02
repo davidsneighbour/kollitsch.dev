@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Shutdown Raspberry Pi via SSH
 description: >-
   A quick guide to shutting down your Raspberry Pi via SSH without a password.

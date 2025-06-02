@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Refactoring Gohugo Aliases
 description: ''
 summary: ''

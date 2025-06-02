@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Bash Function to Remove Github Ghost Notifications
 description: ''
 summary: ''

@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Fixing post previews in VSCode with Front Matter
 description: >-
   VSCode Front Matter may not recognize Hugo blog posts if fmContentType is

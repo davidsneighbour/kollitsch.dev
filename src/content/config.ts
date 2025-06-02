@@ -13,6 +13,7 @@ export const blog = defineCollection({
       // cover: image().optional(),
       cover: z.string().optional(),
       fmContentType: z.string().optional(),
+      aliases: z.array(z.string()).optional(),
       resources: z
         .array(
           z.object({

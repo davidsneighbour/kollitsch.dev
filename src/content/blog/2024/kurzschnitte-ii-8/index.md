@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - The eighth
 description: >-
   Explore web development tools, learning resources on CSS and JavaScript, plus

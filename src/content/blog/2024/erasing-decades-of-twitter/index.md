@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Erasing ~2 decades of Twitter
 description: ''
 summary: ''

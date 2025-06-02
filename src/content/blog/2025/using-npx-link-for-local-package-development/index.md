@@ -1,5 +1,4 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
 title: Using `npx link` for local package development
 description: ''
 summary: ''

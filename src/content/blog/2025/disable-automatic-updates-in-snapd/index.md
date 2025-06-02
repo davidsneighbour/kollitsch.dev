@@ -1,5 +1,4 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
 title: Disable automatic updates in Snapd
 description: ''
 summary: ''

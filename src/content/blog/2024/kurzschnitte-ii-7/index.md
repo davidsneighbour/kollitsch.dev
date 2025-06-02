@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - Pt. 7
 description: >-
   Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically

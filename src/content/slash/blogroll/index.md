@@ -1,5 +1,4 @@
 ---
-'$schema': /assets/schemas/blog.schema.yaml
 title: /blogroll
 linktitle: blogroll
 description: ""

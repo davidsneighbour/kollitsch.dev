@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: How to install a specific version of a program via Snap
 description: ''
 summary: ''

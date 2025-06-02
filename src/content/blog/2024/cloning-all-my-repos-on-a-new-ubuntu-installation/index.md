@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Cloning All My Repos on a New Ubuntu Installation
 linkTitle: Cloning All My Repos on a New Ubuntu Installation
 description: >-

@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: 'Switching content types in Hugo: A step-by-step guide'
 description: >-
   Optimize your content organization in Hugo with page bundles and learn how to

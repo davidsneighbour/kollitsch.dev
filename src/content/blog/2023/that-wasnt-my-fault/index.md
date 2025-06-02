@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: That wasn't my fault
 date: '2023-04-21T21:33:04+07:00'
 resources:

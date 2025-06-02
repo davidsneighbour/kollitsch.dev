@@ -1,5 +1,4 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
 title: 'Shut Up, Don''t Talk'
 description: ''
 summary: ''

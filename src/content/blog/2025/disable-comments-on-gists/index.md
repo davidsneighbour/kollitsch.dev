@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Disable Comments on Gists
 linkTitle: Disable Comments on Gists
 description: >-

@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/m2p2.schema.yaml
 title: 'Music to Program to, Part 10'
 description: ''
 tags:
@@ -18,4 +17,3 @@ date: '2024-08-25T18:41:03+07:00'
 fmContentType: blog
 cover: header.jpg
 ---
-

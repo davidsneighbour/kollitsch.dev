@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: The official Netflix trailer for Exploding Kittens (the series) is out
 description: >-
   In the Exploding Kittens series, God (Tom Ellis) is fired, reborn as a cat,

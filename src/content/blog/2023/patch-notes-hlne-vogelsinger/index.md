@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: 'Patch Notes: Hélène Vogelsinger'
 description: >-
   As part of the practice behind Hélène Vogelsinger's modular synth

@@ -1,5 +1,4 @@
 ---
-$schema: /assets/schemas/blog.schema.yaml
 title: How to install the Ananke (or any other) theme in GoHugo
 description: ''
 summary: ''

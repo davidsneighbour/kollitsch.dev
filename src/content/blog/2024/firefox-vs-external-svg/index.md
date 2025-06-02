@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Firefox vs. external SVGs
 description: >-
   While I was working on my Content Security Policies (CSP) last week I found
@@ -99,4 +98,3 @@ I chose the second method, as I wanted to keep my CSP as restrictive as possible
 **TL;DR**
 
 Firefox blocks external SVG sprites when using `default-src 'none'` in your CSP. Inline them in the HTML to bypass the issue. 
-

@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: '`scroll-margin-top` property in CSS'
 description: >-
   Simplify anchor link navigation with CSS's modern `scroll-margin-top`

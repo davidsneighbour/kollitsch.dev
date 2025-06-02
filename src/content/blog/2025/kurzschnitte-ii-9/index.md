@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Kurzschnitte II - a ninth part
 description: ''
 summary: ''

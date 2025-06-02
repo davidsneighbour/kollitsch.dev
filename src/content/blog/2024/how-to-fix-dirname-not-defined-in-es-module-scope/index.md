@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: 'How to fix `ReferenceError: __dirname is not defined in ES module scope`'
 description: >-
   Replicate the missing `__dirname` and `__filename` variables from CommonJS in

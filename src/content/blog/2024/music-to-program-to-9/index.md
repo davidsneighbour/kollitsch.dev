@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/m2p2.schema.yaml
 title: Music to Program to (Part 9)
 description: A very nice song by Glass Animals from before they were TikTok famous.
 tags:

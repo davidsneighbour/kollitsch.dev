@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: Creating a Hugo site index
 description: >-
   How to export all the content of your Hugo website to a JSON file, to populate

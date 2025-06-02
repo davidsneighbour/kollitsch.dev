@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: .well-known avatar URL for kollitsch.dev
 description: >-
   This post explains how I set up a .well-known/avatar URL on my site using

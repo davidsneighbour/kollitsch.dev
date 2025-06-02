@@ -1,5 +1,4 @@
 ---
-$schema: /static/_schemata/blog.schema.yaml
 title: When Bambi met Godzilla
 description: >-
   Explore Marv Newland's iconic "Bambi Meets Godzilla" animation and Coda

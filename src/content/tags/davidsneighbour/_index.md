@@ -4,7 +4,7 @@ resources:
   - title: "@davidsneighbour"
     src: header-logo.png
 lastmod: 2023-06-26T23:59:37+07:00
-alias:
+aliases:
   - /tags/dnb-org/
 icon: person-bounding-box
 class: info

@@ -9,6 +9,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   //"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
+  // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
   "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
   "prettier.configPath": "prettier.config.js",
   "prettier.bracketSpacing": true,

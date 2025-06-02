@@ -1,5 +1,5 @@
 import path from 'node:path';
-import netlify from '@astrojs/netlify';
+// import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -21,9 +21,9 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'viewport',
   },
-  adapter: netlify({
-    imageCDN: false,
-  }),
+  // adapter: netlify({
+  //   imageCDN: false,
+  // }),
   // // redirects that will be added to the public/_redirects file
   redirects: {
     '/old': '/new',
@@ -34,8 +34,8 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    sitemap(), // https://github.com/shishkin/astro-pagefind
-    pagefind({
+    sitemap(),
+    pagefind({ // https://github.com/shishkin/astro-pagefind
       indexConfig: {
         keepIndexUrl: true,
       },

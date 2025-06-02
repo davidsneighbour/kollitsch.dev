@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
 
 export const blog = defineCollection({
-  schema: ({ image }) =>
+  // schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       description: z.string().optional(),
@@ -10,6 +11,8 @@ export const blog = defineCollection({
       tags: z.array(z.string()).optional(),
       draft: z.boolean().optional(),
       // cover: image().optional(),
+      cover: z.string().optional(),
+      fmContentType: z.string().optional(),
       resources: z
         .array(
           z.object({

@@ -31,9 +31,11 @@ const baseUrl = import.meta.env.BASE_URL;
 <meta property="twitter:title" content={props.title} />
 <meta property="twitter:description" content={props.description} />
 <meta property="twitter:image" content={props.image} />
+
 <ClientRouter />
+
 <ThemeManager defaultTheme="auto" />
-<link rel="sitemap" href="/sitemap-index.xml" />
+
 {Object.entries(metaData.name).map(([name, content]) => (
   <meta name={name} content={content} />
 ))}
@@ -42,3 +44,4 @@ const baseUrl = import.meta.env.BASE_URL;
 ))}
 
 <meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />

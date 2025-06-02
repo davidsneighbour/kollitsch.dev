@@ -13,6 +13,8 @@ import { defineConfig } from 'astro/config';
 import sentry from '@sentry/astro';
 import spotlightjs from '@spotlightjs/astro';
 
+import icon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kollitsch.dev/',
@@ -32,32 +34,25 @@ export default defineConfig({
       destination: 'https://example.com/news',
     },
   },
-  integrations: [
-    react(),
-    sitemap(),
-    pagefind({ // https://github.com/shishkin/astro-pagefind
-      indexConfig: {
-        keepIndexUrl: true,
-      },
-    }), // https://github.com/felix-berlin/astro-matomo
-    matomo({
-      enabled: import.meta.env.PROD, // Only load in production
-      host: 'https://analytics.dnbhub.xyz/',
-      siteId: 1,
-      setCookieDomain: '*.kollitsch.dev',
-      heartBeatTimer: 5,
-      disableCookies: true,
-      debug: false,
-      partytown: true,
-      preconnect: true,
-      viewTransition: {
-        contentElement: 'main',
-      },
-    }),
-    partytown(),
-    sentry(),
-    spotlightjs(),
-  ],
+  integrations: [react(), sitemap(), // https://github.com/felix-berlin/astro-matomo
+  pagefind({ // https://github.com/shishkin/astro-pagefind
+    indexConfig: {
+      keepIndexUrl: true,
+    },
+  }), matomo({
+    enabled: import.meta.env.PROD, // Only load in production
+    host: 'https://analytics.dnbhub.xyz/',
+    siteId: 1,
+    setCookieDomain: '*.kollitsch.dev',
+    heartBeatTimer: 5,
+    disableCookies: true,
+    debug: false,
+    partytown: true,
+    preconnect: true,
+    viewTransition: {
+      contentElement: 'main',
+    },
+  }), partytown(), sentry(), spotlightjs(), icon()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -70,6 +65,7 @@ export default defineConfig({
       },
     },
   },
+  server: { host: true},
   experimental: {
     responsiveImages: true,
     contentIntellisense: true,

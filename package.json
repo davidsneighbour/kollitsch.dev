@@ -28,6 +28,7 @@
     "@types/react": "19.1.6",
     "@types/react-dom": "19.1.5",
     "astro": "5.8.1",
+    "astro-icon": "^1.1.5",
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",
     "clsx": "2.1.1",
@@ -51,6 +52,7 @@
     "@davidsneighbour/eslint-config": "2025.2.3",
     "@davidsneighbour/release-config": "2025.2.3",
     "@davidsneighbour/remark-config": "2025.2.3",
+    "@iconify-json/bi": "^1.2.4",
     "@playwright/test": "1.52.0",
     "@secretlint/secretlint-rule-no-dotenv": "9.3.3",
     "@secretlint/secretlint-rule-no-homedir": "9.3.3",
@@ -98,8 +100,8 @@
     "compile:package": "wireit",
     "deploy": "netlify deploy --prod --open",
     "dev": "DEBUG_FRONTMATTER=true astro dev --verbose",
-    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
-    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 4321 proto tcp comment \"Allow dev server on LAN\" || true'",
+    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 4321 proto tcp || true'",
     "hooks:update": "simple-git-hooks",
     "lighthouse": "bin/audit/lighthouse",
     "lint": "wireit",
@@ -132,15 +134,22 @@
   },
   "wireit": {
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -181,7 +190,9 @@
     },
     "compile:package": {
       "command": "npm run lint:fixpack",
-      "dependencies": ["compile:package:run"]
+      "dependencies": [
+        "compile:package:run"
+      ]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -190,11 +201,16 @@
       "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
     },
     "clean": {
-      "dependencies": ["clean:astro"]
+      "dependencies": [
+        "clean:astro"
+      ]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist"

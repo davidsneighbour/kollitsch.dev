@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
 console.log('Current Path:', currentPath);
 
 import siteinfo from '@data/siteinfo.json';
-
+import { Icon } from 'astro-icon/components';
 // @todo re-add progress bar
 
 ---
@@ -22,7 +22,15 @@ import siteinfo from '@data/siteinfo.json';
   <nav class="mx-auto flex max-w-7xl items-center justify-between" aria-label="Global">
     <a id="navbar-brand" href={siteinfo.url}
         class="-m-1.5 p-1.5 font-changa text-orange-700 text-2xl
-                transition-opacity ease-in-out duration-600">{siteinfo.title}</a>
+                transition-opacity ease-in-out duration-600
+
+                flex flex-rows items-center gap-2
+                ">
+
+<Icon name="bi:house-fill" class="place-self-center" />
+<span>{siteinfo.title}</span>
+
+              </a>
     <div class="flex lg:hidden">
       <button type="button"
               class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
@@ -47,6 +55,7 @@ import siteinfo from '@data/siteinfo.json';
               bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
+          <Icon name="bi:house-door"/>
           <span class="sr-only">
             KOLLITSCH.dev*
           </span>

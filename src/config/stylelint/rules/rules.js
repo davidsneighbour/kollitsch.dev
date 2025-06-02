@@ -23,7 +23,7 @@ const rules = {
   'at-rule-no-unknown': [
     true,
     {
-      ignoreAtRules: ['apply', 'tailwind', 'layer', 'screen'],
+      ignoreAtRules: ['theme', 'custom-variant', 'plugin'],
     },
   ],
   'at-rule-no-vendor-prefix': true,

@@ -1,17 +1,15 @@
 // @see https://github.com/lint-staged/lint-staged
 export default {
-
-  '*.y(aml|ml)': [
-
-    'yamllint --config-file src/config/yamllint.yml',
-
-  ],
+  '*.y(aml|ml)': ['yamllint --config-file src/config/yamllint.yml'],
 
   '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}': [
     'biome check --write --no-errors-on-unmatched',
   ],
 
-  '*.{scss,css}': ['stylelint --fix', 'prettier --write'],
+  '*.{scss,css}': [
+    'stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore ',
+    'prettier --write',
+  ],
 
   '*.jsonnet': ['jsonnetfmt --in-place'],
 

@@ -9,18 +9,23 @@ console.log('Current Path:', currentPath);
 
 import siteinfo from '@data/siteinfo.json';
 
+// @todo re-add progress bar
+
 ---
 
+<h1 id="sitetitle" class="font-changa text-9xl mx-auto text-orange-700">
+  {siteinfo.title}
+</h1>
 <header class="sticky top-0 z-50
          bg-white/95 backdrop-blur-lg border-b border-gray-200
          dark:bg-gray-900/95 dark:border-gray-800">
   <nav class="mx-auto flex max-w-7xl items-center justify-between" aria-label="Global">
-    <a href={siteinfo.url} class="-m-1.5 p-1.5 font-changa text-orange-700 text-2xl">
-      {siteinfo.title}
-    </a>
+    <a id="navbar-brand" href={siteinfo.url}
+        class="-m-1.5 p-1.5 font-changa text-orange-700 text-2xl
+                transition-opacity ease-in-out duration-600">{siteinfo.title}</a>
     <div class="flex lg:hidden">
       <button type="button"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
         <span class="sr-only">Open main menu</span>
         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -31,7 +36,7 @@ import siteinfo from '@data/siteinfo.json';
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       {navData.map(value => (
-        <a href={value.link} class="text-sm/6 font-semibold text-gray-900">{value.label}</a>
+        <a href={value.link} class="text-sm/6 font-semibold">{value.label}</a>
       ))}
       <ThemeSelect hideAuto />
     </div>
@@ -82,3 +87,35 @@ import siteinfo from '@data/siteinfo.json';
     /* CSS variables */
   }
 </style>
+
+<script>
+// show #sitetitle only when header is sticky
+const placeholder = document.querySelector('#sitetitle');
+const stickyBrand = document.querySelector('#navbar-brand');
+console.log(placeholder, stickyBrand);
+if (!placeholder || !stickyBrand) {
+  console.warn('Placeholder or sticky brand element not found.');
+}
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) {
+      stickyBrand.classList.add('opacity-100');
+      stickyBrand.classList.remove('opacity-0');
+    } else {
+      stickyBrand.classList.remove('opacity-100');
+      stickyBrand.classList.add('opacity-0');
+    }
+  },
+  { threshold: 0 },
+);
+observer.observe(placeholder);
+// Force initial state check
+const isIntersecting =
+  placeholder.getBoundingClientRect().top >= 0 &&
+  placeholder.getBoundingClientRect().bottom > 0;
+if (!isIntersecting) {
+  stickyBrand.classList.add('sticky-visible');
+} else {
+  stickyBrand.classList.remove('sticky-visible');
+}
+</script>

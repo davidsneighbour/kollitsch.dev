@@ -1,94 +1,131 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
 @layer theme;
-@import "./theme.css" layer(theme);
+
+@import './theme.css' layer(theme);
 
 @custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
 
 @font-face {
-	font-family: exo2;
-	src: url(/fonts/exo/normal.woff2) format("woff2") tech("variations"),
-		url(/fonts/exo/normal.woff2) format("woff2-variations");
-	font-weight: 100 900;
-	font-style: normal;
-	font-display: fallback;
-	text-rendering: optimizelegibility;
+  font-family: 'exo2';
+  src:
+    url('/fonts/exo/normal.woff2') format('woff2') tech('variations'),
+    url('/fonts/exo/normal.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: fallback;
+  text-rendering: optimizelegibility;
 }
 
 @font-face {
-	font-family: exo2;
-	src: url(/fonts/exo/italic.woff2) format("woff2") tech("variations"),
-		url(/fonts/exo/italic.woff2) format("woff2-variations");
-	font-weight: 100 900;
-	font-style: italic;
-	font-display: swap;
-	text-rendering: optimizelegibility;
+  font-family: 'exo2';
+  src:
+    url('/fonts/exo/italic.woff2') format('woff2') tech('variations'),
+    url('/fonts/exo/italic.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizelegibility;
 }
 
 @font-face {
-	font-family: jetbrainsmono;
-	src: url(/fonts/jetbrainsmono/JetBrainsMono[wght].woff2) format("woff2") tech("variations"),
-		url(/fonts/jetbrainsmono/JetBrainsMono[wght].woff2) format("woff2-variations");
-	font-weight: 100 800;
-	font-style: normal;
-	font-display: fallback;
-	text-rendering: optimizelegibility;
+  font-family: jetbrainsmono;
+  src:
+    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2') format('woff2')
+      tech('variations'),
+    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2')
+      format('woff2-variations');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: fallback;
+  text-rendering: optimizelegibility;
 }
 
 @font-face {
-	font-family: jetbrainsmono;
-	src: url(/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2) format("woff2") tech("variations"),
-		url(/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2) format("woff2-variations");
-	font-weight: 100 800;
-	font-style: italic;
-	font-display: swap;
-	text-rendering: optimizelegibility;
+  font-family: jetbrainsmono;
+  src:
+    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2') format('woff2')
+      tech('variations'),
+    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2')
+      format('woff2-variations');
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizelegibility;
 }
 
 @font-face {
-	font-family: changa;
-	src: url(/fonts/changa/changaone-regular-webfont.woff2) format("woff2"),
-		url(/fonts/changa/changaone-regular-webfont.woff2) format("woff2-variations");
-	font-weight: 400;
-	font-style: normal;
-	font-display: fallback;
-	text-rendering: optimizelegibility;
+  font-family: changa;
+  src:
+    url('/fonts/changa/changaone-regular-webfont.woff2') format('woff2'),
+    url('/fonts/changa/changaone-regular-webfont.woff2')
+      format('woff2-variations');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+  text-rendering: optimizelegibility;
 }
 
 @font-face {
-	font-family: changa;
-	src: url(/fonts/changa/changaone-italic-webfont.woff2) format("woff2"),
-		url(/fonts/changa/changaone-italic-webfont.woff2) format("woff2-variations");
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
-	text-rendering: optimizelegibility;
+  font-family: changa;
+  src:
+    url('/fonts/changa/changaone-italic-webfont.woff2') format('woff2'),
+    url('/fonts/changa/changaone-italic-webfont.woff2')
+      format('woff2-variations');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  text-rendering: optimizelegibility;
 }
 
-body {
-	font-family: var(--font-exo2);
-	font-size: 1rem;
-	line-height: 1.5;
-}
-
-h1, h2, h3, h4, h5, h6 {
+.font-changa {
   font-family: var(--font-changa);
+
+  /* Changa is only available via weight 400 */
   font-weight: 400;
 }
 
+.font-exo2 {
+  font-family: var(--font-exo2);
+}
+
+.font-jetbrainsmono {
+  font-family: var(--font-jetbrainsmono);
+}
+
+body {
+  font-family: var(--font-exo2);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-changa);
+
+  /* Changa is only available via weight 400 */
+  font-weight: 400;
+}
 
 /* if the user hjas no scripting capabilities then use the light theme if they prefer it */
 @layer base {
-	@media (scripting: none) {
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- this is ok */
+  @media (scripting: none) {
     #theme-toggle {
       display: none;
     }
-		@media (prefers-color-scheme: light) {
-			:root {
-				/* @apply light; */
-			}
-		}
-	}
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        /* @apply light; */
+      }
+    }
+  }
 }

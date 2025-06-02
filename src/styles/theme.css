@@ -1,12 +1,10 @@
 @theme {
-
-  --font-exo2: "exo2", sans-serif;
-	--font-jetbrainsmono: "jetbrainsmono", monospace;
-	--font-changa: "changa", sans-serif;
+  --font-exo2: 'exo2', sans-serif;
+  --font-jetbrainsmono: 'jetbrainsmono', monospace;
+  --font-changa: 'changa', sans-serif;
 
   /* use --spacing(4); for spacing based on this */
   --spacing: 0.25rem;
-
 }
 
 /*******************************************************************************
@@ -14,10 +12,8 @@
  * referenced variable and not the variable name.
  ******************************************************************************/
 @theme inline {
-
-	--font-sans: var(--font-exo2);
-	--font-mono: var(--font-jetbrainsmono);
-
+  --font-sans: var(--font-exo2);
+  --font-mono: var(--font-jetbrainsmono);
 }
 
 /*******************************************************************************
@@ -25,7 +21,7 @@
  * of being used. The other @theme sections will only compile used variables.
  ******************************************************************************/
 @theme static {
-
+  /* left empty intentionally */
 }
 
 /* THEME DEFAULTS

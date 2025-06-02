@@ -1,34 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
 
 import Layout from '@layouts/SiteWrapper.astro';
-
-import { Debug } from 'astro:components';
-
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-
 import '@styles/global.css';
-
-const props = Astro.props;
-
-
-import { getEntry } from 'astro:content';
-
-const thailand = await getEntry('thailand', 'THA');
-
+import siteinfo from '@data/siteinfo.json';
 
 ---
 
 <Layout>
   <div class="min-h-screen flex flex-col">
+    <h1 class="font-changa text-9xl mx-auto text-orange-700">
+      {siteinfo.title}
+    </h1>
     <Header />
-    <main class="flex-grow mx-auto max-w-4xl">
-      <slot name="maincontent" />
+    <main class="flex-grow mx-auto max-w-4xl z-10">
+      <slot />
     </main>
-    <Debug thailand={thailand} />
     <Footer />
-    <Debug props={Astro.props} />
-    <Debug properties={props} />
   </div>
 </Layout>

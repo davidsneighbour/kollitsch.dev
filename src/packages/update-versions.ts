@@ -37,6 +37,25 @@ function replaceVersions(
 }
 
 /**
+ * Collect all used dependencies across all JSONC config files
+ */
+function collectUsedDeps(files: string[]): Set<string> {
+  const used = new Set<string>();
+
+  for (const file of files) {
+    const json = loadJsonc(file);
+    for (const section of ['dependencies', 'devDependencies'] as const) {
+      const deps = json[section];
+      if (deps && typeof deps === 'object') {
+        Object.keys(deps).forEach((dep) => used.add(dep));
+      }
+    }
+  }
+
+  return used;
+}
+
+/**
  * Main execution
  */
 async function main() {
@@ -45,6 +64,7 @@ async function main() {
 
   const files = await glob('./src/packages/*/*.jsonc');
 
+  // Step 1: Update versions
   for (const file of files) {
     const json = loadJsonc(file);
 
@@ -54,6 +74,27 @@ async function main() {
     } else {
       console.log(`✘ No changes: ${file}`);
     }
+  }
+
+  // Step 2: List unused dependencies
+  const usedDeps = collectUsedDeps(files);
+  const unusedEntries: string[] = [];
+
+  for (const section of ['dependencies', 'devDependencies'] as const) {
+    const deps = rootPkg[section];
+    if (!deps) continue;
+    for (const [dep, version] of Object.entries(deps)) {
+      if (!usedDeps.has(dep)) {
+        unusedEntries.push(`  "${dep}": "${version}",`);
+      }
+    }
+  }
+
+  if (unusedEntries.length > 0) {
+    console.log('\n🔍 Unused dependencies from root package.json:');
+    unusedEntries.sort().forEach((line) => console.log(line));
+  } else {
+    console.log('\n✅ All dependencies are used.');
   }
 }
 

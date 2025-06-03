@@ -1,18 +1,12 @@
+import { defineConfig } from 'astro/config';
 import path from 'node:path';
-// import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
-
-// @ts-check
-import { defineConfig } from 'astro/config';
-
 import sentry from '@sentry/astro';
 import spotlightjs from '@spotlightjs/astro';
-
 import icon from 'astro-icon';
 
 // https://astro.build/config
@@ -23,9 +17,6 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'viewport',
   },
-  // adapter: netlify({
-  //   imageCDN: false,
-  // }),
   // // redirects that will be added to the public/_redirects file
   redirects: {
     '/old': '/new',
@@ -34,25 +25,33 @@ export default defineConfig({
       destination: 'https://example.com/news',
     },
   },
-  integrations: [react(), sitemap(), // https://github.com/felix-berlin/astro-matomo
-  pagefind({ // https://github.com/shishkin/astro-pagefind
-    indexConfig: {
-      keepIndexUrl: true,
-    },
-  }), matomo({
-    enabled: import.meta.env.PROD, // Only load in production
-    host: 'https://analytics.dnbhub.xyz/',
-    siteId: 1,
-    setCookieDomain: '*.kollitsch.dev',
-    heartBeatTimer: 5,
-    disableCookies: true,
-    debug: false,
-    partytown: true,
-    preconnect: true,
-    viewTransition: {
-      contentElement: 'main',
-    },
-  }), partytown(), sentry(), spotlightjs(), icon()],
+  integrations: [
+    sitemap(), // https://github.com/felix-berlin/astro-matomo
+    pagefind({
+      // https://github.com/shishkin/astro-pagefind
+      indexConfig: {
+        keepIndexUrl: true,
+      },
+    }),
+    matomo({
+      enabled: import.meta.env.PROD, // Only load in production
+      host: 'https://analytics.dnbhub.xyz/',
+      siteId: 1,
+      setCookieDomain: '*.kollitsch.dev',
+      heartBeatTimer: 5,
+      disableCookies: true,
+      debug: false,
+      partytown: true,
+      preconnect: true,
+      viewTransition: {
+        contentElement: 'main',
+      },
+    }),
+    partytown(),
+    sentry(),
+    spotlightjs(),
+    icon(),
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -65,7 +64,7 @@ export default defineConfig({
       },
     },
   },
-  server: { host: true},
+  server: { host: true },
   experimental: {
     responsiveImages: true,
     contentIntellisense: true,

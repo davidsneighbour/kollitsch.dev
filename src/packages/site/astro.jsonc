@@ -10,7 +10,6 @@
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",
     "clsx": "2.1.1",
-    "framer-motion": "12.16.0",
     "glob": "11.0.2",
     "gray-matter": "4.0.3",
     "netlify-cli": "21.5.2",

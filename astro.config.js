@@ -3,6 +3,7 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
+import beep from '@rollup/plugin-beep';
 import sentry from '@sentry/astro';
 import spotlightjs from '@spotlightjs/astro';
 import tailwindcss from '@tailwindcss/vite';
@@ -58,7 +59,7 @@ export default defineConfig({
     icon(),
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), beep()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src/'),

@@ -9,7 +9,6 @@ const { full = false, class: extraClasses = '' } = Astro.props;
 
 // html classes
 const htmlClasses = [
-  'dark',
   'scheme-light',
   'dark:scheme-dark',
   'scroll-smooth',
@@ -21,6 +20,7 @@ const htmlClasses = [
 const bodyClasses = [
   'min-h-screen',
   'overflow-y-scroll',
+  'bg-orange-50 dark:bg-slate-950',
   full && 'h-full'
 ].filter(Boolean).join(' ');
 

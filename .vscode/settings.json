@@ -54,5 +54,6 @@
 
   "editor.codeActionsOnSave": {
     "source.fixAll.markdownlint": "always"
-  }
+  },
+  "indentRainbow.indicatorStyle": "light"
 }

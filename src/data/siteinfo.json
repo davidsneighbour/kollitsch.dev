@@ -2,5 +2,6 @@
 	"title": "KOLLITSCH.dev*",
 	"description": "A personal blog and portfolio site showcasing my projects, thoughts, and experiences in web development.",
 	"author": "Patrick Kollitsch",
-	"url": "https://kollitsch.dev/"
+	"url": "https://kollitsch.dev/",
+  "fallback": "/src/assets/images/fallback.jpg"
 }

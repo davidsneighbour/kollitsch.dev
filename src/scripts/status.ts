@@ -4,6 +4,15 @@ import { fileURLToPath } from 'url';
 
 const root = path.resolve(fileURLToPath(import.meta.url), '../../');
 
+process.removeAllListeners('warning');
+process.on('warning', (warning) => {
+  if (warning.name === 'ExperimentalWarning' && warning.message.includes('Type Stripping')) {
+    // Do nothing — explicitly ignored
+  } else {
+    console.warn(warning);
+  }
+});
+
 // Utility: Recursively get files under a directory
 async function getFiles(dir, base = dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -28,10 +37,10 @@ async function summarizeDirectory(name, relPath, extensions = ['.astro', '.md', 
 
 console.log('📦 kollitsch.dev-astro project status\n');
 
-await summarizeDirectory('Pages', 'src/pages');
-await summarizeDirectory('Content', 'src/content', ['.md']);
-await summarizeDirectory('Layouts', 'src/layouts');
-await summarizeDirectory('Components', 'src/components');
-await summarizeDirectory('Scripts', 'scripts', ['.mjs', '.sh', '.ts']);
+await summarizeDirectory('Pages', './src/pages');
+await summarizeDirectory('Content', './src/content', ['.md']);
+await summarizeDirectory('Layouts', './src/layouts');
+await summarizeDirectory('Components', './src/components');
+await summarizeDirectory('Scripts', './src/scripts', ['.mjs', '.sh', '.ts']);
 
 console.log('\n✅ Done.\n');

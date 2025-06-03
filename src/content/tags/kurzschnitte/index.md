@@ -2,10 +2,10 @@
 title: Kurzschnitte II
 resources:
   - title: Kurzschnitte II
-    src: kurzschnitte.png
 lastmod: 2024-09-09T15:56:30.818Z
 icon: scissors
 class: info
+cover: kurzschnitte.jpg
 ---
 
 Kurzschnitte II is a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.

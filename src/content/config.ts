@@ -1,30 +1,9 @@
 import { defineCollection, z } from 'astro:content';
+import { blogSchema } from '@schema/blog';
+
 
 export const blog = defineCollection({
-  // schema: ({ image }) =>
-  schema: () =>
-    z.object({
-      title: z.string(),
-      description: z.string().optional(),
-      summary: z.string().optional(),
-      date: z.string().transform(s => new Date(s)),
-      tags: z.array(z.string()).optional(),
-      draft: z.boolean().optional(),
-      // cover: image().optional(),
-      cover: z.string().optional(),
-      fmContentType: z.string().optional(),
-      aliases: z.array(z.string()).optional(),
-      resources: z
-        .array(
-          z.object({
-            // src: image(),
-            src: z.string().optional(),
-            title: z.string().optional(),
-            name: z.string().optional(),
-          })
-        )
-        .optional(),
-    }),
+  schema: () => blogSchema,
 });
 
 const thailand = defineCollection({

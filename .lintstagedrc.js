@@ -15,7 +15,7 @@ export default {
 
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.json"',
-    'vale --config="src/config/vale/vale.ini" --no-exit',
+    'vale --config="/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini" --no-exit',
     'lychee --no-progress --config src/config/lychee.toml --require-https --format detailed --mode color -vv',
     'typos --config src/config/typos.toml',
   ],

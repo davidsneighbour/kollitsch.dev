@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import { Debug } from 'astro:components';
-
+import { Image } from 'astro:assets';
 import Layout from '@layouts/DefaultPage.astro';
+import { resolveImagePath } from '@utils/resolveImagePath';
+import { resolveAstroImage } from '@utils/resolveAstroImage';
+import { Debug } from 'astro:components';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
@@ -19,27 +21,38 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-const { params } = Astro;
-const slug = `${params.year}/${params.slug}`;
+const urlSlug = `${Astro.params.year}/${Astro.params.slug}`;
 const posts = await getCollection('blog');
-const post = posts.find((p) => p.slug === slug);
+const post = posts.find((p) => p.slug === urlSlug);
 
 if (!post) {
-  console.error(`[blog] Failed to load: ${slug}`);
-  throw new Error(`Blog post not found for slug: ${slug}`);
+  throw new Error(`[blog] getStaticPaths returned slug '${urlSlug}', but post was not found in getCollection(). This is a build-time error.`);
 }
 
-const { data } = post;
+const imagePath = resolveImagePath(post.data.cover || '', post.id);
+const imageMeta = imagePath ? resolveAstroImage(imagePath) : null;
+
 const html = post.rendered?.html ?? '';
 
+const currentIndex = posts.findIndex((p) => p.slug === urlSlug);
+const nextPost = posts[currentIndex + 1];
+const prevPost = posts[currentIndex - 1];
 
 ---
 
-<Layout title={data.title} description={data.description ?? ''}>
+<Layout title={post.data.title} description={post.data.description ?? ''}>
+
+{imagePath && <Image src={imageMeta} alt={post.data.title} class="w-full h-auto mb-4" />}
+
   <article>
-    <h1>{data.title}</h1>
-    <p>{data.date.toLocaleDateString()}</p>
-    <div set:html={html} />
+    <h1>{post.data.title}</h1>
+    <p>{post.data.date.toLocaleDateString()}</p>
+    <div class="
+          prose prose-base xs:prose-sm lg:prose-2xl
+          prose-neutral
+          dark:prose-invert
+          max-w-none
+  " set:html={html} />
   </article>
 
   <div class="section--comments">
@@ -51,7 +64,7 @@ const html = post.rendered?.html ?? '';
       data-category="Comments"
       data-category-id="DIC_kwDOGDHt584B_i3-"
       data-mapping="specific"
-      data-term={data.title}
+      data-term={post.data.title}
       data-loading="lazy"
       data-reactions-enabled="1"
       data-emit-metadata="0"
@@ -66,7 +79,6 @@ const html = post.rendered?.html ?? '';
     </script>
   </div>
 
-
-  <Debug data={post} />
-  <Debug params={params} />
+  <Debug prevPost={prevPost}/>
+  <Debug nextPost={nextPost}/>
 </Layout>

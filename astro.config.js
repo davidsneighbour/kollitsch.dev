@@ -1,13 +1,18 @@
-import { defineConfig } from 'astro/config';
 import path from 'node:path';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
-import tailwindcss from '@tailwindcss/vite';
-import matomo from 'astro-matomo';
-import pagefind from 'astro-pagefind';
 import sentry from '@sentry/astro';
 import spotlightjs from '@spotlightjs/astro';
+import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
+import matomo from 'astro-matomo';
+import pagefind from 'astro-pagefind';
+import { defineConfig } from 'astro/config';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
@@ -56,11 +61,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@components': path.resolve('./src/components'),
-        '@layouts': path.resolve('./src/layouts'),
-        '@data': path.resolve('./src/data'),
-        '@styles': path.resolve('./src/styles'),
-        '@types': path.resolve('./src/types'),
+        '@': path.resolve(__dirname, './src/'),
       },
     },
   },

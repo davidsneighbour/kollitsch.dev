@@ -13,6 +13,7 @@ import icon from 'astro-icon';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
+import devtoolsJson from 'vite-plugin-devtools-json';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -61,7 +62,7 @@ export default defineConfig({
     icon(),
   ],
   vite: {
-    plugins: [tailwindcss(), beep(), toml(), yaml()],
+    plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
   },
   server: { host: true },
   experimental: {

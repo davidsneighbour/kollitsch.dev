@@ -29,7 +29,8 @@
     "@rollup/plugin-beep": "1.0.3",
     "@astrojs/netlify": "6.3.4",
     "@fbraem/rollup-plugin-toml": "0.0.4",
-    "@rollup/plugin-yaml": "4.1.2"
+    "@rollup/plugin-yaml": "4.1.2",
+    "vite-plugin-devtools-json": "0.1.0"
   },
   "scripts": {
     "astro": "astro",

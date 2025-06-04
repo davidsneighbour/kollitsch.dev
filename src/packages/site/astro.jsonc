@@ -12,7 +12,7 @@
     "clsx": "2.1.1",
     "glob": "11.0.2",
     "gray-matter": "4.0.3",
-    "netlify-cli": "21.5.2",
+    "netlify-cli": "21.6.0",
     "tailwindcss": "4.1.8",
     "typescript": "5.8.3",
     "@sentry/astro": "9.25.1",

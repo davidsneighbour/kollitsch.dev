@@ -1,6 +1,9 @@
 ---
-title: "Security Policy"
+layout: "@layouts/MarkdownPage.astro"
+title: "Privacy Policy"
 ---
+
+<h1>Privacy Policy</h1>
 
 This document outlines security procedures and general policies for projects by David's Neighbour.
 
@@ -22,9 +25,9 @@ Report security bugs in third-party modules to the person or team maintaining th
 
 When the security team receives a security bug report, they will assign it to a primary handler. This person will coordinate the fix and release process, involving the following steps:
 
-- Confirm the problem and determine the affected versions.
-- Audit code to find similar problems.
-- Prepare fixes for all releases still under maintenance. We will release those fixes as fast and safe as possible.
+* Confirm the problem and determine the affected versions.
+* Audit code to find similar problems.
+* Prepare fixes for all releases still under maintenance. We will release those fixes as fast and safe as possible.
 
 ## Comments on this Policy
 

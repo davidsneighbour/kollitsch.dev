@@ -4,6 +4,10 @@ import { Image } from 'astro:assets';
 import Layout from '@layouts/DefaultPage.astro';
 import { resolveImagePath } from '@utils/resolveImagePath';
 import { resolveAstroImage } from '@utils/resolveAstroImage';
+import type { ImageMetadata } from "astro";
+import Giscus from '@components/Giscus.astro';
+import BreadCrumbs from '@components/BreadCrumbs.astro';
+import Prose from '@components/Prose.astro';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
@@ -29,7 +33,7 @@ if (!post) {
 }
 
 const imagePath = resolveImagePath(post.data.cover || '', post.id);
-const imageMeta = imagePath ? resolveAstroImage(imagePath) : null;
+const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
 
 const html = post.rendered?.html ?? '';
 
@@ -41,40 +45,28 @@ const prevPost = posts[currentIndex - 1];
 
 <Layout title={post.data.title} description={post.data.description ?? ''}>
 
-{imagePath && <Image src={imageMeta} alt={post.data.title} class="w-full h-auto mb-4" />}
-
   <article>
-    <h1>{post.data.title}</h1>
-    <p>{post.data.date.toLocaleDateString()}</p>
-    <div class="
-          prose prose-base xs:prose-sm lg:prose-2xl
-          prose-neutral
-          dark:prose-invert
-          max-w-none
-  " set:html={html} />
-  </article>
 
-  <div class="section--comments">
-    <section class="giscus mx-auto mt-10 w-full"></section>
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="davidsneighbour/kollitsch.dev"
-      data-repo-id="MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE="
-      data-category="Comments"
-      data-category-id="DIC_kwDOGDHt584B_i3-"
-      data-mapping="specific"
-      data-term={post.data.title}
-      data-loading="lazy"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="dark"
-      data-lang="en"
-      crossorigin="anonymous"
-      fetchpriority="high"
-      async
-      defer
-      id="giscus-script">
-    </script>
-  </div>
+    {imageMeta && <Image src={imageMeta} alt={post.data.title} class="w-full h-auto mb-4" />}
+    <h2>{post.data.title}</h2>
+    <p>{post.data.date.toLocaleDateString()}</p>
+    <BreadCrumbs post={post} />
+    <Prose set:html={html} />
+
+    <div class="flex justify-between">
+      {prevPost && (
+        <a href={`/blog/${prevPost.slug}/`} class="text-blue-500 hover:underline">
+          ← {prevPost.data.title}
+        </a>
+      )}
+      {nextPost && (
+        <a href={`/blog/${nextPost.slug}/`} class="text-blue-500 hover:underline">
+          {nextPost.data.title} →
+        </a>
+      )}
+    </div>
+
+    <Giscus post={post} />
+
+  </article>
 </Layout>

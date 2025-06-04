@@ -1,5 +1,4 @@
 ---
-layout: search
 title: Find on kollitsch.dev
 linktitle: Find
 description: Find the post or information you are looking for. Missing something? Feel free

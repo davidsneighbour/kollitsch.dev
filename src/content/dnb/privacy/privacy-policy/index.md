@@ -1,13 +1,12 @@
 ---
 title: "Security Policy"
-layout: page
 ---
 
 This document outlines security procedures and general policies for projects by David's Neighbour.
 
-- [Reporting a Bug](#reporting-a-bug)
-- [Disclosure Policy](#disclosure-policy)
-- [Comments on this Policy](#comments-on-this-policy)
+* [Reporting a Bug](#reporting-a-bug)
+* [Disclosure Policy](#disclosure-policy)
+* [Comments on this Policy](#comments-on-this-policy)
 
 ## Reporting a Bug
 

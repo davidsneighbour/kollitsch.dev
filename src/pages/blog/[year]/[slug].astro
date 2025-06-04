@@ -4,7 +4,6 @@ import { Image } from 'astro:assets';
 import Layout from '@layouts/DefaultPage.astro';
 import { resolveImagePath } from '@utils/resolveImagePath';
 import { resolveAstroImage } from '@utils/resolveAstroImage';
-import { Debug } from 'astro:components';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
@@ -78,7 +77,4 @@ const prevPost = posts[currentIndex - 1];
       id="giscus-script">
     </script>
   </div>
-
-  <Debug prevPost={prevPost}/>
-  <Debug nextPost={nextPost}/>
 </Layout>

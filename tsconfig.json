@@ -10,7 +10,20 @@
       }
     ],
     "paths": {
-      "@*": ["./src/*"]
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@content/*": ["src/content/*"],
+      "@data/*": ["src/data/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@packages/*": ["src/packages/*"],
+      "@pages/*": ["src/pages/*"],
+      "@schema/*": ["src/schema/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@styles/*": ["src/styles/*"],
+      "@test/*": ["src/test/*"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

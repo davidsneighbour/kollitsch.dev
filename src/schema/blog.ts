@@ -6,7 +6,7 @@ export const blogSchema = z.object({
   summary: z.string().optional(),
   date: z.coerce.date().transform((s) => new Date(s)),
   tags: z.array(z.string()).optional(),
-  draft: z.boolean().optional(),
+  draft: z.boolean().default(false).optional(),
   cover: z.string().optional(),
   fmContentType: z.string().optional(),
   aliases: z.array(z.string()).optional(),
@@ -16,7 +16,7 @@ export const blogSchema = z.object({
         src: z.string().optional(),
         title: z.string().optional(),
         name: z.string().optional(),
-      })
+      }),
     )
     .optional(),
 });

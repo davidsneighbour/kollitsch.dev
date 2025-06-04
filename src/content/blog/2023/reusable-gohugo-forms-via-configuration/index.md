@@ -157,7 +157,7 @@ This layout file uses the configuration defined in `params.toml` to generate the
 
 Then, the form itself is generated. As I wrote above, the only implemented `groups` method is `grid`, so lines 6-14 are building the containers and fields for the form, and lines 16-24 are creating the buttons section of the form. Both sections use inline partials, which I will explain below.
 
-```go-html-template
+```go
 <form {{ $formAttributes | safe.HTMLAttr }} class="{{ $formConfig.classes | safeHTMLAttr }}">
   {{- $groups := $formConfig.groups | default "false" -}}
   {{- if eq $groups "false" -}}
@@ -195,7 +195,7 @@ This means it's a gamble if you are not obsessively specific with your partial n
 
 Let's keep using them for now so the code is within a single file.
 
-```go-html-template
+```go
 {{ define "partials/dnb-forms-inlinetemplate-formfield" }}
   {{- $fieldRequired := .required | default "false" -}}
   {{- if eq $fieldRequired "true" -}}
@@ -252,7 +252,7 @@ This partial checks the type of the field and renders the appropriate HTML. The 
 
 Then there is the button partial:
 
-```go-html-template
+```go
 {{- define "partials/dnb-forms-inlinetemplate-button" -}}
   {{- $buttonAttributes := printf "class=\"%s\" type=\"%s\" value=\"%s\""
       .class
@@ -270,7 +270,7 @@ That one is pretty simple. It creates the button with the attributes defined in 
 
 The `getRandomString` function generates random strings for the honeypot field. It is defined in [`layouts/partials/func/getRandomString.html`](https://github.com/davidsneighbour/hugo-modules/blob/main/modules/functions/layouts/partials/func/getRandomString.html) in my functions module. It is a reliable, reusable function in my arsenal that is used in a lot of places.
 
-```go-html-template
+```go
 {{ $seed := printf "%s%s" site.Title now.Unix }}
 {{ if isset . "seed" }}
   {{ $seed = .seed }}
@@ -282,7 +282,7 @@ The `getRandomString` function generates random strings for the honeypot field. 
 
 This is an excellent way to quickly create a random string for any requirements.
 
-```go-html-template
+```go
 {{- $random := partialCached "func/getRandomString" (dict "limit" 8) -}}
 {{- $random := partialCached "func/getRandomString" . -}}
 ```
@@ -297,7 +297,7 @@ This is an excellent way to quickly create a random string for any requirements.
 
 This all looks more complicated than it is. The result is a form that can be configured via `params.toml` and translated via `i18n/en.toml`. The form can be used in any content file by adding the shortcode:
 
-```go-html-template
+```go
 {{</* form id="contactform" */>}}
 ```
 

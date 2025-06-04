@@ -29,7 +29,7 @@ The `highlight` template can be overridden easily by just adding your own shortc
 
 Using this render hook we can add the following layout to `layouts/​_default/​_markup/​render-codeblock.html` or any (language or section) specific render hook:
 
-```go-html-template
+```go
 {{- $options := .Options -}}
 {{- $data := newScratch -}}
 {{- $data.Set "options" dict -}}

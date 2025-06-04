@@ -23,7 +23,7 @@ using the Bootstrap 5.
 
 Shortcode or partial "show-breakpoints.html":
 
-```go-template
+```go
 {{- if hugo.IsServer -}}
   <div class="container responsive-ruler">
     {{- $breakpoints := slice "xs" "sm" "md" "lg" "xl" "xxl" -}}

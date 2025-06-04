@@ -53,7 +53,7 @@ I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](
 
 5. Add the giscus-partial to your single.html or any post layout you are using in your theme:
 
-   ```gotemplate {lineAnchors=code4}
+   ```go {lineAnchors=code4}
    {{ with site.Params.giscus }}
      {{ partial "content/giscus.html" . }}
    {{ end }}

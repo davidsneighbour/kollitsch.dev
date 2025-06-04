@@ -41,7 +41,7 @@ function themeSwitcher() {
 
 And in my template, I initialized the theme switcher like this:
 
-```go-template
+```go
 <li class="nav-item" id="themeswitcher" x-data="themeSwitcher()">
   …
 </li>
@@ -49,7 +49,7 @@ And in my template, I initialized the theme switcher like this:
 
 The final JavaScript was built using `js.Build` and loaded into the page:
 
-```go-template
+```go
 {{ $scripts := resources.Get "js/script.ts" |
       js.Build (dict "targetPath" "assets/js/script.js") |
       minify |

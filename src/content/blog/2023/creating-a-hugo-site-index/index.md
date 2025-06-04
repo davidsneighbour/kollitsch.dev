@@ -44,7 +44,7 @@ The `[outputs]` configuration part probably already exists in your config.toml f
 
 Let's create a layout template for our new output format at `layouts/_default/list.dnbindex.json`:
 
-```go-html-template
+```go
 {{- $.Scratch.Add "index" slice -}}
 {{- $section := $.Site.GetPage "section" .Section -}}
 {{- range .Site.RegularPages -}}

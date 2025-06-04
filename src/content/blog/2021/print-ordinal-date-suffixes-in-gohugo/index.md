@@ -21,7 +21,7 @@ Golangs `$date.Format` is unable to add ordinal suffixes to dates (like 1st, 2nd
 
 `layouts/partials/func/formatOrdinalDate.html`
 
-```go-html-template {lineAnchors=code1}
+```go {lineAnchors=code1}
 {{- $format := .format -}}
 {{- $date := .date -}}
 {{- $shortened := "th" -}}
@@ -37,7 +37,7 @@ Golangs `$date.Format` is unable to add ordinal suffixes to dates (like 1st, 2nd
 
 call to this partial:
 
-```go-html-template {lineAnchors=code2}
+```go {lineAnchors=code2}
 <span title="{{-
   with partialCached
     "func/formatOrdinalDate" (

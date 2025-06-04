@@ -1,4 +1,6 @@
 ---
+// @todo refactor
+
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '@layouts/DefaultPage.astro';
@@ -50,7 +52,7 @@ const prevPost = posts[currentIndex - 1];
     {imageMeta && <Image src={imageMeta} alt={post.data.title} class="w-full h-auto mb-4" />}
     <h2>{post.data.title}</h2>
     <p>{post.data.date.toLocaleDateString()}</p>
-    <BreadCrumbs post={post} />
+    <BreadCrumbs path={Astro.url.href} />
     <Prose set:html={html} />
 
     <div class="flex justify-between">

@@ -1,9 +1,10 @@
 ---
 layout: "@layouts/MarkdownPage.astro"
 title: "Privacy Policy"
+cover: "privacy.jpg"
 ---
 
-<h1>Privacy Policy</h1>
+# Privacy Policy
 
 This document outlines security procedures and general policies for projects by David's Neighbour.
 

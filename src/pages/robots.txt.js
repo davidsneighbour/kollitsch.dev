@@ -1,3 +1,4 @@
+// @todo refactor
 const JSON_URL =
   'https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.json';
 

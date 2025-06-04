@@ -1,7 +1,8 @@
 ---
-
 import '@styles/global.css';
 import Head from '@components/Head.astro';
+
+const { post } = Astro.props;
 
 // Add a full="true" prop to control full height for the page
 // @todo consider adding that as default class to the layout
@@ -13,20 +14,23 @@ const htmlClasses = [
   'dark:scheme-dark',
   'scroll-smooth',
   full && 'h-full',
-  extraClasses
-].filter(Boolean).join(' ');
+  extraClasses,
+]
+  .filter(Boolean)
+  .join(' ');
 
 // body classes
 const bodyClasses = [
   'min-h-screen',
   'overflow-y-scroll',
   'bg-orange-50 dark:bg-slate-950',
-  full && 'h-full'
-].filter(Boolean).join(' ');
-
+  full && 'h-full',
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class={htmlClasses}>
   <head>
     <Head />

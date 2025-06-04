@@ -2,7 +2,7 @@
 title: Kurzschnitte II
 resources:
   - title: Kurzschnitte II
-lastmod: 2024-09-09T15:56:30.818Z
+date: 2024-09-09T15:56:30.818Z
 icon: scissors
 class: info
 cover: kurzschnitte.jpg

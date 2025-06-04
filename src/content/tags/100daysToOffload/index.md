@@ -4,7 +4,7 @@ linktitle: 100daysToOffload
 resources:
   - title: 100 Days To Offload
     src: header.jpg
-lastmod: 2024-10-01T14:34:59.437Z
+date: 2024-10-01T14:34:59.437Z
 icon: bookmark-check-fill
 class: success
 ---

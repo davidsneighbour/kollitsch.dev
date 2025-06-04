@@ -5,6 +5,16 @@ export const blog = defineCollection({
   schema: () => blogSchema,
 });
 
+// @todo create a schema for tags
+export const tags = defineCollection({
+  schema: () => blogSchema,
+});
+
+// @todo create a schema for slash
+export const slash = defineCollection({
+  schema: () => blogSchema,
+});
+
 // const thailand = defineCollection({
 //   loader: async () => {
 //     const response = await fetch('https://restcountries.com/v3.1/alpha/th');
@@ -19,4 +29,4 @@ export const blog = defineCollection({
 //   },
 // });
 
-export const collections = { blog };
+export const collections = { blog, tags, slash };

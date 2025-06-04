@@ -16,12 +16,12 @@ menu:
     params:
       bsicon: envelope-paper-fill
 
-lastmod: 2022-07-28T21:20:06+07:00
+date: 2022-07-28T21:20:06+07:00
 resources:
   - title: Photo by [John Barkiple](https://unsplash.com/@barkiple) via [Unsplash](https://unsplash.com/)
     src: header.jpg
   - title: Photo by [Finja Petersen](https://unsplash.com/@finjapetersen) via [Unsplash](https://unsplash.com/)
-    src: social-media.jpg
+    src: ./social-media.jpg
 
 theme:
   comments: false
@@ -41,4 +41,4 @@ aliases:
 * Discord: [Neighbourhood News](https://discord.gg/Jw4J6hNAyu)
 * Reddit: [r/davidsneighbour](https://www.reddit.com/r/davidsneighbour/)
 
-![social-media.jpg](social-media.jpg)
+![social-media.jpg](./social-media.jpg)

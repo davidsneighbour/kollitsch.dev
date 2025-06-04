@@ -1,7 +1,8 @@
 {
   "astro.content-intellisense": true,
+  "astro.languageServer.startOn": "workspaceContainsAstroFiles",
   "files.associations": {
-    ".astro": "astro"
+    "*.astro": "astro"
   },
   // settings for the prettier astro plugin
   "prettier.documentSelectors": ["**/*.astro"],

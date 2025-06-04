@@ -18,7 +18,6 @@
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.4.0",
     "@astrojs/ts-plugin": "1.10.4",
-    "@fbraem/rollup-plugin-toml": "^0.0.4",
     "@iconify-json/bi": "1.2.4",
     "@sentry/astro": "9.25.1",
     "@spotlightjs/astro": "3.2.3",
@@ -33,7 +32,6 @@
     "gray-matter": "4.0.3",
     "netlify-cli": "21.5.2",
     "tailwindcss": "4.1.8",
-    "tsx": "4.19.4",
     "typescript": "5.8.3"
   },
   "devDependencies": {
@@ -46,6 +44,7 @@
     "@davidsneighbour/eslint-config": "2025.2.3",
     "@davidsneighbour/release-config": "2025.2.3",
     "@davidsneighbour/remark-config": "2025.2.3",
+    "@fbraem/rollup-plugin-toml": "^0.0.4",
     "@playwright/test": "1.52.0",
     "@rollup/plugin-beep": "1.0.3",
     "@rollup/plugin-yaml": "^4.1.2",
@@ -69,7 +68,6 @@
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.12",
-    "rollup-plugin-visualizer": "^6.0.1",
     "secretlint": "9.3.3",
     "stylelint": "16.20.0",
     "stylelint-config-html": "^1.1.0",

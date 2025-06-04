@@ -48,12 +48,22 @@
 
   // eslint setup
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
   "eslint.debug": true,
   "eslint.format.enable": true,
 
   "editor.codeActionsOnSave": {
     "source.fixAll.markdownlint": "always"
   },
-  "indentRainbow.indicatorStyle": "light"
+  "indentRainbow.indicatorStyle": "light",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "files.autoSaveWhenNoErrors": false
 }

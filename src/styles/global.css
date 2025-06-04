@@ -98,10 +98,9 @@
 
 body {
   font-family: var(--font-exo2);
+  font-weight: 200;
   font-size: 1rem;
   line-height: 1.5;
-
-
 }
 
 h1,
@@ -114,6 +113,10 @@ h6 {
 
   /* Changa is only available via weight 400 */
   font-weight: 400;
+}
+
+a {
+  font-weight: 200;
 }
 
 /* if the user hjas no scripting capabilities then use the light theme if they prefer it */

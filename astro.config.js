@@ -62,12 +62,13 @@ export default defineConfig({
     contentIntellisense: true,
     preserveScriptOrder: true,
     clientPrerender: true,
+    // @todo https://docs.astro.build/en/reference/experimental-flags/csp/
+    csp: true,
   },
   image: {
     experimentalLayout: 'constrained',
     experimentalObjectFit: 'cover',
     experimentalObjectPosition: 'center',
-    // https://github.com/withastro/astro/releases/tag/astro%405.8.1
     experimentalDefaultStyles: false,
   },
   markdown: {

@@ -23,7 +23,7 @@
     "@spotlightjs/astro": "3.2.3",
     "@tailwindcss/cli": "4.1.8",
     "@tailwindcss/vite": "4.1.8",
-    "astro": "5.8.2",
+    "astro": "^5.9.0",
     "astro-icon": "1.1.5",
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",

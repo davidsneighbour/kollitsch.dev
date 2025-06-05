@@ -1,4 +1,5 @@
-import path from 'node:path';
+import { defineConfig } from 'astro/config';
+
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import partytown from '@astrojs/partytown';
@@ -12,27 +13,16 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
-import { defineConfig } from 'astro/config';
 import devtoolsJson from 'vite-plugin-devtools-json';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kollitsch.dev/',
   trailingSlash: 'always',
+  output: 'static',
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport',
-  },
-  // // redirects that will be added to the public/_redirects file
-  redirects: {
-    '/old': '/new',
-    '/news': {
-      status: 302,
-      destination: 'https://example.com/news',
-    },
   },
   integrations: [
     sitemap(), // https://github.com/felix-berlin/astro-matomo
@@ -64,7 +54,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
   },
-  server: { host: true },
+  server: {
+    host: true,
+  },
   experimental: {
     responsiveImages: true,
     contentIntellisense: true,
@@ -73,6 +65,8 @@ export default defineConfig({
   },
   image: {
     experimentalLayout: 'constrained',
+    experimentalObjectFit: 'cover',
+    experimentalObjectPosition: 'center',
     // https://github.com/withastro/astro/releases/tag/astro%405.8.1
     experimentalDefaultStyles: false,
   },

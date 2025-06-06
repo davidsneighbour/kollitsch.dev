@@ -1,10 +1,10 @@
 ---
 // @todo refactor
 
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
 // use a `type`
-type Props = HTMLAttributes<"a">;
+type Props = HTMLAttributes<'a'>;
 
 // // or extend with an `interface`
 // interface Props extends HTMLAttributes<"a"> {
@@ -13,6 +13,7 @@ type Props = HTMLAttributes<"a">;
 
 const { href, ...attrs } = Astro.props;
 ---
+
 <a href={href} {...attrs}>
   <slot />
 </a>

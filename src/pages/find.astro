@@ -2,12 +2,15 @@
 // @todo refactor
 
 import Layout from '@layouts/DefaultPage.astro';
-import Search from "astro-pagefind/components/Search";
+import Search from 'astro-pagefind/components/Search';
 ---
 
 <Layout title="Find" description="Search the site for content.">
   <h1>Find</h1>
   <p>Use the search bar below to find content on this site.</p>
-<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
-
+  <Search
+    id="search"
+    className="pagefind-ui"
+    uiOptions={{ showImages: false }}
+  />
 </Layout>

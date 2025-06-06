@@ -2,50 +2,67 @@
 // @todo refactor
 ---
 
-<header class="absolute top-0 z-50
-        bg-orange-50 dark:bg-gray-950
-        backdrop-blur-lg border-b border-gray-200
-        dark:bg-gray-950 dark:border-gray-800
-        opacity-100 transition-opacity ease-in-out duration-600
-
-        flex flex-col justify-between items-center
-
-        h-full w-full
-
-        border-gray-200 dark:border-gray-800
-        ">
-  <div class="font-changa text-orange-700 text-5xl
-              py-6 my-6">
-    <a id="navbar-brand" href={siteinfo.url}
-      class="transition-opacity ease-in-out duration-600">
+<header
+  class="absolute top-0 z-50 flex h-full w-full flex-col items-center justify-between border-b border-gray-200 bg-orange-50 opacity-100 backdrop-blur-lg transition-opacity duration-600 ease-in-out dark:border-gray-800 dark:bg-gray-950"
+>
+  <div class="font-changa my-6 py-6 text-5xl text-orange-700">
+    <a
+      id="navbar-brand"
+      href={siteinfo.url}
+      class="transition-opacity duration-600 ease-in-out"
+    >
       {siteinfo.title}
     </a>
 
-    <button type="button"
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
+    <button
+      type="button"
+      class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+    >
       <span class="sr-only">Open main menu</span>
-      <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-          stroke="currentColor" aria-hidden="true" data-slot="icon">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <svg
+        class="size-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true"
+        data-slot="icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
       </svg>
     </button>
 
     <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
       <span class="sr-only">Close menu</span>
-        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true" data-slot="icon">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      <svg
+        class="size-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true"
+        data-slot="icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"></path>
       </svg>
     </button>
-
   </div>
   <div class="flex flex-col items-center gap-5">
-    {navData.map(value => (
-      <a href={value.link} class="p-5 text-xl">{value.label}</a>
-    ))}
+    {
+      navData.map(value => (
+        <a href={value.link} class="p-5 text-xl">
+          {value.label}
+        </a>
+      ))
+    }
   </div>
-  <div class="self-end mr-4 mb-4">
+  <div class="mr-4 mb-4 self-end">
     <ThemeSelect hideAuto />
   </div>
 </header>

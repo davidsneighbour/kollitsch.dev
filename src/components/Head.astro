@@ -1,10 +1,9 @@
 ---
 // @todo refactor
 
-
 // https://docs.astro.build/en/guides/view-transitions/
-import { ClientRouter } from "astro:transitions";
-
+import { ClientRouter } from 'astro:transitions';
+import { getEntry } from 'astro:content';
 import ThemeManager from '@components/ThemeManager.astro';
 
 import type { MetaConfig } from '../types/MetaConfig';
@@ -13,13 +12,16 @@ const metaData = metaDataRaw as MetaConfig;
 
 const { title, description, image, ...props } = Astro.props;
 
+const post = await getEntry('blog', Astro.url.pathname);
+console.log("post", post);
+
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{props.title}</title>
-<base href={baseUrl} target="_self">
+<base href={baseUrl} target="_self" />
 <meta name="description" content={props.description} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta property="og:title" content={props.title} />
@@ -38,24 +40,53 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <ThemeManager defaultTheme="auto" />
 
-{Object.entries(metaData.name).map(([name, content]) => (
-  <meta name={name} content={content} />
-))}
-{Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
-  <meta http-equiv={httpEquiv} content={content} />
-))}
+{
+  Object.entries(metaData.name).map(([name, content]) => (
+    <meta name={name} content={content} />
+  ))
+}
+{
+  Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
+    <meta http-equiv={httpEquiv} content={content} />
+  ))
+}
 
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 {/* font preloading, no need to preload changa italic */}
-<link rel="preload" href="/fonts/changa/changaone-regular-webfont.woff2"
-      as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/exo/normal.woff2"
-      as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/exo/italic.woff2"
-      as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2"
-      as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/jetbrainsmono/JetBrainsMono[wght].woff2"
-      as="font" type="font/woff2" crossorigin>
+<link
+  rel="preload"
+  href="/fonts/changa/changaone-regular-webfont.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/exo/normal.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/exo/italic.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/jetbrainsmono/JetBrainsMono[wght].woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>

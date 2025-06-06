@@ -6,83 +6,115 @@ import ThemeSelect from '@components/ThemeSelect.astro';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 
 const currentPath = Astro.url.pathname;
-console.log('Current Path:', currentPath);
 
 import siteinfo from '@data/siteinfo.json';
 import { Icon } from 'astro-icon/components';
 
-const homepage = getHomepageUrl( Astro.site ? { site: Astro.site } : undefined );
-
+const homepage = getHomepageUrl(Astro.site ? { site: Astro.site } : undefined);
 ---
 
-<h1 id="sitetitle" class="font-changa text-9xl mx-auto text-orange-700">
-  {siteinfo.title}
+<h1 id="sitetitle" class="font-changa mx-auto text-9xl text-orange-700">
+  <a href={getHomepageUrl()}>
+    {siteinfo.title}
+  </a>
 </h1>
-<header class="sticky top-0 z-50
-         bg-white/95 backdrop-blur-lg border-b border-gray-200
-         dark:bg-gray-900/95 dark:border-gray-800">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between" aria-label="Global">
-    <a id="navbar-brand" href={homepage}
-        class="-m-1.5 p-1.5 font-changa text-orange-700 text-2xl
-                transition-opacity ease-in-out duration-600
+<header
+  class="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-lg dark:border-gray-800 dark:bg-gray-900/95"
+>
+  <div class="mx-auto max-w-7xl">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between"
+      aria-label="Global"
+    >
+      <a
+        id="navbar-brand"
+        href={getHomepageUrl()}
+        class="font-changa flex-rows -m-1.5 flex items-center gap-2 p-1.5 text-2xl text-orange-700 transition-opacity duration-600 ease-in-out"
+      >
+        <Icon name="bi:house-fill" class="place-self-center" />
+        {siteinfo.title}
+      </a>
 
-                flex flex-rows items-center gap-2
-                ">
-
-<Icon name="bi:house-fill" class="place-self-center" />
-<span>{siteinfo.title}</span>
-
-              </a>
-    <div class="flex lg:hidden">
-      <button type="button"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
-        <span class="sr-only">Open main menu</span>
-        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true" data-slot="icon">
-          <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </button>
-    </div>
-    <div class="hidden lg:flex lg:gap-x-12">
-      {navData.map(value => (
-        <a href={value.link} class="text-sm/6 font-semibold">{value.label}</a>
-      ))}
-      <ThemeSelect hideAuto />
-    </div>
-  </nav>
+      <div class="flex lg:hidden">
+        <button
+          type="button"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        {
+          navData.map(value => (
+            <a href={value.link} class="text-sm/6 font-semibold">
+              {value.label}
+            </a>
+          ))
+        }
+        <ThemeSelect hideAuto />
+      </div>
+    </nav>
+  </div>
   <div class="lg:hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 z-10"></div>
-    <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto
-              bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <div
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+    >
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
           <Icon name="bi:house-fill" class="place-self-center" />
-          <span class="sr-only">
-            KOLLITSCH.dev*
-          </span>
-          <img class="h-8 w-auto"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                alt="">
+          <a href={getHomepageUrl()} class="sr-only"> KOLLITSCH.dev* </a>
+          <img
+            class="h-8 w-auto"
+            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+            alt=""
+          />
         </a>
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
           <span class="sr-only">Close menu</span>
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          <svg
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
-            {navData.map(value => (
-              <a href={value.link}
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold
-                        text-gray-900 hover:bg-gray-50">
-                {value.label}
-              </a>
-            ))}
+            {
+              navData.map(value => (
+                <a
+                  href={value.link}
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                >
+                  {value.label}
+                </a>
+              ))
+            }
             <ThemeSelect hideAuto />
           </div>
         </div>
@@ -91,43 +123,42 @@ const homepage = getHomepageUrl( Astro.site ? { site: Astro.site } : undefined )
   </div>
 </header>
 <style is:global>
-  :root[data-theme="light"] {
+  :root[data-theme='light'] {
     /* CSS variables */
   }
 
-  :root[data-theme="dark"] {
+  :root[data-theme='dark'] {
     /* CSS variables */
   }
 </style>
 
 <script>
-// show #sitetitle only when header is sticky
-const placeholder = document.querySelector('#sitetitle');
-const stickyBrand = document.querySelector('#navbar-brand');
-console.log(placeholder, stickyBrand);
-if (!placeholder || !stickyBrand) {
-  console.warn('Placeholder or sticky brand element not found.');
-}
-const observer = new IntersectionObserver(
-  ([entry]) => {
-    if (!entry.isIntersecting) {
-      stickyBrand.classList.add('opacity-100');
-      stickyBrand.classList.remove('opacity-0');
-    } else {
-      stickyBrand.classList.remove('opacity-100');
-      stickyBrand.classList.add('opacity-0');
-    }
-  },
-  { threshold: 0 },
-);
-observer.observe(placeholder);
-// Force initial state check
-const isIntersecting =
-  placeholder.getBoundingClientRect().top >= 0 &&
-  placeholder.getBoundingClientRect().bottom > 0;
-if (!isIntersecting) {
-  stickyBrand.classList.add('sticky-visible');
-} else {
-  stickyBrand.classList.remove('sticky-visible');
-}
+  // show #sitetitle only when header is sticky
+  const placeholder = document.querySelector('#sitetitle');
+  const stickyBrand = document.querySelector('#navbar-brand');
+  if (!placeholder || !stickyBrand) {
+    console.warn('Placeholder or sticky brand element not found.');
+  }
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        stickyBrand.classList.add('opacity-100');
+        stickyBrand.classList.remove('opacity-0');
+      } else {
+        stickyBrand.classList.remove('opacity-100');
+        stickyBrand.classList.add('opacity-0');
+      }
+    },
+    { threshold: 0 },
+  );
+  observer.observe(placeholder);
+  // Force initial state check
+  const isIntersecting =
+    placeholder.getBoundingClientRect().top >= 0 &&
+    placeholder.getBoundingClientRect().bottom > 0;
+  if (!isIntersecting) {
+    stickyBrand.classList.add('sticky-visible');
+  } else {
+    stickyBrand.classList.remove('sticky-visible');
+  }
 </script>

@@ -1,50 +1,80 @@
 ---
 // @todo refactor
 
-
 // Import site information from the correct relative path
 import siteInfo from '@data/siteinfo';
+import { getHomepageUrl } from '@utils/getHomepageUrl';
 
 const currentYear = new Date().getFullYear();
-
 ---
 
-<footer class="pt-16 pb-8 max-w-7xl mx-auto">
+<footer class="mx-auto max-w-7xl pt-16 pb-8">
   <div class="container-7xl mx-auto px-4">
-    <div class="flex flex-row justify-center-safe gap-8 mb-12">
+    <div class="mb-12 flex flex-row justify-center-safe gap-8">
       <div>
-        <h3 class="text-xl mb-4">About</h3>
+        <h3 class="mb-4 text-xl">About</h3>
         <p>
-          Personal website showcasing my work, thoughts, and contact information.
-          Built with Astro, React, and TailwindCSS.
+          Personal website showcasing my work, thoughts, and contact
+          information. Built with Astro, React, and TailwindCSS.
         </p>
       </div>
 
       <div>
-        <h3 class="text-xl mb-4">Navigation</h3>
+        <h3 class="mb-4 text-xl">Navigation</h3>
         <ul class="space-y-2">
-          <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-          <li><a href="/about/" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-          <li><a href="/blog/" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-          <li><a href="/contact/" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          <li>
+            <a href="/" class="text-gray-400 transition-colors hover:text-white"
+              >Home</a>
+          </li>
+          <li>
+            <a
+              href="/about/"
+              class="text-gray-400 transition-colors hover:text-white">About</a>
+          </li>
+          <li>
+            <a
+              href="/blog/"
+              class="text-gray-400 transition-colors hover:text-white">Blog</a>
+          </li>
+          <li>
+            <a
+              href="/contact/"
+              class="text-gray-400 transition-colors hover:text-white"
+              >Contact</a>
+          </li>
         </ul>
       </div>
 
-        <div>
-          <h3 class="text-xl mb-4">Connect</h3>
+      <div>
+        <h3 class="mb-4 text-xl">Connect</h3>
         <ul class="space-y-2">
           <li>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center text-gray-400 transition-colors hover:text-white"
+            >
               <span class="mr-2">Twitter</span>
             </a>
           </li>
           <li>
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center text-gray-400 transition-colors hover:text-white"
+            >
               <span class="mr-2">GitHub</span>
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center text-gray-400 transition-colors hover:text-white"
+            >
               <span class="mr-2">LinkedIn</span>
             </a>
           </li>
@@ -52,12 +82,17 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="border-t border-gray-800 pt-8 text-sm text-gray-400 text-center">
-      <p>&copy; <span id="footer-year">{currentYear}</span> {siteInfo.title}. All rights reserved.</p>
+    <div
+      class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400"
+    >
+      <p>
+        &copy; <span id="footer-year">{currentYear}</span>
+        <a href={getHomepageUrl()}>{siteInfo.title}</a>. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
 
 <script is:inline data-astro-rerun>
-  document.getElementById("footer-year").innerText = new Date().getFullYear();
+  document.getElementById('footer-year').innerText = new Date().getFullYear();
 </script>

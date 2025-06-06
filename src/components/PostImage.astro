@@ -19,7 +19,9 @@ interface Resource {
 }
 
 // load all your markdown posts at build time
-const posts = import.meta.glob('../content/**/index.md', { eager: true }) as Record<string, any>;
+const posts = import.meta.glob('../content/**/index.md', {
+  eager: true,
+}) as Record<string, any>;
 const lookupKey = `../content/${postId}/index.md`;
 const post = posts[lookupKey];
 
@@ -41,14 +43,12 @@ if (resource?.src) {
 }
 ---
 
-{imageUrl && (
-  <figure>
-    <img src={imageUrl} alt={altText} loading="lazy" />
+{
+  imageUrl && (
+    <figure>
+      <img src={imageUrl} alt={altText} loading="lazy" />
 
-    {resource?.title && (
-      <figcaption>
-        {resource.title}
-      </figcaption>
-    )}
-  </figure>
-)}
+      {resource?.title && <figcaption>{resource.title}</figcaption>}
+    </figure>
+  )
+}

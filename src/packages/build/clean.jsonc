@@ -21,7 +21,7 @@
       "command": "rm -rf .astro dist"
     },
     "clean:netlify": {
-      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete",
     }
   }
 }

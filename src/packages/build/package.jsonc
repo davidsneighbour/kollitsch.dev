@@ -1,24 +1,30 @@
 {
   "devDependencies": {
-    "glob": "11.0.2"
+    // used for building the package.json file from src/packages/**/*.jsonc
+    "glob": "11.0.2",
+    // see https://github.com/henrikjoreteg/fixpack
+    "fixpack": "4.0.0",
   },
   "scripts": {
     "compile:package": "wireit",
-    "watch:package": "wireit"
+    "compile:fixpack": "wireit",
+    "compile:package:update": "wireit",
   },
   "wireit": {
     "compile:package": {
-      "command": "npm run lint:fixpack",
-      "dependencies": [
-        "compile:package:run"
-      ]
+      "command": "npm run compile:fixpack",
+      "dependencies": ["compile:package:run"],
+      "files": ["./src/packages/**/*.jsonc"],
     },
     "compile:package:run": {
-      "command": "node ./src/packages/generate-package.ts"
+      "command": "node ./src/packages/generate-package.ts",
     },
-    "watch:package": {
-      // @todo make this a proper wireit watch task
-      "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
-    }
-  }
+    "compile:fixpack": {
+      // @todo make fixpack return a zero exit code when changes are made, but no error occurred
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
+    },
+    "compile:package:update": {
+      "command": "node ./src/packages/update-package.ts",
+    },
+  },
 }

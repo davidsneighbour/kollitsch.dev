@@ -19,9 +19,8 @@
     "@astrojs/sitemap": "3.4.1",
     "@astrojs/ts-plugin": "1.10.4",
     "@iconify-json/bi": "1.2.4",
-    "@sentry/astro": "9.26.0",
+    "@sentry/astro": "9.27.0",
     "@spotlightjs/astro": "3.2.3",
-    "@tailwindcss/cli": "4.1.8",
     "@tailwindcss/vite": "4.1.8",
     "astro": "^5.9.0",
     "astro-icon": "1.1.5",
@@ -29,7 +28,7 @@
     "astro-pagefind": "1.8.3",
     "glob": "11.0.2",
     "gray-matter": "4.0.3",
-    "netlify-cli": "21.6.0",
+    "netlify-cli": "22.1.2",
     "tailwindcss": "4.1.8",
     "typescript": "5.8.3"
   },
@@ -73,25 +72,19 @@
     "stylelint-no-unsupported-browser-features": "8.0.4",
     "stylelint-order": "7.0.0",
     "ts-node": "10.9.2",
-    "vite-plugin-devtools-json": "0.1.0",
-    "workbox-cacheable-response": "7.3.0",
-    "workbox-core": "7.3.0",
-    "workbox-expiration": "7.3.0",
-    "workbox-precaching": "7.3.0",
-    "workbox-routing": "7.3.0",
-    "workbox-strategies": "7.3.0",
-    "workbox-webpack-plugin": "7.3.0"
+    "vite-plugin-devtools-json": "0.1.0"
   },
   "scripts": {
     "astro": "astro",
     "audit:html": "wireit",
     "build": "astro check && astro build",
-    "build:tailwindcss": "wireit",
     "check": "astro check",
     "clean": "wireit",
     "clean:full": "wireit",
     "clean:netlify": "wireit",
+    "compile:fixpack": "wireit",
     "compile:package": "wireit",
+    "compile:package:update": "wireit",
     "deploy": "netlify deploy --prod --open",
     "dev": "astro dev",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
@@ -99,7 +92,6 @@
     "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
     "hooks:update": "simple-git-hooks",
     "lighthouse": "bin/audit/lighthouse",
-    "lint:fixpack": "wireit",
     "lint:hook:commit": "lint-staged",
     "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
@@ -118,24 +110,26 @@
     "test:ui": "npx playwright test --ui",
     "update": "wireit",
     "update:pre:vale": "wireit",
-    "upgrade": "npx @astrojs/upgrade",
-    "watch:package": "wireit",
-    "webpack": "npm run webpack:dev && npm run webpack:prod",
-    "webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
-    "webpack:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
-    "webpack:server": "webpack --watch --config webpack.dev.js"
+    "upgrade": "npx @astrojs/upgrade"
   },
   "wireit": {
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -161,35 +155,38 @@
     "lint:templates": {
       "command": "bin/hugo/lint-templates"
     },
-    "lint:fixpack": {
-      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true",
-      "description": "Fix package.json files"
-    },
-    "build:tailwindcss": {
-      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --optimize"
-    },
-    "build:tailwindcss:prod": {
-      "command": "npx @tailwindcss/cli -i ./assets/css/theme.css -o ./static/assets/theme.css --minify"
-    },
     "release": {
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
     },
     "compile:package": {
-      "command": "npm run lint:fixpack",
-      "dependencies": ["compile:package:run"]
+      "command": "npm run compile:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
     },
-    "watch:package": {
-      "command": "watch -d -p ./src/packages/**/*.* -- npm run compile:package:run"
+    "compile:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
+    },
+    "compile:package:update": {
+      "command": "node ./src/packages/update-package.ts"
     },
     "clean": {
-      "dependencies": ["clean:astro"]
+      "dependencies": [
+        "clean:astro"
+      ]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist"

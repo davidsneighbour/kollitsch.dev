@@ -17,7 +17,6 @@ tags:
   - howto
   - google chrome
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: ubuntu-wallpaper-d.png
 ---

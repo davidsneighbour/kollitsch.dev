@@ -5,7 +5,6 @@ description: >-
   I am trying this new "thing" of "reporting" what I was up to in a certain time
   period this year, and monthly reviews just sound like something normal people
   would do. So bear with me while I am typing up this report.
-type: blog
 date: '2023-02-26T21:27:05+07:00'
 resources:
   - src: header.jpg

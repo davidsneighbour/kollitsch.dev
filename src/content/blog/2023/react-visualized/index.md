@@ -11,7 +11,6 @@ tags:
   - react
   - learning
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

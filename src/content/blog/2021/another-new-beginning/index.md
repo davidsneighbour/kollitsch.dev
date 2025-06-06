@@ -12,7 +12,6 @@ tags:
   - me-now
 unsplash:
   imageid: HcUDHJfd5GY
-type: blog
 fmContentType: blog
 cover: ave-calvar-HcUDHJfd5GY-unsplash.jpg
 ---

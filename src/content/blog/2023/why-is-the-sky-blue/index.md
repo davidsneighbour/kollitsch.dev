@@ -10,7 +10,6 @@ tags:
   - physics
   - social-media
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: A-V2Vb6R9NQ
 fmContentType: blog

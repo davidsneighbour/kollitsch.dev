@@ -11,7 +11,6 @@ tags:
   - tag2
   - tag3
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: hugo-0.131.0.png
 ---

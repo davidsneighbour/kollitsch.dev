@@ -13,7 +13,6 @@ tags:
   - linkshortening
   - networking
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

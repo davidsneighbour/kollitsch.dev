@@ -1,5 +1,4 @@
 ---
-type: blog
 title: Mark word break opportunities in HTML
 linkTitle: Mark word break opportunities in HTML
 description: >-

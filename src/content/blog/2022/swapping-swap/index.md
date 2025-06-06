@@ -1,5 +1,4 @@
 ---
-type: blog
 title: Swapping swap
 description: ''
 summary: ''

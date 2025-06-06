@@ -1,5 +1,4 @@
 ---
-type: blog
 title: Simple multi-language pre-commit hooks
 description: >-
   This is one of the posts that spent months in draft (fka ideas) mode. Recently

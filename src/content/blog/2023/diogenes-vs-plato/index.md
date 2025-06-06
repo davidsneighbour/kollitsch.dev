@@ -15,7 +15,6 @@ tags:
   - quotes
   - knowledge
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: OlAoxfMngZ4
 fmContentType: blog

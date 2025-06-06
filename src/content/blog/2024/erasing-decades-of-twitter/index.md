@@ -15,7 +15,6 @@ tags:
   - howto
   - erasing-social-media
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.webp
 ---

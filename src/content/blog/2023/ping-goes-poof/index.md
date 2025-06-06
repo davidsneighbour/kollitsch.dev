@@ -14,7 +14,6 @@ tags:
   - seo
   - hugo-sitemap
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog

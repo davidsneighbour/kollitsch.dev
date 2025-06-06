@@ -12,7 +12,6 @@ tags:
   - semver
   - build
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4
 fmContentType: blog

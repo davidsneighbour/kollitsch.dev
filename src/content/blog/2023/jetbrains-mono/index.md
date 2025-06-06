@@ -11,7 +11,6 @@ tags:
   - developer-fonts
   - typography
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.png
 ---

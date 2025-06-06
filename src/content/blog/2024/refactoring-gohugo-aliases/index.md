@@ -11,7 +11,6 @@ tags:
   - cli
   - gohugo
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

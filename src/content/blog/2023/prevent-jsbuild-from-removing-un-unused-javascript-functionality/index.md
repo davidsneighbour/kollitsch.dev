@@ -12,7 +12,6 @@ tags:
   - esbuild
   - component
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.png
 ---

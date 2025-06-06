@@ -15,7 +15,6 @@ tags:
   - how to
   - javascript
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: pile-of-rubber-duckies-59yg_LpcvzQ
 fmContentType: blog

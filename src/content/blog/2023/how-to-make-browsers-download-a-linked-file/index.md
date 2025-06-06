@@ -11,7 +11,6 @@ tags:
   - html
   - howto
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

@@ -11,7 +11,6 @@ tags:
   - shortcode
   - howto
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog

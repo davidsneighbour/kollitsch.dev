@@ -12,7 +12,6 @@ tags:
   - cli
   - authentication
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

@@ -15,7 +15,6 @@ tags:
   - keybase
   - howto
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: ubuntu-wallpaper-d.png
 ---

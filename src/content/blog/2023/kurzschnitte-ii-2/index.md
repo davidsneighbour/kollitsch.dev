@@ -1,6 +1,5 @@
 ---
 title: Kurzschnitte II - Sophomore Edition
-slug: kurzschnitte-ii-2
 description: ''
 date: '2023-12-03T17:37:20+07:00'
 resources:
@@ -12,7 +11,6 @@ tags:
   - kurzschnitte
   - bookmarks
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog

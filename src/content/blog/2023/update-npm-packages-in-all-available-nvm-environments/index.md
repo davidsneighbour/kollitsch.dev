@@ -16,7 +16,6 @@ tags:
   - nvm
   - cronjob
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: oZMUrWFHOB4
 fmContentType: blog

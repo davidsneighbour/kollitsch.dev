@@ -15,7 +15,6 @@ tags:
   - cat
   - dog
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: ouo1hbizWwo
 fmContentType: blog

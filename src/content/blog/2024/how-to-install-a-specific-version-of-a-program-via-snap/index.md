@@ -14,7 +14,6 @@ tags:
   - howto
   - golang
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: B0aJBySo8dc
 fmContentType: blog

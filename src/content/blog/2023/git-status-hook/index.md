@@ -13,7 +13,6 @@ tags:
   - bash
   - git
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: wX2L8L-fGeA
 fmContentType: blog

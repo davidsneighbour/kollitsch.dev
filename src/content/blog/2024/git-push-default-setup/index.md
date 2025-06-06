@@ -15,7 +15,6 @@ tags:
   - git
   - configuration
   - 100DaysToOffload
-type: blog
 date: '2024-04-12T21:09:32+07:00'
 fmContentType: blog
 cover: header.jpg

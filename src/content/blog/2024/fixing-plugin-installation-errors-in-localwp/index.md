@@ -19,7 +19,6 @@ tags:
   - ubuntu 24.04
   - howto
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.png
 ---

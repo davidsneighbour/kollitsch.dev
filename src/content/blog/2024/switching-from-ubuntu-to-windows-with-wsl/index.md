@@ -23,7 +23,6 @@ tags:
   - windows 11
   - WSL 2
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: yGPxCYPS8H4
 fmContentType: blog

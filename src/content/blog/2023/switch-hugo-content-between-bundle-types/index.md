@@ -15,7 +15,6 @@ tags:
   - bash
   - quicky
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: 1COcTd3pRCg
 fmContentType: blog

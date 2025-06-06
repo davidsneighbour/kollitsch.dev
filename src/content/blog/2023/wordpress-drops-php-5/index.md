@@ -13,7 +13,6 @@ tags:
   - wordpress
   - php
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: Zk--Ydz2IAs
 fmContentType: blog

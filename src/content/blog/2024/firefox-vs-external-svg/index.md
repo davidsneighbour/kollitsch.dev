@@ -22,7 +22,6 @@ tags:
   - howto
   - SVG
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog

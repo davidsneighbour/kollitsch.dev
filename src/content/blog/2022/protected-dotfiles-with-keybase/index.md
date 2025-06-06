@@ -18,7 +18,6 @@ tags:
   - security
   - 100DaysToOffload
   - git
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

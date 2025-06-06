@@ -12,7 +12,6 @@ tags:
   - design
   - logo
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.png
 ---

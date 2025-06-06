@@ -14,7 +14,6 @@ tags:
   - hardware
   - troubleshooting
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: 1iVKwElWrPA
 fmContentType: blog

@@ -11,7 +11,6 @@ tags:
   - git
   - devops
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

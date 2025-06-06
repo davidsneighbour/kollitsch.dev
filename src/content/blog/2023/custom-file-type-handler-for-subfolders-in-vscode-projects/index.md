@@ -16,7 +16,6 @@ tags:
   - configuration
   - project-management
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: oXlXu2qukGE
 fmContentType: blog

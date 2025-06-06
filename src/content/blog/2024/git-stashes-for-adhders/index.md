@@ -3,7 +3,6 @@ title: Git stashes for ADHDers
 description: ''
 summary: ''
 date: '2024-03-01T19:19:32+07:00'
-type: blog
 resources:
   - title: >-
       Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via

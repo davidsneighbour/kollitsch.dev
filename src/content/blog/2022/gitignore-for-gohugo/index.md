@@ -11,7 +11,6 @@ tags:
   - gitignore
   - developers
   - 100DaysToOffload
-slug: gitignore-gohugo
 aliases:
   - /blog/2021/gitignore-for-gohugo/
 fmContentType: blog

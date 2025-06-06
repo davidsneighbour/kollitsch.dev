@@ -1,5 +1,4 @@
 ---
-type: blog
 title: VSCode Remote SSH plugin vs. Dreamhost shared hosting
 description: ''
 summary: ''

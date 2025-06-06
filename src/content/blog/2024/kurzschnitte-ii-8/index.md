@@ -20,7 +20,6 @@ tags:
   - kurzschnitte
   - bookmarks
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: UcEzgZ6k19o
 fmContentType: blog

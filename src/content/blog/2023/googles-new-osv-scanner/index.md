@@ -13,7 +13,6 @@ tags:
   - linting
   - opsec
   - 100DaysToOffload
-type: blog
 fmContentType: blog
 cover: header.jpg
 ---

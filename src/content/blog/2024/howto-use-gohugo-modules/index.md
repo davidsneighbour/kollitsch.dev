@@ -21,7 +21,6 @@ tags:
   - modules
   - how-to
   - 100DaysToOffload
-type: blog
 unsplash:
   imageid: pswcXNE8690
 fmContentType: blog

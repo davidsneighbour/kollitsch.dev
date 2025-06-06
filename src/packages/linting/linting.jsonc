@@ -4,11 +4,9 @@
   "scripts": {
     "audit:html": "wireit",
     "lighthouse": "bin/audit/lighthouse",
-    "lint": "wireit",
     "lint:hook:commit": "lint-staged",
     "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
-    "lint:links": "wireit",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit"

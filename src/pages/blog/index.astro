@@ -3,25 +3,24 @@
 
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/DefaultPage.astro';
+import { getPostsSortedByDraft } from '@utils/getPostsSortedByDraft';
 
-const posts = await getCollection('blog');
-const sorted = posts
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const posts = getPostsSortedByDraft(await getCollection('blog'));
+
 ---
 
 <Layout title="Blog | My Personal Website">
   <h1>Blog</h1>
   <ul>
-    {sorted.map((post) => {
+    {posts.map((post) => {
       const [year, slug] = post.slug.split('/');
       return (
         <li>
+          {post.data.draft && <span class="text-red-500">DRAFT</span>}
           <a href={`/blog/${year}/${slug}/`}>{post.data.title}</a>
           <span> — {post.data.date.toISOString().split('T')[0]}</span>
         </li>
       );
     })}
   </ul>
-
 </Layout>

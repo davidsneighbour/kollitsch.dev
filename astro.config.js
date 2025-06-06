@@ -15,6 +15,8 @@ import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
 
+import expressiveCode from 'astro-expressive-code';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kollitsch.dev/',
@@ -25,7 +27,8 @@ export default defineConfig({
     defaultStrategy: 'viewport',
   },
   integrations: [
-    sitemap(), // https://github.com/felix-berlin/astro-matomo
+    // https://github.com/felix-berlin/astro-matomo
+    sitemap(),
     pagefind({
       // https://github.com/shishkin/astro-pagefind
       indexConfig: {
@@ -50,6 +53,14 @@ export default defineConfig({
     sentry(),
     spotlightjs(),
     icon(),
+    expressiveCode({
+      themes: ['dracula', 'github-light'],
+      styleOverrides: {
+        frames: {
+          shadowColor: '#124',
+        },
+      },
+    }),
   ],
   vite: {
     plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
@@ -63,7 +74,7 @@ export default defineConfig({
     preserveScriptOrder: true,
     clientPrerender: true,
     // @todo https://docs.astro.build/en/reference/experimental-flags/csp/
-    csp: true,
+    //csp: true,
   },
   image: {
     experimentalLayout: 'constrained',

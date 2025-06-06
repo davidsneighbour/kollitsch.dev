@@ -56,6 +56,7 @@
     "@tailwindcss/forms": "0.5.10",
     "@tailwindcss/typography": "0.5.16",
     "@total-typescript/ts-reset": "0.6.1",
+    "astro-expressive-code": "0.41.2",
     "browserslist": "4.25.0",
     "cz-git": "1.11.1",
     "fixpack": "4.0.0",
@@ -114,22 +115,15 @@
   },
   "wireit": {
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:submodules"
-      ]
+      "dependencies": ["update:pre:npm", "update:pre:submodules"]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -160,12 +154,8 @@
     },
     "compile:package": {
       "command": "npm run compile:fixpack",
-      "dependencies": [
-        "compile:package:run"
-      ],
-      "files": [
-        "./src/packages/**/*.jsonc"
-      ]
+      "dependencies": ["compile:package:run"],
+      "files": ["./src/packages/**/*.jsonc"]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -177,16 +167,11 @@
       "command": "node ./src/packages/update-package.ts"
     },
     "clean": {
-      "dependencies": [
-        "clean:astro"
-      ]
+      "dependencies": ["clean:astro"]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:astro",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:astro", "clean:netlify"]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist"

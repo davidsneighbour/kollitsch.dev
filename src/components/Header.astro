@@ -1,17 +1,17 @@
 ---
 // @todo refactor
 
-
 import navData from '@data/navigation.json';
-
 import ThemeSelect from '@components/ThemeSelect.astro';
+import { getHomepageUrl } from '@utils/getHomepageUrl';
 
 const currentPath = Astro.url.pathname;
 console.log('Current Path:', currentPath);
 
 import siteinfo from '@data/siteinfo.json';
 import { Icon } from 'astro-icon/components';
-// @todo re-add progress bar
+
+const homepage = getHomepageUrl( Astro.site ? { site: Astro.site } : undefined );
 
 ---
 
@@ -22,7 +22,7 @@ import { Icon } from 'astro-icon/components';
          bg-white/95 backdrop-blur-lg border-b border-gray-200
          dark:bg-gray-900/95 dark:border-gray-800">
   <nav class="mx-auto flex max-w-7xl items-center justify-between" aria-label="Global">
-    <a id="navbar-brand" href={siteinfo.url}
+    <a id="navbar-brand" href={homepage}
         class="-m-1.5 p-1.5 font-changa text-orange-700 text-2xl
                 transition-opacity ease-in-out duration-600
 
@@ -94,6 +94,7 @@ import { Icon } from 'astro-icon/components';
   :root[data-theme="light"] {
     /* CSS variables */
   }
+
   :root[data-theme="dark"] {
     /* CSS variables */
   }

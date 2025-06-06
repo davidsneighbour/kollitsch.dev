@@ -1,0 +1,66 @@
+---
+
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/DefaultPage.astro';
+import { getPostsSortedByDraft } from '@utils/getPostsSortedByDraft';
+import PaginationNumbered from '@components/PaginationNumbered.astro';
+
+
+const pathname = new URL(Astro.request.url).pathname.split('/');
+const firstPath = pathname[1];
+
+const posts = getPostsSortedByDraft(await getCollection('blog'));
+export async function getStaticPaths({ paginate }) {
+  const posts = getPostsSortedByDraft(await getCollection('blog'));
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page, slug } = Astro.props;
+console.log('page', page);
+console.log('slug', slug);
+
+---
+
+<Layout>
+  <h1>Blog</h1>
+  <ul>
+    {posts.map((post) => {
+      const [year, slug] = post.slug.split('/');
+      return (
+        <li>
+          {post.data.draft && <span class="text-red-500">DRAFT</span>}
+          <a href={`/blog/${year}/${slug}/`}>{post.data.title}</a>
+          <span> — {post.data.date.toISOString().split('T')[0]}</span>
+        </li>
+      );
+    })}
+  </ul>
+  <!-- <PaginationNumbered
+    total={posts.length}
+    pageSize={10}
+    currentPage={page}
+    baseUrl={`/${firstPath}`}
+  />
+
+  <PaginationNumbered
+    length={page.lastPage}
+    currentUrl={page.url.current}
+    currentPage={page.currentPage}
+    firstUrl={`/${firstPath}`}
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    lastUrl={`/${firstPath}/${page.lastPage}`}
+/>
+
+  <PaginationNumbered
+    length={page.lastPage}
+    currentUrl={page.url.current}
+    currentPage={page.currentPage}
+    firstUrl={`/${firstPath}`}
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    lastUrl={`/${firstPath}/${page.lastPage}`}
+  /> -->
+
+</Layout>

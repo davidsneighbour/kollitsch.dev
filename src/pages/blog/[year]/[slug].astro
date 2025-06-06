@@ -49,7 +49,7 @@ const prevPost = posts[currentIndex - 1];
 
   <article>
 
-    {imageMeta && <Image src={imageMeta} alt={post.data.title} class="w-full h-auto mb-4" />}
+    {imageMeta && <Image src={imageMeta} alt={post.data.title} class="w-full h-auto mb-4" width="1280" />}
     <h2>{post.data.title}</h2>
     <p>{post.data.date.toLocaleDateString()}</p>
     <BreadCrumbs path={Astro.url.href} />

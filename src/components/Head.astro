@@ -8,12 +8,27 @@ import ThemeManager from '@components/ThemeManager.astro';
 
 import type { MetaConfig } from '../types/MetaConfig';
 import metaDataRaw from '@data/meta.json';
+
+import { getImage } from 'astro:assets'
+import faviconSrc from '@assets/favicon/favicon.png'
+import faviconSvgSrc from '@assets/favicon/favicon.svg'
+
 const metaData = metaDataRaw as MetaConfig;
 
 const { title, description, image, ...props } = Astro.props;
 
 const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
+
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  attributes: {
+    width: 180,
+    height: 180,
+  },
+  format: 'png'
+})
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 ---
 
 <meta charset="UTF-8" />
@@ -33,6 +48,11 @@ const baseUrl = import.meta.env.BASE_URL;
 <meta property="twitter:title" content={props.title} />
 <meta property="twitter:description" content={props.description} />
 <meta property="twitter:image" content={props.image} />
+
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="apple-touch-icon" href={appleTouchIcon.src} />
 
 <ClientRouter />
 

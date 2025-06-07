@@ -4,7 +4,9 @@
 // Import site information from the correct relative path
 import siteInfo from '@data/site.json';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
+import { generateUniqueHtmlId } from '@utils/helpers';
 
+const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear();
 ---
 
@@ -83,7 +85,7 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="flex flex-row items-center justify-between border-t border-gray-800 pt-6 text-gray-400">
-      <span>&copy; <span id="footer-year">{currentYear}</span> <a href={getHomepageUrl()}>{siteInfo.title}</a></span>
+      <span>&copy; <span id={footerYearId}>{currentYear}</span> <a href={getHomepageUrl()}>{siteInfo.title}</a></span>
       <span>All rights reserved.</span>
       <span>Webwork done by <a href="https://davids-neighbour.com/">David's Neighbour</a></span>
     </div>
@@ -91,6 +93,6 @@ const currentYear = new Date().getFullYear();
   </div>
 </footer>
 
-<script is:inline data-astro-rerun>
-  document.getElementById('footer-year').innerText = new Date().getFullYear();
+<script is:inline>
+  document.getElementById({footerYearId}).innerText = new Date().getFullYear();
 </script>

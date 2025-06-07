@@ -24,7 +24,7 @@ const currentPage = 1;
 const totalPages = Math.ceil(taggedPosts.length / pageSize);
 const paginatedPosts = taggedPosts.slice(0, pageSize);
 
-import { getValidTags } from '@utils/tags';
+import { getValidTags } from '@utils/helpers';
 
 export async function getStaticPaths() {
   const tagMap = await getValidTags();

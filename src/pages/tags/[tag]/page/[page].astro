@@ -21,7 +21,7 @@ const paginatedPosts = taggedPosts.slice(start, start + pageSize);
 // Optional tag entry (for intro)
 const tagEntry = await getEntryBySlug('tags', tag).catch(() => null);
 
-import { getValidTags } from '@utils/tags';
+import { getValidTags } from '@utils/helpers';
 
 export async function getStaticPaths() {
   const tagMap = await getValidTags();

@@ -82,14 +82,12 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <div
-      class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400"
-    >
-      <p>
-        &copy; <span id="footer-year">{currentYear}</span>
-        <a href={getHomepageUrl()}>{siteInfo.title}</a>. All rights reserved.
-      </p>
+    <div class="flex flex-row items-center justify-between border-t border-gray-800 pt-6 text-gray-400">
+      <span>&copy; <span id="footer-year">{currentYear}</span> <a href={getHomepageUrl()}>{siteInfo.title}</a></span>
+      <span>All rights reserved.</span>
+      <span>Webwork done by <a href="https://davids-neighbour.com/">David's Neighbour</a></span>
     </div>
+
   </div>
 </footer>
 

@@ -9,5 +9,6 @@
     "showDraftsInDev": true,
     "showDraftsInProd": false,
     "showDraftsInTest": true
-  }
+  },
+  "tagThreshold": 2
 }

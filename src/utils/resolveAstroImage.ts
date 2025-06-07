@@ -1,16 +1,22 @@
+import siteinfo from '@data/site.json';
 import type { ImageMetadata } from 'astro';
-import siteinfo from '@data/siteinfo.json';
 
 type ImagePath = string;
 
-const imageMap = import.meta.glob<{ default: ImageMetadata }>('/src/content/**/*.{jpg,png,webp,avif}', {
-  eager: true
-});
+const imageMap = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/content/**/*.{jpg,png,webp,avif}',
+  {
+    eager: true,
+  },
+);
 
 // Statically import all fallback candidates
-const fallbackCandidates = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpg,png,webp,avif}', {
-  eager: true
-});
+const fallbackCandidates = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpg,png,webp,avif}',
+  {
+    eager: true,
+  },
+);
 
 const fallbackImage = fallbackCandidates[siteinfo.fallback]?.default || null;
 
@@ -25,6 +31,8 @@ export function resolveAstroImage(path: ImagePath): ImageMetadata {
   const entry = imageMap[path];
   if (entry?.default) return entry.default;
 
-  console.warn(`[resolveAstroImage] Missing image: ${path} → using fallback from ${siteinfo.fallback}`);
+  console.warn(
+    `[resolveAstroImage] Missing image: ${path} → using fallback from ${siteinfo.fallback}`,
+  );
   return fallbackImage!;
 }

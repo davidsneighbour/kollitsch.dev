@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import setup from '@data/setup.json';
+import setup from '@data/site.json';
 
 export const getPostsSortedByDraft = (allPosts: CollectionEntry<'blog'>[]) => {
   return allPosts

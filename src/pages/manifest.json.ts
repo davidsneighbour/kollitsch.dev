@@ -1,13 +1,13 @@
-import type { APIRoute } from 'astro';
 import { getImage } from 'astro:assets';
 import favicon from '@assets/favicon/favicon.png';
-import siteinfo from '@data/siteinfo.json';
+import siteinfo from '@data/site.json';
+import type { APIRoute } from 'astro';
 
 const faviconPngSizes = [192, 512];
 
 export const GET: APIRoute = async () => {
   const icons = await Promise.all(
-    faviconPngSizes.map(async size => {
+    faviconPngSizes.map(async (size) => {
       const image = await getImage({
         src: favicon,
         width: size,

@@ -1,4 +1,4 @@
-import siteinfo from '@data/siteinfo.json';
+import siteinfo from '@data/site.json';
 
 /**
  * Options for getHomepageUrl.

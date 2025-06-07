@@ -1,18 +1,39 @@
 ---
-// @todo refactor
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/DefaultPage.astro';
+import TagCloud from '@components/TagCloud.astro';
 
+const blogPosts = await getCollection('blog');
+const tagEntries = await getCollection('tags');
 
-import DefaultPage from '@layouts/DefaultPage.astro';
-const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
-const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
-const pageTitle = "Tag Index";
+// Build frequency map
+const tagMap = new Map<string, number>();
+for (const post of blogPosts) {
+  (post.data.tags || []).forEach((tag) => {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  });
+}
+
+// Map tagEntries to those that exist in validTags
+const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.slug));
 
 ---
 
-<DefaultPage title={pageTitle}>
-  <div class="tags">
-    {tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}/`}>{tag}</a></p>
+<Layout title="Tags">
+  <h1 class="text-4xl font-bold mb-6">Tag Cloud</h1>
+  <TagCloud tags={tagMap} />
+
+  <h2 class="text-2xl font-bold mt-12 mb-4">Tag Pages</h2>
+  <ul class="space-y-4">
+    {tagEntryList.map((entry) => (
+      <li>
+        <a href={`/tags/${entry.slug}/`} class="text-lg font-semibold text-orange-700 hover:underline dark:text-orange-300">
+          {entry.data.title || `#${entry.slug}`}
+        </a>
+        {entry.data.description && (
+          <p class="text-sm text-gray-600 dark:text-gray-400">{entry.data.description}</p>
+        )}
+      </li>
     ))}
-  </div>
-</DefaultPage>
+  </ul>
+</Layout>

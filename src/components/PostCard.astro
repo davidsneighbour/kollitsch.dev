@@ -1,0 +1,10 @@
+---
+const { post } = Astro.props;
+const [year, slug] = post.slug.split('/');
+---
+
+<li>
+  {post.data.draft && <span class="text-red-500">DRAFT</span>}
+  <a href={`/blog/${year}/${slug}/`}>{post.data.title}</a>
+  <span> — {post.data.date.toISOString().split('T')[0]}</span>
+</li>

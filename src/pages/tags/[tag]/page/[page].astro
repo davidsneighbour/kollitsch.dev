@@ -1,0 +1,67 @@
+---
+import { getCollection, getEntryBySlug } from 'astro:content';
+import Layout from '@layouts/BaseLayout.astro';
+import PostCard from '@components/PostCard.astro';
+import TagIntro from '@components/TagIntro.astro';
+import Pagination from '@components/Pagination.astro';
+
+const { tag, page } = Astro.params;
+const currentPage = Number(page);
+const pageSize = 10;
+
+// Load and filter blog posts by tag
+const allPosts = await getCollection('blog');
+const taggedPosts = allPosts.filter(p => p.data.tags?.includes(tag));
+
+// Pagination logic
+const totalPages = Math.ceil(taggedPosts.length / pageSize);
+const start = (currentPage - 1) * pageSize;
+const paginatedPosts = taggedPosts.slice(start, start + pageSize);
+
+// Optional tag entry (for intro)
+const tagEntry = await getEntryBySlug('tags', tag).catch(() => null);
+
+import { getValidTags } from '@utils/tags';
+
+export async function getStaticPaths() {
+  const tagMap = await getValidTags();
+  const pageSize = 10;
+
+  const paths = [];
+  for (const [tag, { count }] of tagMap.entries()) {
+    const totalPages = Math.ceil(count / pageSize);
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({ params: { tag, page: String(page) } });
+    }
+  }
+  return paths;
+}
+---
+
+<Layout title={`#${tag} – Page ${currentPage}`}>
+  {
+    tagEntry && currentPage === 1 && (
+      <TagIntro
+        title={tagEntry.data.title}
+        description={tagEntry.data.description}
+        image={tagEntry.data.image}
+      />
+    )
+  }
+
+  {
+    !tagEntry && currentPage === 1 && (
+      <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>
+    )
+  }
+
+  <div class="grid gap-6">
+    {paginatedPosts.map(post => <PostCard post={post} />)}
+  </div>
+
+  <Pagination
+    basePath={`/tags/${tag}/`}
+    currentPage={currentPage}
+    totalPages={totalPages}
+  />
+</Layout>

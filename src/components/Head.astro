@@ -13,8 +13,6 @@ const metaData = metaDataRaw as MetaConfig;
 const { title, description, image, ...props } = Astro.props;
 
 const post = await getEntry('blog', Astro.url.pathname);
-console.log("post", post);
-
 const baseUrl = import.meta.env.BASE_URL;
 ---
 

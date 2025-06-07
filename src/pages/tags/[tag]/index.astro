@@ -1,0 +1,59 @@
+---
+import Layout from '@layouts/DefaultPage.astro';
+import PostCard from '@components/PostCard.astro';
+import TagIntro from '@components/TagIntro.astro';
+import Pagination from '@components/Pagination.astro';
+import { getEntry } from 'astro:content';
+
+const { tag } = Astro.params;
+
+const tagMap = await getValidTags();
+const tagInfo = tagMap.get(tag);
+
+if (!tagInfo) throw new Error(`Tag '${tag}' is invalid or too small`);
+const taggedPosts = tagInfo.posts;
+
+// Step 2: Load optional tag content
+const tagEntry = await getEntry({ collection: 'tags', id: tag }).catch(
+  () => null,
+);
+
+// Step 3: Pagination config
+const pageSize = 10;
+const currentPage = 1;
+const totalPages = Math.ceil(taggedPosts.length / pageSize);
+const paginatedPosts = taggedPosts.slice(0, pageSize);
+
+import { getValidTags } from '@utils/tags';
+
+export async function getStaticPaths() {
+  const tagMap = await getValidTags();
+  return Array.from(tagMap.keys()).map(tag => ({
+    params: { tag },
+  }));
+}
+---
+
+<Layout title={`#${tag}`}>
+  {
+    tagEntry && (
+      <TagIntro
+        title={tagEntry.data.title}
+        description={tagEntry.data.description}
+        image={tagEntry.data.image}
+      />
+    )
+  }
+
+  {!tagEntry && <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>}
+
+  <div class="grid gap-6">
+    {paginatedPosts.map(post => <PostCard post={post} />)}
+  </div>
+
+  <Pagination
+    basePath={`/tags/${tag}/`}
+    currentPage={currentPage}
+    totalPages={totalPages}
+  />
+</Layout>

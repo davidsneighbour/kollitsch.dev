@@ -16,6 +16,9 @@ export async function getBreadcrumbs(
   breadcrumbs.push({ url: '/', title: 'Home' });
 
   for (let i = 0; i < segments.length; i++) {
+    // weird hack to skip the year segment in blog URLs
+    if (i === 1 && segments[i - 1] === 'blog') continue;
+
     const subSegments = segments.slice(0, i + 1);
     const url = '/' + subSegments.join('/') + '/';
 

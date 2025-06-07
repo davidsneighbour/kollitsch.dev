@@ -1,0 +1,35 @@
+---
+interface TagCloudProps {
+  tags: Map<string, number>;
+  minSize?: number;
+  maxSize?: number;
+}
+
+const {
+  tags,
+  minSize = 0.75, // rem
+  maxSize = 2.0,  // rem
+} = Astro.props;
+
+const maxCount = Math.max(...tags.values());
+const minCount = Math.min(...tags.values());
+
+function getFontSize(count: number): string {
+  const weight = (count - minCount) / (maxCount - minCount || 1);
+  const size = minSize + weight * (maxSize - minSize);
+  return `${size.toFixed(2)}rem`;
+}
+---
+
+<div class="flex flex-wrap gap-3">
+  {Array.from(tags.entries()).map(([tag, count]) => (
+    <a
+      href={`/tags/${encodeURIComponent(tag)}/`}
+      title={`${count} posts`}
+      class="text-gray-700 dark:text-gray-200 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+      style={`font-size: ${getFontSize(count)}; line-height: 1.1;`}
+    >
+      #{tag}
+    </a>
+  ))}
+</div>

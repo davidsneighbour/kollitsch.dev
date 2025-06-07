@@ -1,0 +1,86 @@
+---
+// for /blog/1/, /blog/2/, /blog/3/ (pagination)
+
+import type { InferGetStaticParamsType } from 'astro';
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/DefaultPage.astro';
+import PaginationNumbered from '@components/PaginationNumbered.astro';
+import Heading from '@components/Heading.astro';
+import Pagination from '@components/Pagination2.astro';
+import { getPostsSortedByDraft } from '@utils/getPostsSortedByDraft';
+
+export async function getStaticPaths() {
+  const posts = getPostsSortedByDraft(await getCollection('blog'));
+  const pageSize = 10;
+  const totalPages = Math.ceil(posts.length / pageSize);
+
+  return Array.from({ length: totalPages }).map((_, i) => ({
+    params: { page: i === 0 ? '1' : `${i + 1}` }, // all as strings
+  }));
+}
+
+const pathname = new URL(Astro.request.url).pathname.split('/');
+const firstPath = pathname[1];
+const { page } = Astro.params as Params;
+const pageNumber = Number(page) || 1; // default to 1 if not provided
+const allPosts = getPostsSortedByDraft(await getCollection('blog'));
+const posts = allPosts.slice((pageNumber - 1) * 10, pageNumber * 10);
+const totalPages = Math.ceil(allPosts.length / 10);
+---
+
+<Layout>
+  <Heading
+    title="Blog"
+    description="A collection of articles, tutorials, and updates."
+  />
+  <ul>
+    {
+      posts.map(post => {
+        const [year, slug] = post.slug.split('/');
+        return (
+          <li>
+            {post.data.draft && <span class="text-red-500">DRAFT</span>}
+            <a href={`/blog/${year}/${slug}/`}>{post.data.title}</a>
+            <span> — {post.data.date.toISOString().split('T')[0]}</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <Pagination
+    basePath="/blog"
+    currentPage={pageNumber}
+    totalPages={totalPages}
+  />
+
+  <PaginationNumbered
+    total={posts.length}
+    pageSize={10}
+    currentPage={page}
+    baseUrl={`/${firstPath}`}
+  />
+  <!--
+  <PaginationNumbered
+    length={page.lastPage}
+    currentUrl={page.url.current}
+    currentPage={page.currentPage}
+    firstUrl={`/${firstPath}`}
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    lastUrl={`/${firstPath}/${page.lastPage}`}
+/>
+
+  <PaginationNumbered
+    length={page.lastPage}
+    currentUrl={page.url.current}
+    currentPage={page.currentPage}
+    firstUrl={`/${firstPath}`}
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    lastUrl={`/${firstPath}/${page.lastPage}`}
+  /> -->
+</Layout>

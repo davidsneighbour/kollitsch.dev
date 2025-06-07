@@ -1,0 +1,20 @@
+---
+const { title, description, image } = Astro.props;
+---
+
+<section class="mb-8">
+  {image && (
+    <img
+      src={image.src}
+      alt={image.alt || title}
+      width={image.width || 1200}
+      height={image.height || 600}
+      loading="lazy"
+      class="mb-4"
+    />
+  )}
+
+  <h1 class="text-4xl font-bold mb-2">{title}</h1>
+
+  {description && <p class="text-lg text-gray-600">{description}</p>}
+</section>

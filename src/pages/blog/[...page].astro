@@ -1,10 +1,11 @@
 ---
 
-import type { GetStaticPaths } from 'astro';
+
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/DefaultPage.astro';
 import { getPostsSortedByDraft } from '@utils/getPostsSortedByDraft';
 import PaginationNumbered from '@components/PaginationNumbered.astro';
+import Heading from '@components/Heading.astro';
 
 
 const pathname = new URL(Astro.request.url).pathname.split('/');
@@ -17,11 +18,15 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page, slug } = Astro.props;
-
+console.log('page', page);
+console.log('slug', slug);
 ---
 
 <Layout>
-  <h1>Blog</h1>
+  <Heading
+    title="Blog"
+    description="A collection of articles, tutorials, and updates."
+  />
   <ul>
     {posts.map((post) => {
       const [year, slug] = post.slug.split('/');
@@ -34,13 +39,13 @@ const { page, slug } = Astro.props;
       );
     })}
   </ul>
-  <!-- <PaginationNumbered
+<PaginationNumbered
     total={posts.length}
     pageSize={10}
     currentPage={page}
     baseUrl={`/${firstPath}`}
   />
-
+  <!--
   <PaginationNumbered
     length={page.lastPage}
     currentUrl={page.url.current}

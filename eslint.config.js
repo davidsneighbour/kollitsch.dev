@@ -10,12 +10,10 @@ import eslintPluginAstro from 'eslint-plugin-astro';
 export default defineConfig([
   // Base JavaScript support
   {
+    name: 'dnb/base-js',
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     plugins: { js },
     extends: ['js/recommended'],
-  },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -29,18 +27,21 @@ export default defineConfig([
 
   // JSON support
   {
+    name: 'dnb/json',
     files: ['**/*.json'],
     plugins: { json },
     language: 'json/json',
     extends: ['json/recommended'],
   },
   {
+    name: 'dnb/jsonc',
     files: ['**/*.jsonc'],
     plugins: { json },
     language: 'json/jsonc',
     extends: ['json/recommended'],
   },
   {
+    name: 'dnb/json5',
     files: ['**/*.json5'],
     plugins: { json },
     language: 'json/json5',
@@ -49,6 +50,7 @@ export default defineConfig([
 
   // Markdown support
   {
+    name: 'dnb/markdown',
     files: ['**/*.md'],
     plugins: { markdown },
     language: 'markdown/gfm',
@@ -57,6 +59,7 @@ export default defineConfig([
 
   // CSS support
   {
+    name: 'dnb/css',
     files: ['**/*.css'],
     plugins: { css },
     language: 'css/css',
@@ -66,6 +69,7 @@ export default defineConfig([
   // Astro support
   ...eslintPluginAstro.configs.recommended,
   {
+    name: 'dnb/astro',
     files: ['**/*.astro'],
     rules: {},
   },

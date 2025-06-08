@@ -1,6 +1,5 @@
 // @ts-check
 
-import astroConfig from './configs/astro.js';
 import cssConfig from './configs/css.js';
 import defaultConfig from './configs/default.js';
 import eslint from '@eslint/js';

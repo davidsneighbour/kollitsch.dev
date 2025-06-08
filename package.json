@@ -18,24 +18,22 @@
     "@astrojs/rss": "4.0.12",
     "@astrojs/sitemap": "3.4.1",
     "@astrojs/ts-plugin": "1.10.4",
+    "@eslint/config-inspector": "1.1.0",
     "@eslint/css": "0.8.1",
     "@eslint/js": "9.28.0",
     "@eslint/json": "0.12.0",
     "@eslint/markdown": "6.5.0",
-    "@html-eslint/eslint-plugin": "^0.41.0",
     "@iconify-json/bi": "1.2.4",
     "@spotlightjs/astro": "3.2.3",
-    "@stylistic/eslint-plugin": "4.4.1",
-    "@stylistic/eslint-plugin-js": "4.4.1",
     "@tailwindcss/vite": "4.1.8",
-    "@typescript-eslint/parser": "^8.33.1",
     "astro": "^5.9.1",
     "astro-icon": "1.1.5",
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",
     "eslint": "9.28.0",
-    "eslint-plugin-security": "3.0.1",
+    "eslint-plugin-astro": "1.3.1",
     "glob": "11.0.2",
+    "globals": "16.2.0",
     "gray-matter": "4.0.3",
     "netlify-cli": "22.1.3",
     "sharp-ico": "^0.1.5",
@@ -65,8 +63,6 @@
     "@tailwindcss/forms": "0.5.10",
     "@tailwindcss/typography": "0.5.16",
     "@total-typescript/ts-reset": "0.6.1",
-    "@types/eslint-plugin-markdown": "2.0.2",
-    "@types/eslint-plugin-security": "3.0.0",
     "astro-expressive-code": "0.41.2",
     "browserslist": "4.25.0",
     "cz-git": "1.11.1",
@@ -103,6 +99,7 @@
     "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
     "hooks:update": "simple-git-hooks",
     "lighthouse": "bin/audit/lighthouse",
+    "lint:eslint:inspector": "eslint --inspect-config",
     "lint:hook:commit": "lint-staged",
     "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
@@ -125,15 +122,22 @@
   },
   "wireit": {
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -164,8 +168,12 @@
     },
     "compile:package": {
       "command": "npm run compile:fixpack",
-      "dependencies": ["compile:package:run"],
-      "files": ["./src/packages/**/*.jsonc"]
+      "dependencies": [
+        "compile:package:run"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -177,11 +185,16 @@
       "command": "node ./src/packages/update-package.ts"
     },
     "clean": {
-      "dependencies": ["clean:astro"]
+      "dependencies": [
+        "clean:astro"
+      ]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist node_modules/.astro"

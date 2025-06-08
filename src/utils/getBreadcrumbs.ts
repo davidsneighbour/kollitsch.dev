@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content';
+import { type DataEntryMap, getCollection } from 'astro:content';
 
 /**
  * Generate breadcrumb objects from a given URL path.
@@ -43,7 +43,7 @@ async function resolveTitle(url: string): Promise<string | null> {
 
   const collections = await discoverCollections();
 
-  for (const name of collections) {
+  for (const name of collections as (keyof DataEntryMap)[]) {
     const entries = await getCollection(name);
     const entry = entries.find((e) => `/${name}/${e.slug}/` === url);
     if (entry?.data?.title) {
@@ -52,8 +52,8 @@ async function resolveTitle(url: string): Promise<string | null> {
     }
   }
 
-  titleCache.set(url, null);
-  return null;
+  titleCache.set(url, '');
+  return '';
 }
 
 /**

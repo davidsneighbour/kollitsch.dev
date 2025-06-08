@@ -2,20 +2,15 @@
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/DefaultPage.astro';
 import TagCloud from '@components/TagCloud.astro';
+import { getFilteredTagMap } from '@utils/getFilteredTagMap';
 
 const blogPosts = await getCollection('blog');
 const tagEntries = await getCollection('tags');
 
-// Build frequency map
-const tagMap = new Map<string, number>();
-for (const post of blogPosts) {
-  (post.data.tags || []).forEach((tag) => {
-    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
-  });
-}
-
-// Map tagEntries to those that exist in validTags
+const tagMap = getFilteredTagMap(blogPosts);
 const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.slug));
+
+
 
 ---
 

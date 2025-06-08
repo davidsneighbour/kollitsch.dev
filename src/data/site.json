@@ -10,5 +10,6 @@
     "showDraftsInProd": false,
     "showDraftsInTest": true
   },
-  "tagThreshold": 2
+  "tagThreshold": 2,
+  "ignoreTags": ["100DaysToOffload"]
 }

@@ -7,8 +7,6 @@ import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
 import beep from '@rollup/plugin-beep';
 import yaml from '@rollup/plugin-yaml';
-import sentry from '@sentry/astro';
-import spotlightjs from '@spotlightjs/astro';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import matomo from 'astro-matomo';
@@ -50,8 +48,6 @@ export default defineConfig({
       },
     }),
     partytown(),
-    sentry(),
-    spotlightjs(),
     icon(),
     expressiveCode({
       themes: ['dracula', 'github-light'],

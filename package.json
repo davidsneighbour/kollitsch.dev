@@ -19,16 +19,15 @@
     "@astrojs/sitemap": "3.4.1",
     "@astrojs/ts-plugin": "1.10.4",
     "@iconify-json/bi": "1.2.4",
-    "@sentry/astro": "9.27.0",
     "@spotlightjs/astro": "3.2.3",
     "@tailwindcss/vite": "4.1.8",
-    "astro": "^5.9.0",
+    "astro": "^5.9.1",
     "astro-icon": "1.1.5",
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",
     "glob": "11.0.2",
     "gray-matter": "4.0.3",
-    "netlify-cli": "22.1.2",
+    "netlify-cli": "22.1.3",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "4.1.8",
     "typescript": "5.8.3"
@@ -74,7 +73,7 @@
     "stylelint-no-unsupported-browser-features": "8.0.4",
     "stylelint-order": "7.0.0",
     "ts-node": "10.9.2",
-    "vite-plugin-devtools-json": "0.1.0"
+    "vite-plugin-devtools-json": "0.1.1"
   },
   "scripts": {
     "astro": "astro",
@@ -116,22 +115,15 @@
   },
   "wireit": {
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:submodules"
-      ]
+      "dependencies": ["update:pre:npm", "update:pre:submodules"]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -162,12 +154,8 @@
     },
     "compile:package": {
       "command": "npm run compile:fixpack",
-      "dependencies": [
-        "compile:package:run"
-      ],
-      "files": [
-        "./src/packages/**/*.jsonc"
-      ]
+      "dependencies": ["compile:package:run"],
+      "files": ["./src/packages/**/*.jsonc"]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -179,16 +167,11 @@
       "command": "node ./src/packages/update-package.ts"
     },
     "clean": {
-      "dependencies": [
-        "clean:astro"
-      ]
+      "dependencies": ["clean:astro"]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:astro",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:astro", "clean:netlify"]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist"

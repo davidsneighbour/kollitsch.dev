@@ -21,13 +21,13 @@
     "@iconify-json/bi": "1.2.4",
     "@spotlightjs/astro": "3.2.3",
     "@tailwindcss/vite": "4.1.8",
-    "astro": "^5.9.1",
+    "astro": "^5.9.0",
     "astro-icon": "1.1.5",
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",
     "glob": "11.0.2",
     "gray-matter": "4.0.3",
-    "netlify-cli": "22.1.3",
+    "netlify-cli": "22.1.2",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "4.1.8",
     "typescript": "5.8.3"
@@ -73,7 +73,7 @@
     "stylelint-no-unsupported-browser-features": "8.0.4",
     "stylelint-order": "7.0.0",
     "ts-node": "10.9.2",
-    "vite-plugin-devtools-json": "0.1.1"
+    "vite-plugin-devtools-json": "0.1.0"
   },
   "scripts": {
     "astro": "astro",
@@ -82,7 +82,6 @@
     "check": "astro check",
     "clean": "wireit",
     "clean:full": "wireit",
-    "clean:netlify": "wireit",
     "compile:fixpack": "wireit",
     "compile:package": "wireit",
     "compile:package:update": "wireit",
@@ -174,7 +173,7 @@
       "dependencies": ["clean:astro", "clean:netlify"]
     },
     "clean:astro": {
-      "command": "rm -rf .astro dist"
+      "command": "rm -rf .astro dist node_modules/.astro"
     },
     "clean:netlify": {
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"

@@ -1,27 +1,21 @@
 {
   "scripts": {
     "clean": "wireit",
-    "clean:netlify": "wireit",
     "clean:full": "wireit"
   },
   "wireit": {
     "clean": {
-      "dependencies": [
-        "clean:astro"
-      ]
+      "dependencies": ["clean:astro"]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:astro",
-        "clean:netlify"
-      ]
+      "dependencies": ["clean:astro", "clean:netlify"]
     },
     "clean:astro": {
-      "command": "rm -rf .astro dist"
+      "command": "rm -rf .astro dist node_modules/.astro"
     },
     "clean:netlify": {
-      "command": "find .netlify -type f ! -name \".gitignore\" -delete",
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     }
   }
 }

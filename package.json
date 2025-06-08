@@ -27,6 +27,7 @@
     "astro-pagefind": "1.8.3",
     "glob": "11.0.2",
     "gray-matter": "4.0.3",
+    "lite-youtube-embed": "^0.3.3",
     "netlify-cli": "22.1.2",
     "sharp-ico": "^0.1.5",
     "tailwindcss": "4.1.8",
@@ -114,15 +115,22 @@
   },
   "wireit": {
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -153,8 +161,12 @@
     },
     "compile:package": {
       "command": "npm run compile:fixpack",
-      "dependencies": ["compile:package:run"],
-      "files": ["./src/packages/**/*.jsonc"]
+      "dependencies": [
+        "compile:package:run"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
@@ -166,11 +178,16 @@
       "command": "node ./src/packages/update-package.ts"
     },
     "clean": {
-      "dependencies": ["clean:astro"]
+      "dependencies": [
+        "clean:astro"
+      ]
     },
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
     },
     "clean:astro": {
       "command": "rm -rf .astro dist node_modules/.astro"

@@ -20,4 +20,4 @@ From [the videos description](https://www.youtube.com/watch?v=oCkcoNYbbuU):
 
 > Some interpreted it as a commentary on our over-reliance on consumerism, or of the unrealistic demands we make of material possessions. Thus, extending this joke allows space for the audience’s own interpretation - allowing people with very different comedic preferences to enjoy it equally
 
-{{< youtube id="oCkcoNYbbuU" >}}
+<lite-youtube videoid="oCkcoNYbbuU" />

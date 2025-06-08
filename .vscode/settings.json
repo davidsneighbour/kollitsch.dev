@@ -66,5 +66,8 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "files.autoSaveWhenNoErrors": false
+  "files.autoSaveWhenNoErrors": false,
+  "vale.enableSpellcheck": true,
+  "vale.valeCLI.installVale": false,
+  "vale.valeCLI.syncOnStartup": true
 }

@@ -39,3 +39,20 @@ export const slash = defineCollection({
 });
 
 export const collections = { blog, tags, slash };
+
+// import { defineCollection, z, type SchemaContext } from "astro:content";
+
+// export const imageSchema = ({ image }: SchemaContext) =>
+//     z.object({
+//         image: image(),
+//         description: z.string().optional(),
+//     });
+
+// const blog = defineCollection({
+//   loader: /* ... */,
+//   schema: ({ image }) => z.object({
+//     title: z.string(),
+//     permalink: z.string().optional(),
+//     image: imageSchema({ image })
+//   }),
+// });

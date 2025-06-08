@@ -18,7 +18,6 @@
       "@layouts/*": ["src/layouts/*"],
       "@packages/*": ["src/packages/*"],
       "@pages/*": ["src/pages/*"],
-      "@schema/*": ["src/schema/*"],
       "@scripts/*": ["src/scripts/*"],
       "@styles/*": ["src/styles/*"],
       "@test/*": ["src/test/*"],

@@ -1,5 +1,28 @@
 import { defineCollection, z } from 'astro:content';
-import { blogSchema } from '@schema/blog';
+
+const blogSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  summary: z.string().optional(),
+  date: z.coerce.date().transform((s) => new Date(s)),
+  tags: z.array(z.string()).optional(),
+  draft: z.boolean().default(false).optional(),
+  cover: z.string().optional(),
+  fmContentType: z.string().optional(),
+  aliases: z
+    .union([z.string(), z.array(z.string())])
+    .optional()
+    .transform((val) => (typeof val === 'string' ? [val] : val)),
+  resources: z
+    .array(
+      z.object({
+        src: z.string().optional(),
+        title: z.string().optional(),
+        name: z.string().optional(),
+      }),
+    )
+    .optional(),
+});
 
 export const blog = defineCollection({
   schema: () => blogSchema,
@@ -14,19 +37,5 @@ export const tags = defineCollection({
 export const slash = defineCollection({
   schema: () => blogSchema,
 });
-
-// const thailand = defineCollection({
-//   loader: async () => {
-//     const response = await fetch('https://restcountries.com/v3.1/alpha/th');
-//     const data = await response.json();
-//     return Array.isArray(data)
-//       ? // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-//         data.map((country: any) => ({
-//           id: country.cca3 || country.ccn3 || country.cioc || 'unknown',
-//           ...country,
-//         }))
-//       : [];
-//   },
-// });
 
 export const collections = { blog, tags, slash };

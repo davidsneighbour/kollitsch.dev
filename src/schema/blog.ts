@@ -9,7 +9,10 @@ export const blogSchema = z.object({
   draft: z.boolean().default(false).optional(),
   cover: z.string().optional(),
   fmContentType: z.string().optional(),
-  aliases: z.array(z.string()).optional(),
+  aliases: z
+    .union([z.string(), z.array(z.string())])
+    .optional()
+    .transform((val) => (typeof val === 'string' ? [val] : val)),
   resources: z
     .array(
       z.object({

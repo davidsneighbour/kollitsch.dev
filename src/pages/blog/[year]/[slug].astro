@@ -10,6 +10,7 @@ import Layout from '@layouts/MarkdownPage.astro';
 import Giscus from '@components/Giscus.astro';
 import BreadCrumbs from '@components/BreadCrumbs.astro';
 import Prose from '@components/Prose.astro';
+import Article from '@components/Article.astro'
 
 export const getStaticPaths = (async () => {
   const allPosts = await getCollection('blog');
@@ -44,17 +45,19 @@ const nextPost = posts[currentIndex + 1];
 const prevPost = posts[currentIndex - 1];
 
 import PostImage from '@components/PostImage.astro';
+import Heading from "@components/Heading.astro";
 
 ---
 
 <Layout post={post} title={post.data.title} description={post.data.description ?? ''}>
 
-  <article>
+  <Article post={post}>
 
     <PostImage post={post} />
+    <Heading title={post.data.title} level="2" />
 
-    <h2>{post.data.title}</h2>
     <p>{post.data.date.toLocaleDateString()}</p>
+
     <BreadCrumbs path={Astro.url.href} />
     <Prose set:html={html} />
 
@@ -73,5 +76,5 @@ import PostImage from '@components/PostImage.astro';
 
     <Giscus post={post} />
 
-  </article>
+  </Article>
 </Layout>

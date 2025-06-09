@@ -1,14 +1,20 @@
 // scripts/package/update-versions.ts
 import fs from 'node:fs';
 import path from 'node:path';
-import { parse } from 'jsonc-parser';
 import glob from 'fast-glob';
-import type { JsonSourceFile } from 'typescript';
+import { parse } from 'jsonc-parser';
+
+// Define a type for package.json structure with dependencies/devDependencies as optional records
+type PackageJson = {
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
+  [key: string]: unknown;
+};
 
 /**
  * Load JSONC file (allowing comments)
  */
-function loadJsonc(filePath: string): Record<string, any> {
+function loadJsonc(filePath: string): PackageJson {
   const content = fs.readFileSync(filePath, 'utf8');
   return parse(content);
 }
@@ -16,10 +22,7 @@ function loadJsonc(filePath: string): Record<string, any> {
 /**
  * Replace versions of matching dependencies/devDependencies
  */
-function replaceVersions(
-  target: Record<string, any>,
-  source: Record<string, any>,
-): boolean {
+function replaceVersions(target: PackageJson, source: PackageJson): boolean {
   let updated = false;
 
   for (const section of ['dependencies', 'devDependencies'] as const) {
@@ -60,7 +63,9 @@ function collectUsedDeps(files: string[]): Set<string> {
  */
 async function main() {
   const rootPkgPath = path.resolve('./package.json');
-  const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8')) as JsonSourceFile;
+  const rootPkg = JSON.parse(
+    fs.readFileSync(rootPkgPath, 'utf8'),
+  ) as PackageJson;
 
   const files = await glob('./src/packages/*/*.jsonc');
 

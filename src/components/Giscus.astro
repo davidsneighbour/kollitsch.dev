@@ -1,6 +1,12 @@
 ---
 // @todo refactor
 
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
 const { post } = Astro.props;
 ---
 
@@ -25,5 +31,6 @@ const { post } = Astro.props;
     async
     defer
     id="giscus-script"
+    is:inline
   ></script>
 </div>

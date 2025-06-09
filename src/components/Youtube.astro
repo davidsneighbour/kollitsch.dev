@@ -3,6 +3,5 @@ const { video, label } = Astro.props;
 ---
 
 <lite-youtube videoid={video} playlabel={label}></lite-youtube>
-<script src="/vendor/lite-youtube-embed/lite-yt-embed.js" type="module"
-></script>
+<script src="/vendor/lite-youtube-embed/lite-yt-embed.js" type="module" is:inline></script>
 <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />

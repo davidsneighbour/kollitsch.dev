@@ -10,7 +10,7 @@
 
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from 'astro:transitions';
-import { getEntry } from 'astro:content';
+// import { getEntry } from 'astro:content';
 import ThemeManager from '@components/ThemeManager.astro';
 
 import type { MetaConfig } from '../types/MetaConfig';
@@ -22,9 +22,9 @@ import faviconSvgSrc from '@assets/favicon/favicon.svg'
 
 const metaData = metaDataRaw as MetaConfig;
 
-const { title, description, image, ...props } = Astro.props;
+const { ...props } = Astro.props;
 
-const post = await getEntry('blog', Astro.url.pathname);
+// const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
 
 const appleTouchIcon = await getImage({
@@ -117,4 +117,4 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 />
 
 <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
-<script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async></script>
+<script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline></script>

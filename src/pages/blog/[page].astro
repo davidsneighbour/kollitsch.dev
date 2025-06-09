@@ -21,8 +21,6 @@ export async function getStaticPaths() {
   }));
 }
 
-const pathname = new URL(Astro.request.url).pathname.split('/');
-const firstPath = pathname[1];
 const { page } = Astro.params as Params;
 const pageNumber = Number(page) || 1; // default to 1 if not provided
 const allPosts = getPostsSortedByDraft(await getCollection('blog'));

@@ -4,13 +4,9 @@
 import navData from '@data/navigation.json';
 import ThemeSelect from '@components/ThemeSelect.astro';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
-
-const currentPath = Astro.url.pathname;
-
 import siteinfo from '@data/site.json';
 import { Icon } from 'astro-icon/components';
 
-const homepage = getHomepageUrl(Astro.site ? { site: Astro.site } : undefined);
 ---
 
 <h1 id="sitetitle" class="font-changa mx-auto text-9xl text-orange-700">
@@ -133,32 +129,36 @@ const homepage = getHomepageUrl(Astro.site ? { site: Astro.site } : undefined);
 </style>
 
 <script>
-  // show #sitetitle only when header is sticky
   const placeholder = document.querySelector('#sitetitle');
   const stickyBrand = document.querySelector('#navbar-brand');
+
   if (!placeholder || !stickyBrand) {
     console.warn('Placeholder or sticky brand element not found.');
-  }
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) {
-        stickyBrand.classList.add('opacity-100');
-        stickyBrand.classList.remove('opacity-0');
-      } else {
-        stickyBrand.classList.remove('opacity-100');
-        stickyBrand.classList.add('opacity-0');
-      }
-    },
-    { threshold: 0 },
-  );
-  observer.observe(placeholder);
-  // Force initial state check
-  const isIntersecting =
-    placeholder.getBoundingClientRect().top >= 0 &&
-    placeholder.getBoundingClientRect().bottom > 0;
-  if (!isIntersecting) {
-    stickyBrand.classList.add('sticky-visible');
   } else {
-    stickyBrand.classList.remove('sticky-visible');
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        if (!entry.isIntersecting) {
+          stickyBrand.classList.add('opacity-100');
+          stickyBrand.classList.remove('opacity-0');
+        } else {
+          stickyBrand.classList.remove('opacity-100');
+          stickyBrand.classList.add('opacity-0');
+        }
+      },
+      { threshold: 0 },
+    );
+
+    observer.observe(placeholder);
+
+    const isIntersecting =
+      placeholder.getBoundingClientRect().top >= 0 &&
+      placeholder.getBoundingClientRect().bottom > 0;
+
+    if (!isIntersecting) {
+      stickyBrand.classList.add('sticky-visible');
+    } else {
+      stickyBrand.classList.remove('sticky-visible');
+    }
   }
 </script>

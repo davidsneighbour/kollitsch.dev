@@ -11,9 +11,6 @@ import { getPostsSortedByDraft } from '@utils/getPostsSortedByDraft';
 import Heading from '@components/Heading.astro';
 import Pagination from '@components/Pagination.astro';
 
-const pathname = new URL(Astro.request.url).pathname.split('/');
-const firstPath = pathname[1];
-
 export async function getStaticPaths() {
   const posts = getPostsSortedByDraft(await getCollection('blog'));
   const pageSize = 10;

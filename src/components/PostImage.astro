@@ -1,54 +1,84 @@
 ---
-// @todo refactor
+import type { CollectionEntry } from 'astro:content';
+import siteinfo from '@data/site.json';
+import { resolveImagePath } from '@utils/resolveImagePath';
+import { resolveAstroImage } from '@utils/resolveAstroImage';
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 
-// src/components/PostImage.astro
-
-// import { Markdown } from '@astro/components';
-// import type { AstroComponentFactory } from '@astro/types';
+import MarkdownIt from 'markdown-it';
+const md = new MarkdownIt();
 
 export interface Props {
-  /** path under `src/content` (e.g. "blog/2025/topic") */
-  postId: string;
+  post: CollectionEntry<'blog'>;
 }
-export let postId: Props['postId'];
+const { post }: Props = Astro.props;
 
-interface Resource {
+interface CoverImage {
   src: string;
-  title?: string;
-  name?: string;
+  alt: string;
+  title?: string | undefined;
 }
 
-// load all your markdown posts at build time
-const posts = import.meta.glob('../content/**/index.md', {
-  eager: true,
-}) as Record<string, any>;
-const lookupKey = `../content/${postId}/index.md`;
-const post = posts[lookupKey];
-
-if (!post) {
-  console.error(`[PostImage] could not find content at "${lookupKey}"`);
+// Utility: strip markdown/HTML from string
+function stripMarkup(str: string): string {
+  return str
+    .replace(/[#_*~`>[\]()\-!]/g, '')
+    .replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-const resource: Resource | undefined = post?.frontmatter?.resources?.[0];
+function resolveCoverImage(): CoverImage {
+  const resources = post.data.resources;
+  const cover = post.data.cover;
+  let src: string | undefined;
+  let title: string | undefined;
+  let alt: string | undefined;
 
-let imageUrl: string | undefined;
-let altText: string | undefined;
-if (resource?.src) {
-  try {
-    imageUrl = new URL(resource.src, import.meta.url).href;
-  } catch (err) {
-    console.error(`[PostImage] failed to resolve "${resource.src}"`, err);
+  if (Array.isArray(resources) && resources[0]?.src) {
+    src = resources[0].src;
+    title = resources[0].title;
+    alt = resources[0].name;
+  } else if (typeof cover === 'string') {
+    src = cover;
   }
-  altText = resource.name || resource.src;
+
+  if (!src) {
+    src = siteinfo.fallback;
+    alt = 'Default header image';
+  }
+
+  if (!title && src !== siteinfo.fallback) {
+    console.warn(`[PostImage] No title set for image in post "${post.slug}".`);
+  }
+
+  // alt: markdown/HTML stripped, fallback to title or generic
+  alt = stripMarkup(alt ?? title ?? 'Image');
+
+  // @todo generate a default title if none is provided or skip this step
+  title = md.renderInline(title ?? "");
+
+return { src, alt, title };
+
 }
+
+const coverImage = resolveCoverImage();
+const imagePath = resolveImagePath(coverImage.src, post.id);
+const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
+
 ---
 
-{
-  imageUrl && (
-    <figure>
-      <img src={imageUrl} alt={altText} loading="lazy" />
+{imageMeta && (
+  <figure>
+    <Image
+      src={imageMeta}
+      alt={coverImage.alt}
+      width="1280"
+      loading="lazy"
+      class="w-full h-auto mb-4"
 
-      {resource?.title && <figcaption>{resource.title}</figcaption>}
-    </figure>
-  )
-}
+    />
+    {coverImage.title && (
+      <figcaption set:html={coverImage.title}></figcaption>
+    )}
+  </figure>
+)}

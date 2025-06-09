@@ -1,8 +1,8 @@
-import fs from 'fs/promises';
 import path from 'path';
+import fs from 'fs/promises';
 import { glob } from 'glob';
 import matter from 'gray-matter';
-import { blogSchema } from '@schema/blog';
+import { blogSchema } from '../content/config.ts';
 
 type Frontmatter = Record<string, unknown>;
 
@@ -65,7 +65,10 @@ async function main(): Promise<void> {
   }
 }
 
-if (import.meta.url === `file://${process.cwd()}/${path.basename(import.meta.url)}`) {
+if (
+  import.meta.url ===
+  `file://${process.cwd()}/${path.basename(import.meta.url)}`
+) {
   // If this file is run directly: node scripts/validate-frontmatter.ts
   main().catch((e) => {
     console.error('Unhandled error in validation script:', e);

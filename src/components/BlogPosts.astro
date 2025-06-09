@@ -1,5 +1,12 @@
 ---
 // @todo refactor
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+// const { posts } = Astro.props;
 ---
 
 <div class="bg-white py-24 sm:py-32">

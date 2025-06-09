@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import Layout from '@layouts/DefaultPage.astro';
 import PostCard from '@components/PostCard.astro';
 import TagIntro from '@components/TagIntro.astro';
@@ -19,7 +19,14 @@ const start = (currentPage - 1) * pageSize;
 const paginatedPosts = taggedPosts.slice(start, start + pageSize);
 
 // Optional tag entry (for intro)
-const tagEntry = await getEntryBySlug('tags', tag).catch(() => null);
+// Try to get the tag entry, but handle cases where getEntry or its result is undefined
+let tagEntry = null;
+try {
+  const entry = await getEntry?.('tags', tag);
+  tagEntry = entry ?? null;
+} catch {
+  tagEntry = null;
+}
 
 import { getValidTags } from '@utils/helpers';
 
@@ -44,7 +51,6 @@ export async function getStaticPaths() {
       <TagIntro
         title={tagEntry.data.title}
         description={tagEntry.data.description}
-        image={tagEntry.data.image}
       />
     )
   }

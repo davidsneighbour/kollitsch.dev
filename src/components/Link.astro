@@ -1,8 +1,6 @@
 ---
 
 import type { HTMLAttributes } from 'astro/types';
-
-// use a `type`
 type Props = HTMLAttributes<'a'>;
 
 // // or extend with an `interface`
@@ -10,7 +8,8 @@ type Props = HTMLAttributes<'a'>;
 //   myProp?: boolean;
 // }
 
-const { href, ...attrs } = Astro.props;
+const { href, ...attrs }: Props = Astro.props;
+
 ---
 
 <a href={href} {...attrs}>

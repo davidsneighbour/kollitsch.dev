@@ -1,23 +1,17 @@
 ---
-title: Better code highlighting for Hugo with render hooks
-description: >-
-  One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML
-  rules are prone to be ignored or freely interpreted (for instance, in the
-  internal templates). But it offers ways to override and configure things, so
-  not all is lost.
-date: '2022-05-04T22:11:55+07:00'
+title: "Better code highlighting for Hugo with render hooks"
+description: "One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the internal templates). But it offers ways to override and configure things, so not all is lost."
+date: "2022-05-04T22:11:55+07:00"
 resources:
-  - title: >-
-      Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - gohugo
-  - howto
-  - render-hook
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "gohugo"
+  - "howto"
+  - "render-hook"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the [internal templates](https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates)). But it offers ways to override and configure things, so not all is lost.

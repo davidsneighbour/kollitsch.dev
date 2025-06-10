@@ -1,22 +1,18 @@
 ---
-title: Cloning All My Repos on a New Ubuntu Installation
-linkTitle: Cloning All My Repos on a New Ubuntu Installation
-description: >-
-  A script to automatically clone all my GitHub repos to a local Ubuntu system
-  using GitHub's REST API.
-date: '2024-04-28T15:15:56+07:00'
+title: "Cloning All My Repos on a New Ubuntu Installation"
+linkTitle: "Cloning All My Repos on a New Ubuntu Installation"
+description: "A script to automatically clone all my GitHub repos to a local Ubuntu system using GitHub's REST API."
+date: "2024-04-28T15:15:56+07:00"
 resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - ubuntu 24.04
-  - howto
-  - git
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "ubuntu 24.04"
+  - "howto"
+  - "git"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 One of the first things I do after a new installation of myt OS of choice Ubuntu, is to clone *all* my repositories from GitHub. This way, I have all my code and configuration files available locally, and I can start working on them right away instead of loading them each time I start working on any project. I like to put all my files into `~/github.com/davidsneighbour/reponame` - which leads to an URL-like path for my repos and makes it easier for me to find them online too.

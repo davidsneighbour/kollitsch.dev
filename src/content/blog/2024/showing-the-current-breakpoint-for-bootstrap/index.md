@@ -1,18 +1,18 @@
 ---
-title: Showing the Current Breakpoint for Bootstrap
-linkTitle: Showing the Current Breakpoint for Bootstrap
-description: ''
-summary: ''
-date: '2024-01-03T21:42:52+07:00'
+title: "Showing the Current Breakpoint for Bootstrap"
+linkTitle: "Showing the Current Breakpoint for Bootstrap"
+description: ""
+summary: ""
+date: "2024-01-03T21:42:52+07:00"
 resources:
-  - src: header.jpg
+  - src: "header.jpg"
 tags:
-  - shortcode
-  - bootstrap
-  - development
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "shortcode"
+  - "bootstrap"
+  - "development"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 The problem: I am refining the display of certain sections of my website and I need to know what exact break point is userd currently by Bootstrap. I am using the latest Bootstrap version.

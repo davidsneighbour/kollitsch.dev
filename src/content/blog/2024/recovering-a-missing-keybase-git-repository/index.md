@@ -1,22 +1,18 @@
 ---
-title: Recovering a missing Keybase git repository
-description: >-
-  The fight with Keybase continues. Today we are debugging an empty repo after
-  checking out.
-date: '2024-05-05T16:02:34+07:00'
+title: "Recovering a missing Keybase git repository"
+description: "The fight with Keybase continues. Today we are debugging an empty repo after checking out."
+date: "2024-05-05T16:02:34+07:00"
 resources:
-  - title: >-
-      Photo by [Michael Dziedzic](https://unsplash.com/@lazycreekimages) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Michael Dziedzic](https://unsplash.com/@lazycreekimages) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - keybase
-  - ubuntu 22.04
-  - git
-  - encryption
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "keybase"
+  - "ubuntu 22.04"
+  - "git"
+  - "encryption"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 A while back I wrote a post about [how I am saving my protected dotfiles in a Keybase-hosted Git repository](/blog/2022/protected-dotfiles-with-keybase/) and some days back I wrote about how I upgraded to Ubuntu 24.04, the second it came out and [Keybase was uninstallable](/blog/2024/installing-keybase-on-ubuntu-2404/). Well. Turns out Keybase will be topic of this post again, followed by one final swansong post about sunsetting my Keybase use. After that we will not speak of it anymore, promised ;)

@@ -1,28 +1,20 @@
 ---
-title: Disable Comments on Gists
-linkTitle: Disable Comments on Gists
-description: >-
-  GitHub Gists now support disabling comments, offering developers better
-  control over interactions. Prevent spam and keep your code snippets
-  distraction-free.
-summary: >-
-  GitHub now allows users to disable comments on Gists, offering enhanced
-  control and helping reduce spam and distractions. Learn how to enable this
-  feature and keep your code snippets focused.
-date: '2025-01-10T21:26:18+07:00'
+title: "Disable Comments on Gists"
+linkTitle: "Disable Comments on Gists"
+description: "GitHub Gists now support disabling comments, offering developers better control over interactions. Prevent spam and keep your code snippets distraction-free."
+summary: "GitHub now allows users to disable comments on Gists, offering enhanced control and helping reduce spam and distractions. Learn how to enable this feature and keep your code snippets focused."
+date: "2025-01-10T21:26:18+07:00"
 resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: roman-synkevych-wX2L8L-fGeA-unsplash.jpg
+  - title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
+    src: "roman-synkevych-wX2L8L-fGeA-unsplash.jpg"
 tags:
-  - github
-  - howto
-  - 100DaysToOffload
+  - "github"
+  - "howto"
+  - "100DaysToOffload"
 unsplash:
-  imageid: abcdefghijk
-fmContentType: blog
-cover: roman-synkevych-wX2L8L-fGeA-unsplash.jpg
+  imageid: "abcdefghijk"
+fmContentType: "blog"
+cover: "./roman-synkevych-wX2L8L-fGeA-unsplash.jpg"
 ---
 
 

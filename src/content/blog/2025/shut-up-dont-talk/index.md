@@ -1,20 +1,20 @@
 ---
-title: 'Shut Up, Don''t Talk'
-description: ''
-summary: ''
+title: "Shut Up, Don't Talk"
+description: ""
+summary: ""
 resources:
-  - src: header.jpg
-date: '2025-03-06T19:48:07+07:00'
+  - src: "header.jpg"
+date: "2025-03-06T19:48:07+07:00"
 tags:
-  - john lithgow
-  - geoffrey rush
-  - video
-  - 100DaysToOffload
-type: video
+  - "john lithgow"
+  - "geoffrey rush"
+  - "video"
+  - "100DaysToOffload"
+type: "video"
 video:
-  youtube: GSIB8W3KGsM
-fmContentType: blog
-cover: header.jpg
+  youtube: "GSIB8W3KGsM"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Movie theaters should be sacred spaces, free from distractions. But some people just don't get it. That's where Alamo Drafthouse's legendary PSA series comes in—reminding moviegoers, in the most entertaining ways possible, to keep quiet.

@@ -1,20 +1,16 @@
 ---
-title: New features in VSCode v1.89
-description: >-
-  Three VSCode updates this month, that I find useful. VSCode keeps adding
-  useful features every month.
-date: '2024-05-03T18:10:07+07:00'
+title: "New features in VSCode v1.89"
+description: "Three VSCode updates this month, that I find useful. VSCode keeps adding useful features every month."
+date: "2024-05-03T18:10:07+07:00"
 resources:
-  - title: >-
-      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - vscode
-  - code editor
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "vscode"
+  - "code editor"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Some of the latest features that have landed in Visual Studio Code (VSCode) today . As an avid user myself, I'm always excited to see how the VSCode team continues to enhance our coding experience. Let's dive right in and explore these new additions:

@@ -1,23 +1,18 @@
 ---
-title: Run Hugo server when VSCode opens a workspace
-description: >-
-  Learn how to automate Hugo server startup in VSCode using tasks.json, saving
-  time and effort every time you open your project.
-date: '2023-12-01T20:35:07+07:00'
+title: "Run Hugo server when VSCode opens a workspace"
+description: "Learn how to automate Hugo server startup in VSCode using tasks.json, saving time and effort every time you open your project."
+date: "2023-12-01T20:35:07+07:00"
 resources:
-  - title: >-
-      Photo by [Possessed
-      Photography](https://unsplash.com/@possessedphotography) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Possessed Photography](https://unsplash.com/@possessedphotography) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - vscode
-  - automation
-  - 100DaysToOffload
+  - "vscode"
+  - "automation"
+  - "100DaysToOffload"
 unsplash:
-  imageid: robot-playing-piano-U3sOwViXhkY
-fmContentType: blog
-cover: header.jpg
+  imageid: "robot-playing-piano-U3sOwViXhkY"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 I recently realised that every time I opened a certain project, I was running the same sequence of actions and commands to start the Hugo server. This involved opening a terminal, navigating to the project folder, and executing `npm run server`.

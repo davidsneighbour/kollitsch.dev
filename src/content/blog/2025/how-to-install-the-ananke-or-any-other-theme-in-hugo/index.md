@@ -1,20 +1,20 @@
 ---
-title: How to install the Ananke (or any other) theme in GoHugo
-description: ''
-summary: ''
+title: "How to install the Ananke (or any other) theme in GoHugo"
+description: ""
+summary: ""
 draft: true
-date: '2025-03-15T07:35:56+07:00'
+date: "2025-03-15T07:35:56+07:00"
 resources:
-  - title: 'Photo by [Name](Link) via [Unsplash](https://unsplash.com/)'
-    name: image name if other than src
-    src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+  - title: "Photo by [Name](Link) via [Unsplash](https://unsplash.com/)"
+    name: "image name if other than src"
+    src: "ave-calvar-HcUDHJfd5GY-unsplash.jpg"
 tags:
-  - ananke
-  - gohugo
-  - howto
-  - 100DaysToOffload
-fmContentType: blog
-cover: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+  - "ananke"
+  - "gohugo"
+  - "howto"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./ave-calvar-HcUDHJfd5GY-unsplash.jpg"
 ---
 
 > **Note:** While this guide focuses on installing the Ananke theme, the same methods can be applied to any other Hugo theme by replacing the URLs and module paths accordingly. The process for installing themes via **Hugo Modules** or **Git Submodules** remains the same for any theme you choose.

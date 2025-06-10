@@ -1,23 +1,18 @@
 ---
-title: '`scroll-margin-top` property in CSS'
-description: >-
-  Simplify anchor link navigation with CSS's modern `scroll-margin-top`
-  property. Learn how it replaces old hacks and enhances performance.
-summary: >-
-  Fixing navigation overflow for anchor links just got easier! Say goodbye to
-  pseudo-element hacks and embrace CSS's `scroll-margin-top` for cleaner,
-  efficient solutions.
-date: '2025-01-12T19:23:22+07:00'
+title: "`scroll-margin-top` property in CSS"
+description: "Simplify anchor link navigation with CSS's modern `scroll-margin-top` property. Learn how it replaces old hacks and enhances performance."
+summary: "Fixing navigation overflow for anchor links just got easier! Say goodbye to pseudo-element hacks and embrace CSS's `scroll-margin-top` for cleaner, efficient solutions."
+date: "2025-01-12T19:23:22+07:00"
 resources:
-  - title: This is how hacking looks like. Trust me.
-    src: getty-images-ltpb_WinC3Y-unsplash.jpg
+  - title: "This is how hacking looks like. Trust me."
+    src: "getty-images-ltpb_WinC3Y-unsplash.jpg"
 tags:
-  - css
-  - howto
-  - hacks
-  - 100DaysToOffload
-fmContentType: blog
-cover: getty-images-ltpb_WinC3Y-unsplash.jpg
+  - "css"
+  - "howto"
+  - "hacks"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./getty-images-ltpb_WinC3Y-unsplash.jpg"
 ---
 
 Navigating the world of CSS can be a mix of discovering creative workarounds and celebrating modern solutions. A great example is handling anchor link navigation, where overflowing content often creates frustrating visual issues. In the past, developers relied on clever hacks to fix this, but CSS has evolved to make it easier than ever.

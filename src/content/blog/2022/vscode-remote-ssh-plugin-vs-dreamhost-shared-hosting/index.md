@@ -1,20 +1,18 @@
 ---
-title: VSCode Remote SSH plugin vs. Dreamhost shared hosting
-description: ''
-summary: ''
-date: '2022-05-20T22:10:32+07:00'
+title: "VSCode Remote SSH plugin vs. Dreamhost shared hosting"
+description: ""
+summary: ""
+date: "2022-05-20T22:10:32+07:00"
 resources:
-  - title: >-
-      Photo by [NASA](https://unsplash.com/@nasa) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [NASA](https://unsplash.com/@nasa) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - dreamhost
-  - vscode
-  - how-to
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "dreamhost"
+  - "vscode"
+  - "how-to"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 I finally had a reason to edit a website with VSCode directly on the server. VSCode comes with an extension, the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. I thought this will connect with the SSH server and make the filesystem available like a mounted path. Running it didn't work and it turned out, that on the server side there is a little extra server running that VSCode connects to and does the magic diplomacy on the servers file system with.

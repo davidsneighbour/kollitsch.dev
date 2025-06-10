@@ -1,23 +1,19 @@
 ---
-title: 'Notes from the Laboratory: January 2023'
-linkTitle: Laboratory 2023-01
-description: >-
-  Another monthly report from the depths of the laboratory of kollitsch.dev -
-  January 2023
-date: '2023-02-01T18:30:58+07:00'
+title: "Notes from the Laboratory: January 2023"
+linkTitle: "Laboratory 2023-01"
+description: "Another monthly report from the depths of the laboratory of kollitsch.dev - January 2023"
+date: "2023-02-01T18:30:58+07:00"
 resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
+  - src: "header.jpg"
+    title: "Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)"
 tags:
-  - laboratory
-  - notes
-  - self-improvement
-  - davidsneighbour
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "laboratory"
+  - "notes"
+  - "self-improvement"
+  - "davidsneighbour"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

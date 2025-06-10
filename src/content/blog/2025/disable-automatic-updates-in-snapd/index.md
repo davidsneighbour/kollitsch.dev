@@ -1,20 +1,18 @@
 ---
-title: Disable automatic updates in Snapd
-description: ''
-summary: ''
-date: '2025-04-16T18:31:39+07:00'
+title: "Disable automatic updates in Snapd"
+description: ""
+summary: ""
+date: "2025-04-16T18:31:39+07:00"
 resources:
-  - title: >-
-      Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) via
-      [Unsplash](https://unsplash.com/)
-    src: markus-winkler-qPjV8XaXPTQ-unsplash.jpg
+  - title: "Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) via [Unsplash](https://unsplash.com/)"
+    src: "markus-winkler-qPjV8XaXPTQ-unsplash.jpg"
 tags:
-  - ubuntu
-  - snapd
-  - gohugo
-  - 100DaysToOffload
-fmContentType: blog
-cover: markus-winkler-qPjV8XaXPTQ-unsplash.jpg
+  - "ubuntu"
+  - "snapd"
+  - "gohugo"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./markus-winkler-qPjV8XaXPTQ-unsplash.jpg"
 ---
 
 By default, Snap packages update automatically in the background - and while that's great for most users, there are cases where you want to control the timing or version of your Snap apps. This is possible since [Snapd 2.58](https://snapcraft.io/docs/snapd-roadmap#p-9464-snapd-258) with the [introduction of the `--hold` option for `snap refresh`](https://snapcraft.io/docs/managing-updates).

@@ -1,20 +1,18 @@
 ---
-title: Using `npx link` for local package development
-description: ''
-summary: ''
-date: '2025-03-05T18:54:58+07:00'
+title: "Using `npx link` for local package development"
+description: ""
+summary: ""
+date: "2025-03-05T18:54:58+07:00"
 resources:
-  - title: >-
-      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
-      [Unsplash](https://unsplash.com/)
-    src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  - title: "Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)"
+    src: "paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg"
 tags:
-  - npm
-  - how to
-  - development
-  - 100DaysToOffload
-fmContentType: blog
-cover: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  - "npm"
+  - "how to"
+  - "development"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg"
 ---
 
 When working on multiple interdependent packages, managing them efficiently within a monorepo or a workspace structure is crucial. Traditionally, `npm link` was used to create symlinks between local packages, but it has its pitfalls, including version mismatches and unintended dependencies.

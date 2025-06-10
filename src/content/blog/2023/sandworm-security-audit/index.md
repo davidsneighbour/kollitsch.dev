@@ -1,20 +1,17 @@
 ---
-title: Sandworm security audit
-description: >-
-  Secure your project with Sandworm Audit, a free tool that scans for
-  vulnerabilities and license compliance issues. Easy-to-read reports and
-  customizable policies.
-date: '2023-03-13T20:37:22+07:00'
+title: "Sandworm security audit"
+description: "Secure your project with Sandworm Audit, a free tool that scans for vulnerabilities and license compliance issues. Easy-to-read reports and customizable policies."
+date: "2023-03-13T20:37:22+07:00"
 resources:
-  - title: Screenshot of sandworm.dev
-    src: header.png
+  - title: "Screenshot of sandworm.dev"
+    src: "header.png"
 tags:
-  - security
-  - linting
-  - opsec
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.png
+  - "security"
+  - "linting"
+  - "opsec"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.png"
 ---
 
 [Sandworm Audit](https://sandworm.dev/) is a free and open source command-line tool designed to scan your project and dependencies for security vulnerabilities, license compliance issues, and other metadata problems.

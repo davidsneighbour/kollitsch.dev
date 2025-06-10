@@ -1,18 +1,18 @@
 ---
-title: Install and link Firefox Developer Edition on Ubuntu
-description: ''
-date: '2023-03-10T21:44:58+07:00'
+title: "Install and link Firefox Developer Edition on Ubuntu"
+description: ""
+date: "2023-03-10T21:44:58+07:00"
 resources:
-  - title: Firefox Developer Edition
-    src: header.jpg
+  - title: "Firefox Developer Edition"
+    src: "header.jpg"
 tags:
-  - firefox
-  - browser
-  - howto
-  - ubuntu
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "firefox"
+  - "browser"
+  - "howto"
+  - "ubuntu"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) is a specialized version of the Firefox browser, designed for developers and early adopters. It's kind of a beta version, but with much more features. It comes with various tools, such as the Visual Editing, Debugging, an inspector that shows you details about the used CSS Grid, unused CSS and so on. I often use it to debug website issues that come up.

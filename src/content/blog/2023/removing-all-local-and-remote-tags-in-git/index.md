@@ -1,18 +1,16 @@
 ---
-title: Removing all local and remote tags in Git
-description: ''
-date: '2023-07-09T18:44:36+07:00'
+title: "Removing all local and remote tags in Git"
+description: ""
+date: "2023-07-09T18:44:36+07:00"
 resources:
-  - title: >-
-      Photo by [Henry & Co.](https://unsplash.com/@hngstrm) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Henry & Co.](https://unsplash.com/@hngstrm) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - git
-  - devops
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "git"
+  - "devops"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Every now and then I find myself in the situation of needing to tidy up my projects and remove large amounts of local and remote tags in my Git repositories. The procedure is not too hard, but I have to look it up again each time, so why not just writing it up.

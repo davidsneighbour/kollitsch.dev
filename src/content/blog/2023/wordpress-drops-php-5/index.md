@@ -1,22 +1,18 @@
 ---
-title: WordPress Drops PHP 5
-description: >-
-  WordPress announces end of support for PHP 5 in upcoming release. Learn about
-  the impact and challenges of updating PHP versions. Read more here.
-date: '2023-07-19T21:01:33+07:00'
+title: "WordPress Drops PHP 5"
+description: "WordPress announces end of support for PHP 5 in upcoming release. Learn about the impact and challenges of updating PHP versions. Read more here."
+date: "2023-07-19T21:01:33+07:00"
 resources:
-  - title: >-
-      Photo by [Fikret tozak](https://unsplash.com/@tozakfikret) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Fikret tozak](https://unsplash.com/@tozakfikret) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - wordpress
-  - php
-  - 100DaysToOffload
+  - "wordpress"
+  - "php"
+  - "100DaysToOffload"
 unsplash:
-  imageid: Zk--Ydz2IAs
-fmContentType: blog
-cover: header.jpg
+  imageid: "Zk--Ydz2IAs"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 The WordPress blog [announced on July 6th](https://make.wordpress.org/core/2023/07/05/dropping-support-for-php-5/) that starting from the next release (WP 6.3 on August 8th, 2023), the CMS will no longer support PHP 5.

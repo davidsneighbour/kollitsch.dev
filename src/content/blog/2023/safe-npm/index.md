@@ -1,20 +1,17 @@
 ---
-title: Safe npm commands
-description: >-
-  Socket's safe npm is a CLI tool that wraps the npm command transparently and
-  protects developers from malware, typo squats, install scripts, protestware,
-  telemetry, and more.
-date: '2023-03-28T21:57:51+07:00'
+title: "Safe npm commands"
+description: "Socket's safe npm is a CLI tool that wraps the npm command transparently and protects developers from malware, typo squats, install scripts, protestware, telemetry, and more."
+date: "2023-03-28T21:57:51+07:00"
 resources:
-  - title: Introducing safe npm
-    src: header.jpg
+  - title: "Introducing safe npm"
+    src: "header.jpg"
 tags:
-  - node
-  - devops
-  - security
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "node"
+  - "devops"
+  - "security"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Socket's "safe npm" is a command-line tool that wraps the npm command transparently and protects developers from malware, typo squats, install scripts, protestware, telemetry, and more. It works with all npm commands that can install new third-party code, including npm install, npm update, npm uninstall, npm rm, npm exec, and npx.

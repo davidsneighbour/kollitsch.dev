@@ -1,23 +1,17 @@
 ---
-title: Alias Expansion in Bash
-linkTitle: Alias Expansion in Bash
-description: Learn how alias expansion works and how to use builtin to override it.
-summary: >-
-  Bash aliases expand dynamically, meaning for instance an alias referencing cd
-  will use the modified version if cd is aliased. This post explains how alias
-  expansion works, what happens when aliases reference other aliases, and how to
-  use builtin to ensure the original command runs.
-date: '2025-02-05T08:34:49+07:00'
+title: "Alias Expansion in Bash"
+linkTitle: "Alias Expansion in Bash"
+description: "Learn how alias expansion works and how to use builtin to override it."
+summary: "Bash aliases expand dynamically, meaning for instance an alias referencing cd will use the modified version if cd is aliased. This post explains how alias expansion works, what happens when aliases reference other aliases, and how to use builtin to ensure the original command runs."
+date: "2025-02-05T08:34:49+07:00"
 resources:
-  - title: >-
-      Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via
-      [Unsplash](https://unsplash.com/)
-    src: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
+  - title: "Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)"
+    src: "gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg"
 tags:
-  - bash
-  - 100DaysToOffload
-fmContentType: blog
-cover: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
+  - "bash"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg"
 ---
 
 Aliases in Bash are a powerful way to simplify repetitive commands or add parameters you *always* use, but they can also lead to problems when one alias calls another. One common issue that comes up is whether an alias that references another alias uses the original command or an aliased version of it --- if the alias overrides the original command.

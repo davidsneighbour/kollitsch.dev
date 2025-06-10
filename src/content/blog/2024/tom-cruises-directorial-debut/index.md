@@ -1,27 +1,20 @@
 ---
-title: Tom Cruise's directorial debut
-description: >-
-  Discover Tom Cruise's directorial debut in Fallen Angels. Grifter Mitch
-  Allison's desert schemes unravel in this quirky noir featuring Peter Gallagher
-  and Isabella Rossellini.
-summary: >-
-  Tom Cruise's forgotten 1993 directorial debut, an episode of Fallen Angels,
-  tells the story of grifter Mitch Allison's desert misadventures. Starring
-  Peter Gallagher, Isabella Rossellini, and John C. Reilly, it's a dark, quirky
-  noir full of cons and twists.
-type: video
-date: '2024-10-07T19:26:11+07:00'
+title: "Tom Cruise's directorial debut"
+description: "Discover Tom Cruise's directorial debut in Fallen Angels. Grifter Mitch Allison's desert schemes unravel in this quirky noir featuring Peter Gallagher and Isabella Rossellini."
+summary: "Tom Cruise's forgotten 1993 directorial debut, an episode of Fallen Angels, tells the story of grifter Mitch Allison's desert misadventures. Starring Peter Gallagher, Isabella Rossellini, and John C. Reilly, it's a dark, quirky noir full of cons and twists."
+type: "video"
+date: "2024-10-07T19:26:11+07:00"
 resources:
-  - title: An older couple.
-    src: header.jpg
+  - title: "An older couple."
+    src: "header.jpg"
 tags:
-  - tom cruise
-  - video
-  - 100DaysToOffload
+  - "tom cruise"
+  - "video"
+  - "100DaysToOffload"
 video:
-  youtube: mAZXRpPX-hI
-fmContentType: blog
-cover: header.jpg
+  youtube: "mAZXRpPX-hI"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Did you know that Tom Cruise made his directorial debut back in 1993, long before he started jumping out of planes and buildings? He directed an episode of the noir TV series *Fallen Angels*, an obscure little gem titled "Mitch Allison, Boozer, Grifter, and Loser," that no one seems to remember. Let's dive into this fascinating piece of television history.

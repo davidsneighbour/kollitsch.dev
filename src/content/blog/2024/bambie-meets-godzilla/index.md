@@ -1,28 +1,22 @@
 ---
-title: When Bambi met Godzilla
-description: >-
-  Explore Marv Newland's iconic "Bambi Meets Godzilla" animation and Coda
-  Shetterly's 4K re-creation, blending classic humor and modern artistry.
-summary: >-
-  Dive into Marv Newland's cult classic "Bambi Meets Godzilla," created for less
-  than $300, and see how Coda Shetterly’s 4K re-creation brings the iconic
-  animation to a new generation, capturing the original's humor while adding a
-  digital twist.
-type: video
-date: '2024-10-27T20:42:56+07:00'
+title: "When Bambi met Godzilla"
+description: "Explore Marv Newland's iconic \"Bambi Meets Godzilla\" animation and Coda Shetterly's 4K re-creation, blending classic humor and modern artistry."
+summary: "Dive into Marv Newland's cult classic \"Bambi Meets Godzilla,\" created for less than $300, and see how Coda Shetterly’s 4K re-creation brings the iconic animation to a new generation, capturing the original's humor while adding a digital twist."
+type: "video"
+date: "2024-10-27T20:42:56+07:00"
 resources:
-  - title: Godzilla vs. Bambi (1969)
-    src: header.jpg
+  - title: "Godzilla vs. Bambi (1969)"
+    src: "header.jpg"
 tags:
-  - bambie
-  - godzilla
-  - movie
-  - animation
-  - 100DaysToOffload
+  - "bambie"
+  - "godzilla"
+  - "movie"
+  - "animation"
+  - "100DaysToOffload"
 video:
-  youtube: 5R-rbzcEM8A
-fmContentType: blog
-cover: header.jpg
+  youtube: "5R-rbzcEM8A"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Animation has long been a medium that pushes creative boundaries. [Marv Newland](https://en.wikipedia.org/wiki/Marv_Newland)'s iconic short "Bambi Meets Godzilla" does this. Originally released in 1969, this subversive animation with its minimalist style and dark humor, earned a lasting place in animation history. Created on a shoestring budget of less than $300, Newland's hand-drawn work showcases what can be achieved with creativity and a touch of absurdity.

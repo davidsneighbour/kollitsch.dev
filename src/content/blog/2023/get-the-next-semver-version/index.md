@@ -1,21 +1,19 @@
 ---
-title: Howto get the next semver version number in a bash script
-description: >-
-  Discover how to automate Semver version updates with a Bash script for a
-  smoother release management process in your projects.
-date: '2023-10-23T22:09:53+07:00'
+title: "Howto get the next semver version number in a bash script"
+description: "Discover how to automate Semver version updates with a Bash script for a smoother release management process in your projects."
+date: "2023-10-23T22:09:53+07:00"
 resources:
-  - title: Versions of versions
-    src: header.jpg
+  - title: "Versions of versions"
+    src: "header.jpg"
 tags:
-  - bash
-  - semver
-  - build
-  - 100DaysToOffload
+  - "bash"
+  - "semver"
+  - "build"
+  - "100DaysToOffload"
 unsplash:
-  imageid: a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4
-fmContentType: blog
-cover: header.jpg
+  imageid: "a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 In my projects, I often encounter situations where I need to update the version number of the project before making a release. I follow the [Semantic Versioning (Semver)](https://semver.org/) standard for versioning. In this blog post, I'll demonstrate how to retrieve the next Semver version number using a Bash script. This script allows me to update the version number before finalizing the release, ensuring that the release commit and tags are correctly synchronized.

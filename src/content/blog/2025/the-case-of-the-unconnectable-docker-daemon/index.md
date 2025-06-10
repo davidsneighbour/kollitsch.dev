@@ -1,25 +1,17 @@
 ---
-title: The Case of the Unconnectable Docker Daemon
-description: >-
-  I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses
-  to respond. From sneaking into group permissions and examining socket
-  ownership to navigating Docker contexts and rootless environments, I follow
-  each clue until the service speaks again.
-summary: >-
-  I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses
-  to respond. From sneaking into group permissions and examining socket
-  ownership to navigating Docker contexts and rootless environments, I follow
-  each clue until the service speaks again.
-date: '2025-04-26T06:35:29+07:00'
+title: "The Case of the Unconnectable Docker Daemon"
+description: "I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses to respond. From sneaking into group permissions and examining socket ownership to navigating Docker contexts and rootless environments, I follow each clue until the service speaks again."
+summary: "I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses to respond. From sneaking into group permissions and examining socket ownership to navigating Docker contexts and rootless environments, I follow each clue until the service speaks again."
+date: "2025-04-26T06:35:29+07:00"
 resources:
-  - src: docker-forensics.png
+  - src: "docker-forensics.png"
 tags:
-  - docker
-  - troubleshooting
-  - forensics
-  - 100DaysToOffload
-fmContentType: blog
-cover: docker-forensics.png
+  - "docker"
+  - "troubleshooting"
+  - "forensics"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./docker-forensics.png"
 ---
 
 It was a dreary April afternoon when I returned to my terminal, only to be met with a chilling refusal:

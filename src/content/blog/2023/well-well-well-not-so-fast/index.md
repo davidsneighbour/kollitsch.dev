@@ -1,17 +1,14 @@
 ---
-title: 'Well, well, well, not so fast…'
-description: >-
-  As I reported a while ago, I embarked on an exhilarating journey with the
-  \#100DaysToOffload challenge, a quest to enrich my blog with 100 posts within
-  a year.
-date: '2023-11-26T19:23:44+07:00'
+title: "Well, well, well, not so fast…"
+description: "As I reported a while ago, I embarked on an exhilarating journey with the \\#100DaysToOffload challenge, a quest to enrich my blog with 100 posts within a year."
+date: "2023-11-26T19:23:44+07:00"
 resources:
-  - src: header.jpg
+  - src: "header.jpg"
 tags:
-  - kollitsch.dev
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "kollitsch.dev"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 As I reported a while ago, I embarked on an exhilarating journey with the [#100DaysToOffload challenge](https://kollitsch.dev/blog/2022/100-days-to-offload/), a quest to enrich my blog with 100 posts within a year.

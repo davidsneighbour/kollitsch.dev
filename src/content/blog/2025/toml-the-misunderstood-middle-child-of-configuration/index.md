@@ -1,19 +1,19 @@
 ---
-title: TOML - the misunderstood middle-child of configuration
-description: ''
-summary: ''
+title: "TOML - the misunderstood middle-child of configuration"
+description: ""
+summary: ""
 draft: true
-date: '2025-05-02T09:11:40+07:00'
+date: "2025-05-02T09:11:40+07:00"
 resources:
-  - title: Boxes.
-    src: resource-database-qvbZz5rKAxI-unsplash.jpg
+  - title: "Boxes."
+    src: "resource-database-qvbZz5rKAxI-unsplash.jpg"
 tags:
-  - toml
-  - configuration
-  - howto
-  - 100DaysToOffload
-fmContentType: blog
-cover: resource-database-qvbZz5rKAxI-unsplash.jpg
+  - "toml"
+  - "configuration"
+  - "howto"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./resource-database-qvbZz5rKAxI-unsplash.jpg"
 ---
 
 TOML (Tom's Obvious, Minimal Language) sits quietly between the noisy intendation drama of YAML and the rigid uncommentable structure of JSON. It's not flashy, but it's reliable. It wants to be clear, unambiguous, and readable - all while avoiding all the guns that other formats keep loaded to shoot your self in the foot.

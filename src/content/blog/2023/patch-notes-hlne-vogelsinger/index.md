@@ -1,23 +1,20 @@
 ---
-title: 'Patch Notes: Hélène Vogelsinger'
-description: >-
-  As part of the practice behind Hélène Vogelsinger's modular synth
-  compositions, the French singer and sound designer explores abandoned places
-  and connects with their energies to create immersive and suspended moments.
-type: video
-date: '2023-05-05T19:38:04+07:00'
+title: "Patch Notes: Hélène Vogelsinger"
+description: "As part of the practice behind Hélène Vogelsinger's modular synth compositions, the French singer and sound designer explores abandoned places and connects with their energies to create immersive and suspended moments."
+type: "video"
+date: "2023-05-05T19:38:04+07:00"
 resources:
-  - title: 'Patch Notes: Hélène Vogelsinger'
-    src: header.jpg
+  - title: "Patch Notes: Hélène Vogelsinger"
+    src: "header.jpg"
 tags:
-  - helene-vogelsinger
-  - synthesizer
-  - video
-  - 100DaysToOffload
+  - "helene-vogelsinger"
+  - "synthesizer"
+  - "video"
+  - "100DaysToOffload"
 video:
-  youtube: kYxheEGl2oM
-fmContentType: blog
-cover: header.jpg
+  youtube: "kYxheEGl2oM"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 I am a huge fan of electrically created soundscapes. People with cables punching them into holes connecting things that rotate elecrons, reverb waves, negate sounds, and create, what is not there. Hélène Vogelsinger is one of these artists. She creates beautiful soundscapes with her modular synthesizers. In this video, she is playing in an abandoned castle. The music is beautiful, the video is beautiful, and the location is beautiful. I love it.

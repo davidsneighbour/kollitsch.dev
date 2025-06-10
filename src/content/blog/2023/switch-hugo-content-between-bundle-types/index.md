@@ -1,24 +1,20 @@
 ---
-title: 'Switching content types in Hugo: A step-by-step guide'
-description: >-
-  Optimize your content organization in Hugo with page bundles and learn how to
-  switch between leaf and branch bundles for optimal SEO and site structure.
-summary: ''
-date: '2023-06-19T19:45:19+07:00'
+title: "Switching content types in Hugo: A step-by-step guide"
+description: "Optimize your content organization in Hugo with page bundles and learn how to switch between leaf and branch bundles for optimal SEO and site structure."
+summary: ""
+date: "2023-06-19T19:45:19+07:00"
 resources:
-  - title: >-
-      Photo by [Hitoshi Suzuki](https://unsplash.com/@hitoshi_suzuki) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Hitoshi Suzuki](https://unsplash.com/@hitoshi_suzuki) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - gohugo
-  - bash
-  - quicky
-  - 100DaysToOffload
+  - "gohugo"
+  - "bash"
+  - "quicky"
+  - "100DaysToOffload"
 unsplash:
-  imageid: 1COcTd3pRCg
-fmContentType: blog
-cover: header.jpg
+  imageid: "1COcTd3pRCg"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Hugo, the [little static site generator](https://gohugo.io) that powers this website, offers two main content organization options known as [*page bundles*](https://gohugo.io/content-management/page-bundles/). Page bundles provide a way to group page resources in leaf and branch bundles, allowing for more structured content management. In this quick guide, I will show you how to easily switch between the two types without much manual work. All you need is a Bash shell and a text editor. Let's get started!

@@ -1,21 +1,19 @@
 ---
-title: Piping output to files in Bash
-date: '2022-05-08T15:18:20+07:00'
+title: "Piping output to files in Bash"
+date: "2022-05-08T15:18:20+07:00"
 resources:
-  - title: >-
-      Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge)
-      via [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - bash
-  - pipes
-  - logging
-  - debugging
-  - 100DaysToOffload
+  - "bash"
+  - "pipes"
+  - "logging"
+  - "debugging"
+  - "100DaysToOffload"
 unsplash:
-  id: vUNQaTtZeOo
-fmContentType: blog
-cover: header.jpg
+  id: "vUNQaTtZeOo"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 There is [a recent commit in GoHugo's repository](https://github.com/gohugoio/hugo/pull/9649) that removes several CLI parameters I was using in my projects. Those flags were `--debug`, `--log`, `--logFile` and `--verboseLog`. While I am not discussing this decision (I don't like it, but I understand that keeping these things in the software needs someone able to keep them up to date and conclusive and the developer of the software seems to be unable to) I am still interested in the idea of having a file with all output of my Hugo runs available so I can parse through it and see what is going on while building the site. Apart from the fact that basically every software has a parameter like this available.

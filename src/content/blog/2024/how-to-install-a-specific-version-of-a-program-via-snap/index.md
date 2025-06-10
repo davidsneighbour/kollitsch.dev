@@ -1,23 +1,21 @@
 ---
-title: How to install a specific version of a program via Snap
-description: ''
-summary: ''
-date: '2024-08-19T21:12:37+07:00'
+title: "How to install a specific version of a program via Snap"
+description: ""
+summary: ""
+date: "2024-08-19T21:12:37+07:00"
 resources:
-  - title: >-
-      Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via
-      [Unsplash](https://unsplash.com/)
-    src: kumas_taverne-B0aJBySo8dc-unsplash.jpg
+  - title: "Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via [Unsplash](https://unsplash.com/)"
+    src: "kumas_taverne-B0aJBySo8dc-unsplash.jpg"
 tags:
-  - ubuntu
-  - snap
-  - howto
-  - golang
-  - 100DaysToOffload
+  - "ubuntu"
+  - "snap"
+  - "howto"
+  - "golang"
+  - "100DaysToOffload"
 unsplash:
-  imageid: B0aJBySo8dc
-fmContentType: blog
-cover: kumas_taverne-B0aJBySo8dc-unsplash.jpg
+  imageid: "B0aJBySo8dc"
+fmContentType: "blog"
+cover: "./kumas_taverne-B0aJBySo8dc-unsplash.jpg"
 ---
 
 I recently had to debug an issue with Go(lang), that I thought was connected to an update of Go. As far as I remembered there was no way to install a specific version of any Snap package, but I thought, it might have changed over time. And having changed it did. It's actually very easy now to fix any Snap package to a minor version. It then receives updates in the patch versions of that minor version, but not upgrade to the latest version.

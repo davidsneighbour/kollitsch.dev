@@ -1,25 +1,19 @@
 ---
-title: >-
-  How to create custom file type handlers for individual folders in VSCode
-  projects
-description: >-
-  Unlock VSCode's full potential: Customize file handlers for subfolders. A
-  quick guide to boost productivity in Visual Studio Code.
-date: '2023-10-27T21:14:21+07:00'
+title: "How to create custom file type handlers for individual folders in VSCode projects"
+description: "Unlock VSCode's full potential: Customize file handlers for subfolders. A quick guide to boost productivity in Visual Studio Code."
+date: "2023-10-27T21:14:21+07:00"
 resources:
-  - title: >-
-      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - vscode
-  - configuration
-  - project-management
-  - 100DaysToOffload
+  - "vscode"
+  - "configuration"
+  - "project-management"
+  - "100DaysToOffload"
 unsplash:
-  imageid: oXlXu2qukGE
-fmContentType: blog
-cover: header.jpg
+  imageid: "oXlXu2qukGE"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 [Visual Studio Code (VSCode)](https://code.visualstudio.com/) is a powerful code editor, but occasionally, it may provide different functionality than you need out of the box. Just have a look at the [open feature requests on Github](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request), and you'll see that many users have encountered situations where VSCode doesn't deliver as expected.

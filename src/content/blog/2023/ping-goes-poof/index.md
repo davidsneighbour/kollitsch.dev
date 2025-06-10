@@ -1,23 +1,21 @@
 ---
-title: Ping Goes Poof
-linkTitle: Ping Goes Poof
-description: ''
-summary: ''
-date: '2023-06-28T20:33:58+07:00'
+title: "Ping Goes Poof"
+linkTitle: "Ping Goes Poof"
+description: ""
+summary: ""
+date: "2023-06-28T20:33:58+07:00"
 resources:
-  - title: >-
-      Photo by [Pascal Meier](https://unsplash.com/@zhpix) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Pascal Meier](https://unsplash.com/@zhpix) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - google
-  - seo
-  - hugo-sitemap
-  - 100DaysToOffload
+  - "google"
+  - "seo"
+  - "hugo-sitemap"
+  - "100DaysToOffload"
 unsplash:
-  imageid: abcdefghijk
-fmContentType: blog
-cover: header.jpg
+  imageid: "abcdefghijk"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Google on Monday announced that [they will change several things regarding to sitemaps and pinging the search engine about updates of the sitemap](https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping).

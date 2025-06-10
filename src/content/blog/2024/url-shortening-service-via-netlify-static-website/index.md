@@ -1,20 +1,17 @@
 ---
-title: Url shortening service using a static website on Netlify
-description: >-
-  Learn how to set up a link redirection service on Netlify in minutes. Utilize
-  simple steps to manage redirects effortlessly and enhance your project URLs'
-  accessibility.
-date: '2024-02-14T20:04:51+07:00'
+title: "Url shortening service using a static website on Netlify"
+description: "Learn how to set up a link redirection service on Netlify in minutes. Utilize simple steps to manage redirects effortlessly and enhance your project URLs' accessibility."
+date: "2024-02-14T20:04:51+07:00"
 resources:
-  - src: header.jpg
-    copyright: unsplash-plus
+  - src: "header.jpg"
+    copyright: "unsplash-plus"
 tags:
-  - netlify
-  - linkshortening
-  - networking
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.jpg
+  - "netlify"
+  - "linkshortening"
+  - "networking"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 This is a quick and practical proof of concept of a "free" link redirection service, hosted on [Netlify](https://www.netlify.com/). I am using one of my domains to redirect to various URLs, to my own projects. The setup is simple and can be done in a matter of minutes.

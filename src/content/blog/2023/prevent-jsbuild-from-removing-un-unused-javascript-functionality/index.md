@@ -1,19 +1,16 @@
 ---
-title: Prevent js.Build from removing un-used Javascript functionality
-description: >-
-  Discover how I solved an ESBuild issue removing the unused 'themeSwitcher'
-  function in my Alpine.js integration, and learn about Alpine.js startup
-  nuances.
-date: '2023-11-11T21:16:05+07:00'
+title: "Prevent js.Build from removing un-used Javascript functionality"
+description: "Discover how I solved an ESBuild issue removing the unused 'themeSwitcher' function in my Alpine.js integration, and learn about Alpine.js startup nuances."
+date: "2023-11-11T21:16:05+07:00"
 resources:
-  - src: header.png
+  - src: "header.png"
 tags:
-  - alpinejs
-  - esbuild
-  - component
-  - 100DaysToOffload
-fmContentType: blog
-cover: header.png
+  - "alpinejs"
+  - "esbuild"
+  - "component"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./header.png"
 ---
 
 Today, I reworked my theme changer script from vanilla JavaScript to an [Alpine.js](https://alpinejs.dev/)-based component. This change cut down the code lines by 50%. However, initially, it didn't work. The console error messages indicated that my theme switcher function was unrecognized. Intrigued, I decided to investigate.

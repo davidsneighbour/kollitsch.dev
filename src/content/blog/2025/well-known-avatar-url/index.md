@@ -1,25 +1,17 @@
 ---
-title: .well-known avatar URL for kollitsch.dev
-description: >-
-  This post explains how I set up a .well-known/avatar URL on my site using
-  Netlify, with caching headers and image placement, and plans for future
-  improvements.
-summary: >-
-  A .well-known/avatar URL provides a standardized way to retrieve profile
-  images. I implemented it on my site using Netlify, configuring caching headers
-  and placing the image in static/.well-known/. Future updates may include
-  support for different sizes, formats, and dynamic avatars for greater
-  flexibility.
-date: '2025-02-08T19:50:44+07:00'
+title: ".well-known avatar URL for kollitsch.dev"
+description: "This post explains how I set up a .well-known/avatar URL on my site using Netlify, with caching headers and image placement, and plans for future improvements."
+summary: "A .well-known/avatar URL provides a standardized way to retrieve profile images. I implemented it on my site using Netlify, configuring caching headers and placing the image in static/.well-known/. Future updates may include support for different sizes, formats, and dynamic avatars for greater flexibility."
+date: "2025-02-08T19:50:44+07:00"
 resources:
-  - title: I'm just an avatar
-    src: imkara-visual-3blY8iC2o5M-unsplash.jpg
+  - title: "I'm just an avatar"
+    src: "imkara-visual-3blY8iC2o5M-unsplash.jpg"
 tags:
-  - internals
-  - well-known
-  - 100DaysToOffload
-fmContentType: blog
-cover: imkara-visual-3blY8iC2o5M-unsplash.jpg
+  - "internals"
+  - "well-known"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./imkara-visual-3blY8iC2o5M-unsplash.jpg"
 ---
 
 The idea of a well-known avatar URL has been floating around for a while, and it just makes sense. Instead of manually setting profile images across various services, a standardized `.well-known/avatar` endpoint provides a predictable way to retrieve a user's avatar.

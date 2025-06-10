@@ -1,22 +1,18 @@
 ---
-title: Keybase vs. Ubuntu 24.04
-description: >-
-  Trying to install Keybase "the normal way" on Ubuntu leads to errors about
-  missing packages. Trying then to run `apt install -f` to fix the issues will
-  lead to Keybase being uninstalled again. In older releases this worked. Now it
-  does not
-date: '2024-04-29T17:03:49+07:00'
+title: "Keybase vs. Ubuntu 24.04"
+description: "Trying to install Keybase \"the normal way\" on Ubuntu leads to errors about missing packages. Trying then to run `apt install -f` to fix the issues will lead to Keybase being uninstalled again. In older releases this worked. Now it does not"
+date: "2024-04-29T17:03:49+07:00"
 resources:
-  - title: Ubuntu 24.04 - official wallpaper
-    src: ubuntu-wallpaper-d.png
-  - src: xxselection_002.png
+  - title: "Ubuntu 24.04 - official wallpaper"
+    src: "ubuntu-wallpaper-d.png"
+  - src: "xxselection_002.png"
 tags:
-  - ubuntu 24.04
-  - keybase
-  - howto
-  - 100DaysToOffload
-fmContentType: blog
-cover: ubuntu-wallpaper-d.png
+  - "ubuntu 24.04"
+  - "keybase"
+  - "howto"
+  - "100DaysToOffload"
+fmContentType: "blog"
+cover: "./ubuntu-wallpaper-d.png"
 ---
 
 Trying to install Keybase "the normal way" on Ubuntu leads to errors about missing packages. Trying then to run `apt install -f` to fix the issues will lead to Keybase being uninstalled again. In older releases this worked. Now it doesn't.

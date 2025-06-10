@@ -1,24 +1,20 @@
 ---
-title: 'How to fix `ReferenceError: __dirname is not defined in ES module scope`'
-description: >-
-  Replicate the missing `__dirname` and `__filename` variables from CommonJS in
-  ES modules.
-date: '2024-08-12T19:04:31+07:00'
+title: "How to fix `ReferenceError: __dirname is not defined in ES module scope`"
+description: "Replicate the missing `__dirname` and `__filename` variables from CommonJS in ES modules."
+date: "2024-08-12T19:04:31+07:00"
 resources:
-  - title: >-
-      Photo by [Andrew Wulf](https://unsplash.com/@andreuuuw) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
+  - title: "Photo by [Andrew Wulf](https://unsplash.com/@andreuuuw) via [Unsplash](https://unsplash.com/)"
+    src: "header.jpg"
 tags:
-  - es modules
-  - refactoring
-  - how to
-  - javascript
-  - 100DaysToOffload
+  - "es modules"
+  - "refactoring"
+  - "how to"
+  - "javascript"
+  - "100DaysToOffload"
 unsplash:
-  imageid: pile-of-rubber-duckies-59yg_LpcvzQ
-fmContentType: blog
-cover: header.jpg
+  imageid: "pile-of-rubber-duckies-59yg_LpcvzQ"
+fmContentType: "blog"
+cover: "./header.jpg"
 ---
 
 Every now and then, when transitioning from a CommonJS script to ES Modules in a project I am encountering an issue: the `__dirname`[^1] and `__filename` variables, which are commonly available in CommonJS (little punt there, sorry), are not available by default in ES modules. These variables are essential for resolving file paths, at least for me, so their absence can throw a wrench into my code.

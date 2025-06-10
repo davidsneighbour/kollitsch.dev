@@ -31,7 +31,9 @@
     "@fbraem/rollup-plugin-toml": "0.0.4",
     "@rollup/plugin-yaml": "4.1.2",
     "@types/markdown-it": "14.1.2",
-    "vite-plugin-devtools-json": "0.1.1"
+    "vite-plugin-devtools-json": "0.1.1",
+    // for frontmatter migration script
+    "js-yaml": "^4.1.0"
   },
   "scripts": {
     "astro": "astro",

@@ -2,6 +2,32 @@
 // @todo refactor
 
 import Layout from '@layouts/DefaultPage.astro';
+
+import ArticleCard from '@components/ArticleCard.astro';
+
+
+
+
+import { getHomepagePosts } from '@utils/getHomepagePosts';
+
+const { featuredPost, recentPosts } = await getHomepagePosts();
 ---
 
-<Layout />
+<Layout>
+  <main>
+    <section id="featured">
+      <h2>Featured</h2>
+      <ArticleCard post={featuredPost} />
+    </section>
+
+    <section id="recent">
+      <h2>Recent Posts</h2>
+      <ul>
+        {recentPosts.map(post => (
+          <li><ArticleCard post={post} /></li>
+        ))}
+      </ul>
+    </section>
+  </main>
+
+  </Layout>

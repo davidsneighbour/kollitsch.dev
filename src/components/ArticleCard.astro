@@ -1,0 +1,28 @@
+---
+export interface Props {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      date: string;
+      description?: string;
+    };
+  };
+}
+
+const { post } = Astro.props;
+---
+
+<article class="mb-4 border-b border-gray-300 pb-2 text-sm">
+  <h3 class="text-lg font-bold text-orange-800">
+    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+  </h3>
+  <p class="text-gray-600">
+    {new Date(post.data.date).toLocaleDateString('en-GB')}
+  </p>
+  {
+    post.data.description && (
+      <p class="mt-1 text-gray-800">{post.data.description}</p>
+    )
+  }
+</article>

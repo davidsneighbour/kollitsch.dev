@@ -6,7 +6,7 @@
     "@astrojs/sitemap": "3.4.1",
     "@astrojs/ts-plugin": "1.10.4",
     "@tailwindcss/vite": "4.1.8",
-    "astro": "^5.9.1",
+    "astro": "5.9.1",
     "astro-matomo": "1.8.1",
     "astro-pagefind": "1.8.3",
     "glob": "11.0.2",
@@ -17,7 +17,7 @@
     "@iconify-json/bi": "1.2.4",
     "astro-icon": "1.1.5",
     "@spotlightjs/astro": "3.2.3",
-    "sharp-ico": "^0.1.5"
+    "sharp-ico": "0.1.5"
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.10",
@@ -33,7 +33,10 @@
     "@types/markdown-it": "14.1.2",
     "vite-plugin-devtools-json": "0.1.1",
     // for frontmatter migration script
-    "js-yaml": "^4.1.0"
+    "js-yaml": "4.1.0",
+    // required to run typescript via CLI
+    // why: because this way @data/site.json and @scripts/something is understood
+    "tsx": "4.19.4"
   },
   "scripts": {
     "astro": "astro",

@@ -53,7 +53,7 @@ export default defineConfig({
       themes: ['dracula', 'github-light'],
       styleOverrides: {
         frames: {
-          shadowColor: '#124',
+          frameBoxShadowCssValue: '0',
         },
       },
     }),

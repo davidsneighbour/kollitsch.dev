@@ -6,11 +6,10 @@ import type {
 } from "astro";
 
 import { getCollection } from 'astro:content';
+
+// components
 import Layout from '@layouts/MarkdownPage.astro';
-import Giscus from '@components/Giscus.astro';
-import BreadCrumbs from '@components/BreadCrumbs.astro';
-import Prose from '@components/Prose.astro';
-import Article from '@components/Article.astro'
+import BlogPost from '@components/BlogPost.astro';
 
 export const getStaticPaths = (async () => {
   const allPosts = await getCollection('blog');
@@ -38,43 +37,8 @@ if (!post) {
   throw new Error(`[blog] getStaticPaths returned slug '${urlSlug}', but post was not found in getCollection(). This is a build-time error.`);
 }
 
-const html = post.rendered?.html ?? '';
-
-const currentIndex = posts.findIndex((p) => p.slug === urlSlug);
-const nextPost = posts[currentIndex + 1];
-const prevPost = posts[currentIndex - 1];
-
-import PostImage from '@components/PostImage.astro';
-import Heading from "@components/Heading.astro";
-
 ---
 
 <Layout post={post} title={post.data.title} description={post.data.description ?? ''}>
-
-  <Article post={post}>
-
-    <PostImage post={post} />
-    <Heading title={post.data.title} level="2" />
-
-    <p>{post.data.date.toLocaleDateString()}</p>
-
-    <BreadCrumbs path={Astro.url.href} />
-    <Prose set:html={html} />
-
-    <div class="flex justify-between">
-      {prevPost && (
-        <a href={`/blog/${prevPost.slug}/`} class="text-blue-500 hover:underline">
-          ← {prevPost.data.title}
-        </a>
-      )}
-      {nextPost && (
-        <a href={`/blog/${nextPost.slug}/`} class="text-blue-500 hover:underline">
-          {nextPost.data.title} →
-        </a>
-      )}
-    </div>
-
-    <Giscus post={post} />
-
-  </Article>
+  <BlogPost post={post} urlslug={urlSlug} />
 </Layout>

@@ -97,7 +97,7 @@ const isLast = props.currentPage === props.totalPages;
       !isFirst && <a href={pageLink(props.currentPage - 1)}>&larr; Prev</a>
     ) : (
       <a
-        class={isFirst ? 'pointer-events-none text-gray-400' : ''}
+        class={isFirst ? 'pointer-events-none ' : ''}
         href={isFirst ? '#' : pageLink(props.currentPage - 1)}
       >
         &larr; Prev
@@ -121,7 +121,7 @@ const isLast = props.currentPage === props.totalPages;
       !isLast && <a href={pageLink(props.currentPage + 1)}>Next &rarr;</a>
     ) : (
       <a
-        class={isLast ? 'pointer-events-none text-gray-400' : ''}
+        class={isLast ? 'pointer-events-none' : ''}
         href={isLast ? '#' : pageLink(props.currentPage + 1)}
       >
         Next &rarr;

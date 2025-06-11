@@ -9,9 +9,6 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  //"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
-  // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
-  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
   "prettier.configPath": "prettier.config.js",
   "prettier.bracketSpacing": true,
   "prettier.requireConfig": true,
@@ -20,6 +17,8 @@
   "markdownlint.configFile": "src/config/.markdownlint.json",
   "markdown.extension.toc.levels": "2..6",
   "markdown.extension.toc.unorderedList.marker": "*",
+
+  // theme configuration
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff7733",
     "activityBar.background": "#ff7733",
@@ -39,6 +38,14 @@
     "titleBar.inactiveBackground": "#ff550099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
+
+  // collapse files and their tests in the explorer
+  "explorer.fileNesting.patterns": {
+    "*.astro": "$(capture).test.ts"
+  },
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.enabled": true,
+
   // stylelint setup
   "css.validate": false,
   "less.validate": false,
@@ -67,7 +74,12 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "files.autoSaveWhenNoErrors": false,
+
+  // vale setup
   "vale.enableSpellcheck": true,
   "vale.valeCLI.installVale": false,
-  "vale.valeCLI.syncOnStartup": true
+  "vale.valeCLI.syncOnStartup": true,
+  //"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
+  // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
+  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini"
 }

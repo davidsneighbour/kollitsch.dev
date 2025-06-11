@@ -12,9 +12,7 @@ import { Icon } from 'astro-icon/components';
 <h1 id="sitetitle" class="font-changa mx-auto
                           text-5xl sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl
                           ">
-  <a href={getHomepageUrl()} class="text-orange-700 hover:text-red-700
-                                     transition-colors duration-300 ease-in-out
-                                     ">
+  <a href={getHomepageUrl()}>
     {siteinfo.title}
   </a>
 </h1>
@@ -29,7 +27,8 @@ import { Icon } from 'astro-icon/components';
       <a
         id="navbar-brand"
         href={getHomepageUrl()}
-        class="opacity-0 font-changa flex-rows -m-1.5 flex items-center gap-2 p-1.5 text-2xl text-orange-700 transition-opacity duration-600 ease-in-out"
+        class="font-changa flex-rows -m-1.5 flex items-center gap-2 p-1.5 text-2xl
+               opacity-0 transition-opacity duration-600 ease-in-out"
       >
         <Icon name="bi:house-fill" class="place-self-center" />
         {siteinfo.title}
@@ -72,14 +71,14 @@ import { Icon } from 'astro-icon/components';
   <div class="lg:hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 z-10"></div>
     <div
-      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
     >
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
           <Icon name="bi:house-fill" class="place-self-center" />
           <a href={getHomepageUrl()} class="sr-only"> KOLLITSCH.dev* </a>
         </a>
-        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+        <button type="button" class="-m-2.5 rounded-md p-2.5 ">
           <span class="sr-only">Close menu</span>
           <svg
             class="size-6"
@@ -104,7 +103,7 @@ import { Icon } from 'astro-icon/components';
               navData.map(value => (
                 <a
                   href={value.link}
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold "
                 >
                   {value.label}
                 </a>

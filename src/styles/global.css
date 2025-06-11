@@ -81,56 +81,44 @@
   text-rendering: optimizelegibility;
 }
 
-.font-changa {
-  font-family: var(--font-changa);
-
-  /* Changa is only available via weight 400 */
-  font-weight: 400;
-}
-
-.font-exo2 {
-  font-family: var(--font-exo2);
-}
-
-.font-jetbrainsmono {
-  font-family: var(--font-jetbrainsmono);
-}
-
-body {
-  font-family: var(--font-exo2);
-  font-weight: 200;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-changa);
-
-  /* Changa is only available via weight 400 */
-  font-weight: 400;
-}
-
-a {
-  font-weight: 200;
-}
-
-/* if the user hjas no scripting capabilities then use the light theme if they prefer it */
 @layer base {
-  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- this is ok */
-  @media (scripting: none) {
-    #theme-toggle {
-      display: none;
-    }
+  .font-changa {
+    font-family: var(--font-changa);
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        /* @apply light; */
-      }
-    }
+    /* Changa is only available via weight 400 */
+    font-weight: 400;
+  }
+
+  .font-exo2 {
+    font-family: var(--font-exo2);
+  }
+
+  .font-jetbrainsmono {
+    font-family: var(--font-jetbrainsmono);
+  }
+
+  body {
+    font-family: var(--font-exo2);
+    font-weight: 200;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-changa);
+
+    /* Changa is only available via weight 400 */
+    font-weight: 400;
+  }
+
+  a {
+    @apply transition-colors duration-300 ease-in-out;
+    @apply text-orange-700;
+    @apply hover:text-red-700;
   }
 }

@@ -57,22 +57,22 @@ const prevPost = posts[currentIndex - 1];
 
   <div class="flex justify-between">
     {
-      prevPost && (
+      nextPost && (
         <a
-          href={`/blog/${prevPost.slug}/`}
-          class="text-blue-500 hover:underline"
+          href={`/blog/${nextPost.slug}/`}
+          class="hover:underline"
         >
-          ← {prevPost.data.title}
+          ← {nextPost.data.title}
         </a>
       )
     }
     {
-      nextPost && (
+      prevPost && (
         <a
-          href={`/blog/${nextPost.slug}/`}
-          class="text-blue-500 hover:underline"
+          href={`/blog/${prevPost.slug}/`}
+          class="hover:underline"
         >
-          {nextPost.data.title} →
+          {prevPost.data.title} →
         </a>
       )
     }

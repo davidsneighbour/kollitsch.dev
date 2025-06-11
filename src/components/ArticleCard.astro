@@ -12,12 +12,12 @@ const { post } = Astro.props;
   <h3 class="text-lg font-bold text-orange-800">
     <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
   </h3>
-  <p class="text-gray-600">
+  <p class="">
     {new Date(post.data.date).toLocaleDateString('en-GB')}
   </p>
   {
     post.data.description && (
-      <p class="mt-1 text-gray-800">{post.data.description}</p>
+      <p class="mt-1 ">{post.data.description}</p>
     )
   }
 </article>

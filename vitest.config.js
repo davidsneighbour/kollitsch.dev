@@ -8,7 +8,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default getViteConfig({
   plugins: [tsconfigPaths()],
   test: {
-    environment: 'jsdom',
     globals: true,
     include: ['src/components/**/*.test.ts'],
     coverage: {

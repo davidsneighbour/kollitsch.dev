@@ -1,0 +1,22 @@
+---
+const { prefix = 'dev', label = 'DevBox', length = 8 } = Astro.props;
+
+// Ensure this component is only rendered in development mode
+if (import.meta.env.PROD) {
+  return;
+}
+
+// Create a random string of the specified length
+function generateRandomString(len: number) {
+  return Array.from(crypto.getRandomValues(new Uint8Array(len)))
+    .map(n => (n % 36).toString(36))
+    .join('');
+}
+
+const uniqueId = `${prefix}${generateRandomString(length)}`;
+---
+
+<div id={uniqueId} class="my-4 border border-dashed border-pink-600 p-4">
+  <div class="mb-2 text-xs text-pink-600">DevBox "{label}" → #{uniqueId}</div>
+  <slot />
+</div>

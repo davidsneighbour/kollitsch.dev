@@ -3,4 +3,4 @@ documentation
 
 # ignore testing files in production
 
-src/pages/_test/
+src/pages/test/

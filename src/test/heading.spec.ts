@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('renders multiple heading levels correctly', async ({ page }) => {
-  await page.goto('/_test/heading/');
+  await page.goto('/test/heading/');
 
   const h2 = page.getByRole('heading', { name: 'Visible H2', exact: true });
   const h5 = page.getByRole('heading', {

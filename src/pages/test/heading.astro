@@ -1,0 +1,14 @@
+---
+import '@styles/global.css';
+import HeadingComponent from '@components/Heading.astro';
+import Layout from '@layouts/DefaultPage.astro';
+---
+
+<Layout>
+  <HeadingComponent title="Visible H2" level={2} description="desc2" />
+  <HeadingComponent title="Visible H5, no description" level={5} />
+  <HeadingComponent title="Default H1" description="desc1" />
+  <HeadingComponent title="Default H1, no description" />
+  <HeadingComponent title="Too High" level={99} />
+  <HeadingComponent title="Too Low" level={0} />
+</Layout>

@@ -1,14 +1,12 @@
 ---
 // @todo refactor
 
+import { getHomepagePosts } from '@utils/getHomepagePosts';
+
 import Layout from '@layouts/DefaultPage.astro';
 
 import ArticleCard from '@components/ArticleCard.astro';
-
-
-
-
-import { getHomepagePosts } from '@utils/getHomepagePosts';
+import Heading from '@components/Heading.astro';
 
 const { featuredPost, recentPosts } = await getHomepagePosts();
 ---
@@ -16,12 +14,12 @@ const { featuredPost, recentPosts } = await getHomepagePosts();
 <Layout>
   <main>
     <section id="featured">
-      <h2>Featured</h2>
-      <ArticleCard post={featuredPost} />
+      <Heading level={2} title="Featured" class="something"/>
+      <ArticleCard post={featuredPost!} />
     </section>
 
     <section id="recent">
-      <h2>Recent Posts</h2>
+      <Heading level={3} title="Recent Posts"/>
       <ul>
         {recentPosts.map(post => (
           <li><ArticleCard post={post} /></li>

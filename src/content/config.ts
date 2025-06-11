@@ -7,6 +7,7 @@ export const blogSchema = z.object({
   date: z.coerce.date().transform((s) => new Date(s)),
   tags: z.array(z.string()).optional(),
   draft: z.boolean().default(false).optional(),
+  featured: z.boolean().default(false).optional(),
   cover: z.string().optional(),
   fmContentType: z.string().optional(),
   aliases: z

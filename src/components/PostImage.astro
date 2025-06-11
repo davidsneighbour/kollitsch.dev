@@ -11,10 +11,11 @@ const md = new MarkdownIt();
 
 export interface Props {
   post: CollectionEntry<'blog'>;
+  classes?: string;
 }
-const { post }: Props = Astro.props;
+const { post, classes = 'w-full max-w-full h-auto mb-4' }: Props = Astro.props;
 
-interface CoverImage {
+export interface CoverImage {
   src: string;
   alt: string;
   title?: string | undefined;
@@ -30,9 +31,9 @@ function stripMarkup(str: string): string {
 function resolveCoverImage(): CoverImage {
   const resources = post.data.resources;
   const cover = post.data.cover;
-  let src: string | undefined;
-  let title: string | undefined;
-  let alt: string | undefined;
+  let src;
+  let title;
+  let alt;
 
   if (Array.isArray(resources) && resources[0]?.src) {
     src = resources[0].src;
@@ -57,7 +58,7 @@ function resolveCoverImage(): CoverImage {
   // @todo generate a default title if none is provided or skip this step
   title = md.renderInline(title ?? "");
 
-return { src, alt, title };
+return { src, alt, title};
 
 }
 
@@ -75,7 +76,7 @@ const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath)
       alt={coverImage.alt}
       width="1280"
       loading="lazy"
-      class="w-full max-w-full h-auto mb-4"
+      class={classes}
 
     />
     {coverImage.title && (

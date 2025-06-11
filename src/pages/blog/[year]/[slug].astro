@@ -4,6 +4,7 @@
 import type {
   InferGetStaticParamsType,
 } from "astro";
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 import { getCollection } from 'astro:content';
 
@@ -21,21 +22,17 @@ export const getStaticPaths = (async () => {
         return null;
       }
       const [year, slug] = parts;
-      return { params: { year, slug } };
+      return {
+        params: { year, slug },
+        props: { post }
+      };
     })
     .filter(Boolean);
 });
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-
 const { year, slug } = Astro.params as Params;
 const urlSlug = `${year}/${slug}`;
-const posts = await getCollection('blog');
-const post = posts.find((p) => p.slug === urlSlug);
-
-if (!post) {
-  throw new Error(`[blog] getStaticPaths returned slug '${urlSlug}', but post was not found in getCollection(). This is a build-time error.`);
-}
+const { post } = Astro.props;
 
 ---
 

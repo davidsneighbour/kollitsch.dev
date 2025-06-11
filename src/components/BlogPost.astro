@@ -46,9 +46,9 @@ const prevPost = posts[currentIndex - 1];
     }
   </script> -->
 
-  <PostImage post={post} class="max-w-full"/>
+  <PostImage post={post} classes="max-w-full"/>
 
-  <Heading level={2} title={post.data.title} />
+  <Heading level={2} title={post.data.title} class="heading" />
 
   <p>{post.data.date.toLocaleDateString()}</p>
 

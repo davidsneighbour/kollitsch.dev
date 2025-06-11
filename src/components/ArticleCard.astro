@@ -1,15 +1,10 @@
 ---
-export interface Props {
-  post: {
-    slug: string;
-    data: {
-      title: string;
-      date: string;
-      description?: string;
-    };
-  };
-}
 
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
 const { post } = Astro.props;
 ---
 

@@ -83,7 +83,9 @@
     "stylelint-order": "7.0.0",
     "ts-node": "10.9.2",
     "tsx": "4.19.4",
-    "vite-plugin-devtools-json": "0.1.1"
+    "vite-plugin-devtools-json": "0.1.1",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.2.3"
   },
   "scripts": {
     "astro": "astro",
@@ -117,8 +119,9 @@
     "prettier:fix": "prettier --write ''assets/**/*.js'",
     "preview": "astro preview",
     "release": "wireit",
-    "test": "npx playwright test",
-    "test:ui": "npx playwright test --ui",
+    "test": "vitest run",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
     "update": "wireit",
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade"

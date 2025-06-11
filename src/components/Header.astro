@@ -9,8 +9,12 @@ import { Icon } from 'astro-icon/components';
 
 ---
 
-<h1 id="sitetitle" class="font-changa mx-auto text-9xl text-orange-700">
-  <a href={getHomepageUrl()}>
+<h1 id="sitetitle" class="font-changa mx-auto
+                          text-5xl sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl
+                          ">
+  <a href={getHomepageUrl()} class="text-orange-700 hover:text-red-700
+                                     transition-colors duration-300 ease-in-out
+                                     ">
     {siteinfo.title}
   </a>
 </h1>
@@ -74,11 +78,6 @@ import { Icon } from 'astro-icon/components';
         <a href="/" class="-m-1.5 p-1.5">
           <Icon name="bi:house-fill" class="place-self-center" />
           <a href={getHomepageUrl()} class="sr-only"> KOLLITSCH.dev* </a>
-          <img
-            class="h-8 w-auto"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
-          />
         </a>
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
           <span class="sr-only">Close menu</span>

@@ -68,14 +68,14 @@ const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath)
 ---
 
 {imageMeta && (
-  
+
   <figure>
     <Image
       src={imageMeta}
       alt={coverImage.alt}
       width="1280"
       loading="lazy"
-      class="w-full h-auto mb-4"
+      class="w-full max-w-full h-auto mb-4"
 
     />
     {coverImage.title && (

@@ -50,5 +50,5 @@
 
 * Testing is done via Vitest and Playwright.
 * Vitest test files are located next to the component source files, with the same name but ending in `.test.ts`.
-* Vitest test files must contain the line `// @vitest-environment node` at the top to ensure they run in a Node.js environment and not with JSDom.
+* Vitest test files must contain the line `// @vitest-environment node` at the top to ensure they run in a Node.js environment and not with JSDom. 
 * Playwright test files are located in the `src/test/` directory and must be named `*.spec.ts`.

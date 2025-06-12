@@ -5,6 +5,7 @@
 import siteInfo from '@data/site.json';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import { generateUniqueHtmlId } from '@utils/helpers';
+import navData from '@data/navigation.json';
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear();
@@ -24,23 +25,15 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="mb-4 text-xl">Navigation</h3>
         <ul class="space-y-2">
-          <li>
-            <a href="/"
-              >Home</a>
-          </li>
-          <li>
-            <a
-              href="/about/">About</a>
-          </li>
-          <li>
-            <a
-              href="/blog/">Blog</a>
-          </li>
-          <li>
-            <a
-              href="/contact/"
-              >Contact</a>
-          </li>
+          {
+            navData.map(value => (
+              <li>
+                <a href={value.link} class="">
+                  {value.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 

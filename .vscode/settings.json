@@ -4,8 +4,6 @@
   "files.associations": {
     "*.astro": "astro"
   },
-  // settings for the prettier astro plugin
-  "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

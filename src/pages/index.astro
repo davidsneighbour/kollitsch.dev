@@ -12,7 +12,7 @@ const { featuredPost, recentPosts } = await getHomepagePosts();
 ---
 
 <Layout>
-  <main>
+  <main class="z-0 mx-auto max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
     <section id="featured">
       <Heading level={2} title="Featured" class="something"/>
       <ArticleCard post={featuredPost!} />

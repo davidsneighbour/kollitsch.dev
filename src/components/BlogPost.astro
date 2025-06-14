@@ -10,6 +10,7 @@ import Giscus from '@components/Giscus.astro';
 import Heading from './Heading.astro';
 import BreadCrumbs from '@components/BreadCrumbs.astro';
 import Prose from '@components/Prose.astro';
+import PaginationSingle from '@components/PaginationSingle.astro';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
@@ -54,28 +55,9 @@ const prevPost = posts[currentIndex - 1];
   <BreadCrumbs path={Astro.url.href} />
   <Prose set:html={content} />
 
-  <div class="flex justify-between">
-    {
-      nextPost && (
-        <a
-          href={`/blog/${nextPost.id}/`}
-          class="hover:underline"
-        >
-          ← {nextPost.data.title}
-        </a>
-      )
-    }
-    {
-      prevPost && (
-        <a
-          href={`/blog/${prevPost.id}/`}
-          class="hover:underline"
-        >
-          {prevPost.data.title} →
-        </a>
-      )
-    }
-  </div>
+  <PaginationSingle
+    post={post}
+  />
 
   <Giscus post={post} />
 

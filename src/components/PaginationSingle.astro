@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+
+const { basePath, pagingPartial, post } = Astro.props;
+const posts = await getCollection('blog');
+const currentIndex = posts.findIndex(p => p.id === post.id);
+const nextPost = posts[currentIndex + 1];
+const prevPost = posts[currentIndex - 1];
+
+function pageLink(n: number): string {
+  const base = basePath.replace(/\/+$/, '');
+  const partial = pagingPartial.replace(/^\/|\/$/g, '');
+
+  if (n === 1) return `${base}/`;
+
+  return partial ? `${base}/${partial}/${n}/` : `${base}/${n}/`;
+}
+
+---
+
+<nav class="flex items-center justify-between border-t mt-4 px-4 sm:px-0">
+  <div class="-mt-px flex grow">
+    {nextPost && (
+      <a href={`/blog/${nextPost.id}`}
+        class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+        <Icon name="bi:arrow-left" class="mr-2 place-self-center" />
+        {nextPost.data.title}
+      </a>
+    )}
+  </div>
+  <div class="-mt-px flex grow justify-end">
+    {prevPost && (
+      <a href={`/blog/${prevPost.id}`}
+        class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+        {prevPost.data.title}
+        <Icon name="bi:arrow-right" class="ml-2 place-self-center" />
+      </a>
+    )}
+  </div>
+</nav>

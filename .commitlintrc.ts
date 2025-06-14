@@ -1,15 +1,14 @@
-// commitlint.config.ts
-
-import type { UserConfig } from 'cz-git';
-import { items as shared } from './src/scripts/shared-config.ts';
+// @see https://github.com/Zhengqbbb/cz-git
+import type { CommitizenGitOptions, UserConfig } from 'cz-git';
+import { items as shared } from './src/config/shared-config.ts';
 
 if (!Array.isArray(shared) || shared.length === 0) {
-  console.error('✖ `shared-config.ts` did not export any items!');
+  console.error('✖ `shared-config.ts` not found or is empty.');
   process.exit(1);
 }
 
-/** cz-git prompt messages */
-const promptMessages: UserConfig['prompt']['messages'] = {
+// cz-git prompt messages
+const promptMessages: CommitizenGitOptions['messages'] = {
   type: "Select the type of change that you're committing:",
   scope: 'Denote the SCOPE of this change (optional):',
   customScope: 'Denote the SCOPE of this change:',
@@ -20,21 +19,21 @@ const promptMessages: UserConfig['prompt']['messages'] = {
   footerPrefixsSelect:
     'Select the ISSUES type of changeList by this change (optional):',
   customFooterPrefixs: 'Input ISSUES prefix:',
-  footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+  footer: 'List any ISSUES by this change. E.g.: #31, user/repo#32, #34:\n',
   confirmCommit: 'Are you sure you want to proceed with the commit above?',
 };
 
-/** cz-git types array */
+// cz-git types array
 const czTypes = shared.map(({ type, description }) => ({
   value: type,
   name: `${type}: ${description}`,
 }));
 
-/** @type {UserConfig} */
 const commitlintConfig: UserConfig = {
   rules: {
-    // your commitlint rules here, e.g.:
+    // overriding commitlint rules, e.g.:
     // 'header-max-length': [2, 'always', 72],
+    // @see https://commitlint.js.org/reference/rules.html
   },
   prompt: {
     messages: promptMessages,
@@ -69,7 +68,7 @@ const commitlintConfig: UserConfig = {
     allowEmptyIssuePrefixs: true,
     confirmColorize: true,
     maxHeaderLength: Infinity,
-    maxSubjectLength: Infinity,
+    maxSubjectLength: 50,
     minSubjectLength: 0,
     defaultBody: '',
     defaultIssues: '',

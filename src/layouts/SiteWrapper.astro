@@ -3,6 +3,7 @@
 
 import '@styles/global.css';
 import Head from '@components/Head.astro';
+import Breakpoints from '@components/development/Breakpoints.astro';
 
 const { post } = Astro.props;
 
@@ -39,5 +40,6 @@ const bodyClasses = [
   </head>
   <body class={bodyClasses}>
     <slot />
+    <Breakpoints />
   </body>
 </html>

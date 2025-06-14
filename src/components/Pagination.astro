@@ -1,6 +1,6 @@
 ---
-
 import { withDefaults } from '@utils/withDefaults';
+import { Icon } from 'astro-icon/components';
 
 /**
  * Props for the Pagination component.
@@ -37,18 +37,28 @@ export interface Props {
 const props = withDefaults(Astro.props as Props, {
   pagingPartial: '',
   spacer: '…',
-  range: 3,
+  range: 2,
   showFirst: true,
   showLast: true,
-  edgeMode: 'hide',
-}) as Required<Pick<Props,
-  'basePath' | 'currentPage' | 'totalPages' | 'pagingPartial' |
-  'spacer' | 'range' | 'showFirst' | 'showLast' | 'edgeMode'
->>;
+  edgeMode: 'disable',
+}) as Required<
+  Pick<
+    Props,
+    | 'basePath'
+    | 'currentPage'
+    | 'totalPages'
+    | 'pagingPartial'
+    | 'spacer'
+    | 'range'
+    | 'showFirst'
+    | 'showLast'
+    | 'edgeMode'
+  >
+>;
 
 if (props.pagingPartial && /[A-Z]/.test(props.pagingPartial)) {
   throw new Error(
-    `[Pagination] Invalid "pagingPartial": must be lowercase only. Received "${props.pagingPartial}"`
+    `[Pagination] Invalid "pagingPartial": must be lowercase only. Received "${props.pagingPartial}"`,
   );
 }
 
@@ -88,44 +98,71 @@ function generatePagination(): (number | string)[] {
 const paginationItems = generatePagination();
 const isFirst = props.currentPage === 1;
 const isLast = props.currentPage === props.totalPages;
-
 ---
 
-{props.totalPages > 1 && (
-  <nav class="mt-8 flex flex-wrap justify-center gap-2">
-    {props.edgeMode === 'hide' ? (
-      !isFirst && <a href={pageLink(props.currentPage - 1)}>&larr; Prev</a>
-    ) : (
-      <a
-        class={isFirst ? 'pointer-events-none ' : ''}
-        href={isFirst ? '#' : pageLink(props.currentPage - 1)}
-      >
-        &larr; Prev
-      </a>
-    )}
-
-    {paginationItems.map((item) =>
-      typeof item === 'number' ? (
-        <a
-          href={pageLink(item)}
-          class={item === props.currentPage ? 'font-bold underline' : ''}
-        >
-          {item}
-        </a>
+{
+  props.totalPages > 1 && (
+    <nav class="flex items-center justify-between border-t px-4 sm:px-0">
+      {props.edgeMode === 'hide' ? (
+        !isFirst && <a href={pageLink(props.currentPage - 1)}>&larr; Prev</a>
       ) : (
-        <span class="px-2">{item}</span>
-      )
-    )}
-
-    {props.edgeMode === 'hide' ? (
-      !isLast && <a href={pageLink(props.currentPage + 1)}>Next &rarr;</a>
-    ) : (
-      <a
-        class={isLast ? 'pointer-events-none' : ''}
-        href={isLast ? '#' : pageLink(props.currentPage + 1)}
-      >
-        Next &rarr;
-      </a>
-    )}
-  </nav>
-)}
+        <div class="-mt-px flex w-0 flex-1">
+          {isFirst ? (
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+              <Icon name="bi:arrow-left" class="mr-2 place-self-center" />
+              Prev
+            </span>
+          ) : (
+            <a
+              href={pageLink(props.currentPage - 1)}
+              class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              <Icon name="bi:arrow-left" class="mr-2 place-self-center" />
+              Prev
+            </a>
+          )}
+        </div>
+      )}
+      <div class="hidden md:-mt-px md:flex">
+        {paginationItems.map(item =>
+          typeof item === 'number' ? (
+            <a
+              href={pageLink(item)}
+              class={
+                item === props.currentPage
+                  ? 'inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm font-medium text-indigo-600'
+                  : 'inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700'
+              }
+            >
+              {item}
+            </a>
+          ) : (
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+              {item}
+            </span>
+          ),
+        )}
+      </div>
+      {props.edgeMode === 'hide' ? (
+        !isLast && <a href={pageLink(props.currentPage + 1)}>Next &rarr;</a>
+      ) : (
+        <div class="-mt-px flex w-0 flex-1 justify-end">
+          {isLast ? (
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+              Next
+              <Icon name="bi:arrow-right" class="ml-2 place-self-center" />
+            </span>
+          ) : (
+            <a
+              href={pageLink(props.currentPage + 1)}
+              class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              Next
+              <Icon name="bi:arrow-right" class="ml-2 place-self-center" />
+            </a>
+          )}
+        </div>
+      )}
+    </nav>
+  )
+}

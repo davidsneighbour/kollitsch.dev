@@ -10,7 +10,7 @@ const { post } = Astro.props;
 
 <article class="mb-4 pb-2 text-sm">
   <h3 class="text-lg font-bold text-orange-800">
-    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+    <a href={`/blog/${post.id}/`}>{post.data.title}</a>
   </h3>
   <p class="">
     {new Date(post.data.date).toLocaleDateString('en-GB')}

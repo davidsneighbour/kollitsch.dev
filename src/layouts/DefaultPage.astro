@@ -2,32 +2,24 @@
 // @todo refactor
 
 import siteinfo from '@data/site.json';
-import { getHomepageUrl } from '@utils/getHomepageUrl';
+
 
 import Layout from '@layouts/SiteWrapper.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import '@styles/global.css';
 import Prose from '@components/Prose.astro';
+import SiteTitle from '@components/SiteTitle.astro';
 const { post } = Astro.props;
 ---
 
 <Layout post={post}>
-  <div class="min-h-screen flex flex-col">
-    <h1
-      id="sitetitle"
-      class="font-changa mx-auto text-5xl sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl"
-    >
-      <a href={getHomepageUrl()}>
-        {siteinfo.title}
-      </a>
-    </h1>
-    <Header />
-    <main class="z-0 mx-auto max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
-      <Prose>
-        <slot />
-      </Prose>
-    </main>
-    <Footer />
-  </div>
+  <SiteTitle />
+  <Header />
+  <main class="z-0 mx-auto max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
+    <Prose>
+      <slot />
+    </Prose>
+  </main>
+  <Footer />
 </Layout>

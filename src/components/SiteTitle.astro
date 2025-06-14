@@ -1,0 +1,14 @@
+---
+import siteinfo from '@data/site.json';
+import { getHomepageUrl } from '@utils/getHomepageUrl';
+const homepageUrl = getHomepageUrl();
+---
+
+<h1
+  id="sitetitle"
+  class="font-changa w-full bg-zinc-100 text-center text-5xl text-zinc-950 sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl dark:bg-zinc-900 dark:text-zinc-50"
+>
+  <a href={homepageUrl}>
+    {siteinfo.title}
+  </a>
+</h1>

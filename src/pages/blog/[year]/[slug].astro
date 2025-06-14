@@ -16,9 +16,9 @@ export const getStaticPaths = (async () => {
   const allPosts = await getCollection('blog');
   return allPosts
     .map((post) => {
-      const parts = post.slug.split('/');
+      const parts = post.id.split('/');
       if (parts.length !== 2) {
-        console.warn(`[blog] Skipping invalid slug: ${post.slug}`);
+        console.warn(`[blog] Skipping invalid slug: ${post.id}`);
         return null;
       }
       const [year, slug] = parts;

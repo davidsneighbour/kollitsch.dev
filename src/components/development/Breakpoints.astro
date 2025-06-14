@@ -59,12 +59,21 @@ const componentId = 'responsive-ruler';
 </style>
 
 <script is:inline>
-  setTimeout(() => {
+  const tryAttach = () => {
     const el = document.getElementById('responsive-ruler');
     if (el) {
       el.addEventListener('click', () => {
         el.remove();
       });
+    } else {
+      // Retry once per animation frame until the element exists
+      requestAnimationFrame(tryAttach);
     }
-  }, 0);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryAttach);
+  } else {
+    tryAttach();
+  }
 </script>

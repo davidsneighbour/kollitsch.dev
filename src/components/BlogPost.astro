@@ -20,7 +20,7 @@ const content = post.rendered?.html ?? '';
 
 const posts = await getCollection('blog');
 
-const currentIndex = posts.findIndex(p => p.slug === urlslug);
+const currentIndex = posts.findIndex(p => p.id === urlslug);
 const nextPost = posts[currentIndex + 1];
 const prevPost = posts[currentIndex - 1];
 ---
@@ -59,7 +59,7 @@ const prevPost = posts[currentIndex - 1];
     {
       nextPost && (
         <a
-          href={`/blog/${nextPost.slug}/`}
+          href={`/blog/${nextPost.id}/`}
           class="hover:underline"
         >
           ← {nextPost.data.title}
@@ -69,7 +69,7 @@ const prevPost = posts[currentIndex - 1];
     {
       prevPost && (
         <a
-          href={`/blog/${prevPost.slug}/`}
+          href={`/blog/${prevPost.id}/`}
           class="hover:underline"
         >
           {prevPost.data.title} →

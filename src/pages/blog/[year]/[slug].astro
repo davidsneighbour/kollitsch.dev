@@ -30,12 +30,10 @@ export const getStaticPaths = (async () => {
     .filter(Boolean);
 });
 
-const { year, slug } = Astro.params as Params;
-const urlSlug = `${year}/${slug}`;
 const { post } = Astro.props;
 
 ---
 
 <Layout post={post} title={post.data.title} description={post.data.description ?? ''}>
-  <BlogPost post={post} urlslug={urlSlug} />
+  <BlogPost post={post} />
 </Layout>

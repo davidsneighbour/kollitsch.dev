@@ -13,14 +13,13 @@ import Prose from '@components/Prose.astro';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
-  urlslug: string;
 }
-const { post, urlslug } = Astro.props;
+const { post } = Astro.props;
 const content = post.rendered?.html ?? '';
 
 const posts = await getCollection('blog');
 
-const currentIndex = posts.findIndex(p => p.id === urlslug);
+const currentIndex = posts.findIndex(p => p.id === post.id);
 const nextPost = posts[currentIndex + 1];
 const prevPost = posts[currentIndex - 1];
 ---

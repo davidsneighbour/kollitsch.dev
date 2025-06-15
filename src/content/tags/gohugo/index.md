@@ -1,5 +1,6 @@
 ---
 title: GoHugo
+description: ""
 resources:
   - title: Hugo
     src: gohugo.png

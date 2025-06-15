@@ -1,5 +1,6 @@
 ---
 title: Kurzschnitte II
+description: "" 
 resources:
   - title: Kurzschnitte II
 date: 2024-09-09T15:56:30.818Z

@@ -3,8 +3,6 @@
 
 import type { CollectionEntry } from 'astro:content';
 
-import { getCollection } from 'astro:content';
-
 import PostImage from '@components/PostImage.astro';
 import Giscus from '@components/Giscus.astro';
 import Heading from './Heading.astro';
@@ -17,12 +15,6 @@ export interface Props {
 }
 const { post } = Astro.props;
 const content = post.rendered?.html ?? '';
-
-const posts = await getCollection('blog');
-
-const currentIndex = posts.findIndex(p => p.id === post.id);
-const nextPost = posts[currentIndex + 1];
-const prevPost = posts[currentIndex - 1];
 ---
 
 <article class="full-post is-page kind-page type-blog">

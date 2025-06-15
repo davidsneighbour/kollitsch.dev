@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
-import { file, glob } from 'astro/loaders';
+//import { file, glob } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 
 export const blogSchema = z.object({
   title: z.string(),

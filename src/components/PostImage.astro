@@ -49,7 +49,7 @@ function resolveCoverImage(): CoverImage {
   }
 
   if (!title && src !== siteinfo.fallback) {
-    console.warn(`[PostImage] No title set for image in post "${post.slug}".`);
+    console.warn(`[PostImage] No title set for image in post "${post.id}".`);
   }
 
   // alt: markdown/HTML stripped, fallback to title or generic

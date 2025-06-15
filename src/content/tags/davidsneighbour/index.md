@@ -1,5 +1,6 @@
 ---
 title: David's Neighbour
+description: ""
 resources:
   - title: "@davidsneighbour"
     src: header-logo.png

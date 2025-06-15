@@ -1,6 +1,6 @@
 ---
 const { post } = Astro.props;
-const [year, slug] = post.slug.split('/');
+const [year, slug] = post.id.split('/');
 ---
 
 <li>

@@ -45,7 +45,7 @@ async function resolveTitle(url: string): Promise<string | null> {
 
   for (const name of collections as (keyof DataEntryMap)[]) {
     const entries = await getCollection(name);
-    const entry = entries.find((e) => `/${name}/${e.slug}/` === url);
+    const entry = entries.find((e) => `/${name}/${e.id}/` === url);
     if (entry?.data?.title) {
       titleCache.set(url, entry.data.title);
       return entry.data.title;

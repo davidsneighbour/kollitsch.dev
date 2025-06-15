@@ -8,7 +8,7 @@ const blogPosts = await getCollection('blog');
 const tagEntries = await getCollection('tags');
 
 const tagMap = getFilteredTagMap(blogPosts);
-const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.slug));
+const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.id));
 
 
 
@@ -22,8 +22,8 @@ const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.slug));
   <ul class="space-y-4">
     {tagEntryList.map((entry) => (
       <li>
-        <a href={`/tags/${entry.slug}/`} class="text-lg font-semibold text-orange-700 hover:underline dark:text-orange-300">
-          {entry.data.title || `#${entry.slug}`}
+        <a href={`/tags/${entry.id}/`} class="text-lg font-semibold text-orange-700 hover:underline dark:text-orange-300">
+          {entry.data.title || `#${entry.id}`}
         </a>
         {entry.data.description && (
           <p class="text-sm text-gray-600 dark:text-gray-400">{entry.data.description}</p>

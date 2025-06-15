@@ -1,5 +1,6 @@
 ---
 title: 100 Days To Offload
+description: ""
 linktitle: 100daysToOffload
 resources:
   - title: 100 Days To Offload

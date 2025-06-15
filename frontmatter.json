@@ -3,11 +3,20 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "Weblog",
-      "path": "[[workspace]]/src/content/blog"
+      "contentTypes": ["default"],
+      "previewPath": "/{{fm.fmContentType}}/{{fm.date|format:yyyy}}/",
+      "path": "[[workspace]]/src/content/blog",
+      "filePrefix": "/{{date|yyyy}}/"
+    },
+    {
+      "title": "Slash Pages",
+      "path": "[[workspace]]/src/content/slash",
+      "disableCreation": true
     }
   ],
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.taxonomy.slugTemplate": "{{title}}",
   "frontMatter.data.files": [
     {
       "id": "tags",
@@ -45,6 +54,43 @@
           }
         }
       }
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "previewPath": "'blog'",
+      "pageBundle": true,
+      "clearEmpty": false,
+      "defaultFileName": "index",
+      "slugTemplate": "{{year}}/{{title}}/",
+      "template": "[[workspace]]/.frontmatter/templates/blog.md",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "cover",
+          "type": "image",
+          "isPreviewImage": true
+        }
+      ]
     }
   ]
 }

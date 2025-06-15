@@ -1,0 +1,34 @@
+[
+  {
+    "image": "100daysToOffload.jpg",
+    "label": "100 Days To Offload",
+    "description": "Read more about this in the [blog post](/blog/2022/100-days-to-offload/) and see the [100 Days To Offload](https://100daystooffload.com/) website for more information.",
+    "icon": "bookmark-check-fill",
+    "class": "success",
+    "id": "100daystooffload"
+  },
+  {
+    "description": "@davidsneighbour (aka David's Neighbour) is an umbrella brand, project and freelance company for my open source and business projects. Much of what I am working on (except for customers websites of course) is licensed under MIT license so go and do with it what ever you like.",
+    "label": "David's Neighbour",
+    "icon": "person-bounding-box",
+    "class": "info",
+    "image": "davidsneighbour.png",
+    "id": "davidsneighbour"
+  },
+  {
+    "description": "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again and is my main tool for website creation these days.",
+    "label": "GoHugo",
+    "image": "gohugo.png",
+    "class": "success",
+    "icon": "something",
+    "id": "gohugo"
+  },
+  {
+    "label": "Kurzschnitte",
+    "description": "Kurzschnitte II is a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.\n\nThe title of this series is a reference to the German word \"Kurzschnitte,\" which means \"short cuts.\" I coined this term back in 2000 when I moved to Lübeck and sent out short emails with news to my friends and family about my life. I fondly remember editions like the one where I recounted a search for my new \"home pub\" in Lübeck that led me to a gay bar with an Asian bartender in fluffy cow-patterned trousers. Little did I know.\n\nThe \"news\"letter evolved into what became my first blog, which I called \"Schreibblogade\" (writer's blogade, pun intended) - marking the beginning of an internet era.",
+    "image": "kurzschnitte.jpg",
+    "icon": "scissors",
+    "class": "info",
+    "id": "kurzschnitte"
+  }
+]

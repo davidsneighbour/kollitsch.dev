@@ -1,6 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-//import { file, glob } from 'astro/loaders';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 
 export const blogSchema = z.object({
   title: z.string(),
@@ -32,10 +31,19 @@ export const blog = defineCollection({
   schema: () => blogSchema,
 });
 
-// @todo create a schema for tags
+// content for tags
 export const tags = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/tags' }),
-  schema: () => blogSchema,
+  loader: file('./src/content/tags.json', {
+    parser: (text) => JSON.parse(text),
+  }),
+  schema: z.object({
+    id: z.string(),
+    label: z.string(),
+    description: z.string(),
+    image: z.string(),
+    icon: z.string(),
+    class: z.string(),
+  }),
 });
 
 // @todo create a schema for slash

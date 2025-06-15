@@ -7,5 +7,44 @@
     }
   ],
   "frontMatter.framework.id": "astro",
-  "frontMatter.preview.host": "http://localhost:4321"
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.data.files": [
+    {
+      "id": "tags",
+      "title": "Tags",
+      "labelField": "label",
+      "file": "[[workspace]]/src/content/tags.json",
+      "schema": {
+        "type": "object",
+        "required": ["id", "label", "description", "image", "icon", "class"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The tag's slug."
+          },
+          "label": {
+            "type": "string",
+            "description": "The tag's label."
+          },
+          "description": {
+            "type": "string",
+            "multiline": true,
+            "description": "The introduction for this tag."
+          },
+          "image": {
+            "type": "string",
+            "description": "The filename of the tag image within the `src/assets/images/tags` directory."
+          },
+          "icon": {
+            "type": "string",
+            "description": "Name of the tag icon."
+          },
+          "class": {
+            "type": "string",
+            "description": "CSS class for the tag."
+          }
+        }
+      }
+    }
+  ]
 }

@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    // @see https://github.com/davidsneighbour/kollitsch.dev/security/dependabot/141
-    "brace-expansion": ">=2.0.2"
+    "brace-expansion": ">=4.0.1"
   }
 }

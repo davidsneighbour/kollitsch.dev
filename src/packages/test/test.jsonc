@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@playwright/test": "1.52.0",
+    "@playwright/test": "1.53.0",
     "@axe-core/playwright": "4.10.2",
     "vitest": "3.2.3",
     "vite-tsconfig-paths": "5.1.4"

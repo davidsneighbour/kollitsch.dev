@@ -26,12 +26,14 @@ export const blogSchema = z.object({
     .optional(),
 });
 
+// @todo blog post schema validation
 export const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: () => blogSchema,
 });
 
 // content for tags
+// @todo clean up and add proper schema validation
 export const tags = defineCollection({
   loader: file('./src/content/tags.json', {
     parser: (text) => JSON.parse(text),
@@ -53,20 +55,3 @@ export const slash = defineCollection({
 });
 
 export const collections = { blog, tags, slash };
-
-// import { defineCollection, z, type SchemaContext } from "astro:content";
-
-// export const imageSchema = ({ image }: SchemaContext) =>
-//     z.object({
-//         image: image(),
-//         description: z.string().optional(),
-//     });
-
-// const blog = defineCollection({
-//   loader: /* ... */,
-//   schema: ({ image }) => z.object({
-//     title: z.string(),
-//     permalink: z.string().optional(),
-//     image: imageSchema({ image })
-//   }),
-// });

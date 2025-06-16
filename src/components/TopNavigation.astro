@@ -4,48 +4,52 @@ import ThemeSelect from '@components/ThemeSelect.astro';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import siteinfo from '@data/site.json';
 import { Icon } from 'astro-icon/components';
+import ProgressBar from '@components/Progress.astro';
 ---
 
-<div
-  class="sticky top-0 z-50 flex flex-wrap items-center gap-4 bg-zinc-100 text-zinc-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-zinc-50"
->
-  <div class="order-1 flex-1" id="sitetitle">
-    <a
-      id="navbar-brand"
-      href={getHomepageUrl()}
-      class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
-    >
-      <Icon name="bi:house-fill" class="place-self-center" />
-      {siteinfo.title}
-    </a>
-  </div>
-  <div class="order-2 md:hidden" id="hamburger-and-close">
-    <Icon
-      name="bi:list"
-      class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
-    />
-    <Icon
-      name="bi:x"
-      class="is--mobile-menu-hamburger close-icon text-brand-500 dark:text-brand-400 hidden place-self-center text-xl"
-    />
-  </div>
+<div class="sticky top-0 z-50">
   <div
-    class="order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
-    id="navigation-and-theme-select"
+    class="flex flex-wrap items-center gap-4 bg-zinc-100 text-zinc-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-zinc-50"
   >
-    <ul class="flex flex-col justify-center md:flex-row md:justify-end">
-      {
-        navData.map(value => (
-          <li class="px-3 py-4 md:px-2 md:py-2">
-            <a href={value.link} class="px-3 py-4 md:px-2 md:py-2">
-              {value.label}
-            </a>
-          </li>
-        ))
-      }
-      <li class="px-3 py-4 md:px-2 md:py-2"><ThemeSelect hideAuto /></li>
-    </ul>
+    <div class="order-1 flex-1" id="sitetitle">
+      <a
+        id="navbar-brand"
+        href={getHomepageUrl()}
+        class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
+      >
+        <Icon name="bi:house-fill" class="place-self-center" />
+        {siteinfo.title}
+      </a>
+    </div>
+    <div class="order-2 md:hidden" id="hamburger-and-close">
+      <Icon
+        name="bi:list"
+        class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
+      />
+      <Icon
+        name="bi:x"
+        class="is--mobile-menu-hamburger close-icon text-brand-500 dark:text-brand-400 hidden place-self-center text-xl"
+      />
+    </div>
+    <div
+      class="order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
+      id="navigation-and-theme-select"
+    >
+      <ul class="flex flex-col justify-center md:flex-row md:justify-end">
+        {
+          navData.map(value => (
+            <li class="px-3 py-4 md:px-2 md:py-2">
+              <a href={value.link} class="px-3 py-4 md:px-2 md:py-2">
+                {value.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="px-3 py-4 md:px-2 md:py-2"><ThemeSelect hideAuto /></li>
+      </ul>
+    </div>
   </div>
+  <ProgressBar />
 </div>
 
 <script is:inline>

@@ -1,5 +1,6 @@
 ---
 
+import { Debug } from 'astro:components';
 import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
@@ -15,9 +16,6 @@ const { post } = Astro.props;
   <p class="">
     {new Date(post.data.date).toLocaleDateString('en-GB')}
   </p>
-  {
-    post.data.description && (
-      <p class="mt-1 ">{post.data.description}</p>
-    )
-  }
+  <p class="mt-1 ">{post.data.summary}</p>
+  <Debug post={post} />
 </article>

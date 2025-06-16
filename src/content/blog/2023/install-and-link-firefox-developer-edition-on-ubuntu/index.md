@@ -1,6 +1,6 @@
 ---
 title: "Install and link Firefox Developer Edition on Ubuntu"
-description: ""
+description: "How to install and link Firefox Developer Edition on Ubuntu, including creating a desktop shortcut."
 date: "2023-03-10T21:44:58+07:00"
 resources:
   - title: "Firefox Developer Edition"
@@ -23,18 +23,18 @@ Every time I have to reinstall my Ubuntu system, I have to go through the proces
 
 To install Firefox Developer Edition on Ubuntu, you need to download the latest version from the official Mozilla website. Follow these steps to download the latest Firefox Developer Edition:
 
-- Open the [Firefox Developer Edition download page](https://www.mozilla.org/en-US/firefox/developer/).and click on the "Firefox Developer Edition" button to download the package for your system. If you are on Ubuntu, it will be pre-selected. If you are not on Ubuntu, you are in the wrong How-To, because this one is about how to set it up on Ubuntu and Ubuntu-like systems.
-- Save the downloaded file to your preferred location on your computer.
+* Open the [Firefox Developer Edition download page](https://www.mozilla.org/en-US/firefox/developer/).and click on the "Firefox Developer Edition" button to download the package for your system. If you are on Ubuntu, it will be pre-selected. If you are not on Ubuntu, you are in the wrong How-To, because this one is about how to set it up on Ubuntu and Ubuntu-like systems.
+* Save the downloaded file to your preferred location on your computer.
 
 # Step 2: Install Firefox Developer Edition
 
 Once you have downloaded the Firefox Developer Edition package, you need to install it on your Ubuntu system.
 
-- Open the terminal app on your Ubuntu system by pressing Ctrl+Alt+T or however you start your preferred terminal app.
-- Navigate to the directory where you have saved the Firefox Developer Edition package.
-- Extract the package
-- Move the extracted Firefox Developer Edition folder to the /opt directory (you will have to use sudo for this)
-- Create a symbolic link to the Firefox Developer Edition executable (this too requires sudo)
+* Open the terminal app on your Ubuntu system by pressing Ctrl+Alt+T or however you start your preferred terminal app.
+* Navigate to the directory where you have saved the Firefox Developer Edition package.
+* Extract the package
+* Move the extracted Firefox Developer Edition folder to the /opt directory (you will have to use sudo for this)
+* Create a symbolic link to the Firefox Developer Edition executable (this too requires sudo)
 
 The following commands will do exactly that:
 
@@ -79,6 +79,7 @@ Name=New Incognito Window
 Exec=/opt/firefox-developer-edition/firefox --private-window %u
 OnlyShowIn=Unity;
 ```
+
 Save the file and close the text editor.
 
 Once you have saved the file, Firefox Developer Edition should now appear in your start menu when you type in Firefox. Drag and drop it to your sidebar to create a shortcut.

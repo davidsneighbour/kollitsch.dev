@@ -14,5 +14,9 @@
   "ignoreTags": ["100DaysToOffload"],
   "homepage": {
     "recent_posts": 6
+  },
+  "debug": {
+    "enabled": true,
+    "logLevel": "info"
   }
 }

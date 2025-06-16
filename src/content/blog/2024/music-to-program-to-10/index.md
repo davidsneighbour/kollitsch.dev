@@ -1,6 +1,6 @@
 ---
 title: "Music to Program to, Part 10"
-description: ""
+description: "Floating Points - Ocotillo"
 tags:
   - "programming-music"
   - "electronic"
@@ -17,4 +17,3 @@ date: "2024-08-25T18:41:03+07:00"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---
-

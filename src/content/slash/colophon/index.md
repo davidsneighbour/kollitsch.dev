@@ -3,8 +3,7 @@ title: /colophon
 linktitle: colophon
 url: /colophon
 linkTitle: Colophon
-description: ''
-summary: ''
+description: A brief overview of my life, work and things I have done.
 type: page
 
 menu:

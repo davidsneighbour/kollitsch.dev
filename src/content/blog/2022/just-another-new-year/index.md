@@ -1,6 +1,6 @@
 ---
 title: "Just another New Year"
-description: ""
+description: "Some thoughts on New Years resolutions and what I want to do in 2022."
 date: "2022-01-04T19:21:48+07:00"
 resources:
   - title: "Photo by [Glenn Carstens-Peters](https://unsplash.com/@glenncarstenspeters) via [Unsplash](https://unsplash.com/)"

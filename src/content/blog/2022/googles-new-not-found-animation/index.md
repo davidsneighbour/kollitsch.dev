@@ -1,7 +1,6 @@
 ---
 title: "Google's new (?) Not Found animation"
-description: ""
-summary: ""
+description: "A cute little animation when you end up on a search result with no results."
 date: "2022-01-19T20:27:49+07:00"
 resources:
   - title: "Google's new Not Found animation"

@@ -1,7 +1,7 @@
 ---
 title: "Hugo 0.96 update notes"
 linkTitle: "Hugo 0.96"
-description: ""
+description: "Update notes for Hugo 0.96.0 with new features like vertical merging of content mounts, HTTP error objects for Get* functions, and more."
 date: "2022-03-28T17:58:49+07:00"
 resources:
   - title: "GoHugo"

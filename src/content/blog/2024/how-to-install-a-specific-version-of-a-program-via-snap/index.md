@@ -1,7 +1,6 @@
 ---
 title: "How to install a specific version of a program via Snap"
-description: ""
-summary: ""
+description: "Learn how to install a specific version of a Snap package, like Go, and manage updates effectively."
 date: "2024-08-19T21:12:37+07:00"
 resources:
   - title: "Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via [Unsplash](https://unsplash.com/)"

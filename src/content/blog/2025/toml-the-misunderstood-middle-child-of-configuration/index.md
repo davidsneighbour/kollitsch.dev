@@ -1,7 +1,6 @@
 ---
 title: "TOML - the misunderstood middle-child of configuration"
-description: ""
-summary: ""
+description: "TOML is a simple, human-readable configuration format that avoids the pitfalls of other formats like YAML and JSON. Learn its syntax and common pitfalls."
 draft: true
 date: "2025-05-02T09:11:40+07:00"
 resources:

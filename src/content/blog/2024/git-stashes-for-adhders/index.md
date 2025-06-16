@@ -1,7 +1,6 @@
 ---
 title: "Git stashes for ADHDers"
-description: ""
-summary: ""
+description: "How to use Git stashes to keep your work in progress organized and out of the way."
 date: "2024-03-01T19:19:32+07:00"
 resources:
   - title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"

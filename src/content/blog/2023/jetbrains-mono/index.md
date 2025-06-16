@@ -1,8 +1,7 @@
 ---
 title: "Jetbrains Mono"
 linkTitle: "Jetbrains Mono"
-description: ""
-summary: ""
+description: "Jetbrains Mono is my favourite developer font. It has ligatures, distinctive characters and is available on Google Fonts."
 date: "2023-02-21T20:12:30+07:00"
 resources:
   - title: "Ligatures in Jetbrains Mono"

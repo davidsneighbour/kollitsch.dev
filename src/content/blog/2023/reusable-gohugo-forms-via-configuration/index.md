@@ -1,7 +1,7 @@
 ---
-title: "Reusable Gohugo Forms via Configuration"
-linkTitle: "Reusable Gohugo Forms via Configuration"
-description: ""
+title: "Reusable GoHugo Forms via Configuration"
+linkTitle: "Reusable GoHugo Forms via Configuration"
+description: "A write-up of the process of creating reusable forms in GoHugo via configuration files."
 date: "2023-10-22T17:29:40+07:00"
 resources:
   - title: "Carefully implemented forms"

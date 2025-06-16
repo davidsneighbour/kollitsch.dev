@@ -1,7 +1,6 @@
 ---
 title: "Creating a GPG Key for Github/Gitlab Deployment"
-description: ""
-summary: ""
+description: "A quick guide on how to create a GPG key for signing your commits in Github or Gitlab."
 date: "2022-02-23T22:43:14+07:00"
 resources:
   - title: "Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via [Unsplash](https://unsplash.com/)"

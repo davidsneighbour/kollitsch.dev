@@ -1,6 +1,6 @@
 ---
 title: "How to make browsers download a linked file"
-description: ""
+description: "Learn how to use the download attribute in anchor tags to prompt file downloads in browsers."
 links:
   - "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download"
   - "https://www.w3schools.com/tags/att_a_download.asp"

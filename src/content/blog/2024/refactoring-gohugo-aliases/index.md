@@ -1,7 +1,6 @@
 ---
-title: "Refactoring Gohugo Aliases"
-description: ""
-summary: ""
+title: "Refactoring GoHugo Aliases"
+description: "Refactoring GoHugo aliases to use full function names for better clarity and searchability."
 date: "2024-02-26T18:29:02+07:00"
 resources:
   - src: "header.jpg"

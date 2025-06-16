@@ -1,7 +1,6 @@
 ---
-title: "Image creation timeouts with Gohugo v0.131.0"
-description: ""
-summary: ""
+title: "Image creation timeouts with GoHugo v0.131.0"
+description: "Image hashing now uses xxHash, speeding up image processing but may cause timeouts on first build."
 date: "2024-08-04T19:47:01+07:00"
 resources:
   - title: "GoHugo v0.131.0"

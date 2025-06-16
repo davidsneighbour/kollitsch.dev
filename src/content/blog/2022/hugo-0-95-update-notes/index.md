@@ -1,7 +1,7 @@
 ---
 title: "Hugo 0.95 - Update Notes"
 linkTitle: "Hugo 0.95"
-description: ""
+description: "Update notes for Hugo 0.95.0 with new features like `break` and `continue` in templates, short-circuiting logic, and Golang 1.18."
 date: "2022-03-16T23:16:55+07:00"
 resources:
   - title: "GoHugo"

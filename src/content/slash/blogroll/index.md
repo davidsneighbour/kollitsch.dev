@@ -1,8 +1,7 @@
 ---
 title: /blogroll
 linktitle: blogroll
-description: ""
-summary: ""
+description: A collection of blogs I follow.
 
 url: /blogroll
 

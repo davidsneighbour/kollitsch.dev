@@ -1,7 +1,6 @@
 ---
 title: "Automatically load workspace when starting VSCode"
-description: ""
-summary: ""
+description: "A simple bash function to automatically load the workspace file when starting VSCode."
 date: "2024-04-11T21:15:08+07:00"
 resources:
   - title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
@@ -56,8 +55,8 @@ code() {
 
 This function checks if any argument is passed to `code`. If no argument is passed, it sets the folder to the current directory. Otherwise, it checks the type of the provided argument. It can be one of three things:
 
-- a folder: in this case the command checks, if the folder contains a `.code-workspace` file and opens that workspace
-- a `.code-workspace` file: in that case the command opens the workspace
-- a file in a folder that is not a `.code-workspace` file: in this case the command checks the containing folder for a workspace file and then opens the workspace or folder, and then the file itself.
+* a folder: in this case the command checks, if the folder contains a `.code-workspace` file and opens that workspace
+* a `.code-workspace` file: in that case the command opens the workspace
+* a file in a folder that is not a `.code-workspace` file: in this case the command checks the containing folder for a workspace file and then opens the workspace or folder, and then the file itself.
 
 Note: Make sure to replace `/usr/bin/code` with the correct path to the `code` executable if it's located elsewhere on your system. You can find the path by running `which code`.

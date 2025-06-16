@@ -1,7 +1,6 @@
 ---
 title: "Swapping swap"
-description: ""
-summary: ""
+description: "How to find out if memory issues are the cause for programs suddenly closing down and how to extend the swap space on Ubuntu."
 date: "2022-06-06T19:33:56+07:00"
 resources:
   - title: "Photo by [Glen Noble](https://unsplash.com/@glennoble) via [Unsplash](https://unsplash.com/)"

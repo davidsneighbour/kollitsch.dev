@@ -1,5 +1,6 @@
 ---
 title: ".gitignore for GoHugo"
+description: "The perfect .gitignore file for GoHugo projects"
 date: "2022-07-22T00:02:35+07:00"
 resources:
   - src: "header.jpg"

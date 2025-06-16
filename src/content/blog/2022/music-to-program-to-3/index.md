@@ -1,5 +1,6 @@
 ---
 title: "Music to program to (Part 3)"
+description: "A collection of music to listen to while programming"
 linkTitle: "PM3"
 date: "2022-03-06T19:58:05+07:00"
 tags:
@@ -17,4 +18,3 @@ video:
 fmContentType: "blog"
 cover: "./header.jpg"
 ---
-

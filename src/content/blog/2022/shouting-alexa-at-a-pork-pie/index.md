@@ -1,6 +1,6 @@
 ---
 title: "Shouting Alexa at a Pork Pie"
-summary: ""
+description: "A really important video about Alexa"
 resources:
   - title: "A pork pie Alexa"
     src: "header.png"

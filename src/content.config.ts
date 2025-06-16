@@ -3,9 +3,9 @@ import { file, glob } from 'astro/loaders';
 
 export const blogSchema = z.object({
   title: z.string(),
-  description: z.string().optional(),
+  description: z.string(),
   summary: z.string().optional(),
-  date: z.coerce.date().transform((s) => new Date(s)),
+  date: z.coerce.date().transform(s => new Date(s)),
   tags: z.array(z.string()).optional(),
   draft: z.boolean().default(false).optional(),
   featured: z.boolean().default(false).optional(),
@@ -14,7 +14,7 @@ export const blogSchema = z.object({
   aliases: z
     .union([z.string(), z.array(z.string())])
     .optional()
-    .transform((val) => (typeof val === 'string' ? [val] : val)),
+    .transform(val => (typeof val === 'string' ? [val] : val)),
   resources: z
     .array(
       z.object({

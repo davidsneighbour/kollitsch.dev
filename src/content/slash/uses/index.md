@@ -1,5 +1,6 @@
 ---
 title: /uses
+description: "A collection of tools, hardware and system setup I use to enable or easen up my daily work, creation and art."
 linktitle: uses
 date: 2022-02-13T18:29:07+07:00
 lastmod: 2022-07-28T21:21:43+07:00

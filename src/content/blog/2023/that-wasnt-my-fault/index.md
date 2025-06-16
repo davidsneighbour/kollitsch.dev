@@ -1,5 +1,6 @@
 ---
 title: "That wasn't my fault"
+description: "A short note about the Enterprise E in Star Trek: Picard"
 date: "2023-04-21T21:33:04+07:00"
 resources:
   - title: "That wasn't my fault"

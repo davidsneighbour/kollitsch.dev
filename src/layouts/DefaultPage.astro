@@ -2,7 +2,7 @@
 // @todo refactor
 
 import Layout from '@layouts/SiteWrapper.astro';
-import Header from '@components/Header.astro';
+import TopNavigation from '@components/TopNavigation.astro';
 import Footer from '@components/Footer.astro';
 import '@styles/global.css';
 import Prose from '@components/Prose.astro';
@@ -12,7 +12,7 @@ const { post } = Astro.props;
 
 <Layout post={post}>
   <SiteTitle />
-  <Header />
+  <TopNavigation />
   <main class="z-0 mx-auto max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
     <Prose>
       <slot />

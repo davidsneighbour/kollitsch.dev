@@ -47,7 +47,7 @@
     "@tailwindcss/forms": "0.5.10",
     "@tailwindcss/typography": "0.5.16",
     "@tailwindcss/vite": "4.1.10",
-    "astro": "5.9.3",
+    "astro": "5.9.4",
     "astro-icon": "1.1.5",
     "astro-matomo": "1.9.0",
     "astro-pagefind": "1.8.3",
@@ -63,7 +63,7 @@
   },
   "description": "Website and content for kollitsch.dev",
   "devDependencies": {
-    "@astrojs/netlify": "6.3.4",
+    "@astrojs/netlify": "6.4.0",
     "@axe-core/playwright": "4.10.2",
     "@biomejs/biome": "2.0.0",
     "@commitlint/cli": "19.8.1",
@@ -107,7 +107,7 @@
     "tsx": "4.20.3",
     "vite-plugin-devtools-json": "0.2.0",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.2.3"
+    "vitest": "3.2.4"
   },
   "engines": {
     "node": ">=23.6.1",
@@ -124,6 +124,11 @@
   "scripts": {
     "astro": "astro",
     "audit:html": "wireit",
+    "biome:check": "biome check",
+    "biome:config:upgrade": "npx @biomejs/biome migrate --write",
+    "biome:format": "biome format",
+    "biome:lint": "biome check --fix",
+    "biome:watch": "biome check --watch",
     "build": "astro check && astro build",
     "check": "astro check",
     "clean": "wireit",

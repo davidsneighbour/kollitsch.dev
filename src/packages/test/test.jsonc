@@ -1,15 +1,15 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@playwright/test": "1.53.0",
     "@axe-core/playwright": "4.10.2",
-    "vitest": "3.2.3",
-    "vite-tsconfig-paths": "5.1.4"
+    "@playwright/test": "1.53.0",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.2.4"
   },
   "scripts": {
+    "test": "vitest run",
     "test:e2e": "npx playwright test",
-    "test:e2e:ui": "npx playwright test --ui",
-    "test": "vitest run"
+    "test:e2e:ui": "npx playwright test --ui"
   },
   "wireit": {}
 }

@@ -17,9 +17,7 @@ const config = {
   bracketSpacing: true,
   arrowParens: 'avoid',
   endOfLine: 'lf',
-  /**
-   * make sure that prettier-plugin-tailwindcss is at the end of the plugins array
-   */
+  // make sure that prettier-plugin-tailwindcss is at the end of the plugins array
   plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {

@@ -1,7 +1,7 @@
 // @todo refactor
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
-import sitedata from '@data/site.json';
+import sitedata from '@data/setup.json';
 
 export async function GET(context) {
   let blog = await getCollection('blog', ({ data }) => {

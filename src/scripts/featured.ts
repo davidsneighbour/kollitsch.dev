@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 
 const COLLECTION = 'blog';
 const CONTENT_PATH = path.resolve(__dirname, '../content', COLLECTION);
-const SITEINFO_PATH = path.resolve(__dirname, '../data/site.json');
+const SITEINFO_PATH = path.resolve(__dirname, '../data/setup.json');
 
 const command = process.argv[2] ?? 'list';
 

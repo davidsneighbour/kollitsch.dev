@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import siteinfo from '@data/site.json';
+import siteinfo from '@data/setup.json';
 
 const POST_LIMIT = siteinfo.homepage?.recent_posts ?? 6;
 

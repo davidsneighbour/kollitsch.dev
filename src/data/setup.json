@@ -18,5 +18,8 @@
   "debug": {
     "enabled": true,
     "logLevel": "info"
+  },
+  "discord": {
+    "invite": "https://discord.gg/C3ugcF5c9d"
   }
 }

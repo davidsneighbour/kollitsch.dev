@@ -1,4 +1,4 @@
-import siteinfo from '@data/site.json';
+import siteinfo from '@data/setup.json';
 import type { ImageMetadata } from 'astro';
 
 type ImagePath = string;

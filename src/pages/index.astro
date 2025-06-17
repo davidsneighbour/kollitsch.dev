@@ -17,15 +17,11 @@ const { featuredPost, recentPosts } = await getHomepagePosts();
       <Heading level={2} title="Featured" class="something"/>
       <ArticleCard post={featuredPost!} />
     </section>
-
     <section id="recent">
       <Heading level={3} title="Recent Posts"/>
-      <ul>
         {recentPosts.map(post => (
-          <li><ArticleCard post={post} /></li>
+          <ArticleCard post={post} />
         ))}
-      </ul>
     </section>
   </main>
-
-  </Layout>
+</Layout>

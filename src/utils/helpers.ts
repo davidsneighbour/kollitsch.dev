@@ -1,6 +1,6 @@
 // a collection of helper functions for various tasks
 import { getCollection } from 'astro:content';
-import siteinfo from '@data/site.json'; // loads tagThreshold config
+import siteinfo from '@data/setup.json'; // loads tagThreshold config
 
 /**
  * A mapping object representing information about a tag.
@@ -23,7 +23,7 @@ export interface TagInfo {
  * - Loads all posts from the 'blog' content collection.
  * - Extracts tags from post frontmatter.
  * - Counts occurrences and gathers matching posts per tag.
- * - Removes tags with fewer than the configured threshold (from site.json).
+ * - Removes tags with fewer than the configured threshold (from setup.json).
  *
  * @returns A Promise that resolves to a Map where each key is a tag name and the value is its associated count and posts.
  */

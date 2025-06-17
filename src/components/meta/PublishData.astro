@@ -1,0 +1,15 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { post } = Astro.props;
+---
+
+<div class="flex flex-row items-center justify-start gap-2">
+  <div class="w-6">
+    <Icon name="bi:calendar3" />
+  </div>
+  <div class="">
+    <span>Published: {post.data.date}</span>
+    {post.lastUpdate && <span> (Last Modified: {post.data.lastUpdate})</span>}
+  </div>
+</div>

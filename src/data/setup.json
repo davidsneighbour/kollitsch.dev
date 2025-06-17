@@ -1,7 +1,10 @@
 {
   "title": "KOLLITSCH.dev*",
   "description": "A personal blog and portfolio site showcasing my projects, thoughts, and experiences in web development.",
-  "author": "Patrick Kollitsch",
+  "author": {
+    "name": "Patrick Kollitsch",
+    "url": "https://kollitsch.dev/"
+  },
   "url": "https://kollitsch.dev/",
   "fallback": "/src/assets/images/fallback.jpg",
   "id": "kollitsch-dev",
@@ -21,5 +24,8 @@
   },
   "discord": {
     "invite": "https://discord.gg/C3ugcF5c9d"
+  },
+  "repository": {
+    "url": "https://github.com/davidsneighbour/kollitsch.dev"
   }
 }

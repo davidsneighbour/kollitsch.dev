@@ -1,0 +1,16 @@
+---
+const { post } = Astro.props;
+import PublishData from '@components/meta/PublishData.astro';
+import Tags from '@components/meta/Tags.astro';
+import Share from '@components/meta/Share.astro';
+import Github from '@components/meta/Github.astro';
+import Heading from '@components/Heading.astro';
+---
+
+<Heading level={2} title="Meta Information" />
+<div class="flex flex-col">
+  <PublishData post={post} />
+  <Github post={post} />
+  <Tags post={post} />
+  <Share post={post} />
+</div>

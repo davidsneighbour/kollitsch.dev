@@ -1,0 +1,24 @@
+---
+const { post } = Astro.props;
+
+import { getGithubInfo } from '@utils/getGithubInfo';
+const github = getGithubInfo(post.filePath);
+import { Icon } from 'astro-icon/components';
+---
+
+{
+  github && (
+<div class="flex flex-row items-center justify-start gap-2">
+  <div class="w-6">
+        <Icon name="bi:github" />
+      </div>
+      <div class="flex flex-row items-center justify-start gap-2">
+        Git:
+        <a href={github?.commitUrl}>{github?.hash}</a> /
+        <a href={github?.historyUrl}>HISTORY</a> /
+        <a href={github?.blameUrl}>BLAME</a> /
+        <a href={github?.editUrl}>Suggest edits on GitHub</a>
+      </div>
+    </div>
+  )
+}

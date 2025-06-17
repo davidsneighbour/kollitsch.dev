@@ -2,6 +2,7 @@
 
 import { Debug } from 'astro:components';
 import type { CollectionEntry } from 'astro:content';
+import SchemaBlogPost from './schema/BlogPosting.astro';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
@@ -18,4 +19,5 @@ const { post } = Astro.props;
   </p>
   <p class="mt-1 ">{post.data.summary}</p>
   <Debug post={post} />
+  <SchemaBlogPost post={post} />
 </article>

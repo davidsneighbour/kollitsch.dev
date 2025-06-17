@@ -1,0 +1,30 @@
+---
+import setup from '@data/setup.json';
+const { post } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  keywords: post.tags,
+  author: {
+    '@type': 'Person',
+    name: setup.author.name,
+    url: setup.author.url,
+  },
+  /**
+   * @todo fix the date formatting
+   */
+  ...(post.date && { datePublished: post.date.toISOString().substring(0, 10) }),
+  ...(post.updateDate && {
+    dateModified: post.updateDate.toISOString().substring(0, 10),
+  }),
+};
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema)}
+/>

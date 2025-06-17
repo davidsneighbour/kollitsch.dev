@@ -15,7 +15,15 @@ export const blogSchema = z
     tags: z.array(z.string()).optional(),
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
-    cover: z.string().optional(),
+    cover: z
+      .union([
+        z.string(),
+        z.object({
+          src: z.string(),
+          title: z.string().optional(),
+        }),
+      ])
+      .optional(),
     fmContentType: z.string().optional(),
     aliases: z
       .union([z.string(), z.array(z.string())])
@@ -37,6 +45,10 @@ export const blogSchema = z
       entry.summary && entry.summary.trim() !== ''
         ? entry.summary
         : entry.description,
+    cover:
+      typeof entry.cover === 'string'
+        ? { src: entry.cover, title: entry.title }
+        : entry.cover,
   }));
 
 // @todo blog post schema validation

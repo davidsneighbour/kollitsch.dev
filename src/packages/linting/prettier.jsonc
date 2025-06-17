@@ -1,9 +1,14 @@
 {
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    // prettier setup specifically for astro and tailwindcss
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "0.6.12"
+  },
   "scripts": {
-    "prettier": "prettier 'assets/**/*.js'",
-    "prettier:fix": "prettier --write ''assets/**/*.js'"
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "wireit": {}
 }

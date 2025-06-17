@@ -23,9 +23,7 @@ const { post } = Astro.props;
   <SiteTitle />
   <TopNavigation />
   <main class="z-0 mx-auto max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
-    <Prose>
-      <slot />
-    </Prose>
+    <slot />
   </main>
   <Footer />
 </Layout>

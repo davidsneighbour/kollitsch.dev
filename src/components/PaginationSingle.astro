@@ -14,7 +14,7 @@ const prevPost = posts[currentIndex - 1];
 <nav class="flex items-center justify-between border-t mt-4 px-4 sm:px-0 text-base">
   <div class="-mt-px flex grow">
     {nextPost && (
-      <a href={`/blog/${nextPost.id}`}
+      <a href={`/blog/${nextPost.id}/`}
         class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1">
         <Icon name="bi:arrow-left" class="mr-2 place-self-center" />
         {nextPost.data.title}
@@ -23,7 +23,7 @@ const prevPost = posts[currentIndex - 1];
   </div>
   <div class="-mt-px flex grow justify-end">
     {prevPost && (
-      <a href={`/blog/${prevPost.id}`}
+      <a href={`/blog/${prevPost.id}/`}
         class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1">
         {prevPost.data.title}
         <Icon name="bi:arrow-right" class="ml-2 place-self-center" />

@@ -2,36 +2,33 @@
 // create a single blog post with full content
 
 import type { CollectionEntry } from 'astro:content';
-
-import PostImage from '@components/PostImage.astro';
-import Giscus from '@components/Giscus.astro';
-import Heading from './Heading.astro';
-import BreadCrumbs from '@components/BreadCrumbs.astro';
-import Prose from '@components/Prose.astro';
-import PaginationSingle from '@components/PaginationSingle.astro';
-import Meta from '@components/PostMeta.astro';
-
-import SchemaBlogPost from '@components/schema/BlogPosting.astro';
-
 export interface Props {
   post: CollectionEntry<'blog'>;
 }
+
+import PostImage from '@components/PostImage.astro';
+import Giscus from '@components/Giscus.astro';
+import Heading from '@components/Heading.astro';
+import BreadCrumbs from '@components/BreadCrumbs.astro';
+import PaginationSingle from '@components/PaginationSingle.astro';
+import Meta from '@components/PostMeta.astro';
+import SchemaBlogPost from '@components/schema/BlogPosting.astro';
+import Article from '@components/Article.astro';
+
 const { post } = Astro.props;
 const content = post.rendered?.html ?? '';
 ---
 
-<article class="full-post is-page kind-page type-blog">
+<Article class="mt-8 rounded-lg border-zinc-500/50 border-1 dark:bg-zinc-50/10 bg-zinc-950/10">
   <PostImage post={post} classes="max-w-full"/>
-  <Heading level={2} title={post.data.title} class="heading" />
-
-  <p>{post.data.date.toLocaleDateString()}</p>
-
-  <BreadCrumbs path={Astro.url.href} />
-  <Prose set:html={content} />
-  <PaginationSingle
-    post={post}
-  />
-  <Giscus post={post} />
-  <SchemaBlogPost post={post} />
-  <Meta post={post} />
-</article>
+  <div class="p-4">
+    <p>{post.data.date.toLocaleDateString()}</p>
+    <Heading level={2} title={post.data.title} class="heading" />
+    <BreadCrumbs path={Astro.url.href} />
+    <Fragment set:html={content} />
+    <PaginationSingle post={post} />
+    <Giscus post={post} />
+    <SchemaBlogPost post={post} />
+    <Meta post={post} />
+  </div>
+</Article>

@@ -1,17 +1,36 @@
 {
-  "name": "@davidsneighbour/kollitsch-dev",
-  "description": "Website and content for kollitsch.dev",
-  "version": "2025.4.6",
-  "license": "MIT",
-  "private": true,
-  "repository": "davidsneighbour/kollitsch.dev",
   "author": {
     "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
     "web": "https://davids-neighbour.com"
   },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ],
+    "production": [
+      "last 1 version",
+      "Chrome >= 112",
+      "Firefox >= 121",
+      "iOS >= 16",
+      "Safari >= 16.4",
+      "Edge >= 112",
+      "not ie > 0",
+      "not ie_mob > 0",
+      "not dead",
+      "not op_mini all",
+      "not op_mob > 0",
+      "not opera > 0",
+      "not ucandroid > 0",
+      "not and_uc > 0",
+      "not and_qq > 0",
+      "not kaios 2.5"
+    ]
+  },
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
-  "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/partytown": "2.1.4",
@@ -42,10 +61,11 @@
     "tailwindcss": "4.1.10",
     "typescript": "5.8.3"
   },
+  "description": "Website and content for kollitsch.dev",
   "devDependencies": {
     "@astrojs/netlify": "6.3.4",
     "@axe-core/playwright": "4.10.2",
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.0",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@davidsneighbour/browserslist-config": "^2025.2.3",
@@ -89,6 +109,18 @@
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.3"
   },
+  "engines": {
+    "node": ">=23.6.1",
+    "npm": ">=11.1.0"
+  },
+  "homepage": "https://kollitsch.dev",
+  "license": "MIT",
+  "name": "@davidsneighbour/kollitsch-dev",
+  "private": true,
+  "publishConfig": {
+    "provenance": true
+  },
+  "repository": "davidsneighbour/kollitsch.dev",
   "scripts": {
     "astro": "astro",
     "audit:html": "wireit",
@@ -128,17 +160,86 @@
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade"
   },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "stylelint": {
+    "configFile": "./src/config/stylelint/index.js"
+  },
+  "type": "module",
+  "version": "2025.4.6",
   "wireit": {
+    "audit:html": {
+      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+    },
+    "clean": {
+      "dependencies": [
+        "clean:astro"
+      ]
+    },
+    "clean:astro": {
+      "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:full": {
+      "command": "rm -rf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
+    },
+    "clean:netlify": {
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+    },
+    "compile:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
+    },
+    "compile:package": {
+      "command": "npm run compile:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
+    },
+    "compile:package:run": {
+      "command": "node ./src/packages/generate-package.ts"
+    },
+    "compile:package:update": {
+      "command": "node ./src/packages/update-package.ts"
+    },
+    "lint:lychee": {
+      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
+    },
+    "lint:styles": {
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:styles:fix": {
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:templates": {
+      "command": "bin/hugo/lint-templates"
+    },
+    "release": {
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
+    },
     "update": {
-      "dependencies": ["update:git-hooks"]
+      "dependencies": [
+        "update:git-hooks"
+      ]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": ["update:post"]
+      "dependencies": [
+        "update:post"
+      ]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": ["update:pre:npm", "update:pre:submodules"]
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"
@@ -148,91 +249,6 @@
     },
     "update:pre:vale": {
       "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:lychee": {
-      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
-    },
-    "audit:html": {
-      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
-    },
-    "lint:templates": {
-      "command": "bin/hugo/lint-templates"
-    },
-    "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
-    },
-    "compile:package": {
-      "command": "npm run compile:fixpack",
-      "dependencies": ["compile:package:run"],
-      "files": ["./src/packages/**/*.jsonc"]
-    },
-    "compile:package:run": {
-      "command": "node ./src/packages/generate-package.ts"
-    },
-    "compile:fixpack": {
-      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
-    },
-    "compile:package:update": {
-      "command": "node ./src/packages/update-package.ts"
-    },
-    "clean": {
-      "dependencies": ["clean:astro"]
-    },
-    "clean:full": {
-      "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
-    },
-    "clean:astro": {
-      "command": "rm -rf .astro dist node_modules/.astro"
-    },
-    "clean:netlify": {
-      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     }
-  },
-  "publishConfig": {
-    "provenance": true
-  },
-  "engines": {
-    "node": ">=23.6.1",
-    "npm": ">=11.1.0"
-  },
-  "browserslist": {
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 ie version"
-    ],
-    "production": [
-      "last 1 version",
-      "Chrome >= 112",
-      "Firefox >= 121",
-      "iOS >= 16",
-      "Safari >= 16.4",
-      "Edge >= 112",
-      "not ie > 0",
-      "not ie_mob > 0",
-      "not dead",
-      "not op_mini all",
-      "not op_mob > 0",
-      "not opera > 0",
-      "not ucandroid > 0",
-      "not and_uc > 0",
-      "not and_qq > 0",
-      "not kaios 2.5"
-    ]
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "stylelint": {
-    "configFile": "./src/config/stylelint/index.js"
-  },
-  "type": "module"
+  }
 }

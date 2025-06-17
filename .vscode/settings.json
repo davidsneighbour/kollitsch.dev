@@ -7,7 +7,8 @@
   "files.autoSaveDelay": 1000,
   "files.autoSaveWhenNoErrors": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": "always"
+    "source.fixAll.markdownlint": "always",
+    "source.fixAll.biome": "explicit"
   },
 
   // file nesting setup
@@ -98,5 +99,10 @@
   },
 
   // PLUGIN: indent rainbow setup
-  "indentRainbow.indicatorStyle": "light"
+  "indentRainbow.indicatorStyle": "light",
+
+  // PLUGIN: biome setup
+  "biome.configurationPath": "biome.jsonc",
+  "biome.requireConfiguration": true
+  // @see "editor.codeActionsOnSave"
 }

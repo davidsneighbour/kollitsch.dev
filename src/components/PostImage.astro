@@ -29,18 +29,14 @@ function stripMarkup(str: string): string {
 }
 
 function resolveCoverImage(): CoverImage {
-  const resources = post.data.resources;
   const cover = post.data.cover;
   let src;
   let title;
   let alt;
 
-  if (Array.isArray(resources) && resources[0]?.src) {
-    src = resources[0].src;
-    title = resources[0].title;
-    alt = resources[0].name;
-  } else if (typeof cover === 'string') {
+  if (typeof cover === 'string') {
     src = cover;
+    title = post.data.title;
   }
 
   if (!src) {
@@ -58,13 +54,18 @@ function resolveCoverImage(): CoverImage {
   // @todo generate a default title if none is provided or skip this step
   title = md.renderInline(title ?? "");
 
-return { src, alt, title};
+  return { src, alt, title };
 
 }
+
 
 const coverImage = resolveCoverImage();
 const imagePath = resolveImagePath(coverImage.src, post.id);
 const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
+
+console.log(post.id);
+console.log(imagePath);
+console.log(coverImage);
 
 ---
 

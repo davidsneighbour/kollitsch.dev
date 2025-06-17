@@ -34,9 +34,15 @@ function resolveCoverImage(): CoverImage {
   let title;
   let alt;
 
+  console.log(cover, src, title, alt);
+
+  // @todo we don't need to handle string covers because the schema already returns an object
   if (typeof cover === 'string') {
     src = cover;
     title = post.data.title;
+  } else {
+    src = cover?.src;
+    title = cover?.title;
   }
 
   if (!src) {
@@ -61,6 +67,8 @@ function resolveCoverImage(): CoverImage {
 const coverImage = resolveCoverImage();
 const imagePath = resolveImagePath(coverImage.src, post.id);
 const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
+
+console.log(coverImage, post.id, imagePath, imageMeta);
 
 ---
 

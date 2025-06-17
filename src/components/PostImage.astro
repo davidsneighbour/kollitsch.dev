@@ -58,14 +58,9 @@ function resolveCoverImage(): CoverImage {
 
 }
 
-
 const coverImage = resolveCoverImage();
 const imagePath = resolveImagePath(coverImage.src, post.id);
 const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
-
-console.log(post.id);
-console.log(imagePath);
-console.log(coverImage);
 
 ---
 

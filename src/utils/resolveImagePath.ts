@@ -20,9 +20,6 @@ export function resolveImagePath(
   const localImagePath = path.join(localDir, imageName);
   const globalImagePath = path.join('src/assets/images', imageName);
 
-  console.log(localImagePath);
-  console.log(globalImagePath);
-
   if (fs.existsSync(localImagePath)) {
     return `/${localImagePath.replace(/\\/g, '/')}`;
   }

@@ -3,10 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { getVSCodeLink } from '@utils/getVSCodeLink';
 
 const { post } = Astro.props;
-
 const vscodelink = getVSCodeLink('/src/content/blog/' + post.id + '/index.md');
-console.log('VSCode link:', vscodelink);
-
 const isDev = import.meta.env.DEV;
 
 ---
@@ -29,6 +26,3 @@ const isDev = import.meta.env.DEV;
     )
   }
 </div>
-
-
-vscode://file/full path to project/src/components/meta/PublishData.astro

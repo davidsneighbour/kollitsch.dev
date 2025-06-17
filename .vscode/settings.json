@@ -1,22 +1,82 @@
 {
+  // autosave and autoformatting
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable", // 👀
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.autoSaveWhenNoErrors": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": "always"
+  },
+
+  // file nesting setup
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    // collapse files and their tests in the explorer
+    "*.astro": "$(capture).test.ts"
+  },
+
+  // astro specific settings
   "astro.content-intellisense": true,
-  "astro.languageServer.startOn": "workspaceContainsAstroFiles",
+  "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
   "files.associations": {
     "*.astro": "astro"
   },
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+
+  // PLUGIN: prettier setup
   "prettier.configPath": "prettier.config.js",
   "prettier.bracketSpacing": true,
   "prettier.requireConfig": true,
   "prettier.singleAttributePerLine": true,
   "prettier.trailingComma": "all",
+  // prettier setup for astro
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // PLUGIN: stylelint setup
+  // disable internal validation to avoid double warnings/errors
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "stylelint.configFile": "./src/config/stylelint/index.js",
+  "stylelint.validate": ["css", "scss", "less", "astro"],
+
+  // PLUGIN: eslint setup
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
+  "eslint.debug": true,
+  "eslint.format.enable": true,
+
+  // PLUGIN: vale setup
+  "vale.enableSpellcheck": true,
+  "vale.valeCLI.installVale": false,
+  "vale.valeCLI.syncOnStartup": true,
+  //"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
+  // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
+  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
+
+  // PLUGIN: markdownlint setup
   "markdownlint.configFile": "src/config/.markdownlint.json",
+  // @see "editor.codeActionsOnSave"
+
+  // PLUGIN: markdown all in one setup
   "markdown.extension.toc.levels": "2..6",
   "markdown.extension.toc.unorderedList.marker": "*",
 
-  // theme configuration
+  // workspace color theme configuration
+  // (via peacock, disable plugin after setting up the theme)
+  "peacock.color": "#ff7733",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff7733",
     "activityBar.background": "#ff7733",
@@ -37,47 +97,6 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
 
-  // collapse files and their tests in the explorer
-  "explorer.fileNesting.patterns": {
-    "*.astro": "$(capture).test.ts"
-  },
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.enabled": true,
-
-  // stylelint setup
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "stylelint.enable": true,
-  "stylelint.configFile": "./src/config/stylelint/index.js",
-  "stylelint.validate": ["css", "scss", "less", "astro"],
-
-  // eslint setup
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "astro"
-  ],
-  "eslint.debug": true,
-  "eslint.format.enable": true,
-
-  "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": "always"
-  },
-  "indentRainbow.indicatorStyle": "light",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "files.autoSaveWhenNoErrors": false,
-
-  // vale setup
-  "vale.enableSpellcheck": true,
-  "vale.valeCLI.installVale": false,
-  "vale.valeCLI.syncOnStartup": true,
-  //"vale.valeCLI.config": "${workspaceFolder}/src/config/vale/vale.ini",
-  // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
-  "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini"
+  // PLUGIN: indent rainbow setup
+  "indentRainbow.indicatorStyle": "light"
 }

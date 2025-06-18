@@ -46,6 +46,10 @@
   * Normal punctuation instead of regional or typographic markers.
 * Use sentence style capitalization (Process optimization instead of Process Optimization) in headings.
 
+## Linting and code formatting
+
+* DO NOT suggest to add or remove trailing commas in JavaScript or TypeScript code.
+
 ## Testing
 
 * Testing is done via Vitest and Playwright.

@@ -1,5 +1,4 @@
 ---
-import Prose from '@components/Prose.astro';
 
 export interface Props {
   class?: string;
@@ -18,7 +17,5 @@ const { ...props } = Astro.props as Props;
 ---
 
 <article class={props.class}>
-  <Prose>
-    <slot />
-  </Prose>
+  <slot />
 </article>

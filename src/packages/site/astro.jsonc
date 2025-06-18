@@ -8,7 +8,6 @@
     "@iconify-json/bi": "1.2.4",
     "@spotlightjs/astro": "3.2.4",
     "@tailwindcss/forms": "0.5.10",
-    "@tailwindcss/typography": "0.5.16",
     "@tailwindcss/vite": "4.1.10",
     "astro": "5.9.4",
     "astro-icon": "1.1.5",

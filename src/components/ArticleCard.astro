@@ -1,14 +1,18 @@
 ---
+
 import type { CollectionEntry } from 'astro:content';
+
 import SchemaBlogPost from '@components/schema/BlogPosting.astro';
 import PostImage from '@components/PostImage.astro';
 import { Image } from 'astro:assets';
+
 import author from '@assets/images/patrick-kollitsch.png';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
 }
 const { post } = Astro.props;
+
 ---
 
 <article

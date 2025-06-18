@@ -4,7 +4,15 @@
 import Layout from '@layouts/SiteWrapper.astro';
 ---
 
-<Layout full="true">
+<script is:inline>
+if (typeof _paq !== 'undefined') {
+  _paq.push(['setReferrerUrl', document.referrer]);
+  _paq.push(['trackEvent', 'Issue', '404 - Not Found', window.location.pathname]);
+  //_paq.push(['trackEvent', 'Category', 'Action', 'Name']);
+}
+</script>
+
+<Layout>
   <div
     class="grid min-h-full grid-cols-1 grid-rows-[1fr_auto_1fr] lg:grid-cols-[max(50%,36rem)_1fr]"
   >

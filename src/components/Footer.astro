@@ -8,7 +8,7 @@ import { generateUniqueHtmlId } from '@utils/helpers';
 import navData from '@data/navigation.json';
 
 const footerYearId = generateUniqueHtmlId();
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear().toString();
 ---
 
 <section class="mt-8 py-8 border-t-1 border-t-slate-700 bg-gray-50 dark:bg-stone-900">
@@ -84,6 +84,6 @@ const currentYear = new Date().getFullYear();
   </footer>
 </section>
 
-<script is:inline>
-  document.getElementById("${footerYearId}").innerText = new Date().getFullYear();
+<script define:vars={{ footerYearId }}>
+  document.getElementById(footerYearId).innerText = new Date().getFullYear();
 </script>

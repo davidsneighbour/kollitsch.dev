@@ -1,15 +1,11 @@
 ---
-// @todo refactor
 
 import '@styles/global.css';
+
 import Head from '@components/Head.astro';
 import Breakpoints from '@components/development/Breakpoints.astro';
 
-const { post } = Astro.props;
-
-// Add a full="true" prop to control full height for the page
-// @todo consider adding that as default class to the layout
-const { full = false, class: extraClasses = '' } = Astro.props;
+const { post, extraHtmlClasses = '', extraBodyClasses = '' } = Astro.props;
 
 // html classes
 const htmlClasses = [
@@ -17,8 +13,8 @@ const htmlClasses = [
   'dark:scheme-dark',
   'scroll-smooth',
   'bg-white dark:bg-zinc-950',
-  full && 'h-full',
-  extraClasses,
+  'h-full',
+  extraHtmlClasses,
 ]
   .filter(Boolean)
   .join(' ');
@@ -28,10 +24,12 @@ const bodyClasses = [
   'min-h-screen',
   'overflow-y-scroll',
   'bg-white dark:bg-zinc-950',
-  full && 'h-full',
+  'h-full',
+  extraBodyClasses,
 ]
   .filter(Boolean)
   .join(' ');
+
 ---
 
 <!doctype html>

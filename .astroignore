@@ -4,6 +4,4 @@ documentation
 frontmatter.json
 
 # ignore testing files in production
-
 src/pages/test/
-netlify/

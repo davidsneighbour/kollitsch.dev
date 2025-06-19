@@ -1,22 +1,6 @@
 {
-  "extends": "astro/tsconfigs/strictest",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": [
-    "dist",
-    "bak",
-    "scratch",
-    "src/scripts",
-    "src/config",
-    "netlify",
-    "public"
-  ],
   "compilerOptions": {
     "baseUrl": ".",
-    "plugins": [
-      {
-        "name": "@astrojs/ts-plugin"
-      }
-    ],
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
@@ -31,6 +15,14 @@
       "@test/*": ["src/test/*"],
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"]
-    }
-  }
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  },
+  "exclude": ["dist", "bak", "scratch", "src/scripts", "src/config", "public"],
+  "extends": "astro/tsconfigs/strictest",
+  "include": [".astro/types.d.ts", "**/*"]
 }

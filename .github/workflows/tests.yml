@@ -44,8 +44,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      # - name: Install Playwright Browsers
+      #   run: npx playwright install --with-deps
+
+      - name: Setup Playwright
+        id: setup-playwright
+        uses: ./.github/actions/setup-playwright
+        # with:
+        #   working-directory: ./packages/<my-project>
 
       - name: Build Astro site
         run: npm run build

@@ -18,7 +18,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
+          check-latest: true
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -37,7 +39,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm ci
@@ -48,10 +50,10 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Start server for E2E tests
-        run: npx astro preview &
-        env:
-          PORT: 4321
+      # - name: Start server for E2E tests
+      #   run: npx astro preview &
+      #   env:
+      #     PORT: 4321
 
       - name: Run Playwright tests
         run: npx playwright test

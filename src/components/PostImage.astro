@@ -77,7 +77,7 @@ const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath)
       width="1280"
       loading="lazy"
       class={classes}
-
+      priority
     />
     {coverImage.title && (
       <figcaption set:html={coverImage.title} class="px-4"></figcaption>

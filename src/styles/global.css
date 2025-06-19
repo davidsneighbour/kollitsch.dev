@@ -3,7 +3,6 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @import './fonts.css';
-@import './theme.css';
 
 /*******************************************************************************
  * Color utilities

@@ -1,106 +1,81 @@
 @import 'tailwindcss';
 
-@plugin "@tailwindcss/forms";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@layer theme;
+@import './fonts.css';
+@import './theme.css';
 
-@import './theme.css' layer(theme);
+/*******************************************************************************
+ * Color utilities
+ * @see https://uicolors.app/generate/e5bf27
+ * @see https://tailwindshades.app/
+ * @see https://www.infyways.com/tools/tailwind-color-generator/
+ *******************************************************************************
+ * for default theme variable values
+ * @see https://tailwindcss.com/docs/theme#default-theme-variable-reference
+ *
+ * for default theme variable namespaces
+ * @see https://tailwindcss.com/docs/theme#theme-variable-namespaces
+ *
+ * to override/replace a namespace set it to initial
+ * --color-*: initial;
+ *
+ * to get a CSS variable in JS do this
+ * let styles=getComputedStyle(document.documentElement);
+ * let shadow=styles.getPropertyValue("--shadow-xl");
+ ******************************************************************************/
+@theme {
+  --font-exo2: 'exo2', sans-serif;
+  --font-jetbrainsmono: 'jetbrainsmono', monospace;
+  --font-changa: 'changa', sans-serif;
 
-@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
+  --spacing: 0.25rem;
 
-@font-face {
-  font-family: 'exo2';
-  src:
-    url('/fonts/exo/normal.woff2') format('woff2') tech('variations'),
-    url('/fonts/exo/normal.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: fallback;
-  text-rendering: optimizelegibility;
+  --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0%;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 100%;
+      transform: scale(1);
+    }
+  }
 }
 
-@font-face {
-  font-family: 'exo2';
-  src:
-    url('/fonts/exo/italic.woff2') format('woff2') tech('variations'),
-    url('/fonts/exo/italic.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-  text-rendering: optimizelegibility;
+@variant dark {
 }
 
-@font-face {
-  font-family: jetbrainsmono;
-  src:
-    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2') format('woff2')
-      tech('variations'),
-    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2')
-      format('woff2-variations');
-  font-weight: 100 800;
-  font-style: normal;
-  font-display: fallback;
-  text-rendering: optimizelegibility;
+/*******************************************************************************
+ * When using CSS variables in the @theme section, use the `inline` section
+ ******************************************************************************/
+@theme inline {
+  --font-sans: var(--font-exo2);
+  --font-mono: var(--font-jetbrainsmono);
 }
 
-@font-face {
-  font-family: jetbrainsmono;
-  src:
-    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2') format('woff2')
-      tech('variations'),
-    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2')
-      format('woff2-variations');
-  font-weight: 100 800;
-  font-style: italic;
-  font-display: swap;
-  text-rendering: optimizelegibility;
-}
-
-@font-face {
-  font-family: changa;
-  src:
-    url('/fonts/changa/changaone-regular-webfont.woff2') format('woff2'),
-    url('/fonts/changa/changaone-regular-webfont.woff2')
-      format('woff2-variations');
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-  text-rendering: optimizelegibility;
-}
-
-@font-face {
-  font-family: changa;
-  src:
-    url('/fonts/changa/changaone-italic-webfont.woff2') format('woff2'),
-    url('/fonts/changa/changaone-italic-webfont.woff2')
-      format('woff2-variations');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-  text-rendering: optimizelegibility;
+/*******************************************************************************
+ * The `static` leads to the variables being referenced without the requirement
+ * of being used. Other @theme sections will only compile into used variables.
+ * This will also generate all utility classes for variable namespaces.
+ ******************************************************************************/
+@theme static {
+  /* left empty intentionally */
 }
 
 @layer base {
-  .font-changa {
-    font-family: var(--font-changa);
-
-    /* Changa is only available via weight 400 */
-    font-weight: 400;
-  }
-
-  .font-exo2 {
-    font-family: var(--font-exo2);
-  }
-
-  .font-jetbrainsmono {
-    font-family: var(--font-jetbrainsmono);
-  }
-
   body {
     font-family: var(--font-exo2);
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.4;
+    color: var(--color-zinc-600);
+  }
+
+  body.dark {
+    color: var(--color-zinc-200);
   }
 
   h1,
@@ -111,13 +86,25 @@
   h6 {
     font-family: var(--font-changa);
 
-    /* Changa is only available via weight 400 */
+    /* Changa One is only available via weight 400 */
     font-weight: 400;
   }
 
   a {
+    @apply text-red-700;
+    @apply hover:text-orange-700;
     @apply transition-colors duration-300 ease-in-out;
-    @apply text-orange-700;
-    @apply hover:text-red-700;
   }
 }
+
+
+/**
+ * Components
+ */
+@layer components {
+}
+
+/**
+ * using variants
+ * @see https://tailwindcss.com/docs/adding-custom-styles#using-variants
+ */

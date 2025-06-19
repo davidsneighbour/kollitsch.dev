@@ -23,7 +23,8 @@
   "astro.content-intellisense": true,
   "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
   "files.associations": {
-    "*.astro": "astro"
+    "*.astro": "astro",
+    "*.css": "tailwindcss",
   },
 
   // PLUGIN: prettier setup

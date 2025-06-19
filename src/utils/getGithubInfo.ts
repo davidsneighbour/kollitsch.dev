@@ -39,9 +39,10 @@ export function getGithubInfo(filePath: string): {
       date,
       author: {
         name: authorName,
-        profileUrl: authorEmail.endsWith('@users.noreply.github.com')
-          ? `https://github.com/${authorEmail.split('+')[1]?.split('@')[0] ?? ''}`
-          : null,
+        profileUrl:
+          authorEmail && authorEmail.endsWith('@users.noreply.github.com')
+            ? `https://github.com/${authorEmail.split('+')[1]?.split('@')[0] ?? ''}`
+            : null,
       },
     };
   } catch (err) {

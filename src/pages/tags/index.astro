@@ -22,7 +22,7 @@ const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.id));
     {tagEntryList.map((entry) => (
       <li>
         <a href={`/tags/${entry.id}/`}>
-          {entry.data.title || `#${entry.id}`}
+          {entry.data.label || `#${entry.id}`}
         </a>
         {entry.data.description && (
           <p>{entry.data.description}</p>

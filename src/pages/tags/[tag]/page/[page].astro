@@ -49,7 +49,7 @@ export async function getStaticPaths() {
   {
     tagEntry && currentPage === 1 && (
       <TagIntro
-        title={tagEntry.data.title}
+        title={tagEntry.data.label}
         description={tagEntry.data.description}
       />
     )

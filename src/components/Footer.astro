@@ -84,6 +84,6 @@ const currentYear = new Date().getFullYear().toString();
   </footer>
 </section>
 
-<script define:vars={{ footerYearId }}>
+<script is:inline define:vars={{ footerYearId }}>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
 </script>

@@ -8,24 +8,27 @@ import { Icon } from 'astro-icon/components';
     <Icon name="bi:share-fill" />
   </div>
   <div class="flex flex-row items-center justify-start gap-2">
-    <span>Share: </span>
+    <span>Share:</span>
+
     <Icon name="bi:linkedin" />
     <a
-      href="https://www.linkedin.com/sharing/share-offsite/?url=${post.data.url}"
+      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(post.data.url)}`}
       target="_blank"
-      rel="noopener">LinkedIn</a
-    >
+      rel="noopener"
+    >LinkedIn</a>
+
     <Icon name="bi:facebook" />
     <a
-      href="https://facebook.com/sharer/sharer.php?&u=${post.data.url}"
+      href={`https://facebook.com/sharer/sharer.php?&u=${encodeURIComponent(post.data.url)}`}
       target="_blank"
-      rel="noopener">Facebook</a
-    >
+      rel="noopener"
+    >Facebook</a>
+
     <Icon name="bi:reddit" />
     <a
-      href="https://www.reddit.com/submit?url=${post.data.url}&title=${post.data.title}"
+      href={`https://www.reddit.com/submit?url=${encodeURIComponent(post.data.url)}&title=${encodeURIComponent(post.data.title)}`}
       target="_blank"
-      rel="noopener">Reddit</a
-    >
+      rel="noopener"
+    >Reddit</a>
   </div>
 </div>

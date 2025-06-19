@@ -46,9 +46,18 @@ async function resolveTitle(url: string): Promise<string | null> {
   for (const name of collections as (keyof DataEntryMap)[]) {
     const entries = await getCollection(name);
     const entry = entries.find((e) => `/${name}/${e.id}/` === url);
-    if (entry?.data?.title) {
-      titleCache.set(url, entry.data.title);
-      return entry.data.title;
+    // Some collections use 'title', others use 'label' as the display name
+    let resolvedTitle: string | undefined;
+    if (entry?.data && typeof entry.data === 'object') {
+      if ('title' in entry.data && typeof entry.data.title === 'string') {
+        resolvedTitle = entry.data.title;
+      } else if ('label' in entry.data && typeof entry.data.label === 'string') {
+        resolvedTitle = entry.data.label;
+      }
+    }
+    if (resolvedTitle) {
+      titleCache.set(url, resolvedTitle);
+      return resolvedTitle;
     }
   }
 

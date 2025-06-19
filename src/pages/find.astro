@@ -3,9 +3,15 @@
 
 import Layout from '@layouts/DefaultPage.astro';
 import Search from 'astro-pagefind/components/Search';
+const post = {
+  data: {
+    title: 'Find | My Personal Website',
+    description: 'Search the site for content.',
+  },
+};
 ---
 
-<Layout title="Find" description="Search the site for content.">
+<Layout post={post}>
   <h1>Find</h1>
   <p>Use the search bar below to find content on this site.</p>
   <Search

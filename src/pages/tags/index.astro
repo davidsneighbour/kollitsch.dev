@@ -11,9 +11,16 @@ const tagEntries = await getCollection('tags');
 const tagMap = getFilteredTagMap(blogPosts);
 const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.id));
 
+const post = {
+  data: {
+    title: 'Tags',
+    description: 'Explore the tags used across the blog posts.',
+  },
+};
+
 ---
 
-<Layout title="Tags">
+<Layout post={post}>
   <Heading level={1}>Tag Cloud</Heading>
   <TagCloud tags={tagMap} />
 

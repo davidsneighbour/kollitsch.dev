@@ -1,17 +1,25 @@
 import { defineCollection, z } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 
+// Reusable options schema
+export const allowedComponents = ['lite-youtube'] as const;
+const optionsSchema = z.object({
+  head: z.object({
+    components: z.array(z.enum(allowedComponents)),
+  }),
+});
+
 export const blogSchema = z
   .object({
     title: z.string(),
     description: z
       .string()
-      .transform((str) => str.trim())
-      .refine((str) => str.length > 0, {
+      .transform(str => str.trim())
+      .refine(str => str.length > 0, {
         message: 'The `description` frontmatter MUST NOT be empty.',
       }),
     summary: z.string().optional(),
-    date: z.coerce.date().transform((s) => new Date(s)),
+    date: z.coerce.date().transform(s => new Date(s)),
     tags: z.array(z.string()).optional(),
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
@@ -28,7 +36,7 @@ export const blogSchema = z
     aliases: z
       .union([z.string(), z.array(z.string())])
       .optional()
-      .transform((val) => (typeof val === 'string' ? [val] : val)),
+      .transform(val => (typeof val === 'string' ? [val] : val)),
     resources: z
       .array(
         z.object({
@@ -38,8 +46,9 @@ export const blogSchema = z
         }),
       )
       .optional(),
+    options: optionsSchema.optional(),
   })
-  .transform((entry) => ({
+  .transform(entry => ({
     ...entry,
     summary:
       entry.summary && entry.summary.trim() !== ''

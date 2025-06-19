@@ -32,9 +32,15 @@ export async function getStaticPaths() {
     params: { tag },
   }));
 }
+const post = {
+  data: {
+    title: `#${tag}`,
+    description: tagEntry?.data.description || `Posts tagged with #${tag}`,
+  },
+};
 ---
 
-<Layout title={`#${tag}`}>
+<Layout post={post}>
   {
     tagEntry && (
       <TagIntro

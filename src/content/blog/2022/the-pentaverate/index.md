@@ -12,10 +12,14 @@ tags:
   - "100DaysToOffload"
 fmContentType: "blog"
 cover: "./mike-myers-the-pentaverate.jpg"
+options:
+  head:
+    components:
+      - "lite-youtube"
 ---
 
 Mike Myers does that thing where he plays multiple roles in the same movie.
 
 > What if a secret society of five men has been working to influence world events for the greater good since the Black Plague of 1347? As this new series begins, one unlikely Canadian journalist finds himself embroiled in a mission to uncover the truth and just possibly save the world himself. Remember, the Pentaverate must never be exposed!
 
-{{< youtube id="EgNwhFlCwwI" >}}
+<lite-youtube videoid="EgNwhFlCwwI" />

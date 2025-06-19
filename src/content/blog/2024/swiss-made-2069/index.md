@@ -16,6 +16,10 @@ video:
   youtube: "_jLCFpU8HPM"
 fmContentType: "blog"
 cover: "./swiss-made-2069.jpg"
+options:
+  head:
+    components:
+      - "lite-youtube"
 ---
 
 In the late 1960s, Swiss cinema witnessed a groundbreaking moment with the release of *Swiss Made 2069* (1968). Directed by Fredi M. Murer and co-written with Yves Yersin, the film pushed boundaries in more ways than one, featuring the futuristic dystopia of a state-controlled Switzerland. While the plot and themes of the film sparked their own discussions, one significant aspect has continued to resonate with cinema enthusiasts and art lovers alike: it marked the very first appearance of H.R. Giger's iconic creatures on the big screen.
@@ -40,4 +44,4 @@ Giger's collaborations with cinema didn't end here, of course. His design work o
 
 If you're intrigued by early dystopian sci-fi and want to see the beginning of H.R. Giger's journey into film design, *Swiss Made 2069* is a must-watch.
 
-{{< youtube id="_jLCFpU8HPM" >}}
+<lite-youtube videoid="_jLCFpU8HPM" />

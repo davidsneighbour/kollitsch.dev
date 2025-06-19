@@ -2,12 +2,15 @@
 // @todo refactor
 
 import Layout from '@layouts/DefaultPage.astro';
+const post = {
+  data: {
+    title: 'Contact | My Personal Website',
+    description: 'Get in touch with me through this contact form.',
+  },
+};
 ---
 
-<Layout
-  title="Contact | My Personal Website"
-  description="Get in touch with me through this contact form."
->
+<Layout post={post}>
   <!-- Hero Section -->
   <section
     class="from-primary-100 to-accent-50 bg-gradient-to-br py-16 md:py-24"

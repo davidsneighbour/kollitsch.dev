@@ -16,6 +16,10 @@ unsplash:
   imageid: "UcEzgZ6k19o"
 fmContentType: "blog"
 cover: "./header.jpg"
+options:
+  head:
+    components:
+      - "lite-youtube"
 ---
 
 Welcome to the eight edition of Kurzschnitte II. The number eight, also the atomic number of oxygen, holds significant interest in various contexts. It has been argued that, since the cardinal number seven is the highest number of items that can be universally processed as a single set, the etymology of "eight" might reflect a composite nature, seen as "twice four" or "two short of ten." In our Solar System, following Pluto's reclassification as a dwarf planet on August 24th, 2006 (meh), eight bodies are now recognized as planets orbiting the Sun. Additionally, eight is the first composite number, neither prime nor semiprime.
@@ -46,7 +50,8 @@ Having said that, here are the links for this edition:
 
 - [Studies for Player Piano](https://en.wikipedia.org/wiki/Studies_for_Player_Piano_(Nancarrow)) is a collection of compositions by Conlon Nancarrow, featuring works specifically for the player piano (an auto playing piano, allowing for complex compositions unplayable by human performers. This body of work is renowned for its intricate rhythms and innovative exploration of musical tempo and structure, utilizing the mechanical capabilities of the player piano to extend the limits of human performance. And here we have a laundry machine ripping itself apart to Study no. 21:
 
-{{< youtube id="8T9xSoaXPPg" >}}
+<lite-youtube videoid="8T9xSoaXPPg" />
+
  
 ## What you missed
 

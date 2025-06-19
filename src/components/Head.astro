@@ -1,12 +1,11 @@
 ---
 // @todo refactor
 
-// import type { CollectionEntry } from 'astro:content';
-// interface Props {
-//   post: CollectionEntry<'blog'>;
-// }
-// const { post } = Astro.props;
-// console.log(post);
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+const { post } = Astro.props as Props;
 
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from 'astro:transitions';
@@ -22,7 +21,12 @@ import faviconSvgSrc from '@assets/favicon/favicon.svg'
 
 const metaData = metaDataRaw as MetaConfig;
 
-const { ...props } = Astro.props;
+const hasLiteYoutube =
+  post &&
+  typeof post === 'object' &&
+  typeof post.data === 'object' &&
+  Array.isArray(post.data.options?.head?.components) &&
+  post.data.options.head.components.includes('lite-youtube');
 
 // const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
@@ -36,26 +40,27 @@ const appleTouchIcon = await getImage({
   format: 'png'
 })
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
+
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{props.title}</title>
+<title>{post.data.title}</title>
 
 <base href={baseUrl} target="_self" />
-<meta name="description" content={props.description} />
+<meta name="description" content={post.data.description} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta property="og:title" content={props.title} />
+<meta property="og:title" content={post.data.title} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:description" content={props.description} />
-<meta property="og:image" content={props.image} />
+<meta property="og:description" content={post.data.description} />
+<!-- <meta property="og:image" content={post.data.image} /> -->
 <meta property="og:image:alt" content="" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={props.title} />
-<meta property="twitter:description" content={props.description} />
-<meta property="twitter:image" content={props.image} />
+<meta property="twitter:title" content={post.data.title} />
+<meta property="twitter:description" content={post.data.description} />
+<!-- <meta property="twitter:image" content={post.data.image} /> -->
 
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
@@ -117,6 +122,9 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   crossorigin
 />
 
-{/* @todo add to the youtube component itself */}
-<link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
-<script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline></script>
+{hasLiteYoutube && (
+  <>
+    <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
+    <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline></script>
+  </>
+)}

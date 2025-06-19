@@ -28,9 +28,16 @@ const allPosts = getPostsSortedByDraft(await getCollection('blog'));
 const posts = allPosts.slice((pageNumber - 1) * 10, pageNumber * 10);
 const totalPages = Math.ceil(allPosts.length / 10);
 
+const post = {
+  data: {
+    title: 'Blog | My Personal Website',
+    description: 'A collection of articles, tutorials, and updates.',
+  },
+};
+
 ---
 
-<Layout>
+<Layout post={post}>
   <Heading
     title="Blog"
     description="A collection of articles, tutorials, and updates."

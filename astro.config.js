@@ -12,7 +12,6 @@ import icon from 'astro-icon';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
-
 import expressiveCode from 'astro-expressive-code';
 
 // https://astro.build/config

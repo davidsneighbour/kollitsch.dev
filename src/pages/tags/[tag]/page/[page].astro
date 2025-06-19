@@ -43,9 +43,16 @@ export async function getStaticPaths() {
   }
   return paths;
 }
+
+const post = {
+  data: {
+    title: `#${tag} – Page ${currentPage}`,
+    description: tagEntry?.data.description || `Posts tagged with #${tag}`,
+  },
+};
 ---
 
-<Layout title={`#${tag} – Page ${currentPage}`}>
+<Layout post={post}>
   {
     tagEntry && currentPage === 1 && (
       <TagIntro

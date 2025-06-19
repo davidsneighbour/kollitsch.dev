@@ -9,9 +9,16 @@ import ArticleCard from '@components/ArticleCard.astro';
 import Heading from '@components/Heading.astro';
 
 const { featuredPost, recentPosts } = await getHomepagePosts();
+
+const post = {
+  data: {
+    title: 'Home | My Personal Website',
+    description: 'Welcome to my personal website. Explore my latest articles and featured content.',
+  },
+};
 ---
 
-<Layout>
+<Layout post={post}>
   <main class="z-0 mx-auto max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
     <section id="featured">
       <Heading level={2} title="Featured" class="something"/>

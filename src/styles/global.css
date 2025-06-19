@@ -44,8 +44,8 @@
   }
 }
 
-@variant dark {
-}
+/* @variant dark {
+} */
 
 /*******************************************************************************
  * When using CSS variables in the @theme section, use the `inline` section

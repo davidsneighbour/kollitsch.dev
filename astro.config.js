@@ -1,5 +1,3 @@
-import { defineConfig } from 'astro/config';
-
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import partytown from '@astrojs/partytown';
@@ -8,20 +6,29 @@ import toml from '@fbraem/rollup-plugin-toml';
 import beep from '@rollup/plugin-beep';
 import yaml from '@rollup/plugin-yaml';
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
+import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
-import expressiveCode from 'astro-expressive-code';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kollitsch.dev/',
-  trailingSlash: 'always',
-  output: 'static',
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'viewport',
+  compressHTML: import.meta.env.PROD,
+  experimental: {
+    clientPrerender: true,
+    contentIntellisense: true,
+    preserveScriptOrder: true,
+    // @todo https://docs.astro.build/en/reference/experimental-flags/csp/
+    //csp: true,
+  },
+  image: {
+    breakpoints: [640, 750, 828, 1080, 1280],
+    layout: 'constrained',
+    objectFit: 'cover',
+    objectPosition: 'center',
+    responsiveStyles: true,
   },
   integrations: [
     // https://github.com/felix-berlin/astro-matomo
@@ -33,15 +40,15 @@ export default defineConfig({
       },
     }),
     matomo({
-      enabled: import.meta.env.PROD, // Only load in production
-      host: 'https://analytics.dnbhub.xyz/',
-      siteId: 1,
-      setCookieDomain: '*.kollitsch.dev',
-      heartBeatTimer: 5,
+      debug: false, // Only load in production
       disableCookies: true,
-      debug: false,
+      enabled: import.meta.env.PROD,
+      heartBeatTimer: 5,
+      host: 'https://analytics.dnbhub.xyz/',
       partytown: true,
       preconnect: true,
+      setCookieDomain: '*.kollitsch.dev',
+      siteId: 1,
       viewTransition: {
         contentElement: 'main',
       },
@@ -49,42 +56,34 @@ export default defineConfig({
     partytown(),
     icon(),
     expressiveCode({
-      themes: ['dracula', 'github-light'],
       styleOverrides: {
         frames: {
           frameBoxShadowCssValue: '0',
         },
       },
+      themes: ['dracula', 'github-light'],
     }),
   ],
-  vite: {
-    plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
-  },
-  server: {
-    host: true,
-  },
-  experimental: {
-    responsiveImages: true,
-    contentIntellisense: true,
-    preserveScriptOrder: true,
-    clientPrerender: true,
-    // @todo https://docs.astro.build/en/reference/experimental-flags/csp/
-    //csp: true,
-  },
-  image: {
-    experimentalLayout: 'constrained',
-    experimentalObjectFit: 'cover',
-    experimentalObjectPosition: 'center',
-    experimentalDefaultStyles: false,
-  },
   markdown: {
     shikiConfig: {
       themes: {
-        light: 'github-light',
         dark: 'dark-plus',
+        light: 'github-light',
       },
       wrap: true,
     },
   },
-  compressHTML: import.meta.env.PROD,
+  output: 'static',
+  prefetch: {
+    defaultStrategy: 'viewport',
+    prefetchAll: true,
+  },
+  server: {
+    host: true,
+  },
+  site: 'https://kollitsch.dev/',
+  trailingSlash: 'always',
+  vite: {
+    plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
+  },
 });

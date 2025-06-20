@@ -9,7 +9,7 @@ tags:
   - "gohugo"
   - "tag2"
   - "tag3"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./hugo-0.131.0.png"
 ---

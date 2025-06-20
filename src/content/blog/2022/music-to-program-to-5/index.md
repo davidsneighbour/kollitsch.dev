@@ -7,7 +7,7 @@ tags:
   - "programming-music"
   - "deep-core"
   - "danny-kreutzfeldt"
-  - "100DaysToOffload"
+  - "100daystooffload"
 type: "music"
 resources:
   - src: "header.jpg"

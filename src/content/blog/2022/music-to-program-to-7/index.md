@@ -6,7 +6,7 @@ linkTitle: "PM7"
 tags:
   - "programming-music"
   - "queensryche"
-  - "100DaysToOffload"
+  - "100daystooffload"
 type: "music"
 resources:
   - src: "header.jpg"

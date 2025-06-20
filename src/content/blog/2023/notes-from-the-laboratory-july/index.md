@@ -10,7 +10,7 @@ tags:
   - "laboratory"
   - "notes"
   - "self-improvement"
-  - "100DaysToOffload"
+  - "100daystooffload"
 aliases:
   - "/notes-from-the-laboratory-july-2023"
 fmContentType: "blog"

@@ -7,10 +7,10 @@ resources:
     src: "header.jpg"
 tags:
   - "keybase"
-  - "ubuntu 22.04"
+  - "ubuntu-2204"
   - "git"
   - "encryption"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

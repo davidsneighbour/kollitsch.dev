@@ -9,7 +9,7 @@ tags:
   - "bash"
   - "semver"
   - "build"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4"
 fmContentType: "blog"

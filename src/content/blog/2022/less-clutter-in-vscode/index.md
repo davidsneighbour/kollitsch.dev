@@ -9,8 +9,8 @@ resources:
   - src: "workspace-recommentation.png"
 tags:
   - "vscode"
-  - "how i work"
-  - "100DaysToOffload"
+  - "how-i-work"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---
@@ -21,11 +21,11 @@ A week later I was back where I was before: Too many extensions, many of them us
 
 Well, after some clicking around I found an interesting new strategy to cope with "extension overflow". While I was clicking around I found, that on the extensions screen, in any extension, we can find an "enable/disable" button. This button has a dropdown and hides a sub selection "enable/disable (Workspace)". Yay! VSCode allows a workspace specific extension setup. Which lead me to the following "workflow" on new installations:
 
-*   install the extension
-*   disable the extension
-*   enable the extension for the workspace I require it in
-*   add the extension to the recommended extensions for this workspace
-*   save `.vscode/extensions.json` and `workspacename.code-workspace` in my repository
+* install the extension
+* disable the extension
+* enable the extension for the workspace I require it in
+* add the extension to the recommended extensions for this workspace
+* save `.vscode/extensions.json` and `workspacename.code-workspace` in my repository
 
 ![workspace enable](workspace-enable.png)
 

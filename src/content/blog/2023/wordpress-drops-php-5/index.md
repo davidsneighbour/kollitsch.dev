@@ -8,7 +8,7 @@ resources:
 tags:
   - "wordpress"
   - "php"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "Zk--Ydz2IAs"
 fmContentType: "blog"

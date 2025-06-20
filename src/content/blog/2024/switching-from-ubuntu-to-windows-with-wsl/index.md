@@ -8,9 +8,9 @@ resources:
     src: "clint-patterson-yGPxCYPS8H4-unsplash.jpg"
 tags:
   - "ubuntu"
-  - "windows 11"
-  - "WSL 2"
-  - "100DaysToOffload"
+  - "windows-11"
+  - "wsl-2"
+  - "100daystooffload"
 unsplash:
   imageid: "yGPxCYPS8H4"
 fmContentType: "blog"

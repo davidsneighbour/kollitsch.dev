@@ -3,9 +3,9 @@ title: "Music to Program to (Part 9)"
 description: "A very nice song by Glass Animals from before they were TikTok famous."
 tags:
   - "programming-music"
-  - "electronic music"
-  - "glass animals"
-  - "100DaysToOffload"
+  - "electronic-music"
+  - "glass-animals"
+  - "100daystooffload"
 type: "music"
 resources:
   - src: "header.jpg"

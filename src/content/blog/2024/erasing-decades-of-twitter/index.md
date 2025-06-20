@@ -11,7 +11,7 @@ tags:
   - "twitter"
   - "howto"
   - "erasing-social-media"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.webp"
 ---

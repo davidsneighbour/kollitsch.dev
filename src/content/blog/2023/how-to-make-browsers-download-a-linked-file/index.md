@@ -10,7 +10,7 @@ resources:
 tags:
   - "html"
   - "howto"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

@@ -11,7 +11,7 @@ resources:
 tags:
   - "npm"
   - "cleanup"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"

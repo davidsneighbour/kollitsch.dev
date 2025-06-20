@@ -9,7 +9,7 @@ resources:
 tags:
   - "internals"
   - "well-known"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./imkara-visual-3blY8iC2o5M-unsplash.jpg"
 ---

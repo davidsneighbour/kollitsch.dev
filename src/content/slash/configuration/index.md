@@ -12,7 +12,7 @@ resources:
   - title: Technicians doing important stuff
     src: curated-lifestyle-yLVPQvU2KEc-unsplash.jpg
 tags:
-  - slash pages
+  - slash-pages
   - configuration
 unsplash:
   imageid: yLVPQvU2KEc

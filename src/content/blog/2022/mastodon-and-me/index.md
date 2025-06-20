@@ -10,7 +10,7 @@ tags:
   - "mastodon"
   - "social-media"
   - "twitter"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

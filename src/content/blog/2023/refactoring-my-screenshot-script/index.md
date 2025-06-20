@@ -9,7 +9,7 @@ tags:
   - "javascript"
   - "module"
   - "refactoring"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

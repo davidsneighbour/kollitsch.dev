@@ -6,11 +6,11 @@ resources:
   - title: "Photo by [Andrew Wulf](https://unsplash.com/@andreuuuw) via [Unsplash](https://unsplash.com/)"
     src: "header.jpg"
 tags:
-  - "es modules"
+  - "es-modules"
   - "refactoring"
-  - "how to"
+  - "howto"
   - "javascript"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "pile-of-rubber-duckies-59yg_LpcvzQ"
 fmContentType: "blog"

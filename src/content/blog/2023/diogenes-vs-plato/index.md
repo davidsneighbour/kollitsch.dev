@@ -9,7 +9,7 @@ tags:
   - "philosophy"
   - "quotes"
   - "knowledge"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "OlAoxfMngZ4"
 fmContentType: "blog"

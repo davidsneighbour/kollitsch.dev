@@ -7,7 +7,7 @@ resources:
 tags:
   - "physics"
   - "social-media"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "A-V2Vb6R9NQ"
 fmContentType: "blog"

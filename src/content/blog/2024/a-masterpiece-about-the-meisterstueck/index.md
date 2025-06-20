@@ -1,24 +1,16 @@
 ---
-title: A Masterpiece about the Meisterstück
-description: >-
-  Wes Anderson's "100 Years of Meisterstück" blends his signature aesthetic with
-  humor to present Montblanc's iconic pen, showcasing its timeless legacy and
-  craftsmanship.
-summary: >-
-  Wes Anderson directs a humorous, visually striking commercial for Montblanc’s
-  Meisterstück pen. Alongside Rupert Friend and Jason Schwartzman, Anderson
-  crafts a whimsical tribute, celebrating the pen's 100-year legacy with his
-  iconic storytelling and meticulous visuals, highlighting Montblanc's luxury
-  craftsmanship.
-type: video
-date: '2024-05-12T19:55:46+07:00'
+title: "A Masterpiece about the Meisterstück"
+description: "Wes Anderson's \"100 Years of Meisterstück\" blends his signature aesthetic with humor to present Montblanc's iconic pen, showcasing its timeless legacy and craftsmanship."
+summary: "Wes Anderson directs a humorous, visually striking commercial for Montblanc’s Meisterstück pen. Alongside Rupert Friend and Jason Schwartzman, Anderson crafts a whimsical tribute, celebrating the pen's 100-year legacy with his iconic storytelling and meticulous visuals, highlighting Montblanc's luxury craftsmanship."
+type: "video"
+date: "2024-05-12T19:55:46+07:00"
 tags:
-  - wes-anderson
-  - advertisement
-  - 100DaysToOffload
+  - "wes-anderson"
+  - "advertisement"
+  - "100daystooffload"
 video:
-  youtube: tUSRyAha37w
-fmContentType: blog
+  youtube: "tUSRyAha37w"
+fmContentType: "blog"
 ---
 
 Wes Anderson has directed a three-minute commercial for Montblanc, mostly known for its fountain pens, commemorating the 100-year anniversary of the brand's Meisterstück fountain pen. This commercial. Titled "100 Years of Meisterstück" it features Anderson's signature aesthetic, blending eccentric storytelling with meticulous layouted visuals.

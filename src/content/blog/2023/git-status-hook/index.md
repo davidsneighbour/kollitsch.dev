@@ -8,7 +8,7 @@ resources:
 tags:
   - "bash"
   - "git"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "wX2L8L-fGeA"
 fmContentType: "blog"

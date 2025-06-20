@@ -7,10 +7,10 @@ resources:
   - title: "Ubuntu 24.04 - official wallpaper"
     src: "ubuntu-wallpaper-d.png"
 tags:
-  - "ubuntu 24.04"
+  - "ubuntu-2404"
   - "howto"
-  - "google chrome"
-  - "100DaysToOffload"
+  - "google-chrome"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./ubuntu-wallpaper-d.png"
 ---

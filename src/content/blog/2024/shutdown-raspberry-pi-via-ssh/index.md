@@ -10,7 +10,7 @@ tags:
   - "raspberrypi"
   - "bash"
   - "howto"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "MaDXpqp1vM0"
 fmContentType: "blog"

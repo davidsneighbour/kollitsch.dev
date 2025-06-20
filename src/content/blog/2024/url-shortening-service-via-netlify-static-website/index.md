@@ -9,7 +9,7 @@ tags:
   - "netlify"
   - "linkshortening"
   - "networking"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

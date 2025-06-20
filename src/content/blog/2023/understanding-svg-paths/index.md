@@ -8,7 +8,7 @@ resources:
 tags:
   - "svg"
   - "course"
-  - "100DaysToOffload"
+  - "100daystooffload"
 type: "link"
 fmContentType: "blog"
 cover: "./header.jpg"

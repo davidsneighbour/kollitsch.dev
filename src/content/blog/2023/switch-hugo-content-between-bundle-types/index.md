@@ -10,7 +10,7 @@ tags:
   - "gohugo"
   - "bash"
   - "quicky"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "1COcTd3pRCg"
 fmContentType: "blog"

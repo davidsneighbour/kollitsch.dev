@@ -9,7 +9,7 @@ tags:
   - "pantone"
   - "css"
   - "colors"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"
@@ -30,10 +30,27 @@ When RGB or HEX values are preferred for consistent color representation online 
 | HSV | 22°, 40%, 100% |
 | CMYK | 0%, 25%, 40%, 0% |
 
-{{< colorscheme >}}
-{{% color css="#ffbe98" scheme="dark" %}}
-{{% color css="rgb(255, 190, 152)" scheme="dark" %}}
-{{% color css="hsl(22deg, 100%, 80%)" scheme="dark" %}}
-{{< / colorscheme >}}
+<div class="container overflow-hidden text-center mb-4 px-0">
+  <div class="row gx-2">
+    <div class="col">
+      <div class="border border-secondary-subtle px-2 py-4" style="background-color: #ffbe98">
+        <span class="text-dark">#ffbe98</span>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="border border-secondary-subtle px-2 py-4" style="background-color: rgb(255, 190, 152)">
+        <span class="text-dark">rgb(255, 190, 152)</span>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="border border-secondary-subtle px-2 py-4" style="background-color: hsl(22deg, 100%, 80%)">
+        <span class="text-dark">hsl(22deg, 100%, 80%)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 Its soothing and calming colors certainly look nice on my website ;)

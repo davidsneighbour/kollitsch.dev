@@ -8,7 +8,7 @@ resources:
 tags:
   - "gitlab"
   - "ci"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

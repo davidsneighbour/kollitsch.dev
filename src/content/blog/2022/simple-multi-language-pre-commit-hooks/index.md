@@ -11,7 +11,7 @@ tags:
   - "git"
   - "code-quality"
   - "automation"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

@@ -8,9 +8,9 @@ resources:
   - title: "An older couple."
     src: "header.jpg"
 tags:
-  - "tom cruise"
+  - "tom-cruise"
   - "video"
-  - "100DaysToOffload"
+  - "100daystooffload"
 video:
   youtube: "mAZXRpPX-hI"
 fmContentType: "blog"

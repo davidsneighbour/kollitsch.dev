@@ -10,7 +10,7 @@ tags:
   - "snap"
   - "howto"
   - "golang"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "B0aJBySo8dc"
 fmContentType: "blog"

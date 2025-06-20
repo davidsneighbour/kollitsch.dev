@@ -7,10 +7,10 @@ resources:
   - title: "The improper way to keep Ubuntu from mounting drives automatically"
     src: "curated-lifestyle-l2nY0rP07DI-unsplash.jpg"
 tags:
-  - "ubuntu-24.04"
+  - "ubuntu-2404"
   - "hardware"
   - "how-to"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "l2nY0rP07DI"
 fmContentType: "blog"

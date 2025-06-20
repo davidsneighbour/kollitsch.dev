@@ -7,11 +7,11 @@ resources:
     src: "header.jpg"
 tags:
   - "bash"
-  - "Ubuntu"
+  - "ubuntu"
   - "security"
   - "gpg"
   - "apt"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"

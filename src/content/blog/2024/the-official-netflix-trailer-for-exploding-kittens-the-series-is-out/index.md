@@ -1,27 +1,19 @@
 ---
-title: The official Netflix trailer for Exploding Kittens (the series) is out
-description: >-
-  In the Exploding Kittens series, God (Tom Ellis) is fired, reborn as a cat,
-  and faces off against Devilcat (Sasheer Zamata) on Earth while distracted by
-  laser pointers and pigeons.
-summary: >-
-  The Netflix series Exploding Kittens follows God (Tom Ellis), fired and reborn
-  as a cat, who moves in with a dysfunctional family to reconnect with humanity.
-  While facing his nemesis Devilcat (Sasheer Zamata), Godcat gets sidetracked by
-  chasing laser pointers and pigeons, leading to comedic clashes between good
-  and evil.
-type: video
-date: '2024-05-12T21:20:20+07:00'
+title: "The official Netflix trailer for Exploding Kittens (the series) is out"
+description: "In the Exploding Kittens series, God (Tom Ellis) is fired, reborn as a cat, and faces off against Devilcat (Sasheer Zamata) on Earth while distracted by laser pointers and pigeons."
+summary: "The Netflix series Exploding Kittens follows God (Tom Ellis), fired and reborn as a cat, who moves in with a dysfunctional family to reconnect with humanity. While facing his nemesis Devilcat (Sasheer Zamata), Godcat gets sidetracked by chasing laser pointers and pigeons, leading to comedic clashes between good and evil."
+type: "video"
+date: "2024-05-12T21:20:20+07:00"
 tags:
-  - series
-  - trailer
-  - video
-  - netflix
-  - exploding kittens
-  - 100DaysToOffload
+  - "series"
+  - "trailer"
+  - "video"
+  - "netflix"
+  - "exploding-kittens"
+  - "100daystooffload"
 video:
-  youtube: T3F0Nt6ssLU
-fmContentType: blog
+  youtube: "T3F0Nt6ssLU"
+fmContentType: "blog"
 ---
 
 For the religous people under my readers: The card game Exploding Kittens gets its own [TV series on Netflix](https://www.netflix.com/title/81459282). Released finally in July 2024.

@@ -9,8 +9,8 @@ resources:
 tags:
   - "gohugo"
   - "modules"
-  - "website management"
-  - "100DaysToOffload"
+  - "website-management"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./valeria-nikitina-li709Gx8v_w-unsplash.jpg"
 ---

@@ -11,7 +11,7 @@ tags:
   - "notes"
   - "self-improvement"
   - "davidsneighbour"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

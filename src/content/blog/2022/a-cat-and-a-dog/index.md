@@ -9,7 +9,7 @@ resources:
 tags:
   - "cat"
   - "dog"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "ouo1hbizWwo"
 fmContentType: "blog"

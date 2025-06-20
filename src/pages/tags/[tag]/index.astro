@@ -1,4 +1,6 @@
 ---
+// individual tag index page with pagination, page 1
+
 import Layout from '@layouts/DefaultPage.astro';
 import PostCard from '@components/PostCard.astro';
 import TagIntro from '@components/TagIntro.astro';
@@ -6,6 +8,8 @@ import Pagination from '@components/Pagination.astro';
 import { getEntry } from 'astro:content';
 
 const { tag } = Astro.params;
+
+console.log(tag);
 
 const tagMap = await getValidTags();
 const tagInfo = tagMap.get(tag);

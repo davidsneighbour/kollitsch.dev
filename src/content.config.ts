@@ -20,7 +20,22 @@ export const blogSchema = z
       }),
     summary: z.string().optional(),
     date: z.coerce.date().transform(s => new Date(s)),
-    tags: z.array(z.string()).optional(),
+    tags: z
+      .array(
+        z
+          .string()
+          .transform(tag =>
+            tag
+              .trim()
+              .replace(/^['"]+|['"]+$/g, '')
+              .toLowerCase(),
+          )
+          .refine(tag => /^[a-z0-9_-]+$/.test(tag), {
+            message:
+              'Tags must only contain lowercase letters, numbers, dashes (-), or underscores (_).',
+          }),
+      )
+      .optional(),
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
     cover: z

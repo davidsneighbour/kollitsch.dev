@@ -10,7 +10,7 @@ tags:
   - "gohugo"
   - "modules"
   - "how-to"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "pswcXNE8690"
 fmContentType: "blog"

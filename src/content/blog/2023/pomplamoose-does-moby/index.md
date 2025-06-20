@@ -5,7 +5,7 @@ description: "Today I learned, that Pomplamoose did a cover of Moby's \"Extreme 
 tags:
   - "moby"
   - "pomplamoose"
-  - "100DaysToOffload"
+  - "100daystooffload"
 resources:
   - src: "header.jpg"
     title: "Pomplamoose does Moby"

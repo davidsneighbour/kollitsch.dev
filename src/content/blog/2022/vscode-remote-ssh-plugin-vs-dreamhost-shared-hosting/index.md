@@ -9,7 +9,7 @@ tags:
   - "dreamhost"
   - "vscode"
   - "how-to"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

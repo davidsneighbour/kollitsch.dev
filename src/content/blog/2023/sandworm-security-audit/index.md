@@ -9,7 +9,7 @@ tags:
   - "security"
   - "linting"
   - "opsec"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.png"
 ---

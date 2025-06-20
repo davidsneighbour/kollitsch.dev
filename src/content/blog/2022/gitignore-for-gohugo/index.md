@@ -9,7 +9,7 @@ tags:
   - "git"
   - "gitignore"
   - "developers"
-  - "100DaysToOffload"
+  - "100daystooffload"
 aliases:
   - "/blog/2021/gitignore-for-gohugo/"
 fmContentType: "blog"

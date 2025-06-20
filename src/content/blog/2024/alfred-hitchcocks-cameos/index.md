@@ -8,10 +8,10 @@ date: "2024-11-30T18:54:20+07:00"
 resources:
   - src: "header.jpg"
 tags:
-  - "alfred hitchcock"
+  - "alfred-hitchcock"
   - "video"
   - "cameos"
-  - "100DaysToOffload"
+  - "100daystooffload"
 video:
   youtube: "_YbaOkiMiRQ"
 fmContentType: "blog"

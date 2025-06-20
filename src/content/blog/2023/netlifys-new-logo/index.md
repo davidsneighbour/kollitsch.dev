@@ -9,7 +9,7 @@ tags:
   - "netlify"
   - "design"
   - "logo"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.png"
 ---

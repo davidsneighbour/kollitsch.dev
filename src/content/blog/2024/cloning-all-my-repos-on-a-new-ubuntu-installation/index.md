@@ -7,10 +7,10 @@ resources:
   - title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
     src: "header.jpg"
 tags:
-  - "ubuntu 24.04"
+  - "ubuntu-2404"
   - "howto"
   - "git"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

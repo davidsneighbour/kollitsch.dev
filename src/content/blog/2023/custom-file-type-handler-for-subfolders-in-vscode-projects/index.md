@@ -9,7 +9,7 @@ tags:
   - "vscode"
   - "configuration"
   - "project-management"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "oXlXu2qukGE"
 fmContentType: "blog"

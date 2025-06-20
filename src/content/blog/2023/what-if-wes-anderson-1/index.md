@@ -6,7 +6,7 @@ summary: "What if Wes Anderson would have directed a Star Wars movie? I think it
 tags:
   - "wes-anderson"
   - "video"
-  - "100DaysToOffload"
+  - "100daystooffload"
   - "artificial-intelligence"
 type: "video"
 resources:

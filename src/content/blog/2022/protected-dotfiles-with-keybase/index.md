@@ -12,7 +12,7 @@ tags:
   - "dotfiles"
   - "privacy"
   - "security"
-  - "100DaysToOffload"
+  - "100daystooffload"
   - "git"
 fmContentType: "blog"
 cover: "./header.jpg"

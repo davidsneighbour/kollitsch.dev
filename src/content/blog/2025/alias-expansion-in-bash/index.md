@@ -9,7 +9,7 @@ resources:
     src: "gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg"
 tags:
   - "bash"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg"
 ---

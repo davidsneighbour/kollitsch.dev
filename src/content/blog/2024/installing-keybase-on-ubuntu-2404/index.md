@@ -7,10 +7,10 @@ resources:
     src: "ubuntu-wallpaper-d.png"
   - src: "xxselection_002.png"
 tags:
-  - "ubuntu 24.04"
+  - "ubuntu-2404"
   - "keybase"
   - "howto"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./ubuntu-wallpaper-d.png"
 ---

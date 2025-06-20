@@ -7,11 +7,11 @@ resources:
   - title: "All the packages…"
     src: "getty-images-Hh_4mKRYAPM-unsplash.jpg"
 tags:
-  - "how to"
-  - "ubuntu-24.04"
+  - "howto"
+  - "ubuntu-2404"
   - "flatpak"
   - "quicky"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./getty-images-Hh_4mKRYAPM-unsplash.jpg"
 ---

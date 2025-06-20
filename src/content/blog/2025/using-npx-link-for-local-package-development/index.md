@@ -7,9 +7,9 @@ resources:
     src: "paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg"
 tags:
   - "npm"
-  - "how to"
+  - "how-to"
   - "development"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg"
 ---

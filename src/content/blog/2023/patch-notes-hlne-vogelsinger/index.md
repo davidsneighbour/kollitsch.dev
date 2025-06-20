@@ -10,7 +10,7 @@ tags:
   - "helene-vogelsinger"
   - "synthesizer"
   - "video"
-  - "100DaysToOffload"
+  - "100daystooffload"
 video:
   youtube: "kYxheEGl2oM"
 fmContentType: "blog"

@@ -7,8 +7,8 @@ resources:
     src: "header.jpg"
 tags:
   - "vscode"
-  - "code editor"
-  - "100DaysToOffload"
+  - "code-editor"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

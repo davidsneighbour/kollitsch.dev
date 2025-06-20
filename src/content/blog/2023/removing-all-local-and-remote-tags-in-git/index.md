@@ -8,7 +8,7 @@ resources:
 tags:
   - "git"
   - "devops"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

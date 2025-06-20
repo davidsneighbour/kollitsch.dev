@@ -11,7 +11,7 @@ categories:
 tags:
   - "kurzschnitte"
   - "bookmarks"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "UcEzgZ6k19o"
 fmContentType: "blog"

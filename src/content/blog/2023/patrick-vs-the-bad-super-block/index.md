@@ -9,7 +9,7 @@ tags:
   - "patrick-versus"
   - "hardware"
   - "troubleshooting"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "1iVKwElWrPA"
 fmContentType: "blog"

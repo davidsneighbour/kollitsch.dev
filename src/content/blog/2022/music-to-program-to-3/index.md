@@ -7,7 +7,7 @@ tags:
   - "programming-music"
   - "piano"
   - "ben-lukas-boysen"
-  - "100DaysToOffload"
+  - "100daystooffload"
 type: "music"
 resources:
   - src: "header.jpg"

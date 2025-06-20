@@ -9,7 +9,7 @@ resources:
 tags:
   - "html"
   - "today-i-learned"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.png"
 ---

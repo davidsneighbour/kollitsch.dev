@@ -9,9 +9,9 @@ resources:
 tags:
   - "wordpress"
   - "localwp"
-  - "ubuntu 24.04"
+  - "ubuntu-2404"
   - "howto"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.png"
 ---

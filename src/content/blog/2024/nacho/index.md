@@ -8,9 +8,9 @@ resources:
     src: "ave-calvar-MRAu_cKpVqI-unsplash.jpg"
 tags:
   - "chemistry"
-  - "useless knowledge"
+  - "useless-knowledge"
   - "quicky"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./ave-calvar-MRAu_cKpVqI-unsplash.jpg"
 ---

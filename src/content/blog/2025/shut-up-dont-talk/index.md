@@ -5,10 +5,10 @@ resources:
   - src: "header.jpg"
 date: "2025-03-06T19:48:07+07:00"
 tags:
-  - "john lithgow"
-  - "geoffrey rush"
+  - "john-lithgow"
+  - "geoffrey-rush"
   - "video"
-  - "100DaysToOffload"
+  - "100daystooffload"
 type: "video"
 video:
   youtube: "GSIB8W3KGsM"

@@ -10,7 +10,7 @@ resources:
 tags:
   - "github"
   - "howto"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"

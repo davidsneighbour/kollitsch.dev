@@ -7,7 +7,7 @@ tags:
   - "programming-music"
   - "nine-inch-nails"
   - "trent-reznor"
-  - "100DaysToOffload"
+  - "100daystooffload"
 type: "music"
 resources:
   - src: "header.jpg"

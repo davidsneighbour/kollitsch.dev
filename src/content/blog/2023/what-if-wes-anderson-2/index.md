@@ -6,7 +6,7 @@ summary: "What if Wes Anderson would have directed a horror movie? I think it wo
 tags:
   - "wes-anderson"
   - "video"
-  - "100DaysToOffload"
+  - "100daystooffload"
   - "horror-movie"
 type: "video"
 resources:

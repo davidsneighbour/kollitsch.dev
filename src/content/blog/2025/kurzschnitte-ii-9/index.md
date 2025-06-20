@@ -10,7 +10,7 @@ categories:
 tags:
   - "kurzschnitte"
   - "bookmarks"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 options:

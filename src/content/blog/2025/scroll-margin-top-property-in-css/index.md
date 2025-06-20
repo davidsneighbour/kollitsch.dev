@@ -10,7 +10,7 @@ tags:
   - "css"
   - "howto"
   - "hacks"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./getty-images-ltpb_WinC3Y-unsplash.jpg"
 ---

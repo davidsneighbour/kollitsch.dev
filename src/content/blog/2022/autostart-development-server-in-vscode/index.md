@@ -9,7 +9,7 @@ tags:
   - "vscode"
   - "development"
   - "automation"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

@@ -5,8 +5,8 @@ date: "2023-11-26T19:23:44+07:00"
 resources:
   - src: "header.jpg"
 tags:
-  - "kollitsch.dev"
-  - "100DaysToOffload"
+  - "kollitsch-dev"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

@@ -8,7 +8,7 @@ resources:
 tags:
   - "vscode"
   - "automation"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "robot-playing-piano-U3sOwViXhkY"
 fmContentType: "blog"

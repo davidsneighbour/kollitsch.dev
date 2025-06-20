@@ -9,7 +9,7 @@ tags:
   - "github"
   - "feature"
   - "project-management"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./yancy-min-842ofHC6MaI-unsplash.jpg"
 ---

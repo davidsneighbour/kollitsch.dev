@@ -10,10 +10,10 @@ resources:
   - title: "default-src 'none' and Firefox"
     src: "default-src-report.png"
 tags:
-  - "CSP"
+  - "csp"
   - "howto"
-  - "SVG"
-  - "100DaysToOffload"
+  - "svg"
+  - "100daystooffload"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"

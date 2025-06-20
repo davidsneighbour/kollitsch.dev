@@ -8,9 +8,9 @@ resources:
     src: "alexander-mils-ULL-cyKjpd4-unsplash.jpg"
 tags:
   - "finishit"
-  - "self improvement"
-  - "kollitsch.dev"
-  - "100DaysToOffload"
+  - "self-improvement"
+  - "kollitsch-dev"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./alexander-mils-ULL-cyKjpd4-unsplash.jpg"
 ---

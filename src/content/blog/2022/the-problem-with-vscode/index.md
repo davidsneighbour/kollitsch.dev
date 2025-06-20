@@ -8,7 +8,7 @@ resources:
 tags:
   - "vscode"
   - "link"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"

@@ -8,7 +8,7 @@ resources:
 tags:
   - "react"
   - "learning"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

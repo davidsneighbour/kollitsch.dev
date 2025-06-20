@@ -8,10 +8,10 @@ resources:
     src: "swiss-made-2069.jpg"
     name: "header"
 tags:
-  - "h.r.giger"
+  - "h-r-giger"
   - "alien"
   - "movies"
-  - "100DaysToOffload"
+  - "100daystooffload"
 video:
   youtube: "_jLCFpU8HPM"
 fmContentType: "blog"

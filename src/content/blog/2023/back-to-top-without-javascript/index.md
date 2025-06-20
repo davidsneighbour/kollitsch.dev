@@ -8,7 +8,7 @@ tags:
   - "javascript"
   - "css"
   - "back-to-top"
-  - "100DaysToOffload"
+  - "100daystooffload"
 unsplash:
   imageid: "bEOrxHU2Op8"
 fmContentType: "blog"

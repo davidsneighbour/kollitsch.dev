@@ -9,7 +9,7 @@ tags:
   - "vscode"
   - "howto"
   - "workspace"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

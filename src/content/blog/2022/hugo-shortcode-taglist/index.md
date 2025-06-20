@@ -9,7 +9,7 @@ resources:
 tags:
   - "gohugo"
   - "shortcode"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./joanna-kosinska-1_CMoFsPfso-unsplash.jpg"
 ---

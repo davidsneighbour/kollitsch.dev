@@ -11,9 +11,9 @@ tags:
   - "howto"
   - "ubuntu"
   - "acer"
-  - "UEFI"
-  - "EFI"
-  - "100DaysToOffload"
+  - "uefi"
+  - "efi"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./artiom-vallat-mx9axbKqKW8-unsplash.jpg"
 ---

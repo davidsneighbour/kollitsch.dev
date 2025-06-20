@@ -10,7 +10,7 @@ tags:
   - "browser"
   - "howto"
   - "ubuntu"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./header.jpg"
 ---

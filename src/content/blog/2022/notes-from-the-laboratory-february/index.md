@@ -11,7 +11,7 @@ tags:
   - "notes"
   - "self-improvement"
   - "davidsneighbour"
-  - "100DaysToOffload"
+  - "100daystooffload"
 aliases:
   - "/blog/2022/notes-from-the-laboratory-february-2022"
 fmContentType: "blog"

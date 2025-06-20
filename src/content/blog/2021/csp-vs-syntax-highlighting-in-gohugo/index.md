@@ -9,10 +9,10 @@ resources:
     src: "christopher-gower-m_HRfLhgABo-unsplash.jpg"
     title: "Photo by [Christopher Gower](https://unsplash.com/@cgower) via [Unsplash](https://unsplash.com)"
 tags:
-  - "gohugo"
-  - "syntaxhighlighting"
-  - "SRI"
-  - "CSP"
+  - gohugo
+  - syntaxhighlighting
+  - sri
+  - csp
 fmContentType: "blog"
 cover: "./christopher-gower-m_HRfLhgABo-unsplash.jpg"
 ---

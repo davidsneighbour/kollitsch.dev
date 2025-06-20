@@ -18,8 +18,6 @@ cover: "./ave-calvar-HcUDHJfd5GY-unsplash.jpg"
 
 > **Note:** While this guide focuses on installing the Ananke theme, the same methods can be applied to any other Hugo theme by replacing the URLs and module paths accordingly. The process for installing themes via **Hugo Modules** or **Git Submodules** remains the same for any theme you choose.
 
-{{% toc %}}
-
 ## Themes in GoHugo
 
 If you're following the [GoHugo Quickstart guide](https://gohugo.io/getting-started/quick-start/), you'll notice that it currently recommends installing the Ananke theme as a **Git submodule**. While this is a valid approach, GoHugo also offers a more powerful alternative: **GoHugo Modules**, which leverage Go's module system for better dependency and version management.

@@ -8,7 +8,7 @@ resources:
 tags:
   - "links"
   - "design"
-  - "100DaysToOffload"
+  - "100daystooffload"
 fmContentType: "blog"
 cover: "./Rolling-Stone-1967-logo.png"
 ---

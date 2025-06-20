@@ -4,8 +4,8 @@ description: "Floating Points - Ocotillo"
 tags:
   - "programming-music"
   - "electronic"
-  - "floating points"
-  - "100DaysToOffload"
+  - "floating-points"
+  - "100daystooffload"
 type: "music"
 resources:
   - src: "header.jpg"

@@ -9,7 +9,8 @@ This project is the website setup, features, and theme for [kollitsch.dev](https
 <!--lint ignore-->
 
 * [Preview of the current state of the website](#preview-of-the-current-state-of-the-website)
-* [Used services](#used-services)
+* [Used services and tools](#used-services-and-tools)
+  * [Legacy tools](#legacy-tools)
 * [Commands](#commands)
 * [Ask questions](#ask-questions)
 * [General notes](#general-notes)
@@ -18,7 +19,7 @@ This project is the website setup, features, and theme for [kollitsch.dev](https
 
 [![Screenshot of kollitsch.dev](.github/screenshot.png)](.github/screenshot.png)
 
-## Used services
+## Used services and tools
 
 | Function                  | Service                                          |
 | :------------------------ | :----------------------------------------------- |
@@ -27,6 +28,12 @@ This project is the website setup, features, and theme for [kollitsch.dev](https
 | **CDN**                   | [Cloudflare](https://cloudflare.com)             |
 | **Hosting**               | [Netlify](https://netlify.com)                   |
 | **Static Site Generator** | [Astro](https://astro.build/)                    |
+
+### Legacy tools
+
+| Function                  | Service                                          |
+| :------------------------ | :----------------------------------------------- |
+| **Static Site Generator**   | [Website done via GoHugo](https://github.com/davidsneighbour/kollitsch.dev/tree/14171a308d5597705a49d382e8ede290f06b8ecc) |
 
 ## Commands
 

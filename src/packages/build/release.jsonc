@@ -1,17 +1,17 @@
 {
   "devDependencies": {
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
     "@davidsneighbour/release-config": "2025.2.3",
     "cz-git": "1.11.2",
-    "ts-node": "10.9.2",
-    "@commitlint/cli": "19.8.1",
-    "@commitlint/config-conventional": "19.8.1"
+    "ts-node": "10.9.2"
   },
   "scripts": {
     "release": "wireit"
   },
   "wireit": {
     "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./scripts/postrelease"
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
     }
   }
 }

@@ -4,6 +4,8 @@
     "@alpinejs/intersect": "3.14.9",
     "@astrojs/alpinejs": "0.4.8",
     "@types/alpinejs": "3.13.11",
+    "@types/alpinejs__collapse": "3.13.4",
+    "@types/alpinejs__intersect": "3.13.4",
     "alpinejs": "3.14.9"
   }
 }

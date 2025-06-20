@@ -7,7 +7,7 @@ tags:
   - "gohugo"
   - "davidsneighbour"
 fmContentType: "blog"
-cover:
+cover: 
   src: "./header.jpg"
   title: "Un-Hugo-ing"
 ---

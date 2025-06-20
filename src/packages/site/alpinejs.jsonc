@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@alpinejs/collapse": "3.14.9",
+    "@alpinejs/intersect": "3.14.9",
+    "@astrojs/alpinejs": "0.4.8",
+    "@types/alpinejs": "3.13.11",
+    "alpinejs": "3.14.9"
+  }
+}

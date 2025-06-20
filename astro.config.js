@@ -1,5 +1,6 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import alpinejs from '@astrojs/alpinejs';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
@@ -31,7 +32,7 @@ export default defineConfig({
     responsiveStyles: true,
   },
   integrations: [
-    // https://github.com/felix-berlin/astro-matomo
+    alpinejs({ entrypoint: '/src/assets/js/theme.ts' }),
     sitemap(),
     pagefind({
       // https://github.com/shishkin/astro-pagefind
@@ -39,6 +40,7 @@ export default defineConfig({
         keepIndexUrl: true,
       },
     }),
+    // https://github.com/felix-berlin/astro-matomo
     matomo({
       debug: false, // Only load in production
       disableCookies: true,

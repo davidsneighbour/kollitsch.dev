@@ -58,9 +58,3 @@ Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/is
 * I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open source programs and scripts.
 * Changes to the website and setup that are important are documented in the [release notes on GitHub](https://github.com/davidsneighbour/kollitsch.dev/releases).
 * The versioning follows a more or less semantic versioning scheme. Patch releases are for bug fixes and content updates, minor releases are for new features. Major releases are done once a year --- it's a personal website after all ;]
-
-<style>
-    table {
-        width: 100%;
-    }
-</style>

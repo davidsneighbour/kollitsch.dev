@@ -9,6 +9,9 @@ bak
 .lychee.report.md
 .lycheecache
 
+# Release scripts
+changes.md
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,astro,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,astro,node
 

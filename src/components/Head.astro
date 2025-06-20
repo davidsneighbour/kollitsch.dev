@@ -2,10 +2,21 @@
 // @todo refactor
 
 import type { CollectionEntry } from 'astro:content';
+import { createDefaultPost } from '@utils/createDefaultPost';
 interface Props {
   post: CollectionEntry<'blog'>;
 }
-const { post } = Astro.props as Props;
+let { post } = Astro.props as Props;
+
+// if (!post) {
+//   console.log(Astro.props);
+//   console.log(post);
+//   throw new Error('Post data is required for Head component');
+// }
+
+if (!post?.data) {
+  post = { ...post, data: createDefaultPost(post) };
+}
 
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from 'astro:transitions';
@@ -21,12 +32,8 @@ import faviconSvgSrc from '@assets/favicon/favicon.svg'
 
 const metaData = metaDataRaw as MetaConfig;
 
-const hasLiteYoutube =
-  post &&
-  typeof post === 'object' &&
-  typeof post.data === 'object' &&
-  Array.isArray(post.data.options?.head?.components) &&
-  post.data.options.head.components.includes('lite-youtube');
+import { hasComponent } from '@utils/hasComponent';
+const hasLiteYoutube = hasComponent(post, 'lite-youtube');
 
 // const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
@@ -48,18 +55,18 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 <title>{post.data.title}</title>
 
 <base href={baseUrl} target="_self" />
-<meta name="description" content={post.data.description} />
+<meta name="description" content={post.data.description || "missing"} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta property="og:title" content={post.data.title} />
+<meta property="og:title" content={post.data.title || "missing"} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:description" content={post.data.description} />
+<meta property="og:description" content={post.data.description || "missing"} />
 <!-- <meta property="og:image" content={post.data.image} /> -->
 <meta property="og:image:alt" content="" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={post.data.title} />
-<meta property="twitter:description" content={post.data.description} />
+<meta property="twitter:title" content={post.data.title || "missing"} />
+<meta property="twitter:description" content={post.data.description || "missing"} />
 <!-- <meta property="twitter:image" content={post.data.image} /> -->
 
 <link rel="icon" href="/favicon.ico" sizes="32x32" />

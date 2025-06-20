@@ -168,6 +168,32 @@ async function cleanFrontmatter(): Promise<void> {
           changed = true;
         }
 
+        // Sanitize and validate tags
+        if (Array.isArray(data.tags)) {
+          const originalTags = [...data.tags];
+          const validTags: string[] = [];
+          const invalidTags: string[] = [];
+
+          data.tags = data.tags
+            .map(tag => String(tag).trim().toLowerCase())
+            .filter(tag => {
+              const isValid = /^[a-z0-9_-]+$/.test(tag);
+              if (!isValid) invalidTags.push(tag);
+              else validTags.push(tag);
+              return true; // keep all tags, even invalid — just log them
+            });
+
+          if (JSON.stringify(originalTags) !== JSON.stringify(data.tags)) {
+            changed = true;
+          }
+
+          if (invalidTags.length > 0) {
+            console.warn(
+              `⚠️  Invalid tag slugs in ${file}:\n  → ${invalidTags.join(', ')}`,
+            );
+          }
+        }
+
         const updated = stringifyWithQuotedStrings(parsed.content, data);
 
         if (raw !== updated && changed) {
@@ -179,7 +205,7 @@ async function cleanFrontmatter(): Promise<void> {
           await fs.writeFile(file, updated, 'utf-8');
           console.log(`✅ Updated frontmatter in: ${file}`);
         } else {
-          console.log(`ℹ️  No changes for: ${file}`);
+          //console.log(`ℹ️  No changes for: ${file}`);
         }
       } catch (err) {
         console.error(`❌ Failed to process ${file}:`, err);

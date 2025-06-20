@@ -1,0 +1,56 @@
+<div>
+  <div class="flex justify-between">
+    <label for="email" class="block text-sm/6 font-medium text-gray-900"
+      >Email</label
+    >
+    <span class="text-sm/6 text-gray-500" id="email-optional">Optional</span>
+  </div>
+  <div class="mt-2">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+      placeholder="you@example.com"
+      aria-describedby="email-optional"
+    />
+  </div>
+</div>
+
+with leading icon
+
+<div>
+  <label for="email" class="block text-sm/6 font-medium text-gray-900"
+    >Email</label
+  >
+  <div class="mt-2 grid grid-cols-1">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
+      placeholder="you@example.com"
+    />
+    <svg
+      class="pointer-events-none col-start-1 row-start-1 ml-3 size-5 self-center text-gray-400 sm:size-4"
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      aria-hidden="true"
+      data-slot="icon"
+    >
+      <path
+        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
+      ></path>
+      <path
+        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+overlapping label
+
+<div class="relative">
+  <label for="name" class="absolute -top-2 left-2 inline-block rounded-lg bg-white px-1 text-xs font-medium text-gray-900">Name</label>
+  <input type="text" name="name" id="name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Jane Smith" />
+</div>

@@ -2,7 +2,11 @@ import { defineCollection, z } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 
 // Reusable options schema
-export const allowedComponents = ['lite-youtube', 'color-grid'] as const;
+export const allowedComponents = [
+  'lite-youtube',
+  'color-grid',
+  'date-diff',
+] as const;
 const optionsSchema = z.object({
   head: z.object({
     components: z.array(z.enum(allowedComponents)),

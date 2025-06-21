@@ -6,6 +6,7 @@ import siteInfo from '@data/setup.json';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import { generateUniqueHtmlId } from '@utils/helpers';
 import navData from '@data/navigation.json';
+import FooterTitle from './FooterTitle.astro';
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
@@ -83,6 +84,8 @@ const currentYear = new Date().getFullYear().toString();
 
   </footer>
 </section>
+
+<FooterTitle />
 
 <script is:inline define:vars={{ footerYearId }}>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();

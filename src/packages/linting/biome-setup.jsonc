@@ -1,8 +1,7 @@
 {
-  // this MUST NOT be named biome.jsonc, as it will conflict with the biome configuration
   "dependencies": {},
   "devDependencies": {
-    "@biomejs/biome": "2.0.0"
+    "@biomejs/biome": "2.0.2"
   },
   "scripts": {
     "biome:check": "biome check",

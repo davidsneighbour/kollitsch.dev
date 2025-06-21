@@ -1,7 +1,7 @@
-import { blogSchema } from './src/content.config.js';
+import { blogSchema } from 'src/content.config.js';
 import type { z } from 'astro:content';
 
-type BlogPost = z.infer<ReturnType<typeof blogSchema>>;
+type BlogPost = z.infer<typeof blogSchema>;
 
 /**
  * Create a fully valid BlogPost object with defaults,
@@ -11,10 +11,10 @@ type BlogPost = z.infer<ReturnType<typeof blogSchema>>;
  * @returns Valid BlogPost object based on schema
  */
 export function createDefaultPost(input: unknown = {}): BlogPost {
-  const fallback: Partial<z.input<ReturnType<typeof blogSchema>>> = {
+  const fallback: Partial<z.input<typeof blogSchema>> = {
     title: 'Untitled Post',
     description: 'No description available.',
-    date: new Date().toISOString(),
+    date: new Date(),
     tags: [],
     draft: false,
     featured: false,

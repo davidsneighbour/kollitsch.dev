@@ -1,7 +1,3 @@
-import type { CollectionEntry } from 'astro:content';
-
-type BlogPost = CollectionEntry<'blog'>;
-
 // literal component values as defined in your schema
 const allowedComponents = ['lite-youtube', 'color-grid', 'date-diff'] as const;
 type ComponentName = (typeof allowedComponents)[number];
@@ -47,7 +43,7 @@ type ComponentName = (typeof allowedComponents)[number];
  */
 export function hasComponent(
   post: Record<string, any> | undefined,
-  name: string,
+  name: ComponentName,
   path: string = 'data.options.head.components',
 ): boolean {
   if (!post) return false;

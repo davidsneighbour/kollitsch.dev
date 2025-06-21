@@ -13,7 +13,8 @@
       "@scripts/*": ["src/scripts/*"],
       "@test/*": ["src/test/*"],
       "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@contentconfig": ["src/content.config.ts"]
     },
     "plugins": [
       {

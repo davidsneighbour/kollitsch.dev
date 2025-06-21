@@ -2,16 +2,11 @@
 
 import type { CollectionEntry } from 'astro:content';
 import { createDefaultPost } from '@utils/createDefaultPost';
+
 interface Props {
   post: CollectionEntry<'blog'>;
 }
 let { post } = Astro.props as Props;
-
-// if (!post) {
-//   console.log(Astro.props);
-//   console.log(post);
-//   throw new Error('Post data is required for Head component');
-// }
 
 if (!post?.data) {
   post = { ...post, data: createDefaultPost(post) };
@@ -22,36 +17,21 @@ import { ClientRouter } from 'astro:transitions';
 // import { getEntry } from 'astro:content';
 import ThemeManager from '@components/ThemeManager.astro';
 
-import type { MetaConfig } from '../types/MetaConfig';
+type MetaConfig = {
+  name: Record<string, string>;
+  httpEquiv: Record<string, string>;
+};
+
 import metaDataRaw from '@data/meta.json';
-
-import { getImage } from 'astro:assets'
-import faviconSrc from '@assets/favicon/favicon.png'
-import faviconSvgSrc from '@assets/favicon/favicon.svg'
-
 const metaData = metaDataRaw as MetaConfig;
 
-import { hasComponent } from '@utils/hasComponent';
-const hasLiteYoutube = hasComponent(post, 'lite-youtube');
-const hasColorGrid = hasComponent(post, 'color-grid');
-const hasDatediff = hasComponent(post, 'date-diff');
-console.log('hasDatediff', hasDatediff);
-console.log('hasLiteYoutube', hasLiteYoutube);
-console.log('hasColorGrid', hasColorGrid);
-
+// individual head components
+import WebComponents from './head/WebComponents.astro';
+import FontsPreload from './head/FontsPreload.astro';
+import Favicon from './head/Favicon.astro';
 
 // const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
-
-const appleTouchIcon = await getImage({
-  src: faviconSrc,
-  attributes: {
-    width: 180,
-    height: 180,
-  },
-  format: 'png'
-})
-const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 
 ---
 
@@ -61,7 +41,6 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 
 <base href={baseUrl} target="_self" />
 <meta name="description" content={post.data.description || "missing"} />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta property="og:title" content={post.data.title || "missing"} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
@@ -74,12 +53,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 <meta property="twitter:description" content={post.data.description || "missing"} />
 <!-- <meta property="twitter:image" content={post.data.image} /> -->
 
-<link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
-<link rel="manifest" href="/manifest.json" />
-<link rel="apple-touch-icon" href={appleTouchIcon.src} />
 
-<ClientRouter />
 
 <ThemeManager defaultTheme="auto" />
 
@@ -97,58 +71,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-{/* font preloading, no need to preload changa italic */}
-<link
-  rel="preload"
-  href="/fonts/changa/changaone-regular-webfont.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/exo/normal.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/exo/italic.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/jetbrainsmono/JetBrainsMono[wght].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-
-{hasLiteYoutube && (
-  <>
-    <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
-    <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline></script>
-  </>
-)}
-
-{hasColorGrid && (
-  <>
-    <script src="/vendor/color-grid.js" async is:inline></script>
-  </>
-)}
-
-{hasDatediff && (
-  <>
-    <script src="/vendor/datediff.js" async is:inline></script>
-  </>
-)}
+<ClientRouter />
+<Favicon />
+<FontsPreload />
+<WebComponents post={post} />

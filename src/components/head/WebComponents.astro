@@ -1,0 +1,44 @@
+---
+import { hasComponent } from '@utils/hasComponent';
+const { post } = Astro.props;
+
+const hasLiteYoutube = hasComponent(post, 'lite-youtube');
+const hasColorGrid = hasComponent(post, 'color-grid');
+const hasDatediff = hasComponent(post, 'date-diff');
+
+console.log('hasDatediff', hasDatediff);
+console.log('hasLiteYoutube', hasLiteYoutube);
+console.log('hasColorGrid', hasColorGrid);
+---
+
+{
+  hasLiteYoutube && (
+    <>
+      <link
+        rel="stylesheet"
+        href="/vendor/lite-youtube-embed/lite-yt-embed.css"
+      />
+      <script
+        src="/vendor/lite-youtube-embed/lite-yt-embed.js"
+        async
+        is:inline
+      />
+    </>
+  )
+}
+
+{
+  hasColorGrid && (
+    <>
+      <script src="/vendor/color-grid.js" async is:inline />
+    </>
+  )
+}
+
+{
+  hasDatediff && (
+    <>
+      <script src="/vendor/datediff.js" async is:inline />
+    </>
+  )
+}

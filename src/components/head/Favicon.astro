@@ -1,0 +1,21 @@
+---
+import { getImage } from 'astro:assets';
+import faviconSrc from '@assets/favicon/favicon.png';
+import faviconSvgSrc from '@assets/favicon/favicon.svg';
+
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  attributes: {
+    width: 180,
+    height: 180,
+  },
+  format: 'png',
+});
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
+---
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
+<link rel="manifest" href="/manifest.json" />
+<link rel="apple-touch-icon" href={appleTouchIcon.src} />

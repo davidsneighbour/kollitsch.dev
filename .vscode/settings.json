@@ -3,7 +3,7 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable", // 👀
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 1000,
   "files.autoSaveWhenNoErrors": false,
   "editor.codeActionsOnSave": {
@@ -24,7 +24,7 @@
   "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
   "files.associations": {
     "*.astro": "astro",
-    "*.css": "tailwindcss",
+    "*.css": "tailwindcss"
   },
 
   // PLUGIN: prettier setup

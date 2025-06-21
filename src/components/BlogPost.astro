@@ -28,7 +28,7 @@ const content = post.rendered?.html ?? '';
     <Fragment set:html={content} />
     <PaginationSingle post={post} />
     <Giscus post={post} />
-    <SchemaBlogPost post={post} />
     <Meta post={post} />
   </div>
+  <SchemaBlogPost post={post} />
 </Article>

@@ -27,5 +27,6 @@
   },
   "repository": {
     "url": "https://github.com/davidsneighbour/kollitsch.dev"
-  }
+  },
+  "timezone": "Asia/Bangkok"
 }

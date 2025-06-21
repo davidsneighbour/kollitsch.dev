@@ -32,7 +32,3 @@ Two is a company, three's a crowd. … But three is also a magic number. So here
 * Explore the basics of SEO with Google's newly rewritten and shortened [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), covering key strategies for improving site visibility in Google Search, including optimizing content and ensuring mobile-friendliness.
 
 * Delve into the importance of web accessibility with the W3C's guide on [Building the Business Case for Web Accessibility](https://www.w3.org/WAI/business-case/). This resource outlines the benefits, including enhanced brand reputation, broader market reach, and reduced legal risks, providing a strong argument for adopting accessible web practices.
-
-### What you missed
-
-{{< tagnavigation "kurzschnitte" >}}

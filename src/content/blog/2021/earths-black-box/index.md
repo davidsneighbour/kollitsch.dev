@@ -15,14 +15,10 @@ cover: "./earths-black-box.jpg"
 
 It looks like earths climate catastrophe now has it's own black box.
 
-{{< quote2 source="Earth's Black Box" src="<https://www.earthsblackbox.com/>" >}}
+> [Earth's Black Box](https://www.earthsblackbox.com/) will record every step we take towards this catastrophe. Hundreds of data sets, measurements and interactions relating to the health of our planet will be continuously collected and safely stored for future generations.
+>
+> The purpose of the device is to provide an unbiased account of the events that lead to the demise of this planet, hold accountability for future generations, and inspire urgent action.
 
-Earth's Black Box will record every step we take towards this catastrophe. Hundreds of data sets, measurements and interactions relating to the health of our planet will be continuously collected and safely stored for future generations.
-
-The purpose of the device is to provide an unbiased account of the events that lead to the demise of this planet, hold accountability for future generations, and inspire urgent action.
-
-{{< /quote2 >}}
-
-The building, four hours away from the next human settlement on the west coast of Tasmania in Australia, will be filled with harddrives that collect tweets, reports, news and so on about clima relevant topics. It also logs meterological and climate change relevant data like carbon dioxide levels, temperatures and so on.
+The building, four hours away from the next human settlement on the west coast of Tasmania in Australia, will be filled with hard drives that collect tweets, reports, news, and so on about clima relevant topics. It also logs meterological and climate change relevant data like carbon dioxide levels, temperatures, and so on.
 
 The website already shows incoming log messages and the building is planned to be finished "early 2022". When it's finished the developers expect it to be able to collect 40 to 50 years of data.

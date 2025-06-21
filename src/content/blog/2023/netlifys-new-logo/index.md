@@ -22,4 +22,4 @@ The Netlify Spark, as the new logo (see the header image) is called, is more tha
 
 > The Netlify Spark is more than a new logo: it’s the next iteration of Netlify’s story, your story, and the story of everyone building for the web.
 
-[Read their blog post about the new logo {{< icon "box-arrow-up-right" >}}](https://www.netlify.com/blog/netlify-new-logo/).
+[Read their blog post about the new logo](https://www.netlify.com/blog/netlify-new-logo/).

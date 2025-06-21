@@ -57,7 +57,3 @@ It's been a minute—so let's call this the slightly-belated-but-still-worth-it 
 * In their latest release, ["Nebulous Nights (An Ambient Excursion into Profound Mysteries)"](https://www.youtube.com/watch?v=t6yxvAtKASE), Röyksopp presents an ethereal auditory journey that delves deep into ambient soundscapes. This track, accompanied by an official visualizer, offers listeners a serene and immersive experience, showcasing the duo's signature blend of electronic and atmospheric elements. Released last month under the Dog Triumph label, "Nebulous Nights" continues Röyksopp's exploration of profound musical themes.
 
 <lite-youtube videoid="t6yxvAtKASE" />
-
-## What you missed before
-
-{{< tagnavigation "kurzschnitte" >}}

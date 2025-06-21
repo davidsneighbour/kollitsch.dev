@@ -1,6 +1,6 @@
 ---
 
-import '@styles/global.css';
+import '@assets/styles/global.css';
 
 import Head from '@components/Head.astro';
 import Breakpoints from '@components/development/Breakpoints.astro';
@@ -12,7 +12,7 @@ const htmlClasses = [
   'scheme-light',
   'dark:scheme-dark',
   'scroll-smooth',
-  'bg-white dark:bg-zinc-950',
+  'bg-zinc-50 dark:bg-zinc-950',
   'h-full',
   extraHtmlClasses,
 ]
@@ -22,13 +22,13 @@ const htmlClasses = [
 // body classes
 const bodyClasses = [
   'min-h-screen',
-  'overflow-y-scroll',
-  'bg-white dark:bg-zinc-950',
-  // 'h-full', // issues with sticky navbar
+  'overflow-y-scroll', // always show scrollbar to prevent layout shift
+  'bg-zinc-50 dark:bg-zinc-950',
   extraBodyClasses,
 ]
   .filter(Boolean)
   .join(' ');
+
 ---
 
 <!doctype html>

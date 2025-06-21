@@ -1,0 +1,26 @@
+---
+// for /blog/1/, /blog/2/, /blog/3/ (pagination)
+
+import BlogPost from '@components/BlogPost.astro';
+import Layout from '@layouts/MarkdownPage.astro';
+import { getCollection } from 'astro:content';
+
+export const getStaticPaths = async () => {
+  const allPosts = await getCollection('slash');
+  return allPosts
+    .map(post => {
+      return {
+        params: { slug: post.id },
+        props: { post },
+      };
+    })
+    .filter(Boolean);
+};
+
+const { post } = Astro.props;
+console.log('post', post);
+---
+
+<Layout post={post}>
+  <BlogPost post={post} />
+</Layout>

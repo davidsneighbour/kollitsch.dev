@@ -4,6 +4,11 @@
   },
   "MD013": false,
   "MD033": {
-    "allowed_elements": ["lite-youtube", "color-grid", "date-diff"]
+    "allowed_elements": [
+      "lite-youtube",
+      "color-grid",
+      "date-diff",
+      "kbd"
+    ]
   }
 }

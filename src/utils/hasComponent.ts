@@ -18,6 +18,7 @@ type ComponentName = (typeof allowedComponents)[number];
  *
  * @param post - The `post` object from Astro.props. Can be undefined or unstructured.
  * @param name - The name of the component to check for (e.g. 'lite-youtube').
+ * @param path - A dot-separated path string to the array (default: 'data.options.head.components').
  * @returns `true` if the named component exists in the post options, `false` otherwise.
  *
  * @example
@@ -37,10 +38,29 @@ type ComponentName = (typeof allowedComponents)[number];
  *     components:
  *       - "lite-youtube"
  * ---
+ *
+ * @example
+ * hasComponent(post, 'lite-youtube');
+ * // true if in post.data.options.head.components
+ * hasComponent(post, 'custom-header', 'meta.head.components');
+ * // true if in post.meta.head.components
  */
 export function hasComponent(
-  post: BlogPost | undefined,
-  name: ComponentName,
+  post: Record<string, any> | undefined,
+  name: string,
+  path: string = 'data.options.head.components',
 ): boolean {
-  return !!post?.data?.options?.head?.components?.includes(name);
+  if (!post) return false;
+
+  const parts = path.split('.');
+  let current: any = post;
+
+  for (const part of parts) {
+    if (typeof current !== 'object' || current === null || !(part in current)) {
+      return false;
+    }
+    current = current[part];
+  }
+
+  return Array.isArray(current) && current.includes(name);
 }

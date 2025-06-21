@@ -1,68 +1,17 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import siteinfo from '@data/setup.json';
-import { resolveImagePath } from '@utils/resolveImagePath';
-import { resolveAstroImage } from '@utils/resolveAstroImage';
 import type { ImageMetadata } from 'astro';
+
+import { resolveCoverImage, resolveImagePath, resolveAstroImage } from '@utils/utilities';
 import { Image } from 'astro:assets';
 
-import MarkdownIt from 'markdown-it';
-const md = new MarkdownIt();
-
-export interface Props {
+interface Props {
   post: CollectionEntry<'blog'>;
   classes?: string;
 }
 const { post, classes = 'w-full max-w-full h-auto mb-4' }: Props = Astro.props;
 
-export interface CoverImage {
-  src: string;
-  alt: string;
-  title?: string | undefined;
-}
-
-// Utility: strip markdown/HTML from string
-function stripMarkup(str: string): string {
-  return str
-    .replace(/[#_*~`>[\]()\-!]/g, '')
-    .replace(/<\/?[^>]+(>|$)/g, '');
-}
-
-function resolveCoverImage(): CoverImage {
-  const cover = post.data.cover;
-  let src;
-  let title;
-  let alt;
-
-  // @todo we don't need to handle string covers because the schema already returns an object
-  if (typeof cover === 'string') {
-    src = cover;
-    title = post.data.title;
-  } else {
-    src = cover?.src;
-    title = cover?.title;
-  }
-
-  if (!src) {
-    src = siteinfo.fallback;
-    alt = 'Default header image';
-  }
-
-  if (!title && src !== siteinfo.fallback) {
-    console.warn(`[PostImage] No title set for image in post "${post.id}".`);
-  }
-
-  // alt: markdown/HTML stripped, fallback to title or generic
-  alt = stripMarkup(alt ?? title ?? 'Image');
-
-  // @todo generate a default title if none is provided or skip this step
-  title = md.renderInline(title ?? "");
-
-  return { src, alt, title };
-
-}
-
-const coverImage = resolveCoverImage();
+const coverImage = resolveCoverImage(post);
 const imagePath = resolveImagePath(coverImage.src, post.id);
 const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
 

@@ -1,13 +1,14 @@
 ---
 import setup from '@data/setup.json';
-const { post } = Astro.props;
+import { formatISO8601Local } from '@utils/datetime';
 
+const { post } = Astro.props;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: post.title,
-  description: post.description,
-  keywords: post.tags,
+  headline: post.data.title,
+  description: post.data.description,
+  keywords: post.data.tags,
   author: {
     '@type': 'Person',
     name: setup.author.name,
@@ -16,9 +17,11 @@ const schema = {
   /**
    * @todo fix the date formatting
    */
-  ...(post.date && { datePublished: post.date.toISOString().substring(0, 10) }),
-  ...(post.updateDate && {
-    dateModified: post.updateDate.toISOString().substring(0, 10),
+  ...(post.data.date && {
+    datePublished: formatISO8601Local(post.data.date)
+  }),
+  ...(post.data.updateDate && {
+    dateModified: formatISO8601Local(post.data.updateDate)
   }),
 };
 ---

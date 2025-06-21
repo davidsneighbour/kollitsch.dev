@@ -19,6 +19,50 @@
   "frontMatter.taxonomy.slugTemplate": "{{title}}",
   "frontMatter.data.files": [
     {
+      "id": "categories",
+      "title": "Categories",
+      "labelField": "label",
+      "file": "[[workspace]]/src/content/categories.json",
+      "schema": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "description",
+          "image",
+          "icon",
+          "class"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The category's slug."
+          },
+          "label": {
+            "type": "string",
+            "description": "The category's label."
+          },
+          "description": {
+            "type": "string",
+            "multiline": true,
+            "description": "The introduction for this category."
+          },
+          "image": {
+            "type": "string",
+            "description": "The filename of the category image within the `src/assets/images/categories` directory."
+          },
+          "icon": {
+            "type": "string",
+            "description": "Name of the category icon."
+          },
+          "class": {
+            "type": "string",
+            "description": "CSS class for the category."
+          }
+        }
+      }
+    },
+    {
       "id": "tags",
       "title": "Tags",
       "labelField": "label",

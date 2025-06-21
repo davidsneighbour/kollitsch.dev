@@ -1,0 +1,29 @@
+@layer base {
+  body {
+    @apply font-exo2 text-base leading-[1.4] font-light;
+
+    @apply text-zinc-600;
+    @apply dark:text-zinc-200;
+
+    @apply bg-zinc-50;
+    @apply dark:bg-zinc-950;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-changa;
+
+    /* Changa One is only available via weight 400 */
+    @apply font-normal;
+  }
+
+  a {
+    @apply text-red-700;
+    @apply hover:text-orange-700;
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}

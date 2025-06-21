@@ -65,7 +65,7 @@
     "@astrojs/alpinejs": "0.4.8",
     "@astrojs/netlify": "6.4.0",
     "@axe-core/playwright": "4.10.2",
-    "@biomejs/biome": "2.0.2",
+    "@biomejs/biome": "2.0.4",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@davidsneighbour/browserslist-config": "^2025.2.3",

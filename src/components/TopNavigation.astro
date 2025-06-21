@@ -11,7 +11,7 @@ import ProgressBar from '@components/Progress.astro';
   <div
     class="flex flex-wrap items-center gap-4 bg-zinc-100 text-zinc-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-zinc-50"
   >
-    <div class="order-1 flex-1" id="sitetitle">
+    <div class="order-1 flex-1" id="navbar-sitetitle">
       <a
         id="navbar-brand"
         href={getHomepageUrl()}
@@ -98,7 +98,7 @@ import ProgressBar from '@components/Progress.astro';
   toggleNavVisibility();
 
   // hide/show sticky brand based on scroll position
-  const placeholder = document.querySelector('#sitetitle');
+  const placeholder = document.querySelector('h1#sitetitle');
   const stickyBrand = document.querySelector('#navbar-brand');
   if (!placeholder || !stickyBrand) {
     console.warn('Placeholder or sticky brand element not found.');

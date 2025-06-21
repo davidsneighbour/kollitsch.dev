@@ -10,6 +10,10 @@ tags:
   - "css"
   - "colors"
   - "100daystooffload"
+options:
+  head:
+    components:
+      - "color-grid"
 unsplash:
   imageid: "abcdefghijk"
 fmContentType: "blog"
@@ -30,27 +34,10 @@ When RGB or HEX values are preferred for consistent color representation online 
 | HSV | 22°, 40%, 100% |
 | CMYK | 0%, 25%, 40%, 0% |
 
-<div class="container overflow-hidden text-center mb-4 px-0">
-  <div class="row gx-2">
-    <div class="col">
-      <div class="border border-secondary-subtle px-2 py-4" style="background-color: #ffbe98">
-        <span class="text-dark">#ffbe98</span>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="border border-secondary-subtle px-2 py-4" style="background-color: rgb(255, 190, 152)">
-        <span class="text-dark">rgb(255, 190, 152)</span>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="border border-secondary-subtle px-2 py-4" style="background-color: hsl(22deg, 100%, 80%)">
-        <span class="text-dark">hsl(22deg, 100%, 80%)</span>
-      </div>
-    </div>
-
-  </div>
-</div>
+<color-grid>
+#ffbe98
+rgb(255, 190, 152)
+hsl(22deg, 100%, 80%)
+</color-grid>
 
 Its soothing and calming colors certainly look nice on my website ;)

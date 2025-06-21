@@ -34,6 +34,9 @@ const metaData = metaDataRaw as MetaConfig;
 
 import { hasComponent } from '@utils/hasComponent';
 const hasLiteYoutube = hasComponent(post, 'lite-youtube');
+const hasColorGrid = hasComponent(post, 'color-grid');
+console.log('hasLiteYoutube', hasLiteYoutube);
+console.log('hasColorGrid', hasColorGrid);
 
 // const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
@@ -133,5 +136,11 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   <>
     <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
     <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline></script>
+  </>
+)}
+
+{hasColorGrid && (
+  <>
+    <script src="/vendor/color-grid.js" async is:inline></script>
   </>
 )}

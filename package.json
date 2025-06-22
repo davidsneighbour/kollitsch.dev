@@ -160,6 +160,7 @@
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit",
     "lint:vale": "vale --config='src/config/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "postprepare": "wireit",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
@@ -168,6 +169,7 @@
     "test": "vitest run",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
+    "test:postinstall": "npx playwright install",
     "update": "wireit",
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade"
@@ -231,6 +233,11 @@
     },
     "lint:templates": {
       "command": "bin/hugo/lint-templates"
+    },
+    "postprepare": {
+      "dependencies": [
+        "test:postinstall"
+      ]
     },
     "release": {
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"

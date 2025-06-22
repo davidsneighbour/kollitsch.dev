@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "postprepare": "wireit"
+  },
+  "wireit": {
+    // https://docs.npmjs.com/cli/v8/using-npm/scripts
+    "postprepare": {
+      "dependencies": ["test:postinstall"]
+    }
+  }
+}

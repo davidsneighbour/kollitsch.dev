@@ -1,22 +1,31 @@
 ---
-title: "Kurzschnitte II - 6ix"
-linkTitle: "Kurzschnitte II - Pt. 6"
-description: "The sixth edition of Kurzschnitte II. Did you know that six is the smallest positive integer which is neither a square number nor a prime number? Now you know."
-summary: "The sixth edition of Kurzschnitte II. Did you know that six is the smallest positive integer which is neither a square number nor a prime number? Now you know."
-date: "2024-09-20T17:13:27+07:00"
+title: Kurzschnitte II - 6ix
+linkTitle: Kurzschnitte II - Pt. 6
+description: >-
+  The sixth edition of Kurzschnitte II. Did you know that six is the smallest
+  positive integer which is neither a square number nor a prime number? Now you
+  know.
+summary: >-
+  The sixth edition of Kurzschnitte II. Did you know that six is the smallest
+  positive integer which is neither a square number nor a prime number? Now you
+  know.
+date: '2024-09-20T17:13:27+07:00'
 resources:
-  - title: "Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 categories:
-  - "kurzschnitte"
+  - kurzschnitte
 tags:
-  - "kurzschnitte"
-  - "bookmarks"
-  - "100daystooffload"
+  - kurzschnitte
+  - bookmarks
+  - 100daystooffload
 unsplash:
-  imageid: "UcEzgZ6k19o"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: UcEzgZ6k19o
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 Welcome to the sixth edition of Kurzschnitte II. Did you know that six is the smallest positive integer which is neither a square number nor a prime number? Now you know.

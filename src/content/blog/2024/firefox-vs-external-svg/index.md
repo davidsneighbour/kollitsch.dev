@@ -1,23 +1,32 @@
 ---
-title: "Firefox vs. external SVGs"
-description: "While I was working on my Content Security Policies (CSP) last week I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. "
-summary: "While I was working on my Content Security Policies (CSP) last week I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. "
-date: "2024-09-22T17:10:11+07:00"
+title: Firefox vs. external SVGs
+description: >-
+  While I was working on my Content Security Policies (CSP) last week I found
+  some of my pages hitting a block for my own pages on `default-src 'none'`.
+  After some digging, I found that this error only came up on Firefox browsers. 
+summary: >-
+  While I was working on my Content Security Policies (CSP) last week I found
+  some of my pages hitting a block for my own pages on `default-src 'none'`.
+  After some digging, I found that this error only came up on Firefox browsers. 
+date: '2024-09-22T17:10:11+07:00'
 resources:
-  - title: "Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via [Unsplash](https://unsplash.com/)"
-    src: "simone-dinoia-L9JMv_ACMK0-unsplash.jpg"
-    name: "header"
-  - title: "default-src 'none' and Firefox"
-    src: "default-src-report.png"
+  - title: >-
+      Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via
+      [Unsplash](https://unsplash.com/)
+    src: simone-dinoia-L9JMv_ACMK0-unsplash.jpg
+    name: header
+  - title: default-src 'none' and Firefox
+    src: default-src-report.png
 tags:
-  - "csp"
-  - "howto"
-  - "svg"
-  - "100daystooffload"
+  - csp
+  - howto
+  - svg
+  - 100daystooffload
 unsplash:
-  imageid: "abcdefghijk"
-fmContentType: "blog"
-cover: "./simone-dinoia-L9JMv_ACMK0-unsplash.jpg"
+  imageid: abcdefghijk
+fmContentType: blog
+cover: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
+publisher: rework
 ---
 
 While I was working on my Content Security Policies (CSP) [last week](https://github.com/davidsneighbour/kollitsch.dev/issues/1211) I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. 

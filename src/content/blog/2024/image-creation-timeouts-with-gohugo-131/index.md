@@ -1,17 +1,20 @@
 ---
-title: "Image creation timeouts with GoHugo v0.131.0"
-description: "Image hashing now uses xxHash, speeding up image processing but may cause timeouts on first build."
-date: "2024-08-04T19:47:01+07:00"
+title: Image creation timeouts with GoHugo v0.131.0
+description: >-
+  Image hashing now uses xxHash, speeding up image processing but may cause
+  timeouts on first build.
+date: '2024-08-04T19:47:01+07:00'
 resources:
-  - title: "GoHugo v0.131.0"
-    src: "hugo-0.131.0.png"
+  - title: GoHugo v0.131.0
+    src: hugo-0.131.0.png
 tags:
-  - "gohugo"
-  - "tag2"
-  - "tag3"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./hugo-0.131.0.png"
+  - gohugo
+  - tag2
+  - tag3
+  - 100daystooffload
+fmContentType: blog
+cover: ./hugo-0.131.0.png
+publisher: rework
 ---
 
 In Hugo v0.131.0, there's an exciting update: the image hashing process now uses `xxHash`, which is much speedier compared to the old MD5 hashing. It trims down those lengthy processed image filenames to a minimum.

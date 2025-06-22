@@ -1,17 +1,22 @@
 ---
-title: "How to delete all files ignored by Git"
-description: "A simple command to clean up your Git repository by removing all files ignored by Git."
-summary: ""
-date: "2024-04-11T19:31:26+07:00"
+title: How to delete all files ignored by Git
+description: >-
+  A simple command to clean up your Git repository by removing all files ignored
+  by Git.
+summary: ''
+date: '2024-04-11T19:31:26+07:00'
 resources:
-  - title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "git"
-  - "gitignore"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - git
+  - gitignore
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 The `.gitignore` file in a Git repository serves as a configuration file that specifies files and directories that Git should --- as the name implies --- ignore. When Git encounters a file or directory listed in .gitignore, it automatically excludes them from being tracked, preventing them from showing up in commands like git status and git add.

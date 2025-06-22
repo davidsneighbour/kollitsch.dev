@@ -1,19 +1,27 @@
 ---
-title: "Fixing installation and plugin errors in LocalWP"
-description: "Guide to installing LocalWP on Ubuntu 24.04, resolving issues with missing packages, PHP versions, and add-ons. Step-by-step solutions for smooth WordPress development."
-summary: "This post provides my journey to installing and troubleshooting LocalWP on Ubuntu 24.04. It covers common issues such as missing packages, errors with older PHP versions, and problems installing add-ons due to `TEMP_DIR` unavailability."
-date: "2024-05-17T16:26:12+07:00"
+title: Fixing installation and plugin errors in LocalWP
+description: >-
+  Guide to installing LocalWP on Ubuntu 24.04, resolving issues with missing
+  packages, PHP versions, and add-ons. Step-by-step solutions for smooth
+  WordPress development.
+summary: >-
+  This post provides my journey to installing and troubleshooting LocalWP on
+  Ubuntu 24.04. It covers common issues such as missing packages, errors with
+  older PHP versions, and problems installing add-ons due to `TEMP_DIR`
+  unavailability.
+date: '2024-05-17T16:26:12+07:00'
 resources:
-  - title: "[LocalWP](https://localwp.com/)"
-    src: "header.png"
+  - title: '[LocalWP](https://localwp.com/)'
+    src: header.png
 tags:
-  - "wordpress"
-  - "localwp"
-  - "ubuntu-2404"
-  - "howto"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.png"
+  - wordpress
+  - localwp
+  - ubuntu-2404
+  - howto
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.png
+publisher: rework
 ---
 
 [Local](https://localwp.com/) (or LocalWP as I like to call the program so I can find it on Google when I need it) is a developer-friendly local development tool for WordPress sites (think of containers for each WordPress website you work on). It allows developers and designers to quickly create, configure, and manage local WordPress environments, offers features such as one-click WordPress installations, flexible environment configurations, and [seamless integrations with two hosting providers](https://localwp.com/connect/) (Flywheel and WP Engine). But also easy export and import to use the websites with other providers.

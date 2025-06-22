@@ -1,20 +1,31 @@
 ---
-title: "How to use GoHugo modules"
-description: "In the world of GoHugo, **modules** serve as the building blocks that allow you to structure and manage your website's components efficiently. A **GoHugo Module** is a self-contained package of resources, such as themes, content, layouts, or even custom features like shortcodes. These modules can be shared across projects, versioned, and updated seamlessly."
-summary: "In the world of GoHugo, **modules** serve as the building blocks that allow you to structure and manage your website's components efficiently. A **GoHugo Module** is a self-contained package of resources, such as themes, content, layouts, or even custom features like shortcodes. These modules can be shared across projects, versioned, and updated seamlessly."
-date: "2024-10-13T18:10:46+07:00"
+title: How to use GoHugo modules
+description: >-
+  In the world of GoHugo, **modules** serve as the building blocks that allow
+  you to structure and manage your website's components efficiently. A **GoHugo
+  Module** is a self-contained package of resources, such as themes, content,
+  layouts, or even custom features like shortcodes. These modules can be shared
+  across projects, versioned, and updated seamlessly.
+summary: >-
+  In the world of GoHugo, **modules** serve as the building blocks that allow
+  you to structure and manage your website's components efficiently. A **GoHugo
+  Module** is a self-contained package of resources, such as themes, content,
+  layouts, or even custom features like shortcodes. These modules can be shared
+  across projects, versioned, and updated seamlessly.
+date: '2024-10-13T18:10:46+07:00'
 resources:
-  - title: "Puzzle pieces"
-    src: "nigel-hoare-pswcXNE8690-unsplash.jpg"
+  - title: Puzzle pieces
+    src: nigel-hoare-pswcXNE8690-unsplash.jpg
 tags:
-  - "gohugo"
-  - "modules"
-  - "how-to"
-  - "100daystooffload"
+  - gohugo
+  - modules
+  - how-to
+  - 100daystooffload
 unsplash:
-  imageid: "pswcXNE8690"
-fmContentType: "blog"
-cover: "./nigel-hoare-pswcXNE8690-unsplash.jpg"
+  imageid: pswcXNE8690
+fmContentType: blog
+cover: ./nigel-hoare-pswcXNE8690-unsplash.jpg
+publisher: rework
 ---
 
 ## What are GoHugo modules

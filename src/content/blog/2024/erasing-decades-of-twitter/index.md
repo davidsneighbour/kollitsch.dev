@@ -1,19 +1,22 @@
 ---
-title: "Erasing ~2 decades of Twitter"
-description: "How I deleted all my tweets, likes, and follows on Twitter."
-date: "2024-03-08T16:03:00+07:00"
+title: Erasing ~2 decades of Twitter
+description: 'How I deleted all my tweets, likes, and follows on Twitter.'
+date: '2024-03-08T16:03:00+07:00'
 resources:
-  - title: "Twitter as imagined by DALL-E (disclaimer: the prompt might have been passive agressive)"
-    src: "header.webp"
-  - title: "Barely Legal"
-    src: "zbarely-legal.jpg"
+  - title: >-
+      Twitter as imagined by DALL-E (disclaimer: the prompt might have been
+      passive agressive)
+    src: header.webp
+  - title: Barely Legal
+    src: zbarely-legal.jpg
 tags:
-  - "twitter"
-  - "howto"
-  - "erasing-social-media"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.webp"
+  - twitter
+  - howto
+  - erasing-social-media
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.webp
+publisher: rework
 ---
 
 A while back (about 15 months ago), I stopped using Twitter. At first, I thought I might delete my account, but then I realized that somewhere along the lines, Twitter has begun to enforce a "you have to have an account to watch this content" rule. So I decided to keep my account but delete all my tweets, retweets, likes, and unfollow people.

@@ -1,17 +1,20 @@
 ---
-title: "Refactoring GoHugo Aliases"
-description: "Refactoring GoHugo aliases to use full function names for better clarity and searchability."
-date: "2024-02-26T18:29:02+07:00"
+title: Refactoring GoHugo Aliases
+description: >-
+  Refactoring GoHugo aliases to use full function names for better clarity and
+  searchability.
+date: '2024-02-26T18:29:02+07:00'
 resources:
-  - src: "header.jpg"
+  - src: header.jpg
 tags:
-  - "refactoring"
-  - "bash"
-  - "cli"
-  - "gohugo"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - refactoring
+  - bash
+  - cli
+  - gohugo
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 GoHugo's documentation recently started to show functions and methods with their "real" name, instead of the alias used in the GoHugo codebase. Did you for instance knew that `apply` is actually `collections.Apply` and `append` is `collections.Append`? Knowing these exact names seems to be important to me, because I think it's easier to understand what functions are connected and what features are available. It also makes the search in the documentation work better. Shorter aliases like `in` were hard to find before, now, knowing it's `collections.In` makes it easier to find..

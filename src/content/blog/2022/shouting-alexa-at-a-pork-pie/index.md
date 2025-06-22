@@ -1,21 +1,22 @@
 ---
-title: "Shouting Alexa at a Pork Pie"
-description: "A really important video about Alexa"
+title: Shouting Alexa at a Pork Pie
+description: A really important video about Alexa
 resources:
-  - title: "A pork pie Alexa"
-    src: "header.png"
+  - title: A pork pie Alexa
+    src: header.png
 tags:
-  - "alexa"
-  - "useful"
-  - "video"
-  - "100daystooffload"
-fmContentType: "blog"
-date: "2022-03-21T20:44:52+07:00"
-cover: "./header.png"
+  - alexa
+  - useful
+  - video
+  - 100daystooffload
+fmContentType: blog
+date: '2022-03-21T20:44:52+07:00'
+cover: ./header.png
 options:
   head:
     components:
-      - "lite-youtube"
+      - lite-youtube
+publisher: rework
 ---
 
 This really important video about Alexa is a great example of how to use the Alexa API to create a skill. Not really, but watch it until the end to understand ;)

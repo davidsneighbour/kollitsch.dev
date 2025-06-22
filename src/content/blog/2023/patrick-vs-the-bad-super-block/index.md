@@ -1,19 +1,24 @@
 ---
-title: "Patrick vs. the Bad Super Block"
-description: "Join me in tackling a superblock error on a 20TB LUKS-encrypted drive in Ubuntu, featuring step-by-step recovery insights and practical tips."
-date: "2023-11-26T17:05:13+07:00"
+title: Patrick vs. the Bad Super Block
+description: >-
+  Join me in tackling a superblock error on a 20TB LUKS-encrypted drive in
+  Ubuntu, featuring step-by-step recovery insights and practical tips.
+date: '2023-11-26T17:05:13+07:00'
 resources:
-  - title: "Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "patrick-versus"
-  - "hardware"
-  - "troubleshooting"
-  - "100daystooffload"
+  - patrick-versus
+  - hardware
+  - troubleshooting
+  - 100daystooffload
 unsplash:
-  imageid: "1iVKwElWrPA"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: 1iVKwElWrPA
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 On my desk, I have a 20TB external hard drive, which is encrypted using [LUKS](https://gitlab.com/cryptsetup/cryptsetup). This is the default on Ubuntu when you choose to encrypt your hard drive during installation or when you format a drive using the Disks utility and choose encryption.

@@ -1,18 +1,24 @@
 ---
-title: "Kurzschnitte II - First Edition"
-description: "A collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy."
-date: "2023-08-14T17:17:16+07:00"
+title: Kurzschnitte II - First Edition
+description: >-
+  A collection of links I came across in recent weeks. These links were
+  noteworthy to me, but I don't want to write a full blog post about them.
+  Instead, I've gathered them here for you to enjoy.
+date: '2023-08-14T17:17:16+07:00'
 resources:
-  - title: "Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "kurzschnitte"
-  - "bookmarks"
-  - "100daystooffload"
+  - kurzschnitte
+  - bookmarks
+  - 100daystooffload
 unsplash:
-  imageid: "UcEzgZ6k19o"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: UcEzgZ6k19o
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 Welcome to the first edition of Kurzschnitte II, a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.

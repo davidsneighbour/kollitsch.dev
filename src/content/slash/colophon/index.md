@@ -3,38 +3,34 @@ title: /colophon
 linktitle: colophon
 url: /colophon
 linkTitle: Colophon
-description: A brief overview of my life, work and things I have done.
+description: 'A brief overview of my life, work and things I have done.'
 type: page
 layout: '@layouts/DefaultPage.astro'
-
 menu:
   footer:
     weight: 990
     params:
       bsicon: info-circle-fill
-
-date: 2022-07-18T17:28:10+07:00
-publishDate: 2022-07-18T17:28:10+07:00
-lastmod: 2022-07-18T19:37:05+07:00
-
+date: 2022-07-18T10:28:10.000Z
+publishDate: 2022-07-18T10:28:10.000Z
+lastmod: 2022-07-18T12:37:05.000Z
 resources:
-  - title: Photo by [Osman Rana](https://unsplash.com/@osmanrana) via
+  - title: >-
+      Photo by [Osman Rana](https://unsplash.com/@osmanrana) via
       [Unsplash](https://unsplash.com/)
     src: header.jpg
-
 build:
   list: never
-
 options:
   head:
     components:
-      - "date-diff"
-
+      - date-diff
 tags:
   - colophon
   - about
   - me
   - personal
+publisher: rework
 ---
 
 ## I currently live in

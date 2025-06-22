@@ -1,18 +1,21 @@
 ---
-title: "Hugo 0.95 - Update Notes"
-linkTitle: "Hugo 0.95"
-description: "Update notes for Hugo 0.95.0 with new features like `break` and `continue` in templates, short-circuiting logic, and Golang 1.18."
-date: "2022-03-16T23:16:55+07:00"
+title: Hugo 0.95 - Update Notes
+linkTitle: Hugo 0.95
+description: >-
+  Update notes for Hugo 0.95.0 with new features like `break` and `continue` in
+  templates, short-circuiting logic, and Golang 1.18.
+date: '2022-03-16T23:16:55+07:00'
 resources:
-  - title: "GoHugo"
-    src: "header.png"
+  - title: GoHugo
+    src: header.png
 tags:
-  - "gohugo"
-  - "notes"
-  - "golang"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.png"
+  - gohugo
+  - notes
+  - golang
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.png
+publisher: rework
 ---
 
 [Hugo 0.95.0](https://github.com/gohugoio/hugo/releases/tag/v0.95.0) brings some really useful features (next to smaller speed increases as always) and upgrades the used [Golang version to 1.18](https://go.dev/blog/go1.18).

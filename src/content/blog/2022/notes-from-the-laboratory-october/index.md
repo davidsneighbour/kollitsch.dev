@@ -1,19 +1,24 @@
 ---
-title: "Notes from the Laboratory: October 2022 (and September too)"
-linkTitle: "Laboratory 2022-10"
-description: "Another monthly report from the depths of the laboratory of kollitsch.dev - October 2022 (and also September 2022, not that you missed it ;)"
-date: "2022-11-01T22:01:40+07:00"
+title: 'Notes from the Laboratory: October 2022 (and September too)'
+linkTitle: Laboratory 2022-10
+description: >-
+  Another monthly report from the depths of the laboratory of kollitsch.dev -
+  October 2022 (and also September 2022, not that you missed it ;)
+date: '2022-11-01T22:01:40+07:00'
 resources:
-  - src: "header.jpg"
-  - title: "Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)"
+  - src: header.jpg
+  - title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
-  - "laboratory"
-  - "notes"
-  - "self-improvement"
-  - "davidsneighbour"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - laboratory
+  - notes
+  - self-improvement
+  - davidsneighbour
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

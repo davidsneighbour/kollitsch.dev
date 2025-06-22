@@ -1,19 +1,26 @@
 ---
-title: "How to Install Flatpak on Ubuntu 24.04"
-description: "In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository."
-summary: "In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository."
-date: "2024-09-28T21:59:41+07:00"
+title: How to Install Flatpak on Ubuntu 24.04
+description: >-
+  In this guide, I'll walk you through the steps I took to set up Flatpak on
+  Ubuntu, allowing to access a wide range of applications from Flathub, the
+  leading Flatpak repository.
+summary: >-
+  In this guide, I'll walk you through the steps I took to set up Flatpak on
+  Ubuntu, allowing to access a wide range of applications from Flathub, the
+  leading Flatpak repository.
+date: '2024-09-28T21:59:41+07:00'
 resources:
-  - title: "All the packages…"
-    src: "getty-images-Hh_4mKRYAPM-unsplash.jpg"
+  - title: All the packages…
+    src: getty-images-Hh_4mKRYAPM-unsplash.jpg
 tags:
-  - "howto"
-  - "ubuntu-2404"
-  - "flatpak"
-  - "quicky"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./getty-images-Hh_4mKRYAPM-unsplash.jpg"
+  - howto
+  - ubuntu-2404
+  - flatpak
+  - quicky
+  - 100daystooffload
+fmContentType: blog
+cover: ./getty-images-Hh_4mKRYAPM-unsplash.jpg
+publisher: rework
 ---
 
 Flatpak offers a modern way for me to install and manage applications across different Linux distributions, providing greater compatibility and security. In this guide, I'll walk you through the steps I took to set up Flatpak on Ubuntu, allowing to access a wide range of applications from Flathub, the leading Flatpak repository. Whether you're using Ubuntu 18.10 or a newer version like 24.04, this straightforward process will help you get up and running with Flatpak quickly. Let's dive into the setup, from installing Flatpak itself to adding the Flathub repository.

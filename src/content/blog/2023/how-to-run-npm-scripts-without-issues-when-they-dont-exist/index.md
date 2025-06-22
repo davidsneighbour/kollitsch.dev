@@ -1,20 +1,26 @@
 ---
-title: "How to run NPM scripts without issues when they don't exist"
-description: "Discover how to seamlessly handle optional npm scripts in various build environments using the --if-present flag. Avoid errors and streamline CI processes."
-date: "2023-11-19T18:15:06+07:00"
+title: How to run NPM scripts without issues when they don't exist
+description: >-
+  Discover how to seamlessly handle optional npm scripts in various build
+  environments using the --if-present flag. Avoid errors and streamline CI
+  processes.
+date: '2023-11-19T18:15:06+07:00'
 resources:
-  - title: "Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "automation"
-  - "npm"
-  - "devops"
-  - "howto"
-  - "100daystooffload"
+  - automation
+  - npm
+  - devops
+  - howto
+  - 100daystooffload
 unsplash:
-  imageid: "oZMUrWFHOB4"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: oZMUrWFHOB4
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 A while back I started consolidating all my release scripts and ran into an issue, that on the second look is quite obvious to solve, but I still wanted to share it with you.

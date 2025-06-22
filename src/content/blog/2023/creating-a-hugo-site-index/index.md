@@ -1,16 +1,21 @@
 ---
-title: "Creating a Hugo site index"
-description: "How to export all the content of your Hugo website to a JSON file, to populate a search index."
-date: "2023-05-23T21:53:48+07:00"
+title: Creating a Hugo site index
+description: >-
+  How to export all the content of your Hugo website to a JSON file, to populate
+  a search index.
+date: '2023-05-23T21:53:48+07:00'
 resources:
-  - title: "Photo by [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "search"
-  - "gohugo"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - search
+  - gohugo
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 I recently cut out a feature from this website that exported all the content to a JSON file, which I then used to populate my Algolia search index. However, I removed this functionality because I found a more efficient search engine for my small blog.

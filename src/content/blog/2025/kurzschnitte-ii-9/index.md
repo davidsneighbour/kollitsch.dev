@@ -1,22 +1,25 @@
 ---
-title: "Kurzschnitte II - a ninth part"
-description: "Interesting links around the web, from web development to fun stuff."
-date: "2025-03-21T18:42:40+07:00"
+title: Kurzschnitte II - a ninth part
+description: 'Interesting links around the web, from web development to fun stuff.'
+date: '2025-03-21T18:42:40+07:00'
 resources:
-  - title: "Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 categories:
-  - "kurzschnitte"
+  - kurzschnitte
 tags:
-  - "kurzschnitte"
-  - "bookmarks"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - kurzschnitte
+  - bookmarks
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
 options:
   head:
     components:
-      - "lite-youtube"
+      - lite-youtube
+publisher: rework
 ---
 
 It's been a minute—so let's call this the slightly-belated-but-still-worth-it edition of interesting links around the web. From playful coding companions to government UFO footage, here are the latest (and overdue) links I was hording in my todo list that are worth checking out.

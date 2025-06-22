@@ -1,21 +1,28 @@
 ---
-title: "Highlighting blockquotes in GitHub Markdown format"
-description: "Discover how to use GitHub's new Markdown features to highlight notes, warnings, and more, enhancing your documentation's readability."
-summary: "GitHub recently introduced an innovative feature for Markdown documents that allows users to highlight \"Note\", \"Warning\", and other notification blocks more effectively. An enhancement useful for developers who want to draw attention to important information in their documentation or discussions."
-date: "2024-03-25T20:48:04+07:00"
+title: Highlighting blockquotes in GitHub Markdown format
+description: >-
+  Discover how to use GitHub's new Markdown features to highlight notes,
+  warnings, and more, enhancing your documentation's readability.
+summary: >-
+  GitHub recently introduced an innovative feature for Markdown documents that
+  allows users to highlight "Note", "Warning", and other notification blocks
+  more effectively. An enhancement useful for developers who want to draw
+  attention to important information in their documentation or discussions.
+date: '2024-03-25T20:48:04+07:00'
 resources:
-  - title: "Setting up highlighted notes in GitHub Markdown"
-    src: "header.jpg"
-  - title: "Setting up highlighted notes in GitHub Markdown"
-    src: "input.jpg"
+  - title: Setting up highlighted notes in GitHub Markdown
+    src: header.jpg
+  - title: Setting up highlighted notes in GitHub Markdown
+    src: input.jpg
 tags:
-  - "markdown"
-  - "github"
-  - "documentation"
-  - "howto"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - markdown
+  - github
+  - documentation
+  - howto
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 GitHub recently introduced an innovative feature for Markdown documents that allows users to highlight "Note", "Warning", and other notification blocks more effectively. This enhancement is especially useful for developers who want to draw attention to important information within their documentation or discussions.

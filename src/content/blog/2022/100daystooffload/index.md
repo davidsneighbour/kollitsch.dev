@@ -1,19 +1,22 @@
 ---
-title: "#100DaysToOffload"
-description: "A challenge to write 100 posts on your personal blog in a year"
-linkTitle: "#100DaysToOffload"
-date: "2022-03-21T23:27:23+07:00"
+title: '#100DaysToOffload'
+description: A challenge to write 100 posts on your personal blog in a year
+linkTitle: '#100DaysToOffload'
+date: '2022-03-21T23:27:23+07:00'
 resources:
-  - title: "Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)"
-    src: "marcel-eberle-SCBREPQuYoM-unsplash.jpg"
+  - title: >-
+      Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via
+      [Unsplash](https://unsplash.com/)
+    src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 tags:
-  - "100daystooffload"
-  - "selfimprovement"
-  - "davidsneighbour"
+  - 100daystooffload
+  - selfimprovement
+  - davidsneighbour
 aliases:
-  - "/100daystooffload"
-fmContentType: "blog"
-cover: "./marcel-eberle-SCBREPQuYoM-unsplash.jpg"
+  - /100daystooffload
+fmContentType: blog
+cover: ./marcel-eberle-SCBREPQuYoM-unsplash.jpg
+publisher: rework
 ---
 
 I [recently](/blog/2022/notes-from-the-laboratory-february/) started taking part in the [`#100DaysToOffload`](https://100daystooffload.com/) challenge. It's a challenge that tries to create a larger output of content that is interesting and useful. I will try to write about the topics that I have learned during this time while still staying to be the nerd that I am.

@@ -1,18 +1,23 @@
 ---
-title: "Less Clutter in Vscode"
-description: "A strategy to declutter enabled extensions in VSCode by using a workspace specific extension setup."
-date: "2022-07-13T17:52:34+07:00"
+title: Less Clutter in Vscode
+description: >-
+  A strategy to declutter enabled extensions in VSCode by using a workspace
+  specific extension setup.
+date: '2022-07-13T17:52:34+07:00'
 resources:
-  - title: "Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
-  - src: "workspace-enable.png"
-  - src: "workspace-recommentation.png"
+  - title: >-
+      Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
+  - src: workspace-enable.png
+  - src: workspace-recommentation.png
 tags:
-  - "vscode"
-  - "how-i-work"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - vscode
+  - how-i-work
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 I am one of these kind of people that install plenty of extensions and tools and experiment around in VSCode (or any other code editor I am working with). Some time ago I realised, that this lead to a slow program and many of these plugins are only useful for a limited number of projects. So I deleted everything and restarted from scratch.

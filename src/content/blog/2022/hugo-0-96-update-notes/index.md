@@ -1,18 +1,21 @@
 ---
-title: "Hugo 0.96 update notes"
-linkTitle: "Hugo 0.96"
-description: "Update notes for Hugo 0.96.0 with new features like vertical merging of content mounts, HTTP error objects for Get* functions, and more."
-date: "2022-03-28T17:58:49+07:00"
+title: Hugo 0.96 update notes
+linkTitle: Hugo 0.96
+description: >-
+  Update notes for Hugo 0.96.0 with new features like vertical merging of
+  content mounts, HTTP error objects for Get* functions, and more.
+date: '2022-03-28T17:58:49+07:00'
 resources:
-  - title: "GoHugo"
-    src: "header.png"
+  - title: GoHugo
+    src: header.png
 tags:
-  - "gohugo"
-  - "notes"
-  - "golang"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.png"
+  - gohugo
+  - notes
+  - golang
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.png
+publisher: rework
 ---
 
 [Hugo 0.96.0](https://github.com/gohugoio/hugo/releases/tag/v0.96.0) was published last weekend with two new features and many smaller changes and fixes under the hood. Here is a quick overview of the release.

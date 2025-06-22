@@ -1,21 +1,24 @@
 ---
-title: "How to handle key issues with apt on Ubuntu"
-description: "How to handle key issues with apt on Ubuntu, including deprecation of apt-key and moving keys to trusted.gpg.d."
-date: "2023-06-21T18:41:26+07:00"
+title: How to handle key issues with apt on Ubuntu
+description: >-
+  How to handle key issues with apt on Ubuntu, including deprecation of apt-key
+  and moving keys to trusted.gpg.d.
+date: '2023-06-21T18:41:26+07:00'
 resources:
-  - title: "Choose a key"
-    src: "header.jpg"
+  - title: Choose a key
+    src: header.jpg
 tags:
-  - "bash"
-  - "ubuntu"
-  - "security"
-  - "gpg"
-  - "apt"
-  - "100daystooffload"
+  - bash
+  - ubuntu
+  - security
+  - gpg
+  - apt
+  - 100daystooffload
 unsplash:
-  imageid: "abcdefghijk"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: abcdefghijk
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 For some time now, I was receiving the following warnings after an otherwise successful run of `apt update`:

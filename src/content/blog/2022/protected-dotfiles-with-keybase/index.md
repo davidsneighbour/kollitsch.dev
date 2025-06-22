@@ -1,21 +1,26 @@
 ---
-title: "Protected .dotfile files with Keybase"
-description: "Adding all my secret files, keys, passwords and api strings into an encrypted repository on Keybase to add them to my dotfiles repository."
-date: "2022-11-06T18:29:12+07:00"
+title: Protected .dotfile files with Keybase
+description: >-
+  Adding all my secret files, keys, passwords and api strings into an encrypted
+  repository on Keybase to add them to my dotfiles repository.
+date: '2022-11-06T18:29:12+07:00'
 resources:
-  - title: "Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
-  - title: "The Git screen in the Keybase application"
-    src: "keybase-git.png"
+  - title: >-
+      Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
+  - title: The Git screen in the Keybase application
+    src: keybase-git.png
 tags:
-  - "keybase"
-  - "dotfiles"
-  - "privacy"
-  - "security"
-  - "100daystooffload"
-  - "git"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - keybase
+  - dotfiles
+  - privacy
+  - security
+  - 100daystooffload
+  - git
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 For reasons I don't want to go too deep into (I once again violated my rule to NOT install Ubuntu versions without a LTS in their name and ended up without eyes or ears) I had to reinstall my workstations and computers last week. While that sounds like hard work it isn't much of it due to [my dotfiles repository][1]. I will explain the concept of `.dotfiles` and my own implementation at a later point, for now, just know, that it's a backup of my home directory and settings for pretty much that is happening on my (Linux based) computers these days. I can re-install the programs I use and their configurations and setups with a single command. That's all ;]

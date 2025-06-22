@@ -1,16 +1,17 @@
 ---
-title: "That wasn't my fault"
-description: "A short note about the Enterprise E in Star Trek: Picard"
-date: "2023-04-21T21:33:04+07:00"
+title: That wasn't my fault
+description: 'A short note about the Enterprise E in Star Trek: Picard'
+date: '2023-04-21T21:33:04+07:00'
 resources:
-  - title: "That wasn't my fault"
-    src: "header.png"
+  - title: That wasn't my fault
+    src: header.png
 tags:
-  - "star-trek"
-  - "picard"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.png"
+  - star-trek
+  - picard
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.png
+publisher: rework
 ---
 
 A slight spoiler warning for the third season of "Star Trek: Picard" ahead.

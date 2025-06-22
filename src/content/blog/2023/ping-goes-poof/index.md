@@ -1,20 +1,25 @@
 ---
-title: "Ping Goes Poof"
-linkTitle: "Ping Goes Poof"
-description: "Google will no longer accept pings about sitemap updates. Instead they will crawl the sitemap.xml file on a regular basis."
-date: "2023-06-28T20:33:58+07:00"
+title: Ping Goes Poof
+linkTitle: Ping Goes Poof
+description: >-
+  Google will no longer accept pings about sitemap updates. Instead they will
+  crawl the sitemap.xml file on a regular basis.
+date: '2023-06-28T20:33:58+07:00'
 resources:
-  - title: "Photo by [Pascal Meier](https://unsplash.com/@zhpix) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Pascal Meier](https://unsplash.com/@zhpix) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "google"
-  - "seo"
-  - "hugo-sitemap"
-  - "100daystooffload"
+  - google
+  - seo
+  - hugo-sitemap
+  - 100daystooffload
 unsplash:
-  imageid: "abcdefghijk"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: abcdefghijk
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 Google on Monday announced that [they will change several things regarding to sitemaps and pinging the search engine about updates of the sitemap](https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping).

@@ -1,20 +1,27 @@
 ---
-title: "Kurzschnitte II - The fifth"
-linkTitle: "Kurzschnitte II - Pt. 5"
-description: "The fifth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks."
-summary: "The fifth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks."
-date: "2024-09-03T18:53:38+07:00"
+title: Kurzschnitte II - The fifth
+linkTitle: Kurzschnitte II - Pt. 5
+description: >-
+  The fifth installment of Kurzschnitte II, where I'm sharing a collection of
+  articles and tutorials that caught my attention in the past few weeks.
+summary: >-
+  The fifth installment of Kurzschnitte II, where I'm sharing a collection of
+  articles and tutorials that caught my attention in the past few weeks.
+date: '2024-09-03T18:53:38+07:00'
 resources:
-  - title: "Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "kurzschnitte"
-  - "bookmarks"
-  - "100daystooffload"
+  - kurzschnitte
+  - bookmarks
+  - 100daystooffload
 unsplash:
-  imageid: "UcEzgZ6k19o"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: UcEzgZ6k19o
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 Welcome to the fifth edition of Kurzschnitte II, where coding mets quintessence!

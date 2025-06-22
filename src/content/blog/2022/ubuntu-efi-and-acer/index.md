@@ -1,21 +1,26 @@
 ---
-title: "Ubuntu, EFI and Acer"
-description: "A quick fix for the \"No Bootable Device found\" error on Acer notebooks after installing Ubuntu."
-date: "2022-03-02T21:22:28+07:00"
+title: 'Ubuntu, EFI and Acer'
+description: >-
+  A quick fix for the "No Bootable Device found" error on Acer notebooks after
+  installing Ubuntu.
+date: '2022-03-02T21:22:28+07:00'
 images:
-  - "/blog/2022/ubuntu-efi-and-acer/artiom-vallat-mx9axbKqKW8-unsplash.jpg"
+  - /blog/2022/ubuntu-efi-and-acer/artiom-vallat-mx9axbKqKW8-unsplash.jpg
 resources:
-  - title: "Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unsplash](https://unsplash.com)"
-    src: "artiom-vallat-mx9axbKqKW8-unsplash.jpg"
+  - title: >-
+      Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via
+      [Unsplash](https://unsplash.com)
+    src: artiom-vallat-mx9axbKqKW8-unsplash.jpg
 tags:
-  - "howto"
-  - "ubuntu"
-  - "acer"
-  - "uefi"
-  - "efi"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./artiom-vallat-mx9axbKqKW8-unsplash.jpg"
+  - howto
+  - ubuntu
+  - acer
+  - uefi
+  - efi
+  - 100daystooffload
+fmContentType: blog
+cover: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
+publisher: rework
 ---
 
 A while ago I found myself in front of my little baby-notebooks screen telling me in no uncertain terms, that "No Bootable Device (was) found". Hmm. Somehow I remembered that. I also remembered that it's just a little renaming routine that would solve this annoying issue.

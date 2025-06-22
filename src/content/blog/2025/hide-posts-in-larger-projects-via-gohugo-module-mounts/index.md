@@ -1,18 +1,26 @@
 ---
-title: "Hugo Quick Tip: Hide posts in larger projects via GoHugo Module Mounts"
-description: "Optimize Hugo development by excluding old posts with module mounts. This guide shows how to speed up testing on large websites by focusing on recent content."
-summary: "Speed up development on large Hugo websites by using module mounts to exclude older posts. Learn how a simple configuration hides content from specific years, reducing rebuild times for testing layouts, pagination, and other features. Ideal for blogs with decade-spanning archives."
-date: "2025-01-10T17:40:43+07:00"
+title: 'Hugo Quick Tip: Hide posts in larger projects via GoHugo Module Mounts'
+description: >-
+  Optimize Hugo development by excluding old posts with module mounts. This
+  guide shows how to speed up testing on large websites by focusing on recent
+  content.
+summary: >-
+  Speed up development on large Hugo websites by using module mounts to exclude
+  older posts. Learn how a simple configuration hides content from specific
+  years, reducing rebuild times for testing layouts, pagination, and other
+  features. Ideal for blogs with decade-spanning archives.
+date: '2025-01-10T17:40:43+07:00'
 resources:
-  - title: "Hiding in plain sight"
-    src: "valeria-nikitina-li709Gx8v_w-unsplash.jpg"
+  - title: Hiding in plain sight
+    src: valeria-nikitina-li709Gx8v_w-unsplash.jpg
 tags:
-  - "gohugo"
-  - "modules"
-  - "website-management"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./valeria-nikitina-li709Gx8v_w-unsplash.jpg"
+  - gohugo
+  - modules
+  - website-management
+  - 100daystooffload
+fmContentType: blog
+cover: ./valeria-nikitina-li709Gx8v_w-unsplash.jpg
+publisher: rework
 ---
 
 I have a webblog running under GoHugo that has a lot of posts. By a lot I mean it has [musings about my life in Thailand since 2005](https://samui-samui.de/) (yep, 20 years ago) in it. Which is great for me to look back and see what I did, but it's not so great for development. Every time I run `hugo server` it takes ages (6 to 12 minutes) to build the site. Rebuilds are a little bit faster (4 to 10 Minutes). I don't want to wait for that though, so I found a way to exclude posts from certain years from the build process. Here's how you can do it too.

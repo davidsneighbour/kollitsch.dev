@@ -1,7 +1,8 @@
 ---
 title: /contact
 linktitle: contact
-description: Find a way to get into contact with me. I prefer written contact before you
+description: >-
+  Find a way to get into contact with me. I prefer written contact before you
   cold call me ;)
 menu:
   main:
@@ -15,20 +16,22 @@ menu:
     weight: 900
     params:
       bsicon: envelope-paper-fill
-
-date: 2022-07-28T21:20:06+07:00
+date: 2022-07-28T14:20:06.000Z
 resources:
-  - title: Photo by [John Barkiple](https://unsplash.com/@barkiple) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [John Barkiple](https://unsplash.com/@barkiple) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
-  - title: Photo by [Finja Petersen](https://unsplash.com/@finjapetersen) via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Finja Petersen](https://unsplash.com/@finjapetersen) via
+      [Unsplash](https://unsplash.com/)
     src: ./social-media.jpg
-
 theme:
   comments: false
-
 url: /contact
 aliases:
-- /connect
+  - /connect
+publisher: rework
 ---
 
 {{< form id="contactform" >}}

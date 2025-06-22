@@ -1,20 +1,28 @@
 ---
-title: "Shutdown Raspberry Pi via SSH"
-description: "A quick guide to shutting down your Raspberry Pi via SSH without a password. Simplify the process with aliases and an exported variable for easy management."
-summary: "Learn how to enable passwordless shutdown and reboot for your Raspberry Pi via SSH. Configure sudoers for secure commands and streamline access with aliases."
-date: "2024-11-26T04:59:18+07:00"
+title: Shutdown Raspberry Pi via SSH
+description: >-
+  A quick guide to shutting down your Raspberry Pi via SSH without a password.
+  Simplify the process with aliases and an exported variable for easy
+  management.
+summary: >-
+  Learn how to enable passwordless shutdown and reboot for your Raspberry Pi via
+  SSH. Configure sudoers for secure commands and streamline access with aliases.
+date: '2024-11-26T04:59:18+07:00'
 resources:
-  - title: "Photo by [Louis Reed](https://unsplash.com/@_louisreed) via [Unsplash](https://unsplash.com/)"
-    src: "louis-reed-MaDXpqp1vM0-unsplash.jpg"
+  - title: >-
+      Photo by [Louis Reed](https://unsplash.com/@_louisreed) via
+      [Unsplash](https://unsplash.com/)
+    src: louis-reed-MaDXpqp1vM0-unsplash.jpg
 tags:
-  - "raspberrypi"
-  - "bash"
-  - "howto"
-  - "100daystooffload"
+  - raspberrypi
+  - bash
+  - howto
+  - 100daystooffload
 unsplash:
-  imageid: "MaDXpqp1vM0"
-fmContentType: "blog"
-cover: "./louis-reed-MaDXpqp1vM0-unsplash.jpg"
+  imageid: MaDXpqp1vM0
+fmContentType: blog
+cover: ./louis-reed-MaDXpqp1vM0-unsplash.jpg
+publisher: rework
 ---
 
 I recently tried to shutdown my raspberry pi (a little headless machine for the boring tasks) via SSH with a single command, but experienced some issues. Here's a quick guide to help you shutdown your Raspberry Pi via SSH without having to use a `sudo` password. The initial situation is a Raspberry Pi server running headless, with an SSH key for authentication.

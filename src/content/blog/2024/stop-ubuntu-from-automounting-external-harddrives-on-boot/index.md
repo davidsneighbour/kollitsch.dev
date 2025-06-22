@@ -1,20 +1,27 @@
 ---
-title: "Stop Ubuntu from automounting external harddrives on boot"
-description: "Disable Ubuntu's automatic mounting of external drives like Seagate to prevent issues. Use `gsettings` commands to manage automount settings via the terminal."
-summary: "On Ubuntu, external hard drives are automatically mounted when plugged in while booting the computer. Which leads to that hard drive being mounted all the time."
-date: "2024-09-09T14:52:46+07:00"
+title: Stop Ubuntu from automounting external harddrives on boot
+description: >-
+  Disable Ubuntu's automatic mounting of external drives like Seagate to prevent
+  issues. Use `gsettings` commands to manage automount settings via the
+  terminal.
+summary: >-
+  On Ubuntu, external hard drives are automatically mounted when plugged in
+  while booting the computer. Which leads to that hard drive being mounted all
+  the time.
+date: '2024-09-09T14:52:46+07:00'
 resources:
-  - title: "The improper way to keep Ubuntu from mounting drives automatically"
-    src: "curated-lifestyle-l2nY0rP07DI-unsplash.jpg"
+  - title: The improper way to keep Ubuntu from mounting drives automatically
+    src: curated-lifestyle-l2nY0rP07DI-unsplash.jpg
 tags:
-  - "ubuntu-2404"
-  - "hardware"
-  - "how-to"
-  - "100daystooffload"
+  - ubuntu-2404
+  - hardware
+  - how-to
+  - 100daystooffload
 unsplash:
-  imageid: "l2nY0rP07DI"
-fmContentType: "blog"
-cover: "./curated-lifestyle-l2nY0rP07DI-unsplash.jpg"
+  imageid: l2nY0rP07DI
+fmContentType: blog
+cover: ./curated-lifestyle-l2nY0rP07DI-unsplash.jpg
+publisher: rework
 ---
 
 Aaaargh Ubuntu! Sometimes it's so easy to hate you!

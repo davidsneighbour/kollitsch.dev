@@ -1,22 +1,25 @@
 ---
 title: /uses
-description: "A collection of tools, hardware and system setup I use to enable or easen up my daily work, creation and art."
+description: >-
+  A collection of tools, hardware and system setup I use to enable or easen up
+  my daily work, creation and art.
 linktitle: uses
-date: 2022-02-13T18:29:07+07:00
-lastmod: 2022-07-28T21:21:43+07:00
+date: 2022-02-13T11:29:07.000Z
+lastmod: 2022-07-28T14:21:43.000Z
 url: /uses
 resources:
-  - title: Photo by [Cesar Carlevarino Aragon](https://unsplash.com/@carlevarino)
-      via [Unsplash](https://unsplash.com/)
+  - title: >-
+      Photo by [Cesar Carlevarino Aragon](https://unsplash.com/@carlevarino) via
+      [Unsplash](https://unsplash.com/)
     src: header.jpg
 menu:
   footer:
     weight: 100
     params:
       bsicon: info-square-fill
-
 theme:
   comments: false
+publisher: rework
 ---
 
 The following is a collection of tools helping me with my digital and work life. My main focus lies in applications that are open source and usable across operating systems. This is a collection in progress, so check back or subscribe to updates to know when there is something new to know about.

@@ -1,17 +1,22 @@
 ---
-title: "Creating a GPG Key for Github/Gitlab Deployment"
-description: "A quick guide on how to create a GPG key for signing your commits in Github or Gitlab."
-date: "2022-02-23T22:43:14+07:00"
+title: Creating a GPG Key for Github/Gitlab Deployment
+description: >-
+  A quick guide on how to create a GPG key for signing your commits in Github or
+  Gitlab.
+date: '2022-02-23T22:43:14+07:00'
 resources:
-  - title: "Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via [Unsplash](https://unsplash.com/)"
-    src: "mauro-sbicego-4hfpVsi-gSg-unsplash.jpg"
+  - title: >-
+      Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via
+      [Unsplash](https://unsplash.com/)
+    src: mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
 tags:
-  - "encryption"
-  - "security"
-  - "github"
-  - "gitlab"
-fmContentType: "blog"
-cover: "./mauro-sbicego-4hfpVsi-gSg-unsplash.jpg"
+  - encryption
+  - security
+  - github
+  - gitlab
+fmContentType: blog
+cover: ./mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
+publisher: rework
 ---
 
 Every now and then I have to add a GPG-key to one of my projects. Last week for instance a key expired that I used for a year to sign my commits. And every time that happens, I have to google how to create my key again. So let's go through the motions of how to create a new GPG key (which once you read through it all is astonishingly easy).

@@ -1,19 +1,24 @@
 ---
-title: "Notes from the Laboratory: June 2023"
-linkTitle: "Laboratory 2023-06"
-description: "Monthly report of my activities in June 2023, including updates on 100DaysToOffload, hardware upgrades, and GoHugo modules."
-date: "2023-07-01T19:31:21+07:00"
+title: 'Notes from the Laboratory: June 2023'
+linkTitle: Laboratory 2023-06
+description: >-
+  Monthly report of my activities in June 2023, including updates on
+  100DaysToOffload, hardware upgrades, and GoHugo modules.
+date: '2023-07-01T19:31:21+07:00'
 resources:
-  - src: "header.jpg"
-    title: "Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)"
+  - src: header.jpg
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
-  - "laboratory"
-  - "notes"
-  - "self-improvement"
-  - "davidsneighbour"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - laboratory
+  - notes
+  - self-improvement
+  - davidsneighbour
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 It's that time of the month again where I am trying this "new thing" of "reporting" what I was up to in a certain time period this year. So bear with me while I am typing up this report.

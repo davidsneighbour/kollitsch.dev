@@ -1,20 +1,23 @@
 ---
-title: "Reusable GoHugo Forms via Configuration"
-linkTitle: "Reusable GoHugo Forms via Configuration"
-description: "A write-up of the process of creating reusable forms in GoHugo via configuration files."
-date: "2023-10-22T17:29:40+07:00"
+title: Reusable GoHugo Forms via Configuration
+linkTitle: Reusable GoHugo Forms via Configuration
+description: >-
+  A write-up of the process of creating reusable forms in GoHugo via
+  configuration files.
+date: '2023-10-22T17:29:40+07:00'
 resources:
-  - title: "Carefully implemented forms"
-    src: "header.jpg"
+  - title: Carefully implemented forms
+    src: header.jpg
 tags:
-  - "gohugo"
-  - "shortcode"
-  - "howto"
-  - "100daystooffload"
+  - gohugo
+  - shortcode
+  - howto
+  - 100daystooffload
 unsplash:
-  imageid: "abcdefghijk"
-fmContentType: "blog"
-cover: "./header.jpg"
+  imageid: abcdefghijk
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 A while back (pre-COVID-19 era), I had the idea to create a [GoHugo](https://gohugo.io) module that would allow me to create forms via configuration files. I also wanted to easily translate the form into different languages. I sketched out a solution but never got around to implementing it. I recently stumbled upon the scratch pad and decided to finally implement it. This article is a write-up of the process, and the first final result can be seen with [the contact form](/connect) on this site.

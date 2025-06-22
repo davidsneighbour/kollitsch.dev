@@ -1,19 +1,22 @@
 ---
-title: "Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo"
-description: "Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo"
-date: "2021-10-28T21:56:41+07:00"
-lastmod: "2021-10-28T21:56:41+07:00"
-publishDate: "2021-10-28T21:56:41+07:00"
+title: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
+description: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
+date: '2021-10-28T21:56:41+07:00'
+lastmod: '2021-10-28T21:56:41+07:00'
+publishDate: '2021-10-28T21:56:41+07:00'
 resources:
-  - src: "mick-haupt-ePHz9WOME0c-unsplash.jpg"
-    title: "Photo by [Mick Haupt](https://unsplash.com/@rocinante_11) via [Unsplash](https://unsplash.com)"
+  - src: mick-haupt-ePHz9WOME0c-unsplash.jpg
+    title: >-
+      Photo by [Mick Haupt](https://unsplash.com/@rocinante_11) via
+      [Unsplash](https://unsplash.com)
 tags:
-  - "quicktip"
-  - "ordinals"
-  - "dateformat"
-  - "gohugo"
-fmContentType: "blog"
-cover: "./mick-haupt-ePHz9WOME0c-unsplash.jpg"
+  - quicktip
+  - ordinals
+  - dateformat
+  - gohugo
+fmContentType: blog
+cover: ./mick-haupt-ePHz9WOME0c-unsplash.jpg
+publisher: rework
 ---
 
 Golangs `$date.Format` is unable to add ordinal suffixes to dates (like 1st, 2nd, 3rd, 4th). Let's not judge Golang for that. The following is how I remedy this issue:

@@ -1,17 +1,20 @@
 ---
-title: "Netlify's new logo"
-description: "The company has used its signature teal gem logo for the past eight years. However, they felt it was the perfect time to renovate their visual identity."
-date: "2023-03-09T18:57:48+07:00"
+title: Netlify's new logo
+description: >-
+  The company has used its signature teal gem logo for the past eight years.
+  However, they felt it was the perfect time to renovate their visual identity.
+date: '2023-03-09T18:57:48+07:00'
 resources:
-  - title: "Netlify's new logo"
-    src: "header.png"
+  - title: Netlify's new logo
+    src: header.png
 tags:
-  - "netlify"
-  - "design"
-  - "logo"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.png"
+  - netlify
+  - design
+  - logo
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.png
+publisher: rework
 ---
 
 Netlify, one of my favorite deployment options and a web development platform, has recently introduced a new logo, marking a significant step towards a new overall visual identity. The company has used its signature teal gem logo for the past eight years, which has remained unchanged since its inception. However, with the recent acquisition of Gatsby and exceptional growth, they felt it was the perfect time to renovate their visual identity from the ground up.

@@ -1,19 +1,20 @@
 ---
-title: "Game Off 2021 Part I"
-date: "2021-10-23T16:35:44+07:00"
-description: "A simple click-click puzzle game idea for the Game Off 2021 contest."
+title: Game Off 2021 Part I
+date: '2021-10-23T16:35:44+07:00'
+description: A simple click-click puzzle game idea for the Game Off 2021 contest.
 resources:
   - params: null
     process: false
-    src: "hero.png"
-    title: "Game Off 2021"
+    src: hero.png
+    title: Game Off 2021
 tags:
-  - "game-off"
-  - "javascript"
-  - "projects"
-  - "planning"
-fmContentType: "blog"
-cover: "./hero.png"
+  - game-off
+  - javascript
+  - projects
+  - planning
+fmContentType: blog
+cover: ./hero.png
+publisher: rework
 ---
 
 [Game Off 2021](https://itch.io/jam/game-off-2021) is this years iteration of a regular game development contest hosted by [itch.io](https://itch.io).

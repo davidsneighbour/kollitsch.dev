@@ -1,19 +1,25 @@
 ---
-title: "Notes from the Laboratory: February 2023"
-linkTitle: "Laboratory 2023-02"
-description: "I am trying this new \"thing\" of \"reporting\" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report."
-date: "2023-02-26T21:27:05+07:00"
+title: 'Notes from the Laboratory: February 2023'
+linkTitle: Laboratory 2023-02
+description: >-
+  I am trying this new "thing" of "reporting" what I was up to in a certain time
+  period this year, and monthly reviews just sound like something normal people
+  would do. So bear with me while I am typing up this report.
+date: '2023-02-26T21:27:05+07:00'
 resources:
-  - src: "header.jpg"
-    title: "Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via [Unsplash](https://unsplash.com/)"
+  - src: header.jpg
+    title: >-
+      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+      [Unsplash](https://unsplash.com/)
 tags:
-  - "laboratory"
-  - "notes"
-  - "self-improvement"
-  - "davidsneighbour"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - laboratory
+  - notes
+  - self-improvement
+  - davidsneighbour
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

@@ -1,15 +1,16 @@
 ---
-title: "Un-Hugo-ing"
-description: "to be written"
+title: Un-Hugo-ing
+description: to be written
 draft: true
-date: "2025-05-02T09:11:40+07:00"
+date: '2025-05-02T09:11:40+07:00'
 tags:
-  - "gohugo"
-  - "davidsneighbour"
-fmContentType: "blog"
-cover: 
-  src: "./header.jpg"
-  title: "Un-Hugo-ing"
+  - gohugo
+  - davidsneighbour
+fmContentType: blog
+cover:
+  src: ./header.jpg
+  title: Un-Hugo-ing
+publisher: rework
 ---
 
 

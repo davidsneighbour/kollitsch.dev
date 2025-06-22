@@ -1,17 +1,22 @@
 ---
-title: "Refactoring my screenshot script"
-description: "I decided to rewrite my go-to-script to create a screenshot as header images of posts about a website a little bit."
-date: "2023-03-08T21:57:10+07:00"
+title: Refactoring my screenshot script
+description: >-
+  I decided to rewrite my go-to-script to create a screenshot as header images
+  of posts about a website a little bit.
+date: '2023-03-08T21:57:10+07:00'
 resources:
-  - title: "Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "javascript"
-  - "module"
-  - "refactoring"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - javascript
+  - module
+  - refactoring
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 My go-to-script to create a screenshot as header images of posts about a website was for a long time this:

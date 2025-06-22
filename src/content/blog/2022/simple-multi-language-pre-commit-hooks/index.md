@@ -1,19 +1,28 @@
 ---
-title: "Simple multi-language pre-commit hooks"
-description: "This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert some people to use the tool described by this post, so I thought I might as well add some context to it."
-summary: "This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert some people to use the tool described by this post, so I thought I might as well add some context to it."
-date: "2022-08-14T22:28:21+07:00"
+title: Simple multi-language pre-commit hooks
+description: >-
+  This is one of the posts that spent months in draft (fka ideas) mode. Recently
+  I got to convert some people to use the tool described by this post, so I
+  thought I might as well add some context to it.
+summary: >-
+  This is one of the posts that spent months in draft (fka ideas) mode. Recently
+  I got to convert some people to use the tool described by this post, so I
+  thought I might as well add some context to it.
+date: '2022-08-14T22:28:21+07:00'
 resources:
-  - title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
+  - title: >-
+      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
 tags:
-  - "pre-commit"
-  - "git"
-  - "code-quality"
-  - "automation"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - pre-commit
+  - git
+  - code-quality
+  - automation
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert [some](https://github.com/danielfdickinson/dfd-template/commit/aecb3a68dfcb7a63492cf79df7c3b58b86f29095) people to use the tool described by this post, so I thought I might as well add some context to it. This is one of the posts that will be posted "quick and dirty" and I will update and optimise them over time.

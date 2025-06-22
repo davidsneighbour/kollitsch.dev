@@ -1,23 +1,26 @@
 ---
-title: "Bash Function to Remove Github Ghost Notifications"
-description: "How to clear ghost notifications in your Github inbox using a bash function."
-date: "2024-03-07T07:53:38+07:00"
+title: Bash Function to Remove Github Ghost Notifications
+description: How to clear ghost notifications in your Github inbox using a bash function.
+date: '2024-03-07T07:53:38+07:00'
 resources:
-  - title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
-    src: "header.jpg"
-    name: "header"
-  - title: "Ghost notifications on Github"
-    src: "github-ghost-notifications.png"
-  - title: "Screenshot Github support email"
-    src: "screenshot.jpg"
+  - title: >-
+      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
+      [Unsplash](https://unsplash.com/)
+    src: header.jpg
+    name: header
+  - title: Ghost notifications on Github
+    src: github-ghost-notifications.png
+  - title: Screenshot Github support email
+    src: screenshot.jpg
 tags:
-  - "bash"
-  - "git"
-  - "github"
-  - "rest-api"
-  - "100daystooffload"
-fmContentType: "blog"
-cover: "./header.jpg"
+  - bash
+  - git
+  - github
+  - rest-api
+  - 100daystooffload
+fmContentType: blog
+cover: ./header.jpg
+publisher: rework
 ---
 
 Every now and then my inbox in Github shows x total unread updates without having actual updates. When I click on it, there are no unread notifications. This is a known issue and it's been around for a while. The notifications are called "ghost notifications" and they are not visible in the UI. They are only visible in the API and have probably already their own support response template.

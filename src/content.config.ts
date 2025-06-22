@@ -38,6 +38,10 @@ export const blogSchema = z
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
     fmContentType: z.string().optional(),
+    lastModified: z.coerce
+      .date()
+      .transform((s) => new Date(s))
+      .optional(),
     options: optionsSchema.optional(),
     resources: z
       .array(

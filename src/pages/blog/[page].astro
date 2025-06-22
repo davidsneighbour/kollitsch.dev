@@ -22,11 +22,13 @@ export async function getStaticPaths() {
   }));
 }
 
+import setup from '@data/setup.json';
+const limit = setup.listpages?.limit || 12;
 const { page } = Astro.params as Params;
 const pageNumber = Number(page) || 1; // default to 1 if not provided
 const allPosts = getPostsSortedByDraft(await getCollection('blog'));
-const posts = allPosts.slice((pageNumber - 1) * 10, pageNumber * 10);
-const totalPages = Math.ceil(allPosts.length / 10);
+const posts = allPosts.slice((pageNumber - 1) * limit, pageNumber * limit);
+const totalPages = Math.ceil(allPosts.length / limit);
 
 const post = {
   data: {

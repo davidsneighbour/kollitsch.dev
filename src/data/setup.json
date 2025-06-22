@@ -1,35 +1,38 @@
 {
-  "title": "KOLLITSCH.dev*",
-  "description": "A personal blog and portfolio site showcasing my projects, thoughts, and experiences in web development.",
   "author": {
     "name": "Patrick Kollitsch",
     "url": "https://kollitsch.dev/"
-  },
-  "url": "https://kollitsch.dev/",
-  "fallback": "/src/assets/images/fallback.jpg",
-  "id": "kollitsch-dev",
-  "overrides": {
-    "showDraftsInDev": true,
-    "showDraftsInProd": false,
-    "showDraftsInTest": true
-  },
-  "tagThreshold": 2,
-  "ignoreTags": ["100DaysToOffload"],
-  "homepage": {
-    "recent_posts": 6
   },
   "debug": {
     "enabled": true,
     "logLevel": "info"
   },
+  "description": "A personal blog and portfolio site showcasing my projects, thoughts, and experiences in web development.",
   "discord": {
     "invite": "https://discord.gg/C3ugcF5c9d"
+  },
+  "fallback": "/src/assets/images/fallback.jpg",
+  "homepage": {
+    "recent_posts": 6
+  },
+  "id": "kollitsch-dev",
+  "ignoreTags": ["100DaysToOffload"],
+  "images": {
+    "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
+  },
+  "listpages": {
+    "limit": 12
+  },
+  "overrides": {
+    "showDraftsInDev": true,
+    "showDraftsInProd": false,
+    "showDraftsInTest": true
   },
   "repository": {
     "url": "https://github.com/davidsneighbour/kollitsch.dev"
   },
+  "tagThreshold": 2,
   "timezone": "Asia/Bangkok",
-  "images": {
-    "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
-  }
+  "title": "KOLLITSCH.dev*",
+  "url": "https://kollitsch.dev/"
 }

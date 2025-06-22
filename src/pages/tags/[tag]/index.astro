@@ -20,8 +20,11 @@ const tagEntry = await getEntry({ collection: 'tags', id: tag }).catch(
   () => null,
 );
 
+import setup from '@data/setup.json';
+const limit = setup.listpages?.limit || 12;
+
 // Step 3: Pagination config
-const pageSize = 10;
+const pageSize = limit;
 const currentPage = 1;
 const totalPages = Math.ceil(taggedPosts.length / pageSize);
 const paginatedPosts = taggedPosts.slice(0, pageSize);

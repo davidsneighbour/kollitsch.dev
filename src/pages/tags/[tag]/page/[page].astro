@@ -9,7 +9,11 @@ import Pagination from '@components/Pagination.astro';
 
 const { tag, page } = Astro.params;
 const currentPage = Number(page);
-const pageSize = 10;
+
+import setup from '@data/setup.json';
+const limit = setup.listpages?.limit || 12;
+
+const pageSize = limit;
 
 // Load and filter blog posts by tag
 const allPosts = await getCollection('blog');
@@ -34,7 +38,8 @@ import { getValidTags } from '@utils/helpers';
 
 export async function getStaticPaths() {
   const tagMap = await getValidTags();
-  const pageSize = 10;
+  // @todo this should be configurable via setup.listpages.limit
+  const pageSize = 12;
 
   const paths = [];
   for (const [tag, { count }] of tagMap.entries()) {
@@ -69,8 +74,8 @@ const post = {
       <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>
     )
   }
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
 
-  <div class="grid gap-6">
     {paginatedPosts.map(post => <ArticleCard post={post} />)}
   </div>
 

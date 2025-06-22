@@ -1,10 +1,56 @@
 ---
 import navData from '@data/navigation.json';
+const typedNavData = navData as Navigation;
+
+import { fade } from 'astro:transitions';
+
 import ThemeSelect from '@components/ThemeSelect.astro';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import siteinfo from '@data/setup.json';
 import { Icon } from 'astro-icon/components';
 import ProgressBar from '@components/Progress.astro';
+
+export type NavItem = {
+  label: string;
+  link: string;
+  icon: string;
+  match?: 'full' | 'prefix';
+  matchPaths?: string[];
+  children?: NavItem[];
+};
+
+export type Navigation = NavItem[];
+
+export function isActive(item: NavItem, pathname: string): boolean {
+  const matchType = item.match ?? 'full';
+  const directMatch =
+    matchType === 'full'
+      ? pathname === item.link
+      : pathname.startsWith(item.link);
+
+  const extraMatches = item.matchPaths?.some((prefix) => pathname.startsWith(prefix)) ?? false;
+
+  return directMatch || extraMatches;
+}
+
+export function findActive(nav: NavItem[], pathname: string): NavItem | null {
+  for (const item of nav) {
+    if (isActive(item, pathname)) return item;
+    if (item.children) {
+      const match = findActive(item.children, pathname);
+      if (match) return match;
+    }
+  }
+  return null;
+}
+
+const pathname = Astro.url.pathname;
+const activeItem = findActive(typedNavData, pathname);
+
+if (!activeItem && import.meta.env.DEV) {
+  console.warn(`⚠ No active navigation item for: ${pathname}`);
+}
+
 ---
 
 <div class="sticky top-0 z-50">
@@ -35,10 +81,11 @@ import ProgressBar from '@components/Progress.astro';
       class="order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
       id="navigation-and-theme-select"
     >
-      <ul class="flex flex-col justify-center md:flex-row md:justify-end">
+      <ul class="flex flex-col justify-center md:flex-row md:justify-end"
+          transition:animate={fade({ duration: '0.4s' })}>
         {
-          navData.map(value => (
-            <li class="px-3 py-4 md:px-2 md:py-2">
+          typedNavData.map(value => (
+            <li class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}>
               <a href={value.link} class="px-3 py-4 md:px-2 md:py-2">
                 {value.label}
               </a>

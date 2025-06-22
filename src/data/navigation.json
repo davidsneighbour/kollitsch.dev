@@ -1,34 +1,36 @@
 [
   {
+    "icon": "home",
     "label": "Home",
-    "link": "/",
-    "icon": "home"
+    "link": "/"
   },
   {
-    "label": "Blog",
-    "link": "/blog/",
-    "icon": "blog",
     "children": [
       {
+        "icon": "clock",
         "label": "Latest",
-        "link": "/blog/latest/",
-        "icon": "clock"
+        "link": "/blog/latest/"
       },
       {
+        "icon": "archive",
         "label": "Archive",
-        "link": "/blog/archive/",
-        "icon": "archive"
+        "link": "/blog/archive/"
       }
-    ]
+    ],
+    "icon": "blog",
+    "label": "Blog",
+    "link": "/blog/",
+    "match": "prefix",
+    "matchPaths": ["/tags/"]
   },
   {
+    "icon": "info",
     "label": "Find",
-    "link": "/find/",
-    "icon": "info"
+    "link": "/find/"
   },
   {
+    "icon": "info",
     "label": "Connect",
-    "link": "/connect/",
-    "icon": "info"
+    "link": "/connect/"
   }
 ]

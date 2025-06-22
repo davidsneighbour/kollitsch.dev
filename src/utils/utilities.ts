@@ -38,11 +38,11 @@ export function resolveCoverImage(post: CollectionEntry<'blog'>): CoverImage {
   }
 
   if (!src) {
-    src = siteinfo.fallback;
+    src = siteinfo.images.default;
     alt = 'Default header image';
   }
 
-  if (!title && src !== siteinfo.fallback) {
+  if (!title && src !== siteinfo.images.default) {
     console.warn(`[PostImage] No title set for image in post "${post.id}".`);
   }
 
@@ -82,7 +82,7 @@ export function resolveImagePath(
     return `/src/assets/images/${imageName}`;
   }
 
-  return null;
+  return `${siteinfo.images.default}`;
 }
 
 const imageMap = import.meta.glob<{ default: ImageMetadata }>(
@@ -100,7 +100,8 @@ const fallbackCandidates = import.meta.glob<{ default: ImageMetadata }>(
   },
 );
 
-const fallbackImage = fallbackCandidates[siteinfo.fallback]?.default || null;
+const fallbackImage =
+  fallbackCandidates[siteinfo.images.default]?.default || null;
 
 /**
  * Resolves an Astro-compatible image metadata object.
@@ -114,7 +115,7 @@ export function resolveAstroImage(path: ImagePath): ImageMetadata {
   if (entry?.default) return entry.default;
 
   console.warn(
-    `[resolveAstroImage] Missing image: ${path} → using fallback from ${siteinfo.fallback}`,
+    `[resolveAstroImage] Missing image: ${path} → using fallback from ${siteinfo.images.default}`,
   );
   return fallbackImage!;
 }

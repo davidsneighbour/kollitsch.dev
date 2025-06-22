@@ -7,9 +7,6 @@ tags:
   - gohugo
   - davidsneighbour
 fmContentType: blog
-cover:
-  src: ./header.jpg
-  title: Un-Hugo-ing
 publisher: rework
 ---
 

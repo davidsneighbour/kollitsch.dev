@@ -28,5 +28,8 @@
   "repository": {
     "url": "https://github.com/davidsneighbour/kollitsch.dev"
   },
-  "timezone": "Asia/Bangkok"
+  "timezone": "Asia/Bangkok",
+  "images": {
+    "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
+  }
 }

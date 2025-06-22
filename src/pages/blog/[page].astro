@@ -41,11 +41,13 @@ const post = {
     title="Blog"
     description="A collection of articles, tutorials, and updates."
   />
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
   {
     posts.map(post => {
       return <ArticleCard post={post} />;
     })
   }
+  </div>
   <Pagination
     basePath="/blog"
     currentPage={pageNumber}

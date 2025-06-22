@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import alpinejs from '@astrojs/alpinejs';
@@ -13,6 +14,10 @@ import icon from 'astro-icon';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
+
+const crontabTmLanguage = JSON.parse(
+  fs.readFileSync('./src/config/tmLanguages/crontab.tmLanguage.json', 'utf-8'),
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,6 +63,9 @@ export default defineConfig({
     partytown(),
     icon(),
     expressiveCode({
+      shiki: {
+        langs: [crontabTmLanguage],
+      },
       styleOverrides: {
         frames: {
           frameBoxShadowCssValue: '0',

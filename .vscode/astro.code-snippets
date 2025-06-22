@@ -1,0 +1,14 @@
+{
+  "Typecast content collection entry": {
+    "prefix": "coll",
+    "body": [
+      "import type { CollectionEntry } from 'astro:content';",
+      "export interface Props {",
+      "  post: CollectionEntry<'blog'>;",
+      "}",
+      "const { post } = Astro.props;",
+      "console.log('post', post);"
+    ],
+    "description": "Typecast content collection entry"
+  }
+}

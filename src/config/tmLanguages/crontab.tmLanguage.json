@@ -1,0 +1,102 @@
+{
+  "displayName": "crontab",
+  "fileTypes": ["crontab"],
+  "name": "crontab",
+  "patterns": [
+    {
+      "begin": "(^[ \\t]*)(?=#)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.whitespace.comment.leading.crontab"
+        }
+      },
+      "end": "(?!\\G)",
+      "patterns": [
+        {
+          "begin": "#",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.crontab"
+            }
+          },
+          "end": "\\n",
+          "name": "comment.line.number-sign.crontab"
+        }
+      ]
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "constant.numeric.minute.crontab"
+        },
+        "2": {
+          "name": "constant.numeric.hour.crontab"
+        },
+        "3": {
+          "name": "constant.numeric.day-of-month.crontab"
+        },
+        "4": {
+          "name": "constant.numeric.month.crontab"
+        },
+        "5": {
+          "name": "keyword.other.month.crontab"
+        },
+        "6": {
+          "name": "constant.numeric.day-of-week.crontab"
+        },
+        "7": {
+          "name": "keyword.other.weekday.crontab"
+        },
+        "8": {
+          "name": "keyword.other.special.schedule.crontab"
+        },
+        "9": {
+          "name": "string.unquoted.command.crontab"
+        },
+        "10": {
+          "name": "keyword.other.crontab"
+        },
+        "11": {
+          "name": "string.unquoted.input.crontab"
+        },
+        "12": {
+          "name": "keyword.other.input-separator.crontab"
+        }
+      },
+      "comment": "This doesn't work as it should do for multiple %s",
+      "match": "(?x)^\\s* (?: ((?:\\*|(?:\\d+|\\*)(?:[-,\\/]\\d+)*))\\s+ # Minute\n          ((?:\\*|(?:\\d+|\\*)(?:[-,\\/]\\d+)*))\\s+ # Hour ((?:\\*|(?:\\d+|\\*)(?:[-,\\/]\\d+)*))\\s+ # Day of\n          the month\n          ((?:\\*|(?:\\d+|\\*)(?:[-,\\/]\\d+)*|((?i:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))))\\s+\n          # Month ((?:\\*|[0-7*](?:[-,\\/][0-7])*|((?i:Mon|Tue|Wed|Thu|Fri|Sat|Sun))))\\s+ # Day of the\n          week | (\\@(?:reboot|midnight|(?:year|annual|month|week|dai|hour)ly)\\b) # Special keywords\n          ) ( (?:(@AppleNotOnBattery)\\s+)? .+? # The command ) ((?<!\\\\)(%).*?)* # Optional\n          standard input for the command \\s*$\\n?",
+      "name": "meta.schedule.crontab"
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "variable.other.environment.crontab"
+        },
+        "2": {
+          "name": "punctuation.definition.variable.begin.crontab"
+        },
+        "3": {
+          "name": "variable.language.mailto.crontab"
+        },
+        "4": {
+          "name": "punctuation.definition.variable.end.crontab"
+        },
+        "5": {
+          "name": "keyword.operator.assign.crontab"
+        },
+        "6": {
+          "name": "string.quoted.other.value.crontab"
+        },
+        "7": {
+          "name": "punctuation.definition.string.begin.crontab"
+        },
+        "8": {
+          "name": "punctuation.definition.string.end.crontab"
+        }
+      },
+      "match": "(?x)^\\s* ( (['\"]|) (?i:(MAILTO)|.+?) (\\2) ) \\s*(=)\\s* ( (['\"]|) .+? (\\7) ) \\s*$\\n?",
+      "name": "meta.environment-assign.crontab"
+    }
+  ],
+  "scopeName": "text.crontab"
+}

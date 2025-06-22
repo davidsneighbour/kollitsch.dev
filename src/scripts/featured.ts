@@ -4,17 +4,17 @@
  * Manage `featured: true` tags in Markdown frontmatter
  *
  * Commands:
- *   node check_featured.ts         → Defaults to 'list'
- *   node check_featured.ts list    → Lists all posts with `featured: true`
- *   node check_featured.ts clean   → Removes all `featured: true` tags
- *   node check_featured.ts show    → Prints the post selected as featured for the homepage
+ *   node src/scripts/featured.ts         → Defaults to 'list'
+ *   node src/scripts/featured.ts list    → Lists all posts with `featured: true`
+ *   node src/scripts/featured.ts clean   → Removes all `featured: true` tags
+ *   node src/scripts/featured.ts show    → Prints the post selected as featured for the homepage
  */
 
-import path from 'path';
-import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
 import { glob } from 'glob';
 import matter from 'gray-matter';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -49,10 +49,10 @@ async function parsePosts() {
     if (isNaN(date.getTime())) continue;
 
     posts.push({
-      file,
-      slug: path.basename(file, '.md'),
       data: parsed.data,
       date,
+      file,
+      slug: path.basename(file, '.md'),
     });
   }
 

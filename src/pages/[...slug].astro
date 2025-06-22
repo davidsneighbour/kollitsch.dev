@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/DefaultPage.astro';
+
+// Load all `pages` collection entries
+const entries = await getCollection('pages');
+
+// Get the current route (slug)
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+console.log(path);
+
+// Find matching entry by slug or derived URL from folder structure
+const post = entries.find(
+  entry => entry.data.slug === path || '/' + entry.slug === path,
+);
+
+console.log(post);
+
+if (!post || post.data?.draft) {
+  throw new Error(`No matching page for path: ${path}`);
+}
+
+const { data, body } = post;
+const segments = Astro.params.slug.split('/');
+console.log('Segments:', segments);
+
+export async function getStaticPaths() {
+  const entries = await getCollection('pages');
+
+  return entries
+    .filter(entry => !entry.data?.draft)
+    .map(entry => {
+      const url = entry.data?.slug || '/' + entry.slug;
+      return {
+        params: {
+          slug: url.replace(/^\/+/, ''), // must be a string
+        },
+      };
+    });
+}
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <article set:html={body} />
+</BaseLayout>

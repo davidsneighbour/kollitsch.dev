@@ -89,6 +89,17 @@ export const blog = defineCollection({
   schema: () => blogSchema,
 });
 
+export const pages = defineCollection({
+  schema: z.object({
+    description: z.string().optional(),
+    draft: z.boolean().optional().default(false),
+    layout: z.string().optional(),
+    slug: z.string().optional(), // Manual override
+    title: z.string(), // Optional per-page layout
+  }),
+  type: 'content',
+});
+
 // content for tags
 // @todo clean up and add proper schema validation
 export const tags = defineCollection({
@@ -111,4 +122,4 @@ export const slash = defineCollection({
   schema: () => blogSchema,
 });
 
-export const collections = { blog, slash, tags };
+export const collections = { blog, pages, slash, tags };

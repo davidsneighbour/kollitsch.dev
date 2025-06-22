@@ -3,7 +3,7 @@
 
 import { getCollection, getEntry } from 'astro:content';
 import Layout from '@layouts/DefaultPage.astro';
-import PostCard from '@components/PostCard.astro';
+import ArticleCard from '@components/ArticleCard.astro';
 import TagIntro from '@components/TagIntro.astro';
 import Pagination from '@components/Pagination.astro';
 
@@ -71,7 +71,7 @@ const post = {
   }
 
   <div class="grid gap-6">
-    {paginatedPosts.map(post => <PostCard post={post} />)}
+    {paginatedPosts.map(post => <ArticleCard post={post} />)}
   </div>
 
   <Pagination

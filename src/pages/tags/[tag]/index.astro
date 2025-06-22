@@ -2,14 +2,12 @@
 // individual tag index page with pagination, page 1
 
 import Layout from '@layouts/DefaultPage.astro';
-import PostCard from '@components/PostCard.astro';
+import ArticleCard from '@components/ArticleCard.astro';
 import TagIntro from '@components/TagIntro.astro';
 import Pagination from '@components/Pagination.astro';
 import { getEntry } from 'astro:content';
 
 const { tag } = Astro.params;
-
-console.log(tag);
 
 const tagMap = await getValidTags();
 const tagInfo = tagMap.get(tag);
@@ -56,8 +54,11 @@ const post = {
 
   {!tagEntry && <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>}
 
-  <div class="grid gap-6">
-    {paginatedPosts.map(post => <PostCard post={post} />)}
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+    {/* Only render ArticleCard for posts in the 'blog' collection */}
+    {paginatedPosts
+      .filter(post => post.collection === 'blog')
+      .map(post => <ArticleCard post={post} />)}
   </div>
 
   <Pagination

@@ -13,15 +13,22 @@ export interface Props {
 }
 const { post } = Astro.props;
 
+import setup from '@data/setup.json';
+
 ---
 
 <article
-  class="inset-0 flex flex-col items-start justify-between rounded-2xl ring-1 ring-gray-900/10 ring-inset"
+  class="
+  relative isolate inset-0
+  flex flex-col items-start justify-between
+  rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)]
+  ring-1 ring-gray-900/10 ring-inset p-(--card-padding)"
 >
-  <PostImage post={post} classes="max-w-full aspect-3/2 object-cover" />
+
+  <PostImage post={post} classes="max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
 
   <div class="max-w-xl p-4">
-    <div class="mt-8 flex items-center gap-x-4 text-xs">
+    <div class="flex items-center gap-x-4 text-xs">
       <time datetime="2020-03-16" class="text-gray-500"
         >{new Date(post.data.date).toLocaleDateString('en-GB')}</time
       >
@@ -39,22 +46,20 @@ const { post } = Astro.props;
         {post.data.summary}
       </p>
     </div>
-    <div class="relative mt-8 flex items-center gap-x-4">
+    <div class="relative mt-2 flex items-center gap-x-2">
       <Image
         src={author}
         width={256}
         height={256}
-        alt="Patrick Kollitsch"
+        alt={setup.author.name}
         class="size-10 rounded-full bg-gray-100"
       />
-      <div class="text-sm/6">
-        <p class="font-semibold text-gray-900">
-          <a href="#">
-            <span class="absolute inset-0"></span>
-            Patrick Kollitsch
-          </a>
-        </p>
-      </div>
+      <p class="font-semibold text-gray-900">
+        <a href="#">
+          <span class="absolute inset-0"></span>
+          {setup.author.name}
+        </a>
+      </p>
     </div>
   </div>
   <SchemaBlogPost post={post} />

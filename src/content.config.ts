@@ -42,6 +42,12 @@ export const blogSchema = z
       .date()
       .transform((s) => new Date(s))
       .optional(),
+    linktitle: z
+      .string()
+      .optional()
+      .refine((val) => val?.trim() !== '', {
+        message: '`linktitle` must not be empty if defined.',
+      }),
     options: optionsSchema.optional(),
     resources: z
       .array(
@@ -71,6 +77,26 @@ export const blogSchema = z
       .optional(),
     title: z.string(),
   })
+  .refine(
+    (entry) => {
+      if (!entry.linktitle) return true;
+      return entry.linktitle !== entry.title;
+    },
+    {
+      message: '`linktitle` must be different from `title`.',
+      path: ['linktitle'],
+    },
+  )
+  .refine(
+    (entry) => {
+      if (!entry.linktitle) return true;
+      return entry.linktitle.length < entry.title.length;
+    },
+    {
+      message: '`linktitle` must be shorter than `title`.',
+      path: ['linktitle'],
+    },
+  )
   .transform((entry) => ({
     ...entry,
     cover:

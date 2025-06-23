@@ -7,6 +7,8 @@ import Layout from '@layouts/DefaultPage.astro';
 
 import ArticleCard from '@components/ArticleCard.astro';
 import Heading from '@components/Heading.astro';
+import { Icon } from 'astro-icon/components';
+import BlogPost from '@components/BlogPost.astro';
 
 const { featuredPost, recentPosts } = await getHomepagePosts();
 
@@ -21,7 +23,7 @@ const post = {
 <Layout post={post}>
   <section id="featured">
     <Heading level={2} title="Featured" class="something"/>
-    <ArticleCard post={featuredPost!} />
+    <BlogPost post={featuredPost!} />
   </section>
   <section id="recent">
     <Heading level={3} title="Recent Posts"/>
@@ -30,5 +32,13 @@ const post = {
         <ArticleCard post={post} />
       ))}
     </div>
+
+    <div class="my-8 mx-auto text-center">
+      <a href="/blog/" class="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        Read more...
+        <Icon name="bi:arrow-right" />
+      </a>
+    </div>
+
   </section>
 </Layout>

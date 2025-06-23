@@ -7,6 +7,7 @@ import type { ImageMetadata } from 'astro';
 import siteinfo from '@data/setup.json';
 
 import MarkdownIt from 'markdown-it';
+import { logDebug } from './helpers';
 
 type ImagePath = string;
 
@@ -114,7 +115,7 @@ export function resolveAstroImage(path: ImagePath): ImageMetadata {
   const entry = imageMap[path];
   if (entry?.default) return entry.default;
 
-  console.warn(
+  logDebug(
     `[resolveAstroImage] Missing image: ${path} → using fallback from ${siteinfo.images.default}`,
   );
   return fallbackImage!;

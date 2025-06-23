@@ -102,20 +102,20 @@ const isLast = props.currentPage === props.totalPages;
 
 {
   props.totalPages > 1 && (
-    <nav class="flex items-center justify-between border-t px-4 sm:px-0">
+    <nav class="flex items-center justify-between border-t mt-8 px-4 sm:px-0">
       {props.edgeMode === 'hide' ? (
         !isFirst && <a href={pageLink(props.currentPage - 1)}>&larr; Prev</a>
       ) : (
         <div class="-mt-px flex w-0 flex-1">
           {isFirst ? (
-            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm text-gray-500">
               <Icon name="bi:arrow-left" class="mr-2 place-self-center" />
               Prev
             </span>
           ) : (
             <a
               href={pageLink(props.currentPage - 1)}
-              class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+              class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700"
             >
               <Icon name="bi:arrow-left" class="mr-2 place-self-center" />
               Prev
@@ -130,14 +130,14 @@ const isLast = props.currentPage === props.totalPages;
               href={pageLink(item)}
               class={
                 item === props.currentPage
-                  ? 'inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm font-medium text-indigo-600'
-                  : 'inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  ? 'inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm text-indigo-600'
+                  : 'inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700'
               }
             >
               {item}
             </a>
           ) : (
-            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm text-gray-500">
               {item}
             </span>
           ),
@@ -148,14 +148,14 @@ const isLast = props.currentPage === props.totalPages;
       ) : (
         <div class="-mt-px flex w-0 flex-1 justify-end">
           {isLast ? (
-            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+            <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm text-gray-500">
               Next
               <Icon name="bi:arrow-right" class="ml-2 place-self-center" />
             </span>
           ) : (
             <a
               href={pageLink(props.currentPage + 1)}
-              class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+              class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700"
             >
               Next
               <Icon name="bi:arrow-right" class="ml-2 place-self-center" />

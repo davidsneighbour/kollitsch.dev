@@ -1,4 +1,7 @@
 ---
+
+// this layout will match all routes that don't have a specific page defined
+
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/DefaultPage.astro';
 
@@ -8,14 +11,10 @@ const entries = await getCollection('pages');
 // Get the current route (slug)
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
-console.log(path);
-
 // Find matching entry by slug or derived URL from folder structure
 const post = entries.find(
   entry => entry.data.slug === path || '/' + entry.slug === path,
 );
-
-console.log(post);
 
 if (!post || post.data?.draft) {
   throw new Error(`No matching page for path: ${path}`);
@@ -23,7 +22,6 @@ if (!post || post.data?.draft) {
 
 const { data, body } = post;
 const segments = Astro.params.slug.split('/');
-console.log('Segments:', segments);
 
 export async function getStaticPaths() {
   const entries = await getCollection('pages');

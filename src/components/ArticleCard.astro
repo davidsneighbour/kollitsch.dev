@@ -17,13 +17,14 @@ import setup from '@data/setup.json';
 
 ---
 
-<article
-  class="
+<article class="
   relative isolate inset-0
   flex flex-col items-start justify-between
   rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)]
-  ring-1 ring-gray-900/10 ring-inset p-(--card-padding)"
->
+  ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset p-(--card-padding)
+  bg-zinc-100 dark:bg-zinc-900
+  hover:bg-zinc-100/90 dark:hover:bg-zinc-900/90
+">
 
   <PostImage post={post} classes="max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
 

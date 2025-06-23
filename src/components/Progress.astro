@@ -1,15 +1,20 @@
 ---
-
+interface Props {
+  classes?: string;
+  height?: number;
+}
+const { classes = 'progress z-40 relative', height = 4 }: Props = Astro.props;
+const styleString = `height: ${height}px;`;
 ---
 
 <div
-  class="progress"
+  class={classes}
   role="progressbar"
   aria-label="Reading progress"
   aria-valuenow="0"
   aria-valuemin="0"
   aria-valuemax="100"
-  style="height:2px"
+  style={styleString}
 >
   <div
     class="progress-bar progress-bar-striped progress-bar-animated"

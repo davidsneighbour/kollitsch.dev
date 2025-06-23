@@ -1,10 +1,8 @@
 @layer base {
   body {
     @apply font-exo2 text-base leading-[1.4] font-light;
-
     @apply text-zinc-600;
     @apply dark:text-zinc-200;
-
     @apply bg-zinc-50;
     @apply dark:bg-zinc-950;
   }
@@ -19,6 +17,23 @@
 
     /* Changa One is only available via weight 400 */
     @apply font-normal;
+    @apply mt-4;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-base;
   }
 
   a {

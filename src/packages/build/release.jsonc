@@ -4,15 +4,19 @@
     "@commitlint/config-conventional": "19.8.1",
     "@davidsneighbour/release-config": "2025.2.3",
     "cz-git": "1.11.2",
-    "ts-node": "10.9.2"
+    "ts-node": "10.9.2",
   },
   "scripts": {
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit"
+    "release": "wireit",
+    "screenshot": "wireit",
   },
   "wireit": {
     "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
-    }
-  }
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease",
+    },
+    "screenshot": {
+      "command": "rm .github/screenshot.png && node src/utils/screenshot.ts --url https://kollitsch.dev/ --output .github/screenshot.png",
+    },
+  },
 }

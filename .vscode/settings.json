@@ -16,7 +16,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     // collapse files and their tests in the explorer
-    "*.astro": "$(capture).test.ts"
+    "*.astro": "$(capture).test.ts",
+    ".env": ".env*"
   },
 
   // astro specific settings
@@ -104,6 +105,7 @@
 
   // PLUGIN: biome setup
   "biome.configurationPath": "biome.jsonc",
-  "biome.requireConfiguration": true
+  "biome.requireConfiguration": true,
+  "svg.preview.background": "black"
   // @see "editor.codeActionsOnSave"
 }

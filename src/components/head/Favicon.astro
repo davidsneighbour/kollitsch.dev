@@ -14,8 +14,7 @@ const appleTouchIcon = await getImage({
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
 ---
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
+<link rel="icon" sizes="any" href={faviconSvg.src} type="image/svg+xml" />
 <link rel="manifest" href="/manifest.json" />
 <link rel="apple-touch-icon" href={appleTouchIcon.src} />

@@ -4,16 +4,33 @@
   height="512"
   viewBox="0 0 135.46666 135.46667"
   version="1.1"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:svg="http://www.w3.org/2000/svg">
+  xmlns="http://www.w3.org/2000/svg">
+  <style>
+    rect {
+    fill: oklch(14.7% 0.004 49.25);
+    fill-opacity:1;
+    }
+    path {
+    fill:#ff0000;
+    }
+    @media (prefers-color-scheme: dark) {
+    rect {
+    fill: oklch(14.1% 0.005 285.823);
+    fill-opacity:1;
+    }
+    path {
+    fill:#ff0000;
+    }
+    }
+  </style>
   <rect
-    style="fill:#020618;fill-opacity:1;stroke-width:0.264583"
+    style="stroke-width:0.264583"
     width="135.46666"
     height="135.46666"
     x="0"
     y="7.1054274e-15" />
   <path
     d="M 57.683313,73.921408 V 114.3251 H 27.974714 V 21.485729 h 29.708599 v 37.878465 h 0.594172 q 0.297086,-4.45629 1.48543,-7.130064 L 74.320129,21.485729 H 106.40542 L 84.123967,67.08843 107.14813,114.3251 H 75.062844 L 59.762915,81.051472 q -1.188344,-2.673774 -1.48543,-7.130064 z"
-    style="fill:#ff0000;stroke-width:0.278519"
+    style="stroke-width:0.278519"
     transform="scale(1.0025423,0.99746411)" />
 </svg>

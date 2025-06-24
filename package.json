@@ -35,7 +35,7 @@
     "glob": "11.0.3",
     "globals": "16.2.0",
     "gray-matter": "4.0.3",
-    "sharp-ico": "0.1.5",
+    "png-to-ico": "2.1.8",
     "tailwindcss": "4.1.10",
     "typescript": "5.8.3"
   },
@@ -104,6 +104,7 @@
     "biome:lint": "biome check --fix",
     "biome:watch": "biome check --watch",
     "build": "astro build",
+    "build:favicons": "node src/assets/favicon/regenerate.ts",
     "check": "astro check",
     "clean": "wireit",
     "clean:full": "wireit",
@@ -170,7 +171,8 @@
     },
     "postprepare": {
       "dependencies": [
-        "test:postinstall"
+        "test:postinstall",
+        "build:favicons"
       ]
     },
     "update:pre:vale": {

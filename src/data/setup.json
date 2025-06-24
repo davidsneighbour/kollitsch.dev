@@ -36,5 +36,10 @@
   "tagThreshold": 2,
   "timezone": "Asia/Bangkok",
   "title": "KOLLITSCH.dev*",
-  "url": "https://kollitsch.dev/"
+  "url": "https://kollitsch.dev/",
+  "classes": {
+    "containers": {
+      "main": "isolate z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl"
+    }
+  }
 }

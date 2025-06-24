@@ -16,12 +16,13 @@ const { post } = Astro.props;
 // rawContent() - A function that returns the raw Markdown document as a string.
 // compiledContent() - An async function that returns the Markdown document compiled to an HTML string
 
+import setup from '@data/setup.json';
 ---
 
 <Layout post={post}>
   <SiteTitle />
   <TopNavigation />
-  <main class="z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl">
+  <main class={setup.classes.containers.main}>
     <slot />
   </main>
   <Footer />

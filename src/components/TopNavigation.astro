@@ -90,8 +90,9 @@ if (!activeItem && import.meta.env.DEV) {
         {
           typedNavData.map(value => (
             <li class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}>
-              <a href={value.link} class="px-3 py-4 md:px-2 md:py-2">
-                {value.label}
+              <a href={value.link} class="flex items-center gap-2">
+                <Icon name={value.icon} />
+                <span>{value.label}</span>
               </a>
             </li>
           ))
@@ -105,6 +106,7 @@ if (!activeItem && import.meta.env.DEV) {
 <style>
   header {
     --thickness: 4px;
+
     position: sticky;
     top: 0;
 

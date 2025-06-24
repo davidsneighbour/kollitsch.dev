@@ -7,7 +7,9 @@
     "enabled": true,
     "logLevel": "info"
   },
-  "description": "A personal blog and portfolio site showcasing my projects, thoughts, and experiences in web development.",
+  "description": "Patrick Kollitsch builds snappy websites for modern browsers - all from a little island called Koh Samui, where coconuts grow and deadlines stay chill.",
+  "introduction": "I'm Patrick Kollitsch, building fast, flexible websites from my home on Koh Samui - yep, the one with palm trees and scooters. KOLLITSCH.dev is where smart code meets island life. I use GoHugo, Astro, and a healthy dose of sunlight to craft websites that work hard and look good doing it.",
+  "tagline": "Smart websites with a tropical mindset.",
   "discord": {
     "invite": "https://discord.gg/C3ugcF5c9d"
   },

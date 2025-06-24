@@ -1,35 +1,35 @@
 [
   {
-    "icon": "home",
+    "icon": "bi:house-fill",
     "label": "Home",
     "link": "/"
   },
   {
     "children": [
       {
-        "icon": "clock",
+        "icon": "bi:clock",
         "label": "Latest",
         "link": "/blog/latest/"
       },
       {
-        "icon": "archive",
+        "icon": "bi:archive",
         "label": "Archive",
         "link": "/blog/archive/"
       }
     ],
-    "icon": "blog",
+    "icon": "bi:journal-text",
     "label": "Blog",
     "link": "/blog/",
     "match": "prefix",
     "matchPaths": ["/tags/"]
   },
   {
-    "icon": "info",
+    "icon": "bi:search",
     "label": "Find",
     "link": "/find/"
   },
   {
-    "icon": "info",
+    "icon": "bi:person-rolodex",
     "label": "Connect",
     "link": "/connect/"
   }

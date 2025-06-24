@@ -25,14 +25,7 @@
       "file": "[[workspace]]/src/content/categories.json",
       "schema": {
         "type": "object",
-        "required": [
-          "id",
-          "label",
-          "description",
-          "image",
-          "icon",
-          "class"
-        ],
+        "required": ["id", "label", "description", "image", "icon", "class"],
         "properties": {
           "id": {
             "type": "string",
@@ -58,6 +51,39 @@
           "class": {
             "type": "string",
             "description": "CSS class for the category."
+          }
+        }
+      }
+    },
+    {
+      "id": "socialmedia",
+      "title": "Social Media",
+      "labelField": "label",
+      "file": "[[workspace]]/src/data/socialmedia.json",
+      "schema": {
+        "type": "object",
+        "required": ["id", "label", "url", "icon"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The social media's slug."
+          },
+          "label": {
+            "type": "string",
+            "description": "The social media's label."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the social media profile."
+          },
+          "icon": {
+            "type": "string",
+            "description": "Name of the social media icon."
+          },
+          "weight": {
+            "type": "number",
+            "description": "The weight of the social media link, used for sorting."
           }
         }
       }

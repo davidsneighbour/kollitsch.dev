@@ -4,10 +4,10 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <div class="flex flex-row items-center justify-start gap-2">
-  <div class="w-6">
+  <div class="w-6 flex-none">
     <Icon name="bi:tags" />
   </div>
-  <div class="flex flex-row items-center justify-start gap-2">
+  <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Tags: </span>
     {
       post.data.tags.map((tag: string) => (

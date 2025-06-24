@@ -6,23 +6,35 @@ const { post } = Astro.props;
 const vscodelink = getVSCodeLink('/src/content/blog/' + post.id + '/index.md');
 const isDev = import.meta.env.DEV;
 
+const dateOptions: object = {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+};
+
+const formattedPublishDate = new Date(post.data.date).toLocaleDateString("en-US", dateOptions);
+
 ---
 
 <div class="flex flex-row items-center justify-start gap-2">
-  <div class="w-6">
+  <div class="w-6 flex-none">
     <Icon name="bi:calendar3" />
   </div>
-  <div class="">
-    <span>Published: {post.data.date}</span>
-    {post.lastUpdate && <span> (Last Modified: {post.data.lastUpdate})</span>}
+  <div class="flex flex-row flex-wrap items-center justify-start gap-2">
+    <span>Published: {formattedPublishDate}</span>
+    {
+      post.lastUpdate && (
+        <span>(Last Modified: {post.data.lastUpdate})</span>
+      )
+    }
+    {
+      isDev && (
+        <div>
+          <a href={vscodelink}>
+            <Icon name="bi:braces-asterisk" />
+          </a>
+        </div>
+      )
+    }
   </div>
-  {
-    isDev && (
-      <div>
-        <a href={vscodelink}>
-          <Icon name="bi:braces-asterisk" />
-        </a>
-      </div>
-    )
-  }
 </div>

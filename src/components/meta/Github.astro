@@ -8,11 +8,11 @@ import { Icon } from 'astro-icon/components';
 
 {
   github && (
-<div class="flex flex-row items-center justify-start gap-2">
-  <div class="w-6">
+    <div class="flex flex-row items-center justify-start gap-2">
+      <div class="w-6 flex-none">
         <Icon name="bi:github" />
       </div>
-      <div class="flex flex-row items-center justify-start gap-2">
+      <div class="flex flex-row flex-wrap items-center justify-start gap-2">
         Git:
         <a href={github?.commitUrl}>{github?.hash}</a> /
         <a href={github?.historyUrl}>HISTORY</a> /

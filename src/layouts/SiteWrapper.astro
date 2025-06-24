@@ -1,34 +1,33 @@
 ---
 
-import '@assets/styles/global.css';
+import "@assets/styles/global.css";
 
-import Head from '@components/Head.astro';
-import Breakpoints from '@components/development/Breakpoints.astro';
+import Breakpoints from "@components/development/Breakpoints.astro";
+import Head from "@components/Head.astro";
 
-const { post, extraHtmlClasses = '', extraBodyClasses = '' } = Astro.props;
+const { post, extraHtmlClasses = "", extraBodyClasses = "" } = Astro.props;
 
 // html classes
 const htmlClasses = [
-  'scheme-light',
-  'dark:scheme-dark',
-  'scroll-smooth',
-  'bg-zinc-50 dark:bg-zinc-950',
-  'h-full',
+  "scheme-light",
+  "dark:scheme-dark",
+  "scroll-smooth",
+  "bg-zinc-50 dark:bg-zinc-950",
+  "h-full",
   extraHtmlClasses,
 ]
   .filter(Boolean)
-  .join(' ');
+  .join(" ");
 
 // body classes
 const bodyClasses = [
-  'min-h-screen',
-  'overflow-y-scroll', // always show scrollbar to prevent layout shift
-  'bg-zinc-50 dark:bg-zinc-950',
+  "min-h-screen",
+  "overflow-y-scroll", // always show scrollbar to prevent layout shift
+  "bg-zinc-50 dark:bg-zinc-950",
   extraBodyClasses,
 ]
   .filter(Boolean)
-  .join(' ');
-
+  .join(" ");
 ---
 
 <!doctype html>

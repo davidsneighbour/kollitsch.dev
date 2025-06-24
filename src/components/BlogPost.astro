@@ -19,8 +19,9 @@ const { post } = Astro.props;
 const content = post.rendered?.html ?? '';
 ---
 
-<Article class="mt-8 rounded-lg border-zinc-500/50 border-1 dark:bg-zinc-50/10 bg-zinc-950/10">
-  <PostImage post={post} classes="max-w-full"/>
+<Article class="mt-8 rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset p-(--card-padding) bg-zinc-100 dark:bg-zinc-900  hover:bg-zinc-100/90 dark:hover:bg-zinc-900/90">
+  <PostImage post={post} classes="max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
+
   <div class="p-4">
     <p>{post.data.date.toLocaleDateString()}</p>
     <Heading level={2} title={post.data.title} class="heading" />

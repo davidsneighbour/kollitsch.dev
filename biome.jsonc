@@ -235,14 +235,18 @@
       "linter": {
         "rules": {
           "correctness": {
-            // requrred for Astro components
+            // required for Astro components
             // https://biomejs.dev/linter/rules/no-undeclared-variables/
-            "noUnusedVariables": "off"
+            "noUnusedVariables": "off",
+            "noUndeclaredDependencies": "off",
+          },
+          "nursery": {
+            "noUnresolvedImports": "off",
           },
           "style": {
             "useConst": "off",
-            "useImportType": "off"
-          }
+            "useImportType": "off",
+          },
         }
       }
     }

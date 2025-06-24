@@ -1,11 +1,13 @@
 ---
 // @todo refactor
 
-import Layout from '@layouts/SiteWrapper.astro';
-import TopNavigation from '@components/TopNavigation.astro';
-import Footer from '@components/Footer.astro';
-import SiteTitle from '@components/SiteTitle.astro';
+import Footer from "@components/Footer.astro";
+import SiteTitle from "@components/SiteTitle.astro";
+import TopNavigation from "@components/TopNavigation.astro";
+import Layout from "@layouts/SiteWrapper.astro";
+
 const { post } = Astro.props;
+
 // https://docs.astro.build/en/basics/layouts/#markdown-layout-props
 // file - The absolute path of this file (e.g. /home/user/projects/.../file.md).
 // url - The URL of the page (e.g. /en/guides/markdown-content).
@@ -16,7 +18,7 @@ const { post } = Astro.props;
 // rawContent() - A function that returns the raw Markdown document as a string.
 // compiledContent() - An async function that returns the Markdown document compiled to an HTML string
 
-import setup from '@data/setup.json';
+import setup from "@data/setup.json" with { type: "json" };
 ---
 
 <Layout post={post}>

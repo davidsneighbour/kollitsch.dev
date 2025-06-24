@@ -1,13 +1,14 @@
 ---
 // @todo refactor
 
-import Layout from '@layouts/SiteWrapper.astro';
-import TopNavigation from '@components/TopNavigation.astro';
-import Footer from '@components/Footer.astro';
-import SiteTitle from '@components/SiteTitle.astro';
+import Footer from "@components/Footer.astro";
+import SiteTitle from "@components/SiteTitle.astro";
+import TopNavigation from "@components/TopNavigation.astro";
+import Layout from "@layouts/SiteWrapper.astro";
+
 const { post } = Astro.props;
 
-import setup from '@data/setup.json';
+import setup from "@data/setup.json" with { type: "json" };
 ---
 
 <Layout post={post}>

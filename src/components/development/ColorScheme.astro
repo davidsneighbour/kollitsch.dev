@@ -1,0 +1,89 @@
+---
+const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+
+const allColors = [
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+];
+
+const colorGrids = [
+  {
+    labelTextClassLight: 'text-gray-950',
+    labelTextClassDark: 'text-white',
+    bgClass: 'bg-white dark:bg-gray-950',
+    labelTextDarkMode: 'dark:text-white',
+    gridTextClass: 'text-gray-950 bg-gray-50/30',
+  },
+  {
+    labelTextClassLight: 'text-white',
+    labelTextClassDark: 'text-black',
+    bgClass: 'bg-zinc-900 dark:bg-white',
+    labelTextDarkMode: 'dark:text-black',
+    gridTextClass: 'text-gray-50 bg-gray-950/30',
+  },
+];
+
+const boxBgClass = 'outline-black/10 sm:rounded-md dark:outline-white/10';
+---
+
+{
+  colorGrids.map(
+    ({ labelTextClassLight, labelTextDarkMode, bgClass, gridTextClass }) => (
+      <div
+        class={`grid grid-cols-[auto_minmax(0,_1fr)] items-center gap-4 p-4 ${bgClass}`}
+      >
+        <div class="sticky top-28 z-9 lg:top-14">&nbsp;</div>
+        <div
+          class={`sticky top-28 z-9 col-start-2 grid grid-cols-11 justify-items-center gap-1.5 font-medium *:rotate-180 *:[writing-mode:vertical-lr] max-sm:py-1 sm:gap-4 sm:*:rotate-0 sm:*:[writing-mode:horizontal-tb] lg:top-14 ${gridTextClass}`}
+        >
+          {steps.map(step => (
+            <div>{step}</div>
+          ))}
+        </div>
+        {allColors.map(color => (
+          <>
+            <p
+              class={`font-medium capitalize sm:pr-12 ${labelTextClassLight} ${labelTextDarkMode}`}
+            >
+              {color}
+            </p>
+            <div class="grid grid-cols-11 gap-1.5 sm:gap-4">
+              {steps.map(step => {
+                const varName = `--color-${color}-${step}`;
+                return (
+                  <div class="contents">
+                    <button
+                      type="button"
+                      class={`aspect-1/1 w-full rounded-sm outline -outline-offset-1 ${boxBgClass}`}
+                      style={{ backgroundColor: `var(${varName})` }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        ))}
+      </div>
+    ),
+  )
+}

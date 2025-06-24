@@ -1,0 +1,10 @@
+---
+import { getHomepagePosts } from '@utils/getHomepagePosts';
+import BlogPost from '@components/BlogPost.astro';
+
+const { featuredPost, recentPosts: _ } = await getHomepagePosts();
+---
+
+<section id="featured">
+  <BlogPost post={featuredPost!} />
+</section>

@@ -1,43 +1,21 @@
 ---
-// @todo refactor
-
-import { getHomepagePosts } from '@utils/getHomepagePosts';
 
 import Layout from '@layouts/DefaultPage.astro';
+import Featured from '@components/sections/Featured.astro';
+import Recent from '@components/sections/Recent.astro';
 
-import ArticleCard from '@components/ArticleCard.astro';
-import Heading from '@components/Heading.astro';
-import { Icon } from 'astro-icon/components';
-import BlogPost from '@components/BlogPost.astro';
-
-const { featuredPost, recentPosts } = await getHomepagePosts();
+import setup from '@data/setup.json';
 
 const post = {
   data: {
-    title: 'Home | My Personal Website',
-    description: 'Welcome to my personal website. Explore my latest articles and featured content.',
+    title: "Welcome on " + setup.title,
+    description: setup.description,
   },
 };
+
 ---
 
 <Layout post={post}>
-  <section id="featured">
-    <BlogPost post={featuredPost!} />
-  </section>
-  <section id="recent">
-    <Heading level={3} title="Recent Posts"/>
-    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none md:grid-cols-2 xl:grid-cols-3">
-      {recentPosts.map(post => (
-        <ArticleCard post={post} />
-      ))}
-    </div>
-
-    <div class="my-8 mx-auto text-center">
-      <a href="/blog/" class="inline-flex items-center gap-x-2 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
-        Read more...
-        <Icon name="bi:arrow-right" />
-      </a>
-    </div>
-
-  </section>
+  <Featured />
+  <Recent />
 </Layout>

@@ -1,0 +1,16 @@
+---
+import metaDataRaw from '@data/meta.json';
+const metaData = metaDataRaw as MetaConfig;
+---
+
+{
+  Object.entries(metaData.name).map(([name, content]) => (
+    <meta name={name} content={content} />
+  ))
+}
+{
+  Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
+    <meta http-equiv={httpEquiv} content={content} />
+  ))
+}
+{metaData.link.map(item => <link {...item} />)}

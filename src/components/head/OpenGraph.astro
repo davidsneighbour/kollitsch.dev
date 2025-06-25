@@ -1,0 +1,27 @@
+---
+interface Props extends PostProp<'blog'> {}
+let { post }: Props = Astro.props;
+---
+
+<meta property="og:title" content={post.data.title || 'missing'} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:description" content={post.data.description || 'missing'} />
+{
+  'image' in post.data && post.data.image && (
+    <meta property="og:image" content={post.data.image} />
+  )
+}
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={post.data.title || 'missing'} />
+<meta
+  property="twitter:description"
+  content={post.data.description || 'missing'}
+/>
+{
+  'image' in post.data && post.data.image && (
+    <meta property="twitter:image" content={post.data.image} />
+  )
+}

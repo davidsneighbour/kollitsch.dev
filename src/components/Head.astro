@@ -1,6 +1,7 @@
 ---
 
 import { createDefaultPost } from '@utils/createDefaultPost';
+import setup from '@data/setup.json';
 
 interface Props extends PostProp<'blog'> {}
 let { post }: Props = Astro.props;
@@ -12,63 +13,32 @@ if (!post?.data) {
 
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from 'astro:transitions';
-// import { getEntry } from 'astro:content';
-import ThemeManager from '@components/ThemeManager.astro';
-
-import metaDataRaw from '@data/meta.json';
-const metaData = metaDataRaw as MetaConfig;
 
 // individual head components
-import WebComponents from './head/WebComponents.astro';
-import FontsPreload from './head/FontsPreload.astro';
-import Favicon from './head/Favicon.astro';
+import ThemeManager from '@components/ThemeManager.astro';
+import Favicon from '@components/head/Favicon.astro';
+import FontsPreload from '@components/head/FontsPreload.astro';
+import Meta from '@components/head/Meta.astro';
+import OpenGraph from '@components/head/OpenGraph.astro';
+import WebComponents from '@components/head/WebComponents.astro';
+import { resolvePostTitle } from '@utils/postData';
 
-// const post = await getEntry('blog', Astro.url.pathname);
 const baseUrl = import.meta.env.BASE_URL;
+const title = resolvePostTitle(post);
 
 ---
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{post.data.title}</title>
+<meta charset={setup.head.defaults.charset || 'utf-8'} />
+<meta name="viewport" content={setup.head.defaults.viewport || 'width=device-width, initial-scale=1.0'} />
+<title>{title}</title>
+<base href={baseUrl} target="_self" />
+<meta name="description" content={post.data.description || setup.description} />
 
 <FontsPreload />
-
-<base href={baseUrl} target="_self" />
-<meta name="description" content={post.data.description || "missing"} />
-<meta property="og:title" content={post.data.title || "missing"} />
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:description" content={post.data.description || "missing"} />
-<!-- <meta property="og:image" content={post.data.image} /> -->
-<meta property="og:image:alt" content="" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={post.data.title || "missing"} />
-<meta property="twitter:description" content={post.data.description || "missing"} />
-<!-- <meta property="twitter:image" content={post.data.image} /> -->
-
-<meta name="generator" content={Astro.generator} />
-<link rel="sitemap" href="/sitemap-index.xml" />
-
+<OpenGraph post={post} />
 <ClientRouter />
 <ThemeManager defaultTheme="auto" />
 <Favicon />
-{
-  Object.entries(metaData.name).map(([name, content]) => (
-    <meta name={name} content={content} />
-  ))
-}
-{
-  Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
-    <meta http-equiv={httpEquiv} content={content} />
-  ))
-}
-{
-  metaData.link.map((item) => (
-    <link
-      {...item}
-    />
-  ))
-}
+<Meta />
 <WebComponents post={post} />
+<meta name="generator" content={Astro.generator} />

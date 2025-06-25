@@ -41,5 +41,11 @@
     "containers": {
       "main": "isolate z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl"
     }
+  },
+  "head": {
+    "defaults": {
+      "charset": "utf-8",
+      "viewport": "width=device-width, initial-scale=1.0"
+    }
   }
 }

@@ -4,5 +4,11 @@
   },
   "httpEquiv": {
     "X-UA-Compatible": "IE=edge"
-  }
+  },
+  "link": [
+    {
+      "rel": "sitemap",
+      "href": "/sitemap.xml"
+    }
+  ]
 }

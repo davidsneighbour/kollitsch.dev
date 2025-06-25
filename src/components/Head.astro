@@ -1,13 +1,11 @@
 ---
 
-import type { CollectionEntry } from 'astro:content';
 import { createDefaultPost } from '@utils/createDefaultPost';
 
-interface Props {
-  post: CollectionEntry<'blog'>;
-}
-let { post } = Astro.props as Props;
+interface Props extends PostProp<'blog'> {}
+let { post }: Props = Astro.props;
 
+// @todo ensure we have a post object and remove if not required
 if (!post?.data) {
   post = { ...post, data: createDefaultPost(post) };
 }
@@ -16,11 +14,6 @@ if (!post?.data) {
 import { ClientRouter } from 'astro:transitions';
 // import { getEntry } from 'astro:content';
 import ThemeManager from '@components/ThemeManager.astro';
-
-type MetaConfig = {
-  name: Record<string, string>;
-  httpEquiv: Record<string, string>;
-};
 
 import metaDataRaw from '@data/meta.json';
 const metaData = metaDataRaw as MetaConfig;
@@ -39,6 +32,8 @@ const baseUrl = import.meta.env.BASE_URL;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{post.data.title}</title>
 
+<FontsPreload />
+
 <base href={baseUrl} target="_self" />
 <meta name="description" content={post.data.description || "missing"} />
 <meta property="og:title" content={post.data.title || "missing"} />
@@ -53,10 +48,12 @@ const baseUrl = import.meta.env.BASE_URL;
 <meta property="twitter:description" content={post.data.description || "missing"} />
 <!-- <meta property="twitter:image" content={post.data.image} /> -->
 
+<meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
-
+<ClientRouter />
 <ThemeManager defaultTheme="auto" />
-
+<Favicon />
 {
   Object.entries(metaData.name).map(([name, content]) => (
     <meta name={name} content={content} />
@@ -67,11 +64,11 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta http-equiv={httpEquiv} content={content} />
   ))
 }
-
-<meta name="generator" content={Astro.generator} />
-<link rel="sitemap" href="/sitemap-index.xml" />
-
-<ClientRouter />
-<Favicon />
-<FontsPreload />
+{
+  metaData.link.map((item) => (
+    <link
+      {...item}
+    />
+  ))
+}
 <WebComponents post={post} />

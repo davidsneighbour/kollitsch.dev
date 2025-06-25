@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Icon } from 'astro-icon/components';
+
+type IconPosition = 'prefix' | 'postfix';
+
+type Props = {
+  icon: string;
+  type?: IconPosition;
+} & HTMLAttributes<'a'>;
+
+const { type = 'prefix', icon, ...attrs }: Props = Astro.props;
+---
+
+<a href={attrs.href} class="flex items-center gap-2" {...attrs}>
+  {type === 'prefix' && <Icon name={icon} />}
+  <span>
+    <slot />
+  </span>
+  {type === 'postfix' && <Icon name={icon} />}
+</a>

@@ -6,7 +6,8 @@ import { generateUniqueHtmlId } from '@utils/helpers';
 import navData from '@data/navigation.json';
 import socialMediaData from '@data/socialmedia.json';
 import FooterTitle from './FooterTitle.astro';
-import { Icon } from 'astro-icon/components';
+import IconLink from '@components/IconLink.astro';
+import Heading from '@components/Heading.astro';
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
@@ -25,41 +26,34 @@ const currentYear = new Date().getFullYear().toString();
           {siteInfo.introduction}
         </p>
       </div>
-      <div class="...">
-        <h3 class="mb-4">Navigation</h3>
+      <aside class="">
+        <Heading level={3} class="mb-4">Navigation</Heading>
         <ul class="flex flex-col gap-2">
           {
             navData.map(value => (
               <li>
-                <a href={value.link} class="flex items-center gap-2">
-                  <Icon name={value.icon} />
-                  <span>{value.label}</span>
-                </a>
+                <IconLink href={value.link} icon={value.icon}>
+                  {value.label}
+                </IconLink>
               </li>
             ))
           }
         </ul>
-      </div>
-      <div class="...">
-        <h3 class="mb-4">Connect</h3>
+      </aside>
+      <aside class="">
+        <Heading level={3} class="mb-4">Connect</Heading>
         <ul class="flex flex-col gap-2">
           {
             socialMediaData.map(value => (
               <li>
-                <a
-                  href={value.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center gap-2"
-                >
-                  <Icon name={value.icon} />
-                  <span>{value.label}</span>
-                </a>
+                <IconLink href={value.url} icon={value.icon} target="_blank" rel="noopener noreferrer">
+                  {value.label}
+                </IconLink>
               </li>
             ))
           }
         </ul>
-      </div>
+      </aside>
     </div>
 
     <div

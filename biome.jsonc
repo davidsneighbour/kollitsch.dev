@@ -225,6 +225,18 @@
         "formatter": {
           "quoteStyle": "single"
         }
+      },
+      "linter": {
+        "rules": {
+          "correctness": {
+            // required for Astro components
+            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            "noUndeclaredDependencies": "off",
+            // required for Astro components
+            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            "noUnusedVariables": "off"
+          }
+        }
       }
     },
     {
@@ -237,16 +249,18 @@
           "correctness": {
             // required for Astro components
             // https://biomejs.dev/linter/rules/no-undeclared-variables/
-            "noUnusedVariables": "off",
             "noUndeclaredDependencies": "off",
+            // required for Astro components
+            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            "noUnusedVariables": "off"
           },
           "nursery": {
-            "noUnresolvedImports": "off",
+            "noUnresolvedImports": "off"
           },
           "style": {
             "useConst": "off",
-            "useImportType": "off",
-          },
+            "useImportType": "off"
+          }
         }
       }
     }

@@ -31,6 +31,7 @@ tags:
   - me
   - personal
 publisher: rework
+cover: ./colophon.jpg
 ---
 
 ## I currently live in

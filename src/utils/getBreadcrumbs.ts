@@ -1,84 +1,80 @@
-import { type DataEntryMap, getCollection } from 'astro:content';
+import {
+  getEntryBySlug,
+  getCollection,
+  type CollectionEntry,
+} from 'astro:content';
 
 /**
- * Generate breadcrumb objects from a given URL path.
+ * Represents a single breadcrumb item
+ */
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+/**
+ * Creates a breadcrumb trail based on a given URL path using Astro content collections.
  *
- * @param path - A full pathname (e.g. "/blog/2024/article/")
- * @returns An array of breadcrumb items with `url` and `title`
+ * @param pathname - The current path (e.g., `/blog/posts/my-article`)
+ * @returns Array of breadcrumb items
+ *
+ * @example
+ * const breadcrumbs = await getBreadcrumbs('/blog/posts/my-article');
+ * // [
+ * //   { label: 'Blog', href: '/blog/' },
+ * //   { label: 'Posts', href: '/blog/posts/' },
+ * //   { label: 'My Article', href: '/blog/posts/my-article/' }
+ * // ]
  */
 export async function getBreadcrumbs(
-  path: string,
-): Promise<{ url: string; title: string }[]> {
-  const breadcrumbs: { url: string; title: string }[] = [];
+  pathname: string,
+): Promise<BreadcrumbItem[]> {
+  const segments = pathname
+    .replace(/\/+$/, '') // Remove trailing slashes
+    .split('/')
+    .filter(Boolean); // Remove empty segments
 
-  const segments = path.replace(/^\/+|\/+$/g, '').split('/');
+  const breadcrumbs: BreadcrumbItem[] = [];
+  let currentPath = '';
 
-  breadcrumbs.push({ url: '/', title: 'Home' });
+  for (const segment of segments) {
+    currentPath += `/${segment}`;
 
-  for (let i = 0; i < segments.length; i++) {
-    // weird hack to skip the year segment in blog URLs
-    if (i === 1 && segments[i - 1] === 'blog') continue;
+    const href = `${currentPath}/`; // Always end with a slash
+    let label = segment.toUpperCase(); // fallback
 
-    const subSegments = segments.slice(0, i + 1);
-    const url = '/' + subSegments.join('/') + '/';
+    // Try to find a matching entry in any collection
+    const allCollections = await getAllCollectionEntries();
 
-    const title =
-      (await resolveTitle(url)) ?? titleCase(subSegments.at(-1) || '');
+    const match = allCollections.find(entry => {
+      const entryPath = `/${entry.slug}`.replace(/\/+$/, '');
+      return entryPath === currentPath;
+    });
 
-    breadcrumbs.push({ url, title });
+    if (match?.data?.title) {
+      label = match.data.title;
+    } else {
+      // Fallback formatting (e.g., "blog-posts" → "Blog Posts")
+      label = segment
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+
+    breadcrumbs.push({ label, href });
   }
 
   return breadcrumbs;
 }
 
-// --- Internal cache
-const titleCache = new Map<string, string>();
-
 /**
- * Try to resolve the page title from discovered Astro collections.
- * Uses in-memory cache to avoid redundant lookups.
+ * Loads all content entries from all known collections.
+ * Extend this list manually if you add more collections.
  */
-async function resolveTitle(url: string): Promise<string | null> {
-  if (titleCache.has(url)) return titleCache.get(url)!;
-
-  const collections = await discoverCollections();
-
-  for (const name of collections as (keyof DataEntryMap)[]) {
-    const entries = await getCollection(name);
-    const entry = entries.find((e) => `/${name}/${e.id}/` === url);
-    // Some collections use 'title', others use 'label' as the display name
-    let resolvedTitle: string | undefined;
-    if (entry?.data && typeof entry.data === 'object') {
-      if ('title' in entry.data && typeof entry.data.title === 'string') {
-        resolvedTitle = entry.data.title;
-      } else if ('label' in entry.data && typeof entry.data.label === 'string') {
-        resolvedTitle = entry.data.label;
-      }
-    }
-    if (resolvedTitle) {
-      titleCache.set(url, resolvedTitle);
-      return resolvedTitle;
-    }
-  }
-
-  titleCache.set(url, '');
-  return '';
-}
-
-/**
- * Discovers all content collections by inspecting folder structure under src/content/.
- */
-async function discoverCollections(): Promise<string[]> {
-  const collectionFiles = import.meta.glob('/src/content/*/config.ts', {
-    eager: true,
-  });
-  return Object.keys(collectionFiles)
-    .map((path) => path.match(/\/src\/content\/([^/]+)\//)?.[1])
-    .filter(Boolean) as string[];
-}
-
-function titleCase(slug: string): string {
-  return slug
-    .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (char) => char.toUpperCase());
+async function getAllCollectionEntries(): Promise<CollectionEntry<string>[]> {
+  const collections = ['blog', 'pages', 'docs']; // Add your collections here
+  const allEntries = await Promise.all(
+    collections.map(name => getCollection(name)),
+  );
+  return allEntries.flat();
 }

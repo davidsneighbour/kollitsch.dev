@@ -1,5 +1,6 @@
 ---
 title: /uses
+cover: ./uses.jpg
 description: >-
   A collection of tools, hardware and system setup I use to enable or easen up
   my daily work, creation and art.

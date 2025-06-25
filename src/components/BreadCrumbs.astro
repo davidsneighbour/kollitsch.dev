@@ -2,11 +2,20 @@
 
 import { getBreadcrumbs } from '@utils/getBreadcrumbs';
 const path = Astro.url.pathname;
+
+console.log('Current Path:', path);
+
 const breadcrumbs = await getBreadcrumbs(path);
+
+
+console.log('Breadcrumbs:', breadcrumbs);
 ---
 
 <nav class="not-prose flex" aria-label="Breadcrumb">
-  <ol role="list" class="flex items-center space-x-4">
+  <ol role="list" class="flex items-center gap-2">
+
+
+      <li><a href="/">Home</a></li>
     {
       breadcrumbs &&
         breadcrumbs.map(breadcrumb => (
@@ -25,12 +34,7 @@ const breadcrumbs = await getBreadcrumbs(path);
                   clip-rule="evenodd"
                 />
               </svg>
-              <a
-                href={breadcrumb.url}
-                class="ml-4 text-sm font-medium"
-              >
-                {breadcrumb.title}
-              </a>
+              <a href={breadcrumb.href}>{breadcrumb.label}</a>
             </div>
           </li>
         ))

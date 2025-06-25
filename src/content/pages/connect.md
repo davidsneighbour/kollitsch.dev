@@ -4,6 +4,7 @@ linktitle: contact
 description: >-
   Find a way to get into contact with me. I prefer written contact before you
   cold call me ;)
+cover: ./contact.jpg
 menu:
   main:
     name: Connect
@@ -22,10 +23,6 @@ resources:
       Photo by [John Barkiple](https://unsplash.com/@barkiple) via
       [Unsplash](https://unsplash.com/)
     src: header.jpg
-  - title: >-
-      Photo by [Finja Petersen](https://unsplash.com/@finjapetersen) via
-      [Unsplash](https://unsplash.com/)
-    src: ./social-media.jpg
 theme:
   comments: false
 url: /contact
@@ -43,5 +40,3 @@ publisher: rework
 * Linkedin: [linkedin.com/in/patrickkollitsch](https://www.linkedin.com/in/patrickkollitsch)
 * Discord: [Neighbourhood News](https://discord.gg/Jw4J6hNAyu)
 * Reddit: [r/davidsneighbour](https://www.reddit.com/r/davidsneighbour/)
-
-![social-media.jpg](./social-media.jpg)

@@ -10,7 +10,7 @@ resources:
   - title: Blogrolling.
     src: mushaboom-studio-HNF0zZ7McOw-unsplash.jpg
 publisher: rework
-cover: mushaboom-studio-HNF0zZ7McOw-unsplash.jpg
+cover: ./mushaboom-studio-HNF0zZ7McOw-unsplash.jpg
 ---
 
 {{< blogroll >}}

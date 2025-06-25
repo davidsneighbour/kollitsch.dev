@@ -17,6 +17,7 @@ tags:
 unsplash:
   imageid: yLVPQvU2KEc
 publisher: rework
+cover: ./curated-lifestyle-yLVPQvU2KEc-unsplash.jpg
 ---
 
 {{< configuration config="params.dnb.hooks" >}}

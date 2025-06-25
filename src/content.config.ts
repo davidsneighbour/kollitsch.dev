@@ -142,10 +142,4 @@ export const tags = defineCollection({
   }),
 });
 
-// @todo create a schema for slash
-export const slash = defineCollection({
-  loader: glob({ base: './src/content/slash', pattern: '**/*.md' }),
-  schema: () => blogSchema,
-});
-
-export const collections = { blog, pages, slash, tags };
+export const collections = { blog, pages, tags };

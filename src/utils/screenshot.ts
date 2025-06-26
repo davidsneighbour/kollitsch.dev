@@ -22,14 +22,15 @@ import { hideBin } from 'yargs/helpers';
 import version from '../../package.json' with { type: 'json' };
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { logDebug } from '@utils/helpers';
 
 type ScreenshotFormat = 'png' | 'jpg';
 type ColorScheme = 'light' | 'dark';
 
 interface ScreenshotOptions {
-  delay?: number;
-  colorScheme?: ColorScheme;
-  deviceScaleFactor?: number;
+  delay?: number | undefined;
+  colorScheme?: ColorScheme | undefined;
+  deviceScaleFactor?: number | undefined;
 }
 
 interface CLIArgs {
@@ -159,20 +160,33 @@ export async function takeScreenshot(
 
 /**
  * Converts an aspect ratio string (e.g. "16:9") to a numeric height.
+ * Ensures strict format "NUMBER:NUMBER" before parsing.
+ *
+ * @param width - Width in pixels
+ * @param aspect - Aspect ratio string in the format "W:H"
+ * @returns Calculated height in pixels or undefined if invalid
  */
-function calculateAspectHeight(
+export function calculateAspectHeight(
   width: number,
   aspect?: string,
 ): number | undefined {
   if (!aspect) return undefined;
-  const parts = aspect.split(':').map(Number);
-  if (parts.length !== 2 || parts.some(isNaN)) {
-    console.warn(
-      '[dnb] Invalid aspect ratio format. Expected "W:H" like "16:9".',
-    );
+
+  const validFormat = /^\d+:\d+$/;
+  if (!validFormat.test(aspect)) {
+    logDebug('Invalid aspect ratio format. Expected "W:H" like "16:9".');
     return undefined;
   }
-  const [w, h] = parts;
+
+  const [wStr, hStr] = aspect.split(':');
+  const w = Number(wStr);
+  const h = Number(hStr);
+
+  if (w === 0 || h === 0) {
+    logDebug('Aspect ratio must not contain zero.');
+    return undefined;
+  }
+
   return Math.round((width / w) * h);
 }
 

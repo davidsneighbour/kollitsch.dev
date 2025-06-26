@@ -1,5 +1,4 @@
 ---
-layout: "@layouts/MarkdownPage.astro"
 title: "Privacy Policy"
 cover: "privacy.jpg"
 ---

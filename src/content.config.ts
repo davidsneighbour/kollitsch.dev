@@ -119,7 +119,6 @@ export const pages = defineCollection({
   schema: z.object({
     description: z.string().optional(),
     draft: z.boolean().optional().default(false),
-    layout: z.string().optional(),
     slug: z.string().optional(), // Manual override
     title: z.string(), // Optional per-page layout
   }),

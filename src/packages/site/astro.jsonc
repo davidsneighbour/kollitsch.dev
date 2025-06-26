@@ -22,10 +22,11 @@
     "@rollup/plugin-beep": "1.0.3",
     "@rollup/plugin-yaml": "4.1.2",
     "@types/markdown-it": "14.1.2",
+    "@types/yargs": "17.0.33",
     "astro-expressive-code": "0.41.2",
     "js-yaml": "4.1.0",
     "tsx": "4.20.3",
-    "vite-plugin-devtools-json": "0.2.0"
+    "vite-plugin-devtools-json": "0.2.0",
   },
   "scripts": {
     "astro": "astro",

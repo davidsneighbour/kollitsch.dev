@@ -26,10 +26,10 @@ const post = {
 ---
 
 <Layout post={post}>
-  <Heading level={1}>Tag Cloud</Heading>
+  <Heading level={1} title="Tag Cloud" />
   <TagCloud tags={tagMap} />
 
-  <Heading level={2}>Tag Pages</Heading>
+  <Heading level={2} title="Tag Pages" />
   <ul class="space-y-4">
     {tagEntryList.map((entry) => (
       <li>

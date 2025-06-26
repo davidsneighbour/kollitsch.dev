@@ -21,7 +21,6 @@ if (!post || post.data?.draft) {
 }
 
 const { data, body } = post;
-const segments = Astro.params.slug.split('/');
 
 export async function getStaticPaths() {
   const entries = await getCollection('pages');

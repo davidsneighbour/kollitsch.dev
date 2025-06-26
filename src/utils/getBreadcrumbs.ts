@@ -1,8 +1,4 @@
-import {
-  getEntryBySlug,
-  getCollection,
-  type CollectionEntry,
-} from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 /**
  * Represents a single breadcrumb item
@@ -37,24 +33,28 @@ export async function getBreadcrumbs(
   const breadcrumbs: BreadcrumbItem[] = [];
   let currentPath = '';
 
+  // Preload all entries once
+  const allCollections = await getAllCollectionEntries();
+
   for (const segment of segments) {
     currentPath += `/${segment}`;
+    const href = `${currentPath}/`;
 
-    const href = `${currentPath}/`; // Always end with a slash
-    let label = segment.toUpperCase(); // fallback
+    // Default label fallback
+    let label = segment.toUpperCase();
 
-    // Try to find a matching entry in any collection
-    const allCollections = await getAllCollectionEntries();
-
+    // Match against all known slugs
     const match = allCollections.find(entry => {
+      // @ts-ignore
       const entryPath = `/${entry.slug}`.replace(/\/+$/, '');
       return entryPath === currentPath;
     });
 
+    // @ts-ignore
     if (match?.data?.title) {
+      // @ts-ignore
       label = match.data.title;
     } else {
-      // Fallback formatting (e.g., "blog-posts" → "Blog Posts")
       label = segment
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -70,11 +70,16 @@ export async function getBreadcrumbs(
 /**
  * Loads all content entries from all known collections.
  * Extend this list manually if you add more collections.
+ *
+ * @todo find out how we type our content collections without re-iterating
  */
+// @ts-expect-error
 async function getAllCollectionEntries(): Promise<CollectionEntry<string>[]> {
-  const collections = ['blog', 'pages', 'docs']; // Add your collections here
+  const collections = ['blog', 'pages'];
   const allEntries = await Promise.all(
+    // @ts-expect-error
     collections.map(name => getCollection(name)),
   );
+  // @ts-expect-error
   return allEntries.flat();
 }

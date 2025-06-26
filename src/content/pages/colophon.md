@@ -5,7 +5,6 @@ url: /colophon
 linkTitle: Colophon
 description: 'A brief overview of my life, work and things I have done.'
 type: page
-layout: '@layouts/DefaultPage.astro'
 menu:
   footer:
     weight: 990

@@ -1,32 +1,115 @@
 [
   {
+    "icon": "bi:discord",
     "id": "discord",
     "label": "Discord",
-    "url": "https://discord.com/users/davidsneighbour",
-    "icon": "bi:discord"
+    "url": "https://discord.com/users/davidsneighbour"
   },
   {
+    "icon": "bi:bluesky",
     "id": "bluesky",
     "label": "Bluesky",
+    "share": "https://bsky.app/intent/compose?text=${title}%20${url}",
     "url": "https://bsky.app/profile/davidsneighbour.bsky.social",
-    "icon": "bi:bluesky"
+    "fill": "hover:text-[#0085ff]"
   },
   {
-    "url": "https://www.threads.com/@pkollitsch",
+    "icon": "bi:threads",
     "id": "threads",
     "label": "Threads",
-    "icon": "bi:threads"
+    "url": "https://www.threads.com/@pkollitsch",
+    "share": "https://threads.net/intent/post?url=${url}&text=${description}",
+    "fill": "hover:text-[#000000]"
   },
   {
+    "icon": "bi:mastodon",
     "id": "mastodon",
     "label": "Mastodon",
+    "share": "https://mas.to/share?text=${title}&url=${url}",
     "url": "https://mas.to/@davidsneighbour",
-    "icon": "bi:mastodon"
+    "fill": "hover:text-[#6364ff]"
   },
   {
+    "icon": "bi:instagram",
     "id": "instagram",
     "label": "Instagram",
-    "url": "https://www.instagram.com/pkollitsch/",
-    "icon": "bi:instagram"
+    "url": "https://www.instagram.com/pkollitsch/"
+  },
+  {
+    "icon": "bi:envelope",
+    "fill": "hover:text-[#000000]",
+    "id": "email",
+    "label": "Email",
+    "share": "mailto:?subject=${title}&body=${description}%0A${url}"
+  },
+  {
+    "icon": "bi:facebook",
+    "id": "facebook",
+    "label": "Facebook",
+    "share": "https://www.facebook.com/sharer/sharer.php?u=${url}",
+    "url": "https://www.facebook.com/davidsneighbour",
+    "fill": "hover:text-[#1877f2]"
+  },
+  {
+    "icon": "bi:twitter-x",
+    "id": "twitter",
+    "label": "Twitter (aka X)",
+    "share": "https://x.com/intent/tweet?url=${url}",
+    "url": "https://x.com/davidsneighbour",
+    "fill": "hover:text-[#000000]"
+  },
+  {
+    "icon": "bi:linkedin",
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "share": "https://www.linkedin.com/sharing/share-offsite/?url=${url}",
+    "url": "https://www.linkedin.com/in/davidsneighbour/",
+    "fill": "hover:text-[#0A66C2]"
+  },
+  {
+    "icon": "bi:reddit",
+    "id": "reddit",
+    "label": "Reddit",
+    "share": "https://www.reddit.com/submit?url=${url}&title=${title}",
+    "url": "https://www.reddit.com/user/davidsneighbour",
+    "fill": "hover:text-[#FF4500]"
+  },
+  {
+    "icon": "bi:telegram",
+    "id": "telegram",
+    "label": "Telegram",
+    "share": "https://t.me/share/url?url=${url}&text=${title}",
+    "url": "https://t.me/davidsneighbour",
+    "fill": "hover:text-[#0088cc]"
+  },
+  {
+    "icon": "bi:pinterest",
+    "id": "pinterest",
+    "label": "Pinterest",
+    "share": "https://pinterest.com/pin/create/button/?url=${url}&media=&description=${title}",
+    "url": "https://www.pinterest.com/davidsneighbour/",
+    "fill": "hover:text-[#E60023]"
+  },
+  {
+    "icon": "bi:whatsapp",
+    "id": "whatsapp",
+    "label": "WhatsApp",
+    "share": "https://wa.me/?text=${title}%20${url}",
+    "url": "https://wa.me/4915123456789",
+    "fill": "hover:text-[#25D366]"
+  },
+  {
+    "icon": "bi:youtube",
+    "id": "youtube",
+    "label": "YouTube",
+    "url": "https://www.youtube.com/@davidsneighbour"
+  },
+  {
+    "icon": "bi:medium",
+    "id": "medium",
+    "label": "Medium",
+    "url": "https://medium.com/@davidsneighbour",
+    "share": "https://medium.com/new_story?title=${title}&url=${url}",
+    "fill": "hover:text-[#00AB6C]"
   }
 ]

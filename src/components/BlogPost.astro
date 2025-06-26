@@ -14,8 +14,9 @@ import PaginationSingle from '@components/PaginationSingle.astro';
 import Meta from '@components/PostMeta.astro';
 import SchemaBlogPost from '@components/schema/BlogPosting.astro';
 import Article from '@components/Article.astro';
+import ShareSeparator from './ShareSeparator.astro';
 
-const { post } = Astro.props;
+const { post }: Props = Astro.props;
 const content = post.rendered?.html ?? '';
 ---
 
@@ -27,6 +28,7 @@ const content = post.rendered?.html ?? '';
     <Heading level={2} title={post.data.title} class="heading" />
     <BreadCrumbs path={Astro.url.href} />
     <Fragment set:html={content} />
+    <ShareSeparator title={post.data.title} description={post.data.description} />
     <PaginationSingle post={post} />
     <Giscus post={post} />
     <Meta post={post} />

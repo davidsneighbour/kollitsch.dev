@@ -5,32 +5,31 @@ export interface ChangeType {
 }
 
 export const items: ChangeType[] = [
-  { type: 'content', header: 'Content', description: 'Content changes' },
-  { type: 'theme', header: 'Theme', description: 'Theme changes' },
-  { type: 'fix', header: 'Bug Fixes', description: 'A bug fix' },
-  { type: 'feat', header: 'Features', description: 'A new feature' },
+  { description: 'Content changes', header: 'Content', type: 'content' },
+  { description: 'Theme changes', header: 'Theme', type: 'theme' },
+  { description: 'A new feature', header: 'Features', type: 'feat' },
   {
-    type: 'docs',
-    header: 'Documentation',
     description: 'Documentation only changes',
+    header: 'Documentation',
+    type: 'docs',
   },
-  { type: 'refactor', header: 'Refactors', description: 'Code refactoring' },
-  { type: 'test', header: 'Tests', description: 'Adding or fixing tests' },
+  { description: 'Code refactoring', header: 'Refactors', type: 'refactor' },
+  { description: 'Adding or fixing tests', header: 'Tests', type: 'test' },
   {
-    type: 'build',
-    header: 'Build System',
     description: 'Build or dependency changes',
+    header: 'Build System',
+    type: 'build',
   },
-  { type: 'ci', header: 'CI', description: 'CI configuration changes' },
-  { type: 'chore', header: 'Chore', description: 'Other non-src/test changes' },
+  { description: 'CI configuration changes', header: 'CI', type: 'ci' },
+  { description: 'Other non-src/test changes', header: 'Chore', type: 'chore' },
   {
-    type: 'revert',
-    header: 'Reverts',
     description: 'Revert a previous commit',
+    header: 'Reverts',
+    type: 'revert',
   },
   {
-    type: 'config',
-    header: 'Configuration',
     description: 'Configuration changes',
+    header: 'Configuration',
+    type: 'config',
   },
 ];

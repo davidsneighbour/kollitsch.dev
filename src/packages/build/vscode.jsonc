@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    // add enabled extensions to the recommendations file and show overview
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix"
+  }
+}

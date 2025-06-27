@@ -26,7 +26,7 @@ export function applyTemplate(
   return template.replace(/\${(encode:)?([^}]+)}/g, (_, encode, expression) => {
     const expanded = expression.replace(
       /\$\{([^}]+)}/g,
-      // @ts-expect-error 7006 _ has any type
+      // @ts-expect-error -- 7006 _ has any type
       (_, varName: string) => vars[varName] || '',
     );
     return encode ? encodeURIComponent(expanded) : (vars[expression] ?? '');

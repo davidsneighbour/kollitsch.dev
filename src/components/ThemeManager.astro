@@ -38,6 +38,7 @@ const { defaultTheme = 'auto' } = Astro.props;
     function setTheme(theme = defaultTheme) {
       store.setItem(storageKey, theme);
       applyTheme(theme);
+      changeGiscusTheme(theme);
     }
 
     function getTheme() {
@@ -55,8 +56,18 @@ const { defaultTheme = 'auto' } = Astro.props;
     return { setTheme, getTheme, getSystemTheme, getDefaultTheme };
   })();
   theme.setTheme(theme.getTheme());
-</script>
-<script>
+  function changeGiscusTheme (theme = "dark") {
+    function sendMessage(message) {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    }
+    sendMessage({
+      setConfig: {
+        theme: theme
+      }
+    });
+  }
   document.addEventListener('astro:after-swap', () =>
     window.theme.setTheme(window.theme.getTheme()),
   );

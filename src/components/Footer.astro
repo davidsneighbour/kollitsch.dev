@@ -19,8 +19,8 @@ const currentYear = new Date().getFullYear().toString();
   <footer
     class="z-0 mx-auto mt-8 max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
   >
-    <div class="mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="sm:col-span-2">
+    <div class="mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
+      <div class="sm:col-span-2 md:col-span-3">
         <h3 class="mb-4 text-xl">About</h3>
         <p>
           {siteInfo.introduction}
@@ -40,9 +40,9 @@ const currentYear = new Date().getFullYear().toString();
           }
         </ul>
       </aside>
-      <aside class="">
+      <aside class="md:col-span-2">
         <Heading level={3} class="mb-4" title="Connect" />
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-row flex-wrap gap-2">
           {
             socialMediaData.map(value => (
               <li>

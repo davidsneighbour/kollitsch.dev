@@ -1,20 +1,46 @@
 @layer components {
-  .prose {
+  .content {
     p {
       font-size: var(--text-base);
-      color: var(--color-gray-700);
+
+      :last-child {
+        margin-bottom: 0;
+      }
     }
 
     h1 {
       font-size: var(--text-2xl-line-height);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-gray-950);
     }
 
     h2 {
       font-size: var(--text-xl);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-gray-950);
+    }
+
+    /* block elements have 1rem (4*spacing) bottom margin */
+    .expressive-code,
+    ul,
+    ol,
+    p {
+      margin-bottom: calc(4 * var(--spacing));
+    }
+
+    ul {
+      @apply list-outside list-disc;
+
+      padding-left: calc(4 * var(--spacing));
+    }
+
+    ol {
+      @apply list-outside list-decimal;
+
+      padding-left: calc(4 * var(--spacing));
+    }
+  }
+
+  p,
+  li {
+    code {
+      @apply -mx-0.5 my-1 rounded bg-orange-500/10 px-0.5 py-1 text-sm;
     }
   }
 }

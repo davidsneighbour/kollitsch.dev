@@ -9,7 +9,7 @@ interface Props {
   post: CollectionEntry<'blog'>;
   classes?: string;
 }
-const { post, classes = 'w-full max-w-full h-auto mb-4' }: Props = Astro.props;
+const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props = Astro.props;
 
 const coverImage = resolveCoverImage(post);
 const imagePath = resolveImagePath(coverImage.src, post.id);
@@ -19,7 +19,7 @@ const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath)
 
 {imageMeta && (
 
-  <figure>
+  <figure class="relative isolate z-10 group">
     <Image
       src={imageMeta}
       alt={coverImage.alt}
@@ -29,7 +29,11 @@ const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath)
       priority
     />
     {coverImage.title && (
-      <figcaption set:html={coverImage.title} class="px-4"></figcaption>
+      <figcaption transition:animate="slide" set:html={coverImage.title}
+            class="z-30 absolute bottom-0 left-0 right-0
+                bg-orange-600/80 text-orange-50/90 text-center
+                opacity-0 group-hover:opacity-100
+                transition-all duration-600 delay-100 ease-in-out"></figcaption>
     )}
   </figure>
 )}

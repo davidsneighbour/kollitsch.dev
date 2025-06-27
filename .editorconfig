@@ -18,3 +18,7 @@ trim_trailing_whitespace = false
 
 [*.(yml|yaml)]
 intent_style = space
+
+[*.json(c?)]
+indent_style = space
+indent_size = 2

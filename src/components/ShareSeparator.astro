@@ -21,12 +21,13 @@ const vars = {
 
 export function applyTemplate(
   template: string,
-  vars: Record<string, string>,
+  vars: Record<string, string | undefined>,
 ): string {
   return template.replace(/\${(encode:)?([^}]+)}/g, (_, encode, expression) => {
     const expanded = expression.replace(
       /\$\{([^}]+)}/g,
-      (_, varName) => vars[varName] || '',
+      // @ts-expect-error 7006 _ has any type
+      (_, varName: string) => vars[varName] || '',
     );
     return encode ? encodeURIComponent(expanded) : (vars[expression] ?? '');
   });

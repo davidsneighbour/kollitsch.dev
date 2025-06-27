@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Dev Server (Startup)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\" && exec npx astro dev"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "dev-tasks"
+      }
+    },
+    {
+      "label": "TS Code Check (Startup)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\" && exec npx astro check --watch"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "dev-tasks"
+      }
+    },
+    {
+      "label": "Start All",
+      "dependsOn": [
+        "Dev Server (Startup)",
+        "TS Code Check (Startup)"
+      ],
+      "dependsOrder": "parallel",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}

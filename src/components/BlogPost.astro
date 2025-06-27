@@ -24,7 +24,7 @@ const { post }: Props = Astro.props;
   <PostImage post={post} classes="max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
 
   <div class="p-4">
-    <p>{post.data.date.toLocaleDateString()}</p>
+    <!-- <p>{post.data.date.toLocaleDateString()}</p> -->
     <Heading level={2} title={post.data.title} class="heading" />
     <BreadCrumbs path={Astro.url.href} />
     <Prose post={post} />

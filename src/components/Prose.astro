@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
+const content = post.rendered?.html ?? '';
+---
+
+<div class="content">
+  <Fragment set:html={content} />
+</div>

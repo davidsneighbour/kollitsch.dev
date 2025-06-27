@@ -14,10 +14,10 @@ import PaginationSingle from '@components/PaginationSingle.astro';
 import Meta from '@components/PostMeta.astro';
 import SchemaBlogPost from '@components/schema/BlogPosting.astro';
 import Article from '@components/Article.astro';
-import ShareSeparator from './ShareSeparator.astro';
+import ShareSeparator from '@components/ShareSeparator.astro';
+import Prose from '@components/Prose.astro';
 
 const { post }: Props = Astro.props;
-const content = post.rendered?.html ?? '';
 ---
 
 <Article class="mt-8 rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset p-(--card-padding) bg-zinc-100 dark:bg-zinc-900  hover:bg-zinc-100/90 dark:hover:bg-zinc-900/90">
@@ -27,7 +27,7 @@ const content = post.rendered?.html ?? '';
     <p>{post.data.date.toLocaleDateString()}</p>
     <Heading level={2} title={post.data.title} class="heading" />
     <BreadCrumbs path={Astro.url.href} />
-    <Fragment set:html={content} />
+    <Prose post={post} />
     <ShareSeparator title={post.data.title} description={post.data.description} />
     <PaginationSingle post={post} />
     <Giscus post={post} />

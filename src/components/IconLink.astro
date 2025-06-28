@@ -12,7 +12,7 @@ type Props = {
 const { type = 'prefix', icon, ...attrs }: Props = Astro.props;
 ---
 
-<a href={attrs.href} class="flex items-center gap-2" {...attrs}>
+<a href={attrs.href} class="flex items-center gap-2" translate="no" {...attrs}>
   {type === 'prefix' && <Icon name={icon} />}
   <span>
     <slot />

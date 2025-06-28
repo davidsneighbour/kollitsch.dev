@@ -4,7 +4,7 @@
 import Footer from "@components/Footer.astro";
 import SiteTitle from "@components/SiteTitle.astro";
 import TopNavigation from "@components/TopNavigation.astro";
-import Layout from "@layouts/SiteWrapper.astro";
+import Site from "@layouts/Site.astro";
 
 const { post } = Astro.props;
 
@@ -21,11 +21,11 @@ const { post } = Astro.props;
 import setup from "@data/setup.json" with { type: "json" };
 ---
 
-<Layout post={post}>
+<Site post={post}>
   <SiteTitle />
   <TopNavigation />
   <main class={setup.classes.containers.main}>
     <slot />
   </main>
   <Footer />
-</Layout>
+</Site>

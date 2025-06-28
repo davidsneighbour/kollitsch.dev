@@ -1,7 +1,7 @@
 ---
 // @todo refactor
 
-import Layout from '@layouts/SiteWrapper.astro';
+import Site from '@layouts/Site.astro';
 import { Image } from 'astro:assets';
 import image404 from '@assets/images/404.jpg';
 import IconLink from '@components/IconLink.astro';
@@ -20,7 +20,7 @@ import IconLink from '@components/IconLink.astro';
   }
 </script>
 
-<Layout extraBodyClasses="h-full">
+<Site extraBodyClasses="h-full">
   <div class="relative h-full text-center">
     <main class="absolute inset-0 z-10">
       <p class="font-changa text-9xl leading-8">404</p>
@@ -46,4 +46,4 @@ import IconLink from '@components/IconLink.astro';
       width={1600}
     />
   </div>
-</Layout>
+</Site>

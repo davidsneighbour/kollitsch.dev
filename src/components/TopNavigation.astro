@@ -53,14 +53,28 @@ if (!activeItem && import.meta.env.DEV) {
 
 ---
 
-<header class="sticky z-50 top-0 isolate mb-12">
-  <div class="backdrop z-10"></div>
-  <div class="backdrop-edge z-10">
-    <ProgressBar />
+<header class="
+  [--thickness:4px] lg:[--thickness:6px]
+  sticky z-50 top-0 isolate
+  bg-zinc-100 dark:bg-zinc-900
+  mb-12
+">
+  <div class="backdrop z-10
+    absolute inset-0
+    backdrop-blur-lg
+    pointer-events-none
+    bg-gray-100 dark:bg-gray-900
+  "></div>
+  <div class="backdrop-edge z-10
+    absolute bottom-0 left-0 right-0
+    h-[var(--thickness)]
+  ">
+    <ProgressBar classes="progress z-40 relative [--height:var(--thickness)]" />
   </div>
-  <div
-    class="flex flex-wrap items-center gap-4 bg-zinc-100 text-zinc-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-zinc-50 z-20"
-  >
+  <div class="
+    z-20 flex flex-wrap items-center gap-4 md:flex-nowrap md:items-start
+    bg-zinc-100 text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50
+  ">
     <div class="order-1 flex-1 z-30" id="navbar-sitetitle">
       <a
         id="navbar-brand"
@@ -102,109 +116,6 @@ if (!activeItem && import.meta.env.DEV) {
     </div>
   </div>
 </header>
-
-<style>
-  header {
-    --thickness: 4px;
-
-    position: sticky;
-    top: 0;
-
-    /*
-      Very opaque, for unsupported browsers.
-      Overwritten in the feature queries below.
-    */
-    background: hsl(0deg 0% 100% / 0.95);
-  }
-
-  /*
-    This code gets applied for folks using
-    browsers that support backdrop-filter.
-  */
-  @supports
-    (backdrop-filter: blur(16px)) or
-    (-webkit-backdrop-filter: blur(16px))
-  {
-    header {
-      background: hsl(0deg 0% 100% / 0.5);
-    }
-
-    .backdrop {
-      position: absolute;
-      inset: 0;
-
-      /*
-        These prefixed properties are usually
-        added automatically by tooling:
-      */
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        hsl(0deg 0% 95%),
-        transparent 50%
-      );
-      pointer-events: none;
-    }
-
-    .backdrop-edge {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: var(--thickness);
-      background: hsl(0deg 0% 100% / 0.1);
-      -webkit-backdrop-filter: blur(12px) brightness(0.96);
-      backdrop-filter: blur(12px) brightness(0.96);
-      transform: translateY(100%);
-      pointer-events: none;
-    }
-  }
-
-  /*
-    This code gets applied for folks using
-    browsers that support mask-image. This
-    adds the "consider near elements"
-    optimization discussed in this article.
-  */
-  @supports
-    (mask-image: none) or
-    (-webkit-mask-image: none)
-  {
-    .backdrop {
-      height: 200%;
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 0% 50%,
-        transparent 50% 100%
-      );
-      mask-image: linear-gradient(
-        to bottom,
-        black 0% 50%,
-        transparent 50% 100%
-      );
-    }
-
-    .backdrop-edge {
-      height: 100%;
-      inset: 0;
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 0,
-        black var(--thickness),
-        transparent var(--thickness)
-      );
-      mask-image: linear-gradient(
-        to bottom,
-        black 0,
-        black var(--thickness),
-        transparent var(--thickness)
-      );
-    }
-  }
-</style>
-
-
 
 <script is:inline>
   // toggle mobile menu open/close state and icons

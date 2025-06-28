@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear().toString();
 ---
 
 <section
-  class="mt-8 border-t-1 border-t-slate-700 bg-gray-50 py-8 dark:bg-stone-900"
+  class="mt-8 border-t-1 border-t-slate-700 bg-gray-50 py-8 dark:bg-gray-950"
 >
   <footer
     class="z-0 mx-auto mt-8 max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
@@ -56,9 +56,7 @@ const currentYear = new Date().getFullYear().toString();
       </aside>
     </div>
 
-    <div
-      class="flex flex-row items-center justify-between border-t border-gray-800 pt-6"
-    >
+    <div class="flex flex-row items-center justify-between border-t border-gray-800 pt-6">
       <span
         >&copy; <span id={footerYearId}>{currentYear}</span>
         <a href={getHomepageUrl()}>{siteInfo.title}</a></span

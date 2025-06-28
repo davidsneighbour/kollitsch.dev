@@ -1,58 +1,53 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getHomepageUrl } from '@utils/getHomepageUrl';
 
-/**
- * Represents a single breadcrumb item
- */
+type CollectionName = 'blog' | 'pages';
+type Entry = CollectionEntry<CollectionName>;
+
 export interface BreadcrumbItem {
   label: string;
-  href: string;
+  href: string; // absolute URL
 }
 
-/**
- * Creates a breadcrumb trail based on a given URL path using Astro content collections.
- *
- * @param pathname - The current path (e.g., `/blog/posts/my-article`)
- * @returns Array of breadcrumb items
- *
- * @example
- * const breadcrumbs = await getBreadcrumbs('/blog/posts/my-article');
- * // [
- * //   { label: 'Blog', href: '/blog/' },
- * //   { label: 'Posts', href: '/blog/posts/' },
- * //   { label: 'My Article', href: '/blog/posts/my-article/' }
- * // ]
- */
 export async function getBreadcrumbs(
   pathname: string,
+  skipIndex?: number,
 ): Promise<BreadcrumbItem[]> {
-  const segments = pathname
-    .replace(/\/+$/, '') // Remove trailing slashes
-    .split('/')
-    .filter(Boolean); // Remove empty segments
+  const homepage = getHomepageUrl().replace(/\/+$/, '');
+  const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean);
 
-  const breadcrumbs: BreadcrumbItem[] = [];
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      label: 'Home',
+      href: `${homepage}/`,
+    },
+  ];
+
   let currentPath = '';
-
-  // Preload all entries once
   const allCollections = await getAllCollectionEntries();
 
-  for (const segment of segments) {
-    currentPath += `/${segment}`;
-    const href = `${currentPath}/`;
+  for (let i = 0; i < segments.length; i++) {
+    const segment = segments[i];
+    if (!segment) {
+      throw new Error(`Unexpected undefined segment at index ${i}`);
+    }
 
-    // Default label fallback
+    if (i === skipIndex) {
+      currentPath += `/${segment}`;
+      continue;
+    }
+
+    currentPath += `/${segment}`;
+    const href = `${homepage}${currentPath}/`;
+
     let label = segment.toUpperCase();
 
-    // Match against all known slugs
     const match = allCollections.find(entry => {
-      // @ts-ignore
-      const entryPath = `/${entry.slug}`.replace(/\/+$/, '');
+      const entryPath = `/${entry.id}`.replace(/\/+$/, '');
       return entryPath === currentPath;
     });
 
-    // @ts-ignore
-    if (match?.data?.title) {
-      // @ts-ignore
+    if (match?.data?.title && typeof match.data.title === 'string') {
       label = match.data.title;
     } else {
       label = segment
@@ -67,19 +62,31 @@ export async function getBreadcrumbs(
   return breadcrumbs;
 }
 
-/**
- * Loads all content entries from all known collections.
- * Extend this list manually if you add more collections.
- *
- * @todo find out how we type our content collections without re-iterating
- */
-// @ts-expect-error
-async function getAllCollectionEntries(): Promise<CollectionEntry<string>[]> {
-  const collections = ['blog', 'pages'];
+async function getAllCollectionEntries(): Promise<Entry[]> {
+  const collections: CollectionName[] = ['blog', 'pages'];
   const allEntries = await Promise.all(
-    // @ts-expect-error
     collections.map(name => getCollection(name)),
   );
-  // @ts-expect-error
   return allEntries.flat();
+}
+
+export function toBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]): {
+  itemListElement: {
+    '@type': 'ListItem';
+    position: number;
+    name: string;
+    item?: string;
+  }[];
+} {
+  return {
+    itemListElement: breadcrumbs.map((crumb, index) => {
+      const isLast = index === breadcrumbs.length - 1;
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.label,
+        ...(isLast ? {} : { item: crumb.href }),
+      };
+    }),
+  };
 }

@@ -1,6 +1,6 @@
 ---
 layout: "@layouts/ContentPage.astro"
-title: "Privacy Policy"
+title: "Security Policy"
 cover: "privacy.jpg"
 ---
 

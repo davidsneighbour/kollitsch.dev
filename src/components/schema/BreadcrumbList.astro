@@ -1,0 +1,16 @@
+---
+import { toBreadcrumbSchema } from '@utils/getBreadcrumbs';
+const { items } = Astro.props;
+
+let schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  ...toBreadcrumbSchema(items),
+};
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema)}
+/>

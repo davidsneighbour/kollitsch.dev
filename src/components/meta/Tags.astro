@@ -3,6 +3,7 @@ const { post } = Astro.props;
 import { Icon } from 'astro-icon/components';
 ---
 
+{ post.data.tags && (
 <div class="flex flex-row items-center justify-start gap-2">
   <div class="w-6 flex-none">
     <Icon name="bi:tags" />
@@ -16,3 +17,4 @@ import { Icon } from 'astro-icon/components';
     }
   </div>
 </div>
+)}

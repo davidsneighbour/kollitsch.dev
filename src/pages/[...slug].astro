@@ -4,6 +4,7 @@
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/DefaultPage.astro';
+import { logDebug } from '@utils/helpers.js';
 
 // Load all `pages` collection entries
 const entries = await getCollection('pages');
@@ -20,7 +21,10 @@ if (!post || post.data?.draft) {
   throw new Error(`No matching page for path: ${path}`);
 }
 
-const { data, body } = post;
+if (!post || post.data?.draft || !post.rendered?.html) {
+  logDebug(`No renderable page found for path: ${path}`);
+  //throw new Error(`No matching or renderable page for path: ${path}`);
+}
 
 export async function getStaticPaths() {
   const entries = await getCollection('pages');
@@ -38,6 +42,6 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout title={data.title} description={data.description}>
-  <article set:html={body} />
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article set:html={post.rendered?.html ?? ''} />
 </BaseLayout>

@@ -1,10 +1,10 @@
 @layer base {
   body {
     @apply font-exo2 text-base leading-[1.4] font-light;
-    @apply text-zinc-600;
-    @apply dark:text-zinc-200;
-    @apply bg-zinc-50;
-    @apply dark:bg-zinc-950;
+    @apply text-gray-600;
+    @apply dark:text-gray-200;
+    @apply bg-gray-50;
+    @apply dark:bg-gray-950;
   }
 
   h1,

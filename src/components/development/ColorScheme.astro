@@ -2,48 +2,38 @@
 const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
 const allColors = [
-  'red',
-  'orange',
-  'amber',
-  'yellow',
-  'lime',
-  'green',
-  'emerald',
-  'teal',
-  'cyan',
-  'sky',
-  'blue',
-  'indigo',
-  'violet',
-  'purple',
-  'fuchsia',
-  'pink',
-  'rose',
-  'slate',
   'gray',
-  'zinc',
-  'neutral',
-  'stone',
+  'gray2',
+  'gray3',
+  'gray4',
+  'cyan',
+  'green',
+  'yellow',
+  'orange',
+  'red',
+  'pink',
+  'purple',
+  'brown',
 ];
 
 const colorGrids = [
   {
     labelTextClassLight: 'text-gray-950',
-    labelTextClassDark: 'text-white',
-    bgClass: 'bg-white dark:bg-gray-950',
-    labelTextDarkMode: 'dark:text-white',
+    labelTextClassDark: 'text-gray-50',
+    bgClass: 'bg-gray-50 dark:bg-gray-950',
+    labelTextDarkMode: 'dark:text-gray-50',
     gridTextClass: 'text-gray-950 bg-gray-50/30',
   },
   {
-    labelTextClassLight: 'text-white',
-    labelTextClassDark: 'text-black',
-    bgClass: 'bg-zinc-900 dark:bg-white',
-    labelTextDarkMode: 'dark:text-black',
+    labelTextClassLight: 'text-gray-50',
+    labelTextClassDark: 'text-gray-950',
+    bgClass: 'bg-gray-950 dark:bg-gray-50',
+    labelTextDarkMode: 'dark:text-gray-950',
     gridTextClass: 'text-gray-50 bg-gray-950/30',
   },
 ];
 
-const boxBgClass = 'outline-black/10 sm:rounded-md dark:outline-white/10';
+const boxBgClass = 'outline-gray/10 sm:rounded-md dark:outline-white/10';
 ---
 
 {

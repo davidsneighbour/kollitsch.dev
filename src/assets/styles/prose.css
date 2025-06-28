@@ -40,7 +40,7 @@
   p,
   li {
     code {
-      @apply -mx-0.5 my-1 rounded bg-orange-500/10 px-0.5 py-1 text-sm;
+      @apply -mx-0.5 my-1 rounded bg-orange-600/10 px-0.5 py-1 text-sm;
     }
   }
 }

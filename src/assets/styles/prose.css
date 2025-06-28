@@ -1,4 +1,7 @@
 @layer components {
+  /**
+   * Prose styles for content sections.
+   */
   .content {
     p {
       font-size: var(--text-base);

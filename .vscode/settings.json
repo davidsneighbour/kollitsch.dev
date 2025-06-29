@@ -17,15 +17,16 @@
   "explorer.fileNesting.patterns": {
     // collapse files and their tests in the explorer
     "*.astro": "$(capture).test.ts",
-    ".env": ".env*"
+    ".env": ".env*",
+    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*",
   },
 
   // astro specific settings
   "astro.content-intellisense": true,
   "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
   "files.associations": {
-    "*.astro": "astro",
-    "*.css": "tailwindcss"
+    "**/*.astro": "astro",
+    "**/*.css": "tailwindcss"
   },
 
   // PLUGIN: prettier setup

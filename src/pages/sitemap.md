@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: /sitemap
 description: A sitemap of the site
 linktitle: sitemap

@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: /uses
 cover: ./uses.jpg
 description: >-

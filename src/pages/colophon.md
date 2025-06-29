@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: /colophon
 linktitle: colophon
 url: /colophon

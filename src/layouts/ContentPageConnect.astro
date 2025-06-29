@@ -4,15 +4,13 @@
 import Layout from '@layouts/ContentPage.astro';
 const post = {
   data: {
-    title: 'Contact | My Personal Website',
+    title: 'Contact',
     description: 'Get in touch with me through this contact form.',
   },
 };
-import { Icon } from 'astro-icon/components';
 ---
 
 <Layout post={post}>
-  <slot />
   <div class="relative isolate bg-gray-900">
     <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       <div
@@ -38,42 +36,7 @@ import { Icon } from 'astro-icon/components';
           >
             Get in touch
           </h2>
-          <p class="mt-6 text-lg/8 text-gray-300">
-            Proin volutpat consequat porttitor cras nullam gravida at. Orci
-            molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu
-            sed malesuada et magna.
-          </p>
-          <dl class="mt-10 space-y-4 text-base/7 text-gray-300">
-            <div class="flex gap-x-4">
-              <dt class="flex-none">
-                <span class="sr-only">Address</span>
-                <Icon name="bi:mailbox" />
-              </dt>
-              <dd>545 Mavis Island<br />Chicago, IL 99191</dd>
-            </div>
-            <div class="flex gap-x-4">
-              <dt class="flex-none">
-                <span class="sr-only">Telephone</span>
-                <Icon name="bi:telephone" />
-              </dt>
-              <dd>
-                <a class="hover:text-white" href="tel:+1 (555) 234-5678"
-                  >+1 (555) 234-5678</a
-                >
-              </dd>
-            </div>
-            <div class="flex gap-x-4">
-              <dt class="flex-none">
-                <span class="sr-only">Email</span>
-                <Icon name="bi:envelope-paper" />
-              </dt>
-              <dd>
-                <a class="hover:text-white" href="mailto:hello@example.com"
-                  >hello@example.com</a
-                >
-              </dd>
-            </div>
-          </dl>
+          <slot />
         </div>
       </div>
       <form

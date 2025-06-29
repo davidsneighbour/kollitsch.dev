@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: /blogroll
 linktitle: blogroll
 description: A collection of blogs I follow.

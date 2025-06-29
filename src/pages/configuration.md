@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: /configuration
 linktitle: configuration
 description: Showing off the configuration of this page.

@@ -6,11 +6,11 @@ cover: "privacy.jpg"
 
 This document outlines security procedures and general policies for projects by David's Neighbour.
 
-* [Reporting a Bug](#reporting-a-bug)
-* [Disclosure Policy](#disclosure-policy)
-* [Comments on this Policy](#comments-on-this-policy)
+* [Reporting a bug](#reporting-a-bug)
+* [Disclosure policy](#disclosure-policy)
+* [Comments on this policy](#comments-on-this-policy)
 
-## Reporting a Bug
+## Reporting a bug
 
 David's Neighbour takes all security bugs in our projects seriously. Thank you for improving the security of our projects. We appreciate your efforts and responsible disclosure and will make every effort to acknowledge your contributions and fix the underlying issues.
 
@@ -20,14 +20,14 @@ The lead maintainer of the project will acknowledge your email within 48 hours a
 
 Report security bugs in third-party modules to the person or team maintaining the module.
 
-## Disclosure Policy
+## Disclosure policy
 
-When the security team receives a security bug report, they will assign it to a primary handler. This person will coordinate the fix and release process, involving the following steps:
+After receiving the security bug report, a primary handler is assigned. This person coordinates the fix and release process, involving the following steps:
 
 * Confirm the problem and determine the affected versions.
 * Audit code to find similar problems.
-* Prepare fixes for all releases still under maintenance. We will release those fixes as fast and safe as possible.
+* Prepare fixes for all releases still under maintenance. Those fixes will be released as fast and safe as possible.
 
-## Comments on this Policy
+## Comments on this policy
 
 If you have suggestions on how we can improve this process [please submit a pull request](https://github.com/davidsneighbour/davids-neighbour.com/edit/main/content/policies/security/index.md) or an [issue report](https://github.com/davidsneighbour/davids-neighbour.com/issues).

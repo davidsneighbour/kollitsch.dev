@@ -10,12 +10,11 @@ type Props = {
 } & HTMLAttributes<'a'>;
 
 const { type = 'prefix', icon, ...attrs }: Props = Astro.props;
+const hasSlot = !!Astro.slots.default;
 ---
 
 <a href={attrs.href} class="flex items-center gap-2" translate="no" {...attrs}>
   {type === 'prefix' && <Icon name={icon} />}
-  <span>
-    <slot />
-  </span>
+  {hasSlot && <span><slot /></span>}
   {type === 'postfix' && <Icon name={icon} />}
 </a>

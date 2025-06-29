@@ -1,9 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { getVSCodeLink } from '@utils/getVSCodeLink';
+import { getVSCodeUrlById } from '@utils/getVSCodeLink';
+import IconLink from '@components/IconLink.astro';
 
 const { post } = Astro.props;
-const vscodelink = getVSCodeLink('/src/content/blog/' + post.id + '/index.md');
+const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
 
 const dateOptions: object = {
@@ -29,11 +30,7 @@ const formattedPublishDate = new Date(post.data.date).toLocaleDateString("en-US"
     }
     {
       isDev && (
-        <div>
-          <a href={vscodelink}>
-            <Icon name="bi:braces-asterisk" />
-          </a>
-        </div>
+        <IconLink href={vscodeURL} icon="bi:braces-asterisk" />
       )
     }
   </div>

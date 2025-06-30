@@ -1,0 +1,46 @@
+name: Run e2e tests
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * 0"
+
+jobs:
+  e2e-tests:
+    name: End-to-End Tests (Playwright)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Setup Playwright
+        id: setup-playwright
+        uses: ./.github/actions/setup-playwright
+        # with:
+        #   working-directory: ./packages/<my-project>
+
+      - name: Build Astro site
+        run: npm run build
+
+      # - name: Start server for E2E tests
+      #   run: npx astro preview &
+      #   env:
+      #     PORT: 4321
+
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          PLAYWRIGHT_BASE_URL: "http://localhost:4321"

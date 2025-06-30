@@ -4,9 +4,6 @@
 # Redirect old Netlify preview URLs to production domain
 https://kollitsch-dev.netlify.app/*  /:splat  301!
 
-# add trailing slashes
-/*    /:splat/  301!
-
 # redirects from content aliases — CHECK AND FIX AFTER FIRST DEPLOY
 /100daystooffload                                  /blog/2022/100-days-to-offload/                    301
 /blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/                       301

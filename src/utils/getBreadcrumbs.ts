@@ -1,8 +1,5 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
-
-type CollectionName = 'blog' | 'pages';
-type Entry = CollectionEntry<CollectionName>;
 
 export interface BreadcrumbItem {
   label: string;
@@ -18,13 +15,13 @@ export async function getBreadcrumbs(
 
   const breadcrumbs: BreadcrumbItem[] = [
     {
-      label: 'Home',
       href: `${homepage}/`,
+      label: 'Home',
     },
   ];
 
   let currentPath = '';
-  const allCollections = await getAllCollectionEntries();
+  const allEntries = await getCollection('blog');
 
   for (let i = 0; i < segments.length; i++) {
     const segment = segments[i];
@@ -42,7 +39,7 @@ export async function getBreadcrumbs(
 
     let label = segment.toUpperCase();
 
-    const match = allCollections.find(entry => {
+    const match = allEntries.find((entry) => {
       const entryPath = `/${entry.id}`.replace(/\/+$/, '');
       return entryPath === currentPath;
     });
@@ -52,22 +49,14 @@ export async function getBreadcrumbs(
     } else {
       label = segment
         .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     }
 
-    breadcrumbs.push({ label, href });
+    breadcrumbs.push({ href, label });
   }
 
   return breadcrumbs;
-}
-
-async function getAllCollectionEntries(): Promise<Entry[]> {
-  const collections: CollectionName[] = ['blog', 'pages'];
-  const allEntries = await Promise.all(
-    collections.map(name => getCollection(name)),
-  );
-  return allEntries.flat();
 }
 
 export function toBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]): {
@@ -83,8 +72,8 @@ export function toBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]): {
       const isLast = index === breadcrumbs.length - 1;
       return {
         '@type': 'ListItem',
-        position: index + 1,
         name: crumb.label,
+        position: index + 1,
         ...(isLast ? {} : { item: crumb.href }),
       };
     }),

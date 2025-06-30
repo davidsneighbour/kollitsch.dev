@@ -11,6 +11,7 @@ bak
 
 # Release scripts
 changes.md
+release.json
 
 # dynamically built favicon
 public/favicon.ico

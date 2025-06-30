@@ -24,5 +24,5 @@ export default {
   ],
 
   '*.jsonnet': ['jsonnetfmt --in-place'],
-  '*.y(aml|ml)': ['yamllint --config-file src/config/yamllint.yml'],
+  '*.y(aml|ml)': ['yamllint --config-file ./src/config/yamllint.yaml'],
 };

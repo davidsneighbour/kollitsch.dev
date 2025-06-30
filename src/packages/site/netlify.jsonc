@@ -1,10 +1,17 @@
 {
   "devDependencies": {
-    "@astrojs/netlify": "6.4.0",
-    "@netlify/edge-functions": "2.15.2",
     "netlify-cli": "22.1.6"
   },
   "scripts": {
-    "deploy": "netlify deploy --prod --open"
+    "clean:netlify": "wireit",
+    "deploy": "wireit"
+  },
+  "wireit": {
+    "clean:netlify": {
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+    },
+    "deploy": {
+      "command": "netlify deploy --prod --open"
+    }
   }
 }

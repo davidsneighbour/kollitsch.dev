@@ -19,13 +19,13 @@ This project is the website setup, features, and theme for [kollitsch.dev](https
 
 ## Used services and tools
 
-| Function                  | Service                                          |
-| :------------------------ | :----------------------------------------------- |
-| **Domain Registration**   | [Porkbun](https://porkbun.com/products/domains)  |
-| **DNS**                   | [Cloudflare](https://cloudflare.com)             |
-| **CDN**                   | [Cloudflare](https://cloudflare.com)             |
-| **Hosting**               | [Netlify](https://netlify.com)                   |
-| **Static Site Generator** | [Astro](https://astro.build/)                    |
+| Function                  | |Service                                          |
+| :------------------------ | --- | :----------------------------------------------- |
+| **Domain Registration**   | | [Porkbun](https://porkbun.com/products/domains)  |
+| **DNS & CDN**                   | [![Cloudflare](https://skillicons.dev/icons?i=cloudflare)](https://cloudflare.com) | [Cloudflare](https://cloudflare.com)             |
+| **Hosting**               | [![Netlify](https://skillicons.dev/icons?i=netlify)](https://netlify.com) | [Netlify](https://netlify.com)                   |
+| **Static Site Generator** | [![Astro](https://skillicons.dev/icons?i=astro)](https://astro.build/) | [Astro](https://astro.build/)                    |
+| **CSS Framework**         | [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind)](https://tailwindcss.com/) | [Tailwind CSS](https://tailwindcss.com/)        |
 
 ### Legacy tools
 

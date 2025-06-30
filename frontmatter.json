@@ -3,15 +3,12 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "Weblog",
-      "contentTypes": ["default"],
+      "contentTypes": [
+        "default"
+      ],
       "previewPath": "/{{fm.fmContentType}}/{{fm.date|format:yyyy}}/",
       "path": "[[workspace]]/src/content/blog",
       "filePrefix": "/{{date|yyyy}}/"
-    },
-    {
-      "title": "Slash Pages",
-      "path": "[[workspace]]/src/content/slash",
-      "disableCreation": true
     }
   ],
   "frontMatter.framework.id": "astro",
@@ -25,7 +22,14 @@
       "file": "[[workspace]]/src/content/categories.json",
       "schema": {
         "type": "object",
-        "required": ["id", "label", "description", "image", "icon", "class"],
+        "required": [
+          "id",
+          "label",
+          "description",
+          "image",
+          "icon",
+          "class"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -62,7 +66,12 @@
       "file": "[[workspace]]/src/data/socialmedia.json",
       "schema": {
         "type": "object",
-        "required": ["id", "label", "url", "icon"],
+        "required": [
+          "id",
+          "label",
+          "url",
+          "icon"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -95,7 +104,14 @@
       "file": "[[workspace]]/src/content/tags.json",
       "schema": {
         "type": "object",
-        "required": ["id", "label", "description", "image", "icon", "class"],
+        "required": [
+          "id",
+          "label",
+          "description",
+          "image",
+          "icon",
+          "class"
+        ],
         "properties": {
           "id": {
             "type": "string",

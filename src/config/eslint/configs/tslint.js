@@ -8,6 +8,8 @@ export default [
       'class-methods-use-this': 'error',
       'default-param-last': 'error',
       'no-useless-constructor': 'error',
+      // https://eslint.org/docs/latest/rules/no-duplicate-imports#allowseparatetypeimports
+      'no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
     },
   },
 ];

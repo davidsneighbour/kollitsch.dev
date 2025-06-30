@@ -150,6 +150,7 @@
     },
     "enabled": true,
     "includes": ["**", "!src/packages/linting/biome.jsonc"],
+    // https://biomejs.dev/linter/javascript/rules/
     "rules": {
       "complexity": {
         "noAdjacentSpacesInRegex": "error",
@@ -255,7 +256,8 @@
             "noUnusedVariables": "off"
           },
           "nursery": {
-            "noUnresolvedImports": "off"
+            "noUnresolvedImports": "off",
+            "noTsIgnore": "error"
           },
           "style": {
             "useConst": "off",

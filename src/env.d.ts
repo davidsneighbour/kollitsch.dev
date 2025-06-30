@@ -40,3 +40,23 @@ type MetaConfig = {
     href: string;
   }>;
 };
+
+/**
+ * Navigation item type definition.
+ * Represents a single navigation item with properties for label, link, icon,
+ * and optional matching criteria.
+ */
+type NavItem = {
+  label: string;
+  link: string;
+  icon: string;
+  match?: 'full' | 'prefix';
+  matchPaths?: string[];
+  children?: NavItem[];
+};
+
+/**
+ * Navigation type definition.
+ * Represents an array of navigation items.
+ */
+type Navigation = NavItem[];

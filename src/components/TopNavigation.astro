@@ -1,27 +1,18 @@
 ---
-import navData from '@data/navigation.json';
-const typedNavData = navData as Navigation;
-
 import { fade } from 'astro:transitions';
 
-import ThemeSelect from '@components/ThemeSelect.astro';
-import { getHomepageUrl } from '@utils/getHomepageUrl';
-import siteinfo from '@data/setup.json';
 import { Icon } from 'astro-icon/components';
+import ThemeSelect from '@components/ThemeSelect.astro';
 import ProgressBar from '@components/Progress.astro';
+import { getHomepageUrl } from '@utils/getHomepageUrl';
+import { logDebug } from '@utils/helpers';
 
-export type NavItem = {
-  label: string;
-  link: string;
-  icon: string;
-  match?: 'full' | 'prefix';
-  matchPaths?: string[];
-  children?: NavItem[];
-};
+import siteinfo from '@data/setup.json';
+import navData from '@data/navigation.json';
 
-export type Navigation = NavItem[];
+const typedNavData = navData as Navigation;
 
-export function isActive(item: NavItem, pathname: string): boolean {
+function isActive(item: NavItem, pathname: string): boolean {
   const matchType = item.match ?? 'full';
   const directMatch =
     matchType === 'full'
@@ -33,7 +24,7 @@ export function isActive(item: NavItem, pathname: string): boolean {
   return directMatch || extraMatches;
 }
 
-export function findActive(nav: NavItem[], pathname: string): NavItem | null {
+function findActive(nav: NavItem[], pathname: string): NavItem | null {
   for (const item of nav) {
     if (isActive(item, pathname)) return item;
     if (item.children) {
@@ -48,7 +39,7 @@ const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
 
 if (!activeItem && import.meta.env.DEV) {
-  console.warn(`⚠ No active navigation item for: ${pathname}`);
+  logDebug(`👉 No navigation item to activate for: ${pathname}`);
 }
 
 ---

@@ -23,6 +23,7 @@
     "@eslint/js": "9.29.0",
     "@eslint/json": "0.12.0",
     "@eslint/markdown": "6.6.0",
+    "@humanwhocodes/crosspost": "^0.13.0",
     "@iconify-json/bi": "1.2.4",
     "@spotlightjs/astro": "3.2.5",
     "@tailwindcss/vite": "4.1.10",

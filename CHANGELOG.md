@@ -1,4 +1,12 @@
 Changelog
+## [2025.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.0...v2025.5.1) (2025-06-30)
+
+
+### Build System
+
+* ignore release.json ([15a7160](https://github.com/davidsneighbour/kollitsch.dev/commit/15a716084f23a9cc925368954a7d13c79ee09419))
+* remove partytown integration ([0e2f608](https://github.com/davidsneighbour/kollitsch.dev/commit/0e2f608495ab1907b8b2d29a4f85d561425d882f))
+
 ## [2025.5.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.4.8...v2025.5.0) (2025-06-30)
 
 

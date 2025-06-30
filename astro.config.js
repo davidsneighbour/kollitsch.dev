@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import alpinejs from '@astrojs/alpinejs';
-import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
 import beep from '@rollup/plugin-beep';
@@ -52,7 +51,6 @@ export default defineConfig({
       enabled: import.meta.env.PROD,
       heartBeatTimer: 5,
       host: 'https://analytics.dnbhub.xyz/',
-      partytown: true,
       preconnect: true,
       setCookieDomain: '*.kollitsch.dev',
       siteId: 1,
@@ -60,7 +58,6 @@ export default defineConfig({
         contentElement: 'main',
       },
     }),
-    partytown(),
     icon(),
     expressiveCode({
       shiki: {

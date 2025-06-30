@@ -34,9 +34,9 @@ export function applyTemplate(
 }
 ---
 
-<div class="relative">
+<div class="relative my-8">
   <div class="absolute inset-0 flex items-center" aria-hidden="true">
-    <div class="w-full border-t border-gray-300"></div>
+    <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
   </div>
   <div class="relative flex justify-center">
     <span class="isolate inline-flex -space-x-px rounded-md shadow-xs">
@@ -44,8 +44,15 @@ export function applyTemplate(
         shareNetworks.map((network, index) => {
           const isFirst = index === 0;
           const isLast = index === networks.length - 1;
-          const baseClass =
-            'relative inline-flex items-center bg-white px-3 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-10';
+          const baseClass = `
+                  relative inline-flex items-center
+                  focus:z-10
+                  bg-gray-50 hover:bg-gray-100
+                  dark:bg-gray-950 hover:dark:bg-gray-900
+                  text-gray-400 dark:text-gray-600
+                  ring-1 ring-gray-300 ring-inset dark:ring-gray-700
+                  px-3 py-2
+                  `;
           const extraClass = `${isFirst ? 'rounded-l-md' : ''} ${isLast ? 'rounded-r-md' : ''}`;
           const href = network.share
             ? applyTemplate(network.share, vars)

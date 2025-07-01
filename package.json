@@ -48,7 +48,7 @@
     "astro-icon": "1.1.5",
     "astro-matomo": "1.9.0",
     "astro-pagefind": "1.8.3",
-    "eslint": "9.29.0",
+    "eslint": "9.30.0",
     "eslint-plugin-astro": "1.3.1",
     "glob": "11.0.3",
     "globals": "16.2.0",

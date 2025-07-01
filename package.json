@@ -71,7 +71,7 @@
     "@davidsneighbour/release-config": "2025.2.3",
     "@davidsneighbour/remark-config": "2025.2.3",
     "@fbraem/rollup-plugin-toml": "0.0.4",
-    "@playwright/test": "1.53.1",
+    "@playwright/test": "1.53.2",
     "@rollup/plugin-beep": "1.0.3",
     "@rollup/plugin-yaml": "4.1.2",
     "@secretlint/secretlint-rule-anthropic": "10.1.1",

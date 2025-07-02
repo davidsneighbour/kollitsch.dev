@@ -250,7 +250,7 @@
       "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
     },
     "screenshot": {
-      "command": "rm .github/screenshot.png && node src/utils/screenshot.ts --url https://kollitsch.dev/ --output .github/screenshot.png"
+      "command": "ts-node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
     },
     "update": {
       "dependencies": [

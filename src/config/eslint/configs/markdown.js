@@ -1,7 +1,6 @@
-import markdown from '@eslint/markdown'
+import markdown from '@eslint/markdown';
 
 export default [
-  // @ts-ignore
   ...markdown.configs.recommended,
   {
     files: ['**/*.md'],
@@ -14,4 +13,4 @@ export default [
       'markdown/no-html': 'error',
     },
   },
-]
+];

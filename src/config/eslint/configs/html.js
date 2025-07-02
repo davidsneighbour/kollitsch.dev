@@ -1,18 +1,17 @@
-import { defineConfig } from 'eslint/config';
 import html from '@html-eslint/eslint-plugin';
 
 export default [
   {
     files: ['**/*.html'],
-    plugins: {
-      html,
-    },
     language: 'html/html',
     languageOptions: {
       templateEngineSyntax: {
         '{{': '}}',
         '{{-': '-}}',
       },
+    },
+    plugins: {
+      html,
     },
     // see https://html-eslint.org/docs/rules
     rules: {

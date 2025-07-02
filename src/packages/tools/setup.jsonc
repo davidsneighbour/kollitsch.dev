@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@davidsneighbour/release-config": "2025.2.3"
+    "@davidsneighbour/release-config": "2025.2.4"
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",
@@ -9,22 +9,15 @@
   },
   "wireit": {
     "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
+      "dependencies": ["update:git-hooks"]
     },
     "update:git-hooks": {
       "command": "npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+      "dependencies": ["update:post"]
     },
     "update:post": {
       "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:submodules"
-      ]
+      "dependencies": ["update:pre:npm", "update:pre:submodules"]
     },
     "update:pre:npm": {
       "command": "npm-check-updates -u --target minor"

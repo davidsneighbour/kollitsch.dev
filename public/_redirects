@@ -1,61 +1,33 @@
 # Netlify _redirects file for kollitsch.dev
 # See: https://docs.netlify.com/routing/redirects/
+# This file is read and executed first, then the redirections in the
+# `netlify.toml` file are applied.
 
 # Redirect old Netlify preview URLs to production domain
 https://kollitsch-dev.netlify.app/*  /:splat  301!
 
-# redirects from content aliases — CHECK AND FIX AFTER FIRST DEPLOY
-/100daystooffload                                  /blog/2022/100-days-to-offload/                    301
-/blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/                       301
-/blog/2022/notes-from-the-laboratory-february-2022 /blog/2022/notes-from-the-laboratory-february/     301
-/blog/2022/notes-from-the-laboratory-january-2022  /blog/2022/notes-from-the-laboratory-january/      301
-/blog/2023/install-and-link-firefox-developer-edition-on-ubuntu/header_hud55dad2bee384b19f45d00ef51224f7b_54442_1200x630_resize_q85_lanczos.jpg /                                                  301
-/blog/2023/removing-all-local-and-remote-tags-in-git/header_hu53eb3c777c5176ec74654e56bb2d1dce_1624610_1200x630_resize_q85_lanczos.jpg /                                                  301
-/categories                                        /tags/                                             301
-/components                                        /gohugo/                                           301
-/components/hugo-auditor                           /gohugo/auditor/                                   301
-/components/hugo-debug                             /gohugo/debug/                                     301
-/components/hugo-debug/debugging                   /gohugo/debug/debugging/                           301
-/components/hugo-feeds/                            /gohugo/feeds/                                     301
-/components/hugo-functions/                        /gohugo/functions/                                 301
-/components/hugo-giscus/                           /gohugo/giscus/                                    301
-/components/hugo-head/                             /gohugo/head/                                      301
-/components/hugo-hooks/                            /gohugo/hooks/                                     301
-/components/hugo-icons/                            /gohugo/icons/                                     301
-/components/hugo-internals/                        /gohugo/internals/                                 301
-/components/hugo-modder                            /gohugo/modder/                                    301
-/components/hugo-netlification                     /gohugo/netlification/                             301
-/components/hugo-pictures/                         /gohugo/pictures/                                  301
-/components/hugo-pwa                               /gohugo/pwa/                                       301
-/components/hugo-robots                            /gohugo/robots/                                    301
-/components/hugo-security                          /gohugo/security/                                  301
-/components/hugo-sitemap                           /gohugo/sitemap/                                   301
-/components/hugo-youtube/                          /gohugo/youtube/                                   301
-/components/modder                                 /gohugo/modder/                                    301
-/connect                                           /contact/                                          301
-/gohugo/devtools/                                  /gohugo/                                           301
-/gohugo/hugo-debug                                 /gohugo/debug/                                     301
-/gohugo/hugo-debug/debugging                       /gohugo/debug/debugging/                           301
-/gohugo/modder                                     /gohugo/modder/                                    301
-/gohugo/youtube/                                   /gohugo/youtube/                                   301
-/notes-from-the-laboratory-july-2023               /blog/2023/notes-from-the-laboratory-july/         301
-/sitemap/                                          /sitemap/                                          301
+# Redirect old GoHugo URLs to new structure
+/gohugo/*          https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
+/components/hugo-* https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
+/components        https://github.com/davidsneighbour/hugo-modules/                         301
 
-# redirects from configuration collections — CHECK AND FIX AFTER FIRST DEPLOY
-/2005/*                                            /                             301
-/2006/*                                            /                             301
-/2007/*                                            /                             301
-/2008/*                                            /                             301
-/_schemata                                         /                             301
-/blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/                       301
-/blog/2022/100daystooffload/                       /blog/2022/100-days-to-offload/                    301
-/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg /                             301
-/dnb/*                                             /                             301
-/repos/*                                           /                             301
-/repos/textpattern-plugins/current/                /                             301
+# Redirect renamed tags to new tags
 /tags/dnb-org/                                     /tags/davidsneighbour/        301
 /tags/dnb/                                         /tags/davidsneighbour/        301
 /tags/kollitsch.de/                                /tags/davidsneighbour/        301
 
+# ancient redirects from old blogs # @todo check if still needed
+/2005/*                                            /                               301
+/2006/*                                            /                               301
+/2007/*                                            /                               301
+/2008/*                                            /                               301
+/_schemata                                         /                               301
+/blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/    301
+/blog/2022/100daystooffload/                       /blog/2022/100-days-to-offload/ 301
+/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg /                             301
+/dnb/*                                             /                               301
+/repos/*                                           /                               301
+/repos/textpattern-plugins/current/                /                               301
+
 # error pages redirections — MUST STAY AT THE END OF THE FILE
-/*                                                 /404                                               404
+/*  /404  404

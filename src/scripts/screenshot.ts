@@ -1,5 +1,7 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 /**
  * Screenshot CLI Utility
  * -----------------------
@@ -20,9 +22,6 @@ import { chromium } from 'playwright';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import version from '../../package.json' with { type: 'json' };
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { logDebug } from '@utils/helpers';
 
 type ScreenshotFormat = 'png' | 'jpg';
 type ColorScheme = 'light' | 'dark';
@@ -47,8 +46,8 @@ interface CLIArgs {
 
 const argv = yargs(hideBin(process.argv))
   .option('url', {
-    describe: 'URL to capture a screenshot of',
     demandOption: true,
+    describe: 'URL to capture a screenshot of',
     type: 'string',
   })
   .option('output', {
@@ -56,8 +55,8 @@ const argv = yargs(hideBin(process.argv))
     type: 'string',
   })
   .option('width', {
-    describe: 'Viewport width in pixels',
     default: 1200,
+    describe: 'Viewport width in pixels',
     type: 'number',
   })
   .option('height', {
@@ -69,25 +68,25 @@ const argv = yargs(hideBin(process.argv))
     type: 'string',
   })
   .option('format', {
-    describe: 'Screenshot format',
     choices: ['png', 'jpg'],
     default: 'png',
+    describe: 'Screenshot format',
     type: 'string',
   })
   .option('delay', {
+    default: 0,
     describe: 'Delay in milliseconds before capturing screenshot',
     type: 'number',
-    default: 0,
   })
   .option('scheme', {
-    describe: 'Color scheme for rendering',
     choices: ['light', 'dark'],
     default: 'dark',
+    describe: 'Color scheme for rendering',
     type: 'string',
   })
   .option('scale', {
-    describe: 'Device scale factor (e.g., 2 for Retina)',
     default: 1,
+    describe: 'Device scale factor (e.g., 2 for Retina)',
     type: 'number',
   })
   .help()
@@ -116,18 +115,18 @@ export async function takeScreenshot(
   const browser = await chromium.launch({ headless: true });
 
   const context = await browser.newContext({
-    viewport: {
-      width,
-      height: height || 800,
-    },
     colorScheme: options.colorScheme ?? 'dark',
     deviceScaleFactor: options.deviceScaleFactor ?? 1,
+    viewport: {
+      height: height || 800,
+      width,
+    },
   });
 
   const page = await context.newPage();
 
   try {
-    await page.goto(url, { waitUntil: 'load', timeout: 0 });
+    await page.goto(url, { timeout: 0, waitUntil: 'load' });
   } catch (err: unknown) {
     console.error(`[dnb] Could not open: ${url}`);
     if (err instanceof Error) console.error(`[dnb] ${err.message}`);
@@ -141,9 +140,9 @@ export async function takeScreenshot(
   }
 
   const screenshotOptions: Parameters<typeof page.screenshot>[0] = {
+    fullPage: !height,
     path: output,
     type: format === 'jpg' ? 'jpeg' : 'png',
-    fullPage: !height,
     ...(format === 'jpg' && { quality: 100 }),
   };
 
@@ -174,7 +173,7 @@ export function calculateAspectHeight(
 
   const validFormat = /^\d+:\d+$/;
   if (!validFormat.test(aspect)) {
-    logDebug('Invalid aspect ratio format. Expected "W:H" like "16:9".');
+    console.log('Invalid aspect ratio format. Expected "W:H" like "16:9".');
     return undefined;
   }
 
@@ -183,7 +182,7 @@ export function calculateAspectHeight(
   const h = Number(hStr);
 
   if (w === 0 || h === 0) {
-    logDebug('Aspect ratio must not contain zero.');
+    console.log('Aspect ratio must not contain zero.');
     return undefined;
   }
 
@@ -206,8 +205,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     computedHeight,
     argv.format,
     {
-      delay: argv.delay,
       colorScheme: argv.scheme,
+      delay: argv.delay,
       deviceScaleFactor: argv.scale,
     },
   );

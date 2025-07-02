@@ -3,8 +3,7 @@
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@davidsneighbour/release-config": "2025.2.4",
-    "cz-git": "1.11.2",
-    "ts-node": "10.9.2"
+    "cz-git": "1.11.2"
   },
   "scripts": {
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",

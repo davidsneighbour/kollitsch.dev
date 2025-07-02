@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "ts-node": "10.9.2"
+  },
+  "scripts": {
+    "screenshot": "wireit"
+  },
+  "wireit": {
+    "screenshot": {
+      "command": "ts-node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+name: Update Screenshot in README.md
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 0"
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run screenshot script
+        run: npm run screenshot
+
+      - name: Commit screenshot if script succeeded
+        run: |
+          git config user.name "Patrick Kollitsch"
+          git config user.email "davidsneighbourdev+gh@gmail.com"
+          git add .github/screenshot.png
+
+          if git diff --cached --quiet; then
+          echo "No changes to commit."
+          exit 0
+          fi
+
+          git commit -m "build(deps): update site screenshot"
+          git push

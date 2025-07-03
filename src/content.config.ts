@@ -25,6 +25,7 @@ export const blogSchema = z
         z.object({
           src: z.string(),
           title: z.string().optional(),
+          type: z.enum(['image', 'video']).optional().default('image'),
         }),
       ])
       .optional(),

@@ -2,40 +2,37 @@ import type { CollectionEntry } from 'astro:content';
 
 import fs from 'node:fs';
 import path from 'node:path';
+import siteinfo from '@data/setup.json';
 import type { ImageMetadata } from 'astro';
 
-import siteinfo from '@data/setup.json';
-
+// @ts-ignore markdown-it has no default export, we no fix upstream issues
 import MarkdownIt from 'markdown-it';
-import { logDebug } from './helpers';
-
-type ImagePath = string;
-
-export interface CoverImage {
-  src: string;
-  alt: string;
-  title?: string | undefined;
-}
-
-const md = new MarkdownIt();
+import { logDebug } from './helpers.ts';
 
 export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-export function resolveCoverImage(post: CollectionEntry<'blog'>): CoverImage {
+export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
+  const md = new MarkdownIt();
   const cover = post.data.cover;
-  let src;
-  let title;
-  let alt;
+
+  let src: string | undefined;
+  let title: string | undefined;
+  let alt: string | undefined;
+  let type: 'image' | 'video';
 
   // @todo we don't need to handle string covers because the schema already returns an object
   if (typeof cover === 'string') {
     src = cover;
     title = post.data.title;
+    type = 'image';
   } else {
     src = cover?.src;
     title = cover?.title;
+    type = (cover && 'type' in cover ? cover.type : 'image') as
+      | 'image'
+      | 'video';
   }
 
   if (!src) {
@@ -44,7 +41,7 @@ export function resolveCoverImage(post: CollectionEntry<'blog'>): CoverImage {
   }
 
   if (!title && src !== siteinfo.images.default) {
-    console.warn(`[PostImage] No title set for image in post "${post.id}".`);
+    logDebug(`[PostImage] No title set for image in post "${post.id}".`);
   }
 
   // alt: markdown/HTML stripped, fallback to title or generic
@@ -53,7 +50,7 @@ export function resolveCoverImage(post: CollectionEntry<'blog'>): CoverImage {
   // @todo generate a default title if none is provided or skip this step
   title = md.renderInline(title ?? '');
 
-  return { src, alt, title };
+  return { alt, src, title, type };
 }
 
 /**
@@ -105,11 +102,15 @@ const fallbackImage =
   fallbackCandidates[siteinfo.images.default]?.default || null;
 
 /**
- * Resolves an Astro-compatible image metadata object.
- * Falls back to the configured fallback image if the given path is missing.
+ * Resolve an Astro-compatible image metadata object, falling back when missing.
  *
- * @param path - Absolute path starting with `/src/...`
- * @returns ImageMetadata (from original or fallback)
+ * * Accepts an absolute image path key (must start with '/src/...') as used in the glob import.
+ * * Looks up the `imageMap` generated via `import.meta.glob` for a matching entry.
+ * * Returns the `default` export of the found entry as `ImageMetadata`.
+ * * If no entry is found, logs a debug message and returns the configured fallback image.
+ *
+ * @param path - The absolute asset path key to look up (e.g., '/src/content/blog/my-img.jpg').
+ * @returns The matching `ImageMetadata` object, or the fallback image metadata.
  */
 export function resolveAstroImage(path: ImagePath): ImageMetadata {
   const entry = imageMap[path];

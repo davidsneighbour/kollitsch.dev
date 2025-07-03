@@ -1,5 +1,5 @@
 ---
-import { withDefaults } from '@utils/withDefaults';
+import { mergePropsWithDefaults } from '@utils/withDefaults';
 
 export interface Props {
   tags: Map<string, number>;
@@ -7,7 +7,7 @@ export interface Props {
   maxSize?: number;
 }
 
-const props = withDefaults(Astro.props as Props, {
+const props = mergePropsWithDefaults(Astro.props as Props, {
   minSize: 0.75, // rem
   maxSize: 2.0,  // rem
 }) as Required<Pick<Props,

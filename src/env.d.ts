@@ -60,3 +60,19 @@ type NavItem = {
  * Represents an array of navigation items.
  */
 type Navigation = NavItem[];
+
+/**
+ * ImagePath type definition.
+ */
+type ImagePath = string;
+
+/**
+ * CoverObject interface defines the structure for cover elements in posts.
+ * Currently just image source, alternative text, and an optional title.
+ */
+interface CoverObject {
+  src: string;
+  alt: string;
+  title?: string | undefined;
+  type?: 'image' | 'video' | undefined;
+}

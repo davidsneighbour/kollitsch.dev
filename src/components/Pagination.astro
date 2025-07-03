@@ -1,5 +1,5 @@
 ---
-import { withDefaults } from '@utils/withDefaults';
+import { mergePropsWithDefaults } from '@utils/withDefaults';
 import { Icon } from 'astro-icon/components';
 
 /**
@@ -34,7 +34,7 @@ export interface Props {
   edgeMode?: 'hide' | 'disable';
 }
 
-const props = withDefaults(Astro.props as Props, {
+const props = mergePropsWithDefaults(Astro.props as Props, {
   pagingPartial: '',
   spacer: '…',
   range: 2,

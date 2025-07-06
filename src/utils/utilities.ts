@@ -2,12 +2,13 @@ import type { CollectionEntry } from 'astro:content';
 
 import fs from 'node:fs';
 import path from 'node:path';
-import siteinfo from '@data/setup.json';
 import type { ImageMetadata } from 'astro';
+
+import siteinfo from '@data/setup.json';
 
 // @ts-ignore markdown-it has no default export, we no fix upstream issues
 import MarkdownIt from 'markdown-it';
-import { logDebug } from './helpers.ts';
+import { logDebug } from './helpers';
 
 export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
@@ -50,7 +51,7 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   // @todo generate a default title if none is provided or skip this step
   title = md.renderInline(title ?? '');
 
-  return { alt, src, title, type };
+  return { src, alt, title, type };
 }
 
 /**

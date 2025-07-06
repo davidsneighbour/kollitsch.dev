@@ -19,9 +19,9 @@ This project is the website setup, features, and theme for [kollitsch.dev](https
 
 ## Used services and tools
 
-| Function                  | |Service                                          |
+| Function | |Service                                          |
 | :------------------------ | --- | :----------------------------------------------- |
-| **Domain Registration**   | | [Porkbun](https://porkbun.com/products/domains)  |
+| **Domain Registration**   | | [Porkbun](https://porkbun.com/products/domains) |
 | **DNS & CDN**                   | [![Cloudflare](https://skillicons.dev/icons?i=cloudflare)](https://cloudflare.com) | [Cloudflare](https://cloudflare.com)             |
 | **Hosting**               | [![Netlify](https://skillicons.dev/icons?i=netlify)](https://netlify.com) | [Netlify](https://netlify.com)                   |
 | **Static Site Generator** | [![Astro](https://skillicons.dev/icons?i=astro)](https://astro.build/) | [Astro](https://astro.build/)                    |
@@ -32,6 +32,7 @@ This project is the website setup, features, and theme for [kollitsch.dev](https
 | Function                  | Service                                          |
 | :------------------------ | :----------------------------------------------- |
 | **Static Site Generator**   | [Website done via GoHugo](https://github.com/davidsneighbour/kollitsch.dev/tree/14171a308d5597705a49d382e8ede290f06b8ecc) |
+| **CSS Framework**         | [Theme done via Bootstrap](https://github.com/davidsneighbour/kollitsch.dev/tree/14171a308d5597705a49d382e8ede290f06b8ecc) |
 
 ## Commands
 

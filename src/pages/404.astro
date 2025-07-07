@@ -1,10 +1,17 @@
 ---
-// @todo refactor
 
 import Site from '@layouts/Site.astro';
-import { Image } from 'astro:assets';
+import { getImage } from "astro:assets";
 import image404 from '@assets/images/404.jpg';
 import IconLink from '@components/IconLink.astro';
+
+const optimizedBackground = await getImage({
+  src: image404,
+  format: 'jpg',
+  width: 1920,
+  quality: 80
+});
+
 ---
 
 <script is:inline>
@@ -21,7 +28,8 @@ import IconLink from '@components/IconLink.astro';
 </script>
 
 <Site extraBodyClasses="h-full">
-  <div class="relative h-full text-center">
+  <div class="relative h-full text-center bg-center bg-cover"
+      style={`background-image: url(${optimizedBackground.src});`}>
     <main class="absolute inset-0 z-10">
       <p class="font-changa text-9xl leading-8">404</p>
       <h1>Page not found</h1>
@@ -38,12 +46,5 @@ import IconLink from '@components/IconLink.astro';
         </IconLink>
       </nav>
     </main>
-    <Image
-      src={image404}
-      class="z-0 absolute inset-x-0 bottom-0 w-full"
-      alt="404 - that didn't work out well..."
-      quality="high"
-      width={1600}
-    />
   </div>
 </Site>

@@ -6,9 +6,9 @@ import image404 from '@assets/images/404.jpg';
 import IconLink from '@components/IconLink.astro';
 
 const optimizedBackground = await getImage({
-  src: image404,
-  format: 'jpg',
-  width: 1920,
+  src: image404, 
+  format: 'jpg', 
+  width: 1920, 
   quality: 80
 });
 
@@ -28,7 +28,7 @@ const optimizedBackground = await getImage({
 </script>
 
 <Site extraBodyClasses="h-full">
-  <div class="relative h-full text-center bg-center bg-cover"
+  <div class="relative h-full text-center bg-center bg-cover" 
       style={`background-image: url(${optimizedBackground.src});`}>
     <main class="absolute inset-0 z-10">
       <p class="font-changa text-9xl leading-8">404</p>

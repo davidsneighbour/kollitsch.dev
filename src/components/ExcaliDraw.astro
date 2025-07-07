@@ -1,0 +1,113 @@
+---
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata | string;
+  alt: string;
+  caption?: string;
+}
+
+const { src, alt, caption } = Astro.props;
+
+const svgUrl = typeof src === 'string' ? src : src.src;
+---
+
+<figure class="excalidraw-figure">
+  <div class="excalidraw-svg" data-svg-url={svgUrl} aria-label={alt}>
+    <img src={svgUrl} alt={alt} style="display: none;" />
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<script>
+  function modifySvg(svgString: string): string {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgString, 'image/svg+xml');
+    const svg = doc.documentElement;
+
+    svg.setAttribute('width', '100%');
+    svg.setAttribute('height', '100%');
+    svg.classList.add('w-full', 'h-auto');
+
+    doc.querySelectorAll('text').forEach(text => {
+      text.removeAttribute('fill');
+      text.classList.add('fill-skin-base');
+    });
+
+    doc.querySelectorAll('rect').forEach(rect => {
+      rect.removeAttribute('fill');
+      rect.classList.add('fill-skin-soft');
+    });
+
+    doc.querySelectorAll('path').forEach(path => {
+      path.removeAttribute('stroke');
+      path.classList.add('stroke-skin-accent');
+    });
+
+    doc.querySelectorAll('g').forEach(g => {
+      g.classList.add('excalidraw-element');
+    });
+
+    return new XMLSerializer().serializeToString(doc);
+  }
+
+  function initExcalidrawSVG() {
+    const svgContainers =
+      document.querySelectorAll<HTMLElement>('.excalidraw-svg');
+    svgContainers.forEach(async container => {
+      const svgUrl = container.dataset.svgUrl;
+      if (svgUrl) {
+        try {
+          const response = await fetch(svgUrl);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch SVG: ${response.statusText}`);
+          }
+          const svgData = await response.text();
+          const modifiedSvg = modifySvg(svgData);
+          container.innerHTML = modifiedSvg;
+        } catch (error) {
+          console.error('Error in ExcalidrawSVG component:', error);
+          container.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <text x="10" y="50" fill="red">Error loading SVG</text>
+          </svg>`;
+        }
+      }
+    });
+  }
+
+  // Run on initial page load
+  document.addEventListener('DOMContentLoaded', initExcalidrawSVG);
+
+  // Run on subsequent navigation
+  document.addEventListener('astro:page-load', initExcalidrawSVG);
+</script>
+
+<style>
+  .excalidraw-figure {
+    @apply my-8 w-full max-w-full overflow-hidden;
+  }
+  .excalidraw-svg {
+    @apply w-full max-w-full overflow-hidden;
+  }
+  :global(.excalidraw-svg svg) {
+    @apply h-auto w-full;
+  }
+  :global(.excalidraw-svg .fill-skin-base) {
+    @apply fill-[rgb(34,46,54)] dark:fill-[rgb(234,237,243)];
+  }
+  :global(.excalidraw-svg .fill-skin-soft) {
+    @apply fill-[rgb(234,206,219)] dark:fill-[rgb(52,63,96)];
+  }
+  :global(.excalidraw-svg .stroke-skin-accent) {
+    @apply stroke-[rgb(211,0,106)] dark:stroke-[rgb(255,107,237)];
+  }
+  :global(.excalidraw-svg .excalidraw-element) {
+    @apply transition-all duration-300;
+  }
+  :global(.excalidraw-svg .excalidraw-element:hover) {
+    @apply opacity-80;
+  }
+  figcaption {
+    @apply text-skin-base mt-4 text-center text-sm italic;
+  }
+</style>

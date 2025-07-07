@@ -1,0 +1,44 @@
+---
+import sims from '../assets/similarities.json';
+
+if (similarities[post.slug]) {
+  mostRelatedPosts = similarities[post.slug]
+    .filter((p: RelatedPost) => !p.draft)
+    .sort(
+      (a: RelatedPost, b: RelatedPost) =>
+        (b.similarity ?? 0) - (a.similarity ?? 0),
+    )
+    .slice(0, 3);
+}
+---
+
+{
+  mostRelatedPosts.length > 0 && (
+    <div data-pagefind-ignore class="mt-16 mb-8">
+      <h2 class="text-skin-accent mb-6 text-3xl font-bold">
+        Most Related Posts
+      </h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {mostRelatedPosts.map((relatedPost: RelatedPost) => (
+          <a
+            href={`/posts/${relatedPost.slug}/`}
+            class="group related-post-card"
+          >
+            <div class="p-5">
+              <h3 class="related-post-title">{relatedPost.title}</h3>
+              <p class="related-post-description">{relatedPost.description}</p>
+              <div class="text-skin-base text-opacity-60 flex items-center justify-between text-xs">
+                <Datetime
+                  pubDatetime={relatedPost.pubDatetime}
+                  modDatetime={relatedPost.modDatetime}
+                  size="sm"
+                />
+                <span class="related-post-tag">{relatedPost.tags?.[0]}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  )
+}

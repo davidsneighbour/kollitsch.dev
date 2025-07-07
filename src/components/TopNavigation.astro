@@ -1,9 +1,10 @@
 ---
+
 import { fade } from 'astro:transitions';
 
 import { Icon } from 'astro-icon/components';
-import ThemeSelect from '@components/ThemeSelect.astro';
 import ProgressBar from '@components/Progress.astro';
+
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import { logDebug } from '@utils/helpers';
 
@@ -18,9 +19,7 @@ function isActive(item: NavItem, pathname: string): boolean {
     matchType === 'full'
       ? pathname === item.link
       : pathname.startsWith(item.link);
-
   const extraMatches = item.matchPaths?.some((prefix) => pathname.startsWith(prefix)) ?? false;
-
   return directMatch || extraMatches;
 }
 
@@ -44,28 +43,21 @@ if (!activeItem && import.meta.env.DEV) {
 
 ---
 
-<header class="
-  [--thickness:4px] lg:[--thickness:6px]
-  sticky z-50 top-0 isolate
-  bg-zinc-100 dark:bg-zinc-900
-  mb-12
-">
-  <div class="backdrop z-10
-    absolute inset-0
-    backdrop-blur-lg
-    pointer-events-none
-    bg-gray-100 dark:bg-gray-900
-  "></div>
-  <div class="backdrop-edge z-10
-    absolute bottom-0 left-0 right-0
-    h-[var(--thickness)]
-  ">
+<header class="[--thickness:4px] lg:[--thickness:6px]
+    sticky z-50 top-0 isolate
+    bg-zinc-100 dark:bg-zinc-900
+    mb-12">
+  <div class="absolute inset-0 z-10
+      backdrop backdrop-blur-lg
+      pointer-events-none
+      bg-gray-100 dark:bg-gray-900"></div>
+  <div class="h-[var(--thickness)]
+      absolute bottom-0 left-0 right-0 z-10
+      backdrop-edge">
     <ProgressBar classes="progress z-40 relative [--height:var(--thickness)]" />
   </div>
-  <div class="
-    z-20 flex flex-wrap items-center gap-4 md:flex-nowrap md:items-start
-    bg-zinc-100 text-gray-950 dark:bg-zinc-900 dark:text-gray-50
-  ">
+  <div class="z-20 flex flex-wrap items-center gap-4 md:flex-nowrap md:items-start
+      bg-zinc-100 text-gray-950 dark:bg-zinc-900 dark:text-gray-50">
     <div class="order-1 flex-1 z-30" id="navbar-sitetitle">
       <a
         id="navbar-brand"
@@ -102,7 +94,9 @@ if (!activeItem && import.meta.env.DEV) {
             </li>
           ))
         }
-        <li class="px-3 py-4 md:px-2 md:py-2"><ThemeSelect hideAuto /></li>
+        <li class="px-3 py-4 md:px-2 md:py-2">
+          <theme-selector hide-auto></theme-selector>
+        </li>
       </ul>
     </div>
   </div>
@@ -117,29 +111,15 @@ if (!activeItem && import.meta.env.DEV) {
   const navSection = document.querySelector('#navigation-and-theme-select');
 
   const toggleIcons = () => {
-    if (window.kdev.mobileOpen) {
-      closeIcon?.classList.remove('hidden');
-      openIcon?.classList.add('hidden');
-    } else {
-      closeIcon?.classList.add('hidden');
-      openIcon?.classList.remove('hidden');
-    }
+    closeIcon?.classList.toggle('hidden', !window.kdev.mobileOpen);
+    openIcon?.classList.toggle('hidden', window.kdev.mobileOpen);
   };
   const toggleNavVisibility = () => {
     if (!navSection) return;
     const isMdUp = window.matchMedia('(min-width: 768px)').matches;
-    if (isMdUp) {
-      navSection.classList.remove('hidden');
-      navSection.classList.add('flex');
-    } else {
-      if (window.kdev.mobileOpen) {
-        navSection.classList.remove('hidden');
-        navSection.classList.add('flex');
-      } else {
-        navSection.classList.add('hidden');
-        navSection.classList.remove('flex');
-      }
-    }
+    const shouldShow = isMdUp || window.kdev.mobileOpen;
+    navSection.classList.toggle('hidden', !shouldShow);
+    navSection.classList.toggle('flex', shouldShow);
   };
   window.addEventListener('resize', toggleNavVisibility);
   const menuToggle = document.querySelector('#hamburger-and-close');
@@ -162,13 +142,8 @@ if (!activeItem && import.meta.env.DEV) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
-        if (!entry.isIntersecting) {
-          stickyBrand.classList.add('opacity-100');
-          stickyBrand.classList.remove('opacity-0');
-        } else {
-          stickyBrand.classList.remove('opacity-100');
-          stickyBrand.classList.add('opacity-0');
-        }
+        stickyBrand.classList.toggle('opacity-100', !entry.isIntersecting);
+        stickyBrand.classList.toggle('opacity-0', entry.isIntersecting);
       },
       { threshold: 0 },
     );
@@ -176,10 +151,65 @@ if (!activeItem && import.meta.env.DEV) {
     const isIntersecting =
       placeholder.getBoundingClientRect().top >= 0 &&
       placeholder.getBoundingClientRect().bottom > 0;
-    if (!isIntersecting) {
-      stickyBrand.classList.add('sticky-visible');
-    } else {
-      stickyBrand.classList.remove('sticky-visible');
-    }
+    stickyBrand.classList.toggle('sticky-visible', !isIntersecting);
+  }
+</script>
+
+<script is:inline>
+  // handling theme-selector element
+  // @see https://tailwindcss.com/docs/dark-mode
+  if (!customElements.get('theme-selector')) {
+    customElements.define(
+      'theme-selector',
+      class extends HTMLElement {
+        connectedCallback() {
+          const hideAuto = this.hasAttribute('hide-auto');
+
+          // keep auto support but only show light/dark if hideAuto
+          this.themes = hideAuto
+            ? ['light', 'dark']
+            : ['auto', 'light', 'dark'];
+
+          // build button
+          this.btn = document.createElement('button');
+          this.btn.setAttribute('aria-label', 'Toggle theme');
+          this.btn.addEventListener('click', () => this.nextTheme());
+          this.appendChild(this.btn);
+
+          this.updateIcon();
+          document.addEventListener('theme-changed', () => this.updateIcon());
+        }
+
+        nextTheme() {
+          try {
+            const current = theme.getTheme();
+            const idx = this.themes.indexOf(current);
+
+            // if current is auto but hidden, map to system index
+            const realIdx =
+              idx >= 0 ? idx : this.themes.indexOf(theme.getSystemTheme());
+
+            const next = this.themes[(realIdx + 1) % this.themes.length];
+            theme.setTheme(next);
+          } catch (err) {
+            console.error('theme-selector › cycle error:', err);
+          }
+        }
+
+        updateIcon(t = theme.getTheme()) {
+          // if auto is hidden, show based on systemTheme
+          const hideAuto = this.hasAttribute('hide-auto');
+          const effective =
+            t === 'auto' && hideAuto ? theme.getSystemTheme() : t;
+
+          const icons = {
+            light: '☀️',
+            dark: '🌙',
+            auto: '🌓',
+          };
+          this.btn.textContent = icons[effective] ?? icons.auto;
+        }
+      },
+    );
   }
 </script>

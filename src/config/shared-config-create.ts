@@ -1,5 +1,3 @@
-// scripts/generate-version-config.ts
-
 import { writeFileSync } from 'node:fs';
 import { items } from './shared-config.js';
 

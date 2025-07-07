@@ -19,6 +19,7 @@
     "*.astro": "$(capture).test.ts",
     ".env": ".env*",
     "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*",
+    "shared-config.ts": "shared-config*",
   },
 
   // astro specific settings

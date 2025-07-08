@@ -1,6 +1,4 @@
 import fs from 'node:fs';
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import alpinejs from '@astrojs/alpinejs';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';

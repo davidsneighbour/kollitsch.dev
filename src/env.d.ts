@@ -17,8 +17,6 @@ type PostProp<TCollection extends string> = {
   post: CollectionEntry<TCollection>;
 };
 
-// @todo check why this needs to be ignored
-// biome-ignore lint/correctness/noUnusedVariables: this is used for type definitions
 interface Window {
   Alpine: import('alpinejs').Alpine;
   theme: {
@@ -76,3 +74,9 @@ interface CoverObject {
   title?: string | undefined;
   type?: 'image' | 'video' | undefined;
 }
+
+/**
+ * ThemeMode type definition.
+ * Represents the possible theme modes for the site.
+ */
+type ThemeMode = 'dark' | 'light';

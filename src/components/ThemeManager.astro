@@ -1,33 +1,42 @@
 ---
+// Theme Manager Component
+// The theme on kollitsch.dev is managed by adding a `data-theme` attribute to
+// the `<html>` element which can have the values `light`, or `dark`
 
 type Props = {
-  defaultTheme?: 'auto' | 'dark' | 'light' | undefined;
+  defaultTheme?: ThemeMode;
 };
 
-const { defaultTheme = 'auto' } = Astro.props;
+const { defaultTheme = 'dark' } = Astro.props;
 ---
 
 <script is:inline data-default-theme={defaultTheme}>
+
   window.theme ??= (() => {
     const defaultTheme =
       document.currentScript.getAttribute('data-default-theme');
-    const storageKey = 'theme';
+    const storageKey = 'kdev-theme';
     const store =
       typeof localStorage !== 'undefined'
         ? localStorage
         : { getItem: () => null, setItem: () => {} };
 
-    const mediaMatcher = window.matchMedia('(prefers-color-scheme: light)');
-    let systemTheme = mediaMatcher.matches ? 'light' : 'dark';
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
+    const mediaMatcher = window.matchMedia('(prefers-color-scheme: dark)');
+    let systemTheme = mediaMatcher.matches ? 'dark' : 'light';
     mediaMatcher.addEventListener('change', event => {
-      systemTheme = event.matches ? 'light' : 'dark';
+      systemTheme = event.matches ? 'dark' : 'light';
       applyTheme(theme.getTheme());
     });
 
     function applyTheme(theme) {
+      // @todo should `auto` be `dark` maybe?
       const resolvedTheme = theme === 'auto' ? systemTheme : theme;
       document.documentElement.dataset.theme = resolvedTheme;
       document.documentElement.style.colorScheme = resolvedTheme;
+
+      changeGiscusTheme(theme);
+
       document.dispatchEvent(
         new CustomEvent('theme-changed', {
           detail: { theme, systemTheme, defaultTheme },
@@ -38,7 +47,10 @@ const { defaultTheme = 'auto' } = Astro.props;
     function setTheme(theme = defaultTheme) {
       store.setItem(storageKey, theme);
       applyTheme(theme);
-      changeGiscusTheme(theme);
+    }
+
+    function resetTheme() {
+      store.removeItem(storageKey);
     }
 
     function getTheme() {
@@ -53,129 +65,38 @@ const { defaultTheme = 'auto' } = Astro.props;
       return defaultTheme;
     }
 
-    return { setTheme, getTheme, getSystemTheme, getDefaultTheme };
+    return { 
+      setTheme, 
+      getTheme, 
+      getSystemTheme, 
+      getDefaultTheme,
+      resetTheme,
+    };
+
   })();
+
   theme.setTheme(theme.getTheme());
-  function changeGiscusTheme (theme = "dark") {
+
+  // @todo Giscus offers a `dark` and `light` theme, if we want to use a custom 
+  // theme we need to explicitly set it instead of just passing the theme.
+  function changeGiscusTheme(theme = 'dark') {
     function sendMessage(message) {
       const iframe = document.querySelector('iframe.giscus-frame');
       if (!iframe) return;
-      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      iframe.contentWindow.postMessage(
+        { giscus: message },
+        'https://giscus.app',
+      );
     }
     sendMessage({
       setConfig: {
-        theme: theme
-      }
+        theme: theme,
+      },
     });
   }
+
   document.addEventListener('astro:after-swap', () =>
     window.theme.setTheme(window.theme.getTheme()),
   );
+
 </script>
-
-
-
-{/*
-
-// // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-// document.documentElement.classList.toggle(
-//   "dark",
-//   localStorage.theme === "dark" ||
-//     (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-// );
-// // Whenever the user explicitly chooses light mode
-// localStorage.theme = "light";
-// // Whenever the user explicitly chooses dark mode
-// localStorage.theme = "dark";
-// // Whenever the user explicitly chooses to respect the OS preference
-// localStorage.removeItem("theme");
-
-
-
-
-Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200"
-<button type="button" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:outline-hidden" role="switch" aria-checked="false">
-  <span class="sr-only">Use setting</span>
-  <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
-  <span class="pointer-events-none relative inline-block size-5 translate-x-0 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out">
-    <!-- Enabled: "opacity-0 duration-100 ease-out", Not Enabled: "opacity-100 duration-200 ease-in" -->
-    <span class="absolute inset-0 flex size-full items-center justify-center opacity-100 transition-opacity duration-200 ease-in" aria-hidden="true">
-      <svg class="size-3 text-gray-400" fill="none" viewBox="0 0 12 12">
-        <path d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
-    <!-- Enabled: "opacity-100 duration-200 ease-in", Not Enabled: "opacity-0 duration-100 ease-out" -->
-    <span class="absolute inset-0 flex size-full items-center justify-center opacity-0 transition-opacity duration-100 ease-out" aria-hidden="true">
-      <svg class="size-3 text-indigo-600" fill="currentColor" viewBox="0 0 12 12">
-        <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
-      </svg>
-    </span>
-  </span>
-</button>
-
-
-
-## Theme
-
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-document.documentElement.classList.toggle(
-  "dark",
-  localStorage.theme === "dark" ||
-    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-);
-// Whenever the user explicitly chooses light mode
-localStorage.theme = "light";
-// Whenever the user explicitly chooses dark mode
-localStorage.theme = "dark";
-// Whenever the user explicitly chooses to respect the OS preference
-localStorage.removeItem("theme");
-
-#### Class based toggle for default theme
-
-// if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-//  document.documentElement.classList.add('dark');
-// } else {
-//  document.documentElement.classList.remove('dark');
-// }
-
-#### Theme toggle button
-
-```
-<script is:inline>
-    const getTheme = () => {
-        if (typeof localStorage !== 'undefined') {
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme) {
-                return storedTheme;
-            }
-        }
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        return 'light';
-    };
-    function applyTheme(toggle = false) {
-        let theme = getTheme();
-        if (toggle) {
-            theme = theme === 'dark' ? 'light' : 'dark';
-        }
-        localStorage.setItem('theme', theme);
-        // if (theme === 'light') {
-        //     if (document.documentElement.classList.contains('dark')) {
-        //         document.documentElement.classList.remove('dark');
-        //     };
-        // } else {
-        //     document.documentElement.classList.add('dark')
-        // }
-    };
-
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) {
-        throw new Error('Theme toggle button not found');
-    }
-    themeToggle.addEventListener("click", () => applyTheme(true));
-    applyTheme();
-</script>
-```
-
-*/}

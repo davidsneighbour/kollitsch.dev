@@ -1,6 +1,7 @@
 {
+  // https://snippet-generator.app/
   "Typecast content collection entry": {
-    "prefix": "coll",
+    "prefix": "dnb-coll",
     "body": [
       "import type { CollectionEntry } from 'astro:content';",
       "export interface Props {",
@@ -10,5 +11,109 @@
       "console.log('post', post);"
     ],
     "description": "Typecast content collection entry"
+  },
+  "Astro transition post page load with script": {
+    "prefix": "dnb-transition-plus-script",
+    "body": [
+      "<script>",
+      "document.addEventListener('astro:page-load', () => {",
+      "  // This runs on first page load and after every navigation.",
+      "  setupStuff(); // e.g. add event listeners",
+      "});",
+      "</script>",
+    ],
+    "description": "Astro transition post page load with script"
+  },
+  "Astro page transition in frontmatter": {
+    "prefix": "dnb-transition-in-frontmatter",
+    "body": [
+      "document.addEventListener('astro:page-load', () => {",
+      "  document.querySelector('.hamburger').addEventListener('click', () => {",
+      "    document.querySelector('.nav-links').classList.toggle('expanded');",
+      "  });",
+      "});"
+    ],
+    "description": "Astro page transition in frontmatter"
+  },
+  "Markdown loader and output": {
+    "prefix": "dnb-markdown-loading",
+    "body": [
+      "---",
+      "// Fetch Markdown from a remote API and render it to HTML at build time.",
+      "// Using \"marked\" (https://github.com/markedjs/marked)",
+      "import { marked } from 'marked';",
+      "const response = await fetch('https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Cheatsheet.md');",
+      "const markdown = await response.text();",
+      "const content = marked.parse(markdown);",
+      "---",
+      "<article set:html={content} />"
+    ],
+    "description": "Markdown loader and output"
+  },
+  "Site URL": {
+    "prefix": "dnb-site-url",
+    "body": [
+      "import.meta.env.SITE"
+    ],
+    "description": "Site URL from environment variables"
+  },
+  "Get all `src/content/blog/` entries": {
+    "prefix": "dnb-collection-all",
+    "body": [
+      "import { getCollection } from 'astro:content';",
+      "const allBlogPosts = await getCollection('blog');",
+    ],
+    "description": "Get all `src/content/blog/` entries"
+  },
+  "Only return posts with `draft: true` in the frontmatter": {
+    "prefix": "dnb-collection-drafts",
+    "body": [
+      "import { getCollection } from 'astro:content';",
+      "const draftBlogPosts = await getCollection('blog', ({ data }) => {",
+      "  return data.draft === true;",
+      "});"
+    ],
+    "description": "Only return posts with `draft: true` in the frontmatter"
+  },
+  "load module on client observable/visible": {
+    "prefix": "dnb-client-observed",
+    "body": [
+      "<script>",
+      "  const observer = new IntersectionObserver(async (entries, observer) => {",
+      "    entries.forEach(async entry => {",
+      "      if (entry.isIntersecting) {",
+      "        const { module } = await import('module');",
+      "        module();",
+      "        observer.disconnect();",
+      "      }",
+      "    });",
+      "  });",
+      "",
+      "  observer.observe(document.querySelector('#targetElement'));",
+      "</script>"
+    ],
+    "description": "load module on client observable/visible"
+  },
+  "Get sorted posts without draft": {
+    "prefix": "dnb-posts-sorted",
+    "body": [
+      "const posts = await getCollection('blog');",
+      "const sorted = posts",
+      "  .filter((post) => !post.data.draft)",
+      "  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());"
+    ],
+    "description": "Get sorted posts without draft"
+  },
+  "Hydrate button on click": {
+    "prefix": "dnb-button-click",
+    "body": [
+      "<script>",
+      "  document.querySelector('#rareButton').addEventListener('click', async () => {",
+      "    const { buttonModule } = await import('buttonModule');",
+      "    buttonModule();",
+      "  });",
+      "</script>"
+    ],
+    "description": "Hydrate button on click"
   }
 }

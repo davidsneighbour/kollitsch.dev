@@ -14,16 +14,16 @@ const { post } = Astro.props;
 ---
 
 <article class="relative isolate
-  flex flex-col justify-start
+  flex flex-col justify-normal
   rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)]
   ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset p-(--card-padding)
   bg-zinc-100 dark:bg-zinc-900
   hover:bg-zinc-100/90 dark:hover:bg-zinc-900/90
 ">
 
-  <PostImage post={post} classes="max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
+  <PostImage post={post} classes="flex-none max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
 
-  <div class="justify-self-stretch
+  <div class="grow
               flex flex-col justify-start
               max-w-xl p-4">
     <h3 class="flex-none line-clamp-2">
@@ -32,12 +32,13 @@ const { post } = Astro.props;
         {post.data.title}
       </a>
     </h3>
-    <p class="justify-self-stretch line-clamp-3">
+    <p class="line-clamp-3">
       {post.data.summary}
     </p>
   </div>
-  <SchemaBlogPost post={post} />
-  <div class="px-4 pb-4 text-right" >
+  <div class="flex-none
+              px-4 pb-4 text-right" >
     <Button name="bi:arrow-right" url={`/${post.collection}/${post.id}/`} class="justify-self-end">Read more...</Button>
   </div>
 </article>
+<SchemaBlogPost post={post} />

@@ -6,15 +6,14 @@
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@content/*": ["src/content/*"],
+      "@contentconfig": ["src/content.config.ts"],
       "@data/*": ["src/data/*"],
       "@layouts/*": ["src/layouts/*"],
       "@packages/*": ["src/packages/*"],
       "@pages/*": ["src/pages/*"],
       "@scripts/*": ["src/scripts/*"],
       "@test/*": ["src/test/*"],
-      "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"],
-      "@contentconfig": ["src/content.config.ts"]
+      "@utils/*": ["src/utils/*"]
     },
     "plugins": [
       {

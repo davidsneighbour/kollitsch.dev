@@ -1,22 +1,10 @@
+/* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
 /**
- * Defines the content type for the post property. Use to extend the property
- * evaluation:
- *
- * @example
- * ```ts
- * interface Props extends PostProp<'blog'> {
- * somethingElse: string;
- * }
- * let { post, somethingElse }: Props = Astro.props;
- * ```
+ * Adding global types to the Window object.
  */
-type PostProp<TCollection extends string> = {
-  post: CollectionEntry<TCollection>;
-};
-
 interface Window {
   Alpine: import('alpinejs').Alpine;
   theme: {
@@ -28,7 +16,24 @@ interface Window {
 }
 
 /**
+ * Defines the content type for the post property. Use to extend the property
+ * evaluation:
+ *
+ * @example
+ * ```ts
+ * interface Props extends PostProp<'blog'> {
+ *   anotherProperty: string;
+ * }
+ * const { post, anotherProperty }: Props = Astro.props;
+ * ```
+ */
+type PostProp<TCollection extends string> = {
+  post: CollectionEntry<TCollection>;
+};
+
+/**
  * MetaConfig interface defines the structure for meta tags configuration.
+ * @see data/meta.json
  */
 type MetaConfig = {
   name: Record<string, string>;
@@ -61,12 +66,16 @@ type Navigation = NavItem[];
 
 /**
  * ImagePath type definition.
+ *
+ * @todo is this type necessary?
  */
 type ImagePath = string;
 
 /**
  * CoverObject interface defines the structure for cover elements in posts.
  * Currently just image source, alternative text, and an optional title.
+ *
+ * @todo type: undefined should be type: image by default?
  */
 interface CoverObject {
   src: string;

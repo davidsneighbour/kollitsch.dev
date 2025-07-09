@@ -18,7 +18,7 @@ export const blogSchema = z
     aliases: z
       .union([z.string(), z.array(z.string())])
       .optional()
-      .transform(val => (typeof val === 'string' ? [val] : val)),
+      .transform((val) => (typeof val === 'string' ? [val] : val)),
     cover: z
       .union([
         z.string(),
@@ -29,11 +29,11 @@ export const blogSchema = z
         }),
       ])
       .optional(),
-    date: z.coerce.date().transform(s => new Date(s)),
+    date: z.coerce.date().transform((s) => new Date(s)),
     description: z
       .string()
-      .transform(str => str.trim())
-      .refine(str => str.length > 0, {
+      .transform((str) => str.trim())
+      .refine((str) => str.length > 0, {
         message: 'The `description` frontmatter MUST NOT be empty.',
       }),
     draft: z.boolean().default(false).optional(),
@@ -41,13 +41,13 @@ export const blogSchema = z
     fmContentType: z.string().optional(),
     lastModified: z.coerce
       .date()
-      .transform(s => new Date(s))
+      .transform((s) => new Date(s))
       .optional(),
     linktitle: z
       .string()
       .optional()
-      .refine(val => val?.trim() !== '', {
-        message: '`linktitle` must not be empty if defined.',
+      .refine((val) => val?.trim() !== '', {
+        message: '`linktitle` MUST NOT be empty if defined.',
       }),
     options: optionsSchema.optional(),
     resources: z
@@ -64,41 +64,41 @@ export const blogSchema = z
       .array(
         z
           .string()
-          .transform(tag =>
+          .transform((tag) =>
             tag
               .trim()
               .replace(/^['"]+|['"]+$/g, '')
               .toLowerCase(),
           )
-          .refine(tag => /^[a-z0-9_-]+$/.test(tag), {
+          .refine((tag) => /^[a-z0-9_-]+$/.test(tag), {
             message:
-              'Tags must only contain lowercase letters, numbers, dashes (-), or underscores (_).',
+              'Tags MUST only contain lowercase letters, numbers, dashes (-), or underscores (_).',
           }),
       )
       .optional(),
     title: z.string(),
   })
   .refine(
-    entry => {
+    (entry) => {
       if (!entry.linktitle) return true;
       return entry.linktitle !== entry.title;
     },
     {
-      message: '`linktitle` must be different from `title`.',
+      message: '`linktitle` MUST not be identical to `title`.',
       path: ['linktitle'],
     },
   )
   .refine(
-    entry => {
+    (entry) => {
       if (!entry.linktitle) return true;
       return entry.linktitle.length < entry.title.length;
     },
     {
-      message: '`linktitle` must be shorter than `title`.',
+      message: '`linktitle` MUST be shorter than `title`.',
       path: ['linktitle'],
     },
   )
-  .transform(entry => ({
+  .transform((entry) => ({
     ...entry,
     cover:
       typeof entry.cover === 'string'

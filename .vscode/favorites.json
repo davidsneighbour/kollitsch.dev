@@ -1,0 +1,26 @@
+[
+    {
+        "type": "Group",
+        "name": "Vocabulary",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "j9rBALQxvqCNJP3k"
+    },
+    {
+        "type": "File",
+        "name": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/configs/config/vocabularies/DNB/accept.txt",
+        "parent_id": "j9rBALQxvqCNJP3k",
+        "workspaceRoot": "/home/patrick/github.com/davidsneighbour/kollitsch.dev",
+        "workspacePath": "src/config/vale/configs/config/vocabularies/DNB/accept.txt",
+        "id": "MSfcrUXdyBKAwzaH"
+    },
+    {
+        "type": "File",
+        "name": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/configs/config/vocabularies/DNB/reject.txt",
+        "parent_id": "j9rBALQxvqCNJP3k",
+        "workspaceRoot": "/home/patrick/github.com/davidsneighbour/kollitsch.dev",
+        "workspacePath": "src/config/vale/configs/config/vocabularies/DNB/reject.txt",
+        "id": "GCJp0lEod59qVOTz"
+    }
+]

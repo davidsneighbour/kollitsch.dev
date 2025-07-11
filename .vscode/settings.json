@@ -108,6 +108,7 @@
   // PLUGIN: biome setup
   "biome.configurationPath": "biome.jsonc",
   "biome.requireConfiguration": true,
-  "svg.preview.background": "black"
+  "svg.preview.background": "black",
+  "favorites.storageFilePath": ".vscode/favorites.json"
   // @see "editor.codeActionsOnSave"
 }

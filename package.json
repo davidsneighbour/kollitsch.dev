@@ -62,6 +62,7 @@
   "devDependencies": {
     "@alpinejs/collapse": "3.14.9",
     "@alpinejs/intersect": "3.14.9",
+    "@ascorbic/youtube-loader": "0.0.2",
     "@astrojs/alpinejs": "0.4.8",
     "@axe-core/playwright": "4.10.2",
     "@biomejs/biome": "2.0.6",

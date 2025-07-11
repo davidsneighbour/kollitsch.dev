@@ -1,5 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+// for youtube playlist loader
+import { youTubeLoader } from '@ascorbic/youtube-loader';
 import { file, glob } from 'astro/loaders';
+import setup from './data/setup.json';
 
 // Reusable options schema
 export const allowedComponents = [
@@ -132,4 +135,20 @@ export const tags = defineCollection({
   }),
 });
 
-export const collections = { blog, tags };
+// see https://github.com/ascorbic/astro-loaders/tree/main/packages/youtube
+const playlistCollections = Object.fromEntries(
+  Object.entries(setup.playlists).map(([name, playlistId]) => [
+    name,
+    defineCollection({
+      loader: youTubeLoader({
+        apiKey: import.meta.env.YOUTUBE_API_KEY,
+        fetchFullDetails: true,
+        maxResults: 50,
+        playlistId,
+        type: 'playlist',
+      }),
+    }),
+  ]),
+);
+
+export const collections = { blog, tags, ...playlistCollections };

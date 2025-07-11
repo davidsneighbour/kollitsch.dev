@@ -3,7 +3,8 @@
 bak
 
 # Netlify
-.netlify
+.netlify/*
+!.netlify/state.json
 
 # Lychee
 .lychee.report.md

@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "@ascorbic/youtube-loader": "0.0.2"
+    "@ascorbic/youtube-loader": "0.0.2",
+    "astro-loader-github-releases": "2.0.1"
   }
 }

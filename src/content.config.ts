@@ -1,6 +1,9 @@
 import { defineCollection, z } from 'astro:content';
 // for youtube playlist loader
 import { youTubeLoader } from '@ascorbic/youtube-loader';
+// for github releases loader
+import { githubReleasesLoader } from 'astro-loader-github-releases';
+
 import { file, glob } from 'astro/loaders';
 import setup from './data/setup.json';
 
@@ -151,4 +154,19 @@ const playlistCollections = Object.fromEntries(
   ]),
 );
 
-export const collections = { blog, tags, ...playlistCollections };
+const oneYearAgo = new Date();
+oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+const githubReleases = defineCollection({
+  loader: githubReleasesLoader({
+    mode: 'repoList',
+    repos: [setup.repository.slug],
+    sinceDate: oneYearAgo.toISOString().split('T')[0],
+  }),
+});
+
+export const collections = {
+  blog,
+  tags,
+  ...playlistCollections,
+  githubReleases,
+};

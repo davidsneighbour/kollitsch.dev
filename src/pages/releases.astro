@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/DefaultPage.astro';
+import { getCollection } from 'astro:content';
+import setup from '@data/setup.json';
+const post = {
+  data: {
+    title: 'Releases',
+    description: setup.description,
+  },
+};
+const repos = await getCollection('githubReleases');
+---
+
+<Layout post={post}>
+  <!-- entryReturnType: 'byRepository' -->{
+    repos.map(repo => (
+      <div>
+        <p>{repo.data.repo}</p>
+        {repo.data.releases.map(release => {
+          return <section set:html={release.descriptionHTML} />;
+        })}
+      </div>
+    ))
+  }
+</Layout>

@@ -44,7 +44,8 @@
     "music2program2extended": "PLg3tApGYRzpfo2n16J_6dpMAXJhu384xx"
   },
   "repository": {
-    "url": "https://github.com/davidsneighbour/kollitsch.dev"
+    "url": "https://github.com/davidsneighbour/kollitsch.dev",
+    "slug": "davidsneighbour/kollitsch.dev"
   },
   "tagline": "Smart websites with a tropical mindset.",
   "tagThreshold": 2,

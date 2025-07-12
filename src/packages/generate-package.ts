@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { glob } from 'glob'
+import { glob } from 'glob';
 import { parse } from 'jsonc-parser';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -61,7 +62,7 @@ function parseArgs(): Options {
       case '--dry-run':
         opts.dryRun = true;
         break;
-      case '--keys':
+      case '--keys': {
         if (!args[i + 1]) {
           console.error('✖ Missing value for --keys');
           process.exit(1);
@@ -69,12 +70,13 @@ function parseArgs(): Options {
         // Ensure the next argument exists before splitting
         const keysArg = args[++i];
         if (typeof keysArg === 'string') {
-          keysToPreserve = keysArg.split(',').map((key) => key.trim());
+          keysToPreserve = keysArg.split(',').map(key => key.trim());
         } else {
           console.error('✖ Missing value for --keys');
           process.exit(1);
         }
         break;
+      }
       default:
         console.error(`✖ Unknown argument: ${a}`);
         process.exit(1);
@@ -158,7 +160,9 @@ async function main() {
   } catch (err) {
     // Type guard for error object to safely access message property
     if (err && typeof err === 'object' && 'message' in err) {
-      console.error(`✖ Failed to read/parse ${pkgPath}: ${(err as { message: string }).message}`);
+      console.error(
+        `✖ Failed to read/parse ${pkgPath}: ${(err as { message: string }).message}`,
+      );
     } else {
       console.error(`✖ Failed to read/parse ${pkgPath}: ${String(err)}`);
     }
@@ -178,7 +182,9 @@ async function main() {
     } catch (err) {
       // Type guard for error object to safely access message property
       if (err && typeof err === 'object' && 'message' in err) {
-        console.error(`✖ Failed to parse ${cfgPath}: ${(err as { message: string }).message}`);
+        console.error(
+          `✖ Failed to parse ${cfgPath}: ${(err as { message: string }).message}`,
+        );
       } else {
         console.error(`✖ Failed to parse ${cfgPath}: ${String(err)}`);
       }
@@ -211,7 +217,9 @@ async function main() {
   } catch (err) {
     // Type guard for error object to safely access message property
     if (err && typeof err === 'object' && 'message' in err) {
-      console.error(`✖ Failed to write ${outputPath}: ${(err as { message: string }).message}`);
+      console.error(
+        `✖ Failed to write ${outputPath}: ${(err as { message: string }).message}`,
+      );
     } else {
       console.error(`✖ Failed to write ${outputPath}: ${String(err)}`);
     }

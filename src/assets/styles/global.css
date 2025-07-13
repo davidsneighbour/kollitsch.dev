@@ -241,6 +241,10 @@
   --color-brown-800: #6a5e42;
   --color-brown-900: #574d37;
   --color-brown-950: #2e281c;
+
+  /* Transitions */
+  --kdev-transition-duration: 600ms;
+  --kdev-transition-function: cubic-bezier(0.95,0.05,0.795,0.035);
 }
 
 /*******************************************************************************

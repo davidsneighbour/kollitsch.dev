@@ -38,7 +38,7 @@ const { post } = Astro.props;
   </div>
   <div class="flex-none
               px-4 pb-4 text-right" >
-    <Button name="bi:arrow-right" url={`/${post.collection}/${post.id}/`} class="justify-self-end">Read more...</Button>
+    <Button name="bi:arrow-right" href={`/${post.collection}/${post.id}/`} class="justify-self-end">Read more...</Button>
   </div>
 </article>
 <SchemaBlogPost post={post} />

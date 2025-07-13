@@ -1,62 +1,24 @@
 ---
 const isDev = import.meta.env.DEV;
-
-export interface Props {
-  position?: 'bottomleft' | 'bottomright' | 'topleft' | 'topright';
-}
-
-const { position = 'bottomleft' } = Astro.props as Props;
-
-const positionClass = {
-  bottomleft: 'bottom-0 left-0 translate-x-[-15px] translate-y-[15px]',
-  bottomright: 'bottom-0 right-0 translate-x-[15px] translate-y-[15px]',
-  topleft: 'top-0 left-0 translate-x-[-15px] translate-y-[-15px]',
-  topright: 'top-0 right-0 translate-x-[15px] translate-y-[-15px]',
-}[position];
-
-const componentId = 'responsive-ruler';
 ---
 
-{
-  isDev && (
-    <div id={componentId} class={`responsive-ruler fixed ${positionClass}`}>
-      <div class="font-jetbrainsmono flex flex-wrap justify-center gap-2">
-        <div class="block sm:hidden">
-          <div class="px-2 py-1">XS</div>
-        </div>
-        <div class="hidden sm:block md:hidden">
-          <div class="px-2 py-1">SM</div>
-        </div>
-        <div class="hidden md:block lg:hidden">
-          <div class="px-2 py-1">MD</div>
-        </div>
-        <div class="hidden lg:block xl:hidden">
-          <div class="px-2 py-1">LG</div>
-        </div>
-        <div class="hidden xl:block 2xl:hidden">
-          <div class="px-2 py-1">XL</div>
-        </div>
-        <div class="hidden 2xl:block">
-          <div class="px-2 py-1">2XL</div>
-        </div>
-      </div>
+{isDev && (
+  <div id='responsive-ruler' class="transition-opacity
+    duration-300 hover:opacity-10 hover:transparent
+    fixed bottom-0 left-0 right-0 z-50
+    cursor-pointer
+    text-2xl font-normal text-center font-jetbrainsmono
+    text-gray-800">
+    <div class="bg-gray-300 m-4 rounded-md">
+      <div class="block sm:hidden">XS</div>
+      <div class="hidden sm:block md:hidden">SM</div>
+      <div class="hidden md:block lg:hidden">MD</div>
+      <div class="hidden lg:block xl:hidden">LG</div>
+      <div class="hidden xl:block 2xl:hidden">XL</div>
+      <div class="hidden 2xl:block">2XL</div>
     </div>
-  )
-}
-
-<style is:inline>
-  .responsive-ruler {
-    background-color: #cccccc;
-    color: #282828;
-    border-radius: 100%;
-    padding: 30px;
-    font-size: 200%;
-    border: 1px solid #ff6600;
-    font-weight: 700;
-    z-index: 100;
-    cursor: pointer;
-  }
-</style>
+  </div>
+)}
 
 <script is:inline>
   const tryAttach = () => {

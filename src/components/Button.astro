@@ -1,6 +1,20 @@
 ---
-import { Icon } from "astro-icon/components";
-const { link = "#", name = "bi:plus", classes = "" } = Astro.props;
+import { Icon } from 'astro-icon/components';
+
+let { href, link, name, classes = '' } = Astro.props;
+
+if (link) {
+  if (href) {
+    console.warn(
+      '[component] Both "link" and "href" provided. Ignoring "link".',
+    );
+  } else {
+    console.warn(
+      '[component] Deprecated "link" property used. Use "href" instead.',
+    );
+    href = link;
+  }
+}
 
 const baseClasses = `
   inline-flex items-center gap-x-2
@@ -12,7 +26,22 @@ const baseClasses = `
 `.trim();
 ---
 
-<a href={link} class={`${baseClasses} ${classes}`}>
-  <slot />
-  <Icon name={name} />
-</a>
+{
+  href ? (
+    <a
+      href={href}
+      class={`${baseClasses} ${classes}`}
+    >
+      <slot />
+      {name && <Icon name={name} />}
+    </a>
+  ) : (
+    <button
+      type="button"
+      class={`${baseClasses} ${classes}`}
+    >
+      <slot />
+      {name && <Icon name={name} />}
+    </button>
+  )
+}

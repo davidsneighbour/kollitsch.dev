@@ -6,7 +6,6 @@ cover: ./uses.jpg
 description: >-
   A collection of tools, hardware and system setup I use to enable or easen up
   my daily work, creation and art.
-linktitle: uses
 date: 2022-02-13T11:29:07.000Z
 lastmod: 2022-07-28T14:21:43.000Z
 url: /uses

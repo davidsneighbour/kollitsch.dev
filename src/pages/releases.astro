@@ -9,17 +9,33 @@ const post = {
   },
 };
 const repos = await getCollection('githubReleases');
+const releases = (repos[0] && repos[0].data && Array.isArray(repos[0].data.releases))
+  ? repos[0].data.releases
+  : [];
+const processedReleases = releases.map(release => ({
+...release,
+descriptionHTML: release.descriptionHTML
+  .replace(/<h2\b/g, '<h3')
+  .replace(/<\/h2>/g, '</h3>'),
+}));
 ---
 
 <Layout post={post}>
-  <!-- entryReturnType: 'byRepository' -->{
-    repos.map(repo => (
-      <div>
-        <p>{repo.data.repo}</p>
-        {repo.data.releases.map(release => {
-          return <section set:html={release.descriptionHTML} />;
-        })}
-      </div>
-    ))
-  }
+  <div class="flex flex-col gap-4">
+    {processedReleases.map(release => (
+      console.log(release),
+      <article class="relative isolate
+        flex flex-col gap-2 justify-normal
+        rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)]
+        ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset p-(--card-padding)
+        bg-zinc-100 dark:bg-zinc-900
+        hover:bg-zinc-100/90 dark:hover:bg-zinc-900/90
+      ">
+        <div class="p-4">
+          <h2>{release.name}</h2>
+          <Fragment set:html={release.descriptionHTML} />
+        </div>
+      </article>
+    ))}
+  </div>
 </Layout>

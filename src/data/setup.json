@@ -27,7 +27,9 @@
     "recent_posts": 6
   },
   "id": "kollitsch-dev",
-  "ignoreTags": ["100DaysToOffload"],
+  "ignoreTags": [
+    "100daystooffload"
+  ],
   "images": {
     "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
   },

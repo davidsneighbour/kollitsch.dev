@@ -11,7 +11,7 @@ const blogPosts = await getCollection('blog');
 const tagEntries = await getCollection('tags');
 
 const tagMap = getFilteredTagMap(blogPosts);
-const tagEntryList = tagEntries.filter((entry) => tagMap.has(entry.id));
+const tagEntryList = tagEntries.filter(entry => tagMap.has(entry.id));
 
 const post = {
   data: {
@@ -22,7 +22,6 @@ const post = {
 
 // @todo sort descending by date
 // @todo fix layouts
-
 ---
 
 <Layout post={post}>
@@ -31,15 +30,15 @@ const post = {
 
   <Heading level={2}>Tag Pages</Heading>
   <ul class="space-y-4">
-    {tagEntryList.map((entry) => (
-      <li>
-        <a href={`/tags/${entry.id}/`}>
-          {entry.data.label || `#${entry.id}`}
-        </a>
-        {entry.data.description && (
-          <p>{entry.data.description}</p>
-        )}
-      </li>
-    ))}
+    {
+      tagEntryList.map(entry => (
+        <li>
+          <a href={`/tags/${entry.id}/`}>
+            {entry.data.label || `#${entry.id}`}
+          </a>
+          {entry.data.description && <p>{entry.data.description}</p>}
+        </li>
+      ))
+    }
   </ul>
 </Layout>

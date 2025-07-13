@@ -1,6 +1,7 @@
 ---
 layout: "@layouts/ContentPage.astro"
-title: /uses
+title: All the things I use on a day-to-day basis
+linktitle: /uses
 cover: ./uses.jpg
 description: >-
   A collection of tools, hardware and system setup I use to enable or easen up
@@ -28,11 +29,13 @@ The following is a collection of tools helping me with my digital and work life.
 
 ## Operating system
 
-[Ubuntu](https://ubuntu.com/) is my main operating system. I use it on my desktop, and it's running on a server I am using. The last time I used Windows on my desktop was in 2004.
+[Linux Mint](https://linuxmint.com/) is my current main operating system. I removed all stuff like panels and icons from my desktop and have my main programs running on custom key combinations.
+
+Before July 2025 [Ubuntu](https://ubuntu.com/) was my main operating system. The last time I used Windows on my desktop was in 2004.
 
 ## Productivity
 
-[Todoist](https://todoist.com/) is my main task manager. I use it to manage my tasks, and I am using it to manage my projects. I am using it on the phone, via the Linux app, and via web interface.
+[Todoist](https://todoist.com/) is my main task manager. I use it to manage my tasks and my projects. I am using it on the phone, and via web interface.
 
 I stay up to date with news and development by using [Feedly](https://feedly.com/) as online feed reader.
 

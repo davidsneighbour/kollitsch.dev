@@ -3,6 +3,7 @@ import site from '@data/setup.json';
 
 export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
   const ignoreTags = new Set(site.ignoreTags || []);
+  console.log('[ignoredTags]', site.ignoreTags);
   const tagThreshold = site.tagThreshold ?? 1;
   const tagMap = new Map<string, number>();
 
@@ -20,8 +21,6 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
       tagMap.delete(tag);
     }
   }
-
-  console.log('[ignoreags]', site.ignoreTags);
-
+  console.log(tagMap);
   return tagMap;
 }

@@ -13,13 +13,13 @@ const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 ---
 
-<section class="mt-8
-          bg-gray-50 py-8 dark:bg-gray-950
-          border-t-1 border-t-gray-700">
+<section
+  class="mt-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 dark:bg-gray-950"
+>
   <footer
     class="z-0 mx-auto mt-8 max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
   >
-    <div class="mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
+    <div class="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-6">
       <div class="sm:col-span-2 md:col-span-3">
         <h3 class="mb-4 text-xl">About</h3>
         <p>
@@ -36,7 +36,10 @@ const currentYear = new Date().getFullYear().toString();
           {
             navData.map(value => (
               <li>
-                <IconLink href={value.link} icon={value.icon}>
+                <IconLink
+                  href={value.link}
+                  icon={value.icon}
+                >
                   {value.label}
                 </IconLink>
               </li>
@@ -54,7 +57,12 @@ const currentYear = new Date().getFullYear().toString();
           {
             socialMediaData.map(value => (
               <li>
-                <IconLink href={value.url} icon={value.icon} target="_blank" rel="noopener noreferrer">
+                <IconLink
+                  href={value.url}
+                  icon={value.icon}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {value.label}
                 </IconLink>
               </li>
@@ -64,7 +72,9 @@ const currentYear = new Date().getFullYear().toString();
       </aside>
     </div>
 
-    <div class="flex flex-row items-center justify-between border-t border-gray-800 pt-6">
+    <div
+      class="flex flex-row items-center justify-between border-t border-gray-800 pt-6"
+    >
       <span
         >&copy; <span id={footerYearId}>{currentYear}</span>
         <a href={getHomepageUrl()}>{siteInfo.title}</a></span
@@ -77,15 +87,20 @@ const currentYear = new Date().getFullYear().toString();
       >
     </div>
 
-    <div class="flex flex-row items-center justify-center gap-8 my-4 text-sm">
-      <IconLink href="/privacy-policy/" icon="bi:shield-check">
+    <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
+      <IconLink
+        href="/privacy-policy/"
+        icon="bi:shield-check"
+      >
         Privacy Policy
       </IconLink>
-      <IconLink href="/security-policy/" icon="bi:fingerprint">
+      <IconLink
+        href="/security-policy/"
+        icon="bi:fingerprint"
+      >
         Security Policy
       </IconLink>
     </div>
-
   </footer>
 </section>
 

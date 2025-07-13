@@ -1,4 +1,85 @@
 Changelog
+## [2025.5.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.1...v2025.5.2) (2025-07-13)
+
+
+### Content
+
+* **new:** post from June 30th ([c83a266](https://github.com/davidsneighbour/kollitsch.dev/commit/c83a266d199c6f367451f56c7747797c73f75153))
+* **update:** topnavigation changes ([b93118a](https://github.com/davidsneighbour/kollitsch.dev/commit/b93118a22bad5261ae6a6660b24376ececc6405c))
+
+
+### Theme
+
+* **feat:** add github releases as content collection ([d758d5f](https://github.com/davidsneighbour/kollitsch.dev/commit/d758d5f1fadda217d8a3b327986b0cfca13e390f))
+* **feat:** add youtube content collection setup ([655c035](https://github.com/davidsneighbour/kollitsch.dev/commit/655c035b06dd213ef647f8b67f8fb95bfc40cb55))
+* **feat:** button component with theme, outline, size, block ([6b47258](https://github.com/davidsneighbour/kollitsch.dev/commit/6b47258719a945f73e45b2da7ceff66bc9b5fdc8))
+* **fix:** 404 background image handling ([ef64edb](https://github.com/davidsneighbour/kollitsch.dev/commit/ef64edba0005110527f42c084bcf55d1cc020b9c))
+* **fix:** 404 page background fixes ([5a9a489](https://github.com/davidsneighbour/kollitsch.dev/commit/5a9a489d2a2285aa77b4fe5e9a6682aad94e0334))
+* **fix:** add button type to component and test page ([f71162a](https://github.com/davidsneighbour/kollitsch.dev/commit/f71162ae3b701a3a9312202911ea8830f57b20e6))
+* **fix:** better flow on share separator for mobile devices ([08d15a2](https://github.com/davidsneighbour/kollitsch.dev/commit/08d15a2a3e4c2917fca5eb47af52122ce317f806))
+* **fix:** body padding on small screens ([2fb1579](https://github.com/davidsneighbour/kollitsch.dev/commit/2fb1579e986d8f6f68fafca553740df45ff9a830))
+* **fix:** proper positioning in flex box for article cards ([e83fd27](https://github.com/davidsneighbour/kollitsch.dev/commit/e83fd2750ea9b40687ddb7b599d698de76aa00da))
+* **fix:** remove similarities component ([334755f](https://github.com/davidsneighbour/kollitsch.dev/commit/334755fa870a7a4d29887bc2c102deb0a6a7d7e3))
+* **fix:** rework responsive ruler for less obstrusivity ([ef0a7d7](https://github.com/davidsneighbour/kollitsch.dev/commit/ef0a7d79e549620b74d7c52427059283eed1a087))
+* **fix:** slot in Heading component instead of title prop ([a961444](https://github.com/davidsneighbour/kollitsch.dev/commit/a961444fc4b4b58bdb290a0ebb7a437bc487a269))
+* **fix:** spacing in footer section on small devices ([8c08294](https://github.com/davidsneighbour/kollitsch.dev/commit/8c08294bb8fc73db11dcabd6f45d5907e685666e))
+* **fix:** theme manager rework ([704f5d3](https://github.com/davidsneighbour/kollitsch.dev/commit/704f5d33cec42103bbce8dba08a728aef0f70d55))
+* **fix:** theme selector fixes ([4d6ff2a](https://github.com/davidsneighbour/kollitsch.dev/commit/4d6ff2ad3f6da0d62ba8de66f5eab297011cbf6f))
+* **fix:** type casting fixes ([cc86194](https://github.com/davidsneighbour/kollitsch.dev/commit/cc86194f77088a57fc1288a6bfcf649db1c00227))
+* **fix:** various fixes all over the place ([68c1c13](https://github.com/davidsneighbour/kollitsch.dev/commit/68c1c13f1b158e7457174ef64489e92b6b9c5494))
+
+
+### Documentation
+
+* update docs about responsive layouts ([69d15e3](https://github.com/davidsneighbour/kollitsch.dev/commit/69d15e3c67550bec94b2265d31bf160fc8064c15))
+
+
+### Refactors
+
+* cleanup and reformatting ([e677d03](https://github.com/davidsneighbour/kollitsch.dev/commit/e677d0311b1479f68866b85092b740463a40e99e))
+* code formatting ([ac52ecd](https://github.com/davidsneighbour/kollitsch.dev/commit/ac52ecd8497d5e3cb258e472a00e4360cd9efe9c))
+* remove unused import ([ae1b40d](https://github.com/davidsneighbour/kollitsch.dev/commit/ae1b40de8a5d08f73015b804b52130e013249c43))
+
+
+### Build System
+
+* add favorites configuration to workspace ([d673075](https://github.com/davidsneighbour/kollitsch.dev/commit/d673075872bb860a8b8eb7414213c6036dd23e13))
+* add vscode as scope to commitlint config ([5005dce](https://github.com/davidsneighbour/kollitsch.dev/commit/5005dce81f83851dc1fe9dca8b9564cc427c248a))
+* **deps:** fix missing typescript-eslint dependency ([d1686be](https://github.com/davidsneighbour/kollitsch.dev/commit/d1686beb429369e541816912f3db7ea1d113dddb))
+* **deps:** update dependencies ([5dadebf](https://github.com/davidsneighbour/kollitsch.dev/commit/5dadebf21607ac44fcf759721ed37a79f90a9871))
+* **deps:** update dependencies ([2742fbf](https://github.com/davidsneighbour/kollitsch.dev/commit/2742fbfac99f5d5dceb75ee779c7bcbd2dd0b7d8))
+* **deps:** update dependencies ([3136e8e](https://github.com/davidsneighbour/kollitsch.dev/commit/3136e8e88afcd9bb73852f75ad85bb95b920df1d))
+* **deps:** update mcr.microsoft.com/devcontainers/typescript-node docker tag to v2 ([#1417](https://github.com/davidsneighbour/kollitsch.dev/issues/1417)) ([ae5ac4a](https://github.com/davidsneighbour/kollitsch.dev/commit/ae5ac4ad28106ef9352312c23f966e3d154d6aa4))
+* **deps:** update site screenshot ([a89788c](https://github.com/davidsneighbour/kollitsch.dev/commit/a89788c28d98ba0c3099ac1598636662ef3518ae))
+* **deps:** update site screenshot ([68bb860](https://github.com/davidsneighbour/kollitsch.dev/commit/68bb860040e073df489df80cffc7cad8b550a023))
+* fix shared config setup ([f3beb08](https://github.com/davidsneighbour/kollitsch.dev/commit/f3beb08bd007858096c495c3aadccccac386c1cc))
+* **fix:** remove old screenshot before creating ([5a1ac26](https://github.com/davidsneighbour/kollitsch.dev/commit/5a1ac26ad2c737ecc700c3bd706342047eeb3fae))
+* **fix:** remove old screenshot script generation ([a70bb80](https://github.com/davidsneighbour/kollitsch.dev/commit/a70bb800ad568f942a61f809e547d0722e70464c))
+* **fix:** update screenshot script ([a608a73](https://github.com/davidsneighbour/kollitsch.dev/commit/a608a73e2a92d5271a8b212da526f2b464786382))
+* **netlify:** add .netlify/state.json to repository ([4043b68](https://github.com/davidsneighbour/kollitsch.dev/commit/4043b68a0849bc946fbc9fd52f912600c6b7ab32))
+* **netlify:** fix redirects and headers of Netlify deploy ([7e91e22](https://github.com/davidsneighbour/kollitsch.dev/commit/7e91e2223143fe46b1827e4919e37153ef5ed044))
+* re-add screenshot regeneration workflow for README ([e09c19e](https://github.com/davidsneighbour/kollitsch.dev/commit/e09c19eab3bfa8e544bc032f1ba5048f348d2921))
+* refactor package.json build script ([dfef38d](https://github.com/davidsneighbour/kollitsch.dev/commit/dfef38d696ecb6365e64f500c58f5a9930e2ef0b))
+* remove unused imports in astro config ([313ef68](https://github.com/davidsneighbour/kollitsch.dev/commit/313ef689052be366789a7923440c90227fe0f685))
+* **vscode:** add astro code snippets for vscode ([b93f0cd](https://github.com/davidsneighbour/kollitsch.dev/commit/b93f0cde4345315f224aab95703c8a5db4755e14))
+* **vscode:** install vale for plugin if required ([5848987](https://github.com/davidsneighbour/kollitsch.dev/commit/58489875977254211cb931b2b0aeaae5aba1281e))
+* **vscode:** remove codespell extension ([dc4b59e](https://github.com/davidsneighbour/kollitsch.dev/commit/dc4b59edf37a74e9aea205d84cf35fd8b27dd918))
+
+
+### CI
+
+* **eslint:** cleanup eslint configuration ([1a08485](https://github.com/davidsneighbour/kollitsch.dev/commit/1a08485bc339064724d7a6b20b5f65f3670b321f))
+* **fix:** proper path to yamllint.yaml ([4335f5c](https://github.com/davidsneighbour/kollitsch.dev/commit/4335f5c04e8e837135e8b3674b1f14257bd7d2e0))
+* switch e2e tests to weekly only ([f9258c3](https://github.com/davidsneighbour/kollitsch.dev/commit/f9258c3958350f7d2f216f1f96ffe7234f78ed57))
+* **testing:** re-enable preview run ([4bd6657](https://github.com/davidsneighbour/kollitsch.dev/commit/4bd6657987af19fd98b93786c6f4ba2de9b0beeb))
+* update link check workflow to run only once weekly ([d170c58](https://github.com/davidsneighbour/kollitsch.dev/commit/d170c589b503b4a8f8a4ef3050db165a98c0529d))
+* **yamllint:** 'on' in GH workflows is not an error ([fd84245](https://github.com/davidsneighbour/kollitsch.dev/commit/fd84245853e384abaace033e6917f89830a1fc14))
+
+
+### Chore
+
+* fixing issues between origin and here ([edb6870](https://github.com/davidsneighbour/kollitsch.dev/commit/edb68705619dd9475724e772e0abeb81e593af4c))
+
 ## [2025.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.0...v2025.5.1) (2025-06-30)
 
 

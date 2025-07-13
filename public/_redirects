@@ -6,6 +6,10 @@
 # Redirect old Netlify preview URLs to production domain
 https://kollitsch-dev.netlify.app/*  /:splat  301!
 
+# Redirect legacy sitemap variants to the main sitemap
+/sitemap.xml        /sitemap-index.xml  301
+/sitemap_index.xml  /sitemap-index.xml  301
+
 # Redirect old GoHugo URLs to new structure
 /gohugo/*          https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
 /components/hugo-* https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301

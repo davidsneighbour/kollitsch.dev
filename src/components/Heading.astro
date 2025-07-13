@@ -1,27 +1,35 @@
 ---
-
 type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type Props = {
-  title: string;
   level?: number;
   description?: string;
   link?: string;
   class?: string;
 };
 
-const { title, level = 1, description = "", link = "", class: classname = ""}: Props = Astro.props;
+const {
+  level = 1,
+  description = '',
+  link = '',
+  class: classname = '',
+}: Props = Astro.props;
 
 const safeLevel = Math.min(6, Math.max(1, Number(level)));
 const Tag = `h${safeLevel}` as Tag;
-
 ---
 
 <Tag
-  {...(description && { title: description })}
-  {...(classname && { class: classname })}
+  {...description && { title: description }}
+  {...classname && { class: classname }}
 >
-  {link
-    ? <a href={link}>{title}</a>
-    : title}
+  {
+    link ? (
+      <a href={link}>
+        <slot />
+      </a>
+    ) : (
+      <slot />
+    )
+  }
 </Tag>

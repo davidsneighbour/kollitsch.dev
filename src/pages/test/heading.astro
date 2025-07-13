@@ -5,10 +5,18 @@ import Layout from '@layouts/DefaultPage.astro';
 ---
 
 <Layout>
-  <HeadingComponent title="Visible H2" level={2} description="desc2" />
-  <HeadingComponent title="Visible H5, no description" level={5} />
-  <HeadingComponent title="Default H1" description="desc1" />
-  <HeadingComponent title="Default H1, no description" />
-  <HeadingComponent title="Too High" level={99} />
-  <HeadingComponent title="Too Low" level={0} />
+  <HeadingComponent
+    level={2}
+    description="desc2"
+    >Visible H2</HeadingComponent
+  >
+  <HeadingComponent level={5}>Visible H5, no description</HeadingComponent>
+  <HeadingComponent
+    level={1}
+    description="desc1"
+    >Default H1</HeadingComponent
+  >
+  <HeadingComponent level={1}>Default H1, no description</HeadingComponent>
+  <HeadingComponent level={99}>Too High</HeadingComponent>
+  <HeadingComponent level={0}>Too Low</HeadingComponent>
 </Layout>

@@ -25,7 +25,11 @@ const { post }: Props = Astro.props;
 
   <div class="p-4">
     <!-- <p>{post.data.date.toLocaleDateString()}</p> -->
-    <Heading level={2} title={post.data.title} class="heading" />
+    <Heading
+      level={2}
+      class="heading"
+      >{post.data.title}
+    </Heading>
     <BreadCrumbs path={Astro.url.href} />
     <Prose post={post} />
     <ShareSeparator title={post.data.title} description={post.data.description} />

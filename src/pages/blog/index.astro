@@ -37,20 +37,20 @@ const post = {
     description: 'A collection of articles, tutorials, and updates.',
   },
 };
-
 ---
 
 <Layout post={post}>
-  <Heading
-    title="Blog"
-    description="A collection of articles, tutorials, and updates."
-  />
-  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-  {
-    posts.map(post => {
-      return <ArticleCard post={post} />;
-    })
-  }
+  <Heading description="A collection of articles, tutorials, and updates."
+    >Blog</Heading
+  >
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
+    {
+      posts.map(post => {
+        return <ArticleCard post={post} />;
+      })
+    }
   </div>
   <Pagination
     basePath="/blog"

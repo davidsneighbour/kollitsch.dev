@@ -8,6 +8,7 @@ import socialMediaData from '@data/socialmedia.json';
 import FooterTitle from './FooterTitle.astro';
 import IconLink from '@components/IconLink.astro';
 import Heading from '@components/Heading.astro';
+import setup from '@data/setup.json';
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
@@ -16,23 +17,21 @@ const currentYear = new Date().getFullYear().toString();
 <section
   class="mt-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 dark:bg-gray-950"
 >
-  <footer
-    class="z-0 mx-auto mt-8 max-w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
-  >
+  <footer class={setup.classes.containers.main}>
     <div class="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-6">
-      <div class="sm:col-span-2 md:col-span-3">
+      <aside class="sm:col-span-2 md:col-span-3 p-4">
         <h3 class="mb-4 text-xl">About</h3>
         <p>
           {siteInfo.introduction}
         </p>
-      </div>
-      <aside class="">
+      </aside>
+      <aside class="p-4">
         <Heading
           level={3}
-          class="mb-4"
+          class="mb-4 text-center"
           >Navigation</Heading
         >
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-row flex-wrap justify-center sm:justify-end gap-2 p-4">
           {
             navData.map(value => (
               <li>
@@ -50,10 +49,10 @@ const currentYear = new Date().getFullYear().toString();
       <aside class="md:col-span-2">
         <Heading
           level={3}
-          class="mb-4"
+          class="mb-4 text-center sm:text-right"
           >Connect</Heading
         >
-        <ul class="flex flex-row flex-wrap gap-2">
+        <ul class="flex flex-row flex-wrap justify-center sm:justify-end gap-2">
           {
             socialMediaData.map(value => (
               <li>
@@ -72,9 +71,7 @@ const currentYear = new Date().getFullYear().toString();
       </aside>
     </div>
 
-    <div
-      class="flex flex-row items-center justify-between border-t border-gray-800 pt-6"
-    >
+    <div class="flex flex-row items-center justify-between border-t border-gray-800 pt-6">
       <span
         >&copy; <span id={footerYearId}>{currentYear}</span>
         <a href={getHomepageUrl()}>{siteInfo.title}</a></span

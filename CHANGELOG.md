@@ -1,4 +1,16 @@
 Changelog
+## [2025.5.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.2...v2025.5.3) (2025-07-13)
+
+
+### Content
+
+* **update:** redirects for legacy sitemap addresses ([8a8a685](https://github.com/davidsneighbour/kollitsch.dev/commit/8a8a685335c53ce70d1fb759043caf510e6bc18a))
+
+
+### Theme
+
+* **fix:** proper spacing in third footer column ([6b2e3e3](https://github.com/davidsneighbour/kollitsch.dev/commit/6b2e3e332b2497e718be8084527a0539210220a6))
+
 ## [2025.5.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.1...v2025.5.2) (2025-07-13)
 
 

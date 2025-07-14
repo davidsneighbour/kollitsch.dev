@@ -1,4 +1,16 @@
 Changelog
+## [2025.5.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.3...v2025.5.4) (2025-07-14)
+
+
+### Content
+
+* **fix:** remove double linktitle frontmatter ([545c32e](https://github.com/davidsneighbour/kollitsch.dev/commit/545c32e2a510bdbbbd4418313c7303441e96483b))
+
+
+### Theme
+
+* **fix:** copyright byline in a column on sm and below ([5f70dad](https://github.com/davidsneighbour/kollitsch.dev/commit/5f70dad097b46e0f90dc0e6e632b5dec110ce75b))
+
 ## [2025.5.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.2...v2025.5.3) (2025-07-13)
 
 

@@ -2,7 +2,7 @@
 title: Hyper Shell
 description: A shell inside of Electron
 date: 2021-11-16T19:52:00+07:00
-lastmod: '2021-11-16T19:52:00+07:00'
+lastmod: 2021-11-16T19:52:00+07:00
 publishdate: 2021-11-16T19:52:00+07:00
 resources:
   - src: hyper-shell.png

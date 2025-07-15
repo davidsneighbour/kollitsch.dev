@@ -2,7 +2,7 @@
 title: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
 description: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
 date: 2021-10-28T21:56:41+07:00
-lastmod: '2021-10-28T21:56:41+07:00'
+lastmod: 2021-10-28T21:56:41+07:00
 publishdate: 2021-10-28T21:56:41+07:00
 resources:
   - src: mick-haupt-ePHz9WOME0c-unsplash.jpg

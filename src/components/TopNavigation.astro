@@ -1,5 +1,4 @@
 ---
-
 import { fade } from 'astro:transitions';
 
 import { Icon } from 'astro-icon/components';
@@ -10,6 +9,7 @@ import { logDebug } from '@utils/helpers';
 
 import siteinfo from '@data/setup.json';
 import navData from '@data/navigation.json';
+import IconLink from './IconLink.astro';
 
 const typedNavData = navData as Navigation;
 
@@ -19,7 +19,8 @@ function isActive(item: NavItem, pathname: string): boolean {
     matchType === 'full'
       ? pathname === item.link
       : pathname.startsWith(item.link);
-  const extraMatches = item.matchPaths?.some((prefix) => pathname.startsWith(prefix)) ?? false;
+  const extraMatches =
+    item.matchPaths?.some(prefix => pathname.startsWith(prefix)) ?? false;
   return directMatch || extraMatches;
 }
 
@@ -40,35 +41,43 @@ const activeItem = findActive(typedNavData, pathname);
 if (!activeItem && import.meta.env.DEV) {
   logDebug(`👉 No navigation item to activate for: ${pathname}`);
 }
-
 ---
 
-<header class="[--thickness:4px] lg:[--thickness:6px]
-    sticky z-50 top-0 isolate
-    bg-zinc-100 dark:bg-zinc-900
-    mb-12">
-  <div class="absolute inset-0 z-10
-      backdrop backdrop-blur-lg
-      pointer-events-none
-      bg-gray-100 dark:bg-gray-900"></div>
-  <div class="h-[var(--thickness)]
-      absolute bottom-0 left-0 right-0 z-10
-      backdrop-edge">
+<header
+  class="sticky top-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900"
+>
+  <div
+    class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"
+  >
+  </div>
+  <div
+    class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]"
+  >
     <ProgressBar classes="progress z-40 relative [--height:var(--thickness)]" />
   </div>
-  <div class="z-20 flex flex-wrap items-center gap-4 md:flex-nowrap md:items-start
-      bg-zinc-100 text-gray-950 dark:bg-zinc-900 dark:text-gray-50">
-    <div class="order-1 flex-1 z-30" id="navbar-sitetitle">
+  <div
+    class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-gray-50"
+  >
+    <div
+      class="z-30 order-1 flex-1"
+      id="navbar-sitetitle"
+    >
       <a
         id="navbar-brand"
         href={getHomepageUrl()}
         class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
       >
-        <Icon name="bi:house-fill" class="place-self-center" />
+        <Icon
+          name="bi:house-fill"
+          class="place-self-center"
+        />
         {siteinfo.title}
       </a>
     </div>
-    <div class="order-2 md:hidden z-30" id="hamburger-and-close">
+    <div
+      class="z-30 order-2 md:hidden"
+      id="hamburger-and-close"
+    >
       <Icon
         name="bi:list"
         class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
@@ -79,18 +88,24 @@ if (!activeItem && import.meta.env.DEV) {
       />
     </div>
     <div
-      class="order-3 z-30 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
+      class="z-30 order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
       id="navigation-and-theme-select"
     >
-      <ul class="flex flex-col justify-center md:flex-row md:justify-end"
-          transition:animate={fade({ duration: '0.4s' })}>
+      <ul
+        class="flex flex-col justify-center md:flex-row md:justify-end"
+        transition:animate={fade({ duration: '0.4s' })}
+      >
         {
           typedNavData.map(value => (
-            <li class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}>
-              <a href={value.link} class="flex items-center gap-2">
-                <Icon name={value.icon} />
-                <span>{value.label}</span>
-              </a>
+            <li
+              class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}
+            >
+              <IconLink
+                icon={value.icon}
+                href={value.link}
+              >
+                {value.label}
+              </IconLink>
             </li>
           ))
         }
@@ -153,9 +168,7 @@ if (!activeItem && import.meta.env.DEV) {
       placeholder.getBoundingClientRect().bottom > 0;
     stickyBrand.classList.toggle('sticky-visible', !isIntersecting);
   }
-</script>
 
-<script is:inline>
   // handling theme-selector element
   // @see https://tailwindcss.com/docs/dark-mode
   if (!customElements.get('theme-selector')) {
@@ -184,20 +197,17 @@ if (!activeItem && import.meta.env.DEV) {
           try {
             const current = theme.getTheme();
             const idx = this.themes.indexOf(current);
-
-            // if current is auto but hidden, map to system index
             const realIdx =
               idx >= 0 ? idx : this.themes.indexOf(theme.getSystemTheme());
 
             const next = this.themes[(realIdx + 1) % this.themes.length];
             theme.setTheme(next);
           } catch (err) {
-            console.error('theme-selector › cycle error:', err);
+            console.error('theme-selector - cycle error:', err);
           }
         }
 
         updateIcon(t = theme.getTheme()) {
-          // if auto is hidden, show based on systemTheme
           const hideAuto = this.hasAttribute('hide-auto');
           const effective =
             t === 'auto' && hideAuto ? theme.getSystemTheme() : t;
@@ -205,9 +215,8 @@ if (!activeItem && import.meta.env.DEV) {
           const icons = {
             light: '☀️',
             dark: '🌙',
-            auto: '🌓',
           };
-          this.btn.textContent = icons[effective] ?? icons.auto;
+          this.btn.textContent = icons[effective] ?? icons.dark;
         }
       },
     );

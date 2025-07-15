@@ -18,7 +18,9 @@ tags:
 unsplash:
   imageid: B0aJBySo8dc
 fmContentType: blog
-cover: ./kumas_taverne-B0aJBySo8dc-unsplash.jpg
+cover:
+  src: ./kumas_taverne-B0aJBySo8dc-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

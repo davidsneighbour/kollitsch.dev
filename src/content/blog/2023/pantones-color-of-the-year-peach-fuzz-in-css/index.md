@@ -21,7 +21,9 @@ options:
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
-cover: ./pantone-color-of-the-year-2024-article-1-image-1.webp
+cover:
+  src: ./pantone-color-of-the-year-2024-article-1-image-1.webp
+  type: image
 publisher: rework
 ---
 

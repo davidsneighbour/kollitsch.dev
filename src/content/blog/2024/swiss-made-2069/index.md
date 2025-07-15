@@ -19,7 +19,9 @@ tags:
 video:
   youtube: _jLCFpU8HPM
 fmContentType: blog
-cover: ./swiss-made-2069.jpg
+cover:
+  src: ./swiss-made-2069.jpg
+  type: image
 options:
   head:
     components:

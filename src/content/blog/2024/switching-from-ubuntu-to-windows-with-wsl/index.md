@@ -26,7 +26,9 @@ tags:
 unsplash:
   imageid: yGPxCYPS8H4
 fmContentType: blog
-cover: ./clint-patterson-yGPxCYPS8H4-unsplash.jpg
+cover:
+  src: ./clint-patterson-yGPxCYPS8H4-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

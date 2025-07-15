@@ -17,7 +17,9 @@ tags:
   - hacks
   - 100daystooffload
 fmContentType: blog
-cover: ./getty-images-ltpb_WinC3Y-unsplash.jpg
+cover:
+  src: ./getty-images-ltpb_WinC3Y-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

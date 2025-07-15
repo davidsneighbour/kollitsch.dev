@@ -19,7 +19,9 @@ tags:
   - gohugo
   - 100daystooffload
 fmContentType: blog
-cover: ./frontmatter.png
+cover:
+  src: ./frontmatter.png
+  type: image
 publisher: rework
 ---
 

@@ -20,7 +20,9 @@ tags:
 unsplash:
   imageid: M0Ozda1sRYs
 fmContentType: blog
-cover: ./getty-images-M0Ozda1sRYs-unsplash.jpg
+cover:
+  src: ./getty-images-M0Ozda1sRYs-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

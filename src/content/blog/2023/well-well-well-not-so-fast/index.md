@@ -11,7 +11,9 @@ tags:
   - kollitsch-dev
   - 100daystooffload
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

@@ -16,7 +16,9 @@ video:
   artist: nineinchnails
   title: This isn't the place
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

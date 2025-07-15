@@ -13,7 +13,9 @@ tags:
 unsplash:
   imageid: A-V2Vb6R9NQ
 fmContentType: blog
-cover: ./johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
+cover:
+  src: ./johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

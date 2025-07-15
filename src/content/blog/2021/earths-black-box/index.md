@@ -12,7 +12,9 @@ tags:
   - earth
   - logging
 fmContentType: blog
-cover: ./earths-black-box.jpg
+cover:
+  src: ./earths-black-box.jpg
+  type: image
 publisher: rework
 ---
 

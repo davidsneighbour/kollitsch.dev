@@ -12,7 +12,9 @@ tags:
   - learning
   - quicklink
 fmContentType: blog
-cover: ./yancy-min-842ofHC6MaI-unsplash.jpg
+cover:
+  src: ./yancy-min-842ofHC6MaI-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

@@ -15,7 +15,9 @@ tags:
   - nagging
   - 100daystooffload
 fmContentType: blog
-cover: ./nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
+cover:
+  src: ./nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

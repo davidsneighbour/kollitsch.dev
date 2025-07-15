@@ -13,7 +13,9 @@ tags:
   - gohugo
   - 100daystooffload
 fmContentType: blog
-cover: ./markus-winkler-qPjV8XaXPTQ-unsplash.jpg
+cover:
+  src: ./markus-winkler-qPjV8XaXPTQ-unsplash.jpg
+  type: image
 featured: true
 publisher: rework
 ---

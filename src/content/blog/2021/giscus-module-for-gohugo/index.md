@@ -13,7 +13,9 @@ tags:
   - giscus
   - git
 fmContentType: blog
-cover: ./gerry-roarty-slkENpP5PbI-unsplash.jpg
+cover:
+  src: ./gerry-roarty-slkENpP5PbI-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

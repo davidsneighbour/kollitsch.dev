@@ -25,7 +25,9 @@ tags:
 unsplash:
   imageid: abcdefghijk
 fmContentType: blog
-cover: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
+cover:
+  src: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

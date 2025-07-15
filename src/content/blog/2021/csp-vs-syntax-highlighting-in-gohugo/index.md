@@ -19,7 +19,9 @@ tags:
   - sri
   - csp
 fmContentType: blog
-cover: ./christopher-gower-m_HRfLhgABo-unsplash.jpg
+cover:
+  src: ./christopher-gower-m_HRfLhgABo-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

@@ -16,7 +16,9 @@ video:
   artist: ben-lukas-boysen
   title: Nocturne 4
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

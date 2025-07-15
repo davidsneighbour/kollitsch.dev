@@ -16,7 +16,9 @@ tags:
   - howto
   - 100daystooffload
 fmContentType: blog
-cover: ./ubuntu-wallpaper-d.png
+cover:
+  src: ./ubuntu-wallpaper-d.png
+  type: image
 publisher: rework
 ---
 

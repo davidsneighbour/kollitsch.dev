@@ -21,7 +21,9 @@ tags:
 video:
   youtube: mAZXRpPX-hI
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

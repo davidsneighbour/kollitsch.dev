@@ -19,7 +19,9 @@ tags:
 aliases:
   - /notes-from-the-laboratory-july-2023
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

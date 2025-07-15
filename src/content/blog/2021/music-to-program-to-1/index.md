@@ -13,7 +13,9 @@ type: music
 resources:
   - src: header.jpg
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

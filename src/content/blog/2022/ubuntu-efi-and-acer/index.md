@@ -19,7 +19,9 @@ tags:
   - efi
   - 100daystooffload
 fmContentType: blog
-cover: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
+cover:
+  src: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

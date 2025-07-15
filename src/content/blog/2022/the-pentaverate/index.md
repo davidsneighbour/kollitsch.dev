@@ -11,7 +11,9 @@ tags:
   - trailers
   - 100daystooffload
 fmContentType: blog
-cover: ./mike-myers-the-pentaverate.jpg
+cover:
+  src: ./mike-myers-the-pentaverate.jpg
+  type: image
 options:
   head:
     components:

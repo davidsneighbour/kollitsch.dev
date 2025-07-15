@@ -17,7 +17,9 @@ tags:
 unsplash:
   imageid: robot-playing-piano-U3sOwViXhkY
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

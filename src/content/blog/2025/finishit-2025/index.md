@@ -12,7 +12,9 @@ tags:
   - kollitsch-dev
   - 100daystooffload
 fmContentType: blog
-cover: ./alexander-mils-ULL-cyKjpd4-unsplash.jpg
+cover:
+  src: ./alexander-mils-ULL-cyKjpd4-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

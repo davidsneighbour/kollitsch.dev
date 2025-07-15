@@ -14,7 +14,9 @@ tags:
   - bookmarks
   - 100daystooffload
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 options:
   head:
     components:

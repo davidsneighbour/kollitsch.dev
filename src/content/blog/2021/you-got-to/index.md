@@ -9,7 +9,9 @@ tags:
   - newsletter
   - web-development
 fmContentType: blog
-cover: ./stefanjudis.com.jpg
+cover:
+  src: ./stefanjudis.com.jpg
+  type: image
 publisher: rework
 ---
 

@@ -19,7 +19,9 @@ resources:
 video:
   youtube: d-8DT5Q8kzI
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

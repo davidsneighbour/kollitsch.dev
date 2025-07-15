@@ -19,7 +19,9 @@ tags:
   - quicky
   - 100daystooffload
 fmContentType: blog
-cover: ./getty-images-Hh_4mKRYAPM-unsplash.jpg
+cover:
+  src: ./getty-images-Hh_4mKRYAPM-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

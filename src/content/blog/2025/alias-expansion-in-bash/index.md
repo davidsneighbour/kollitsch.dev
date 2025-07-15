@@ -17,7 +17,9 @@ tags:
   - bash
   - 100daystooffload
 fmContentType: blog
-cover: ./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
+cover:
+  src: ./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

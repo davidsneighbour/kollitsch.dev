@@ -24,7 +24,9 @@ tags:
 unsplash:
   imageid: pswcXNE8690
 fmContentType: blog
-cover: ./nigel-hoare-pswcXNE8690-unsplash.jpg
+cover:
+  src: ./nigel-hoare-pswcXNE8690-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

@@ -13,7 +13,9 @@ tags:
 unsplash:
   imageid: HcUDHJfd5GY
 fmContentType: blog
-cover: ./ave-calvar-HcUDHJfd5GY-unsplash.jpg
+cover:
+  src: ./ave-calvar-HcUDHJfd5GY-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

@@ -18,7 +18,9 @@ tags:
 unsplash:
   imageid: pile-of-rubber-duckies-59yg_LpcvzQ
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

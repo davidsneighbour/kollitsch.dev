@@ -12,7 +12,9 @@ tags:
   - electron
   - link
 fmContentType: blog
-cover: ./hyper-shell.png
+cover:
+  src: ./hyper-shell.png
+  type: image
 publisher: rework
 ---
 

@@ -20,7 +20,9 @@ tags:
 unsplash:
   imageid: l2nY0rP07DI
 fmContentType: blog
-cover: ./curated-lifestyle-l2nY0rP07DI-unsplash.jpg
+cover:
+  src: ./curated-lifestyle-l2nY0rP07DI-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

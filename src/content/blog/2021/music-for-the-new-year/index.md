@@ -15,7 +15,9 @@ video:
   title: Khruangbin @ Villain | Pitchfork Live
   youtube: q4xKvHANqjk
 fmContentType: blog
-cover: ./hero.png
+cover:
+  src: ./hero.png
+  type: image
 publisher: rework
 ---
 

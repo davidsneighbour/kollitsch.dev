@@ -15,7 +15,9 @@ type: video
 video:
   youtube: GSIB8W3KGsM
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

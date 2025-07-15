@@ -12,7 +12,9 @@ tags:
   - quicky
   - 100daystooffload
 fmContentType: blog
-cover: ./ave-calvar-MRAu_cKpVqI-unsplash.jpg
+cover:
+  src: ./ave-calvar-MRAu_cKpVqI-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

@@ -24,7 +24,9 @@ video:
   title: Flow State
 date: '2024-01-02T17:26:42+07:00'
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

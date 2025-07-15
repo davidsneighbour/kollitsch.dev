@@ -15,7 +15,9 @@ tags:
   - development
   - 100daystooffload
 fmContentType: blog
-cover: ./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+cover:
+  src: ./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

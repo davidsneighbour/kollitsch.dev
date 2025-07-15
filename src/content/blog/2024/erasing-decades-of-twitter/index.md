@@ -15,7 +15,9 @@ tags:
   - erasing-social-media
   - 100daystooffload
 fmContentType: blog
-cover: ./header.webp
+cover:
+  src: ./header.webp
+  type: image
 publisher: rework
 ---
 

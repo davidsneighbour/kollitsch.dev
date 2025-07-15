@@ -13,7 +13,9 @@ tags:
   - projects
   - planning
 fmContentType: blog
-cover: ./hero.png
+cover:
+  src: ./hero.png
+  type: image
 publisher: rework
 ---
 

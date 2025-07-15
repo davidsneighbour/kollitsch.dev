@@ -15,7 +15,9 @@ tags:
   - me-now
   - logos
 fmContentType: blog
-cover: ./logo.png
+cover:
+  src: ./logo.png
+  type: image
 publisher: rework
 ---
 

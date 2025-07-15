@@ -20,7 +20,9 @@ tags:
   - howto
   - 100daystooffload
 fmContentType: blog
-cover: ./header.png
+cover:
+  src: ./header.png
+  type: image
 publisher: rework
 ---
 

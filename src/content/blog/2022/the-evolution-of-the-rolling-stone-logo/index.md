@@ -14,7 +14,9 @@ tags:
   - design
   - 100daystooffload
 fmContentType: blog
-cover: ./Rolling-Stone-1967-logo.png
+cover:
+  src: ./Rolling-Stone-1967-logo.png
+  type: image
 publisher: rework
 ---
 

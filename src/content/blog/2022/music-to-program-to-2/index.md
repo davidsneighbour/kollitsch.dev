@@ -13,7 +13,9 @@ video:
   artist: chromatics
   title: Tick Of The Clock (Extended Overdrive)
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

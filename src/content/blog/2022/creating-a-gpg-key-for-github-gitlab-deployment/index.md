@@ -15,7 +15,9 @@ tags:
   - github
   - gitlab
 fmContentType: blog
-cover: ./mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
+cover:
+  src: ./mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

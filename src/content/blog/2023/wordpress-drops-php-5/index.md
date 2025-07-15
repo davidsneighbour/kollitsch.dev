@@ -16,7 +16,9 @@ tags:
 unsplash:
   imageid: Zk--Ydz2IAs
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

@@ -14,7 +14,9 @@ tags:
   - 100daystooffload
 type: link
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

@@ -15,7 +15,9 @@ video:
   title: Exxus
 date: '2024-06-17T20:41:40+07:00'
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

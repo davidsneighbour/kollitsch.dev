@@ -15,7 +15,9 @@ tags:
 aliases:
   - /100daystooffload
 fmContentType: blog
-cover: ./marcel-eberle-SCBREPQuYoM-unsplash.jpg
+cover:
+  src: ./marcel-eberle-SCBREPQuYoM-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

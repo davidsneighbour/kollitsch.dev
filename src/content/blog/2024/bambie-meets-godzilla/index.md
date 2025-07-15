@@ -22,7 +22,9 @@ tags:
 video:
   youtube: 5R-rbzcEM8A
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

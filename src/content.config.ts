@@ -26,14 +26,22 @@ export const blogSchema = z
       .optional()
       .transform((val) => (typeof val === 'string' ? [val] : val)),
     cover: z
-      .union([
-        z.string(),
-        z.object({
-          src: z.string(),
-          title: z.string().optional(),
-          type: z.enum(['image', 'video']).optional().default('image'),
-        }),
-      ])
+      // @todo revert to union once the issue/PR is resolved
+      // @see https://github.com/estruyf/vscode-front-matter/issues/958
+      // @see https://github.com/estruyf/vscode-front-matter/pull/960
+      // .union([
+      //   z.string(),
+      //   z.object({
+      //     src: z.string(),
+      //     title: z.string().optional(),
+      //     type: z.enum(['image', 'video']).optional().default('image'),
+      //   }),
+      // ])
+      .object({
+        src: z.string(),
+        title: z.string().optional(),
+        type: z.enum(['image', 'video']).optional().default('image'),
+      })
       .optional(),
     date: z.coerce.date().transform((s) => new Date(s)),
     description: z

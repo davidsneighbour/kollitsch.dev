@@ -19,7 +19,9 @@ tags:
   - forensics
   - 100daystooffload
 fmContentType: blog
-cover: ./docker-forensics.png
+cover:
+  src: ./docker-forensics.png
+  type: image
 publisher: rework
 ---
 

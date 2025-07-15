@@ -17,7 +17,9 @@ tags:
 video:
   youtube: kYxheEGl2oM
 fmContentType: blog
-cover: ./header.jpg
+cover:
+  src: ./header.jpg
+  type: image
 publisher: rework
 ---
 

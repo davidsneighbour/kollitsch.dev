@@ -21,7 +21,9 @@ tags:
 unsplash:
   imageid: MaDXpqp1vM0
 fmContentType: blog
-cover: ./louis-reed-MaDXpqp1vM0-unsplash.jpg
+cover:
+  src: ./louis-reed-MaDXpqp1vM0-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

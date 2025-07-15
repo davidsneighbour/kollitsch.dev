@@ -12,7 +12,9 @@ resources:
       [Unsplash](https://unsplash.com)
 description: 'How to convert frontmatter in GoHugo between TOML, YAML and JSON.'
 fmContentType: blog
-cover: ./ferenc-almasi-HfFoo4d061A-unsplash.jpg
+cover:
+  src: ./ferenc-almasi-HfFoo4d061A-unsplash.jpg
+  type: image
 publisher: rework
 ---
 

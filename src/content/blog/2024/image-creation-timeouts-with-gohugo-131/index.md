@@ -13,7 +13,9 @@ tags:
   - tag3
   - 100daystooffload
 fmContentType: blog
-cover: ./hugo-0.131.0.png
+cover:
+  src: ./hugo-0.131.0.png
+  type: image
 publisher: rework
 ---
 

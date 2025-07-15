@@ -1,10 +1,29 @@
 @layer base {
+  /**
+   * Extending "preflight" from Tailwind CSS
+   * @see https://tailwindcss.com/docs/preflight
+   */
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#three-enable-keyword-animations-4 */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
   body {
     @apply font-exo2 text-base leading-[1.4] font-light;
     @apply text-gray-600;
     @apply dark:text-gray-200;
     @apply bg-gray-50;
     @apply dark:bg-gray-950;
+
+    /* @see https://www.joshwcomeau.com/css/custom-css-reset/#four-add-accessible-line-height-5 */
+    line-height: 1.5;
+    line-height: calc(1em + 0.5rem);
+
+    /* @see https://www.joshwcomeau.com/css/custom-css-reset/#five-improve-text-rendering-6 */
+    -webkit-font-smoothing: antialiased;
   }
 
   h1,
@@ -36,9 +55,58 @@
     @apply text-base;
   }
 
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#eight-avoid-text-overflows-9 */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#nine-improve-line-wrapping-10 */
+  p {
+    text-wrap: pretty;
+  }
+
   a {
     @apply text-red-700;
     @apply hover:text-orange-700;
     @apply transition-colors duration-300 ease-in-out;
+  }
+
+  /* Tailwind CSS preflight does that, but ignores the `picture` element for some reason */
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object,
+  picture {
+    display: block;
+    vertical-align: middle;
+  }
+
+  /* Tailwind CSS preflight does that, but only for `img` and `video` */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#seven-inherit-fonts-for-form-controls-8 */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
   }
 }

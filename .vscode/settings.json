@@ -11,6 +11,10 @@
     "source.fixAll.biome": "explicit"
   },
 
+  // path resolution in components (and others)
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+
   // file nesting setup
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.enabled": true,

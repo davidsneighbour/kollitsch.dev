@@ -141,42 +141,5 @@
         }
       }
     }
-  ],
-  "frontMatter.taxonomy.contentTypes": [
-    {
-      "name": "default",
-      "previewPath": "'blog'",
-      "pageBundle": true,
-      "clearEmpty": false,
-      "defaultFileName": "index",
-      "slugTemplate": "{{year}}/{{title}}/",
-      "template": "[[workspace]]/.frontmatter/templates/blog.md",
-      "fields": [
-        {
-          "title": "Title",
-          "name": "title",
-          "type": "string",
-          "single": true
-        },
-        {
-          "title": "Description",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "title": "Publishing date",
-          "name": "date",
-          "type": "datetime",
-          "default": "{{now}}",
-          "isPublishDate": true
-        },
-        {
-          "title": "Content preview",
-          "name": "cover",
-          "type": "image",
-          "isPreviewImage": true
-        }
-      ]
-    }
   ]
 }

@@ -3,7 +3,7 @@ title: VSCode Remote SSH plugin vs. Dreamhost shared hosting
 description: >-
   How to connect VSCode to a Dreamhost shared hosting server using the Remote
   SSH plugin.
-date: '2022-05-20T22:10:32+07:00'
+date: 2022-05-20T22:10:32+07:00
 resources:
   - title: >-
       Photo by [NASA](https://unsplash.com/@nasa) via

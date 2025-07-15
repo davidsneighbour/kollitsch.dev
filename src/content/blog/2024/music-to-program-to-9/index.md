@@ -13,7 +13,7 @@ video:
   youtube: h7UsQIx14CE
   artist: glass-animals
   title: Exxus
-date: '2024-06-17T20:41:40+07:00'
+date: 2024-06-17T20:41:40+07:00
 fmContentType: blog
 cover:
   src: ./header.jpg

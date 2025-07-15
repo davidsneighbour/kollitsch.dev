@@ -3,7 +3,7 @@ title: Image creation timeouts with GoHugo v0.131.0
 description: >-
   Image hashing now uses xxHash, speeding up image processing but may cause
   timeouts on first build.
-date: '2024-08-04T19:47:01+07:00'
+date: 2024-08-04T19:47:01+07:00
 resources:
   - title: GoHugo v0.131.0
     src: hugo-0.131.0.png

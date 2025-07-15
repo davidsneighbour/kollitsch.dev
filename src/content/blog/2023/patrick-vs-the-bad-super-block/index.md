@@ -3,7 +3,7 @@ title: Patrick vs. the Bad Super Block
 description: >-
   Join me in tackling a superblock error on a 20TB LUKS-encrypted drive in
   Ubuntu, featuring step-by-step recovery insights and practical tips.
-date: '2023-11-26T17:05:13+07:00'
+date: 2023-11-26T17:05:13+07:00
 resources:
   - title: >-
       Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via

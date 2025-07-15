@@ -4,7 +4,7 @@ linkTitle: Laboratory 2022-01
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   January 2022
-date: '2022-01-30T21:12:06+07:00'
+date: 2022-01-30T21:12:06+07:00
 resources:
   - src: header.jpg
     title: >-

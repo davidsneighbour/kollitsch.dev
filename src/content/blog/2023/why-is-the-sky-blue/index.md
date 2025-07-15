@@ -3,7 +3,7 @@ title: Why is the sky blue?
 description: >-
   Did you ever ask yourself why the sky is blue? Here is what you need to know:
   The color of the sky is a result of a phenomenon called Rayleigh scattering.
-date: '2023-10-01T18:59:22+07:00'
+date: 2023-10-01T18:59:22+07:00
 resources:
   - src: johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
 tags:

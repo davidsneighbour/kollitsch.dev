@@ -1,6 +1,6 @@
 ---
 title: You got to…
-date: '2021-11-15T21:45:44+07:00'
+date: 2021-11-15T21:45:44+07:00
 description: … subscribe to Stefan Judis' Newsletter. Trust me. It's good. Weekly
 resources:
   - src: stefanjudis.com.jpg

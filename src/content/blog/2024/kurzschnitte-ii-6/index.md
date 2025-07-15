@@ -9,7 +9,7 @@ summary: >-
   The sixth edition of Kurzschnitte II. Did you know that six is the smallest
   positive integer which is neither a square number nor a prime number? Now you
   know.
-date: '2024-09-20T17:13:27+07:00'
+date: 2024-09-20T17:13:27+07:00
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

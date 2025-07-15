@@ -4,7 +4,7 @@ description: >-
   Secure your project with Sandworm Audit, a free tool that scans for
   vulnerabilities and license compliance issues. Easy-to-read reports and
   customizable policies.
-date: '2023-03-13T20:37:22+07:00'
+date: 2023-03-13T20:37:22+07:00
 resources:
   - title: Screenshot of sandworm.dev
     src: header.png

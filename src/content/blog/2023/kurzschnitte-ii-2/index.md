@@ -3,7 +3,7 @@ title: Kurzschnitte II - Sophomore Edition
 description: >-
   A collection of links I came across in recent weeks, noteworthy but not enough
   for a full blog post.
-date: '2023-12-03T17:37:20+07:00'
+date: 2023-12-03T17:37:20+07:00
 resources:
   - title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

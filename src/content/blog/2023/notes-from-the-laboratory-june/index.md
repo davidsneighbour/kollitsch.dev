@@ -4,7 +4,7 @@ linkTitle: Laboratory 2023-06
 description: >-
   Monthly report of my activities in June 2023, including updates on
   100DaysToOffload, hardware upgrades, and GoHugo modules.
-date: '2023-07-01T19:31:21+07:00'
+date: 2023-07-01T19:31:21+07:00
 resources:
   - src: header.jpg
     title: >-

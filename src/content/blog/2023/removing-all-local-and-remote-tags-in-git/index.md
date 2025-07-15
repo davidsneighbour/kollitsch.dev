@@ -1,7 +1,7 @@
 ---
 title: Removing all local and remote tags in Git
 description: How to clean up all local and remote tags in Git repositories in one go.
-date: '2023-07-09T18:44:36+07:00'
+date: 2023-07-09T18:44:36+07:00
 resources:
   - title: >-
       Photo by [Henry & Co.](https://unsplash.com/@hngstrm) via

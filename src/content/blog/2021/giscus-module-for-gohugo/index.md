@@ -1,6 +1,6 @@
 ---
 title: Giscus Module for GoHugo
-date: '2021-10-27T20:25:27+07:00'
+date: 2021-10-27T20:25:27+07:00
 description: A new comment system for GoHugo websites using Github Discussions.
 resources:
   - src: gerry-roarty-slkENpP5PbI-unsplash.jpg

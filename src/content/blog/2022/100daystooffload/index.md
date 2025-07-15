@@ -2,7 +2,7 @@
 title: '#100DaysToOffload'
 description: A challenge to write 100 posts on your personal blog in a year
 linkTitle: '#100DaysToOffload'
-date: '2022-03-21T23:27:23+07:00'
+date: 2022-03-21T23:27:23+07:00
 resources:
   - title: >-
       Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via

@@ -4,7 +4,7 @@ linkTitle: Laboratory 2023-04
 description: >-
   Monthly review of my activities in April 2023, including updates on
   KOLLITSCH.dev, self-optimization projects, and plans for the future.
-date: '2023-05-01T19:31:37+07:00'
+date: 2023-05-01T19:31:37+07:00
 resources:
   - src: header.jpg
     title: >-

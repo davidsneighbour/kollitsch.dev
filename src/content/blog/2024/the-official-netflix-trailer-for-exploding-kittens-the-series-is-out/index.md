@@ -11,7 +11,7 @@ summary: >-
   chasing laser pointers and pigeons, leading to comedic clashes between good
   and evil.
 type: video
-date: '2024-05-12T21:20:20+07:00'
+date: 2024-05-12T21:20:20+07:00
 tags:
   - series
   - trailer

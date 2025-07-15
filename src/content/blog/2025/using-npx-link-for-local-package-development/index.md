@@ -3,7 +3,7 @@ title: Using `npx link` for local package development
 description: >-
   Learn how to use `npx link` to manage local package dependencies in your
   projects.
-date: '2025-03-05T18:54:58+07:00'
+date: 2025-03-05T18:54:58+07:00
 resources:
   - title: >-
       Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via

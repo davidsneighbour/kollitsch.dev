@@ -4,7 +4,7 @@ description: >-
   Socket's safe npm is a CLI tool that wraps the npm command transparently and
   protects developers from malware, typo squats, install scripts, protestware,
   telemetry, and more.
-date: '2023-03-28T21:57:51+07:00'
+date: 2023-03-28T21:57:51+07:00
 resources:
   - title: Introducing safe npm
     src: header.jpg

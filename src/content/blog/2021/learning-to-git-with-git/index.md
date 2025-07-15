@@ -1,7 +1,7 @@
 ---
 title: Learning to git with git
 description: 'A game to learn Git, by using Git'
-date: '2021-11-02T18:48:49+07:00'
+date: 2021-11-02T18:48:49+07:00
 resources:
   - src: yancy-min-842ofHC6MaI-unsplash.jpg
     title: >-

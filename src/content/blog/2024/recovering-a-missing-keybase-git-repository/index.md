@@ -3,7 +3,7 @@ title: Recovering a missing Keybase git repository
 description: >-
   The fight with Keybase continues. Today we are debugging an empty repo after
   checking out.
-date: '2024-05-05T16:02:34+07:00'
+date: 2024-05-05T16:02:34+07:00
 resources:
   - title: >-
       Photo by [Michael Dziedzic](https://unsplash.com/@lazycreekimages) via

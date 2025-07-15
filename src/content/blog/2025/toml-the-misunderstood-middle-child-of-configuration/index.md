@@ -4,7 +4,7 @@ description: >-
   TOML is a simple, human-readable configuration format that avoids the pitfalls
   of other formats like YAML and JSON. Learn its syntax and common pitfalls.
 draft: true
-date: '2025-05-02T09:11:40+07:00'
+date: 2025-05-02T09:11:40+07:00
 resources:
   - title: Boxes.
     src: resource-database-qvbZz5rKAxI-unsplash.jpg

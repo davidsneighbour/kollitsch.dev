@@ -10,7 +10,7 @@ summary: >-
   and placing the image in static/.well-known/. Future updates may include
   support for different sizes, formats, and dynamic avatars for greater
   flexibility.
-date: '2025-02-08T19:50:44+07:00'
+date: 2025-02-08T19:50:44+07:00
 resources:
   - title: I'm just an avatar
     src: imkara-visual-3blY8iC2o5M-unsplash.jpg

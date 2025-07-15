@@ -3,7 +3,7 @@ title: Less Clutter in Vscode
 description: >-
   A strategy to declutter enabled extensions in VSCode by using a workspace
   specific extension setup.
-date: '2022-07-13T17:52:34+07:00'
+date: 2022-07-13T17:52:34+07:00
 resources:
   - title: >-
       Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via

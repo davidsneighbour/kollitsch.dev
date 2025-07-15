@@ -4,7 +4,7 @@ description: >-
   When Plato gave the definition of man as "featherless bipeds", Diogenes
   plucked a chicken and brought it into Plato's Academy, saying, "Behold! I've
   brought you a man".
-date: '2023-11-20T21:49:15+07:00'
+date: 2023-11-20T21:49:15+07:00
 resources:
   - title: >-
       Photo by [Mystery Cat](https://unsplash.com/@themysterycat) via

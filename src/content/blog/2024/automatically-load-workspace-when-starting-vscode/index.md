@@ -3,7 +3,7 @@ title: Automatically load workspace when starting VSCode
 description: >-
   A simple bash function to automatically load the workspace file when starting
   VSCode.
-date: '2024-04-11T21:15:08+07:00'
+date: 2024-04-11T21:15:08+07:00
 resources:
   - title: >-
       Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via

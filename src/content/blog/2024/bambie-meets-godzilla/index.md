@@ -9,7 +9,7 @@ summary: >-
   animation to a new generation, capturing the original's humor while adding a
   digital twist.
 type: video
-date: '2024-10-27T20:42:56+07:00'
+date: 2024-10-27T20:42:56+07:00
 resources:
   - title: Godzilla vs. Bambi (1969)
     src: header.jpg

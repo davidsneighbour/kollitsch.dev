@@ -7,7 +7,7 @@ summary: >-
   will use the modified version if cd is aliased. This post explains how alias
   expansion works, what happens when aliases reference other aliases, and how to
   use builtin to ensure the original command runs.
-date: '2025-02-05T08:34:49+07:00'
+date: 2025-02-05T08:34:49+07:00
 resources:
   - title: >-
       Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via

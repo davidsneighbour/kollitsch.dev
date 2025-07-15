@@ -1,7 +1,7 @@
 ---
 title: Music to program to (Part 5)
 description: A collection of music to listen to while programming
-date: '2022-05-12T20:48:46+07:00'
+date: 2022-05-12T20:48:46+07:00
 linkTitle: PM5
 tags:
   - programming-music
@@ -21,4 +21,3 @@ cover:
   type: image
 publisher: rework
 ---
-

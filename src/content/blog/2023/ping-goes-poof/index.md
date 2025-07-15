@@ -4,7 +4,7 @@ linkTitle: Ping Goes Poof
 description: >-
   Google will no longer accept pings about sitemap updates. Instead they will
   crawl the sitemap.xml file on a regular basis.
-date: '2023-06-28T20:33:58+07:00'
+date: 2023-06-28T20:33:58+07:00
 resources:
   - title: >-
       Photo by [Pascal Meier](https://unsplash.com/@zhpix) via

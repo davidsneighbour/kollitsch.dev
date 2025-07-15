@@ -1,5 +1,5 @@
 ---
-date: '2023-07-25T23:16:02+07:00'
+date: 2023-07-25T23:16:02+07:00
 title: Pomplamoose does Moby
 description: >-
   Today I learned, that Pomplamoose did a cover of Moby's "Extreme Ways". Nuff

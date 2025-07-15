@@ -7,7 +7,7 @@ summary: >-
   Fixing navigation overflow for anchor links just got easier! Say goodbye to
   pseudo-element hacks and embrace CSS's `scroll-margin-top` for cleaner,
   efficient solutions.
-date: '2025-01-12T19:23:22+07:00'
+date: 2025-01-12T19:23:22+07:00
 resources:
   - title: This is how hacking looks like. Trust me.
     src: getty-images-ltpb_WinC3Y-unsplash.jpg

@@ -3,7 +3,7 @@ title: Fixing Double Ci Runs When Pushing to Gitlab Branches
 description: >-
   A simple addition to your GitLab CI configuration to avoid double runs of
   pipelines when pushing to branches.
-date: '2022-11-09T20:01:35+07:00'
+date: 2022-11-09T20:01:35+07:00
 resources:
   - title: >-
       Photo by [Mila Tovar](https://unsplash.com/@milatovar) via

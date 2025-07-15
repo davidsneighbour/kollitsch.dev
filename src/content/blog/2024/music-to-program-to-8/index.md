@@ -22,7 +22,7 @@ video:
   youtube: CNfmij_Cpq8
   artist: above-and-beyond
   title: Flow State
-date: '2024-01-02T17:26:42+07:00'
+date: 2024-01-02T17:26:42+07:00
 fmContentType: blog
 cover:
   src: ./header.jpg

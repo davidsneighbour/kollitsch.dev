@@ -8,7 +8,7 @@ summary: >-
   allows users to highlight "Note", "Warning", and other notification blocks
   more effectively. An enhancement useful for developers who want to draw
   attention to important information in their documentation or discussions.
-date: '2024-03-25T20:48:04+07:00'
+date: 2024-03-25T20:48:04+07:00
 resources:
   - title: Setting up highlighted notes in GitHub Markdown
     src: header.jpg

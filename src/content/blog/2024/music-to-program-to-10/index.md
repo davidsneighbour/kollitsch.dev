@@ -13,11 +13,10 @@ video:
   youtube: H7Dr-qwWEqk
   artist: floating-points
   title: Ocotillo
-date: '2024-08-25T18:41:03+07:00'
+date: 2024-08-25T18:41:03+07:00
 fmContentType: blog
 cover:
   src: ./header.jpg
   type: image
 publisher: rework
 ---
-

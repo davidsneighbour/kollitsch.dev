@@ -4,7 +4,7 @@ description: >-
   Automate the update of global npm packages across multiple Node.js versions
   using nvm and a bash script. Schedule it with cron for hassle-free
   maintenance.
-date: '2023-10-12T18:53:01+07:00'
+date: 2023-10-12T18:53:01+07:00
 resources:
   - title: >-
       Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via

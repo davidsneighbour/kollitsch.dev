@@ -4,7 +4,7 @@ description: >-
   Have you ever tried installing a program on your Ubuntu and ran into error
   messages about unconfigured dependencies? Don't worry; it happens to the best
   of us.
-date: '2023-03-06T19:07:56+07:00'
+date: 2023-03-06T19:07:56+07:00
 resources:
   - title: >-
       Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via

@@ -4,7 +4,7 @@ linkTitle: Laboratory 2023-03
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.dev -
   March 2023
-date: '2023-04-03T18:05:07+07:00'
+date: 2023-04-03T18:05:07+07:00
 resources:
   - src: header.jpg
     title: >-

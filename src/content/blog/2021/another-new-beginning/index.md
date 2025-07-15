@@ -1,6 +1,6 @@
 ---
 title: (Another) new beginning
-date: '2021-10-21T20:00:00+07:00'
+date: 2021-10-21T20:00:00+07:00
 description: A short summary of how we got here and where we go from here.
 resources:
   - src: ave-calvar-HcUDHJfd5GY-unsplash.jpg

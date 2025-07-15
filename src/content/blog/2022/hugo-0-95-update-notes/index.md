@@ -4,7 +4,7 @@ linkTitle: Hugo 0.95
 description: >-
   Update notes for Hugo 0.95.0 with new features like `break` and `continue` in
   templates, short-circuiting logic, and Golang 1.18.
-date: '2022-03-16T23:16:55+07:00'
+date: 2022-03-16T23:16:55+07:00
 resources:
   - title: GoHugo
     src: header.png

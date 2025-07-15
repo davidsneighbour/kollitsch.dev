@@ -5,7 +5,7 @@ description: >-
   missing packages. Trying then to run `apt install -f` to fix the issues will
   lead to Keybase being uninstalled again. In older releases this worked. Now it
   does not
-date: '2024-04-29T17:03:49+07:00'
+date: 2024-04-29T17:03:49+07:00
 resources:
   - title: Ubuntu 24.04 - official wallpaper
     src: ubuntu-wallpaper-d.png

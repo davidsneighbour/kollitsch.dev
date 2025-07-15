@@ -3,7 +3,7 @@ title: Git's missing status Hook
 description: >-
   Discover how a custom Git status hook can automate tasks, improve code
   quality, and streamline your development workflow.
-date: '2023-10-17T16:21:54+07:00'
+date: 2023-10-17T16:21:54+07:00
 resources:
   - title: >-
       Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via

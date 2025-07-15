@@ -4,7 +4,7 @@ description: >-
   Learn how to install the Ananke theme in GoHugo using Hugo Modules or Git
   Submodules.
 draft: true
-date: '2025-03-15T07:35:56+07:00'
+date: 2025-03-15T07:35:56+07:00
 resources:
   - title: 'Photo by [Name](Link) via [Unsplash](https://unsplash.com/)'
     name: image name if other than src

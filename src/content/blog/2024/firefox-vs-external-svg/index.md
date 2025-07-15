@@ -8,7 +8,7 @@ summary: >-
   While I was working on my Content Security Policies (CSP) last week I found
   some of my pages hitting a block for my own pages on `default-src 'none'`.
   After some digging, I found that this error only came up on Firefox browsers. 
-date: '2024-09-22T17:10:11+07:00'
+date: 2024-09-22T17:10:11+07:00
 resources:
   - title: >-
       Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via

@@ -1,7 +1,7 @@
 ---
 title: Erasing ~2 decades of Twitter
 description: 'How I deleted all my tweets, likes, and follows on Twitter.'
-date: '2024-03-08T16:03:00+07:00'
+date: 2024-03-08T16:03:00+07:00
 resources:
   - title: >-
       Twitter as imagined by DALL-E (disclaimer: the prompt might have been

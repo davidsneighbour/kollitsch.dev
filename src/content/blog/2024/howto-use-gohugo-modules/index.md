@@ -12,7 +12,7 @@ summary: >-
   Module** is a self-contained package of resources, such as themes, content,
   layouts, or even custom features like shortcodes. These modules can be shared
   across projects, versioned, and updated seamlessly.
-date: '2024-10-13T18:10:46+07:00'
+date: 2024-10-13T18:10:46+07:00
 resources:
   - title: Puzzle pieces
     src: nigel-hoare-pswcXNE8690-unsplash.jpg

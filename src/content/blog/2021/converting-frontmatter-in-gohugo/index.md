@@ -4,7 +4,7 @@ tags:
   - gohugo
   - frontmatter
   - configuration
-date: '2021-11-02T22:49:49+07:00'
+date: 2021-11-02T22:49:49+07:00
 resources:
   - src: ferenc-almasi-HfFoo4d061A-unsplash.jpg
     title: >-

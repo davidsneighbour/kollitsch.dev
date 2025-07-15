@@ -4,7 +4,7 @@ description: >-
   Learn how to set up a link redirection service on Netlify in minutes. Utilize
   simple steps to manage redirects effortlessly and enhance your project URLs'
   accessibility.
-date: '2024-02-14T20:04:51+07:00'
+date: 2024-02-14T20:04:51+07:00
 resources:
   - src: header.jpg
     copyright: unsplash-plus

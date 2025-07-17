@@ -1,4 +1,4 @@
-import json from '@eslint/json'
+import json from '@eslint/json';
 
 export default [
   {
@@ -25,4 +25,4 @@ export default [
     name: 'dnb/json5',
     ...json.configs.recommended,
   },
-]
+];

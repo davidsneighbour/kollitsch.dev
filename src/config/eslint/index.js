@@ -1,33 +1,34 @@
-// @ts-check
-
 import eslint from '@eslint/js';
-import stylisticJs from '@stylistic/eslint-plugin';
 import { globalIgnores } from 'eslint/config';
-import pluginSecurity from 'eslint-plugin-security';
-import cssConfig from './configs/css.js';
-import defaultConfig from './configs/default.js';
-import htmlLint from './configs/html.js';
-import jsonConfig from './configs/json.js';
-import markdownConfig from './configs/markdown.js';
+
+// Importing ESLint configurations
+import defaultConfig from './default.js';
+
+// Importing language-specific configurations
+import cssConfig from './langCss.js';
+import htmlConfig from './langHtml.js';
+import jsConfig from './langJs.js';
+import jsonConfig from './langJson.js';
+import markdownConfig from './langMarkdown.js';
+import securityConfig from './pluginSecurity.js';
+import stylisticConfig from './pluginStylistic.js';
 
 export default [
+  // @todo check if this is still needed
   globalIgnores(['dist', 'build']),
   eslint.configs.all,
-  //...tslint,
-  pluginSecurity.configs.recommended,
-  stylisticJs.configs.customize({
-    indent: 2,
-    jsx: true,
-    quotes: 'single',
-    semi: false,
-  }),
   {
+    // Configuration
     ignores: ['**/node_modules/*', '**/vendor/*', '**/.git/*'],
+    // @todo check if this is still needed
     name: 'dnb/ignores',
   },
-  defaultConfig,
-  ...markdownConfig,
+  ...defaultConfig,
+  ...stylisticConfig,
+  ...securityConfig,
+  ...jsConfig,
   ...jsonConfig,
+  ...markdownConfig,
   ...cssConfig,
-  ...htmlLint,
+  ...htmlConfig,
 ];

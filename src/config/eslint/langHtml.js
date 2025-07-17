@@ -10,6 +10,7 @@ export default [
         '{{-': '-}}',
       },
     },
+    name: 'dnb/html',
     plugins: {
       html,
     },
@@ -20,6 +21,7 @@ export default [
   },
   {
     files: ['**/*.js', '**/*.ts'],
+    name: 'dnb/html-js',
     plugins: {
       html,
     },

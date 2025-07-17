@@ -1,4 +1,4 @@
-import css from '@eslint/css'
+import css from '@eslint/css';
 
 export default [
   {
@@ -8,6 +8,7 @@ export default [
       //customSyntax: tailwindSyntax,
       tolerant: true,
     },
+    name: 'dnb/css',
     plugins: {
       css,
     },
@@ -15,4 +16,4 @@ export default [
       'css/no-empty-blocks': 'error',
     },
   },
-]
+];

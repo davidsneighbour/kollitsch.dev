@@ -1,5 +1,5 @@
-import { blogSchema } from 'src/content.config.js';
 import type { z } from 'astro:content';
+import { blogSchema } from '../content.config.js';
 
 type BlogPost = z.infer<typeof blogSchema>;
 
@@ -12,22 +12,22 @@ type BlogPost = z.infer<typeof blogSchema>;
  */
 export function createDefaultPost(input: unknown = {}): BlogPost {
   const fallback: Partial<z.input<typeof blogSchema>> = {
-    title: 'Untitled Post',
-    description: 'No description available.',
+    aliases: [],
+    cover: undefined,
     date: new Date(),
-    tags: [],
+    description: 'No description available.',
     draft: false,
     featured: false,
-    cover: undefined,
     fmContentType: undefined,
-    aliases: [],
-    resources: [],
-    summary: '',
     options: {
       head: {
         components: [],
       },
     },
+    resources: [],
+    summary: '',
+    tags: [],
+    title: 'Untitled Post',
   };
 
   const safeInput =

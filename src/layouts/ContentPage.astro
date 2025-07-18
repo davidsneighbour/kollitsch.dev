@@ -27,7 +27,9 @@ const { post } = Astro.props;
   <SiteTitle />
   <TopNavigation />
   <main class={setup.classes.containers.main}>
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
   </main>
   <Footer />
 </Site>

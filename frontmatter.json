@@ -141,5 +141,105 @@
         }
       }
     }
+  ],
+  "frontMatter.taxonomy.fieldGroups": [
+    {
+      "id": "resources_group",
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "src",
+          "name": "src",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "resources_group",
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "src",
+          "name": "src",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime"
+        },
+        {
+          "title": "resources",
+          "name": "resources",
+          "type": "block",
+          "fieldGroup": [
+            "resources_group"
+          ]
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "fmContentType",
+          "name": "fmContentType",
+          "type": "string"
+        },
+        {
+          "title": "cover",
+          "name": "cover",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "src",
+              "name": "src",
+              "type": "string"
+            },
+            {
+              "title": "title",
+              "name": "title",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "publisher",
+          "name": "publisher",
+          "type": "string"
+        }
+      ]
+    }
   ]
 }

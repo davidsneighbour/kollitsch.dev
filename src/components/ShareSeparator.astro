@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import networks from '@data/socialmedia.json';
+import networks from '@content/social.json';
 
 interface Props {
   url?: string;
@@ -10,7 +10,6 @@ interface Props {
 }
 
 const shareNetworks = networks.filter(n => n.share);
-
 const { title, description }: Props = Astro.props;
 
 const vars = {
@@ -35,11 +34,16 @@ export function applyTemplate(
 ---
 
 <div class="relative my-8">
-  <div class="absolute inset-0 flex items-center" aria-hidden="true">
+  <div
+    class="absolute inset-0 flex items-center"
+    aria-hidden="true"
+  >
     <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
   </div>
   <div class="relative flex justify-center">
-    <span class="isolate flex flex-wrap justify-center gap-px rounded-md shadow-xs">
+    <span
+      class="isolate flex flex-wrap justify-center gap-px rounded-md shadow-xs"
+    >
       {
         shareNetworks.map((network, index) => {
           const isFirst = index === 0;

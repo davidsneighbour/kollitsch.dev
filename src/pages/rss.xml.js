@@ -1,7 +1,7 @@
 // @todo refactor
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
-import sitedata from '@data/setup.json';
+import setup from '@data/setup.json';
 
 export async function GET(context) {
   let blog = await getCollection('blog', ({ data }) => {
@@ -18,8 +18,8 @@ export async function GET(context) {
   // const stylesheetURL = 'https://raw.githubusercontent.com/genmon/aboutfeeds/refs/heads/main/tools/pretty-feed-v3.xsl';
 
   return rss({
-    title: sitedata.title,
-    description: sitedata.description,
+    title: setup.title,
+    description: setup.description,
     site: context.site,
     // stylesheet: stylesheetURL,
     items: blog.map((post) => ({

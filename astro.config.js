@@ -56,7 +56,27 @@ export default defineConfig({
         contentElement: 'main',
       },
     }),
-    icon(),
+    // https://www.astroicon.dev/guides/customization/
+    icon({
+      iconDir: "src/assets/icons",
+      svgoOptions: {
+        multipass: true,
+        plugins: [
+          // https://svgo.dev/docs/preset-default/
+          {
+            name: "preset-default",
+            params: {
+              overrides: {
+                removeDoctype: true,
+                removeComments: {
+                  preservePatterns: false
+                }
+              }
+            }
+          }
+        ]
+      }
+    }),
     expressiveCode({
       shiki: {
         langs: [crontabTmLanguage],

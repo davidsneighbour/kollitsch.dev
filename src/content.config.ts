@@ -5,7 +5,7 @@ import { youTubeLoader } from '@ascorbic/youtube-loader';
 import { githubReleasesLoader } from 'astro-loader-github-releases';
 
 import { file, glob } from 'astro/loaders';
-import setup from './data/setup.json';
+import setup from '@data/setup.json';
 
 // Reusable options schema
 export const allowedComponents = [
@@ -74,6 +74,7 @@ export const blogSchema = z
       )
       .optional(),
     summary: z.string().optional(),
+    publisher: z.enum(['rework', 'validate']).optional(),
     tags: z
       .array(
         z
@@ -172,9 +173,24 @@ const githubReleases = defineCollection({
   }),
 });
 
+export const social = defineCollection({
+  loader: file('./src/content/social.json', {
+    parser: (text) => JSON.parse(text),
+  }),
+  schema: z.object({
+    id: z.string(),
+    label: z.string(),
+    icon: z.string(),
+    url: z.string().optional(),
+    share: z.string().optional(),
+    fill: z.string().optional(),
+  })
+});
+
 export const collections = {
   blog,
   tags,
   ...playlistCollections,
+  social,
   githubReleases,
 };

@@ -26,8 +26,8 @@ After receiving the security bug report, a primary handler is assigned. This per
 
 * Confirm the problem and determine the affected versions.
 * Audit code to find similar problems.
-* Prepare fixes for all releases still under maintenance. Those fixes will be released as fast and safe as possible.
+* Prepare fixes for all releases still under maintenance. Those fixes are released as fast and safe as possible.
 
 ## Comments on this policy
 
-If you have suggestions on how we can improve this process [please submit a pull request](https://github.com/davidsneighbour/davids-neighbour.com/edit/main/content/policies/security/index.md) or an [issue report](https://github.com/davidsneighbour/davids-neighbour.com/issues).
+If you have suggestions on how this process can be improved [open a new issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new/choose) or [submit a pull request](https://github.com/davidsneighbour/kollitsch.dev/blob/main/src/pages/privacy-policy.md).

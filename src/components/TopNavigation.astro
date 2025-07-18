@@ -7,7 +7,7 @@ import ProgressBar from '@components/Progress.astro';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import { logDebug } from '@utils/helpers';
 
-import siteinfo from '@data/setup.json';
+import setup from '@data/setup.json';
 import navData from '@data/navigation.json';
 import IconLink from './IconLink.astro';
 
@@ -71,7 +71,7 @@ if (!activeItem && import.meta.env.DEV) {
           name="bi:house-fill"
           class="place-self-center"
         />
-        {siteinfo.title}
+        {setup.title}
       </a>
     </div>
     <div

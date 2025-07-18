@@ -1,17 +1,14 @@
 ---
-import siteinfo from '@data/setup.json';
+import setup from '@data/setup.json';
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 const homepageUrl = getHomepageUrl();
 ---
 
 <h1
   id="sitetitle"
-  class="font-changa w-full bg-gray-100 text-center text-5xl text-gray-950 sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl dark:bg-gray-900 dark:text-gray-50
-
-  bg-linear-to-t from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-950
-
-">
+  class="font-changa w-full bg-gray-100 bg-linear-to-t from-gray-100 to-gray-50 text-center text-5xl text-gray-950 sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl dark:bg-gray-900 dark:from-gray-900 dark:to-gray-950 dark:text-gray-50"
+>
   <a href={homepageUrl}>
-    {siteinfo.title}
+    {setup.title}
   </a>
 </h1>

@@ -1,21 +1,19 @@
 ---
-
 import setup from '@data/setup.json';
 
 const adjust = 1.9;
 const titleLength = setup.title.length;
 const titleFontSize = Math.floor((100 / titleLength) * adjust); // Adjust font size based on title length
-
 ---
 
-<footer class="h-max-[8vw] overflow-y-hidden text-center">
-  <div class="
-    font-changa text-center leading-none font-normal whitespace-nowrap
-    transition duration-2000 ease-in-out
-    select-none
-    text-gray-200/10 dark:text-gray-800/10
-    hover:text-gray-200/50 dark:hover:text-gray-800/50"
-    style={`font-size: ${titleFontSize}vw;`}>
+<footer
+  class="h-max-[8vw] overflow-y-hidden text-center"
+  aria-hidden="true"
+>
+  <div
+    class="font-changa text-center leading-none font-normal whitespace-nowrap text-gray-200/10 transition duration-2000 ease-in-out select-none hover:text-gray-200/50 dark:text-gray-800/10 dark:hover:text-gray-800/50"
+    style={`font-size: ${titleFontSize}vw;`}
+  >
     {setup.title}
   </div>
 </footer>

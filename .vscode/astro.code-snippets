@@ -12,6 +12,39 @@
     ],
     "description": "Typecast content collection entry"
   },
+  "props interface without defaults": {
+    "prefix": "dnb-props-interface",
+    "body": [
+      "interface Props {",
+      "  url?: string;",
+      "  title?: string;",
+      "  description?: string;",
+      "  via?: string;",
+      "}",
+      "const { title, description }: Props = Astro.props;"
+    ],
+    "description": "props interface without defaults"
+  },
+  "props interface with defaults": {
+    "prefix": "dnb-props-interface-with-defaults",
+    "body": [
+      "import { mergePropsWithDefaults } from '@utils/withDefaults';",
+      "",
+      "export interface Props {",
+      "  tags: Map<string, number>;",
+      "  minSize?: number;",
+      "  maxSize?: number;",
+      "}",
+      "",
+      "const props = mergePropsWithDefaults(Astro.props as Props, {",
+      "  minSize: 0.75, // rem",
+      "  maxSize: 2.0,  // rem",
+      "}) as Required<Pick<Props,",
+      "  'tags' | 'minSize' | 'maxSize'",
+      ">>;"
+    ],
+    "description": "props interface with defaults"
+  },
   "Astro transition post page load with script": {
     "prefix": "dnb-transition-plus-script",
     "body": [

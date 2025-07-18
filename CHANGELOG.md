@@ -1,4 +1,45 @@
 Changelog
+## [2025.5.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.4...v2025.5.5) (2025-07-18)
+
+
+### Content
+
+* **fix:** no quotes around dates in frontmatter ([9c2f817](https://github.com/davidsneighbour/kollitsch.dev/commit/9c2f817f1ec9ef57583b2daa0ec9775aa5cec3a9))
+* **fix:** no quotes around lastmod frontmatter ([dccf1fb](https://github.com/davidsneighbour/kollitsch.dev/commit/dccf1fba934c28632a337f51de76682b7ddd9712))
+* **schema:** use cover substructure schema only ([5d6ceda](https://github.com/davidsneighbour/kollitsch.dev/commit/5d6cedabaafeb0c57033ada0c6582ccfcf69f2db)), closes [estruyf/vscode-front-matter#958](https://github.com/estruyf/vscode-front-matter/issues/958) [estruyf/vscode-front-matter#960](https://github.com/estruyf/vscode-front-matter/issues/960)
+
+
+### Theme
+
+* **fix:** add a couple of (documented) (p)reset styles ([5dcdaf1](https://github.com/davidsneighbour/kollitsch.dev/commit/5dcdaf1408f28778db9784ed8710e2efc0502d70))
+* **fix:** add aria-hidden property to footer title element ([f85d691](https://github.com/davidsneighbour/kollitsch.dev/commit/f85d691ab34d4941bcb9dd1d5bce9fbcc95c85d2))
+* **fix:** add heading component for headline ([4cda4db](https://github.com/davidsneighbour/kollitsch.dev/commit/4cda4db77cf76b79d7052f11e3a03180b87c2aef))
+* **fix:** config path suddenly throws not found error ([378c504](https://github.com/davidsneighbour/kollitsch.dev/commit/378c5048994775b8bd9c88d73a2bdef65e3d7c38))
+* **fix:** various changes that the author can't recall ([1fbabf0](https://github.com/davidsneighbour/kollitsch.dev/commit/1fbabf0e8687031a3f39f2b55ab6e46e354062ee))
+
+
+### Refactors
+
+* rewrite topnavigation component ([4800ec1](https://github.com/davidsneighbour/kollitsch.dev/commit/4800ec11509a8044e4a1abb7e973daf9c63b019b))
+
+
+### Tests
+
+* add cheerio for testing and fix heading tests ([f3d3c32](https://github.com/davidsneighbour/kollitsch.dev/commit/f3d3c32214364f64737e0a210dd9f59f645b0b0e))
+
+
+### Build System
+
+* **deps:** update dependencies ([8588582](https://github.com/davidsneighbour/kollitsch.dev/commit/8588582721539476eb49b0a8139b4b78bf9f722d))
+* **deps:** update dependencies ([af0ceac](https://github.com/davidsneighbour/kollitsch.dev/commit/af0ceacb4355587015b73dcde313b0b432c83c5e))
+* **deps:** update dependencies ([aef1fae](https://github.com/davidsneighbour/kollitsch.dev/commit/aef1fae71c0a668638569b3d83920fa3f3b3f799))
+* **eslint:** configure eslint setup ([d342cea](https://github.com/davidsneighbour/kollitsch.dev/commit/d342ceac1b3862a35d1255564fbf6404a7b2228d))
+* **frontmatter:** remove blog content type from manual configuration ([d935128](https://github.com/davidsneighbour/kollitsch.dev/commit/d935128e8f2a612bbbc9c04ae0c75956b4d596ca))
+* **tsconfig:** silence warnings about json imports ([7c3bc9e](https://github.com/davidsneighbour/kollitsch.dev/commit/7c3bc9e520a6b9c9c9b831912ed3da7855924592))
+* **vscode:** astro code snippets for post type properties ([c54ec80](https://github.com/davidsneighbour/kollitsch.dev/commit/c54ec806309f3252da70de653f1fa861a3933552))
+* **vscode:** set astro plugin as file handler for astro files ([08517d3](https://github.com/davidsneighbour/kollitsch.dev/commit/08517d3a893ae54ab226def8a5f6d33d230f71bd))
+* **vscode:** use configured ts aliases for paths in imports ([4c442a6](https://github.com/davidsneighbour/kollitsch.dev/commit/4c442a6ee67b909bd7d82bcbc9aa035bdfebcfc4))
+
 ## [2025.5.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.3...v2025.5.4) (2025-07-14)
 
 

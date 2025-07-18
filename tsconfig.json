@@ -1,24 +1,26 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@config/*": ["src/config/*"],
-      "@content/*": ["src/content/*"],
-      "@contentconfig": ["src/content.config.ts"],
-      "@data/*": ["src/data/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@packages/*": ["src/packages/*"],
-      "@pages/*": ["src/pages/*"],
-      "@scripts/*": ["src/scripts/*"],
-      "@test/*": ["src/test/*"],
-      "@utils/*": ["src/utils/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@config/*": ["./src/config/*"],
+      "@content/*": ["./src/content/*"],
+      "@contentconfig": ["./src/content.config.ts"],
+      "@data/*": ["./src/data/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@packages/*": ["./src/packages/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@scripts/*": ["./src/scripts/*"],
+      "@test/*": ["./src/test/*"],
+      "@utils/*": ["./src/utils/*"]
     },
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
+    ],
+    "resolveJsonModule": true
   },
   "exclude": ["dist", "bak", "scratch", "src/scripts", "src/config", "public"],
   "extends": "astro/tsconfigs/strictest",

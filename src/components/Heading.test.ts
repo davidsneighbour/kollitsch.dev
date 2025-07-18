@@ -1,13 +1,17 @@
 // @vitest-environment node
 
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { load } from 'cheerio';
 import { expect, test } from 'vitest';
 import Heading from './Heading.astro';
 
 test('Heading renders correct level & title', async () => {
   const container = await AstroContainer.create();
   const html = await container.renderToString(Heading, {
-    props: { title: 'Test Title', level: 4, description: 'desc' },
+    props: { description: 'desc', level: 4 },
+    slots: {
+      default: 'Test Title',
+    },
   });
   expect(html).toContain('<h4');
   expect(html).toContain('Test Title');
@@ -17,11 +21,17 @@ test('Heading renders correct level & title', async () => {
 test('Heading levels clamped to h6 and h1', async () => {
   const container = await AstroContainer.create();
   let html = await container.renderToString(Heading, {
-    props: { title: 'Too High', level: 99 },
+    props: { level: 99 },
+    slots: {
+      default: 'Too High',
+    },
   });
   expect(html).toContain('<h6');
   html = await container.renderToString(Heading, {
-    props: { title: 'Too Low', level: 0 },
+    props: { level: 0 },
+    slots: {
+      default: 'Too Low',
+    },
   });
   expect(html).toContain('<h1');
 });
@@ -29,7 +39,9 @@ test('Heading levels clamped to h6 and h1', async () => {
 test('Defaults to h1 when no level is provided', async () => {
   const container = await AstroContainer.create();
   const html = await container.renderToString(Heading, {
-    props: { title: 'Default Heading' },
+    slots: {
+      default: 'Default Heading',
+    },
   });
   expect(html).toContain('<h1');
 });
@@ -37,7 +49,9 @@ test('Defaults to h1 when no level is provided', async () => {
 test('Omits title attribute if description is empty', async () => {
   const container = await AstroContainer.create();
   const html = await container.renderToString(Heading, {
-    props: { title: 'No Description' },
+    slots: {
+      default: 'No Description',
+    },
   });
   expect(html).toContain('<h1');
   expect(html).not.toContain('title=');
@@ -46,7 +60,9 @@ test('Omits title attribute if description is empty', async () => {
 test('Omits class attribute if classname is empty', async () => {
   const container = await AstroContainer.create();
   const html = await container.renderToString(Heading, {
-    props: { title: 'No Class' },
+    slots: {
+      default: 'No Class',
+    },
   });
   expect(html).toContain('<h1');
   expect(html).not.toContain('class=');
@@ -55,7 +71,34 @@ test('Omits class attribute if classname is empty', async () => {
 test('Wraps title with <a> if link is provided', async () => {
   const container = await AstroContainer.create();
   const html = await container.renderToString(Heading, {
-    props: { title: 'Linked Title', link: '/somewhere' },
+    props: { link: '/somewhere' },
+    slots: {
+      default: 'Linked Title',
+    },
   });
-  expect(html).toMatch(/<a [^>]*href="\/somewhere"[^>]*>Linked Title<\/a>/);
+  expect(html.replace(/\s+/g, ' ')).toMatch(
+    /<h1>\s*<a[^>]*href="\/somewhere"[^>]*>\s*Linked Title\s*<\/a>\s*<\/h1>/,
+  );
+
+  //expect(html).toMatch(/<h1><a [^>]*href="\/somewhere"[^>]*>Linked Title<\/a><\/h1>/);
+});
+
+// @todo check this and previous test and consolidate
+test('Wraps title with <a> if link is provided', async () => {
+  const container = await AstroContainer.create();
+  const html = await container.renderToString(Heading, {
+    props: { link: '/somewhere' },
+    slots: {
+      default: 'Linked Title',
+    },
+  });
+
+  const $ = load(html);
+  const h1 = $('h1');
+  const a = h1.find('a');
+
+  expect(h1).toHaveLength(1);
+  expect(a).toHaveLength(1);
+  expect(a.attr('href')).toBe('/somewhere');
+  expect(a.text().trim()).toBe('Linked Title');
 });

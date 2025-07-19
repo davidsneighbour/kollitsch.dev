@@ -5,8 +5,8 @@
   },
   "classes": {
     "containers": {
-      "main": "isolate z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl",
-      "content": "isolate z-0 mx-auto max-w-full lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl"
+      "content": "isolate z-0 mx-auto max-w-full lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl",
+      "main": "isolate z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl px-1 sm:px-2 md:px-3"
     }
   },
   "debug": {
@@ -28,9 +28,7 @@
     "recent_posts": 6
   },
   "id": "kollitsch-dev",
-  "ignoreTags": [
-    "100daystooffload"
-  ],
+  "ignoreTags": ["100daystooffload"],
   "images": {
     "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
   },
@@ -47,8 +45,8 @@
     "music2program2extended": "PLg3tApGYRzpfo2n16J_6dpMAXJhu384xx"
   },
   "repository": {
-    "url": "https://github.com/davidsneighbour/kollitsch.dev",
-    "slug": "davidsneighbour/kollitsch.dev"
+    "slug": "davidsneighbour/kollitsch.dev",
+    "url": "https://github.com/davidsneighbour/kollitsch.dev"
   },
   "tagline": "Smart websites with a tropical mindset.",
   "tagThreshold": 2,

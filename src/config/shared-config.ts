@@ -5,9 +5,13 @@ export interface ChangeType {
 }
 
 export const items: ChangeType[] = [
+  {
+    description: 'A new feature (indicates minor release)',
+    header: 'Features',
+    type: 'feat',
+  },
   { description: 'Content changes', header: 'Content', type: 'content' },
   { description: 'Theme changes', header: 'Theme', type: 'theme' },
-  { description: 'A new feature', header: 'Features', type: 'feat' },
   {
     description: 'Documentation only changes',
     header: 'Documentation',

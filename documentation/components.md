@@ -7,7 +7,7 @@ We use Bootstrap Icons and the [`<Icon>` component](https://github.com/natemoo-r
 import { Icon } from 'astro-icon/components';
 ---
 
-<Icon name="bi:house-fill" />
+<Icon name="house-fill" />
 ```
 
 ### Available props
@@ -29,5 +29,5 @@ interface Props extends HTMLAttributes<"svg"> {
 
 ### More information
 
-* [Bootstrap Icon overview](https://icon-sets.iconify.design/bi/?keyword=bootstrap)
+* [Bootstrap Icon overview](https://icons.getbootstrap.com/)
 * [Astro Icon documentation](https://github.com/natemoo-re/astro-icon)

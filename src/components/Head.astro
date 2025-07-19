@@ -41,5 +41,23 @@ const title = resolvePostTitle(post);
 <Favicon />
 <Meta />
 <WebComponents post={post} />
-<meta name="generator" content={Astro.generator} />
-<script is:inline src="https://analytics.ahrefs.com/analytics.js" data-key="6egIzeM29mbgAsLIeV3Z4g" async></script>
+
+<meta
+  name="generator"
+  content={Astro.generator}
+/>
+<script
+  is:inline
+  src="https://analytics.ahrefs.com/analytics.js"
+  data-key="6egIzeM29mbgAsLIeV3Z4g"
+  async
+></script>
+
+<script is:inline>
+  // if (typeof _paq !== 'undefined') {
+  let _paq = (window._paq = window._paq || []);
+  _paq.push(['setReferrerUrl', document.referrer]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  // }
+</script>

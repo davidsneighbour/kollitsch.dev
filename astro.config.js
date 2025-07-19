@@ -44,38 +44,40 @@ export default defineConfig({
     }),
     // https://github.com/felix-berlin/astro-matomo
     matomo({
-      debug: false, // Only load in production
+      debug: true,
       disableCookies: true,
-      enabled: import.meta.env.PROD,
+      enabled: import.meta.env.PROD, // Only load in production
       heartBeatTimer: 5,
       host: 'https://analytics.dnbhub.xyz/',
+      //partytown: true,
       preconnect: true,
       setCookieDomain: '*.kollitsch.dev',
       siteId: 1,
-      viewTransition: {
-        contentElement: 'main',
-      },
+      // viewTransition: {
+      //   contentElement: 'main',
+      // },
+      viewTransition: true,
     }),
     // https://www.astroicon.dev/guides/customization/
     icon({
-      iconDir: "src/assets/icons",
+      iconDir: 'src/assets/icons',
       svgoOptions: {
         multipass: true,
         plugins: [
           // https://svgo.dev/docs/preset-default/
           {
-            name: "preset-default",
+            name: 'preset-default',
             params: {
               overrides: {
-                removeDoctype: true,
                 removeComments: {
-                  preservePatterns: false
-                }
-              }
-            }
-          }
-        ]
-      }
+                  preservePatterns: false,
+                },
+                removeDoctype: true,
+              },
+            },
+          },
+        ],
+      },
     }),
     expressiveCode({
       shiki: {

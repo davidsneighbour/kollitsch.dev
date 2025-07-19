@@ -1,21 +1,51 @@
 ---
-
 import Site from '@layouts/Site.astro';
-import { getImage } from "astro:assets";
+import { getImage } from 'astro:assets';
 import image404 from '@assets/images/404.jpg';
 import IconLink from '@components/IconLink.astro';
 
 const optimizedBackground = await getImage({
-  src: image404, 
-  format: 'jpg', 
-  width: 1920, 
-  quality: 80
+  src: image404,
+  format: 'jpg',
+  width: 1920,
+  quality: 80,
 });
-
 ---
 
-<script is:inline>
-  if (typeof _paq !== 'undefined') {
+<Site extraBodyClasses="h-full">
+  <div
+    class="relative h-full bg-cover bg-center text-center"
+    style={`background-image: url(${optimizedBackground.src});`}
+  >
+    <main class="absolute inset-0 z-10">
+      <p class="font-changa text-9xl leading-8">404</p>
+      <h1>Page not found</h1>
+      <p class="">Sorry, we couldn't find the page you're looking for.</p>
+      <nav class="mt-8 flex flex-col items-center gap-4">
+        <IconLink
+          icon="bi:arrow-left-short"
+          href="#"
+          onclick="history.back();"
+        >
+          Go Back
+        </IconLink>
+        <IconLink
+          icon="bi:house-door"
+          href="/"
+        >
+          Home
+        </IconLink>
+        <IconLink
+          icon="bi:envelope"
+          href="/connect/"
+        >
+          Contact Us
+        </IconLink>
+      </nav>
+    </main>
+  </div>
+  <script is:inline>
+    _paq = window._paq = window._paq || [];
     _paq.push(['setReferrerUrl', document.referrer]);
     _paq.push([
       'trackEvent',
@@ -23,28 +53,5 @@ const optimizedBackground = await getImage({
       '404 - Not Found',
       window.location.pathname,
     ]);
-    //_paq.push(['trackEvent', 'Category', 'Action', 'Name']);
-  }
-</script>
-
-<Site extraBodyClasses="h-full">
-  <div class="relative h-full text-center bg-center bg-cover" 
-      style={`background-image: url(${optimizedBackground.src});`}>
-    <main class="absolute inset-0 z-10">
-      <p class="font-changa text-9xl leading-8">404</p>
-      <h1>Page not found</h1>
-      <p class="">Sorry, we couldn't find the page you're looking for.</p>
-      <nav class="flex flex-col items-center gap-4 mt-8">
-        <IconLink icon="bi:arrow-left-short" href="#" onclick="history.back();">
-          Go Back
-        </IconLink>
-        <IconLink icon="bi:house-door" href="/">
-          Home
-        </IconLink>
-        <IconLink icon="bi:envelope" href="/connect/">
-          Contact Us
-        </IconLink>
-      </nav>
-    </main>
-  </div>
+  </script>
 </Site>

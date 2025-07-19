@@ -8,29 +8,30 @@ const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
 
 const dateOptions: object = {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
 };
 
-const formattedPublishDate = new Date(post.data.date).toLocaleDateString("en-US", dateOptions);
-
+const formattedPublishDate = new Date(post.data.date).toLocaleDateString(
+  'en-US',
+  dateOptions,
+);
 ---
 
 <div class="flex flex-row items-center justify-start gap-2">
   <div class="w-6 flex-none">
-    <Icon name="bi:calendar3" />
+    <Icon name="calendar3" />
   </div>
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Published: {formattedPublishDate}</span>
-    {
-      post.lastUpdate && (
-        <span>(Last Modified: {post.data.lastUpdate})</span>
-      )
-    }
+    {post.lastUpdate && <span>(Last Modified: {post.data.lastUpdate})</span>}
     {
       isDev && (
-        <IconLink href={vscodeURL} icon="bi:braces-asterisk" />
+        <IconLink
+          href={vscodeURL}
+          icon="braces-asterisk"
+        />
       )
     }
   </div>

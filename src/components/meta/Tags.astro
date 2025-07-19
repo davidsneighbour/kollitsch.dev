@@ -3,18 +3,18 @@ const { post } = Astro.props;
 import { Icon } from 'astro-icon/components';
 ---
 
-{ post.data.tags && (
-<div class="flex flex-row items-center justify-start gap-2">
-  <div class="w-6 flex-none">
-    <Icon name="bi:tags" />
-  </div>
-  <div class="flex flex-row flex-wrap items-center justify-start gap-2">
-    <span>Tags: </span>
-    {
-      post.data.tags.map((tag: string) => (
-        <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>
-      ))
-    }
-  </div>
-</div>
-)}
+{
+  post.data.tags && (
+    <div class="flex flex-row items-center justify-start gap-2">
+      <div class="w-6 flex-none">
+        <Icon name="tags" />
+      </div>
+      <div class="flex flex-row flex-wrap items-center justify-start gap-2">
+        <span>Tags: </span>
+        {post.data.tags.map((tag: string) => (
+          <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>
+        ))}
+      </div>
+    </div>
+  )
+}

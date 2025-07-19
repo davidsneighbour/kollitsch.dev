@@ -1,14 +1,20 @@
 {
-  "name": {
-    "fediverse:creator": "@davidsneighbour@mas.to"
-  },
   "httpEquiv": {
     "X-UA-Compatible": "IE=edge"
   },
   "link": [
     {
-      "rel": "sitemap",
-      "href": "/sitemap.xml"
+      "href": "/sitemap.xml",
+      "rel": "sitemap"
     }
-  ]
+  ],
+  "name": {
+    "application-name": "KOLLITSCH.dev*",
+    "fediverse:creator": "@davidsneighbour@mas.to",
+    "geo.placename": "Koh Samui",
+    "geo.position": "9.578222;99.9581846",
+    "geo.region": "TH-84",
+    "ICBM": "9.578222, 99.9581846",
+    "theme-color": "#e51d1d"
+  }
 }

@@ -1,5 +1,4 @@
 ---
-
 import type { CollectionEntry } from 'astro:content';
 
 import SchemaBlogPost from '@components/schema/BlogPosting.astro';
@@ -10,23 +9,18 @@ export interface Props {
   post: CollectionEntry<'blog'>;
 }
 const { post } = Astro.props;
-
 ---
 
-<article class="relative isolate
-  flex flex-col justify-normal
-  rounded-(--card-radius) [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)]
-  ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset p-(--card-padding)
-  bg-zinc-100 dark:bg-zinc-900
-  hover:bg-zinc-100/90 dark:hover:bg-zinc-900/90
-">
+<article
+  class="relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
+>
+  <PostImage
+    post={post}
+    classes="flex-none max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
+  />
 
-  <PostImage post={post} classes="flex-none max-w-full aspect-3/2 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]" />
-
-  <div class="grow
-              flex flex-col justify-start
-              max-w-xl p-4">
-    <h3 class="flex-none line-clamp-2">
+  <div class="flex max-w-xl grow flex-col justify-start p-4">
+    <h3 class="line-clamp-2 flex-none">
       <a href={`/${post.collection}/${post.id}/`}>
         <span class="absolute inset-0"></span>
         {post.data.title}
@@ -36,9 +30,13 @@ const { post } = Astro.props;
       {post.data.summary}
     </p>
   </div>
-  <div class="flex-none
-              px-4 pb-4 text-right" >
-    <Button name="bi:arrow-right" href={`/${post.collection}/${post.id}/`} class="justify-self-end">Read more...</Button>
+  <div class="flex-none px-4 pb-4 text-right">
+    <Button
+      name="arrow-right"
+      href={`/${post.collection}/${post.id}/`}
+      class="justify-self-end"
+      >Read more...</Button
+    >
   </div>
 </article>
 <SchemaBlogPost post={post} />

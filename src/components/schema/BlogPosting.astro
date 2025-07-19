@@ -1,4 +1,5 @@
 ---
+// @see https://schema.org/BlogPosting
 import setup from '@data/setup.json';
 import { formatISO8601Local } from '@utils/datetime';
 
@@ -18,10 +19,10 @@ const schema = {
    * @todo fix the date formatting
    */
   ...(post.data.date && {
-    datePublished: formatISO8601Local(post.data.date)
+    datePublished: formatISO8601Local(post.data.date),
   }),
   ...(post.data.updateDate && {
-    dateModified: formatISO8601Local(post.data.updateDate)
+    dateModified: formatISO8601Local(post.data.updateDate),
   }),
 };
 ---

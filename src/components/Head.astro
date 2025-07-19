@@ -1,5 +1,4 @@
 ---
-
 import { createDefaultPost } from '@utils/createDefaultPost';
 import setup from '@data/setup.json';
 
@@ -25,14 +24,28 @@ import { resolvePostTitle } from '@utils/postData';
 
 const baseUrl = import.meta.env.BASE_URL;
 const title = resolvePostTitle(post);
-
 ---
 
 <meta charset={setup.head.defaults.charset || 'utf-8'} />
-<meta name="viewport" content={setup.head.defaults.viewport || 'width=device-width, initial-scale=1.0'} />
+<meta
+  name="viewport"
+  content={setup.head.defaults.viewport ||
+    'width=device-width, initial-scale=1.0'}
+/>
 <title>{title}</title>
-<base href={baseUrl} target="_self" />
-<meta name="description" content={post.data.description || setup.description} />
+<!-- if required inline it should come far up -->
+<!-- <meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'"
+/> -->
+<base
+  href={baseUrl}
+  target="_self"
+/>
+<meta
+  name="description"
+  content={post.data.description || setup.description}
+/>
 
 <FontsPreload />
 <OpenGraph post={post} />

@@ -1,45 +1,45 @@
 [
   {
-    "icon": "bi:house-fill",
+    "icon": "house-fill",
     "label": "Home",
     "link": "/"
   },
   {
     "children": [
       {
-        "icon": "bi:clock",
+        "icon": "clock",
         "label": "Latest",
         "link": "/blog/latest/"
       },
       {
-        "icon": "bi:archive",
+        "icon": "archive",
         "label": "Archive",
         "link": "/blog/archive/"
       }
     ],
-    "icon": "bi:journal-text",
+    "icon": "journal-text",
     "label": "Posts",
     "link": "/blog/",
     "match": "prefix",
     "matchPaths": ["/tags/"]
   },
   {
-    "icon": "bi:tags",
+    "icon": "tags",
     "label": "Tags",
     "link": "/tags/"
   },
   {
-    "icon": "bi:person-badge",
+    "icon": "person-badge",
     "label": "About",
     "link": "/blog/2021/another-new-beginning/"
   },
   {
-    "icon": "bi:person-rolodex",
+    "icon": "person-rolodex",
     "label": "Connect",
     "link": "/connect/"
   },
   {
-    "icon": "bi:search",
+    "icon": "search",
     "label": "Find",
     "link": "/find/"
   }

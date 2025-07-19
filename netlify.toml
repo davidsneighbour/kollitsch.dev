@@ -1,7 +1,11 @@
 # see https://docs.astro.build/en/guides/integrations-guide/netlify/
 [build]
-command = "npm run build"
+#command = "npm run build"
+command = ""
 publish = "dist"
+
+# [build.environment]
+# DENO_VERSION = "1.44.3"
 
 [[redirects]]
 from = "/:path*"

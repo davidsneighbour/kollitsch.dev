@@ -1,4 +1,17 @@
 Changelog
+## [2025.6.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.6.0...v2025.6.1) (2025-07-19)
+
+
+### Theme
+
+* **fix:** actually import utilities.css in global.css ([95840b3](https://github.com/davidsneighbour/kollitsch.dev/commit/95840b3d2eb926c682803103a0b8eba5a49a0567))
+* **fix:** hiding honey pot field ([3a66bc7](https://github.com/davidsneighbour/kollitsch.dev/commit/3a66bc7b8d971114e9591d2d2274b7be9b3ae04b))
+
+
+### Build System
+
+* **netlify:** aaaaaaaaaand disable netlify adapter again ([48d0ad4](https://github.com/davidsneighbour/kollitsch.dev/commit/48d0ad474659b0a879f5485a632025819b5e0da3))
+
 ## [2025.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.5...v2025.6.0) (2025-07-19)
 
 

@@ -1,0 +1,12 @@
+/* Override any other weight utility when used with font-changa */
+.font-changa.font-thin,
+.font-changa.font-extralight,
+.font-changa.font-light,
+.font-changa.font-medium,
+.font-changa.font-semibold,
+.font-changa.font-bold,
+.font-changa.font-extrabold,
+.font-changa.font-black {
+  /* Changa One is only available via weight 400 */
+  outline: 2px dashed #c11414;
+}

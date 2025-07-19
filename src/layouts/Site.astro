@@ -1,39 +1,44 @@
 ---
+import '@assets/styles/global.css';
 
-import "@assets/styles/global.css";
+// @ts-ignore - this will throw an error in production
+if (Astro.mode === 'development') {
+  // @ts-ignore - this will throw an error in production
+  import '@assets/styles/audit.css';
+}
 
-import Breakpoints from "@components/development/Breakpoints.astro";
-import Head from "@components/Head.astro";
+import Breakpoints from '@components/development/Breakpoints.astro';
+import Head from '@components/Head.astro';
 
-const { post, extraHtmlClasses = "", extraBodyClasses = "" } = Astro.props;
+const { post, extraHtmlClasses = '', extraBodyClasses = '' } = Astro.props;
 
 // html classes
 const htmlClasses = [
-  "scheme-light",
-  "dark:scheme-dark",
-  "scroll-smooth",
-  "bg-zinc-50 dark:bg-zinc-950",
-  "h-full",
+  'scroll-smooth',
+  'bg-zinc-50 dark:bg-zinc-950',
+  'h-full',
   extraHtmlClasses,
 ]
   .filter(Boolean)
-  .join(" ");
+  .join(' ');
 
 // body classes
 const bodyClasses = [
-  "min-h-screen",
-  "overflow-y-scroll", // always show scrollbar to prevent layout shift
-  "bg-zinc-50 dark:bg-zinc-950",
-  "px-1 sm:px-2 md:px-3", // padding for tiny and small screens
+  'min-h-screen',
+  'overflow-y-scroll', // always show scrollbar to prevent layout shift
+  'bg-zinc-50 dark:bg-zinc-950',
+  'px-1 sm:px-2 md:px-3', // padding for tiny and small screens
   extraBodyClasses,
 ]
   .filter(Boolean)
-  .join(" ");
-
+  .join(' ');
 ---
 
 <!doctype html>
-<html lang="en" class={htmlClasses}>
+<html
+  lang="en"
+  class={htmlClasses}
+>
   <head>
     <Head post={post} />
   </head>

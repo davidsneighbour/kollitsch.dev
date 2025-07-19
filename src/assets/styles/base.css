@@ -12,11 +12,9 @@
   }
 
   body {
-    @apply font-exo2 text-base leading-[1.4] font-light;
-    @apply text-gray-600;
-    @apply dark:text-gray-200;
-    @apply bg-gray-50;
-    @apply dark:bg-gray-950;
+    @apply font-exo2 text-base leading-[1.5] font-normal;
+    @apply bg-gray-50 text-gray-600;
+    @apply dark:bg-gray-950 dark:text-gray-200;
 
     /* @see https://www.joshwcomeau.com/css/custom-css-reset/#four-add-accessible-line-height-5 */
     line-height: 1.5;

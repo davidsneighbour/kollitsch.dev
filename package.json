@@ -68,6 +68,7 @@
     "@eslint/json": "0.13.0",
     "@eslint/markdown": "7.0.0",
     "@fbraem/rollup-plugin-toml": "0.0.4",
+    "@humanwhocodes/crosspost": "0.15.0",
     "@playwright/test": "1.54.1",
     "@rollup/plugin-beep": "1.0.3",
     "@rollup/plugin-yaml": "4.1.2",

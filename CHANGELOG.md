@@ -1,4 +1,28 @@
 Changelog
+## [2025.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.5...v2025.6.0) (2025-07-19)
+
+
+### Theme
+
+* **feat:** add preconnect/prefetch headers to netlify config ([db7e004](https://github.com/davidsneighbour/kollitsch.dev/commit/db7e004a6d9ee05ff25e5e8d6dfdf10626ba6f98))
+* **feat:** get contact form to work ([42b0db1](https://github.com/davidsneighbour/kollitsch.dev/commit/42b0db13e8d04fded21cd24c7a0a168a78c897a8))
+* **fix:** 404 page event tracking fixes ([ac561da](https://github.com/davidsneighbour/kollitsch.dev/commit/ac561dacf6fbf0afaa3a82eff6af1299a9bf09a8))
+* **fix:** better ts for loading the audit styles ([92e89e8](https://github.com/davidsneighbour/kollitsch.dev/commit/92e89e8504a9e8605c88a3e031e88e25654cda71))
+* **fix:** doing some magic about changa one weight issue ([586b738](https://github.com/davidsneighbour/kollitsch.dev/commit/586b73878895b27739513612f26789aa926504be))
+* **fix:** move icons to local icon set ([269114e](https://github.com/davidsneighbour/kollitsch.dev/commit/269114ebc279acc196ccc69c74812e2c6404b349))
+* **fix:** yet another way to add the audit styles dev only ([ac39e32](https://github.com/davidsneighbour/kollitsch.dev/commit/ac39e32a4edae96253608f8c618de16b60a873ba))
+
+
+### Features
+
+* add crosspost configuration and setup ([d77b3e3](https://github.com/davidsneighbour/kollitsch.dev/commit/d77b3e347cbffdb583b8a51ed257020dd036e3a4))
+* **netlify:** setup Netlify adapter ([cbd9982](https://github.com/davidsneighbour/kollitsch.dev/commit/cbd9982efe7deeeb85edc346532d9702fa7547a6))
+
+
+### Documentation
+
+* update component documentation ([ab516cb](https://github.com/davidsneighbour/kollitsch.dev/commit/ab516cbe407cfca60a7a53819ffe25064fcb1e10))
+
 ## [2025.5.5](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.5.4...v2025.5.5) (2025-07-18)
 
 

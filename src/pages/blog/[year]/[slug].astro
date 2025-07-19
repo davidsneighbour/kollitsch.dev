@@ -9,13 +9,13 @@
 import { getCollection } from 'astro:content';
 
 // components
-import Layout from '@layouts/MarkdownPage.astro';
+import Layout from '@layouts/DefaultPage.astro';
 import BlogPost from '@components/BlogPost.astro';
 
-export const getStaticPaths = (async () => {
+export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
   return allPosts
-    .map((post) => {
+    .map(post => {
       const parts = post.id.split('/');
       if (parts.length !== 2) {
         console.warn(`[blog] Skipping invalid slug: ${post.id}`);
@@ -24,16 +24,19 @@ export const getStaticPaths = (async () => {
       const [year, slug] = parts;
       return {
         params: { year, slug },
-        props: { post }
+        props: { post },
       };
     })
     .filter(Boolean);
-});
+};
 
 const { post } = Astro.props;
-
 ---
 
-<Layout post={post} title={post.data.title} description={post.data.description ?? ''}>
+<Layout
+  post={post}
+  title={post.data.title}
+  description={post.data.description ?? ''}
+>
   <BlogPost post={post} />
 </Layout>

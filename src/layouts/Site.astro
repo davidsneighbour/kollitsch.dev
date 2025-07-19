@@ -1,10 +1,8 @@
 ---
 import '@assets/styles/global.css';
 
-// @ts-ignore - this will throw an error in production
-if (Astro.mode === 'development') {
-  // @ts-ignore - this will throw an error in production
-  import '@assets/styles/audit.css';
+if (import.meta.env.DEV) {
+  await import('@assets/styles/audit.css');
 }
 
 import Breakpoints from '@components/development/Breakpoints.astro';

@@ -10,6 +10,8 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
+  Link: <https://analytics.dnbhub.xyz>; rel="preconnect"
+  Link: <https://d33wubrfki0l68.cloudfront.net>; rel="preconnect"
 
 /*.html
   Accept-Encoding: gzip, deflate, br

@@ -22,4 +22,8 @@
     /* Changa One is only available via weight 400 */
     font-weight: 400;
   }
+
+  .text-answer-1238jf {
+    @apply hidden;
+  }
 }

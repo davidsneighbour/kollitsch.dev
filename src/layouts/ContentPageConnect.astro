@@ -26,8 +26,11 @@ const post = {
         </div>
       </div>
       <form
-        action="#"
+        name="contact"
         method="POST"
+        data-netlify="true"
+        netlify-honeypot="fvsdg4"
+        data-netlify-recaptcha="true"
         class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
       >
         <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -35,7 +38,7 @@ const post = {
             <div>
               <label
                 for="first-name"
-                class="block text-sm/6  "
+                class="block text-sm/6"
                 >First name</label
               >
               <div class="mt-2.5">
@@ -44,14 +47,14 @@ const post = {
                   name="first-name"
                   id="first-name"
                   autocomplete="given-name"
-                  class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base  outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                  class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
             </div>
             <div>
               <label
                 for="last-name"
-                class="block text-sm/6  "
+                class="block text-sm/6"
                 >Last name</label
               >
               <div class="mt-2.5">
@@ -67,7 +70,8 @@ const post = {
             <div class="sm:col-span-2">
               <label
                 for="email"
-                class="block text-sm/6">Email</label
+                class="block text-sm/6"
+                >Email</label
               >
               <div class="mt-2.5">
                 <input
@@ -75,14 +79,16 @@ const post = {
                   name="email"
                   id="email"
                   autocomplete="email"
-                  class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base  outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                  class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
             </div>
+            <div data-netlify-recaptcha="true"></div>
             <div class="sm:col-span-2">
               <label
                 for="message"
-                class="block text-sm/6  ">Message</label
+                class="block text-sm/6"
+                >Message</label
               >
               <div class="mt-2.5">
                 <textarea
@@ -97,11 +103,19 @@ const post = {
           <div class="mt-8 flex justify-end">
             <button
               type="submit"
-              class="rounded-md px-3.5 py-2.5 text-center text-sm  shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              class="rounded-md px-3.5 py-2.5 text-center text-sm shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >Send message</button
             >
           </div>
         </div>
+        <p class="text-answer-1238jf">
+          <label>
+            Don't fill this out if you're human: <input
+              name="fvsdg4"
+              type="text"
+            />
+          </label>
+        </p>
       </form>
     </div>
   </div>

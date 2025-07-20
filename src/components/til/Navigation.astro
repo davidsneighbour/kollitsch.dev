@@ -22,46 +22,46 @@ const postUrl = `/til/${collection}/${post.slug}/`;
     role="list"
     class="flex text-sm"
   >
-    <li class="flex">
-      <div class="flex items-center">
+    <li class="flex items-center gap-2">
+      <a
+        href="#"
+        class="text-gray-400 hover:text-gray-500"
+      >
+        <Icon
+          name="collection-fill"
+          class="me-1 inline align-middle"
+        />
+        <span>Today I Learned</span>
+      </a>
+    </li>
+    <li class="flex items-center gap-2">
+      <div class="flex items-center gap-2">
+        <Icon
+          name="slash-lg"
+          class="ml-2"
+        />
+        <span>About</span>
         <a
-          href="#"
+          href={collectionUrl}
           class="text-gray-400 hover:text-gray-500"
+          >{capitalizedCollection}</a
         >
-          <Icon
-            name="collection-fill"
-            class="me-1 inline align-middle"
-          />
-          <span>Today I Learned</span>
-        </a>
       </div>
-      <li class="flex">
-        <div class="flex items-center">
-          <Icon
-            name="slash-lg"
-            class="mx-2"
-          />
-          <a
-            href={collectionUrl}
-            class="text-gray-400 hover:text-gray-500"
-            >{capitalizedCollection}</a
-          >
-        </div>
-      </li>
-      <li class="flex">
-        <div class="flex items-center">
-          <Icon
-            name="slash-lg"
-            class="mx-2"
-          />
-          <a
-            href={postUrl}
-            aria-current="page"
-            class="text-gray-400 hover:text-gray-500"
-            >{post.data.title}</a
-          >
-        </div>
-      </li>
+    </li>
+    <li class="flex items-center gap-2">
+      <div class="flex items-center gap-2">
+        <Icon
+          name="slash-lg"
+          class="ml-2"
+        />
+        <span>How to</span>
+        <a
+          href={postUrl}
+          aria-current="page"
+          class="text-gray-400 hover:text-gray-500"
+          >{post.data.title}</a
+        >
+      </div>
     </li>
   </ol>
 </nav>

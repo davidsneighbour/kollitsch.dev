@@ -10,9 +10,20 @@ const optimizedBackground = await getImage({
   width: 1920,
   quality: 80,
 });
+
+const currentPath = Astro.url.pathname;
+const post = {
+  title: '404 Page Not Found - ' + currentPath,
+  description: 'The page you are looking for does not exist.',
+  date: new Date(),
+  tags: ['404', 'error'],
+};
 ---
 
-<Site extraBodyClasses="h-full">
+<Site
+  post={post}
+  extraBodyClasses="h-full"
+>
   <div
     class="relative h-full bg-cover bg-center text-center"
     style={`background-image: url(${optimizedBackground.src});`}

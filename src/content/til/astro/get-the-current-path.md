@@ -1,8 +1,9 @@
 ---
-title: Get current page path in Astro
+title: Get the current page path in Astro
 date: 2025-07-20T06:24:08.703Z
 tags:
   - astro
+  - typescript
   - javascript
 ---
 

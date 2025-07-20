@@ -70,11 +70,11 @@ function getDateAnchor(date: Date): string {
     </div>
     <footer class="mt-4 border-t border-gray-300 pt-4 dark:border-gray-700">
       <p class="text-right text-sm">
-        Posted on
+        Learned on
         <a href={`/til/#${getDateAnchor(post.data.date)}`}
           >{formatPrettyDate(post.data.date)}</a
         >
-        under
+        and filed under
         {
           post.data.tags.map((tag, index, tags) => {
             const isLast = index === tags.length - 1;

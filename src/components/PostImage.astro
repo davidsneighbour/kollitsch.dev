@@ -2,38 +2,47 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ImageMetadata } from 'astro';
 
-import { resolveCover, resolveImagePath, resolveAstroImage } from '@utils/utilities';
+import {
+  resolveCover,
+  resolveImagePath,
+  resolveAstroImage,
+} from '@utils/utilities';
 import { Image } from 'astro:assets';
 
 interface Props {
   post: CollectionEntry<'blog'>;
   classes?: string;
 }
-const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props = Astro.props;
+const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
+  Astro.props;
 
 const coverImage = resolveCover(post);
 const imagePath = resolveImagePath(coverImage.src, post.id);
-const imageMeta: ImageMetadata | null = imagePath ? resolveAstroImage(imagePath) : null;
-
+const imageMeta: ImageMetadata | null = imagePath
+  ? resolveAstroImage(imagePath)
+  : null;
 ---
 
-{imageMeta && (
-
-  <figure class="relative isolate z-10 group">
-    <Image
-      src={imageMeta}
-      alt={coverImage.alt}
-      width="1280"
-      loading="lazy"
-      class={classes}
-      priority
-    />
-    {coverImage.title && (
-      <figcaption transition:animate="slide" set:html={coverImage.title}
-            class="z-30 absolute bottom-0 left-0 right-0
-                bg-orange-600/80 text-orange-50/90 text-center
-                opacity-0 group-hover:opacity-100
-                transition-all duration-600 delay-100 ease-in-out"></figcaption>
-    )}
-  </figure>
-)}
+{
+  imageMeta && (
+    <figure class="group relative isolate z-10">
+      <Image
+        src={imageMeta}
+        alt={coverImage.alt}
+        width="1280"
+        height="640"
+        loading="lazy"
+        layout="constrained"
+        class={classes}
+        priority
+      />
+      {coverImage.title && (
+        <figcaption
+          transition:animate="slide"
+          set:html={coverImage.title}
+          class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
+        />
+      )}
+    </figure>
+  )
+}

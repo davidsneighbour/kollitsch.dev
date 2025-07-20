@@ -1,0 +1,35 @@
+---
+import Layout from '@layouts/TilPage.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('til');
+const tagMap = new Map<string, number>();
+
+for (const post of posts) {
+  for (const tag of post.data.tags ?? []) {
+    tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
+  }
+}
+
+const tags = [...tagMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+---
+
+<Layout>
+  <section class="mx-auto max-w-4xl py-8">
+    <h1 class="mb-4 text-2xl font-bold">TIL Tags</h1>
+    <ul class="flex flex-wrap gap-3">
+      {
+        tags.map(([tag, count]) => (
+          <li>
+            <a
+              href={`/til/tags/${tag}/`}
+              class="text-blue-600 hover:underline"
+            >
+              {tag} <span class="text-sm text-gray-500">({count})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

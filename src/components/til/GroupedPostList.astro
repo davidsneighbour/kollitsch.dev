@@ -1,0 +1,63 @@
+---
+import PostLine from './PostLine.astro';
+
+// Props
+const { posts } = Astro.props;
+
+/**
+ * Return "July" for month heading
+ */
+function formatMonthName(date: Date): string {
+  return date.toLocaleDateString('en-GB', { month: 'long' });
+}
+
+// Structure: year -> month -> posts
+type Post = (typeof posts)[number];
+const grouped: Record<string, Record<string, Post[]>> = {};
+
+for (const post of posts) {
+  const date = new Date(post.data.date);
+  const year = date.getFullYear().toString();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+
+  grouped[year] ??= {};
+  grouped[year][month] ??= [];
+  grouped[year][month].push(post);
+}
+
+const sortedYears = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
+---
+
+{
+  sortedYears.map(year => (
+    <>
+      <h2
+        id={`y${year}`}
+        class="mt-10 text-2xl font-semibold"
+      >
+        {year}
+      </h2>
+      {Object.keys(grouped[year])
+        .sort((a, b) => Number(b) - Number(a))
+        .map(month => {
+          const list = grouped[year][month];
+          const label = formatMonthName(new Date(`${year}-${month}-01`));
+          return (
+            <>
+              <h3
+                id={`${year}${month}`}
+                class="mt-6 text-xl font-medium"
+              >
+                {label}
+              </h3>
+              <ul class="mt-2 space-y-2">
+                {list.map(post => (
+                  <PostLine post={post} />
+                ))}
+              </ul>
+            </>
+          );
+        })}
+    </>
+  ))
+}

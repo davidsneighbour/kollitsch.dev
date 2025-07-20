@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components';
+import site from '@data/setup.json';
+
+const { post, collection } = Astro.props;
+const capitalizedCollection =
+  collection.charAt(0).toUpperCase() + collection.slice(1);
+const collectionUrl = `/til/${collection}/`;
+const postUrl = `/til/${collection}/${post.slug}/`;
+---
+
+<nav
+  aria-label="Breadcrumb"
+  class="flex justify-between"
+>
+  <a
+    href="/"
+    class="font-changa text-lg"
+    >{site.title}</a
+  >
+  <ol
+    role="list"
+    class="flex text-sm"
+  >
+    <li class="flex">
+      <div class="flex items-center">
+        <a
+          href="#"
+          class="text-gray-400 hover:text-gray-500"
+        >
+          <Icon
+            name="collection-fill"
+            class="me-1 inline align-middle"
+          />
+          <span>Today I Learned</span>
+        </a>
+      </div>
+      <li class="flex">
+        <div class="flex items-center">
+          <Icon
+            name="slash-lg"
+            class="mx-2"
+          />
+          <a
+            href={collectionUrl}
+            class="text-gray-400 hover:text-gray-500"
+            >{capitalizedCollection}</a
+          >
+        </div>
+      </li>
+      <li class="flex">
+        <div class="flex items-center">
+          <Icon
+            name="slash-lg"
+            class="mx-2"
+          />
+          <a
+            href={postUrl}
+            aria-current="page"
+            class="text-gray-400 hover:text-gray-500"
+            >{post.data.title}</a
+          >
+        </div>
+      </li>
+    </li>
+  </ol>
+</nav>

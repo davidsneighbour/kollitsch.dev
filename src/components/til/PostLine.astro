@@ -1,0 +1,26 @@
+---
+// Props
+const { post } = Astro.props;
+
+/**
+ * Format a JS Date into "02 Jul 2025"
+ */
+function formatShortDate(date: Date): string {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = date.toLocaleDateString('en-GB', { month: 'short' });
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}
+---
+
+<li>
+  <span class="mr-2 text-sm text-gray-500">
+    {formatShortDate(new Date(post.data.date))}
+  </span>
+  <a
+    href={`/til/${post.slug}/`}
+    class="text-blue-600 hover:underline"
+  >
+    {post.data.title}
+  </a>
+</li>

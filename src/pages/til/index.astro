@@ -1,0 +1,16 @@
+---
+import Layout from '@layouts/TilPage.astro';
+import { getCollection } from 'astro:content';
+import GroupedPostList from '@components/til/GroupedPostList.astro';
+
+const posts = (await getCollection('til')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+---
+
+<Layout>
+  <section class="mx-auto max-w-4xl py-8">
+    <h1 class="mb-6 text-2xl font-bold">Today I Learned</h1>
+    <GroupedPostList posts={posts} />
+  </section>
+</Layout>

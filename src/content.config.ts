@@ -187,10 +187,37 @@ export const social = defineCollection({
   })
 });
 
+/**
+ * Content collection schema for Today I Learned entries.
+ */
+export const til = {
+  loader: glob({ base: './src/content/til', pattern: '**/*.md' }),
+  schema: () =>
+    z.object({
+      title: z
+        .string()
+        .max(80, 'Title must be at most 80 characters') // Make configurable if needed
+        .describe('Short, descriptive title (max 80 characters)'),
+      date: z.coerce.date().transform((s) => new Date(s))
+        .describe('Full ISO date string (e.g. 2023-10-01)'),
+      tags: z
+        .array(
+          z
+            .string()
+            .min(1)
+            .refine((val) => !val.includes(' '), {
+              message: 'Tags must not contain spaces',
+            })
+        )
+        .describe('Tags as array of strings (no spaces)'),
+    }),
+}
+
 export const collections = {
   blog,
   tags,
   ...playlistCollections,
+  til,
   social,
   githubReleases,
 };

@@ -1,0 +1,106 @@
+---
+import Navigation from '@components/til/Navigation.astro';
+import Layout from '@layouts/TilPage.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('til');
+  return entries.map(entry => {
+    const id = entry.slug;
+    console.log(entry.slug);
+    const pathParticles = entry.slug.split('/');
+    return {
+      params: { id },
+      props: { post: entry, collection: pathParticles[0] },
+    };
+  });
+}
+
+const { post, collection } = Astro.props;
+const { Content } = await render(post);
+
+/**
+ * Format a JS Date into "Monday, 12th of July 2025" style
+ * @param date {Date}
+ * @returns {string}
+ */
+function formatPrettyDate(date: Date): string {
+  const day = date.toLocaleDateString('en-GB', { weekday: 'long' });
+  const dayNum = date.getDate();
+  const month = date.toLocaleDateString('en-GB', { month: 'long' });
+  const year = date.getFullYear();
+
+  const suffix =
+    dayNum % 10 === 1 && dayNum !== 11
+      ? 'st'
+      : dayNum % 10 === 2 && dayNum !== 12
+        ? 'nd'
+        : dayNum % 10 === 3 && dayNum !== 13
+          ? 'rd'
+          : 'th';
+
+  return `${day}, ${dayNum}${suffix} of ${month} ${year}`;
+}
+
+/**
+ * Create a fragment ID like `#202507` from a date
+ * @param date {Date}
+ * @returns {string} yyyymm string
+ */
+function getDateAnchor(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  return `${year}${month}`;
+}
+---
+
+<Layout post={post}>
+  <section
+    class="mx-auto flex h-full min-h-full max-w-4xl flex-col justify-between"
+  >
+    <header>
+      <Navigation
+        post={post}
+        collection={collection}
+      />
+    </header>
+    <div class="content">
+      <h1>{post.data.title}</h1>
+      <Content />
+    </div>
+    <footer class="mt-4 border-t border-gray-300 pt-4 dark:border-gray-700">
+      <p class="text-right text-sm">
+        Posted on
+        <a href={`/til/#${getDateAnchor(post.data.date)}`}
+          >{formatPrettyDate(post.data.date)}</a
+        >
+        under
+        {
+          post.data.tags.map((tag, index, tags) => {
+            const isLast = index === tags.length - 1;
+            const isSecondLast = index === tags.length - 2;
+            const isTwoItems = tags.length === 2;
+
+            return (
+              <>
+                <a
+                  href={`/til/tags/${tag}/`}
+                  class="tag"
+                >
+                  #{tag}
+                </a>
+                {isLast
+                  ? ''
+                  : isTwoItems && isSecondLast
+                    ? ' and '
+                    : isSecondLast
+                      ? ', and '
+                      : ', '}
+              </>
+            );
+          })
+        }
+      </p>
+    </footer>
+  </section>
+</Layout>

@@ -2,40 +2,31 @@
 const isDev = import.meta.env.DEV;
 ---
 
-{isDev && (
-  <div id='responsive-ruler' class="transition-opacity
-    duration-300 hover:opacity-10 hover:transparent
-    fixed bottom-0 left-0 right-0 z-50
-    cursor-pointer
-    text-2xl font-normal text-center font-jetbrainsmono
-    text-gray-800">
-    <div class="bg-gray-300 m-4 rounded-md">
-      <div class="block sm:hidden">XS</div>
-      <div class="hidden sm:block md:hidden">SM</div>
-      <div class="hidden md:block lg:hidden">MD</div>
-      <div class="hidden lg:block xl:hidden">LG</div>
-      <div class="hidden xl:block 2xl:hidden">XL</div>
-      <div class="hidden 2xl:block">2XL</div>
+{
+  isDev && (
+    <div
+      id="responsive-ruler"
+      class="hover:transparent font-jetbrainsmono fixed right-0 bottom-0 left-0 z-50 cursor-pointer text-center text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
+    >
+      <div class="m-4 rounded-md bg-gray-300">
+        <div class="block sm:hidden">XS</div>
+        <div class="hidden sm:block md:hidden">SM</div>
+        <div class="hidden md:block lg:hidden">MD</div>
+        <div class="hidden lg:block xl:hidden">LG</div>
+        <div class="hidden xl:block 2xl:hidden">XL</div>
+        <div class="hidden 2xl:block">2XL</div>
+      </div>
     </div>
-  </div>
-)}
+  )
+}
 
 <script is:inline>
-  const tryAttach = () => {
+  document.addEventListener('astro:page-load', () => {
     const el = document.getElementById('responsive-ruler');
     if (el) {
       el.addEventListener('click', () => {
         el.remove();
       });
-    } else {
-      // Retry once per animation frame until the element exists
-      requestAnimationFrame(tryAttach);
     }
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', tryAttach);
-  } else {
-    tryAttach();
-  }
+  });
 </script>

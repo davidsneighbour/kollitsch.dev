@@ -1,4 +1,36 @@
 Changelog
+## [2025.7.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.6.1...v2025.7.0) (2025-07-20)
+
+
+### Theme
+
+* **fix:** aspect ratio 2:1 for cover images ([b6dc180](https://github.com/davidsneighbour/kollitsch.dev/commit/b6dc1804c37b93d52f5cbbd13972656e71c6be46))
+* **fix:** make the til navigation more descriptive ([5faf159](https://github.com/davidsneighbour/kollitsch.dev/commit/5faf159bf207d622e7ebdb9f19607260ba00020b))
+* **fix:** move padding to container ([7264ac1](https://github.com/davidsneighbour/kollitsch.dev/commit/7264ac1f06688d9e3b0225e5fc070402774bbf52))
+* **fix:** pages for single post tags are not created ([f828140](https://github.com/davidsneighbour/kollitsch.dev/commit/f828140337a04e2eaff24e04dacddc11c0fc4930))
+* **fix:** proper header information for 404 pages ([ed89069](https://github.com/davidsneighbour/kollitsch.dev/commit/ed89069280493dd4ee088515b9f0f78288414bcc))
+* **fix:** remove unused or doubled layouts ([e04ce3a](https://github.com/davidsneighbour/kollitsch.dev/commit/e04ce3ac328354bb73cad7fd45dfa983efa0eb88))
+* **fix:** remove weird load check from breakpoint devbar ([8674531](https://github.com/davidsneighbour/kollitsch.dev/commit/8674531bc73b174ea9559479209669f77fba1821))
+* **fix:** silence TS for GroupedPostList.astro ([c197095](https://github.com/davidsneighbour/kollitsch.dev/commit/c197095eaeda0db8ba3ef747eef08379cd63d5bd))
+* **fix:** target better for the whole changa only 400 thing ([5141af4](https://github.com/davidsneighbour/kollitsch.dev/commit/5141af4f778e936b5ba3fea760b6889494c59a75))
+* **fix:** we learn, we don't post in TIL ([9759ece](https://github.com/davidsneighbour/kollitsch.dev/commit/9759ece560814630f996bf69b7e6d1537694f546))
+
+
+### Features
+
+* add TIL section, layouts, and setup ([a0da0d9](https://github.com/davidsneighbour/kollitsch.dev/commit/a0da0d9f233e0b13f1ab480c4fe294827dd86311))
+
+
+### Documentation
+
+* move badges around in README.md ([e5bdccc](https://github.com/davidsneighbour/kollitsch.dev/commit/e5bdccc725d364c971d3eee813bc424cad2a8bd7))
+
+
+### Build System
+
+* **deps:** update site screenshot ([b701477](https://github.com/davidsneighbour/kollitsch.dev/commit/b7014777afdc4d290d713d7801c76898a5192358))
+* update commitlint shared config object ([30788f2](https://github.com/davidsneighbour/kollitsch.dev/commit/30788f2d0c611135456e1c85cbd3b8e7129c0630))
+
 ## [2025.6.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.6.0...v2025.6.1) (2025-07-19)
 
 

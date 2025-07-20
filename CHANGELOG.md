@@ -1,4 +1,13 @@
 Changelog
+## [2025.7.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.0...v2025.7.1) (2025-07-20)
+
+
+### Theme
+
+* **fix:** make default button outlined instead of colored ([c493f33](https://github.com/davidsneighbour/kollitsch.dev/commit/c493f33c7ec22d2979c79ae0e919c498361f1fc9))
+* **fix:** more tag links without a trailing slash ([795ff18](https://github.com/davidsneighbour/kollitsch.dev/commit/795ff18291ce8a4efdfb5b33e448c72a540728ca))
+* **fix:** tag overview page tag cards ([cadf3ad](https://github.com/davidsneighbour/kollitsch.dev/commit/cadf3ad15b4c83f87c41a8bfbb37495d2cadd790))
+
 ## [2025.7.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.6.1...v2025.7.0) (2025-07-20)
 
 

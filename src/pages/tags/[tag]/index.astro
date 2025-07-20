@@ -1,48 +1,47 @@
 ---
-// individual tag index page with pagination, page 1
-
 import Layout from '@layouts/DefaultPage.astro';
 import ArticleCard from '@components/ArticleCard.astro';
 import TagIntro from '@components/TagIntro.astro';
 import Pagination from '@components/Pagination.astro';
 import { getEntry } from 'astro:content';
 
+import { getAllTags } from '@utils/helpers';
+import setup from '@data/setup.json';
+
 const { tag } = Astro.params;
 
-const tagMap = await getValidTags();
+const tagMap = await getAllTags();
 const tagInfo = tagMap.get(tag);
 
-if (!tagInfo) throw new Error(`Tag '${tag}' is invalid or too small`);
+if (!tagInfo) throw new Error(`Tag '${tag}' not found`);
 const taggedPosts = tagInfo.posts;
 
-// Step 2: Load optional tag content
+// Optional tag content
 const tagEntry = await getEntry({ collection: 'tags', id: tag }).catch(
   () => null,
 );
 
-import setup from '@data/setup.json';
+// Pagination
 const limit = setup.listpages?.limit || 12;
-
-// Step 3: Pagination config
 const pageSize = limit;
 const currentPage = 1;
 const totalPages = Math.ceil(taggedPosts.length / pageSize);
 const paginatedPosts = taggedPosts.slice(0, pageSize);
 
-import { getValidTags } from '@utils/helpers';
-
-export async function getStaticPaths() {
-  const tagMap = await getValidTags();
-  return Array.from(tagMap.keys()).map(tag => ({
-    params: { tag },
-  }));
-}
+// Metadata
 const post = {
   data: {
     title: `#${tag}`,
     description: tagEntry?.data.description || `Posts tagged with #${tag}`,
   },
 };
+
+export async function getStaticPaths() {
+  const tagMap = await getAllTags();
+  return Array.from(tagMap.keys()).map(tag => ({
+    params: { tag },
+  }));
+}
 ---
 
 <Layout post={post}>
@@ -57,17 +56,20 @@ const post = {
 
   {!tagEntry && <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>}
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-    {/* Only render ArticleCard for posts in the 'blog' collection */}
-    {paginatedPosts
-      .filter(post => post.collection === 'blog')
-      .map(post => <ArticleCard post={post} />)}
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
+    {
+      paginatedPosts
+        .filter(post => post.collection === 'blog')
+        .map(post => <ArticleCard post={post} />)
+    }
   </div>
 
   <Pagination
     basePath={`/tags/${tag}/`}
     currentPage={currentPage}
     totalPages={totalPages}
-    pagingPartial='/page/'
+    pagingPartial="/page/"
   />
 </Layout>

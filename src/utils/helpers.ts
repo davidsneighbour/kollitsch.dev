@@ -82,7 +82,7 @@ export function generateUniqueHtmlId(prefix = 'dnbuid', length = 16): string {
     // components, because it supports Web Crypto via polyfill
     crypto.getRandomValues(new Uint8Array(length / 2)),
   )
-    .map(b => b.toString(16).padStart(2, '0'))
+    .map((b) => b.toString(16).padStart(2, '0'))
     .join('');
   return `${prefix}-${randomHex}`;
 }
@@ -113,4 +113,30 @@ export function logDebug(...args: unknown[]) {
       console.log(`${prefix()} ${dim}(${type})${reset} ${value}`);
     }
   }
+}
+
+/** Info about a single tag */
+export interface TagInfo {
+  count: number;
+  posts: Awaited<ReturnType<typeof getCollection>>[number][];
+}
+
+/**
+ * Return a Map of all tags used in the `blog` collection without threshold filtering.
+ */
+export async function getAllTags(): Promise<Map<string, TagInfo>> {
+  const blogPosts = await getCollection('blog');
+  const tagMap = new Map<string, TagInfo>();
+
+  for (const post of blogPosts) {
+    const tags = post.data.tags || [];
+    for (const tag of tags) {
+      const entry = tagMap.get(tag) || { count: 0, posts: [] };
+      entry.count += 1;
+      entry.posts.push(post);
+      tagMap.set(tag, entry);
+    }
+  }
+
+  return tagMap;
 }

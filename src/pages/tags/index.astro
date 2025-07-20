@@ -6,6 +6,7 @@ import Layout from '@layouts/DefaultPage.astro';
 import TagCloud from '@components/TagCloud.astro';
 import { getFilteredTagMap } from '@utils/getFilteredTagMap';
 import Heading from '@components/Heading.astro';
+import TagCard from '@components/TagCard.astro';
 
 const blogPosts = await getCollection('blog');
 const tagEntries = await getCollection('tags');
@@ -29,16 +30,9 @@ const post = {
   <TagCloud tags={tagMap} />
 
   <Heading level={2}>Tag Pages</Heading>
-  <ul class="space-y-4">
-    {
-      tagEntryList.map(entry => (
-        <li>
-          <a href={`/tags/${entry.id}/`}>
-            {entry.data.label || `#${entry.id}`}
-          </a>
-          {entry.data.description && <p>{entry.data.description}</p>}
-        </li>
-      ))
-    }
-  </ul>
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
+    {tagEntryList.map(entry => <TagCard post={entry} />)}
+  </div>
 </Layout>

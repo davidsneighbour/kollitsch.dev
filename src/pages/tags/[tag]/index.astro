@@ -15,8 +15,6 @@ const tagInfo = tagMap.get(tag);
 
 if (!tagInfo) throw new Error(`Tag '${tag}' not found`);
 const taggedPosts = tagInfo.posts;
-
-// Optional tag content
 const tagEntry = await getEntry({ collection: 'tags', id: tag }).catch(
   () => null,
 );
@@ -54,7 +52,7 @@ export async function getStaticPaths() {
     )
   }
 
-  {!tagEntry && <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>}
+  {!tagEntry && <h1 class="mb-6 text-4xl">#{tag}</h1>}
 
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"

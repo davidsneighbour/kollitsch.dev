@@ -17,7 +17,7 @@ cover:
 publisher: rework
 ---
 
-As I reported a while ago, I embarked on an exhilarating journey with the [#100DaysToOffload challenge](https://kollitsch.dev/blog/2022/100-days-to-offload/), a quest to enrich my blog with 100 posts within a year.
+As I reported a while ago, I embarked on an exhilarating journey with the [#100DaysToOffload challenge](/blog/2022/100daystooffload/), a quest to enrich my blog with 100 posts within a year.
 
 However, I realized that while I have had 80+ posts since then, I still have yet to write that many posts *within a year*, which is the original postulation of the challenge - quite a misrepresentation.
 

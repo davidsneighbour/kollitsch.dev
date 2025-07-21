@@ -36,7 +36,7 @@ I needed a Hugo shortcode to show a list of posts that belonged to a [certain](/
 {{- if (eq $limit -1) -}}
   {{- $limit = len site.Taxonomies.tags -}}
 {{- end -}}
-<h3>{{- $title| default "Related Posts" -}}</h3>
+<h2>{{- $title| default "Related Posts" -}}</h2>
 <ul>
 {{- range (first $limit $tags.Pages) -}}
   <li>

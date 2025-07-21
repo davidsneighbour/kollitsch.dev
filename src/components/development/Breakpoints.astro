@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const isDev = import.meta.env.DEV;
 ---
 
@@ -6,15 +8,19 @@ const isDev = import.meta.env.DEV;
   isDev && (
     <div
       id="responsive-ruler"
-      class="hover:transparent font-jetbrainsmono fixed right-0 bottom-0 left-0 z-50 cursor-pointer text-center text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
+      class="hover:transparent font-jetbrainsmono fixed right-0 bottom-0 left-0 z-50 cursor-pointer bg-gray-400 p-4 text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
     >
-      <div class="m-4 rounded-md bg-gray-300">
-        <div class="block sm:hidden">XS</div>
-        <div class="hidden sm:block md:hidden">SM</div>
-        <div class="hidden md:block lg:hidden">MD</div>
-        <div class="hidden lg:block xl:hidden">LG</div>
-        <div class="hidden xl:block 2xl:hidden">XL</div>
-        <div class="hidden 2xl:block">2XL</div>
+      <div class="">
+        <Icon
+          name="display"
+          class="inline-block"
+        />
+        <div class="inline-block sm:hidden">XS</div>
+        <div class="hidden sm:inline-block md:hidden">SM</div>
+        <div class="hidden md:inline-block lg:hidden">MD</div>
+        <div class="hidden lg:inline-block xl:hidden">LG</div>
+        <div class="hidden xl:inline-block 2xl:hidden">XL</div>
+        <div class="hidden 2xl:inline-block">2XL</div>
       </div>
     </div>
   )

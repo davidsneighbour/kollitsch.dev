@@ -30,7 +30,7 @@ publisher: rework
 
 I find it particularly useful to keep WordPress websites up to date and do quick fixes to common problems or change some copy. With its many add-ons, it is also useful for regular audits, optimizations, and updates to new WordPress features.
 
-Wouldn't it be great if it would work properly out of the box in [Ubuntu 24.04](/tags/ubuntu-24.04/)?
+Wouldn't it be great if it would work properly out of the box in [Ubuntu 24.04](/tags/ubuntu-2404/)?
 
 *It doesn't.* A lot of programs I was using before stopped being installable on Ubuntu's latest LTS version. Here are my steps to get LocalWP to comply with Ubuntu.
 
@@ -69,8 +69,8 @@ sudo dpkg -i libaio1_0.3.113-4_amd64.deb
 
 **Important:**
 
-- Don't install packages you don't need, only those that throw errors when installing the LocalWP package.
-- Look out for the required version and find it in Launchpad. The versions above were the ones working in my case, but that might change depending on your local installation, system architecture, and requirements.
+* Don't install packages you don't need, only those that throw errors when installing the LocalWP package.
+* Look out for the required version and find it in Launchpad. The versions above were the ones working in my case, but that might change depending on your local installation, system architecture, and requirements.
 
 ### Problem 2: Installing older PHP versions in LocalWP fails with libssl errors
 
@@ -164,8 +164,8 @@ Categories=Development;"
 
 Put this function into your `.bashrc` setup and you can run `create_local_desktop` to create your starter script. The function accepts two options:
 
-- `--tmpdir` to set your own temporary directory (default `${HOME}/.config/Local/local-tmp-folder`)
-- `--binary` to override the default path of the Local binary (`/opt/Local/local`)
+* `--tmpdir` to set your own temporary directory (default `${HOME}/.config/Local/local-tmp-folder`)
+* `--binary` to override the default path of the Local binary (`/opt/Local/local`)
 
 This way, you can set the script to your local setup.
 

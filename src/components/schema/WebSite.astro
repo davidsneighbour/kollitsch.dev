@@ -1,0 +1,16 @@
+---
+// @see https://schema.org/WebSite
+
+let schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'KOLLITSCH.dev*',
+  url: 'https://kollitsch.dev/',
+};
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema)}
+/>

@@ -6,9 +6,8 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const entries = await getCollection('til');
   return entries.map(entry => {
-    const id = entry.slug;
-    console.log(entry.slug);
-    const pathParticles = entry.slug.split('/');
+    const id = entry.id;
+    const pathParticles = entry.id.split('/');
     return {
       params: { id },
       props: { post: entry, collection: pathParticles[0] },

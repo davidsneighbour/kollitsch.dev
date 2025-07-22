@@ -3,6 +3,7 @@ import '@assets/styles/global.css';
 
 import Breakpoints from '@components/development/Breakpoints.astro';
 import Head from '@components/Head.astro';
+import SchemaWebSite from '@components/schema/WebSite.astro';
 
 const { post, extraHtmlClasses = '', extraBodyClasses = '' } = Astro.props;
 
@@ -46,5 +47,6 @@ const bodyClasses = [
         />
       )
     }
+    <SchemaWebSite />
   </body>
 </html>

@@ -1,4 +1,42 @@
 Changelog
+## [2025.7.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.1...v2025.7.2) (2025-07-22)
+
+
+### Content
+
+* **fix:** fix updated post link to 100posts post ([648a687](https://github.com/davidsneighbour/kollitsch.dev/commit/648a687ddabfdd589d47f0c5cddf7f995d07b8b4))
+* **fix:** typo in ubuntu tag link ([a859d55](https://github.com/davidsneighbour/kollitsch.dev/commit/a859d551a06a9e7969ddc75b67d3b8cfe56e2922))
+* **schema:** update and refactor blog schema ([1186dcd](https://github.com/davidsneighbour/kollitsch.dev/commit/1186dcd59d99c079cdb3f418b2a29c0a819999de))
+
+
+### Theme
+
+* **fix:** breadcrumbs use post path instead of page url ([39e8121](https://github.com/davidsneighbour/kollitsch.dev/commit/39e8121fc5987260f44c09ec8cb303ff91490245)), closes [#1402](https://github.com/davidsneighbour/kollitsch.dev/issues/1402)
+* **fix:** font size fine tuning and content width for pages ([feb8495](https://github.com/davidsneighbour/kollitsch.dev/commit/feb849542a379b540a5f6b812c5add555a9312c0))
+* **fix:** get top navigation working on mobile ([83469f0](https://github.com/davidsneighbour/kollitsch.dev/commit/83469f0b18618e98037695259af71a968422091d)), closes [#1418](https://github.com/davidsneighbour/kollitsch.dev/issues/1418)
+* **fix:** heading on contact page layout ([4f63f22](https://github.com/davidsneighbour/kollitsch.dev/commit/4f63f2272c4cd77414226086653ed53f39044cff))
+* **fix:** make the breakpoints bar more like a dev bar ;) ([8bbb368](https://github.com/davidsneighbour/kollitsch.dev/commit/8bbb36887c3a5adffc66da218a28ebaa31bdab86))
+* **fix:** move logDebug to log.debug and log.note ([dd4aacf](https://github.com/davidsneighbour/kollitsch.dev/commit/dd4aacfa1f8786f8e8c5ee3bc120da4bcda94700))
+* **fix:** show/hide title scripts without it being h1 ([14b784d](https://github.com/davidsneighbour/kollitsch.dev/commit/14b784d423713f45d0be5b9551d3fb246923734f))
+* **fix:** title is not heading, fix other headings ([706d38a](https://github.com/davidsneighbour/kollitsch.dev/commit/706d38a4a7ea4034180f307748401ee94afedba3))
+* **fix:** transform markdown in article cards and styling ([6362b3b](https://github.com/davidsneighbour/kollitsch.dev/commit/6362b3b3969442d39a73c133100ec891bed4a8d8))
+* **fix:** update logging in tag utilities ([9268dcf](https://github.com/davidsneighbour/kollitsch.dev/commit/9268dcf7f81da4adf3d508f8bc4799247775cc7c))
+* **fix:** various layout fixes ([a083b6c](https://github.com/davidsneighbour/kollitsch.dev/commit/a083b6c937683b07e3baa977882ee4a483a9dae7))
+
+
+### Build System
+
+* **deps:** bump form-data in the npm_and_yarn group across 1 directory ([#1419](https://github.com/davidsneighbour/kollitsch.dev/issues/1419)) ([11d8480](https://github.com/davidsneighbour/kollitsch.dev/commit/11d84807eb3f01dc970031345fd98a0b5cfadef8))
+* **deps:** update dependencies ([0192031](https://github.com/davidsneighbour/kollitsch.dev/commit/01920315a5815f1ae0d442e3f88ac10b5b687ff1))
+* **vscode:** remove bookmark extensions and config ([14fccc3](https://github.com/davidsneighbour/kollitsch.dev/commit/14fccc3d684e618f4dbd7458699c5cd006c8ade4))
+* **vscode:** update path to markdownlint config ([66bebd4](https://github.com/davidsneighbour/kollitsch.dev/commit/66bebd4df2c78a42c3ece67580109be8c589552d))
+* **vscode:** update settings ([707180c](https://github.com/davidsneighbour/kollitsch.dev/commit/707180ccecf55a78e57e8e3bb8509a2dafde37fc))
+
+
+### CI
+
+* move markdownlint config from json to jsonc ([c7f7016](https://github.com/davidsneighbour/kollitsch.dev/commit/c7f701636b0b668399d95c8a2025e493ab8b84a1))
+
 ## [2025.7.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.0...v2025.7.1) (2025-07-20)
 
 

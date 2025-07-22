@@ -26,6 +26,12 @@
     "shared-config.ts": "shared-config*",
   },
 
+  // remove scratch files from search
+  "search.exclude": {
+    "scratch.md": true,
+    "scratch/**": true
+  },
+
   // astro specific settings
   "astro.content-intellisense": true,
   "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
@@ -110,9 +116,9 @@
   "indentRainbow.indicatorStyle": "light",
 
   // PLUGIN: biome setup
+  // @see "editor.codeActionsOnSave"
   "biome.configurationPath": "biome.jsonc",
   "biome.requireConfiguration": true,
   "svg.preview.background": "black",
-  "favorites.storageFilePath": ".vscode/favorites.json"
-  // @see "editor.codeActionsOnSave"
+
 }

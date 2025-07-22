@@ -53,6 +53,18 @@
     @apply text-base;
   }
 
+  h1 code,
+  h2 code,
+  h3 code {
+    @apply font-changa text-[90%] italic;
+    @apply bg-red-500/10;
+  }
+
+  p code {
+    @apply font-mono text-[90%] not-italic;
+    @apply bg-red-500/10;
+  }
+
   /* @see https://www.joshwcomeau.com/css/custom-css-reset/#eight-avoid-text-overflows-9 */
   p,
   h1,

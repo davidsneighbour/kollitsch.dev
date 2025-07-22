@@ -1,11 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 // for youtube playlist loader
 import { youTubeLoader } from '@ascorbic/youtube-loader';
+import setup from '@data/setup.json';
+import { file, glob } from 'astro/loaders';
 // for github releases loader
 import { githubReleasesLoader } from 'astro-loader-github-releases';
+import MarkdownIt from 'markdown-it';
 
-import { file, glob } from 'astro/loaders';
-import setup from '@data/setup.json';
+const md = new MarkdownIt();
 
 // Reusable options schema
 export const allowedComponents = [
@@ -64,6 +66,7 @@ export const blogSchema = z
         message: '`linktitle` MUST NOT be empty if defined.',
       }),
     options: optionsSchema.optional(),
+    publisher: z.enum(['rework', 'validate']).optional(),
     resources: z
       .array(
         z.object({
@@ -74,7 +77,6 @@ export const blogSchema = z
       )
       .optional(),
     summary: z.string().optional(),
-    publisher: z.enum(['rework', 'validate']).optional(),
     tags: z
       .array(
         z
@@ -113,17 +115,22 @@ export const blogSchema = z
       path: ['linktitle'],
     },
   )
-  .transform((entry) => ({
-    ...entry,
-    cover:
-      typeof entry.cover === 'string'
-        ? { src: entry.cover, title: entry.title }
-        : entry.cover,
-    summary:
+  .transform((entry) => {
+    const summaryRaw =
       entry.summary && entry.summary.trim() !== ''
         ? entry.summary
-        : entry.description,
-  }));
+        : entry.description;
+
+    return {
+      ...entry,
+      cover:
+        typeof entry.cover === 'string'
+          ? { src: entry.cover, title: entry.title }
+          : entry.cover,
+      summary: md.renderInline(summaryRaw),
+      title: md.renderInline(entry.title),
+    };
+  });
 
 // @todo blog post schema validation
 export const blog = defineCollection({
@@ -178,13 +185,13 @@ export const social = defineCollection({
     parser: (text) => JSON.parse(text),
   }),
   schema: z.object({
+    fill: z.string().optional(),
+    icon: z.string(),
     id: z.string(),
     label: z.string(),
-    icon: z.string(),
-    url: z.string().optional(),
     share: z.string().optional(),
-    fill: z.string().optional(),
-  })
+    url: z.string().optional(),
+  }),
 });
 
 /**
@@ -194,11 +201,9 @@ export const til = {
   loader: glob({ base: './src/content/til', pattern: '**/*.md' }),
   schema: () =>
     z.object({
-      title: z
-        .string()
-        .max(80, 'Title must be at most 80 characters') // Make configurable if needed
-        .describe('Short, descriptive title (max 80 characters)'),
-      date: z.coerce.date().transform((s) => new Date(s))
+      date: z.coerce
+        .date()
+        .transform((s) => new Date(s))
         .describe('Full ISO date string (e.g. 2023-10-01)'),
       tags: z
         .array(
@@ -207,17 +212,21 @@ export const til = {
             .min(1)
             .refine((val) => !val.includes(' '), {
               message: 'Tags must not contain spaces',
-            })
+            }),
         )
         .describe('Tags as array of strings (no spaces)'),
+      title: z
+        .string()
+        .max(80, 'Title must be at most 80 characters') // Make configurable if needed
+        .describe('Short, descriptive title (max 80 characters)'),
     }),
-}
+};
 
 export const collections = {
   blog,
   tags,
   ...playlistCollections,
-  til,
-  social,
   githubReleases,
+  social,
+  til,
 };

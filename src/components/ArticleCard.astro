@@ -21,17 +21,20 @@ const { post } = Astro.props;
 
   <div class="flex max-w-xl grow flex-col justify-start p-4">
     <h2 class="line-clamp-2 flex-none">
-      <a href={`/${post.collection}/${post.id}/`}>
-        <span class="absolute inset-0"></span>
-        {post.data.title}
-      </a>
+      <a
+        href={`/${post.collection}/${post.id}/`}
+        set:html={post.data.title}
+      />
     </h2>
-    <p class="line-clamp-3">
-      {post.data.summary}
-    </p>
+    <p
+      class="line-clamp-3"
+      set:html={post.data.summary}
+    />
   </div>
   <div class="flex-none px-4 pb-4 text-right">
     <Button
+      theme="primary"
+      outline
       name="arrow-right"
       href={`/${post.collection}/${post.id}/`}
       class="justify-self-end"

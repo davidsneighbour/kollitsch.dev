@@ -1,4 +1,6 @@
 {
+  // see https://raw.githubusercontent.com/DavidAnson/markdownlint/refs/heads/main/schema/.markdownlint.jsonc
+  "default": true,
   "MD004": {
     "style": "asterisk"
   },

@@ -82,7 +82,7 @@
   "vale.valeCLI.config": "/home/patrick/github.com/davidsneighbour/kollitsch.dev/src/config/vale/vale.ini",
 
   // PLUGIN: markdownlint setup
-  "markdownlint.configFile": "src/config/.markdownlint.json",
+  "markdownlint.configFile": "src/config/.markdownlint.jsonc",
   // @see "editor.codeActionsOnSave"
 
   // PLUGIN: markdown all in one setup

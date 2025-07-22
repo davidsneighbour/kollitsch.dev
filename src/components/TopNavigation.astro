@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 import ProgressBar from '@components/Progress.astro';
 
 import { getHomepageUrl } from '@utils/getHomepageUrl';
-import { logDebug } from '@utils/helpers';
+import { log } from '@utils/helpers';
 
 import setup from '@data/setup.json';
 import navData from '@data/navigation.json';
@@ -39,7 +39,7 @@ const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
 
 if (!activeItem && import.meta.env.DEV) {
-  logDebug(`👉 No navigation item to activate for: ${pathname}`);
+  log.debug(`👉 No navigation item to activate for: ${pathname}`);
 }
 ---
 

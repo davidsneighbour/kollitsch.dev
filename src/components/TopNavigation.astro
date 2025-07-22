@@ -149,7 +149,7 @@ if (!activeItem && import.meta.env.DEV) {
   toggleNavVisibility();
 
   // hide/show sticky brand based on scroll position
-  const placeholder = document.querySelector('h1#sitetitle');
+  const placeholder = document.querySelector('#sitetitle');
   const stickyBrand = document.querySelector('#navbar-brand');
   if (!placeholder || !stickyBrand) {
     console.warn('Placeholder or sticky brand element not found.');

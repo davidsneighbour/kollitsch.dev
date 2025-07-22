@@ -35,7 +35,7 @@ const { post }: Props = Astro.props;
       class="heading"
       >{post.data.title}
     </Heading>
-    <BreadCrumbs path={Astro.url.href} />
+    <BreadCrumbs path={post.filePath} />
     <Prose post={post} />
     <ShareSeparator
       title={post.data.title}

@@ -3,57 +3,64 @@ import { getHomepageUrl } from '@utils/getHomepageUrl';
 
 export interface BreadcrumbItem {
   label: string;
-  href: string; // absolute URL
+  href: string;
 }
 
+/**
+ * Breadcrumb generation based on blog entry filePath.
+ *
+ * This assumes all breadcrumb paths are inside the `blog` collection.
+ * If you later add other content types (e.g. `til`, `projects`),
+ * update the `allEntries` collection merge.
+ *
+ * See full discussion:
+ * https://chatgpt.com/share/687f920a-cd4c-8009-a98d-334e90075fc0
+ */
 export async function getBreadcrumbs(
-  pathname: string,
-  skipIndex?: number,
+  filePath: string,
+  skipIndex = 0,
 ): Promise<BreadcrumbItem[]> {
   const homepage = getHomepageUrl().replace(/\/+$/, '');
-  const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+
+  // Normalize and strip to relevant path
+  const normalizedPath = filePath
+    .replace(/\\/g, '/') // Windows compatibility
+    .replace(/^.*\/(pages|content)\//, '') // strip up to pages/content
+    .replace(/index\.(md|mdx)$/, '') // remove trailing index file
+    .replace(/\.(md|mdx)$/, '') // remove .md if not index
+    .replace(/\/+/g, '/'); // normalize slashes
+
+  const segments = normalizedPath.split('/').filter(Boolean);
 
   const breadcrumbs: BreadcrumbItem[] = [
-    {
-      href: `${homepage}/`,
-      label: 'Home',
-    },
+    { href: `${homepage}/`, label: 'Home' },
   ];
 
-  let currentPath = '';
   const allEntries = await getCollection('blog');
+  let currentPath = '';
 
-  for (let i = 0; i < segments.length; i++) {
+  for (let i = skipIndex; i < segments.length; i++) {
     const segment = segments[i];
-    if (!segment) {
-      throw new Error(`Unexpected undefined segment at index ${i}`);
-    }
-
-    if (i === skipIndex) {
-      currentPath += `/${segment}`;
-      continue;
-    }
-
     currentPath += `/${segment}`;
-    const href = `${homepage}${currentPath}/`;
 
-    let label = segment.toUpperCase();
-
+    // Try to match with an entry title
     const match = allEntries.find((entry) => {
       const entryPath = `/${entry.id}`.replace(/\/+$/, '');
       return entryPath === currentPath;
     });
 
-    if (match?.data?.title && typeof match.data.title === 'string') {
-      label = match.data.title;
-    } else {
-      label = segment
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-    }
+    const label = match?.data?.title
+      ? match.data.title
+      : // @ts-expect-error
+        segment
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
 
-    breadcrumbs.push({ href, label });
+    breadcrumbs.push({
+      href: `${homepage}${currentPath}/`,
+      label,
+    });
   }
 
   return breadcrumbs;

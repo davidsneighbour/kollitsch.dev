@@ -1,7 +1,8 @@
 ---
 import { getBreadcrumbs } from '@utils/getBreadcrumbs';
-const path = Astro.url.pathname;
-const breadcrumbs = await getBreadcrumbs(path, 1);
+
+const { path } = Astro.props;
+const breadcrumbs = await getBreadcrumbs(path);
 import BreadcrumbListSchema from './schema/BreadcrumbList.astro';
 import { Icon } from 'astro-icon/components';
 ---

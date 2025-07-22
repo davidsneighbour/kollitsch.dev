@@ -20,8 +20,9 @@ const { post } = Astro.props;
   />
 
   <div class="flex max-w-xl grow flex-col justify-start p-4">
-    <h2 class="line-clamp-2 flex-none">
+    <h2 class="flex-none">
       <a
+        class="line-clamp-2"
         href={`/${post.collection}/${post.id}/`}
         set:html={post.data.title}
       />

@@ -33,6 +33,7 @@
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "dependencies": {
     "@astrojs/check": "0.9.4",
+    "@astrojs/mdx": "^4.3.1",
     "@astrojs/netlify": "^6.5.1",
     "@astrojs/rss": "4.0.12",
     "@astrojs/sitemap": "3.4.1",
@@ -165,7 +166,7 @@
     "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
     "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
     "lint:lychee": "wireit",
-    "lint:markdown": "markdownlint-cli2 --config 'src/config/.markdownlint.json'",
+    "lint:markdown": "markdownlint-cli2 --config 'src/config/.markdownlint.jsonc'",
     "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",

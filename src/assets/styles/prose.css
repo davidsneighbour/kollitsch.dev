@@ -6,7 +6,7 @@
     --typography-space: calc(4 * var(--spacing));
 
     p {
-      font-size: var(--text-base);
+      font-size: var(--text-lg);
 
       :last-child {
         margin-bottom: 0;
@@ -14,7 +14,7 @@
     }
 
     h1 {
-      font-size: var(--text-2xl-line-height);
+      font-size: var(--text-2xl);
     }
 
     h2 {

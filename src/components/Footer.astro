@@ -3,10 +3,13 @@ import { getHomepageUrl } from '@utils/getHomepageUrl';
 import { generateUniqueHtmlId } from '@utils/helpers';
 import navData from '@data/navigation.json';
 import socialMediaData from '@content/social.json';
-import FooterTitle from './FooterTitle.astro';
 import IconLink from '@components/IconLink.astro';
 import Heading from '@components/Heading.astro';
 import setup from '@data/setup.json';
+
+const adjust = 1.9;
+const titleLength = setup.title.length;
+const titleFontSize = Math.floor((100 / titleLength) * adjust); // Adjust font size based on title length
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
@@ -17,7 +20,7 @@ const currentYear = new Date().getFullYear().toString();
 >
   <footer class={setup.classes.containers.main}>
     <div class="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-6">
-      <aside class="p-4 sm:col-span-2 md:col-span-3">
+      <aside class="p-4 text-center sm:col-span-2 md:col-span-3 md:text-left">
         <h2 class="mb-4 text-xl">About</h2>
         <p>
           {setup.introduction}
@@ -72,14 +75,14 @@ const currentYear = new Date().getFullYear().toString();
     </div>
 
     <div
-      class="flex flex-col items-center justify-between border-t border-gray-800 pt-6 md:flex-row"
+      class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 lg:grid-cols-3"
     >
-      <span
+      <span class="text-center lg:text-left"
         >&copy; <span id={footerYearId}>{currentYear}</span>
         <a href={getHomepageUrl()}>{setup.title}</a></span
       >
-      <span>All rights reserved.</span>
-      <span
+      <span class="text-center">All rights reserved.</span>
+      <span class="text-center lg:text-right"
         >Webwork done by <a href="https://davids-neighbour.com/"
           >David's Neighbour</a
         ></span
@@ -103,7 +106,17 @@ const currentYear = new Date().getFullYear().toString();
   </footer>
 </section>
 
-<FooterTitle />
+<footer
+  class="h-max-[8vw] overflow-y-hidden text-center"
+  aria-hidden="true"
+>
+  <div
+    class="font-changa text-center leading-none font-normal whitespace-nowrap text-gray-200/10 transition duration-2000 ease-in-out select-none hover:text-gray-200/50 dark:text-gray-800/10 dark:hover:text-gray-800/50"
+    style={`font-size: ${titleFontSize}vw;`}
+  >
+    {setup.title}
+  </div>
+</footer>
 
 <script is:inline define:vars={{ footerYearId }}>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();

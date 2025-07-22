@@ -14,7 +14,6 @@ if (!post?.data) {
 import { ClientRouter } from 'astro:transitions';
 
 // individual head components
-import ThemeManager from '@components/ThemeManager.astro';
 import Favicon from '@components/head/Favicon.astro';
 import FontsPreload from '@components/head/FontsPreload.astro';
 import Meta from '@components/head/Meta.astro';
@@ -50,7 +49,6 @@ const title = resolvePostTitle(post);
 <FontsPreload />
 <OpenGraph post={post} />
 <ClientRouter />
-<ThemeManager defaultTheme="dark" />
 <Favicon />
 <Meta />
 <WebComponents post={post} />

@@ -2,13 +2,12 @@ import type { CollectionEntry } from 'astro:content';
 
 import fs from 'node:fs';
 import path from 'node:path';
-import type { ImageMetadata } from 'astro';
-
 import siteinfo from '@data/setup.json';
+import type { ImageMetadata } from 'astro';
 
 // @ts-ignore markdown-it has no default export, we no fix upstream issues
 import MarkdownIt from 'markdown-it';
-import { logDebug } from './helpers';
+import { logDebug } from './helpers.ts';
 
 export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
@@ -42,7 +41,7 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   }
 
   if (!title && src !== siteinfo.images.default) {
-    logDebug(`[PostImage] No title set for image in post "${post.id}".`);
+    logDebug(`[PostImage] No 'title' set for image in post "${post.id}".`);
   }
 
   // alt: markdown/HTML stripped, fallback to title or generic
@@ -51,7 +50,7 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   // @todo generate a default title if none is provided or skip this step
   title = md.renderInline(title ?? '');
 
-  return { src, alt, title, type };
+  return { alt, src, title, type };
 }
 
 /**

@@ -88,6 +88,8 @@ export function generateUniqueHtmlId(prefix = 'dnbuid', length = 16): string {
 }
 
 /**
+ * @deprecated Use `log.debug(...)` or `log.note(...)` from `@utils/helpers` instead.
+ *
  * Logs debug messages with timestamp and label per line.
  * Strings are printed directly, other types include their type and value.
  *

@@ -2,7 +2,6 @@
   "recommendations": [
     "aaron-bond.better-comments",
     "adrianwilczynski.alpine-js-intellisense",
-    "alefragnani.bookmarks",
     "antfu.file-nesting",
     "arktypeio.arkdark",
     "astro-build.astro-vscode",
@@ -37,7 +36,6 @@
     "jinliming2.vscode-go-template",
     "jock.svg",
     "johnpapa.vscode-peacock",
-    "kdcro101.favorites",
     "mattpocock.ts-error-translator",
     "mechatroner.rainbow-csv",
     "mhutchie.git-graph",

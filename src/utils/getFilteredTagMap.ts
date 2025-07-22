@@ -1,9 +1,10 @@
 import type { CollectionEntry } from 'astro:content';
 import site from '@data/setup.json';
+import { logDebug } from '@utils/helpers';
 
 export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
   const ignoreTags = new Set(site.ignoreTags || []);
-  console.log('[ignoredTags]', site.ignoreTags);
+  logDebug('[ignoredTags] ' + site.ignoreTags);
   const tagThreshold = site.tagThreshold ?? 1;
   const tagMap = new Map<string, number>();
 
@@ -17,10 +18,9 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
 
   for (const [tag, count] of tagMap) {
     if (count < tagThreshold) {
-      console.log(`[filter] Dropping "${tag}" with count ${count}`);
+      logDebug(`[filter] Dropping "${tag}" with count ${count}`);
       tagMap.delete(tag);
     }
   }
-  console.log(tagMap);
   return tagMap;
 }

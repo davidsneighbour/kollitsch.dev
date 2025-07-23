@@ -2,6 +2,7 @@ import eslint from '@eslint/js';
 import { globalIgnores } from 'eslint/config';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import defaultConfig from './src/config/eslint/default.js';
+import dnbUtils from './src/config/eslint/dnbUtilsRules.js';
 import cssConfig from './src/config/eslint/langCss.js';
 import htmlConfig from './src/config/eslint/langHtml.js';
 import jsConfig from './src/config/eslint/langJs.js';
@@ -37,6 +38,11 @@ export default [
     name: 'dnb/astro',
     rules: {},
   },
+
+  /**
+   * dnb rule sets
+   */
+  ...dnbUtils,
 ];
 
 /*

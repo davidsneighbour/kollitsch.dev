@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import alpinejs from '@astrojs/alpinejs';
-// import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
 import beep from '@rollup/plugin-beep';
@@ -19,9 +18,6 @@ const crontabTmLanguage = JSON.parse(
 
 // https://astro.build/config
 export default defineConfig({
-  // adapter: netlify({
-  //   imageCDN: false,
-  // }),
   compressHTML: import.meta.env.PROD,
 
   experimental: {
@@ -126,8 +122,4 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
   },
-  // // netlify redirects
-  // redirects: {
-  //   '/blog/old-post': '/blog/new-post',
-  // },
 });

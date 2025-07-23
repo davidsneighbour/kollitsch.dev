@@ -13,6 +13,7 @@
       "@pages/*": ["./src/pages/*"],
       "@scripts/*": ["./src/scripts/*"],
       "@test/*": ["./src/test/*"],
+      "@utils": ["./src/utils/index.ts"],
       "@utils/*": ["./src/utils/*"]
     },
     "plugins": [

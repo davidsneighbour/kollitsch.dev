@@ -164,8 +164,10 @@ export const log = {
   note: (...args: unknown[]) => print(colors.labelNote, ...args),
 };
 
-// Create a random string of the specified length
-export function generateRandomString(len: number) {
+/**
+ * Create a random string of the specified length
+ */
+export function generateRandomString(len: number): string {
   return Array.from(crypto.getRandomValues(new Uint8Array(len)))
     .map((n) => (n % 36).toString(36))
     .join('');

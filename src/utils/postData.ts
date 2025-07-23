@@ -1,5 +1,5 @@
-import setup from '@data/setup.json' with { type: 'json' };
 import type { CollectionEntry } from 'astro:content';
+import setup from '@data/setup.json' with { type: 'json' };
 
 interface TitleOptions {
   prefix?: string;
@@ -15,7 +15,7 @@ interface TitleOptions {
  *
  * @example
  * ```ts
- * const title = resolvePostTitle(post, { prefix: 'KOLLITSCH.dev – ' });
+ * const title = resolvePostTitle(post, { prefix: 'KOLLITSCH.dev - ' });
  * ```
  */
 export function resolvePostTitle(

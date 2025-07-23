@@ -175,8 +175,62 @@ const { defaultTheme = 'dark' } = Astro.props;
       stickyBrand.classList.toggle('sticky-visible', !isIntersecting);
     }
 
+    function changeGiscusTheme(t = 'dark') {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: t } } },
+        'https://giscus.app',
+      );
+    }
+
+    window.theme ??= (() => {
+      const defaultTheme =
+        document.currentScript.getAttribute('data-default-theme');
+      const storageKey = 'kdev-theme';
+      const store =
+        typeof localStorage !== 'undefined'
+          ? localStorage
+          : {
+              getItem: () => null,
+              setItem: () => {},
+            };
+
+      const mediaMatcher = window.matchMedia('(prefers-color-scheme: dark)');
+      let systemTheme = mediaMatcher.matches ? 'dark' : 'light';
+      mediaMatcher.addEventListener('change', e => {
+        systemTheme = e.matches ? 'dark' : 'light';
+        applyTheme(theme.getTheme());
+      });
+
+      function applyTheme(t) {
+        const resolved = t === 'auto' ? systemTheme : t;
+        document.documentElement.dataset.theme = resolved;
+        document.documentElement.style.colorScheme = resolved;
+        changeGiscusTheme(t);
+        document.dispatchEvent(
+          new CustomEvent('theme-changed', {
+            detail: { theme: t, systemTheme, defaultTheme },
+          }),
+        );
+      }
+
+      return {
+        setTheme(t = defaultTheme) {
+          store.setItem(storageKey, t);
+          applyTheme(t);
+        },
+        getTheme: () => store.getItem(storageKey) || defaultTheme,
+        getSystemTheme: () => systemTheme,
+        resetTheme: () => store.removeItem(storageKey),
+      };
+    })();
+
+    window.theme.setTheme(window.theme.getTheme());
+
     // Theme-selector web component + theme manager
     function initThemeManager() {
+      console.log('➡️ initThemeManager running');
       if (!customElements.get('theme-selector')) {
         customElements.define(
           'theme-selector',
@@ -209,59 +263,6 @@ const { defaultTheme = 'dark' } = Astro.props;
               this.btn.textContent = icons[t] ?? icons.dark;
             }
           },
-        );
-      }
-
-      window.theme ??= (() => {
-        const defaultTheme =
-          document.currentScript.getAttribute('data-default-theme');
-        const storageKey = 'kdev-theme';
-        const store =
-          typeof localStorage !== 'undefined'
-            ? localStorage
-            : {
-                getItem: () => null,
-                setItem: () => {},
-              };
-
-        const mediaMatcher = window.matchMedia('(prefers-color-scheme: dark)');
-        let systemTheme = mediaMatcher.matches ? 'dark' : 'light';
-        mediaMatcher.addEventListener('change', e => {
-          systemTheme = e.matches ? 'dark' : 'light';
-          applyTheme(theme.getTheme());
-        });
-
-        function applyTheme(t) {
-          const resolved = t === 'auto' ? systemTheme : t;
-          document.documentElement.dataset.theme = resolved;
-          document.documentElement.style.colorScheme = resolved;
-          changeGiscusTheme(t);
-          document.dispatchEvent(
-            new CustomEvent('theme-changed', {
-              detail: { theme: t, systemTheme, defaultTheme },
-            }),
-          );
-        }
-
-        return {
-          setTheme(t = defaultTheme) {
-            store.setItem(storageKey, t);
-            applyTheme(t);
-          },
-          getTheme: () => store.getItem(storageKey) || defaultTheme,
-          getSystemTheme: () => systemTheme,
-          resetTheme: () => store.removeItem(storageKey),
-        };
-      })();
-
-      window.theme.setTheme(window.theme.getTheme());
-
-      function changeGiscusTheme(t = 'dark') {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage(
-          { giscus: { setConfig: { theme: t } } },
-          'https://giscus.app',
         );
       }
 

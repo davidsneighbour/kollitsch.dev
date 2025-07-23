@@ -87,36 +87,6 @@ export function generateUniqueHtmlId(prefix = 'dnbuid', length = 16): string {
   return `${prefix}-${randomHex}`;
 }
 
-/**
- * @deprecated Use `log.debug(...)` or `log.note(...)` from `@utils/helpers` instead.
- *
- * Logs debug messages with timestamp and label per line.
- * Strings are printed directly, other types include their type and value.
- *
- * @example
- * logDebug('Hello', 123, { a: 1 });
- */
-export function logDebug(...args: unknown[]) {
-  const grey = '\x1b[33m'; // timestamp
-  const yellow = '\x1b[35m'; // label
-  const dim = '\x1b[2m'; // type info
-  const reset = '\x1b[0m';
-
-  const prefix = () =>
-    `${grey}${new Date().toTimeString().slice(0, 8)}${reset} ${yellow}[dnb]${reset}`;
-
-  for (const arg of args) {
-    if (typeof arg === 'string') {
-      console.log(`${prefix()} ${arg}`);
-    } else {
-      const type = typeof arg;
-      const value =
-        type === 'object' ? JSON.stringify(arg, null, 2) : String(arg);
-      console.log(`${prefix()} ${dim}(${type})${reset} ${value}`);
-    }
-  }
-}
-
 /** Info about a single tag */
 export interface TagInfo {
   count: number;

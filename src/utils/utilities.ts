@@ -7,7 +7,33 @@ import type { ImageMetadata } from 'astro';
 
 // @ts-ignore markdown-it has no default export, we no fix upstream issues
 import MarkdownIt from 'markdown-it';
-import { logDebug } from './helpers.ts';
+import { log } from './helpers.ts';
+
+export function getEffectiveFrontmatter(
+  props: Record<string, unknown>,
+): Record<string, unknown> {
+  // content collection post.data
+  if (
+    'post' in props &&
+    typeof props.post === 'object' &&
+    props.post &&
+    'data' in props.post &&
+    typeof props.post.data === 'object'
+  ) {
+    return props.post.data as Record<string, unknown>;
+  }
+
+  // astro frontmatter
+  if (
+    'frontmatter' in props &&
+    typeof props.frontmatter === 'object' &&
+    props.frontmatter !== null
+  ) {
+    return props.frontmatter as Record<string, unknown>;
+  }
+
+  return {};
+}
 
 export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
@@ -41,7 +67,7 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   }
 
   if (!title && src !== siteinfo.images.default) {
-    logDebug(`[PostImage] No 'title' set for image in post "${post.id}".`);
+    log.debug(`[PostImage] No 'title' set for image in post "${post.id}".`);
   }
 
   // alt: markdown/HTML stripped, fallback to title or generic
@@ -116,7 +142,7 @@ export function resolveAstroImage(path: ImagePath): ImageMetadata {
   const entry = imageMap[path];
   if (entry?.default) return entry.default;
 
-  logDebug(
+  log.debug(
     `[resolveAstroImage] Missing image: ${path} → using fallback from ${siteinfo.images.default}`,
   );
   return fallbackImage!;

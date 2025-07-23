@@ -2,244 +2,225 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.content.pageFolders": [
     {
-      "title": "Weblog",
-      "contentTypes": [
-        "default"
-      ],
-      "previewPath": "/{{fm.fmContentType}}/{{fm.date|format:yyyy}}/",
+      "contentTypes": ["default"],
+      "filePrefix": "/{{date|yyyy}}/",
       "path": "[[workspace]]/src/content/blog",
-      "filePrefix": "/{{date|yyyy}}/"
+      "previewPath": "/{{fm.fmContentType}}/{{fm.date|format:yyyy}}/",
+      "title": "Weblog"
+    }
+  ],
+  "frontMatter.content.publicFolder": {
+    "path": "src/assets/images/",
+    "relative": true
+  },
+  "frontMatter.data.files": [
+    {
+      "file": "[[workspace]]/src/content/categories.json",
+      "id": "categories",
+      "labelField": "label",
+      "schema": {
+        "properties": {
+          "class": {
+            "description": "CSS class for the category.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The introduction for this category.",
+            "multiline": true,
+            "type": "string"
+          },
+          "icon": {
+            "description": "Name of the category icon.",
+            "type": "string"
+          },
+          "id": {
+            "description": "The category's slug.",
+            "type": "string"
+          },
+          "image": {
+            "description": "The filename of the category image within the `src/assets/images/categories` directory.",
+            "type": "string"
+          },
+          "label": {
+            "description": "The category's label.",
+            "type": "string"
+          }
+        },
+        "required": ["id", "label", "description", "image", "icon", "class"],
+        "type": "object"
+      },
+      "title": "Categories"
+    },
+    {
+      "file": "[[workspace]]/src/data/socialmedia.json",
+      "id": "socialmedia",
+      "labelField": "label",
+      "schema": {
+        "properties": {
+          "icon": {
+            "description": "Name of the social media icon.",
+            "type": "string"
+          },
+          "id": {
+            "description": "The social media's slug.",
+            "type": "string"
+          },
+          "label": {
+            "description": "The social media's label.",
+            "type": "string"
+          },
+          "url": {
+            "description": "The URL of the social media profile.",
+            "format": "uri",
+            "type": "string"
+          },
+          "weight": {
+            "description": "The weight of the social media link, used for sorting.",
+            "type": "number"
+          }
+        },
+        "required": ["id", "label", "url", "icon"],
+        "type": "object"
+      },
+      "title": "Social Media"
+    },
+    {
+      "file": "[[workspace]]/src/content/tags.json",
+      "id": "tags",
+      "labelField": "label",
+      "schema": {
+        "properties": {
+          "class": {
+            "description": "CSS class for the tag.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The introduction for this tag.",
+            "multiline": true,
+            "type": "string"
+          },
+          "icon": {
+            "description": "Name of the tag icon.",
+            "type": "string"
+          },
+          "id": {
+            "description": "The tag's slug.",
+            "type": "string"
+          },
+          "image": {
+            "description": "The filename of the tag image within the `src/assets/images/tags` directory.",
+            "type": "string"
+          },
+          "label": {
+            "description": "The tag's label.",
+            "type": "string"
+          }
+        },
+        "required": ["id", "label", "description", "image", "icon", "class"],
+        "type": "object"
+      },
+      "title": "Tags"
     }
   ],
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
-  "frontMatter.taxonomy.slugTemplate": "{{title}}",
-  "frontMatter.data.files": [
+  "frontMatter.taxonomy.contentTypes": [
     {
-      "id": "categories",
-      "title": "Categories",
-      "labelField": "label",
-      "file": "[[workspace]]/src/content/categories.json",
-      "schema": {
-        "type": "object",
-        "required": [
-          "id",
-          "label",
-          "description",
-          "image",
-          "icon",
-          "class"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The category's slug."
-          },
-          "label": {
-            "type": "string",
-            "description": "The category's label."
-          },
-          "description": {
-            "type": "string",
-            "multiline": true,
-            "description": "The introduction for this category."
-          },
-          "image": {
-            "type": "string",
-            "description": "The filename of the category image within the `src/assets/images/categories` directory."
-          },
-          "icon": {
-            "type": "string",
-            "description": "Name of the category icon."
-          },
-          "class": {
-            "type": "string",
-            "description": "CSS class for the category."
-          }
+      "fields": [
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "title": "description",
+          "type": "string"
+        },
+        {
+          "name": "draft",
+          "title": "draft",
+          "type": "draft"
+        },
+        {
+          "name": "date",
+          "title": "date",
+          "type": "datetime"
+        },
+        {
+          "fieldGroup": ["resources_group"],
+          "name": "resources",
+          "title": "resources",
+          "type": "block"
+        },
+        {
+          "name": "tags",
+          "title": "tags",
+          "type": "tags"
+        },
+        {
+          "name": "fmContentType",
+          "title": "fmContentType",
+          "type": "string"
+        },
+        {
+          "fields": [
+            {
+              "name": "src",
+              "title": "src",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "title": "title",
+              "type": "string"
+            }
+          ],
+          "name": "cover",
+          "title": "cover",
+          "type": "fields"
+        },
+        {
+          "name": "publisher",
+          "title": "publisher",
+          "type": "string"
         }
-      }
-    },
-    {
-      "id": "socialmedia",
-      "title": "Social Media",
-      "labelField": "label",
-      "file": "[[workspace]]/src/data/socialmedia.json",
-      "schema": {
-        "type": "object",
-        "required": [
-          "id",
-          "label",
-          "url",
-          "icon"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The social media's slug."
-          },
-          "label": {
-            "type": "string",
-            "description": "The social media's label."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "The URL of the social media profile."
-          },
-          "icon": {
-            "type": "string",
-            "description": "Name of the social media icon."
-          },
-          "weight": {
-            "type": "number",
-            "description": "The weight of the social media link, used for sorting."
-          }
-        }
-      }
-    },
-    {
-      "id": "tags",
-      "title": "Tags",
-      "labelField": "label",
-      "file": "[[workspace]]/src/content/tags.json",
-      "schema": {
-        "type": "object",
-        "required": [
-          "id",
-          "label",
-          "description",
-          "image",
-          "icon",
-          "class"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The tag's slug."
-          },
-          "label": {
-            "type": "string",
-            "description": "The tag's label."
-          },
-          "description": {
-            "type": "string",
-            "multiline": true,
-            "description": "The introduction for this tag."
-          },
-          "image": {
-            "type": "string",
-            "description": "The filename of the tag image within the `src/assets/images/tags` directory."
-          },
-          "icon": {
-            "type": "string",
-            "description": "Name of the tag icon."
-          },
-          "class": {
-            "type": "string",
-            "description": "CSS class for the tag."
-          }
-        }
-      }
+      ],
+      "name": "default",
+      "pageBundle": false
     }
   ],
   "frontMatter.taxonomy.fieldGroups": [
     {
-      "id": "resources_group",
       "fields": [
         {
-          "title": "title",
           "name": "title",
+          "title": "title",
           "type": "string"
         },
         {
-          "title": "src",
           "name": "src",
+          "title": "src",
           "type": "string"
         }
-      ]
+      ],
+      "id": "resources_group"
     },
     {
-      "id": "resources_group",
       "fields": [
         {
-          "title": "title",
           "name": "title",
+          "title": "title",
           "type": "string"
         },
         {
-          "title": "src",
           "name": "src",
+          "title": "src",
           "type": "string"
         }
-      ]
+      ],
+      "id": "resources_group"
     }
   ],
-  "frontMatter.taxonomy.contentTypes": [
-    {
-      "name": "default",
-      "pageBundle": false,
-      "fields": [
-        {
-          "title": "title",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "title": "description",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "title": "draft",
-          "name": "draft",
-          "type": "draft"
-        },
-        {
-          "title": "date",
-          "name": "date",
-          "type": "datetime"
-        },
-        {
-          "title": "resources",
-          "name": "resources",
-          "type": "block",
-          "fieldGroup": [
-            "resources_group"
-          ]
-        },
-        {
-          "title": "tags",
-          "name": "tags",
-          "type": "tags"
-        },
-        {
-          "title": "fmContentType",
-          "name": "fmContentType",
-          "type": "string"
-        },
-        {
-          "title": "cover",
-          "name": "cover",
-          "type": "fields",
-          "fields": [
-            {
-              "title": "src",
-              "name": "src",
-              "type": "string"
-            },
-            {
-              "title": "title",
-              "name": "title",
-              "type": "string"
-            }
-          ]
-        },
-        {
-          "title": "publisher",
-          "name": "publisher",
-          "type": "string"
-        }
-      ]
-    }
-  ]
+  "frontMatter.taxonomy.slugTemplate": "{{title}}"
 }

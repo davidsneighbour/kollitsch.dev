@@ -230,7 +230,6 @@ const { defaultTheme = 'dark' } = Astro.props;
 
     // Theme-selector web component + theme manager
     function initThemeManager() {
-      console.log('➡️ initThemeManager running');
       if (!customElements.get('theme-selector')) {
         customElements.define(
           'theme-selector',

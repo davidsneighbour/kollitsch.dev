@@ -28,16 +28,21 @@ fmContentType: blog
 cover:
   src: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 
-While I was working on my Content Security Policies (CSP) [last week](https://github.com/davidsneighbour/kollitsch.dev/issues/1211) I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers. 
+import { Image } from 'astro:assets';
 
-It turned out, that there is [a known bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) or [feature](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src#firefox_default-src_none_svg_sprite_blocking_issue) (depending on who you might ask) where Firefox treats SVG sprites as external documents rather than images when they are loaded via `<img>`-tags. This means that if you have a CSP that blocks all external resources, Firefox will block the SVG sprite from loading. 
+While I was working on my Content Security Policies (CSP) [last week](https://github.com/davidsneighbour/kollitsch.dev/issues/1211) I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers.
+
+It turned out, that there is [a known bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) or [feature](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src#firefox_default-src_none_svg_sprite_blocking_issue) (depending on who you might ask) where Firefox treats SVG sprites as external documents rather than images when they are loaded via `<img>`-tags. This means that if you have a CSP that blocks all external resources, Firefox will block the SVG sprite from loading.
 
 The interesting thing for me was, that it was not a problem on `image-src` or any other explicit directive, but directly on the `default-src` directive.
 
-[![default-src 'none' and Firefox](default-src-report.png)](default-src-report.png)
+[![default-src 'none' and Firefox](/images/blog/firefox-vs-external-svg-default-src-report.png)](/images/blog/firefox-vs-external-svg-default-src-report.png)
 
 When implementing a Content Security Policy (CSP) to secure your website, a common recommendation is to start with a restrictive policy like `default-src 'none'`. This approach ensures that no external resources are loaded unless specifically allowed. A typical setup might look something like this:
 
@@ -99,4 +104,4 @@ I chose the second method, as I wanted to keep my CSP as restrictive as possible
 
 **TL;DR**
 
-Firefox blocks external SVG sprites when using `default-src 'none'` in your CSP. Inline them in the HTML to bypass the issue. 
+Firefox blocks external SVG sprites when using `default-src 'none'` in your CSP. Inline them in the HTML to bypass the issue.

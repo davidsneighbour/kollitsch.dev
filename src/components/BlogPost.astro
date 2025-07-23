@@ -13,14 +13,13 @@ import BreadCrumbs from '@components/BreadCrumbs.astro';
 import PaginationSingle from '@components/PaginationSingle.astro';
 import Meta from '@components/PostMeta.astro';
 import SchemaBlogPost from '@components/schema/BlogPosting.astro';
-import Article from '@components/Article.astro';
 import ShareSeparator from '@components/ShareSeparator.astro';
 import Prose from '@components/Prose.astro';
 
 const { post }: Props = Astro.props;
 ---
 
-<Article
+<article
   class="mt-8 rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
 >
   <PostImage
@@ -46,4 +45,4 @@ const { post }: Props = Astro.props;
     <Meta post={post} />
   </div>
   <SchemaBlogPost post={post} />
-</Article>
+</article>

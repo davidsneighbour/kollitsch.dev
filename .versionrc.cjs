@@ -7,7 +7,7 @@ const standardVersion = {
 
   // for available options in the conventional changelog configuration spec see
   // https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
-  header: "Changelog",
+  header: "# Changelog",
   releaseCount: 1,
   scripts: {
     prerelease: "./src/scripts/prerelease",

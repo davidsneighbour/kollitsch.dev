@@ -8,7 +8,7 @@ const isDev = import.meta.env.DEV;
   isDev && (
     <div
       id="responsive-ruler"
-      class="hover:transparent font-jetbrainsmono fixed right-0 bottom-0 left-0 z-50 cursor-pointer bg-gray-400 p-4 text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
+      class="hover:transparent font-jetbrainsmono fixed right-0 bottom-0 left-0 z-50 flex cursor-pointer flex-row justify-between gap-4 bg-gray-400 p-4 text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
     >
       <div class="">
         <Icon
@@ -22,17 +22,44 @@ const isDev = import.meta.env.DEV;
         <div class="hidden xl:inline-block 2xl:hidden">XL</div>
         <div class="hidden 2xl:inline-block">2XL</div>
       </div>
+      <div class="mt-2 flex gap-4 text-sm">
+        <button
+          id="hide-devbar"
+          type="button"
+        >
+          <Icon name="x-circle" />
+          Close until reload
+        </button>
+        <button
+          id="hide-devbar-permanently"
+          type="button"
+        >
+          <Icon name="x" />
+          Close and remove
+        </button>
+      </div>
     </div>
   )
 }
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
-    const el = document.getElementById('responsive-ruler');
-    if (el) {
-      el.addEventListener('click', () => {
-        el.remove();
-      });
+    const devBar = document.getElementById('responsive-ruler');
+    const hideOnce = document.getElementById('hide-devbar');
+    const hidePermanently = document.getElementById('hide-devbar-permanently');
+
+    if (localStorage.getItem('hideDevBar') === 'true' && devBar) {
+      devBar.remove();
+      return;
     }
+
+    hideOnce?.addEventListener('click', () => {
+      devBar?.remove();
+    });
+
+    hidePermanently?.addEventListener('click', () => {
+      localStorage.setItem('hideDevBar', 'true');
+      devBar?.remove();
+    });
   });
 </script>

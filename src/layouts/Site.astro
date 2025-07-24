@@ -5,7 +5,12 @@ import Breakpoints from '@components/development/Breakpoints.astro';
 import Head from '@components/Head.astro';
 import SchemaWebSite from '@components/schema/WebSite.astro';
 
-const { post, extraHtmlClasses = '', extraBodyClasses = '' } = Astro.props;
+const {
+  post,
+  extraHtmlClasses = '',
+  extraBodyClasses = '',
+  frontmatter,
+} = Astro.props;
 
 // html classes
 const htmlClasses = [
@@ -34,7 +39,10 @@ const bodyClasses = [
   class={htmlClasses}
 >
   <head>
-    <Head post={post} />
+    <Head
+      post={post}
+      frontmatter={frontmatter}
+    />
   </head>
   <body class={bodyClasses}>
     <slot />

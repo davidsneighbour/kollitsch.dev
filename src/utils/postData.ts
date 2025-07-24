@@ -1,4 +1,3 @@
-import type { CollectionEntry } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
 
 interface TitleOptions {
@@ -19,10 +18,10 @@ interface TitleOptions {
  * ```
  */
 export function resolvePostTitle(
-  post: CollectionEntry<'blog'> | undefined,
+  title: string,
   options: TitleOptions = {},
 ): string {
-  const title = post?.data?.title || setup.title;
+  title = title || setup.title;
 
   const { prefix = '', postfix = '' } = options;
   return `${prefix}${title}${postfix}`;

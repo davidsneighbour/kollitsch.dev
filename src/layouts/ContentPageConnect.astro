@@ -5,9 +5,18 @@ import Layout from '@layouts/ContentPage.astro';
 import Heading from '@components/Heading.astro';
 
 const { post } = Astro.props;
+let frontmatter;
+if (post) {
+  frontmatter = post.data;
+} else {
+  frontmatter = Astro.props.frontmatter;
+}
 ---
 
-<Layout post={post}>
+<Layout
+  post={post}
+  frontmatter={frontmatter}
+>
   <div class="isolate">
     <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       <div class="px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">

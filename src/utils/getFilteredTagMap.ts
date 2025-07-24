@@ -20,7 +20,7 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
 
   for (const [tag, count] of tagMap) {
     if (count < tagThreshold) {
-      log.debug(`[filter] Dropping "${tag}" with count ${count}`);
+      //log.debug(`[filter] Dropping "${tag}" with count ${count}`);
       tagMap.delete(tag);
     }
   }

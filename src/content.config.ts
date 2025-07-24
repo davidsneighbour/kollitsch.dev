@@ -142,6 +142,7 @@ export const blogSchema = z
       title: md.renderInline(entry.title),
     };
   });
+export type BlogFrontmatter = z.infer<typeof blogSchema>;
 
 // @todo blog post schema validation
 export const blog = defineCollection({

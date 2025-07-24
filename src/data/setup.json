@@ -22,7 +22,8 @@
     "defaults": {
       "charset": "utf-8",
       "viewport": "width=device-width, initial-scale=1.0"
-    }
+    },
+    "postfix": " | kollitsch.dev"
   },
   "homepage": {
     "recent_posts": 6

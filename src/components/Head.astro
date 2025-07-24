@@ -2,13 +2,10 @@
 import { createDefaultPost } from '@utils/createDefaultPost';
 import setup from '@data/setup.json';
 
-interface Props extends PostProp<'blog'> {}
-let { post }: Props = Astro.props;
-
-// @todo ensure we have a post object and remove if not required
-if (!post?.data) {
-  post = { ...post, data: createDefaultPost(post) };
+interface Props extends PostProp<'blog'> {
+  frontmatter?: Record<string, any>;
 }
+let { post, frontmatter }: Props = Astro.props;
 
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from 'astro:transitions';
@@ -22,7 +19,13 @@ import WebComponents from '@components/head/WebComponents.astro';
 import { resolvePostTitle } from '@utils/postData';
 
 const baseUrl = import.meta.env.BASE_URL;
-const title = resolvePostTitle(post);
+const title = resolvePostTitle(post?.data?.title || frontmatter?.title, {
+  postfix: setup.head.postfix,
+});
+// @todo ensure we have a post object and remove if not required
+if (!post?.data) {
+  post = { ...post, data: createDefaultPost(post) };
+}
 ---
 
 <meta charset={setup.head.defaults.charset || 'utf-8'} />

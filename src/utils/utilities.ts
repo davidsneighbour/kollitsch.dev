@@ -3,11 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 import fs from 'node:fs';
 import path from 'node:path';
 import siteinfo from '@data/setup.json';
+import { log } from '@utils/debug';
 import type { ImageMetadata } from 'astro';
-
 // @ts-ignore markdown-it has no default export, we no fix upstream issues
 import MarkdownIt from 'markdown-it';
-import { log } from '@utils';
 
 export function getEffectiveFrontmatter(
   props: Record<string, unknown>,
@@ -39,7 +38,9 @@ export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-export function resolveCover(post: CollectionEntry<'blog'> | CollectionEntry<'pages'>): CoverObject {
+export function resolveCover(
+  post: CollectionEntry<'blog'> | CollectionEntry<'pages'>,
+): CoverObject {
   const md = new MarkdownIt();
   const cover = post.data.cover;
 

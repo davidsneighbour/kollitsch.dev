@@ -20,11 +20,8 @@ export function buildOptionsSchema(overrides: Record<string, z.ZodTypeAny>) {
       }
     }
 
-    // known keys get special type, all others default to string
-    result[section as string] = z
-      .record(z.string(), z.string()) // default fallback
-      .and(z.object(entries));        // known entries override
+    result[section as string] = z.object(entries).catchall(z.string());
   }
 
-  return z.object(result).catchall(z.record(z.string(), z.string()));
+  return z.object(result).catchall(z.object({}).catchall(z.string()));
 }

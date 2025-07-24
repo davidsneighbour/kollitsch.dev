@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import site from '@data/setup.json';
-import { log } from '@utils';
+import { log } from '@utils/debug';
 
 export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
   const ignoreTags = new Set(site.ignoreTags || []);

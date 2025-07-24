@@ -4,12 +4,7 @@
 import Layout from '@layouts/ContentPage.astro';
 import Heading from '@components/Heading.astro';
 
-const post = {
-  data: {
-    title: 'Contact',
-    description: 'Get in touch with me through this contact form.',
-  },
-};
+const { post } = Astro.props;
 ---
 
 <Layout post={post}>

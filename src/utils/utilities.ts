@@ -38,9 +38,7 @@ export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-export function resolveCover(
-  post: CollectionEntry<'blog'> | CollectionEntry<'pages'>,
-): CoverObject {
+export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   const md = new MarkdownIt();
   const cover = post.data.cover;
 
@@ -49,7 +47,7 @@ export function resolveCover(
   let alt: string | undefined;
   let type: 'image' | 'video';
 
-  console.log(cover);
+  log.debug(cover);
 
   // @todo we don't need to handle string covers because the schema already returns an object
   if (typeof cover === 'string') {

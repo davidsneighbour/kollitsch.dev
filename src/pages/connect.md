@@ -1,4 +1,5 @@
 ---
+layout: '@layouts/ContentPageConnect.astro'
 title: /contact
 linktitle: contact
 description: >-
@@ -29,7 +30,6 @@ theme:
 aliases:
   - /connect
 publisher: rework
-
 ---
 
 ## Follow my exploits on Social Media

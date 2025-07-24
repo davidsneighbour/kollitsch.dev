@@ -13,11 +13,9 @@ import MarkdownIt from 'markdown-it';
  * Explicitly typed paths: override default (string) with custom type.
  */
 export const explicitOptionTypes = {
-  'head.components': z.array(z.enum([
-    'lite-youtube',
-    'color-grid',
-    'date-diff',
-  ])),
+  'head.components': z.array(
+    z.enum(['lite-youtube', 'color-grid', 'date-diff']),
+  ),
 } as const;
 
 /**
@@ -151,11 +149,6 @@ export const blog = defineCollection({
   schema: () => blogSchema,
 });
 
-export const pages = defineCollection({
-  loader: glob({ base: './src/content/pages', pattern: '**/*.md' }),
-  schema: () => blogSchema,
-});
-
 // content for tags
 // @todo clean up and add proper schema validation
 export const tags = defineCollection({
@@ -242,7 +235,6 @@ export const til = {
 
 export const collections = {
   blog,
-  pages,
   tags,
   ...playlistCollections,
   githubReleases,

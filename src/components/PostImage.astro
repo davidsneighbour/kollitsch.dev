@@ -10,7 +10,7 @@ import {
 import { Image } from 'astro:assets';
 
 interface Props {
-  post: CollectionEntry<'blog'> | CollectionEntry<'pages'>;
+  post: CollectionEntry<'blog'>;
   classes?: string;
 }
 const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =

@@ -35,79 +35,83 @@ type Props = {
 const { defaultTheme = 'dark' } = Astro.props;
 ---
 
-<header
+<section
   class="sticky top-0 right-0 left-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900"
 >
-  <div
-    class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"
-  >
-  </div>
-  <div
-    class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]"
-  >
-    <ProgressBar classes="progress z-40 relative [--height:var(--thickness)]" />
-  </div>
-  <div
-    class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-gray-50"
-  >
+  <header class="mx-auto max-w-7xl">
     <div
-      class="z-30 order-1 flex-1"
-      id="navbar-sitetitle"
+      class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"
     >
-      <a
-        id="navbar-brand"
-        href={getHomepageUrl()}
-        class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
+    </div>
+    <div
+      class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]"
+    >
+      <ProgressBar
+        classes="progress z-40 relative [--height:var(--thickness)]"
+      />
+    </div>
+    <div
+      class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-gray-50"
+    >
+      <div
+        class="z-30 order-1 flex-1"
+        id="navbar-sitetitle"
+      >
+        <a
+          id="navbar-brand"
+          href={getHomepageUrl()}
+          class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
+        >
+          <Icon
+            name="house-fill"
+            class="place-self-center"
+          />
+          {setup.title}
+        </a>
+      </div>
+      <div
+        class="z-30 order-2 md:hidden"
+        id="hamburger-and-close"
       >
         <Icon
-          name="house-fill"
-          class="place-self-center"
+          name="list"
+          class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
         />
-        {setup.title}
-      </a>
-    </div>
-    <div
-      class="z-30 order-2 md:hidden"
-      id="hamburger-and-close"
-    >
-      <Icon
-        name="list"
-        class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
-      />
-      <Icon
-        name="x"
-        class="is--mobile-menu-hamburger close-icon text-brand-500 dark:text-brand-400 hidden place-self-center text-xl"
-      />
-    </div>
-    <div
-      class="z-30 order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
-      id="navigation-and-theme-select"
-    >
-      <ul
-        class="flex flex-col justify-center md:flex-row md:justify-end"
-        transition:animate={fade({ duration: '0.4s' })}
+        <Icon
+          name="x"
+          class="is--mobile-menu-hamburger close-icon text-brand-500 dark:text-brand-400 hidden place-self-center text-xl"
+        />
+      </div>
+      <div
+        class="z-30 order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
+        id="navigation-and-theme-select"
       >
-        {
-          typedNavData.map(value => (
-            <li
-              class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}
-            >
-              <IconLink
-                icon={value.icon}
-                href={value.link}
+        <ul
+          class="flex flex-col justify-center md:flex-row md:justify-end"
+          transition:animate={fade({ duration: '0.4s' })}
+        >
+          {
+            typedNavData.map(value => (
+              <li
+                class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}
               >
-                {value.label}
-              </IconLink>
-            </li>
-          ))
-        }
-        <li class="px-3 py-4 md:px-2 md:py-2">
-          <theme-selector></theme-selector>
-        </li>
-      </ul>
+                <IconLink
+                  icon={value.icon}
+                  href={value.link}
+                >
+                  {value.label}
+                </IconLink>
+              </li>
+            ))
+          }
+          <li class="px-3 py-4 md:px-2 md:py-2">
+            <theme-selector></theme-selector>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</section>
 
 <script is:inline data-astro-rerun data-default-theme={defaultTheme}>
   (() => {

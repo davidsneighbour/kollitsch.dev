@@ -16,8 +16,6 @@ interface Props {
 const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
   Astro.props;
 
-console.log(post);
-
 const coverImage = resolveCover(post);
 const imagePath = resolveImagePath(coverImage.src, post.id);
 const imageMeta: ImageMetadata | null = imagePath

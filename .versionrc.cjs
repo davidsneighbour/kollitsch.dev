@@ -1,7 +1,4 @@
 const shared = require("./src/config/shared-config.json");
-
-console.log(shared);
-
 const standardVersion = {
   bumpFiles: [{ filename: "package.json", type: "json" }],
 

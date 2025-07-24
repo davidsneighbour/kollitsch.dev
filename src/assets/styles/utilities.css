@@ -26,4 +26,70 @@
   .text-answer-1238jf {
     @apply hidden;
   }
+
+
+
+  body {
+    --sb-track-color: #232E33;
+    --sb-thumb-color: #2eaf6e;
+    --sb-size: 14px;
+  }
+
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 4px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 4px;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color)
+                      var(--sb-track-color);
+    }
+  }
+
+  /* Firefox */
+  /* * {
+    scrollbar-width: thin;
+    scrollbar-color: #397524 #DFE9EB;
+  } */
+
+  /* Chrome, Edge and Safari */
+  /* *::-webkit-scrollbar {
+    width: 10px;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #DFE9EB;
+  }
+
+  *::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+  }
+
+  *::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #397524;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #62A34B;
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #62A34B;
+  } */
 }

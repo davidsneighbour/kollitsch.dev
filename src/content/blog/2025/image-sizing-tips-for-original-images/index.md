@@ -1,13 +1,13 @@
 ---
 title: Image Sizing Tips for Original Sources
-description: "file size and resolution guidelines for source images in web projects"
+description: file size and resolution guidelines for source images in web projects
 draft: true
-date: null
+date: 2025-07-22T11:14:58.521Z
 tags: []
 cover:
   src: ""
   title: ""
-publisher: "rework"
+publisher: rework
 ---
 
 ## Recommended maximum image size for source files

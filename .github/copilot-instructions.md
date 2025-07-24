@@ -39,7 +39,7 @@
 
 ## Technical and formatting preferences
 
-- Hugo & Web Development: Uses structured front matter and automation for efficiency.
+- Astro & Web Development: Uses structured front matter and automation for efficiency.
 - Node.js & Bash Scripts: Optimized for sequential execution and automation.
 - JavaScript & TypeScript: Always uses ESM syntax (`import` over `require`).
 - Markdown & Typographic Rules:
@@ -50,10 +50,14 @@
   - `*` for emphasis, `**` for strong text.
   - Normal punctuation instead of regional or typographic markers.
 - Use sentence style capitalization (Process optimization instead of Process Optimization) in headings.
+- We use:
+  - Astro in the latest version (5.10+)
+  - Tailwind CSS in the latest version (4.1+)
 
 ## Linting and code formatting
 
 - DO NOT suggest to add or remove trailing commas in JavaScript or TypeScript code.
+- we use ESLint in the latest version with a flat configuration
 
 ## Testing
 

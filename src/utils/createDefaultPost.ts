@@ -19,7 +19,6 @@ export function createDefaultPost(input: unknown = {}): BlogPost {
     draft: false,
     featured: false,
     fmContentType: undefined,
-    options: {},
     resources: [],
     summary: '',
     tags: [],

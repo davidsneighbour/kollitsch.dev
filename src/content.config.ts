@@ -13,9 +13,11 @@ import MarkdownIt from 'markdown-it';
  * Explicitly typed paths: override default (string) with custom type.
  */
 export const explicitOptionTypes = {
-  'head.components': z.array(
-    z.enum(['lite-youtube', 'color-grid', 'date-diff']),
-  ),
+  'head.components': z.array(z.enum([
+    'lite-youtube',
+    'color-grid',
+    'date-diff',
+  ])),
 } as const;
 
 /**

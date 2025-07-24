@@ -19,11 +19,7 @@ export function createDefaultPost(input: unknown = {}): BlogPost {
     draft: false,
     featured: false,
     fmContentType: undefined,
-    options: {
-      head: {
-        components: [],
-      },
-    },
+    options: {},
     resources: [],
     summary: '',
     tags: [],

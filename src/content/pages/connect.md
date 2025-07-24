@@ -1,12 +1,11 @@
 ---
-layout: "@layouts/ContentPageConnect.astro"
-
 title: /contact
 linktitle: contact
 description: >-
   Find a way to get into contact with me. I prefer written contact before you
   cold call me ;)
-cover: ./contact.jpg
+cover:
+  src: contact.jpg
 menu:
   main:
     name: Connect
@@ -27,7 +26,6 @@ resources:
     src: header.jpg
 theme:
   comments: false
-url: /contact
 aliases:
   - /connect
 publisher: rework

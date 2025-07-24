@@ -1,6 +1,13 @@
 ---
 import '@assets/styles/global.css';
 
+import {log} from '@utils';
+
+log.debug('This is a debug message');
+log.note('Something noteworthy');
+log.warn('This might be an issue');
+log.error('Something went wrong!');
+
 import Breakpoints from '@components/development/Breakpoints.astro';
 import Head from '@components/Head.astro';
 import SchemaWebSite from '@components/schema/WebSite.astro';

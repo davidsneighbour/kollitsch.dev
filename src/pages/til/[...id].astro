@@ -75,7 +75,7 @@ function getDateAnchor(date: Date): string {
         >
         and filed under
         {
-          post.data.tags.map((tag, index, tags) => {
+          post.data.tags.map((tag: string, index: number, tags: string[]) => {
             const isLast = index === tags.length - 1;
             const isSecondLast = index === tags.length - 2;
             const isTwoItems = tags.length === 2;

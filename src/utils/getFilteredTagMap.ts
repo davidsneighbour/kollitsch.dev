@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import site from '@data/setup.json';
-import { log } from '@utils/helpers';
+import { log } from '@utils';
 
 export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
   const ignoreTags = new Set(site.ignoreTags || []);
@@ -9,11 +9,13 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
   const tagMap = new Map<string, number>();
 
   for (const post of posts) {
-    (post.data.tags || []).forEach((tag) => {
-      if (!ignoreTags.has(tag)) {
-        tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+    if (Array.isArray(post.data.tags)) {
+      for (const tag of post.data.tags) {
+        if (!ignoreTags.has(tag)) {
+          tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+        }
       }
-    });
+    }
   }
 
   for (const [tag, count] of tagMap) {
@@ -22,5 +24,6 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
       tagMap.delete(tag);
     }
   }
+
   return tagMap;
 }

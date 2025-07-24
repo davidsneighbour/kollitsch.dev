@@ -1,0 +1,49 @@
+---
+import Layout from '@layouts/DefaultPage.astro';
+import ArticleCard from '@components/ArticleCard.astro';
+import Pagination from '@components/Pagination.astro';
+import { paginateBlogPostsByYear } from '@utils/posts';
+
+export async function getStaticPaths() {
+  const pageSize = 12;
+  const { getCollection } = await import('astro:content');
+  const allPosts = await getCollection('blog');
+
+  const postsByYear: Record<string, number> = {};
+  for (const post of allPosts) {
+    const y = new Date(post.data.date).getFullYear().toString();
+    postsByYear[y] = (postsByYear[y] ?? 0) + 1;
+  }
+
+  return Object.entries(postsByYear).flatMap(([year, count]) => {
+    const pages = Math.ceil(count / pageSize);
+    return Array.from({ length: pages }, (_, i) => ({
+      params: { year, page: `${i + 1}` },
+    }));
+  });
+}
+
+const { year, page } = Astro.params;
+const currentPage = parseInt(page, 10);
+const pageSize = 12;
+
+const { posts, totalPages } = await paginateBlogPostsByYear(
+  year,
+  currentPage,
+  pageSize,
+);
+---
+
+<Layout title={`Blog posts from ${year} – Page ${currentPage}`}>
+  <h1 class="mb-4">Posts from {year}</h1>
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
+    {posts.map(post => <ArticleCard post={post} />)}
+  </div>
+  <Pagination
+    currentPage={currentPage}
+    totalPages={totalPages}
+    basePath={`/blog/${year}/`}
+  />
+</Layout>

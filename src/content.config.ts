@@ -8,20 +8,35 @@ import MarkdownIt from 'markdown-it';
 
 import { file, glob } from 'astro/loaders';
 import setup from '@data/setup.json';
+import { buildOptionsSchema } from '@utils';
+
+/**
+ * Explicitly typed paths: override default (string) with custom type.
+ */
+export const explicitOptionTypes = {
+  'head.refresh': z.boolean(),
+  'head.datePublished': z.coerce.date(),
+  'seo.priority': z.number(),
+  'head.components': z.array(z.enum([
+    'lite-youtube',
+    'color-grid',
+    'date-diff',
+  ])),
+} as const;
+
+/**
+ * import type { PostData, OptionsData } from '@content/config'; // adjust path as needed
+
+function processOptions(options: OptionsData | undefined) {
+  const shouldRefresh = options?.head?.refresh ?? false;
+  const publishedAt = options?.head?.datePublished;
+  const priority = options?.seo?.priority ?? 0.5;
+}
+ */
+export const optionsSchema = buildOptionsSchema(explicitOptionTypes);
+export type OptionsData = z.infer<typeof optionsSchema>;
 
 const md = new MarkdownIt();
-
-// Reusable options schema
-export const allowedComponents = [
-  'lite-youtube',
-  'color-grid',
-  'date-diff',
-] as const;
-const optionsSchema = z.object({
-  head: z.object({
-    components: z.array(z.enum(allowedComponents)),
-  }),
-});
 
 export const blogSchema = z
   .object({
@@ -136,7 +151,12 @@ export const blogSchema = z
 
 // @todo blog post schema validation
 export const blog = defineCollection({
-  loader: glob({ base: './src/content/blog', pattern: '**/*.md' }),
+  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+  schema: () => blogSchema,
+});
+
+export const pages = defineCollection({
+  loader: glob({ base: './src/content/pages', pattern: '**/*.md' }),
   schema: () => blogSchema,
 });
 
@@ -223,6 +243,7 @@ export const til = {
 }
 
 export const collections = {
+  pages,
   blog,
   tags,
   ...playlistCollections,
@@ -230,3 +251,8 @@ export const collections = {
   social,
   githubReleases,
 };
+
+/**
+ * This could be used to infer the type of post.data in merged collections
+ */
+export type PostData = z.infer<typeof blogSchema>;

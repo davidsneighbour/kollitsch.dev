@@ -3,7 +3,7 @@
 
 import type { CollectionEntry } from 'astro:content';
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'blog'> | CollectionEntry<'pages'>;
 }
 
 import PostImage from '@components/PostImage.astro';

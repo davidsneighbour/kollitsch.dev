@@ -7,7 +7,7 @@ import type { ImageMetadata } from 'astro';
 
 // @ts-ignore markdown-it has no default export, we no fix upstream issues
 import MarkdownIt from 'markdown-it';
-import { log } from './helpers.ts';
+import { log } from '@utils';
 
 export function getEffectiveFrontmatter(
   props: Record<string, unknown>,
@@ -39,7 +39,7 @@ export function stripMarkup(str: string): string {
   return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
+export function resolveCover(post: CollectionEntry<'blog'> | CollectionEntry<'pages'>): CoverObject {
   const md = new MarkdownIt();
   const cover = post.data.cover;
 
@@ -47,6 +47,8 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   let title: string | undefined;
   let alt: string | undefined;
   let type: 'image' | 'video';
+
+  console.log(cover);
 
   // @todo we don't need to handle string covers because the schema already returns an object
   if (typeof cover === 'string') {

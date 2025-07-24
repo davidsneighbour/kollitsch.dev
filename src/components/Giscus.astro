@@ -1,42 +1,48 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'blog'> | CollectionEntry<'pages'>;
 }
 
 const { post } = Astro.props;
 ---
 
-<div id="giscus-section" class="section--comments" data-post={post.data.title}>
+<div
+  id="giscus-section"
+  class="section--comments"
+  data-post={post.data.title}
+>
   <section class="giscus mx-auto mt-10 w-full"></section>
 </div>
 <script>
-  let giscusSection = document.getElementById("giscus-section");
-  let giscusScript = document.createElement("script");
+  let giscusSection = document.getElementById('giscus-section');
+  let giscusScript = document.createElement('script');
   let giscusTheme = window.theme.getTheme();
   if (giscusSection) {
     let giscusAttributes = {
-      "src": "https://giscus.app/client.js",
-      "data-repo": "davidsneighbour/kollitsch.dev",
-      "data-repo-id": "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=",
-      "data-category": "Comments",
-      "data-category-id": "DIC_kwDOGDHt584B_i3-",
-      "data-mapping": "specific",
-      "data-term": giscusSection.dataset.post,
-      "data-loading": "lazy",
-      "data-input-position": "bottom",
-      "data-reactions-enabled": "1",
-      "data-emit-metadata": "0",
-      "data-theme": giscusTheme,
-      "data-lang": "en",
-      "crossorigin": "anonymous",
-      "async": "",
-      "fetchpriority": "high",
-      "defer": "",
-      "id": "giscus-script",
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'davidsneighbour/kollitsch.dev',
+      'data-repo-id': 'MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=',
+      'data-category': 'Comments',
+      'data-category-id': 'DIC_kwDOGDHt584B_i3-',
+      'data-mapping': 'specific',
+      'data-term': giscusSection.dataset.post,
+      'data-loading': 'lazy',
+      'data-input-position': 'bottom',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': giscusTheme,
+      'data-lang': 'en',
+      crossorigin: 'anonymous',
+      async: '',
+      fetchpriority: 'high',
+      defer: '',
+      id: 'giscus-script',
     };
     // @ts-ignore
-    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value as string),
+    );
     giscusSection.appendChild(giscusScript);
   }
 </script>

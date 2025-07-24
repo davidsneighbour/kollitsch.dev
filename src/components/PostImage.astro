@@ -10,11 +10,13 @@ import {
 import { Image } from 'astro:assets';
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'blog'> | CollectionEntry<'pages'>;
   classes?: string;
 }
 const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
   Astro.props;
+
+console.log(post);
 
 const coverImage = resolveCover(post);
 const imagePath = resolveImagePath(coverImage.src, post.id);

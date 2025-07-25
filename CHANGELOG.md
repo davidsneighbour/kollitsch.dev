@@ -1,4 +1,57 @@
-Changelog
+# Changelog
+## [2025.7.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.2...v2025.7.3) (2025-07-25)
+
+
+### Content
+
+* **fix:** "My Personal Website"... Muahahaha ([79b894b](https://github.com/davidsneighbour/kollitsch.dev/commit/79b894bc945b07d77f5c21c78c3ea489fb14f570))
+* **fix:** inline images in markdown fixes ([cf04e09](https://github.com/davidsneighbour/kollitsch.dev/commit/cf04e09d6bcfc0eaf9f35d934ffc0cb6c05b16f9))
+* **fix:** update privacy policy ([f6971b5](https://github.com/davidsneighbour/kollitsch.dev/commit/f6971b518333ee682763b3578abc80cd743ade6f))
+* **update:** add link for email ([68059ee](https://github.com/davidsneighbour/kollitsch.dev/commit/68059eeef734dafabc73ffec282e4f3a840fefbc))
+* **update:** fix phrasing and update media db ([4b95be9](https://github.com/davidsneighbour/kollitsch.dev/commit/4b95be938c11720afba48dafbacfc69b89ba0b99))
+
+
+### Theme
+
+* **feat:** add scrollbar design ([20766a1](https://github.com/davidsneighbour/kollitsch.dev/commit/20766a12c4e0d80887f210c846487f290ca75f53))
+* **fix:** a couple of fixes and refactors ([87a1b42](https://github.com/davidsneighbour/kollitsch.dev/commit/87a1b42654b5e377f9e3896ddf256c0eae912ba5))
+* **fix:** a night of programming with interloping changes ([6b96ce0](https://github.com/davidsneighbour/kollitsch.dev/commit/6b96ce01b5aef802c485e3ad4af15dcafb9318b1))
+* **fix:** add remove buttons to dev bar with localstorage ([0861728](https://github.com/davidsneighbour/kollitsch.dev/commit/0861728f077f9615effbd0d09ba6fdfddb61469a))
+* **fix:** extracting frontmatter based on availability ([483b180](https://github.com/davidsneighbour/kollitsch.dev/commit/483b180e9157e6420cb1ed0a08b93fe908056bb8))
+* **fix:** footer layout fixes for the visually unimpaired ([b0d50c7](https://github.com/davidsneighbour/kollitsch.dev/commit/b0d50c7bbfd4385596489441e2b2348db7c85d81))
+* **fix:** line-clamp ellipsis in link instead of heading ([42e83d1](https://github.com/davidsneighbour/kollitsch.dev/commit/42e83d192b156e7f5dab1c015d670a9ac528ffb4))
+* **fix:** move content into article tag for astro pages ([61f1f23](https://github.com/davidsneighbour/kollitsch.dev/commit/61f1f23f7504e754e6189c220d1f1baf02dd93af))
+* **fix:** optimize and Icon component and typecast props ([f038cae](https://github.com/davidsneighbour/kollitsch.dev/commit/f038caed4b72ce07b7130cef73729fa2e7fbebc9))
+* **fix:** remove ahrefs analytics ([b0c4c98](https://github.com/davidsneighbour/kollitsch.dev/commit/b0c4c983d22f879627b22d90695a7657bfa859c0))
+* **fix:** remove article component ([084273b](https://github.com/davidsneighbour/kollitsch.dev/commit/084273b8c0dd6fbe3d265e1b3178ac51945bea7d))
+* **fix:** remove barrel file for [@utils](https://github.com/utils) ([85703bd](https://github.com/davidsneighbour/kollitsch.dev/commit/85703bd09ee679cb53033f7dc43dd12413cb91d9))
+* **fix:** remove console.log calls ([26a0aaa](https://github.com/davidsneighbour/kollitsch.dev/commit/26a0aaa09dbdbb38cde4031c205e829b872445ad))
+* **fix:** remove DevOnly component ([50eb664](https://github.com/davidsneighbour/kollitsch.dev/commit/50eb664104457969fd8780dbc3ef08b845196cbd))
+* **fix:** remove pages collection and going back src/pages ([251af73](https://github.com/davidsneighbour/kollitsch.dev/commit/251af7376126d963588006655b85d3bb49b73923))
+* **fix:** replace section tag or make sure it has header ([d3204a1](https://github.com/davidsneighbour/kollitsch.dev/commit/d3204a186ef1eb8d2bed0560911f7cb748305561))
+* **fix:** theme switcher not initiating properly ([4d36e05](https://github.com/davidsneighbour/kollitsch.dev/commit/4d36e05cdfeae55c80ebc3d956363eec56ca3a71))
+
+
+### Refactors
+
+* remove some logging ([f9b6539](https://github.com/davidsneighbour/kollitsch.dev/commit/f9b6539439af6fabc446c767869d1e946ce38fa2))
+* rework logDebug() uses into log.debug() ([a7ab42c](https://github.com/davidsneighbour/kollitsch.dev/commit/a7ab42c31efab39756fce0a92f4e4cc645aa1b25))
+
+
+### Build System
+
+* **deps:** update dependencies ([5022484](https://github.com/davidsneighbour/kollitsch.dev/commit/502248451f12455672e3c99b9feccb1298c4bd30))
+* **fix:** add a header indicator to the changelog header ([80af80f](https://github.com/davidsneighbour/kollitsch.dev/commit/80af80ff121a906bf4438bd8ace9fe05acfef02a))
+* **frontmatter:** update FM config to point to images in assets ([e4d9ebe](https://github.com/davidsneighbour/kollitsch.dev/commit/e4d9ebe3e174e256e6f1a298648704e54ba3c6e7))
+* remove file logging from debug util ([fe2819b](https://github.com/davidsneighbour/kollitsch.dev/commit/fe2819ba7629582dd1b2f08eb4427616fd297663))
+
+
+### CI
+
+* update utils structure and add eslint rules ([4a954df](https://github.com/davidsneighbour/kollitsch.dev/commit/4a954df908694daab04fa63067a7176e1b5895de))
+* **vale:** disable Microsoft.GeneralURL ([94a99fc](https://github.com/davidsneighbour/kollitsch.dev/commit/94a99fc514ecd6bbde203e882308e40729914618))
+* **vale:** enable on astro files ([f914ea7](https://github.com/davidsneighbour/kollitsch.dev/commit/f914ea724ec31452b14dcd0d8f6ab0dff3f89864))
+
 ## [2025.7.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.1...v2025.7.2) (2025-07-22)
 
 

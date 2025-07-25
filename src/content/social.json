@@ -40,7 +40,8 @@
     "icon": "envelope",
     "id": "email",
     "label": "Email",
-    "share": "mailto:?subject=${title}&body=${description}%0A${url}"
+    "share": "mailto:?subject=${title}&body=${description}%0A${url}",
+    "url": "/connect/"
   },
   {
     "fill": "hover:text-[#1877f2]",

@@ -24,7 +24,7 @@ options:
 publisher: rework
 ---
 
-It's been a minute—so let's call this the slightly-belated-but-still-worth-it edition of interesting links around the web. From playful coding companions to government UFO footage, here are the latest (and overdue) links I was hording in my todo list that are worth checking out.
+It's been a minute—so let's call this the _slightly late but still worth it_ edition of interesting links around the web. From playful coding companions to government UFO footage, here are the latest (and overdue) links I was hording in my ToDo list that are worth checking out.
 
 ## Webdev
 

@@ -17,96 +17,94 @@ const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 ---
 
-<section
-  class="mt-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 dark:bg-gray-950"
->
-  <footer class={setup.classes.containers.main}>
-    <div class="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-6">
-      <aside class="p-4 text-center sm:col-span-2 md:col-span-3 md:text-left">
-        <h2 class="mb-4 text-xl">About</h2>
-        <p>
-          {setup.introduction}
-        </p>
-      </aside>
-      <aside class="p-4">
-        <Heading
-          level={3}
-          class="mb-4 text-center"
-          >Navigation</Heading
-        >
-        <ul
-          class="flex flex-row flex-wrap justify-center gap-2 p-4 sm:justify-end"
-        >
-          {
-            navData.map(value => (
-              <li>
-                <IconLink
-                  href={value.link}
-                  icon={value.icon}
-                >
-                  {value.label}
-                </IconLink>
-              </li>
-            ))
-          }
-        </ul>
-      </aside>
-      <aside class="p-4 md:col-span-2">
-        <Heading
-          level={3}
-          class="mb-4 text-center sm:text-right"
-          >Connect</Heading
-        >
-        <ul class="flex flex-row flex-wrap justify-center gap-2 sm:justify-end">
-          {
-            socialMediaData.map(value => (
-              <li>
-                <IconLink
-                  href={value.url}
-                  icon={value.icon as IconName}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {value.label}
-                </IconLink>
-              </li>
-            ))
-          }
-        </ul>
-      </aside>
-    </div>
+<footer class={setup.classes.containers.main}>
+  <div
+    class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 sm:grid-cols-2 md:grid-cols-6 dark:bg-gray-950"
+  >
+    <aside class="py-4 text-center sm:col-span-2 md:col-span-3 md:text-left">
+      <h2 class="mb-4 text-xl">About</h2>
+      <p>
+        {setup.introduction}
+      </p>
+    </aside>
+    <aside class="py-4">
+      <Heading
+        level={3}
+        class="mb-4 text-center"
+        >Navigation</Heading
+      >
+      <ul
+        class="flex flex-row flex-wrap justify-center gap-2 p-4 sm:justify-end"
+      >
+        {
+          navData.map(value => (
+            <li>
+              <IconLink
+                href={value.link}
+                icon={value.icon}
+              >
+                {value.label}
+              </IconLink>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+    <aside class="py-4 md:col-span-2">
+      <Heading
+        level={3}
+        class="mb-4 text-center sm:text-right"
+        >Connect</Heading
+      >
+      <ul class="flex flex-row flex-wrap justify-center gap-2 sm:justify-end">
+        {
+          socialMediaData.map(value => (
+            <li>
+              <IconLink
+                href={value.url}
+                icon={value.icon as IconName}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {value.label}
+              </IconLink>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+  </div>
 
-    <div
-      class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 lg:grid-cols-3"
+  <div
+    class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 lg:grid-cols-3"
+  >
+    <span class="text-center lg:text-left"
+      >&copy; <span id={footerYearId}>{currentYear}</span>
+      <a href={getHomepageUrl()}>{setup.title}</a></span
     >
-      <span class="text-center lg:text-left"
-        >&copy; <span id={footerYearId}>{currentYear}</span>
-        <a href={getHomepageUrl()}>{setup.title}</a></span
-      >
-      <span class="text-center">All rights reserved.</span>
-      <span class="text-center lg:text-right"
-        >Webwork done by <a href="https://davids-neighbour.com/"
-          >David's Neighbour</a
-        ></span
-      >
-    </div>
+    <span class="text-center">All rights reserved.</span>
+    <span class="text-center lg:text-right"
+      >Webwork done by <a href="https://davids-neighbour.com/"
+        >David's Neighbour</a
+      ></span
+    >
+  </div>
 
-    <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
-      <IconLink
-        href="/privacy-policy/"
-        icon="shield-check"
-      >
-        Privacy Policy
-      </IconLink>
-      <IconLink
-        href="/security-policy/"
-        icon="fingerprint"
-      >
-        Security Policy
-      </IconLink>
-    </div>
-  </footer>
-</section>
+  <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
+    <IconLink
+      href="/privacy-policy/"
+      icon="shield-check"
+    >
+      Privacy Policy
+    </IconLink>
+    <IconLink
+      href="/security-policy/"
+      icon="fingerprint"
+    >
+      Security Policy
+    </IconLink>
+  </div>
+</footer>
 
 <footer
   class="h-max-[8vw] overflow-y-hidden text-center"

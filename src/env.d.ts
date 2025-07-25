@@ -52,7 +52,7 @@ type MetaConfig = {
 type NavItem = {
   label: string;
   link: string;
-  icon: string;
+  icon: IconName;
   match?: 'full' | 'prefix';
   matchPaths?: string[];
   children?: NavItem[];

@@ -1,22 +1,52 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
 import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+import type { IconName } from '@utils/icon-names';
 
 type IconPosition = 'prefix' | 'postfix';
 
 type Props = {
-  icon: string;
+  icon: IconName;
   type?: IconPosition;
   class?: string;
+  translate?: boolean;
 } & HTMLAttributes<'a'>;
 
-// @todo make sure to add a class to the whole container, the icon or the slot
-const { type = 'prefix', icon, class: classes, ...attrs }: Props = Astro.props;
+const {
+  type = 'prefix',
+  icon,
+  class: iconClass = '',
+  ...allAttrs
+}: Props = Astro.props;
+
 const hasSlot = !!Astro.slots.default;
 ---
 
-<a href={attrs.href} class="flex items-center gap-2" translate="no" {...attrs}>
-  {type === 'prefix' && <Icon name={icon} class={classes} />}
-  {hasSlot && <span><slot /></span>}
-  {type === 'postfix' && <Icon name={icon} class={classes} />}
+<a
+  class="flex items-center gap-2"
+  {...allAttrs}
+>
+  {
+    type === 'prefix' && (
+      <Icon
+        name={icon}
+        class={iconClass}
+      />
+    )
+  }
+  {
+    hasSlot && (
+      <span>
+        <slot />
+      </span>
+    )
+  }
+  {
+    type === 'postfix' && (
+      <Icon
+        name={icon}
+        class={iconClass}
+      />
+    )
+  }
 </a>

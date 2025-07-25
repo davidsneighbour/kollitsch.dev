@@ -1,11 +1,12 @@
 ---
 import { getHomepageUrl } from '@utils/getHomepageUrl';
 import { generateUniqueHtmlId } from '@utils/helpers';
-import navData from '@data/navigation.json';
+import rawNavData from '@data/navigation.json';
 import socialMediaData from '@content/social.json';
 import IconLink from '@components/IconLink.astro';
 import Heading from '@components/Heading.astro';
 import setup from '@data/setup.json';
+import type { IconName } from '@utils/icon-names';
 
 const adjust = 1.9;
 const titleLength = setup.title.length;
@@ -13,6 +14,7 @@ const titleFontSize = Math.floor((100 / titleLength) * adjust); // Adjust font s
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
+const navData = rawNavData as Navigation;
 ---
 
 <section
@@ -61,7 +63,7 @@ const currentYear = new Date().getFullYear().toString();
               <li>
                 <IconLink
                   href={value.url}
-                  icon={value.icon}
+                  icon={value.icon as IconName}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

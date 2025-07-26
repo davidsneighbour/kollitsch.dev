@@ -31,7 +31,7 @@
   "id": "kollitsch-dev",
   "ignoreTags": ["100daystooffload"],
   "images": {
-    "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
+    "default": "./polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
   },
   "introduction": "I'm Patrick Kollitsch, building fast, flexible websites from my home on Koh Samui - yep, the one with palm trees and scooters. KOLLITSCH.dev is where smart code meets island life. I use GoHugo, Astro, and a healthy dose of sunlight to craft websites that work hard and look good doing it.",
   "listpages": {

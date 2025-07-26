@@ -29,27 +29,29 @@ export function formatISO8601Local(date: Date, tz?: string): string {
 
   // sv-SE locale is used to ensure the date is formatted in a consistent way
   const formatter = new Intl.DateTimeFormat('sv-SE', {
-    timeZone: timezone,
-    hour12: false,
-    year: 'numeric',
-    month: '2-digit',
     day: '2-digit',
     hour: '2-digit',
+    hour12: false,
     minute: '2-digit',
+    month: '2-digit',
     second: '2-digit',
+    timeZone: timezone,
+    year: 'numeric',
   });
 
   const parts = formatter.formatToParts(date);
-  const get = (type: string) => parts.find(p => p.type === type)?.value ?? '00';
+  const get = (type: string) =>
+    parts.find((p) => p.type === type)?.value ?? '00';
 
   const formatted = `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}`;
 
   if (tz === 'UTC') return `${formatted}Z`;
 
-  const offset = -date.getTimezoneOffset();
-  const sign = offset >= 0 ? '+' : '-';
-  const hh = String(Math.floor(Math.abs(offset) / 60)).padStart(2, '0');
-  const mm = String(Math.abs(offset) % 60).padStart(2, '0');
+  const tzDate = new Date(date.toLocaleString('en-US', { timeZone: timezone }));
+  const offsetMinutes = (tzDate.getTime() - date.getTime()) / 60000;
+  const sign = offsetMinutes >= 0 ? '+' : '-';
+  const hh = String(Math.floor(Math.abs(offsetMinutes) / 60)).padStart(2, '0');
+  const mm = String(Math.abs(offsetMinutes) % 60).padStart(2, '0');
 
   return `${formatted}${sign}${hh}:${mm}`;
 }

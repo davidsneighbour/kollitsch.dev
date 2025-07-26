@@ -3,34 +3,25 @@ import { Icon } from 'astro-icon/components';
 import networks from '@content/social.json';
 
 interface Props {
-  url?: string;
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   via?: string;
 }
 
 const shareNetworks = networks.filter(n => n.share);
 const { title, description }: Props = Astro.props;
 
-const vars = {
-  url: Astro.request.url,
-  title: title,
-  description: description,
+type ShareVars = {
+  url?: string;
+  title?: string;
+  description?: string;
 };
 
-export function applyTemplate(
-  template: string,
-  vars: Record<string, string | undefined>,
-): string {
-  return template.replace(/\${(encode:)?([^}]+)}/g, (_, encode, expression) => {
-    const expanded = expression.replace(
-      /\$\{([^}]+)}/g,
-      // @ts-expect-error -- 7006 _ has any type
-      (_, varName: string) => vars[varName] || '',
-    );
-    return encode ? encodeURIComponent(expanded) : (vars[expression] ?? '');
-  });
-}
+const vars: ShareVars = {
+  url: Astro.request.url,
+  title,
+  description,
+};
 ---
 
 <div class="relative my-8">
@@ -59,7 +50,9 @@ export function applyTemplate(
                   `;
           const extraClass = `${isFirst ? 'rounded-l-md' : ''} ${isLast ? 'rounded-r-md' : ''}`;
           const href = network.share
-            ? applyTemplate(network.share, vars)
+            ? network.share.replace(/\${([^}]+)}/g, (_, key) =>
+                encodeURIComponent(vars[key as keyof ShareVars] ?? '').replace(/%20/g, '+')
+              )
             : network.url;
 
           return (

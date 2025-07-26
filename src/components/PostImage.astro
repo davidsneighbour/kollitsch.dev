@@ -41,6 +41,7 @@ log.stop();
         alt={coverImage.alt}
         formats={['avif', 'webp', 'jpeg']}
         widths={[240, 540, 720, 890, 1080, 1280, 1440, 1920]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, (max-width: 1920px) 890px, (max-width: 2560px) 1080px, (max-width: 3840px) 1280px, (max-width: 5120px) 1440px, 1920px`}
         layout="constrained"
         class={classes}
         quality="high"

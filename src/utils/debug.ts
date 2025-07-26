@@ -19,42 +19,52 @@ function formatPrefix(label: string): string {
   return `${colors.timestamp}${time}${colors.reset} ${label}[dnb]${colors.reset}`;
 }
 
-function shouldLog(level: string): boolean {
-  if (level === 'error') return true;
-  const enabled = LOG_LEVELS.includes(level);
-  if (!enabled && !warnedLevels.has(level)) {
-    warnedLevels.add(level);
-    const msg = `${formatPrefix(colors.labelWarn)} ${colors.type}(info)${colors.reset} log level '${level}' disabled by LOG_LEVEL`;
-    console.log(msg);
-  }
-  return enabled;
-}
-
-function print(labelColor: string, level: string, ...args: unknown[]): void {
-  if (!shouldLog(level)) return;
-  const prefix = formatPrefix(labelColor);
-  for (const arg of args) {
-    const type = typeof arg;
-    const value =
-      type === 'object' ? JSON.stringify(arg, null, 2) : String(arg);
-    const line =
-      typeof arg === 'string'
-        ? `${prefix} ${arg}`
-        : `${prefix} ${colors.type}(${type})${colors.reset} ${value}`;
-    console.log(line);
-  }
-}
-
 /**
- * Logger utility with console + file output and level filtering.
- *
- * .env options:
- *   LOG_LEVEL=debug|note|warn
- *   LOG_FILE=astro-logging
+ * Creates an isolated logger instance that can be muted or resumed per import.
  */
-export const log = {
-  debug: (...args: unknown[]) => print(colors.labelDebug, 'debug', ...args),
-  error: (...args: unknown[]) => print(colors.labelError, 'error', ...args),
-  note: (...args: unknown[]) => print(colors.labelNote, 'note', ...args),
-  warn: (...args: unknown[]) => print(colors.labelWarn, 'warn', ...args),
-};
+export function createLogger() {
+  let muted = false;
+
+  function shouldLog(level: string): boolean {
+    if (muted) return false;
+    if (level === 'error') return true;
+    const enabled = LOG_LEVELS.includes(level);
+    if (!enabled && !warnedLevels.has(level)) {
+      warnedLevels.add(level);
+      const msg = `${formatPrefix(colors.labelWarn)} ${colors.type}(info)${colors.reset} log level '${level}' disabled by LOG_LEVEL`;
+      console.log(msg);
+    }
+    return enabled;
+  }
+
+  function print(labelColor: string, level: string, ...args: unknown[]): void {
+    if (!shouldLog(level)) return;
+    const prefix = formatPrefix(labelColor);
+    for (const arg of args) {
+      const type = typeof arg;
+      const value =
+        type === 'object' ? JSON.stringify(arg, null, 2) : String(arg);
+      const line =
+        typeof arg === 'string'
+          ? `${prefix} ${arg}`
+          : `${prefix} ${colors.type}(${type})${colors.reset} ${value}`;
+      console.log(line);
+    }
+  }
+
+  return {
+    debug: (...args: unknown[]) => print(colors.labelDebug, 'debug', ...args),
+    error: (...args: unknown[]) => print(colors.labelError, 'error', ...args),
+    note: (...args: unknown[]) => print(colors.labelNote, 'note', ...args),
+    warn: (...args: unknown[]) => print(colors.labelWarn, 'warn', ...args),
+    stop: () => {
+      muted = true;
+    },
+    start: () => {
+      muted = false;
+    },
+  };
+}
+
+// default global logger
+export const log = createLogger();

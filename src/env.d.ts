@@ -65,26 +65,6 @@ type NavItem = {
 type Navigation = NavItem[];
 
 /**
- * ImagePath type definition.
- *
- * @todo is this type necessary?
- */
-type ImagePath = string;
-
-/**
- * CoverObject interface defines the structure for cover elements in posts.
- * Currently just image source, alternative text, and an optional title.
- *
- * @todo type: undefined should be type: image by default?
- */
-interface CoverObject {
-  src: string;
-  alt: string;
-  title?: string | undefined;
-  type?: 'image' | 'video' | undefined;
-}
-
-/**
  * ThemeMode type definition.
  * Represents the possible theme modes for the site.
  */

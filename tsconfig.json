@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
@@ -19,10 +18,12 @@
       {
         "name": "@astrojs/ts-plugin"
       }
-    ],
-    "resolveJsonModule": true
+    ]
   },
-  "exclude": ["dist", "bak", "scratch", "src/scripts", "src/config", "public"],
-  "extends": "astro/tsconfigs/strictest",
-  "include": [".astro/types.d.ts", "**/*"]
+  "exclude": [
+    "dist",
+    "scratch",
+    "src/scripts"
+  ],
+  "extends": "astro/tsconfigs/strictest"
 }

@@ -6,8 +6,9 @@ import {
   resolveCover,
   resolveImagePath,
   resolveAstroImage,
-} from '@utils/utilities';
-import { Image } from 'astro:assets';
+} from '@utils/images';
+import { Picture } from 'astro:assets';
+import { log } from '@utils/debug';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -16,24 +17,33 @@ interface Props {
 const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
   Astro.props;
 
+log.start();
+log.stop();
+log.debug('POSTIMAGE GENERATION ###########################################');
+log.debug('COVER CONFIG', post.data.cover);
 const coverImage = resolveCover(post);
+log.debug('COVER RESOLVED', coverImage);
 const imagePath = resolveImagePath(coverImage.src, post.id);
+log.debug('IMAGE PATH RESOLVED', imagePath);
 const imageMeta: ImageMetadata | null = imagePath
   ? resolveAstroImage(imagePath)
   : null;
+log.debug('IMAGE META RESOLVED', imageMeta);
+log.debug('POSTIMAGE GENERATION ENDED######################################');
+log.stop();
 ---
 
 {
   imageMeta && (
     <figure class="group relative isolate z-10">
-      <Image
+      <Picture
         src={imageMeta}
         alt={coverImage.alt}
-        width="1280"
-        height="640"
-        loading="lazy"
+        formats={['avif', 'webp', 'jpeg']}
+        widths={[240, 540, 720, 890, 1080, 1280, 1440, 1920]}
         layout="constrained"
         class={classes}
+        quality="high"
         priority
       />
       {coverImage.title && (

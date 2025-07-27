@@ -119,7 +119,8 @@ const isDev = import.meta.env.DEV;
         const visible =
           computed.display !== 'none' &&
           computed.visibility !== 'hidden' &&
-          node.getAttribute('aria-hidden') !== 'true';
+          node.getAttribute('aria-hidden') !== 'true' &&
+          !node.classList.contains('sr-only');
 
         headings.push({
           level,

@@ -8,9 +8,9 @@ const isDev = import.meta.env.DEV;
   isDev && (
     <div
       id="responsive-ruler"
-      class="hover:transparent font-jetbrainsmono fixed right-0 bottom-0 left-0 z-50 flex cursor-pointer flex-row justify-between gap-4 bg-gray-400 p-4 text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
+      class="group font-jetbrainsmono hover:transparent fixed right-0 bottom-0 left-0 z-50 flex cursor-pointer flex-row justify-between gap-4 bg-gray-400 p-4 text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
     >
-      <div class="">
+      <div>
         <Icon
           name="display"
           class="inline-block"
@@ -22,6 +22,23 @@ const isDev = import.meta.env.DEV;
         <div class="hidden xl:inline-block 2xl:hidden">XL</div>
         <div class="hidden 2xl:inline-block">2XL</div>
       </div>
+
+      <div
+        class="max-h-[30vh] w-full overflow-auto text-sm"
+        id="heading-audit"
+      >
+        <button
+          id="load-heading-audit"
+          class="rounded bg-gray-600 px-2 py-1 text-white group-hover:!bg-gray-600 group-hover:!opacity-100 hover:bg-gray-700"
+        >
+          Audit Headings
+        </button>
+        <div
+          id="heading-audit-results"
+          class="mt-2 space-y-1"
+        />
+      </div>
+
       <div class="mt-2 flex gap-4 text-sm">
         <button
           id="hide-devbar"
@@ -47,19 +64,81 @@ const isDev = import.meta.env.DEV;
     const devBar = document.getElementById('responsive-ruler');
     const hideOnce = document.getElementById('hide-devbar');
     const hidePermanently = document.getElementById('hide-devbar-permanently');
+    const loadBtn = document.getElementById('load-heading-audit');
+    const resultsContainer = document.getElementById('heading-audit-results');
 
     if (localStorage.getItem('hideDevBar') === 'true' && devBar) {
       devBar.remove();
       return;
     }
 
-    hideOnce?.addEventListener('click', () => {
-      devBar?.remove();
-    });
-
+    hideOnce?.addEventListener('click', () => devBar?.remove());
     hidePermanently?.addEventListener('click', () => {
       localStorage.setItem('hideDevBar', 'true');
       devBar?.remove();
+    });
+
+    let auditRun = false;
+
+    loadBtn?.addEventListener('click', () => {
+      if (!auditRun) {
+        // Remove hover effects from bar
+        devBar?.classList.remove('hover:opacity-10', 'hover:transparent');
+        auditRun = true;
+      }
+
+      resultsContainer.innerHTML = '';
+
+      const headings = [];
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_ELEMENT,
+        {
+          acceptNode(node) {
+            const tag = node.tagName?.toLowerCase();
+            const isSemantic = /^h[1-6]$/.test(tag);
+            const isAria =
+              node.getAttribute?.('role') === 'heading' &&
+              node.hasAttribute('aria-level');
+            return isSemantic || isAria
+              ? NodeFilter.FILTER_ACCEPT
+              : NodeFilter.FILTER_SKIP;
+          },
+        },
+      );
+
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        const tag = node.tagName?.toLowerCase();
+        const isAria = node.getAttribute('role') === 'heading';
+        const level = isAria
+          ? parseInt(node.getAttribute('aria-level'), 10)
+          : parseInt(tag.slice(1), 10);
+        const text = node.textContent?.trim() || '(empty)';
+        const computed = window.getComputedStyle(node);
+        const visible =
+          computed.display !== 'none' &&
+          computed.visibility !== 'hidden' &&
+          node.getAttribute('aria-hidden') !== 'true';
+
+        headings.push({
+          level,
+          text,
+          visible,
+          source: isAria ? 'aria' : tag,
+          node,
+        });
+      }
+
+      for (const h of headings) {
+        const el = document.createElement('div');
+        el.innerHTML = `<strong>H${h.level}</strong>: ${h.text} <span class="text-xs">[${h.visible ? 'visible' : 'hidden'}]</span>`;
+        el.classList.add('cursor-pointer', 'hover:underline');
+        el.addEventListener('click', () => {
+          h.node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        resultsContainer.appendChild(el);
+      }
     });
   });
 </script>

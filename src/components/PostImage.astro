@@ -10,6 +10,7 @@ import {
 import { Picture } from 'astro:assets';
 import { log } from '@utils/debug';
 import musicData from '@data/music.json';
+import defaultCoverImage from '@assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -18,7 +19,7 @@ interface Props {
 const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
   Astro.props;
 log.start();
-// log.stop();
+log.stop();
 log.debug('POSTIMAGE GENERATION ###########################################');
 log.debug('COVER CONFIG', post.data.cover);
 const cover = resolveCover(post);
@@ -28,7 +29,7 @@ if (cover.src) {
   log.debug('COVER IMAGE SRC', cover.src);
   const imagePath = resolveImagePath(cover.src, post.id);
   log.debug('IMAGE PATH RESOLVED', imagePath);
-  imageMeta = imagePath ? resolveAstroImage(imagePath) : null;
+  imageMeta = imagePath ? resolveAstroImage(imagePath) : defaultCoverImage;
   log.debug('IMAGE META RESOLVED', imageMeta);
 }
 log.debug('POSTIMAGE GENERATION ENDED######################################');

@@ -11,7 +11,6 @@ tags:
   - useless-knowledge
   - quicky
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./ave-calvar-MRAu_cKpVqI-unsplash.jpg
   type: image

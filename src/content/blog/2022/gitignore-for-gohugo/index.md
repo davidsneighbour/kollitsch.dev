@@ -14,7 +14,6 @@ tags:
   - 100daystooffload
 aliases:
   - /blog/2021/gitignore-for-gohugo/
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

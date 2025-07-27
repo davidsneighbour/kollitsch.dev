@@ -12,7 +12,6 @@ type: music
 resources:
   - src: header.jpg
 
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

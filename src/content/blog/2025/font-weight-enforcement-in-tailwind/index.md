@@ -12,7 +12,6 @@ tags:
   - tailwindcss
   - how-to
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./the-quick-brown-fox.png
   type: image

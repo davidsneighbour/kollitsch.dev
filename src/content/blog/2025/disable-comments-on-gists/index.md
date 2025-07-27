@@ -21,7 +21,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: abcdefghijk
-fmContentType: blog
 cover:
   src: ./roman-synkevych-wX2L8L-fGeA-unsplash.jpg
   type: image

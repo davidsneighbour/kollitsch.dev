@@ -11,7 +11,6 @@ tags:
   - link
   - earth
   - logging
-fmContentType: blog
 cover:
   src: ./earths-black-box.jpg
   type: image

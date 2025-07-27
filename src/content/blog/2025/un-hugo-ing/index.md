@@ -6,7 +6,6 @@ date: 2025-05-02T09:11:40+07:00
 tags:
   - gohugo
   - davidsneighbour
-fmContentType: blog
 publisher: rework
 ---
 

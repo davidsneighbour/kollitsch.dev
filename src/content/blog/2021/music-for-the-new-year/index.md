@@ -10,7 +10,6 @@ resources:
 tags:
   - programming-music
 type: music
-fmContentType: blog
 cover:
   src: ./hero.png
   type: video

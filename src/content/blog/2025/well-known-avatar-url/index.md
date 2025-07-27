@@ -18,7 +18,6 @@ tags:
   - internals
   - well-known
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./imkara-visual-3blY8iC2o5M-unsplash.jpg
   type: image

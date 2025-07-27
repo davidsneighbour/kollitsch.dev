@@ -18,7 +18,6 @@ tags:
   - frontmatter
   - gohugo
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./frontmatter.png
   type: image

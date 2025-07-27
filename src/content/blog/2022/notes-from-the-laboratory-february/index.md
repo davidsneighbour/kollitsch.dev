@@ -18,7 +18,6 @@ tags:
   - 100daystooffload
 aliases:
   - /blog/2022/notes-from-the-laboratory-february-2022
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

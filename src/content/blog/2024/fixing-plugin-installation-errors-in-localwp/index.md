@@ -19,7 +19,6 @@ tags:
   - ubuntu-2404
   - howto
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.png
   type: image

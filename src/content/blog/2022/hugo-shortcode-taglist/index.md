@@ -19,7 +19,6 @@ tags:
   - gohugo
   - shortcode
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./joanna-kosinska-1_CMoFsPfso-unsplash.jpg
   type: image

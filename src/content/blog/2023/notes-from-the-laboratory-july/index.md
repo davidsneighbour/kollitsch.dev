@@ -18,7 +18,6 @@ tags:
   - 100daystooffload
 aliases:
   - /notes-from-the-laboratory-july-2023
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

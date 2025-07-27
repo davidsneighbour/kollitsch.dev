@@ -16,7 +16,6 @@ tags:
   - feature
   - project-management
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./yancy-min-842ofHC6MaI-unsplash.jpg
   type: image

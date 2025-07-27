@@ -12,7 +12,6 @@ resources:
   - src: header.jpg
     title: Silent Lucidity
 
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

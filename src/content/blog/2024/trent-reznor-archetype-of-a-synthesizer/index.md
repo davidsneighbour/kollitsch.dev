@@ -16,7 +16,6 @@ tags:
   - nine-inch-nails
   - synthesizer
   - 100daystooffload
-fmContentType: blog
 publisher: rework
 cover:
   src: ./header.jpg

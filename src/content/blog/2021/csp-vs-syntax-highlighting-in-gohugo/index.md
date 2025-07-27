@@ -18,7 +18,6 @@ tags:
   - syntaxhighlighting
   - sri
   - csp
-fmContentType: blog
 cover:
   src: ./christopher-gower-m_HRfLhgABo-unsplash.jpg
   type: image

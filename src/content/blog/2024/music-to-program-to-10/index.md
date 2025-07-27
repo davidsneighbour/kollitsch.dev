@@ -11,7 +11,6 @@ resources:
   - src: header.jpg
 
 date: 2024-08-25T18:41:03+07:00
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

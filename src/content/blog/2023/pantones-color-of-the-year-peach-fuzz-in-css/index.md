@@ -20,7 +20,6 @@ options:
       - color-grid
 unsplash:
   imageid: abcdefghijk
-fmContentType: blog
 cover:
   src: ./pantone-color-of-the-year-2024-article-1-image-1.webp
   type: image

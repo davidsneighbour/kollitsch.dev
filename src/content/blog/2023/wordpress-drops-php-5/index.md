@@ -15,7 +15,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: Zk--Ydz2IAs
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

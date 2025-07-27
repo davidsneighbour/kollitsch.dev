@@ -25,7 +25,6 @@ cover:
   video:
     youtube: T3F0Nt6ssLU
     title: Exploding Kittens - Official Trailer
-fmContentType: blog
 publisher: rework
 ---
 

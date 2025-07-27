@@ -20,7 +20,6 @@ resources:
   - src: header.jpg
 
 date: 2024-01-02T17:26:42+07:00
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

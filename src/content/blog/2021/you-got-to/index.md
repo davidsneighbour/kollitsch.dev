@@ -8,7 +8,6 @@ resources:
 tags:
   - newsletter
   - web-development
-fmContentType: blog
 cover:
   src: ./stefanjudis.com.jpg
   type: image

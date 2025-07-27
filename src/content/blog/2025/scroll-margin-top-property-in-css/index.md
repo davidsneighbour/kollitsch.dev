@@ -16,7 +16,6 @@ tags:
   - howto
   - hacks
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./getty-images-ltpb_WinC3Y-unsplash.jpg
   type: image

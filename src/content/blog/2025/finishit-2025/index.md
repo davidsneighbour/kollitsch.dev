@@ -11,7 +11,6 @@ tags:
   - self-improvement
   - kollitsch-dev
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./alexander-mils-ULL-cyKjpd4-unsplash.jpg
   type: image

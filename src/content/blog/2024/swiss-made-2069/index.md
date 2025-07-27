@@ -17,7 +17,6 @@ tags:
   - movies
   - 100daystooffload
 
-fmContentType: blog
 cover:
   src: ./swiss-made-2069.jpg
   type: video

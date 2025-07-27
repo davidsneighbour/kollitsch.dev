@@ -17,7 +17,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: pile-of-rubber-duckies-59yg_LpcvzQ
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

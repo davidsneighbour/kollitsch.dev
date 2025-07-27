@@ -18,7 +18,6 @@ tags:
   - troubleshooting
   - forensics
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./docker-forensics.png
   type: image

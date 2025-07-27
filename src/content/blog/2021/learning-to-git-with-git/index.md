@@ -11,7 +11,6 @@ tags:
   - git
   - learning
   - quicklink
-fmContentType: blog
 cover:
   src: ./yancy-min-842ofHC6MaI-unsplash.jpg
   type: image

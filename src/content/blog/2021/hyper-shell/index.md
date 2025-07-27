@@ -11,7 +11,6 @@ tags:
   - shell
   - electron
   - link
-fmContentType: blog
 cover:
   src: ./hyper-shell.png
   type: image

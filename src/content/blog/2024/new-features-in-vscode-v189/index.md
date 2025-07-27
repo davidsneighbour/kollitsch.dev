@@ -13,7 +13,6 @@ tags:
   - vscode
   - code-editor
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

@@ -12,7 +12,6 @@ tags:
   - developer-fonts
   - typography
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.png
   type: image

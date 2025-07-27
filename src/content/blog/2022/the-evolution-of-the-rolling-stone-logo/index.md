@@ -13,7 +13,6 @@ tags:
   - links
   - design
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./Rolling-Stone-1967-logo.png
   type: image

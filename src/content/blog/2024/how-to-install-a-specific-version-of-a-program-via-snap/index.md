@@ -17,7 +17,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: B0aJBySo8dc
-fmContentType: blog
 cover:
   src: ./kumas_taverne-B0aJBySo8dc-unsplash.jpg
   type: image

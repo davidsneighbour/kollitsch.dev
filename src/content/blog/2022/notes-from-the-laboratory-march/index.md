@@ -16,7 +16,6 @@ tags:
   - self-improvement
   - davidsneighbour
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

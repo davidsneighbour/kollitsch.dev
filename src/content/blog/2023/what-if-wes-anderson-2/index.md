@@ -17,7 +17,6 @@ resources:
   - src: header.jpg
     title: What if Wes Anderson directed a horror movie?
 
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

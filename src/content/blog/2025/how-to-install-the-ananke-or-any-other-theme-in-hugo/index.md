@@ -14,7 +14,6 @@ tags:
   - gohugo
   - howto
   - 100DaysToOffload
-fmContentType: blog
 cover:
   src: ./ave-calvar-HcUDHJfd5GY-unsplash.jpg
   type: image

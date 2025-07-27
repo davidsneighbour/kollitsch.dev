@@ -13,7 +13,6 @@ resources:
     title: Pomplamoose does Moby
 type: video
 
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

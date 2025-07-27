@@ -12,7 +12,6 @@ tags:
   - tag2
   - tag3
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./hugo-0.131.0.png
   type: image

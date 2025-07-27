@@ -11,7 +11,6 @@ resources:
 tags:
   - todo
   - me-now
-fmContentType: blog
 cover:
   src: ./glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg
   type: image

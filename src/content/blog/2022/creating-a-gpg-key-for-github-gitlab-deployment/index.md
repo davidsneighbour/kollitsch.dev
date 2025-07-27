@@ -14,7 +14,6 @@ tags:
   - security
   - github
   - gitlab
-fmContentType: blog
 cover:
   src: ./mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
   type: image

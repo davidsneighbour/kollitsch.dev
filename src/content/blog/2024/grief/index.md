@@ -23,7 +23,6 @@ cover:
   video:
     youtube: EVlXbiP4x2E
     title: Andrew Garfield and Elmo Explain Grief
-fmContentType: blog
 publisher: rework
 ---
 

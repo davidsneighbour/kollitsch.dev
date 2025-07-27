@@ -16,7 +16,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: robot-playing-piano-U3sOwViXhkY
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

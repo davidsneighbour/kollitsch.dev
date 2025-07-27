@@ -16,7 +16,6 @@ resources:
 tags:
   - bash
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
   type: image

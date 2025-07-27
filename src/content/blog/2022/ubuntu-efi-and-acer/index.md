@@ -18,7 +18,6 @@ tags:
   - uefi
   - efi
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
   type: image

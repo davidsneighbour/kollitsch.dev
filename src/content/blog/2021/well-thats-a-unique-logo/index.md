@@ -14,7 +14,6 @@ tags:
   - davidsneighbour
   - me-now
   - logos
-fmContentType: blog
 cover:
   src: ./logo.png
   type: image

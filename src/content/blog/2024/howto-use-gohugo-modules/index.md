@@ -23,7 +23,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: pswcXNE8690
-fmContentType: blog
 cover:
   src: ./nigel-hoare-pswcXNE8690-unsplash.jpg
   type: image

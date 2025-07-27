@@ -13,7 +13,6 @@ tags:
   - configuration
   - howto
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./resource-database-qvbZz5rKAxI-unsplash.jpg
   title: TOML - the misunderstood middle-child of configuration

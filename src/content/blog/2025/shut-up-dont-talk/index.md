@@ -12,7 +12,6 @@ tags:
   - video
   - 100daystooffload
 type: video
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

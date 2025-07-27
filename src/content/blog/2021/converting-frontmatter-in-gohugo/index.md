@@ -11,7 +11,6 @@ resources:
       Photo by [Ferenc Almasi](https://unsplash.com/@flowforfrank) via
       [Unsplash](https://unsplash.com)
 description: 'How to convert frontmatter in GoHugo between TOML, YAML and JSON.'
-fmContentType: blog
 cover:
   src: ./ferenc-almasi-HfFoo4d061A-unsplash.jpg
   type: image

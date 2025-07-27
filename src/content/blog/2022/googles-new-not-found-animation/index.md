@@ -8,7 +8,6 @@ resources:
 tags:
   - google
   - webdesign
-fmContentType: blog
 cover:
   src: ./header.png
   type: image

@@ -14,7 +14,6 @@ tags:
   - davidsneighbour
 aliases:
   - /100daystooffload
-fmContentType: blog
 cover:
   src: ./marcel-eberle-SCBREPQuYoM-unsplash.jpg
   type: image

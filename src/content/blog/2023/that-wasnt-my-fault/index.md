@@ -9,7 +9,6 @@ tags:
   - star-trek
   - picard
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.png
   type: image

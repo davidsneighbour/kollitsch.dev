@@ -14,7 +14,6 @@ tags:
   - vscode
   - how-to
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

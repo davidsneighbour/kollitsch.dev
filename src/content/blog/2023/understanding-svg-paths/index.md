@@ -13,7 +13,6 @@ tags:
   - course
   - 100daystooffload
 type: link
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: image

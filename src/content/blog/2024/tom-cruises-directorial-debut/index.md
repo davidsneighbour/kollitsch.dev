@@ -18,7 +18,6 @@ tags:
   - tom-cruise
   - video
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.jpg
   type: video

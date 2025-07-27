@@ -12,7 +12,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: A-V2Vb6R9NQ
-fmContentType: blog
 cover:
   src: ./johannes-mandle-A-V2Vb6R9NQ-unsplash.jpg
   type: image

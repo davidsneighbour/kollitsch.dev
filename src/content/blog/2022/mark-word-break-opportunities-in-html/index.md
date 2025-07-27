@@ -14,7 +14,6 @@ tags:
   - html
   - today-i-learned
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./header.png
   type: image

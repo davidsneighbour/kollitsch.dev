@@ -22,7 +22,6 @@ cover:
   video:
     youtube: tUSRyAha37w
     title: 100 Years of Meisterstück
-fmContentType: blog
 publisher: rework
 ---
 

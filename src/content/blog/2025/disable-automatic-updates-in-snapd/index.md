@@ -12,7 +12,6 @@ tags:
   - snapd
   - gohugo
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./markus-winkler-qPjV8XaXPTQ-unsplash.jpg
   type: image

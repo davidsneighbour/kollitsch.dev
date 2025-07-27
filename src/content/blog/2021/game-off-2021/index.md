@@ -12,7 +12,6 @@ tags:
   - javascript
   - projects
   - planning
-fmContentType: blog
 cover:
   src: ./hero.png
   type: image

@@ -12,7 +12,6 @@ tags:
   - static-websites
   - giscus
   - git
-fmContentType: blog
 cover:
   src: ./gerry-roarty-slkENpP5PbI-unsplash.jpg
   type: image

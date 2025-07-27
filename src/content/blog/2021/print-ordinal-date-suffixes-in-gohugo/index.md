@@ -14,7 +14,6 @@ tags:
   - ordinals
   - dateformat
   - gohugo
-fmContentType: blog
 cover:
   src: ./mick-haupt-ePHz9WOME0c-unsplash.jpg
   type: image

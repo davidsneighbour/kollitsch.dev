@@ -14,7 +14,6 @@ tags:
   - how-to
   - development
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image

@@ -19,7 +19,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: l2nY0rP07DI
-fmContentType: blog
 cover:
   src: ./curated-lifestyle-l2nY0rP07DI-unsplash.jpg
   type: image

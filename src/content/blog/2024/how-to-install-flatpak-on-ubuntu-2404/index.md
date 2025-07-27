@@ -18,7 +18,6 @@ tags:
   - flatpak
   - quicky
   - 100daystooffload
-fmContentType: blog
 cover:
   src: ./getty-images-Hh_4mKRYAPM-unsplash.jpg
   type: image

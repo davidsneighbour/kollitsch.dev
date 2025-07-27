@@ -25,7 +25,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: yGPxCYPS8H4
-fmContentType: blog
 cover:
   src: ./clint-patterson-yGPxCYPS8H4-unsplash.jpg
   type: image

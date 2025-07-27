@@ -13,6 +13,7 @@ resources:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: 3We_dXYnjK0
     artist: dannykreutzfeldt

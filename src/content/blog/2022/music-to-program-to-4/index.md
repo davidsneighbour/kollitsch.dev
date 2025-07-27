@@ -12,6 +12,7 @@ resources:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: oQ10_EzMvtQ
     artist: rammstein

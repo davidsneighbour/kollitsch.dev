@@ -18,6 +18,7 @@ tags:
 publisher: rework
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: zAGtlgwFdhM
     title: Trent Reznor - Archetype of a synthesizer

@@ -18,6 +18,7 @@ resources:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: d-8DT5Q8kzI
     title: What if Wes Anderson directed a Star Wars movie?

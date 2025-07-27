@@ -21,6 +21,7 @@ tags:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: 5R-rbzcEM8A
     title: Bambi Meets Godzilla

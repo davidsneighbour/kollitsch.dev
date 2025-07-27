@@ -13,6 +13,7 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
+  type: video
   video:
     title: Shut Up, Don't Talk
     youtube: GSIB8W3KGsM

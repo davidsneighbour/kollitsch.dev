@@ -20,6 +20,7 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: T3F0Nt6ssLU
     title: Exploding Kittens - Official Trailer

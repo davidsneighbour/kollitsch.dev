@@ -13,6 +13,7 @@ resources:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: jhat-xUQ6dw
     artist: queensryche

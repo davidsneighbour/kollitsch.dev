@@ -10,6 +10,7 @@ resources:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: 49FXjBiccG4
     artist: chromatics

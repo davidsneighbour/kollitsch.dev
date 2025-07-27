@@ -10,6 +10,7 @@ resources:
   - src: header.jpg
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: iFi0n_odlh8
     artist: irisarri

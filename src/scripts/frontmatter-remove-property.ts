@@ -1,26 +1,30 @@
-// src/scripts/remove-frontmatter-key.ts
 import { glob } from 'glob';
 import fs from 'fs';
 import path from 'path';
 
 /**
  * Removes a single-line frontmatter key if present.
- * Skips any multi-line values or nested blocks.
+ * Only affects YAML frontmatter at the top of the file.
  *
  * @param content - The full file content as a string
  * @param key - Frontmatter key to remove
  * @returns The transformed content
  */
 function removeFrontmatterKey(content: string, key: string): string {
-  const keyRegex = new RegExp(`^${key}:.*$`);
   const lines = content.split('\n');
-  const newLines: string[] = [];
+  if (lines[0] !== '---') return content;
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (keyRegex.test(line.trim())) continue;
-    newLines.push(line);
-  }
+  const end = lines.findIndex((line, i) => i > 0 && line === '---');
+  if (end === -1) return content;
+
+  const keyRegex = new RegExp(`^${key}:\\s?.*`);
+
+  const newLines = [
+    lines[0],
+    ...lines.slice(1, end).filter(line => !keyRegex.test(line.trim())),
+    lines[end],
+    ...lines.slice(end + 1),
+  ];
 
   return newLines.join('\n');
 }
@@ -28,7 +32,7 @@ function removeFrontmatterKey(content: string, key: string): string {
 // CONFIG
 const TARGET_DIR = './src/content/blog';
 const FILE_GLOB = '**/*.md';
-const FRONTMATTER_KEY = 'type';
+const FRONTMATTER_KEY = 'fmContentType';
 
 const files = await glob(FILE_GLOB, {
   cwd: TARGET_DIR,

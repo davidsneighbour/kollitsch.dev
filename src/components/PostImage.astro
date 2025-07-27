@@ -17,20 +17,20 @@ interface Props {
 }
 const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
   Astro.props;
-
 log.start();
-log.stop();
+// log.stop();
 log.debug('POSTIMAGE GENERATION ###########################################');
 log.debug('COVER CONFIG', post.data.cover);
-const coverImage = resolveCover(post);
 const cover = resolveCover(post);
-log.debug('COVER RESOLVED', coverImage);
-const imagePath = resolveImagePath(coverImage.src, post.id);
-log.debug('IMAGE PATH RESOLVED', imagePath);
-const imageMeta: ImageMetadata | null = imagePath
-  ? resolveAstroImage(imagePath)
-  : null;
-log.debug('IMAGE META RESOLVED', imageMeta);
+log.debug('COVER RESOLVED', cover);
+let imageMeta: ImageMetadata | null = null;
+if (cover.src) {
+  log.debug('COVER IMAGE SRC', cover.src);
+  const imagePath = resolveImagePath(cover.src, post.id);
+  log.debug('IMAGE PATH RESOLVED', imagePath);
+  imageMeta = imagePath ? resolveAstroImage(imagePath) : null;
+  log.debug('IMAGE META RESOLVED', imageMeta);
+}
 log.debug('POSTIMAGE GENERATION ENDED######################################');
 log.stop();
 ---
@@ -69,7 +69,7 @@ log.stop();
       <figure class="group relative isolate z-10">
         <Picture
           src={imageMeta}
-          alt={coverImage.alt}
+          alt={cover.alt}
           formats={['avif', 'webp', 'jpeg']}
           widths={[240, 540, 720, 890, 1080, 1280, 1440, 1920]}
           sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, (max-width: 1920px) 890px, (max-width: 2560px) 1080px, (max-width: 3840px) 1280px, (max-width: 5120px) 1440px, 1920px`}
@@ -78,10 +78,10 @@ log.stop();
           quality="high"
           priority
         />
-        {coverImage.title && (
+        {cover.title && (
           <figcaption
             transition:animate="slide"
-            set:html={coverImage.title}
+            set:html={cover.title}
             class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
           />
         )}

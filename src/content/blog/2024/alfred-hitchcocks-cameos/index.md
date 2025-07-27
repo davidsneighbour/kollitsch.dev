@@ -20,6 +20,7 @@ tags:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: _YbaOkiMiRQ
     title: Alfred Hitchcock Cameos

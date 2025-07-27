@@ -16,6 +16,7 @@ tags:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: kYxheEGl2oM
     title: "Patch Notes: Hélène Vogelsinger"

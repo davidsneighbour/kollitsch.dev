@@ -19,7 +19,7 @@ import MarkdownIt from 'markdown-it';
  * @todo type: undefined should be type: image by default?
  */
 interface CoverObject {
-  src: string;
+  src?: string;
   alt: string;
   title?: string | undefined;
   type: 'image' | 'video';
@@ -81,11 +81,11 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   if (type === 'video' && cover.video) {
     return {
       type,
-      src, // still keep image fallback or preview if needed
+      // src, // still keep image fallback or preview if needed
       alt: stripMarkup(cover.video.title),
       title: undefined,
       video: {
-        artist: cover.video.artist,
+        artist: cover.video.artist ?? 'undefined',
         title: cover.video.title,
         youtube: cover.video.youtube,
       },

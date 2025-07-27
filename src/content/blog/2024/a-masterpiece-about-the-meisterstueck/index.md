@@ -17,6 +17,7 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: tUSRyAha37w
     title: 100 Years of Meisterstück

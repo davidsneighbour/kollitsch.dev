@@ -13,6 +13,7 @@ resources:
 
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: 7iYCBlJ-33o
     artist: ben-lukas-boysen

@@ -11,6 +11,7 @@ tags:
   - programming-music
 cover:
   src: ./hero.png
+  type: video
   video:
     artist: khruangbin
     title: Khruangbin @ Villain | Pitchfork Live

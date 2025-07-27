@@ -19,6 +19,7 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: mAZXRpPX-hI
     title: Tom Cruise's Directorial Debut

@@ -21,6 +21,7 @@ resources:
 date: 2024-01-02T17:26:42+07:00
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: CNfmij_Cpq8
     artist: above-and-beyond

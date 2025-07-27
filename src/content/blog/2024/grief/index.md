@@ -18,6 +18,7 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
+  type: video
   video:
     youtube: EVlXbiP4x2E
     title: Andrew Garfield and Elmo Explain Grief

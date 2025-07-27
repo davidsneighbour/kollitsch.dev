@@ -71,18 +71,10 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   let alt: string | undefined;
   let type: 'image' | 'video';
 
-  // @todo we don't need to handle string covers because the schema already returns an object
-  if (typeof cover === 'string') {
-    src = cover;
-    title = post.data.title;
-    type = 'image';
-  } else {
-    src = cover?.src;
-    title = cover?.title;
-    type = (cover && 'type' in cover ? cover.type : 'image') as
-      | 'image'
-      | 'video';
-  }
+  // retrieving cover properties
+  src = cover?.src;
+  title = cover?.title;
+  type = (cover && 'type' in cover ? cover.type : 'image') as 'image' | 'video';
 
   if (!src) {
     src = setup.images.default;

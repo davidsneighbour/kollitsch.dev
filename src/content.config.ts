@@ -18,15 +18,6 @@ export const explicitOptionTypes = {
   ),
 } as const;
 
-/**
- * import type { PostData, OptionsData } from '@content/config'; // adjust path as needed
-
-function processOptions(options: OptionsData | undefined) {
-  const shouldRefresh = options?.head?.refresh ?? false;
-  const publishedAt = options?.head?.datePublished;
-  const priority = options?.seo?.priority ?? 0.5;
-}
- */
 export const optionsSchema = buildOptionsSchema(explicitOptionTypes);
 export type OptionsData = z.infer<typeof optionsSchema>;
 
@@ -39,17 +30,6 @@ export const blogSchema = z
       .optional()
       .transform((val) => (typeof val === 'string' ? [val] : val)),
     cover: z
-      // @todo revert to union once the issue/PR is resolved
-      // @see https://github.com/estruyf/vscode-front-matter/issues/958
-      // @see https://github.com/estruyf/vscode-front-matter/pull/960
-      // .union([
-      //   z.string(),
-      //   z.object({
-      //     src: z.string(),
-      //     title: z.string().optional(),
-      //     type: z.enum(['image', 'video']).optional().default('image'),
-      //   }),
-      // ])
       .object({
         src: z.string(),
         title: z.string().optional(),
@@ -134,17 +114,12 @@ export const blogSchema = z
 
     return {
       ...entry,
-      cover:
-        typeof entry.cover === 'string'
-          ? { src: entry.cover, title: entry.title }
-          : entry.cover,
       summary: md.renderInline(summaryRaw),
       title: md.renderInline(entry.title),
     };
   });
 export type BlogFrontmatter = z.infer<typeof blogSchema>;
 
-// @todo blog post schema validation
 export const blog = defineCollection({
   loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
   schema: () => blogSchema,
@@ -206,9 +181,7 @@ export const social = defineCollection({
   }),
 });
 
-/**
- * Content collection schema for Today I Learned entries.
- */
+// Content collection schema for Today I Learned entries.
 export const til = {
   loader: glob({ base: './src/content/til', pattern: '**/*.md' }),
   schema: () =>
@@ -243,7 +216,5 @@ export const collections = {
   til,
 };
 
-/**
- * This could be used to infer the type of post.data in merged collections
- */
+// This could be used to infer the type of post.data in merged collections
 export type PostData = z.infer<typeof blogSchema>;

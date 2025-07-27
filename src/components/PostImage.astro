@@ -18,7 +18,7 @@ const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
   Astro.props;
 
 log.start();
-// log.stop();
+log.stop();
 log.debug('POSTIMAGE GENERATION ###########################################');
 log.debug('COVER CONFIG', post.data.cover);
 const coverImage = resolveCover(post);

@@ -16,8 +16,6 @@ const posts = [...allPosts].sort(
 const currentIndex = posts.findIndex(p => p.id === post.id);
 const nextPost = posts[currentIndex + 1];
 const prevPost = posts[currentIndex - 1];
-
-console.log(prevPost, nextPost);
 ---
 
 <nav

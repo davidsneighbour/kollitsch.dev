@@ -38,10 +38,10 @@ log.stop();
 {
   cover.type === 'video' && cover.video ? (
     <figure class="group relative isolate z-10">
-      <div class="overflow-hidden rounded-lg">
+      <div class={`aspect-2/1 overflow-hidden ${classes}`}>
         <lite-youtube
           videoid={cover.video.youtube}
-          class="z-20 mb-4 aspect-video h-auto w-full max-w-full"
+          class="z-20 mb-4 h-auto w-full max-w-full"
         />
       </div>
       <script

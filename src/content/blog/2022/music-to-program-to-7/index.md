@@ -7,14 +7,12 @@ tags:
   - programming-music
   - queensryche
   - 100daystooffload
-type: music
 resources:
   - src: header.jpg
     title: Silent Lucidity
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: jhat-xUQ6dw
     artist: queensryche

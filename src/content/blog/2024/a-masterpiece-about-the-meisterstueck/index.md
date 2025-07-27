@@ -10,7 +10,6 @@ summary: >-
   crafts a whimsical tribute, celebrating the pen's 100-year legacy with his
   iconic storytelling and meticulous visuals, highlighting Montblanc's luxury
   craftsmanship.
-type: video
 date: 2024-05-12T19:55:46+07:00
 tags:
   - wes-anderson
@@ -18,7 +17,6 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: tUSRyAha37w
     title: 100 Years of Meisterstück

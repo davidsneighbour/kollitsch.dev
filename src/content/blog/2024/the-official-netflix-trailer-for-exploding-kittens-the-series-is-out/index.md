@@ -10,7 +10,6 @@ summary: >-
   While facing his nemesis Devilcat (Sasheer Zamata), Godcat gets sidetracked by
   chasing laser pointers and pigeons, leading to comedic clashes between good
   and evil.
-type: video
 date: 2024-05-12T21:20:20+07:00
 tags:
   - series
@@ -21,7 +20,6 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: T3F0Nt6ssLU
     title: Exploding Kittens - Official Trailer

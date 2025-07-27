@@ -8,13 +8,11 @@ tags:
   - deep-core
   - danny-kreutzfeldt
   - 100daystooffload
-type: music
 resources:
   - src: header.jpg
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: 3We_dXYnjK0
     artist: dannykreutzfeldt

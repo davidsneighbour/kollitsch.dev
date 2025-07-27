@@ -6,14 +6,12 @@ tags:
   - electronic
   - floating-points
   - 100daystooffload
-type: music
 resources:
   - src: header.jpg
 
 date: 2024-08-25T18:41:03+07:00
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: H7Dr-qwWEqk
     artist: floating-points

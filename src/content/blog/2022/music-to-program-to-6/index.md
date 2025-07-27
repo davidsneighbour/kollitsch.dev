@@ -8,13 +8,11 @@ tags:
   - nine-inch-nails
   - trent-reznor
   - 100daystooffload
-type: music
 resources:
   - src: header.jpg
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: _g8nAqDu3gI
     artist: nineinchnails

@@ -10,7 +10,6 @@ summary: >-
   and loss in a way that helps children understand these tough emotions. They
   explain that feeling sad when someone important is gone is normal, and sharing
   feelings with others can be helpful.
-type: video
 date: 2024-10-21T20:56:05+07:00
 tags:
   - elmo
@@ -19,7 +18,6 @@ tags:
   - 100daystooffload
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: EVlXbiP4x2E
     title: Andrew Garfield and Elmo Explain Grief

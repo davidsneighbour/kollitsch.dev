@@ -6,13 +6,11 @@ tags:
   - electronic-music
   - glass-animals
   - 100daystooffload
-type: music
 resources:
   - src: header.jpg
 date: 2024-06-17T20:41:40+07:00
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: h7UsQIx14CE
     artist: glass-animals

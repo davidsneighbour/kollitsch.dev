@@ -11,11 +11,9 @@ tags:
 resources:
   - src: header.jpg
     title: Pomplamoose does Moby
-type: video
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: s0OWyoXNjcw
     title: Pomplamoose does Moby

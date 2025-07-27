@@ -12,14 +12,12 @@ tags:
   - video
   - 100daystooffload
   - artificial-intelligence
-type: video
 resources:
   - src: header.jpg
     title: What if Wes Anderson directed a Star Wars movie?
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: d-8DT5Q8kzI
     title: What if Wes Anderson directed a Star Wars movie?

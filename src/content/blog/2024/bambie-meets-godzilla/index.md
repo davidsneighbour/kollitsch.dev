@@ -8,7 +8,6 @@ summary: >-
   than $300, and see how Coda Shetterly’s 4K re-creation brings the iconic
   animation to a new generation, capturing the original's humor while adding a
   digital twist.
-type: video
 date: 2024-10-27T20:42:56+07:00
 resources:
   - title: Godzilla vs. Bambi (1969)
@@ -22,7 +21,6 @@ tags:
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: 5R-rbzcEM8A
     title: Bambi Meets Godzilla

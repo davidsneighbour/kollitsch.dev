@@ -9,7 +9,6 @@ summary: >-
   Alfred Hitchcock makes various cameos in his films, often blending humor with
   suspense. This video highlights his unique storytelling style when it comes to
   including himself.
-type: video
 date: 2024-11-30T18:54:20+07:00
 resources:
   - src: header.jpg
@@ -21,7 +20,6 @@ tags:
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: _YbaOkiMiRQ
     title: Alfred Hitchcock Cameos

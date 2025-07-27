@@ -11,10 +11,8 @@ tags:
   - geoffrey-rush
   - video
   - 100daystooffload
-type: video
 cover:
   src: ./header.jpg
-  type: video
   video:
     title: Shut Up, Don't Talk
     youtube: GSIB8W3KGsM

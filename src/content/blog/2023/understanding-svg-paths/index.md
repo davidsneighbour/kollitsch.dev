@@ -12,10 +12,8 @@ tags:
   - svg
   - course
   - 100daystooffload
-type: link
 cover:
   src: ./header.jpg
-  type: image
 publisher: rework
 ---
 

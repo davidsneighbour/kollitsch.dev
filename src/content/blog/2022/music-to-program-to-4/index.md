@@ -7,13 +7,11 @@ tags:
   - programming-music
   - rammstein
   - 100daystooffload
-type: music
 resources:
   - src: header.jpg
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: oQ10_EzMvtQ
     artist: rammstein

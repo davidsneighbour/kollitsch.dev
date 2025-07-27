@@ -12,14 +12,12 @@ tags:
   - video
   - 100daystooffload
   - horror-movie
-type: video
 resources:
   - src: header.jpg
     title: What if Wes Anderson directed a horror movie?
 
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: gfDIAZCwHQE
     title: What if Wes Anderson directed a horror movie?

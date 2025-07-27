@@ -6,12 +6,10 @@ linkTitle: Music to program to I
 tags:
   - programming-music
 
-type: music
 resources:
   - src: header.jpg
 cover:
   src: ./header.jpg
-  type: video
   video:
     youtube: iFi0n_odlh8
     artist: irisarri

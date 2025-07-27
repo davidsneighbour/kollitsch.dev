@@ -9,10 +9,8 @@ resources:
     title: Khruangbin @ Villain | Pitchfork Live
 tags:
   - programming-music
-type: music
 cover:
   src: ./hero.png
-  type: video
   video:
     artist: khruangbin
     title: Khruangbin @ Villain | Pitchfork Live

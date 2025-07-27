@@ -16,18 +16,20 @@ const posts = [...allPosts].sort(
 const currentIndex = posts.findIndex(p => p.id === post.id);
 const nextPost = posts[currentIndex + 1];
 const prevPost = posts[currentIndex - 1];
+
+console.log(prevPost, nextPost);
 ---
 
 <nav
   aria-label="Post navigation — browse older or newer posts"
   class="mt-4 flex items-center justify-between border-t border-gray-300 px-4 text-base sm:px-0 dark:border-gray-700"
 >
-  <div class="group -mt-px flex grow">
+  <div class="-mt-px">
     {
       nextPost && (
         <a
           href={`/blog/${nextPost.id}/`}
-          class="group inline-flex items-center border-t border-gray-300 pt-4 pr-1 dark:border-gray-700"
+          class="inline-flex items-center pt-4 pl-1 dark:border-gray-700"
           aria-label={`Go back in time to the post called ${nextPost.data.title}`}
         >
           <Icon
@@ -35,27 +37,31 @@ const prevPost = posts[currentIndex - 1];
             class="mr-2"
             aria-hidden="true"
           />
-          <span>{nextPost.data.title}</span>
-          <span class="ml-2 hidden font-mono text-xs text-gray-500 uppercase opacity-0 transition-opacity group-hover:opacity-100 md:inline-block">
-            Back in time
+          <span class="group relative inline-block">
+            <span>{nextPost.data.title}</span>
+            <span class="pointer-events-none absolute -top-4 -right-20 bottom-full mb-2 rounded p-2 font-mono text-xs text-gray-500 uppercase opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              Back in time
+            </span>
           </span>
         </a>
       )
     }
   </div>
 
-  <div class="-mt-px flex grow justify-end">
+  <div class="-mt-px">
     {
       prevPost && (
         <a
           href={`/blog/${prevPost.id}/`}
-          class="group inline-flex items-center border-t border-gray-300 pt-4 pl-1 dark:border-gray-700"
-          aria-label={`Go forward in time to the post called ${prevPost.data.title}`}
+          class="inline-flex items-center pt-4 pl-1 dark:border-gray-700"
+          aria-label={`Go back in time to the post called ${prevPost.data.title}`}
         >
-          <span class="mr-2 hidden font-mono text-xs text-gray-500 uppercase opacity-0 transition-opacity group-hover:opacity-100 md:inline-block">
-            Forward in time
+          <span class="group relative inline-block">
+            <span>{prevPost.data.title}</span>
+            <span class="pointer-events-none absolute -top-4 bottom-full -left-20 mb-2 rounded p-2 font-mono text-xs text-gray-500 uppercase opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              Forward in time
+            </span>
           </span>
-          <span>{prevPost.data.title}</span>
           <Icon
             name="arrow-right"
             class="ml-2"

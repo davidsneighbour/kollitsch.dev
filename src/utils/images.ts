@@ -3,15 +3,14 @@ import type { CollectionEntry } from 'astro:content';
 
 // import libraries
 import { z } from 'astro:content';
-import MarkdownIt from 'markdown-it';
 import fs from 'node:fs';
 import path from 'node:path';
+// import data
+import setup from '@data/setup.json';
 
 // import utilities
 import { log } from '@utils/debug';
-
-// import data
-import setup from '@data/setup.json';
+import MarkdownIt from 'markdown-it';
 
 /**
  * CoverObject interface defines the structure for cover elements in posts.
@@ -64,6 +63,8 @@ export const fallbackImage =
 export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   const md = new MarkdownIt();
   const cover = post.data.cover;
+
+  // log.debug(fallbackImage, fallbackCandidates[setup.images.default]);
 
   let src: string | undefined;
   let title: string | undefined;
@@ -154,7 +155,7 @@ export function resolveAstroImage(path: ImagePath): ImageMetadata {
   log.debug(
     `[resolveAstroImage] Missing image: ${path} → using fallback from ${setup.images.default}`,
   );
-  return fallbackImage!;
+  return fallbackImage as ImageMetadata;
 }
 
 export function stripMarkup(str: string): string {

@@ -73,97 +73,45 @@
     }
   }
 
-
   /****************************************************************************/
   /*lite youtube element                                                     **/
   /****************************************************************************/
   lite-youtube {
+    /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
     @apply w-full cursor-pointer relative block bg-gray-50 dark:bg-gray-950;
-
-    contain: content;
-    background-position: center center;
-    background-size: cover;
-
-    /* gradient */
-    &::before {
-      content: attr(data-title);
-      display: block;
-      position: absolute;
-      top: 0;
-      /* Pixel-perfect port of YT's gradient PNG, using https://github.com/bluesmoon/pngtocss plus optimizations */
-      background-image: linear-gradient(180deg, rgb(0 0 0 / 67%) 0%, rgb(0 0 0 / 54%) 14%, rgb(0 0 0 / 15%) 54%, rgb(0 0 0 / 5%) 72%, rgb(0 0 0 / 0%) 94%);
-      height: 99px;
-      width: 100%;
-      font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
-      color: hsl(0deg 0% 93.33%);
-      text-shadow: 0 0 2px rgba(0,0,0,.5);
-      font-size: 18px;
-      padding: 25px 20px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      box-sizing: border-box;
-    }
-
-    &:hover::before {
-      color: white;
-    }
-
-    /* responsive iframe with a 16:9 aspect ratio
-        thanks https://css-tricks.com/responsive-iframes/
-    */
+    @apply bg-cover bg-position-[center_center] contain-content;
+    /* responsive iframe with a 2:1 (NOT 16:9) aspect ratio
+       thanks https://css-tricks.com/responsive-iframes/ */
     &::after {
-      content: "";
-      display: block;
-      padding-bottom: calc(100% / (16 / 9));
+      @apply content-[''] block pb-[calc(100%/(2/1))];
     }
     & > iframe {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 0;
+      @apply h-full w-full absolute top-0 left-0 border-0;
     }
-
     /* play button */
     & > .lty-playbtn {
-      display: block;
-      /* Make the button element cover the whole area for a large hover/click target… */
-      width: 100%;
-      height: 100%;
-      /* …but visually it's still the same size */
-      background: no-repeat center/68px 48px;
+      @apply block w-full h-full absolute border-0 cursor-pointer z-10;
+      @apply bg-no-repeat bg-center bg-size-[48px_36px] contain-content;
       /* YT's actual play button svg */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
-      position: absolute;
-      cursor: pointer;
-      z-index: 1;
-      filter: grayscale(100%);
-      transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
-      border: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23c54109"/><path d="M45 24 27 14v20" fill="%23ffffff"/></svg>');
     }
-
-    &:hover > .lty-playbtn,
-    .lty-playbtn:focus {
-      filter: none;
-    }
-
     /* Post-click styles */
     &.lyt-activated {
-      cursor: unset;
+      @apply cursor-['unset'] ;
       &::before,
       & > .lty-playbtn {
-        opacity: 0;
-        pointer-events: none;
+        @apply pointer-events-none opacity-0;
       }
     }
-
-  }
-
-  .lyt-visually-hidden {
-    @apply sr-only;
   }
   /****************************************************************************/
 
+}
+
+@layer utilities {
+  .contain-content { contain: content; }
+  .contain-layout { contain: layout; }
+  .contain-paint { contain: paint; }
+  .contain-strict { contain: strict; }
+  .contain-none { contain: none; }
 }

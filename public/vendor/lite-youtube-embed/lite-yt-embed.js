@@ -36,11 +36,13 @@ class LiteYTEmbed extends HTMLElement {
             playBtnEl = document.createElement('button');
             playBtnEl.type = 'button';
             playBtnEl.classList.add('lty-playbtn');
+            playBtnEl.classList.add('fill-red-600');
+            playBtnEl.classList.add('hover:fill-red-800');
             this.append(playBtnEl);
         }
         if (!playBtnEl.textContent) {
             const playBtnLabelEl = document.createElement('span');
-            playBtnLabelEl.className = 'lyt-visually-hidden';
+            playBtnLabelEl.className = 'sr-only';
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }

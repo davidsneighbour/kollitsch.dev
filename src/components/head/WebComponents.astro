@@ -5,16 +5,11 @@ const { post } = Astro.props;
 const hasLiteYoutube = hasComponent(post, 'lite-youtube');
 const hasColorGrid = hasComponent(post, 'color-grid');
 const hasDatediff = hasComponent(post, 'date-diff');
-
 ---
 
 {
   hasLiteYoutube && (
     <>
-      <link
-        rel="stylesheet"
-        href="/vendor/lite-youtube-embed/lite-yt-embed.css"
-      />
       <script
         src="/vendor/lite-youtube-embed/lite-yt-embed.js"
         async
@@ -27,7 +22,11 @@ const hasDatediff = hasComponent(post, 'date-diff');
 {
   hasColorGrid && (
     <>
-      <script src="/vendor/color-grid.js" async is:inline />
+      <script
+        src="/vendor/color-grid.js"
+        async
+        is:inline
+      />
     </>
   )
 }
@@ -35,7 +34,11 @@ const hasDatediff = hasComponent(post, 'date-diff');
 {
   hasDatediff && (
     <>
-      <script src="/vendor/datediff.js" async is:inline />
+      <script
+        src="/vendor/datediff.js"
+        async
+        is:inline
+      />
     </>
   )
 }

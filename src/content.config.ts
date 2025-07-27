@@ -34,6 +34,17 @@ export const blogSchema = z
         src: z.string(),
         title: z.string().optional(),
         type: z.enum(['image', 'video']).optional().default('image'),
+        video: z
+          .object({
+            artist: z.string(),
+            title: z.string(),
+            youtube: z.string(),
+          })
+          .optional(),
+      })
+      .refine((c) => (c.type === 'video' ? c.video != null : true), {
+        message: 'video metadata must be provided when cover.type is "video"',
+        path: ['video'],
       })
       .optional(),
     date: z.coerce.date().transform((s) => new Date(s)),

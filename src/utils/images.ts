@@ -22,7 +22,8 @@ interface CoverObject {
   src: string;
   alt: string;
   title?: string | undefined;
-  type?: 'image' | 'video' | undefined;
+  type: 'image' | 'video';
+  video?: { artist: string; title: string; youtube: string; };
 }
 
 /**
@@ -62,7 +63,7 @@ export const fallbackImage =
  */
 export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   const md = new MarkdownIt();
-  const cover = post.data.cover;
+  const cover = post.data.cover!;
 
   // log.debug(fallbackImage, fallbackCandidates[setup.images.default]);
 
@@ -75,6 +76,21 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   src = cover?.src;
   title = cover?.title;
   type = (cover && 'type' in cover ? cover.type : 'image') as 'image' | 'video';
+
+  // before building the return object:
+  if (type === 'video' && cover.video) {
+    return {
+      type,
+      src, // still keep image fallback or preview if needed
+      alt: stripMarkup(cover.video.title),
+      title: undefined,
+      video: {
+        artist: cover.video.artist,
+        title: cover.video.title,
+        youtube: cover.video.youtube,
+      },
+    };
+  }
 
   if (!src) {
     src = setup.images.default;

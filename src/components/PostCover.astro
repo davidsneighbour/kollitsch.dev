@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+/** same imports as before **/
+const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' } = Astro.props;
+const cover = resolveCover(post);
+---
+
+{cover.type === 'video' && cover.video ? (
+  <figure class="group relative isolate z-10">
+    <lite-youtube videoid={cover.video.youtube} class={classes} />
+    <figcaption class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100">
+      {(() => {
+        const artist = musicData.data.find((a) => a.slug === cover.video!.artist);
+        const name = artist ? artist.name : cover.video!.artist;
+        return `${name} — ${cover.video!.title}`;
+      })()}
+    </figcaption>
+  </figure>
+) : (
+  cover.src && imageMeta && (
+    <figure class="group relative isolate z-10">
+      <Picture /* same as before */ />
+      {cover.title && (
+        <figcaption /* as before */ />
+      )}
+    </figure>
+  )
+)}

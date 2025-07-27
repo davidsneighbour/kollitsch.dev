@@ -9,6 +9,7 @@ import {
 } from '@utils/images';
 import { Picture } from 'astro:assets';
 import { log } from '@utils/debug';
+import musicData from '@data/music.json';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -22,6 +23,7 @@ log.stop();
 log.debug('POSTIMAGE GENERATION ###########################################');
 log.debug('COVER CONFIG', post.data.cover);
 const coverImage = resolveCover(post);
+const cover = resolveCover(post);
 log.debug('COVER RESOLVED', coverImage);
 const imagePath = resolveImagePath(coverImage.src, post.id);
 log.debug('IMAGE PATH RESOLVED', imagePath);
@@ -34,26 +36,56 @@ log.stop();
 ---
 
 {
-  imageMeta && (
+  cover.type === 'video' && cover.video ? (
     <figure class="group relative isolate z-10">
-      <Picture
-        src={imageMeta}
-        alt={coverImage.alt}
-        formats={['avif', 'webp', 'jpeg']}
-        widths={[240, 540, 720, 890, 1080, 1280, 1440, 1920]}
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, (max-width: 1920px) 890px, (max-width: 2560px) 1080px, (max-width: 3840px) 1280px, (max-width: 5120px) 1440px, 1920px`}
-        layout="constrained"
-        class={classes}
-        quality="high"
-        priority
-      />
-      {coverImage.title && (
-        <figcaption
-          transition:animate="slide"
-          set:html={coverImage.title}
-          class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
+      <div class="overflow-hidden rounded-lg">
+        <lite-youtube
+          videoid={cover.video.youtube}
+          class="z-20 mb-4 aspect-video h-auto w-full max-w-full"
         />
-      )}
+      </div>
+      <script
+        src="/vendor/lite-youtube-embed/lite-yt-embed.js"
+        type="module"
+        is:inline
+      />
+      <link
+        rel="stylesheet"
+        href="/vendor/lite-youtube-embed/lite-yt-embed.css"
+      />
+
+      <figcaption class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100">
+        {(() => {
+          const artist = musicData.data.find(
+            a => a.slug === cover.video!.artist,
+          );
+          const name = artist ? artist.name : cover.video!.artist;
+          return `${name} — ${cover.video!.title}`;
+        })()}
+      </figcaption>
     </figure>
+  ) : (
+    imageMeta && (
+      <figure class="group relative isolate z-10">
+        <Picture
+          src={imageMeta}
+          alt={coverImage.alt}
+          formats={['avif', 'webp', 'jpeg']}
+          widths={[240, 540, 720, 890, 1080, 1280, 1440, 1920]}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, (max-width: 1920px) 890px, (max-width: 2560px) 1080px, (max-width: 3840px) 1280px, (max-width: 5120px) 1440px, 1920px`}
+          layout="constrained"
+          class={classes}
+          quality="high"
+          priority
+        />
+        {coverImage.title && (
+          <figcaption
+            transition:animate="slide"
+            set:html={coverImage.title}
+            class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
+          />
+        )}
+      </figure>
+    )
   )
 }

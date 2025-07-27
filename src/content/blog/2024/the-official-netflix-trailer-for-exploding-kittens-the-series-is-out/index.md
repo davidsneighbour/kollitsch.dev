@@ -19,8 +19,12 @@ tags:
   - netflix
   - exploding-kittens
   - 100daystooffload
-video:
-  youtube: T3F0Nt6ssLU
+cover:
+  src: ./header.jpg
+  type: video
+  video:
+    youtube: T3F0Nt6ssLU
+    title: Exploding Kittens - Official Trailer
 fmContentType: blog
 publisher: rework
 ---

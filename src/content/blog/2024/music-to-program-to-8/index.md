@@ -18,15 +18,16 @@ tags:
 type: music
 resources:
   - src: header.jpg
-video:
-  youtube: CNfmij_Cpq8
-  artist: above-and-beyond
-  title: Flow State
+
 date: 2024-01-02T17:26:42+07:00
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: CNfmij_Cpq8
+    artist: above-and-beyond
+    title: Flow State
 publisher: rework
 ---
 

@@ -12,12 +12,14 @@ resources:
   - src: header.jpg
     title: Pomplamoose does Moby
 type: video
-video:
-  youtube: s0OWyoXNjcw
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: s0OWyoXNjcw
+    title: Pomplamoose does Moby
 publisher: rework
 ---
 

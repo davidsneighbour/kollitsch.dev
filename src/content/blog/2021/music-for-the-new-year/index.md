@@ -10,14 +10,14 @@ resources:
 tags:
   - programming-music
 type: music
-video:
-  artist: khruangbin
-  title: Khruangbin @ Villain | Pitchfork Live
-  youtube: q4xKvHANqjk
 fmContentType: blog
 cover:
   src: ./hero.png
-  type: image
+  type: video
+  video:
+    artist: khruangbin
+    title: Khruangbin @ Villain | Pitchfork Live
+    youtube: q4xKvHANqjk
 publisher: rework
 ---
 

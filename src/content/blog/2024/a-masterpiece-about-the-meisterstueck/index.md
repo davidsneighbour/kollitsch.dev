@@ -16,8 +16,12 @@ tags:
   - wes-anderson
   - advertisement
   - 100daystooffload
-video:
-  youtube: tUSRyAha37w
+cover:
+  src: ./header.jpg
+  type: video
+  video:
+    youtube: tUSRyAha37w
+    title: 100 Years of Meisterstück
 fmContentType: blog
 publisher: rework
 ---

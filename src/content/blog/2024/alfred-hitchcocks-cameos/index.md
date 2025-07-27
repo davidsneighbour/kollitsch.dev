@@ -18,12 +18,14 @@ tags:
   - video
   - cameos
   - 100daystooffload
-video:
-  youtube: _YbaOkiMiRQ
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: _YbaOkiMiRQ
+    title: Alfred Hitchcock Cameos
 publisher: rework
 ---
 

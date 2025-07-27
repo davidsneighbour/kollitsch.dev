@@ -14,12 +14,14 @@ tags:
   - synthesizer
   - video
   - 100daystooffload
-video:
-  youtube: kYxheEGl2oM
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: kYxheEGl2oM
+    title: "Patch Notes: Hélène Vogelsinger"
 publisher: rework
 ---
 

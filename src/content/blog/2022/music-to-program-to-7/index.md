@@ -11,13 +11,14 @@ type: music
 resources:
   - src: header.jpg
     title: Silent Lucidity
-video:
-  youtube: jhat-xUQ6dw
-  artist: queensryche
-  title: Silent Lucidity
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: jhat-xUQ6dw
+    artist: queensryche
+    title: Silent Lucidity
 publisher: rework
 ---

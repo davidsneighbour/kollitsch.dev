@@ -12,12 +12,13 @@ tags:
   - video
   - 100daystooffload
 type: video
-video:
-  youtube: GSIB8W3KGsM
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    title: Shut Up, Don't Talk
+    youtube: GSIB8W3KGsM
 publisher: rework
 ---
 

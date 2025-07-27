@@ -8,13 +8,14 @@ tags:
 type: music
 resources:
   - src: header.jpg
-video:
-  youtube: 49FXjBiccG4
-  artist: chromatics
-  title: Tick Of The Clock (Extended Overdrive)
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: 49FXjBiccG4
+    artist: chromatics
+    title: Tick Of The Clock (Extended Overdrive)
 publisher: rework
 ---

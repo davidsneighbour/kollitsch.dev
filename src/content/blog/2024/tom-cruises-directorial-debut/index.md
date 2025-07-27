@@ -18,12 +18,13 @@ tags:
   - tom-cruise
   - video
   - 100daystooffload
-video:
-  youtube: mAZXRpPX-hI
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: mAZXRpPX-hI
+    title: Tom Cruise's Directorial Debut
 publisher: rework
 ---
 
@@ -45,6 +46,6 @@ Though this *Fallen Angels* episode aired way back in 1993 and hasn't gained muc
 
 If you're a fan of film noir, quirky con-man tales, or simply curious to see what Cruise was up to creatively in the early '90s, this episode is a must-watch. It's a rare piece of television that perfectly captures the essence of noir storytelling—deception, betrayal, and a desperate search for a way out.
 
-The show is relatively obscure, so finding it in a better quality might be a bit challenging. 
+The show is relatively obscure, so finding it in a better quality might be a bit challenging.
 
 And while we are at it: [Murder Oblique](https://www.youtube.com/watch?v=sHDU4YpKDnE) from the same series stars Laura Dern and Alan Rickman.

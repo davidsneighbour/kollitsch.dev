@@ -11,14 +11,15 @@ tags:
 type: music
 resources:
   - src: header.jpg
-video:
-  youtube: _g8nAqDu3gI
-  artist: nineinchnails
-  title: This isn't the place
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: _g8nAqDu3gI
+    artist: nineinchnails
+    title: This isn't the place
 publisher: rework
 ---
 

@@ -17,8 +17,12 @@ tags:
   - andrew-garfield
   - emotions
   - 100daystooffload
-video:
-  youtube: EVlXbiP4x2E
+cover:
+  src: ./header.jpg
+  type: video
+  video:
+    youtube: EVlXbiP4x2E
+    title: Andrew Garfield and Elmo Explain Grief
 fmContentType: blog
 publisher: rework
 ---

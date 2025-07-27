@@ -16,12 +16,14 @@ tags:
   - alien
   - movies
   - 100daystooffload
-video:
-  youtube: _jLCFpU8HPM
+
 fmContentType: blog
 cover:
   src: ./swiss-made-2069.jpg
-  type: image
+  type: video
+  video:
+    youtube: _jLCFpU8HPM
+    title: "Swiss Made 2069"
 options:
   head:
     components:

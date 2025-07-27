@@ -11,13 +11,14 @@ tags:
 type: music
 resources:
   - src: header.jpg
-video:
-  youtube: 7iYCBlJ-33o
-  artist: ben-lukas-boysen
-  title: Nocturne 4
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: 7iYCBlJ-33o
+    artist: ben-lukas-boysen
+    title: Nocturne 4
 publisher: rework
 ---

@@ -36,7 +36,7 @@ export const blogSchema = z
         type: z.enum(['image', 'video']).optional().default('image'),
         video: z
           .object({
-            artist: z.string(),
+            artist: z.string().optional(),
             title: z.string(),
             youtube: z.string(),
           })

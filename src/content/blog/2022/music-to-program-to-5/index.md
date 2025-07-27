@@ -11,13 +11,14 @@ tags:
 type: music
 resources:
   - src: header.jpg
-video:
-  youtube: 3We_dXYnjK0
-  artist: dannykreutzfeldt
-  title: Verge
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: 3We_dXYnjK0
+    artist: dannykreutzfeldt
+    title: Verge
 publisher: rework
 ---

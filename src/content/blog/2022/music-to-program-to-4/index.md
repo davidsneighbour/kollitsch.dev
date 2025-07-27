@@ -10,15 +10,16 @@ tags:
 type: music
 resources:
   - src: header.jpg
-video:
-  youtube: oQ10_EzMvtQ
-  artist: rammstein
-  name: Rammstein feat Ólafur Arnalds
-  title: Zeit
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: oQ10_EzMvtQ
+    artist: rammstein
+    name: Rammstein feat Ólafur Arnalds
+    title: Zeit
 publisher: rework
 ---
 

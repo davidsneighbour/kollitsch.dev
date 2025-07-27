@@ -19,12 +19,14 @@ tags:
   - movie
   - animation
   - 100daystooffload
-video:
-  youtube: 5R-rbzcEM8A
+
 fmContentType: blog
 cover:
   src: ./header.jpg
-  type: image
+  type: video
+  video:
+    youtube: 5R-rbzcEM8A
+    title: Bambi Meets Godzilla
 publisher: rework
 ---
 

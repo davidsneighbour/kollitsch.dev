@@ -1,0 +1,41 @@
+---
+import '@assets/styles/global.css';
+import Layout from '@layouts/DefaultPage.astro';
+import ArticleCard from '@components/ArticleCard.astro';
+import { getHomepagePosts } from '@utils/content';
+
+const { featuredPost } = await getHomepagePosts();
+---
+
+<Layout>
+  <div class="max-w-3xs">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-2xs">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-xs">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-sm">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-md">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-lg">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-xl">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-2xl">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-3xl">
+    <ArticleCard post={featuredPost} />
+  </div>
+  <div class="max-w-4xl">
+    <ArticleCard post={featuredPost} />
+  </div>
+</Layout>

@@ -39,14 +39,7 @@ export function mergePropsWithDefaults<T extends object>(
   };
 }
 
-/**
- * Create a fully valid BlogPost object with defaults,
- * even if the input is missing or malformed.
- *
- * @param input - Partial or unknown input to normalize
- * @returns Valid BlogPost object based on schema
- */
-export function createDefaultPost(input: unknown = {}): BlogPost {
+export function createDefaultPost(input: unknown = {}): BlogPost['data'] {
   const fallback: Partial<z.input<typeof blogSchema>> = {
     aliases: [],
     cover: undefined,
@@ -75,6 +68,7 @@ export function createDefaultPost(input: unknown = {}): BlogPost {
     '✖ Blog post input invalid. Using fallback defaults.',
     parsed.error.format(),
   );
+
   return blogSchema.parse(fallback);
 }
 

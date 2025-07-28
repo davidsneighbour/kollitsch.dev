@@ -1,9 +1,3 @@
-// a collection of helper functions for various tasks
-import { getCollection } from 'astro:content';
-import siteinfo from '@data/setup.json'; // loads tagThreshold config
-
-
-
 /**
  * Generates a unique ID string for HTML elements.
  *
@@ -37,10 +31,6 @@ export function generateUniqueHtmlId(prefix = 'dnbuid', length = 16): string {
     .join('');
   return `${prefix}-${randomHex}`;
 }
-
-
-
-
 
 /**
  * Create a random string of the specified length

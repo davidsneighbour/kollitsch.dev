@@ -3,39 +3,51 @@ import '@assets/styles/global.css';
 import Layout from '@layouts/DefaultPage.astro';
 import ArticleCard from '@components/ArticleCard.astro';
 import { getHomepagePosts } from '@utils/content';
+import Heading from '@components/Heading.astro';
+import Div from '@components/fragments/Div.astro';
 
 const { featuredPost } = await getHomepagePosts();
 ---
 
 <Layout>
-  <div class="max-w-3xs">
+  <Heading>3XS</Heading>
+  <Div class="max-w-3xs">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-2xs">
+  </Div>
+  <Heading>2XS</Heading>
+  <Div class="max-w-2xs">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-xs">
+  </Div>
+  <Heading>XS</Heading>
+  <Div class="max-w-xs">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-sm">
+  </Div>
+  <Heading>SM</Heading>
+  <Div class="max-w-sm">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-md">
+  </Div>
+  <Heading>MD</Heading>
+  <Div class="max-w-md">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-lg">
+  </Div>
+  <Heading>LG</Heading>
+  <Div class="max-w-lg">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-xl">
+  </Div>
+  <Heading>XL</Heading>
+  <Div class="max-w-xl">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-2xl">
+  </Div>
+  <Heading>2XL</Heading>
+  <Div class="max-w-2xl">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-3xl">
+  </Div>
+  <Heading>3XL</Heading>
+  <Div class="max-w-3xl">
     <ArticleCard post={featuredPost} />
-  </div>
-  <div class="max-w-4xl">
+  </Div>
+  <Heading>4XL</Heading>
+  <Div class="max-w-4xl">
     <ArticleCard post={featuredPost} />
-  </div>
+  </Div>
 </Layout>

@@ -120,5 +120,6 @@
   "biome.configurationPath": "biome.jsonc",
   "biome.requireConfiguration": true,
   "svg.preview.background": "black",
+  "astro.updateImportsOnFileMove.enabled": true,
 
 }

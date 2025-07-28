@@ -73,45 +73,58 @@
     }
   }
 
-  /****************************************************************************/
-  /*lite youtube element                                                     **/
-  /****************************************************************************/
+  /***************************************************************************  */
+
+  /* lite youtube element                                                     **/
+
+  /***************************************************************************  */
   lite-youtube {
     /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
-    @apply w-full cursor-pointer relative block bg-gray-50 dark:bg-gray-950;
+    @apply relative block w-full cursor-pointer bg-gray-50 dark:bg-gray-950;
     @apply bg-cover bg-position-[center_center] contain-content;
+
     /* responsive iframe with a 2:1 (NOT 16:9) aspect ratio
        thanks https://css-tricks.com/responsive-iframes/ */
     &::after {
-      @apply content-[''] block pb-[calc(100%/(2/1))];
+      @apply block pb-[calc(100%/(2/1))] content-[''];
     }
+
     & > iframe {
-      @apply h-full w-full absolute top-0 left-0 border-0;
+      @apply absolute top-0 left-0 h-full w-full border-0;
     }
+
     /* play button */
     & > .lty-playbtn {
-      @apply block w-full h-full absolute border-0 cursor-pointer z-10;
-      @apply bg-no-repeat bg-center bg-size-[48px_36px] contain-content;
+      @apply absolute z-10 block h-full w-full cursor-pointer border-0;
+      @apply bg-size-[48px_36px] bg-center bg-no-repeat contain-content;
+
       /* YT's actual play button svg */
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23c54109"/><path d="M45 24 27 14v20" fill="%23ffffff"/></svg>');
     }
+
     /* Post-click styles */
     &.lyt-activated {
-      @apply cursor-['unset'] ;
+      @apply cursor-['unset'];
+
       &::before,
       & > .lty-playbtn {
         @apply pointer-events-none opacity-0;
       }
     }
   }
-  /****************************************************************************/
 
+  /***************************************************************************  */
 }
 
-@layer utilities {
-  .contain-content { contain: content; }
-  .contain-layout { contain: layout; }
-  .contain-paint { contain: paint; }
-  .contain-strict { contain: strict; }
-  .contain-none { contain: none; }
+/* @see https://developer.mozilla.org/en-US/docs/Web/CSS/contain */
+@theme {
+  --contain-content: content;
+  --contain-layout: layout;
+  --contain-paint: paint;
+  --contain-strict: strict;
+  --contain-none: none;
+}
+
+@utility contain-* {
+  contain: --value(--contain-*);
 }

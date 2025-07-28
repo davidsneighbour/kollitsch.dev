@@ -1,7 +1,7 @@
 ---
 const { post } = Astro.props;
 
-import { getGithubInfo } from '@utils/getGithubInfo';
+import { getGithubInfo } from '@utils/github';
 const github = getGithubInfo(post.filePath);
 import { Icon } from 'astro-icon/components';
 ---

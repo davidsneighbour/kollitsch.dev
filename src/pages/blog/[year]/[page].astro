@@ -2,7 +2,7 @@
 import Layout from '@layouts/DefaultPage.astro';
 import ArticleCard from '@components/ArticleCard.astro';
 import Pagination from '@components/Pagination.astro';
-import { paginateBlogPostsByYear } from '@utils/posts';
+import { paginateBlogPostsByYear } from '@utils/content';
 
 export async function getStaticPaths() {
   const pageSize = 12;

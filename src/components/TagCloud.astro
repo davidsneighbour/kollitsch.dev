@@ -1,5 +1,5 @@
 ---
-import { mergePropsWithDefaults } from '@utils/withDefaults';
+import { mergePropsWithDefaults } from '@utils/content';
 
 export interface Props {
   tags: Map<string, number>;
@@ -9,10 +9,8 @@ export interface Props {
 
 const props = mergePropsWithDefaults(Astro.props as Props, {
   minSize: 0.75, // rem
-  maxSize: 2.0,  // rem
-}) as Required<Pick<Props,
-  'tags' | 'minSize' | 'maxSize'
->>;
+  maxSize: 2.0, // rem
+}) as Required<Pick<Props, 'tags' | 'minSize' | 'maxSize'>>;
 
 const maxCount = Math.max(...props.tags.values());
 const minCount = Math.min(...props.tags.values());
@@ -25,13 +23,15 @@ function getFontSize(count: number): string {
 ---
 
 <div class="flex flex-wrap gap-3">
-  {Array.from(props.tags.entries()).map(([tag, count]) => (
-    <a
-      href={`/tags/${encodeURIComponent(tag)}/`}
-      title={`${count} posts`}
-      style={`font-size: ${getFontSize(count)}; line-height: 1.1;`}
-    >
-      #{tag}
-    </a>
-  ))}
+  {
+    Array.from(props.tags.entries()).map(([tag, count]) => (
+      <a
+        href={`/tags/${encodeURIComponent(tag)}/`}
+        title={`${count} posts`}
+        style={`font-size: ${getFontSize(count)}; line-height: 1.1;`}
+      >
+        #{tag}
+      </a>
+    ))
+  }
 </div>

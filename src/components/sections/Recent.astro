@@ -2,7 +2,7 @@
 import ArticleCard from '@components/ArticleCard.astro';
 import Heading from '@components/Heading.astro';
 import { Icon } from 'astro-icon/components';
-import { getHomepagePosts } from '@utils/getHomepagePosts';
+import { getHomepagePosts } from '@utils/content';
 const { featuredPost: _, recentPosts } = await getHomepagePosts();
 ---
 

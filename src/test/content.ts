@@ -1,4 +1,4 @@
-import { createDefaultPost } from '@utils/createDefaultPost';
+import { createDefaultPost } from '@utils/content';
 import { describe, test, expect } from 'vitest';
 
 describe('createDefaultPost', () => {

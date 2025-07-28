@@ -34,7 +34,7 @@ try {
   tagEntry = null;
 }
 
-import { getValidTags } from '@utils/helpers';
+import { getValidTags } from '@utils/content';
 
 export async function getStaticPaths() {
   const tagMap = await getValidTags();
@@ -74,8 +74,9 @@ const post = {
       <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>
     )
   }
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
     {paginatedPosts.map(post => <ArticleCard post={post} />)}
   </div>
 
@@ -83,6 +84,6 @@ const post = {
     basePath={`/tags/${tag}/`}
     currentPage={currentPage}
     totalPages={totalPages}
-    pagingPartial='/page/'
+    pagingPartial="/page/"
   />
 </Layout>

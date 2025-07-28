@@ -3,7 +3,7 @@
 
 import type { InferGetStaticParamsType } from 'astro';
 import { getCollection } from 'astro:content';
-import { getPostsSortedByDraft } from '@utils/getPostsSortedByDraft';
+import { getPostsSortedByDraft } from '@utils/content';
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 // components

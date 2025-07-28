@@ -1,19 +1,15 @@
-import type { z } from 'astro:content';
-import { blogSchema } from '../content.config.js';
+import type { CollectionEntry, z } from 'astro:content';
 
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import site from '@data/setup.json';
-import { log } from '@utils/debug';
-
-
 import setup from '@data/setup.json';
 import siteinfo from '@data/setup.json';
+import { log } from '@utils/debug';
+import { blogSchema } from '../content.config.js';
 
 type BlogPost = CollectionEntry<'blog'>;
 
 export type CoverData = BlogPost['data']['cover'];
-
 
 /**
  * Creates a new properties object by merging provided props with defaults.
@@ -42,7 +38,6 @@ export function mergePropsWithDefaults<T extends object>(
     ...props,
   };
 }
-
 
 /**
  * Create a fully valid BlogPost object with defaults,
@@ -82,8 +77,6 @@ export function createDefaultPost(input: unknown = {}): BlogPost {
   );
   return blogSchema.parse(fallback);
 }
-
-
 
 export interface BreadcrumbItem {
   label: string;
@@ -136,10 +129,10 @@ export async function getBreadcrumbs(
     const label = match?.data?.title
       ? match.data.title
       : // @ts-expect-error
-      segment
-        .split('-')
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(' ');
+        segment
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
 
     breadcrumbs.push({
       href: `${homepage}${currentPath}/`,
@@ -196,7 +189,6 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
 
   return tagMap;
 }
-
 
 const POST_LIMIT = siteinfo.homepage?.recent_posts ?? 6;
 
@@ -267,8 +259,6 @@ export function getHomepageUrl(options?: GetHomepageUrlOptions): string {
   return (site instanceof URL ? site : new URL(site)).toString();
 }
 
-
-
 export const getPostsSortedByDraft = (allPosts: CollectionEntry<'blog'>[]) => {
   return allPosts
     .filter((post) => {
@@ -294,8 +284,6 @@ export const isDateBefore = (date1: Date, date2: Date) =>
 export const isDateAfter = (date1: Date, date2: Date) =>
   date1.getTime() > date2.getTime();
 
-
-
 export interface PaginatedPosts {
   posts: CollectionEntry<'blog'>[];
   totalPages: number;
@@ -316,8 +304,13 @@ export async function paginateBlogPostsByYear(
   const allPosts = await getCollection('blog');
 
   const postsOfYear = allPosts
-    .filter((post) => new Date(post.data.date).getFullYear().toString() === year)
-    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    .filter(
+      (post) => new Date(post.data.date).getFullYear().toString() === year,
+    )
+    .sort(
+      (a, b) =>
+        new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    );
 
   const totalPages = Math.ceil(postsOfYear.length / pageSize);
   const start = (page - 1) * pageSize;
@@ -355,7 +348,6 @@ export function resolvePostTitle(
   const { prefix = '', postfix = '' } = options;
   return `${prefix}${title}${postfix}`;
 }
-
 
 /**
  * A mapping object representing information about a tag.
@@ -468,4 +460,25 @@ export function getVSCodeUrlById(id: string, type: 'blog' = 'blog'): string {
     '/src/content/' + type + '/' + id + '/index.md',
   );
   return vscodeURL;
+}
+
+type DateAwareCollections = 'blog' | 'til';
+
+/**
+ * Retrieves the latest post from a date-aware collection.
+ *
+ * @param collectionName - A valid date-aware collection key (defaults to 'blog')
+ * @returns The latest entry or `undefined` if none found
+ */
+export async function getLatestPost<T extends DateAwareCollections = 'blog'>(
+  collectionName?: T,
+): Promise<CollectionEntry<T> | undefined> {
+  const collection = await getCollection(collectionName ?? ('blog' as T));
+  const sorted = collection
+    .filter((entry) => entry.data.date)
+    .sort(
+      (a, b) =>
+        new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    );
+  return sorted[0];
 }

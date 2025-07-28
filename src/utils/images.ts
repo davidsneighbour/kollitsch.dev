@@ -23,7 +23,7 @@ interface CoverObject {
   alt: string;
   title?: string | undefined;
   type: 'image' | 'video';
-  video?: { artist: string; title: string; youtube: string; };
+  video?: { artist: string; title: string; youtube: string };
 }
 
 /**
@@ -80,10 +80,10 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   // before building the return object:
   if (type === 'video' && cover.video) {
     return {
-      type,
       // src, // still keep image fallback or preview if needed
       alt: stripMarkup(cover.video.title),
       title: undefined,
+      type,
       video: {
         artist: cover.video.artist ?? 'undefined',
         title: cover.video.title,
@@ -107,6 +107,7 @@ export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   }
 
   // alt: markdown/HTML stripped, fallback to title or generic
+  // @todo apparently we loose the alt text for all images
   alt = stripMarkup(alt ?? title ?? 'Image');
 
   // @todo generate a default title if none is provided or skip this step

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import alpinejs from '@astrojs/alpinejs';
+import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
 import beep from '@rollup/plugin-beep';
@@ -11,8 +12,6 @@ import icon from 'astro-icon';
 import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
-
-import mdx from '@astrojs/mdx';
 
 const crontabTmLanguage = JSON.parse(
   fs.readFileSync('./src/config/tmLanguages/crontab.tmLanguage.json', 'utf-8'),
@@ -38,57 +37,63 @@ export default defineConfig({
     responsiveStyles: true,
   },
 
-  integrations: [alpinejs({ entrypoint: '/src/assets/js/theme.ts' }), sitemap(), pagefind({
-    // https://github.com/shishkin/astro-pagefind
-    indexConfig: {
-      keepIndexUrl: true,
-    },
-  }), // https://github.com/felix-berlin/astro-matomo
-  matomo({
-    debug: true,
-    disableCookies: true,
-    enabled: import.meta.env.PROD, // Only load in production
-    heartBeatTimer: 5,
-    host: 'https://analytics.dnbhub.xyz/',
-    //partytown: true,
-    preconnect: true,
-    setCookieDomain: '*.kollitsch.dev',
-    siteId: 1,
-    // viewTransition: {
-    //   contentElement: 'main',
-    // },
-    viewTransition: true,
-  }), // https://www.astroicon.dev/guides/customization/
-  icon({
-    iconDir: 'src/assets/icons',
-    svgoOptions: {
-      multipass: true,
-      plugins: [
-        // https://svgo.dev/docs/preset-default/
-        {
-          name: 'preset-default',
-          params: {
-            overrides: {
-              removeComments: {
-                preservePatterns: false,
+  integrations: [
+    alpinejs({ entrypoint: '/src/assets/js/theme.ts' }),
+    sitemap(),
+    pagefind({
+      // https://github.com/shishkin/astro-pagefind
+      indexConfig: {
+        keepIndexUrl: true,
+      },
+    }), // https://github.com/felix-berlin/astro-matomo
+    matomo({
+      debug: true,
+      disableCookies: true,
+      enabled: import.meta.env.PROD, // Only load in production
+      heartBeatTimer: 5,
+      host: 'https://analytics.dnbhub.xyz/',
+      //partytown: true,
+      preconnect: true,
+      setCookieDomain: '*.kollitsch.dev',
+      siteId: 1,
+      // viewTransition: {
+      //   contentElement: 'main',
+      // },
+      viewTransition: true,
+    }), // https://www.astroicon.dev/guides/customization/
+    icon({
+      iconDir: 'src/assets/icons',
+      svgoOptions: {
+        multipass: true,
+        plugins: [
+          // https://svgo.dev/docs/preset-default/
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeComments: {
+                  preservePatterns: false,
+                },
+                removeDoctype: true,
               },
-              removeDoctype: true,
             },
           },
-        },
-      ],
-    },
-  }), expressiveCode({
-    shiki: {
-      langs: [crontabTmLanguage],
-    },
-    styleOverrides: {
-      frames: {
-        frameBoxShadowCssValue: '0',
+        ],
       },
-    },
-    themes: ['dracula', 'github-light'],
-  }), mdx()],
+    }),
+    expressiveCode({
+      shiki: {
+        langs: [crontabTmLanguage],
+      },
+      styleOverrides: {
+        frames: {
+          frameBoxShadowCssValue: '0',
+        },
+      },
+      themes: ['dracula', 'github-light'],
+    }),
+    mdx(),
+  ],
 
   markdown: {
     shikiConfig: {

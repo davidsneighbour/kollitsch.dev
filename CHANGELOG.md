@@ -1,4 +1,69 @@
 # Changelog
+## [2025.8.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.3...v2025.8.0) (2025-07-28)
+
+
+### Content
+
+* **fix:** remove fmContenttype frontmatter ([771f56a](https://github.com/davidsneighbour/kollitsch.dev/commit/771f56a6c54f894b750069de70b7867c901854c7))
+* **fix:** remove fmContentType frontmatter from blog entries ([eaff907](https://github.com/davidsneighbour/kollitsch.dev/commit/eaff907b9493ff7e10f5f1a2bb7c92fffffa60b9))
+* **fix:** remove type frontmatter ([d70dfad](https://github.com/davidsneighbour/kollitsch.dev/commit/d70dfad382e46a465a15978d362bb820ae7fa4a6))
+* **fix:** video post frontmatter fixes ([d775fb7](https://github.com/davidsneighbour/kollitsch.dev/commit/d775fb7aa20dbdfbfa0385d459d7a3e3d0d6885e))
+
+
+### Theme
+
+* **feat:** add a crude headline auditor to the devbar ([27cbc4e](https://github.com/davidsneighbour/kollitsch.dev/commit/27cbc4e99858ac9f2bbe10f6cce9d948d6939a0f))
+* **fix:** add check for .sr-only to headings audit ([b7ea023](https://github.com/davidsneighbour/kollitsch.dev/commit/b7ea023231b2829fffdc09957968e6a942888ba5))
+* **fix:** add contain utility classes ([95c2284](https://github.com/davidsneighbour/kollitsch.dev/commit/95c2284d0cad171e610dcdf49a570a21ec264bb9))
+* **fix:** add container rules for article preview container ([32bd44f](https://github.com/davidsneighbour/kollitsch.dev/commit/32bd44fd0fd26af9282816524c6e526f6451ebcb))
+* **fix:** add sizes for all configured image widths ([1edfb93](https://github.com/davidsneighbour/kollitsch.dev/commit/1edfb93b981e8b836f75364a26978a80524f9ba9))
+* **fix:** add utility function to get the latest post ([661aa67](https://github.com/davidsneighbour/kollitsch.dev/commit/661aa67f35393a4cd0b95b8543eac0c748aa184d))
+* **fix:** clean up responsive image sizes ([3e86d96](https://github.com/davidsneighbour/kollitsch.dev/commit/3e86d9615935b8c917461e537a13984063f79705))
+* **fix:** cleanup utils file structure ([6cd2cb0](https://github.com/davidsneighbour/kollitsch.dev/commit/6cd2cb04d7998d97867ebdd5deceaa5f68f6c05b))
+* **fix:** default image not showing ([a212638](https://github.com/davidsneighbour/kollitsch.dev/commit/a212638cee522f413507360e7474938d50f4c936))
+* **fix:** disable TS for lite-youtube-embed ([07e9a7f](https://github.com/davidsneighbour/kollitsch.dev/commit/07e9a7f18745d2152aba3516f9a78c6481b735b5))
+* **fix:** disappearing videos (md linting is too greedy) ([1c8b236](https://github.com/davidsneighbour/kollitsch.dev/commit/1c8b236bc512185689b13b64266a5070c920efdc))
+* **fix:** fine tuning youtube component ([a05649f](https://github.com/davidsneighbour/kollitsch.dev/commit/a05649fbf3206d941c660da869a3926189b32667))
+* **fix:** import fallback cover image directly ([ea0f25a](https://github.com/davidsneighbour/kollitsch.dev/commit/ea0f25accb18cbb554df6c039f7e0f48fcc5b288))
+* **fix:** moving cover image generation to picture tags ([a56c5c2](https://github.com/davidsneighbour/kollitsch.dev/commit/a56c5c25c591e8afb80eed96ca98166536c26e59))
+* **fix:** moving youtube comp styles into tailwind setup ([9f64481](https://github.com/davidsneighbour/kollitsch.dev/commit/9f64481017955c2d4959807f0f10b3295d519294))
+* **fix:** proper border radius and aspect ratio for videos ([43d1121](https://github.com/davidsneighbour/kollitsch.dev/commit/43d1121272ccc3a2faac03f15d9d77f58e85b01d))
+* **fix:** proper heading structure for footer section ([eb3add7](https://github.com/davidsneighbour/kollitsch.dev/commit/eb3add788f2800ad4d514821aff7e3a9bf61f718))
+* **fix:** proper path to default fallback image in assets ([c3eed99](https://github.com/davidsneighbour/kollitsch.dev/commit/c3eed99b695234961c5c14fcdae0887ba8233c7f))
+* **fix:** redirect /blog/page/1/ to /blog/page/ ([9976282](https://github.com/davidsneighbour/kollitsch.dev/commit/997628233220c2719590d1ebc78887f672f3576a))
+* **fix:** remove margin from article card title ([fbff0c2](https://github.com/davidsneighbour/kollitsch.dev/commit/fbff0c2b3d8260d92de2a494507e877ce861322c))
+* **fix:** remove string source from cover configuration ([fce70af](https://github.com/davidsneighbour/kollitsch.dev/commit/fce70af515876c9d3374c2bbe05af1a87ee2bf6b))
+* **fix:** single page pagination transitions and fixes ([6d3bd9a](https://github.com/davidsneighbour/kollitsch.dev/commit/6d3bd9a8aa57a49c047b76595adb0c4c44e794c2))
+* **fix:** single post pagination fixes with happy aria ([3bc0a0f](https://github.com/davidsneighbour/kollitsch.dev/commit/3bc0a0f9e63d870a113962e22a59387814b03c4d))
+* **fix:** typesafety and proper encoding for share links ([803e4f6](https://github.com/davidsneighbour/kollitsch.dev/commit/803e4f6528a67cde49054209543101c163318d54))
+* **fix:** typescript issues in utilities ([0c92e52](https://github.com/davidsneighbour/kollitsch.dev/commit/0c92e529142307287ad02575fc4432472125fad8))
+
+
+### Features
+
+* fix cover image display for videos ([3e9241b](https://github.com/davidsneighbour/kollitsch.dev/commit/3e9241b2a268aab004e1e4e1f1111544e70649fe))
+
+
+### Refactors
+
+* there is a new line in town ([d33e44c](https://github.com/davidsneighbour/kollitsch.dev/commit/d33e44c11c62d416cfa170e757d2ce1e5ad03086))
+
+
+### Tests
+
+* visual test of post preview containers ([ce2c8fa](https://github.com/davidsneighbour/kollitsch.dev/commit/ce2c8fa4043c48155fbe4f4b9b1077bc1c0da77d))
+
+
+### Build System
+
+* **deps:** update dependencies ([c4fd9d0](https://github.com/davidsneighbour/kollitsch.dev/commit/c4fd9d0e20fa580d08a310ade1010157ed382ae7))
+* **deps:** update site screenshot ([6d4b50f](https://github.com/davidsneighbour/kollitsch.dev/commit/6d4b50ffbcae41af3ac3bbc1adcfea206eb22376))
+
+
+### Configuration
+
+* update workspace configuration ([b3ffd06](https://github.com/davidsneighbour/kollitsch.dev/commit/b3ffd06969d1a1890d96289aa8e703c326f3eac8))
+
 ## [2025.7.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.2...v2025.7.3) (2025-07-25)
 
 

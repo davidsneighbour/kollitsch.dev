@@ -17,8 +17,8 @@ export async function getStaticPaths() {
 
   return Object.entries(postsByYear).flatMap(([year, count]) => {
     const pages = Math.ceil(count / pageSize);
-    return Array.from({ length: pages }, (_, i) => ({
-      params: { year, page: `${i + 1}` },
+    return Array.from({ length: pages - 1 }, (_, i) => ({
+      params: { year, page: `${i + 2}` },
     }));
   });
 }

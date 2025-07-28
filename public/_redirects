@@ -10,15 +10,18 @@ https://kollitsch-dev.netlify.app/*  /:splat  301!
 /sitemap.xml        /sitemap-index.xml  301
 /sitemap_index.xml  /sitemap-index.xml  301
 
+# Redirect the first pagination page of the yearly blog pages to the main year page
+/blog/:year/1/  /blog/:year/  301!
+
 # Redirect old GoHugo URLs to new structure
-/gohugo/*          https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
-/components/hugo-* https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
-/components        https://github.com/davidsneighbour/hugo-modules/                         301
+/gohugo/*           https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
+/components/hugo-*  https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
+/components         https://github.com/davidsneighbour/hugo-modules/                         301
 
 # Redirect renamed tags to new tags
-/tags/dnb-org/                                     /tags/davidsneighbour/        301
-/tags/dnb/                                         /tags/davidsneighbour/        301
-/tags/kollitsch.de/                                /tags/davidsneighbour/        301
+/tags/dnb-org/       /tags/davidsneighbour/  301
+/tags/dnb/           /tags/davidsneighbour/  301
+/tags/kollitsch.de/  /tags/davidsneighbour/  301
 
 # ancient redirects from old blogs # @todo check if still needed
 /2005/*                                            /                               301

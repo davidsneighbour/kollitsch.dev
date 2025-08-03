@@ -1,4 +1,26 @@
 # Changelog
+## [2025.8.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.0...v2025.8.1) (2025-08-03)
+
+
+### Content
+
+* **fix:** remove individual md content file ([c994ac2](https://github.com/davidsneighbour/kollitsch.dev/commit/c994ac262e30c71a08b17282b15658ad49709061))
+
+
+### Theme
+
+* **fix:** a more subtle breadcrumb design ([e53b4a6](https://github.com/davidsneighbour/kollitsch.dev/commit/e53b4a6f77d98afa3b7cf33a4d73f3e965e78bef))
+* **fix:** a more subtle social media share separator design ([3804577](https://github.com/davidsneighbour/kollitsch.dev/commit/3804577126ed515d2822e50396bf31dd21661eb6))
+* **fix:** fake fixing an issue with z-index on the share bar ([03f868d](https://github.com/davidsneighbour/kollitsch.dev/commit/03f868debc34f836bdcdec6b9f9ab5bfb6fb6e0b))
+* **fix:** more fixes of the share separator bar overlay ([f9b5f96](https://github.com/davidsneighbour/kollitsch.dev/commit/f9b5f96c0ce5fef6bf6e422f60aaabf55c18bc2e))
+* **fix:** remove 4col-on-2xl layout from blog overview pages ([d469d06](https://github.com/davidsneighbour/kollitsch.dev/commit/d469d064b6d4fac2ce02deb2b027bd2c782e3da6))
+
+
+### Build System
+
+* add file watcher for blog data files ([0547c12](https://github.com/davidsneighbour/kollitsch.dev/commit/0547c1233238a9fd4f521f949ab3b9bb93a23c71))
+* **deps:** update site screenshot ([77968b1](https://github.com/davidsneighbour/kollitsch.dev/commit/77968b186c10d141acec52c3c5ae90d54eba9537))
+
 ## [2025.8.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.7.3...v2025.8.0) (2025-07-28)
 
 

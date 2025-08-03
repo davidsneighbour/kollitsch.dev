@@ -42,9 +42,7 @@ const post = {
   <Heading description="A collection of articles, tutorials, and updates."
     >Blog</Heading
   >
-  <div
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
-  >
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {
       posts.map(post => {
         return <ArticleCard post={post} />;

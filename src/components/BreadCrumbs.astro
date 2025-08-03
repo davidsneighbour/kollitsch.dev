@@ -5,10 +5,11 @@ const { path } = Astro.props;
 const breadcrumbs = await getBreadcrumbs(path);
 import BreadcrumbListSchema from './schema/BreadcrumbList.astro';
 import { Icon } from 'astro-icon/components';
+// @todo the home button should not be aria-hidden and have a label. Icon component needs some fine tuning.
 ---
 
 <nav
-  class="mb-2 flex flex-row items-center justify-start gap-2 rounded-lg bg-gray-950/10 px-2 py-1 dark:bg-gray-50/10"
+  class="mb-2 flex flex-row items-center justify-start gap-2 rounded-sm bg-gray-400/10 px-2 py-1 dark:bg-gray-600/10"
   aria-label="Breadcrumb"
 >
   {
@@ -17,7 +18,16 @@ import { Icon } from 'astro-icon/components';
         const isLast = index === breadcrumbs.length - 1;
         return (
           <>
-            <a href={breadcrumb.href}>{breadcrumb.label}</a>
+            <a
+              href={breadcrumb.href}
+              aria-current={isLast ? 'page' : undefined}
+            >
+              {breadcrumb.label === 'Home' ? (
+                <Icon name="house-fill" />
+              ) : (
+                breadcrumb.label
+              )}
+            </a>
             {!isLast && <Icon name="chevron-right" />}
           </>
         );

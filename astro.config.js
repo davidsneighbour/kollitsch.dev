@@ -1,4 +1,6 @@
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -13,9 +15,35 @@ import matomo from 'astro-matomo';
 import pagefind from 'astro-pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const crontabTmLanguage = JSON.parse(
   fs.readFileSync('./src/config/tmLanguages/crontab.tmLanguage.json', 'utf-8'),
 );
+
+// watching a couple of location where images and blog posts might appear.
+const watchExtraFiles = () => ({
+  configureServer(server) {
+    console.log('[watch-extra-files] Plugin loaded');
+
+    const reload = (file) => {
+      console.log(`[watch-extra-files] Reload triggered due to: ${file}`);
+      server.ws.send({ type: 'full-reload' });
+    };
+
+    const watchPaths = [
+      path.resolve(__dirname, 'src/assets/images'),
+      path.resolve(__dirname, 'src/content/blog'),
+    ];
+
+    server.watcher.add(watchPaths);
+    console.log('[watch-extra-files] Watching paths:', watchPaths);
+
+    server.watcher.on('add', reload);
+    server.watcher.on('unlink', reload);
+  },
+  name: 'watch-extra-files',
+});
 
 // https://astro.build/config
 export default defineConfig({
@@ -120,6 +148,13 @@ export default defineConfig({
   trailingSlash: 'always',
 
   vite: {
-    plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson()],
+    plugins: [
+      tailwindcss(),
+      beep(),
+      toml(),
+      yaml(),
+      devtoolsJson(),
+      watchExtraFiles(),
+    ],
   },
 });

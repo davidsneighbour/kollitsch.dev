@@ -24,63 +24,69 @@ const vars: ShareVars = {
 };
 ---
 
-<div class="relative my-8">
-  <div class="relative flex justify-center">
-    <div class="relative group w-full max-w-5xl">
-      <div
-        class="pointer-events-auto absolute -inset-x-[100px] -inset-y-[100px] hidden md:block z-[-1]"
-        aria-hidden="true"
-      />
-      <div
-        class="relative z-10 isolate grid grid-cols-4 gap-1 sm:grid-cols-6 md:flex md:flex-wrap md:justify-center"
-      >
-        <span class="hidden md:inline-block md:flex-1" />
+<div class="relative isolate">
+  <div class="group relative w-full max-w-5xl mx-auto">
+    <!-- Proximity zone sits INSIDE the component and does not overlap external content -->
+    <div
+      class="absolute inset-x-0 top-0 h-[4rem] pointer-events-none md:pointer-events-auto"
+      aria-hidden="true"
+    />
+    <div
+      class="absolute inset-x-0 bottom-0 h-[4rem] pointer-events-none md:pointer-events-auto"
+      aria-hidden="true"
+    />
 
-        {
-          shareNetworks.map((network, index) => {
-            const isFirst = index === 0;
-            const isLast = index === shareNetworks.length - 1;
-            const baseClass = `
-              relative inline-flex items-center justify-center
-              focus:z-10
-              bg-gray-50 dark:bg-gray-950
-              text-gray-400 dark:text-gray-600
-              ring-1 ring-inset ring-gray-300 dark:ring-gray-700
-              px-4 py-3 sm:px-3 sm:py-2
-              transition-colors
-              hover:duration-200 group-hover:duration-[2500ms]
-              focus-visible:outline
-              focus-visible:outline-2
-              focus-visible:outline-offset-2
-              focus-visible:outline-current
-            `;
-            const extraClass = `
-              ${isFirst ? 'md:rounded-l-md' : ''}
-              ${isLast ? 'md:rounded-r-md' : ''}
-              ${network.fill} ${network.background}
-              transition-colors duration-[2500ms]
-            `;
-            const href = network.share
-              ? network.share.replace(/\${([^}]+)}/g, (_, key) =>
-                  encodeURIComponent(vars[key as keyof ShareVars] ?? '').replace(/%20/g, '+')
-                )
-              : network.url;
+    <!-- Actual button bar -->
+    <div
+      class="relative z-10 grid grid-cols-4 gap-1 sm:grid-cols-6 md:flex md:flex-wrap md:justify-center py-16"
+    >
+      <span class="hidden md:inline-block md:flex-1" />
 
-            return (
-              <a
-                href={href}
-                class={`${baseClass} ${extraClass}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="sr-only">{network.label}</span>
-                <Icon name={network.icon} />
-              </a>
-            );
-          })
-        }
-        <span class="hidden md:inline-block md:flex-1" />
-      </div>
+      {
+        shareNetworks.map((network, index) => {
+          const isFirst = index === 0;
+          const isLast = index === shareNetworks.length - 1;
+          const baseClass = `
+            relative inline-flex items-center justify-center
+            focus:z-10
+            bg-gray-50 dark:bg-gray-950
+            text-gray-400 dark:text-gray-600
+            ring-1 ring-inset ring-gray-300 dark:ring-gray-700
+            px-4 py-3 sm:px-3 sm:py-2
+            transition-colors
+            hover:duration-200 group-hover:duration-[2500ms]
+            focus-visible:outline
+            focus-visible:outline-2
+            focus-visible:outline-offset-2
+            focus-visible:outline-current
+          `;
+          const extraClass = `
+            ${isFirst ? 'md:rounded-l-md' : ''}
+            ${isLast ? 'md:rounded-r-md' : ''}
+            ${network.fill} ${network.background}
+            transition-colors duration-[2500ms]
+          `;
+          const href = network.share
+            ? network.share.replace(/\${([^}]+)}/g, (_, key) =>
+                encodeURIComponent(vars[key as keyof ShareVars] ?? '').replace(/%20/g, '+')
+              )
+            : network.url;
+
+          return (
+            <a
+              href={href}
+              class={`${baseClass} ${extraClass}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="sr-only">{network.label}</span>
+              <Icon name={network.icon} />
+            </a>
+          );
+        })
+      }
+
+      <span class="hidden md:inline-block md:flex-1" />
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@
   },
   "classes": {
     "containers": {
-      "content": "isolate z-0 mx-auto max-w-full lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl",
+      "content": "isolate z-0 mx-auto max-w-full lg:max-w-4xl 2xl:max-w-5xl",
       "main": "isolate z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl px-1 sm:px-2 md:px-3"
     }
   },

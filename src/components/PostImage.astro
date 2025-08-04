@@ -7,6 +7,7 @@ import {
   resolveImagePath,
   resolveAstroImage,
 } from '@utils/images';
+import { getTailwindSizes } from '@utils/tailwind';
 import { Picture } from 'astro:assets';
 import { log } from '@utils/debug';
 import musicData from '@data/music.json';
@@ -15,9 +16,27 @@ import defaultCoverImage from '@assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unspl
 interface Props {
   post: CollectionEntry<'blog'>;
   classes?: string;
+  quality?: 'low' | 'medium' | 'high' | 'max';
+  widths?: number[];
+  formats?: string[];
+  sizes?: string;
+  layout?: 'fixed' | 'constrained' | 'full-width';
 }
-const { post, classes = 'w-full max-w-full h-auto mb-4 z-20' }: Props =
-  Astro.props;
+const {
+  post,
+  classes = 'w-full max-w-full h-auto mb-4 z-20',
+  quality = 'high',
+  widths = [640, 768, 1024, 1280, 1536],
+  formats = ['avif', 'webp', 'jpeg'],
+  sizes = getTailwindSizes({
+    base: 3,
+    sm: 1,
+    md: 2,
+    maxContentWidth: 1280,
+  }),
+  layout = 'constrained',
+}: Props = Astro.props;
+
 log.start();
 log.stop();
 log.debug('POSTIMAGE GENERATION ###########################################');
@@ -67,12 +86,12 @@ log.stop();
         <Picture
           src={imageMeta}
           alt={cover.alt}
-          formats={['avif', 'webp', 'jpeg']}
-          widths={[640, 768, 1024, 1280, 1536]}
-          sizes={`(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, (max-width: 1536px) 1536px`}
-          layout="constrained"
+          formats={formats}
+          widths={widths}
+          sizes={sizes}
+          layout={layout}
           class={classes}
-          quality="high"
+          quality={quality}
           priority
         />
         {cover.title && (

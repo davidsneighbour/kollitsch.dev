@@ -8,6 +8,10 @@ import Heading from '@components/Heading.astro';
 import setup from '@data/setup.json';
 import type { IconName } from '@utils/icon-names';
 
+import patrickkollitsch from '@assets/images/patrick-kollitsch.png';
+import { Image } from 'astro:assets';
+import Link from '@components/Link.astro';
+
 const adjust = 1.9;
 const titleLength = setup.title.length;
 const titleFontSize = Math.floor((100 / titleLength) * adjust); // Adjust font size based on title length
@@ -15,6 +19,13 @@ const titleFontSize = Math.floor((100 / titleLength) * adjust); // Adjust font s
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
+
+import MarkdownIt from 'markdown-it';
+
+const md = new MarkdownIt();
+
+const introFallback = setup.introduction.replace('{$greeting}', '').trim();
+const introFallbackHtml = md.renderInline(introFallback);
 ---
 
 <footer class={setup.classes.containers.main}>
@@ -28,10 +39,31 @@ const navData = rawNavData as Navigation;
     class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 sm:grid-cols-2 md:grid-cols-6 dark:bg-gray-950"
   >
     <aside class="py-4 text-center sm:col-span-2 md:col-span-3 md:text-left">
-      <Heading level={3}>About</Heading>
-      <p>
-        {setup.introduction}
-      </p>
+      <Heading
+        level={3}
+        class="mb-4"
+        >About</Heading
+      >
+      <div class="flex flex-row gap-4">
+        <Link
+          href="/connect/"
+          class="basis-1/4"
+        >
+          <Image
+            src={patrickkollitsch}
+            alt="Patrick Kollitsch"
+            width={128}
+            height={128}
+            loading="lazy"
+            class="h-full w-full rounded-full border-1 border-gray-200 dark:border-gray-800"
+          />
+        </Link>
+        <div
+          id="about-introduction"
+          class="basis-3/4 text-left"
+          set:html={introFallbackHtml}
+        />
+      </div>
     </aside>
     <aside class="py-4">
       <Heading
@@ -40,7 +72,7 @@ const navData = rawNavData as Navigation;
         >Navigation</Heading
       >
       <ul
-        class="flex flex-row flex-wrap justify-center gap-2 p-4 sm:justify-end"
+        class="flex flex-row flex-wrap justify-center gap-2 text-center sm:justify-end lg:flex-col"
       >
         {
           navData.map(value => (
@@ -126,4 +158,25 @@ const navData = rawNavData as Navigation;
 
 <script is:inline define:vars={{ footerYearId }}>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
+</script>
+
+{
+  /*
+    Creating an introduction in the footer dynamically based on some variables... Currently local time only.
+    VSCode will complain about setting is:inline here, but it's not inline here.
+  */
+}
+<script
+  type="module"
+  defer
+  define:vars={{ introRaw: setup.introduction, greetings: setup.greetings }}
+>
+  import { renderIntroduction } from '/src/assets/scripts/render-intro.ts';
+
+  const target = document.getElementById('about-introduction');
+  if (target) {
+    const html = renderIntroduction(introRaw, greetings);
+    console.log(html);
+    target.innerHTML = html;
+  }
 </script>

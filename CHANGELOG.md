@@ -1,4 +1,18 @@
 # Changelog
+## [2025.8.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.1...v2025.8.2) (2025-08-04)
+
+
+### Theme
+
+* **fix:** fixes to image srcsets ([90145ab](https://github.com/davidsneighbour/kollitsch.dev/commit/90145ab8e4d2aa12151b3b5e1c133cc3ea3643fb))
+* **fix:** footer amendments... not quite done yet. ([da02612](https://github.com/davidsneighbour/kollitsch.dev/commit/da026127ace54a7a8dd4bafb299f8adf19bf4ab1))
+* **fix:** wider single page layout on lg ([8dbce09](https://github.com/davidsneighbour/kollitsch.dev/commit/8dbce0958a8e4bbf305cee86e2b6c8e63014d7df))
+
+
+### Build System
+
+* **deps:** update dependencies ([194fb91](https://github.com/davidsneighbour/kollitsch.dev/commit/194fb915bb79ff3ea7d47008ca3a18d85f12e01a))
+
 ## [2025.8.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.0...v2025.8.1) (2025-08-03)
 
 

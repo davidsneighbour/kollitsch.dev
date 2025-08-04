@@ -194,7 +194,7 @@
     "configFile": "./src/config/stylelint/index.js"
   },
   "type": "module",
-  "version": "2025.8.1",
+  "version": "2025.8.2",
   "wireit": {
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"

@@ -13,7 +13,8 @@ import Layout from '@layouts/DefaultPage.astro';
 import BlogPost from '@components/BlogPost.astro';
 
 export const getStaticPaths = async () => {
-  const allPosts = await getCollection('blog');
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
   return allPosts
     .map(post => {
       const parts = post.id.split('/');
@@ -31,6 +32,12 @@ export const getStaticPaths = async () => {
 };
 
 const { post } = Astro.props;
+
+if (import.meta.env.PROD && post.data.draft) {
+  throw new Error(
+    `[blog] Tried to render draft post in production: ${post.id}`,
+  );
+}
 ---
 
 <Layout

@@ -3,6 +3,7 @@ import Layout from '@layouts/DefaultPage.astro';
 import ArticleCard from '@components/ArticleCard.astro';
 import Pagination from '@components/Pagination.astro';
 import { paginateBlogPostsByYear } from '@utils/content';
+import BlogHeading from '@components/BlogHeading.astro';
 
 export async function getStaticPaths() {
   const { getCollection } = await import('astro:content');
@@ -31,7 +32,12 @@ const { posts, totalPages } = await paginateBlogPostsByYear(
 ---
 
 <Layout title={`Blog posts from ${year}`}>
-  <h1 class="mb-4">Posts from {year}</h1>
+  <BlogHeading
+    title={`Blog Posts from ${year}`}
+    posts={posts}
+    level={1}
+    description="Explore our collection of blog posts from this year."
+  />
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {posts.map(post => <ArticleCard post={post} />)}
   </div>

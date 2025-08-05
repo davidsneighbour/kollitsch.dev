@@ -476,3 +476,25 @@ export async function getLatestPost<T extends DateAwareCollections = 'blog'>(
     );
   return sorted[0];
 }
+
+/**
+ * Format a date object into "Month Day, Year" format (e.g. August 5, 2025)
+ */
+export function formatDisplayDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
+export function getPageDateNote(
+  posts: CollectionEntry<'blog'>[],
+): string | null {
+  if (posts.length === 0) return null;
+  const first = new Date(posts.at(-1)!.data.date);
+  const last = new Date(posts.at(0)!.data.date);
+  return posts.length > 1
+    ? `The posts on this page were published between ${formatDisplayDate(last)} and ${formatDisplayDate(first)}.`
+    : `This post was published on ${formatDisplayDate(first)}.`;
+}

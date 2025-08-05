@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Props as HeadingProps } from '@components/Heading.astro';
+
+import Heading from '@components/Heading.astro';
+import { getPageDateNote } from '@utils/content';
+
+interface Props extends HeadingProps {
+  title: string;
+  posts: CollectionEntry<'blog'>[];
+}
+
+const {
+  title,
+  posts,
+  level = 1,
+  description = 'A collection of articles, tutorials, and updates.',
+  link,
+  class: className,
+}: Props = Astro.props;
+
+// Props to pass to Heading, without undefineds
+const headingProps = {
+  ...(level !== undefined && { level }),
+  ...(description !== undefined && { description }),
+  ...(link !== undefined && { link }),
+  ...(className !== undefined && { class: className }),
+};
+
+const dateNote = Array.isArray(posts) ? getPageDateNote(posts) : null;
+---
+
+<section class="mb-4 border-b border-gray-200 text-center dark:border-gray-700">
+  <Heading {...headingProps}>
+    {title}
+  </Heading>
+
+  {dateNote && <p class="text-gray-500 dark:text-gray-400">{dateNote}</p>}
+</section>

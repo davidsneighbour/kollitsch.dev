@@ -8,9 +8,9 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 // components
 import Layout from '@layouts/DefaultPage.astro';
-import Heading from '@components/Heading.astro';
 import Pagination from '@components/Pagination.astro';
 import ArticleCard from '@components/ArticleCard.astro';
+import BlogHeading from '@components/BlogHeading.astro';
 
 export async function getStaticPaths() {
   const posts = getPostsSortedByDraft(await getCollection('blog'));
@@ -40,9 +40,12 @@ const post = {
 ---
 
 <Layout post={post}>
-  <Heading description="A collection of articles, tutorials, and updates."
-    >Blog</Heading
-  >
+  <BlogHeading
+    title="Blog"
+    posts={posts}
+    level={1}
+    description="A collection of articles, tutorials, and updates."
+  />
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {
       posts.map(post => {

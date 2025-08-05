@@ -10,7 +10,6 @@ import {
 import { getTailwindSizes } from '@utils/tailwind';
 import { Picture } from 'astro:assets';
 import { log } from '@utils/debug';
-import musicData from '@data/music.json';
 import defaultCoverImage from '@assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg';
 
 interface Props {
@@ -70,14 +69,15 @@ log.stop();
         is:inline
       />
 
-      <figcaption class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100">
-        {(() => {
+      <figcaption class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100">
+        {/* {(() => {
           const artist = musicData.data.find(
             a => a.slug === cover.video!.artist,
           );
           const name = artist ? artist.name : cover.video!.artist;
           return `${name} — ${cover.video!.title}`;
-        })()}
+        })()} */}
+        {cover.video.title}
       </figcaption>
     </figure>
   ) : (
@@ -98,7 +98,7 @@ log.stop();
           <figcaption
             transition:animate="slide"
             set:html={cover.title}
-            class="absolute right-0 bottom-0 left-0 z-30 bg-orange-600/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
+            class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
           />
         )}
       </figure>

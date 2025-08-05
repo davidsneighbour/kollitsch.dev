@@ -14,7 +14,7 @@ import Link from '@components/Link.astro';
 
 const adjust = 1.9;
 const titleLength = setup.title.length;
-const titleFontSize = Math.floor((100 / titleLength) * adjust); // Adjust font size based on title length
+const titleFontSize = Math.floor((100 / titleLength) * adjust);
 
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
@@ -36,15 +36,17 @@ const introFallbackHtml = md.renderInline(introFallback);
     Footer section with navigation and social media links
   </Heading>
   <div
-    class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 sm:grid-cols-2 md:grid-cols-6 dark:bg-gray-950"
+    class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 md:grid-cols-2 lg:grid-cols-9 xl:grid-cols-7 dark:bg-gray-950"
   >
-    <aside class="py-4 text-center sm:col-span-2 md:col-span-3 md:text-left">
+    <aside
+      class="py-4 text-center md:col-span-2 lg:col-span-5 lg:text-left xl:col-span-4"
+    >
       <Heading
         level={3}
-        class="mb-4"
+        class="mb-4 border-b border-gray-100 dark:border-gray-900"
         >About</Heading
       >
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-row items-center gap-4">
         <Link
           href="/connect/"
           class="basis-1/4"
@@ -52,8 +54,8 @@ const introFallbackHtml = md.renderInline(introFallback);
           <Image
             src={patrickkollitsch}
             alt="Patrick Kollitsch"
-            width={128}
-            height={128}
+            width={256}
+            height={256}
             loading="lazy"
             class="h-full w-full rounded-full border-1 border-gray-200 dark:border-gray-800"
           />
@@ -65,14 +67,14 @@ const introFallbackHtml = md.renderInline(introFallback);
         />
       </div>
     </aside>
-    <aside class="py-4">
+    <aside class="py-4 lg:col-span-2 xl:col-span-1">
       <Heading
         level={3}
-        class="mb-4 text-center"
+        class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"
         >Navigation</Heading
       >
       <ul
-        class="flex flex-row flex-wrap justify-center gap-2 text-center sm:justify-end lg:flex-col"
+        class="flex flex-row flex-wrap justify-center gap-2 text-center lg:flex-col lg:justify-end"
       >
         {
           navData.map(value => (
@@ -80,6 +82,7 @@ const introFallbackHtml = md.renderInline(introFallback);
               <IconLink
                 href={value.link}
                 icon={value.icon}
+                linkClass="justify-center"
               >
                 {value.label}
               </IconLink>
@@ -88,13 +91,13 @@ const introFallbackHtml = md.renderInline(introFallback);
         }
       </ul>
     </aside>
-    <aside class="py-4 md:col-span-2">
+    <aside class="py-4 lg:col-span-2">
       <Heading
         level={3}
-        class="mb-4 text-center sm:text-right"
+        class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900"
         >Connect</Heading
       >
-      <ul class="flex flex-row flex-wrap justify-center gap-2 sm:justify-end">
+      <ul class="flex flex-row flex-wrap justify-center gap-2 lg:justify-end">
         {
           socialMediaData.map(value => (
             <li>
@@ -114,9 +117,9 @@ const introFallbackHtml = md.renderInline(introFallback);
   </div>
 
   <div
-    class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 lg:grid-cols-3"
+    class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 md:grid-cols-3"
   >
-    <span class="text-center lg:text-left"
+    <span class="text-center md:text-left"
       >&copy; <span id={footerYearId}>{currentYear}</span>
       <a href={getHomepageUrl()}>{setup.title}</a></span
     >
@@ -160,23 +163,16 @@ const introFallbackHtml = md.renderInline(introFallback);
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
 </script>
 
-{
-  /*
-    Creating an introduction in the footer dynamically based on some variables... Currently local time only.
-    VSCode will complain about setting is:inline here, but it's not inline here.
-  */
-}
 <script
   type="module"
   defer
+  is:inline
   define:vars={{ introRaw: setup.introduction, greetings: setup.greetings }}
 >
   import { renderIntroduction } from '/src/assets/scripts/render-intro.ts';
-
   const target = document.getElementById('about-introduction');
   if (target) {
     const html = renderIntroduction(introRaw, greetings);
-    console.log(html);
     target.innerHTML = html;
   }
 </script>

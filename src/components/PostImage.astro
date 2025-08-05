@@ -14,6 +14,7 @@ import defaultCoverImage from '@assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unspl
 
 interface Props {
   post: CollectionEntry<'blog'>;
+  link?: string;
   classes?: string;
   quality?: 'low' | 'medium' | 'high' | 'max';
   widths?: number[];
@@ -23,6 +24,7 @@ interface Props {
 }
 const {
   post,
+  link,
   classes = 'w-full max-w-full h-auto mb-4 z-20',
   quality = 'high',
   widths = [640, 768, 1024, 1280, 1536],
@@ -83,17 +85,33 @@ log.stop();
   ) : (
     imageMeta && (
       <figure class="group relative isolate z-10">
-        <Picture
-          src={imageMeta}
-          alt={cover.alt}
-          formats={formats}
-          widths={widths}
-          sizes={sizes}
-          layout={layout}
-          class={classes}
-          quality={quality}
-          priority
-        />
+        {link ? (
+          <a href={link}>
+            <Picture
+              src={imageMeta}
+              alt={cover.alt}
+              formats={formats}
+              widths={widths}
+              sizes={sizes}
+              layout={layout}
+              class={classes}
+              quality={quality}
+              priority
+            />
+          </a>
+        ) : (
+          <Picture
+            src={imageMeta}
+            alt={cover.alt}
+            formats={formats}
+            widths={widths}
+            sizes={sizes}
+            layout={layout}
+            class={classes}
+            quality={quality}
+            priority
+          />
+        )}
         {cover.title && (
           <figcaption
             transition:animate="slide"

@@ -24,6 +24,7 @@ const { post }: Props = Astro.props;
 >
   <PostImage
     post={post}
+    link={`/blog/${post.id}/`}
     classes="max-w-full aspect-2/1 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
   />
 
@@ -32,6 +33,7 @@ const { post }: Props = Astro.props;
     <Heading
       level={1}
       class="heading"
+      link={`/blog/${post.id}/`}
       >{post.data.title}
     </Heading>
     <BreadCrumbs path={post.filePath} />

@@ -1,4 +1,15 @@
 # Changelog
+## [2025.8.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.2...v2025.8.3) (2025-08-05)
+
+
+### Theme
+
+* **feat:** add linkClass property to IconLink ([b8015de](https://github.com/davidsneighbour/kollitsch.dev/commit/b8015de53c07d3a385ed2ab795c256b5ea7549e2))
+* **fix:** add links to headlines and cover images ([766b965](https://github.com/davidsneighbour/kollitsch.dev/commit/766b965f65ac2f2e07816ce88126d0790bfe90e5))
+* **fix:** cover caption content and design on hover ([1f222ff](https://github.com/davidsneighbour/kollitsch.dev/commit/1f222ffa50edd5b8ec948b2abc7a3c7c5bde3d22))
+* **fix:** finetuning responsive layouts in footer ([d756a70](https://github.com/davidsneighbour/kollitsch.dev/commit/d756a70fef531a6873e7e2deea334d3666e8a62d))
+* **fix:** scale transition for :active Button ([ba55154](https://github.com/davidsneighbour/kollitsch.dev/commit/ba55154052bbb0fca3caf2c043f3dfd919b6e90b))
+
 ## [2025.8.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.1...v2025.8.2) (2025-08-04)
 
 

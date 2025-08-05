@@ -90,6 +90,8 @@ const baseClasses = `
   transition-colors motion-reduce:transition-none
   delay-150 duration-(--kdev-transition-duration) ease-[--kdev-transition-function]
 
+  active:scale-x-97 active:scale-y-98 transition-transform duration-150 motion-reduce:transition-none
+
   ${getBlockClasses(block)}
   ${getDisabledClasses(disabled)}
 `.trim();

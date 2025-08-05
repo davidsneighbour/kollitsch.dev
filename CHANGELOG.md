@@ -1,4 +1,13 @@
 # Changelog
+## [2025.8.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.3...v2025.8.4) (2025-08-05)
+
+
+### Theme
+
+* **feat:** add BlogHeading component for all blog overviews ([2fb19cb](https://github.com/davidsneighbour/kollitsch.dev/commit/2fb19cbd3c79dd6dd681bcffd2b43739b246f787))
+* **fix:** do not publish draft posts in production ([6cec9e5](https://github.com/davidsneighbour/kollitsch.dev/commit/6cec9e52b1e4b1ffd2b69b0eb259a84b6a952283))
+* **fix:** rename containers more semantically ([3b0f2c4](https://github.com/davidsneighbour/kollitsch.dev/commit/3b0f2c4156516c3b4d40e15991ae5904840b78fc))
+
 ## [2025.8.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.2...v2025.8.3) (2025-08-05)
 
 

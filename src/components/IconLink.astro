@@ -8,6 +8,7 @@ type IconPosition = 'prefix' | 'postfix';
 type Props = {
   icon: IconName;
   type?: IconPosition;
+  linkClass?: string;
   class?: string;
   translate?: boolean;
 } & HTMLAttributes<'a'>;
@@ -16,6 +17,7 @@ const {
   type = 'prefix',
   icon,
   class: iconClass = '',
+  linkClass = '',
   ...allAttrs
 }: Props = Astro.props;
 
@@ -23,7 +25,7 @@ const hasSlot = !!Astro.slots.default;
 ---
 
 <a
-  class="flex items-center gap-2"
+  class={`flex items-center gap-2 ${linkClass}`}
   {...allAttrs}
 >
   {

@@ -15,7 +15,7 @@
     "url": "https://bsky.app/profile/davidsneighbour.bsky.social"
   },
   {
-    "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20",
+    "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/20",
     "fill": "hover:text-[#000000]",
     "icon": "threads",
     "id": "threads",
@@ -39,7 +39,7 @@
     "url": "https://www.instagram.com/pkollitsch/"
   },
   {
-    "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20",
+    "background": "group-hover:bg-[#FFCC00]/20 hover:bg-[#FFCC00]/50",
     "fill": "hover:text-[#000000]",
     "icon": "envelope",
     "id": "email",
@@ -57,7 +57,7 @@
     "url": "https://www.facebook.com/davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20",
+    "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/20",
     "fill": "hover:text-[#000000]",
     "icon": "twitter-x",
     "id": "twitter",

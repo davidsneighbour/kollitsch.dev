@@ -9,6 +9,9 @@ import { file, glob } from 'astro/loaders';
 import { githubReleasesLoader } from 'astro-loader-github-releases';
 import MarkdownIt from 'markdown-it';
 
+// This could be used to infer the type of post.data in merged collections
+export type PostData = z.infer<typeof blogSchema>;
+
 /**
  * Explicitly typed paths: override default (string) with custom type.
  */
@@ -23,6 +26,7 @@ export type OptionsData = z.infer<typeof optionsSchema>;
 
 const md = new MarkdownIt();
 
+// MARK: Blog Posts
 export const blogSchema = z
   .object({
     aliases: z
@@ -136,6 +140,7 @@ export const blog = defineCollection({
   schema: () => blogSchema,
 });
 
+// MARK: Tags
 // content for tags
 // @todo clean up and add proper schema validation
 export const tags = defineCollection({
@@ -152,6 +157,7 @@ export const tags = defineCollection({
   }),
 });
 
+// MARK: YouTube Playlists
 // see https://github.com/ascorbic/astro-loaders/tree/main/packages/youtube
 const playlistCollections = Object.fromEntries(
   Object.entries(setup.playlists).map(([name, playlistId]) => [
@@ -168,6 +174,7 @@ const playlistCollections = Object.fromEntries(
   ]),
 );
 
+// MARK: GitHub Releases
 const oneYearAgo = new Date();
 oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 const githubReleases = defineCollection({
@@ -178,6 +185,7 @@ const githubReleases = defineCollection({
   }),
 });
 
+// MARK: Social Media Links
 export const social = defineCollection({
   loader: file('./src/content/social.json', {
     parser: (text) => JSON.parse(text),
@@ -192,6 +200,7 @@ export const social = defineCollection({
   }),
 });
 
+// MARK: TIL Entries
 // Content collection schema for Today I Learned entries.
 export const til = {
   loader: glob({ base: './src/content/til', pattern: '**/*.md' }),
@@ -218,6 +227,7 @@ export const til = {
     }),
 };
 
+// MARK: Export Collections
 export const collections = {
   blog,
   tags,
@@ -226,6 +236,3 @@ export const collections = {
   social,
   til,
 };
-
-// This could be used to infer the type of post.data in merged collections
-export type PostData = z.infer<typeof blogSchema>;

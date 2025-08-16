@@ -53,6 +53,8 @@ export default defineConfig({
     clientPrerender: true,
     contentIntellisense: true,
     preserveScriptOrder: true,
+    // @see https://docs.astro.build/en/reference/experimental-flags/chrome-devtools-workspace/
+    chromeDevtoolsWorkspace: true,
     // @todo https://docs.astro.build/en/reference/experimental-flags/csp/
     //csp: true,
   },

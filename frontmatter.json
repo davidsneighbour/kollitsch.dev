@@ -2,11 +2,12 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.content.pageFolders": [
     {
+      "title": "Weblog",
       "contentTypes": ["default"],
       "filePrefix": "/{{date|yyyy}}/",
       "path": "[[workspace]]/src/content/blog",
       "previewPath": "/{{fm.fmContentType}}/{{fm.date|format:yyyy}}/",
-      "title": "Weblog"
+      "trailingSlash": true
     }
   ],
   "frontMatter.content.publicFolder": {

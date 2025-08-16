@@ -26,7 +26,6 @@ const vars: ShareVars = {
 
 <div class="relative isolate">
   <div class="group relative w-full max-w-5xl mx-auto">
-    <!-- Proximity zone sits INSIDE the component and does not overlap external content -->
     <div
       class="absolute inset-x-0 top-0 h-[4rem] pointer-events-none md:pointer-events-auto"
       aria-hidden="true"
@@ -35,13 +34,10 @@ const vars: ShareVars = {
       class="absolute inset-x-0 bottom-0 h-[4rem] pointer-events-none md:pointer-events-auto"
       aria-hidden="true"
     />
-
-    <!-- Actual button bar -->
     <div
-      class="relative z-10 grid grid-cols-4 gap-1 sm:grid-cols-6 md:flex md:flex-wrap md:justify-center py-16"
+      class="relative z-10 grid grid-cols-4 sm:grid-cols-6 md:flex md:flex-wrap md:justify-center py-16"
     >
       <span class="hidden md:inline-block md:flex-1" />
-
       {
         shareNetworks.map((network, index) => {
           const isFirst = index === 0;
@@ -71,7 +67,6 @@ const vars: ShareVars = {
                 encodeURIComponent(vars[key as keyof ShareVars] ?? '').replace(/%20/g, '+')
               )
             : network.url;
-
           return (
             <a
               href={href}
@@ -85,7 +80,6 @@ const vars: ShareVars = {
           );
         })
       }
-
       <span class="hidden md:inline-block md:flex-1" />
     </div>
   </div>

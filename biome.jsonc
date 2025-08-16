@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -256,8 +256,7 @@
             "noUnusedVariables": "off"
           },
           "nursery": {
-            "noUnresolvedImports": "off",
-            "noTsIgnore": "error"
+            "noUnresolvedImports": "off"
           },
           "style": {
             "useConst": "off",

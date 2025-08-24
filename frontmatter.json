@@ -121,7 +121,41 @@
         "type": "object"
       },
       "title": "Tags"
+    },
+    {
+      "id": "blogroll",
+      "title": "Blogroll",
+      "file": "[[workspace]]/src/content/blogroll.json",
+      "labelField": "name",
+      "schema": {
+        "title": "Blogroll",
+        "type": "object",
+        "required": [
+          "name",
+          "url"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "url": {
+            "type": "string",
+            "title": "URL"
+          },
+          "rss": {
+            "type": "string",
+            "title": "RSS Feed URL"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "multiline": true
+          }
+        }
+      }
     }
+
   ],
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",

@@ -1,0 +1,52 @@
+name: Update Blogroll Screenshots
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every Sunday 23:00 ICT (UTC+7) = 16:00 UTC Sunday
+    - cron: "0 16 * * 0"
+
+permissions:
+  contents: write
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright (Chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Ensure output directory exists
+        run: mkdir -p src/assets/images/blogroll
+
+      - name: Remove old screenshots (ignore if none)
+        run: rm -f src/assets/images/blogroll/*.jpg
+
+      - name: Run screenshot script
+        run: node src/scripts/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll
+
+      - name: Commit screenshots if there are changes
+        run: |
+          git config user.name "Patrick Kollitsch"
+          git config user.email "davidsneighbourdev+gh@gmail.com"
+          git add src/assets/images/blogroll/*.jpg
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "build(images): update blogroll screenshots"
+          git push

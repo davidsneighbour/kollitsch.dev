@@ -49,11 +49,11 @@ export default defineConfig({
   compressHTML: import.meta.env.PROD,
 
   experimental: {
+    // @see https://docs.astro.build/en/reference/experimental-flags/chrome-devtools-workspace/
+    chromeDevtoolsWorkspace: true,
     clientPrerender: true,
     contentIntellisense: true,
     preserveScriptOrder: true,
-    // @see https://docs.astro.build/en/reference/experimental-flags/chrome-devtools-workspace/
-    chromeDevtoolsWorkspace: true,
     // @todo https://docs.astro.build/en/reference/experimental-flags/csp/
     //csp: true,
   },
@@ -118,7 +118,9 @@ export default defineConfig({
           frameBoxShadowCssValue: '0',
         },
       },
-      themes: ['dracula', 'github-light'],
+      themeCssSelector: (theme) => `[data-code-theme='${theme.name}']`,
+      themes: ['dracula', 'light-plus'],
+      useDarkModeMediaQuery: false,
     }),
     mdx(),
   ],

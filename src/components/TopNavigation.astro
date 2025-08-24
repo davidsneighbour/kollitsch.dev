@@ -209,6 +209,9 @@ const { defaultTheme = 'dark' } = Astro.props;
 
       function applyTheme(t) {
         const resolved = t === 'auto' ? systemTheme : t;
+
+        const codeTheme = resolved === 'dark' ? 'dracula' : 'light-plus';
+        document.documentElement.dataset.codeTheme = codeTheme;
         document.documentElement.dataset.theme = resolved;
         document.documentElement.style.colorScheme = resolved;
         changeGiscusTheme(t);

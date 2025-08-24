@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
@@ -68,7 +67,6 @@ export default defineConfig({
   },
 
   integrations: [
-    alpinejs({ entrypoint: '/src/assets/js/theme.ts' }),
     sitemap(),
     pagefind({
       // https://github.com/shishkin/astro-pagefind

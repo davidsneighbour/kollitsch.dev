@@ -6,7 +6,6 @@
  * Adding global types to the Window object.
  */
 interface Window {
-  Alpine: import('alpinejs').Alpine;
   theme: {
     setTheme: (theme: 'auto' | 'dark' | 'light') => void;
     getTheme: () => 'auto' | 'dark' | 'light';

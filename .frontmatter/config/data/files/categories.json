@@ -1,0 +1,45 @@
+{
+  "$schema": "https://frontmatter.codes/config/data.files.schema.json",
+  "file": "[[workspace]]/src/content/categories.json",
+  "id": "categories",
+  "labelField": "label",
+  "schema": {
+    "properties": {
+      "class": {
+        "description": "CSS class for the category.",
+        "type": "string"
+      },
+      "description": {
+        "description": "The introduction for this category.",
+        "multiline": true,
+        "type": "string"
+      },
+      "icon": {
+        "description": "Name of the category icon.",
+        "type": "string"
+      },
+      "id": {
+        "description": "The category's slug.",
+        "type": "string"
+      },
+      "image": {
+        "description": "The filename of the category image within the `src/assets/images/categories` directory.",
+        "type": "string"
+      },
+      "label": {
+        "description": "The category's label.",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label",
+      "description",
+      "image",
+      "icon",
+      "class"
+    ],
+    "type": "object"
+  },
+  "title": "Categories"
+}

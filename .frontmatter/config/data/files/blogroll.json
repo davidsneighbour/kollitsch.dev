@@ -1,0 +1,34 @@
+{
+  "$schema": "https://frontmatter.codes/config/data.files.schema.json",
+  "file": "[[workspace]]/src/content/blogroll.json",
+  "id": "blogroll",
+  "labelField": "name",
+  "schema": {
+    "properties": {
+      "description": {
+        "multiline": true,
+        "title": "Description",
+        "type": "string"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "rss": {
+        "title": "RSS Feed URL",
+        "type": "string"
+      },
+      "url": {
+        "title": "URL",
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "url"
+    ],
+    "title": "Blogroll",
+    "type": "object"
+  },
+  "title": "Blogroll"
+}

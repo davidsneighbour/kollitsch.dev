@@ -1,0 +1,39 @@
+{
+  "$schema": "https://frontmatter.codes/config/data.files.schema.json",
+  "file": "[[workspace]]/src/data/socialmedia.json",
+  "id": "socialmedia",
+  "labelField": "label",
+  "schema": {
+    "properties": {
+      "icon": {
+        "description": "Name of the social media icon.",
+        "type": "string"
+      },
+      "id": {
+        "description": "The social media's slug.",
+        "type": "string"
+      },
+      "label": {
+        "description": "The social media's label.",
+        "type": "string"
+      },
+      "url": {
+        "description": "The URL of the social media profile.",
+        "format": "uri",
+        "type": "string"
+      },
+      "weight": {
+        "description": "The weight of the social media link, used for sorting.",
+        "type": "number"
+      }
+    },
+    "required": [
+      "id",
+      "label",
+      "url",
+      "icon"
+    ],
+    "type": "object"
+  },
+  "title": "Social Media"
+}

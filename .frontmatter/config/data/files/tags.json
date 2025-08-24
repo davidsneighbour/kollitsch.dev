@@ -1,0 +1,45 @@
+{
+  "$schema": "https://frontmatter.codes/config/data.files.schema.json",
+  "file": "[[workspace]]/src/content/tags.json",
+  "id": "tags",
+  "labelField": "label",
+  "schema": {
+    "properties": {
+      "class": {
+        "description": "CSS class for the tag.",
+        "type": "string"
+      },
+      "description": {
+        "description": "The introduction for this tag.",
+        "multiline": true,
+        "type": "string"
+      },
+      "icon": {
+        "description": "Name of the tag icon.",
+        "type": "string"
+      },
+      "id": {
+        "description": "The tag's slug.",
+        "type": "string"
+      },
+      "image": {
+        "description": "The filename of the tag image within the `src/assets/images/tags` directory.",
+        "type": "string"
+      },
+      "label": {
+        "description": "The tag's label.",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label",
+      "description",
+      "image",
+      "icon",
+      "class"
+    ],
+    "type": "object"
+  },
+  "title": "Tags"
+}

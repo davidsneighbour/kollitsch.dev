@@ -2,7 +2,6 @@
 title: "Update: Things might be broken"
 description: "A quick update about the current state of the blog and the website."
 date: 2025-06-30T05:15:06.812Z
-featured: true
 cover:
   src: "./osarugue-igbinoba-OagGckk_Lvo-unsplash.jpg"
   type: image

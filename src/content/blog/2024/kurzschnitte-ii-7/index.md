@@ -46,7 +46,7 @@ Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathema
 
 * [ObsoHTML](https://github.com/j9t/obsohtml) is a tool designed for detecting obsolete and proprietary HTML elements and attributes in various file types like HTML, PHP, and JavaScript. It's particularly useful for ensuring web standards are met in your projects. This Node.js script offers functionalities to run checks either globally or in specified directories, providing a detailed output of detected issues for easy updating. The project is open-source under the CC-BY-SA-4.0 license.
 
-## Food for though
+## Food for thought
 
 * [Going Buildless](https://mxb.dev/blog/buildless/) on mxb.dev explores the appeal and feasibility of a development approach without build processes, highlighting direct browser file delivery from code editors. It discusses the trade-offs, especially around performance, and the challenges of including HTML imports natively. Techniques using web components and server-side enhancements, such as Cloudflare Workers for dynamic content integration, are covered. The post also touches on CSS and JavaScript practices that support a buildless workflow, promoting simpler development for smaller projects. Back to where we started, with an FTP client and a browser.
 * Dave Rupert's [take on crafting better forms](https://daverupert.com/2024/09/good-forms/) provides insights into how to improve form usability and aesthetics, focusing on practical design decisions that enhance user interaction and data accuracy and many other tips in what he calls "a dogpile". I think his tips are particularly valuable for designers looking to refine their approach to form elements and overall user experience.

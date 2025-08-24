@@ -51,7 +51,7 @@ Welcome to the sixth edition of Kurzschnitte II. Did you know that six is the sm
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/40hWUhttLF6j8feHjbF0g7" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-## Food for though
+## Food for thought
 
 * Explore the concept of "Kinwork" over traditional networking through an insightful blog post on [Everything Changes](https://everythingchanges.us/blog/make-kin-not-nets/). The post critiques traditional networking as a dehumanizing act that reduces relationships to mere transactions. It advocates for "Kinwork," which emphasizes creating and nurturing genuine connections, supporting emotional and material needs, and fostering a community of care and support. This approach, enriched by Donna Haraway's concept of oddkin, values life and community over capital.
 

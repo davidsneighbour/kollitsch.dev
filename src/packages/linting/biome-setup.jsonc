@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@biomejs/biome": "2.1.4"
+    "@biomejs/biome": "2.2.2"
   },
   "scripts": {
     "biome:check": "biome check",

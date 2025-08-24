@@ -1,9 +1,8 @@
 {
   "dependencies": {
-    // favicon creation
-    "png-to-ico": "2.1.8",
+    "png-to-ico": "3.0.1"
   },
   "scripts": {
-    "build:favicons": "node src/assets/favicon/regenerate.ts",
-  },
+    "build:favicons": "node src/assets/favicon/regenerate.ts"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@davidsneighbour/release-config": "2025.3.1"
+    "@davidsneighbour/release-config": "2025.3.3"
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",

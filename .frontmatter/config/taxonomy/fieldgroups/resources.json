@@ -1,0 +1,16 @@
+{
+  "$schema": "https://frontmatter.codes/config/taxonomy.fieldgroups.schema.json",
+  "fields": [
+    {
+      "name": "title",
+      "title": "title",
+      "type": "string"
+    },
+    {
+      "name": "src",
+      "title": "src",
+      "type": "string"
+    }
+  ],
+  "id": "resources_group"
+}

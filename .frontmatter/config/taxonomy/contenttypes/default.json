@@ -1,0 +1,65 @@
+{
+  "$schema": "https://frontmatter.codes/config/taxonomy.contenttypes.schema.json",
+  "fields": [
+    {
+      "name": "title",
+      "title": "title",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "title": "description",
+      "type": "string"
+    },
+    {
+      "name": "draft",
+      "title": "draft",
+      "type": "draft"
+    },
+    {
+      "name": "date",
+      "title": "date",
+      "type": "datetime"
+    },
+    {
+      "fieldGroup": ["resources_group"],
+      "name": "resources",
+      "title": "resources",
+      "type": "block"
+    },
+    {
+      "name": "tags",
+      "title": "tags",
+      "type": "tags"
+    },
+    {
+      "name": "fmContentType",
+      "title": "fmContentType",
+      "type": "string"
+    },
+    {
+      "fields": [
+        {
+          "name": "src",
+          "title": "src",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string"
+        }
+      ],
+      "name": "cover",
+      "title": "cover",
+      "type": "fields"
+    },
+    {
+      "name": "publisher",
+      "title": "publisher",
+      "type": "string"
+    }
+  ],
+  "name": "default",
+  "pageBundle": false
+}

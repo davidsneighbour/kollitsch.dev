@@ -41,12 +41,11 @@
       padding-left: var(--typography-space);
     }
     ul {
-      @apply list-disc list-inside;
-      padding-left: var(--typography-space);
-
+      @apply list-outside list-disc;
+      margin-left: var(--typography-space);
 
       li li {
-        padding-left: var(--typography-space);
+        margin-left: var(--typography-space);
       }
     }
     p,

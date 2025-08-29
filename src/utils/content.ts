@@ -1,9 +1,9 @@
 import type { CollectionEntry, z } from 'astro:content';
 
 import { getCollection } from 'astro:content';
-import site from '@data/setup.json';
-import setup from '@data/setup.json';
-import siteinfo from '@data/setup.json';
+import site from '@data/setup.json' with { type: 'json' };
+import setup from '@data/setup.json' with { type: 'json' };
+import siteinfo from '@data/setup.json' with { type: 'json' };
 import { log } from '@utils/debug';
 import { blogSchema } from '../content.config.js';
 
@@ -77,6 +77,31 @@ export interface BreadcrumbItem {
   href: string;
 }
 
+const toTitleCase = (segment: string) =>
+  segment
+    .split('-')
+    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+    .join(' ');
+
+const nonEmpty = (v: unknown): string | null =>
+  typeof v === 'string' ? (v.trim() ? v.trim() : null) : null;
+
+const pickFrontmatterString = (
+  data: unknown,
+  keys: readonly string[],
+): string | null => {
+  if (typeof data !== 'object' || data === null) return null;
+  const rec = data as Record<string, unknown>;
+  for (const key of keys) {
+    const v = rec[key];
+    if (typeof v === 'string') {
+      const t = v.trim();
+      if (t) return t;
+    }
+  }
+  return null;
+};
+
 /**
  * Breadcrumb generation based on blog entry filePath.
  *
@@ -95,43 +120,45 @@ export async function getBreadcrumbs(
 
   // Normalize and strip to relevant path
   const normalizedPath = filePath
-    .replace(/\\/g, '/') // Windows compatibility
-    .replace(/^.*\/(pages|content)\//, '') // strip up to pages/content
-    .replace(/index\.(md|mdx)$/, '') // remove trailing index file
-    .replace(/\.(md|mdx)$/, '') // remove .md if not index
-    .replace(/\/+/g, '/'); // normalize slashes
+    .replace(/\\/g, '/')
+    .replace(/^.*\/(pages|content)\//, '')
+    .replace(/index\.(md|mdx)$/, '')
+    .replace(/\.(md|mdx)$/, '')
+    .replace(/\/+/g, '/');
 
   const segments = normalizedPath.split('/').filter(Boolean);
 
   const breadcrumbs: BreadcrumbItem[] = [
     { href: `${homepage}/`, label: 'Home' },
   ];
-
   const allEntries = await getCollection('blog');
+
   let currentPath = '';
-
   for (let i = skipIndex; i < segments.length; i++) {
-    const segment = segments[i];
+    const segment = segments[i]!;
     currentPath += `/${segment}`;
+    const href = `${homepage}${currentPath}/`;
+    const isLast = i === segments.length - 1;
 
-    // Try to match with an entry title
-    const match = allEntries.find((entry) => {
-      const entryPath = `/${entry.id}`.replace(/\/+$/, '');
-      return entryPath === currentPath;
-    });
+    let label: string;
 
-    const label = match?.data?.title
-      ? match.data.title
-      : // @ts-expect-error
-        segment
-          .split('-')
-          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-          .join(' ');
+    if (isLast) {
+      const match = allEntries.find((entry) => {
+        const entryPath = `/blog/${entry.id}`.replace(/\/+$/, '');
+        return entryPath === currentPath;
+      });
 
-    breadcrumbs.push({
-      href: `${homepage}${currentPath}/`,
-      label,
-    });
+      const fmLabel = pickFrontmatterString(match?.data, [
+        'linktitle',
+        'title',
+      ]);
+
+      label = fmLabel ?? toTitleCase(segment);
+    } else {
+      label = toTitleCase(segment);
+    }
+
+    breadcrumbs.push({ href, label });
   }
 
   return breadcrumbs;

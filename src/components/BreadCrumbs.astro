@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <nav
-  class="mb-2 flex flex-row items-center justify-start gap-2 rounded-sm bg-gray-400/10 px-2 py-1 dark:bg-gray-600/10"
+  class="mb-2 flex flex-row items-center justify-start gap-2 rounded-sm bg-gray-100 px-2 py-1 dark:bg-gray-900"
   aria-label="Breadcrumb"
 >
   {
@@ -28,7 +28,12 @@ import { Icon } from 'astro-icon/components';
                 breadcrumb.label
               )}
             </a>
-            {!isLast && <Icon name="chevron-right" />}
+            {!isLast && (
+              <Icon
+                name="chevron-right"
+                class="fill-gray-400 text-gray-400 dark:fill-gray-600 dark:text-gray-600"
+              />
+            )}
           </>
         );
       })

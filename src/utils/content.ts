@@ -83,9 +83,6 @@ const toTitleCase = (segment: string) =>
     .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
     .join(' ');
 
-const nonEmpty = (v: unknown): string | null =>
-  typeof v === 'string' ? (v.trim() ? v.trim() : null) : null;
-
 const pickFrontmatterString = (
   data: unknown,
   keys: readonly string[],

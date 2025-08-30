@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 // for youtube playlist loader
 import { youTubeLoader } from '@ascorbic/youtube-loader';
-import setup from '@data/setup.json';
+import setup from '@data/setup.json' with { type: 'json' };
 import { buildOptionsSchema } from '@utils/schema';
 
 import { file, glob } from 'astro/loaders';
@@ -33,6 +33,7 @@ export const blogSchema = z
       .union([z.string(), z.array(z.string())])
       .optional()
       .transform((val) => (typeof val === 'string' ? [val] : val)),
+    category: z.string().optional(),
     cover: z
       .object({
         src: z.string(),
@@ -200,33 +201,6 @@ export const social = defineCollection({
   }),
 });
 
-// MARK: TIL Entries
-// Content collection schema for Today I Learned entries.
-export const til = {
-  loader: glob({ base: './src/content/til', pattern: '**/*.md' }),
-  schema: () =>
-    z.object({
-      date: z.coerce
-        .date()
-        .transform((s) => new Date(s))
-        .describe('Full ISO date string (e.g. 2023-10-01)'),
-      tags: z
-        .array(
-          z
-            .string()
-            .min(1)
-            .refine((val) => !val.includes(' '), {
-              message: 'Tags must not contain spaces',
-            }),
-        )
-        .describe('Tags as array of strings (no spaces)'),
-      title: z
-        .string()
-        .max(80, 'Title must be at most 80 characters') // Make configurable if needed
-        .describe('Short, descriptive title (max 80 characters)'),
-    }),
-};
-
 // MARK: Export Collections
 export const collections = {
   blog,
@@ -234,5 +208,4 @@ export const collections = {
   ...playlistCollections,
   githubReleases,
   social,
-  til,
 };

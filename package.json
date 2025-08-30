@@ -164,7 +164,7 @@
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit",
-    "lint:vale": "vale --config='src/config/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "lint:vale": "vale --no-exit --minAlertLevel=error --output='dnb.tmpl' ./.frontmatter/content/",
     "postprepare": "wireit",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "prettier:check": "prettier --check .",
@@ -284,7 +284,7 @@
       "command": "git submodule update --recursive --remote"
     },
     "update:pre:vale": {
-      "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
+      "command": "vale --no-exit sync"
     }
   }
 }

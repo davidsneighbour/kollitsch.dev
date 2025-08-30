@@ -8,7 +8,7 @@
     p {
       font-size: var(--text-lg);
 
-      :last-child {
+      &:last-child {
         margin-bottom: 0;
       }
     }
@@ -53,6 +53,17 @@
       code {
         @apply -mx-0.5 my-1 rounded bg-orange-600/10 px-0.5 py-1 text-sm;
       }
+    }
+
+    blockquote {
+      @apply border-l-4 border-orange-600 bg-orange-600/10 p-4 italic;
+
+      margin-bottom: var(--typography-space);
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
     }
   }
 }

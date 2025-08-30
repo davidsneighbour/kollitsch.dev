@@ -1,16 +1,11 @@
 @layer components {
   /* Prose styles for content sections */
   .content {
-
     /* used for spacing in content sections */
     --typography-space: calc(4 * var(--spacing));
 
     p {
       font-size: var(--text-lg);
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
 
     h1 {
@@ -29,25 +24,28 @@
       margin-bottom: var(--typography-space);
     }
 
+    ol {
+      @apply list-outside list-decimal;
+
+      padding-left: var(--typography-space);
+    }
+
+    ul {
+      @apply list-outside list-disc;
+
+      margin-left: var(--typography-space);
+    }
+
     ul ul,
     ol ol {
       /* bottom margin NOT for sub lists */
       margin-bottom: 0;
     }
 
-    ol {
-      @apply list-outside list-decimal;
-
-      padding-left: var(--typography-space);
-    }
-    ul {
-      @apply list-outside list-disc;
+    li li {
       margin-left: var(--typography-space);
-
-      li li {
-        margin-left: var(--typography-space);
-      }
     }
+
     p,
     li {
       code {
@@ -59,11 +57,10 @@
       @apply border-l-4 border-orange-600 bg-orange-600/10 p-4 italic;
 
       margin-bottom: var(--typography-space);
+    }
 
-      p:last-child {
-        margin-bottom: 0;
-      }
-
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 }

@@ -142,11 +142,11 @@ const rules = {
   'plugin/no-unsupported-browser-features': [
     true,
     {
-      // @todo set to repo-global browserslist config
-      browsers: 'extends @davidsneighbour/browserslist-config',
-      severity: 'warning',
       ignore: ['rem', 'css-nesting'],
       ignorePartialSupport: true,
+      // @todo set to repo-global browserslist config
+      //browsers: 'extends @davidsneighbour/browserslist-config',
+      severity: 'warning',
     },
   ],
   'property-no-unknown': true,

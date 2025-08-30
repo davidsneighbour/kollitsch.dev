@@ -27,9 +27,7 @@
   --font-exo2: 'exo2', sans-serif;
   --font-jetbrainsmono: 'jetbrainsmono', monospace;
   --font-changa: 'changa', sans-serif;
-
   --spacing: 0.25rem;
-
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
 
   @keyframes fade-in-scale {
@@ -37,6 +35,7 @@
       opacity: 0%;
       transform: scale(0.95);
     }
+
     100% {
       opacity: 100%;
       transform: scale(1);
@@ -58,9 +57,9 @@
  * This will also generate all utility classes for variable namespaces.
  ******************************************************************************/
 @theme static {
-  --color-black: hsl(0, 0%, 0%);
-  --color-white: hsl(0, 0%, 100%);
-
+  --color-black: hsl(0deg, 0%, 0%);
+  --color-white: hsl(0deg, 0%, 100%);
+  /* stylelint-disable custom-property-pattern -- this is a TailwindCSS thing */
   --color-amber-*: initial;
   --color-lime-*: initial;
   --color-emerald-*: initial;
@@ -75,18 +74,20 @@
   --color-zinc-*: initial;
   --color-neutral-*: initial;
   --color-stone-*: initial;
-
-  --color-gray-50: oklch(0.985 0 0);
-  --color-gray-100: oklch(0.967 0.001 286.375);
-  --color-gray-200: oklch(0.92 0.004 286.32);
-  --color-gray-300: oklch(0.871 0.006 286.286);
-  --color-gray-400: oklch(0.705 0.015 286.067);
-  --color-gray-500: oklch(0.552 0.016 285.938);
-  --color-gray-600: oklch(0.442 0.017 285.786);
-  --color-gray-700: oklch(0.37 0.013 285.805);
-  --color-gray-800: oklch(0.274 0.006 286.033);
-  --color-gray-900: oklch(0.21 0.006 285.885);
-  --color-gray-950: oklch(0.141 0.005 285.823);
+  /* stylelint-enable custom-property-pattern */
+  /* stylelint-disable plugin/no-unsupported-browser-features -- oklch is ok */
+  --color-gray-50: oklch(0.985 0 0deg);
+  --color-gray-100: oklch(0.967 0.001 286.375deg);
+  --color-gray-200: oklch(0.92 0.004 286.32deg);
+  --color-gray-300: oklch(0.871 0.006 286.286deg);
+  --color-gray-400: oklch(0.705 0.015 286.067deg);
+  --color-gray-500: oklch(0.552 0.016 285.938deg);
+  --color-gray-600: oklch(0.442 0.017 285.786deg);
+  --color-gray-700: oklch(0.37 0.013 285.805deg);
+  --color-gray-800: oklch(0.274 0.006 286.033deg);
+  --color-gray-900: oklch(0.21 0.006 285.885deg);
+  --color-gray-950: oklch(0.141 0.005 285.823deg);
+  /* stylelint-enable plugin/no-unsupported-browser-features */
 
   /* Current Line #44475A */
 
@@ -244,7 +245,7 @@
 
   /* Transitions */
   --kdev-transition-duration: 600ms;
-  --kdev-transition-function: cubic-bezier(0.95,0.05,0.795,0.035);
+  --kdev-transition-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
 /*******************************************************************************

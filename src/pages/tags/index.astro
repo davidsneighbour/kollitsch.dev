@@ -1,17 +1,19 @@
 ---
 // tags index page, tag cloud and featured tags list
-
 import { getCollection } from 'astro:content';
+
 import Layout from '@layouts/DefaultPage.astro';
-import TagCloud from '@components/TagCloud.astro';
+
 import { getFilteredTagMap } from '@utils/content';
+
+import TagCloud from '@components/TagCloud.astro';
 import Heading from '@components/Heading.astro';
 import TagCard from '@components/TagCard.astro';
 
 const blogPosts = await getCollection('blog');
 const tagEntries = await getCollection('tags');
 
-const tagMap = getFilteredTagMap(blogPosts);
+const tagMap = getFilteredTagMap(blogPosts, 0);
 const tagEntryList = tagEntries.filter(entry => tagMap.has(entry.id));
 
 const post = {

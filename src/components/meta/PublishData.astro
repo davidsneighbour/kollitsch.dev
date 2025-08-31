@@ -1,25 +1,20 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { getVSCodeUrlById } from '@utils/content';
+import { formatDate, getVSCodeUrlById } from '@utils/content';
 import IconLink from '@components/IconLink.astro';
 
 const { post } = Astro.props;
 const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
-
-const dateOptions: object = {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-};
-
-const formattedPublishDate = new Date(post.data.date).toLocaleDateString(
-  'en-US',
-  dateOptions,
-);
+const date = new Date(post.data.date);
+const formattedPublishDate = formatDate(date);
+const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
 ---
 
-<div class="flex flex-row items-center justify-start gap-2">
+<div
+  class="flex flex-row items-center justify-start gap-2"
+  data-pagefind-meta={metaDate}
+>
   <div class="w-6 flex-none">
     <Icon name="calendar3" />
   </div>
@@ -30,7 +25,7 @@ const formattedPublishDate = new Date(post.data.date).toLocaleDateString(
       isDev && (
         <IconLink
           href={vscodeURL}
-          icon="braces-asterisk"
+          icon="pencil"
         />
       )
     }

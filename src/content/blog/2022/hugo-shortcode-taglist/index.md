@@ -27,7 +27,7 @@ publisher: rework
 
 I needed a Hugo shortcode to show a list of posts that belonged to a [certain](/tags/laboratory/) tag, which is quite easy. Add the following to `layouts/shortcodes/taglist.html` or whatever name you like to use for the shortcode.
 
-```go {lineAnchors=code1}
+```go
 {{- $title := $.Params.title -}}
 {{- $tag := $.Params.tag -}}
 {{- $limit := int ($.Params.limit) -}}
@@ -55,7 +55,7 @@ The available parameters for this shortcode are:
 
 Now calling it via one of the following shortcodes will show a list of recent posts in that tag:
 
-```go {lineAnchors=code2}
+```go
 {{</* taglist tag="tagname" limit="5" */>}} --- showing 5 items with the default title
 {{</* taglist tag="tagname" title="Some Title" */>}} --- showing all items with the custom title
 {{</* taglist tag="tagname" limit="-1" */>}} --- showing all items with the default title

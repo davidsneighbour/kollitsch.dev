@@ -27,7 +27,7 @@ publisher: rework
 
 Under this title hides a useful feature for Hugo Modules that mount `content` directories. This new feature lets you mount multiple module directories into each other to fill in missing translations of the first mount.
 
-```toml {lineAnchors=code1}
+```toml
 [[module.mounts]]
 source = 'content/de'
 target = 'content'
@@ -45,7 +45,7 @@ The interesting thing to note here is, that the merging is not happening from th
 
 Previously errors in the `.GetRemote` function only returned the status of the request. This was not very helpful for fully featured APIs that would in error cases return more data. This has now been rectified and errors return an additional `.Data` object with the common HTTP response values. This lets the developer have more control over the error handling. Errors due to rate limiting for instance will be easily detectable now.
 
-```go {lineAnchors=code2}
+```go
 {{ with $result := resources.GetRemote $url }}
   {{ with .Err }}
   <ul>
@@ -76,7 +76,7 @@ The [hmac](https://gohugo.io/functions/hmac/#readout) function creates a cryptog
 
 With this release you can set an optional argument to define, what the function returns, either `hex` (default) or `binary` format.
 
-```go {lineAnchors=code3}
+```go
 {{ hmac "sha256" $key $message "hex" }}
 {{ hmac "sha256" $key $message "binary" }}
 ```

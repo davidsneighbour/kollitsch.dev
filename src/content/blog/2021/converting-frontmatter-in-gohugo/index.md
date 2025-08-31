@@ -21,7 +21,7 @@ Some days ago I realised, that I keep all my configurations for GoHugo in the TO
 
 Hugo has an easy command [`convert`](https://gohugo.io/commands/hugo_convert/), to transform frontmatter from one type to another.
 
-```shell {lineAnchors=code1}
+```shell
 hugo convert toJSON
 hugo convert toTOML
 hugo convert toYAML
@@ -29,7 +29,7 @@ hugo convert toYAML
 
 If Hugo detects any issues, it will decide to NOT transform the frontmatter. In that case you can force it to transform by adding the `--unsafe` option to the call:
 
-```shell {lineAnchors=code2}
+```shell
 hugo convert toJSON --unsafe
 hugo convert toTOML --unsafe
 hugo convert toYAML --unsafe

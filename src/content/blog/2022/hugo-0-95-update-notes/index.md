@@ -27,7 +27,7 @@ publisher: rework
 
 #### `{{ break }}` - break out of a range (leaving it completely for all subsequent items)
 
-```go {lineAnchors=code1}
+```go
 {{ range $i, $p := site.RegularPages }}
   {{ if gt $i 2 }}
     {{/*
@@ -42,7 +42,7 @@ publisher: rework
 
 #### `{{ continue }}` - leave the current loop of a range (step to the next item)
 
-```go {lineAnchors=code2}
+```go
 {{ range $i, $p := site.RegularPages }}
   {{/*
       after `continue` (skipping) the third loop
@@ -65,7 +65,7 @@ There is [an issue open about a problem with spaces](https://github.com/golang/g
 
 The following snippet previously did throw an error for the second part `(eq .File.Extension "html")`, if`.File` was not defined. Now it will "[short circuit](https://github.com/golang/go/issues/31103)" immediately after Golang evaluates the first part to nil then the second part is not evaluated.
 
-```go {lineAnchors=code3}
+```go
 {{ if and .File (eq .File.Extension "html") }}
 {{ end }}
 ```

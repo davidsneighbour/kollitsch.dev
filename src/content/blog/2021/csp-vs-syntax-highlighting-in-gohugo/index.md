@@ -1,18 +1,10 @@
 ---
-title: CSP vs. syntax highlighting in GoHugo
+title: Content security policies vs. syntax highlighting in GoHugo
 date: 2021-10-27T21:52:14+07:00
 description: >-
   If you are using the codestyling functionality of Hugo then you might have
   stumbled over a common issue in connection with Content Security Policies
   (CSP) and inline styles.
-lastmod: 2021-10-27T21:52:14+07:00
-publishdate: 2021-10-27T21:52:14+07:00
-resources:
-  - name: image name if other than src
-    src: christopher-gower-m_HRfLhgABo-unsplash.jpg
-    title: >-
-      Photo by [Christopher Gower](https://unsplash.com/@cgower) via
-      [Unsplash](https://unsplash.com)
 tags:
   - gohugo
   - syntaxhighlighting
@@ -21,7 +13,9 @@ tags:
 cover:
   src: ./christopher-gower-m_HRfLhgABo-unsplash.jpg
   type: image
-publisher: rework
+  title: >-
+    Photo by [Christopher Gower](https://unsplash.com/@cgower) via
+    [Unsplash](https://unsplash.com)
 ---
 
 If you are using the code styling functionality of GoHugo then you might have stumbled over a common issue when you are using Content Security Policies (CSP) and inline styles. Using CSPs is the proper way these days to secure your site code but it is considered (in the realm of CSPs) bad style to have your style sheets or JavaScript inlined into your page.
@@ -30,7 +24,7 @@ Proper CSP rules will not allow `unsafe-inline` in your CSP rules (because there
 
 First step: [Configure GoHugo to use classes for syntax highlighting](https://gohugo.io/getting-started/configuration-markup#highlight) in your configuration:
 
-```toml {lineAnchors=code1}
+```toml
 [markup]
 
 [markup.highlight]
@@ -41,7 +35,7 @@ style = "monokai"
 
 Then on the command prompt create the style sheet for the highlight shortcode or Markdown code fences:
 
-```shell {lineAnchors=code2}
+```shell
 hugo gen chromastyles --style=monokai > path/to/_syntaxhighlighting.scss
 ```
 

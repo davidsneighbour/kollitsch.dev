@@ -28,7 +28,7 @@ I did not renew it and disabled the nag screens the following ways:
 
 Add the following custom CSS function to your `functions.php`.
 
-```php {lineAnchors=code1}
+```php
 // dnb 2020-09-18
 // hide updraft plus notices about expired licenses
 function dnb_remote_updraft_license_notifications() {
@@ -48,7 +48,7 @@ This solution is only half-baked, because it does not fully disable these notifi
 
 Add the following to your `functions.php`
 
-```php {lineAnchors=code2}
+```php
 // dnb 2020-09-18
 // hide update notifications for non-updatable plugins
 function dnb_remove_updraft_update_notifications($value){

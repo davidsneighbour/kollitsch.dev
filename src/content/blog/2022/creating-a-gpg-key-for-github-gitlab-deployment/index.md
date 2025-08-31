@@ -22,7 +22,7 @@ publisher: rework
 
 Every now and then I have to add a GPG-key to one of my projects. Last week for instance a key expired that I used for a year to sign my commits. And every time that happens, I have to google how to create my key again. So let's go through the motions of how to create a new GPG key (which once you read through it all is astonishingly easy).
 
-```bash {lineAnchors=code1}
+```bash
 gpg2 --full-generate-key
 ```
 
@@ -32,13 +32,13 @@ A pop-up will ask you for a password. In my case the setup is so that the key is
 
 After this let GPG show your new key:
 
-```bash {lineAnchors=code2}
+```bash
 gpg2 --list-secret-keys --keyid-format LONG
 ```
 
 A sample output could look like this:
 
-```plaintext {lineAnchors=code3}
+```plaintext
 ❯ gpg2 --list-secret-keys --keyid-format LONG
 /home/patrick/.gnupg/pubring.kbx
 --------------------------------
@@ -50,7 +50,7 @@ ssb   rsa4096/1C261C6830454AF7 2022-02-17 [E] [expires: 2023-02-17]
 
 The code after rsa4096 in this sample, `40BCAA0B2E3817F4` is the ID of your key. Take a note of it and export your key:
 
-```bash {lineAnchors=code4}
+```bash
 gpg2 --armor --export YOUR_KEY_ID
 ```
 
@@ -60,7 +60,7 @@ Take this key (everything including `-----BEGIN PGP PUBLIC KEY BLOCK-----` and `
 
 Now you can just set your local Git configuration to automatically sign commits with your key.
 
-```bash {lineAnchors=code5}
+```bash
 git config --global user.signingkey YOUR_KEY_ID
 git config --global commit.gpgsign true
 ```
@@ -69,7 +69,7 @@ After this, when you commit something, it will be signed with your key.
 
 This all amounts to the following quick and dirty workflow:
 
-```bash {lineAnchors=code6}
+```bash
 gpg2 --full-generate-key
 gpg2 --list-secret-keys --keyid-format LONG
 gpg2 --armor --export YOUR_KEY_ID

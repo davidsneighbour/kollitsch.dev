@@ -26,7 +26,7 @@ I recently and finally got around to read through all the docs and found out tha
 
 Create a `.vscode/tasks.json` (or add to an existing file) in your project:
 
-```plaintext {lineAnchors=code1}
+```jsonc
 {
   "version": "2.0.0",
   "presentation": {
@@ -95,7 +95,7 @@ You can start or restart the task manually by typing <kbd><kbd>CTRL<kbd> + <kbd>
 
 As an added bonus, you can configure the look (icon and color) of the automatic terminal with some lines in your user configuration:
 
-```plaintext {lineAnchors=code2}
+```plaintext
 {
   "terminal.integrated.automationProfile.linux": {
     "color": "terminal.ansiCyan",

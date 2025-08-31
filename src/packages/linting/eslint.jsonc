@@ -1,9 +1,9 @@
 {
   "devDependencies": {
     "@eslint/config-inspector": "1.2.0",
-    "@eslint/css": "0.10.0",
+    "@eslint/css": "0.11.0",
     "@eslint/js": "9.34.0",
-    "@eslint/json": "0.13.1",
+    "@eslint/json": "0.13.2",
     "@eslint/markdown": "7.2.0",
     "@stylistic/eslint-plugin": "5.2.3",
     "@types/eslint-plugin-security": "3.0.0",
@@ -12,7 +12,7 @@
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-security": "3.0.1",
     "globals": "16.3.0",
-    "typescript-eslint": "8.40.0"
+    "typescript-eslint": "8.41.0"
   },
   "scripts": {
     "lint:eslint:inspector": "eslint --inspect-config"

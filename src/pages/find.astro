@@ -2,7 +2,7 @@
 // @todo refactor
 
 import Layout from '@layouts/ContentPage.astro';
-import Search from 'astro-pagefind/components/Search';
+import Search from '@components/Search.astro';
 const post = {
   data: {
     description: 'Search the site for content.',
@@ -15,8 +15,17 @@ const post = {
   <h1>Find</h1>
   <p>Use the search bar below to find content on this site.</p>
   <Search
-    id="search"
-    className="pagefind-ui"
-    uiOptions={{ showImages: false }}
+    uiOptions={{
+      showImages: true,
+      pageSize: 6,
+      resetStyles: false,
+      debounceTimeoutMs: 300,
+      translations: {
+        placeholder: 'Search on KOLLITSCH.dev*',
+        zero_results: "Couldn't find [SEARCH_TERM]",
+      },
+      autofocus: true,
+      sort: { date: 'desc' },
+    }}
   />
 </Layout>

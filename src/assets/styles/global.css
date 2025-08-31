@@ -253,4 +253,5 @@
  ******************************************************************************/
 @import './base.css';
 @import './prose.css';
+@import './pagefind.css';
 @import './utilities.css';

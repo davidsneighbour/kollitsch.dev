@@ -1,0 +1,105 @@
+
+/*******************************************************************************
+ * Container & core UI                                                        */
+.pagefind-ui {
+  width: 100%;
+}
+
+.pagefind-ui__hidden {
+  @apply hidden;
+}
+
+.pagefind-ui__suppressed {
+}
+
+/*******************************************************************************
+ * Search Form                                                                */
+.pagefind-ui__form {
+  @apply relative;
+}
+
+.pagefind-ui__search-input {
+  @apply col-start-1 row-start-1 block w-full h-8 rounded-l-md bg-white py-1.5
+          px-3 text-base text-gray-900 outline-1 -outline-offset-1
+          outline-gray-300 placeholder:text-gray-400 focus:outline-2
+          focus:-outline-offset-2 focus:outline-orange-600 sm:pl-9
+          sm:text-sm/6 dark:bg-white/5 dark:text-white
+          dark:outline-gray-700 dark:placeholder:text-gray-500
+          dark:focus:outline-orange-500
+          mb-4;
+}
+
+.pagefind-ui__search-clear {
+  @apply absolute top-0 right-0 bg-gray-300 dark:bg-gray-700 w-40 h-8
+          mb-4;
+}
+
+/*****************************************************************************
+  * Search Results                                                            */
+.pagefind-ui__drawer {
+  @apply flex flex-row flex-wrap;
+}
+
+.pagefind-ui__results-area {
+  flex: 1000;
+}
+
+.pagefind-ui__results {
+  @apply grid grid-cols-3 gap-4 list-none ml-0 pl-0;
+}
+
+.pagefind-ui__result {
+  @apply border-2 border-gray-500 p-4 flex;
+  align-items: flex-start;
+}
+
+.pagefind-ui__message {
+  display: flex;
+  align-items: center;
+}
+
+.pagefind-ui__button {
+  @apply w-full rounded-md bg-orange-50 px-3.5 py-2.5 text-sm font-semibold
+          text-orange-600 shadow-xs hover:bg-orange-100 dark:bg-orange-500/20
+          dark:text-orange-400 dark:shadow-none dark:hover:bg-orange-500/30;
+}
+
+.pagefind-ui__result-thumb {
+  position: relative;
+}
+
+.pagefind-ui__result-image {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pagefind-ui__result-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pagefind-ui__result-title {
+  display: inline-block;
+}
+
+.pagefind-ui__result-title .pagefind-ui__result-link {
+}
+
+.pagefind-ui__result-title .pagefind-ui__result-link:hover {
+}
+
+.pagefind-ui__result-excerpt {
+  display: inline-block;
+}
+
+.pagefind-ui__result-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pagefind-ui__result-tag {
+}

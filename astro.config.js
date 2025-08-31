@@ -11,7 +11,7 @@ import { defineConfig } from 'astro/config';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import matomo from 'astro-matomo';
-import pagefind from 'astro-pagefind';
+import pagefind from './src/scripts/integrations/pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

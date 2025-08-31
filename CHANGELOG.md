@@ -1,4 +1,29 @@
 # Changelog
+## [2025.10.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.9.0...v2025.10.0) (2025-08-31)
+
+
+### Content
+
+* **fix:** typos, grammar, and other language issues ([20543f3](https://github.com/davidsneighbour/kollitsch.dev/commit/20543f32ea07efd4e917b355f901a35c37dedab6))
+
+
+### Theme
+
+* **fix:** add proper date formatting function ([f926381](https://github.com/davidsneighbour/kollitsch.dev/commit/f9263811c5fe3eed1b3775c8d02c861ef2e3fa39))
+* **fix:** glow effect on social media share buttons ([ab4be33](https://github.com/davidsneighbour/kollitsch.dev/commit/ab4be334a1e9af12a5c57c7123304272224d4459))
+* **fix:** remove til from DateAwareCollections type ([3620458](https://github.com/davidsneighbour/kollitsch.dev/commit/3620458394d8a6ac5b17d1b76bb9f4005536cdc0))
+* **fix:** show all tag pages ([2c2a67d](https://github.com/davidsneighbour/kollitsch.dev/commit/2c2a67d48ebbd6aebb113fdadfbffefc7396ead8))
+
+
+### Features
+
+* **pagefind:** rework and design site search (WIP) ([eab8d95](https://github.com/davidsneighbour/kollitsch.dev/commit/eab8d9526c88b2b7759ad66edbb6cccbf6d986c4))
+
+
+### Build System
+
+* **deps:** update site screenshot ([0c34e1e](https://github.com/davidsneighbour/kollitsch.dev/commit/0c34e1e0aeb0da67b89197756e6e9828d5ae6d53))
+
 ## [2025.9.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.4...v2025.9.0) (2025-08-31)
 
 

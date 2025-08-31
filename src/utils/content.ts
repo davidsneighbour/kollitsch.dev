@@ -182,12 +182,20 @@ export function toBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]): {
   };
 }
 
-export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
+/**
+ * Build a filtered tag map from blog posts.
+ *
+ * @param posts - Collection of blog posts
+ * @param tagThreshold - Minimum number of occurrences for a tag to be included (default: 1)
+ * @returns Map of tags with counts above threshold
+ */
+export function getFilteredTagMap(
+  posts: CollectionEntry<'blog'>[],
+  tagThreshold: number = 1,
+): Map<string, number> {
   const ignoreTags = new Set(site.ignoreTags || []);
   log.debug('[ignoredTags] ' + site.ignoreTags);
-  const tagThreshold = site.tagThreshold ?? 1;
   const tagMap = new Map<string, number>();
-
   for (const post of posts) {
     if (Array.isArray(post.data.tags)) {
       for (const tag of post.data.tags) {
@@ -197,14 +205,11 @@ export function getFilteredTagMap(posts: CollectionEntry<'blog'>[]) {
       }
     }
   }
-
   for (const [tag, count] of tagMap) {
     if (count < tagThreshold) {
-      //log.debug(`[filter] Dropping "${tag}" with count ${count}`);
       tagMap.delete(tag);
     }
   }
-
   return tagMap;
 }
 
@@ -480,7 +485,7 @@ export function getVSCodeUrlById(id: string, type: 'blog' = 'blog'): string {
   return vscodeURL;
 }
 
-type DateAwareCollections = 'blog' | 'til';
+type DateAwareCollections = 'blog';
 
 /**
  * Retrieves the latest post from a date-aware collection.

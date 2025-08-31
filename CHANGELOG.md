@@ -1,4 +1,66 @@
 # Changelog
+## [2025.9.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.4...v2025.9.0) (2025-08-31)
+
+
+### Content
+
+* **fix:** remove drafts ([04d7a15](https://github.com/davidsneighbour/kollitsch.dev/commit/04d7a155ff1b2b8c32291c48194fa023a36d3a79))
+* **fix:** social media network colors for black brands ([183f67c](https://github.com/davidsneighbour/kollitsch.dev/commit/183f67c0798f22338a021c8b4adaf14882c191d0))
+* **fix:** typos ([a54410f](https://github.com/davidsneighbour/kollitsch.dev/commit/a54410f80d4356de6ddccffdd5c34b012493477b))
+* **schema:** add markers to content config ([7556af1](https://github.com/davidsneighbour/kollitsch.dev/commit/7556af176872cc848620bf80c4ed7f493d1b3067))
+
+
+### Theme
+
+* **fix:** blockquote styles ([f8d4e71](https://github.com/davidsneighbour/kollitsch.dev/commit/f8d4e71ef1730079dc7a1f4cc412d891ec342706))
+* **fix:** layout issues with paragraphs in list items ([05dc57c](https://github.com/davidsneighbour/kollitsch.dev/commit/05dc57cf244ff4795d9d3f1a7a9f563c62fc05e6))
+* **fix:** linktitle frontmatter for breadcrumbs ([84ecf5b](https://github.com/davidsneighbour/kollitsch.dev/commit/84ecf5bb4eaa5681e05f63f2fcf1fba66197b2e9))
+* **fix:** linting styles ([6a2cabf](https://github.com/davidsneighbour/kollitsch.dev/commit/6a2cabf866d27b5396df0e0895ffb8fffc97eb72))
+* **fix:** remove gap from share separator ([06a9dd0](https://github.com/davidsneighbour/kollitsch.dev/commit/06a9dd08ac791989e53a44b7c091d0c2e0189c83))
+* **fix:** remove til section ([9fce7aa](https://github.com/davidsneighbour/kollitsch.dev/commit/9fce7aa2f443862e69499e367617bc875fd5c411))
+* **fix:** remove unused functionality ([702b032](https://github.com/davidsneighbour/kollitsch.dev/commit/702b032aa17df60c6a41cd7d7440d089ec7abe04))
+* **fix:** styling for breadcrumbs ([9a914a4](https://github.com/davidsneighbour/kollitsch.dev/commit/9a914a49be0811c4d72d686049539a0ea76aea34))
+* **fix:** theme change on expressive code component ([6cfa783](https://github.com/davidsneighbour/kollitsch.dev/commit/6cfa78354fd6782040a86f7f9ae0e859086c918e))
+
+
+### Features
+
+* blogroll and setup, no design yet ([dad3f6c](https://github.com/davidsneighbour/kollitsch.dev/commit/dad3f6c7e9d4b544f1dfa0ecb9f4748360c5b320))
+
+
+### Build System
+
+* **astro:** add chrome workspace setup to config ([3cff4b6](https://github.com/davidsneighbour/kollitsch.dev/commit/3cff4b68f09ebc64b6b848b5ec1a548b7e24edba))
+* **deps:** bump devalue in the npm_and_yarn group across 1 directory ([#1431](https://github.com/davidsneighbour/kollitsch.dev/issues/1431)) ([bb420c9](https://github.com/davidsneighbour/kollitsch.dev/commit/bb420c9a5f4dc3a76d8a1b88a16c30506b8622fe))
+* **deps:** update dependencies ([c612bfc](https://github.com/davidsneighbour/kollitsch.dev/commit/c612bfc3f7d861c1c00ee65b4b39ae151813ec12))
+* **deps:** update dependencies ([ae5e895](https://github.com/davidsneighbour/kollitsch.dev/commit/ae5e89549bf18c6230fffa9263157ae766ee66b5))
+* **deps:** update dependencies ([5d65a5e](https://github.com/davidsneighbour/kollitsch.dev/commit/5d65a5eb865eca68d8b2ee84498ee7bdbc3fe188))
+* **deps:** update dependencies ([3a97936](https://github.com/davidsneighbour/kollitsch.dev/commit/3a97936ba07f732a9dcba4eb95d0cb4448588b97))
+* **deps:** update dependencies ([e7ca7e4](https://github.com/davidsneighbour/kollitsch.dev/commit/e7ca7e433937cbfc19040bdd9339087e380d0515))
+* **deps:** update dependencies ([2c9abfc](https://github.com/davidsneighbour/kollitsch.dev/commit/2c9abfcdf1284e0fe9cd5d464d3fa3b99825cc75))
+* **deps:** update site screenshot ([b0bcb04](https://github.com/davidsneighbour/kollitsch.dev/commit/b0bcb04bfce777fa010e0e98efe1352378ae3a76))
+* **deps:** update site screenshot ([a7fc4b0](https://github.com/davidsneighbour/kollitsch.dev/commit/a7fc4b0cf0af34f98f1f61ecf406ed40349ef90c))
+* **frontmatter:** fix blog content type setup ([6a9002b](https://github.com/davidsneighbour/kollitsch.dev/commit/6a9002b2b14deb0c29435027e3fca3974a45c53c))
+* **frontmatter:** update configuration ([390456b](https://github.com/davidsneighbour/kollitsch.dev/commit/390456b8aadf0190c83dc0252f8179ab4eabfe9d))
+* **frontmatter:** update configuration ([8f6fd1b](https://github.com/davidsneighbour/kollitsch.dev/commit/8f6fd1b7b59fc7633ebfbecf7da31e3a16685af4))
+* **frontmatter:** update configuration for weblog content type ([32e9b47](https://github.com/davidsneighbour/kollitsch.dev/commit/32e9b471b2ccab80f0997a9cf38840aea4ac973e))
+* **images:** update blogroll screenshots ([e6bcff4](https://github.com/davidsneighbour/kollitsch.dev/commit/e6bcff4af948b42fae099db6f2fce9a689857266))
+* **images:** update blogroll screenshots ([0c7e1f8](https://github.com/davidsneighbour/kollitsch.dev/commit/0c7e1f8e8774621143edead74392405346919761))
+* remove alpinejs ([5e25ab6](https://github.com/davidsneighbour/kollitsch.dev/commit/5e25ab628e25ac8ec90b65c09692602b68af7b8d))
+
+
+### CI
+
+* **biome:** upgrade biome configuration ([50168b8](https://github.com/davidsneighbour/kollitsch.dev/commit/50168b8a30eaa05cf1705b4138a0bca2d8f61d64))
+* **secretlint:** remove double rule.id ([12cdd18](https://github.com/davidsneighbour/kollitsch.dev/commit/12cdd18f4ab927db688d7349d3d165f7662a12a0))
+* **vale:** reconfigure setup and rules ([cd0ae87](https://github.com/davidsneighbour/kollitsch.dev/commit/cd0ae872ed7e0017dbc7d5680f811530b5600130))
+
+
+### Chore
+
+* **deps:** fix missing dependencies ([cfbb4ca](https://github.com/davidsneighbour/kollitsch.dev/commit/cfbb4ca0a5c3fab58090821cbeabe1e1330a33b3))
+* **deps:** update actions/checkout action to v5 ([#1429](https://github.com/davidsneighbour/kollitsch.dev/issues/1429)) ([2f1e675](https://github.com/davidsneighbour/kollitsch.dev/commit/2f1e675cd8f8a2d8833096e8ef8c8da19816014d))
+
 ## [2025.8.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.8.3...v2025.8.4) (2025-08-05)
 
 

@@ -507,14 +507,105 @@ export async function getLatestPost<T extends DateAwareCollections = 'blog'>(
 }
 
 /**
- * Format a date object into "Month Day, Year" format (e.g. August 5, 2025)
+ * Format a Date object using custom format tokens.
+ *
+ * @example
+ * console.log(formatDate(new Date(), 'MMMM D, YYYY HH:mm:ss Z'));
+ * // -> "August 31, 2025 18:42:05 +07:00"
+ *
+ * @example
+ * try {
+ *   const s = formatDate(new Date(), 'MMMM D, YYYY HH:mm:ss Z', { locale: 'en-US' });
+ *   console.log(s);
+ * } catch (err) {
+ *   console.error((err as Error).message);
+ * }
+ *
+ * Supported tokens:
+ *  YYYY - Full year (2024)
+ *  YY   - Two-digit year (24)
+ *  MMMM - Full month name (September)
+ *  MMM  - Abbreviated month name (Sep)
+ *  MM   - Two-digit month number (09)
+ *  M    - Month number (9)
+ *  DD   - Two-digit day of the month (07)
+ *  D    - Day of the month (7)
+ *  HH   - Two-digit hour (24-hour, 00-23)
+ *  H    - Hour (24-hour, 0-23)
+ *  hh   - Two-digit hour (12-hour, 01-12)
+ *  h    - Hour (12-hour, 1-12)
+ *  mm   - Two-digit minute (00-59)
+ *  m    - Minute (0-59)
+ *  ss   - Two-digit second (00-59)
+ *  s    - Second (0-59)
+ *  SSS  - Milliseconds (000-999)
+ *  A    - AM/PM
+ *  a    - am/pm
+ *  Z    - Timezone offset (+HH:mm)
+ *  ZZ   - Timezone offset (+HHmm)
+ *
+ * @param date - Date to format
+ * @param format - Optional format string (default: "MMMM D, YYYY")
+ * @param options - { locale?: string } Locale for month names, default 'en-US'
+ * @returns Formatted date string
+ * @throws TypeError when date is invalid or format is not a non-empty string
  */
-export function formatDisplayDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+export function formatDate(
+  date: Date,
+  format: string = 'MMMM D, YYYY',
+  options: { locale?: string } = {},
+): string {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    throw new TypeError('formatDate: "date" must be a valid Date.');
+  }
+  if (typeof format !== 'string' || format.length === 0) {
+    throw new TypeError('formatDate: "format" must be a non-empty string.');
+  }
+
+  const { locale = 'en-US' } = options;
+
+  const pad = (n: number, len = 2) => String(n).padStart(len, '0');
+
+  const hours24 = date.getHours();
+  const hours12 = hours24 % 12 || 12;
+
+  const tzOffset = date.getTimezoneOffset(); // minutes from UTC, positive for zones behind UTC
+  const tzSign = tzOffset > 0 ? '-' : '+';
+  const tzHours = pad(Math.floor(Math.abs(tzOffset) / 60));
+  const tzMinutes = pad(Math.abs(tzOffset) % 60);
+
+  const tokenMap = new Map<string, string>([
+    ['YYYY', String(date.getFullYear())],
+    ['YY', String(date.getFullYear()).slice(-2)],
+    ['MMMM', date.toLocaleString(locale, { month: 'long' })],
+    ['MMM', date.toLocaleString(locale, { month: 'short' })],
+    ['MM', pad(date.getMonth() + 1)],
+    ['M', String(date.getMonth() + 1)],
+    ['DD', pad(date.getDate())],
+    ['D', String(date.getDate())],
+    ['HH', pad(hours24)],
+    ['H', String(hours24)],
+    ['hh', pad(hours12)],
+    ['h', String(hours12)],
+    ['mm', pad(date.getMinutes())],
+    ['m', String(date.getMinutes())],
+    ['ss', pad(date.getSeconds())],
+    ['s', String(date.getSeconds())],
+    ['SSS', pad(date.getMilliseconds(), 3)],
+    ['A', hours24 < 12 ? 'AM' : 'PM'],
+    ['a', hours24 < 12 ? 'am' : 'pm'],
+    ['Z', `${tzSign}${tzHours}:${tzMinutes}`],
+    ['ZZ', `${tzSign}${tzHours}${tzMinutes}`],
+  ]);
+
+  // Build a single alternation regex of tokens (longest first to prefer e.g. 'MMMM' over 'MM')
+  const tokens = Array.from(tokenMap.keys()).sort(
+    (a, b) => b.length - a.length,
+  );
+  const pattern = new RegExp(tokens.join('|'), 'g');
+
+  // Replace using a function so we never re-scan replaced output and avoid token collisions.
+  return format.replace(pattern, (match) => tokenMap.get(match) ?? match);
 }
 
 export function getPageDateNote(
@@ -524,6 +615,6 @@ export function getPageDateNote(
   const first = new Date(posts.at(-1)!.data.date);
   const last = new Date(posts.at(0)!.data.date);
   return posts.length > 1
-    ? `The posts on this page were published between ${formatDisplayDate(last)} and ${formatDisplayDate(first)}.`
-    : `This post was published on ${formatDisplayDate(first)}.`;
+    ? `The posts on this page were published between ${formatDate(last, 'MMMM D, YYYY')} and ${formatDate(first, 'MMMM D, YYYY')}.`
+    : `This post was published on ${formatDate(first, 'MMMM D, YYYY')}.`;
 }

@@ -6,7 +6,7 @@
     "url": "https://discord.com/users/davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#0085ff]/10 hover:bg-[#0085ff]/20",
+    "background": "group-hover:bg-[#0085ff]/10 hover:bg-[#0085ff]/20 hover:shadow-[#0085ff]",
     "fill": "hover:text-[#0085ff]",
     "icon": "bluesky",
     "id": "bluesky",
@@ -15,7 +15,7 @@
     "url": "https://bsky.app/profile/davidsneighbour.bsky.social"
   },
   {
-    "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/20",
+    "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/70 hover:shadow-[#ffffff]",
     "fill": "hover:text-[#000000]",
     "icon": "threads",
     "id": "threads",
@@ -24,7 +24,7 @@
     "url": "https://www.threads.com/@pkollitsch"
   },
   {
-    "background": "group-hover:bg-[#6364ff]/10 hover:bg-[#6364ff]/20",
+    "background": "group-hover:bg-[#6364ff]/10 hover:bg-[#6364ff]/20 hover:shadow-[#6364ff]",
     "fill": "hover:text-[#6364ff]",
     "icon": "mastodon",
     "id": "mastodon",
@@ -39,7 +39,7 @@
     "url": "https://www.instagram.com/pkollitsch/"
   },
   {
-    "background": "group-hover:bg-[#FFCC00]/20 hover:bg-[#FFCC00]/50",
+    "background": "group-hover:bg-[#FFCC00]/20 hover:bg-[#FFCC00]/50 hover:shadow-[#FFCC00]",
     "fill": "hover:text-[#000000]",
     "icon": "envelope",
     "id": "email",
@@ -48,7 +48,7 @@
     "url": "/connect/"
   },
   {
-    "background": "group-hover:bg-[#1877f2]/10 hover:bg-[#1877f2]/20",
+    "background": "group-hover:bg-[#1877f2]/10 hover:bg-[#1877f2]/20 hover:shadow-[#1877f2]",
     "fill": "hover:text-[#1877f2]",
     "icon": "facebook",
     "id": "facebook",
@@ -57,7 +57,7 @@
     "url": "https://www.facebook.com/davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/20",
+    "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/70 hover:shadow-[#ffffff]",
     "fill": "hover:text-[#000000]",
     "icon": "twitter-x",
     "id": "twitter",
@@ -66,7 +66,7 @@
     "url": "https://x.com/davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20",
+    "background": "group-hover:bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:shadow-[#0A66C2]",
     "fill": "hover:text-[#0A66C2]",
     "icon": "linkedin",
     "id": "linkedin",
@@ -75,7 +75,7 @@
     "url": "https://www.linkedin.com/in/davidsneighbour/"
   },
   {
-    "background": "group-hover:bg-[#FF4500]/10 hover:bg-[#FF4500]/20",
+    "background": "group-hover:bg-[#FF4500]/10 hover:bg-[#FF4500]/20 hover:shadow-[#FF4500]",
     "fill": "hover:text-[#FF4500]",
     "icon": "reddit",
     "id": "reddit",
@@ -84,7 +84,7 @@
     "url": "https://www.reddit.com/user/davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#0088cc]/10 hover:bg-[#0088cc]/20",
+    "background": "group-hover:bg-[#0088cc]/10 hover:bg-[#0088cc]/20 hover:shadow-[#0088cc]",
     "fill": "hover:text-[#0088cc]",
     "icon": "telegram",
     "id": "telegram",
@@ -93,7 +93,7 @@
     "url": "https://t.me/davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#E60023]/10 hover:bg-[#E60023]/20",
+    "background": "group-hover:bg-[#E60023]/10 hover:bg-[#E60023]/20 hover:shadow-[#E60023]",
     "fill": "hover:text-[#E60023]",
     "icon": "pinterest",
     "id": "pinterest",
@@ -102,7 +102,7 @@
     "url": "https://www.pinterest.com/davidsneighbour/"
   },
   {
-    "background": "group-hover:bg-[#25D366]/10 hover:bg-[#25D366]/20",
+    "background": "group-hover:bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:shadow-[#25D366]",
     "fill": "hover:text-[#25D366]",
     "icon": "whatsapp",
     "id": "whatsapp",
@@ -117,7 +117,7 @@
     "url": "https://www.youtube.com/@davidsneighbour"
   },
   {
-    "background": "group-hover:bg-[#00AB6C]/10 hover:bg-[#00AB6C]/20",
+    "background": "group-hover:bg-[#00AB6C]/10 hover:bg-[#00AB6C]/20 hover:shadow-[#00AB6C]",
     "fill": "hover:text-[#00AB6C]",
     "icon": "medium",
     "id": "medium",

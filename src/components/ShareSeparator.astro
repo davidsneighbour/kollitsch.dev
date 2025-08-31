@@ -8,7 +8,7 @@ interface Props {
   via?: string;
 }
 
-const shareNetworks = networks.filter(n => n.share);
+const shareNetworks = networks.filter((n) => n.share);
 const { title, description }: Props = Astro.props;
 
 type ShareVars = {
@@ -27,21 +27,21 @@ const vars: ShareVars = {
 <div class="relative isolate">
   <div class="group relative w-full max-w-5xl mx-auto">
     <div
-      class="absolute inset-x-0 top-0 h-[4rem] pointer-events-none md:pointer-events-auto"
+      class="absolute inset-x-0 top-0 h-[4rem] z-20 pointer-events-none md:pointer-events-auto"
       aria-hidden="true"
     />
     <div
-      class="absolute inset-x-0 bottom-0 h-[4rem] pointer-events-none md:pointer-events-auto"
+      class="absolute inset-x-0 bottom-0 h-[4rem] z-20 pointer-events-none md:pointer-events-auto"
       aria-hidden="true"
     />
-    <div
-      class="relative z-10 grid grid-cols-4 sm:grid-cols-6 md:flex md:flex-wrap md:justify-center py-16"
-    >
+    <div class="relative z-10 grid grid-cols-4 sm:grid-cols-6 md:flex md:flex-wrap md:justify-center py-16">
       <span class="hidden md:inline-block md:flex-1" />
       {
         shareNetworks.map((network, index) => {
           const isFirst = index === 0;
           const isLast = index === shareNetworks.length - 1;
+
+          // Base style + interactive feedback
           const baseClass = `
             relative inline-flex items-center justify-center
             focus:z-10
@@ -49,24 +49,27 @@ const vars: ShareVars = {
             text-gray-400 dark:text-gray-600
             ring-1 ring-inset ring-gray-300 dark:ring-gray-700
             px-4 py-3 sm:px-3 sm:py-2
-            transition-colors
-            hover:duration-200 group-hover:duration-[2500ms]
-            focus-visible:outline
-            focus-visible:outline-2
-            focus-visible:outline-offset-2
-            focus-visible:outline-current
+            transition-[filter,opacity,box-shadow,ring-color,background-color,color] duration-200
+            grayscale opacity-60
+            hover:shadow-md
+            group-hover:grayscale-0 group-hover:opacity-100
+            group-hover:ring-current/40
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
           `;
+
+          // Keep your brand classes; they "light up" once grayscale is removed
           const extraClass = `
             ${isFirst ? 'md:rounded-l-md' : ''}
             ${isLast ? 'md:rounded-r-md' : ''}
             ${network.fill} ${network.background}
-            transition-colors duration-[2500ms]
           `;
+
           const href = network.share
             ? network.share.replace(/\${([^}]+)}/g, (_, key) =>
-                encodeURIComponent(vars[key as keyof ShareVars] ?? '').replace(/%20/g, '+')
+                encodeURIComponent(vars[key as keyof ShareVars] ?? '').replace(/%20/g, '+'),
               )
             : network.url;
+
           return (
             <a
               href={href}

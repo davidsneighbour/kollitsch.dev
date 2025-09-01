@@ -81,7 +81,7 @@
     "@secretlint/secretlint-rule-pattern": "11.2.0",
     "@secretlint/secretlint-rule-preset-recommend": "11.2.0",
     "@secretlint/secretlint-rule-secp256k1-privatekey": "11.2.0",
-    "@stylistic/eslint-plugin": "5.2.3",
+    "@stylistic/eslint-plugin": "5.3.1",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/eslint-plugin-security": "3.0.0",
     "@types/markdown-it": "14.1.2",

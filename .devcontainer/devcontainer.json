@@ -8,7 +8,7 @@
     }
   },
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:2-22-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:3-22-bookworm",
   "name": "Node.js & TypeScript"
 
   // Features to add to the dev container. More info: https://containers.dev/features.

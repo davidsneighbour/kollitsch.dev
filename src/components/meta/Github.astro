@@ -14,17 +14,34 @@ import { Icon } from 'astro-icon/components';
       </div>
       <div class="flex flex-row flex-wrap items-center justify-start gap-2">
         Git:
-        <a
-          href={github?.commitUrl}
-          class="font-jetbrainsmono text-sm uppercase"
-        >
-          {github?.hash}
-        </a>
-        <Icon name="slash-lg" />
+        {!github?.hash ? (
+          <span class="font-jetbrainsmono text-sm uppercase">UNTRACKED</span>
+        ) : github?.commitUrl ? (
+          <a
+            href={github.commitUrl}
+            class="font-jetbrainsmono text-sm uppercase"
+          >
+            {github.hash}
+          </a>
+        ) : (
+          <span class="font-jetbrainsmono text-sm uppercase">
+            {github.hash}
+          </span>
+        )}
+        <Icon
+          name="slash-lg"
+          class="stroke-orange-950"
+        />
         <a href={github?.historyUrl}>History</a>
-        <Icon name="slash-lg" />
+        <Icon
+          name="slash-lg"
+          class="stroke-orange-950"
+        />
         <a href={github?.blameUrl}>Blame</a>
-        <Icon name="slash-lg" />
+        <Icon
+          name="slash-lg"
+          class="stroke-orange-950"
+        />
         <a href={github?.editUrl}>Suggest edits on GitHub</a>
       </div>
     </div>

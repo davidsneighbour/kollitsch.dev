@@ -1,7 +1,6 @@
 {
-  "dependencies": {},
   "devDependencies": {
-    "@biomejs/biome": "2.2.2"
+    "@biomejs/biome": "2.2.4"
   },
   "scripts": {
     "biome:check": "biome check",
@@ -9,6 +8,5 @@
     "biome:format": "biome format",
     "biome:lint": "biome check --fix",
     "biome:watch": "biome check --watch"
-  },
-  "wireit": {}
+  }
 }

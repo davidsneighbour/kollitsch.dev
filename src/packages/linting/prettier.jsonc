@@ -1,5 +1,4 @@
 {
-  "dependencies": {},
   "devDependencies": {
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
@@ -8,6 +7,5 @@
   "scripts": {
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
-  },
-  "wireit": {}
+  }
 }

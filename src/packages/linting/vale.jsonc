@@ -1,6 +1,4 @@
 {
-  "devDependencies": {},
-  "dependencies": {},
   "scripts": {
     "lint:vale": "vale --config='src/config/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
     "update:pre:vale": "wireit"

@@ -95,6 +95,10 @@ function parseArgs(): Options {
  */
 function mergeDeep<T>(target: T, source: Partial<T>): T {
   for (const key of Object.keys(source)) {
+    // Prevent prototype pollution by skipping dangerous keys
+    if (key === "__proto__" || key === "constructor" || key === "prototype") {
+      continue;
+    }
     // Use type assertion to allow string indexing on Partial<T> and T
     const sv = (source as Record<string, any>)[key];
     const tv = (target as Record<string, any>)[key];

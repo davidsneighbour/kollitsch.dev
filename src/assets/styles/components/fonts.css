@@ -23,8 +23,10 @@
 @font-face {
   font-family: jetbrainsmono;
   src:
-    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2') format('woff2') tech('variations'),
-    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2') format('woff2-variations');
+    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2') format('woff2')
+      tech('variations'),
+    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2')
+      format('woff2-variations');
   font-weight: 100 800;
   font-style: normal;
   font-display: fallback;
@@ -34,8 +36,10 @@
 @font-face {
   font-family: jetbrainsmono;
   src:
-    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2') format('woff2') tech('variations'),
-    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2') format('woff2-variations');
+    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2') format('woff2')
+      tech('variations'),
+    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2')
+      format('woff2-variations');
   font-weight: 100 800;
   font-style: italic;
   font-display: swap;
@@ -46,7 +50,8 @@
   font-family: changa;
   src:
     url('/fonts/changa/changaone-regular-webfont.woff2') format('woff2'),
-    url('/fonts/changa/changaone-regular-webfont.woff2') format('woff2-variations');
+    url('/fonts/changa/changaone-regular-webfont.woff2')
+      format('woff2-variations');
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
@@ -57,7 +62,8 @@
   font-family: changa;
   src:
     url('/fonts/changa/changaone-italic-webfont.woff2') format('woff2'),
-    url('/fonts/changa/changaone-italic-webfont.woff2') format('woff2-variations');
+    url('/fonts/changa/changaone-italic-webfont.woff2')
+      format('woff2-variations');
   font-weight: 400;
   font-style: italic;
   font-display: swap;

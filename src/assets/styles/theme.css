@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@import './fonts.css';
+@import './components/fonts.css';
 
 /*******************************************************************************
  * Color utilities
@@ -89,8 +89,6 @@
   --color-gray-950: oklch(0.141 0.005 285.823deg);
   /* stylelint-enable plugin/no-unsupported-browser-features */
 
-  /* Current Line #44475A */
-
   --color-gray2-50: #f6f6f9;
   --color-gray2-100: #ededf1;
   --color-gray2-200: #d7d8e0;
@@ -102,9 +100,6 @@
   --color-gray2-800: #3d404f;
   --color-gray2-900: #363844;
   --color-gray2-950: #24242d;
-
-  /* Background #282A36 */
-
   --color-gray3-50: #f6f7f9;
   --color-gray3-100: #ecedf2;
   --color-gray3-200: #d5d7e2;
@@ -116,9 +111,6 @@
   --color-gray3-800: #3a3f52;
   --color-gray3-900: #343746;
   --color-gray3-950: #282a36;
-
-  /* Comment #6272A4 */
-
   --color-gray4-50: #f3f6fa;
   --color-gray4-100: #e8f1f7;
   --color-gray4-200: #d6e3ef;
@@ -130,9 +122,6 @@
   --color-gray4-800: #4f5d84;
   --color-gray4-900: #444e6b;
   --color-gray4-950: #282e3e;
-
-  /* Cyan #8BE9FD */
-
   --color-cyan-50: #ecfdff;
   --color-cyan-100: #cef7ff;
   --color-cyan-200: #8be9fd;
@@ -144,9 +133,6 @@
   --color-cyan-800: #135877;
   --color-cyan-900: #154964;
   --color-cyan-950: #072f45;
-
-  /* Green #50FA7B */
-
   --color-green-50: #eefff1;
   --color-green-100: #d6ffe0;
   --color-green-200: #b0ffc4;
@@ -158,9 +144,6 @@
   --color-green-800: #087325;
   --color-green-900: #085f21;
   --color-green-950: #00350f;
-
-  /* Orange #FFB86C */
-
   --color-orange-50: #fff7ed;
   --color-orange-100: #ffedd4;
   --color-orange-200: #ffd8a9;
@@ -172,9 +155,6 @@
   --color-orange-800: #9c3410;
   --color-orange-900: #7e2d10;
   --color-orange-950: #441406;
-
-  /* Pink #FF79C6 */
-
   --color-pink-50: #fef1f9;
   --color-pink-100: #fee5f4;
   --color-pink-200: #ffcbec;
@@ -186,9 +166,6 @@
   --color-pink-800: #a80c53;
   --color-pink-900: #8c0f47;
   --color-pink-950: #560127;
-
-  /* Purple #BD93F9 */
-
   --color-purple-50: #f9f5ff;
   --color-purple-100: #f1e9fe;
   --color-purple-200: #e5d6fe;
@@ -200,9 +177,6 @@
   --color-purple-800: #6025a4;
   --color-purple-900: #4f1f84;
   --color-purple-950: #330a61;
-
-  /* Red #FF5555 */
-
   --color-red-50: #fff1f1;
   --color-red-100: #ffe1e1;
   --color-red-200: #ffc7c7;
@@ -214,9 +188,6 @@
   --color-red-800: #a01414;
   --color-red-900: #841818;
   --color-red-950: #480707;
-
-  /* Yellow #F1FA8C */
-
   --color-yellow-50: #fbfde9;
   --color-yellow-100: #f6fcc5;
   --color-yellow-200: #f1fa8c;
@@ -228,9 +199,6 @@
   --color-yellow-800: #816312;
   --color-yellow-900: #6e5115;
   --color-yellow-950: #402b08;
-
-  /* Foreground #F8F8F2 */
-
   --color-brown-50: #f8f8f2;
   --color-brown-100: #f0f0e4;
   --color-brown-200: #e1e1c7;
@@ -251,7 +219,7 @@
 /*******************************************************************************
  * Default theme setup
  ******************************************************************************/
-@import './base.css';
-@import './prose.css';
-@import './pagefind.css';
-@import './utilities.css';
+@import './components/base.css';
+@import './components/prose.css';
+@import './components/pagefind.css';
+@import './components/utilities.css';

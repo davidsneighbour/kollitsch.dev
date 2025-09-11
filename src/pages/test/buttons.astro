@@ -1,5 +1,5 @@
 ---
-import '@assets/styles/global.css';
+import '@assets/styles/theme.css';
 import Layout from '@layouts/DefaultPage.astro';
 import Section from '@components/fragments/Section.astro';
 import Heading from '@components/Heading.astro';
@@ -19,9 +19,21 @@ import Button from '@components/Button.astro';
   <Section>
     <Heading level={3}>Button Variants outlines</Heading>
     <Button outline>Primary (implicit)</Button>
-    <Button theme="primary" outline>Primary (explicit)</Button>
-    <Button theme="secondary" outline>Secondary</Button>
-    <Button theme="contrast" outline>Contrast</Button>
+    <Button
+      theme="primary"
+      outline
+      >Primary (explicit)</Button
+    >
+    <Button
+      theme="secondary"
+      outline
+      >Secondary</Button
+    >
+    <Button
+      theme="contrast"
+      outline
+      >Contrast</Button
+    >
   </Section>
 
   <Section>

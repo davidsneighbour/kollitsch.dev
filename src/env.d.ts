@@ -70,8 +70,6 @@ type Navigation = NavItem[];
 type ThemeMode = 'dark' | 'light';
 
 // Minimal types for @pagefind/default-ui
-// IMPORTANT: no top-level import/export in this file
-
 declare module '@pagefind/default-ui' {
   export interface PagefindUIOptions {
     element: string | HTMLElement;

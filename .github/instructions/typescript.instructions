@@ -2,13 +2,11 @@
 applyTo: **/*.ts
 ---
 
-
 # Project-wide TypeScript Configuration
 
 (leave as is, will be automatically updated via `tsc --showConfig`)
 
 <!-- tsc-config:start id=main -->
-
 ```json
 {
   "compilerOptions": {

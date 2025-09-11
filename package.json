@@ -1,36 +1,16 @@
 {
+  "name": "@davidsneighbour/kollitsch-dev",
+  "description": "Website and content for kollitsch.dev",
+  "license": "MIT",
+  "private": true,
+  "repository": "davidsneighbour/kollitsch.dev",
   "author": {
     "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
     "web": "https://davids-neighbour.com"
   },
-  "browserslist": {
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 ie version"
-    ],
-    "production": [
-      "last 1 version",
-      "Chrome >= 112",
-      "Firefox >= 121",
-      "iOS >= 16",
-      "Safari >= 16.4",
-      "Edge >= 112",
-      "not ie > 0",
-      "not ie_mob > 0",
-      "not dead",
-      "not op_mini all",
-      "not op_mob > 0",
-      "not opera > 0",
-      "not ucandroid > 0",
-      "not and_uc > 0",
-      "not and_qq > 0",
-      "not kaios 2.5"
-    ]
-  },
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
+  "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.3.4",
@@ -52,7 +32,6 @@
     "tailwindcss": "4.1.12",
     "typescript": "5.9.2"
   },
-  "description": "Website and content for kollitsch.dev",
   "devDependencies": {
     "@ascorbic/youtube-loader": "0.0.2",
     "@axe-core/playwright": "4.10.2",
@@ -119,18 +98,6 @@
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.4"
   },
-  "engines": {
-    "node": ">=23.6.1",
-    "npm": ">=11.1.0"
-  },
-  "homepage": "https://kollitsch.dev",
-  "license": "MIT",
-  "name": "@davidsneighbour/kollitsch-dev",
-  "private": true,
-  "publishConfig": {
-    "provenance": true
-  },
-  "repository": "davidsneighbour/kollitsch.dev",
   "scripts": {
     "astro": "astro",
     "audit:html": "wireit",
@@ -190,7 +157,7 @@
     "configFile": "./src/config/stylelint/index.js"
   },
   "type": "module",
-  "version": "2025.10.0",
+  "version": "2025.9.0",
   "wireit": {
     "audit:html": {
       "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
@@ -231,17 +198,14 @@
     "compile:package:update": {
       "command": "node ./src/packages/update-package.ts"
     },
-    "deploy": {
-      "command": "netlify deploy --prod --open"
-    },
     "lint:lychee": {
       "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
     },
     "lint:styles": {
-      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/assets/styles/**/*.css"
     },
     "lint:styles:fix": {
-      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/assets/styles/**/*.css"
     },
     "lint:templates": {
       "command": "bin/hugo/lint-templates"
@@ -285,8 +249,11 @@
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
     },
+    "deploy": {
+      "command": "netlify deploy --prod --open"
+    },
     "update:pre:vale": {
-      "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
+      "command": "vale --no-exit sync"
     }
   }
 }

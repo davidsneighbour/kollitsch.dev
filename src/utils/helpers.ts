@@ -36,7 +36,16 @@ export function generateUniqueHtmlId(prefix = 'dnbuid', length = 16): string {
  * Create a random string of the specified length
  */
 export function generateRandomString(len: number): string {
-  return Array.from(crypto.getRandomValues(new Uint8Array(len)))
-    .map((n) => (n % 36).toString(36))
-    .join('');
+  const chars = [];
+  const charsetLen = 36;
+  const maxMultiple = Math.floor(256 / charsetLen) * charsetLen; // 252
+  while (chars.length < len) {
+    const arr = new Uint8Array(1);
+    crypto.getRandomValues(arr);
+    const n = arr[0];
+    if (n < maxMultiple) {
+      chars.push((n % charsetLen).toString(36));
+    }
+  }
+  return chars.join('');
 }

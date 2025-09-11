@@ -1,4 +1,52 @@
 # Changelog
+## [2025.9.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.10.0...v2025.9.1) (2025-09-11)
+
+
+### Content
+
+* **fix:** remove weird non working image tag ([374cf9b](https://github.com/davidsneighbour/kollitsch.dev/commit/374cf9bd98c33eb74f93a62f02c2cf7869ff00e4))
+
+
+### Theme
+
+* **feat:** synchstring component ([f13a8a2](https://github.com/davidsneighbour/kollitsch.dev/commit/f13a8a2704a8f28feca29a17b7205ec6a2fdc449))
+* **fix:** arr[0] is never undefined after getRandomValues() ([a3f7d31](https://github.com/davidsneighbour/kollitsch.dev/commit/a3f7d3127421479c4f03b0516744d6fc6ce7fc5c))
+* **fix:** darker separators and untracked in Git meta ([39fe7f5](https://github.com/davidsneighbour/kollitsch.dev/commit/39fe7f573e8bcb900d1e88a9c87291a1be498e34))
+* **fix:** optimize meta data display and data tags ([7f03e1d](https://github.com/davidsneighbour/kollitsch.dev/commit/7f03e1da00b6e05b23edc069fae19abaf3378ff8))
+* **fix:** remove bsicons from repo and use build script ([d886fb5](https://github.com/davidsneighbour/kollitsch.dev/commit/d886fb5d5ec956777cc92c2ae2c4ad0e6a096857))
+* **fix:** restructure stylesheet layout ([69e6d3b](https://github.com/davidsneighbour/kollitsch.dev/commit/69e6d3b2d0b0f9f11644041cb55f40d71eed633e))
+* **fix:** typecasting for @pagefind/default-ui ([abed194](https://github.com/davidsneighbour/kollitsch.dev/commit/abed194775492f255c5a46b172c0df24d0dd19ad))
+
+
+### Bug Fixes
+
+* creating biased random numbers from a cryptographically secure source ([#1440](https://github.com/davidsneighbour/kollitsch.dev/issues/1440)) ([5e8744d](https://github.com/davidsneighbour/kollitsch.dev/commit/5e8744d39d96f14db18113ea48b62e22894ffb1a))
+* prototype-polluting function ([#1441](https://github.com/davidsneighbour/kollitsch.dev/issues/1441)) ([36fb913](https://github.com/davidsneighbour/kollitsch.dev/commit/36fb913c0de8ee518c6e3f2fe228a712b4b874e4))
+
+
+### Build System
+
+* **ai:** current tsconfig.json setup for TypeScript files ([07663c8](https://github.com/davidsneighbour/kollitsch.dev/commit/07663c801c8552a3c6d8ece701e35f260e7c169e))
+* **deps:** bump vite in the npm_and_yarn group across 1 directory ([#1439](https://github.com/davidsneighbour/kollitsch.dev/issues/1439)) ([04eba65](https://github.com/davidsneighbour/kollitsch.dev/commit/04eba6510650aedfec74e8b84b2a2a03ff3a4a19))
+* **deps:** update dependencies ([5cc5da8](https://github.com/davidsneighbour/kollitsch.dev/commit/5cc5da81c7495ed22c41c0e035adb4b71f757ef3))
+* **deps:** update mcr.microsoft.com/devcontainers/typescript-node docker tag to v3 ([#1437](https://github.com/davidsneighbour/kollitsch.dev/issues/1437)) ([55a1b4b](https://github.com/davidsneighbour/kollitsch.dev/commit/55a1b4bd981560ad0a841b0757456d2fb12bf3e8))
+* **deps:** update site screenshot ([dcb8823](https://github.com/davidsneighbour/kollitsch.dev/commit/dcb8823d9613ada8d7a235bb01f665947c3e3947))
+* **images:** update blogroll screenshots ([146c252](https://github.com/davidsneighbour/kollitsch.dev/commit/146c2525889cbb888a702fc3cf0b1a0335287276))
+* **images:** update blogroll screenshots ([662a083](https://github.com/davidsneighbour/kollitsch.dev/commit/662a0834fb32aebe63ef049020469eb2874c8093))
+* **scripts:** add postinstall scripts ([15f370b](https://github.com/davidsneighbour/kollitsch.dev/commit/15f370b07b69c39632f4027b27df875834a02845))
+* **vscode:** remove autostart of dev server ([fedc997](https://github.com/davidsneighbour/kollitsch.dev/commit/fedc997d6ecaaf278772fb782ef98b690707998f))
+
+
+### CI
+
+* **fix:** proper path to stylesheets for linting task ([d9119d9](https://github.com/davidsneighbour/kollitsch.dev/commit/d9119d962c7319fcab326167f9aec6e3d2c4999e))
+
+
+### Chore
+
+* **deps:** update actions/setup-node action to v5 ([#1436](https://github.com/davidsneighbour/kollitsch.dev/issues/1436)) ([2449638](https://github.com/davidsneighbour/kollitsch.dev/commit/2449638e209d3c854bdd84b96f502bfde74e4fa6))
+* **git:** fix merge issue ([c00aac7](https://github.com/davidsneighbour/kollitsch.dev/commit/c00aac7ae3e4a201233bf812896d1182c3db42fc))
+
 ## [2025.10.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.9.0...v2025.10.0) (2025-08-31)
 
 

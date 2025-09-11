@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "bootstrap-icons": "1.13.1"
+  },
+  "scripts": {
+    "icons:sync": "node src/scripts/create-icon-types.ts",
+    "postinstall:icons": "npm run icons:sync"
+  }
+}

@@ -28,17 +28,6 @@
         "panel": "shared",
         "group": "dev-tasks"
       }
-    },
-    {
-      "label": "Start All",
-      "dependsOn": [
-        "Dev Server (Startup)",
-        "TS Code Check (Startup)"
-      ],
-      "dependsOrder": "parallel",
-      "runOptions": {
-        "runOn": "folderOpen"
-      }
     }
   ]
 }

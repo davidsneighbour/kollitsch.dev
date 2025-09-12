@@ -31,6 +31,8 @@ const bodyClasses = [
 ]
   .filter(Boolean)
   .join(' ');
+
+const IS_DEV = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -56,9 +58,9 @@ const bodyClasses = [
       )
     }
     <SchemaWebSite />
-    <script is:inline>
+    <script is:inline define:vars={{ IS_DEV }}>
       (function () {
-        if (typeof window === 'undefined' || import.meta.env.DEV) return;
+        if (typeof window === 'undefined' || IS_DEV) return;
 
         const _paq = (window._paq = window._paq || []);
         const u = 'https://analytics.dnbhub.xyz/';

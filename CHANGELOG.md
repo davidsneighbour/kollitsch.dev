@@ -1,4 +1,43 @@
 # Changelog
+## [2025.10.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.9.1...v2025.10.0) (2025-09-12)
+
+
+### Content
+
+* **fix:** proper location for syncstring test page ([e51750c](https://github.com/davidsneighbour/kollitsch.dev/commit/e51750c60409b9d82bb1beaacc101ca4387a7d17))
+* **new:** blog post of 2025-09-12 ([095ce34](https://github.com/davidsneighbour/kollitsch.dev/commit/095ce3498b448d4341ff664b442dee23ff3470b6))
+* **update:** blogroll ([19f1869](https://github.com/davidsneighbour/kollitsch.dev/commit/19f186982240009efbc1557bbd2282ebd8418b33))
+
+
+### Theme
+
+* **fix:** less weight for base paragraph font (400 to 300) ([04652ff](https://github.com/davidsneighbour/kollitsch.dev/commit/04652ffa6cfa16a96c95d7dcc5c754b495b0ee90))
+* **fix:** remove doubled definition of line height ([8f36f0c](https://github.com/davidsneighbour/kollitsch.dev/commit/8f36f0cf584371e83b1417353a892818b4e48903))
+* **fix:** separate top and footer navigation ([ce5e7af](https://github.com/davidsneighbour/kollitsch.dev/commit/ce5e7aff214e853f874140b66155be88fdef6e02))
+* **fix:** styling of strong tags ([540d0fa](https://github.com/davidsneighbour/kollitsch.dev/commit/540d0fa3b37fb4ba47836a81237c10788fe6165c))
+
+
+### Features
+
+* **matomo:** rebuild analytics integration ([d12e079](https://github.com/davidsneighbour/kollitsch.dev/commit/d12e0795cdb9840ed6c106d9d85d2d0e1a2bc401))
+
+
+### Build System
+
+* **fix:** silence weird import ts error for json imports ([70c1246](https://github.com/davidsneighbour/kollitsch.dev/commit/70c12461e1134aa9fad1cab96c82699d7fcbc026))
+
+
+### CI
+
+* add scratches to gitignore ([41900ae](https://github.com/davidsneighbour/kollitsch.dev/commit/41900aeb43c1ea2dd9550b60bbb6e6000b626a06))
+
+
+### Configuration
+
+* **frontmatter:** sort fields in blogroll data schema ([647dd78](https://github.com/davidsneighbour/kollitsch.dev/commit/647dd78d3c6c0ece139263994b3fa630e17e457f))
+* **frontmatter:** sort fields in blogroll schema ([4326def](https://github.com/davidsneighbour/kollitsch.dev/commit/4326def7fd8e09bc07ca1c301a3d3c4b58d09c90))
+* **vale:** proper path to vale configuration ([d6220b5](https://github.com/davidsneighbour/kollitsch.dev/commit/d6220b56476ad158ad30dac059888d89a7241fec))
+
 ## [2025.9.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.10.0...v2025.9.1) (2025-09-11)
 
 

@@ -119,4 +119,49 @@
   select {
     font: inherit;
   }
+
+  :nth-child(5n)::selection {
+    background: var(--color-red-200);
+  }
+
+  :nth-child(5n + 1)::selection {
+    background: var(--color-orange-200);
+  }
+
+  :nth-child(5n + 2)::selection {
+    background: var(--color-yellow-200);
+  }
+
+  :nth-child(5n + 3)::selection {
+    background: var(--color-green-200);
+  }
+
+  :nth-child(5n + 4)::selection {
+    background: var(--color-blue-200);
+  }
+
+  /* Dark theme overrides */
+  html[data-theme='dark'] :nth-child(5n)::selection {
+    background: var(--color-red-950);
+  }
+
+  html[data-theme='dark'] :nth-child(5n + 1)::selection {
+    background: var(--color-orange-950);
+  }
+
+  html[data-theme='dark'] :nth-child(5n + 2)::selection {
+    background: var(--color-yellow-950);
+  }
+
+  html[data-theme='dark'] :nth-child(5n + 3)::selection {
+    background: var(--color-green-950);
+  }
+
+  html[data-theme='dark'] :nth-child(5n + 4)::selection {
+    background: var(--color-blue-950);
+  }
+
+  .progress {
+    transition: width 0.6s ease-in-out;
+  }
 }

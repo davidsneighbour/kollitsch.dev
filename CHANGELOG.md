@@ -1,4 +1,13 @@
 # Changelog
+## [2025.11.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.0...v2025.11.1) (2025-09-12)
+
+
+### Theme
+
+* **fix:** proper implementation for the footer greeting ([c3c93ad](https://github.com/davidsneighbour/kollitsch.dev/commit/c3c93adeb8d25391e8b02273bc86fe5b4fd909fc))
+* **fix:** remove errant import.meta usage ([badfdb6](https://github.com/davidsneighbour/kollitsch.dev/commit/badfdb67f600829ca9c54c075647893146d7b68d))
+* **fix:** selection colors and progress transition ([f87cc41](https://github.com/davidsneighbour/kollitsch.dev/commit/f87cc4121b0222fa0fb61c203ee74002dc8930ae))
+
 ## [2025.11.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.9.1...v2025.11.0) (2025-09-12)
 
 

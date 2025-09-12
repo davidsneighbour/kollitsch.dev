@@ -5,21 +5,21 @@
   "labelField": "name",
   "schema": {
     "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
       "description": {
         "multiline": true,
         "title": "Description",
         "type": "string"
       },
-      "name": {
-        "title": "Name",
+      "url": {
+        "title": "URL",
         "type": "string"
       },
       "rss": {
         "title": "RSS Feed URL",
-        "type": "string"
-      },
-      "url": {
-        "title": "URL",
         "type": "string"
       }
     },

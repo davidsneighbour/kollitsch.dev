@@ -216,6 +216,10 @@
   --kdev-transition-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
+body {
+  @apply transition-colors transition-discrete duration-350 ease-in-out;
+}
+
 /*******************************************************************************
  * Default theme setup
  ******************************************************************************/

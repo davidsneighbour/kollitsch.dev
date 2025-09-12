@@ -1,3 +1,6 @@
+# scratches
+*.scratch.*
+
 # WireIt
 .wireit
 bak

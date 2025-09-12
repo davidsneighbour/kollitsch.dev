@@ -12,13 +12,13 @@
   }
 
   body {
-    @apply font-exo2 text-base leading-[1.5] font-light;
+    @apply font-exo2 text-base font-light;
     @apply bg-gray-50 text-gray-600;
     @apply dark:bg-gray-950 dark:text-gray-200;
 
     /* @see https://www.joshwcomeau.com/css/custom-css-reset/#four-add-accessible-line-height-5 */
-    line-height: 1.5;
-    line-height: calc(1em + 0.5rem);
+    line-height: 1.6;
+    line-height: calc(1em + 0.6rem);
 
     /* @see https://www.joshwcomeau.com/css/custom-css-reset/#five-improve-text-rendering-6 */
     -webkit-font-smoothing: antialiased;

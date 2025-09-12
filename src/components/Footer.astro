@@ -162,17 +162,3 @@ const introFallbackHtml = md.renderInline(introFallback);
 <script is:inline define:vars={{ footerYearId }}>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
 </script>
-
-<script
-  type="module"
-  defer
-  is:inline
-  define:vars={{ introRaw: setup.introduction, greetings: setup.greetings }}
->
-  import { renderIntroduction } from '/src/assets/scripts/render-intro.ts';
-  const target = document.getElementById('about-introduction');
-  if (target) {
-    const html = renderIntroduction(introRaw, greetings);
-    target.innerHTML = html;
-  }
-</script>

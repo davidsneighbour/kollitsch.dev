@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply font-exo2 text-base leading-[1.5] font-normal;
+    @apply font-exo2 text-base leading-[1.5] font-light;
     @apply bg-gray-50 text-gray-600;
     @apply dark:bg-gray-950 dark:text-gray-200;
 

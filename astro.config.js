@@ -10,9 +10,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
-import matomo from 'astro-matomo';
-import pagefind from './src/scripts/integrations/pagefind';
 import devtoolsJson from 'vite-plugin-devtools-json';
+import pagefind from './src/scripts/integrations/pagefind.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -73,21 +72,6 @@ export default defineConfig({
       indexConfig: {
         keepIndexUrl: true,
       },
-    }), // https://github.com/felix-berlin/astro-matomo
-    matomo({
-      debug: true,
-      disableCookies: true,
-      enabled: import.meta.env.PROD, // Only load in production
-      heartBeatTimer: 5,
-      host: 'https://analytics.dnbhub.xyz/',
-      //partytown: true,
-      preconnect: true,
-      setCookieDomain: '*.kollitsch.dev',
-      siteId: 1,
-      // viewTransition: {
-      //   contentElement: 'main',
-      // },
-      viewTransition: true,
     }), // https://www.astroicon.dev/guides/customization/
     icon({
       iconDir: 'src/assets/icons',

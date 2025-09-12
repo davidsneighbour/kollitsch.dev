@@ -1,11 +1,7 @@
 ---
-import { createDefaultPost } from '@utils/content';
+import type { MarkdownInstance } from 'astro';
+import { createDefaultPost, resolvePostTitle } from '@utils/content';
 import setup from '@data/setup.json';
-
-interface Props extends PostProp<'blog'> {
-  frontmatter?: Record<string, any>;
-}
-let { post, frontmatter }: Props = Astro.props;
 
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from 'astro:transitions';
@@ -16,55 +12,172 @@ import FontsPreload from '@components/head/FontsPreload.astro';
 import Meta from '@components/head/Meta.astro';
 import OpenGraph from '@components/head/OpenGraph.astro';
 import WebComponents from '@components/head/WebComponents.astro';
-import { resolvePostTitle } from '@utils/content';
 
-const baseUrl = import.meta.env.BASE_URL;
-const title = resolvePostTitle(post?.data?.title || frontmatter?.title, {
-  postfix: setup.head.postfix,
-});
-// @todo ensure we have a post object and remove if not required
-if (!post?.data) {
-  post = { ...post, data: createDefaultPost(post) };
+type PostLike = MarkdownInstance<Record<string, unknown>> & {
+  readonly data?: {
+    readonly title?: string;
+    readonly description?: string;
+    readonly draft?: boolean;
+  };
+};
+
+interface Props {
+  readonly post?: PostLike; // no type argument here
+  readonly frontmatter?: Record<string, unknown>;
 }
+
+const { post: postProp, frontmatter }: Props = Astro.props;
+
+// never mutate incoming props; derive a safe post object
+const safePost = postProp?.data
+  ? postProp
+  : ({ ...postProp, data: createDefaultPost(postProp) } as PostLike);
+
+/**
+ * Clamp a string to the range [min,max] at a word boundary.
+ */
+function clampText(input: string, min = 150, max = 170): string {
+  const text = input.trim().replace(/\s+/g, ' ');
+  if (text.length <= max && text.length >= min) return text;
+  if (text.length < min) return text; // avoid padding with fluff
+  // cut at last space before max to keep words intact
+  const cut = text.slice(0, max + 1);
+  const idx = cut.lastIndexOf(' ');
+  return (idx > 0 ? cut.slice(0, idx) : cut).trim();
+}
+
+const baseUrl = import.meta.env.BASE_URL ?? '/';
+
+// title: prefer post/frontmatter, then setup fallback, with postfix
+const rawTitle =
+  (safePost.data?.title as string | undefined) ||
+  (frontmatter?.title as string | undefined) ||
+  setup?.title ||
+  '';
+const title = resolvePostTitle(rawTitle, { postfix: setup.head.postfix });
+
+// description: prefer post, then setup.description
+const rawDescription =
+  safePost.data?.description ??
+  (setup?.description as string | undefined) ??
+  '';
+const description = clampText(rawDescription);
+
+// canonical with trailing slash enforced
+const site = new URL(Astro.site ?? 'http://localhost/');
+const canonicalUrl = new URL(
+  Astro.url.pathname.endsWith('/')
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`,
+  site,
+).toString();
+
+// robots policy
+const isDraft = Boolean(safePost.data?.draft);
+const robots = isDraft ? 'noindex, nofollow, noarchive' : 'index, follow';
+
+// only emit <base> if BASE_URL is not root to avoid breaking relative paths
+const shouldEmitBase = typeof baseUrl === 'string' && baseUrl !== '/';
+const headCfg = setup.head as Record<string, unknown>;
+
+function getString(
+  obj: Record<string, unknown>,
+  key: string,
+  fallback: string,
+): string {
+  const v = obj[key];
+  return typeof v === 'string' && v.trim() !== '' ? v : fallback;
+}
+
+const themeLight = getString(headCfg, 'themeColorLight', '#ffffff');
+const themeDark = getString(headCfg, 'themeColorDark', '#000000');
 ---
 
-<meta charset={setup.head.defaults.charset || 'utf-8'} />
+<meta charset={setup.head?.defaults?.charset || 'utf-8'} />
 <meta
   name="viewport"
-  content={setup.head.defaults.viewport ||
+  content={setup.head?.defaults?.viewport ||
     'width=device-width, initial-scale=1.0'}
 />
 <title>{title}</title>
-<!-- if required inline it should come far up -->
-<!-- <meta
-  http-equiv="Content-Security-Policy"
-  content="default-src 'self'"
-/> -->
-<base
-  href={baseUrl}
-  target="_self"
+
+{
+  shouldEmitBase && (
+    <base
+      href={baseUrl}
+      target="_self"
+    />
+  )
+}
+
+<link
+  rel="canonical"
+  href={canonicalUrl}
 />
 <meta
-  name="description"
-  content={post.data.description || setup.description}
+  name="robots"
+  content={robots}
 />
+<meta
+  name="referrer"
+  content="strict-origin-when-cross-origin"
+/>
+{
+  description && (
+    <meta
+      name="description"
+      content={description}
+    />
+  )
+}
 
 <FontsPreload />
-<OpenGraph post={post} />
+<OpenGraph post={safePost} />
 <ClientRouter />
 <Favicon />
 <Meta />
-<WebComponents post={post} />
+<WebComponents post={safePost} />
 
 <meta
   name="generator"
   content={Astro.generator}
 />
+
+<meta
+  name="color-scheme"
+  content="dark light"
+/>
+<meta
+  name="theme-color"
+  media="(prefers-color-scheme: light)"
+  content={themeLight}
+/>
+<meta
+  name="theme-color"
+  media="(prefers-color-scheme: dark)"
+  content={themeDark}
+/>
+
+{
+  /* Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) */
+}
 <script is:inline>
-  // if (typeof _paq !== 'undefined') {
-  let _paq = (window._paq = window._paq || []);
-  _paq.push(['setReferrerUrl', document.referrer]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  // }
+  (function () {
+    if (typeof window === 'undefined') return;
+    try {
+      const _paq = (window._paq = window._paq || []);
+      _paq.push(['setReferrerUrl', document.referrer]);
+      _paq.push(['enableLinkTracking']);
+      _paq.push(['trackPageView']); // initial load
+
+      const onSwap = () => {
+        _paq.push(['setCustomUrl', location.href]);
+        _paq.push(['setDocumentTitle', document.title]);
+        _paq.push(['trackPageView']);
+      };
+      document.addEventListener('astro:after-swap', onSwap);
+    } catch (err) {
+      console.error('Matomo bootstrap failed:', err);
+    }
+  })();
 </script>

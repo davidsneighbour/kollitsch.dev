@@ -56,8 +56,30 @@ const bodyClasses = [
       )
     }
     <SchemaWebSite />
+    <script is:inline>
+      (function () {
+        if (typeof window === 'undefined' || import.meta.env.DEV) return;
+
+        const _paq = (window._paq = window._paq || []);
+        const u = 'https://analytics.dnbhub.xyz/';
+
+        _paq.push(['setSiteId', '1']);
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setCookieDomain', '*.kollitsch.dev']);
+        _paq.push(['enableLinkTracking']);
+
+        const g = document.createElement('script');
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'matomo.js';
+
+        const target =
+          document.head || document.body || document.documentElement;
+        target.appendChild(g);
+      })();
+    </script>
     <script>
-      import "../assets/js/theme.js";
+      import '../assets/js/theme.js';
     </script>
   </body>
 </html>

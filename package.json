@@ -43,7 +43,6 @@
     "@tailwindcss/vite": "4.1.13",
     "astro": "5.13.7",
     "astro-icon": "1.1.5",
-    "astro-matomo": "1.9.0",
     "glob": "11.0.3",
     "gray-matter": "4.0.3",
     "pagefind": "1.4.0",

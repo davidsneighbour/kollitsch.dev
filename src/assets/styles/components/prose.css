@@ -62,5 +62,9 @@
     p:last-child {
       margin-bottom: 0;
     }
+
+    strong {
+      @apply font-semibold;
+    }
   }
 }

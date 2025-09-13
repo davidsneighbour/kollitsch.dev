@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "fast-xml-parser": "5.2.5",
+    "playwright": "1.55.0",
+    "tsx": "4.20.5"
+  },
+  "scripts": {
+    "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000"
+  }
+}

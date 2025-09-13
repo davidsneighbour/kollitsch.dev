@@ -1,4 +1,22 @@
 # Changelog
+## [2025.11.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.1...v2025.11.2) (2025-09-13)
+
+
+### Theme
+
+* **feat:** transition theme changes ([e1c805c](https://github.com/davidsneighbour/kollitsch.dev/commit/e1c805c6f39c865d3acc0434fa06ab5ec2e7391a))
+* **fix:** move utility classes around ([1e259e7](https://github.com/davidsneighbour/kollitsch.dev/commit/1e259e72466b6ea835d2cf03600abe059a7ac464))
+
+
+### Build System
+
+* **deps:** update dependencies ([aa9704c](https://github.com/davidsneighbour/kollitsch.dev/commit/aa9704cefc1f84582c3c690b003e2c216eaf247c))
+
+
+### CI
+
+* **html-validate:** update configuration for html-validate ([75f49e9](https://github.com/davidsneighbour/kollitsch.dev/commit/75f49e916bffc97020c03d70ddc932770c85ccb0))
+
 ## [2025.11.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.0...v2025.11.1) (2025-09-12)
 
 

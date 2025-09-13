@@ -37,8 +37,12 @@ const { defaultTheme = 'dark' } = Astro.props;
 
 <header
   class="sticky top-0 right-0 left-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900"
+  aria-label="Top navigation bar with site title, navigation links, and theme selector"
 >
-  <nav class="mx-auto max-w-7xl">
+  <nav
+    class="mx-auto max-w-7xl"
+    aria-label="Main navigation"
+  >
     <div
       class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"
     >

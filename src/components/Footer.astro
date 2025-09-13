@@ -28,7 +28,10 @@ const introFallback = setup.introduction.replace('{$greeting}', '').trim();
 const introFallbackHtml = md.renderInline(introFallback);
 ---
 
-<footer class={setup.classes.containers.wide}>
+<footer
+  class={setup.classes.containers.wide}
+  aria-label="Footer"
+>
   <Heading
     level={2}
     class="sr-only"
@@ -40,6 +43,7 @@ const introFallbackHtml = md.renderInline(introFallback);
   >
     <aside
       class="py-4 text-center md:col-span-2 lg:col-span-5 lg:text-left xl:col-span-4"
+      aria-label="About section with author image and introduction"
     >
       <Heading
         level={3}
@@ -67,7 +71,10 @@ const introFallbackHtml = md.renderInline(introFallback);
         />
       </div>
     </aside>
-    <aside class="py-4 lg:col-span-2 xl:col-span-1">
+    <aside
+      class="py-4 lg:col-span-2 xl:col-span-1"
+      aria-label="Site navigation links"
+    >
       <Heading
         level={3}
         class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"
@@ -91,7 +98,10 @@ const introFallbackHtml = md.renderInline(introFallback);
         }
       </ul>
     </aside>
-    <aside class="py-4 lg:col-span-2">
+    <aside
+      class="py-4 lg:col-span-2"
+      aria-label="Social media links"
+    >
       <Heading
         level={3}
         class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900"
@@ -135,21 +145,20 @@ const introFallbackHtml = md.renderInline(introFallback);
     <IconLink
       href="/privacy-policy/"
       icon="shield-check"
+      >Privacy Policy</IconLink
     >
-      Privacy Policy
-    </IconLink>
     <IconLink
       href="/security-policy/"
       icon="fingerprint"
+      >Security Policy</IconLink
     >
-      Security Policy
-    </IconLink>
   </div>
 </footer>
 
 <footer
   class="h-max-[8vw] overflow-y-hidden text-center"
   aria-hidden="true"
+  aria-label="Decorative footer element with site title"
 >
   <div
     class="font-changa text-center leading-none font-normal whitespace-nowrap text-gray-200/10 transition duration-2000 ease-in-out select-none hover:text-gray-200/50 dark:text-gray-800/10 dark:hover:text-gray-800/50"

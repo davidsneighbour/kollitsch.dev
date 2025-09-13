@@ -3,24 +3,23 @@ interface Props {
   classes?: string;
 }
 const {
-  classes = "progress z-40 relative [--height:4px] lg:[--height:6px]"
+  classes = 'progress z-40 relative [--height:4px] lg:[--height:6px]',
 }: Props = Astro.props;
 ---
 
-<div
+<progress
   class={classes}
-  role="progressbar"
   aria-label="Reading progress"
   aria-valuenow="0"
   aria-valuemin="0"
   aria-valuemax="100"
 >
-  <div
-    class="progress-bar progress-bar-striped progress-bar-animated h-[--height]"
+  <span
+    class="progress-bar progress-bar-striped progress-bar-animated inline-block h-[--height]"
     style="width: var(--scroll);"
   >
-  </div>
-</div>
+  </span>
+</progress>
 
 <script is:inline>
   document.addEventListener('scroll', () => {
@@ -55,7 +54,7 @@ const {
   }
 
   .progress {
-    --bs-progress-height: var(--thickness, 4px);;
+    --bs-progress-height: var(--thickness, 4px);
     --bs-progress-font-size: 0.75rem;
     --bs-progress-bg: var(--bs-secondary-bg);
     --bs-progress-border-radius: var(--bs-border-radius);

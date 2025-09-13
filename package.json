@@ -99,6 +99,7 @@
     "fixpack": "4.0.0",
     "glob": "11.0.3",
     "globals": "16.4.0",
+    "html-validate": "10.0.0",
     "js-yaml": "4.1.0",
     "markdownlint": "0.38.0",
     "markdownlint-cli2": "0.18.1",
@@ -153,8 +154,8 @@
     "lighthouse": "bin/audit/lighthouse",
     "lint:eslint:inspector": "eslint --inspect-config",
     "lint:hook:commit": "lint-staged",
-    "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
-    "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
+    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
+    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
     "lint:lychee": "wireit",
     "lint:markdown": "markdownlint-cli2 --config 'src/config/.markdownlint.jsonc'",
     "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
@@ -190,7 +191,7 @@
   "version": "2025.11.1",
   "wireit": {
     "audit:html": {
-      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
     },
     "clean": {
       "dependencies": [

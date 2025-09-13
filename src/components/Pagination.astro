@@ -102,7 +102,10 @@ const isLast = props.currentPage === props.totalPages;
 
 {
   props.totalPages > 1 && (
-    <nav class="mt-8 flex items-center justify-between border-t px-4 sm:px-0">
+    <nav
+      class="mt-8 flex items-center justify-between border-t px-4 sm:px-0"
+      aria-label="Pagination Navigation"
+    >
       {props.edgeMode === 'hide' ? (
         !isFirst && <a href={pageLink(props.currentPage - 1)}>&larr; Prev</a>
       ) : (

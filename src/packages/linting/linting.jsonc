@@ -1,18 +1,20 @@
 {
-  "devDependencies": {},
+  "devDependencies": {
+    "html-validate": "10.0.0"
+  },
   "scripts": {
     "audit:html": "wireit",
     "lighthouse": "bin/audit/lighthouse",
     "lint:hook:commit": "lint-staged",
-    "lint:html": "npx html-validate --config=tests/html-validator/config.json public/**/*.html",
-    "lint:html:config": "html-validate --print-config=tests/html-validator/config.json",
+    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
+    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:templates": "wireit"
   },
   "wireit": {
     "audit:html": {
-      "command": "npm run build && html-validate public/**/*.html --config=tests/html-validator/config.json"
+      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
     },
 
     "lint:templates": {

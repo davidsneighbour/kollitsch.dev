@@ -21,5 +21,3 @@ aliases:
   - /sitemap/
 publisher: rework
 ---
-
-{{< sitemap >}}

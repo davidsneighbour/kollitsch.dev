@@ -216,14 +216,11 @@
   --kdev-transition-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
-body {
-  @apply transition-colors transition-discrete duration-350 ease-in-out;
-}
-
 /*******************************************************************************
  * Default theme setup
  ******************************************************************************/
 @import './components/base.css';
 @import './components/prose.css';
 @import './components/pagefind.css';
-@import './components/utilities.css';
+@import './utilities/utilities.css';
+@import './utilities/transitions.css';

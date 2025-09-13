@@ -1,0 +1,5 @@
+@layer utilities {
+  * {
+    @apply transition-colors transition-discrete duration-350 ease-in-out;
+  }
+}

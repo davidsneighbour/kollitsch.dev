@@ -14,31 +14,65 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 24
+          cache: npm # built-in npm cache
+
+      # Astro/Vite/Tailwind + processed image cache
+      - name: Cache Astro/Vite/Tailwind caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            .astro
+            node_modules/.vite
+            node_modules/.astro
+            node_modules/.cache/astro
+            node_modules/.cache/tailwindcss
+            src/assets/icons
+          key: >
+            ${{ runner.os }}-astro-cache-
+            node${{ steps.nodeinfo.outputs.version || '24' }}-
+            pkg-${{ hashFiles('package-lock.json') }}-
+            cfg-${{ hashFiles('astro.config.*','tailwind*.{js,cjs,ts,mjs}','vite.config.*') }}-
+            imgs-${{ hashFiles('src/assets/images/**') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-cache-
+
+      # Optional: cache Playwright browsers (keeps install super fast)
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-ms-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-ms-playwright-
 
       - name: Install dependencies
         run: npm ci
 
+      # If you prefer, replace the two steps below with microsoft/playwright-github-action@v1
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Setup Playwright
         id: setup-playwright
         uses: ./.github/actions/setup-playwright
-        # with:
-        #   working-directory: ./packages/<my-project>
 
       - name: Build Astro site
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          CI: true
         run: npm run build
 
       # - name: Start server for E2E tests
-      #   run: npx astro preview &
+      #   run: |
+      #     npx astro preview --host --port 4321 &
+      #     npx --yes wait-on http://localhost:4321/
       #   env:
       #     PORT: 4321
 

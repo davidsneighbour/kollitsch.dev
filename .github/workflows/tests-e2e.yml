@@ -33,6 +33,8 @@ jobs:
         #   working-directory: ./packages/<my-project>
 
       - name: Build Astro site
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: npm run build
 
       # - name: Start server for E2E tests

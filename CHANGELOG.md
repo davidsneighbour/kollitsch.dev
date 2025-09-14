@@ -1,4 +1,44 @@
 # Changelog
+## [2025.11.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.2...v2025.11.3) (2025-09-14)
+
+
+### Content
+
+* **new:** blog post from 2025-09-14 ([9c4cf48](https://github.com/davidsneighbour/kollitsch.dev/commit/9c4cf48c8cd642ff9da2e922cd8e4af8339e4913))
+
+
+### Theme
+
+* **fix:** progress bar style fixes ([547848c](https://github.com/davidsneighbour/kollitsch.dev/commit/547848cecd87e8a4842c522d28d57ab12eb34d4f))
+
+
+### Documentation
+
+* **readme:** rewrite and markdown fixes ([35b8cc6](https://github.com/davidsneighbour/kollitsch.dev/commit/35b8cc65d39ba08cab56d41387d03da8c3d05ccb))
+
+
+### Tests
+
+* **fix:** move logs folder to test folder ([4a9d189](https://github.com/davidsneighbour/kollitsch.dev/commit/4a9d189187ebab5fb5f30a131bd90bec3e214cb9))
+* **sitemap:** add sitemap check script ([51d66f2](https://github.com/davidsneighbour/kollitsch.dev/commit/51d66f2e08a27a9d50f2e73ef7fb760dacd7881a))
+
+
+### Build System
+
+* **deps:** update site screenshot ([17f9872](https://github.com/davidsneighbour/kollitsch.dev/commit/17f9872c9bd005e8bc705527930d9beaa663a9bd))
+
+
+### CI
+
+* **workflow:** add _astro folder ([111e273](https://github.com/davidsneighbour/kollitsch.dev/commit/111e273c5b1ef621be0eccd9d9c54d880308d1dd))
+* **workflow:** add youtube api key ([f5b5007](https://github.com/davidsneighbour/kollitsch.dev/commit/f5b50071f974418f8d7c24ba66ae30581680bc70))
+* **workflow:** caching in e2e testing ([b6dc435](https://github.com/davidsneighbour/kollitsch.dev/commit/b6dc4350a2f56584d513afc0cb057e562d0d6a96))
+
+
+### Chore
+
+* remove containers ([04f3c26](https://github.com/davidsneighbour/kollitsch.dev/commit/04f3c2673ce10c7fd051649639a626376b33d9bf))
+
 ## [2025.11.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.1...v2025.11.2) (2025-09-13)
 
 

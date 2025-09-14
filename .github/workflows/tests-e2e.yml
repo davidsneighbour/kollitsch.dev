@@ -28,6 +28,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            _astro
             .astro
             node_modules/.vite
             node_modules/.astro

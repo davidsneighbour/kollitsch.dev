@@ -17,12 +17,12 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default getViteConfig({
   plugins: [tsconfigPaths()],
   test: {
+    coverage: {
+      reporter: ['text', 'html'],
+      reportsDirectory: 'src/test/logs/vitest/coverage',
+    },
     environment: 'jsdom',
     globals: true,
     include: ['src/components/**/*.test.ts'],
-    coverage: {
-      reporter: ['text', 'html'],
-      reportsDirectory: 'logs/vitest/coverage',
-    },
   },
 });

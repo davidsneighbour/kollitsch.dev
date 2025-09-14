@@ -45,6 +45,11 @@ const IS_DEV = import.meta.env.DEV;
       post={post}
       frontmatter={frontmatter}
     />
+    <script>
+      window.addEventListener('load', () => {
+        document.documentElement.setAttribute('data-transitions', '');
+      });
+    </script>
   </head>
   <body class={bodyClasses}>
     <slot />

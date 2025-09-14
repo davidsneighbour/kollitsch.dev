@@ -1,31 +1,56 @@
-This project is the website setup, features, and theme for [kollitsch.dev](https://kollitsch.dev/).
+# [kollitsch.dev](https://kollitsch.dev/)
 
-<!--lint ignore-->
-
-* [Used services and tools](#used-services-and-tools)
-  * [Legacy tools](#legacy-tools)
-* [Commands](#commands)
-* [Ask questions](#ask-questions)
+* [Features](#features)
+* [Vision](#vision)
 * [General notes](#general-notes)
+* [Quickstart](#quickstart)
+* [Commands](#commands)
+* [Tech stack](#tech-stack)
 * [Preview of the current state of the website](#preview-of-the-current-state-of-the-website)
-* [Badges](#badges)
+* [Contributing](#contributing)
 
-## Used services and tools
+[![Check Links](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml/badge.svg)](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Netlify Status](https://api.netlify.com/api/v1/badges/02e05c7a-11a0-48e0-988f-7fc12267eb89/deploy-status)](https://app.netlify.com/sites/kollitsch-dev/deploys)
 
-| Function | |Service                                          |
-| :------------------------ | --- | :----------------------------------------------- |
-| **Domain Registration**   | | [Porkbun](https://porkbun.com/products/domains) |
-| **DNS & CDN**                   | [![Cloudflare](https://skillicons.dev/icons?i=cloudflare)](https://cloudflare.com) | [Cloudflare](https://cloudflare.com)             |
-| **Hosting**               | [![Netlify](https://skillicons.dev/icons?i=netlify)](https://netlify.com) | [Netlify](https://netlify.com)                   |
-| **Static Site Generator** | [![Astro](https://skillicons.dev/icons?i=astro)](https://astro.build/) | [Astro](https://astro.build/)                    |
-| **CSS Framework**         | [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind)](https://tailwindcss.com/) | [Tailwind CSS](https://tailwindcss.com/)        |
+My personal website built with Astro and Tailwind CSS. This project serves as a digital garden, blog, and reference for web development, automation, and related topics, mixed with personal insights and experiences.
 
-### Legacy tools
+## Features
 
-| Function                  | Service                                          |
-| :------------------------ | :----------------------------------------------- |
-| **Static Site Generator**   | [Website done via GoHugo](https://github.com/davidsneighbour/kollitsch.dev/tree/14171a308d5597705a49d382e8ede290f06b8ecc) |
-| **CSS Framework**         | [Theme done via Bootstrap](https://github.com/davidsneighbour/kollitsch.dev/tree/14171a308d5597705a49d382e8ede290f06b8ecc) |
+* Built with Astro 5.10+ and Tailwind CSS 4.1+
+* Structured content using front matter and automated pipelines
+* Modular components for articles, navigation, and media
+* Responsive design and accessibility focus
+* Automated linting, formatting, and testing (ESLint, Vitest, Playwright)
+* Content-driven: Markdown, JSON, and custom data sources
+
+## Vision
+
+This site is a living documentation and experimentation platform. It aims to:
+
+* Share practical web development knowledge
+* Document personal projects and experiments
+* Provide reusable patterns and automation scripts
+* Serve as a reference for future work
+
+## General notes
+
+* The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+* I am working on Linux Mint Cinnamon, meaning all code samples in this document are working on Linux Mint Cinnamon and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open source programs and scripts.
+* Changes to the website and setup that are important are documented in the [release notes on GitHub](https://github.com/davidsneighbour/kollitsch.dev/releases).
+* The versioning follows a more or less semantic versioning scheme. Patch releases are for bug fixes and content updates, minor releases are for new features. Major releases are done once a year --- it's a personal website after all ;]
+
+## Quickstart
+
+Clone and run locally:
+
+```
+git clone https://github.com/davidsneighbour/kollitsch.dev.git
+cd kollitsch.dev
+npm install
+npm run dev
+```
+
+For more details, see the [`documentation` directory](documentation/).
 
 ## Commands
 
@@ -40,22 +65,18 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check`.|
 | `npm run astro -- --help` | Get help using the Astro CLI.                    |
 
-## Ask questions
+## Tech stack
 
-Feel free to [open an issue](https://github.com/davidsneighbour/kollitsch.dev/issues/new?assignees=davidsneighbour\&labels=state%3Aunconfirmed\&template=custom.md\&title=) to ask questions, discover undocumented details, or suggest improvements. [Discussions](https://github.com/davidsneighbour/kollitsch.dev/discussions) are also open directly or via commenting on articles.
-
-## General notes
-
-* The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-* I am working on Ubuntu, meaning all code samples in this document are working on Ubuntu and any comparable (Debian-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open source programs and scripts.
-* Changes to the website and setup that are important are documented in the [release notes on GitHub](https://github.com/davidsneighbour/kollitsch.dev/releases).
-* The versioning follows a more or less semantic versioning scheme. Patch releases are for bug fixes and content updates, minor releases are for new features. Major releases are done once a year --- it's a personal website after all ;]
+* Astro (latest)
+* Tailwind CSS (latest)
+* Vitest & Playwright for testing
+* ESLint for linting
+* Prettier & Biome for formatting
 
 ## Preview of the current state of the website
 
 [![Screenshot of kollitsch.dev](.github/screenshot.png)](.github/screenshot.png)
 
-## Badges
+## Contributing
 
-[![Check Links](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml/badge.svg)](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Netlify Status](https://api.netlify.com/api/v1/badges/02e05c7a-11a0-48e0-988f-7fc12267eb89/deploy-status)](https://app.netlify.com/sites/kollitsch-dev/deploys)
+Contributions are welcome. Please [open issues](https://github.com/davidsneighbour/kollitsch.dev/issues) or pull requests for improvements, bug fixes, or new content. See CONTRIBUTING.md (if available) for guidelines.

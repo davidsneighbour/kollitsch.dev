@@ -1,4 +1,11 @@
 # Changelog
+## [2025.11.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.3...v2025.11.4) (2025-09-14)
+
+
+### Theme
+
+* **fix:** enable transitions after page load only ([d605e95](https://github.com/davidsneighbour/kollitsch.dev/commit/d605e9509a290b22948d60bf08fbee844f0cb6fa))
+
 ## [2025.11.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.2...v2025.11.3) (2025-09-14)
 
 

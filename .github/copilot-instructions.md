@@ -1,5 +1,145 @@
 # Copilot instructions
 
+## Repository overview
+
+This repository is **kollitsch.dev** - a personal website and digital garden built with **Astro 5.10+** and **Tailwind CSS 4.1+**. The site serves as a blog, documentation platform, and reference for web development topics.
+
+**Key statistics:**
+- ~1,000 lines of TypeScript/JavaScript/Astro code across ~50 source files
+- ~347 content files (blog posts, data files)
+- Medium-sized project with extensive tooling and automation
+- Static site generation with dynamic content loading
+
+**Tech stack:**
+- **Frontend:** Astro (latest), Tailwind CSS (latest), TypeScript
+- **Content:** Markdown/MDX with front matter, JSON data files
+- **Testing:** Vitest (unit tests), Playwright (e2e tests)
+- **Linting:** ESLint (flat config), Biome, Stylelint, Markdownlint
+- **Automation:** GitHub Actions, pre-commit hooks, Wireit for task orchestration
+
+## Build and development workflow
+
+### Core requirements
+
+**Always install dependencies first:**
+```bash
+npm install
+```
+
+**Essential environment setup:**
+- Node.js version defined in `.nvmrc` (currently 24)
+- Create `.env` file with at minimum: `YOUTUBE_API_KEY=fake_key_for_testing` (required for build to succeed in local environments)
+- Optional but recommended: `DEBUG_FRONTMATTER=true`
+
+### Development commands (in order of importance)
+
+| Command | Purpose | Notes |
+|---------|---------|-------|
+| `npm run dev` | Start dev server at localhost:4321 | May fail without YouTube/GitHub API keys but partially works |
+| `npm run build` | Build production site | **Will fail** without YouTube API key in sandboxed environments |
+| `npm run preview` | Preview built site | Requires successful build first |
+| `npm run test` | Run Vitest unit tests | **Works reliably** - no external dependencies |
+| `npm run test:e2e` | Run Playwright e2e tests | Requires build first, may fail due to external APIs |
+| `npm run check` | Astro TypeScript check | **Will fail** without YouTube API key |
+
+### Linting and formatting commands
+
+**Critical for PR acceptance:**
+- `npm run biome:check` - Biome linting/formatting (may show many existing issues - this is normal)
+- `npm run biome:lint` - Apply Biome fixes
+- `npm run prettier:check` / `npm run prettier:fix` - Prettier formatting
+- Pre-commit hooks run automatically via lint-staged (see `.lintstagedrc.js`)
+
+### Build dependencies and limitations
+
+**External API dependencies that cause failures in sandboxed environments:**
+1. **YouTube API** (`YOUTUBE_API_KEY`) - Required for content syncing from YouTube playlists
+2. **GitHub API tokens** - For GitHub releases integration
+
+**Workarounds for development:**
+- Set `YOUTUBE_API_KEY=fake_key_for_testing` in `.env` for local development
+- Build/dev commands will show warnings but may partially work
+- Focus on unit tests (`npm test`) which work reliably without external APIs
+
+**Time requirements:**
+- `npm install`: ~30-60 seconds
+- `npm test`: ~5-10 seconds
+- `npm run build`: 60-120 seconds (when working)
+- Linting commands: 10-30 seconds
+
+## Project architecture and layout
+
+### Key directories and files
+
+**Configuration files (repository root):**
+- `astro.config.js` - Astro framework configuration
+- `eslint.config.js` - ESLint flat configuration
+- `biome.jsonc` - Biome linter/formatter config
+- `vitest.config.js` - Vitest test configuration
+- `playwright.config.ts` - Playwright e2e test configuration
+- `package.json` - Dependencies and scripts (managed by Wireit)
+- `.nvmrc` - Node.js version (24)
+
+**Source structure (`src/` directory):**
+```
+src/
+├── components/          # Astro components (.astro files)
+│   ├── *.test.ts       # Vitest unit tests (co-located)
+│   └── development/    # Dev-only components
+├── content/            # Content collections
+│   ├── blog/          # Blog posts (Markdown with frontmatter)
+│   └── *.json         # Data files (blogroll, social links, tags)
+├── layouts/           # Astro layouts
+├── pages/             # Astro pages (file-based routing)
+├── assets/            # Static assets, images, styles
+├── utils/             # TypeScript utilities
+├── config/            # Tool configurations
+├── scripts/           # Build and utility scripts
+└── test/              # Playwright e2e tests (*.spec.ts)
+```
+
+### GitHub workflows and CI/CD
+
+**Validation pipelines (`.github/workflows/`):**
+- `tests.yml` - Vitest unit tests (runs on every PR)
+- `tests-e2e.yml` - Playwright e2e tests (weekly schedule only)
+- `link-check.yml` - Link validation
+- Other maintenance workflows (screenshots, dependency updates)
+
+**Pre-commit validation:**
+- Runs automatically via `simple-git-hooks` and `lint-staged`
+- Validates Markdown, runs secretlint, formats code with Biome
+- See `.lintstagedrc.js` for complete pipeline
+
+### Testing strategy
+
+**Unit tests (Vitest):**
+- Located next to components: `src/components/ComponentName.test.ts`
+- **Must include** `// @vitest-environment node` as first line
+- Run with: `npm test`
+- **Always works** - no external dependencies
+
+**E2E tests (Playwright):**
+- Located in: `src/test/*.spec.ts`
+- Requires built site to test against
+- Run with: `npm run test:e2e`
+- **May fail** due to build requirements
+
+### Development recommendations
+
+**For making code changes:**
+1. **Always run `npm test` first** to validate current state
+2. Use TypeScript scripts with `npx tsx script.ts` (not `node script.ts`)
+3. Pre-commit hooks will catch most formatting issues
+4. Focus on unit tests for validation rather than build/e2e tests
+
+**Common pitfalls:**
+- Don't try to run `npm run build` or `npm run check` in sandboxed environments without API keys
+- Biome will report many existing linting issues - this is normal, focus on your changes
+- TypeScript files in `/src/scripts/` need `tsx` to run, not `node`
+
+**Trust these instructions:** The build process has specific external dependencies that are documented here. Only search for additional information if these instructions are incomplete or incorrect.
+
 ## Sentiment
 
 - Don't validate my ideas by default, but rather challenge them. Provide constructive feedback and alternative solutions. Point out weak logic, lazy assumptions, or potential pitfalls in my requests.

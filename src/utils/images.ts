@@ -1,172 +1,102 @@
-// import types
 import type { CollectionEntry } from 'astro:content';
-
-// import libraries
-import { z } from 'astro:content';
-import fs from 'node:fs';
-import path from 'node:path';
-// import data
-import setup from '@data/setup.json';
-
-// import utilities
-import { log } from '@utils/debug';
+import rawSetup from '@data/setup.json' with { type: 'json' };
+import { getImageMeta, hasImage } from '@utils/image-index';
+import { resolveImageKey } from '@utils/opengraph';
+import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
 
-/**
- * CoverObject interface defines the structure for cover elements in posts.
- * Currently just image source, alternative text, and an optional title.
- *
- * @todo type: undefined should be type: image by default?
- */
-interface CoverObject {
+interface SetupConfig {
+  images?: { opengraph?: string };
+}
+const setup: SetupConfig = rawSetup as unknown as SetupConfig;
+
+type FMVideo = { title: string; youtube: string; artist?: string };
+type FMCover = {
+  type?: 'image' | 'video';
   src?: string;
-  alt: string;
-  title?: string | undefined;
-  type: 'image' | 'video';
-  video?: { artist: string; title: string; youtube: string };
+  title?: string;
+  alt?: string;
+  video?: FMVideo;
+};
+
+type CoverBase = { alt: string };
+export type CoverVideo = CoverBase & {
+  type: 'video';
+  video: { artist?: string; title: string; youtube: string };
+};
+export type CoverImage = CoverBase & {
+  type: 'image';
+  src: string; // keyOrUrl
+  title?: string; // rendered inline markdown
+  meta?: ImageMetadata; // present only for local keys
+};
+export type CoverObject = CoverImage | CoverVideo;
+
+/**
+ * Strip basic markdown/HTML for alt text.
+ * @param str Arbitrary text
+ * @returns Sanitized plain string
+ */
+export function stripMarkup(str: string): string {
+  return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
 }
 
 /**
- * ImagePath type definition.
- */
-const imagePathSchema = z.string().regex(/^\.?\/.*\.(png|jpe?g|webp|avif)$/);
-type ImagePath = z.infer<typeof imagePathSchema>;
-
-/** defines a map of images within the content directory */
-const imageMap = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/**/*.{jpg,png,webp,avif}',
-  {
-    eager: true,
-  },
-);
-
-/** defines a map of images within the assets directory */
-const fallbackCandidates = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/**/*.{jpg,png,webp,avif}',
-  {
-    eager: true,
-  },
-);
-
-/**
- * the default image to use when no other image is found
- */
-export const fallbackImage =
-  fallbackCandidates[setup.images.default]?.default || null;
-
-/**
- * Returns a CoverObject for the given post.
+ * Resolve the main page cover based on post front-matter.
+ * For 'image' type, returns a local key or remote URL plus optional ImageMetadata.
+ * For 'video' type, returns embed info for the lite-youtube component.
  *
- * @export
- * @param {CollectionEntry<'blog'>} post
- * @return {*}  {CoverObject}
+ * @param post Blog collection entry
+ * @returns Discriminated union CoverObject
+ * @example
+ * const cover = resolveCover(post);
+ * if (cover.type === 'image' && cover.meta) { /* <Picture src={cover.meta} /> *\/ }
  */
 export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
   const md = new MarkdownIt();
-  const cover = post.data.cover!;
+  const cover = (post.data.cover ?? {}) as FMCover;
 
-  // log.debug(fallbackImage, fallbackCandidates[setup.images.default]);
-
-  let src: string | undefined;
-  let title: string | undefined;
-  let alt: string | undefined;
-  let type: 'image' | 'video';
-
-  // retrieving cover properties
-  src = cover?.src;
-  title = cover?.title;
-  type = (cover && 'type' in cover ? cover.type : 'image') as 'image' | 'video';
-
-  // before building the return object:
-  if (type === 'video' && cover.video) {
+  // Video cover: only set properties when present (exactOptionalPropertyTypes)
+  if (cover.type === 'video' && cover.video) {
+    const v = cover.video;
     return {
-      // src, // still keep image fallback or preview if needed
-      alt: stripMarkup(cover.video.title),
-      title: undefined,
-      type,
+      alt: stripMarkup(v.title),
+      type: 'video',
       video: {
-        artist: cover.video.artist ?? 'undefined',
-        title: cover.video.title,
-        youtube: cover.video.youtube,
+        title: v.title,
+        youtube: v.youtube,
+        ...(v.artist ? { artist: v.artist } : {}),
       },
     };
+    // no title on the video figure; adjust if you need it
   }
 
-  if (!src) {
-    src = setup.images.default;
-    alt = 'Default header image';
+  // Image cover
+  const rawName = cover.src ?? '';
+  const defaultKey = (setup.images?.opengraph ?? '').trim();
+  const keyOrUrl = resolveImageKey(rawName, post.id, post.collection, {
+    defaultKey,
+  });
+
+  const alt = stripMarkup(cover.alt ?? cover.title ?? 'Image');
+  const renderedTitle = cover.title ? md.renderInline(cover.title) : undefined;
+  const meta = keyOrUrl.startsWith('/src/')
+    ? getImageMeta(keyOrUrl)
+    : undefined;
+
+  if (
+    keyOrUrl.startsWith('/src/') &&
+    !hasImage(keyOrUrl) &&
+    import.meta.env.DEV
+  ) {
+    console.debug(`[resolveCover] Not indexed: ${keyOrUrl} (post: ${post.id})`);
   }
 
-  const parsed = imagePathSchema.safeParse(src);
-  if (!parsed.success) {
-    console.error('Invalid image path');
-  }
-
-  if (!title && src !== setup.images.default) {
-    log.debug(`[PostImage] No 'title' set for image in post "${post.id}".`);
-  }
-
-  // alt: markdown/HTML stripped, fallback to title or generic
-  // @todo apparently we loose the alt text for all images
-  alt = stripMarkup(alt ?? title ?? 'Image');
-
-  // @todo generate a default title if none is provided or skip this step
-  title = md.renderInline(title ?? '');
-
-  return { alt, src, title, type };
-}
-
-/**
- * Resolve the correct image path for a given entry.
- *
- * @param imageName - The image filename from frontmatter
- * @param entryId - The _id of the entry (e.g., my-post/index.md)
- * @param collection - The name of the content collection (defaults to 'blog')
- * @returns A relative path string to the image if found, or null
- */
-export function resolveImagePath(
-  imageName: string,
-  entryId: string,
-  collection = 'blog',
-): string | null {
-  if (!imageName || typeof imageName !== 'string') return null;
-
-  const localDir = path.join('src/content', collection, entryId);
-  const localImagePath = path.join(localDir, imageName);
-  const globalImagePath = path.join('src/assets/images', imageName);
-
-  if (fs.existsSync(localImagePath)) {
-    return `/${localImagePath.replace(/\\/g, '/')}`;
-  }
-
-  if (fs.existsSync(globalImagePath)) {
-    return `/src/assets/images/${imageName}`;
-  }
-
-  return `${setup.images.default}`;
-}
-
-/**
- * Resolve an Astro-compatible image metadata object, falling back when missing.
- *
- * Accepts an absolute image path key (must start with '/src/...') as used in the glob import.
- * Looks up the `imageMap` generated via `import.meta.glob` for a matching entry.
- * Returns the `default` export of the found entry as `ImageMetadata`.
- * If no entry is found, logs a debug message and returns the configured fallback image.
- *
- * @param path - The absolute asset path key to look up (e.g., '/src/content/blog/my-img.jpg').
- * @returns The matching `ImageMetadata` object, or the fallback image metadata.
- */
-export function resolveAstroImage(path: ImagePath): ImageMetadata {
-  const entry = imageMap[path];
-  if (entry?.default) return entry.default;
-
-  log.debug(
-    `[resolveAstroImage] Missing image: ${path} → using fallback from ${setup.images.default}`,
-  );
-  return fallbackImage as ImageMetadata;
-}
-
-export function stripMarkup(str: string): string {
-  return str.replace(/[#_*~`>[\]()\-!]/g, '').replace(/<\/?[^>]+(>|$)/g, '');
+  return {
+    alt,
+    src: keyOrUrl,
+    type: 'image',
+    ...(renderedTitle ? { title: renderedTitle } : {}),
+    ...(meta ? { meta } : {}),
+  };
 }

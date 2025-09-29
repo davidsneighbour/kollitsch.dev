@@ -33,6 +33,8 @@ const { posts, totalPages } = await paginateBlogPostsByYear(
   currentPage,
   pageSize,
 );
+
+console.log(page);
 ---
 
 <Layout title={`Blog posts from ${year} – Page ${currentPage}`}>

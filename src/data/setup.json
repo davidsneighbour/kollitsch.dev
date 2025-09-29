@@ -38,7 +38,8 @@
   "id": "kollitsch-dev",
   "ignoreTags": ["100daystooffload"],
   "images": {
-    "default": "/src/assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg"
+    "default": "/src/assets/images/defaults/articleimage.jpg",
+    "opengraph": "/src/assets/images/defaults/social-media.png"
   },
   "introduction": "{$greeting} I'm Patrick Kollitsch, known as [David's Neighbour](https://davids-neighbour.com/), a full-stack web developer and online business consultant for small and medium sized companies, building fast, flexible websites from my home office on the beautiful island of Koh Samui in Thailand &mdash; yep, the one with the palm trees, white sand beaches, turquoise waters, and scooters that you know from the [White Lotus'ses third season](https://www.imdb.com/title/tt13406094/episodes/?season=3).\n\n[KOLLITSCH.dev*](https://kollitsch.dev/) is where smart code meets island life. I use [GoHugo](https://gohugo.io/), [Astro](https://astro.build/), [WordPress](https://wordpress.org/), you name it, and a healthy dose of sunlight to craft websites that work hard, are usable, accessible, and fast, and look darn good doing it.",
   "listpages": {

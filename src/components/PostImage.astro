@@ -2,26 +2,22 @@
 import type { CollectionEntry } from 'astro:content';
 import type { ImageMetadata } from 'astro';
 
-import {
-  resolveCover,
-  resolveImagePath,
-  resolveAstroImage,
-} from '@utils/images';
+import { resolveCover } from '@utils/images';
 import { getTailwindSizes } from '@utils/tailwind';
 import { Picture } from 'astro:assets';
 import { log } from '@utils/debug';
-import defaultCoverImage from '@assets/images/polina-kuzovkova-zKQ6Zyxp9Jo-unsplash.jpg';
 
 interface Props {
   post: CollectionEntry<'blog'>;
   link?: string;
   classes?: string;
-  quality?: 'low' | 'medium' | 'high' | 'max';
+  quality?: 'low' | 'medium' | 'high' | 'max' | number; // map to 30/60/82/95 or use number directly
   widths?: number[];
-  formats?: string[];
+  formats?: Array<'avif' | 'webp' | 'png' | 'jpeg'>;
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
 }
+
 const {
   post,
   link,
@@ -29,29 +25,39 @@ const {
   quality = 'high',
   widths = [640, 768, 1024, 1280, 1536],
   formats = ['avif', 'webp', 'jpeg'],
-  sizes = getTailwindSizes({
-    base: 3,
-    sm: 1,
-    md: 2,
-    maxContentWidth: 1280,
-  }),
+  sizes = getTailwindSizes({ base: 3, sm: 1, md: 2, maxContentWidth: 1280 }),
   layout = 'constrained',
 }: Props = Astro.props;
 
+function mapQuality(q: Props['quality']): number {
+  if (typeof q === 'number') {
+    return Math.max(1, Math.min(100, q));
+  }
+  switch (q) {
+    case 'low':
+      return 30;
+    case 'medium':
+      return 60;
+    case 'high':
+      return 82;
+    case 'max':
+      return 95;
+    default:
+      return 82;
+  }
+}
+
 log.start();
-log.stop();
 log.debug('POSTIMAGE GENERATION ###########################################');
 log.debug('COVER CONFIG', post.data.cover);
+
 const cover = resolveCover(post);
 log.debug('COVER RESOLVED', cover);
-let imageMeta: ImageMetadata | null = null;
-if (cover.src) {
-  log.debug('COVER IMAGE SRC', cover.src);
-  const imagePath = resolveImagePath(cover.src, post.id);
-  log.debug('IMAGE PATH RESOLVED', imagePath);
-  imageMeta = imagePath ? resolveAstroImage(imagePath) : defaultCoverImage;
-  log.debug('IMAGE META RESOLVED', imageMeta);
-}
+
+let imageMeta: ImageMetadata | null =
+  cover.type === 'image' && cover.meta ? cover.meta : null;
+
+log.debug('IMAGE META RESOLVED', imageMeta);
 log.debug('POSTIMAGE GENERATION ENDED######################################');
 log.stop();
 ---
@@ -70,23 +76,15 @@ log.stop();
         type="module"
         is:inline
       />
-
       <figcaption class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100">
-        {/* {(() => {
-          const artist = musicData.data.find(
-            a => a.slug === cover.video!.artist,
-          );
-          const name = artist ? artist.name : cover.video!.artist;
-          return `${name} — ${cover.video!.title}`;
-        })()} */}
         {cover.video.title}
       </figcaption>
     </figure>
-  ) : (
-    imageMeta && (
-      <figure class="group relative isolate z-10">
-        {link ? (
-          <a href={link}>
+  ) : cover.type === 'image' ? (
+    <figure class="group relative isolate z-10">
+      {link ? (
+        <a href={link}>
+          {imageMeta ? (
             <Picture
               src={imageMeta}
               alt={cover.alt}
@@ -95,31 +93,53 @@ log.stop();
               sizes={sizes}
               layout={layout}
               class={classes}
-              quality={quality}
+              quality={mapQuality(quality)}
               priority
             />
-          </a>
-        ) : (
-          <Picture
-            src={imageMeta}
-            alt={cover.alt}
-            formats={formats}
-            widths={widths}
-            sizes={sizes}
-            layout={layout}
-            class={classes}
-            quality={quality}
-            priority
-          />
-        )}
-        {cover.title && (
-          <figcaption
-            transition:animate="slide"
-            set:html={cover.title}
-            class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
-          />
-        )}
-      </figure>
-    )
-  )
+          ) : (
+            // Fallback for remote or non-indexed images: raw <img>
+            <img
+              src={cover.src}
+              alt={cover.alt}
+              class={classes}
+              loading="eager"
+              decoding="async"
+            />
+          )}
+        </a>
+      ) : (
+        <>
+          {imageMeta ? (
+            <Picture
+              src={imageMeta}
+              alt={cover.alt}
+              formats={formats}
+              widths={widths}
+              sizes={sizes}
+              layout={layout}
+              class={classes}
+              quality={mapQuality(quality)}
+              priority
+            />
+          ) : (
+            <img
+              src={cover.src}
+              alt={cover.alt}
+              class={classes}
+              loading="eager"
+              decoding="async"
+            />
+          )}
+        </>
+      )}
+
+      {cover.title && (
+        <figcaption
+          transition:animate="slide"
+          set:html={cover.title}
+          class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
+        />
+      )}
+    </figure>
+  ) : null
 }

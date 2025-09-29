@@ -128,8 +128,17 @@ export const blogSchema = z
         ? entry.summary
         : entry.description;
 
+    // compute articleimage:
+    const coverIsImage =
+      entry.cover?.type !== 'video' && typeof entry.cover?.src === 'string';
+    const articleimage: string | null =
+      (coverIsImage ? (entry.cover?.src ?? null) : null) ??
+      setup?.images?.default ??
+      null;
+
     return {
       ...entry,
+      articleimage,
       summary: md.renderInline(summaryRaw),
       title: md.renderInline(entry.title),
     };
@@ -142,8 +151,6 @@ export const blog = defineCollection({
 });
 
 // MARK: Tags
-// content for tags
-// @todo clean up and add proper schema validation
 export const tags = defineCollection({
   loader: file('./src/content/tags.json', {
     parser: (text) => JSON.parse(text),
@@ -159,7 +166,6 @@ export const tags = defineCollection({
 });
 
 // MARK: YouTube Playlists
-// see https://github.com/ascorbic/astro-loaders/tree/main/packages/youtube
 const playlistCollections = Object.fromEntries(
   Object.entries(setup.playlists).map(([name, playlistId]) => [
     name,

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1200"
+   height="628"
+   viewBox="0 0 1200 628"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="social-media-template.svg"
+   inkscape:export-filename="social-media-default.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="0.76257015"
+     inkscape:cx="695.01803"
+     inkscape:cy="441.27088"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5">
+    <sodipodi:guide
+       position="0,628"
+       orientation="0,1200"
+       id="guide132"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="1200,628"
+       orientation="628,0"
+       id="guide134"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="1200,0"
+       orientation="0,-1200"
+       id="guide136"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="0,0"
+       orientation="-628,0"
+       id="guide138"
+       inkscape:locked="false" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid140"
+       empspacing="10"
+       originy="314" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <rect
+     style="fill:#1a1a1a;stroke-width:3.16128"
+     id="rect269"
+     width="1200"
+     height="628"
+     x="0"
+     y="0"
+     inkscape:label="background" />
+  <text
+     xml:space="preserve"
+     style="font-size:126.667px;font-family:'Changa One';-inkscape-font-specification:'Changa One';fill:#1a1a1a"
+     x="22.324675"
+     y="598.58887"
+     id="text505"><tspan
+       sodipodi:role="line"
+       id="tspan503"
+       x="22.324675"
+       y="598.58887"
+       style="font-size:126.667px;fill:#c11414;fill-opacity:1">KOLLITSCH.dev*</tspan></text>
+</svg>

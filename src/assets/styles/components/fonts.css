@@ -1,19 +1,25 @@
 @font-face {
   font-family: 'exo2';
-  src:
-    url('/fonts/exo/normal.woff2') format('woff2') tech('variations'),
-    url('/fonts/exo/normal.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: fallback;
   text-rendering: optimizelegibility;
+  src: url('@fontsource-variable/exo-2/files/exo-2-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: 'exo2';
-  src:
-    url('/fonts/exo/italic.woff2') format('woff2') tech('variations'),
-    url('/fonts/exo/italic.woff2') format('woff2-variations');
+  src: url('@fontsource-variable/exo-2/files/exo-2-latin-wght-italic.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -22,11 +28,12 @@
 
 @font-face {
   font-family: jetbrainsmono;
-  src:
-    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2') format('woff2')
-      tech('variations'),
-    url('/fonts/jetbrainsmono/JetBrainsMono[wght].woff2')
-      format('woff2-variations');
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
   font-weight: 100 800;
   font-style: normal;
   font-display: fallback;
@@ -35,11 +42,12 @@
 
 @font-face {
   font-family: jetbrainsmono;
-  src:
-    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2') format('woff2')
-      tech('variations'),
-    url('/fonts/jetbrainsmono/JetBrainsMono-Italic[wght].woff2')
-      format('woff2-variations');
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-italic.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
   font-weight: 100 800;
   font-style: italic;
   font-display: swap;
@@ -49,9 +57,14 @@
 @font-face {
   font-family: changa;
   src:
-    url('/fonts/changa/changaone-regular-webfont.woff2') format('woff2'),
-    url('/fonts/changa/changaone-regular-webfont.woff2')
-      format('woff2-variations');
+    url('@fontsource/changa-one/files/changa-one-latin-400-normal.woff2')
+      format('woff2'),
+    url('@fontsource/changa-one/files/changa-one-latin-400-normal.woff')
+      format('woff');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
@@ -61,9 +74,14 @@
 @font-face {
   font-family: changa;
   src:
-    url('/fonts/changa/changaone-italic-webfont.woff2') format('woff2'),
-    url('/fonts/changa/changaone-italic-webfont.woff2')
-      format('woff2-variations');
+    url('@fontsource/changa-one/files/changa-one-latin-400-italic.woff2')
+      format('woff2'),
+    url('@fontsource/changa-one/files/changa-one-latin-400-italic.woff')
+      format('woff');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
   font-weight: 400;
   font-style: italic;
   font-display: swap;

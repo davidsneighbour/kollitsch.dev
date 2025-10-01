@@ -57,7 +57,7 @@
     "@ascorbic/youtube-loader": "0.0.2",
     "@axe-core/playwright": "4.10.2",
     "@biomejs/biome": "2.2.4",
-    "@commitlint/cli": "20.0.0",
+    "@commitlint/cli": "20.1.0",
     "@commitlint/config-conventional": "20.0.0",
     "@davidsneighbour/browserslist-config": "2025.3.4",
     "@davidsneighbour/release-config": "2025.3.6",

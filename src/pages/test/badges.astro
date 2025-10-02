@@ -1,0 +1,279 @@
+---
+import '@assets/styles/theme.css';
+import Layout from '@layouts/DefaultPage.astro';
+import Section from '@components/fragments/Section.astro';
+import Heading from '@components/Heading.astro';
+import Badge from '@components/Badge.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout>
+  <Heading>Badges</Heading>
+
+  <!-- 1) Flat vs Bordered by color (no links, no titles) -->
+  <Section>
+    <Heading level={3}>Visual variants: flat and bordered</Heading>
+
+    <div class="space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">Flat</span>
+        <Badge color="gray">Gray flat</Badge>
+        <Badge color="red">Red flat</Badge>
+        <Badge color="yellow">Yellow flat</Badge>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">Bordered</span>
+        <Badge
+          color="gray"
+          bordered
+          >Gray bordered</Badge
+        >
+        <Badge
+          color="red"
+          bordered
+          >Red bordered</Badge
+        >
+        <Badge
+          color="yellow"
+          bordered
+          >Yellow bordered</Badge
+        >
+      </div>
+    </div>
+  </Section>
+
+  <!-- 2) Links (href) with hover and keyboard focus rings -->
+  <Section>
+    <Heading level={3}>Links: hover and focus-visible</Heading>
+
+    <div class="space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">Flat links</span>
+        <Badge
+          color="gray"
+          href="/docs/"
+        >
+          <Icon name="book" /> Docs (gray)
+        </Badge>
+        <Badge
+          color="red"
+          href="/docs/"
+        >
+          <Icon name="book" /> Docs (red)
+        </Badge>
+        <Badge
+          color="yellow"
+          href="/docs/"
+        >
+          <Icon name="book" /> Docs (yellow)
+        </Badge>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">Bordered links</span>
+        <Badge
+          color="gray"
+          bordered
+          href="/docs/"
+        >
+          <Icon name="book" /> Docs (gray)
+        </Badge>
+        <Badge
+          color="red"
+          bordered
+          href="/docs/"
+        >
+          <Icon name="book" /> Docs (red)
+        </Badge>
+        <Badge
+          color="yellow"
+          bordered
+          href="/docs/"
+        >
+          <Icon name="book" /> Docs (yellow)
+        </Badge>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">External links</span>
+        <Badge
+          color="gray"
+          bordered
+          href="https://github.com"
+        >
+          <Icon name="github" /> GitHub (gray)
+        </Badge>
+        <Badge
+          color="red"
+          href="https://github.com"
+        >
+          <Icon name="github" /> GitHub (red)
+        </Badge>
+        <Badge
+          color="yellow"
+          bordered
+          href="https://github.com"
+        >
+          <Icon name="github" /> GitHub (yellow)
+        </Badge>
+      </div>
+    </div>
+  </Section>
+
+  <!-- 3) Titles on non-links and links -->
+  <Section>
+    <Heading level={3}>Title attribute (with and without href)</Heading>
+
+    <div class="space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">No link</span>
+        <Badge
+          color="gray"
+          title="Gray tooltip"
+          >Hover me (gray)</Badge
+        >
+        <Badge
+          color="red"
+          title="Red tooltip"
+          >Hover me (red)</Badge
+        >
+        <Badge
+          color="yellow"
+          title="Yellow tooltip"
+          >Hover me (yellow)</Badge
+        >
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-40 text-sm font-semibold">With link</span>
+        <Badge
+          color="gray"
+          href="/docs/"
+          title="Goes to docs"
+        >
+          <Icon name="book" /> Docs (gray)
+        </Badge>
+        <Badge
+          color="red"
+          href="/docs/"
+          title="Goes to docs"
+        >
+          <Icon name="book" /> Docs (red)
+        </Badge>
+        <Badge
+          color="yellow"
+          href="/docs/"
+          title="Goes to docs"
+        >
+          <Icon name="book" /> Docs (yellow)
+        </Badge>
+      </div>
+    </div>
+  </Section>
+
+  <!-- 4) Slot content variety (icons, bold/italic, nested anchor) -->
+  <Section>
+    <Heading level={3}>Slot content: icons, HTML, nested link</Heading>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <Badge
+        color="red"
+        bordered
+      >
+        <Icon name="heart" /> Loved
+      </Badge>
+      <Badge color="yellow"><strong>Bold</strong> text</Badge>
+      <Badge color="gray"><span class="italic">Italic text</span></Badge>
+      <!-- Nested anchor inside non-link badge (styling test) -->
+      <Badge color="gray">
+        Read <a
+          class="underline underline-offset-2"
+          href="/docs/"
+          >docs</a
+        >
+      </Badge>
+    </div>
+  </Section>
+
+  <!-- 5) Passthrough class test -->
+  <Section>
+    <Heading level={3}>Passthrough class</Heading>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <Badge class="tracking-tight uppercase">Default red (uppercase)</Badge>
+      <Badge
+        color="gray"
+        bordered
+        class="shadow-sm"
+      >
+        Gray bordered with shadow
+      </Badge>
+      <Badge
+        color="yellow"
+        href="/docs/"
+        class="no-underline underline-offset-4"
+      >
+        <Icon name="book" /> Link with custom underline control
+      </Badge>
+    </div>
+  </Section>
+
+  <!-- 6) Default color fallback (red) -->
+  <Section>
+    <Heading level={3}>Default color fallback</Heading>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <Badge>Default (should be red, flat)</Badge>
+      <Badge bordered>Default bordered (should be red)</Badge>
+      <Badge href="/docs/">Default link (red)</Badge>
+      <Badge
+        href="/docs/"
+        bordered
+        title="Red by default"
+      >
+        <Icon name="info-circle" /> Default link bordered
+      </Badge>
+    </div>
+  </Section>
+
+  <!-- 7) Focus-visible demo hint -->
+  <Section>
+    <Heading level={3}>Keyboard focus check</Heading>
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+      Tab through the link badges above to verify the focus-visible rings per
+      color. Non-link badges (<code>&lt;span&gt;</code>) are intentionally not
+      focusable.
+    </p>
+  </Section>
+
+  <!-- 8) Isolated focus demo -->
+  <Section>
+    <Heading level={3}>Focus demo (quick QA)</Heading>
+    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+      These badges are <em>links</em> (they have an <code>href</code>), which
+      makes them keyboard focusable and shows their focus ring when tabbing.
+    </p>
+    <div class="flex flex-wrap items-center gap-2">
+      <Badge
+        color="red"
+        href="/test/focus"
+      >
+        <Icon name="heart" /> Red focus
+      </Badge>
+      <Badge
+        color="gray"
+        bordered
+        href="/test/focus"
+      >
+        <Icon name="info-circle" /> Gray focus
+      </Badge>
+      <Badge
+        color="yellow"
+        href="/test/focus"
+      >
+        <Icon name="star" /> Yellow focus
+      </Badge>
+    </div>
+  </Section>
+</Layout>

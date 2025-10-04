@@ -12,8 +12,6 @@ updates:
       timezone: Asia/Bangkok
     assignees:
       - davidsneighbour
-    reviewers:
-      - davidsneighbour
     target-branch: main
     open-pull-requests-limit: 999
     pull-request-branch-name:
@@ -23,6 +21,15 @@ updates:
     ignore:
       # do not update @davidsneighbour packages, that is done via renovate
       - dependency-name: "@davidsneighbour/*"
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
+      # include:
+      #   - "requests"
+      exclude:
+        - "@davidsneighbour/*"
 
   - package-ecosystem: gomod
     directory: /
@@ -33,14 +40,21 @@ updates:
       timezone: Asia/Bangkok
     assignees:
       - davidsneighbour
-    reviewers:
-      - davidsneighbour
     target-branch: main
     open-pull-requests-limit: 999
     pull-request-branch-name:
       separator: /
     labels:
       - type:dependencies
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
+      # include:
+      #   - "requests"
+      exclude:
+        - "@davidsneighbour/*"
 
   - package-ecosystem: github-actions
     directory: /
@@ -51,11 +65,18 @@ updates:
       timezone: Asia/Bangkok
     assignees:
       - davidsneighbour
-    reviewers:
-      - davidsneighbour
     target-branch: main
     open-pull-requests-limit: 999
     pull-request-branch-name:
       separator: /
     labels:
       - type:dependencies
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
+      # include:
+      #   - "requests"
+      exclude:
+        - "@davidsneighbour/*"

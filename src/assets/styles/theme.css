@@ -29,6 +29,7 @@
   --font-changa: 'changa', sans-serif;
   --spacing: 0.25rem;
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+  --aspect-dnb: 16 / 9;
 
   @keyframes fade-in-scale {
     0% {

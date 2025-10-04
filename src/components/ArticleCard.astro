@@ -17,7 +17,7 @@ const { post } = Astro.props;
   <PostImage
     post={post}
     link={`/blog/${post.id}/`}
-    classes="max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
+    classes="aspect-dnb max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
     quality="medium"
   />
   <div class="flex grow flex-col justify-start p-1 @sm:p-2 @md:p-3 @lg:p-4">

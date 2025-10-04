@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     // not happy about this, but without it our json imports throw errors
-    // Module '"...kollitsch.dev/src/data/footernavigation"' can only be default-imported using the 'allowSyntheticDefaultImports' flagts(1259)
-    // footernavigation.json(1, 1): This module is declared with 'export =', and can only be used with a default import when using the 'allowSyntheticDefaultImports' flag.
+    // Module '"...kollitsch.dev/src/data/footernavigation"' can only be
+    // default-imported using the 'allowSyntheticDefaultImports' flag ts(1259)
+    // footernavigation.json(1, 1): This module is declared with 'export =',
+    // and can only be used with a default import when using the
+    // 'allowSyntheticDefaultImports' flag.
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@assets/*": ["./src/assets/*"],
@@ -15,6 +18,7 @@
       "@packages/*": ["./src/packages/*"],
       "@pages/*": ["./src/pages/*"],
       "@scripts/*": ["./src/scripts/*"],
+      "@styles/*": ["./src/styles/*"],
       "@test/*": ["./src/test/*"],
       "@utils/*": ["./src/utils/*"]
     },

@@ -37,20 +37,24 @@
     "@astrojs/rss": "4.0.12",
     "@astrojs/sitemap": "3.6.0",
     "@astrojs/ts-plugin": "1.10.4",
-    "@fontsource-variable/exo-2": "^5.2.8",
-    "@fontsource-variable/jetbrains-mono": "^5.2.8",
-    "@fontsource/changa-one": "^5.2.8",
-    "@humanwhocodes/social-changelog": "^0.4.0",
+    "@fontsource-variable/exo-2": "5.2.8",
+    "@fontsource-variable/jetbrains-mono": "5.2.8",
+    "@fontsource/changa-one": "5.2.8",
+    "@fontsource/exo-2": "5.2.8",
     "@iconify-json/bi": "1.2.6",
     "@pagefind/default-ui": "1.4.0",
+    "@resvg/resvg-js": "2.6.2",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/vite": "4.1.13",
     "astro": "5.14.1",
     "astro-icon": "1.1.5",
     "glob": "11.0.3",
     "gray-matter": "4.0.3",
+    "he": "^1.2.0",
     "pagefind": "1.4.0",
     "png-to-ico": "3.0.1",
+    "satori": "0.18.3",
+    "satori-html": "0.3.2",
     "sirv": "3.0.2",
     "tailwindcss": "4.1.13",
     "typescript": "5.9.2"
@@ -72,6 +76,7 @@
     "@eslint/markdown": "7.3.0",
     "@fbraem/rollup-plugin-toml": "0.0.4",
     "@humanwhocodes/crosspost": "0.17.0",
+    "@humanwhocodes/social-changelog": "0.4.0",
     "@playwright/test": "1.55.1",
     "@rollup/plugin-beep": "1.0.3",
     "@rollup/plugin-yaml": "4.1.2",
@@ -87,6 +92,7 @@
     "@stylistic/eslint-plugin": "5.4.0",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/eslint-plugin-security": "3.0.0",
+    "@types/he": "^1.2.3",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.33",
     "astro-expressive-code": "0.41.3",
@@ -178,7 +184,6 @@
     "preview": "astro preview",
     "release": "wireit",
     "release:clean": "wireit",
-    "release:post": "social-changelog --org davidsneighbour --repo kollitsch.dev --prompt-file ./.github/prompts/social-media-post.md",
     "screenshot": "wireit",
     "test": "vitest run",
     "test:e2e": "npx playwright test",
@@ -244,10 +249,10 @@
       "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
     },
     "lint:styles": {
-      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/assets/styles/**/*.css"
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
     },
     "lint:styles:fix": {
-      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/assets/styles/**/*.css"
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
     },
     "lint:templates": {
       "command": "bin/hugo/lint-templates"

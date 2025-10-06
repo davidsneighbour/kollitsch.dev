@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "satori": "0.18.3",
+    "satori-html": "0.3.2"
+  }
+}

@@ -1,14 +1,10 @@
 ---
-import { getOpenGraphImage } from '@utils/opengraph';
+import OpenGraphImage from '@components/head/OpenGraphImage.astro';
 
 interface Props extends PostProp<'blog'> {}
 const { post }: Props = Astro.props;
 
-const openGraphImage = await getOpenGraphImage(post);
-const twitterOpenGraphImage = await getOpenGraphImage(post, {
-  width: 1200,
-  height: 675,
-});
+console.log(post.data, post.id);
 ---
 
 <meta
@@ -27,17 +23,9 @@ const twitterOpenGraphImage = await getOpenGraphImage(post, {
   property="og:description"
   content={post.data.description || 'missing'}
 />
-<meta
-  property="og:image"
-  content={Astro.url + 'og.png'}
-/>
-<meta
-  property="og:image:width"
-  content={String(openGraphImage.options.width)}
-/>
-<meta
-  property="og:image:height"
-  content={String(openGraphImage.options.height)}
+<OpenGraphImage
+  post={post}
+  return="og"
 />
 <meta
   property="twitter:card"
@@ -48,22 +36,10 @@ const twitterOpenGraphImage = await getOpenGraphImage(post, {
   content={post.data.title || 'missing'}
 />
 <meta
-  property="twitter:url"
-  content={Astro.url}
-/>
-<meta
   property="twitter:description"
   content={post.data.description || 'missing'}
 />
-<meta
-  property="twitter:image"
-  content={twitterOpenGraphImage.src}
-/>
-<meta
-  property="twitter:image:width"
-  content={String(twitterOpenGraphImage.options.width)}
-/>
-<meta
-  property="twitter:image:height"
-  content={String(twitterOpenGraphImage.options.height)}
+<OpenGraphImage
+  post={post}
+  return="twitter"
 />

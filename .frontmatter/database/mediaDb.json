@@ -9,7 +9,8 @@
           "caption": "https://unsplash.com/photos/young-man-in-uniform-feels-confused-and-looking-for-a-solution-with-internet-equipment-and-wires-in-server-room-KiTiXXfXlCc",
           "title": "Connections"
         }
-      }
+      },
+      "js": {}
     },
     "pages": { "blog": { "[year]": { "[slug]": {} } }, "og": {} },
     "types": {},

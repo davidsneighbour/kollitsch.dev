@@ -191,12 +191,6 @@ function generateContentHash(
 
 /**
  * Lookup or render the PNG, then persist it.
- * @param {string} title - Post title (decoded)
- * @param {Date} pubDate - Publication date as Date
- * @param {string} postDate - Formatted date string for display
- * @param {number} width
- * @param {number} height
- * @returns {Promise<Uint8Array>}
  */
 async function getCachedOrGeneratePng(
   title: string,
@@ -245,11 +239,6 @@ async function getCachedOrGeneratePng(
 
 /**
  * Build Satori markup for the OG image.
- * @param {string} title
- * @param {string} pubDate
- * @param {number} width
- * @param {number} height
- * @returns {ReturnType<typeof html>}
  *
  * @TODO implement with global template via setup.json for instance
  */

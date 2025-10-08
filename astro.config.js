@@ -24,21 +24,47 @@ const watchExtraFiles = () => ({
   configureServer(server) {
     console.log('[watch-extra-files] Plugin loaded');
 
-    const reload = (file) => {
-      console.log(`[watch-extra-files] Reload triggered due to: ${file}`);
-      server.ws.send({ type: 'full-reload' });
-    };
-
     const watchPaths = [
       path.resolve(__dirname, 'src/assets/images'),
       path.resolve(__dirname, 'src/content/blog'),
     ];
 
+    let isReady = false;
+
+    const isWithinWatchedPath = (file) =>
+      watchPaths.some((watchPath) => {
+        const relative = path.relative(watchPath, file);
+        return (
+          relative && !relative.startsWith('..') && !path.isAbsolute(relative)
+        );
+      });
+
+    const reload = (file) => {
+      if (!isWithinWatchedPath(file)) {
+        return;
+      }
+
+      console.log(`[watch-extra-files] Reload triggered due to: ${file}`);
+      server.ws.send({ type: 'full-reload' });
+    };
+
     server.watcher.add(watchPaths);
     console.log('[watch-extra-files] Watching paths:', watchPaths);
 
-    server.watcher.on('add', reload);
-    server.watcher.on('unlink', reload);
+    server.watcher.on('ready', () => {
+      isReady = true;
+      console.log('[watch-extra-files] Initial scan complete');
+    });
+
+    server.watcher.on('add', (file) => {
+      if (!isReady) return;
+      reload(file);
+    });
+
+    server.watcher.on('unlink', (file) => {
+      if (!isReady) return;
+      reload(file);
+    });
   },
   name: 'watch-extra-files',
 });

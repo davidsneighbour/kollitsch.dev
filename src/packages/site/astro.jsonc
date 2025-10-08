@@ -7,13 +7,13 @@
     "@astrojs/ts-plugin": "1.10.4",
     "@iconify-json/bi": "1.2.6",
     "@spotlightjs/astro": "3.2.6",
-    "@tailwindcss/vite": "4.1.13",
+    "@tailwindcss/vite": "4.1.14",
     "astro": "5.14.1",
     "astro-icon": "1.1.5",
     "glob": "11.0.3",
     "gray-matter": "4.0.3",
-    "tailwindcss": "4.1.13",
-    "typescript": "5.9.2"
+    "tailwindcss": "4.1.14",
+    "typescript": "5.9.3"
   },
   "devDependencies": {
     "@fbraem/rollup-plugin-toml": "0.0.4",

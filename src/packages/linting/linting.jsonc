@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "html-validate": "10.0.0"
+    "html-validate": "10.1.1"
   },
   "scripts": {
     "audit:html": "wireit",
@@ -16,7 +16,6 @@
     "audit:html": {
       "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
     },
-
     "lint:templates": {
       "command": "bin/hugo/lint-templates"
     }

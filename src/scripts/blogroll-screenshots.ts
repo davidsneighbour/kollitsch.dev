@@ -3,6 +3,7 @@
 // - Reads a JSON array like src/content/blogroll.json
 // - Validates with Zod (url/name required; rss/description optional)
 // - Screenshots each `url` at 2000x1000 into src/assets/images/blogroll/*.jpg (quality 100)
+// - Signals "prefers-color-scheme: dark" to pages (configurable)
 // - Safe, configurable, with helpful CLI and errors
 //
 // Usage:
@@ -15,12 +16,13 @@
 //   --nav-timeout <ms>       page.goto timeout in ms (default: 30000)
 //   --wait-until <state>     load|domcontentloaded|networkidle|commit (default: networkidle)
 //   --delay <ms>             Extra delay after navigation before screenshot (default: 500)
+//   --color-scheme <value>   dark|light|no-preference (default: dark)
 //   --dry-run                Do not open browser or write files; just print planned actions
 //   --verbose                Verbose logging
 //   --help                   Show help
 //
 // Prereqs:
-//   npm i -D playwright zod
+//   npm i -D playwright zod dotenv
 //   npx playwright install chromium
 //
 // Notes:
@@ -28,14 +30,14 @@
 // - Viewport is exact 2000x1000 (no fullPage).
 // - Continues on errors and reports a final summary.
 
-import { promises as fs } from 'node:fs';
-import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { mkdir, readFile, stat } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import {
   type Browser,
   type BrowserContext,
+  type ColorScheme,
   chromium,
   type Page,
 } from 'playwright';
@@ -50,6 +52,7 @@ interface Config {
   navTimeout: number;
   waitUntil: 'load' | 'domcontentloaded' | 'networkidle' | 'commit';
   delay: number;
+  colorScheme: ColorScheme | 'no-preference';
   dryRun: boolean;
   verbose: boolean;
 }
@@ -72,9 +75,13 @@ const FeedListSchema = z.array(FeedItemSchema);
 
 type FeedItem = z.infer<typeof FeedItemSchema>;
 
-/** Default configuration */
+/**
+ * Default configuration
+ * @returns {Config}
+ */
 function defaultConfig(): Config {
   return {
+    colorScheme: 'dark',
     concurrency: 4,
     delay: 500,
     dryRun: false,
@@ -87,7 +94,11 @@ function defaultConfig(): Config {
   };
 }
 
-/** Parse CLI flags into config */
+/**
+ * Parse CLI flags into config
+ * @param {string[]} argv
+ * @returns {Config}
+ */
 function parseArgs(argv: string[]): Config {
   const cfg = defaultConfig();
   const args = [...argv];
@@ -135,6 +146,14 @@ function parseArgs(argv: string[]): Config {
       case '--delay':
         cfg.delay = toInt('--delay', mustArgValue('--delay', args.shift()));
         break;
+      case '--color-scheme': {
+        const v = mustArgValue('--color-scheme', args.shift()).toLowerCase();
+        if (!['dark', 'light', 'no-preference'].includes(v)) {
+          fail(`Invalid --color-scheme value: ${v}`);
+        }
+        cfg.colorScheme = v as Config['colorScheme'];
+        break;
+      }
       case '--dry-run':
         cfg.dryRun = true;
         break;
@@ -162,6 +181,7 @@ function printHelpAndExit(): never {
       '  --nav-timeout <ms>       page.goto timeout in ms (default: 30000)',
       '  --wait-until <state>     load|domcontentloaded|networkidle|commit (default: networkidle)',
       '  --delay <ms>             Extra delay after navigation before screenshot (default: 500)',
+      '  --color-scheme <value>   dark|light|no-preference (default: dark)',
       '  --dry-run                Do not open browser or write files; just print planned actions',
       '  --verbose                Verbose logging',
       '  --help                   Show help',
@@ -170,26 +190,43 @@ function printHelpAndExit(): never {
   process.exit(0);
 }
 
-/** Required value helper */
+/**
+ * Required value helper
+ * @param {string} flag
+ * @param {string | undefined} val
+ * @returns {string}
+ */
 function mustArgValue(flag: string, val?: string): string {
   if (!val) fail(`Missing value for ${flag}`);
   return val;
 }
 
-/** Convert numeric flags with validation */
+/**
+ * Convert numeric flags with validation
+ * @param {string} flag
+ * @param {string} val
+ * @returns {number}
+ */
 function toInt(flag: string, val: string): number {
   const n = Number.parseInt(val, 10);
   if (!Number.isFinite(n) || n < 0) fail(`Invalid number for ${flag}: ${val}`);
   return n;
 }
 
-/** Fail fast with message */
+/**
+ * Fail fast with message
+ * @param {string} msg
+ * @returns {never}
+ */
 function fail(msg: string): never {
   console.error(msg);
   process.exit(1);
 }
 
-/** Ensure directory exists */
+/**
+ * Ensure directory exists
+ * @param {string} dir
+ */
 async function ensureDir(dir: string): Promise<void> {
   try {
     await mkdir(dir, { recursive: true });
@@ -200,7 +237,12 @@ async function ensureDir(dir: string): Promise<void> {
   }
 }
 
-/** Read and validate blogroll JSON */
+/**
+ * Read and validate blogroll JSON
+ * @param {string} path
+ * @param {boolean} verbose
+ * @returns {Promise<FeedItem[]>}
+ */
 async function loadBlogroll(
   path: string,
   verbose: boolean,
@@ -230,7 +272,11 @@ async function loadBlogroll(
   return [...parsed.data].sort((a, b) => a.name.localeCompare(b.name));
 }
 
-/** Slugify a name for filename usage */
+/**
+ * Slugify a name for filename usage
+ * @param {string} input
+ * @returns {string}
+ */
 function slugify(input: string): string {
   return (
     input
@@ -242,7 +288,11 @@ function slugify(input: string): string {
   );
 }
 
-/** Derive fallback name from URL hostname */
+/**
+ * Derive fallback name from URL hostname
+ * @param {string} urlStr
+ * @returns {string}
+ */
 function hostnameFromUrl(urlStr: string): string {
   try {
     return new URL(urlStr).hostname;
@@ -251,7 +301,13 @@ function hostnameFromUrl(urlStr: string): string {
   }
 }
 
-/** Task queue with bounded concurrency */
+/**
+ * Task queue with bounded concurrency
+ * @template T
+ * @param {T[]} items
+ * @param {number} limit
+ * @param {(item: T, index: number) => Promise<void>} worker
+ */
 async function runWithConcurrency<T>(
   items: T[],
   limit: number,
@@ -279,7 +335,14 @@ async function runWithConcurrency<T>(
   });
 }
 
-/** Screenshot one item */
+/**
+ * Screenshot one item
+ * @param {Page} page
+ * @param {FeedItem} item
+ * @param {string} outDir
+ * @param {Config} cfg
+ * @returns {Promise<{ file: string } | { error: string }>}
+ */
 async function screenshotItem(
   page: Page,
   item: FeedItem,
@@ -292,13 +355,21 @@ async function screenshotItem(
     await page.setViewportSize({ height: 1000, width: 2000 });
     page.setDefaultNavigationTimeout(cfg.navTimeout);
 
+    // Emulate media at the page level too, for good measure.
+    if (cfg.colorScheme === 'dark' || cfg.colorScheme === 'light') {
+      await page.emulateMedia({ colorScheme: cfg.colorScheme });
+    } else {
+      // no-preference
+      await page.emulateMedia({ colorScheme: undefined });
+    }
+
     await page.goto(item.url, { waitUntil: cfg.waitUntil });
     if (cfg.delay > 0) await page.waitForTimeout(cfg.delay);
 
     await page.screenshot({
       fullPage: false,
       path: filePath,
-      quality: 100, // highest quality
+      quality: 100,
       type: 'jpeg',
     });
     return { file: filePath };
@@ -311,13 +382,9 @@ async function screenshotItem(
 
 /** Main entry */
 async function main() {
-  // Auto-help if required param missing is not necessary because defaults are set,
-  // but we keep --help for clarity.
-
   const cfg = parseArgs(process.argv.slice(2));
   const started = Date.now();
 
-  // Read .env from current dir and home (current has priority)
   await loadDotEnv();
 
   if (cfg.verbose) console.log(`Config: ${JSON.stringify(cfg, null, 2)}`);
@@ -347,8 +414,22 @@ async function main() {
 
   // Browser setup
   const browser: Browser = await chromium.launch();
-  const context: BrowserContext = await browser.newContext({
+  const context: BrowserContext = await chromium.launchPersistentContext('', {
+    // This signals CSS media query prefers-color-scheme to the page.
+    colorScheme:
+      cfg.colorScheme === 'no-preference'
+        ? undefined
+        : (cfg.colorScheme as ColorScheme),
     deviceScaleFactor: 1,
+    // Provide a client hint header for servers that use it (best effort).
+    extraHTTPHeaders: {
+      // Servers must opt-in with Accept-CH; still harmless to send.
+      'Sec-CH-Prefers-Color-Scheme':
+        cfg.colorScheme === 'no-preference'
+          ? '"light"'
+          : `"${cfg.colorScheme}"`,
+    },
+    headless: true,
     javaScriptEnabled: true,
     userAgent:
       'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
@@ -361,8 +442,6 @@ async function main() {
   try {
     await runWithConcurrency(items, cfg.concurrency, async (item, index) => {
       const page = await context.newPage();
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), cfg.timeout);
 
       if (cfg.verbose)
         console.log(
@@ -377,8 +456,11 @@ async function main() {
           console.log(`Saved: ${res.file}`);
         }
         done++;
+      } catch (e) {
+        const msg = `Unexpected error for ${item.url}: ${(e as Error).message}`;
+        errors.push(msg);
+        console.error(msg);
       } finally {
-        clearTimeout(timeout);
         await page.close({ runBeforeUnload: true });
       }
     });
@@ -393,12 +475,14 @@ async function main() {
   );
 
   if (errors.length) {
-    // Non-zero exit when at least one task failed
     process.exitCode = 1;
   }
 }
 
-/** Load .env from cwd and home (cwd has priority). Silent if missing. */
+/**
+ * Load .env from cwd and home (cwd has priority). Silent if missing.
+ * @returns {Promise<void>}
+ */
 async function loadDotEnv(): Promise<void> {
   const { config } = await import('dotenv');
   const cwdEnv = resolve(process.cwd(), '.env');
@@ -406,18 +490,21 @@ async function loadDotEnv(): Promise<void> {
     ? resolve(process.env.HOME, '.env')
     : undefined;
 
-  // Load home first, then cwd to allow cwd to override
   if (homeEnv && (await exists(homeEnv)))
     config({ override: false, path: homeEnv });
   if (await exists(cwdEnv)) config({ override: true, path: cwdEnv });
 }
 
-/** Check if a path exists */
+/**
+ * Check if a path exists
+ * @param {string} p
+ * @returns {Promise<boolean>}
+ */
 async function exists(p: string): Promise<boolean> {
   try {
     await stat(p);
     return true;
-  } catch {
+  } catch (e) {
     return false;
   }
 }

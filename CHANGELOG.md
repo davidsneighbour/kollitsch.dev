@@ -1,4 +1,59 @@
 # Changelog
+## [2025.12.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.4...v2025.12.0) (2025-10-08)
+
+
+### Theme
+
+* **fix:** add global aspect ratio to article images ([0eee1cb](https://github.com/davidsneighbour/kollitsch.dev/commit/0eee1cb383e83c12d2887f7f91c86baef0c33bdb))
+* **fix:** assets path for audit.css ([1c7647f](https://github.com/davidsneighbour/kollitsch.dev/commit/1c7647f50f68959168281248b37763e9e1a029c7))
+* **fix:** move styles directory into it's own structure ([da467c9](https://github.com/davidsneighbour/kollitsch.dev/commit/da467c9a4edc2d4e5a938417f7bab2e507fafd8c))
+* **fix:** remove mastodon share component from global js ([a539348](https://github.com/davidsneighbour/kollitsch.dev/commit/a539348ac122d496deaa9b35ba0b9dcaf77035cc))
+
+
+### Features
+
+* add content signals to robots.txt ([f1851eb](https://github.com/davidsneighbour/kollitsch.dev/commit/f1851eb9ae25d3c3288e93b3cf470aed70c80534))
+* **api:** add api structure ([5cbb436](https://github.com/davidsneighbour/kollitsch.dev/commit/5cbb436ba41d5f0b525ac2232a270b5de691c97d))
+* article image evaluation, resolving, and creating ([9599d2a](https://github.com/davidsneighbour/kollitsch.dev/commit/9599d2ac3fb2732d564c50847cd55343229e1c5a))
+* move fonts to [@fontsource](https://github.com/fontsource) packages ([ab77da2](https://github.com/davidsneighbour/kollitsch.dev/commit/ab77da24dcb3b669958015a510c944a399915515))
+* **opengraph:** rework image generation for opengraph images ([812bd05](https://github.com/davidsneighbour/kollitsch.dev/commit/812bd058f2c1162107a63b68e23b9d8db9ac9006))
+* **rework:** og graph image generation via Satori ([225f166](https://github.com/davidsneighbour/kollitsch.dev/commit/225f16684cfbc90736d7332cdf2417f65776a20a))
+* share to mastodon web component ([b21de65](https://github.com/davidsneighbour/kollitsch.dev/commit/b21de657591f9f11f4a3ec9b6ddabb44b3382d02))
+* **theme:** badges and testing for badges ([8c84834](https://github.com/davidsneighbour/kollitsch.dev/commit/8c8483498f18ae1b6ebb8f80687780dea789fa0f))
+
+
+### Documentation
+
+* **cleanup:** remove documentation ([0f5d281](https://github.com/davidsneighbour/kollitsch.dev/commit/0f5d2816fc157581840e8c5a7e2e2ce0b4720f8c))
+
+
+### Refactors
+
+* remove obsolete comments ([6213e82](https://github.com/davidsneighbour/kollitsch.dev/commit/6213e822193bcd91515f8eda13092ad93cf4eb3d))
+
+
+### Build System
+
+* **ai:** refactor copilot instructions with a repo overview ([f340b57](https://github.com/davidsneighbour/kollitsch.dev/commit/f340b57d915d1b619dadaa48c474a0edb157b48b))
+* **astro:** fix infinite reload of dev server ([72a656b](https://github.com/davidsneighbour/kollitsch.dev/commit/72a656b1bd0770d43cb85cff5c9afe8ab0b83a5e))
+* **deps:** update dependabot configuration ([1fa8941](https://github.com/davidsneighbour/kollitsch.dev/commit/1fa89416bfda95e702155d60e92248c2677ee30b))
+* **deps:** update dependencies ([327ec70](https://github.com/davidsneighbour/kollitsch.dev/commit/327ec70b27cfc9c59011bd66aac402ee83f4b153))
+* **deps:** update site screenshot ([aaaac0a](https://github.com/davidsneighbour/kollitsch.dev/commit/aaaac0a055cc1156ee5ac229f5ee3a6a8dd626d4))
+* **images:** update blogroll screenshots ([cfdd101](https://github.com/davidsneighbour/kollitsch.dev/commit/cfdd10115883788861115ef1efa9bf17e1d974c0))
+* **release:** add social media post creation ([baedfd5](https://github.com/davidsneighbour/kollitsch.dev/commit/baedfd5808da52bdce5e549efe54a8760a996975))
+
+
+### CI
+
+* **fix:** longer maxlength for blogroll names ([8bcf535](https://github.com/davidsneighbour/kollitsch.dev/commit/8bcf5358e5b7a810b8f9d410d479d51552a76a69))
+
+
+### Chore
+
+* **frontmatter:** update media database ([b44d17c](https://github.com/davidsneighbour/kollitsch.dev/commit/b44d17c906e6a881d6116e2303e270610c0ab5e6))
+* **frontmatter:** update media view ([f2c00a5](https://github.com/davidsneighbour/kollitsch.dev/commit/f2c00a5c867bbccf8f7fe4cee18b096317455776))
+* workspace data files updates ([5419f34](https://github.com/davidsneighbour/kollitsch.dev/commit/5419f34faeeee13fb4262286715610c56159128a))
+
 ## [2025.11.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.3...v2025.11.4) (2025-09-14)
 
 

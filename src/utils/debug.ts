@@ -1,19 +1,25 @@
+// src/utils/debug.ts
 /**
- * @deprecated
- *
  * Deprecated shim. Use: `import { createLogger } from '@utils/logger'`
  * Maintains old API: createLogger().{debug,error,note,warn,start,stop}
  */
-
 import { createLogger as _create, type Logger } from './logger.js';
 
 let warned = false;
 function deprecateOnce(): void {
   if (warned) return;
   warned = true;
-  // Print a short, plain warning without stack noise
-  const log = _create({ slug: 'logger', level: 'warn' });
-  log.warn('debug.ts is deprecated. Switch to @utils/logger and createLogger().');
+  const w = _create({ slug: 'logger', level: 'warn' });
+  w.warn('debug.ts is deprecated. Switch to @utils/logger and createLogger().');
+}
+
+function call(
+  fn: (msg: unknown, ...rest: unknown[]) => void,
+  args: unknown[],
+): void {
+  if (args.length === 0) return;                 // nothing to log
+  const [msg, ...rest] = args as [unknown, ...unknown[]];
+  fn(msg, ...rest);
 }
 
 /**
@@ -34,10 +40,10 @@ export function createLogger(): {
   const core: Logger = _create({ slug: 'dnb', level: (process.env.LOG_LEVEL as any) ?? 'info' });
 
   return {
-    debug: (...a: unknown[]) => core.debug(...a),
-    error: (...a: unknown[]) => core.error(...a),
-    note: (...a: unknown[]) => core.info(...a),   // deprecated -> info
-    warn: (...a: unknown[]) => core.warn(...a),
+    debug: (...a: unknown[]) => call(core.debug, a),
+    error: (...a: unknown[]) => call(core.error, a),
+    note: (...a: unknown[]) => call(core.info, a), // deprecated -> info
+    warn: (...a: unknown[]) => call(core.warn, a),
     start: () => core.unmute(),  // deprecated -> unmute
     stop: () => core.mute(),    // deprecated -> mute
   };

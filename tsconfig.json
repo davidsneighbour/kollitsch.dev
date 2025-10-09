@@ -28,6 +28,14 @@
       }
     ]
   },
-  "exclude": ["dist", "scratch", "src/scripts"],
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "dist",
+    "scratch",
+    "src/scripts",
+    "src/config"
+  ],
   "extends": "astro/tsconfigs/strictest"
 }

@@ -2,6 +2,7 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+@import './themes/dnb.css';
 @import './components/fonts.css';
 
 /*******************************************************************************

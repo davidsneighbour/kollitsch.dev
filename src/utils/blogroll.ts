@@ -1,5 +1,5 @@
-import { z, ZodError, type ZodIssue } from "zod";
-import { readFile } from "node:fs/promises";
+import { readFile } from 'node:fs/promises';
+import { ZodError, type ZodIssue, z } from 'zod';
 
 /**
  * Options for schema creation and validation.
@@ -27,14 +27,14 @@ export function makeFeedItemSchema(opts: ValidateOptions = {}) {
 
   return z
     .object({
-      url: z.string().url({ message: "url must be a valid URL" }),
-      rss: z.string().url({ message: "rss must be a valid URL" }).optional(),
-      name: z
-        .string()
-        .min(1, "name is required")
-        .max(maxNameLength, `name must be at most ${maxNameLength} characters`),
       // "description" is a markdown string. No limits beyond being a string if present.
       description: z.string().optional(),
+      name: z
+        .string()
+        .min(1, 'name is required')
+        .max(maxNameLength, `name must be at most ${maxNameLength} characters`),
+      rss: z.string().url({ message: 'rss must be a valid URL' }).optional(),
+      url: z.string().url({ message: 'url must be a valid URL' }),
     })
     .strict();
 }
@@ -46,7 +46,9 @@ export function makeFeedItemSchema(opts: ValidateOptions = {}) {
  */
 export function makeFeedListSchema(opts: ValidateOptions = {}) {
   const base = z.array(makeFeedItemSchema(opts));
-  return opts.allowEmpty === false ? base.nonempty("list must not be empty") : base;
+  return opts.allowEmpty === false
+    ? base.nonempty('list must not be empty')
+    : base;
 }
 
 /**
@@ -56,14 +58,17 @@ export function makeFeedListSchema(opts: ValidateOptions = {}) {
  * @returns Validated and typed feed list
  * @throws Error with a readable message if validation fails
  */
-export function validateFeedListOrThrow(data: unknown, opts: ValidateOptions = {}): FeedList {
+export function validateFeedListOrThrow(
+  data: unknown,
+  opts: ValidateOptions = {},
+): FeedList {
   try {
     const parsed = makeFeedListSchema(opts).parse(data);
     return parsed;
   } catch (err) {
     if (err instanceof ZodError) {
       const lines = formatZodIssues(err.issues);
-      const message = ["Validation failed:", ...lines].join("\n");
+      const message = ['Validation failed:', ...lines].join('\n');
       throw new Error(message);
     }
     throw err;
@@ -82,9 +87,9 @@ export function safeValidateFeedList(
 ): { ok: true; data: FeedList } | { ok: false; errors: string[] } {
   const result = makeFeedListSchema(opts).safeParse(data);
   if (result.success) {
-    return { ok: true, data: result.data };
+    return { data: result.data, ok: true };
   }
-  return { ok: false, errors: formatZodIssues(result.error.issues) };
+  return { errors: formatZodIssues(result.error.issues), ok: false };
 }
 
 /**
@@ -95,9 +100,9 @@ export function safeValidateFeedList(
 export function formatZodIssues(issues: ZodIssue[]): string[] {
   return issues.map((i) => {
     const path = i.path
-      .map((p) => (typeof p === "number" ? `[${p}]` : `.${p}`))
-      .join("")
-      .replace(/^\./, "");
+      .map((p) => (typeof p === 'number' ? `[${p}]` : `.${p}`))
+      .join('')
+      .replace(/^\./, '');
     return path ? `${path}: ${i.message}` : i.message;
   });
 }
@@ -127,17 +132,19 @@ export function formatZodIssues(issues: ZodIssue[]): string[] {
  * @param filePath - Path to the JSON file
  * @param opts - Validation options
  * @returns Validated and sorted list of feed items
+ *
+ * @example
+ * ```
+ * const blogroll = await getBlogroll("feeds.json", { maxNameLength: 56 });
+ * console.log(blogroll);
+ * ```
  */
-export async function getBlogroll(filePath: string, opts: ValidateOptions = {}): Promise<FeedList> {
-  const raw = await readFile(filePath, "utf8");
+export async function getBlogroll(
+  filePath: string,
+  opts: ValidateOptions = {},
+): Promise<FeedList> {
+  const raw = await readFile(filePath, 'utf8');
   const json = JSON.parse(raw);
   const feeds = validateFeedListOrThrow(json, opts);
   return feeds.sort((a, b) => a.name.localeCompare(b.name));
 }
-
-/* ---------------------------------------------
- * Example usage:
- * ---------------------------------------------
- * const blogroll = await getBlogroll("feeds.json", { maxNameLength: 56 });
- * console.log(blogroll);
- */

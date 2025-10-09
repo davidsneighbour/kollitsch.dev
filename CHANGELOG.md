@@ -1,4 +1,23 @@
 # Changelog
+## [2025.14.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.13.1...v2025.14.0) (2025-10-09)
+
+
+### Features
+
+* **logger:** rework logger and update astro config to use it ([b13a8fd](https://github.com/davidsneighbour/kollitsch.dev/commit/b13a8fda2837fa6d87503a6da2f8a308e2b51299))
+* **logger:** rework logger and update astro config to use it ([22ccb24](https://github.com/davidsneighbour/kollitsch.dev/commit/22ccb24394092c6d718f9fe988eed947a96cd653))
+* **tags:** completely reworked tags for the blog ([d1f05ea](https://github.com/davidsneighbour/kollitsch.dev/commit/d1f05ea104a9eec8a58b8eae70050ea24c83190b))
+
+
+### Theme
+
+* **fix:** canonalize the single tag view page link ([5cc4ec7](https://github.com/davidsneighbour/kollitsch.dev/commit/5cc4ec74590ab2bacbbf7c413ef9de6cfc0278ac))
+
+
+### Refactors
+
+* **codecomments:** move comments around ([a948c5f](https://github.com/davidsneighbour/kollitsch.dev/commit/a948c5fb1c2f9a4d78623bdcb0d63b109ba9de9c))
+
 ## [2025.13.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.13.0...v2025.13.1) (2025-10-09)
 
 

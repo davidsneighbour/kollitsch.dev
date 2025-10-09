@@ -1,32 +1,41 @@
 ---
 /**
  * Tag overview page
- * Lists all posts with the given tag
+ * Lists all posts with the given tag (supports id or alias in the URL param).
+ *
+ * Uses the new @utils/tags facade:
+ * - getStaticPaths(): built from canonical tag IDs via getTags()
+ * - runtime: resolves incoming param (id/alias/label) via getTag()
  */
 import { getEntry } from 'astro:content';
 
 import Layout from '@layouts/DefaultPage.astro';
-
 import ArticleCard from '@components/ArticleCard.astro';
 import TagIntro from '@components/TagIntro.astro';
 import Pagination from '@components/Pagination.astro';
 
 import setup from '@data/setup.json';
 
-import { getAllTags } from '@utils/tags';
+import { getTag, getTags, tagUrl } from '@utils/tags';
 
-const { tag } = Astro.params;
+const { tag: rawParam } = Astro.params;
 
-const tagMap = await getAllTags();
-const tagInfo = tagMap.get(tag);
+// Resolve the incoming param (can be id, alias, or label) to canonical id + posts
+const resolved = await getTag(rawParam);
 
-if (!tagInfo) throw new Error(`Tag '${tag}' not found`);
-const taggedPosts = tagInfo.posts;
-const tagEntry = await getEntry({ collection: 'tags', id: tag }).catch(
+// If resolution fails, show a clear error (will surface during build for unknown paths)
+if (!resolved) {
+  throw new Error(`Tag '${rawParam}' not found`);
+}
+
+const { id: canonicalId, label: canonicalLabel, posts: taggedPosts } = resolved;
+
+// Try to load the tag entry by canonical id for intro metadata (image/description etc.)
+const tagEntry = await getEntry({ collection: 'tags', id: canonicalId }).catch(
   () => null,
 );
 
-// Pagination
+// Pagination (first page only; extend if you add /page/[n]/)
 const limit = setup.listpages?.limit || 12;
 const pageSize = limit;
 const currentPage = 1;
@@ -36,15 +45,20 @@ const paginatedPosts = taggedPosts.slice(0, pageSize);
 // Metadata
 const post = {
   data: {
-    title: `#${tag}`,
-    description: tagEntry?.data.description || `Posts tagged with #${tag}`,
+    title: `#${canonicalLabel}`,
+    description:
+      tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`,
   },
 };
 
+/**
+ * Build static paths from canonical IDs.
+ * This ensures aliases resolve to their canonical route, e.g. 'kollitsch' -> 'kdev'
+ */
 export async function getStaticPaths() {
-  const tagMap = await getAllTags();
-  return Array.from(tagMap.keys()).map(tag => ({
-    params: { tag },
+  const items = await getTags({ threshold: 1, order: 'label-asc' });
+  return items.map(t => ({
+    params: { tag: t.id }, // canonical id
   }));
 }
 ---
@@ -59,20 +73,16 @@ export async function getStaticPaths() {
     )
   }
 
-  {!tagEntry && <h1 class="mb-6 text-4xl">#{tag}</h1>}
+  {!tagEntry && <h1 class="mb-6 text-4xl">#{canonicalLabel}</h1>}
 
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
   >
-    {
-      paginatedPosts
-        .filter(post => post.collection === 'blog')
-        .map(post => <ArticleCard post={post} />)
-    }
+    {paginatedPosts.map(post => <ArticleCard post={post} />)}
   </div>
 
   <Pagination
-    basePath={`/tags/${tag}/`}
+    basePath={tagUrl(canonicalId)}
     currentPage={currentPage}
     totalPages={totalPages}
     pagingPartial="/page/"

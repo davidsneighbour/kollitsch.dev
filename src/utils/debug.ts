@@ -1,70 +1,47 @@
-const colors = {
-  labelDebug: '\x1b[35m',
-  labelError: '\x1b[31m',
-  labelNote: '\x1b[32m',
-  labelWarn: '\x1b[33m',
-  reset: '\x1b[0m',
-  timestamp: '\x1b[36m',
-  type: '\x1b[2m',
-};
+/**
+ * @deprecated
+ *
+ * Deprecated shim. Use: `import { createLogger } from '@utils/logger'`
+ * Maintains old API: createLogger().{debug,error,note,warn,start,stop}
+ */
 
-const LOG_LEVELS = (process.env.LOG_LEVEL ?? 'debug|note|warn')
-  .split('|')
-  .map((v) => v.trim().toLowerCase());
+import { createLogger as _create, type Logger } from './logger.js';
 
-const warnedLevels = new Set<string>();
-
-function formatPrefix(label: string): string {
-  const time = new Date().toTimeString().slice(0, 8);
-  return `${colors.timestamp}${time}${colors.reset} ${label}[dnb]${colors.reset}`;
+let warned = false;
+function deprecateOnce(): void {
+  if (warned) return;
+  warned = true;
+  // Print a short, plain warning without stack noise
+  const log = _create({ slug: 'logger', level: 'warn' });
+  log.warn('debug.ts is deprecated. Switch to @utils/logger and createLogger().');
 }
 
 /**
- * Creates an isolated logger instance that can be muted or resumed per import.
+ * Old factory: returns an object with the legacy methods.
+ * - note -> info
+ * - start -> unmute
+ * - stop  -> mute
  */
-export function createLogger() {
-  let muted = false;
-
-  function shouldLog(level: string): boolean {
-    if (muted) return false;
-    if (level === 'error') return true;
-    const enabled = LOG_LEVELS.includes(level);
-    if (!enabled && !warnedLevels.has(level)) {
-      warnedLevels.add(level);
-      const msg = `${formatPrefix(colors.labelWarn)} ${colors.type}(info)${colors.reset} log level '${level}' disabled by LOG_LEVEL`;
-      console.log(msg);
-    }
-    return enabled;
-  }
-
-  function print(labelColor: string, level: string, ...args: unknown[]): void {
-    if (!shouldLog(level)) return;
-    const prefix = formatPrefix(labelColor);
-    for (const arg of args) {
-      const type = typeof arg;
-      const value =
-        type === 'object' ? JSON.stringify(arg, null, 2) : String(arg);
-      const line =
-        typeof arg === 'string'
-          ? `${prefix} ${arg}`
-          : `${prefix} ${colors.type}(${type})${colors.reset} ${value}`;
-      console.log(line);
-    }
-  }
+export function createLogger(): {
+  debug: (...args: unknown[]) => void;
+  error: (...args: unknown[]) => void;
+  note: (...args: unknown[]) => void;
+  warn: (...args: unknown[]) => void;
+  start: () => void;
+  stop: () => void;
+} {
+  deprecateOnce();
+  const core: Logger = _create({ slug: 'dnb', level: (process.env.LOG_LEVEL as any) ?? 'info' });
 
   return {
-    debug: (...args: unknown[]) => print(colors.labelDebug, 'debug', ...args),
-    error: (...args: unknown[]) => print(colors.labelError, 'error', ...args),
-    note: (...args: unknown[]) => print(colors.labelNote, 'note', ...args),
-    warn: (...args: unknown[]) => print(colors.labelWarn, 'warn', ...args),
-    stop: () => {
-      muted = true;
-    },
-    start: () => {
-      muted = false;
-    },
+    debug: (...a: unknown[]) => core.debug(...a),
+    error: (...a: unknown[]) => core.error(...a),
+    note: (...a: unknown[]) => core.info(...a),   // deprecated -> info
+    warn: (...a: unknown[]) => core.warn(...a),
+    start: () => core.unmute(),  // deprecated -> unmute
+    stop: () => core.mute(),    // deprecated -> mute
   };
 }
 
-// default global logger
+/** Default global logger (legacy behavior) */
 export const log = createLogger();

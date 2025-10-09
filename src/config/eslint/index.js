@@ -13,6 +13,8 @@ import markdownConfig from './langMarkdown.js';
 import securityConfig from './pluginSecurity.js';
 import stylisticConfig from './pluginStylistic.js';
 
+import plugin from './plugin.js';
+
 export default [
   // @todo check if this is still needed
   globalIgnores(['dist', 'build']),
@@ -31,4 +33,29 @@ export default [
   ...markdownConfig,
   ...cssConfig,
   ...htmlConfig,
+  // your existing shared config parts...
+  ...ts.configs.recommendedTypeChecked, // example
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    plugins: {
+      kdev: kdevPlugin,
+    },
+    rules: {
+      // We enforce our custom rule instead of the generic one
+      'no-console': 'off',
+      'kdev/prefer-logger': ['error', {
+        allow: ['assert'],           // optional: allow console.assert
+        allowInFiles: [
+          'src/utils/logger.ts',     // allow inside the logger itself
+          'src/utils/debug.ts',      // legacy shim
+          '.test.',                  // tests may still use console for snapshots
+        ],
+      }],
+    },
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.json'],
+      },
+    },
+  },
 ];

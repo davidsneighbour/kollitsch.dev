@@ -1,0 +1,30 @@
+---
+/**
+ * TagList component
+ * - Renders a flat inline list of tags with optional counts
+ * - `tags` is an array of TagListItem (id, label, count, url)
+ */
+import type { TagListItem } from '@utils/tags';
+
+export interface Props {
+  tags: TagListItem[];
+  showCounts?: boolean;
+}
+
+const { tags, showCounts = false } = Astro.props;
+---
+
+{
+  tags.length === 0 ? (
+    <span>(none)</span>
+  ) : (
+    tags.map((tag, i) => (
+      <>
+        <a href={tag.url}>
+          {showCounts ? `${tag.label} (${tag.count})` : tag.label}
+        </a>
+        {i < tags.length - 1 ? ', ' : ''}
+      </>
+    ))
+  )
+}

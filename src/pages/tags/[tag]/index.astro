@@ -1,12 +1,19 @@
 ---
+/**
+ * Tag overview page
+ * Lists all posts with the given tag
+ */
+import { getEntry } from 'astro:content';
+
 import Layout from '@layouts/DefaultPage.astro';
+
 import ArticleCard from '@components/ArticleCard.astro';
 import TagIntro from '@components/TagIntro.astro';
 import Pagination from '@components/Pagination.astro';
-import { getEntry } from 'astro:content';
 
-import { getAllTags } from '@utils/content';
 import setup from '@data/setup.json';
+
+import { getAllTags } from '@utils/tags';
 
 const { tag } = Astro.params;
 

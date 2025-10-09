@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 // for youtube playlist loader
 import { youTubeLoader } from '@ascorbic/youtube-loader';
 import setup from '@data/setup.json' with { type: 'json' };
-import { buildOptionsSchema } from '@utils/schema';
+import { buildOptionsSchema } from '@utils/schema.ts';
 
 import { file, glob } from 'astro/loaders';
 // for github releases loader
@@ -151,17 +151,31 @@ export const blog = defineCollection({
 });
 
 // MARK: Tags
+const idRegex = /^[a-z0-9_-]+$/;
 export const tags = defineCollection({
   loader: file('./src/content/tags.json', {
     parser: (text) => JSON.parse(text),
   }),
   schema: z.object({
-    class: z.string(),
-    description: z.string(),
-    icon: z.string(),
-    id: z.string(),
-    image: z.string(),
+    // aliases map to this id — always lowercase
+    aliases: z
+      .array(z.string().transform((s) => s.toLowerCase().trim()))
+      .optional(),
+    class: z.string().optional(),
+    description: z.string().optional(),
+    featured: z.boolean().default(false).optional(),
+    icon: z.string().optional(),
+    // canonical id used in URLs
+    id: z
+      .string()
+      .transform((s) => s.toLowerCase().trim())
+      .refine((s) => idRegex.test(s), {
+        message: `Tag id must match ${idRegex}`,
+      }),
+    image: z.string().optional(),
+    // human label shown in UI (may contain symbols and casing)
     label: z.string(),
+    weight: z.number().optional().default(0),
   }),
 });
 

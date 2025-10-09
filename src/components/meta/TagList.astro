@@ -1,0 +1,28 @@
+---
+import type { NormalizedTag } from '@utils/tags';
+import { tagUrl } from '@utils/tags';
+
+const { tags } = Astro.props as { tags: NormalizedTag[] };
+---
+
+<ul class="flex flex-wrap gap-2">
+  {
+    tags.map(t => (
+      <li>
+        <a
+          href={tagUrl(t.id)}
+          class="inline-flex items-center rounded-2xl bg-neutral-200 px-3 py-1 text-sm hover:opacity-80 dark:bg-neutral-800"
+          aria-label={`#${t.label}`}
+        >
+          <span
+            class="mr-1"
+            aria-hidden="true"
+          >
+            #
+          </span>
+          {t.label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

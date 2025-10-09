@@ -1,11 +1,9 @@
 import type { CollectionEntry, z } from 'astro:content';
 
 import { getCollection } from 'astro:content';
-import site from '@data/setup.json' with { type: 'json' };
 import setup from '@data/setup.json' with { type: 'json' };
 import siteinfo from '@data/setup.json' with { type: 'json' };
-import { log } from '@utils/debug';
-import { blogSchema } from '../content.config.js';
+import { blogSchema } from '../content.config.ts';
 
 type BlogPost = CollectionEntry<'blog'>;
 
@@ -182,37 +180,6 @@ export function toBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]): {
   };
 }
 
-/**
- * Build a filtered tag map from blog posts.
- *
- * @param posts - Collection of blog posts
- * @param tagThreshold - Minimum number of occurrences for a tag to be included (default: 1)
- * @returns Map of tags with counts above threshold
- */
-export function getFilteredTagMap(
-  posts: CollectionEntry<'blog'>[],
-  tagThreshold: number = 1,
-): Map<string, number> {
-  const ignoreTags = new Set(site.ignoreTags || []);
-  log.debug('[ignoredTags] ' + site.ignoreTags);
-  const tagMap = new Map<string, number>();
-  for (const post of posts) {
-    if (Array.isArray(post.data.tags)) {
-      for (const tag of post.data.tags) {
-        if (!ignoreTags.has(tag)) {
-          tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
-        }
-      }
-    }
-  }
-  for (const [tag, count] of tagMap) {
-    if (count < tagThreshold) {
-      tagMap.delete(tag);
-    }
-  }
-  return tagMap;
-}
-
 const POST_LIMIT = siteinfo.homepage?.recent_posts ?? 6;
 
 /**
@@ -370,82 +337,6 @@ export function resolvePostTitle(
 
   const { prefix = '', postfix = '' } = options;
   return `${prefix}${title}${postfix}`;
-}
-
-/**
- * A mapping object representing information about a tag.
- */
-export interface TagInfo {
-  /**
-   * Total number of posts with this tag.
-   */
-  count: number;
-
-  /**
-   * Array of posts that contain this tag.
-   */
-  posts: Awaited<ReturnType<typeof getCollection>>; // filtered posts
-}
-
-/**
- * Collects all tags from blog posts and filters out those used less than a given threshold.
- *
- * - Loads all posts from the 'blog' content collection.
- * - Extracts tags from post frontmatter.
- * - Counts occurrences and gathers matching posts per tag.
- * - Removes tags with fewer than the configured threshold (from setup.json).
- *
- * @returns A Promise that resolves to a Map where each key is a tag name and the value is its associated count and posts.
- */
-export async function getValidTags(): Promise<Map<string, TagInfo>> {
-  const blogPosts = await getCollection('blog');
-  const tagMap = new Map<string, TagInfo>();
-
-  for (const post of blogPosts) {
-    const tags = post.data.tags || [];
-    for (const tag of tags) {
-      const entry = tagMap.get(tag) || { count: 0, posts: [] };
-      entry.count += 1;
-      entry.posts.push(post);
-      tagMap.set(tag, entry);
-    }
-  }
-
-  const threshold = siteinfo.tagThreshold ?? 2;
-
-  // remove tags with < threshold posts
-  for (const [tag, info] of tagMap.entries()) {
-    if (info.count < threshold) {
-      tagMap.delete(tag);
-    }
-  }
-
-  return tagMap;
-}
-/** Info about a single tag */
-export interface TagInfo {
-  count: number;
-  posts: Awaited<ReturnType<typeof getCollection>>[number][];
-}
-
-/**
- * Return a Map of all tags used in the `blog` collection without threshold filtering.
- */
-export async function getAllTags(): Promise<Map<string, TagInfo>> {
-  const blogPosts = await getCollection('blog');
-  const tagMap = new Map<string, TagInfo>();
-
-  for (const post of blogPosts) {
-    const tags = post.data.tags || [];
-    for (const tag of tags) {
-      const entry = tagMap.get(tag) || { count: 0, posts: [] };
-      entry.count += 1;
-      entry.posts.push(post);
-      tagMap.set(tag, entry);
-    }
-  }
-
-  return tagMap;
 }
 
 import { dirname, resolve } from 'node:path';

@@ -1,0 +1,58 @@
+---
+/**
+ * Visual Test Page — Tag Utilities
+ * This page visually renders different tag list configurations.
+ *
+ * 🔤 Lingo for “visual test pages”:
+ * - **Location**: `src/pages/test/<feature>/index.astro`
+ * - **Purpose**: manual smoke test to verify that utilities or components behave as expected
+ * - **Layout**: Heading (H2) for the feature, H3 sections per case
+ * - **Data Source**: call actual utilities (no mocks)
+ * - **Output**: deterministic rendering, readable console logs
+ * - **Client JS**: none — these are static SSR debug pages
+ */
+
+import '@styles/theme.css';
+import Layout from '@layouts/DefaultPage.astro';
+import Heading from '@components/Heading.astro';
+import TagList from '@components/TagList.astro';
+
+import { getTags } from '@utils/tags';
+import type { TagListItem } from '@utils/tags';
+
+let allTags: TagListItem[] = [];
+let allTagsWithCounts: TagListItem[] = [];
+let tagsOver5: TagListItem[] = [];
+
+try {
+  allTags = await getTags({ threshold: 1, order: 'label-asc' });
+  allTagsWithCounts = await getTags({ threshold: 1, order: 'count-desc' });
+  tagsOver5 = await getTags({ threshold: 6, order: 'count-desc' });
+} catch (err) {
+  console.error('[test/tags] failed to load tags', err);
+}
+---
+
+<Layout>
+  <Heading level={2}>Tag Utility Visual Test</Heading>
+
+  <Heading level={3}>Taglist with all tags</Heading>
+  <TagList tags={allTags} />
+
+  <Heading level={3}>Taglist with all tags and counters</Heading>
+  <TagList
+    tags={allTagsWithCounts}
+    showCounts={true}
+  />
+
+  <Heading level={3}>Taglist with all tags over 5 posts</Heading>
+  <TagList tags={tagsOver5} />
+
+  <Heading level={3}
+    >Taglist with all tags over 5 posts (and with counts)</Heading
+  >
+  <TagList
+    tags={tagsOver5}
+    showCounts={true}
+  />
+</Layout>

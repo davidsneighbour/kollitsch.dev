@@ -1,20 +1,17 @@
 ---
-// tags index page, tag cloud and featured tags list
-import { getCollection } from 'astro:content';
+/**
+ * Tags index page
+ * tag cloud and featured tags list
+ */
+import { type CollectionEntry } from 'astro:content';
 
 import Layout from '@layouts/DefaultPage.astro';
 
-import { getFilteredTagMap } from '@utils/content';
+import { getFeaturedTagEntries, getTags, type TagListItem } from '@utils/tags';
 
-import TagCloud from '@components/TagCloud.astro';
 import Heading from '@components/Heading.astro';
 import TagCard from '@components/TagCard.astro';
-
-const blogPosts = await getCollection('blog');
-const tagEntries = await getCollection('tags');
-
-const tagMap = getFilteredTagMap(blogPosts, 0);
-const tagEntryList = tagEntries.filter(entry => tagMap.has(entry.id));
+import TagList from '@components/TagList.astro';
 
 const post = {
   data: {
@@ -23,18 +20,27 @@ const post = {
   },
 };
 
-// @todo sort descending by date
-// @todo fix layouts
+let allTagsWithCounts: TagListItem[] = [];
+let featuredEntries: CollectionEntry<'tags'>[] = [];
+try {
+  allTagsWithCounts = await getTags({ threshold: 1, order: 'label-asc' });
+  featuredEntries = await getFeaturedTagEntries({
+    includeCounts: true,
+    order: 'weight-desc',
+  });
+} catch (err) {
+  console.error('[test/tags] failed to load tags', err);
+}
 ---
 
 <Layout post={post}>
   <Heading level={1}>Tag Cloud</Heading>
-  <TagCloud tags={tagMap} />
+  <TagList tags={allTagsWithCounts} />
 
   <Heading level={2}>Tag Pages</Heading>
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
   >
-    {tagEntryList.map(entry => <TagCard post={entry} />)}
+    {featuredEntries.map(entry => <TagCard post={entry} />)}
   </div>
 </Layout>

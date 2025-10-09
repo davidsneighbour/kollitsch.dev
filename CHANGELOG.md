@@ -1,4 +1,26 @@
 # Changelog
+## [2025.13.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.13.0...v2025.13.1) (2025-10-09)
+
+
+### Content
+
+* **new:** the fonts that shape KOLLITSCH.dev* ([e2b50ad](https://github.com/davidsneighbour/kollitsch.dev/commit/e2b50ad5d38e9327d1db4f13a53ddd02f742a340))
+
+
+### Theme
+
+* **fix:** enable ligatures on exo2 globally ([e137eae](https://github.com/davidsneighbour/kollitsch.dev/commit/e137eae63c4371e4a17e102d3b5bd7dfd01dbbd2))
+
+
+### Build System
+
+* **deps:** update dependencies ([7a8609f](https://github.com/davidsneighbour/kollitsch.dev/commit/7a8609f6b4ac1333d8969b5113daf8e6b5b317af))
+
+
+### CI
+
+* **workflows:** update blogroll workflow to load dark schemes ([509f455](https://github.com/davidsneighbour/kollitsch.dev/commit/509f455ea8e457c3238dd9fa58ca176c8b8d4311))
+
 ## [2025.13.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.11.4...v2025.13.0) (2025-10-08)
 
 

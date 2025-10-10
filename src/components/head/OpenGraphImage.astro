@@ -95,7 +95,7 @@ const ChangaData = fs.readFileSync(ChangaPath);
 const Exo2Data = fs.readFileSync(Exo2Path);
 
 // Cache directory: keep it out of git, easy to persist in CI.
-const CACHE_DIR = path.join(process.cwd(), 'public', '.og_image_cache');
+const CACHE_DIR = path.join(process.cwd(), 'public', 'og_image');
 
 /**
  * Build Satori options for a given size.
@@ -205,7 +205,7 @@ async function getCachedOrGeneratePng(
   const contentHash = generateContentHash(title, pubDate, width, height, format);
   const fileName = `${contentHash}.${extFor(format)}`;
   const fileFsPath = path.join(CACHE_DIR, fileName);
-  const fileWebPath = `/.og_image_cache/${fileName}`;
+  const fileWebPath = `/og_image/${fileName}`;
 
   if (fs.existsSync(fileFsPath)) {
     console.log('[og] Using cache:', fileFsPath);

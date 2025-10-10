@@ -19,7 +19,7 @@ release.json
 
 # dynamically built favicon
 public/favicon.ico
-public/.og_image_cache
+public/og_image
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,astro,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,astro,node

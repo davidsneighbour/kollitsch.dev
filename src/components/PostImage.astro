@@ -5,7 +5,6 @@ import type { ImageMetadata } from 'astro';
 import { resolveCover } from '@utils/images';
 import { getTailwindSizes } from '@utils/tailwind';
 import { Picture } from 'astro:assets';
-import { log } from '@utils/debug';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -47,25 +46,14 @@ function mapQuality(q: Props['quality']): number {
   }
 }
 
-log.start();
-log.stop();
-log.debug('POSTIMAGE GENERATION ###########################################');
-log.debug('COVER CONFIG', post.data.cover);
-
 const cover = resolveCover(post);
-log.debug('COVER RESOLVED', cover);
-
 let imageMeta: ImageMetadata | null =
   cover.type === 'image' && cover.meta ? cover.meta : null;
-
-log.debug('IMAGE META RESOLVED', imageMeta);
-log.debug('POSTIMAGE GENERATION ENDED######################################');
-log.stop();
 ---
 
 {
   cover.type === 'video' && cover.video ? (
-    <figure class="group relative isolate z-10">
+    <figure class="group">
       <div class={`aspect-2/1 overflow-hidden ${classes}`}>
         <lite-youtube
           videoid={cover.video.youtube}
@@ -77,12 +65,10 @@ log.stop();
         type="module"
         is:inline
       />
-      <figcaption class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100">
-        {cover.video.title}
-      </figcaption>
+      <figcaption class="text-xs italic">{cover.video.title}</figcaption>
     </figure>
   ) : cover.type === 'image' ? (
-    <figure class="group relative isolate z-10">
+    <figure class="group">
       {link ? (
         <a href={link}>
           {imageMeta ? (
@@ -138,7 +124,7 @@ log.stop();
         <figcaption
           transition:animate="slide"
           set:html={cover.title}
-          class="absolute right-0 bottom-0 left-0 z-30 bg-gray-950/80 text-center text-orange-50/90 opacity-0 transition-all delay-100 duration-600 ease-in-out group-hover:opacity-100"
+          class="text-xs italic"
         />
       )}
     </figure>

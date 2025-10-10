@@ -34,8 +34,8 @@ const { post }: Props = Astro.props;
       level={1}
       class="heading"
       link={`/blog/${post.id}/`}
-      >{post.data.title}
-    </Heading>
+      html={post.data.title}
+    />
     <BreadCrumbs path={post.filePath} />
     <Prose post={post} />
     <ShareSeparator

@@ -6,6 +6,7 @@ export type Props = {
   description?: string;
   link?: string;
   class?: string;
+  html?: string; // new: raw HTML string
 };
 
 const {
@@ -13,6 +14,7 @@ const {
   description = '',
   link = '',
   class: classname = '',
+  html = '',
 }: Props = Astro.props;
 
 const safeLevel = Math.min(6, Math.max(1, Number(level)));
@@ -25,9 +27,9 @@ const Tag = `h${safeLevel}` as Tag;
 >
   {
     link ? (
-      <a href={link}>
-        <slot />
-      </a>
+      <a href={link}>{html ? <Fragment set:html={html} /> : <slot />}</a>
+    ) : html ? (
+      <Fragment set:html={html} />
     ) : (
       <slot />
     )

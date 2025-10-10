@@ -16,6 +16,7 @@ import WebComponents from '@components/head/WebComponents.astro';
 type PostLike = MarkdownInstance<Record<string, unknown>> & {
   readonly data?: {
     readonly title?: string;
+    readonly linktitle?: string;
     readonly description?: string;
     readonly draft?: boolean;
   };
@@ -50,8 +51,8 @@ const baseUrl = import.meta.env.BASE_URL ?? '/';
 
 // title: prefer post/frontmatter, then setup fallback, with postfix
 const rawTitle =
-  (safePost.data?.title as string | undefined) ||
-  (frontmatter?.title as string | undefined) ||
+  (safePost.data?.linktitle as string | undefined) ||
+  (frontmatter?.linktitle as string | undefined) ||
   setup?.title ||
   '';
 const title = resolvePostTitle(rawTitle, { postfix: setup.head.postfix });

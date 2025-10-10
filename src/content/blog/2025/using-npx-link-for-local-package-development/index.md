@@ -1,5 +1,6 @@
 ---
 title: Using `npx link` for local package development
+linktitle: Using npx link for local package development
 description: >-
   Learn how to use `npx link` to manage local package dependencies in your
   projects.

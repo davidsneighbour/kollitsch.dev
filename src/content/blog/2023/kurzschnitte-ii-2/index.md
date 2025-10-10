@@ -4,11 +4,6 @@ description: >-
   A collection of links I came across in recent weeks, noteworthy but not enough
   for a full blog post.
 date: 2023-12-03T17:37:20+07:00
-resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - kurzschnitte
   - bookmarks
@@ -16,8 +11,11 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: ./header.jpg
+  src: kurzschnitte.jpg
   type: image
+  title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

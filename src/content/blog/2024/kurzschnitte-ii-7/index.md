@@ -13,11 +13,6 @@ summary: >-
   pattern, structuring a week into seven days. Now, let's continue with our
   curated links of interest.
 date: 2024-09-20T18:50:23+07:00
-resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 categories:
   - kurzschnitte
 tags:
@@ -27,8 +22,11 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: ./header.jpg
+  src: kurzschnitte.jpg
   type: image
+  title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

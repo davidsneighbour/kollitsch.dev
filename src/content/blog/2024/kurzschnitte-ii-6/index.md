@@ -10,11 +10,12 @@ summary: >-
   positive integer which is neither a square number nor a prime number? Now you
   know.
 date: 2024-09-20T17:13:27+07:00
-resources:
-  - title: >-
+cover:
+  src: kurzschnitte.jpg
+  type: image
+  title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
       [Unsplash](https://unsplash.com/)
-    src: header.jpg
 categories:
   - kurzschnitte
 tags:
@@ -23,9 +24,6 @@ tags:
   - 100daystooffload
 unsplash:
   imageid: UcEzgZ6k19o
-cover:
-  src: ./header.jpg
-  type: image
 publisher: rework
 ---
 

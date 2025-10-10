@@ -9,11 +9,6 @@ summary: >-
   creativity, and tips for efficient DOM manipulation, plus resources for
   enhancing your coding and design skills.
 date: 2024-10-10T18:10:57+07:00
-resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 categories:
   - kurzschnitte
 tags:
@@ -23,8 +18,11 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: ./header.jpg
+  src: kurzschnitte.jpg
   type: image
+  title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
 options:
   head:
     components:

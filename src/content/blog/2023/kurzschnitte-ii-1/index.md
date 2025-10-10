@@ -5,11 +5,6 @@ description: >-
   noteworthy to me, but I don't want to write a full blog post about them.
   Instead, I've gathered them here for you to enjoy.
 date: 2023-08-14T17:17:16+07:00
-resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - kurzschnitte
   - bookmarks
@@ -17,8 +12,11 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: ./header.jpg
+  src: kurzschnitte.jpg
   type: image
+  title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

@@ -8,11 +8,6 @@ summary: >-
   The fifth installment of Kurzschnitte II, where I'm sharing a collection of
   articles and tutorials that caught my attention in the past few weeks.
 date: 2024-09-03T18:53:38+07:00
-resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - kurzschnitte
   - bookmarks
@@ -20,8 +15,11 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: ./header.jpg
+  src: kurzschnitte.jpg
   type: image
+  title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

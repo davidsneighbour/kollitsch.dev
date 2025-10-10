@@ -4,11 +4,6 @@ description: >-
   Explore the latest in web development and design with Kurzschnitte II: from
   open-source insights to CSS animations and favicon tips. Dive in now!
 date: 2024-02-10T20:56:51+07:00
-resources:
-  - title: >-
-      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - kurzschnitte
   - bookmarks
@@ -16,8 +11,11 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: ./header.jpg
+  src: kurzschnitte.jpg
   type: image
+  title: >-
+      Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via
+      [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

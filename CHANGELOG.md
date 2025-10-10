@@ -1,4 +1,27 @@
 # Changelog
+## [2025.14.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.14.0...v2025.14.1) (2025-10-10)
+
+
+### Content
+
+* **fix:** rework article images for kurzschnitte posts ([cb47594](https://github.com/davidsneighbour/kollitsch.dev/commit/cb47594ca946631d4fbd9485653f3bf466223075))
+* **new:** post of 2025-10-10 ([6ca0872](https://github.com/davidsneighbour/kollitsch.dev/commit/6ca0872e315b6f5d821667ff8cb7f06c02ecafd5))
+
+
+### Theme
+
+* **fix:** load lite-youtube-embed script on all pages ([ea5973d](https://github.com/davidsneighbour/kollitsch.dev/commit/ea5973dfefbd6e4de491814a25a69fc1161a240c))
+
+
+### Build System
+
+* add a couple of typescript definitions ([e271674](https://github.com/davidsneighbour/kollitsch.dev/commit/e271674316e814be8008dfd6a21b0d50631be71f))
+
+
+### Chore
+
+* recent unsorted changes ([a868da4](https://github.com/davidsneighbour/kollitsch.dev/commit/a868da47ed5a0cafa8efc80f5ea69be8e2f9e0fd))
+
 ## [2025.14.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.13.1...v2025.14.0) (2025-10-09)
 
 

@@ -171,3 +171,9 @@ const introFallbackHtml = md.renderInline(introFallback);
 <script is:inline define:vars={{ footerYearId }}>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
 </script>
+
+<!-- @todo move into local or global scripts -->
+<script
+  src="/vendor/lite-youtube-embed/lite-yt-embed.js"
+  is:inline
+></script>

@@ -46,7 +46,7 @@
     "@resvg/resvg-js": "2.6.2",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/vite": "4.1.14",
-    "astro": "5.14.1",
+    "astro": "5.14.4",
     "astro-icon": "1.1.5",
     "glob": "11.0.3",
     "gray-matter": "4.0.3",

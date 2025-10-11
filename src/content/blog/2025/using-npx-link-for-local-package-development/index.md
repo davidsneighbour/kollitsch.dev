@@ -18,6 +18,7 @@ tags:
 cover:
   src: ./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image
+  alt: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

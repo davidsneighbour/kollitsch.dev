@@ -6,6 +6,7 @@
 // } from "astro";
 //type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
+import RelatedPosts from '@components/RelatedPosts.astro';
 import { getCollection } from 'astro:content';
 
 // components
@@ -46,4 +47,5 @@ if (import.meta.env.PROD && post.data.draft) {
   description={post.data.description ?? ''}
 >
   <BlogPost post={post} />
+  <RelatedPosts post={post} />;
 </Layout>

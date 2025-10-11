@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+import ArticleCard from '@components/ArticleCard.astro';
+import Heading from '@components/Heading.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const currentTags = new Set(post.data.tags ?? []);
+
+let relatedPosts: CollectionEntry<'blog'>[] = [];
+
+if (currentTags.size > 0) {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+  relatedPosts = allPosts
+    .filter(otherPost => otherPost.id !== post.id)
+    .map(otherPost => {
+      const otherTags = otherPost.data.tags ?? [];
+      const sharedTags = otherTags.reduce(
+        (count, tag) => count + (currentTags.has(tag) ? 1 : 0),
+        0,
+      );
+
+      return {
+        post: otherPost,
+        sharedTags,
+      };
+    })
+    .filter(item => item.sharedTags > 0)
+    .sort((a, b) => {
+      if (b.sharedTags !== a.sharedTags) {
+        return b.sharedTags - a.sharedTags;
+      }
+
+      return (
+        (b.post.data.date?.getTime?.() ?? 0) -
+        (a.post.data.date?.getTime?.() ?? 0)
+      );
+    })
+    .slice(0, 3)
+    .map(item => item.post);
+}
+---
+
+{relatedPosts.length > 0 && (
+  <section class="mt-12 flex flex-col gap-6">
+    <Heading level={2} class="text-balance">Related posts</Heading>
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {relatedPosts.map(relatedPost => (
+        <ArticleCard post={relatedPost} />
+      ))}
+    </div>
+  </section>
+)}

@@ -1,6 +1,7 @@
 ---
 /**
  * Dynamic OG image generation for blog posts.
+ *
  * - Uses satori to render SVG from JSX/HTML markup.
  * - Uses resvg to convert SVG to PNG.
  * - Caches generated PNG images on disk for performance.
@@ -73,8 +74,7 @@ const {
 
 // conditional defaults
 const finalWidth = width ?? 1200;
-const finalHeight =
-  height ?? (returnType === 'twitter' ? 675 : 630);
+const finalHeight = height ?? (returnType === 'twitter' ? 675 : 630);
 
 /**
  * Our font for Satori
@@ -142,13 +142,19 @@ function extFor(format: OgFormat) {
 
 function mimeFor(format: OgFormat): OgImageResult['mime'] {
   switch (format) {
-    case 'jpeg': return 'image/jpeg';
-    case 'webp': return 'image/webp';
-    default: return 'image/png';
+    case 'jpeg':
+      return 'image/jpeg';
+    case 'webp':
+      return 'image/webp';
+    default:
+      return 'image/png';
   }
 }
 
-async function optimizeWithSharp(inputPngBuffer: Uint8Array, format: OgFormat): Promise<Buffer> {
+async function optimizeWithSharp(
+  inputPngBuffer: Uint8Array,
+  format: OgFormat,
+): Promise<Buffer> {
   const sharp = (await import('sharp')).default;
 
   const image = sharp(inputPngBuffer);
@@ -156,7 +162,9 @@ async function optimizeWithSharp(inputPngBuffer: Uint8Array, format: OgFormat): 
   switch (format) {
     case 'png':
       // Smaller PNGs: palette reduces to 8-bit where possible
-      return image.png({ compressionLevel: 9, effort: 10, palette: true }).toBuffer();
+      return image
+        .png({ compressionLevel: 9, effort: 10, palette: true })
+        .toBuffer();
 
     case 'jpeg':
       // Great default for photo backgrounds
@@ -202,7 +210,13 @@ async function getCachedOrGeneratePng(
 ): Promise<OgImageResult> {
   ensureCacheDir();
 
-  const contentHash = generateContentHash(title, pubDate, width, height, format);
+  const contentHash = generateContentHash(
+    title,
+    pubDate,
+    width,
+    height,
+    format,
+  );
   const fileName = `${contentHash}.${extFor(format)}`;
   const fileFsPath = path.join(CACHE_DIR, fileName);
   const fileWebPath = `/og_image/${fileName}`;
@@ -212,10 +226,15 @@ async function getCachedOrGeneratePng(
     return { src: fileWebPath, width, height, format, mime: mimeFor(format) };
   }
 
-  console.log(`[og] Generating OG image: ${title} @ ${width}x${height} (${format})`);
+  console.log(
+    `[og] Generating OG image: ${title} @ ${width}x${height} (${format})`,
+  );
   let svg: string;
   try {
-    svg = await satori(markup(title, postDateDisplay, width, height), buildOgOptions(width, height));
+    svg = await satori(
+      markup(title, postDateDisplay, width, height),
+      buildOgOptions(width, height),
+    );
   } catch (e) {
     console.error('[og] Satori render failed', e);
     throw e;
@@ -223,7 +242,9 @@ async function getCachedOrGeneratePng(
 
   try {
     // 1) Render base PNG via Resvg
-    const renderedPng = new Resvg(svg, { fitTo: { mode: 'original' } }).render().asPng();
+    const renderedPng = new Resvg(svg, { fitTo: { mode: 'original' } })
+      .render()
+      .asPng();
 
     // 2) Optimize/transcode via Sharp
     const optimized = await optimizeWithSharp(renderedPng, format);
@@ -242,79 +263,148 @@ async function getCachedOrGeneratePng(
  *
  * @TODO implement with global template via setup.json for instance
  */
-function markup(title: string, postDateDisplay: string, width: number, height: number) {
+function markup(
+  title: string,
+  postDateDisplay: string,
+  width: number,
+  height: number,
+) {
+  const hasDate = postDateDisplay.trim().length > 0;
+  const dateHtml = hasDate
+    ? '<p tw="text-2xl">' + postDateDisplay + '</p>'
+    : '';
+
   return html`
-<div style="display:contents;" tw="relative w-full h-full">
-  <img src="https://images.unsplash.com/photo-1759338069275-333580793462"
-       width="${width}" height="${height}"
-       style="position:absolute;top:0;left:0;width:100%;height:100%;
-              object-fit:cover;object-position:center;" />
-  <div style="font-family:'Exo 2',sans-serif;"
-       tw="flex flex-col w-full h-full bg-[#282828]/60 text-[#999999]">
-    <div tw="flex flex-col flex-1 w-full p-10 leading-none">
-      <h1 style="font-family:'Changa',sans-serif;" tw="text-6xl leading-snug text-white">${title}</h1>
-      <p tw="text-xl">by ${setup.author.name}</p>
+    <div
+      style="display:contents;"
+      tw="relative w-full h-full"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1759338069275-333580793462"
+        width="${width}"
+        height="${height}"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;
+              object-fit:cover;object-position:center;"
+      />
+      <div
+        style="font-family:'Exo 2',sans-serif;"
+        tw="flex flex-col w-full h-full bg-[#282828]/60 text-[#999999]"
+      >
+        <div tw="flex flex-col flex-1 w-full p-10 leading-none">
+          <h1
+            style="font-family:'Changa',sans-serif;"
+            tw="text-6xl leading-snug text-white"
+          >
+            ${title}
+          </h1>
+          <p tw="text-xl">by ${setup.author.name}</p>
+        </div>
+        <div
+          tw="flex flex-0 items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl"
+        >
+          <p style="font-family:'Changa',sans-serif;">${setup.title}</p>
+          ${dateHtml}
+        </div>
+      </div>
     </div>
-    <div tw="flex flex-0 items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl">
-      <p style="font-family:'Changa',sans-serif;">${setup.title}</p>
-      <p tw="text-2xl">${postDateDisplay}</p>
-    </div>
-  </div>
-</div>
-`;
+  `;
 }
 
 // Drive generation with safe fallbacks:
 // - title "unknown" when post.data missing
 // - no dates in hash/markup when post.data missing
+const isCollectionEntry =
+  typeof post?.id === 'string' &&
+  post.id.length > 0 &&
+  typeof post?.collection === 'string' &&
+  post.collection.length > 0;
+
+const ogTitle = post.data?.title ?? 'unknown';
+
+const pubDate = isCollectionEntry ? post.data?.date : undefined;
+
+const rawDisplayDate = isCollectionEntry
+  ? (post.data?.modified ?? post.data?.lastModified ?? post.data?.date)
+  : undefined;
+
+const displayDate =
+  rawDisplayDate instanceof Date
+    ? rawDisplayDate.toISOString().slice(0, 10)
+    : typeof rawDisplayDate === 'string'
+      ? rawDisplayDate
+      : '';
+
 const ogimage = await getCachedOrGeneratePng(
-  post.data?.title ?? 'unknown',
-  post.data.date,
-  post.data.modified,
+  ogTitle,
+  pubDate,
+  displayDate,
   finalWidth,
   finalHeight,
   format,
 );
 ---
 
-{
-  (() => {
-    const altText = alt ?? (post.data.title || 'unknown');
+<>
+  {
+    (() => {
+      const altText = alt ?? (post?.data?.title || 'unknown');
+      const abs = new URL(ogimage.src, Astro.site).toString();
 
-    switch (returnType) {
-      case 'path':
-        return ogimage.src;
-      case 'url':
-        return new URL(ogimage.src, Astro.site).toString();
-      case 'tag':
-        return (
-          <img
-            src={ogimage.src}
-            alt={altText}
-            width={finalWidth}
-            height={finalHeight}
-          />
-        );
-      case 'twitter':
-        return (
-            <meta
-              name="twitter:image"
-              content={new URL(ogimage.src, Astro.site).toString()}
+      return (
+        <>
+          {returnType === 'path' && ogimage.src}
+
+          {returnType === 'url' && abs}
+
+          {returnType === 'tag' && (
+            <img
+              src={ogimage.src}
+              alt={altText}
+              width={finalWidth}
+              height={finalHeight}
             />
-            <meta property="twitter:image:alt" content={altText} />
-        );
-      case 'og':
-      default:
-        return (
-            <meta
-              property="og:image"
-              content={new URL(ogimage.src, Astro.site).toString()}
-            />
-            <meta property="og:image:type" content={ogimage.mime} />
-            <meta property="og:image:width" content={finalWidth.toString()} />
-            <meta property="og:image:height" content={finalHeight.toString()} />
-            <meta property="og:image:alt" content={altText} />
-        );
-    }
-  })()
-}
+          )}
+
+          {returnType === 'twitter' && (
+            <>
+              <meta
+                name="twitter:image"
+                content={abs}
+              />
+              <meta
+                name="twitter:image:alt"
+                content={altText}
+              />
+            </>
+          )}
+
+          {(returnType === 'og' ||
+            !['path', 'url', 'tag', 'twitter'].includes(returnType)) && (
+            <>
+              <meta
+                property="og:image"
+                content={abs}
+              />
+              <meta
+                property="og:image:type"
+                content={ogimage.mime}
+              />
+              <meta
+                property="og:image:width"
+                content={finalWidth.toString()}
+              />
+              <meta
+                property="og:image:height"
+                content={finalHeight.toString()}
+              />
+              <meta
+                property="og:image:alt"
+                content={altText}
+              />
+            </>
+          )}
+        </>
+      );
+    })()
+  }
+</>

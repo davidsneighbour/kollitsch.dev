@@ -41,7 +41,7 @@ export function createDefaultPost(input: unknown = {}): BlogPost['data'] {
   const fallback: Partial<z.input<typeof blogSchema>> = {
     aliases: [],
     cover: undefined,
-    date: new Date(),
+    date: new Date('1970-01-01T00:00:00.000Z'),
     description: 'No description available.',
     draft: false,
     featured: false,

@@ -1,36 +1,17 @@
 {
+  "name": "@davidsneighbour/kollitsch-dev",
+  "description": "Website and content for kollitsch.dev",
+  "version": "2025.14.1",
+  "license": "MIT",
+  "private": true,
+  "repository": "davidsneighbour/kollitsch.dev",
   "author": {
     "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
     "web": "https://davids-neighbour.com"
   },
-  "browserslist": {
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 ie version"
-    ],
-    "production": [
-      "last 1 version",
-      "Chrome >= 112",
-      "Firefox >= 121",
-      "iOS >= 16",
-      "Safari >= 16.4",
-      "Edge >= 112",
-      "not ie > 0",
-      "not ie_mob > 0",
-      "not dead",
-      "not op_mini all",
-      "not op_mob > 0",
-      "not opera > 0",
-      "not ucandroid > 0",
-      "not and_uc > 0",
-      "not and_qq > 0",
-      "not kaios 2.5"
-    ]
-  },
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
+  "homepage": "https://kollitsch.dev",
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.3.7",
@@ -51,7 +32,7 @@
     "astro-icon": "1.1.5",
     "glob": "11.0.3",
     "gray-matter": "4.0.3",
-    "he": "^1.2.0",
+    "he": "1.2.0",
     "pagefind": "1.4.0",
     "png-to-ico": "3.0.1",
     "satori": "0.18.3",
@@ -60,7 +41,6 @@
     "tailwindcss": "4.1.14",
     "typescript": "5.9.3"
   },
-  "description": "Website and content for kollitsch.dev",
   "devDependencies": {
     "@ascorbic/youtube-loader": "0.0.2",
     "@axe-core/playwright": "4.10.2",
@@ -133,11 +113,6 @@
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.4"
   },
-  "homepage": "https://kollitsch.dev",
-  "license": "MIT",
-  "name": "@davidsneighbour/kollitsch-dev",
-  "private": true,
-  "repository": "davidsneighbour/kollitsch.dev",
   "scripts": {
     "astro": "astro",
     "audit:html": "wireit",
@@ -148,6 +123,7 @@
     "biome:watch": "biome check --watch",
     "build": "astro build",
     "build:favicons": "node src/assets/favicon/regenerate.ts",
+    "build:image-index": "node scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
     "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix",
     "check": "astro check",
     "clean": "wireit",
@@ -178,6 +154,7 @@
     "postinstall": "run-p postinstall:*",
     "postinstall:icons": "npm run icons:sync",
     "postprepare": "wireit",
+    "prebuild": "npm run build:image-index",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
@@ -194,84 +171,7 @@
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade"
   },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "stylelint": {
-    "configFile": "./src/config/stylelint/index.js"
-  },
-  "type": "module",
-  "version": "2025.14.1",
   "wireit": {
-    "audit:html": {
-      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
-    },
-    "clean": {
-      "dependencies": [
-        "clean:astro"
-      ]
-    },
-    "clean:astro": {
-      "command": "rm -rf .astro dist node_modules/.astro"
-    },
-    "clean:full": {
-      "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": [
-        "clean:astro",
-        "clean:netlify"
-      ]
-    },
-    "clean:netlify": {
-      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
-    },
-    "compile:fixpack": {
-      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
-    },
-    "compile:package": {
-      "command": "npm run compile:fixpack",
-      "dependencies": [
-        "compile:package:run"
-      ],
-      "files": [
-        "./src/packages/**/*.jsonc"
-      ]
-    },
-    "compile:package:run": {
-      "command": "node ./src/packages/generate-package.ts"
-    },
-    "compile:package:update": {
-      "command": "node ./src/packages/update-package.ts"
-    },
-    "deploy": {
-      "command": "netlify deploy --prod --open"
-    },
-    "lint:lychee": {
-      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:templates": {
-      "command": "bin/hugo/lint-templates"
-    },
-    "postprepare": {
-      "dependencies": [
-        "test:postinstall",
-        "build:favicons"
-      ]
-    },
-    "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
-    },
-    "release:clean": {
-      "command": "rm changes.md release.json"
-    },
-    "screenshot": {
-      "command": "ts-node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
-    },
     "update": {
       "dependencies": [
         "update:git-hooks"
@@ -296,8 +196,110 @@
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
     },
+    "postprepare": {
+      "dependencies": [
+        "test:postinstall",
+        "build:favicons"
+      ]
+    },
+    "clean:netlify": {
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+    },
+    "deploy": {
+      "command": "netlify deploy --prod --open"
+    },
     "update:pre:vale": {
       "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
+    },
+    "lint:styles": {
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:styles:fix": {
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:lychee": {
+      "command": "lychee --no-progress --config ./ci/lychee/lychee.toml --require-https --format detailed --mode color -vv .frontmatter/content/"
+    },
+    "audit:html": {
+      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
+    },
+    "lint:templates": {
+      "command": "bin/hugo/lint-templates"
+    },
+    "screenshot": {
+      "command": "ts-node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
+    },
+    "release": {
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
+    },
+    "release:clean": {
+      "command": "rm changes.md release.json"
+    },
+    "compile:package": {
+      "command": "npm run compile:fixpack",
+      "dependencies": [
+        "compile:package:run"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
+    },
+    "compile:package:run": {
+      "command": "node ./src/packages/generate-package.ts"
+    },
+    "compile:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
+    },
+    "compile:package:update": {
+      "command": "node ./src/packages/update-package.ts"
+    },
+    "clean": {
+      "dependencies": [
+        "clean:astro"
+      ]
+    },
+    "clean:astro": {
+      "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:full": {
+      "command": "rm -rf node_modules package-lock.json .wireit",
+      "dependencies": [
+        "clean:astro",
+        "clean:netlify"
+      ]
     }
-  }
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ],
+    "production": [
+      "last 1 version",
+      "Chrome >= 112",
+      "Firefox >= 121",
+      "iOS >= 16",
+      "Safari >= 16.4",
+      "Edge >= 112",
+      "not ie > 0",
+      "not ie_mob > 0",
+      "not dead",
+      "not op_mini all",
+      "not op_mob > 0",
+      "not opera > 0",
+      "not ucandroid > 0",
+      "not and_uc > 0",
+      "not and_qq > 0",
+      "not kaios 2.5"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "stylelint": {
+    "configFile": "./src/config/stylelint/index.js"
+  },
+  "type": "module"
 }

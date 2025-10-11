@@ -5,18 +5,13 @@ description: >-
   Learn how to use `npx link` to manage local package dependencies in your
   projects.
 date: 2025-03-05T18:54:58+07:00
-resources:
-  - title: >-
-      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
-      [Unsplash](https://unsplash.com/)
-    src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
 tags:
   - npm
   - how-to
   - development
   - 100daystooffload
 cover:
-  src: ./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image
   alt: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
 publisher: rework

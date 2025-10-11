@@ -6,7 +6,7 @@ description: >-
 date: 2025-10-11T11:37:50.444Z
 tags: [npm, how-to, development, 100daystooffload]
 cover:
-  src: ./paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image
   alt: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
 ---

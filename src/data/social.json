@@ -1,0 +1,90 @@
+[
+  {
+    "icon": "discord",
+    "id": "discord",
+    "label": "Discord"
+  },
+  {
+    "icon": "bluesky",
+    "id": "bluesky",
+    "label": "Bluesky",
+    "share": "https://bsky.app/intent/compose?text=${title}%20${url}"
+  },
+  {
+    "icon": "threads",
+    "id": "threads",
+    "label": "Threads",
+    "share": "https://threads.net/intent/post?url=${url}&text=${description}"
+  },
+  {
+    "icon": "mastodon",
+    "id": "mastodon",
+    "label": "Mastodon",
+    "share": "https://mas.to/share?text=${title}&url=${url}"
+  },
+  {
+    "icon": "instagram",
+    "id": "instagram",
+    "label": "Instagram"
+  },
+  {
+    "icon": "envelope",
+    "id": "email",
+    "label": "Email",
+    "share": "mailto:?subject=${title}&body=${description}%0A${url}"
+  },
+  {
+    "icon": "facebook",
+    "id": "facebook",
+    "label": "Facebook",
+    "share": "https://www.facebook.com/sharer/sharer.php?u=${url}"
+  },
+  {
+    "icon": "twitter-x",
+    "id": "twitter",
+    "label": "Twitter (aka X)",
+    "share": "https://x.com/intent/tweet?url=${url}"
+  },
+  {
+    "icon": "linkedin",
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "share": "https://www.linkedin.com/sharing/share-offsite/?url=${url}"
+  },
+  {
+    "icon": "reddit",
+    "id": "reddit",
+    "label": "Reddit",
+    "share": "https://www.reddit.com/submit?url=${url}&title=${title}"
+  },
+  {
+    "icon": "telegram",
+    "id": "telegram",
+    "label": "Telegram",
+    "share": "https://t.me/share/url?url=${url}&text=${title}"
+  },
+  {
+    "icon": "pinterest",
+    "id": "pinterest",
+    "label": "Pinterest",
+    "share": "https://pinterest.com/pin/create/button/?url=${url}&media=&description=${title}"
+  },
+  {
+    "icon": "whatsapp",
+    "id": "whatsapp",
+    "label": "WhatsApp",
+    "share": "https://wa.me/?text=${title}%20${url}"
+  },
+  {
+    "icon": "youtube",
+    "id": "youtube",
+    "label": "YouTube",
+    "url": "https://www.youtube.com/@davidsneighbour"
+  },
+  {
+    "icon": "medium",
+    "id": "medium",
+    "label": "Medium",
+    "share": "https://medium.com/new_story?title=${title}&url=${url}"
+  }
+]

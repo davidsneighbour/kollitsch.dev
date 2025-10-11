@@ -17,29 +17,35 @@ type ComponentName = (typeof allowedComponents)[number];
  * @param path - A dot-separated path string to the array (default: 'data.options.head.components').
  * @returns `true` if the named component exists in the post options, `false` otherwise.
  *
- * @example
- * // Inside a .astro file:
+ * @example in an .astro file:
+ *
+ * ```
  * const post = Astro.props?.post;
  *
  * if (hasComponent(post, 'lite-youtube')) {
  *   // Inject script and stylesheet for lite-youtube
  * }
+ * ```
  *
- * @example
- * // Typical frontmatter setup:
+ * @example frontmatter setup:
+ *
+ * ```
  * ---
- * title: "My Post"
  * options:
  *   head:
  *     components:
  *       - "lite-youtube"
  * ---
+ * ```
  *
  * @example
+ *
+ * ```
  * hasComponent(post, 'lite-youtube');
- * // true if in post.data.options.head.components
+ * # true if in post.data.options.head.components
  * hasComponent(post, 'custom-header', 'meta.head.components');
- * // true if in post.meta.head.components
+ * # true if in post.meta.head.components
+ * ```
  */
 export function hasComponent(
   post: Record<string, any> | undefined,
@@ -49,6 +55,8 @@ export function hasComponent(
   if (!post) return false;
 
   const parts = path.split('.');
+  // @todo improve typing here
+  // @ts-ignore
   let current: any = post;
 
   for (const part of parts) {

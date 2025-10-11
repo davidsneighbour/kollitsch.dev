@@ -39,6 +39,12 @@ export const blogSchema = z
         src: z.string(),
         title: z.string().optional(),
         type: z.enum(['image', 'video']).optional().default('image'),
+        format: z
+          .object({
+            contenttype: z.enum(['jpg', 'png', 'gif', 'svg', 'webp']).optional().default('jpg'),
+            quality: z.number().min(1).max(100).optional().default(75),
+          })
+          .optional(),
         video: z
           .object({
             artist: z.string().optional(),

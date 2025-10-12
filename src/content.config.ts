@@ -36,15 +36,18 @@ export const blogSchema = z
     category: z.string().optional(),
     cover: z
       .object({
-        src: z.string(),
-        title: z.string().optional(),
-        type: z.enum(['image', 'video']).optional().default('image'),
         format: z
           .object({
-            contenttype: z.enum(['jpg', 'png', 'gif', 'svg', 'webp']).optional().default('jpg'),
+            contenttype: z
+              .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
+              .optional()
+              .default('jpg'),
             quality: z.number().min(1).max(100).optional().default(75),
           })
           .optional(),
+        src: z.string(),
+        title: z.string().optional(),
+        type: z.enum(['image', 'video']).optional().default('image'),
         video: z
           .object({
             artist: z.string().optional(),
@@ -186,20 +189,26 @@ export const tags = defineCollection({
 });
 
 // MARK: YouTube Playlists
-const playlistCollections = Object.fromEntries(
-  Object.entries(setup.playlists).map(([name, playlistId]) => [
-    name,
-    defineCollection({
-      loader: youTubeLoader({
-        apiKey: import.meta.env.YOUTUBE_API_KEY,
-        fetchFullDetails: true,
-        maxResults: 50,
-        playlistId,
-        type: 'playlist',
-      }),
-    }),
-  ]),
-);
+const youtubeApiKey = import.meta.env.YOUTUBE_API_KEY;
+const hasYoutubeApiKey =
+  typeof youtubeApiKey === 'string' && youtubeApiKey.trim().length > 0;
+
+const playlistCollections = hasYoutubeApiKey
+  ? Object.fromEntries(
+      Object.entries(setup.playlists).map(([name, playlistId]) => [
+        name,
+        defineCollection({
+          loader: youTubeLoader({
+            apiKey: youtubeApiKey,
+            fetchFullDetails: true,
+            maxResults: 50,
+            playlistId,
+            type: 'playlist',
+          }),
+        }),
+      ]),
+    )
+  : {};
 
 // MARK: GitHub Releases
 const oneYearAgo = new Date();

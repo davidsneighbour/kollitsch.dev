@@ -396,20 +396,35 @@ const displayDate =
       : "";
 
 const defaultArticleImageKey = (setup.images?.default ?? "").trim();
+const ogFallbackKey = (setup.images?.opengraph ?? "").trim();
 
-let resolvedArticleImageKey = "";
-if (isCollectionEntry) {
-  resolvedArticleImageKey = resolveImageKey(
-    post?.data?.articleimage,
-    post.id,
-    post.collection,
-    { defaultKey: defaultArticleImageKey || undefined },
-  );
+type CoverField = { type?: unknown; src?: unknown };
+
+function resolveCoverImageKey(): string {
+  if (!isCollectionEntry) return "";
+
+  const rawCover = post?.data?.cover;
+  const cover: CoverField =
+    rawCover && typeof rawCover === "object" ? (rawCover as CoverField) : {};
+  const coverType = typeof cover.type === "string" ? cover.type : "image";
+  const defaultKey = defaultArticleImageKey || ogFallbackKey || undefined;
+
+  if (coverType !== "video") {
+    const rawSrc = typeof cover.src === "string" ? cover.src : undefined;
+    return resolveImageKey(rawSrc, post.id, post.collection, { defaultKey });
+  }
+
+  return defaultKey
+    ? resolveImageKey(undefined, post.id, post.collection, { defaultKey })
+    : "";
 }
+
+const resolvedArticleImageKey = resolveCoverImageKey();
 
 const backgroundImageCandidates = [
   resolvedArticleImageKey,
   defaultArticleImageKey,
+  ogFallbackKey,
 ].filter(
   (value, index, array): value is string =>
     Boolean(value) && array.indexOf(value) === index,

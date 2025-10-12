@@ -1,27 +1,25 @@
 ---
 /**
- * Dynamic OG image generation for blog posts.
+ * Dynamic, cached OG-image generation for blog posts.
  *
- * - Uses satori to render SVG from JSX/HTML markup.
- * - Uses resvg to convert SVG to PNG.
- * - Caches generated PNG images on disk for performance.
+ * Pipeline:
+ *  1) Build a small HTML tree (via satori-html) with a CSS background image.
+ *  2) Render to SVG with Satori (fonts embedded once).
+ *  3) Rasterize SVG to PNG with Resvg.
+ *  4) (Transcode/optimize) PNG -> {jpeg|webp|png} via Sharp.
+ *  5) Write to /public/og_image/<hash>.<ext> and return meta tags (or URL/path/tag).
  *
- * Route: /blog/[year]/[slug]/og.png
- * Collection id format: [year]/[slug]
+ * Key properties:
+ *  - Content-addressed cache ensures stable filenames and no re-render when unchanged.
+ *  - In-flight de-duplication prevents duplicate expensive work under concurrent requests.
+ *  - Background images are pre-sized to the final output to avoid memory spikes.
+ *  - Tailwind in Satori: always set an explicit text size when using leading-* utilities.
  *
- * Query params:
- *   - width:  number (default 1200)
- *   - height: number (default 630)
+ * Route: /blog/[year]/[slug]/og.png (used as a component inside <head>)
  *
  * @see https://github.com/vercel/satori
- * @see https://www.npmjs.com/package/satori-html
- * @see https://og-playground.vercel.app/ (Satori playground)
- *
- * Satori supports TailwindCSS via `tw` prop, but some things are missing (see Satori docs).
- *
- * @todo add support for custom bg image via post.data.ogImage
- * @todo add support for resizing bg image before using it (sharp?)
- * @todo add support for custom template via setup.json
+ * @see https://og-playground.vercel.app/
+ * @see https://github.com/yisibl/resvg-js
  */
 
 import fs from 'node:fs';
@@ -32,38 +30,36 @@ import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
 import setup from '@data/setup.json' with { type: 'json' };
 import { formatDisplayDate } from '@utils/datetime';
+import { resolveImageKey } from '@utils/opengraph.ts';
+import type { ResolveImageKeyOptions } from '@utils/opengraph';
+import { createLogger, type Logger } from '@utils/logger';
+
+const TEMPLATE_VERSION = 1; // bump to invalidate everything after template/style changes
+
+const log: Logger = createLogger({ slug: 'OpenGraphImage' });
 
 type OgFormat = 'png' | 'jpeg' | 'webp';
 
-/**
- * Props with defaults
- */
 interface Props extends PostProp<'blog'> {
-  /**
-   * Width of the generated image in pixels (default: 1200)
-   */
+  /** Width of the generated image in px (default: 1200) */
   width?: number;
-  /**
-   * Height of the generated image in pixels (default: 630; 675 for return type `twitter`)
-   */
+  /** Height of the generated image in px (default: 630; 675 for return 'twitter') */
   height?: number;
-  /**
-   * Alt text for the generated image
-   * (default: post.data.title)
-   */
+  /** Alt text for the generated image (default: post.data.title) */
   alt?: string;
   /**
-   * Output format - what to return from this component:
-   *
-   * - `og`: a full `<meta property="og:image" content="...">` tag with subtags (default)
-   * - `path`: the path to the generated image from site root
-   * - `tag`: an <img> tag
-   * - `twitter`: a full `<meta name="twitter:image" content="...">` tag with subtags
-   * - `url`: the full URL to the image (for use in meta tags with absolute URLs)
+   * What to return:
+   * - 'og':      full set of OG <meta> tags (default)
+   * - 'twitter': Twitter <meta> tags
+   * - 'path':    web path from site root (/og_image/abc.jpg)
+   * - 'url':     absolute URL
+   * - 'tag':     <img> tag
    */
   return?: 'og' | 'path' | 'tag' | 'twitter' | 'url';
+  /** Output image format */
   format?: OgFormat;
 }
+
 const {
   post,
   width,
@@ -71,74 +67,264 @@ const {
   return: returnType = 'og',
   alt = post.data.title,
   format = 'jpeg',
-} = Astro.props;
+} = Astro.props as Props;
 
-// conditional defaults
-const finalWidth = width ?? 1200;
-const finalHeight = height ?? (returnType === 'twitter' ? 675 : 630);
-
-/**
- * Our font for Satori
- *
- * @todo find a way to soft code them into the component so the global config
- *       can be used to set up fonts
- */
-const ChangaPath =
-  './node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff';
-const Exo2Path =
-  './node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff'; // non-variable font
-
-/**
- * Read font data once at module load.
- * @todo is it once though?
- */
-const ChangaData = fs.readFileSync(ChangaPath);
-const Exo2Data = fs.readFileSync(Exo2Path);
-
-// Cache directory: keep it out of git, easy to persist in CI.
-const CACHE_DIR = path.join(process.cwd(), 'public', 'og_image');
-
-/**
- * Build Satori options for a given size.
- * @param {number} width
- * @param {number} height
- * @returns {SatoriOptions}
- */
-function buildOgOptions(width: number, height: number): SatoriOptions {
-  return {
-    //debug: true,
-    fonts: [
-      { data: ChangaData, name: 'Changa', style: 'normal', weight: 400 },
-      { data: Exo2Data, name: 'Exo 2', style: 'normal', weight: 300 },
-    ],
-    height,
-    width,
-  };
+function toInt(n: unknown, fallback: number): number {
+  const v = Number(n);
+  return Number.isFinite(v) ? Math.round(v) : fallback;
 }
 
-/**
- * Ensure cache directory exists.
- * @returns {void}
- */
-function ensureCacheDir(): void {
-  try {
-    if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
-  } catch (e) {
-    console.error('[og] ensureCacheDir failed', e);
-    throw e;
+function assertDimensions(
+  w: number,
+  h: number,
+  log: Logger,
+  minW = 120,
+  minH = 120,
+  maxW = 4096,
+  maxH = 4096,
+): void {
+  if (w < minW || h < minH || w > maxW || h > maxH) {
+    log.warn(
+      { w, h, minW, minH, maxW, maxH },
+      'Requested OG size outside recommended bounds; proceeding anyway',
+    );
   }
 }
 
+// keep exact defaults, no clamping
+const requestedWidth = toInt(width, 1200);
+const requestedHeight = toInt(
+  height ?? (returnType === 'twitter' ? 675 : 630),
+  630,
+);
+
+// these are the exact canvas dimensions used throughout
+const finalWidth = requestedWidth;
+const finalHeight = requestedHeight;
+
+// just warn (do not modify)
+assertDimensions(finalWidth, finalHeight, log);
+
+/** Central config for easy tuning */
+const CONFIG = {
+  cacheDir: path.join(process.cwd(), 'public', 'og_image'),
+  sharp: {
+    limitInputPixels: 64_000_000, // ~64MP guard
+    cache: { items: 32, files: 0, memory: 32 },
+    concurrency: 1,
+    jpegQuality: 80,
+    webpQuality: 80,
+    pngCompression: 9 as 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+    pngEffort: 10 as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10,
+  },
+} as const;
+
+/** Fonts (read once at module load) */
+const ChangaPath =
+  './node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff';
+const Exo2Path =
+  './node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff';
+
+let fontLoadError = false;
+const ChangaData = safeReadFile(ChangaPath);
+const Exo2Data = safeReadFile(Exo2Path);
+if (!ChangaData || !Exo2Data) {
+  fontLoadError = true;
+  log.error('Failed to load one or more fonts. OG image rendering may fail.');
+}
+
+/** Cache de-duplication for concurrent renders */
+const inFlight = new Map<string, Promise<OgImageResult>>();
+
+/** Remote key detector */
+const REMOTE_IMAGE_REGEX = /^https?:\/\//i;
+
+// ---------- Types ----------
+
 type OgImageResult = {
-  src: string; // web path
+  src: string; // web path (e.g., /og_image/abcd1234.jpg)
   width: number;
   height: number;
   format: OgFormat;
   mime: 'image/png' | 'image/jpeg' | 'image/webp';
 };
 
-function extFor(format: OgFormat) {
-  return format === 'jpeg' ? 'jpg' : format; // jpg for file system
+// ---------- Helpers ----------
+
+/**
+ * Safe readFileSync returning Buffer | null with logging.
+ */
+function safeReadFile(filePath: string): Buffer | null {
+  try {
+    return fs.readFileSync(filePath);
+  } catch (e) {
+    log.error({ filePath, err: e }, 'safeReadFile failed');
+    return null;
+  }
+}
+
+/**
+ * Ensure cache directory exists.
+ */
+function ensureCacheDir(): void {
+  try {
+    if (!fs.existsSync(CONFIG.cacheDir))
+      fs.mkdirSync(CONFIG.cacheDir, { recursive: true });
+  } catch (e) {
+    log.error({ err: e, dir: CONFIG.cacheDir }, 'ensureCacheDir failed');
+    throw e;
+  }
+}
+
+/**
+ * Build and memoize Satori options for a given size.
+ */
+const ogOptionsCache = new Map<string, SatoriOptions>();
+function buildOgOptions(width: number, height: number): SatoriOptions {
+  const key = `${width}x${height}`;
+  const cached = ogOptionsCache.get(key);
+  if (cached) return cached;
+
+  const opts: SatoriOptions = {
+    width,
+    height,
+    fonts: [
+      { data: ChangaData!, name: 'Changa', style: 'normal', weight: 400 },
+      { data: Exo2Data!, name: 'Exo 2', style: 'normal', weight: 300 },
+    ],
+    // debug: true,
+  };
+  ogOptionsCache.set(key, opts);
+  return opts;
+}
+
+/**
+ * In-flight de-duplication wrapper.
+ */
+function getOrCreate(
+  key: string,
+  factory: () => Promise<OgImageResult>,
+): Promise<OgImageResult> {
+  const existing = inFlight.get(key);
+  if (existing) return existing;
+
+  const p = (async () => {
+    try {
+      return await factory();
+    } finally {
+      inFlight.delete(key);
+    }
+  })();
+
+  inFlight.set(key, p);
+  return p;
+}
+
+/**
+ * Prepare background image as data URL, pre-sized to the output (or pass through remote).
+ *
+ * Note: For remote URLs, Satori can fetch directly. Keeping remote URLs reduces memory
+ * since we avoid embedding huge base64 buffers. For local files, resize via Sharp first.
+ */
+async function toBackgroundImageSrc(
+  key: string,
+  targetW: number,
+  targetH: number,
+): Promise<string | null> {
+  if (!key) return null;
+
+  const sharp = (await import('sharp')).default;
+  sharp.cache(CONFIG.sharp.cache);
+  sharp.concurrency(CONFIG.sharp.concurrency);
+
+  // Remote: fetch then resize -> data URL
+  if (REMOTE_IMAGE_REGEX.test(key)) {
+    try {
+      const ac = new AbortController();
+      const t = setTimeout(() => ac.abort(), 10_000); // 10s guard
+      const res = await fetch(key, { signal: ac.signal });
+      clearTimeout(t);
+
+      if (!res.ok) {
+        log.warn(
+          { url: key, status: res.status },
+          'Remote background fetch failed',
+        );
+        return null;
+      }
+
+      const buf = Buffer.from(await res.arrayBuffer());
+      const out = await sharp(buf)
+        .resize({
+          width: targetW,
+          height: targetH,
+          fit: 'cover',
+          withoutEnlargement: true,
+        })
+        .jpeg({ quality: CONFIG.sharp.jpegQuality, mozjpeg: true })
+        .toBuffer();
+
+      return `data:image/jpeg;base64,${out.toString('base64')}`;
+    } catch (err) {
+      log.error({ url: key, err }, 'Remote background processing failed');
+      return null;
+    }
+  }
+
+  // Local file: read then resize -> data URL
+  const relative = key.replace(/^\/+/, '');
+  const filePath = path.join(process.cwd(), relative);
+  if (!fs.existsSync(filePath)) {
+    log.warn({ filePath }, 'Background image not found');
+    return null;
+  }
+
+  try {
+    const out = await sharp(filePath)
+      .resize({
+        width: targetW,
+        height: targetH,
+        fit: 'cover',
+        withoutEnlargement: true,
+      })
+      .jpeg({ quality: CONFIG.sharp.jpegQuality, mozjpeg: true })
+      .toBuffer();
+
+    return `data:image/jpeg;base64,${out.toString('base64')}`;
+  } catch (error) {
+    log.error({ err: error, filePath }, 'Failed to prepare background image');
+    return null;
+  }
+}
+
+/**
+ * Hash includes title, pubDate (if present), dimensions, format, and background key.
+ * Any change yields a new filename.
+ */
+function generateContentHash(
+  title: string,
+  pubDate: Date | undefined,
+  width: number,
+  height: number,
+  format: OgFormat,
+  imageKey: string,
+): string {
+  const base = JSON.stringify({
+    v: TEMPLATE_VERSION,
+    title,
+    width,
+    height,
+    format,
+    imageKey,
+    siteTitle: setup.title ?? '',
+    author: setup.author?.name ?? '',
+  });
+  const content = pubDate ? `${base}-${pubDate.toISOString()}` : base;
+  return crypto.createHash('sha256').update(content).digest('hex').slice(0, 16);
+}
+
+function extFor(format: OgFormat): 'png' | 'jpg' | 'webp' {
+  return format === 'jpeg' ? 'jpg' : format;
 }
 
 function mimeFor(format: OgFormat): OgImageResult['mime'] {
@@ -152,54 +338,102 @@ function mimeFor(format: OgFormat): OgImageResult['mime'] {
   }
 }
 
+/**
+ * Transcode/optimize the rendered PNG into requested format with conservative memory.
+ */
 async function optimizeWithSharp(
   inputPngBuffer: Uint8Array,
   format: OgFormat,
 ): Promise<Buffer> {
   const sharp = (await import('sharp')).default;
+  sharp.cache(CONFIG.sharp.cache);
+  sharp.concurrency(CONFIG.sharp.concurrency);
 
-  const image = sharp(inputPngBuffer);
+  const image = sharp(inputPngBuffer, {
+    limitInputPixels: CONFIG.sharp.limitInputPixels,
+  });
 
   switch (format) {
     case 'png':
-      // Smaller PNGs: palette reduces to 8-bit where possible
       return image
-        .png({ compressionLevel: 9, effort: 10, palette: true })
+        .png({
+          compressionLevel: CONFIG.sharp.pngCompression,
+          effort: CONFIG.sharp.pngEffort,
+          palette: true,
+        })
         .toBuffer();
-
     case 'jpeg':
-      // Great default for photo backgrounds
-      return image.jpeg({ quality: 82, mozjpeg: true }).toBuffer();
-
+      return image
+        .jpeg({ quality: CONFIG.sharp.jpegQuality, mozjpeg: true })
+        .toBuffer();
     case 'webp':
-      // Often even smaller than JPEG; OG/Twitter generally fine, but YMMV on some scrapers
-      return image.webp({ quality: 80 }).toBuffer();
+      return image.webp({ quality: CONFIG.sharp.webpQuality }).toBuffer();
   }
 }
 
 /**
- * Create a short, deterministic content hash.
- * Includes title + pubDate + dimensions to separate caches by size.
- * @param {string} title
- * @param {Date} pubDate
- * @param {number} width
- * @param {number} height
- * @returns {string}
+ * Satori markup — background via CSS on the outer container (no absolute positioning).
+ * Tailwind notes: whenever using leading-*, also set text-* on the same node or inline line-height.
  */
-function generateContentHash(
+function markup(
   title: string,
-  pubDate: Date | undefined,
+  postDateDisplay: string,
   width: number,
   height: number,
-  format: OgFormat,
-): string {
-  const base = `${title}-${width}x${height}-${format}`;
-  const content = pubDate ? `${base}-${pubDate.toISOString()}` : base; // <-- DEFAULT-IMAGE-HOOK (no date)
-  return crypto.createHash('sha256').update(content).digest('hex').slice(0, 16);
+  backgroundSrc: string,
+) {
+  const hasDate = postDateDisplay.trim().length > 0;
+  const dateHtml = hasDate ? postDateDisplay : '';
+
+  function cssUrl(u: string): string {
+    // Escape single quote, backslash, and line breaks
+    return `url('${u.replace(/['\\\n\r]/g, m => (m === "'" ? "\\'" : '\\' + m))}')`;
+  }
+
+  const bgDecl = backgroundSrc
+    ? `background-image:${cssUrl(backgroundSrc)};`
+    : '';
+  const containerStyle = `width:${width}px;height:${height}px;${bgDecl}background-size:cover;background-position:center;background-repeat:no-repeat;`;
+
+  return html`
+    <div
+      style="${containerStyle}"
+      tw="flex flex-col"
+    >
+      <div
+        style="font-family:'Exo 2',sans-serif;"
+        tw="flex flex-col w-full h-full bg-[#09090b]/40 text-white text-xl"
+      >
+        <div tw="flex flex-col flex-1 w-full p-10 text-xl">
+          <h1
+            style="font-family:'Changa';line-height:1"
+            tw="text-6xl text-white p-0 m-0"
+          >
+            ${title}
+          </h1>
+          <p tw="p-0 m-0 text-xl">by ${setup.author.name}</p>
+        </div>
+        <div tw="flex items-center justify-between w-full p-10 text-xl">
+          <p
+            style="font-family:'Changa';line-height:1"
+            tw="text-4xl"
+          >
+            ${setup.title}
+          </p>
+          <p
+            tw="text-right text-xl"
+            style="line-height:1"
+          >
+            ${dateHtml}
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 /**
- * Lookup or render the PNG, then persist it.
+ * Render (or reuse cached) OG image on disk and return its metadata.
  */
 async function getCachedOrGeneratePng(
   title: string,
@@ -207,8 +441,14 @@ async function getCachedOrGeneratePng(
   postDateDisplay: string,
   width: number,
   height: number,
-  format: OgFormat, // NEW
+  format: OgFormat,
+  backgroundSrc: string,
+  imageKey: string,
 ): Promise<OgImageResult> {
+  if (fontLoadError) {
+    throw new Error('Font load failed earlier; aborting OG generation.');
+  }
+
   ensureCacheDir();
 
   const contentHash = generateContentHash(
@@ -217,104 +457,63 @@ async function getCachedOrGeneratePng(
     width,
     height,
     format,
+    imageKey,
   );
   const fileName = `${contentHash}.${extFor(format)}`;
-  const fileFsPath = path.join(CACHE_DIR, fileName);
+  const fileFsPath = path.join(CONFIG.cacheDir, fileName);
   const fileWebPath = `/og_image/${fileName}`;
 
   if (fs.existsSync(fileFsPath)) {
-    console.log('[og] Using cache:', fileFsPath);
-    return { src: fileWebPath, width, height, format, mime: mimeFor(format) };
+    log.debug({ fileFsPath }, 'Using cached OG image');
+    return { format, height, mime: mimeFor(format), src: fileWebPath, width };
   }
 
-  console.log(
-    `[og] Generating OG image: ${title} @ ${width}x${height} (${format})`,
-  );
-  let svg: string;
-  try {
-    svg = await satori(
-      markup(title, postDateDisplay, width, height),
-      buildOgOptions(width, height),
-    );
-  } catch (e) {
-    console.error('[og] Satori render failed', e);
-    throw e;
-  }
+  // De-duplicate concurrent work
+  return getOrCreate(fileFsPath, async () => {
+    log.info({ title, width, height, format }, 'Generating OG image');
 
-  try {
-    // 1) Render base PNG via Resvg
-    const renderedPng = new Resvg(svg, { fitTo: { mode: 'original' } })
-      .render()
-      .asPng();
+    const endGen = log.timer('render');
+    let svg: string;
+    try {
+      svg = await satori(
+        markup(title, postDateDisplay, width, height, backgroundSrc),
+        buildOgOptions(width, height),
+      );
+      endGen('satori');
+    } catch (e) {
+      endGen('satori failed');
+      throw e;
+    }
 
-    // 2) Optimize/transcode via Sharp
-    const optimized = await optimizeWithSharp(renderedPng, format);
+    const endPix = log.timer('pixels');
+    try {
+      const renderedPng = new Resvg(svg, { fitTo: { mode: 'original' } })
+        .render()
+        .asPng();
+      const optimized = await optimizeWithSharp(renderedPng, format);
+      const tmp = `${fileFsPath}.tmp-${process.pid}-${Date.now()}`;
+      fs.writeFileSync(tmp, optimized);
+      fs.renameSync(tmp, fileFsPath);
+      log.debug(
+        { fileFsPath, bytes: optimized.byteLength },
+        'OG image written',
+      );
+      endPix('resvg+sharp');
+    } catch (e) {
+      endPix('resvg+sharp failed');
+      try {
+        if (fs.existsSync(fileFsPath)) fs.unlinkSync(fileFsPath);
+      } catch {}
+      log.error({ err: e }, 'Resvg/Sharp pipeline failed');
+      throw e;
+    }
 
-    fs.writeFileSync(fileFsPath, optimized);
-  } catch (e) {
-    console.error('[og] Render/optimize/write failed', e);
-    throw e;
-  }
-
-  return { src: fileWebPath, width, height, format, mime: mimeFor(format) };
+    return { format, height, mime: mimeFor(format), src: fileWebPath, width };
+  });
 }
 
-/**
- * Build Satori markup for the OG image.
- *
- * @TODO implement with global template via setup.json for instance
- */
-function markup(
-  title: string,
-  postDateDisplay: string,
-  width: number,
-  height: number,
-) {
-  const hasDate = postDateDisplay.trim().length > 0;
-  const dateHtml = hasDate ? postDateDisplay : '';
+// ---------- Content-specific resolution ----------
 
-  return html`
-    <div
-      style="display:contents;"
-      tw="relative w-full h-full"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1759338069275-333580793462"
-        width="${width}"
-        height="${height}"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;
-              object-fit:cover;object-position:center;"
-      />
-      <div
-        style="font-family:'Exo 2',sans-serif;"
-        tw="flex flex-col w-full h-full bg-[#282828]/60 text-[#999999] text-xl"
-      >
-        <div tw="flex flex-col flex-1 w-full p-10 leading-none">
-          <h1
-            style="font-family:'Changa'"
-            tw="text-6xl leading-none text-white p-0 m-0"
-          >
-            ${title}
-          </h1>
-          <p tw="p-0 m-0">by ${setup.author.name}</p>
-        </div>
-        <div tw="flex items-center justify-between w-full p-10 text-xl">
-          <p
-            tw="text-4xl leading-none"
-            style="font-family:'Changa'"
-          >
-            ${setup.title}
-          </p>
-          <p tw="text-right">${dateHtml}</p>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-// Drive generation with safe fallbacks:
-// - title "unknown" when post.data missing
-// - no dates in hash/markup when post.data missing
 const isCollectionEntry =
   typeof post?.id === 'string' &&
   post.id.length > 0 &&
@@ -322,13 +521,71 @@ const isCollectionEntry =
   post.collection.length > 0;
 
 const ogTitle = post.data?.title ?? 'unknown';
-
 const pubDate = isCollectionEntry ? post.data?.date : undefined;
 
 const rawDisplayDate = isCollectionEntry
   ? (post.data?.modified ?? post.data?.lastModified ?? post.data?.date)
   : undefined;
 const displayDate = formatDisplayDate(rawDisplayDate);
+
+const defaultArticleImageKey = (setup.images?.default ?? '').trim();
+const ogFallbackKey = (setup.images?.opengraph ?? '').trim();
+
+/**
+ * Resolve the cover image key for OG background.
+ * With exactOptionalPropertyTypes enabled, omit defaultKey when undefined.
+ */
+function resolveCoverImageKey(): string {
+  if (!isCollectionEntry) return '';
+
+  type CoverField = { type?: unknown; src?: unknown };
+  const rawCover = post?.data?.cover;
+  const cover: CoverField =
+    rawCover && typeof rawCover === 'object' ? (rawCover as CoverField) : {};
+  const coverType = typeof cover.type === 'string' ? cover.type : 'image';
+
+  const defaultKeyMaybe =
+    (defaultArticleImageKey || ogFallbackKey || '').trim() || undefined;
+
+  const opts: ResolveImageKeyOptions =
+    defaultKeyMaybe !== undefined ? { defaultKey: defaultKeyMaybe } : {};
+
+  const rawSrc = typeof cover.src === 'string' ? cover.src : undefined;
+  return resolveImageKey(
+    coverType !== 'video' ? rawSrc : undefined,
+    post.id,
+    post.collection,
+    opts,
+  );
+}
+
+const resolvedArticleImageKey = resolveCoverImageKey();
+
+const backgroundImageCandidates = [
+  resolvedArticleImageKey,
+  defaultArticleImageKey,
+  ogFallbackKey,
+].filter((v, i, a): v is string => Boolean(v) && a.indexOf(v) === i);
+
+let backgroundImageSrc = '';
+let backgroundImageKey = backgroundImageCandidates[0] ?? 'none';
+
+for (const candidate of backgroundImageCandidates) {
+  const src = await toBackgroundImageSrc(candidate, finalWidth, finalHeight);
+  if (src) {
+    backgroundImageSrc = src;
+    backgroundImageKey = candidate;
+    break;
+  }
+}
+
+if (!backgroundImageSrc) {
+  log.warn(
+    { candidates: backgroundImageCandidates },
+    'No background resolved; using solid overlay only',
+  );
+  backgroundImageKey = 'none';
+}
 
 const ogimage = await getCachedOrGeneratePng(
   ogTitle,
@@ -337,6 +594,8 @@ const ogimage = await getCachedOrGeneratePng(
   finalWidth,
   finalHeight,
   format,
+  backgroundImageSrc,
+  backgroundImageKey,
 );
 ---
 
@@ -344,7 +603,9 @@ const ogimage = await getCachedOrGeneratePng(
   {
     (() => {
       const altText = alt ?? (post?.data?.title || 'unknown');
-      const abs = new URL(ogimage.src, Astro.site).toString();
+      const abs = Astro.site
+        ? new URL(ogimage.src, Astro.site).toString()
+        : ogimage.src;
 
       return (
         <>

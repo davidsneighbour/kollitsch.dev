@@ -31,6 +31,7 @@ import satori, { type SatoriOptions } from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
 import setup from '@data/setup.json' with { type: 'json' };
+import { formatDisplayDate } from '@utils/datetime';
 
 type OgFormat = 'png' | 'jpeg' | 'webp';
 
@@ -105,7 +106,7 @@ const CACHE_DIR = path.join(process.cwd(), 'public', 'og_image');
  */
 function buildOgOptions(width: number, height: number): SatoriOptions {
   return {
-    debug: true,
+    //debug: true,
     fonts: [
       { data: ChangaData, name: 'Changa', style: 'normal', weight: 400 },
       { data: Exo2Data, name: 'Exo 2', style: 'normal', weight: 300 },
@@ -286,22 +287,25 @@ function markup(
       />
       <div
         style="font-family:'Exo 2',sans-serif;"
-        tw="flex flex-col w-full h-full bg-[#282828]/60 text-[#999999]"
+        tw="flex flex-col w-full h-full bg-[#282828]/60 text-[#999999] text-xl"
       >
         <div tw="flex flex-col flex-1 w-full p-10 leading-none">
           <h1
-            style="font-family:'Changa',sans-serif;"
-            tw="text-6xl leading-snug text-white"
+            style="font-family:'Changa'"
+            tw="text-6xl leading-none text-white p-0 m-0"
           >
             ${title}
           </h1>
-          <p tw="text-xl">by ${setup.author.name}</p>
+          <p tw="p-0 m-0">by ${setup.author.name}</p>
         </div>
-        <div
-          tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl"
-        >
-          <p style="font-family:'Changa',sans-serif;">${setup.title}</p>
-          <p tw="text-2xl text-right">${dateHtml}</p>
+        <div tw="flex items-center justify-between w-full p-10 text-xl">
+          <p
+            tw="text-4xl leading-none"
+            style="font-family:'Changa'"
+          >
+            ${setup.title}
+          </p>
+          <p tw="text-right">${dateHtml}</p>
         </div>
       </div>
     </div>
@@ -324,13 +328,7 @@ const pubDate = isCollectionEntry ? post.data?.date : undefined;
 const rawDisplayDate = isCollectionEntry
   ? (post.data?.modified ?? post.data?.lastModified ?? post.data?.date)
   : undefined;
-
-const displayDate =
-  rawDisplayDate instanceof Date
-    ? rawDisplayDate.toISOString().slice(0, 10)
-    : typeof rawDisplayDate === 'string'
-      ? rawDisplayDate
-      : '';
+const displayDate = formatDisplayDate(rawDisplayDate);
 
 const ogimage = await getCachedOrGeneratePng(
   ogTitle,

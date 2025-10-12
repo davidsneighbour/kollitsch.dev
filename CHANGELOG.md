@@ -1,4 +1,44 @@
 # Changelog
+## [2025.15.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.14.1...v2025.15.0) (2025-10-12)
+
+
+### Features
+
+* **images:** update image index generation ([951ba92](https://github.com/davidsneighbour/kollitsch.dev/commit/951ba92bf30a55cdda785ac7bac956834cb9cc8d))
+
+
+### Content
+
+* **fix:** frontmatter fixes for image resources ([f5dd006](https://github.com/davidsneighbour/kollitsch.dev/commit/f5dd00626561afc7a2cc0e74eadc8a62f3536ede))
+* **new:** post of 2025-10-11 ([f8b76f5](https://github.com/davidsneighbour/kollitsch.dev/commit/f8b76f556d015cdb17f3446da76a8bec3749ff44))
+
+
+### Theme
+
+* **feat:** related posts for single post pages ([4886cb7](https://github.com/davidsneighbour/kollitsch.dev/commit/4886cb7b28dce7a0eb578e8f3c0e842cbe470f25))
+* **fix:** dateformat in og images ([8825cff](https://github.com/davidsneighbour/kollitsch.dev/commit/8825cff26c40715fe8602a6421fcd4744c7f89f3))
+* **fix:** encoding in title tag ([96c9a9a](https://github.com/davidsneighbour/kollitsch.dev/commit/96c9a9afb98d2903cce3fc5c64c6a63867d4ee62))
+* **fix:** encoding of headings ([cb0764c](https://github.com/davidsneighbour/kollitsch.dev/commit/cb0764ce62bdfe92209ef72709feee1fec7ee025))
+* **fix:** figcaptions always visible without hover effects ([869fd1f](https://github.com/davidsneighbour/kollitsch.dev/commit/869fd1f63e8741ba669a548786f89f2257f74fd9))
+* **fix:** move social media previews into a non-dotted place ([6abe5c0](https://github.com/davidsneighbour/kollitsch.dev/commit/6abe5c038126d0b9399ed651d51a352a332ddbd9))
+* **fix:** no date for list pages > no og image recreation ([a18bc79](https://github.com/davidsneighbour/kollitsch.dev/commit/a18bc798382a63be4a9d12f4886f079e85b5d1c1))
+* **fix:** positioning of date on og images ([5443c34](https://github.com/davidsneighbour/kollitsch.dev/commit/5443c34753f9b82ca23f61c02cc5445405106d7a))
+* **fix:** proper fallback for undefined youtube key ([2cff57b](https://github.com/davidsneighbour/kollitsch.dev/commit/2cff57b59f7cb9d7ac77ccb38f86699e071feb57))
+* **fix:** refactor open graph image generation ([cb51221](https://github.com/davidsneighbour/kollitsch.dev/commit/cb5122142ec81b9b106c3b17c0251e15df773050))
+* some unrelated refactoring and additional data ([29c49f8](https://github.com/davidsneighbour/kollitsch.dev/commit/29c49f85c3fe445c36adcea46bc198aa66c3c048))
+
+
+### Build System
+
+* **deps:** update dependencies ([12ef8c0](https://github.com/davidsneighbour/kollitsch.dev/commit/12ef8c0ba6157afe8d2e190053e86845882b5f6b))
+* **deps:** update site screenshot ([4b17833](https://github.com/davidsneighbour/kollitsch.dev/commit/4b17833657ad24d955a51fca2fd8329a75511e1d))
+
+
+### Chore
+
+* **deps:** update peter-evans/create-or-update-comment action to v5 ([#1448](https://github.com/davidsneighbour/kollitsch.dev/issues/1448)) ([9735d55](https://github.com/davidsneighbour/kollitsch.dev/commit/9735d55e71c16cc3e0d63f507330a0da3a27b7bb))
+* **git): revert "theme(feat:** related posts for single post pages" ([0a26e06](https://github.com/davidsneighbour/kollitsch.dev/commit/0a26e06730d53c0d0b1f4a807a37c7138fea9c73))
+
 ## [2025.14.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.14.0...v2025.14.1) (2025-10-10)
 
 

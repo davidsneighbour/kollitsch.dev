@@ -105,7 +105,7 @@ const CACHE_DIR = path.join(process.cwd(), 'public', 'og_image');
  */
 function buildOgOptions(width: number, height: number): SatoriOptions {
   return {
-    //debug: true,
+    debug: true,
     fonts: [
       { data: ChangaData, name: 'Changa', style: 'normal', weight: 400 },
       { data: Exo2Data, name: 'Exo 2', style: 'normal', weight: 300 },
@@ -270,9 +270,7 @@ function markup(
   height: number,
 ) {
   const hasDate = postDateDisplay.trim().length > 0;
-  const dateHtml = hasDate
-    ? '<p tw="text-2xl">' + postDateDisplay + '</p>'
-    : '';
+  const dateHtml = hasDate ? postDateDisplay : '';
 
   return html`
     <div
@@ -300,10 +298,10 @@ function markup(
           <p tw="text-xl">by ${setup.author.name}</p>
         </div>
         <div
-          tw="flex flex-0 items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl"
+          tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl"
         >
           <p style="font-family:'Changa',sans-serif;">${setup.title}</p>
-          ${dateHtml}
+          <p tw="text-2xl text-right">${dateHtml}</p>
         </div>
       </div>
     </div>

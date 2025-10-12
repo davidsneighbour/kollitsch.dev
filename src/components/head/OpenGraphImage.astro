@@ -24,20 +24,21 @@
  * @todo add support for custom template via setup.json
  */
 
-import fs from 'node:fs';
-import path from 'node:path';
-import crypto from 'node:crypto';
-import satori, { type SatoriOptions } from 'satori';
-import { html } from 'satori-html';
-import { Resvg } from '@resvg/resvg-js';
-import setup from '@data/setup.json' with { type: 'json' };
+import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
+import setup from "@data/setup.json" with { type: "json" };
+import { Resvg } from "@resvg/resvg-js";
+import { resolveImageKey } from "@utils/opengraph.ts";
+import satori, { type SatoriOptions } from "satori";
+import { html } from "satori-html";
 
-type OgFormat = 'png' | 'jpeg' | 'webp';
+type OgFormat = "png" | "jpeg" | "webp";
 
 /**
  * Props with defaults
  */
-interface Props extends PostProp<'blog'> {
+interface Props extends PostProp<"blog"> {
   /**
    * Width of the generated image in pixels (default: 1200)
    */
@@ -60,21 +61,21 @@ interface Props extends PostProp<'blog'> {
    * - `twitter`: a full `<meta name="twitter:image" content="...">` tag with subtags
    * - `url`: the full URL to the image (for use in meta tags with absolute URLs)
    */
-  return?: 'og' | 'path' | 'tag' | 'twitter' | 'url';
+  return?: "og" | "path" | "tag" | "twitter" | "url";
   format?: OgFormat;
 }
 const {
   post,
   width,
   height,
-  return: returnType = 'og',
+  return: returnType = "og",
   alt = post.data.title,
-  format = 'jpeg',
+  format = "jpeg",
 } = Astro.props;
 
 // conditional defaults
 const finalWidth = width ?? 1200;
-const finalHeight = height ?? (returnType === 'twitter' ? 675 : 630);
+const finalHeight = height ?? (returnType === "twitter" ? 675 : 630);
 
 /**
  * Our font for Satori
@@ -83,9 +84,9 @@ const finalHeight = height ?? (returnType === 'twitter' ? 675 : 630);
  *       can be used to set up fonts
  */
 const ChangaPath =
-  './node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff';
+  "./node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff";
 const Exo2Path =
-  './node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff'; // non-variable font
+  "./node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff"; // non-variable font
 
 /**
  * Read font data once at module load.
@@ -95,7 +96,45 @@ const ChangaData = fs.readFileSync(ChangaPath);
 const Exo2Data = fs.readFileSync(Exo2Path);
 
 // Cache directory: keep it out of git, easy to persist in CI.
-const CACHE_DIR = path.join(process.cwd(), 'public', 'og_image');
+const CACHE_DIR = path.join(process.cwd(), "public", "og_image");
+
+const REMOTE_IMAGE_REGEX = /^https?:\/\//i;
+const MIME_BY_EXTENSION: Record<string, string> = {
+  ".apng": "image/apng",
+  ".avif": "image/avif",
+  ".gif": "image/gif",
+  ".jfif": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".jpg": "image/jpeg",
+  ".pjp": "image/jpeg",
+  ".pjpeg": "image/jpeg",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".webp": "image/webp",
+};
+
+function toBackgroundImageSrc(key: string): string | null {
+  if (!key) return null;
+  if (REMOTE_IMAGE_REGEX.test(key)) return key;
+
+  const relative = key.replace(/^\/+/, "");
+  const filePath = path.join(process.cwd(), relative);
+
+  if (!fs.existsSync(filePath)) {
+    console.warn(`[og] Background image not found: ${filePath}`);
+    return null;
+  }
+
+  try {
+    const file = fs.readFileSync(filePath);
+    const ext = path.extname(relative).toLowerCase();
+    const mime = MIME_BY_EXTENSION[ext] ?? "image/jpeg";
+    return `data:${mime};base64,${file.toString("base64")}`;
+  } catch (error) {
+    console.error(`[og] Failed to read background image: ${filePath}`, error);
+    return null;
+  }
+}
 
 /**
  * Build Satori options for a given size.
@@ -107,8 +146,8 @@ function buildOgOptions(width: number, height: number): SatoriOptions {
   return {
     //debug: true,
     fonts: [
-      { data: ChangaData, name: 'Changa', style: 'normal', weight: 400 },
-      { data: Exo2Data, name: 'Exo 2', style: 'normal', weight: 300 },
+      { data: ChangaData, name: "Changa", style: "normal", weight: 400 },
+      { data: Exo2Data, name: "Exo 2", style: "normal", weight: 300 },
     ],
     height,
     width,
@@ -123,7 +162,7 @@ function ensureCacheDir(): void {
   try {
     if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
   } catch (e) {
-    console.error('[og] ensureCacheDir failed', e);
+    console.error("[og] ensureCacheDir failed", e);
     throw e;
   }
 }
@@ -133,21 +172,21 @@ type OgImageResult = {
   width: number;
   height: number;
   format: OgFormat;
-  mime: 'image/png' | 'image/jpeg' | 'image/webp';
+  mime: "image/png" | "image/jpeg" | "image/webp";
 };
 
 function extFor(format: OgFormat) {
-  return format === 'jpeg' ? 'jpg' : format; // jpg for file system
+  return format === "jpeg" ? "jpg" : format; // jpg for file system
 }
 
-function mimeFor(format: OgFormat): OgImageResult['mime'] {
+function mimeFor(format: OgFormat): OgImageResult["mime"] {
   switch (format) {
-    case 'jpeg':
-      return 'image/jpeg';
-    case 'webp':
-      return 'image/webp';
+    case "jpeg":
+      return "image/jpeg";
+    case "webp":
+      return "image/webp";
     default:
-      return 'image/png';
+      return "image/png";
   }
 }
 
@@ -155,22 +194,22 @@ async function optimizeWithSharp(
   inputPngBuffer: Uint8Array,
   format: OgFormat,
 ): Promise<Buffer> {
-  const sharp = (await import('sharp')).default;
+  const sharp = (await import("sharp")).default;
 
   const image = sharp(inputPngBuffer);
 
   switch (format) {
-    case 'png':
+    case "png":
       // Smaller PNGs: palette reduces to 8-bit where possible
       return image
         .png({ compressionLevel: 9, effort: 10, palette: true })
         .toBuffer();
 
-    case 'jpeg':
+    case "jpeg":
       // Great default for photo backgrounds
-      return image.jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+      return image.jpeg({ mozjpeg: true, quality: 82 }).toBuffer();
 
-    case 'webp':
+    case "webp":
       // Often even smaller than JPEG; OG/Twitter generally fine, but YMMV on some scrapers
       return image.webp({ quality: 80 }).toBuffer();
   }
@@ -191,10 +230,11 @@ function generateContentHash(
   width: number,
   height: number,
   format: OgFormat,
+  imageKey: string,
 ): string {
-  const base = `${title}-${width}x${height}-${format}`;
+  const base = `${title}-${width}x${height}-${format}-${imageKey}`;
   const content = pubDate ? `${base}-${pubDate.toISOString()}` : base; // <-- DEFAULT-IMAGE-HOOK (no date)
-  return crypto.createHash('sha256').update(content).digest('hex').slice(0, 16);
+  return crypto.createHash("sha256").update(content).digest("hex").slice(0, 16);
 }
 
 /**
@@ -207,6 +247,8 @@ async function getCachedOrGeneratePng(
   width: number,
   height: number,
   format: OgFormat, // NEW
+  backgroundSrc: string,
+  imageKey: string,
 ): Promise<OgImageResult> {
   ensureCacheDir();
 
@@ -216,14 +258,21 @@ async function getCachedOrGeneratePng(
     width,
     height,
     format,
+    imageKey,
   );
   const fileName = `${contentHash}.${extFor(format)}`;
   const fileFsPath = path.join(CACHE_DIR, fileName);
   const fileWebPath = `/og_image/${fileName}`;
 
   if (fs.existsSync(fileFsPath)) {
-    console.log('[og] Using cache:', fileFsPath);
-    return { src: fileWebPath, width, height, format, mime: mimeFor(format) };
+    console.log("[og] Using cache:", fileFsPath);
+    return {
+      format,
+      height,
+      mime: mimeFor(format),
+      src: fileWebPath,
+      width,
+    };
   }
 
   console.log(
@@ -232,17 +281,17 @@ async function getCachedOrGeneratePng(
   let svg: string;
   try {
     svg = await satori(
-      markup(title, postDateDisplay, width, height),
+      markup(title, postDateDisplay, width, height, backgroundSrc),
       buildOgOptions(width, height),
     );
   } catch (e) {
-    console.error('[og] Satori render failed', e);
+    console.error("[og] Satori render failed", e);
     throw e;
   }
 
   try {
     // 1) Render base PNG via Resvg
-    const renderedPng = new Resvg(svg, { fitTo: { mode: 'original' } })
+    const renderedPng = new Resvg(svg, { fitTo: { mode: "original" } })
       .render()
       .asPng();
 
@@ -251,11 +300,17 @@ async function getCachedOrGeneratePng(
 
     fs.writeFileSync(fileFsPath, optimized);
   } catch (e) {
-    console.error('[og] Render/optimize/write failed', e);
+    console.error("[og] Render/optimize/write failed", e);
     throw e;
   }
 
-  return { src: fileWebPath, width, height, format, mime: mimeFor(format) };
+  return {
+    format,
+    height,
+    mime: mimeFor(format),
+    src: fileWebPath,
+    width,
+  };
 }
 
 /**
@@ -268,24 +323,30 @@ function markup(
   postDateDisplay: string,
   width: number,
   height: number,
+  backgroundSrc: string,
 ) {
   const hasDate = postDateDisplay.trim().length > 0;
   const dateHtml = hasDate
-    ? '<p tw="text-2xl">' + postDateDisplay + '</p>'
-    : '';
+    ? '<p tw="text-2xl">' + postDateDisplay + "</p>"
+    : "";
 
   return html`
     <div
       style="display:contents;"
       tw="relative w-full h-full"
     >
-      <img
-        src="https://images.unsplash.com/photo-1759338069275-333580793462"
+      ${
+        backgroundSrc
+          ? `<img
+        alt=""
+        src="${backgroundSrc}"
         width="${width}"
         height="${height}"
         style="position:absolute;top:0;left:0;width:100%;height:100%;
               object-fit:cover;object-position:center;"
-      />
+      />`
+          : ""
+      }
       <div
         style="font-family:'Exo 2',sans-serif;"
         tw="flex flex-col w-full h-full bg-[#282828]/60 text-[#999999]"
@@ -314,12 +375,12 @@ function markup(
 // - title "unknown" when post.data missing
 // - no dates in hash/markup when post.data missing
 const isCollectionEntry =
-  typeof post?.id === 'string' &&
+  typeof post?.id === "string" &&
   post.id.length > 0 &&
-  typeof post?.collection === 'string' &&
+  typeof post?.collection === "string" &&
   post.collection.length > 0;
 
-const ogTitle = post.data?.title ?? 'unknown';
+const ogTitle = post.data?.title ?? "unknown";
 
 const pubDate = isCollectionEntry ? post.data?.date : undefined;
 
@@ -330,9 +391,46 @@ const rawDisplayDate = isCollectionEntry
 const displayDate =
   rawDisplayDate instanceof Date
     ? rawDisplayDate.toISOString().slice(0, 10)
-    : typeof rawDisplayDate === 'string'
+    : typeof rawDisplayDate === "string"
       ? rawDisplayDate
-      : '';
+      : "";
+
+const defaultArticleImageKey = (setup.images?.default ?? "").trim();
+
+let resolvedArticleImageKey = "";
+if (isCollectionEntry) {
+  resolvedArticleImageKey = resolveImageKey(
+    post?.data?.articleimage,
+    post.id,
+    post.collection,
+    { defaultKey: defaultArticleImageKey || undefined },
+  );
+}
+
+const backgroundImageCandidates = [
+  resolvedArticleImageKey,
+  defaultArticleImageKey,
+].filter(
+  (value, index, array): value is string =>
+    Boolean(value) && array.indexOf(value) === index,
+);
+
+let backgroundImageSrc = "";
+let backgroundImageKey = backgroundImageCandidates[0] ?? "none";
+
+for (const candidate of backgroundImageCandidates) {
+  const src = toBackgroundImageSrc(candidate);
+  if (src) {
+    backgroundImageSrc = src;
+    backgroundImageKey = candidate;
+    break;
+  }
+}
+
+if (!backgroundImageSrc) {
+  console.warn("[og] Falling back to solid background: no image resolved.");
+  backgroundImageKey = "none";
+}
 
 const ogimage = await getCachedOrGeneratePng(
   ogTitle,
@@ -341,6 +439,8 @@ const ogimage = await getCachedOrGeneratePng(
   finalWidth,
   finalHeight,
   format,
+  backgroundImageSrc,
+  backgroundImageKey,
 );
 ---
 

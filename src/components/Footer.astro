@@ -12,6 +12,8 @@ import patrickkollitsch from '@assets/images/patrick-kollitsch.png';
 import { Image } from 'astro:assets';
 import Link from '@components/Link.astro';
 
+export interface Props {}
+
 const adjust = 1.9;
 const titleLength = setup.title.length;
 const titleFontSize = Math.floor((100 / titleLength) * adjust);

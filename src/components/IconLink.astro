@@ -5,13 +5,13 @@ import type { IconName } from '@utils/icon-names';
 
 type IconPosition = 'prefix' | 'postfix';
 
-type Props = {
+export interface Props extends HTMLAttributes<'a'> {
   icon: IconName;
   type?: IconPosition;
   linkClass?: string;
   class?: string;
   translate?: boolean;
-} & HTMLAttributes<'a'>;
+}
 
 const {
   type = 'prefix',

@@ -6,7 +6,7 @@ import { resolveCover } from '@utils/images';
 import { getTailwindSizes } from '@utils/tailwind';
 import { Picture } from 'astro:assets';
 
-interface Props {
+export interface Props {
   post: CollectionEntry<'blog'>;
   link?: string;
   classes?: string;

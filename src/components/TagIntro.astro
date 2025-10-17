@@ -1,7 +1,18 @@
 ---
 import Heading from './Heading.astro';
 
-const { title, description, image } = Astro.props;
+export interface Props {
+  title: string;
+  description?: string;
+  image?: {
+    src: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+  };
+}
+
+const { title, description, image }: Props = Astro.props;
 ---
 
 <section class="mb-8">

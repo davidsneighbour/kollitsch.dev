@@ -1,13 +1,13 @@
 ---
 import type { ImageMetadata } from 'astro';
 
-interface Props {
+export interface Props {
   src: ImageMetadata | string;
   alt: string;
   caption?: string;
 }
 
-const { src, alt, caption } = Astro.props;
+const { src, alt, caption }: Props = Astro.props;
 
 const svgUrl = typeof src === 'string' ? src : src.src;
 ---

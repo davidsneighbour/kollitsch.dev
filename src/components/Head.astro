@@ -22,7 +22,7 @@ type PostLike = MarkdownInstance<Record<string, unknown>> & {
   };
 };
 
-interface Props {
+export interface Props {
   readonly post?: PostLike; // no type argument here
   readonly frontmatter?: Record<string, unknown>;
 }

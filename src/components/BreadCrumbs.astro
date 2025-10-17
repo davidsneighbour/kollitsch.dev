@@ -1,10 +1,14 @@
 ---
 import { getBreadcrumbs } from '@utils/content';
-
-const { path } = Astro.props;
-const breadcrumbs = await getBreadcrumbs(path);
 import BreadcrumbListSchema from './schema/BreadcrumbList.astro';
 import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  path: string;
+}
+
+const { path }: Props = Astro.props;
+const breadcrumbs = await getBreadcrumbs(path);
 // @todo the home button should not be aria-hidden and have a label. Icon component needs some fine tuning.
 ---
 

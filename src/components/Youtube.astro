@@ -1,5 +1,10 @@
 ---
-const { video, label } = Astro.props;
+export interface Props {
+  video: string;
+  label: string;
+}
+
+const { video, label }: Props = Astro.props;
 ---
 
 <lite-youtube

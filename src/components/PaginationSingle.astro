@@ -3,10 +3,10 @@ import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
-interface Props {
+export interface Props {
   post: CollectionEntry<'blog'>;
 }
-const { post } = Astro.props;
+const { post }: Props = Astro.props;
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = [...allPosts].sort(

@@ -1,10 +1,17 @@
 ---
-const { post } = Astro.props;
+import type { CollectionEntry } from 'astro:content';
+
 import PublishData from '@components/meta/PublishData.astro';
 import Tags from '@components/meta/Tags.astro';
 import Share from '@components/meta/Share.astro';
 import Github from '@components/meta/Github.astro';
 import Heading from '@components/Heading.astro';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
 ---
 
 <Heading level={2}>Meta Information</Heading>

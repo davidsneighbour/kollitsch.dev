@@ -2,6 +2,9 @@
 
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { load } from 'cheerio';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { expect, test } from 'vitest';
 import Heading from './Heading.astro';
 
@@ -101,4 +104,14 @@ test('Wraps title with <a> if link is provided', async () => {
   expect(a).toHaveLength(1);
   expect(a.attr('href')).toBe('/somewhere');
   expect(a.text().trim()).toBe('Linked Title');
+});
+
+test('exports a Props interface/type', async () => {
+  const testDir = path.dirname(fileURLToPath(import.meta.url));
+  const componentPath = path.join(testDir, 'Heading.astro');
+
+  const src = await fs.readFile(componentPath, 'utf8');
+
+  const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
+  expect(regex.test(src)).toBe(true);
 });

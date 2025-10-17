@@ -1,7 +1,13 @@
 ---
 // @see https://schema.org/BreadcrumbList
+import type { BreadcrumbItem } from '@utils/content';
 import { toBreadcrumbSchema } from '@utils/content';
-const { items } = Astro.props;
+
+export interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items }: Props = Astro.props;
 
 let schema = {
   '@context': 'https://schema.org',

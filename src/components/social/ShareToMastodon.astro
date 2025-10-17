@@ -1,6 +1,6 @@
 ---
-interface Props extends PostProp<'blog'> {}
-const { post } = Astro.props;
+export interface Props extends PostProp<'blog'> {}
+const { post }: Props = Astro.props;
 ---
 
 <mastodon-share

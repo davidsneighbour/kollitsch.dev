@@ -1,6 +1,13 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 import { hasComponent } from '@utils/component';
-const { post } = Astro.props;
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
 
 const hasLiteYoutube = hasComponent(post, 'lite-youtube');
 const hasColorGrid = hasComponent(post, 'color-grid');

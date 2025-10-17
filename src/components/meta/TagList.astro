@@ -2,7 +2,11 @@
 import type { NormalizedTag } from '@utils/tags';
 import { tagUrl } from '@utils/tags';
 
-const { tags } = Astro.props as { tags: NormalizedTag[] };
+export interface Props {
+  tags: NormalizedTag[];
+}
+
+const { tags }: Props = Astro.props;
 ---
 
 <ul class="flex flex-wrap gap-2">

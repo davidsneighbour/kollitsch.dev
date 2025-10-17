@@ -1,9 +1,15 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 import { Icon } from 'astro-icon/components';
 import { formatDate, getVSCodeUrlById } from '@utils/content';
 import IconLink from '@components/IconLink.astro';
 
-const { post } = Astro.props;
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
 const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
 const date = new Date(post.data.date);

@@ -1,5 +1,9 @@
 ---
-const { class: className = '' } = Astro.props;
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' }: Props = Astro.props;
 ---
 
 <div class={className}>

@@ -5,7 +5,7 @@ import type { Props as HeadingProps } from '@components/Heading.astro';
 import Heading from '@components/Heading.astro';
 import { getPageDateNote } from '@utils/content';
 
-interface Props extends HeadingProps {
+export interface Props extends HeadingProps {
   title: string;
   posts: CollectionEntry<'blog'>[];
 }

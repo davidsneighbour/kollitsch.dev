@@ -1,6 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
 
+export interface Props {
+  href?: string;
+  name?: string;
+  classes?: string;
+  theme?: 'primary' | 'secondary' | 'contrast';
+  size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
+  disabled?: boolean;
+  outline?: boolean;
+  block?: boolean;
+}
+
 const {
   href,
   name,
@@ -10,7 +21,7 @@ const {
   disabled = false,
   outline = true,
   block = false,
-} = Astro.props;
+}: Props = Astro.props;
 
 /**
  * Returns layout utility class if block mode is enabled.

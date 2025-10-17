@@ -3,6 +3,8 @@ import { getImage } from 'astro:assets';
 import faviconSrc from '@assets/favicon/favicon.png';
 import faviconSvgSrc from '@assets/favicon/favicon.svg';
 
+export interface Props {}
+
 const appleTouchIcon = await getImage({
   src: faviconSrc,
   attributes: {

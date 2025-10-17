@@ -1,9 +1,15 @@
 ---
-const { post } = Astro.props;
+import type { CollectionEntry } from 'astro:content';
 
 import { getGithubInfo } from '@utils/github';
-const github = getGithubInfo(post.filePath);
 import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
+const github = getGithubInfo(post.filePath);
 ---
 
 {

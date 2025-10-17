@@ -1,9 +1,15 @@
 ---
 // @see https://schema.org/BlogPosting
+import type { CollectionEntry } from 'astro:content';
+
 import setup from '@data/setup.json';
 import { formatISO8601Local } from '@utils/datetime';
 
-const { post } = Astro.props;
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',

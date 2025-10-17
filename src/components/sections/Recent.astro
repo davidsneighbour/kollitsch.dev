@@ -3,6 +3,9 @@ import ArticleCard from '@components/ArticleCard.astro';
 import Heading from '@components/Heading.astro';
 import { Icon } from 'astro-icon/components';
 import { getHomepagePosts } from '@utils/content';
+
+export interface Props {}
+
 const { featuredPost: _, recentPosts } = await getHomepagePosts();
 ---
 

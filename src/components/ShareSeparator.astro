@@ -2,13 +2,13 @@
 import { Icon } from 'astro-icon/components';
 import networks from '@content/social.json';
 
-interface Props {
+export interface Props {
   title: string;
   description: string;
   via?: string;
 }
 
-const shareNetworks = networks.filter((n) => n.share);
+const shareNetworks = networks.filter(n => n.share);
 const { title, description }: Props = Astro.props;
 
 type ShareVars = {

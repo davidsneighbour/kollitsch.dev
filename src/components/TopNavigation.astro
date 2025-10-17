@@ -28,11 +28,11 @@ if (!activeItem && import.meta.env.DEV) {
 // The theme on kollitsch.dev is managed by adding a `data-theme` attribute to
 // the `<html>` element which can have the values `light`, or `dark`
 
-type Props = {
+export interface Props {
   defaultTheme?: ThemeMode;
-};
+}
 
-const { defaultTheme = 'dark' } = Astro.props;
+const { defaultTheme = 'dark' }: Props = Astro.props;
 ---
 
 <header

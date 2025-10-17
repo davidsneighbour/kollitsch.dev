@@ -1,5 +1,5 @@
 {
   "devDependencies": {
-    "@humanwhocodes/crosspost": "0.17.0"
+    "@humanwhocodes/crosspost": "1.0.1"
   }
 }

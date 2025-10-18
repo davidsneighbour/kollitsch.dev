@@ -9,7 +9,8 @@ type BlogEntry =
   | (MarkdownInstance<Record<string, unknown>> & {
       data?: Record<string, unknown>;
     });
-interface Props {
+
+export interface Props {
   post?: BlogEntry;
 }
 

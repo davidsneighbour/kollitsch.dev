@@ -1,5 +1,5 @@
 import { writeFileSync } from 'node:fs';
-import { items } from './shared-config.js';
+import { items } from './shared-config.ts';
 
 writeFileSync(
   './src/config/shared-config.json',

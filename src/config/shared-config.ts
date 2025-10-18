@@ -11,6 +11,11 @@ export const items: ChangeType[] = [
     type: 'feat',
   },
   { description: 'Content changes', header: 'Content', type: 'content' },
+  {
+    description: 'Component and layout files',
+    header: 'Components',
+    type: 'component',
+  },
   { description: 'Theme changes', header: 'Theme', type: 'theme' },
   {
     description: 'Documentation only changes',

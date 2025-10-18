@@ -26,16 +26,11 @@
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
+    ],
+    "types": ["astro/client"],
+    "verbatimModuleSyntax": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "dist",
-    "scratch",
-    "src/scripts",
-    "src/config"
-  ],
-  "extends": "astro/tsconfigs/strictest"
+  "exclude": ["dist", "scratch", "src/scripts", "src/config"],
+  "extends": "astro/tsconfigs/strictest",
+  "include": ["src"]
 }

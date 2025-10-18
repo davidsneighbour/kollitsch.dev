@@ -36,7 +36,7 @@ const { post }: Props = Astro.props;
       link={`/blog/${post.id}/`}
       html={post.data.title}
     />
-    <BreadCrumbs path={post.filePath} />
+    <BreadCrumbs path={post.filePath ?? ''} />
     <Prose post={post} />
     <ShareSeparator
       title={post.data.title}

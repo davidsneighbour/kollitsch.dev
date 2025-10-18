@@ -8,6 +8,10 @@ export interface Props {
 }
 
 const { post }: Props = Astro.props;
+
+const canonicalUrl = Astro.url.toString();
+
+// @todo rework Props so we pass url, title, description instead of the whole post
 ---
 
 <div class="flex flex-row items-center justify-start gap-2">
@@ -19,7 +23,7 @@ const { post }: Props = Astro.props;
 
     <Icon name="linkedin" />
     <a
-      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(post.data.url)}`}
+      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"
       rel="noopener"
       >LinkedIn</a
@@ -27,7 +31,7 @@ const { post }: Props = Astro.props;
 
     <Icon name="facebook" />
     <a
-      href={`https://facebook.com/sharer/sharer.php?&u=${encodeURIComponent(post.data.url)}`}
+      href={`https://facebook.com/sharer/sharer.php?&u=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"
       rel="noopener"
       >Facebook</a
@@ -35,7 +39,7 @@ const { post }: Props = Astro.props;
 
     <Icon name="reddit" />
     <a
-      href={`https://www.reddit.com/submit?url=${encodeURIComponent(post.data.url)}&title=${encodeURIComponent(post.data.title)}`}
+      href={`https://www.reddit.com/submit?url=${encodeURIComponent(canonicalUrl)}&title=${encodeURIComponent(post.data.title)}`}
       target="_blank"
       rel="noopener"
       >Reddit</a

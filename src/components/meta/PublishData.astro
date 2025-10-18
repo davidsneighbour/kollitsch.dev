@@ -26,7 +26,11 @@ const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
   </div>
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Published: {formattedPublishDate}</span>
-    {post.lastUpdate && <span>(Last Modified: {post.data.lastUpdate})</span>}
+    {
+      post.data.lastModified && (
+        <span>(Last Modified: {post.data.lastModified})</span>
+      )
+    }
     {
       isDev && (
         <IconLink

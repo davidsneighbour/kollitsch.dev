@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const { post }: Props = Astro.props;
-const github = getGithubInfo(post.filePath);
+const github = post.filePath ? getGithubInfo(post.filePath) : null;
 ---
 
 {

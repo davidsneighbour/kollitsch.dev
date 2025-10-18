@@ -1,10 +1,16 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { MarkdownInstance } from 'astro';
 
 import { hasComponent } from '@utils/component';
 
-export interface Props {
-  post: CollectionEntry<'blog'>;
+type BlogEntry =
+  | CollectionEntry<'blog'>
+  | (MarkdownInstance<Record<string, unknown>> & {
+      data?: Record<string, unknown>;
+    });
+interface Props {
+  post?: BlogEntry;
 }
 
 const { post }: Props = Astro.props;

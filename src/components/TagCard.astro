@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-import SchemaBlogPost from '@components/schema/BlogPosting.astro';
 // import PostImage from '@components/PostImage.astro';
 import Button from '@components/Button.astro';
 
@@ -9,6 +8,7 @@ export interface Props {
   post: CollectionEntry<'tags'>;
 }
 const { post } = Astro.props;
+// @todo add schema for tag overview page
 ---
 
 <article
@@ -34,9 +34,8 @@ const { post } = Astro.props;
     <Button
       name="arrow-right"
       href={`/${post.collection}/${post.id}/`}
-      class="justify-self-end"
+      classes="justify-self-end"
       >Read more...</Button
     >
   </div>
 </article>
-<SchemaBlogPost post={post} />

@@ -10,6 +10,7 @@ export interface Props {
 const { path }: Props = Astro.props;
 const breadcrumbs = await getBreadcrumbs(path);
 // @todo the home button should not be aria-hidden and have a label. Icon component needs some fine tuning.
+// @todo handle empty paths (no breadcrumb here)
 ---
 
 <nav

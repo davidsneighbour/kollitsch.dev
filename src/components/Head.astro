@@ -1,5 +1,6 @@
 ---
 import type { MarkdownInstance } from 'astro';
+import type { CollectionEntry } from 'astro:content';
 import { createDefaultPost, resolvePostTitle } from '@utils/content';
 import setup from '@data/setup.json';
 
@@ -31,7 +32,7 @@ const { post: postProp, frontmatter }: Props = Astro.props;
 
 // never mutate incoming props; derive a safe post object
 const safePost = postProp?.data
-  ? postProp
+  ? (postProp as unknown as CollectionEntry<'blog'>)
   : ({ ...postProp, data: createDefaultPost(postProp) } as PostLike);
 
 /**

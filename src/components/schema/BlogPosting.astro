@@ -27,8 +27,8 @@ const schema = {
   ...(post.data.date && {
     datePublished: formatISO8601Local(post.data.date),
   }),
-  ...(post.data.updateDate && {
-    dateModified: formatISO8601Local(post.data.updateDate),
+  ...(post.data.lastModified && {
+    dateModified: formatISO8601Local(post.data.lastModified),
   }),
 };
 ---

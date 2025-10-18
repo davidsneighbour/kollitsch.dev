@@ -1,213 +1,95 @@
-# Copilot instructions
+# Copilot instructions (concise)
 
-## Repository overview
+This repo is *kollitsch.dev* — an Astro + Tailwind + TypeScript site and digital garden. Use the notes below to act quickly and safely.
 
-This repository is **kollitsch.dev** - a personal website and digital garden built with **Astro 5.10+** and **Tailwind CSS 4.1+**. The site serves as a blog, documentation platform, and reference for web development topics.
+Core facts
+- Astro (TypeScript), Tailwind CSS, ESM imports.
+- Node: see `.nvmrc` (Node 24). Install deps with `npm install`.
+- External APIs: `YOUTUBE_API_KEY` and GitHub tokens affect `build` and `check`. For local work set `.env` with `YOUTUBE_API_KEY=fake_key_for_testing`.
 
-**Key statistics:**
-- ~1,000 lines of TypeScript/JavaScript/Astro code across ~50 source files
-- ~347 content files (blog posts, data files)
-- Medium-sized project with extensive tooling and automation
-- Static site generation with dynamic content loading
+Architecture
+- Output: Astro generates static HTML (`output: 'static'`).
+- Content: Markdown/MDX in `src/content/`, typed by `content.config.ts`. `astro:content` + `src/utils/content.ts` provide helpers (breadcrumbs, homepage feed, defaults).
+- Integrations: `src/scripts/` contains data-sync scripts (YouTube, GitHub) used by CI or run manually; they require env tokens.
+- Search: `pagefind` is configured in `astro.config.ts` and builds a client-side index at build time.
+- Dev server: `npm run dev` runs Vite. `astro.config.ts` registers `watchExtraFiles` to watch `src/assets/images` and `src/content/blog`; adding/removing files triggers a full reload.
+- CI: workflows build the static site and run Playwright e2e against the preview.
 
-**Tech stack:**
-- **Frontend:** Astro (latest), Tailwind CSS (latest), TypeScript
-- **Content:** Markdown/MDX with front matter, JSON data files
-- **Testing:** Vitest (unit tests), Playwright (e2e tests)
-- **Linting:** ESLint (flat config), Biome, Stylelint, Markdownlint
-- **Automation:** GitHub Actions, pre-commit hooks, Wireit for task orchestration
 
-## Build and development workflow
+Key commands
+- `npm test` — Vitest unit tests. Tests are co-located with components.
+- `npm run dev` — dev server.
+- `npm run build` / `npm run preview` — production build and preview (requires API tokens for some scripts).
+- `npm run test:e2e` — Playwright e2e (run after build).
+- Lint/format: `npm run biome:check`, `npm run biome:lint`, `npm run prettier:check`/`fix`.
 
-### Core requirements
+Project-specific patterns
+- Vitest tests live next to components and must start with `// @vitest-environment node`.
+- Run TS helper scripts with `npx tsx` (not `node`).
+- Prefer ESM `import`/`export`.
+- Don't change trailing-comma style.
 
-**Always install dependencies first:**
-```bash
-npm install
-```
+Files to inspect when working on a feature
+- `astro.config.ts`, `package.json`, `vitest.config.js`, `playwright.config.ts` — tooling and task entrypoints.
+- `src/components/` — UI components and co-located tests.
+- `src/content/` and `content.config.ts` — content collections and frontmatter handling.
+- `src/scripts/` — project scripts that may be run with `tsx`.
 
-**Essential environment setup:**
-- Node.js version defined in `.nvmrc` (currently 24)
-- Create `.env` file with at minimum: `YOUTUBE_API_KEY=fake_key_for_testing` (required for build to succeed in local environments)
-- Optional but recommended: `DEBUG_FRONTMATTER=true`
+CI and PR expectations
+- Unit tests run on PRs (`.github/workflows/tests.yml`). Make sure `npm test` passes locally.
+- Pre-commit hooks via `lint-staged` and simple-git-hooks enforce formatting and secret checks. Run the linter/formatter early to avoid noisy CI failures.
 
-### Development commands (in order of importance)
+Quick examples
+- Add a component: create `src/components/MyThing.astro` and `src/components/MyThing.test.ts` (test must include `// @vitest-environment node`).
+- If APIs are missing, set `YOUTUBE_API_KEY=fake_key_for_testing` in `.env` and run `npm run dev` for local work.
 
-| Command | Purpose | Notes |
-|---------|---------|-------|
-| `npm run dev` | Start dev server at localhost:4321 | May fail without YouTube/GitHub API keys but partially works |
-| `npm run build` | Build production site | **Will fail** without YouTube API key in sandboxed environments |
-| `npm run preview` | Preview built site | Requires successful build first |
-| `npm run test` | Run Vitest unit tests | **Works reliably** - no external dependencies |
-| `npm run test:e2e` | Run Playwright e2e tests | Requires build first, may fail due to external APIs |
-| `npm run check` | Astro TypeScript check | **Will fail** without YouTube API key |
+Do / Don't (short)
+- Do run `npm test` before opening PRs. Focus on unit tests for rapid validation.
+- Do use `npx tsx` for TS scripts and ESM imports for code edits.
+-- Don't run `npm run build` or `npm run check` in a sandboxed environment without API keys — they will fail and slow iteration.
 
-### Linting and formatting commands
+If something is ambiguous
+- Point to the specific file (path + brief intent). The repo prefers concrete, small patches and co-located unit tests — include one when changing behavior.
 
-**Critical for PR acceptance:**
-- `npm run biome:check` - Biome linting/formatting (may show many existing issues - this is normal)
-- `npm run biome:lint` - Apply Biome fixes
-- `npm run prettier:check` / `npm run prettier:fix` - Prettier formatting
-- Pre-commit hooks run automatically via lint-staged (see `.lintstagedrc.js`)
+Feedback request
+- If any important build step, script path, or convention is missing from this short guide, tell me which area to expand and I will iterate.
 
-### Build dependencies and limitations
+Integration table (scripts and required env)
+ - `src/scripts/*youtube*.ts` or `src/scripts/youtube-*.ts` — requires `YOUTUBE_API_KEY` (set in `.env`). Without it `npm run build` or `npm run check` may fail.
+ - `src/scripts/*github*.ts` — scripts that interact with releases or repo data require a GitHub token (GH_TOKEN or GITHUB_TOKEN) in CI.
+ - `src/scripts/verify-sitemap.ts` — run with `npx tsx` for quick checks: `npx tsx src/scripts/verify-sitemap.ts --sitemap-index <url> --delay-ms 1000`.
+ - `src/scripts/blogroll-screenshots.ts` — used by workflows to generate images; example invocation in `.github/workflows/update-blogroll.yml`.
 
-**External API dependencies that cause failures in sandboxed environments:**
-1. **YouTube API** (`YOUTUBE_API_KEY`) - Required for content syncing from YouTube playlists
-2. **GitHub API tokens** - For GitHub releases integration
+Developer quickstart (minimal)
+ 1. Install deps: `npm install` (Node version from `.nvmrc`, Node 24 recommended).
+ 2. Create `.env` with at least: `YOUTUBE_API_KEY=fake_key_for_testing` for local iterations that touch build integrations.
+ 3. Start dev server: `npm run dev` (Vite dev server; content changes will hot reload, added images trigger full reload).
+ 4. Run tests: `npm test` (Vitest unit tests; fast and reliable).
 
-**Workarounds for development:**
-- Set `YOUTUBE_API_KEY=fake_key_for_testing` in `.env` for local development
-- Build/dev commands will show warnings but may partially work
-- Focus on unit tests (`npm test`) which work reliably without external APIs
+Content and data flow (one-paragraph)
+ - Authors write Markdown/MDX in `src/content/` using frontmatter defined in `content.config.ts`. At build time Astro's content collection system (`astro:content`) loads these entries. Utilities in `src/utils/content.ts` transform and provide site data (breadcrumbs, homepage posts, defaults). Templates and components in `src/layouts/` and `src/components/` render pages. During build `pagefind` (configured in `astro.config.ts`) indexes the generated pages to create a client-side search index. Auxiliary scripts under `src/scripts/` may fetch or sync external data (YouTube, GitHub) before or during builds.
 
-**Time requirements:**
-- `npm install`: ~30-60 seconds
-- `npm test`: ~5-10 seconds
-- `npm run build`: 60-120 seconds (when working)
-- Linting commands: 10-30 seconds
+Watcher & dev reload details
+ - The project registers a small Vite plugin (see `watchExtraFiles` in `astro.config.ts`) that watches `src/assets/images` and `src/content/blog`. Adding or removing files in those locations triggers a full reload because the static output depends on their presence.
 
-## Project architecture and layout
+CI / PR checklist (concise)
+ - Run `npm test` locally and include test results in PR if failing.
+ - Run `npm run biome:check` and `npm run prettier:check` to avoid lint/format failures.
+ - If your change touches scripts or integrations, note required env vars in PR and consider adding a small test or run instruction.
+ - Do not rely on `npm run build` in sandboxed environments unless required API keys are available; CI will run full builds.
 
-### Key directories and files
+Agent contract for changes (what an automated agent should include in a PR)
+ - Inputs: list files changed, primary intent (1 sentence), env variables required to validate (e.g., `YOUTUBE_API_KEY`).
+ - Outputs: tests that should pass (`npm test`) and a short smoke-check (e.g., `npx tsx src/scripts/verify-sitemap.ts` if relevant).
+ - Error modes: missing API keys, permission errors from GitHub, long-running script timeouts. Add notes and fallback behavior where appropriate.
 
-**Configuration files (repository root):**
-- `astro.config.js` - Astro framework configuration
-- `eslint.config.js` - ESLint flat configuration
-- `biome.jsonc` - Biome linter/formatter config
-- `vitest.config.js` - Vitest test configuration
-- `playwright.config.ts` - Playwright e2e test configuration
-- `package.json` - Dependencies and scripts (managed by Wireit)
-- `.nvmrc` - Node.js version (24)
+Troubleshooting (common fixes)
+ - Build or check fails referencing YouTube: set `YOUTUBE_API_KEY=fake_key_for_testing` in `.env` for local work.
+ - TypeScript helper scripts in `src/scripts/` may use modern ESM/TS features: run them with `npx tsx` rather than `node`.
+ - Biome lint output is noisy; focus on changed files and run `npm run biome:lint` to auto-fix formatting for your edits.
 
-**Source structure (`src/` directory):**
-```
-src/
-├── components/          # Astro components (.astro files)
-│   ├── *.test.ts       # Vitest unit tests (co-located)
-│   └── development/    # Dev-only components
-├── content/            # Content collections
-│   ├── blog/          # Blog posts (Markdown with frontmatter)
-│   └── *.json         # Data files (blogroll, social links, tags)
-├── layouts/           # Astro layouts
-├── pages/             # Astro pages (file-based routing)
-├── assets/            # Static assets, images, styles
-├── utils/             # TypeScript utilities
-├── config/            # Tool configurations
-├── scripts/           # Build and utility scripts
-└── test/              # Playwright e2e tests (*.spec.ts)
-```
-
-### GitHub workflows and CI/CD
-
-**Validation pipelines (`.github/workflows/`):**
-- `tests.yml` - Vitest unit tests (runs on every PR)
-- `tests-e2e.yml` - Playwright e2e tests (weekly schedule only)
-- `link-check.yml` - Link validation
-- Other maintenance workflows (screenshots, dependency updates)
-
-**Pre-commit validation:**
-- Runs automatically via `simple-git-hooks` and `lint-staged`
-- Validates Markdown, runs secretlint, formats code with Biome
-- See `.lintstagedrc.js` for complete pipeline
-
-### Testing strategy
-
-**Unit tests (Vitest):**
-- Located next to components: `src/components/ComponentName.test.ts`
-- **Must include** `// @vitest-environment node` as first line
-- Run with: `npm test`
-- **Always works** - no external dependencies
-
-**E2E tests (Playwright):**
-- Located in: `src/test/*.spec.ts`
-- Requires built site to test against
-- Run with: `npm run test:e2e`
-- **May fail** due to build requirements
-
-### Development recommendations
-
-**For making code changes:**
-1. **Always run `npm test` first** to validate current state
-2. Use TypeScript scripts with `npx tsx script.ts` (not `node script.ts`)
-3. Pre-commit hooks will catch most formatting issues
-4. Focus on unit tests for validation rather than build/e2e tests
-
-**Common pitfalls:**
-- Don't try to run `npm run build` or `npm run check` in sandboxed environments without API keys
-- Biome will report many existing linting issues - this is normal, focus on your changes
-- TypeScript files in `/src/scripts/` need `tsx` to run, not `node`
-
-**Trust these instructions:** The build process has specific external dependencies that are documented here. Only search for additional information if these instructions are incomplete or incorrect.
-
-## Sentiment
-
-- Don't validate my ideas by default, but rather challenge them. Provide constructive feedback and alternative solutions. Point out weak logic, lazy assumptions, or potential pitfalls in my requests.
-- Always ask for clarification if the request is not clear and ask follow-up questions that go deeper than the surface level of my request. Make me clarify, specify, and refine my requests.
-- Play devil's advocate when neccessary, especially if the request seems to be based on a misunderstanding or an incorrect assumption. Argue with me and make me defend my requests clearly, with logic and reasoning.
-- If I am being vague, generic, or abstract, pause me and ask for more specific details. Help me to clarify my request by asking targeted questions until we arrive at a clear and actionable request.
-- Do not add unrequired features or complexity to the solution. If I want to re-invent the wheel, let's stop when the wheel is round and do not add "an app for that".
-- Do not make me feel good, you are here to help me improve and think better. If I am wrong then tell me clearly and explain why.
-- Research and check the latest documentation for the tools we use and assume that we are using the latest versions of the tools.
-
-## General instructions
-
-- Always add and keep excessive comments.
-- In JavaScript code use ESM format (export/import) instead of any AMD code.
-- In JavaScript code refactoring change from AMD to ESM where possible.
-- Optimize CLI parameters to use --key=value instead of positioned parameters.
-- If a script is run on a single file or directory keep the name as string without --key=value syntax at the end of the command.
-- Use `--help` as parameter to display usage information for all scripts and tools.
-
-## Language and style
-
-- Answer and write in English if not explicitly stated otherwise.
-- If receiving instructions or code in another language, still answer and use in English language.
-- Use a conversational tone in explanations.
-- Avoid using emojis (especially in code comments, documentation, and outputs).
-
-## General writing style
-
-- Concise and direct introductions, often referencing an issue or personal experience.
-- Minimal but structured headings, avoiding excessive headlines.
-- Short paragraphs for readability.
-- Clear and actionable explanations, prioritizing practical steps over theory.
-- Bullet points for processes and summaries, keeping lists concise.
-- Limited use of separators like `---`, ensuring a smooth reading flow.
-- Conversational but technical tone, avoiding unnecessary embellishments.
-- Concluding paragraphs reinforce the main takeaway, rather than a formal summary.
-
-## Technical and formatting preferences
-
-- Astro & Web Development: Uses structured front matter and automation for efficiency.
-- Node.js & Bash Scripts: Optimized for sequential execution and automation.
-- JavaScript & TypeScript: Always uses ESM syntax (`import` over `require`).
-- Markdown & Typographic Rules:
-  - `'` instead of `` ` `` (backticks).
-  - `"` instead of typographic quotation marks.
-  - No emojis.
-  - `*` for list items.
-  - `*` for emphasis, `**` for strong text.
-  - Normal punctuation instead of regional or typographic markers.
-- Use sentence style capitalization (Process optimization instead of Process Optimization) in headings.
-- We use:
-  - Astro in the latest version (5.10+)
-  - Tailwind CSS in the latest version (4.1+)
-
-## Linting and code formatting
-
-- DO NOT suggest to add or remove trailing commas in JavaScript or TypeScript code.
-- we use ESLint in the latest version with a flat configuration
-
-## Testing
-
-- Testing is done via Vitest and Playwright.
-
-### Vitest
-
-- Vitest test files are located next to the component source files, with the same name but ending in `.test.ts` (for instance `src/components/Heading.astro` and `src/components/Heading.test.ts`).
-- Vitest test files must contain the line `// @vitest-environment node` as the first line to ensure they run in a Node.js environment and not with JSDom.
-
-### Playwright
-
-- Playwright test files are located in the `src/test/` directory and must be named `*.spec.ts`.
+Where to look for common tasks
+ - Change homepage feed: `src/utils/content.ts` (`getHomepagePosts`) and the homepage layout in `src/layouts/`.
+ - Update content schema/frontmatter: `content.config.ts`.
+ - Change search or indexing: `src/scripts/integrations/pagefind.ts` and `astro.config.ts` integrations.
+ - Change watcher behavior: `astro.config.ts` -> `watchExtraFiles` plugin.

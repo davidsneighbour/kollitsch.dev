@@ -22,12 +22,12 @@ description: 'Add and update Vitest + Playwright tests for a single Astro compon
   - **Playwright (e2e tests):** Browser-based tests for rendering and user interaction in a real page. Use these for visual verification, accessibility roles, and interactive behavior.
 * **TypeScript:** Write tests in TypeScript. Import types and components as needed. No `any` types - tests should be type-safe.
 * **File naming:** Name test files exactly as specified. The Playwright spec filename should correspond to the component name (capitalization matters for the file system, but route URLs will be lowercase). The Astro test page should use lowercase naming (matching the route path).
-* **Test structure:**
+* **Test structure:** 
   - Keep tests **focused** and readable. Each `describe` or `test/it` block should have a clear purpose.
   - Use descriptive names for test cases (state what behavior is expected).
   - Keep test functions short; if setup is complex, use `beforeEach` or helper functions.
 * **Assertions:** Use Vitest's `expect` API for assertions. Aim for at least one meaningful assertion per test case.
-* **Coverage:** Aim to cover key paths and edge cases of the component. The Vitest config already generates a coverage report (`text` summary in console and HTML in `src/test/logs/vitest/coverage`). Ensure new tests increase coverage for the component meaningfully.
+* **Coverage:** Aim to cover key paths and edge cases of the component. The Vitest config already generates a coverage report (`text` summary in console and HTML in `src/test/logs/vitest/coverage`). Ensure new tests increase coverage for the component meaningfully. 
 * **Accessibility in tests:** Prefer selecting elements by accessible roles, labels, or text content in Playwright tests. This not only helps testing but also ensures the component has proper accessibility attributes.
 * **No flakiness:** Tests should not depend on external resources or timings that could introduce flakiness. If using Playwright, wait for page to load and use stable selectors (roles/text or data attributes). Avoid brittle selectors like raw CSS classes unless no alternative.
 * **Data attributes for testing:** If the component lacks a reliable hook for selection (no text or role to grab), you may add a `data-testid` or similar attribute **conditionally** (only in non-production builds). For example, use `import.meta.env.DEV` or a custom env variable to add `data-testid` attributes during development/testing. This ensures production output is clean. Document such additions in a comment or the output note.

@@ -1,4 +1,5 @@
 ---
+// @todo refactor and comment
 import { getImage } from 'astro:assets';
 import faviconSrc from '@assets/favicon/favicon.png';
 import faviconSvgSrc from '@assets/favicon/favicon.svg';
@@ -16,7 +17,22 @@ const appleTouchIcon = await getImage({
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
 ---
 
-<link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="icon" sizes="any" href={faviconSvg.src} type="image/svg+xml" />
-<link rel="manifest" href="/manifest.json" />
-<link rel="apple-touch-icon" href={appleTouchIcon.src} />
+<link
+  rel="icon"
+  href="/favicon.ico"
+  sizes="32x32"
+/>
+<link
+  rel="icon"
+  sizes="any"
+  href={faviconSvg.src}
+  type="image/svg+xml"
+/>
+<link
+  rel="manifest"
+  href="/manifest.json"
+/>
+<link
+  rel="apple-touch-icon"
+  href={appleTouchIcon.src}
+/>

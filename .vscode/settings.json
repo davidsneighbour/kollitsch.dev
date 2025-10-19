@@ -120,5 +120,23 @@
   "biome.requireConfiguration": true,
   "svg.preview.background": "black",
   "astro.updateImportsOnFileMove.enabled": true,
+  "todo-tree.tree.scanMode": "workspace only",
+  "todo-tree.general.automaticGitRefreshInterval": 300,
+  "todo-tree.general.debug": true,
+  "todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.statusBar": "total",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "@todo"
+  ],
+  "todo-tree.highlights.useColourScheme": true,
 
 }

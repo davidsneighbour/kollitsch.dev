@@ -22,7 +22,7 @@
 //   --help                   Show help
 //
 // Prereqs:
-//   npm i -D playwright zod dotenv
+//   npm i -D playwright zod
 //   npx playwright install chromium
 //
 // Notes:
@@ -484,15 +484,55 @@ async function main() {
  * @returns {Promise<void>}
  */
 async function loadDotEnv(): Promise<void> {
-  const { config } = await import('dotenv');
   const cwdEnv = resolve(process.cwd(), '.env');
   const homeEnv = process.env.HOME
     ? resolve(process.env.HOME, '.env')
     : undefined;
 
-  if (homeEnv && (await exists(homeEnv)))
-    config({ override: false, path: homeEnv });
-  if (await exists(cwdEnv)) config({ override: true, path: cwdEnv });
+  if (homeEnv) await loadEnvFile(homeEnv, { override: false });
+  await loadEnvFile(cwdEnv, { override: true, onMissing: 'note' });
+}
+
+async function loadEnvFile(
+  filePath: string,
+  options: { override: boolean; onMissing?: 'note' },
+): Promise<void> {
+  if (!(await exists(filePath))) {
+    if (options.onMissing === 'note') {
+      console.info(`Note: no .env found at ${filePath}`);
+    }
+    return;
+  }
+
+  if (options.override) {
+    const source = await readFile(filePath, 'utf8');
+    for (const key of extractEnvKeys(source)) {
+      delete process.env[key];
+    }
+  }
+
+  try {
+    process.loadEnvFile(filePath);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      if (options.onMissing === 'note') {
+        console.info(`Note: no .env found at ${filePath}`);
+      }
+    } else {
+      throw error;
+    }
+  }
+}
+
+function extractEnvKeys(source: string): string[] {
+  const keys: string[] = [];
+  for (const line of source.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const match = /^(?:export\s+)?([\w.-]+)\s*=/.exec(trimmed);
+    if (match) keys.push(match[1]);
+  }
+  return keys;
 }
 
 /**

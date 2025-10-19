@@ -1,11 +1,33 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+const homeEnvPath = process.env.HOME
+  ? path.resolve(process.env.HOME, '.env')
+  : undefined;
+
+if (homeEnvPath) {
+  try {
+    process.loadEnvFile(homeEnvPath);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+  }
+}
+
+const projectEnvPath = path.resolve(__dirname, '.env');
+
+try {
+  process.loadEnvFile(projectEnvPath);
+} catch (error) {
+  if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+    console.info(`Note: no .env found at ${projectEnvPath}`);
+  } else {
+    throw error;
+  }
+}
 
 export default defineConfig({
   forbidOnly: !!process.env.CI,

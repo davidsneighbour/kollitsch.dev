@@ -14,7 +14,9 @@ import tsconfigPaths from 'vite-tsconfig-paths';
  *
  * @see https://docs.astro.build/en/guides/testing/#vitest
  */
+// @ts-expect-error Astro config's getViteConfig has wrong types
 export default getViteConfig({
+  // @ts-expect-error another issue in connection with Astro's config
   plugins: [tsconfigPaths()],
   test: {
     coverage: {

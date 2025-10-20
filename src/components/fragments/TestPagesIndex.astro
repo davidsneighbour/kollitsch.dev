@@ -1,0 +1,73 @@
+---
+import Section from '@components/fragments/Section.astro';
+import Heading from '@components/Heading.astro';
+
+type Entry = {
+  url: string;
+  label: string;
+  file: string;
+};
+
+function toRoute(filePath: string): string {
+  const withoutSrc = filePath.replace(/^\/?src\/pages/, '');
+  const noExt = withoutSrc.replace(/\.astro$/i, '');
+  const route = noExt.endsWith('/index')
+    ? noExt.slice(0, -'/index'.length) || '/'
+    : noExt;
+  const withLeading = route.startsWith('/') ? route : `/${route}`;
+  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
+}
+
+function titleCase(s: string): string {
+  return s
+    .replace(/[-_]+/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase())
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Build a label like "Bugs/Typography" from a route like "/test/bugs/typography/". */
+function toHierarchicalLabel(url: string): string {
+  const segs = url.split('/').filter(Boolean);
+  const start = segs[0] === 'test' ? 1 : 0;
+  const parts = segs.slice(start); // everything after "test"
+  if (parts.length === 0) return 'Test';
+  return parts.map(titleCase).join('/');
+}
+
+// Grab every .astro page under /src/pages/test/**.
+const modules = import.meta.glob('/src/pages/test/**/*.astro');
+
+const entries: Entry[] = Object.keys(modules)
+  .filter(file => !/\/_/.test(file))
+  .map(file => {
+    const url = toRoute(file);
+    const normalized = url === '/test/' ? '/test/index/' : url;
+    return {
+      url,
+      label: toHierarchicalLabel(normalized),
+      file,
+    };
+  })
+  .filter(e => e.url !== '/test/')
+  // Sort by hierarchical label (case-insensitive), so "Bugs/Typography" sorts under B
+  .sort((a, b) =>
+    a.label.localeCompare(b.label, 'en', { sensitivity: 'base' }),
+  );
+---
+
+<Section>
+  <Heading level={2}>List of all test pages</Heading>
+  <ul
+    role="list"
+    class="ml-0 grid list-none grid-cols-2 gap-x-4 sm:grid-cols-3 lg:grid-cols-4"
+  >
+    {
+      entries.map(e => (
+        <li>
+          <a href={e.url}>{e.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

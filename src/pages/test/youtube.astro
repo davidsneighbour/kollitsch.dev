@@ -1,0 +1,95 @@
+---
+import YoutubeEmbed from '@components/Youtube.astro';
+import '@styles/theme.css';
+import Layout from '@layouts/ContentPageTest.astro';
+import Heading from '@components/Heading.astro';
+import Div from '@components/fragments/Div.astro';
+import Section from '@components/fragments/Section.astro';
+---
+
+<Layout>
+  <Heading level={2}>Youtube component test page</Heading>
+
+  <Section>
+    <Div>
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+  </Section>
+  <Section>
+    <Heading level={2}>Container Sizes</Heading>
+
+    <Heading level={3}>3XS</Heading>
+    <Div class="max-w-3xs">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>2XS</Heading>
+    <Div class="max-w-2xs">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>XS</Heading>
+    <Div class="max-w-xs">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>SM</Heading>
+    <Div class="max-w-sm">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>MD</Heading>
+    <Div class="max-w-md">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>LG</Heading>
+    <Div class="max-w-lg">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>XL</Heading>
+    <Div class="max-w-xl">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>2XL</Heading>
+    <Div class="max-w-2xl">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>3XL</Heading>
+    <Div class="max-w-3xl">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+    <Heading level={3}>4XL</Heading>
+    <Div class="max-w-4xl">
+      <YoutubeEmbed
+        video="I2wIj7G-5Qc"
+        label="[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)"
+      />
+    </Div>
+  </Section>
+</Layout>

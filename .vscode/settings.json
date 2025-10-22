@@ -114,6 +114,24 @@
   // PLUGIN: indent rainbow setup
   "indentRainbow.indicatorStyle": "light",
 
+  // PLUGIN: Tailwind CSS Intellisense
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "classes"
+  ],
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.hg/**",
+    "**/.svn/**",
+    "**/dist/**",
+    "**/.wireit/**",
+    "**/.astro/**"
+  ],
+
   // PLUGIN: biome setup
   // @see "editor.codeActionsOnSave"
   "biome.configurationPath": "biome.jsonc",

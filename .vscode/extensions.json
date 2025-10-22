@@ -31,7 +31,8 @@
     "chrischinchilla.vale-vscode",
     "redhat.vscode-yaml",
     "bradlc.vscode-tailwindcss",
-    "redhat.vscode-xml"
+    "redhat.vscode-xml",
+    "biomejs.biome"
   ],
   "unwantedRecommendations": []
 }

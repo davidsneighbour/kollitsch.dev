@@ -5,9 +5,6 @@
 .wireit
 bak
 
-# Generated Biome configuration (synced from biome.config.ts)
-biome.json
-
 # Netlify
 .netlify/*
 !.netlify/state.json
@@ -24,8 +21,8 @@ release.json
 public/favicon.ico
 public/og_image
 
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,astro,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,astro,node
+# Created by https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,visualstudiocode
 
 ### Astro ###
 # Gitignore template for Astro projects
@@ -179,7 +176,6 @@ dist
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
-!.vscode/favorites.json
 
 # Local History for Visual Studio Code
 .history/
@@ -192,4 +188,4 @@ dist
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,astro,node
+# End of https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode

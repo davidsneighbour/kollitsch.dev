@@ -86,7 +86,10 @@ export default defineConfig({
     responsiveStyles: true,
   },
   integrations: [
-    sitemap(),
+    sitemap({
+      namespaces: { image: false, news: false, video: false, xhtml: false },
+      xslURL: '/feeds/sitemap.xsl',
+    }),
     pagefind({ indexConfig: { keepIndexUrl: true } }),
     icon({
       iconDir: 'src/assets/icons',

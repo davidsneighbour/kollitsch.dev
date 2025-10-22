@@ -8,7 +8,6 @@
     "denoland.vscode-deno",
     "ms-vscode-remote.remote-containers",
     "ms-azuretools.vscode-docker",
-    "dbaeumer.vscode-eslint",
     "tamasfe.even-better-toml",
     "eliostruyf.vscode-front-matter",
     "mhutchie.git-graph",

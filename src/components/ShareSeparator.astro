@@ -1,7 +1,7 @@
 ---
+import networks from "@content/social.json" with { type: "json" };
 // @todo refactor and comment
-import { Icon } from 'astro-icon/components';
-import networks from '@content/social.json';
+import { Icon } from "astro-icon/components";
 
 export interface Props {
   title: string;
@@ -9,7 +9,7 @@ export interface Props {
   via?: string;
 }
 
-const shareNetworks = networks.filter(n => n.share);
+const shareNetworks = networks.filter((n) => n.share);
 const { title, description }: Props = Astro.props;
 
 type ShareVars = {
@@ -19,9 +19,9 @@ type ShareVars = {
 };
 
 const vars: ShareVars = {
-  url: Astro.request.url,
-  title,
   description,
+  title,
+  url: Astro.request.url,
 };
 ---
 

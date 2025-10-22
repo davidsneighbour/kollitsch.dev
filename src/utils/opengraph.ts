@@ -1,7 +1,7 @@
 import { getImage } from 'astro:assets';
 import path from 'node:path';
 import rawSetup from '@data/setup.json' with { type: 'json' };
-import { getImageMeta, hasImage } from '@utils/image-index';
+import { getImageMeta, hasImage } from '@utils/image-index.ts';
 import type { GetImageResult, ImageMetadata } from 'astro';
 
 interface SetupConfig {

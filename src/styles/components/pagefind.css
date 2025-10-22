@@ -25,7 +25,7 @@
 }
 
 /*****************************************************************************
-  * Search Results                                                            */
+ * Search Results                                                            */
 .pagefind-ui__drawer {
   @apply flex flex-row flex-wrap;
 }

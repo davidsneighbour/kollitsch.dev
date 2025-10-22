@@ -1,40 +1,41 @@
 ---
 // for /blog/1/, /blog/2/, /blog/3/ (pagination)
 
-import type { InferGetStaticParamsType } from 'astro';
-import { getCollection } from 'astro:content';
-import { getPostsSortedByDraft } from '@utils/content';
+import { getCollection } from "astro:content";
+import { getPostsSortedByDraft } from "@utils/content.ts";
+import type { InferGetStaticParamsType } from "astro";
+
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
+import ArticleCard from "@components/ArticleCard.astro";
+import BlogHeading from "@components/BlogHeading.astro";
+import Pagination from "@components/Pagination.astro";
 // components
-import Layout from '@layouts/DefaultPage.astro';
-import Pagination from '@components/Pagination.astro';
-import ArticleCard from '@components/ArticleCard.astro';
-import BlogHeading from '@components/BlogHeading.astro';
+import Layout from "@layouts/DefaultPage.astro";
 
 export async function getStaticPaths() {
-  const posts = getPostsSortedByDraft(await getCollection('blog'));
+  const posts = getPostsSortedByDraft(await getCollection("blog"));
   const pageSize = 10;
   const totalPages = Math.ceil(posts.length / pageSize);
 
   return Array.from({ length: totalPages }).map((_, i) => ({
-    params: { page: i === 0 ? '1' : `${i + 1}` }, // all as strings
+    params: { page: i === 0 ? "1" : `${i + 1}` }, // all as strings
   }));
 }
 
-import setup from '@data/setup.json';
+import setup from "@data/setup.json" with { type: "json" };
 
 const limit = setup.listpages?.limit || 12;
 const { page } = Astro.params as Params;
 const pageNumber = Number(page) || 1; // default to 1 if not provided
-const allPosts = getPostsSortedByDraft(await getCollection('blog'));
+const allPosts = getPostsSortedByDraft(await getCollection("blog"));
 const posts = allPosts.slice((pageNumber - 1) * limit, pageNumber * limit);
 const totalPages = Math.ceil(allPosts.length / limit);
 
 const post = {
   data: {
-    title: 'Blog | KOLLITSCH.dev*',
-    description: 'A collection of articles, tutorials, and updates.',
+    description: "A collection of articles, tutorials, and updates.",
+    title: "Blog | KOLLITSCH.dev*",
   },
 };
 ---

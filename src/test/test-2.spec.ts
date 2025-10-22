@@ -1,4 +1,4 @@
-import { test, expect } from './axe-test';
+import { expect, test } from './axe-test.ts';
 
 test.describe('homepage', () => {
   test('navigation menu should not have automatically detectable accessibility violations', async ({

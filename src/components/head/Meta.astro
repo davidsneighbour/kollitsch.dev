@@ -1,6 +1,7 @@
 ---
 // @todo refactor and comment
-import metaDataRaw from '@data/meta.json';
+import metaDataRaw from "@data/meta.json" with { type: "json" };
+
 const metaData = metaDataRaw as MetaConfig;
 
 export interface Props {}

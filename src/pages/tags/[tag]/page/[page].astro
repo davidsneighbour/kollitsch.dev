@@ -1,23 +1,24 @@
 ---
 // individual tag page with pagination, page 2+
 
-import { getCollection, getEntry } from 'astro:content';
-import Layout from '@layouts/DefaultPage.astro';
-import ArticleCard from '@components/ArticleCard.astro';
-import TagIntro from '@components/TagIntro.astro';
-import Pagination from '@components/Pagination.astro';
+import { getCollection, getEntry } from "astro:content";
+import ArticleCard from "@components/ArticleCard.astro";
+import Pagination from "@components/Pagination.astro";
+import TagIntro from "@components/TagIntro.astro";
+import Layout from "@layouts/DefaultPage.astro";
 
 const { tag, page } = Astro.params;
 const currentPage = Number(page);
 
-import setup from '@data/setup.json';
+import setup from "@data/setup.json" with { type: "json" };
+
 const limit = setup.listpages?.limit || 12;
 
 const pageSize = limit;
 
 // Load and filter blog posts by tag
-const allPosts = await getCollection('blog');
-const taggedPosts = allPosts.filter(p => p.data.tags?.includes(tag));
+const allPosts = await getCollection("blog");
+const taggedPosts = allPosts.filter((p) => p.data.tags?.includes(tag));
 
 // Pagination logic
 const totalPages = Math.ceil(taggedPosts.length / pageSize);
@@ -28,13 +29,13 @@ const paginatedPosts = taggedPosts.slice(start, start + pageSize);
 // Try to get the tag entry, but handle cases where getEntry or its result is undefined
 let tagEntry = null;
 try {
-  const entry = await getEntry?.('tags', tag);
+  const entry = await getEntry?.("tags", tag);
   tagEntry = entry ?? null;
 } catch {
   tagEntry = null;
 }
 
-import { getValidTags } from '@utils/tags';
+import { getValidTags } from "@utils/tags.ts";
 
 export async function getStaticPaths() {
   const tagMap = await getValidTags();
@@ -45,7 +46,7 @@ export async function getStaticPaths() {
   for (const [tag, { count }] of tagMap.entries()) {
     const totalPages = Math.ceil(count / pageSize);
     for (let page = 2; page <= totalPages; page++) {
-      paths.push({ params: { tag, page: String(page) } });
+      paths.push({ params: { page: String(page), tag } });
     }
   }
   return paths;
@@ -53,8 +54,8 @@ export async function getStaticPaths() {
 
 const post = {
   data: {
-    title: `#${tag} – Page ${currentPage}`,
     description: tagEntry?.data.description || `Posts tagged with #${tag}`,
+    title: `#${tag} – Page ${currentPage}`,
   },
 };
 ---

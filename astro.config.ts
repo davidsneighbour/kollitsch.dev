@@ -13,7 +13,7 @@ import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import pagefind from './src/scripts/integrations/pagefind.ts';
-import { createLogger } from './src/utils/logger.js';
+import { createLogger } from './src/utils/logger.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -23,7 +23,6 @@ const crontabTmLanguage = JSON.parse(
 
 // watching a couple of locations where images and blog posts might appear.
 const watchExtraFiles = () => ({
-  name: 'watch-extra-files',
   configureServer(server: import('vite').ViteDevServer) {
     const logger = createLogger({ slug: 'watch-extra-files' });
     logger.info('Plugin loaded');
@@ -38,7 +37,9 @@ const watchExtraFiles = () => ({
     const isWithinWatchedPath = (file: string) =>
       watchPaths.some((watchPath) => {
         const relative = path.relative(watchPath, file);
-        return relative && !relative.startsWith('..') && !path.isAbsolute(relative);
+        return (
+          relative && !relative.startsWith('..') && !path.isAbsolute(relative)
+        );
       });
 
     const reload = (file: string) => {
@@ -65,6 +66,7 @@ const watchExtraFiles = () => ({
       reload(file);
     });
   },
+  name: 'watch-extra-files',
 });
 
 // https://astro.build/config
@@ -124,6 +126,13 @@ export default defineConfig({
   site: 'https://kollitsch.dev/',
   trailingSlash: 'always',
   vite: {
-    plugins: [tailwindcss(), beep(), toml(), yaml(), devtoolsJson(), watchExtraFiles()],
+    plugins: [
+      tailwindcss(),
+      beep(),
+      toml(),
+      yaml(),
+      devtoolsJson(),
+      watchExtraFiles(),
+    ],
   },
 });

@@ -1,18 +1,16 @@
 ---
 
-import Layout from '@layouts/DefaultPage.astro';
-import Featured from '@components/sections/Featured.astro';
-import Recent from '@components/sections/Recent.astro';
-
-import setup from '@data/setup.json';
+import Featured from "@components/sections/Featured.astro";
+import Recent from "@components/sections/Recent.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import Layout from "@layouts/DefaultPage.astro";
 
 const post = {
   data: {
-    title: "Welcome on " + setup.title,
     description: setup.description,
+    title: "Welcome on " + setup.title,
   },
 };
-
 ---
 
 <Layout post={post}>

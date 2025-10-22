@@ -1,12 +1,11 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from 'astro:content';
-import type { MarkdownInstance } from 'astro';
-
-import { hasComponent } from '@utils/component';
+import type { CollectionEntry } from "astro:content";
+import { hasComponent } from "@utils/component.ts";
+import type { MarkdownInstance } from "astro";
 
 type BlogEntry =
-  | CollectionEntry<'blog'>
+  | CollectionEntry<"blog">
   | (MarkdownInstance<Record<string, unknown>> & {
       data?: Record<string, unknown>;
     });
@@ -17,9 +16,9 @@ export interface Props {
 
 const { post }: Props = Astro.props;
 
-const hasLiteYoutube = hasComponent(post, 'lite-youtube');
-const hasColorGrid = hasComponent(post, 'color-grid');
-const hasDatediff = hasComponent(post, 'date-diff');
+const hasLiteYoutube = hasComponent(post, "lite-youtube");
+const hasColorGrid = hasComponent(post, "color-grid");
+const hasDatediff = hasComponent(post, "date-diff");
 ---
 
 {

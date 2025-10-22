@@ -1,36 +1,36 @@
 ---
-import '@styles/theme.css';
+import "@styles/theme.css";
 
-import Breakpoints from '@components/development/Breakpoints.astro';
-import Head from '@components/Head.astro';
-import SchemaWebSite from '@components/schema/WebSite.astro';
+import Breakpoints from "@components/development/Breakpoints.astro";
+import Head from "@components/Head.astro";
+import SchemaWebSite from "@components/schema/WebSite.astro";
 
 const {
   post,
-  extraHtmlClasses = '',
-  extraBodyClasses = '',
+  extraHtmlClasses = "",
+  extraBodyClasses = "",
   frontmatter,
 } = Astro.props;
 
 // html classes
 const htmlClasses = [
-  'scroll-smooth',
-  'bg-zinc-50 dark:bg-zinc-950',
-  'h-full',
+  "scroll-smooth",
+  "bg-zinc-50 dark:bg-zinc-950",
+  "h-full",
   extraHtmlClasses,
 ]
   .filter(Boolean)
-  .join(' ');
+  .join(" ");
 
 // body classes
 const bodyClasses = [
-  'min-h-screen',
-  'overflow-y-scroll', // always show scrollbar to prevent layout shift
-  'bg-zinc-50 dark:bg-zinc-950',
+  "min-h-screen",
+  "overflow-y-scroll", // always show scrollbar to prevent layout shift
+  "bg-zinc-50 dark:bg-zinc-950",
   extraBodyClasses,
 ]
   .filter(Boolean)
-  .join(' ');
+  .join(" ");
 
 const IS_DEV = import.meta.env.DEV;
 ---

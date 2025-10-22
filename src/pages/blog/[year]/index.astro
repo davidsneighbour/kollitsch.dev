@@ -1,21 +1,21 @@
 ---
-import Layout from '@layouts/DefaultPage.astro';
-import ArticleCard from '@components/ArticleCard.astro';
-import Pagination from '@components/Pagination.astro';
-import { paginateBlogPostsByYear } from '@utils/content';
-import BlogHeading from '@components/BlogHeading.astro';
+import ArticleCard from "@components/ArticleCard.astro";
+import BlogHeading from "@components/BlogHeading.astro";
+import Pagination from "@components/Pagination.astro";
+import Layout from "@layouts/DefaultPage.astro";
+import { paginateBlogPostsByYear } from "@utils/content.ts";
 
 export async function getStaticPaths() {
-  const { getCollection } = await import('astro:content');
-  const allPosts = await getCollection('blog');
+  const { getCollection } = await import("astro:content");
+  const allPosts = await getCollection("blog");
 
   const years = Array.from(
     new Set(
-      allPosts.map(post => new Date(post.data.date).getFullYear().toString()),
+      allPosts.map((post) => new Date(post.data.date).getFullYear().toString()),
     ),
   );
 
-  return years.map(year => ({
+  return years.map((year) => ({
     params: { year },
   }));
 }

@@ -31,14 +31,7 @@
         "type": "string"
       }
     },
-    "required": [
-      "id",
-      "label",
-      "description",
-      "image",
-      "icon",
-      "class"
-    ],
+    "required": ["id", "label", "description", "image", "icon", "class"],
     "type": "object"
   },
   "title": "Categories"

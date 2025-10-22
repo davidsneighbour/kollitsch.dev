@@ -1,21 +1,21 @@
 ---
-import Layout from '@layouts/DefaultPage.astro';
-import { getCollection } from 'astro:content';
-import setup from '@data/setup.json';
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import setup from "@data/setup.json" with { type: "json" };
+import Layout from "@layouts/DefaultPage.astro";
 
-import type { CollectionEntry } from 'astro:content';
-type GitHubRelease = CollectionEntry<'githubReleases'> & {
+type GitHubRelease = CollectionEntry<"githubReleases"> & {
   descriptionHTML: string;
   name: string;
 };
 
 const post = {
   data: {
-    title: 'Releases',
     description: setup.description,
+    title: "Releases",
   },
 };
-const repos = await getCollection('githubReleases');
+const repos = await getCollection("githubReleases");
 const releases =
   repos[0] && repos[0].data && Array.isArray(repos[0].data.releases)
     ? repos[0].data.releases
@@ -24,8 +24,8 @@ const releases =
 const processedReleases = releases.map((release: GitHubRelease) => ({
   ...release,
   descriptionHTML: release.descriptionHTML
-    .replace(/<h2\b/g, '<h3')
-    .replace(/<\/h2>/g, '</h3>'),
+    .replace(/<h2\b/g, "<h3")
+    .replace(/<\/h2>/g, "</h3>"),
 }));
 ---
 

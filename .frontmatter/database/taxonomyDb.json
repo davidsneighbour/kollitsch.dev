@@ -1,5 +1,6 @@
 {
   "taxonomy": {
+    "categories": ["kurzschnitte"],
     "tags": [
       "100DaysToOffload",
       "CSP",
@@ -221,7 +222,6 @@
       "windows 11",
       "wordpress",
       "workspace"
-    ],
-    "categories": ["kurzschnitte"]
+    ]
   }
 }

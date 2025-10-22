@@ -1,6 +1,6 @@
 ---
 // @todo refactor and comment
-import { mergePropsWithDefaults } from '@utils/content';
+import { mergePropsWithDefaults } from "@utils/content.ts";
 
 export interface Props {
   tags: Map<string, number>;
@@ -9,9 +9,9 @@ export interface Props {
 }
 
 const props = mergePropsWithDefaults(Astro.props as Props, {
-  minSize: 0.75, // rem
   maxSize: 2.0, // rem
-}) as Required<Pick<Props, 'tags' | 'minSize' | 'maxSize'>>;
+  minSize: 0.75, // rem
+}) as Required<Pick<Props, "tags" | "minSize" | "maxSize">>;
 
 const maxCount = Math.max(...props.tags.values());
 const minCount = Math.min(...props.tags.values());

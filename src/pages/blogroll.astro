@@ -18,11 +18,11 @@
 // Validates with Zod (see zod-feed-validator.ts) and sorts by name ASC.
 // Errors are shown on the page instead of crashing the build.
 
-import type { FeedItem } from '@utils/blogroll';
-import { safeValidateFeedList } from '@utils/blogroll';
-import blogroll from '../content/blogroll.json';
-import Layout from '@layouts/ContentPage.astro';
-import IconLink from '@components/IconLink.astro';
+import IconLink from "@components/IconLink.astro";
+import Layout from "@layouts/ContentPage.astro";
+import type { FeedItem } from "@utils/blogroll.ts";
+import { safeValidateFeedList } from "@utils/blogroll.ts";
+import blogroll from "../content/blogroll.json" with { type: "json" };
 
 // Validate and sort
 let items: FeedItem[] = [];
@@ -30,8 +30,8 @@ let errors: string[] = [];
 
 {
   const result = safeValidateFeedList(blogroll, {
-    maxNameLength: 56,
     allowEmpty: true,
+    maxNameLength: 56,
   });
   if (result.ok) {
     items = [...result.data].sort((a, b) => a.name.localeCompare(b.name));

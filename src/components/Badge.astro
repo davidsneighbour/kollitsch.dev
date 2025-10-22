@@ -2,7 +2,7 @@
 // @todo refactor and comment
 export interface Props {
   /** Color theme of the badge */
-  color?: 'gray' | 'red' | 'yellow';
+  color?: "gray" | "red" | "yellow";
   /** Whether the badge has a border (true) or flat background (false) */
   bordered?: boolean;
   /** Optional link: when present, render as <a> */
@@ -14,55 +14,55 @@ export interface Props {
 }
 
 const {
-  color = 'red',
+  color = "red",
   bordered = false,
   href,
-  class: extraClass = '',
+  class: extraClass = "",
   title,
 } = Astro.props;
 
 // Base: compact, centered, icon-friendly layout
 const base =
-  'inline-flex flex items-center justify-center gap-1 rounded-md px-1.5 pt-0.5 pb-0.75 text-xs font-medium';
+  "inline-flex flex items-center justify-center gap-1 rounded-md px-1.5 pt-0.5 pb-0.75 text-xs font-medium";
 
 // Visual variants
 const variants: Record<string, { flat: string; bordered: string }> = {
   gray: {
-    flat: 'bg-gray-100 text-gray-600 dark:bg-gray-400/10 dark:text-gray-300',
     bordered:
-      'bg-gray-50 text-gray-600 inset-ring inset-ring-gray-500/10 dark:bg-gray-400/10 dark:text-gray-400 dark:inset-ring-gray-400/20',
+      "bg-gray-50 text-gray-600 inset-ring inset-ring-gray-500/10 dark:bg-gray-400/10 dark:text-gray-400 dark:inset-ring-gray-400/20",
+    flat: "bg-gray-100 text-gray-600 dark:bg-gray-400/10 dark:text-gray-300",
   },
   red: {
-    flat: 'bg-red-100 text-red-700 dark:bg-red-400/10 dark:text-red-400',
     bordered:
-      'bg-red-50 text-red-700 inset-ring inset-ring-red-600/10 dark:bg-red-400/10 dark:text-red-400 dark:inset-ring-red-400/20',
+      "bg-red-50 text-red-700 inset-ring inset-ring-red-600/10 dark:bg-red-400/10 dark:text-red-400 dark:inset-ring-red-400/20",
+    flat: "bg-red-100 text-red-700 dark:bg-red-400/10 dark:text-red-400",
   },
   yellow: {
-    flat: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-400/10 dark:text-yellow-500',
     bordered:
-      'bg-yellow-50 text-yellow-800 inset-ring inset-ring-yellow-600/20 dark:bg-yellow-400/10 dark:text-yellow-500 dark:inset-ring-yellow-400/20',
+      "bg-yellow-50 text-yellow-800 inset-ring inset-ring-yellow-600/20 dark:bg-yellow-400/10 dark:text-yellow-500 dark:inset-ring-yellow-400/20",
+    flat: "bg-yellow-100 text-yellow-800 dark:bg-yellow-400/10 dark:text-yellow-500",
   },
 };
 
 // Hover for link badges
 const hoverVariants: Record<string, string> = {
-  gray: 'hover:bg-gray-100/80 hover:text-gray-700 dark:hover:bg-gray-400/20 dark:hover:text-gray-200',
-  red: 'hover:bg-red-100/80 hover:text-red-800 dark:hover:bg-red-400/20 dark:hover:text-red-300',
+  gray: "hover:bg-gray-100/80 hover:text-gray-700 dark:hover:bg-gray-400/20 dark:hover:text-gray-200",
+  red: "hover:bg-red-100/80 hover:text-red-800 dark:hover:bg-red-400/20 dark:hover:text-red-300",
   yellow:
-    'hover:bg-yellow-100/80 hover:text-yellow-900 dark:hover:bg-yellow-400/20 dark:hover:text-yellow-400',
+    "hover:bg-yellow-100/80 hover:text-yellow-900 dark:hover:bg-yellow-400/20 dark:hover:text-yellow-400",
 };
 
 // Focus-visible rings for keyboard users (links only)
 const focusVariants: Record<string, string> = {
-  gray: 'focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-gray-300/40 dark:focus-visible:ring-offset-gray-950',
-  red: 'focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-red-400/40 dark:focus-visible:ring-offset-gray-950',
+  gray: "focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-gray-300/40 dark:focus-visible:ring-offset-gray-950",
+  red: "focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-red-400/40 dark:focus-visible:ring-offset-gray-950",
   yellow:
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-yellow-400/40 dark:focus-visible:ring-offset-gray-950',
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-yellow-400/40 dark:focus-visible:ring-offset-gray-950",
 };
 
-const colorClasses = variants[color]?.[bordered ? 'bordered' : 'flat'];
-const hoverClasses = href ? hoverVariants[color] : '';
-const focusClasses = href ? focusVariants[color] : '';
+const colorClasses = variants[color]?.[bordered ? "bordered" : "flat"];
+const hoverClasses = href ? hoverVariants[color] : "";
+const focusClasses = href ? focusVariants[color] : "";
 const classes =
   `${base} ${colorClasses} ${hoverClasses} ${focusClasses} ${extraClass}`.trim();
 ---

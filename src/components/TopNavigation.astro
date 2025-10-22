@@ -1,21 +1,20 @@
 ---
 // @todo refactor and comment
 // astro imports
-import { fade } from 'astro:transitions';
-import { Icon } from 'astro-icon/components';
+import { fade } from "astro:transitions";
+import IconLink from "@components/IconLink.astro";
 
 // components
-import ProgressBar from '@components/Progress.astro';
-import IconLink from '@components/IconLink.astro';
-
-// utilities
-import { getHomepageUrl } from '@utils/content';
-import { log } from '@utils/debug';
-import { findActive, isActive } from '@utils/navigation';
-
+import ProgressBar from "@components/Progress.astro";
 // data
-import setup from '@data/setup.json';
-import navData from '@data/topnavigation.json';
+import setup from "@data/setup.json" with { type: "json" };
+import navData from "@data/topnavigation.json" with { type: "json" };
+// utilities
+import { getHomepageUrl } from "@utils/content.ts";
+import { log } from "@utils/debug.ts";
+import { findActive, isActive } from "@utils/navigation.ts";
+import { Icon } from "astro-icon/components";
+
 const typedNavData = navData as Navigation;
 
 const pathname = Astro.url.pathname;
@@ -33,7 +32,7 @@ export interface Props {
   defaultTheme?: ThemeMode;
 }
 
-const { defaultTheme = 'dark' }: Props = Astro.props;
+const { defaultTheme = "dark" }: Props = Astro.props;
 ---
 
 <header

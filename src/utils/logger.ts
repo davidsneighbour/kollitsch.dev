@@ -24,10 +24,27 @@
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 
 export type AnsiColor =
-  | 'reset' | 'dim' | 'gray' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white';
+  | 'reset'
+  | 'dim'
+  | 'gray'
+  | 'red'
+  | 'green'
+  | 'yellow'
+  | 'blue'
+  | 'magenta'
+  | 'cyan'
+  | 'white';
 
 type BrowserCssColor =
-  | 'inherit' | 'gray' | 'red' | 'green' | 'goldenrod' | 'dodgerblue' | 'magenta' | 'teal' | 'white';
+  | 'inherit'
+  | 'gray'
+  | 'red'
+  | 'green'
+  | 'goldenrod'
+  | 'dodgerblue'
+  | 'magenta'
+  | 'teal'
+  | 'white';
 
 export interface PartColors {
   time?: AnsiColor;
@@ -79,41 +96,46 @@ export interface Logger {
 
 /** ANSI map for Node terminals */
 const ANSI: Record<AnsiColor, string> = {
-  reset: '\x1b[0m',
+  blue: '\x1b[34m',
+  cyan: '\x1b[36m',
   dim: '\x1b[2m',
   gray: '\x1b[90m',
-  red: '\x1b[31m',
   green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
   magenta: '\x1b[35m',
-  cyan: '\x1b[36m',
+  red: '\x1b[31m',
+  reset: '\x1b[0m',
   white: '\x1b[37m',
+  yellow: '\x1b[33m',
 };
 
 /** Browser CSS fallback for %c */
 const CSS: Record<AnsiColor, BrowserCssColor> = {
-  reset: 'inherit',
+  blue: 'dodgerblue',
+  cyan: 'teal',
   dim: 'inherit',
   gray: 'gray',
-  red: 'red',
   green: 'green',
-  yellow: 'goldenrod',
-  blue: 'dodgerblue',
   magenta: 'magenta',
-  cyan: 'teal',
+  red: 'red',
+  reset: 'inherit',
   white: 'white',
+  yellow: 'goldenrod',
 };
 
 /** Default per-level colors approximating Astro vibe */
 const DEFAULT_LEVEL_COLORS: Required<LevelColors> = {
-  debug: { time: 'gray', slug: 'cyan', message: 'gray' },
-  info: { time: 'gray', slug: 'magenta', message: 'white' },
-  warn: { time: 'yellow', slug: 'yellow', message: 'white' },
-  error: { time: 'red', slug: 'red', message: 'white' },
+  debug: { message: 'gray', slug: 'cyan', time: 'gray' },
+  error: { message: 'white', slug: 'red', time: 'red' },
+  info: { message: 'white', slug: 'magenta', time: 'gray' },
+  warn: { message: 'white', slug: 'yellow', time: 'yellow' },
 };
 
-const ORDER: Record<LogLevel, number> = { debug: 10, info: 20, warn: 30, error: 40 };
+const ORDER: Record<LogLevel, number> = {
+  debug: 10,
+  error: 40,
+  info: 20,
+  warn: 30,
+};
 
 /** Format current time as HH:mm:ss */
 function nowHHMMSS(): string {
@@ -126,7 +148,8 @@ function nowHHMMSS(): string {
 function resolveLevel(opt?: LogLevel): LogLevel {
   const env = (typeof process !== 'undefined' && process.env?.LOG_LEVEL) || '';
   const val = (opt ?? env ?? 'info').toLowerCase();
-  if (val === 'debug' || val === 'info' || val === 'warn' || val === 'error') return val;
+  if (val === 'debug' || val === 'info' || val === 'warn' || val === 'error')
+    return val;
   return 'info';
 }
 
@@ -144,9 +167,12 @@ function mergeColors(overrides?: LevelColors): Required<LevelColors> {
 
 /** Choose console method by level */
 function pickConsole(level: LogLevel): (...data: unknown[]) => void {
-  return level === 'error' ? console.error
-    : level === 'warn' ? console.warn
-      : level === 'debug' ? console.debug
+  return level === 'error'
+    ? console.error
+    : level === 'warn'
+      ? console.warn
+      : level === 'debug'
+        ? console.debug
         : console.log;
 }
 
@@ -155,11 +181,11 @@ function paint(
   text: string,
   color: AnsiColor,
   useAnsi: boolean,
-  noColor: boolean
+  noColor: boolean,
 ): { text: string; style?: string } {
   if (noColor) return { text };
   if (useAnsi) return { text: `${ANSI[color] ?? ''}${text}${ANSI.reset}` };
-  return { text, style: `color:${CSS[color] ?? 'inherit'}` };
+  return { style: `color:${CSS[color] ?? 'inherit'}`, text };
 }
 
 /** Format duration in ms with suffix */
@@ -177,7 +203,8 @@ export function createLogger(options: LoggerOptions): Logger {
   const minLevel = resolveLevel(options.level);
   const colors = mergeColors(options.colors);
 
-  const isNode = typeof process !== 'undefined' && typeof window === 'undefined';
+  const isNode =
+    typeof process !== 'undefined' && typeof window === 'undefined';
   const useAnsi = isNode && Boolean(process.stdout && process.stdout.isTTY);
   const noColor = Boolean(options.noColor || (isNode && process.env?.NO_COLOR));
 
@@ -192,7 +219,12 @@ export function createLogger(options: LoggerOptions): Logger {
 
       const c = colors[level] ?? colors.info;
       const timeSeg = paint(nowHHMMSS(), c.time ?? 'gray', useAnsi, noColor);
-      const slugSeg = paint(`[${options.slug}]`, c.slug ?? 'magenta', useAnsi, noColor);
+      const slugSeg = paint(
+        `[${options.slug}]`,
+        c.slug ?? 'magenta',
+        useAnsi,
+        noColor,
+      );
 
       let messageStr: string;
       if (typeof msg === 'string') messageStr = msg;
@@ -207,7 +239,10 @@ export function createLogger(options: LoggerOptions): Logger {
       const msgSeg = paint(messageStr, c.message ?? 'white', useAnsi, noColor);
 
       if (useAnsi) {
-        pickConsole(level)(`${timeSeg.text} ${slugSeg.text} ${msgSeg.text}`, ...args);
+        pickConsole(level)(
+          `${timeSeg.text} ${slugSeg.text} ${msgSeg.text}`,
+          ...args,
+        );
         return;
       }
 
@@ -215,10 +250,13 @@ export function createLogger(options: LoggerOptions): Logger {
       const fmt = '%c%s %c%s %c%s';
       pickConsole(level)(
         fmt,
-        timeSeg.style ?? '', timeSeg.text,
-        slugSeg.style ?? '', slugSeg.text,
-        msgSeg.style ?? '', msgSeg.text,
-        ...args
+        timeSeg.style ?? '',
+        timeSeg.text,
+        slugSeg.style ?? '',
+        slugSeg.text,
+        msgSeg.style ?? '',
+        msgSeg.text,
+        ...args,
       );
     } catch (e) {
       console.error('Logger emit failed:', e);
@@ -226,14 +264,14 @@ export function createLogger(options: LoggerOptions): Logger {
   }
 
   const api: Logger = {
-    log: emit,
-    debug: (m: unknown, ...a: unknown[]) => emit('debug', m, ...a),
-    info: (m: unknown, ...a: unknown[]) => emit('info', m, ...a),
-    warn: (m: unknown, ...a: unknown[]) => emit('warn', m, ...a),
-    error: (m: unknown, ...a: unknown[]) => emit('error', m, ...a),
-    mute: () => { muted = true; },
-    unmute: () => { muted = false; },
     child: (slug: string): Logger => createLogger({ ...options, slug }),
+    debug: (m: unknown, ...a: unknown[]) => emit('debug', m, ...a),
+    error: (m: unknown, ...a: unknown[]) => emit('error', m, ...a),
+    info: (m: unknown, ...a: unknown[]) => emit('info', m, ...a),
+    log: emit,
+    mute: () => {
+      muted = true;
+    },
     timer: (label?: string) => {
       const start = performance.now ? performance.now() : Date.now();
       return (message?: string) => {
@@ -243,6 +281,10 @@ export function createLogger(options: LoggerOptions): Logger {
         api.info(`${suffix}${message ?? 'done'} (${dur})`);
       };
     },
+    unmute: () => {
+      muted = false;
+    },
+    warn: (m: unknown, ...a: unknown[]) => emit('warn', m, ...a),
   };
 
   return api;
@@ -274,18 +316,23 @@ let CONSOLE_SNAPSHOT: ConsoleSnapshot | null = null;
 export function bindConsole(logger: Logger): void {
   if (!CONSOLE_SNAPSHOT) {
     CONSOLE_SNAPSHOT = {
-      log: console.log.bind(console),
-      info: console.info.bind(console),
-      warn: console.warn.bind(console),
-      error: console.error.bind(console),
       debug: console.debug.bind(console),
+      error: console.error.bind(console),
+      info: console.info.bind(console),
+      log: console.log.bind(console),
+      warn: console.warn.bind(console),
     };
   }
-  console.log = ((...a: unknown[]) => logger.info('%o', ...a)) as typeof console.log;
-  console.info = ((...a: unknown[]) => logger.info('%o', ...a)) as typeof console.info;
-  console.warn = ((...a: unknown[]) => logger.warn('%o', ...a)) as typeof console.warn;
-  console.error = ((...a: unknown[]) => logger.error('%o', ...a)) as typeof console.error;
-  console.debug = ((...a: unknown[]) => logger.debug('%o', ...a)) as typeof console.debug;
+  console.log = ((...a: unknown[]) =>
+    logger.info('%o', ...a)) as typeof console.log;
+  console.info = ((...a: unknown[]) =>
+    logger.info('%o', ...a)) as typeof console.info;
+  console.warn = ((...a: unknown[]) =>
+    logger.warn('%o', ...a)) as typeof console.warn;
+  console.error = ((...a: unknown[]) =>
+    logger.error('%o', ...a)) as typeof console.error;
+  console.debug = ((...a: unknown[]) =>
+    logger.debug('%o', ...a)) as typeof console.debug;
 }
 
 /**

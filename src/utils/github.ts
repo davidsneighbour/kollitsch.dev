@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 import path from 'node:path';
-import setup from '@data/setup.json';
+import setup from '@data/setup.json' with { type: 'json' };
 
 export function getGithubInfo(filePath: string): {
   hash: string | undefined;
@@ -30,13 +30,6 @@ export function getGithubInfo(filePath: string): {
     const branch = 'main';
 
     return {
-      hash,
-      commitUrl: `${repo}/commit/${hash}`,
-      fileUrl: `${repo}/blob/${branch}/${relPath}`,
-      historyUrl: `${repo}/commits/${branch}/${relPath}`,
-      blameUrl: `${repo}/blame/${branch}/${relPath}`,
-      editUrl: `${repo}/edit/${branch}/${relPath}`,
-      date,
       author: {
         name: authorName,
         profileUrl:
@@ -44,6 +37,13 @@ export function getGithubInfo(filePath: string): {
             ? `https://github.com/${authorEmail.split('+')[1]?.split('@')[0] ?? ''}`
             : null,
       },
+      blameUrl: `${repo}/blame/${branch}/${relPath}`,
+      commitUrl: `${repo}/commit/${hash}`,
+      date,
+      editUrl: `${repo}/edit/${branch}/${relPath}`,
+      fileUrl: `${repo}/blob/${branch}/${relPath}`,
+      hash,
+      historyUrl: `${repo}/commits/${branch}/${relPath}`,
     };
   } catch (err) {
     console.warn(`[GitInfo] Failed to get info for ${filePath}`, err);

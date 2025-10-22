@@ -7,16 +7,14 @@
  * - getStaticPaths(): built from canonical tag IDs via getTags()
  * - runtime: resolves incoming param (id/alias/label) via getTag()
  */
-import { getEntry } from 'astro:content';
+import { getEntry } from "astro:content";
+import ArticleCard from "@components/ArticleCard.astro";
+import Pagination from "@components/Pagination.astro";
+import TagIntro from "@components/TagIntro.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import Layout from "@layouts/DefaultPage.astro";
 
-import Layout from '@layouts/DefaultPage.astro';
-import ArticleCard from '@components/ArticleCard.astro';
-import TagIntro from '@components/TagIntro.astro';
-import Pagination from '@components/Pagination.astro';
-
-import setup from '@data/setup.json';
-
-import { getTag, getTags, tagUrl } from '@utils/tags';
+import { getTag, getTags, tagUrl } from "@utils/tags.ts";
 
 const { tag: rawParam } = Astro.params;
 
@@ -31,7 +29,7 @@ if (!resolved) {
 const { id: canonicalId, label: canonicalLabel, posts: taggedPosts } = resolved;
 
 // Try to load the tag entry by canonical id for intro metadata (image/description etc.)
-const tagEntry = await getEntry({ collection: 'tags', id: canonicalId }).catch(
+const tagEntry = await getEntry({ collection: "tags", id: canonicalId }).catch(
   () => null,
 );
 
@@ -45,9 +43,9 @@ const paginatedPosts = taggedPosts.slice(0, pageSize);
 // Metadata
 const post = {
   data: {
-    title: `#${canonicalLabel}`,
     description:
       tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`,
+    title: `#${canonicalLabel}`,
   },
 };
 
@@ -56,8 +54,8 @@ const post = {
  * This ensures aliases resolve to their canonical route, e.g. 'kollitsch' -> 'kdev'
  */
 export async function getStaticPaths() {
-  const items = await getTags({ threshold: 1, order: 'label-asc' });
-  return items.map(t => ({
+  const items = await getTags({ order: "label-asc", threshold: 1 });
+  return items.map((t) => ({
     params: { tag: t.id }, // canonical id
   }));
 }

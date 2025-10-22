@@ -3,33 +3,34 @@
  * Tags index page
  * tag cloud and featured tags list
  */
-import { type CollectionEntry } from 'astro:content';
-
-import Layout from '@layouts/DefaultPage.astro';
-
-import { getFeaturedTagEntries, getTags, type TagListItem } from '@utils/tags';
-
-import Heading from '@components/Heading.astro';
-import TagCard from '@components/TagCard.astro';
-import TagList from '@components/TagList.astro';
+import { type CollectionEntry } from "astro:content";
+import Heading from "@components/Heading.astro";
+import TagCard from "@components/TagCard.astro";
+import TagList from "@components/TagList.astro";
+import Layout from "@layouts/DefaultPage.astro";
+import {
+  getFeaturedTagEntries,
+  getTags,
+  type TagListItem,
+} from "@utils/tags.ts";
 
 const post = {
   data: {
-    title: 'Tags',
-    description: 'Explore the tags used across the blog posts.',
+    description: "Explore the tags used across the blog posts.",
+    title: "Tags",
   },
 };
 
 let allTagsWithCounts: TagListItem[] = [];
-let featuredEntries: CollectionEntry<'tags'>[] = [];
+let featuredEntries: CollectionEntry<"tags">[] = [];
 try {
-  allTagsWithCounts = await getTags({ threshold: 1, order: 'label-asc' });
+  allTagsWithCounts = await getTags({ order: "label-asc", threshold: 1 });
   featuredEntries = await getFeaturedTagEntries({
     includeCounts: true,
-    order: 'weight-desc',
+    order: "weight-desc",
   });
 } catch (err) {
-  console.error('[test/tags] failed to load tags', err);
+  console.error("[test/tags] failed to load tags", err);
 }
 ---
 

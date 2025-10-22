@@ -12,24 +12,23 @@
  * - **Client JS**: none — these are static SSR debug pages
  */
 
-import '@styles/theme.css';
-import Layout from '@layouts/ContentPageTest.astro';
-import Heading from '@components/Heading.astro';
-import TagList from '@components/TagList.astro';
-
-import { getTags } from '@utils/tags';
-import type { TagListItem } from '@utils/tags';
+import "@styles/theme.css";
+import Heading from "@components/Heading.astro";
+import TagList from "@components/TagList.astro";
+import Layout from "@layouts/ContentPageTest.astro";
+import type { TagListItem } from "@utils/tags.ts";
+import { getTags } from "@utils/tags.ts";
 
 let allTags: TagListItem[] = [];
 let allTagsWithCounts: TagListItem[] = [];
 let tagsOver5: TagListItem[] = [];
 
 try {
-  allTags = await getTags({ threshold: 1, order: 'label-asc' });
-  allTagsWithCounts = await getTags({ threshold: 1, order: 'count-desc' });
-  tagsOver5 = await getTags({ threshold: 6, order: 'count-desc' });
+  allTags = await getTags({ order: "label-asc", threshold: 1 });
+  allTagsWithCounts = await getTags({ order: "count-desc", threshold: 1 });
+  tagsOver5 = await getTags({ order: "count-desc", threshold: 6 });
 } catch (err) {
-  console.error('[test/tags] failed to load tags', err);
+  console.error("[test/tags] failed to load tags", err);
 }
 ---
 

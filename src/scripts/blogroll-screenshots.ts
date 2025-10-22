@@ -490,7 +490,7 @@ async function loadDotEnv(): Promise<void> {
     : undefined;
 
   if (homeEnv) await loadEnvFile(homeEnv, { override: false });
-  await loadEnvFile(cwdEnv, { override: true, onMissing: 'note' });
+  await loadEnvFile(cwdEnv, { onMissing: 'note', override: true });
 }
 
 async function loadEnvFile(

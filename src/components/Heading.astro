@@ -1,6 +1,6 @@
 ---
 // @todo refactor and comment
-type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export type Props = {
   level?: number;
@@ -12,10 +12,10 @@ export type Props = {
 
 const {
   level = 1,
-  description = '',
-  link = '',
-  class: classname = '',
-  html = '',
+  description = "",
+  link = "",
+  class: classname = "",
+  html = "",
 }: Props = Astro.props;
 
 const safeLevel = Math.min(6, Math.max(1, Number(level)));

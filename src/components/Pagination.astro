@@ -1,7 +1,7 @@
 ---
 // @todo refactor and comment
-import { mergePropsWithDefaults } from '@utils/content';
-import { Icon } from 'astro-icon/components';
+import { mergePropsWithDefaults } from "@utils/content.ts";
+import { Icon } from "astro-icon/components";
 
 /**
  * Props for the Pagination component.
@@ -32,28 +32,28 @@ export interface Props {
   showLast?: boolean;
 
   /** Behavior for edge buttons: hide or disable them */
-  edgeMode?: 'hide' | 'disable';
+  edgeMode?: "hide" | "disable";
 }
 
 const props = mergePropsWithDefaults(Astro.props as Props, {
-  pagingPartial: '',
-  spacer: '…',
+  edgeMode: "disable",
+  pagingPartial: "",
   range: 2,
   showFirst: true,
   showLast: true,
-  edgeMode: 'disable',
+  spacer: "…",
 }) as Required<
   Pick<
     Props,
-    | 'basePath'
-    | 'currentPage'
-    | 'totalPages'
-    | 'pagingPartial'
-    | 'spacer'
-    | 'range'
-    | 'showFirst'
-    | 'showLast'
-    | 'edgeMode'
+    | "basePath"
+    | "currentPage"
+    | "totalPages"
+    | "pagingPartial"
+    | "spacer"
+    | "range"
+    | "showFirst"
+    | "showLast"
+    | "edgeMode"
   >
 >;
 
@@ -64,8 +64,8 @@ if (props.pagingPartial && /[A-Z]/.test(props.pagingPartial)) {
 }
 
 function pageLink(n: number): string {
-  const base = props.basePath.replace(/\/+$/, '');
-  const partial = props.pagingPartial.replace(/^\/|\/$/g, '');
+  const base = props.basePath.replace(/\/+$/, "");
+  const partial = props.pagingPartial.replace(/^\/|\/$/g, "");
 
   if (n === 1) return `${base}/`;
 

@@ -1,13 +1,12 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from 'astro:content';
-
-import { Icon } from 'astro-icon/components';
-import { formatDate, getVSCodeUrlById } from '@utils/content';
-import IconLink from '@components/IconLink.astro';
+import type { CollectionEntry } from "astro:content";
+import IconLink from "@components/IconLink.astro";
+import { formatDate, getVSCodeUrlById } from "@utils/content.ts";
+import { Icon } from "astro-icon/components";
 
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
 const { post }: Props = Astro.props;
@@ -15,7 +14,7 @@ const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
 const date = new Date(post.data.date);
 const formattedPublishDate = formatDate(date);
-const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
+const metaDate = "date:" + formatDate(date, "YYYY-MM-DD");
 ---
 
 <div

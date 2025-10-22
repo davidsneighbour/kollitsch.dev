@@ -1,27 +1,27 @@
 ---
 // @todo refactor and comment
 // @see https://schema.org/BlogPosting
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
-import setup from '@data/setup.json';
-import { formatISO8601Local } from '@utils/datetime';
+import setup from "@data/setup.json" with { type: "json" };
+import { formatISO8601Local } from "@utils/datetime.ts";
 
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
 const { post }: Props = Astro.props;
 const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: post.data.title,
-  description: post.data.description,
-  keywords: post.data.tags,
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
   author: {
-    '@type': 'Person',
+    "@type": "Person",
     name: setup.author.name,
     url: setup.author.url,
   },
+  description: post.data.description,
+  headline: post.data.title,
+  keywords: post.data.tags,
   /**
    * @todo fix the date formatting
    */

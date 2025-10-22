@@ -1,6 +1,6 @@
-import './syncstring.js';
+import './syncstring.ts';
 import setup from '@data/setup.json' with { type: 'json' };
-import { renderIntroduction } from './render-intro.js';
+import { renderIntroduction } from './render-intro.ts';
 
 const target = document.getElementById('about-introduction');
 if (target) {

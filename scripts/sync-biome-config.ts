@@ -1,10 +1,12 @@
 import { writeFile } from 'node:fs/promises';
-import { pathToFileURL } from 'node:url';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 async function loadConfig() {
-  const moduleUrl = pathToFileURL(path.resolve(process.cwd(), 'biome.config.ts')).href;
-  const { default: config } = await import(moduleUrl) as { default: unknown };
+  const moduleUrl = pathToFileURL(
+    path.resolve(process.cwd(), 'biome.config.ts'),
+  ).href;
+  const { default: config } = (await import(moduleUrl)) as { default: unknown };
   return config;
 }
 

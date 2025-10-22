@@ -1,8 +1,8 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
-import sharp from 'sharp';
+import { fileURLToPath } from 'node:url';
 import pngToIco from 'png-to-ico';
+import sharp from 'sharp';
 
 interface FaviconOptions {
   svgPath: string;
@@ -16,11 +16,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const config: FaviconOptions = {
-  svgPath: resolve(__dirname, 'favicon.svg'),
-  pngPath: resolve(__dirname, 'favicon.png'),
   icoPath: resolve(__dirname, '../../../public/favicon.ico'),
-  pngSize: 512,
   icoSizes: [16, 32, 48, 64],
+  pngPath: resolve(__dirname, 'favicon.png'),
+  pngSize: 512,
+  svgPath: resolve(__dirname, 'favicon.svg'),
 };
 
 async function generateFavicon({
@@ -50,7 +50,7 @@ async function generateFavicon({
 
     // ICO (multi-size)
     const icoBuffers = await Promise.all(
-      icoSizes.map(size =>
+      icoSizes.map((size) =>
         sharp(svgBuffer, {
           density: 300,
         })

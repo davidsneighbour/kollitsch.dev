@@ -1,22 +1,22 @@
 ---
-import Site from '@layouts/Site.astro';
-import { getImage } from 'astro:assets';
-import image404 from '@assets/images/404.jpg';
-import IconLink from '@components/IconLink.astro';
+import { getImage } from "astro:assets";
+import image404 from "@assets/images/404.jpg";
+import IconLink from "@components/IconLink.astro";
+import Site from "@layouts/Site.astro";
 
 const optimizedBackground = await getImage({
-  src: image404,
-  format: 'jpg',
-  width: 1920,
+  format: "jpg",
   quality: 80,
+  src: image404,
+  width: 1920,
 });
 
 const currentPath = Astro.url.pathname;
 const post = {
-  title: '404 Page Not Found - ' + currentPath,
-  description: 'The page you are looking for does not exist.',
   date: new Date(),
-  tags: ['404', 'error'],
+  description: "The page you are looking for does not exist.",
+  tags: ["404", "error"],
+  title: "404 Page Not Found - " + currentPath,
 };
 ---
 

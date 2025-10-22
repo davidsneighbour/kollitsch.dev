@@ -73,8 +73,8 @@ interface SyncField {
 interface SyncStringConfig {
   fields: SyncField[];
   resultTemplate: string;
-  threshold: number;    // min chars before user input replaces fallback
-  debounceMs: number;   // debounce for typing
+  threshold: number; // min chars before user input replaces fallback
+  debounceMs: number; // debounce for typing
 }
 
 interface DisplayNode {
@@ -85,14 +85,33 @@ interface DisplayNode {
 }
 
 const DEFAULT_CONFIG: SyncStringConfig = {
+  debounceMs: 300,
   fields: [
-    { label: 'Username', type: 'text', slug: 'username', placeholder: 'octocat', value: 'username' },
-    { label: 'Repository', type: 'text', slug: 'repo', placeholder: 'hello-world', value: 'repo' },
-    { label: 'API key', type: 'password', slug: 'apiKey', placeholder: 'ghp_***', value: 'apiKey', revealToggle: true },
+    {
+      label: 'Username',
+      placeholder: 'octocat',
+      slug: 'username',
+      type: 'text',
+      value: 'username',
+    },
+    {
+      label: 'Repository',
+      placeholder: 'hello-world',
+      slug: 'repo',
+      type: 'text',
+      value: 'repo',
+    },
+    {
+      label: 'API key',
+      placeholder: 'ghp_***',
+      revealToggle: true,
+      slug: 'apiKey',
+      type: 'password',
+      value: 'apiKey',
+    },
   ],
   resultTemplate: 'https://{apiKey}@github.com/{username}/{repo}.git',
   threshold: 3,
-  debounceMs: 300,
 };
 
 /** One-time style injector */
@@ -197,7 +216,10 @@ display: none;
   document.head.appendChild(s);
 }
 
-function debounce<T extends (...args: unknown[]) => void>(fn: T, wait: number): T {
+function debounce<T extends (...args: unknown[]) => void>(
+  fn: T,
+  wait: number,
+): T {
   let timeout: number | undefined;
   return function debounced(this: unknown, ...args: Parameters<T>) {
     if (timeout) window.clearTimeout(timeout);
@@ -207,8 +229,12 @@ function debounce<T extends (...args: unknown[]) => void>(fn: T, wait: number): 
 
 function safeParseJson<T>(raw: string | null, fallback: T): T {
   if (!raw) return fallback;
-  try { return JSON.parse(raw) as T; }
-  catch (err) { console.error('[dnb-syncstring] Failed to parse JSON:', err); return fallback; }
+  try {
+    return JSON.parse(raw) as T;
+  } catch (err) {
+    console.error('[dnb-syncstring] Failed to parse JSON:', err);
+    return fallback;
+  }
 }
 
 /** Collect `{placeholder}` names safely as `string[]` under exactOptionalPropertyTypes */
@@ -218,17 +244,26 @@ function templatePlaceholders(template: string): string[] {
     .filter((p): p is string => typeof p === 'string');
 }
 
-function findMissingPlaceholders(template: string, fields: SyncField[]): string[] {
+function findMissingPlaceholders(
+  template: string,
+  fields: SyncField[],
+): string[] {
   const placeholders = templatePlaceholders(template);
   const slugs = new Set(fields.map((f) => f.slug));
   return Array.from(new Set(placeholders.filter((p) => !slugs.has(p))));
 }
 
-function applyTemplate(template: string, values: Readonly<Record<string, string>>): string {
-  return template.replace(/\{([a-zA-Z0-9_-]+)\}/g, (_m: string, key: string) => {
-    const v = values[key as keyof typeof values];
-    return v !== undefined ? v : `{${key}}`;
-  });
+function applyTemplate(
+  template: string,
+  values: Readonly<Record<string, string>>,
+): string {
+  return template.replace(
+    /\{([a-zA-Z0-9_-]+)\}/g,
+    (_m: string, key: string) => {
+      const v = values[key as keyof typeof values];
+      return v !== undefined ? v : `{${key}}`;
+    },
+  );
 }
 
 /** ES2022-safe HTML escape (no replaceAll) */
@@ -249,7 +284,7 @@ function escapeHtml(s: string): string {
 function resolveWithFallback(
   raw: Record<string, string>,
   fields: SyncField[],
-  threshold: number
+  threshold: number,
 ): Record<string, string> {
   const out: Record<string, string> = {};
   const meta = new Map(fields.map((f) => [f.slug, f]));
@@ -266,13 +301,13 @@ function resolveWithFallback(
 function valuesForMask(
   values: Record<string, string>,
   fields: SyncField[],
-  revealAll: boolean
+  revealAll: boolean,
 ): Record<string, string> {
   const typemap = new Map(fields.map((f) => [f.slug, f.type]));
   const out: Record<string, string> = {};
   for (const [k, v] of Object.entries(values)) {
     const t = typemap.get(k);
-    out[k] = t === 'password' && !revealAll ? (v ? '***' : '') : v ?? '';
+    out[k] = t === 'password' && !revealAll ? (v ? '***' : '') : (v ?? '');
   }
   return out;
 }
@@ -281,7 +316,7 @@ function valuesForMask(
 function highlightActive(
   template: string,
   values: Record<string, string>,
-  activeSlug: string
+  activeSlug: string,
 ): string {
   const parts: Array<string> = [];
   let i = 0;
@@ -331,7 +366,10 @@ export class DNBSyncString extends HTMLElement {
   constructor() {
     super();
     ensureThemeStylesInjected();
-    this.debouncedCompute = debounce(() => this.computeAndRender(), DEFAULT_CONFIG.debounceMs);
+    this.debouncedCompute = debounce(
+      () => this.computeAndRender(),
+      DEFAULT_CONFIG.debounceMs,
+    );
   }
 
   connectedCallback(): void {
@@ -358,10 +396,16 @@ export class DNBSyncString extends HTMLElement {
     this.config = {
       ...this.config,
       ...cfg,
+      debounceMs:
+        typeof cfg.debounceMs === 'number'
+          ? cfg.debounceMs
+          : this.config.debounceMs,
       fields: cfg.fields ?? this.config.fields,
       resultTemplate: cfg.resultTemplate ?? this.config.resultTemplate,
-      threshold: typeof cfg.threshold === 'number' ? cfg.threshold : this.config.threshold,
-      debounceMs: typeof cfg.debounceMs === 'number' ? cfg.debounceMs : this.config.debounceMs,
+      threshold:
+        typeof cfg.threshold === 'number'
+          ? cfg.threshold
+          : this.config.threshold,
     };
     this.renderBase();
     this.mountRows();
@@ -372,14 +416,20 @@ export class DNBSyncString extends HTMLElement {
   /** Current values (raw, without fallback) */
   public getValues(): Record<string, string> {
     const out: Record<string, string> = {};
-    this.config.fields.forEach((f) => (out[f.slug] = this.state.get(f.slug) ?? ''));
+    this.config.fields.forEach(
+      (f) => (out[f.slug] = this.state.get(f.slug) ?? ''),
+    );
     return out;
   }
 
   /** Current result; masked by default for visual display */
   public getResult(unmasked = false): string {
     const raw = this.getValues();
-    const resolved = resolveWithFallback(raw, this.config.fields, this.config.threshold);
+    const resolved = resolveWithFallback(
+      raw,
+      this.config.fields,
+      this.config.threshold,
+    );
     const revealAll = unmasked || (this.revealChk?.checked ?? false);
     const values = valuesForMask(resolved, this.config.fields, revealAll);
     return applyTemplate(this.config.resultTemplate, values);
@@ -388,8 +438,13 @@ export class DNBSyncString extends HTMLElement {
   // ----- internals -----
 
   private loadConfigFromAttributes(): void {
-    const fields = safeParseJson<SyncField[]>(this.getAttribute('fields'), DEFAULT_CONFIG.fields);
-    const tpl = this.getAttribute('result-template')?.trim() || DEFAULT_CONFIG.resultTemplate;
+    const fields = safeParseJson<SyncField[]>(
+      this.getAttribute('fields'),
+      DEFAULT_CONFIG.fields,
+    );
+    const tpl =
+      this.getAttribute('result-template')?.trim() ||
+      DEFAULT_CONFIG.resultTemplate;
     const thresholdAttr = this.getAttribute('threshold');
     const debounceAttr = this.getAttribute('debounce');
 
@@ -404,12 +459,15 @@ export class DNBSyncString extends HTMLElement {
 
       const base: SyncField = {
         label: f.label ?? slug,
-        type: (f.type as FieldType) ?? 'text',
+        // revealToggle only allowed for password fields
+        revealToggle:
+          f.type === 'password'
+            ? Boolean((f as Partial<SyncField>).revealToggle)
+            : false,
         slug,
+        type: (f.type as FieldType) ?? 'text',
         // set a concrete default so it is never "present but undefined"
         value: f.value ?? slug,
-        // revealToggle only allowed for password fields
-        revealToggle: f.type === 'password' ? Boolean((f as Partial<SyncField>).revealToggle) : false,
       };
 
       // Add optionals ONLY if actually defined (per exactOptionalPropertyTypes)
@@ -426,11 +484,19 @@ export class DNBSyncString extends HTMLElement {
       normalized.push(base);
     }
 
+    const threshold = Number.isFinite(Number(thresholdAttr))
+      ? Math.max(0, Number(thresholdAttr))
+      : DEFAULT_CONFIG.threshold;
+    const debounceMs = Number.isFinite(Number(debounceAttr))
+      ? Math.max(0, Number(debounceAttr))
+      : DEFAULT_CONFIG.debounceMs;
 
-    const threshold = Number.isFinite(Number(thresholdAttr)) ? Math.max(0, Number(thresholdAttr)) : DEFAULT_CONFIG.threshold;
-    const debounceMs = Number.isFinite(Number(debounceAttr)) ? Math.max(0, Number(debounceAttr)) : DEFAULT_CONFIG.debounceMs;
-
-    this.config = { fields: normalized.length ? normalized : DEFAULT_CONFIG.fields, resultTemplate: tpl, threshold, debounceMs };
+    this.config = {
+      debounceMs,
+      fields: normalized.length ? normalized : DEFAULT_CONFIG.fields,
+      resultTemplate: tpl,
+      threshold,
+    };
 
     // seed state with defaults if empty
     for (const f of this.config.fields) {
@@ -442,16 +508,19 @@ export class DNBSyncString extends HTMLElement {
     this.innerHTML = '';
 
     this.root = document.createElement('div');
-    this.root.className = 'dnb-syncstring w-full flex flex-col gap-4 border rounded p-4 transition-colors';
+    this.root.className =
+      'dnb-syncstring w-full flex flex-col gap-4 border rounded p-4 transition-colors';
 
     this.inputsEl = document.createElement('div');
     this.inputsEl.className = 'dnb-syncstring-inputs flex flex-col gap-3';
 
     const outWrap = document.createElement('div');
-    outWrap.className = 'dnb-syncstring-output flex items-start gap-3 flex-wrap';
+    outWrap.className =
+      'dnb-syncstring-output flex items-start gap-3 flex-wrap';
 
     this.outputEl = document.createElement('div');
-    this.outputEl.className = 'dnb-syncstring-result font-mono break-all p-2 border rounded min-w-[16rem]';
+    this.outputEl.className =
+      'dnb-syncstring-result font-mono break-all p-2 border rounded min-w-[16rem]';
 
     this.copyBtn = document.createElement('button');
     this.copyBtn.type = 'button';
@@ -460,7 +529,8 @@ export class DNBSyncString extends HTMLElement {
     this.copyBtn.addEventListener('click', () => this.handleCopy());
 
     const revealWrap = document.createElement('label');
-    revealWrap.className = 'dnb-syncstring-reveal flex items-center gap-2 select-none';
+    revealWrap.className =
+      'dnb-syncstring-reveal flex items-center gap-2 select-none';
     this.revealChk = document.createElement('input');
     this.revealChk.type = 'checkbox';
     this.revealChk.addEventListener('change', () => this.computeAndRender());
@@ -483,8 +553,14 @@ export class DNBSyncString extends HTMLElement {
     this.displayNodes.clear();
     this.editors.clear();
 
-    const missing = findMissingPlaceholders(this.config.resultTemplate, this.config.fields);
-    if (missing.length) this.showError(`Template references missing slugs: ${missing.join(', ')}`);
+    const missing = findMissingPlaceholders(
+      this.config.resultTemplate,
+      this.config.fields,
+    );
+    if (missing.length)
+      this.showError(
+        `Template references missing slugs: ${missing.join(', ')}`,
+      );
     else this.clearError();
 
     for (const field of this.config.fields) {
@@ -499,7 +575,8 @@ export class DNBSyncString extends HTMLElement {
       display.className = 'dnb-syncstring-display flex items-center gap-2';
 
       const text = document.createElement('span');
-      text.className = 'dnb-syncstring-display-text px-2 py-1 border rounded min-h-[2rem] inline-flex items-center';
+      text.className =
+        'dnb-syncstring-display-text px-2 py-1 border rounded min-h-[2rem] inline-flex items-center';
       text.textContent = this.displayValue(field);
 
       const editBtn = document.createElement('button');
@@ -515,7 +592,7 @@ export class DNBSyncString extends HTMLElement {
       edit.className = 'dnb-syncstring-edit hidden items-center gap-2';
 
       const input = document.createElement('input');
-      input.autocomplete = 'off';                  // autocomplete off
+      input.autocomplete = 'off'; // autocomplete off
       input.setAttribute('data-lpignore', 'true'); // lastpass autocomplete off
       input.className = 'dnb-syncstring-input border rounded px-2 py-1';
       input.type = field.type;
@@ -534,17 +611,20 @@ export class DNBSyncString extends HTMLElement {
       if (field.type === 'password' && field.revealToggle) {
         perRevealBtn = document.createElement('button');
         perRevealBtn.type = 'button';
-        perRevealBtn.className = 'dnb-syncstring-reveal-input px-2 py-1 border rounded';
+        perRevealBtn.className =
+          'dnb-syncstring-reveal-input px-2 py-1 border rounded';
         const updateBtnLabel = () => {
-          perRevealBtn!.textContent = this.revealedInputs.has(field.slug) ? 'Hide' : 'Show';
+          perRevealBtn!.textContent = this.revealedInputs.has(field.slug)
+            ? 'Hide'
+            : 'Show';
         };
         updateBtnLabel();
         perRevealBtn.addEventListener('click', () => {
           if (this.revealedInputs.has(field.slug)) {
-            this.revealedInputs.delete(field.slug);   // input hidden
+            this.revealedInputs.delete(field.slug); // input hidden
             input.type = 'password';
           } else {
-            this.revealedInputs.add(field.slug);      // input visible
+            this.revealedInputs.add(field.slug); // input visible
             input.type = 'text';
           }
           updateBtnLabel();
@@ -587,18 +667,27 @@ export class DNBSyncString extends HTMLElement {
       row.append(label, display, edit);
       this.inputsEl.appendChild(row);
 
-      this.displayNodes.set(field.slug, { slug: field.slug, el: text, editBtn, row });
+      this.displayNodes.set(field.slug, {
+        editBtn,
+        el: text,
+        row,
+        slug: field.slug,
+      });
       this.editors.set(field.slug, edit);
     }
   }
 
   private displayValue(field: SyncField, raw?: string): string {
     const entered = raw ?? this.state.get(field.slug) ?? '';
-    const effective = entered.length >= this.config.threshold ? entered : (field.value ?? field.slug);
+    const effective =
+      entered.length >= this.config.threshold
+        ? entered
+        : (field.value ?? field.slug);
     // Mask only if password AND global result reveal is OFF.
     // Note: per-field input reveal is intentionally ignored here (it only controls the editor input visibility).
-    const revealResult = (this.revealChk?.checked ?? false);
-    if (field.type === 'password' && !revealResult) return effective ? '***' : '';
+    const revealResult = this.revealChk?.checked ?? false;
+    if (field.type === 'password' && !revealResult)
+      return effective ? '***' : '';
     return effective;
   }
 
@@ -629,13 +718,17 @@ export class DNBSyncString extends HTMLElement {
       if (field?.type === 'password') {
         this.revealedInputs.delete(slug);
         if (input) input.type = 'password';
-        const btn = editor.querySelector('.dnb-syncstring-reveal-input') as HTMLButtonElement | null;
+        const btn = editor.querySelector(
+          '.dnb-syncstring-reveal-input',
+        ) as HTMLButtonElement | null;
         if (btn) btn.textContent = 'Show';
       }
 
       editor.classList.add('hidden');
       editor.classList.remove('flex');
-      dn.row.querySelector('.dnb-syncstring-display')?.classList.remove('hidden');
+      dn.row
+        .querySelector('.dnb-syncstring-display')
+        ?.classList.remove('hidden');
     }
 
     this.activeSlug = null;
@@ -675,7 +768,9 @@ export class DNBSyncString extends HTMLElement {
     if (field?.type === 'password') {
       this.revealedInputs.delete(slug);
       if (input) input.type = 'password';
-      const btn = ed.querySelector('.dnb-syncstring-reveal-input') as HTMLButtonElement | null;
+      const btn = ed.querySelector(
+        '.dnb-syncstring-reveal-input',
+      ) as HTMLButtonElement | null;
       if (btn) btn.textContent = 'Show';
     }
 
@@ -688,19 +783,26 @@ export class DNBSyncString extends HTMLElement {
   }
 
   private updateDebounce(): void {
-    this.debouncedCompute = debounce(() => this.computeAndRender(), this.config.debounceMs);
+    this.debouncedCompute = debounce(
+      () => this.computeAndRender(),
+      this.config.debounceMs,
+    );
   }
 
   private computeAndRender(): void {
     try {
       const raw = this.getValues();
-      const resolved = resolveWithFallback(raw, this.config.fields, this.config.threshold);
+      const resolved = resolveWithFallback(
+        raw,
+        this.config.fields,
+        this.config.threshold,
+      );
 
       // RESULT masking uses ONLY the global reveal toggle
       const masked = valuesForMask(
         resolved,
         this.config.fields,
-        this.revealChk?.checked ?? false
+        this.revealChk?.checked ?? false,
       );
       const visible = applyTemplate(this.config.resultTemplate, masked);
 
@@ -720,10 +822,10 @@ export class DNBSyncString extends HTMLElement {
         new CustomEvent('dnb-syncstring:change', {
           bubbles: true,
           detail: {
-            value: this.getResult(true),   // unmasked full value for programmatic use
             fields: raw,
+            value: this.getResult(true), // unmasked full value for programmatic use
           },
-        })
+        }),
       );
     } catch (err) {
       console.error('[dnb-syncstring] Compute error:', err);
@@ -749,7 +851,9 @@ export class DNBSyncString extends HTMLElement {
       }, 900);
     } catch (err) {
       console.error('[dnb-syncstring] Clipboard error:', err);
-      this.showError('Failed to copy. Your browser may block clipboard access.');
+      this.showError(
+        'Failed to copy. Your browser may block clipboard access.',
+      );
     }
   }
 
@@ -784,7 +888,6 @@ Usage example:
   debounce="150">
 </dnb-syncstring>
 */
-
 
 /* ---------------------------
 Usage examples
@@ -821,7 +924,6 @@ document.querySelector('dnb-syncstring')?.setStyles({
   result: 'text-xs'
 });
 ---------------------------- */
-
 
 /*
 <dnb-syncstring

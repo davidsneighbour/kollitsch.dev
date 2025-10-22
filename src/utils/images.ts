@@ -1,7 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import rawSetup from '@data/setup.json' with { type: 'json' };
-import { getImageMeta, hasImage } from '@utils/image-index';
-import { resolveImageKey } from '@utils/opengraph';
+import { getImageMeta, hasImage } from '@utils/image-index.ts';
+import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
 

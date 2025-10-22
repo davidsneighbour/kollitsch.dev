@@ -1,5 +1,5 @@
-import { createDefaultPost } from '@utils/content';
-import { describe, test, expect } from 'vitest';
+import { createDefaultPost } from '@utils/content.ts';
+import { describe, expect, test } from 'vitest';
 
 describe('createDefaultPost', () => {
   test('fills in missing values', () => {

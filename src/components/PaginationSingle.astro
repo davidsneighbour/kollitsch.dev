@@ -1,20 +1,20 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 // @todo refactor and comment
-import { Icon } from 'astro-icon/components';
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { Icon } from "astro-icon/components";
 
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 const { post }: Props = Astro.props;
 
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
 const posts = [...allPosts].sort(
   (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );
 
-const currentIndex = posts.findIndex(p => p.id === post.id);
+const currentIndex = posts.findIndex((p) => p.id === post.id);
 const nextPost = posts[currentIndex + 1];
 const prevPost = posts[currentIndex - 1];
 ---

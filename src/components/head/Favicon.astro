@@ -1,20 +1,20 @@
 ---
 // @todo refactor and comment
-import { getImage } from 'astro:assets';
-import faviconSrc from '@assets/favicon/favicon.png';
-import faviconSvgSrc from '@assets/favicon/favicon.svg';
+import { getImage } from "astro:assets";
+import faviconSrc from "@assets/favicon/favicon.png";
+import faviconSvgSrc from "@assets/favicon/favicon.svg";
 
 export interface Props {}
 
 const appleTouchIcon = await getImage({
-  src: faviconSrc,
   attributes: {
-    width: 180,
     height: 180,
+    width: 180,
   },
-  format: 'png',
+  format: "png",
+  src: faviconSrc,
 });
-const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
+const faviconSvg = await getImage({ format: "svg", src: faviconSvgSrc });
 ---
 
 <link

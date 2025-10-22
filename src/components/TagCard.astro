@@ -1,12 +1,12 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 // import PostImage from '@components/PostImage.astro';
-import Button from '@components/Button.astro';
+import Button from "@components/Button.astro";
 
 export interface Props {
-  post: CollectionEntry<'tags'>;
+  post: CollectionEntry<"tags">;
 }
 const { post } = Astro.props;
 // @todo add schema for tag overview page

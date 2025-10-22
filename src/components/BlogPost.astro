@@ -2,20 +2,20 @@
 // @todo refactor and comment
 // create a single blog post with full content
 
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
-import PostImage from '@components/PostImage.astro';
-import Giscus from '@components/Giscus.astro';
-import Heading from '@components/Heading.astro';
-import BreadCrumbs from '@components/BreadCrumbs.astro';
-import PaginationSingle from '@components/PaginationSingle.astro';
-import Meta from '@components/PostMeta.astro';
-import SchemaBlogPost from '@components/schema/BlogPosting.astro';
-import ShareSeparator from '@components/ShareSeparator.astro';
-import Prose from '@components/Prose.astro';
+import BreadCrumbs from "@components/BreadCrumbs.astro";
+import Giscus from "@components/Giscus.astro";
+import Heading from "@components/Heading.astro";
+import PaginationSingle from "@components/PaginationSingle.astro";
+import PostImage from "@components/PostImage.astro";
+import Meta from "@components/PostMeta.astro";
+import Prose from "@components/Prose.astro";
+import ShareSeparator from "@components/ShareSeparator.astro";
+import SchemaBlogPost from "@components/schema/BlogPosting.astro";
 
 const { post }: Props = Astro.props;
 ---

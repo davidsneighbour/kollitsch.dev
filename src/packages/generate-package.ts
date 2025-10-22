@@ -40,9 +40,9 @@ type Options = {
 function parseArgs(): Options {
   const args = process.argv.slice(2);
   const opts = {
+    dryRun: false,
     pkgPath: path.resolve(projectRoot, 'package.json'),
     verbose: false,
-    dryRun: false,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -70,7 +70,7 @@ function parseArgs(): Options {
         // Ensure the next argument exists before splitting
         const keysArg = args[++i];
         if (typeof keysArg === 'string') {
-          keysToPreserve = keysArg.split(',').map(key => key.trim());
+          keysToPreserve = keysArg.split(',').map((key) => key.trim());
         } else {
           console.error('✖ Missing value for --keys');
           process.exit(1);
@@ -96,7 +96,7 @@ function parseArgs(): Options {
 function mergeDeep<T>(target: T, source: Partial<T>): T {
   for (const key of Object.keys(source)) {
     // Prevent prototype pollution by skipping dangerous keys
-    if (key === "__proto__" || key === "constructor" || key === "prototype") {
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
       continue;
     }
     // Use type assertion to allow string indexing on Partial<T> and T
@@ -143,8 +143,8 @@ async function main() {
 
   // discover all JSON files
   const configPaths = glob.sync('src/packages/**/*.jsonc', {
-    cwd: projectRoot,
     absolute: true,
+    cwd: projectRoot,
   });
 
   if (verbose) {

@@ -1,17 +1,16 @@
 ---
+import { Image } from "astro:assets";
+import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
+import Heading from "@components/Heading.astro";
+import IconLink from "@components/IconLink.astro";
+import Link from "@components/Link.astro";
+import socialMediaData from "@content/social.json" with { type: "json" };
+import rawNavData from "@data/footernavigation.json" with { type: "json" };
+import setup from "@data/setup.json" with { type: "json" };
 // @todo refactor and comment
-import { getHomepageUrl } from '@utils/content';
-import { generateUniqueHtmlId } from '@utils/helpers';
-import rawNavData from '@data/footernavigation.json';
-import socialMediaData from '@content/social.json';
-import IconLink from '@components/IconLink.astro';
-import Heading from '@components/Heading.astro';
-import setup from '@data/setup.json';
-import type { IconName } from '@utils/icon-names';
-
-import patrickkollitsch from '@assets/images/patrick-kollitsch.png';
-import { Image } from 'astro:assets';
-import Link from '@components/Link.astro';
+import { getHomepageUrl } from "@utils/content.ts";
+import { generateUniqueHtmlId } from "@utils/helpers.ts";
+import type { IconName } from "@utils/icon-names.ts";
 
 export interface Props {}
 
@@ -23,11 +22,11 @@ const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 
-import MarkdownIt from 'markdown-it';
+import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();
 
-const introFallback = setup.introduction.replace('{$greeting}', '').trim();
+const introFallback = setup.introduction.replace("{$greeting}", "").trim();
 const introFallbackHtml = md.renderInline(introFallback);
 ---
 

@@ -1,5 +1,5 @@
-import { glob } from 'glob';
 import fs from 'fs';
+import { glob } from 'glob';
 import path from 'path';
 
 /**
@@ -21,7 +21,7 @@ function removeFrontmatterKey(content: string, key: string): string {
 
   const newLines = [
     lines[0],
-    ...lines.slice(1, end).filter(line => !keyRegex.test(line.trim())),
+    ...lines.slice(1, end).filter((line) => !keyRegex.test(line.trim())),
     lines[end],
     ...lines.slice(end + 1),
   ];
@@ -35,8 +35,8 @@ const FILE_GLOB = '**/*.md';
 const FRONTMATTER_KEY = 'fmContentType';
 
 const files = await glob(FILE_GLOB, {
-  cwd: TARGET_DIR,
   absolute: true,
+  cwd: TARGET_DIR,
 });
 
 for (const file of files) {

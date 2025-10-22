@@ -1,24 +1,24 @@
 ---
+import type { IconName } from "@utils/icon-names.ts";
+import type { HTMLAttributes } from "astro/types";
 // @todo refactor and comment
-import { Icon } from 'astro-icon/components';
-import type { HTMLAttributes } from 'astro/types';
-import type { IconName } from '@utils/icon-names';
+import { Icon } from "astro-icon/components";
 
-type IconPosition = 'prefix' | 'postfix';
+type IconPosition = "prefix" | "postfix";
 
-export interface Props extends HTMLAttributes<'a'> {
+export interface Props extends HTMLAttributes<"a"> {
   icon: IconName;
   type?: IconPosition;
   linkClass?: string;
   class?: string;
-  translate?: 'yes' | 'no';
+  translate?: "yes" | "no";
 }
 
 const {
-  type = 'prefix',
+  type = "prefix",
   icon,
-  class: iconClass = '',
-  linkClass = '',
+  class: iconClass = "",
+  linkClass = "",
   ...allAttrs
 }: Props = Astro.props;
 

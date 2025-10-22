@@ -1,12 +1,12 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
-import { getGithubInfo } from '@utils/github';
-import { Icon } from 'astro-icon/components';
+import { getGithubInfo } from "@utils/github.ts";
+import { Icon } from "astro-icon/components";
 
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
 const { post }: Props = Astro.props;

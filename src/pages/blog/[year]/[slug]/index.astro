@@ -6,25 +6,24 @@
 // } from "astro";
 //type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
-import { getCollection } from 'astro:content';
-
+import { getCollection } from "astro:content";
+import BlogPost from "@components/BlogPost.astro";
 // components
-import Layout from '@layouts/DefaultPage.astro';
-import BlogPost from '@components/BlogPost.astro';
+import Layout from "@layouts/DefaultPage.astro";
 
 export const getStaticPaths = async () => {
-  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const allPosts = await getCollection("blog", ({ data }) => !data.draft);
 
   return allPosts
-    .map(post => {
-      const parts = post.id.split('/');
+    .map((post) => {
+      const parts = post.id.split("/");
       if (parts.length !== 2) {
         console.warn(`[blog] Skipping invalid slug: ${post.id}`);
         return null;
       }
       const [year, slug] = parts;
       return {
-        params: { year, slug },
+        params: { slug, year },
         props: { post },
       };
     })

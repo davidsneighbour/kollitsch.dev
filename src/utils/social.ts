@@ -113,18 +113,25 @@ async function readJsonFile<T>(filePath: string): Promise<T> {
  * @param {string} hint
  * @throws Error when validation fails
  */
-function validateDataItems(items: unknown, hint: string): asserts items is readonly DataSocialItem[] {
+function validateDataItems(
+  items: unknown,
+  hint: string,
+): asserts items is readonly DataSocialItem[] {
   if (!Array.isArray(items)) {
     throw new Error(`${hint} must be an array`);
   }
   for (const it of items) {
-    if (typeof it !== 'object' || it === null) throw new Error(`${hint} contains a non-object item`);
+    if (typeof it !== 'object' || it === null)
+      throw new Error(`${hint} contains a non-object item`);
     const id = (it as JsonObject).id;
-    if (typeof id !== 'string' || id.trim() === '') throw new Error(`${hint} item has invalid 'id'`);
+    if (typeof id !== 'string' || id.trim() === '')
+      throw new Error(`${hint} item has invalid 'id'`);
     const icon = (it as JsonObject).icon;
-    if (typeof icon !== 'string' || icon.trim() === '') throw new Error(`${hint} item '${id}' has invalid 'icon'`);
+    if (typeof icon !== 'string' || icon.trim() === '')
+      throw new Error(`${hint} item '${id}' has invalid 'icon'`);
     const label = (it as JsonObject).label;
-    if (typeof label !== 'string' || label.trim() === '') throw new Error(`${hint} item '${id}' has invalid 'label'`);
+    if (typeof label !== 'string' || label.trim() === '')
+      throw new Error(`${hint} item '${id}' has invalid 'label'`);
   }
 }
 
@@ -134,14 +141,19 @@ function validateDataItems(items: unknown, hint: string): asserts items is reado
  * @param {string} hint
  * @throws Error when validation fails
  */
-function validateContentItems(items: unknown, hint: string): asserts items is readonly ContentSocialItem[] {
+function validateContentItems(
+  items: unknown,
+  hint: string,
+): asserts items is readonly ContentSocialItem[] {
   if (!Array.isArray(items)) {
     throw new Error(`${hint} must be an array`);
   }
   for (const it of items) {
-    if (typeof it !== 'object' || it === null) throw new Error(`${hint} contains a non-object item`);
+    if (typeof it !== 'object' || it === null)
+      throw new Error(`${hint} contains a non-object item`);
     const id = (it as JsonObject).id;
-    if (typeof id !== 'string' || id.trim() === '') throw new Error(`${hint} item has invalid 'id'`);
+    if (typeof id !== 'string' || id.trim() === '')
+      throw new Error(`${hint} item has invalid 'id'`);
   }
 }
 
@@ -155,7 +167,9 @@ function validateContentItems(items: unknown, hint: string): asserts items is re
  *
  * @returns {Promise<SocialMap>} Record keyed by ID, values are merged items.
  */
-export async function mergeSocial(options: MergeSocialOptions = {}): Promise<SocialMap> {
+export async function mergeSocial(
+  options: MergeSocialOptions = {},
+): Promise<SocialMap> {
   const {
     dataPath = 'src/data/social.json',
     contentPath = 'src/content/social.json',
@@ -182,7 +196,8 @@ export async function mergeSocial(options: MergeSocialOptions = {}): Promise<Soc
     if (loaders?.loadContent) {
       contentItems = await loaders.loadContent();
     } else {
-      contentItems = await readJsonFile<readonly ContentSocialItem[]>(contentPath);
+      contentItems =
+        await readJsonFile<readonly ContentSocialItem[]>(contentPath);
     }
     validateContentItems(contentItems, 'content/social.json');
   } catch (e) {
@@ -199,7 +214,9 @@ export async function mergeSocial(options: MergeSocialOptions = {}): Promise<Soc
     const base = baseById.get(content.id);
     if (!base) {
       if (strict) {
-        throw new Error(`content/social.json references unknown id '${content.id}' not present in data/social.json`);
+        throw new Error(
+          `content/social.json references unknown id '${content.id}' not present in data/social.json`,
+        );
       } else {
         console.warn(
           `[mergeSocial] content-only id '${content.id}' not found in data/social.json; including content as-is.`,

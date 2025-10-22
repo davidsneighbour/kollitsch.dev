@@ -3,18 +3,18 @@ import { expect, test } from '@playwright/test';
 test('renders multiple heading levels correctly', async ({ page }) => {
   await page.goto('/test/heading/');
 
-  const h2 = page.getByRole('heading', { name: 'Visible H2', exact: true });
+  const h2 = page.getByRole('heading', { exact: true, name: 'Visible H2' });
   const h5 = page.getByRole('heading', {
+    exact: true,
     name: 'Visible H5, no description',
-    exact: true,
   });
-  const h1 = page.getByRole('heading', { name: 'Default H1', exact: true });
+  const h1 = page.getByRole('heading', { exact: true, name: 'Default H1' });
   const h1nd = page.getByRole('heading', {
-    name: 'Default H1, no description',
     exact: true,
+    name: 'Default H1, no description',
   });
-  const h6 = page.getByRole('heading', { name: 'Too High', exact: true });
-  const h1min = page.getByRole('heading', { name: 'Too Low', exact: true });
+  const h6 = page.getByRole('heading', { exact: true, name: 'Too High' });
+  const h1min = page.getByRole('heading', { exact: true, name: 'Too Low' });
 
   await expect(h2).toBeVisible();
   await expect(h5).toBeVisible();

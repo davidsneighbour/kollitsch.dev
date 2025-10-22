@@ -27,12 +27,7 @@
         "type": "number"
       }
     },
-    "required": [
-      "id",
-      "label",
-      "url",
-      "icon"
-    ],
+    "required": ["id", "label", "url", "icon"],
     "type": "object"
   },
   "title": "Social Media"

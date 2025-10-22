@@ -1,12 +1,12 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
 const { post }: Props = Astro.props;
-const content = post.rendered?.html ?? '';
+const content = post.rendered?.html ?? "";
 ---
 
 <div class="content">

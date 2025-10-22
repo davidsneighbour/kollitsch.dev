@@ -1,10 +1,10 @@
 ---
-import '@styles/theme.css';
-import Layout from '@layouts/ContentPageTest.astro';
-import ArticleCard from '@components/ArticleCard.astro';
-import { getHomepagePosts } from '@utils/content';
-import Heading from '@components/Heading.astro';
-import Div from '@components/fragments/Div.astro';
+import "@styles/theme.css";
+import ArticleCard from "@components/ArticleCard.astro";
+import Div from "@components/fragments/Div.astro";
+import Heading from "@components/Heading.astro";
+import Layout from "@layouts/ContentPageTest.astro";
+import { getHomepagePosts } from "@utils/content.ts";
 
 const { featuredPost } = await getHomepagePosts();
 ---

@@ -5,7 +5,7 @@
   "wireit": {
     // https://docs.npmjs.com/cli/v8/using-npm/scripts
     "postprepare": {
-      "dependencies": ["test:postinstall", "build:favicons"],
+      "dependencies": ["test:postinstall", "build:favicons"]
     }
   }
 }

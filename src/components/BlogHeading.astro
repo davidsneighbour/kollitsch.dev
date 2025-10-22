@@ -1,21 +1,21 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from 'astro:content';
-import type { Props as HeadingProps } from '@components/Heading.astro';
+import type { CollectionEntry } from "astro:content";
+import type { Props as HeadingProps } from "@components/Heading.astro";
 
-import Heading from '@components/Heading.astro';
-import { getPageDateNote } from '@utils/content';
+import Heading from "@components/Heading.astro";
+import { getPageDateNote } from "@utils/content.ts";
 
 export interface Props extends HeadingProps {
   title: string;
-  posts: CollectionEntry<'blog'>[];
+  posts: CollectionEntry<"blog">[];
 }
 
 const {
   title,
   posts,
   level = 1,
-  description = 'A collection of articles, tutorials, and updates.',
+  description = "A collection of articles, tutorials, and updates.",
   link,
   class: className,
 }: Props = Astro.props;

@@ -1,7 +1,7 @@
 // @todo refactor
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
-import setup from '@data/setup.json';
+import setup from '@data/setup.json' with { type: 'json' };
 
 export async function GET(context) {
   let blog = await getCollection('blog', ({ data }) => {
@@ -18,16 +18,14 @@ export async function GET(context) {
   // const stylesheetURL = 'https://raw.githubusercontent.com/genmon/aboutfeeds/refs/heads/main/tools/pretty-feed-v3.xsl';
 
   return rss({
-    title: setup.title,
     description: setup.description,
-    site: context.site,
     // stylesheet: stylesheetURL,
     items: blog.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
+      categories: post.data.tags || [],
       description: post.data.description,
       link: `/blog/${post.slug}/`,
-      categories: post.data.tags || [],
+      pubDate: post.data.date,
+      title: post.data.title,
       // commentsUrl: post.data.commentsUrl || null,
       // enclosure: {
       //   url: '/media/alpha-centauri.aac',
@@ -35,5 +33,7 @@ export async function GET(context) {
       //   type: 'audio/aac',
       // },
     })),
+    site: context.site,
+    title: setup.title,
   });
 }

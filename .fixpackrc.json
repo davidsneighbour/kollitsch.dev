@@ -1,6 +1,20 @@
 {
-  "sortToTop": ["name", "description", "version", "author"],
+  "dryRun": false,
+  "files": ["package.json"],
+  "finalNewLine": null,
+  "indent": null,
+  "newLine": null,
+  "quiet": false,
   "required": ["name", "version"],
+  "requiredOnPrivate": [],
+  "sortedSubItems": [
+    "dependencies",
+    "devDependencies",
+    "jshintConfig",
+    "scripts",
+    "keywords"
+  ],
+  "sortToTop": ["name", "description", "version", "author"],
   "warn": [
     "description",
     "author",
@@ -10,20 +24,6 @@
     "homepage",
     "license"
   ],
-  "requiredOnPrivate": [],
   "warnOnPrivate": ["name", "version", "description"],
-  "sortedSubItems": [
-    "dependencies",
-    "devDependencies",
-    "jshintConfig",
-    "scripts",
-    "keywords"
-  ],
-  "quiet": false,
-  "files": ["package.json"],
-  "dryRun": false,
-  "wipe": false,
-  "indent": null,
-  "newLine": null,
-  "finalNewLine": null
+  "wipe": false
 }

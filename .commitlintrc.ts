@@ -60,7 +60,7 @@ const commitlintConfig: UserConfig = {
     minSubjectLength: 0,
     scopeOverrides: {
       build: ['deps', 'deps-dev', 'vscode'],
-      config: ['settings', 'ai', 'ts', 'lint'],
+      config: ['settings', 'ai', 'ts', 'lint', 'workspace'],
       content: ['new', 'fix', 'schema', 'update'],
       theme: ['fix', 'feat'],
     },

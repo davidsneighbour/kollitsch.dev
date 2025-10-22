@@ -15,7 +15,6 @@ export default {
   ],
 
   '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}': [
-    'npm run biome:config:sync --silent',
     'biome check --write --no-errors-on-unmatched',
   ],
 

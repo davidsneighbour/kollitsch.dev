@@ -1,4 +1,7 @@
-// @see https://github.com/lint-staged/lint-staged
+/**
+ * @see https://github.com/lint-staged/lint-staged
+ * @type {import('lint-staged').Configuration}
+ */
 export default {
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.jsonc"',
@@ -19,10 +22,12 @@ export default {
     'stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore ',
     'prettier --write',
   ],
+
   '*.astro': [
     'npx astro check --minimumFailingSeverity=error --minimumSeverity=error',
   ],
 
   '*.jsonnet': ['jsonnetfmt --in-place'],
+
   '*.y(aml|ml)': ['yamllint --config-file ./src/config/yamllint.yaml'],
 };

@@ -3,11 +3,9 @@
     "@biomejs/biome": "2.2.6"
   },
   "scripts": {
-    "biome:check": "npm run biome:config:sync --silent && biome check",
-    "biome:config:sync": "tsx scripts/sync-biome-config.ts",
-    "biome:config:upgrade": "npm run biome:config:sync --silent && npx @biomejs/biome migrate --write",
-    "biome:format": "npm run biome:config:sync --silent && biome format",
-    "biome:lint": "npm run biome:config:sync --silent && biome check --fix",
-    "biome:watch": "npm run biome:config:sync --silent && biome check --watch"
+    "biome:check": "biome check",
+    "biome:format": "biome format",
+    "biome:lint": "biome check --fix",
+    "biome:watch": "biome check --watch"
   }
 }

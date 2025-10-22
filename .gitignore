@@ -5,6 +5,9 @@
 .wireit
 bak
 
+# Generated Biome configuration (synced from biome.config.ts)
+biome.json
+
 # Netlify
 .netlify/*
 !.netlify/state.json

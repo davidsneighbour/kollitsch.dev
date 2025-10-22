@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Astro-like CLI logger for Node and browser.
  * - Format: "HH:mm:ss [slug] message (duration)"

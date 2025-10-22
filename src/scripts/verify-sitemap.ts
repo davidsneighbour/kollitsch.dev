@@ -2,8 +2,6 @@
 // deps: playwright, fast-xml-parser
 // node: 22+ (ESM, strict)
 
-/* eslint-disable no-console */
-
 import * as zlib from 'node:zlib';
 import { XMLParser } from 'fast-xml-parser';
 import { request } from 'playwright';

@@ -12,7 +12,7 @@ What to include in an automated PR
 
 Expected outputs
 - `npm test` passes for unit tests related to your change.
-- Lint/format checks are either fixed or documented (`npm run biome:check`, `npm run prettier:check`).
+- Lint/format checks are either fixed or documented (`npm run biome:check`, `npm run biome:format`).
 - If change touches scripts or content that affect builds, include a short smoke-check (see Validation).
 
 Common error modes
@@ -52,7 +52,7 @@ npm run dev
 PR review checklist for humans
 - Do the unit tests cover the changed behavior? If not, ask for tests or a plan.
 - Are required env vars documented in the PR? Can the change fail silently if they are missing?
-- Did the author run `npm run biome:check` / `prettier` or explain why not?
+- Did the author run `npm run biome:check` / `npm run biome:format` or explain why not?
 - If the change touches scripts in `src/scripts/`, verify the invocation and whether `npx tsx` is needed.
 
 Template (copy into PR description)

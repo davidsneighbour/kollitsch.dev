@@ -2,8 +2,8 @@
 // @vitest-environment node
 // @see https://github.com/vitest-dev/vitest/issues/4043 for the `@vitest-environment` comment
 
-import { getViteConfig } from 'astro/config';
 import { playwright } from '@vitest/browser-playwright';
+import { getViteConfig } from 'astro/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 const enableBrowserProject = process.env.VITEST_BROWSER === 'true';
@@ -13,18 +13,18 @@ const browserProjects = enableBrowserProject
       {
         name: 'browser',
         test: {
-          globals: true,
-          include: ['src/test/browser/**/*.test.ts'],
           browser: {
             enabled: true,
             headless: true,
-            provider: playwright(),
             instances: [
               {
                 browser: 'chromium',
               },
             ],
+            provider: playwright(),
           },
+          globals: true,
+          include: ['src/test/browser/**/*.test.ts'],
         },
       },
     ]
@@ -45,7 +45,8 @@ export default getViteConfig({
   plugins: [tsconfigPaths()],
   test: {
     coverage: {
-      reporter: ['text', 'html'],
+      include: ['src/**.{js,jsx,ts,tsx}'],
+      reporter: ['html'],
       reportsDirectory: 'src/test/logs/vitest/coverage',
     },
     environment: 'jsdom',

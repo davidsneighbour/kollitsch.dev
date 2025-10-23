@@ -1,11 +1,11 @@
 {
   "devDependencies": {
-    "fixpack": "4.0.0",
-    "glob": "11.0.3"
+    "fixpack": "4.0.0"
   },
   "scripts": {
     "compile:fixpack": "wireit",
     "compile:package": "wireit",
+    "compile:package:install": "wireit",
     "compile:package:update": "wireit"
   },
   "wireit": {
@@ -13,9 +13,13 @@
       "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
     },
     "compile:package": {
-      "command": "npm run compile:fixpack",
+      "command": "npm run compile:package:install",
       "dependencies": ["compile:package:run"],
       "files": ["./src/packages/**/*.jsonc"]
+    },
+    "compile:package:install": {
+      "command": "npm install",
+      "dependencies": ["compile:fixpack"]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"

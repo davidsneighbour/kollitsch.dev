@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "html-validate": "10.1.2"
+    //"html-validate": "10.1.2"
   },
   "scripts": {
     "audit:html": "wireit",

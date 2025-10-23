@@ -1,5 +1,4 @@
-/// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
+// @todo move into their original files as type exports
 
 /**
  * Adding global types to the Window object.

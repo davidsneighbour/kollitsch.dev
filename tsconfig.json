@@ -32,5 +32,5 @@
   },
   "exclude": ["dist", "scratch", "src/scripts", "src/config"],
   "extends": "astro/tsconfigs/strictest",
-  "include": ["src"]
+  "include": [".astro/types.d.ts", "src"]
 }

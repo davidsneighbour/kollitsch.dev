@@ -57,31 +57,26 @@ const post = {
   </div>
   <script is:inline>
     (function () {
-      if (typeof window === 'undefined') return;
+      if (typeof window === "undefined") return;
       try {
         const _paq = (window._paq = window._paq || []);
         const path = location.pathname;
-        const ref = document.referrer || '(direct)';
+        const ref = document.referrer || "(direct)";
 
         // _paq.push(['setCustomDimension', 1, '404']);
 
-        _paq.push(['setReferrerUrl', ref]);
-        _paq.push(['trackEvent', 'Issue', '404 - Not Found', path]);
+        _paq.push(["setReferrerUrl", ref]);
+        _paq.push(["trackEvent", "Issue", "404 - Not Found", path]);
 
         // If you have SPA transitions that can reach a 404 route, send once per view:
         const once = () => {
-          _paq.push(['setCustomDimension', 1, '404']);
-          _paq.push(['setReferrerUrl', document.referrer || '(direct)']);
-          _paq.push([
-            'trackEvent',
-            'Issue',
-            '404 - Not Found',
-            location.pathname,
-          ]);
+          _paq.push(["setCustomDimension", 1, "404"]);
+          _paq.push(["setReferrerUrl", document.referrer || "(direct)"]);
+          _paq.push(["trackEvent", "Issue", "404 - Not Found", location.pathname]);
         };
-        document.addEventListener('astro:after-swap', once, { once: true });
+        document.addEventListener("astro:after-swap", once, { once: true });
       } catch (err) {
-        console.error('Matomo 404 event tracking failed:', err);
+        console.error("Matomo 404 event tracking failed:", err);
       }
     })();
   </script>

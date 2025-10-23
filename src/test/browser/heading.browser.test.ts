@@ -1,6 +1,6 @@
 /// <reference types="vitest/browser" />
 
-import { expect, test } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { page } from 'vitest/browser';
 
 const TEST_IFRAME_ID = 'vitest-heading-preview';
@@ -39,31 +39,55 @@ const mountPreview = async (path: string) => {
   return iframe;
 };
 
-test.describe('heading preview', () => {
+describe('heading preview', () => {
   test('renders multiple heading levels', async () => {
     const iframe = await mountPreview('/test/heading/');
 
     try {
       const previewFrame = page.frameLocator(page.getByTestId(TEST_IFRAME_ID));
 
-      await expect.element(
-        previewFrame.getByRole('heading', { name: 'Visible H2', exact: true }),
-      ).toBeVisible();
-      await expect.element(
-        previewFrame.getByRole('heading', { name: 'Visible H5, no description', exact: true }),
-      ).toBeVisible();
-      await expect.element(
-        previewFrame.getByRole('heading', { name: 'Default H1', exact: true }),
-      ).toBeVisible();
-      await expect.element(
-        previewFrame.getByRole('heading', { name: 'Default H1, no description', exact: true }),
-      ).toBeVisible();
-      await expect.element(
-        previewFrame.getByRole('heading', { name: 'Too High', exact: true }),
-      ).toBeVisible();
-      await expect.element(
-        previewFrame.getByRole('heading', { name: 'Too Low', exact: true }),
-      ).toBeVisible();
+      await expect
+        .element(
+          previewFrame.getByRole('heading', {
+            exact: true,
+            name: 'Visible H2',
+          }),
+        )
+        .toBeVisible();
+      await expect
+        .element(
+          previewFrame.getByRole('heading', {
+            exact: true,
+            name: 'Visible H5, no description',
+          }),
+        )
+        .toBeVisible();
+      await expect
+        .element(
+          previewFrame.getByRole('heading', {
+            exact: true,
+            name: 'Default H1',
+          }),
+        )
+        .toBeVisible();
+      await expect
+        .element(
+          previewFrame.getByRole('heading', {
+            exact: true,
+            name: 'Default H1, no description',
+          }),
+        )
+        .toBeVisible();
+      await expect
+        .element(
+          previewFrame.getByRole('heading', { exact: true, name: 'Too High' }),
+        )
+        .toBeVisible();
+      await expect
+        .element(
+          previewFrame.getByRole('heading', { exact: true, name: 'Too Low' }),
+        )
+        .toBeVisible();
     } finally {
       iframe.remove();
     }

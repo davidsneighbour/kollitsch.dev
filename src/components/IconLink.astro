@@ -1,55 +1,94 @@
 ---
+// @todo refactor and comment
+
 import type { IconName } from "@utils/icon-names.ts";
 import type { HTMLAttributes } from "astro/types";
-// @todo refactor and comment
 import { Icon } from "astro-icon/components";
 
 type IconPosition = "prefix" | "postfix";
+type ElementType = "link" | "button";
 
 export interface Props extends HTMLAttributes<"a"> {
   icon: IconName;
-  type?: IconPosition;
+  /** Where to place the icon relative to the label */
+  iconPosition?: IconPosition;
+  /** Render as <a> (default) or <button> */
+  as?: ElementType;
+  /** Classes for the outer element */
   linkClass?: string;
+  /** Classes for the icon */
   class?: string;
   translate?: "yes" | "no";
+  /** Button's HTML type when as="button" */
+  buttonType?: NonNullable<HTMLAttributes<"button">["type"]>;
 }
 
 const {
-  type = "prefix",
+  as = "link",
+  iconPosition = "prefix",
   icon,
   class: iconClass = "",
   linkClass = "",
-  ...allAttrs
+  buttonType = "button",
+  ...rest
 }: Props = Astro.props;
 
 const hasSlot = !!Astro.slots.default;
+
+// Cast per element to avoid prop-type conflicts (notably the 'type' prop).
+const anchorAttrs = rest as unknown as HTMLAttributes<"a">;
+const buttonAttrs = {
+  type: buttonType,
+  ...(rest as unknown as HTMLAttributes<"button">),
+} satisfies HTMLAttributes<"button">;
 ---
 
-<a
-  class={`flex items-center gap-2 ${linkClass}`}
-  {...allAttrs}
->
-  {
-    type === 'prefix' && (
-      <Icon
-        name={icon}
-        class={iconClass}
-      />
-    )
-  }
-  {
-    hasSlot && (
-      <span>
-        <slot />
-      </span>
-    )
-  }
-  {
-    type === 'postfix' && (
-      <Icon
-        name={icon}
-        class={iconClass}
-      />
-    )
-  }
-</a>
+{
+  as === "button" ? (
+    <button
+      class={`flex items-center gap-2 ${linkClass}`}
+      {...buttonAttrs}
+    >
+      {iconPosition === "prefix" && (
+        <Icon
+          name={icon}
+          class={iconClass}
+        />
+      )}
+      {hasSlot && (
+        <span>
+          <slot />
+        </span>
+      )}
+      {iconPosition === "postfix" && (
+        <Icon
+          name={icon}
+          class={iconClass}
+        />
+      )}
+    </button>
+  ) : (
+    <a
+      class={`flex items-center gap-2 ${linkClass}`}
+      {...anchorAttrs}
+    >
+      {iconPosition === "prefix" && (
+        <Icon
+          name={icon}
+          class={iconClass}
+        />
+      )}
+      {hasSlot && (
+        <span>
+          <slot />
+        </span>
+      )}
+      {iconPosition === "postfix" && (
+        <Icon
+          name={icon}
+          class={iconClass}
+        />
+      )}
+    </a>
+  )
+}

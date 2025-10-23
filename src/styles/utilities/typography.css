@@ -1,0 +1,9 @@
+@utility text-boxlabel-sideways {
+  writing-mode: sideways-lr;
+  text-orientation: sideways;
+}
+
+@utility text-boxlabel-inherit {
+  writing-mode: inherit;
+  text-orientation: inherit;
+}

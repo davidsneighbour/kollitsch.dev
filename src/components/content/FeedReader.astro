@@ -1,0 +1,82 @@
+---
+// @todo refactor and comment
+import { Image } from "astro:assets";
+
+export interface Props {
+  /**
+   * Label text for the vertical label on the left side
+   * @default 'Read what Patrick is reading'
+   */
+  label?: string;
+  description?: string;
+  /**
+   * Link URL for the Web, Tech & Development feed
+   * @default '/feeds/web-tech-development/'
+   */
+  linkWebTech?: string;
+  /**
+   * Link URL for the This & That feed
+   * @default '/feeds/this-and-that/'
+   */
+  linkThisAndThat?: string;
+}
+const {
+  label = "Feed Reader",
+  description = "Read an eclectic selection of Patrick's reading",
+  linkWebTech = "https://feedly.com/f/0HetQ6aL9keke3b0TDbK3Lon",
+  linkThisAndThat = "https://feedly.com/f/x5VFmEUFdCxV64dLi62eJ4xV",
+} = Astro.props;
+
+import feedThisAndThat from "@assets/images/interface/feed-this-and-that.jpg";
+import feedWebTech from "@assets/images/interface/feed-web-tech-development.jpg";
+---
+
+<div class="flex flex-col gap-4 md:flex-row items-stretch md:shrink-0 justify-stretch justify-items-stretch">
+  <h3
+    class="text-changa text-center text-gray-800 text-boxlabel-inherit md:text-boxlabel-sideways text-sm uppercase"
+    aria-hidden="false"
+    title={description}
+  >
+    {label}
+  </h3>
+
+  <a
+    href={linkWebTech}
+    aria-label="Open the Web, Tech & Development feed"
+    target="_newfeed"
+    class="overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 px-4 py-5 sm:p-6 flex flex-1 flex-row items-center gap-4"
+  >
+    <div class="max-w-32 relative aspect-square w-full overflow-hidden rounded-xl">
+      <Image
+        src={feedWebTech}
+        alt="Web, Tech and Development feed"
+        class="h-full w-full object-cover"
+        width="128"
+        height="128"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <h4 class="text-3xl">Web, Tech & Development</h4>
+  </a>
+
+  <a
+    href={linkThisAndThat}
+    aria-label="Open the This & That feed"
+    target="_newfeed"
+    class="overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 px-4 py-5 sm:p-6 flex flex-1 flex-row items-center gap-4"
+  >
+    <div class="max-w-32 relative aspect-square w-full overflow-hidden rounded-xl">
+      <Image
+        src={feedThisAndThat}
+        alt="This & That feed"
+        class="h-full w-full object-cover"
+        width="128"
+        height="128"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <h4 class="text-3xl">This & That</h4>
+  </a>
+</div>

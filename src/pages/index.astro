@@ -1,5 +1,5 @@
 ---
-
+import FeedReader from "@components/content/FeedReader.astro";
 import Featured from "@components/sections/Featured.astro";
 import Recent from "@components/sections/Recent.astro";
 import setup from "@data/setup.json" with { type: "json" };
@@ -16,4 +16,5 @@ const post = {
 <Layout post={post}>
   <Featured />
   <Recent />
+  <FeedReader />
 </Layout>

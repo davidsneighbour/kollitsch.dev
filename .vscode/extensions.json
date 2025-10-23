@@ -32,7 +32,9 @@
     "redhat.vscode-yaml",
     "bradlc.vscode-tailwindcss",
     "redhat.vscode-xml",
-    "biomejs.biome"
+    "biomejs.biome",
+    "editorconfig.editorconfig",
+    "stylelint.vscode-stylelint"
   ],
   "unwantedRecommendations": []
 }

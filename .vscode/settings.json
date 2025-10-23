@@ -32,8 +32,12 @@
     "scratch/**": true
   },
 
+  // other settings
+  "svg.preview.background": "black",
+
   // astro specific settings
   "astro.content-intellisense": true,
+  "astro.updateImportsOnFileMove.enabled": true,
   "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
   "files.associations": {
     "**/*.astro": "astro",
@@ -132,12 +136,11 @@
     "**/.astro/**"
   ],
 
-  // PLUGIN: biome setup
+  // PLUGIN: biome
   // @see "editor.codeActionsOnSave"
   "biome.configurationPath": "biome.jsonc",
   "biome.requireConfiguration": true,
-  "svg.preview.background": "black",
-  "astro.updateImportsOnFileMove.enabled": true,
+// PLUGIN: todo tree
   "todo-tree.tree.scanMode": "workspace only",
   "todo-tree.general.automaticGitRefreshInterval": 300,
   "todo-tree.general.debug": true,

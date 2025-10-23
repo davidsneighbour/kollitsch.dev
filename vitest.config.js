@@ -3,7 +3,32 @@
 // @see https://github.com/vitest-dev/vitest/issues/4043 for the `@vitest-environment` comment
 
 import { getViteConfig } from 'astro/config';
+import { playwright } from '@vitest/browser-playwright';
 import tsconfigPaths from 'vite-tsconfig-paths';
+
+const enableBrowserProject = process.env.VITEST_BROWSER === 'true';
+
+const browserProjects = enableBrowserProject
+  ? [
+      {
+        name: 'browser',
+        test: {
+          globals: true,
+          include: ['src/test/browser/**/*.test.ts'],
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright(),
+            instances: [
+              {
+                browser: 'chromium',
+              },
+            ],
+          },
+        },
+      },
+    ]
+  : undefined;
 
 /**
  * @type {import('vite').UserConfig}
@@ -26,5 +51,6 @@ export default getViteConfig({
     environment: 'jsdom',
     globals: true,
     include: ['src/components/**/*.test.ts'],
+    ...(browserProjects ? { projects: browserProjects } : {}),
   },
 });

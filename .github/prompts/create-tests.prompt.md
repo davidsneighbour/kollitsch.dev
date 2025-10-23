@@ -1,5 +1,5 @@
 ---
-mode: 'ask'
+mode: 'agent'
 model: GPT-5 mini
 tools: ['edit/createFile', 'edit/createDirectory', 'edit/editFiles', 'runCommands', 'runTasks', 'kollitsch.dev Docs/*', 'playwright/*', 'chrome-devtools/*', 'problems', 'testFailure', 'todos', 'runTests']
 description: 'Add and update Vitest + Playwright tests for a single Astro component'
@@ -8,10 +8,11 @@ description: 'Add and update Vitest + Playwright tests for a single Astro compon
 ## Scope
 
 * **Focus:** Create or update tests only for the currently selected Astro component under `src/components/**`. Do not modify other components or files unrelated to testing this component.
-* **Test files:** For a component `ComponentName.astro`, use:
+* **Test files:** For a component `src/components/ComponentName.astro`, use:
   - `src/components/ComponentName.test.ts` - unit tests (Vitest) for this component.
   - `src/test/ComponentName.spec.ts` - end-to-end tests (Playwright) for this component, if needed.
   - `src/pages/test/componentname.astro` - a visual test page for this component, if needed (for Playwright to visit).
+  If the component is in a subdirectory mirror that structure (for example `src/components/ui/Button.astro` would have tests in `src/components/ui/Button.test.ts` and `src/test/ui/Button.spec.ts`).
 * **Minimal component changes:** Only alter the component code if absolutely necessary for testing (for example adding a `data-testid` for selection). Any such change must be safe (no effect on production) and follow guidelines (for example gated by environment). Prefer using existing roles, labels, or text for selectors over modifying the component.
 * **No public API changes:** Do not change the component's Props or behavior solely for testing. Tests should adapt to the component, not vice versa, unless a bug is discovered that requires a fix (which should be done in a separate refactor task, not here).
 
@@ -104,7 +105,7 @@ Playwright test (ComponentName.spec.ts): - Write tests that navigate to the comp
 
 Example - Playwright test for a Heading component:
 
-```
+```ts
 import { test, expect } from '@playwright/test';
 
 test('renders multiple heading levels correctly', async ({ page }) => {

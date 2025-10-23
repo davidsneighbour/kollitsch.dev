@@ -1,5 +1,5 @@
 ---
-applyTo: **/*.ts
+applyTo: "**/*.ts"
 ---
 
 # Project-wide TypeScript Configuration

@@ -48,22 +48,22 @@ type ComponentName = (typeof allowedComponents)[number];
  * ```
  */
 export function hasComponent(
-  post: Record<string, any> | undefined,
+  post: Record<string, unknown> | undefined,
   name: ComponentName,
   path: string = 'data.options.head.components',
 ): boolean {
   if (!post) return false;
 
   const parts = path.split('.');
-  // @todo improve typing here
-  // @ts-ignore
-  let current: any = post;
+  let current: unknown = post;
 
   for (const part of parts) {
     if (typeof current !== 'object' || current === null || !(part in current)) {
       return false;
     }
-    current = current[part];
+
+    // safely narrow using Record<string, unknown>
+    current = (current as Record<string, unknown>)[part];
   }
 
   return Array.isArray(current) && current.includes(name);

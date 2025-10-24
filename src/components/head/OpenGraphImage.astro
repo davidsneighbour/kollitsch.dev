@@ -504,7 +504,9 @@ async function getCachedOrGeneratePng(
       endPix("resvg+sharp failed");
       try {
         if (fs.existsSync(fileFsPath)) fs.unlinkSync(fileFsPath);
-      } catch {}
+      } catch {
+        console.log("error");
+      }
       log.error({ err: e }, "Resvg/Sharp pipeline failed");
       throw e;
     }
@@ -603,18 +605,16 @@ const ogimage = await getCachedOrGeneratePng(
 <>
   {
     (() => {
-      const altText = alt ?? (post?.data?.title || 'unknown');
-      const abs = Astro.site
-        ? new URL(ogimage.src, Astro.site).toString()
-        : ogimage.src;
+      const altText = alt ?? (post?.data?.title || "unknown");
+      const abs = Astro.site ? new URL(ogimage.src, Astro.site).toString() : ogimage.src;
 
       return (
         <>
-          {returnType === 'path' && ogimage.src}
+          {returnType === "path" && ogimage.src}
 
-          {returnType === 'url' && abs}
+          {returnType === "url" && abs}
 
-          {returnType === 'tag' && (
+          {returnType === "tag" && (
             <img
               src={ogimage.src}
               alt={altText}
@@ -623,7 +623,7 @@ const ogimage = await getCachedOrGeneratePng(
             />
           )}
 
-          {returnType === 'twitter' && (
+          {returnType === "twitter" && (
             <>
               <meta
                 name="twitter:image"
@@ -636,8 +636,7 @@ const ogimage = await getCachedOrGeneratePng(
             </>
           )}
 
-          {(returnType === 'og' ||
-            !['path', 'url', 'tag', 'twitter'].includes(returnType)) && (
+          {(returnType === "og" || !["path", "url", "tag", "twitter"].includes(returnType)) && (
             <>
               <meta
                 property="og:image"

@@ -1,9 +1,12 @@
-// src/utils/debug.ts
 /**
  * Deprecated shim. Use: `import { createLogger } from '@utils/logger'`
  * Maintains old API: createLogger().{debug,error,note,warn,start,stop}
  */
-import { createLogger as _create, type Logger } from './logger.ts';
+import {
+  createLogger as _create,
+  type Logger,
+  type LogLevel,
+} from './logger.ts';
 
 let warned = false;
 function deprecateOnce(): void {
@@ -38,7 +41,7 @@ export function createLogger(): {
 } {
   deprecateOnce();
   const core: Logger = _create({
-    level: (process.env.LOG_LEVEL as any) ?? 'info',
+    level: (process.env.LOG_LEVEL as LogLevel) ?? 'info',
     slug: 'dnb',
   });
 

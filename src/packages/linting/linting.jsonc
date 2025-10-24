@@ -8,8 +8,6 @@
     "lint:hook:commit": "lint-staged",
     "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
     "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
-    "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
     "lint:templates": "wireit"
   },
   "wireit": {

@@ -9,8 +9,7 @@
   "scripts": {
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "release": "wireit",
-    "release:clean": "wireit",
-    "screenshot": "wireit"
+    "release:clean": "wireit"
   },
   "wireit": {
     "release": {

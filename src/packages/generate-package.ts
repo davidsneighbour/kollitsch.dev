@@ -1,4 +1,3 @@
-// biome-ignore lint/suspicious/noExplicitAny: Utility casts dynamic JSON structures.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

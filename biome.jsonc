@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.7/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -15,14 +15,19 @@
     },
     "formatter": {
       "enabled": true,
-      "indentStyle": "space",
+      "indentStyle": "space"
     },
     "linter": {
       "enabled": true
     }
   },
   "files": {
-    "includes": ["**", "!**/.vscode/**/*"]
+    "includes": [
+      "src/utils/**/*",
+      "src/components/**/*",
+      "src/pages/**/*",
+      "!**/.vscode/**/*"
+    ]
   },
   "formatter": {
     "attributePosition": "auto",

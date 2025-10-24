@@ -1,45 +1,35 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.7/schema.json",
+  // Assist actions keep imports and structured data deterministic for reviewers.
+  // Docs: https://biomejs.dev/guides/configure-biome/#assist
   "assist": {
     "actions": {
       "source": {
+        // Sort imports so diffs remain focused on substantive changes.
         "organizeImports": "on",
+        // Ensure JSON key ordering stays stable when the assistant rewrites files.
         "useSortedKeys": "on"
       }
-    },
-    "enabled": true
-  },
-  "files": {
-    "includes": ["**", "!**/.vscode/**/*"]
-  },
-  "formatter": {
-    "attributePosition": "auto",
-    "enabled": true,
-    "formatWithErrors": false,
-    "includes": ["**", "!**/build", "!**/coverage"],
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 80,
-    "useEditorconfig": true
-  },
-  "html": {
-    "formatter": {
-      "enabled": true
     }
   },
+  "files": {
+    // Restrict processing to project files while skipping workspace settings noise.
+    // Docs: https://biomejs.dev/guides/configure-biome/#filesincludes
+    "includes": ["**", "!**/.vscode/**/*"]
+  },
+  // Formatter configuration avoids touching generated output and matches team spacing conventions.
+  // Docs: https://biomejs.dev/guides/configure-biome/#formatter
+  "formatter": {
+    // Ignore build outputs and coverage artifacts to shorten formatting passes.
+    "includes": ["**", "!**/build", "!**/coverage"],
+    // Prefer spaces to align with Astro project style guides and existing files.
+    "indentStyle": "space",
+    // Allow project-specific indentation overrides stored in .editorconfig.
+    "useEditorconfig": true
+  },
   "javascript": {
-    "formatter": {
-      "arrowParentheses": "always",
-      "attributePosition": "auto",
-      "bracketSameLine": false,
-      "bracketSpacing": true,
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "quoteStyle": "double",
-      "semicolons": "always",
-      "trailingCommas": "all"
-    },
+    // Register Astro runtime globals so linting treats template helpers as defined.
+    // Docs: https://biomejs.dev/guides/configure-biome/#javascript
     "globals": [
       "Astro",
       "ENVIRONMENT",
@@ -143,12 +133,15 @@
       "ononline"
     ]
   },
+  // Linter settings balance strictness with Astro component ergonomics.
+  // Docs: https://biomejs.dev/guides/configure-biome/#linter
   "linter": {
     "domains": {
+      // Apply project and test rules consistently across the repo hierarchy.
       "project": "all",
       "test": "all"
     },
-    "enabled": true,
+    // Skip generated linting scaffolding bundled in the repo template.
     "includes": ["**", "!src/packages/linting/biome-setup.jsonc"],
     // https://biomejs.dev/linter/javascript/rules/
     "rules": {
@@ -216,14 +209,18 @@
       }
     }
   },
+  // Overrides tailor formatting and linting to Astro component ergonomics and config files.
+  // Docs: https://biomejs.dev/guides/configure-biome/#overrides
   "overrides": [
     {
+      // Placeholder to scope future HTML tweaks without affecting other formats.
       "includes": ["**/*.html"]
     },
     {
       "includes": ["**/*.js", "**/*.ts"],
       "javascript": {
         "formatter": {
+          // Prefer single quotes in authored scripts to match legacy linting expectations.
           "quoteStyle": "single"
         }
       },
@@ -256,9 +253,11 @@
             "noUnusedVariables": "off"
           },
           "nursery": {
+            // Astro's compiler resolves components, so unresolved import reports are noise.
             "noUnresolvedImports": "off"
           },
           "style": {
+            // Astro templates mix script and markup, so const/import-type rules would over-fire.
             "useConst": "off",
             "useImportType": "off"
           }
@@ -266,10 +265,16 @@
       }
     }
   ],
+  // Track repository metadata so Biome integrates with Git defaults in this monorepo.
+  // Docs: https://biomejs.dev/guides/configure-biome/#vcs
   "vcs": {
+    // Explicitly pin Git integration for consistent staged file detection.
     "clientKind": "git",
+    // Match the repository's default branch to help Biome determine base revisions.
     "defaultBranch": "main",
+    // Keep VCS integration active so formatting respects `.gitignore` and staged files.
     "enabled": true,
+    // Defer ignore handling to `.gitignore` to avoid duplicating ignore lists.
     "useIgnoreFile": true
   }
 }

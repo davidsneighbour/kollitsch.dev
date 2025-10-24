@@ -1,11 +1,12 @@
 {
   "devDependencies": {
-    "@biomejs/biome": "2.2.7"
+    "@biomejs/biome": "2.3.0"
   },
   "scripts": {
     "biome:check": "biome check",
     "biome:format": "biome format",
     "biome:lint": "biome check --fix",
-    "biome:watch": "biome check --watch"
+    "biome:watch": "biome check --watch",
+    "biome:postinstall": "biome migrate --write"
   }
 }

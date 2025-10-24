@@ -44,7 +44,7 @@
   "devDependencies": {
     "@ascorbic/youtube-loader": "0.0.2",
     "@axe-core/playwright": "4.11.0",
-    "@biomejs/biome": "2.2.7",
+    "@biomejs/biome": "2.3.0",
     "@commitlint/cli": "20.1.0",
     "@commitlint/config-conventional": "20.0.0",
     "@davidsneighbour/browserslist-config": "2025.3.4",
@@ -68,11 +68,11 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.34",
-    "@vitest/browser": "4.0.1",
-    "@vitest/browser-playwright": "4.0.1",
-    "@vitest/coverage-v8": "4.0.1",
+    "@vitest/browser": "4.0.3",
+    "@vitest/browser-playwright": "4.0.3",
+    "@vitest/coverage-v8": "4.0.3",
     "astro-expressive-code": "0.41.3",
-    "astro-loader-github-releases": "2.0.2",
+    "astro-loader-github-releases": "2.1.0",
     "bootstrap-icons": "1.13.1",
     "brace-expansion": ">=4.0.1",
     "browserslist": "4.27.0",
@@ -83,7 +83,7 @@
     "js-yaml": "4.1.0",
     "markdownlint": "0.39.0",
     "markdownlint-cli2": "0.18.1",
-    "netlify-cli": "23.9.4",
+    "netlify-cli": "23.9.5",
     "npm-run-all": "4.1.5",
     "playwright": "1.56.1",
     "postcss-html": "1.8.0",
@@ -96,7 +96,7 @@
     "tsx": "4.20.6",
     "vite-plugin-devtools-json": "1.0.0",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.1"
+    "vitest": "4.0.3"
   },
   "scripts": {
     "astro": "astro",
@@ -104,6 +104,7 @@
     "biome:check": "biome check",
     "biome:format": "biome format",
     "biome:lint": "biome check --fix",
+    "biome:postinstall": "biome migrate --write",
     "biome:watch": "biome check --watch",
     "build": "astro check && astro build",
     "build:favicons": "node src/assets/favicon/regenerate.ts",
@@ -283,6 +284,12 @@
       "not and_qq > 0",
       "not kaios 2.5"
     ]
+  },
+  "overrides": {
+    "@vitest/browser": "4.0.3",
+    "@vitest/browser-playwright": "4.0.3",
+    "@vitest/coverage-v8": "4.0.3",
+    "vitest": "4.0.3"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

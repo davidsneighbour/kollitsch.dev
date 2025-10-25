@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     // not happy about this, but without it our json imports throw errors
     // Module '"...kollitsch.dev/src/data/footernavigation"' can only be
     // default-imported using the 'allowSyntheticDefaultImports' flag ts(1259)

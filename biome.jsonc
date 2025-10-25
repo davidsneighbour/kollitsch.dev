@@ -19,6 +19,10 @@
     },
     "linter": {
       "enabled": true
+    },
+    "parser": {
+      // https://biomejs.dev/blog/biome-v2-3/#tailwind-v4-support
+      "tailwindDirectives": true
     }
   },
   "files": {
@@ -26,6 +30,7 @@
       "src/utils/**/*",
       "src/components/**/*",
       "src/pages/**/*",
+      // \! = index but not linted/fixed, !! = fully ignored
       "!**/.vscode/**/*"
     ]
   },
@@ -33,15 +38,30 @@
     "attributePosition": "auto",
     "enabled": true,
     "formatWithErrors": false,
-    "includes": ["**", "!**/build", "!**/coverage"],
+    "includes": [
+      "**",
+      "!**/build",
+      "!**/coverage"
+    ],
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineEnding": "lf",
+    // aligns with git behaviour on different OSes
+    "lineEnding": "auto",
     "lineWidth": 80,
     "useEditorconfig": true
   },
   "html": {
+    "assist": {
+      "enabled": true
+    },
+    // required to support .astro files
+    "experimentalFullSupportEnabled": true,
     "formatter": {
+      "enabled": true,
+      // will be phased out eventually - indent inside script tags
+      "indentScriptAndStyle": true
+    },
+    "linter": {
       "enabled": true
     }
   },
@@ -166,7 +186,10 @@
       "test": "all"
     },
     "enabled": true,
-    "includes": ["**", "!src/packages/linting/biome-setup.jsonc"],
+    "includes": [
+      "**",
+      "!src/packages/linting/biome-setup.jsonc"
+    ],
     // https://biomejs.dev/linter/javascript/rules/
     "rules": {
       "complexity": {
@@ -235,10 +258,15 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.html"]
+      "includes": [
+        "**/*.html"
+      ]
     },
     {
-      "includes": ["**/*.js", "**/*.ts"],
+      "includes": [
+        "**/*.js",
+        "**/*.ts"
+      ],
       "javascript": {
         "formatter": {
           "quoteStyle": "single"
@@ -258,10 +286,14 @@
       }
     },
     {
-      "includes": ["**/*.properties"]
+      "includes": [
+        "**/*.properties"
+      ]
     },
     {
-      "includes": ["**/*.astro"],
+      "includes": [
+        "**/*.astro"
+      ],
       "linter": {
         "rules": {
           "correctness": {

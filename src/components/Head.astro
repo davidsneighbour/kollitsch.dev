@@ -58,18 +58,13 @@ const rawTitle =
 const title = resolvePostTitle(rawTitle, { postfix: setup.head.postfix });
 
 // description: prefer post, then setup.description
-const rawDescription =
-  safePost.data?.description ??
-  (setup?.description as string | undefined) ??
-  "";
+const rawDescription = safePost.data?.description ?? (setup?.description as string | undefined) ?? "";
 const description = clampText(rawDescription);
 
 // canonical with trailing slash enforced
 const site = new URL(Astro.site ?? "http://localhost/");
 const canonicalUrl = new URL(
-  Astro.url.pathname.endsWith("/")
-    ? Astro.url.pathname
-    : `${Astro.url.pathname}/`,
+  Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`,
   site,
 ).toString();
 
@@ -81,11 +76,7 @@ const robots = isDraft ? "noindex, nofollow, noarchive" : "index, follow";
 const shouldEmitBase = typeof baseUrl === "string" && baseUrl !== "/";
 const headCfg = setup.head as Record<string, unknown>;
 
-function getString(
-  obj: Record<string, unknown>,
-  key: string,
-  fallback: string,
-): string {
+function getString(obj: Record<string, unknown>, key: string, fallback: string): string {
   const v = obj[key];
   return typeof v === "string" && v.trim() !== "" ? v : fallback;
 }
@@ -94,11 +85,10 @@ const themeLight = getString(headCfg, "themeColorLight", "#ffffff");
 const themeDark = getString(headCfg, "themeColorDark", "#000000");
 ---
 
-<meta charset={setup.head?.defaults?.charset || 'utf-8'} />
+<meta charset={setup.head?.defaults?.charset || "utf-8"} />
 <meta
   name="viewport"
-  content={setup.head?.defaults?.viewport ||
-    'width=device-width, initial-scale=1.0'}
+  content={setup.head?.defaults?.viewport || "width=device-width, initial-scale=1.0"}
 />
 <title>{title}</title>
 
@@ -131,19 +121,6 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
     />
   )
 }
-
-<FontsPreload />
-<OpenGraph post={safePost} />
-<ClientRouter />
-<Favicon />
-<Meta />
-<WebComponents post={safePost} />
-
-<meta
-  name="generator"
-  content={Astro.generator}
-/>
-
 <meta
   name="color-scheme"
   content="dark light"
@@ -159,26 +136,36 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
   content={themeDark}
 />
 
-{
-  /* Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) */
-}
+<FontsPreload />
+<OpenGraph post={safePost} />
+<ClientRouter />
+<Favicon />
+<Meta />
+<WebComponents post={safePost} />
+
+<meta
+  name="generator"
+  content={Astro.generator}
+/>
+
+{/* Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) */}
 <script is:inline>
   (function () {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
     try {
       const _paq = (window._paq = window._paq || []);
-      _paq.push(['setReferrerUrl', document.referrer]);
-      _paq.push(['enableLinkTracking']);
-      _paq.push(['trackPageView']); // initial load
+      _paq.push(["setReferrerUrl", document.referrer]);
+      _paq.push(["enableLinkTracking"]);
+      _paq.push(["trackPageView"]); // initial load
 
       const onSwap = () => {
-        _paq.push(['setCustomUrl', location.href]);
-        _paq.push(['setDocumentTitle', document.title]);
-        _paq.push(['trackPageView']);
+        _paq.push(["setCustomUrl", location.href]);
+        _paq.push(["setDocumentTitle", document.title]);
+        _paq.push(["trackPageView"]);
       };
-      document.addEventListener('astro:after-swap', onSwap);
+      document.addEventListener("astro:after-swap", onSwap);
     } catch (err) {
-      console.error('Matomo bootstrap failed:', err);
+      console.error("Matomo bootstrap failed:", err);
     }
   })();
 </script>

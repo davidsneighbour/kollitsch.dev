@@ -1,15 +1,28 @@
-// src/utils/theme.ts
-// Node 22+, ESM, Astro 5.14+. Strict TypeScript, no 'any'.
+// Central theme definition and Tailwind token generator.
+import {
+  assertHex,
+  clamp01,
+  type Hex,
+  type HSL,
+  hexToRgb,
+  hslCss,
+  isHexColor,
+  type LAB,
+  normalizeHex,
+  type RGB,
+  rgbCss,
+  rgbToHsl,
+  rgbToLab,
+} from '@utils/color.ts';
 import { z } from 'astro/zod';
 
-/** Hex in #RRGGBB or #RGB (normalized to #RRGGBB internally). */
+/* -------------------------------------------------------------------------- */
+/*                                  SCHEMAS                                   */
+/* -------------------------------------------------------------------------- */
+
 const HexColor = z
   .string()
-  .regex(
-    /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/,
-    'Expect hex like #09f or #0099ff',
-  );
-type Hex = z.infer<typeof HexColor>;
+  .refine(isHexColor, { message: 'Expect hex like #09f or #0099ff' });
 
 const StatusColorsSchema = z.object({
   danger: HexColor,
@@ -73,112 +86,9 @@ const ThemeInputSchema = z.object({
 
 export type ThemeInput = z.infer<typeof ThemeInputSchema>;
 
-export interface RGB {
-  r: number;
-  g: number;
-  b: number;
-}
-export interface HSL {
-  h: number;
-  s: number;
-  l: number;
-}
-export interface LAB {
-  l: number;
-  a: number;
-  b: number;
-}
-
-function normalizeHex(hex: Hex): `#${string}` {
-  const v = hex.toLowerCase();
-  if (v.length === 4) {
-    const r = v[1],
-      g = v[2],
-      b = v[3];
-    return `#${r}${r}${g}${g}${b}${b}` as `#${string}`;
-  }
-  return v as `#${string}`;
-}
-function clamp01(x: number): number {
-  return Math.min(1, Math.max(0, x));
-}
-function clamp255(x: number): number {
-  return Math.min(255, Math.max(0, Math.round(x)));
-}
-
-function hexToRgb(hex: Hex): RGB {
-  const h = normalizeHex(hex).slice(1);
-  return {
-    b: parseInt(h.slice(4, 6), 16),
-    g: parseInt(h.slice(2, 4), 16),
-    r: parseInt(h.slice(0, 2), 16),
-  };
-}
-function rgbToHex({ r, g, b }: RGB): `#${string}` {
-  const p = (n: number) => clamp255(n).toString(16).padStart(2, '0');
-  return `#${p(r)}${p(g)}${p(b)}` as `#${string}`;
-}
-function rgbToHsl({ r, g, b }: RGB): HSL {
-  const R = r / 255,
-    G = g / 255,
-    B = b / 255;
-  const max = Math.max(R, G, B),
-    min = Math.min(R, G, B);
-  const d = max - min;
-  const l = (max + min) / 2;
-  let h = 0,
-    s = 0;
-  if (d !== 0) {
-    s = d / (1 - Math.abs(2 * l - 1));
-    switch (max) {
-      case R:
-        h = 60 * (((G - B) / d) % 6);
-        break;
-      case G:
-        h = 60 * ((B - R) / d + 2);
-        break;
-      default:
-        h = 60 * ((R - G) / d + 4);
-        break;
-    }
-  }
-  h = (h + 360) % 360;
-  return { h, l, s };
-}
-function srgbToLinear(c: number): number {
-  const v = c / 255;
-  return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-}
-function linearToSrgb(v: number): number {
-  const x = v <= 0.0031308 ? 12.92 * v : 1.055 * Math.pow(v, 1 / 2.4) - 0.055;
-  return clamp255(x * 255);
-}
-function rgbToXyz({ r, g, b }: RGB): { x: number; y: number; z: number } {
-  const R = srgbToLinear(r),
-    G = srgbToLinear(g),
-    B = srgbToLinear(b);
-  const x = R * 0.4124564 + G * 0.3575761 + B * 0.1804375;
-  const y = R * 0.2126729 + G * 0.7151522 + B * 0.072175;
-  const z = R * 0.0193339 + G * 0.119192 + B * 0.9503041;
-  return { x, y, z };
-}
-function xyzToLab({ x, y, z }: { x: number; y: number; z: number }): LAB {
-  const Xn = 0.95047,
-    Yn = 1.0,
-    Zn = 1.08883;
-  const f = (t: number) => {
-    const e = 216 / 24389;
-    const k = 24389 / 27;
-    return t > e ? Math.cbrt(t) : (t * k + 16) / 116;
-  };
-  const fx = f(x / Xn),
-    fy = f(y / Yn),
-    fz = f(z / Zn);
-  return { a: 500 * (fx - fy), b: 200 * (fy - fz), l: 116 * fy - 16 };
-}
-function rgbToLab(rgb: RGB): LAB {
-  return xyzToLab(rgbToXyz(rgb));
-}
+/* -------------------------------------------------------------------------- */
+/*                                COLOR OBJECTS                               */
+/* -------------------------------------------------------------------------- */
 
 export interface ThemeColor {
   readonly hex: `#${string}`;
@@ -189,6 +99,8 @@ export interface ThemeColor {
   toHslCss(alpha?: number): string;
   withAlpha(alpha: number): { hex: `#${string}`; rgb: string; hsl: string };
 }
+
+/** Construct a color with lazy conversions and typed helpers. */
 function makeColor(hex: Hex): ThemeColor {
   const _hex = normalizeHex(hex);
   let _rgb: RGB | null = null;
@@ -196,23 +108,15 @@ function makeColor(hex: Hex): ThemeColor {
   let _lab: LAB | null = null;
 
   function ensureRgb(): RGB {
-    if (_rgb === null) {
-      _rgb = hexToRgb(_hex);
-    }
+    if (_rgb === null) _rgb = hexToRgb(_hex);
     return _rgb;
   }
-
   function ensureHsl(): HSL {
-    if (_hsl === null) {
-      _hsl = rgbToHsl(ensureRgb());
-    }
+    if (_hsl === null) _hsl = rgbToHsl(ensureRgb());
     return _hsl;
   }
-
   function ensureLab(): LAB {
-    if (_lab === null) {
-      _lab = rgbToLab(ensureRgb());
-    }
+    if (_lab === null) _lab = rgbToLab(ensureRgb());
     return _lab;
   }
 
@@ -229,17 +133,11 @@ function makeColor(hex: Hex): ThemeColor {
     get rgb() {
       return ensureRgb();
     },
-    toHslCss(alpha?: number): string {
-      const { h, s, l } = ensureHsl();
-      const ss = Math.round(s * 100);
-      const ll = Math.round(l * 100);
-      if (alpha === undefined) return `hsl(${Math.round(h)} ${ss}% ${ll}%)`;
-      return `hsla(${Math.round(h)}, ${ss}%, ${ll}%, ${clamp01(alpha)})`;
+    toHslCss(alpha?: number) {
+      return hslCss(ensureHsl(), alpha);
     },
-    toRgbCss(alpha?: number): string {
-      const { r, g, b } = ensureRgb();
-      if (alpha === undefined) return `rgb(${r} ${g} ${b})`;
-      return `rgba(${r}, ${g}, ${b}, ${clamp01(alpha)})`;
+    toRgbCss(alpha?: number) {
+      return rgbCss(ensureRgb(), alpha);
     },
     withAlpha(alpha: number) {
       const a = clamp01(alpha);
@@ -253,6 +151,10 @@ function makeColor(hex: Hex): ThemeColor {
     },
   };
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   THEME                                    */
+/* -------------------------------------------------------------------------- */
 
 export interface Theme {
   readonly colors: {
@@ -276,6 +178,17 @@ export interface Theme {
 export function createTheme(input: ThemeInput): Theme {
   const parsed = ThemeInputSchema.parse(input);
   const c = parsed.colors;
+
+  assertHex(c.brand);
+  assertHex(c.accent);
+  assertHex(c.surface);
+  assertHex(c.base);
+  assertHex(c.border);
+  assertHex(c.status.warning);
+  assertHex(c.status.info);
+  assertHex(c.status.danger);
+  assertHex(c.status.note);
+
   return {
     animation: parsed.animation,
     colors: {
@@ -296,7 +209,10 @@ export function createTheme(input: ThemeInput): Theme {
   };
 }
 
-/** Default theme (semantic names). */
+/* -------------------------------------------------------------------------- */
+/*                              DEFAULT THEME DATA                            */
+/* -------------------------------------------------------------------------- */
+
 export const theme: Theme = createTheme({
   animation: {
     durations: { base: 200, fast: 120, slow: 320, slower: 480 },
@@ -336,14 +252,13 @@ export const theme: Theme = createTheme({
   },
 });
 
-/* ---------- Tailwind v4 token generator ---------- */
-function hslCss(h: number, s: number, l: number): string {
-  return `hsl(${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%)`;
-}
+/* -------------------------------------------------------------------------- */
+/*                         TAILWIND v4 TOKEN GENERATOR                         */
+/* -------------------------------------------------------------------------- */
 
 export function generateTailwindThemeCss(t: Theme): string {
   const c = t.colors;
-  const asHsl = (tc: ThemeColor) => hslCss(tc.hsl.h, tc.hsl.s, tc.hsl.l);
+  const asHsl = (tc: ThemeColor) => hslCss(tc.hsl);
   const d = t.animation.durations;
   const duration = {
     base: `${d.base}ms`,

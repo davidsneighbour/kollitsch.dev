@@ -1,4 +1,9 @@
 @layer base {
+
+  :root {
+    color-scheme: dark light;
+  }
+
   /**
    * Extending "preflight" from Tailwind CSS
    * @see https://tailwindcss.com/docs/preflight

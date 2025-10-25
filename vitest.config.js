@@ -10,24 +10,24 @@ const enableBrowserProject = process.env.VITEST_BROWSER === 'true';
 
 const browserProjects = enableBrowserProject
   ? [
-      {
-        name: 'browser',
-        test: {
-          browser: {
-            enabled: true,
-            headless: true,
-            instances: [
-              {
-                browser: 'chromium',
-              },
-            ],
-            provider: playwright(),
-          },
-          globals: true,
-          include: ['src/test/browser/**/*.test.ts'],
+    {
+      name: 'browser',
+      test: {
+        browser: {
+          enabled: true,
+          headless: true,
+          instances: [
+            {
+              browser: 'chromium',
+            },
+          ],
+          provider: playwright(),
         },
+        globals: true,
+        include: ['src/test/browser/**/*.test.ts'],
       },
-    ]
+    },
+  ]
   : undefined;
 
 /**
@@ -51,7 +51,11 @@ export default getViteConfig({
     },
     environment: 'jsdom',
     globals: true,
-    include: ['src/components/**/*.test.ts'],
+    include: [
+      'src/**/*.test.ts',
+      'tests/**/*.test.ts',
+      '!src/test/browser/**/*.browser.test.ts',
+    ],
     ...(browserProjects ? { projects: browserProjects } : {}),
   },
 });

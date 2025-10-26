@@ -1,22 +1,27 @@
 {
-    "subject": "acct:davidsneighbour@mas.to",
-    "aliases": [
-        "https://mas.to/@davidsneighbour"
-    ],
-    "links": [
-        {
-            "rel": "http://webfinger.net/rel/profile-page",
-            "type": "text/html",
-            "href": "https://mas.to/@davidsneighbour"
-        },
-        {
-            "rel": "self",
-            "type": "application/activity+json",
-            "href": "https://mas.to/users/davidsneighbour"
-        },
-        {
-            "rel": "http://ostatus.org/schema/1.0/subscribe",
-            "template": "https://mas.to/authorize_interaction?uri={uri}"
-        }
-    ]
+  "subject": "acct:davidsneighbour@mas.to",
+  "aliases": [
+    "https://mas.to/@davidsneighbour"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://mas.to/@davidsneighbour"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://mas.to/users/davidsneighbour"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://mas.to/authorize_interaction?uri={uri}"
+    },
+    {
+      "rel": "http://webfinger.net/rel/avatar",
+      "type": "image/jpeg",
+      "href": "https://media.mas.to/accounts/avatars/109/705/059/351/505/561/original/1922ed28820230d4.jpg"
+    }
+  ]
 }

@@ -1,0 +1,62 @@
+---
+import IconLink from "@components/IconLink.astro";
+import type { IconName } from "@utils/icon-names";
+
+export interface SocialMediaItem {
+  icon: IconName;
+  id: string;
+  label: string;
+  rel?: string;
+  share?: string;
+  url?: string;
+  background?: string;
+  fill?: string;
+}
+
+export interface Props {
+  container: "ul" | "ol" | "div" | "menu";
+  containerClass: string;
+  items: SocialMediaItem[];
+  target: string;
+}
+const {
+  container = "ul",
+  containerClass = "flex flex-row flex-wrap justify-center gap-2 lg:justify-end",
+  items,
+  target = "_blank",
+} = Astro.props as Props;
+
+const Tag = container;
+const ListTag = container === "div" ? "span" : "li";
+
+const defaultRelParts = ["noopener", "noreferrer", "me"];
+function mergedRel(itemRel?: string) {
+  const parts = [...defaultRelParts];
+  if (itemRel) {
+    itemRel
+      .split(/\s+/)
+      .filter(Boolean)
+      .forEach((p) => {
+        if (!parts.includes(p)) parts.push(p);
+      });
+  }
+  return parts.join(" ");
+}
+---
+
+<Tag class={containerClass}>
+  {
+    items.map((value) => (
+      <ListTag>
+        <IconLink
+          href={value.url}
+          icon={value.icon as IconName}
+          target={target}
+          rel={mergedRel(value.rel)}
+        >
+          {value.label}
+        </IconLink>
+      </ListTag>
+    ))
+  }
+</Tag>

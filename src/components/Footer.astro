@@ -1,18 +1,20 @@
 ---
+// @todo refactor and comment
 import { Image } from "astro:assets";
 import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
 import Heading from "@components/Heading.astro";
 import IconLink from "@components/IconLink.astro";
 import Link from "@components/Link.astro";
-import socialMediaData from "@content/social.json" with { type: "json" };
+import rawSocialMediaData from "@content/social.json" with { type: "json" };
 import rawNavData from "@data/footernavigation.json" with { type: "json" };
 import setup from "@data/setup.json" with { type: "json" };
-// @todo refactor and comment
 import { getHomepageUrl } from "@utils/content.ts";
 import { generateUniqueHtmlId } from "@utils/helpers.ts";
-import type { IconName } from "@utils/icon-names.ts";
+import type { SocialMediaItem } from "@components/social/SocialLinks.astro";
 
 export interface Props {}
+
+const socialMediaData = rawSocialMediaData as SocialMediaItem[];
 
 const adjust = 1.9;
 const titleLength = setup.title.length;
@@ -23,6 +25,7 @@ const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 
 import MarkdownIt from "markdown-it";
+import SocialLinks from "@components/social/SocialLinks.astro";
 
 const md = new MarkdownIt();
 
@@ -82,11 +85,9 @@ const introFallbackHtml = md.renderInline(introFallback);
         class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"
         >Navigation</Heading
       >
-      <ul
-        class="flex flex-row flex-wrap justify-center gap-2 text-center lg:flex-col lg:justify-end"
-      >
+      <ul class="flex flex-row flex-wrap justify-center gap-2 text-center lg:flex-col lg:justify-end">
         {
-          navData.map(value => (
+          navData.map((value) => (
             <li>
               <IconLink
                 href={value.link}
@@ -109,37 +110,18 @@ const introFallbackHtml = md.renderInline(introFallback);
         class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900"
         >Connect</Heading
       >
-      <ul class="flex flex-row flex-wrap justify-center gap-2 lg:justify-end">
-        {
-          socialMediaData.map(value => (
-            <li>
-              <IconLink
-                href={value.url}
-                icon={value.icon as IconName}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {value.label}
-              </IconLink>
-            </li>
-          ))
-        }
-      </ul>
+      <SocialLinks items={socialMediaData} />
     </aside>
   </div>
 
-  <div
-    class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 md:grid-cols-3"
-  >
+  <div class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 md:grid-cols-3">
     <span class="text-center md:text-left"
       >&copy; <span id={footerYearId}>{currentYear}</span>
       <a href={getHomepageUrl()}>{setup.title}</a></span
     >
     <span class="text-center">All rights reserved.</span>
     <span class="text-center lg:text-right"
-      >Webwork done by <a href="https://davids-neighbour.com/"
-        >David's Neighbour</a
-      ></span
+      >Webwork done by <a href="https://davids-neighbour.com/">David's Neighbour</a></span
     >
   </div>
 

@@ -11,6 +11,7 @@
     "icon": "bluesky",
     "id": "bluesky",
     "label": "Bluesky",
+    "rel": "atproto",
     "share": "https://bsky.app/intent/compose?text=${title}%20${url}",
     "url": "https://bsky.app/profile/davidsneighbour.bsky.social"
   },

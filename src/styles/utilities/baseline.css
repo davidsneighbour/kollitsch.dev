@@ -1,0 +1,14 @@
+/* newly available */
+
+@layer utilities {
+  /**
+   * The ::target-text CSS pseudo-element represents the text that has been
+   * scrolled to if the browser supports text fragments. It allows authors to
+   * choose how to highlight that section of text.
+   */
+  ::target-text {
+    background-color: var(--color-red-500);
+    color: var(--color-gray-950);
+  }
+
+}

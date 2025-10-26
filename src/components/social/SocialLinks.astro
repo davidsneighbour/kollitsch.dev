@@ -1,6 +1,8 @@
 ---
 import IconLink from "@components/IconLink.astro";
 import type { IconName } from "@utils/icon-names";
+import defaultSocialData from "@data/social.json" with { type: "json" };
+import contentSocialData from "@content/social.json" with { type: "json" };
 
 export interface SocialMediaItem {
   icon: IconName;
@@ -14,15 +16,26 @@ export interface SocialMediaItem {
 }
 
 export interface Props {
-  container: "ul" | "ol" | "div" | "menu";
-  containerClass: string;
-  items: SocialMediaItem[];
-  target: string;
+  container?: "ul" | "ol" | "div" | "menu";
+  containerClass?: string;
+  items?: SocialMediaItem[];
+  target?: string;
 }
+
+const defaultItems = defaultSocialData as SocialMediaItem[];
+const contentItems = contentSocialData as SocialMediaItem[];
+
+const defaultsById = new Map(defaultItems.map((item) => [item.id, item]));
+
+const mergedItems = contentItems.map((item) => ({
+  ...defaultsById.get(item.id),
+  ...item,
+}));
+
 const {
   container = "ul",
   containerClass = "flex flex-row flex-wrap justify-center gap-2 lg:justify-end",
-  items,
+  items = mergedItems,
   target = "_blank",
 } = Astro.props as Props;
 

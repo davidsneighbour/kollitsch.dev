@@ -48,6 +48,18 @@ export const blogSchema = z
         src: z.string(),
         title: z.string().optional(),
         type: z.enum(['image', 'video']).optional().default('image'),
+        unsplash: z
+          .string()
+          .regex(/^[A-Za-z0-9]{11}$/, {
+            message:
+              'cover.unsplash must be exactly 11 characters: letters (a-z, A-Z) or digits (0-9) only.',
+          })
+          .optional(),
+        // Optional alt (Markdown allowed). Validation below enforces:
+        // - only with type === "image"
+        // - only if title is set
+        // - must differ from title
+        alt: z.string().optional(),
         video: z
           .object({
             artist: z.string().optional(),
@@ -56,9 +68,53 @@ export const blogSchema = z
           })
           .optional(),
       })
+      // Require video metadata when type is video
       .refine((c) => (c.type === 'video' ? c.video != null : true), {
         message: 'video metadata must be provided when cover.type is "video"',
         path: ['video'],
+      })
+      // Unsplash only for images
+      .refine((c) => (c.type === 'image' ? true : c.unsplash == null), {
+        message: 'cover.unsplash is only allowed when cover.type is "image".',
+        path: ['unsplash'],
+      })
+      // Alt/title/type relationship:
+      // - alt only for images
+      // - alt only allowed if title exists
+      // - alt must differ from title
+      .superRefine((c, ctx) => {
+        const isImage = c.type !== 'video';
+        const hasAlt = typeof c.alt === 'string' && c.alt.trim().length > 0;
+        const hasTitle = typeof c.title === 'string' && c.title.trim().length > 0;
+
+        if (!isImage && hasAlt) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'cover.alt is only allowed when cover.type is "image".',
+            path: ['alt'],
+          });
+        }
+
+        if (hasAlt && !hasTitle) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message:
+              'cover.alt is only allowed when cover.title is set. Define a title or remove alt.',
+            path: ['alt'],
+          });
+        }
+
+        if (hasAlt && hasTitle) {
+          const t = c.title!.trim();
+          const a = c.alt!.trim();
+          if (a === t) {
+            ctx.addIssue({
+              code: z.ZodIssueCode.custom,
+              message: 'cover.alt must differ from cover.title.',
+              path: ['alt'],
+            });
+          }
+        }
       })
       .optional(),
     date: z.coerce.date().transform((s) => new Date(s)),
@@ -145,8 +201,20 @@ export const blogSchema = z
       setup?.images?.default ??
       null;
 
+    // render markdown for alt text if exists and valid for images
+    const coverAlt =
+      entry.cover?.alt && entry.cover?.type !== 'video'
+        ? md.renderInline(entry.cover.alt)
+        : undefined;
+
     return {
       ...entry,
+      cover: entry.cover
+        ? {
+          ...entry.cover,
+          alt: coverAlt ?? entry.cover.alt,
+        }
+        : entry.cover,
       articleimage,
       summary: md.renderInline(summaryRaw),
       title: md.renderInline(entry.title),
@@ -195,19 +263,19 @@ const hasYoutubeApiKey =
 
 const playlistCollections = hasYoutubeApiKey
   ? Object.fromEntries(
-      Object.entries(setup.playlists).map(([name, playlistId]) => [
-        name,
-        defineCollection({
-          loader: youTubeLoader({
-            apiKey: youtubeApiKey,
-            fetchFullDetails: true,
-            maxResults: 50,
-            playlistId,
-            type: 'playlist',
-          }),
+    Object.entries(setup.playlists).map(([name, playlistId]) => [
+      name,
+      defineCollection({
+        loader: youTubeLoader({
+          apiKey: youtubeApiKey,
+          fetchFullDetails: true,
+          maxResults: 50,
+          playlistId,
+          type: 'playlist',
         }),
-      ]),
-    )
+      }),
+    ]),
+  )
   : {};
 
 // MARK: GitHub Releases

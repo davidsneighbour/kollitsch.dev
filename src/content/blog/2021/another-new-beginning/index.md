@@ -2,19 +2,16 @@
 title: (Another) new beginning
 date: 2021-10-21T20:00:00+07:00
 description: A short summary of how we got here and where we go from here.
-resources:
-  - src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
-    title: >-
-      Photo by [Ave Calvar](https://unsplash.com/es/@3tnik) via
-      [Unsplash](https://unsplash.com)
 tags:
   - davidsneighbour
   - me-now
-unsplash:
-  imageid: HcUDHJfd5GY
 cover:
-  src: ./ave-calvar-HcUDHJfd5GY-unsplash.jpg
+  src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
   type: image
+  unsplash: HcUDHJfd5GY
+  title: >-
+      Photo by [Ave Calvar](https://unsplash.com/@3tnik) via
+      [Unsplash](https://unsplash.com)
 publisher: rework
 ---
 

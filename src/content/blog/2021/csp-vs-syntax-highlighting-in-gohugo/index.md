@@ -11,7 +11,7 @@ tags:
   - sri
   - csp
 cover:
-  src: ./christopher-gower-m_HRfLhgABo-unsplash.jpg
+  src: christopher-gower-m_HRfLhgABo-unsplash.jpg
   type: image
   title: >-
     Photo by [Christopher Gower](https://unsplash.com/@cgower) via

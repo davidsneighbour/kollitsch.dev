@@ -8,7 +8,8 @@ tags: [npm, how-to, development, 100daystooffload]
 cover:
   src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image
-  alt: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
+  title: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
+  alt: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) on Unsplash
 ---
 
 I always (well, for a couple of years now) use exact versions in my `package.json`. One of the reasons is that I will be aware of updates and know exactly what is being used at any time. Critics of the "ecosystem" had their field days earlier this year with multiple breaches of packages whose maintainers were phished and had packages replaced with malicious code. Having a fixed version results in fewer surprises and a more stable development environment. Everyone is using the same version, not just a version of some kind or newer releases.

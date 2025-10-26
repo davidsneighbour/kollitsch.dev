@@ -26,13 +26,10 @@ const breadcrumbs = await getBreadcrumbs(path);
           <>
             <a
               href={breadcrumb.href}
-              aria-current={isLast ? 'page' : undefined}
+              aria-current={isLast ? "page" : undefined}
+              aria-label={`Go to ${breadcrumb.label} page`}
             >
-              {breadcrumb.label === 'Home' ? (
-                <Icon name="house-fill" />
-              ) : (
-                breadcrumb.label
-              )}
+              {breadcrumb.label === "Home" ? <Icon name="house-fill" /> : breadcrumb.label}
             </a>
             {!isLast && (
               <Icon

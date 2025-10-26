@@ -26,16 +26,11 @@ const defaultItems = defaultSocialData as SocialMediaItem[];
 const contentItems = contentSocialData as SocialMediaItem[];
 
 const defaultsById = new Map(defaultItems.map((item) => [item.id, item]));
-const contentById = new Map(contentItems.map((item) => [item.id, item]));
 
-const mergedDefaults = defaultItems.map((item) => ({
+const mergedItems = contentItems.map((item) => ({
+  ...defaultsById.get(item.id),
   ...item,
-  ...contentById.get(item.id),
 }));
-
-const additionalContent = contentItems.filter((item) => !defaultsById.has(item.id));
-
-const mergedItems = [...mergedDefaults, ...additionalContent];
 
 const {
   container = "ul",

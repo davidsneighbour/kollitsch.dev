@@ -7,7 +7,7 @@ export interface Props {
   post: CollectionEntry<"blog">;
 }
 
-import BreadCrumbs from "@components/BreadCrumbs.astro";
+import BreadCrumbs from "@components/content/BreadCrumbs.astro";
 import Giscus from "@components/Giscus.astro";
 import Heading from "@components/Heading.astro";
 import PaginationSingle from "@components/PaginationSingle.astro";
@@ -21,7 +21,7 @@ const { post }: Props = Astro.props;
 ---
 
 <article
-  class="mt-8 rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
+  class="@container mt-8 rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
 >
   <PostImage
     post={post}
@@ -29,7 +29,7 @@ const { post }: Props = Astro.props;
     classes="max-w-full aspect-2/1 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
   />
 
-  <div class="p-1 md:p-4">
+  <div class="@sm:p-2 @md:p-3 @lg:p-4">
     <!-- <p>{post.data.date.toLocaleDateString()}</p> -->
     <Heading
       level={1}
@@ -37,7 +37,7 @@ const { post }: Props = Astro.props;
       link={`/blog/${post.id}/`}
       html={post.data.title}
     />
-    <BreadCrumbs path={post.filePath ?? ''} />
+    <BreadCrumbs path={post.filePath ?? ""} />
     <Prose post={post} />
     <ShareSeparator
       title={post.data.title}

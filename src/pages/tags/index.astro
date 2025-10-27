@@ -5,14 +5,10 @@
  */
 import { type CollectionEntry } from "astro:content";
 import Heading from "@components/Heading.astro";
-import TagCard from "@components/TagCard.astro";
+import TagCard from "@components/article/Tag.astro";
 import TagList from "@components/TagList.astro";
 import Layout from "@layouts/DefaultPage.astro";
-import {
-  getFeaturedTagEntries,
-  getTags,
-  type TagListItem,
-} from "@utils/tags.ts";
+import { getFeaturedTagEntries, getTags, type TagListItem } from "@utils/tags.ts";
 
 const post = {
   data: {
@@ -39,9 +35,7 @@ try {
   <TagList tags={allTagsWithCounts} />
 
   <Heading level={2}>Tag Pages</Heading>
-  <div
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
-  >
-    {featuredEntries.map(entry => <TagCard post={entry} />)}
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+    {featuredEntries.map((entry) => <TagCard post={entry} />)}
   </div>
 </Layout>

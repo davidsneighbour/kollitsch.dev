@@ -1,6 +1,6 @@
 ---
 import "@styles/theme.css";
-import Badge from "@components/Badge.astro";
+import Badge from "@components/content/Badge.astro";
 import Section from "@components/fragments/Section.astro";
 import Heading from "@components/Heading.astro";
 import Layout from "@layouts/ContentPageTest.astro";
@@ -241,9 +241,9 @@ import { Icon } from "astro-icon/components";
   <Section>
     <Heading level={3}>Keyboard focus check</Heading>
     <p class="text-sm text-gray-500 dark:text-gray-400">
-      Tab through the link badges above to verify the focus-visible rings per
-      color. Non-link badges (<code>&lt;span&gt;</code>) are intentionally not
-      focusable.
+      Tab through the link badges above to verify the focus-visible rings per color. Non-link badges (<code
+        >&lt;span&gt;</code
+      >) are intentionally not focusable.
     </p>
   </Section>
 
@@ -251,8 +251,8 @@ import { Icon } from "astro-icon/components";
   <Section>
     <Heading level={3}>Focus demo (quick QA)</Heading>
     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-      These badges are <em>links</em> (they have an <code>href</code>), which
-      makes them keyboard focusable and shows their focus ring when tabbing.
+      These badges are <em>links</em> (they have an <code>href</code>), which makes them keyboard focusable and shows
+      their focus ring when tabbing.
     </p>
     <div class="flex flex-wrap items-center gap-2">
       <Badge

@@ -1,7 +1,7 @@
 ---
 // @todo refactor and comment
 import type { CollectionEntry } from "astro:content";
-import Button from "@components/Button.astro";
+import Button from "@components/content/Button.astro";
 import PostImage from "@components/PostImage.astro";
 import SchemaBlogPost from "@components/schema/BlogPosting.astro";
 
@@ -20,10 +20,8 @@ const { post } = Astro.props;
     classes="aspect-dnb max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
     quality="medium"
   />
-  <div class="flex grow flex-col justify-start p-1 @sm:p-2 @md:p-3 @lg:p-4">
-    <h2
-      class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl"
-    >
+  <div class="flex grow flex-col justify-start @sm:p-2 @md:p-3 @lg:p-4">
+    <h2 class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl">
       <a
         class="line-clamp-2"
         href={`/${post.collection}/${post.id}/`}

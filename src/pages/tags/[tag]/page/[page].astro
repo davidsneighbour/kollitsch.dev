@@ -2,7 +2,7 @@
 // individual tag page with pagination, page 2+
 
 import { getCollection, getEntry } from "astro:content";
-import ArticleCard from "@components/ArticleCard.astro";
+import ArticleCard from "@components/article/Preview.astro";
 import Pagination from "@components/Pagination.astro";
 import TagIntro from "@components/TagIntro.astro";
 import Layout from "@layouts/DefaultPage.astro";
@@ -65,22 +65,14 @@ const post = {
     tagEntry && currentPage === 1 && (
       <TagIntro
         title={tagEntry.data.label}
-        description={
-          tagEntry?.data.description || `Posts tagged with #${tagEntry.id}`
-        }
+        description={tagEntry?.data.description || `Posts tagged with #${tagEntry.id}`}
       />
     )
   }
 
-  {
-    !tagEntry && currentPage === 1 && (
-      <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>
-    )
-  }
-  <div
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
-  >
-    {paginatedPosts.map(post => <ArticleCard post={post} />)}
+  {!tagEntry && currentPage === 1 && <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>}
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+    {paginatedPosts.map((post) => <ArticleCard post={post} />)}
   </div>
 
   <Pagination

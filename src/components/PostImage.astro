@@ -48,12 +48,11 @@ function mapQuality(q: Props["quality"]): number {
 }
 
 const cover = resolveCover(post);
-let imageMeta: ImageMetadata | null =
-  cover.type === "image" && cover.meta ? cover.meta : null;
+let imageMeta: ImageMetadata | null = cover.type === "image" && cover.meta ? cover.meta : null;
 ---
 
 {
-  cover.type === 'video' && cover.video ? (
+  cover.type === "video" && cover.video ? (
     <figure class="group">
       <div class={`aspect-2/1 overflow-hidden ${classes}`}>
         <lite-youtube
@@ -66,9 +65,9 @@ let imageMeta: ImageMetadata | null =
         type="module"
         is:inline
       />
-      <figcaption class="text-xs italic">{cover.video.title}</figcaption>
+      <figcaption class="text-sm italic @sm:px-2 @md:px-3 @lg:px-4">{cover.video.title}</figcaption>
     </figure>
-  ) : cover.type === 'image' ? (
+  ) : cover.type === "image" ? (
     <figure class="group">
       {link ? (
         <a href={link}>
@@ -125,7 +124,7 @@ let imageMeta: ImageMetadata | null =
         <figcaption
           transition:animate="slide"
           set:html={cover.title}
-          class="text-xs italic"
+          class="text-sm italic @sm:px-2 @md:px-3 @lg:px-4"
         />
       )}
     </figure>

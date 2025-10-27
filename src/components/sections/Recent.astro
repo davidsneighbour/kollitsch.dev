@@ -1,6 +1,6 @@
 ---
 // @todo refactor and comment
-import ArticleCard from "@components/ArticleCard.astro";
+import ArticleCard from "@components/article/Preview.astro";
 import Heading from "@components/Heading.astro";
 import { getHomepagePosts } from "@utils/content.ts";
 import { Icon } from "astro-icon/components";
@@ -15,7 +15,7 @@ const { featuredPost: _, recentPosts } = await getHomepagePosts();
   <div
     class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2 lg:mx-0 lg:max-w-none xl:grid-cols-3"
   >
-    {recentPosts.map(post => <ArticleCard post={post} />)}
+    {recentPosts.map((post) => <ArticleCard post={post} />)}
   </div>
 
   <div class="mx-auto my-8 text-center">

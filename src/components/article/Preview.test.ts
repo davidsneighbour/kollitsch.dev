@@ -5,11 +5,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { describe, expect, it } from 'vitest';
 
-describe('TagCard component (props contract)', () => {
+describe('Preview component (props contract)', () => {
   it('exports a Props interface/type', async () => {
     // resolve the .astro component path relative to this test file
     const testDir = path.dirname(fileURLToPath(import.meta.url));
-    const componentPath = path.join(testDir, 'TagCard.astro');
+    const componentPath = path.join(testDir, 'Preview.astro');
 
     const src = await fs.readFile(componentPath, 'utf8');
 

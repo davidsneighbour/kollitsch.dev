@@ -8,7 +8,7 @@
  * - runtime: resolves incoming param (id/alias/label) via getTag()
  */
 import { getEntry } from "astro:content";
-import ArticleCard from "@components/ArticleCard.astro";
+import ArticleCard from "@components/article/Preview.astro";
 import Pagination from "@components/Pagination.astro";
 import TagIntro from "@components/TagIntro.astro";
 import setup from "@data/setup.json" with { type: "json" };
@@ -29,9 +29,7 @@ if (!resolved) {
 const { id: canonicalId, label: canonicalLabel, posts: taggedPosts } = resolved;
 
 // Try to load the tag entry by canonical id for intro metadata (image/description etc.)
-const tagEntry = await getEntry({ collection: "tags", id: canonicalId }).catch(
-  () => null,
-);
+const tagEntry = await getEntry({ collection: "tags", id: canonicalId }).catch(() => null);
 
 // Pagination (first page only; extend if you add /page/[n]/)
 const limit = setup.listpages?.limit || 12;
@@ -43,8 +41,7 @@ const paginatedPosts = taggedPosts.slice(0, pageSize);
 // Metadata
 const post = {
   data: {
-    description:
-      tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`,
+    description: tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`,
     title: `#${canonicalLabel}`,
   },
 };
@@ -66,19 +63,15 @@ export async function getStaticPaths() {
     tagEntry && (
       <TagIntro
         title={tagEntry.data.label}
-        description={
-          tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`
-        }
+        description={tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`}
       />
     )
   }
 
   {!tagEntry && <h1 class="mb-6 text-4xl">#{canonicalLabel}</h1>}
 
-  <div
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
-  >
-    {paginatedPosts.map(post => <ArticleCard post={post} />)}
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+    {paginatedPosts.map((post) => <ArticleCard post={post} />)}
   </div>
 
   <Pagination

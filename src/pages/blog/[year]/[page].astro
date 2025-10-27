@@ -1,6 +1,6 @@
 ---
-import ArticleCard from "@components/ArticleCard.astro";
-import BlogHeading from "@components/BlogHeading.astro";
+import ArticleCard from "@components/article/Preview.astro";
+import BlogHeading from "@components/archive/BlogHeading.astro";
 import Pagination from "@components/Pagination.astro";
 import Layout from "@layouts/DefaultPage.astro";
 import { paginateBlogPostsByYear } from "@utils/content.ts";
@@ -28,11 +28,7 @@ const { year, page } = Astro.params;
 const currentPage = parseInt(page, 10);
 const pageSize = 12;
 
-const { posts, totalPages } = await paginateBlogPostsByYear(
-  year,
-  currentPage,
-  pageSize,
-);
+const { posts, totalPages } = await paginateBlogPostsByYear(year, currentPage, pageSize);
 
 console.log(page);
 ---
@@ -45,7 +41,7 @@ console.log(page);
     description="Explore our collection of blog posts from this year."
   />
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-    {posts.map(post => <ArticleCard post={post} />)}
+    {posts.map((post) => <ArticleCard post={post} />)}
   </div>
   <Pagination
     currentPage={currentPage}

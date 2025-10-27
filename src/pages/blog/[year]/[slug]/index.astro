@@ -7,7 +7,7 @@
 //type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 import { getCollection } from "astro:content";
-import BlogPost from "@components/BlogPost.astro";
+import BlogPost from "@components/article/Post.astro";
 // components
 import Layout from "@layouts/DefaultPage.astro";
 
@@ -33,16 +33,14 @@ export const getStaticPaths = async () => {
 const { post } = Astro.props;
 
 if (import.meta.env.PROD && post.data.draft) {
-  throw new Error(
-    `[blog] Tried to render draft post in production: ${post.id}`,
-  );
+  throw new Error(`[blog] Tried to render draft post in production: ${post.id}`);
 }
 ---
 
 <Layout
   post={post}
   title={post.data.title}
-  description={post.data.description ?? ''}
+  description={post.data.description ?? ""}
 >
   <BlogPost post={post} />
 </Layout>

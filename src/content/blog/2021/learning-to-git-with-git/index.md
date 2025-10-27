@@ -2,18 +2,16 @@
 title: Learning to git with git
 description: 'A game to learn Git, by using Git'
 date: 2021-11-02T18:48:49+07:00
-resources:
-  - src: yancy-min-842ofHC6MaI-unsplash.jpg
-    title: >-
-      Photo by [Yancy Min](https://unsplash.com/@yancymin) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - git
   - learning
   - quicklink
 cover:
-  src: ./yancy-min-842ofHC6MaI-unsplash.jpg
+  src: yancy-min-842ofHC6MaI-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Yancy Min](https://unsplash.com/@yancymin) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

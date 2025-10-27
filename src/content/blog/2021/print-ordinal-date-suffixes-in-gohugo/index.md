@@ -4,11 +4,6 @@ description: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
 date: 2021-10-28T21:56:41+07:00
 lastmod: 2021-10-28T21:56:41+07:00
 publishdate: 2021-10-28T21:56:41+07:00
-resources:
-  - src: mick-haupt-ePHz9WOME0c-unsplash.jpg
-    title: >-
-      Photo by [Mick Haupt](https://unsplash.com/@rocinante_11) via
-      [Unsplash](https://unsplash.com)
 tags:
   - quicktip
   - ordinals
@@ -17,6 +12,9 @@ tags:
 cover:
   src: ./mick-haupt-ePHz9WOME0c-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Mick Haupt](https://unsplash.com/@rocinante_11) via
+    [Unsplash](https://unsplash.com)
 publisher: rework
 ---
 

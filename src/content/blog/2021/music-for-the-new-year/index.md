@@ -4,14 +4,12 @@ description: >-
   Khruangbin @ Villain | Pitchfork Live - Some mellow music to let the year run
   out to. No more programming for last 10 hours ;)
 date: 2021-12-31T13:24:14+07:00
-resources:
-  - src: hero.png
-    title: Khruangbin @ Villain | Pitchfork Live
 tags:
   - programming-music
 cover:
-  src: ./hero.png
+  src: hero.png
   type: video
+  title: Khruangbin @ Villain | Pitchfork Live
   video:
     artist: khruangbin
     title: Khruangbin @ Villain | Pitchfork Live

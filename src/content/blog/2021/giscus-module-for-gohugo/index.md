@@ -8,7 +8,7 @@ tags:
   - giscus
   - git
 cover:
-  src: ./gerry-roarty-slkENpP5PbI-unsplash.jpg
+  src: gerry-roarty-slkENpP5PbI-unsplash.jpg
   type: image
   title: >-
     Photo by [Gerry Roarty](https://unsplash.com/@ger54321) via

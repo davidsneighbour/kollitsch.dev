@@ -2,7 +2,7 @@
   font-family: "exo2";
   font-weight: 100 900;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
   text-rendering: optimizelegibility;
   src: url("@fontsource-variable/exo-2/files/exo-2-latin-wght-normal.woff2")
     format("woff2-variations");
@@ -37,7 +37,7 @@
     U+2215, U+FEFF, U+FFFD;
   font-weight: 100 800;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
   text-rendering: optimizelegibility;
 }
 
@@ -68,7 +68,7 @@
     U+2215, U+FEFF, U+FFFD;
   font-weight: 400;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
   text-rendering: optimizelegibility;
 }
 

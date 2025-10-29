@@ -1,49 +1,75 @@
 ---
-// @todo refactor and comment
+/**
+ * Giscus comments widget for blog posts.
+ *
+ * Props:
+ * - post: The blog collection entry used to derive the discussion mapping term.
+ *
+ * Defaults:
+ * - No defaults. The component requires a `post`.
+ *
+ * Example:
+ * ```astro
+ * ---
+ * import { Giscus } from "../components/Giscus.astro";
+ * import type { CollectionEntry } from "astro:content";
+ * const post: CollectionEntry<"blog"> = await getEntry(...);
+ * ---
+ * <Giscus post={post} />
+ * ```
+ */
 import type { CollectionEntry } from "astro:content";
+import { generateUniqueHtmlId } from "@utils/helpers";
+
+/**
+ * Component props.
+ */
 export interface Props {
+  /**
+   * The blog post collection entry used to generate the discussion term.
+   * @example { id: "my-post", data: { title: "My post title" } }
+   */
   post: CollectionEntry<"blog">;
 }
 
 const { post } = Astro.props;
+const componentId = generateUniqueHtmlId("giscusuid");
 ---
 
-<div
-  id="giscus-section"
-  class="section--comments"
+<dnb-giscus
+  id={componentId}
   data-post={post.data.title}
->
-  <div class="giscus mx-auto mt-10 w-full"></div>
-</div>
+></dnb-giscus>
+
 <script>
-  let giscusSection = document.getElementById('giscus-section');
-  let giscusScript = document.createElement('script');
-  let giscusTheme = window.theme.getTheme();
-  if (giscusSection) {
-    let giscusAttributes = {
-      src: 'https://giscus.app/client.js',
-      'data-repo': 'davidsneighbour/kollitsch.dev',
-      'data-repo-id': 'MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=',
-      'data-category': 'Comments',
-      'data-category-id': 'DIC_kwDOGDHt584B_i3-',
-      'data-mapping': 'specific',
-      'data-term': giscusSection.dataset.post,
-      'data-loading': 'lazy',
-      'data-input-position': 'bottom',
-      'data-reactions-enabled': '1',
-      'data-emit-metadata': '0',
-      'data-theme': giscusTheme,
-      'data-lang': 'en',
-      crossorigin: 'anonymous',
-      async: '',
-      fetchpriority: 'high',
-      defer: '',
-      id: 'giscus-script',
-    };
-    // @ts-ignore
-    Object.entries(giscusAttributes).forEach(([key, value]) =>
-      giscusScript.setAttribute(key, value as string),
-    );
-    giscusSection.appendChild(giscusScript);
+  class DnbGiscus extends HTMLElement {
+    connectedCallback() {
+      const post = this.dataset.post;
+      let giscusScript = document.createElement("script");
+      let giscusTheme = window.theme.getTheme();
+      let giscusAttributes = {
+        src: "https://giscus.app/client.js",
+        "data-repo": "davidsneighbour/kollitsch.dev",
+        "data-repo-id": "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=",
+        "data-category": "Comments",
+        "data-category-id": "DIC_kwDOGDHt584B_i3-",
+        "data-mapping": "specific",
+        "data-term": post,
+        "data-loading": "lazy",
+        "data-input-position": "bottom",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-theme": giscusTheme,
+        "data-lang": "en",
+        crossorigin: "anonymous",
+        async: "",
+        fetchpriority: "high",
+        defer: "",
+        id: "giscus-script",
+      };
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value as string));
+      this.appendChild(giscusScript);
+    }
   }
+  customElements.define("dnb-giscus", DnbGiscus);
 </script>

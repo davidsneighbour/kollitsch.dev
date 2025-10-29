@@ -12,6 +12,7 @@ export default {
 
   '*': [
     'secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore',
+    'npm run lint:filenames',
   ],
 
   '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}': [

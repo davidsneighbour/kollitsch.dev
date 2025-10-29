@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@ls-lint/ls-lint": "2.3.1"
+  },
+  "scripts": {
+    "lint:filenames": "ls-lint"
+  }
+}

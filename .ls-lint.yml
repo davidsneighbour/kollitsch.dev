@@ -1,0 +1,20 @@
+# https://ls-lint.org/2.2/configuration
+ls:
+  .js: kebab-case
+  .ts: kebab-case
+  .d.ts: kebab-case
+  .json: kebab-case
+  .jsonc: kebab-case
+  .yml: kebab-case
+
+  src/{components}/**/*:
+    .astro: PascalCase
+
+  src/{pages}/**/*:
+    .astro: kebab-case
+
+ignore:
+  - .git
+  - '**/node_modules'
+  - .vite
+  - .frontmatter

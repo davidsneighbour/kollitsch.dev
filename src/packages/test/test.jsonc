@@ -3,18 +3,12 @@
   "devDependencies": {
     "@axe-core/playwright": "4.11.0",
     "@playwright/test": "1.56.1",
-    "@vitest/browser": "4.0.3",
-    "@vitest/browser-playwright": "4.0.3",
-    "@vitest/coverage-v8": "4.0.3",
+    "@vitest/browser": "4.0.5",
+    "@vitest/browser-playwright": "4.0.5",
+    "@vitest/coverage-v8": "4.0.5",
     "cheerio": "1.1.2",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.3"
-  },
-  "overrides": {
-    "@vitest/browser": "4.0.3",
-    "@vitest/browser-playwright": "4.0.3",
-    "@vitest/coverage-v8": "4.0.3",
-    "vitest": "4.0.3"
+    "vitest": "4.0.5"
   },
   "scripts": {
     "test": "vitest run",

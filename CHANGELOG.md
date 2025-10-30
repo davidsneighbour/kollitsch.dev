@@ -1,4 +1,126 @@
 # Changelog
+## [2025.16.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.15.0...v2025.16.0) (2025-10-30)
+
+
+### Features
+
+* add sitemap.xsl to sitemap setup ([4836f03](https://github.com/davidsneighbour/kollitsch.dev/commit/4836f03756e05dbde3cfa6df5511b7c0b0dbda59))
+* feed reader links ([74da1c3](https://github.com/davidsneighbour/kollitsch.dev/commit/74da1c3abb4cddbb2781060f0229bd89e8944b3d))
+
+
+### Content
+
+* add search image ([f118ea7](https://github.com/davidsneighbour/kollitsch.dev/commit/f118ea74565a50172a683d24190f19892586d2fa))
+* **fix:** move reused images to assets directory (wip) ([8c3b125](https://github.com/davidsneighbour/kollitsch.dev/commit/8c3b125a2794e239594557a31a0a07e2381361b9))
+* **fix:** move reused images to assets directory (wip) ([35cde55](https://github.com/davidsneighbour/kollitsch.dev/commit/35cde558bb8fba0f79fb4eacc7d26648aa6d3219))
+* **fix:** update webfinger content ([4b92794](https://github.com/davidsneighbour/kollitsch.dev/commit/4b927942e8d1e58b4a6f36976fcc6c6d2cc0269e))
+* **schema:** load all releases for github content ([3ca741e](https://github.com/davidsneighbour/kollitsch.dev/commit/3ca741e71e232abffaa2db42a4cd840c74f0b78e))
+* **schema:** update requirements for cover object ([784bd2c](https://github.com/davidsneighbour/kollitsch.dev/commit/784bd2c67f7fec3d3f41ba31021e1f5b5826ce63))
+
+
+### Components
+
+* **breadcrumb:** add aria-label for icon only home link ([af33609](https://github.com/davidsneighbour/kollitsch.dev/commit/af33609e3d7fc96442c8f73107f7494d67af7f75))
+* **FeedReader:** update hover themeing ([3fa9e8a](https://github.com/davidsneighbour/kollitsch.dev/commit/3fa9e8a56a2ec4c73ddd5f919117cd812c862524))
+* **refactor:** move components around ([3f32d51](https://github.com/davidsneighbour/kollitsch.dev/commit/3f32d51f2a0fe6122e3488f8486d7510b55dd9ad))
+
+
+### Theme
+
+* **feat:** add SocialLink component ([47ce966](https://github.com/davidsneighbour/kollitsch.dev/commit/47ce96633c6a4f6fb40f1fce3fb16cdba2a75fb5))
+* **feat:** release pages rework (wip) ([a85fc8c](https://github.com/davidsneighbour/kollitsch.dev/commit/a85fc8ca171d55f8386e1e91d654879687de69a8))
+* **fix:** add baseline styles ([7524ab1](https://github.com/davidsneighbour/kollitsch.dev/commit/7524ab11a4038aabd707886d50b1702413ebeecd))
+* **fix:** add utility classes and transition configuration ([6f823fc](https://github.com/davidsneighbour/kollitsch.dev/commit/6f823fca6c50ba6c054c6343adfc76bf21535c73))
+* **fix:** export Props in web components component ([d94b311](https://github.com/davidsneighbour/kollitsch.dev/commit/d94b311f57d1d2d651dbc6b4a52c238590e2aece))
+* **fix:** move all fonts to font-display: swap ([422d936](https://github.com/davidsneighbour/kollitsch.dev/commit/422d93692f15a9577eb262cccad3836b0a363076))
+* **fix:** rework Giscus component and load on demand ([7ec59c6](https://github.com/davidsneighbour/kollitsch.dev/commit/7ec59c60be173a3d4564e0555eaabe51f0caa397))
+
+
+### Documentation
+
+* add biome badges to README.md ([419fa3a](https://github.com/davidsneighbour/kollitsch.dev/commit/419fa3a3a6c34246e3db748bd0c31ce9e1e77768))
+* remove biome migration docs ([6649afb](https://github.com/davidsneighbour/kollitsch.dev/commit/6649afba774adcf0de092b6ad364bc8e45ca5a3e))
+
+
+### Refactors
+
+* add refactoring todos to all components ([43f4ce5](https://github.com/davidsneighbour/kollitsch.dev/commit/43f4ce5f7f8256755bb697977a52d32e2a0969a5))
+* **biome:** fix linting violations ([f84b2e2](https://github.com/davidsneighbour/kollitsch.dev/commit/f84b2e2ff9377fa818963666344c1927d80e8660))
+* code fixes via astro check ([b31dfab](https://github.com/davidsneighbour/kollitsch.dev/commit/b31dfabc60c7599e50426c583baf7b789d99bf82))
+* fix linting errors via biome ([0ef5e14](https://github.com/davidsneighbour/kollitsch.dev/commit/0ef5e14ab1c0ffe048f5c8e82190f75a26ff6083))
+* merge social defaults in SocialLinks ([#1463](https://github.com/davidsneighbour/kollitsch.dev/issues/1463)) ([08818e4](https://github.com/davidsneighbour/kollitsch.dev/commit/08818e4c2069b9e16534db562d910f403762c675))
+* **various:** doesn't break any tests ([f332825](https://github.com/davidsneighbour/kollitsch.dev/commit/f3328250280f6fac88965333ef4df35f350aabab))
+
+
+### Tests
+
+* add .test.ts for all components with fixes to Props export ([#1455](https://github.com/davidsneighbour/kollitsch.dev/issues/1455)) ([6bbe2a8](https://github.com/davidsneighbour/kollitsch.dev/commit/6bbe2a83d675c1151d6c8e1bcee82a5e2eec8b63))
+* add page index to visual test pages ([787ba9e](https://github.com/davidsneighbour/kollitsch.dev/commit/787ba9eedb8143ebcb45ee8eca01d74aa7ee481c))
+* add test coverage to vitest setup ([e73f167](https://github.com/davidsneighbour/kollitsch.dev/commit/e73f167ed32d8c3b7252065e97bc23a4d9974fa6))
+* cleanup tests ([844bbfa](https://github.com/davidsneighbour/kollitsch.dev/commit/844bbfadae3ae4504f91733cc863399a65f880cf))
+* **config:** comment type errors in vitest config ([42b3429](https://github.com/davidsneighbour/kollitsch.dev/commit/42b3429954a17c4b4143f195b0096d5ee7da7dde))
+* update a couple of tests ([ca388b8](https://github.com/davidsneighbour/kollitsch.dev/commit/ca388b832fc9cf94c057f8ce1b6be35d4d0adadc))
+
+
+### Build System
+
+* add theme build scripts ([bc29d96](https://github.com/davidsneighbour/kollitsch.dev/commit/bc29d96782813c7d387014b89ffcddf44ab6caf4))
+* **config:** simplify biome setup ([#1459](https://github.com/davidsneighbour/kollitsch.dev/issues/1459)) ([ed3fbb4](https://github.com/davidsneighbour/kollitsch.dev/commit/ed3fbb4e7a6f3310e3246ef84467e60c49677109))
+* **deps:** update build script and dependencies ([67bb63b](https://github.com/davidsneighbour/kollitsch.dev/commit/67bb63bf281346b35381cf026fd3f9f478759055))
+* **deps:** update dependencies ([599b953](https://github.com/davidsneighbour/kollitsch.dev/commit/599b953febeded6f44b7f63b9c122aaa419483d0))
+* **deps:** update dependencies ([7f3b8f6](https://github.com/davidsneighbour/kollitsch.dev/commit/7f3b8f6b7b0af38bfa3a1b5035a80db45f4a0414))
+* **deps:** update dependencies ([c8cf57c](https://github.com/davidsneighbour/kollitsch.dev/commit/c8cf57c9f7fd983a870ad1b2fcf734a6a1cc1114))
+* **deps:** update dependencies ([313d6b9](https://github.com/davidsneighbour/kollitsch.dev/commit/313d6b9203e1fb904c67b6cfa4e3e0276731be0a))
+* **deps:** update dependencies ([eb8e728](https://github.com/davidsneighbour/kollitsch.dev/commit/eb8e728598df2df7fa3db7e1b7f833ca20a3fb1f))
+* **deps:** update dependencies and fix vitest setup ([4f250b6](https://github.com/davidsneighbour/kollitsch.dev/commit/4f250b6afaa4356291da23ed5c74da02b80c9e5e))
+* **deps:** update site screenshot ([e7ee203](https://github.com/davidsneighbour/kollitsch.dev/commit/e7ee20317edaaae64b0dad18edc6fd83b112e4d3))
+* **deps:** update site screenshot ([28061dc](https://github.com/davidsneighbour/kollitsch.dev/commit/28061dc657ae7988648e599285525889adeab783))
+* **images:** update blogroll screenshots ([7a2eba9](https://github.com/davidsneighbour/kollitsch.dev/commit/7a2eba9e2bce9ae4921e92dcfbedb6d13eb86f05))
+* **images:** update blogroll screenshots ([9c6510e](https://github.com/davidsneighbour/kollitsch.dev/commit/9c6510e6a437af3133fabb9e9f9b5f809e7f0f50))
+* update .gitignore file ([7d16d1e](https://github.com/davidsneighbour/kollitsch.dev/commit/7d16d1e2d1f3a4ff36c3d761ffbe149bf7a090f6))
+* **vscode:** update extensions and configuration ([389a6ee](https://github.com/davidsneighbour/kollitsch.dev/commit/389a6eebcf94312830e7a18b85da3580f066341f))
+
+
+### CI
+
+* **biome:** configuration update ([4e6ca69](https://github.com/davidsneighbour/kollitsch.dev/commit/4e6ca69251a7748030b20cfd84ce61fa927d15d3))
+* **biome:** update configuration file ([37e9262](https://github.com/davidsneighbour/kollitsch.dev/commit/37e9262fe307a0c5ef0fe40630aab5b6d500cb49))
+* configure biome setup for renovate bot ([6f2d221](https://github.com/davidsneighbour/kollitsch.dev/commit/6f2d221e6cac819474be722b7ea65dde77b95b2b))
+* fix biome setup for lint staged ([a9754eb](https://github.com/davidsneighbour/kollitsch.dev/commit/a9754eb011d631957510f1fdc83fbb35a0c807dd))
+* **linting:** add ls-lint configuration ([a8ff35f](https://github.com/davidsneighbour/kollitsch.dev/commit/a8ff35f3ba067edf64a8ff4c2f718bfad39c2c42))
+
+
+### Chore
+
+* **deps:** update actions/setup-node action to v6 ([#1453](https://github.com/davidsneighbour/kollitsch.dev/issues/1453)) ([516b401](https://github.com/davidsneighbour/kollitsch.dev/commit/516b401c530fd12214658bd5cde4fff34111fcef))
+* rely on generated biome config ([70d717c](https://github.com/davidsneighbour/kollitsch.dev/commit/70d717c2a50301b7832ae967a1c420c4333504e1))
+* streamline biome config ([#1461](https://github.com/davidsneighbour/kollitsch.dev/issues/1461)) ([937f6b2](https://github.com/davidsneighbour/kollitsch.dev/commit/937f6b23fba757bdac8be2a70937e28ed231c83c))
+* upgrade vitest and add browser test support ([#1460](https://github.com/davidsneighbour/kollitsch.dev/issues/1460)) ([7da068d](https://github.com/davidsneighbour/kollitsch.dev/commit/7da068d267c78b2893b6ce9c7cc75cfedfac2bf7))
+
+
+### Configuration
+
+* **ai:** add introduction instructions ([aa8f5f9](https://github.com/davidsneighbour/kollitsch.dev/commit/aa8f5f9da72e77e3d643fb6245ab4fbdae828a64))
+* **ai:** add playwright screenshot agent prompt ([#1462](https://github.com/davidsneighbour/kollitsch.dev/issues/1462)) ([7d2b60b](https://github.com/davidsneighbour/kollitsch.dev/commit/7d2b60ba60c9b110ae0f42dbf76401a7482b48aa))
+* **ai:** add prompt for test creation/update ([8613c3d](https://github.com/davidsneighbour/kollitsch.dev/commit/8613c3d41902259cc7d2839ce19e0d1bae25dfbf))
+* **ai:** edit test generation prompt ([c0b3a89](https://github.com/davidsneighbour/kollitsch.dev/commit/c0b3a89c7c8328547c1a379c4c24211c32a3e736))
+* **ai:** refactor test creation prompt ([705f621](https://github.com/davidsneighbour/kollitsch.dev/commit/705f621ac4e640b00bb132aaef011b0a449160c2))
+* **ai:** setup prompts and config for repo tools ([38fb558](https://github.com/davidsneighbour/kollitsch.dev/commit/38fb5586bc7f6fe82c368515d81f227386d81d61))
+* **ai:** update AGENT.md ([0e3e818](https://github.com/davidsneighbour/kollitsch.dev/commit/0e3e81884a2107bb62bf3ee1f575f4a6672995ce))
+* **ai:** update instruction files ([4d488fc](https://github.com/davidsneighbour/kollitsch.dev/commit/4d488fccd6352d866b31afd1e4df120a33be1ac2))
+* **ai:** update prompt files ([a2cb44e](https://github.com/davidsneighbour/kollitsch.dev/commit/a2cb44e93384a4f14cb4b12171fefa94edfe335e))
+* **ai:** update screenshot prompt ([ba85d1b](https://github.com/davidsneighbour/kollitsch.dev/commit/ba85d1baf12bfe3c207ca2e8ca32af3f6e109bae))
+* fix sitemap meta tag ([35ad51e](https://github.com/davidsneighbour/kollitsch.dev/commit/35ad51ec14c6346e6b55f61f110cc1de908df85d))
+* **lint:** add config(workspace) scope to commitlint ([200f8f4](https://github.com/davidsneighbour/kollitsch.dev/commit/200f8f4fd3bf3fe1ed742c2f5149dd2e18f8d525))
+* **lint:** remove dev-deps from build scopes ([fa45a32](https://github.com/davidsneighbour/kollitsch.dev/commit/fa45a3232c11212effef6080986cc3e5b854534e))
+* **lint:** update commitlint and release configuration ([224a3d4](https://github.com/davidsneighbour/kollitsch.dev/commit/224a3d43b1e9325e551ff66da8c2da421ea8a47e))
+* **lint:** update lint-staged to use TS ([a2ed1d3](https://github.com/davidsneighbour/kollitsch.dev/commit/a2ed1d3661a19de904be7750a163db11beff765b))
+* **settings:** add default extensions ([514ffe9](https://github.com/davidsneighbour/kollitsch.dev/commit/514ffe912b8d0b49202f73ba6ed368aca8cddee6))
+* **ts:** add astro clients type reference ([23db7a6](https://github.com/davidsneighbour/kollitsch.dev/commit/23db7a6114a734fcb10ef81b9be31dbc5b9fc8ba))
+* **workspace:** add biome extension ([13e7cde](https://github.com/davidsneighbour/kollitsch.dev/commit/13e7cdeaab08bbbc66c5bea2a3d6f170485a5656))
+* **workspace:** remove eslint from vscode setup ([a895507](https://github.com/davidsneighbour/kollitsch.dev/commit/a8955070569d2335c601b3670882405cd4daebda))
+* **workspace:** update workspace and biome settings ([46c2833](https://github.com/davidsneighbour/kollitsch.dev/commit/46c2833774a8877dd76922185ccbdf0a082c45a7))
+
 ## [2025.15.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.14.1...v2025.15.0) (2025-10-12)
 
 

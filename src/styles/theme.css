@@ -3,6 +3,7 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @import './themes/dnb.css';
+@import './theme-setup.css';
 @import './components/fonts.css';
 
 /*******************************************************************************
@@ -28,6 +29,9 @@
   --font-exo2: 'exo2', sans-serif;
   --font-jetbrainsmono: 'jetbrainsmono', monospace;
   --font-changa: 'changa', sans-serif;
+
+  --ec-codeFontFml: 'jetbrainsmono', monospace;
+
   --spacing: 0.25rem;
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
   --aspect-dnb: 16 / 9;

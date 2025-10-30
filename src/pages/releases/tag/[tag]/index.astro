@@ -1,0 +1,40 @@
+---
+import { loadAllReleases, findByTag, isSemverTag } from "@utils/releases.ts";
+import Layout from "@layouts/DefaultPage.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import ReleaseCard from "@components/releases/ReleaseCard.astro";
+
+export async function getStaticPaths() {
+  const all = await loadAllReleases();
+  return all.map((r) => ({ params: { tag: r.tag } }));
+}
+
+const { params, redirect } = Astro;
+const tag = params.tag ?? "";
+
+if (!isSemverTag(tag)) {
+  return redirect("/releases/1/");
+}
+
+const all = await loadAllReleases();
+const release = findByTag(all, tag);
+
+const post = {
+  data: {
+    description: setup.description,
+    title: release ? `Release ${release.tag}` : `Release not found`,
+  },
+};
+---
+
+<Layout post={post}>
+  {
+    release ? (
+      <ReleaseCard release={release} />
+    ) : (
+      <p>
+        Release with tag <code>{tag}</code> not found. See <a href="/releases/1/">all releases</a>.
+      </p>
+    )
+  }
+</Layout>

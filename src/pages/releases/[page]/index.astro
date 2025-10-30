@@ -1,0 +1,49 @@
+---
+import type { APIContext } from "astro";
+import type { Release } from "@utils/releases.ts";
+import { getReleasesPerPage, loadAllReleases, paginate } from "@utils/releases.ts";
+import Layout from "@layouts/DefaultPage.astro";
+import setup from "@data/setup.json";
+import ReleaseCard from "@components/releases/ReleaseCard.astro";
+import YearNav from "@components/releases/YearNav.astro";
+
+export const PER_PAGE = getReleasesPerPage(100);
+
+export async function getStaticPaths() {
+  const all = await loadAllReleases();
+  const totalPages = Math.ceil(all.length / PER_PAGE);
+  return Array.from({ length: totalPages }, (_, i) => ({ params: { page: String(i + 1) } }));
+}
+
+const { params } = Astro as APIContext;
+const currentPage = Number(params.page ?? 1);
+
+const all: Release[] = await loadAllReleases();
+const slice = paginate(all, currentPage, PER_PAGE);
+
+const post = {
+  data: {
+    description: setup.description,
+    title: `Releases – Page ${slice.page}/${slice.totalPages}`,
+  },
+};
+
+const prevUrl = slice.page > 1 ? `/releases/${slice.page - 1}/` : null;
+const nextUrl = slice.page < slice.totalPages ? `/releases/${slice.page + 1}/` : null;
+---
+
+<Layout post={post}>
+  <YearNav all={all} />
+
+  <div class="flex flex-col gap-4">
+    {slice.items.map((r) => <ReleaseCard release={r} />)}
+  </div>
+
+  <nav class="mt-6 flex justify-between">
+    {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
+    <span>Page {slice.page} of {slice.totalPages}</span>
+    {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
+  </nav>
+
+  <YearNav all={all} />
+</Layout>

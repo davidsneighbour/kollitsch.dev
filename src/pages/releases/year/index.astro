@@ -1,0 +1,20 @@
+---
+import { loadAllReleases } from "@utils/releases.ts";
+import Layout from "@layouts/DefaultPage.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import YearNav from "@components/releases/YearNav.astro";
+
+const all = await loadAllReleases();
+
+const post = {
+  data: {
+    description: setup.description,
+    title: "Releases by Year",
+  },
+};
+---
+
+<Layout post={post}>
+  <p>Select a year:</p>
+  <YearNav all={all} />
+</Layout>

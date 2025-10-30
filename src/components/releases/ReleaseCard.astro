@@ -1,0 +1,14 @@
+---
+import type { Release } from "@utils/releases.ts";
+const { release } = Astro.props as { release: Release };
+---
+
+<article
+  class="rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] dark:bg-zinc-900 dark:ring-gray-100/10"
+>
+  <div class="p-4">
+    <h2>{release.name}</h2>
+    <div class="text-sm opacity-80">{new Date(release.publishedAt).toUTCString()}</div>
+    <Fragment set:html={release.descriptionHTML} />
+  </div>
+</article>

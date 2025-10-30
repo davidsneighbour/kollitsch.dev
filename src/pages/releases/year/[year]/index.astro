@@ -1,0 +1,23 @@
+---
+const { params } = Astro;
+import { getReleasesPerPage, loadAllReleases } from "@utils/releases.ts";
+export const PER_PAGE = getReleasesPerPage(100);
+
+export async function getStaticPaths() {
+  const all = await loadAllReleases();
+  const years = [...new Set(all.map((r) => r.year))].sort((a, b) => b - a);
+  const paths: { params: { year: string; page: string } }[] = [];
+
+  for (const y of years) {
+    const byYear = all.filter((r) => r.year === y);
+    const total = Math.ceil(byYear.length / PER_PAGE);
+    for (let p = 1; p <= total; p++) {
+      paths.push({ params: { year: String(y), page: String(p) } });
+    }
+  }
+
+  return paths;
+}
+
+return Astro.rewrite(`/releases/year/${params.year}/1/`);
+---

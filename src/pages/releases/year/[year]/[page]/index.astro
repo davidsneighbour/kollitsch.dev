@@ -1,0 +1,67 @@
+---
+import type { APIContext } from "astro";
+import type { Release } from "@utils/releases.ts";
+import { getReleasesPerPage, loadAllReleases, filterByYear, paginate } from "@utils/releases.ts";
+import Layout from "@layouts/DefaultPage.astro";
+import setup from "../../../../../data/setup.json";
+import ReleaseCard from "@components/releases/ReleaseCard.astro";
+import YearNav from "@components/releases/YearNav.astro";
+
+export const PER_PAGE = getReleasesPerPage(100);
+
+export async function getStaticPaths() {
+  const all = await loadAllReleases();
+  const years = [...new Set(all.map((r) => r.year))].sort((a, b) => b - a);
+  const paths: { params: { year: string; page: string } }[] = [];
+
+  for (const y of years) {
+    const byYear = all.filter((r) => r.year === y);
+    const total = Math.ceil(byYear.length / PER_PAGE);
+    for (let p = 1; p <= total; p++) {
+      paths.push({ params: { year: String(y), page: String(p) } });
+    }
+  }
+
+  return paths;
+}
+
+const { params } = Astro as APIContext;
+const year = Number(params.year);
+const currentPage = Number(params.page ?? 1);
+
+const all: Release[] = await loadAllReleases();
+const byYear = filterByYear(all, year);
+const slice = paginate(byYear, currentPage, PER_PAGE);
+
+const post = {
+  data: {
+    description: setup.description,
+    title: `Releases ${year} – Page ${slice.page}/${slice.totalPages}`,
+  },
+};
+
+const prevUrl = slice.page > 1 ? `/releases/year/${year}/${slice.page - 1}/` : null;
+const nextUrl = slice.page < slice.totalPages ? `/releases/year/${year}/${slice.page + 1}/` : null;
+---
+
+<Layout post={post}>
+  <YearNav
+    all={all}
+    currentYear={year}
+  />
+
+  <div class="flex flex-col gap-4">
+    {slice.items.map((r) => <ReleaseCard release={r} />)}
+  </div>
+
+  <nav class="mt-6 flex justify-between">
+    {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
+    <span>Page {slice.page} of {slice.totalPages}</span>
+    {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
+  </nav>
+
+  <YearNav
+    all={all}
+    currentYear={year}
+  />
+</Layout>

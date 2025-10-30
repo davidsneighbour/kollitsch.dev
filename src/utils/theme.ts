@@ -15,6 +15,8 @@ import {
   rgbToLab,
 } from '@utils/color.ts';
 import { z } from 'astro/zod';
+import { readFile } from 'node:fs/promises';
+import { resolve as resolvePath } from 'node:path';
 
 /* -------------------------------------------------------------------------- */
 /*                                  SCHEMAS                                   */
@@ -210,10 +212,10 @@ export function createTheme(input: ThemeInput): Theme {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                              DEFAULT THEME DATA                            */
+/*                           DEFAULT THEME INPUT                              */
 /* -------------------------------------------------------------------------- */
 
-export const theme: Theme = createTheme({
+export const DEFAULT_THEME_INPUT: ThemeInput = {
   animation: {
     durations: { base: 200, fast: 120, slow: 320, slower: 480 },
     easing: {
@@ -250,7 +252,121 @@ export const theme: Theme = createTheme({
     sm: '2px',
     xl: '20px',
   },
-});
+};
+
+/* Keep existing default export behaviour */
+export const theme: Theme = createTheme(DEFAULT_THEME_INPUT);
+
+/* -------------------------------------------------------------------------- */
+/*                       JSON CONFIG LOADING HELPERS (NEW)                    */
+/* -------------------------------------------------------------------------- */
+
+/** A recursive DeepPartial helper without using any. */
+type DeepPartial<T> = {
+  [K in keyof T]?: T[K] extends object
+  ? T[K] extends Array<unknown>
+  ? T[K]
+  : DeepPartial<T[K]>
+  : T[K];
+};
+
+/** Merge a partial ThemeInput into a base ThemeInput (field-wise deep merge). */
+function mergeThemeInput(
+  base: ThemeInput,
+  override: DeepPartial<ThemeInput>,
+): ThemeInput {
+  const merged: ThemeInput = {
+    animation: {
+      durations: {
+        base: override.animation?.durations?.base ?? base.animation.durations.base,
+        fast: override.animation?.durations?.fast ?? base.animation.durations.fast,
+        slow: override.animation?.durations?.slow ?? base.animation.durations.slow,
+        slower:
+          override.animation?.durations?.slower ?? base.animation.durations.slower,
+      },
+      easing: {
+        in: override.animation?.easing?.in ?? base.animation.easing.in,
+        inOut: override.animation?.easing?.inOut ?? base.animation.easing.inOut,
+        out: override.animation?.easing?.out ?? base.animation.easing.out,
+      },
+      names: {
+        fade: override.animation?.names?.fade ?? base.animation.names.fade,
+        scaleIn:
+          override.animation?.names?.scaleIn ?? base.animation.names.scaleIn,
+        slideDown:
+          override.animation?.names?.slideDown ?? base.animation.names.slideDown,
+        slideUp:
+          override.animation?.names?.slideUp ?? base.animation.names.slideUp,
+      },
+    },
+    colors: {
+      accent: override.colors?.accent ?? base.colors.accent,
+      base: override.colors?.base ?? base.colors.base,
+      border: override.colors?.border ?? base.colors.border,
+      brand: override.colors?.brand ?? base.colors.brand,
+      surface: override.colors?.surface ?? base.colors.surface,
+      status: {
+        warning: override.colors?.status?.warning ?? base.colors.status.warning,
+        info: override.colors?.status?.info ?? base.colors.status.info,
+        danger: override.colors?.status?.danger ?? base.colors.status.danger,
+        note: override.colors?.status?.note ?? base.colors.status.note,
+      },
+    },
+    opacity: {
+      heavy: override.opacity?.heavy ?? base.opacity.heavy,
+      medium: override.opacity?.medium ?? base.opacity.medium,
+      soft: override.opacity?.soft ?? base.opacity.soft,
+      strong: override.opacity?.strong ?? base.opacity.strong,
+      subtle: override.opacity?.subtle ?? base.opacity.subtle,
+    },
+    radii: {
+      lg: override.radii?.lg ?? base.radii.lg,
+      md: override.radii?.md ?? base.radii.md,
+      none: override.radii?.none ?? base.radii.none,
+      pill: override.radii?.pill ?? base.radii.pill,
+      sm: override.radii?.sm ?? base.radii.sm,
+      xl: override.radii?.xl ?? base.radii.xl,
+    },
+  };
+
+  // Validate merged object with Zod to ensure completeness and correctness.
+  return ThemeInputSchema.parse(merged);
+}
+
+/**
+ * Read and parse a JSON file as UTF-8.
+ * @throws if the file cannot be read or parsed.
+ */
+async function readJsonFile<T>(filePath: string): Promise<T> {
+  const raw = await readFile(filePath, 'utf8');
+  return JSON.parse(raw) as T;
+}
+
+/**
+ * Create a Theme from a JSON config, merged over the default input.
+ * Use when you want a hard failure if the file is missing or invalid.
+ */
+export async function createThemeFromJson(filePath: string): Promise<Theme> {
+  const absolute = resolvePath(filePath);
+  const partial = await readJsonFile<DeepPartial<ThemeInput>>(absolute);
+  const merged = mergeThemeInput(DEFAULT_THEME_INPUT, partial);
+  return createTheme(merged);
+}
+
+/**
+ * Try to create a Theme from a JSON config.
+ * If the file does not exist or is invalid, return the default theme.
+ */
+export async function tryCreateThemeFromJson(
+  filePath?: string,
+): Promise<Theme> {
+  if (!filePath) return theme;
+  try {
+    return await createThemeFromJson(filePath);
+  } catch {
+    return theme;
+  }
+}
 
 /* -------------------------------------------------------------------------- */
 /*                         TAILWIND v4 TOKEN GENERATOR                         */

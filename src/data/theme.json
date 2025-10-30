@@ -1,0 +1,12 @@
+{
+  "colors": {
+    "brand": "#ff6600",
+    "surface": "#ffffff",
+    "status": {
+      "info": "#2563eb"
+    }
+  },
+  "radii": {
+    "xl": "24px"
+  }
+}

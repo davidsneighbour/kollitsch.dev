@@ -3,7 +3,6 @@ import favicon from '@assets/favicon/favicon.png';
 import setup from '@data/setup.json' with { type: 'json' };
 import type { APIRoute } from 'astro';
 
-// @todo maybe pre-generate these icons
 const faviconPngSizes = [192, 512];
 
 type ManifestIcon = {

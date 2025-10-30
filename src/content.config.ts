@@ -279,13 +279,13 @@ const playlistCollections = hasYoutubeApiKey
   : {};
 
 // MARK: GitHub Releases
-//const oneYearAgo = new Date();
-//oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+const oneYearAgo = new Date();
+oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 const githubReleases = defineCollection({
   loader: githubReleasesLoader({
     mode: 'repoList',
     repos: [setup.repository.slug],
-    //sinceDate: oneYearAgo.toISOString().split('T')[0],
+    sinceDate: oneYearAgo.toISOString().split('T')[0],
   }),
 });
 

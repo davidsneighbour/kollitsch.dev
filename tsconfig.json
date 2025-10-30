@@ -9,19 +9,48 @@
     // 'allowSyntheticDefaultImports' flag.
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@assets/*": ["./src/assets/*"],
-      "@components/*": ["./src/components/*"],
-      "@config/*": ["./src/config/*"],
-      "@content/*": ["./src/content/*"],
-      "@contentconfig": ["./src/content.config.ts"],
-      "@data/*": ["./src/data/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@packages/*": ["./src/packages/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@scripts/*": ["./src/scripts/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@test/*": ["./src/test/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@contentconfig": [
+        "src/content.config.ts"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@packages/*": [
+        "src/packages/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@scripts/*": [
+        "src/scripts/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@test/*": [
+        "src/test/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
     },
     "plugins": [
       {

@@ -34,7 +34,8 @@
     "redhat.vscode-xml",
     "biomejs.biome",
     "editorconfig.editorconfig",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "unifiedjs.vscode-mdx"
   ],
   "unwantedRecommendations": []
 }

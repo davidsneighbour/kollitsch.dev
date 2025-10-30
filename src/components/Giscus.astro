@@ -1,75 +1,239 @@
 ---
 /**
- * Giscus comments widget for blog posts.
+ * Lazy-loaded Giscus comments widget for blog posts.
+ *
+ * Loads the Giscus client only when the component enters the viewport
+ * (via IntersectionObserver). Safe to include multiple times on a page;
+ * each instance runs once only.
  *
  * Props:
- * - post: The blog collection entry used to derive the discussion mapping term.
+ * - post: Required blog collection entry to derive the discussion term.
+ * - repo, repoId, category, categoryId, lang, mapping, reactionsEnabled, emitMetadata, inputPosition:
+ *   Optional overrides for Giscus configuration. Sensible defaults provided.
  *
- * Defaults:
- * - No defaults. The component requires a `post`.
- *
- * Example:
- * ```astro
- * ---
- * import { Giscus } from "../components/Giscus.astro";
- * import type { CollectionEntry } from "astro:content";
- * const post: CollectionEntry<"blog"> = await getEntry(...);
- * ---
- * <Giscus post={post} />
- * ```
+ * Notes:
+ * - Uses window.kdev.* for global guards (no duplicate runs/definitions).
+ * - Falls back to "light" theme when window.theme.getTheme() is unavailable.
  */
-import type { CollectionEntry } from "astro:content";
-import { generateUniqueHtmlId } from "@utils/helpers";
 
-/**
- * Component props.
- */
+import type { CollectionEntry } from "astro:content";
+
+// Required
 export interface Props {
-  /**
-   * The blog post collection entry used to generate the discussion term.
-   * @example { id: "my-post", data: { title: "My post title" } }
-   */
   post: CollectionEntry<"blog">;
+  // Optional overrides
+  repo?: string;
+  repoId?: string;
+  category?: string;
+  categoryId?: string;
+  lang?: string;
+  mapping?: "pathname" | "url" | "title" | "og:title" | "specific";
+  reactionsEnabled?: "0" | "1";
+  emitMetadata?: "0" | "1";
+  inputPosition?: "top" | "bottom";
 }
 
-const { post } = Astro.props;
-const componentId = generateUniqueHtmlId("giscusuid");
+const {
+  post,
+  repo = "davidsneighbour/kollitsch.dev",
+  repoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=",
+  category = "Comments",
+  categoryId = "DIC_kwDOGDHt584B_i3-",
+  lang = "en",
+  mapping = "specific",
+  reactionsEnabled = "1",
+  emitMetadata = "0",
+  inputPosition = "bottom",
+} = Astro.props;
+
+const term = post?.data?.title ?? post?.id ?? "discussion";
 ---
 
 <dnb-giscus
-  id={componentId}
-  data-post={post.data.title}
+  data-term={term}
+  data-repo={repo}
+  data-repo-id={repoId}
+  data-category={category}
+  data-category-id={categoryId}
+  data-lang={lang}
+  data-mapping={mapping}
+  data-reactions-enabled={reactionsEnabled}
+  data-emit-metadata={emitMetadata}
+  data-input-position={inputPosition}
 ></dnb-giscus>
 
 <script>
-  class DnbGiscus extends HTMLElement {
-    connectedCallback() {
-      const post = this.dataset.post;
-      let giscusScript = document.createElement("script");
-      let giscusTheme = window.theme.getTheme();
-      let giscusAttributes = {
-        src: "https://giscus.app/client.js",
-        "data-repo": "davidsneighbour/kollitsch.dev",
-        "data-repo-id": "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=",
-        "data-category": "Comments",
-        "data-category-id": "DIC_kwDOGDHt584B_i3-",
-        "data-mapping": "specific",
-        "data-term": post,
-        "data-loading": "lazy",
-        "data-input-position": "bottom",
-        "data-reactions-enabled": "1",
-        "data-emit-metadata": "0",
-        "data-theme": giscusTheme,
-        "data-lang": "en",
-        crossorigin: "anonymous",
-        async: "",
-        fetchpriority: "high",
-        defer: "",
-        id: "giscus-script",
-      };
-      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value as string));
-      this.appendChild(giscusScript);
+  // Initialise namespacing for guards
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  window.kdev = window.kdev || {};
+
+  /**
+   * Ensure we define the custom element once.
+   */
+  if (!customElements.get("dnb-giscus")) {
+    class DnbGiscus extends HTMLElement {
+      /** Guard to ensure single initialisation per element */
+      #initialised = false;
+
+      /** IntersectionObserver instance shared via window.kdev */
+      static get observer() {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (!window.kdev.giscusObserver) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          window.kdev.giscusObserver = new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (entry.isIntersecting) {
+                  const el = entry.target;
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  if (typeof el?.loadGiscus === "function") {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    el.loadGiscus();
+                  }
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  window.kdev.giscusObserver?.unobserve(el);
+                }
+              }
+            },
+            { rootMargin: "0px 0px 200px 0px", threshold: 0.01 },
+          );
+        }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        return window.kdev.giscusObserver;
+      }
+
+      /**
+       * Safely read the current theme or fall back to 'light'.
+       * @returns {string}
+       */
+      getTheme() {
+        try {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          const t = window?.theme?.getTheme?.();
+          return typeof t === "string" && t ? t : "light";
+        } catch (e) {
+          console.error("[Giscus] Theme detection failed, using light:", e);
+          return "light";
+        }
+      }
+
+      /**
+       * Build the attribute set for the Giscus client script from dataset.
+       * @returns {Record<string, string>}
+       */
+      buildGiscusAttributes() {
+        const ds = this.dataset;
+
+        // Required-by-Giscus attributes
+        const attrs: Record<string, string> = {
+          src: "https://giscus.app/client.js",
+          "data-repo": ds.repo ?? "",
+          "data-repo-id": ds.repoId ?? "",
+          "data-category": ds.category ?? "",
+          "data-category-id": ds.categoryId ?? "",
+          "data-mapping": ds.mapping ?? "specific",
+          "data-term": ds.term ?? "",
+          "data-input-position": ds.inputPosition ?? "bottom",
+          "data-reactions-enabled": ds.reactionsEnabled ?? "1",
+          "data-emit-metadata": ds.emitMetadata ?? "0",
+          "data-theme": this.getTheme(),
+          "data-lang": ds.lang ?? "en",
+          crossorigin: "anonymous",
+          async: "",
+          defer: "",
+          id: `giscus-script-${crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)}`,
+        };
+
+        // Optional perf hint
+        attrs.fetchpriority = "high";
+
+        return attrs;
+      }
+
+      /**
+       * Create and append the Giscus script once.
+       * Exposed as a method so the IO callback can invoke it.
+       * @returns {void}
+       */
+      loadGiscus() {
+        if (this.#initialised || this.hasAttribute("data-initialised")) return;
+
+        try {
+          const attrs = this.buildGiscusAttributes();
+
+          // Basic validation
+          const requiredKeys = ["data-repo", "data-repo-id", "data-category", "data-category-id", "data-mapping"];
+          const missing = requiredKeys.filter((k) => !attrs[k] || attrs[k].trim() === "");
+          if (missing.length) {
+            console.error("[Giscus] Missing required attributes:", missing);
+            return;
+          }
+
+          const script = document.createElement("script");
+          for (const [k, v] of Object.entries(attrs)) {
+            script.setAttribute(k, v);
+          }
+
+          this.appendChild(script);
+          this.#initialised = true;
+          this.setAttribute("data-initialised", "true");
+        } catch (e) {
+          console.error("[Giscus] Failed to load Giscus client:", e);
+        }
+      }
+
+      /**
+       * Connected lifecycle: observe for visibility and ensure single registration.
+       * @returns {void}
+       */
+      connectedCallback() {
+        try {
+          if (this.#initialised || this.hasAttribute("data-initialised")) return;
+          DnbGiscus.observer.observe(this);
+        } catch (e) {
+          console.error("[Giscus] connectedCallback error:", e);
+          // Fallback: attempt immediate load if observer fails
+          this.loadGiscus();
+        }
+      }
+
+      /**
+       * Cleanup if removed.
+       * @returns {void}
+       */
+      disconnectedCallback() {
+        try {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          DnbGiscus.observer?.unobserve(this);
+        } catch (e) {
+          console.error("[Giscus] disconnectedCallback error:", e);
+        }
+      }
     }
+
+    customElements.define("dnb-giscus", DnbGiscus);
+
+    // Re-attach observers after client-side navigations (Astro ClientRouter)
+    document.addEventListener("astro:page-load", () => {
+      try {
+        const nodes = document.querySelectorAll("dnb-giscus:not([data-initialised])");
+        nodes.forEach((n) => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          DnbGiscus.observer.observe(n);
+        });
+      } catch (e) {
+        console.error("[Giscus] astro:page-load reattach failed:", e);
+      }
+    });
   }
-  customElements.define("dnb-giscus", DnbGiscus);
 </script>

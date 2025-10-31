@@ -19,11 +19,11 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    // collapse files and their tests in the explorer
     "*.astro": "$(capture).test.ts",
     ".env": ".env*",
     "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*",
     "shared-config.ts": "shared-config*",
+    "*.json": "$(capture).schema.json",
   },
 
   // remove scratch files from search
@@ -38,20 +38,10 @@
   // astro specific settings
   "astro.content-intellisense": true,
   "astro.updateImportsOnFileMove.enabled": true,
-  "astro.languageServer.startOn": "workspaceContainsAstroFiles", // 👀
   "files.associations": {
     "**/*.astro": "astro",
     "**/*.css": "tailwindcss"
   },
-
-  // PLUGIN: prettier setup
-  "prettier.configPath": "prettier.config.js",
-  "prettier.bracketSpacing": true,
-  "prettier.requireConfig": true,
-  "prettier.singleAttributePerLine": true,
-  "prettier.trailingComma": "all",
-  // prettier setup for astro
-  "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
@@ -64,18 +54,6 @@
   "stylelint.enable": true,
   "stylelint.configFile": "./src/config/stylelint/index.js",
   "stylelint.validate": ["css", "scss", "less", "astro"],
-
-  // PLUGIN: eslint setup
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "astro"
-  ],
-  "eslint.debug": true,
-  "eslint.format.enable": true,
 
   // PLUGIN: vale setup
   "vale.enableSpellcheck": true,
@@ -116,7 +94,7 @@
   },
 
   // PLUGIN: indent rainbow setup
-  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.indicatorStyle": "classic",
 
   // PLUGIN: Tailwind CSS Intellisense
   "tailwindCSS.classAttributes": [
@@ -140,7 +118,8 @@
   // @see "editor.codeActionsOnSave"
   "biome.configurationPath": "biome.jsonc",
   "biome.requireConfiguration": true,
-// PLUGIN: todo tree
+
+  // PLUGIN: todo tree
   "todo-tree.tree.scanMode": "workspace only",
   "todo-tree.general.automaticGitRefreshInterval": 300,
   "todo-tree.general.debug": true,
@@ -159,5 +138,8 @@
     "@todo"
   ],
   "todo-tree.highlights.useColourScheme": true,
+
+  // PLUGIN: indent rainbow
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
 
 }

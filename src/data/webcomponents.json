@@ -1,0 +1,15 @@
+{
+  "$schema": "./webcomponents.schema.json",
+  "components": [
+    {
+      "slug": "script-feature",
+      "import": "@components/ScriptFeature.astro",
+      "enabled": true
+    },
+    {
+      "slug": "giscus",
+      "import": "@components/Giscus.astro",
+      "enabled": true
+    }
+  ]
+}

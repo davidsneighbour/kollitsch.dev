@@ -48,14 +48,14 @@ type ComponentName = (typeof allowedComponents)[number];
  * ```
  */
 export function hasComponent(
-  post: Record<string, unknown> | undefined,
+  data: Record<string, unknown> | undefined,
   name: ComponentName,
-  path: string = 'data.options.head.components',
+  path: string = 'options.head.components',
 ): boolean {
-  if (!post) return false;
+  if (!data) return false;
 
   const parts = path.split('.');
-  let current: unknown = post;
+  let current: unknown = data;
 
   for (const part of parts) {
     if (typeof current !== 'object' || current === null || !(part in current)) {

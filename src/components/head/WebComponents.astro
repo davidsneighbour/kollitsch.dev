@@ -16,19 +16,15 @@ export interface Props {
 
 const { post }: Props = Astro.props;
 
-const hasLiteYoutube = hasComponent(post, "lite-youtube");
-const hasColorGrid = hasComponent(post, "color-grid");
-const hasDatediff = hasComponent(post, "date-diff");
+const hasLiteYoutube = hasComponent(post?.data, "lite-youtube");
+const hasColorGrid = hasComponent(post?.data, "color-grid");
+const hasDatediff = hasComponent(post?.data, "date-diff");
 ---
 
 {
   hasLiteYoutube && (
     <>
-      <script
-        src="/vendor/lite-youtube-embed/lite-yt-embed.js"
-        async
-        is:inline
-      />
+      <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline />
     </>
   )
 }
@@ -36,11 +32,7 @@ const hasDatediff = hasComponent(post, "date-diff");
 {
   hasColorGrid && (
     <>
-      <script
-        src="/vendor/color-grid.js"
-        async
-        is:inline
-      />
+      <script src="/vendor/color-grid.js" async is:inline />
     </>
   )
 }
@@ -48,11 +40,7 @@ const hasDatediff = hasComponent(post, "date-diff");
 {
   hasDatediff && (
     <>
-      <script
-        src="/vendor/datediff.js"
-        async
-        is:inline
-      />
+      <script src="/vendor/datediff.js" async is:inline />
     </>
   )
 }

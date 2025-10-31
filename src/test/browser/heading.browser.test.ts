@@ -1,7 +1,7 @@
 /// <reference types="@vitest/browser/types" />
 
 import { describe, expect, test } from 'vitest';
-import { page } from '@vitest/browser'; // or 'vitest/browser' if you prefer
+// 'page' is provided as a global by @vitest/browser via the triple-slash reference above
 
 const TEST_IFRAME_ID = 'vitest-heading-preview';
 

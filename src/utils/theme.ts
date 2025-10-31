@@ -1,4 +1,7 @@
 // Central theme definition and Tailwind token generator.
+
+import { readFile } from 'node:fs/promises';
+import { resolve as resolvePath } from 'node:path';
 import {
   assertHex,
   clamp01,
@@ -15,8 +18,6 @@ import {
   rgbToLab,
 } from '@utils/color.ts';
 import { z } from 'astro/zod';
-import { readFile } from 'node:fs/promises';
-import { resolve as resolvePath } from 'node:path';
 
 /* -------------------------------------------------------------------------- */
 /*                                  SCHEMAS                                   */
@@ -80,6 +81,7 @@ const AnimationSchema = z.object({
 });
 
 const ThemeInputSchema = z.object({
+  // @ts-expect-error Zod default issue
   animation: AnimationSchema.default({}),
   colors: ColorsSchema,
   opacity: OpacitySchema.default({}),
@@ -264,10 +266,10 @@ export const theme: Theme = createTheme(DEFAULT_THEME_INPUT);
 /** A recursive DeepPartial helper without using any. */
 type DeepPartial<T> = {
   [K in keyof T]?: T[K] extends object
-  ? T[K] extends Array<unknown>
-  ? T[K]
-  : DeepPartial<T[K]>
-  : T[K];
+    ? T[K] extends Array<unknown>
+      ? T[K]
+      : DeepPartial<T[K]>
+    : T[K];
 };
 
 /** Merge a partial ThemeInput into a base ThemeInput (field-wise deep merge). */
@@ -278,11 +280,15 @@ function mergeThemeInput(
   const merged: ThemeInput = {
     animation: {
       durations: {
-        base: override.animation?.durations?.base ?? base.animation.durations.base,
-        fast: override.animation?.durations?.fast ?? base.animation.durations.fast,
-        slow: override.animation?.durations?.slow ?? base.animation.durations.slow,
+        base:
+          override.animation?.durations?.base ?? base.animation.durations.base,
+        fast:
+          override.animation?.durations?.fast ?? base.animation.durations.fast,
+        slow:
+          override.animation?.durations?.slow ?? base.animation.durations.slow,
         slower:
-          override.animation?.durations?.slower ?? base.animation.durations.slower,
+          override.animation?.durations?.slower ??
+          base.animation.durations.slower,
       },
       easing: {
         in: override.animation?.easing?.in ?? base.animation.easing.in,
@@ -294,7 +300,8 @@ function mergeThemeInput(
         scaleIn:
           override.animation?.names?.scaleIn ?? base.animation.names.scaleIn,
         slideDown:
-          override.animation?.names?.slideDown ?? base.animation.names.slideDown,
+          override.animation?.names?.slideDown ??
+          base.animation.names.slideDown,
         slideUp:
           override.animation?.names?.slideUp ?? base.animation.names.slideUp,
       },
@@ -304,13 +311,13 @@ function mergeThemeInput(
       base: override.colors?.base ?? base.colors.base,
       border: override.colors?.border ?? base.colors.border,
       brand: override.colors?.brand ?? base.colors.brand,
-      surface: override.colors?.surface ?? base.colors.surface,
       status: {
-        warning: override.colors?.status?.warning ?? base.colors.status.warning,
-        info: override.colors?.status?.info ?? base.colors.status.info,
         danger: override.colors?.status?.danger ?? base.colors.status.danger,
+        info: override.colors?.status?.info ?? base.colors.status.info,
         note: override.colors?.status?.note ?? base.colors.status.note,
+        warning: override.colors?.status?.warning ?? base.colors.status.warning,
       },
+      surface: override.colors?.surface ?? base.colors.surface,
     },
     opacity: {
       heavy: override.opacity?.heavy ?? base.opacity.heavy,

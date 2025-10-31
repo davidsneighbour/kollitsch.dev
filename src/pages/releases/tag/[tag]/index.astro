@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   return all.map((r) => ({ params: { tag: r.tag } }));
 }
 
-const { params, redirect } = Astro;
+const { params } = Astro;
 const tag = params.tag ?? "";
 
 if (!isSemverTag(tag)) {

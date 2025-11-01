@@ -57,19 +57,31 @@ export function resolveCover(
 ): CoverObject {
   if (post.collection === 'tags') {
     const data = post.data as CollectionEntry<'tags'>['data'];
-    const keyOrUrl = resolveImageKey(data.image, post.id, post.collection, {
+    const cover = (data.cover ?? {}) as {
+      src?: string;
+      title?: string;
+    };
+    const keyOrUrl = resolveImageKey(cover.src, post.id, post.collection, {
+      assetsDir: '/src/assets/images',
+      defaultKey: 'defaults/articleimage.jpg',
       warnOnFallback: false,
     });
-    const altSource = data.label ?? data.description ?? post.id;
+    const altSource =
+      data.linktitle ?? data.title ?? data.description ?? post.id;
     const alt = stripMarkup(altSource);
     const meta = keyOrUrl.startsWith('/src/')
       ? getImageMeta(keyOrUrl)
       : undefined;
+    const renderedTitle =
+      cover.title && cover.title.trim().length > 0
+        ? new MarkdownIt().renderInline(cover.title)
+        : undefined;
 
     return {
       alt,
       src: keyOrUrl,
       type: 'image',
+      ...(renderedTitle ? { title: renderedTitle } : {}),
       ...(meta ? { meta } : {}),
     };
   }

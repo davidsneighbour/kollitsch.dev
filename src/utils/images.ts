@@ -52,7 +52,28 @@ export function stripMarkup(str: string): string {
  * const cover = resolveCover(post);
  * if (cover.type === 'image' && cover.meta) { /* <Picture src={cover.meta} /> *\/ }
  */
-export function resolveCover(post: CollectionEntry<'blog'>): CoverObject {
+export function resolveCover(
+  post: CollectionEntry<'blog' | 'tags'>,
+): CoverObject {
+  if (post.collection === 'tags') {
+    const data = post.data as CollectionEntry<'tags'>['data'];
+    const keyOrUrl = resolveImageKey(data.image, post.id, post.collection, {
+      warnOnFallback: false,
+    });
+    const altSource = data.label ?? data.description ?? post.id;
+    const alt = stripMarkup(altSource);
+    const meta = keyOrUrl.startsWith('/src/')
+      ? getImageMeta(keyOrUrl)
+      : undefined;
+
+    return {
+      alt,
+      src: keyOrUrl,
+      type: 'image',
+      ...(meta ? { meta } : {}),
+    };
+  }
+
   const md = new MarkdownIt();
   const cover = (post.data.cover ?? {}) as FMCover;
 

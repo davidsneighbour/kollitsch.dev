@@ -26,6 +26,90 @@ export type OptionsData = z.infer<typeof optionsSchema>;
 
 const md = new MarkdownIt();
 
+const cover = z
+  .object({
+    format: z
+      .object({
+        contenttype: z
+          .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
+          .optional()
+          .default('jpg'),
+        quality: z.number().min(1).max(100).optional().default(75),
+      })
+      .optional(),
+    src: z.string(),
+    title: z.string().optional(),
+    type: z.enum(['image', 'video']).optional().default('image'),
+    unsplash: z
+      .string()
+      .regex(/^[A-Za-z0-9]{11}$/, {
+        message:
+          'cover.unsplash must be exactly 11 characters: letters (a-z, A-Z) or digits (0-9) only.',
+      })
+      .optional(),
+    // Optional alt (Markdown allowed). Validation below enforces:
+    // - only with type === "image"
+    // - only if title is set
+    // - must differ from title
+    alt: z.string().optional(),
+    video: z
+      .object({
+        artist: z.string().optional(),
+        title: z.string(),
+        youtube: z.string(),
+      })
+      .optional(),
+  })
+  // Require video metadata when type is video
+  .refine((c) => (c.type === 'video' ? c.video != null : true), {
+    message: 'video metadata must be provided when cover.type is "video"',
+    path: ['video'],
+  })
+  // Unsplash only for images
+  .refine((c) => (c.type === 'image' ? true : c.unsplash == null), {
+    message: 'cover.unsplash is only allowed when cover.type is "image".',
+    path: ['unsplash'],
+  })
+  // Alt/title/type relationship:
+  // - alt only for images
+  // - alt only allowed if title exists
+  // - alt must differ from title
+  .superRefine((c, ctx) => {
+    const isImage = c.type !== 'video';
+    const hasAlt = typeof c.alt === 'string' && c.alt.trim().length > 0;
+    const hasTitle = typeof c.title === 'string' && c.title.trim().length > 0;
+
+    if (!isImage && hasAlt) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'cover.alt is only allowed when cover.type is "image".',
+        path: ['alt'],
+      });
+    }
+
+    if (hasAlt && !hasTitle) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message:
+          'cover.alt is only allowed when cover.title is set. Define a title or remove alt.',
+        path: ['alt'],
+      });
+    }
+
+    if (hasAlt && hasTitle) {
+      const t = c.title!.trim();
+      const a = c.alt!.trim();
+      if (a === t) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'cover.alt must differ from cover.title.',
+          path: ['alt'],
+        });
+      }
+    }
+  })
+  .optional();
+
 // MARK: Blog Posts
 export const blogSchema = z
   .object({
@@ -34,89 +118,7 @@ export const blogSchema = z
       .optional()
       .transform((val) => (typeof val === 'string' ? [val] : val)),
     category: z.string().optional(),
-    cover: z
-      .object({
-        format: z
-          .object({
-            contenttype: z
-              .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
-              .optional()
-              .default('jpg'),
-            quality: z.number().min(1).max(100).optional().default(75),
-          })
-          .optional(),
-        src: z.string(),
-        title: z.string().optional(),
-        type: z.enum(['image', 'video']).optional().default('image'),
-        unsplash: z
-          .string()
-          .regex(/^[A-Za-z0-9]{11}$/, {
-            message:
-              'cover.unsplash must be exactly 11 characters: letters (a-z, A-Z) or digits (0-9) only.',
-          })
-          .optional(),
-        // Optional alt (Markdown allowed). Validation below enforces:
-        // - only with type === "image"
-        // - only if title is set
-        // - must differ from title
-        alt: z.string().optional(),
-        video: z
-          .object({
-            artist: z.string().optional(),
-            title: z.string(),
-            youtube: z.string(),
-          })
-          .optional(),
-      })
-      // Require video metadata when type is video
-      .refine((c) => (c.type === 'video' ? c.video != null : true), {
-        message: 'video metadata must be provided when cover.type is "video"',
-        path: ['video'],
-      })
-      // Unsplash only for images
-      .refine((c) => (c.type === 'image' ? true : c.unsplash == null), {
-        message: 'cover.unsplash is only allowed when cover.type is "image".',
-        path: ['unsplash'],
-      })
-      // Alt/title/type relationship:
-      // - alt only for images
-      // - alt only allowed if title exists
-      // - alt must differ from title
-      .superRefine((c, ctx) => {
-        const isImage = c.type !== 'video';
-        const hasAlt = typeof c.alt === 'string' && c.alt.trim().length > 0;
-        const hasTitle = typeof c.title === 'string' && c.title.trim().length > 0;
-
-        if (!isImage && hasAlt) {
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            message: 'cover.alt is only allowed when cover.type is "image".',
-            path: ['alt'],
-          });
-        }
-
-        if (hasAlt && !hasTitle) {
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            message:
-              'cover.alt is only allowed when cover.title is set. Define a title or remove alt.',
-            path: ['alt'],
-          });
-        }
-
-        if (hasAlt && hasTitle) {
-          const t = c.title!.trim();
-          const a = c.alt!.trim();
-          if (a === t) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              message: 'cover.alt must differ from cover.title.',
-              path: ['alt'],
-            });
-          }
-        }
-      })
-      .optional(),
+    cover: cover,
     date: z.coerce.date().transform((s) => new Date(s)),
     description: z
       .string()
@@ -229,14 +231,6 @@ export const blog = defineCollection({
 
 // MARK: Tags
 const idRegex = /^[a-z0-9_-]+$/;
-const tagCoverSchema = z
-  .object({
-    type: z.enum(['image']).optional().default('image'),
-    src: z.string().optional(),
-    title: z.string().optional(),
-  })
-  .strict();
-
 export const tags = defineCollection({
   loader: glob({ base: './src/content/tags', pattern: '**/*.{md,mdx}' }),
   schema: z
@@ -245,7 +239,7 @@ export const tags = defineCollection({
         .array(z.string().transform((s) => s.toLowerCase().trim()))
         .optional(),
       class: z.string().optional(),
-      cover: tagCoverSchema.optional(),
+      cover: cover,
       description: z
         .string()
         .optional()
@@ -275,13 +269,7 @@ export const tags = defineCollection({
 
       return {
         ...data,
-        cover: data.cover
-          ? {
-              type: 'image' as const,
-              ...(data.cover.src ? { src: data.cover.src } : {}),
-              ...(data.cover.title ? { title: data.cover.title } : {}),
-            }
-          : undefined,
+        cover: data.cover,
         label: linktitle,
         linktitle,
       };

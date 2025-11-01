@@ -2,11 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 
 import type { CoverData } from './content.ts';
 
-export type ContentCover =
-  | CoverData
-  | string
-  | Record<string, unknown>
-  | null;
+export type ContentCover = CoverData | string | Record<string, unknown> | null;
 
 export interface ContentObject {
   id?: string;
@@ -26,6 +22,7 @@ export interface ContentObject {
   url: string | null;
   readingTime: string | number | null;
   meta: Record<string, unknown>;
+  [key: string]: unknown;
 }
 
 export type ContentSource = CollectionEntry<string> | Record<string, unknown>;
@@ -60,7 +57,13 @@ const UPDATED_KEYS = [
 const AUTHOR_KEYS = ['author', 'authors', 'byline', 'creator'] as const;
 const TAG_KEYS = ['tags', 'keywords'] as const;
 const CATEGORY_KEYS = ['category', 'section', 'topic'] as const;
-const COVER_KEYS = ['cover', 'image', 'hero', 'heroImage', 'coverImage'] as const;
+const COVER_KEYS = [
+  'cover',
+  'image',
+  'hero',
+  'heroImage',
+  'coverImage',
+] as const;
 const URL_KEYS = ['url', 'permalink', 'canonical'] as const;
 const READING_TIME_KEYS = [
   'readingTime',
@@ -75,30 +78,30 @@ interface NormalizedContentInput {
 }
 
 const BASE_CONTENT_OBJECT: ContentObject = {
-  id: undefined,
-  slug: undefined,
-  collection: undefined,
-  title: null,
-  description: null,
-  summary: null,
-  content: null,
-  excerpt: null,
-  date: null,
-  updated: null,
   author: null,
-  tags: [],
   category: null,
+  collection: undefined,
+  content: null,
   cover: null,
-  url: null,
-  readingTime: null,
+  date: null,
+  description: null,
+  excerpt: null,
+  id: undefined,
   meta: {},
+  readingTime: null,
+  slug: undefined,
+  summary: null,
+  tags: [],
+  title: null,
+  updated: null,
+  url: null,
 };
 
 export function createEmptyContentObject(): ContentObject {
   return {
     ...BASE_CONTENT_OBJECT,
-    tags: [...BASE_CONTENT_OBJECT.tags],
     meta: { ...BASE_CONTENT_OBJECT.meta },
+    tags: [...BASE_CONTENT_OBJECT.tags],
   };
 }
 
@@ -146,9 +149,7 @@ export function createContentObject(
 
   result.tags = Array.from(
     new Set(
-      result.tags
-        .map((tag) => tag.trim())
-        .filter((tag) => tag.length > 0),
+      result.tags.map((tag) => tag.trim()).filter((tag) => tag.length > 0),
     ),
   );
 
@@ -211,11 +212,14 @@ function applyNormalized(
   };
 }
 
-function normalizeEntry(entry: CollectionEntry<string>): NormalizedContentInput {
+function normalizeEntry(
+  entry: CollectionEntry<string>,
+): NormalizedContentInput {
   const base: Partial<ContentObject> = {
-    id: entry.id,
-    slug: 'slug' in entry && typeof entry.slug === 'string' ? entry.slug : entry.id,
     collection: entry.collection,
+    id: entry.id,
+    slug:
+      'slug' in entry && typeof entry.slug === 'string' ? entry.slug : entry.id,
   };
 
   if (typeof (entry as { body?: unknown }).body === 'string') {
@@ -225,14 +229,16 @@ function normalizeEntry(entry: CollectionEntry<string>): NormalizedContentInput 
   return {
     fields: base,
     meta: {
+      collection: entry.collection,
       id: base.id ?? entry.id,
       slug: base.slug,
-      collection: entry.collection,
     },
   };
 }
 
-function normalizeRecord(record: Record<string, unknown>): NormalizedContentInput {
+function normalizeRecord(
+  record: Record<string, unknown>,
+): NormalizedContentInput {
   const fields: Partial<ContentObject> = {};
 
   const id = pickString(record, ['id']);
@@ -389,7 +395,8 @@ function normalizeStringArray(value: unknown): string[] {
     return value
       .map((item) => {
         if (typeof item === 'string') return item.trim();
-        if (isRecord(item) && typeof item.name === 'string') return item.name.trim();
+        if (isRecord(item) && typeof item.name === 'string')
+          return item.name.trim();
         return '';
       })
       .filter((item) => item.length > 0);
@@ -455,4 +462,3 @@ function isCollectionEntry(value: unknown): value is CollectionEntry<string> {
 function isRecord(value: unknown): value is Record<string, any> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
-

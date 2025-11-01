@@ -12,24 +12,24 @@ describe('content object utils', () => {
     const empty = createEmptyContentObject();
 
     expect(empty).toMatchObject({
-      title: null,
-      description: null,
       content: null,
-      tags: [],
+      description: null,
       meta: {},
+      tags: [],
+      title: null,
     });
   });
 
   it('normalizes manual data and overrides fields', () => {
     const content = createContentObject(
       {
-        title: 'Manual Title',
-        description: 'Manual Description',
-        tags: ['astro', 'astro'],
         author: '  Alice  ',
         category: 'guides',
         content: 'Manual content',
+        description: 'Manual Description',
         meta: { source: 'manual' },
+        tags: ['astro', 'astro'],
+        title: 'Manual Title',
       },
       { title: 'Override Title' },
     );
@@ -45,25 +45,25 @@ describe('content object utils', () => {
 
   it('extracts data from collection entries and merges overrides', () => {
     const entry = {
-      id: 'example-entry',
-      slug: 'example-entry',
-      collection: 'blog',
       body: 'Entry body',
+      collection: 'blog',
       data: {
-        title: 'Entry Title',
-        description: 'Entry Description',
-        summary: 'Entry summary',
-        date: new Date('2024-01-01T00:00:00.000Z'),
-        lastModified: '2024-01-02T00:00:00.000Z',
-        tags: ['astro', 'typescript'],
         author: ['Alice', 'Bob'],
         cover: { src: '/cover.jpg' },
+        date: new Date('2024-01-01T00:00:00.000Z'),
+        description: 'Entry Description',
+        lastModified: '2024-01-02T00:00:00.000Z',
+        summary: 'Entry summary',
+        tags: ['astro', 'typescript'],
+        title: 'Entry Title',
       },
+      id: 'example-entry',
+      slug: 'example-entry',
     } as unknown as CollectionEntry<'blog'>;
 
     const content = createContentObject(entry, {
-      title: 'Manual Override',
       tags: ['astro', 'content'],
+      title: 'Manual Override',
     });
 
     expect(content.collection).toBe('blog');
@@ -80,17 +80,17 @@ describe('content object utils', () => {
 
   it('collects frontmatter data and manual content', () => {
     const frontmatter = {
-      title: 'Frontmatter Title',
+      author: { name: 'Carl' },
+      cover: '/image.jpg',
+      date: '2024-02-01',
       description: 'Frontmatter Description',
       tags: 'astro, content',
-      author: { name: 'Carl' },
-      date: '2024-02-01',
-      cover: '/image.jpg',
+      title: 'Frontmatter Title',
     } satisfies Record<string, unknown>;
 
     const content = createContentObject({
-      frontmatter,
       content: 'Rendered content',
+      frontmatter,
       url: '/docs/example/',
     });
 
@@ -106,22 +106,22 @@ describe('content object utils', () => {
 
   it('builds a content object from Astro props', () => {
     const entry = {
-      id: 'post',
-      slug: 'post',
       collection: 'blog',
       data: {
-        title: 'Entry Title',
-        description: 'Entry Description',
         date: '2024-03-01',
+        description: 'Entry Description',
         tags: ['astro'],
+        title: 'Entry Title',
       },
+      id: 'post',
+      slug: 'post',
     } as unknown as CollectionEntry<'blog'>;
 
     const props = {
-      post: entry,
       frontmatter: {
         summary: 'Frontmatter summary',
       },
+      post: entry,
     } satisfies Record<string, unknown>;
 
     const content = getContentObject(props, { title: 'Final Title' });
@@ -132,4 +132,3 @@ describe('content object utils', () => {
     expect(content.tags).toEqual(['astro']);
   });
 });
-

@@ -1,3 +1,6 @@
+import type { ContentObject, ContentSource } from './content-object.ts';
+import { createContentObject } from './content-object.ts';
+
 export function getEffectiveFrontmatter(
   props: Record<string, unknown>,
 ): Record<string, unknown> {
@@ -22,4 +25,32 @@ export function getEffectiveFrontmatter(
   }
 
   return {};
+}
+
+export function getContentObject(
+  props: Record<string, unknown>,
+  ...overrides: Array<ContentSource | null | undefined>
+): ContentObject {
+  const sources: Array<ContentSource | null | undefined> = [];
+
+  if (
+    'post' in props &&
+    typeof props.post === 'object' &&
+    props.post !== null
+  ) {
+    sources.push(props.post as ContentSource);
+  }
+
+  if (
+    'frontmatter' in props &&
+    typeof props.frontmatter === 'object' &&
+    props.frontmatter !== null
+  ) {
+    sources.push(props.frontmatter as Record<string, unknown>);
+  }
+
+  sources.push(props);
+  sources.push(...overrides);
+
+  return createContentObject(...sources);
 }

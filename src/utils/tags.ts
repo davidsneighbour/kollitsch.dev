@@ -339,14 +339,6 @@ export function normaliseTagUnsafe(raw: string, ctx?: Ctx): string {
 }
 
 /**
- * Backward-compat slugger name retained.
- * @deprecated Use `normaliseTagUnsafe(raw, ctx)` instead. Same return type/behaviour.
- */
-export function slugifyTag(raw: string, ctx?: Ctx): string {
-  return normaliseTagUnsafe(raw, ctx);
-}
-
-/**
  * Safe normaliser that:
  * - converts raw → canonical id using `normaliseTagUnsafe`
  * - returns `null` for empty results
@@ -637,7 +629,7 @@ export async function getTag(
       } catch (e: unknown) {
         // Keep going; a malformed tag in a post should not stop the listing.
         log.warn(
-          '[tags] readTag: skipping malformed tag in post',
+          '[tags] getTag: skipping malformed tag in post',
           { post: refOf(post), rawTag },
           e,
         );
@@ -777,64 +769,6 @@ export async function getFeaturedTagEntries(
     : sortedEntries;
 }
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Backward-compat APIs — kept, marked deprecated with migration notes
-// ──────────────────────────────────────────────────────────────────────────────
-
-/**
- * @deprecated Use `getTags({ threshold: setup.tagThreshold ?? 2 })`.
- * Collects all tags and filters out those used less than a configured threshold.
- */
-export async function getValidTags(): Promise<Map<string, TagInfo>> {
-  const threshold = setup.tagThreshold ?? 2;
-  const ignore = buildIgnoreSet();
-  const { byTag } = await collectTags(ignore);
-  for (const [tag, info] of byTag.entries()) {
-    if (info.count < threshold) byTag.delete(tag);
-  }
-  return byTag;
-}
-
-/**
- * @deprecated Use `getTags({ threshold: 1, order: 'label-asc' })`
- * and project back to a Map if needed.
- * Returns all tags without threshold filtering (still respects ignore list).
- */
-export async function getAllTags(): Promise<Map<string, TagInfo>> {
-  const ignore = buildIgnoreSet();
-  const { byTag } = await collectTags(ignore);
-  return byTag;
-}
-
-/**
- * @deprecated Prefer `getTags({ order, threshold })` to avoid re-collecting externally.
- * Build a filtered tag count map from given posts.
- */
-export function getFilteredTagMap(
-  posts: BlogEntry[],
-  tagThreshold: number = 1,
-): Map<string, number> {
-  const ignoreTags = new Set<string>(
-    (setup.ignoreTags as string[] | undefined) ?? [],
-  );
-  log.debug('[ignoredTags] ' + setup.ignoreTags);
-
-  const tagMap = new Map<string, number>();
-  for (const post of posts) {
-    if (Array.isArray(post.data.tags)) {
-      for (const tag of post.data.tags) {
-        if (!ignoreTags.has(tag)) {
-          tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
-        }
-      }
-    }
-  }
-  for (const [tag, count] of tagMap) {
-    if (count < tagThreshold) tagMap.delete(tag);
-  }
-  return tagMap;
-}
-
 /**
  * Group featured tag entries by their numeric weight.
  * Buckets:
@@ -852,32 +786,6 @@ export function groupTagsByWeight(entries: CollectionEntry<'tags'>[]) {
   };
 }
 
-/**
- * @deprecated Use `getTags(options)` instead.
- * `order` replaces `sortBy`; also returns `url` in each item.
- */
-export async function listTags(
-  options?: GetTagsOptions,
-): Promise<TagListItem[]> {
-  return getTags(options);
-}
-
-/**
- * @deprecated Use `getTag(input, ctx)` instead.
- */
-export async function readTag(
-  input: string,
-  ctx?: Ctx,
-): Promise<{
-  id: string;
-  label: string;
-  url: string;
-  posts: BlogEntry[];
-}> {
-  return getTag(input, ctx);
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
 // Validation helper (retained)
 // ──────────────────────────────────────────────────────────────────────────────
 

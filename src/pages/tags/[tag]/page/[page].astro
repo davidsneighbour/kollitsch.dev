@@ -35,18 +35,18 @@ try {
   tagEntry = null;
 }
 
-import { getValidTags } from "@utils/tags.ts";
+import { getTags } from "@utils/tags.ts";
 
 export async function getStaticPaths() {
-  const tagMap = await getValidTags();
+  const tags = await getTags();
   // @todo this should be configurable via setup.listpages.limit
   const pageSize = 12;
 
   const paths = [];
-  for (const [tag, { count }] of tagMap.entries()) {
+  for (const { id, count } of tags) {
     const totalPages = Math.ceil(count / pageSize);
     for (let page = 2; page <= totalPages; page++) {
-      paths.push({ params: { page: String(page), tag } });
+      paths.push({ params: { page: String(page), tag: id } });
     }
   }
   return paths;

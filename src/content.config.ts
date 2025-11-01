@@ -229,31 +229,63 @@ export const blog = defineCollection({
 
 // MARK: Tags
 const idRegex = /^[a-z0-9_-]+$/;
+const tagCoverSchema = z
+  .object({
+    type: z.enum(['image']).optional().default('image'),
+    src: z.string().optional(),
+    title: z.string().optional(),
+  })
+  .strict();
+
 export const tags = defineCollection({
-  loader: file('./src/content/tags.json', {
-    parser: (text) => JSON.parse(text),
-  }),
-  schema: z.object({
-    // aliases map to this id — always lowercase
-    aliases: z
-      .array(z.string().transform((s) => s.toLowerCase().trim()))
-      .optional(),
-    class: z.string().optional(),
-    description: z.string().optional(),
-    featured: z.boolean().default(false).optional(),
-    icon: z.string().optional(),
-    // canonical id used in URLs
-    id: z
-      .string()
-      .transform((s) => s.toLowerCase().trim())
-      .refine((s) => idRegex.test(s), {
-        message: `Tag id must match ${idRegex}`,
-      }),
-    image: z.string().optional(),
-    // human label shown in UI (may contain symbols and casing)
-    label: z.string(),
-    weight: z.number().optional().default(0),
-  }),
+  loader: glob({ base: './src/content/tags', pattern: '**/*.{md,mdx}' }),
+  schema: z
+    .object({
+      aliases: z
+        .array(z.string().transform((s) => s.toLowerCase().trim()))
+        .optional(),
+      class: z.string().optional(),
+      cover: tagCoverSchema.optional(),
+      description: z
+        .string()
+        .optional()
+        .transform((val) => val?.trim() ?? undefined),
+      featured: z.boolean().default(false).optional(),
+      icon: z.string().optional(),
+      id: z
+        .string()
+        .transform((s) => s.toLowerCase().trim())
+        .refine((s) => idRegex.test(s), {
+          message: `Tag id must match ${idRegex}`,
+        }),
+      linktitle: z
+        .string()
+        .optional()
+        .transform((val) => val?.trim())
+        .refine((val) => (val ? val.length > 0 : true), {
+          message: '`linktitle` MUST NOT be empty if defined.',
+        }),
+      title: z.string().transform((val) => val.trim()),
+      weight: z.number().optional().default(0),
+    })
+    .transform((data) => {
+      const linktitle = data.linktitle && data.linktitle.length > 0
+        ? data.linktitle
+        : data.title;
+
+      return {
+        ...data,
+        cover: data.cover
+          ? {
+              type: 'image' as const,
+              ...(data.cover.src ? { src: data.cover.src } : {}),
+              ...(data.cover.title ? { title: data.cover.title } : {}),
+            }
+          : undefined,
+        label: linktitle,
+        linktitle,
+      };
+    }),
 });
 
 // MARK: YouTube Playlists

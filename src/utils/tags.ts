@@ -96,7 +96,7 @@ export type GetTagsOptions = {
 export type TagListItem = {
   /** Canonical id (slug-like). */
   id: string;
-  /** Display label (may differ from id, coming from tags collection). */
+  /** Display label (linktitle from tags collection; falls back to title). */
   label: string;
   /** Number of posts containing this tag. */
   count: number;
@@ -239,7 +239,27 @@ async function getTagIndex(): Promise<Map<string, CollectionEntry<'tags'>>> {
       if (t.data.aliases) {
         for (const a of t.data.aliases) map.set(a, t); // schema already lowercases
       }
-      map.set(normaliseTagUnsafe(t.data.label), t);
+      try {
+        const fromLinktitle = normaliseTagUnsafe(t.data.linktitle);
+        if (fromLinktitle) map.set(fromLinktitle, t);
+      } catch (err) {
+        log.warn(
+          '[tags] failed to normalise tag linktitle',
+          { id: t.id, linktitle: t.data.linktitle },
+          err,
+        );
+      }
+
+      try {
+        const fromTitle = normaliseTagUnsafe(t.data.title);
+        if (fromTitle) map.set(fromTitle, t);
+      } catch (err) {
+        log.warn(
+          '[tags] failed to normalise tag title',
+          { id: t.id, title: t.data.title },
+          err,
+        );
+      }
     }
     log.debug('[tags] cached tag index:', { entries: map.size });
     return map;
@@ -353,7 +373,7 @@ export async function normaliseTag(
 
   const index = await getTagIndex();
   const hit = index.get(idGuess);
-  if (hit) return { id: hit.data.id, label: hit.data.label };
+  if (hit) return { id: hit.data.id, label: hit.data.linktitle };
 
   return { id: idGuess, label: input.trim() };
 }
@@ -553,7 +573,7 @@ export async function getTags(
       const hit = idx.get(key);
       if (hit) {
         id = hit.data.id;
-        finalLabel = hit.data.label;
+        finalLabel = hit.data.linktitle;
         weight = (hit.data as { weight?: number }).weight ?? 0;
       } else {
         id = key;
@@ -682,7 +702,7 @@ export async function getFeaturedTags(
     if (seen.has(id)) continue;
     seen.add(id);
 
-    const label = entry.data.label;
+    const label = entry.data.linktitle;
     const weight = (entry.data as { weight?: number }).weight ?? 0;
     const count = countById?.get(id) ?? 0;
 
@@ -746,7 +766,7 @@ export async function getFeaturedTagEntries(
   const items: TagListItem[] = entries.map((entry) => ({
     count: countById?.get(entry.data.id) ?? 0,
     id: entry.data.id,
-    label: entry.data.label,
+    label: entry.data.linktitle,
     url: tagUrl(entry.data.id),
     weight: (entry.data as { weight?: number }).weight ?? 0,
   }));

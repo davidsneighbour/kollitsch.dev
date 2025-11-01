@@ -62,7 +62,7 @@ export async function getStaticPaths() {
   {
     tagEntry && (
       <TagIntro
-        title={tagEntry.data.label}
+        title={tagEntry.data.title}
         description={tagEntry?.data.description || `Posts tagged with #${canonicalLabel}`}
       />
     )

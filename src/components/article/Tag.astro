@@ -2,7 +2,7 @@
 // @todo refactor and comment
 import type { CollectionEntry } from "astro:content";
 
-// import PostImage from '@components/PostImage.astro';
+import PostImage from "@components/PostImage.astro";
 import Button from "@components/content/Button.astro";
 
 export interface Props {
@@ -15,10 +15,12 @@ const { post } = Astro.props;
 <article
   class="relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
 >
-  <!-- <PostImage
+  <PostImage
     post={post}
-    classes="flex-none max-w-full aspect-2/1 object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
-  /> -->
+    link={`/${post.collection}/${post.id}/`}
+    classes="aspect-dnb max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
+    quality="medium"
+  />
 
   <div class="flex max-w-xl grow flex-col justify-start p-4">
     <h2 class="line-clamp-2 flex-none">

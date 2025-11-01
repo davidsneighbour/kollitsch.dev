@@ -8,7 +8,7 @@ import { getTailwindSizes } from "@utils/tailwind.ts";
 import type { ImageMetadata } from "astro";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<"blog" | "tags">;
   link?: string;
   classes?: string;
   quality?: "low" | "medium" | "high" | "max" | number; // map to 30/60/82/95 or use number directly

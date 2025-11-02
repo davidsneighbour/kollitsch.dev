@@ -12,6 +12,7 @@ import { defineConfig } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import icon from 'astro-icon';
 import devtoolsJson from 'vite-plugin-devtools-json';
+import netlify from '@astrojs/netlify';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
 
@@ -71,6 +72,7 @@ const watchExtraFiles = () => ({
 // https://astro.build/config
 export default defineConfig({
   compressHTML: import.meta.env.PROD,
+  adapter: netlify({ imageCDN: false }),
   experimental: {
     chromeDevtoolsWorkspace: true,
     clientPrerender: true,

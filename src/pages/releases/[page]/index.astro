@@ -11,7 +11,7 @@ export const PER_PAGE = getReleasesPerPage(100);
 
 export async function getStaticPaths() {
   const all = await loadAllReleases();
-  const totalPages = Math.ceil(all.length / PER_PAGE);
+  const totalPages = Math.max(1, Math.ceil(all.length / PER_PAGE));
   return Array.from({ length: totalPages }, (_, i) => ({ params: { page: String(i + 1) } }));
 }
 

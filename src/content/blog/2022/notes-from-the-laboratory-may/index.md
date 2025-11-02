@@ -5,11 +5,6 @@ description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   May 2022
 date: 2022-06-05T20:26:36+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -17,8 +12,11 @@ tags:
   - davidsneighbour
   - 100daystooffload
 cover:
-  src: ./header.jpg
+  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 
@@ -26,14 +24,14 @@ publisher: rework
 
 Slightly delayed comes the May report now:
 
-- **Focus:** Missing.
-- **Fixing things:** A lot more than I like to admit.
-- **Cleanup:** Closing down nonsense repos and projects. Concentrating on the things I like.
-- **kollitsch.dev:** Fixing the colour schemes, fixing plenty of stuff under the hood and upgrading to Bootstrap 5.2. I am not sure if I am doing this right.
-- **Customers:** They are all happy it seems. I am not sure if I am doing this right.
-- **Pokki:** I wonder how many months in the future I will look back at this time and think of it as "the good times" before it all ended. I am not sure if I am doing this right.
-- **Language Learning:** Continuing with my Golang lessons and wondering if I am doing this right.
-- **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess. Probably doing it right.
+* **Focus:** Missing.
+* **Fixing things:** A lot more than I like to admit.
+* **Cleanup:** Closing down nonsense repos and projects. Concentrating on the things I like.
+* **kollitsch.dev:** Fixing the colour schemes, fixing plenty of stuff under the hood and upgrading to Bootstrap 5.2. I am not sure if I am doing this right.
+* **Customers:** They are all happy it seems. I am not sure if I am doing this right.
+* **Pokki:** I wonder how many months in the future I will look back at this time and think of it as "the good times" before it all ended. I am not sure if I am doing this right.
+* **Language Learning:** Continuing with my Golang lessons and wondering if I am doing this right.
+* **All the other stuff:** As always there was a lot of things that I just ignored or let slide. That's life. I guess. Probably doing it right.
 
 I am going on a journey this June out of my beloved Batcave and Fortress of Solitude and into the wonderful world of the real life. By plane. And train. And car. And boat. And bike. And whatever else I can find. I am going to try to make it as good as possible.
 

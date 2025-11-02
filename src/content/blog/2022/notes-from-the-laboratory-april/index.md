@@ -5,11 +5,6 @@ description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   April 2022
 date: 2022-05-02T20:06:40+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -17,8 +12,11 @@ tags:
   - davidsneighbour
   - 100daystooffload
 cover:
-  src: ./header.jpg
+  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

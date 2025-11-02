@@ -5,11 +5,6 @@ description: >-
   Monthly review of my activities in April 2023, including updates on
   KOLLITSCH.dev, self-optimization projects, and plans for the future.
 date: 2023-05-01T19:31:37+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -17,8 +12,11 @@ tags:
   - davidsneighbour
   - 100daystooffload
 cover:
-  src: ./header.jpg
+  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

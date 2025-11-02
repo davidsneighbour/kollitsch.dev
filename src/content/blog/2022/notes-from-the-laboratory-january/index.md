@@ -5,11 +5,6 @@ description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   January 2022
 date: 2022-01-30T21:12:06+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -18,8 +13,11 @@ tags:
 aliases:
   - /blog/2022/notes-from-the-laboratory-january-2022
 cover:
-  src: ./header.jpg
+  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

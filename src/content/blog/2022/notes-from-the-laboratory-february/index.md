@@ -1,15 +1,10 @@
 ---
-title: 'Notes from the Laboratory: February 2022'
-linkTitle: Laboratory 2022-02
+title: "Notes from the Laboratory: February 2022"
+linktitle: "Laboratory 2022-02"
 description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   February 2022
 date: 2022-03-01T19:58:03+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -19,8 +14,11 @@ tags:
 aliases:
   - /blog/2022/notes-from-the-laboratory-february-2022
 cover:
-  src: ./header.jpg
+  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

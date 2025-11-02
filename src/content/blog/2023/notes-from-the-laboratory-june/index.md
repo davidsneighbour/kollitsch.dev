@@ -5,11 +5,6 @@ description: >-
   Monthly report of my activities in June 2023, including updates on
   100DaysToOffload, hardware upgrades, and GoHugo modules.
 date: 2023-07-01T19:31:21+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - laboratory
   - notes
@@ -17,8 +12,11 @@ tags:
   - davidsneighbour
   - 100daystooffload
 cover:
-  src: ./header.jpg
+  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image
+  title: >-
+    Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
+    [Unsplash](https://unsplash.com/)
 publisher: rework
 ---
 

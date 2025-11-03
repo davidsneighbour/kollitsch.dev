@@ -8,7 +8,7 @@ if (!import.meta.env.SSR) {
 }
 
 const CONTENT_GLOB = '/src/content/**/*.{png,jpg,jpeg,webp,avif,gif}';
-const ASSET_GLOB = '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif,svg}';
+const ASSET_GLOB = '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif}';
 
 export interface GeneratedImageRecord {
   readonly alt?: string;

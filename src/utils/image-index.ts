@@ -7,9 +7,6 @@ if (!import.meta.env.SSR) {
   throw new Error('image-index.ts must not run in the browser bundle.');
 }
 
-const CONTENT_GLOB = '/src/content/**/*.{png,jpg,jpeg,webp,avif,gif}';
-const ASSET_GLOB = '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif}';
-
 export interface GeneratedImageRecord {
   readonly alt?: string;
   readonly author?: string;
@@ -106,12 +103,18 @@ function loadLocalImages(): Map<string, IndexedImage> {
   const generatedByPath = loadGeneratedIndex();
 
   const modules = {
-    ...import.meta.glob<{ default: ImageMetadata }>(CONTENT_GLOB, {
-      eager: true,
-    }),
-    ...import.meta.glob<{ default: ImageMetadata }>(ASSET_GLOB, {
-      eager: true,
-    }),
+    ...import.meta.glob<{ default: ImageMetadata }>(
+      '/src/content/**/*.{png,jpg,jpeg,webp,avif,gif}',
+      {
+        eager: true,
+      },
+    ),
+    ...import.meta.glob<{ default: ImageMetadata }>(
+      '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif}',
+      {
+        eager: true,
+      },
+    ),
   } as Record<string, { default: ImageMetadata }>;
 
   const images = new Map<string, IndexedImage>();

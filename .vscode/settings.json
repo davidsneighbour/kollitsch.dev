@@ -61,6 +61,7 @@
   "vale.valeCLI.syncOnStartup": true,
   // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
   "vale.valeCLI.config": "/home/patrick/.dotfiles/configs/vale/.vale.ini",
+  "vale.valeCLI.minAlertLevel": "error",
 
   // PLUGIN: markdownlint setup
   "markdownlint.configFile": "src/config/.markdownlint.jsonc",

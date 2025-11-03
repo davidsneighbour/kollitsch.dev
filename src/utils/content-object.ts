@@ -2,8 +2,47 @@ import type { CollectionEntry } from 'astro:content';
 
 import type { CoverData } from './content.ts';
 
-export type ContentCover = CoverData | string | Record<string, unknown> | null;
+type PlainRecord = Record<string, unknown>;
 
+/**
+ * Supported cover metadata on a {@link ContentObject}.
+ *
+ * The cover may be sourced from markdown frontmatter, an Astro collection, or a
+ * manual override. Strings are treated as URLs/paths, `CoverData` comes from
+ * `src/utils/content.ts`, and arbitrary objects allow custom shape without
+ * losing information.
+ *
+ * @example
+ * ```ts
+ * import type { ContentCover } from '@utils/content-object.ts';
+ *
+ * const hero: ContentCover = '/images/hero.jpg';
+ * ```
+ */
+export type ContentCover = CoverData | string | PlainRecord | null;
+
+/**
+ * Normalised representation of heterogeneous content sources.
+ *
+ * The shape is intentionally strict – every string is trimmed, dates are
+ * converted to `Date` instances, tags are deduplicated, and unknown keys are
+ * preserved inside {@link ContentObject.meta}. Optional identifiers are only
+ * present when discoverable from a source.
+ *
+ * @example
+ * ```ts
+ * import { createContentObject } from '@utils/content-object.ts';
+ *
+ * const content = createContentObject({
+ *   title: 'Release Notes',
+ *   tags: 'astro, typescript',
+ *   date: '2024-05-01',
+ * });
+ *
+ * console.log(content.tags);
+ * // -> ['astro', 'typescript']
+ * ```
+ */
 export interface ContentObject {
   id?: string;
   slug?: string;
@@ -19,13 +58,32 @@ export interface ContentObject {
   tags: string[];
   category: string | null;
   cover: ContentCover;
-  url: string | null;
+  url?: string;
   readingTime: string | number | null;
-  meta: Record<string, unknown>;
-  [key: string]: unknown;
+  meta: PlainRecord;
 }
 
-export type ContentSource = CollectionEntry<string> | Record<string, unknown>;
+/**
+ * Supported inputs for {@link createContentObject}.
+ *
+ * This includes raw Astro collection entries and arbitrary records such as
+ * frontmatter objects or manual overrides.
+ */
+export type ContentSource = CollectionEntry<string> | PlainRecord;
+
+const BASE_CONTENT_VALUES: Omit<ContentObject, 'meta' | 'tags'> = {
+  author: null,
+  category: null,
+  content: null,
+  cover: null,
+  date: null,
+  description: null,
+  excerpt: null,
+  readingTime: null,
+  summary: null,
+  title: null,
+  updated: null,
+};
 
 const STRING_TITLE_KEYS = ['title', 'name', 'label', 'heading'] as const;
 const STRING_DESCRIPTION_KEYS = [
@@ -72,52 +130,67 @@ const READING_TIME_KEYS = [
   'readingMinutes',
 ] as const;
 
-interface NormalizedContentInput {
-  fields: Partial<ContentObject>;
-  meta: Record<string, unknown>;
-}
-
-const BASE_CONTENT_OBJECT: ContentObject = {
-  author: null,
-  category: null,
-  collection: undefined,
-  content: null,
-  cover: null,
-  date: null,
-  description: null,
-  excerpt: null,
-  id: undefined,
-  meta: {},
-  readingTime: null,
-  slug: undefined,
-  summary: null,
-  tags: [],
-  title: null,
-  updated: null,
-  url: null,
+type NormalizedContentInput = {
+  readonly fields: Partial<ContentObject>;
+  readonly meta: PlainRecord;
 };
 
+/**
+ * Create a new {@link ContentObject} populated with safe defaults.
+ *
+ * The returned instance owns its own `meta` object and `tags` array so callers
+ * can mutate them without affecting subsequent calls.
+ *
+ * @returns A fresh content object skeleton.
+ * @example
+ * ```ts
+ * import { createEmptyContentObject } from '@utils/content-object.ts';
+ *
+ * const empty = createEmptyContentObject();
+ * empty.title = 'Draft';
+ * ```
+ */
 export function createEmptyContentObject(): ContentObject {
   return {
-    ...BASE_CONTENT_OBJECT,
-    meta: { ...BASE_CONTENT_OBJECT.meta },
-    tags: [...BASE_CONTENT_OBJECT.tags],
+    ...BASE_CONTENT_VALUES,
+    meta: {},
+    tags: [],
   };
 }
 
+/**
+ * Merge heterogeneous sources into a single {@link ContentObject}.
+ *
+ * Sources are processed in order. Later inputs override earlier values while
+ * still contributing to derived data such as tags, authors, and metadata.
+ * Unknown keys are preserved inside the `meta` object for later inspection.
+ *
+ * @param sources - Ordered list of collection entries, frontmatter objects, or
+ * overrides. `null` and `undefined` inputs are ignored.
+ * @returns A normalised content object ready for rendering or indexing.
+ * @example
+ * ```ts
+ * import { createContentObject } from '@utils/content-object.ts';
+ *
+ * const content = createContentObject(
+ *   { title: 'Hello' },
+ *   { summary: 'Hi!' },
+ * );
+ * console.log(content.summary);
+ * // -> 'Hi!'
+ * ```
+ */
 export function createContentObject(
   ...sources: Array<ContentSource | null | undefined>
 ): ContentObject {
   const result = createEmptyContentObject();
 
   for (const source of sources) {
-    if (!source) continue;
+    if (source == null) continue;
 
     if (isCollectionEntry(source)) {
       applyNormalized(result, normalizeEntry(source));
-      if (isRecord(source.data)) {
-        applyNormalized(result, normalizeRecord(source.data));
-      }
+      applyNormalized(result, normalizeRecord(source.data));
       continue;
     }
 
@@ -148,27 +221,10 @@ export function createContentObject(
   }
 
   result.tags = Array.from(
-    new Set(
-      result.tags.map((tag) => tag.trim()).filter((tag) => tag.length > 0),
-    ),
+    new Set(result.tags.map(trimString).filter(isNonEmptyString)),
   );
 
-  if (Array.isArray(result.author)) {
-    const authors = result.author
-      .map((name) => (typeof name === 'string' ? name.trim() : ''))
-      .filter((name) => name.length > 0);
-
-    if (authors.length === 0) {
-      result.author = null;
-    } else if (authors.length === 1) {
-      result.author = authors[0];
-    } else {
-      result.author = authors;
-    }
-  } else if (typeof result.author === 'string') {
-    const trimmed = result.author.trim();
-    result.author = trimmed.length > 0 ? trimmed : null;
-  }
+  result.author = normalizeAuthor(result.author);
 
   return result;
 }
@@ -177,33 +233,17 @@ function applyNormalized(
   target: ContentObject,
   normalized: NormalizedContentInput,
 ): void {
-  for (const [key, value] of Object.entries(normalized.fields)) {
+  for (const [key, value] of Object.entries(normalized.fields) as Array<
+    [keyof ContentObject, ContentObject[keyof ContentObject] | undefined]
+  >) {
     if (value === undefined) continue;
 
-    const typedKey = key as keyof ContentObject;
-
-    if (typedKey === 'tags') {
-      if (Array.isArray(value)) {
-        target.tags.push(
-          ...value
-            .map((tag) => (typeof tag === 'string' ? tag : String(tag)))
-            .filter((tag) => tag.length > 0),
-        );
-      }
+    if (key === 'tags' && Array.isArray(value)) {
+      target.tags.push(...value.map(trimString).filter(isNonEmptyString));
       continue;
     }
 
-    if (typedKey === 'meta') {
-      if (isRecord(value)) {
-        target.meta = {
-          ...target.meta,
-          ...value,
-        };
-      }
-      continue;
-    }
-
-    (target as Record<string, unknown>)[typedKey as string] = value as unknown;
+    target[key] = value as ContentObject[typeof key];
   }
 
   target.meta = {
@@ -218,11 +258,12 @@ function normalizeEntry(
   const base: Partial<ContentObject> = {
     collection: entry.collection,
     id: entry.id,
-    slug:
-      'slug' in entry && typeof entry.slug === 'string' ? entry.slug : entry.id,
+    slug: isString((entry as { slug?: unknown }).slug)
+      ? (entry as { slug?: string }).slug
+      : entry.id,
   };
 
-  if (typeof (entry as { body?: unknown }).body === 'string') {
+  if (isString((entry as { body?: unknown }).body)) {
     base.content = (entry as { body: string }).body;
   }
 
@@ -236,9 +277,7 @@ function normalizeEntry(
   };
 }
 
-function normalizeRecord(
-  record: Record<string, unknown>,
-): NormalizedContentInput {
+function normalizeRecord(record: PlainRecord): NormalizedContentInput {
   const fields: Partial<ContentObject> = {};
 
   const id = pickString(record, ['id']);
@@ -296,12 +335,12 @@ function normalizeRecord(
 }
 
 function pickString(
-  record: Record<string, unknown>,
+  record: PlainRecord,
   keys: readonly string[],
 ): string | undefined {
   for (const key of keys) {
     const value = record[key];
-    if (typeof value === 'string') {
+    if (isString(value)) {
       const trimmed = value.trim();
       if (trimmed.length > 0) {
         return trimmed;
@@ -312,7 +351,7 @@ function pickString(
 }
 
 function pickDate(
-  record: Record<string, unknown>,
+  record: PlainRecord,
   keys: readonly string[],
 ): Date | undefined {
   for (const key of keys) {
@@ -328,7 +367,7 @@ function normalizeDate(value: unknown): Date | undefined {
     return new Date(value);
   }
 
-  if (typeof value === 'string' || typeof value === 'number') {
+  if (isString(value) || typeof value === 'number') {
     const parsed = new Date(value);
     if (!Number.isNaN(parsed.getTime())) {
       return parsed;
@@ -339,12 +378,12 @@ function normalizeDate(value: unknown): Date | undefined {
 }
 
 function pickAuthor(
-  record: Record<string, unknown>,
+  record: PlainRecord,
   keys: readonly string[],
 ): string | string[] | undefined {
   for (const key of keys) {
     const value = record[key];
-    if (typeof value === 'string') {
+    if (isString(value)) {
       const trimmed = value.trim();
       if (trimmed.length > 0) return trimmed;
     }
@@ -352,25 +391,29 @@ function pickAuthor(
     if (Array.isArray(value)) {
       const authors = value
         .map((item) => {
-          if (typeof item === 'string') return item.trim();
+          if (isString(item)) return item.trim();
           if (isRecord(item)) {
-            if (typeof item.name === 'string') return item.name.trim();
-            if (typeof item.fullName === 'string') return item.fullName.trim();
+            if (isString(item.name)) return item.name.trim();
+            if (isString((item as { fullName?: unknown }).fullName)) {
+              return ((item as { fullName?: string }).fullName ?? '').trim();
+            }
           }
           return '';
         })
-        .filter((name) => name.length > 0);
+        .filter(isNonEmptyString);
 
       if (authors.length > 0) return authors;
     }
 
     if (isRecord(value)) {
-      if (typeof value.name === 'string') {
+      if (isString(value.name)) {
         const trimmed = value.name.trim();
         if (trimmed.length > 0) return trimmed;
       }
-      if (typeof value.fullName === 'string') {
-        const trimmed = value.fullName.trim();
+      if (isString((value as { fullName?: unknown }).fullName)) {
+        const trimmed = (
+          (value as { fullName?: string }).fullName ?? ''
+        ).trim();
         if (trimmed.length > 0) return trimmed;
       }
     }
@@ -379,7 +422,7 @@ function pickAuthor(
 }
 
 function pickStringArray(
-  record: Record<string, unknown>,
+  record: PlainRecord,
   keys: readonly string[],
 ): string[] {
   for (const key of keys) {
@@ -394,33 +437,29 @@ function normalizeStringArray(value: unknown): string[] {
   if (Array.isArray(value)) {
     return value
       .map((item) => {
-        if (typeof item === 'string') return item.trim();
-        if (isRecord(item) && typeof item.name === 'string')
-          return item.name.trim();
+        if (isString(item)) return item.trim();
+        if (isRecord(item) && isString(item.name)) return item.name.trim();
         return '';
       })
-      .filter((item) => item.length > 0);
+      .filter(isNonEmptyString);
   }
 
-  if (typeof value === 'string') {
-    return value
-      .split(',')
-      .map((item) => item.trim())
-      .filter((item) => item.length > 0);
+  if (isString(value)) {
+    return value.split(',').map(trimString).filter(isNonEmptyString);
   }
 
   return [];
 }
 
 function pickCover(
-  record: Record<string, unknown>,
+  record: PlainRecord,
   keys: readonly string[],
 ): ContentCover | undefined {
   for (const key of keys) {
-    if (!(key in record)) continue;
+    if (!Object.hasOwn(record, key)) continue;
     const value = record[key];
     if (value === null) return null;
-    if (typeof value === 'string') {
+    if (isString(value)) {
       const trimmed = value.trim();
       if (trimmed.length > 0) return trimmed;
       continue;
@@ -433,7 +472,7 @@ function pickCover(
 }
 
 function pickReadingTime(
-  record: Record<string, unknown>,
+  record: PlainRecord,
   keys: readonly string[],
 ): string | number | undefined {
   for (const key of keys) {
@@ -441,7 +480,7 @@ function pickReadingTime(
     if (typeof value === 'number') {
       if (!Number.isNaN(value)) return value;
     }
-    if (typeof value === 'string') {
+    if (isString(value)) {
       const trimmed = value.trim();
       if (trimmed.length > 0) return trimmed;
     }
@@ -452,13 +491,42 @@ function pickReadingTime(
 function isCollectionEntry(value: unknown): value is CollectionEntry<string> {
   return (
     isRecord(value) &&
-    typeof value.id === 'string' &&
-    typeof value.collection === 'string' &&
+    isString(value.id) &&
+    isString(value.collection) &&
     'data' in value &&
     isRecord((value as { data: unknown }).data)
   );
 }
 
-function isRecord(value: unknown): value is Record<string, any> {
+function isRecord(value: unknown): value is PlainRecord {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+
+function trimString(value: string): string {
+  return value.trim();
+}
+
+function isNonEmptyString(value: string): boolean {
+  return value.length > 0;
+}
+
+function normalizeAuthor(
+  author: ContentObject['author'],
+): ContentObject['author'] {
+  if (author === null) return null;
+  if (Array.isArray(author)) {
+    const names = author.map(trimString).filter(isNonEmptyString);
+    if (names.length === 0) return null;
+    if (names.length === 1) return names[0];
+    return names;
+  }
+  if (isString(author)) {
+    const trimmed = author.trim();
+    return trimmed.length > 0 ? trimmed : null;
+  }
+  return null;
 }

@@ -1,68 +1,164 @@
-// Server-only image index for local assets and content images.
+// Server-only index of local images and optional generated metadata.
 // Do not import from browser code or hydrated islands.
 
 import type { ImageMetadata } from 'astro';
 
-/**
- * Guard: ensure this file never lands in the client bundle.
- * Throws during client bundling to surface accidental imports.
- */
 if (!import.meta.env.SSR) {
   throw new Error('image-index.ts must not run in the browser bundle.');
 }
 
-/**
- * Glob all supported local images.
- * Keys are project-absolute like '/src/assets/images/foo.jpg'.
- * Note: globs must be literal strings so Vite can statically analyze them.
- */
-const contentImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/**/*.{png,jpg,jpeg,webp,avif,gif}',
-  { eager: true },
-);
+const CONTENT_GLOB = '/src/content/**/*.{png,jpg,jpeg,webp,avif,gif}';
+const ASSET_GLOB = '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif,svg}';
 
-const assetImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif}',
-  { eager: true },
-);
-
-/**
- * Project-absolute key -> ImageMetadata
- * The single source of truth for local images.
- */
-const index: Record<string, ImageMetadata> = {};
-for (const [key, mod] of Object.entries({ ...contentImages, ...assetImages })) {
-  index[key] = mod.default;
+export interface GeneratedImageRecord {
+  readonly alt?: string;
+  readonly author?: string;
+  readonly caption?: string;
+  readonly derivedTags: readonly string[];
+  readonly dir: string;
+  readonly filename: string;
+  readonly format: string;
+  readonly height: number;
+  readonly id: string;
+  readonly lqipDataUri: string;
+  readonly relPath: string;
+  readonly source?: string;
+  readonly tags?: readonly string[];
+  readonly title?: string;
+  readonly width: number;
 }
 
-if (import.meta.env.DEV) {
-  console.log(`[image-index] Indexed ${Object.keys(index).length} images.`);
+interface GeneratedIndexFile {
+  readonly createdAt: string;
+  readonly files: Record<string, GeneratedImageRecord>;
+  readonly source: {
+    readonly frontmatterDbPath: string | null;
+    readonly imagesDir: string;
+    readonly metaJsonPath: string | null;
+  };
 }
 
-/**
- * Get ImageMetadata for a project-absolute key.
- * @param key Project-absolute path like '/src/.../file.ext'
- * @returns ImageMetadata or undefined if the key is not indexed
- * @example
- * const meta = getImageMeta('/src/assets/images/logo.png');
- */
-export function getImageMeta(key: string): ImageMetadata | undefined {
-  return index[key];
+export interface IndexedImage {
+  readonly key: string;
+  readonly filename: string;
+  readonly meta: ImageMetadata;
+  readonly record?: GeneratedImageRecord;
 }
 
-/**
- * Check presence of a key in the index.
- * @param key Project-absolute path like '/src/.../file.ext'
- * @returns true if the key is indexed
- * @example
- * if (hasImage(k)) { /* ... *\/ }
- */
+function ensureLeadingSlash(path: string): string {
+  return path.startsWith('/') ? path : `/${path}`;
+}
+
+function toUrlPath(path: string): string {
+  return ensureLeadingSlash(path.replace(/\\/g, '/'));
+}
+
+function normalizeGeneratedKey(
+  relPath: string,
+  projectRootUrl: string,
+  imagesDir: string,
+): string {
+  const normalized = ensureLeadingSlash(relPath);
+  const rootPrefix = projectRootUrl.endsWith('/')
+    ? projectRootUrl.slice(0, -1)
+    : projectRootUrl;
+
+  if (normalized.startsWith(rootPrefix)) {
+    const sliced = normalized.slice(rootPrefix.length);
+    return sliced.length ? ensureLeadingSlash(sliced) : '/';
+  }
+
+  const imagesDirUrl = ensureLeadingSlash(imagesDir.replace(/\\/g, '/'));
+  const index = normalized.lastIndexOf(imagesDirUrl);
+  if (index >= 0) {
+    const sliced = normalized.slice(index);
+    return sliced.length ? ensureLeadingSlash(sliced) : imagesDirUrl;
+  }
+
+  return normalized;
+}
+
+function loadGeneratedIndex(): Map<string, GeneratedImageRecord> {
+  const mods = import.meta.glob('/src/content/_generated/image-index.json', {
+    eager: true,
+    import: 'default',
+  }) as Record<string, GeneratedIndexFile>;
+
+  const record = Object.values(mods)[0];
+  if (!record) return new Map();
+
+  const projectRootUrl = toUrlPath(process.cwd());
+
+  const entries = Object.values(record.files).map<
+    [string, GeneratedImageRecord]
+  >((data) => [
+    normalizeGeneratedKey(
+      data.relPath,
+      projectRootUrl,
+      record.source.imagesDir,
+    ),
+    data,
+  ]);
+  return new Map(entries);
+}
+
+function loadLocalImages(): Map<string, IndexedImage> {
+  const generatedByPath = loadGeneratedIndex();
+
+  const modules = {
+    ...import.meta.glob<{ default: ImageMetadata }>(CONTENT_GLOB, {
+      eager: true,
+    }),
+    ...import.meta.glob<{ default: ImageMetadata }>(ASSET_GLOB, {
+      eager: true,
+    }),
+  } as Record<string, { default: ImageMetadata }>;
+
+  const images = new Map<string, IndexedImage>();
+  for (const [key, mod] of Object.entries(modules)) {
+    const filename = key.split('/').pop() ?? key;
+    const record = generatedByPath.get(key);
+    images.set(
+      key,
+      Object.freeze({
+        filename,
+        key,
+        meta: mod.default,
+        ...(record ? { record } : {}),
+      } satisfies IndexedImage),
+    );
+  }
+
+  if (import.meta.env.DEV) {
+    console.debug(`[image-index] Indexed ${images.size} images.`);
+  }
+
+  return images;
+}
+
+const imagesByKey = loadLocalImages();
+let sortedImagesCache: readonly IndexedImage[] | null = null;
+
+export function getIndexedImage(key: string): IndexedImage | undefined {
+  return imagesByKey.get(key);
+}
+
 export function hasImage(key: string): boolean {
-  return Object.hasOwn(index, key);
+  return imagesByKey.has(key);
 }
 
-/**
- * Readonly view of the full index.
- * Useful for diagnostics; avoid iterating at runtime on large sites.
- */
-export const imageIndex: Readonly<Record<string, ImageMetadata>> = index;
+export function getImageMeta(key: string): ImageMetadata | undefined {
+  return imagesByKey.get(key)?.meta;
+}
+
+export function listIndexedImages(): readonly IndexedImage[] {
+  if (!sortedImagesCache) {
+    sortedImagesCache = Object.freeze(
+      Array.from(imagesByKey.values()).sort((a, b) =>
+        a.key.localeCompare(b.key),
+      ),
+    );
+  }
+
+  return sortedImagesCache;
+}

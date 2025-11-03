@@ -1,50 +1,95 @@
-// literal component values as defined in your schema
-const allowedComponents = ['lite-youtube', 'color-grid', 'date-diff'] as const;
-type ComponentName = (typeof allowedComponents)[number];
+const allowedComponents = [
+  'lite-youtube',
+  'color-grid',
+  'date-diff',
+] as const;
 
 /**
- * Check whether a specific frontend component is declared in a post's frontmatter.
+ * Union of supported frontend component identifiers.
+ */
+export type ComponentName = (typeof allowedComponents)[number];
+
+const allowedComponentsSet = new Set<ComponentName>(allowedComponents);
+
+type PathSegment = string & { readonly __brand: unique symbol };
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null;
+
+const sanitizePath = (path: string): readonly PathSegment[] => {
+  const trimmed = path.trim();
+  if (trimmed.length === 0) {
+    return [];
+  }
+
+  return trimmed
+    .split('.')
+    .map((segment) => segment.trim())
+    .filter((segment): segment is string => segment.length > 0)
+    .map((segment) => segment as PathSegment);
+};
+
+const isComponentList = (value: unknown): value is readonly ComponentName[] =>
+  Array.isArray(value) &&
+  value.every(
+    (item): item is ComponentName =>
+      typeof item === 'string' && allowedComponentsSet.has(item as ComponentName),
+  );
+
+const traversePath = (
+  source: Record<string, unknown>,
+  segments: readonly PathSegment[],
+): unknown => {
+  let current: unknown = source;
+
+  for (const segment of segments) {
+    if (!isRecord(current) || !(segment in current)) {
+      return undefined;
+    }
+
+    current = (current as Record<string, unknown>)[segment];
+  }
+
+  return current;
+};
+
+/**
+ * Determine whether a known frontend component is enabled for a given data object.
  *
- * This utility inspects `post.data.options.head.components`, which is an optional
- * part of the frontmatter schema, and verifies whether the requested component name
- * is present in the components array.
+ * The function walks a dot-separated path (defaulting to `options.head.components`)
+ * inside the provided data record and verifies that the resolved value is an array
+ * of allowed component identifiers that contains the requested name.
  *
- * This is useful for conditionally injecting scripts, stylesheets, or features
- * based on per-post needs.
+ * @param data - A possibly undefined frontmatter-like record (e.g. `Astro.props.post?.data`).
+ * @param name - The component identifier to look up. Must be one of the allowed literals.
+ * @param path - Optional dot-separated path leading to the components array (trimmed and validated).
+ * @returns `true` when the path resolves to a known components array that includes `name`; otherwise `false`.
  *
- * @param post - The `post` object from Astro.props. Can be undefined or unstructured.
- * @param name - The name of the component to check for (e.g. 'lite-youtube').
- * @param path - A dot-separated path string to the array (default: 'data.options.head.components').
- * @returns `true` if the named component exists in the post options, `false` otherwise.
+ * @example
+ * ```ts
+ * import { hasComponent } from "@/utils/component";
  *
- * @example in an .astro file:
- *
- * ```
- * const post = Astro.props?.post;
- *
- * if (hasComponent(post, 'lite-youtube')) {
- *   // Inject script and stylesheet for lite-youtube
- * }
- * ```
- *
- * @example frontmatter setup:
- *
- * ```
- * ---
- * options:
- *   head:
- *     components:
- *       - "lite-youtube"
- * ---
+ * const hasLiteYoutube = hasComponent(
+ *   {
+ *     options: { head: { components: ['lite-youtube'] } },
+ *   },
+ *   'lite-youtube',
+ * );
+ * // hasLiteYoutube === true
  * ```
  *
  * @example
+ * ```ts
+ * import { hasComponent } from "@/utils/component";
  *
- * ```
- * hasComponent(post, 'lite-youtube');
- * # true if in post.data.options.head.components
- * hasComponent(post, 'custom-header', 'meta.head.components');
- * # true if in post.meta.head.components
+ * const isInMeta = hasComponent(
+ *   {
+ *     meta: { head: { components: ['color-grid'] } },
+ *   },
+ *   'color-grid',
+ *   'meta.head.components',
+ * );
+ * // isInMeta === true
  * ```
  */
 export function hasComponent(
@@ -52,19 +97,15 @@ export function hasComponent(
   name: ComponentName,
   path: string = 'options.head.components',
 ): boolean {
-  if (!data) return false;
-
-  const parts = path.split('.');
-  let current: unknown = data;
-
-  for (const part of parts) {
-    if (typeof current !== 'object' || current === null || !(part in current)) {
-      return false;
-    }
-
-    // safely narrow using Record<string, unknown>
-    current = (current as Record<string, unknown>)[part];
+  if (!data) {
+    return false;
   }
 
-  return Array.isArray(current) && current.includes(name);
+  const segments = sanitizePath(path);
+  if (segments.length === 0) {
+    return false;
+  }
+
+  const value = traversePath(data, segments);
+  return isComponentList(value) && value.includes(name);
 }

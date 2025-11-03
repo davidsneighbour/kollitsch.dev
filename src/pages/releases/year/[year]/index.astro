@@ -1,5 +1,7 @@
 ---
-//const { params } = Astro;
+// @ts-expect-error - TS can't detect usage of `params` in Astro.rewrite (IDE?)
+const { params } = Astro;
+
 import { getReleasesPerPage, loadAllReleases } from "@utils/releases.ts";
 export const PER_PAGE = getReleasesPerPage(100);
 
@@ -12,7 +14,7 @@ export async function getStaticPaths() {
     const byYear = all.filter((r) => r.year === y);
     const total = Math.ceil(byYear.length / PER_PAGE);
     for (let p = 1; p <= total; p++) {
-      paths.push({ params: { year: String(y), page: String(p) } });
+      paths.push({ params: { page: String(p), year: String(y) } });
     }
   }
 

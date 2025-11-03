@@ -1,12 +1,9 @@
 # see https://docs.astro.build/en/guides/integrations-guide/netlify/
 [build]
-#command = "npm run build"
-command = ""
+command = "npx astro build"
 publish = "dist"
 
-# [build.environment]
-# DENO_VERSION = "1.44.3"
-
+# 301 redirects to add trailing slashes
 [[redirects]]
 from = "/:path*"
 to = "/:path*/"

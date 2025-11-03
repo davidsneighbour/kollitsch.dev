@@ -15,6 +15,7 @@ import devtoolsJson from 'vite-plugin-devtools-json';
 import netlify from '@astrojs/netlify';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
+import redirects from './src/data/redirects.json' assert { type: 'json' };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const crontabTmLanguage = JSON.parse(
@@ -72,7 +73,10 @@ const watchExtraFiles = () => ({
 // https://astro.build/config
 export default defineConfig({
   compressHTML: import.meta.env.PROD,
-  adapter: netlify({ imageCDN: false }),
+  adapter: netlify({
+    imageCDN: false
+  }),
+  redirects: redirects,
   experimental: {
     chromeDevtoolsWorkspace: true,
     clientPrerender: true,

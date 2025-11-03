@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import rawSetup from '@data/setup.json' with { type: 'json' };
-import { getImageMeta, hasImage } from '@utils/image-index.ts';
+import { getIndexedImage } from '@utils/image-index.ts';
 import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
@@ -69,9 +69,10 @@ export function resolveCover(
     const altSource =
       data.linktitle ?? data.title ?? data.description ?? post.id;
     const alt = stripMarkup(altSource);
-    const meta = keyOrUrl.startsWith('/src/')
-      ? getImageMeta(keyOrUrl)
+    const imageEntry = keyOrUrl.startsWith('/src/')
+      ? getIndexedImage(keyOrUrl)
       : undefined;
+    const meta = imageEntry?.meta;
     const renderedTitle =
       cover.title && cover.title.trim().length > 0
         ? new MarkdownIt().renderInline(cover.title)
@@ -113,15 +114,12 @@ export function resolveCover(
 
   const alt = stripMarkup(cover.alt ?? cover.title ?? 'Image');
   const renderedTitle = cover.title ? md.renderInline(cover.title) : undefined;
-  const meta = keyOrUrl.startsWith('/src/')
-    ? getImageMeta(keyOrUrl)
+  const imageEntry = keyOrUrl.startsWith('/src/')
+    ? getIndexedImage(keyOrUrl)
     : undefined;
+  const meta = imageEntry?.meta;
 
-  if (
-    keyOrUrl.startsWith('/src/') &&
-    !hasImage(keyOrUrl) &&
-    import.meta.env.DEV
-  ) {
+  if (keyOrUrl.startsWith('/src/') && !imageEntry && import.meta.env.DEV) {
     console.debug(`[resolveCover] Not indexed: ${keyOrUrl} (post: ${post.id})`);
   }
 

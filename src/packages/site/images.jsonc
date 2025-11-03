@@ -7,7 +7,7 @@
     "satori-html": "0.3.2"
   },
   "scripts": {
-    "build:image-index": "node scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
+    "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
     "prebuild": "npm run build:image-index"
   }
 }

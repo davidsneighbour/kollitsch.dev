@@ -2,7 +2,7 @@
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
     "@commitlint/config-conventional": "20.0.0",
-    "@davidsneighbour/release-config": "2025.3.6",
+    "@davidsneighbour/release-config": "2025.3.8",
     "@humanwhocodes/social-changelog": "0.4.0",
     "cz-git": "1.12.0"
   },

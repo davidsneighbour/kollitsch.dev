@@ -21,6 +21,9 @@ release.json
 public/favicon.ico
 public/og_image
 
+# dynamically built image index
+src/content/_generated
+
 # Created by https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,visualstudiocode
 

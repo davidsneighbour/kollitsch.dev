@@ -8,7 +8,7 @@ tags:
   - automation
 date: 2025-09-14T12:44:11.906Z
 cover:
-  src: ./getty-images-P6AC5E9pxlg-unsplash.jpg
+  src: getty-images-P6AC5E9pxlg-unsplash.jpg
   type: image
   title: A lonely astro-naut
 ---

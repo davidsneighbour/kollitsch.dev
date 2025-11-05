@@ -12,7 +12,6 @@ import { defineConfig } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import icon from 'astro-icon';
 import devtoolsJson from 'vite-plugin-devtools-json';
-import netlify from '@astrojs/netlify';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
 import redirects from './src/data/redirects.json' assert { type: 'json' };
@@ -73,9 +72,6 @@ const watchExtraFiles = () => ({
 // https://astro.build/config
 export default defineConfig({
   compressHTML: import.meta.env.PROD,
-  adapter: netlify({
-    imageCDN: false
-  }),
   redirects: redirects,
   experimental: {
     chromeDevtoolsWorkspace: true,

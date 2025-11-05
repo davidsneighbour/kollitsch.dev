@@ -15,7 +15,6 @@
   "dependencies": {
     "@astrojs/check": "0.9.5",
     "@astrojs/mdx": "4.3.9",
-    "@astrojs/netlify": "6.6.0",
     "@astrojs/rss": "4.0.13",
     "@astrojs/sitemap": "3.6.0",
     "@astrojs/ts-plugin": "1.10.5",

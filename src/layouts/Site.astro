@@ -4,21 +4,12 @@ import "@styles/theme.css";
 import Breakpoints from "@components/development/Breakpoints.astro";
 import Head from "@components/Head.astro";
 import SchemaWebSite from "@components/schema/WebSite.astro";
+// import setup from "@data/setup.json" with { type: "json" };
 
-const {
-  post,
-  extraHtmlClasses = "",
-  extraBodyClasses = "",
-  frontmatter,
-} = Astro.props;
+const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astro.props;
 
 // html classes
-const htmlClasses = [
-  "scroll-smooth",
-  "bg-zinc-50 dark:bg-zinc-950",
-  "h-full",
-  extraHtmlClasses,
-]
+const htmlClasses = ["scroll-smooth", "bg-zinc-50 dark:bg-zinc-950", "h-full", extraHtmlClasses]
   .filter(Boolean)
   .join(" ");
 
@@ -36,57 +27,43 @@ const IS_DEV = import.meta.env.DEV;
 ---
 
 <!doctype html>
-<html
-  lang="en"
-  class={htmlClasses}
->
+<html lang="en" class={htmlClasses}>
   <head>
-    <Head
-      post={post}
-      frontmatter={frontmatter}
-    />
+    <Head post={post} frontmatter={frontmatter} />
     <script>
-      window.addEventListener('load', () => {
-        document.documentElement.setAttribute('data-transitions', '');
+      window.addEventListener("load", () => {
+        document.documentElement.setAttribute("data-transitions", "");
       });
     </script>
   </head>
   <body class={bodyClasses}>
     <slot />
     <Breakpoints />
-    {
-      import.meta.env.DEV && (
-        <link
-          rel="stylesheet"
-          href="/src/styles/audit.css"
-        />
-      )
-    }
+    {import.meta.env.DEV && <link rel="stylesheet" href="/src/styles/audit.css" />}
     <SchemaWebSite />
     <script is:inline define:vars={{ IS_DEV }}>
       (function () {
-        if (typeof window === 'undefined' || IS_DEV) return;
+        if (typeof window === "undefined" || IS_DEV) return;
 
         const _paq = (window._paq = window._paq || []);
-        const u = 'https://analytics.dnbhub.xyz/';
+        const u = setup.search.instance;
 
-        _paq.push(['setSiteId', '1']);
-        _paq.push(['setTrackerUrl', u + 'matomo.php']);
-        _paq.push(['setCookieDomain', '*.kollitsch.dev']);
-        _paq.push(['enableLinkTracking']);
+        _paq.push(["setSiteId", setup.search.siteId]);
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setCookieDomain", setup.search.cookieDomain]);
+        _paq.push(["enableLinkTracking"]);
 
-        const g = document.createElement('script');
+        const g = document.createElement("script");
         g.async = true;
         g.defer = true;
-        g.src = u + 'matomo.js';
+        g.src = u + "matomo.js";
 
-        const target =
-          document.head || document.body || document.documentElement;
+        const target = document.head || document.body || document.documentElement;
         target.appendChild(g);
       })();
     </script>
     <script>
-      import '../assets/js/theme.js';
+      import "../assets/js/theme.js";
     </script>
   </body>
 </html>

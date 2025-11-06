@@ -11,98 +11,96 @@ if (post) {
 } else {
   frontmatter = Astro.props.frontmatter;
 }
+const isDev = import.meta.env.DEV;
 ---
 
-<Layout
-  post={post}
-  frontmatter={frontmatter}
->
+<Layout post={post} frontmatter={frontmatter}>
   <div class="isolate">
     <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       <div class="px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">
         <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-          <Heading
-            level={2}
-            class="text-4xl sm:text-5xl"
-          >
-            Get in touch
-          </Heading>
+          <Heading level={2} class="text-4xl sm:text-5xl"> Get in touch </Heading>
           <slot />
         </div>
       </div>
       <form
         name="contact"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="fvsdg4"
-        data-netlify-recaptcha="true"
+        action="/.netlify/functions/send-email"
         class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
+        novalidate
       >
         <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+          <p class="mt-4 text-sm font-medium hidden" data-form-status role="status" aria-live="polite"></p>
           <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
-              <label
-                for="first-name"
-                class="block text-sm/6"
-                >First name</label
-              >
+              <label for="first-name" class="block text-sm/6">First name</label>
               <div class="mt-2.5">
                 <input
                   type="text"
                   name="first-name"
                   id="first-name"
                   autocomplete="given-name"
+                  required
+                  aria-required="true"
+                  aria-describedby="first-name-error"
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
+              <p
+                id="first-name-error"
+                data-error-for="first-name"
+                class="mt-2 text-sm text-rose-400 hidden"
+                role="alert"
+              >
+              </p>
             </div>
             <div>
-              <label
-                for="last-name"
-                class="block text-sm/6"
-                >Last name</label
-              >
+              <label for="last-name" class="block text-sm/6">Last name</label>
               <div class="mt-2.5">
                 <input
                   type="text"
                   name="last-name"
                   id="last-name"
                   autocomplete="family-name"
+                  aria-describedby="last-name-error"
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
+              <p id="last-name-error" data-error-for="last-name" class="mt-2 text-sm text-rose-400 hidden" role="alert">
+              </p>
             </div>
             <div class="sm:col-span-2">
-              <label
-                for="email"
-                class="block text-sm/6"
-                >Email</label
-              >
+              <label for="email" class="block text-sm/6">Email</label>
               <div class="mt-2.5">
                 <input
                   type="email"
                   name="email"
                   id="email"
                   autocomplete="email"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-error"
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
+              <p id="email-error" data-error-for="email" class="mt-2 text-sm text-rose-400 hidden" role="alert"></p>
             </div>
             <div data-netlify-recaptcha="true"></div>
             <div class="sm:col-span-2">
-              <label
-                for="message"
-                class="block text-sm/6"
-                >Message</label
-              >
+              <label for="message" class="block text-sm/6">Message</label>
               <div class="mt-2.5">
                 <textarea
                   name="message"
                   id="message"
                   rows="4"
+                  required
+                  aria-required="true"
+                  aria-describedby="message-error"
                   class="block w-full rounded-md px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 ></textarea>
               </div>
+              <p id="message-error" data-error-for="message" class="mt-2 text-sm text-rose-400 hidden" role="alert"></p>
             </div>
           </div>
           <div class="mt-8 flex justify-end">
@@ -116,13 +114,285 @@ if (post) {
         <p class="text-answer-1238jf">
           <label>
             Don't fill this out if you're human:
-            <input
-              name="fvsdg4"
-              type="text"
-            />
+            <input name="fvsdg4" type="text" />
           </label>
         </p>
       </form>
     </div>
   </div>
 </Layout>
+
+{isDev && (
+  // ---------------------------
+  // DEV-ONLY: visual state tester
+  // ---------------------------
+  <script type="module">
+    // Config via URL:
+    //   ?scenario=success|email-missing|invalid-email|message-missing|server-500|network
+    //   &preview=1 to render on load
+    //   &toolbar=1 to show mini toolbar
+    const form = document.querySelector('form[name="contact"]');
+    if (!form) {
+      console.error('Dev form tester: form[name="contact"] not found.');
+    } else {
+      const url = new URL(location.href);
+      const scenario = url.searchParams.get('scenario') || 'success';
+      const preview = ['1','true','yes','on'].includes((url.searchParams.get('preview')||'').toLowerCase());
+      const toolbar = ['1','true','yes','on'].includes((url.searchParams.get('toolbar')||'').toLowerCase());
+
+      const statusEl = form.querySelector('[data-form-status]');
+      const errorEls = new Map(
+        Array.from(form.querySelectorAll('[data-error-for]')).map((el) => [el.getAttribute('data-error-for'), el])
+      );
+      const required = ['first-name','email','message'];
+      const keywords = {
+        'first-name': ['first name','firstname'],
+        'last-name': ['last name','lastname'],
+        email: ['email'],
+        message: ['message'],
+      };
+
+      const setStatus = (type, message) => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.classList.remove('hidden','text-rose-400','text-green-400');
+        statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
+        statusEl.classList.add(type === 'error' ? 'text-rose-400' : 'text-green-400');
+      };
+      const clearStatus = () => {
+        if (!statusEl) return;
+        statusEl.textContent = '';
+        statusEl.classList.add('hidden');
+        statusEl.classList.remove('text-rose-400','text-green-400');
+        statusEl.setAttribute('role','status');
+      };
+      const clearFieldErrors = () => {
+        for (const [name, el] of errorEls) {
+          if (!name) continue;
+          el.textContent = '';
+          el.classList.add('hidden');
+          const field = form.querySelector(`[name="${name}"]`);
+          field?.removeAttribute('aria-invalid');
+          field?.classList.remove('outline-rose-500','focus:outline-rose-500');
+        }
+      };
+      const setFieldError = (name, message) => {
+        const field = form.querySelector(`[name="${name}"]`);
+        const el = errorEls.get(name);
+        if (!field || !el) return;
+        el.textContent = message;
+        el.classList.remove('hidden');
+        field.setAttribute('aria-invalid','true');
+        field.classList.add('outline-rose-500','focus:outline-rose-500');
+      };
+      const handleError = (message) => {
+        const msg = message || 'Something went wrong. Please try again later.';
+        setStatus('error', msg);
+        if (!message) { required.forEach(n => setFieldError(n, msg)); return; }
+        const lowered = msg.toLowerCase();
+        let matched = false;
+        for (const [name, keys] of Object.entries(keywords)) {
+          if (keys.some(k => lowered.includes(k))) { setFieldError(name, msg); matched = true; }
+        }
+        if (!matched) required.forEach(n => setFieldError(n, msg));
+      };
+
+      const simulate = (sc) => {
+        switch (sc) {
+          case 'success':        return { ok: true, message: 'Thank you for your message!' };
+          case 'email-missing':  return { ok: false, error: 'Email is required.' };
+          case 'invalid-email':  return { ok: false, error: 'Please enter a valid email address.' };
+          case 'message-missing':return { ok: false, error: 'Message is required.' };
+          case 'server-500':     return { ok: false, status: 500, error: 'Internal Server Error' };
+          case 'network':        throw Object.assign(new Error('Simulated network error'), { isNetworkError: true });
+          default:               return { ok: false, error: `Unknown scenario: ${sc}` };
+        }
+      };
+
+      // Intercept submit in dev to avoid any network traffic.
+      form.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        clearStatus(); clearFieldErrors();
+        try {
+          await new Promise(r => setTimeout(r, 250));
+          const result = simulate(scenario);
+          if (result.ok) { setStatus('success', result.message || 'OK'); form.reset(); }
+          else { handleError(result.error || 'Error'); }
+        } catch (e) {
+          handleError('Network error. Please try again in a moment.');
+        }
+      }, { capture: true });
+
+      // Optional toolbar
+      if (toolbar) {
+        const container = form.querySelector('.mx-auto') || form;
+        const bar = document.createElement('div');
+        bar.style.position = 'sticky';
+        bar.style.top = '0';
+        bar.style.zIndex = '50';
+        bar.style.display = 'flex';
+        bar.style.flexWrap = 'wrap';
+        bar.style.gap = '.5rem';
+        bar.style.padding = '.5rem';
+        bar.style.marginBottom = '.75rem';
+        bar.style.background = 'rgba(2,6,23,.8)';
+        bar.style.border = '1px solid rgba(148,163,184,.3)';
+        bar.style.borderRadius = '.5rem';
+        const addBtn = (label, sc) => {
+          const b = document.createElement('button');
+          b.type = 'button'; b.textContent = label;
+          b.style.padding = '.35rem .6rem';
+          b.style.border = '1px solid rgba(148,163,184,.4)';
+          b.style.borderRadius = '.375rem';
+          b.addEventListener('click', () => {
+            clearStatus(); clearFieldErrors();
+            try {
+              const r = simulate(sc);
+              r.ok ? setStatus('success', r.message || 'OK') : handleError(r.error || 'Error');
+            } catch { handleError('Network error. Please try again in a moment.'); }
+          });
+          return b;
+        };
+        bar.append(
+          addBtn('Success','success'),
+          addBtn('Email missing','email-missing'),
+          addBtn('Invalid email','invalid-email'),
+          addBtn('Message missing','message-missing'),
+          addBtn('Server 500','server-500'),
+          addBtn('Network','network'),
+        );
+        const clearBtn = addBtn('Clear','__clear__');
+        clearBtn.addEventListener('click', () => { clearStatus(); clearFieldErrors(); });
+        bar.append(clearBtn);
+        container.prepend(bar);
+      }
+
+      // Optional preview on load
+      if (preview) {
+        try {
+          const r = simulate(scenario);
+          r.ok ? setStatus('success', r.message || 'OK') : handleError(r.error || 'Error');
+        } catch { handleError('Network error. Please try again in a moment.'); }
+      }
+    }
+  </script>
+)}
+
+{!isDev && (
+  // ---------------------------
+  // PRODUCTION-ONLY: real submit
+  // ---------------------------
+  <script type="module">
+    const form = document.querySelector('form[name="contact"]');
+    if (!form) {
+      // Silent in prod
+    } else {
+      const statusEl = form.querySelector('[data-form-status]');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const errorEls = new Map(
+        Array.from(form.querySelectorAll('[data-error-for]')).map((el) => [el.getAttribute('data-error-for'), el])
+      );
+      const required = ['first-name','email','message'];
+      const keywords = {
+        'first-name': ['first name','firstname'],
+        'last-name': ['last name','lastname'],
+        email: ['email'],
+        message: ['message'],
+      };
+
+      const setStatus = (type, message) => {
+        try {
+          if (!statusEl) return;
+          statusEl.textContent = message;
+          statusEl.classList.remove('hidden','text-rose-400','text-green-400');
+          statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
+          statusEl.classList.add(type === 'error' ? 'text-rose-400' : 'text-green-400');
+        } catch {}
+      };
+      const clearStatus = () => {
+        try {
+          if (!statusEl) return;
+          statusEl.textContent = '';
+          statusEl.classList.add('hidden');
+          statusEl.classList.remove('text-rose-400','text-green-400');
+          statusEl.setAttribute('role','status');
+        } catch {}
+      };
+      const clearFieldErrors = () => {
+        try {
+          for (const [name, el] of errorEls) {
+            if (!name) continue;
+            el.textContent = '';
+            el.classList.add('hidden');
+            const field = form.querySelector(`[name="\${name}"]`);
+            field?.removeAttribute('aria-invalid');
+            field?.classList.remove('outline-rose-500','focus:outline-rose-500');
+          }
+        } catch {}
+      };
+      const setFieldError = (name, message) => {
+        try {
+          const field = form.querySelector(\`[name="\${name}"]\`);
+          const el = errorEls.get(name);
+          if (!field || !el) return;
+          el.textContent = message;
+          el.classList.remove('hidden');
+          field.setAttribute('aria-invalid','true');
+          field.classList.add('outline-rose-500','focus:outline-rose-500');
+        } catch {}
+      };
+      const handleError = (message) => {
+        const msg = message || 'Something went wrong. Please try again later.';
+        setStatus('error', msg);
+        if (!message) { required.forEach(n => setFieldError(n, msg)); return; }
+        const lowered = msg.toLowerCase();
+        let matched = false;
+        for (const [name, keys] of Object.entries(keywords)) {
+          if (keys.some(k => lowered.includes(k))) { setFieldError(name, msg); matched = true; }
+        }
+        if (!matched) required.forEach(n => setFieldError(n, msg));
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        clearStatus(); clearFieldErrors();
+
+        const formData = new FormData(form);
+        const payload = {
+          firstName: (formData.get('first-name') || '').toString().trim(),
+          lastName: (formData.get('last-name') || '').toString().trim(),
+          email: (formData.get('email') || '').toString().trim(),
+          message: (formData.get('message') || '').toString().trim(),
+          honeyPot: (formData.get('fvsdg4') || '').toString().trim(),
+        };
+
+        try {
+          submitButton?.setAttribute('disabled','true');
+          submitButton?.classList.add('opacity-70');
+
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          let result = {};
+          try { result = await response.json(); } catch {}
+
+          if (response.ok) {
+            setStatus('success', result.message || 'Thank you for your message!');
+            form.reset();
+          } else {
+            const errorMessage = result && (result.error || result.message);
+            handleError(typeof errorMessage === 'string' ? errorMessage : undefined);
+          }
+        } catch {
+          handleError('Network error. Please try again in a moment.');
+        } finally {
+          submitButton?.removeAttribute('disabled');
+          submitButton?.classList.remove('opacity-70');
+        }
+      });
+    }
+  </script>
+)}

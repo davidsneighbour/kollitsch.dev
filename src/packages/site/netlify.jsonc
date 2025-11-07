@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "netlify-cli": "23.9.5"
+    "netlify-cli": "23.10.0",
+    "@netlify/functions": "5.1.0"
   },
   "scripts": {
     "clean:netlify": "wireit",

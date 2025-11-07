@@ -1,16 +1,12 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@axe-core/playwright": "4.11.0",
-    "@playwright/test": "1.56.1",
-    "@vitest/browser": "4.0.5",
-    "@vitest/browser-playwright": "4.0.5",
-    "@vitest/coverage-v8": "4.0.5",
+    "@vitest/browser-playwright": "4.0.7",
+    "@vitest/coverage-v8": "4.0.7",
     "cheerio": "1.1.2",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.5"
+    "vitest": "4.0.7"
   },
-  
   "scripts": {
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

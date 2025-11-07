@@ -21,9 +21,10 @@
   "explorer.fileNesting.patterns": {
     "*.astro": "$(capture).test.ts",
     ".env": ".env*",
-    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*",
+    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json",
     "shared-config.ts": "shared-config*",
     "*.json": "$(capture).schema.json",
+    "README.md": "AGENT.md"
   },
 
   // remove scratch files from search

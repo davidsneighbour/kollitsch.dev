@@ -1,6 +1,7 @@
 # see https://docs.astro.build/en/guides/integrations-guide/netlify/
 [build]
-command = "npx astro build"
+#command = "npx astro build"
+command = ""
 publish = "dist"
 
 # 301 redirects to add trailing slashes

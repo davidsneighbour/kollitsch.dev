@@ -55,12 +55,12 @@ const createHtmlRow = (
 export default async (request: Request, context: Context): Promise<Response> => {
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const FROM_EMAIL = process.env.FROM_EMAIL;
-  const TO_EMAIL = process.env.TO_EMAIL;
+  const RESEND_FROM = process.env.RESEND_FROM;
+  const RESEND_TO = process.env.RESEND_TO;
 
   // console.log({ request, context });
 
-  if (!RESEND_API_KEY || !FROM_EMAIL || !TO_EMAIL) {
+  if (!RESEND_API_KEY || !RESEND_FROM || !RESEND_TO) {
     console.error('Missing email environment variables.');
     return Response.json(
       { error: 'Email service is not configured. Please try again later.' },
@@ -125,8 +125,8 @@ Message:
 ${message}`;
 
   const { data, error } = await resend.emails.send({
-    from: FROM_EMAIL,
-    to: [TO_EMAIL],
+    from: RESEND_FROM,
+    to: [RESEND_TO],
     replyTo: email,
     subject,
     html,
@@ -134,8 +134,7 @@ ${message}`;
   });
 
   if (error) {
-    console.log(error);
-    return Response.json({ error: 'Failed sending email' }, { status: 500 });
+    return Response.json({ error: 'Failed sending email', payload: error }, { status: 500 });
   }
 
   console.log(`Email ${data.id} has been sent`)

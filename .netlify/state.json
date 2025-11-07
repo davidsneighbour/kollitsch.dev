@@ -1,3 +1,21 @@
 {
-  "siteId": "02e05c7a-11a0-48e0-988f-7fc12267eb89"
+	"siteId": "02e05c7a-11a0-48e0-988f-7fc12267eb89",
+	"geolocation": {
+		"data": {
+			"city": "Ko Pha Ngan",
+			"country": {
+				"code": "TH",
+				"name": "Thailand"
+			},
+			"subdivision": {
+				"code": "84",
+				"name": "Surat Thani"
+			},
+			"timezone": "Asia/Bangkok",
+			"latitude": 9.7167,
+			"longitude": 100,
+			"postalCode": "84280"
+		},
+		"timestamp": 1762378991036
+	}
 }

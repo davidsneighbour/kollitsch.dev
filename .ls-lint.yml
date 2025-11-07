@@ -2,16 +2,18 @@
 ls:
   .js: kebab-case
   .ts: kebab-case
-  .d.ts: kebab-case
   .json: kebab-case
   .jsonc: kebab-case
   .yml: kebab-case
 
-  src/{components}/**/*:
+  src/components/**/*:
     .astro: PascalCase
+    .test.ts: PascalCase
 
   src/{pages}/**/*:
-    .astro: kebab-case
+    #.astro: kebab-case, but with [parameters] allowed
+    .astro: regex:(?:[a-z][a-z0-9]*|\[[a-z][a-z0-9]*(?:-[a-z0-9]+)*\])(?:-(?:[a-z][a-z0-9]*|\[[a-z][a-z0-9]*(?:-[a-z0-9]+)*\]))*
+
 
 ignore:
   - .git

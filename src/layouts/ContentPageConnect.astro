@@ -50,7 +50,7 @@ const isDev = import.meta.env.DEV;
               <p
                 id="first-name-error"
                 data-error-for="first-name"
-                class="mt-2 text-sm text-rose-400 hidden"
+                class="mt-2 text-sm text-red-400 hidden"
                 role="alert"
               >
               </p>
@@ -67,7 +67,7 @@ const isDev = import.meta.env.DEV;
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
-              <p id="last-name-error" data-error-for="last-name" class="mt-2 text-sm text-rose-400 hidden" role="alert">
+              <p id="last-name-error" data-error-for="last-name" class="mt-2 text-sm text-red-400 hidden" role="alert">
               </p>
             </div>
             <div class="sm:col-span-2">
@@ -84,7 +84,7 @@ const isDev = import.meta.env.DEV;
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
               </div>
-              <p id="email-error" data-error-for="email" class="mt-2 text-sm text-rose-400 hidden" role="alert"></p>
+              <p id="email-error" data-error-for="email" class="mt-2 text-sm text-red-400 hidden" role="alert"></p>
             </div>
             <div data-netlify-recaptcha="true"></div>
             <div class="sm:col-span-2">
@@ -100,7 +100,7 @@ const isDev = import.meta.env.DEV;
                   class="block w-full rounded-md px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 ></textarea>
               </div>
-              <p id="message-error" data-error-for="message" class="mt-2 text-sm text-rose-400 hidden" role="alert"></p>
+              <p id="message-error" data-error-for="message" class="mt-2 text-sm text-red-400 hidden" role="alert"></p>
             </div>
           </div>
           <div class="mt-8 flex justify-end">
@@ -123,14 +123,12 @@ const isDev = import.meta.env.DEV;
 </Layout>
 
 {isDev && (
-  // ---------------------------
-  // DEV-ONLY: visual state tester
-  // ---------------------------
-  <script type="module">
-    // Config via URL:
+  <script>
+    /** Config via URL:
     //   ?scenario=success|email-missing|invalid-email|message-missing|server-500|network
     //   &preview=1 to render on load
     //   &toolbar=1 to show mini toolbar
+     */
     const form = document.querySelector('form[name="contact"]');
     if (!form) {
       console.error('Dev form tester: form[name="contact"] not found.');
@@ -155,15 +153,15 @@ const isDev = import.meta.env.DEV;
       const setStatus = (type, message) => {
         if (!statusEl) return;
         statusEl.textContent = message;
-        statusEl.classList.remove('hidden','text-rose-400','text-green-400');
+        statusEl.classList.remove('hidden','text-red-400','text-green-400');
         statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
-        statusEl.classList.add(type === 'error' ? 'text-rose-400' : 'text-green-400');
+        statusEl.classList.add(type === 'error' ? 'text-red-400' : 'text-green-400');
       };
       const clearStatus = () => {
         if (!statusEl) return;
         statusEl.textContent = '';
         statusEl.classList.add('hidden');
-        statusEl.classList.remove('text-rose-400','text-green-400');
+        statusEl.classList.remove('text-red-400','text-green-400');
         statusEl.setAttribute('role','status');
       };
       const clearFieldErrors = () => {
@@ -173,7 +171,7 @@ const isDev = import.meta.env.DEV;
           el.classList.add('hidden');
           const field = form.querySelector(`[name="${name}"]`);
           field?.removeAttribute('aria-invalid');
-          field?.classList.remove('outline-rose-500','focus:outline-rose-500');
+          field?.classList.remove('outline-red-500','focus:outline-red-500');
         }
       };
       const setFieldError = (name, message) => {
@@ -183,7 +181,7 @@ const isDev = import.meta.env.DEV;
         el.textContent = message;
         el.classList.remove('hidden');
         field.setAttribute('aria-invalid','true');
-        field.classList.add('outline-rose-500','focus:outline-rose-500');
+        field.classList.add('outline-red-500','focus:outline-red-500');
       };
       const handleError = (message) => {
         const msg = message || 'Something went wrong. Please try again later.';
@@ -279,10 +277,7 @@ const isDev = import.meta.env.DEV;
 )}
 
 {!isDev && (
-  // ---------------------------
-  // PRODUCTION-ONLY: real submit
-  // ---------------------------
-  <script type="module">
+  <script>
     const form = document.querySelector('form[name="contact"]');
     if (!form) {
       // Silent in prod
@@ -304,9 +299,9 @@ const isDev = import.meta.env.DEV;
         try {
           if (!statusEl) return;
           statusEl.textContent = message;
-          statusEl.classList.remove('hidden','text-rose-400','text-green-400');
+          statusEl.classList.remove('hidden','text-red-400','text-green-400');
           statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
-          statusEl.classList.add(type === 'error' ? 'text-rose-400' : 'text-green-400');
+          statusEl.classList.add(type === 'error' ? 'text-red-400' : 'text-green-400');
         } catch {}
       };
       const clearStatus = () => {
@@ -314,7 +309,7 @@ const isDev = import.meta.env.DEV;
           if (!statusEl) return;
           statusEl.textContent = '';
           statusEl.classList.add('hidden');
-          statusEl.classList.remove('text-rose-400','text-green-400');
+          statusEl.classList.remove('text-red-400','text-green-400');
           statusEl.setAttribute('role','status');
         } catch {}
       };
@@ -326,19 +321,19 @@ const isDev = import.meta.env.DEV;
             el.classList.add('hidden');
             const field = form.querySelector(`[name="\${name}"]`);
             field?.removeAttribute('aria-invalid');
-            field?.classList.remove('outline-rose-500','focus:outline-rose-500');
+            field?.classList.remove('outline-red-500','focus:outline-red-500');
           }
         } catch {}
       };
       const setFieldError = (name, message) => {
         try {
-          const field = form.querySelector(\`[name="\${name}"]\`);
+          const field = form.querySelector(`[name="\${name}"]`);
           const el = errorEls.get(name);
           if (!field || !el) return;
           el.textContent = message;
           el.classList.remove('hidden');
           field.setAttribute('aria-invalid','true');
-          field.classList.add('outline-rose-500','focus:outline-rose-500');
+          field.classList.add('outline-red-500','focus:outline-red-500');
         } catch {}
       };
       const handleError = (message) => {

@@ -1,8 +1,4 @@
-const allowedComponents = [
-  'lite-youtube',
-  'color-grid',
-  'date-diff',
-] as const;
+const allowedComponents = ['lite-youtube', 'color-grid', 'date-diff'] as const;
 
 /**
  * Union of supported frontend component identifiers.
@@ -33,7 +29,8 @@ const isComponentList = (value: unknown): value is readonly ComponentName[] =>
   Array.isArray(value) &&
   value.every(
     (item): item is ComponentName =>
-      typeof item === 'string' && allowedComponentsSet.has(item as ComponentName),
+      typeof item === 'string' &&
+      allowedComponentsSet.has(item as ComponentName),
   );
 
 const traversePath = (
@@ -67,7 +64,7 @@ const traversePath = (
  *
  * @example
  * ```ts
- * import { hasComponent } from "@/utils/component";
+ * import { hasComponent } from "@utils/component";
  *
  * const hasLiteYoutube = hasComponent(
  *   {
@@ -80,7 +77,7 @@ const traversePath = (
  *
  * @example
  * ```ts
- * import { hasComponent } from "@/utils/component";
+ * import { hasComponent } from "@utils/component";
  *
  * const isInMeta = hasComponent(
  *   {

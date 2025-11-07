@@ -53,7 +53,7 @@ export type FeedList = z.infer<FeedListSchema>;
  * @returns Strict Zod schema for a single feed item.
  * @example
  * ```ts
- * import { makeFeedItemSchema } from '@/utils/blogroll';
+ * import { makeFeedItemSchema } from '@utils/blogroll';
  * const schema = makeFeedItemSchema({ maxNameLength: 80 });
  * const item = schema.parse({ name: 'Example', url: 'https://example.com' });
  * ```
@@ -83,7 +83,7 @@ export function makeFeedItemSchema(
  * @returns Array schema for feed items, optionally marked as non-empty.
  * @example
  * ```ts
- * import { makeFeedListSchema } from '@/utils/blogroll';
+ * import { makeFeedListSchema } from '@utils/blogroll';
  * const schema = makeFeedListSchema({ allowEmpty: false });
  * schema.parse([{ name: 'Example', url: 'https://example.com' }]);
  * ```
@@ -107,7 +107,7 @@ export function makeFeedListSchema(
  * @throws Error - When validation fails, with a multi-line message describing issues.
  * @example
  * ```ts
- * import { validateFeedListOrThrow } from '@/utils/blogroll';
+ * import { validateFeedListOrThrow } from '@utils/blogroll';
  * const feeds = validateFeedListOrThrow([{ name: 'Example', url: 'https://example.com' }]);
  * ```
  */
@@ -134,7 +134,7 @@ export function validateFeedListOrThrow(
  * @returns Discriminated union result describing success or a list of errors.
  * @example
  * ```ts
- * import { safeValidateFeedList } from '@/utils/blogroll';
+ * import { safeValidateFeedList } from '@utils/blogroll';
  * const result = safeValidateFeedList([{ name: 'Example', url: 'https://example.com' }]);
  * if (!result.ok) {
  *   console.error(result.errors.join('\n'));
@@ -159,7 +159,7 @@ export function safeValidateFeedList(
  * @returns Array of human-friendly error lines (without leading dots).
  * @example
  * ```ts
- * import { formatZodIssues, makeFeedListSchema } from '@/utils/blogroll';
+ * import { formatZodIssues, makeFeedListSchema } from '@utils/blogroll';
  * const result = makeFeedListSchema().safeParse([]);
  * if (!result.success) {
  *   console.log(formatZodIssues(result.error.issues));
@@ -197,7 +197,7 @@ function formatIssuePath(
  * error is available via {@link Error.cause | `cause`} for inspection.
  * @example
  * ```ts
- * import { getBlogroll } from '@/utils/blogroll';
+ * import { getBlogroll } from '@utils/blogroll';
  * const blogroll = await getBlogroll('feeds.json');
  * console.log(blogroll.map((feed) => feed.name));
  * ```

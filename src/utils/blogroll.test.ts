@@ -19,7 +19,7 @@ import {
   type SafeFeedListResult,
   safeValidateFeedList,
   validateFeedListOrThrow,
-} from '@/utils/blogroll';
+} from '@utils/blogroll';
 
 const readFileMock = vi.mocked(readFile);
 

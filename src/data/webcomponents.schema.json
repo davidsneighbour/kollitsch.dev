@@ -23,7 +23,7 @@
           },
           "import": {
             "type": "string",
-            "description": "ESM import path for the web component (e.g., '@/components/MyComponent.astro')."
+            "description": "ESM import path for the web component (e.g., '@components/MyComponent.astro')."
           },
           "enabled": {
             "type": "boolean",

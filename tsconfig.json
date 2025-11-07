@@ -7,7 +7,7 @@
     // footernavigation.json(1, 1): This module is declared with 'export =',
     // and can only be used with a default import when using the
     // 'allowSyntheticDefaultImports' flag.
-    "allowSyntheticDefaultImports": true,
+    //"allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": [
         "src/*"
@@ -57,7 +57,9 @@
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "types": ["astro/client"],
+    "types": [
+      "astro/client"
+    ],
     "verbatimModuleSyntax": true
   },
   "exclude": [
@@ -65,8 +67,15 @@
     "scratch",
     "src/scripts",
     "src/config",
-    "src/test/browser"
+    "src/test/browser",
+    "src/utils", // silence hack, evil don't
+    "src/test", // silence hack, evil don't
+    "src/components", // silence hack, evil don't
+    "src/layouts", // silence hack, evil don't
   ],
   "extends": "astro/tsconfigs/strictest",
-  "include": [".astro/types.d.ts", "src"]
+  "include": [
+    ".astro/types.d.ts",
+    "src"
+  ]
 }

@@ -35,7 +35,7 @@ const post = {
   // Inform TypeScript about global _paq
   declare global {
     interface Window {
-      _paq?: any[];
+      _paq?: unknown[];
     }
   }
 
@@ -65,7 +65,9 @@ const post = {
 
       const match = text.match(/^(\d+)\s+results\s+for\s+(.*)$/i);
       if (match) {
-        const count = parseInt(match[1], 10);
+        const countStr = match[1] ?? "";
+        if (!countStr) return null;
+        const count = parseInt(countStr, 10);
         return isNaN(count) ? null : count;
       }
       return null;

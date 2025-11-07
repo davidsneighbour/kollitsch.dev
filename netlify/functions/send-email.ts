@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 
 export const config: Config = {
   method: "POST",
-  path: "/api/send-email",
+  // path: "/api/send-email",
 };
 
 type ContactPayload = {

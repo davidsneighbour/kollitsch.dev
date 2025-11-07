@@ -1,4 +1,16 @@
 # Changelog
+## [2025.18.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.17.0...v2025.18.0) (2025-11-07)
+
+
+### Features
+
+* add lenis scroll animation ([b91e7a7](https://github.com/davidsneighbour/kollitsch.dev/commit/b91e7a78b91c803f2fb6833a6f488d6a5ac5c17b))
+
+
+### Build System
+
+* add @ alias for root directory and fix older uses ([17c26db](https://github.com/davidsneighbour/kollitsch.dev/commit/17c26db1799656c6ccba8ea316625ebda28d89e2))
+
 ## [2025.17.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.16.0...v2025.17.0) (2025-11-07)
 
 

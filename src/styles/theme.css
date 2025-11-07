@@ -256,3 +256,8 @@
 @import './utilities/transitions.css';
 @import './utilities/typography.css';
 @import './utilities/baseline.css';
+
+/***** ************************************************************************
+ * Third-party styles
+ ******************************************************************************/
+@import 'lenis/dist/lenis.css'

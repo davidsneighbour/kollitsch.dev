@@ -1,4 +1,95 @@
 # Changelog
+## [2025.17.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.16.0...v2025.17.0) (2025-11-07)
+
+
+### Features
+
+* add content object utility ([#1468](https://github.com/davidsneighbour/kollitsch.dev/issues/1468)) ([4cb0ac7](https://github.com/davidsneighbour/kollitsch.dev/commit/4cb0ac79e9aa54b4ac3610a7b20c06dd11671b58))
+* add netlify adapter and handle empty releases ([#1470](https://github.com/davidsneighbour/kollitsch.dev/issues/1470)) ([92a4c6a](https://github.com/davidsneighbour/kollitsch.dev/commit/92a4c6aa2870bc6d04daf4cc5276cb6f69235895))
+* **api:** add version and release page to /api/siteinfo.json ([3af9e08](https://github.com/davidsneighbour/kollitsch.dev/commit/3af9e080527c370c803e13e101a591d2459ddcec))
+* show tag card cover images ([#1465](https://github.com/davidsneighbour/kollitsch.dev/issues/1465)) ([f94c719](https://github.com/davidsneighbour/kollitsch.dev/commit/f94c719c1c55e8a38f05a5dc64be2b40925e5047))
+* **wip:** add email handling, again ([#1476](https://github.com/davidsneighbour/kollitsch.dev/issues/1476)) ([2a4470d](https://github.com/davidsneighbour/kollitsch.dev/commit/2a4470d3c90bbdb89476a842eee377e138b0b1c3))
+
+
+### Content
+
+* **fix:** fix frontmatter, move article images to assets ([ad8a0c2](https://github.com/davidsneighbour/kollitsch.dev/commit/ad8a0c2ff227f87b20cd1e3148ec919c15d4f4d8))
+* **fix:** move image to assets directory ([288cdf5](https://github.com/davidsneighbour/kollitsch.dev/commit/288cdf5b9b9cd228de28336d95f944e57619b315))
+* **schema:** add web component schema ([d8fc480](https://github.com/davidsneighbour/kollitsch.dev/commit/d8fc4807e8dc4cafda8a07494867339f2ac1c62e))
+* **schema:** limit github releases count ([0f6ba9a](https://github.com/davidsneighbour/kollitsch.dev/commit/0f6ba9a6ae79ab35802c21dac4147f42ea0fb108))
+
+
+### Components
+
+* **fix:** remove custom path for send-mail function ([6d42124](https://github.com/davidsneighbour/kollitsch.dev/commit/6d421240e538d3f7dabf74c6d9813cb9449efa10))
+* **footer:** update copyright byline ([dbbed3c](https://github.com/davidsneighbour/kollitsch.dev/commit/dbbed3c8fb185247c2160cb74c91dd14fe9e3ab8))
+
+
+### Theme
+
+* **fix:** design changes on code blocks ([072d091](https://github.com/davidsneighbour/kollitsch.dev/commit/072d0911eae07ab911d6a2ea5ebc83cd5aab22f7))
+* **fix:** make api call static ([d504407](https://github.com/davidsneighbour/kollitsch.dev/commit/d504407aa4993cd5868cb7012fa788af489eafb7))
+* **fix:** style changes ([33f39b9](https://github.com/davidsneighbour/kollitsch.dev/commit/33f39b9cb407c70908072f84252e3c721386bb26))
+* **fix:** update email handling ([ce4b2ec](https://github.com/davidsneighbour/kollitsch.dev/commit/ce4b2eccfeeb6d1f9370a4adbe125bcf63c573e7))
+* **fix:** use literal in import.meta.glob ([c3443d5](https://github.com/davidsneighbour/kollitsch.dev/commit/c3443d5531a5ea12bca2d5d265264bf20549f746))
+* **fix:** various changes and fixes ([16987e6](https://github.com/davidsneighbour/kollitsch.dev/commit/16987e6481949cef19543c3b79751123abf7d6ba))
+
+
+### Documentation
+
+* add usage guide for content object utility ([#1469](https://github.com/davidsneighbour/kollitsch.dev/issues/1469)) ([7763773](https://github.com/davidsneighbour/kollitsch.dev/commit/77637735d8e6c2c869201171bcc692f05bd63ae0))
+
+
+### Refactors
+
+* content object rewrites ([4f0a61a](https://github.com/davidsneighbour/kollitsch.dev/commit/4f0a61a78f22a81dcc2da271089109a4c5ab2019))
+* drop deprecated tag helpers ([#1464](https://github.com/davidsneighbour/kollitsch.dev/issues/1464)) ([5124bee](https://github.com/davidsneighbour/kollitsch.dev/commit/5124beeb5950632e5c4e1135c31fe144f84a3388))
+* **fix:** silence weird TS unused definition error ([b5e8a4c](https://github.com/davidsneighbour/kollitsch.dev/commit/b5e8a4ce908b29d8a3f7cf3aaccc1bb2dc0af647))
+* harden color utilities ([4f11489](https://github.com/davidsneighbour/kollitsch.dev/commit/4f114890135d8e76ee6c3e6837925802c5b98db4))
+* move tags into markdown collection ([#1466](https://github.com/davidsneighbour/kollitsch.dev/issues/1466)) ([404e6c2](https://github.com/davidsneighbour/kollitsch.dev/commit/404e6c27d048989e9f0328edb8a99d7ed5014487))
+* normalize content object utility ([2fe7d2f](https://github.com/davidsneighbour/kollitsch.dev/commit/2fe7d2f2570aa32643a054bd34da6ec38043d690))
+* remove code comments ([a358af2](https://github.com/davidsneighbour/kollitsch.dev/commit/a358af275bd047a3460f0a4590bed69732a138d8))
+* reuse cover schema for blog and tags ([#1467](https://github.com/davidsneighbour/kollitsch.dev/issues/1467)) ([0e1127e](https://github.com/davidsneighbour/kollitsch.dev/commit/0e1127ed691e53d890594c1f8cd5299be7813a5e))
+* **typescript:** fixes according to astro check ([51efa40](https://github.com/davidsneighbour/kollitsch.dev/commit/51efa405c52091997f065089abb880a263c4e1b7))
+* typing issues in src/pages ([ef4d920](https://github.com/davidsneighbour/kollitsch.dev/commit/ef4d92087202778297d93b49a639d61df7e100be))
+* use path keys for image metadata ([#1471](https://github.com/davidsneighbour/kollitsch.dev/issues/1471)) ([ba99d60](https://github.com/davidsneighbour/kollitsch.dev/commit/ba99d608531ee435bee3e47c7be7264bac91fa30))
+
+
+### Tests
+
+* add blogroll validation coverage ([ce968fe](https://github.com/davidsneighbour/kollitsch.dev/commit/ce968fe06e148854619a87e160b32cdd54cef119))
+* harden component utility ([18c29a6](https://github.com/davidsneighbour/kollitsch.dev/commit/18c29a63f511135c420f642d882f4a7d04353398))
+
+
+### Build System
+
+* **deps:** update dependencies ([26ad3ec](https://github.com/davidsneighbour/kollitsch.dev/commit/26ad3ec2bfe881fdd4224fee7123df952c58cb3e))
+* **deps:** update dependencies ([eab5add](https://github.com/davidsneighbour/kollitsch.dev/commit/eab5adde53876a99f8f269d9dc9d5331e337be25))
+* **deps:** update dependencies ([09604d8](https://github.com/davidsneighbour/kollitsch.dev/commit/09604d883bd64493ba78494da6f476b6b51dad3b))
+* **images:** update blogroll screenshots ([262e1d3](https://github.com/davidsneighbour/kollitsch.dev/commit/262e1d3174b834a8d719ac30e4b62791638aeea3))
+* release script for github tags ([bd6a5f1](https://github.com/davidsneighbour/kollitsch.dev/commit/bd6a5f191b61381cd9c65cb5865998302eb323cb))
+* remove netlify adapter (breaks dev server) ([d0fb415](https://github.com/davidsneighbour/kollitsch.dev/commit/d0fb4154ac4b965ffd2457308050ca7534ff8652))
+* theme build scripts update and theme config ([e361276](https://github.com/davidsneighbour/kollitsch.dev/commit/e361276da67416c24c0cfd0629845ff2b810f785))
+* update Netlify configuration and setup ([fb12dbb](https://github.com/davidsneighbour/kollitsch.dev/commit/fb12dbba823c6ce11d9fca6ac31dc6a77837da08))
+* **vscode:** add mdx extension ([1aee1eb](https://github.com/davidsneighbour/kollitsch.dev/commit/1aee1eb4cbcca15e0c4dc3ac46b4840e8b4dcd96))
+* **vscode:** update workspace configuration ([a85cd70](https://github.com/davidsneighbour/kollitsch.dev/commit/a85cd70d17eff368bb2a88e80a6138018c7a623b))
+
+
+### Chore
+
+* **fix:** update package-lock.json for npm ci ([a1c845e](https://github.com/davidsneighbour/kollitsch.dev/commit/a1c845e90b4619ddb39a2801bf7e48401fd927cb))
+
+
+### Configuration
+
+* **ai:** add frontmatter linter agent ([200fdcb](https://github.com/davidsneighbour/kollitsch.dev/commit/200fdcb683631495069a4d758d3aedfebad2959a))
+* **ai:** add til post agent ([3bffd64](https://github.com/davidsneighbour/kollitsch.dev/commit/3bffd64de38bd4b0987d3d94a6c55b06cdc869e2))
+* **ai:** agent prompt for refactoring utility functions ([8192e39](https://github.com/davidsneighbour/kollitsch.dev/commit/8192e396a2bca0d741d52528b530b927dab6bcae))
+* **lint:** update ls-lint configuration ([c5ea660](https://github.com/davidsneighbour/kollitsch.dev/commit/c5ea66098b1ebf06469a6261a5b8e5aefac8463e))
+* **settings:** add redirect settings for Netlify ([d13a981](https://github.com/davidsneighbour/kollitsch.dev/commit/d13a981347a61952e81d258f542772be38565adf))
+* **settings:** set vale to errors only ([a8c785a](https://github.com/davidsneighbour/kollitsch.dev/commit/a8c785a5d32cb955aa90fa0c9d07491fcbeaa217))
+* **workspace:** add pull request template ([9353315](https://github.com/davidsneighbour/kollitsch.dev/commit/935331558cbed63cea99a3c7cdc0a4e87ce27a7d))
+
 ## [2025.16.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.15.0...v2025.16.0) (2025-10-30)
 
 

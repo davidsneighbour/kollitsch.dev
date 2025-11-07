@@ -79,11 +79,12 @@ const introFallbackHtml = md.renderInline(introFallback);
     </aside>
   </div>
 
-  <div class="grid grid-cols-1 items-center justify-between border-t border-gray-800 pt-6 md:grid-cols-3">
+  <div class="flex flex-col items-center justify-between border-t border-gray-800 pt-6 md:flex-row">
     <span class="text-center md:text-left"
-      >&copy; <span id={footerYearId}>{currentYear}</span>
-      <a href={getHomepageUrl()}>{setup.title}</a></span
-    >
+      >&copy; 2021 &ndash; <span id={footerYearId}>{currentYear}</span>
+      <a href={getHomepageUrl()}>{setup.title}</a>
+      <span id="site-version" aria-live="polite" aria-atomic="true"></span>
+    </span>
     <span class="text-center">All rights reserved.</span>
     <span class="text-center lg:text-right"
       >Webwork done by
@@ -114,5 +115,33 @@ const introFallbackHtml = md.renderInline(introFallback);
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
 </script>
 
+<script is:inline>
+  (async () => {
+    try {
+      const el = document.getElementById("site-version");
+      if (!el) return;
+      const resp = await fetch("/api/siteinfo.json");
+      if (!resp.ok) return;
+      const data = await resp.json();
+      const version = data?.version ?? null;
+      const releasePage = data?.releasePage ?? null;
+      if (version && releasePage) {
+        el.textContent = "";
+        const separator = document.createTextNode(" ๛ ");
+        const link = document.createElement("a");
+        Object.assign(link, {
+          href: releasePage,
+          rel: "noopener noreferrer",
+          target: "_blank",
+          textContent: `v${version}`,
+        });
+        el.appendChild(separator);
+        el.appendChild(link);
+      }
+    } catch (err) {
+      // silence failures; footer should not break if API is unavailable
+    }
+  })();
+</script>
 <!-- @todo move into local or global scripts -->
 <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" is:inline></script>

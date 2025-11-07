@@ -5,12 +5,12 @@ import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
 import Heading from "@components/Heading.astro";
 import IconLink from "@components/IconLink.astro";
 import Link from "@components/Link.astro";
+import type { SocialMediaItem } from "@components/social/SocialLinks.astro";
 import rawSocialMediaData from "@content/social.json" with { type: "json" };
 import rawNavData from "@data/footernavigation.json" with { type: "json" };
 import setup from "@data/setup.json" with { type: "json" };
-import { getHomepageUrl } from "@utils/content.ts";
-import { generateUniqueHtmlId } from "@utils/helpers.ts";
-import type { SocialMediaItem } from "@components/social/SocialLinks.astro";
+import { getHomepageUrl } from "@utils/content";
+import { generateUniqueHtmlId } from "@utils/helpers";
 
 export interface Props {}
 
@@ -24,8 +24,8 @@ const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 
-import MarkdownIt from "markdown-it";
 import SocialLinks from "@components/social/SocialLinks.astro";
+import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();
 
@@ -33,16 +33,8 @@ const introFallback = setup.introduction.replace("{$greeting}", "").trim();
 const introFallbackHtml = md.renderInline(introFallback);
 ---
 
-<footer
-  class={setup.classes.containers.wide}
-  aria-label="Footer"
->
-  <Heading
-    level={2}
-    class="sr-only"
-  >
-    Footer section with navigation and social media links
-  </Heading>
+<footer class={setup.classes.containers.wide} aria-label="Footer">
+  <Heading level={2} class="sr-only"> Footer section with navigation and social media links </Heading>
   <div
     class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 md:grid-cols-2 lg:grid-cols-9 xl:grid-cols-7 dark:bg-gray-950"
   >
@@ -50,16 +42,9 @@ const introFallbackHtml = md.renderInline(introFallback);
       class="py-4 text-center md:col-span-2 lg:col-span-5 lg:text-left xl:col-span-4"
       aria-label="About section with author image and introduction"
     >
-      <Heading
-        level={3}
-        class="mb-4 border-b border-gray-100 dark:border-gray-900"
-        >About</Heading
-      >
+      <Heading level={3} class="mb-4 border-b border-gray-100 dark:border-gray-900"> About </Heading>
       <div class="flex flex-row items-center gap-4">
-        <Link
-          href="/connect/"
-          class="basis-1/4"
-        >
+        <Link href="/connect/" class="basis-1/4">
           <Image
             src={patrickkollitsch}
             alt="Patrick Kollitsch"
@@ -69,31 +54,16 @@ const introFallbackHtml = md.renderInline(introFallback);
             class="h-full w-full rounded-full border-1 border-gray-200 dark:border-gray-800"
           />
         </Link>
-        <div
-          id="about-introduction"
-          class="basis-3/4 text-left"
-          set:html={introFallbackHtml}
-        />
+        <div id="about-introduction" class="basis-3/4 text-left" set:html={introFallbackHtml} />
       </div>
     </aside>
-    <aside
-      class="py-4 lg:col-span-2 xl:col-span-1"
-      aria-label="Site navigation links"
-    >
-      <Heading
-        level={3}
-        class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"
-        >Navigation</Heading
-      >
+    <aside class="py-4 lg:col-span-2 xl:col-span-1" aria-label="Site navigation links">
+      <Heading level={3} class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"> Navigation </Heading>
       <ul class="flex flex-row flex-wrap justify-center gap-2 text-center lg:flex-col lg:justify-end">
         {
           navData.map((value) => (
             <li>
-              <IconLink
-                href={value.link}
-                icon={value.icon}
-                linkClass="justify-center"
-              >
+              <IconLink href={value.link} icon={value.icon} linkClass="justify-center">
                 {value.label}
               </IconLink>
             </li>
@@ -101,15 +71,10 @@ const introFallbackHtml = md.renderInline(introFallback);
         }
       </ul>
     </aside>
-    <aside
-      class="py-4 lg:col-span-2"
-      aria-label="Social media links"
-    >
-      <Heading
-        level={3}
-        class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900"
-        >Connect</Heading
-      >
+    <aside class="py-4 lg:col-span-2" aria-label="Social media links">
+      <Heading level={3} class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900">
+        Connect
+      </Heading>
       <SocialLinks items={socialMediaData} />
     </aside>
   </div>
@@ -121,21 +86,14 @@ const introFallbackHtml = md.renderInline(introFallback);
     >
     <span class="text-center">All rights reserved.</span>
     <span class="text-center lg:text-right"
-      >Webwork done by <a href="https://davids-neighbour.com/">David's Neighbour</a></span
+      >Webwork done by
+      <a href="https://davids-neighbour.com/">David's Neighbour</a></span
     >
   </div>
 
   <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
-    <IconLink
-      href="/privacy-policy/"
-      icon="shield-check"
-      >Privacy Policy</IconLink
-    >
-    <IconLink
-      href="/security-policy/"
-      icon="fingerprint"
-      >Security Policy</IconLink
-    >
+    <IconLink href="/privacy-policy/" icon="shield-check"> Privacy Policy </IconLink>
+    <IconLink href="/security-policy/" icon="fingerprint"> Security Policy </IconLink>
   </div>
 </footer>
 
@@ -157,7 +115,4 @@ const introFallbackHtml = md.renderInline(introFallback);
 </script>
 
 <!-- @todo move into local or global scripts -->
-<script
-  src="/vendor/lite-youtube-embed/lite-yt-embed.js"
-  is:inline
-></script>
+<script src="/vendor/lite-youtube-embed/lite-yt-embed.js" is:inline></script>

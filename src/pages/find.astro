@@ -22,11 +22,82 @@ const post = {
       resetStyles: false,
       debounceTimeoutMs: 300,
       translations: {
-        placeholder: 'Search on KOLLITSCH.dev*',
+        placeholder: "Search on KOLLITSCH.dev*",
         zero_results: "Couldn't find [SEARCH_TERM]",
       },
       autofocus: true,
-      sort: { date: 'desc' },
+      sort: { date: "desc" },
     }}
   />
 </Layout>
+
+<script>
+  // Inform TypeScript about global _paq
+  declare global {
+    interface Window {
+      _paq?: any[];
+    }
+  }
+
+  /**
+   * Tracks search queries via Matomo, using result count from Pagefind UI.
+   */
+  function setupMatomoSearchTracker() {
+    const drawer = document.querySelector(".pagefind-ui__drawer");
+    const searchInput = document.querySelector<HTMLInputElement>(".pagefind-ui__search-input");
+    const resultMessageSelector = ".pagefind-ui__message";
+
+    if (!drawer || !searchInput) {
+      console.error("Pagefind drawer or search input not found. Matomo tracker not initialized.");
+      return;
+    }
+
+    let lastTrackedQuery = "";
+    let lastTrackedCount: number | null = null;
+
+    const extractResultCount = (): number | null => {
+      const msgEl = drawer.querySelector<HTMLElement>(resultMessageSelector);
+      if (!msgEl) return null;
+
+      // Expecting format like: "61 results for test"
+      const text = msgEl.textContent?.trim();
+      if (!text) return null;
+
+      const match = text.match(/^(\d+)\s+results\s+for\s+(.*)$/i);
+      if (match) {
+        const count = parseInt(match[1], 10);
+        return isNaN(count) ? null : count;
+      }
+      return null;
+    };
+
+    const trackQuery = (query: string, count: number | null) => {
+      if (!query || query.length <= 2) return;
+      if (query === lastTrackedQuery && count === lastTrackedCount) return;
+
+      try {
+        window._paq = window._paq || [];
+        // category "default", count null if unknown
+        const category = "default";
+        // If we don't know count we may pass false or 0
+        const countForTracking = count !== null ? count : false;
+        window._paq.push(["trackSiteSearch", query, category, countForTracking]);
+        lastTrackedQuery = query;
+        lastTrackedCount = count;
+      } catch (err) {
+        console.error("Matomo trackSiteSearch failed:", err);
+      }
+    };
+
+    const observer = new MutationObserver(() => {
+      const currentQuery = searchInput.value.trim();
+      const currentCount = extractResultCount();
+      trackQuery(currentQuery, currentCount);
+    });
+
+    observer.observe(drawer, { childList: true, subtree: true });
+  }
+
+  // Run
+  setupMatomoSearchTracker();
+</script>

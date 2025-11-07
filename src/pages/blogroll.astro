@@ -36,7 +36,7 @@ let errors: string[] = [];
   if (result.ok) {
     items = [...result.data].sort((a, b) => a.name.localeCompare(b.name));
   } else {
-    errors = result.errors;
+    // errors = result.errors;
   }
 }
 ---
@@ -47,29 +47,19 @@ let errors: string[] = [];
       <section aria-labelledby="validation-errors">
         <h2 id="validation-errors">Validation errors</h2>
         <ul>
-          {errors.map(e => (
+          {errors.map((e) => (
             <li>{e}</li>
           ))}
         </ul>
       </section>
     ) : (
       <ul>
-        {items.map(item => (
+        {items.map((item) => (
           <li>
-            <a
-              href={item.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href={item.url} rel="noopener noreferrer" target="_blank">
               {item.name}
             </a>
-            {item.rss && (
-              <IconLink
-                icon="rss"
-                href={item.rss}
-                title={`RSS for ${item.name}`}
-              />
-            )}
+            {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
             {item.description && <div set:html={item.description} />}
           </li>
         ))}

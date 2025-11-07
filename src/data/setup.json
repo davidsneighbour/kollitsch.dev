@@ -62,5 +62,10 @@
   "tagThreshold": 2,
   "timezone": "Asia/Bangkok",
   "title": "KOLLITSCH.dev*",
-  "url": "https://kollitsch.dev/"
+  "url": "https://kollitsch.dev/",
+  "search": {
+    "instance": "https://analytics.dnbhub.xyz/",
+    "siteId": "1",
+    "cookieDomain": "*.kollitsch.dev"
+  }
 }

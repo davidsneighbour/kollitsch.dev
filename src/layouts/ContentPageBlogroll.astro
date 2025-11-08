@@ -1,0 +1,55 @@
+---
+import { z } from "astro:content";
+import IconLink from "@components/IconLink.astro";
+import blogroll from "@content/blogroll.json" with { type: "json" };
+import Layout from "@layouts/ContentPage.astro";
+
+import setup from "@data/setup.json" with { type: "json" };
+
+const feedItemSchema = z.object({
+  description: z.string().optional(),
+  name: z.string(),
+  rss: z.string().optional(),
+  url: z.string(),
+  weight: z.number().optional().default(0),
+});
+
+/**
+ * Feed item type inferred from the schema.
+ */
+export type FeedItem = z.infer<typeof feedItemSchema>;
+
+// sort by weight (default 0) desc, then by name/title asc
+const parsed = z.array(feedItemSchema).safeParse(blogroll.items);
+let items: FeedItem[] = [];
+let validationError: z.ZodError | null = null;
+
+if (parsed.success) {
+  items = parsed.data.slice().sort((a, b) => {
+    const wa = a.weight ?? 0;
+    const wb = b.weight ?? 0;
+    if (wb !== wa) return wb - wa;
+    return a.name.localeCompare(b.name, undefined, { sensitivity: "base" });
+  });
+} else {
+  validationError = parsed.error;
+}
+---
+
+<Layout>
+  <main class={setup.classes.containers.slim}>
+    <ul>
+      {
+        items.map((item) => (
+          <li>
+            <a href={item.url} rel="noopener noreferrer" target="_blank">
+              {item.name}
+            </a>
+            {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
+            {item.description && <div set:html={item.description} />}
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>

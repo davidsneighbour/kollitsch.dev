@@ -30,6 +30,10 @@
             "type": "string",
             "format": "uri",
             "description": "Optional RSS feed URL."
+          },
+          "weight": {
+            "type": "integer",
+            "description": "Optional numeric weight; can be negative, zero, or positive."
           }
         },
         "required": [

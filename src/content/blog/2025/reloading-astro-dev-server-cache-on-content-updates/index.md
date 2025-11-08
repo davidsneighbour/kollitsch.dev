@@ -10,7 +10,7 @@ date: 2025-09-14T12:44:11.906Z
 cover:
   src: getty-images-P6AC5E9pxlg-unsplash.jpg
   type: image
-  title: That lonely Astro-naut
+  title: That one lonely Astro-naut
 ---
 
 While working on an Astro project, I ran into a frustrating issue: adding a new image to `src/assets/images/` didn't result in a server reload, and the image was "missing" until I manually restarted the dev server.

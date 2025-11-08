@@ -2,7 +2,7 @@
 applyTo: "**/*.ts"
 ---
 
-This is an Astro-based static site generator project for kollitsch.dev, a
+This is an Astro-based static site generator project for KOLLITSCH.dev*, a
 personal website and digital garden. The architecture follows Astro's
 conventions with several custom extensions.
 

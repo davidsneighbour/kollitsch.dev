@@ -21,6 +21,7 @@ const { post }: Props = Astro.props;
 ---
 
 <article
+  transition:animate="slide"
   class="@container mt-8 rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
 >
   <PostImage
@@ -31,18 +32,10 @@ const { post }: Props = Astro.props;
 
   <div class="@sm:p-2 @md:p-3 @lg:p-4">
     <!-- <p>{post.data.date.toLocaleDateString()}</p> -->
-    <Heading
-      level={1}
-      class="heading"
-      link={`/blog/${post.id}/`}
-      html={post.data.title}
-    />
+    <Heading level={1} class="heading" link={`/blog/${post.id}/`} html={post.data.title} />
     <BreadCrumbs path={post.filePath ?? ""} />
     <Prose post={post} />
-    <ShareSeparator
-      title={post.data.title}
-      description={post.data.description}
-    />
+    <ShareSeparator title={post.data.title} description={post.data.description} />
     <PaginationSingle post={post} />
     <Giscus post={post} />
     <Meta post={post} />

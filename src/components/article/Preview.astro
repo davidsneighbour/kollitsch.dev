@@ -12,6 +12,7 @@ const { post } = Astro.props;
 ---
 
 <article
+  transition:animate="slide"
   class="@container relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-zinc-100 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-zinc-100/90 dark:bg-zinc-900 dark:ring-gray-100/10 dark:hover:bg-zinc-900/90"
 >
   <PostImage
@@ -22,11 +23,7 @@ const { post } = Astro.props;
   />
   <div class="flex grow flex-col justify-start @sm:p-2 @md:p-3 @lg:p-4">
     <h2 class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl">
-      <a
-        class="line-clamp-2"
-        href={`/${post.collection}/${post.id}/`}
-        set:html={post.data.title}
-      />
+      <a class="line-clamp-2" href={`/${post.collection}/${post.id}/`} set:html={post.data.title} />
     </h2>
     <p
       class="@md:text-md line-clamp-3 text-base @lg:text-lg @xl:text-xl @2xl:text-2xl @3xl:text-3xl @4xl:text-4xl"
@@ -39,8 +36,7 @@ const { post } = Astro.props;
       outline
       name="arrow-right"
       href={`/${post.collection}/${post.id}/`}
-      classes="justify-self-end"
-      >Read more...</Button
+      classes="justify-self-end">Read more...</Button
     >
   </div>
 </article>

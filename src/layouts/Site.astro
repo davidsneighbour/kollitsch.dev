@@ -27,7 +27,7 @@ const IS_DEV = import.meta.env.DEV;
 ---
 
 <!doctype html>
-<html lang="en" class={htmlClasses}>
+<html lang="en" class={htmlClasses} transition:name="root" transition:animate="initial">
   <head>
     <Head post={post} frontmatter={frontmatter} />
     <script>
@@ -64,6 +64,9 @@ const IS_DEV = import.meta.env.DEV;
     </script>
     <script>
       import "../assets/js/theme.js";
+      document.addEventListener("astro:after-swap", () => {
+        window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      });
     </script>
   </body>
 </html>

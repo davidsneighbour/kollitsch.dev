@@ -1,4 +1,29 @@
 # Changelog
+## [2025.19.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.18.0...v2025.19.0) (2025-11-08)
+
+
+### Features
+
+* move blogroll page into ContentPage component ([5274503](https://github.com/davidsneighbour/kollitsch.dev/commit/5274503311d3d0ed1e4d1f81d0a2173fb550040b))
+* update view transitions configuration ([43f5d6b](https://github.com/davidsneighbour/kollitsch.dev/commit/43f5d6b1709743ef8d24f87ce0e429ad08c62f1b))
+
+
+### Content
+
+* **update:** update alt text ([9379b47](https://github.com/davidsneighbour/kollitsch.dev/commit/9379b47ee9294cf6b3e9b94e5583488ed40852f5))
+
+
+### Theme
+
+* **fix:** refactor blog roll page and add schema ([8d5ba6c](https://github.com/davidsneighbour/kollitsch.dev/commit/8d5ba6cf8f6ad348b6a1fbb3034b1fa2c585422c))
+* **fix:** remove comments ([3416fb0](https://github.com/davidsneighbour/kollitsch.dev/commit/3416fb0ddf5db71446da059a86e9fff7f142c785))
+
+
+### Configuration
+
+* **ai:** update ai instructions ([c21defa](https://github.com/davidsneighbour/kollitsch.dev/commit/c21defa4ca66c19745aef78fd3a2cbe827c39b8a))
+* **workspace:** update filenesting pattern ([59be23d](https://github.com/davidsneighbour/kollitsch.dev/commit/59be23d448a205f73aafef72eef2d0ee0e3fe843))
+
 ## [2025.18.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.17.0...v2025.18.0) (2025-11-07)
 
 

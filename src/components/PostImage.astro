@@ -3,7 +3,7 @@ import { Picture } from "astro:assets";
 // @todo refactor and comment
 import type { CollectionEntry } from "astro:content";
 
-import { resolveCover } from "@utils/images.ts";
+import { resolveCover } from "@utils/resolve-cover.ts";
 import { getTailwindSizes } from "@utils/tailwind.ts";
 import type { ImageMetadata } from "astro";
 
@@ -47,7 +47,25 @@ function mapQuality(q: Props["quality"]): number {
   }
 }
 
-const cover = resolveCover(post);
+const fallbackAlt =
+  post.collection === "tags"
+    ? post.data.linktitle ?? post.data.title ?? post.data.description ?? post.id
+    : post.data.title ?? post.id;
+
+const cover = resolveCover(
+  post.data.cover,
+  {
+    collection: post.collection,
+    id: post.id,
+  },
+  {
+    fallbackAlt,
+    debug: import.meta.env.DEV,
+    ...(post.collection === "tags"
+      ? { defaultKey: "defaults/articleimage.jpg", warnOnFallback: false }
+      : {}),
+  },
+);
 let imageMeta: ImageMetadata | null = cover.type === "image" && cover.meta ? cover.meta : null;
 ---
 

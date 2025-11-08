@@ -1,31 +1,36 @@
-[
-  {
-    "name": "Labnotes by Assaf Arkin",
-    "rss": "https://labnotes.org/rss/",
-    "url": "https://labnotes.org/"
-  },
-  {
-    "name": "Jeremy Keith (adactio.com)",
-    "url": "https://adactio.com/"
-  },
-  {
-    "name": "Brad Frost",
-    "url": "https://bradfrost.com/"
-  },
-  {
-    "name": "CSS Wizardry",
-    "url": "https://csswizardry.com/blog/"
-  },
-  {
-    "name": "Josh W. Comeau",
-    "url": "https://www.joshwcomeau.com/"
-  },
-  {
-    "name": "Simon Willison",
-    "url": "https://simonwillison.net/"
-  },
-  {
-    "name": "xkcd (A webcomic of romance, sarcasm, math, and language.)",
-    "url": "https://xkcd.com/"
-  }
-]
+{
+  "$schema": "./blogroll.schema.json",
+  "items": [
+    {
+      "name": "Labnotes by Assaf Arkin",
+      "rss": "https://labnotes.org/rss/",
+      "url": "https://labnotes.org/"
+    },
+    {
+      "name": "Jeremy Keith (adactio.com)",
+      "url": "https://adactio.com/"
+    },
+    {
+      "name": "Brad Frost",
+      "url": "https://bradfrost.com/"
+    },
+    {
+      "name": "CSS Wizardry",
+      "url": "https://csswizardry.com/blog/"
+    },
+    {
+      "name": "Josh W. Comeau",
+      "url": "https://www.joshwcomeau.com/"
+    },
+    {
+      "name": "Simon Willison",
+      "url": "https://simonwillison.net/"
+    },
+    {
+      "name": "xkcd (A webcomic of romance, sarcasm, math, and language.)",
+      "url": "https://xkcd.com/",
+      "description": "A webcomic of romance, sarcasm, math, and language.",
+      "rss": "https://xkcd.com/rss.xml"
+    }
+  ]
+}

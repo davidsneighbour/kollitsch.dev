@@ -19,51 +19,38 @@
 // Errors are shown on the page instead of crashing the build.
 
 import IconLink from "@components/IconLink.astro";
+import blogroll from "@content/blogroll.json" with { type: "json" };
 import Layout from "@layouts/ContentPage.astro";
-import type { FeedItem } from "@utils/blogroll.ts";
-import { safeValidateFeedList } from "@utils/blogroll.ts";
-import blogroll from "../content/blogroll.json" with { type: "json" };
 
-// Validate and sort
-let items: FeedItem[] = [];
-let errors: string[] = [];
+import { z } from "astro/zod";
 
-{
-  const result = safeValidateFeedList(blogroll, {
-    allowEmpty: true,
-    maxNameLength: 56,
-  });
-  if (result.ok) {
-    items = [...result.data].sort((a, b) => a.name.localeCompare(b.name));
-  } else {
-    // errors = result.errors;
-  }
-}
+type FeedItemSchema = z.ZodObject<{
+  description: z.ZodOptional<z.ZodString>;
+  name: z.ZodString;
+  rss: z.ZodOptional<z.ZodString>;
+  url: z.ZodString;
+}>;
+
+/**
+ * Feed item type inferred from the schema.
+ */
+export type FeedItem = z.infer<FeedItemSchema>;
+
+let items: FeedItem[] = blogroll.items;
 ---
 
 <Layout>
-  {
-    errors.length > 0 ? (
-      <section aria-labelledby="validation-errors">
-        <h2 id="validation-errors">Validation errors</h2>
-        <ul>
-          {errors.map((e) => (
-            <li>{e}</li>
-          ))}
-        </ul>
-      </section>
-    ) : (
-      <ul>
-        {items.map((item) => (
-          <li>
-            <a href={item.url} rel="noopener noreferrer" target="_blank">
-              {item.name}
-            </a>
-            {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
-            {item.description && <div set:html={item.description} />}
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  <ul>
+    {
+      items.map((item) => (
+        <li>
+          <a href={item.url} rel="noopener noreferrer" target="_blank">
+            {item.name}
+          </a>
+          {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
+          {item.description && <div set:html={item.description} />}
+        </li>
+      ))
+    }
+  </ul>
 </Layout>

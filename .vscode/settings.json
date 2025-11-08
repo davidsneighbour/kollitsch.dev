@@ -23,7 +23,7 @@
     ".env": ".env*",
     "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json",
     "shared-config.ts": "shared-config*",
-    "*.json": "$(capture).schema.json",
+    "*.json": "$(capture).schema.json,$(capture).test.ts",
     "README.md": "AGENT.md"
   },
 

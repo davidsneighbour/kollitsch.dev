@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BlogrollFile",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "The name of the website or publication."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The main URL of the website."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 300,
+            "description": "Optional description of the website."
+          },
+          "rss": {
+            "type": "string",
+            "format": "uri",
+            "description": "Optional RSS feed URL."
+          }
+        },
+        "required": [
+          "name",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "description": "List of websites included in the blogroll."
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

@@ -15,46 +15,188 @@ const items = [
     href: "/releases/",
     isCurrent: currentGroup === null,
     label: "Latest",
+    value: "/releases/",
   },
   ...groups.map((group) => ({
     href: `/releases/${group}/`,
     isCurrent: currentGroup === group,
     label: group,
+    value: `/releases/${group}/`,
   })),
 ];
+
+const currentItem = items.find((item) => item.isCurrent) ?? items[0];
+const selectId = `release-group-select-${Math.random().toString(36).slice(2, 10)}`;
+const labelId = `${selectId}-label`;
 ---
 
 {groups.length === 0 ? null : (
-  <nav class="isolate flex flex-wrap justify-end mb-4 gap-y-2">
-    {items.map((item, index) => {
-      const isFirst = index === 0;
-      const isCurrent = item.isCurrent;
+  <div class="flex justify-end">
+    <div class="w-full sm:w-64">
+      <label
+        id={labelId}
+        for={selectId}
+        class="block text-sm/6 font-medium text-gray-900 dark:text-white"
+      >
+        Release group
+      </label>
 
-      const baseClasses =
-        "relative inline-flex items-center px-3 py-2 text-sm text-gray-900 inset-ring-1 inset-ring-gray-300 focus:z-10 dark:text-white dark:inset-ring-gray-700 first:rounded-l-md last:rounded-r-md";
-      const subsequentClass = !isFirst ? "-ml-px" : "";
-      const current = isCurrent
-        ? "bg-gray-30 dark:bg-gray-30/10 hover:bg-gray-50 dark:hover:bg-white/20"
-        : "bg-white dark:bg-white/10 hover:bg-gray-50 dark:hover:bg-white/20";
-
-      const classes = `${baseClasses} ${subsequentClass} ${current}`;
-
-      return isCurrent ? (
-        <span
-          class={classes}
-          data-item={index}
+      <el-select
+        id={selectId}
+        aria-labelledby={labelId}
+        name="release-group"
+        value={currentItem.value}
+        class="mt-2 block"
+        data-release-group-select
+      >
+        <button
+          type="button"
+          class="grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:focus-visible:outline-indigo-500"
         >
-          {item.label}
-        </span>
-      ) : (
-        <a
-          class={classes}
-          data-item={index}
-          href={item.href}
+          <el-selectedcontent class="col-start-1 row-start-1 truncate pr-6">
+            {currentItem.label}
+          </el-selectedcontent>
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            data-slot="icon"
+            aria-hidden="true"
+            class="col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-500 sm:size-4 dark:text-gray-400"
+          >
+            <path
+              d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z"
+              clip-rule="evenodd"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <el-options
+          anchor="bottom start"
+          popover
+          class="max-h-60 w-(--button-width) overflow-auto rounded-md bg-white py-1 text-base shadow-lg outline-1 outline-black/5 [--anchor-gap:--spacing(1)] data-leave:transition data-leave:transition-discrete data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
         >
-          {item.label}
-        </a>
-      );
-    })}
-  </nav>
+          {items.map((item) => (
+            <el-option
+              value={item.value}
+              class="group/option relative block cursor-default py-2 pr-4 pl-8 text-gray-900 select-none focus:bg-indigo-600 focus:text-white focus:outline-hidden dark:text-white dark:focus:bg-indigo-500"
+            >
+              <span class="block truncate font-normal group-aria-selected/option:font-semibold">
+                {item.label}
+              </span>
+              <span class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-indigo-600 group-not-aria-selected/option:hidden group-focus/option:text-white in-[el-selectedcontent]:hidden dark:text-indigo-400">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  data-slot="icon"
+                  aria-hidden="true"
+                  class="size-5"
+                >
+                  <path
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </el-option>
+          ))}
+        </el-options>
+      </el-select>
+
+      <script is:inline>
+        {
+          const container = document.currentScript?.parentElement;
+          const select = container?.querySelector("[data-release-group-select]");
+
+          if (select instanceof HTMLElement) {
+            const escapeAttributeValue = (value) => {
+              const raw = typeof value === "string" ? value : String(value ?? "");
+              return raw.replace(/\\/g, "\\\\").replace(/"/g, "\\\"");
+            };
+
+            const updateSelectedContent = (value) => {
+              const selectedOption = select.querySelector(
+                `el-option[value="${escapeAttributeValue(value)}"]`
+              );
+              const selectedContent = select.querySelector("el-selectedcontent");
+
+              if (!(selectedOption instanceof HTMLElement) || !selectedContent) {
+                return;
+              }
+
+              const label = selectedOption.querySelector("span");
+              if (label) {
+                selectedContent.textContent = label.textContent ?? "";
+              }
+            };
+
+            const navigate = (href) => {
+              if (typeof href === "string" && href.length > 0) {
+                window.location.href = href;
+              }
+            };
+
+            const setValue = (value) => {
+              if (typeof value !== "string") {
+                return;
+              }
+
+              if ("value" in select) {
+                select.value = value;
+              } else {
+                select.setAttribute("value", value);
+              }
+
+              updateSelectedContent(value);
+            };
+
+            const initialValue =
+              ("value" in select && typeof select.value === "string" && select.value.length > 0)
+                ? select.value
+                : select.getAttribute("value");
+
+            if (typeof initialValue === "string") {
+              updateSelectedContent(initialValue);
+            }
+
+            const handleChange = (event) => {
+              const detailValue =
+                event instanceof CustomEvent && typeof event.detail?.value === "string"
+                  ? event.detail.value
+                  : null;
+
+              const target = event.target;
+              const targetValue =
+                target && typeof target.value === "string" && target.value.length > 0
+                  ? target.value
+                  : null;
+
+              const nextValue = detailValue ?? targetValue ?? select.getAttribute("value");
+
+              if (typeof nextValue === "string") {
+                setValue(nextValue);
+                navigate(nextValue);
+              }
+            };
+
+            select.addEventListener("change", handleChange);
+            select.addEventListener("el-change", handleChange);
+            select.addEventListener("click", (event) => {
+              const option = event.target?.closest?.("el-option");
+              if (!(option instanceof HTMLElement)) {
+                return;
+              }
+
+              const optionValue = option.getAttribute("value");
+              if (typeof optionValue === "string") {
+                setValue(optionValue);
+                navigate(optionValue);
+              }
+            });
+          }
+        }
+      </script>
+    </div>
+  </div>
 )}

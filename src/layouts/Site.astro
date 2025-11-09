@@ -63,9 +63,14 @@ const IS_DEV = import.meta.env.DEV;
       })();
     </script>
     <script>
-      import "../assets/js/theme.js";
       document.addEventListener("astro:after-swap", () => {
         window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      });
+    </script>
+    <script>
+      import Lenis from "lenis";
+      new Lenis({
+        autoRaf: true,
       });
     </script>
   </body>

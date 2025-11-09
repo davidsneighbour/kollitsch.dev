@@ -1,17 +1,14 @@
-import MarkdownIt from 'markdown-it';
-import type { ImageMetadata } from 'astro';
-
 import { getIndexedImage } from '@utils/image-index.ts';
-import { resolveImageKey } from '@utils/opengraph.ts';
 import { stripMarkup } from '@utils/images.ts';
+import { resolveImageKey } from '@utils/opengraph.ts';
+import type { ImageMetadata } from 'astro';
+import MarkdownIt from 'markdown-it';
 
 export type CollectionName = 'blog' | 'tags';
 
 export interface ResolveCoverContext {
-  /** Unique entry id (e.g., 'blog/my-post') used for resolving relative assets */
-  id: string;
-  /** Content collection the entry belongs to */
-  collection: CollectionName;
+  id: string; // Unique entry id (e.g., 'blog/my-post') used for resolving relative assets
+  collection: CollectionName; // Content collection the entry belongs to
 }
 
 export interface ResolveCoverOptions {
@@ -115,7 +112,9 @@ export function resolveCover(
     alt: string,
     title?: string,
   ): ResolvedCoverImage => {
-    const imageEntry = src.startsWith('/src/') ? getIndexedImage(src) : undefined;
+    const imageEntry = src.startsWith('/src/')
+      ? getIndexedImage(src)
+      : undefined;
     const meta = imageEntry?.meta;
 
     if (src.startsWith('/src/') && !imageEntry && debug) {
@@ -124,9 +123,9 @@ export function resolveCover(
     }
 
     const result: ResolvedCoverImage = {
-      type: 'image',
-      src,
       alt,
+      src,
+      type: 'image',
       ...(title ? { title } : {}),
       ...(meta ? { meta } : {}),
     };
@@ -136,8 +135,8 @@ export function resolveCover(
   // 1) No cover -> fall back
   if (!cover) {
     const src = resolveImageKey(undefined, ctx.id, ctx.collection, {
-      defaultKey,
       assetsDir,
+      ...(defaultKey !== undefined ? { defaultKey } : {}),
       warnOnFallback,
     });
     return buildImageResult(src, sanitizedFallbackAlt);
@@ -146,8 +145,8 @@ export function resolveCover(
   // 2) String cover -> resolve as image key/URL
   if (typeof cover === 'string') {
     const src = resolveImageKey(cover, ctx.id, ctx.collection, {
-      defaultKey,
       assetsDir,
+      ...(defaultKey !== undefined ? { defaultKey } : {}),
       warnOnFallback,
     });
     return buildImageResult(src, sanitizedFallbackAlt);
@@ -158,8 +157,8 @@ export function resolveCover(
     const v = (cover as FMCoverVideo).video!;
     const alt = stripMarkup(v.title || fallbackAlt);
     const result: ResolvedCoverVideo = {
-      type: 'video',
       alt,
+      type: 'video',
       video: {
         title: v.title,
         youtube: v.youtube,
@@ -172,8 +171,8 @@ export function resolveCover(
   // 4) Object cover -> image path
   const cimg = cover as FMCoverImage;
   const keyOrUrl = resolveImageKey(cimg.src, ctx.id, ctx.collection, {
-    defaultKey,
     assetsDir,
+    ...(defaultKey !== undefined ? { defaultKey } : {}),
     warnOnFallback,
   });
 

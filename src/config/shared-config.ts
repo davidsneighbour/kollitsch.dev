@@ -10,6 +10,11 @@ export const items: ChangeType[] = [
     header: 'Features',
     type: 'feat',
   },
+  {
+    description: 'A fix (indicates patch release)',
+    header: 'Fixes',
+    type: 'fix',
+  },
   { description: 'Content changes', header: 'Content', type: 'content' },
   {
     description: 'Component and layout files',

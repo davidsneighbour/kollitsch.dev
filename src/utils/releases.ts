@@ -36,15 +36,22 @@ const minorGroupMatcher = /^v(\d+)\.(\d+)$/;
 
 const semverMatcher = /^v(\d+)\.(\d+)\.(\d+)$/;
 
+function parseSemver(tag: string): [number, number, number] | null {
+  const match = tag.match(semverMatcher);
+  if (!match) return null;
+  const [, major, minor, patch] = match;
+  return [Number.parseInt(major, 10), Number.parseInt(minor, 10), Number.parseInt(patch, 10)];
+}
+
 export const isMinorGroupTag = (s: string): boolean => minorGroupMatcher.test(s);
 
 export function getMinorGroup(tag: string): MinorGroup | null {
-  const match = semverMatcher.exec(tag);
+  const match = parseSemver(tag);
   if (!match) return null;
-  const [, major, minor] = match;
+  const [major, minor] = match;
   return {
-    major: Number.parseInt(major, 10),
-    minor: Number.parseInt(minor, 10),
+    major,
+    minor,
     tag: `v${major}.${minor}`,
   };
 }
@@ -80,7 +87,29 @@ export async function loadAllReleases(): Promise<Release[]> {
       : [];
 
   const list = raw.map(normalizeRelease).filter(Boolean) as Release[];
-  list.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  list.sort((a, b) => {
+    const timeDiff = new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    if (Number.isFinite(timeDiff) && timeDiff !== 0) {
+      return timeDiff;
+    }
+
+    const semverA = parseSemver(a.tag);
+    const semverB = parseSemver(b.tag);
+    if (semverA && semverB) {
+      const [majorA, minorA, patchA] = semverA;
+      const [majorB, minorB, patchB] = semverB;
+      const deltaMajor = majorB - majorA;
+      if (deltaMajor !== 0) return deltaMajor;
+
+      const deltaMinor = minorB - minorA;
+      if (deltaMinor !== 0) return deltaMinor;
+
+      const deltaPatch = patchB - patchA;
+      if (deltaPatch !== 0) return deltaPatch;
+    }
+
+    return b.tag.localeCompare(a.tag, undefined, { numeric: true, sensitivity: "base" });
+  });
   return list;
 }
 

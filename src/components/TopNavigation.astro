@@ -27,7 +27,7 @@ if (!activeItem && import.meta.env.DEV) {
 // Theme Manager Component
 // The theme on kollitsch.dev is managed by adding a `data-theme` attribute to
 // the `<html>` element which can have the values `light`, or `dark`
-
+type ThemeMode = "dark" | "light";
 export interface Props {
   defaultTheme?: ThemeMode;
 }
@@ -39,44 +39,25 @@ const { defaultTheme = "dark" }: Props = Astro.props;
   class="sticky top-0 right-0 left-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900"
   aria-label="Top navigation bar with site title, navigation links, and theme selector"
 >
-  <nav
-    class="mx-auto max-w-7xl"
-    aria-label="Main navigation"
-  >
-    <div
-      class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"
-    >
-    </div>
-    <div
-      class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]"
-    >
-      <ProgressBar
-        classes="progress z-40 relative [--height:var(--thickness)]"
-      />
+  <nav class="mx-auto max-w-7xl" aria-label="Main navigation">
+    <div class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"></div>
+    <div class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]">
+      <ProgressBar classes="progress z-40 relative [--height:var(--thickness)]" />
     </div>
     <div
       class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-gray-50"
     >
-      <div
-        class="z-30 order-1 flex-1"
-        id="navbar-sitetitle"
-      >
+      <div class="z-30 order-1 flex-1" id="navbar-sitetitle">
         <a
           id="navbar-brand"
           href={getHomepageUrl()}
           class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
         >
-          <Icon
-            name="house-fill"
-            class="place-self-center"
-          />
+          <Icon name="house-fill" class="place-self-center" />
           {setup.title}
         </a>
       </div>
-      <div
-        class="z-30 order-2 md:hidden"
-        id="hamburger-and-close"
-      >
+      <div class="z-30 order-2 md:hidden" id="hamburger-and-close">
         <Icon
           name="list"
           class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
@@ -92,17 +73,12 @@ const { defaultTheme = "dark" }: Props = Astro.props;
       >
         <ul
           class="flex flex-col justify-center md:flex-row md:justify-end"
-          transition:animate={fade({ duration: '0.4s' })}
+          transition:animate={fade({ duration: "0.4s" })}
         >
           {
-            typedNavData.map(value => (
-              <li
-                class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? 'font-bold' : ''}`}
-              >
-                <IconLink
-                  icon={value.icon}
-                  href={value.link}
-                >
+            typedNavData.map((value) => (
+              <li class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? "font-bold" : ""}`}>
+                <IconLink icon={value.icon} href={value.link}>
                   {value.label}
                 </IconLink>
               </li>
@@ -122,24 +98,24 @@ const { defaultTheme = "dark" }: Props = Astro.props;
     // ---- Shared utilities ----
     window.kdev = window.kdev || {};
     window.kdev.mobileOpen = false;
-    const closeIcon = document.querySelector('.close-icon');
-    const openIcon = document.querySelector('.open-icon');
-    const navSection = document.querySelector('#navigation-and-theme-select');
-    const placeholder = document.querySelector('#sitetitle');
-    const stickyBrand = document.querySelector('#navbar-brand');
+    const closeIcon = document.querySelector(".close-icon");
+    const openIcon = document.querySelector(".open-icon");
+    const navSection = document.querySelector("#navigation-and-theme-select");
+    const placeholder = document.querySelector("#sitetitle");
+    const stickyBrand = document.querySelector("#navbar-brand");
 
     // Toggle icons: hamburger ↔ close
     const toggleIcons = () => {
-      closeIcon?.classList.toggle('hidden', !window.kdev.mobileOpen);
-      openIcon?.classList.toggle('hidden', window.kdev.mobileOpen);
+      closeIcon?.classList.toggle("hidden", !window.kdev.mobileOpen);
+      openIcon?.classList.toggle("hidden", window.kdev.mobileOpen);
     };
 
     // Show/hide nav links based on viewport & mobile state
     const toggleNavVisibility = () => {
-      const isMdUp = window.matchMedia('(min-width: 768px)').matches;
+      const isMdUp = window.matchMedia("(min-width: 768px)").matches;
       const shouldShow = isMdUp || window.kdev.mobileOpen;
-      navSection?.classList.toggle('hidden', !shouldShow);
-      navSection?.classList.toggle('flex', shouldShow);
+      navSection?.classList.toggle("hidden", !shouldShow);
+      navSection?.classList.toggle("flex", shouldShow);
     };
 
     // Initialize hamburger click handler & nav visibility
@@ -148,12 +124,12 @@ const { defaultTheme = "dark" }: Props = Astro.props;
       toggleIcons();
       toggleNavVisibility();
 
-      const menuToggle = document.querySelector('#hamburger-and-close');
+      const menuToggle = document.querySelector("#hamburger-and-close");
       if (menuToggle) {
         // replace to remove old listener
         const clone = menuToggle.cloneNode(true);
         menuToggle.replaceWith(clone);
-        clone.addEventListener('click', () => {
+        clone.addEventListener("click", () => {
           window.kdev.mobileOpen = !window.kdev.mobileOpen;
           toggleIcons();
           toggleNavVisibility();
@@ -164,13 +140,13 @@ const { defaultTheme = "dark" }: Props = Astro.props;
     // Intersection Observer for sticky logo fade
     function initStickyBrandObserver() {
       if (!placeholder || !stickyBrand) {
-        console.warn('Placeholder or sticky brand element not found.');
+        console.warn("Placeholder or sticky brand element not found.");
         return;
       }
       const observer = new IntersectionObserver(
         ([entry]) => {
-          stickyBrand.classList.toggle('opacity-100', !entry.isIntersecting);
-          stickyBrand.classList.toggle('opacity-0', entry.isIntersecting);
+          stickyBrand.classList.toggle("opacity-100", !entry.isIntersecting);
+          stickyBrand.classList.toggle("opacity-0", entry.isIntersecting);
         },
         { threshold: 0 },
       );
@@ -178,62 +154,57 @@ const { defaultTheme = "dark" }: Props = Astro.props;
 
       // Set initial state
       const isIntersecting =
-        placeholder.getBoundingClientRect().top >= 0 &&
-        placeholder.getBoundingClientRect().bottom > 0;
-      stickyBrand.classList.toggle('sticky-visible', !isIntersecting);
+        placeholder.getBoundingClientRect().top >= 0 && placeholder.getBoundingClientRect().bottom > 0;
+      stickyBrand.classList.toggle("sticky-visible", !isIntersecting);
     }
 
-    function changeGiscusTheme(t = 'dark') {
-      const iframe = document.querySelector('iframe.giscus-frame');
+    function changeGiscusTheme(t = "dark") {
+      const iframe = document.querySelector("iframe.giscus-frame");
       if (!iframe) return;
-      iframe.contentWindow.postMessage(
-        { giscus: { setConfig: { theme: t } } },
-        'https://giscus.app',
-      );
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, "https://giscus.app");
     }
 
     window.theme ??= (() => {
-      const defaultTheme =
-        document.currentScript.getAttribute('data-default-theme');
-      const storageKey = 'kdev-theme';
+      const defaultTheme = document.currentScript.getAttribute("data-default-theme");
+      const storageKey = "kdev-theme";
       const store =
-        typeof localStorage !== 'undefined'
+        typeof localStorage !== "undefined"
           ? localStorage
           : {
               getItem: () => null,
               setItem: () => {},
             };
 
-      const mediaMatcher = window.matchMedia('(prefers-color-scheme: dark)');
-      let systemTheme = mediaMatcher.matches ? 'dark' : 'light';
-      mediaMatcher.addEventListener('change', e => {
-        systemTheme = e.matches ? 'dark' : 'light';
+      const mediaMatcher = window.matchMedia("(prefers-color-scheme: dark)");
+      let systemTheme = mediaMatcher.matches ? "dark" : "light";
+      mediaMatcher.addEventListener("change", (e) => {
+        systemTheme = e.matches ? "dark" : "light";
         applyTheme(theme.getTheme());
       });
 
       function applyTheme(t) {
-        const resolved = t === 'auto' ? systemTheme : t;
+        const resolved = t === "auto" ? systemTheme : t;
 
-        const codeTheme = resolved === 'dark' ? 'dracula' : 'light-plus';
+        const codeTheme = resolved === "dark" ? "dracula" : "light-plus";
         document.documentElement.dataset.codeTheme = codeTheme;
         document.documentElement.dataset.theme = resolved;
         document.documentElement.style.colorScheme = resolved;
         changeGiscusTheme(t);
         document.dispatchEvent(
-          new CustomEvent('theme-changed', {
-            detail: { theme: t, systemTheme, defaultTheme },
+          new CustomEvent("theme-changed", {
+            detail: { defaultTheme, systemTheme, theme: t },
           }),
         );
       }
 
       return {
+        getSystemTheme: () => systemTheme,
+        getTheme: () => store.getItem(storageKey) || defaultTheme,
+        resetTheme: () => store.removeItem(storageKey),
         setTheme(t = defaultTheme) {
           store.setItem(storageKey, t);
           applyTheme(t);
         },
-        getTheme: () => store.getItem(storageKey) || defaultTheme,
-        getSystemTheme: () => systemTheme,
-        resetTheme: () => store.removeItem(storageKey),
       };
     })();
 
@@ -241,50 +212,47 @@ const { defaultTheme = "dark" }: Props = Astro.props;
 
     // Theme-selector web component + theme manager
     function initThemeManager() {
-      if (!customElements.get('theme-selector')) {
+      if (!customElements.get("theme-selector")) {
         customElements.define(
-          'theme-selector',
+          "theme-selector",
           class extends HTMLElement {
             connectedCallback() {
-              this.themes = ['light', 'dark'];
-              this.btn = document.createElement('button');
-              this.btn.setAttribute('aria-label', 'Toggle theme');
-              this.btn.addEventListener('click', () => this.nextTheme());
+              this.themes = ["light", "dark"];
+              this.btn = document.createElement("button");
+              this.btn.setAttribute("aria-label", "Toggle theme");
+              this.btn.addEventListener("click", () => this.nextTheme());
               this.appendChild(this.btn);
               this.updateIcon();
-              document.addEventListener('theme-changed', () =>
-                this.updateIcon(),
-              );
+              document.addEventListener("theme-changed", () => this.updateIcon());
             }
             nextTheme() {
               try {
                 const current = theme.getTheme();
                 const idx = this.themes.indexOf(current);
-                const realIdx =
-                  idx >= 0 ? idx : this.themes.indexOf(theme.getSystemTheme());
+                const realIdx = idx >= 0 ? idx : this.themes.indexOf(theme.getSystemTheme());
                 const next = this.themes[(realIdx + 1) % this.themes.length];
                 theme.setTheme(next);
               } catch (err) {
-                console.error('theme-selector - cycle error:', err);
+                console.error("theme-selector - cycle error:", err);
               }
             }
             updateIcon(t = theme.getTheme()) {
-              const icons = { light: '☀️', dark: '🌙' };
+              const icons = { dark: "🌙", light: "☀️" };
               this.btn.textContent = icons[t] ?? icons.dark;
             }
           },
         );
       }
 
-      document.addEventListener('astro:after-swap', () => {
+      document.addEventListener("astro:after-swap", () => {
         window.theme.setTheme(window.theme.getTheme());
         initMobileMenu();
       });
     }
 
     // Global listeners
-    window.addEventListener('resize', toggleNavVisibility);
-    document.addEventListener('astro:after-swap', initMobileMenu);
+    window.addEventListener("resize", toggleNavVisibility);
+    document.addEventListener("astro:after-swap", initMobileMenu);
 
     // Initial init
     initMobileMenu();

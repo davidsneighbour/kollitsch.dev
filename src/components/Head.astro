@@ -7,7 +7,6 @@ import Favicon from "@components/head/Favicon.astro";
 import FontsPreload from "@components/head/FontsPreload.astro";
 import Meta from "@components/head/Meta.astro";
 import OpenGraph from "@components/head/OpenGraph.astro";
-import WebComponents from "@components/head/WebComponents.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import { createDefaultPost, resolvePostTitle } from "@utils/content.ts";
 // @todo refactor and comment
@@ -86,67 +85,26 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
 ---
 
 <meta charset={setup.head?.defaults?.charset || "utf-8"} />
-<meta
-  name="viewport"
-  content={setup.head?.defaults?.viewport || "width=device-width, initial-scale=1.0"}
-/>
+<meta name="viewport" content={setup.head?.defaults?.viewport || "width=device-width, initial-scale=1.0"} />
 <title>{title}</title>
 
-{
-  shouldEmitBase && (
-    <base
-      href={baseUrl}
-      target="_self"
-    />
-  )
-}
+{shouldEmitBase && <base href={baseUrl} target="_self" />}
 
-<link
-  rel="canonical"
-  href={canonicalUrl}
-/>
-<meta
-  name="robots"
-  content={robots}
-/>
-<meta
-  name="referrer"
-  content="strict-origin-when-cross-origin"
-/>
-{
-  description && (
-    <meta
-      name="description"
-      content={description}
-    />
-  )
-}
-<meta
-  name="color-scheme"
-  content="dark light"
-/>
-<meta
-  name="theme-color"
-  media="(prefers-color-scheme: light)"
-  content={themeLight}
-/>
-<meta
-  name="theme-color"
-  media="(prefers-color-scheme: dark)"
-  content={themeDark}
-/>
+<link rel="canonical" href={canonicalUrl} />
+<meta name="robots" content={robots} />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+{description && <meta name="description" content={description} />}
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content={themeLight} />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content={themeDark} />
 
 <FontsPreload />
 <OpenGraph post={safePost} />
 <ClientRouter />
 <Favicon />
 <Meta />
-<WebComponents post={safePost} />
 
-<meta
-  name="generator"
-  content={Astro.generator}
-/>
+<meta name="generator" content={Astro.generator} />
 
 {/* Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) */}
 <script is:inline>

@@ -4,6 +4,7 @@ import "@styles/theme.css";
 import Breakpoints from "@components/development/Breakpoints.astro";
 import Head from "@components/Head.astro";
 import SchemaWebSite from "@components/schema/WebSite.astro";
+import WebComponents from "@components/footer/WebComponents.astro";
 // import setup from "@data/setup.json" with { type: "json" };
 
 const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astro.props;
@@ -73,5 +74,6 @@ const IS_DEV = import.meta.env.DEV;
         autoRaf: true,
       });
     </script>
+    <WebComponents post={post} />;
   </body>
 </html>

@@ -5,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import toml from '@fbraem/rollup-plugin-toml';
-import beep from '@rollup/plugin-beep';
 import yaml from '@rollup/plugin-yaml';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
@@ -146,7 +145,6 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
-      beep(),
       toml(),
       yaml(),
       devtoolsJson(),

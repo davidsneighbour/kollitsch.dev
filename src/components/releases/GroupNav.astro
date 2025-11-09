@@ -1,0 +1,60 @@
+---
+import type { Release } from "@utils/releases.ts";
+import { getMinorGroups } from "@utils/releases.ts";
+
+const { all, currentGroup: propGroup } = Astro.props as {
+  all: Release[];
+  currentGroup?: string | null;
+};
+
+const groups = getMinorGroups(all);
+const currentGroup = propGroup ?? null;
+
+const items = [
+  {
+    href: "/releases/",
+    isCurrent: currentGroup === null,
+    label: "Latest",
+  },
+  ...groups.map((group) => ({
+    href: `/releases/${group}/`,
+    isCurrent: currentGroup === group,
+    label: group,
+  })),
+];
+---
+
+{groups.length === 0 ? null : (
+  <nav class="isolate flex flex-wrap justify-end mb-4 gap-y-2">
+    {items.map((item, index) => {
+      const isFirst = index === 0;
+      const isCurrent = item.isCurrent;
+
+      const baseClasses =
+        "relative inline-flex items-center px-3 py-2 text-sm text-gray-900 inset-ring-1 inset-ring-gray-300 focus:z-10 dark:text-white dark:inset-ring-gray-700 first:rounded-l-md last:rounded-r-md";
+      const subsequentClass = !isFirst ? "-ml-px" : "";
+      const current = isCurrent
+        ? "bg-gray-30 dark:bg-gray-30/10 hover:bg-gray-50 dark:hover:bg-white/20"
+        : "bg-white dark:bg-white/10 hover:bg-gray-50 dark:hover:bg-white/20";
+
+      const classes = `${baseClasses} ${subsequentClass} ${current}`;
+
+      return isCurrent ? (
+        <span
+          class={classes}
+          data-item={index}
+        >
+          {item.label}
+        </span>
+      ) : (
+        <a
+          class={classes}
+          data-item={index}
+          href={item.href}
+        >
+          {item.label}
+        </a>
+      );
+    })}
+  </nav>
+)}

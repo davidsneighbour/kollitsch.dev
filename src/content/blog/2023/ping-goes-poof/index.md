@@ -15,8 +15,6 @@ tags:
   - seo
   - hugo-sitemap
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./header.jpg
   type: image

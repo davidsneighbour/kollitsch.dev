@@ -14,8 +14,6 @@ tags:
   - gpg
   - apt
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./header.jpg
   type: image

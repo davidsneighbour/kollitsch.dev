@@ -13,8 +13,6 @@ tags:
   - shortcode
   - howto
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./header.jpg
   type: image

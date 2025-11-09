@@ -12,8 +12,6 @@ tags:
   - vscode
   - link
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./header.png
   type: image
@@ -26,8 +24,8 @@ The long story short version is summarised at the end:
 
 > In short, this is what Microsoft did:
 >
-> - Created VSCode and made it the best and open-source IDE that everyone would jump to first.
-> - Make a proprietary free distribution of it, along with proprietary free extensions for the various languages.
-> - Make those extensions the best version possible and slow down focus on open source ones, often deprecating them.
-> - Now you have to use the closed form of VSCode to have the best experience by quite a bit.
-> - Everyone else using VSCode as a platform can't keep up because Microsoft fractured their community -- and your VSCode product is now just an ad for a similar Microsoft product that doesn't have all the papercuts.
+> * Created VSCode and made it the best and open-source IDE that everyone would jump to first.
+> * Make a proprietary free distribution of it, along with proprietary free extensions for the various languages.
+> * Make those extensions the best version possible and slow down focus on open source ones, often deprecating them.
+> * Now you have to use the closed form of VSCode to have the best experience by quite a bit.
+> * Everyone else using VSCode as a platform can't keep up because Microsoft fractured their community -- and your VSCode product is now just an ad for a similar Microsoft product that doesn't have all the papercuts.

@@ -22,8 +22,6 @@ tags:
   - howto
   - svg
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
   type: image

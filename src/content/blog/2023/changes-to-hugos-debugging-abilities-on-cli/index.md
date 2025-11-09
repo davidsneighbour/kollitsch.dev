@@ -17,8 +17,6 @@ tags:
   - logging
   - debugging
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./header.jpg
   type: image

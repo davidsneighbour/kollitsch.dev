@@ -16,8 +16,6 @@ tags:
   - npm
   - cleanup
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./header.jpg
   type: image
@@ -30,11 +28,11 @@ Happily enough I discovered [`npkill`](https://github.com/voidcosmos/npkill) a w
 
 Its key features are:
 
-*   cleaning up space, oviously
-*   showing you the last time the project was updated
-*   a very fast execution time to locate all `node_modules` directories
-*   it's easy to select and delete the folders you want to remove
-*   the tool itself has minimal dependencies, keeping it lightweight and its own `node_modules` directory small
+* cleaning up space, oviously
+* showing you the last time the project was updated
+* a very fast execution time to locate all `node_modules` directories
+* it's easy to select and delete the folders you want to remove
+* the tool itself has minimal dependencies, keeping it lightweight and its own `node_modules` directory small
 
 To install npkill globally, run the following command:
 

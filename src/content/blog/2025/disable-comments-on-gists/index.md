@@ -1,6 +1,5 @@
 ---
 title: Disable Comments on Gists
-linkTitle: Disable Comments on Gists
 description: >-
   GitHub Gists now support disabling comments, offering developers better
   control over interactions. Prevent spam and keep your code snippets
@@ -19,8 +18,6 @@ tags:
   - github
   - howto
   - 100daystooffload
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./roman-synkevych-wX2L8L-fGeA-unsplash.jpg
   type: image

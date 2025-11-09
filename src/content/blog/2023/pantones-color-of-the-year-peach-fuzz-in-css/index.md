@@ -18,8 +18,6 @@ options:
   head:
     components:
       - color-grid
-unsplash:
-  imageid: abcdefghijk
 cover:
   src: ./pantone-color-of-the-year-2024-article-1-image-1.webp
   type: image

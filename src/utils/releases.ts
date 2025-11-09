@@ -16,6 +16,12 @@ export interface Release {
   descriptionHTML: string;
 }
 
+export interface MinorGroup {
+  major: number;
+  minor: number;
+  tag: string;
+}
+
 export interface PageSlice<T> {
   items: T[];
   page: number;
@@ -25,6 +31,27 @@ export interface PageSlice<T> {
 }
 
 export const isSemverTag = (s: string): boolean => /^v\d+\.\d+\.\d+$/.test(s);
+
+const minorGroupMatcher = /^v(\d+)\.(\d+)$/;
+
+const semverMatcher = /^v(\d+)\.(\d+)\.(\d+)$/;
+
+export const isMinorGroupTag = (s: string): boolean => minorGroupMatcher.test(s);
+
+export function getMinorGroup(tag: string): MinorGroup | null {
+  const match = semverMatcher.exec(tag);
+  if (!match) return null;
+  const [, major, minor] = match;
+  return {
+    major: Number.parseInt(major, 10),
+    minor: Number.parseInt(minor, 10),
+    tag: `v${major}.${minor}`,
+  };
+}
+
+export function getMinorGroupTag(tag: string): string | null {
+  return getMinorGroup(tag)?.tag ?? null;
+}
 
 export const downlevelH2 = (html: string): string =>
   html.replace(/<h2\b/gi, "<h3").replace(/<\/h2>/gi, "</h3>");
@@ -67,6 +94,23 @@ export function filterByYear(releases: Release[], year: number): Release[] {
 
 export function findByTag(releases: Release[], tag: string): Release | null {
   return releases.find((r) => r.tag === tag) ?? null;
+}
+
+export function getMinorGroups(releases: Release[]): string[] {
+  const seen = new Set<string>();
+  const groups: string[] = [];
+  for (const release of releases) {
+    const tag = getMinorGroupTag(release.tag);
+    if (!tag || seen.has(tag)) continue;
+    seen.add(tag);
+    groups.push(tag);
+  }
+  return groups;
+}
+
+export function filterByMinorGroup(releases: Release[], group: string): Release[] {
+  if (!isMinorGroupTag(group)) return [];
+  return releases.filter((r) => getMinorGroupTag(r.tag) === group);
 }
 
 export function paginate<T>(items: T[], page: number, perPage: number): PageSlice<T> {

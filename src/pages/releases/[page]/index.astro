@@ -1,49 +1,113 @@
 ---
 import type { APIContext } from "astro";
 import type { Release } from "@utils/releases.ts";
-import { getReleasesPerPage, loadAllReleases, paginate } from "@utils/releases.ts";
+import {
+  filterByMinorGroup,
+  getMinorGroups,
+  getReleasesPerPage,
+  isMinorGroupTag,
+  loadAllReleases,
+  paginate,
+} from "@utils/releases.ts";
 import Layout from "@layouts/DefaultPage.astro";
 import setup from "@data/setup.json";
 import ReleaseCard from "@components/releases/ReleaseCard.astro";
-import YearNav from "@components/releases/YearNav.astro";
+import GroupNav from "@components/releases/GroupNav.astro";
 
 export const PER_PAGE = getReleasesPerPage(100);
 
 export async function getStaticPaths() {
   const all = await loadAllReleases();
   const totalPages = Math.max(1, Math.ceil(all.length / PER_PAGE));
-  return Array.from({ length: totalPages }, (_, i) => ({ params: { page: String(i + 1) } }));
+  const pagePaths = Array.from({ length: totalPages }, (_, i) => ({ params: { page: String(i + 1) } }));
+  const groupPaths = getMinorGroups(all).map((group) => ({ params: { page: group } }));
+  return [...pagePaths, ...groupPaths];
 }
 
 const { params } = Astro as APIContext;
-const currentPage = Number(params.page ?? 1);
+const identifier = params.page ?? "1";
+const isGroupView = isMinorGroupTag(identifier);
 
 const all: Release[] = await loadAllReleases();
-const slice = paginate(all, currentPage, PER_PAGE);
 
-const post = {
+let releasesToDisplay: Release[] = [];
+let prevUrl: string | null = null;
+let nextUrl: string | null = null;
+let pageLabel: string | null = null;
+let heading: string | null = null;
+let currentGroup: string | null | undefined;
+
+let post = {
   data: {
     description: setup.description,
-    title: `Releases – Page ${slice.page}/${slice.totalPages}`,
+    title: "Releases",
   },
 };
 
-const prevUrl = slice.page > 1 ? `/releases/${slice.page - 1}/` : null;
-const nextUrl = slice.page < slice.totalPages ? `/releases/${slice.page + 1}/` : null;
+if (isGroupView) {
+  const grouped = filterByMinorGroup(all, identifier);
+  if (grouped.length === 0) {
+    return Astro.redirect("/releases/");
+  }
+
+  releasesToDisplay = grouped;
+  currentGroup = identifier;
+  pageLabel = `${identifier} releases`;
+  heading = `Release group ${identifier}`;
+  post = {
+    data: {
+      description: setup.description,
+      title: `Releases – ${identifier}`,
+    },
+  };
+} else {
+  const pageNumber = Number.parseInt(identifier, 10);
+  if (!Number.isFinite(pageNumber) || pageNumber < 1) {
+    return Astro.redirect("/releases/");
+  }
+
+  const slice = paginate(all, pageNumber, PER_PAGE);
+  releasesToDisplay = slice.items;
+  prevUrl = slice.page > 1 ? `/releases/${slice.page - 1}/` : null;
+  nextUrl = slice.page < slice.totalPages ? `/releases/${slice.page + 1}/` : null;
+  pageLabel = `Page ${slice.page} of ${slice.totalPages}`;
+  heading = slice.page === 1 ? "Latest releases" : `Releases page ${slice.page}`;
+  currentGroup = slice.page === 1 ? null : undefined;
+  post = {
+    data: {
+      description: setup.description,
+      title: `Releases – Page ${slice.page}/${slice.totalPages}`,
+    },
+  };
+}
+
+const showPagination = !isGroupView;
 ---
 
 <Layout post={post}>
-  <YearNav all={all} />
+  <GroupNav
+    all={all}
+    currentGroup={currentGroup}
+  />
+
+  {heading ? <h1 class="mb-4 text-2xl font-semibold">{heading}</h1> : null}
 
   <div class="flex flex-col gap-4">
-    {slice.items.map((r) => <ReleaseCard release={r} />)}
+    {releasesToDisplay.map((r) => <ReleaseCard release={r} />)}
   </div>
 
-  <nav class="mt-6 flex justify-between">
-    {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
-    <span>Page {slice.page} of {slice.totalPages}</span>
-    {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
-  </nav>
+  {showPagination ? (
+    <nav class="mt-6 flex justify-between">
+      {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
+      <span>{pageLabel}</span>
+      {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
+    </nav>
+  ) : (
+    <p class="mt-6 text-sm opacity-80">{pageLabel}</p>
+  )}
 
-  <YearNav all={all} />
+  <GroupNav
+    all={all}
+    currentGroup={currentGroup}
+  />
 </Layout>

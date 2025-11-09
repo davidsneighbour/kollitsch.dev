@@ -1,8 +1,5 @@
 ---
-import { loadAllReleases, findByTag, isSemverTag } from "@utils/releases.ts";
-import Layout from "@layouts/DefaultPage.astro";
-import setup from "@data/setup.json" with { type: "json" };
-import ReleaseCard from "@components/releases/ReleaseCard.astro";
+import { getMinorGroupTag, isSemverTag, loadAllReleases } from "@utils/releases.ts";
 
 export async function getStaticPaths() {
   const all = await loadAllReleases();
@@ -13,28 +10,13 @@ const { params } = Astro;
 const tag = params.tag ?? "";
 
 if (!isSemverTag(tag)) {
-  return redirect("/releases/1/");
+  return Astro.redirect("/releases/");
 }
 
-const all = await loadAllReleases();
-const release = findByTag(all, tag);
+const groupTag = getMinorGroupTag(tag);
 
-const post = {
-  data: {
-    description: setup.description,
-    title: release ? `Release ${release.tag}` : `Release not found`,
-  },
-};
+if (!groupTag) {
+  return Astro.redirect("/releases/");
+}
 ---
-
-<Layout post={post}>
-  {
-    release ? (
-      <ReleaseCard release={release} />
-    ) : (
-      <p>
-        Release with tag <code>{tag}</code> not found. See <a href="/releases/1/">all releases</a>.
-      </p>
-    )
-  }
-</Layout>
+{Astro.redirect(`/releases/${groupTag}/`)}

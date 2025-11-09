@@ -15,7 +15,8 @@ cover:
   type: image
 options:
   head:
-    components: ['lite-youtube']
+    components:
+      - lite-youtube
 publisher: rework
 ---
 

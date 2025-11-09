@@ -1,7 +1,5 @@
 ---
-// @todo refactor and comment
 import type { CollectionEntry } from "astro:content";
-import { hasComponent } from "@utils/component.ts";
 import type { MarkdownInstance } from "astro";
 
 type BlogEntry =
@@ -16,31 +14,37 @@ export interface Props {
 
 const { post }: Props = Astro.props;
 
-const hasLiteYoutube = hasComponent(post?.data, "lite-youtube");
-const hasColorGrid = hasComponent(post?.data, "color-grid");
-const hasDatediff = hasComponent(post?.data, "date-diff");
+// read the components list from frontmatter in `options.head.components`
+function extractComponentsFromPost(p: BlogEntry | undefined): string[] | undefined {
+  const data = (p as { data?: unknown } | undefined)?.data;
+  if (!data || typeof data !== "object") return undefined;
+
+  const options = (data as Record<string, unknown>)["options"];
+  if (!options || typeof options !== "object") return undefined;
+
+  const head = (options as Record<string, unknown>)["head"];
+  if (!head || typeof head !== "object") return undefined;
+
+  const comps = (head as Record<string, unknown>)["components"];
+  if (!Array.isArray(comps)) return undefined;
+
+  // ensure all entries are strings
+  if (!comps.every((c) => typeof c === "string")) return undefined;
+
+  return comps as string[];
+}
+
+const components = extractComponentsFromPost(post);
+
+// lookup included components
+const wants = new Set(components ?? []);
+
+// maps component identifiers to their script source
+const SCRIPTS: Record<string, string> = {
+  "color-grid": "/vendor/color-grid.js",
+  "date-diff": "/vendor/datediff.js",
+  "lite-youtube": "/vendor/lite-youtube-embed/lite-yt-embed.js",
+};
 ---
 
-{
-  hasLiteYoutube && (
-    <>
-      <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" async is:inline />
-    </>
-  )
-}
-
-{
-  hasColorGrid && (
-    <>
-      <script src="/vendor/color-grid.js" async is:inline />
-    </>
-  )
-}
-
-{
-  hasDatediff && (
-    <>
-      <script src="/vendor/datediff.js" async is:inline />
-    </>
-  )
-}
+{Object.entries(SCRIPTS).map(([name, src]) => wants.has(name) && <script src={src} async is:inline />)}

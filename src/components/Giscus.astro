@@ -62,11 +62,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
   data-input-position={inputPosition}
 ></dnb-giscus>
 
-<script type="module">
-  import { createLogger } from "@utils/logger.ts";
-
-  const log = createLogger({ slug: "giscus" });
-
+<script>
   // Initialise namespacing for guards
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -124,7 +120,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
           const t = window?.theme?.getTheme?.();
           return typeof t === "string" && t ? t : "light";
         } catch (e) {
-          log.error("[Giscus] Theme detection failed, using light:", e);
+          console.error("[Giscus] Theme detection failed, using light:", e);
           return "light";
         }
       }
@@ -177,7 +173,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
           const requiredKeys = ["data-repo", "data-repo-id", "data-category", "data-category-id", "data-mapping"];
           const missing = requiredKeys.filter((k) => !attrs[k] || attrs[k].trim() === "");
           if (missing.length) {
-            log.error("[Giscus] Missing required attributes:", missing);
+            console.error("[Giscus] Missing required attributes:", missing);
             return;
           }
 
@@ -190,7 +186,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
           this.#initialised = true;
           this.setAttribute("data-initialised", "true");
         } catch (e) {
-          log.error("[Giscus] Failed to load Giscus client:", e);
+          console.error("[Giscus] Failed to load Giscus client:", e);
         }
       }
 
@@ -203,7 +199,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
           if (this.#initialised || this.hasAttribute("data-initialised")) return;
           DnbGiscus.observer.observe(this);
         } catch (e) {
-          log.error("[Giscus] connectedCallback error:", e);
+          console.error("[Giscus] connectedCallback error:", e);
           // Fallback: attempt immediate load if observer fails
           this.loadGiscus();
         }
@@ -219,7 +215,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
           // @ts-ignore
           DnbGiscus.observer?.unobserve(this);
         } catch (e) {
-          log.error("[Giscus] disconnectedCallback error:", e);
+          console.error("[Giscus] disconnectedCallback error:", e);
         }
       }
     }
@@ -236,7 +232,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
           DnbGiscus.observer.observe(n);
         });
       } catch (e) {
-        log.error("[Giscus] astro:page-load reattach failed:", e);
+        console.error("[Giscus] astro:page-load reattach failed:", e);
       }
     });
   }

@@ -505,7 +505,7 @@ async function getCachedOrGeneratePng(
       try {
         if (fs.existsSync(fileFsPath)) fs.unlinkSync(fileFsPath);
       } catch {
-        log.error({ fileFsPath }, "Failed to clean up partial OG image file");
+        console.log("error");
       }
       log.error({ err: e }, "Resvg/Sharp pipeline failed");
       throw e;

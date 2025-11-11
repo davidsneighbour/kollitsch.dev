@@ -11,7 +11,7 @@ import setup from "@data/setup.json" with { type: "json" };
 import navData from "@data/topnavigation.json" with { type: "json" };
 // utilities
 import { getHomepageUrl } from "@utils/content.ts";
-import { createLogger } from "@utils/logger.ts";
+import { log } from "@utils/debug.ts";
 import { findActive, isActive } from "@utils/navigation.ts";
 import { Icon } from "astro-icon/components";
 
@@ -19,8 +19,6 @@ const typedNavData = navData as Navigation;
 
 const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
-
-const log = createLogger({ slug: "top-navigation" });
 
 if (!activeItem && import.meta.env.DEV) {
   log.debug(`👉 no navigation item to activate for: ${pathname}`);
@@ -95,11 +93,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
   </nav>
 </header>
 
-<script type="module" data-astro-rerun data-default-theme={defaultTheme}>
-  import { createLogger } from "@utils/logger.ts";
-
-  const log = createLogger({ slug: "top-navigation" });
-
+<script is:inline data-astro-rerun data-default-theme={defaultTheme}>
   (() => {
     // ---- Shared utilities ----
     window.kdev = window.kdev || {};
@@ -146,7 +140,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
     // Intersection Observer for sticky logo fade
     function initStickyBrandObserver() {
       if (!placeholder || !stickyBrand) {
-        log.warn("Placeholder or sticky brand element not found.");
+        console.warn("Placeholder or sticky brand element not found.");
         return;
       }
       const observer = new IntersectionObserver(
@@ -239,7 +233,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
                 const next = this.themes[(realIdx + 1) % this.themes.length];
                 theme.setTheme(next);
               } catch (err) {
-                log.error("theme-selector - cycle error:", err);
+                console.error("theme-selector - cycle error:", err);
               }
             }
             updateIcon(t = theme.getTheme()) {

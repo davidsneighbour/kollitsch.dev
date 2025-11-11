@@ -10,9 +10,8 @@ import { getCollection } from 'astro:content';
 // Imports (@data → @utils → external)
 // ──────────────────────────────────────────────────────────────────────────────
 import setup from '@data/setup.json' with { type: 'json' };
-import { createLogger, refOf } from '@utils/logger.ts';
-
-const log = createLogger({ slug: 'tags' });
+import { log } from '@utils/debug.ts';
+import { refOf } from '@utils/logger.ts';
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Types
@@ -279,7 +278,7 @@ async function getTagIndex(): Promise<Map<string, CollectionEntry<'tags'>>> {
 export function resetTagCaches(): void {
   blogPostsPromise = null;
   tagIndexPromise = null;
-  log.info('[tags] caches cleared');
+  log.note('[tags] caches cleared');
 }
 
 // ──────────────────────────────────────────────────────────────────────────────

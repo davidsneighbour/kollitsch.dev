@@ -1,24 +1,25 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.4/schema.json",
   "assist": {
     "actions": {
       "source": {
+        // Keep imports sorted for predictable diffs.
+        // https://biomejs.dev/reference/configuration/assist/#assistactionsgroup
         "organizeImports": "on",
+        // Stabilise JSON object orderings in generated files.
+        // https://biomejs.dev/reference/configuration/assist/#assistactionsgroup
         "useSortedKeys": "on"
       }
-    },
-    "enabled": true
+    }
   },
   "css": {
-    "assist": {
-      "enabled": true
-    },
     "formatter": {
+      // Enable CSS formatting so Tailwind blocks stay tidy in Astro components.
+      // https://biomejs.dev/reference/configuration/css/#cssformatterenabled
       "enabled": true,
+      // Match the rest of the project which uses spaces for indentation.
+      // https://biomejs.dev/reference/configuration/css/#cssformatterindentstyle
       "indentStyle": "space"
-    },
-    "linter": {
-      "enabled": true
     },
     "parser": {
       // https://biomejs.dev/blog/biome-v2-3/#tailwind-v4-support
@@ -35,163 +36,37 @@
     ]
   },
   "formatter": {
-    "attributePosition": "auto",
-    "enabled": true,
-    "formatWithErrors": false,
-    "includes": [
-      "**",
-      "!**/build",
-      "!**/coverage"
-    ],
+    // Align indentation with the rest of the toolchain.
+    // https://biomejs.dev/reference/configuration/formatter/#indent-style
     "indentStyle": "space",
-    "indentWidth": 2,
-    // aligns with git behaviour on different OSes
+    // Use Git's checked-in line endings while still formatting cleanly on Windows.
+    // https://biomejs.dev/reference/configuration/formatter/#line-ending
     "lineEnding": "auto",
-    "lineWidth": 80,
+    // Delegate indentation width to .editorconfig to keep editors in sync.
+    // https://biomejs.dev/reference/configuration/formatter/#use-editorconfig
     "useEditorconfig": true
   },
   "html": {
-    "assist": {
-      "enabled": true
-    },
-    // required to support .astro files
+    // Required to support Astro components and other HTML superset files.
+    // https://biomejs.dev/reference/configuration/html/#htmlexperimentalfullsupportenabled
     "experimentalFullSupportEnabled": true,
     "formatter": {
+      // Enable HTML formatting so Astro/Svelte markup keeps our indentation rules.
+      // https://biomejs.dev/reference/configuration/html/#htmlformatterenabled
       "enabled": true,
       // will be phased out eventually - indent inside script tags
+      // https://biomejs.dev/reference/configuration/html/#htmlformatterindentscriptandstyle
       "indentScriptAndStyle": true
-    },
-    "linter": {
-      "enabled": true
     }
   },
-  "javascript": {
-    "formatter": {
-      "arrowParentheses": "always",
-      "attributePosition": "auto",
-      "bracketSameLine": false,
-      "bracketSpacing": true,
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "quoteStyle": "double",
-      "semicolons": "always",
-      "trailingCommas": "all"
-    },
-    "globals": [
-      "Astro",
-      "ENVIRONMENT",
-      "OffscreenCanvas",
-      "onpointerleave",
-      "onpointerenter",
-      "onemptied",
-      "onmouseenter",
-      "onkeypress",
-      "onloadeddata",
-      "oninvalid",
-      "onmouseup",
-      "onvolumechange",
-      "onpointerout",
-      "onstorage",
-      "onpause",
-      "onkeyup",
-      "onabort",
-      "onanimationstart",
-      "onafterprint",
-      "onblur",
-      "ondurationchange",
-      "onwaiting",
-      "ondeviceorientation",
-      "oncanplaythrough",
-      "onclose",
-      "onbeforeunload",
-      "onanimationend",
-      "onmouseleave",
-      "oncancel",
-      "onseeked",
-      "onpointerover",
-      "ondragleave",
-      "ongotpointercapture",
-      "onloadedmetadata",
-      "onpageshow",
-      "onplay",
-      "onunhandledrejection",
-      "onbeforeprint",
-      "onstalled",
-      "oncontextmenu",
-      "onreset",
-      "onpointercancel",
-      "onsubmit",
-      "ondrag",
-      "onload",
-      "onlostpointercapture",
-      "onsuspend",
-      "ondragstart",
-      "onpagehide",
-      "onmessage",
-      "location",
-      "onoffline",
-      "onappinstalled",
-      "onrejectionhandled",
-      "onunload",
-      "onwheel",
-      "onended",
-      "onmousedown",
-      "onpointerup",
-      "onmouseover",
-      "onkeydown",
-      "onclick",
-      "onfocus",
-      "onscroll",
-      "onresize",
-      "onsearch",
-      "ontoggle",
-      "oncanplay",
-      "onlanguagechange",
-      "onpointerdown",
-      "ondeviceorientationabsolute",
-      "ondragenter",
-      "onauxclick",
-      "onerror",
-      "onpointermove",
-      "onmousemove",
-      "ondevicemotion",
-      "ondrop",
-      "onhashchange",
-      "onanimationiteration",
-      "ondblclick",
-      "onratechange",
-      "ontransitionend",
-      "ondragend",
-      "onpopstate",
-      "onplaying",
-      "onchange",
-      "onselect",
-      "onbeforeinstallprompt",
-      "onmouseout",
-      "ontimeupdate",
-      "ondragover",
-      "oncuechange",
-      "onprogress",
-      "onloadstart",
-      "onseeking",
-      "oninput",
-      "onmessageerror",
-      "onmousewheel",
-      "ononline"
-    ]
-  },
   "linter": {
-    "domains": {
-      "project": "all",
-      "test": "all"
-    },
-    "enabled": true,
-    "includes": [
-      "**",
-      "!src/packages/linting/biome-setup.jsonc"
-    ],
-    // https://biomejs.dev/linter/javascript/rules/
+    // Skip the generated setup file while linting everything else.
+    // https://biomejs.dev/reference/configuration/linter/#linterincludes
+    "includes": ["**", "!src/packages/linting/biome-setup.jsonc"],
+    // Manage rule selection explicitly instead of relying on Biome's defaults.
+    // https://biomejs.dev/reference/configuration/linter/#linterrulesrecommended
     "rules": {
+      // Full rule catalogue: https://biomejs.dev/linter/javascript/rules/
       "complexity": {
         "noAdjacentSpacesInRegex": "error",
         "noExtraBooleanCast": "error",
@@ -258,57 +133,56 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/*.html"
-      ]
+      "includes": ["**/*.html"]
     },
     {
-      "includes": [
-        "**/*.js",
-        "**/*.ts"
-      ],
+      "includes": ["**/*.js", "**/*.ts"],
       "javascript": {
         "formatter": {
+          // Match the single-quote style we use in authored scripts.
+          // https://biomejs.dev/reference/configuration/javascript/#javascriptformatterquotestyle
           "quoteStyle": "single"
         }
       },
       "linter": {
         "rules": {
           "correctness": {
-            // required for Astro components
-            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            // Framework-provided helpers (for example Astro.glob) remain virtual at build time.
+            // https://biomejs.dev/linter/rules/no-undeclared-dependencies/
             "noUndeclaredDependencies": "off",
-            // required for Astro components
-            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            // Shared utilities mutate state that Astro templates consume after execution.
+            // https://biomejs.dev/linter/rules/no-unused-variables/
             "noUnusedVariables": "off"
           }
         }
       }
     },
     {
-      "includes": [
-        "**/*.properties"
-      ]
+      "includes": ["**/*.properties"]
     },
     {
-      "includes": [
-        "**/*.astro"
-      ],
+      "includes": ["**/*.astro"],
       "linter": {
         "rules": {
           "correctness": {
-            // required for Astro components
-            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            // Astro injects framework-level helpers that resolve at build time.
+            // https://biomejs.dev/linter/rules/no-undeclared-dependencies/
             "noUndeclaredDependencies": "off",
-            // required for Astro components
-            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            // Template variables can be consumed inside HTML sections after declaration.
+            // https://biomejs.dev/linter/rules/no-unused-variables/
             "noUnusedVariables": "off"
           },
           "nursery": {
+            // Astro's compiler resolves aliased imports and component-relative paths.
+            // https://biomejs.dev/linter/rules/no-unresolved-imports/
             "noUnresolvedImports": "off"
           },
           "style": {
+            // Astro frontmatter often mutates bindings that later feed into templates.
+            // https://biomejs.dev/linter/rules/use-const/
             "useConst": "off",
+            // Type-only imports break when Astro hoists modules during compilation.
+            // https://biomejs.dev/linter/rules/use-import-type/
             "useImportType": "off"
           }
         }
@@ -316,9 +190,17 @@
     }
   ],
   "vcs": {
+    // Explicit git client keeps CLI tools working in multi-VCS environments.
+    // https://biomejs.dev/reference/configuration/vcs/#vcsclientkind
     "clientKind": "git",
+    // Match the repository's protected branch for change detection.
+    // https://biomejs.dev/reference/configuration/vcs/#vcsdefaultbranch
     "defaultBranch": "main",
+    // Enable VCS integration so `biome check --staged` respects git state.
+    // https://biomejs.dev/reference/configuration/vcs/#vcsenabled
     "enabled": true,
+    // Reuse ignore files so transient artifacts stay out of lint runs.
+    // https://biomejs.dev/reference/configuration/vcs/#vcsuseignorefile
     "useIgnoreFile": true
   }
 }

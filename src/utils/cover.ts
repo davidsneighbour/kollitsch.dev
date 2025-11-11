@@ -75,6 +75,23 @@ export type CoverObject = ResolvedCoverImage | ResolvedCoverVideo;
  * - a structured front-matter cover object (image/video).
  *
  * Returns a discriminated union ready for rendering.
+ *
+ * @param cover - string | FMCover | undefined | null
+ * @param ctx - ResolveCoverContext (id + collection)
+ * @param opts - ResolveCoverOptions
+ * @returns CoverObject (ResolvedCoverImage | ResolvedCoverVideo)
+ *
+ * @example
+ * ```ts
+ * import { resolveCover } from '@utils/cover';
+ *
+ * const cover = resolveCover(post.frontmatter.cover, { id: 'blog/1', collection: 'blog' });
+ * if (cover.type === 'image') {
+ *   // render image
+ * } else {
+ *   // render video
+ * }
+ * ```
  */
 export function resolveCover(
   cover: string | FMCover | undefined | null,

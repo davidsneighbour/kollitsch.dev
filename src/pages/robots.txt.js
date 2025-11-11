@@ -1,4 +1,7 @@
 // @todo refactor
+import { createLogger } from '../utils/logger.ts';
+
+const log = createLogger({ slug: 'robots.txt' });
 const JSON_URL =
   'https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.json';
 
@@ -25,9 +28,7 @@ export async function GET(context) {
       dynamicEntries += `User-agent: ${userAgent}\nContent-Signal: search=yes, ai-train=no\nDisallow: /\n\n`;
     }
   } catch (err) {
-    console.error(
-      `[robots.txt] Error fetching or parsing JSON: ${err.message}`,
-    );
+    log.error(`[robots.txt] Error fetching or parsing JSON: ${err.message}`);
     dynamicEntries = '';
   }
 

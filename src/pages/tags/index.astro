@@ -9,6 +9,9 @@ import TagCard from "@components/article/Tag.astro";
 import TagList from "@components/TagList.astro";
 import Layout from "@layouts/DefaultPage.astro";
 import { getFeaturedTagEntries, getTags, type TagListItem } from "@utils/tags.ts";
+import { createLogger } from "@utils/logger.ts";
+
+const log = createLogger({ slug: "tags-page" });
 
 const post = {
   data: {
@@ -26,7 +29,7 @@ try {
     order: "weight-desc",
   });
 } catch (err) {
-  console.error("[test/tags] failed to load tags", err);
+  log.error("[test/tags] failed to load tags", err);
 }
 ---
 

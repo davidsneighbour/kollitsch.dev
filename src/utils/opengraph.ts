@@ -3,6 +3,9 @@ import path from 'node:path';
 import rawSetup from '@data/setup.json' with { type: 'json' };
 import { getImageMeta, hasImage } from '@utils/image-index.ts';
 import type { GetImageResult, ImageMetadata } from 'astro';
+import { createLogger } from './logger.ts';
+
+const log = createLogger({ slug: 'opengraph' });
 
 interface SetupConfig {
   images?: { opengraph?: string };
@@ -101,9 +104,7 @@ export function resolveImageKey(
   if (!candidate) candidate = defaultKey;
   if (!candidate) {
     if (warnOnFallback)
-      console.warn(
-        '[resolveImageKey] No imageName and no defaultKey configured.',
-      );
+      log.warn('[resolveImageKey] No imageName and no defaultKey configured.');
     return '';
   }
 
@@ -150,7 +151,7 @@ export function resolveImageKey(
   const fallback = normalizeToProjectKey(defaultKey);
 
   if (import.meta.env.DEV) {
-    console.warn(
+    log.warn(
       `[resolveImageKey] Missed all candidates for '${collection}:${entryId}'. Tried:\n` +
         tried
           .map((k) => ` - ${k} ${hasImage(k) ? '(found)' : '(missing)'}`)
@@ -229,7 +230,7 @@ export async function getOpenGraphImage(
     post.collection,
   );
   if (import.meta.env.DEV) {
-    console.log(`[opengraph] Resolved OG image for '${post.id}': ${key}`);
+    log.info(`[opengraph] Resolved OG image for '${post.id}': ${key}`);
   }
   return getOpenGraphImageFromKey(key, opts);
 }

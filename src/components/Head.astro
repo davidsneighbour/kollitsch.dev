@@ -107,7 +107,11 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
 <meta name="generator" content={Astro.generator} />
 
 {/* Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) */}
-<script is:inline>
+<script type="module">
+  import { createLogger } from "@utils/logger.ts";
+
+  const log = createLogger({ slug: "matomo" });
+
   (function () {
     if (typeof window === "undefined") return;
     try {
@@ -123,7 +127,7 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
       };
       document.addEventListener("astro:after-swap", onSwap);
     } catch (err) {
-      console.error("Matomo bootstrap failed:", err);
+      log.error("Matomo bootstrap failed:", err);
     }
   })();
 </script>

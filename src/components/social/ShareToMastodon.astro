@@ -11,7 +11,11 @@ const { post }: Props = Astro.props;
   data-url-template="https://{instance}/share?text={text}&url={url}"
 ></mastodon-share>
 
-<script>
+<script type="module">
+  import { createLogger } from "@utils/logger.ts";
+
+  const log = createLogger({ slug: "mastodon-share" });
+
   type MastodonShareI18n = {
     buttonLabel: string;
     modalTitle: string;
@@ -265,14 +269,14 @@ dialog.mstdn-modal {
       try {
         localStorage.setItem(LS_KEY, host);
       } catch (e) {
-        console.log(e);
+        log.warn("[mastodon-share] Failed to persist instance host", e);
       }
     }
     #clearStoredInstance(): void {
       try {
         localStorage.removeItem(LS_KEY);
       } catch (e) {
-        console.log(e);
+        log.warn("[mastodon-share] Failed to clear stored instance host", e);
       }
     }
 

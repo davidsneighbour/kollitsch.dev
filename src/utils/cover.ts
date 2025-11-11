@@ -2,6 +2,9 @@ import { getIndexedImage } from '@utils/image-index.ts';
 import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
+import { createLogger } from './logger.ts';
+
+const log = createLogger({ slug: 'cover' });
 
 export type CollectionName = 'blog' | 'tags';
 
@@ -134,8 +137,7 @@ export function resolveCover(
       return md.renderInline(title);
     } catch (error) {
       if (debug) {
-        // eslint-disable-next-line no-console
-        console.error('[resolveCover] Failed to render title inline:', error);
+        log.error('[resolveCover] Failed to render title inline:', error);
       }
       return title;
     }
@@ -153,8 +155,7 @@ export function resolveCover(
     const meta = imageEntry?.meta;
 
     if (src.startsWith('/src/') && !imageEntry && debug) {
-      // eslint-disable-next-line no-console
-      console.debug(`[resolveCover] Not indexed: ${src} (entry: ${ctx.id})`);
+      log.debug(`[resolveCover] Not indexed: ${src} (entry: ${ctx.id})`);
     }
 
     const result: ResolvedCoverImage = {

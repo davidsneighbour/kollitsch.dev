@@ -6,9 +6,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
  *
  * These tests mock:
  * - @utils/image-index.ts -> getIndexedImage
- * - @utils/images.ts -> stripMarkup
  * - @utils/opengraph.ts -> resolveImageKey
  * - markdown-it (constructor) -> mocked renderInline
+ *
+ * stripMarkup is no longer mocked — it's now exercised via the SUT (in `cover.ts`).
  *
  * Each test calls `vi.resetModules()` and `vi.doMock()` to ensure mocked behavior
  * is applied before the tested module is imported.
@@ -21,10 +22,6 @@ const makeImageIndexMock = (present: boolean) => {
     getIndexedImage: (src: string) =>
       present ? { meta: DEFAULT_INDEXED_META } : undefined,
   };
-};
-
-const imagesMock = {
-  stripMarkup: (s: string) => String(s).replace(/<[^>]*>/g, ''),
 };
 
 const defaultResolveImageKey = (
@@ -61,7 +58,6 @@ describe('resolveCover', () => {
   it('falls back when no cover (uses defaultKey and indexed meta)', async () => {
     // image indexed present
     vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
-    vi.doMock('@utils/images.ts', () => imagesMock);
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -90,7 +86,6 @@ describe('resolveCover', () => {
 
   it('string cover resolves remote url and has no meta', async () => {
     vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
-    vi.doMock('@utils/images.ts', () => imagesMock);
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -115,7 +110,6 @@ describe('resolveCover', () => {
 
   it('video cover returns video object with alt derived from title', async () => {
     vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
-    vi.doMock('@utils/images.ts', () => imagesMock);
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -145,7 +139,6 @@ describe('resolveCover', () => {
   it('image cover with title uses rendered HTML from MarkdownIt', async () => {
     // Mock MarkdownIt to return a formatted inline title
     vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
-    vi.doMock('@utils/images.ts', () => imagesMock);
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -175,7 +168,6 @@ describe('resolveCover', () => {
   it('when MarkdownIt.renderInline throws, title falls back to raw string', async () => {
     // Mock MarkdownIt to throw
     vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
-    vi.doMock('@utils/images.ts', () => imagesMock);
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -208,7 +200,6 @@ describe('resolveCover', () => {
 
   it('image cover alt overrides title', async () => {
     vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
-    vi.doMock('@utils/images.ts', () => imagesMock);
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -233,6 +224,31 @@ describe('resolveCover', () => {
     if (res.type === 'image') {
       expect(res.alt).toBe('Explicit alt');
       expect(res.title).toBe('<em>Some title</em>');
+    }
+  });
+
+  it('fallbackAlt markup is stripped by internal stripMarkup', async () => {
+    // This verifies stripMarkup (now internal to cover.ts) — not mocked.
+    // Mock only image-index/opengraph/markdown-it as usual.
+    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
+    vi.doMock('@utils/opengraph.ts', () => ({
+      resolveImageKey: defaultResolveImageKey,
+    }));
+    vi.doMock('markdown-it', () => ({
+      default: function MockMD() {
+        return { renderInline: (s: string) => `<p>${s}</p>` };
+      },
+    }));
+
+    const { resolveCover } = await import('./cover.ts');
+
+    const ctx = { collection: 'blog', id: 'blog/post-7' } as const;
+    const res = resolveCover(undefined, ctx, { fallbackAlt: '<em>Fancy</em>' });
+
+    expect(res.type).toBe('image');
+    if (res.type === 'image') {
+      // stripMarkup should remove HTML tags from the fallbackAlt
+      expect(res.alt).toBe('Fancy');
     }
   });
 });

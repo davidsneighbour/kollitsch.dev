@@ -1,5 +1,4 @@
 import { getIndexedImage } from '@utils/image-index.ts';
-import { stripMarkup } from '@utils/images.ts';
 import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
@@ -66,6 +65,25 @@ export interface ResolvedCoverVideo {
 }
 
 export type CoverObject = ResolvedCoverImage | ResolvedCoverVideo;
+
+/**
+ * Strip simple HTML tags from a string.
+ * Keeps inner text and trims whitespace.
+ * Intentionally small and dependency-free — used for front-matter alt/title sanitization.
+ *
+ * @param input - string possibly containing HTML markup
+ * @returns plain text with tags removed
+ *
+ * @example
+ * ```ts
+ * stripMarkup('<em>Fancy</em>') // -> 'Fancy'
+ * ```
+ */
+function stripMarkup(input: string): string {
+  return String(input)
+    .replace(/<[^>]*>/g, '')
+    .trim();
+}
 
 /**
  * Resolve a page cover from a 'cover' property.

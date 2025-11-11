@@ -192,6 +192,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
         const resolved = t === "auto" ? systemTheme : t;
 
         const codeTheme = resolved === "dark" ? "dracula" : "light-plus";
+        document.documentElement.classList.toggle("dark", resolved === "dark");
         document.documentElement.dataset.codeTheme = codeTheme;
         document.documentElement.dataset.theme = resolved;
         document.documentElement.style.colorScheme = resolved;

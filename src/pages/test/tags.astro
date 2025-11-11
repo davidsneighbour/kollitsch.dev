@@ -18,6 +18,9 @@ import TagList from "@components/TagList.astro";
 import Layout from "@layouts/ContentPageTest.astro";
 import type { TagListItem } from "@utils/tags.ts";
 import { getTags } from "@utils/tags.ts";
+import { createLogger } from "@utils/logger.ts";
+
+const log = createLogger({ slug: "test-tags-page" });
 
 let allTags: TagListItem[] = [];
 let allTagsWithCounts: TagListItem[] = [];
@@ -28,7 +31,7 @@ try {
   allTagsWithCounts = await getTags({ order: "count-desc", threshold: 1 });
   tagsOver5 = await getTags({ order: "count-desc", threshold: 6 });
 } catch (err) {
-  console.error("[test/tags] failed to load tags", err);
+  log.error("[test/tags] failed to load tags", err);
 }
 ---
 

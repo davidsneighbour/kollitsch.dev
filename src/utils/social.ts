@@ -35,6 +35,9 @@ main().catch((e) => {
 
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { createLogger } from './logger.ts';
+
+const log = createLogger({ slug: 'social' });
 
 type JsonObject = Record<string, unknown>;
 
@@ -218,7 +221,7 @@ export async function mergeSocial(
           `content/social.json references unknown id '${content.id}' not present in data/social.json`,
         );
       } else {
-        console.warn(
+        log.warn(
           `[mergeSocial] content-only id '${content.id}' not found in data/social.json; including content as-is.`,
         );
         out[content.id] = { ...(content as MergedSocialItem) };

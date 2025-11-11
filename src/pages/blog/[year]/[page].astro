@@ -4,6 +4,7 @@ import BlogHeading from "@components/archive/BlogHeading.astro";
 import Pagination from "@components/Pagination.astro";
 import Layout from "@layouts/DefaultPage.astro";
 import { paginateBlogPostsByYear } from "@utils/content.ts";
+import { createLogger } from "@utils/logger.ts";
 
 export async function getStaticPaths() {
   const pageSize = 12;
@@ -30,7 +31,10 @@ const pageSize = 12;
 
 const { posts, totalPages } = await paginateBlogPostsByYear(year, currentPage, pageSize);
 
-console.log(page);
+const log = createLogger({ slug: "blog-year-page" });
+if (import.meta.env.DEV) {
+  log.debug(`Loaded blog year page ${year} #${currentPage} (param: ${page})`);
+}
 ---
 
 <Layout title={`Blog posts from ${year} – Page ${currentPage}`}>

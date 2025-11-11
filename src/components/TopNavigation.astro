@@ -11,11 +11,13 @@ import setup from "@data/setup.json" with { type: "json" };
 import navData from "@data/topnavigation.json" with { type: "json" };
 // utilities
 import { getHomepageUrl } from "@utils/content.ts";
-import { log } from "@utils/debug.ts";
+import { createLogger } from "@utils/logger.ts";
 import { findActive, isActive } from "@utils/navigation.ts";
 import { Icon } from "astro-icon/components";
 
 const typedNavData = navData as Navigation;
+
+const log = createLogger({ slug: "TopNavigation" });
 
 const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);

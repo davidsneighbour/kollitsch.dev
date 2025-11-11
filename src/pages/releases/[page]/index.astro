@@ -1,5 +1,9 @@
 ---
-import type { APIContext } from "astro";
+import Heading from "@components/Heading.astro";
+import GroupNav from "@components/releases/GroupNav.astro";
+import ReleaseCard from "@components/releases/ReleaseCard.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import Layout from "@layouts/DefaultPage.astro";
 import type { Release } from "@utils/releases.ts";
 import {
   filterByMinorGroup,
@@ -9,18 +13,19 @@ import {
   loadAllReleases,
   paginate,
 } from "@utils/releases.ts";
-import Layout from "@layouts/DefaultPage.astro";
-import setup from "@data/setup.json";
-import ReleaseCard from "@components/releases/ReleaseCard.astro";
-import GroupNav from "@components/releases/GroupNav.astro";
+import type { APIContext } from "astro";
 
 export const PER_PAGE = getReleasesPerPage(100);
 
 export async function getStaticPaths() {
   const all = await loadAllReleases();
   const totalPages = Math.max(1, Math.ceil(all.length / PER_PAGE));
-  const pagePaths = Array.from({ length: totalPages }, (_, i) => ({ params: { page: String(i + 1) } }));
-  const groupPaths = getMinorGroups(all).map((group) => ({ params: { page: group } }));
+  const pagePaths = Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) },
+  }));
+  const groupPaths = getMinorGroups(all).map((group) => ({
+    params: { page: group },
+  }));
   return [...pagePaths, ...groupPaths];
 }
 
@@ -85,29 +90,25 @@ const showPagination = !isGroupView;
 ---
 
 <Layout post={post}>
-  <GroupNav
-    all={all}
-    currentGroup={currentGroup}
-  />
+  <GroupNav all={all} currentGroup={currentGroup} />
 
-  {heading ? <h1 class="mb-4 text-2xl font-semibold">{heading}</h1> : null}
+  {heading ? <Heading level={2}>{heading}</Heading> : null}
 
   <div class="flex flex-col gap-4">
     {releasesToDisplay.map((r) => <ReleaseCard release={r} />)}
   </div>
 
-  {showPagination ? (
-    <nav class="mt-6 flex justify-between">
-      {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
-      <span>{pageLabel}</span>
-      {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
-    </nav>
-  ) : (
-    <p class="mt-6 text-sm opacity-80">{pageLabel}</p>
-  )}
+  {
+    showPagination ? (
+      <nav class="mt-6 flex justify-between">
+        {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
+        <span>{pageLabel}</span>
+        {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
+      </nav>
+    ) : (
+      <p class="mt-6 text-sm opacity-80">{pageLabel}</p>
+    )
+  }
 
-  <GroupNav
-    all={all}
-    currentGroup={currentGroup}
-  />
+  <GroupNav all={all} currentGroup={currentGroup} />
 </Layout>

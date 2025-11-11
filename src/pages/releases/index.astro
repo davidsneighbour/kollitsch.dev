@@ -1,10 +1,11 @@
 ---
+import Heading from "@components/Heading.astro";
+import GroupNav from "@components/releases/GroupNav.astro";
+import ReleaseCard from "@components/releases/ReleaseCard.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import Layout from "@layouts/DefaultPage.astro";
 import type { Release } from "@utils/releases.ts";
 import { getReleasesPerPage, loadAllReleases, paginate } from "@utils/releases.ts";
-import Layout from "@layouts/DefaultPage.astro";
-import setup from "@data/setup.json";
-import ReleaseCard from "@components/releases/ReleaseCard.astro";
-import GroupNav from "@components/releases/GroupNav.astro";
 
 const all: Release[] = await loadAllReleases();
 const perPage = getReleasesPerPage(100);
@@ -22,12 +23,9 @@ const nextUrl = slice.page < slice.totalPages ? `/releases/${slice.page + 1}/` :
 ---
 
 <Layout post={post}>
-  <GroupNav
-    all={all}
-    currentGroup={null}
-  />
+  <GroupNav all={all} currentGroup={null} />
 
-  <h1 class="mb-4 text-2xl font-semibold">Latest releases</h1>
+  <Heading level={2}>Latest releases</Heading>
 
   <div class="flex flex-col gap-4">
     {slice.items.map((r) => <ReleaseCard release={r} />)}
@@ -35,12 +33,9 @@ const nextUrl = slice.page < slice.totalPages ? `/releases/${slice.page + 1}/` :
 
   <nav class="mt-6 flex justify-between">
     {prevUrl ? <a href={prevUrl}>Previous</a> : <span />}
-    <span>Page {slice.page} of {slice.totalPages}</span>
+    <span>Page {slice.page}of {slice.totalPages}</span>
     {nextUrl ? <a href={nextUrl}>Next</a> : <span />}
   </nav>
 
-  <GroupNav
-    all={all}
-    currentGroup={null}
-  />
+  <GroupNav all={all} currentGroup={null} />
 </Layout>

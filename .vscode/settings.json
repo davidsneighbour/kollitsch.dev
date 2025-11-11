@@ -96,7 +96,7 @@
   },
 
   // PLUGIN: indent rainbow setup
-  "indentRainbow.indicatorStyle": "classic",
+  "indentRainbow.indicatorStyle": "light",
 
   // PLUGIN: Tailwind CSS Intellisense
   "tailwindCSS.classAttributes": [

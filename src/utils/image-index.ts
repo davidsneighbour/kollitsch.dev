@@ -2,10 +2,13 @@
 // Do not import from browser code or hydrated islands.
 
 import type { ImageMetadata } from 'astro';
+import { createLogger } from './logger.ts';
 
 if (!import.meta.env.SSR) {
   throw new Error('image-index.ts must not run in the browser bundle.');
 }
+
+const log = createLogger({ slug: 'image-index' });
 
 export interface GeneratedImageRecord {
   readonly alt?: string;
@@ -133,7 +136,7 @@ function loadLocalImages(): Map<string, IndexedImage> {
   }
 
   if (import.meta.env.DEV) {
-    console.debug(`[image-index] Indexed ${images.size} images.`);
+    log.debug(`[image-index] Indexed ${images.size} images.`);
   }
 
   return images;

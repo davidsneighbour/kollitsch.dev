@@ -4,6 +4,9 @@ import { getCollection } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
 import siteinfo from '@data/setup.json' with { type: 'json' };
 import { blogSchema } from '../content.config.ts';
+import { createLogger } from './logger.ts';
+
+const log = createLogger({ slug: 'content' });
 
 type BlogPost = CollectionEntry<'blog'>;
 
@@ -62,7 +65,7 @@ export function createDefaultPost(input: unknown = {}): BlogPost['data'] {
     return parsed.data;
   }
 
-  console.warn(
+  log.warn(
     '✖ Blog post input invalid. Using fallback defaults.',
     parsed.error.format(),
   );

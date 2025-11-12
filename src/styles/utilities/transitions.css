@@ -1,11 +1,3 @@
 @layer utilities {
-  /* Default: no transitions */
-  :not([data-transitions]) * {
-    transition: none !important;
-  }
 
-  /* Enable transitions once attribute is present */
-  [data-transitions] * {
-    @apply transition-colors transition-discrete duration-350 ease-in-out;
-  }
 }

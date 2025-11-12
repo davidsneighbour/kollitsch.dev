@@ -31,11 +31,6 @@ const IS_DEV = import.meta.env.DEV;
 <html lang="en" class={htmlClasses} transition:name="root" transition:animate="initial">
   <head>
     <Head post={post} frontmatter={frontmatter} />
-    <script>
-      window.addEventListener("load", () => {
-        document.documentElement.setAttribute("data-transitions", "");
-      });
-    </script>
   </head>
   <body class={bodyClasses}>
     <slot />

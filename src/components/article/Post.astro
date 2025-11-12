@@ -16,6 +16,7 @@ import Meta from "@components/PostMeta.astro";
 import Prose from "@components/Prose.astro";
 import ShareSeparator from "@components/ShareSeparator.astro";
 import SchemaBlogPost from "@components/schema/BlogPosting.astro";
+import Komut from "@components/Komut.astro";
 
 const { post }: Props = Astro.props;
 ---
@@ -35,6 +36,7 @@ const { post }: Props = Astro.props;
     <Heading level={1} class="heading" link={`/blog/${post.id}/`} html={post.data.title} />
     <BreadCrumbs path={post.filePath ?? ""} />
     <Prose post={post} />
+    <Komut class="text-gray-600 inline-block align-middle" />
     <ShareSeparator title={post.data.title} description={post.data.description} />
     <PaginationSingle post={post} />
     <Giscus post={post} />

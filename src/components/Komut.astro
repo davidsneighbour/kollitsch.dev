@@ -1,0 +1,76 @@
+---
+/**
+ * Komut
+ *
+ * Inline decorative symbol used in content.
+ *
+ * Props:
+ * - class?: Additional Tailwind utility classes applied to the wrapper. @default ""
+ * - visual?: When true the symbol is decorative and hidden from assistive technologies. @default true
+ * - type?: "thai" | "default" to choose the glyph. @default "default"
+ * - as?: "span" | "div" to choose container tag. @default "span"
+ *
+ * Example:
+ *   <Komut class="text-sm mr-2" visual={true} type="thai" as="div" />
+ */
+export interface Props {
+  /**
+   * Additional utility classes to apply to the wrapper.
+   * @default ""
+   * @example "text-sm mr-2"
+   */
+  class?: string;
+
+  /**
+   * When true the symbol is decorative and hidden from assistive technologies.
+   * When false the symbol will be exposed to assistive technologies.
+   * @default true
+   * @example false
+   */
+  visual?: boolean;
+
+  /**
+   * Variant of the symbol to render.
+   * - "thai" renders the Thai komut symbol.
+   * - "default" renders the Khmer komut symbol.
+   * @default "default"
+   * @example "thai"
+   */
+  type?: KomutType;
+
+  /**
+   * The HTML tag to render as. Only "span" and "div" are allowed.
+   * @default "span"
+   * @example "div"
+   */
+  as?: Tag;
+}
+
+type Tag = "span" | "div";
+type KomutType = "thai" | "default";
+
+const { class: className, visual = true, type = "default", as: asTag = "span" } = Astro.props as Props;
+
+/* Default Tailwind utility group for the inline symbol */
+const defaultClasses = "is--komut";
+/* Merge incoming classes with defaults; include `select-none` only when the symbol is decorative */
+const classes = [visual ? "select-none" : null, defaultClasses, className].filter(Boolean).join(" ");
+
+/* Choose the displayed symbol based on the `type` prop */
+// @see https://symbl.cc/en/17DA/
+let komut = "៚";
+if (type === "thai") {
+  // @see https://symbl.cc/en/0E5B/
+  komut = "๛";
+}
+
+/* Normalize container tag (as: Tag) and ensure only "div" or "span" are used */
+/* Use the original asTag value to guard allowed tags at the boundary */
+const tag = asTag === "div" ? "div" : "span";
+/* Cast the normalized tag to the Tag type for rendering */
+const Tag = tag as Tag;
+---
+
+<Tag class={classes} aria-hidden={visual}>
+  {komut}
+</Tag>

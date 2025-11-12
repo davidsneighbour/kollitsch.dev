@@ -23,7 +23,7 @@ const config: FaviconOptions = {
   svgPath: resolve(__dirname, 'favicon.svg'),
 };
 
-async function generateFavicon({
+export async function generateFavicon({
   svgPath,
   pngPath,
   icoPath,
@@ -36,8 +36,6 @@ async function generateFavicon({
 
     const svgSource = await readFile(svgPath);
     const svgBuffer = Buffer.from(svgSource);
-
-    // PNG (single size)
     const pngBuffer = await sharp(svgBuffer, {
       density: 300,
     })
@@ -48,7 +46,6 @@ async function generateFavicon({
     await writeFile(pngPath, pngBuffer);
     console.log(`✓ PNG saved: ${pngPath} (${pngSize}x${pngSize})`);
 
-    // ICO (multi-size)
     const icoBuffers = await Promise.all(
       icoSizes.map((size) =>
         sharp(svgBuffer, {
@@ -68,11 +65,7 @@ async function generateFavicon({
   }
 }
 
-// Safe script execution
 const scriptArg = process.argv[1] ?? '';
-if (
-  import.meta.url.endsWith(scriptArg) ||
-  scriptArg.endsWith('regenerate.ts')
-) {
+if (import.meta.url.endsWith(scriptArg) || scriptArg.endsWith('regenerate.ts')) {
   generateFavicon(config);
 }

@@ -9,6 +9,7 @@
   "scripts": {
     "hooks:update": "simple-git-hooks",
     "postinstall": "run-p postinstall:*",
+    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
     "update": "wireit"
   },
   "wireit": {

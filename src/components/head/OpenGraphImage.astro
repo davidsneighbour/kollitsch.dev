@@ -34,6 +34,7 @@ import type { ResolveImageKeyOptions } from "@utils/opengraph.ts";
 import { resolveImageKey } from "@utils/opengraph.ts";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
+import type { CollectionEntry } from "astro:content";
 
 const TEMPLATE_VERSION = 1; // bump to invalidate everything after template/style changes
 
@@ -41,7 +42,8 @@ const log: Logger = createLogger({ slug: "OpenGraphImage" });
 
 type OgFormat = "png" | "jpeg" | "webp";
 
-export interface Props extends PostProp<"blog"> {
+export interface Props {
+  post: CollectionEntry<"blog">;
   /** Width of the generated image in px (default: 1200) */
   width?: number;
   /** Height of the generated image in px (default: 630; 675 for return 'twitter') */
@@ -61,43 +63,22 @@ export interface Props extends PostProp<"blog"> {
   format?: OgFormat;
 }
 
-const {
-  post,
-  width,
-  height,
-  return: returnType = "og",
-  alt = post.data.title,
-  format = "jpeg",
-} = Astro.props as Props;
+const { post, width, height, return: returnType = "og", alt = post.data.title, format = "jpeg" } = Astro.props as Props;
 
 function toInt(n: unknown, fallback: number): number {
   const v = Number(n);
   return Number.isFinite(v) ? Math.round(v) : fallback;
 }
 
-function assertDimensions(
-  w: number,
-  h: number,
-  log: Logger,
-  minW = 120,
-  minH = 120,
-  maxW = 4096,
-  maxH = 4096,
-): void {
+function assertDimensions(w: number, h: number, log: Logger, minW = 120, minH = 120, maxW = 4096, maxH = 4096): void {
   if (w < minW || h < minH || w > maxW || h > maxH) {
-    log.warn(
-      { h, maxH, maxW, minH, minW, w },
-      "Requested OG size outside recommended bounds; proceeding anyway",
-    );
+    log.warn({ h, maxH, maxW, minH, minW, w }, "Requested OG size outside recommended bounds; proceeding anyway");
   }
 }
 
 // keep exact defaults, no clamping
 const requestedWidth = toInt(width, 1200);
-const requestedHeight = toInt(
-  height ?? (returnType === "twitter" ? 675 : 630),
-  630,
-);
+const requestedHeight = toInt(height ?? (returnType === "twitter" ? 675 : 630), 630);
 
 // these are the exact canvas dimensions used throughout
 const finalWidth = requestedWidth;
@@ -121,10 +102,8 @@ const CONFIG = {
 } as const;
 
 /** Fonts (read once at module load) */
-const ChangaPath =
-  "./node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff";
-const Exo2Path =
-  "./node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff";
+const ChangaPath = "./node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff";
+const Exo2Path = "./node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff";
 
 let fontLoadError = false;
 const ChangaData = safeReadFile(ChangaPath);
@@ -169,8 +148,7 @@ function safeReadFile(filePath: string): Buffer | null {
  */
 function ensureCacheDir(): void {
   try {
-    if (!fs.existsSync(CONFIG.cacheDir))
-      fs.mkdirSync(CONFIG.cacheDir, { recursive: true });
+    if (!fs.existsSync(CONFIG.cacheDir)) fs.mkdirSync(CONFIG.cacheDir, { recursive: true });
   } catch (e) {
     log.error({ dir: CONFIG.cacheDir, err: e }, "ensureCacheDir failed");
     throw e;
@@ -202,10 +180,7 @@ function buildOgOptions(width: number, height: number): SatoriOptions {
 /**
  * In-flight de-duplication wrapper.
  */
-function getOrCreate(
-  key: string,
-  factory: () => Promise<OgImageResult>,
-): Promise<OgImageResult> {
+function getOrCreate(key: string, factory: () => Promise<OgImageResult>): Promise<OgImageResult> {
   const existing = inFlight.get(key);
   if (existing) return existing;
 
@@ -227,11 +202,7 @@ function getOrCreate(
  * Note: For remote URLs, Satori can fetch directly. Keeping remote URLs reduces memory
  * since we avoid embedding huge base64 buffers. For local files, resize via Sharp first.
  */
-async function toBackgroundImageSrc(
-  key: string,
-  targetW: number,
-  targetH: number,
-): Promise<string | null> {
+async function toBackgroundImageSrc(key: string, targetW: number, targetH: number): Promise<string | null> {
   if (!key) return null;
 
   const sharp = (await import("sharp")).default;
@@ -247,10 +218,7 @@ async function toBackgroundImageSrc(
       clearTimeout(t);
 
       if (!res.ok) {
-        log.warn(
-          { status: res.status, url: key },
-          "Remote background fetch failed",
-        );
+        log.warn({ status: res.status, url: key }, "Remote background fetch failed");
         return null;
       }
 
@@ -342,10 +310,7 @@ function mimeFor(format: OgFormat): OgImageResult["mime"] {
 /**
  * Transcode/optimize the rendered PNG into requested format with conservative memory.
  */
-async function optimizeWithSharp(
-  inputPngBuffer: Uint8Array,
-  format: OgFormat,
-): Promise<Buffer> {
+async function optimizeWithSharp(inputPngBuffer: Uint8Array, format: OgFormat): Promise<Buffer> {
   const sharp = (await import("sharp")).default;
   sharp.cache(CONFIG.sharp.cache);
   sharp.concurrency(CONFIG.sharp.concurrency);
@@ -364,9 +329,7 @@ async function optimizeWithSharp(
         })
         .toBuffer();
     case "jpeg":
-      return image
-        .jpeg({ mozjpeg: true, quality: CONFIG.sharp.jpegQuality })
-        .toBuffer();
+      return image.jpeg({ mozjpeg: true, quality: CONFIG.sharp.jpegQuality }).toBuffer();
     case "webp":
       return image.webp({ quality: CONFIG.sharp.webpQuality }).toBuffer();
   }
@@ -376,13 +339,7 @@ async function optimizeWithSharp(
  * Satori markup — background via CSS on the outer container (no absolute positioning).
  * Tailwind notes: whenever using leading-*, also set text-* on the same node or inline line-height.
  */
-function markup(
-  title: string,
-  postDateDisplay: string,
-  width: number,
-  height: number,
-  backgroundSrc: string,
-) {
+function markup(title: string, postDateDisplay: string, width: number, height: number, backgroundSrc: string) {
   const hasDate = postDateDisplay.trim().length > 0;
   const dateHtml = hasDate ? postDateDisplay : "";
 
@@ -391,42 +348,19 @@ function markup(
     return `url('${u.replace(/['\\\n\r]/g, (m) => (m === "'" ? "\\'" : "\\" + m))}')`;
   }
 
-  const bgDecl = backgroundSrc
-    ? `background-image:${cssUrl(backgroundSrc)};`
-    : "";
+  const bgDecl = backgroundSrc ? `background-image:${cssUrl(backgroundSrc)};` : "";
   const containerStyle = `width:${width}px;height:${height}px;${bgDecl}background-size:cover;background-position:center;background-repeat:no-repeat;`;
 
   return html`
-    <div
-      style="${containerStyle}"
-      tw="flex flex-col"
-    >
-      <div
-        style="font-family:'Exo 2',sans-serif;"
-        tw="flex flex-col w-full h-full bg-[#09090b]/40 text-white text-xl"
-      >
+    <div style="${containerStyle}" tw="flex flex-col">
+      <div style="font-family:'Exo 2',sans-serif;" tw="flex flex-col w-full h-full bg-[#09090b]/40 text-white text-xl">
         <div tw="flex flex-col flex-1 w-full p-10 text-xl">
-          <h1
-            style="font-family:'Changa';line-height:1"
-            tw="text-6xl text-white p-0 m-0"
-          >
-            ${title}
-          </h1>
+          <h1 style="font-family:'Changa';line-height:1" tw="text-6xl text-white p-0 m-0">${title}</h1>
           <p tw="p-0 m-0 text-xl">by ${setup.author.name}</p>
         </div>
         <div tw="flex items-center justify-between w-full p-10 text-xl">
-          <p
-            style="font-family:'Changa';line-height:1"
-            tw="text-4xl"
-          >
-            ${setup.title}
-          </p>
-          <p
-            tw="text-right text-xl"
-            style="line-height:1"
-          >
-            ${dateHtml}
-          </p>
+          <p style="font-family:'Changa';line-height:1" tw="text-4xl">${setup.title}</p>
+          <p tw="text-right text-xl" style="line-height:1">${dateHtml}</p>
         </div>
       </div>
     </div>
@@ -452,14 +386,7 @@ async function getCachedOrGeneratePng(
 
   ensureCacheDir();
 
-  const contentHash = generateContentHash(
-    title,
-    pubDate,
-    width,
-    height,
-    format,
-    imageKey,
-  );
+  const contentHash = generateContentHash(title, pubDate, width, height, format, imageKey);
   const fileName = `${contentHash}.${extFor(format)}`;
   const fileFsPath = path.join(CONFIG.cacheDir, fileName);
   const fileWebPath = `/og_image/${fileName}`;
@@ -476,10 +403,7 @@ async function getCachedOrGeneratePng(
     const endGen = log.timer("render");
     let svg: string;
     try {
-      svg = await satori(
-        markup(title, postDateDisplay, width, height, backgroundSrc),
-        buildOgOptions(width, height),
-      );
+      svg = await satori(markup(title, postDateDisplay, width, height, backgroundSrc), buildOgOptions(width, height));
       endGen("satori");
     } catch (e) {
       endGen("satori failed");
@@ -488,17 +412,12 @@ async function getCachedOrGeneratePng(
 
     const endPix = log.timer("pixels");
     try {
-      const renderedPng = new Resvg(svg, { fitTo: { mode: "original" } })
-        .render()
-        .asPng();
+      const renderedPng = new Resvg(svg, { fitTo: { mode: "original" } }).render().asPng();
       const optimized = await optimizeWithSharp(renderedPng, format);
       const tmp = `${fileFsPath}.tmp-${process.pid}-${Date.now()}`;
       fs.writeFileSync(tmp, optimized);
       fs.renameSync(tmp, fileFsPath);
-      log.debug(
-        { bytes: optimized.byteLength, fileFsPath },
-        "OG image written",
-      );
+      log.debug({ bytes: optimized.byteLength, fileFsPath }, "OG image written");
       endPix("resvg+sharp");
     } catch (e) {
       endPix("resvg+sharp failed");
@@ -543,32 +462,22 @@ function resolveCoverImageKey(): string {
 
   type CoverField = { type?: unknown; src?: unknown };
   const rawCover = post?.data?.cover;
-  const cover: CoverField =
-    rawCover && typeof rawCover === "object" ? (rawCover as CoverField) : {};
+  const cover: CoverField = rawCover && typeof rawCover === "object" ? (rawCover as CoverField) : {};
   const coverType = typeof cover.type === "string" ? cover.type : "image";
 
-  const defaultKeyMaybe =
-    (defaultArticleImageKey || ogFallbackKey || "").trim() || undefined;
+  const defaultKeyMaybe = (defaultArticleImageKey || ogFallbackKey || "").trim() || undefined;
 
-  const opts: ResolveImageKeyOptions =
-    defaultKeyMaybe !== undefined ? { defaultKey: defaultKeyMaybe } : {};
+  const opts: ResolveImageKeyOptions = defaultKeyMaybe !== undefined ? { defaultKey: defaultKeyMaybe } : {};
 
   const rawSrc = typeof cover.src === "string" ? cover.src : undefined;
-  return resolveImageKey(
-    coverType !== "video" ? rawSrc : undefined,
-    post.id,
-    post.collection,
-    opts,
-  );
+  return resolveImageKey(coverType !== "video" ? rawSrc : undefined, post.id, post.collection, opts);
 }
 
 const resolvedArticleImageKey = resolveCoverImageKey();
 
-const backgroundImageCandidates = [
-  resolvedArticleImageKey,
-  defaultArticleImageKey,
-  ogFallbackKey,
-].filter((v, i, a): v is string => Boolean(v) && a.indexOf(v) === i);
+const backgroundImageCandidates = [resolvedArticleImageKey, defaultArticleImageKey, ogFallbackKey].filter(
+  (v, i, a): v is string => Boolean(v) && a.indexOf(v) === i,
+);
 
 let backgroundImageSrc = "";
 let backgroundImageKey = backgroundImageCandidates[0] ?? "none";
@@ -583,10 +492,7 @@ for (const candidate of backgroundImageCandidates) {
 }
 
 if (!backgroundImageSrc) {
-  log.warn(
-    { candidates: backgroundImageCandidates },
-    "No background resolved; using solid overlay only",
-  );
+  log.warn({ candidates: backgroundImageCandidates }, "No background resolved; using solid overlay only");
   backgroundImageKey = "none";
 }
 
@@ -614,50 +520,22 @@ const ogimage = await getCachedOrGeneratePng(
 
           {returnType === "url" && abs}
 
-          {returnType === "tag" && (
-            <img
-              src={ogimage.src}
-              alt={altText}
-              width={finalWidth}
-              height={finalHeight}
-            />
-          )}
+          {returnType === "tag" && <img src={ogimage.src} alt={altText} width={finalWidth} height={finalHeight} />}
 
           {returnType === "twitter" && (
             <>
-              <meta
-                name="twitter:image"
-                content={abs}
-              />
-              <meta
-                name="twitter:image:alt"
-                content={altText}
-              />
+              <meta name="twitter:image" content={abs} />
+              <meta name="twitter:image:alt" content={altText} />
             </>
           )}
 
           {(returnType === "og" || !["path", "url", "tag", "twitter"].includes(returnType)) && (
             <>
-              <meta
-                property="og:image"
-                content={abs}
-              />
-              <meta
-                property="og:image:type"
-                content={ogimage.mime}
-              />
-              <meta
-                property="og:image:width"
-                content={finalWidth.toString()}
-              />
-              <meta
-                property="og:image:height"
-                content={finalHeight.toString()}
-              />
-              <meta
-                property="og:image:alt"
-                content={altText}
-              />
+              <meta property="og:image" content={abs} />
+              <meta property="og:image:type" content={ogimage.mime} />
+              <meta property="og:image:width" content={finalWidth.toString()} />
+              <meta property="og:image:height" content={finalHeight.toString()} />
+              <meta property="og:image:alt" content={altText} />
             </>
           )}
         </>

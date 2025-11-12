@@ -1,6 +1,9 @@
 ---
 // @todo refactor and comment
-export interface Props extends PostProp<"blog"> {}
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
 const { post }: Props = Astro.props;
 ---
 
@@ -8,8 +11,7 @@ const { post }: Props = Astro.props;
   data-title={post.data.title}
   data-description={post.data.description}
   data-url={post.permalink}
-  data-url-template="https://{instance}/share?text={text}&url={url}"
-></mastodon-share>
+  data-url-template="https://{instance}/share?text={text}&url={url}"></mastodon-share>
 
 <script>
   type MastodonShareI18n = {
@@ -33,51 +35,47 @@ const { post }: Props = Astro.props;
   //   i18n?: Partial<MastodonShareI18n> | null;
   // };
 
-  const LS_KEY = 'mastodon_instance_url';
+  const LS_KEY = "mastodon_instance_url";
 
   const DEFAULT_I18N: MastodonShareI18n = {
-    buttonLabel: 'Share to Mastodon',
-    cancel: 'Cancel',
-    clearSaved: 'Clear saved instance',
-    errorInvalidInstance: 'Please enter a valid instance URL (https://mas.to).',
-    errorMissingConfig:
-      'Missing title, description or URL. Please fix your page setup.',
-    errorOpenWindow:
-      'Could not open the share window. Please allow popups for this site.',
-    instanceLabel: 'Your instance URL',
-    instancePlaceholder: 'e.g. https://mas.to',
-    modalTitle: 'Share to Mastodon',
-    post: 'Post',
+    buttonLabel: "Share to Mastodon",
+    cancel: "Cancel",
+    clearSaved: "Clear saved instance",
+    errorInvalidInstance: "Please enter a valid instance URL (https://mas.to).",
+    errorMissingConfig: "Missing title, description or URL. Please fix your page setup.",
+    errorOpenWindow: "Could not open the share window. Please allow popups for this site.",
+    instanceLabel: "Your instance URL",
+    instancePlaceholder: "e.g. https://mas.to",
+    modalTitle: "Share to Mastodon",
+    post: "Post",
   };
 
   // data-i18n-modalTitle="Share to Mastodon"
   // data-i18n-saveAndShare="Save & Share"
   // data-i18n-errorInvalidInstance="Please enter a valid instance URL (https://example.tld)."
 
-  const DEFAULT_URL_TEMPLATE = 'https://{instance}/share?text={text}&url={url}';
+  const DEFAULT_URL_TEMPLATE = "https://{instance}/share?text={text}&url={url}";
 
   // Helpers
 
   function sanitizeInstance(raw: string): string {
     const trimmed = String(raw).trim();
-    if (!trimmed) throw new Error('empty');
-    const prefixed = /^https?:\/\//i.test(trimmed)
-      ? trimmed
-      : `https://${trimmed}`;
+    if (!trimmed) throw new Error("empty");
+    const prefixed = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
     let u: URL;
     try {
       u = new URL(prefixed);
     } catch {
-      throw new Error('invalid');
+      throw new Error("invalid");
     }
-    u.protocol = 'https:';
-    u.username = '';
-    u.password = '';
-    u.pathname = '';
-    u.search = '';
-    u.hash = '';
-    const host = u.host.replace(/\/+$/, '');
-    if (!host) throw new Error('invalid');
+    u.protocol = "https:";
+    u.username = "";
+    u.password = "";
+    u.pathname = "";
+    u.search = "";
+    u.hash = "";
+    const host = u.host.replace(/\/+$/, "");
+    if (!host) throw new Error("invalid");
     return host;
   }
 
@@ -88,30 +86,27 @@ const { post }: Props = Astro.props;
     description: string,
     permalink: string,
   ): string {
-    const text = `${title}${description ? ' - ' + description : ''}`;
+    const text = `${title}${description ? " - " + description : ""}`;
     const encodedText = encodeURIComponent(text);
     const encodedUrl = encodeURIComponent(permalink);
-    return template
-      .replace('{instance}', instanceHost)
-      .replace('{text}', encodedText)
-      .replace('{url}', encodedUrl);
+    return template.replace("{instance}", instanceHost).replace("{text}", encodedText).replace("{url}", encodedUrl);
   }
 
   function safeOpen(href: string): boolean {
-    const win = window.open(href, '_blank', 'noopener,noreferrer');
+    const win = window.open(href, "_blank", "noopener,noreferrer");
     return !!win;
   }
 
   // Read attributes and normalize to null where absent
   function getAttr(el: Element, name: string): string | null {
     const v = el.getAttribute(name);
-    return v !== null && v.trim() !== '' ? v : null;
+    return v !== null && v.trim() !== "" ? v : null;
   }
 
   function parseI18n(el: HTMLElement): MastodonShareI18n {
     let i18n: MastodonShareI18n = { ...DEFAULT_I18N };
 
-    const raw = getAttr(el, 'data-i18n');
+    const raw = getAttr(el, "data-i18n");
     if (raw) {
       try {
         const parsed = JSON.parse(raw) as Partial<MastodonShareI18n>;
@@ -120,9 +115,7 @@ const { post }: Props = Astro.props;
         // ignore bad JSON
       }
     }
-    for (const key of Object.keys(
-      DEFAULT_I18N,
-    ) as (keyof MastodonShareI18n)[]) {
+    for (const key of Object.keys(DEFAULT_I18N) as (keyof MastodonShareI18n)[]) {
       const attr = getAttr(el, `data-i18n-${key}`);
       if (attr !== null) i18n[key] = attr;
     }
@@ -136,11 +129,10 @@ const { post }: Props = Astro.props;
     urlTemplate: string;
     i18n: MastodonShareI18n;
   } {
-    const title = getAttr(el, 'data-title');
-    const description = getAttr(el, 'data-description');
-    const permalink = getAttr(el, 'data-url');
-    const urlTemplate =
-      getAttr(el, 'data-url-template') ?? DEFAULT_URL_TEMPLATE;
+    const title = getAttr(el, "data-title");
+    const description = getAttr(el, "data-description");
+    const permalink = getAttr(el, "data-url");
+    const urlTemplate = getAttr(el, "data-url-template") ?? DEFAULT_URL_TEMPLATE;
     const i18n = parseI18n(el);
 
     return { description, i18n, permalink, title, urlTemplate };
@@ -225,26 +217,19 @@ dialog.mstdn-modal {
     #cfg: ReturnType<typeof readConfig>;
 
     static get observedAttributes(): string[] {
-      return [
-        'data-title',
-        'data-description',
-        'data-url',
-        'data-url-template',
-        'data-i18n',
-      ];
+      return ["data-title", "data-description", "data-url", "data-url-template", "data-i18n"];
     }
 
     constructor() {
       super();
-      this.#root = this.attachShadow({ mode: 'open' });
+      this.#root = this.attachShadow({ mode: "open" });
       this.#cfg = readConfig(this);
       this.#render();
     }
 
     connectedCallback(): void {
       const stored = this.#getStoredInstance();
-      if (stored !== null && this.#input)
-        this.#input.value = `https://${stored}`;
+      if (stored !== null && this.#input) this.#input.value = `https://${stored}`;
     }
 
     attributeChangedCallback(): void {
@@ -256,7 +241,7 @@ dialog.mstdn-modal {
     #getStoredInstance(): string | null {
       try {
         const v = localStorage.getItem(LS_KEY);
-        return v !== null && v.trim() !== '' ? v.trim() : null;
+        return v !== null && v.trim() !== "" ? v.trim() : null;
       } catch {
         return null;
       }
@@ -278,7 +263,7 @@ dialog.mstdn-modal {
 
     #openModal = (): void => {
       if (!this.#dialog) return;
-      if (this.#error) this.#error.textContent = '';
+      if (this.#error) this.#error.textContent = "";
       this.#dialog.showModal();
       this.#input?.focus();
     };
@@ -290,8 +275,8 @@ dialog.mstdn-modal {
     #onClear = (ev: Event): void => {
       ev.preventDefault();
       this.#clearStoredInstance();
-      if (this.#input) this.#input.value = '';
-      if (this.#error) this.#error.textContent = '';
+      if (this.#input) this.#input.value = "";
+      if (this.#error) this.#error.textContent = "";
     };
 
     #onSubmit = (ev: Event): void => {
@@ -311,7 +296,7 @@ dialog.mstdn-modal {
       // Validate instance
       let instanceHost: string;
       try {
-        if (raw === null) throw new Error('empty');
+        if (raw === null) throw new Error("empty");
         instanceHost = sanitizeInstance(raw);
       } catch {
         if (this.#error) this.#error.textContent = i18n.errorInvalidInstance;
@@ -320,13 +305,7 @@ dialog.mstdn-modal {
 
       this.#setStoredInstance(instanceHost);
 
-      const href = buildShareUrl(
-        urlTemplate,
-        instanceHost,
-        title,
-        description,
-        permalink,
-      );
+      const href = buildShareUrl(urlTemplate, instanceHost, title, description, permalink);
 
       if (safeOpen(href)) {
         this.#closeModal();
@@ -338,90 +317,90 @@ dialog.mstdn-modal {
     #render(): void {
       const { i18n, title, description, permalink } = this.#cfg;
 
-      this.#root.innerHTML = '';
-      const style = document.createElement('style');
+      this.#root.innerHTML = "";
+      const style = document.createElement("style");
       style.textContent = styles;
 
-      const btn = document.createElement('button');
-      btn.className = 'mstdn-share';
-      btn.type = 'button';
+      const btn = document.createElement("button");
+      btn.className = "mstdn-share";
+      btn.type = "button";
       btn.textContent = i18n.buttonLabel;
-      btn.addEventListener('click', this.#openModal);
-      btn.setAttribute('part', 'button');
+      btn.addEventListener("click", this.#openModal);
+      btn.setAttribute("part", "button");
 
-      const dialog = document.createElement('dialog');
-      dialog.className = 'mstdn-modal';
-      dialog.setAttribute('part', 'dialog');
+      const dialog = document.createElement("dialog");
+      dialog.className = "mstdn-modal";
+      dialog.setAttribute("part", "dialog");
       // Close on backdrop click
-      dialog.addEventListener('click', (e: MouseEvent) => {
+      dialog.addEventListener("click", (e: MouseEvent) => {
         if (e.target === dialog) dialog.close();
       });
 
-      const card = document.createElement('div');
-      card.className = 'mstdn-card';
-      card.setAttribute('part', 'card');
+      const card = document.createElement("div");
+      card.className = "mstdn-card";
+      card.setAttribute("part", "card");
 
-      const h = document.createElement('h2');
-      h.className = 'mstdn-header';
+      const h = document.createElement("h2");
+      h.className = "mstdn-header";
       h.textContent = i18n.modalTitle;
-      h.setAttribute('part', 'header');
+      h.setAttribute("part", "header");
 
       // Preview
-      const preview = document.createElement('ul');
-      preview.className = 'mstdn-preview';
-      preview.setAttribute('part', 'preview');
+      const preview = document.createElement("ul");
+      preview.className = "mstdn-preview";
+      preview.setAttribute("part", "preview");
       preview.innerHTML = `
       <li part="preview-item"><strong part="preview-label">Title:</strong> <span part="preview-value">${title ?? "<span style='color:#b00020'>[missing]</span>"}</span></li>
       <li part="preview-item"><strong part="preview-label">Description:</strong> <span part="preview-value">${description ?? "<span style='color:#b00020'>[missing]</span>"}</span></li>
       <li part="preview-item"><strong part="preview-label">Link:</strong> <span part="preview-value">${permalink ?? "<span style='color:#b00020'>[missing]</span>"}</span></li>
     `;
 
-      const row = document.createElement('div');
-      row.className = 'mstdn-row';
-      row.setAttribute('part', 'row');
+      const row = document.createElement("div");
+      row.className = "mstdn-row";
+      row.setAttribute("part", "row");
 
-      const label = document.createElement('label');
+      const label = document.createElement("label");
       label.textContent = i18n.instanceLabel;
-      label.setAttribute('part', 'label');
+      label.setAttribute("part", "label");
 
-      const input = document.createElement('input');
-      input.className = 'mstdn-input';
-      input.type = 'url';
+      const input = document.createElement("input");
+      input.className = "mstdn-input";
+      input.type = "url";
       input.placeholder = i18n.instancePlaceholder;
-      input.setAttribute('part', 'input');
-      input.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === 'Enter') this.#onSubmit(e);
+      input.setAttribute("part", "input");
+      input.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Enter") this.#onSubmit(e);
       });
 
-      const error = document.createElement('p');
-      error.className = 'mstdn-error';
-      error.setAttribute('aria-live', 'polite');
-      error.setAttribute('part', 'error');
+      const error = document.createElement("p");
+      error.className = "mstdn-error";
+      error.setAttribute("aria-live", "polite");
+      error.setAttribute("part", "error");
 
-      const actions = document.createElement('div');
-      actions.className = 'mstdn-actions';
-      actions.setAttribute('part', 'actions');
+      const actions = document.createElement("div");
+      actions.className = "mstdn-actions";
+      actions.setAttribute("part", "actions");
 
-      const postBtn = document.createElement('button');
-      postBtn.className = 'mstdn-primary';
-      postBtn.type = 'button';
+      const postBtn = document.createElement("button");
+      postBtn.className = "mstdn-primary";
+      postBtn.type = "button";
       postBtn.textContent = i18n.post;
-      postBtn.addEventListener('click', this.#onSubmit);
-      postBtn.setAttribute('part', 'button button-primary');
+      postBtn.addEventListener("click", this.#onSubmit);
+      postBtn.setAttribute("part", "button button-primary");
 
-      const cancel = document.createElement('button');
-      cancel.className = 'mstdn-secondary';
-      cancel.type = 'button';
+      const cancel = document.createElement("button");
+      cancel.className = "mstdn-secondary";
+      cancel.type = "button";
       cancel.textContent = i18n.cancel;
-      cancel.addEventListener('click', this.#closeModal);
-      cancel.setAttribute('part', 'button button-secondary');
+      cancel.addEventListener("click", this.#closeModal);
+      cancel.setAttribute("part", "button button-secondary");
 
-      const clear = document.createElement('a');
-      clear.href = '#';
-      clear.className = 'mstdn-clear';
+      const clear = document.createElement("a");
+      clear.href = "#";
+      clear.className = "mstdn-clear";
       clear.textContent = i18n.clearSaved;
-      clear.addEventListener('click', this.#onClear);
-      clear.setAttribute('part', 'link link-clear');
+      clear.addEventListener("click", this.#onClear);
+      clear.setAttribute("part", "link link-clear");
 
       const actionsFrag = document.createDocumentFragment();
       actionsFrag.append(postBtn, cancel, clear);
@@ -439,7 +418,7 @@ dialog.mstdn-modal {
     }
   }
 
-  if (!customElements.get('mastodon-share')) {
-    customElements.define('mastodon-share', MastodonShare);
+  if (!customElements.get("mastodon-share")) {
+    customElements.define("mastodon-share", MastodonShare);
   }
 </script>

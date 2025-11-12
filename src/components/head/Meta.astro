@@ -2,25 +2,24 @@
 // @todo refactor and comment
 import metaDataRaw from "@data/meta.json" with { type: "json" };
 
+/**
+ * MetaConfig interface defines the structure for meta tags configuration.
+ * @see data/meta.json
+ */
+type MetaConfig = {
+  name: Record<string, string>;
+  httpEquiv: Record<string, string>;
+  link: Array<{
+    rel: string;
+    href: string;
+  }>;
+};
+
 const metaData = metaDataRaw as MetaConfig;
 
 export interface Props {}
 ---
 
-{
-  Object.entries(metaData.name).map(([name, content]) => (
-    <meta
-      name={name}
-      content={content}
-    />
-  ))
-}
-{
-  Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
-    <meta
-      http-equiv={httpEquiv}
-      content={content}
-    />
-  ))
-}
-{metaData.link.map(item => <link {...item} />)}
+{Object.entries(metaData.name).map(([name, content]) => <meta name={name} content={content} />)}
+{Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => <meta http-equiv={httpEquiv} content={content} />)}
+{metaData.link.map((item) => <link {...item} />)}

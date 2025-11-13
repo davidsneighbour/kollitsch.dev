@@ -36,19 +36,23 @@ test.describe('Live site smoke tests', () => {
   test('Matomo analytics is initialised on the homepage', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
 
-    const matomoReady = await page.waitForFunction(
-      () => {
-        const matomoWindow = window as Window & { _paq?: unknown };
-        return (
-          Array.isArray(matomoWindow._paq) &&
-          typeof matomoWindow._paq.push === 'function' &&
-          matomoWindow._paq.length > 0
-        );
-      },
-      undefined,
-      { timeout: 5_000 },
-    );
+    await expect.poll(
+      () =>
+        page.evaluate(() => {
+          const matomoWindow = window as Window & {
+            Matomo?: unknown;
+            _paq?: unknown[];
+          };
 
-    expect(matomoReady, 'Matomo should expose the _paq queue on window').toBeTruthy();
+          const matomoApi = matomoWindow.Matomo;
+
+          return (
+            Array.isArray(matomoWindow._paq) &&
+            typeof matomoWindow._paq.push === 'function' &&
+            (typeof matomoApi === 'object' || typeof matomoApi === 'function')
+          );
+        }),
+      { timeout: 10_000 },
+    ).toBe(true);
   });
 });

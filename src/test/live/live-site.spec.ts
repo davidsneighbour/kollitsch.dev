@@ -36,23 +36,25 @@ test.describe('Live site smoke tests', () => {
   test('Matomo analytics is initialised on the homepage', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
 
-    await expect.poll(
-      () =>
-        page.evaluate(() => {
-          const matomoWindow = window as Window & {
-            Matomo?: unknown;
-            _paq?: unknown[];
-          };
+    await expect
+      .poll(
+        () =>
+          page.evaluate(() => {
+            const matomoWindow = window as Window & {
+              Matomo?: { getAsyncTracker?: unknown };
+              Piwik?: { getAsyncTracker?: unknown };
+              _paq?: { push?: unknown };
+            };
 
-          const matomoApi = matomoWindow.Matomo;
+            const queueReady = typeof matomoWindow._paq?.push === 'function';
+            const trackerReady =
+              typeof matomoWindow.Matomo?.getAsyncTracker === 'function' ||
+              typeof matomoWindow.Piwik?.getAsyncTracker === 'function';
 
-          return (
-            Array.isArray(matomoWindow._paq) &&
-            typeof matomoWindow._paq.push === 'function' &&
-            (typeof matomoApi === 'object' || typeof matomoApi === 'function')
-          );
+            return queueReady && trackerReady;
         }),
-      { timeout: 10_000 },
-    ).toBe(true);
+        { timeout: 10_000 },
+      )
+      .toBeTruthy();
   });
 });

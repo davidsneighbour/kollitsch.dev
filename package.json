@@ -156,6 +156,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
+    "test:live": "playwright test --config=playwright.live.config.ts",
     "test:postinstall": "npx playwright install",
     "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
     "update": "wireit",

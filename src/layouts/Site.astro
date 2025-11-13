@@ -31,11 +31,11 @@ const IS_DEV = import.meta.env.DEV;
 <html lang="en" class={htmlClasses} transition:name="root" transition:animate="initial">
   <head>
     <Head post={post} frontmatter={frontmatter} />
+    {import.meta.env.DEV && <link rel="stylesheet" href="/src/styles/auditor.css" />}
   </head>
   <body class={bodyClasses}>
     <slot />
     <Breakpoints />
-    {import.meta.env.DEV && <link rel="stylesheet" href="/src/styles/audit.css" />}
     <SchemaWebSite />
     <script is:inline define:vars={{ IS_DEV }}>
       (function () {

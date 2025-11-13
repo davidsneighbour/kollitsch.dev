@@ -5,12 +5,17 @@ import Breakpoints from "@components/development/Breakpoints.astro";
 import Head from "@components/Head.astro";
 import SchemaWebSite from "@components/schema/WebSite.astro";
 import WebComponents from "@components/footer/WebComponents.astro";
-// import setup from "@data/setup.json" with { type: "json" };
+import setup from "@data/setup.json" with { type: "json" };
 
 const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astro.props;
 
 // html classes
-const htmlClasses = ["scroll-smooth", "bg-zinc-50 dark:bg-zinc-950", "h-full", extraHtmlClasses]
+const htmlClasses = [
+  "h-full",
+  "scroll-smooth", // smooth scrolling fall back for Lenis.js
+  "bg-zinc-50 dark:bg-zinc-950",
+  extraHtmlClasses,
+]
   .filter(Boolean)
   .join(" ");
 
@@ -37,7 +42,7 @@ const IS_DEV = import.meta.env.DEV;
     <slot />
     <Breakpoints />
     <SchemaWebSite />
-    <script is:inline define:vars={{ IS_DEV }}>
+    <script is:inline define:vars={{ IS_DEV, setup }}>
       (function () {
         if (typeof window === "undefined" || IS_DEV) return;
 

@@ -30,7 +30,7 @@
     "@tailwindcss/vite": "4.1.17",
     "@tailwindplus/elements": "1.0.18",
     "@types/he": "1.2.3",
-    "astro": "5.15.4",
+    "astro": "5.15.6",
     "astro-icon": "1.1.5",
     "glob": "11.0.3",
     "gray-matter": "4.0.3",

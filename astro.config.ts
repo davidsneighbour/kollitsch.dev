@@ -1,11 +1,8 @@
-// astro.config.ts
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import toml from '@fbraem/rollup-plugin-toml';
-import yaml from '@rollup/plugin-yaml';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
@@ -14,6 +11,10 @@ import devtoolsJson from 'vite-plugin-devtools-json';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
 import redirects from './src/data/redirects.json' assert { type: 'json' };
+
+// env variables are not automatically loaded
+// import { loadEnv } from "vite";
+// const { SECRET_PASSWORD } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const crontabTmLanguage = JSON.parse(
@@ -70,6 +71,7 @@ const watchExtraFiles = () => ({
 
 // https://astro.build/config
 export default defineConfig({
+  // @ts-expect-error - env variable typing not recognized
   compressHTML: import.meta.env.PROD,
   redirects: redirects,
   experimental: {
@@ -145,8 +147,6 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
-      toml(),
-      yaml(),
       devtoolsJson(),
       watchExtraFiles(),
     ],

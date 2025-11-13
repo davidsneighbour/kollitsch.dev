@@ -17,8 +17,6 @@
     "typescript": "5.9.3"
   },
   "devDependencies": {
-    "@fbraem/rollup-plugin-toml": "0.0.4",
-    "@rollup/plugin-yaml": "4.1.2",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.34",
     "astro-expressive-code": "0.41.3",

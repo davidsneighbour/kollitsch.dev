@@ -143,5 +143,6 @@
 
   // PLUGIN: indent rainbow
   "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "accessibility.openChatEditedFiles": true,
 
 }

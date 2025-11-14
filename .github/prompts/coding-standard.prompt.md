@@ -10,7 +10,7 @@ Use the existing syntax of the files to establish the standards and style guides
 
 ## Rules and Configuration
 
-Below is a set of quasi-configuration `boolean` and `string[]` variables. Conditions for handling `true`, or other values for each variable are under the level two heading `## Variable and Parameter Configuration Conditions`.
+Below is a set of quasi-configuration `boolean` and `string[]` variables. Conditions for handling `true`, or other values for each variable are under the level two heading `## Variable and Parameter Configuration Conditions`. 
 
 Parameters for the prompt have a text definition. There is one required parameter **`${fileName}`**, and several optional parameters **`${folderName}`**, **`${instructions}`**, and any **`[configVariableAsParameter]`**.
 
@@ -222,7 +222,7 @@ Depending on the programming language, for each link in list below, run `#fetch 
 
     # Style Guide
 
-    This document defines the style and conventions used in this project.
+    This document defines the style and conventions used in this project.  
     All contributions should follow these rules unless otherwise noted.
 
     ## 1. General Code Style
@@ -310,7 +310,7 @@ Depending on the programming language, for each link in list below, run `#fetch 
 
     ## 8. Changes to This Guide
 
-    Style evolves.
+    Style evolves.  
     Propose improvements by opening an issue or sending a patch updating this document.
     ```
 ```

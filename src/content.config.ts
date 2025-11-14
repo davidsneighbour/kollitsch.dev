@@ -37,7 +37,7 @@ const cover = z
         quality: z.number().min(1).max(100).optional().default(75),
       })
       .optional(),
-    src: z.string(),
+    src: z.string().optional(),
     title: z.string().optional(),
     type: z.enum(['image', 'video']).optional().default('image'),
     unsplash: z
@@ -59,6 +59,11 @@ const cover = z
         youtube: z.string(),
       })
       .optional(),
+  })
+  // Require src when type is image
+  .refine((c) => (c.type === 'image' ? c.src != null && c.src.trim().length > 0 : true), {
+    message: 'cover.src is required when cover.type is "image"',
+    path: ['src'],
   })
   // Require video metadata when type is video
   .refine((c) => (c.type === 'video' ? c.video != null : true), {

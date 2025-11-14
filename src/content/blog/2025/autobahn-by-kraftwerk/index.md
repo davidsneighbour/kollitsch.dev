@@ -12,7 +12,6 @@ tags:
   - music
   - kraftwerk
 cover:
-  src: ""
   type: video
   classes: "scale-2"
   video: 

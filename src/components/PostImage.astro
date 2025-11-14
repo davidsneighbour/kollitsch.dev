@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import { getTailwindSizes } from "@utils/tailwind.ts";
 import type { ImageMetadata } from "astro";
 import { resolveCover } from "@/src/utils/cover";
+import Youtube from "@components/Youtube.astro";
 
 export interface Props {
   post: CollectionEntry<"blog" | "tags">;
@@ -76,9 +77,8 @@ let imageMeta: ImageMetadata | null =
     <figure class="group">
       <!-- @todo use Youtube component here -->
       <div class={`aspect-2/1 overflow-hidden ${classes}`}>
-        <lite-youtube videoid={cover.video.youtube} class="z-20 mb-4 h-auto w-full max-w-full" />
+        <Youtube label={cover.video.title} video={cover.video.youtube} classes="z-20 mb-4 h-auto w-full max-w-full" />
       </div>
-      <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" type="module" is:inline />
       <figcaption class="text-sm italic @sm:px-2 @md:px-3 @lg:px-4">{cover.video.title}</figcaption>
     </figure>
   ) : cover.type === "image" ? (

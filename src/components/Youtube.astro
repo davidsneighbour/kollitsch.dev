@@ -28,6 +28,8 @@ export interface Props {
    * @example "Rick Astley - Never Gonna Give You Up"
    */
   label: string;
+
+  classes?: string;
 }
 
 /**
@@ -49,7 +51,7 @@ function parseYouTubeId(raw: unknown): string | null {
   return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : null;
 }
 
-const { video, label }: Props = Astro.props;
+const { video, label, classes }: Props = Astro.props;
 
 const videoId = parseYouTubeId(video);
 
@@ -59,7 +61,7 @@ if (!videoId) {
 }
 ---
 
-<lite-youtube videoid={videoId} playlabel={label}></lite-youtube>
+<lite-youtube videoid={videoId} playlabel={label} class={classes}></lite-youtube>
 <script>
   // @ts-nocheck
   /**

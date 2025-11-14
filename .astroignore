@@ -1,7 +1,0 @@
-scratch
-documentation
-.frontmatter
-frontmatter.json
-
-# ignore testing files in production
-src/pages/test/

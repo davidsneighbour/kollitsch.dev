@@ -1,10 +1,16 @@
+import setup from '@data/setup.json' with { type: 'json' };
 import { getIndexedImage } from '@utils/image-index.ts';
 import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
 import { createLogger } from './logger.ts';
+import {
+  sanitizeYouTubePlayerParams,
+  type YouTubePlayerParams,
+} from './youtube.ts';
 
 const log = createLogger({ slug: 'cover' });
+const defaultVideoParams = sanitizeYouTubePlayerParams(setup?.video?.params);
 
 export type CollectionName = 'blog' | 'tags';
 
@@ -30,6 +36,7 @@ export interface CoverVideo {
   title: string;
   youtube: string;
   artist?: string;
+  params?: YouTubePlayerParams;
 }
 
 /** Front-matter 'cover' for blog/tags (image variant) */
@@ -192,6 +199,12 @@ export function resolveCover(
   if (cover.type === 'video' && (cover as FMCoverVideo).video) {
     const v = (cover as FMCoverVideo).video!;
     const alt = stripMarkup(v.title || fallbackAlt);
+    const overrideParams = sanitizeYouTubePlayerParams(v.params);
+    const mergedParams = {
+      ...defaultVideoParams,
+      ...overrideParams,
+    } satisfies YouTubePlayerParams;
+    const hasParams = Object.keys(mergedParams).length > 0;
     const result: ResolvedCoverVideo = {
       alt,
       type: 'video',
@@ -199,6 +212,7 @@ export function resolveCover(
         title: v.title,
         youtube: v.youtube,
         ...(v.artist ? { artist: v.artist } : {}),
+        ...(hasParams ? { params: mergedParams } : {}),
       },
     };
     return result;

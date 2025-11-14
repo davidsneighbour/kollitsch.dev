@@ -77,7 +77,12 @@ let imageMeta: ImageMetadata | null =
     <figure class="group">
       <!-- @todo use Youtube component here -->
       <div class={`aspect-2/1 overflow-hidden ${classes}`}>
-        <Youtube label={cover.video.title} video={cover.video.youtube} classes="z-20 mb-4 h-auto w-full max-w-full" />
+        <Youtube
+          label={cover.video.title}
+          video={cover.video.youtube}
+          classes="z-20 mb-4 h-auto w-full max-w-full"
+          params={cover.video.params}
+        />
       </div>
       <figcaption class="text-sm italic @sm:px-2 @md:px-3 @lg:px-4">{cover.video.title}</figcaption>
     </figure>

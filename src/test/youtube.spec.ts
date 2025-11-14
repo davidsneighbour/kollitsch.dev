@@ -12,4 +12,9 @@ test('lite-youtube element is rendered with correct attributes', async ({
     'playlabel',
     '[Live Video] 이날치 LEENALCHI - 새타령 Bird (정년이 OST)',
   );
+  await expect(yt.first()).toHaveAttribute(
+    'params',
+    'color=white&controls=0&modestbranding=1&rel=0&start=30',
+  );
+  await expect(yt.nth(1)).toHaveAttribute('params', 'modestbranding=1&rel=0');
 });

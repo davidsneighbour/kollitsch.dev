@@ -51,12 +51,22 @@
     // https://biomejs.dev/reference/configuration/html/#htmlexperimentalfullsupportenabled
     "experimentalFullSupportEnabled": true,
     "formatter": {
+      // Keep element attributes split across multiple lines for readability.
+      // https://biomejs.dev/reference/configuration/html/#htmlformatterattributeposition
+      "attributePosition": "multiline",
       // Enable HTML formatting so Astro/Svelte markup keeps our indentation rules.
       // https://biomejs.dev/reference/configuration/html/#htmlformatterenabled
       "enabled": true,
       // will be phased out eventually - indent inside script tags
       // https://biomejs.dev/reference/configuration/html/#htmlformatterindentscriptandstyle
       "indentScriptAndStyle": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      // Match the single-quote style we use in authored scripts.
+      // https://biomejs.dev/reference/configuration/javascript/#javascriptformatterquotestyle
+      "quoteStyle": "single"
     }
   },
   "linter": {
@@ -137,13 +147,6 @@
     },
     {
       "includes": ["**/*.js", "**/*.ts"],
-      "javascript": {
-        "formatter": {
-          // Match the single-quote style we use in authored scripts.
-          // https://biomejs.dev/reference/configuration/javascript/#javascriptformatterquotestyle
-          "quoteStyle": "single"
-        }
-      },
       "linter": {
         "rules": {
           "correctness": {
@@ -164,10 +167,12 @@
       "includes": ["**/*.astro"],
       "linter": {
         "rules": {
+          // https://biomejs.dev/internals/language-support/#linting-html-ish-languages
           "correctness": {
             // Astro injects framework-level helpers that resolve at build time.
             // https://biomejs.dev/linter/rules/no-undeclared-dependencies/
             "noUndeclaredDependencies": "off",
+            "noUnusedImports": "off",
             // Template variables can be consumed inside HTML sections after declaration.
             // https://biomejs.dev/linter/rules/no-unused-variables/
             "noUnusedVariables": "off"

@@ -1,6 +1,6 @@
 ---
 import ArticleCard from "@components/content/article/Preview.astro";
-import BlogHeading from "@components/archive/BlogHeading.astro";
+import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
 import Pagination from "@components/layout/navigation/Pagination.astro";
 import Layout from "@layouts/DefaultPage.astro";
 import { paginateBlogPostsByYear } from "@utils/content.ts";
@@ -47,9 +47,5 @@ if (import.meta.env.DEV) {
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {posts.map((post) => <ArticleCard post={post} />)}
   </div>
-  <Pagination
-    currentPage={currentPage}
-    totalPages={totalPages}
-    basePath={`/blog/${year}/`}
-  />
+  <Pagination currentPage={currentPage} totalPages={totalPages} basePath={`/blog/${year}/`} />
 </Layout>

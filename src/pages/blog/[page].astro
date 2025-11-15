@@ -21,7 +21,7 @@ export async function getStaticPaths() {
   }));
 }
 
-import BlogHeading from "@components/archive/BlogHeading.astro";
+import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
 import setup from "@data/setup.json" with { type: "json" };
 
 const limit = setup.listpages?.limit || 12;
@@ -40,12 +40,7 @@ const post = {
 ---
 
 <Layout post={post}>
-  <BlogHeading
-    title="Blog"
-    posts={posts}
-    level={1}
-    description="A collection of articles, tutorials, and updates."
-  />
+  <BlogHeading title="Blog" posts={posts} level={1} description="A collection of articles, tutorials, and updates." />
 
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {
@@ -54,9 +49,5 @@ const post = {
       })
     }
   </div>
-  <Pagination
-    basePath="/blog"
-    currentPage={pageNumber}
-    totalPages={totalPages}
-  />
+  <Pagination basePath="/blog" currentPage={pageNumber} totalPages={totalPages} />
 </Layout>

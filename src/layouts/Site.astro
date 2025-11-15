@@ -1,10 +1,10 @@
 ---
 import "@styles/theme.css";
 
-import Breakpoints from "@components/development/Breakpoints.astro";
-import Head from "@components/Head.astro";
-import SchemaWebSite from "@components/schema/WebSite.astro";
-import WebComponents from "@components/footer/WebComponents.astro";
+import Breakpoints from "@components/devtools/Breakpoints.astro";
+import Head from "@components/layout/Head.astro";
+import SchemaWebSite from "@components/seo/schema/WebSite.astro";
+import WebComponents from "@components/layout/footer/WebComponents.astro";
 import setup from "@data/setup.json" with { type: "json" };
 
 const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astro.props;

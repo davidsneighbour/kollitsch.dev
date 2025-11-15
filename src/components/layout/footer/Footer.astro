@@ -2,10 +2,10 @@
 // @todo refactor and comment
 import { Image } from "astro:assets";
 import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
-import Heading from "@components/Heading.astro";
-import IconLink from "@components/IconLink.astro";
-import Link from "@components/Link.astro";
-import type { SocialMediaItem } from "@components/social/SocialLinks.astro";
+import Heading from "@components/content/typography/Heading.astro";
+import IconLink from "@components/shared/links/IconLink.astro";
+import Link from "@components/shared/links/Link.astro";
+import type { SocialMediaItem } from "@components/features/social/SocialLinks.astro";
 import rawSocialMediaData from "@content/social.json" with { type: "json" };
 import rawNavData from "@data/footernavigation.json" with { type: "json" };
 import setup from "@data/setup.json" with { type: "json" };
@@ -24,7 +24,7 @@ const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 
-import SocialLinks from "@components/social/SocialLinks.astro";
+import SocialLinks from "@components/features/social/SocialLinks.astro";
 import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();

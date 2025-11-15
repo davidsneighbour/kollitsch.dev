@@ -4,9 +4,9 @@
  * tag cloud and featured tags list
  */
 import { type CollectionEntry } from "astro:content";
-import Heading from "@components/Heading.astro";
-import TagCard from "@components/article/Tag.astro";
-import TagList from "@components/TagList.astro";
+import Heading from "@components/content/typography/Heading.astro";
+import TagCard from "@components/content/article/Tag.astro";
+import TagList from "@components/content/taxonomy/TagList.astro";
 import Layout from "@layouts/DefaultPage.astro";
 import { getFeaturedTagEntries, getTags, type TagListItem } from "@utils/tags.ts";
 import { createLogger } from "@utils/logger.ts";

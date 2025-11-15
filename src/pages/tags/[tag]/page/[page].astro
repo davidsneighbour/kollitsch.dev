@@ -4,7 +4,7 @@
 import { getCollection, getEntry } from "astro:content";
 import ArticleCard from "@components/content/article/Preview.astro";
 import Pagination from "@components/layout/navigation/Pagination.astro";
-import TagIntro from "@components/TagIntro.astro";
+import TagIntro from "@components/content/taxonomy/TagIntro.astro";
 import Layout from "@layouts/DefaultPage.astro";
 
 const { tag, page } = Astro.params;
@@ -75,10 +75,5 @@ const post = {
     {paginatedPosts.map((post) => <ArticleCard post={post} />)}
   </div>
 
-  <Pagination
-    basePath={`/tags/${tag}/`}
-    currentPage={currentPage}
-    totalPages={totalPages}
-    pagingPartial="/page/"
-  />
+  <Pagination basePath={`/tags/${tag}/`} currentPage={currentPage} totalPages={totalPages} pagingPartial="/page/" />
 </Layout>

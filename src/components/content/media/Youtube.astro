@@ -38,7 +38,7 @@ export interface Props {
    * Accessible label for the video.
    * @default ""
    * @example "Rick Astley - Never Gonna Give You Up"
-  */
+   */
   label: string;
 
   classes?: string;
@@ -86,12 +86,7 @@ if (!videoId) {
 }
 ---
 
-<lite-youtube
-  videoid={videoId}
-  playlabel={label}
-  class={classes}
-  params={paramsAttribute}
-></lite-youtube>
+<lite-youtube videoid={videoId} playlabel={label} class={classes} params={paramsAttribute}></lite-youtube>
 <script>
   // @ts-nocheck
   /**
@@ -317,7 +312,7 @@ if (!videoId) {
     upgradePosterImage() {
       // Defer to reduce network contention.
       setTimeout(() => {
-        const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`;
+        const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/maxresdefault.webp`;
         const img = new Image();
         img.fetchPriority = "low"; // low priority to reduce network contention
         img.referrerpolicy = "origin"; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940

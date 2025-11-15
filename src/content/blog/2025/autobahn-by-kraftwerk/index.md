@@ -13,11 +13,12 @@ tags:
   - kraftwerk
 cover:
   type: video
-  classes: "scale-2"
   video: 
+    class: "scale-2"
     youtube: aFfW0DCoGBg
     artist: Kraftwerk
-    start: 14s
+    params:
+      start: 15
     title: Autobahn by Kraftwerk (Psychedelic Short Film)
 ---
 

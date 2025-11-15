@@ -59,6 +59,11 @@
       "indentScriptAndStyle": true
     }
   },
+  "javascript": {
+    "globals": [
+      "YT" // YouTube IFrame API global
+    ]
+  },
   "linter": {
     // Skip the generated setup file while linting everything else.
     // https://biomejs.dev/reference/configuration/linter/#linterincludes

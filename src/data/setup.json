@@ -63,6 +63,12 @@
   "timezone": "Asia/Bangkok",
   "title": "KOLLITSCH.dev*",
   "url": "https://kollitsch.dev/",
+  "video": {
+    "params": {
+      "modestbranding": 1,
+      "rel": 0
+    }
+  },
   "search": {
     "instance": "https://analytics.dnbhub.xyz/",
     "siteId": "1",

@@ -3,6 +3,7 @@ import { defineCollection, z } from 'astro:content';
 import { youTubeLoader } from '@ascorbic/youtube-loader';
 import setup from '@data/setup.json' with { type: 'json' };
 import { buildOptionsSchema } from '@utils/schema.ts';
+import { youtubePlayerParamsSchema } from '@utils/youtube.ts';
 
 import { file, glob } from 'astro/loaders';
 // for github releases loader
@@ -57,6 +58,7 @@ const cover = z
         artist: z.string().optional(),
         title: z.string(),
         youtube: z.string(),
+        params: youtubePlayerParamsSchema.optional(),
       })
       .optional(),
   })

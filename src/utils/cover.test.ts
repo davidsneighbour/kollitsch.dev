@@ -133,6 +133,76 @@ describe('resolveCover', () => {
       expect(res.video.title).toBe('My Video');
       expect(res.video.youtube).toBe('abcd123');
       expect(res.alt).toBe('My Video');
+      expect(res.video.params).toEqual({ modestbranding: '1', rel: '0' });
+    }
+  });
+
+  it('video cover merges params with defaults', async () => {
+    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
+    vi.doMock('@utils/opengraph.ts', () => ({
+      resolveImageKey: defaultResolveImageKey,
+    }));
+    vi.doMock('markdown-it', () => ({
+      default: function MockMD() {
+        return { renderInline: (s: string) => s };
+      },
+    }));
+
+    const { resolveCover } = await import('./cover.ts');
+
+    const ctx = { collection: 'blog', id: 'blog/post-params' } as const;
+    const cover = {
+      type: 'video',
+      video: {
+        artist: 'Artist',
+        params: { color: 'white', rel: 1 },
+        title: 'My Video',
+        youtube: 'abcd123',
+      },
+    } as const;
+
+    const res = resolveCover(cover, ctx, {});
+    expect(res.type).toBe('video');
+    if (res.type === 'video') {
+      expect(res.video.params).toEqual({
+        color: 'white',
+        modestbranding: '1',
+        rel: '1',
+      });
+    }
+  });
+
+  it('omits params when defaults and overrides are empty', async () => {
+    vi.doMock('@data/setup.json', () => ({
+      default: {},
+    }));
+    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
+    vi.doMock('@utils/opengraph.ts', () => ({
+      resolveImageKey: defaultResolveImageKey,
+    }));
+    vi.doMock('markdown-it', () => ({
+      default: function MockMD() {
+        return { renderInline: (s: string) => s };
+      },
+    }));
+
+    const { resolveCover } = await import('./cover.ts');
+
+    const ctx = { collection: 'blog', id: 'blog/post-no-params' } as const;
+    const cover = {
+      type: 'video',
+      video: {
+        artist: 'Artist',
+        params: {},
+        title: 'My Video',
+        youtube: 'abcd123',
+      },
+    } as const;
+
+    const res = resolveCover(cover, ctx, {});
+    expect(res.type).toBe('video');
+    if (res.type === 'video') {
+      expect(res.video.params).toBeUndefined();
     }
   });
 

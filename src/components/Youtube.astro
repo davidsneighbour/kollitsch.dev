@@ -1,17 +1,29 @@
 ---
+import setup from "@data/setup.json" with { type: "json" };
+import {
+  sanitizeYouTubePlayerParams,
+  serializeYouTubePlayerParams,
+  type YouTubePlayerParamsInput,
+} from "@utils/youtube.ts";
+
 /**
  * YouTube embed component.
  *
  * Props:
  * - video: YouTube video id (exact 11-character id).
  * - label: Accessible label used by the embed.
+ * - params: Optional record of YouTube iframe player parameters.
  *
  * Defaults:
- * - None (both props are required)
+ * - None (video and label are required)
  *
  * Example:
  * ```astro
- * <Youtube video="dQw4w9WgXcQ" label="Rick Astley - Never Gonna Give You Up" />
+ * <Youtube
+ *   video="dQw4w9WgXcQ"
+ *   label="Rick Astley - Never Gonna Give You Up"
+ *   params={{ controls: 0, rel: 0 }}
+ * />
  * ```
  */
 export interface Props {
@@ -26,10 +38,13 @@ export interface Props {
    * Accessible label for the video.
    * @default ""
    * @example "Rick Astley - Never Gonna Give You Up"
-   */
+  */
   label: string;
 
   classes?: string;
+
+  /** Optional iframe parameters to customise playback. */
+  params?: YouTubePlayerParamsInput;
 }
 
 /**
@@ -51,7 +66,17 @@ function parseYouTubeId(raw: unknown): string | null {
   return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : null;
 }
 
-const { video, label, classes }: Props = Astro.props;
+const defaultParams = sanitizeYouTubePlayerParams(setup?.video?.params);
+
+const { video, label, classes, params }: Props = Astro.props;
+
+const propParams = sanitizeYouTubePlayerParams(params);
+const mergedParams = {
+  ...defaultParams,
+  ...propParams,
+};
+const serializedParams = serializeYouTubePlayerParams(mergedParams);
+const paramsAttribute = serializedParams.length > 0 ? serializedParams : undefined;
 
 const videoId = parseYouTubeId(video);
 
@@ -61,7 +86,12 @@ if (!videoId) {
 }
 ---
 
-<lite-youtube videoid={videoId} playlabel={label} class={classes}></lite-youtube>
+<lite-youtube
+  videoid={videoId}
+  playlabel={label}
+  class={classes}
+  params={paramsAttribute}
+></lite-youtube>
 <script>
   // @ts-nocheck
   /**
@@ -241,9 +271,9 @@ if (!videoId) {
     }
 
     getParams() {
-      const params = new URLSearchParams(this.getAttribute("params") || []);
-      params.append("autoplay", "1");
-      params.append("playsinline", "1");
+      const params = new URLSearchParams(this.getAttribute("params") ?? "");
+      params.set("autoplay", "1");
+      params.set("playsinline", "1");
       return params;
     }
 

@@ -3,10 +3,10 @@ import type { CollectionEntry } from "astro:content";
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
 // individual head components
-import Favicon from "@components/head/Favicon.astro";
-import FontsPreload from "@components/head/FontsPreload.astro";
-import Meta from "@components/head/Meta.astro";
-import OpenGraph from "@components/head/OpenGraph.astro";
+import Favicon from "@components/layout/head/Favicon.astro";
+import FontsPreload from "@components/layout/head/FontsPreload.astro";
+import Meta from "@components/layout/head/Meta.astro";
+import OpenGraph from "@components/layout/head/OpenGraph.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import { createDefaultPost, resolvePostTitle } from "@utils/content.ts";
 // @todo refactor and comment

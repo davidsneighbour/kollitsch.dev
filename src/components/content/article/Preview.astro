@@ -1,9 +1,9 @@
 ---
 // @todo refactor and comment
 import type { CollectionEntry } from "astro:content";
-import Button from "@components/content/Button.astro";
-import PostImage from "@components/PostImage.astro";
-import SchemaBlogPost from "@components/schema/BlogPosting.astro";
+import Button from "@components/shared/elements/Button.astro";
+import PostImage from "@components/content/media/PostImage.astro";
+import SchemaBlogPost from "@components/seo/schema/BlogPosting.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;

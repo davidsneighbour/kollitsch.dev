@@ -8,7 +8,7 @@
     },
     {
       "slug": "giscus",
-      "import": "@components/Giscus.astro",
+      "import": "@components/features/comments/Giscus.astro",
       "enabled": true
     }
   ]

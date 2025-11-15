@@ -4,16 +4,16 @@
 
 import type { CollectionEntry } from "astro:content";
 
-import BreadCrumbs from "@components/content/BreadCrumbs.astro";
-import Giscus from "@components/Giscus.astro";
-import Heading from "@components/Heading.astro";
-import PaginationSingle from "@components/PaginationSingle.astro";
-import PostImage from "@components/PostImage.astro";
-import Meta from "@components/PostMeta.astro";
-import Prose from "@components/Prose.astro";
-import ShareSeparator from "@components/ShareSeparator.astro";
-import SchemaBlogPost from "@components/schema/BlogPosting.astro";
-import Komut from "@components/Komut.astro";
+import BreadCrumbs from "@components/content/navigation/BreadCrumbs.astro";
+import Giscus from "@components/features/comments/Giscus.astro";
+import Heading from "@components/content/typography/Heading.astro";
+import PaginationSingle from "@components/layout/navigation/PaginationSingle.astro";
+import PostImage from "@components/content/media/PostImage.astro";
+import Meta from "@components/content/metadata/PostMeta.astro";
+import Prose from "@components/content/typography/Prose.astro";
+import ShareSeparator from "@components/content/metadata/ShareSeparator.astro";
+import SchemaBlogPost from "@components/seo/schema/BlogPosting.astro";
+import Komut from "@components/content/typography/Komut.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;

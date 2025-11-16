@@ -8,8 +8,17 @@ test.describe('Live site smoke tests', () => {
     expect(response.ok()).toBeTruthy();
 
     const body = await response.text();
-    expect(body).toMatch(/User-agent:\s*\*/i);
-    expect(body).toMatch(/Sitemap:\s*https?:\/\//i);
+    expect(body, 'contains a User-agent line').toMatch(/User-agent:\s*\*/i);
+    expect(body, 'contains a Sitemap line').toMatch(/Sitemap:\s*https?:\/\//i);
+
+    // Check that only one Sitemap line exists
+    const sitemapLines = body.split('\n').filter(line => /^Sitemap:/i.test(line.trim()));
+    expect(sitemapLines, 'contains exactly one Sitemap line').toHaveLength(1);
+
+    // Check that Sitemap is the last meaningful statement
+    const trimmedBody = body.trim();
+    const lastLine = trimmedBody.split('\n').filter(line => line.trim()).pop();
+    expect(lastLine, 'Sitemap line is the last statement').toMatch(/^Sitemap:\s*https?:\/\//i);
   });
 
   test('homepage loads without console errors', async ({ page }) => {

@@ -31,8 +31,6 @@ cover:
 publisher: rework
 ---
 
-import { Image } from 'astro:assets';
-
 While I was working on my Content Security Policies (CSP) [last week](https://github.com/davidsneighbour/kollitsch.dev/issues/1211) I found some of my pages hitting a block for my own pages on `default-src 'none'`. After some digging, I found that this error only came up on Firefox browsers.
 
 It turned out, that there is [a known bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) or [feature](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src#firefox_default-src_none_svg_sprite_blocking_issue) (depending on who you might ask) where Firefox treats SVG sprites as external documents rather than images when they are loaded via `<img>`-tags. This means that if you have a CSP that blocks all external resources, Firefox will block the SVG sprite from loading.

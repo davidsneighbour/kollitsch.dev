@@ -6,9 +6,9 @@ export interface Props {
 }
 
 const { post }: Props = Astro.props;
-const content = post.rendered?.html ?? "";
+const { Content } = await post.render();
 ---
 
 <div class="content">
-  <Fragment set:html={content} />
+  <Content />
 </div>

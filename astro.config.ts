@@ -143,7 +143,7 @@ export default defineConfig({
   prefetch: { defaultStrategy: 'viewport', prefetchAll: true },
   server: { host: true },
   site: 'https://kollitsch.dev/',
-  trailingSlash: 'always',
+  //trailingSlash: 'always',
   vite: {
     plugins: [
       tailwindcss(),
@@ -151,4 +151,10 @@ export default defineConfig({
       watchExtraFiles(),
     ],
   },
+  build: {
+    format: 'directory',
+    assets: 'assets',
+    // @see https://docs.astro.build/en/reference/configuration-reference/#buildinlinestylesheets
+    inlineStylesheets: `auto`
+  }
 });

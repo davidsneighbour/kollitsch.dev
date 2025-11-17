@@ -19,12 +19,15 @@ cover:
 publisher: rework
 ---
 
+import portrait from '@assets/images/patrick-kollitsch.png';
+import { Image } from 'astro:assets';
+
 The portrait that appears in the footer lives at
 `src/assets/images/patrick-kollitsch.png`. This post links to that shared image
 so the page confirms the asset is available to content entries without copying
 it into a post-specific folder.
 
-![Patrick Kollitsch portrait](../../../../assets/images/patrick-kollitsch.png)
+<Image src={portrait} alt="Patrick Kollitsch portrait" loading="lazy" />
 
 If the image appears above, the shared assets pipeline is working and no
 "missing image" errors should appear when this post renders.

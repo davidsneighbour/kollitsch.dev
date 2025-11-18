@@ -1,14 +1,15 @@
 ---
-// @todo refactor and comment
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+
 export interface Props {
   post: CollectionEntry<"blog">;
 }
 
 const { post }: Props = Astro.props;
-const content = post.rendered?.html ?? "";
+const { Content } = await render(post);
 ---
 
 <div class="content">
-  <Fragment set:html={content} />
+  <Content />
 </div>

@@ -111,6 +111,10 @@
         "useValidTypeof": "error",
         "useYield": "error"
       },
+      "nursery": {
+        // https://biomejs.dev/linter/rules/use-spread/
+        "useSpread": "error"
+      },
       "performance": {
         "noBarrelFile": "error",
         "noReExportAll": "error"

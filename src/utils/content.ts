@@ -10,6 +10,9 @@ export type BlogPost = CollectionEntry<'blog'>;
 
 export type CoverData = BlogPost['data']['cover'];
 
+const isNonEmptyString = (value: unknown): value is string =>
+  typeof value === 'string' && value.trim().length > 0;
+
 const log = createLogger({ slug: 'content' });
 
 /**
@@ -72,6 +75,171 @@ export function createDefaultPost(input: unknown = {}): BlogPost['data'] {
   );
 
   return blogSchema.parse(fallback);
+}
+
+export interface PostFrontmatterLike {
+  readonly title?: string;
+  readonly linktitle?: string;
+  readonly description?: string;
+  readonly draft?: boolean;
+  readonly cover?: CoverData | string | null;
+  readonly date?: Date | string;
+  readonly lastModified?: Date | string;
+}
+
+export interface OpenGraphImagePayload {
+  /** Title rendered onto OG images and used as an alt fallback. */
+  title: string;
+  /** Content entry id (e.g., '2024/slug') used for cover resolution. */
+  id?: string;
+  /** Content collection name (e.g., 'blog') used for cover resolution. */
+  collection?: string;
+  /** Cover information used to derive background imagery. */
+  cover?: CoverData | string | null;
+  /** Publication date for the associated content. */
+  date?: Date | string;
+  /** Last modified date for the associated content. */
+  lastModified?: Date | string;
+}
+
+export interface OpenGraphPayload {
+  /** Final, display-ready page title. */
+  title: string;
+  /** Short, clamped description of the page or entry. */
+  description: string;
+  /** Canonical URL for the page. */
+  url: string;
+  /** Optional OG image context; omitted when insufficient data. */
+  image?: OpenGraphImagePayload;
+}
+
+export interface OpenGraphResolution {
+  title: string;
+  description: string;
+  isDraft: boolean;
+  payload: OpenGraphPayload;
+}
+
+export type OpenGraphSource =
+  | (Partial<Pick<CollectionEntry<'blog'>, 'collection' | 'id'>> & {
+      data?: Partial<BlogPost['data']> | PostFrontmatterLike;
+    })
+  | undefined;
+
+export interface OpenGraphBuildOptions {
+  canonicalUrl: string;
+  frontmatter?: Record<string, unknown>;
+  siteDescription?: string;
+  siteTitle?: string;
+  titlePostfix?: string;
+}
+
+/**
+ * Clamp a string to the range [min,max] at a word boundary.
+ */
+export function clampDescription(input: string, min = 150, max = 170): string {
+  const text = input.trim().replace(/\s+/g, ' ');
+  if (text.length <= max && text.length >= min) return text;
+  if (text.length < min) return text; // avoid padding with fluff
+  // cut at last space before max to keep words intact
+  const cut = text.slice(0, max + 1);
+  const idx = cut.lastIndexOf(' ');
+  return (idx > 0 ? cut.slice(0, idx) : cut).trim();
+}
+
+function firstNonEmptyString(values: readonly unknown[]): string {
+  for (const value of values) {
+    if (isNonEmptyString(value)) return value;
+  }
+  return '';
+}
+
+function normalizeFrontmatterLike(
+  frontmatter?: Record<string, unknown>,
+): PostFrontmatterLike {
+  if (!frontmatter) return {};
+
+  const pickDate = (value: unknown) =>
+    value instanceof Date || typeof value === 'string' ? value : undefined;
+
+  const coverValue = frontmatter.cover;
+  const cover =
+    typeof coverValue === 'string' ||
+    (coverValue && typeof coverValue === 'object') ||
+    coverValue === null
+      ? (coverValue as PostFrontmatterLike['cover'])
+      : undefined;
+
+  return {
+    cover,
+    date: pickDate(frontmatter.date),
+    description: isNonEmptyString(frontmatter.description)
+      ? frontmatter.description
+      : undefined,
+    draft: typeof frontmatter.draft === 'boolean' ? frontmatter.draft : undefined,
+    lastModified: pickDate(frontmatter.lastModified),
+    linktitle: isNonEmptyString(frontmatter.linktitle)
+      ? frontmatter.linktitle
+      : undefined,
+    title: isNonEmptyString(frontmatter.title) ? frontmatter.title : undefined,
+  };
+}
+
+export function resolveOpenGraphPayload(
+  post: OpenGraphSource,
+  {
+    canonicalUrl,
+    frontmatter,
+    siteDescription = '',
+    siteTitle = '',
+    titlePostfix = '',
+  }: OpenGraphBuildOptions,
+): OpenGraphResolution {
+  const fm = normalizeFrontmatterLike(frontmatter);
+  const data = post?.data as PostFrontmatterLike | undefined;
+
+  const rawTitle = firstNonEmptyString([
+    data?.linktitle,
+    data?.title,
+    fm.linktitle,
+    fm.title,
+    siteTitle,
+  ]);
+  const title = resolvePostTitle(rawTitle, { postfix: titlePostfix });
+
+  const rawDescription =
+    firstNonEmptyString([data?.description, fm.description]) || siteDescription;
+  const description = clampDescription(rawDescription);
+
+  const imageContext: OpenGraphImagePayload = {
+    collection: post?.collection,
+    cover: data?.cover ?? fm.cover,
+    date: data?.date ?? fm.date,
+    id: post?.id,
+    lastModified: data?.lastModified ?? fm.lastModified,
+    title,
+  };
+
+  const hasImageContext =
+    typeof imageContext.id === 'string' ||
+    typeof imageContext.collection === 'string' ||
+    imageContext.cover !== undefined ||
+    imageContext.date !== undefined ||
+    imageContext.lastModified !== undefined;
+
+  const payload: OpenGraphPayload = {
+    description,
+    title,
+    url: canonicalUrl,
+    ...(hasImageContext ? { image: imageContext } : {}),
+  };
+
+  return {
+    description,
+    isDraft: Boolean(data?.draft ?? fm.draft),
+    payload,
+    title,
+  };
 }
 
 export interface BreadcrumbItem {

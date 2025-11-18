@@ -8,17 +8,16 @@ import FontsPreload from "@components/layout/head/FontsPreload.astro";
 import Meta from "@components/layout/head/Meta.astro";
 import OpenGraph from "@components/layout/head/OpenGraph.astro";
 import setup from "@data/setup.json" with { type: "json" };
-import { createDefaultPost, resolvePostTitle } from "@utils/content.ts";
-// @todo refactor and comment
+import {
+  createDefaultPost,
+  resolveOpenGraphPayload,
+  type OpenGraphSource,
+  type PostFrontmatterLike,
+} from "@utils/content.ts";
 import type { MarkdownInstance } from "astro";
 
-type PostLike = MarkdownInstance<Record<string, unknown>> & {
-  readonly data?: {
-    readonly title?: string;
-    readonly linktitle?: string;
-    readonly description?: string;
-    readonly draft?: boolean;
-  };
+type PostLike = (MarkdownInstance<Record<string, unknown>> & OpenGraphSource) & {
+  readonly data?: PostFrontmatterLike;
 };
 
 export interface Props {
@@ -29,36 +28,13 @@ export interface Props {
 const { post: postProp, frontmatter }: Props = Astro.props;
 
 // never mutate incoming props; derive a safe post object
-const safePost = postProp?.data
-  ? (postProp as unknown as CollectionEntry<"blog">)
-  : ({ ...postProp, data: createDefaultPost(postProp) } as PostLike);
-
-/**
- * Clamp a string to the range [min,max] at a word boundary.
- */
-function clampText(input: string, min = 150, max = 170): string {
-  const text = input.trim().replace(/\s+/g, " ");
-  if (text.length <= max && text.length >= min) return text;
-  if (text.length < min) return text; // avoid padding with fluff
-  // cut at last space before max to keep words intact
-  const cut = text.slice(0, max + 1);
-  const idx = cut.lastIndexOf(" ");
-  return (idx > 0 ? cut.slice(0, idx) : cut).trim();
-}
+const safePost: OpenGraphSource = postProp
+  ? postProp.data
+    ? (postProp as unknown as CollectionEntry<"blog">)
+    : ({ ...postProp, data: createDefaultPost(postProp) } as PostLike)
+  : undefined;
 
 const baseUrl = import.meta.env.BASE_URL ?? "/";
-
-// title: prefer post/frontmatter, then setup fallback, with postfix
-const rawTitle =
-  (safePost.data?.linktitle as string | undefined) ||
-  (frontmatter?.linktitle as string | undefined) ||
-  setup?.title ||
-  "";
-const title = resolvePostTitle(rawTitle, { postfix: setup.head.postfix });
-
-// description: prefer post, then setup.description
-const rawDescription = safePost.data?.description ?? (setup?.description as string | undefined) ?? "";
-const description = clampText(rawDescription);
 
 // canonical with trailing slash enforced
 const site = new URL(Astro.site ?? "http://localhost/");
@@ -67,8 +43,20 @@ const canonicalUrl = new URL(
   site,
 ).toString();
 
+const {
+  description,
+  isDraft,
+  payload: openGraph,
+  title,
+} = resolveOpenGraphPayload(safePost, {
+  canonicalUrl,
+  ...(frontmatter ? { frontmatter } : {}),
+  siteDescription: (setup?.description as string | undefined) ?? "",
+  siteTitle: setup?.title ?? "",
+  titlePostfix: setup.head?.postfix,
+});
+
 // robots policy
-const isDraft = Boolean(safePost.data?.draft);
 const robots = isDraft ? "noindex, nofollow, noarchive" : "index, follow";
 
 // only emit <base> if BASE_URL is not root to avoid breaking relative paths
@@ -99,7 +87,7 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content={themeDark} />
 
 <FontsPreload />
-<OpenGraph post={safePost} />
+<OpenGraph openGraph={openGraph} />
 <ClientRouter />
 <Favicon />
 <Meta />

@@ -1,7 +1,7 @@
 ---
 // @todo refactor and comment
 /**
- * Dynamic, cached OG-image generation for blog posts.
+ * Dynamic, cached OG-image generation for site content.
  *
  * Pipeline:
  *  1) Build a small HTML tree (via satori-html) with a CSS background image.
@@ -32,9 +32,9 @@ import { formatDisplayDate } from "@utils/datetime.ts";
 import { createLogger, type Logger } from "@utils/logger.ts";
 import type { ResolveImageKeyOptions } from "@utils/opengraph.ts";
 import { resolveImageKey } from "@utils/opengraph.ts";
+import type { OpenGraphPayload } from "@utils/content.ts";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
-import type { CollectionEntry } from "astro:content";
 
 const TEMPLATE_VERSION = 1; // bump to invalidate everything after template/style changes
 
@@ -43,12 +43,12 @@ const log: Logger = createLogger({ slug: "OpenGraphImage" });
 type OgFormat = "png" | "jpeg" | "webp";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  openGraph: OpenGraphPayload;
   /** Width of the generated image in px (default: 1200) */
   width?: number;
   /** Height of the generated image in px (default: 630; 675 for return 'twitter') */
   height?: number;
-  /** Alt text for the generated image (default: post.data.title) */
+  /** Alt text for the generated image (default: openGraph.title) */
   alt?: string;
   /**
    * What to return:
@@ -63,7 +63,14 @@ export interface Props {
   format?: OgFormat;
 }
 
-const { post, width, height, return: returnType = "og", alt = post.data.title, format = "jpeg" } = Astro.props as Props;
+const {
+  openGraph,
+  width,
+  height,
+  return: returnType = "og",
+  alt = openGraph.title,
+  format = "jpeg",
+} = Astro.props as Props;
 
 function toInt(n: unknown, fallback: number): number {
   const v = Number(n);
@@ -436,16 +443,23 @@ async function getCachedOrGeneratePng(
 
 // ---------- Content-specific resolution ----------
 
-const isCollectionEntry =
-  typeof post?.id === "string" &&
-  post.id.length > 0 &&
-  typeof post?.collection === "string" &&
-  post.collection.length > 0;
+const image = openGraph.image;
 
-const ogTitle = post.data?.title ?? "unknown";
-const pubDate = isCollectionEntry ? post.data?.date : undefined;
+const hasContentIdentity =
+  typeof image?.id === "string" &&
+  image.id.length > 0 &&
+  typeof image?.collection === "string" &&
+  image.collection.length > 0;
 
-const rawDisplayDate = isCollectionEntry ? (post.data?.lastModified ?? post.data?.date) : undefined;
+const ogTitle = openGraph.title ?? "unknown";
+const normalizeDate = (value: Date | string | undefined): Date | undefined =>
+  typeof value === "string" ? new Date(value) : value;
+
+const pubDate = hasContentIdentity ? normalizeDate(image?.date) : undefined;
+
+const rawDisplayDate = hasContentIdentity
+  ? normalizeDate(image?.lastModified ?? image?.date)
+  : undefined;
 const displayDate = formatDisplayDate(rawDisplayDate);
 
 const defaultArticleImageKey = (setup.images?.default ?? "").trim();
@@ -456,10 +470,10 @@ const ogFallbackKey = (setup.images?.opengraph ?? "").trim();
  * With exactOptionalPropertyTypes enabled, omit defaultKey when undefined.
  */
 function resolveCoverImageKey(): string {
-  if (!isCollectionEntry) return "";
+  if (!hasContentIdentity) return "";
 
   type CoverField = { type?: unknown; src?: unknown };
-  const rawCover = post?.data?.cover;
+  const rawCover = image?.cover;
   const cover: CoverField = rawCover && typeof rawCover === "object" ? (rawCover as CoverField) : {};
   const coverType = typeof cover.type === "string" ? cover.type : "image";
 
@@ -467,8 +481,18 @@ function resolveCoverImageKey(): string {
 
   const opts: ResolveImageKeyOptions = defaultKeyMaybe !== undefined ? { defaultKey: defaultKeyMaybe } : {};
 
-  const rawSrc = typeof cover.src === "string" ? cover.src : undefined;
-  return resolveImageKey(coverType !== "video" ? rawSrc : undefined, post.id, post.collection, opts);
+  const rawSrc =
+    typeof rawCover === "string"
+      ? rawCover
+      : typeof cover.src === "string"
+        ? cover.src
+        : undefined;
+  return resolveImageKey(
+    coverType !== "video" ? rawSrc : undefined,
+    image?.id ?? "",
+    image?.collection ?? "",
+    opts,
+  );
 }
 
 const resolvedArticleImageKey = resolveCoverImageKey();
@@ -509,7 +533,7 @@ const ogimage = await getCachedOrGeneratePng(
 <>
   {
     (() => {
-      const altText = alt ?? (post?.data?.title || "unknown");
+      const altText = alt ?? (openGraph.title || "unknown");
       const abs = Astro.site ? new URL(ogimage.src, Astro.site).toString() : ogimage.src;
 
       return (

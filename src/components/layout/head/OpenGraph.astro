@@ -1,20 +1,21 @@
 ---
 // @todo refactor and comment
 import OpenGraphImage from "@components/layout/head/OpenGraphImage.astro";
-import type { CollectionEntry } from "astro:content";
+import type { OpenGraphPayload } from "@utils/content.ts";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  /** Normalized payload used for OG + Twitter meta tags. */
+  openGraph: OpenGraphPayload;
 }
-const { post }: Props = Astro.props;
+const { openGraph }: Props = Astro.props;
 ---
 
-<meta property="og:title" content={post.data.title || "missing"} />
+<meta property="og:title" content={openGraph.title || "missing"} />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:description" content={post.data.description || "missing"} />
-<OpenGraphImage post={post} return="og" />
+<meta property="og:url" content={openGraph.url || Astro.url} />
+<meta property="og:description" content={openGraph.description || "missing"} />
+<OpenGraphImage openGraph={openGraph} return="og" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content={post.data.title || "missing"} />
-<meta property="twitter:description" content={post.data.description || "missing"} />
-<OpenGraphImage post={post} return="twitter" />
+<meta property="twitter:title" content={openGraph.title || "missing"} />
+<meta property="twitter:description" content={openGraph.description || "missing"} />
+<OpenGraphImage openGraph={openGraph} return="twitter" />

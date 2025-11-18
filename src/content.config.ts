@@ -30,20 +30,19 @@ const md = new MarkdownIt();
 const deriveContentFormat = (filePath?: string): 'md' | 'mdx' =>
   filePath?.toLowerCase().endsWith('.mdx') ? 'mdx' : 'md';
 
-const cover = z
+const coverFormatSchema = z
   .object({
-    format: z
-      .object({
-        contenttype: z
-          .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
-          .optional()
-          .default('jpg'),
-        quality: z.number().min(1).max(100).optional().default(75),
-      })
-      .optional(),
-    src: z.string().optional(),
+    contenttype: z.enum(['jpg', 'png', 'gif', 'svg', 'webp']).optional().default('jpg'),
+    quality: z.number().min(1).max(100).optional().default(75),
+  })
+  .optional();
+
+const coverImageSchema = z
+  .object({
+    type: z.literal('image').optional().default('image'),
+    format: coverFormatSchema,
+    src: z.string().trim().min(1, { message: 'cover.src is required when cover.type is "image"' }),
     title: z.string().optional(),
-    type: z.enum(['image', 'video']).optional().default('image'),
     unsplash: z
       .string()
       .regex(/^[A-Za-z0-9]{11}$/, {
@@ -52,50 +51,13 @@ const cover = z
       })
       .optional(),
     // Optional alt (Markdown allowed). Validation below enforces:
-    // - only with type === "image"
     // - only if title is set
     // - must differ from title
     alt: z.string().optional(),
-    video: z
-      .object({
-        artist: z.string().optional(),
-        title: z.string(),
-        youtube: z.string(),
-        params: youtubePlayerParamsSchema.optional(),
-      })
-      .optional(),
   })
-  // Require src when type is image
-  .refine((c) => (c.type === 'image' ? c.src != null && c.src.trim().length > 0 : true), {
-    message: 'cover.src is required when cover.type is "image"',
-    path: ['src'],
-  })
-  // Require video metadata when type is video
-  .refine((c) => (c.type === 'video' ? c.video != null : true), {
-    message: 'video metadata must be provided when cover.type is "video"',
-    path: ['video'],
-  })
-  // Unsplash only for images
-  .refine((c) => (c.type === 'image' ? true : c.unsplash == null), {
-    message: 'cover.unsplash is only allowed when cover.type is "image".',
-    path: ['unsplash'],
-  })
-  // Alt/title/type relationship:
-  // - alt only for images
-  // - alt only allowed if title exists
-  // - alt must differ from title
   .superRefine((c, ctx) => {
-    const isImage = c.type !== 'video';
     const hasAlt = typeof c.alt === 'string' && c.alt.trim().length > 0;
     const hasTitle = typeof c.title === 'string' && c.title.trim().length > 0;
-
-    if (!isImage && hasAlt) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'cover.alt is only allowed when cover.type is "image".',
-        path: ['alt'],
-      });
-    }
 
     if (hasAlt && !hasTitle) {
       ctx.addIssue({
@@ -117,8 +79,21 @@ const cover = z
         });
       }
     }
-  })
-  .optional();
+  });
+
+const coverVideoSchema = z.object({
+  type: z.literal('video'),
+  format: coverFormatSchema,
+  title: z.string().optional(),
+  video: z.object({
+    artist: z.string().optional(),
+    title: z.string(),
+    youtube: z.string(),
+    params: youtubePlayerParamsSchema.optional(),
+  }),
+});
+
+const cover = z.discriminatedUnion('type', [coverImageSchema, coverVideoSchema]).optional();
 
 // MARK: Blog Posts
 export const blogSchema = z

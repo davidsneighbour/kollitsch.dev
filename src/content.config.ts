@@ -27,6 +27,9 @@ export type OptionsData = z.infer<typeof optionsSchema>;
 
 const md = new MarkdownIt();
 
+const deriveContentFormat = (filePath?: string): 'md' | 'mdx' =>
+  filePath?.toLowerCase().endsWith('.mdx') ? 'mdx' : 'md';
+
 const cover = z
   .object({
     format: z
@@ -125,6 +128,7 @@ export const blogSchema = z
       .optional()
       .transform((val) => (typeof val === 'string' ? [val] : val)),
     category: z.string().optional(),
+    contentFormat: z.enum(['md', 'mdx']),
     cover: cover,
     date: z.coerce.date().transform((s) => new Date(s)),
     description: z
@@ -231,8 +235,25 @@ export const blogSchema = z
   });
 export type BlogFrontmatter = z.infer<typeof blogSchema>;
 
+const blogLoader = glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' });
+
 export const blog = defineCollection({
-  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+  loader: {
+    ...blogLoader,
+    async load(context) {
+      const parseDataWithFormat: typeof context.parseData = async (options) => {
+        const contentFormat = deriveContentFormat(options.filePath);
+        const dataWithFormat = {
+          ...options.data,
+          contentFormat,
+        };
+
+        return context.parseData({ ...options, data: dataWithFormat });
+      };
+
+      return blogLoader.load({ ...context, parseData: parseDataWithFormat });
+    },
+  },
   schema: () => blogSchema,
 });
 

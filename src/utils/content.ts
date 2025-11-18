@@ -6,7 +6,7 @@ import siteinfo from '@data/setup.json' with { type: 'json' };
 import { blogSchema } from '../content.config.ts';
 import { createLogger } from './logger.ts';
 
-type BlogPost = CollectionEntry<'blog'>;
+export type BlogPost = CollectionEntry<'blog'>;
 
 export type CoverData = BlogPost['data']['cover'];
 

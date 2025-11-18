@@ -18,6 +18,7 @@ const { post, frontmatter } = Astro.props;
 // frontmatter.file - The same as the top-level file property.
 // frontmatter.url - The same as the top-level url property.
 // headings - A list of headings (h1 -> h6) in the Markdown or MDX document with associated metadata. This list follows the type: { depth: number; slug: string; text: string }[].
+// ONLY IN MARKDOWN, NOT IN MDX:
 // rawContent() - A function that returns the raw Markdown document as a string.
 // compiledContent() - An async function that returns the Markdown document compiled to an HTML string
 ---

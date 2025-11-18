@@ -10,6 +10,7 @@ import { getCollection } from 'astro:content';
 // Imports (@data → @utils → external)
 // ──────────────────────────────────────────────────────────────────────────────
 import setup from '@data/setup.json' with { type: 'json' };
+import type { BlogPost } from '@utils/content.ts';
 import { createLogger, refOf } from '@utils/logger.ts';
 
 const log = createLogger({ slug: 'tags' });
@@ -17,11 +18,6 @@ const log = createLogger({ slug: 'tags' });
 // ──────────────────────────────────────────────────────────────────────────────
 // Types
 // ──────────────────────────────────────────────────────────────────────────────
-
-/**
- * Blog entry alias to keep signatures concise.
- */
-type BlogEntry = CollectionEntry<'blog'>;
 
 /**
  * Context for error/debug messages when normalising tags.
@@ -41,7 +37,7 @@ export type NormalizedTag = { id: string; label: string };
  */
 export interface TagInfo {
   count: number;
-  posts: BlogEntry[];
+  posts: BlogPost[];
 }
 
 /**
@@ -208,12 +204,12 @@ const ASCII_MAP: Record<string, string> = {
 // Caching layer (lazy, module-scoped)
 // ──────────────────────────────────────────────────────────────────────────────
 
-let blogPostsPromise: Promise<BlogEntry[]> | null = null;
+let blogPostsPromise: Promise<BlogPost[]> | null = null;
 let tagIndexPromise: Promise<Map<string, CollectionEntry<'tags'>>> | null =
   null;
 
 /** Cache: all blog posts. */
-async function getBlogPosts(): Promise<BlogEntry[]> {
+async function getBlogPosts(): Promise<BlogPost[]> {
   if (!blogPostsPromise) {
     blogPostsPromise = getCollection('blog')
       .then((list) => {
@@ -618,7 +614,7 @@ export async function getTag(
   id: string;
   label: string;
   url: string;
-  posts: BlogEntry[];
+  posts: BlogPost[];
 }> {
   const normalized = await normaliseTag(input, ctx);
   if (!normalized) {
@@ -634,7 +630,7 @@ export async function getTag(
   const canonicalLabel = normalized.label;
 
   const posts = await getBlogPosts();
-  const matched: BlogEntry[] = [];
+  const matched: BlogPost[] = [];
 
   for (const post of posts) {
     const tags = Array.isArray(post.data.tags) ? post.data.tags : [];

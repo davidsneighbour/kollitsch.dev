@@ -445,9 +445,7 @@ const isCollectionEntry =
 const ogTitle = post.data?.title ?? "unknown";
 const pubDate = isCollectionEntry ? post.data?.date : undefined;
 
-const rawDisplayDate = isCollectionEntry
-  ? (post.data?.modified ?? post.data?.lastModified ?? post.data?.date)
-  : undefined;
+const rawDisplayDate = isCollectionEntry ? (post.data?.lastModified ?? post.data?.date) : undefined;
 const displayDate = formatDisplayDate(rawDisplayDate);
 
 const defaultArticleImageKey = (setup.images?.default ?? "").trim();

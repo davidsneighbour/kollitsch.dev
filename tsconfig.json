@@ -70,7 +70,6 @@
     "src/test/browser",
     "src/utils", // silence hack, evil don't
     "src/test", // silence hack, evil don't
-    "src/components", // silence hack, evil don't
     "src/layouts", // silence hack, evil don't
   ],
   "extends": "astro/tsconfigs/strictest",

@@ -5,12 +5,14 @@ export interface Props {
   post: CollectionEntry<"blog">;
 }
 const { post }: Props = Astro.props;
+const currentPath = Astro.url.pathname;
+console.log(currentPath);
 ---
 
 <mastodon-share
   data-title={post.data.title}
   data-description={post.data.description}
-  data-url={post.permalink}
+  data-url={currentPath}
   data-url-template="https://{instance}/share?text={text}&url={url}"></mastodon-share>
 
 <script>

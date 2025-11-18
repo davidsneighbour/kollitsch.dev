@@ -59,8 +59,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
   data-mapping={mapping}
   data-reactions-enabled={reactionsEnabled}
   data-emit-metadata={emitMetadata}
-  data-input-position={inputPosition}
-></dnb-giscus>
+  data-input-position={inputPosition}></dnb-giscus>
 
 <script>
   // Initialise namespacing for guards
@@ -111,9 +110,8 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
 
       /**
        * Safely read the current theme or fall back to 'light'.
-       * @returns {string}
        */
-      getTheme() {
+      getTheme(): string {
         try {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
@@ -127,9 +125,8 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
 
       /**
        * Build the attribute set for the Giscus client script from dataset.
-       * @returns {Record<string, string>}
        */
-      buildGiscusAttributes() {
+      buildGiscusAttributes(): Record<string, string> {
         const ds = this.dataset;
 
         // Required-by-Giscus attributes
@@ -161,9 +158,8 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
       /**
        * Create and append the Giscus script once.
        * Exposed as a method so the IO callback can invoke it.
-       * @returns {void}
        */
-      loadGiscus() {
+      loadGiscus(): void {
         if (this.#initialised || this.hasAttribute("data-initialised")) return;
 
         try {
@@ -192,9 +188,8 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
 
       /**
        * Connected lifecycle: observe for visibility and ensure single registration.
-       * @returns {void}
        */
-      connectedCallback() {
+      connectedCallback(): void {
         try {
           if (this.#initialised || this.hasAttribute("data-initialised")) return;
           DnbGiscus.observer.observe(this);
@@ -207,9 +202,8 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
 
       /**
        * Cleanup if removed.
-       * @returns {void}
        */
-      disconnectedCallback() {
+      disconnectedCallback(): void {
         try {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore

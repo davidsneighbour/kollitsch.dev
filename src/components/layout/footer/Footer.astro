@@ -12,6 +12,8 @@ import setup from "@data/setup.json" with { type: "json" };
 import { getHomepageUrl } from "@utils/content";
 import { generateUniqueHtmlId } from "@utils/helpers";
 
+import type { Navigation } from "@utils/navigation";
+
 export interface Props {}
 
 const socialMediaData = rawSocialMediaData as SocialMediaItem[];
@@ -111,7 +113,7 @@ const introFallbackHtml = md.renderInline(introFallback);
   </div>
 </footer>
 
-<script define:vars={{ footerYearId }} data-astro-rerun>
+<script is:inline define:vars={{ footerYearId }} data-astro-rerun>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();
 
   (async () => {

@@ -1,26 +1,26 @@
 {
   "dependencies": {
     "@astrojs/check": "0.9.5",
-    "@astrojs/mdx": "4.3.10",
+    "@astrojs/mdx": "4.3.11",
     "@astrojs/rss": "4.0.13",
     "@astrojs/sitemap": "3.6.0",
     "@astrojs/ts-plugin": "1.10.5",
     "@iconify-json/bi": "1.2.6",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/vite": "4.1.17",
-    "@tailwindplus/elements": "1.0.18",
-    "astro": "5.15.4",
+    "@tailwindplus/elements": "1.0.19",
+    "astro": "5.15.9",
     "astro-icon": "1.1.5",
-    "glob": "11.0.3",
+    "glob": "12.0.0",
     "gray-matter": "4.0.3",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"
   },
   "devDependencies": {
     "@types/markdown-it": "14.1.2",
-    "@types/yargs": "17.0.34",
+    "@types/yargs": "17.0.35",
     "astro-expressive-code": "0.41.3",
-    "js-yaml": "4.1.0",
+    "js-yaml": "4.1.1",
     "tsx": "4.20.6",
     "vite-plugin-devtools-json": "1.0.0"
   },

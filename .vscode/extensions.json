@@ -35,7 +35,9 @@
     "biomejs.biome",
     "editorconfig.editorconfig",
     "stylelint.vscode-stylelint",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries"
   ],
   "unwantedRecommendations": []
 }

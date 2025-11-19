@@ -5,7 +5,7 @@ import setup from '@data/setup.json' with { type: 'json' };
 import { buildOptionsSchema } from '@utils/schema.ts';
 import { youtubePlayerParamsSchema } from '@utils/youtube.ts';
 
-import { file, glob } from 'astro/loaders';
+import { file, glob, type Loader } from 'astro/loaders';
 // for github releases loader
 import { githubReleasesLoader } from 'astro-loader-github-releases';
 import MarkdownIt from 'markdown-it';
@@ -329,12 +329,29 @@ const playlistCollections = hasYoutubeApiKey
 // MARK: GitHub Releases
 const oneYearAgo = new Date();
 oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+const githubReleasesLoaderSafe = (() => {
+  try {
+    return githubReleasesLoader({
+      mode: 'repoList',
+      repos: [setup.repository.slug],
+      sinceDate: oneYearAgo.toISOString().split('T')[0],
+    });
+  } catch (error) {
+    console.error(
+      '[github-releases] Failed to initialize loader; falling back to empty collection.',
+      error,
+    );
+    return {
+      name: 'github-releases-fallback',
+      load: async ({ store }) => {
+        store.clear();
+      },
+    } satisfies Loader;
+  }
+})();
+
 const githubReleases = defineCollection({
-  loader: githubReleasesLoader({
-    mode: 'repoList',
-    repos: [setup.repository.slug],
-    sinceDate: oneYearAgo.toISOString().split('T')[0],
-  }),
+  loader: githubReleasesLoaderSafe,
 });
 
 // MARK: Social Media Links

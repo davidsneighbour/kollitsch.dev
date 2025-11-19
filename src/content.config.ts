@@ -30,20 +30,24 @@ const md = new MarkdownIt();
 const deriveContentFormat = (filePath?: string): 'md' | 'mdx' =>
   filePath?.toLowerCase().endsWith('.mdx') ? 'mdx' : 'md';
 
-const cover = z
-  .object({
-    format: z
-      .object({
-        contenttype: z
-          .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
-          .optional()
-          .default('jpg'),
-        quality: z.number().min(1).max(100).optional().default(75),
-      })
-      .optional(),
-    src: z.string().optional(),
-    title: z.string().optional(),
-    type: z.enum(['image', 'video']).optional().default('image'),
+const coverBaseSchema = z.object({
+  format: z
+    .object({
+      contenttype: z
+        .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
+        .optional()
+        .default('jpg'),
+      quality: z.number().min(1).max(100).optional().default(75),
+    })
+    .optional(),
+  src: z.string().optional(),
+  title: z.string().optional(),
+});
+
+const coverImage = coverBaseSchema
+  .extend({
+    alt: z.string().optional(),
+    type: z.literal('image').default('image'),
     unsplash: z
       .string()
       .regex(/^[A-Za-z0-9]{11}$/, {
@@ -51,51 +55,14 @@ const cover = z
           'cover.unsplash must be exactly 11 characters: letters (a-z, A-Z) or digits (0-9) only.',
       })
       .optional(),
-    // Optional alt (Markdown allowed). Validation below enforces:
-    // - only with type === "image"
-    // - only if title is set
-    // - must differ from title
-    alt: z.string().optional(),
-    video: z
-      .object({
-        artist: z.string().optional(),
-        title: z.string(),
-        youtube: z.string(),
-        params: youtubePlayerParamsSchema.optional(),
-      })
-      .optional(),
   })
-  // Require src when type is image
-  .refine((c) => (c.type === 'image' ? c.src != null && c.src.trim().length > 0 : true), {
+  .refine((c) => c.src != null && c.src.trim().length > 0, {
     message: 'cover.src is required when cover.type is "image"',
     path: ['src'],
   })
-  // Require video metadata when type is video
-  .refine((c) => (c.type === 'video' ? c.video != null : true), {
-    message: 'video metadata must be provided when cover.type is "video"',
-    path: ['video'],
-  })
-  // Unsplash only for images
-  .refine((c) => (c.type === 'image' ? true : c.unsplash == null), {
-    message: 'cover.unsplash is only allowed when cover.type is "image".',
-    path: ['unsplash'],
-  })
-  // Alt/title/type relationship:
-  // - alt only for images
-  // - alt only allowed if title exists
-  // - alt must differ from title
   .superRefine((c, ctx) => {
-    const isImage = c.type !== 'video';
     const hasAlt = typeof c.alt === 'string' && c.alt.trim().length > 0;
     const hasTitle = typeof c.title === 'string' && c.title.trim().length > 0;
-
-    if (!isImage && hasAlt) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'cover.alt is only allowed when cover.type is "image".',
-        path: ['alt'],
-      });
-    }
 
     if (hasAlt && !hasTitle) {
       ctx.addIssue({
@@ -117,8 +84,19 @@ const cover = z
         });
       }
     }
-  })
-  .optional();
+  });
+
+const coverVideo = coverBaseSchema.extend({
+  type: z.literal('video'),
+  video: z.object({
+    artist: z.string().optional(),
+    params: youtubePlayerParamsSchema.optional(),
+    title: z.string(),
+    youtube: z.string(),
+  }),
+});
+
+const cover = z.union([coverImage, coverVideo]).optional();
 
 // MARK: Blog Posts
 export const blogSchema = z
@@ -207,27 +185,25 @@ export const blogSchema = z
         : entry.description;
 
     // compute articleimage:
-    const coverIsImage =
-      entry.cover?.type !== 'video' && typeof entry.cover?.src === 'string';
+    const cover = entry.cover;
+    const coverIsImage = cover?.type === 'image' && typeof cover.src === 'string';
     const articleimage: string | null =
-      (coverIsImage ? (entry.cover?.src ?? null) : null) ??
+      (coverIsImage ? (cover?.src ?? null) : null) ??
       setup?.images?.default ??
       null;
 
     // render markdown for alt text if exists and valid for images
-    const coverAlt =
-      entry.cover?.alt && entry.cover?.type !== 'video'
-        ? md.renderInline(entry.cover.alt)
-        : undefined;
+    const coverWithAlt = (() => {
+      if (cover && cover.type === 'image') {
+        const alt = cover.alt ? md.renderInline(cover.alt) : undefined;
+        return { ...cover, alt: alt ?? cover.alt };
+      }
+      return cover;
+    })();
 
     return {
       ...entry,
-      cover: entry.cover
-        ? {
-          ...entry.cover,
-          alt: coverAlt ?? entry.cover.alt,
-        }
-        : entry.cover,
+      cover: coverWithAlt,
       articleimage,
       summary: md.renderInline(summaryRaw),
       title: md.renderInline(entry.title),

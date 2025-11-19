@@ -1,0 +1,28 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "files": [
+    "src/{*,.*}/**/*.{md,mdx}"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git"
+  ],
+  "dictionaries": [
+    "dnb",
+    "repos"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "dnb",
+      "path": "./dnb.dict.txt",
+      "addWords": true
+    },
+    {
+      "name": "repos",
+      "path": "./dnb-repos.txt"
+    }
+  ]
+}

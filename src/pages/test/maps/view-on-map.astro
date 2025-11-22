@@ -1,0 +1,62 @@
+---
+import "@styles/theme.css";
+import ViewOnMap from "@components/features/maps/ViewOnMap.astro";
+import Heading from "@components/content/typography/Heading.astro";
+import Layout from "@layouts/ContentPageTest.astro";
+import Section from "@components/support/fixtures/Section.astro";
+---
+
+<Layout>
+  <Heading>ViewOnMap</Heading>
+  <p>
+    Manual QA playground for the Leaflet-based hover map. Hover any card to reveal the map and
+    try dragging or zooming once it becomes interactive.
+  </p>
+
+  <Section>
+    <Heading level={3}>Default Ko Samui card</Heading>
+    <p class="text-sm text-neutral-700 dark:text-neutral-300">Uses the default coordinates (9.5785, 99.9583) and fly-to animation.</p>
+    <ViewOnMap />
+  </Section>
+
+  <Section>
+    <Heading level={3}>Static zoom (no fly)</Heading>
+    <p class="text-sm text-neutral-700 dark:text-neutral-300">Fly animation disabled via <code>flyToZoom={null}</code>; starts and stays at zoom 13.</p>
+    <ViewOnMap
+      label="Static zoom"
+      locationName="Ko Samui docks"
+      locationDetail="Thailand"
+      initialZoom={13}
+      flyToZoom={null}
+    />
+  </Section>
+
+  <Section>
+    <Heading level={3}>Popup off by default</Heading>
+    <p class="text-sm text-neutral-700 dark:text-neutral-300">Popup can still be opened by clicking the marker.</p>
+    <ViewOnMap
+      label="Click for details"
+      locationName="Island lookout"
+      locationDetail="Quiet viewpoint"
+      showPopup={false}
+      showPopupCoordinates={false}
+      initialZoom={11}
+      flyToZoom={13}
+      class="md:w-56"
+    />
+  </Section>
+
+  <Section>
+    <Heading level={3}>Longer fly animation</Heading>
+    <p class="text-sm text-neutral-700 dark:text-neutral-300">Slower fly-to showcase with a zoom target of 15 and a 4 second ease.</p>
+    <ViewOnMap
+      label="Slow reveal"
+      locationName="Beachside cafe"
+      locationDetail="Gulf of Thailand"
+      initialZoom={10}
+      flyToZoom={15}
+      flyDurationSeconds={4}
+      class="md:w-56"
+    />
+  </Section>
+</Layout>

@@ -1,0 +1,136 @@
+---
+import { Icon } from "astro-icon/components";
+import "leaflet/dist/leaflet.css";
+
+export interface Props {
+  /** Geographic coordinates as [latitude, longitude]. */
+  coordinates?: [number, number];
+  /** Primary label shown next to the navigation icon. */
+  label?: string;
+  /** Title that appears in the marker popup. */
+  locationName?: string;
+  /** Secondary line inside the marker popup. */
+  locationDetail?: string;
+  /** Initial zoom when the map is first created. */
+  initialZoom?: number;
+  /** Target zoom when flying to the marker. Set to null to disable fly animation. */
+  flyToZoom?: number | null;
+  /** Duration in seconds for the fly animation. */
+  flyDurationSeconds?: number;
+  /** Whether to open the popup after the map renders. */
+  showPopup?: boolean;
+  /** Whether to append coordinates inside the popup. */
+  showPopupCoordinates?: boolean;
+  /** Additional classes for the outer wrapper. */
+  class?: string;
+}
+
+const mapPinSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3856 23.789L11.3831 23.7871L11.3769 23.7822L11.355 23.765C11.3362 23.7501 11.3091 23.7287 11.2742 23.7008C11.2046 23.6451 11.1039 23.5637 10.9767 23.4587C10.7224 23.2488 10.3615 22.944 9.92939 22.5599C9.06662 21.793 7.91329 20.7041 6.75671 19.419C5.60303 18.1371 4.42693 16.639 3.53467 15.0528C2.64762 13.4758 2 11.7393 2 10C2 7.34784 3.05357 4.8043 4.92893 2.92893C6.8043 1.05357 9.34784 0 12 0C14.6522 0 17.1957 1.05357 19.0711 2.92893C20.9464 4.8043 22 7.34784 22 10C22 11.7393 21.3524 13.4758 20.4653 15.0528C19.5731 16.639 18.397 18.1371 17.2433 19.419C16.0867 20.7041 14.9334 21.793 14.0706 22.5599C13.6385 22.944 13.2776 23.2488 13.0233 23.4587C12.8961 23.5637 12.7954 23.6451 12.7258 23.7008C12.6909 23.7287 12.6638 23.7501 12.645 23.765L12.6231 23.7822L12.6169 23.7871L12.615 23.7885C12.615 23.7885 12.6139 23.7894 12 23L12.6139 23.7894C12.2528 24.0702 11.7467 24.0699 11.3856 23.789ZM12 23L11.3856 23.789C11.3856 23.789 11.3861 23.7894 12 23ZM15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.34315 10.3431 7 12 7C13.6569 7 15 8.34315 15 10Z" fill="#fe4d4d"></path> </g></svg>`;
+
+const {
+  coordinates = [9.578504767104016, 99.9582822331411],
+  label = "View on Map",
+  locationName = "Ko Samui",
+  locationDetail = "Thailand",
+  initialZoom = 12,
+  flyToZoom = 14,
+  flyDurationSeconds = 2,
+  showPopup = true,
+  showPopupCoordinates = true,
+  class: className = "",
+} = Astro.props;
+
+const mapId = `view-on-map-${crypto.randomUUID()}`;
+const popupCoordinates = `${coordinates[0].toFixed(4)}, ${coordinates[1].toFixed(4)}`;
+const popupHtml = `
+  <b>${locationName}</b><br>
+  <i>${locationDetail}</i>${
+  showPopupCoordinates ? `<br><i style="color:#737373">${popupCoordinates}</i>` : ""
+}`;
+---
+
+<div class={`relative h-14 w-48 ${className}`}>
+  <div class="bg-neutral-200 absolute top-1/2 left-1/2 flex h-72 w-72 -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden rounded-4xl [clip-path:inset(7.25rem_3rem_round_2rem)] transition-[clip-path] duration-[400ms] ease-out hover:[clip-path:inset(0_round_2rem)] hover:transition-[clip-path] hover:duration-200 hover:ease-in-out group">
+    <p class="pointer-events-none flex select-none items-center justify-center gap-1 text-sm font-semibold transition-all duration-200 ease-out delay-200 group-hover:translate-y-5 group-hover:opacity-0 group-hover:blur-sm group-hover:transition-all group-hover:duration-200 group-hover:ease-out">
+      <Icon name="bi:navigation" class="size-8" />
+      <span>{label}</span>
+    </p>
+
+    <div
+      id={mapId}
+      class="pointer-events-none absolute inset-0 origin-center opacity-0 transition-opacity duration-[50ms] delay-[50ms] group-hover:pointer-events-auto group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-200 group-hover:ease-in-out group-hover:delay-[50ms]"
+      aria-hidden="true"
+    ></div>
+  </div>
+</div>
+
+<script>
+  const mapId = "${mapId}";
+  const coordinates = ${JSON.stringify(coordinates)};
+  const initialZoom = ${initialZoom};
+  const flyToZoom = ${flyToZoom === null ? "null" : JSON.stringify(flyToZoom)};
+  const flyDurationSeconds = ${flyDurationSeconds};
+  const popupHtml = `${popupHtml.replace(/`/g, "\\``)}`;
+  const mapPinSvg = `${mapPinSvg.replace(/`/g, "\\``)}`;
+  const showPopup = ${showPopup};
+
+  let mapInstance;
+
+  const cleanup = () => {
+    if (mapInstance) {
+      mapInstance.remove();
+      mapInstance = null;
+    }
+  };
+
+  const init = async () => {
+    const container = document.getElementById(mapId);
+    if (!container || mapInstance) return;
+
+    try {
+      const L = await import("leaflet");
+      const customPinIcon = L.divIcon({
+        className: "custom-svg-marker",
+        html: mapPinSvg,
+        iconSize: [36, 36],
+        iconAnchor: [18, 36],
+        popupAnchor: [0, -40],
+      });
+
+      mapInstance = L.map(container, {
+        center: coordinates,
+        zoom: initialZoom,
+        zoomControl: true,
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(mapInstance);
+
+      const marker = L.marker(coordinates, { icon: customPinIcon }).addTo(mapInstance);
+
+      if (showPopup) {
+        marker.bindPopup(popupHtml).openPopup();
+      }
+
+      if (typeof flyToZoom === "number") {
+        mapInstance.flyTo(coordinates, flyToZoom, { duration: flyDurationSeconds });
+      }
+    } catch (e) {
+      console.error("Leaflet map initialization failed:", e);
+    }
+  };
+
+  const run = () => init();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+
+  window.addEventListener("pagehide", cleanup);
+  window.addEventListener("beforeunload", cleanup);
+  document.addEventListener("astro:before-swap", cleanup);
+</script>

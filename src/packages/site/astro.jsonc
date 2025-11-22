@@ -1,17 +1,17 @@
 {
   "dependencies": {
     "@astrojs/check": "0.9.5",
-    "@astrojs/mdx": "4.3.11",
-    "@astrojs/rss": "4.0.13",
+    "@astrojs/mdx": "4.3.12",
+    "@astrojs/rss": "4.0.14",
     "@astrojs/sitemap": "3.6.0",
     "@astrojs/ts-plugin": "1.10.5",
     "@iconify-json/bi": "1.2.6",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/vite": "4.1.17",
     "@tailwindplus/elements": "1.0.19",
-    "astro": "5.15.9",
+    "astro": "5.16.0",
     "astro-icon": "1.1.5",
-    "glob": "12.0.0",
+    "glob": "13.0.0",
     "gray-matter": "4.0.3",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"

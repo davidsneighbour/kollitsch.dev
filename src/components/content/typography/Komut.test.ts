@@ -3,7 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import { describe, expect, it } from 'vitest';
 
-const filePath = path.resolve(process.cwd(), 'src/components/Komut.astro');
+const filePath = path.resolve(
+  process.cwd(),
+  'src/components/content/typography/Komut.astro',
+);
 const content = fs.readFileSync(filePath, 'utf8');
 
 describe('Komut.astro (static assertions)', () => {

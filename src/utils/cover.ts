@@ -3,6 +3,7 @@ import { getIndexedImage } from '@utils/image-index.ts';
 import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
+import type { PostData } from '../content.config';
 import { createLogger } from './logger.ts';
 import {
   sanitizeYouTubePlayerParams,
@@ -32,31 +33,22 @@ export interface ResolveCoverOptions {
   warnOnFallback?: boolean;
 }
 
+type PostCover = NonNullable<PostData['cover']>;
+
+export type FMCover = Omit<PostCover, 'alt' | 'src' | 'video' | 'type'> & {
+  alt?: PostCover['alt'];
+  src?: PostCover['src'];
+  video?: PostCover['video'];
+  type?: PostCover['type'];
+};
+export type FMCoverFormat = FMCover['format'];
+
 export interface CoverVideo {
   title: string;
   youtube: string;
   artist?: string;
   params?: YouTubePlayerParams;
 }
-
-/** Front-matter 'cover' for blog/tags (image variant) */
-export interface FMCoverImage {
-  type?: 'image';
-  src?: string;
-  title?: string;
-  alt?: string;
-}
-
-/** Front-matter 'cover' for blog/tags (video variant) */
-export interface FMCoverVideo {
-  type: 'video';
-  video?: CoverVideo;
-  /** Optional human title; not used for figure title by default */
-  title?: string;
-}
-
-/** Union of front-matter cover variants */
-export type FMCover = FMCoverImage | FMCoverVideo;
 
 /** Resolved cover object (image) */
 export interface ResolvedCoverImage {
@@ -196,8 +188,8 @@ export function resolveCover(
   }
 
   // 3) Object cover -> handle video first
-  if (cover.type === 'video' && (cover as FMCoverVideo).video) {
-    const v = (cover as FMCoverVideo).video!;
+  if (cover.type === 'video' && cover.video) {
+    const v = cover.video;
     const alt = stripMarkup(v.title || fallbackAlt);
     const overrideParams = sanitizeYouTubePlayerParams(v.params);
     const mergedParams = {
@@ -219,15 +211,14 @@ export function resolveCover(
   }
 
   // 4) Object cover -> image path
-  const cimg = cover as FMCoverImage;
-  const keyOrUrl = resolveImageKey(cimg.src, ctx.id, ctx.collection, {
+  const keyOrUrl = resolveImageKey(cover.src, ctx.id, ctx.collection, {
     assetsDir,
     ...(defaultKey !== undefined ? { defaultKey } : {}),
     warnOnFallback,
   });
 
-  const alt = stripMarkup(cimg.alt ?? cimg.title ?? fallbackAlt);
-  const renderedTitle = renderTitleInline(cimg.title);
+  const alt = stripMarkup(cover.alt ?? cover.title ?? fallbackAlt);
+  const renderedTitle = renderTitleInline(cover.title);
 
   return buildImageResult(keyOrUrl, alt, renderedTitle);
 }

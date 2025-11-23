@@ -54,7 +54,7 @@ jobs:
             ${{ runner.os }}-ms-playwright-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # If you prefer, replace the two steps below with microsoft/playwright-github-action@v1
       - name: Install Playwright Browsers

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="2000"
+   height="1000"
+   viewBox="0 0 2000 1000"
+   version="1.1"
+   id="svg1551"
+   sodipodi:docname="kuchisabishii.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="kuchisabishii.jpg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1553"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="0.53921852"
+     inkscape:cx="914.2861"
+     inkscape:cy="712.14171"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="0,1000"
+       orientation="0,2000"
+       id="guide1672"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="2000,1000"
+       orientation="1000,0"
+       id="guide1674"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="2000,0"
+       orientation="0,-2000"
+       id="guide1676"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="0,0"
+       orientation="-1000,0"
+       id="guide1678"
+       inkscape:locked="false" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid1680"
+       empspacing="10"
+       spacingx="10"
+       spacingy="10" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1548">
+    <color-profile
+       name="sRGB"
+       xlink:href="file:///usr/share/color/icc/colord/sRGB.icc"
+       id="color-profile3590" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#0b0809;fill-opacity:1;stroke:none;stroke-width:5.00032;stroke-dasharray:none"
+       id="rect2161"
+       width="2000"
+       height="1000"
+       x="0"
+       y="0" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:150px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2 Bold';fill:#f83b3b;fill-opacity:1;stroke:none;stroke-width:5"
+       x="192.05"
+       y="409.35001"
+       id="text2105"><tspan
+         sodipodi:role="line"
+         id="tspan2103"
+         x="192.05"
+         y="409.35001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:150px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2 Heavy';fill:#f83b3b;fill-opacity:1;stroke:none">Kuchisabishii</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2 Bold';fill:#f83b3b;fill-opacity:1;stroke:none;stroke-width:5.00032;stroke-dasharray:none"
+       x="198.64999"
+       y="466.82605"
+       id="text2159"><tspan
+         sodipodi:role="line"
+         id="tspan2157"
+         x="198.64999"
+         y="466.82605"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';fill:#f83b3b;fill-opacity:1;stroke:none;stroke-width:5.00032;stroke-dasharray:none">japanese; lonely mouth </tspan></text>
+    <path
+       style="fill:#f83b3b;fill-opacity:1;stroke:#f83b3b;stroke-width:2.00297;stroke-dasharray:none;stroke-opacity:1"
+       d="M 4.0899435e-4,601.00148 1999.9996,603.9985"
+       id="path3182" />
+    <text
+       xml:space="preserve"
+       style="font-size:243.902px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';fill:#f83b3b;stroke-width:1.2196"
+       x="1629.6843"
+       y="874.93921"
+       id="text2562"
+       inkscape:label="the-k"><tspan
+         sodipodi:role="line"
+         id="tspan2560"
+         x="1629.6843"
+         y="874.93921"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:243.902px;font-family:'Changa One';-inkscape-font-specification:'Changa One';stroke-width:1.2196">K</tspan></text>
+    <rect
+       style="display:inline;fill:none;stroke:#f83b3b;stroke-width:5;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3232"
+       width="198.758"
+       height="198.75777"
+       x="1602.5"
+       y="700.62109"
+       rx="24.844749"
+       ry="24.844721"
+       inkscape:label="border" />
+  </g>
+</svg>

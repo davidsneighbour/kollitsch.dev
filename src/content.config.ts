@@ -128,7 +128,7 @@ export const blogSchema = z
       .optional()
       .transform((val) => (typeof val === 'string' ? [val] : val)),
     category: z.string().optional(),
-    contentFormat: z.enum(['md', 'mdx']),
+    contentFormat: z.enum(['md', 'mdx']).optional().default('md'),
     cover: cover,
     date: z.coerce.date().transform((s) => new Date(s)),
     description: z

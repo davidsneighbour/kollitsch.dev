@@ -1,7 +1,8 @@
 {
   "scripts": {
     "clean": "wireit",
-    "clean:full": "wireit"
+    "clean:full": "wireit",
+    "clean:og": "wireit",
   },
   "wireit": {
     "clean": {
@@ -13,6 +14,9 @@
     "clean:full": {
       "command": "rm -rf node_modules package-lock.json .wireit",
       "dependencies": ["clean:astro", "clean:netlify"]
-    }
+    },
+    "clean:og": {
+      "command": "rm -rf public/og_image .cache/og_image",
+    },
   }
 }

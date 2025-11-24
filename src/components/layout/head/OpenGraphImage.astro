@@ -97,6 +97,7 @@ assertDimensions(finalWidth, finalHeight, log);
 /** Central config for easy tuning */
 const CONFIG = {
   cacheDir: path.join(process.cwd(), "public", "og_image"),
+  persistentCacheDir: path.join(process.cwd(), ".cache", "og_image"),
   sharp: {
     cache: { files: 0, items: 32, memory: 32 },
     concurrency: 1,
@@ -153,13 +154,18 @@ function safeReadFile(filePath: string): Buffer | null {
 /**
  * Ensure cache directory exists.
  */
-function ensureCacheDir(): void {
+function ensureCacheDir(dir: string): void {
   try {
-    if (!fs.existsSync(CONFIG.cacheDir)) fs.mkdirSync(CONFIG.cacheDir, { recursive: true });
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   } catch (e) {
-    log.error({ dir: CONFIG.cacheDir, err: e }, "ensureCacheDir failed");
+    log.error({ dir, err: e }, "ensureCacheDir failed");
     throw e;
   }
+}
+
+function ensureCacheDirs(): void {
+  ensureCacheDir(CONFIG.cacheDir);
+  ensureCacheDir(CONFIG.persistentCacheDir);
 }
 
 /**
@@ -391,15 +397,22 @@ async function getCachedOrGeneratePng(
     throw new Error("Font load failed earlier; aborting OG generation.");
   }
 
-  ensureCacheDir();
+  ensureCacheDirs();
 
   const contentHash = generateContentHash(title, pubDate, width, height, format, imageKey);
   const fileName = `${contentHash}.${extFor(format)}`;
   const fileFsPath = path.join(CONFIG.cacheDir, fileName);
+  const persistentFsPath = path.join(CONFIG.persistentCacheDir, fileName);
   const fileWebPath = `/og_image/${fileName}`;
 
   if (fs.existsSync(fileFsPath)) {
     log.debug({ fileFsPath }, "Using cached OG image");
+    return { format, height, mime: mimeFor(format), src: fileWebPath, width };
+  }
+
+  if (fs.existsSync(persistentFsPath)) {
+    fs.copyFileSync(persistentFsPath, fileFsPath);
+    log.info({ fileFsPath, persistentFsPath }, "Restored OG image from persistent cache");
     return { format, height, mime: mimeFor(format), src: fileWebPath, width };
   }
 
@@ -424,6 +437,7 @@ async function getCachedOrGeneratePng(
       const tmp = `${fileFsPath}.tmp-${process.pid}-${Date.now()}`;
       fs.writeFileSync(tmp, optimized);
       fs.renameSync(tmp, fileFsPath);
+      fs.copyFileSync(fileFsPath, persistentFsPath);
       log.debug({ bytes: optimized.byteLength, fileFsPath }, "OG image written");
       endPix("resvg+sharp");
     } catch (e) {
@@ -457,9 +471,7 @@ const normalizeDate = (value: Date | string | undefined): Date | undefined =>
 
 const pubDate = hasContentIdentity ? normalizeDate(image?.date) : undefined;
 
-const rawDisplayDate = hasContentIdentity
-  ? normalizeDate(image?.lastModified ?? image?.date)
-  : undefined;
+const rawDisplayDate = hasContentIdentity ? normalizeDate(image?.lastModified ?? image?.date) : undefined;
 const displayDate = formatDisplayDate(rawDisplayDate);
 
 const defaultArticleImageKey = (setup.images?.default ?? "").trim();
@@ -481,18 +493,8 @@ function resolveCoverImageKey(): string {
 
   const opts: ResolveImageKeyOptions = defaultKeyMaybe !== undefined ? { defaultKey: defaultKeyMaybe } : {};
 
-  const rawSrc =
-    typeof rawCover === "string"
-      ? rawCover
-      : typeof cover.src === "string"
-        ? cover.src
-        : undefined;
-  return resolveImageKey(
-    coverType !== "video" ? rawSrc : undefined,
-    image?.id ?? "",
-    image?.collection ?? "",
-    opts,
-  );
+  const rawSrc = typeof rawCover === "string" ? rawCover : typeof cover.src === "string" ? cover.src : undefined;
+  return resolveImageKey(coverType !== "video" ? rawSrc : undefined, image?.id ?? "", image?.collection ?? "", opts);
 }
 
 const resolvedArticleImageKey = resolveCoverImageKey();

@@ -27,6 +27,7 @@
   "scripts": {
     "astro": "astro",
     "build": "astro check && astro build",
+    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
     "check": "astro check",
     "dev": "astro dev",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",

@@ -301,18 +301,24 @@ const { defaultTheme = "dark" }: Props = Astro.props;
   }
 </style>
 
-<script is:inline data-astro-rerun data-default-theme={defaultTheme}>
+<script is:inline data-astro-rerun data-default-theme={defaultTheme} data-pagefind-base={import.meta.env.BASE_URL ?? "/"}>
   (() => {
     // ---- Shared utilities ----
     window.kdev = window.kdev || {};
     window.kdev.mobileOpen = false;
     window.kdev.navSearch ??= {};
+    const thisScript = document.currentScript;
     const closeIcon = document.querySelector(".close-icon");
     const openIcon = document.querySelector(".open-icon");
     const navSection = document.querySelector("#navigation-and-theme-select");
     const placeholder = document.querySelector("#sitetitle");
     const stickyBrand = document.querySelector("#navbar-brand");
-    const pagefindSource = new URL("pagefind/pagefind.js", import.meta.env.BASE_URL ?? "/").pathname;
+    const pagefindSource = new URL(
+      "pagefind/pagefind.js",
+      thisScript?.dataset.pagefindBase && thisScript.dataset.pagefindBase.trim() !== ""
+        ? thisScript.dataset.pagefindBase
+        : "/",
+    ).pathname;
 
     // Toggle icons: hamburger ↔ close
     const toggleIcons = () => {

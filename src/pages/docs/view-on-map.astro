@@ -1,0 +1,104 @@
+---
+import "@styles/theme.css";
+import ViewOnMap from "@components/features/maps/ViewOnMap.astro";
+import Layout from "@layouts/ContentPage.astro";
+
+const post = {
+  data: {
+    title: "ViewOnMap component",
+    description:
+      "Astro port of the hover-to-reveal Leaflet map card with configurable location details.",
+  },
+};
+---
+
+<Layout post={post}>
+  <h1>ViewOnMap</h1>
+  <p>
+    A hover-reveal map card built with Leaflet and styled for quick embeds. The component
+    uses Ko Samui, Thailand (<code>9.5785, 99.9583</code>) as its default view and supports
+    optional fly-to animation, popup configuration, and custom labels.
+  </p>
+
+  <div class="mb-8 mt-6 flex justify-center">
+    <ViewOnMap />
+  </div>
+
+  <h2>Props</h2>
+  <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div>
+      <dt class="font-semibold">coordinates</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">
+        <code>[lat, lng]</code>; defaults to <code>[9.5785, 99.9583]</code>.
+      </dd>
+    </div>
+    <div>
+      <dt class="font-semibold">label</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">
+        CTA text shown beside the navigation icon. Defaults to <code>"View on Map"</code>.
+      </dd>
+    </div>
+    <div>
+      <dt class="font-semibold">locationName</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Popup heading; defaults to Ko Samui.</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">locationDetail</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Secondary popup line; defaults to Thailand.</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">initialZoom</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Starting zoom; defaults to 12.</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">flyToZoom</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">
+        Target zoom for fly animation. Set to <code>null</code> to disable. Defaults to 14.
+      </dd>
+    </div>
+    <div>
+      <dt class="font-semibold">flyDurationSeconds</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Fly animation duration; defaults to 2.</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">showPopup</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Whether the popup opens automatically.</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">showPopupCoordinates</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Include coordinates below the popup text.</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">class</dt>
+      <dd class="text-sm text-neutral-700 dark:text-neutral-300">Optional wrapper classes for sizing overrides.</dd>
+    </div>
+  </dl>
+
+  <h2 class="mt-8">Usage</h2>
+  <pre class="overflow-auto rounded-lg bg-neutral-900 p-4 text-sm text-white"><code>{`---
+import ViewOnMap from "@components/features/maps/ViewOnMap.astro";
+---
+
+<ViewOnMap
+  coordinates={[9.5785, 99.9583]}
+  label="Resort map"
+  locationName="Ko Samui"
+  locationDetail="Thailand"
+  initialZoom={12}
+  flyToZoom={14}
+  flyDurationSeconds={2}
+/>`}</code></pre>
+
+  <h2 class="mt-8">When to use</h2>
+  <ul class="ml-5 list-disc space-y-2">
+    <li>Show a quick location preview without committing to a full-width map embed.</li>
+    <li>Highlight a single point of interest with a custom popup title and subtitle.</li>
+    <li>Demonstrate different interaction modes via fly animation, popup toggling, or coordinate captions.</li>
+  </ul>
+
+  <p class="mt-6">
+    For manual QA scenarios, see the accompanying
+    <a class="text-primary underline" href="/test/maps/view-on-map/">test page</a>
+    that exercises each option in isolation.
+  </p>
+</Layout>

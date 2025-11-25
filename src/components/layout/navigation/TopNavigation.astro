@@ -89,6 +89,35 @@ const { defaultTheme = "dark" }: Props = Astro.props;
             ))
           }
           <li class="px-3 py-4 md:px-2 md:py-2">
+            <div class="nav-search-container" id="nav-search">
+              <form class="nav-search-form" role="search" aria-label="Site search">
+                <label class="sr-only" for="nav-search-input">Search site</label>
+                <div class="nav-search-shell" aria-hidden="false">
+                  <Icon name="search" class="text-gray-500 dark:text-gray-300" aria-hidden="true" />
+                  <input
+                    id="nav-search-input"
+                    class="nav-search-input"
+                    type="search"
+                    name="q"
+                    inputmode="search"
+                    placeholder="Search"
+                    autocomplete="off"
+                    aria-expanded="false"
+                  />
+                  <button type="button" class="nav-search-clear" aria-label="Clear search" title="Clear search">
+                    <Icon name="x" aria-hidden="true" />
+                  </button>
+                </div>
+              </form>
+              <div class="nav-search-results" aria-live="polite" aria-atomic="true" aria-hidden="true">
+                <div class="nav-search-results-panel">
+                  <p class="nav-search-status" role="status">Type to search</p>
+                  <ul class="nav-search-results-list" role="list"></ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="px-3 py-4 md:px-2 md:py-2">
             <theme-selector></theme-selector>
           </li>
         </ul>
@@ -97,16 +126,193 @@ const { defaultTheme = "dark" }: Props = Astro.props;
   </nav>
 </header>
 
+<style>
+  .nav-search-container {
+    position: relative;
+    width: 3rem;
+    transition: width 200ms ease, background-color 150ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .nav-search-container {
+      width: 7rem;
+    }
+  }
+
+  .nav-search-container.is-expanded {
+    width: min(32rem, 90vw);
+  }
+
+  .nav-search-form {
+    margin: 0;
+  }
+
+  .nav-search-shell {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 9999px;
+    padding: 0.45rem 0.75rem;
+    background-color: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(24, 24, 27, 0.12);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    cursor: text;
+  }
+
+  .dark .nav-search-shell {
+    background-color: rgba(24, 24, 27, 0.92);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  .nav-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-size: 0.95rem;
+  }
+
+  .nav-search-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .dark .nav-search-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .nav-search-clear {
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    display: none;
+  }
+
+  .nav-search-clear.is-visible {
+    display: inline-flex;
+  }
+
+  .nav-search-results {
+    position: absolute;
+    inset-inline: 0;
+    margin-top: 0.75rem;
+    display: none;
+  }
+
+  .nav-search-results.is-visible {
+    display: block;
+  }
+
+  .nav-search-results-panel {
+    background: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+
+  .dark .nav-search-results-panel {
+    background: #0b0b0f;
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.32);
+  }
+
+  .nav-search-status {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    color: #6b7280;
+  }
+
+  .dark .nav-search-status {
+    color: #d1d5db;
+  }
+
+  .nav-search-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-search-result {
+    border-top: 1px solid rgba(24, 24, 27, 0.06);
+  }
+
+  .nav-search-result:first-of-type {
+    border-top: none;
+  }
+
+  .nav-search-result__link {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .nav-search-result__link:hover,
+  .nav-search-result__link:focus-visible {
+    background: rgba(37, 99, 235, 0.08);
+    outline: none;
+  }
+
+  .dark .nav-search-result__link:hover,
+  .dark .nav-search-result__link:focus-visible {
+    background: rgba(94, 234, 212, 0.15);
+  }
+
+  .nav-search-result__title {
+    font-weight: 700;
+  }
+
+  .nav-search-result__excerpt {
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    grid-column: 1 / -1;
+  }
+
+  .dark .nav-search-result__excerpt {
+    color: #d1d5db;
+  }
+
+  .nav-search-result__shortcut {
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+
+  .dark .nav-search-result__shortcut {
+    color: #9ca3af;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-search-container {
+      transition: none;
+    }
+
+    .nav-search-result__link:hover,
+    .nav-search-result__link:focus-visible {
+      transition: none;
+    }
+  }
+</style>
+
 <script is:inline data-astro-rerun data-default-theme={defaultTheme}>
   (() => {
     // ---- Shared utilities ----
     window.kdev = window.kdev || {};
     window.kdev.mobileOpen = false;
+    window.kdev.navSearch ??= {};
     const closeIcon = document.querySelector(".close-icon");
     const openIcon = document.querySelector(".open-icon");
     const navSection = document.querySelector("#navigation-and-theme-select");
     const placeholder = document.querySelector("#sitetitle");
     const stickyBrand = document.querySelector("#navbar-brand");
+    const pagefindSource = new URL("pagefind/pagefind.js", import.meta.env.BASE_URL ?? "/").pathname;
 
     // Toggle icons: hamburger ↔ close
     const toggleIcons = () => {
@@ -160,6 +366,241 @@ const { defaultTheme = "dark" }: Props = Astro.props;
       const isIntersecting =
         placeholder.getBoundingClientRect().top >= 0 && placeholder.getBoundingClientRect().bottom > 0;
       stickyBrand.classList.toggle("sticky-visible", !isIntersecting);
+    }
+
+    function ensureNavSearchGlobals() {
+      const navState = window.kdev.navSearch;
+      if (navState.globalAttached) return;
+
+      const onDocumentClick = (event) => {
+        const { container, collapse } = navState.current ?? {};
+        if (!container || !collapse) return;
+        if (!container.contains(event.target)) {
+          collapse({ force: true });
+        }
+      };
+
+      const onKeydown = (event) => {
+        const nav = navState.current;
+        if (!nav) return;
+
+        if (event.ctrlKey && !event.shiftKey && !event.altKey) {
+          if (event.key.toLowerCase() === "s") {
+            event.preventDefault();
+            nav.expand?.();
+            nav.input?.focus();
+            nav.input?.select();
+            return;
+          }
+
+          const digit = Number.parseInt(event.key, 10);
+          if (Number.isInteger(digit) && digit > 0) {
+            const opened = nav.openResult?.(digit - 1);
+            if (opened) {
+              event.preventDefault();
+            }
+            return;
+          }
+        }
+
+        if (event.key === "Escape") {
+          nav.collapse?.({ force: true });
+        }
+      };
+
+      document.addEventListener("click", onDocumentClick);
+      document.addEventListener("keydown", onKeydown);
+      navState.globalAttached = true;
+      navState.teardownGlobals = () => {
+        document.removeEventListener("click", onDocumentClick);
+        document.removeEventListener("keydown", onKeydown);
+        navState.globalAttached = false;
+      };
+    }
+
+    function initNavigationSearch() {
+      const navState = window.kdev.navSearch;
+      const searchContainer = document.querySelector("#nav-search");
+      const searchInput = searchContainer?.querySelector("input[type='search']");
+      const searchShell = searchContainer?.querySelector(".nav-search-shell");
+      const searchForm = searchContainer?.querySelector("form");
+      const clearButton = searchContainer?.querySelector(".nav-search-clear");
+      const resultsPanel = searchContainer?.querySelector(".nav-search-results");
+      const resultsList = searchContainer?.querySelector(".nav-search-results-list");
+      const status = searchContainer?.querySelector(".nav-search-status");
+
+      if (!searchContainer || !searchInput || !resultsPanel || !resultsList || !status) {
+        return;
+      }
+
+      let debounceId;
+      let latestQuery = "";
+      navState.current = {
+        anchors: [],
+        container: searchContainer,
+        input: searchInput,
+      };
+
+      const toggleResults = (show) => {
+        resultsPanel.classList.toggle("is-visible", show);
+        resultsPanel.setAttribute("aria-hidden", show ? "false" : "true");
+      };
+
+      const setStatus = (text) => {
+        status.textContent = text;
+      };
+
+      const updateClearButton = () => {
+        const hasValue = Boolean(searchInput.value.trim());
+        clearButton?.classList.toggle("is-visible", hasValue);
+      };
+
+      const expand = () => {
+        searchContainer.classList.add("is-expanded");
+        searchInput.setAttribute("aria-expanded", "true");
+      };
+
+      const collapse = ({ force = false } = {}) => {
+        if (force || !searchInput.value.trim()) {
+          searchContainer.classList.remove("is-expanded");
+          toggleResults(false);
+          searchInput.setAttribute("aria-expanded", "false");
+        }
+      };
+
+      const createResultItem = (data, index) => {
+        const item = document.createElement("li");
+        item.className = "nav-search-result";
+        const anchor = document.createElement("a");
+        anchor.className = "nav-search-result__link";
+        anchor.href = data.url;
+        anchor.setAttribute("role", "option");
+        anchor.setAttribute(
+          "aria-label",
+          `${index + 1}. ${data.meta?.title || data.url}`,
+        );
+
+        const title = document.createElement("span");
+        title.className = "nav-search-result__title";
+        title.textContent = data.meta?.title || data.url;
+
+        const excerpt = document.createElement("span");
+        excerpt.className = "nav-search-result__excerpt";
+        excerpt.innerHTML = data.excerpt || "";
+
+        const shortcut = document.createElement("span");
+        shortcut.className = "nav-search-result__shortcut";
+        shortcut.textContent = `Ctrl+${index + 1}`;
+
+        anchor.append(title, excerpt, shortcut);
+        item.append(anchor);
+        return { anchor, item };
+      };
+
+      const renderResults = (data) => {
+        resultsList.innerHTML = "";
+        navState.current.anchors = [];
+        data.forEach((entry, index) => {
+          const { item, anchor } = createResultItem(entry, index);
+          navState.current.anchors.push(anchor);
+          resultsList.append(item);
+        });
+      };
+
+      const performSearch = async (term) => {
+        const query = term.trim();
+        latestQuery = query;
+        updateClearButton();
+        if (!query) {
+          setStatus("Type to search");
+          toggleResults(false);
+          resultsList.innerHTML = "";
+          return;
+        }
+
+        expand();
+        toggleResults(true);
+        setStatus(`Searching for “${query}”…`);
+
+        try {
+          navState.pagefindPromise ??= import(pagefindSource);
+          const pagefind = await navState.pagefindPromise;
+          const searchResult = await pagefind.search(query);
+          const results = await Promise.all(searchResult.results.slice(0, 8).map((res) => res.data()));
+
+          if (latestQuery !== query) {
+            return;
+          }
+
+          if (!results.length) {
+            setStatus(`No matches for “${query}”.`);
+            resultsList.innerHTML = "";
+            return;
+          }
+
+          renderResults(results);
+          const label = results.length === 1 ? "1 result" : `${results.length} results`;
+          setStatus(`${label} for “${query}”. Use Ctrl+1…9 to open.`);
+        } catch (error) {
+          console.error("pagefind search failed", error);
+          setStatus("Search is currently unavailable.");
+        }
+      };
+
+      const scheduleSearch = (term) => {
+        window.clearTimeout(debounceId);
+        debounceId = window.setTimeout(() => performSearch(term), 160);
+      };
+
+      const handleInput = (event) => {
+        const value = event.target.value;
+        expand();
+        toggleResults(true);
+        scheduleSearch(value);
+      };
+
+      searchInput.addEventListener("input", handleInput);
+      searchInput.addEventListener("focus", () => {
+        expand();
+        if (searchInput.value.trim()) {
+          toggleResults(true);
+        }
+      });
+
+      searchForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        expand();
+        performSearch(searchInput.value);
+      });
+
+      searchShell?.addEventListener("click", () => {
+        expand();
+        searchInput.focus();
+      });
+
+      clearButton?.addEventListener("click", (event) => {
+        event.preventDefault();
+        searchInput.value = "";
+        updateClearButton();
+        resultsList.innerHTML = "";
+        setStatus("Type to search");
+        collapse({ force: true });
+        searchInput.focus();
+      });
+
+      navState.current.expand = expand;
+      navState.current.collapse = collapse;
+      navState.current.openResult = (index) => {
+        const anchor = navState.current.anchors?.[index];
+        if (!anchor) return false;
+        anchor.focus();
+        anchor.click();
+        return true;
+      };
+
+      updateClearButton();
+      ensureNavSearchGlobals();
+      collapse();
     }
 
     function changeGiscusTheme(t = "dark") {
@@ -257,10 +698,12 @@ const { defaultTheme = "dark" }: Props = Astro.props;
     // Global listeners
     window.addEventListener("resize", toggleNavVisibility);
     document.addEventListener("astro:after-swap", initMobileMenu);
+    document.addEventListener("astro:after-swap", initNavigationSearch);
 
     // Initial init
     initMobileMenu();
     initStickyBrandObserver();
+    initNavigationSearch();
     initThemeManager();
   })();
 </script>

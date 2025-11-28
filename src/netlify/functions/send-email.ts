@@ -57,7 +57,7 @@ export default async (request: Request, context: Context): Promise<Response> => 
   const RESEND_FROM = process.env.RESEND_FROM;
   const RESEND_TO = process.env.RESEND_TO;
 
-  // console.log({ request, context });
+  console.log({ request, context });
 
   if (!RESEND_API_KEY || !RESEND_FROM || !RESEND_TO) {
     console.error('Missing email environment variables.');
@@ -123,21 +123,30 @@ Email: ${email}
 Message:
 ${message}`;
 
-  const { data, error } = await resend.emails.send({
-    from: RESEND_FROM,
-    to: [RESEND_TO],
-    replyTo: email,
-    subject,
-    html,
-    text,
-  });
+  let sendResult: unknown;
 
-  if (error) {
-    return Response.json({ error: 'Failed sending email', payload: error }, { status: 500 });
+  try {
+    sendResult = await resend.emails.send({
+      from: RESEND_FROM,
+      to: [RESEND_TO],
+      // Use the SDK property name for Reply-To
+      replyTo: email,
+      subject,
+      html,
+      text,
+    });
+  } catch (sendError) {
+    console.error('Failed to send email via Resend:', sendError);
+    return Response.json({ error: 'Failed sending email', payload: String(sendError) }, { status: 500 });
   }
 
-  console.log(`Email ${data.id} has been sent`)
-  console.log({ data });
+  // Log the raw result from the SDK. Most Resend SDK responses include an `id`.
+  // We avoid destructuring because the SDK returns the created message object
+  // and throws on failure instead of returning `{ error }`.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const resultAny = sendResult as any;
+  console.log(`Email ${resultAny?.id ?? 'unknown'} has been sent`);
+  console.log({ sendResult });
   return Response.json({ message: 'Thank you for your message!' });
 
 };

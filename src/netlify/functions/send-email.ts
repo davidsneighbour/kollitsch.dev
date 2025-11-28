@@ -1,5 +1,4 @@
-import type { Config } from "@netlify/functions";
-import { Context } from "@netlify/functions";
+import type { Config, Context } from "@netlify/functions";
 import { Resend } from 'resend';
 
 export const config: Config = {

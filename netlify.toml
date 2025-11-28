@@ -10,3 +10,6 @@ from = "/:path*"
 to = "/:path*/"
 status = 301
 force = false
+
+[functions]
+directory = "src/netlify/functions"

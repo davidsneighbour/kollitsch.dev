@@ -42,6 +42,7 @@ const isDev = import.meta.env.DEV;
                   id="first-name"
                   autocomplete="given-name"
                   required
+                  enterkeyhint="next"
                   aria-required="true"
                   aria-describedby="first-name-error"
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
@@ -63,6 +64,7 @@ const isDev = import.meta.env.DEV;
                   name="last-name"
                   id="last-name"
                   autocomplete="family-name"
+                  enterkeyhint="next"
                   aria-describedby="last-name-error"
                   class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 />
@@ -78,6 +80,7 @@ const isDev = import.meta.env.DEV;
                   name="email"
                   id="email"
                   autocomplete="email"
+                  enterkeyhint="next"
                   required
                   aria-required="true"
                   aria-describedby="email-error"
@@ -96,6 +99,7 @@ const isDev = import.meta.env.DEV;
                   rows="4"
                   required
                   aria-required="true"
+                  enterkeyhint="enter"
                   aria-describedby="message-error"
                   class="block w-full rounded-md px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 ></textarea>

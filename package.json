@@ -70,8 +70,7 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.35",
-    "@vitest/browser-playwright": "4.0.7",
-    "@vitest/coverage-v8": "4.0.7",
+    "@vitest/browser-playwright": "^4",
     "ajv": "8.17.1",
     "ajv-formats": "3.0.1",
     "astro-expressive-code": "0.41.3",
@@ -100,7 +99,7 @@
     "tsx": "4.20.6",
     "vite-plugin-devtools-json": "1.0.0",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.7"
+    "vitest": "4.0.14"
   },
   "scripts": {
     "astro": "astro",
@@ -113,11 +112,13 @@
     "build": "astro check && astro build",
     "build:favicons": "node src/assets/favicon/regenerate.ts",
     "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
+    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
     "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix",
     "check": "astro check",
     "clean": "wireit",
     "clean:full": "wireit",
     "clean:netlify": "wireit",
+    "clean:og": "wireit",
     "compile:fixpack": "wireit",
     "compile:package": "wireit",
     "compile:package:install": "wireit",
@@ -159,6 +160,7 @@
     "test:live": "npx playwright test --config ./playwright.live.config.ts",
     "test:postinstall": "npx playwright install",
     "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "test:ui": "vitest --ui",
     "update": "wireit",
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade"
@@ -265,6 +267,9 @@
         "clean:astro",
         "clean:netlify"
       ]
+    },
+    "clean:og": {
+      "command": "rm -rf public/og_image .cache/og_image"
     }
   },
   "browserslist": {

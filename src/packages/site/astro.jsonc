@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "@astrojs/check": "0.9.5",
+    "@astrojs/check": "0.9.6",
     "@astrojs/mdx": "4.3.12",
     "@astrojs/rss": "4.0.14",
     "@astrojs/sitemap": "3.6.0",
-    "@astrojs/ts-plugin": "1.10.5",
+    "@astrojs/ts-plugin": "1.10.6",
     "@iconify-json/bi": "1.2.6",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/vite": "4.1.17",
     "@tailwindplus/elements": "1.0.19",
-    "astro": "5.16.0",
+    "astro": "5.16.2",
     "astro-icon": "1.1.5",
     "glob": "13.0.0",
     "gray-matter": "4.0.3",

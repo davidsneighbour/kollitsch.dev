@@ -2,7 +2,7 @@
   "devDependencies": {
     "fast-xml-parser": "5.3.2",
     "playwright": "1.57.0",
-    "tsx": "4.20.6"
+    "tsx": "4.21.0"
   },
   "scripts": {
     "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000"

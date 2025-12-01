@@ -24,13 +24,20 @@ public/og_image
 # dynamically built image index
 src/content/_generated
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,visualstudiocode
+# reports
+reports/
+
+# Created by https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode,lighthouseci
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,visualstudiocode,lighthouseci
 
 ### Astro ###
 # Gitignore template for Astro projects
 # Ignore content collection generated files
 .astro
+
+### LighthouseCI ###
+# Lighthouse reports
+.lighthouseci/
 
 ### Node ###
 # Logs
@@ -191,4 +198,4 @@ dist
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode,lighthouseci

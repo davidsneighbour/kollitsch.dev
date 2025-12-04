@@ -73,11 +73,9 @@
     }
   }
 
-  /***************************************************************************  */
-
-  /* lite youtube element                                                     **/
-
-  /***************************************************************************  */
+  /****************************************************************************/
+  /* lite youtube element                                                    **/
+  /****************************************************************************/
   lite-youtube {
     /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
     @apply relative block w-full cursor-pointer bg-gray-50 dark:bg-gray-950;

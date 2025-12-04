@@ -1,0 +1,189 @@
+---
+
+---
+
+<script>
+  /**
+   * Automatic Tailwind-color ::selection highlighter.
+   *
+   * Theme detection:
+   *   <html data-theme="light"> → light mode
+   *   <html data-theme="dark">  → dark mode
+   *
+   * Tailwind-style colour variables:
+   *   --color-slate-50
+   *   --color-slate-950
+   */
+
+  type ThemeMode = "light" | "dark";
+
+  interface HighlightConfig {
+    varPrefix: string;
+    lightShades: { bg: number; text: number };
+    darkShades: { bg: number; text: number };
+  }
+
+  const DEBUG = false;
+
+  const highlightConfig: HighlightConfig = {
+    varPrefix: "--color",
+    lightShades: { bg: 950, text: 50 },
+    darkShades: { bg: 50, text: 950 },
+  };
+
+  let currentStyleElement: HTMLStyleElement | null = null;
+  let cachedFamilies: string[] | null = null;
+
+  /**
+   * Theme from <html data-theme="…">
+   */
+  function detectThemeMode(): ThemeMode {
+    const html = document.documentElement;
+    const theme = html.getAttribute("data-theme");
+
+    if (DEBUG) {
+      console.log("[selectionHighlight] data-theme =", theme);
+    }
+
+    return theme === "light" ? "light" : "dark";
+  }
+
+  /**
+   * Extract colour families from the available TailwindCSS variables.
+   */
+  function extractColorFamilies(): string[] {
+    if (cachedFamilies) {
+      return cachedFamilies;
+    }
+    const styles = getComputedStyle(document.documentElement);
+    const families = new Set<string>();
+    for (let i = 0; i < styles.length; i++) {
+      const propName = styles.item(i);
+      if (!propName) continue;
+      const prefix = `${highlightConfig.varPrefix}-`;
+      if (!propName.startsWith(prefix)) continue;
+      const withoutPrefix = propName.slice(prefix.length);
+      const parts = withoutPrefix.split("-");
+      if (parts.length !== 2) continue;
+      const family = parts[0];
+      if (family) {
+        families.add(family);
+      }
+    }
+    cachedFamilies = Array.from(families);
+    if (DEBUG) {
+      console.log("[selectionHighlight] families =", cachedFamilies);
+    }
+    return cachedFamilies;
+  }
+
+  /**
+   * Resolve a CSS variable like --color-slate-50
+   */
+  function resolveColorVar(family: string, shade: number): string | null {
+    const varName = `${highlightConfig.varPrefix}-${family}-${shade}`;
+    const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+
+    if (DEBUG) {
+      console.log(`[selectionHighlight] ${varName} =`, value || "(empty / not defined)");
+    }
+
+    return value || null;
+  }
+
+  /**
+   * Build highlight combos for current theme.
+   */
+  function buildCombos(): { bg: string; color: string }[] {
+    const families = extractColorFamilies();
+    const mode = detectThemeMode();
+    const shades = mode === "dark" ? highlightConfig.darkShades : highlightConfig.lightShades;
+
+    const combos: { bg: string; color: string }[] = [];
+
+    for (const family of families) {
+      const bg = resolveColorVar(family, shades.bg);
+      const text = resolveColorVar(family, shades.text);
+
+      if (bg && text) {
+        combos.push({ bg, color: text });
+      }
+    }
+
+    if (DEBUG) {
+      console.log("[selectionHighlight] combos count =", combos.length);
+    }
+
+    return combos;
+  }
+
+  /**
+   * Ensure <style> exists.
+   */
+  function ensureStyleElement(): HTMLStyleElement {
+    if (currentStyleElement && currentStyleElement.isConnected) {
+      return currentStyleElement;
+    }
+
+    const el = document.createElement("style");
+    el.setAttribute("data-selection-highlight", "true");
+    document.head.appendChild(el);
+    currentStyleElement = el;
+
+    if (DEBUG) {
+      console.log("[selectionHighlight] created <style> element");
+    }
+
+    return el;
+  }
+
+  /**
+   * Apply ::selection style.
+   */
+  function applySelectionStyle(bg: string, color: string): void {
+    const el = ensureStyleElement();
+    el.textContent = `
+::selection {
+  background-color: ${bg};
+  color: ${color};
+  transition: all 0.15s ease;
+}
+::-moz-selection {
+  background-color: ${bg};
+  color: ${color};
+  transition: all 0.15s ease;
+}
+`.trim();
+
+    if (DEBUG) {
+      console.log("[selectionHighlight] applied combo", { bg, color });
+    }
+  }
+
+  function handleSelectionChange(): void {
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
+      return;
+    }
+
+    const combos = buildCombos();
+    if (combos.length === 0) {
+      if (DEBUG) {
+        console.warn("[selectionHighlight] No combos available. Check CSS variable names and shades.");
+      }
+      return;
+    }
+
+    const combo = combos[Math.floor(Math.random() * combos.length)];
+    if (!combo) {
+      if (DEBUG) {
+        console.warn("[selectionHighlight] combo unexpectedly undefined despite non-empty combos array");
+      }
+      return;
+    }
+
+    applySelectionStyle(combo.bg, combo.color);
+  }
+
+  document.addEventListener("selectionchange", handleSelectionChange);
+</script>

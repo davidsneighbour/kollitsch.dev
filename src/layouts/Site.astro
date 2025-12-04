@@ -5,6 +5,7 @@ import Breakpoints from "@components/devtools/Breakpoints.astro";
 import Head from "@components/layout/Head.astro";
 import SchemaWebSite from "@components/seo/schema/WebSite.astro";
 import WebComponents from "@components/layout/footer/WebComponents.astro";
+import Selection from "@components/gimmicks/Selection.astro";
 import setup from "@data/setup.json" with { type: "json" };
 
 const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astro.props;
@@ -78,5 +79,6 @@ const IS_DEV = import.meta.env.DEV;
     <script>
       import "@tailwindplus/elements";
     </script>
+    <Selection />
   </body>
 </html>

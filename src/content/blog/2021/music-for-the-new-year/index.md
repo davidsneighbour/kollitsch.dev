@@ -7,7 +7,7 @@ date: 2021-12-31T13:24:14+07:00
 tags:
   - programming-music
 cover:
-  src: hero.png
+  src: blog/2021/music-for-the-new-year.png
   type: video
   title: Khruangbin @ Villain | Pitchfork Live
   video:

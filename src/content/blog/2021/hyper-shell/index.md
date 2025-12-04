@@ -12,7 +12,7 @@ tags:
   - electron
   - link
 cover:
-  src: hyper-shell.png
+  src: blog/2021/hyper-shell.png
   type: image
 publisher: rework
 ---

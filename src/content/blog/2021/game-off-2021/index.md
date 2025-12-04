@@ -8,7 +8,7 @@ tags:
   - projects
   - planning
 cover:
-  src: hero.png
+  src: blog/2021/game-off-2021.png
   type: image
   title: Game Off 2021
 ---

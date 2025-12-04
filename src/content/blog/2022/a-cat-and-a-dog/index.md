@@ -18,7 +18,7 @@ tags:
 unsplash:
   imageid: ouo1hbizWwo
 cover:
-  src: ./header.jpg
+  src: blog/2022/a-cat-and-a-dog.jpg
   type: image
 publisher: rework
 ---

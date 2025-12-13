@@ -9,9 +9,6 @@
     // 'allowSyntheticDefaultImports' flag.
     //"allowSyntheticDefaultImports": true,
     "paths": {
-      "@/*": [
-        "*"
-      ],
       "@assets/*": [
         "src/assets/*"
       ],

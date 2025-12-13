@@ -18,16 +18,13 @@ export interface Props {}
 
 const socialMediaData = rawSocialMediaData as SocialMediaItem[];
 
-const adjust = 1.9;
-const titleLength = setup.title.length;
-const titleFontSize = Math.floor((100 / titleLength) * adjust);
-
 const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 
 import SocialLinks from "@components/features/social/SocialLinks.astro";
 import MarkdownIt from "markdown-it";
+import Colophon from "@components/layout/footer/Colophon.astro";
 
 const md = new MarkdownIt();
 
@@ -100,18 +97,7 @@ const introFallbackHtml = md.renderInline(introFallback);
   </div>
 </footer>
 
-<footer
-  class="h-max-[8vw] overflow-y-hidden text-center"
-  aria-hidden="true"
-  aria-label="Decorative footer element with site title"
->
-  <div
-    class="font-changa text-center leading-none font-normal whitespace-nowrap text-gray-200/10 transition duration-2000 ease-in-out select-none hover:text-gray-200/50 dark:text-gray-800/10 dark:hover:text-gray-800/50"
-    style={`font-size: ${titleFontSize}vw;`}
-  >
-    {setup.title}
-  </div>
-</footer>
+<Colophon />
 
 <script is:inline define:vars={{ footerYearId }} data-astro-rerun>
   document.getElementById(footerYearId).innerText = new Date().getFullYear();

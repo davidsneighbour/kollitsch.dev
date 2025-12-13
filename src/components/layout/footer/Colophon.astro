@@ -1,0 +1,24 @@
+---
+import setup from "@data/setup.json" with { type: "json" };
+const adjust = 1.9;
+const titleLength = setup.title.length;
+const titleFontSize = Math.floor((100 / titleLength) * adjust);
+export interface Props {}
+---
+
+<div
+  class="isolate mt-64 overflow-hidden
+    font-changa text-center leading-none
+    whitespace-nowrap select-none"
+  aria-hidden="true"
+>
+  <span
+    class="d-inline-block
+    transition duration-2000 ease-in-out
+    text-gray-200/10 hover:text-gray-200/50
+    dark:text-gray-800/10 dark:hover:text-gray-800/50"
+    style={`font-size: ${titleFontSize}vw;`}
+  >
+    {setup.title}
+  </span>
+</div>

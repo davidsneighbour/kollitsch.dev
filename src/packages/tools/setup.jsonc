@@ -19,7 +19,7 @@
       ]
     },
     "update:git-hooks": {
-      "command": "npx simple-git-hooks",
+      "command": "npm test && npx simple-git-hooks",
       "dependencies": [
         "update:post"
       ]

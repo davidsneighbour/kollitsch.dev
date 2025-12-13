@@ -1,12 +1,13 @@
 // @vitest-environment node
-import { describe, it, expect } from 'vitest';
+
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { describe, expect, it } from 'vitest';
 
-describe('Finial component (props contract + patterns)', () => {
+describe('Colophon component (props contract + patterns)', () => {
   const testDir = path.dirname(fileURLToPath(import.meta.url));
-  const componentPath = path.join(testDir, 'Finial.astro');
+  const componentPath = path.join(testDir, 'Colophon.astro');
 
   it('exports a Props interface/type', async () => {
     const src = await fs.readFile(componentPath, 'utf8');

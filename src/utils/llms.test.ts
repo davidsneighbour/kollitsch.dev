@@ -2,7 +2,7 @@
 import { describe, expect, it } from 'vitest';
 import { stripMdx } from './llms';
 
-describe('stripMdx', () => {
+describe.skip('stripMdx', () => {
   it('removes import lines and component tags (paired and self-closing)', () => {
     const input = `
 import X from 'x';

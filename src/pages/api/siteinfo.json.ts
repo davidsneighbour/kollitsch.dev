@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import type { APIContext } from 'astro';
-import pkg from '@/package.json' with { type: 'json' };
+import pkg from 'package.json' with { type: 'json' };
 
 export function GET({ generator, site }: APIContext) {
   const version = (pkg as { version?: string })?.version ?? null;

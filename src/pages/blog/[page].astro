@@ -9,7 +9,10 @@ import { getCollection } from "astro:content";
 import ArticleCard from "@components/content/article/Preview.astro";
 import Pagination from "@components/layout/navigation/Pagination.astro";
 import Layout from "@layouts/DefaultPage.astro";
-import { getPostsSortedByDraft } from "@utils/content.ts";
+import { getPostsSortedByDraft } from "@utils/content";
+
+import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
+import setup from "@data/setup.json";
 
 export async function getStaticPaths() {
   const posts = getPostsSortedByDraft(await getCollection("blog"));
@@ -20,9 +23,6 @@ export async function getStaticPaths() {
     params: { page: i === 0 ? "1" : `${i + 1}` }, // all as strings
   }));
 }
-
-import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
-import setup from "@data/setup.json" with { type: "json" };
 
 const limit = setup.listpages?.limit || 12;
 const { page } = Astro.params as Params;

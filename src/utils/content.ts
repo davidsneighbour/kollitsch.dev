@@ -176,7 +176,8 @@ function normalizeFrontmatterLike(
     description: isNonEmptyString(frontmatter.description)
       ? frontmatter.description
       : undefined,
-    draft: typeof frontmatter.draft === 'boolean' ? frontmatter.draft : undefined,
+    draft:
+      typeof frontmatter.draft === 'boolean' ? frontmatter.draft : undefined,
     lastModified: pickDate(frontmatter.lastModified),
     linktitle: isNonEmptyString(frontmatter.linktitle)
       ? frontmatter.linktitle
@@ -463,16 +464,11 @@ export async function paginateBlogPostsByYear(
   page: number,
   pageSize: number,
 ): Promise<PaginatedPosts> {
-  const allPosts = await getCollection('blog');
+  const allPosts = getPostsSortedByDraft(await getCollection('blog'));
 
-  const postsOfYear = allPosts
-    .filter(
-      (post) => new Date(post.data.date).getFullYear().toString() === year,
-    )
-    .sort(
-      (a, b) =>
-        new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-    );
+  const postsOfYear = allPosts.filter(
+    (post) => new Date(post.data.date).getFullYear().toString() === year,
+  );
 
   const totalPages = Math.ceil(postsOfYear.length / pageSize);
   const start = (page - 1) * pageSize;

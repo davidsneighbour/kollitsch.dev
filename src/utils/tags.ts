@@ -205,8 +205,10 @@ const ASCII_MAP: Record<string, string> = {
 // ──────────────────────────────────────────────────────────────────────────────
 
 let blogPostsPromise: Promise<BlogPost[]> | null = null;
-let tagIndexPromise: Promise<Map<string, CollectionEntry<'tags'>>> | null =
-  null;
+type TagIndexEntry = Pick<CollectionEntry<'tags'>, 'id' | 'slug' | 'data'> &
+  Partial<CollectionEntry<'tags'>>;
+
+let tagIndexPromise: Promise<Map<string, TagIndexEntry>> | null = null;
 
 /** Cache: all blog posts. */
 async function getBlogPosts(): Promise<BlogPost[]> {
@@ -225,39 +227,70 @@ async function getBlogPosts(): Promise<BlogPost[]> {
 }
 
 /** Cache: id/alias/slug(label) → tag entry (from the 'tags' collection). */
-async function getTagIndex(): Promise<Map<string, CollectionEntry<'tags'>>> {
+async function getTagIndex(): Promise<Map<string, TagIndexEntry>> {
   if (tagIndexPromise) return tagIndexPromise;
 
   tagIndexPromise = (async () => {
-    const all = await getCollection('tags');
-    const map = new Map<string, CollectionEntry<'tags'>>();
-    for (const t of all) {
-      map.set(t.data.id, t);
-      if (t.data.aliases) {
-        for (const a of t.data.aliases) map.set(a, t); // schema already lowercases
+    const map = new Map<string, TagIndexEntry>();
+
+    const addEntry = (entry: TagIndexEntry) => {
+      map.set(entry.data.id, entry);
+      if (entry.data.aliases) {
+        for (const a of entry.data.aliases) map.set(a, entry); // schema already lowercases
       }
       try {
-        const fromLinktitle = normaliseTagUnsafe(t.data.linktitle);
-        if (fromLinktitle) map.set(fromLinktitle, t);
+        const fromLinktitle = normaliseTagUnsafe(entry.data.linktitle);
+        if (fromLinktitle) map.set(fromLinktitle, entry);
       } catch (err) {
         log.warn(
           '[tags] failed to normalise tag linktitle',
-          { id: t.id, linktitle: t.data.linktitle },
+          { id: entry.id, linktitle: entry.data.linktitle },
           err,
         );
       }
 
       try {
-        const fromTitle = normaliseTagUnsafe(t.data.title);
-        if (fromTitle) map.set(fromTitle, t);
+        const fromTitle = normaliseTagUnsafe(entry.data.title);
+        if (fromTitle) map.set(fromTitle, entry);
       } catch (err) {
         log.warn(
           '[tags] failed to normalise tag title',
-          { id: t.id, title: t.data.title },
+          { id: entry.id, title: entry.data.title },
           err,
         );
       }
+    };
+
+    // 1) special tags with custom content
+    const all = await getCollection('tags');
+    for (const t of all) addEntry(t);
+
+    // 2) derived tags from blog posts (ensure every tag gets an entry)
+    const { byTag } = await collectTags(new Set());
+    for (const [label] of byTag.entries()) {
+      try {
+        const id = normaliseTagUnsafe(label);
+        if (!map.has(id)) {
+          addEntry({
+            body: '',
+            collection: 'tags',
+            data: {
+              aliases: [],
+              featured: false,
+              id,
+              linktitle: label,
+              title: label,
+              weight: 0,
+            },
+            id,
+            slug: id,
+          });
+        }
+      } catch (err) {
+        log.warn('[tags] failed to normalise derived tag', { label }, err);
+      }
     }
+
     log.debug('[tags] cached tag index:', { entries: map.size });
     return map;
   })().catch((e: unknown) => {
@@ -266,6 +299,20 @@ async function getTagIndex(): Promise<Map<string, CollectionEntry<'tags'>>> {
   });
 
   return tagIndexPromise;
+}
+
+/**
+ * Return all canonical tag ids (including ignored ones) for static path generation.
+ */
+export async function getAllTagIds(): Promise<string[]> {
+  const idx = await getTagIndex();
+  const ids = new Set<string>();
+
+  for (const entry of idx.values()) {
+    ids.add(entry.data.id);
+  }
+
+  return Array.from(ids).sort();
 }
 
 /**

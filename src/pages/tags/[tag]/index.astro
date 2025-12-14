@@ -4,7 +4,7 @@
  * Lists all posts with the given tag (supports id or alias in the URL param).
  *
  * Uses the new @utils/tags facade:
- * - getStaticPaths(): built from canonical tag IDs via getTags()
+ * - getStaticPaths(): built from canonical tag IDs via getAllTagIds()
  * - runtime: resolves incoming param (id/alias/label) via getTag()
  */
 import { getEntry } from "astro:content";
@@ -14,7 +14,7 @@ import TagIntro from "@components/content/taxonomy/TagIntro.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import Layout from "@layouts/DefaultPage.astro";
 
-import { getTag, getTags, tagUrl } from "@utils/tags.ts";
+import { getAllTagIds, getTag, tagUrl } from "@utils/tags.ts";
 
 const { tag: rawParam } = Astro.params;
 
@@ -51,9 +51,9 @@ const post = {
  * This ensures aliases resolve to their canonical route, e.g. 'kollitsch' -> 'kdev'
  */
 export async function getStaticPaths() {
-  const items = await getTags({ order: "label-asc", threshold: 1 });
-  return items.map((t) => ({
-    params: { tag: t.id }, // canonical id
+  const ids = await getAllTagIds();
+  return ids.map((id) => ({
+    params: { tag: id }, // canonical id
   }));
 }
 ---

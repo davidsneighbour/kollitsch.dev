@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "markdownlint": "0.39.0",
-    "markdownlint-cli2": "0.19.1"
+    "markdownlint": "0.40.0",
+    "markdownlint-cli2": "0.20.0"
   },
   "scripts": {
     "lint:markdown": "markdownlint-cli2 --config 'src/config/.markdownlint.jsonc'"

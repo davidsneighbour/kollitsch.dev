@@ -1,4 +1,152 @@
 # Changelog
+## [2025.20.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.19.0...v2025.20.0) (2025-12-14)
+
+
+### Features
+
+* add llms structure ([b1defe6](https://github.com/davidsneighbour/kollitsch.dev/commit/b1defe6002bc506dfc779799ad11dde05478bc81))
+* add Tailwind+ Elements ([e770746](https://github.com/davidsneighbour/kollitsch.dev/commit/e770746dce1864e86d1e0a96da4c1ebbed77ad95))
+* **gimmicks:** add dynamic selection styles ([bfdf6b7](https://github.com/davidsneighbour/kollitsch.dev/commit/bfdf6b7d67955768630eeb8927ff485166fe85ab))
+* **ogimage:** add secondary cache to ogimage creation pipeline ([42ccbd8](https://github.com/davidsneighbour/kollitsch.dev/commit/42ccbd83fe6cad39f2943cc3bc1fd16dd0126352))
+* record blog content format ([#1489](https://github.com/davidsneighbour/kollitsch.dev/issues/1489)) ([a18dff1](https://github.com/davidsneighbour/kollitsch.dev/commit/a18dff1940fe089d655a72c618054db8f0e2a425))
+
+
+### Content
+
+* **fix:** add tags to recent post ([d63cae9](https://github.com/davidsneighbour/kollitsch.dev/commit/d63cae9c8902339f98886cd1bfdbba473071a222))
+* **fix:** frontmatter fixes ([9d04fce](https://github.com/davidsneighbour/kollitsch.dev/commit/9d04fce91fa45866999bd0ea51b6ab46d4be1f8f))
+* **fix:** move image to assets directory ([6ed1539](https://github.com/davidsneighbour/kollitsch.dev/commit/6ed1539dd322f50b8e46f973cb6290216c934a03))
+* **fix:** proper site name in CITATION.cff ([eb0d1ed](https://github.com/davidsneighbour/kollitsch.dev/commit/eb0d1ed028914880a532c17166565c19cedd75ba))
+* **fix:** remove default frontmatter ([caa0209](https://github.com/davidsneighbour/kollitsch.dev/commit/caa0209de24abdff974cb694d9e978a4956eb9b7))
+* **fix:** remove non-docs docs ([73a6804](https://github.com/davidsneighbour/kollitsch.dev/commit/73a6804127a5d5220a14be78e5b4d93e4fdf1a98))
+* **fix:** remove stray mdx fragment ([5e7cfc8](https://github.com/davidsneighbour/kollitsch.dev/commit/5e7cfc806cd3c43262a6faca447bfec856c94647))
+* **fix:** update image location ([a268960](https://github.com/davidsneighbour/kollitsch.dev/commit/a2689603948d4d247c2298b77afae172b2264243))
+* **new:** blog post of 2025-11-23 ([654d32c](https://github.com/davidsneighbour/kollitsch.dev/commit/654d32c964916b6a0f0431bdd30cdc41779f5b89))
+* **new:** post from 2025-11-14 ([9b6d1cd](https://github.com/davidsneighbour/kollitsch.dev/commit/9b6d1cd4830e1112a127e31e7ab9ab1647f1feb1))
+* **new:** post of 2025-11-23 ([25e154b](https://github.com/davidsneighbour/kollitsch.dev/commit/25e154bdf3e9d57b69d75ff9abe61a78c7cdd180))
+* **schema:** fix declaration file extension ([8e0f8e0](https://github.com/davidsneighbour/kollitsch.dev/commit/8e0f8e0f3dff47bcc2891b60d288252fa3fb23b9))
+* **schema:** make contentFormat optional and md by default ([5af8406](https://github.com/davidsneighbour/kollitsch.dev/commit/5af8406e842034d80e822b76ae1408c02147ccee))
+
+
+### Components
+
+* add Komut component ([674874b](https://github.com/davidsneighbour/kollitsch.dev/commit/674874b9acc31cb3943eb6153597163f8f79ecde))
+* **youtube:** various fixes to video cover ([19f6121](https://github.com/davidsneighbour/kollitsch.dev/commit/19f6121eb918b1635048ea6011c4ae5b39780e52))
+
+
+### Theme
+
+* **fix:** move from audit.css to auditor.css ([92e9744](https://github.com/davidsneighbour/kollitsch.dev/commit/92e9744de6bfd8f4e4a84ecbc43b0dcc98014596))
+* move styles into logical positions ([d9b0c6d](https://github.com/davidsneighbour/kollitsch.dev/commit/d9b0c6d33b0179f0fba8975fca27eae72ed4a4bf))
+
+
+### Documentation
+
+* remove AGENT.md, obsolete and outdated ([5e7272a](https://github.com/davidsneighbour/kollitsch.dev/commit/5e7272afad735d95b30a7f4f4d6f7416f95f70be))
+* update README.md and agent instructions ([ad7295f](https://github.com/davidsneighbour/kollitsch.dev/commit/ad7295fa71315c668ae475fe5d4234fe941291f8))
+
+
+### Refactors
+
+* code fixes ([fc97c2a](https://github.com/davidsneighbour/kollitsch.dev/commit/fc97c2aa0b66c8c597833a4d1fd9703db6599b88))
+* dedicated resolve cover helper ([#1477](https://github.com/davidsneighbour/kollitsch.dev/issues/1477)) ([0a06862](https://github.com/davidsneighbour/kollitsch.dev/commit/0a068627894c05d10f972f092198a206eac185cb))
+* fix TS cover type error ([#1496](https://github.com/davidsneighbour/kollitsch.dev/issues/1496)) ([43e158c](https://github.com/davidsneighbour/kollitsch.dev/commit/43e158cb5cd27cc288f1183e044491c17f2a3a59))
+* fix TS error for YouTube params property ([190e8c5](https://github.com/davidsneighbour/kollitsch.dev/commit/190e8c5cab5a91cb574ef460360dbce7d1cfdbfe))
+* move markupstrip function to cover utilities ([208b700](https://github.com/davidsneighbour/kollitsch.dev/commit/208b70042af2ea941f888ddc21bc4a53917b76b1))
+* move specific types out of env.d.ts ([6caa6be](https://github.com/davidsneighbour/kollitsch.dev/commit/6caa6be0cc7887754bdb461fc874d5817af03d86))
+* move web component initialisation to footer ([5f164aa](https://github.com/davidsneighbour/kollitsch.dev/commit/5f164aa0c0f6d90c8b2ae3bda1428bc26f2af86a))
+* **netlify:** move functions into src directory ([9d77747](https://github.com/davidsneighbour/kollitsch.dev/commit/9d7774732e3afd03276b68d79f7fe8fb7ad0cc4d))
+* **netlify:** proper error handling for email sending action ([83300e3](https://github.com/davidsneighbour/kollitsch.dev/commit/83300e3d5ea1c1eab90f1d9e156840dbbed41444))
+* normalize open graph payload ([#1490](https://github.com/davidsneighbour/kollitsch.dev/issues/1490)) ([110ce9e](https://github.com/davidsneighbour/kollitsch.dev/commit/110ce9eaec6aef66c3ba5130401278b2663d38e5))
+* refactor Github utilities and add tests ([6d108cd](https://github.com/davidsneighbour/kollitsch.dev/commit/6d108cd9183c1a50af2276623fffeb2a4d1c0965))
+* remove component.ts and handle component scripts ([f6113e3](https://github.com/davidsneighbour/kollitsch.dev/commit/f6113e348dce66237e6f6e69cd6eba513a3f50a9))
+* remove unused netlify function ([ecdbc92](https://github.com/davidsneighbour/kollitsch.dev/commit/ecdbc9274d5fcfd88ccdba7dbd7c57485ca685f0))
+* remove utilities.ts (unused) ([59bf9da](https://github.com/davidsneighbour/kollitsch.dev/commit/59bf9dad23c68d8fb9a381d7b3f4f95b66d8d327))
+* reorganize component structure ([51bdd2d](https://github.com/davidsneighbour/kollitsch.dev/commit/51bdd2d399713f79f691a857d25a1c254ca8a2ab))
+* reorganize component structure ([da85627](https://github.com/davidsneighbour/kollitsch.dev/commit/da856279c59a112fdb0bfa001ab549e2b3d7772c))
+* replace console usage with logger ([#1483](https://github.com/davidsneighbour/kollitsch.dev/issues/1483)) ([6f4a055](https://github.com/davidsneighbour/kollitsch.dev/commit/6f4a055fd1f4b9b53e07117e671b960ac166384f))
+* restructure releases navigation ([9805c42](https://github.com/davidsneighbour/kollitsch.dev/commit/9805c42b88b8d000f81f815c37219bf87fbdb473))
+* rework global type casting ([45a6530](https://github.com/davidsneighbour/kollitsch.dev/commit/45a653055481fdf344eec0f132b455bc77abb9b7))
+* rework src/utils/cover.ts and add tests ([f58a7de](https://github.com/davidsneighbour/kollitsch.dev/commit/f58a7dec568f79b8ddd5acbb2af0003bb77e3a3e))
+* unify logging on logger utility ([#1480](https://github.com/davidsneighbour/kollitsch.dev/issues/1480)) ([32db0d0](https://github.com/davidsneighbour/kollitsch.dev/commit/32db0d06bdeb818953737d09ec1591cd1ed0ee4b))
+* various TS issues in src/components ([c7d2df2](https://github.com/davidsneighbour/kollitsch.dev/commit/c7d2df23f87a8ecc1d3bb87b9b218715c8107273))
+
+
+### Tests
+
+* add live site smoke checks ([#1484](https://github.com/davidsneighbour/kollitsch.dev/issues/1484)) ([35144ca](https://github.com/davidsneighbour/kollitsch.dev/commit/35144ca9568d129557adaff7a56edfd25bea7afd))
+* add tests for FeedReader component ([96f3689](https://github.com/davidsneighbour/kollitsch.dev/commit/96f3689ef13eb078c0a9f6d201373c5ebfd8155a))
+* disable llms test ([1b9752e](https://github.com/davidsneighbour/kollitsch.dev/commit/1b9752e3187486de79b712e47feac94654ad2c4c))
+* fix a weird typing issue with AstroContainer ([bb66286](https://github.com/davidsneighbour/kollitsch.dev/commit/bb66286d824db935704b858f5bc8f2889008c401))
+* **fix:** live tests setup and checking robots.txt ([d15ae1d](https://github.com/davidsneighbour/kollitsch.dev/commit/d15ae1df2c8d5730c8d2b9cce297919edfc0d0d2))
+* **fix:** proper path to component ([2136fd6](https://github.com/davidsneighbour/kollitsch.dev/commit/2136fd67f48c8163fc6969ad77a1a1518f9f682a))
+* **fix:** remove hallucinated tests ([28a24bf](https://github.com/davidsneighbour/kollitsch.dev/commit/28a24bfaadb5ff37ecc786c15bdaf433ad745b0a))
+* **lighthouse:** add page speed testing ([6a7b2b7](https://github.com/davidsneighbour/kollitsch.dev/commit/6a7b2b7815e5ac6e11d44f071f1bef9115d0eacc))
+* proper path to Komut component in test ([759a876](https://github.com/davidsneighbour/kollitsch.dev/commit/759a876d59bbbe146f6b7172021b7ba578f83326))
+
+
+### Build System
+
+* add build command with ogimage profiler ([ed3b6b4](https://github.com/davidsneighbour/kollitsch.dev/commit/ed3b6b483275f4beb6f39e238d820471855a5827))
+* **ai:** move copilot instructions into copailot repo ([23e3f9a](https://github.com/davidsneighbour/kollitsch.dev/commit/23e3f9a80a5aab0b49c5d7e30cb75f174ad6e0a3))
+* **deps:** bump @modelcontextprotocol/sdk ([#1507](https://github.com/davidsneighbour/kollitsch.dev/issues/1507)) ([9988ea6](https://github.com/davidsneighbour/kollitsch.dev/commit/9988ea622ab40c620828ed7077dee4882a9a4cb2))
+* **deps:** remove rollup beep plugin ([51f3c61](https://github.com/davidsneighbour/kollitsch.dev/commit/51f3c611cebe42b7006e2743289d7bda3b19a079))
+* **deps:** update dependencies ([77445a0](https://github.com/davidsneighbour/kollitsch.dev/commit/77445a00ff7d48dc88c6e8c86681811243de004a))
+* **deps:** update dependencies ([bee6311](https://github.com/davidsneighbour/kollitsch.dev/commit/bee6311180021a714ec3bdfc542e06bdb727488a))
+* **deps:** update dependencies ([4e70164](https://github.com/davidsneighbour/kollitsch.dev/commit/4e7016443aebf4c5161d23aac2502fd9b512e129))
+* **deps:** update dependencies ([277be8f](https://github.com/davidsneighbour/kollitsch.dev/commit/277be8f3d970c7fb7d3d6ff03bc622f8a8dbaa92))
+* **deps:** update dependencies ([7391e37](https://github.com/davidsneighbour/kollitsch.dev/commit/7391e3727788e47fd24662d3965d8ea5a0a270ef))
+* **deps:** update dependencies ([b8a2af7](https://github.com/davidsneighbour/kollitsch.dev/commit/b8a2af7927a6d9e760096f6c69efaceea185af92))
+* **deps:** update dependencies ([a7584b4](https://github.com/davidsneighbour/kollitsch.dev/commit/a7584b44ba543f872ee9b3946932b9e6119b5410))
+* **deps:** update dependencies ([534ec6c](https://github.com/davidsneighbour/kollitsch.dev/commit/534ec6cf04555610eee6e1802cd0c9544d8b004b))
+* **deps:** update dependencies ([1ea68a0](https://github.com/davidsneighbour/kollitsch.dev/commit/1ea68a0d2f2dccc70e6557d8e18c9e9531378df7))
+* **deps:** update dependencies ([e5d94a9](https://github.com/davidsneighbour/kollitsch.dev/commit/e5d94a9ec2d895f963289ef530bf10fcaed7b5d4))
+* **deps:** update dependencies in workflows ([6098552](https://github.com/davidsneighbour/kollitsch.dev/commit/6098552685aadbf8dbd791a820004592fca40b5c))
+* **deps:** update dependency lock ([04744b0](https://github.com/davidsneighbour/kollitsch.dev/commit/04744b047e8413d4cd13c43d4c312e5cf0bca2ca))
+* **deps:** update site screenshot ([9f185fa](https://github.com/davidsneighbour/kollitsch.dev/commit/9f185fac12a6ea5488d4e98ae0915b0708e2276d))
+* **deps:** update site screenshot ([c776694](https://github.com/davidsneighbour/kollitsch.dev/commit/c776694769fd759b0eb459ed3680c05a6c603683))
+* **deps:** update site screenshot ([113e784](https://github.com/davidsneighbour/kollitsch.dev/commit/113e7845333e72f2ac0e60337b6fe1f139f04f4e))
+* **fix:** package-lock.json broken ([e10eb21](https://github.com/davidsneighbour/kollitsch.dev/commit/e10eb21831cdbcdc3d31cb56ca93415f9d4a2fc5))
+* remove yaml and toml rollup plugins ([c5618cf](https://github.com/davidsneighbour/kollitsch.dev/commit/c5618cf991be718660656624ab768afac6f6ad48))
+* **vscode:** update workspace configuration ([e28c264](https://github.com/davidsneighbour/kollitsch.dev/commit/e28c264bb9fadbf60fed006ad5734896ae042c16))
+
+
+### CI
+
+* **biome:** add YT to globals ([5a6fe86](https://github.com/davidsneighbour/kollitsch.dev/commit/5a6fe861dd62066245d729bb0e98f98a7a96f668))
+* **fix:** use npm install instead of npm ci for workflow ([13d3dbb](https://github.com/davidsneighbour/kollitsch.dev/commit/13d3dbbf893933cf14265e5fa66d0a6e1ae9abc1))
+* **lint:** add cspell setup for vscode and linting ([1d92299](https://github.com/davidsneighbour/kollitsch.dev/commit/1d92299e97899cc7fafaac6a123838b833ce562a))
+* move from npm ci to npm install to deal with npm ([28e6cdc](https://github.com/davidsneighbour/kollitsch.dev/commit/28e6cdc69bcb32e60e13c744c887e3b097745d64))
+
+
+### Chore
+
+* a couple of smaller changes ([f07fa2c](https://github.com/davidsneighbour/kollitsch.dev/commit/f07fa2c0022ea94ef28e404575b69d193369e2de))
+* **deps:** update actions/checkout action to v6 ([#1494](https://github.com/davidsneighbour/kollitsch.dev/issues/1494)) ([9f334d6](https://github.com/davidsneighbour/kollitsch.dev/commit/9f334d64c14f8345cef95574e3a6c3404d638e46))
+* **git): revert "chore(release:** v2026.0.0" ([966b6dd](https://github.com/davidsneighbour/kollitsch.dev/commit/966b6dd0b0a96b1cd6e919d8d44dee217a8c9736))
+* **git:** merge branch 'codex/organize-component-folder-structure' ([d1eaee1](https://github.com/davidsneighbour/kollitsch.dev/commit/d1eaee1098d1fdf2b2a9940e284cc5630b3b9e06))
+* **git:** revert "refactor: unify logging on logger utility ([#1480](https://github.com/davidsneighbour/kollitsch.dev/issues/1480))" ([a5fc2d9](https://github.com/davidsneighbour/kollitsch.dev/commit/a5fc2d96b8b25d41bb5cd747681b94590c9ce22c))
+* **release:** v2026.0.0 ([9b9f916](https://github.com/davidsneighbour/kollitsch.dev/commit/9b9f9164a8ff363fdb79b1e0431ab8a489178c32))
+
+
+### Configuration
+
+* add test before pre-commit hooks ([63fe9fc](https://github.com/davidsneighbour/kollitsch.dev/commit/63fe9fce41fec6ea54453c4715bb6e3952515576))
+* **ai:** add AGENTS.md file with general instructions ([2317487](https://github.com/davidsneighbour/kollitsch.dev/commit/23174877ec630e0fea573a1858af732e2246c107))
+* **ai:** add tailwindplus documentation for AI ([59194cf](https://github.com/davidsneighbour/kollitsch.dev/commit/59194cfbd55477eb06671fada256ed8b4d730158))
+* **ai:** update AGENTS.md file ([5e35fae](https://github.com/davidsneighbour/kollitsch.dev/commit/5e35faef462e7e64cc2f051dead4a43863488153))
+* **ai:** update ai prompts ([205baea](https://github.com/davidsneighbour/kollitsch.dev/commit/205baeaf642448b0d9be0e49f12747336767ba9b))
+* **biome:** cleanup configuration and add documentation links ([#1481](https://github.com/davidsneighbour/kollitsch.dev/issues/1481)) ([c1ef889](https://github.com/davidsneighbour/kollitsch.dev/commit/c1ef8899f51d15dad11450a4372405894c989794))
+* **fix:** disable trailingslash so requests can be served ([ba78825](https://github.com/davidsneighbour/kollitsch.dev/commit/ba7882576cea44ded07b15e535881e725ac91f09))
+* **lint:** add new biome options ([3919de7](https://github.com/davidsneighbour/kollitsch.dev/commit/3919de771a68c92bdd193443ec1d8c1ee09d4222))
+* **lint:** cleanup biome configuration ([e2fbb22](https://github.com/davidsneighbour/kollitsch.dev/commit/e2fbb2298537894fdb1012100bdaa2b3396aa498))
+* **lint:** re-add fix as commit scope ([a1acd60](https://github.com/davidsneighbour/kollitsch.dev/commit/a1acd60a26ad9ab6ff4457167ae0434f2482bbdc))
+* **lint:** switch to proper schema in markdown lint config ([7eedd83](https://github.com/davidsneighbour/kollitsch.dev/commit/7eedd83fa36a2445cdf7cd86d21ce9f252f2647e))
+* **lint:** update biome settings ([bd318f7](https://github.com/davidsneighbour/kollitsch.dev/commit/bd318f7a1a7abdd42a210b4153a0d308f00e961d))
+* **ts:** remov alias for src directory ([357949e](https://github.com/davidsneighbour/kollitsch.dev/commit/357949e111fa34aa89ed26930631e47d0115168d))
+* **workspace:** handle AGENT(S).md properly in file nesting ([22432d9](https://github.com/davidsneighbour/kollitsch.dev/commit/22432d9ed4965793be97bb23202ed2406e2cf931))
+* **workspace:** set indent rainbow to light ([af70267](https://github.com/davidsneighbour/kollitsch.dev/commit/af70267d40c624adde874cc61c9e9d2467f2bfb1))
+
 ## [2025.19.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.18.0...v2025.19.0) (2025-11-08)
 
 

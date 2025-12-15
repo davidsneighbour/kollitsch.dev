@@ -6,7 +6,7 @@
     "ajv": "8.17.1",
     "ajv-formats": "3.0.1",
     "cheerio": "1.1.2",
-    "vite-tsconfig-paths": "5.1.4",
+    "vite-tsconfig-paths": "6.0.1",
     "vitest": "4.0.15",
     "@vitest/browser-playwright": "^4"
   },

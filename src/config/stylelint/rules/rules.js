@@ -26,6 +26,7 @@ const rules = {
       ignoreAtRules: [
         // tailwindcss
         'theme',
+        'plugin',
         'source',
         'utility',
         'variant',

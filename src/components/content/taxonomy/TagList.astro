@@ -12,20 +12,135 @@ export interface Props {
   showCounts?: boolean;
 }
 
-const { tags, showCounts = false } = Astro.props;
+// Props expected from your existing component/usage
+const { tags, showCounts = true } = Astro.props;
 ---
 
-{
-  tags.length === 0 ? (
-    <span>(none)</span>
-  ) : (
-    tags.map((tag, i) => (
-      <>
-        <a href={tag.url}>
-          {showCounts ? `${tag.label} (${tag.count})` : tag.label}
-        </a>
-        {i < tags.length - 1 ? ', ' : ''}
-      </>
-    ))
-  )
-}
+<div class="tag-filter" data-tag-filter>
+  <label class="sr-only" for="tag-filter-input">Filter tags</label>
+
+  <input
+    id="tag-filter-input"
+    type="search"
+    inputmode="search"
+    autocomplete="off"
+    spellcheck="false"
+    placeholder="Filter tags..."
+    class="block min-w-0 grow
+    py-1.5 pr-3 pl-1
+    bg-transparent dark:text-white text-gray-900
+     placeholder:text-gray-500
+     focus:outline-none
+    w-full rounded-md border border-white/10 bg-transparent px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-red-400/30"
+    data-tag-filter-input
+  />
+
+  <div class="mt-2 text-xs text-white/60" data-tag-filter-status aria-live="polite"></div>
+
+  <div class="mt-2 flex flex-wrap justify-between justify-items-stretch" data-tag-filter-list>
+    {
+      tags.length === 0 ? (
+        <span>(none)</span>
+      ) : (
+        tags.map((tag) => {
+          const labelText = showCounts ? `${tag.label} (${tag.count})` : tag.label;
+          // Lowercase once at render time (avoid locale edge cases in runtime code).
+          const labelLower = String(tag.label).toLowerCase();
+
+          return (
+            <a
+              class="
+                inline-flex items-center
+                m-1 px-2 py-1
+                rounded-md
+                dark:bg-red-400/10 dark:text-red-400/90
+                bg-red-400/5 text-red-400
+                dark:hover:bg-red-400/20 dark:hover:text-red-400
+                hover:bg-red-400/20 hover:text-red-400
+                inset-ring inset-ring-red-400/20"
+              href={tag.url}
+              data-label={labelLower}
+            >
+              {labelText}
+            </a>
+          );
+        })
+      )
+    }
+  </div>
+</div>
+
+<script>
+  /**
+   * Returns true if every character in `needle` can be found in order within `haystack`.
+   * Example: needle "koll" matches haystack "kollitsch".
+   * @param {string} haystack
+   * @param {string} needle
+   * @returns {boolean}
+   */
+  function fuzzyInOrder(haystack, needle) {
+    if (needle.length === 0) return true;
+    let i = 0;
+    for (let j = 0; j < haystack.length; j += 1) {
+      if (haystack[j] === needle[i]) i += 1;
+      if (i === needle.length) return true;
+    }
+    return false;
+  }
+
+  /**
+   * @param {HTMLElement} root
+   * @returns {void}
+   */
+  function initTagFilter(root) {
+    const input = root.querySelector("[data-tag-filter-input]");
+    const list = root.querySelector("[data-tag-filter-list]");
+    const status = root.querySelector("[data-tag-filter-status]");
+
+    if (!(input instanceof HTMLInputElement)) {
+      console.error("tag-filter: input not found or wrong type", { root });
+      return;
+    }
+    if (!(list instanceof HTMLElement)) {
+      console.error("tag-filter: list not found or wrong type", { root });
+      return;
+    }
+
+    const links = Array.from(list.querySelectorAll("a[data-label]"));
+
+    /** @param {string} q */
+    const apply = (q) => {
+      const query = q.trim().toLowerCase();
+      let visible = 0;
+
+      for (const a of links) {
+        const label = (a.getAttribute("data-label") ?? "").toLowerCase();
+        const match = query === "" ? true : fuzzyInOrder(label, query);
+        a.hidden = !match;
+        if (match) visible += 1;
+      }
+
+      if (status instanceof HTMLElement) {
+        status.textContent = links.length === 0 ? "" : `${visible} / ${links.length} tags`;
+      }
+    };
+
+    // Initial render
+    apply(input.value);
+
+    // Avoid double-binding if Astro swaps pages
+    const handler = () => apply(input.value);
+    input.addEventListener("input", handler, { passive: true });
+  }
+
+  function boot() {
+    const roots = document.querySelectorAll("[data-tag-filter]");
+    for (const el of roots) {
+      if (el instanceof HTMLElement) initTagFilter(el);
+    }
+  }
+
+  document.addEventListener("astro:page-load", boot);
+  // Also run once for non-router loads
+  boot();
+</script>

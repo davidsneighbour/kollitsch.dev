@@ -69,11 +69,8 @@ const { tags, showCounts = true } = Astro.props;
   /**
    * Returns true if every character in `needle` can be found in order within `haystack`.
    * Example: needle "koll" matches haystack "kollitsch".
-   * @param {string} haystack
-   * @param {string} needle
-   * @returns {boolean}
    */
-  function fuzzyInOrder(haystack, needle) {
+  function fuzzyInOrder(haystack: string | any[], needle: string | any[]): boolean {
     if (needle.length === 0) return true;
     let i = 0;
     for (let j = 0; j < haystack.length; j += 1) {
@@ -83,11 +80,7 @@ const { tags, showCounts = true } = Astro.props;
     return false;
   }
 
-  /**
-   * @param {HTMLElement} root
-   * @returns {void}
-   */
-  function initTagFilter(root) {
+  function initTagFilter(root: HTMLElement): void {
     const input = root.querySelector("[data-tag-filter-input]");
     const list = root.querySelector("[data-tag-filter-list]");
     const status = root.querySelector("[data-tag-filter-status]");
@@ -104,7 +97,7 @@ const { tags, showCounts = true } = Astro.props;
     const links = Array.from(list.querySelectorAll("a[data-label]"));
 
     /** @param {string} q */
-    const apply = (q) => {
+    const apply = (q: string) => {
       const query = q.trim().toLowerCase();
       let visible = 0;
 

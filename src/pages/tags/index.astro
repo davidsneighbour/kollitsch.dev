@@ -6,6 +6,7 @@
 import { type CollectionEntry } from "astro:content";
 import Heading from "@components/content/typography/Heading.astro";
 import TagCard from "@components/content/article/Tag.astro";
+import TagFilter from "@components/content/taxonomy/TagFilter.astro";
 import TagList from "@components/content/taxonomy/TagList.astro";
 import Layout from "@layouts/DefaultPage.astro";
 import { getFeaturedTagEntries, getTags, type TagListItem } from "@utils/tags.ts";
@@ -35,7 +36,8 @@ try {
 
 <Layout post={post}>
   <Heading level={1}>Tag Cloud</Heading>
-  <TagList tags={allTagsWithCounts} />
+  <TagFilter filterId="tag-cloud" />
+  <TagList tags={allTagsWithCounts} filterId="tag-cloud" />
 
   <Heading level={2}>Tag Pages</Heading>
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">

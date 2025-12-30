@@ -25,6 +25,7 @@ const navData = rawNavData as Navigation;
 import SocialLinks from "@components/features/social/SocialLinks.astro";
 import MarkdownIt from "markdown-it";
 import Colophon from "@components/layout/footer/Colophon.astro";
+import { Icon } from "astro-icon/components";
 
 const md = new MarkdownIt();
 
@@ -94,6 +95,18 @@ const introFallbackHtml = md.renderInline(introFallback);
   <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
     <IconLink href="/privacy-policy/" icon="shield-check"> Privacy Policy </IconLink>
     <IconLink href="/security-policy/" icon="fingerprint"> Security Policy </IconLink>
+  </div>
+
+  <div class="my-4 flex flex-row items-center justify-center gap-2 text-sm">
+    A member of the <a href="https://static.quest">Static.Quest</a> web ring!
+    <a href="https://static.quest/previous/?host=kollitsch.dev">
+      <Icon name="chevron-left" />
+    </a>
+    <a href="https://static.quest/members">View Members</a>
+    <a href="https://static.quest/next/?host=kollitsch.dev">
+      <Icon name="chevron-right" />
+    </a>
+    <a href="https://static.quest/random">Feeling lucky?</a>
   </div>
 </footer>
 

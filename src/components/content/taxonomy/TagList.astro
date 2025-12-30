@@ -94,9 +94,8 @@ const { tags, showCounts = true } = Astro.props;
       return;
     }
 
-    const links = Array.from(list.querySelectorAll("a[data-label]"));
+    const links = Array.from(list.querySelectorAll<HTMLAnchorElement>("a[data-label]"));
 
-    /** @param {string} q */
     const apply = (q: string) => {
       const query = q.trim().toLowerCase();
       let visible = 0;

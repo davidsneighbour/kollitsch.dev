@@ -23,6 +23,9 @@ const log = createLogger({ slug: "TopNavigation" });
 
 const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
+const tagPrefixes = ["/tags/", "/tag/"];
+const isTagsPath = tagPrefixes.some((prefix) => pathname.startsWith(prefix));
+const isNavItemActive = (item: Navigation[number]) => (isTagsPath ? item.link === "/tags/" : isActive(item, pathname));
 
 if (!activeItem && import.meta.env.DEV) {
   log.debug(`👉 no navigation item to activate for: ${pathname}`);
@@ -81,7 +84,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
         >
           {
             typedNavData.map((value) => (
-              <li class={`px-3 py-4 md:px-2 md:py-2 ${isActive(value, pathname) ? "font-bold" : ""}`}>
+              <li class={`px-3 py-4 md:px-2 md:py-2 ${isNavItemActive(value) ? "font-bold" : ""}`}>
                 <IconLink icon={value.icon} href={value.link}>
                   {value.label}
                 </IconLink>
@@ -152,7 +155,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
           stickyBrand.classList.toggle("opacity-100", !entry.isIntersecting);
           stickyBrand.classList.toggle("opacity-0", entry.isIntersecting);
         },
-        { threshold: 0 },
+        { threshold: 0 }
       );
       observer.observe(placeholder);
 
@@ -197,7 +200,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
         document.dispatchEvent(
           new CustomEvent("theme-changed", {
             detail: { defaultTheme, systemTheme, theme: t },
-          }),
+          })
         );
       }
 
@@ -244,7 +247,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
               const icons = { dark: "🌙", light: "☀️" };
               this.btn.textContent = icons[t] ?? icons.dark;
             }
-          },
+          }
         );
       }
 

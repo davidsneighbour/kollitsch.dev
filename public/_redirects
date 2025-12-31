@@ -23,18 +23,5 @@ https://kollitsch-dev.netlify.app/*  /:splat  301!
 /tags/dnb/           /tags/davidsneighbour/  301
 /tags/kollitsch.de/  /tags/davidsneighbour/  301
 
-# ancient redirects from old blogs # @todo check if still needed
-/2005/*                                            /                               301
-/2006/*                                            /                               301
-/2007/*                                            /                               301
-/2008/*                                            /                               301
-/_schemata                                         /                               301
-/blog/2021/gitignore-for-gohugo/                   /blog/2022/gitignore-gohugo/    301
-/blog/2022/100daystooffload/                       /blog/2022/100-days-to-offload/ 301
-/blog/2023/saving-github-access-token-in-local-encrypted-storage-via-gh-cli/header_hu73d41e50f6d7c72e043341b75404e1ba_67194_1200x630_resize_q70_lanczos.jpg /                             301
-/dnb/*                                             /                               301
-/repos/*                                           /                               301
-/repos/textpattern-plugins/current/                /                               301
-
 # error pages redirections — MUST STAY AT THE END OF THE FILE
 /*  /404  404

@@ -36,7 +36,7 @@
     "recent_posts": 6
   },
   "id": "kollitsch-dev",
-  "ignoreTags": ["100daystooffload"],
+  "ignoreTags": [],
   "images": {
     "default": "/src/assets/images/defaults/articleimage.jpg",
     "opengraph": "/src/assets/images/defaults/social-media.png"

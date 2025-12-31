@@ -91,6 +91,9 @@ export default defineConfig({
     sitemap({
       namespaces: { image: false, news: false, video: false, xhtml: false },
       xslURL: '/feeds/sitemap.xsl',
+      filter: (page) =>
+        // Exclude any page URL that starts with this string
+        !page.startsWith('https://kollitsch.dev/test/'),
     }),
     pagefind({ indexConfig: { keepIndexUrl: true } }),
     icon({

@@ -65,11 +65,7 @@ export type GetTagsOptions = {
    * Minimum occurrences to include a tag (default: setup.tagThreshold ?? 2).
    */
   threshold?: number;
-  /**
-   * Tags to ignore entirely (default: setup.ignoreTags ?? []).
-   * Matching is performed against the authored label (not id).
-   */
-  ignore?: readonly string[];
+
   /**
    * Sorting of result list (default: 'count-desc').
    */
@@ -266,7 +262,7 @@ async function getTagIndex(): Promise<Map<string, TagIndexEntry>> {
     for (const t of all) addEntry(t);
 
     // 2) derived tags from blog posts (ensure every tag gets an entry)
-    const { byTag } = await collectTags(new Set());
+    const { byTag } = await collectTags();
     for (const [label] of byTag.entries()) {
       try {
         const id = normaliseTagUnsafe(label);
@@ -302,7 +298,7 @@ async function getTagIndex(): Promise<Map<string, TagIndexEntry>> {
 }
 
 /**
- * Return all canonical tag ids (including ignored ones) for static path generation.
+ * Return all canonical tag ids for static path generation.
  */
 export async function getAllTagIds(): Promise<string[]> {
   const idx = await getTagIndex();
@@ -457,9 +453,7 @@ type AggregateResult = {
   counts: Map<string, number>; // key = label as authored
 };
 
-async function collectTags(
-  ignore: ReadonlySet<string>,
-): Promise<AggregateResult> {
+async function collectTags(): Promise<AggregateResult> {
   const posts = await getBlogPosts();
   const byTag = new Map<string, TagInfo>();
   const counts = new Map<string, number>();
@@ -467,8 +461,6 @@ async function collectTags(
   for (const post of posts) {
     const tags = Array.isArray(post.data.tags) ? post.data.tags : [];
     for (const tag of tags) {
-      if (ignore.has(tag)) continue;
-
       counts.set(tag, (counts.get(tag) ?? 0) + 1);
 
       const current = byTag.get(tag) ?? { count: 0, posts: [] };
@@ -479,13 +471,6 @@ async function collectTags(
   }
 
   return { byTag, counts };
-}
-
-function buildIgnoreSet(
-  fromOptions?: readonly string[] | undefined,
-): ReadonlySet<string> {
-  const list = fromOptions ?? (setup.ignoreTags as string[] | undefined) ?? [];
-  return new Set<string>(list);
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -580,7 +565,7 @@ export function tagUrl(id: string): string {
 
 /**
  * List tags ready for rendering.
- * - Respects `threshold`, `ignore`.
+ * - Respects `threshold`.
  * - Sorting via `order` (see TagOrder).
  * - Includes URL for direct linking.
  *
@@ -591,7 +576,6 @@ export async function getTags(
   options?: GetTagsOptions,
 ): Promise<TagListItem[]> {
   const threshold = options?.threshold ?? setup.tagThreshold ?? 2;
-  const ignore = buildIgnoreSet(options?.ignore);
   const order: TagOrder =
     options?.order ??
     (options?.sortBy === 'label'
@@ -601,7 +585,7 @@ export async function getTags(
         : 'count-desc');
   const limit = options?.limit;
 
-  const { byTag } = await collectTags(ignore);
+  const { byTag } = await collectTags();
   const items: TagListItem[] = [];
   const idx = await getTagIndex();
 

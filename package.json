@@ -99,7 +99,7 @@
     "stylelint": "16.26.1",
     "stylelint-config-html": "1.1.0",
     "stylelint-no-unsupported-browser-features": "8.0.5",
-    "stylelint-order": "7.0.0",
+    "stylelint-order": "7.0.1",
     "ts-node": "10.9.2",
     "tsx": "4.21.0",
     "vite-plugin-devtools-json": "1.0.0",

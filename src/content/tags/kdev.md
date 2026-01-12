@@ -10,6 +10,5 @@ aliases:
 class: warning
 description: "Posts about kollitsch.dev and internal decisions."
 featured: true
-icon: gears
 weight: 3
 ---

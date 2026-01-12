@@ -6,6 +6,11 @@ import TagTest from "@components/content/taxonomy/Tag.astro";
   <h1>Tag component test</h1>
 
   <!-- Basic examples for Playwright visual/interaction tests -->
-  <TagTest href="/tags/test/" label="Test Tag" dataLabel="test" />
-  <TagTest href="/tags/another/" label="Another Tag" dataLabel="another" />
+  <TagTest href="/tags/test/" label="Test Tag" dataLabel="test" icon="github" />
+  <TagTest
+    href="/tags/another/"
+    label="Another Tag"
+    dataLabel="another"
+    icon={{ name: "heart", color: "#aabbcc" }}
+  />
 </main>

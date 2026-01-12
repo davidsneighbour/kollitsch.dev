@@ -32,6 +32,11 @@ type Ctx = {
  */
 export type NormalizedTag = { id: string; label: string };
 
+export type TagIcon = {
+  name: string;
+  color?: string;
+};
+
 /**
  * Aggregated information about a tag.
  */
@@ -91,6 +96,8 @@ export type TagListItem = {
   id: string;
   /** Display label (linktitle from tags collection; falls back to title). */
   label: string;
+  /** Optional icon from the tags collection. */
+  icon?: TagIcon;
   /** Number of posts containing this tag. */
   count: number;
   /** URL to the tag overview page (always trailing slash). */
@@ -595,6 +602,7 @@ export async function getTags(
     let id = '';
     let finalLabel = label;
     let weight = 0;
+    let icon: TagIcon | undefined;
 
     try {
       const key = normaliseTagUnsafe(label);
@@ -603,6 +611,7 @@ export async function getTags(
         id = hit.data.id;
         finalLabel = hit.data.linktitle;
         weight = (hit.data as { weight?: number }).weight ?? 0;
+        icon = (hit.data as { icon?: TagIcon }).icon;
       } else {
         id = key;
         weight = 0;
@@ -620,6 +629,7 @@ export async function getTags(
     items.push({
       count: info.count,
       id,
+      icon,
       label: finalLabel,
       url: tagUrl(id),
       weight,
@@ -732,9 +742,10 @@ export async function getFeaturedTags(
 
     const label = entry.data.linktitle;
     const weight = (entry.data as { weight?: number }).weight ?? 0;
+    const icon = (entry.data as { icon?: TagIcon }).icon;
     const count = countById?.get(id) ?? 0;
 
-    items.push({ count, id, label, url: tagUrl(id), weight });
+    items.push({ count, id, icon, label, url: tagUrl(id), weight });
   }
 
   sortTagList(items, order);

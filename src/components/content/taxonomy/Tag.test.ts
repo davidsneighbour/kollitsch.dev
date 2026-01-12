@@ -16,9 +16,20 @@ describe('Tag component (props contract)', () => {
     expect(regex.test(src)).toBe(true);
   });
 
-  it('does not contain inline styles', async () => {
+  it('supports optional icon configuration', async () => {
     const src = await fs.readFile(componentPath, 'utf8');
-    expect(src.includes(' style=')).toBe(false);
+    const regex = /icon\?\s*:/;
+    expect(regex.test(src)).toBe(true);
+  });
+
+  it('limits inline styles to the optional icon color', async () => {
+    const src = await fs.readFile(componentPath, 'utf8');
+    const styleMatches = src.match(/style=/g) ?? [];
+    const iconStyle = /<Icon[^>]*\sstyle=/;
+
+    expect(
+      styleMatches.length === 0 || (styleMatches.length === 1 && iconStyle.test(src)),
+    ).toBe(true);
   });
 
   it('binds href and dataLabel (uses href and data-label)', async () => {

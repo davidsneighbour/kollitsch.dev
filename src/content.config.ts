@@ -259,6 +259,26 @@ export const blog = defineCollection({
 
 // MARK: Tags
 const idRegex = /^[a-z0-9_-]+$/;
+const tagIconName = z
+  .string()
+  .transform((value) => value.trim())
+  .refine((value) => value.length > 0, {
+    message: '`icon` name MUST NOT be empty.',
+  });
+const tagIcon = z
+  .union([
+    tagIconName,
+    z.object({
+      name: tagIconName,
+      color: z.string().transform((value) => value.trim()).optional(),
+    }),
+  ])
+  .optional()
+  .transform((value) => {
+    if (!value) return undefined;
+    if (typeof value === 'string') return { name: value };
+    return value.color ? { name: value.name, color: value.color } : { name: value.name };
+  });
 export const tags = defineCollection({
   loader: glob({ base: './src/content/tags', pattern: '**/*.{md,mdx}' }),
   schema: z
@@ -273,7 +293,7 @@ export const tags = defineCollection({
         .optional()
         .transform((val) => val?.trim() ?? undefined),
       featured: z.boolean().default(false).optional(),
-      icon: z.string().optional(),
+      icon: tagIcon,
       id: z
         .string()
         .transform((s) => s.toLowerCase().trim())

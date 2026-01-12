@@ -3,7 +3,7 @@
 /**
  * TagList component
  * - Renders a flat inline list of tags with optional counts
- * - `tags` is an array of TagListItem (id, label, count, url)
+ * - `tags` is an array of TagListItem (id, label, count, url, icon)
  */
 import type { TagListItem } from "@utils/tags.ts";
 import Tag from "./Tag.astro";
@@ -32,7 +32,9 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
         // Lowercase once at render time (avoid locale edge cases in runtime code).
         const labelLower = String(tag.label).toLowerCase();
 
-        return <Tag href={tag.url} label={labelText} dataLabel={labelLower} />;
+        return (
+          <Tag href={tag.url} label={labelText} dataLabel={labelLower} icon={tag.icon} />
+        );
       })
     )
   }

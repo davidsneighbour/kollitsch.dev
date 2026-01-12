@@ -8,10 +8,14 @@ test('renders tag links with correct attributes', async ({ page }) => {
   const href = await link.getAttribute('href');
   expect(href && href.endsWith('/tags/test/')).toBe(true);
   expect(await link.getAttribute('data-label')).toBe('test');
+  await expect(link.locator('svg')).toBeVisible();
 
   const another = page.getByRole('link', { name: 'Another Tag' });
   await expect(another).toBeVisible();
   const href2 = await another.getAttribute('href');
   expect(href2 && href2.endsWith('/tags/another/')).toBe(true);
   expect(await another.getAttribute('data-label')).toBe('another');
+  const anotherIcon = another.locator('svg');
+  await expect(anotherIcon).toBeVisible();
+  await expect(anotherIcon).toHaveAttribute('style', /#aabbcc/i);
 });

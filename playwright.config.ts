@@ -55,6 +55,7 @@ export default defineConfig({
       ],
   retries: process.env.CI ? 2 : 0,
   testDir: 'src/test',
+  testIgnore: ['**/*.test.*', '**/browser/**'],
 
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4321',

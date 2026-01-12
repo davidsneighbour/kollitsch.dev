@@ -108,7 +108,7 @@
     "fixpack": "4.0.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+    "pre-commit": "npx lint-staged --verbose"
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",

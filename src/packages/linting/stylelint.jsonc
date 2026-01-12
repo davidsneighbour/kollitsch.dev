@@ -1,11 +1,11 @@
 {
   "devDependencies": {
-    "@davidsneighbour/browserslist-config": "2025.4.2",
+    "@davidsneighbour/browserslist-config": "2025.4.3",
     "postcss-html": "1.8.0",
     "stylelint": "16.26.1",
     "stylelint-config-html": "1.1.0",
     "stylelint-no-unsupported-browser-features": "8.0.5",
-    "stylelint-order": "7.0.0"
+    "stylelint-order": "7.0.1"
   },
   "scripts": {
     "lint:styles": "wireit",

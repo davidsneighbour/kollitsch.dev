@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "netlify-cli": "23.13.0",
+    "netlify-cli": "23.13.3",
     "@netlify/functions": "5.1.2"
   },
   "scripts": {

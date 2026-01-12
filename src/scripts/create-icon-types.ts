@@ -11,7 +11,7 @@ import { basename, dirname, extname, join } from 'node:path';
 
 const require = createRequire(import.meta.url);
 
-const ICON_DIR = './src/assets/icons';
+const ICON_DIR = './src/icons';
 const OUTPUT_FILE = './src/utils/icon-names.ts';
 
 // Resolve bootstrap-icons package root

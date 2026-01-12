@@ -97,7 +97,6 @@ export default defineConfig({
     }),
     pagefind({ indexConfig: { keepIndexUrl: true } }),
     icon({
-      iconDir: 'src/assets/icons',
       svgoOptions: {
         multipass: true,
         plugins: [

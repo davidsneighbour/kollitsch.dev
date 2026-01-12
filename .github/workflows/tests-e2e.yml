@@ -34,7 +34,7 @@ jobs:
             node_modules/.astro
             node_modules/.cache/astro
             node_modules/.cache/tailwindcss
-            src/assets/icons
+            src/icons
           key: >
             ${{ runner.os }}-astro-cache-
             node${{ steps.nodeinfo.outputs.version || '24' }}-

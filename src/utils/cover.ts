@@ -82,9 +82,17 @@ export type CoverObject = ResolvedCoverImage | ResolvedCoverVideo;
  * ```
  */
 function stripMarkup(input: string): string {
-  return String(input)
+  const text = String(input)
     .replace(/<[^>]*>/g, '')
     .trim();
+
+  // HTML-escape any remaining special characters to prevent injection
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 /**

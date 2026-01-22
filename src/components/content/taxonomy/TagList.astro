@@ -33,7 +33,12 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
         const labelLower = String(tag.label).toLowerCase();
 
         return (
-          <Tag href={tag.url} label={labelText} dataLabel={labelLower} icon={tag.icon} />
+          <Tag
+            href={tag.url}
+            label={labelText}
+            dataLabel={labelLower}
+            {...(tag.icon && { icon: tag.icon })}
+          />
         );
       })
     )

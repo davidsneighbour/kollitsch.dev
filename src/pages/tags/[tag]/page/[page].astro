@@ -6,6 +6,7 @@ import ArticleCard from "@components/content/article/Preview.astro";
 import Pagination from "@components/layout/navigation/Pagination.astro";
 import TagIntro from "@components/content/taxonomy/TagIntro.astro";
 import Layout from "@layouts/DefaultPage.astro";
+import { getPostsSortedByDraft } from "@utils/content.ts";
 
 const { tag, page } = Astro.params;
 const currentPage = Number(page);
@@ -17,7 +18,7 @@ const limit = setup.listpages?.limit || 12;
 const pageSize = limit;
 
 // Load and filter blog posts by tag
-const allPosts = await getCollection("blog");
+const allPosts = getPostsSortedByDraft(await getCollection("blog"));
 const taggedPosts = allPosts.filter((p) => p.data.tags?.includes(tag));
 
 // Pagination logic

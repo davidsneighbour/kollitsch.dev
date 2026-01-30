@@ -10,7 +10,7 @@ import { getCollection } from 'astro:content';
 // Imports (@data → @utils → external)
 // ──────────────────────────────────────────────────────────────────────────────
 import setup from '@data/setup.json' with { type: 'json' };
-import type { BlogPost } from '@utils/content.ts';
+import { getPostsSortedByDraft, type BlogPost } from '@utils/content.ts';
 import { createLogger, refOf } from '@utils/logger.ts';
 
 const log = createLogger({ slug: 'tags' });
@@ -218,8 +218,9 @@ async function getBlogPosts(): Promise<BlogPost[]> {
   if (!blogPostsPromise) {
     blogPostsPromise = getCollection('blog')
       .then((list) => {
-        log.debug('[tags] cached blog posts:', { count: list.length });
-        return list;
+        const filtered = getPostsSortedByDraft(list);
+        log.debug('[tags] cached blog posts:', { count: filtered.length });
+        return filtered;
       })
       .catch((e: unknown) => {
         log.error('[tags] failed to load blog posts', e);

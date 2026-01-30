@@ -74,6 +74,10 @@ export default defineConfig({
   // @ts-expect-error - env variable typing not recognized
   compressHTML: import.meta.env.PROD,
   redirects: redirects,
+  devToolbar: {
+    enabled: true,
+    placement: 'bottom-left',
+  },
   experimental: {
     chromeDevtoolsWorkspace: true,
     clientPrerender: true,

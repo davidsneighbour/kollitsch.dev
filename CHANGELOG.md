@@ -1,4 +1,60 @@
 # Changelog
+## [3000.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.20.0...v3000.0.0) (2026-01-30)
+
+
+### Features
+
+* add filter field to tag cloud ([fbbdeaf](https://github.com/davidsneighbour/kollitsch.dev/commit/fbbdeaf92314da7f24e21f122ee0a2d96ff89520))
+* add forms plugin for tailwindcss ([f2d5a8d](https://github.com/davidsneighbour/kollitsch.dev/commit/f2d5a8d58f28eb77722b20621ebc4cc99a079ec1))
+* add icons to tags ([3b73f1e](https://github.com/davidsneighbour/kollitsch.dev/commit/3b73f1ee78bea3e15a584a01a2ee42f54f560d47))
+
+
+### Content
+
+* **fix:** move drafts around ([7f30524](https://github.com/davidsneighbour/kollitsch.dev/commit/7f305243a537a20624c077fc4f2ed6e019295a7a))
+* **new:** add images to assets directory ([4a90303](https://github.com/davidsneighbour/kollitsch.dev/commit/4a90303c4ed0b331415bdfe89e42c1168e4c56f4))
+* **new:** content pages for os tags ([395b6c1](https://github.com/davidsneighbour/kollitsch.dev/commit/395b6c11a0cde0db7f7bac397f2de8f8dfc756b9))
+* **new:** post of 2026-01-15 ([da15916](https://github.com/davidsneighbour/kollitsch.dev/commit/da159166ebf217ee9edda5ad8f2e9f8586bd97b6))
+* **update:** add images ([59f1305](https://github.com/davidsneighbour/kollitsch.dev/commit/59f130574722952b5fccef899f9e7dc5926346e4))
+
+
+### Tests
+
+* add tests for Tag.astro ([414b8ef](https://github.com/davidsneighbour/kollitsch.dev/commit/414b8ef22f34336f842ab7a1b692cdc96b0163ca))
+* **fix:** ignore browser test folders from unit tests ([ef32ca5](https://github.com/davidsneighbour/kollitsch.dev/commit/ef32ca5801277618d72beadad335a7fc309677a5))
+* tests for TagFilter ([55f3f36](https://github.com/davidsneighbour/kollitsch.dev/commit/55f3f363263d662db0c8a5c8ebc2398822bbab1e))
+
+
+### Build System
+
+* **deps:** add jsom to dependencies ([8d2eca4](https://github.com/davidsneighbour/kollitsch.dev/commit/8d2eca4c84c638db2937f959cb22e6f0e7fcf5b2))
+* **deps:** bump hono in the npm_and_yarn group across 1 directory ([#1514](https://github.com/davidsneighbour/kollitsch.dev/issues/1514)) ([8335b1c](https://github.com/davidsneighbour/kollitsch.dev/commit/8335b1ce3bfc4f668e6f0322e71c18d7b6e68f39))
+* **deps:** bump the npm_and_yarn group across 1 directory with 2 updates ([#1512](https://github.com/davidsneighbour/kollitsch.dev/issues/1512)) ([aa418eb](https://github.com/davidsneighbour/kollitsch.dev/commit/aa418eb01e01637c0bd62438784632ddb77a7325))
+* **deps:** bump the npm_and_yarn group across 1 directory with 2 updates ([#1518](https://github.com/davidsneighbour/kollitsch.dev/issues/1518)) ([3a1e8e6](https://github.com/davidsneighbour/kollitsch.dev/commit/3a1e8e62a7ac9a0886bac134f280aa4b3e617c22))
+* **deps:** bump the npm_and_yarn group across 1 directory with 3 updates ([#1515](https://github.com/davidsneighbour/kollitsch.dev/issues/1515)) ([bef1f34](https://github.com/davidsneighbour/kollitsch.dev/commit/bef1f346ee8b1e517736db8db2d1903cd1a97f93))
+* **deps:** update dependencies ([9c7e22f](https://github.com/davidsneighbour/kollitsch.dev/commit/9c7e22fba74a2300e4aace0e6a92038dd6510fc6))
+* **deps:** update dependencies ([62f0465](https://github.com/davidsneighbour/kollitsch.dev/commit/62f04650adc0cbd10190bb38b11e08e810e9bee2))
+* **deps:** update dependencies ([68fdfe5](https://github.com/davidsneighbour/kollitsch.dev/commit/68fdfe52a440171e8e43fe71a338ef96c79d91ae))
+* **deps:** update dependencies ([a6b3d28](https://github.com/davidsneighbour/kollitsch.dev/commit/a6b3d28f298f3ffe17ed7ff40a986df784edbaa4))
+* **deps:** update dependencies ([bdae216](https://github.com/davidsneighbour/kollitsch.dev/commit/bdae216f8f9841420af9b060377728eee2a040cd))
+* **deps:** update site screenshot ([d4dd1c5](https://github.com/davidsneighbour/kollitsch.dev/commit/d4dd1c5c668cf098589a4412a5eeddaee0c04bca))
+* **deps:** update site screenshot ([79eb428](https://github.com/davidsneighbour/kollitsch.dev/commit/79eb428d93922ffa0ba122b02c2f4af2f753bd16))
+* **deps:** update site screenshot ([5ce5c10](https://github.com/davidsneighbour/kollitsch.dev/commit/5ce5c107f8b132e55c84af2543424962f95a08e6))
+* make lint-staged verbose ([65e4d16](https://github.com/davidsneighbour/kollitsch.dev/commit/65e4d16901e212daf4ffc1f8fbb4993a6ca5a811))
+* remove test directory from build ([e9d568f](https://github.com/davidsneighbour/kollitsch.dev/commit/e9d568fa1ae9a8dad17e08755bb73be4d966d8bf))
+* **vscode:** update workspace configuration ([a5ad689](https://github.com/davidsneighbour/kollitsch.dev/commit/a5ad68995c1fe092929860014d1da764d0d4c71c))
+
+
+### CI
+
+* add missing permissions to workflows ([2f80146](https://github.com/davidsneighbour/kollitsch.dev/commit/2f80146e331bf8392e6e4e825df75ce29929b61a))
+
+
+### Configuration
+
+* **ai:** cleanup AGENTS.md ([6cc9c39](https://github.com/davidsneighbour/kollitsch.dev/commit/6cc9c3928e61e1a68b10380a565c5859875125fc))
+* **settings:** move dev toolbar to bottom-left ([b2a0f12](https://github.com/davidsneighbour/kollitsch.dev/commit/b2a0f12b3da03b697791e42a1c0544fdc605e6a4))
+
 ## [2025.20.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.19.0...v2025.20.0) (2025-12-14)
 
 

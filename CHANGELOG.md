@@ -1,4 +1,21 @@
 # Changelog
+## [3000.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.0.0...v3000.0.1) (2026-01-30)
+
+
+### Content
+
+* **fix:** proper image path for static image link ([4d1d22a](https://github.com/davidsneighbour/kollitsch.dev/commit/4d1d22aca53e030e3b614e92040994da9c16a171))
+
+
+### Tests
+
+* fixes in visual testing for font weight issues ([c676a4a](https://github.com/davidsneighbour/kollitsch.dev/commit/c676a4afd7c4f1890039b47ee58883be33cb4500))
+
+
+### CI
+
+* remove pull request template ([3258819](https://github.com/davidsneighbour/kollitsch.dev/commit/32588192247ef59503e896cfcb6497f8170479f2))
+
 ## [3000.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v2025.20.0...v3000.0.0) (2026-01-30)
 
 

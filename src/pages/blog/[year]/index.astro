@@ -3,11 +3,11 @@ import ArticleCard from "@components/content/article/Preview.astro";
 import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
 import Pagination from "@components/layout/navigation/Pagination.astro";
 import Layout from "@layouts/DefaultPage.astro";
-import { paginateBlogPostsByYear } from "@utils/content.ts";
+import { getPostsSortedByDraft, paginateBlogPostsByYear } from "@utils/content.ts";
 
 export async function getStaticPaths() {
   const { getCollection } = await import("astro:content");
-  const allPosts = await getCollection("blog");
+  const allPosts = getPostsSortedByDraft(await getCollection("blog"));
 
   const years = Array.from(new Set(allPosts.map((post) => new Date(post.data.date).getFullYear().toString())));
 

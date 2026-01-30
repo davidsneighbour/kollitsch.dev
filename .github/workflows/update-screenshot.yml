@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "0 4 * * 0"
 
+permissions:
+  contents: write
+
 jobs:
   screenshot:
     runs-on: ubuntu-latest

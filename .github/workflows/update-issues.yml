@@ -8,6 +8,8 @@ jobs:
     name: Remove closed issue labels
     if: github.event.issue.state == 'closed'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: mondeja/remove-labels-gh-action@v2
         with:

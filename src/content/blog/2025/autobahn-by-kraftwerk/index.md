@@ -4,7 +4,6 @@ description: |
   A psychedelic short film inspired by Kraftwerk's Autobahn, exploring technology, travel, and human connection through vivid, experimental visuals.
 summary: |
   A psychedelic short film inspired by Kraftwerk's iconic track "Autobahn," exploring themes of technology, travel, and human connection through vivid visuals and experimental storytelling. 
-draft: false
 date: 2025-11-14T05:29:25.457Z
 tags: 
   - weird-internet

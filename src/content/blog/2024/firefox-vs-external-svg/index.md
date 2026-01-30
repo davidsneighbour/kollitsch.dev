@@ -37,7 +37,7 @@ It turned out, that there is [a known bug](https://bugzilla.mozilla.org/show_bug
 
 The interesting thing for me was, that it was not a problem on `image-src` or any other explicit directive, but directly on the `default-src` directive.
 
-[![default-src 'none' and Firefox](@assets/images/blog/2024/default-src-report.png)](@assets/images/blog/2024/default-src-report.png)
+[![default-src 'none' and Firefox](@assets/images/blog/2024/default-src-report.png)](/images/blog/2024/firefox-vs-external-svg-default-src-report.png)
 
 When implementing a Content Security Policy (CSP) to secure your website, a common recommendation is to start with a restrictive policy like `default-src 'none'`. This approach ensures that no external resources are loaded unless specifically allowed. A typical setup might look something like this:
 

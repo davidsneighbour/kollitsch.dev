@@ -12,18 +12,17 @@ import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
 import Pagination from "@components/layout/navigation/Pagination.astro";
 // components
 import Layout from "@layouts/DefaultPage.astro";
+import setup from "@data/setup.json" with { type: "json" };
 
 export async function getStaticPaths() {
   const posts = getPostsSortedByDraft(await getCollection("blog"));
-  const pageSize = 10;
+  const pageSize = setup.listpages?.limit || 12;
   const totalPages = Math.ceil(posts.length / pageSize);
 
   return Array.from({ length: totalPages }).map((_, i) => ({
     params: { page: i === 0 ? "1" : `${i + 1}` }, // all as strings
   }));
 }
-
-import setup from "@data/setup.json" with { type: "json" };
 
 const limit = setup.listpages?.limit || 12;
 const { page } = Astro.params as Params;

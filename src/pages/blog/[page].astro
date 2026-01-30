@@ -16,7 +16,7 @@ import setup from "@data/setup.json";
 
 export async function getStaticPaths() {
   const posts = getPostsSortedByDraft(await getCollection("blog"));
-  const pageSize = 10;
+  const pageSize = setup.listpages?.limit || 12;
   const totalPages = Math.ceil(posts.length / pageSize);
 
   return Array.from({ length: totalPages }).map((_, i) => ({

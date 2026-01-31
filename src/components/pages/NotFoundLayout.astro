@@ -1,0 +1,61 @@
+---
+import IconLink from "@components/shared/links/IconLink.astro";
+
+type Props = {
+  backgroundSrc: string;
+};
+
+const { backgroundSrc } = Astro.props;
+---
+
+<div class="relative h-full text-center">
+  <main class="absolute inset-0 z-10 bg-cover bg-center" style={`background-image: url(${backgroundSrc});`}>
+    <p class="font-changa text-9xl leading-8 h404">404</p>
+    <h1 class="m-0">Page not found</h1>
+    <p class="">Sorry, we couldn't find the page you're looking for.</p>
+    <nav class="mt-4 flex flex-row justify-center-safe gap-4">
+      <IconLink icon="arrow-left-short" href="#" onclick="history.back();"> Go Back </IconLink>
+      <IconLink icon="house-door" href="/"> Home </IconLink>
+      <IconLink icon="envelope" href="/connect/"> Contact Us </IconLink>
+    </nav>
+  </main>
+</div>
+<style>
+  main {
+    height: 100vh;
+  }
+
+  .h404 {
+    color: var(--color-red-200);
+    font-size: 33vw;
+    margin-top: -9vw;
+    line-height: 1;
+    background-position: bottom;
+    background-attachment: fixed;
+  }
+</style>
+<script is:inline>
+  (function () {
+    if (typeof window === "undefined") return;
+    try {
+      const _paq = (window._paq = window._paq || []);
+      const path = location.pathname;
+      const ref = document.referrer || "(direct)";
+
+      // _paq.push(['setCustomDimension', 1, '404']);
+
+      _paq.push(["setReferrerUrl", ref]);
+      _paq.push(["trackEvent", "Issue", "404 - Not Found", path]);
+
+      // If you have SPA transitions that can reach a 404 route, send once per view:
+      const once = () => {
+        _paq.push(["setCustomDimension", 1, "404"]);
+        _paq.push(["setReferrerUrl", document.referrer || "(direct)"]);
+        _paq.push(["trackEvent", "Issue", "404 - Not Found", location.pathname]);
+      };
+      document.addEventListener("astro:after-swap", once, { once: true });
+    } catch (err) {
+      console.error("Matomo 404 event tracking failed:", err);
+    }
+  })();
+</script>

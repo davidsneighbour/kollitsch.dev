@@ -71,6 +71,26 @@ const cover = resolveCover(
 );
 let imageMeta: ImageMetadata | null =
   cover.type === "image" && cover.meta ? cover.meta : null;
+
+const sortedWidths = [...new Set(widths)].sort((a, b) => a - b);
+const configuredMaxWidth = sortedWidths.at(-1) ?? 0;
+const resolvedMaxWidth = imageMeta
+  ? Math.min(configuredMaxWidth, imageMeta.width)
+  : configuredMaxWidth;
+const responsiveWidths =
+  resolvedMaxWidth > 0
+    ? sortedWidths.filter((width) => width <= resolvedMaxWidth)
+    : sortedWidths;
+const cappedImageMeta =
+  imageMeta && resolvedMaxWidth > 0 && imageMeta.width > resolvedMaxWidth
+    ? {
+        ...imageMeta,
+        width: resolvedMaxWidth,
+        height: Math.round(
+          imageMeta.height * (resolvedMaxWidth / imageMeta.width),
+        ),
+      }
+    : imageMeta;
 ---
 {
   cover.type === "video" && cover.video ? (
@@ -92,10 +112,10 @@ let imageMeta: ImageMetadata | null =
         <a href={link}>
           {imageMeta ? (
             <Picture
-              src={imageMeta}
+              src={cappedImageMeta}
               alt={cover.alt}
               formats={formats}
-              widths={widths}
+              widths={responsiveWidths}
               sizes={sizes}
               layout={layout}
               class={classes}
@@ -111,10 +131,10 @@ let imageMeta: ImageMetadata | null =
         <>
           {imageMeta ? (
             <Picture
-              src={imageMeta}
+              src={cappedImageMeta}
               alt={cover.alt}
               formats={formats}
-              widths={widths}
+              widths={responsiveWidths}
               sizes={sizes}
               layout={layout}
               class={classes}

@@ -2,7 +2,7 @@
 title: The fonts that shape KOLLITSCH.dev*
 description: A look at the typefaces that define the visual identity of KOLLITSCH.dev*.
 date: 2025-10-08T23:59:08.582Z
-tags: [fonts,typography,design,kollitsch]
+tags: [fonts,typography,design,kdev]
 cover:
   src: type-specimen.png
   title: Type specimen of Changa One and Exo 2
@@ -31,4 +31,4 @@ Changa One defines the tone; Exo 2 carries the conversation.
 
 Both fonts are hosted locally within this website instead of being served from a third party CDN. I do this mostly because they would be cached per hostname in any case and self-hosting gives me full control over loading strategies, subsetting and future updates or optimizations.
 
-You can find the current version of the font-setup in my [Github repository](https://github.com/davidsneighbour/kollitsch.dev/blob/509f455ea8e457c3238dd9fa58ca176c8b8d4311/src/styles/components/fonts.css).
+You can find the current version of the font-setup in my [GitHub repository](https://github.com/davidsneighbour/kollitsch.dev/blob/509f455ea8e457c3238dd9fa58ca176c8b8d4311/src/styles/components/fonts.css).

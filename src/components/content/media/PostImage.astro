@@ -110,7 +110,7 @@ const cappedImageMeta =
     <figure class="group">
       {link ? (
         <a href={link}>
-          {imageMeta ? (
+          {cappedImageMeta ? (
             <Picture
               src={cappedImageMeta}
               alt={cover.alt}
@@ -129,7 +129,7 @@ const cappedImageMeta =
         </a>
       ) : (
         <>
-          {imageMeta ? (
+          {cappedImageMeta ? (
             <Picture
               src={cappedImageMeta}
               alt={cover.alt}

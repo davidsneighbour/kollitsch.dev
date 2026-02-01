@@ -7,7 +7,7 @@ import { youtubePlayerParamsSchema } from '@utils/youtube.ts';
 
 import { file, glob } from 'astro/loaders';
 // for github releases loader
-import { githubReleasesLoader } from 'astro-loader-github-releases';
+// import { githubReleasesLoader } from 'astro-loader-github-releases';
 import MarkdownIt from 'markdown-it';
 
 // This could be used to infer the type of post.data in merged collections
@@ -347,15 +347,15 @@ const playlistCollections = hasYoutubeApiKey
   : {};
 
 // MARK: GitHub Releases
-const oneYearAgo = new Date();
-oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-const githubReleases = defineCollection({
-  loader: githubReleasesLoader({
-    mode: 'repoList',
-    repos: [setup.repository.slug],
-    sinceDate: oneYearAgo.toISOString().split('T')[0],
-  }),
-});
+// const oneYearAgo = new Date();
+// oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+// const githubReleases = defineCollection({
+//   loader: githubReleasesLoader({
+//     mode: 'repoList',
+//     repos: [setup.repository.slug],
+//     sinceDate: oneYearAgo.toISOString().split('T')[0],
+//   }),
+// });
 
 // MARK: Social Media Links
 export const social = defineCollection({

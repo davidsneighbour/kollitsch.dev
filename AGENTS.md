@@ -36,6 +36,7 @@ This file uses normative language as defined in RFC 2119. See [docs/rfc-2119.md]
 * Biome formats TypeScript, Astro, and MDX.
 * Components/layouts use PascalCase; utilities use camelCase for functions and kebab-case for filenames; content slugs and assets use kebab-case to match URLs.
 * Keep Tailwind utility usage consistent and place shared tokens or globals in `src/styles`.
+* Icons use the [Lucide icon set](https://lucide.dev/). The `<Icon/>` component accepts icons in the format `lucide:ICONNAME`. Search for available icons at <https://icon-sets.iconify.design/lucide/?keyword=lucide>.
 
 ## Testing Guidelines
 

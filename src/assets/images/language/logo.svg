@@ -25,9 +25,9 @@
      inkscape:document-units="px"
      showgrid="false"
      showguides="false"
-     inkscape:zoom="0.76257015"
-     inkscape:cx="359.31121"
-     inkscape:cy="517.98514"
+     inkscape:zoom="0.53921852"
+     inkscape:cx="255.92593"
+     inkscape:cy="593.45143"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
@@ -45,17 +45,22 @@
        style="font-size:1125.7px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';fill:#f83b3b;stroke-width:5.6289"
        x="163.715"
        y="853.5625"
-       id="text2562"><tspan
+       id="text2562"
+       inkscape:label="the-k"><tspan
          sodipodi:role="line"
          id="tspan2560"
          x="163.715"
          y="853.5625"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1125.7px;font-family:'Changa One';-inkscape-font-specification:'Changa One';stroke-width:5.6289">K</tspan></text>
-    <circle
-       style="fill:none;stroke:#000000;stroke-width:8.30576;stroke-dasharray:none;stroke-opacity:1"
-       id="path2666"
-       cx="500"
-       cy="500"
-       r="495.84711" />
+    <rect
+       style="display:inline;fill:none;stroke:#f83b3b;stroke-width:4.96894;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3232"
+       width="795.03107"
+       height="795.03107"
+       x="102.48447"
+       y="102.48447"
+       rx="99.378883"
+       ry="99.378883"
+       inkscape:label="border" />
   </g>
 </svg>

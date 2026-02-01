@@ -261,6 +261,7 @@
 @import './utilities/utilities.css';
 @import './utilities/typography.css';
 @import './utilities/baseline.css';
+@import './utilities/svg.css';
 
 /***** ************************************************************************
  * Third-party styles

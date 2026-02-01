@@ -7,7 +7,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { createRequire } from 'node:module';
-import { basename, dirname, extname, join } from 'node:path';
+import { dirname, extname, join } from 'node:path';
 
 const require = createRequire(import.meta.url);
 
@@ -67,34 +67,29 @@ function copyBootstrapIcons(): number {
   return copied;
 }
 
-function kebabSafe(name: string): boolean {
-  return /^[a-z0-9-]+$/.test(name);
-}
-
 /**
  * Generate a narrow type and a constant list of available icon names.
  */
 function generateIconTypes(): void {
-  const files = readdirSync(ICON_DIR, { withFileTypes: true })
-    .filter((f) => f.isFile() && extname(f.name) === '.svg')
-    .map((f) => basename(f.name, '.svg'))
-    .filter(kebabSafe)
-    .sort((a, b) => a.localeCompare(b));
-
-  const typeUnion = files.map((name) => `  | '${name}'`).join('\n');
-  const constArray = files.map((name) => `  '${name}',`).join('\n');
-
   const output = `// AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-export type IconName =
-${typeUnion};
+import biIcons from '@iconify-json/bi/icons.json' with { type: 'json' };
+import lucideIcons from '@iconify-json/lucide/icons.json' with { type: 'json' };
+
+export type BootstrapIconName = keyof typeof biIcons.icons;
+export type LucideIconName = keyof typeof lucideIcons.icons;
+export type IconName = BootstrapIconName | \`lucide:\${LucideIconName}\`;
+
+const bootstrapIconNames = Object.keys(biIcons.icons) as BootstrapIconName[];
+const lucideIconNames = Object.keys(lucideIcons.icons) as LucideIconName[];
 
 export const iconNames: IconName[] = [
-${constArray}
+  ...bootstrapIconNames,
+  ...lucideIconNames.map((name) => \`lucide:\${name}\` as IconName),
 ];
 `;
 
   writeFileSync(OUTPUT_FILE, output);
-  console.log(`Generated ${files.length} icon types → ${OUTPUT_FILE}`);
+  console.log(`Generated icon types → ${OUTPUT_FILE}`);
 }
 
 function main(): void {

@@ -108,70 +108,77 @@ const introFallbackHtml = md.renderInline(introFallback);
     </a>
     <a href="https://static.quest/random">Feeling lucky?</a>
   </div>
-</footer>
 
-<Colophon />
+  <div class="my-4 flex flex-row items-center justify-center gap-2 text-sm">
+    <Icon name="lucide:rss" />
+    <Link href="/rss.xml">RSS</Link>
+    <Link href="/atom.xml">Atom</Link>
+    <Link href="/feed.json">JSON</Link>
+  </div>
 
-<script is:inline define:vars={{ footerYearId }} data-astro-rerun>
-  document.getElementById(footerYearId).innerText = new Date().getFullYear();
+  <Colophon />
 
-  (async () => {
-    try {
-      const el = document.getElementById("site-version");
-      if (!el) return;
-      const resp = await fetch("/api/siteinfo.json");
-      if (!resp.ok) return;
-      const data = await resp.json();
-      const version = data?.version ?? null;
-      const releasePage = data?.releasePage ?? null;
-      if (version && releasePage) {
-        el.textContent = "";
-        const separator = document.createTextNode(" ៚ ");
-        const link = document.createElement("a");
-        Object.assign(link, {
-          href: releasePage,
-          rel: "noopener noreferrer",
-          target: "_blank",
-          textContent: `v${version}`,
-        });
-        el.appendChild(separator);
-        el.appendChild(link);
+  <script is:inline define:vars={{ footerYearId }} data-astro-rerun>
+    document.getElementById(footerYearId).innerText = new Date().getFullYear();
+
+    (async () => {
+      try {
+        const el = document.getElementById("site-version");
+        if (!el) return;
+        const resp = await fetch("/api/siteinfo.json");
+        if (!resp.ok) return;
+        const data = await resp.json();
+        const version = data?.version ?? null;
+        const releasePage = data?.releasePage ?? null;
+        if (version && releasePage) {
+          el.textContent = "";
+          const separator = document.createTextNode(" ៚ ");
+          const link = document.createElement("a");
+          Object.assign(link, {
+            href: releasePage,
+            rel: "noopener noreferrer",
+            target: "_blank",
+            textContent: `v${version}`,
+          });
+          el.appendChild(separator);
+          el.appendChild(link);
+        }
+      } catch (err) {
+        // silence failures; footer should not break if API is unavailable
       }
-    } catch (err) {
-      // silence failures; footer should not break if API is unavailable
+    })();
+  </script>
+
+  <script>
+    import setup from "@data/setup.json" with { type: "json" };
+    import MarkdownIt from "markdown-it";
+
+    const md = new MarkdownIt();
+
+    /**
+     * Render the introduction with a time-based greeting.
+     */
+    export function renderIntroduction(introRaw: string, greetings: Record<string, string>): string {
+      const hour = new Date().getHours();
+      const greeting =
+        hour >= 5 && hour < 12
+          ? greetings.morning
+          : hour >= 12 && hour < 17
+            ? greetings.afternoon
+            : hour >= 17 && hour < 21
+              ? greetings.evening
+              : hour >= 21 || hour < 5
+                ? greetings.night
+                : greetings.default;
+
+      const introFinal = introRaw.replace("{$greeting}", greeting ?? "");
+      return md.renderInline(introFinal);
     }
-  })();
-</script>
 
-<script>
-  import setup from "@data/setup.json" with { type: "json" };
-  import MarkdownIt from "markdown-it";
-
-  const md = new MarkdownIt();
-
-  /**
-   * Render the introduction with a time-based greeting.
-   */
-  export function renderIntroduction(introRaw: string, greetings: Record<string, string>): string {
-    const hour = new Date().getHours();
-    const greeting =
-      hour >= 5 && hour < 12
-        ? greetings.morning
-        : hour >= 12 && hour < 17
-          ? greetings.afternoon
-          : hour >= 17 && hour < 21
-            ? greetings.evening
-            : hour >= 21 || hour < 5
-              ? greetings.night
-              : greetings.default;
-
-    const introFinal = introRaw.replace("{$greeting}", greeting ?? "");
-    return md.renderInline(introFinal);
-  }
-
-  const target = document.getElementById("about-introduction");
-  if (target) {
-    const html = renderIntroduction(setup.introduction, setup.greetings);
-    target.innerHTML = html;
-  }
-</script>
+    const target = document.getElementById("about-introduction");
+    if (target) {
+      const html = renderIntroduction(setup.introduction, setup.greetings);
+      target.innerHTML = html;
+    }
+  </script>
+</footer>

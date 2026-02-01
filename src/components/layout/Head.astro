@@ -42,6 +42,9 @@ const canonicalUrl = new URL(
   Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`,
   site,
 ).toString();
+const rssUrl = new URL("/rss.xml", site).toString();
+const atomUrl = new URL("/atom.xml", site).toString();
+const jsonFeedUrl = new URL("/feed.json", site).toString();
 
 const {
   description,
@@ -79,6 +82,9 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
 {shouldEmitBase && <base href={baseUrl} target="_self" />}
 
 <link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" type="application/rss+xml" title={`${setup.title} RSS Feed`} href={rssUrl} />
+<link rel="alternate" type="application/atom+xml" title={`${setup.title} Atom Feed`} href={atomUrl} />
+<link rel="alternate" type="application/feed+json" title={`${setup.title} JSON Feed`} href={jsonFeedUrl} />
 <meta name="robots" content={robots} />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 {description && <meta name="description" content={description} />}

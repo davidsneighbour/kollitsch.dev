@@ -1,27 +1,40 @@
-import type { APIRoute } from "astro";
-import setup from "@data/setup.json";
-import { llmsTxt, postsToLlmsItems } from "@utils/llms";
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
+import setup from '@data/setup.json';
+import { llmsTxt, postsToLlmsItems } from '@utils/llms';
+import type { APIRoute } from 'astro';
 
 const formatLlmsUrl = (slug: string) => `/llms/${slug}.txt`;
 
 export const GET: APIRoute = async () => {
-
   const posts = await getCollection('blog', (post) => !post.data.draft);
 
   return llmsTxt({
-    name: setup.title,
     description: setup.description,
-    site: setup.url,
     items: postsToLlmsItems(posts, formatLlmsUrl),
+    name: setup.title,
     optional: [
-      { title: "About", link: "/about", description: "About the author" },
-      { title: "RSS Feed", link: "/rss.xml", description: "Subscribe to updates" },
+      { description: 'About the author', link: '/about', title: 'About' },
       {
-        title: "Full Content",
-        link: "/llms-full.txt",
-        description: "Complete post content for deeper context",
+        description: 'Subscribe to updates',
+        link: '/rss.xml',
+        title: 'RSS Feed',
+      },
+      {
+        description: 'Subscribe via Atom',
+        link: '/atom.xml',
+        title: 'Atom Feed',
+      },
+      {
+        description: 'Subscribe via JSON Feed',
+        link: '/feed.json',
+        title: 'JSON Feed',
+      },
+      {
+        description: 'Complete post content for deeper context',
+        link: '/llms-full.txt',
+        title: 'Full Content',
       },
     ],
+    site: setup.url,
   });
 };

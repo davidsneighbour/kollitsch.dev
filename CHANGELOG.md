@@ -1,4 +1,21 @@
 # Changelog
+## [3000.2.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.0...v3000.2.1) (2026-02-01)
+
+
+### Content
+
+* various content fixes for linting issues ([e05aefe](https://github.com/davidsneighbour/kollitsch.dev/commit/e05aefe3687677716b73ab836e85095fe99cc3ea))
+
+
+### Build System
+
+* **deps:** update dependencies ([2ef21a7](https://github.com/davidsneighbour/kollitsch.dev/commit/2ef21a7b0315fb64965b9abf15bc03cbe6671af8))
+
+
+### Configuration
+
+* **lint:** disable AI commit messages ([9ccb822](https://github.com/davidsneighbour/kollitsch.dev/commit/9ccb8222fa26d3a15e3e83ab9bb1d9d106754f9a))
+
 ## [3000.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.0.1...v3000.2.0) (2026-02-01)
 
 

@@ -62,7 +62,7 @@
     "ajv-formats": "3.0.1",
     "cheerio": "1.2.0",
     "vite-tsconfig-paths": "6.0.4",
-    "vitest": "4.0.16",
+    "vitest": "4.0.18",
     "@vitest/browser-playwright": "^4",
     "fast-xml-parser": "5.3.4",
     "playwright": "1.58.1",

@@ -73,7 +73,7 @@ const commitlintConfig: UserConfig = {
     upperCaseSubject: false,
     useEmoji: false,
     // see https://cz-git.qbb.sh/config/engineer#useai
-    useAI: true,
+    useAI: false,
     aiModel: "qwen2.5-coder:1.5b-instruct",
     aiNumber: 5,
   },

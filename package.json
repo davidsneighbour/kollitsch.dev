@@ -72,7 +72,7 @@
     "netlify-cli": "23.14.0",
     "@netlify/functions": "5.1.2",
     "bootstrap-icons": "1.13.1",
-    "@iconify-json/simple-icons": "1.2.68",
+    "@iconify-json/simple-icons": "1.2.69",
     "@iconify-json/lucide": "1.2.87",
     "brace-expansion": ">=4.0.1",
     "@types/markdown-it": "14.1.2",

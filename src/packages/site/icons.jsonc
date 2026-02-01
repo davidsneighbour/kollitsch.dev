@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "bootstrap-icons": "1.13.1",
-    "@iconify-json/simple-icons": "1.2.68",
+    "@iconify-json/simple-icons": "1.2.69",
     "@iconify-json/lucide": "1.2.87"
   },
   "scripts": {

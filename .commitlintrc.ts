@@ -66,7 +66,8 @@ const commitlintConfig: UserConfig = {
     },
     scopes: [],
     skipQuestions: [],
-    themeColorCode: '38;5;159',
+    // see https://cz-git.qbb.sh/config/show#themecolorcode
+    themeColorCode: '38;2;255;149;128',
     types: czTypes,
     upperCaseSubject: false,
     useEmoji: false,

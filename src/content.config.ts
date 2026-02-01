@@ -377,6 +377,6 @@ export const collections = {
   blog,
   tags,
   ...playlistCollections,
-  githubReleases,
+  // githubReleases,
   social,
 };

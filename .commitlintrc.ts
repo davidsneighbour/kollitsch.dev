@@ -74,7 +74,7 @@ const commitlintConfig: UserConfig = {
     useEmoji: false,
     // see https://cz-git.qbb.sh/config/engineer#useai
     useAI: true,
-    aiModel: "deepseek-r1:14b",
+    aiModel: "qwen2.5-coder:1.5b-instruct",
     aiNumber: 5,
   },
   rules: {

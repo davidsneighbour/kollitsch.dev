@@ -6,6 +6,7 @@ import SiteTitle from "@components/layout/branding/SiteTitle.astro";
 import TopNavigation from "@components/layout/navigation/TopNavigation.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import Site from "@layouts/Site.astro";
+import Heading from "@components/content/typography/Heading.astro";
 
 const { post, frontmatter } = Astro.props;
 // const { file, url, frontmatter, headings, rawContent, compiledContent } =
@@ -23,14 +24,14 @@ const { post, frontmatter } = Astro.props;
 // compiledContent() - An async function that returns the Markdown document compiled to an HTML string
 ---
 
-<Site
-  post={post}
-  frontmatter={frontmatter}
->
+<Site post={post} frontmatter={frontmatter}>
   <SiteTitle />
   <TopNavigation />
   <main class={setup.classes.containers.wide}>
     <article class="content mx-auto max-w-5xl">
+      <Heading level={1} class="mb-6">
+        {frontmatter.title}
+      </Heading>
       <slot />
     </article>
   </main>

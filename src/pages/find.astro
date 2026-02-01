@@ -1,6 +1,7 @@
 ---
 // @todo refactor
 
+import Heading from "@components/content/typography/Heading.astro";
 import Search from "@components/features/search/Search.astro";
 import Layout from "@layouts/ContentPage.astro";
 
@@ -13,7 +14,7 @@ const post = {
 ---
 
 <Layout post={post}>
-  <h1>Find</h1>
+  <Heading level={1} class="mb-6">Find</Heading>
   <p>Use the search bar below to find content on this site.</p>
   <Search
     uiOptions={{

@@ -7,8 +7,6 @@ cover:
 date: 2025-07-23T05:47:42.802Z
 ---
 
-# Privacy Policy
-
 * [1. Definitions](#1-definitions)
 * [2. General rules](#2-general-rules)
 * [3. Tool-specific notes](#3-tool-specific-notes)

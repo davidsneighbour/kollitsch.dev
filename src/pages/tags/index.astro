@@ -29,6 +29,10 @@ try {
     includeCounts: true,
     order: "weight-desc",
   });
+  if (import.meta.env.PROD) {
+    const publishedTagIds = new Set(allTagsWithCounts.map((tag) => tag.id));
+    featuredEntries = featuredEntries.filter((entry) => publishedTagIds.has(entry.data.id));
+  }
 } catch (err) {
   log.error("[test/tags] failed to load tags", err);
 }

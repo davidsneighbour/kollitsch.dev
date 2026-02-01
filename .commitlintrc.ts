@@ -1,5 +1,6 @@
 // @see https://github.com/Zhengqbbb/cz-git
 import type { CommitizenGitOptions, UserConfig } from 'cz-git';
+import { defineConfig } from 'cz-git'
 import { items as shared } from './src/config/shared-config.ts';
 
 if (!Array.isArray(shared) || shared.length === 0) {
@@ -71,6 +72,10 @@ const commitlintConfig: UserConfig = {
     types: czTypes,
     upperCaseSubject: false,
     useEmoji: false,
+    // see https://cz-git.qbb.sh/config/engineer#useai
+    useAI: true,
+    aiModel: "deepseek-r1:14b",
+    aiNumber: 5,
   },
   rules: {
     // overriding commitlint rules, e.g.:
@@ -79,4 +84,4 @@ const commitlintConfig: UserConfig = {
   },
 };
 
-export default commitlintConfig;
+export default defineConfig(commitlintConfig);

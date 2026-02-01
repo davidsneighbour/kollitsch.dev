@@ -55,7 +55,7 @@ const commitlintConfig: UserConfig = {
     ],
     markBreakingChangeMode: true,
     maxHeaderLength: Infinity,
-    maxSubjectLength: 50,
+    maxSubjectLength: 72,
     messages: promptMessages,
     minSubjectLength: 0,
     scopeOverrides: {

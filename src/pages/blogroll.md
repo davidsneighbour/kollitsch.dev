@@ -1,6 +1,6 @@
 ---
 layout: "@layouts/ContentPageBlogroll.astro"
-title: /blogroll
+title: "/blogroll"
 linktitle: blogroll
 description: A collection of blogs I follow.
 date: 2025-11-08T11:28:32.202Z

@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/ContentPageConnect.astro'
-title: /contact
+title: "/contact"
 linktitle: contact
 description: >-
   Find a way to get into contact with me. I prefer written contact before you

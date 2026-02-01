@@ -69,11 +69,87 @@ const IS_DEV = import.meta.env.DEV;
         window.scrollTo({ left: 0, top: 0, behavior: "instant" });
       });
     </script>
+    <script is:inline>
+      (() => {
+        const releaseNavigationLocks = () => {
+          document.documentElement.classList.remove("astro-transitioning");
+          document.documentElement.removeAttribute("inert");
+          document.body?.removeAttribute("inert");
+        };
+
+        document.addEventListener("astro:after-swap", releaseNavigationLocks);
+        window.addEventListener("pageshow", releaseNavigationLocks);
+      })();
+    </script>
     <script>
       import Lenis from "lenis";
-      new Lenis({
-        autoRaf: true,
-      });
+
+      (() => {
+        /**
+         * Keep a single Lenis instance across swaps.
+         * Store it on window.kdev to avoid duplicate initialisations.
+         */
+        const getNamespace = () => {
+          /** @type {Window & { kdev?: Record<string, unknown> }} */
+          const w = window;
+          if (!w.kdev || typeof w.kdev !== "object") w.kdev = {};
+          return w.kdev;
+        };
+
+        const destroyLenis = () => {
+          const ns = getNamespace();
+          const existing = ns.lenis;
+          if (existing && typeof existing === "object" && "destroy" in existing) {
+            try {
+              /** @type {{ destroy: () => void }} */ (existing).destroy();
+            } catch (e) {
+              console.error("[lenis] destroy failed", e);
+            }
+          }
+          ns.lenis = undefined;
+        };
+
+        const initLenis = () => {
+          const ns = getNamespace();
+
+          // Avoid stacking multiple Lenis instances and wheel listeners.
+          destroyLenis();
+
+          try {
+            const lenis = new Lenis({
+              autoRaf: true,
+            });
+
+            // Some bfcache restores benefit from forcing a sync.
+            // resize exists in newer Lenis versions; check before calling.
+            if (typeof lenis.resize === "function") {
+              lenis.resize();
+            }
+
+            // start exists in some versions. If present, ensure it is not paused.
+            if (typeof lenis.start === "function") {
+              lenis.start();
+            }
+
+            ns.lenis = lenis;
+          } catch (e) {
+            console.error("[lenis] init failed", e);
+          }
+        };
+
+        // Initial load.
+        initLenis();
+
+        // Runs after every ClientRouter navigation.
+        document.addEventListener("astro:page-load", () => {
+          initLenis();
+        });
+
+        // Runs on bfcache restore (Back/Forward).
+        window.addEventListener("pageshow", () => {
+          initLenis();
+        });
+      })();
     </script>
     <WebComponents post={post} />
     <script>

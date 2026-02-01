@@ -6,6 +6,7 @@ url: /colophon
 linkTitle: Colophon
 description: 'A brief overview of my life, work and things I have done.'
 type: page
+draft: true
 menu:
   footer:
     weight: 990

@@ -53,4 +53,4 @@ I recently did a couple of little projects to kick things off and see if this co
 
 Stay tuned for next week's first post: a Flickr (is that still a thing?) album downloader.
 
-![Just do it!](/blog/2025/finishit-2025/shia-labeouf-just-do-it.webp)
+![Just do it!](shia-labeouf-just-do-it.webp)

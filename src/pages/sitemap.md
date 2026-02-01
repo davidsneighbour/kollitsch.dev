@@ -5,6 +5,7 @@ description: A sitemap of the site
 linktitle: sitemap
 date: 2022-04-01T12:25:42.000Z
 url: /sitemap/
+draft: true
 menu:
   footer:
     weight: 800

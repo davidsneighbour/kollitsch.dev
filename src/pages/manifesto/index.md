@@ -2,6 +2,7 @@
 layout: "@layouts/ContentPage.astro"
 title: "Patrick's Manifesto"
 description: "This is Patrick's manifesto."
+draft: true
 cover:
   type: "image"
   src: "jackie-hope-x4Ln13R0c4c-unsplash.jpg"

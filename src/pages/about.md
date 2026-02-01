@@ -2,6 +2,7 @@
 layout: "@layouts/ContentPage.astro"
 title: "About Page"
 description: "This is the about page."
+draft: true
 ---
 
 

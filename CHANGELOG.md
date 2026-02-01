@@ -1,4 +1,41 @@
 # Changelog
+## [3000.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.0.1...v3000.1.0) (2026-02-01)
+
+
+### Features
+
+* add atom and json feed and links ([b43438b](https://github.com/davidsneighbour/kollitsch.dev/commit/b43438b9306538af053e98b5962f395169c56b7f))
+
+
+### Content
+
+* **fix:** proper tag id ([705ca06](https://github.com/davidsneighbour/kollitsch.dev/commit/705ca062fd3a829b11f56fb9a7697ccd459071f8))
+
+
+### Theme
+
+* add SVG styles for link text decoration ([418d458](https://github.com/davidsneighbour/kollitsch.dev/commit/418d458359ab976a6e7c63b430526b07ebefe311))
+
+
+### Documentation
+
+* add notes about scrolling and client-router on nav ([b732c83](https://github.com/davidsneighbour/kollitsch.dev/commit/b732c8323b94e6745e85783368e155f7aac633b0))
+* **ai:** add icons note to AGENTS.md ([85e203e](https://github.com/davidsneighbour/kollitsch.dev/commit/85e203e3eb48d8f9168ae3c6e57487eadd277e60))
+
+
+### Refactors
+
+* some changes to the logo svg ([a3b21aa](https://github.com/davidsneighbour/kollitsch.dev/commit/a3b21aa8e3ba0e7903a79f2c5c85c93d4d51a178))
+
+
+### Configuration
+
+* **lint:** allow commit titles of <= 72 characters length ([8ec65b7](https://github.com/davidsneighbour/kollitsch.dev/commit/8ec65b7ba8a53e86e2b7515c25f26f9af03e1c68))
+* **lint:** re-setup lychee properly ([de5928a](https://github.com/davidsneighbour/kollitsch.dev/commit/de5928a914f3c65a0260eff76641fead94f52ec6))
+* **lint:** use dracula theme color for commitlint theme ([00e5d61](https://github.com/davidsneighbour/kollitsch.dev/commit/00e5d6106d04837005a7949b12b0f87f1736a513))
+* refactored `.commitlintrc.ts` to enhance AI capabilities for better code review ([b80070f](https://github.com/davidsneighbour/kollitsch.dev/commit/b80070f608807be277a6857ea6eafa0d992b442d))
+* updated commitlint configuration to use Qwen model for enhanced AI assistance. ([2e0386d](https://github.com/davidsneighbour/kollitsch.dev/commit/2e0386d9689cbd328922bb0ea4cb3aec7a279c55))
+
 ## [3000.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.0.0...v3000.0.1) (2026-01-30)
 
 

@@ -141,6 +141,7 @@ export default defineConfig({
       filter: (page) =>
         // Exclude any page URL that starts with this string
         !page.startsWith('https://kollitsch.dev/test/') &&
+        !page.startsWith('https://kollitsch.dev/blog/1/') &&
         !draftPagePaths.has(new URL(page).pathname),
     }),
     pagefind({ indexConfig: { keepIndexUrl: true } }),

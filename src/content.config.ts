@@ -120,6 +120,12 @@ const cover = z
   })
   .optional();
 
+// const description110to160 = z
+//   .string()
+//   .trim()
+//   .min(110, { message: "description must be at least 110 characters" })
+//   .max(160, { message: "description must be at most 160 characters" });
+
 // MARK: Blog Posts
 export const blogSchema = z
   .object({

@@ -95,6 +95,6 @@ At once, the gears creaked, and slowly came to life, and turned, and the daemon 
 
 A proper socket restored the connection.
 
-*Lessons learned* – When the daemon falls silent, treat each clue with respect. Verify your group membership, inspect the sockets, mind your context, ensure the service is alive, and, if you walk the rootless path, point to the correct socket. In the realm of Docker, every detail may hold the key. Sometimes there are more players in the room than you expect or see.
+*Lessons learned*: When the daemon falls silent, treat each clue with respect. Verify your group membership, inspect the sockets, mind your context, ensure the service is alive, and, if you walk the rootless path, point to the correct socket. In the realm of Docker, every detail may hold the key. Sometimes there are more players in the room than you expect or see.
 
 With the mystery unveiled, I reclaimed my faithful Docker daemon and returned to peace (and work).

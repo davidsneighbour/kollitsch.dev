@@ -8,4 +8,5 @@ aliases:
 class: info
 description: "A joyful collection of glorious over-engineering."
 icon: stars
+draft: true
 ---

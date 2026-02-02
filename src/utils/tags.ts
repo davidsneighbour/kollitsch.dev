@@ -10,7 +10,7 @@ import { getCollection } from 'astro:content';
 // Imports (@data → @utils → external)
 // ──────────────────────────────────────────────────────────────────────────────
 import setup from '@data/setup.json' with { type: 'json' };
-import { getPostsSortedByDraft, type BlogPost } from '@utils/content.ts';
+import { type BlogPost, getPostsSortedByDraft } from '@utils/content.ts';
 import { createLogger, refOf } from '@utils/logger.ts';
 
 const log = createLogger({ slug: 'tags' });
@@ -310,10 +310,21 @@ async function getTagIndex(): Promise<Map<string, TagIndexEntry>> {
  */
 export async function getAllTagIds(): Promise<string[]> {
   const idx = await getTagIndex();
+  const { byTag } = await collectTags();
   const ids = new Set<string>();
 
-  for (const entry of idx.values()) {
-    ids.add(entry.data.id);
+  for (const [label] of byTag.entries()) {
+    try {
+      const key = normaliseTagUnsafe(label);
+      const hit = idx.get(key);
+      ids.add(hit ? hit.data.id : key);
+    } catch (err) {
+      log.warn(
+        '[tags] getAllTagIds normalisation issue, skipping tag',
+        { label },
+        err,
+      );
+    }
   }
 
   return Array.from(ids).sort();
@@ -629,8 +640,8 @@ export async function getTags(
 
     items.push({
       count: info.count,
-      id,
       icon,
+      id,
       label: finalLabel,
       url: tagUrl(id),
       weight,
@@ -746,7 +757,7 @@ export async function getFeaturedTags(
     const icon = (entry.data as { icon?: TagIcon }).icon;
     const count = countById?.get(id) ?? 0;
 
-    items.push({ count, id, icon, label, url: tagUrl(id), weight });
+    items.push({ count, icon, id, label, url: tagUrl(id), weight });
   }
 
   sortTagList(items, order);

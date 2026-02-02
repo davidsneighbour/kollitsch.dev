@@ -6,7 +6,9 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
+import matter from 'gray-matter';
 import icon from 'astro-icon';
+import { globSync } from 'glob';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
@@ -20,6 +22,47 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const crontabTmLanguage = JSON.parse(
   fs.readFileSync('./src/config/tmLanguages/crontab.tmLanguage.json', 'utf-8'),
 );
+
+const draftPagePaths = (() => {
+  const pagesRoot = path.resolve(__dirname, 'src/pages');
+  const draftPaths = new Set<string>();
+  const pageFiles = globSync('src/pages/**/*.{md,mdx}', {
+    absolute: true,
+  });
+
+  const addRouteVariants = (route: string) => {
+    const normalized = route.startsWith('/') ? route : `/${route}`;
+    const trimmed =
+      normalized.endsWith('/') && normalized !== '/'
+        ? normalized.slice(0, -1)
+        : normalized;
+    const withSlash = normalized.endsWith('/') ? normalized : `${normalized}/`;
+    draftPaths.add(trimmed);
+    draftPaths.add(withSlash);
+  };
+
+  for (const filePath of pageFiles) {
+    const contents = fs.readFileSync(filePath, 'utf-8');
+    const { data } = matter(contents);
+    if (data?.draft !== true) continue;
+
+    const relative = path.relative(pagesRoot, filePath).replace(/\\/g, '/');
+    const withoutExt = relative.replace(/\.(md|mdx)$/, '');
+    if (withoutExt === 'index') {
+      addRouteVariants('/');
+      continue;
+    }
+
+    if (withoutExt.endsWith('/index')) {
+      addRouteVariants(`/${withoutExt.slice(0, -'/index'.length)}/`);
+      continue;
+    }
+
+    addRouteVariants(`/${withoutExt}`);
+  }
+
+  return draftPaths;
+})();
 
 // watching a couple of locations where images and blog posts might appear.
 const watchExtraFiles = () => ({
@@ -97,7 +140,8 @@ export default defineConfig({
       xslURL: '/feeds/sitemap.xsl',
       filter: (page) =>
         // Exclude any page URL that starts with this string
-        !page.startsWith('https://kollitsch.dev/test/'),
+        !page.startsWith('https://kollitsch.dev/test/') &&
+        !draftPagePaths.has(new URL(page).pathname),
     }),
     pagefind({ indexConfig: { keepIndexUrl: true } }),
     icon({

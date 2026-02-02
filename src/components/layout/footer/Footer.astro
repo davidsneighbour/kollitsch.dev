@@ -43,18 +43,18 @@ const introFallbackHtml = md.renderInline(introFallback);
       aria-label="About section with author image and introduction"
     >
       <Heading level={3} class="mb-4 border-b border-gray-100 dark:border-gray-900"> About </Heading>
-      <div class="flex flex-row items-center gap-4">
-        <Link href="/connect/" class="basis-1/4">
+      <div class="about-intro text-left">
+        <Link href="/connect/" class="about-intro__image">
           <Image
             src={patrickkollitsch}
             alt="Patrick Kollitsch"
             width={256}
             height={256}
             loading="lazy"
-            class="h-full w-full rounded-full border-1 border-gray-200 dark:border-gray-800"
+            class="about-intro__image-element border-1 border-gray-200 dark:border-gray-800"
           />
         </Link>
-        <div id="about-introduction" class="basis-3/4 text-left" set:html={introFallbackHtml} />
+        <div id="about-introduction" set:html={introFallbackHtml} />
       </div>
     </aside>
     <aside class="py-4 lg:col-span-2 xl:col-span-1" aria-label="Site navigation links">
@@ -97,13 +97,7 @@ const introFallbackHtml = md.renderInline(introFallback);
     <IconLink href="/security-policy/" icon="fingerprint"> Security Policy </IconLink>
   </div>
 
-  <div class="my-4
-      flex
-      flex-row
-      items-center
-      justify-center
-      gap-2
-      text-sm">
+  <div class="my-4 flex flex-row items-center justify-center gap-2 text-sm">
     A member of the <a href="https://static.quest">Static.Quest</a> web ring!
     <a href="https://static.quest/previous/?host=kollitsch.dev">
       <Icon name="chevron-left" />
@@ -187,4 +181,35 @@ const introFallbackHtml = md.renderInline(introFallback);
       target.innerHTML = html;
     }
   </script>
+
+  <style>
+    .about-intro {
+      text-align: justify;
+    }
+
+    .about-intro__image {
+      float: left;
+      height: 14rem;
+      width: 14rem;
+      margin: 0 1rem 0.5rem 0;
+      shape-outside: circle();
+    }
+
+    .about-intro__image-element {
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 767px) {
+      .about-intro__image {
+        float: left;
+        height: 10rem;
+        width: 10rem;
+        margin: 0 0.75rem 0.5rem 0;
+        shape-outside: circle();
+      }
+    }
+  </style>
 </footer>

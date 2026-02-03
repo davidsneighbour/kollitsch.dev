@@ -386,3 +386,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+::search-text {
+  background: var(--color-red-600);
+  color: var(--color-red-50);
+}
+
+::search-text:current {
+  background: var(--color-red-900);
+  color: var(--color-red-50);
+  text-decoration: currentColor solid underline;
+}

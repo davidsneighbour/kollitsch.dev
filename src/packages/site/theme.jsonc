@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    // exo-2 non-variable is required for Open Graph image generation
+    // @todo once Satori supports variable fonts via woff2 switch to variable Exo 2 for better performance
+    "@fontsource/exo-2": "5.2.8",
     "@fontsource-variable/exo-2": "5.2.8",
     "@fontsource-variable/jetbrains-mono": "5.2.8",
     "@fontsource/changa-one": "5.2.8"

@@ -111,7 +111,11 @@ const CONFIG = {
 
 /** Fonts (read once at module load) */
 const ChangaPath = "./node_modules/@fontsource/changa-one/files/changa-one-latin-400-normal.woff";
-const Exo2Path = "./node_modules/@fontsource/exo-2/files/exo-2-latin-400-normal.woff";
+const Exo2Path = "./node_modules/@fontsource/exo-2/files/exo-2-latin-300-normal.woff";
+/**
+ * @todo once Satori supports variable fonts via woff2 switch to variable Exo 2 for better performance
+ */
+// const Exo2Path = "./node_modules/@fontsource-variable/exo-2/files/exo-2-latin-wght-normal.woff2";
 
 let fontLoadError = false;
 const ChangaData = safeReadFile(ChangaPath);

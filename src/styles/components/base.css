@@ -4,7 +4,10 @@
   }
 
   /**
-   * Extending "preflight" from Tailwind CSS
+   * Everyone should have their own custom CSS reset.
+   * This is mine. Plus changes by the Guru's of the web.
+   *
+   * First comes Preflight from Tailwind CSS
    * @see https://tailwindcss.com/docs/preflight
    */
 
@@ -35,12 +38,11 @@
   h5,
   h6 {
     @apply font-changa;
-
-    /* Changa One is only available via weight 400 */
-    @apply font-normal;
+    @apply font-normal; /* Changa One is only available via weight 400 */
     @apply mt-4;
   }
 
+  /* h1 is the post title or the page title, so it should be more prominent */
   h1 {
     @apply text-4xl;
   }
@@ -56,6 +58,8 @@
   h4 {
     @apply text-base;
   }
+
+  /** The idea is not to use h5 and h6 too often and if, then add custom styles via classes */
 
   h1 code,
   h2 code,
@@ -86,13 +90,19 @@
     text-wrap: pretty;
   }
 
+  /* default link styles */
   a {
     @apply text-red-700;
     @apply hover:text-orange-700;
     @apply transition-colors duration-300 ease-in-out;
   }
 
-  /* Tailwind CSS preflight does that, but ignores the `picture` element for some reason */
+  /**
+   * Tailwind CSS preflight does that, but not for the `picture` element.
+   * Reason: the `picture` element is not a functional element but a container. It's ok for us to
+   * want it to be a block element, but what Tailwind is fixing is functional elements that are
+   * inline by default but should be block for layout reasons.
+   */
   img,
   svg,
   video,
@@ -112,7 +122,6 @@
   video,
   canvas,
   svg {
-    display: block;
     max-width: 100%;
   }
 
@@ -124,7 +133,4 @@
     font: inherit;
   }
 
-  .progress {
-    transition: width 0.6s ease-in-out;
-  }
 }

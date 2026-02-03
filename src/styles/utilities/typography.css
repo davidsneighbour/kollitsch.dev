@@ -1,8 +1,21 @@
+
+/**
+ * show a label sideways
+ *
+ * @example
+ * `class="text-boxlabel-sideways md:text-boxlabel-inherit"`
+ */
 @utility text-boxlabel-sideways {
   writing-mode: sideways-lr;
   text-orientation: sideways;
 }
 
+/**
+ * used to reset a sideways label to normal in responsive designs
+ *
+ * @example
+ * `class="text-boxlabel-sideways md:text-boxlabel-inherit"`
+ */
 @utility text-boxlabel-inherit {
   writing-mode: inherit;
   text-orientation: inherit;

@@ -35,6 +35,16 @@
     "dev": "astro dev",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
     "preview": "astro preview",
-    "upgrade": "npx @astrojs/upgrade"
+    "upgrade": "npx @astrojs/upgrade",
+    "clean:astro": "wireit",
+    "clean:og": "wireit"
+  },
+  "wireit": {
+    "clean:astro": {
+      "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:og": {
+      "command": "rm -rf public/og_image .cache/og_image"
+    }
   }
 }

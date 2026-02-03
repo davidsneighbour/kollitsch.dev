@@ -9,6 +9,9 @@
     // 'allowSyntheticDefaultImports' flag.
     //"allowSyntheticDefaultImports": true,
     "paths": {
+      "@/*": [
+        "src/*"
+      ],
       "@assets/*": [
         "src/assets/*"
       ],
@@ -57,7 +60,9 @@
     "types": [
       "astro/client"
     ],
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "exclude": [
     "dist",

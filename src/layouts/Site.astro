@@ -14,7 +14,8 @@ const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astr
 const htmlClasses = [
   "h-full",
   "scroll-smooth", // smooth scrolling fall back for Lenis.js
-  "bg-zinc-50 dark:bg-zinc-950",
+  "bg-gray-50 dark:bg-gray-950",
+  "text-gray-900 dark:text-gray-100",
   extraHtmlClasses,
 ]
   .filter(Boolean)
@@ -24,7 +25,8 @@ const htmlClasses = [
 const bodyClasses = [
   "min-h-screen",
   "overflow-y-scroll", // always show scrollbar to prevent layout shift
-  "bg-zinc-50 dark:bg-zinc-950",
+  "bg-gray-50 dark:bg-gray-950",
+  "text-gray-900 dark:text-gray-100",
   extraBodyClasses,
 ]
   .filter(Boolean)

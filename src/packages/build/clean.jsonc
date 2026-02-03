@@ -1,22 +1,23 @@
 {
+  "devDependencies": {
+    "npm-run-all": "4.1.5"
+  },
   "scripts": {
-    "clean": "wireit",
-    "clean:full": "wireit",
-    "clean:og": "wireit",
+    "clean:full": "wireit"
   },
   "wireit": {
-    "clean": {
-      "dependencies": ["clean:astro"]
-    },
-    "clean:astro": {
-      "command": "rm -rf .astro dist node_modules/.astro"
-    },
+    // full clean runs through all clean scripts and then cleans the node lockfiles and module cache
     "clean:full": {
-      "command": "rm -rf node_modules package-lock.json .wireit",
-      "dependencies": ["clean:astro", "clean:netlify"]
+      "command": "clean:full:last",
+      "dependencies": [
+        "clean:full:items"
+      ]
     },
-    "clean:og": {
-      "command": "rm -rf public/og_image .cache/og_image",
+    "clean:full:last": {
+      "command": "rm -rf node_modules package-lock.json .wireit"
     },
+    "clean:full:items": {
+      "command": "run-p clean:*"
+    }
   }
 }

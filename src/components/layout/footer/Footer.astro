@@ -1,34 +1,30 @@
 ---
 // @todo refactor and comment
+import type { SocialMediaItem } from "@components/features/social/SocialLinks.astro";
+import type { Navigation } from "@utils/navigation";
+
 import { Image } from "astro:assets";
 import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
 import Heading from "@components/content/typography/Heading.astro";
 import IconLink from "@components/shared/links/IconLink.astro";
 import Link from "@components/shared/links/Link.astro";
-import type { SocialMediaItem } from "@components/features/social/SocialLinks.astro";
+import SocialLinks from "@components/features/social/SocialLinks.astro";
 import rawSocialMediaData from "@content/social.json" with { type: "json" };
 import rawNavData from "@data/footernavigation.json" with { type: "json" };
 import setup from "@data/setup.json" with { type: "json" };
 import { getHomepageUrl } from "@utils/content";
 import { generateUniqueHtmlId } from "@utils/helpers";
-
-import type { Navigation } from "@utils/navigation";
-
-export interface Props {}
-
-const socialMediaData = rawSocialMediaData as SocialMediaItem[];
-
-const footerYearId = generateUniqueHtmlId();
-const currentYear = new Date().getFullYear().toString();
-const navData = rawNavData as Navigation;
-
-import SocialLinks from "@components/features/social/SocialLinks.astro";
 import MarkdownIt from "markdown-it";
 import Colophon from "@components/layout/footer/Colophon.astro";
 import { Icon } from "astro-icon/components";
 
-const md = new MarkdownIt();
+export interface Props {}
 
+const socialMediaData = rawSocialMediaData as SocialMediaItem[];
+const footerYearId = generateUniqueHtmlId();
+const currentYear = new Date().getFullYear().toString();
+const navData = rawNavData as Navigation;
+const md = new MarkdownIt();
 const introFallback = setup.introduction.replace("{$greeting}", "").trim();
 const introFallbackHtml = md.renderInline(introFallback);
 ---
@@ -36,7 +32,7 @@ const introFallbackHtml = md.renderInline(introFallback);
 <footer class={setup.classes.containers.wide} aria-label="Footer">
   <Heading level={2} class="sr-only"> Footer section with navigation and social media links </Heading>
   <div
-    class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t-1 border-t-gray-700 bg-gray-50 py-8 md:grid-cols-2 lg:grid-cols-9 xl:grid-cols-7 dark:bg-gray-950"
+    class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t border-t-gray-700 bg-gray-50 py-8 md:grid-cols-2 lg:grid-cols-9 xl:grid-cols-7 dark:bg-gray-950"
   >
     <aside
       class="py-4 text-center md:col-span-2 lg:col-span-5 lg:text-left xl:col-span-4"
@@ -51,7 +47,7 @@ const introFallbackHtml = md.renderInline(introFallback);
             width={256}
             height={256}
             loading="lazy"
-            class="about-intro__image-element border-1 border-gray-200 dark:border-gray-800"
+            class="about-intro__image-element border border-gray-200 dark:border-gray-800"
           />
         </Link>
         <div id="about-introduction" set:html={introFallbackHtml} />
@@ -115,8 +111,6 @@ const introFallbackHtml = md.renderInline(introFallback);
     <Link href="/atom.xml">Atom</Link>
     <Link href="/feed.json">JSON</Link>
   </div>
-
-  <Colophon />
 
   <script is:inline define:vars={{ footerYearId }} data-astro-rerun>
     document.getElementById(footerYearId).innerText = new Date().getFullYear();
@@ -191,7 +185,7 @@ const introFallbackHtml = md.renderInline(introFallback);
       float: left;
       height: 14rem;
       width: 14rem;
-      margin: 0 1rem 0.5rem 0;
+      margin: 1rem 1rem 1rem 0;
       shape-outside: circle();
     }
 
@@ -213,3 +207,5 @@ const introFallbackHtml = md.renderInline(introFallback);
     }
   </style>
 </footer>
+
+<Colophon />

@@ -1,4 +1,13 @@
 # Changelog
+## [3000.2.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.1...v3000.2.2) (2026-02-04)
+
+
+### Build System
+
+* **deps:** remove double exo font package ([19793f3](https://github.com/davidsneighbour/kollitsch.dev/commit/19793f3b3911eb467b7edff55918469994d5016c))
+* **deps:** update dependencies ([4cf6f61](https://github.com/davidsneighbour/kollitsch.dev/commit/4cf6f61465bb188d770e4ec106fa9f4fbfc90cea))
+* **packages:** refactoring package generation scripts ([2ebb9b5](https://github.com/davidsneighbour/kollitsch.dev/commit/2ebb9b5e75ddc78b099cbb6e0a1648a23867170e))
+
 ## [3000.2.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.0...v3000.2.1) (2026-02-01)
 
 

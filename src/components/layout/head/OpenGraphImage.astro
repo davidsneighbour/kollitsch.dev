@@ -35,6 +35,7 @@ import { resolveImageKey } from "@utils/opengraph.ts";
 import type { OpenGraphPayload } from "@utils/content.ts";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
+import type { ReactNode } from "react";
 
 const TEMPLATE_VERSION = 1; // bump to invalidate everything after template/style changes
 
@@ -356,7 +357,13 @@ async function optimizeWithSharp(inputPngBuffer: Uint8Array, format: OgFormat): 
  * Satori markup — background via CSS on the outer container (no absolute positioning).
  * Tailwind notes: whenever using leading-*, also set text-* on the same node or inline line-height.
  */
-function markup(title: string, postDateDisplay: string, width: number, height: number, backgroundSrc: string) {
+function markup(
+  title: string,
+  postDateDisplay: string,
+  width: number,
+  height: number,
+  backgroundSrc: string,
+): ReactNode {
   const hasDate = postDateDisplay.trim().length > 0;
   const dateHtml = hasDate ? postDateDisplay : "";
 
@@ -381,7 +388,7 @@ function markup(title: string, postDateDisplay: string, width: number, height: n
         </div>
       </div>
     </div>
-  `;
+  ` as unknown as ReactNode;
 }
 
 /**

@@ -3,7 +3,7 @@
 
 import Footer from "@components/layout/footer/Footer.astro";
 import TestPagesIndex from "@components/support/fixtures/TestPagesIndex.astro";
-import SiteHeader from "@components/layouts/header/SiteHeader.astro";
+import SiteHeader from "@components/layout/header/SiteHeader.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import Site from "@layouts/Site.astro";
 
@@ -23,10 +23,7 @@ const { post, frontmatter } = Astro.props;
 // compiledContent() - An async function that returns the Markdown document compiled to an HTML string
 ---
 
-<Site
-  post={post}
-  frontmatter={frontmatter}
->
+<Site post={post} frontmatter={frontmatter}>
   <SiteHeader />
   <main class={setup.classes.containers.wide}>
     <article class="content mx-auto max-w-5xl">

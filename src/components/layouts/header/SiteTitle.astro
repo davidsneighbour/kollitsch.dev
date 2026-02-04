@@ -3,14 +3,17 @@
 import setup from "@data/setup.json" with { type: "json" };
 import { getHomepageUrl } from "@utils/content.ts";
 
-export interface Props {}
+export interface Props {
+  id: string;
+}
 
 const homepageUrl = getHomepageUrl();
+const { id }: Props = Astro.props;
 ---
 
 <header
   aria-label="Site title"
-  id="sitetitle"
+  id={id}
   class="font-changa text-(length:--dnb-sitetitle-size) w-full bg-gray-100 text-center text-5xl text-gray-950 dark:bg-gray-900 dark:text-gray-50"
 >
   <a href={homepageUrl}>

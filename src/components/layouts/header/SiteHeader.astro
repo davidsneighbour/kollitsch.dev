@@ -1,0 +1,25 @@
+---
+import { randomBytes } from "node:crypto";
+import SiteTitle from "@components/layouts/header/SiteTitle.astro";
+import TopNavigation from "@components/layouts/header/TopNavigation.astro";
+
+type ThemeMode = "dark" | "light";
+
+export interface Props {
+  defaultTheme?: ThemeMode;
+}
+
+const { defaultTheme = "dark" }: Props = Astro.props;
+
+const createSiteTitleId = () => {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+  const bytes = randomBytes(10);
+  const suffix = Array.from(bytes, (byte) => alphabet[byte % alphabet.length]).join("");
+  return `sitetitle-${suffix}`;
+};
+
+const siteTitleId = createSiteTitleId();
+---
+
+<SiteTitle id={siteTitleId} />
+<TopNavigation defaultTheme={defaultTheme} siteTitleId={siteTitleId} />

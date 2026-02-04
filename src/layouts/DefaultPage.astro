@@ -1,8 +1,7 @@
 ---
 
 import Footer from "@components/layout/footer/Footer.astro";
-import SiteTitle from "@components/layout/branding/SiteTitle.astro";
-import TopNavigation from "@components/layout/navigation/TopNavigation.astro";
+import SiteHeader from "@components/layouts/header/SiteHeader.astro";
 import Site from "@layouts/Site.astro";
 
 const { post } = Astro.props;
@@ -11,8 +10,7 @@ import setup from "@data/setup.json" with { type: "json" };
 ---
 
 <Site post={post}>
-  <SiteTitle />
-  <TopNavigation />
+  <SiteHeader />
   <main class={setup.classes.containers.slim}>
     <slot />
   </main>

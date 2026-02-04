@@ -37,9 +37,10 @@ if (!activeItem && import.meta.env.DEV) {
 type ThemeMode = "dark" | "light";
 export interface Props {
   defaultTheme?: ThemeMode;
+  siteTitleId?: string;
 }
 
-const { defaultTheme = "dark" }: Props = Astro.props;
+const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
 ---
 
 <header
@@ -100,7 +101,12 @@ const { defaultTheme = "dark" }: Props = Astro.props;
   </nav>
 </header>
 
-<script is:inline data-astro-rerun data-default-theme={defaultTheme}>
+<script
+  is:inline
+  data-astro-rerun
+  data-default-theme={defaultTheme}
+  data-site-title-id={siteTitleId}
+>
   (() => {
     // ---- Shared utilities ----
     window.kdev = window.kdev || {};
@@ -108,7 +114,9 @@ const { defaultTheme = "dark" }: Props = Astro.props;
     const closeIcon = document.querySelector(".close-icon");
     const openIcon = document.querySelector(".open-icon");
     const navSection = document.querySelector("#navigation-and-theme-select");
-    const placeholder = document.querySelector("#sitetitle");
+    const currentScript = document.currentScript;
+    const placeholderId = currentScript?.getAttribute("data-site-title-id");
+    const placeholder = placeholderId ? document.querySelector(`#${placeholderId}`) : null;
     const stickyBrand = document.querySelector("#navbar-brand");
 
     // Toggle icons: hamburger ↔ close

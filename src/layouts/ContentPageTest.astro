@@ -3,8 +3,7 @@
 
 import Footer from "@components/layout/footer/Footer.astro";
 import TestPagesIndex from "@components/support/fixtures/TestPagesIndex.astro";
-import SiteTitle from "@components/layout/branding/SiteTitle.astro";
-import TopNavigation from "@components/layout/navigation/TopNavigation.astro";
+import SiteHeader from "@components/layouts/header/SiteHeader.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import Site from "@layouts/Site.astro";
 
@@ -28,8 +27,7 @@ const { post, frontmatter } = Astro.props;
   post={post}
   frontmatter={frontmatter}
 >
-  <SiteTitle />
-  <TopNavigation />
+  <SiteHeader />
   <main class={setup.classes.containers.wide}>
     <article class="content mx-auto max-w-5xl">
       <slot />

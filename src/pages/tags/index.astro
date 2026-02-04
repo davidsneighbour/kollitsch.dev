@@ -24,7 +24,7 @@ const post = {
 let allTagsWithCounts: TagListItem[] = [];
 let featuredEntries: CollectionEntry<"tags">[] = [];
 try {
-  allTagsWithCounts = await getTags({ order: "label-asc", threshold: 1 });
+  allTagsWithCounts = await getTags({ order: "label-asc" });
   featuredEntries = await getFeaturedTagEntries({
     includeCounts: true,
     order: "weight-desc",

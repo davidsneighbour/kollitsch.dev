@@ -5,3 +5,13 @@
 @theme {
 
 }
+
+:root {
+
+  /* 13vw is fine for "KOLLITSCH.dev*" in Changa One, needs configuration on title change */
+  --dnb-sitetitle-size: clamp(50px, 13vw, 160px);
+
+}
+
+
+

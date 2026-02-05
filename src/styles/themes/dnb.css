@@ -1,6 +1,6 @@
-
 @import './fonts.css';
 @import './colors.css';
+@import './animation.css';
 
 @theme {
 
@@ -12,6 +12,3 @@
   --dnb-sitetitle-size: clamp(50px, 13vw, 160px);
 
 }
-
-
-

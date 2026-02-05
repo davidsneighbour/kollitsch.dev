@@ -8,8 +8,6 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @import './themes/dnb.css';
-@import './setup/theme.css';
-@import './setup/fonts.css';
 
 /*******************************************************************************
  * Color utilities
@@ -289,7 +287,7 @@
 /*******************************************************************************
  * Default theme setup
  ******************************************************************************/
-@import './components/base.css';
+@import './base.css';
 @import './components/prose.css';
 @import './components/pagefind.css';
 @import './utilities/utilities.css';
@@ -372,24 +370,4 @@
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-::search-text {
-  background: var(--color-red-600);
-  color: var(--color-red-50);
-}
-
-::search-text:current {
-  background: var(--color-red-900);
-  color: var(--color-red-50);
-  text-decoration: currentColor solid underline;
 }

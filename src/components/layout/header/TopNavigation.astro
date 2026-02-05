@@ -7,7 +7,7 @@ import IconLink from "@components/shared/links/IconLink.astro";
 import type { Navigation } from "@utils/navigation";
 
 // components
-import ProgressBar from "@components/layout/navigation/Progress.astro";
+import ProgressBar from "@components/layout/header/Progress.astro";
 // data
 import setup from "@data/setup.json" with { type: "json" };
 import navData from "@data/topnavigation.json" with { type: "json" };
@@ -101,12 +101,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
   </nav>
 </header>
 
-<script
-  is:inline
-  data-astro-rerun
-  data-default-theme={defaultTheme}
-  data-site-title-id={siteTitleId}
->
+<script is:inline data-astro-rerun data-default-theme={defaultTheme} data-site-title-id={siteTitleId}>
   (() => {
     // ---- Shared utilities ----
     window.kdev = window.kdev || {};
@@ -163,7 +158,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
           stickyBrand.classList.toggle("opacity-100", !entry.isIntersecting);
           stickyBrand.classList.toggle("opacity-0", entry.isIntersecting);
         },
-        { threshold: 0 }
+        { threshold: 0 },
       );
       observer.observe(placeholder);
 
@@ -208,7 +203,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
         document.dispatchEvent(
           new CustomEvent("theme-changed", {
             detail: { defaultTheme, systemTheme, theme: t },
-          })
+          }),
         );
       }
 
@@ -255,7 +250,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
               const icons = { dark: "🌙", light: "☀️" };
               this.btn.textContent = icons[t] ?? icons.dark;
             }
-          }
+          },
         );
       }
 

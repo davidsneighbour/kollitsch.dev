@@ -1,4 +1,26 @@
 # Changelog
+## [3000.2.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.2...v3000.2.3) (2026-02-05)
+
+
+### Fixes
+
+* **components:** move pagination components around ([93248c0](https://github.com/davidsneighbour/kollitsch.dev/commit/93248c083f7aa2064d5d5652c8da26fed325fec4))
+* proper paths for header components ([6addcf1](https://github.com/davidsneighbour/kollitsch.dev/commit/6addcf12f2ed0d33de85b792805808b24a75a4fa))
+* **theme:** add smaller image size, remove larger unused image sizes ([8de73b3](https://github.com/davidsneighbour/kollitsch.dev/commit/8de73b3d822556614adab3e781e65bfdb22ac00f))
+* **theme:** cleanup stylesheet structure ([5938c82](https://github.com/davidsneighbour/kollitsch.dev/commit/5938c82d7c26016763ea7de3a0cc4868877aa231))
+* **theme:** move header components into header folder ([2a075e6](https://github.com/davidsneighbour/kollitsch.dev/commit/2a075e6f19fe4d508270f34a646fe60adddef694))
+
+
+### Tests
+
+* add tests for SiteHeader component ([945d843](https://github.com/davidsneighbour/kollitsch.dev/commit/945d84358dcb5f36f2985a6737170d3489fbda00))
+
+
+### Build System
+
+* **deps:** bump @isaacs/brace-expansion from 5.0.0 to 5.0.1 in the npm_and_yarn group across 1 directory ([#1529](https://github.com/davidsneighbour/kollitsch.dev/issues/1529)) ([ef63891](https://github.com/davidsneighbour/kollitsch.dev/commit/ef63891faccb95e95379e6e2b1611ada0007d7af))
+* **fix:** add shared config creation to postinstall job ([fab4515](https://github.com/davidsneighbour/kollitsch.dev/commit/fab45156fdc42920bfa08a4d62625a5603da3d92))
+
 ## [3000.2.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.1...v3000.2.2) (2026-02-04)
 
 

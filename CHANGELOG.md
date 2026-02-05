@@ -1,4 +1,6 @@
 # Changelog
+## [3000.2.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.3...v3000.2.4) (2026-02-05)
+
 ## [3000.2.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.2...v3000.2.3) (2026-02-05)
 
 

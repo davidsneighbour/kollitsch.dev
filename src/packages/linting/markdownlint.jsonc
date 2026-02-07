@@ -4,6 +4,7 @@
     "markdownlint-cli2": "0.20.0"
   },
   "scripts": {
-    "lint:markdown": "markdownlint-cli2 --config 'src/config/.markdownlint.jsonc'"
+    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc",
+    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix"
   }
 }

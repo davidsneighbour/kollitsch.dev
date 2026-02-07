@@ -1,10 +1,35 @@
 {
-  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/refs/heads/main/schema/markdownlint-config-schema-strict.json",
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
+  "$id": "https://raw.githubusercontent.com/davidsneighbour/kollitsch.dev/refs/heads/main/src/config/.markdownlint.jsonc",
   "default": true,
+  // Rules
+  // unlisted rules are using default settings (usually "true")
+  // @see https://github.com/DavidAnson/markdownlint/#rules--aliases
+  "MD001": {
+    "severity": "error",
+    "front_matter_title": "^\\s*title\\s*[:=]"
+  },
+  "MD003": {
+    "style": "atx"
+  },
   "MD004": {
     "style": "asterisk"
   },
+  "MD005": true,
+  "MD007": {
+    "indent": 2
+  },
+  // NO limitation on line length
   "MD013": false,
+  // ignored rule for closed atx headings
+  "MD020": false,
+  // ignored rule for closed atx headings
+  "MD021": false,
+  // disallow multiple headings with the same content within the same level structure
+  "MD024": {
+    "siblings_only": true
+  },
+  // no inline HTML elements, except for the allowed ones. in tables only the explicit allowed ones
   "MD033": {
     "allowed_elements": [
       "lite-youtube",
@@ -12,6 +37,54 @@
       "date-diff",
       "kbd",
       "dnb-syncstring"
+    ],
+    "table_allowed_elements": [
+      "kbd"
     ]
+  },
+  // use consistent rule markers (`---`)
+  "MD035": {
+    "style": "---"
+  },
+  // unused header structure rule
+  "MD043": false,
+  // unused spelling enforcement
+  "MD044": false,
+  // fenced code blocks style
+  "MD046": {
+    "style": "fenced"
+  },
+  // code blocks must use backticks instead of tildes
+  "MD048": {
+    "style": "backtick"
+  },
+  // emphasis must use asterisks `*` instead of underscores `_`
+  "MD049": {
+    "style": "asterisk"
+  },
+  // strong style must use double asterisks `**` instead of double underscores `__`
+  "MD050": {
+    "style": "asterisk"
+  },
+  // links must not be auto links, all other link formats are allowed
+  "MD054": {
+    "autolink": false
+  },
+  // table pipes must be used before and after each table row
+  "MD055": {
+    "style": "leading_and_trailing"
+  },
+  // generic linktexts are prohibited
+  "MD059": {
+    "prohibited_texts": [
+      "click here",
+      "here",
+      "link",
+      "more"
+    ]
+  },
+  // table style must be compact (single spaces around cell content)
+  "MD060": {
+    "style": "compact"
   }
 }

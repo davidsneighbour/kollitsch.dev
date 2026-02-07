@@ -1,6 +1,10 @@
 {
   "scripts": {
     // add enabled extensions to the recommendations file and show overview
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix"
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix",
+    "vscode:sync": "node src/scripts/merge-vscode-config.ts",
+    "vscode:check": "node src/scripts/merge-vscode-config.ts --check",
+    "ci:check:vscode": "npm run vscode:check",
+    "postinstall:vscode": "npm run vscode:sync"
   }
 }

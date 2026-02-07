@@ -25,7 +25,8 @@
     "shared-config.ts": "shared-config*",
     "*.json": "$(capture).schema.json,$(capture).test.ts",
     "README.md": "AGENTS.md",
-    "playwright.config.ts": "playwright.*.ts"
+    "playwright.config.ts": "playwright.*.ts",
+    "settings.json": "settings.*.jsonc"
   },
 
   // remove scratch files from search

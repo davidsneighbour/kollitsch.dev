@@ -82,7 +82,7 @@
     "tsx": "4.21.0",
     "lighthouse": "13.0.1",
     "chrome-launcher": "1.2.1",
-    "netlify-cli": "23.14.0",
+    "netlify-cli": "23.15.1",
     "@netlify/functions": "5.1.2",
     "bootstrap-icons": "1.13.1",
     "@iconify-json/simple-icons": "1.2.69",

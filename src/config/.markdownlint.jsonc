@@ -2,6 +2,14 @@
   "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
   "$id": "https://raw.githubusercontent.com/davidsneighbour/kollitsch.dev/refs/heads/main/src/config/.markdownlint.jsonc",
   "default": true,
+  "customRules": [
+    "@github/markdownlint-github",
+    "markdownlint-rule-relative-links",
+    "markdownlint-rule-search-replace",
+    "markdownlint-rule-extended-ascii",
+    "markdownlint-rule-title-case-style",
+    "markdownlint-rule-list-duplicates"
+  ],
   // Rules
   // unlisted rules are using default settings (usually "true")
   // @see https://github.com/DavidAnson/markdownlint/#rules--aliases
@@ -86,5 +94,57 @@
   // table style must be compact (single spaces around cell content)
   "MD060": {
     "style": "compact"
-  }
+  },
+  // @see https://www.npmjs.com/package/@github/markdownlint-github
+  // images should not contain default alternate texts
+  "GH001": true,
+  // links should not contain generic text ('click here', 'read more', etc.)
+  "GH002": {
+    "additional_banned_texts": [
+      "Something",
+      "Click here"
+    ]
+  },
+  // no empty alt texts for images
+  "GH003": true,
+  // @see https://www.npmjs.com/package/markdownlint-rule-relative-links
+  "relative-links": {
+    "root_path": "../.."
+  },
+  // @see https://www.npmjs.com/package/markdownlint-rule-search-replace
+  "search-replace": {
+    "rules": [
+      {
+        "name": "ellipsis",
+        "message": "Do not use three dots '...' for ellipsis.",
+        "information": "https://example.com/rules/ellipsis",
+        "search": "...",
+        "replace": "…",
+        "searchScope": "text"
+      },
+      {
+        "name": "curly-double-quotes",
+        "message": "Do not use curly double quotes.",
+        "searchPattern": "/“|”/g",
+        "replace": "\""
+      }
+    ]
+  },
+  // @see https://www.npmjs.com/package/markdownlint-rule-extended-ascii
+  "extended-ascii": {
+    "ascii-only": true
+  },
+  // @see https://www.npmjs.com/package/markdownlint-rule-title-case-style
+  "title-case-style": {
+    // letter case style to apply
+    //
+    // "sentence" or "title" (default: sentence)
+    "case": "sentence",
+    // words to ignore when applying letter case.
+    //
+    // string[] (default: [])
+    "ignore": [
+      "JavaScript"
+    ],
+  },
 }

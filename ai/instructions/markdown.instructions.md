@@ -30,6 +30,7 @@ applyTo: "**/*.md"
 * Avoid duplicate sibling headings (same level, same parent) ([MD024](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md024)).
 * No trailing punctuation in headings ([MD026](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md026)).
 * Do not use emphasis to create headings (no faux headings like `**Heading**`) ([MD036](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md036)).
+* Use sentence case for headings per [markdownlint-rule-title-case-style](https://www.npmjs.com/package/markdownlint-rule-title-case-style) (to ignore special cases like `JavaScript` use the configuration to add them).
 
 ## Blank lines and whitespace
 
@@ -75,10 +76,13 @@ applyTo: "**/*.md"
 * References in links/images must be defined, and there must be no orphaned references ([MD052](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md052), [MD053](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md053)).
 * Autolinks are not prohibited by this config, but keep link formatting consistent with the above rules ([MD054](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md054)).
 * Avoid generic link text: `click here`, `here`, `link`, `more` ([MD059](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md059)).
+* Avoid generic link text per [GH002](https://github.com/github/markdownlint-github/blob/HEAD/docs/rules/GH002-no-generic-link-text.md) (for example `Something` and `Click here`).
 
 ## Images
 
 * Images must have alt text ([MD045](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md045)).
+* Avoid default or placeholder alt text values per [GH001](https://github.com/github/markdownlint-github/blob/HEAD/docs/rules/GH001-no-default-alt-text.md).
+* Avoid empty alt text values per [GH003](https://github.com/github/markdownlint-github/blob/HEAD/docs/rules/GH003-no-empty-alt-text.md).
 
 ## Tables
 

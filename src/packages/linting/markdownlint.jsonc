@@ -1,7 +1,14 @@
 {
   "devDependencies": {
     "markdownlint": "0.40.0",
-    "markdownlint-cli2": "0.20.0"
+    "markdownlint-cli2": "0.20.0",
+    // extensions for markdownlint
+    "@github/markdownlint-github": "0.8.0",
+    "markdownlint-rule-extended-ascii": "0.2.1",
+    "markdownlint-rule-list-duplicates": "0.0.1",
+    "markdownlint-rule-relative-links": "5.0.1",
+    "markdownlint-rule-search-replace": "1.2.0",
+    "markdownlint-rule-title-case-style": "0.4.3",
   },
   "scripts": {
     "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc",

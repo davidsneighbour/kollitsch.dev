@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@total-typescript/ts-reset": "0.6.1",
-    "@humanwhocodes/crosspost": "1.0.2",
+    "@humanwhocodes/crosspost": "1.0.3",
     "@davidsneighbour/release-config": "2026.0.1",
     "fixpack": "4.0.0",
     "browserslist": "4.28.1",

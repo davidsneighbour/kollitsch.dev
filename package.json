@@ -15,7 +15,7 @@
   "type": "module",
   "dependencies": {
     "typescript": "5.9.3",
-    "glob": "13.0.0",
+    "glob": "13.0.6",
     "@fontsource/exo-2": "5.2.8",
     "@fontsource-variable/exo-2": "5.2.8",
     "@fontsource-variable/jetbrains-mono": "5.2.8",

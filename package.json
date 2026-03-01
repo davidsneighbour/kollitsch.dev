@@ -50,7 +50,7 @@
     "@astrojs/ts-plugin": "1.10.6",
     "@iconify-json/bi": "1.2.7",
     "@spotlightjs/astro": "3.2.6",
-    "@tailwindcss/vite": "4.1.18",
+    "@tailwindcss/vite": "4.2.1",
     "@tailwindplus/elements": "1.0.22",
     "astro": "5.17.1",
     "astro-icon": "1.1.5",

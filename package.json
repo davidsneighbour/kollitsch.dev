@@ -96,7 +96,7 @@
     "@ascorbic/youtube-loader": "0.0.2",
     "@davidsneighbour/browserslist-config": "2026.0.1",
     "postcss-html": "1.8.1",
-    "stylelint": "16.26.1",
+    "stylelint": "17.4.0",
     "stylelint-config-html": "1.1.0",
     "stylelint-no-unsupported-browser-features": "8.0.5",
     "stylelint-order": "7.0.1",

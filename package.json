@@ -55,7 +55,7 @@
     "astro": "5.17.1",
     "astro-icon": "1.1.5",
     "gray-matter": "4.0.3",
-    "tailwindcss": "4.1.18",
+    "tailwindcss": "4.2.1",
     "@tailwindcss/forms": "0.5.11",
     "@sentry/astro": "10.38.0",
     "astro-meta-tags": "0.4.0",

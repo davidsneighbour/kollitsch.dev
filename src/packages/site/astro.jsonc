@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@astrojs/check": "0.9.6",
-    //"@astrojs/mdx": "4.3.13",
+    "@astrojs/mdx": "4.3.13",
     "@astrojs/rss": "4.0.15",
     "@astrojs/sitemap": "3.7.0",
     "@astrojs/ts-plugin": "1.10.6",
@@ -16,8 +16,7 @@
     "tailwindcss": "4.1.18",
     "@tailwindcss/forms": "0.5.11",
     "typescript": "5.9.3",
-    "@sentry/astro": "10.38.0",
-    "astro-meta-tags": "0.4.0"
+    "@sentry/astro": "10.38.0"
   },
   "devDependencies": {
     "@types/markdown-it": "14.1.2",

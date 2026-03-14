@@ -1,8 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-// @todo upgrade mdx to astro 6
-// import mdx from '@astrojs/mdx';
+import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
@@ -180,8 +179,7 @@ export default defineConfig({
     themes: ['dracula', 'light-plus'],
     useDarkModeMediaQuery: false,
   }),
-    // @todo upgrade mdx to astro 6
-    // mdx(),
+    mdx(),
     react()],
   markdown: {
     shikiConfig: {

@@ -1,7 +1,7 @@
 // src/scripts/convert-cover-frontmatter.ts
 
 import fs from 'fs';
-import { glob } from 'glob';
+import fg from 'fast-glob';
 import path from 'path';
 
 /**
@@ -45,7 +45,7 @@ function transformFrontmatter(content: string): string {
 const CONTENT_DIR = './src/content';
 const FILE_GLOB = '**/*.md';
 
-const files = await glob(FILE_GLOB, { absolute: true, cwd: CONTENT_DIR });
+const files = await fg(FILE_GLOB, { absolute: true, cwd: CONTENT_DIR });
 
 for (const file of files) {
   const original = fs.readFileSync(file, 'utf-8');

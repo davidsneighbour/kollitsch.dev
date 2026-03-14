@@ -1,13 +1,13 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@axe-core/playwright": "4.11.0",
-    "@playwright/test": "1.58.1",
-    "ajv": "8.17.1",
+    "@axe-core/playwright": "4.11.1",
+    "@playwright/test": "1.58.2",
+    "ajv": "8.18.0",
     "ajv-formats": "3.0.1",
     "cheerio": "1.2.0",
-    "vite-tsconfig-paths": "6.0.4",
-    "vitest": "4.0.16",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "4.1.0",
     "@vitest/browser-playwright": "^4"
   },
   "scripts": {

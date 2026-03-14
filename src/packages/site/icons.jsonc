@@ -1,8 +1,8 @@
 {
   "devDependencies": {
     "bootstrap-icons": "1.13.1",
-    "@iconify-json/simple-icons": "1.2.69",
-    "@iconify-json/lucide": "1.2.87"
+    "@iconify-json/simple-icons": "1.2.73",
+    "@iconify-json/lucide": "1.2.97"
   },
   "scripts": {
     "icons:sync": "node src/scripts/create-icon-types.ts",

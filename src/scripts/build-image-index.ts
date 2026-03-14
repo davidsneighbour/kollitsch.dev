@@ -15,7 +15,7 @@
 
 import { promises as fs } from 'node:fs';
 import { basename, extname, relative, resolve, sep } from 'node:path';
-import { glob } from 'glob';
+import fg from 'fast-glob';
 import sharp from 'sharp';
 
 // ---------- Types ----------
@@ -164,7 +164,7 @@ async function mergeMeta(
 // ---------- Build ----------
 async function buildIndex(opts: CliOptions): Promise<GeneratedIndex> {
   const root = resolve(opts.imagesDir);
-  const files = await glob('**/*.{jpg,jpeg,png,webp,avif,svg,gif}', {
+  const files = await fg('**/*.{jpg,jpeg,png,webp,avif,svg,gif}', {
     absolute: true,
     cwd: root,
   });

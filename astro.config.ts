@@ -8,7 +8,7 @@ import { defineConfig } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
 import icon from 'astro-icon';
-import { globSync } from 'glob';
+import fg from 'fast-glob';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
@@ -28,7 +28,7 @@ const crontabTmLanguage = JSON.parse(
 const draftPagePaths = (() => {
   const pagesRoot = path.resolve(__dirname, 'src/pages');
   const draftPaths = new Set<string>();
-  const pageFiles = globSync('src/pages/**/*.{md,mdx}', {
+  const pageFiles = fg.sync('src/pages/**/*.{md,mdx}', {
     absolute: true,
   });
 

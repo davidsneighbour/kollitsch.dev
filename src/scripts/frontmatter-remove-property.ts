@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { glob } from 'glob';
+import fg from 'fast-glob';
 import path from 'path';
 
 /**
@@ -34,7 +34,7 @@ const TARGET_DIR = './src/content/blog';
 const FILE_GLOB = '**/*.md';
 const FRONTMATTER_KEY = 'fmContentType';
 
-const files = await glob(FILE_GLOB, {
+const files = await fg(FILE_GLOB, {
   absolute: true,
   cwd: TARGET_DIR,
 });

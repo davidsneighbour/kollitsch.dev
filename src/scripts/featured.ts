@@ -11,7 +11,7 @@
  */
 
 import fs from 'fs/promises';
-import { glob } from 'glob';
+import fg from 'fast-glob';
 import matter from 'gray-matter';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -34,7 +34,7 @@ async function loadSiteinfo() {
 }
 
 async function getAllFiles() {
-  return await glob(`${CONTENT_PATH}/**/*.md`);
+  return await fg(`${CONTENT_PATH}/**/*.md`);
 }
 
 async function parsePosts() {

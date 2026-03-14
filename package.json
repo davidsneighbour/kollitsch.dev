@@ -2,6 +2,9 @@
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
   "version": "3000.2.4",
+  "license": "MIT",
+  "private": true,
+  "repository": "davidsneighbour/kollitsch.dev",
   "author": {
     "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
@@ -9,10 +12,6 @@
   },
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "homepage": "https://kollitsch.dev",
-  "license": "MIT",
-  "private": true,
-  "repository": "davidsneighbour/kollitsch.dev",
-  "type": "module",
   "dependencies": {
     "@astrojs/check": "0.9.7",
     "@astrojs/mdx": "5.0.0",
@@ -41,7 +40,7 @@
     "astro-icon": "1.1.5",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "glob": "13.0.6",
+    "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",
     "he": "1.2.0",
     "jsdom": "28.1.0",
@@ -125,150 +124,87 @@
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.0"
   },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
   "scripts": {
+    "astro": "astro",
+    "audit:html": "wireit",
+    "biome:check": "biome check",
+    "biome:format": "biome format",
+    "biome:lint": "biome check --fix",
+    "biome:postinstall": "biome migrate --write",
+    "biome:watch": "biome check --watch",
+    "build": "astro check && astro build && rm -rf dist/test/",
+    "build:favicons": "node src/assets/favicon/regenerate.ts",
+    "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
+    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix",
+    "check": "astro check",
+    "ci:check:vscode": "npm run vscode:check",
+    "clean:astro": "wireit",
+    "clean:full": "wireit",
+    "clean:netlify": "wireit",
+    "clean:og": "wireit",
+    "deploy": "wireit",
+    "dev": "astro dev",
+    "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
+    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
+    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
     "hooks:update": "simple-git-hooks",
+    "icons:sync": "node src/scripts/create-icon-types.ts",
+    "lighthouse": "bin/audit/lighthouse",
+    "lighthouse:audit": "wireit",
+    "lint:filenames": "ls-lint",
+    "lint:hook:commit": "lint-staged",
+    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
+    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
+    "lint:lychee": "wireit",
+    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc",
+    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix",
+    "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
+    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
+    "lint:styles": "wireit",
+    "lint:styles:fix": "wireit",
+    "lint:templates": "wireit",
+    "lint:vale": "vale --config='src/config/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "packages:generate": "wireit",
+    "packages:update": "wireit",
     "postinstall": "run-p postinstall:*",
     "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
-    "update": "wireit",
+    "postinstall:icons": "npm run icons:sync",
+    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
+    "postinstall:vscode": "npm run vscode:sync",
+    "postprepare": "wireit",
+    "prebuild": "npm run build:image-index",
+    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
+    "preview": "astro preview",
+    "release": "wireit",
+    "release:clean": "wireit",
+    "screenshot": "wireit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
-    "test:postinstall": "npx playwright install",
     "test:live": "npx playwright test --config ./playwright.live.config.ts",
-    "test:ui": "vitest --ui",
+    "test:postinstall": "npx playwright install",
     "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
-    "lighthouse:audit": "wireit",
-    "postprepare": "wireit",
-    "clean:netlify": "wireit",
-    "deploy": "wireit",
-    "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
-    "prebuild": "npm run build:image-index",
-    "icons:sync": "node src/scripts/create-icon-types.ts",
-    "postinstall:icons": "npm run icons:sync",
-    "build:favicons": "node src/assets/favicon/regenerate.ts",
-    "astro": "astro",
-    "build": "astro check && astro build && rm -rf dist/test/",
-    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
-    "check": "astro check",
-    "dev": "astro dev",
-    "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
-    "preview": "astro preview",
-    "upgrade": "npx @astrojs/upgrade",
-    "clean:astro": "wireit",
-    "clean:og": "wireit",
-    "lint:vale": "vale --config='src/config/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
+    "test:ui": "vitest --ui",
+    "update": "wireit",
     "update:pre:vale": "wireit",
-    "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
-    "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
-    "lint:filenames": "ls-lint",
-    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc",
-    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix",
-    "lint:lychee": "wireit",
-    "audit:html": "wireit",
-    "lighthouse": "bin/audit/lighthouse",
-    "lint:hook:commit": "lint-staged",
-    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
-    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
-    "lint:templates": "wireit",
-    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
-    "biome:check": "biome check",
-    "biome:format": "biome format",
-    "biome:lint": "biome check --fix",
-    "biome:watch": "biome check --watch",
-    "biome:postinstall": "biome migrate --write",
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode-extensions.ts --fix",
-    "vscode:sync": "node src/scripts/merge-vscode-config.ts",
+    "upgrade": "npx @astrojs/upgrade",
     "vscode:check": "node src/scripts/merge-vscode-config.ts --check",
-    "ci:check:vscode": "npm run vscode:check",
-    "postinstall:vscode": "npm run vscode:sync",
-    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
-    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
-    "screenshot": "wireit",
-    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
-    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit",
-    "release:clean": "wireit",
-    "packages:generate": "wireit",
-    "packages:update": "wireit",
-    "clean:full": "wireit"
+    "vscode:sync": "node src/scripts/merge-vscode-config.ts"
   },
   "wireit": {
-    "update": {
+    "clean:full": {
+      "command": "clean:full:last",
       "dependencies": [
-        "update:git-hooks"
+        "clean:full:items"
       ]
     },
-    "update:git-hooks": {
-      "command": "npm test && npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
+    "clean:full:last": {
+      "command": "rm -rf node_modules package-lock.json .wireit"
     },
-    "update:post": {
-      "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:submodules"
-      ]
-    },
-    "update:pre:npm": {
-      "command": "npm-check-updates -u --target minor"
-    },
-    "update:pre:submodules": {
-      "command": "git submodule update --recursive --remote"
-    },
-    "lighthouse:audit": {
-      "command": "node src/scripts/lighthouse-audit.ts"
-    },
-    "postprepare": {
-      "dependencies": [
-        "test:postinstall",
-        "build:favicons"
-      ]
-    },
-    "clean:netlify": {
-      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
-    },
-    "deploy": {
-      "command": "netlify deploy --prod --open"
-    },
-    "clean:astro": {
-      "command": "rm -rf .astro dist node_modules/.astro"
-    },
-    "clean:og": {
-      "command": "rm -rf public/og_image .cache/og_image"
-    },
-    "update:pre:vale": {
-      "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:lychee": {
-      "command": "lychee --no-progress --config ./src/config/lychee.toml --require-https --format detailed --mode color -vv src/content/"
-    },
-    "audit:html": {
-      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
-    },
-    "lint:templates": {
-      "command": "bin/hugo/lint-templates"
-    },
-    "screenshot": {
-      "command": "ts-node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
-    },
-    "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
-    },
-    "release:clean": {
-      "command": "rm changes.md release.json"
+    "clean:full:items": {
+      "command": "run-p clean:*"
     },
     "packages:generate": {
       "dependencies": [
@@ -306,17 +242,77 @@
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
     },
-    "clean:full": {
-      "command": "clean:full:last",
+    "release": {
+      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
+    },
+    "release:clean": {
+      "command": "rm changes.md release.json"
+    },
+    "screenshot": {
+      "command": "ts-node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
+    },
+    "audit:html": {
+      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
+    },
+    "lint:templates": {
+      "command": "bin/hugo/lint-templates"
+    },
+    "lint:lychee": {
+      "command": "lychee --no-progress --config ./src/config/lychee.toml --require-https --format detailed --mode color -vv src/content/"
+    },
+    "lint:styles": {
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:styles:fix": {
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "update:pre:vale": {
+      "command": "vale --config='src/config/vale/vale.ini' --no-exit sync"
+    },
+    "clean:astro": {
+      "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:og": {
+      "command": "rm -rf public/og_image .cache/og_image"
+    },
+    "clean:netlify": {
+      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
+    },
+    "deploy": {
+      "command": "netlify deploy --prod --open"
+    },
+    "postprepare": {
       "dependencies": [
-        "clean:full:items"
+        "test:postinstall",
+        "build:favicons"
       ]
     },
-    "clean:full:last": {
-      "command": "rm -rf node_modules package-lock.json .wireit"
+    "lighthouse:audit": {
+      "command": "node src/scripts/lighthouse-audit.ts"
     },
-    "clean:full:items": {
-      "command": "run-p clean:*"
+    "update": {
+      "dependencies": [
+        "update:git-hooks"
+      ]
+    },
+    "update:git-hooks": {
+      "command": "npm test && npx simple-git-hooks",
+      "dependencies": [
+        "update:post"
+      ]
+    },
+    "update:post": {
+      "command": "fixpack && browserslist --update-db",
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
+    },
+    "update:pre:npm": {
+      "command": "npm-check-updates -u --target minor"
+    },
+    "update:pre:submodules": {
+      "command": "git submodule update --recursive --remote"
     }
   },
   "browserslist": {
@@ -345,13 +341,17 @@
       "not kaios 2.5"
     ]
   },
-  "stylelint": {
-    "configFile": "./src/config/stylelint/index.js"
-  },
   "cspell": {
     "version": "0.2",
     "import": [
       "./src/config/cspell/cspell.jsonc"
     ]
-  }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "stylelint": {
+    "configFile": "./src/config/stylelint/index.js"
+  },
+  "type": "module"
 }

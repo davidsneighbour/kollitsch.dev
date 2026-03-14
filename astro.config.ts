@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import mdx from '@astrojs/mdx';
+// @todo upgrade mdx to astro 6
+// import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
@@ -178,7 +179,10 @@ export default defineConfig({
     themeCssSelector: (theme) => `[data-code-theme='${theme.name}']`,
     themes: ['dracula', 'light-plus'],
     useDarkModeMediaQuery: false,
-  }), mdx(), react()],
+  }),
+    // @todo upgrade mdx to astro 6
+    // mdx(),
+    react()],
   markdown: {
     shikiConfig: {
       themes: { dark: 'dark-plus', light: 'github-light' },

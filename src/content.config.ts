@@ -1,6 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-// for youtube playlist loader
-import { youTubeLoader } from '@ascorbic/youtube-loader';
+
 import setup from '@data/setup.json' with { type: 'json' };
 import { buildOptionsSchema } from '@utils/schema.ts';
 import { youtubePlayerParamsSchema } from '@utils/youtube.ts';
@@ -330,28 +329,6 @@ export const tags = defineCollection({
     }),
 });
 
-// MARK: YouTube Playlists
-const youtubeApiKey = import.meta.env.YOUTUBE_API_KEY;
-const hasYoutubeApiKey =
-  typeof youtubeApiKey === 'string' && youtubeApiKey.trim().length > 0;
-
-const playlistCollections = hasYoutubeApiKey
-  ? Object.fromEntries(
-    Object.entries(setup.playlists).map(([name, playlistId]) => [
-      name,
-      defineCollection({
-        loader: youTubeLoader({
-          apiKey: youtubeApiKey,
-          fetchFullDetails: true,
-          maxResults: 50,
-          playlistId,
-          type: 'playlist',
-        }),
-      }),
-    ]),
-  )
-  : {};
-
 // MARK: GitHub Releases
 // const oneYearAgo = new Date();
 // oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
@@ -382,7 +359,6 @@ export const social = defineCollection({
 export const collections = {
   blog,
   tags,
-  ...playlistCollections,
   // githubReleases,
   social,
 };

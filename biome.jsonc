@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.7/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -175,16 +175,15 @@
             // Astro injects framework-level helpers that resolve at build time.
             // https://biomejs.dev/linter/rules/no-undeclared-dependencies/
             "noUndeclaredDependencies": "off",
+            // Astro's compiler resolves aliased imports and component-relative paths.
+            // https://biomejs.dev/linter/rules/no-unresolved-imports/
+            "noUnresolvedImports": "off",
             "noUnusedImports": "off",
             // Template variables can be consumed inside HTML sections after declaration.
             // https://biomejs.dev/linter/rules/no-unused-variables/
             "noUnusedVariables": "off"
           },
-          "nursery": {
-            // Astro's compiler resolves aliased imports and component-relative paths.
-            // https://biomejs.dev/linter/rules/no-unresolved-imports/
-            "noUnresolvedImports": "off"
-          },
+          "nursery": {},
           "style": {
             // Astro frontmatter often mutates bindings that later feed into templates.
             // https://biomejs.dev/linter/rules/use-const/

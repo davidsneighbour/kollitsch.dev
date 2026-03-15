@@ -1,4 +1,44 @@
 # Changelog
+
+## [3001.0.0](https://github.com/davidsneighbour/kollitsch/compare/v3000.2.4...v3001.0.0) (2026-03-15)
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to Astro v6
+
+### Features
+
+* add local workspace configuration system ([fcf7eb6](https://github.com/davidsneighbour/kollitsch/commit/fcf7eb682768e3b908fce1d770bd22076af54056))
+* upgrade to Astro v6 ([8c9e169](https://github.com/davidsneighbour/kollitsch/commit/8c9e169404c10efe43bff8b0cf91a186a43fec6f))
+
+### Bug Fixes
+
+* **content:** astro before hugo. for cause. ([bca6b58](https://github.com/davidsneighbour/kollitsch/commit/bca6b584ead13514cfcaee51e06e676a843bd76d))
+* re-add MDX support for Astro v6 ([3e4338b](https://github.com/davidsneighbour/kollitsch/commit/3e4338bed94d092d9eae1cc0a963267752b96f72))
+* remove @ascorbic/youtube-loader ([9dafb81](https://github.com/davidsneighbour/kollitsch/commit/9dafb81d059e23363e1d36aa135ded3d374b352d))
+* remove MDX support (for now) ([e45c9f0](https://github.com/davidsneighbour/kollitsch/commit/e45c9f0466fc5491ae55911969323f5b8ff1473e))
+* replace glob with fast-glob ([9675e06](https://github.com/davidsneighbour/kollitsch/commit/9675e06a6738c39e2ff052bfa014b7d9062ae45d))
+* **upgrade:** remove preserveScriptOrder (deprecated) ([ab8feb0](https://github.com/davidsneighbour/kollitsch/commit/ab8feb055a006f76f459637aca478764d5518b35))
+
+### Build
+
+* **debug:** release process issues ([1e16dca](https://github.com/davidsneighbour/kollitsch/commit/1e16dca661cc58de4b0249fc2017404213051bd5))
+* **deps:** update dependencies ([65d18af](https://github.com/davidsneighbour/kollitsch/commit/65d18afbdbe88d43e1197e62e45e2001ca4fe6a9))
+* **deps:** update site screenshot ([7bf3bcf](https://github.com/davidsneighbour/kollitsch/commit/7bf3bcf3cd2895c6c560d1aaff112ffaa702564c))
+* **fix:** add --no-verify to release commit ([780bfd5](https://github.com/davidsneighbour/kollitsch/commit/780bfd5b32419c2910d6b45aa06a50e7e1f62172))
+* **fix:** add debugging for release process ([0993b0d](https://github.com/davidsneighbour/kollitsch/commit/0993b0dce93042b2beb0719ab4995af5afa6fe38))
+* migrate release procedures to release-it ([d8cd11a](https://github.com/davidsneighbour/kollitsch/commit/d8cd11a20ccd9b171d07d8f9b5a6011b2fbbfb7c))
+
+### CI
+
+* **fix:** upgrade biome configuration ([bb06d48](https://github.com/davidsneighbour/kollitsch/commit/bb06d48afdfbeab51e77ee98b0bfd286c926d400))
+* **markdownlint:** add custom extensions to configuration ([6368273](https://github.com/davidsneighbour/kollitsch/commit/63682738e8917a799ffc27186856798a934e0cae))
+* **markdownlint:** configure markdownlint rules and create ai documentation for md files ([e994599](https://github.com/davidsneighbour/kollitsch/commit/e9945994048b46f804c3ff3393b807e58f7757a5))
+
+### Documentation
+
+* **ai:** refactor AGENTS.md and instructions setup ([ce51872](https://github.com/davidsneighbour/kollitsch/commit/ce518726b8900547d2a143bee64d9390c4090ede))
+
 ## [3000.2.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.3...v3000.2.4) (2026-02-05)
 
 ## [3000.2.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.2...v3000.2.3) (2026-02-05)

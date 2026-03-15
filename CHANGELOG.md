@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.0.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.0.0...v3001.0.1) (2026-03-15)
+
+### Build
+
+* **fix:** fix release issues and remove cruft ([2df4521](https://github.com/davidsneighbour/kollitsch/commit/2df452144f91aad4cf2561d83e3ab411a2ac52d8))
+
 ## [3001.0.0](https://github.com/davidsneighbour/kollitsch/compare/v3000.2.4...v3001.0.0) (2026-03-15)
 
 ### ⚠ BREAKING CHANGES

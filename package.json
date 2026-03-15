@@ -197,7 +197,7 @@
       "command": "node ./src/packages/generate-package.ts"
     },
     "release": {
-      "command": "npx release-it --config .release-it.ts"
+      "command": "DEBUG=release-it:* npx release-it --config .release-it.ts"
     },
     "release:clean": {
       "command": "rm changes.md release.json"

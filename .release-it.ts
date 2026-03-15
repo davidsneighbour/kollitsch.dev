@@ -8,6 +8,7 @@ const config = {
     requireCleanWorkingDir: true,
     commit: true,
     commitMessage: 'chore(release): v${version}',
+    commitArgs: ['--no-verify'],
     tag: true,
     tagName: 'v${version}',
     push: true,

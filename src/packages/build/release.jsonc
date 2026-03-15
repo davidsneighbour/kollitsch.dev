@@ -2,9 +2,10 @@
   "devDependencies": {
     "@commitlint/cli": "20.4.4",
     "@commitlint/config-conventional": "20.4.4",
-    "@davidsneighbour/release-config": "2026.0.3",
     "@humanwhocodes/social-changelog": "0.4.0",
-    "cz-git": "1.12.0"
+    "cz-git": "1.12.0",
+    "release-it": "19.2.4",
+    "@release-it/conventional-changelog": "*"
   },
   "scripts": {
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
@@ -14,7 +15,7 @@
   },
   "wireit": {
     "release": {
-      "command": "commit-and-tag-version --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" -- --no-verify && ./src/scripts/postrelease"
+      "command": "npx --yes release-it --config .release-it.ts"
     },
     "release:clean": {
       "command": "rm changes.md release.json"

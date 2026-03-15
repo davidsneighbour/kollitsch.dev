@@ -84,7 +84,7 @@
     "packages:update": "wireit",
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit",
+    "release": "DEBUG=* release-it --config .release-it.ts",
     "release:clean": "wireit",
     "screenshot": "wireit",
     "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
@@ -197,7 +197,7 @@
       "command": "node ./src/packages/generate-package.ts"
     },
     "release": {
-      "command": "DEBUG=release-it:* npx release-it --config .release-it.ts"
+      "command": "DEBUG=* release-it --config .release-it.ts"
     },
     "release:clean": {
       "command": "rm changes.md release.json"

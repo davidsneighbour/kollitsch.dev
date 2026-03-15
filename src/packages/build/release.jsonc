@@ -10,15 +10,6 @@
   "scripts": {
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit",
-    "release:clean": "wireit"
-  },
-  "wireit": {
-    "release": {
-      "command": "npx release-it --config .release-it.ts"
-    },
-    "release:clean": {
-      "command": "rm changes.md release.json"
-    }
+    "release": "DEBUG=* release-it --config .release-it.ts"
   }
 }

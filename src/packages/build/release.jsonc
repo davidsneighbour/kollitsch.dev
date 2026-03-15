@@ -15,7 +15,7 @@
   },
   "wireit": {
     "release": {
-      "command": "npx --yes release-it --config .release-it.ts"
+      "command": "npx release-it --config .release-it.ts"
     },
     "release:clean": {
       "command": "rm changes.md release.json"

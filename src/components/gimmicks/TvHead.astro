@@ -1,0 +1,408 @@
+---
+import type { ImageMetadata } from "astro";
+import "@styles/vendor/lite-youtube.css";
+
+interface Props {
+  id?: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  videoId: string;
+  imageSrc: string;
+  backgroundSrc?: string;
+  backgroundClass?: string;
+  backgroundEffectClass?: string;
+  foregroundEffectClass?: string;
+  cropTop?: number;
+  cropRight?: number;
+  cropBottom?: number;
+  cropLeft?: number;
+  borderRadius?: string;
+  title?: string;
+  params?: string;
+  class?: string;
+  scaleMode?: "contain" | "cover";
+  videoAspectRatio?: number;
+  backgroundZoom?: number;
+  backgroundZoomOrigin?: string;
+  foregroundZoom?: number;
+  foregroundZoomOrigin?: string;
+}
+
+const {
+  id,
+  x,
+  y,
+  width,
+  height,
+  videoId,
+  imageSrc,
+  backgroundSrc,
+  backgroundClass = "",
+  backgroundEffectClass = "",
+  foregroundEffectClass = "",
+  cropTop = 0,
+  cropRight = 0,
+  cropBottom = 0,
+  cropLeft = 0,
+  borderRadius = "0px",
+  title = "Play video",
+  params = "controls=0&modestbranding=1&rel=0&playsinline=1",
+  class: className = "",
+  scaleMode = "contain",
+  videoAspectRatio = 16 / 9,
+  backgroundZoom = 1,
+  backgroundZoomOrigin = "center center",
+  foregroundZoom = 1,
+  foregroundZoomOrigin = "center center",
+} = Astro.props;
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/interface/**/*.{png,jpg,jpeg,webp,avif,gif}",
+);
+
+/**
+ * Resolve a user-provided image path into the expected absolute source path.
+ *
+ * Supported inputs:
+ * - "tv-001.png"
+ * - "folder/tv-001.png"
+ * - "assets/images/interface/tv-001.png"
+ * - "src/assets/images/interface/tv-001.png"
+ *
+ * @param input Original image path from props.
+ * @returns Normalised absolute path for import.meta.glob lookup.
+ */
+function normaliseImagePath(input: string): string {
+  const cleaned = input.replace(/^\/+/, "");
+
+  if (cleaned.startsWith("src/assets/images/interface/")) {
+    return `/${cleaned}`;
+  }
+
+  if (cleaned.startsWith("assets/images/interface/")) {
+    return `/src/${cleaned}`;
+  }
+
+  return `/src/assets/images/interface/${cleaned}`;
+}
+
+/**
+ * Resolve an image from the interface asset directory.
+ *
+ * @param input Image path from props.
+ * @param label Error label for clearer debugging.
+ * @returns Resolved Astro image metadata.
+ */
+async function resolveInterfaceImage(input: string, label: string): Promise<ImageMetadata> {
+  const resolvedPath = normaliseImagePath(input);
+  const loader = imageModules[resolvedPath];
+
+  if (!loader) {
+    throw new Error(`TvHead: ${label} image "${input}" could not be resolved under "src/assets/images/interface/".`);
+  }
+
+  const mod = await loader();
+  return mod.default;
+}
+
+const image = await resolveInterfaceImage(imageSrc, "overlay");
+const backgroundImage = backgroundSrc ? await resolveInterfaceImage(backgroundSrc, "background") : null;
+
+const imageWidth = image.width;
+const imageHeight = image.height;
+
+const screenLeft = (x / imageWidth) * 100;
+const screenTop = (y / imageHeight) * 100;
+const screenWidth = (width / imageWidth) * 100;
+const screenHeight = (height / imageHeight) * 100;
+
+const expandedWidth = width + cropLeft + cropRight;
+const expandedHeight = height + cropTop + cropBottom;
+
+const containPlayerLeft = (-cropLeft / width) * 100;
+const containPlayerTop = (-cropTop / height) * 100;
+const containPlayerWidth = (expandedWidth / width) * 100;
+const containPlayerHeight = (expandedHeight / height) * 100;
+
+const cropBoxWidth = expandedWidth;
+const cropBoxHeight = expandedHeight;
+const cropBoxAspectRatio = cropBoxWidth / cropBoxHeight;
+
+let coverPlayerWidth = 100;
+let coverPlayerHeight = 100;
+
+if (videoAspectRatio > cropBoxAspectRatio) {
+  coverPlayerHeight = 100;
+  coverPlayerWidth = (videoAspectRatio / cropBoxAspectRatio) * 100;
+} else {
+  coverPlayerWidth = 100;
+  coverPlayerHeight = (cropBoxAspectRatio / videoAspectRatio) * 100;
+}
+
+const shellStyle = [
+  `--tvhead-aspect-ratio: ${imageWidth} / ${imageHeight}`,
+  `--tvhead-screen-border-radius: ${borderRadius}`,
+  `--tvhead-background-zoom: ${backgroundZoom}`,
+  `--tvhead-background-zoom-origin: ${backgroundZoomOrigin}`,
+  `--tvhead-foreground-zoom: ${foregroundZoom}`,
+  `--tvhead-foreground-zoom-origin: ${foregroundZoomOrigin}`,
+].join("; ");
+
+const screenStyle = [
+  `left: ${screenLeft}%`,
+  `top: ${screenTop}%`,
+  `width: ${screenWidth}%`,
+  `height: ${screenHeight}%`,
+].join("; ");
+
+const containPlayerStyle = [
+  `left: ${containPlayerLeft}%`,
+  `top: ${containPlayerTop}%`,
+  `width: ${containPlayerWidth}%`,
+  `height: ${containPlayerHeight}%`,
+].join("; ");
+
+const coverPlayerStyle = [
+  "left: 50%",
+  "top: 50%",
+  `width: ${coverPlayerWidth}%`,
+  `height: ${coverPlayerHeight}%`,
+  "transform: translate(-50%, -50%)",
+].join("; ");
+
+const playerStyle = scaleMode === "cover" ? coverPlayerStyle : containPlayerStyle;
+
+const componentId = id?.trim() || `tvhead-${videoId}`;
+const hasBackgroundEffect = backgroundEffectClass.trim().length > 0;
+const hasForegroundEffect = foregroundEffectClass.trim().length > 0;
+---
+
+<div id={componentId} class:list={["tv-head", className]} style={shellStyle}>
+  <div class="tv-head__zoom tv-head__zoom--background">
+    {
+      backgroundImage ? (
+        <img
+          class:list={["tv-head__background", backgroundClass]}
+          src={backgroundImage.src}
+          width={backgroundImage.width}
+          height={backgroundImage.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      ) : null
+    }
+
+    {hasBackgroundEffect ? <div class:list={["tv-head__background-effect", backgroundEffectClass]} /> : null}
+  </div>
+
+  <div class="tv-head__zoom tv-head__zoom--foreground">
+    <div class="tv-head__screen" style={screenStyle}>
+      <div class="tv-head__crop">
+        <lite-youtube
+          class="tv-head__player"
+          style={playerStyle}
+          videoid={videoId}
+          title={title}
+          playlabel={title}
+          params={params}></lite-youtube>
+      </div>
+    </div>
+
+    {hasForegroundEffect ? <div class:list={["tv-head__foreground-effect", foregroundEffectClass]} /> : null}
+
+    <img
+      class="tv-head__overlay"
+      src={image.src}
+      width={image.width}
+      height={image.height}
+      alt=""
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+</div>
+
+<script>
+  import "@scripts/vendor/lite-youtube.ts";
+</script>
+
+<style is:global>
+  .tv-head {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: var(--tvhead-aspect-ratio);
+    overflow: hidden;
+  }
+
+  .tv-head__zoom {
+    position: absolute;
+    inset: 0;
+  }
+
+  .tv-head__zoom--background {
+    z-index: 0;
+    transform: scale(var(--tvhead-background-zoom));
+    transform-origin: var(--tvhead-background-zoom-origin);
+  }
+
+  .tv-head__zoom--foreground {
+    z-index: 1;
+    transform: scale(var(--tvhead-foreground-zoom));
+    transform-origin: var(--tvhead-foreground-zoom-origin);
+  }
+
+  .tv-head__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .tv-head__background-effect {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .tv-head__screen {
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: var(--tvhead-screen-border-radius);
+    background: #000;
+    transform: translateZ(0);
+  }
+
+  .tv-head__crop {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .tv-head__player {
+    position: absolute;
+    display: block;
+  }
+
+  .tv-head__foreground-effect {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .tv-head__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .tv-head__background-effect.tv-head-effect-static {
+    overflow: hidden;
+    opacity: 0.2;
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        rgb(255 255 255 / 0.05) 0,
+        rgb(255 255 255 / 0.05) 1px,
+        transparent 1px,
+        transparent 3px
+      ),
+      radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.08) 0, transparent 32%),
+      radial-gradient(circle at 80% 30%, rgb(255 255 255 / 0.06) 0, transparent 28%),
+      radial-gradient(circle at 50% 75%, rgb(255 255 255 / 0.05) 0, transparent 30%);
+    background-size:
+      100% 4px,
+      180px 180px,
+      240px 240px,
+      200px 200px;
+    background-position:
+      0 0,
+      0 0,
+      40px 20px,
+      -30px 60px;
+    mix-blend-mode: screen;
+    animation:
+      tv-head-static-flicker 140ms steps(2) infinite,
+      tv-head-static-drift 8s linear infinite;
+  }
+
+  .tv-head__background-effect.tv-head-effect-static::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    opacity: 0.12;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 2px,
+      rgb(255 255 255 / 0.08) 2px,
+      rgb(255 255 255 / 0.08) 3px
+    );
+    animation: tv-head-static-roll 12s linear infinite;
+  }
+
+  .tv-head__background-effect.tv-head-effect-static-soft {
+    opacity: 0.1;
+  }
+
+  .tv-head__background-effect.tv-head-effect-tint-blue {
+    background: rgb(120 180 255 / 0.08);
+    mix-blend-mode: screen;
+  }
+
+  .tv-head__background-effect.tv-head-effect-tint-green {
+    background: rgb(120 255 180 / 0.08);
+    mix-blend-mode: screen;
+  }
+
+  @keyframes tv-head-static-flicker {
+    0% {
+      opacity: 0.16;
+    }
+
+    50% {
+      opacity: 0.22;
+    }
+
+    100% {
+      opacity: 0.18;
+    }
+  }
+
+  @keyframes tv-head-static-drift {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+  @keyframes tv-head-static-roll {
+    0% {
+      transform: translateY(-8%);
+    }
+
+    100% {
+      transform: translateY(8%);
+    }
+  }
+</style>

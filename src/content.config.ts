@@ -7,6 +7,7 @@ import { youtubePlayerParamsSchema } from '@utils/youtube.ts';
 
 import { file, glob } from 'astro/loaders';
 // for github releases loader
+// https://github.com/lin-stephanie/astro-loaders/tree/main/packages/astro-loader-github-releases
 // import { githubReleasesLoader } from 'astro-loader-github-releases';
 import MarkdownIt from 'markdown-it';
 
@@ -356,10 +357,26 @@ export const social = defineCollection({
   }),
 });
 
+
+// MARK: Markdown Pages
+export const pages = defineCollection({
+  loader: glob({ base: './src/pages', pattern: '**/*.{md,mdx}' }),
+  schema: z
+    .object({
+      layout: z
+        .string()
+        .transform((value) => value.trim())
+        .refine((value) => value.length > 0, {
+          message: '`layout` frontmatter is required for Markdown pages under `src/pages`.',
+        }),
+    }),
+});
+
 // MARK: Export Collections
 export const collections = {
   blog,
   tags,
   // githubReleases,
   social,
+  pages,
 };

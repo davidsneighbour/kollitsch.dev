@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: Testing Code Samples
 description: >-
   Testing some code samples

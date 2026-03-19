@@ -1,4 +1,5 @@
 ---
+layout: "@layouts/ContentPage.astro"
 title: test-syncstring
 description: "some test"
 date: 2025-09-05T05:11:47.059Z

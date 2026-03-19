@@ -33,6 +33,8 @@ const bodyClasses = [
   .join(" ");
 
 const IS_DEV = import.meta.env.DEV;
+
+import Aurora from "@components/Aurora";
 ---
 
 <!doctype html>
@@ -158,5 +160,6 @@ const IS_DEV = import.meta.env.DEV;
       import "@tailwindplus/elements";
     </script>
     <Selection />
+    <Aurora colorStops={["#fe9339", "#fc7313", "#ed5809"]} blend={1} amplitude={0.4} speed={0.1} />
   </body>
 </html>

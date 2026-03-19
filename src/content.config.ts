@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 import setup from '@data/setup.json' with { type: 'json' };
 import { buildOptionsSchema } from '@utils/schema.ts';
@@ -90,7 +91,7 @@ const cover = z
 
     if (!isImage && hasAlt) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: 'custom',
         message: 'cover.alt is only allowed when cover.type is "image".',
         path: ['alt'],
       });
@@ -98,7 +99,7 @@ const cover = z
 
     if (hasAlt && !hasTitle) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: 'custom',
         message:
           'cover.alt is only allowed when cover.title is set. Define a title or remove alt.',
         path: ['alt'],
@@ -110,7 +111,7 @@ const cover = z
       const a = c.alt!.trim();
       if (a === t) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'cover.alt must differ from cover.title.',
           path: ['alt'],
         });

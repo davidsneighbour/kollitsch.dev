@@ -1,22 +1,21 @@
 ---
 // @todo refactor and comment
-import type { SocialMediaItem } from "@components/features/social/SocialLinks.astro";
-import type { Navigation } from "@utils/navigation";
-
 import { Image } from "astro:assets";
 import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
 import Heading from "@components/content/typography/Heading.astro";
+import type { SocialMediaItem } from "@components/features/social/SocialLinks.astro";
+import SocialLinks from "@components/features/social/SocialLinks.astro";
+import Colophon from "@components/layout/footer/Colophon.astro";
 import IconLink from "@components/shared/links/IconLink.astro";
 import Link from "@components/shared/links/Link.astro";
-import SocialLinks from "@components/features/social/SocialLinks.astro";
 import rawSocialMediaData from "@content/social.json" with { type: "json" };
 import rawNavData from "@data/footernavigation.json" with { type: "json" };
 import setup from "@data/setup.json" with { type: "json" };
 import { getHomepageUrl } from "@utils/content";
 import { generateUniqueHtmlId } from "@utils/helpers";
-import MarkdownIt from "markdown-it";
-import Colophon from "@components/layout/footer/Colophon.astro";
+import type { Navigation } from "@utils/navigation";
 import { Icon } from "astro-icon/components";
+import MarkdownIt from "markdown-it";
 
 export interface Props {}
 
@@ -93,16 +92,20 @@ const introFallbackHtml = md.renderInline(introFallback);
     <IconLink href="/security-policy/" icon="fingerprint"> Security Policy </IconLink>
   </div>
 
-  <div class="my-4 flex flex-row items-center justify-center gap-2 text-sm">
-    A member of the <a href="https://static.quest">Static.Quest</a> web ring!
-    <a href="https://static.quest/previous/?host=kollitsch.dev">
-      <Icon name="chevron-left" />
-    </a>
-    <a href="https://static.quest/members">View Members</a>
-    <a href="https://static.quest/next/?host=kollitsch.dev">
-      <Icon name="chevron-right" />
-    </a>
-    <a href="https://static.quest/random">Feeling lucky?</a>
+  <div class="my-4 flex flex-col md:flex-row items-center justify-center gap-2 text-sm">
+    <div class="text-center">
+      A member of the <a href="https://static.quest">Static.Quest</a> web ring!
+    </div>
+    <div class="flex flex-row items-center justify-center gap-2">
+      <a href="https://static.quest/previous/?host=kollitsch.dev">
+        <Icon name="chevron-left" />
+      </a>
+      <a href="https://static.quest/members">View Members</a>
+      <a href="https://static.quest/next/?host=kollitsch.dev">
+        <Icon name="chevron-right" />
+      </a>
+      <a href="https://static.quest/random">Feeling lucky?</a>
+    </div>
   </div>
 
   <div class="my-4 flex flex-row items-center justify-center gap-2 text-sm">

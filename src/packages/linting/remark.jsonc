@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "@davidsneighbour/remark-config": "2026.0.2"
   }
 }

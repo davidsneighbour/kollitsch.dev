@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
+  "dependencies": {
     //"html-validate": "10.1.2"
   },
   "scripts": {

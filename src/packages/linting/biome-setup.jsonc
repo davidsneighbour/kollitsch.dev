@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "@biomejs/biome": "2.4.8"
   },
   "scripts": {

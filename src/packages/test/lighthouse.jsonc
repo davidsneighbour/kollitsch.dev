@@ -4,7 +4,7 @@
       "command": "node src/scripts/lighthouse-audit.ts"
     }
   },
-  "devDependencies": {
+  "dependencies": {
     "lighthouse": "13.0.3",
     "chrome-launcher": "1.2.1"
   },

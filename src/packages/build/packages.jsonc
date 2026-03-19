@@ -1,7 +1,7 @@
 {
   // a collection of scripts to build the package.json file
   // requires Node24+
-  "devDependencies": {
+  "dependencies": {
     "fixpack": "4.0.0"
   },
   "scripts": {

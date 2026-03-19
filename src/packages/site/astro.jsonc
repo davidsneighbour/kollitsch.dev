@@ -16,9 +16,7 @@
     "tailwindcss": "4.2.2",
     "@tailwindcss/forms": "0.5.11",
     "typescript": "5.9.3",
-    "@sentry/astro": "10.44.0"
-  },
-  "devDependencies": {
+    "@sentry/astro": "10.44.0",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.35",
     "astro-expressive-code": "0.41.7",

@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "bootstrap-icons": "1.13.1",
     "@iconify-json/simple-icons": "1.2.74",
     "@iconify-json/lucide": "1.2.98"

@@ -1,6 +1,5 @@
 {
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@axe-core/playwright": "4.11.1",
     "@playwright/test": "1.58.2",
     "ajv": "8.18.0",

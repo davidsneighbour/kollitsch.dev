@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "markdownlint": "0.40.0",
     "markdownlint-cli2": "0.21.0",
     "@github/markdownlint-github": "0.8.0",

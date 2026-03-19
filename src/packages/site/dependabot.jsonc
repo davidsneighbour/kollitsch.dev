@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "brace-expansion": ">=5.0.4"
   }
 }

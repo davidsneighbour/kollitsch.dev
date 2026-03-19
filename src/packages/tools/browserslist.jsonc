@@ -25,7 +25,7 @@
       "not kaios 2.5"
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "browserslist": "4.28.1"
   }
 }

@@ -1,82 +1,131 @@
 {
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "accessibility.openChatEditedFiles": true,
+  // astro specific settings
+  "astro.content-intellisense": true,
+  "astro.updateImportsOnFileMove.enabled": true,
+  // PLUGIN: biome
+  // @see "editor.codeActionsOnSave"
+  "biome.configurationPath": "biome.jsonc",
+  "biome.requireConfiguration": true,
+  "chat.instructionsFilesLocations": {
+    "ai/instructions": true
+  },
+  "chat.tools.terminal.autoApprove": {
+    "npx astro": true
+  },
+  "cSpell.words": [
+    "wireit"
+  ],
+  // PLUGIN: stylelint setup
+  // disable internal validation to avoid double warnings/errors
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.markdownlint": "always"
+  },
   // autosave and autoformatting
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable", // 👀
+  "explorer.fileNesting.enabled": true,
+  // file nesting setup
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    ".env": ".env*",
+    "*.astro": "$(capture).test.ts",
+    "*.json": "$(capture).schema.json,$(capture).test.ts",
+    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json",
+    "playwright.config.ts": "playwright.*.ts",
+    "README.md": "AGENTS.md",
+    "settings.json": "settings.*.jsonc",
+    "shared-config.ts": "shared-config*"
+  },
+  "files.associations": {
+    "**/*.astro": "astro",
+    "**/*.css": "tailwindcss"
+  },
   "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 1000,
   "files.autoSaveWhenNoErrors": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": "always",
-    "source.fixAll.biome": "explicit"
-  },
-
-  // path resolution in components (and others)
-  "typescript.preferences.importModuleSpecifier": "non-relative",
+  // PLUGIN: indent rainbow
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  // PLUGIN: indent rainbow setup
+  "indentRainbow.indicatorStyle": "light",
   "javascript.preferences.importModuleSpecifier": "non-relative",
-
-  // file nesting setup
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.patterns": {
-    "*.astro": "$(capture).test.ts",
-    ".env": ".env*",
-    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json",
-    "shared-config.ts": "shared-config*",
-    "*.json": "$(capture).schema.json,$(capture).test.ts",
-    "README.md": "AGENTS.md",
-    "playwright.config.ts": "playwright.*.ts",
-    "settings.json": "settings.*.jsonc"
-  },
-
+  "less.validate": false,
+  // @see "editor.codeActionsOnSave"
+  // PLUGIN: markdown all in one setup
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.unorderedList.marker": "*",
+  // PLUGIN: markdownlint setup
+  "markdownlint.configFile": "src/config/.markdownlint.jsonc",
+  // workspace color theme configuration
+  // (via peacock, disable plugin after setting up the theme)
+  "peacock.color": "#ff7733",
+  "scss.validate": false,
   // remove scratch files from search
   "search.exclude": {
     "scratch.md": true,
     "scratch/**": true
   },
-
+  "stylelint.configFile": "./src/config/stylelint/index.js",
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "less",
+    "astro"
+  ],
   // other settings
   "svg.preview.background": "black",
-
-  // astro specific settings
-  "astro.content-intellisense": true,
-  "astro.updateImportsOnFileMove.enabled": true,
-  "files.associations": {
-    "**/*.astro": "astro",
-    "**/*.css": "tailwindcss"
-  },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  },
-
-  // PLUGIN: stylelint setup
-  // disable internal validation to avoid double warnings/errors
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "stylelint.enable": true,
-  "stylelint.configFile": "./src/config/stylelint/index.js",
-  "stylelint.validate": ["css", "scss", "less", "astro"],
-
+  // PLUGIN: Tailwind CSS Intellisense
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "classes"
+  ],
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.hg/**",
+    "**/.svn/**",
+    "**/dist/**",
+    "**/.wireit/**",
+    "**/.astro/**"
+  ],
+  "todo-tree.general.automaticGitRefreshInterval": 300,
+  "todo-tree.general.debug": true,
+  "todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",
+  "todo-tree.general.showActivityBarBadge": false,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.statusBar": "total",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "@todo"
+  ],
+  "todo-tree.highlights.useColourScheme": true,
+  // PLUGIN: todo tree
+  "todo-tree.tree.scanMode": "workspace only",
+  // path resolution in components (and others)
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   // PLUGIN: vale setup
   "vale.enableSpellcheck": true,
-  "vale.valeCLI.installVale": true,
-  "vale.valeCLI.syncOnStartup": true,
   // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
   "vale.valeCLI.config": "/home/patrick/.dotfiles/configs/vale/.vale.ini",
+  "vale.valeCLI.installVale": true,
   "vale.valeCLI.minAlertLevel": "error",
-
-  // PLUGIN: markdownlint setup
-  "markdownlint.configFile": "src/config/.markdownlint.jsonc",
-  // @see "editor.codeActionsOnSave"
-
-  // PLUGIN: markdown all in one setup
-  "markdown.extension.toc.levels": "2..6",
-  "markdown.extension.toc.unorderedList.marker": "*",
-
-  // workspace color theme configuration
-  // (via peacock, disable plugin after setting up the theme)
-  "peacock.color": "#ff7733",
+  "vale.valeCLI.syncOnStartup": true,
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff9966",
     "activityBar.background": "#ff9966",
@@ -95,56 +144,5 @@
     "titleBar.activeForeground": "#15202b",
     "titleBar.inactiveBackground": "#ff773399",
     "titleBar.inactiveForeground": "#15202b99"
-  },
-
-  // PLUGIN: indent rainbow setup
-  "indentRainbow.indicatorStyle": "light",
-
-  // PLUGIN: Tailwind CSS Intellisense
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass",
-    "class:list",
-    "classes"
-  ],
-  "tailwindCSS.files.exclude": [
-    "**/.git/**",
-    "**/node_modules/**",
-    "**/.hg/**",
-    "**/.svn/**",
-    "**/dist/**",
-    "**/.wireit/**",
-    "**/.astro/**"
-  ],
-
-  // PLUGIN: biome
-  // @see "editor.codeActionsOnSave"
-  "biome.configurationPath": "biome.jsonc",
-  "biome.requireConfiguration": true,
-
-  // PLUGIN: todo tree
-  "todo-tree.tree.scanMode": "workspace only",
-  "todo-tree.general.automaticGitRefreshInterval": 300,
-  "todo-tree.general.debug": true,
-  "todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",
-  "todo-tree.general.showActivityBarBadge": true,
-  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
-  "todo-tree.general.statusBar": "total",
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]",
-    "@todo"
-  ],
-  "todo-tree.highlights.useColourScheme": true,
-
-  // PLUGIN: indent rainbow
-  "indentRainbow.colorOnWhiteSpaceOnly": true,
-  "accessibility.openChatEditedFiles": true,
-
+  }
 }

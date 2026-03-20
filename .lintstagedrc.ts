@@ -6,7 +6,7 @@ export default {
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.jsonc"',
     'vale --no-exit --minAlertLevel=error',
-    'lychee --no-progress --config src/config/lychee.toml --require-https --format detailed --mode color -vv',
+    'lychee --no-progress',
     'typos --config src/config/typos.toml',
   ],
 

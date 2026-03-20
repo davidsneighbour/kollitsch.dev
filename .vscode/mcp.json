@@ -5,7 +5,29 @@
       "args": [
         "shadcn@latest",
         "mcp"
-      ]
+      ],
+      "type": "stdio"
+    },
+    "Astro docs": {
+      "url": "https://mcp.docs.astro.build/mcp",
+      "type": "http"
+    },
+    "netlify": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@netlify/mcp"
+      ],
+      "type": "stdio"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--extension"
+      ],
+      "type": "stdio"
     }
-  }
+  },
+  "inputs": []
 }

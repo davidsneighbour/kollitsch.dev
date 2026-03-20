@@ -1,4 +1,14 @@
+/* MARK: imports */
 @import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+@import "tw-animate-css";
+@import "@fontsource-variable/exo-2";
+@import "@fontsource-variable/exo-2/wght-italic.css";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/jetbrains-mono/wght-italic.css";
+@import "@fontsource/changa-one";
+
+@namespace svg url("http://www.w3.org/2000/svg");
 
 /* add forms plugin, @see https://github.com/tailwindlabs/tailwindcss-forms */
 @plugin "@tailwindcss/forms" {
@@ -7,7 +17,19 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@import './themes/dnb.css';
+/* MARK: root variables */
+:root {
+  /* 13vw is fine for "KOLLITSCH.dev*" in Changa One, needs configuration on title change */
+  --dnb-sitetitle-size: clamp(50px, 13vw, 160px);
+  --sb-track-color: var(--color-gray-900);
+  --sb-track-color2: var(--color-gray-800);
+  --sb-thumb-color: var(--color-red-500);
+  --sb-thumb-color2: var(--color-red-400);
+  --sb-size: 10px;
+
+}
+
+/* MARK: theme tokens */
 
 /*******************************************************************************
  * Color utilities
@@ -29,13 +51,12 @@
  * let shadow=styles.getPropertyValue("--shadow-xl");
  ******************************************************************************/
 @theme {
-  --font-exo2: 'exo2', sans-serif;
-  --font-jetbrainsmono: 'jetbrainsmono', monospace;
-  --font-changa: 'changa', sans-serif;
+  --font-exo2: "Exo 2 Variable", sans-serif;
+  --font-jetbrainsmono: "JetBrains Mono Variable", monospace;
+  --font-changa: "Changa One", sans-serif;
 
-  /* stylelint-disable-next-line */
-  --ec-codeFontFml: 'jetbrainsmono', monospace;
-
+  /* stylelint-disable-next-line -- variable name required for astro code plugin */
+  --ec-codeFontFml: "JetBrains Mono Variable", monospace;
   --spacing: 0.25rem;
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
   --aspect-dnb: 16 / 9;
@@ -284,24 +305,13 @@
   --color-brown-950: #2e281c;
 }
 
+/* MARK: shadcn theme variables */
+
 /*******************************************************************************
- * Default theme setup
+ * ShadCN theme variables
  ******************************************************************************/
-@import './base.css';
-@import './components/prose.css';
-@import './components/pagefind.css';
-@import './utilities/utilities.css';
-@import './utilities/typography.css';
-@import './utilities/baseline.css';
-@import './utilities/svg.css';
 
-/***** ************************************************************************
- * Third-party styles
- ******************************************************************************/
-@import 'lenis/dist/lenis.css';
-@import "tw-animate-css";
-
-:root {
+/* :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);
@@ -370,4 +380,522 @@
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+} */
+
+/* MARK: base styles */
+
+/*******************************************************************************
+ * Base styles
+ ******************************************************************************/
+@layer base {
+  :root {
+    color-scheme: dark light;
+  }
+
+  html {
+    text-rendering: optimizelegibility;
+  }
+
+  /**
+   * Everyone should have their own custom CSS reset.
+   * This is mine. Plus changes by the Guru's of the web.
+   *
+   * First comes Preflight from Tailwind CSS
+   * @see https://tailwindcss.com/docs/preflight
+   */
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#three-enable-keyword-animations-4 */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    @apply font-exo2 text-base font-light;
+    @apply bg-gray-50 text-gray-600;
+    @apply dark:bg-gray-950 dark:text-gray-200;
+
+    /* @see https://www.joshwcomeau.com/css/custom-css-reset/#four-add-accessible-line-height-5 */
+    line-height: 1.6;
+    line-height: calc(1em + 0.6rem);
+
+    /* @see https://www.joshwcomeau.com/css/custom-css-reset/#five-improve-text-rendering-6 */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-changa;
+    @apply font-normal; /* Changa One is only available via weight 400 */
+    @apply mt-4;
+  }
+
+  /* h1 is the post title or the page title, so it should be more prominent */
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-base;
+  }
+
+  /** The idea is not to use h5 and h6 too often and if, then add custom styles via classes */
+
+  h1 code,
+  h2 code,
+  h3 code {
+    @apply rounded px-1 font-changa text-[90%] not-italic text-cyan-700;
+    @apply bg-red-500/10;
+  }
+
+  p code {
+    @apply font-mono text-[90%] not-italic;
+    @apply bg-red-500/10;
+  }
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#eight-avoid-text-overflows-9 */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#nine-improve-line-wrapping-10 */
+  p {
+    text-wrap: pretty;
+  }
+
+  /* default link styles */
+  a {
+    @apply text-red-700;
+    @apply hover:text-orange-700;
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  /**
+   * Tailwind CSS preflight does that, but not for the `picture` element.
+   * Reason: the `picture` element is not a functional element but a container. It's ok for us to
+   * want it to be a block element, but what Tailwind is fixing is functional elements that are
+   * inline by default but should be block for layout reasons.
+   */
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object,
+  picture {
+    display: block;
+    vertical-align: middle;
+  }
+
+  /* Tailwind CSS preflight does that, but only for `img` and `video` */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  /* @see https://www.joshwcomeau.com/css/custom-css-reset/#seven-inherit-fonts-for-form-controls-8 */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+/* MARK: prose styles */
+
+/*******************************************************************************
+ * Prose styles
+ ******************************************************************************/
+@layer components {
+  /* Prose styles for content sections */
+  .content {
+    /* used for spacing in content sections */
+    --typography-space: calc(4 * var(--spacing));
+
+    p {
+      font-size: var(--text-lg);
+      font-variant-ligatures: common-ligatures;
+    }
+
+    h1 {
+      font-size: var(--text-2xl);
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+    }
+
+    /* block elements have 1rem (4*spacing) bottom margin */
+    .expressive-code,
+    ul,
+    ol,
+    p {
+      margin-bottom: var(--typography-space);
+    }
+
+    ol {
+      @apply list-outside list-decimal;
+
+      padding-left: var(--typography-space);
+    }
+
+    ul {
+      @apply list-outside list-disc;
+
+      margin-left: var(--typography-space);
+    }
+
+    ul ul,
+    ol ol {
+      /* bottom margin NOT for sub lists */
+      margin-bottom: 0;
+    }
+
+    li li {
+      margin-left: var(--typography-space);
+    }
+
+    p,
+    li {
+      code {
+        @apply -mx-0.5 my-1 rounded bg-orange-600/10 px-0.5 py-1 text-sm;
+      }
+    }
+
+    blockquote {
+      @apply border-l-4 border-orange-600 bg-orange-600/10 p-4 italic;
+
+      margin-bottom: var(--typography-space);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      @apply font-semibold;
+    }
+  }
+}
+
+/* MARK: pagefind component */
+
+/*******************************************************************************
+ * Pagefind Component
+ ******************************************************************************/
+/* stylelint-disable selector-class-pattern -- pagefind classes have underscores */
+
+@layer components {
+  /*******************************************************************************
+   * Container & core UI
+   ******************************************************************************/
+  .pagefind-ui {
+    width: 100%;
+  }
+
+  .pagefind-ui__hidden {
+    @apply hidden;
+  }
+
+  /*******************************************************************************
+   * Search Form
+   ******************************************************************************/
+  .pagefind-ui__form {
+    @apply relative;
+  }
+
+  .pagefind-ui__search-input {
+    @apply col-start-1 row-start-1 mb-4 block h-8 w-full rounded-l-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:pl-9 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-gray-700 dark:placeholder:text-gray-500 dark:focus:outline-orange-500;
+  }
+
+  .pagefind-ui__search-clear {
+    @apply absolute top-0 right-0 mb-4 h-8 w-40 bg-gray-300 dark:bg-gray-700;
+  }
+
+  /*****************************************************************************
+   * Search Results
+   *****************************************************************************/
+  .pagefind-ui__drawer {
+    @apply flex flex-row flex-wrap;
+  }
+
+  .pagefind-ui__results-area {
+    flex: 1000;
+  }
+
+  .pagefind-ui__results {
+    @apply ml-0 grid list-none grid-cols-3 gap-4 pl-0;
+  }
+
+  .pagefind-ui__result {
+    @apply flex border-2 border-gray-500 p-4;
+
+    align-items: flex-start;
+  }
+
+  .pagefind-ui__message {
+    display: flex;
+    align-items: center;
+  }
+
+  .pagefind-ui__button {
+    @apply w-full rounded-md bg-orange-50 px-3.5 py-2.5 text-sm font-semibold text-orange-600 shadow-xs hover:bg-orange-100 dark:bg-orange-500/20 dark:text-orange-400 dark:shadow-none dark:hover:bg-orange-500/30;
+  }
+
+  .pagefind-ui__result-thumb {
+    position: relative;
+  }
+
+  .pagefind-ui__result-image {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .pagefind-ui__result-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagefind-ui__result-title {
+    display: inline-block;
+  }
+
+  .pagefind-ui__result-excerpt {
+    display: inline-block;
+  }
+
+  .pagefind-ui__result-tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* MARK: utilities */
+
+/*******************************************************************************
+ * Utilities
+ ******************************************************************************/
+@layer utilities {
+  .font-changa {
+    font-family: var(--font-changa), sans-serif;
+
+    /* Changa One is only available via weight 400 */
+    font-weight: 400 !important;
+
+    /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis */
+    font-synthesis: none;
+  }
+
+  /* Override any other weight utility when used with font-changa */
+  .font-changa.font-thin,
+  .font-changa.font-extralight,
+  .font-changa.font-light,
+  .font-changa.font-normal,
+  .font-changa.font-medium,
+  .font-changa.font-semibold,
+  .font-changa.font-bold,
+  .font-changa.font-extrabold,
+  .font-changa.font-black {
+    /* Changa One is only available via weight 400 */
+    font-weight: 400;
+  }
+
+  .text-answer-1238jf {
+    @apply hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: var(--sb-track-color2);
+  }
+
+  ::-webkit-scrollbar-track:active {
+    background: var(--sb-track-color2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--sb-thumb-color2);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-color2);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+      /* Firefox */
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+      scrollbar-width: thin;
+    }
+  }
+
+  /***************************************************************************  */
+
+  /* lite youtube element                                                    **/
+
+  /***************************************************************************  */
+  lite-youtube {
+    /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
+    @apply relative block w-full cursor-pointer bg-gray-50 dark:bg-gray-950;
+    @apply bg-cover bg-position-[center_center] contain-content;
+
+    /* responsive iframe with a 2:1 (NOT 16:9) aspect ratio
+       thanks https://css-tricks.com/responsive-iframes/ */
+    &::after {
+      @apply block pb-[calc(100%/(2/1))] content-[''];
+    }
+
+    & > iframe {
+      @apply absolute top-0 left-0 h-full w-full border-0;
+    }
+
+    /* play button */
+    & > .lty-playbtn {
+      @apply absolute z-10 block h-full w-full cursor-pointer border-0;
+      @apply bg-size-[48px_36px] bg-center bg-no-repeat contain-content;
+
+      /* YT's actual play button svg */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23c54109"/><path d="M45 24 27 14v20" fill="%23ffffff"/></svg>');
+    }
+
+    /* Post-click styles */
+    &.lyt-activated {
+      @apply cursor-['unset'];
+
+      &::before,
+      & > .lty-playbtn {
+        @apply pointer-events-none opacity-0;
+      }
+    }
+  }
+
+  /***************************************************************************  */
+}
+
+/* MARK: contain utilities */
+
+/* @see https://developer.mozilla.org/en-US/docs/Web/CSS/contain */
+@theme {
+  --contain-content: content;
+  --contain-layout: layout;
+  --contain-paint: paint;
+  --contain-strict: strict;
+  --contain-none: none;
+}
+
+@utility contain-* {
+  contain: --value(--contain-*);
+}
+
+/* MARK: text utilities */
+
+/**
+ * show a label sideways
+ *
+ * @example
+ * `class="text-boxlabel-sideways md:text-boxlabel-inherit"`
+ */
+@utility text-boxlabel-sideways {
+  writing-mode: sideways-lr;
+  text-orientation: sideways;
+}
+
+/**
+ * used to reset a sideways label to normal in responsive designs
+ *
+ * @example
+ * `class="text-boxlabel-sideways md:text-boxlabel-inherit"`
+ */
+@utility text-boxlabel-inherit {
+  writing-mode: inherit;
+  text-orientation: inherit;
+}
+
+@layer utilities {
+  /**
+   * The ::target-text CSS pseudo-element represents the text that has been
+   * scrolled to if the browser supports text fragments. It allows authors to
+   * choose how to highlight that section of text.
+   */
+  ::target-text {
+    background-color: var(--color-red-500);
+    color: var(--color-gray-950);
+  }
+
+  ::search-text {
+    background: var(--color-red-600);
+    color: var(--color-red-50);
+  }
+
+  ::search-text:current {
+    background: var(--color-red-900);
+    color: var(--color-red-50);
+    text-decoration: currentcolor solid underline;
+  }
+}
+
+/* MARK: svg utilities */
+
+/*******************************************************************************
+ * SVG utilities
+ * SVG does not provide a default visual style for links, so let's add some *
+ ******************************************************************************/
+
+/* select only SVG <a> elements */
+svg|a:link,
+svg|a:visited {
+  cursor: pointer;
+  outline: dotted 1px var(--color-cyan-700);
+}
+
+svg|a text {
+  fill: var(--color-cyan-700);
+}
+
+svg|a:hover,
+svg|a:active {
+  outline: dotted 1px var(--color-cyan-700);
 }

@@ -1,43 +1,23 @@
-# scratches
-*.scratch.*
-
-# WireIt
-.wireit
-bak
-
-# Netlify
-.netlify/*
-!.netlify/state.json
-
-# Lychee
+# Lychee cache
+# @todo move into a sub folder
 .lychee.report.md
 .lycheecache
 
-# Release scripts
-changes.md
-release.json
+# Wireit cache
+.wireit
 
-# dynamically built favicon
+# Dynamically generated files
+public/og_image/
 public/favicon.ico
-public/og_image
-
-# dynamically built image index
 src/content/_generated
 
-# reports
-reports/
-
-# Created by https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode,lighthouseci
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,visualstudiocode,lighthouseci
+# Created by https://www.toptal.com/developers/gitignore/api/node,astro
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro
 
 ### Astro ###
 # Gitignore template for Astro projects
 # Ignore content collection generated files
 .astro
-
-### LighthouseCI ###
-# Lighthouse reports
-.lighthouseci/
 
 ### Node ###
 # Logs
@@ -179,23 +159,4 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/*.jsonc
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
-# End of https://www.toptal.com/developers/gitignore/api/node,astro,visualstudiocode,lighthouseci
+# End of https://www.toptal.com/developers/gitignore/api/node,astro

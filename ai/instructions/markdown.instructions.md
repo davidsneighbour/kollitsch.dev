@@ -94,7 +94,7 @@ applyTo: "**/*.md"
 ## HTML in Markdown
 
 * Inline HTML is disallowed except the allowed elements:
-  * `lite-youtube`, `color-grid`, `date-diff`, `kbd`, `dnb-syncstring` ([MD033](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md033)).
+  * `lite-youtube`, `color-grid`, `date-diff`, `kbd`, ([MD033](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md033)).
 * In tables, only `<kbd>` is allowed ([MD033](https://raw.githubusercontent.com/DavidAnson/markdownlint/main/doc/Rules.md#md033)).
 
 ## Horizontal rules

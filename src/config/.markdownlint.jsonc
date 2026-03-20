@@ -43,8 +43,7 @@
       "lite-youtube",
       "color-grid",
       "date-diff",
-      "kbd",
-      "dnb-syncstring"
+      "kbd"
     ],
     "table_allowed_elements": [
       "kbd"

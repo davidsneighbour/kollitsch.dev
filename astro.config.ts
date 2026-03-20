@@ -66,54 +66,6 @@ const draftPagePaths = (() => {
   return draftPaths;
 })();
 
-// watching a couple of locations where images and blog posts might appear.
-const watchExtraFiles = () => ({
-  configureServer(server: import('vite').ViteDevServer) {
-    const logger = createLogger({ slug: 'watch-extra-files' });
-    logger.info('Plugin loaded');
-
-    const watchPaths = [
-      path.resolve(__dirname, 'src/assets/images'),
-      path.resolve(__dirname, 'src/content/blog'),
-    ];
-
-    let isReady = false;
-
-    const isWithinWatchedPath = (file: string) =>
-      watchPaths.some((watchPath) => {
-        const relative = path.relative(watchPath, file);
-        return (
-          relative && !relative.startsWith('..') && !path.isAbsolute(relative)
-        );
-      });
-
-    const reload = (file: string) => {
-      if (!isWithinWatchedPath(file)) return;
-      logger.info(`Reload triggered due to: ${file}`);
-      server.ws.send({ type: 'full-reload' });
-    };
-
-    server.watcher.add(watchPaths);
-    logger.info('Watching paths:', watchPaths);
-
-    server.watcher.on('ready', () => {
-      isReady = true;
-      logger.info('Initial scan complete');
-    });
-
-    server.watcher.on('add', (file) => {
-      if (!isReady) return;
-      reload(file);
-    });
-
-    server.watcher.on('unlink', (file) => {
-      if (!isReady) return;
-      reload(file);
-    });
-  },
-  name: 'watch-extra-files',
-});
-
 // https://astro.build/config
 export default defineConfig({
   // @ts-expect-error - env variable typing not recognized
@@ -196,7 +148,6 @@ export default defineConfig({
     plugins: [
       tailwindcss(),
       devtoolsJson(),
-      watchExtraFiles(),
     ],
   },
   build: {

@@ -601,6 +601,10 @@
     strong {
       @apply font-semibold;
     }
+
+    hr {
+      @apply my-8 border-0 border-t border-gray-300 dark:border-gray-700;
+    }
   }
 }
 

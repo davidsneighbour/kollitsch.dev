@@ -42,6 +42,9 @@ const IS_DEV = import.meta.env.DEV;
     {import.meta.env.DEV && <link rel="stylesheet" href="/src/styles/auditor.css" />}
   </head>
   <body class={bodyClasses}>
+    <div class="underconstruction">
+      <span> Please bear with me while I am working on the font size of this website.</span>
+    </div>
     <slot />
     <Breakpoints />
     <SchemaWebSite />
@@ -158,5 +161,23 @@ const IS_DEV = import.meta.env.DEV;
       import "@tailwindplus/elements";
     </script>
     <Selection />
+    <style>
+      @reference "@styles/theme.css";
+      .underconstruction {
+        background: repeating-linear-gradient(45deg, #000, #000 20px, #ffcc00 20px, #ffcc00 40px);
+        color: #fff;
+        text-shadow:
+          2px 2px 0 #000,
+          -2px 2px 0 #000,
+          2px -2px 0 #000,
+          -2px -2px 0 #000;
+        text-align: center;
+        font-size: 24px;
+        span {
+          background-color: rgba(0, 0, 0, 0.75);
+          border-radius: 1rem;
+        }
+      }
+    </style>
   </body>
 </html>

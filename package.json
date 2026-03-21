@@ -347,6 +347,7 @@
     "pre-commit": "npx lint-staged"
   },
   "devDependencies": {
+    "@iconify-json/fa7-brands": "1.2.2",
     "shadcn": "4.1.0"
   }
 }

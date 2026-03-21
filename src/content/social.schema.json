@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Social Links / Share Targets",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "label",
+      "icon",
+      "url"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z0-9_-]+$",
+        "description": "Unique identifier for the platform"
+      },
+      "label": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Human-readable name"
+      },
+      "icon": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Icon identifier (e.g. icon set key or name)"
+      },
+      "url": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Profile or destination URL",
+        "anyOf": [
+          {
+            "format": "uri"
+          },
+          {
+            "pattern": "^\\/"
+          }
+        ]
+      },
+      "share": {
+        "type": "string",
+        "description": "Share URL template with placeholders like ${title}, ${url}, ${description}"
+      },
+      "rel": {
+        "type": "string",
+        "description": "Optional rel attribute (e.g. atproto)"
+      },
+      "background": {
+        "type": "string",
+        "description": "CSS classes for background styling"
+      },
+      "fill": {
+        "type": "string",
+        "description": "CSS classes for icon/text color styling"
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "required": [
+            "share"
+          ]
+        },
+        "then": {
+          "properties": {
+            "share": {
+              "pattern": "\\$\\{(title|url|description)\\}"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

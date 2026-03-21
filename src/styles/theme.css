@@ -15,6 +15,9 @@
   strategy: "base"; /* only generate global styles */
 }
 
+/* adds typography plugin https://github.com/tailwindlabs/tailwindcss-typography */
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* MARK: root variables */
@@ -305,10 +308,8 @@
   --color-brown-950: #2e281c;
 }
 
-/* MARK: shadcn theme variables */
-
 /*******************************************************************************
- * ShadCN theme variables
+ * MARK: ShadCN theme variables
  ******************************************************************************/
 
 /* :root {
@@ -435,21 +436,8 @@
     @apply mt-4;
   }
 
-  /* h1 is the post title or the page title, so it should be more prominent */
-  h1 {
+  h1, h2 {
     @apply text-4xl;
-  }
-
-  h2 {
-    @apply text-2xl;
-  }
-
-  h3 {
-    @apply text-xl;
-  }
-
-  h4 {
-    @apply text-base;
   }
 
   /** The idea is not to use h5 and h6 too often and if, then add custom styles via classes */
@@ -532,74 +520,61 @@
 /*******************************************************************************
  * Prose styles
  ******************************************************************************/
+@utility prose-dnb {
+  --tw-prose-body: var(--color-gray-800);
+  --tw-prose-headings: var(--color-gray-900);
+  --tw-prose-lead: var(--color-gray-700);
+  --tw-prose-links: var(--color-gray-900);
+  --tw-prose-bold: var(--color-gray-900);
+  --tw-prose-counters: var(--color-gray-600);
+  --tw-prose-bullets: var(--color-gray-400);
+  --tw-prose-hr: var(--color-gray-300);
+  --tw-prose-quotes: var(--color-gray-900);
+  --tw-prose-quote-borders: var(--color-gray-300);
+  --tw-prose-captions: var(--color-gray-700);
+  --tw-prose-code: var(--color-gray-900);
+  --tw-prose-pre-code: var(--color-gray-100);
+  --tw-prose-pre-bg: var(--color-gray-900);
+  --tw-prose-th-borders: var(--color-gray-300);
+  --tw-prose-td-borders: var(--color-gray-200);
+  --tw-prose-invert-body: var(--color-gray-200);
+  --tw-prose-invert-headings: var(--color-white);
+  --tw-prose-invert-lead: var(--color-gray-300);
+  --tw-prose-invert-links: var(--color-white);
+  --tw-prose-invert-bold: var(--color-white);
+  --tw-prose-invert-counters: var(--color-gray-400);
+  --tw-prose-invert-bullets: var(--color-gray-600);
+  --tw-prose-invert-hr: var(--color-gray-700);
+  --tw-prose-invert-quotes: var(--color-gray-100);
+  --tw-prose-invert-quote-borders: var(--color-gray-700);
+  --tw-prose-invert-captions: var(--color-gray-400);
+  --tw-prose-invert-code: var(--color-white);
+  --tw-prose-invert-pre-code: var(--color-gray-300);
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 0.5);
+  --tw-prose-invert-th-borders: var(--color-gray-600);
+  --tw-prose-invert-td-borders: var(--color-gray-700);
+}
+
 @layer components {
-  /* Prose styles for content sections */
+  /*****************************************************************************
+   * Prose styles for content sections
+   * see https://github.com/tailwindlabs/tailwindcss-typography#element-modifiers
+   ****************************************************************************/
   .content {
     /* used for spacing in content sections */
-    --typography-space: calc(4 * var(--spacing));
+
+    /* --typography-space: calc(4 * var(--spacing)); */
+
+    @apply prose-dnb;
+    @apply prose-sm md:prose lg:prose-xl xl:prose-2xl;
+    @apply dark:prose-invert prose-slate;
+    @apply max-w-none;
+
+    /* Changa is only available via weight 400 */
+    @apply prose-headings:font-normal;
 
     p {
-      font-size: var(--text-lg);
       font-variant-ligatures: common-ligatures;
-    }
-
-    h1 {
-      font-size: var(--text-2xl);
-    }
-
-    h2 {
-      font-size: var(--text-xl);
-    }
-
-    /* block elements have 1rem (4*spacing) bottom margin */
-    .expressive-code,
-    ul,
-    ol,
-    p {
-      margin-bottom: var(--typography-space);
-    }
-
-    ol {
-      @apply list-outside list-decimal;
-
-      padding-left: var(--typography-space);
-    }
-
-    ul {
-      @apply list-outside list-disc;
-
-      margin-left: var(--typography-space);
-    }
-
-    ul ul,
-    ol ol {
-      /* bottom margin NOT for sub lists */
-      margin-bottom: 0;
-    }
-
-    li li {
-      margin-left: var(--typography-space);
-    }
-
-    p,
-    li {
-      code {
-        @apply -mx-0.5 my-1 rounded bg-orange-600/10 px-0.5 py-1 text-sm;
-      }
-    }
-
-    blockquote {
-      @apply border-l-4 border-orange-600 bg-orange-600/10 p-4 italic;
-
-      margin-bottom: var(--typography-space);
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    strong {
-      @apply font-semibold;
     }
 
     hr {
@@ -608,10 +583,8 @@
   }
 }
 
-/* MARK: pagefind component */
-
 /*******************************************************************************
- * Pagefind Component
+ * MARK: Pagefind Component
  ******************************************************************************/
 /* stylelint-disable selector-class-pattern -- pagefind classes have underscores */
 

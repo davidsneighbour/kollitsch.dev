@@ -3,7 +3,7 @@
     "@resvg/resvg-js": "2.6.2",
     "@types/he": "1.2.3",
     "he": "1.2.0",
-    "satori": "0.25.0",
+    "satori": "0.26.0",
     "satori-html": "0.3.2"
   },
   "scripts": {

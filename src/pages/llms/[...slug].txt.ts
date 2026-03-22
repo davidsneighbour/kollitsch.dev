@@ -1,12 +1,11 @@
-import type { GetStaticPaths } from "astro";
-import siteConfig from "@data/setup.json";
-import { llmsPost } from "@utils/llms";
-import { formatUrl } from "@utils/path";
-import { type BlogPost } from "@utils/content";
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
+import setup from '@data/setup.json' with { type: 'json' };
+import { type BlogPost } from '@utils/content';
+import { llmsPost } from '@utils/llms';
+import { formatUrl } from '@utils/path';
+import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
   const posts = await getCollection('blog', (post) => !post.data.draft);
   return posts.map((post) => ({
     params: { slug: post.id },
@@ -22,8 +21,8 @@ export const GET = ({ props }: { props: Props }) => {
   const { post } = props;
 
   return llmsPost({
-    post,
-    site: siteConfig.url,
     link: formatUrl(post.id),
+    post,
+    site: setup.url,
   });
 };

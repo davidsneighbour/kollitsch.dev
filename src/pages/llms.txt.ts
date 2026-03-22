@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import setup from '@data/setup.json';
+import setup from '@data/setup.json' with { type: 'json' };
 import { llmsTxt, postsToLlmsItems } from '@utils/llms';
 import type { APIRoute } from 'astro';
 

@@ -1,6 +1,8 @@
 // scripts/screenshot-blogroll.ts
 // Node 22+, ESM, TypeScript. Playwright-based website screenshots for a blogroll.
-// - Reads a JSON array like src/content/blogroll.json
+// - Reads either:
+//   - a JSON array of items, or
+//   - an object with an `items` array (as in src/content/blogroll.json)
 // - Validates with Zod (url/name required; rss/description optional)
 // - Screenshots each `url` at 2000x1000 into src/assets/images/blogroll/*.jpg (quality 100)
 // - Signals "prefers-color-scheme: dark" to pages (configurable)
@@ -68,10 +70,17 @@ const FeedItemSchema = z
       .max(NAME_MAX_LENGTH, `name max length is ${NAME_MAX_LENGTH}`),
     rss: z.string().url().optional(),
     url: z.string().url({ message: 'url must be a valid URL' }),
+    weight: z.number().int().optional(),
   })
   .strict();
 
 const FeedListSchema = z.array(FeedItemSchema);
+const FeedFileSchema = z
+  .object({
+    $schema: z.string().optional(),
+    items: FeedListSchema,
+  })
+  .strict();
 
 type FeedItem = z.infer<typeof FeedItemSchema>;
 
@@ -261,15 +270,17 @@ async function loadBlogroll(
   } catch (err) {
     throw new Error(`Invalid JSON in ${abs}: ${(err as Error).message}`);
   }
-  const parsed = FeedListSchema.safeParse(json);
+  const parsed = z.union([FeedListSchema, FeedFileSchema]).safeParse(json);
   if (!parsed.success) {
     const lines = parsed.error.issues.map(
       (i) => `${i.path.join('.')}: ${i.message}`,
     );
     throw new Error(`Validation failed:\n${lines.join('\n')}`);
   }
+
+  const items = Array.isArray(parsed.data) ? parsed.data : parsed.data.items;
   // Sort by name ASC
-  return [...parsed.data].sort((a, b) => a.name.localeCompare(b.name));
+  return [...items].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

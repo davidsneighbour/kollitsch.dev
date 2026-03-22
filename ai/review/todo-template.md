@@ -43,6 +43,7 @@ The AI must also read and respect:
 ### CI
 
 #### `ci-example-validation-gap`
+
 * Status: active
 * Origin: ai
 * Rank: high
@@ -73,6 +74,7 @@ The AI must also read and respect:
 ### Documentation
 
 #### `docs-example-readme-refresh`
+
 * Status: active
 * Origin: human
 * Rank: medium
@@ -103,6 +105,7 @@ The AI must also read and respect:
 ### System
 
 #### `system-example-remove-obsolete-helper`
+
 * Status: obsolete
 * Origin: ai
 * Rank: low

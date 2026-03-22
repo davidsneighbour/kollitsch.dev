@@ -6,6 +6,7 @@ import Head from "@components/layout/Head.astro";
 import SchemaWebSite from "@components/seo/schema/WebSite.astro";
 import WebComponents from "@components/layout/footer/WebComponents.astro";
 import Selection from "@components/gimmicks/Selection.astro";
+import UnderConstruction from "@components/gimmicks/UnderConstruction.astro";
 import setup from "@data/setup.json" with { type: "json" };
 
 const { post, extraHtmlClasses = "", extraBodyClasses = "", frontmatter } = Astro.props;
@@ -42,9 +43,7 @@ const IS_DEV = import.meta.env.DEV;
     {import.meta.env.DEV && <link rel="stylesheet" href="/src/styles/auditor.css" />}
   </head>
   <body class={bodyClasses}>
-    <div class="underconstruction">
-      <span> Please bear with me while I am working on the font size of this website.</span>
-    </div>
+    <UnderConstruction text={setup.banner.underConstruction} />
     <slot />
     <Breakpoints />
     <SchemaWebSite />
@@ -161,29 +160,5 @@ const IS_DEV = import.meta.env.DEV;
       import "@tailwindplus/elements";
     </script>
     <Selection />
-    <style>
-      @reference "@styles/theme.css";
-      .underconstruction {
-        background: repeating-linear-gradient(
-          45deg,
-          var(--color-black),
-          var(--color-black) 20px,
-          var(--color-yellow-400) 20px,
-          var(--color-yellow-400) 40px
-        );
-        color: #fff;
-        text-shadow:
-          2px 2px 0 #000,
-          -2px 2px 0 #000,
-          2px -2px 0 #000,
-          -2px -2px 0 #000;
-        text-align: center;
-        font-size: 24px;
-        span {
-          background-color: rgba(0, 0, 0, 0.75);
-          border-radius: 100%;
-        }
-      }
-    </style>
   </body>
 </html>

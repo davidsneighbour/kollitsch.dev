@@ -19,11 +19,11 @@
   },
   "fallback": "/src/assets/images/fallback.jpg",
   "greetings": {
-    "afternoon": "Good afternoon 👋",
+    "afternoon": "Good afternoon \ud83d\udc4b",
     "default": "Hello there :)",
-    "evening": "Good evening 🌙",
-    "morning": "Good morning 🌞",
-    "night": "Burning the midnight oil, huh? 🌜"
+    "evening": "Good evening \ud83c\udf19",
+    "morning": "Good morning \ud83c\udf1e",
+    "night": "Burning the midnight oil, huh? \ud83c\udf1c"
   },
   "head": {
     "defaults": {
@@ -72,5 +72,8 @@
     "instance": "https://analytics.dnbhub.xyz/",
     "siteId": "1",
     "cookieDomain": "*.kollitsch.dev"
+  },
+  "banner": {
+    "underConstruction": "Please bear with me while I am working on the font size of this website."
   }
 }

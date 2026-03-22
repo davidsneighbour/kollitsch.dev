@@ -1,0 +1,36 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="underconstruction"><span>{text}</span></div>
+
+<style>
+  @reference "@styles/theme.css";
+
+  .underconstruction {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--color-black),
+      var(--color-black) 20px,
+      var(--color-yellow-400) 20px,
+      var(--color-yellow-400) 40px
+    );
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    text-shadow:
+      2px 2px 0 #000,
+      -2px 2px 0 #000,
+      2px -2px 0 #000,
+      -2px -2px 0 #000;
+
+    span {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 100%;
+    }
+  }
+</style>

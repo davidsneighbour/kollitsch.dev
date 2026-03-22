@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "markdownlint": "0.40.0",
-    "markdownlint-cli2": "0.21.0",
+    "markdownlint-cli2": "0.22.0",
     "@github/markdownlint-github": "0.8.0",
     "markdownlint-rule-extended-ascii": "0.2.1",
     "markdownlint-rule-list-duplicates": "0.0.1",
@@ -10,7 +10,7 @@
     "markdownlint-rule-title-case-style": "0.4.3"
   },
   "scripts": {
-    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc",
-    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix"
+    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
+    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}"
   }
 }

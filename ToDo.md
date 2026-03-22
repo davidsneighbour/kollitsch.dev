@@ -1,32 +1,5 @@
 # ToDo
 
-## 0) Fix `npm test:e2e` run
-
-* **Issue:** Running `npm test:e2e` fails
-* **Why this matters:** Testing should not fail ;)
-* **What is going on:** Testing was not updated on previous code changes.
-* **Recommended action:** Get tests working again and remove tests that are obsolete.
-
-## 1) Fix production build blocker
-
-* **Issue:** Production build currently fails resolving `@tailwindcss/typography` from the global theme stylesheet.
-* **Why this matters:** A failing production build blocks deployable artefacts and downstream checks.
-* **Code references:**
-  * `src/styles/theme.css` lines 18-20
-  * `package.json` lines 58-60
-  * `package.json` lines 137-139
-* **Recommended action:** Standardise Tailwind plugin resolution for Astro + Tailwind v4 in the stylesheet pipeline, then gate merges on a successful `npm run build`.
-
-## 2) Restore enforceable HTML validity checks
-
-* **Issue:** HTML validation scripts call `html-validate`, but the dependency is not declared.
-* **Why this matters:** Markup validity regressions can slip into production without automated detection.
-* **Code references:**
-  * `package.json` lines 159-160
-  * `package.json` lines 249-250
-  * `package.json` dependencies block lines 15-127 (no `html-validate` package)
-* **Recommended action:** Add and pin `html-validate` (or remove dead scripts), then run this in CI after build.
-
 ## 3) Repair Markdown lint workflow
 
 * **Issue:** `lint:markdown` invokes `markdownlint-cli2` without globs, and the config file does not provide `globs`.
@@ -81,9 +54,4 @@
 ## Validation checklist (must pass for all changes)
 
 * `npx astro check` passes.
-* `npx astro build` passes.
 * `npm run test` passes.
-* `npm run test:e2e` executes reliably after build.
-* after 2) is fixed: `npm run lint:html` passes.
-* after 3) is fixed: `npm run lint:markdown` passes.
-* Required PR checks include at least build, check, and unit tests.

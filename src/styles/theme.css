@@ -1,3 +1,5 @@
+@namespace svg url("http://www.w3.org/2000/svg");
+
 /* MARK: imports */
 @import 'tailwindcss';
 @import 'lenis/dist/lenis.css';
@@ -7,8 +9,6 @@
 @import "@fontsource-variable/jetbrains-mono";
 @import "@fontsource-variable/jetbrains-mono/wght-italic.css";
 @import "@fontsource/changa-one";
-
-@namespace svg url("http://www.w3.org/2000/svg");
 
 /* add forms plugin, @see https://github.com/tailwindlabs/tailwindcss-forms */
 @plugin "@tailwindcss/forms" {

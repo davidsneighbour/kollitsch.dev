@@ -547,7 +547,8 @@ const ogimage = await getCachedOrGeneratePng(
   {
     (() => {
       const altText = alt ?? (openGraph.title || "unknown");
-      const abs = Astro.site ? new URL(ogimage.src, Astro.site).toString() : ogimage.src;
+      const canonicalBase = typeof openGraph.url === "string" && openGraph.url.length > 0 ? openGraph.url : Astro.url;
+      const abs = new URL(ogimage.src, canonicalBase).toString();
 
       return (
         <>

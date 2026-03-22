@@ -10,6 +10,7 @@ export async function GET(context) {
   // ({ data }) => import.meta.env.DEV || !data?.draft)
   blog.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
   blog = blog.slice(0, 10);
+  const site = context.site ?? new URL(setup.url);
 
   // get the full URL for the stylesheet
   // const fullUrl = new URL(context.request.url);
@@ -23,6 +24,11 @@ export async function GET(context) {
     items: blog.map((post) => ({
       categories: post.data.tags || [],
       description: post.data.description,
+      enclosure: {
+        length: 0,
+        type: 'image/png',
+        url: new URL(`/blog/${post.slug}/og.png`, site).toString(),
+      },
       link: `/blog/${post.slug}/`,
       pubDate: post.data.date,
       title: post.data.title,
@@ -33,7 +39,7 @@ export async function GET(context) {
       //   type: 'audio/aac',
       // },
     })),
-    site: context.site,
+    site,
     title: setup.title,
   });
 }

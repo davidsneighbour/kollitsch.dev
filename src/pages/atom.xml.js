@@ -26,12 +26,18 @@ export async function GET(context) {
   const entries = blog
     .map((post) => {
       const postUrl = new URL(`/blog/${post.slug}/`, site).toString();
+      const postImageUrl = new URL(
+        `/blog/${post.slug}/og.png`,
+        site,
+      ).toString();
       const lines = [
         '  <entry>',
         `    <title>${escapeXml(post.data.title)}</title>`,
         `    <link href="${postUrl}" />`,
+        `    <link rel="enclosure" type="image/png" href="${postImageUrl}" />`,
         `    <id>${postUrl}</id>`,
         `    <updated>${new Date(post.data.date).toISOString()}</updated>`,
+        `    <media:thumbnail url="${postImageUrl}" />`,
       ];
 
       if (post.data.description) {
@@ -51,7 +57,7 @@ export async function GET(context) {
     .join('\n');
 
   const feed = `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <title>${escapeXml(setup.title)}</title>
   <subtitle>${escapeXml(setup.description)}</subtitle>
   <link href="${homeUrl}" />

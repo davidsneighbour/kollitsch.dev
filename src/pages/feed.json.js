@@ -14,9 +14,11 @@ export async function GET(context) {
 
   const items = blog.map((post) => {
     const postUrl = new URL(`/blog/${post.slug}/`, site).toString();
+    const imageUrl = new URL(`/blog/${post.slug}/og.png`, site).toString();
     return {
       date_published: new Date(post.data.date).toISOString(),
       id: postUrl,
+      image: imageUrl,
       summary: post.data.description,
       tags: post.data.tags || [],
       title: post.data.title,

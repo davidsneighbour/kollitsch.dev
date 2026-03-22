@@ -80,7 +80,8 @@
 
 ## Validation checklist (must pass for all changes)
 
-* `npm run build` passes.
+* `npx astro check` passes.
+* `npx astro build` passes.
 * `npm run test` passes.
 * `npm run test:e2e` executes reliably after build.
 * after 2) is fixed: `npm run lint:html` passes.

@@ -72,8 +72,5 @@
     "instance": "https://analytics.dnbhub.xyz/",
     "siteId": "1",
     "cookieDomain": "*.kollitsch.dev"
-  },
-  "banner": {
-    "underConstruction": "Please bear with me while I am working on the font size of this website."
   }
 }

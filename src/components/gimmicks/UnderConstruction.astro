@@ -14,22 +14,22 @@ const { text } = Astro.props;
   .underconstruction {
     background: repeating-linear-gradient(
       45deg,
-      var(--color-black),
-      var(--color-black) 20px,
-      var(--color-yellow-400) 20px,
-      var(--color-yellow-400) 40px
+      var(--color-gray-950),
+      var(--color-gray-950) 20px,
+      oklch(85.2% 0.199 91.936) 20px,
+      oklch(85.2% 0.199 91.936) 40px
     );
-    color: #fff;
+    color: var(--color-gray-50);
     text-align: center;
     font-size: 24px;
     text-shadow:
-      2px 2px 0 #000,
-      -2px 2px 0 #000,
-      2px -2px 0 #000,
-      -2px -2px 0 #000;
+      2px 2px 0 var(--color-gray-950),
+      -2px 2px 0 var(--color-gray-950),
+      2px -2px 0 var(--color-gray-950),
+      -2px -2px 0 var(--color-gray-950);
 
     span {
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(var(--color-gray-950), 0.75);
       border-radius: 100%;
     }
   }

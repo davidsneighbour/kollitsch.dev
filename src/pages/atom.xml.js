@@ -19,15 +19,34 @@ export async function GET(context) {
   const site = context.site ?? new URL(setup.url);
   const feedUrl = new URL('/atom.xml', site).toString();
   const homeUrl = new URL('/', site).toString();
+  const getPostPath = (post) => {
+    const normalise = (value) => value.replace(/^\/+|\/+$/g, '');
+    const id = typeof post?.id === 'string' ? post.id : '';
+    if (id) {
+      return `/blog/${normalise(id)}/`;
+    }
+
+    const slug = typeof post?.slug === 'string' ? post.slug : '';
+    if (slug) {
+      const year = post?.data?.date
+        ? new Date(post.data.date).getUTCFullYear()
+        : Number.NaN;
+      return Number.isFinite(year)
+        ? `/blog/${year}/${normalise(slug)}/`
+        : `/blog/${normalise(slug)}/`;
+    }
+
+    return '/blog/';
+  };
   const updated = blog[0]?.data?.date
     ? new Date(blog[0].data.date).toISOString()
     : new Date().toISOString();
 
   const entries = blog
     .map((post) => {
-      const postUrl = new URL(`/blog/${post.slug}/`, site).toString();
+      const postUrl = new URL(getPostPath(post), site).toString();
       const postImageUrl = new URL(
-        `/blog/${post.slug}/og.png`,
+        `${getPostPath(post)}og.png`,
         site,
       ).toString();
       const lines = [

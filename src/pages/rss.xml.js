@@ -12,6 +12,26 @@ export async function GET(context) {
   blog = blog.slice(0, 10);
   const site = context.site ?? new URL(setup.url);
 
+  const getPostPath = (post) => {
+    const normalise = (value) => value.replace(/^\/+|\/+$/g, '');
+    const id = typeof post?.id === 'string' ? post.id : '';
+    if (id) {
+      return `/blog/${normalise(id)}/`;
+    }
+
+    const slug = typeof post?.slug === 'string' ? post.slug : '';
+    if (slug) {
+      const year = post?.data?.date
+        ? new Date(post.data.date).getUTCFullYear()
+        : Number.NaN;
+      return Number.isFinite(year)
+        ? `/blog/${year}/${normalise(slug)}/`
+        : `/blog/${normalise(slug)}/`;
+    }
+
+    return '/blog/';
+  };
+
   // get the full URL for the stylesheet
   // const fullUrl = new URL(context.request.url);
   // const currentOrigin = fullUrl.origin;
@@ -27,9 +47,9 @@ export async function GET(context) {
       enclosure: {
         length: 0,
         type: 'image/png',
-        url: new URL(`/blog/${post.slug}/og.png`, site).toString(),
+        url: new URL(`${getPostPath(post)}og.png`, site).toString(),
       },
-      link: `/blog/${post.slug}/`,
+      link: getPostPath(post),
       pubDate: post.data.date,
       title: post.data.title,
       // commentsUrl: post.data.commentsUrl || null,

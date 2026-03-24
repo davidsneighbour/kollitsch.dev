@@ -217,7 +217,7 @@ export const blogSchema = z
     const coverIsImage =
       entry.cover?.type !== 'video' && typeof entry.cover?.src === 'string';
     const articleimage: string | null =
-      (coverIsImage ? (entry.cover?.src ?? null) : null) ??
+      (coverIsImage ? entry.cover?.src : undefined) ??
       setup?.images?.default ??
       null;
 

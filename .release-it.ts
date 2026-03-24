@@ -25,6 +25,10 @@ const config = {
       infile: 'CHANGELOG.md',
       preset: {
         name: 'conventionalcommits',
+        commitUrlFormat:
+          'https://github.com/davidsneighbour/kollitsch.dev/commit/{{hash}}',
+        compareUrlFormat:
+          'https://github.com/davidsneighbour/kollitsch.dev/compare/{{previousTag}}...{{currentTag}}',
         types: [
           { type: 'content', section: 'Content' },
           { type: 'feat', section: 'Features' },

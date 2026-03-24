@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.1.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.1.0...v3001.1.1) (2026-03-24)
+
+### Build
+
+* **fix:** define commit and compare URL formats to fix links in CHANGELOG ([e2f107b](https://github.com/davidsneighbour/kollitsch.dev/commit/e2f107b9d35cac94cd223df9cdf70c5f260ab6d6))
+
 ## [3001.1.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.0.1...v3001.1.0) (2026-03-24)
 
 ### Content

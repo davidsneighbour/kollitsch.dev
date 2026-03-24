@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
+import { getFeedOgImage } from '@utils/feed-og-image.ts';
 
 export async function GET(context) {
   let blog = await getCollection('blog', ({ data }) => {
@@ -33,7 +34,7 @@ export async function GET(context) {
 
   const items = blog.map((post) => {
     const postUrl = new URL(getPostPath(post), site).toString();
-    const imageUrl = new URL(`${getPostPath(post)}og.png`, site).toString();
+    const imageUrl = getFeedOgImage(post, site);
     return {
       date_published: new Date(post.data.date).toISOString(),
       id: postUrl,

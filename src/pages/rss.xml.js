@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 import setup from '@data/setup.json' with { type: 'json' };
+import { getFeedOgImage } from '@utils/feed-og-image.ts';
 
 export async function GET(context) {
   let blog = await getCollection('blog', ({ data }) => {
@@ -46,8 +47,8 @@ export async function GET(context) {
       description: post.data.description,
       enclosure: {
         length: 0,
-        type: 'image/png',
-        url: new URL(`${getPostPath(post)}og.png`, site).toString(),
+        type: 'image/jpeg',
+        url: getFeedOgImage(post, site),
       },
       link: getPostPath(post),
       pubDate: post.data.date,

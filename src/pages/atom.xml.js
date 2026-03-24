@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
+import { getFeedOgImage } from '@utils/feed-og-image.ts';
 
 const escapeXml = (value = '') =>
   value
@@ -45,15 +46,12 @@ export async function GET(context) {
   const entries = blog
     .map((post) => {
       const postUrl = new URL(getPostPath(post), site).toString();
-      const postImageUrl = new URL(
-        `${getPostPath(post)}og.png`,
-        site,
-      ).toString();
+      const postImageUrl = getFeedOgImage(post, site);
       const lines = [
         '  <entry>',
         `    <title>${escapeXml(post.data.title)}</title>`,
         `    <link href="${postUrl}" />`,
-        `    <link rel="enclosure" type="image/png" href="${postImageUrl}" />`,
+        `    <link rel="enclosure" type="image/jpeg" href="${postImageUrl}" />`,
         `    <id>${postUrl}</id>`,
         `    <updated>${new Date(post.data.date).toISOString()}</updated>`,
         `    <media:thumbnail url="${postImageUrl}" />`,

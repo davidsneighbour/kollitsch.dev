@@ -1,8 +1,9 @@
 ---
 import IconLink from "@components/shared/links/IconLink.astro";
+import { type IconName } from "@/utils/icon-names";
 
 export interface Props {
-  icon: string;
+  icon: IconName;
   name: string;
   link: string;
   classes?: string;

@@ -396,8 +396,8 @@
   }
 }
 
-/* MARK: prose styles */
-
+/* MARK: Typography */
+/* @see documentation/typography.md for the rationale these classes */
 /*******************************************************************************
  * Prose styles
  ******************************************************************************/
@@ -435,17 +435,13 @@
   --tw-prose-invert-th-borders: var(--color-gray-600);
   --tw-prose-invert-td-borders: var(--color-gray-700);
 }
-
 @layer components {
-  /*****************************************************************************
-   * Prose styles for content sections
-   * see https://github.com/tailwindlabs/tailwindcss-typography#element-modifiers
-   ****************************************************************************/
-  .content {
-    /* used for spacing in content sections */
+  .typography-ui {
+    @apply text-sm md:text-base lg:text-xl xl:text-2xl;
+  }
 
-    /* --typography-space: calc(4 * var(--spacing)); */
-
+  .typography-reading {
+    @apply prose;
     @apply prose-dnb;
     @apply prose-sm md:prose lg:prose-xl xl:prose-2xl;
     @apply dark:prose-invert prose-slate;
@@ -461,6 +457,22 @@
     hr {
       @apply my-8 border-0 border-t border-gray-300 dark:border-gray-700;
     }
+
+  }
+}
+@layer utilities {
+  /* these MUST be em based so the typography-reading class can scale here */
+  .reading-xs {
+    font-size: 0.5em;
+  }
+  .reading-sm {
+    font-size: 0.875em;
+  }
+  .reading-lg {
+    font-size: 1.2em;
+  }
+  .reading-xl {
+    font-size: 1.5em;
   }
 }
 
@@ -468,7 +480,6 @@
  * MARK: Pagefind Component
  ******************************************************************************/
 /* stylelint-disable selector-class-pattern -- pagefind classes have underscores */
-
 @layer components {
   /*******************************************************************************
    * Container & core UI
@@ -559,7 +570,6 @@
 }
 
 /* MARK: utilities */
-
 /*******************************************************************************
  * Utilities
  ******************************************************************************/

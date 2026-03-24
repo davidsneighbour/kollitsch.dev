@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 /* All .font-changa.*weight */
 .font-changa.font-thin,
 .font-changa.font-extralight,
@@ -56,5 +58,5 @@ h3.font-black,
 h4.font-black,
 h5.font-black,
 h6.font-black {
-  outline: 2px dashed #c11414;
+  outline: 2px dashed var(--color-red-500);
 }

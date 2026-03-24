@@ -1,0 +1,18 @@
+---
+import IconLink from "@components/shared/links/IconLink.astro";
+
+export interface Props {
+  icon: string;
+  name: string;
+  link: string;
+  classes?: string;
+}
+
+const { icon, name, link, classes = "" }: Props = Astro.props;
+---
+
+<li class={classes}>
+  <IconLink icon={icon} href={link}>
+    {name}
+  </IconLink>
+</li>

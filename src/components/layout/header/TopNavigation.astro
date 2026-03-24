@@ -5,8 +5,8 @@ import { fade } from "astro:transitions";
 import type { Navigation } from "@utils/navigation";
 
 // components
-import IconLink from "@components/shared/links/IconLink.astro";
 import ProgressBar from "@components/layout/header/Progress.astro";
+import NavItem from "@components/layout/header/navigation/NavItem.astro";
 
 // data
 import setup from "@data/setup.json" with { type: "json" };
@@ -47,14 +47,12 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
   class="sticky top-0 right-0 left-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900"
   aria-label="Top navigation bar with site title, navigation links, and theme selector"
 >
-  <nav class="mx-auto max-w-7xl" aria-label="Main navigation">
-    <div class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"></div>
-    <div class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]">
-      <ProgressBar classes="progress relative z-40 [--height:var(--thickness)]" />
-    </div>
+  <ProgressBar classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-[70] hidden [--height:4px] lg:[--height:6px]" />
 
+  <nav class="@container mx-auto max-w-7xl" aria-label="Main navigation">
+    <div class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"></div>
     <div
-      class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-gray-50"
+      class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 @md:flex-nowrap @md:items-start dark:bg-zinc-900 dark:text-gray-50"
     >
       <div class="z-30 order-1 flex-1" id="navbar-sitetitle">
         <a
@@ -67,7 +65,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
         </a>
       </div>
 
-      <div class="z-30 order-2 md:hidden" id="hamburger-and-close">
+      <div class="z-30 order-2 @md:hidden" id="hamburger-and-close">
         <Icon
           name="list"
           class="is--mobile-menu-hamburger open-icon place-self-center text-xl text-brand-500 dark:text-brand-400"
@@ -79,24 +77,25 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
       </div>
 
       <div
-        class="z-30 order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
+        class="z-30 order-3 w-full justify-center self-center text-center @md:order-2 @md:ml-auto @md:w-auto"
         id="navigation-and-theme-select"
       >
         <ul
-          class="flex flex-col justify-center md:flex-row md:justify-end"
+          class="flex flex-col justify-center @md:flex-row @md:justify-end"
           transition:animate={fade({ duration: "0.4s" })}
         >
           {
             typedNavData.map((value) => (
-              <li class={`px-3 py-4 md:px-2 md:py-2 ${isNavItemActive(value) ? "font-bold" : ""}`}>
-                <IconLink icon={value.icon} href={value.link}>
-                  {value.label}
-                </IconLink>
-              </li>
+              <NavItem
+                icon={value.icon}
+                name={value.label}
+                link={value.link}
+                classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold" : ""}`}
+              />
             ))
           }
 
-          <li class="px-3 py-4 md:px-2 md:py-2">
+          <li class="px-3 py-4 @md:px-2 @md:py-2">
             <theme-selector></theme-selector>
           </li>
         </ul>
@@ -133,6 +132,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
     const placeholderId = currentScript?.getAttribute("data-site-title-id");
     const placeholder = placeholderId ? document.querySelector(`#${placeholderId}`) : null;
     const stickyBrand = document.querySelector("#navbar-brand");
+    const viewportProgress = document.querySelector("progress.progress--viewport-top");
 
     /**
      * @returns {void}
@@ -188,8 +188,10 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          stickyBrand.classList.toggle("opacity-100", !entry.isIntersecting);
-          stickyBrand.classList.toggle("opacity-0", entry.isIntersecting);
+          const shouldShowStickyState = !entry.isIntersecting;
+          stickyBrand.classList.toggle("opacity-100", shouldShowStickyState);
+          stickyBrand.classList.toggle("opacity-0", !shouldShowStickyState);
+          viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
         },
         { threshold: 0 },
       );
@@ -198,7 +200,9 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
 
       const rect = placeholder.getBoundingClientRect();
       const isIntersecting = rect.top >= 0 && rect.bottom > 0;
-      stickyBrand.classList.toggle("sticky-visible", !isIntersecting);
+      const shouldShowStickyState = !isIntersecting;
+      stickyBrand.classList.toggle("sticky-visible", shouldShowStickyState);
+      viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
     }
 
     /**

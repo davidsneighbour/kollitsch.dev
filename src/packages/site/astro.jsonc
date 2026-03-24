@@ -16,7 +16,7 @@
     "tailwindcss": "4.2.2",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/typography": "0.5.19",
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "@sentry/astro": "10.45.0",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.35",

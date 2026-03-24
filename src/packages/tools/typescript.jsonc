@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "@total-typescript/ts-reset": "0.6.1"
   }
 }

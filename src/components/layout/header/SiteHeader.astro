@@ -3,14 +3,6 @@ import { randomBytes } from "node:crypto";
 import SiteTitle from "@components/layout/header/SiteTitle.astro";
 import TopNavigation from "@components/layout/header/TopNavigation.astro";
 
-type ThemeMode = "dark" | "light";
-
-export interface Props {
-  defaultTheme?: ThemeMode;
-}
-
-const { defaultTheme = "dark" }: Props = Astro.props;
-
 const createSiteTitleId = () => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
   const bytes = randomBytes(10);
@@ -21,5 +13,5 @@ const createSiteTitleId = () => {
 const siteTitleId = createSiteTitleId();
 ---
 
-<SiteTitle id={siteTitleId} />
-<TopNavigation defaultTheme={defaultTheme} siteTitleId={siteTitleId} />
+<SiteTitle siteTitleId={siteTitleId} />
+<TopNavigation siteTitleId={siteTitleId} />

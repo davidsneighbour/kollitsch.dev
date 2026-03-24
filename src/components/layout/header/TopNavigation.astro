@@ -1,21 +1,22 @@
 ---
-// @todo refactor and comment
 // astro imports
 import { fade } from "astro:transitions";
-import IconLink from "@components/shared/links/IconLink.astro";
 
 import type { Navigation } from "@utils/navigation";
 
 // components
+import IconLink from "@components/shared/links/IconLink.astro";
 import ProgressBar from "@components/layout/header/Progress.astro";
+
 // data
 import setup from "@data/setup.json" with { type: "json" };
 import navData from "@data/topnavigation.json" with { type: "json" };
+
 // utilities
+import { Icon } from "astro-icon/components";
 import { getHomepageUrl } from "@utils/content.ts";
 import { createLogger } from "@utils/logger.ts";
 import { findActive, isActive } from "@utils/navigation.ts";
-import { Icon } from "astro-icon/components";
 
 const typedNavData = navData as Navigation;
 
@@ -31,12 +32,11 @@ if (!activeItem && import.meta.env.DEV) {
   log.debug(`👉 no navigation item to activate for: ${pathname}`);
 }
 
-// Theme Manager Component
-// The theme on kollitsch.dev is managed by adding a `data-theme` attribute to
-// the `<html>` element which can have the values `light`, or `dark`
 type ThemeMode = "dark" | "light";
+type StoredThemeMode = ThemeMode | "auto";
+
 export interface Props {
-  defaultTheme?: ThemeMode;
+  defaultTheme?: StoredThemeMode;
   siteTitleId?: string;
 }
 
@@ -50,8 +50,9 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
   <nav class="mx-auto max-w-7xl" aria-label="Main navigation">
     <div class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"></div>
     <div class="backdrop-edge absolute right-0 bottom-0 left-0 z-10 h-[var(--thickness)]">
-      <ProgressBar classes="progress z-40 relative [--height:var(--thickness)]" />
+      <ProgressBar classes="progress relative z-40 [--height:var(--thickness)]" />
     </div>
+
     <div
       class="z-20 flex flex-wrap items-center gap-4 bg-zinc-100 text-gray-950 md:flex-nowrap md:items-start dark:bg-zinc-900 dark:text-gray-50"
     >
@@ -65,16 +66,18 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
           {setup.title}
         </a>
       </div>
+
       <div class="z-30 order-2 md:hidden" id="hamburger-and-close">
         <Icon
           name="list"
-          class="is--mobile-menu-hamburger open-icon text-brand-500 dark:text-brand-400 place-self-center text-xl"
+          class="is--mobile-menu-hamburger open-icon place-self-center text-xl text-brand-500 dark:text-brand-400"
         />
         <Icon
           name="x"
-          class="is--mobile-menu-hamburger close-icon text-brand-500 dark:text-brand-400 hidden place-self-center text-xl"
+          class="is--mobile-menu-hamburger close-icon hidden place-self-center text-xl text-brand-500 dark:text-brand-400"
         />
       </div>
+
       <div
         class="z-30 order-3 w-full justify-center self-center text-center md:order-2 md:ml-auto md:w-auto"
         id="navigation-and-theme-select"
@@ -92,6 +95,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
               </li>
             ))
           }
+
           <li class="px-3 py-4 md:px-2 md:py-2">
             <theme-selector></theme-selector>
           </li>
@@ -103,56 +107,85 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
 
 <script is:inline data-astro-rerun data-default-theme={defaultTheme} data-site-title-id={siteTitleId}>
   (() => {
-    // ---- Shared utilities ----
+    /**
+     * @typedef {"dark" | "light"} ThemeMode
+     * @typedef {"dark" | "light" | "auto"} StoredThemeMode
+     */
+
+    /**
+     * @typedef ThemeManager
+     * @property {() => ThemeMode} getSystemTheme
+     * @property {() => StoredThemeMode} getTheme
+     * @property {() => void} resetTheme
+     * @property {(theme?: StoredThemeMode) => void} setTheme
+     */
+
     window.kdev = window.kdev || {};
     window.kdev.mobileOpen = false;
+
+    const currentScript = document.currentScript;
+    const defaultThemeAttr = currentScript?.getAttribute("data-default-theme") ?? "dark";
+    const defaultTheme = defaultThemeAttr === "auto" ? "auto" : defaultThemeAttr === "light" ? "light" : "dark";
+
     const closeIcon = document.querySelector(".close-icon");
     const openIcon = document.querySelector(".open-icon");
     const navSection = document.querySelector("#navigation-and-theme-select");
-    const currentScript = document.currentScript;
     const placeholderId = currentScript?.getAttribute("data-site-title-id");
     const placeholder = placeholderId ? document.querySelector(`#${placeholderId}`) : null;
     const stickyBrand = document.querySelector("#navbar-brand");
 
-    // Toggle icons: hamburger ↔ close
-    const toggleIcons = () => {
+    /**
+     * @returns {void}
+     */
+    function toggleIcons() {
       closeIcon?.classList.toggle("hidden", !window.kdev.mobileOpen);
       openIcon?.classList.toggle("hidden", window.kdev.mobileOpen);
-    };
+    }
 
-    // Show/hide nav links based on viewport & mobile state
-    const toggleNavVisibility = () => {
+    /**
+     * @returns {void}
+     */
+    function toggleNavVisibility() {
       const isMdUp = window.matchMedia("(min-width: 768px)").matches;
       const shouldShow = isMdUp || window.kdev.mobileOpen;
       navSection?.classList.toggle("hidden", !shouldShow);
       navSection?.classList.toggle("flex", shouldShow);
-    };
+    }
 
-    // Initialize hamburger click handler & nav visibility
+    /**
+     * @returns {void}
+     */
     function initMobileMenu() {
       window.kdev.mobileOpen = false;
       toggleIcons();
       toggleNavVisibility();
 
       const menuToggle = document.querySelector("#hamburger-and-close");
-      if (menuToggle) {
-        // replace to remove old listener
-        const clone = menuToggle.cloneNode(true);
-        menuToggle.replaceWith(clone);
-        clone.addEventListener("click", () => {
-          window.kdev.mobileOpen = !window.kdev.mobileOpen;
-          toggleIcons();
-          toggleNavVisibility();
-        });
-      }
-    }
-
-    // Intersection Observer for sticky logo fade
-    function initStickyBrandObserver() {
-      if (!placeholder || !stickyBrand) {
-        console.warn("Placeholder or sticky brand element not found.");
+      if (!(menuToggle instanceof HTMLElement)) {
         return;
       }
+
+      const clone = menuToggle.cloneNode(true);
+      if (!(clone instanceof HTMLElement)) {
+        return;
+      }
+
+      menuToggle.replaceWith(clone);
+      clone.addEventListener("click", () => {
+        window.kdev.mobileOpen = !window.kdev.mobileOpen;
+        toggleIcons();
+        toggleNavVisibility();
+      });
+    }
+
+    /**
+     * @returns {void}
+     */
+    function initStickyBrandObserver() {
+      if (!(placeholder instanceof Element) || !(stickyBrand instanceof HTMLElement)) {
+        return;
+      }
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           stickyBrand.classList.toggle("opacity-100", !entry.isIntersecting);
@@ -160,111 +193,198 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
         },
         { threshold: 0 },
       );
+
       observer.observe(placeholder);
 
-      // Set initial state
-      const isIntersecting =
-        placeholder.getBoundingClientRect().top >= 0 && placeholder.getBoundingClientRect().bottom > 0;
+      const rect = placeholder.getBoundingClientRect();
+      const isIntersecting = rect.top >= 0 && rect.bottom > 0;
       stickyBrand.classList.toggle("sticky-visible", !isIntersecting);
     }
 
-    function changeGiscusTheme(t = "dark") {
+    /**
+     * @param {ThemeMode} theme
+     * @returns {void}
+     */
+    function changeGiscusTheme(theme = "dark") {
       const iframe = document.querySelector("iframe.giscus-frame");
-      if (!iframe) return;
-      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, "https://giscus.app");
+      if (!(iframe instanceof HTMLIFrameElement) || !iframe.contentWindow) {
+        return;
+      }
+
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
     }
 
-    window.theme ??= (() => {
-      const defaultTheme = document.currentScript.getAttribute("data-default-theme");
+    /**
+     * @returns {ThemeManager}
+     */
+    function createThemeManager() {
       const storageKey = "kdev-theme";
       const store =
         typeof localStorage !== "undefined"
           ? localStorage
           : {
-              getItem: () => null,
-              setItem: () => {},
+              getItem() {
+                return null;
+              },
+              removeItem() {
+                return;
+              },
+              setItem() {
+                return;
+              },
             };
 
       const mediaMatcher = window.matchMedia("(prefers-color-scheme: dark)");
+      /** @type {ThemeMode} */
       let systemTheme = mediaMatcher.matches ? "dark" : "light";
-      mediaMatcher.addEventListener("change", (e) => {
-        systemTheme = e.matches ? "dark" : "light";
-        applyTheme(theme.getTheme());
-      });
 
-      function applyTheme(t) {
-        const resolved = t === "auto" ? systemTheme : t;
+      /**
+       * @param {StoredThemeMode} theme
+       * @returns {ThemeMode}
+       */
+      function resolveTheme(theme) {
+        return theme === "auto" ? systemTheme : theme;
+      }
 
-        const codeTheme = resolved === "dark" ? "dracula" : "light-plus";
+      /**
+       * @param {StoredThemeMode} theme
+       * @returns {void}
+       */
+      function applyTheme(theme) {
+        const resolvedTheme = resolveTheme(theme);
+        const codeTheme = resolvedTheme === "dark" ? "dracula" : "light-plus";
+
         document.documentElement.dataset.codeTheme = codeTheme;
-        document.documentElement.dataset.theme = resolved;
-        document.documentElement.style.colorScheme = resolved;
-        changeGiscusTheme(t);
+        document.documentElement.dataset.theme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+
+        changeGiscusTheme(resolvedTheme);
+
         document.dispatchEvent(
           new CustomEvent("theme-changed", {
-            detail: { defaultTheme, systemTheme, theme: t },
+            detail: {
+              defaultTheme,
+              resolvedTheme,
+              systemTheme,
+              theme,
+            },
           }),
         );
       }
 
-      return {
-        getSystemTheme: () => systemTheme,
-        getTheme: () => store.getItem(storageKey) || defaultTheme,
-        resetTheme: () => store.removeItem(storageKey),
-        setTheme(t = defaultTheme) {
-          store.setItem(storageKey, t);
-          applyTheme(t);
+      /** @type {ThemeManager} */
+      const api = {
+        getSystemTheme() {
+          return systemTheme;
+        },
+
+        getTheme() {
+          const storedTheme = store.getItem(storageKey);
+          if (storedTheme === "light" || storedTheme === "dark" || storedTheme === "auto") {
+            return storedTheme;
+          }
+
+          return defaultTheme;
+        },
+
+        resetTheme() {
+          store.removeItem(storageKey);
+        },
+
+        setTheme(theme = defaultTheme) {
+          store.setItem(storageKey, theme);
+          applyTheme(theme);
         },
       };
-    })();
 
-    window.theme.setTheme(window.theme.getTheme());
+      mediaMatcher.addEventListener("change", (event) => {
+        systemTheme = event.matches ? "dark" : "light";
+        api.setTheme(api.getTheme());
+      });
 
-    // Theme-selector web component + theme manager
+      return api;
+    }
+
+    /** @type {ThemeManager} */
+    const theme = window.kdev.theme ?? createThemeManager();
+    window.kdev.theme = theme;
+
+    theme.setTheme(theme.getTheme());
+
+    /**
+     * @returns {void}
+     */
     function initThemeManager() {
       if (!customElements.get("theme-selector")) {
         customElements.define(
           "theme-selector",
           class extends HTMLElement {
             connectedCallback() {
+              /** @type {ThemeMode[]} */
               this.themes = ["light", "dark"];
-              this.btn = document.createElement("button");
-              this.btn.setAttribute("aria-label", "Toggle theme");
-              this.btn.addEventListener("click", () => this.nextTheme());
-              this.appendChild(this.btn);
+
+              const button = document.createElement("button");
+              button.setAttribute("type", "button");
+              button.setAttribute("aria-label", "Toggle theme");
+              button.addEventListener("click", () => {
+                this.nextTheme();
+              });
+
+              this.btn = button;
+              this.replaceChildren(button);
               this.updateIcon();
-              document.addEventListener("theme-changed", () => this.updateIcon());
+
+              document.addEventListener("theme-changed", this.handleThemeChanged);
             }
+
+            disconnectedCallback() {
+              document.removeEventListener("theme-changed", this.handleThemeChanged);
+            }
+
+            handleThemeChanged = () => {
+              this.updateIcon();
+            };
+
             nextTheme() {
               try {
-                const current = theme.getTheme();
-                const idx = this.themes.indexOf(current);
-                const realIdx = idx >= 0 ? idx : this.themes.indexOf(theme.getSystemTheme());
-                const next = this.themes[(realIdx + 1) % this.themes.length];
-                theme.setTheme(next);
-              } catch (err) {
-                console.error("theme-selector - cycle error:", err);
+                const currentTheme = theme.getTheme();
+                const currentIndex = this.themes.indexOf(
+                  currentTheme === "auto" ? theme.getSystemTheme() : currentTheme,
+                );
+                const safeIndex = currentIndex >= 0 ? currentIndex : 0;
+                const nextTheme = this.themes[(safeIndex + 1) % this.themes.length];
+                theme.setTheme(nextTheme);
+              } catch (error) {
+                console.error("theme-selector nextTheme failed:", error);
               }
             }
-            updateIcon(t = theme.getTheme()) {
-              const icons = { dark: "🌙", light: "☀️" };
-              this.btn.textContent = icons[t] ?? icons.dark;
+
+            updateIcon(currentTheme = theme.getTheme()) {
+              if (!(this.btn instanceof HTMLButtonElement)) {
+                return;
+              }
+
+              const visibleTheme = currentTheme === "auto" ? theme.getSystemTheme() : currentTheme;
+              const icons = {
+                dark: "🌙",
+                light: "☀️",
+              };
+
+              this.btn.textContent = icons[visibleTheme] ?? icons.dark;
             }
           },
         );
       }
 
       document.addEventListener("astro:after-swap", () => {
-        window.theme.setTheme(window.theme.getTheme());
+        theme.setTheme(theme.getTheme());
         initMobileMenu();
       });
     }
 
-    // Global listeners
     window.addEventListener("resize", toggleNavVisibility);
     document.addEventListener("astro:after-swap", initMobileMenu);
 
-    // Initial init
     initMobileMenu();
     initStickyBrandObserver();
     initThemeManager();

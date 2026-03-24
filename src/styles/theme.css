@@ -136,6 +136,9 @@
  ******************************************************************************/
 @theme inline {
 
+  --color-brand-main-accent: var( --color-orange-600);
+  --color-brand-main-accent-hover: var(--color-red-700);
+
   /* @todo use color values directly */
   --color-black: var(--color-gray-950);
   --color-white: var(--color-gray-50);

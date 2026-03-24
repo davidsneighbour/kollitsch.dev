@@ -1,22 +1,14 @@
 ---
-// @todo refactor and comment
 export interface Props {
   classes?: string;
 }
-const {
-  classes = "progress z-40 relative [--height:4px] lg:[--height:6px]",
-}: Props = Astro.props;
+const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: Props = Astro.props;
 ---
 
-<progress
-  class={classes}
-  value="0"
-  max="100"
-  aria-label="Reading progress"
-></progress>
+<progress class={classes} value="0" max="100" aria-label="Reading progress"></progress>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const getScroll = () => {
       const d = document.documentElement;
       const b = document.body;
@@ -27,21 +19,22 @@ const {
 
     const updateProgress = () => {
       const scroll = getScroll();
-      const progress = document.querySelector('progress.progress');
+      const progress = document.querySelector("progress.progress");
       if (progress) {
         progress.value = scroll;
-        progress.style.setProperty('--scroll', `${scroll}%`);
+        progress.style.setProperty("--scroll", `${scroll}%`);
       }
-      progress.toggleAttribute('data-complete', progress.value >= 99.9); //
+      progress.toggleAttribute("data-complete", progress.value >= 99.9); //
     };
 
-    document.addEventListener('scroll', updateProgress, { passive: true });
+    document.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
-    window.addEventListener('load', updateProgress);
+    window.addEventListener("load", updateProgress);
   });
 </script>
 
 <style>
+  @reference "@styles/theme.css";
   @keyframes progress-bar-stripes {
     0% {
       background-position-x: 0;
@@ -57,12 +50,9 @@ const {
     --bs-progress-font-size: 0.75rem;
     --bs-progress-bg: var(--bs-secondary-bg, rgba(0, 0, 0, 0.125));
     --bs-progress-border-radius: var(--bs-border-radius, 9999px);
-    --bs-progress-box-shadow: var(
-      --bs-box-shadow-inset,
-      inset 0 1px 2px rgba(0, 0, 0, 0.075)
-    );
-    --bs-progress-bar-color: #ffffff;
-    --bs-progress-bar-bg: #ff5500;
+    --bs-progress-box-shadow: var(--bs-box-shadow-inset, inset 0 1px 2px rgba(0, 0, 0, 0.075));
+    --bs-progress-bar-color: var(--color-white);
+    --bs-progress-bar-bg: var(--color-brand-main-accent);
     --bs-progress-bar-transition: width 0.6s ease;
 
     display: block;
@@ -127,8 +117,7 @@ const {
 
   .progress:not([data-complete])::-webkit-progress-value,
   .progress:not([data-complete])::-moz-progress-bar {
-    border-radius: 0 var(--bs-progress-border-radius)
-      var(--bs-progress-border-radius) 0;
+    border-radius: 0 var(--bs-progress-border-radius) var(--bs-progress-border-radius) 0;
     transition:
       var(--bs-progress-bar-transition),
       border-radius 0.2s ease;

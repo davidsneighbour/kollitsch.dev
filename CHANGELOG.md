@@ -1,5 +1,83 @@
 # Changelog
 
+## [3001.1.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.0.1...v3001.1.0) (2026-03-24)
+
+### Content
+
+* new post of 2025-03-24 ([8aea71e](https://github.com/davidsneighbour/kollitsch/commit/8aea71e2d0229d9094bb565ce659f4ee85c393a9))
+* **new:** blog post for 2026-03-21 ([be4d13d](https://github.com/davidsneighbour/kollitsch/commit/be4d13daf90d5b49e016bb77e3f0e98128f08ce9))
+* test pages for source code examples ([67dd235](https://github.com/davidsneighbour/kollitsch/commit/67dd23586932b92785bd7d60cc34751d90458f69))
+* **update:** description for labnotes.org ([8d0e6db](https://github.com/davidsneighbour/kollitsch/commit/8d0e6db87554a2aa4b6a3a7c1bac6ec78cbb6678))
+
+### Features
+
+* add ai review setup ([79ed0ba](https://github.com/davidsneighbour/kollitsch/commit/79ed0bad3792d06647d0e832dd768667b407dc85))
+* interruption tv ([eb28b28](https://github.com/davidsneighbour/kollitsch/commit/eb28b288cfe66095606b5202839d5ec70b18fdfb))
+
+### Bug Fixes
+
+* add script to generate screenshots to package.json ([138ab3e](https://github.com/davidsneighbour/kollitsch/commit/138ab3eb98eb11237c163fb15333c4b8a166a289))
+* blogroll screenshot script fixed and screens updated ([0da0dc0](https://github.com/davidsneighbour/kollitsch/commit/0da0dc0e6aa3ed0fd32e85c3d4951c4bbe10e69f))
+* **components:** update under construction component css ([c8c3107](https://github.com/davidsneighbour/kollitsch/commit/c8c3107cf2e31dd9f537bb2eb45df6d361620f05))
+* font sizes over all site ([3323f9f](https://github.com/davidsneighbour/kollitsch/commit/3323f9f4bc7321a2f023021b1ef5f41c8ed7a5da))
+* footer design ([b64cd9e](https://github.com/davidsneighbour/kollitsch/commit/b64cd9e3467ed7e0a9112c847bdebf3d199c76e6))
+* hr design in prose ([b2c1fa8](https://github.com/davidsneighbour/kollitsch/commit/b2c1fa8ca00be074cf030a77986910df6d93a0d1))
+* images are missing from feeds and shared posts ([4365e23](https://github.com/davidsneighbour/kollitsch/commit/4365e23b241430afc82ff16d870e27f94fbe04d3))
+* load setup.json as json ([64a477e](https://github.com/davidsneighbour/kollitsch/commit/64a477e9bd152794ef54d91efad53b2d2f547ae4))
+* markdown layouts in pages section ([5570068](https://github.com/davidsneighbour/kollitsch/commit/5570068bd8734d55ee7c76637964ac1875cf8398))
+* move namespace into first line ([61ed4a6](https://github.com/davidsneighbour/kollitsch/commit/61ed4a66af126f34d97437ff6eeca07cfac329f8))
+* move underconstruction bar into itw own component ([3660131](https://github.com/davidsneighbour/kollitsch/commit/36601311020a19a701369fde2309916f67bae197))
+* proper og images for feeds ([5605c5b](https://github.com/davidsneighbour/kollitsch/commit/5605c5ba1ad15eb03749be652ebd07e1624c302d))
+* refactor theme styles ([661e127](https://github.com/davidsneighbour/kollitsch/commit/661e1277363fab3594520d1128df217babf400ef))
+* remove Aurora component ([3aff0ca](https://github.com/davidsneighbour/kollitsch/commit/3aff0ca987b3d98f47830e69272063e5663a68a7))
+* remove obsolete file watcher ([2a40ff9](https://github.com/davidsneighbour/kollitsch/commit/2a40ff907490f06b64cc2a4410281696d6369674))
+* remove syncstring component ([3229a16](https://github.com/davidsneighbour/kollitsch/commit/3229a16b68a21f76bd019f56ecde4dbf5954218f))
+* rework content styles to prose via tailwind/typography ([4d4a1da](https://github.com/davidsneighbour/kollitsch/commit/4d4a1da935ec87138d6534103b2bb0a77998c800))
+* rework css files and structure ([31aa67c](https://github.com/davidsneighbour/kollitsch/commit/31aa67c54e1e14d712da1aef8eed48e58d7b29f1))
+* round effect over background in tvhead ([eaa7491](https://github.com/davidsneighbour/kollitsch/commit/eaa749179828937b1d4cf6b663db25c3d66a6f5a))
+* round effect over background in tvhead ([e445a76](https://github.com/davidsneighbour/kollitsch/commit/e445a768f61a730ef527a1f495ef2c217e98d15b))
+* **shadcn:** move shadcn utils path to a subfolder ([73df84e](https://github.com/davidsneighbour/kollitsch/commit/73df84e1fbad0f3bbdd9f7594701928f2093f1d0))
+* slightly more defined radius on the bg image for tvhead ([94b8c69](https://github.com/davidsneighbour/kollitsch/commit/94b8c69e0bc56dbd4fd02ad5e1ff2221d45f65b1))
+* social media icon integration and footer links ([75deb63](https://github.com/davidsneighbour/kollitsch/commit/75deb6307ae7d5bf841f8d1f8bceb023a55a9a97))
+* theme changes and removing obsolete text formatting ([37a5905](https://github.com/davidsneighbour/kollitsch/commit/37a59059bbc7151e9ae156b8d931b33e3b3b5bc7))
+* under construction banner styles ([a67b1c9](https://github.com/davidsneighbour/kollitsch/commit/a67b1c93a3026b495c9e773192b77f2ee3284aac))
+* validation issues and deprecated methods in Zod ([385e9aa](https://github.com/davidsneighbour/kollitsch/commit/385e9aa518d7332e622484d0f721cc8b0d652d5c))
+
+### Build
+
+* add MCP server configurations ([838b9e8](https://github.com/davidsneighbour/kollitsch/commit/838b9e86621d8f177d57488974be437ffe57ccc8))
+* **deps:** audit fix for dependencies ([2ba41a7](https://github.com/davidsneighbour/kollitsch/commit/2ba41a7d6b654233e7b228ae231eb291b3efe04f))
+* **deps:** bump h3 from 1.15.8 to 1.15.9 in the npm_and_yarn group across 1 directory ([#1566](https://github.com/davidsneighbour/kollitsch/issues/1566)) ([f6114be](https://github.com/davidsneighbour/kollitsch/commit/f6114be2661f26b408d25de562c46ae46f4bc15a))
+* **deps:** update dependencies ([93cce5a](https://github.com/davidsneighbour/kollitsch/commit/93cce5a5d4ae5f8c342c0937516c2d72f0c02079))
+* **deps:** update dependencies ([e875b4b](https://github.com/davidsneighbour/kollitsch/commit/e875b4b8e577498cf90b36c4ff2e7da7e6ac2ffd))
+* **deps:** update dependencies ([6567055](https://github.com/davidsneighbour/kollitsch/commit/65670557e04bc63c0bef82556ce34201343fe64f))
+* **deps:** update dependencies ([fa66e68](https://github.com/davidsneighbour/kollitsch/commit/fa66e685a88b8acf953ae9bb276a8f5b594c02ce))
+* **deps:** update dependencies ([3ada0e9](https://github.com/davidsneighbour/kollitsch/commit/3ada0e9ce5fab0d9e29e8ec825fd83d87b1ef8f7))
+* **deps:** update dependencies and move devdeps to deps ([0a83e61](https://github.com/davidsneighbour/kollitsch/commit/0a83e61dfb6a677a2ba9b1e17d7c065ab8e5398d))
+* **deps:** update site screenshot ([ba44155](https://github.com/davidsneighbour/kollitsch/commit/ba44155588de3d7ee14d19b8d5e79ed594f1f9a4))
+
+### Chores
+
+* add ToDo.md for bug fixing ([b25d96a](https://github.com/davidsneighbour/kollitsch/commit/b25d96aa5dd3505bf5743a97fadab2942a0c73b6))
+* cleanup .gitignore ([f94cd47](https://github.com/davidsneighbour/kollitsch/commit/f94cd4758fc1621706367f4f199a2c50f521765b))
+* **deps:** update package sources with latest changes ([dfcdc47](https://github.com/davidsneighbour/kollitsch/commit/dfcdc474ffdef7e92cab57c90d9841b7d87294e3))
+* **fix:** proper netlify folder gitignore ([58bce74](https://github.com/davidsneighbour/kollitsch/commit/58bce740d61c8d2fc7835c1f81190a2790a70709))
+* update ToDo.md ([83a24f2](https://github.com/davidsneighbour/kollitsch/commit/83a24f23b7512f2bb9c92d10ea43244af8a4c695))
+
+### CI
+
+* clean out deprecated workflows ([8034ac0](https://github.com/davidsneighbour/kollitsch/commit/8034ac0f46a395d270deea76145d11fa7b1fefda))
+* **fix:** add --no-glob parameter to secretlint lintstaged config ([24e3f54](https://github.com/davidsneighbour/kollitsch/commit/24e3f54e31618aa5bbd5013884806101933a1301))
+* **fix:** fix testing, linting html and markdown ([1f50f04](https://github.com/davidsneighbour/kollitsch/commit/1f50f04c6f3864b5e4929c90d6734cf7af1af24b))
+* **fix:** remove cruft from lychee lintstaged check ([a4db6a6](https://github.com/davidsneighbour/kollitsch/commit/a4db6a6676bd15ac7e0c61d1e5d6fe8f06901279))
+
+### Documentation
+
+* **fix:** move docs into Obsidian notes ([523f5c0](https://github.com/davidsneighbour/kollitsch/commit/523f5c0ebe07c65d9341e64ca70238d464ca068a))
+* **fix:** move docs into Obsidian notes ([3fe5bd2](https://github.com/davidsneighbour/kollitsch/commit/3fe5bd2dee12dfe2bce9e9ed55bf0f67965431c4))
+* **fix:** refactor markdown of docs ([7278f91](https://github.com/davidsneighbour/kollitsch/commit/7278f9199263756f9700b8ca603d0cbd0e9216b6))
+* update license year ([360a64f](https://github.com/davidsneighbour/kollitsch/commit/360a64f7b4b7bcacbb85f8ebf380db34928629f9))
+
 ## [3001.0.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.0.0...v3001.0.1) (2026-03-15)
 
 ### Build

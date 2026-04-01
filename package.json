@@ -68,7 +68,7 @@
     "@vitest/browser-playwright": "^4",
     "ajv": "8.18.0",
     "ajv-formats": "3.0.1",
-    "astro": "6.0.8",
+    "astro": "6.1.2",
     "astro-expressive-code": "0.41.7",
     "astro-icon": "1.1.5",
     "bootstrap-icons": "1.13.1",

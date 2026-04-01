@@ -47,7 +47,7 @@
     "@secretlint/secretlint-rule-anthropic": "11.4.0",
     "@secretlint/secretlint-rule-database-connection-string": "11.4.0",
     "@secretlint/secretlint-rule-no-dotenv": "11.4.0",
-    "@secretlint/secretlint-rule-no-homedir": "11.4.0",
+    "@secretlint/secretlint-rule-no-homedir": "11.4.1",
     "@secretlint/secretlint-rule-no-k8s-kind-secret": "11.4.0",
     "@secretlint/secretlint-rule-openai": "11.4.0",
     "@secretlint/secretlint-rule-pattern": "11.4.0",

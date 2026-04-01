@@ -52,7 +52,7 @@
     "@secretlint/secretlint-rule-openai": "11.4.0",
     "@secretlint/secretlint-rule-pattern": "11.4.0",
     "@secretlint/secretlint-rule-preset-recommend": "11.4.0",
-    "@secretlint/secretlint-rule-secp256k1-privatekey": "11.4.0",
+    "@secretlint/secretlint-rule-secp256k1-privatekey": "11.4.1",
     "@sentry/astro": "10.45.0",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/forms": "0.5.11",

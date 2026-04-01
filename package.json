@@ -89,7 +89,7 @@
     "jsdom": "29.0.1",
     "lenis": "1.3.20",
     "lighthouse": "13.0.3",
-    "lucide-react": "1.0.1",
+    "lucide-react": "1.7.0",
     "markdownlint": "0.40.0",
     "markdownlint-cli2": "0.22.0",
     "markdownlint-rule-extended-ascii": "0.2.1",

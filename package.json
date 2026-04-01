@@ -16,7 +16,7 @@
     "@astrojs/check": "0.9.8",
     "@astrojs/mdx": "5.0.2",
     "@astrojs/react": "5.0.1",
-    "@astrojs/rss": "4.0.17",
+    "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.1",
     "@astrojs/ts-plugin": "1.10.7",
     "@axe-core/playwright": "4.11.1",

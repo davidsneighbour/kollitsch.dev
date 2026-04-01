@@ -40,7 +40,7 @@
     "@ls-lint/ls-lint": "2.3.1",
     "@netlify/functions": "5.1.5",
     "@pagefind/default-ui": "1.4.0",
-    "@playwright/test": "1.58.2",
+    "@playwright/test": "1.59.1",
     "@radix-ui/react-slot": "1.2.4",
     "@release-it/conventional-changelog": "*",
     "@resvg/resvg-js": "2.6.2",

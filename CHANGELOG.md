@@ -1,5 +1,25 @@
 # Changelog
 
+## [3001.1.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.1.1...v3001.1.2) (2026-04-11)
+
+### Bug Fixes
+
+* move head component into head subfolder ([1262c83](https://github.com/davidsneighbour/kollitsch.dev/commit/1262c83ca9c1185017ac0e82553af3a43994902e))
+* refactor topnavigation, move progress bar up top ([ccd7c71](https://github.com/davidsneighbour/kollitsch.dev/commit/ccd7c71e0822d97e878c3c7dd1708d5b1cb8ea4e))
+* refactoring header components ([e17ebfd](https://github.com/davidsneighbour/kollitsch.dev/commit/e17ebfd348bf3e4ed9a68dfb839279315be44005))
+* ts check error for early nullish return ([5b735b3](https://github.com/davidsneighbour/kollitsch.dev/commit/5b735b37c5508561e7627970f64589a35b37da25))
+* type error for icon name slug, using IconName ([e463b17](https://github.com/davidsneighbour/kollitsch.dev/commit/e463b17af98f9a86b62bc27158b3c90041694e16))
+
+### Build
+
+* **deps:** update dependencies ([09d7fc2](https://github.com/davidsneighbour/kollitsch.dev/commit/09d7fc2fcd5f6a441f599ab89e1c4cff8d222648))
+* **deps:** update dependencies ([a940541](https://github.com/davidsneighbour/kollitsch.dev/commit/a9405419cdc2130698d673041fa6239fd15c465f))
+* **deps:** upgrade Astro from v6.0.8 to v6.1.4 ([dcbc3da](https://github.com/davidsneighbour/kollitsch.dev/commit/dcbc3dab281da78a75e2857a38b359549f39e0a4))
+
+### Documentation
+
+* **ai:** adding experimental Behaviour.spec.md to components/layout/header ([20b7edf](https://github.com/davidsneighbour/kollitsch.dev/commit/20b7edff2cc6faa3c03d19843341622498b5d1f8))
+
 ## [3001.1.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.1.0...v3001.1.1) (2026-03-24)
 
 ### Build

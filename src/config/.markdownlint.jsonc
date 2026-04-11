@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
+  "$schema": "https://github.com/DavidAnson/markdownlint/blob/main/schema/markdownlint-config-schema.json",
   "$id": "https://raw.githubusercontent.com/davidsneighbour/kollitsch.dev/refs/heads/main/src/config/.markdownlint.jsonc",
   "default": true,
   "customRules": [
@@ -35,7 +35,8 @@
   "MD021": false,
   // disallow multiple headings with the same content within the same level structure
   "MD024": {
-    "siblings_only": true
+    "siblings_only": true,
+    "allow_different_nesting": true
   },
   // no inline HTML elements, except for the allowed ones. in tables only the explicit allowed ones
   "MD033": {

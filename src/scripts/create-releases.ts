@@ -6,6 +6,7 @@
  *   node create-missing-releases.mjs --owner davidsneighbour --repo kollitsch.dev --generate-notes --dry-run
  *
  * Env:
+ *   @todo switch token to new system, see instruction file
  *   GITHUB_PERSONAL_ACCESS_TOKEN   Personal access token with repo scope
  *
  * Flags:

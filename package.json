@@ -351,5 +351,8 @@
   "stylelint": {
     "configFile": "./src/config/stylelint/index.js"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "25.6.0"
+  }
 }

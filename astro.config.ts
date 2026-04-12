@@ -12,8 +12,8 @@ import fg from 'fast-glob';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
-import redirects from './src/data/redirects.json' assert { type: 'json' };
-
+import redirects from './src/data/redirects.json' with { type: 'json' };
+import { buildHooks } from "./src/scripts/build-hooks.ts";
 import react from '@astrojs/react';
 
 // env variables are not automatically loaded
@@ -87,7 +87,10 @@ export default defineConfig({
     objectPosition: 'center',
     responsiveStyles: true,
   },
-  integrations: [sitemap({
+  integrations: [
+    // see src/scripts/build-hooks.ts for build hooks
+    ...buildHooks(),
+    sitemap({
     namespaces: { image: false, news: false, video: false, xhtml: false },
     xslURL: '/feeds/sitemap.xsl',
     filter: (page) =>

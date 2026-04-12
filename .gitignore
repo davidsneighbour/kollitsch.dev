@@ -9,6 +9,7 @@
 # Dynamically generated files
 public/og_image/
 public/favicon.ico
+public/dnb-*.rss.xml
 src/content/_generated
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,astro

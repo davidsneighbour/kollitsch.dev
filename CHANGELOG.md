@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.2.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.2...v3001.2.3) (2026-04-12)
+
+### Bug Fixes
+
+* refactor header section ([764669b](https://github.com/davidsneighbour/kollitsch.dev/commit/764669bf36a9d54b8b97364cfd8713f8ea9c9034))
+
+### Build
+
+* **fix:** remove launch.json (unused) ([aa60845](https://github.com/davidsneighbour/kollitsch.dev/commit/aa608452b292ec7bf22ab60d768572db31460d40))
+
 ## [3001.2.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.1...v3001.2.2) (2026-04-12)
 
 ### Build

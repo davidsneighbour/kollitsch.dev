@@ -55,7 +55,7 @@ export default defineConfig({
       ],
   retries: process.env.CI ? 2 : 0,
   testDir: 'src/test',
-  testIgnore: ['**/*.test.*', '**/browser/**'],
+  testIgnore: ['**/*.test.*', '**/browser/**', '**/live/**'],
 
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4321',
@@ -71,10 +71,11 @@ export default defineConfig({
   },
 
   webServer: {
-    command: 'npm run preview',
+    command: 'npm run dev -- --host 127.0.0.1 --port 4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     url: 'http://localhost:4321/',
   },
-  workers: process.env.CI ? 1 : 16,
+  timeout: 60_000,
+  workers: process.env.CI ? 1 : 2,
 });

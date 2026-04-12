@@ -1,5 +1,13 @@
 # Changelog
 
+## [3001.2.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.1...v3001.2.2) (2026-04-12)
+
+### Build
+
+* **fix:** run apply action on vscode:sync script ([c8d44e9](https://github.com/davidsneighbour/kollitsch.dev/commit/c8d44e9bd390c609a20ee635d1c5d14c31bf0570))
+* **fix:** update release script ([dff0716](https://github.com/davidsneighbour/kollitsch.dev/commit/dff0716347fc1f7946008f43fa33fc057c281713))
+* **fix:** update vscode script paths ([bc4e3bf](https://github.com/davidsneighbour/kollitsch.dev/commit/bc4e3bfe18b4f226e285e02342fccf9c7b73865d))
+
 ## [3001.2.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.0...v3001.2.1) (2026-04-12)
 
 ### Build

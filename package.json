@@ -132,7 +132,7 @@
     "packages:update": "wireit",
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "DEBUG=* release-it --config .release-it.ts",
+    "release": "DEBUG=* release-it --ci --config .release-it.ts",
     "screenshot": "wireit",
     "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
     "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",

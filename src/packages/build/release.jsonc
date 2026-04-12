@@ -10,6 +10,6 @@
   "scripts": {
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "DEBUG=* release-it --config .release-it.ts"
+    "release": "DEBUG=* release-it --ci --config .release-it.ts"
   }
 }

@@ -39,7 +39,7 @@
     "*.json": "$(capture).schema.json,$(capture).test.ts",
     "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json",
     "playwright.config.ts": "playwright.*.ts",
-    "README.md": "AGENTS.md",
+    "README.md": "AGENTS.md, SECURITY.md, LICENSE.md",
     "settings.json": "settings.*.jsonc",
     "shared-config.ts": "shared-config*"
   },
@@ -125,24 +125,5 @@
   "vale.valeCLI.config": "/home/patrick/.dotfiles/configs/vale/.vale.ini",
   "vale.valeCLI.installVale": true,
   "vale.valeCLI.minAlertLevel": "error",
-  "vale.valeCLI.syncOnStartup": true,
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#ff9966",
-    "activityBar.background": "#ff9966",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#00802b",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "commandCenter.border": "#15202b99",
-    "sash.hoverBorder": "#ff9966",
-    "statusBar.background": "#ff7733",
-    "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#ff5500",
-    "statusBarItem.remoteBackground": "#ff7733",
-    "statusBarItem.remoteForeground": "#15202b",
-    "titleBar.activeBackground": "#ff7733",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#ff773399",
-    "titleBar.inactiveForeground": "#15202b99"
-  }
+  "vale.valeCLI.syncOnStartup": true
 }

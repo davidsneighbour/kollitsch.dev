@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@biomejs/biome": "2.4.8"
+    "@biomejs/biome": "2.4.11"
   },
   "scripts": {
     "biome:check": "biome check",

@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@ls-lint/ls-lint": "2.3.1",
-    "jsdom": "29.0.1"
+    "jsdom": "29.0.2"
   },
   "scripts": {
     "lint:filenames": "ls-lint"

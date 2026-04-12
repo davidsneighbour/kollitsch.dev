@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "fast-glob": "3.3.3",
-    "@davidsneighbour/release-config": "2026.0.3",
+    "@davidsneighbour/release-config": "2026.0.4",
     "fixpack": "4.0.0"
   },
   "scripts": {

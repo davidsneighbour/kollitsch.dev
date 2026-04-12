@@ -5,7 +5,7 @@
     }
   },
   "dependencies": {
-    "lighthouse": "13.0.3",
+    "lighthouse": "13.1.0",
     "chrome-launcher": "1.2.1"
   },
   "scripts": {

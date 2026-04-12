@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@netlify/functions": "5.1.5"
+    "@netlify/functions": "5.2.0"
   },
   "scripts": {
     "clean:netlify": "wireit",

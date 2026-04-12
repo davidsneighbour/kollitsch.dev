@@ -24,7 +24,7 @@ describe('FeedReader', () => {
     const webTile = $("a[aria-label='Open the Web, Tech & Development feed']");
     expect(webTile).toHaveLength(1);
     expect(webTile.attr('href')).toBe(
-      'https://feedly.com/f/0HetQ6aL9keke3b0TDbK3Lon',
+      'https://kollitsch.dev/dnb-webdev.rss.xml',
     );
     expect(webTile.attr('target')).toBe('_newfeed');
     expect(webTile.find('img').attr('alt')).toBe(
@@ -34,7 +34,7 @@ describe('FeedReader', () => {
     const thisTile = $("a[aria-label='Open the This & That feed']");
     expect(thisTile).toHaveLength(1);
     expect(thisTile.attr('href')).toBe(
-      'https://feedly.com/f/x5VFmEUFdCxV64dLi62eJ4xV',
+      'https://kollitsch.dev/dnb-entertainment.rss.xml',
     );
     expect(thisTile.attr('target')).toBe('_newfeed');
     expect(thisTile.find('img').attr('alt')).toBe('This & That feed');

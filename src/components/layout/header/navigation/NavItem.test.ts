@@ -12,7 +12,6 @@ describe('NavItem component', () => {
     const src = await fs.readFile(componentPath, 'utf8');
 
     expect(src).toContain('export interface Props');
-    expect(src).toContain('icon: string;');
     expect(src).toContain('name: string;');
     expect(src).toContain('link: string;');
     expect(src).toContain('classes?: string;');

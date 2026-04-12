@@ -1,5 +1,34 @@
 # Changelog
 
+## [3001.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.1.2...v3001.2.0) (2026-04-12)
+
+### Features
+
+* add follower feeds and generation ([23aaff2](https://github.com/davidsneighbour/kollitsch.dev/commit/23aaff2607d6dc7754b2d3d8792d7e4d8f739c4c))
+
+### Bug Fixes
+
+* implement follower feeds via build hook and link on website ([d34fc06](https://github.com/davidsneighbour/kollitsch.dev/commit/d34fc06c71ebbe2124e84c20c2e21338a259d459))
+* proper path to package.json ([f901192](https://github.com/davidsneighbour/kollitsch.dev/commit/f901192b3c7c4a14bc4457a953937a2916e5f800))
+
+### Build
+
+* **deps:** update dependencies ([800e7ce](https://github.com/davidsneighbour/kollitsch.dev/commit/800e7ce00abd1de2d409cf09318567e31340b07a))
+* update vscode scripts ([59c1586](https://github.com/davidsneighbour/kollitsch.dev/commit/59c15863da69e19503bd0d2d9056017ad99d2293))
+
+### CI
+
+* **fix:** tsconfig for scripts collection, update root config ([38904cd](https://github.com/davidsneighbour/kollitsch.dev/commit/38904cd214f3763689c2fe81143ffc2618d7b091))
+
+### Refactoring
+
+* reformatting ([66c294f](https://github.com/davidsneighbour/kollitsch.dev/commit/66c294ffdd5c97c814ebcf6bd5a2fb8502ab5bd5))
+
+### Tests
+
+* **fix:** get e2e testing working again and remove unused tests ([5f2b52a](https://github.com/davidsneighbour/kollitsch.dev/commit/5f2b52a4f6d379f1e25756f0c6acbc8ac67cfa01))
+* **fix:** urls in feed reader component ([add59ac](https://github.com/davidsneighbour/kollitsch.dev/commit/add59ac0fcae8dc913991e169ec15acba3a52b6e))
+
 ## [3001.1.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.1.1...v3001.1.2) (2026-04-11)
 
 ### Bug Fixes

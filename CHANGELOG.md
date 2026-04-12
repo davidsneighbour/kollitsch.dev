@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.2.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.0...v3001.2.1) (2026-04-12)
+
+### Build
+
+* **fix:** set proper GH key for release ([d8fb2fe](https://github.com/davidsneighbour/kollitsch.dev/commit/d8fb2fe6f2881260fe44871cc6cc94c29fb0914e))
+
 ## [3001.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.1.2...v3001.2.0) (2026-04-12)
 
 ### Features

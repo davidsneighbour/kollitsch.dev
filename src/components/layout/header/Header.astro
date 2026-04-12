@@ -1,0 +1,10 @@
+---
+import SiteTitle from "@components/layout/header/title/SiteTitle.astro";
+import { createIdentifier } from "@utils/helpers";
+import TopNavigation from "@/components/layout/header/navigation/TopNavigation.astro";
+
+const siteTitleId = createIdentifier({ prefix: "sitetitle" });
+---
+
+<SiteTitle siteTitleId={siteTitleId} />
+<TopNavigation siteTitleId={siteTitleId} />

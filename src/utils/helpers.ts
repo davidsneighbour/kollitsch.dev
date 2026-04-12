@@ -1,3 +1,6 @@
+import { randomBytes } from 'node:crypto';
+import { z } from 'zod';
+
 /**
  * Generates a unique ID string for HTML elements.
  *
@@ -50,4 +53,57 @@ export function generateRandomString(len: number): string {
   }
 
   return chars.join('');
+}
+
+/**
+ * Schema for createIdentifier options.
+ *
+ * Enforces:
+ * - prefix: optional string
+ * - length: positive integer (> 0)
+ *
+ * Defaults:
+ * - prefix: "identifier"
+ * - length: 24
+ */
+export const CreateIdentifierSchema = z
+  .object({
+    length: z.number().int().positive().default(24),
+    prefix: z.string().default('identifier'),
+  })
+  .strict();
+
+/**
+ * Type inferred from schema.
+ */
+export type CreateIdentifierOptions = z.infer<typeof CreateIdentifierSchema>;
+
+/**
+ * Generate a random, DOM-safe identifier string.
+ *
+ * Validation and defaults are handled via Zod.
+ *
+ * @example
+ * createIdentifier(); // => "identifier-k3j9a2l0p1"
+ *
+ * @example
+ * createIdentifier({ prefix: "header" }); // => "header-x9k2m4n8q1"
+ *
+ * @example
+ * createIdentifier({ length: 6 }); // => "identifier-a1b2c3"
+ *
+ * @param input Optional configuration object (validated via Zod)
+ * @returns A unique identifier string
+ */
+export function createIdentifier(input?: unknown): string {
+  const { prefix, length } = CreateIdentifierSchema.parse(input ?? {});
+
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  const bytes = randomBytes(length);
+
+  const suffix = Array.from(bytes, (byte) => {
+    return alphabet[byte % alphabet.length];
+  }).join('');
+
+  return `${prefix}-${suffix}`;
 }

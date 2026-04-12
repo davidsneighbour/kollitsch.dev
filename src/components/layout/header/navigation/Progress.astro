@@ -2,13 +2,21 @@
 export interface Props {
   classes?: string;
 }
+
 const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: Props = Astro.props;
 ---
 
-<progress class={classes} value="0" max="100" aria-label="Reading progress"></progress>
-
+<progress class={classes} value="0" max="100" aria-label="Reading progress" data-reading-progress></progress>
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  (() => {
+    window.kdev ??= {};
+
+    if (window.kdev.readingProgressInitialised) {
+      return;
+    }
+
+    window.kdev.readingProgressInitialised = true;
+
     const getScroll = () => {
       const d = document.documentElement;
       const b = document.body;
@@ -19,60 +27,57 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
     const updateProgress = () => {
       const scroll = getScroll();
-      const progress = document.querySelector("progress.progress");
-      if (progress) {
+      const progressBars = document.querySelectorAll("progress[data-reading-progress]");
+
+      for (const progress of progressBars) {
+        if (!(progress instanceof HTMLProgressElement)) {
+          continue;
+        }
+
         progress.value = scroll;
         progress.style.setProperty("--scroll", `${scroll}%`);
+        progress.toggleAttribute("data-complete", progress.value >= 99.9); //
       }
-      progress.toggleAttribute("data-complete", progress.value >= 99.9); //
     };
 
     document.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
     window.addEventListener("load", updateProgress);
-  });
+    document.addEventListener("astro:page-load", updateProgress);
+
+    updateProgress();
+  })();
 </script>
 
 <style>
   @reference "@styles/theme.css";
+
   @keyframes progress-bar-stripes {
     0% {
       background-position-x: 0;
     }
 
     100% {
-      background-position-x: var(--bs-progress-height);
+      background-position-x: var(--progress-height);
     }
   }
 
   .progress {
-    --bs-progress-height: var(--thickness, var(--height, 4px));
-    --bs-progress-font-size: 0.75rem;
-    --bs-progress-bg: var(--bs-secondary-bg, rgba(0, 0, 0, 0.125));
-    --bs-progress-border-radius: var(--bs-border-radius, 9999px);
-    --bs-progress-box-shadow: var(--bs-box-shadow-inset, inset 0 1px 2px rgba(0, 0, 0, 0.075));
-    --bs-progress-bar-color: var(--color-white);
-    --bs-progress-bar-bg: var(--color-brand-main-accent);
-    --bs-progress-bar-transition: width 0.6s ease;
+    --progress-height: var(--thickness, var(--height, 4px));
+    --progress-bar-transition: width 0.6s ease;
 
-    display: block;
-    width: 100%;
-    height: var(--bs-progress-height);
-    background-color: var(--bs-progress-bg);
-    border-radius: 0;
-    box-shadow: var(--bs-progress-box-shadow);
-    appearance: none;
+    @apply block w-full appearance-none rounded-none bg-black/10;
+    @apply shadow-[inset_0_1px_2px_rgba(0,0,0,0.075)];
+
+    height: var(--progress-height);
   }
 
   .progress::-webkit-progress-bar {
-    background-color: var(--bs-progress-bg);
-    border-radius: var(--bs-progress-border-radius);
+    @apply rounded-full bg-black/10;
   }
 
   .progress::-webkit-progress-value {
-    color: var(--bs-progress-bar-color);
-    background-color: var(--bs-progress-bar-bg);
-    border-radius: var(--bs-progress-border-radius);
+    @apply rounded-full bg-brand-main-accent;
+
     background-image: linear-gradient(
       -45deg,
       rgba(255, 255, 255, 0.15) 25%,
@@ -83,15 +88,14 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
       transparent 75%,
       transparent
     );
-    background-size: var(--bs-progress-height) var(--bs-progress-height);
+    background-size: var(--progress-height) var(--progress-height);
     animation: progress-bar-stripes 1s linear infinite;
-    transition: var(--bs-progress-bar-transition);
+    transition: var(--progress-bar-transition);
   }
 
   .progress::-moz-progress-bar {
-    color: var(--bs-progress-bar-color);
-    background-color: var(--bs-progress-bar-bg);
-    border-radius: var(--bs-progress-border-radius);
+    @apply rounded-full bg-brand-main-accent;
+
     background-image: linear-gradient(
       -45deg,
       rgba(255, 255, 255, 0.15) 25%,
@@ -102,32 +106,33 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
       transparent 75%,
       transparent
     );
-    background-size: var(--bs-progress-height) var(--bs-progress-height);
+    background-size: var(--progress-height) var(--progress-height);
     animation: progress-bar-stripes 1s linear infinite;
-    transition: var(--bs-progress-bar-transition);
+    transition: var(--progress-bar-transition);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .progress::-webkit-progress-value,
     .progress::-moz-progress-bar {
-      animation: none;
-      transition: none;
+      @apply animate-none transition-none;
     }
   }
 
   .progress:not([data-complete])::-webkit-progress-value,
   .progress:not([data-complete])::-moz-progress-bar {
-    border-radius: 0 var(--bs-progress-border-radius) var(--bs-progress-border-radius) 0;
+    @apply rounded-l-none rounded-r-full;
+
     transition:
-      var(--bs-progress-bar-transition),
+      var(--progress-bar-transition),
       border-radius 0.2s ease;
   }
 
   .progress[data-complete]::-webkit-progress-value,
   .progress[data-complete]::-moz-progress-bar {
-    border-radius: 0;
+    @apply rounded-none;
+
     transition:
-      var(--bs-progress-bar-transition),
+      var(--progress-bar-transition),
       border-radius 0.2s ease;
   }
 </style>

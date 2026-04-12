@@ -129,6 +129,10 @@
       transform: scale(1);
     }
   }
+
+  --font-title: var(--font-changa);
+  --font-title--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; 
+  /* --font-title--font-variation-settings: "opsz" 32;  */
 }
 
 /*******************************************************************************

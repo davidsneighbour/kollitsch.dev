@@ -1,22 +1,18 @@
 ---
 // astro imports
 import { fade } from "astro:transitions";
-
-import type { Navigation } from "@utils/navigation";
-
-// components
-import ProgressBar from "@components/layout/header/Progress.astro";
 import NavItem from "@components/layout/header/navigation/NavItem.astro";
-
 // data
 import setup from "@data/setup.json" with { type: "json" };
 import navData from "@data/topnavigation.json" with { type: "json" };
-
-// utilities
-import { Icon } from "astro-icon/components";
 import { getHomepageUrl } from "@utils/content.ts";
 import { createLogger } from "@utils/logger.ts";
+import type { Navigation } from "@utils/navigation";
 import { findActive, isActive } from "@utils/navigation.ts";
+// utilities
+import { Icon } from "astro-icon/components";
+// components
+import ProgressBar from "@/components/layout/header/navigation/Progress.astro";
 
 const typedNavData = navData as Navigation;
 
@@ -44,10 +40,12 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
 ---
 
 <header
-  class="sticky top-0 right-0 left-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900"
+  class="sticky top-0 right-0 left-0 isolate z-50 mb-12 bg-zinc-100 [--thickness:4px] lg:[--thickness:6px] dark:bg-zinc-900 pt-2 px-2"
   aria-label="Top navigation bar with site title, navigation links, and theme selector"
 >
-  <ProgressBar classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-[70] hidden [--height:4px] lg:[--height:6px]" />
+  <ProgressBar
+    classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-[70] hidden [--height:4px] lg:[--height:6px]"
+  />
 
   <nav class="@container mx-auto max-w-7xl" aria-label="Main navigation">
     <div class="backdrop pointer-events-none absolute inset-0 z-10 bg-gray-100 backdrop-blur-lg dark:bg-gray-900"></div>

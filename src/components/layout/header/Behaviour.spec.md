@@ -1,10 +1,10 @@
 ---
 folder: src/components/layout/header
 components:
-  - SiteHeader.astro
-  - SiteTitle.astro
-  - TopNavigation.astro
-  - Progress.astro
+  - Header.astro
+  - title/SiteTitle.astro
+  - navigation/TopNavigation.astro
+  - navigation/Progress.astro
 required_sections:
   - scope
   - vocabulary
@@ -21,10 +21,10 @@ This specification defines the expected behaviour of the site header system.
 
 Covered components:
 
-* `SiteHeader.astro`
-* `SiteTitle.astro`
-* `TopNavigation.astro`
-* `Progress.astro`
+* `Header.astro`
+* `title/SiteTitle.astro`
+* `navigation/TopNavigation.astro`
+* `navigation/Progress.astro`
 
 The header system is responsible for:
 
@@ -67,8 +67,8 @@ The header system is responsible for:
 
 ## Invariants
 
-* `SiteHeader.astro` renders both `SiteTitle` and `TopNavigation`
-* `SiteHeader.astro` passes the same `siteTitleId` to both child components
+* `Header.astro` renders both `title/SiteTitle` and `navigation/TopNavigation`
+* `Header.astro` passes the same `siteTitleId` to both child components
 * The site title is always rendered
 * The site title links to `/`
 * The top navigation is rendered on every page that includes the header
@@ -78,17 +78,17 @@ The header system is responsible for:
 
 ## Behaviours
 
-### SiteHeader composition
+### Header composition
 
-* `SiteHeader.astro` creates a `siteTitleId`
+* `Header.astro` creates a `siteTitleId`
 * The generated `siteTitleId` begins with `sitetitle-`
 * The same `siteTitleId` is passed to:
-  * `SiteTitle.astro`
-  * `TopNavigation.astro`
+  * `title/SiteTitle.astro`
+  * `navigation/TopNavigation.astro`
 
 ### Site title
 
-* `SiteTitle.astro` renders a `<header>` element
+* `title/SiteTitle.astro` renders a `<header>` element
 * The site title header has `aria-label="Site title"`
 * The site title header uses the provided `siteTitleId` as its `id`
 * The site title contains a homepage link
@@ -96,8 +96,8 @@ The header system is responsible for:
 
 ### Top navigation structure
 
-* `TopNavigation.astro` renders a sticky header
-* `TopNavigation.astro` renders a `<nav>` landmark with `aria-label="Main navigation"`
+* `navigation/TopNavigation.astro` renders a sticky header
+* `navigation/TopNavigation.astro` renders a `<nav>` landmark with `aria-label="Main navigation"`
 * The progress component is included in the navigation header
 * At least one navigation link is rendered
 * Navigation links must be keyboard reachable

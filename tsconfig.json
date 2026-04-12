@@ -1,55 +1,48 @@
 {
+  "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": "./",
-    // not happy about this, but without it our json imports throw errors
-    // Module '"...kollitsch.dev/src/data/footernavigation"' can only be
-    // default-imported using the 'allowSyntheticDefaultImports' flag ts(1259)
-    // footernavigation.json(1, 1): This module is declared with 'export =',
-    // and can only be used with a default import when using the
-    // 'allowSyntheticDefaultImports' flag.
-    //"allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "./src/assets/*"
       ],
       "@components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "@config/*": [
-        "src/config/*"
+        "./src/config/*"
       ],
       "@content/*": [
-        "src/content/*"
+        "./src/content/*"
       ],
       "@contentconfig": [
-        "src/content.config.ts"
+        "./src/content.config.ts"
       ],
       "@data/*": [
-        "src/data/*"
+        "./src/data/*"
       ],
       "@layouts/*": [
-        "src/layouts/*"
+        "./src/layouts/*"
       ],
       "@packages/*": [
-        "src/packages/*"
+        "./src/packages/*"
       ],
       "@pages/*": [
-        "src/pages/*"
+        "./src/pages/*"
       ],
       "@scripts/*": [
-        "src/scripts/*"
+        "./src/scripts/*"
       ],
       "@styles/*": [
-        "src/styles/*"
+        "./src/styles/*"
       ],
       "@test/*": [
-        "src/test/*"
+        "./src/test/*"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "./src/utils/*"
       ]
     },
     "plugins": [
@@ -64,19 +57,13 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "exclude": [
-    "dist",
-    "scratch",
-    "src/scripts",
-    "src/config",
-    "src/test/browser",
-    "src/utils", // silence hack, evil don't
-    "src/test", // silence hack, evil don't
-    "src/layouts", // silence hack, evil don't
-  ],
-  "extends": "astro/tsconfigs/strictest",
   "include": [
     ".astro/types.d.ts",
     "src"
+  ],
+  "exclude": [
+    "dist",
+    "scratch",
+    "src/scripts"
   ]
 }

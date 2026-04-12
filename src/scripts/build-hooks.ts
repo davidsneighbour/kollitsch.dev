@@ -5,7 +5,7 @@ import type { AstroIntegration } from "astro";
 const execFileAsync = promisify(execFile);
 
 /**
- * Astro build hook that generates followers RSS feeds before the actual Astro
+ * Astro build hook that generates followers RSS feeds before the actual Astro 
  * production build starts.
  *
  * @returns {AstroIntegration} Astro integration definition.

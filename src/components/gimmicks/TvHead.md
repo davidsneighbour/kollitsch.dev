@@ -8,7 +8,6 @@ The component is designed for editorial/gimmick use inside pages or posts where 
 
 * Component: `src/components/gimmicks/TvHead.astro`
 * Video script: `src/scripts/vendor/lite-youtube.ts`
-* Video styles: `src/styles/vendor/lite-youtube.css`
 
 The lite YouTube vendored files stay as they are. Component-specific CSS stays inside `TvHead.astro`.
 

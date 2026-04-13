@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import "@styles/vendor/lite-youtube.css";
+import Youtube from "@components/content/media/Youtube.astro";
+import type { YouTubePlayerParamsInput } from "@utils/youtube";
 
 export interface Props {
   id?: string;
@@ -21,7 +22,7 @@ export interface Props {
   cropLeft?: number;
   borderRadius?: string;
   title?: string;
-  params?: string;
+  params?: YouTubePlayerParamsInput | string;
   class?: string;
   scaleMode?: "contain" | "cover";
   videoAspectRatio?: number;
@@ -179,6 +180,17 @@ const coverPlayerStyle = [
 
 const playerStyle = scaleMode === "cover" ? coverPlayerStyle : containPlayerStyle;
 
+function parseParams(input: string | YouTubePlayerParamsInput): YouTubePlayerParamsInput {
+  if (typeof input !== "string") {
+    return input;
+  }
+
+  const search = new URLSearchParams(input);
+  return Object.fromEntries(search.entries());
+}
+
+const parsedParams = parseParams(params);
+
 const componentId = id?.trim() || `tvhead-${videoId}`;
 const hasBackgroundEffect = backgroundEffectClass.trim().length > 0;
 const hasForegroundEffect = foregroundEffectClass.trim().length > 0;
@@ -218,13 +230,7 @@ const backgroundWidths = backgroundImage ? getResponsiveWidths(backgroundImage.w
   <div class="tv-head__zoom tv-head__zoom--foreground">
     <div class="tv-head__screen" style={screenStyle}>
       <div class="tv-head__crop">
-        <lite-youtube
-          class="tv-head__player"
-          style={playerStyle}
-          videoid={videoId}
-          title={title}
-          playlabel={title}
-          params={params}></lite-youtube>
+        <Youtube classes="tv-head__player" video={videoId} label={title} params={parsedParams} style={playerStyle} />
       </div>
     </div>
 
@@ -244,10 +250,6 @@ const backgroundWidths = backgroundImage ? getResponsiveWidths(backgroundImage.w
     />
   </div>
 </div>
-
-<script>
-  import "@scripts/vendor/lite-youtube.ts";
-</script>
 
 <style is:global>
   .tv-head {

@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.3.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.3.0...v3001.3.1) (2026-04-13)
+
+### Bug Fixes
+
+* increase site title size ([5504088](https://github.com/davidsneighbour/kollitsch.dev/commit/55040886914eb555b702580640317ea42bc8bc4b))
+
 ## [3001.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.3...v3001.3.0) (2026-04-13)
 
 ### Features

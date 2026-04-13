@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest';
 
 describe('SiteHeader.astro', () => {
   it('exists at the expected path', () => {
-    const p = path.resolve(__dirname, 'SiteHeader.astro');
+    const p = path.resolve(__dirname, './title/SiteTitle.astro');
     expect(existsSync(p)).toBe(true);
   });
 });

@@ -2,12 +2,22 @@
 import type { HTMLTag } from "astro/types";
 import { z } from "zod";
 
-const htmlTagSchema = z.custom<HTMLTag>((value) => typeof value === "string", {
-  message: "as must be a valid HTML tag name.",
-});
+const allowedTags = [
+  "span",
+  "div",
+  "p",
+  "strong",
+  "em",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+] as const satisfies readonly HTMLTag[];
 
 const textImageFillSchema = z.object({
-  as: htmlTagSchema.default("span"),
+  as: z.enum(allowedTags).default("span"),
   backgroundSize: z.string().min(1).default("cover"),
   classes: z.string().default(""),
   fallbackColor: z.string().min(1).default("currentColor"),

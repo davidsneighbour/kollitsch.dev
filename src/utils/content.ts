@@ -71,7 +71,7 @@ export function createDefaultPost(input: unknown = {}): BlogPost['data'] {
 
   log.warn(
     '✖ Blog post input invalid. Using fallback defaults.',
-    parsed.error.format(),
+    z.treeifyError(parsed.error),
   );
 
   return blogSchema.parse(fallback);

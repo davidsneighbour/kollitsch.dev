@@ -80,7 +80,7 @@ const ivLoadPolicy = () =>
     })
     .transform((value) => String(value));
 
-const urlString = () => z.string().trim().url();
+const urlString = () => z.url();
 
 const qualityString = () =>
   z

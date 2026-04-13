@@ -1,83 +1,78 @@
 ---
-// @todo refactor and comment
-import { Image } from "astro:assets";
+import feedThisAndThat from "@assets/images/interface/feed-this-and-that.jpg";
+import feedWebTech from "@assets/images/interface/feed-web-tech-development.jpg";
+import CardLink from "@components/ui/CardLink.astro";
+import type { ImageMetadata } from "astro";
 
 export interface Props {
   /**
-   * Label text for the vertical label on the left side
-   * @default 'Read what Patrick is reading'
+   * Label text for the vertical label on the left side.
+   * @default "Follower Feeds"
    */
   label?: string;
-  description?: string;
+
   /**
-   * Link URL for the Web, Tech & Development feed
-   * @default '/feeds/web-tech-development/'
+   * Description text for the feed reader.
+   * @default "Read an eclectic selection of Patrick's reading"
+   */
+  description?: string;
+
+  /**
+   * Link URL for the Web, Tech & Development feed.
+   * @default "https://kollitsch.dev/dnb-webdev.rss.xml"
    */
   linkWebTech?: string;
+
   /**
-   * Link URL for the This & That feed
-   * @default '/feeds/this-and-that/'
+   * Link URL for the This & That feed.
+   * @default "https://kollitsch.dev/dnb-entertainment.rss.xml"
    */
   linkThisAndThat?: string;
 }
+
+interface FeedCard {
+  title: string;
+  href: string;
+  image: ImageMetadata;
+  alt: string;
+}
+
 const {
-  label = "Feed Reader",
+  label = "Follower Feeds",
   description = "Read an eclectic selection of Patrick's reading",
   linkWebTech = "https://kollitsch.dev/dnb-webdev.rss.xml",
   linkThisAndThat = "https://kollitsch.dev/dnb-entertainment.rss.xml",
-} = Astro.props;
+}: Props = Astro.props;
 
-import feedThisAndThat from "@assets/images/interface/feed-this-and-that.jpg";
-import feedWebTech from "@assets/images/interface/feed-web-tech-development.jpg";
+const descriptionId = "follower-feeds-description";
+
+const feeds: FeedCard[] = [
+  {
+    alt: "Web, Tech and Development feed",
+    href: linkWebTech,
+    image: feedWebTech,
+    title: "Web, Tech & Development",
+  },
+  {
+    alt: "This & That feed",
+    href: linkThisAndThat,
+    image: feedThisAndThat,
+    title: "This & That",
+  },
+];
 ---
 
-<div class="flex flex-col gap-4 md:flex-row items-stretch md:shrink-0 justify-stretch justify-items-stretch">
-  <h3
-    class="text-changa text-center text-gray-800 text-boxlabel-inherit md:text-boxlabel-sideways text-sm uppercase"
-    title={description}
-  >
-    {label}
-  </h3>
-
-  <a
-    href={linkWebTech}
-    aria-label="Open the Web, Tech & Development feed"
-    target="_newfeed"
-    class="overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 px-4 py-5 sm:p-6 flex flex-1 flex-row items-center gap-4
-    hover:bg-gray-50/50 dark:hover:bg-gray-800/70"
-  >
-    <div class="max-w-32 relative aspect-square w-full overflow-hidden rounded-xl">
-      <Image
-        src={feedWebTech}
-        alt="Web, Tech and Development feed"
-        class="h-full w-full object-cover"
-        width="128"
-        height="128"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-    <h4 class="text-3xl">Web, Tech & Development</h4>
-  </a>
-
-  <a
-    href={linkThisAndThat}
-    aria-label="Open the This & That feed"
-    target="_newfeed"
-    class="overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 px-4 py-5 sm:p-6 flex flex-1 flex-row items-center gap-4
-    hover:bg-gray-50/50 dark:hover:bg-gray-800/70"
-  >
-    <div class="max-w-32 relative aspect-square w-full overflow-hidden rounded-xl">
-      <Image
-        src={feedThisAndThat}
-        alt="This & That feed"
-        class="h-full w-full object-cover"
-        width="128"
-        height="128"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-    <h4 class="text-3xl">This & That</h4>
-  </a>
+<div class="type-ui flex flex-col items-stretch gap-4 md:flex-row md:shrink-0 mx-2">
+  <div class="flex md:items-stretch">
+    <h3
+      class="text-boxlabel-inherit text-center text-sm uppercase text-gray-800 md:text-boxlabel-sideways"
+      aria-describedby={descriptionId}
+    >
+      {label}
+    </h3>
+    <p id={descriptionId} class="sr-only">
+      {description}
+    </p>
+  </div>
+  {feeds.map((feed) => <CardLink href={feed.href} title={feed.title} image={feed.image} alt={feed.alt} />)}
 </div>

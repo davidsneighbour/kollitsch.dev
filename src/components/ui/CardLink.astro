@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+export interface Props {
+  /**
+   * Target URL.
+   */
+  href: string;
+
+  /**
+   * Visible title text.
+   */
+  title: string;
+
+  /**
+   * Optional image source for the card thumbnail.
+   */
+  image?: ImageMetadata;
+
+  /**
+   * Alternative text for the image.
+   * Required when `image` is provided.
+   */
+  alt?: string;
+
+  /**
+   * Optional target attribute.
+   * @default "_blank"
+   */
+  target?: string;
+
+  /**
+   * Optional rel attribute.
+   * @default "noopener noreferrer"
+   */
+  rel?: string;
+
+  /**
+   * Additional classes for the outer link element.
+   */
+  classes?: string;
+
+  /**
+   * Additional classes for the title element.
+   */
+  titleClasses?: string;
+
+  /**
+   * Additional classes for the image wrapper.
+   */
+  imageWrapperClasses?: string;
+}
+
+const {
+  href,
+  title,
+  image,
+  alt,
+  target = "_blank",
+  rel = "noopener noreferrer",
+  classes = "",
+  titleClasses = "",
+  imageWrapperClasses = "",
+}: Props = Astro.props;
+
+if (image && !alt) {
+  throw new Error('CardLink: "alt" is required when "image" is provided.');
+}
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  class:list={[
+    "flex overflow-hidden rounded-lg bg-white px-4 py-5 shadow-sm transition-colors hover:bg-gray-50/50 sm:p-6 dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 dark:hover:bg-gray-800/70",
+    image ? "flex-1 items-center gap-4" : "flex-1 items-start",
+    classes,
+  ]}
+>
+  {
+    image && (
+      <div class:list={["relative size-24 shrink-0 overflow-hidden rounded-xl sm:size-32", imageWrapperClasses]}>
+        <Image
+          src={image}
+          alt={alt}
+          width={128}
+          height={128}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
+
+  <span class:list={["text-2xl leading-tight sm:text-3xl", titleClasses]}>
+    {title}
+  </span>
+</a>

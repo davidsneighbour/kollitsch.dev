@@ -1,0 +1,78 @@
+---
+import type { HTMLTag } from "astro/types";
+import { z } from "zod";
+
+const htmlTagSchema = z.custom<HTMLTag>((value) => typeof value === "string", {
+  message: "as must be a valid HTML tag name.",
+});
+
+const textImageFillSchema = z.object({
+  as: htmlTagSchema.default("span"),
+  backgroundSize: z.string().min(1).default("cover"),
+  classes: z.string().default(""),
+  fallbackColor: z.string().min(1).default("currentColor"),
+  imageUrl: z.string().min(1, "imageUrl is required."),
+  position: z.string().min(1).default("center"),
+  size: z.string().min(1).optional(),
+  tintColor: z.string().min(1).optional(),
+  tintOpacity: z.number().min(0).max(1).default(0),
+});
+
+type TextImageFillProps = z.input<typeof textImageFillSchema>;
+
+export interface Props extends TextImageFillProps {}
+
+const parsed = textImageFillSchema.parse(Astro.props);
+
+const { as, imageUrl, size, position, backgroundSize, classes, fallbackColor, tintColor, tintOpacity } = parsed;
+
+const Tag: HTMLTag = as;
+
+const styleParts: string[] = [
+  `--text-fill-image: url("${imageUrl}")`,
+  `--text-fill-position: ${position}`,
+  `--text-fill-size: ${backgroundSize}`,
+  `--text-fill-fallback: ${fallbackColor}`,
+  `--text-fill-tint-opacity: ${String(tintOpacity)}`,
+];
+
+if (size) {
+  styleParts.push(`--text-fill-font-size: ${size}`);
+}
+
+if (tintColor) {
+  styleParts.push(`--text-fill-tint-color: ${tintColor}`);
+}
+
+const style = styleParts.join("; ");
+---
+
+<Tag
+  class={`text-image-fill inline-block ${size ? "text-(length:--text-fill-font-size)" : ""} ${classes}`}
+  style={style}
+>
+  <slot />
+</Tag>
+
+<style>
+  .text-image-fill {
+    color: var(--text-fill-fallback);
+    background-image:
+      linear-gradient(
+        rgb(from var(--text-fill-tint-color, transparent) r g b / var(--text-fill-tint-opacity, 0)),
+        rgb(from var(--text-fill-tint-color, transparent) r g b / var(--text-fill-tint-opacity, 0))
+      ),
+      var(--text-fill-image);
+    background-position: var(--text-fill-position, center);
+    background-repeat: no-repeat;
+    background-size: var(--text-fill-size, cover);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .text-image-fill {
+      color: transparent;
+    }
+  }
+</style>

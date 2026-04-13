@@ -599,11 +599,14 @@ export async function getTags(
   options?: GetTagsOptions,
 ): Promise<TagListItem[]> {
   const threshold = options?.threshold ?? setup.tagThreshold ?? 2;
+  const legacySortBy = (
+    options as { sortBy?: 'count' | 'label' } | undefined
+  )?.sortBy;
   const order: TagOrder =
     options?.order ??
-    (options?.sortBy === 'label'
+    (legacySortBy === 'label'
       ? 'label-asc'
-      : options?.sortBy === 'count'
+      : legacySortBy === 'count'
         ? 'count-desc'
         : 'count-desc');
   const limit = options?.limit;

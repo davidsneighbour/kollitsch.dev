@@ -1,8 +1,8 @@
-import type { CollectionEntry, z } from 'astro:content';
-
+import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
 import siteinfo from '@data/setup.json' with { type: 'json' };
+import { z } from 'astro/zod';
 import { blogSchema } from '../content.config.ts';
 import { createLogger } from './logger.ts';
 
@@ -171,19 +171,26 @@ function normalizeFrontmatterLike(
       : undefined;
 
   return {
-    cover,
-    date: pickDate(frontmatter.date),
-    description: isNonEmptyString(frontmatter.description)
-      ? frontmatter.description
-      : undefined,
-    draft:
-      typeof frontmatter.draft === 'boolean' ? frontmatter.draft : undefined,
-    lastModified: pickDate(frontmatter.lastModified),
-    linktitle: isNonEmptyString(frontmatter.linktitle)
-      ? frontmatter.linktitle
-      : undefined,
-    title: isNonEmptyString(frontmatter.title) ? frontmatter.title : undefined,
-  };
+    ...(cover !== undefined ? { cover } : {}),
+    ...(pickDate(frontmatter.date) !== undefined
+      ? { date: pickDate(frontmatter.date) }
+      : {}),
+    ...(isNonEmptyString(frontmatter.description)
+      ? { description: frontmatter.description }
+      : {}),
+    ...(typeof frontmatter.draft === 'boolean'
+      ? { draft: frontmatter.draft }
+      : {}),
+    ...(pickDate(frontmatter.lastModified) !== undefined
+      ? { lastModified: pickDate(frontmatter.lastModified) }
+      : {}),
+    ...(isNonEmptyString(frontmatter.linktitle)
+      ? { linktitle: frontmatter.linktitle }
+      : {}),
+    ...(isNonEmptyString(frontmatter.title)
+      ? { title: frontmatter.title }
+      : {}),
+  } as unknown as PostFrontmatterLike;
 }
 
 export function resolveOpenGraphPayload(
@@ -213,12 +220,18 @@ export function resolveOpenGraphPayload(
   const description = clampDescription(rawDescription);
 
   const imageContext: OpenGraphImagePayload = {
-    collection: post?.collection,
-    cover: data?.cover ?? fm.cover,
-    date: data?.date ?? fm.date,
-    id: post?.id,
-    lastModified: data?.lastModified ?? fm.lastModified,
     title,
+    ...(post?.collection ? { collection: post.collection } : {}),
+    ...((data?.cover ?? fm.cover) !== undefined
+      ? { cover: data?.cover ?? fm.cover }
+      : {}),
+    ...((data?.date ?? fm.date) !== undefined
+      ? { date: data?.date ?? fm.date }
+      : {}),
+    ...(post?.id ? { id: post.id } : {}),
+    ...((data?.lastModified ?? fm.lastModified) !== undefined
+      ? { lastModified: data?.lastModified ?? fm.lastModified }
+      : {}),
   };
 
   const hasImageContext =

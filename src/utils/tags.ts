@@ -208,8 +208,8 @@ const ASCII_MAP: Record<string, string> = {
 // ──────────────────────────────────────────────────────────────────────────────
 
 let blogPostsPromise: Promise<BlogPost[]> | null = null;
-type TagIndexEntry = Pick<CollectionEntry<'tags'>, 'id' | 'slug' | 'data'> &
-  Partial<CollectionEntry<'tags'>>;
+type TagIndexEntry = Pick<CollectionEntry<'tags'>, 'id' | 'data'> &
+  Partial<CollectionEntry<'tags'>> & { slug?: string };
 
 let tagIndexPromise: Promise<Map<string, TagIndexEntry>> | null = null;
 
@@ -280,15 +280,19 @@ async function getTagIndex(): Promise<Map<string, TagIndexEntry>> {
             collection: 'tags',
             data: {
               aliases: [],
+              cover: undefined,
+              description: '',
               featured: false,
+              icon: undefined,
               id,
+              label: label,
               linktitle: label,
               title: label,
               weight: 0,
             },
             id,
             slug: id,
-          });
+          } as unknown as TagIndexEntry);
         }
       } catch (err) {
         log.warn('[tags] failed to normalise derived tag', { label }, err);
@@ -640,11 +644,11 @@ export async function getTags(
 
     items.push({
       count: info.count,
-      icon,
       id,
       label: finalLabel,
       url: tagUrl(id),
       weight,
+      ...(icon ? { icon } : {}),
     });
   }
 
@@ -757,7 +761,14 @@ export async function getFeaturedTags(
     const icon = (entry.data as { icon?: TagIcon }).icon;
     const count = countById?.get(id) ?? 0;
 
-    items.push({ count, icon, id, label, url: tagUrl(id), weight });
+    items.push({
+      count,
+      id,
+      label,
+      url: tagUrl(id),
+      weight,
+      ...(icon ? { icon } : {}),
+    });
   }
 
   sortTagList(items, order);

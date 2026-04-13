@@ -1,4 +1,4 @@
-import { z } from 'astro:content';
+import { z } from 'astro/zod';
 
 function preprocessNumber(value: unknown): unknown {
   if (typeof value === 'string') {
@@ -20,7 +20,7 @@ function intRange(min: number, max?: number) {
     .preprocess(
       preprocessNumber,
       z
-        .number({ invalid_type_error: 'Expected a numeric value.' })
+        .number()
         .refine(Number.isFinite, { message: 'Value must be finite.' })
         .refine(Number.isInteger, { message: 'Value must be an integer.' })
         .refine((value) => value >= min, {
@@ -62,9 +62,13 @@ const listTypeString = () =>
     .string()
     .trim()
     .transform((value) => value.toLowerCase())
-    .refine((value) => value === 'playlist' || value === 'search' || value === 'user_uploads', {
-      message: 'listType must be playlist, search, or user_uploads.',
-    });
+    .refine(
+      (value) =>
+        value === 'playlist' || value === 'search' || value === 'user_uploads',
+      {
+        message: 'listType must be playlist, search, or user_uploads.',
+      },
+    );
 
 const ivLoadPolicy = () =>
   z
@@ -171,16 +175,22 @@ type YouTubePlayerParamInputMap = {
   widget_referrer: string;
   widgetid: string;
 };
-type _EnsureKeyCoverage = Exclude<YouTubePlayerParamKey, keyof YouTubePlayerParamInputMap> extends never
-  ? true
-  : never;
-type _EnsureNoExtraKeys = Exclude<keyof YouTubePlayerParamInputMap, YouTubePlayerParamKey> extends never
-  ? true
-  : never;
+export type _EnsureKeyCoverage =
+  Exclude<YouTubePlayerParamKey, keyof YouTubePlayerParamInputMap> extends never
+    ? true
+    : never;
+export type _EnsureNoExtraKeys =
+  Exclude<keyof YouTubePlayerParamInputMap, YouTubePlayerParamKey> extends never
+    ? true
+    : never;
 export type YouTubePlayerParamsInput = Partial<YouTubePlayerParamInputMap>;
-export type YouTubePlayerParams = Partial<Record<YouTubePlayerParamKey, string>>;
+export type YouTubePlayerParams = Partial<
+  Record<YouTubePlayerParamKey, string>
+>;
 
-export function sanitizeYouTubePlayerParams(raw?: unknown): YouTubePlayerParams {
+export function sanitizeYouTubePlayerParams(
+  raw?: unknown,
+): YouTubePlayerParams {
   if (raw === null || typeof raw !== 'object') {
     return {};
   }
@@ -200,7 +210,9 @@ export function sanitizeYouTubePlayerParams(raw?: unknown): YouTubePlayerParams 
   return Object.fromEntries(entries) as YouTubePlayerParams;
 }
 
-export function serializeYouTubePlayerParams(params: YouTubePlayerParams): string {
+export function serializeYouTubePlayerParams(
+  params: YouTubePlayerParams,
+): string {
   const search = new URLSearchParams();
   const keys = Object.keys(params) as YouTubePlayerParamKey[];
   keys.sort();

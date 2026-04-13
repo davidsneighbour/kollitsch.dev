@@ -103,7 +103,7 @@ describe('createContentObject', () => {
       { byline: { name: '  Inline Name ' } },
       null,
       undefined,
-      42 as unknown as CollectionEntry<'misc'>,
+      42 as unknown as CollectionEntry<'blog'>,
     );
 
     expect(result.author).toBe('Inline Name');

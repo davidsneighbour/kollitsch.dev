@@ -47,6 +47,7 @@ describe("Astro components props contract", async () => {
     for (const filePath of files) {
         const relativePath = path.relative(process.cwd(), filePath);
 
+        // heuristic: match `export interface XProps` or `export type XProps =`
         it(`${relativePath} exports a Props interface/type`, async () => {
             const source = await readFile(filePath, "utf8");
             expect(PROPS_EXPORT_REGEX.test(source)).toBe(true);

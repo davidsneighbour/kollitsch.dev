@@ -87,19 +87,22 @@ export function getGithubInfo(filePath: string): GitHubInfo | null {
         ? `https://github.com/${authorEmail.split('+')[1]?.split('@')[0] ?? ''}`
         : null;
 
-    return {
+    const info: GitHubInfo = {
       author: {
-        name: authorName,
         profileUrl,
+        ...(authorName ? { name: authorName } : {}),
       },
-      blameUrl: repo ? `${repo}/blame/${branch}/${relPath}` : undefined,
-      commitUrl: repo ? `${repo}/commit/${hash}` : undefined,
-      date,
-      editUrl: repo ? `${repo}/edit/${branch}/${relPath}` : undefined,
-      fileUrl: repo ? `${repo}/blob/${branch}/${relPath}` : undefined,
-      hash,
-      historyUrl: repo ? `${repo}/commits/${branch}/${relPath}` : undefined,
     };
+    if (hash) info.hash = hash;
+    if (date) info.date = date;
+    if (repo) {
+      info.blameUrl = `${repo}/blame/${branch}/${relPath}`;
+      if (hash) info.commitUrl = `${repo}/commit/${hash}`;
+      info.editUrl = `${repo}/edit/${branch}/${relPath}`;
+      info.fileUrl = `${repo}/blob/${branch}/${relPath}`;
+      info.historyUrl = `${repo}/commits/${branch}/${relPath}`;
+    }
+    return info;
   } catch (err: unknown) {
     // Use the project's logger instead of console.warn
     log.warn(

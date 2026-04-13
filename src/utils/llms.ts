@@ -1,4 +1,4 @@
-import type { BlogPost } from '@utils/content-object';
+import type { BlogPost } from '@utils/content';
 
 interface LlmsItem {
   title: string;
@@ -174,14 +174,14 @@ export function llmsFullTxt(config: LlmsFullTxtConfig): Response {
  */
 export function llmsPost(config: LlmsPostConfig): Response {
   const { post, site, link } = config;
-  const { title, description, pubDate, category } = post.data;
+  const { title, description, date, category } = post.data;
 
   return doc(
     `# ${title}`,
     '',
     `> ${description}`,
     '',
-    ...postMeta(site, link, pubDate, category),
+    ...postMeta(site, link, date, category ?? 'uncategorised'),
     '',
     stripMdx(post.body ?? ''),
   );
@@ -196,7 +196,7 @@ export function postsToLlmsItems(
 ): LlmsItem[] {
   return posts.map((post) => ({
     description: post.data.description,
-    link: formatUrl(post.slug),
+    link: formatUrl(post.id),
     title: post.data.title,
   }));
 }
@@ -210,9 +210,11 @@ export function postsToLlmsFullItems(
   formatUrl: (slug: string) => string,
 ): LlmsFullItem[] {
   return posts.map((post) => ({
-    ...postsToLlmsItems([post], formatUrl)[0],
     body: post.body ?? '',
-    category: post.data.category,
-    pubDate: post.data.pubDate,
+    category: post.data.category ?? 'uncategorised',
+    description: post.data.description,
+    link: formatUrl(post.id),
+    pubDate: post.data.date,
+    title: post.data.title,
   }));
 }

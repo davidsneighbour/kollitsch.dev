@@ -1,5 +1,4 @@
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
 export interface RawRelease {
   name: string;
@@ -39,11 +38,18 @@ const semverMatcher = /^v(\d+)\.(\d+)\.(\d+)$/;
 function parseSemver(tag: string): [number, number, number] | null {
   const match = tag.match(semverMatcher);
   if (!match) return null;
-  const [, major, minor, patch] = match;
-  return [Number.parseInt(major, 10), Number.parseInt(minor, 10), Number.parseInt(patch, 10)];
+  const major = match[1]!;
+  const minor = match[2]!;
+  const patch = match[3]!;
+  return [
+    Number.parseInt(major, 10),
+    Number.parseInt(minor, 10),
+    Number.parseInt(patch, 10),
+  ];
 }
 
-export const isMinorGroupTag = (s: string): boolean => minorGroupMatcher.test(s);
+export const isMinorGroupTag = (s: string): boolean =>
+  minorGroupMatcher.test(s);
 
 export function getMinorGroup(tag: string): MinorGroup | null {
   const match = parseSemver(tag);
@@ -61,34 +67,38 @@ export function getMinorGroupTag(tag: string): string | null {
 }
 
 export const downlevelH2 = (html: string): string =>
-  html.replace(/<h2\b/gi, "<h3").replace(/<\/h2>/gi, "</h3>");
+  html.replace(/<h2\b/gi, '<h3').replace(/<\/h2>/gi, '</h3>');
 
 export function normalizeRelease(raw: RawRelease): Release | null {
-  const tag = (raw.tagName ?? raw.name ?? "").trim();
+  const tag = (raw.tagName ?? raw.name ?? '').trim();
   if (!isSemverTag(tag)) return null;
 
-  const publishedDate = new Date(raw.publishedAt ?? "");
+  const publishedDate = new Date(raw.publishedAt ?? '');
   if (Number.isNaN(publishedDate.getTime())) return null;
 
   return {
-    tag,
+    descriptionHTML: downlevelH2(raw.descriptionHTML ?? ''),
     name: raw.name?.trim() || tag,
-    year: publishedDate.getUTCFullYear(),
     publishedAt: publishedDate.toISOString(),
-    descriptionHTML: downlevelH2(raw.descriptionHTML ?? ""),
+    tag,
+    year: publishedDate.getUTCFullYear(),
   };
 }
 
 export async function loadAllReleases(): Promise<Release[]> {
-  const repos: CollectionEntry<"githubReleases">[] = await getCollection("githubReleases");
+  const repos = (await getCollection('social')) as Array<{
+    data?: { releases?: unknown };
+  }>;
   const raw: RawRelease[] =
-    repos[0]?.data && Array.isArray((repos[0].data as { releases?: unknown }).releases)
+    repos[0]?.data &&
+    Array.isArray((repos[0].data as { releases?: unknown }).releases)
       ? (repos[0].data as { releases: RawRelease[] }).releases
       : [];
 
   const list = raw.map(normalizeRelease).filter(Boolean) as Release[];
   list.sort((a, b) => {
-    const timeDiff = new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    const timeDiff =
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
     if (Number.isFinite(timeDiff) && timeDiff !== 0) {
       return timeDiff;
     }
@@ -108,7 +118,10 @@ export async function loadAllReleases(): Promise<Release[]> {
       if (deltaPatch !== 0) return deltaPatch;
     }
 
-    return b.tag.localeCompare(a.tag, undefined, { numeric: true, sensitivity: "base" });
+    return b.tag.localeCompare(a.tag, undefined, {
+      numeric: true,
+      sensitivity: 'base',
+    });
   });
   return list;
 }
@@ -137,12 +150,19 @@ export function getMinorGroups(releases: Release[]): string[] {
   return groups;
 }
 
-export function filterByMinorGroup(releases: Release[], group: string): Release[] {
+export function filterByMinorGroup(
+  releases: Release[],
+  group: string,
+): Release[] {
   if (!isMinorGroupTag(group)) return [];
   return releases.filter((r) => getMinorGroupTag(r.tag) === group);
 }
 
-export function paginate<T>(items: T[], page: number, perPage: number): PageSlice<T> {
+export function paginate<T>(
+  items: T[],
+  page: number,
+  perPage: number,
+): PageSlice<T> {
   const totalItems = items.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / perPage));
   const currentPage = Math.min(Math.max(1, page), totalPages);
@@ -158,7 +178,7 @@ export function paginate<T>(items: T[], page: number, perPage: number): PageSlic
   };
 }
 
-import setup from "@data/setup.json" with { type: "json" };
+import setup from '@data/setup.json' with { type: 'json' };
 
 /**
  * Safe site-wide pagination read.

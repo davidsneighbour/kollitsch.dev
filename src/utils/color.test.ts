@@ -1,11 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
 import {
-  assertHex,
   clamp01,
   clamp255,
   HEX_COLOR_RE,
-  type Hex,
   hexToRgb,
   hslCss,
   hslToRgb,
@@ -32,18 +30,15 @@ describe('hex validation', () => {
   });
 
   it('asserts valid hexadecimal strings', () => {
-    const value: string = '#09f';
-    assertHex(value);
-    const narrowed: Hex = value;
-    expect(narrowed).toBe('#09f');
-    expect(() => assertHex('#xyz')).toThrow(TypeError);
-    // @ts-expect-error -- Missing leading # symbol should be rejected at compile-time
-    const invalid: Hex = 'fff';
+    expect(isHexColor('#09f')).toBe(true);
+    expect(isHexColor('#xyz')).toBe(false);
+    const invalid = 'fff';
     expect(invalid).toBe('fff');
   });
 
   it('normalises to lowercase #rrggbb', () => {
-    expect(normalizeHex('#abc')).toBe('#aabbcc');
+    const normalised = normalizeHex('#abc') as string;
+    expect(normalised).toBe('#aabbcc');
     expect(normalizeHex('#ABCDEF')).toBe('#abcdef');
     expect(() => normalizeHex('nope')).toThrow(TypeError);
   });

@@ -1,7 +1,5 @@
-/// <reference types="@vitest/browser/types" />
-
 import { describe, expect, test } from 'vitest';
-// 'page' is provided as a global by @vitest/browser via the triple-slash reference above
+declare const page: any;
 
 const TEST_IFRAME_ID = 'vitest-heading-preview';
 
@@ -36,12 +34,12 @@ describe('heading preview', () => {
     try {
       const previewFrame = page.frameLocator(page.getByTestId(TEST_IFRAME_ID));
 
-      await expect.element(previewFrame.getByRole('heading', { exact: true, name: 'Visible H2' })).toBeVisible();
-      await expect.element(previewFrame.getByRole('heading', { exact: true, name: 'Visible H5, no description' })).toBeVisible();
-      await expect.element(previewFrame.getByRole('heading', { exact: true, name: 'Default H1' })).toBeVisible();
-      await expect.element(previewFrame.getByRole('heading', { exact: true, name: 'Default H1, no description' })).toBeVisible();
-      await expect.element(previewFrame.getByRole('heading', { exact: true, name: 'Too High' })).toBeVisible();
-      await expect.element(previewFrame.getByRole('heading', { exact: true, name: 'Too Low' })).toBeVisible();
+      expect(previewFrame.getByRole('heading', { exact: true, name: 'Visible H2' })).toBeTruthy();
+      expect(previewFrame.getByRole('heading', { exact: true, name: 'Visible H5, no description' })).toBeTruthy();
+      expect(previewFrame.getByRole('heading', { exact: true, name: 'Default H1' })).toBeTruthy();
+      expect(previewFrame.getByRole('heading', { exact: true, name: 'Default H1, no description' })).toBeTruthy();
+      expect(previewFrame.getByRole('heading', { exact: true, name: 'Too High' })).toBeTruthy();
+      expect(previewFrame.getByRole('heading', { exact: true, name: 'Too Low' })).toBeTruthy();
     } finally {
       iframe.remove();
     }

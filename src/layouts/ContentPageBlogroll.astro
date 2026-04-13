@@ -1,5 +1,5 @@
 ---
-import { z } from "astro:content";
+import { z } from "astro/zod";
 import IconLink from "@components/shared/links/IconLink.astro";
 import blogroll from "@content/blogroll.json" with { type: "json" };
 import Layout from "@layouts/ContentPage.astro";
@@ -22,7 +22,6 @@ export type FeedItem = z.infer<typeof feedItemSchema>;
 // sort by weight (default 0) desc, then by name/title asc
 const parsed = z.array(feedItemSchema).safeParse(blogroll.items);
 let items: FeedItem[] = [];
-let validationError: z.ZodError | null = null;
 
 if (parsed.success) {
   items = parsed.data.slice().sort((a, b) => {
@@ -32,7 +31,7 @@ if (parsed.success) {
     return a.name.localeCompare(b.name, undefined, { sensitivity: "base" });
   });
 } else {
-  validationError = parsed.error;
+  console.error("Invalid blogroll items schema", parsed.error);
 }
 ---
 

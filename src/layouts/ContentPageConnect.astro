@@ -137,6 +137,8 @@ const isDev = import.meta.env.DEV;
     if (!form) {
       console.error('Dev form tester: form[name="contact"] not found.');
     } else {
+      const formEl = form as HTMLFormElement;
+      type FormResult = { ok: boolean; message?: string; error?: string; status?: number };
       const url = new URL(location.href);
       const scenario = url.searchParams.get('scenario') || 'success';
       const preview = ['1','true','yes','on'].includes((url.searchParams.get('preview')||'').toLowerCase());
@@ -154,7 +156,7 @@ const isDev = import.meta.env.DEV;
         message: ['message'],
       };
 
-      const setStatus = (type, message) => {
+      const setStatus = (type: 'success' | 'error', message: string) => {
         if (!statusEl) return;
         statusEl.textContent = message;
         statusEl.classList.remove('hidden','text-red-400','text-green-400');
@@ -178,7 +180,7 @@ const isDev = import.meta.env.DEV;
           field?.classList.remove('outline-red-500','focus:outline-red-500');
         }
       };
-      const setFieldError = (name, message) => {
+      const setFieldError = (name: string, message: string) => {
         const field = form.querySelector(`[name="${name}"]`);
         const el = errorEls.get(name);
         if (!field || !el) return;
@@ -187,7 +189,7 @@ const isDev = import.meta.env.DEV;
         field.setAttribute('aria-invalid','true');
         field.classList.add('outline-red-500','focus:outline-red-500');
       };
-      const handleError = (message) => {
+      const handleError = (message?: string) => {
         const msg = message || 'Something went wrong. Please try again later.';
         setStatus('error', msg);
         if (!message) { required.forEach(n => setFieldError(n, msg)); return; }
@@ -199,7 +201,7 @@ const isDev = import.meta.env.DEV;
         if (!matched) required.forEach(n => setFieldError(n, msg));
       };
 
-      const simulate = (sc) => {
+      const simulate = (sc: string): FormResult => {
         switch (sc) {
           case 'success':        return { ok: true, message: 'Thank you for your message!' };
           case 'email-missing':  return { ok: false, error: 'Email is required.' };
@@ -218,7 +220,7 @@ const isDev = import.meta.env.DEV;
         try {
           await new Promise(r => setTimeout(r, 250));
           const result = simulate(scenario);
-          if (result.ok) { setStatus('success', result.message || 'OK'); form.reset(); }
+          if (result.ok) { setStatus('success', result.message || 'OK'); formEl.reset(); }
           else { handleError(result.error || 'Error'); }
         } catch (e) {
           handleError('Network error. Please try again in a moment.');
@@ -240,7 +242,7 @@ const isDev = import.meta.env.DEV;
         bar.style.background = 'rgba(2,6,23,.8)';
         bar.style.border = '1px solid rgba(148,163,184,.3)';
         bar.style.borderRadius = '.5rem';
-        const addBtn = (label, sc) => {
+        const addBtn = (label: string, sc: string) => {
           const b = document.createElement('button');
           b.type = 'button'; b.textContent = label;
           b.style.padding = '.35rem .6rem';
@@ -286,6 +288,8 @@ const isDev = import.meta.env.DEV;
     if (!form) {
       // Silent in prod
     } else {
+      const formEl = form as HTMLFormElement;
+      type FormResult = { error?: string; message?: string };
       const statusEl = form.querySelector('[data-form-status]');
       const submitButton = form.querySelector('button[type="submit"]');
       const errorEls = new Map(
@@ -299,48 +303,40 @@ const isDev = import.meta.env.DEV;
         message: ['message'],
       };
 
-      const setStatus = (type, message) => {
-        try {
-          if (!statusEl) return;
-          statusEl.textContent = message;
-          statusEl.classList.remove('hidden','text-red-400','text-green-400');
-          statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
-          statusEl.classList.add(type === 'error' ? 'text-red-400' : 'text-green-400');
-        } catch {}
+      const setStatus = (type: 'success' | 'error', message: string) => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.classList.remove('hidden','text-red-400','text-green-400');
+        statusEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
+        statusEl.classList.add(type === 'error' ? 'text-red-400' : 'text-green-400');
       };
       const clearStatus = () => {
-        try {
-          if (!statusEl) return;
-          statusEl.textContent = '';
-          statusEl.classList.add('hidden');
-          statusEl.classList.remove('text-red-400','text-green-400');
-          statusEl.setAttribute('role','status');
-        } catch {}
+        if (!statusEl) return;
+        statusEl.textContent = '';
+        statusEl.classList.add('hidden');
+        statusEl.classList.remove('text-red-400','text-green-400');
+        statusEl.setAttribute('role','status');
       };
       const clearFieldErrors = () => {
-        try {
-          for (const [name, el] of errorEls) {
-            if (!name) continue;
-            el.textContent = '';
-            el.classList.add('hidden');
-            const field = form.querySelector(`[name="\${name}"]`);
-            field?.removeAttribute('aria-invalid');
-            field?.classList.remove('outline-red-500','focus:outline-red-500');
-          }
-        } catch {}
+        for (const [name, el] of errorEls) {
+          if (!name) continue;
+          el.textContent = '';
+          el.classList.add('hidden');
+          const field = formEl.querySelector(`[name="${name}"]`);
+          field?.removeAttribute('aria-invalid');
+          field?.classList.remove('outline-red-500','focus:outline-red-500');
+        }
       };
-      const setFieldError = (name, message) => {
-        try {
-          const field = form.querySelector(`[name="\${name}"]`);
-          const el = errorEls.get(name);
-          if (!field || !el) return;
-          el.textContent = message;
-          el.classList.remove('hidden');
-          field.setAttribute('aria-invalid','true');
-          field.classList.add('outline-red-500','focus:outline-red-500');
-        } catch {}
+      const setFieldError = (name: string, message: string) => {
+        const field = formEl.querySelector(`[name="${name}"]`);
+        const el = errorEls.get(name);
+        if (!field || !el) return;
+        el.textContent = message;
+        el.classList.remove('hidden');
+        field.setAttribute('aria-invalid','true');
+        field.classList.add('outline-red-500','focus:outline-red-500');
       };
-      const handleError = (message) => {
+      const handleError = (message?: string) => {
         const msg = message || 'Something went wrong. Please try again later.';
         setStatus('error', msg);
         if (!message) { required.forEach(n => setFieldError(n, msg)); return; }
@@ -356,7 +352,7 @@ const isDev = import.meta.env.DEV;
         event.preventDefault();
         clearStatus(); clearFieldErrors();
 
-        const formData = new FormData(form);
+        const formData = new FormData(formEl);
         const payload = {
           firstName: (formData.get('first-name') || '').toString().trim(),
           lastName: (formData.get('last-name') || '').toString().trim(),
@@ -369,18 +365,18 @@ const isDev = import.meta.env.DEV;
           submitButton?.setAttribute('disabled','true');
           submitButton?.classList.add('opacity-70');
 
-          const response = await fetch(form.action, {
+          const response = await fetch(formEl.action, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(payload),
           });
 
-          let result = {};
+          let result: FormResult = {};
           try { result = await response.json(); } catch {}
 
           if (response.ok) {
             setStatus('success', result.message || 'Thank you for your message!');
-            form.reset();
+            formEl.reset();
           } else {
             const errorMessage = result && (result.error || result.message);
             handleError(typeof errorMessage === 'string' ? errorMessage : undefined);

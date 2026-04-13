@@ -6,49 +6,14 @@
  * (for example, hexadecimal colors are lowercase #rrggbb strings).
  */
 
-/** Hexadecimal digit characters supported by CSS color literals. */
-type HexDigit =
-  | '0'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
-  | '8'
-  | '9'
-  | 'a'
-  | 'b'
-  | 'c'
-  | 'd'
-  | 'e'
-  | 'f'
-  | 'A'
-  | 'B'
-  | 'C'
-  | 'D'
-  | 'E'
-  | 'F';
-
-type HexDigitLower = Lowercase<HexDigit>;
-
-type ShortHexColor = `#${HexDigit}${HexDigit}${HexDigit}`;
-
-type LongHexColor =
-  `#${HexDigit}${HexDigit}${HexDigit}${HexDigit}${HexDigit}${HexDigit}`;
-
-type LongHexColorLower =
-  `#${HexDigitLower}${HexDigitLower}${HexDigitLower}${HexDigitLower}${HexDigitLower}${HexDigitLower}`;
-
 /** Hexadecimal string that may be three or six digits long. */
-export type HexColor = ShortHexColor | LongHexColor;
+export type HexColor = `#${string}`;
 
 /** Backwards-compatible alias retained for existing imports. */
 export type Hex = HexColor;
 
 /** Lowercase hexadecimal color that is always six digits long. */
-export type NormalizedHexColor = LongHexColorLower;
+export type NormalizedHexColor = `#${string}`;
 
 /**
  * RGB channels in the [0, 255] range.

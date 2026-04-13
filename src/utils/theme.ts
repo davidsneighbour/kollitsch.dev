@@ -81,11 +81,10 @@ const AnimationSchema = z.object({
 });
 
 const ThemeInputSchema = z.object({
-  // @ts-expect-error Zod default issue
-  animation: AnimationSchema.default({}),
+  animation: AnimationSchema.default(() => AnimationSchema.parse({})),
   colors: ColorsSchema,
-  opacity: OpacitySchema.default({}),
-  radii: RadiiSchema.default({}),
+  opacity: OpacitySchema.default(() => OpacitySchema.parse({})),
+  radii: RadiiSchema.default(() => RadiiSchema.parse({})),
 });
 
 export type ThemeInput = z.infer<typeof ThemeInputSchema>;

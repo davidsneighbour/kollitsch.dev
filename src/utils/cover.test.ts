@@ -19,7 +19,7 @@ const DEFAULT_INDEXED_META = { height: 600, width: 800 };
 
 const makeImageIndexMock = (present: boolean) => {
   return {
-    getIndexedImage: (src: string) =>
+    getIndexedImage: (_src: string) =>
       present ? { meta: DEFAULT_INDEXED_META } : undefined,
   };
 };
@@ -155,7 +155,7 @@ describe('resolveCover', () => {
       type: 'video',
       video: {
         artist: 'Artist',
-        params: { color: 'white', rel: 1 },
+        params: { color: 'white', rel: '1' },
         title: 'My Video',
         youtube: 'abcd123',
       },

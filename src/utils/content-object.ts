@@ -69,7 +69,9 @@ export interface ContentObject {
  * This includes raw Astro collection entries and arbitrary records such as
  * frontmatter objects or manual overrides.
  */
-export type ContentSource = CollectionEntry<string> | PlainRecord;
+export type ContentSource =
+  | CollectionEntry<keyof import('astro:content').DataEntryMap>
+  | PlainRecord;
 
 const BASE_CONTENT_VALUES: Omit<ContentObject, 'meta' | 'tags'> = {
   author: null,
@@ -243,7 +245,7 @@ function applyNormalized(
       continue;
     }
 
-    target[key] = value as ContentObject[typeof key];
+    (target as unknown as Record<string, unknown>)[key] = value;
   }
 
   target.meta = {
@@ -253,15 +255,16 @@ function applyNormalized(
 }
 
 function normalizeEntry(
-  entry: CollectionEntry<string>,
+  entry: CollectionEntry<keyof import('astro:content').DataEntryMap>,
 ): NormalizedContentInput {
   const base: Partial<ContentObject> = {
     collection: entry.collection,
     id: entry.id,
-    slug: isString((entry as { slug?: unknown }).slug)
-      ? (entry as { slug?: string }).slug
-      : entry.id,
   };
+  const resolvedSlug = isString((entry as { slug?: unknown }).slug)
+    ? (entry as { slug?: string }).slug
+    : entry.id;
+  if (resolvedSlug) base.slug = resolvedSlug;
 
   if (isString((entry as { body?: unknown }).body)) {
     base.content = (entry as { body: string }).body;
@@ -488,7 +491,9 @@ function pickReadingTime(
   return undefined;
 }
 
-function isCollectionEntry(value: unknown): value is CollectionEntry<string> {
+function isCollectionEntry(
+  value: unknown,
+): value is CollectionEntry<keyof import('astro:content').DataEntryMap> {
   return (
     isRecord(value) &&
     isString(value.id) &&
@@ -521,7 +526,7 @@ function normalizeAuthor(
   if (Array.isArray(author)) {
     const names = author.map(trimString).filter(isNonEmptyString);
     if (names.length === 0) return null;
-    if (names.length === 1) return names[0];
+    if (names.length === 1) return names[0] ?? null;
     return names;
   }
   if (isString(author)) {

@@ -3,6 +3,8 @@ import type { Release } from "@utils/releases.ts";
 import { getMinorGroups } from "@utils/releases.ts";
 import { Icon } from "astro-icon/components";
 
+export interface Props {}
+
 const { all, currentGroup: propGroup } = Astro.props as {
   all: Release[];
   currentGroup?: string | null;

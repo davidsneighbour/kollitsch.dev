@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import '@styles/vendor/lite-youtube.css';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import "@styles/vendor/lite-youtube.css";
 
-interface Props {
+export interface Props {
   id?: string;
   x: number;
   y: number;
@@ -23,7 +23,7 @@ interface Props {
   title?: string;
   params?: string;
   class?: string;
-  scaleMode?: 'contain' | 'cover';
+  scaleMode?: "contain" | "cover";
   videoAspectRatio?: number;
   backgroundZoom?: number;
   backgroundZoomOrigin?: string;
@@ -42,29 +42,29 @@ const {
   videoId,
   imageSrc,
   backgroundSrc,
-  backgroundClass = '',
-  backgroundEffectClass = '',
-  foregroundEffectClass = '',
+  backgroundClass = "",
+  backgroundEffectClass = "",
+  foregroundEffectClass = "",
   cropTop = 0,
   cropRight = 0,
   cropBottom = 0,
   cropLeft = 0,
-  borderRadius = '0px',
-  title = 'Play video',
-  params = 'controls=0&modestbranding=1&rel=0&playsinline=1',
-  class: className = '',
-  scaleMode = 'contain',
+  borderRadius = "0px",
+  title = "Play video",
+  params = "controls=0&modestbranding=1&rel=0&playsinline=1",
+  class: className = "",
+  scaleMode = "contain",
   videoAspectRatio = 16 / 9,
   backgroundZoom = 1,
-  backgroundZoomOrigin = 'center center',
+  backgroundZoomOrigin = "center center",
   foregroundZoom = 1,
-  foregroundZoomOrigin = 'center center',
-  imageSizes = '100vw',
-  backgroundSizes = '100vw',
+  foregroundZoomOrigin = "center center",
+  imageSizes = "100vw",
+  backgroundSizes = "100vw",
 } = Astro.props;
 
 const imageModules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/interface/**/*.{png,jpg,jpeg,webp,avif,gif}',
+  "/src/assets/images/interface/**/*.{png,jpg,jpeg,webp,avif,gif}",
 );
 
 /**
@@ -80,13 +80,13 @@ const imageModules = import.meta.glob<{ default: ImageMetadata }>(
  * @returns Normalised absolute path for import.meta.glob lookup.
  */
 function normaliseImagePath(input: string): string {
-  const cleaned = input.replace(/^\/+/, '');
+  const cleaned = input.replace(/^\/+/, "");
 
-  if (cleaned.startsWith('src/assets/images/interface/')) {
+  if (cleaned.startsWith("src/assets/images/interface/")) {
     return `/${cleaned}`;
   }
 
-  if (cleaned.startsWith('assets/images/interface/')) {
+  if (cleaned.startsWith("assets/images/interface/")) {
     return `/src/${cleaned}`;
   }
 
@@ -100,27 +100,20 @@ function normaliseImagePath(input: string): string {
  * @param label Error label for clearer debugging.
  * @returns Resolved Astro image metadata.
  */
-async function resolveInterfaceImage(
-  input: string,
-  label: string,
-): Promise<ImageMetadata> {
+async function resolveInterfaceImage(input: string, label: string): Promise<ImageMetadata> {
   const resolvedPath = normaliseImagePath(input);
   const loader = imageModules[resolvedPath];
 
   if (!loader) {
-    throw new Error(
-      `TvHead: ${label} image "${input}" could not be resolved under "src/assets/images/interface/".`,
-    );
+    throw new Error(`TvHead: ${label} image "${input}" could not be resolved under "src/assets/images/interface/".`);
   }
 
   const mod = await loader();
   return mod.default;
 }
 
-const image = await resolveInterfaceImage(imageSrc, 'overlay');
-const backgroundImage = backgroundSrc
-  ? await resolveInterfaceImage(backgroundSrc, 'background')
-  : null;
+const image = await resolveInterfaceImage(imageSrc, "overlay");
+const backgroundImage = backgroundSrc ? await resolveInterfaceImage(backgroundSrc, "background") : null;
 
 const imageWidth = image.width;
 const imageHeight = image.height;
@@ -160,32 +153,31 @@ const shellStyle = [
   `--tvhead-background-zoom-origin: ${backgroundZoomOrigin}`,
   `--tvhead-foreground-zoom: ${foregroundZoom}`,
   `--tvhead-foreground-zoom-origin: ${foregroundZoomOrigin}`,
-].join('; ');
+].join("; ");
 
 const screenStyle = [
   `left: ${screenLeft}%`,
   `top: ${screenTop}%`,
   `width: ${screenWidth}%`,
   `height: ${screenHeight}%`,
-].join('; ');
+].join("; ");
 
 const containPlayerStyle = [
   `left: ${containPlayerLeft}%`,
   `top: ${containPlayerTop}%`,
   `width: ${containPlayerWidth}%`,
   `height: ${containPlayerHeight}%`,
-].join('; ');
+].join("; ");
 
 const coverPlayerStyle = [
-  'left: 50%',
-  'top: 50%',
+  "left: 50%",
+  "top: 50%",
   `width: ${coverPlayerWidth}%`,
   `height: ${coverPlayerHeight}%`,
-  'transform: translate(-50%, -50%)',
-].join('; ');
+  "transform: translate(-50%, -50%)",
+].join("; ");
 
-const playerStyle =
-  scaleMode === 'cover' ? coverPlayerStyle : containPlayerStyle;
+const playerStyle = scaleMode === "cover" ? coverPlayerStyle : containPlayerStyle;
 
 const componentId = id?.trim() || `tvhead-${videoId}`;
 const hasBackgroundEffect = backgroundEffectClass.trim().length > 0;
@@ -198,18 +190,13 @@ function getResponsiveWidths(maxWidth: number): number[] {
 }
 
 const overlayWidths = getResponsiveWidths(image.width);
-const backgroundWidths = backgroundImage
-  ? getResponsiveWidths(backgroundImage.width)
-  : [];
+const backgroundWidths = backgroundImage ? getResponsiveWidths(backgroundImage.width) : [];
 ---
 
-<div
-  id={componentId}
-  class:list={["tv-head", className]}
-  style={shellStyle}
->
+<div id={componentId} class:list={["tv-head", className]} style={shellStyle}>
   <div class="tv-head__zoom tv-head__zoom--background">
-    {backgroundImage ? (
+    {
+      backgroundImage ? (
         <Image
           class:list={["tv-head__background", backgroundClass]}
           src={backgroundImage}
@@ -222,16 +209,14 @@ const backgroundWidths = backgroundImage
           loading="lazy"
           decoding="async"
         />
-      ) : null}
+      ) : null
+    }
 
     {hasBackgroundEffect ? <div class:list={["tv-head__background-effect", backgroundEffectClass]} /> : null}
   </div>
 
   <div class="tv-head__zoom tv-head__zoom--foreground">
-    <div
-      class="tv-head__screen"
-      style={screenStyle}
-    >
+    <div class="tv-head__screen" style={screenStyle}>
       <div class="tv-head__crop">
         <lite-youtube
           class="tv-head__player"
@@ -239,8 +224,7 @@ const backgroundWidths = backgroundImage
           videoid={videoId}
           title={title}
           playlabel={title}
-          params={params}
-        ></lite-youtube>
+          params={params}></lite-youtube>
       </div>
     </div>
 
@@ -262,7 +246,7 @@ const backgroundWidths = backgroundImage
 </div>
 
 <script>
-  import '@scripts/vendor/lite-youtube.ts';
+  import "@scripts/vendor/lite-youtube.ts";
 </script>
 
 <style is:global>
@@ -360,21 +344,9 @@ const backgroundWidths = backgroundImage
         transparent 1px,
         transparent 3px
       ),
-      radial-gradient(
-        circle at 20% 20%,
-        rgb(255 255 255 / 0.08) 0,
-        transparent 32%
-      ),
-      radial-gradient(
-        circle at 80% 30%,
-        rgb(255 255 255 / 0.06) 0,
-        transparent 28%
-      ),
-      radial-gradient(
-        circle at 50% 75%,
-        rgb(255 255 255 / 0.05) 0,
-        transparent 30%
-      );
+      radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.08) 0, transparent 32%),
+      radial-gradient(circle at 80% 30%, rgb(255 255 255 / 0.06) 0, transparent 28%),
+      radial-gradient(circle at 50% 75%, rgb(255 255 255 / 0.05) 0, transparent 30%);
     background-size:
       100% 4px,
       180px 180px,

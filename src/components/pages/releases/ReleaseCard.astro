@@ -1,6 +1,8 @@
 ---
 import type { Release } from "@utils/releases.ts";
+
 const { release } = Astro.props as { release: Release };
+export interface Props {}
 ---
 
 <article
@@ -8,7 +10,9 @@ const { release } = Astro.props as { release: Release };
 >
   <div class="p-4">
     <h2>{release.name}</h2>
-    <div class="text-sm opacity-80">{new Date(release.publishedAt).toUTCString()}</div>
+    <div class="text-sm opacity-80">
+      {new Date(release.publishedAt).toUTCString()}
+    </div>
     <Fragment set:html={release.descriptionHTML} />
   </div>
 </article>

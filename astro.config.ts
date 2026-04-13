@@ -10,7 +10,6 @@ import matter from 'gray-matter';
 import icon from 'astro-icon';
 import fg from 'fast-glob';
 import devtoolsJson from 'vite-plugin-devtools-json';
-import pagefind from './src/scripts/integrations/pagefind.ts';
 import { createLogger } from './src/utils/logger.ts';
 import redirects from './src/data/redirects.json' with { type: 'json' };
 import { buildHooks } from "./src/scripts/build-hooks.ts";
@@ -98,7 +97,7 @@ export default defineConfig({
       !page.startsWith('https://kollitsch.dev/test/') &&
       !page.startsWith('https://kollitsch.dev/blog/1/') &&
       !draftPagePaths.has(new URL(page).pathname),
-  }), pagefind({ indexConfig: { keepIndexUrl: true } }), icon({
+    }), icon({
     svgoOptions: {
       multipass: true,
       plugins: [

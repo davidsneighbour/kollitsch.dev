@@ -1,5 +1,30 @@
 # Changelog
 
+## [3001.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.3...v3001.3.0) (2026-04-13)
+
+### Features
+
+* add TextImageFill component for site title ([cd4dfee](https://github.com/davidsneighbour/kollitsch.dev/commit/cd4dfee1529685b3a368db7d4a0f8e53ba52d49a))
+
+### Bug Fixes
+
+* cleanup styles ([33b945d](https://github.com/davidsneighbour/kollitsch.dev/commit/33b945d6c1834cd8857c47572a6620f7ff7a05e8))
+* feed reader and link card component ([e925a51](https://github.com/davidsneighbour/kollitsch.dev/commit/e925a51f7143ebeacc8b8b5d905e6755f6a2728a))
+* make TvHead using Youtube component and put styles/scripts into component ([1131126](https://github.com/davidsneighbour/kollitsch.dev/commit/1131126e56aa211453b5dc21f75bec1dff5cac08))
+* migrate Astro features and Zod imports ([ad27661](https://github.com/davidsneighbour/kollitsch.dev/commit/ad27661f9c7e0a370d790f54f5d03aa19cd10b4e))
+* move pagefind hook into build hooks ([e2c249a](https://github.com/davidsneighbour/kollitsch.dev/commit/e2c249a8b00cef4395bbf70163b35768a0896415))
+* **pagefind:** move styles into component ([79b1754](https://github.com/davidsneighbour/kollitsch.dev/commit/79b1754ff85af80464727f78a621986936792586))
+* work out a couple of TS warnings ([d3b11ab](https://github.com/davidsneighbour/kollitsch.dev/commit/d3b11aba31d719d295f826ab53d86f36ecc041dd))
+
+### Documentation
+
+* **ai:** add unused-deprecated-review prompt for Codex ([5e606a2](https://github.com/davidsneighbour/kollitsch.dev/commit/5e606a25187476281e7d7807f097d0798a40ec35))
+
+### Tests
+
+* **fix:** add check for exported Props interface, fix missing ([9ea6bab](https://github.com/davidsneighbour/kollitsch.dev/commit/9ea6bab37313f6e3edc393880cfefce3705cbcd9))
+* **fix:** proper path to test against in Header component ([a2543a7](https://github.com/davidsneighbour/kollitsch.dev/commit/a2543a7fcfe4ef09cfbbbaddb147bf61623f43eb))
+
 ## [3001.2.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.2.2...v3001.2.3) (2026-04-12)
 
 ### Bug Fixes

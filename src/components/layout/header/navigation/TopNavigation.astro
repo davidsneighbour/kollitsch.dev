@@ -44,7 +44,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
   aria-label="Top navigation bar with site title, navigation links, and theme selector"
 >
   <ProgressBar
-    classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-[70] hidden [--height:4px] lg:[--height:6px]"
+    classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-70 hidden [--height:4px] lg:[--height:6px]"
   />
 
   <nav class="@container mx-auto max-w-7xl" aria-label="Main navigation">
@@ -88,7 +88,7 @@ const { defaultTheme = "dark", siteTitleId = "sitetitle" }: Props = Astro.props;
                 icon={value.icon}
                 name={value.label}
                 link={value.link}
-                classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold" : ""}`}
+                classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
               />
             ))
           }

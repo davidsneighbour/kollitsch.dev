@@ -655,25 +655,23 @@
   }
 }
 
-/* MARK: svg utilities */
-
 /*******************************************************************************
- * SVG utilities
+ * MARK: svg utilities
+ * 
  * SVG does not provide a default visual style for links, so let's add some *
  ******************************************************************************/
-
 /* select only SVG <a> elements */
-svg|a:link,
-svg|a:visited {
-  cursor: pointer;
-  outline: dotted 1px var(--color-cyan-700);
-}
-
-svg|a text {
-  fill: var(--color-cyan-700);
-}
-
-svg|a:hover,
-svg|a:active {
-  outline: dotted 1px var(--color-cyan-700);
+svg|a {
+  &:link,
+  &:visited {
+    cursor: pointer;
+    outline: dotted 1px var(--color-cyan-700);
+  }
+  text {
+    fill: var(--color-cyan-700);
+  }
+  &:hover,
+  &:active {
+    outline: dotted 1px var(--color-cyan-700);
+  }
 }

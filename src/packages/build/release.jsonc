@@ -27,6 +27,9 @@
         "test",
         "test:e2e"
       ]
+    },
+    "screenshot": {
+      "command": "node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png"
     }
   }
 }

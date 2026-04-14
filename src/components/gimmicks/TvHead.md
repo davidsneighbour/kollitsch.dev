@@ -594,3 +594,15 @@ Not currently required, but possible later:
 * custom play button overlays
 * preset registry for recurring TV layouts
 * crop/debug visualisation mode
+
+## Current Image Measurements
+
+### tv-002.png
+
+* dimensions: 1536 x 1024px
+* points (x y w h): 556px 138px 435px 357px
+
+### tv-001.png
+
+* dimensions: 1536 x 1024px
+* points (x y w h): 468px 403px 498px 394px

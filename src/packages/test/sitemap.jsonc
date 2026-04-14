@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "fast-xml-parser": "5.5.11",
+    "fast-xml-parser": "5.5.12",
     "playwright": "1.59.1",
     "tsx": "4.21.0"
   },

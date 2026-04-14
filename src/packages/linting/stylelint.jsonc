@@ -2,7 +2,7 @@
   "dependencies": {
     "@davidsneighbour/browserslist-config": "2026.0.3",
     "postcss-html": "1.8.1",
-    "stylelint": "17.6.0",
+    "stylelint": "17.7.0",
     "stylelint-config-html": "1.1.0",
     "stylelint-no-unsupported-browser-features": "8.1.1",
     "stylelint-order": "8.1.1"

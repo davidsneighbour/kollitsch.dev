@@ -279,6 +279,7 @@
   }
 
   html {
+    
     text-rendering: optimizelegibility;
   }
 
@@ -404,7 +405,7 @@
 }
 
 /* MARK: Typography */
-/* @see documentation/typography.md for the rationale these classes */
+/* @see documentation/typography.md for the rationale behind these classes */
 /*******************************************************************************
  * Prose styles
  ******************************************************************************/
@@ -469,9 +470,6 @@
 }
 @layer utilities {
   /* these MUST be em based so the typography-reading class can scale here */
-  .reading-xs {
-    font-size: 0.5em;
-  }
   .reading-sm {
     font-size: 0.875em;
   }

@@ -1,23 +1,8 @@
 #!/usr/bin/env ts-node
 
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
-/**
- * Screenshot CLI Utility
- * -----------------------
- * Takes screenshots of websites using Playwright's headless Chromium browser.
- *
- * Features:
- * - Customizable viewport (width, height, or aspect ratio)
- * - Full-page or fixed-height capture
- * - PNG and JPG output formats
- * - Delay before capture (e.g., wait for animations)
- * - Light or dark color scheme
- * - Device pixel ratio (e.g., for HiDPI)
- *
- * Usage:
- *   ts-node screenshot.ts --url=https://example.com --width=1280 --aspect=16:9 --format=jpg --delay=1000
- */
+import { access, rename, rm } from 'node:fs/promises';
+import { constants as fsConstants } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import { chromium } from 'playwright';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -64,7 +49,7 @@ const argv = yargs(hideBin(process.argv))
     type: 'number',
   })
   .option('aspect', {
-    describe: 'Aspect ratio as W:H (e.g., 16:9) if height is not set',
+    describe: 'Aspect ratio as W:H (e.g. 16:9) if height is not set',
     type: 'string',
   })
   .option('format', {
@@ -86,7 +71,7 @@ const argv = yargs(hideBin(process.argv))
   })
   .option('scale', {
     default: 1,
-    describe: 'Device scale factor (e.g., 2 for Retina)',
+    describe: 'Device scale factor (e.g. 2 for Retina)',
     type: 'number',
   })
   .help()
@@ -95,7 +80,20 @@ const argv = yargs(hideBin(process.argv))
   .parseSync() as CLIArgs;
 
 /**
- * Takes a screenshot using Playwright and writes to disk.
+ * Ensures a file exists and is readable.
+ *
+ * @param filePath - Path to verify
+ * @returns Promise that resolves when the file exists
+ */
+async function assertFileExists(filePath: string): Promise<void> {
+  await access(filePath, fsConstants.F_OK | fsConstants.R_OK);
+}
+
+/**
+ * Takes a screenshot using Playwright and writes to disk atomically.
+ *
+ * The screenshot is written to a temporary file first and then renamed into place.
+ * This avoids leaving the target file missing or half-written when capture fails.
  *
  * @param url - URL to capture
  * @param output - Output file path
@@ -113,48 +111,50 @@ export async function takeScreenshot(
   options: ScreenshotOptions = {},
 ): Promise<void> {
   const browser = await chromium.launch({ headless: true });
-
-  const context = await browser.newContext({
-    colorScheme: options.colorScheme ?? 'dark',
-    deviceScaleFactor: options.deviceScaleFactor ?? 1,
-    viewport: {
-      height: height || 800,
-      width,
-    },
-  });
-
-  const page = await context.newPage();
+  const temporaryOutput = `${output}.tmp`;
 
   try {
+    const context = await browser.newContext({
+      colorScheme: options.colorScheme ?? 'dark',
+      deviceScaleFactor: options.deviceScaleFactor ?? 1,
+      viewport: {
+        height: height ?? 800,
+        width,
+      },
+    });
+
+    const page = await context.newPage();
+
     await page.goto(url, { timeout: 0, waitUntil: 'load' });
-  } catch (err: unknown) {
-    console.error(`[dnb] Could not open: ${url}`);
-    if (err instanceof Error) console.error(`[dnb] ${err.message}`);
-    await browser.close();
-    process.exit(1);
-  }
 
-  if (options.delay && options.delay > 0) {
-    console.log(`[dnb] Waiting ${options.delay}ms before screenshot...`);
-    await page.waitForTimeout(options.delay);
-  }
+    if ((options.delay ?? 0) > 0) {
+      console.log(`[dnb] Waiting ${options.delay}ms before screenshot...`);
+      await page.waitForTimeout(options.delay ?? 0);
+    }
 
-  const screenshotOptions: Parameters<typeof page.screenshot>[0] = {
-    fullPage: !height,
-    path: output,
-    type: format === 'jpg' ? 'jpeg' : 'png',
-    ...(format === 'jpg' && { quality: 100 }),
-  };
+    const screenshotOptions: Parameters<typeof page.screenshot>[0] = {
+      fullPage: height === undefined,
+      path: temporaryOutput,
+      type: format === 'jpg' ? 'jpeg' : 'png',
+      ...(format === 'jpg' ? { quality: 100 } : {}),
+    };
 
-  try {
     await page.screenshot(screenshotOptions);
-    console.log(`[dnb] Saved: ${resolve(output)}`);
-  } catch (err: unknown) {
-    console.error('[dnb] Screenshot capture failed.');
-    if (err instanceof Error) console.error(`[dnb] ${err.message}`);
-  }
+    await assertFileExists(temporaryOutput);
+    await rename(temporaryOutput, output);
 
-  await browser.close();
+    console.log(`[dnb] Saved: ${resolve(output)}`);
+  } catch (error: unknown) {
+    await rm(temporaryOutput, { force: true });
+
+    if (error instanceof Error) {
+      throw new Error(`[dnb] Screenshot capture failed: ${error.message}`);
+    }
+
+    throw new Error('[dnb] Screenshot capture failed with an unknown error.');
+  } finally {
+    await browser.close();
+  }
 }
 
 /**
@@ -169,12 +169,13 @@ export function calculateAspectHeight(
   width: number,
   aspect?: string,
 ): number | undefined {
-  if (!aspect) return undefined;
+  if (!aspect) {
+    return undefined;
+  }
 
   const validFormat = /^\d+:\d+$/;
   if (!validFormat.test(aspect)) {
-    console.log('Invalid aspect ratio format. Expected "W:H" like "16:9".');
-    return undefined;
+    throw new Error('Invalid aspect ratio format. Expected "W:H" like "16:9".');
   }
 
   const [wStr, hStr] = aspect.split(':');
@@ -182,32 +183,37 @@ export function calculateAspectHeight(
   const h = Number(hStr);
 
   if (w === 0 || h === 0) {
-    console.log('Aspect ratio must not contain zero.');
-    return undefined;
+    throw new Error('Aspect ratio must not contain zero.');
   }
 
   return Math.round((width / w) * h);
 }
 
-// CLI execution wrapper
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const computedHeight =
-    argv.height ?? calculateAspectHeight(argv.width, argv.aspect);
-  const resolvedOutput = argv.output || `screenshot.${argv.format}`;
-  const finalPath = existsSync(resolvedOutput)
-    ? resolvedOutput.replace(/\.(png|jpg)$/, `-${Date.now()}.$1`)
-    : resolvedOutput;
+  try {
+    const computedHeight =
+      argv.height ?? calculateAspectHeight(argv.width, argv.aspect);
+    const resolvedOutput = argv.output ?? `screenshot.${argv.format}`;
 
-  await takeScreenshot(
-    argv.url,
-    finalPath,
-    argv.width,
-    computedHeight,
-    argv.format,
-    {
-      colorScheme: argv.scheme,
-      delay: argv.delay,
-      deviceScaleFactor: argv.scale,
-    },
-  );
+    await takeScreenshot(
+      argv.url,
+      resolvedOutput,
+      argv.width,
+      computedHeight,
+      argv.format,
+      {
+        colorScheme: argv.scheme,
+        delay: argv.delay,
+        deviceScaleFactor: argv.scale,
+      },
+    );
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error('[dnb] Screenshot command failed with an unknown error.');
+    }
+
+    process.exitCode = 1;
+  }
 }

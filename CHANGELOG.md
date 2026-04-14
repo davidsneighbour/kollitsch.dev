@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.0...v3001.4.1) (2026-04-14)
+
+### Bug Fixes
+
+* using tailwind variables for PageFind styles ([6c58308](https://github.com/davidsneighbour/kollitsch.dev/commit/6c583085b0abbe10f7c14e35fa6fdb548315e008))
+
 ## [3001.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.3.1...v3001.4.0) (2026-04-14)
 
 ### Features

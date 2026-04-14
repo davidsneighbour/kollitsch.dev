@@ -7,94 +7,94 @@ export interface Props {}
   @reference "@styles/theme.css";
   #pagefind-container {
     /* Colors */
-    --pf-text: #1a1a1a;
-    --pf-text-secondary: #666;
-    --pf-text-muted: #767676;
-    --pf-background: #fff;
-    --pf-border: #e0e0e0;
-    --pf-border-focus: #999;
-    --pf-skeleton: #eee;
-    --pf-skeleton-shine: #f5f5f5;
-    --pf-hover: #f5f5f5;
-    --pf-mark: #1a1a1a;
-    --pf-scroll-shadow: rgba(0, 0, 0, 0.08);
+    --pf-text: var(--color-gray-900);
+    --pf-text-secondary: var(--color-gray-500);
+    --pf-text-muted: var(--color-gray-500);
+    --pf-background: var(--color-white);
+    --pf-border: var(--color-gray-200);
+    --pf-border-focus: var(--color-gray-400);
+    --pf-skeleton: var(--color-gray-200);
+    --pf-skeleton-shine: var(--color-gray-100);
+    --pf-hover: var(--color-gray-100);
+    --pf-mark: var(--color-gray-900);
+    --pf-scroll-shadow: color-mix(in oklab, var(--color-black) 8%, transparent);
 
     /* Shadows */
-    --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.2);
+    --pf-shadow-sm: var(--shadow-sm);
+    --pf-shadow-md: var(--shadow-md);
+    --pf-shadow-lg: var(--shadow-lg);
 
     /* Error states */
-    --pf-error-bg: #fef2f2;
-    --pf-error-border: #fecaca;
-    --pf-error-text: #dc2626;
-    --pf-error-text-secondary: #b91c1c;
+    --pf-error-bg: var(--color-red-50);
+    --pf-error-border: var(--color-red-200);
+    --pf-error-text: var(--color-red-600);
+    --pf-error-text-secondary: var(--color-red-700);
 
     /* Focus ring */
-    --pf-outline-focus: green;
-    --pf-outline-width: 2px;
-    --pf-outline-offset: 2px;
+    --pf-outline-focus: var(--color-brand-main-accent);
+    --pf-outline-width: calc(var(--spacing) * 0.5);
+    --pf-outline-offset: calc(var(--spacing) * 0.5);
 
     /* Typography */
     --pf-font: var(--font-sans);
 
     /* Sizing */
-    --pf-input-height: 36px;
-    --pf-input-font-size: 16px; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
-    --pf-summary-font-size: 24px;
-    --pf-result-title-font-size: 24px;
-    --pf-result-excerpt-font-size: 24px;
+    --pf-input-height: calc(var(--spacing) * 9);
+    --pf-input-font-size: var(--text-base); /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+    --pf-summary-font-size: var(--text-2xl);
+    --pf-result-title-font-size: var(--text-2xl);
+    --pf-result-excerpt-font-size: var(--text-2xl);
 
     /* Results layout */
     --pf-results-display: flex;
     --pf-results-flex-direction: column;
     --pf-results-flex-wrap: nowrap;
     --pf-results-columns: none; /* grid-template-columns value, used when display is grid */
-    --pf-results-gap: 8px;
+    --pf-results-gap: calc(var(--spacing) * 2);
 
-    --pf-border-radius: 6px;
-    --pf-image-width: 64px;
-    --pf-image-height: 48px;
+    --pf-border-radius: var(--radius-sm);
+    --pf-image-width: calc(var(--spacing) * 16);
+    --pf-image-height: calc(var(--spacing) * 12);
 
     /* Icons (SVG data URIs) */
-    --pf-icon-search: url("data:image/svg+xml,...");
-    --pf-icon-arrow: url("data:image/svg+xml,...");
+    /* --pf-icon-search: url("data:image/svg+xml,...");
+    --pf-icon-arrow: url("data:image/svg+xml,..."); */
 
     /* Modal */
-    --pf-modal-backdrop: rgba(0, 0, 0, 0.5);
-    --pf-modal-max-width: 560px;
-    --pf-modal-max-height: min(80dvh, 800px);
+    --pf-modal-backdrop: color-mix(in oklab, var(--color-black) 50%, transparent);
+    --pf-modal-max-width: calc(var(--spacing) * 140);
+    --pf-modal-max-height: min(80dvh, calc(var(--spacing) * 200));
     --pf-modal-top: 10dvh;
 
     /* Searchbox dimensions */
-    --pf-searchbox-dropdown-max-height: 320px;
+    --pf-searchbox-dropdown-max-height: calc(var(--spacing) * 80);
 
     /* Dropdown settings */
-    --pf-dropdown-max-height: 280px;
-    --pf-dropdown-z-index: 9999;
+    --pf-dropdown-max-height: calc(var(--spacing) * 70);
+    --pf-dropdown-z-index: var(--z-50);
   }
   [data-theme="dark"] #pagefind-container {
-    --pf-text: #e5e5e5;
-    --pf-text-secondary: #a0a0a0;
-    --pf-text-muted: #949494;
-    --pf-background: #1a1a1a;
-    --pf-border: #333;
-    --pf-border-focus: #555;
-    --pf-skeleton: #2a2a2a;
-    --pf-skeleton-shine: #333;
-    --pf-hover: #252525;
-    --pf-mark: #e5e5e5;
-    --pf-scroll-shadow: rgba(255, 255, 255, 0.1);
-    --pf-outline-focus: green;
+    --pf-text: var(--color-gray-200);
+    --pf-text-secondary: var(--color-gray-400);
+    --pf-text-muted: var(--color-gray-400);
+    --pf-background: var(--color-gray-900);
+    --pf-border: var(--color-gray-700);
+    --pf-border-focus: var(--color-gray-600);
+    --pf-skeleton: var(--color-gray-800);
+    --pf-skeleton-shine: var(--color-gray-700);
+    --pf-hover: var(--color-gray-800);
+    --pf-mark: var(--color-gray-200);
+    --pf-scroll-shadow: color-mix(in oklab, var(--color-white) 10%, transparent);
+    --pf-outline-focus: var(--color-brand-main-accent);
 
-    --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-    --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+    --pf-shadow-sm: var(--shadow-sm);
+    --pf-shadow-md: var(--shadow-md);
+    --pf-shadow-lg: var(--shadow-lg);
 
-    --pf-error-bg: #2a1a1a;
-    --pf-error-border: #5c2828;
-    --pf-error-text: #f87171;
-    --pf-error-text-secondary: #ef4444;
+    --pf-error-bg: var(--color-red-950);
+    --pf-error-border: var(--color-red-900);
+    --pf-error-text: var(--color-red-400);
+    --pf-error-text-secondary: var(--color-red-500);
   }
 </style>
 <script is:inline src="/pagefind/pagefind-component-ui.js" type="module"></script>

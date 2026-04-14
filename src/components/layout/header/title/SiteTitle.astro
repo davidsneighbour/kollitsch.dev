@@ -12,13 +12,7 @@ const { siteTitleId }: Props = Astro.props;
 const siteTitleSize = "clamp(50px, 13vw, 250px)";
 ---
 
-<header
-  aria-label="Site title"
-  id={siteTitleId}
-  class="w-full text-center
-bg-linear-to-b from-gray-100 to-gray-50
-dark:bg-linear-to-b dark:from-gray-950 dark:to-gray-900"
->
+<header aria-label="Site title" id={siteTitleId} class="w-full text-center">
   <a href={homepageUrl} class="inline-block">
     <TextImageFill
       as="span"

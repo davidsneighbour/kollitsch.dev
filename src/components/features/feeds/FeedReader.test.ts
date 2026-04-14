@@ -5,39 +5,47 @@ import { load } from 'cheerio';
 import { describe, expect, it } from 'vitest';
 import FeedReader from './FeedReader.astro';
 
-// TODO: Future refactors
-// - [ ] Revisit layout structure for feed tiles
-// - [ ] Review image asset handling and loading strategy
-
 describe('FeedReader', () => {
-  it('renders defaults for label, description, and feed tiles', async () => {
+  it('renders defaults for label, description, and feed cards', async () => {
     const container = await AstroContainer.create();
     const html = await container.renderToString(FeedReader);
     const $ = load(html);
 
     const heading = $('h3');
-    expect(heading.text().trim()).toBe('Feed Reader');
-    expect(heading.attr('title')).toBe(
+    expect(heading.text().trim()).toBe('Follower Feeds');
+
+    const description = $('#follower-feeds-description');
+    expect(description.text().trim()).toBe(
       "Read an eclectic selection of Patrick's reading",
     );
+    expect(heading.attr('aria-describedby')).toBe('follower-feeds-description');
 
-    const webTile = $("a[aria-label='Open the Web, Tech & Development feed']");
-    expect(webTile).toHaveLength(1);
-    expect(webTile.attr('href')).toBe(
+    const cards = $('a');
+    expect(cards).toHaveLength(2);
+
+    const webCard = $('a').filter((_, el) =>
+      $(el).text().includes('Web, Tech & Development'),
+    );
+    expect(webCard).toHaveLength(1);
+    expect(webCard.attr('href')).toBe(
       'https://kollitsch.dev/dnb-webdev.rss.xml',
     );
-    expect(webTile.attr('target')).toBe('_newfeed');
-    expect(webTile.find('img').attr('alt')).toBe(
+    expect(webCard.attr('target')).toBe('_blank');
+    expect(webCard.attr('rel')).toBe('noopener noreferrer');
+    expect(webCard.find('img').attr('alt')).toBe(
       'Web, Tech and Development feed',
     );
 
-    const thisTile = $("a[aria-label='Open the This & That feed']");
-    expect(thisTile).toHaveLength(1);
-    expect(thisTile.attr('href')).toBe(
+    const thisCard = $('a').filter((_, el) =>
+      $(el).text().includes('This & That'),
+    );
+    expect(thisCard).toHaveLength(1);
+    expect(thisCard.attr('href')).toBe(
       'https://kollitsch.dev/dnb-entertainment.rss.xml',
     );
-    expect(thisTile.attr('target')).toBe('_newfeed');
-    expect(thisTile.find('img').attr('alt')).toBe('This & That feed');
+    expect(thisCard.attr('target')).toBe('_blank');
+    expect(thisCard.attr('rel')).toBe('noopener noreferrer');
+    expect(thisCard.find('img').attr('alt')).toBe('This & That feed');
   });
 
   it('accepts custom copy and URLs', async () => {
@@ -54,13 +62,17 @@ describe('FeedReader', () => {
 
     const heading = $('h3');
     expect(heading.text().trim()).toBe('Custom Label');
-    expect(heading.attr('title')).toBe('Custom description for feeds');
-
-    expect(
-      $("a[aria-label='Open the Web, Tech & Development feed']").attr('href'),
-    ).toBe('https://example.com/web');
-    expect($("a[aria-label='Open the This & That feed']").attr('href')).toBe(
-      'https://example.com/this',
+    expect($('#follower-feeds-description').text().trim()).toBe(
+      'Custom description for feeds',
     );
+
+    const links = $('a')
+      .map((_, el) => $(el).attr('href'))
+      .get();
+
+    expect(links).toEqual([
+      'https://example.com/web',
+      'https://example.com/this',
+    ]);
   });
 });

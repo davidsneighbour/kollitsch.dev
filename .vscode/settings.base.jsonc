@@ -35,8 +35,8 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     ".env": ".env*",
-    "*.astro": "$(capture).test.ts",
-    "*.json": "$(capture).schema.json,$(capture).test.ts",
+    "*.astro": "$(capture).test.ts, $(capture).md",
+    "*.json": "$(capture).schema.json, $(capture).test.ts",
     "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .gitignore, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json",
     "playwright.config.ts": "playwright.*.ts",
     "README.md": "AGENTS.md, SECURITY.md, LICENSE.md",

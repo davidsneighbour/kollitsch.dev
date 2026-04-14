@@ -37,10 +37,5 @@
     "icon": "person-rolodex",
     "label": "Connect",
     "link": "/connect/"
-  },
-  {
-    "icon": "search",
-    "label": "Find",
-    "link": "/find/"
   }
 ]

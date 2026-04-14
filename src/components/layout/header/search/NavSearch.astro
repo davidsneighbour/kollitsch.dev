@@ -1,0 +1,426 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  /**
+   * Fallback title when no `title` slot is provided.
+   */
+  title?: string;
+
+  /**
+   * Fallback navigation items when no `nav` slot is provided.
+   */
+  navItems?: NavItem[];
+
+  /**
+   * Accessible label for the main navigation.
+   */
+  navLabel?: string;
+
+  /**
+   * Search input placeholder text for the fallback search field.
+   */
+  searchPlaceholder?: string;
+
+  /**
+   * Accessible label for opening the search.
+   */
+  openSearchLabel?: string;
+
+  /**
+   * Accessible label for closing the search.
+   */
+  closeSearchLabel?: string;
+
+  /**
+   * Accessible label for the revealed search region.
+   */
+  searchRegionLabel?: string;
+
+  /**
+   * Initial open state for the search panel.
+   */
+  searchInitiallyOpen?: boolean;
+
+  /**
+   * CSS variable name used for the outer width of the search container.
+   */
+  searchOuterWidthVarName?: string;
+
+  /**
+   * Optional extra classes for the outer full-width wrapper.
+   */
+  class?: string;
+
+  /**
+   * Optional extra classes for the inner width wrapper.
+   */
+  innerClass?: string;
+
+  /**
+   * Optional classes for the left region wrapper.
+   */
+  leftClass?: string;
+
+  /**
+   * Optional classes for the centre region wrapper.
+   */
+  centerClass?: string;
+
+  /**
+   * Optional classes for the right region wrapper.
+   */
+  rightClass?: string;
+}
+
+const {
+  title = "Placeholder title",
+  navItems = [
+    { href: "#", label: "Home" },
+    { href: "#", label: "About" },
+    { href: "#", label: "Contact" },
+  ],
+  navLabel = "Primary navigation",
+  searchPlaceholder = "Search...",
+  openSearchLabel = "Open search",
+  closeSearchLabel = "Close search",
+  searchRegionLabel = "Site search",
+  searchInitiallyOpen = false,
+  searchOuterWidthVarName = "--search-outer-width",
+  class: className = "",
+  innerClass = "",
+  leftClass = "",
+  centerClass = "",
+  rightClass = "",
+}: Props = Astro.props;
+
+const componentId = `nav-search-${Math.random().toString(36).slice(2, 10)}`;
+const searchPanelId = `${componentId}-search-panel`;
+const searchInputId = `${componentId}-search-input`;
+---
+
+<div
+  class:list={["type-ui w-full", className]}
+  data-nav-search-root
+  data-component-id={componentId}
+  data-search-initially-open={String(searchInitiallyOpen)}
+  data-open-search-label={openSearchLabel}
+  data-close-search-label={closeSearchLabel}
+>
+  <div
+    class:list={["relative mx-auto flex min-h-16 w-full items-center gap-4 px-4 sm:px-6 lg:px-8", innerClass]}
+    data-nav-search-outer
+  >
+    <div class:list={["relative z-10 flex min-w-0 items-center gap-4", leftClass]} data-nav-search-region-left>
+      <slot name="left">
+        <slot name="title">
+          <a href="#" class="inline-flex shrink-0">
+            {title}
+          </a>
+        </slot>
+      </slot>
+    </div>
+
+    <div
+      class:list={["relative z-10 flex min-w-0 flex-1 items-center justify-center gap-4", centerClass]}
+      data-nav-search-region-center
+    >
+      <slot name="center">
+        <nav
+          aria-label={navLabel}
+          aria-hidden={searchInitiallyOpen}
+          inert={searchInitiallyOpen ? true : undefined}
+          data-nav-search-nav
+        >
+          <slot name="nav">
+            <ul class="flex items-center gap-4 sm:gap-6">
+              {
+                navItems.map((item) => (
+                  <li>
+                    <a href={item.href} class="inline-flex items-center transition">
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </slot>
+        </nav>
+      </slot>
+    </div>
+
+    <div
+      class:list={["relative z-30 flex min-w-0 items-center justify-end gap-4", rightClass]}
+      data-nav-search-region-right
+    >
+      <slot name="right">
+        <slot name="search-toggle">
+          <button
+            type="button"
+            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md transition"
+            aria-expanded={searchInitiallyOpen}
+            aria-controls={searchPanelId}
+            aria-label={openSearchLabel}
+            data-nav-search-toggle
+          >
+            <span class="sr-only" data-nav-search-toggle-label>{openSearchLabel}</span>
+
+            <span
+              class:list={[searchInitiallyOpen ? "hidden" : "inline-flex"]}
+              aria-hidden="true"
+              data-nav-search-icon-open
+            >
+              <slot name="search-open-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-5 w-5"
+                >
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m20 20-3.5-3.5"></path>
+                </svg>
+              </slot>
+            </span>
+
+            <span
+              class:list={[searchInitiallyOpen ? "inline-flex" : "hidden"]}
+              aria-hidden="true"
+              data-nav-search-icon-close
+            >
+              <slot name="search-close-icon">
+                <Icon name="x" class="h-5 w-5" />
+              </slot>
+            </span>
+          </button>
+        </slot>
+      </slot>
+    </div>
+
+    <div
+      id={searchPanelId}
+      class:list={[
+        "absolute inset-y-0 right-4 left-4 z-20 flex items-center transition duration-200 sm:right-6 sm:left-6 lg:right-8 lg:left-8",
+        searchInitiallyOpen ? "opacity-100" : "pointer-events-none opacity-0",
+      ]}
+      role="search"
+      aria-label={searchRegionLabel}
+      aria-hidden={!searchInitiallyOpen}
+      hidden={!searchInitiallyOpen}
+      data-nav-search-panel
+      style={`${searchOuterWidthVarName}: 0px;`}
+    >
+      <div class="flex w-full items-center gap-3 px-3 py-2" data-nav-search-surface>
+        <div class="flex-1
+        bg-amber-700/10 backdrop-blur-sm
+        py-1 px-2 rounded-md" data-nav-search-content>
+          <slot name="search">
+            <label for={searchInputId} class="sr-only">Search site</label>
+            <input
+              id={searchInputId}
+              type="search"
+              name="search"
+              placeholder={searchPlaceholder}
+              autocomplete="off"
+              class="w-full min-w-0 border-0 px-0 py-2"
+              data-nav-search-input
+            />
+          </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ componentId, searchOuterWidthVarName }}>
+  (() => {
+    const root = document.querySelector(`[data-component-id="${componentId}"]`);
+
+    if (!(root instanceof HTMLElement)) {
+      console.error("NavSearch: root element not found.");
+      return;
+    }
+
+    const outer = root.querySelector("[data-nav-search-outer]");
+    const nav = root.querySelector("[data-nav-search-nav]");
+    const panel = root.querySelector("[data-nav-search-panel]");
+    const surface = root.querySelector("[data-nav-search-surface]");
+    const toggle = root.querySelector("[data-nav-search-toggle]");
+    const openIcon = root.querySelector("[data-nav-search-icon-open]");
+    const closeIcon = root.querySelector("[data-nav-search-icon-close]");
+    const toggleLabel = root.querySelector("[data-nav-search-toggle-label]");
+
+    if (
+      !(outer instanceof HTMLElement) ||
+      !(panel instanceof HTMLElement) ||
+      !(surface instanceof HTMLElement) ||
+      !(toggle instanceof HTMLButtonElement) ||
+      !(openIcon instanceof HTMLElement) ||
+      !(closeIcon instanceof HTMLElement) ||
+      !(toggleLabel instanceof HTMLElement)
+    ) {
+      console.error("NavSearch: one or more required elements are missing.");
+      return;
+    }
+
+    const getInput = () => {
+      const input = root.querySelector("[data-nav-search-input]");
+      return input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement ? input : null;
+    };
+
+    const setDisplay = (element, show) => {
+      element.classList.toggle("inline-flex", show);
+      element.classList.toggle("hidden", !show);
+    };
+
+    const openSearchLabel = root.dataset.openSearchLabel ?? "Open search";
+    const closeSearchLabel = root.dataset.closeSearchLabel ?? "Close search";
+
+    let isOpen = root.dataset.searchInitiallyOpen === "true";
+    let lastFocusedElement = null;
+
+    /**
+     * Updates the CSS variable on the search panel with the width of the outer wrapper.
+     */
+    const updateOuterWidth = () => {
+      const width = outer.getBoundingClientRect().width;
+      panel.style.setProperty(searchOuterWidthVarName, `${width}px`);
+    };
+
+    /**
+     * Applies the current UI state.
+     */
+    const render = () => {
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? closeSearchLabel : openSearchLabel);
+      toggleLabel.textContent = isOpen ? closeSearchLabel : openSearchLabel;
+
+      setDisplay(openIcon, !isOpen);
+      setDisplay(closeIcon, isOpen);
+
+      if (nav instanceof HTMLElement) {
+        nav.classList.toggle("invisible", isOpen);
+        nav.classList.toggle("pointer-events-none", isOpen);
+        nav.setAttribute("aria-hidden", String(isOpen));
+        nav.toggleAttribute("inert", isOpen);
+      }
+
+      panel.hidden = !isOpen;
+      panel.setAttribute("aria-hidden", String(!isOpen));
+      panel.classList.toggle("pointer-events-none", !isOpen);
+      panel.classList.toggle("opacity-0", !isOpen);
+      panel.classList.toggle("opacity-100", isOpen);
+
+      updateOuterWidth();
+    };
+
+    /**
+     * Opens the search interface and moves focus into the first supported field.
+     */
+    const openSearch = () => {
+      if (isOpen) {
+        return;
+      }
+
+      lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+      isOpen = true;
+      render();
+
+      requestAnimationFrame(() => {
+        const input = getInput();
+        if (input) {
+          input.focus();
+
+          if ("select" in input && typeof input.select === "function") {
+            input.select();
+          }
+        }
+      });
+    };
+
+    /**
+     * Closes the search interface and restores focus safely.
+     */
+    const closeSearch = () => {
+      if (!isOpen) {
+        return;
+      }
+
+      isOpen = false;
+      render();
+
+      if (lastFocusedElement instanceof HTMLElement && root.contains(lastFocusedElement)) {
+        lastFocusedElement.focus();
+        return;
+      }
+
+      toggle.focus();
+    };
+
+    /**
+     * Toggles the search interface.
+     */
+    const toggleSearch = () => {
+      if (isOpen) {
+        closeSearch();
+        return;
+      }
+
+      openSearch();
+    };
+
+    toggle.addEventListener("click", () => {
+      toggleSearch();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!(event instanceof KeyboardEvent)) {
+        return;
+      }
+
+      if (event.key === "Escape" && isOpen) {
+        event.preventDefault();
+        closeSearch();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!isOpen) {
+        return;
+      }
+
+      const target = event.target;
+      if (!(target instanceof Node)) {
+        return;
+      }
+
+      if (surface.contains(target) || toggle.contains(target)) {
+        return;
+      }
+
+      if (!root.contains(target)) {
+        closeSearch();
+      }
+    });
+
+    window.addEventListener("resize", updateOuterWidth);
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(() => {
+        updateOuterWidth();
+      });
+
+      resizeObserver.observe(outer);
+    }
+
+    render();
+  })();
+</script>

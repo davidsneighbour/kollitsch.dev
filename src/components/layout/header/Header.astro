@@ -1,12 +1,392 @@
 ---
+import { fade } from "astro:transitions";
+import NavItem from "@components/layout/header/navigation/NavItem.astro";
+import ProgressBar from "@components/layout/header/navigation/Progress.astro";
+import NavSearch from "@components/layout/header/search/NavSearch.astro";
+import PageFind from "@components/layout/header/search/PageFind.astro";
 import SiteTitle from "@components/layout/header/title/SiteTitle.astro";
+import setup from "@data/setup.json" with { type: "json" };
+import navData from "@data/topnavigation.json" with { type: "json" };
+import { getHomepageUrl } from "@utils/content.ts";
 import { createIdentifier } from "@utils/helpers";
-import TopNavigation from "@/components/layout/header/navigation/TopNavigation.astro";
+import { createLogger } from "@utils/logger.ts";
+import { findActive, isActive, type Navigation } from "@utils/navigation.ts";
+import { Icon } from "astro-icon/components";
 
-const siteTitleId = createIdentifier({ prefix: "sitetitle" });
+type ThemeMode = "dark" | "light";
+type StoredThemeMode = ThemeMode | "auto";
 
-export interface Props {}
+export interface Props {
+  defaultTheme?: StoredThemeMode;
+  siteTitleId?: string;
+}
+
+const typedNavData = navData as Navigation;
+const log = createLogger({ slug: "TopNavigation" });
+const pathname = Astro.url.pathname;
+const activeItem = findActive(typedNavData, pathname);
+const tagPrefixes = ["/tags/", "/tag/"];
+const isTagsPath = tagPrefixes.some((prefix) => pathname.startsWith(prefix));
+const isNavItemActive = (item: Navigation[number]) => (isTagsPath ? item.link === "/tags/" : isActive(item, pathname));
+const { defaultTheme = "dark", siteTitleId = createIdentifier({ prefix: "sitetitle" }) }: Props = Astro.props;
+
+if (!activeItem && import.meta.env.DEV) {
+  log.debug(`👉 no navigation item to activate for: ${pathname}`);
+}
 ---
 
 <SiteTitle siteTitleId={siteTitleId} />
-<TopNavigation siteTitleId={siteTitleId} />
+
+<header class="sticky top-0 right-0 left-0 isolate z-50">
+  <ProgressBar
+    classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-70 hidden [--height:4px] lg:[--height:6px]"
+  />
+  <NavSearch
+    navLabel="Main navigation"
+    openSearchLabel="Open site search"
+    closeSearchLabel="Close site search"
+    searchRegionLabel="Site search"
+    searchOuterWidthVarName="--pf-searchbox-max-width"
+    centerClass="justify-end"
+    rightClass="shrink-0"
+    class="bg-white/75 shadow-lg dark:bg-gray-900/75"
+  >
+    <Fragment slot="left">
+      <span id="navbar-sitetitle">
+        <a
+          id="navbar-brand"
+          href={getHomepageUrl()}
+          class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
+        >
+          <Icon name="house-fill" class="place-self-center" />
+          {setup.title}
+        </a>
+      </span>
+    </Fragment>
+
+    <Fragment slot="center">
+      <nav aria-label="Main navigation">
+        <ul class="flex items-center gap-4 sm:gap-6" transition:animate={fade({ duration: "0.4s" })}>
+          {
+            typedNavData.map((value) => (
+              <NavItem
+                icon={value.icon}
+                name={value.label}
+                link={value.link}
+                classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
+              />
+            ))
+          }
+          <li class="px-3 py-4 @md:px-2 @md:py-2">
+            <theme-selector></theme-selector>
+          </li>
+        </ul>
+      </nav>
+    </Fragment>
+
+    <Fragment slot="search">
+      <div class="flex w-full items-center gap-3" id="pagefind-container">
+        <PageFind />
+      </div>
+    </Fragment>
+
+    <Fragment slot="search-open-icon">
+      <Icon name="search" class="h-5 w-5 stroke-red-700" />
+    </Fragment>
+
+    <Fragment slot="search-close-icon">
+      <Icon name="x" class="h-5 w-5 stroke-red-700" />
+    </Fragment>
+  </NavSearch>
+</header>
+
+<script is:inline data-astro-rerun data-default-theme={defaultTheme} data-site-title-id={siteTitleId}>
+  (() => {
+    /**
+     * @typedef {"dark" | "light"} ThemeMode
+     * @typedef {"dark" | "light" | "auto"} StoredThemeMode
+     */
+
+    /**
+     * @typedef ThemeManager
+     * @property {() => ThemeMode} getSystemTheme
+     * @property {() => StoredThemeMode} getTheme
+     * @property {() => void} resetTheme
+     * @property {(theme?: StoredThemeMode) => void} setTheme
+     */
+
+    window.kdev = window.kdev || {};
+    window.kdev.mobileOpen = false;
+
+    const currentScript = document.currentScript;
+    const defaultThemeAttr = currentScript?.getAttribute("data-default-theme") ?? "dark";
+    const defaultTheme = defaultThemeAttr === "auto" ? "auto" : defaultThemeAttr === "light" ? "light" : "dark";
+
+    const closeIcon = document.querySelector(".close-icon");
+    const openIcon = document.querySelector(".open-icon");
+    const navSection = document.querySelector("#navigation-and-theme-select");
+    const placeholderId = currentScript?.getAttribute("data-site-title-id");
+    const placeholder = placeholderId ? document.querySelector(`#${placeholderId}`) : null;
+    const stickyBrand = document.querySelector("#navbar-brand");
+    const viewportProgress = document.querySelector("progress.progress--viewport-top");
+
+    /**
+     * @returns {void}
+     */
+    function toggleIcons() {
+      closeIcon?.classList.toggle("hidden", !window.kdev.mobileOpen);
+      openIcon?.classList.toggle("hidden", window.kdev.mobileOpen);
+    }
+
+    /**
+     * @returns {void}
+     */
+    function toggleNavVisibility() {
+      const isMdUp = window.matchMedia("(min-width: 768px)").matches;
+      const shouldShow = isMdUp || window.kdev.mobileOpen;
+      navSection?.classList.toggle("hidden", !shouldShow);
+      navSection?.classList.toggle("flex", shouldShow);
+    }
+
+    /**
+     * @returns {void}
+     */
+    function initMobileMenu() {
+      window.kdev.mobileOpen = false;
+      toggleIcons();
+      toggleNavVisibility();
+
+      const menuToggle = document.querySelector("#hamburger-and-close");
+      if (!(menuToggle instanceof HTMLElement)) {
+        return;
+      }
+
+      const clone = menuToggle.cloneNode(true);
+      if (!(clone instanceof HTMLElement)) {
+        return;
+      }
+
+      menuToggle.replaceWith(clone);
+      clone.addEventListener("click", () => {
+        window.kdev.mobileOpen = !window.kdev.mobileOpen;
+        toggleIcons();
+        toggleNavVisibility();
+      });
+    }
+
+    /**
+     * @returns {void}
+     */
+    function initStickyBrandObserver() {
+      if (!(placeholder instanceof Element) || !(stickyBrand instanceof HTMLElement)) {
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          const shouldShowStickyState = !entry.isIntersecting;
+          stickyBrand.classList.toggle("opacity-100", shouldShowStickyState);
+          stickyBrand.classList.toggle("opacity-0", !shouldShowStickyState);
+          viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
+        },
+        { threshold: 0 },
+      );
+
+      observer.observe(placeholder);
+
+      const rect = placeholder.getBoundingClientRect();
+      const isIntersecting = rect.top >= 0 && rect.bottom > 0;
+      const shouldShowStickyState = !isIntersecting;
+      stickyBrand.classList.toggle("sticky-visible", shouldShowStickyState);
+      viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
+    }
+
+    /**
+     * @param {ThemeMode} theme
+     * @returns {void}
+     */
+    function changeGiscusTheme(theme = "dark") {
+      const iframe = document.querySelector("iframe.giscus-frame");
+      if (!(iframe instanceof HTMLIFrameElement) || !iframe.contentWindow) {
+        return;
+      }
+
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
+    }
+
+    /**
+     * @returns {ThemeManager}
+     */
+    function createThemeManager() {
+      const storageKey = "kdev-theme";
+      const store =
+        typeof localStorage !== "undefined"
+          ? localStorage
+          : {
+              getItem() {
+                return null;
+              },
+              removeItem() {
+                return;
+              },
+              setItem() {
+                return;
+              },
+            };
+
+      const mediaMatcher = window.matchMedia("(prefers-color-scheme: dark)");
+      /** @type {ThemeMode} */
+      let systemTheme = mediaMatcher.matches ? "dark" : "light";
+
+      /**
+       * @param {StoredThemeMode} theme
+       * @returns {ThemeMode}
+       */
+      function resolveTheme(theme) {
+        return theme === "auto" ? systemTheme : theme;
+      }
+
+      /**
+       * @param {StoredThemeMode} theme
+       * @returns {void}
+       */
+      function applyTheme(theme) {
+        const resolvedTheme = resolveTheme(theme);
+        const codeTheme = resolvedTheme === "dark" ? "dracula" : "light-plus";
+
+        document.documentElement.dataset.codeTheme = codeTheme;
+        document.documentElement.dataset.theme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+
+        changeGiscusTheme(resolvedTheme);
+
+        document.dispatchEvent(
+          new CustomEvent("theme-changed", {
+            detail: {
+              defaultTheme,
+              resolvedTheme,
+              systemTheme,
+              theme,
+            },
+          }),
+        );
+      }
+
+      /** @type {ThemeManager} */
+      const api = {
+        getSystemTheme() {
+          return systemTheme;
+        },
+
+        getTheme() {
+          const storedTheme = store.getItem(storageKey);
+          if (storedTheme === "light" || storedTheme === "dark" || storedTheme === "auto") {
+            return storedTheme;
+          }
+
+          return defaultTheme;
+        },
+
+        resetTheme() {
+          store.removeItem(storageKey);
+        },
+
+        setTheme(theme = defaultTheme) {
+          store.setItem(storageKey, theme);
+          applyTheme(theme);
+        },
+      };
+
+      mediaMatcher.addEventListener("change", (event) => {
+        systemTheme = event.matches ? "dark" : "light";
+        api.setTheme(api.getTheme());
+      });
+
+      return api;
+    }
+
+    /** @type {ThemeManager} */
+    const theme = window.kdev.theme ?? createThemeManager();
+    window.kdev.theme = theme;
+
+    theme.setTheme(theme.getTheme());
+
+    /**
+     * @returns {void}
+     */
+    function initThemeManager() {
+      if (!customElements.get("theme-selector")) {
+        customElements.define(
+          "theme-selector",
+          class extends HTMLElement {
+            connectedCallback() {
+              /** @type {ThemeMode[]} */
+              this.themes = ["light", "dark"];
+
+              const button = document.createElement("button");
+              button.setAttribute("type", "button");
+              button.setAttribute("aria-label", "Toggle theme");
+              button.addEventListener("click", () => {
+                this.nextTheme();
+              });
+
+              this.btn = button;
+              this.replaceChildren(button);
+              this.updateIcon();
+
+              document.addEventListener("theme-changed", this.handleThemeChanged);
+            }
+
+            disconnectedCallback() {
+              document.removeEventListener("theme-changed", this.handleThemeChanged);
+            }
+
+            handleThemeChanged = () => {
+              this.updateIcon();
+            };
+
+            nextTheme() {
+              try {
+                const currentTheme = theme.getTheme();
+                const currentIndex = this.themes.indexOf(
+                  currentTheme === "auto" ? theme.getSystemTheme() : currentTheme,
+                );
+                const safeIndex = currentIndex >= 0 ? currentIndex : 0;
+                const nextTheme = this.themes[(safeIndex + 1) % this.themes.length];
+                theme.setTheme(nextTheme);
+              } catch (error) {
+                console.error("theme-selector nextTheme failed:", error);
+              }
+            }
+
+            updateIcon(currentTheme = theme.getTheme()) {
+              if (!(this.btn instanceof HTMLButtonElement)) {
+                return;
+              }
+
+              const visibleTheme = currentTheme === "auto" ? theme.getSystemTheme() : currentTheme;
+              const icons = {
+                dark: "🌙",
+                light: "☀️",
+              };
+
+              this.btn.textContent = icons[visibleTheme] ?? icons.dark;
+            }
+          },
+        );
+      }
+
+      document.addEventListener("astro:after-swap", () => {
+        theme.setTheme(theme.getTheme());
+        initMobileMenu();
+      });
+    }
+
+    window.addEventListener("resize", toggleNavVisibility);
+    document.addEventListener("astro:after-swap", initMobileMenu);
+
+    initMobileMenu();
+    initStickyBrandObserver();
+    initThemeManager();
+  })();
+</script>

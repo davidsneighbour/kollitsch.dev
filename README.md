@@ -4,7 +4,7 @@
 * [Quickstart](#quickstart)
 * [Commands](#commands)
 * [Tech stack](#tech-stack)
-* [Preview of the current state of the website (regenerated weekly)](#preview-of-the-current-state-of-the-website-regenerated-weekly)
+* [Preview of the current state of the website](#preview-of-the-current-state-of-the-website)
 * [Contributing](#contributing)
 
 [![Check Links](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml/badge.svg)](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml)
@@ -56,7 +56,7 @@ All commands are run from the root of the project, from a terminal:
 * Vitest & Playwright for testing
 * Biome for linting and formatting
 
-## Preview of the current state of the website ([regenerated weekly](.github/workflows/update-screenshot.yml))
+## Preview of the current state of the website
 
 [![Screenshot of kollitsch.dev](.github/screenshot.png)](.github/screenshot.png)
 

@@ -11,7 +11,8 @@
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "release": "wireit",
-    "release:tests": "wireit"
+    "release:tests": "wireit",
+    "screenshot": "wireit"
   },
   "wireit": {
     "release": {

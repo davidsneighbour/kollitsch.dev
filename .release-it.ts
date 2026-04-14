@@ -20,6 +20,10 @@ const config = {
     skipChecks: true,
     tokenRef: 'GITHUB_TOKEN_CONTENT_PRIVATE',
   },
+  hooks: {
+    'after:bump':
+      'sh -c \'rm -f .github/screenshot.png && node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png && git add .github/screenshot.png\'',
+  },
   plugins: {
     '@release-it/conventional-changelog': {
       infile: 'CHANGELOG.md',
@@ -82,7 +86,7 @@ const config = {
               ? 'There are feat/content commits.'
               : 'There are patch-level changes.',
         };
-      }
+      },
     },
   },
 } satisfies Config;

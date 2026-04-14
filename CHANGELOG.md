@@ -1,5 +1,18 @@
 # Changelog
 
+## [3001.4.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.1...v3001.4.2) (2026-04-14)
+
+### Build
+
+* **fix:** add screenshot taker to release script ([fdcb2c8](https://github.com/davidsneighbour/kollitsch.dev/commit/fdcb2c8a41f5707aa1f6d42e8fd161e0d3c11cf7))
+* **fix:** fix screenshot script ([5501841](https://github.com/davidsneighbour/kollitsch.dev/commit/55018413df7fa3f4be8db182c900a23076dd2f6b))
+* **fix:** remove screenshot from release script ([188f90c](https://github.com/davidsneighbour/kollitsch.dev/commit/188f90ccc799a1b6c8cb748b137340b12451cd2d))
+* **fix:** screenshot script fixes ([6a1b111](https://github.com/davidsneighbour/kollitsch.dev/commit/6a1b1114c945e4c2bd61f537b6558b60ff276d98))
+
+### Documentation
+
+* re-add typography docs and add notes about deprecations ([46d83ed](https://github.com/davidsneighbour/kollitsch.dev/commit/46d83ed041e0a9c60021c28781cf0cf318c68b4f))
+
 ## [3001.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.0...v3001.4.1) (2026-04-14)
 
 ### Bug Fixes

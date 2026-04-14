@@ -32,7 +32,8 @@
     "stylelint.vscode-stylelint",
     "unifiedjs.vscode-mdx",
     "streetsidesoftware.code-spell-checker",
-    "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries"
+    "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries",
+    "google.wireit"
   ],
   "unwantedRecommendations": []
 }

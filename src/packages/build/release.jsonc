@@ -10,6 +10,22 @@
   "scripts": {
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "DEBUG=* release-it --ci --config .release-it.ts"
+    "release": "wireit",
+    "release:tests": "wireit"
+  },
+  "wireit": {
+    "release": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:tests": {
+      "command": "npx astro check",
+      "dependencies": [
+        "test",
+        "test:e2e"
+      ]
+    }
   }
 }

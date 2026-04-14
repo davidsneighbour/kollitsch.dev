@@ -1,5 +1,26 @@
 # Changelog
 
+## [3001.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.3.1...v3001.4.0) (2026-04-14)
+
+### Features
+
+* add pagefind component-ui based search ([141434a](https://github.com/davidsneighbour/kollitsch.dev/commit/141434a52408e3ba56e0f2bd8baa98ca688679bf))
+
+### Bug Fixes
+
+* export Props on PageFind ([8d58fb3](https://github.com/davidsneighbour/kollitsch.dev/commit/8d58fb3ec8bce1ceca3a6b693886a6d23131803f))
+* move pagefind css to inline tag ([1c90117](https://github.com/davidsneighbour/kollitsch.dev/commit/1c901179110a3780c4c350b3bd630b547186b21d))
+* smaller cleanups from linting and testing ([90f092d](https://github.com/davidsneighbour/kollitsch.dev/commit/90f092d0291bbe4d44c3c3010a85944041125e2b))
+
+### Build
+
+* **deps:** update dependencies ([1ae7886](https://github.com/davidsneighbour/kollitsch.dev/commit/1ae78865e07511a602353a9b80c39f339e3bab6c))
+* **fix:** add testing pre-release hooks ([41f65d3](https://github.com/davidsneighbour/kollitsch.dev/commit/41f65d315e6e6c2fc5fdca7a678ea58e54ef9155))
+
+### Tests
+
+* **fix:** update FeedReader component tests ([fb35547](https://github.com/davidsneighbour/kollitsch.dev/commit/fb35547826cc0b071e00e32513b55b02707dcb34))
+
 ## [3001.3.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.3.0...v3001.3.1) (2026-04-13)
 
 ### Bug Fixes

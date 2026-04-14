@@ -1,6 +1,5 @@
 ---
-// `npx astro build` must have run once to generate the pagefind styles in the dist directory
-import "../../../../../dist/pagefind/pagefind-component-ui.css";
+
 ---
 
 <pagefind-searchbox style="width: 98%;"></pagefind-searchbox>
@@ -99,3 +98,5 @@ import "../../../../../dist/pagefind/pagefind-component-ui.css";
   }
 </style>
 <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+<!-- `npx astro build` must have run once to generate the pagefind styles in the dist directory -->
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />

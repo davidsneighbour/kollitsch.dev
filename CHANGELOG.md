@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.4.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.2...v3001.4.3) (2026-04-14)
+
+### Bug Fixes
+
+* remove gradient from sitetitle ([78afd72](https://github.com/davidsneighbour/kollitsch.dev/commit/78afd72a89344fd4efd33a285eccb15d12ec95e3))
+
 ## [3001.4.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.1...v3001.4.2) (2026-04-14)
 
 ### Build

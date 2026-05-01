@@ -91,7 +91,7 @@
     "@pagefind/default-ui": "1.5.2",
     "pagefind": "1.5.2",
     "sirv": "3.0.2",
-    "@astrojs/react": "5.0.3",
+    "@astrojs/react": "5.0.4",
     "@radix-ui/react-slot": "1.2.4",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",

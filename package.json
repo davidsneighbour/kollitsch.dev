@@ -36,7 +36,7 @@
     "jsdom": "29.0.2",
     "@davidsneighbour/remark-config": "2026.0.2",
     "@secretlint/secretlint-rule-anthropic": "11.7.1",
-    "@secretlint/secretlint-rule-database-connection-string": "11.7.1",
+    "@secretlint/secretlint-rule-database-connection-string": "12.3.1",
     "@secretlint/secretlint-rule-no-dotenv": "11.7.1",
     "@secretlint/secretlint-rule-no-homedir": "11.7.1",
     "@secretlint/secretlint-rule-no-k8s-kind-secret": "11.7.1",

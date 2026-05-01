@@ -33,7 +33,7 @@
     "markdownlint-rule-search-replace": "1.2.0",
     "markdownlint-rule-title-case-style": "0.4.3",
     "@ls-lint/ls-lint": "2.3.1",
-    "jsdom": "29.0.2",
+    "jsdom": "29.1.1",
     "@davidsneighbour/remark-config": "2026.0.2",
     "@secretlint/secretlint-rule-anthropic": "11.7.1",
     "@secretlint/secretlint-rule-database-connection-string": "11.7.1",

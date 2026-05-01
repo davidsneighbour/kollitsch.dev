@@ -112,7 +112,7 @@
     "chrome-launcher": "1.2.1",
     "fast-xml-parser": "5.5.12",
     "playwright": "1.59.1",
-    "@axe-core/playwright": "4.11.1",
+    "@axe-core/playwright": "4.11.3",
     "@playwright/test": "1.59.1",
     "ajv": "8.18.0",
     "ajv-formats": "3.0.1",

@@ -22,7 +22,7 @@
     "cz-git": "1.12.0",
     "release-it": "19.2.4",
     "@release-it/conventional-changelog": "*",
-    "@biomejs/biome": "2.4.11",
+    "@biomejs/biome": "2.4.13",
     "cspell": "10.0.0",
     "markdownlint": "0.40.0",
     "markdownlint-cli2": "0.22.0",

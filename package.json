@@ -47,7 +47,7 @@
     "secretlint": "11.7.1",
     "@davidsneighbour/browserslist-config": "2026.0.3",
     "postcss-html": "1.8.1",
-    "stylelint": "17.7.0",
+    "stylelint": "17.9.1",
     "stylelint-config-html": "1.1.0",
     "stylelint-no-unsupported-browser-features": "8.1.1",
     "stylelint-order": "8.1.1",

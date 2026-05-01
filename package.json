@@ -110,7 +110,7 @@
     "@fontsource/changa-one": "5.2.8",
     "lighthouse": "13.1.0",
     "chrome-launcher": "1.2.1",
-    "fast-xml-parser": "5.5.12",
+    "fast-xml-parser": "5.7.2",
     "playwright": "1.59.1",
     "@axe-core/playwright": "4.11.1",
     "@playwright/test": "1.59.1",

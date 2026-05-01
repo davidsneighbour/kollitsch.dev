@@ -61,7 +61,7 @@
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/vite": "4.2.2",
     "@tailwindplus/elements": "1.0.22",
-    "astro": "6.1.6",
+    "astro": "6.2.1",
     "astro-icon": "1.1.5",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",

@@ -59,7 +59,7 @@
     "@astrojs/ts-plugin": "1.10.7",
     "@iconify-json/bi": "1.2.7",
     "@spotlightjs/astro": "3.2.6",
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
     "@tailwindplus/elements": "1.0.22",
     "astro": "6.1.6",
     "astro-icon": "1.1.5",

@@ -162,6 +162,7 @@
     "lint:styles:fix": "wireit",
     "lint:vale": "vale --config='src/config/vale/vale.ini' --no-exit --output='dnb.tmpl' ./.frontmatter/content/",
     "update:pre:vale": "wireit",
+    "create:blog": "node src/scripts/create-blog-post.ts",
     "astro": "astro",
     "build": "astro check && astro build && rm -rf dist/test/",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",

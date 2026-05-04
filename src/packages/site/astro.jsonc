@@ -28,6 +28,7 @@
     "@types/node": "25.6.0"
   },
   "scripts": {
+    "create:blog": "node src/scripts/create-blog-post.ts",
     "astro": "astro",
     "build": "astro check && astro build && rm -rf dist/test/",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",

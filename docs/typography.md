@@ -1,8 +1,3 @@
-Yes. The final state is now clearly `typography-*`, and the older `type-*` names should be treated as obsolete leftovers from the earlier draft. The uploaded note still reflects that older intermediate stage, so I would explicitly supersede it with the version below.
-
-## Final documentation for `documentation/typography.md`
-
-````md
 # Typography structure
 
 This project uses a semantic typography split for Astro and Tailwind instead of repeating `text-*` and `prose-*` chains throughout layouts and components.
@@ -43,7 +38,7 @@ It is used for:
 
 * article bodies
 * page content
-* markdown-rendered content
+* Markdown-rendered content
 * prose-heavy sections
 * long-form text blocks
 
@@ -275,13 +270,13 @@ Incorrect:
 
 Using `rem` or Tailwind `text-*` utilities would detach the adjustment from the current prose scale and break the intended relationship.
 
-### Rule 5: do not use Tailwind `text-*` inside `typography-reading`
+### Rule 5: Do not use Tailwind `text-*` inside `typography-reading`
 
 Inside the reading context, font-size adjustments should be done with `reading-*` or other `em`-based helpers.
 
 Do not use `text-sm`, `text-lg`, etc. inside `typography-reading`, because those operate on the global scale rather than the current prose base.
 
-### Rule 6: use `not-prose` directly in markup
+### Rule 6: Use `not-prose` directly in markup
 
 When a UI element appears inside `typography-reading`, use Tailwind Typography's escape hatch directly in markup:
 
@@ -295,7 +290,7 @@ Do not use `@apply not-prose`.
 
 `not-prose` must always be written directly in markup.
 
-### Rule 7: always pair `not-prose` with `typography-ui`
+### Rule 7: Always pair `not-prose` with `typography-ui`
 
 `not-prose` exits the Typography plugin, but it does not automatically restore the UI typography system.
 
@@ -315,19 +310,19 @@ and this is not sufficient:
 </div>
 ```
 
-### Rule 8: do not re-enter prose inside `not-prose`
+### Rule 8: Do not re-enter prose inside `not-prose`
 
 `not-prose` creates a hard boundary.
 
 Do not try to nest `typography-reading` inside a `not-prose` block.
 
-### Rule 9: keep sizes in `reading-*` at or above ~0.75em
+### Rule 9: Keep sizes in `reading-*` at or above ~0.75em
 
-Avoid font sizes below ~0.75em in reading context. Smaller sizes should only be used for very specific, intentional cases (e.g. annotations or microcopy) and should not be introduced as general-purpose utilities.
+Avoid font sizes below ~0.75em in reading context. Smaller sizes should only be used for very specific, intentional cases (for example, annotations or microcopy) and should not be introduced as general-purpose utilities.
 
 ## Notes and warnings
 
-### Warning: old names are obsolete
+### Warning: Old names are obsolete
 
 Older intermediate names such as:
 
@@ -349,13 +344,13 @@ These utilities exist for exceptions and fine-tuning, not for everyday typograph
 
 They should appear less often than `typography-ui` and `typography-reading`.
 
-### Warning: keep `typography-*` in `@layer components`
+### Warning: Keep `typography-*` in `@layer components`
 
 `typography-ui` and `typography-reading` are semantic wrapper classes, not atomic utilities.
 
 They belong in `@layer components`.
 
-### Warning: keep `reading-*` in `@layer utilities`
+### Warning: Keep `reading-*` in `@layer utilities`
 
 `reading-*` classes are local, single-purpose adjustments.
 
@@ -384,6 +379,6 @@ If any code still uses the previous naming or patterns, update it to the current
 
 Replace all occurrences of `type-ui` with `typography-ui` and `type-reading` with `typography-reading`.
 Ensure that any use of Tailwind Typography escape classes follows the correct pattern:
-do not use `@apply not-prose`; instead, use `not-prose` directly in markup and always combine it with `typography-ui` (e.g. `<div class="not-prose typography-ui">`).
+do not use `@apply not-prose`; instead, use `not-prose` directly in markup and always combine it with `typography-ui` (for example, `<div class="not-prose typography-ui">`).
 Additionally, remove any use of Tailwind `text-*` utilities inside `typography-reading` and replace them with `reading-*` utilities or `em`-based sizing where appropriate.
 Verify that all `reading-*` utilities use `em` units (not `rem` or `text-*`) and avoid introducing sizes below ~0.75em unless explicitly required for a specific use case.

@@ -1,5 +1,14 @@
 {
-  "extends": "astro/tsconfigs/strictest",
+  "extends": "@dnbhq/tsconfig/astro",
+  "include": [
+    ".astro/types.d.ts",
+    "src"
+  ],
+  "exclude": [
+    "dist",
+    "scratch",
+    "src/scripts"
+  ],
   "compilerOptions": {
     "paths": {
       "@/*": [
@@ -45,25 +54,13 @@
         "./src/utils/*"
       ]
     },
+    "types": [
+      "astro/client"
+    ],
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "types": [
-      "astro/client"
-    ],
-    "verbatimModuleSyntax": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  },
-  "include": [
-    ".astro/types.d.ts",
-    "src"
-  ],
-  "exclude": [
-    "dist",
-    "scratch",
-    "src/scripts"
-  ]
+  }
 }

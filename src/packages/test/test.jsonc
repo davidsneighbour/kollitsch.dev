@@ -1,21 +1,23 @@
 {
   "dependencies": {
-    "@axe-core/playwright": "4.11.1",
-    "@playwright/test": "1.59.1",
-    "ajv": "8.18.0",
+    "@axe-core/playwright": "4.11.3",
+    "@playwright/test": "1.60.0",
+    "@vitest/browser-playwright": "^4",
+    "@vitest/coverage-v8": "^4",
+    "@vitest/ui": "^4",
+    "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
     "cheerio": "1.2.0",
     "vite-tsconfig-paths": "6.1.1",
-    "vitest": "4.1.4",
-    "@vitest/browser-playwright": "^4"
+    "vitest": "^4"
   },
   "scripts": {
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
-    "test:postinstall": "npx playwright install",
     "test:live": "npx playwright test --config ./playwright.live.config.ts",
+    "test:postinstall": "npx playwright install",
     "test:ui": "vitest --ui"
   },
   "wireit": {}

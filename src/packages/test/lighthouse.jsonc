@@ -1,14 +1,14 @@
 {
+  "dependencies": {
+    "chrome-launcher": "1.2.1",
+    "lighthouse": "13.3.0"
+  },
+  "scripts": {
+    "lighthouse:audit": "wireit"
+  },
   "wireit": {
     "lighthouse:audit": {
       "command": "node src/scripts/lighthouse-audit.ts"
     }
-  },
-  "dependencies": {
-    "lighthouse": "13.1.0",
-    "chrome-launcher": "1.2.1"
-  },
-  "scripts": {
-    "lighthouse:audit": "wireit"
   }
 }

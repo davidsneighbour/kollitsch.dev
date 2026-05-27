@@ -1,12 +1,12 @@
 {
-  "dependencies": {
-    "cspell": "10.0.0"
-  },
   "cspell": {
-    "version": "0.2",
     "import": [
       "./src/config/cspell/cspell.jsonc"
-    ]
+    ],
+    "version": "0.2"
+  },
+  "dependencies": {
+    "cspell": "10.0.0"
   },
   "scripts": {
     "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'"

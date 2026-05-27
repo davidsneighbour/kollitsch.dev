@@ -2,6 +2,7 @@
   // a collection of scripts to build the package.json file
   // requires Node24+
   "dependencies": {
+    "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0"
   },
   "scripts": {
@@ -9,21 +10,6 @@
     "packages:update": "wireit"
   },
   "wireit": {
-    "packages:generate": {
-      "dependencies": [
-        "compile:package"
-      ],
-      "command": "node ./src/packages/generate-package.ts",
-      "files": [
-        "./src/packages/**/*.jsonc"
-      ]
-    },
-    "packages:update": {
-      "dependencies": [
-        "compile:fixpack"
-      ],
-      "command": "node ./src/packages/update-package.ts"
-    },
     // fixpack returns a non-zero exit code if changes were made but the script did not fail,
     // so we run it twice and ignore errors
     "compile:fixpack": {
@@ -39,13 +25,28 @@
       ]
     },
     "compile:package:install": {
+      "command": "npm install",
       "dependencies": [
         "compile:fixpack"
-      ],
-      "command": "npm install"
+      ]
     },
     "compile:package:run": {
       "command": "node ./src/packages/generate-package.ts"
+    },
+    "packages:generate": {
+      "command": "node ./src/packages/generate-package.ts",
+      "dependencies": [
+        "compile:package"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
+    },
+    "packages:update": {
+      "command": "node ./src/packages/update-package.ts",
+      "dependencies": [
+        "compile:fixpack"
+      ]
     }
   }
 }

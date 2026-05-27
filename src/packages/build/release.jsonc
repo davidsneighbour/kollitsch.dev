@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "@commitlint/cli": "20.5.0",
-    "@commitlint/config-conventional": "20.5.0",
+    "@commitlint/cli": "21.0.1",
+    "@commitlint/config-conventional": "21.0.1",
     "@humanwhocodes/social-changelog": "0.4.0",
-    "cz-git": "1.12.0",
-    "release-it": "19.2.4",
-    "@release-it/conventional-changelog": "*"
+    "@release-it/conventional-changelog": "11.0.0",
+    "cz-git": "1.13.1",
+    "release-it": "20.0.1"
   },
   "scripts": {
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",

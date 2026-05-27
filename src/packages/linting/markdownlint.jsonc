@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "markdownlint": "0.40.0",
-    "markdownlint-cli2": "0.22.0",
     "@github/markdownlint-github": "0.8.0",
+    "markdownlint": "0.40.0",
+    "markdownlint-cli2": "0.22.1",
     "markdownlint-rule-extended-ascii": "0.2.1",
     "markdownlint-rule-list-duplicates": "0.0.1",
     "markdownlint-rule-relative-links": "5.1.0",

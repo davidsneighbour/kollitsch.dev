@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    //"html-validate": "10.1.2"
+    //"html-validate": "10.1.2",
+    "@davidsneighbour/imagemin-lint-staged": "2.0.0"
   },
   "scripts": {
     "audit:html": "wireit",

@@ -13,11 +13,11 @@
         "clean:full:items"
       ]
     },
-    "clean:full:last": {
-      "command": "rm -rf node_modules package-lock.json .wireit"
-    },
     "clean:full:items": {
       "command": "run-p clean:*"
+    },
+    "clean:full:last": {
+      "command": "rm -rf node_modules package-lock.json .wireit"
     }
   }
 }

@@ -6,5 +6,6 @@
   },
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
-  "frontMatter.taxonomy.slugTemplate": "{{title}}"
+  "frontMatter.taxonomy.slugTemplate": "{{title}}",
+  "frontMatter.validation.enabled": false
 }

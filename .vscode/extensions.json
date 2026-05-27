@@ -34,7 +34,8 @@
     "streetsidesoftware.code-spell-checker",
     "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries",
     "google.wireit",
-    "zizmor.zizmor-vscode"
+    "zizmor.zizmor-vscode",
+    "eliostruyf.vscode-front-matter-beta"
   ],
   "unwantedRecommendations": []
 }

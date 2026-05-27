@@ -6,6 +6,12 @@ import { z } from 'astro/zod';
 import { blogSchema } from '../content.config.ts';
 import { createLogger } from './logger.ts';
 
+export const stripHtmlTags = (value: string): string =>
+  value
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
 export type BlogPost = CollectionEntry<'blog'>;
 
 export type CoverData = BlogPost['data']['cover'];
@@ -255,12 +261,6 @@ export function resolveOpenGraphPayload(
     title,
   };
 }
-
-export const stripHtmlTags = (value: string): string =>
-  value
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
 
 export interface BreadcrumbItem {
   label: string;

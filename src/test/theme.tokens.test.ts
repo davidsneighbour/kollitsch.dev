@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { theme, generateTailwindThemeCss } from '@utils/theme';
-import { stripHtmlTags } from '@utils/content';
+import { stripHtmlTags } from '@utils/text';
 
 describe('Tailwind @theme tokens', () => {
   it('normalises inline HTML in content titles used by theme pages', () => {

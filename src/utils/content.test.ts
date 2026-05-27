@@ -1,4 +1,4 @@
-import { stripHtmlTags } from '@utils/content';
+import { stripHtmlTags } from '@utils/text';
 import { describe, expect, it } from 'vitest';
 
 describe('stripHtmlTags', () => {

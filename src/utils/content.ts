@@ -314,6 +314,11 @@ export async function getBreadcrumbs(
     .replace(/\/+/g, '/');
 
   const segments = normalizedPath.split('/').filter(Boolean);
+  const filteredSegments = segments.filter((segment, index, allSegments) => {
+    const previousSegment = allSegments[index - 1];
+    const isYearSegment = /^\d{4}$/.test(segment);
+    return !(previousSegment === 'blog' && isYearSegment);
+  });
 
   const breadcrumbs: BreadcrumbItem[] = [
     { href: `${homepage}/`, label: 'Home' },
@@ -321,11 +326,11 @@ export async function getBreadcrumbs(
   const allEntries = await getCollection('blog');
 
   let currentPath = '';
-  for (let i = skipIndex; i < segments.length; i++) {
-    const segment = segments[i]!;
+  for (let i = skipIndex; i < filteredSegments.length; i++) {
+    const segment = filteredSegments[i]!;
     currentPath += `/${segment}`;
     const href = `${homepage}${currentPath}/`;
-    const isLast = i === segments.length - 1;
+    const isLast = i === filteredSegments.length - 1;
 
     let label: string;
 

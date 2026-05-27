@@ -30,4 +30,7 @@ export default {
   '*.jsonnet': ['jsonnetfmt --in-place'],
 
   '*.y(aml|ml)': ['yamllint --config-file ./src/config/yamllint.yaml'],
+
+  "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged"]
+
 };

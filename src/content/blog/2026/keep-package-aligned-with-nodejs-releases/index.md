@@ -544,4 +544,4 @@ That is the right amount of automation for a field that is easy to neglect but i
 
 ## What's next?
 
-I have this weird idea of automating everything, so I will probably look into something that updates the matrixes in my Github workflows to supported Node.js versions too. It never ends ;)
+I have this weird idea of automating everything, so I will probably look into something that updates the matrixes in my GitHub workflows to supported Node.js versions too. It never ends ;)

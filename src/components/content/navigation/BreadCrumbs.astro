@@ -1,6 +1,6 @@
 ---
 // @todo refactor and comment
-import { getBreadcrumbs } from "@utils/content.ts";
+import { getBreadcrumbs, stripHtmlTags } from "@utils/content.ts";
 import { Icon } from "astro-icon/components";
 import BreadcrumbListSchema from "@components/seo/schema/BreadcrumbList.astro";
 
@@ -27,9 +27,9 @@ const breadcrumbs = await getBreadcrumbs(path);
             <a
               href={breadcrumb.href}
               aria-current={isLast ? "page" : undefined}
-              aria-label={`Go to ${breadcrumb.label} page`}
+              aria-label={`Go to ${stripHtmlTags(breadcrumb.label)} page`}
             >
-              {breadcrumb.label === "Home" ? <Icon name="house-fill" /> : breadcrumb.label}
+              {breadcrumb.label === "Home" ? <Icon name="house-fill" /> : <span set:html={breadcrumb.label} />}
             </a>
             {!isLast && (
               <Icon name="chevron-right" class="fill-gray-400 text-gray-400 dark:fill-gray-600 dark:text-gray-600" />

@@ -256,6 +256,12 @@ export function resolveOpenGraphPayload(
   };
 }
 
+export const stripHtmlTags = (value: string): string =>
+  value
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
 export interface BreadcrumbItem {
   label: string;
   href: string;

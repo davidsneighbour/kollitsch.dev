@@ -132,17 +132,17 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
         // Required-by-Giscus attributes
         const attrs: Record<string, string> = {
           src: "https://giscus.app/client.js",
-          "data-repo": ds.repo ?? "",
-          "data-repo-id": ds.repoId ?? "",
-          "data-category": ds.category ?? "",
-          "data-category-id": ds.categoryId ?? "",
-          "data-mapping": ds.mapping ?? "specific",
-          "data-term": ds.term ?? "",
-          "data-input-position": ds.inputPosition ?? "bottom",
-          "data-reactions-enabled": ds.reactionsEnabled ?? "1",
-          "data-emit-metadata": ds.emitMetadata ?? "0",
+          "data-repo": ds["repo"] ?? "",
+          "data-repo-id": ds["repoId"] ?? "",
+          "data-category": ds["category"] ?? "",
+          "data-category-id": ds["categoryId"] ?? "",
+          "data-mapping": ds["mapping"] ?? "specific",
+          "data-term": ds["term"] ?? "",
+          "data-input-position": ds["inputPosition"] ?? "bottom",
+          "data-reactions-enabled": ds["reactionsEnabled"] ?? "1",
+          "data-emit-metadata": ds["emitMetadata"] ?? "0",
           "data-theme": this.getTheme(),
-          "data-lang": ds.lang ?? "en",
+          "data-lang": ds["lang"] ?? "en",
           crossorigin: "anonymous",
           async: "",
           defer: "",
@@ -150,7 +150,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
         };
 
         // Optional perf hint
-        attrs.fetchpriority = "high";
+        attrs["fetchpriority"] = "high";
 
         return attrs;
       }

@@ -84,8 +84,8 @@ const inputId = `tag-filter-input-${safeFilterId}`;
     apply(input.value);
 
     // Avoid double-binding if Astro swaps pages
-    if (input.dataset.tagFilterBound === "true") return;
-    input.dataset.tagFilterBound = "true";
+    if (input.dataset["tagFilterBound"] === "true") return;
+    input.dataset["tagFilterBound"] = "true";
     const handler = () => apply(input.value);
     input.addEventListener("input", handler, { passive: true });
   }

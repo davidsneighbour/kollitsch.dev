@@ -9,7 +9,7 @@ let frontmatter;
 if (post) {
   frontmatter = post.data;
 } else {
-  frontmatter = Astro.props.frontmatter;
+  frontmatter = Astro.props["frontmatter"];
 }
 const isDev = import.meta.env.DEV;
 ---

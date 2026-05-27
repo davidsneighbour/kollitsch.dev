@@ -33,7 +33,7 @@ const {
   ...rest
 }: Props = Astro.props;
 
-const hasSlot = !!Astro.slots.default;
+const hasSlot = !!Astro.slots["default"];
 
 // Cast per element to avoid prop-type conflicts (notably the 'type' prop).
 const anchorAttrs = rest as unknown as HTMLAttributes<"a">;

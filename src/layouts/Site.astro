@@ -100,7 +100,7 @@ const IS_DEV = import.meta.env.DEV;
 
         const destroyLenis = () => {
           const ns = getNamespace();
-          const existing = ns.lenis;
+          const existing = ns["lenis"];
           if (existing && typeof existing === "object" && "destroy" in existing) {
             try {
               const destroyable = existing as { destroy: () => void };
@@ -109,7 +109,7 @@ const IS_DEV = import.meta.env.DEV;
               console.error("[lenis] destroy failed", e);
             }
           }
-          ns.lenis = undefined;
+          ns["lenis"] = undefined;
         };
 
         const initLenis = () => {
@@ -134,7 +134,7 @@ const IS_DEV = import.meta.env.DEV;
               lenis.start();
             }
 
-            ns.lenis = lenis;
+            ns["lenis"] = lenis;
           } catch (e) {
             console.error("[lenis] init failed", e);
           }

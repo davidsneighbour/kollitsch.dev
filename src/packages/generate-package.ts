@@ -196,8 +196,8 @@ async function main() {
   }
 
   // remove the "notes" key if it exists
-  if (filteredPkg.notes) {
-    delete filteredPkg.notes;
+  if (filteredPkg["notes"]) {
+    delete filteredPkg["notes"];
     if (verbose)
       console.error('> Removed "notes" from package.json structure.');
   }

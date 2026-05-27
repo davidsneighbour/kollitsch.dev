@@ -146,7 +146,8 @@ function nowHHMMSS(): string {
 
 /** Parse desired level from options or env */
 function resolveLevel(opt?: LogLevel): LogLevel {
-  const env = (typeof process !== 'undefined' && process.env?.LOG_LEVEL) || '';
+  const env =
+    (typeof process !== 'undefined' && process.env?.['LOG_LEVEL']) || '';
   const val = (opt ?? env ?? 'info').toLowerCase();
   if (val === 'debug' || val === 'info' || val === 'warn' || val === 'error')
     return val;
@@ -206,7 +207,9 @@ export function createLogger(options: LoggerOptions): Logger {
   const isNode =
     typeof process !== 'undefined' && typeof window === 'undefined';
   const useAnsi = isNode && Boolean(process.stdout && process.stdout.isTTY);
-  const noColor = Boolean(options.noColor || (isNode && process.env?.NO_COLOR));
+  const noColor = Boolean(
+    options.noColor || (isNode && process.env?.['NO_COLOR']),
+  );
 
   function should(level: LogLevel): boolean {
     if (muted) return false;

@@ -1,8 +1,8 @@
 ---
+import BreadcrumbListSchema from "@components/seo/schema/BreadcrumbList.astro";
 // @todo refactor and comment
 import { getBreadcrumbs, stripHtmlTags } from "@utils/content.ts";
 import { Icon } from "astro-icon/components";
-import BreadcrumbListSchema from "@components/seo/schema/BreadcrumbList.astro";
 
 export interface Props {
   path: string;
@@ -26,6 +26,7 @@ const breadcrumbs = await getBreadcrumbs(path);
           <>
             <a
               href={breadcrumb.href}
+              class="line-clamp-1"
               aria-current={isLast ? "page" : undefined}
               aria-label={`Go to ${stripHtmlTags(breadcrumb.label)} page`}
             >

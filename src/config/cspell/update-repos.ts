@@ -61,9 +61,9 @@ async function fetchReposPage(page: number): Promise<GitHubRepo[]> {
   /**
    * @todo fix Github token management
    */
-  const token = process.env.GITHUB_TOKEN_FULL_DEV;
+  const token = process.env["GITHUB_TOKEN_FULL_DEV"];
   if (token && token.trim() !== '') {
-    headers.Authorization = `Bearer ${token}`;
+    headers["Authorization"] = `Bearer ${token}`;
   }
 
   const response = await fetch(endpoint, { headers });

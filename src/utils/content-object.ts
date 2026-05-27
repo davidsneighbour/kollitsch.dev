@@ -396,7 +396,7 @@ function pickAuthor(
         .map((item) => {
           if (isString(item)) return item.trim();
           if (isRecord(item)) {
-            if (isString(item.name)) return item.name.trim();
+            if (isString(item['name'])) return item['name'].trim();
             if (isString((item as { fullName?: unknown }).fullName)) {
               return ((item as { fullName?: string }).fullName ?? '').trim();
             }
@@ -409,8 +409,8 @@ function pickAuthor(
     }
 
     if (isRecord(value)) {
-      if (isString(value.name)) {
-        const trimmed = value.name.trim();
+      if (isString(value['name'])) {
+        const trimmed = value['name'].trim();
         if (trimmed.length > 0) return trimmed;
       }
       if (isString((value as { fullName?: unknown }).fullName)) {
@@ -441,7 +441,8 @@ function normalizeStringArray(value: unknown): string[] {
     return value
       .map((item) => {
         if (isString(item)) return item.trim();
-        if (isRecord(item) && isString(item.name)) return item.name.trim();
+        if (isRecord(item) && isString(item['name']))
+          return item['name'].trim();
         return '';
       })
       .filter(isNonEmptyString);
@@ -496,8 +497,8 @@ function isCollectionEntry(
 ): value is CollectionEntry<keyof import('astro:content').DataEntryMap> {
   return (
     isRecord(value) &&
-    isString(value.id) &&
-    isString(value.collection) &&
+    isString(value['id']) &&
+    isString(value['collection']) &&
     'data' in value &&
     isRecord((value as { data: unknown }).data)
   );

@@ -53,9 +53,9 @@ const createHtmlRow = (
  */
 export default async (request: Request, context: Context): Promise<Response> => {
 
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const RESEND_FROM = process.env.RESEND_FROM;
-  const RESEND_TO = process.env.RESEND_TO;
+  const RESEND_API_KEY = process.env["RESEND_API_KEY"];
+  const RESEND_FROM = process.env["RESEND_FROM"];
+  const RESEND_TO = process.env["RESEND_TO"];
 
   console.log({ request, context });
 

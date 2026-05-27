@@ -162,7 +162,7 @@ function normalizeFrontmatterLike(
   const pickDate = (value: unknown) =>
     value instanceof Date || typeof value === 'string' ? value : undefined;
 
-  const coverValue = frontmatter.cover;
+  const coverValue = frontmatter['cover'];
   const cover =
     typeof coverValue === 'string' ||
     (coverValue && typeof coverValue === 'object') ||
@@ -172,23 +172,23 @@ function normalizeFrontmatterLike(
 
   return {
     ...(cover !== undefined ? { cover } : {}),
-    ...(pickDate(frontmatter.date) !== undefined
-      ? { date: pickDate(frontmatter.date) }
+    ...(pickDate(frontmatter['date']) !== undefined
+      ? { date: pickDate(frontmatter['date']) }
       : {}),
-    ...(isNonEmptyString(frontmatter.description)
-      ? { description: frontmatter.description }
+    ...(isNonEmptyString(frontmatter['description'])
+      ? { description: frontmatter['description'] }
       : {}),
-    ...(typeof frontmatter.draft === 'boolean'
-      ? { draft: frontmatter.draft }
+    ...(typeof frontmatter['draft'] === 'boolean'
+      ? { draft: frontmatter['draft'] }
       : {}),
-    ...(pickDate(frontmatter.lastModified) !== undefined
-      ? { lastModified: pickDate(frontmatter.lastModified) }
+    ...(pickDate(frontmatter['lastModified']) !== undefined
+      ? { lastModified: pickDate(frontmatter['lastModified']) }
       : {}),
-    ...(isNonEmptyString(frontmatter.linktitle)
-      ? { linktitle: frontmatter.linktitle }
+    ...(isNonEmptyString(frontmatter['linktitle'])
+      ? { linktitle: frontmatter['linktitle'] }
       : {}),
-    ...(isNonEmptyString(frontmatter.title)
-      ? { title: frontmatter.title }
+    ...(isNonEmptyString(frontmatter['title'])
+      ? { title: frontmatter['title'] }
       : {}),
   } as unknown as PostFrontmatterLike;
 }

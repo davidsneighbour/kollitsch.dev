@@ -79,9 +79,9 @@ describe('createContentObject', () => {
     expect(content.tags).not.toBe(overrides.tags);
     expect(content.author).toEqual(['Ada Lovelace', 'Bob Example']);
     expect(content.readingTime).toBe('10 minutes');
-    expect(content.meta.collection).toBe('blog');
-    expect(content.meta.source).toBe('override');
-    expect(content.meta.publishedAt).toBe('2024-05-01T00:00:00Z');
+    expect(content.meta['collection']).toBe('blog');
+    expect(content.meta['source']).toBe('override');
+    expect(content.meta['publishedAt']).toBe('2024-05-01T00:00:00Z');
     expect(content.meta).not.toBe(overrides.meta);
   });
 
@@ -112,7 +112,7 @@ describe('createContentObject', () => {
     expect(result.cover).toBe('/cover.jpg');
     expect(result.readingTime).toBe(7);
     expect(result.tags).toEqual(['alpha', 'beta']);
-    expect(result.meta.shouldIgnore).toBe(true);
+    expect(result.meta['shouldIgnore']).toBe(true);
     expect(manual.meta).toEqual({ shouldIgnore: true });
   });
 

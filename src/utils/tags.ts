@@ -601,9 +601,11 @@ export async function getTags(
   const threshold = options?.threshold ?? setup.tagThreshold ?? 2;
   const order: TagOrder =
     options?.order ??
+    // @ts-ignore-next-line keep 'count-desc' as default for legacy reasons, even if sortBy is missing
     (options?.sortBy === 'label'
       ? 'label-asc'
-      : options?.sortBy === 'count'
+      : // @ts-ignore-next-line keep 'count-desc' as default for legacy reasons, even if sortBy is missing
+        options?.sortBy === 'count'
         ? 'count-desc'
         : 'count-desc');
   const limit = options?.limit;

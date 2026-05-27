@@ -149,7 +149,7 @@ export function clampDescription(input: string, min = 150, max = 170): string {
 
 function firstNonEmptyString(values: readonly unknown[]): string {
   for (const value of values) {
-    if (isNonEmptyString(value)) return value;
+    if (isNonEmptyString(value)) return stripHtmlTags(value);
   }
   return '';
 }
@@ -520,7 +520,7 @@ export function resolvePostTitle(
   title: string,
   options: TitleOptions = {},
 ): string {
-  title = title || setup.title;
+  title = stripHtmlTags(title || setup.title);
 
   const { prefix = '', postfix = '' } = options;
   return `${prefix}${title}${postfix}`;

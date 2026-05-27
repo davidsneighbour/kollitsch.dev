@@ -1,7 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { theme, generateTailwindThemeCss } from '@utils/theme';
+import { stripHtmlTags } from '@utils/title';
 
 describe('Tailwind @theme tokens', () => {
+  it('normalises inline HTML in content titles used by theme pages', () => {
+    expect(
+      stripHtmlTags('Keeping <code>engines.node</code> aligned with the Node release schedule'),
+    ).toBe('Keeping engines.node aligned with the Node release schedule');
+  });
+
   it('emits a @theme block with core variables', () => {
     const css = generateTailwindThemeCss(theme);
 

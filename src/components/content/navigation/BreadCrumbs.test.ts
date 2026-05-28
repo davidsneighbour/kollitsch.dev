@@ -1,6 +1,6 @@
 // @vitest-environment node
 
-import { stripHtmlTags } from '@utils/content';
+import { stripHtmlTags } from '@utils/content.pure';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';

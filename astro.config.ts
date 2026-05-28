@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
 import icon from 'astro-icon';

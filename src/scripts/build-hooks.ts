@@ -37,6 +37,17 @@ function generateFeedsIntegration(): AstroIntegration {
                     },
                 ];
 
+                const hasFreshRssConfig = Boolean(
+                    process.env.FRESHRSS_BASE_URL
+                    && process.env.FRESHRSS_USERNAME
+                    && process.env.FRESHRSS_API_PASSWORD,
+                );
+
+                if (!hasFreshRssConfig) {
+                    logger.warn("Skipping feed generation: FreshRSS environment variables are not configured.");
+                    return;
+                }
+
                 try {
                     logger.info("Generating feeds...");
 

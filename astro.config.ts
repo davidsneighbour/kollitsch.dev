@@ -3,17 +3,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
 import icon from 'astro-icon';
 import fg from 'fast-glob';
 import devtoolsJson from 'vite-plugin-devtools-json';
-import { createLogger } from './src/utils/logger.ts';
 import redirects from './src/data/redirects.json' with { type: 'json' };
 import { buildHooks } from "./src/scripts/build-hooks.ts";
-import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 
 // env variables are not automatically loaded
 // import { loadEnv } from "vite";
@@ -133,8 +131,7 @@ export default defineConfig({
     themes: ['dracula', 'light-plus'],
     useDarkModeMediaQuery: false,
   }),
-    mdx(),
-    react()],
+    mdx()],
   markdown: {
     shikiConfig: {
       themes: { dark: 'dark-plus', light: 'github-light' },
@@ -147,10 +144,7 @@ export default defineConfig({
   site: 'https://kollitsch.dev/',
   //trailingSlash: 'always',
   vite: {
-    plugins: [
-      tailwindcss(),
-      devtoolsJson(),
-    ],
+    plugins: [devtoolsJson(), tailwindcss()],
   },
   build: {
     format: 'directory',

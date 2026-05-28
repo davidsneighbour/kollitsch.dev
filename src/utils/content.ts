@@ -696,3 +696,5 @@ export function getPageDateNote(
     ? `The posts on this page were published between ${formatDate(last, 'MMMM D, YYYY')} and ${formatDate(first, 'MMMM D, YYYY')}.`
     : `This post was published on ${formatDate(first, 'MMMM D, YYYY')}.`;
 }
+
+export { stripHtmlTags };

@@ -18,7 +18,7 @@
     "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0",
     "@commitlint/cli": "21.0.1",
-    "@commitlint/config-conventional": "21.0.1",
+    "@commitlint/config-conventional": "21.0.2",
     "@humanwhocodes/social-changelog": "0.4.0",
     "@release-it/conventional-changelog": "11.0.0",
     "cz-git": "1.13.1",

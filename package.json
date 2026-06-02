@@ -89,7 +89,7 @@
     "he": "1.2.0",
     "satori": "0.26.0",
     "satori-html": "0.3.2",
-    "@netlify/functions": "5.2.2",
+    "@netlify/functions": "5.3.0",
     "@pagefind/default-ui": "1.5.2",
     "pagefind": "1.5.2",
     "sirv": "3.0.2",

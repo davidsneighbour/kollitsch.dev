@@ -24,7 +24,7 @@
     "cz-git": "1.13.1",
     "release-it": "20.0.1",
     "@biomejs/biome": "2.4.16",
-    "cspell": "10.0.0",
+    "cspell": "10.0.1",
     "@davidsneighbour/imagemin-lint-staged": "2.0.0",
     "@github/markdownlint-github": "0.8.0",
     "markdownlint": "0.40.0",

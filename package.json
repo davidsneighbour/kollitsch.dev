@@ -20,7 +20,7 @@
     "@commitlint/cli": "21.0.1",
     "@commitlint/config-conventional": "21.0.1",
     "@humanwhocodes/social-changelog": "0.4.0",
-    "@release-it/conventional-changelog": "11.0.0",
+    "@release-it/conventional-changelog": "11.0.1",
     "cz-git": "1.13.1",
     "release-it": "20.0.1",
     "@biomejs/biome": "2.4.16",

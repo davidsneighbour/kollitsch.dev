@@ -68,7 +68,7 @@
     "@tailwindplus/elements": "1.0.22",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.35",
-    "astro": "6.4.0",
+    "astro": "6.4.3",
     "astro-expressive-code": "0.42.0",
     "astro-icon": "1.1.5",
     "fast-glob": "3.3.3",

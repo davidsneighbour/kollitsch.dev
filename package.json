@@ -22,7 +22,7 @@
     "@humanwhocodes/social-changelog": "0.4.0",
     "@release-it/conventional-changelog": "11.0.0",
     "cz-git": "1.13.1",
-    "release-it": "20.0.1",
+    "release-it": "20.2.0",
     "@biomejs/biome": "2.4.16",
     "cspell": "10.0.0",
     "@davidsneighbour/imagemin-lint-staged": "2.0.0",

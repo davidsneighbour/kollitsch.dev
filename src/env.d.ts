@@ -15,6 +15,10 @@ interface Window {
  * @see https://docs.astro.build/en/guides/environment-variables/
  */
 interface ImportMetaEnv {
-  readonly DB_PASSWORD: string;
-  readonly PUBLIC_POKEAPI: string;
+  readonly YOUTUBE_API_KEY: string;
+  readonly FRESHRSS_BASE_URL: string;
+  readonly FRESHRSS_USERNAME: string;
+  readonly FRESHRSS_API_PASSWORD: string;
+  readonly GH_TOKEN: string;
+  readonly GITHUB_TOKEN: string;
 }

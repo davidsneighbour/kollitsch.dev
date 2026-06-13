@@ -1,7 +1,7 @@
 ---
 import headings from "@data/random-headings.json" with { type: "json" };
 
-interface Props {
+export interface Props {
   text: string;
   slug: keyof typeof headings;
   class?: string;
@@ -13,7 +13,7 @@ const alternatives: string[] = headings[slug] ?? [];
 
 <h2 data-random-heading={slug} class={className}>{text}</h2>
 
-<script define:vars={{ alternatives, slug, text }}>
+<script is:inline define:vars={{ alternatives, slug, text }}>
   document.addEventListener("DOMContentLoaded", () => {
     const pool = [text, ...alternatives];
     const el = document.querySelector(`[data-random-heading="${slug}"]`);

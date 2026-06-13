@@ -36,6 +36,8 @@ npx vitest run src/path/to/file.test.ts
 
 **Do not run `npm run build` in sandboxed environments without API tokens** — it calls the `prebuild` image-index step and may fail. Use `npm run check` for type-checking only.
 
+**`npm test` MUST pass after every change.** Run it before committing. If a change causes a new component or file to be picked up by an existing test suite (e.g. `components-props.test.ts` requires every `.astro` in `src/components/` to export a named `Props` interface/type), fix the source, not the test.
+
 ## Environment variables
 
 Required for full builds and certain scripts (set in `.env`):

@@ -165,7 +165,7 @@ No secrets are tracked in git, `.env` is correctly ignored, and the production-f
 * Area: Tests and validation
 * Evidence: `grep -rL "@vitest-environment node"` identifies the following files missing the mandatory header:
   1. `src/utils/content.test.ts`
-  2. `src/utils/github.test.ts`
+  2. ~~`src/utils/github.test.ts`~~ — **Fixed** (header added; also fixed flaky warn-spy test by mocking logger module)
   3. `src/utils/color.test.ts`
   4. `src/utils/content-object.test.ts`
   5. `src/test/browser/heading.browser.test.ts` — browser test; should carry the browser environment annotation instead

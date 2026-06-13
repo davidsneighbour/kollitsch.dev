@@ -1,5 +1,23 @@
 # Changelog
 
+## [3001.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.5.2...v3001.6.0) (2026-06-13)
+
+### Feat
+
+* **gimmicks:** add RandomHeading component with randomised title pool ([2828d5e](https://github.com/davidsneighbour/kollitsch.dev/commit/2828d5e1aeb48371d5e6d5c64317246e3db2f1a8))
+
+### Fix
+
+* **gimmicks:** export Props interface in RandomHeading; add npm test gate to CLAUDE.md ([ab8625a](https://github.com/davidsneighbour/kollitsch.dev/commit/ab8625acfa1d705600849637ae68a71ac9c71df5))
+
+### Docs
+
+* **agents:** add scoped Astro component instruction file ([c4c91c7](https://github.com/davidsneighbour/kollitsch.dev/commit/c4c91c713ffaf352950cd32da00a1fd3ade48cb2))
+
+### Build
+
+* **deps:** update @types/node and html-validate ([6877726](https://github.com/davidsneighbour/kollitsch.dev/commit/68777266a726e4f61f504590f3f78708ce733e41))
+
 ## [3001.5.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.5.1...v3001.5.2) (2026-06-13)
 
 ### Build

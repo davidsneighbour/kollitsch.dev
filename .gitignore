@@ -3,6 +3,8 @@
 .lychee.report.md
 .lycheecache
 
+.claude/settings*.json
+
 # Wireit cache
 .wireit
 

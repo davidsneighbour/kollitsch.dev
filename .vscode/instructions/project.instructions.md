@@ -2,7 +2,7 @@
 applyTo: "**"
 ---
 
-# KOLLITSCH.dev — Project Context
+# KOLLITSCH.dev: Project Context
 
 ## Identity
 

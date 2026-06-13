@@ -19,7 +19,6 @@
     "christian-kohler.npm-intellisense",
     "jock.svg",
     "wayou.vscode-todo-highlight",
-    "gruntfuggly.todo-tree",
     "be5invis.toml",
     "chwoerz.type-buddy",
     "tekumara.typos-vscode",
@@ -35,7 +34,11 @@
     "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries",
     "google.wireit",
     "zizmor.zizmor-vscode",
-    "eliostruyf.vscode-front-matter-beta"
+    "eliostruyf.vscode-front-matter-beta",
+    "austenc.tailwind-docs",
+    "gavbarosee.plainwind",
+    "heybourn.headwind",
+    "fanaticpythoner.better-todo-tree"
   ],
   "unwantedRecommendations": []
 }

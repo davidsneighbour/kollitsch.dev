@@ -138,6 +138,22 @@ Project-specific instructions are now at `.vscode/instructions/project.instructi
   2. Switch `screenshot.yml` from `node-version: 25` to `node-version-file: .nvmrc`.
 * Validation command: `npm run check`
 
+### 6. Fix "Tags: " showing when no tags are assigned
+
+* Priority: [P2]
+* Area: Templates
+* Evidence: The tag meta line renders `Tags:` followed by nothing when a post has no tags, instead of hiding entirely.
+* Suggested change: Wrap the tag meta line in a conditional so it only renders when `tags.length > 0`.
+* Validation command: `npm run check && npm test`
+
+### 7. Fix Netlify headers and redirects in `public/`
+
+* Priority: [P3]
+* Area: Deployment
+* Evidence: `public/_headers` and `public/_redirects` may have a broken or incomplete setup; the current `netlify.toml` only handles a trailing-slash 301 redirect. The [`abemedia/astro-static-headers`](https://github.com/abemedia/astro-static-headers) library is worth evaluating for per-route static header generation.
+* Suggested change: Audit `public/_headers` and `public/_redirects` against the live Netlify deployment; resolve any mismatches and consider adopting `astro-static-headers` for fine-grained header control.
+* Validation command: Deploy to a branch preview and inspect response headers.
+
 ## Questions
 
 * Running `node src/scripts/*.ts` (rather than `npx tsx`) appears intentional given Node's native TypeScript support, but it contradicts `CLAUDE.md`. Should `CLAUDE.md` be updated to reflect `node` usage, or should the scripts move to `npx tsx`?
@@ -152,3 +168,14 @@ Project-specific instructions are now at `.vscode/instructions/project.instructi
 * [IDEA] Move `src/scripts` back under type-checking (a dedicated `tsconfig.scripts.json`) so build-time integration code such as `build-hooks.ts` is validated.
 * [IDEA] Carry forward the pre-existing DESIGN.md backlog (sidebar tokens, semantic colour roles, dark-mode token pairs, form/navigation/motion/component token coverage, icon-system documentation).
 * [IDEA] Adopt the `ai/review/` structured action registry when it becomes available in the shared `ai` repo: stable item IDs, machine-readable validation commands in `ai/review/config.json`, and explicit `done`/`ignore` tracking files so completed items have a history rather than being deleted.
+* [IDEA] Fix font sizes overall; review the typography scale against DESIGN.md and correct any deviations across components.
+* [IDEA] Move the blog post preview into a container-based layout.
+* [IDEA] Fix YouTube content type handling; the current content type for YouTube posts may not be correctly defined or validated.
+* [IDEA] Nanny CLI: replace the `node src/scripts/*.ts` invocations in `package.json` and `wireit` entries with a `nanny <command>` wrapper, giving scripts a clean CLI surface. (Relates to the open question about `node` vs `npx tsx`.)
+* [IDEA] Static quest web ring: audit and fix the current web ring implementation.
+* [IDEA] Add page, link, and title transitions.
+* [IDEA] Blog post cards: show link underlines on card hover and intensify them on link hover.
+* [IDEA] 90% opacity page background so the body background colour shows through content areas.
+* [IDEA] Add `excludeAgent: "code-review"` or `excludeAgent: "coding-agent"` frontmatter to `.vscode/instructions/` files where the instruction content should be hidden from specific Copilot agents.
+* [IDEA] Extend the Playwright e2e suite with live site smoke tests: critical page uptime (`/about/`, `/contact/`, `/uses/`), Pagefind search overlay, primary navigation and footer link crawl, JSON-LD structured data on blog posts, `@axe-core/playwright` accessibility checks (already installed), Web Vitals / synthetic timing, Matomo opt-out validation, contact form end-to-end submission, service worker registration, and sitemap integrity check.
+* [IDEA] Evaluate [`itshover.com/icons`](https://www.itshover.com/icons) as an icon enhancement option.

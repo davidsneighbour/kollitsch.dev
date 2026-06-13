@@ -1,4 +1,6 @@
-# [kollitsch.dev](https://kollitsch.dev/)
+# [KOLLITSCH.dev*](https://kollitsch.dev/)
+
+This is my personal website, (currently) built with Astro and TailwindCSS. This project serves as a digital garden, blog, and reference for web development, automation, and related topics, mixed with personal insights and experiences.
 
 * [General notes](#general-notes)
 * [Quickstart](#quickstart)
@@ -7,23 +9,20 @@
 * [Preview of the current state of the website](#preview-of-the-current-state-of-the-website)
 * [Contributing](#contributing)
 
-[![Check Links](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml/badge.svg)](https://github.com/davidsneighbour/kollitsch.dev/actions/workflows/link-check.yml)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Netlify Status](https://api.netlify.com/api/v1/badges/02e05c7a-11a0-48e0-988f-7fc12267eb89/deploy-status)](https://app.netlify.com/sites/kollitsch-dev/deploys)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 [![Linted with Biome](https://img.shields.io/badge/Linted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 
-My personal website, currently built with Astro and TailwindCSS. This project serves as a digital garden, blog, and reference for web development, automation, and related topics, mixed with personal insights and experiences.
-
 ## General notes
 
 * The keywords MUST, MUST NOT, REQUIRED, SHOULD, SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). This applies to all documentation, AI instructions, agent prompts, and automation rules in this repository.
 
-* I am working on Linux Mint Cinnamon 22.2, meaning all code samples in this document are working on Linux Mint Cinnamon 22.2 and any comparable (Debian- and Ubuntu-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I mainly use open source programs and scripts and not having versions on all/most OSses will most certainly lead to me not endorsing them.
+* I am working on Linux Xubuntu 26.04, meaning all code samples in this document are working on Linux Xubuntu 26.04 and any comparable (Debian- and Ubuntu-based) Linux system. If you use another operating system, you are on your own. I assume most tools, scripts, and procedures should work on other systems with the appropriate changes because I use open source programs and scripts and not having versions on all/most OSses will most certainly lead to me not endorsing them.
 
 * Changes to the website and setup that are important are documented in the [release notes on GitHub](https://github.com/davidsneighbour/kollitsch.dev/releases).
 
-* The versioning follows a very sophisticated year based semantic versioning scheme. Patch releases are for bug and content fixes, minor releases are for new features and content updates. Major releases are done once a year --- it's a personal website after all ;]
+* The versioning follows a very sophisticated year based semantic versioning scheme that changed into a number system and now we just use 3000. Patch releases are for bug and content fixes, minor releases are for new features and content updates. Major releases are done once a while --- it's a personal website after all ;]
 
 ## Quickstart
 
@@ -36,7 +35,7 @@ npm install
 npm run dev
 ```
 
-For more details and scattered notes about things, see the [`docs` directory](docs/), but don't expect it to be comprehensive.
+For more details and scattered notes about things, see the [`documentation` directory](documentation/), but don't expect it to be comprehensive or even up to date.
 
 ## Commands
 

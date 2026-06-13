@@ -242,9 +242,6 @@
     @apply bg-gray-50 text-gray-600;
     @apply dark:bg-gray-950 dark:text-gray-200;
 
-    /* scrollbars */
-    @apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;
-
     /* font sizes */
     @apply text-sm md:text-base lg:text-xl xl:text-2xl;
 
@@ -511,8 +508,8 @@
     --sb-size-ff: thin;
     --sb-track-color: var(--color-gray-900);
     --sb-track-color2: var(--color-gray-800);
-    --sb-thumb-color: var(--color-green-500);
-    --sb-thumb-color2: var(--color-green-400);
+    --sb-thumb-color: var(--color-orange-600);
+    --sb-thumb-color2: var(--color-red-700);
     --sb-border-radius: 4px;
   }
 

@@ -151,6 +151,9 @@ components:
     padding: "6px 12px"
   source-code-badge-hover:
     backgroundColor: "{colors.surface}"
+  scrollbar:
+    thumbColor: "{colors.primary}"
+    thumbHoverColor: "{colors.link}"
 ---
 
 # kollitsch.dev Design System

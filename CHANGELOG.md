@@ -1,5 +1,12 @@
 # Changelog
 
+## [3001.5.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.5.1...v3001.5.2) (2026-06-13)
+
+### Build
+
+* **deps:** update dependencies ([e09d12f](https://github.com/davidsneighbour/kollitsch.dev/commit/e09d12fa464a1303278fed950f0610860ce175cb))
+* **release:** migrate back to @dnbhq/release-config 1.0.2 ([5511495](https://github.com/davidsneighbour/kollitsch.dev/commit/5511495a2bee6abd920555fbf97d672230efef70))
+
 ## [3001.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.5.0...v3001.5.1) (2026-06-13)
 
 ### Build

@@ -1,0 +1,146 @@
+name: Lighthouse audit after deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to audit"
+        required: false
+        default: "https://kollitsch.dev/"
+  deployment_status:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: >-
+    lighthouse-audit-${{
+    github.event.deployment_status.deployment.sha || github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: Lighthouse ${{ matrix.profile }}
+    runs-on: ubuntu-latest
+
+    if: >-
+      ${{ github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'deployment_status' &&
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'production') }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: mobile
+            config: src/config/audits/lighthouse-mobile.config.cjs
+          - profile: desktop
+            config: src/config/audits/lighthouse-desktop.config.cjs
+
+    env:
+      AUDIT_URL: >-
+        ${{ github.event.inputs.url ||
+        github.event.deployment_status.target_url ||
+        'https://kollitsch.dev/' }}
+      DEPLOY_SHA: >-
+        ${{ github.event.deployment_status.deployment.sha || github.sha }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+
+      - name: Restore audit marker
+        id: audit-marker
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        with:
+          path: .cache/lighthouse-audited
+          key: lighthouse-audited-${{ env.DEPLOY_SHA }}-${{ matrix.profile }}
+
+      - name: Skip already audited deploy
+        if: steps.audit-marker.outputs.cache-hit == 'true'
+        run: |
+          echo "Deploy SHA ${DEPLOY_SHA} was already audited."
+          echo "Skipping."
+
+      - name: Set up Node.js
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Wait for deploy to settle
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        run: sleep 60
+
+      - name: Warm up deployed site
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          echo "Warming up ${AUDIT_URL}"
+          curl --fail --location --silent --show-error --output /dev/null "${AUDIT_URL}"
+
+      - name: Run warm-up Lighthouse pass
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        continue-on-error: true
+        env:
+          LH_FLAGS: "--headless=new --no-sandbox --disable-dev-shm-usage"
+          LH_OUT: "reports/lighthouse-warmup/${{ matrix.profile }}/warmup"
+        run: |
+          set -euo pipefail
+          mkdir --parents "$(dirname "${LH_OUT}")"
+          npx --yes lighthouse "${AUDIT_URL}" \
+          --config-path="${{ matrix.config }}" \
+          --output=json \
+          --output-path="${LH_OUT}" \
+          --chrome-flags="${LH_FLAGS}"
+
+      - name: Run measured Lighthouse pass
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        env:
+          LH_FLAGS: "--headless=new --no-sandbox --disable-dev-shm-usage"
+        run: |
+          set -euo pipefail
+          started_at="$(date -u +"%Y%m%dT%H%M%SZ")"
+          output_dir="reports/lighthouse/${{ matrix.profile }}/${started_at}-${DEPLOY_SHA}"
+          mkdir --parents "${output_dir}"
+          start_seconds="${SECONDS}"
+          npx --yes lighthouse "${AUDIT_URL}" \
+          --config-path="${{ matrix.config }}" \
+          --output=json \
+          --output=html \
+          --output-path="${output_dir}/lighthouse-${{ matrix.profile }}" \
+          --chrome-flags="${LH_FLAGS}"
+          duration_seconds="$((SECONDS - start_seconds))"
+          echo "## Lighthouse ${{ matrix.profile }} audit" >> "${GITHUB_STEP_SUMMARY}"
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "* URL: \`${AUDIT_URL}\`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "* Deploy SHA: \`${DEPLOY_SHA}\`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "* Config: \`${{ matrix.config }}\`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "* Started: \`${started_at}\`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "* Duration: \`${duration_seconds}s\`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "* Output: \`${output_dir}\`" >> "${GITHUB_STEP_SUMMARY}"
+
+      - name: Upload Lighthouse reports
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lighthouse-${{ matrix.profile }}-${{ env.DEPLOY_SHA }}
+          path: reports/lighthouse/${{ matrix.profile }}/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Save audit marker
+        if: steps.audit-marker.outputs.cache-hit != 'true'
+        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        with:
+          path: .cache/lighthouse-audited
+          key: lighthouse-audited-${{ env.DEPLOY_SHA }}-${{ matrix.profile }}

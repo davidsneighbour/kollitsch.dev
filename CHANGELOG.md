@@ -1,5 +1,100 @@
 # Changelog
 
+## [3001.5.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.3...v3001.5.0) (2026-06-13)
+
+### Content
+
+* **images:** add a couple of editorial images ([4a40ab2](https://github.com/davidsneighbour/kollitsch.dev/commit/4a40ab231834a442ca75881b1bd7e1eaae4aa0b9))
+* **new:** post of 2026-05-26 ([2b5d036](https://github.com/davidsneighbour/kollitsch.dev/commit/2b5d0369d33852d8a42cf75c0e6d6a6d59918305))
+* **new:** post of 2026-05-27 ([d196bf7](https://github.com/davidsneighbour/kollitsch.dev/commit/d196bf7bc0f3d29cdf860a5b3ad0ecf8f509b337))
+* **new:** post of 2026-05-27 ([475b7ce](https://github.com/davidsneighbour/kollitsch.dev/commit/475b7ced2beff96213fef45314dc8f86bcc8aa3b))
+* **pages:** add links to patrick-for-dummies ([9640452](https://github.com/davidsneighbour/kollitsch.dev/commit/96404526b430c12a4c217807346efc5fc42f9a42))
+* post of 2026-05-04 ([49b24dc](https://github.com/davidsneighbour/kollitsch.dev/commit/49b24dcb47c7d9fd65b08aeed5c10f1ea9e96e3d))
+
+### Features
+
+* add create blog post script ([4477fd0](https://github.com/davidsneighbour/kollitsch.dev/commit/4477fd09041e346ffca58c0d39bc3d17846e7836))
+* add screenshot workflow ([b63478b](https://github.com/davidsneighbour/kollitsch.dev/commit/b63478b492877e412827f6e4c358d826a8dd5529))
+* add SourceCode/SourceCodeLink components with frontmatter schema ([353680b](https://github.com/davidsneighbour/kollitsch.dev/commit/353680babe0d41a84d8060a5e7832c878ed59e66))
+* **components:** add LetterGlitch canvas animation gimmick with CTA wrapper ([b6ec54d](https://github.com/davidsneighbour/kollitsch.dev/commit/b6ec54d2af5e94bc7bd5999f16ce9f8725154d7c))
+* remove shadcn and fix tailwind generation ([4b68d2c](https://github.com/davidsneighbour/kollitsch.dev/commit/4b68d2c799d651d959a83d16d203d204682b80b9))
+
+### Bug Fixes
+
+* **breadcrumbs:** don't show the year in the breadcrumb (for now) ([d39885b](https://github.com/davidsneighbour/kollitsch.dev/commit/d39885b0addfd0bfe6edc0fa9ac692aaf71e7722))
+* **breadcrumbs:** strip HTML from breadcrumbed titles ([cbc47c6](https://github.com/davidsneighbour/kollitsch.dev/commit/cbc47c6394bd9869205ee132ffd44787c15440bd))
+* **components:** export Props interface/type from LetterGlitch components ([3272749](https://github.com/davidsneighbour/kollitsch.dev/commit/3272749b4021a65e4b23f4e1e8e144f191c27c05))
+* **head:** strip HTML from titles ([39bbc2c](https://github.com/davidsneighbour/kollitsch.dev/commit/39bbc2ce013c30c39c2ac5816e6e5a0c0a28db80))
+* noPropertyAccessFromIndexSignature is true ([f8eed06](https://github.com/davidsneighbour/kollitsch.dev/commit/f8eed06ea13af9679091815ecfbe112ae7021eeb))
+* recent updates ([011e39d](https://github.com/davidsneighbour/kollitsch.dev/commit/011e39d9812bacbc536156f9048300f86de5e997))
+* screenshot script fixes so that the page is fully rendered before shooting it ([e00dfff](https://github.com/davidsneighbour/kollitsch.dev/commit/e00dfff63ab6e9dfcb1d2868e9bf9821e1f00797))
+* testing fails for a couple of 'things' ([2c2416e](https://github.com/davidsneighbour/kollitsch.dev/commit/2c2416e5ba43b4414d7c63b918c209c1ba06b983))
+* **tests:** rename colophon.astro to finial.astro and fix test page ([c701a1a](https://github.com/davidsneighbour/kollitsch.dev/commit/c701a1ab61119f5ad4fb1ec43d4b22bba524aac6))
+* **theme:** add text decoration for code in headlines ([7413f73](https://github.com/davidsneighbour/kollitsch.dev/commit/7413f73a8ffa770345efa20a9cac2aae543f8fd4))
+* various cleanups and workspace config changes ([210fed4](https://github.com/davidsneighbour/kollitsch.dev/commit/210fed4630fb1a2a3a737645580dde698dcde482))
+* various fixes and workspace cleanup ([cc862df](https://github.com/davidsneighbour/kollitsch.dev/commit/cc862dfdf2726ed31ac6669dc603a3d26e6e60af))
+* various fixes to get tests working (moving functions around) ([f324b7b](https://github.com/davidsneighbour/kollitsch.dev/commit/f324b7bd1efd4c3acc9e8f132bbd190f8c645bc1))
+
+### Build
+
+* **config:** remove redundant dist from tsconfig exclude ([6ede195](https://github.com/davidsneighbour/kollitsch.dev/commit/6ede1953f7a95914847f6aedd9c0ee1ca7d61da2))
+* **deps:** bump @vitest/browser-playwright from 4.1.7 to 4.1.8 ([#1643](https://github.com/davidsneighbour/kollitsch/issues/1643)) ([b9851aa](https://github.com/davidsneighbour/kollitsch.dev/commit/b9851aa8006b463637be6cb70d4e2586f465e105))
+* **deps:** bump @vitest/coverage-v8 from 4.1.7 to 4.1.8 ([#1642](https://github.com/davidsneighbour/kollitsch/issues/1642)) ([d0e7ff8](https://github.com/davidsneighbour/kollitsch.dev/commit/d0e7ff8351e58b171fefe64b8bc85507ab0647cb))
+* **deps:** bump @vitest/ui from 4.1.7 to 4.1.8 ([#1650](https://github.com/davidsneighbour/kollitsch/issues/1650)) ([388c0c3](https://github.com/davidsneighbour/kollitsch.dev/commit/388c0c365fb8f1db58631a2b92fcf8b83f418e66))
+* **deps:** bump shell-quote from 1.8.3 to 1.8.4 in the npm_and_yarn group across 1 directory ([#1658](https://github.com/davidsneighbour/kollitsch/issues/1658)) ([b0a9e6d](https://github.com/davidsneighbour/kollitsch.dev/commit/b0a9e6db201b23339c27c80cdccaa2bbe656b06c))
+* **deps:** bump vitest from 4.1.7 to 4.1.8 ([#1646](https://github.com/davidsneighbour/kollitsch/issues/1646)) ([4f155d9](https://github.com/davidsneighbour/kollitsch.dev/commit/4f155d933544198ca86d412345a8aa1d164dcbca))
+* **deps:** fix dependencies ([9981ab4](https://github.com/davidsneighbour/kollitsch.dev/commit/9981ab422e0d1c36a42dab26214b28a26c813b7d))
+* **deps:** sort dependencies and bump [@commitlint](https://github.com/commitlint) to 21.0.2 ([98887b4](https://github.com/davidsneighbour/kollitsch.dev/commit/98887b49f7718204187b17e237863144e26a3d8b))
+* **deps:** update dependencies ([ed8e9f4](https://github.com/davidsneighbour/kollitsch.dev/commit/ed8e9f4b957fb126bd3986927c347ad0bbe2040e))
+* **deps:** update dependencies ([3f52e5f](https://github.com/davidsneighbour/kollitsch.dev/commit/3f52e5fc05017424a0589c85f85442a85de347a2))
+* **deps:** update dependencies ([9c81cca](https://github.com/davidsneighbour/kollitsch.dev/commit/9c81cca9898833fffd4c0f1c92082c107c42c2c6))
+* **deps:** update dependencies ([531b4c8](https://github.com/davidsneighbour/kollitsch.dev/commit/531b4c8096b31b902b9a0c74929a45723576237f))
+* **fix:** cleanup package.json setup ([a1e1a56](https://github.com/davidsneighbour/kollitsch.dev/commit/a1e1a5683738de593e773c7dac607076bd9f4142))
+* **fix:** update dependencies and fix playwright to work on Ubuntu 24.04 ([c0d510a](https://github.com/davidsneighbour/kollitsch.dev/commit/c0d510a762308d694b705f6296dc2681ca13ed44))
+* **fix:** update gitignore ([19803a4](https://github.com/davidsneighbour/kollitsch.dev/commit/19803a4f4c6ee50d49aae783c508af6837fea753))
+* refactor .release-it.ts to use @dnbhq/release-config factory ([efb5d10](https://github.com/davidsneighbour/kollitsch.dev/commit/efb5d1047be3e78eb3d6fb690dfd09b29d2a03f7))
+* **release:** revert to direct release-it config without @dnbhq/release-config ([2845de3](https://github.com/davidsneighbour/kollitsch.dev/commit/2845de3064c4db0e4ba9d910ea609a5334d054d7))
+* **vscode:** update workspace configuration ([86ba6bc](https://github.com/davidsneighbour/kollitsch.dev/commit/86ba6bc8ed4c517d12047440d83082de5cb04202))
+* **vscode:** update workspace configuration ([ada0095](https://github.com/davidsneighbour/kollitsch.dev/commit/ada0095e09caa335f835ee05dd67bd655236203b))
+* **vscode:** update workspace configuration ([b7f88d0](https://github.com/davidsneighbour/kollitsch.dev/commit/b7f88d0e72cecc00145c57a20345d65b6b98af57))
+
+### Chores
+
+* **cms:** update FrontMatter media database ([d795cc1](https://github.com/davidsneighbour/kollitsch.dev/commit/d795cc133a2340ebf4e8054d32bba2ad18d5d012))
+* **config:** remove stale commented bundledLangs from expressive-code ([2772dc7](https://github.com/davidsneighbour/kollitsch.dev/commit/2772dc73759ae9475929f67f30bb05e035b6f436))
+* update screenshot ([dd267d7](https://github.com/davidsneighbour/kollitsch.dev/commit/dd267d70a717b7897ff6aa81bf2110d12f387db1))
+* **vscode:** update extension recommendations ([b9ca4d5](https://github.com/davidsneighbour/kollitsch.dev/commit/b9ca4d55dabd80752c01fae45195cb323e07c5dc))
+
+### CI
+
+* add Lighthouse audit workflow triggered on deployment ([037a46e](https://github.com/davidsneighbour/kollitsch.dev/commit/037a46e0e5555ecb1ecb460dee6b7cbd53c2ff02))
+* **feat:** lint staged images ([ee4fac0](https://github.com/davidsneighbour/kollitsch.dev/commit/ee4fac0b92ae8f9c6406126f9b1795df405955a1))
+* **fix:** extend @dnbhq/tsconfig for TS ([7ac5529](https://github.com/davidsneighbour/kollitsch.dev/commit/7ac5529aa65ee10382b78473fe1c67993a30ae34))
+* **fix:** update vale configuration ([00f0da3](https://github.com/davidsneighbour/kollitsch.dev/commit/00f0da39cef99851f118b3ace193135cf6c2e64b))
+
+### Documentation
+
+* add CLAUDE.md with project guidance for Claude Code ([45d5afc](https://github.com/davidsneighbour/kollitsch.dev/commit/45d5afca795b8093883876e13f44930919d29aab))
+* add DESIGN.md and TODO.md usage rules to AGENTS.md ([1ff5da6](https://github.com/davidsneighbour/kollitsch.dev/commit/1ff5da66c6fcc15bb9ab3802ef96033b82e52021))
+* add DESIGN.md as single source of truth for visual identity ([ae5aae4](https://github.com/davidsneighbour/kollitsch.dev/commit/ae5aae4c57978fc847cfb5f8a1924410fc818d9d))
+* **agents:** add commit discipline rules to AGENTS.md ([1474efb](https://github.com/davidsneighbour/kollitsch.dev/commit/1474efb415755e9e461b3327f0e5a3a1922ce694))
+* **agents:** add project.instructions.md and update AGENTS.md scope ([29c43f0](https://github.com/davidsneighbour/kollitsch.dev/commit/29c43f011d2f24978f426d17af37daad438b7765))
+* **agents:** fix remaining vale em-dash error in heading ([06b0ab1](https://github.com/davidsneighbour/kollitsch.dev/commit/06b0ab12d782cdd490bc84041179f48c0154fb97))
+* **agents:** fix vale errors in project.instructions.md ([d7c3f6a](https://github.com/davidsneighbour/kollitsch.dev/commit/d7c3f6ad3d1268d0fe44f9db59397288706cad60))
+* **agents:** update TODO.md audit findings after ai/ symlink was added ([7148146](https://github.com/davidsneighbour/kollitsch.dev/commit/71481463614273b078a1c1b6e624055d105fe9f6))
+* **readme:** update OS info, versioning note, and docs path reference ([7124e01](https://github.com/davidsneighbour/kollitsch.dev/commit/7124e0108f4b409962414d964ff60ea3b24be999))
+* refactor typography documentation ([be472d9](https://github.com/davidsneighbour/kollitsch.dev/commit/be472d9825e0eb2165456ae8970841ea994ec450))
+* **todo:** update TODO.md with audit follow-up items ([d3d9b8e](https://github.com/davidsneighbour/kollitsch.dev/commit/d3d9b8ead3b2b781d36d86595026f23254563b7c)), closes [#2](https://github.com/davidsneighbour/kollitsch/issues/2) [#3](https://github.com/davidsneighbour/kollitsch/issues/3) [#4](https://github.com/davidsneighbour/kollitsch/issues/4) [#5](https://github.com/davidsneighbour/kollitsch/issues/5) [#6](https://github.com/davidsneighbour/kollitsch/issues/6) [#9](https://github.com/davidsneighbour/kollitsch/issues/9)
+* update typography docs ([944d428](https://github.com/davidsneighbour/kollitsch.dev/commit/944d42869f80e4b60a906aec28ff42fd91fad558))
+
+### Refactoring
+
+* **styles:** restructure theme.css with layered utilities and scope honeypot class ([d51ce66](https://github.com/davidsneighbour/kollitsch.dev/commit/d51ce66aa90f304ebc014499653d711002e4180f))
+
+### Tests
+
+* **utils:** fix flaky github.test.ts warn assertion ([0ac67f0](https://github.com/davidsneighbour/kollitsch.dev/commit/0ac67f02763972523ecf4b0f7653bd17e62fac1f))
+
 ## [3001.4.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.2...v3001.4.3) (2026-04-14)
 
 ### Bug Fixes

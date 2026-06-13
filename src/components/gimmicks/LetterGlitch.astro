@@ -1,0 +1,675 @@
+---
+// https://chatgpt.com/g/g-p-69fc43ae826c81918c7eca3bd9c67e6e/c/6a1cd58f-e8f4-83ec-a61f-869dcffd8681
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
+  glitchColors?: string[];
+  glitchSpeed?: number;
+  smooth?: boolean;
+  useBrandTokens?: boolean;
+  brandVars?: string[];
+  outerVignette?: boolean;
+  centerVignette?: boolean;
+}
+
+const {
+  class: className = "",
+  glitchColors = ["#5e4491", "#a476ff", "#241a38"],
+  glitchSpeed = 33,
+  smooth = true,
+  useBrandTokens = true,
+  brandVars = ["--brand-300", "--brand-600", "--brand-900"],
+  outerVignette = true,
+  centerVignette = false,
+  ...rest
+} = Astro.props;
+
+const config = {
+  brandVars,
+  glitchColors,
+  glitchSpeed,
+  smooth,
+  useBrandTokens,
+};
+---
+
+<section {...rest} class:list={["letter-glitch-band", className]}>
+  <div class="letter-glitch-shell">
+    <div
+      class="letter-glitch-effect"
+      data-letter-glitch
+      data-letter-glitch-config={JSON.stringify(config)}
+      aria-hidden="true"
+    >
+      <canvas class="letter-glitch-canvas"></canvas>
+
+      {outerVignette && <div class="letter-glitch-vignette letter-glitch-vignette-outer" />}
+      {centerVignette && <div class="letter-glitch-vignette letter-glitch-vignette-center" />}
+    </div>
+
+    <div class="letter-glitch-content type-ui">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .letter-glitch-band {
+    display: none;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) and (pointer: fine) {
+    .letter-glitch-band {
+      display: block;
+    }
+  }
+
+  .letter-glitch-shell {
+    position: relative;
+    overflow: hidden;
+    min-height: 24rem;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 1.5rem;
+    background: #101010;
+  }
+
+  .letter-glitch-effect {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #101010;
+  }
+
+  .letter-glitch-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .letter-glitch-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .letter-glitch-vignette-outer {
+    background: radial-gradient(circle, rgb(16 16 16 / 0) 60%, rgb(16 16 16 / 1) 100%);
+  }
+
+  .letter-glitch-vignette-center {
+    background: radial-gradient(circle, rgb(0 0 0 / 0.8) 0%, rgb(0 0 0 / 0) 60%);
+  }
+
+  .letter-glitch-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    min-height: 24rem;
+    place-items: center;
+    padding: 4rem 1.5rem;
+  }
+
+  .letter-glitch-content :global(> *) {
+    width: min(100%, 42rem);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--brand-900, #241a38) 85%, transparent);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 50px rgb(0 0 0 / 0.35);
+    backdrop-filter: blur(12px);
+  }
+</style>
+
+<script>
+  type RGB = {
+    r: number;
+    g: number;
+    b: number;
+  };
+
+  type LetterCell = {
+    char: string;
+    color: string;
+    targetColor: string;
+    colorProgress: number;
+  };
+
+  type LetterGlitchOptions = {
+    glitchColors: string[];
+    glitchSpeed: number;
+    smooth: boolean;
+    useBrandTokens: boolean;
+    brandVars: string[];
+  };
+
+  const FALLBACK_OPTIONS: LetterGlitchOptions = {
+    brandVars: ["--brand-300", "--brand-600", "--brand-900"],
+    glitchColors: ["#5e4491", "#a476ff", "#241a38"],
+    glitchSpeed: 33,
+    smooth: true,
+    useBrandTokens: true,
+  };
+
+  const LETTERS_AND_SYMBOLS = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "!",
+    "@",
+    "#",
+    "$",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "_",
+    "+",
+    "=",
+    "/",
+    "[",
+    "]",
+    "{",
+    "}",
+    ";",
+    ":",
+    "<",
+    ">",
+    ",",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ];
+
+  const instances = new WeakMap<HTMLElement, LetterGlitchController>();
+  const activeInstances = new Set<LetterGlitchController>();
+
+  function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === "object" && value !== null && !Array.isArray(value);
+  }
+
+  function readStringArray(value: unknown, fallback: string[]): string[] {
+    if (!Array.isArray(value)) {
+      return fallback;
+    }
+
+    const strings = value.filter((item): item is string => typeof item === "string" && item.length > 0);
+
+    return strings.length > 0 ? strings : fallback;
+  }
+
+  function readNumber(value: unknown, fallback: number): number {
+    return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+  }
+
+  function readBoolean(value: unknown, fallback: boolean): boolean {
+    return typeof value === "boolean" ? value : fallback;
+  }
+
+  function readOptions(root: HTMLElement): LetterGlitchOptions {
+    const rawConfig = root.dataset["letterGlitchConfig"];
+
+    if (!rawConfig) {
+      return FALLBACK_OPTIONS;
+    }
+
+    try {
+      const parsed: unknown = JSON.parse(rawConfig);
+
+      if (!isRecord(parsed)) {
+        return FALLBACK_OPTIONS;
+      }
+
+      return {
+        brandVars: readStringArray(parsed["brandVars"], FALLBACK_OPTIONS.brandVars),
+        glitchColors: readStringArray(parsed["glitchColors"], FALLBACK_OPTIONS.glitchColors),
+        glitchSpeed: readNumber(parsed["glitchSpeed"], FALLBACK_OPTIONS.glitchSpeed),
+        smooth: readBoolean(parsed["smooth"], FALLBACK_OPTIONS.smooth),
+        useBrandTokens: readBoolean(parsed["useBrandTokens"], FALLBACK_OPTIONS.useBrandTokens),
+      };
+    } catch (error: unknown) {
+      console.error("Failed to parse LetterGlitch configuration.", error);
+      return FALLBACK_OPTIONS;
+    }
+  }
+
+  function parseColor(color: string): RGB | null {
+    const sixHex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+
+    if (sixHex) {
+      return {
+        b: Number.parseInt(sixHex[3] ?? "00", 16),
+        g: Number.parseInt(sixHex[2] ?? "00", 16),
+        r: Number.parseInt(sixHex[1] ?? "00", 16),
+      };
+    }
+
+    const threeHex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i.exec(color);
+
+    if (threeHex) {
+      const r = threeHex[1] ?? "0";
+      const g = threeHex[2] ?? "0";
+      const b = threeHex[3] ?? "0";
+
+      return {
+        b: Number.parseInt(`${b}${b}`, 16),
+        g: Number.parseInt(`${g}${g}`, 16),
+        r: Number.parseInt(`${r}${r}`, 16),
+      };
+    }
+
+    const rgb = /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i.exec(color);
+
+    if (rgb) {
+      return {
+        b: Number.parseInt(rgb[3] ?? "0", 10),
+        g: Number.parseInt(rgb[2] ?? "0", 10),
+        r: Number.parseInt(rgb[1] ?? "0", 10),
+      };
+    }
+
+    return null;
+  }
+
+  function interpolateColor(start: RGB, end: RGB, factor: number): string {
+    const r = Math.round(start.r + (end.r - start.r) * factor);
+    const g = Math.round(start.g + (end.g - start.g) * factor);
+    const b = Math.round(start.b + (end.b - start.b) * factor);
+
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  function pickRandomItem(items: readonly string[]): string {
+    const index = Math.floor(Math.random() * items.length);
+    return items[index] ?? items[0] ?? "A";
+  }
+
+  class LetterGlitchController {
+    private readonly root: HTMLElement;
+    private readonly canvas: HTMLCanvasElement;
+    private readonly options: LetterGlitchOptions;
+    private readonly fontSize = 16;
+    private readonly charWidth = 10;
+    private readonly charHeight = 20;
+    private readonly desktopQuery = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
+    private readonly reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    private context: CanvasRenderingContext2D | null = null;
+    private resizeObserver: ResizeObserver | null = null;
+    private animationFrame: number | null = null;
+    private resizeTimeout: number | null = null;
+    private letters: LetterCell[] = [];
+    private activeColors: string[];
+    private columns = 0;
+    private rows = 0;
+    private lastGlitchTime = Date.now();
+    private isStarted = false;
+
+    public constructor(root: HTMLElement) {
+      const canvas = root.querySelector("canvas");
+
+      if (!(canvas instanceof HTMLCanvasElement)) {
+        throw new Error("LetterGlitch requires a canvas element.");
+      }
+
+      this.root = root;
+      this.canvas = canvas;
+      this.options = readOptions(root);
+      this.activeColors = this.options.glitchColors;
+    }
+
+    public mount(): void {
+      this.desktopQuery.addEventListener("change", this.handleDesktopChange);
+      this.reducedMotionQuery.addEventListener("change", this.handleMotionChange);
+
+      if (this.desktopQuery.matches) {
+        this.start();
+      }
+    }
+
+    public destroy(): void {
+      this.stop();
+      this.desktopQuery.removeEventListener("change", this.handleDesktopChange);
+      this.reducedMotionQuery.removeEventListener("change", this.handleMotionChange);
+    }
+
+    private readonly handleDesktopChange = (): void => {
+      if (this.desktopQuery.matches) {
+        this.start();
+        return;
+      }
+
+      this.stop();
+    };
+
+    private readonly handleMotionChange = (): void => {
+      if (!this.isStarted) {
+        return;
+      }
+
+      if (this.reducedMotionQuery.matches) {
+        this.cancelAnimation();
+        this.drawLetters();
+        return;
+      }
+
+      this.animate();
+    };
+
+    private readonly handleResize = (): void => {
+      if (this.resizeTimeout !== null) {
+        window.clearTimeout(this.resizeTimeout);
+      }
+
+      this.resizeTimeout = window.setTimeout(() => {
+        this.resizeCanvas();
+        this.resizeTimeout = null;
+      }, 100);
+    };
+
+    private start(): void {
+      if (this.isStarted) {
+        return;
+      }
+
+      this.context = this.canvas.getContext("2d");
+
+      if (!this.context) {
+        console.error("LetterGlitch could not create a 2D canvas context.");
+        return;
+      }
+
+      if (this.options.useBrandTokens) {
+        const brandColors = this.resolveBrandColors();
+
+        if (brandColors.length > 0) {
+          this.activeColors = brandColors;
+        }
+      }
+
+      this.resizeObserver = new ResizeObserver(this.handleResize);
+      this.resizeObserver.observe(this.root);
+
+      this.isStarted = true;
+      this.resizeCanvas();
+
+      if (!this.reducedMotionQuery.matches) {
+        this.animate();
+      }
+    }
+
+    private stop(): void {
+      this.cancelAnimation();
+
+      if (this.resizeTimeout !== null) {
+        window.clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = null;
+      }
+
+      if (this.resizeObserver) {
+        this.resizeObserver.disconnect();
+        this.resizeObserver = null;
+      }
+
+      this.isStarted = false;
+    }
+
+    private cancelAnimation(): void {
+      if (this.animationFrame !== null) {
+        window.cancelAnimationFrame(this.animationFrame);
+        this.animationFrame = null;
+      }
+    }
+
+    private resolveBrandColors(): string[] {
+      const tmp = document.createElement("canvas");
+      tmp.width = 1;
+      tmp.height = 1;
+
+      const tmpContext = tmp.getContext("2d");
+
+      if (!tmpContext) {
+        return [];
+      }
+
+      const rootStyles = getComputedStyle(document.documentElement);
+      const resolved: string[] = [];
+
+      for (const name of this.options.brandVars) {
+        const raw = rootStyles.getPropertyValue(name).trim();
+
+        if (!raw) {
+          continue;
+        }
+
+        tmpContext.clearRect(0, 0, 1, 1);
+        tmpContext.fillStyle = "#000000";
+        tmpContext.fillStyle = raw;
+        tmpContext.fillRect(0, 0, 1, 1);
+
+        const data = tmpContext.getImageData(0, 0, 1, 1).data;
+        const r = data[0] ?? 0;
+        const g = data[1] ?? 0;
+        const b = data[2] ?? 0;
+
+        resolved.push(`rgb(${r}, ${g}, ${b})`);
+      }
+
+      return resolved;
+    }
+
+    private resizeCanvas(): void {
+      const rect = this.root.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+
+      if (rect.width <= 0 || rect.height <= 0) {
+        return;
+      }
+
+      this.canvas.width = Math.round(rect.width * dpr);
+      this.canvas.height = Math.round(rect.height * dpr);
+      this.canvas.style.width = `${rect.width}px`;
+      this.canvas.style.height = `${rect.height}px`;
+
+      if (this.context) {
+        this.context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      this.columns = Math.ceil(rect.width / this.charWidth);
+      this.rows = Math.ceil(rect.height / this.charHeight);
+
+      this.initializeLetters();
+      this.drawLetters();
+    }
+
+    private initializeLetters(): void {
+      const totalLetters = this.columns * this.rows;
+
+      this.letters = Array.from({ length: totalLetters }, () => {
+        return {
+          char: pickRandomItem(LETTERS_AND_SYMBOLS),
+          color: this.getRandomColor(),
+          colorProgress: 1,
+          targetColor: this.getRandomColor(),
+        };
+      });
+    }
+
+    private getRandomColor(): string {
+      return pickRandomItem(this.activeColors);
+    }
+
+    private drawLetters(): void {
+      if (!this.context || this.letters.length === 0) {
+        return;
+      }
+
+      const rect = this.root.getBoundingClientRect();
+
+      this.context.clearRect(0, 0, rect.width, rect.height);
+      this.context.font = `${this.fontSize}px monospace`;
+      this.context.textBaseline = "top";
+
+      this.letters.forEach((letter, index) => {
+        const x = (index % this.columns) * this.charWidth;
+        const y = Math.floor(index / this.columns) * this.charHeight;
+
+        if (!this.context) {
+          throw new Error("Canvas context disappeared during LetterGlitch rendering.");
+        }
+
+        this.context.fillStyle = letter.color;
+        this.context.fillText(letter.char, x, y);
+      });
+    }
+
+    private updateLetters(): void {
+      const updateCount = Math.max(1, Math.floor(this.letters.length * 0.05));
+
+      for (let index = 0; index < updateCount; index += 1) {
+        const letterIndex = Math.floor(Math.random() * this.letters.length);
+        const letter = this.letters[letterIndex];
+
+        if (!letter) {
+          throw new Error("LetterGlitch selected an invalid cell index.");
+        }
+
+        letter.char = pickRandomItem(LETTERS_AND_SYMBOLS);
+        letter.targetColor = this.getRandomColor();
+
+        if (!this.options.smooth) {
+          letter.color = letter.targetColor;
+          letter.colorProgress = 1;
+          continue;
+        }
+
+        letter.colorProgress = 0;
+      }
+    }
+
+    private handleSmoothTransitions(): void {
+      let needsRedraw = false;
+
+      for (const letter of this.letters) {
+        if (letter.colorProgress >= 1) {
+          continue;
+        }
+
+        letter.colorProgress = Math.min(1, letter.colorProgress + 0.05);
+
+        const startRgb = parseColor(letter.color);
+        const endRgb = parseColor(letter.targetColor);
+
+        if (!startRgb || !endRgb) {
+          letter.color = letter.targetColor;
+          letter.colorProgress = 1;
+          needsRedraw = true;
+          continue;
+        }
+
+        letter.color = interpolateColor(startRgb, endRgb, letter.colorProgress);
+        needsRedraw = true;
+      }
+
+      if (needsRedraw) {
+        this.drawLetters();
+      }
+    }
+
+    private readonly animate = (): void => {
+      if (!this.isStarted || this.reducedMotionQuery.matches) {
+        this.animationFrame = null;
+        return;
+      }
+
+      const now = Date.now();
+
+      if (now - this.lastGlitchTime >= this.options.glitchSpeed) {
+        this.updateLetters();
+        this.drawLetters();
+        this.lastGlitchTime = now;
+      }
+
+      if (this.options.smooth) {
+        this.handleSmoothTransitions();
+      }
+
+      this.animationFrame = window.requestAnimationFrame(this.animate);
+    };
+  }
+
+  function initialiseLetterGlitches(): void {
+    const roots = document.querySelectorAll<HTMLElement>("[data-letter-glitch]");
+
+    roots.forEach((root) => {
+      const existing = instances.get(root);
+
+      if (existing) {
+        existing.destroy();
+        activeInstances.delete(existing);
+      }
+
+      try {
+        const instance = new LetterGlitchController(root);
+        instance.mount();
+
+        instances.set(root, instance);
+        activeInstances.add(instance);
+      } catch (error: unknown) {
+        console.error("Failed to initialise LetterGlitch.", error);
+      }
+    });
+  }
+
+  function destroyLetterGlitches(): void {
+    activeInstances.forEach((instance) => {
+      instance.destroy();
+    });
+
+    activeInstances.clear();
+  }
+
+  document.addEventListener("astro:before-swap", destroyLetterGlitches);
+  document.addEventListener("astro:page-load", initialiseLetterGlitches);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialiseLetterGlitches, {
+      once: true,
+    });
+  } else {
+    initialiseLetterGlitches();
+  }
+</script>

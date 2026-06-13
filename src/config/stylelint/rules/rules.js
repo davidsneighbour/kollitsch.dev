@@ -184,7 +184,14 @@ const rules = {
   ],
   'selector-no-vendor-prefix': true,
   'selector-not-notation': 'complex',
-  'selector-pseudo-class-no-unknown': true,
+  'selector-pseudo-class-no-unknown': [
+    true,
+    {
+      // allows global pseudo-class for use in Astro
+      // .letter-glitch-content :global(> *) {}
+      ignorePseudoClasses: [':global'],
+    },
+  ],
   'selector-pseudo-element-colon-notation': 'double',
   'selector-pseudo-element-no-unknown': true,
   'selector-type-case': 'lower',

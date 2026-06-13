@@ -155,6 +155,8 @@
     "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}",
     "lint:filenames": "ls-lint",
     "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
+    "lint:design": "npx @google/design.md lint DESIGN.md",
+    "lint:design:diff": "npx @google/design.md diff DESIGN.md",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
     "lint:vale": "vale --config src/config/.vale.ini --no-exit --output='dnb.tmpl' ./src/content/",

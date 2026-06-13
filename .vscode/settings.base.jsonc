@@ -123,7 +123,6 @@
   // PLUGIN: vale setup
   "vale.enableSpellcheck": true,
   // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
-  "vale.valeCLI.config": "/home/patrick/.dotfiles/configs/vale/.vale.ini",
   "vale.valeCLI.installVale": true,
   "vale.valeCLI.minAlertLevel": "error",
   "vale.valeCLI.syncOnStartup": true

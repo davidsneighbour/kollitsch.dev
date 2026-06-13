@@ -4,6 +4,7 @@
 .lycheecache
 
 .claude/settings*.json
+ai
 
 # Wireit cache
 .wireit

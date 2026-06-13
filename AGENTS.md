@@ -85,6 +85,67 @@ Refusals must be:
 * Items without a priority label are treated as `P3`.
 * Do not use TODO.md for current-session task tracking — only for deferred or future work.
 
+## 5. Committing Changes
+
+Commit at the end of every completed topic. Do not leave related changes uncommitted when moving to a different task.
+
+### Format
+
+```text
+type(scope): short imperative subject (≤72 chars)
+
+Body: describe every meaningful change. Use one bullet per logical
+unit. Cover what changed, why it changed, and any non-obvious
+decisions or constraints that informed the approach.
+```
+
+### Types
+
+Use only the types defined in `.release-it.ts`:
+
+| Type | Use for |
+| :--------- | :------ |
+| `content` | Blog posts, page copy, taxonomy changes |
+| `feat` | New user-visible features or components |
+| `fix` | Bug fixes and corrections |
+| `build` | Build tooling, package.json, lock files, scripts |
+| `chore` | Maintenance without user-visible effect |
+| `ci` | CI/CD workflow files |
+| `docs` | Documentation, AGENTS.md, CLAUDE.md, DESIGN.md |
+| `perf` | Performance improvements |
+| `refactor` | Code restructuring without behaviour change |
+| `revert` | Reverts a prior commit |
+| `style` | Visual/CSS changes with no logic change |
+| `test` | Test files and test configuration |
+
+### Scopes
+
+Scopes are optional but strongly preferred. Use a noun that names the affected area, for example: `components`, `layout`, `styles`, `config`, `scripts`, `ci`, `deps`, `design`, `content`, or a specific component name such as `SourceCodeLink`.
+
+### Body requirements
+
+* List every file or area changed with a one-line explanation.
+* State the reason for each change, not just what it does.
+* Note any constraints, trade-offs, or follow-up work introduced.
+* Breaking changes must be prefixed `BREAKING CHANGE:` in the body.
+
+### Example
+
+```text
+feat(components): add SourceCode and SourceCodeLink components
+
+- SourceCodeLink.astro: renders a single styled link to a source file;
+  derives label from GitHub/GitLab URL path when not supplied explicitly;
+  supports line and range deep-linking via #L{n}-L{m} fragments
+- SourceCode.astro: wraps a frontmatter record of slug → url|entry pairs
+  and renders a flex-wrapped list of SourceCodeLink badges; normalises
+  the shorthand (slug: url) and detailed (slug: { source, ... }) forms
+- content.config.ts: adds optional `sourcecode` Zod field to blogSchema;
+  value is a record keyed by slug with a string or object union
+- exactOptionalPropertyTypes required passing optional props via spread
+  rather than direct attribute assignment to avoid TS2375
+```
+
 ## Deployment
 
 This site is hosted on Netlify. You MUST fetch [https://netlify.ai](https://netlify.ai) to understand available features.

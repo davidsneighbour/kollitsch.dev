@@ -84,10 +84,10 @@ No secrets are tracked in git, `.env` is correctly ignored, and the production-f
 
 ### High
 
-* `ai/instructions/project.instructions.md` and `ai/agents/` are referenced in `AGENTS.md` but do not exist. The `ai/` symlink was added (pointing to the sibling `../ai/ai/` repo), so `ai/instructions/`, `ai/skills/`, `ai/prompts/`, `ai/templates/`, and `ai/workflows/` are now present; only `project.instructions.md` and the `agents/` directory are still missing.
+* ~~`ai/instructions/project.instructions.md` missing from AGENTS.md reference~~ — **Resolved**: project-specific instructions now live at `.vscode/instructions/project.instructions.md`; `AGENTS.md §0` updated accordingly. The `ai/agents/` directory is still absent from the sibling repo but is no longer referenced.
 * `npm run lint:markdown` exits non-zero with 38+ errors across `src/content/blog/**` (MD049 emphasis style, MD001 heading increment, MD045 missing alt text, MD060 table column style, MD033 inline HTML, MD040 fenced code language, MD036/MD054). This lint gate is currently red.
-* `package.json` uses floating version ranges that violate the static-version convention: `@vitest/browser-playwright: "^4"`, `@vitest/coverage-v8: "^4"`, `@vitest/ui: "^4"`, `vitest: "^4"`, and `brace-expansion: ">=5.0.6"`.
-* Dead Tailwind utility in `src/styles/theme.css:246`: `@apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;` on `body`. No `tailwind-scrollbar` plugin is installed and these utilities are not defined, so Tailwind silently drops them. Real scrollbar styling is the unrelated `--sb-*` block below it.
+* `package.json` uses floating version ranges: `@vitest/browser-playwright: "^4"`, `@vitest/coverage-v8: "^4"`, `@vitest/ui: "^4"`, `vitest: "^4"`, and `brace-expansion: ">=5.0.6"`. **NOTE:** The vitest `^4` ranges are intentional — pinning specific patch versions breaks the family due to cascading peer-dependency constraints. Only `brace-expansion` needs pinning.
+* `src/styles/theme.css` scrollbar thumb colours (`--sb-thumb-color: var(--color-green-500)`, `--sb-thumb-color2: var(--color-green-400)`) are off-brand; should use orange/red design tokens. Additionally, `@apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;` on body is a no-op (plugin not installed).
 
 ### Medium
 
@@ -109,71 +109,88 @@ No secrets are tracked in git, `.env` is correctly ignored, and the production-f
 
 ## Recommended changes
 
-### 1. Create the missing `ai/instructions/project.instructions.md` and `ai/agents/` directory
+### 1. ~~Create the missing project.instructions.md~~ — RESOLVED
 
-* Title: Add missing project.instructions.md and agents/ to the ai/ layout
-* Priority: [P1]
-* Area: Documentation and agent instructions
-* Evidence: `AGENTS.md` line 5 names `ai/instructions/project.instructions.md` as the source of project purpose and context; `AGENTS.md` line 13 lists `ai/agents/` as the composed-agent-profile directory. Neither path exists in the now-symlinked `ai/` layout. `find -L ai/ -type f | sort` confirms only `instructions/systems/`, `instructions/tailwindplus.instructions.md`, `instructions/typescript-programming.instructions.md`, `skills/`, `prompts/`, `templates/`, and `workflows/` are present.
-* Why it matters: Agents are told to look at `project.instructions.md` for the scope and context of this repository. Without it the instruction-precedence chain still has a broken first link.
-* Suggested change: Create `ai/instructions/project.instructions.md` (in the sibling `ai` repo or directly in the symlinked path) with project purpose, scope, and context. Create `ai/agents/` as an empty directory or with a placeholder agent profile.
-* Risk: Low. Documentation-only.
-* Validation command: `ls ai/instructions/project.instructions.md && ls ai/agents/`
+* **Status: Done.** Project-specific instructions are now at `.vscode/instructions/project.instructions.md` (not in `ai/`). `AGENTS.md §0` updated to point here. The `ai/` layout is for globally reusable instructions only; kollitsch.dev-specific context belongs in `.vscode/instructions/`.
+* The `ai/agents/` directory is still absent from the sibling repo but is no longer referenced in `AGENTS.md`.
 
-### 2. Fix or auto-fix the failing markdown lint gate
+### 2. Fix the failing markdown lint gate (iterative)
 
 * Title: Resolve markdownlint failures in blog content
-* Priority: [P1]
+* Priority: [P2]
 * Area: Content system
 * Evidence: `npm run lint:markdown` exits 1 with 38+ errors (MD049, MD001, MD045, MD060, MD033, MD040, MD036, MD054) across `src/content/blog/**`.
 * Why it matters: A red lint gate erodes trust in the check and hides real content issues such as missing image alt text (accessibility).
-* Suggested change: Run `npm run lint:markdown:fix` for auto-fixable rules (MD049, MD060), then manually address MD045 (alt text) and MD001/MD036 (heading structure).
-* Risk: Low to medium. Auto-fix touches published content; review the diff before committing.
+* Suggested change (iterative — manual work required):
+  1. Run `npm run lint:markdown:fix` for auto-fixable rules (MD049 emphasis style, MD060 table column style) and review the diff before committing.
+  2. Manually fix MD001 heading-increment issues file by file — these require understanding the post structure.
+  3. Manually add alt text for MD045 failures — each image needs a meaningful description.
+  4. Address MD036/MD054 emphasis and link usage issues manually.
+  5. Repeat until `npm run lint:markdown` exits 0.
+* Risk: Low to medium. Auto-fix touches published content; manual fixes require care to preserve meaning.
 * Validation command: `npm run lint:markdown`
 
-### 3. Pin floating dependency versions
+### 3. Pin floating dependency versions (partial — vitest intentional)
 
-* Title: Replace `^`/`>=` ranges with static versions
+* Title: Replace `^`/`>=` ranges with static versions where safe
 * Priority: [P2]
 * Area: Dependencies
 * Evidence: `package.json` lines 70-72, 79, 123: `@vitest/*: "^4"`, `vitest: "^4"`, `brace-expansion: ">=5.0.6"`.
 * Why it matters: `CLAUDE.md` mandates static versions ("no `^` or `~` ranges") for reproducible installs.
-* Suggested change: Resolve each to its currently installed exact version (from `package-lock.json`) and write that literal into `package.json`.
-* Risk: Low. No behavioural change; locks reproducibility.
+* **NOTE — vitest `^4` is intentional and MUST NOT be changed.** The vitest package family has cascading update interdependencies where pinning to a specific patch version causes install failures because peer-dependency constraints across `vitest`, `@vitest/browser-playwright`, `@vitest/coverage-v8`, and `@vitest/ui` do not align on a single static version. The `^4` range allows npm to resolve compatible versions across the family. This is a known constraint — do not pin vitest packages.
+* Suggested change: Only address `brace-expansion: ">=5.0.6"` — resolve to its currently installed exact version from `package-lock.json`. Leave all `@vitest/*` and `vitest` as `^4`.
+* Risk: Low for brace-expansion. Do not touch vitest ranges.
 * Validation command: `npm install && npm test`
 
-### 4. Remove the dead scrollbar utility on body
+### 4. Fix scrollbar colours to use brand design tokens
 
-* Title: Drop undefined `scrollbar-thumb-*`/`scrollbar-track-*` utilities
+* Title: Replace off-brand green scrollbar colours with brand orange/red tokens
 * Priority: [P2]
 * Area: Styling
-* Evidence: `src/styles/theme.css:246` `@apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;`; no `tailwind-scrollbar` plugin in `package.json`; functional scrollbar styling is the separate `--sb-*` block (lines 508-562).
-* Why it matters: The utilities are silently dropped, so the line is misleading dead code that implies styling that never applies.
-* Suggested change: Delete the `@apply scrollbar-thumb-* scrollbar-track-*` line, or install and configure a scrollbar plugin if those classes are genuinely wanted.
-* Risk: Low. Removes a no-op.
-* Validation command: `npm run lint:styles && npm run build`
+* Evidence: `src/styles/theme.css` uses `--sb-thumb-color: var(--color-green-500)` and `--sb-thumb-color2: var(--color-green-400)` for scrollbar thumb colouring. Green is completely off-brand. Additionally `@apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;` on `body` (line 246) references utilities not defined by any installed plugin and is silently dropped.
+* Why it matters: The scrollbar thumb colours use `--color-green-500`/`--color-green-400`, which are neither in the DESIGN.md palette nor consistent with the brand's burnt-orange/deep-red accent pair. Visually the scrollbar is off-brand.
+* Suggested change:
+  1. Remove the dead `@apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;` line (no-op, no plugin installed).
+  2. Change `--sb-thumb-color` from `var(--color-green-500)` to `var(--color-orange-600)` (aligns with `{colors.primary}`).
+  3. Change `--sb-thumb-color2` from `var(--color-green-400)` to `var(--color-red-700)` (aligns with `{colors.link}`).
+  4. Verify visually in dark and light mode; adjust token selection if needed.
+  5. Update DESIGN.md if scrollbar tokens are added as named design-system values.
+* Risk: Low. Visual-only change; no layout impact.
+* Validation command: `npm run lint:styles && npm run dev` (visual check)
 
 ### 5. Add missing `@vitest-environment node` headers
 
 * Title: Add mandatory environment header to seven test files
 * Priority: [P2]
 * Area: Tests and validation
-* Evidence: `grep -rL "@vitest-environment node"` finds `content.test.ts`, `github.test.ts`, `color.test.ts`, `content-object.test.ts`, `heading.browser.test.ts`, `theme.tokens.test.ts`, `blogroll.test.ts`.
+* Evidence: `grep -rL "@vitest-environment node"` identifies the following files missing the mandatory header:
+  1. `src/utils/content.test.ts`
+  2. `src/utils/github.test.ts`
+  3. `src/utils/color.test.ts`
+  4. `src/utils/content-object.test.ts`
+  5. `src/test/browser/heading.browser.test.ts` — browser test; should carry the browser environment annotation instead
+  6. `src/test/theme.tokens.test.ts`
+  7. `src/content/blogroll.test.ts`
 * Why it matters: `CLAUDE.md` states every test file MUST start with this header; the default jsdom environment can mask node-specific behaviour.
-* Suggested change: Prepend `// @vitest-environment node` to each non-browser file (the browser test should instead carry the browser environment if intentional).
+* Suggested change: Prepend `// @vitest-environment node` to each file except item 5 (browser test should use its own browser-environment annotation if intentional).
 * Risk: Low. Test-only.
 * Validation command: `npm test`
 
-### 6. Harden the unit-test workflow to match CI conventions
+### 6. Fix or remove the broken unit-test workflow
 
-* Title: Pin actions and tighten permissions in tests.yml
-* Priority: [P2]
+* Title: Fix tests.yml — confirmed broken on GitHub (`@v6` tags do not exist)
+* Priority: [P1]
 * Area: CI/CD and deployment
-* Evidence: `.github/workflows/tests.yml` uses `actions/checkout@v6`, `actions/setup-node@v6`, `permissions: contents: write`, and omits `persist-credentials: false`; sibling workflows pin SHAs and use least privilege.
-* Why it matters: Inconsistent supply-chain hardening; a write-scoped token on a test job is unnecessary privilege.
-* Suggested change: Pin both actions to commit SHAs, set `permissions: contents: read`, and add `persist-credentials: false` to the checkout step.
-* Risk: Low. CI-only.
-* Validation command: `gh workflow run tests.yml` (or push to a branch and observe the run)
+* Evidence: `.github/workflows/tests.yml` uses `actions/checkout@v6` and `actions/setup-node@v6`. These tag versions do not exist on GitHub Actions — `checkout` is at `@v4` and `setup-node` is at `@v4`. The workflow is confirmed broken on GitHub (push runs fail). Additionally: `permissions: contents: write` is unnecessary for a read-only test job, and `persist-credentials: false` is absent.
+* Why it matters: The unit-test CI gate is non-functional. PRs and pushes to `main` have no automated test coverage enforced.
+* Suggested change (fix path):
+  1. Replace `actions/checkout@v6` with the current SHA-pinned version (match `lighthouse.yml` or `screenshot.yml` for the pinning convention).
+  2. Replace `actions/setup-node@v6` with the current SHA-pinned version.
+  3. Set `permissions: contents: read`.
+  4. Add `persist-credentials: false` to the checkout step.
+* Alternative: Remove `tests.yml` entirely if CI testing is not required (not recommended).
+* Risk: Low for fix. Restores a previously broken gate.
+* Validation command: Push to a branch and observe the GitHub Actions run; or `gh workflow run tests.yml`
 
 ### 7. Deduplicate and fix the VS Code link helpers
 
@@ -197,20 +214,24 @@ No secrets are tracked in git, `.env` is correctly ignored, and the production-f
 * Risk: Low. Additive.
 * Validation command: `npm run test:coverage`
 
-### 9. Refresh stale env and node-version declarations
+### 9. Update stale design-token and env declarations
 
-* Title: Align env.d.ts and node version pins with documented env
-* Priority: [P3]
+* Title: Align env.d.ts, design tokens, and node-version pins with documented environment
+* Priority: [P2]
 * Area: Build / TypeScript
-* Evidence: `src/env.d.ts` declares only `DB_PASSWORD`/`PUBLIC_POKEAPI`; documented vars are `YOUTUBE_API_KEY`, `FRESHRSS_*`, `GH_TOKEN`. `.nvmrc` is `25` while local Node is `v26.3.0`; `screenshot.yml` hardcodes `node-version: 25`.
-* Why it matters: The type declarations no longer reflect real configuration, and the node-version pins drift between local, `.nvmrc`, and one workflow.
-* Suggested change: Update `ImportMetaEnv` to the env vars actually consumed; switch `screenshot.yml` to `node-version-file: .nvmrc`; confirm the intended Node major and update `.nvmrc` accordingly.
-* Risk: Low.
+* Evidence:
+  * `src/env.d.ts` declares only `DB_PASSWORD`/`PUBLIC_POKEAPI` — neither var is consumed; documented vars are `YOUTUBE_API_KEY`, `FRESHRSS_BASE_URL`, `FRESHRSS_USERNAME`, `FRESHRSS_API_PASSWORD`, `GH_TOKEN`/`GITHUB_TOKEN`.
+  * `.nvmrc` pins `25` while local Node is `v26.3.0`; `screenshot.yml` hardcodes `node-version: 25` instead of reading `.nvmrc`.
+* Why it matters: `ImportMetaEnv` declarations enable TypeScript autocompletion and type safety for env var access. Stale declarations mean mistyped variable names go undetected at compile time.
+* Suggested change:
+  1. Replace `DB_PASSWORD`/`PUBLIC_POKEAPI` in `src/env.d.ts` with the vars from `CLAUDE.md`: `YOUTUBE_API_KEY`, `FRESHRSS_BASE_URL`, `FRESHRSS_USERNAME`, `FRESHRSS_API_PASSWORD`, `GH_TOKEN`.
+  2. Decide on the intended Node major (26?) and update `.nvmrc`.
+  3. Switch `screenshot.yml` from `node-version: 25` to `node-version-file: .nvmrc`.
+* Risk: Low. Type declarations only; no runtime change.
 * Validation command: `npm run check`
 
 ## Questions
 
-* `ai/` is now symlinked to `../ai/ai/` — should `project.instructions.md` be created in the shared `ai` repo and pulled in via the symlink, or should it live in this repo directly (perhaps as `ai/instructions/kollitsch-dev.instructions.md` to avoid collision with other consumers of the shared layout)?
 * Running `node src/scripts/*.ts` (rather than `npx tsx`) appears intentional given Node's native TypeScript support, but it contradicts `CLAUDE.md`. Should `CLAUDE.md` be updated to reflect `node` usage, or should the scripts move to `npx tsx`?
 * Is the empty Netlify build command (`command = ""`) deliberate because the build runs in a pre-step or via the CLI deploy, and is the production build covered by any CI gate before deploy?
 * For Playwright, does `astro dev` serve plain HTTP on `4321` in CI, or should `baseURL`/`webServer.url` use `https`?

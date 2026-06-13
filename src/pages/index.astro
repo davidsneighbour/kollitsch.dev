@@ -1,10 +1,11 @@
 ---
 import FeedReader from "@components/features/feeds/FeedReader.astro";
+import RandomHeading from "@components/gimmicks/RandomHeading.astro";
+import TvHead from "@components/gimmicks/TvHead.astro";
 import Featured from "@components/pages/home/Featured.astro";
 import Recent from "@components/pages/home/Recent.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import Layout from "@layouts/DefaultPage.astro";
-import TvHead from "@/components/gimmicks/TvHead.astro";
 
 const post = {
   data: {
@@ -18,7 +19,7 @@ const post = {
   <Featured />
   <Recent />
 
-  <h2>Allow me to interrupt!</h2>
+  <RandomHeading slug="interrupt" text="Allow me to interrupt!" />
   <div class="mb-5 bg-transparent">
     <!--
     ## tv-002.png

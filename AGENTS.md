@@ -151,6 +151,21 @@ feat(components): add SourceCode and SourceCodeLink components
   rather than direct attribute assignment to avoid TS2375
 ```
 
+## 6. Scratch Directory
+
+`scratch/` is a gitignored working directory for ephemeral notes, prompts, and artefacts that are useful in the current session or for use in another project but must not be committed to this repository.
+
+### When to use scratch/
+
+* Write a new file in `scratch/` whenever you produce something (a prompt, a plan, a reference note, a one-off script) that is useful for later or for another project but does not belong in the committed codebase.
+* Each piece of work goes in its own individual file — do not append unrelated content to an existing scratch file.
+
+### Hard rules
+
+* **Never modify a file in `scratch/` unless the instruction names the full path explicitly** (e.g. `scratch/fix-dnbhq-release-config.prompt.md`). A bare filename such as `fix.md` is not sufficient.
+* **Never create a scratch file unless its content would be genuinely useful outside the current task.** Do not use scratch as a scratchpad for intermediate reasoning.
+* **Filename collision check:** if a filename referenced in a task cannot be found anywhere in the repository except under `scratch/`, stop immediately and ask: "Did you mean `scratch/<filename>`? Or should I look elsewhere?" Do not proceed, read, edit, or act on the scratch file until the answer is explicit.
+
 ## Deployment
 
 This site is hosted on Netlify. You MUST fetch [https://netlify.ai](https://netlify.ai) to understand available features.

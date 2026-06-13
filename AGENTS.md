@@ -153,7 +153,7 @@ feat(components): add SourceCode and SourceCodeLink components
 
 ## 6. Scratch Directory
 
-`scratch/` is a gitignored working directory for ephemeral notes, prompts, and artefacts that are useful in the current session or for use in another project but must not be committed to this repository.
+`scratch/` is a gitignored working directory for ephemeral notes, prompts, and artefacts that are useful in the current session or for use in another project but must not be committed to this repository. Any file inside `scratch/` is referred to as a **scratch file**.
 
 ### When to use scratch/
 

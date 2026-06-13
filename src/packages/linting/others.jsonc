@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@ls-lint/ls-lint": "2.3.1",
     "jsdom": "29.1.1"
   },

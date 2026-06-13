@@ -1,29 +1,30 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/mdx": "5.0.6",
+    "@astrojs/mdx": "6.0.3",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.3",
     "@astrojs/ts-plugin": "1.10.9",
     "@iconify-json/bi": "1.2.7",
-    "@sentry/astro": "10.54.0",
+    "@sentry/astro": "10.57.0",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/forms": "0.5.11",
-    "@tailwindcss/typography": "0.5.19",
+    "@tailwindcss/typography": "0.5.20",
     "@tailwindplus/elements": "1.0.22",
     "@types/markdown-it": "14.1.2",
     "@types/yargs": "17.0.35",
-    "astro": "6.3.8",
-    "astro-expressive-code": "0.42.0",
+    "astro": "6.4.6",
+    "astro-expressive-code": "0.43.1",
     "astro-icon": "1.1.5",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",
-    "js-yaml": "4.1.1",
-    "tailwindcss": "4.3.0",
-    "tsx": "4.22.3",
-    "vite-plugin-devtools-json": "1.0.0"
-  },
-  "devDependencies": {
+    "js-yaml": "4.2.0",
+    "tailwindcss": "4.3.1",
+    "tsx": "4.22.4",
+    "vite-plugin-devtools-json": "1.0.0",
+    "@tailwindcss/vite": "4.3.1",
+    "tw-animate-css": "1.4.0",
+    "@astrojs/markdown-satteri": "0.3.0",
     "@types/node": "25.9.1"
   },
   "scripts": {

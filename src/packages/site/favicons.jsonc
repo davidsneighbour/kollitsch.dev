@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "png-to-ico": "3.0.1"
   },
   "scripts": {

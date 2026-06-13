@@ -5,8 +5,8 @@
     ],
     "version": "0.2"
   },
-  "dependencies": {
-    "cspell": "10.0.0"
+  "devDependencies": {
+    "cspell": "10.0.1"
   },
   "scripts": {
     "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'"

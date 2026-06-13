@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@humanwhocodes/crosspost": "1.0.4"
   }
 }

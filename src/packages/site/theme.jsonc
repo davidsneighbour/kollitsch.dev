@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@fontsource-variable/exo-2": "5.2.8",
     "@fontsource-variable/jetbrains-mono": "5.2.8",
     "@fontsource/changa-one": "5.2.8",

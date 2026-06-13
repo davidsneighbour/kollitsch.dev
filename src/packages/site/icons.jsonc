@@ -1,8 +1,8 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@iconify-json/fa7-brands": "1.2.2",
-    "@iconify-json/lucide": "1.2.109",
-    "@iconify-json/simple-icons": "1.2.84",
+    "@iconify-json/lucide": "1.2.112",
+    "@iconify-json/simple-icons": "1.2.86",
     "bootstrap-icons": "1.13.1"
   },
   "scripts": {

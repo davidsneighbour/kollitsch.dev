@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@pagefind/default-ui": "1.5.2",
     "pagefind": "1.5.2",
     "sirv": "3.0.2"

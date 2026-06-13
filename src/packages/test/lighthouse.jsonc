@@ -1,7 +1,7 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "chrome-launcher": "1.2.1",
-    "lighthouse": "13.3.0"
+    "lighthouse": "13.4.0"
   },
   "scripts": {
     "lighthouse:audit": "wireit"

@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@resvg/resvg-js": "2.6.2",
     "@types/he": "1.2.3",
     "he": "1.2.0",

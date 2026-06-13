@@ -1,5 +1,5 @@
 {
-  "deps": {
+  "devDependencies": {
     "html-validate": "10.11.2"
   }
 }

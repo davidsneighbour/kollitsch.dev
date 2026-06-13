@@ -1,7 +1,7 @@
 {
   // a collection of scripts to build the package.json file
   // requires Node24+
-  "dependencies": {
+  "devDependencies": {
     "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0"
   },

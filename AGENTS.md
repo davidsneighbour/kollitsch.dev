@@ -2,16 +2,21 @@
 
 ## Main Purpose
 
-The purpose, scope, and project-specific context of this repository are defined in `ai/instructions/project.instructions.md`.
+The purpose, scope, and project-specific context of this repository are defined in `.vscode/instructions/project.instructions.md`.
 
 ## 0. Instruction Scope and Precedence
 
-This repository uses a shared AI instruction layout under `./ai/`, mirrored where required by tooling (e.g. `.vscode/`):
+This repository uses a shared AI instruction layout under `./ai/` (symlinked from the sibling `ai` repository) for globally reusable instructions. Project-specific instructions live under `.vscode/instructions/`.
 
-* `ai/instructions/` - scoped behavioural and rule extensions
+Shared layout directories:
+
+* `ai/instructions/` - globally reusable scoped behavioural rules
 * `ai/skills/` - reusable procedures and capabilities
 * `ai/prompts/` - reusable prompt entry points
-* `ai/agents/` - composed agent profiles
+
+Project-specific instruction files (kollitsch.dev only):
+
+* `.vscode/instructions/` - project context and project-scoped rules
 
 AGENTS.md defines core, always-on rules only. Most detailed behaviour is delegated to the directories above.
 

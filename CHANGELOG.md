@@ -1,5 +1,29 @@
 # Changelog
 
+## [3001.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.5.0...v3001.5.1) (2026-06-13)
+
+### Build
+
+* **config:** update env.d.ts and pin brace-expansion ([544abf3](https://github.com/davidsneighbour/kollitsch.dev/commit/544abf33dd7c81f3db2660f31da9dbab9834b117))
+
+### CI
+
+* fix tests.yml — pin actions to valid SHAs, tighten permissions ([11737d0](https://github.com/davidsneighbour/kollitsch.dev/commit/11737d0144218d746acf4c676b34d876e5c63e90))
+
+### Documentation
+
+* **agents:** add §6 scratch directory rules ([d018885](https://github.com/davidsneighbour/kollitsch.dev/commit/d018885384dd8962430a1c7478934ba67272b8b6))
+* **agents:** define 'scratch file' term explicitly in §6 ([b396808](https://github.com/davidsneighbour/kollitsch.dev/commit/b3968087de535561c49c8773de5b1d9dbe260ca2))
+* **todo:** mark github.test.ts header fix as done in TODO.md ([734f024](https://github.com/davidsneighbour/kollitsch.dev/commit/734f024ca82f6490e83bc03f43d0cc60d532f673))
+
+### Styles
+
+* **theme:** replace off-brand green scrollbar colours with brand tokens ([aca189a](https://github.com/davidsneighbour/kollitsch.dev/commit/aca189a19d06ce016e934acef2f7ee84c9bac7e8))
+
+### Tests
+
+* add // [@vitest-environment](https://github.com/vitest-environment) node to 5 remaining test files ([2500ff7](https://github.com/davidsneighbour/kollitsch.dev/commit/2500ff70ae3793c1c8625c6957c1d774e0469d89))
+
 ## [3001.5.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.4.3...v3001.5.0) (2026-06-13)
 
 ### Content

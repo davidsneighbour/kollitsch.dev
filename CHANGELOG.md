@@ -1,5 +1,12 @@
 # Changelog
 
+## [3001.6.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.0...v3001.6.1) (2026-06-13)
+
+### Docs
+
+* **todo:** consolidate scratch/ToDo.md into TODO.md and clean up ([a1e7cd7](https://github.com/davidsneighbour/kollitsch.dev/commit/a1e7cd7fa513991c17186e59a39e064277dacfe1)), closes [#3](https://github.com/davidsneighbour/kollitsch.dev/issues/3) [#4](https://github.com/davidsneighbour/kollitsch.dev/issues/4) [#5](https://github.com/davidsneighbour/kollitsch.dev/issues/5) [#6](https://github.com/davidsneighbour/kollitsch.dev/issues/6) [#9](https://github.com/davidsneighbour/kollitsch.dev/issues/9)
+* **todo:** merge scratch/scratch.md into TODO.md and remove ([17c46d7](https://github.com/davidsneighbour/kollitsch.dev/commit/17c46d7125ee4da6814fb1473412150736227d42))
+
 ## [3001.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.5.2...v3001.6.0) (2026-06-13)
 
 ### Feat

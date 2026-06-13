@@ -1,0 +1,40 @@
+---
+import SourceCodeLink from "./SourceCodeLink.astro";
+
+type SourceCodeEntry = {
+  source: string;
+  label?: string;
+  icon?: string;
+  line?: number | string;
+  class?: string;
+};
+
+export type Props = {
+  sourcecode: Record<string, string | SourceCodeEntry>;
+  /** Extra CSS classes on the wrapper <div> */
+  class?: string;
+};
+
+const { sourcecode, class: className = "" } = Astro.props;
+
+const entries = Object.entries(sourcecode).map(([slug, value]) => {
+  if (typeof value === "string") {
+    return { slug, source: value };
+  }
+  return { slug, ...value };
+});
+---
+
+<div class:list={["flex flex-wrap gap-2", className]}>
+  {
+    entries.map(({ slug, source, label, icon, line, class: cls }) => (
+      <SourceCodeLink
+        url={source}
+        label={label ?? slug}
+        {...(icon !== undefined && { icon })}
+        {...(line !== undefined && { line })}
+        {...(cls !== undefined && { class: cls })}
+      />
+    ))
+  }
+</div>

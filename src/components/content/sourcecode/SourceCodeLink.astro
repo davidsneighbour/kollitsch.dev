@@ -1,0 +1,102 @@
+---
+import { Icon } from "astro-icon/components";
+
+/**
+ * Icon naming convention:
+ *  - Brand/social icons:  "simple-icons:github", "fa7-brands:gitlab"
+ *  - UI/non-brand icons:  "lucide:code", or bare Bootstrap Icon name
+ *
+ * The prefix is the distinguisher — no extra flag needed.
+ *
+ * Line deep-linking:
+ *  - GitHub/GitLab: appends #L{n} or #L{n}-L{m}
+ *  - Bitbucket or other hosts: put the full anchor URL in `url` directly
+ */
+
+export interface Props {
+  /** Full URL to the source file or repository */
+  url: string;
+  /** Display text; derived from the URL path when omitted */
+  label?: string;
+  /**
+   * Any iconify icon name.
+   * Brand icons:  "simple-icons:github" | "fa7-brands:gitlab"
+   * UI icons:     "lucide:code" | bare Bootstrap Icon name
+   * Default:      "simple-icons:github"
+   */
+  icon?: string;
+  /** Extra CSS classes on the <a> element */
+  class?: string;
+  /**
+   * Line or line range to deep-link into.
+   * Single line:  123
+   * Range:        "123-145"  →  #L123-L145 on GitHub/GitLab
+   * Has no effect when `url` already contains a `#` fragment.
+   */
+  line?: number | string;
+  /**
+   * Render as an inline chip (no border, fits within prose text).
+   * Default false renders a block-style badge.
+   */
+  inline?: boolean;
+}
+
+const {
+  url,
+  label,
+  icon = "simple-icons:github",
+  class: className = "",
+  line,
+  inline = false,
+} = Astro.props;
+
+function buildHref(source: string, line?: number | string): string {
+  if (!line || source.includes("#")) return source;
+  const fragment =
+    typeof line === "number"
+      ? `#L${line}`
+      : `#L${String(line).replace(/^(\d+)-(\d+)$/, "$1-L$2")}`;
+  return `${source}${fragment}`;
+}
+
+function deriveLabel(source: string): string {
+  try {
+    const u = new URL(source);
+    // GitHub: /user/repo/blob/branch/path/to/file.ts
+    if (u.hostname === "github.com") {
+      const m = u.pathname.match(/\/blob\/[^/]+\/(.+)/);
+      if (m?.[1]) return m[1];
+    }
+    // GitLab: /user/repo/-/blob/branch/path/to/file.ts
+    if (u.hostname.endsWith("gitlab.com") || u.hostname.includes("gitlab.")) {
+      const m = u.pathname.match(/\/-\/blob\/[^/]+\/(.+)/);
+      if (m?.[1]) return m[1];
+    }
+    // Fallback: last non-empty path segment
+    const last = u.pathname.split("/").filter(Boolean).at(-1);
+    if (last) return last;
+  } catch {
+    /* non-URL value */
+  }
+  return source;
+}
+
+const href = buildHref(url, line);
+const displayLabel = label ?? deriveLabel(url);
+
+const blockClasses =
+  "inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-1.5 font-mono text-sm text-gray-700 transition-colors hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:bg-gray-800/50";
+
+const inlineClasses =
+  "inline-flex items-center gap-1 font-mono text-sm underline-offset-2 hover:underline";
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[inline ? inlineClasses : blockClasses, className]}
+>
+  <Icon name={icon} class="size-4 shrink-0" />
+  <span class="truncate">{displayLabel}</span>
+</a>

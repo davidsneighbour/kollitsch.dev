@@ -168,6 +168,21 @@ export const blogSchema = z
         }),
       )
       .optional(),
+    sourcecode: z
+      .record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.object({
+            source: z.string(),
+            label: z.string().optional(),
+            icon: z.string().optional(),
+            line: z.union([z.number(), z.string()]).optional(),
+            class: z.string().optional(),
+          }),
+        ]),
+      )
+      .optional(),
     summary: z.string().optional(),
     tags: z
       .array(

@@ -1,22 +1,26 @@
-# Typography structure
+---
+title: Typography
+tags: []
+created: 2026-05-31T15:14:25+07:00
+updated: 2026-05-31T15:46:01+07:00
+---
 
-This project uses a semantic typography split for Astro and Tailwind instead of repeating `text-*` and `prose-*` chains throughout layouts and components.
+This project uses a semantic typography setup throughout layouts and components using Tailwind [utility classes][1] and the [typography plugin][2].
 
-## Final class system
+```table-of-contents
+```
 
-The final typography system consists of three parts:
+## Typographic Class System
+
+The typography of the site consists of three parts:
 
 * `typography-ui`
 * `typography-reading`
 * `reading-*`
 
-## Purpose of each layer
-
 ### `typography-ui`
 
-`typography-ui` is the outer typography layer for interface elements.
-
-It is the default typography wrapper for the application shell and general UI, including:
+`typography-ui` is the outer typography layer for interface elements, application shell and general UI, including:
 
 * header
 * footer
@@ -28,7 +32,7 @@ It is the default typography wrapper for the application shell and general UI, i
 * layout chrome
 * widgets and controls
 
-This class should usually be applied at the `body` level so the whole page starts in UI typography mode.
+This class is applied at the `body` level so the whole page starts in UI typography mode.
 
 ### `typography-reading`
 
@@ -57,9 +61,9 @@ Typical use cases include:
 * visual emphasis
 * reduced or enlarged supporting text
 
-These utilities are not a replacement for `typography-reading`. They are small local adjustments inside the reading context.
+These utilities are not a replacement for `typography-reading`. They are small local adjustments inside the reading context. Or in layman's terms: they (currently only) fine tune the font sizes.
 
-## Layering model
+### Layering Model
 
 The intended structure is:
 
@@ -69,117 +73,30 @@ The intended structure is:
 
 Example:
 
-```astro
+```html
+
 <body class="typography-ui">
-  <Header />
-
-  <main>
-    <article class="typography-reading">
-      <p>Standard reading text.</p>
-
-      <aside class="reading-sm">
-        Supporting note inside prose.
-      </aside>
-
-      <div class="not-prose typography-ui">
-        <button>UI element inside reading content</button>
-      </div>
-    </article>
-  </main>
-
-  <Footer />
+ <Header />
+ <main>
+  <article class="typography-reading">
+   <p>Standard reading text.</p>
+   <aside class="reading-sm">
+     Supporting note inside prose in 0.875em size.
+   </aside>
+   <div class="not-prose typography-ui">
+    <button>UI element inside reading content</button>
+   </div>
+  </article>
+ </main>
+ <Footer />
 </body>
-````
-
-## Current stylesheet structure
-
-```css
-/* MARK: Typography */
-/* @see documentation/typography.md for the rationale these classes */
-/*******************************************************************************
- * Prose styles
- ******************************************************************************/
-@utility prose-dnb {
-  --tw-prose-body: var(--color-gray-800);
-  --tw-prose-headings: var(--color-gray-900);
-  --tw-prose-lead: var(--color-gray-700);
-  --tw-prose-links: var(--color-gray-900);
-  --tw-prose-bold: var(--color-gray-900);
-  --tw-prose-counters: var(--color-gray-600);
-  --tw-prose-bullets: var(--color-gray-400);
-  --tw-prose-hr: var(--color-gray-300);
-  --tw-prose-quotes: var(--color-gray-900);
-  --tw-prose-quote-borders: var(--color-gray-300);
-  --tw-prose-captions: var(--color-gray-700);
-  --tw-prose-code: var(--color-gray-900);
-  --tw-prose-pre-code: var(--color-gray-100);
-  --tw-prose-pre-bg: var(--color-gray-900);
-  --tw-prose-th-borders: var(--color-gray-300);
-  --tw-prose-td-borders: var(--color-gray-200);
-  --tw-prose-invert-body: var(--color-gray-200);
-  --tw-prose-invert-headings: var(--color-white);
-  --tw-prose-invert-lead: var(--color-gray-300);
-  --tw-prose-invert-links: var(--color-white);
-  --tw-prose-invert-bold: var(--color-white);
-  --tw-prose-invert-counters: var(--color-gray-400);
-  --tw-prose-invert-bullets: var(--color-gray-600);
-  --tw-prose-invert-hr: var(--color-gray-700);
-  --tw-prose-invert-quotes: var(--color-gray-100);
-  --tw-prose-invert-quote-borders: var(--color-gray-700);
-  --tw-prose-invert-captions: var(--color-gray-400);
-  --tw-prose-invert-code: var(--color-white);
-  --tw-prose-invert-pre-code: var(--color-gray-300);
-  --tw-prose-invert-pre-bg: rgb(0 0 0 / 0.5);
-  --tw-prose-invert-th-borders: var(--color-gray-600);
-  --tw-prose-invert-td-borders: var(--color-gray-700);
-}
-
-@layer components {
-  .typography-ui {
-    @apply text-sm md:text-base lg:text-xl xl:text-2xl;
-  }
-
-  .typography-reading {
-    @apply prose;
-    @apply prose-dnb;
-    @apply prose-sm md:prose lg:prose-xl xl:prose-2xl;
-    @apply dark:prose-invert prose-slate;
-    @apply max-w-none;
-
-    /* Changa is only available via weight 400 */
-    @apply prose-headings:font-normal;
-
-    p {
-      font-variant-ligatures: common-ligatures;
-    }
-
-    hr {
-      @apply my-8 border-0 border-t border-gray-300 dark:border-gray-700;
-    }
-  }
-}
-
-@layer utilities {
-  /* these MUST be em based so the typography-reading class can scale here */
-  .reading-sm {
-    font-size: 0.875em;
-  }
-  .reading-lg {
-    font-size: 1.2em;
-  }
-  .reading-xl {
-    font-size: 1.5em;
-  }
-}
 ```
 
-## Rationale
-
-### Why `typography-ui` exists
+### Rationale
 
 UI typography and reading typography solve different problems.
 
-UI typography should support:
+UI typography (`typography-ui`) supports:
 
 * navigation
 * controls
@@ -187,7 +104,7 @@ UI typography should support:
 * cards
 * compact interface elements
 
-Reading typography should support:
+Reading typography supports:
 
 * comfortable prose reading
 * heading rhythm
@@ -199,13 +116,9 @@ Reading typography should support:
 
 Keeping them separate avoids accidental styling leakage and makes both systems easier to maintain.
 
-### Why `typography-reading` exists
-
 `typography-reading` provides a controlled prose environment using the Typography plugin plus project-specific theme values through `prose-dnb`.
 
 This centralises reading rules instead of scattering them across components.
-
-### Why `reading-*` exists
 
 Some content elements inside prose need local scaling without breaking the overall reading system.
 
@@ -220,25 +133,25 @@ Examples:
 
 ## Rules
 
-### Rule 1: `typography-ui` is the default outer layer
+### Rule 1: `typography-ui` is the Default Outer Layer
 
 Use `typography-ui` for the outer application shell and for standalone UI elements.
 
 In most cases, apply it to `body`.
 
-### Rule 2: `typography-reading` is only for prose areas
+### Rule 2: `typography-reading` is only for Prose Areas
 
 Do not use `typography-reading` for general layout wrappers, cards, navigation, or UI-heavy containers.
 
 Use it only where prose behaviour is actually wanted.
 
-### Rule 3: `reading-*` is only for local adjustments inside reading content
+### Rule 3: `reading-*` is only for Local Adjustments inside Reading Content
 
 `reading-*` should fine-tune text inside `typography-reading`.
 
 Do not use `reading-*` as a substitute for the UI typography system.
 
-### Rule 4: `reading-*` must always be `em` based
+### Rule 4: `reading-*` Must Always Be `em` Based
 
 This is critical.
 
@@ -248,7 +161,7 @@ Correct:
 
 ```css
 .reading-sm {
-  font-size: 0.875em;
+ font-size: 0.875em;
 }
 ```
 
@@ -256,7 +169,7 @@ Incorrect:
 
 ```css
 .reading-sm {
-  font-size: 0.875rem;
+ font-size: 0.875rem;
 }
 ```
 
@@ -270,19 +183,19 @@ Incorrect:
 
 Using `rem` or Tailwind `text-*` utilities would detach the adjustment from the current prose scale and break the intended relationship.
 
-### Rule 5: Do not use Tailwind `text-*` inside `typography-reading`
+### Rule 5: Do not Use Tailwind `text-*` inside `typography-reading`
 
 Inside the reading context, font-size adjustments should be done with `reading-*` or other `em`-based helpers.
 
 Do not use `text-sm`, `text-lg`, etc. inside `typography-reading`, because those operate on the global scale rather than the current prose base.
 
-### Rule 6: Use `not-prose` directly in markup
+### Rule 6: Use `not-prose` Directly in Markup
 
 When a UI element appears inside `typography-reading`, use Tailwind Typography's escape hatch directly in markup:
 
-```astro
+```html
 <div class="not-prose typography-ui">
-  <button>Button inside prose</button>
+ <button>Button inside prose</button>
 </div>
 ```
 
@@ -290,53 +203,37 @@ Do not use `@apply not-prose`.
 
 `not-prose` must always be written directly in markup.
 
-### Rule 7: Always pair `not-prose` with `typography-ui`
+### Rule 7: Always Pair `not-prose` with `typography-ui`
 
 `not-prose` exits the Typography plugin, but it does not automatically restore the UI typography system.
 
 That means this is correct:
 
-```astro
+```html
 <div class="not-prose typography-ui">
-  ...
+ …
 </div>
 ```
 
 and this is not sufficient:
 
-```astro
+```html
 <div class="not-prose">
-  ...
+ …
 </div>
 ```
 
-### Rule 8: Do not re-enter prose inside `not-prose`
+### Rule 8: Do not Re-enter Prose inside `not-prose`
 
 `not-prose` creates a hard boundary.
 
 Do not try to nest `typography-reading` inside a `not-prose` block.
 
-### Rule 9: Keep sizes in `reading-*` at or above ~0.75em
+### Rule 9: Keep Sizes in `reading-*` at or above ~0.75em
 
 Avoid font sizes below ~0.75em in reading context. Smaller sizes should only be used for very specific, intentional cases (for example, annotations or microcopy) and should not be introduced as general-purpose utilities.
 
-## Notes and warnings
-
-### Warning: Old names are obsolete
-
-Older intermediate names such as:
-
-* `type-ui`
-* `type-reading`
-
-should be considered obsolete.
-
-The final names are:
-
-* `typography-ui`
-* `typography-reading`
-
-### Warning: `reading-*` is intentionally small in scope
+### Warning: `reading-*` is Intentionally Small in Scope
 
 If `reading-*` feels unused, that is not necessarily a problem.
 
@@ -356,7 +253,7 @@ They belong in `@layer components`.
 
 They belong in `@layer utilities`.
 
-### Warning: Typography plugin required
+### Warning: Typography Plugin Required
 
 `typography-reading` depends on the Tailwind Typography plugin being installed and configured.
 
@@ -373,12 +270,7 @@ The final system is:
 
 This is the final intended structure and should replace older notes that still refer to `type-*`.
 
-## Migration note (from older typography system)
+---
 
-If any code still uses the previous naming or patterns, update it to the current system.
-
-Replace all occurrences of `type-ui` with `typography-ui` and `type-reading` with `typography-reading`.
-Ensure that any use of Tailwind Typography escape classes follows the correct pattern:
-do not use `@apply not-prose`; instead, use `not-prose` directly in markup and always combine it with `typography-ui` (for example, `<div class="not-prose typography-ui">`).
-Additionally, remove any use of Tailwind `text-*` utilities inside `typography-reading` and replace them with `reading-*` utilities or `em`-based sizing where appropriate.
-Verify that all `reading-*` utilities use `em` units (not `rem` or `text-*`) and avoid introducing sizes below ~0.75em unless explicitly required for a specific use case.
+[1]: <https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities>
+[2]: <https://github.com/tailwindlabs/tailwindcss-typography#basic-usage>

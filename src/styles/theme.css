@@ -1,21 +1,33 @@
 @namespace svg url("http://www.w3.org/2000/svg");
 
-/* MARK: imports */
+/* MARK: imports
+ */
+
+/* Fonts */
 @import "@fontsource-variable/exo-2";
 @import "@fontsource-variable/exo-2/wght-italic.css";
 @import "@fontsource-variable/jetbrains-mono";
 @import "@fontsource-variable/jetbrains-mono/wght-italic.css";
 @import "@fontsource/changa-one";
-@import 'tailwindcss';
-@import 'lenis/dist/lenis.css';
+
+/* Tailwind CSS */
+@import "tailwindcss";
+
+/* Lenis smooth scrolling */
+@import "lenis/dist/lenis.css";
+
+/* Animations
+ * @see https://github.com/Wombosvideo/tw-animate-css */
 @import "tw-animate-css";
 
-/* add forms plugin, @see https://github.com/tailwindlabs/tailwindcss-forms */
+/* add forms plugin
+ * @see https://github.com/tailwindlabs/tailwindcss-forms */
 @plugin "@tailwindcss/forms" {
   strategy: "base"; /* only generate global styles */
 }
 
-/* adds typography plugin https://github.com/tailwindlabs/tailwindcss-typography */
+/* adds typography plugin
+ * @see https://github.com/tailwindlabs/tailwindcss-typography */
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -45,78 +57,84 @@
   --font-exo2: "Exo 2 Variable", sans-serif;
   --font-jetbrainsmono: "JetBrains Mono Variable", monospace;
   --font-changa: "Changa One", sans-serif;
+  --font-title-font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  --font-feature-settings-cv02: "cv02";
+  --font-feature-settings-cv03: "cv03";
+  --font-feature-settings-cv04: "cv04";
+  --font-feature-settings-cv11: "cv11";
 
-  /* stylelint-disable-next-line -- variable name required for astro code plugin */
-  --ec-codeFontFml: "JetBrains Mono Variable", monospace;
+  /* stylelint-disable-next-line custom-property-pattern -- variable name required for expressive code plugin */
+  --ec-codeFontFml: var(--font-jetbrainsmono);
+  /* stylelint-disable-next-line custom-property-pattern -- variable name required for expressive code plugin */
+  --ec-codeFontSize: 1rem;
   --spacing: 0.25rem;
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
-  --aspect-dnb: 16 / 9;
+  --aspect-dnb: 2/1;
 
   /* Resettings Tailwind color variables */
   /* stylelint-disable custom-property-pattern -- this is a TailwindCSS thing */
   --color-*: initial;
   /* stylelint-enable custom-property-pattern */
 
-
   /* stylelint-disable plugin/no-unsupported-browser-features -- oklch is ok */
-  --color-gray-50: oklch(98.6% 0.002 67.8);
-  --color-gray-100: oklch(96% 0.002 17.2);
-  --color-gray-200: oklch(92.2% 0.005 34.3);
-  --color-gray-300: oklch(86.8% 0.007 39.5);
-  --color-gray-400: oklch(71.4% 0.014 41.2);
-  --color-gray-500: oklch(54.7% 0.021 43.1);
-  --color-gray-600: oklch(43.8% 0.017 39.3);
-  --color-gray-700: oklch(36.7% 0.016 35.7);
-  --color-gray-800: oklch(26.8% 0.011 36.5);
-  --color-gray-900: oklch(21.4% 0.009 43.1);
-  --color-gray-950: oklch(14.7% 0.004 49.3);
-
-  --color-orange-50: oklch(98% 0.016 73.684);
-  --color-orange-100: oklch(95.4% 0.038 75.164);
-  --color-orange-200: oklch(90.1% 0.076 70.697);
-  --color-orange-300: oklch(83.7% 0.128 66.29);
-  --color-orange-400: oklch(75% 0.183 55.934);
-  --color-orange-500: oklch(70.5% 0.213 47.604);
-  --color-orange-600: oklch(64.6% 0.222 41.116);
-  --color-orange-700: oklch(55.3% 0.195 38.402);
-  --color-orange-800: oklch(47% 0.157 37.304);
-  --color-orange-900: oklch(40.8% 0.123 38.172);
-  --color-orange-950: oklch(26.6% 0.079 36.259);
-
-  --color-red-50: oklch(97.1% 0.013 17.38);
-  --color-red-100: oklch(93.6% 0.032 17.717);
-  --color-red-200: oklch(88.5% 0.062 18.334);
-  --color-red-300: oklch(80.8% 0.114 19.571);
-  --color-red-400: oklch(70.4% 0.191 22.216);
-  --color-red-500: oklch(63.7% 0.237 25.331);
-  --color-red-600: oklch(57.7% 0.245 27.325);
-  --color-red-700: oklch(50.5% 0.213 27.518);
-  --color-red-800: oklch(44.4% 0.177 26.899);
-  --color-red-900: oklch(39.6% 0.141 25.723);
-  --color-red-950: oklch(25.8% 0.092 26.042);
+  --color-gray-50: oklch(98.6% 0.002 67.8deg);
+  --color-gray-100: oklch(96% 0.002 17.2deg);
+  --color-gray-200: oklch(92.2% 0.005 34.3deg);
+  --color-gray-300: oklch(86.8% 0.007 39.5deg);
+  --color-gray-400: oklch(71.4% 0.014 41.2deg);
+  --color-gray-500: oklch(54.7% 0.021 43.1deg);
+  --color-gray-600: oklch(43.8% 0.017 39.3deg);
+  --color-gray-700: oklch(36.7% 0.016 35.7deg);
+  --color-gray-800: oklch(26.8% 0.011 36.5deg);
+  --color-gray-900: oklch(21.4% 0.009 43.1deg);
+  --color-gray-950: oklch(14.7% 0.004 49.3deg);
+  --color-orange-50: oklch(98% 0.016 73.684deg);
+  --color-orange-100: oklch(95.4% 0.038 75.164deg);
+  --color-orange-200: oklch(90.1% 0.076 70.697deg);
+  --color-orange-300: oklch(83.7% 0.128 66.29deg);
+  --color-orange-400: oklch(75% 0.183 55.934deg);
+  --color-orange-500: oklch(70.5% 0.213 47.604deg);
+  --color-orange-600: oklch(64.6% 0.222 41.116deg);
+  --color-orange-700: oklch(55.3% 0.195 38.402deg);
+  --color-orange-800: oklch(47% 0.157 37.304deg);
+  --color-orange-900: oklch(40.8% 0.123 38.172deg);
+  --color-orange-950: oklch(26.6% 0.079 36.259deg);
+  --color-red-50: oklch(97.1% 0.013 17.38deg);
+  --color-red-100: oklch(93.6% 0.032 17.717deg);
+  --color-red-200: oklch(88.5% 0.062 18.334deg);
+  --color-red-300: oklch(80.8% 0.114 19.571deg);
+  --color-red-400: oklch(70.4% 0.191 22.216deg);
+  --color-red-500: oklch(63.7% 0.237 25.331deg);
+  --color-red-600: oklch(57.7% 0.245 27.325deg);
+  --color-red-700: oklch(50.5% 0.213 27.518deg);
+  --color-red-800: oklch(44.4% 0.177 26.899deg);
+  --color-red-900: oklch(39.6% 0.141 25.723deg);
+  --color-red-950: oklch(25.8% 0.092 26.042deg);
   /* stylelint-enable plugin/no-unsupported-browser-features */
 
   /* Easing functions via Emil Kowalski */
+
   /* ease-out for enter/exit transitions */
+
   /* ease-in-out for objects already on the screen */
-  --ease-in-quad: cubic-bezier(.55, .085, .68, .53);
-  --ease-in-cubic: cubic-bezier(.550, .055, .675, .19);
-  --ease-in-quart: cubic-bezier(.895, .03, .685, .22);
-  --ease-in-quint: cubic-bezier(.755, .05, .855, .06);
-  --ease-in-expo: cubic-bezier(.95, .05, .795, .035);
-  --ease-in-circ: cubic-bezier(.6, .04, .98, .335);
-  --ease-out-quad: cubic-bezier(.25, .46, .45, .94);
-  --ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
-  --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
-  --ease-out-quint: cubic-bezier(.23, 1, .32, 1);
-  --ease-out-expo: cubic-bezier(.19, 1, .22, 1);
-  --ease-out-circ: cubic-bezier(.075, .82, .165, 1);
-  --ease-in-out-quad: cubic-bezier(.455, .03, .515, .955);
-  --ease-in-out-cubic: cubic-bezier(.645, .045, .355, 1);
-  --ease-in-out-quart: cubic-bezier(.77, 0, .175, 1);
-  --ease-in-out-quint: cubic-bezier(.86, 0, .07, 1);
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
   --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
-  --ease-in-out-circ: cubic-bezier(.785, .135, .15, .86);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   @keyframes fade-in-scale {
     0% {
@@ -130,8 +148,6 @@
     }
   }
 
-  --font-title: var(--font-changa);
-  --font-title--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; 
   /* --font-title--font-variation-settings: "opsz" 32;  */
 }
 
@@ -139,8 +155,8 @@
  * When using CSS variables in the @theme section, use the `inline` section
  ******************************************************************************/
 @theme inline {
-
-  --color-brand-main-accent: var( --color-orange-600);
+  --font-title: var(--font-changa);
+  --color-brand-main-accent: var(--color-orange-600);
   --color-brand-main-accent-hover: var(--color-red-700);
 
   /* @todo use color values directly */
@@ -181,16 +197,15 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-
 }
 
 /*******************************************************************************
  * The `static` leads to the variables being referenced without the requirement
- * of being used. Other @theme sections will only compile into used variables.
+ * of being used. Other @theme sections will only compile used variables.
  * This will also generate all utility classes for variable namespaces.
  ******************************************************************************/
+/* stylelint-disable-next-line block-no-empty -- intentionally empty: forces all @theme variables to be emitted even when unused */
 @theme static {
-
 }
 
 /* MARK: base styles */
@@ -204,7 +219,6 @@
   }
 
   html {
-    
     text-rendering: optimizelegibility;
   }
 
@@ -212,7 +226,7 @@
    * Everyone should have their own custom CSS reset.
    * This is mine. Plus changes by the Guru's of the web.
    *
-   * First comes Preflight from Tailwind CSS
+   * First have a look at Preflight from Tailwind CSS
    * @see https://tailwindcss.com/docs/preflight
    */
 
@@ -227,6 +241,9 @@
     @apply font-exo2 font-light;
     @apply bg-gray-50 text-gray-600;
     @apply dark:bg-gray-950 dark:text-gray-200;
+
+    /* scrollbars */
+    @apply scrollbar-thumb-gray-800 scrollbar-track-gray-900;
 
     /* font sizes */
     @apply text-sm md:text-base lg:text-xl xl:text-2xl;
@@ -250,7 +267,8 @@
     @apply mt-4;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     @apply text-4xl;
   }
 
@@ -330,7 +348,9 @@
 }
 
 /* MARK: Typography */
+
 /* @see documentation/typography.md for the rationale behind these classes */
+
 /*******************************************************************************
  * Prose styles
  ******************************************************************************/
@@ -368,16 +388,16 @@
   --tw-prose-invert-th-borders: var(--color-gray-600);
   --tw-prose-invert-td-borders: var(--color-gray-700);
 }
+
 @layer components {
   .typography-ui {
     @apply text-sm md:text-base lg:text-xl xl:text-2xl;
   }
 
   .typography-reading {
-    @apply prose;
-    @apply prose-dnb;
+    @apply prose prose-dnb;
     @apply prose-sm md:prose lg:prose-xl xl:prose-2xl;
-    @apply dark:prose-invert prose-slate;
+    @apply dark:prose-invert;
     @apply max-w-none;
 
     /* Changa is only available via weight 400 */
@@ -391,155 +411,33 @@
       @apply my-8 border-0 border-t border-gray-300 dark:border-gray-700;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       code {
         @apply underline decoration-wavy decoration-1 underline-offset-1 decoration-red-500;
       }
     }
-
-  }
-}
-@layer utilities {
-  /* these MUST be em based so the typography-reading class can scale here */
-  .reading-sm {
-    font-size: 0.875em;
-  }
-  .reading-lg {
-    font-size: 1.2em;
-  }
-  .reading-xl {
-    font-size: 1.5em;
   }
 }
 
-/* MARK: utilities */
-/*******************************************************************************
- * Utilities
- ******************************************************************************/
-@layer utilities {
-  .font-changa {
-    font-family: var(--font-changa), sans-serif;
-
-    /* Changa One is only available via weight 400 */
-    font-weight: 400 !important;
-
-    /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis */
-    font-synthesis: none;
-  }
-
-  /* Override any other weight utility when used with font-changa */
-  .font-changa.font-thin,
-  .font-changa.font-extralight,
-  .font-changa.font-light,
-  .font-changa.font-normal,
-  .font-changa.font-medium,
-  .font-changa.font-semibold,
-  .font-changa.font-bold,
-  .font-changa.font-extrabold,
-  .font-changa.font-black {
-    /* Changa One is only available via weight 400 */
-    font-weight: 400;
-  }
-
-  .text-answer-1238jf {
-    @apply hidden;
-  }
-
-  ::-webkit-scrollbar {
-    width: var(--sb-size, 0.5rem);
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--sb-track-color, var(--color-gray-900));
-    border-radius: 4px;
-    &:hover {
-      background: var(--sb-track-color2, var(--color-gray-800));
-    }
-    &:active {
-      background: var(--sb-track-color2, var(--color-gray-800));
-    }
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color, var(--color-red-500));
-    border-radius: 4px;
-    &:active {
-      background: var(--sb-thumb-color2, var(--color-red-400));
-    }
-    &:hover {
-      background: var(--sb-thumb-color2, var(--color-red-400));
-    }
-  }
-
-  /* Firefox and other browsers that don't support modern standards for scrollbars */
-  @supports not selector(::-webkit-scrollbar) {
-    body {
-      scrollbar-color: var(--sb-thumb-color, var(--color-red-500)) var(--sb-track-color, var(--color-gray-900));
-      scrollbar-width: thin;
-    }
-  }
-
-  /***************************************************************************  */
-
-  /* lite youtube element                                                    **/
-
-  /***************************************************************************  */
-  lite-youtube {
-    /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
-    @apply relative block w-full cursor-pointer bg-gray-50 dark:bg-gray-950;
-    @apply bg-cover bg-position-[center_center] contain-content;
-
-    /* responsive iframe with a 2:1 (NOT 16:9) aspect ratio
-       thanks https://css-tricks.com/responsive-iframes/ */
-    &::after {
-      @apply block pb-[calc(100%/(2/1))] content-[''];
-    }
-
-    & > iframe {
-      @apply absolute top-0 left-0 h-full w-full border-0;
-    }
-
-    /* play button */
-    & > .lty-playbtn {
-      @apply absolute z-10 block h-full w-full cursor-pointer border-0;
-      @apply bg-size-[48px_36px] bg-center bg-no-repeat contain-content;
-
-      /* YT's actual play button svg */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23c54109"/><path d="M45 24 27 14v20" fill="%23ffffff"/></svg>');
-    }
-
-    /* Post-click styles */
-    &.lyt-activated {
-      @apply cursor-['unset'];
-
-      &::before,
-      & > .lty-playbtn {
-        @apply pointer-events-none opacity-0;
-      }
-    }
-  }
-
-  /***************************************************************************  */
-}
-
-/* MARK: contain utilities */
-
-/* @see https://developer.mozilla.org/en-US/docs/Web/CSS/contain */
+/* MARK: reading
+ */
 @theme {
-  --contain-content: content;
-  --contain-layout: layout;
-  --contain-paint: paint;
-  --contain-strict: strict;
-  --contain-none: none;
+  /* these MUST be em based so the typography-reading class can scale here */
+  --reading-sm: 0.875em;
+  --reading-lg: 1.2em;
+  --reading-xl: 1.5em;
 }
 
-@utility contain-* {
-  contain: --value(--contain-*);
+@utility reading-* {
+  font-size: --value(--reading-*);
 }
 
-/* MARK: text utilities */
-
-/**
+/* MARK: text-boxlabel
  * show a label sideways
  *
  * @example
@@ -550,23 +448,18 @@
   text-orientation: sideways;
 }
 
-/**
- * used to reset a sideways label to normal in responsive designs
- *
- * @example
- * `class="text-boxlabel-sideways md:text-boxlabel-inherit"`
- */
 @utility text-boxlabel-inherit {
   writing-mode: inherit;
   text-orientation: inherit;
 }
 
-@layer utilities {
-  /**
-   * The ::target-text CSS pseudo-element represents the text that has been
-   * scrolled to if the browser supports text fragments. It allows authors to
-   * choose how to highlight that section of text.
-   */
+/*******************************************************************************
+ * MARK: target- and search-text   
+ * The ::target-text CSS pseudo-element represents the text that has been
+ * scrolled to if the browser supports text fragments. It allows authors to
+ * choose how to highlight that section of text.
+ ******************************************************************************/
+@layer base {
   ::target-text {
     background-color: var(--color-red-500);
     color: var(--color-gray-950);
@@ -585,22 +478,161 @@
 }
 
 /*******************************************************************************
- * MARK: svg utilities
+ * MARK: svg link text
  * 
  * SVG does not provide a default visual style for links, so let's add some *
  ******************************************************************************/
-/* select only SVG <a> elements */
-svg|a {
-  &:link,
-  &:visited {
-    cursor: pointer;
-    outline: dotted 1px var(--color-cyan-700);
+@layer base {
+  /* select only SVG <a> elements */
+  svg|a {
+    &:link,
+    &:visited {
+      cursor: pointer;
+      outline: dotted 1px var(--color-cyan-700);
+    }
+
+    text {
+      fill: var(--color-cyan-700);
+    }
+
+    &:hover,
+    &:active {
+      outline: dotted 1px var(--color-cyan-700);
+    }
   }
-  text {
-    fill: var(--color-cyan-700);
+}
+
+/*******************************************************************************
+ * MARK: scrollbars
+ ******************************************************************************/
+@layer base {
+  :root {
+    --sb-size: 0.5rem;
+    --sb-size-ff: thin;
+    --sb-track-color: var(--color-gray-900);
+    --sb-track-color2: var(--color-gray-800);
+    --sb-thumb-color: var(--color-green-500);
+    --sb-thumb-color2: var(--color-green-400);
+    --sb-border-radius: 4px;
   }
-  &:hover,
-  &:active {
-    outline: dotted 1px var(--color-cyan-700);
+
+  ::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: var(--sb-border-radius);
+
+    &:hover,
+    &:active {
+      background: var(--sb-track-color2);
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: var(--sb-border-radius);
+
+    &:hover,
+    &:active {
+      background: var(--sb-thumb-color2);
+    }
+  }
+
+  /* Firefox and other browsers that don't support modern standards for scrollbars */
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+      scrollbar-width: var(--sb-size-ff);
+    }
+  }
+}
+
+@utility scrollbar-red {
+  --sb-track-color: var(--color-gray-900);
+  --sb-track-color2: var(--color-gray-800);
+  --sb-thumb-color: var(--color-red-500);
+  --sb-thumb-color2: var(--color-red-400);
+}
+
+@utility scrollbar-wide {
+  --sb-size: 1rem;
+  --sb-size-ff: wide;
+}
+
+/*******************************************************************************
+ * MARK: font utilities
+ ******************************************************************************/
+@utility font-changa {
+  font-family: var(--font-changa), sans-serif;
+
+  /* Changa One is only available via weight 400. */
+  font-weight: 400 !important;
+
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis */
+  font-synthesis: none;
+
+  /**
+   * Override any other weight utility when used with font-changa.
+   *
+   * The :where() wrapper keeps specificity low, while !important on the base
+   * declaration above still protects the single supported font weight.
+   */
+  &:where(
+    .font-thin,
+    .font-extralight,
+    .font-light,
+    .font-normal,
+    .font-medium,
+    .font-semibold,
+    .font-bold,
+    .font-extrabold,
+    .font-black
+  ) {
+    font-weight: 400;
+  }
+}
+
+/*******************************************************************************
+ * MARK: lite-youtube
+ ******************************************************************************/
+@layer components {
+  lite-youtube {
+    /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
+    @apply relative block w-full cursor-pointer bg-gray-50 dark:bg-gray-950;
+    @apply bg-cover bg-position-[center_center] contain-content;
+
+    /*
+     * Responsive iframe with a 2:1 (NOT 16:9) aspect ratio.
+     *
+     * @see https://css-tricks.com/responsive-iframes/
+     */
+    &::after {
+      @apply block pb-[calc(100%/(2/1))] content-[''];
+    }
+
+    & > iframe {
+      @apply absolute top-0 left-0 h-full w-full border-0;
+    }
+
+    /* Play button. */
+    & > .lty-playbtn {
+      @apply absolute z-10 block h-full w-full cursor-pointer border-0;
+      @apply bg-size-[48px_36px] bg-center bg-no-repeat contain-content;
+
+      /* YouTube's actual play button SVG. */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23c54109"/><path d="M45 24 27 14v20" fill="%23ffffff"/></svg>');
+    }
+
+    /* Post-click styles. */
+    &.lyt-activated {
+      @apply cursor-['unset'];
+
+      &::before,
+      & > .lty-playbtn {
+        @apply pointer-events-none opacity-0;
+      }
+    }
   }
 }

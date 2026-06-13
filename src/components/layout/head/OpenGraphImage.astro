@@ -28,14 +28,15 @@ import fs from "node:fs";
 import path from "node:path";
 import setup from "@data/setup.json" with { type: "json" };
 import { Resvg } from "@resvg/resvg-js";
+import type { OpenGraphPayload } from "@utils/content.ts";
 import { formatDisplayDate } from "@utils/datetime.ts";
 import { createLogger, type Logger } from "@utils/logger.ts";
 import type { ResolveImageKeyOptions } from "@utils/opengraph.ts";
 import { resolveImageKey } from "@utils/opengraph.ts";
-import type { OpenGraphPayload } from "@utils/content.ts";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
-import type { ReactNode } from "react";
+
+type ReactNode = Parameters<typeof satori>[0];
 
 const TEMPLATE_VERSION = 1; // bump to invalidate everything after template/style changes
 

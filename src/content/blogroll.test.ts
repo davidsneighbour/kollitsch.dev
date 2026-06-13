@@ -1,3 +1,4 @@
+// @vitest-environment node
 // src/content/blogroll.test.ts
 import { describe, it, expect } from 'vitest';
 import Ajv2020 from 'ajv/dist/2020';

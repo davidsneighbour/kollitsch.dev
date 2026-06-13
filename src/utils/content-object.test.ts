@@ -1,3 +1,4 @@
+// @vitest-environment node
 import type { CollectionEntry } from 'astro:content';
 import { describe, expect, expectTypeOf, it } from 'vitest';
 

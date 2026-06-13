@@ -115,7 +115,6 @@ export default defineConfig({
       langs: [
         crontabTmLanguage
       ],
-      // bundledLangs: ['astro', 'sass'],
     },
     styleOverrides: {
       codeFontFamily: "'jetbrainsmono', monospace",

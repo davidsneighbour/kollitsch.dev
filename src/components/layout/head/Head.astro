@@ -7,6 +7,7 @@ import Favicon from "@components/layout/head/Favicon.astro";
 import FontsPreload from "@components/layout/head/FontsPreload.astro";
 import Meta from "@components/layout/head/Meta.astro";
 import OpenGraph from "@components/layout/head/OpenGraph.astro";
+import SpeculationRules from "@components/layout/head/SpeculationRules.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import {
   createDefaultPost,
@@ -97,6 +98,7 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
 <ClientRouter />
 <Favicon />
 <Meta />
+<SpeculationRules />
 
 <meta name="generator" content={Astro.generator} />
 

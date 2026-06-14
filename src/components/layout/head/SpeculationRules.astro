@@ -1,0 +1,20 @@
+---
+// Emit Chrome/Edge Speculation Rules for the highest-traffic pages.
+// Browsers that don't support the API silently ignore the script tag.
+// These rules use "immediate" eagerness so prerendering starts as soon
+// as the rules are parsed — no hover or viewport trigger required.
+// Astro's clientPrerender + data-astro-prefetch handles all other links.
+
+export interface Props {}
+---
+
+<script is:inline type="speculationrules">
+  {
+    "prerender": [
+      {
+        "urls": ["/about/", "/tags/"],
+        "eagerness": "immediate"
+      }
+    ]
+  }
+</script>

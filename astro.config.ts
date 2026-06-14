@@ -138,7 +138,7 @@ export default defineConfig({
     },
   },
   output: 'static',
-  prefetch: { defaultStrategy: 'viewport', prefetchAll: true },
+  prefetch: { defaultStrategy: 'hover', prefetchAll: true },
   server: { host: true },
   site: 'https://kollitsch.dev/',
   //trailingSlash: 'always',

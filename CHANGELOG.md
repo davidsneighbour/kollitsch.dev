@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.6.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.2...v3001.6.3) (2026-06-14)
+
+### Docs
+
+* **fix:** update documentation files ([97d2cfd](https://github.com/davidsneighbour/kollitsch.dev/commit/97d2cfd56cdcca3af06d4fbf6f1ddfafc9c04335))
+
+### Ci
+
+* **fix:** add CITATION.cff hook to release-it config ([9edf44b](https://github.com/davidsneighbour/kollitsch.dev/commit/9edf44b2d84a5722dd44cc64723fdd81cf8899f0))
+
 ## [3001.6.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.1...v3001.6.2) (2026-06-14)
 
 ### Fix

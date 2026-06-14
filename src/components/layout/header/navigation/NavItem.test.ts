@@ -39,7 +39,7 @@ describe('NavItem component', () => {
     await load();
     expect(src).toContain('group/navitem');
     expect(src).toContain('group-[.open]/navitem:block');
-    expect(src).toContain('@md:group-hover/navitem:block');
+    expect(src).toContain('md:group-hover/navitem:block');
   });
 
   it('registers dropdown toggles and dismiss handler on astro:page-load', async () => {

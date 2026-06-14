@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.7.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.7.0...v3001.7.1) (2026-06-14)
+
+### Docs
+
+* **icons:** document icon system rules for AI assistants ([bf21124](https://github.com/davidsneighbour/kollitsch.dev/commit/bf2112462f1378f86169e9247e3bb0ccd4fb1f17))
+
+### Build
+
+* **docs:** add TypeDoc API documentation for src/utils/ ([b1d272b](https://github.com/davidsneighbour/kollitsch.dev/commit/b1d272b05de72fabb3e2878d7ef12e663734935b))
+
 ## [3001.7.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.3...v3001.7.0) (2026-06-14)
 
 ### Feat

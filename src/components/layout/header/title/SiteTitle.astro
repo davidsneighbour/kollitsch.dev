@@ -12,7 +12,7 @@ const { siteTitleId }: Props = Astro.props;
 const siteTitleSize = "clamp(50px, 13vw, 250px)";
 ---
 
-<header aria-label="Site title" id={siteTitleId} class="w-full text-center">
+<header aria-label="Site title" id={siteTitleId} class="site-title-hero w-full py-6 text-center md:py-10">
   <a href={homepageUrl} class="inline-block">
     <TextImageFill
       as="span"
@@ -27,3 +27,29 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
     </TextImageFill>
   </a>
 </header>
+
+<style>
+  .site-title-hero {
+    animation: site-title-exit linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit 100%;
+  }
+
+  @keyframes site-title-exit {
+    from {
+      opacity: 100%;
+      transform: none;
+    }
+
+    to {
+      opacity: 0%;
+      transform: translateY(-12px) scale(0.98);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-title-hero {
+      animation: none;
+    }
+  }
+</style>

@@ -37,7 +37,7 @@ if (!activeItem && import.meta.env.DEV) {
 
 <SiteTitle siteTitleId={siteTitleId} />
 
-<header class="sticky top-0 right-0 left-0 isolate z-50">
+<header id="site-header" class="site-header sticky top-0 right-0 left-0 isolate z-50 shadow-sm backdrop-blur-xl backdrop-saturate-150">
   <ProgressBar
     classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-70 hidden [--height:4px] lg:[--height:6px]"
   />
@@ -49,14 +49,14 @@ if (!activeItem && import.meta.env.DEV) {
     searchOuterWidthVarName="--pf-searchbox-max-width"
     centerClass="justify-end"
     rightClass="shrink-0"
-    class="bg-white/75 shadow-lg dark:bg-gray-900/75"
+    class="border-b border-white/20"
   >
     <Fragment slot="left">
       <span id="navbar-sitetitle">
         <a
           id="navbar-brand"
           href={getHomepageUrl()}
-          class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-opacity duration-600 ease-in-out"
+          class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0 transition-all duration-600 ease-in-out"
         >
           <Icon name="house-fill" class="place-self-center" />
           {setup.title}
@@ -65,42 +65,68 @@ if (!activeItem && import.meta.env.DEV) {
     </Fragment>
 
     <Fragment slot="center">
-      <nav aria-label="Main navigation">
-        <ul class="flex items-center gap-4 sm:gap-6" transition:animate={fade({ duration: "0.4s" })}>
-          {
-            typedNavData
-              .filter((item) => import.meta.env.DEV || !item.devOnly)
-              .map((value) => (
-                <NavItem
-                  icon={value.icon}
-                  name={value.label}
-                  link={value.link}
-                  subItems={value.children?.filter(
-                    (child) => import.meta.env.DEV || !child.devOnly,
-                  )}
-                  classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
-                />
-              ))
-          }
-          <li class="px-3 py-4 @md:px-2 @md:py-2">
-            <theme-selector></theme-selector>
-          </li>
-        </ul>
-      </nav>
+      <div id="navigation-and-theme-select" class="hidden md:flex md:items-center">
+        <nav aria-label="Main navigation">
+          <ul class="flex flex-col md:flex-row md:items-center md:gap-6" transition:animate={fade({ duration: "0.4s" })}>
+            {
+              typedNavData
+                .filter((item) => import.meta.env.DEV || !item.devOnly)
+                .map((value) => (
+                  <NavItem
+                    icon={value.icon}
+                    name={value.label}
+                    link={value.link}
+                    subItems={value.children?.filter(
+                      (child) => import.meta.env.DEV || !child.devOnly,
+                    )}
+                    classes={`px-3 py-4 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
+                  />
+                ))
+            }
+            <li class="px-3 py-4 md:px-2 md:py-2">
+              <theme-selector></theme-selector>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </Fragment>
+
+    <Fragment slot="right">
+      <button
+        id="hamburger-and-close"
+        type="button"
+        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md transition hover:bg-black/5 md:hidden dark:hover:bg-white/5"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="navigation-and-theme-select"
+      >
+        <span class="open-icon inline-flex" aria-hidden="true">
+          <Icon name="lucide:menu" class="size-5" />
+        </span>
+        <span class="close-icon hidden" aria-hidden="true">
+          <Icon name="lucide:x" class="size-5" />
+        </span>
+      </button>
+      <button
+        type="button"
+        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md transition hover:bg-black/5 dark:hover:bg-white/5"
+        aria-expanded="false"
+        data-nav-search-toggle
+      >
+        <span class="sr-only" data-nav-search-toggle-label>Open site search</span>
+        <span class="inline-flex" aria-hidden="true" data-nav-search-icon-open>
+          <Icon name="search" class="h-5 w-5 stroke-red-700" />
+        </span>
+        <span class="hidden" aria-hidden="true" data-nav-search-icon-close>
+          <Icon name="x" class="h-5 w-5 stroke-red-700" />
+        </span>
+      </button>
     </Fragment>
 
     <Fragment slot="search">
       <div class="flex w-full items-center gap-3" id="pagefind-container">
         <PageFind />
       </div>
-    </Fragment>
-
-    <Fragment slot="search-open-icon">
-      <Icon name="search" class="h-5 w-5 stroke-red-700" />
-    </Fragment>
-
-    <Fragment slot="search-close-icon">
-      <Icon name="x" class="h-5 w-5 stroke-red-700" />
     </Fragment>
   </NavSearch>
 </header>
@@ -187,12 +213,15 @@ if (!activeItem && import.meta.env.DEV) {
         return;
       }
 
+      const siteHeader = document.querySelector("#site-header");
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           const shouldShowStickyState = !entry.isIntersecting;
           stickyBrand.classList.toggle("opacity-100", shouldShowStickyState);
           stickyBrand.classList.toggle("opacity-0", !shouldShowStickyState);
           viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
+          siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
         },
         { threshold: 0 },
       );
@@ -204,6 +233,7 @@ if (!activeItem && import.meta.env.DEV) {
       const shouldShowStickyState = !isIntersecting;
       stickyBrand.classList.toggle("sticky-visible", shouldShowStickyState);
       viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
+      siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
     }
 
     /**
@@ -395,3 +425,87 @@ if (!activeItem && import.meta.env.DEV) {
     initThemeManager();
   })();
 </script>
+
+<style is:global>
+  /* Header bar background — light and dark */
+  .site-header {
+    background-color: rgb(255 255 255 / 0.7);
+  }
+
+  [data-theme="dark"] .site-header {
+    background-color: rgb(9 9 11 / 0.92);
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    backdrop-filter: blur(20px) saturate(1);
+  }
+
+  /* Brand name: slide in from the left as the site title scrolls away */
+  #navbar-brand {
+    transform: translateX(-6px);
+  }
+
+  #navbar-brand.opacity-100 {
+    transform: translateX(0);
+  }
+
+  /* Scrolled state: slightly deeper shadow */
+  #site-header[data-scrolled] {
+    box-shadow:
+      0 4px 24px rgb(0 0 0 / 0.1),
+      0 1px 4px rgb(0 0 0 / 0.06);
+  }
+
+  /* Mobile nav dropdown */
+  @media (max-width: 767px) {
+    #navigation-and-theme-select {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 49;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0.5rem 1rem 1rem;
+      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+      backdrop-filter: blur(20px) saturate(1.5);
+      background-color: rgb(255 255 255 / 0.92);
+      border-bottom: 1px solid rgb(255 255 255 / 0.2);
+      border-bottom-left-radius: 0.75rem;
+      border-bottom-right-radius: 0.75rem;
+      box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
+      animation: mobile-nav-reveal 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    [data-theme="dark"] #navigation-and-theme-select {
+      background-color: rgb(24 24 27 / 0.92);
+      border-color: rgb(255 255 255 / 0.08);
+    }
+
+    #navigation-and-theme-select nav ul {
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    @keyframes mobile-nav-reveal {
+      from {
+        transform: translateY(-8px);
+        opacity: 0%;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 100%;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #navbar-brand {
+      transform: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #navigation-and-theme-select {
+      animation: none;
+    }
+  }
+</style>

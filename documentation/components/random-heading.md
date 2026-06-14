@@ -7,7 +7,7 @@ created: 2026-06-14T00:00:00+07:00
 updated: 2026-06-14T00:00:00+07:00
 ---
 
-Renders an `<h2>` that replaces its visible text with a random alternative from a data file after the page loads, giving frequently-visited headings a touch of variety on each visit.
+Renders an `<h2>` that replaces its visible text with a random alternative from a data file after the page loads, giving headings a touch of variety on each visit.
 
 ## File locations
 

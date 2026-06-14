@@ -394,15 +394,19 @@ export async function getHomepagePosts(): Promise<{
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );
 
-  // Extract featured post first (if any)
-  const maybeFeatured = sorted.find((post) => post.data.featured === true);
-  const fallback = sorted[0];
+  // Featured post must never be a draft, even in dev. Find the first published
+  // post with featured:true, or fall back to the first published post by date.
+  const published = sorted.filter((post) => post.data.draft !== true);
 
-  // Guarantee a featuredPost by assigning fallback explicitly
+  if (published.length === 0) {
+    throw new Error('[getHomepagePosts] No published blog posts available.');
+  }
+
   // @ts-ignore - we KNOW this will result in a single valid post (because the content exists)
-  const featuredPost: CollectionEntry<'blog'> = maybeFeatured ?? fallback;
+  const featuredPost: CollectionEntry<'blog'> =
+    published.find((post) => post.data.featured === true) ?? published[0];
 
-  // Filter out the featured post from recent list
+  // Recent list: all posts (drafts included in dev), minus the featured post.
   const recentPosts: CollectionEntry<'blog'>[] = sorted
     .filter((post) => post.id !== featuredPost.id)
     .slice(0, POST_LIMIT);

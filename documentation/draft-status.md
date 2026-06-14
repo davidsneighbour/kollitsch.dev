@@ -92,6 +92,18 @@ draft: true
 
 Run `npx astro dev` to see it appear in listings, tag pages, and navigation. Run `npx astro build` and the post will not be included in any output.
 
+## Draft post list page
+
+A dedicated list page at `/blog/drafts/` shows all posts that have `draft: true` in their frontmatter. It is accessible only during development because the navigation link that leads to it is marked `devOnly: true` in `topnavigation.json` and is filtered out of production builds.
+
+The page itself is always generated (static output pre-renders all pages), but in production it renders with an informational banner and an empty list, since a clean production build should have no `draft: true` posts.
+
+**Source:** `src/pages/blog/drafts/index.astro`
+
+The page loads all blog collection entries directly (bypassing `filterDraftEntries`) and filters for `draft === true`, then sorts by date descending. Each post is rendered using the same `ArticleCard` component used on the main blog listing pages. The orange **DRAFT** badge visible on post images (via `PostImage.astro`) also appears here.
+
+To navigate to the draft list during development, open the **Posts** dropdown in the top navigation and select **Drafts**. The link does not appear in production builds.
+
 ## Testing
 
 Unit tests for `shouldShowDrafts` and `filterDraftEntries` live in [`src/utils/content.pure.test.ts`](../src/utils/content.pure.test.ts). In Vitest, `import.meta.env.DEV` is `true` by default, so tests run with draft visibility on, matching the dev experience.

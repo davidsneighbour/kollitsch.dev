@@ -2,15 +2,9 @@
 title: "Testing Ananke against the latest Hugo release"
 description: "A workflow pattern for checking whether Ananke template repositories still build with the latest Hugo release, using Git submodules and Hugo Modules."
 summary: ""
-tags:
-[]
-cover:
-  src: ""
-  type: image
-  title: ""
+tags: []
 date: 2026-06-13T03:18:09.871Z
 draft: true
-source: https://chatgpt.com/g/g-p-68c4db7726b081919df65de3b1d67102/c/6a2c82eb-cf04-83ec-b3e2-0a53bd2ebbee
 ---
 
 Ananke is used in two common ways:
@@ -1296,16 +1290,16 @@ Can the watchdog test the latest Hugo release and report problems?
 
 So the result matrix looks like this:
 
-| Situation                                           | Workflow result |         Issue |
-| --------------------------------------------------- | --------------: | ------------: |
-| Latest Hugo already tested cleanly                  |           green |            no |
-| Hugo builds cleanly                                 |           green |            no |
-| Hugo emits warnings and issue is created or updated |           green |           yes |
-| Hugo exits non-zero and issue is created or updated |           green |           yes |
-| Hugo cannot be installed                            |             red |            no |
-| Theme source cannot be updated                      |             red |            no |
-| Issue creation fails                                |             red | no or partial |
-| Cache save fails after clean build                  |             red |            no |
+| Situation | Workflow result | Issue |
+| --- | ---: | ---: |
+| Latest Hugo already tested cleanly | green | no |
+| Hugo builds cleanly | green | no |
+| Hugo emits warnings and issue is created or updated | green | yes |
+| Hugo exits non-zero and issue is created or updated | green | yes |
+| Hugo cannot be installed | red | no |
+| Theme source cannot be updated | red | no |
+| Issue creation fails | red | no or partial |
+| Cache save fails after clean build | red | no |
 
 This gives the workflow a clean contract.
 

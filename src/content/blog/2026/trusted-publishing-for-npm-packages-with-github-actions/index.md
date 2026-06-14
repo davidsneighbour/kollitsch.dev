@@ -1,13 +1,9 @@
 ---
 title: "Trusted publishing for npm packages with GitHub Actions"
-description: ""
+description: "Trusted publishing for npm packages with GitHub Actions"
 summary: ""
 draft: true
 tags: ["npm", "trusted-publishing", "github-actions", "release-it"]
-cover:
-  src: ""
-  type: image
-  title: ""
 date: 2026-06-10T03:51:52.404Z
 ---
 
@@ -39,7 +35,7 @@ This keeps npm credentials out of the local release configuration and out of Git
 
 npm’s trusted publishing documentation states that trusted publishing uses OIDC and removes the need for long-lived npm tokens. It currently requires npm CLI `11.5.1` or newer and Node.js `22.14.0` or newer. For GitHub Actions, npm also requires the workflow filename to exist under `.github/workflows/`, and the workflow needs `id-token: write`.
 
-## Step 1: publish a first pre-release manually
+## Step 1: Publish a first pre-release manually
 
 For packages that do not exist on npm yet, start with a small pre-release or setup version. Do not use `1.0.0` for this first publish. I usually use something like `0.1.0`.
 
@@ -80,7 +76,7 @@ The `--access public` flag matters for scoped packages. npm documents scoped pac
 
 At this point the package exists on npm, but this first version is not the real release yet. It is the bootstrap version.
 
-## Step 2: add the GitHub Actions publish workflow
+## Step 2: Add the GitHub Actions publish workflow
 
 Add `.github/workflows/publish.yml` to the repository:
 
@@ -138,7 +134,7 @@ That permission allows GitHub Actions to issue the OIDC token that npm verifies 
 
 The `environment: npm` line is optional from npm’s side, but useful. It lets GitHub protect the publishing job with environment rules later, such as required reviewers.
 
-## Step 3: configure trusted publishing on npm
+## Step 3: Configure trusted publishing on npm
 
 After the bootstrap package exists, open the package on npmjs.com and go to the package settings.
 
@@ -159,7 +155,7 @@ npm’s trusted publisher configuration for GitHub Actions requires the GitHub o
 
 Once this is saved, npm will accept publishes from that exact workflow.
 
-## Step 4: keep release-it local and disable npm publishing there
+## Step 4: Keep release-it local and disable npm publishing there
 
 `release-it` should not publish to npm directly in this setup. It should prepare the release and push the tag. The tag is what triggers the GitHub workflow.
 
@@ -188,7 +184,7 @@ npm: {
 
 That prevents the local release command from trying to publish. Publishing belongs to GitHub Actions now.
 
-## Step 5: publish the real first release
+## Step 5: Publish the real first release
 
 After the bootstrap version exists and trusted publishing is configured, publish the real first release as `1.0.0`.
 

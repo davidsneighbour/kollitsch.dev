@@ -1,18 +1,11 @@
 ---
 title: "Automating Ananke theme updates with GitHub workflows"
-description: ""
+description: "Automating Ananke theme updates with GitHub workflows"
 summary: ""
 draft: true
-tags:
-[]
-cover:
-  src: ""
-  type: image
-  title: ""
+tags: []
 date: 2026-06-13T05:58:41.638Z
 ---
-
-# Automating Ananke template updates with GitHub Actions
 
 The Ananke theme has two official template repositories:
 

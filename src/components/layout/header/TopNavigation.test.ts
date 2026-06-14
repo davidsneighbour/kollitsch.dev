@@ -28,9 +28,20 @@ describe('TopNavigation component', () => {
   it('renders nav links via the NavItem component', async () => {
     const src = await getSource();
     expect(src).toContain(
-      'import NavItem from "@components/layout/header/navigation/NavItem.astro";',
+      "import NavItem from '@components/layout/header/navigation/NavItem.astro';",
     );
     expect(src).toContain('<NavItem');
+  });
+
+  it('passes subItems to NavItem for dropdown rendering', async () => {
+    const src = await getSource();
+    expect(src).toContain('subItems={value.children?.filter(');
+  });
+
+  it('filters devOnly items out of production builds', async () => {
+    const src = await getSource();
+    expect(src).toContain('import.meta.env.DEV || !item.devOnly');
+    expect(src).toContain('import.meta.env.DEV || !child.devOnly');
   });
 
   it('initialises the viewport progress bar hidden and toggles it with sticky state', async () => {
@@ -38,7 +49,7 @@ describe('TopNavigation component', () => {
     expect(src).toContain('progress--viewport-top');
     expect(src).toContain('hidden [--height:4px]');
     expect(src).toContain(
-      'viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);',
+      "viewportProgress?.classList.toggle('hidden', !shouldShowStickyState);",
     );
   });
 });

@@ -15,6 +15,12 @@
         "icon": "archive",
         "label": "Archive",
         "link": "/blog/archive/"
+      },
+      {
+        "devOnly": true,
+        "icon": "file-earmark-lock",
+        "label": "Drafts",
+        "link": "/blog/drafts/"
       }
     ],
     "icon": "journal-text",

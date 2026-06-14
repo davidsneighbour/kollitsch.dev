@@ -18,6 +18,7 @@ export type NavItem = {
   match?: 'full' | 'prefix';
   matchPaths?: string[];
   children?: NavItem[];
+  devOnly?: boolean;
 };
 
 export function isActive(item: NavItem, pathname: string): boolean {

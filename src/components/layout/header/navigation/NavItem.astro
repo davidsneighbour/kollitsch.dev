@@ -1,19 +1,100 @@
 ---
-import IconLink from "@components/shared/links/IconLink.astro";
-import { type IconName } from "@/utils/icon-names";
+import IconLink from '@components/shared/links/IconLink.astro';
+import type { NavItem as NavDataItem } from '@utils/navigation';
+import { Icon } from 'astro-icon/components';
+import type { IconName } from '@/utils/icon-names';
 
 export interface Props {
   icon: IconName;
   name: string;
   link: string;
   classes?: string;
+  subItems?: NavDataItem[] | undefined;
 }
 
-const { icon, name, link, classes = "" }: Props = Astro.props;
+const { icon, name, link, classes = '', subItems }: Props = Astro.props;
+const hasSubItems = subItems && subItems.length > 0;
 ---
 
-<li class={classes}>
-  <IconLink icon={icon} href={link}>
-    {name}
-  </IconLink>
-</li>
+{hasSubItems ? (
+    <li class={`group/navitem relative ${classes}`} data-nav-dropdown>
+      <div class="flex items-center">
+        <IconLink icon={icon} href={link}>
+          {name}
+        </IconLink>
+        <button
+          type="button"
+          data-nav-dropdown-toggle
+          aria-expanded="false"
+          aria-haspopup="menu"
+          aria-label={`Toggle ${name} submenu`}
+          class="ml-0.5 rounded p-0.5 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          <Icon
+            name="caret-down-fill"
+            class="size-2.5 transition-transform duration-200 group-[.open]/navitem:rotate-180"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+
+      <ul
+        role="menu"
+        class="hidden group-[.open]/navitem:block @md:group-hover/navitem:block @md:absolute @md:left-0 @md:top-full @md:z-50 @md:mt-1 @md:min-w-48 @md:rounded-lg @md:bg-zinc-100 @md:py-1 @md:shadow-lg @md:ring-1 @md:ring-gray-900/10 dark:@md:bg-zinc-900 dark:@md:ring-gray-100/10"
+      >
+        {subItems.map((child) => (
+          <li class="px-3 py-2">
+            <IconLink icon={child.icon} href={child.link}>
+              {child.label}
+            </IconLink>
+          </li>
+        ))}
+      </ul>
+    </li>
+  ) : (
+    <li class={classes}>
+      <IconLink icon={icon} href={link}>
+        {name}
+      </IconLink>
+    </li>
+  )}
+
+<script>
+  function initNavDropdowns(): void {
+    for (const btn of document.querySelectorAll<HTMLButtonElement>(
+      '[data-nav-dropdown-toggle]:not([data-nav-dropdown-init])',
+    )) {
+      btn.setAttribute('data-nav-dropdown-init', '');
+      const dropdown = btn.closest<HTMLElement>('[data-nav-dropdown]');
+      if (!dropdown) continue;
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    // Register a single document-level dismiss handler, guarded by a flag.
+    // The flag lives on <body> which Astro replaces on view-transition swap,
+    // so the handler is re-registered after each navigation automatically.
+    if (document.body.hasAttribute('data-nav-dismiss-init')) return;
+    document.body.setAttribute('data-nav-dismiss-init', '');
+
+    document.addEventListener('click', (e) => {
+      if (!(e.target instanceof Element)) return;
+      if (e.target.closest('[data-nav-dropdown]')) return;
+      for (const el of document.querySelectorAll<HTMLElement>(
+        '[data-nav-dropdown].open',
+      )) {
+        el.classList.remove('open');
+        el.querySelector<HTMLButtonElement>(
+          '[data-nav-dropdown-toggle]',
+        )?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', initNavDropdowns);
+</script>

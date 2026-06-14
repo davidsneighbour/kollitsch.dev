@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.6.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.1...v3001.6.2) (2026-06-14)
+
+### Fix
+
+* cleanup documentation files ([1293063](https://github.com/davidsneighbour/kollitsch.dev/commit/1293063567878f64737869c54f10b12c5f6f90a6))
+
+### Ci
+
+* **vale:** update local configuration ([5ccfbfb](https://github.com/davidsneighbour/kollitsch.dev/commit/5ccfbfbdd34bafda49506b870d42ac7bb988014e))
+
 ## [3001.6.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.0...v3001.6.1) (2026-06-13)
 
 ### Docs

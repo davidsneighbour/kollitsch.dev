@@ -36,7 +36,7 @@ npx vitest run src/path/to/file.test.ts
 
 **Do not run `npm run build` in sandboxed environments without API tokens** — it calls the `prebuild` image-index step and may fail. Use `npm run check` for type-checking only.
 
-**`npm test` MUST pass after every change.** Run it before committing. If a change causes a new component or file to be picked up by an existing test suite (e.g. `components-props.test.ts` requires every `.astro` in `src/components/` to export a named `Props` interface/type), fix the source, not the test.
+**`npm test` MUST pass after every change.** Run it before committing. If a change causes a new component or file to be picked up by an existing test suite (for example `components-props.test.ts` requires every `.astro` in `src/components/` to export a named `Props` interface/type), fix the source, not the test.
 
 ## Environment variables
 
@@ -57,10 +57,11 @@ Astro generates a fully static site (`output: 'static'`). All pages are pre-rend
 ### Content collections (`src/content.config.ts`)
 
 Four collections:
-- **blog** — Markdown/MDX posts from `src/content/blog/`. Schema enforces `title`, `description`, `date`; tags must be lowercase `[a-z0-9_-]`; `linktitle` must be shorter than `title` and differ from it.
-- **tags** — Tag metadata from `src/content/tags/`. Each tag has an `id`, optional `icon`, and `aliases`.
-- **social** — Social links loaded from `src/content/social.json`.
-- **pages** — Markdown pages under `src/pages/` that require a `layout` frontmatter field.
+
+* **blog** — Markdown/MDX posts from `src/content/blog/`. Schema enforces `title`, `description`, `date`; tags must be lowercase `[a-z0-9_-]`; `linktitle` must be shorter than `title` and differ from it.
+* **tags** — Tag metadata from `src/content/tags/`. Each tag has an `id`, optional `icon`, and `aliases`.
+* **social** — Social links loaded from `src/content/social.json`.
+* **pages** — Markdown pages under `src/pages/` that require a `layout` frontmatter field.
 
 ### Build pipeline
 
@@ -87,7 +88,7 @@ Four collections:
 
 Defined in `tsconfig.json`. Use these instead of relative `../..` imports:
 
-```
+```plaintext
 @/*           → src/*
 @components/* → src/components/*
 @utils/*      → src/utils/*
@@ -103,25 +104,25 @@ Note: `src/scripts/` is excluded from TypeScript compilation — always run scri
 
 ## Testing conventions
 
-- Unit tests live **next to** the source files they test (`Component.test.ts` beside `Component.astro`).
-- Every test file MUST start with `// @vitest-environment node`.
-- Add a co-located unit test whenever changing observable behaviour.
-- Browser tests live in `src/test/browser/` and require `VITEST_BROWSER=true`.
+* Unit tests live **next to** the source files they test (`Component.test.ts` beside `Component.astro`).
+* Every test file MUST start with `// @vitest-environment node`.
+* Add a co-located unit test whenever changing observable behaviour.
+* Browser tests live in `src/test/browser/` and require `VITEST_BROWSER=true`.
 
 ## Code conventions
 
-- **ESM only** — `type: "module"` in `package.json`; use `import`/`export`.
-- **Static versions** in `package.json` — no `^` or `~` ranges.
-- **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
-- **Run TS scripts** with `npx tsx`, not `node`.
-- **Imports sorted** by Biome's `organizeImports` assist action.
+* **ESM only** — `type: "module"` in `package.json`; use `import`/`export`.
+* **Static versions** in `package.json` — no `^` or `~` ranges.
+* **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
+* **Run TS scripts** with `npx tsx`, not `node`.
+* **Imports sorted** by Biome's `organizeImports` assist action.
 
 ## Git workflow
 
-- **Never commit directly to `main`** — use feature branches for all changes.
-- Use **conventional changelog** commit messages.
-- Available scopes are defined in `.release-it.ts`.
-- Pre-commit hooks run `lint-staged` (via `simple-git-hooks`).
+* **Never commit directly to `main`** — use feature branches for all changes.
+* Use **conventional changelog** commit messages.
+* Available scopes are defined in `.release-it.ts`.
+* Pre-commit hooks run `lint-staged` (via `simple-git-hooks`).
 
 ## Important files for common tasks
 

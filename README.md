@@ -41,12 +41,12 @@ For more details and scattered notes about things, see the [`documentation` dire
 
 All commands are run from the root of the project, from a terminal:
 
-| Command             | Action                                              |
-| :------------------ | :-------------------------------------------------- |
-| `npm install`       | Install dependencies and create cached files.       |
-| `npx astro dev`     | Start local dev server at `https://localhost:4321`. |
-| `npx astro build`   | Build production site to `./dist/`.                 |
-| `npx astro preview` | Preview the build locally, before deploying.        |
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Install dependencies and create cached files. |
+| `npx astro dev` | Start local dev server at `https://localhost:4321`. |
+| `npx astro build` | Build production site to `./dist/`. |
+| `npx astro preview` | Preview the build locally, before deploying. |
 
 ## Tech stack
 
@@ -57,7 +57,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## Preview of the current state of the website
 
-[![Screenshot of kollitsch.dev](.github/screenshot.png)](.github/screenshot.png)
+[![Screenshot of KOLLITSCH.dev*](.github/screenshot.png)](.github/screenshot.png)
 
 ## Contributing
 

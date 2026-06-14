@@ -7,16 +7,6 @@
   {
     "children": [
       {
-        "icon": "clock",
-        "label": "Latest",
-        "link": "/blog/latest/"
-      },
-      {
-        "icon": "archive",
-        "label": "Archive",
-        "link": "/blog/archive/"
-      },
-      {
         "devOnly": true,
         "icon": "file-earmark-lock",
         "label": "Drafts",

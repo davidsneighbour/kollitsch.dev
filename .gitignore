@@ -3,6 +3,14 @@
 .lychee.report.md
 .lycheecache
 
+# vale config
+src/config/vale/*
+!src/config/vale/config
+src/config/vale/config/templates/
+src/config/vale/config/vocabularies/DNB
+!src/config/vale/config/vocabularies/kollitsch-dev
+
+# AI assistant settings
 .claude/settings*.json
 ai
 

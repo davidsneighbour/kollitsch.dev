@@ -1,0 +1,18 @@
+{
+  "entryPoints": ["src/utils"],
+  "entryPointStrategy": "expand",
+  "exclude": ["src/utils/*.test.ts"],
+  "out": "docs/api",
+  "tsconfig": "./tsconfig.json",
+  "name": "kollitsch.dev utilities",
+  "includeVersion": true,
+  "readme": "none",
+  "cleanOutputDir": true,
+  "skipErrorChecking": true,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "searchInComments": true,
+  "navigationLinks": {
+    "Site": "https://kollitsch.dev"
+  }
+}

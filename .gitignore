@@ -172,3 +172,6 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node,astro
+
+# TypeDoc generated API docs
+docs/api

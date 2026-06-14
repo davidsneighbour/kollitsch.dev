@@ -19,7 +19,7 @@ const hasSubItems = subItems && subItems.length > 0;
 {hasSubItems ? (
     <li class={`group/navitem relative ${classes}`} data-nav-dropdown>
       <div class="flex items-center">
-        <IconLink icon={icon} href={link}>
+        <IconLink icon={icon} href={link} class="size-[1em]">
           {name}
         </IconLink>
         <button
@@ -32,7 +32,7 @@ const hasSubItems = subItems && subItems.length > 0;
         >
           <Icon
             name="caret-down-fill"
-            class="size-2.5 transition-transform duration-200 group-[.open]/navitem:rotate-180"
+            class="size-[0.65em] transition-transform duration-200 group-[.open]/navitem:rotate-180"
             aria-hidden="true"
           />
         </button>
@@ -44,7 +44,7 @@ const hasSubItems = subItems && subItems.length > 0;
       >
         {subItems.map((child) => (
           <li class="px-3 py-2">
-            <IconLink icon={child.icon} href={child.link}>
+            <IconLink icon={child.icon} href={child.link} class="size-[1em]">
               {child.label}
             </IconLink>
           </li>
@@ -53,7 +53,7 @@ const hasSubItems = subItems && subItems.length > 0;
     </li>
   ) : (
     <li class={classes}>
-      <IconLink icon={icon} href={link}>
+      <IconLink icon={icon} href={link} class="size-[1em]">
         {name}
       </IconLink>
     </li>

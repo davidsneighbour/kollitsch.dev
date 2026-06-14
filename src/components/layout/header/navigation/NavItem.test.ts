@@ -24,7 +24,9 @@ describe('NavItem component', () => {
 
   it('renders IconLink for the primary link', async () => {
     await load();
-    expect(src).toContain('<IconLink icon={icon} href={link}>');
+    expect(src).toContain(
+      '<IconLink icon={icon} href={link} class="size-[1em]">',
+    );
     expect(src).toContain('{name}');
   });
 

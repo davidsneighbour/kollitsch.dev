@@ -68,14 +68,19 @@ if (!activeItem && import.meta.env.DEV) {
       <nav aria-label="Main navigation">
         <ul class="flex items-center gap-4 sm:gap-6" transition:animate={fade({ duration: "0.4s" })}>
           {
-            typedNavData.map((value) => (
-              <NavItem
-                icon={value.icon}
-                name={value.label}
-                link={value.link}
-                classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
-              />
-            ))
+            typedNavData
+              .filter((item) => import.meta.env.DEV || !item.devOnly)
+              .map((value) => (
+                <NavItem
+                  icon={value.icon}
+                  name={value.label}
+                  link={value.link}
+                  subItems={value.children?.filter(
+                    (child) => import.meta.env.DEV || !child.devOnly,
+                  )}
+                  classes={`px-3 py-4 @md:px-2 @md:py-2 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
+                />
+              ))
           }
           <li class="px-3 py-4 @md:px-2 @md:py-2">
             <theme-selector></theme-selector>

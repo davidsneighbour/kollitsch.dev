@@ -1,5 +1,33 @@
 # Changelog
 
+## [3001.7.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.3...v3001.7.0) (2026-06-14)
+
+### Feat
+
+* **blog:** add draft post list page at /blog/drafts/ ([2bb1bcb](https://github.com/davidsneighbour/kollitsch.dev/commit/2bb1bcbd57000b3456cbdf6e578b15653e81e045))
+* **media:** rework PostImage with hover caption overlay and mobile toggle ([9226bd7](https://github.com/davidsneighbour/kollitsch.dev/commit/9226bd7e3581d3476dd4dd2b4d4ffc6df44d99c1))
+* **nav:** add dropdown support and dev-only nav items ([e3c3285](https://github.com/davidsneighbour/kollitsch.dev/commit/e3c32854bb355bbe5b9fa24079253970a28c9353))
+
+### Content
+
+* add draft posts ([366221f](https://github.com/davidsneighbour/kollitsch.dev/commit/366221fa4b210d1b107c09925679bf384ed944dc))
+* **fix:** remove unused menu items ([efab707](https://github.com/davidsneighbour/kollitsch.dev/commit/efab707f6438f533ebddf6ff273c07d925ad8e9c))
+
+### Fix
+
+* **content:** centralise draft visibility behind a single env-aware filter ([3a7f1f3](https://github.com/davidsneighbour/kollitsch.dev/commit/3a7f1f32a05071a86365de8131984c76b1474f99))
+* **docs:** remove path fields from component doc frontmatter to avoid Vale false positives ([a575864](https://github.com/davidsneighbour/kollitsch.dev/commit/a57586441dca8f04e751408726072b70519803c5))
+* **homepage:** never feature a draft post in the hero slot ([d165ef9](https://github.com/davidsneighbour/kollitsch.dev/commit/d165ef972d19fdc22392e610c4335f19f673da43))
+* **lint:** pass explicit vale config in lint-staged to use project vocabulary ([cdb4221](https://github.com/davidsneighbour/kollitsch.dev/commit/cdb4221807400d1a9b53a8414c58a5ca5df41cdb))
+* **nav:** apply dropdown and devOnly filtering in Header.astro ([fb0988a](https://github.com/davidsneighbour/kollitsch.dev/commit/fb0988a73af293a8d60bcbecfcd10a0e7cf3cbfa))
+* **nav:** scale nav icons with text using size-[1em] ([1291c55](https://github.com/davidsneighbour/kollitsch.dev/commit/1291c55f440e73682e958b0565093595ffa9ade1))
+* **nav:** use viewport media queries instead of container queries for dropdown ([da0b330](https://github.com/davidsneighbour/kollitsch.dev/commit/da0b33021a4bda7112521615777b76f324351cd6))
+
+### Docs
+
+* **components:** add component documentation system and RandomHeading doc ([09a48c6](https://github.com/davidsneighbour/kollitsch.dev/commit/09a48c6aad9e83b97c6d24ba87b84e65e4b95823))
+* **fix:** manual update to CITATION.cff ([b2e4f3b](https://github.com/davidsneighbour/kollitsch.dev/commit/b2e4f3b904f042da4756a3cd090aecbf47ca3fcd))
+
 ## [3001.6.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.6.2...v3001.6.3) (2026-06-14)
 
 ### Docs

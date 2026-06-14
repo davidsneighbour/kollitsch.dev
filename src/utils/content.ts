@@ -2,7 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
 import siteinfo from '@data/setup.json' with { type: 'json' };
-import { stripHtmlTags } from '@utils/content.pure';
+import { filterDraftEntries, stripHtmlTags } from '@utils/content.pure';
 import { z } from 'astro/zod';
 import { blogSchema } from '../content.config.ts';
 import { createLogger } from './logger.ts';
@@ -384,10 +384,10 @@ export async function getHomepagePosts(): Promise<{
   featuredPost: CollectionEntry<'blog'>;
   recentPosts: CollectionEntry<'blog'>[];
 }> {
-  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const allPosts = filterDraftEntries(await getCollection('blog'));
 
   if (allPosts.length === 0) {
-    throw new Error('[getHomepagePosts] No published blog posts available.');
+    throw new Error('[getHomepagePosts] No blog posts available.');
   }
 
   const sorted = allPosts.sort(
@@ -442,20 +442,13 @@ export function getHomepageUrl(options?: GetHomepageUrlOptions): string {
 }
 
 export const getPostsSortedByDraft = (allPosts: CollectionEntry<'blog'>[]) => {
-  return allPosts
-    .filter((post) => {
-      if (import.meta.env.PROD) {
-        return !post.data.draft;
-      }
-      return setup.overrides.showDraftsInDev ? true : !post.data.draft;
-    })
-    .sort((post1, post2) => {
-      if (isDateBefore(post1.data.date, post2.data.date)) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
+  return filterDraftEntries(allPosts).sort((post1, post2) => {
+    if (isDateBefore(post1.data.date, post2.data.date)) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 };
 
 // sorting by date in descending order

@@ -44,11 +44,6 @@
   "listpages": {
     "limit": 12
   },
-  "overrides": {
-    "showDraftsInDev": true,
-    "showDraftsInProd": false,
-    "showDraftsInTest": true
-  },
   "playlists": {
     "music2program2extended": "PLg3tApGYRzpfo2n16J_6dpMAXJhu384xx"
   },

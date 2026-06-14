@@ -102,6 +102,24 @@ Defined in `tsconfig.json`. Use these instead of relative `../..` imports:
 
 Note: `src/scripts/` is excluded from TypeScript compilation - always run scripts with `npx tsx`, not `node`.
 
+## Icons
+
+Four icon sources are available via `astro-icon/components`:
+
+| Source | Prefix | Use for |
+| --- | --- | --- |
+| `src/icons/` | none (e.g. `house-fill`) | Existing Bootstrap Icons — do not add new ones |
+| `simple-icons` | `simple-icons:github` | Brand/logo icons |
+| `lucide` | `lucide:rss` | All other UI icons |
+| `fa7-brands` | `fa7-brands:x-twitter` | Legacy brand icons — prefer `simple-icons` for new additions |
+
+Rules:
+
+* **Always** use `<Icon name="..." />` from `astro-icon/components` — never inline raw SVG.
+* **Always** use `<IconLink>` from `src/components/shared/links/IconLink.astro` when an icon appears inside a link or button. Do not compose `<Icon>` + `<a>` by hand.
+* When you encounter an inline `<svg>` in existing code, check whether an equivalent icon exists in one of the sets above and replace it.
+* For brand/social icons, search [simpleicons.org](https://simpleicons.org) first. For UI icons, search [lucide.dev](https://lucide.dev) first.
+
 ## Testing conventions
 
 * Unit tests live **next to** the source files they test (`Component.test.ts` beside `Component.astro`).

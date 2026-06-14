@@ -42,6 +42,22 @@ The site is a blog, web-development reference, and portfolio, built on Koh Samui
 * Static dependency versions only; no `^` or `~` ranges in `package.json`.
 * British English throughout.
 
+## Icons
+
+Four icon sources are registered with `astro-icon`:
+
+| Source | Prefix | Use for |
+| :--- | :--- | :--- |
+| `src/icons/` | none (for example `house-fill`) | Existing Bootstrap Icons; do not add new ones here |
+| `simple-icons` | `simple-icons:github` | Brand and logo icons |
+| `lucide` | `lucide:rss` | All other UI icons |
+| `fa7-brands` | `fa7-brands:x-twitter` | Legacy brand icons; prefer `simple-icons` for new work |
+
+* Render every icon with `<Icon name="…" />` from `astro-icon/components`. Never use inline `<svg>`.
+* When an icon is inside a link or button, use `<IconLink>` from `src/components/shared/links/IconLink.astro` instead of composing `<Icon>` + `<a>` manually.
+* When encountering an existing inline `<svg>`, replace it with the equivalent `<Icon>` if one exists.
+* Look up brand icons at [simpleicons.org](https://simpleicons.org) and UI icons at [lucide.dev](https://lucide.dev).
+
 ## Environment variables
 
 Required for full builds; set in `.env` (gitignored):

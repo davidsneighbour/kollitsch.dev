@@ -27,5 +27,5 @@ These are instructions for agents working on this repository.
 
 ## Quick instructions
 
-* "Update your references" - load the currently used repository and update to the latest HEAD of the main branch. Update your code to relect any changes in the repository. If there are any merge conflicts, resolve them and update your code accordingly.
+* "Update your references" - load the currently used repository and update to the latest HEAD of the main branch. Update your code to reflect any changes in the repository. If there are any merge conflicts, resolve them and update your code accordingly.
 * "Document" - either add documentation to the README.md file in the folder you worked on or create a new documentation file and link it in the README.md file. The documentation should explain what the code does, how to use it, and any other relevant information that would be helpful for someone who is new to the codebase.

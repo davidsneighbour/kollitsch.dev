@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-Personal website at [kollitsch.dev](https://kollitsch.dev) — a digital garden, blog, and web development reference. Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript. Deployed to Netlify.
+Personal website at [KOLLITSCH.dev*](https://kollitsch.dev) - a digital garden, blog, and web development reference. Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript. Deployed to Netlify.
 
 RFC 2119 keywords (MUST, SHOULD, MAY, etc.) in this repository's documentation carry their standard meanings.
 
@@ -34,7 +34,7 @@ Run a single Vitest test file:
 npx vitest run src/path/to/file.test.ts
 ```
 
-**Do not run `npm run build` in sandboxed environments without API tokens** — it calls the `prebuild` image-index step and may fail. Use `npm run check` for type-checking only.
+**Do not run `npm run build` in sandboxed environments without API tokens** - it calls the `prebuild` image-index step and may fail. Use `npm run check` for type-checking only.
 
 **`npm test` MUST pass after every change.** Run it before committing. If a change causes a new component or file to be picked up by an existing test suite (for example `components-props.test.ts` requires every `.astro` in `src/components/` to export a named `Props` interface/type), fix the source, not the test.
 
@@ -43,7 +43,7 @@ npx vitest run src/path/to/file.test.ts
 Required for full builds and certain scripts (set in `.env`):
 
 | Variable | Required for |
-|---|---|
+| --- | --- |
 | `YOUTUBE_API_KEY` | YouTube-related build scripts; set to `fake_key_for_testing` for local dev |
 | `FRESHRSS_BASE_URL`, `FRESHRSS_USERNAME`, `FRESHRSS_API_PASSWORD` | RSS follower feed generation in `build-hooks.ts` |
 | `GH_TOKEN` / `GITHUB_TOKEN` | GitHub release/repo scripts in CI |
@@ -58,21 +58,21 @@ Astro generates a fully static site (`output: 'static'`). All pages are pre-rend
 
 Four collections:
 
-* **blog** — Markdown/MDX posts from `src/content/blog/`. Schema enforces `title`, `description`, `date`; tags must be lowercase `[a-z0-9_-]`; `linktitle` must be shorter than `title` and differ from it.
-* **tags** — Tag metadata from `src/content/tags/`. Each tag has an `id`, optional `icon`, and `aliases`.
-* **social** — Social links loaded from `src/content/social.json`.
-* **pages** — Markdown pages under `src/pages/` that require a `layout` frontmatter field.
+* **blog** - Markdown/MDX posts from `src/content/blog/`. Schema enforces `title`, `description`, `date`; tags must be lowercase `[a-z0-9_-]`; `linktitle` must be shorter than `title` and differ from it.
+* **tags** - Tag metadata from `src/content/tags/`. Each tag has an `id`, optional `icon`, and `aliases`.
+* **social** - Social links loaded from `src/content/social.json`.
+* **pages** - Markdown pages under `src/pages/` that require a `layout` frontmatter field.
 
 ### Build pipeline
 
 1. **Pre-build**: `npm run build:image-index` (`src/scripts/build-image-index.ts`) generates a LQIP image index at `src/content/_generated/image-index.json`.
-2. **Astro build hooks** (`src/scripts/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle (e.g., RSS feed generation, pagefind indexing).
-3. **Build**: `astro check && astro build` — TypeScript checks run before the build.
+2. **Astro build hooks** (`src/scripts/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle (for instance, RSS feed generation, pagefind indexing).
+3. **Build**: `astro check && astro build` - TypeScript checks run before the build.
 
 ### Key directories
 
 | Path | Purpose |
-|---|---|
+| --- | --- |
 | `src/content/` | Blog posts (md/mdx), tags, and generated data |
 | `src/content.config.ts` | Collection schemas and Zod validation |
 | `src/layouts/` | Page layouts (`Site.astro`, `ContentPage.astro`, `DefaultPage.astro`) |
@@ -100,7 +100,7 @@ Defined in `tsconfig.json`. Use these instead of relative `../..` imports:
 @contentconfig → src/content.config.ts
 ```
 
-Note: `src/scripts/` is excluded from TypeScript compilation — always run scripts with `npx tsx`, not `node`.
+Note: `src/scripts/` is excluded from TypeScript compilation - always run scripts with `npx tsx`, not `node`.
 
 ## Testing conventions
 
@@ -111,15 +111,15 @@ Note: `src/scripts/` is excluded from TypeScript compilation — always run scri
 
 ## Code conventions
 
-* **ESM only** — `type: "module"` in `package.json`; use `import`/`export`.
-* **Static versions** in `package.json` — no `^` or `~` ranges.
+* **ESM only** - `type: "module"` in `package.json`; use `import`/`export`.
+* **Static versions** in `package.json` - no `^` or `~` ranges.
 * **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
 * **Run TS scripts** with `npx tsx`, not `node`.
 * **Imports sorted** by Biome's `organizeImports` assist action.
 
 ## Git workflow
 
-* **Never commit directly to `main`** — use feature branches for all changes.
+* **Never commit directly to `main`** - use feature branches for all changes.
 * Use **conventional changelog** commit messages.
 * Available scopes are defined in `.release-it.ts`.
 * Pre-commit hooks run `lint-staged` (via `simple-git-hooks`).
@@ -127,7 +127,7 @@ Note: `src/scripts/` is excluded from TypeScript compilation — always run scri
 ## Important files for common tasks
 
 | Task | Files |
-|---|---|
+| --- | --- |
 | Change homepage feed | `src/utils/content.ts` (`getHomepagePosts`), homepage layout in `src/layouts/` |
 | Update content frontmatter schema | `src/content.config.ts` |
 | Add/change site metadata | `src/data/setup.json` |

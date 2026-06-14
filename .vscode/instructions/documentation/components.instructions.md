@@ -17,13 +17,13 @@ Create the file when the component is first written. Update it whenever the prop
 ```markdown
 ---
 title: <ComponentName>
-component: src/components/<path>/<ComponentName>.astro
-tests: <path to test file(s), or "none">
 tags: []
 created: <ISO 8601 date with +07:00 offset>
 updated: <ISO 8601 date with +07:00 offset>
 ---
 ```
+
+File paths belong in the `## File locations` table, not in frontmatter. The `Vale.Terms` rule flags `.astro` file extensions as casing violations when they appear in YAML frontmatter values.
 
 ## Required sections (in this order)
 

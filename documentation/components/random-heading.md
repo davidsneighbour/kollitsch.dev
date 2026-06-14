@@ -1,7 +1,5 @@
 ---
 title: RandomHeading
-component: src/components/gimmicks/RandomHeading.astro
-tests: src/test/browser/components-props.test.ts
 tags: []
 created: 2026-06-14T00:00:00+07:00
 updated: 2026-06-14T00:00:00+07:00

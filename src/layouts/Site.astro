@@ -58,13 +58,23 @@ const IS_DEV = import.meta.env.DEV;
         _paq.push(["setCookieDomain", setup.search.cookieDomain]);
         _paq.push(["enableLinkTracking"]);
 
-        const g = document.createElement("script");
-        g.async = true;
-        g.defer = true;
-        g.src = u + "matomo.js";
+        const loadMatomo = () => {
+          const g = document.createElement("script");
+          g.async = true;
+          g.defer = true;
+          g.src = u + "matomo.js";
+          const target = document.head || document.body || document.documentElement;
+          target.appendChild(g);
+        };
 
-        const target = document.head || document.body || document.documentElement;
-        target.appendChild(g);
+        // Defer loading the tracking script until the page is actually activated.
+        // Avoids a wasted network request for speculative prerender loads that the
+        // user never visits.
+        if (document.prerendering) {
+          document.addEventListener("prerenderingchange", loadMatomo, { once: true });
+        } else {
+          loadMatomo();
+        }
       })();
     </script>
     <script>
@@ -140,8 +150,15 @@ const IS_DEV = import.meta.env.DEV;
           }
         };
 
-        // Initial load.
-        initLenis();
+        // Do not initialise Lenis in a speculative prerender — the page is not
+        // yet visible and the scroll context is meaningless. Defer to activation.
+        // document.prerendering is not yet in TypeScript's DOM lib.
+        const isPrerendering = "prerendering" in document && (document as Document & { prerendering: boolean }).prerendering;
+        if (isPrerendering) {
+          document.addEventListener("prerenderingchange", initLenis, { once: true });
+        } else {
+          initLenis();
+        }
 
         // Runs after every ClientRouter navigation.
         document.addEventListener("astro:page-load", () => {

@@ -108,14 +108,23 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
       const _paq = (window._paq = window._paq || []);
       _paq.push(["setReferrerUrl", document.referrer]);
       _paq.push(["enableLinkTracking"]);
-      _paq.push(["trackPageView"]); // initial load
 
-      const onSwap = () => {
+      const trackView = () => {
         _paq.push(["setCustomUrl", location.href]);
         _paq.push(["setDocumentTitle", document.title]);
         _paq.push(["trackPageView"]);
       };
-      document.addEventListener("astro:after-swap", onSwap);
+
+      // Do not count speculative prerender loads — only track once the page is
+      // actually visible to the user. Avoids inflating Matomo counts when
+      // clientPrerender is enabled and Chrome prerenders viewport-visible links.
+      if (document.prerendering) {
+        document.addEventListener("prerenderingchange", trackView, { once: true });
+      } else {
+        trackView();
+      }
+
+      document.addEventListener("astro:after-swap", trackView);
     } catch (err) {
       console.error("Matomo bootstrap failed:", err);
     }

@@ -154,6 +154,56 @@ Project-specific instructions are now at `.vscode/instructions/project.instructi
 * Suggested change: Audit `public/_headers` and `public/_redirects` against the live Netlify deployment; resolve any mismatches and consider adopting `astro-static-headers` for fine-grained header control.
 * Validation command: Deploy to a branch preview and inspect response headers.
 
+### 8. Guard Matomo `trackPageView` against prerender inflation
+
+* Priority: (P1)
+* Area: Analytics / Performance
+* Evidence: `src/components/layout/head/Head.astro` calls `_paq.push(["trackPageView"])` immediately without checking `document.prerendering`. `astro.config.ts` has `experimental.clientPrerender: true` and `prefetch: { prefetchAll: true, defaultStrategy: "viewport" }`, so Chrome prerenders all viewport-visible links. Every prerendered page executes `trackPageView` while invisible, inflating Matomo counts. The `Site.astro` Matomo script loader also fires unconditionally.
+* Why it matters: Analytics are the primary signal for content and SEO decisions. Inflated pageviews distort every report, session, and funnel that depends on them.
+* Suggested change:
+  1. In `Head.astro`, guard the initial `_paq.push(["trackPageView"])` with `if (!document.prerendering)` and add a one-shot `prerenderingchange` listener to fire it on activation instead.
+  2. In `Site.astro`, guard the Matomo `<script>` injection (lines 49-68) with the same `document.prerendering` check so the tracking pixel is not loaded at all for pages that are never activated.
+* Validation command: `npm test && npm run check`
+
+### 9. Tune the prefetch/prerender strategy to respect Chrome's speculation budget
+
+* Priority: (P2)
+* Area: Performance
+* Evidence: `prefetch: { defaultStrategy: "viewport", prefetchAll: true }` marks every link on every page for viewport-triggered prerendering. A blog post with 20+ links exhausts Chrome's prerender budget (10 for `immediate`, 2 FIFO for `moderate`). Low-probability links (footer nav, pagination back-links, tag clouds) waste bandwidth and server requests.
+* Why it matters: Indiscriminate prerendering increases server load, consumes user bandwidth, and provides no benefit for links the user never visits.
+* Suggested change:
+  1. Change `defaultStrategy` to `"hover"` so most links only prefetch on pointer hover.
+  2. Add `data-astro-prefetch="viewport"` explicitly to high-probability next-page elements: "Next post" links, homepage hero post link, primary nav items.
+  3. Add `data-astro-prefetch="load"` to the single most-likely next page (latest post from homepage).
+* Validation command: `npm test && npm run check`
+
+### 10. Guard Lenis smooth-scroll initialisation against prerendering
+
+* Priority: (P2)
+* Area: Performance
+* Evidence: `src/layouts/Site.astro` initialises Lenis on every page load without checking `document.prerendering`. In prerendered pages Lenis starts in a background tab, consuming CPU and potentially corrupting scroll-position state when the page is activated.
+* Why it matters: Wasted work in background tabs and potential scroll-restoration bugs when activating a prerendered page mid-scroll.
+* Suggested change: Wrap the Lenis `initLenis()` call in a prerender check. If the page is prerendering, defer `initLenis` to the `prerenderingchange` event.
+* Validation command: `npm test && npm run check`
+
+### 11. Guard the Matomo script loader against prerendering
+
+* Priority: (P3)
+* Area: Performance
+* Evidence: `src/layouts/Site.astro` appends `matomo.js` unconditionally. For prerendered pages that are never activated, this network request is pure waste.
+* Why it matters: Unnecessary network requests slow background prerendering and consume bandwidth.
+* Suggested change: Add `if (document.prerendering) { document.addEventListener("prerenderingchange", loadMatomo, { once: true }); } else { loadMatomo(); }` around the script-element insertion in `Site.astro`.
+* Validation command: `npm test && npm run check`
+
+### 12. Add explicit immediate-eagerness speculation rules for the three top-level pages
+
+* Priority: (P3)
+* Area: Performance
+* Evidence: Astro's automatically injected speculation rules fire on viewport entry (moderate eagerness). The homepage, `/about/`, and `/tags/` are visited on almost every session and could be prerendered immediately when the page loads.
+* Why it matters: `immediate` eagerness starts prerendering as soon as the rules are parsed, shaving 200+ ms off the first user interaction on high-traffic paths.
+* Suggested change: Add a `<script type="speculationrules">` block in `Head.astro` (or a dedicated `SpeculationRules.astro` component) with `{ "prerender": [{ "urls": ["/about/", "/tags/"], "eagerness": "immediate" }] }`. Exclude these from Astro's generic prefetch to avoid double-speculation.
+* Validation command: `npm test && npm run check`
+
 ## Questions
 
 * Running `node src/scripts/*.ts` (rather than `npx tsx`) appears intentional given Node's native TypeScript support, but it contradicts `CLAUDE.md`. Should `CLAUDE.md` be updated to reflect `node` usage, or should the scripts move to `npx tsx`?

@@ -37,7 +37,7 @@
     ".env": ".env*",
     "*.astro": "$(capture).test.ts, $(capture).md",
     "*.json": "$(capture).schema.json, $(capture).test.ts",
-    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json, .release-it.ts,.remarkrc.js",
+    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json, .release-it.ts,.remarkrc.js, typedoc.json",
     "playwright.config.ts": "playwright.*.ts",
     "README.md": "AGENTS.md, SECURITY.md, LICENSE.md, PROJECT.md, CLAUDE.md, TODO.md, DESIGN.md",
     "settings.json": "settings.*.jsonc",
@@ -65,7 +65,7 @@
   "markdownlint.configFile": "src/config/.markdownlint.jsonc",
   // workspace color theme configuration
   // (via peacock, disable plugin after setting up the theme)
-  "peacock.color": "#ff7733",
+  "peacock.color": "#c10007",
   "scss.validate": false,
   // remove scratch files from search
   "search.exclude": {
@@ -122,6 +122,7 @@
   "typescript.preferences.importModuleSpecifier": "non-relative",
   // PLUGIN: vale setup
   "vale.enableSpellcheck": true,
+  "vale.valeCLI.config": "src/config/.vale.ini",
   // secretlint-disable-next-line @secretlint/secretlint-rule-no-homedir
   "vale.valeCLI.installVale": true,
   "vale.valeCLI.minAlertLevel": "error",

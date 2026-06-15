@@ -68,14 +68,6 @@ The most material open problems are content lint errors and missing test coverag
 
 ## Findings
 
-### Critical
-
-* None. Build, type-check, and unit tests all pass.
-
-### High
-
-* `npm run lint:markdown` exits non-zero with 38+ errors across `src/content/blog/**` (MD049 emphasis style, MD001 heading increment, MD045 missing alt text, MD060 table column style, MD033 inline `HTML`, MD040 fenced code language, MD036/MD054). This lint gate is currently red.
-
 ### Medium
 
 * `npm audit` reports 45 vulnerabilities (3 low, 16 moderate, 26 high), almost all transitive: `yaml` via `@astrojs/check` toolchain, `uuid`/`tempfile` via `@davidsneighbour/imagemin-lint-staged`. None are in production runtime code paths.

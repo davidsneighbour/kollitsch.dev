@@ -33,6 +33,8 @@ All files under `ai/instructions/` use `applyTo` frontmatter to declare their sc
 The agent must evaluate all instruction files and apply every instruction whose `applyTo` pattern matches the current task context.  
 Applicable instructions are mandatory, override default behaviour, and cannot be ignored or selectively applied.
 
+Follow `.github/instructions/issue-handling.instructions.md` for all issue, validation, and commit workflows; committed AI-assisted changes must reference an issue, but incidental untracked files must not trigger issue creation unless they are intentionally added.
+
 ## 1. Non-negotiable global constraints
 
 * Use strict British English at all times.

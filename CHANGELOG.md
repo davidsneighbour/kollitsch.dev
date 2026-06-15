@@ -1,5 +1,38 @@
 # Changelog
 
+## [3001.8.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.7.1...v3001.8.0) (2026-06-15)
+
+### Feat
+
+* **header:** glassmorphism sticky nav, scroll-driven title exit, mobile hamburger ([d830e4a](https://github.com/davidsneighbour/kollitsch.dev/commit/d830e4aecbf08e56a3f9e15628186dab8c4559b8)), closes [#hamburger-and-close](https://github.com/davidsneighbour/kollitsch.dev/issues/hamburger-and-close) [#navigation-and-theme-select](https://github.com/davidsneighbour/kollitsch.dev/issues/navigation-and-theme-select)
+
+### Fix
+
+* **analytics:** guard Matomo and Lenis against speculative prerender inflation ([74c6fe0](https://github.com/davidsneighbour/kollitsch.dev/commit/74c6fe057118b5700d6448fbb2e58bea37e887fb))
+* **docs:** remove em-dash spaces flagged by Vale in vscode-config.md ([681057b](https://github.com/davidsneighbour/kollitsch.dev/commit/681057b13ca7614d0c538e97665af807669fd200))
+* **nav:** bridge hover gap between dropdown trigger and submenu ([0c4ba2a](https://github.com/davidsneighbour/kollitsch.dev/commit/0c4ba2a5d443a844f0a950fbdfc42a226c5930d3))
+* **nav:** show submenu inline on mobile, hide chevron toggle ([f40d0e7](https://github.com/davidsneighbour/kollitsch.dev/commit/f40d0e70522fb3b7bbb0a787469e188c7ac9f0d8))
+
+### Perf
+
+* **head:** add immediate-eagerness speculation rules for top-nav pages ([c0c2ecb](https://github.com/davidsneighbour/kollitsch.dev/commit/c0c2ecbd19616108b030491fe7e3761782232085))
+* **prefetch:** switch default strategy to hover, pin nav and post cards to viewport ([609b4f4](https://github.com/davidsneighbour/kollitsch.dev/commit/609b4f4d15b0935bd44d553135473822824e634c))
+
+### Refactor
+
+* **tags:** remove deprecated sortBy from GetTagsOptions ([2b557ec](https://github.com/davidsneighbour/kollitsch.dev/commit/2b557ecaa7643bc0afbd9463b10ce692c2a1d45c))
+
+### Docs
+
+* **favicon:** document favicon generation pipeline, components, and optimisations ([990ed42](https://github.com/davidsneighbour/kollitsch.dev/commit/990ed4210afcba42a600ecb67e92af0b3e1d754c))
+* **vscode:** document settings pipeline; fix audit drift in base config ([143a92a](https://github.com/davidsneighbour/kollitsch.dev/commit/143a92ac3a0aa6eea0787cd398ebb916f0bd079c)), closes [#ff7733](https://github.com/davidsneighbour/kollitsch.dev/issues/ff7733) [#c10007](https://github.com/davidsneighbour/kollitsch.dev/issues/c10007) [#c10007](https://github.com/davidsneighbour/kollitsch.dev/issues/c10007)
+
+### Chore
+
+* **lint-staged:** audit vscode settings when source files are staged ([4baffbb](https://github.com/davidsneighbour/kollitsch.dev/commit/4baffbbadd3e12a3f8bce4328d4da7d221e8e4a4))
+* update screenshot ([403f02b](https://github.com/davidsneighbour/kollitsch.dev/commit/403f02b0fae70ceec761e4b3a0d1b76c61de7de5))
+* **vscode:** track settings.json in git; audit on direct edits ([d519f7f](https://github.com/davidsneighbour/kollitsch.dev/commit/d519f7fdba856aa13706847ab6860b5980b422b6))
+
 ## [3001.7.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.7.0...v3001.7.1) (2026-06-14)
 
 ### Docs

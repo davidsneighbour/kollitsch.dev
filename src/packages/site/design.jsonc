@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "lint:design": "npx @google/design.md lint DESIGN.md",
+    "lint:design:diff": "npx @google/design.md diff DESIGN.md",
+  },
+}

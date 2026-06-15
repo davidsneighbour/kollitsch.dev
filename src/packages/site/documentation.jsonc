@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "docs:api": "typedoc"
+  },
+  "devDependencies": {
+    "typedoc": "0.28.19"
+  }
+}

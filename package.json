@@ -2,6 +2,12 @@
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
   "version": "3001.8.0",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidsneighbour/kollitsch.dev.git"
+  },
   "author": {
     "email": "davidsneighbourdev+gh@gmail.com",
     "name": "Patrick Kollitsch",
@@ -9,13 +15,6 @@
   },
   "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
   "homepage": "https://kollitsch.dev",
-  "license": "MIT",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/davidsneighbour/kollitsch.dev.git"
-  },
-  "type": "module",
   "devDependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/markdown-satteri": "0.3.0",
@@ -86,7 +85,7 @@
     "cspell": "10.0.1",
     "cz-git": "1.13.1",
     "fast-glob": "3.3.3",
-    "fast-xml-parser": "5.8.0",
+    "fast-xml-parser": "5.9.0",
     "fixpack": "4.0.0",
     "gray-matter": "4.0.3",
     "he": "1.2.0",
@@ -127,79 +126,79 @@
     "vitest": "^4"
   },
   "scripts": {
-    "clean:full": "wireit",
-    "packages:generate": "wireit",
-    "packages:update": "wireit",
-    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
-    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit",
-    "release:tests": "wireit",
-    "screenshot": "wireit",
-    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
-    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode/vscode-extensions.ts --fix",
-    "ci:check:vscode": "npm run vscode:check",
-    "postinstall:vscode": "npm run vscode:sync",
-    "vscode:audit": "node src/scripts/vscode/merge-vscode-config.ts --audit",
-    "vscode:check": "node src/scripts/vscode/merge-vscode-config.ts --check",
-    "vscode:sync": "node src/scripts/vscode/merge-vscode-config.ts --apply",
+    "astro": "astro",
+    "audit:html": "wireit",
+    "bbuild:blogroll": "node src/scripts/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
     "biome:check": "biome check",
     "biome:format": "biome format",
     "biome:lint": "biome check --fix",
     "biome:postinstall": "biome migrate --write",
     "biome:watch": "biome check --watch",
-    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
-    "audit:html": "wireit",
+    "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
+    "build:favicons": "node src/assets/favicon/regenerate.ts",
+    "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
+    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode/vscode-extensions.ts --fix",
+    "check": "astro check",
+    "ci:check:vscode": "npm run vscode:check",
+    "clean:astro": "wireit",
+    "clean:full": "wireit",
+    "clean:netlify": "wireit",
+    "clean:og": "wireit",
+    "create:blog": "node src/scripts/create-blog-post.ts",
+    "deploy": "wireit",
+    "dev": "astro dev",
+    "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
+    "docs:api": "typedoc",
+    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
+    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "hooks:update": "simple-git-hooks",
+    "icons:sync": "node src/scripts/create-icon-types.ts",
     "lighthouse": "bin/audit/lighthouse",
+    "lighthouse:audit": "wireit",
+    "lint:design": "npx @google/design.md lint DESIGN.md",
+    "lint:design:diff": "npx @google/design.md diff DESIGN.md",
+    "lint:filenames": "ls-lint",
     "lint:hook:commit": "lint-staged",
     "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
     "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
-    "lint:templates": "wireit",
     "lint:lychee": "wireit",
     "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
     "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}",
-    "lint:filenames": "ls-lint",
     "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
-    "lint:design": "npx @google/design.md lint DESIGN.md",
-    "lint:design:diff": "npx @google/design.md diff DESIGN.md",
+    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
+    "lint:templates": "wireit",
     "lint:vale": "vale --config src/config/.vale.ini --no-exit --output='dnb.tmpl' ./src/content/",
-    "update:pre:vale": "wireit",
-    "astro": "astro",
-    "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
-    "docs:api": "typedoc",
-    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
-    "check": "astro check",
-    "clean:astro": "wireit",
-    "clean:og": "wireit",
-    "create:blog": "node src/scripts/create-blog-post.ts",
-    "dev": "astro dev",
-    "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
-    "preview": "astro preview",
-    "upgrade": "npx @astrojs/upgrade",
-    "bbuild:blogroll": "node src/scripts/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
-    "build:favicons": "node src/assets/favicon/regenerate.ts",
-    "icons:sync": "node src/scripts/create-icon-types.ts",
+    "packages:generate": "wireit",
+    "packages:update": "wireit",
+    "postinstall": "run-p postinstall:*",
+    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
     "postinstall:icons": "npm run icons:sync",
-    "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
-    "prebuild": "npm run build:image-index",
-    "clean:netlify": "wireit",
-    "deploy": "wireit",
+    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
+    "postinstall:vscode": "npm run vscode:sync",
     "postprepare": "wireit",
-    "lighthouse:audit": "wireit",
-    "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "prebuild": "npm run build:image-index",
+    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
+    "preview": "astro preview",
+    "release": "wireit",
+    "release:tests": "wireit",
+    "screenshot": "wireit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
     "test:live": "npx playwright test --config ./playwright.live.config.ts",
     "test:postinstall": "npx playwright install",
+    "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
     "test:ui": "vitest --ui",
-    "hooks:update": "simple-git-hooks",
-    "postinstall": "run-p postinstall:*",
-    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
-    "update": "wireit"
+    "update": "wireit",
+    "update:pre:vale": "wireit",
+    "upgrade": "npx @astrojs/upgrade",
+    "vscode:audit": "node src/scripts/vscode/merge-vscode-config.ts --audit",
+    "vscode:check": "node src/scripts/vscode/merge-vscode-config.ts --check",
+    "vscode:sync": "node src/scripts/vscode/merge-vscode-config.ts --apply"
   },
   "wireit": {
     "clean:full": {
@@ -330,14 +329,16 @@
       "command": "git submodule update --recursive --remote"
     }
   },
-  "cspell": {
-    "import": [
-      "./src/config/cspell/cspell.jsonc"
-    ],
-    "version": "0.2"
-  },
-  "stylelint": {
-    "configFile": "./src/config/stylelint/index.js"
+  "allowScripts": {
+    "@sentry/cli@2.58.6": true,
+    "esbuild@0.27.7": true,
+    "esbuild@0.28.0": true,
+    "gifsicle@5.3.0": true,
+    "jpegtran-bin@7.0.0": true,
+    "optipng-bin@7.0.1": true,
+    "secp256k1@5.0.1": true,
+    "sharp@0.34.5": true,
+    "simple-git-hooks@2.13.1": true
   },
   "browserslist": {
     "development": [
@@ -365,18 +366,17 @@
       "not kaios 2.5"
     ]
   },
-  "allowScripts": {
-    "@sentry/cli@2.58.6": true,
-    "esbuild@0.27.7": true,
-    "esbuild@0.28.0": true,
-    "gifsicle@5.3.0": true,
-    "jpegtran-bin@7.0.0": true,
-    "optipng-bin@7.0.1": true,
-    "secp256k1@5.0.1": true,
-    "sharp@0.34.5": true,
-    "simple-git-hooks@2.13.1": true
+  "cspell": {
+    "import": [
+      "./src/config/cspell/cspell.jsonc"
+    ],
+    "version": "0.2"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
-  }
+  },
+  "stylelint": {
+    "configFile": "./src/config/stylelint/index.js"
+  },
+  "type": "module"
 }

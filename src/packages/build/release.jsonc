@@ -5,7 +5,8 @@
     "@humanwhocodes/social-changelog": "0.4.0",
     "@release-it/conventional-changelog": "11.0.1",
     "cz-git": "1.13.1",
-    "release-it": "20.2.0"
+    "release-it": "20.2.0",
+    "@dnbhq/release-config": "1.0.2"
   },
   "scripts": {
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",

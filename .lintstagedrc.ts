@@ -3,6 +3,12 @@
  * @type {import('lint-staged').Configuration}
  */
 export default {
+  // settings.json is gitignored (generated), so lint-staged cannot watch it
+  // directly. Audit whenever either source file is staged instead: this catches
+  // "source edited but vscode:sync not re-run before commit" (exit 3 = drift).
+  '.vscode/settings.{base,local}.jsonc': () =>
+    'node src/scripts/vscode/merge-vscode-config.ts --audit',
+
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.jsonc"',
     'vale --config src/config/.vale.ini --no-exit --minAlertLevel=error',

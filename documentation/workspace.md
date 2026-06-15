@@ -1,13 +1,15 @@
 ---
-title: VS Code Settings Pipeline
+title: Workspace Setup
 tags: []
 created: 2026-06-15T00:00:00+07:00
 updated: 2026-06-15T00:00:00+07:00
 ---
 
+## VS Code Settings Pipeline
+
 The workspace uses a three-file pipeline to keep VS Code settings reproducible without exposing machine-specific preferences in version control.
 
-## Files
+### Files
 
 | File | Committed | Purpose |
 | --- | --- | --- |
@@ -17,7 +19,7 @@ The workspace uses a three-file pipeline to keep VS Code settings reproducible w
 
 `settings.json` is the file VS Code actually reads. It is regenerated from the two source files by `npm run vscode:sync`. Manual edits to `settings.json` will be overwritten on the next sync and flagged by the audit.
 
-## Merge semantics
+### Merge semantics
 
 The script performs a deep merge:
 
@@ -28,7 +30,7 @@ The script performs a deep merge:
 
 In practice: `local` wins on every leaf key that appears in both files. Array values are fully replaced, not concatenated.
 
-## npm scripts
+### npm scripts
 
 | Command | What it does |
 | --- | --- |
@@ -39,7 +41,7 @@ In practice: `local` wins on every leaf key that appears in both files. Array va
 
 `postinstall:vscode` runs `vscode:sync` automatically after every `npm install`.
 
-## What belongs where
+### What belongs where
 
 **Put in `settings.base.jsonc`:**
 
@@ -56,7 +58,7 @@ In practice: `local` wins on every leaf key that appears in both files. Array va
 
 **Never edit `settings.json` directly.** VS Code's Settings UI and extensions write to `settings.json`, which is why drift occurs. After VS Code modifies `settings.json`, run `npm run vscode:audit` to see what changed, then carry the new values back into the appropriate source file and re-run `npm run vscode:sync`.
 
-## Audit output
+### Audit output
 
 `npm run vscode:audit` exits with code 3 if any issues are found. The report has five sections:
 
@@ -68,7 +70,7 @@ In practice: `local` wins on every leaf key that appears in both files. Array va
 | Redundant local settings | Keys in local whose value is identical to base. Remove them from local. |
 | Source settings missing from output | Keys in base or local that do not appear in the merge result. Should not happen with a clean merge; investigate if reported. |
 
-## Optimization opportunities
+### Optimization opportunities
 
 **1. Move Peacock writes to local.**
 Peacock writes both `peacock.color` and `workbench.colorCustomizations` to `settings.json` when you pick a color via the command palette. Since `workbench.colorCustomizations` already lives in `settings.local.jsonc`, consider also moving `peacock.color` there so both Peacock-related keys stay together in local.
@@ -82,7 +84,7 @@ Because `settings.json` is generated, it could be excluded from version control 
 **4. Add `--verbose` flag to `vscode:sync` in development.**
 Running `npm run vscode:sync -- --verbose` shows which files were read and written. Useful when debugging merge issues.
 
-## Script internals
+### Script internals
 
 `src/scripts/vscode/merge-vscode-config.ts` is a self-contained TypeScript script with no Astro or project dependencies beyond `jsonc-parser`. It can be run with Node.js 22+ native TypeScript stripping (`node`) or with `npx tsx`.
 

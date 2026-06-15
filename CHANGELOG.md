@@ -1,5 +1,7 @@
 # Changelog
 
+## [3001.10.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.10.0...v3001.10.1) (2026-06-15)
+
 ## [3001.10.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.9.1...v3001.10.0) (2026-06-15)
 
 ### Feat

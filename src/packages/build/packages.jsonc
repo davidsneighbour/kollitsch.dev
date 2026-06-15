@@ -2,6 +2,7 @@
   // a collection of scripts to build the package.json file
   // requires Node24+
   "devDependencies": {
+    "@davidsneighbour/nanny": "0.4.0",
     "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0"
   },
@@ -31,10 +32,10 @@
       ]
     },
     "compile:package:run": {
-      "command": "node ./src/packages/generate-package.ts"
+      "command": "nanny generate-package"
     },
     "packages:generate": {
-      "command": "node ./src/packages/generate-package.ts",
+      "command": "nanny generate-package",
       "dependencies": [
         "compile:package"
       ],
@@ -43,7 +44,7 @@
       ]
     },
     "packages:update": {
-      "command": "node ./src/packages/update-package.ts",
+      "command": "nanny update-package",
       "dependencies": [
         "compile:fixpack"
       ]

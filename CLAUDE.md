@@ -52,22 +52,54 @@ Required for full builds and certain scripts (set in `.env`):
 
 ### Output and rendering
 
-Astro generates a fully static site (`output: 'static'`). All pages are pre-rendered at build time. `pagefind` creates a client-side search index during the build.
+Astro generates a fully static site (`output: 'static'`). All pages are pre-rendered at build time. `compressHTML` is gated on `import.meta.env.PROD`. `pagefind` creates a client-side search index during the build.
+
+**Integrations:** custom `buildHooks()` (from `src/scripts/build-hooks.ts`), `@astrojs/sitemap`, `astro-icon`, `astro-expressive-code`, `@astrojs/mdx`. Vite plugins: `vite-plugin-devtools-json`, `@tailwindcss/vite`.
+
+**Experimental flags active:** `chromeDevtoolsWorkspace`, `clientPrerender`, `contentIntellisense`.
+
+`trailingSlash` is not configured in Astro; trailing-slash enforcement is delegated to a Netlify 301 redirect in `netlify.toml`.
+
+Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.
 
 ### Content collections (`src/content.config.ts`)
 
 Four collections:
 
-* **blog** - Markdown/MDX posts from `src/content/blog/`. Schema enforces `title`, `description`, `date`; tags must be lowercase `[a-z0-9_-]`; `linktitle` must be shorter than `title` and differ from it.
-* **tags** - Tag metadata from `src/content/tags/`. Each tag has an `id`, optional `icon`, and `aliases`.
+* **blog** - Markdown/MDX posts from `src/content/blog/`. Uses a custom loader that injects `contentFormat` (`md`/`mdx`) derived from the file path before parsing. `blogSchema` is rich: cover object with image/video union and several cross-field refinements; optional `sourcecode` record; Markdown-rendered `title`/`summary`/`cover.alt`; computed `articleimage`. Refinements enforce `linktitle` rules and lowercase tag patterns (`[a-z0-9_-]`).
+* **tags** - Tag metadata from `src/content/tags/`. Schema normalises `id`/`aliases`, derives `label`/`linktitle`.
 * **social** - Social links loaded from `src/content/social.json`.
 * **pages** - Markdown pages under `src/pages/` that require a `layout` frontmatter field.
 
+Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
+
+### Styling system
+
+Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
+
+* Uses `@theme`, `@theme inline`, `@theme static`, `@layer base`, `@layer components`, `@utility`, `@plugin`, `@custom-variant`.
+* Colour tokens defined in `oklch`; full grey/orange/red ramps. Tailwind colour namespace reset via `--color-*: initial`.
+* Custom utilities include `prose-dnb`, `reading-*`, `scrollbar-red`, `scrollbar-wide`, `font-changa`. Custom scrollbar styling via `--sb-*` variables.
+* **`DESIGN.md` is the single source of truth for all design tokens.** Read it before changing any visual styling; update it whenever a token is added or changed.
+
+### Image and asset system
+
+* **OG images**: `src/components/layout/head/OpenGraphImage.astro`. Pipeline: `satori-html` → Satori SVG → Resvg PNG → Sharp transcode. Two-tier cache with in-flight de-duplication; supports remote and local background images.
+* **LQIP**: pre-build image index at `src/content/_generated/image-index.json` via `src/scripts/build-image-index.ts`. `src/utils/opengraph.ts` resolves cover image keys against this index.
+
 ### Build pipeline
 
-1. **Pre-build**: `npm run build:image-index` (`src/scripts/build-image-index.ts`) generates a LQIP image index at `src/content/_generated/image-index.json`.
-2. **Astro build hooks** (`src/scripts/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle (for instance, RSS feed generation, pagefind indexing).
-3. **Build**: `astro check && astro build` - TypeScript checks run before the build.
+1. **Pre-build**: `npm run build:image-index` (`src/scripts/build-image-index.ts`) generates the LQIP image index.
+2. **Astro build hooks** (`src/scripts/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle: `generateFeedsIntegration` (FreshRSS-gated RSS feeds) and `pagefind` indexing on `astro:build:done`.
+3. **Build**: `astro check && astro build`—TypeScript checks run before the build.
+4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `npx tsx`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
+
+### CI/CD and deployment
+
+* `tests.yml`—unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.
+* `lighthouse.yml`—post-deploy Lighthouse audits.
+* `screenshot.yml`—weekly homepage screenshot commit.
+* Deployed to Netlify; `netlify.toml` has an empty build command (build runs in a pre-step) and a trailing-slash 301 redirect.
 
 ### Key directories
 
@@ -82,7 +114,7 @@ Four collections:
 | `src/data/` | Static JSON config (nav, site meta, theme, redirects) |
 | `src/config/` | Tool configs (biome, stylelint, cspell, secretlint, htmlvalidate) |
 | `src/styles/` | Global CSS (`theme.css`) |
-| `.frontmatter/` | FrontMatter CMS database and templates |
+| `.frontmatter/` | Frontmatter CMS database and templates |
 
 ### TypeScript path aliases
 
@@ -108,14 +140,14 @@ Four icon sources are available via `astro-icon/components`:
 
 | Source | Prefix | Use for |
 | --- | --- | --- |
-| `src/icons/` | none (e.g. `house-fill`) | Existing Bootstrap Icons — do not add new ones |
+| `src/icons/` | none (for example `house-fill`) | Existing Bootstrap Icons—do not add new ones |
 | `simple-icons` | `simple-icons:github` | Brand/logo icons |
 | `lucide` | `lucide:rss` | All other UI icons |
-| `fa7-brands` | `fa7-brands:x-twitter` | Legacy brand icons — prefer `simple-icons` for new additions |
+| `fa7-brands` | `fa7-brands:x-twitter` | Legacy brand icons—prefer `simple-icons` for new additions |
 
 Rules:
 
-* **Always** use `<Icon name="..." />` from `astro-icon/components` — never inline raw SVG.
+* **Always** use `<Icon name="..." />` from `astro-icon/components`—never inline raw SVG.
 * **Always** use `<IconLink>` from `src/components/shared/links/IconLink.astro` when an icon appears inside a link or button. Do not compose `<Icon>` + `<a>` by hand.
 * When you encounter an inline `<svg>` in existing code, check whether an equivalent icon exists in one of the sets above and replace it.
 * For brand/social icons, search [simpleicons.org](https://simpleicons.org) first. For UI icons, search [lucide.dev](https://lucide.dev) first.

@@ -6,66 +6,6 @@ A full read-through and validation pass of the `kollitsch.dev` Astro repository 
 
 The most material open problems are content lint errors and missing test coverage rather than functional defects. The CI gate, scrollbar tokens, vitest environment headers, and env declarations have been resolved since the initial audit.
 
-## System map
-
-### Astro application
-
-* Entry config: `astro.config.ts`. Static output (`output: 'static'`), `compressHTML` gated on `import.meta.env.PROD`, directory build format, `inlineStylesheets: 'auto'`.
-* Integrations: custom `buildHooks()` (from `src/scripts/build-hooks.ts`), `@astrojs/sitemap`, `astro-icon`, `astro-expressive-code`, `@astrojs/mdx`. Vite plugins: `vite-plugin-devtools-json`, `@tailwindcss/vite`.
-* Experimental flags enabled: `chromeDevtoolsWorkspace`, `clientPrerender`, `contentIntellisense`.
-* `trailingSlash` is commented out in Astro; trailing-slash enforcement is delegated to a Netlify 301 redirect in `netlify.toml`.
-* Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.
-
-### Content system
-
-* `src/content.config.ts` defines four collections: `blog`, `tags`, `social`, `pages`.
-* `blog` uses a custom loader that injects `contentFormat` (`md`/`mdx`) derived from the file path before parsing.
-* `blogSchema` is rich: cover object with image/video union and several cross-field refinements; `sourcecode` record; Markdown-rendered `title`/`summary`/`cover.alt`; computed `articleimage`. Refinements enforce `linktitle` rules and lowercase tag patterns.
-* `tags` schema normalises `id`/`aliases`, derives `label`/`linktitle`.
-* Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
-
-### Styling system
-
-* Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
-* Uses `@theme`, `@theme inline`, `@theme static`, `@layer base`, `@layer components`, `@utility`, `@plugin`, `@custom-variant`, `@namespace`.
-* Colour tokens defined in `oklch`; full grey/orange/red ramps; Tailwind colour namespace reset via `--color-*: initial`.
-* Custom utilities: `prose-dnb`, `reading-*`, `text-boxlabel-*`, `scrollbar-red`, `scrollbar-wide`, `font-changa`. Custom scrollbar styling via `--sb-*` variables and `::-webkit-scrollbar`.
-* `DESIGN.md` is the declared single source of truth for design tokens.
-
-### Image and asset system
-
-* `src/components/layout/head/OpenGraphImage.astro`: content-addressed OG image cache. Pipeline is `satori-html` to Satori SVG to Resvg PNG to Sharp transcode. Two-tier cache, in-flight de-duplication, remote and local background resolution, font load guard, conservative Sharp memory config.
-* `src/utils/opengraph.ts` resolves cover image keys against a generated image index.
-* Pre-build LQIP index at `src/content/_generated/image-index.json` via `src/scripts/build-image-index.ts`.
-
-### Scripts and automation
-
-* Build hooks (`src/scripts/build-hooks.ts`): `generateFeedsIntegration` (FreshRSS-gated) and `pagefind` indexing on `astro:build:done`.
-* Many one-off scripts under `src/scripts/`, run from `package.json` and `wireit` blocks.
-* `wireit` orchestrates release, clean, package generation, linting, and update flows.
-
-### Tests and validation
-
-* Vitest unit tests co-located with sources; `vitest.config.js` uses `getViteConfig` plus `vite-tsconfig-paths`.
-* Playwright e2e (`playwright.config.ts`) with a single chromium project, `webServer` running `npm run dev`, `baseURL` `http://localhost:4321`.
-* Validation commands: `npm test`, `npm run check`, `npm run lint:markdown`, `npm run lint:styles`, `npm run lint:secretlint`, `npm run biome:check`.
-
-### CI/CD and deployment
-
-* `.github/workflows/tests.yml`: unit tests on push/PR to `main`. SHA-pinned actions, `contents: read`, `persist-credentials: false` (fixed 2026-06-13).
-* `.github/workflows/lighthouse.yml`: post-deploy Lighthouse audits, SHA-pinned actions, least-privilege permissions.
-* `.github/workflows/screenshot.yml`: weekly homepage screenshot commit, SHA-pinned actions, `node-version: 25` hardcoded (should read `.nvmrc`).
-* `.github/workflows/update-issues.yml`: label cleanup on issue close, unpinned `mondeja/remove-labels-gh-action@v2`.
-* Deployment via Netlify; `netlify.toml` has an empty build command and a trailing-slash 301 redirect.
-
-### Documentation and agent instructions
-
-* `CLAUDE.md`: project overview, commands, architecture, conventions.
-* `AGENTS.md`: core rules, design-system and task-tracking conventions, commit format. Delegates detail to `ai/` (symlinked to the sibling `../ai/ai/` repo).
-* `.vscode/instructions/project.instructions.md`: project context for VSCode/Copilot agents.
-* `.vscode/instructions/astro-components.instructions.md`: component-scoped rules (Props export contract, is:inline hint).
-* `DESIGN.md`: token source of truth, linted via `npx @google/design.md`.
-
 ## Findings
 
 ### Medium

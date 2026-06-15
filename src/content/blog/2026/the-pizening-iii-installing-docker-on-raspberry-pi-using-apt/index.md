@@ -9,7 +9,7 @@ cover:
   title: ""
 ---
 
-audit: <https://chatgpt.com/g/g-p-6959e23d170c819191053ccbc0ed584f/c/6959e2b0-fa98-8321-bed1-70e7afc72dc4>
+audit: [https://chatgpt.com/g/g-p-6959e23d170c819191053ccbc0ed584f/c/6959e2b0-fa98-8321-bed1-70e7afc72dc4](https://chatgpt.com/g/g-p-6959e23d170c819191053ccbc0ed584f/c/6959e2b0-fa98-8321-bed1-70e7afc72dc4)
 
 ## Installing Docker on Raspberry Pi OS using the official APT repository
 

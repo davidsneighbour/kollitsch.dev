@@ -19,15 +19,15 @@ cover:
 publisher: rework
 ---
 
-A while back I realized, that every time I pushed some commits to a branch on GitLab _two_ separate CI pipelines started. That soon took up lots of free CI-minutes and became a problem. After some research I found out that this is, while it's to be expected due to the design of the system, avoidable with a specific configuration addition.
+A while back I realized, that every time I pushed some commits to a branch on GitLab *two* separate CI pipelines started. That soon took up lots of free CI-minutes and became a problem. After some research I found out that this is, while it's to be expected due to the design of the system, avoidable with a specific configuration addition.
 
 The reason for the double run is, that CI pipelines run for several events in a repository, the two here are push events to a branch and push events to an existing merge request.
 
-The solution sounds as logical as you would expect: _just™_ tell the pipeline the following:
+The solution sounds as logical as you would expect: *just™* tell the pipeline the following:
 
-- if this CI run event is for a _branch push_ and no merge request exists, then run it
-- if this CI run event is for a _branch push_ and a merge request exists, then don't run it
-- if this CI run event is for a _merge request push_ then run it
+* if this CI run event is for a *branch push* and no merge request exists, then run it
+* if this CI run event is for a *branch push* and a merge request exists, then don't run it
+* if this CI run event is for a *merge request push* then run it
 
 or in GitLab's CI YAML format:
 

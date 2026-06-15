@@ -49,7 +49,7 @@ set -e
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-for DIRNAME in /home/patrick/.nvm/versions/node/*/; do
+for DIRNAME in /home/user/.nvm/versions/node/*/; do
 
     DIR=$(basename "$DIRNAME")
     nvm use $DIR
@@ -80,12 +80,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ```
 
-**Line 15:** The script then iterates through all installed Node.js versions managed by nvm in the specified directory (`/home/patrick/.nvm/versions/node/*/`). This path will be different on your system, so make sure to change it to the correct path. Because I am using the script as a cronjob, I can't replace `/home/patrick/` with `{$HOME}` or `~`. You could, if you run the script manually only. This would make it more portable but non-working in cronjobs.
+**Line 15:** The script then iterates through all installed Node.js versions managed by nvm in the specified directory (`/home/user/.nvm/versions/node/*/`). This path will be different on your system, so make sure to change it to the correct path. Because I am using the script as a cronjob, I can't replace `/home/user/` with `{$HOME}` or `~`. You could, if you run the script manually only. This would make it more portable but non-working in cronjobs.
 
 For each version, it switches the active Node.js version to that version using `nvm use $DIR`.
 
 ```bash
-for DIRNAME in /home/patrick/.nvm/versions/node/*/; do
+for DIRNAME in /home/user/.nvm/versions/node/*/; do
     DIR=$(basename "$DIRNAME")
     nvm use $DIR
 ```
@@ -113,15 +113,15 @@ That's it. This script is useful for me. It might be useful for you.
 **The cronjob:** I added this script to my crontab with the following line:
 
 ```crontab
-0 0 * * * /path/to/update-npm.sh >> /home/patrick/cron.log 2>&1
+0 0 * * * /path/to/update-npm.sh >> /home/user/cron.log 2>&1
 ```
 
 In this cronjob:
 
-- `0 0 * * *` specifies the schedule: at midnight, every day.
-- `/path/to/update-npm.sh` is the path to the script.
-- `>> /home/patrick/cron.log` appends the output to a log file in my home directory.
-- `2>&1` directs both standard output and standard error to the log file[^1].
+* `0 0 * * *` specifies the schedule: at midnight, every day.
+* `/path/to/update-npm.sh` is the path to the script.
+* `>> /home/user/cron.log` appends the output to a log file in my home directory.
+* `2>&1` directs both standard output and standard error to the log file[^1].
 
 I can then check the log file for errors and see if the script ran successfully.
 

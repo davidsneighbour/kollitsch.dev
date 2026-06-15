@@ -44,9 +44,9 @@ git clean -Xfd path/to/folder
 
 Let's dive into what each part of this command does:
 
-- `git clean`: This command is designed to files that are not tracked from the working tree.
-- `-X`: instructing `git clean` to delete only files that are ignored by Git, based on the rules defined in the `.gitignore` file.
-- `-f`: forcing `git clean` to delete files. Without it, `git clean` would only display the list of files to be deleted without actually removing them.
-- `-d`: forcing `git clean` to also remove untracked directories.
+* `git clean`: This command is designed to files that are not tracked from the working tree.
+* `-X`: instructing `git clean` to delete only files that are ignored by Git, based on the rules defined in the `.gitignore` file.
+* `-f`: forcing `git clean` to delete files. Without it, `git clean` would only display the list of files to be deleted without actually removing them.
+* `-d`: forcing `git clean` to also remove untracked directories.
 
 Running this will lead to a clean repository, with all the ignored files and directories removed. Like a newly cloned repository.

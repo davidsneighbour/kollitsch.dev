@@ -35,7 +35,7 @@ This whole process also lead to me acquiring an unhealthy bunch of gadgets to co
 
 A rundown of unread, undone, unlost tabs with useful links and a short note.
 
-First came the bookmarks into the `todo`-folder, then with the advent of tabs came _read later tabs_ that were left open to be read later by _the user™_ -- at least until the browser crashed the next time to be lost into the data nirvana. Then came "tab groups" that eased the forgetting and loosing even more. What's left are pages that were bookmarked, tabbed, grouped, and kept with good intentions, but forgotten and which went unread.
+First came the bookmarks into the `todo`-folder, then with the advent of tabs came *read later tabs* that were left open to be read later by *the user™* -- at least until the browser crashed the next time to be lost into the data nirvana. Then came "tab groups" that eased the forgetting and loosing even more. What's left are pages that were bookmarked, tabbed, grouped, and kept with good intentions, but forgotten and which went unread.
 
 Long story short, there is no better time than **now** to actually read all these maybe useful pages and get the todo-list done.
 

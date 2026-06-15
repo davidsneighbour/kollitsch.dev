@@ -9,7 +9,7 @@ cover:
   title: ""
 ---
 
-audit: <https://chatgpt.com/c/695858ce-2d68-8321-80f0-cabe0d7d97de>
+audit: [https://chatgpt.com/c/695858ce-2d68-8321-80f0-cabe0d7d97de](https://chatgpt.com/c/695858ce-2d68-8321-80f0-cabe0d7d97de)
 
 ## Git untracked cache warnings and what they actually mean
 
@@ -39,7 +39,7 @@ The official documentation makes it clear that enabling the untracked cache is c
 
 Git even provides a built-in mechanism to check this behaviour. The `git update-index --test-untracked-cache` command exists specifically to test whether the filesystem correctly reports directory changes in a way that makes the cache safe to use[^2].
 
-If this test fails, Git will not use the untracked cache. In such cases, explicitly enabling `core.untrackedCache` may appear to work initially, but Git may silently disable it again if the filesystem proves unreliable. This is the situation commonly summarised as: _the filesystem is not considered safe for the untracked cache_.
+If this test fails, Git will not use the untracked cache. In such cases, explicitly enabling `core.untrackedCache` may appear to work initially, but Git may silently disable it again if the filesystem proves unreliable. This is the situation commonly summarised as: *the filesystem is not considered safe for the untracked cache*.
 
 ### Is this a problem?
 

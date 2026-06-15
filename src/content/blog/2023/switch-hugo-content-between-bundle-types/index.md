@@ -31,10 +31,10 @@ Page bundles in Hugo can be classified into two types: **leaf bundles** and **br
 
 **Leaf bundles** are used for organizing content and attachments related to a single page inside of its own directory. Some key points to know about leaf bundles are:
 
-- they can be created at any directory level within the `content` directory
-- they allow the inclusion of unrestricted resource types, such as images, downloadable archives, and PDFs.
-- the `index.md` file within a leaf bundle represents the main content page.
-- other bundle types inside of a leaf bundle folder are not supported.
+* they can be created at any directory level within the `content` directory
+* they allow the inclusion of unrestricted resource types, such as images, downloadable archives, and PDFs.
+* the `index.md` file within a leaf bundle represents the main content page.
+* other bundle types inside of a leaf bundle folder are not supported.
 
 Example structure of a leaf bundle:
 
@@ -52,9 +52,9 @@ content
 
 **Branch bundles** serve as containers for posts. Some key points to know about branch bundles are:
 
-- posts in a branch bundle only at the directory level of the branch bundle directory (`_index.md` will be the content for the overview or list page of the bundle, `my-post.md` will be the content of a single page)
-- they allow the inclusion of non-content resource types, such as images, downloadable archives, and PDFs, that have to reside at the same level as the content files
-- nesting of leaf or other branch bundles is possible within the folder structure of branch bundles
+* posts in a branch bundle only at the directory level of the branch bundle directory (`_index.md` will be the content for the overview or list page of the bundle, `my-post.md` will be the content of a single page)
+* they allow the inclusion of non-content resource types, such as images, downloadable archives, and PDFs, that have to reside at the same level as the content files
+* nesting of leaf or other branch bundles is possible within the folder structure of branch bundles
 
 Example structure of a branch bundle:
 

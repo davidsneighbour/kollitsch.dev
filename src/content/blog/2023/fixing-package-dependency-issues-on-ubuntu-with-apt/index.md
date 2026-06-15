@@ -54,10 +54,10 @@ What to do now?
 
 The good news is that fixing this issue is easy with the `sudo apt install -f` command. This command checks for any broken dependencies in the package management system and automatically fixes them. Let's break down what each part of the command does:
 
-*   `sudo`: The sudo command runs the command following with administrative or root privileges.
-*   `apt`: The apt command is a package management utility in Ubuntu and other Debian-based Linux distributions used to manage software packages.
-*   `install`: The install command is used to install packages.
-*   `-f`: The -f option stands for "fix" and is used to fix broken dependencies in the package management system.
+* `sudo`: The sudo command runs the command following with administrative or root privileges.
+* `apt`: The apt command is a package management utility in Ubuntu and other Debian-based Linux distributions used to manage software packages.
+* `install`: The install command is used to install packages.
+* `-f`: The -f option stands for "fix" and is used to fix broken dependencies in the package management system.
 
 When you run `sudo apt install -f`, the command will check for any missing or broken dependencies and attempt to fix them automatically. Afterward, it sets up all unconfigured packages. This can help ensure that your system runs smoothly and that all the necessary software packages are installed correctly.
 

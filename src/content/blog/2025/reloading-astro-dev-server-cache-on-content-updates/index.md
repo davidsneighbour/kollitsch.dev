@@ -15,7 +15,7 @@ cover:
 
 While working on an Astro project, I ran into a frustrating issue: adding a new image to `src/assets/images/` didn't result in a server reload, and the image was "missing" until I manually restarted the dev server.
 
-This is because **Astro's dev server (powered by Vite)** by default doesn't watch for _new files_ in certain folders like `src/assets/` or `src/content/`.
+This is because **Astro's dev server (powered by Vite)** by default doesn't watch for *new files* in certain folders like `src/assets/` or `src/content/`.
 
 This leads to a couple of inconvenient issues:
 
@@ -79,7 +79,7 @@ npx astro dev
 
 We'll see output like:
 
-```
+```text
 [watch-extra-files] Plugin loaded
 [watch-extra-files] added: /path/to/src/assets/images/new-logo.png
 [watch-extra-files] deleted: /path/to/src/content/blog/old-post.md

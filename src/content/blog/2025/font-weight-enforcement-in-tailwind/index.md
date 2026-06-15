@@ -13,7 +13,7 @@ cover:
   type: image
 ---
 
-When I, earlier this year, was reworking my website _from Hugo to Astro&trade;_ I realised that my headline font ([the great Changa One](https://fonts.google.com/specimen/Changa+One) from Google Fonts) had only a single weight --- 400 --- and browsers were making it bolder when I added it to headlines (to "emulate" a weight of, for instance, 700). This is of course not what we want and will result in, let's say, inconvenient rendering issues when the font is bolder by browser synthesis (see the article image above) - so I tried to find a way to enforce the font weight to be 400 in all occurrences.
+When I, earlier this year, was reworking my website *from Hugo to Astro&trade;* I realised that my headline font ([the great Changa One](https://fonts.google.com/specimen/Changa+One) from Google Fonts) had only a single weight --- 400 --- and browsers were making it bolder when I added it to headlines (to "emulate" a weight of, for instance, 700). This is of course not what we want and will result in, let's say, inconvenient rendering issues when the font is bolder by browser synthesis (see the article image above) - so I tried to find a way to enforce the font weight to be 400 in all occurrences.
 
 The solution I ended up using is relatively easy to implement, but it took me a while to find all the edge cases and hidden overrides of the weight.
 
@@ -124,7 +124,7 @@ To make sure that no overrides sneak in, I created a simple audit stylesheet tha
 }
 ```
 
-This is an excerpt, my current full version of this audit style can be found [in my GitHub repository](https://github.com/davidsneighbour/kollitsch.dev/blob/main/src/assets/styles/audit.css) and takes care of a couple of headlines. I add it only in development mode, so it doesn't affect production.
+This is an excerpt, my current full version of this audit style can be found [in my GitHub repository](https://github.com/davidsneighbour/kollitsch.dev/blob/main/src/styles/auditor.css) and takes care of a couple of headlines. I add it only in development mode, so it doesn't affect production.
 
 ```astro
 {

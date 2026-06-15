@@ -31,7 +31,7 @@ Well, so let's see how we can pipe the output of `hugo` to a file.
 
 ## What are Linux standard streams?
 
-First of all we need to learn about Linux standard streams. Those are "pipelines" that any command can send content to for display in the CLI or other uses. `stdin` is the _standard input_ stream. This accepts text as its input. Text output to the shell is delivered via the `stdout` (_standard out_) stream. Error messages are sent through the `stderr` (_standard error_) stream.
+First of all we need to learn about Linux standard streams. Those are "pipelines" that any command can send content to for display in the CLI or other uses. `stdin` is the *standard input* stream. This accepts text as its input. Text output to the shell is delivered via the `stdout` (*standard out*) stream. Error messages are sent through the `stderr` (*standard error*) stream.
 
 This leaves us with two streams that output of the Hugo command could be sent to: `stdout` and `stderr`.
 
@@ -74,7 +74,7 @@ Runs Hugo, pipes the output to `hugo-output.log` (which will be overridden) and 
 
 ## Piping AND displaying output or errors
 
-Now onto the problem at hand. With the removal of `--debug`, `--log`, `--logFile` and `--verboseLog` we can no longer send the output of Hugo on the CLI to a file for later use. The way `--log` worked was to show the output and errors on the CLI _and_ pipe them into the file designated by `--logFile`. The `--verboseLog` option resulted in more detailed output in the log file only. To achieve the same effect we run `hugo` with the `--verbose` option and pipe output as well as errors into our log file, appending to existing content.
+Now onto the problem at hand. With the removal of `--debug`, `--log`, `--logFile` and `--verboseLog` we can no longer send the output of Hugo on the CLI to a file for later use. The way `--log` worked was to show the output and errors on the CLI *and* pipe them into the file designated by `--logFile`. The `--verboseLog` option resulted in more detailed output in the log file only. To achieve the same effect we run `hugo` with the `--verbose` option and pipe output as well as errors into our log file, appending to existing content.
 
 The command for this is the following:
 

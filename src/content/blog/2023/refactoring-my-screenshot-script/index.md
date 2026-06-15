@@ -44,8 +44,8 @@ node script.js https://example.com
 
 I had several issues with this script:
 
-- it was not configurable for parameters like width and height of the screenshot and the path to the output file
-- it was a CommonJS script and not an ESM module, which is basically the standard for Node.js now
+* it was not configurable for parameters like width and height of the screenshot and the path to the output file
+* it was a CommonJS script and not an ESM module, which is basically the standard for Node.js now
 
 So I decided to rewrite it a little bit.
 
@@ -69,10 +69,10 @@ let browser = await chromium.launch();
 
 In this modified script, we import the "yargs" library and parse the command-line arguments using argv. The script now accepts the following parameters:
 
-- `--url`: The URL to capture a screenshot of (default: <https://example.com/>).
-- `--width`: The width of the viewport (default: 1200).
-- `--height`: The height of the viewport (default: 600).
-- `--output`: The file name to save the screenshot as (default: header.jpg).
+* `--url`: The URL to capture a screenshot of (default: [https://example.com/](https://example.com/)).
+* `--width`: The width of the viewport (default: 1200).
+* `--height`: The height of the viewport (default: 600).
+* `--output`: The file name to save the screenshot as (default: header.jpg).
 
 You can now run the script using the following command:
 
@@ -84,7 +84,7 @@ node script.js \
   --output=screenshot.jpg
 ```
 
-This will capture a screenshot of the "<https://example.com>" website with a viewport size of 800×600 and save it as "screenshot.jpg". If you don't specify any of the parameters, the script will use the default values.
+This will capture a screenshot of the "[https://example.com](https://example.com)" website with a viewport size of 800×600 and save it as "screenshot.jpg". If you don't specify any of the parameters, the script will use the default values.
 
 To rewrite this script as an ESM module, we need to change the way we import and export the code. Here's how:
 
@@ -105,7 +105,7 @@ The takeScreenshot function accepts the same parameters as above.
 
 To use this module in another script or module, you can import it like this:
 
-```
+```js
 import takeScreenshot from "./script.js";
 await takeScreenshot("https://example.com", "screenshot.jpg", 800, 600);
 ```
@@ -164,6 +164,6 @@ To run this script from the CLI, you can save it as a file (for example screensh
 node screenshot.js --url=https://example.com --output=screenshot.jpg --width=800 --height=600
 ```
 
-This will capture a screenshot of the "<https://example.com>" website with a viewport size of 800×600 and save it as "screenshot.jpg".
+This will capture a screenshot of the "[https://example.com](https://example.com)" website with a viewport size of 800×600 and save it as "screenshot.jpg".
 
 I feel like this is enough change for now. If you have any questions or suggestions, feel free to leave a comment below. If you think I could optimise another part of the script, let me know too.

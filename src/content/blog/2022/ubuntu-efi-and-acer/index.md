@@ -30,12 +30,12 @@ The problem in short: Most Acer notebooks expect the [UEFI](https://en.wikipedia
 
 The following steps should solve this issue:
 
-*   Install Ubuntu (or any other operating system you like).
-*   After the installation reboot into the Live-CD or USB-stick that you installed the system from.
-*   Mount your EFI partition (let's assume it's mounted at /media/EFI).
-*   Go into /media/EFI/EFI and `ls -al` the contents of the directory.
-*   You should see a directory named `ubuntu`. Either copy it to the folder `Linux` or rename it to `Linux`, depending on your adventurism level.
-*   Reboot and Ubuntu should boot up.
+* Install Ubuntu (or any other operating system you like).
+* After the installation reboot into the Live-CD or USB-stick that you installed the system from.
+* Mount your EFI partition (let's assume it's mounted at /media/EFI).
+* Go into /media/EFI/EFI and `ls -al` the contents of the directory.
+* You should see a directory named `ubuntu`. Either copy it to the folder `Linux` or rename it to `Linux`, depending on your adventurism level.
+* Reboot and Ubuntu should boot up.
 
 I wonder why this is not something that Ubuntu could somehow do itself on a new installation.
 

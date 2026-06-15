@@ -24,9 +24,9 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
 * **Focus:** The focus thing stays a point of work ;) I still tend to find distraction in issues and ideas. But at least I could put those ideas to good work this month.
 * **Header tags and social media tags:** For a while now I was working on a module that creates all the header tags a website could possibly need. After some cleaning up and fine tuning it's finally ready to be released as a proper module. In it's wake we have two other modules that take care of "everything social" and "everything image" on my websites.
-* **kollitsch.de(v):** Adding a V to the DE! Long story short: People kept asking me why I am writing English on a weblog in a .de-domain. It appears ;) that being German is not a reason enough for this and clearly having a German domain name will probably make "easy" SEO harder. No target audience in Germany and no target language with German. So I bit in the sour cherry and decided to donate a _v_ to the _de_.
+* **kollitsch.de(v):** Adding a V to the DE! Long story short: People kept asking me why I am writing English on a weblog in a .de-domain. It appears ;) that being German is not a reason enough for this and clearly having a German domain name will probably make "easy" SEO harder. No target audience in Germany and no target language with German. So I bit in the sour cherry and decided to donate a *v* to the *de*.
 
-  I also got out the screwdriver and moved to a _Cloudflare to Netlify_ based hosting setup, which results in a very much speedier delivery of the pages.
+  I also got out the screwdriver and moved to a *Cloudflare to Netlify* based hosting setup, which results in a very much speedier delivery of the pages.
 
   All .de links are properly forwarded to their .dev equivalents and the juice should flow in the proper direction.
 
@@ -56,7 +56,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
   So I started to check what other SSG's are out there and currently am trying out several of them.
 
-  I stopped responding and helping on the GoHugo forum for about 4 weeks now. The initial withdrawal symptoms are gone. There were two or three posts that resulted in really _wrong_ answers and discussions that I would have _really_ liked to put right, because the people that asked these questions deserved a proper solution, but I withheld myself from them too.
+  I stopped responding and helping on the GoHugo forum for about 4 weeks now. The initial withdrawal symptoms are gone. There were two or three posts that resulted in really *wrong* answers and discussions that I would have *really* liked to put right, because the people that asked these questions deserved a proper solution, but I withheld myself from them too.
 
   Well. Bye, [forum](https://discourse.gohugo.io/).
 

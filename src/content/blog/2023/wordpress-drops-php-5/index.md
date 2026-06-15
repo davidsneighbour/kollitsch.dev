@@ -29,15 +29,15 @@ PHP 5.6, the final version of PHP 5, reached the end of its lifecycle on Decembe
 
 According to the [PHP usage stats as of July 2023](https://wordpress.org/about/stats/) from WordPress:
 
-*   PHP 8.2: 2.11%
-*   PHP 8.1: 9.37%
-*   PHP 8.0: 14.05%
-*   PHP 7.4: 51.13%
-*   PHP 7.3: 7.92%
-*   PHP 7.2: 6.29%
-*   PHP 7.1: 1.38%
-*   PHP 7.0: 2.05%
-*   PHP 5.6: 3.93%
+* PHP 8.2: 2.11%
+* PHP 8.1: 9.37%
+* PHP 8.0: 14.05%
+* PHP 7.4: 51.13%
+* PHP 7.3: 7.92%
+* PHP 7.2: 6.29%
+* PHP 7.1: 1.38%
+* PHP 7.0: 2.05%
+* PHP 5.6: 3.93%
 
 Updating or maintaining up-to-date WordPress installations remains a major challenge for users even after 20 years. A staggering 75% of all installations are running on outdated PHP versions.
 

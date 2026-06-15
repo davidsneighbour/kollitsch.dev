@@ -45,7 +45,7 @@ This is quite inconvenient, because we have to remember to add the `--save-exact
 npm config set save-exact=true
 ```
 
-This adds `save-exact=true` to your `.npmrc` and will make npm _always_ use exact versions any time we use `npm`.
+This adds `save-exact=true` to your `.npmrc` and will make npm *always* use exact versions any time we use `npm`.
 
 To verify that the setting has been applied, we run:
 

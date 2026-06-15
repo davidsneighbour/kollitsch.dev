@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.9.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.9.0...v3001.9.1) (2026-06-15)
+
+### Build
+
+* **deps:** update dependencies ([1c64ca6](https://github.com/davidsneighbour/kollitsch.dev/commit/1c64ca671413e4ff0c2bfd8fe19977daf5356d3a))
+
 ## [3001.9.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.8.1...v3001.9.0) (2026-06-15)
 
 ### Feat

@@ -39,8 +39,17 @@ describe('NavItem component', () => {
   it('uses named Tailwind group for dropdown state management', async () => {
     await load();
     expect(src).toContain('group/navitem');
-    expect(src).toContain('group-[.open]/navitem:block');
+    // submenu is always visible on mobile (block), hidden then shown on desktop
+    expect(src).toContain('md:group-[.open]/navitem:block');
     expect(src).toContain('md:group-hover/navitem:block');
+  });
+
+  it('hides the chevron toggle on mobile and shows submenu inline', async () => {
+    await load();
+    // chevron is desktop-only; mobile shows submenu flat
+    expect(src).toContain('hidden md:inline-flex');
+    // submenu starts visible on mobile, hidden on desktop until hover/open
+    expect(src).toContain('block pl-4 md:hidden');
   });
 
   it('registers dropdown toggles and dismiss handler on astro:page-load', async () => {

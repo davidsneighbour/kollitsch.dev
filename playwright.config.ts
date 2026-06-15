@@ -97,10 +97,11 @@ export default defineConfig({
 
   webServer: {
     command: 'npm run dev -- --host 127.0.0.1 --port 4321',
+    ignoreHTTPSErrors: true,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     url: 'https://localhost:4321/',
   },
   timeout: 60_000,
-  workers: process.env.CI ? 1 : 2,
+  workers: process.env.CI ? 1 : undefined,
 });

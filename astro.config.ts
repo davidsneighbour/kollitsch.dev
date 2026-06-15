@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { remarkKbdNested } from 'remark-kbd-nested';
 import { defineConfig, fontProviders } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
@@ -132,6 +133,7 @@ export default defineConfig({
   }),
     mdx()],
   markdown: {
+    remarkPlugins: [remarkKbdNested],
     shikiConfig: {
       themes: { dark: 'dark-plus', light: 'github-light' },
       wrap: true,

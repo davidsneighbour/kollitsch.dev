@@ -19,6 +19,7 @@
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",
     "js-yaml": "4.2.0",
+    "remark-kbd-nested": "0.6.1",
     "tailwindcss": "4.3.1",
     "tsx": "4.22.4",
     "vite-plugin-devtools-json": "1.0.0",

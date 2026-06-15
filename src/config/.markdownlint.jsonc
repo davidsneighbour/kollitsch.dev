@@ -43,12 +43,9 @@
     "allowed_elements": [
       "lite-youtube",
       "color-grid",
-      "date-diff",
-      "kbd"
+      "date-diff"
     ],
-    "table_allowed_elements": [
-      "kbd"
-    ]
+    "table_allowed_elements": []
   },
   // use consistent rule markers (`---`)
   "MD035": {

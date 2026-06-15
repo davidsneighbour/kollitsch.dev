@@ -108,6 +108,7 @@
     "png-to-ico": "3.0.1",
     "postcss-html": "1.8.1",
     "release-it": "20.2.0",
+    "remark-kbd-nested": "0.6.1",
     "resend": "6.12.4",
     "satori": "0.26.0",
     "satori-html": "0.3.2",

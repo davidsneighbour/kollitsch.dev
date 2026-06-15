@@ -21,7 +21,7 @@ The workspace uses a three-file pipeline to keep VS Code settings reproducible w
 
 The script performs a deep merge:
 
-* Plain objects are merged recursively — keys from `local` are added to or override matching keys from `base`.
+* Plain objects are merged recursively: keys from `local` are added to or override matching keys from `base`.
 * All other values (strings, numbers, booleans, arrays) from `local` replace the `base` value.
 * Keys present only in `base` are kept as-is.
 * Keys present only in `local` are added to the output.
@@ -47,7 +47,7 @@ In practice: `local` wins on every leaf key that appears in both files. Array va
 * Plugin enable/disable flags (`stylelint.enable`, `css.validate: false`).
 * File associations and nesting patterns.
 * Editor behaviour that should be consistent across machines (`editor.formatOnSave`, `editor.codeActionsOnSave`).
-* Project-wide color theme (`peacock.color`) — the color identifies this workspace.
+* Project-wide color theme (`peacock.color`): the color identifies this workspace.
 
 **Put in `settings.local.jsonc`:**
 

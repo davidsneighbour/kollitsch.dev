@@ -1,5 +1,19 @@
 # Changelog
 
+## [3001.8.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.8.0...v3001.8.1) (2026-06-15)
+
+### Docs
+
+* restructure workspace documentation ([3e810b4](https://github.com/davidsneighbour/kollitsch.dev/commit/3e810b43e572e5e3c3fffa5a357639f2f398ae27))
+
+### Build
+
+* **fix:** update package configuration ([a3cce0e](https://github.com/davidsneighbour/kollitsch.dev/commit/a3cce0ebbf6026f18a6a54d15dedec04fbb7e1f1))
+
+### Chore
+
+* **packages:** replace local generate/update scripts with @davidsneighbour/nanny ([15d2e24](https://github.com/davidsneighbour/kollitsch.dev/commit/15d2e24b945432abea8e3ba0c8f3390bf360e2ee))
+
 ## [3001.8.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.7.1...v3001.8.0) (2026-06-15)
 
 ### Feat

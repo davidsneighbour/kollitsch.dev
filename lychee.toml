@@ -1,0 +1,3 @@
+# Resolve root-relative links (e.g. /tags/foo/) against the live site.
+# Without this, lychee cannot resolve them from local files.
+base_url = "https://kollitsch.dev"

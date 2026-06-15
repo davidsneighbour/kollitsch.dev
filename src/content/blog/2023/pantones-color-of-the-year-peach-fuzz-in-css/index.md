@@ -30,7 +30,7 @@ Pantone color codes are unsuitable for web design because they are designed for 
 
 When RGB or HEX values are preferred for consistent color representation online then the nearest equivalents for Peach Fuzz are the following values:
 
-| Mode  | Value |
+| Mode | Value |
 | --- | --- |
 | Hex | #ffbe98 |
 | RGB | 255, 190, 152 |

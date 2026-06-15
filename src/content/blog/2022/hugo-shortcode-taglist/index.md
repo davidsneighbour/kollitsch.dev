@@ -48,7 +48,7 @@ I needed a Hugo shortcode to show a list of posts that belonged to a [certain](/
 The available parameters for this shortcode are:
 
 | param | type | description |
-|:-----:|:----:|:-----------|
+| :---: | :---: | :--- |
 | title | string | title of the list output, will be put inside of h3 tags |
 | tag | string | tag name whose items are to be shown |
 | limit | int | number of items to show, `-1` for all |

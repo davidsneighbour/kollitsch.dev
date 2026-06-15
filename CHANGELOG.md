@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.10.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.9.1...v3001.10.0) (2026-06-15)
+
+### Feat
+
+* **release:** add release:forced and no-release hint ([#1705](https://github.com/davidsneighbour/kollitsch.dev/issues/1705)) ([d1ac133](https://github.com/davidsneighbour/kollitsch.dev/commit/d1ac133a0e2e02ddac7d1853f00ada42a57e5bfe))
+
 ## [3001.9.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.9.0...v3001.9.1) (2026-06-15)
 
 ### Build

@@ -1,5 +1,32 @@
 # Changelog
 
+## [3001.9.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.8.1...v3001.9.0) (2026-06-15)
+
+### Feat
+
+* **dev:** enable HTTPS on dev server via @vitejs/plugin-basic-ssl ([554e389](https://github.com/davidsneighbour/kollitsch.dev/commit/554e38941fb0654c7f4beff279529c3db9e6ff30))
+* **markdown:** add remark-kbd-nested plugin; migrate <kbd> posts to ||key|| syntax ([d75bde3](https://github.com/davidsneighbour/kollitsch.dev/commit/d75bde354b7bb7c0406d62b510a304cdc1a390f3))
+
+### Fix
+
+* **content:** auto-fix MD004, MD030, MD049 style violations across blog content ([025ad17](https://github.com/davidsneighbour/kollitsch.dev/commit/025ad17fa7f9690536e9e5a71078372df838ebbf)), closes [#1670](https://github.com/davidsneighbour/kollitsch.dev/issues/1670) [#1673](https://github.com/davidsneighbour/kollitsch.dev/issues/1673)
+* **content:** fix all MD060 table column style violations ([b4b1f0e](https://github.com/davidsneighbour/kollitsch.dev/commit/b4b1f0e9e10ed8a21d1020a0efb85d96baec484a))
+* **tests:** add webServer.ignoreHTTPSErrors for self-signed HTTPS cert ([#1703](https://github.com/davidsneighbour/kollitsch.dev/issues/1703)) ([838fe7e](https://github.com/davidsneighbour/kollitsch.dev/commit/838fe7ec3b5a1492e7deff219f8c5ba43c362ca7))
+
+### Docs
+
+* **agents:** reference issue-handling instructions and clean up resolved TODO items ([f7252d8](https://github.com/davidsneighbour/kollitsch.dev/commit/f7252d8292776cd560dad5b6a95b343306cdde2c)), closes [#1674](https://github.com/davidsneighbour/kollitsch.dev/issues/1674)
+* **claude:** integrate System Map from TODO.md into CLAUDE.md architecture section ([c03c53d](https://github.com/davidsneighbour/kollitsch.dev/commit/c03c53dbdb0ba99ccc863ce1d76529ae12d98162)), closes [#1675](https://github.com/davidsneighbour/kollitsch.dev/issues/1675)
+* **fix:** remove done things from TODO.md ([60ba632](https://github.com/davidsneighbour/kollitsch.dev/commit/60ba632684b21264ad97d0e955ca12a445a7d70a))
+* **todo:** compact recommended changes to issue references ([a6811bf](https://github.com/davidsneighbour/kollitsch.dev/commit/a6811bfa7dd2315279320976cb3a6ff3eed30e80)), closes [#1660](https://github.com/davidsneighbour/kollitsch.dev/issues/1660) [#1661](https://github.com/davidsneighbour/kollitsch.dev/issues/1661) [#1662](https://github.com/davidsneighbour/kollitsch.dev/issues/1662) [#1666](https://github.com/davidsneighbour/kollitsch.dev/issues/1666) [#1667](https://github.com/davidsneighbour/kollitsch.dev/issues/1667) [#1668](https://github.com/davidsneighbour/kollitsch.dev/issues/1668) [#1669](https://github.com/davidsneighbour/kollitsch.dev/issues/1669) [#1670](https://github.com/davidsneighbour/kollitsch.dev/issues/1670) [#1671](https://github.com/davidsneighbour/kollitsch.dev/issues/1671) [#1672](https://github.com/davidsneighbour/kollitsch.dev/issues/1672) [#1677](https://github.com/davidsneighbour/kollitsch.dev/issues/1677) [#1679](https://github.com/davidsneighbour/kollitsch.dev/issues/1679) [#1680](https://github.com/davidsneighbour/kollitsch.dev/issues/1680) [#1684](https://github.com/davidsneighbour/kollitsch.dev/issues/1684) [#1685](https://github.com/davidsneighbour/kollitsch.dev/issues/1685)
+* **todo:** convert Findings sections to GitHub issue references ([a6edf72](https://github.com/davidsneighbour/kollitsch.dev/commit/a6edf72ca43b26b420a364d20fbe68037f26474d)), closes [#1676](https://github.com/davidsneighbour/kollitsch.dev/issues/1676) [#1677](https://github.com/davidsneighbour/kollitsch.dev/issues/1677) [#1678](https://github.com/davidsneighbour/kollitsch.dev/issues/1678) [#1679](https://github.com/davidsneighbour/kollitsch.dev/issues/1679) [#1680](https://github.com/davidsneighbour/kollitsch.dev/issues/1680) [#1681](https://github.com/davidsneighbour/kollitsch.dev/issues/1681) [#1682](https://github.com/davidsneighbour/kollitsch.dev/issues/1682) [#1683](https://github.com/davidsneighbour/kollitsch.dev/issues/1683) [#1678](https://github.com/davidsneighbour/kollitsch.dev/issues/1678)
+* **todo:** move deferred ideas to GitHub issues ([5722cba](https://github.com/davidsneighbour/kollitsch.dev/commit/5722cbaf2f9ca76b77bd41d886e01d5318588377)), closes [#1702](https://github.com/davidsneighbour/kollitsch.dev/issues/1702) [#1678](https://github.com/davidsneighbour/kollitsch.dev/issues/1678) [#1681](https://github.com/davidsneighbour/kollitsch.dev/issues/1681)
+
+### Chore
+
+* **config:** consolidate lychee config into repo root lychee.toml ([db12c06](https://github.com/davidsneighbour/kollitsch.dev/commit/db12c065234f00dec2cb7d1c5a6b4768c1b804ed))
+* **repo:** add AI issue-handling instructions to version control ([4bb4014](https://github.com/davidsneighbour/kollitsch.dev/commit/4bb401490b16fbb9841e93256ea339dccbf5301e)), closes [#1665](https://github.com/davidsneighbour/kollitsch.dev/issues/1665)
+
 ## [3001.8.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.8.0...v3001.8.1) (2026-06-15)
 
 ### Docs

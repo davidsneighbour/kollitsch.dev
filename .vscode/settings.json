@@ -1,0 +1,128 @@
+{
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "accessibility.openChatEditedFiles": true,
+  "astro.content-intellisense": true,
+  "astro.updateImportsOnFileMove.enabled": true,
+  "biome.configurationPath": "biome.jsonc",
+  "biome.requireConfiguration": true,
+  "chat.instructionsFilesLocations": {
+    "ai/instructions": true
+  },
+  "chat.tools.terminal.autoApprove": {
+    "npx astro": true
+  },
+  "cSpell.words": [
+    "wireit"
+  ],
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.markdownlint": "always"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    ".env": ".env*",
+    "*.astro": "$(capture).test.ts, $(capture).md",
+    "*.json": "$(capture).schema.json, $(capture).test.ts",
+    "package.json": ".lychee*, .commitlint*, .editorconfig*, .fixpack*, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json, .release-it.ts,.remarkrc.js, typedoc.json",
+    "playwright.config.ts": "playwright.*.ts",
+    "README.md": "AGENTS.md, SECURITY.md, LICENSE.md, PROJECT.md, CLAUDE.md, TODO.md, DESIGN.md",
+    "settings.json": "settings.*.jsonc",
+    "shared-config.ts": "shared-config*",
+    "astro.config.ts": "components.json"
+  },
+  "files.associations": {
+    "**/*.astro": "astro",
+    "**/*.css": "tailwindcss"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.autoSaveDelay": 1000,
+  "files.autoSaveWhenNoErrors": false,
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "indentRainbow.indicatorStyle": "light",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "less.validate": false,
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "markdownlint.configFile": "src/config/.markdownlint.jsonc",
+  "peacock.color": "#c10007",
+  "scss.validate": false,
+  "search.exclude": {
+    "scratch.md": true,
+    "scratch/**": true
+  },
+  "stylelint.configFile": "./src/config/stylelint/index.js",
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "less",
+    "astro"
+  ],
+  "svg.preview.background": "black",
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "classes"
+  ],
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.hg/**",
+    "**/.svn/**",
+    "**/dist/**",
+    "**/.wireit/**",
+    "**/.astro/**"
+  ],
+  "todo-tree.general.automaticGitRefreshInterval": 300,
+  "todo-tree.general.debug": true,
+  "todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",
+  "todo-tree.general.showActivityBarBadge": false,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.statusBar": "total",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "@todo"
+  ],
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.tree.scanMode": "workspace only",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "vale.enableSpellcheck": true,
+  "vale.valeCLI.config": "src/config/.vale.ini",
+  "vale.valeCLI.installVale": true,
+  "vale.valeCLI.minAlertLevel": "error",
+  "vale.valeCLI.syncOnStartup": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#f40009",
+    "activityBar.background": "#f40009",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#08df00",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#f40009",
+    "statusBar.background": "#c10007",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#f40009",
+    "statusBarItem.remoteBackground": "#c10007",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#c10007",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#c1000799",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  }
+}

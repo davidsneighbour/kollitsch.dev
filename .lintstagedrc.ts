@@ -3,9 +3,14 @@
  * @type {import('lint-staged').Configuration}
  */
 export default {
-  // settings.json is gitignored (generated), so lint-staged cannot watch it
-  // directly. Audit whenever either source file is staged instead: this catches
-  // "source edited but vscode:sync not re-run before commit" (exit 3 = drift).
+  // Audit when settings.json is staged (VS Code or an extension wrote to it
+  // directly). Exit 3 if the file has keys/values not in base or local — the
+  // developer must carry those back to the right source file before committing.
+  '.vscode/settings.json': () =>
+    'node src/scripts/vscode/merge-vscode-config.ts --audit',
+
+  // Audit when either source file is staged: catches "source edited but
+  // vscode:sync not re-run" — settings.json would be out of date.
   '.vscode/settings.{base,local}.jsonc': () =>
     'node src/scripts/vscode/merge-vscode-config.ts --audit',
 

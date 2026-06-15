@@ -10,24 +10,19 @@ The most material open problems are content lint errors and missing test coverag
 
 ### Medium
 
-* `npm audit` reports 45 vulnerabilities (3 low, 16 moderate, 26 high), almost all transitive: `yaml` via `@astrojs/check` toolchain, `uuid`/`tempfile` via `@davidsneighbour/imagemin-lint-staged`. None are in production runtime code paths.
-* Duplicated helpers in `src/utils/content.ts`: `getVSCodeLink` and `getVSCodeURL` (lines 537–557) are byte-identical. Both use string concatenation (`projectRoot + relativePath`) rather than `path.join`, and re-import `node:path`/`node:url` mid-file.
-* `@ts-ignore` in `src/utils/content.ts:402` suppresses a non-null narrowing that could be expressed type-safely. Additional `@ts-ignore` clusters in `src/components/features/comments/Giscus.astro` and `src/utils/tags.ts`.
+* [#1676](https://github.com/davidsneighbour/kollitsch.dev/issues/1676) — `npm audit` reports 45 vulnerabilities (3 low, 16 moderate, 26 high), all transitive dev-toolchain deps.
+* [#1677](https://github.com/davidsneighbour/kollitsch.dev/issues/1677) — Duplicate `getVSCodeLink` / `getVSCodeURL` in `src/utils/content.ts`; both use string concat instead of `path.join`.
+* [#1678](https://github.com/davidsneighbour/kollitsch.dev/issues/1678) — `@ts-ignore` suppressions in `src/utils/content.ts:405` and `src/components/features/comments/Giscus.astro` (10×).
 
 ### Low
 
-* `.nvmrc` pins `25` but the local toolchain is `v26.3.0`. CI reads `.nvmrc` so CI is consistent; `screenshot.yml` hardcodes `node-version: 25` instead of `node-version-file: .nvmrc`.
-* Playwright `webServer` launches `npm run dev` (served over HTTPS per project setup) while `baseURL` and `webServer.url` use `http://localhost:4321`. The scheme mismatch can cause connection failures depending on how `astro dev` binds.
-* Fourteen `src/utils/*.ts` modules have no co-located test, including `opengraph.ts`, `tags.ts`, and `schema.ts` (the latter two feed `content.config.ts`): `content.pure.ts`, `datetime.ts`, `feed-og-image.ts`, `helpers.ts`, `icon-names.ts`, `image-index.ts`, `logger.ts`, `navigation.ts`, `opengraph.ts`, `releases.ts`, `schema.ts`, `tags.ts`, `tailwind.ts`, `theme.ts`.
-* `astro.config.ts:13` imports `buildHooks` from `./src/scripts/build-hooks.ts`, but `src/scripts` is excluded from `tsconfig.json`. This works at runtime but means the integration code is outside type-checking coverage.
-* `lint:design` depends on `npx @google/design.md`, which is not installed locally; it relies on an on-demand npx fetch each run.
-* `OpenGraphImage.astro:460` has a bare `console.log("error")` inside a cleanup catch block instead of structured logging via the existing `log` instance.
+* [#1679](https://github.com/davidsneighbour/kollitsch.dev/issues/1679) — `.nvmrc` pins Node 25; local toolchain is v26.3.0; `screenshot.yml` hardcodes `node-version: 25`.
+* [#1680](https://github.com/davidsneighbour/kollitsch.dev/issues/1680) — 13 `src/utils/*.ts` modules have no co-located test (was 14; `content.pure.ts` now tested).
+* [#1681](https://github.com/davidsneighbour/kollitsch.dev/issues/1681) — `astro.config.ts` imports `build-hooks.ts` from `src/scripts/` which is excluded from `tsconfig.json`.
+* [#1682](https://github.com/davidsneighbour/kollitsch.dev/issues/1682) — `lint:design` invokes `@google/design.md` via `npx` instead of a pinned installed dep.
+* [#1683](https://github.com/davidsneighbour/kollitsch.dev/issues/1683) — `OpenGraphImage.astro:460` uses bare `console.log("error")` instead of the existing `log` instance.
 
 ## Recommended changes
-
-### 1. ~~Create the missing project.instructions.md~~: RESOLVED
-
-Project-specific instructions are now at `.vscode/instructions/project.instructions.md`. `AGENTS.md §0` updated accordingly.
 
 ### 2. Fix the failing Markdown lint gate
 

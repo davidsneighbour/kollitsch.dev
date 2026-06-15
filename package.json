@@ -274,7 +274,7 @@
       "command": "bin/hugo/lint-templates"
     },
     "lint:lychee": {
-      "command": "lychee --no-progress --config ./src/config/lychee.toml --require-https --format detailed --mode color -vv src/content/"
+      "command": "lychee --require-https src/content/"
     },
     "lint:styles": {
       "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"

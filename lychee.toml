@@ -1,3 +1,77 @@
+# @see https://lychee.cli.rs/guides/config/
+
+# DISPLAY
+################################################################################
+format = "detailed"
+mode = "emoji"
+no_progress = false
+output = ".lychee.report.md"
+host_stats = true
+
+# CACHING
+################################################################################
+cache = true
+max_cache_age = "7d"
+cache_exclude_status = "500.."
+
+# RUNTIME
+################################################################################
+threads = 2
+max_redirects = 10
+max_retries = 2
+max_concurrency = 14
+default_extension = "md"
+index_files = ["index.html"]
+
+# REQUESTS
+################################################################################
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+timeout = 20
+retry_wait_time = 2
+accept = ["200", "429"]
+insecure = false
+scheme = ["https"]
+require_https = false
+method = "get"
+fallback_extensions = ["md", "html"]
+
 # Resolve root-relative links (e.g. /tags/foo/) against the live site.
-# Without this, lychee cannot resolve them from local files.
+# Without this, lychee cannot resolve them when checking local markdown files.
 base_url = "https://kollitsch.dev"
+
+include_fragments = "anchor-only"
+min_tls = "TLSv1_2"
+
+# EXCLUSIONS
+################################################################################
+skip_missing = false
+hidden = true
+no_ignore = true
+include_verbatim = false
+glob_ignore_case = false
+
+exclude = [
+  '^https://www\.linkedin\.com', # blocks bots
+  '^https://unsplash\.com',      # blocks bots (401 after redirect)
+]
+
+exclude_path = [
+  "layouts/",
+]
+
+extensions = ["md", "txt", "html"]
+
+include = ['gist\.github\.com.*']
+
+exclude_all_private = false
+exclude_private = false
+exclude_link_local = false
+exclude_loopback = false
+
+include_mail = true
+include_wikilinks = false
+
+# HOSTS
+################################################################################
+host_concurrency = 5
+host_request_interval = "50ms"

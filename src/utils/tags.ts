@@ -80,12 +80,6 @@ export type GetTagsOptions = {
    * Optional max items to return (after sorting).
    */
   limit?: number;
-
-  /**
-   * @deprecated Use `order` instead. Kept for backward compatibility.
-   * If both are provided, `order` takes precedence.
-   */
-  sortBy?: 'count' | 'label';
 };
 
 /**
@@ -599,15 +593,7 @@ export async function getTags(
   options?: GetTagsOptions,
 ): Promise<TagListItem[]> {
   const threshold = options?.threshold ?? setup.tagThreshold ?? 2;
-  const order: TagOrder =
-    options?.order ??
-    // @ts-ignore-next-line keep 'count-desc' as default for legacy reasons, even if sortBy is missing
-    (options?.sortBy === 'label'
-      ? 'label-asc'
-      : // @ts-ignore-next-line keep 'count-desc' as default for legacy reasons, even if sortBy is missing
-        options?.sortBy === 'count'
-        ? 'count-desc'
-        : 'count-desc');
+  const order: TagOrder = options?.order ?? 'count-desc';
   const limit = options?.limit;
 
   const { byTag } = await collectTags();

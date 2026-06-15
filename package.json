@@ -70,6 +70,7 @@
     "@types/markdown-it": "14.1.2",
     "@types/node": "25.9.3",
     "@types/yargs": "17.0.35",
+    "@vitejs/plugin-basic-ssl": "2.3.0",
     "@vitest/browser-playwright": "^4",
     "@vitest/coverage-v8": "^4",
     "@vitest/ui": "^4",

@@ -25,7 +25,7 @@ npm run lint:markdown     # markdownlint on src/content/blog/**
 npm run lint:styles       # stylelint on src/styles/**
 npm run lint:secretlint   # Scan for leaked secrets
 npm run create:blog       # Interactive script to scaffold a new blog post
-npx tsx src/scripts/<file>.ts   # Run a TypeScript utility script
+node src/scripts/<file>.ts      # Run a TypeScript utility script (Node 26 strips types natively)
 ```
 
 Run a single Vitest test file:
@@ -92,14 +92,14 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 1. **Pre-build**: `npm run build:image-index` (`src/scripts/build-image-index.ts`) generates the LQIP image index.
 2. **Astro build hooks** (`src/scripts/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle: `generateFeedsIntegration` (FreshRSS-gated RSS feeds) and `pagefind` indexing on `astro:build:done`.
 3. **Build**: `astro check && astro build`—TypeScript checks run before the build.
-4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `npx tsx`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
+4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `node`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
 
 ### CI/CD and deployment
 
 * `tests.yml`—unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.
 * `lighthouse.yml`—post-deploy Lighthouse audits.
 * `screenshot.yml`—weekly homepage screenshot commit.
-* Deployed to Netlify; `netlify.toml` has an empty build command (build runs in a pre-step) and a trailing-slash 301 redirect.
+* Deployed to Netlify; `netlify.toml` has `command = ""` — this is intentional and overrides any build command set in the Netlify web UI. The build is run separately before `netlify deploy` is called.
 
 ### Key directories
 
@@ -110,7 +110,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 | `src/layouts/` | Page layouts (`Site.astro`, `ContentPage.astro`, `DefaultPage.astro`) |
 | `src/components/` | UI components, co-located with `*.test.ts` files |
 | `src/utils/` | Shared helpers (`content.ts`, `path.ts`, `youtube.ts`, etc.), co-located tests |
-| `src/scripts/` | One-off and build-time scripts, run via `npx tsx` |
+| `src/scripts/` | One-off and build-time scripts, run via `node` |
 | `src/data/` | Static JSON config (nav, site meta, theme, redirects) |
 | `src/config/` | Tool configs (biome, stylelint, cspell, secretlint, htmlvalidate) |
 | `src/styles/` | Global CSS (`theme.css`) |
@@ -132,7 +132,7 @@ Defined in `tsconfig.json`. Use these instead of relative `../..` imports:
 @contentconfig → src/content.config.ts
 ```
 
-Note: `src/scripts/` is excluded from TypeScript compilation - always run scripts with `npx tsx`, not `node`.
+Note: `src/scripts/` is excluded from TypeScript compilation (no type-checking). Run scripts with `node script.ts` — Node 26 strips types natively without flags.
 
 ## Icons
 
@@ -164,7 +164,7 @@ Rules:
 * **ESM only** - `type: "module"` in `package.json`; use `import`/`export`.
 * **Static versions** in `package.json` - no `^` or `~` ranges.
 * **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
-* **Run TS scripts** with `npx tsx`, not `node`.
+* **Run TS scripts** with `node script.ts` — Node 26 handles type stripping natively.
 * **Imports sorted** by Biome's `organizeImports` assist action.
 
 ## Git workflow

@@ -83,7 +83,7 @@ export default defineConfig({
   testIgnore: ['**/*.test.*', '**/browser/**', '**/live/**'],
 
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4321',
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'https://localhost:4321',
     colorScheme: 'dark',
     ignoreHTTPSErrors: true,
     locale: 'en-US',
@@ -99,7 +99,7 @@ export default defineConfig({
     command: 'npm run dev -- --host 127.0.0.1 --port 4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    url: 'http://localhost:4321/',
+    url: 'https://localhost:4321/',
   },
   timeout: 60_000,
   workers: process.env.CI ? 1 : 2,

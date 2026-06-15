@@ -6,23 +6,6 @@ A full read-through and validation pass of the `kollitsch.dev` Astro repository 
 
 The most material open problems are content lint errors and missing test coverage rather than functional defects. The CI gate, scrollbar tokens, vitest environment headers, and env declarations have been resolved since the initial audit.
 
-## Recommended changes
-
-All recommended changes are now tracked as GitHub issues:
-
-* **Markdown lint gate** (P2) — #1660, #1661, #1662, #1666, #1667, #1668, #1669, #1670, #1671, #1672
-* **Deduplicate VS Code link helpers** (P3) — #1677
-* **Add tests for utility modules** (P3) — #1680
-* **Update Node version pins** (P2) — #1679
-* **Fix "Tags: " rendering when no tags assigned** (P2) — #1684
-* **Fix `public/_headers` response header errors** (P3) — #1685
-
-## Questions
-
-* Running `node src/scripts/*.ts` (rather than `npx tsx`) appears intentional given Node's native TypeScript support, but it contradicts `CLAUDE.md`. Should `CLAUDE.md` be updated to reflect `node` usage, or should the scripts move to `npx tsx`?
-* Is the empty Netlify build command (`command = ""`) deliberate because the build runs in a pre-step or via the CLI deploy, and is the production build covered by any CI gate before deploy?
-* For Playwright, does `astro dev` serve plain HTTP on `4321` in CI, or should `baseURL`/`webServer.url` use `https`?
-
 ## Deferred ideas
 
 * (IDEA) Add a Markdown lint pre-commit hook (via `lint-staged`) so content style issues are caught before they accumulate.

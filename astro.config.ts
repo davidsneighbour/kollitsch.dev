@@ -9,6 +9,7 @@ import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
 import icon from 'astro-icon';
 import fg from 'fast-glob';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import redirects from './src/data/redirects.json' with { type: 'json' };
 import { buildHooks } from "./src/scripts/build-hooks.ts";
@@ -145,7 +146,7 @@ export default defineConfig({
   site: 'https://kollitsch.dev/',
   //trailingSlash: 'always',
   vite: {
-    plugins: [devtoolsJson(), tailwindcss()],
+    plugins: [basicSsl(), devtoolsJson(), tailwindcss()],
   },
   build: {
     format: 'directory',

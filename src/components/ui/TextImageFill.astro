@@ -18,6 +18,7 @@ const allowedTags = [
 
 const textImageFillSchema = z.object({
   as: z.enum(allowedTags).default("span"),
+  backgroundAttachment: z.enum(["scroll", "fixed", "local"]).default("scroll"),
   backgroundSize: z.string().min(1).default("cover"),
   classes: z.string().default(""),
   fallbackColor: z.string().min(1).default("currentColor"),
@@ -34,7 +35,7 @@ export interface Props extends TextImageFillProps {}
 
 const parsed = textImageFillSchema.parse(Astro.props);
 
-const { as, imageUrl, size, position, backgroundSize, classes, fallbackColor, tintColor, tintOpacity } = parsed;
+const { as, imageUrl, size, position, backgroundSize, backgroundAttachment, classes, fallbackColor, tintColor, tintOpacity } = parsed;
 
 const Tag: HTMLTag = as;
 
@@ -42,6 +43,7 @@ const styleParts: string[] = [
   `--text-fill-image: url("${imageUrl}")`,
   `--text-fill-position: ${position}`,
   `--text-fill-size: ${backgroundSize}`,
+  `--text-fill-attachment: ${backgroundAttachment}`,
   `--text-fill-fallback: ${fallbackColor}`,
   `--text-fill-tint-opacity: ${String(tintOpacity)}`,
 ];
@@ -67,6 +69,7 @@ const style = styleParts.join("; ");
 <style>
   .text-image-fill {
     color: var(--text-fill-fallback);
+    background-attachment: var(--text-fill-attachment, scroll);
     background-image:
       linear-gradient(
         rgb(from var(--text-fill-tint-color, transparent) r g b / var(--text-fill-tint-opacity, 0)),
@@ -82,7 +85,7 @@ const style = styleParts.join("; ");
 
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .text-image-fill {
-      color: transparent;
+      color: var(--text-fill-active-color, transparent);
     }
   }
 </style>

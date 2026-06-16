@@ -13,7 +13,7 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
 ---
 
 <header aria-label="Site title" id={siteTitleId} class="site-title-hero w-full py-6 text-center md:py-10">
-  <a href={homepageUrl} class="inline-block">
+  <a href={homepageUrl} class="site-title-link inline-block">
     <TextImageFill
       as="span"
       imageUrl="/headline.jpg"
@@ -22,6 +22,7 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
       fallbackColor="var(--color-orange-500)"
       tintColor="var(--color-red-800)"
       tintOpacity={0.1}
+      backgroundSize="100vw auto"
     >
       {setup.title}
     </TextImageFill>
@@ -30,9 +31,95 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
 
 <style>
   .site-title-hero {
+    overflow: hidden;
+    position: relative;
     animation: site-title-exit linear both;
     animation-timeline: view();
     animation-range: exit 0% exit 100%;
+  }
+
+  .site-title-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  /*
+   * Hover animation: image grows outward from the text area while the title
+   * characters morph through orange then gray before dissolving.
+   *
+   * Sequence on hover-in:
+   *   0–0.9s   text colour keyframes: transparent → orange (40%) → gray (100%)
+   *   0–0.7s   ::after clip-path expands from text region to full header
+   *   0.1s–    ::after opacity fades in
+   *   0.2s–    link opacity fades out, the greying text dissolves into the image
+   *
+   * On hover-out, the @keyframes animation is removed and the transition:color
+   * on the element smoothly returns it from gray back to transparent.
+   *
+   * Gated on (hover: hover) so touch devices are unaffected.
+   * background-size: 100vw auto on both layers keeps them pixel-matched
+   * (background-attachment: fixed would break under the scroll-driven animation).
+   */
+  @keyframes text-colour-morph {
+    0% {
+      color: transparent;
+    }
+
+    40% {
+      color: var(--color-orange-500);
+    }
+
+    100% {
+      color: var(--color-gray-400);
+    }
+  }
+
+  @media (hover: hover) {
+    .site-title-hero::after {
+      background-image: url("/headline.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100vw auto;
+      clip-path: inset(22% 8% round 48px);
+      content: "";
+      inset: 0;
+      opacity: 0%;
+      pointer-events: none;
+      position: absolute;
+      transition:
+        clip-path 0.4s ease,
+        opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .site-title-hero:hover::after {
+      clip-path: inset(0% round 0);
+      opacity: 100%;
+      transition:
+        clip-path 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        opacity 0.35s ease 0.1s;
+    }
+
+    /* On hover-out, transition from gray back to transparent */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.text-image-fill) {
+      transition: color 0.4s ease;
+    }
+
+    /* On hover-in, run the three-stop colour animation */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-hero:hover .site-title-link :global(.text-image-fill) {
+      animation: text-colour-morph 0.9s ease forwards;
+    }
+
+    .site-title-link {
+      transition: opacity 0.4s ease;
+    }
+
+    .site-title-hero:hover .site-title-link {
+      opacity: 0%;
+      transition: opacity 0.5s ease 0.2s;
+    }
   }
 
   @keyframes site-title-exit {
@@ -50,6 +137,17 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
   @media (prefers-reduced-motion: reduce) {
     .site-title-hero {
       animation: none;
+    }
+
+    .site-title-hero::after,
+    .site-title-link {
+      transition: none;
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-hero .site-title-link :global(.text-image-fill) {
+      animation: none;
+      transition: none;
     }
   }
 </style>

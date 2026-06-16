@@ -1,27 +1,27 @@
-## kollitsch.dev project architecture and agent guidance
+# kollitsch.dev project architecture and agent guidance
 
 Use these notes when working in this repository.
 
-### Project baseline
+## Project baseline
 
 This repository is the source for `kollitsch.dev`.
 
 The stack is:
 
-- Astro 5+
-- Tailwind CSS v4+
-- TypeScript with strict settings
-- ESM-only Node scripts
-- Node v24+
-- npm
-- Vitest
-- Playwright
-- Netlify
-- Markdown, remark, and markdownlint tooling
+* Astro 5+
+* Tailwind CSS v4+
+* TypeScript with strict settings
+* ESM-only Node scripts
+* Node: see `package.json` → `engines.node` for the required version
+* npm
+* Vitest
+* Playwright
+* Netlify
+* Markdown, remark, and markdownlint tooling
 
 Do not assume React is available unless a specific file proves it. Prefer Astro components, vanilla JavaScript, and progressive enhancement.
 
-### General working rules
+## General working rules
 
 Before changing behaviour:
 
@@ -36,7 +36,7 @@ Do not make unrelated refactors.
 
 Do not deploy, publish, commit, push, or delete generated assets unless explicitly asked.
 
-### Language and formatting
+## Language and formatting
 
 Use British English in prose and documentation.
 
@@ -48,7 +48,7 @@ Do not use typographic quotes.
 
 Use backticks for paths, commands, file names, package names, and identifiers.
 
-### TypeScript and Node rules
+## TypeScript and Node rules
 
 Use ESM.
 
@@ -68,7 +68,7 @@ Use npm scripts. Do not introduce another package manager.
 
 Prefer `fast-glob` over `glob`.
 
-### Astro architecture
+## Astro architecture
 
 Keep Astro-only logic separate from pure utilities.
 
@@ -78,16 +78,16 @@ When a utility is intended to be testable without the Astro runtime, keep it in 
 
 Astro collection utilities may import Astro APIs, but tests should avoid loading those modules unless the test environment is configured for them.
 
-### Styling architecture
+## Styling architecture
 
 This project uses Tailwind CSS v4.
 
 Prefer Tailwind v4-native patterns:
 
-- `@theme` for design tokens
-- `@utility` for custom utilities
-- component classes with `@apply` where appropriate
-- base layer only for true document-level defaults
+* `@theme` for design tokens
+* `@utility` for custom utilities
+* component classes with `@apply` where appropriate
+* base layer only for true document-level defaults
 
 Avoid reintroducing old Tailwind v3 assumptions.
 
@@ -97,7 +97,7 @@ Multiple `@theme` blocks are acceptable when they improve locality and readabili
 
 Keep reading typography, UI typography, content width utilities, and theme tokens aligned. Avoid duplicated magic values.
 
-### Astro scoped styles
+## Astro scoped styles
 
 Astro supports `:global()` in component styles, but generic CSS linters may flag it as an unknown pseudo-class.
 
@@ -105,18 +105,18 @@ Do not remove valid Astro syntax just to satisfy a generic CSS linter.
 
 If the linter complains about valid Astro syntax, prefer a targeted linter configuration or scoped ignore over changing working Astro code.
 
-### Content system
+## Content system
 
 Content collection code should be split between:
 
-- pure utilities that can be tested directly
-- Astro-specific collection utilities that can import Astro APIs
+* pure utilities that can be tested directly
+* Astro-specific collection utilities that can import Astro APIs
 
 Do not import `astro:content` from files used by generic Node or Vitest tests unless the test is specifically configured for Astro.
 
 Descriptions in frontmatter should follow the project’s custom length expectations, currently 110 to 160 characters where enforced.
 
-### Image and asset system
+## Image and asset system
 
 Image metadata, post images, and Open Graph images are centralised through project utilities.
 
@@ -126,22 +126,22 @@ Avoid duplicating image lookup logic in components.
 
 When adding image automation, make sure generated assets are deterministic where possible.
 
-### Scripts
+## Scripts
 
 Scripts under `src/scripts/` are expected to be ESM and TypeScript-friendly.
 
 CLI scripts should:
 
-- expose configurable options
-- validate input
-- report errors clearly
-- exit non-zero on failure
-- avoid silent failure
-- avoid destructive behaviour unless explicitly requested
+* expose configurable options
+* validate input
+* report errors clearly
+* exit non-zero on failure
+* avoid silent failure
+* avoid destructive behaviour unless explicitly requested
 
 Generated logs should go to the established project log location where applicable.
 
-### Tests
+## Tests
 
 Use Vitest for unit tests.
 
@@ -161,7 +161,7 @@ npm run lint:markdown
 
 Check `package.json` for additional project-specific validation scripts before assuming the list is complete.
 
-### GitHub Actions
+## GitHub Actions
 
 Workflows should be hardened.
 
@@ -181,7 +181,7 @@ Schedule times are UTC unless explicitly converted. For tasks requested in UTC+7
 
 Avoid workflows that commit, push, deploy, or open issues unless the user explicitly requested that behaviour.
 
-### Lighthouse and audits
+## Lighthouse and audits
 
 Lighthouse-related configuration belongs under `src/config/audits/` and should include `lighthouse` in the file name.
 
@@ -191,7 +191,7 @@ Record run duration where audits are automated.
 
 Avoid pretending to test slow networks unless the configuration actually does so.
 
-### Documentation and AI instructions
+## Documentation and AI instructions
 
 Project instructions live under `./ai/`.
 
@@ -201,20 +201,20 @@ When adding or changing reusable prompts, prefer clear names such as `project-he
 
 Instruction specificity matters. More specific instructions override broader ones, but must not weaken core AGENTS.md rules.
 
-### TODO.md audit workflow
+## TODO.md audit workflow
 
 When asked to audit the repository, create or update `TODO.md`.
 
 The audit should include:
 
-- a short repository summary
-- a system map
-- findings by priority
-- concrete recommendations
-- evidence
-- validation commands
-- unresolved questions
-- deferred ideas
+* a short repository summary
+* a system map
+* findings by priority
+* concrete recommendations
+* evidence
+* validation commands
+* unresolved questions
+* deferred ideas
 
 Do not mix speculative ideas with confirmed issues. Mark uncertainty clearly.
 

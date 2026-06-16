@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal website at [KOLLITSCH.dev*](https://kollitsch.dev) - a digital garden, blog, and web development reference. Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript. Deployed to Netlify.
 
+**Node version:** The required Node version is defined in `package.json` → `engines.node` (currently `>=26`). This is the single source of truth. `.nvmrc` mirrors it for nvm users. Even-numbered major versions (LTS) are preferred; the latest even major is always the target.
+
 RFC 2119 keywords (MUST, SHOULD, MAY, etc.) in this repository's documentation carry their standard meanings.
 
 ## Commands
@@ -25,7 +27,7 @@ npm run lint:markdown     # markdownlint on src/content/blog/**
 npm run lint:styles       # stylelint on src/styles/**
 npm run lint:secretlint   # Scan for leaked secrets
 npm run create:blog       # Interactive script to scaffold a new blog post
-node src/scripts/<file>.ts      # Run a TypeScript utility script (Node 26 strips types natively)
+node src/scripts/<file>.ts      # Run a TypeScript utility script (type stripping is native; see engines in package.json)
 ```
 
 Run a single Vitest test file:
@@ -132,7 +134,7 @@ Defined in `tsconfig.json`. Use these instead of relative `../..` imports:
 @contentconfig → src/content.config.ts
 ```
 
-Note: `src/scripts/` is excluded from TypeScript compilation (no type-checking). Run scripts with `node script.ts` — Node 26 strips types natively without flags.
+Note: `src/scripts/` is excluded from TypeScript compilation (no type-checking). Run scripts with `node script.ts` — the required Node version (see `package.json engines`) strips types natively without flags.
 
 ## Icons
 
@@ -164,7 +166,7 @@ Rules:
 * **ESM only** - `type: "module"` in `package.json`; use `import`/`export`.
 * **Static versions** in `package.json` - no `^` or `~` ranges.
 * **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
-* **Run TS scripts** with `node script.ts` — Node 26 handles type stripping natively.
+* **Run TS scripts** with `node script.ts` — the Node version in `package.json engines` handles type stripping natively (Node 26+).
 * **Imports sorted** by Biome's `organizeImports` assist action.
 
 ## Git workflow

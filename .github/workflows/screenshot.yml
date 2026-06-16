@@ -25,7 +25,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
         with:
-          node-version: 25
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
@@ -48,11 +48,9 @@ jobs:
 
           git add .github/screenshot.png
 
-          if git diff --cached --quiet; then
-            echo "No screenshot changes to commit."
-            exit 0
-          fi
+          git diff --cached --quiet && { echo "No screenshot changes to commit."; exit 0; }
 
           git commit -m "chore: update screenshot"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${REPOSITORY}.git" \
-            "HEAD:refs/heads/${REF_NAME}"
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}"
+          REMOTE="${REMOTE}@github.com/${REPOSITORY}.git"
+          git push "${REMOTE}" "HEAD:refs/heads/${REF_NAME}"

@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/davidsneighbour/kollitsch.dev.git"
   },
+  "engines": {
+    "node": ">=26"
+  },
   "type": "module",
   "devDependencies": {
     "@astrojs/check": "0.9.9",

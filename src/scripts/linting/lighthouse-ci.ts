@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// CI Lighthouse runner — runs mobile + desktop profiles and appends scores to data/lighthouse/history.json.
+// CI Lighthouse runner — runs mobile + desktop profiles, saves JSON reports, appends scores to data/lighthouse/history.json.
 // node src/scripts/linting/lighthouse-ci.ts [--url=...]
 
 import path from 'node:path';
@@ -19,7 +19,10 @@ function arg(flag: string): string | undefined {
 }
 
 const url = arg('url') ?? process.env.LH_URL ?? 'https://kollitsch.dev/';
+const outputDir = path.resolve('reports/lighthouse');
 const historyPath = path.resolve('data/lighthouse/history.json');
+
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 
 async function runProfile(profileName: string): Promise<Record<string, number>> {
   const profile = configs[profileName];
@@ -28,14 +31,23 @@ async function runProfile(profileName: string): Promise<Record<string, number>> 
   console.log(`Running ${profile.name} — ${profile.description}`);
 
   const chrome = await launch({ chromeFlags: ['--headless', '--no-sandbox', '--disable-dev-shm-usage'] });
+  let lhr: lighthouse.LH.Result;
   try {
     const result = await lighthouse(url, { port: chrome.port, output: 'json' }, buildLhConfig(profile));
     if (!result?.lhr) throw new Error('No Lighthouse result returned.');
-    return extractScores(result.lhr.categories);
+    lhr = result.lhr;
   } finally {
     await chrome.kill();
   }
+
+  const jsonPath = path.join(outputDir, `${timestamp}-${profileName}.json`);
+  await writeFile(jsonPath, JSON.stringify(lhr, null, 2));
+  console.log(`JSON  → ${jsonPath}`);
+
+  return extractScores(lhr.categories);
 }
+
+await mkdir(outputDir, { recursive: true });
 
 const mobileScores = await runProfile('mobile');
 console.log('Mobile scores:', mobileScores);

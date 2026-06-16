@@ -4,11 +4,14 @@
     "lighthouse": "13.4.0"
   },
   "scripts": {
-    "lighthouse:audit": "wireit"
+    "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
+    "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
+    "lighthouse:desktop": "node src/scripts/linting/lighthouse-audit.ts --config=desktop",
+    "lighthouse:mobile-slow4g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-slow4g",
+    "lighthouse:mobile-3g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-3g",
+    "lighthouse:desktop-cable": "node src/scripts/linting/lighthouse-audit.ts --config=desktop-cable",
   },
   "wireit": {
-    "lighthouse:audit": {
-      "command": "node src/scripts/linting/lighthouse-audit.ts"
-    }
+
   }
 }

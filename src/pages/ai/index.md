@@ -2,12 +2,13 @@
 layout: '@layouts/ContentPage.astro'
 title: "/ai"
 linktitle: ai
-description: "description"
+description: "Where I stand on AI—a personal, recursive, and still-evolving FAQ."
 date: 2026-03-21T04:00:00.000Z
+draft: true
 ---
 
 
-I am sitting on writing a longer post about AI --- it's what we tech blogger do these days and I don't want to be left out. My main issue doing so is that while I am older and (one would assume) more experienced with *the larger changes in the techno-sphere#### it's not something that I claim to fully understand and can sort into*my world#### with a quick flick of my brain or some eloquent loquacious flows of thought.
+I am sitting on writing a longer post about AI --- it's what we tech blogger do these days and I don't want to be left out. My main issue doing so is that while I am older and (one would assume) more experienced with the larger changes in the techno-sphere, it's not something that I claim to fully understand and can sort into my world with a quick flick of my brain or some eloquent loquacious flows of thought.
 
 The main purpose of this post shall be a plain, clear, and in parts verbose explanation of where I personally stand in the big war of "AI is evil" vs. "all hail to our AI overlords" so I can point people to something I already put into words when required. I'll do this as some form of an FAQ that, if you read it, will show you how recursive and un-evolved my thoughts on this topic are.
 
@@ -414,7 +415,7 @@ Take it as a personal opinion at this point in time. We shall revisit it. We sha
 
 Let's just reiterate that this convoluted catalogue of thoughts is designed to get thinking and keep thinking about what we are doing here. It's my own opinion that admittedly is still a work in progress.
 
-This whole AI thingy is developing way too fast for my ability to follow things and while the danger of not keeping up is there, the other danger is that ***it**#### is doing something that we don't realise is happening.
+This whole AI thingy is developing way too fast for my ability to follow things and while the danger of not keeping up is there, the other danger is that ***it*** is doing something that we don't realise is happening.
 
 Keep your knives in their sheaths when you are not using them, that is all I have to say about this at this point in time.
 

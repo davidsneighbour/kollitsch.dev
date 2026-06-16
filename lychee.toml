@@ -61,6 +61,10 @@ exclude = [
   # base_url resolves relative paths (./file.png) as root-level URLs; these are
   # verified by the Astro build, not by lychee
   '^https://kollitsch\.dev/[^/]+\.(png|jpg|jpeg|gif|webp|svg|avif|mp4|webm|pdf)$',
+  # lychee resolves same-page anchors (#section) against base_url without the
+  # page's own path, producing https://kollitsch.dev/#section instead of
+  # https://kollitsch.dev/page/#section — exclude these misresolved root fragments
+  '^https://kollitsch\.dev/#',
 ]
 
 exclude_path = [

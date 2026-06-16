@@ -12,7 +12,7 @@ src/config/vale/config/vocabularies/DNB
 
 # AI assistant settings
 .claude/settings*.json
-ai
+/ai
 
 # Wireit cache
 .wireit

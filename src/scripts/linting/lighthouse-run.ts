@@ -5,6 +5,7 @@
 import path from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { createInterface } from 'node:readline';
+import { spawn } from 'node:child_process';
 import process from 'node:process';
 import { launch } from 'chrome-launcher';
 import lighthouse from 'lighthouse';
@@ -84,3 +85,6 @@ console.log('\nScores:');
 for (const [cat, score] of Object.entries(scores)) {
   console.log(`  ${cat.padEnd(16)} ${score}`);
 }
+
+const opener = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start' : 'xdg-open';
+spawn(opener, [htmlPath], { detached: true, stdio: 'ignore' }).unref();

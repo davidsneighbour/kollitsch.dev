@@ -7,13 +7,6 @@ const config = createReleaseConfig({
   scopes: {
     minorTypes: ["feat", "content", "prompt", "instructions", "skill"],
   },
-  overrides: {
-    hooks: {
-      'before:git:release': [
-        'if [ -f CITATION.cff ]; then last_commit=$(git rev-parse HEAD); release_date=$(date +%F); sed -Ei "s/^commit: .*/commit: $last_commit/" CITATION.cff; sed -Ei "s/^version: .*/version: v${version}/" CITATION.cff; sed -Ei "s/^date-released: .*/date-released: $release_date/" CITATION.cff; git add CITATION.cff; fi',
-      ],
-    },
-  },
 });
 
 const changelogPlugin = (config.plugins as Record<string, Record<string, unknown>>)[

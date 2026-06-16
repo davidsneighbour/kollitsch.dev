@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "bbuild:blogroll": "node src/scripts/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/"
+    "bbuild:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/"
   }
 }

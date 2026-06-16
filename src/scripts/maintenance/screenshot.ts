@@ -6,7 +6,7 @@ import { dirname, resolve } from 'node:path';
 import { chromium, type Page } from 'playwright';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import version from '../../package.json' with { type: 'json' };
+import version from '../../../package.json' with { type: 'json' };
 
 type ScreenshotFormat = 'png' | 'jpg';
 type ColorScheme = 'light' | 'dark';

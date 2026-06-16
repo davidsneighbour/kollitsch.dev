@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "vscode:audit": "node src/scripts/vscode/merge-vscode-config.ts --audit",
-    "vscode:check": "node src/scripts/vscode/merge-vscode-config.ts --check",
-    "vscode:sync": "node src/scripts/vscode/merge-vscode-config.ts --apply",
+    "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
+    "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
+    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply",
     // add enabled extensions to the recommendations file and show overview
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode/vscode-extensions.ts --fix",
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
     "ci:check:vscode": "npm run vscode:check",
     "postinstall:vscode": "npm run vscode:sync",
   }

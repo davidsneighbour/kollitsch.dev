@@ -131,7 +131,7 @@
   "scripts": {
     "astro": "astro",
     "audit:html": "wireit",
-    "bbuild:blogroll": "node src/scripts/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
+    "bbuild:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
     "biome:check": "biome check",
     "biome:format": "biome format",
     "biome:lint": "biome check --fix",
@@ -139,16 +139,16 @@
     "biome:watch": "biome check --watch",
     "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
     "build:favicons": "node src/assets/favicon/regenerate.ts",
-    "build:image-index": "node src/scripts/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
+    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/vscode/vscode-extensions.ts --fix",
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
     "check": "astro check",
     "ci:check:vscode": "npm run vscode:check",
     "clean:astro": "wireit",
     "clean:full": "wireit",
     "clean:netlify": "wireit",
     "clean:og": "wireit",
-    "create:blog": "node src/scripts/create-blog-post.ts",
+    "create:blog": "node src/scripts/content/create-blog-post.ts",
     "deploy": "wireit",
     "dev": "astro dev",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
@@ -156,7 +156,7 @@
     "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
     "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
     "hooks:update": "simple-git-hooks",
-    "icons:sync": "node src/scripts/create-icon-types.ts",
+    "icons:sync": "node src/scripts/maintenance/create-icon-types.ts",
     "lighthouse": "bin/audit/lighthouse",
     "lighthouse:audit": "wireit",
     "lint:design": "npx @google/design.md lint DESIGN.md",
@@ -177,7 +177,7 @@
     "packages:generate": "wireit",
     "packages:update": "wireit",
     "postinstall": "run-p postinstall:*",
-    "postinstall:ai": "node src/scripts/check-ai-symlink.ts",
+    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts",
     "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
     "postinstall:icons": "npm run icons:sync",
     "postinstall:sharedconfig": "npm run prepare:sharedconfig",
@@ -196,14 +196,14 @@
     "test:e2e:ui": "npx playwright test --ui",
     "test:live": "npx playwright test --config ./playwright.live.config.ts",
     "test:postinstall": "npx playwright install",
-    "test:sitemap": "tsx src/scripts/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "test:sitemap": "tsx src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
     "test:ui": "vitest --ui",
     "update": "wireit",
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade",
-    "vscode:audit": "node src/scripts/vscode/merge-vscode-config.ts --audit",
-    "vscode:check": "node src/scripts/vscode/merge-vscode-config.ts --check",
-    "vscode:sync": "node src/scripts/vscode/merge-vscode-config.ts --apply"
+    "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
+    "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
+    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply"
   },
   "wireit": {
     "clean:full": {
@@ -274,7 +274,7 @@
       ]
     },
     "screenshot": {
-      "command": "node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png --scroll-step=500 --scroll-delay=250 --settle-ms=5000 --timeout=120000"
+      "command": "node src/scripts/maintenance/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png --scroll-step=500 --scroll-delay=250 --settle-ms=5000 --timeout=120000"
     },
     "audit:html": {
       "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
@@ -313,7 +313,7 @@
       ]
     },
     "lighthouse:audit": {
-      "command": "node src/scripts/lighthouse-audit.ts"
+      "command": "node src/scripts/linting/lighthouse-audit.ts"
     },
     "update": {
       "dependencies": [

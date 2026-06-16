@@ -1,6 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import * as z from 'zod';
-import { blogSchema } from '../content.config.ts';
+import { blogSchema } from '../../content.config.ts';
 
 async function run() {
   const jsonSchema = z.toJSONSchema(blogSchema, {

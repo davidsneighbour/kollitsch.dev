@@ -35,7 +35,7 @@
     "check": "astro check",
     "clean:astro": "wireit",
     "clean:og": "wireit",
-    "create:blog": "node src/scripts/create-blog-post.ts",
+    "create:blog": "node src/scripts/content/create-blog-post.ts",
     "dev": "astro dev",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
     "preview": "astro preview",

@@ -12,7 +12,7 @@ import fg from 'fast-glob';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import redirects from './src/data/redirects.json' with { type: 'json' };
-import { buildHooks } from "./src/scripts/build-hooks.ts";
+import { buildHooks } from "./src/scripts/build/build-hooks.ts";
 import tailwindcss from '@tailwindcss/vite';
 
 // env variables are not automatically loaded
@@ -87,7 +87,7 @@ export default defineConfig({
     responsiveStyles: true,
   },
   integrations: [
-    // see src/scripts/build-hooks.ts for build hooks
+    // see src/scripts/build/build-hooks.ts for build hooks
     ...buildHooks(),
     sitemap({
     namespaces: { image: false, news: false, video: false, xhtml: false },

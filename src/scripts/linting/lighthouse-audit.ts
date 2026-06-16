@@ -4,7 +4,7 @@ import process from 'node:process';
 import { launch as launchChrome } from 'chrome-launcher';
 import lighthouse from 'lighthouse';
 import { ReportGenerator } from 'lighthouse/report/generator/report-generator.js';
-import { defaultLighthouseRunnerConfig } from '../config/lighthouse.config.ts';
+import { defaultLighthouseRunnerConfig } from '../../config/lighthouse.config.ts';
 
 type FormFactor = 'mobile' | 'desktop';
 

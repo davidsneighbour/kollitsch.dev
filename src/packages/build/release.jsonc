@@ -37,7 +37,7 @@
       ]
     },
     "screenshot": {
-      "command": "node src/scripts/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png --scroll-step=500 --scroll-delay=250 --settle-ms=5000 --timeout=120000"
+      "command": "node src/scripts/maintenance/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png --scroll-step=500 --scroll-delay=250 --settle-ms=5000 --timeout=120000"
     }
   }
 }

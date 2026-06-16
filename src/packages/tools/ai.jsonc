@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "postinstall:ai": "node src/scripts/check-ai-symlink.ts"
+    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts"
   }
 }

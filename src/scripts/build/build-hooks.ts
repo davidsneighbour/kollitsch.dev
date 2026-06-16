@@ -53,7 +53,7 @@ function generateFeedsIntegration(): AstroIntegration {
 
                     for (const feed of feeds) {
                         await execFileAsync("node", [
-                            "./src/scripts/starred-feed.ts",
+                            "./src/scripts/build/starred-feed.ts",
                             `--label=${feed.label}`,
                             `--output=${feed.output}`,
                         ]);

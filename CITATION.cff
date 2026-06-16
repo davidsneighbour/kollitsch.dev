@@ -7,4 +7,12 @@ authors:
 title: "KOLLITSCH.dev*"
 version: v3001.6.3
 date-released: 2026-06-14
-url: "https://github.com/davidsneighbour/kollitsch.dev"
+url: "https://kollitsch.dev"
+repository-code: "https://github.com/davidsneighbour/kollitsch.dev"
+license: "MIT"
+commit: 1ff847d81f29c45a3a1a5ce73d38e45c2f319bba
+keywords:
+  - astro
+  - weblog
+  - web development
+  - developer

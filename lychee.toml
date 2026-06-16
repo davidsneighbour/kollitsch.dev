@@ -56,6 +56,7 @@ exclude = [
   '^https://www\.draeger\.com',       # HTTP/2 protocol error (server-side issue)
   '^https://www\.kickstarter\.com',   # blocks bots (403)
   '^https://www\.npmjs\.com',         # blocks bots (403)
+  '^https://thebiologist\.rsb\.org\.uk', # blocks bots (403)
   '^https://brandfetch\.com',         # blocks bots (403)
   # base_url resolves relative paths (./file.png) as root-level URLs; these are
   # verified by the Astro build, not by lychee

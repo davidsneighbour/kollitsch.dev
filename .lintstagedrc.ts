@@ -17,7 +17,7 @@ export default {
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.jsonc"',
     'vale --config src/config/.vale.ini --no-exit --minAlertLevel=error',
-    'lychee --no-progress',
+    '/home/linuxbrew/.linuxbrew/bin/lychee --no-progress',
     'typos --config src/config/typos.toml',
   ],
 

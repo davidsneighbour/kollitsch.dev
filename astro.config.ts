@@ -147,6 +147,11 @@ export default defineConfig({
   //trailingSlash: 'always',
   vite: {
     plugins: [basicSsl(), devtoolsJson(), tailwindcss()],
+    server: {
+      watch: {
+        ignored: ['**/ai/**'],
+      },
+    },
   },
   build: {
     format: 'directory',

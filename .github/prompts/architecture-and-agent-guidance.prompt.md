@@ -197,8 +197,8 @@ Avoid pretending to test slow networks unless the configuration actually does so
 
 All project-specific AI assistant files for kollitsch.dev belong in:
 
-* `.vscode/instructions/` — instruction files (`.instructions.md`) loaded automatically by AI assistants
-* `.vscode/prompts/` — reusable prompt files (`.prompt.md`) invoked on demand
+* `.vscode/instructions/`—instruction files (`.instructions.md`) loaded automatically by AI assistants
+* `.vscode/prompts/`—reusable prompt files (`.prompt.md`) invoked on demand
 
 When adding documentation, rules, or guidance specific to this project (components, conventions, workflows), always write to `.vscode/instructions/` or `.vscode/prompts/`, never to `ai/`.
 

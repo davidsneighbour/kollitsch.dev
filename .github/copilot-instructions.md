@@ -107,7 +107,7 @@ Troubleshooting (common fixes)
 AI assistant file locations
 
 * **`ai/` MUST NOT be written to.** It is a global registry shared across all projects and contains non-project-specific rules only. Do not add anything there unless the user explicitly asks.
-* Project-specific instructions belong in `.vscode/instructions/` (`.instructions.md` files, auto-loaded).
+* Project-specific instructions belong in `.vscode/instructions/` (`.instructions.md` files, loaded automatically).
 * Project-specific reusable prompts belong in `.vscode/prompts/` (`.prompt.md` files, invoked on demand).
 
 Where to look for common tasks

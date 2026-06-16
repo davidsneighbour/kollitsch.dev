@@ -1,5 +1,25 @@
 # Changelog
 
+## [3001.11.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.11.0...v3001.11.1) (2026-06-16)
+
+### Fix
+
+* **content:** correct reference links, em-dashes and style in fungus post ([891873d](https://github.com/davidsneighbour/kollitsch.dev/commit/891873d98d7e2b1a64df0c366a413e941e83ce48))
+* **lighthouse:** always write HTML report in lighthouse-audit.ts ([d10d7a6](https://github.com/davidsneighbour/kollitsch.dev/commit/d10d7a6d7375c952b86693acf57948b42464dc4d))
+* **lighthouse:** CI saves JSON reports only; manual runs save JSON+HTML ([96b96a7](https://github.com/davidsneighbour/kollitsch.dev/commit/96b96a7877b983a3579d3e6798d3e1ea4176439b))
+* **release:** pass hooks via overrides so createReleaseConfig includes them ([18ace16](https://github.com/davidsneighbour/kollitsch.dev/commit/18ace1671f6496d562c63eadc8eb2e78888f853a))
+* **release:** prefix version with v in CITATION.cff hook ([c353e66](https://github.com/davidsneighbour/kollitsch.dev/commit/c353e66e29218a18fd475f0b02ebfabd34ab4d55))
+
+### Docs
+
+* add information to CITATION.cff ([8abdc9d](https://github.com/davidsneighbour/kollitsch.dev/commit/8abdc9dbf38b06896f0107a4f4bfa0e6b9df9ef1))
+
+### Build
+
+* **deps-dev:** bump tar from 7.5.13 to 7.5.16 in the npm_and_yarn group across 1 directory ([#1711](https://github.com/davidsneighbour/kollitsch.dev/issues/1711)) ([b527337](https://github.com/davidsneighbour/kollitsch.dev/commit/b527337db51f2ac65bf9baac02645ccc6fac6897))
+* **fix:** cleanup package configurations for lighthouse testing ([808e71b](https://github.com/davidsneighbour/kollitsch.dev/commit/808e71bf92166621fb5726b8bb3eee56bd242b31))
+* **fix:** cleanup package configurations for lighthouse testing ([6421f55](https://github.com/davidsneighbour/kollitsch.dev/commit/6421f55e93fdd7526a2c3108f22ba9cb5f5f3469))
+
 ## [3001.11.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.10.1...v3001.11.0) (2026-06-16)
 
 ### Feat

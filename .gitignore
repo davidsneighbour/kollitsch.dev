@@ -41,6 +41,9 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+# Lighthouse local reports (JSON + HTML output from lighthouse:* scripts)
+reports/lighthouse/
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

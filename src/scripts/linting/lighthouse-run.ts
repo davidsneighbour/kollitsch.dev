@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-// Runs a single named Lighthouse profile.
-// node src/scripts/linting/lighthouse-audit.ts --config=<name> [--url=...] [--output-dir=...] [--save-html]
+// Interactive Lighthouse runner — shows available profiles, runs selected one with HTML output.
+// node src/scripts/linting/lighthouse-run.ts [--config=<name>] [--url=...]
 
 import path from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { createInterface } from 'node:readline';
 import process from 'node:process';
 import { launch } from 'chrome-launcher';
 import lighthouse from 'lighthouse';
@@ -17,10 +18,33 @@ function arg(flag: string): string | undefined {
   return idx !== -1 ? process.argv[idx + 1] : undefined;
 }
 
-const configName = arg('config') ?? 'mobile';
 const url = arg('url') ?? process.env.LH_URL ?? 'https://kollitsch.dev/';
-const outputDir = path.resolve(arg('output-dir') ?? 'reports/lighthouse');
-const saveHtml = process.argv.includes('--save-html');
+const outputDir = path.resolve('reports/lighthouse');
+
+const profileList = Object.values(configs);
+
+let configName = arg('config');
+
+if (!configName) {
+  console.log('\nAvailable Lighthouse profiles:\n');
+  profileList.forEach((p, i) => {
+    console.log(`  ${String(i + 1).padStart(2)}. ${p.name.padEnd(20)} ${p.description}`);
+  });
+  console.log();
+
+  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  configName = await new Promise<string>((resolve) => {
+    rl.question('Select profile (number or name): ', (answer) => {
+      rl.close();
+      resolve(answer.trim());
+    });
+  });
+
+  const byIndex = Number(configName);
+  if (!Number.isNaN(byIndex) && byIndex >= 1 && byIndex <= profileList.length) {
+    configName = profileList[byIndex - 1].name;
+  }
+}
 
 const profile = configs[configName];
 if (!profile) {
@@ -28,8 +52,11 @@ if (!profile) {
   process.exit(1);
 }
 
+console.log(`\nRunning: ${profile.name} — ${profile.description}`);
+console.log(`URL: ${url}\n`);
+
 const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-const baseName = `${timestamp}-${configName}`;
+const baseName = `${timestamp}-${profile.name}`;
 
 await mkdir(outputDir, { recursive: true });
 
@@ -48,11 +75,9 @@ const jsonPath = path.join(outputDir, `${baseName}.json`);
 await writeFile(jsonPath, JSON.stringify(lhr, null, 2));
 console.log(`JSON  → ${jsonPath}`);
 
-if (saveHtml) {
-  const htmlPath = path.join(outputDir, `${baseName}.html`);
-  await writeFile(htmlPath, ReportGenerator.generateReport(lhr, 'html'));
-  console.log(`HTML  → ${htmlPath}`);
-}
+const htmlPath = path.join(outputDir, `${baseName}.html`);
+await writeFile(htmlPath, ReportGenerator.generateReport(lhr, 'html'));
+console.log(`HTML  → ${htmlPath}`);
 
 const scores = extractScores(lhr.categories);
 console.log('\nScores:');

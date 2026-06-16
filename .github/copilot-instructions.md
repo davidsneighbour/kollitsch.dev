@@ -104,6 +104,12 @@ Troubleshooting (common fixes)
 * TypeScript helper scripts in `src/scripts/` use modern ESM/TS features: run them with `node` directly—Node 26+ handles type stripping natively without flags.
 * Biome lint output is noisy; focus on changed files and run `npm run biome:lint` to autofix formatting for your edits.
 
+AI assistant file locations
+
+* **`ai/` MUST NOT be written to.** It is a global registry shared across all projects and contains non-project-specific rules only. Do not add anything there unless the user explicitly asks.
+* Project-specific instructions belong in `.vscode/instructions/` (`.instructions.md` files, auto-loaded).
+* Project-specific reusable prompts belong in `.vscode/prompts/` (`.prompt.md` files, invoked on demand).
+
 Where to look for common tasks
 
 * Change homepage feed: `src/utils/content.ts` (`getHomepagePosts`) and the homepage layout in `src/layouts/`.

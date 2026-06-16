@@ -117,6 +117,19 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 | `src/config/` | Tool configs (biome, stylelint, cspell, secretlint, htmlvalidate) |
 | `src/styles/` | Global CSS (`theme.css`) |
 | `.frontmatter/` | Frontmatter CMS database and templates |
+| `.vscode/instructions/` | Project-specific AI assistant instructions |
+| `.vscode/prompts/` | Project-specific reusable AI prompts |
+
+### AI assistant file locations
+
+**`ai/` is a global registry shared across all projects. It MUST NOT be written to unless explicitly instructed.** It contains non-project-specific rules, skills, and instructions that apply regardless of which repository is active.
+
+All project-specific AI assistant files for kollitsch.dev belong in:
+
+* `.vscode/instructions/` — instruction files (`.instructions.md`) loaded automatically by AI assistants when working in this project
+* `.vscode/prompts/` — reusable prompt files (`.prompt.md`) invoked on demand
+
+When adding documentation, rules, or guidance that is specific to this project (components, conventions, workflows), always write to `.vscode/instructions/` or `.vscode/prompts/`, never to `ai/`.
 
 ### TypeScript path aliases
 

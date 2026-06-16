@@ -193,7 +193,14 @@ Avoid pretending to test slow networks unless the configuration actually does so
 
 ## Documentation and AI instructions
 
-Project instructions live under `./ai/`.
+**`ai/` is a global registry shared across all projects. It MUST NOT be written to unless the user explicitly asks.** It contains non-project-specific rules, skills, and instructions.
+
+All project-specific AI assistant files for kollitsch.dev belong in:
+
+* `.vscode/instructions/` — instruction files (`.instructions.md`) loaded automatically by AI assistants
+* `.vscode/prompts/` — reusable prompt files (`.prompt.md`) invoked on demand
+
+When adding documentation, rules, or guidance specific to this project (components, conventions, workflows), always write to `.vscode/instructions/` or `.vscode/prompts/`, never to `ai/`.
 
 Prompt files use frontmatter where appropriate.
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.11.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.11.1...v3001.11.2) (2026-06-16)
+
+### Build
+
+* **release:** upgrade @dnbhq/release-config to 1.1.0, remove local CITATION.cff hook ([8b88910](https://github.com/davidsneighbour/kollitsch.dev/commit/8b889100864c8c410f68f6008b1ec9ee26c16680))
+
 ## [3001.11.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.11.0...v3001.11.1) (2026-06-16)
 
 ### Fix

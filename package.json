@@ -196,14 +196,17 @@
     "test:e2e:ui": "npx playwright test --ui",
     "test:live": "npx playwright test --config ./playwright.live.config.ts",
     "test:postinstall": "npx playwright install",
-    "test:sitemap": "tsx src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
     "test:ui": "vitest --ui",
     "update": "wireit",
     "update:pre:vale": "wireit",
     "upgrade": "npx @astrojs/upgrade",
     "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
     "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
-    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply"
+    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply",
+    "lint:descriptions": "node src/scripts/linting/lint-descriptions.ts",
+    "lint:lighthouse": "wireit",
+    "lint:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000"
   },
   "wireit": {
     "clean:full": {
@@ -338,6 +341,9 @@
     },
     "update:pre:submodules": {
       "command": "git submodule update --recursive --remote"
+    },
+    "lint:lighthouse": {
+      "command": "node src/scripts/linting/lighthouse-audit.ts"
     }
   },
   "allowScripts": {

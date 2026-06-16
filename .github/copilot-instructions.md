@@ -1,6 +1,6 @@
 # Copilot instructions
 
-This repo is *kollitsch.dev* — an Astro + Tailwind + TypeScript site and digital garden. Use the notes below to act quickly and safely.
+This repo is *kollitsch.dev*—an Astro + Tailwind + TypeScript site and digital garden. Use the notes below to act quickly and safely.
 
 Core facts
 
@@ -13,31 +13,31 @@ Architecture
 * Output: Astro generates static HTML (`output: 'static'`).
 * Content: Markdown/MDX in `src/content/`, typed by `content.config.ts`. `astro:content` + `src/utils/content.ts` provide helpers (breadcrumbs, homepage feed, defaults).
 * Integrations: `src/scripts/` contains data-sync scripts (YouTube, GitHub) used by CI or run manually; they require env tokens.
-* Search: `pagefind` is configured in `astro.config.ts` and builds a client-side index at build time.
+* Search: `pagefind` is configured in `astro.config.ts` and builds a client-side search index at build time.
 * Dev server: `npm run dev` runs Vite. `astro.config.ts` registers `watchExtraFiles` to watch `src/assets/images` and `src/content/blog`; adding/removing files triggers a full reload.
 * CI: workflows build the static site and run Playwright e2e against the preview.
 
 Key commands
 
-* `npm test` — Vitest unit tests. Tests are co-located with components.
-* `npm run dev` — dev server.
-* `npm run build` / `npm run preview` — production build and preview (requires API tokens for some scripts).
-* `npm run test:e2e` — Playwright e2e (run after build).
+* `npm test`—Vitest unit tests. Tests are co-located with components.
+* `npm run dev`—dev server.
+* `npm run build` / `npm run preview`—production build and preview (requires API tokens for some scripts).
+* `npm run test:e2e`—Playwright e2e (run after build).
 * Lint/format: `npm run biome:check`, `npm run biome:lint`, `npm run prettier:check`/`fix`.
 
 Project-specific patterns
 
 * Vitest tests live next to components and must start with `// @vitest-environment node`.
-* Run TS helper scripts with `node` directly — Node 26+ strips TypeScript types natively, no transpile step needed.
+* Run TS helper scripts with `node` directly—Node 26+ strips TypeScript types natively, no transpile step needed.
 * Prefer ESM `import`/`export`.
 * Don't change trailing-comma style.
 
 Files to inspect when working on a feature
 
-* `astro.config.ts`, `package.json`, `vitest.config.js`, `playwright.config.ts` — tooling and task entrypoints.
-* `src/components/` — UI components and co-located tests.
-* `src/content/` and `content.config.ts` — content collections and frontmatter handling.
-* `src/scripts/` — project scripts; run with `node` (type stripping is native in Node 26+).
+* `astro.config.ts`, `package.json`, `vitest.config.js`, `playwright.config.ts`—tooling and task entrypoints.
+* `src/components/`—UI components and co-located tests.
+* `src/content/` and `content.config.ts`—content collections and frontmatter handling.
+* `src/scripts/`—project scripts; run with `node` (type stripping is native in Node 26+).
 
 CI and PR expectations
 
@@ -53,11 +53,11 @@ Do / Don't (short)
 
 * Do run `npm test` before opening PRs. Focus on unit tests for rapid validation.
 * Do use `node` for TS scripts (Node 26+ strips types natively) and ESM imports for code edits.
-* Don't run `npm run build` or `npm run check` in a sandboxed environment without API keys — they will fail and slow iteration.
+* Don't run `npm run build` or `npm run check` in a sandboxed environment without API keys—they will fail and slow iteration.
 
 If something is ambiguous
 
-* Point to the specific file (path + brief intent). The repo prefers concrete, small patches and co-located unit tests — include one when changing behavior.
+* Point to the specific file (path + brief intent). The repo prefers concrete, small patches and co-located unit tests—include one when changing behavior.
 
 Feedback request
 
@@ -65,10 +65,10 @@ Feedback request
 
 Integration table (scripts and required env)
 
-* `src/scripts/*youtube*.ts` or `src/scripts/youtube-*.ts` — requires `YOUTUBE_API_KEY` (set in `.env`). Without it `npm run build` or `npm run check` may fail.
-* `src/scripts/*github*.ts` — scripts that interact with releases or repo data require a GitHub token (GH_TOKEN or GITHUB_TOKEN) in CI.
-* `src/scripts/verify-sitemap.ts` — run with `node` for quick checks: `node src/scripts/verify-sitemap.ts --sitemap-index <url> --delay-ms 1000`.
-* `src/scripts/blogroll-screenshots.ts` — used by workflows to generate images; example invocation in `.github/workflows/update-blogroll.yml`.
+* `src/scripts/*youtube*.ts` or `src/scripts/youtube-*.ts`—requires `YOUTUBE_API_KEY` (set in `.env`). Without it `npm run build` or `npm run check` may fail.
+* `src/scripts/*github*.ts`—scripts that interact with releases or repo data require a GitHub token (GH_TOKEN or GITHUB_TOKEN) in CI.
+* `src/scripts/verify-sitemap.ts`—run with `node` for quick checks: `node src/scripts/verify-sitemap.ts --sitemap-index <url> --delay-ms 1000`.
+* `src/scripts/blogroll-screenshots.ts`—used by workflows to generate images; example invocation in `.github/workflows/update-blogroll.yml`.
 
 Developer quickstart (minimal)
 
@@ -94,15 +94,15 @@ CI / PR checklist (concise)
 
 Agent contract for changes (what an automated agent should include in a PR)
 
-* Inputs: list files changed, primary intent (1 sentence), env variables required to validate (e.g., `YOUTUBE_API_KEY`).
-* Outputs: tests that should pass (`npm test`) and a short smoke-check (e.g., `node src/scripts/verify-sitemap.ts` if relevant).
+* Inputs: list files changed, primary intent (1 sentence), env variables required to validate (for example, `YOUTUBE_API_KEY`).
+* Outputs: tests that should pass (`npm test`) and a short smoke-check (for example, `node src/scripts/verify-sitemap.ts` if relevant).
 * Error modes: missing API keys, permission errors from GitHub, long-running script timeouts. Add notes and fallback behavior where appropriate.
 
 Troubleshooting (common fixes)
 
 * Build or check fails referencing YouTube: set `YOUTUBE_API_KEY=fake_key_for_testing` in `.env` for local work.
-* TypeScript helper scripts in `src/scripts/` use modern ESM/TS features: run them with `node` directly — Node 26+ handles type stripping natively without flags.
-* Biome lint output is noisy; focus on changed files and run `npm run biome:lint` to auto-fix formatting for your edits.
+* TypeScript helper scripts in `src/scripts/` use modern ESM/TS features: run them with `node` directly—Node 26+ handles type stripping natively without flags.
+* Biome lint output is noisy; focus on changed files and run `npm run biome:lint` to autofix formatting for your edits.
 
 Where to look for common tasks
 

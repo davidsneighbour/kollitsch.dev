@@ -49,7 +49,4 @@ for (const file of walk('src/content')) {
   }
 }
 
-// NOTE:
-// exit 0 on purpose for now
-// flip to `process.exit(hasErrors ? 1 : 0)` once the backlog is fixed
-process.exit(0);
+process.exit(hasErrors ? 1 : 0);

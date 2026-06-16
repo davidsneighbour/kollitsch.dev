@@ -20,7 +20,6 @@ function arg(flag: string): string | undefined {
 const configName = arg('config') ?? 'mobile';
 const url = arg('url') ?? process.env.LH_URL ?? 'https://kollitsch.dev/';
 const outputDir = path.resolve(arg('output-dir') ?? 'reports/lighthouse');
-const saveHtml = process.argv.includes('--save-html');
 
 const profile = configs[configName];
 if (!profile) {
@@ -48,11 +47,9 @@ const jsonPath = path.join(outputDir, `${baseName}.json`);
 await writeFile(jsonPath, JSON.stringify(lhr, null, 2));
 console.log(`JSON  → ${jsonPath}`);
 
-if (saveHtml) {
-  const htmlPath = path.join(outputDir, `${baseName}.html`);
-  await writeFile(htmlPath, ReportGenerator.generateReport(lhr, 'html'));
-  console.log(`HTML  → ${htmlPath}`);
-}
+const htmlPath = path.join(outputDir, `${baseName}.html`);
+await writeFile(htmlPath, ReportGenerator.generateReport(lhr, 'html'));
+console.log(`HTML  → ${htmlPath}`);
 
 const scores = extractScores(lhr.categories);
 console.log('\nScores:');

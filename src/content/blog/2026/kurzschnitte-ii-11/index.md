@@ -11,10 +11,6 @@ cover:
   src: kurzschnitte.jpg
   title: Short Cuts
   type: image
-options:
-  head:
-    components:
-      - lite-youtube
 ---
 
 Welcome to another edition of my collection of opened and orphaned browser tabs that never made it to the blog or other uses.

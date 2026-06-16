@@ -41,7 +41,6 @@
   // no inline HTML elements, except for the allowed ones. in tables only the explicit allowed ones
   "MD033": {
     "allowed_elements": [
-      "lite-youtube",
       "color-grid",
       "date-diff"
     ],

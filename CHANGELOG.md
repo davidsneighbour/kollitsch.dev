@@ -1,5 +1,35 @@
 # Changelog
 
+## [3001.11.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.10.1...v3001.11.0) (2026-06-16)
+
+### Feat
+
+* **lighthouse:** add named Lighthouse profile configs ([#1710](https://github.com/davidsneighbour/kollitsch.dev/issues/1710)) ([0990f9d](https://github.com/davidsneighbour/kollitsch.dev/commit/0990f9d64b46ccc79c4de472de1ebaf16fa0ccff))
+* **lighthouse:** open HTML report in browser after local run ([553423b](https://github.com/davidsneighbour/kollitsch.dev/commit/553423ba4bad0b7b8aa6da075a40e272a1fc186f))
+* **lighthouse:** rebuild audit scripts and workflow ([71857d6](https://github.com/davidsneighbour/kollitsch.dev/commit/71857d6e28ba8c3f903527fed1fff0cc4e5ca33d))
+* **scripts:** add lint:descriptions, lint:lighthouse, lint:sitemap scripts ([#1709](https://github.com/davidsneighbour/kollitsch.dev/issues/1709)) ([2eb71bb](https://github.com/davidsneighbour/kollitsch.dev/commit/2eb71bbb4afc0630fc46b94e0289ec48ebb71c8a))
+
+### Fix
+
+* **dev:** exclude ai/ symlink from Vite file watcher ([2fa226b](https://github.com/davidsneighbour/kollitsch.dev/commit/2fa226bc8da75835cbbb74b1bc323e2d17bee256))
+* **lighthouse:** shorten long lines in workflow for yamllint ([03ad150](https://github.com/davidsneighbour/kollitsch.dev/commit/03ad150cb06894a12a0ad4bade2ba5f806b39587))
+* **scripts:** lint-descriptions exits 1 on hard errors ([#1708](https://github.com/davidsneighbour/kollitsch.dev/issues/1708)) ([2ca04b7](https://github.com/davidsneighbour/kollitsch.dev/commit/2ca04b72deee2c55a7c1175aed3ca7db3828d2bc))
+
+### Docs
+
+* **scripts:** add DOCUMENTATION.md for src/scripts ([#1709](https://github.com/davidsneighbour/kollitsch.dev/issues/1709)) ([4c2d458](https://github.com/davidsneighbour/kollitsch.dev/commit/4c2d458a6461ec6da31b0833efbeb3dc7cfe75fd))
+
+### Build
+
+* update ai symlink on postinstall ([1dcd0b6](https://github.com/davidsneighbour/kollitsch.dev/commit/1dcd0b6128c52bd6ee39ca60da8ef8fb72564e25))
+
+### Chore
+
+* **scripts:** move vendor/lite-youtube.ts to src/vendor/ ([#1709](https://github.com/davidsneighbour/kollitsch.dev/issues/1709)) ([5010881](https://github.com/davidsneighbour/kollitsch.dev/commit/50108817417f9d258645ed60acefd19022eb4917))
+* **scripts:** remove dead one-off migration scripts ([#1707](https://github.com/davidsneighbour/kollitsch.dev/issues/1707)) ([7330ec6](https://github.com/davidsneighbour/kollitsch.dev/commit/7330ec61d0fe4d850b2be46a7ee3cbd39e2516e4))
+* **scripts:** remove root-level duplicate vscode scripts ([#1706](https://github.com/davidsneighbour/kollitsch.dev/issues/1706)) ([525df6d](https://github.com/davidsneighbour/kollitsch.dev/commit/525df6d353bc611cf747c606a657f41a2c049012))
+* **scripts:** reorganise src/scripts into topic subfolders ([#1709](https://github.com/davidsneighbour/kollitsch.dev/issues/1709)) ([7bc1f19](https://github.com/davidsneighbour/kollitsch.dev/commit/7bc1f19f8d4944773fcf86d0cddd676399e92989))
+
 ## [3001.10.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.10.0...v3001.10.1) (2026-06-15)
 
 ## [3001.10.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.9.1...v3001.10.0) (2026-06-15)

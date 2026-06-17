@@ -72,7 +72,6 @@ export default defineConfig({
   redirects: redirects,
   devToolbar: {
     enabled: true,
-    placement: 'bottom-left',
   },
   experimental: {
     chromeDevtoolsWorkspace: true,

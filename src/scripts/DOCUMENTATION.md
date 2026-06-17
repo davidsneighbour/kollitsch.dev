@@ -1,6 +1,6 @@
 # src/scripts
 
-Node build and dev-tooling scripts. All are plain TypeScript and run with `node path/to/script.ts` (Node 26 strips types natively). None are part of the Astro compilation — `src/scripts/` is excluded from the main `tsconfig.json`.
+Node build and dev-tooling scripts. All are plain TypeScript and run with `node path/to/script.ts` (Node 26 strips types natively). None are part of the Astro compilation; `src/scripts/` is excluded from the main `tsconfig.json`.
 
 ---
 

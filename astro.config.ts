@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { remarkKbdNested } from 'remark-kbd-nested';
 import { defineConfig, fontProviders } from 'astro/config';
@@ -133,7 +134,9 @@ export default defineConfig({
   }),
     mdx()],
   markdown: {
-    remarkPlugins: [remarkKbdNested],
+    processor: unified({
+      remarkPlugins: [remarkKbdNested],
+    }),
     shikiConfig: {
       themes: { dark: 'dark-plus', light: 'github-light' },
       wrap: true,

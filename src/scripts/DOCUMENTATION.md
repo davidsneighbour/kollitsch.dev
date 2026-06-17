@@ -2,6 +2,26 @@
 
 Node build and dev-tooling scripts. All are plain TypeScript and run with `node path/to/script.ts` (Node 26 strips types natively). None are part of the Astro compilation — `src/scripts/` is excluded from the main `tsconfig.json`.
 
+---
+
+## Top-level
+
+| Script | What it does | npm script |
+| --- | --- | --- |
+| `webserver.ts` | Wraps `astro dev` as a managed child process and restarts it automatically when files outside Vite's normal watch scope change (see below). Also polls for a `RESTART` sentinel file in the project root every 2 s; if found, deletes it and restarts the server. This allows external tools (scripts, CI, editor tasks) to trigger a restart with `touch RESTART`. | `npm run dev:watch` |
+
+**Files watched for server restart** (beyond what Vite already tracks):
+
+* Root config files: `astro.config.ts`, `tsconfig.json`, `biome.json`, `package.json`, `.env`, `.env.*`, `tailwind.config.*`, `postcss.config.*`
+* `src/data/**/*`—JSON data files imported at Astro config load time
+* `src/config/**/*`—Tool configs not in the Vite module graph
+* `src/scripts/build/**/*`—Build-time scripts loaded at startup
+* Any new `.ts`, `.astro`, or `.css` file added anywhere in `src/` (Vite sometimes misses new-file additions)
+
+Blog content additions (`src/content/blog/`, `src/content/tags/`) are intentionally excluded—Astro handles those without a restart. `.gitignore` patterns are respected.
+
+---
+
 Scripts are organised into four topic groups:
 
 ---

@@ -1,3 +1,6 @@
+# Dev server external restart trigger (used by webserver.ts)
+/RESTART
+
 # Lychee cache
 # @todo move into a sub folder
 .lychee.report.md

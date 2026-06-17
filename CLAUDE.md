@@ -14,6 +14,7 @@ RFC 2119 keywords (MUST, SHOULD, MAY, etc.) in this repository's documentation c
 
 ```bash
 npm run dev               # Dev server at https://localhost:4321
+npm run dev:watch         # Dev server with auto-restart watcher (see src/scripts/webserver.ts)
 npm run build             # astro check + astro build (requires API tokens for some hooks)
 npm run check             # astro check only (type-check without building)
 npm run preview           # Preview production build locally
@@ -199,5 +200,5 @@ Rules:
 | Change navigation | `src/data/topnavigation.json`, `src/data/footernavigation.json` |
 | Change search/indexing | `src/scripts/integrations/pagefind.ts`, `astro.config.ts` |
 | Add a new blog post | `npm run create:blog` or create in `src/content/blog/` |
-| Change watcher behaviour (dev reload) | `astro.config.ts` → `watchExtraFiles` plugin |
+| Change dev server watcher behaviour | `src/scripts/webserver.ts` (`EXTRA_WATCH_PATTERNS`, `NEW_FILE_WATCH_DIRS`, `RESTART_POLL_INTERVAL_MS`); trigger external restart with `touch RESTART` |
 | Add a redirect | `src/data/redirects.json` |

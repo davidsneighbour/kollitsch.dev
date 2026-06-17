@@ -1,12 +1,18 @@
 // @ts-nocheck - chokidar/ignore are transitive deps without declared types here
+import { execSync } from 'node:child_process';
 import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, rmSync } from 'node:fs';
+import net from 'node:net';
 import path from 'node:path';
 import process from 'node:process';
 import { watch } from 'chokidar';
 import ignore from 'ignore';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
+
+// The dev server always binds to this port. Anything already on it is killed
+// before startup and after each managed restart to prevent port cascades.
+const DEV_PORT = 4321;
 
 // Files and directories to watch that Astro/Vite does not normally pick up.
 // Patterns are relative to the project root.
@@ -45,6 +51,51 @@ const ALWAYS_IGNORED = [
   '**/.git/**',
 ];
 
+// ─── Port utilities ──────────────────────────────────────────────────────────
+
+function isPortFree(port: number): Promise<boolean> {
+  return new Promise((resolve) => {
+    const server = net.createServer();
+    server.once('error', () => resolve(false));
+    server.once('listening', () => server.close(() => resolve(true)));
+    server.listen(port, '0.0.0.0');
+  });
+}
+
+function killPortOccupant(port: number): void {
+  // Try lsof first (available on Linux and macOS), fall back to fuser (Linux).
+  try {
+    const raw = execSync(`lsof -ti tcp:${port}`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    const pids = raw.split('\n').map(Number).filter(Boolean);
+    for (const pid of pids) {
+      try { process.kill(pid, 'SIGKILL'); } catch { /* already gone */ }
+    }
+  } catch {
+    try {
+      execSync(`fuser -k ${port}/tcp`, { stdio: 'ignore' });
+    } catch { /* nothing on that port */ }
+  }
+}
+
+async function waitForPortFree(port: number, timeoutMs = 8000): Promise<void> {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if (await isPortFree(port)) return;
+    await new Promise((r) => setTimeout(r, 150));
+  }
+  // Log and proceed rather than throwing — Astro will report its own error.
+  console.warn(`\x1b[33m[webserver]\x1b[0m Port ${port} still occupied after ${timeoutMs}ms, starting anyway...`);
+}
+
+async function claimPort(port: number): Promise<void> {
+  if (await isPortFree(port)) return;
+  console.log(`\x1b[36m[webserver]\x1b[0m Port ${port} occupied — killing occupant...`);
+  killPortOccupant(port);
+  await waitForPortFree(port);
+}
+
+// ─── Gitignore ───────────────────────────────────────────────────────────────
+
 function loadGitignore(): ReturnType<typeof ignore> {
   const ig = ignore();
   const gitignorePath = path.join(ROOT, '.gitignore');
@@ -64,6 +115,8 @@ function isIgnored(filePath: string, ig: ReturnType<typeof ignore>): boolean {
   }
 }
 
+// ─── Server lifecycle ────────────────────────────────────────────────────────
+
 let serverProcess: ReturnType<typeof spawn> | null = null;
 let restartTimer: ReturnType<typeof setTimeout> | null = null;
 let isRestarting = false;
@@ -72,7 +125,7 @@ function startServer(): void {
   if (serverProcess) return;
 
   console.log('\x1b[36m[webserver]\x1b[0m Starting Astro dev server...');
-  serverProcess = spawn('npx', ['astro', 'dev'], {
+  serverProcess = spawn('npx', ['astro', 'dev', '--port', String(DEV_PORT)], {
     cwd: ROOT,
     stdio: 'inherit',
     shell: false,
@@ -88,7 +141,7 @@ function startServer(): void {
     if (!isRestarting) {
       if (signal !== 'SIGTERM' && signal !== 'SIGINT') {
         console.log(`\x1b[33m[webserver]\x1b[0m Server exited (code ${code}, signal ${signal}), restarting...`);
-        setTimeout(startServer, 500);
+        claimPort(DEV_PORT).then(startServer);
       }
     }
   });
@@ -103,28 +156,30 @@ function doRestart(reason: string): void {
   isRestarting = true;
   console.log(`\x1b[36m[webserver]\x1b[0m Restarting: ${reason}`);
 
-  if (serverProcess) {
-    serverProcess.once('exit', () => {
-      serverProcess = null;
+  const doStart = () => {
+    claimPort(DEV_PORT).then(() => {
       isRestarting = false;
       startServer();
     });
+  };
+
+  if (serverProcess) {
+    serverProcess.once('exit', doStart);
     serverProcess.kill('SIGTERM');
     // Force-kill after 5s if it doesn't exit cleanly
     setTimeout(() => {
-      if (serverProcess) {
-        serverProcess.kill('SIGKILL');
-      }
+      if (serverProcess) serverProcess.kill('SIGKILL');
     }, 5000);
   } else {
-    isRestarting = false;
-    startServer();
+    doStart();
   }
 }
 
 function relativeLabel(filePath: string): string {
   return path.relative(ROOT, filePath);
 }
+
+// ─── RESTART file poller ─────────────────────────────────────────────────────
 
 const RESTART_FILE = path.join(ROOT, 'RESTART');
 const RESTART_POLL_INTERVAL_MS = 2000;
@@ -142,9 +197,12 @@ function startRestartFilePoller(): void {
   }, RESTART_POLL_INTERVAL_MS);
 }
 
-function main(): void {
+// ─── Main ────────────────────────────────────────────────────────────────────
+
+async function main(): Promise<void> {
   const ig = loadGitignore();
 
+  await claimPort(DEV_PORT);
   startServer();
   startRestartFilePoller();
 
@@ -153,7 +211,6 @@ function main(): void {
     persistent: true,
     ignoreInitial: true,
     ignored: ALWAYS_IGNORED,
-    // Watch for new directories too so we pick up newly created folders
     ignorePermissionErrors: true,
     awaitWriteFinish: { stabilityThreshold: 200, pollInterval: 50 },
   });

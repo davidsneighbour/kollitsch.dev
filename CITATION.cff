@@ -5,12 +5,12 @@ authors:
     given-names: "Patrick"
     orcid: "https://orcid.org/0000-0001-6250-2135"
 title: "KOLLITSCH.dev*"
-version: v3001.13.0
+version: v3001.13.1
 date-released: 2026-06-17
 url: "https://kollitsch.dev"
 repository-code: "https://github.com/davidsneighbour/kollitsch.dev"
 license: "MIT"
-commit: 8a55fe4a522b9b27562b91aa92ff7ab952c761fe
+commit: 4c5de68d1edac21ef1cdfdb2341a5a2d2c0e015f
 keywords:
   - astro
   - weblog

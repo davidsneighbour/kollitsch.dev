@@ -1,5 +1,19 @@
 # Changelog
 
+## [3001.13.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.13.0...v3001.13.1) (2026-06-17)
+
+### Fix
+
+* **build:** eliminate INCONSISTENT_IMPORT_ATTRIBUTES Vite warning ([f21f227](https://github.com/davidsneighbour/kollitsch.dev/commit/f21f227f9ebb997eee2c799b3ccb48134d5aee15))
+
+### Docs
+
+* **content:** add post cover image convention and migration prompt ([a6f97fb](https://github.com/davidsneighbour/kollitsch.dev/commit/a6f97fb53b4d027fb11ca4edd04dd7e178ae372f))
+
+### Build
+
+* **deps:** update dependencies ([4c5de68](https://github.com/davidsneighbour/kollitsch.dev/commit/4c5de68d1edac21ef1cdfdb2341a5a2d2c0e015f))
+
 ## [3001.13.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.12.0...v3001.13.0) (2026-06-17)
 
 ### Feat

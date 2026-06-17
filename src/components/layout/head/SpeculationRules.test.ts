@@ -26,9 +26,10 @@ describe('SpeculationRules component', () => {
     expect(src).toContain('is:inline');
   });
 
-  it('targets /about/ and /tags/ with immediate eagerness', async () => {
+  it('targets /about/, /blog/, and /tags/ with immediate eagerness', async () => {
     await load();
     expect(src).toContain('"/about/"');
+    expect(src).toContain('"/blog/"');
     expect(src).toContain('"/tags/"');
     expect(src).toContain('"eagerness": "immediate"');
   });

@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "date": "2026-06-17",
+    "sha": "76f6be6",
+    "url": "https://kollitsch.dev/",
+    "mobile": {
+      "performance": 83,
+      "accessibility": 89,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "desktop": {
+      "performance": 85,
+      "accessibility": 92,
+      "best-practices": 100,
+      "seo": 100
+    }
+  }
+]

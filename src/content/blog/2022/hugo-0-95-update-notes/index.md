@@ -21,11 +21,11 @@ publisher: rework
 
 [Hugo 0.95.0](https://github.com/gohugoio/hugo/releases/tag/v0.95.0) brings some really useful features (next to smaller speed increases as always) and upgrades the used [Golang version to 1.18](https://go.dev/blog/go1.18).
 
-### New feature: {{ break }} and {{ continue }}
+## New feature: {{ break }} and {{ continue }}
 
 `break` and `continue` are keywords known to developers of any programming language. It's one of the weird characteristics of Golang, that the template package still didn't have these features. With the introduction of these keywords we can now use the following syntax:
 
-#### `{{ break }}` - break out of a range (leaving it completely for all subsequent items)
+## `{{ break }}` - break out of a range (leaving it completely for all subsequent items)
 
 ```go
 {{ range $i, $p := site.RegularPages }}
@@ -40,7 +40,7 @@ publisher: rework
 {{/* after `break` out we continue here */}}
 ```
 
-#### `{{ continue }}` - leave the current loop of a range (step to the next item)
+## `{{ continue }}` - leave the current loop of a range (step to the next item)
 
 ```go
 {{ range $i, $p := site.RegularPages }}
@@ -61,7 +61,7 @@ The history of this feature in Golang 1.18 is a bit complicated, but nicely expl
 
 There is [an issue open about a problem with spaces](https://github.com/golang/go/issues/51670) in the `break` and `continue` keywords. For now keep using `{{break}}` and `{{continue}}` if you encounter errors.
 
-### Feature change: `{{ and }}` and `{{ or }}` are short-circuiting
+## Feature change: `{{ and }}` and `{{ or }}` are short-circuiting
 
 The following snippet previously did throw an error for the second part `(eq .File.Extension "html")`, if`.File` was not defined. Now it will "[short circuit](https://github.com/golang/go/issues/31103)" immediately after Golang evaluates the first part to nil then the second part is not evaluated.
 
@@ -72,10 +72,10 @@ The following snippet previously did throw an error for the second part `(eq .Fi
 
 This feature request to Golang is only three years old ;) Well… good things will take time.
 
-### Golang 1.18
+## Golang 1.18
 
 As already mentioned, [Golang 1.18](https://go.dev/blog/go1.18) was released today and promptly Hugo updated to use it. This is a major change, because it brings a lot of new features and fixes. It also makes Hugo much faster. You can find [all changes](https://github.com/gohugoio/hugo/releases/tag/v0.95.0) in the release notes.
 
-### Quick Sidenote
+## Quick Sidenote
 
 The recently introduced CLI parameter `--renderStaticToDisk` was a great way to save only static files on the drive and keep the content files in the memory. It didn't work properly though on Windows so it was subsequently removed. Expect it to be back at some point in the future. For now use `hugo server --renderToDisk` to save *all* files to the disk when you run the development server.

@@ -27,7 +27,7 @@ I recently had to debug an issue with Go(lang), that I thought was connected to 
 
 This is done by using channels of course.
 
-**Step 1: List available Go versions**
+## Step 1: List available Go versions
 
 To see a list of available Go versions, run the following command:
 
@@ -71,7 +71,7 @@ channels:
 
 This shows some info about the package and all versions that are available to install.
 
-**Step 2: Installing a specific Go version**
+## Step 2: Installing a specific Go version
 
 Once you've identified the version you want, you can install it using the `--channel` option. For example, to install Go version 1.22, use the following command:
 
@@ -81,7 +81,7 @@ sudo snap install go --channel=1.22/stable --classic
 
 The `--classic` flag allows the Snap package to access your system's files, which is required for Go. You can leave that flag out for most programs though.
 
-**Bonus step: Upgrading or downgrading Go versions**
+## Bonus step: Upgrading or downgrading Go versions
 
 Snap also makes it simple to upgrade or downgrade to a specific version of Go. If you need to downgrade or upgrade Go while having it already installed, you can do so with the following command:
 
@@ -91,7 +91,7 @@ sudo snap refresh go --channel=1.21/stable --classic
 
 This command refreshes your current Go installation to the specified version.
 
-**Upgrading to the latest stable Go version**
+## Upgrading to the latest stable Go version
 
 One last step: When I am done testing my issues, I always go back to the latest version, just to be sure to receive all future updates. This is done by refreshing to `--channel=latest`.
 

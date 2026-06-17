@@ -30,7 +30,7 @@ To install Firefox Developer Edition on Ubuntu, you need to download the latest 
 * Open the [Firefox Developer Edition download page](https://www.mozilla.org/en-US/firefox/developer/).and click on the "Firefox Developer Edition" button to download the package for your system. If you are on Ubuntu, it will be pre-selected. If you are not on Ubuntu, you are in the wrong How-To, because this one is about how to set it up on Ubuntu and Ubuntu-like systems.
 * Save the downloaded file to your preferred location on your computer.
 
-# Step 2: Install Firefox Developer Edition
+## Step 2: Install Firefox Developer Edition
 
 Once you have downloaded the Firefox Developer Edition package, you need to install it on your Ubuntu system.
 

@@ -63,7 +63,7 @@ In essence, Firefox requires a more permissive policy than other browsers when i
 
 How can we solve this issue:
 
-**Method 1: Set `default-src 'self'` instead of `default-src 'none'`**
+## Method 1: Set `default-src 'self'` instead of `default-src 'none'`
 
 One fix is to allow the loading of external resources from the same origin by modifying the `default-src` directive:
 
@@ -73,7 +73,7 @@ Content-Security-Policy: default-src 'self'; img-src 'self';
 
 This change will ensure that external SVG files hosted on your domain (such as `/images/icons.svg`) can be loaded across all browsers, including Firefox. While this is a more permissive policy, it still restricts external resource loading to the same origin, maintaining a decent level of security. If you are ok with "decent".
 
-**Method 2: Keep `default-src 'none'` and inline the SVG sprites**
+## Method 2: Keep `default-src 'none'` and inline the SVG sprites
 
 If you have a strict requirement to maintain `default-src 'none'`, you can opt to inline your SVG sprites directly in your HTML instead of loading them externally.
 
@@ -97,6 +97,6 @@ By inlining the SVG code, you eliminate the need for external files, which means
 
 I chose the second method, as I wanted to keep my CSP as restrictive as possible.
 
-**TL;DR**
+## Summary
 
 Firefox blocks external SVG sprites when using `default-src 'none'` in your CSP. Inline them in the HTML to bypass the issue.

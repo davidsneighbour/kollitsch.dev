@@ -33,9 +33,9 @@ Wouldn't it be great if it would work properly out of the box in [Ubuntu 24.04](
 
 *It doesn't.* A lot of programs I was using before stopped being installable on Ubuntu's latest LTS version. Here are my steps to get LocalWP to comply with Ubuntu.
 
-### Problem 1: Installation of LocalWP on Ubuntu 24.04 fails due to missing packages
+## Problem 1: Installation of LocalWP on Ubuntu 24.04 fails due to missing packages
 
-Trying to install the [downloaded *.deb file]() results in an error about missing packages. This happened before too, but *back then* one could run `sudo apt install -f` to fix broken packages and all was good. Under Ubuntu 24.04, this resulted in removal of the broken program, instead of installing the missing packages.
+Trying to install the downloaded `*.deb` file results in an error about missing packages. This happened before too, but *back then* one could run `sudo apt install -f` to fix broken packages and all was good. Under Ubuntu 24.04, this resulted in removal of the broken program, instead of installing the missing packages.
 
 This is due to these required packages being removed in the latest Ubuntu.
 
@@ -71,7 +71,7 @@ sudo dpkg -i libaio1_0.3.113-4_amd64.deb
 * Don't install packages you don't need, only those that throw errors when installing the LocalWP package.
 * Look out for the required version and find it in Launchpad. The versions above were the ones working in my case, but that might change depending on your local installation, system architecture, and requirements.
 
-### Problem 2: Installing older PHP versions in LocalWP fails with libssl errors
+## Problem 2: Installing older PHP versions in LocalWP fails with libssl errors
 
 ![libssl.so.1-1 missing](missing-libssl.png)
 
@@ -86,7 +86,7 @@ sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 
 After that, the setup of older PHP versions will work and you can start creating your local WordPress sites.
 
-### Problem 3: Add-ons can't be installed due to unavailability of the TEMP_DIR
+## Problem 3: Add-ons can't be installed due to unavailability of the TEMP_DIR
 
 Trying to install one of the add-ons in Local might result in the following error:
 
@@ -170,7 +170,7 @@ This way, you can set the script to your local setup.
 
 **Sidenote:** You might want to interrupt here and tell me to "just" in general set `TEMP_DIR` in my local setup to a folder in the home directory, but that is against the whole principle of not having it in there. Assume the directory is in a RAM area or on another hard drive --- moving it into a partition that in general all programs will be writing into (like `/home` directories do) will result in performance losses, which is why I prefer to set the directory only for LocalWP.
 
-### In any case: visit the Local Community forum
+## In any case: Visit the Local Community forum
 
 You can find help and tech support from the developers directly in the [Local Community](https://community.localwp.com/). If the issue did not already come up elsewhere and is already solved in one of the existing posts, then ask with as much information about your issue as possible and a helpful response will turn up very fast.
 

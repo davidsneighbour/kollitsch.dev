@@ -61,10 +61,10 @@ Here's how you can use these markers in your Markdown documents:
 > Now this could be risky, so be careful and proceed with caution.
 ```
 
-![](input.jpg)
+![Markdown source showing a CAUTION alert block with the [!CAUTION] syntax](input.jpg)
 
 These blocks automatically render with an icon and background color corresponding to their type, enhancing the visual hierarchy of the document and making critical information immediately apparent. The following is the current rendering on GitHub.com:
 
-![](header.jpg)
+![GitHub.com rendering of highlighted alert blockquotes showing CAUTION, WARNING, informational note, TIP, and IMPORTANT blocks with icons and background colors](header.jpg)
 
 For more detailed information on this feature visit the [official discussion on GitHub](https://github.com/orgs/community/discussions/16925).

@@ -39,7 +39,7 @@ sandworm-audit
 
 The output will be something like this (if you are lucky and no issues are identified):
 
-```
+```plaintext
 Sandworm 🪱
 Security and License Compliance Audit
 ✔ Built dependency graph

@@ -39,7 +39,7 @@ The following **Node.js script** automates this process by:
 * Scanning all Markdown (`.md`) files in a given folder and
 * Adding or updating `fmContentType` with a given value
 
-**How to Use the Script**
+## How to Use the Script
 
 1. Install dependencies:
 

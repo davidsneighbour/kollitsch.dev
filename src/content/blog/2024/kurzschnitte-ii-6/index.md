@@ -47,6 +47,7 @@ Welcome to the sixth edition of Kurzschnitte II. Did you know that six is the sm
 
 ## Listen
 
+<!-- markdownlint-disable-next-line MD033 -->
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/40hWUhttLF6j8feHjbF0g7" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 ## Food for thought

@@ -67,7 +67,7 @@ After a while I found, that there is a Snap package for Keybase. Trying to insta
 
 > cannot install "keybase": experimental feature disabled - test it by setting `experimental.user-daemons` to true.
 
-![](xxselection_002.png)
+![Terminal output showing snap error: cannot install keybase because the experimental user-daemons feature is disabled](xxselection_002.png)
 
 Well, I did that.
 

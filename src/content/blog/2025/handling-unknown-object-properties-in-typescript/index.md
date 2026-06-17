@@ -38,7 +38,7 @@ interface CarUnsafe {
 
 Both versions accept extra properties, but they behave very differently during usage.
 
-### Using `unknown` extra properties
+## Using `unknown` extra properties
 
 If we choose `unknown` then TypeScript will force us to narrow the type correctly:
 
@@ -57,7 +57,7 @@ if (typeof car.customFeature === 'number') {
 
 Just writing `console.log(car.customFeature);` instead of the type check will raise a type error, because TypeScript cannot be sure what type `customFeature` is. We have to check it first. This adds a layer of safety when dealing with these unknown properties.
 
-### Using `any` extra properties
+## Using `any` extra properties
 
 Choosing `any` with additional fields will keep them untyped and unpredictable, but allows for more freedom:
 

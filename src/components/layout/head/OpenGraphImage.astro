@@ -26,13 +26,12 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import setup from "@data/setup.json" with { type: "json" };
 import { Resvg } from "@resvg/resvg-js";
 import type { OpenGraphPayload } from "@utils/content.ts";
 import { formatDisplayDate } from "@utils/datetime.ts";
 import { createLogger, type Logger } from "@utils/logger.ts";
 import type { ResolveImageKeyOptions } from "@utils/opengraph.ts";
-import { resolveImageKey } from "@utils/opengraph.ts";
+import { resolveImageKey, siteAuthorName, siteDefaultImageKey, siteOgImageKey, siteTitle } from "@utils/opengraph.ts";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
 
@@ -298,11 +297,11 @@ function generateContentHash(
   imageKey: string,
 ): string {
   const base = JSON.stringify({
-    author: setup.author?.name ?? "",
+    author: siteAuthorName,
     format,
     height,
     imageKey,
-    siteTitle: setup.title ?? "",
+    siteTitle,
     title,
     v: TEMPLATE_VERSION,
     width,
@@ -381,10 +380,10 @@ function markup(
       <div style="font-family:'Exo 2',sans-serif;" tw="flex flex-col w-full h-full bg-[#09090b]/40 text-white text-xl">
         <div tw="flex flex-col flex-1 w-full p-10 text-xl">
           <h1 style="font-family:'Changa';line-height:1" tw="text-6xl text-white p-0 m-0">${title}</h1>
-          <p tw="p-0 m-0 text-xl">by ${setup.author.name}</p>
+          <p tw="p-0 m-0 text-xl">by ${siteAuthorName}</p>
         </div>
         <div tw="flex items-center justify-between w-full p-10 text-xl">
-          <p style="font-family:'Changa';line-height:1" tw="text-4xl">${setup.title}</p>
+          <p style="font-family:'Changa';line-height:1" tw="text-4xl">${siteTitle}</p>
           <p tw="text-right text-xl" style="line-height:1">${dateHtml}</p>
         </div>
       </div>
@@ -486,8 +485,8 @@ const pubDate = hasContentIdentity ? normalizeDate(image?.date) : undefined;
 const rawDisplayDate = hasContentIdentity ? normalizeDate(image?.lastModified ?? image?.date) : undefined;
 const displayDate = formatDisplayDate(rawDisplayDate);
 
-const defaultArticleImageKey = (setup.images?.default ?? "").trim();
-const ogFallbackKey = (setup.images?.opengraph ?? "").trim();
+const defaultArticleImageKey = siteDefaultImageKey;
+const ogFallbackKey = siteOgImageKey;
 
 /**
  * Resolve the cover image key for OG background.

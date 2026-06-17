@@ -6,9 +6,16 @@ import type { GetImageResult, ImageMetadata } from 'astro';
 import { createLogger } from './logger.ts';
 
 interface SetupConfig {
-  images?: { opengraph?: string };
+  title?: string;
+  author?: { name?: string };
+  images?: { opengraph?: string; default?: string };
 }
 const setup: SetupConfig = rawSetup as unknown as SetupConfig;
+
+export const siteTitle: string = setup.title ?? '';
+export const siteAuthorName: string = setup.author?.name ?? '';
+export const siteDefaultImageKey: string = (setup.images?.default ?? '').trim();
+export const siteOgImageKey: string = (setup.images?.opengraph ?? '').trim();
 
 const log = createLogger({ slug: 'opengraph' });
 

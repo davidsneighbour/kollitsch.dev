@@ -58,6 +58,13 @@ Four icon sources are registered with `astro-icon`:
 * When encountering an existing inline `<svg>`, replace it with the equivalent `<Icon>` if one exists.
 * Look up brand icons at [simpleicons.org](https://simpleicons.org) and UI icons at [lucide.dev](https://lucide.dev).
 
+## JSON imports
+
+* **Never import `.json` files directly in `.astro` frontmatter.** The Astro compiler strips `with { type: 'json' }` import attributes from compiled `.astro` modules, which causes a `INCONSISTENT_IMPORT_ATTRIBUTES` Vite/Rollup warning at build time.
+* Import JSON data through a `.ts` utility that re-exports it. The `with { type: 'json' }` attribute is preserved in `.ts` files.
+* In `.ts` files, all JSON imports **must** carry `with { type: 'json' }`: `import data from '@data/file.json' with { type: 'json' }`.
+* Never import the same JSON module twice in one file; use a local alias (`const alias = data;`) instead.
+
 ## Environment variables
 
 Required for full builds; set in `.env` (gitignored):

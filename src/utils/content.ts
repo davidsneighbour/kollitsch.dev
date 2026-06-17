@@ -1,7 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import setup from '@data/setup.json' with { type: 'json' };
-import siteinfo from '@data/setup.json' with { type: 'json' };
 import { filterDraftEntries, stripHtmlTags } from '@utils/content.pure';
 import { z } from 'astro/zod';
 import { blogSchema } from '../content.config.ts';
@@ -11,6 +10,7 @@ export type BlogPost = CollectionEntry<'blog'>;
 
 export type CoverData = BlogPost['data']['cover'];
 
+const siteinfo = setup;
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
 

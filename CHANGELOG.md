@@ -1,5 +1,20 @@
 # Changelog
 
+## [3001.13.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.12.0...v3001.13.0) (2026-06-17)
+
+### Feat
+
+* **devtools:** refactor Breakpoints bar with controls and keyboard shortcut ([9adff00](https://github.com/davidsneighbour/kollitsch.dev/commit/9adff00a42142b238d4fd092c401c2ee65812703))
+* **head:** add /blog/ to immediate speculation prerender rules ([82447f3](https://github.com/davidsneighbour/kollitsch.dev/commit/82447f3a077fbbdff5fc1ae02cbfabc5c1821efd))
+* **scripts:** add dev server wrapper with auto-restart watcher ([7106162](https://github.com/davidsneighbour/kollitsch.dev/commit/710616243b06d2dc6d226daa7283bbdaa773a6ef))
+
+### Fix
+
+* **devtoolbar:** remove placement config to fix browser console error ([d310ea5](https://github.com/davidsneighbour/kollitsch.dev/commit/d310ea50143fdca2d6e9e42b576278f03e5baa3f))
+* **markdown:** migrate to unified() processor API (Astro 6.4) ([8a55fe4](https://github.com/davidsneighbour/kollitsch.dev/commit/8a55fe4a522b9b27562b91aa92ff7ab952c761fe))
+* **scripts:** add crash-loop circuit breaker and fatal-error detection ([6034d82](https://github.com/davidsneighbour/kollitsch.dev/commit/6034d8297b15441e10b9baa6a60157613016f0f4))
+* **scripts:** prevent port cascade by claiming port 4321 before server start ([bf04d6e](https://github.com/davidsneighbour/kollitsch.dev/commit/bf04d6e05c0148954e345926fd12c61768587441))
+
 ## [3001.12.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.11.2...v3001.12.0) (2026-06-17)
 
 ### Feat

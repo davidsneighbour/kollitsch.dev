@@ -21,6 +21,7 @@ src/config/vale/config/vocabularies/DNB
 .wireit
 
 # Dynamically generated files
+public/_headers
 public/og_image/
 public/favicon.ico
 public/dnb-*.rss.xml

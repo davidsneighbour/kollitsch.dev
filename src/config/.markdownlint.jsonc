@@ -42,7 +42,8 @@
   "MD033": {
     "allowed_elements": [
       "color-grid",
-      "date-diff"
+      "date-diff",
+      "Youtube"
     ],
     "table_allowed_elements": []
   },

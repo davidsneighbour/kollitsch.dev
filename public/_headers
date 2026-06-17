@@ -1,7 +1,6 @@
 # header configuration for kollitsch.dev on Netlify
 
 /
-  Accept-Encoding: gzip, deflate, br
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
 
 /*
@@ -13,66 +12,39 @@
   Link: <https://analytics.dnbhub.xyz>; rel="preconnect"
   Link: <https://d33wubrfki0l68.cloudfront.net>; rel="preconnect"
 
-/*.html
-  Accept-Encoding: gzip, deflate, br
-
 /*.manifest
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: application/manifest+json; charset=utf-8
 
 /*.js
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: text/javascript; charset=utf-8
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /*.ico
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /*.css
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /*.jpg
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /*.jpeg
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /*.png
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /*.gif
-  Accept-Encoding: gzip, deflate, br
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
-
-/*.eot
-  Accept-Encoding: gzip, deflate, br
-
-/*.ttf
-  Accept-Encoding: gzip, deflate, br
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Sat, 30-May-2026 05:36:16 GMT+0700
 
 # headers created via data configuration from other modules
 # from kollitsch
 /feed.json
-  Accept-Encoding: gzip, deflate, br
-  Content-Type: text/javascript; charset=utf-8
+  Content-Type: application/json; charset=utf-8

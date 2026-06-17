@@ -32,11 +32,12 @@ Scripts that run as part of the Astro build pipeline or are invoked by it.
 
 | Script | What it does | npm script |
 | --- | --- | --- |
-| `build-hooks.ts` | Astro integration exported as `buildHooks()`. Registers FreshRSS feed generation on `astro:build:start` and Pagefind search indexing on `astro:build:done` plus a dev-server middleware. Imported by `astro.config.ts`. | — (imported) |
+| `build-headers.ts` | Renders `src/data/headers.ts` rule definitions into the Netlify `_headers` plain-text format and writes the result to `dist/_headers`. `Expires` is computed at call time as build-time + 1 year (RFC 1123). Called by `generateHeadersIntegration` in `build-hooks.ts`; do not call directly. | (called by build-hooks) |
+| `build-hooks.ts` | Astro integration exported as `buildHooks()`. Registers three integrations: `generateFeedsIntegration` (FreshRSS RSS feeds, `astro:build:start`), `generateHeadersIntegration` (Netlify `_headers`, `astro:build:done`), and `pagefindIntegration` (search index, `astro:build:done`) plus a dev-server middleware. Imported by `astro.config.ts`. | (imported) |
 | `build-image-index.ts` | Scans `src/assets/images/`, merges metadata from Frontmatter CMS `mediaDb.json`, and writes `src/content/_generated/image-index.json` with per-image dimensions and LQIP data URIs. | `npm run build:image-index` |
-| `build-theme.ts` | Reads `src/data/theme.json` and generates `src/styles/theme-setup.css` via `src/utils/theme.ts`. | — |
-| `starred-feed.ts` | Fetches starred/labelled items from a FreshRSS instance (Google Reader API) and writes an RSS 2.0 feed to a file or stdout. Called by `build-hooks.ts`. Requires `FRESHRSS_*` env vars. | — (called by build-hooks) |
-| `integrations/pagefind.ts` | Standalone Astro integration for Pagefind — earlier version of the inline code in `build-hooks.ts`. Not currently imported anywhere; kept for reference. | — |
+| `build-theme.ts` | Reads `src/data/theme.json` and generates `src/styles/theme-setup.css` via `src/utils/theme.ts`. | (called internally) |
+| `starred-feed.ts` | Fetches starred/labelled items from a FreshRSS instance (Google Reader API) and writes an RSS 2.0 feed to a file or stdout. Called by `build-hooks.ts`. Requires `FRESHRSS_*` env vars. | (called by build-hooks) |
+| `integrations/pagefind.ts` | Standalone Astro integration for Pagefind (earlier version of the inline code in `build-hooks.ts`). Not currently imported anywhere; kept for reference. | (unused) |
 
 ---
 
@@ -83,5 +84,5 @@ One-off and recurring tooling scripts for the dev environment and repository.
 
 ## Notes
 
-* `src/vendor/lite-youtube.ts` — TypeScript source for the `<lite-youtube>` web component (client-side, not a Node script). The compiled output lives at `public/vendor/lite-youtube-embed/lite-yt-embed.js`.
+* `src/vendor/lite-youtube.ts`: TypeScript source for the `<lite-youtube>` web component (client-side, not a Node script). The compiled output lives at `public/vendor/lite-youtube-embed/lite-yt-embed.js`.
 * `tsconfig.json` in this directory covers all `.ts` files here for editor support only (`noEmit: true`). Scripts are excluded from the main project `tsconfig.json`.

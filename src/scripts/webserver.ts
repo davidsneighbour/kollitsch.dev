@@ -51,6 +51,38 @@ const ALWAYS_IGNORED = [
   '**/.git/**',
 ];
 
+// ─── Crash-loop circuit breaker ──────────────────────────────────────────────
+
+// If the server crashes this many times within the window, stop and alert.
+const CRASH_LOOP_MAX = 5;
+const CRASH_LOOP_WINDOW_MS = 15_000;
+const recentCrashTimes: number[] = [];
+
+function recordCrash(): void {
+  const now = Date.now();
+  recentCrashTimes.push(now);
+  // Evict timestamps outside the window
+  while (recentCrashTimes.length > 0 && recentCrashTimes[0] < now - CRASH_LOOP_WINDOW_MS) {
+    recentCrashTimes.shift();
+  }
+}
+
+function isInCrashLoop(): boolean {
+  return recentCrashTimes.length >= CRASH_LOOP_MAX;
+}
+
+// ─── Desktop notifications ────────────────────────────────────────────────────
+
+function notify(title: string, body: string): void {
+  try {
+    execSync(`notify-send -u critical -t 0 ${JSON.stringify(title)} ${JSON.stringify(body)}`, {
+      stdio: 'ignore',
+    });
+  } catch {
+    // notify-send unavailable; the console message is the fallback
+  }
+}
+
 // ─── Port utilities ──────────────────────────────────────────────────────────
 
 function isPortFree(port: number): Promise<boolean> {
@@ -121,15 +153,38 @@ let serverProcess: ReturnType<typeof spawn> | null = null;
 let restartTimer: ReturnType<typeof setTimeout> | null = null;
 let isRestarting = false;
 
+// Known fatal stderr patterns that should not trigger a restart.
+const FATAL_PATTERNS: Array<{ pattern: RegExp; hint: string }> = [
+  {
+    pattern: /ENOSPC.*file watcher|System limit for number of file watchers/i,
+    hint: 'Increase the inotify limit:\n  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf\n  sudo sysctl -p',
+  },
+];
+
 function startServer(): void {
   if (serverProcess) return;
 
+  let fatalReason: string | null = null;
+
   console.log('\x1b[36m[webserver]\x1b[0m Starting Astro dev server...');
+
+  // Capture stderr so we can detect fatal errors; pipe it through so output
+  // still appears in the terminal.
   serverProcess = spawn('npx', ['astro', 'dev', '--port', String(DEV_PORT)], {
     cwd: ROOT,
-    stdio: 'inherit',
+    stdio: ['inherit', 'inherit', 'pipe'],
     shell: false,
     env: { ...process.env },
+  });
+
+  serverProcess.stderr.on('data', (chunk: Buffer) => {
+    process.stderr.write(chunk);
+    const text = chunk.toString();
+    for (const { pattern, hint } of FATAL_PATTERNS) {
+      if (pattern.test(text) && !fatalReason) {
+        fatalReason = hint;
+      }
+    }
   });
 
   serverProcess.on('error', (err) => {
@@ -138,12 +193,27 @@ function startServer(): void {
 
   serverProcess.on('exit', (code, signal) => {
     serverProcess = null;
-    if (!isRestarting) {
-      if (signal !== 'SIGTERM' && signal !== 'SIGINT') {
-        console.log(`\x1b[33m[webserver]\x1b[0m Server exited (code ${code}, signal ${signal}), restarting...`);
-        claimPort(DEV_PORT).then(startServer);
-      }
+    if (isRestarting) return;
+    if (signal === 'SIGTERM' || signal === 'SIGINT') return;
+
+    if (fatalReason) {
+      const msg = `\x1b[31m[webserver]\x1b[0m Fatal error — not restarting.\n${fatalReason}`;
+      console.error(msg);
+      notify('[webserver] Fatal error — dev server stopped', fatalReason);
+      process.exit(1);
     }
+
+    recordCrash();
+
+    if (isInCrashLoop()) {
+      const msg = `Crashed ${CRASH_LOOP_MAX} times in ${CRASH_LOOP_WINDOW_MS / 1000}s. Giving up. Restart manually with: npm run dev:watch`;
+      console.error(`\x1b[31m[webserver]\x1b[0m Crash loop detected — ${msg}`);
+      notify('[webserver] Crash loop — dev server stopped', msg);
+      process.exit(1);
+    }
+
+    console.log(`\x1b[33m[webserver]\x1b[0m Server exited (code ${code}, signal ${signal}), restarting...`);
+    claimPort(DEV_PORT).then(startServer);
   });
 }
 

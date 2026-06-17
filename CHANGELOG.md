@@ -1,5 +1,35 @@
 # Changelog
 
+## [3001.12.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.11.2...v3001.12.0) (2026-06-17)
+
+### Feat
+
+* **blog:** add post about CSS image morphing header animation ([b34e574](https://github.com/davidsneighbour/kollitsch.dev/commit/b34e574d0a602197daec84d3281432e1ed54062b))
+* **header:** add hover image morph animation to site title ([6fef5db](https://github.com/davidsneighbour/kollitsch.dev/commit/6fef5db41c3d35b66954b08e622a31d206d1e277))
+* **pages:** add /ai page as draft with personal AI FAQ ([6d7c9dd](https://github.com/davidsneighbour/kollitsch.dev/commit/6d7c9dd43609452394b51106fcc0f77d801d2453))
+
+### Fix
+
+* **content:** replace raw lite-youtube with Youtube MDX component ([4abe71f](https://github.com/davidsneighbour/kollitsch.dev/commit/4abe71f012c9de15b9f8647705ae381e3cef591a)), closes [#1660](https://github.com/davidsneighbour/kollitsch.dev/issues/1660)
+* **docs:** fix vale errors in ai-location rule additions ([35f86ba](https://github.com/davidsneighbour/kollitsch.dev/commit/35f86bad32e7dacd3860c5ec444e745a6435181c))
+* **docs:** fix vale errors in copilot-instructions (em dash spacing, e.g. usage, autofix) ([f902044](https://github.com/davidsneighbour/kollitsch.dev/commit/f902044f2969886bba44c7ee118fddca198b9272))
+* **images:** fix pixelated article cover images on desktop ([76f6be6](https://github.com/davidsneighbour/kollitsch.dev/commit/76f6be64214437423042d509efb48df2a48b4045))
+
+### Docs
+
+* **ai:** enforce ai/ write prohibition across all assistant files ([8f616ff](https://github.com/davidsneighbour/kollitsch.dev/commit/8f616ff065c16dd89ce4bb065f6498e0e65f5d26))
+* **vscode:** add YouTube embed instructions for kollitsch.dev ([be79b21](https://github.com/davidsneighbour/kollitsch.dev/commit/be79b21914b5beb8141723834c9d1681c86492f4))
+
+### Build
+
+* **deps:** bump hono from 4.12.23 to 4.12.25 in the npm_and_yarn group across 1 directory ([#1712](https://github.com/davidsneighbour/kollitsch.dev/issues/1712)) ([75df91a](https://github.com/davidsneighbour/kollitsch.dev/commit/75df91a5bea9060e4b4c9605724a797febdd21a8))
+
+### Chore
+
+* **ci:** align Node version pins and establish engines as source of truth ([7c419c0](https://github.com/davidsneighbour/kollitsch.dev/commit/7c419c00247114cffc02ad4cc500c660808f7729)), closes [#1679](https://github.com/davidsneighbour/kollitsch.dev/issues/1679)
+* **lighthouse:** update score history [skip ci] ([7213e0e](https://github.com/davidsneighbour/kollitsch.dev/commit/7213e0e61aed58560c77cac39400beb25f40461c))
+* **vscode:** add issue-audit prompt for periodic issue tracker maintenance ([2af4366](https://github.com/davidsneighbour/kollitsch.dev/commit/2af436675e488449d9ee59a3bff24209ddcc02d6))
+
 ## [3001.11.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.11.1...v3001.11.2) (2026-06-16)
 
 ### Build

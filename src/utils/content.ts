@@ -1,5 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import setup from '@data/setup.json' with { type: 'json' };
 import { filterDraftEntries, stripHtmlTags } from '@utils/content.pure';
 import { z } from 'astro/zod';
@@ -523,41 +525,22 @@ export function resolvePostTitle(
   return `${prefix}${title}${postfix}`;
 }
 
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
 /**
- * Returns a `vscode://file/` link to a given file path inside your project.
- * @param relativePath - Path relative to the project root, e.g. 'src/components/meta/PublishData.astro'
- * @returns VS Code deep link to open the file.
- */
-export function getVSCodeLink(relativePath: string): string {
-  const currentFile = fileURLToPath(import.meta.url);
-  const currentDir = dirname(currentFile);
-  const projectRoot = resolve(currentDir, '../../'); // Adjust this if file moves
-  const fullPath = projectRoot + relativePath;
-  return `vscode://file/${fullPath}`;
-}
-
-/**
- * Returns a `vscode://file/` URL to a given file path inside your project.
+ * Returns a `vscode://file/` URL to open a project-relative path in VS Code.
  *
- * @param relativePath - Path relative to the project root, e.g. 'src/components/meta/PublishData.astro'
- * @returns VS Code deep link to open the file.
+ * Uses `path.join` rather than string concatenation so the result is correct
+ * whether `relativePath` starts with a `/` or not.
+ *
+ * @param relativePath - Path relative to the project root,
+ *   e.g. `src/components/meta/PublishData.astro`
  */
 export function getVSCodeURL(relativePath: string): string {
-  const currentFile = fileURLToPath(import.meta.url);
-  const currentDir = dirname(currentFile);
-  const projectRoot = resolve(currentDir, '../../'); // Adjust this if file moves
-  const fullPath = projectRoot + relativePath;
-  return `vscode://file/${fullPath}`;
+  const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+  return `vscode://file/${join(projectRoot, relativePath)}`;
 }
 
 export function getVSCodeUrlById(id: string, type: 'blog' = 'blog'): string {
-  const vscodeURL = getVSCodeURL(
-    '/src/content/' + type + '/' + id + '/index.md',
-  );
-  return vscodeURL;
+  return getVSCodeURL(`src/content/${type}/${id}/index.md`);
 }
 
 type DateAwareCollections = 'blog';

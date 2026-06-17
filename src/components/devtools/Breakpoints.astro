@@ -1,108 +1,224 @@
 ---
-// @todo refactor and comment
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 export interface Props {}
 
 const isDev = import.meta.env.DEV;
+
+// Keyboard shortcut to restore the hidden dev bar — change this to reconfigure.
+// Uses tinykeys syntax: https://github.com/jamiebuilds/tinykeys
+const DEVBAR_SHOW_KEY = 'Shift+A';
 ---
 
-{
-  isDev && (
+{isDev && (
     <div
-      id="responsive-ruler"
-      class="group font-jetbrainsmono hover:transparent fixed right-0 bottom-0 left-0 z-50 flex cursor-pointer flex-row justify-between gap-4 bg-gray-400 p-4 text-2xl font-normal text-gray-800 transition-opacity duration-300 hover:opacity-10"
+      id="dev-bar"
+      class="font-jetbrainsmono fixed right-0 bottom-0 left-0 z-[9999] flex items-center gap-3 border-y border-gray-200 bg-gray-100 px-3 py-2 text-sm text-gray-700 transition-opacity duration-200 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300"
+      data-position="bottom"
+      data-opacity="full"
+      data-show-key={DEVBAR_SHOW_KEY}
     >
-      <div>
-        <Icon
-          name="display"
-          class="inline-block"
-        />
-        <div class="inline-block sm:hidden">XS</div>
-        <div class="hidden sm:inline-block md:hidden">SM</div>
-        <div class="hidden md:inline-block lg:hidden">MD</div>
-        <div class="hidden lg:inline-block xl:hidden">LG</div>
-        <div class="hidden xl:inline-block 2xl:hidden">XL</div>
-        <div class="hidden 2xl:inline-block">2XL</div>
+      <div class="flex shrink-0 items-center gap-1.5 font-bold">
+        <Icon name="lucide:monitor" class="size-4" />
+        <span class="sm:hidden">XS</span>
+        <span class="hidden sm:inline md:hidden">SM</span>
+        <span class="hidden md:inline lg:hidden">MD</span>
+        <span class="hidden lg:inline xl:hidden">LG</span>
+        <span class="hidden xl:inline 2xl:hidden">XL</span>
+        <span class="hidden 2xl:inline">2XL</span>
       </div>
 
-      <div
-        class="max-h-[30vh] w-full overflow-auto text-sm"
-        id="heading-audit"
-      >
+      <div class="max-h-[30vh] min-w-0 flex-1 overflow-auto">
         <button
           id="load-heading-audit"
-          class="rounded bg-gray-600 px-2 py-1 text-white group-hover:!bg-gray-600 group-hover:!opacity-100 hover:bg-gray-700"
+          class="rounded-md bg-gray-700 px-2 py-0.5 text-xs text-gray-50 transition-colors duration-300 hover:bg-gray-600 dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500"
         >
           Audit Headings
         </button>
         <div
           id="heading-audit-results"
-          class="mt-2 space-y-1"
+          class="mt-1 space-y-0.5 text-xs"
         />
       </div>
 
-      <div class="mt-2 flex gap-4 text-sm">
+      <div class="flex shrink-0 items-center gap-1">
+        <button
+          id="toggle-opacity"
+          type="button"
+          title="Dim bar to 20% opacity"
+          aria-pressed="false"
+          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          <Icon id="opacity-icon-dim" name="lucide:sun-dim" class="size-4" aria-hidden="true" />
+          <Icon id="opacity-icon-full" name="lucide:sun" class="hidden size-4" aria-hidden="true" />
+          <span class="sr-only">Toggle bar opacity</span>
+        </button>
+
+        <button
+          id="toggle-position"
+          type="button"
+          title="Move bar to top"
+          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          <Icon id="position-icon-to-top" name="lucide:panel-top" class="size-4" aria-hidden="true" />
+          <Icon id="position-icon-to-bottom" name="lucide:panel-bottom" class="hidden size-4" aria-hidden="true" />
+          <span class="sr-only">Toggle bar position</span>
+        </button>
+
         <button
           id="hide-devbar"
           type="button"
+          title={`Hide until reload (${DEVBAR_SHOW_KEY} to restore)`}
+          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          <Icon name="x-circle" />
-          Close until reload
+          <Icon name="lucide:eye-off" class="size-4" aria-hidden="true" />
+          <span class="sr-only">Hide until reload</span>
         </button>
+
         <button
           id="hide-devbar-permanently"
           type="button"
+          title="Dismiss (saved to localStorage)"
+          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          <Icon name="x" />
-          Close and remove
+          <Icon name="lucide:circle-x" class="size-4" aria-hidden="true" />
+          <span class="sr-only">Dismiss permanently</span>
         </button>
       </div>
     </div>
-  )
-}
+  )}
 
-<script is:inline>
+<script>
+  import { tinykeys } from 'tinykeys';
+
+  let unsubscribeKeys: (() => void) | null = null;
+
+  function applyPosition(bar: HTMLElement, position: 'top' | 'bottom') {
+    const toTopIcon = bar.querySelector<HTMLElement>('#position-icon-to-top');
+    const toBottomIcon = bar.querySelector<HTMLElement>(
+      '#position-icon-to-bottom',
+    );
+    const btn = bar.querySelector<HTMLButtonElement>('#toggle-position');
+
+    if (position === 'top') {
+      bar.classList.remove('bottom-0');
+      bar.classList.add('top-0');
+      toTopIcon?.classList.add('hidden');
+      toBottomIcon?.classList.remove('hidden');
+      if (btn) btn.title = 'Move bar to bottom';
+    } else {
+      bar.classList.remove('top-0');
+      bar.classList.add('bottom-0');
+      toTopIcon?.classList.remove('hidden');
+      toBottomIcon?.classList.add('hidden');
+      if (btn) btn.title = 'Move bar to top';
+    }
+    bar.dataset['position'] = position;
+  }
+
+  function applyOpacity(bar: HTMLElement, opacity: 'full' | 'dim') {
+    const dimIcon = bar.querySelector<HTMLElement>('#opacity-icon-dim');
+    const fullIcon = bar.querySelector<HTMLElement>('#opacity-icon-full');
+    const btn = bar.querySelector<HTMLButtonElement>('#toggle-opacity');
+
+    if (opacity === 'dim') {
+      bar.classList.add('opacity-20', 'hover:opacity-100');
+      dimIcon?.classList.add('hidden');
+      fullIcon?.classList.remove('hidden');
+      if (btn) {
+        btn.title = 'Restore full opacity';
+        btn.setAttribute('aria-pressed', 'true');
+      }
+    } else {
+      bar.classList.remove('opacity-20', 'hover:opacity-100');
+      dimIcon?.classList.remove('hidden');
+      fullIcon?.classList.add('hidden');
+      if (btn) {
+        btn.title = 'Dim bar to 20% opacity';
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    }
+    bar.dataset['opacity'] = opacity;
+  }
+
+  document.addEventListener('astro:before-swap', () => {
+    unsubscribeKeys?.();
+    unsubscribeKeys = null;
+  });
+
   document.addEventListener('astro:page-load', () => {
-    const devBar = document.getElementById('responsive-ruler');
-    const hideOnce = document.getElementById('hide-devbar');
-    const hidePermanently = document.getElementById('hide-devbar-permanently');
-    const loadBtn = document.getElementById('load-heading-audit');
-    const resultsContainer = document.getElementById('heading-audit-results');
+    const bar = document.getElementById('dev-bar') as HTMLElement | null;
+    if (!bar) return;
 
-    if (localStorage.getItem('hideDevBar') === 'true' && devBar) {
-      devBar.remove();
-      return;
+    const showKey = bar.dataset['showKey'] ?? 'Shift+A';
+
+    // Support migration from old 'hideDevBar' localStorage key
+    const isHidden =
+      localStorage.getItem('devBarHidden') === 'true' ||
+      localStorage.getItem('hideDevBar') === 'true';
+    if (isHidden) {
+      bar.classList.add('hidden');
     }
 
-    hideOnce?.addEventListener('click', () => devBar?.remove());
-    hidePermanently?.addEventListener('click', () => {
-      localStorage.setItem('hideDevBar', 'true');
-      devBar?.remove();
+    applyPosition(
+      bar,
+      (localStorage.getItem('devBarPosition') ?? 'bottom') as 'top' | 'bottom',
+    );
+    applyOpacity(
+      bar,
+      (localStorage.getItem('devBarOpacity') ?? 'full') as 'full' | 'dim',
+    );
+
+    bar.querySelector('#toggle-opacity')?.addEventListener('click', () => {
+      const next = bar.dataset['opacity'] === 'dim' ? 'full' : 'dim';
+      localStorage.setItem('devBarOpacity', next);
+      applyOpacity(bar, next as 'full' | 'dim');
     });
 
-    let auditRun = false;
+    bar.querySelector('#toggle-position')?.addEventListener('click', () => {
+      const next = bar.dataset['position'] === 'top' ? 'bottom' : 'top';
+      localStorage.setItem('devBarPosition', next);
+      applyPosition(bar, next as 'top' | 'bottom');
+    });
+
+    bar.querySelector('#hide-devbar')?.addEventListener('click', () => {
+      bar.classList.add('hidden');
+    });
+
+    bar
+      .querySelector('#hide-devbar-permanently')
+      ?.addEventListener('click', () => {
+        localStorage.setItem('devBarHidden', 'true');
+        localStorage.removeItem('hideDevBar');
+        bar.classList.add('hidden');
+      });
+
+    const loadBtn = bar.querySelector('#load-heading-audit');
+    const resultsContainer = bar.querySelector<HTMLElement>(
+      '#heading-audit-results',
+    );
 
     loadBtn?.addEventListener('click', () => {
-      if (!auditRun) {
-        // Remove hover effects from bar
-        devBar?.classList.remove('hover:opacity-10', 'hover:transparent');
-        auditRun = true;
-      }
-
+      if (!resultsContainer) return;
       resultsContainer.innerHTML = '';
 
-      const headings = [];
+      const headings: Array<{
+        level: number;
+        node: Element;
+        text: string;
+        visible: boolean;
+      }> = [];
       const walker = document.createTreeWalker(
         document.body,
         NodeFilter.SHOW_ELEMENT,
         {
           acceptNode(node) {
-            const tag = node.tagName?.toLowerCase();
+            const el = node as Element;
+            const tag = el.tagName?.toLowerCase();
             const isSemantic = /^h[1-6]$/.test(tag);
             const isAria =
-              node.getAttribute?.('role') === 'heading' &&
-              node.hasAttribute('aria-level');
+              el.getAttribute('role') === 'heading' &&
+              el.hasAttribute('aria-level');
             return isSemantic || isAria
               ? NodeFilter.FILTER_ACCEPT
               : NodeFilter.FILTER_SKIP;
@@ -111,38 +227,43 @@ const isDev = import.meta.env.DEV;
       );
 
       while (walker.nextNode()) {
-        const node = walker.currentNode;
-        const tag = node.tagName?.toLowerCase();
-        const isAria = node.getAttribute('role') === 'heading';
+        const el = walker.currentNode as Element;
+        const tag = el.tagName?.toLowerCase();
+        const isAria = el.getAttribute('role') === 'heading';
         const level = isAria
-          ? parseInt(node.getAttribute('aria-level'), 10)
+          ? parseInt(el.getAttribute('aria-level') ?? '1', 10)
           : parseInt(tag.slice(1), 10);
-        const text = node.textContent?.trim() || '(empty)';
-        const computed = window.getComputedStyle(node);
+        const text = el.textContent?.trim() || '(empty)';
+        const computed = window.getComputedStyle(el);
         const visible =
           computed.display !== 'none' &&
           computed.visibility !== 'hidden' &&
-          node.getAttribute('aria-hidden') !== 'true' &&
-          !node.classList.contains('sr-only');
+          el.getAttribute('aria-hidden') !== 'true' &&
+          !el.classList.contains('sr-only');
 
-        headings.push({
-          level,
-          text,
-          visible,
-          source: isAria ? 'aria' : tag,
-          node,
-        });
+        headings.push({ level, node: el, text, visible });
       }
 
       for (const h of headings) {
-        const el = document.createElement('div');
-        el.innerHTML = `<strong>H${h.level}</strong>: ${h.text} <span class="text-xs">[${h.visible ? 'visible' : 'hidden'}]</span>`;
-        el.classList.add('cursor-pointer', 'hover:underline');
-        el.addEventListener('click', () => {
+        const item = document.createElement('div');
+        item.innerHTML = `<strong>H${h.level}</strong>: ${h.text} <span class="text-xs">[${h.visible ? 'visible' : 'hidden'}]</span>`;
+        item.classList.add('cursor-pointer', 'hover:underline');
+        item.addEventListener('click', () => {
           h.node.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
-        resultsContainer.appendChild(el);
+        resultsContainer.appendChild(item);
       }
+    });
+
+    unsubscribeKeys = tinykeys(window, {
+      [showKey]: (event) => {
+        const b = document.getElementById('dev-bar') as HTMLElement | null;
+        if (b?.classList.contains('hidden')) {
+          b.classList.remove('hidden');
+          localStorage.removeItem('devBarHidden');
+          event.preventDefault();
+        }
+      },
     });
   });
 </script>

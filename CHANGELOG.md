@@ -1,5 +1,28 @@
 # Changelog
 
+## [3001.14.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.13.1...v3001.14.0) (2026-06-17)
+
+### Feat
+
+* **deployment:** generate dist/_headers at build time via Astro integration ([49577da](https://github.com/davidsneighbour/kollitsch.dev/commit/49577da62b7c35394c124254871abcbe4b80c006))
+
+### Fix
+
+* **deployment:** correct response header errors in public/_headers ([8313f6e](https://github.com/davidsneighbour/kollitsch.dev/commit/8313f6e8a1116be28cbe88e12201363d0173e99a)), closes [#1685](https://github.com/davidsneighbour/kollitsch.dev/issues/1685)
+
+### Refactor
+
+* **utils:** deduplicate getVSCodeLink/getVSCodeURL and fix path join ([9267f41](https://github.com/davidsneighbour/kollitsch.dev/commit/9267f41b81d9d44012446091556aecab473f8fbb)), closes [#1677](https://github.com/davidsneighbour/kollitsch.dev/issues/1677)
+
+### Docs
+
+* document _headers build integration in CLAUDE.md and scripts DOCUMENTATION.md ([06ae8ab](https://github.com/davidsneighbour/kollitsch.dev/commit/06ae8ab97e6c147ed40e197569f3443fe844af89))
+* **scripts:** replace em dash in intro sentence to satisfy Vale linter ([6652b88](https://github.com/davidsneighbour/kollitsch.dev/commit/6652b88661c06ef6b8f3bb2a3a58ac4edf18271e))
+
+### Ci
+
+* add type-check and markdown-lint gates; fix 27 pre-existing violations ([5cd8165](https://github.com/davidsneighbour/kollitsch.dev/commit/5cd81653861f6ca845c4be0453a33f8685594a8d)), closes [#1687](https://github.com/davidsneighbour/kollitsch.dev/issues/1687)
+
 ## [3001.13.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.13.0...v3001.13.1) (2026-06-17)
 
 ### Fix

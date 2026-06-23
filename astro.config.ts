@@ -149,6 +149,15 @@ export default defineConfig({
   //trailingSlash: 'always',
   vite: {
     plugins: [basicSsl(), devtoolsJson(), tailwindcss()],
+    resolve: {
+      alias: {
+        // @styles is used in CSS @reference directives inside .astro <style> blocks.
+        // Astro 7 / Vite 8's transform filter no longer rewrites @reference paths via
+        // the tsconfig alias plugin (only @import in .css files), so we register it
+        // explicitly here so Tailwind's resolver can find it.
+        '@styles': path.resolve(__dirname, 'src/styles'),
+      },
+    },
     server: {
       watch: {
         ignored: ['**/ai/**'],

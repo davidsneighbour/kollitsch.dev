@@ -397,6 +397,14 @@
     "sharp@0.34.5": true,
     "simple-git-hooks@2.13.1": true
   },
+  "overrides": {
+    "astro-expressive-code": {
+      "astro": "$astro"
+    },
+    "vite-plugin-devtools-json": {
+      "vite": ">=5.0.0"
+    }
+  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   }

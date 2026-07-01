@@ -30,7 +30,7 @@
     "@axe-core/playwright": "4.11.3",
     "@biomejs/biome": "2.5.0",
     "@commitlint/cli": "21.0.2",
-    "@commitlint/config-conventional": "21.0.2",
+    "@commitlint/config-conventional": "21.2.0",
     "@davidsneighbour/browserslist-config": "2026.0.3",
     "@davidsneighbour/imagemin-lint-staged": "2.0.0",
     "@davidsneighbour/nanny": "0.4.0",

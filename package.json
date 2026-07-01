@@ -28,7 +28,7 @@
     "@astrojs/sitemap": "3.7.3",
     "@astrojs/ts-plugin": "1.10.9",
     "@axe-core/playwright": "4.11.3",
-    "@biomejs/biome": "2.5.0",
+    "@biomejs/biome": "2.5.2",
     "@commitlint/cli": "21.0.2",
     "@commitlint/config-conventional": "21.0.2",
     "@davidsneighbour/browserslist-config": "2026.0.3",

@@ -42,7 +42,7 @@
     "@fontsource-variable/jetbrains-mono": "5.2.8",
     "@fontsource/changa-one": "5.2.8",
     "@fontsource/exo-2": "5.2.8",
-    "@github/markdownlint-github": "0.8.1",
+    "@github/markdownlint-github": "0.8.2",
     "@humanwhocodes/crosspost": "1.0.4",
     "@humanwhocodes/social-changelog": "0.4.0",
     "@iconify-json/bi": "1.2.7",

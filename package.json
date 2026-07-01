@@ -27,7 +27,7 @@
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.3",
     "@astrojs/ts-plugin": "1.10.9",
-    "@axe-core/playwright": "4.11.3",
+    "@axe-core/playwright": "4.12.1",
     "@biomejs/biome": "2.5.0",
     "@commitlint/cli": "21.0.2",
     "@commitlint/config-conventional": "21.0.2",

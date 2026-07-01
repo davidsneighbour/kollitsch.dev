@@ -115,7 +115,7 @@
     "postcss-html": "1.8.1",
     "release-it": "20.2.0",
     "remark-kbd-nested": "0.6.1",
-    "resend": "6.13.0",
+    "resend": "6.16.0",
     "satori": "0.26.0",
     "satori-html": "0.3.2",
     "secretlint": "13.0.2",

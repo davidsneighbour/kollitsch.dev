@@ -576,5 +576,22 @@
       "best-practices": 100,
       "seo": 100
     }
+  },
+  {
+    "date": "2026-07-21",
+    "sha": "8c5026a",
+    "url": "https://kollitsch.dev/",
+    "mobile": {
+      "performance": 99,
+      "accessibility": 89,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "desktop": {
+      "performance": 99,
+      "accessibility": 92,
+      "best-practices": 100,
+      "seo": 100
+    }
   }
 ]

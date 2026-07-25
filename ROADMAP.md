@@ -6,7 +6,7 @@
 
 ## Project state summary
 
-31 open issues. Since the last regeneration, six bug/lint issues closed (#1666–#1672, #1681, #1683, #1684, #1692, #1694) plus #1690, which was closed manually this run — commit `dc53942` said "Closes #1690" but the auto-close keyword didn't trigger on push. `npm audit` dropped from 45 to 34 findings; the seven remaining CVEs are now tracked individually as `status:blocked` issues (#1750–#1756), each pending an upstream fix. Six new issues (#1758–#1763) were filed from stale `TODO.md` notes, which is now empty of actionable items. Tests, typecheck, and CI remain green; Biome lint has a pre-existing backlog of 148 errors (mostly auto-fixable).
+26 open issues. Since the last regeneration, six tooling issues were implemented and closed in sequence: #1760 (direct-to-main commit policy, resolving a conflict with the old `CLAUDE.md` wording), #1763 (moved TypeDoc output from `docs/` to `documentation/api/`), #1759 (new `documentation/` markdown dev server via `npm run dev:docs`), #1758 (`npm run dev:open` browser launcher), #1762 (Vite dev-server watcher now ignores `scratch/`, `.vscode/`, `.agents/`, and root-level docs), and #1764 (ad hoc request: `npm run dev` now runs both dev servers in parallel). Tests, typecheck, and CI remain green throughout.
 
 ### Project health indicators
 
@@ -15,13 +15,13 @@
 | Unit tests (`npm test`) | ✅ Pass | 268 passed, 2 skipped (82/83 test files) |
 | Typecheck (`npm run check`) | ✅ Pass | 0 errors, 0 warnings, 0 hints across 266 files |
 | Lint/format (`npm run biome:check`) | ⚠️ 148 errors, 2 infos | Mostly auto-fixable via `npm run biome:lint`; ~15 need manual review (parse errors on a handful of `.astro` files, `noExplicitAny`, `noUndeclaredVariables`, `noAssignInExpressions`). Unchanged since last run. |
-| `npm audit` | ⚠️ 34 findings (5 low, 27 moderate, 2 high) | Down from 45. Remaining CVEs tracked individually: #1750–#1756 (all `status:blocked`, pending upstream fixes). |
+| `npm audit` | ⚠️ 34 findings (5 low, 27 moderate, 2 high) | Remaining CVEs tracked individually: #1750–#1756 (all `status:blocked`, pending upstream fixes). |
 | CI (`main`, last runs) | ✅ Pass | Unit tests and daily Lighthouse audit green as of 2026-07-25 |
 | Outdated deps (major) | ℹ️ Routine | Not re-checked this run; prior note flagged `@types/node`, `js-yaml`, `typescript` majors pending, not urgent |
 
 ## Bugs
 
-None open — all bug issues from the prior roadmap round are closed.
+None open.
 
 ## Dependencies & security
 
@@ -36,7 +36,7 @@ None open — all bug issues from the prior roadmap round are closed.
 
 ## Design & typography
 
-* [#1688](https://github.com/davidsneighbour/kollitsch.dev/issues/1688) — feat(design): carry forward `DESIGN.md` backlog items. Umbrella item; now that #1690 (typography baseline) is closed, this can likely be scoped concretely — check for overlap with #1697.
+* [#1688](https://github.com/davidsneighbour/kollitsch.dev/issues/1688) — feat(design): carry forward `DESIGN.md` backlog items. Umbrella item; scope concretely, check for overlap with #1697.
 * [#1697](https://github.com/davidsneighbour/kollitsch.dev/issues/1697) — feat(design): 90% opacity page background to reveal body background colour.
 * [#1701](https://github.com/davidsneighbour/kollitsch.dev/issues/1701) — feat(styles): restore `::search-text` CSS Highlight API rules once Lightning CSS supports them. Blocked on upstream Lightning CSS support — check before starting.
 
@@ -53,7 +53,7 @@ None open — all bug issues from the prior roadmap round are closed.
 
 * [#1680](https://github.com/davidsneighbour/kollitsch.dev/issues/1680) — test(utils): add co-located unit tests for 13 untested utility modules.
 * [#1699](https://github.com/davidsneighbour/kollitsch.dev/issues/1699) — feat(tests): extend Playwright e2e suite with live site smoke tests.
-* [#1761](https://github.com/davidsneighbour/kollitsch.dev/issues/1761) — chore(tests): evaluate Playwright v1.62 component testing feature. New — filed from `TODO.md`.
+* [#1761](https://github.com/davidsneighbour/kollitsch.dev/issues/1761) — chore(tests): evaluate Playwright v1.62 component testing feature.
 
 ## Tooling / DX / chores
 
@@ -63,23 +63,23 @@ None open — all bug issues from the prior roadmap round are closed.
 * [#1704](https://github.com/davidsneighbour/kollitsch.dev/issues/1704) — feat(dev): replace basic-ssl with mkcert for a locally-trusted HTTPS dev server.
 * [#1698](https://github.com/davidsneighbour/kollitsch.dev/issues/1698) — chore(vscode): add `excludeAgent` frontmatter to `.vscode/instructions/` files.
 * [#1689](https://github.com/davidsneighbour/kollitsch.dev/issues/1689) — chore(ai): adopt `ai/review/` structured action registry when available. Blocked — registry doesn't exist upstream yet.
-* [#1758](https://github.com/davidsneighbour/kollitsch.dev/issues/1758) — feat(dev): add `npm run dev:open` to launch browser tabs for dev server and docs. New — filed from `TODO.md`; depends on #1759.
-* [#1759](https://github.com/davidsneighbour/kollitsch.dev/issues/1759) — feat(docs): add local dev server for `documentation/` markdown files. New — filed from `TODO.md`; needs clarification on the `../samui-samui.de` reference implementation.
-* [#1760](https://github.com/davidsneighbour/kollitsch.dev/issues/1760) — docs(agents): formalize main-branch-only commit workflow in instructions. New — filed from `TODO.md`; **conflicts with `CLAUDE.md`'s "never commit directly to main" rule**, needs Patrick's decision before implementation.
-* [#1762](https://github.com/davidsneighbour/kollitsch.dev/issues/1762) — chore(dev): exclude non-site files from dev server restart watcher. New — filed from `TODO.md`.
-* [#1763](https://github.com/davidsneighbour/kollitsch.dev/issues/1763) — chore(docs): rename `docs/` folder usage to `documentation/` and move API doc generation. New — filed from `TODO.md`; sequence with #1759.
 
 ## Suggested order of work
 
-1. **#1760** — resolve the main-branch-vs-feature-branch policy conflict first; it affects how every future commit in this repo is made.
-2. **Dependency cleanup**: #1750–#1756 are blocked on upstream, but worth a periodic check; #1676 should be closed or explicitly scoped once those resolve.
-3. **#1688** (DESIGN.md backlog) — now unblocked by #1690's closure; scope concretely, check overlap with #1697.
-4. **Documentation tooling**: #1763 (move API docs into `documentation/`) before #1759 (docs dev server), before #1758 (`dev:open` browser launcher) — each depends on the previous.
-5. UX/feature work (#1691, #1695, #1696, #1661, #1662) and remaining tooling (#1678, #1680, #1682, #1693, #1698, #1699, #1704) can proceed independently, in any order.
-6. Deferred/blocked: **#1701** (upstream Lightning CSS support), **#1689** (upstream `ai/review/` registry) — check periodically, don't schedule work yet.
+1. **Dependency cleanup**: #1750–#1756 are blocked on upstream, but worth a periodic check; #1676 should be closed or explicitly scoped once those resolve.
+2. **#1688** (DESIGN.md backlog) — scope concretely, check overlap with #1697.
+3. UX/feature work (#1691, #1695, #1696, #1661, #1662) and remaining tooling (#1678, #1680, #1682, #1693, #1698, #1699, #1704, #1761) can proceed independently, in any order.
+4. Deferred/blocked: **#1701** (upstream Lightning CSS support), **#1689** (upstream `ai/review/` registry) — check periodically, don't schedule work yet.
 
 ## Open clarification questions
 
-* **#1760** — `CLAUDE.md` says never commit directly to `main`; the TODO note this issue was filed from says the opposite. Needs Patrick's decision.
-* **#1759** — what mechanism does `../samui-samui.de` use for its documentation dev server? Not accessible from this repo; needs a pointer or description.
-* **#1758** — should `dev:open` be wired to also open the documentation server once #1759 lands, or stay scoped to the main dev server only for now?
+None outstanding.
+
+## Recently completed (this session)
+
+* [#1760](https://github.com/davidsneighbour/kollitsch.dev/issues/1760) — direct-to-main, no-PR, issue-linked commit policy now documented in `CLAUDE.md` and `.agents/instructions/issue-handling.instructions.md`.
+* [#1763](https://github.com/davidsneighbour/kollitsch.dev/issues/1763) — TypeDoc output moved from `docs/` to `documentation/api/`.
+* [#1759](https://github.com/davidsneighbour/kollitsch.dev/issues/1759) — `documentation/` markdown dev server added (`npm run dev:docs`, `src/scripts/documentation-server.ts`).
+* [#1758](https://github.com/davidsneighbour/kollitsch.dev/issues/1758) — `npm run dev:open` browser-tab launcher added (`src/scripts/dev-open.ts`).
+* [#1762](https://github.com/davidsneighbour/kollitsch.dev/issues/1762) — Vite dev-server watcher (`astro.config.ts`) now ignores `scratch/`, `.vscode/`, `.agents/`, and root-level uppercase docs.
+* [#1764](https://github.com/davidsneighbour/kollitsch.dev/issues/1764) — `npm run dev` now runs the Astro dev server and documentation server in parallel (`run-p dev:site dev:docs`); Astro-only script preserved as `dev:site`.

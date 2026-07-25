@@ -10,6 +10,12 @@ These instructions apply to all AI-assisted work in this repository.
 
 This is a single-developer project. Commit directly to `main`. Do not create feature branches or pull requests for routine work; open a PR only if explicitly asked to.
 
+## Commit and push when a task finishes
+
+When an AI-assisted task in this repository reaches a finished, validated state, commit the change and push it to `main` — do not stop at a local commit and wait to be asked. This overrides the general default of asking before pushing; in this repository, pushing after a finished, validated commit is pre-authorized.
+
+This applies once the task is actually done: validation (`npm test`, `npx astro check`, lint-staged) has passed and the commit follows the rules below. Do not push partial, unvalidated, or still-in-progress work.
+
 ## Documentation sync
 
 Every feature must have documentation in `documentation/`. When a change modifies existing feature behaviour, update the documentation to describe the current state; do not add historical notes like "this used to work differently."
@@ -175,3 +181,22 @@ When reporting completed work, include:
 * validation result,
 * follow-up issues created,
 * any unrelated validation problems noticed.
+
+## Always link to GitHub in chat output
+
+Whenever an issue, pull request, or commit is mentioned in the assistant's
+chat responses (progress updates, final summaries, comments quoted back to
+the user, etc.), give it as a full `https://github.com/<owner>/<repo>/...`
+URL, not just a bare `#123` or short hash. This is about what the assistant
+prints in conversation, not about repository file contents (commit messages,
+code comments, etc. keep using the normal `#123` / short-SHA conventions
+described above).
+
+* Issues and PRs: `https://github.com/<owner>/<repo>/issues/123` or `.../pull/123`.
+  Get the exact URL from `gh issue view`/`gh pr view` output rather than
+  constructing it by hand.
+* Commits: `https://github.com/<owner>/<repo>/commit/<full-sha>`, even when the
+  commit has not been pushed yet. An unpushed commit's URL will 404 until a
+  push happens; state that plainly rather than omitting the link.
+* Determine `<owner>/<repo>` from `gh repo view --json nameWithOwner` or the
+  `git remote` URL; do not guess it.

@@ -1,6 +1,9 @@
 # Dev server external restart trigger (used by webserver.ts)
 /RESTART
 
+# mkcert-generated locally-trusted dev certificates
+/.certs
+
 # Lychee cache
 # @todo move into a sub folder
 .lychee.report.md

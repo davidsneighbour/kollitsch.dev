@@ -25,6 +25,18 @@ const crontabTmLanguage = JSON.parse(
   fs.readFileSync('./src/config/tmLanguages/crontab.tmLanguage.json', 'utf-8'),
 );
 
+// Prefer a locally-trusted mkcert certificate (see `npm run dev:certs`) so the
+// dev origin is treated as fully secure by the browser (secure cookies, Web
+// Crypto, service workers). Falls back to @vitejs/plugin-basic-ssl's
+// self-signed cert when no mkcert certificate has been generated.
+const mkcertCertPath = path.resolve(__dirname, '.certs/localhost.pem');
+const mkcertKeyPath = path.resolve(__dirname, '.certs/localhost-key.pem');
+const hasMkcertCert =
+  fs.existsSync(mkcertCertPath) && fs.existsSync(mkcertKeyPath);
+const httpsConfig = hasMkcertCert
+  ? { cert: fs.readFileSync(mkcertCertPath), key: fs.readFileSync(mkcertKeyPath) }
+  : undefined;
+
 const draftPagePaths = (() => {
   const pagesRoot = path.resolve(__dirname, 'src/pages');
   const draftPaths = new Set<string>();
@@ -148,7 +160,11 @@ export default defineConfig({
   site: 'https://kollitsch.dev/',
   //trailingSlash: 'always',
   vite: {
-    plugins: [basicSsl(), devtoolsJson(), tailwindcss()],
+    plugins: [
+      ...(hasMkcertCert ? [] : [basicSsl()]),
+      devtoolsJson(),
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
         // @styles is used in CSS @reference directives inside .astro <style> blocks.
@@ -159,6 +175,7 @@ export default defineConfig({
       },
     },
     server: {
+      https: httpsConfig,
       watch: {
         ignored: [
           '**/ai/**',

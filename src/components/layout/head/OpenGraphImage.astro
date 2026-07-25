@@ -455,8 +455,8 @@ async function getCachedOrGeneratePng(
       endPix("resvg+sharp failed");
       try {
         if (fs.existsSync(fileFsPath)) fs.unlinkSync(fileFsPath);
-      } catch {
-        console.log("error");
+      } catch (cleanupErr) {
+        log.warn({ err: cleanupErr, path: fileFsPath }, "Failed to clean up temp file after pipeline error");
       }
       log.error({ err: e }, "Resvg/Sharp pipeline failed");
       throw e;

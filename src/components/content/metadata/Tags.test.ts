@@ -1,9 +1,11 @@
 // @vitest-environment node
 
+import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { describe, expect, it } from 'vitest';
+import Tags from './Tags.astro';
 
 describe('Tags component (props contract)', () => {
   it('exports a Props interface/type', async () => {
@@ -16,5 +18,33 @@ describe('Tags component (props contract)', () => {
     // heuristic: match `export interface XProps` or `export type XProps =`
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
+  });
+});
+
+describe('Tags component rendering', () => {
+  it('renders nothing for an empty tags array', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(Tags, {
+      props: { post: { data: { tags: [] } } },
+    });
+    expect(html).not.toContain('Tags:');
+  });
+
+  it('renders nothing when tags is undefined', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(Tags, {
+      props: { post: { data: {} } },
+    });
+    expect(html).not.toContain('Tags:');
+  });
+
+  it('renders tag links when tags are present', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(Tags, {
+      props: { post: { data: { tags: ['astro', 'testing'] } } },
+    });
+    expect(html).toContain('Tags:');
+    expect(html).toContain('#astro');
+    expect(html).toContain('#testing');
   });
 });

@@ -12,7 +12,7 @@ const { post }: Props = Astro.props;
 ---
 
 {
-  post.data.tags && (
+  post.data.tags && post.data.tags.length > 0 && (
     <div class="flex flex-row items-center justify-start gap-2">
       <div class="w-6 flex-none">
         <Icon name="tags" />

@@ -1,9 +1,9 @@
 ---
 title: "Keeping an old iMac useful"
 subtitle: "Xubuntu 22.04, NVIDIA Legacy Drivers, and H.264 Video"
-description: "a"
-summary: ""
-tags: []
+description: "How I revived a dead-fan 2012 iMac with Xubuntu 22.04, the 5.15 GA kernel, legacy NVIDIA drivers, and H.264-only video playback for a stable, cool media machine."
+summary: "My old iMac's fan is dead, so heat management drives every decision here: Xubuntu 22.04 with XFCE, the 5.15 GA kernel instead of the 6.8 HWE stack, the NVIDIA 390 legacy driver, and forcing H.264 everywhere (VLC, browser, yt-dlp) since VP9/AV1 push decoding onto the CPU and cook the machine. I also block release upgrades, disable jammy-proposed, pin the kernel line, and tune thermald and the CPU governor to keep temperatures down."
+tags: ["linux", "ubuntu-2204", "xfce", "nvidia", "imac", "hardware", "troubleshooting"]
 cover:
   src: "tigran-kharatyan-lL1NCmptNYw-unsplash.jpg"
   type: image

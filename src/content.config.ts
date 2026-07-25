@@ -31,6 +31,12 @@ const md = new MarkdownIt();
 const deriveContentFormat = (filePath?: string): 'md' | 'mdx' =>
   filePath?.toLowerCase().endsWith('.mdx') ? 'mdx' : 'md';
 
+// Detects HTML tags and paired Markdown syntax (emphasis, links, code, headings).
+// Deliberately does not flag a lone `*`/`_`/`#` since those can be legitimate
+// plain-text punctuation (e.g. a trailing asterisk used as a footnote marker).
+const plainTextViolation =
+  /<\/?[a-z][^>]*>|\*\*[^*]+\*\*|__[^_]+__|`[^`]+`|\[[^\]]+\]\([^)]*\)|^#{1,6}\s/i;
+
 const cover = z
   .object({
     format: z
@@ -157,6 +163,9 @@ export const blogSchema = z
       .optional()
       .refine((val) => val?.trim() !== '', {
         message: '`linktitle` MUST NOT be empty if defined.',
+      })
+      .refine((val) => !val || !plainTextViolation.test(val), {
+        message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
       }),
     options: optionsSchema.optional(),
     publisher: z.enum(['rework', 'validate']).optional(),
@@ -184,6 +193,7 @@ export const blogSchema = z
         ]),
       )
       .optional(),
+    subtitle: z.string().optional(),
     summary: z.string().optional(),
     tags: z
       .array(
@@ -254,6 +264,7 @@ export const blogSchema = z
       articleimage,
       summary: md.renderInline(summaryRaw),
       title: md.renderInline(entry.title),
+      subtitle: entry.subtitle ? md.renderInline(entry.subtitle) : undefined,
     };
   });
 export type BlogFrontmatter = z.infer<typeof blogSchema>;
@@ -329,6 +340,9 @@ export const tags = defineCollection({
         .transform((val) => val?.trim())
         .refine((val) => (val ? val.length > 0 : true), {
           message: '`linktitle` MUST NOT be empty if defined.',
+        })
+        .refine((val) => !val || !plainTextViolation.test(val), {
+          message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
         }),
       title: z.string().transform((val) => val.trim()),
       weight: z.number().optional().default(0),

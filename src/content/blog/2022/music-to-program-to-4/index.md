@@ -16,7 +16,6 @@ cover:
   video:
     youtube: oQ10_EzMvtQ
     artist: rammstein
-    name: Rammstein feat Ólafur Arnalds
     title: Zeit
 publisher: rework
 ---

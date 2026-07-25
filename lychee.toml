@@ -58,6 +58,7 @@ exclude = [
   '^https://www\.npmjs\.com',         # blocks bots (403)
   '^https://thebiologist\.rsb\.org\.uk', # blocks bots (403)
   '^https://brandfetch\.com',         # blocks bots (403)
+  '^https://www\.facebook\.com',      # blocks bots (400)
   '^https://www\.youtubesummaries\.com', # blocks bots (402 Payment Required)
   # base_url resolves local image references (including @assets/... Astro paths
   # and relative ./file.png paths) as kollitsch.dev URLs; these are verified by

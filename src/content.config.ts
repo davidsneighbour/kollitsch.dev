@@ -64,6 +64,7 @@ const cover = z
         youtube: z.string(),
         params: youtubePlayerParamsSchema.optional(),
       })
+      .strict()
       .optional(),
   })
   // Require src when type is image

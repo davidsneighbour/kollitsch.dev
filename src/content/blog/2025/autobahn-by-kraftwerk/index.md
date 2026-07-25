@@ -13,7 +13,6 @@ tags:
 cover:
   type: video
   video: 
-    class: "scale-2"
     youtube: aFfW0DCoGBg
     artist: Kraftwerk
     params:

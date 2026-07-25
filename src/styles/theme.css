@@ -468,8 +468,29 @@
 }
 
 /*******************************************************************************
+ * MARK: view transitions
+ *
+ * Astro's ClientRouter (see Head.astro) drives cross-document page
+ * transitions. `.astro-transitioning` is toggled by src/layouts/Site.astro
+ * around the swap so outgoing-page interaction is locked for its duration.
+ ******************************************************************************/
+@layer base {
+  html.astro-transitioning {
+    cursor: wait;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+}
+
+/*******************************************************************************
  * MARK: svg link text
- * 
+ *
  * SVG does not provide a default visual style for links, so let's add some *
  ******************************************************************************/
 @layer base {

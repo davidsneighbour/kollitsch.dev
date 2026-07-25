@@ -8,6 +8,7 @@ export type Props = {
   link?: string;
   class?: string;
   html?: string; // new: raw HTML string
+  transitionName?: string;
 };
 
 const {
@@ -16,6 +17,7 @@ const {
   link = "",
   class: classname = "",
   html = "",
+  transitionName = "",
 }: Props = Astro.props;
 
 const safeLevel = Math.min(6, Math.max(1, Number(level)));
@@ -25,6 +27,7 @@ const Tag = `h${safeLevel}` as Tag;
 <Tag
   {...description && { title: description }}
   {...classname && { class: classname }}
+  {...transitionName && { "transition:name": transitionName }}
 >
   {
     link ? (

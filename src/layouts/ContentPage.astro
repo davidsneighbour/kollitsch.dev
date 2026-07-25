@@ -27,7 +27,7 @@ const { post, frontmatter } = Astro.props;
   <SiteHeader />
   <main class={setup.classes.containers.wide}>
     <article class="content mx-auto max-w-5xl">
-      <Heading level={1} class="mb-6">
+      <Heading level={1} class="mb-6" transitionName={post ? `post-title-${post.id}` : ""}>
         {frontmatter?.title ?? post?.data.title}
       </Heading>
       <slot />

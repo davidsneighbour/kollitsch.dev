@@ -22,7 +22,10 @@ const { post } = Astro.props;
     quality="medium"
   />
   <div class="flex grow flex-col justify-start @sm:p-2 @md:p-3 @lg:p-4">
-    <h2 class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl">
+    <h2
+      class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl"
+      transition:name={`post-title-${post.id}`}
+    >
       <a
         class="line-clamp-2 no-underline underline-offset-2 group-hover:underline group-hover:decoration-1 hover:decoration-2"
         href={`/${post.collection}/${post.id}/`}

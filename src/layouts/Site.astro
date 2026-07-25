@@ -90,6 +90,14 @@ const IS_DEV = import.meta.env.DEV;
           document.body?.removeAttribute("inert");
         };
 
+        const applyNavigationLocks = () => {
+          document.documentElement.classList.add("astro-transitioning");
+          document.body?.setAttribute("inert", "");
+        };
+
+        // Locks interaction with the outgoing page for the duration of the
+        // view transition, so clicks/scrolling can't land mid-swap.
+        document.addEventListener("astro:before-preparation", applyNavigationLocks);
         document.addEventListener("astro:after-swap", releaseNavigationLocks);
         window.addEventListener("pageshow", releaseNavigationLocks);
       })();

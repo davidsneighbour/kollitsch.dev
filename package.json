@@ -189,6 +189,7 @@
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
     "dev": "astro dev",
+    "dev:docs": "node src/scripts/documentation-server.ts",
     "dev:watch": "node src/scripts/webserver.ts",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
     "preview": "astro preview",

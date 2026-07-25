@@ -4,6 +4,7 @@ import {
   type IncomingMessage,
   type ServerResponse,
 } from 'node:http';
+import { networkInterfaces } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { toHtml } from 'hast-util-to-html';
@@ -15,7 +16,7 @@ import { unified } from 'unified';
 const scriptPath = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(scriptPath), '../..');
 const defaultDocumentationRoot = path.join(projectRoot, 'documentation');
-const defaultHost = '127.0.0.1';
+const defaultHost = '0.0.0.0';
 const defaultPort = 4322;
 
 /** Generated API docs live under this folder; treated as a single nav leaf, never expanded. */
@@ -521,6 +522,21 @@ function parseOptions(args: string[], env: NodeJS.ProcessEnv): ParsedOptions {
   return options;
 }
 
+function listedHosts(host: string): string[] {
+  if (host !== '0.0.0.0' && host !== '::') {
+    return [host];
+  }
+  const addresses: string[] = ['127.0.0.1'];
+  for (const interfaces of Object.values(networkInterfaces())) {
+    for (const iface of interfaces ?? []) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        addresses.push(iface.address);
+      }
+    }
+  }
+  return addresses;
+}
+
 export function startDocumentationServer({
   documentationRoot = defaultDocumentationRoot,
   host = defaultHost,
@@ -540,7 +556,10 @@ export function startDocumentationServer({
   });
 
   server.listen(port, host, () => {
-    console.log(`Documentation server running at http://${host}:${port}/`);
+    const urls = listedHosts(host)
+      .map((address) => `http://${address}:${port}/`)
+      .join('\n  ');
+    console.log(`Documentation server running at:\n  ${urls}`);
   });
 
   server.on('error', (error: NodeJS.ErrnoException) => {

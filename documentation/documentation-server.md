@@ -11,11 +11,11 @@ npm run dev:site
 npm run dev:docs
 ```
 
-The default URL is:
-
-```text
-http://127.0.0.1:4322/
-```
+By default the server listens on all network interfaces (`0.0.0.0`), matching
+the Astro dev server's `server: { host: true }` setting, so it's reachable
+from other devices on the local network as well as `http://127.0.0.1:4322/`.
+The startup log lists every reachable address, including LAN IPs. Restrict it
+to localhost only with `--host 127.0.0.1` or `DOCS_HOST=127.0.0.1`.
 
 `documentation/index.md` is served as the landing page. Other Markdown files
 are served from their documentation-relative paths, so

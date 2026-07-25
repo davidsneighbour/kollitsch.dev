@@ -269,6 +269,10 @@
     @apply text-4xl;
   }
 
+  h3 {
+    @apply text-3xl;
+  }
+
   /** The idea is not to use h5 and h6 too often and if, then add custom styles via classes */
 
   h1 code,

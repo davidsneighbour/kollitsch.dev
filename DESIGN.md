@@ -90,6 +90,12 @@ typography:
     fontWeight: 400
     lineHeight: 1
     letterSpacing: 0em
+  label-sm:
+    fontFamily: "Exo 2 Variable"
+    fontSize: 0.75rem
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: 0em
 rounded:
   sm: 2px
   md: 6px
@@ -196,6 +202,8 @@ Three families, three roles. No substitutions.
 Exo 2 uses OpenType feature settings `"cv02", "cv03", "cv04", "cv11"` for the title weight - these activate alternate glyph forms that reduce ambiguity between similar characters.
 
 Base line height is `1.6` (or `calc(1em + 0.6rem)` for a fluid implementation). Headings carry a tighter `1.2`–`1.3` for display impact.
+
+Below the `label` token (0.875rem) sits `label-sm` (0.75rem / `text-xs`), used only for micro-UI chrome that must stay compact - image badges, tooltips, floating form labels, pagination hints. It is not a substitute for `label` in prose or metadata lines.
 
 ## Layout
 

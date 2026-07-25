@@ -114,11 +114,14 @@ if (!activeItem && import.meta.env.DEV) {
         data-nav-search-toggle
       >
         <span class="sr-only" data-nav-search-toggle-label>Open site search</span>
+        <!-- text-red-700 is the intended navigation icon color, not leftover debugging. See DESIGN.md.
+             Lucide icons paint via stroke="currentColor" set on the inner element, which resolves
+             against the CSS `color` property - use text-*, not stroke-*, to color them. -->
         <span class="inline-flex" aria-hidden="true" data-nav-search-icon-open>
-          <Icon name="search" class="h-5 w-5 stroke-red-700" />
+          <Icon name="lucide:search" class="h-5 w-5 text-red-700" />
         </span>
         <span class="hidden" aria-hidden="true" data-nav-search-icon-close>
-          <Icon name="x" class="h-5 w-5 stroke-red-700" />
+          <Icon name="lucide:x" class="h-5 w-5 text-red-700" />
         </span>
       </button>
     </Fragment>

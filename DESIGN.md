@@ -191,6 +191,10 @@ The palette keeps its emotional range narrow on purpose. A wide range of grays c
 
 The full gray scale (50–950) and an orange scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components.
 
+`red-700` is the `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, PageFind error text, and `text-red-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. See the debug-class naming convention in Do's and Don'ts.
+
+For icons that paint via `stroke="currentColor"` (Lucide) or `fill="currentColor"` (Bootstrap Icons in `src/icons/`), use `text-*` to set the color, not `stroke-*`/`fill-*` - the presentation attribute resolves against the CSS `color` property, and a literal `stroke`/`fill` property on an ancestor does not override it.
+
 ## Typography
 
 Three families, three roles. No substitutions.
@@ -272,3 +276,4 @@ All inline links in prose content use the `link` color (`text-red-700`) shifting
 * **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.
 * **Don't** add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.
 * **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation and all keyframe animations must be gated behind the `no-preference` media query.
+* **Do** prefix any temporary debugging class with `debug` (e.g. `debug-outline`) if one is ever needed, so it can't be mistaken for an intentional style and is easy to grep for before committing.

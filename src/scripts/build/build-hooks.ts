@@ -39,9 +39,9 @@ function generateFeedsIntegration(): AstroIntegration {
                 ];
 
                 const hasFreshRssConfig = Boolean(
-                    process.env.FRESHRSS_BASE_URL
-                    && process.env.FRESHRSS_USERNAME
-                    && process.env.FRESHRSS_API_PASSWORD,
+                    process.env['FRESHRSS_BASE_URL']
+                    && process.env['FRESHRSS_USERNAME']
+                    && process.env['FRESHRSS_API_PASSWORD'],
                 );
 
                 if (!hasFreshRssConfig) {

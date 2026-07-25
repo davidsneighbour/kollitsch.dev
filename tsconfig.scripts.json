@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/scripts/build/build-hooks.ts"
+  ],
+  "exclude": [],
+  "compilerOptions": {
+    "noEmit": true
+  }
+}

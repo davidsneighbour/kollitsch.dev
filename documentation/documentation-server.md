@@ -58,7 +58,7 @@ node src/scripts/documentation-server.ts --host 127.0.0.1 --port 4332
 
 ## Opening both dev servers in a browser
 
-`npm run dev:open` opens two browser tabs — the Astro dev server
+`npm run dev:open` opens two browser tabs: the Astro dev server
 (`https://localhost:4321`) and the documentation server
 (`http://127.0.0.1:4322`). It only opens tabs; it does not start either
 server, so run `npm run dev` and `npm run dev:docs` first.

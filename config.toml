@@ -1,0 +1,7 @@
+[dnb.publishing]
+content_root = "src/content/blog"
+path_pattern = "{year}/{slug}/index.md"
+url_pattern = "/blog/{year}/{slug}/"
+date_format = "yyyy-MM-dd"
+default_draft = true
+frontmatter_fields = ["title", "date", "description", "summary", "draft"]

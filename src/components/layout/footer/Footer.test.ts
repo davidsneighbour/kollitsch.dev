@@ -18,3 +18,25 @@ describe('Footer component (props contract)', () => {
     expect(regex.test(src)).toBe(true);
   });
 });
+
+describe('Footer component (Static.Quest web ring)', () => {
+  it('links to the previous/members/next/random web ring endpoints', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toContain('https://static.quest/previous/?host=kollitsch.dev');
+    expect(src).toContain('https://static.quest/members');
+    expect(src).toContain('https://static.quest/next/?host=kollitsch.dev');
+    expect(src).toContain('https://static.quest/random');
+  });
+
+  it('uses IconLink instead of hand-composed Icon + a for the ring nav icons', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toMatch(
+      /<IconLink[^>]+href="https:\/\/static\.quest\/previous/,
+    );
+    expect(src).toMatch(/<IconLink[^>]+href="https:\/\/static\.quest\/next/);
+  });
+});

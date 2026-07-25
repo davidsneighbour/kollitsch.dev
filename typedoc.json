@@ -2,7 +2,7 @@
   "entryPoints": ["src/utils"],
   "entryPointStrategy": "expand",
   "exclude": ["src/utils/*.test.ts"],
-  "out": "docs/api",
+  "out": "documentation/api",
   "tsconfig": "./tsconfig.json",
   "name": "kollitsch.dev utilities",
   "includeVersion": true,

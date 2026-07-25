@@ -160,7 +160,15 @@ export default defineConfig({
     },
     server: {
       watch: {
-        ignored: ['**/ai/**'],
+        ignored: [
+          '**/ai/**',
+          '**/scratch/**',
+          '**/.vscode/**',
+          '**/.agents/**',
+          // Root-level all-uppercase docs (README.md, LICENSE.md, TODO.md, etc.).
+          // Scoped to the project root so blog/content Markdown is unaffected.
+          `${__dirname}/[A-Z]*.md`,
+        ],
       },
     },
   },

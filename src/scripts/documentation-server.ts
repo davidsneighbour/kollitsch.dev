@@ -128,10 +128,16 @@ function groupDocumentationPages(
     groupedPages.set(category, [...(groupedPages.get(category) ?? []), page]);
   }
 
+  const groupPriority = (title: string): number => {
+    if (title === 'API') return 0;
+    if (title === 'General') return 1;
+    return 2;
+  };
+
   return [...groupedPages.entries()]
     .sort(([a], [b]) => {
-      if (a === 'General') return -1;
-      if (b === 'General') return 1;
+      const priorityDiff = groupPriority(a) - groupPriority(b);
+      if (priorityDiff !== 0) return priorityDiff;
       return a.localeCompare(b);
     })
     .map(([title, groupPages]) => ({ pages: groupPages, title }));

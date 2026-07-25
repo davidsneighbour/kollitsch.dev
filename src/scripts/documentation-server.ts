@@ -7,6 +7,7 @@ import {
 import { networkInterfaces } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import matter from 'gray-matter';
 import { toHtml } from 'hast-util-to-html';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
@@ -86,6 +87,10 @@ function routePathFromFile(
     .relative(documentationRoot, filePath)
     .replaceAll(path.sep, '/');
   return relativePath === 'index.md' ? '/' : `/${relativePath}`;
+}
+
+function stripFrontmatter(markdown: string): string {
+  return matter(markdown).content;
 }
 
 function titleFromMarkdown(markdown: string, fallback: string): string {
@@ -184,7 +189,7 @@ export async function listDocumentationPages(
 
   const pages = await Promise.all(
     files.map(async (filePath) => {
-      const markdown = await fs.readFile(filePath, 'utf8');
+      const markdown = stripFrontmatter(await fs.readFile(filePath, 'utf8'));
       const fallbackTitle = path.basename(filePath, '.md');
       return {
         filePath,
@@ -486,7 +491,7 @@ async function handleRequest(
     path.resolve(documentationRoot),
     filePath,
   );
-  const markdown = await fs.readFile(filePath, 'utf8');
+  const markdown = stripFrontmatter(await fs.readFile(filePath, 'utf8'));
   const currentPage = pages.find((page) => page.routePath === routePath) ?? {
     filePath,
     routePath,

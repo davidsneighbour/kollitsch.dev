@@ -39,7 +39,7 @@
     "*.json": "$(capture).schema.json, $(capture).test.ts",
     "package.json": ".lychee*, lychee.toml, .commitlint*, .editorconfig*, .fixpack*, .lintstaged*, .nvm*, .stylelint*, biome*, eslint*, netlify*, prettier*, package*, .versionrc*, .ls-lint.*, frontmatter.json, .release-it.ts,.remarkrc.js, typedoc.json",
     "playwright.config.ts": "playwright.*.ts",
-    "README.md": "AGENTS.md, SECURITY.md, LICENSE.md, PROJECT.md, CLAUDE.md, TODO.md, DESIGN.md, ROADMAP.md",
+    "README.md": "AGENTS.md, SECURITY.md, LICENSE.md, PROJECT.md, CLAUDE.md, TODO.md, DESIGN.md",
     "settings.json": "settings.*.jsonc",
     "shared-config.ts": "shared-config*",
     "astro.config.ts": "components.json"

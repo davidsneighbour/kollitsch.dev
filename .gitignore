@@ -16,6 +16,10 @@ src/config/vale/config/templates/
 src/config/vale/config/vocabularies/DNB
 !src/config/vale/config/vocabularies/kollitsch-dev
 
+# Local project-management working files (dnb-project-task-triage skill)
+/PROJECT.md
+/TODO.md
+
 # AI assistant settings
 .claude/settings*.json
 /ai

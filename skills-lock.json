@@ -89,7 +89,7 @@
       "source": "davidsneighbour/ai",
       "sourceType": "github",
       "skillPath": "skills/20-repository-workflows/dnb-project-task-triage/SKILL.md",
-      "computedHash": "86675ca137191e286c228a790c828ccef9f045adbc8d5e8be8074fb699bb4914"
+      "computedHash": "566321599e54e33564ce568c2753a84bb41d9c086d2e3bf288bd5e060b388d30"
     },
     "dnb-quality-gate-organisation": {
       "source": "davidsneighbour/ai",

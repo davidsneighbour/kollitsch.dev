@@ -6,6 +6,14 @@ applyTo: "**"
 
 These instructions apply to all AI-assisted work in this repository.
 
+## Branch policy
+
+This is a single-developer project. Commit directly to `main`. Do not create feature branches or pull requests for routine work — open a PR only if explicitly asked to.
+
+## Documentation sync
+
+Every feature must have documentation in `documentation/`. When a change modifies existing feature behaviour, update the documentation to describe the current state — do not add historical notes like "this used to work differently."
+
 ## Core rule
 
 Every AI-assisted change that is committed must be connected to a GitHub issue.

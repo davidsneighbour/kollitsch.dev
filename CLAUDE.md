@@ -188,10 +188,12 @@ Rules:
 
 ## Git workflow
 
-* **Never commit directly to `main`** - use feature branches for all changes.
+* **This is a single-developer project** - commit directly to `main`. Do not create feature branches or pull requests for routine changes.
+* **Every commit must reference or close a GitHub issue** - use `Closes #123` / `Fixes #123` / `Resolves #123` when the commit fully resolves the issue, or `Refs #123` / `Related to #123` otherwise. See `.agents/instructions/issue-handling.instructions.md` for the full workflow.
 * Use **conventional changelog** commit messages.
 * Available scopes are defined in `.release-it.ts`.
 * Pre-commit hooks run `lint-staged` (via `simple-git-hooks`).
+* **Feature changes must be synced to `documentation/`** - update the current-state documentation, not a changelog of what used to be true.
 
 ## Important files for common tasks
 

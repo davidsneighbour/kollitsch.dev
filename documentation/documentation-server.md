@@ -3,9 +3,11 @@
 The repository includes a small local documentation server for reading
 `documentation/**/*.md` as HTML in a browser or in VS Code's Simple Browser.
 
-Run it by itself:
+`npm run dev` starts both the Astro dev server and the documentation server
+in parallel. Use the split scripts when only one side is needed:
 
 ```bash
+npm run dev:site
 npm run dev:docs
 ```
 
@@ -61,4 +63,4 @@ node src/scripts/documentation-server.ts --host 127.0.0.1 --port 4332
 `npm run dev:open` opens two browser tabs: the Astro dev server
 (`https://localhost:4321`) and the documentation server
 (`http://127.0.0.1:4322`). It only opens tabs; it does not start either
-server, so run `npm run dev` and `npm run dev:docs` first.
+server, so run `npm run dev` first.

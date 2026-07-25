@@ -13,7 +13,10 @@ RFC 2119 keywords (MUST, SHOULD, MAY, etc.) in this repository's documentation c
 ## Commands
 
 ```bash
-npm run dev               # Dev server at https://localhost:4321
+npm run dev               # Astro dev server (https://localhost:4321) + documentation server (http://127.0.0.1:4322), in parallel
+npm run dev:site          # Astro dev server only
+npm run dev:docs          # Documentation server only (see documentation/documentation-server.md)
+npm run dev:open          # Open browser tabs for both servers (does not start them)
 npm run dev:watch         # Dev server with auto-restart watcher (see src/scripts/webserver.ts)
 npm run build             # astro check + astro build (requires API tokens for some hooks)
 npm run check             # astro check only (type-check without building)

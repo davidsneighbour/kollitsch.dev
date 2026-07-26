@@ -72,6 +72,9 @@ exclude = [
 
 exclude_path = [
   "layouts/",
+  "CHANGELOG.md",
+  "PROJECT.md",
+  "TODO.md",
 ]
 
 extensions = ["md", "txt", "html"]

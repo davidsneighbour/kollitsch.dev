@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": [
+    "./node_modules/astro/tsconfigs/strict.json",
+    "./node_modules/@dnbhq/tsconfig/strict.json"
+  ],
+  "include": [".astro/types.d.ts", "src"],
+  "exclude": ["scratch", "src/scripts"],
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "types": ["astro/client"],
+    "plugins": [{ "name": "@astrojs/ts-plugin" }],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@config/*": ["./src/config/*"],
+      "@content/*": ["./src/content/*"],
+      "@contentconfig": ["./src/content.config.ts"],
+      "@data/*": ["./src/data/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@packages/*": ["./src/packages/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@scripts/*": ["./src/scripts/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@test/*": ["./src/test/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+  }
+}

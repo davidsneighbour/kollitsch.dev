@@ -151,10 +151,11 @@ export const headerRules: PathRule[] = [
     addExpires: true,
   },
   {
-    path: '/assets/styles/giscus-*.css',
+    path: '/assets/styles/*',
     comment:
-      'giscus.app fetches custom theme stylesheets via fetch() from its own origin, ' +
-      'which requires an explicit CORS allowance - see Giscus.astro.',
+      "giscus.app fetches custom theme stylesheets via fetch() from its own origin, which " +
+      "requires an explicit CORS allowance - see Giscus.astro. Netlify's _headers globbing only " +
+      'supports a single trailing splat, so this cannot be scoped to `giscus-*.css` specifically.',
     headers: [{ name: 'Access-Control-Allow-Origin', value: 'https://giscus.app' }],
   },
   {

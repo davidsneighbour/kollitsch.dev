@@ -319,7 +319,7 @@
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     },
     "deploy": {
-      "command": "netlify deploy --prod --open"
+      "command": "npm run build && netlify deploy --prod --open"
     },
     "postprepare": {
       "dependencies": [

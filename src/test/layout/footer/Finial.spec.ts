@@ -13,6 +13,6 @@ test('Finial renders with title and has aria-hidden attribute', async ({ page })
   await expect(titleLocator).toHaveCount(1);
 
   // The outer wrapper is aria-hidden according to the component.
-  const ariaHidden = page.locator('[aria-hidden="true"]');
+  const ariaHidden = page.locator('.isolate[aria-hidden="true"]');
   await expect(ariaHidden).toContainText(setup.title);
 });

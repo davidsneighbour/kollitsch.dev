@@ -24,7 +24,9 @@ describe('NavItem component', () => {
 
   it('renders IconLink for the primary link', async () => {
     await load();
-    expect(src).toContain('icon={icon} href={link} class="size-[1em]"');
+    expect(src).toContain(
+      'icon={icon} href={link} class="size-5 md:size-[1.35em]"',
+    );
     expect(src).toContain('data-astro-prefetch="viewport"');
     expect(src).toContain('{name}');
   });

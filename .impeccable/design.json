@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-26T09:13:44Z",
+  "title": "Design System: KOLLITSCH.dev*",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Koh Samui Dusk",
+        "canonical": "oklch(64.6% 0.222 41.116deg)",
+        "tonalRamp": [
+          "oklch(15% 0.222 41.116deg)",
+          "oklch(27% 0.222 41.116deg)",
+          "oklch(39% 0.222 41.116deg)",
+          "oklch(51% 0.222 41.116deg)",
+          "oklch(64.6% 0.222 41.116deg)",
+          "oklch(75% 0.18 41.116deg)",
+          "oklch(85% 0.12 41.116deg)",
+          "oklch(95% 0.04 41.116deg)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Ember Orange-Red",
+        "canonical": "oklch(55.3% 0.195 38.402deg)"
+      },
+      "link": {
+        "role": "secondary",
+        "displayName": "Deep Prose Red",
+        "canonical": "oklch(50.5% 0.213 27.518deg)",
+        "tonalRamp": [
+          "oklch(15% 0.213 27.518deg)",
+          "oklch(27% 0.213 27.518deg)",
+          "oklch(38% 0.213 27.518deg)",
+          "oklch(50.5% 0.213 27.518deg)",
+          "oklch(60% 0.213 27.518deg)",
+          "oklch(72% 0.17 27.518deg)",
+          "oklch(83% 0.1 27.518deg)",
+          "oklch(94% 0.03 27.518deg)"
+        ]
+      },
+      "link-hover": {
+        "role": "secondary",
+        "displayName": "Dusk Orange (link arrival)",
+        "canonical": "oklch(64.6% 0.222 41.116deg)"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Warm Off-White Paper",
+        "canonical": "oklch(98.6% 0.002 67.8deg)",
+        "tonalRamp": [
+          "oklch(15% 0.004 49.3deg)",
+          "oklch(27% 0.006 50deg)",
+          "oklch(39% 0.006 55deg)",
+          "oklch(51% 0.005 60deg)",
+          "oklch(64% 0.004 65deg)",
+          "oklch(78% 0.003 67deg)",
+          "oklch(90% 0.002 67.8deg)",
+          "oklch(98.6% 0.002 67.8deg)"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Warm Near-Black",
+        "canonical": "oklch(14.7% 0.004 49.3deg)"
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Pure White Card",
+        "canonical": "#ffffff"
+      },
+      "surface-raised-dark": {
+        "role": "neutral",
+        "displayName": "Warm Charcoal Card",
+        "canonical": "oklch(26.8% 0.011 36.5deg)"
+      },
+      "on-surface": {
+        "role": "neutral",
+        "displayName": "Warm Mid-Gray Ink",
+        "canonical": "oklch(43.8% 0.017 39.3deg)"
+      },
+      "on-surface-dark": {
+        "role": "neutral",
+        "displayName": "Warm Off-White Ink",
+        "canonical": "oklch(92.2% 0.005 34.3deg)"
+      },
+      "on-surface-muted": {
+        "role": "neutral",
+        "displayName": "Muted Caption Gray",
+        "canonical": "oklch(54.7% 0.021 43.1deg)"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Whisper-Light Border",
+        "canonical": "oklch(92.2% 0.005 34.3deg)"
+      },
+      "border-dark": {
+        "role": "neutral",
+        "displayName": "Warm Charcoal Border",
+        "canonical": "oklch(36.7% 0.016 35.7deg)"
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Alert Red",
+        "canonical": "oklch(57.7% 0.245 27.325deg)"
+      },
+      "code-highlight": {
+        "role": "tertiary",
+        "displayName": "Inline Code Wash",
+        "canonical": "oklch(63.7% 0.237 25.331deg)"
+      }
+    },
+    "typographyMeta": {
+      "h1": { "displayName": "Display Headline", "purpose": "Page titles and h1 headings. Changa One, 400 only." },
+      "h2": { "displayName": "Section Headline", "purpose": "Major section headings." },
+      "h3": { "displayName": "Subsection Headline", "purpose": "Minor section headings." },
+      "body-xl": { "displayName": "Lead Body", "purpose": "Large-desktop reading size for article prose." },
+      "body-lg": { "displayName": "Comfortable Body", "purpose": "Desktop reading size for article prose." },
+      "body-md": { "displayName": "Base Body", "purpose": "Default reading size for article prose and UI copy." },
+      "body-sm": { "displayName": "Compact Body", "purpose": "Mobile reading size and secondary copy." },
+      "code": { "displayName": "Code Block", "purpose": "Fenced code blocks and Expressive Code output." },
+      "code-sm": { "displayName": "Inline Code", "purpose": "Inline code spans and source-code badges." },
+      "label": { "displayName": "UI Label", "purpose": "Metadata, captions, form labels." },
+      "label-sm": { "displayName": "Micro Label", "purpose": "Compact UI chrome: image badges, tooltips, pagination hints." }
+    },
+    "shadows": [
+      { "name": "card-ambient", "value": "shadow-sm (Tailwind default, light mode only)", "purpose": "Faint ambient lift on cards in light mode; entirely absent in dark mode, where outline replaces it." }
+    ],
+    "motion": [
+      { "name": "color-transition", "value": "transition-colors duration-300 ease-in-out", "purpose": "Standard hover/focus color transition for links, cards, and surfaces." },
+      { "name": "press-transition", "value": "transition-transform duration-150", "purpose": "Button active-state press scale (scale-x-97 scale-y-98) with a 150ms delay." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled primary action button (Button.astro, theme=\"primary\", outline=false).",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Save changes</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; background: #dc2626; color: #ffffff; padding: 0.625rem 1.25rem; font-size: 0.875rem; transition: background-color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-primary:hover { background: #991b1b; } .ds-btn-primary:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; } .ds-btn-primary:active { transform: scale(0.97, 0.98); }"
+    },
+    {
+      "name": "Outlined Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Outlined primary button variant (Button.astro, outline=true, the component default).",
+      "html": "<a href=\"#\" class=\"ds-btn-outline\">Read more</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; border: 1px solid #b91c1c; background: transparent; color: #b91c1c; padding: 0.625rem 1.25rem; font-size: 0.875rem; transition: background-color 300ms ease-in-out, color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-outline:hover { background: #991b1b; color: #ffffff; } .ds-btn-outline:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; } .ds-btn-outline:active { transform: scale(0.97, 0.98); }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "description": "Compact status/tag chip (Badge.astro, color=\"red\", bordered=true).",
+      "html": "<span class=\"ds-badge\">v3001.14.0</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; border-radius: 6px; background: #fef2f2; color: #b91c1c; box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.1); padding: 0.125rem 0.375rem; font-size: 0.75rem; font-weight: 500; }"
+    },
+    {
+      "name": "Card Link",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Primary content container for blog previews and link lists (CardLink.astro).",
+      "html": "<a href=\"#\" class=\"ds-card\"><div class=\"ds-card-image\"></div><span class=\"ds-card-title\">Post title goes here</span></a>",
+      "css": ".ds-card { display: flex; align-items: center; gap: 1rem; overflow: hidden; border-radius: 8px; background: #ffffff; padding: 1rem 1.25rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: background-color 300ms ease-in-out; text-decoration: none; } .ds-card:hover { background: rgba(249, 250, 251, 0.5); } .ds-card-image { width: 6rem; height: 6rem; flex-shrink: 0; border-radius: 12px; overflow: hidden; background: #e5e7eb; } .ds-card-title { font-size: 1.5rem; line-height: 1.25; color: #1f2937; }"
+    },
+    {
+      "name": "Source Code Badge",
+      "kind": "chip",
+      "refersTo": "source-code-badge",
+      "description": "Block-mode source-file reference chip used in blog post frontmatter (SourceCodeLink.astro).",
+      "html": "<a href=\"#\" class=\"ds-source-badge\"><span class=\"ds-source-badge-label\">src/components/Button.astro</span></a>",
+      "css": ".ds-source-badge { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; border: 1px solid #e5e7eb; padding: 0.375rem 0.75rem; font-family: 'JetBrains Mono Variable', monospace; font-size: 0.875rem; color: #374151; text-decoration: none; transition: border-color 300ms ease-in-out, background-color 300ms ease-in-out; } .ds-source-badge:hover { border-color: #9ca3af; background: #f9fafb; } .ds-source-badge-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Technical editorial with a restrained personality",
+    "overview": "The site serves as a developer's digital garden - half personal blog, half living web-development reference - aimed at an audience that appreciates density, precision, and the occasional bit of wit. It is built from Koh Samui, Thailand, and the design echoes that contradiction: deeply technical but unhurried.\n\nThe visual language is built around three constraints: a warm, near-neutral gray palette as the base (not cool, not clinical); a single accent pair (a burnt-orange primary shifting to a darker tone on hover) that signals every interactive element without overwhelming the content; and variable-weight typography that can express both the weight of a technical headline and the lightness of body prose without switching families.\n\nThe overriding aesthetic is engineered lightness: generous line heights, minimal corner radii, no decorative shadows - hierarchy is achieved through tone, scale, and spacing rather than visual ornament.",
+    "keyCharacteristics": [
+      "Warm, near-neutral gray palette as the structural base",
+      "Single accent hue (burnt orange) reserved for interactive elements",
+      "Variable-weight typography spanning display headlines to body prose",
+      "Engineered lightness: minimal radii, tonal depth instead of shadows"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "The primary color is used exclusively for interactive primary actions (CTAs, hover states). One per screen is ideal.", "section": "colors" },
+      { "name": "The Flat-By-Default Rule", "body": "Don't add box-shadows in dark mode - use outline outline-white/10 to define surfaces instead.", "section": "elevation" },
+      { "name": "The No-Mix Radius Rule", "body": "Do not mix rounded-lg and rounded-xl on the same container and its child - use rounded-lg on the outer container and rounded-xl only inside, where images live.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do use font-changa only for headings and display text - never for body copy or code.",
+      "Do apply the primary color exclusively to interactive primary actions (CTAs, hover states). One per screen is ideal.",
+      "Do maintain WCAG AA contrast (4.5:1 for normal text). The on-surface / on-surface-dark tokens are calibrated for this.",
+      "Do use transition-colors duration-300 ease-in-out for all color-based hover transitions to maintain consistent motion rhythm.",
+      "Do respect prefers-reduced-motion - the LetterGlitch canvas animation and all keyframe animations must be gated behind the no-preference media query.",
+      "Do prefix any temporary debugging class with debug (e.g. debug-outline) if one is ever needed, so it can't be mistaken for an intentional style and is easy to grep for before committing."
+    ],
+    "donts": [
+      "Don't add box-shadows in dark mode - use outline outline-white/10 to define surfaces instead.",
+      "Don't use rounded-xl on outer containers - it belongs only to images inside cards.",
+      "Don't introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.",
+      "Don't add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing."
+    ]
+  }
+}

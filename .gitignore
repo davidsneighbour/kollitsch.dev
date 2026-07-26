@@ -1,3 +1,6 @@
+# Local scratch/working files (also ignored globally, but tracked here for portability)
+/scratch
+
 # Dev server external restart trigger (used by webserver.ts)
 /RESTART
 
@@ -23,11 +26,14 @@ src/config/vale/config/vocabularies/DNB
 # AI assistant settings
 .claude/settings*.json
 /ai
+.github/hooks
+.codex
 
 # Installed skills (reproducible via skills-lock.json / `npx skills add`)
 # Manually authored AI assets belong in .agents/instructions or .agents/prompts, not here.
 .claude/skills/
 .codex/skills/
+.github/skills/
 
 # .agents/skills/: dnb-* skills are installed via `npx skills add` and reproducible
 # via skills-lock.json, so they are ignored. kdev-* skills are authored in this repo

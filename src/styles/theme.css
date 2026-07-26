@@ -208,6 +208,92 @@
 @theme static {
 }
 
+/*******************************************************************************
+ * MARK: shadcn/ui tokens
+ *
+ * These map 1:1 onto the semantic roles documented in DESIGN.md - no new
+ * colors are introduced. Dark mode follows the site's existing
+ * `[data-theme=dark]` attribute strategy (see @custom-variant dark above),
+ * not shadcn's default `.dark` class.
+ ******************************************************************************/
+:root {
+  --radius: 0.5rem; /* rounded-lg (8px) - DESIGN.md's standard container radius */
+  --background: var(--color-gray-50); /* surface */
+  --foreground: var(--color-gray-600); /* on-surface */
+  --card: #ffffff; /* surface-raised */
+  --card-foreground: var(--color-gray-600);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-gray-600);
+  --primary: var(--color-orange-600);
+  --primary-foreground: var(--color-gray-950); /* surface-dark, per button-primary token */
+  --secondary: var(--color-gray-100);
+  --secondary-foreground: var(--color-gray-600);
+  --muted: var(--color-gray-100);
+  --muted-foreground: var(--color-gray-500); /* on-surface-muted */
+  --accent: var(--color-gray-100);
+  --accent-foreground: var(--color-gray-600);
+  --destructive: var(--color-red-600); /* error */
+  --destructive-foreground: var(--color-gray-50);
+  --border: var(--color-gray-200);
+  --input: var(--color-gray-200);
+  --ring: var(--color-orange-600); /* primary accent doubles as focus ring */
+  --chart-1: var(--color-orange-600);
+  --chart-2: var(--color-red-600);
+  --chart-3: var(--color-gray-400);
+  --chart-4: var(--color-orange-300);
+  --chart-5: var(--color-red-300);
+  --sidebar: var(--color-gray-50);
+  --sidebar-foreground: var(--color-gray-600);
+  --sidebar-primary: var(--color-orange-600);
+  --sidebar-primary-foreground: var(--color-gray-950);
+  --sidebar-accent: var(--color-gray-100);
+  --sidebar-accent-foreground: var(--color-gray-600);
+  --sidebar-border: var(--color-gray-200);
+  --sidebar-ring: var(--color-orange-600);
+}
+
+[data-theme="dark"] {
+  --background: var(--color-gray-950); /* surface-dark */
+  --foreground: var(--color-gray-200); /* on-surface-dark */
+  --card: var(--color-gray-800); /* surface-raised-dark */
+  --card-foreground: var(--color-gray-200);
+  --popover: var(--color-gray-800);
+  --popover-foreground: var(--color-gray-200);
+  --primary: var(--color-orange-600);
+  --primary-foreground: var(--color-gray-950);
+  --secondary: var(--color-gray-800);
+  --secondary-foreground: var(--color-gray-200);
+  --muted: var(--color-gray-800);
+  --muted-foreground: var(--color-gray-500);
+  --accent: var(--color-gray-800);
+  --accent-foreground: var(--color-gray-200);
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-gray-50);
+  --border: var(--color-gray-700); /* border-dark */
+  --input: var(--color-gray-700);
+  --ring: var(--color-orange-600);
+  --chart-1: var(--color-orange-600);
+  --chart-2: var(--color-red-600);
+  --chart-3: var(--color-gray-400);
+  --chart-4: var(--color-orange-300);
+  --chart-5: var(--color-red-300);
+  --sidebar: var(--color-gray-950);
+  --sidebar-foreground: var(--color-gray-200);
+  --sidebar-primary: var(--color-orange-600);
+  --sidebar-primary-foreground: var(--color-gray-950);
+  --sidebar-accent: var(--color-gray-800);
+  --sidebar-accent-foreground: var(--color-gray-200);
+  --sidebar-border: var(--color-gray-700);
+  --sidebar-ring: var(--color-orange-600);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
 /* MARK: base styles */
 
 /*******************************************************************************

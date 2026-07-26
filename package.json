@@ -75,6 +75,8 @@
     "@types/he": "1.2.3",
     "@types/markdown-it": "14.1.2",
     "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
     "@types/yargs": "17.0.35",
     "@vitejs/plugin-basic-ssl": "2.3.0",
     "@vitest/browser-playwright": "^4",
@@ -113,6 +115,7 @@
     "satori": "0.29.0",
     "satori-html": "0.3.2",
     "secretlint": "13.0.4",
+    "shadcn": "4.15.0",
     "sirv": "3.0.2",
     "stylelint": "17.14.1",
     "stylelint-config-html": "1.1.0",
@@ -404,5 +407,16 @@
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
+  },
+  "dependencies": {
+    "@astrojs/react": "6.0.1",
+    "@radix-ui/react-slot": "1.3.3",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.27.0",
+    "radix-ui": "1.6.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwind-merge": "3.6.0"
   }
 }

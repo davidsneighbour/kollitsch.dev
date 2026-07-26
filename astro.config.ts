@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
 import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { remarkKbdNested } from 'remark-kbd-nested';
@@ -144,7 +145,7 @@ export default defineConfig({
     themes: ['dracula', 'light-plus'],
     useDarkModeMediaQuery: false,
   }),
-    mdx()],
+    mdx(), react()],
   markdown: {
     processor: unified({
       remarkPlugins: [remarkKbdNested],

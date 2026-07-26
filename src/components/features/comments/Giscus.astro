@@ -54,8 +54,13 @@ const term = post?.data?.title ?? post?.id ?? 'discussion';
 
 // giscus.app fetches the theme stylesheet cross-origin, so it must always be
 // the production URL - it cannot reach a LAN dev origin (browser PNA rules).
-const themeLight = 'https://kollitsch.dev/assets/styles/giscus-light.css';
-const themeDark = 'https://kollitsch.dev/assets/styles/giscus-dark.css';
+//
+// The `v` query param busts giscus.app's own HTTP cache partition for this
+// URL. Bump it whenever the theme CSS changes - Cache-Control alone won't
+// invalidate a response a browser already cached under the old headers.
+const themeVersion = '2';
+const themeLight = `https://kollitsch.dev/assets/styles/giscus-light.css?v=${themeVersion}`;
+const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${themeVersion}`;
 ---
 
 <dnb-giscus

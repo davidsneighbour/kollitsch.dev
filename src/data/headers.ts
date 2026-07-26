@@ -155,8 +155,15 @@ export const headerRules: PathRule[] = [
     comment:
       "giscus.app fetches custom theme stylesheets via fetch() from its own origin, which " +
       "requires an explicit CORS allowance - see Giscus.astro. Netlify's _headers globbing only " +
-      'supports a single trailing splat, so this cannot be scoped to `giscus-*.css` specifically.',
-    headers: [{ name: 'Access-Control-Allow-Origin', value: 'https://giscus.app' }],
+      'supports a single trailing splat, so this cannot be scoped to `giscus-*.css` specifically. ' +
+      "Cache-Control is overridden (short, no `immutable`) because these files aren't " +
+      'content-hashed and can change without a URL bump - the `/assets/*` immutable default ' +
+      "would otherwise leave stale, pre-CORS-fix responses cached in giscus.app's request " +
+      'partition for up to a year.',
+    headers: [
+      { name: 'Access-Control-Allow-Origin', value: 'https://giscus.app' },
+      { name: 'Cache-Control', value: 'public, max-age=300, must-revalidate' },
+    ],
   },
   {
     path: '/images/*',

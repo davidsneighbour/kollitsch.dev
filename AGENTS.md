@@ -122,7 +122,7 @@ Breaking changes must be prefixed `BREAKING CHANGE:` in the body. Every feature 
 ```bash
 npm run dev               # Astro dev server (https://localhost:4321) + documentation server (http://127.0.0.1:4322), in parallel
 npm run dev:site          # Astro dev server only
-npm run dev:docs          # Documentation server only (see documentation/documentation-server.md)
+npm run dev:docs          # Documentation server only (see documentation/development/documentation-server.md)
 npm run dev:open          # Open browser tabs for both servers (does not start them)
 npm run dev:watch         # Dev server with auto-restart watcher (see src/scripts/webserver.ts)
 npm run build             # astro check + astro build (requires API tokens for some hooks)

@@ -18,7 +18,7 @@ No configuration flag is needed; the environment determines everything.
 
 ## Central mechanism
 
-**[`src/utils/content.pure.ts`](../src/utils/content.pure.ts)**
+**[`src/utils/content.pure.ts`](../../src/utils/content.pure.ts)**
 
 Two exported functions form the single source of truth:
 
@@ -106,4 +106,4 @@ To navigate to the draft list during development, open the **Posts** dropdown in
 
 ## Testing
 
-Unit tests for `shouldShowDrafts` and `filterDraftEntries` live in [`src/utils/content.pure.test.ts`](../src/utils/content.pure.test.ts). In Vitest, `import.meta.env.DEV` is `true` by default, so tests run with draft visibility on, matching the dev experience.
+Unit tests for `shouldShowDrafts` and `filterDraftEntries` live in [`src/utils/content.pure.test.ts`](../../src/utils/content.pure.test.ts). In Vitest, `import.meta.env.DEV` is `true` by default, so tests run with draft visibility on, matching the dev experience.

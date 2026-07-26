@@ -11,14 +11,14 @@ The favicon system converts a single SVG source file into every icon format brow
 
 | Purpose | Path |
 | --- | --- |
-| SVG source (master artwork) | [`src/assets/favicon/favicon.svg`](../src/assets/favicon/favicon.svg) |
-| Intermediate PNG (generated) | [`src/assets/favicon/favicon.png`](../src/assets/favicon/favicon.png) |
-| Generation script | [`src/assets/favicon/regenerate.ts`](../src/assets/favicon/regenerate.ts) |
-| Generation tests | [`src/assets/favicon/regenerate.test.ts`](../src/assets/favicon/regenerate.test.ts) |
-| Static ICO output | [`public/favicon.ico`](../public/favicon.ico) |
-| HTML head injector | [`src/components/layout/head/Favicon.astro`](../src/components/layout/head/Favicon.astro) |
-| Web manifest generator | [`src/pages/manifest.json.ts`](../src/pages/manifest.json.ts) |
-| Head composer (uses Favicon) | [`src/components/layout/head/Head.astro`](../src/components/layout/head/Head.astro) |
+| SVG source (master artwork) | [`src/assets/favicon/favicon.svg`](../../src/assets/favicon/favicon.svg) |
+| Intermediate PNG (generated) | [`src/assets/favicon/favicon.png`](../../src/assets/favicon/favicon.png) |
+| Generation script | [`src/assets/favicon/regenerate.ts`](../../src/assets/favicon/regenerate.ts) |
+| Generation tests | [`src/assets/favicon/regenerate.test.ts`](../../src/assets/favicon/regenerate.test.ts) |
+| Static ICO output | [`public/favicon.ico`](../../public/favicon.ico) |
+| HTML head injector | [`src/components/layout/head/Favicon.astro`](../../src/components/layout/head/Favicon.astro) |
+| Web manifest generator | [`src/pages/manifest.json.ts`](../../src/pages/manifest.json.ts) |
+| Head composer (uses Favicon) | [`src/components/layout/head/Head.astro`](../../src/components/layout/head/Head.astro) |
 
 ## Pipeline overview
 

@@ -70,8 +70,8 @@ import PostImage from '@components/content/media/PostImage.astro';
 | `post` | `CollectionEntry<"blog" \| "tags">` | required | The content entry |
 | `link` | `string` | `undefined` | URL the image links to; omit to disable the background link |
 | `classes` | `string` | `"w-full max-w-full h-auto"` | Tailwind classes applied to the `<img>` or `<Picture>` |
-| `quality` | `"low" \| "medium" \| "high" \| "max" \| number` | `"high"` | Image quality (mapped to 30/60/82/95 or a raw 1-100 number) |
-| `widths` | `number[]` | `[320, 640, 768, 1024]` | Srcset breakpoints in pixels |
+| `quality` | `"low" \| "medium" \| "high" \| "max" \| number` | `"high"` | Image quality (mapped to values between 30 and 95, or a raw number between 1 and 100) |
+| `widths` | `number[]` | `[320, 640, 768, 1024]` | Srcset breakpoints, in pixel units |
 | `formats` | `Array<"avif" \| "webp" \| "png" \| "jpeg">` | `["avif", "webp", "jpeg"]` | Output formats; ordered by preference |
 | `sizes` | `string` | computed | `sizes` attribute for the `<picture>` element |
 | `layout` | `"fixed" \| "constrained" \| "full-width"` | `"constrained"` | Astro `<Picture>` layout mode |

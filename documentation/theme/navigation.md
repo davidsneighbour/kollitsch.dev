@@ -11,11 +11,11 @@ The site navigation is driven by two JSON files and three components. Top-level 
 
 | Purpose | Path |
 | --- | --- |
-| Top navigation data | [`src/data/topnavigation.json`](../src/data/topnavigation.json) |
-| Footer navigation data | [`src/data/footernavigation.json`](../src/data/footernavigation.json) |
-| Navigation type definitions | [`src/utils/navigation.ts`](../src/utils/navigation.ts) |
-| Top navigation shell | [`src/components/layout/header/TopNavigation.astro`](../src/components/layout/header/TopNavigation.astro) |
-| Individual nav item | [`src/components/layout/header/navigation/NavItem.astro`](../src/components/layout/header/navigation/NavItem.astro) |
+| Top navigation data | [`src/data/topnavigation.json`](../../src/data/topnavigation.json) |
+| Footer navigation data | [`src/data/footernavigation.json`](../../src/data/footernavigation.json) |
+| Navigation type definitions | [`src/utils/navigation.ts`](../../src/utils/navigation.ts) |
+| Top navigation shell | [`src/components/layout/header/TopNavigation.astro`](../../src/components/layout/header/TopNavigation.astro) |
+| Individual nav item | [`src/components/layout/header/navigation/NavItem.astro`](../../src/components/layout/header/navigation/NavItem.astro) |
 
 ## Data format
 

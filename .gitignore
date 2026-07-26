@@ -7,6 +7,9 @@
 # mkcert-generated locally-trusted dev certificates
 /.certs
 
+# Playwright MCP local browser session/output dir
+.playwright-mcp/
+
 # Lychee cache
 # @todo move into a sub folder
 .lychee.report.md

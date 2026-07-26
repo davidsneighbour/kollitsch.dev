@@ -506,13 +506,12 @@ interface TitleOptions {
 /**
  * Returns the resolved title of a post, with optional prefix/postfix.
  *
- * @param post - A blog post collection item.
+ * @param title - The raw post title.
  * @param options - Optional prefix or postfix to wrap around the title.
- * @returns A full title string.
  *
  * @example
  * ```ts
- * const title = resolvePostTitle(post, { prefix: 'KOLLITSCH.dev - ' });
+ * const title = resolvePostTitle(rawTitle, { prefix: 'KOLLITSCH.dev - ' });
  * ```
  */
 export function resolvePostTitle(

@@ -75,6 +75,8 @@ Every AI-assisted change that is committed must reference or close a GitHub issu
 
 Once a task reaches a finished, validated state (tests pass, `npx astro check` passes, lint-staged passes, and the commit follows the rules below), commit **and push** to `main` — do not stop at a local commit and wait to be asked. Do not push partial or unvalidated work.
 
+Always commit config/content edits once they're validated, even small ones (e.g. a single lint-config exclusion). Uncommitted working-tree changes are not durable — a later session, tool, or linter run can silently revert them, and the loss goes unnoticed until someone re-discovers the same problem.
+
 ### Format
 
 ```text

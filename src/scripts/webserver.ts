@@ -1,6 +1,5 @@
 // @ts-nocheck - chokidar/ignore are transitive deps without declared types here
-import { execSync } from 'node:child_process';
-import { spawn } from 'node:child_process';
+import { execFileSync, execSync, spawn } from 'node:child_process';
 import { existsSync, readFileSync, rmSync } from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
@@ -75,6 +74,17 @@ function isInCrashLoop(): boolean {
   return recentCrashTimes.length >= CRASH_LOOP_MAX;
 }
 
+// ─── Terminal tab title ───────────────────────────────────────────────────────
+
+// OSC 0 sets the terminal window/tab title; VS Code's integrated terminal
+// picks this up and renames the tab. There's no equivalent escape sequence
+// for the tab icon or color — those are only settable by the extension that
+// creates the terminal (window.createTerminal({ iconPath, color })), not by
+// a process running inside it.
+function setTerminalTitle(title: string): void {
+  process.stdout.write(`\x1b]0;${title}\x07`);
+}
+
 // ─── Desktop notifications ────────────────────────────────────────────────────
 
 function notify(title: string, body: string): void {
@@ -128,6 +138,19 @@ async function claimPort(port: number): Promise<void> {
   console.log(`\x1b[36m[webserver]\x1b[0m Port ${port} occupied — killing occupant...`);
   killPortOccupant(port);
   await waitForPortFree(port);
+}
+
+// Astro tracks a running dev server via its own lock file, keyed by PID
+// rather than by port. A stale server left on a different port (e.g. from an
+// improperly exited previous run) won't be caught by claimPort, but still
+// blocks a new `astro dev` from starting. Clearing the lock unconditionally
+// is a no-op when nothing is running.
+function stopAstroDevLock(): void {
+  try {
+    execFileSync('npx', ['astro', 'dev', 'stop'], { cwd: ROOT, stdio: 'ignore' });
+  } catch {
+    // no lock present, or astro CLI doesn't support the subcommand — ignore
+  }
 }
 
 // ─── Gitignore ───────────────────────────────────────────────────────────────
@@ -314,6 +337,8 @@ function startRestartFilePoller(): void {
 async function main(): Promise<void> {
   const ig = loadGitignore();
 
+  setTerminalTitle('Server');
+  stopAstroDevLock();
   await claimPort(DEV_PORT);
   await claimPort(DOCS_PORT);
   startManagedServer(astroServer);

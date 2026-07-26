@@ -99,6 +99,7 @@
     "**/.wireit/**",
     "**/.astro/**"
   ],
+  "terminal.integrated.tabs.title": "${sequence}",
   "todo-tree.general.automaticGitRefreshInterval": 300,
   "todo-tree.general.debug": true,
   "todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",

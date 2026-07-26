@@ -1,0 +1,152 @@
+/*!
+ * KOLLITSCH.dev* Giscus light theme.
+ * Tokens mirror DESIGN.md / src/styles/theme.css (Tailwind gray/orange/red scales).
+ * Primer variable names adapted from giscus.app/themes/light.css.
+ */
+
+@import "https://fonts.googleapis.com/css2?family=Changa+One&family=Exo+2:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400&display=swap";
+
+main {
+  --color-prettylights-syntax-comment: oklch(54.7% 0.021 43.1deg);
+  --color-prettylights-syntax-constant: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-entity: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-storage-modifier-import: oklch(43.8% 0.017 39.3deg);
+  --color-prettylights-syntax-entity-tag: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-keyword: oklch(64.6% 0.222 41.116deg);
+  --color-prettylights-syntax-string: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-variable: oklch(64.6% 0.222 41.116deg);
+  --color-prettylights-syntax-brackethighlighter-unmatched: oklch(57.7% 0.245 27.325deg);
+  --color-prettylights-syntax-invalid-illegal-text: oklch(98.6% 0.002 67.8deg);
+  --color-prettylights-syntax-invalid-illegal-bg: oklch(57.7% 0.245 27.325deg);
+  --color-prettylights-syntax-carriage-return-text: oklch(98.6% 0.002 67.8deg);
+  --color-prettylights-syntax-carriage-return-bg: oklch(57.7% 0.245 27.325deg);
+  --color-prettylights-syntax-string-regexp: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-markup-list: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-markup-heading: oklch(64.6% 0.222 41.116deg);
+  --color-prettylights-syntax-markup-italic: oklch(43.8% 0.017 39.3deg);
+  --color-prettylights-syntax-markup-bold: oklch(43.8% 0.017 39.3deg);
+  --color-prettylights-syntax-markup-deleted-text: oklch(57.7% 0.245 27.325deg);
+  --color-prettylights-syntax-markup-deleted-bg: oklch(93.6% 0.032 17.717deg);
+  --color-prettylights-syntax-markup-inserted-text: oklch(43.8% 0.017 39.3deg);
+  --color-prettylights-syntax-markup-inserted-bg: oklch(96% 0.002 17.2deg);
+  --color-prettylights-syntax-markup-changed-text: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-markup-changed-bg: oklch(96% 0.002 17.2deg);
+  --color-prettylights-syntax-markup-ignored-text: oklch(98.6% 0.002 67.8deg);
+  --color-prettylights-syntax-markup-ignored-bg: oklch(57.7% 0.245 27.325deg);
+  --color-prettylights-syntax-meta-diff-range: oklch(50.5% 0.213 27.518deg);
+  --color-prettylights-syntax-brackethighlighter-angle: oklch(54.7% 0.021 43.1deg);
+  --color-prettylights-syntax-sublimelinter-gutter-mark: oklch(86.8% 0.007 39.5deg);
+  --color-prettylights-syntax-constant-other-reference-link: oklch(64.6% 0.222 41.116deg);
+  --color-btn-text: oklch(43.8% 0.017 39.3deg);
+  --color-btn-bg: oklch(96% 0.002 17.2deg);
+  --color-btn-border: oklch(92.2% 0.005 34.3deg);
+  --color-btn-shadow: 0 0 #00000000;
+  --color-btn-inset-shadow: 0 0 #00000000;
+  --color-btn-hover-bg: oklch(92.2% 0.005 34.3deg);
+  --color-btn-hover-border: oklch(64.6% 0.222 41.116deg);
+  --color-btn-active-bg: oklch(86.8% 0.007 39.5deg);
+  --color-btn-active-border: oklch(64.6% 0.222 41.116deg);
+  --color-btn-selected-bg: oklch(92.2% 0.005 34.3deg);
+  --color-btn-primary-text: oklch(14.7% 0.004 49.3deg);
+  --color-btn-primary-bg: oklch(64.6% 0.222 41.116deg);
+  --color-btn-primary-border: oklch(55.3% 0.195 38.402deg);
+  --color-btn-primary-shadow: 0 0 #00000000;
+  --color-btn-primary-inset-shadow: 0 0 #00000000;
+  --color-btn-primary-hover-bg: oklch(55.3% 0.195 38.402deg);
+  --color-btn-primary-hover-border: oklch(55.3% 0.195 38.402deg);
+  --color-btn-primary-selected-bg: oklch(55.3% 0.195 38.402deg);
+  --color-btn-primary-selected-shadow: 0 0 #00000000;
+  --color-btn-primary-disabled-text: oklch(14.7% 0.004 49.3deg / 0.5);
+  --color-btn-primary-disabled-bg: oklch(64.6% 0.222 41.116deg / 0.6);
+  --color-btn-primary-disabled-border: oklch(55.3% 0.195 38.402deg / 0.4);
+  --color-action-list-item-default-hover-bg: oklch(96% 0.002 17.2deg);
+  --color-segmented-control-bg: oklch(96% 0.002 17.2deg);
+  --color-segmented-control-button-bg: oklch(98.6% 0.002 67.8deg);
+  --color-segmented-control-button-selected-border: oklch(64.6% 0.222 41.116deg);
+  --color-fg-default: oklch(43.8% 0.017 39.3deg);
+  --color-fg-muted: oklch(54.7% 0.021 43.1deg);
+  --color-fg-subtle: oklch(54.7% 0.021 43.1deg);
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #ffffff;
+  --color-canvas-inset: oklch(98.6% 0.002 67.8deg);
+  --color-canvas-subtle: oklch(96% 0.002 17.2deg);
+  --color-border-default: oklch(92.2% 0.005 34.3deg);
+  --color-border-muted: oklch(92.2% 0.005 34.3deg);
+  --color-neutral-muted: oklch(92.2% 0.005 34.3deg / 0.4);
+  --color-accent-fg: oklch(50.5% 0.213 27.518deg);
+  --color-accent-emphasis: oklch(64.6% 0.222 41.116deg);
+  --color-accent-muted: oklch(64.6% 0.222 41.116deg / 0.4);
+  --color-accent-subtle: oklch(96% 0.002 17.2deg);
+  --color-success-fg: oklch(52.7% 0.137 150.069deg);
+  --color-attention-fg: oklch(55% 0.15 75deg);
+  --color-attention-muted: oklch(55% 0.15 75deg / 0.4);
+  --color-attention-subtle: oklch(95.4% 0.038 75.164deg);
+  --color-danger-fg: oklch(57.7% 0.245 27.325deg);
+  --color-danger-muted: oklch(57.7% 0.245 27.325deg / 0.4);
+  --color-danger-subtle: oklch(93.6% 0.032 17.717deg);
+  --color-primer-shadow-inset: 0 0 #00000000;
+  --color-scale-gray-1: oklch(96% 0.002 17.2deg);
+  --color-scale-blue-1: oklch(92.2% 0.005 34.3deg);
+  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+
+  color: var(--color-fg-default);
+  background-color: var(--color-canvas-default);
+  font-family: "Exo 2", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+}
+
+.gsc-main,
+.gsc-comment-content,
+.gsc-comment-box-main,
+.gsc-comment-box-textarea {
+  font-family: "Exo 2", ui-sans-serif, system-ui, sans-serif;
+}
+
+.gsc-header .gsc-title {
+  font-family: "Changa One", ui-sans-serif, system-ui, sans-serif;
+}
+
+code,
+.gsc-comment-content pre {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.gsc-comment-box,
+.gsc-comment {
+  border-radius: 8px;
+}
+
+.gsc-comment-box-textarea,
+.gsc-comment-box-tabs .gsc-comment-box-tab {
+  border-radius: 6px;
+}
+
+.gsc-reactions-count {
+  display: none;
+}
+
+.gsc-timeline {
+  flex-direction: column-reverse;
+}
+
+.gsc-header {
+  padding-bottom: 1rem;
+}
+
+.gsc-comments > .gsc-header {
+  order: 1;
+}
+
+.gsc-comments > .gsc-comment-box {
+  margin-bottom: 1rem;
+  order: 2;
+}
+
+.gsc-comments > .gsc-timeline {
+  order: 3;
+}
+
+.gsc-homepage-bg {
+  background-color: var(--color-canvas-inset);
+}

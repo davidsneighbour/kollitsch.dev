@@ -13,40 +13,49 @@
  *
  * Notes:
  * - Uses window.kdev.* for global guards (no duplicate runs/definitions).
- * - Falls back to "light" theme when window.theme.getTheme() is unavailable.
+ * - Themed with the site's own giscus-{light,dark}.css (see public/assets/styles/),
+ *   built from DESIGN.md tokens. Always loaded from the production URL because
+ *   giscus.app fetches the stylesheet cross-origin and cannot reach a LAN dev origin.
+ * - Re-syncs the iframe theme on the site's "theme-changed" event (see Header.astro)
+ *   so the comment widget follows the site's light/dark/auto toggle live.
  */
 
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
 // Required
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
   // Optional overrides
   repo?: string;
   repoId?: string;
   category?: string;
   categoryId?: string;
   lang?: string;
-  mapping?: "pathname" | "url" | "title" | "og:title" | "specific";
-  reactionsEnabled?: "0" | "1";
-  emitMetadata?: "0" | "1";
-  inputPosition?: "top" | "bottom";
+  mapping?: 'pathname' | 'url' | 'title' | 'og:title' | 'specific';
+  reactionsEnabled?: '0' | '1';
+  emitMetadata?: '0' | '1';
+  inputPosition?: 'top' | 'bottom';
 }
 
 const {
   post,
-  repo = "davidsneighbour/kollitsch.dev",
-  repoId = "MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=",
-  category = "Comments",
-  categoryId = "DIC_kwDOGDHt584B_i3-",
-  lang = "en",
-  mapping = "specific",
-  reactionsEnabled = "1",
-  emitMetadata = "0",
-  inputPosition = "bottom",
+  repo = 'davidsneighbour/kollitsch.dev',
+  repoId = 'MDEwOlJlcG9zaXRvcnk0MDU5MjUzNTE=',
+  category = 'Comments',
+  categoryId = 'DIC_kwDOGDHt584B_i3-',
+  lang = 'en',
+  mapping = 'specific',
+  reactionsEnabled = '1',
+  emitMetadata = '0',
+  inputPosition = 'bottom',
 } = Astro.props;
 
-const term = post?.data?.title ?? post?.id ?? "discussion";
+const term = post?.data?.title ?? post?.id ?? 'discussion';
+
+// giscus.app fetches the theme stylesheet cross-origin, so it must always be
+// the production URL - it cannot reach a LAN dev origin (browser PNA rules).
+const themeLight = 'https://kollitsch.dev/assets/styles/giscus-light.css';
+const themeDark = 'https://kollitsch.dev/assets/styles/giscus-dark.css';
 ---
 
 <dnb-giscus
@@ -59,7 +68,10 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
   data-mapping={mapping}
   data-reactions-enabled={reactionsEnabled}
   data-emit-metadata={emitMetadata}
-  data-input-position={inputPosition}></dnb-giscus>
+  data-input-position={inputPosition}
+  data-theme-light={themeLight}
+  data-theme-dark={themeDark}
+></dnb-giscus>
 
 <script>
   // Initialise namespacing for guards
@@ -70,7 +82,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
   /**
    * Ensure we define the custom element once.
    */
-  if (!customElements.get("dnb-giscus")) {
+  if (!customElements.get('dnb-giscus')) {
     class DnbGiscus extends HTMLElement {
       /** Guard to ensure single initialisation per element */
       #initialised = false;
@@ -89,7 +101,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
                   const el = entry.target;
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-ignore
-                  if (typeof el?.loadGiscus === "function") {
+                  if (typeof el?.loadGiscus === 'function') {
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     el.loadGiscus();
@@ -100,7 +112,7 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
                 }
               }
             },
-            { rootMargin: "0px 0px 200px 0px", threshold: 0.01 },
+            { rootMargin: '0px 0px 200px 0px', threshold: 0.01 },
           );
         }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -108,19 +120,58 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
         return window.kdev.giscusObserver;
       }
 
+      /** Bound listener reference so it can be added/removed symmetrically */
+      #handleThemeChanged = (event: Event): void => {
+        const resolvedTheme =
+          event instanceof CustomEvent &&
+          event.detail?.resolvedTheme === 'light'
+            ? 'light'
+            : 'dark';
+        this.syncTheme(resolvedTheme);
+      };
+
       /**
-       * Safely read the current theme or fall back to 'light'.
+       * Safely read the current resolved theme ('light' or 'dark'), falling
+       * back to 'light' if the site's theme manager is unavailable.
        */
-      getTheme(): string {
+      getTheme(): 'light' | 'dark' {
         try {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          const t = window?.theme?.getTheme?.();
-          return typeof t === "string" && t ? t : "light";
+          const kdevTheme = window.kdev?.theme;
+          const stored = kdevTheme?.getTheme?.();
+          if (stored === 'light' || stored === 'dark') return stored;
+          if (stored === 'auto')
+            return kdevTheme?.getSystemTheme?.() === 'dark' ? 'dark' : 'light';
+          return 'light';
         } catch (e) {
-          console.error("[Giscus] Theme detection failed, using light:", e);
-          return "light";
+          console.error('[Giscus] Theme detection failed, using light:', e);
+          return 'light';
         }
+      }
+
+      /**
+       * Resolve the giscus theme CSS URL for a given (or the current) theme.
+       */
+      themeUrl(theme: 'light' | 'dark' = this.getTheme()): string {
+        const path =
+          theme === 'light'
+            ? this.dataset['themeLight']
+            : this.dataset['themeDark'];
+        return path ?? theme;
+      }
+
+      /**
+       * Push a theme change to an already-loaded giscus iframe.
+       */
+      syncTheme(theme: 'light' | 'dark' = this.getTheme()): void {
+        const iframe = this.querySelector<HTMLIFrameElement>(
+          'iframe.giscus-frame',
+        );
+        iframe?.contentWindow?.postMessage(
+          { giscus: { setConfig: { theme: this.themeUrl(theme) } } },
+          'https://giscus.app',
+        );
       }
 
       /**
@@ -131,26 +182,26 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
 
         // Required-by-Giscus attributes
         const attrs: Record<string, string> = {
-          src: "https://giscus.app/client.js",
-          "data-repo": ds["repo"] ?? "",
-          "data-repo-id": ds["repoId"] ?? "",
-          "data-category": ds["category"] ?? "",
-          "data-category-id": ds["categoryId"] ?? "",
-          "data-mapping": ds["mapping"] ?? "specific",
-          "data-term": ds["term"] ?? "",
-          "data-input-position": ds["inputPosition"] ?? "bottom",
-          "data-reactions-enabled": ds["reactionsEnabled"] ?? "1",
-          "data-emit-metadata": ds["emitMetadata"] ?? "0",
-          "data-theme": this.getTheme(),
-          "data-lang": ds["lang"] ?? "en",
-          crossorigin: "anonymous",
-          async: "",
-          defer: "",
+          async: '',
+          crossorigin: 'anonymous',
+          'data-category': ds['category'] ?? '',
+          'data-category-id': ds['categoryId'] ?? '',
+          'data-emit-metadata': ds['emitMetadata'] ?? '0',
+          'data-input-position': ds['inputPosition'] ?? 'bottom',
+          'data-lang': ds['lang'] ?? 'en',
+          'data-mapping': ds['mapping'] ?? 'specific',
+          'data-reactions-enabled': ds['reactionsEnabled'] ?? '1',
+          'data-repo': ds['repo'] ?? '',
+          'data-repo-id': ds['repoId'] ?? '',
+          'data-term': ds['term'] ?? '',
+          'data-theme': this.themeUrl(),
+          defer: '',
           id: `giscus-script-${crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)}`,
+          src: 'https://giscus.app/client.js',
         };
 
         // Optional perf hint
-        attrs["fetchpriority"] = "high";
+        attrs['fetchpriority'] = 'high';
 
         return attrs;
       }
@@ -160,29 +211,38 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
        * Exposed as a method so the IO callback can invoke it.
        */
       loadGiscus(): void {
-        if (this.#initialised || this.hasAttribute("data-initialised")) return;
+        if (this.#initialised || this.hasAttribute('data-initialised')) return;
 
         try {
           const attrs = this.buildGiscusAttributes();
 
           // Basic validation
-          const requiredKeys = ["data-repo", "data-repo-id", "data-category", "data-category-id", "data-mapping"];
-          const missing = requiredKeys.filter((k) => !attrs[k] || attrs[k].trim() === "");
+          const requiredKeys = [
+            'data-repo',
+            'data-repo-id',
+            'data-category',
+            'data-category-id',
+            'data-mapping',
+          ];
+          const missing = requiredKeys.filter(
+            (k) => !attrs[k] || attrs[k].trim() === '',
+          );
           if (missing.length) {
-            console.error("[Giscus] Missing required attributes:", missing);
+            console.error('[Giscus] Missing required attributes:', missing);
             return;
           }
 
-          const script = document.createElement("script");
+          const script = document.createElement('script');
           for (const [k, v] of Object.entries(attrs)) {
             script.setAttribute(k, v);
           }
 
           this.appendChild(script);
           this.#initialised = true;
-          this.setAttribute("data-initialised", "true");
+          this.setAttribute('data-initialised', 'true');
+          this.syncTheme();
         } catch (e) {
-          console.error("[Giscus] Failed to load Giscus client:", e);
+          console.error('[Giscus] Failed to load Giscus client:', e);
         }
       }
 
@@ -190,11 +250,13 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
        * Connected lifecycle: observe for visibility and ensure single registration.
        */
       connectedCallback(): void {
+        document.addEventListener('theme-changed', this.#handleThemeChanged);
         try {
-          if (this.#initialised || this.hasAttribute("data-initialised")) return;
+          if (this.#initialised || this.hasAttribute('data-initialised'))
+            return;
           DnbGiscus.observer.observe(this);
         } catch (e) {
-          console.error("[Giscus] connectedCallback error:", e);
+          console.error('[Giscus] connectedCallback error:', e);
           // Fallback: attempt immediate load if observer fails
           this.loadGiscus();
         }
@@ -204,29 +266,32 @@ const term = post?.data?.title ?? post?.id ?? "discussion";
        * Cleanup if removed.
        */
       disconnectedCallback(): void {
+        document.removeEventListener('theme-changed', this.#handleThemeChanged);
         try {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           DnbGiscus.observer?.unobserve(this);
         } catch (e) {
-          console.error("[Giscus] disconnectedCallback error:", e);
+          console.error('[Giscus] disconnectedCallback error:', e);
         }
       }
     }
 
-    customElements.define("dnb-giscus", DnbGiscus);
+    customElements.define('dnb-giscus', DnbGiscus);
 
     // Re-attach observers after client-side navigations (Astro ClientRouter)
-    document.addEventListener("astro:page-load", () => {
+    document.addEventListener('astro:page-load', () => {
       try {
-        const nodes = document.querySelectorAll("dnb-giscus:not([data-initialised])");
+        const nodes = document.querySelectorAll(
+          'dnb-giscus:not([data-initialised])',
+        );
         nodes.forEach((n) => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           DnbGiscus.observer.observe(n);
         });
       } catch (e) {
-        console.error("[Giscus] astro:page-load reattach failed:", e);
+        console.error('[Giscus] astro:page-load reattach failed:', e);
       }
     });
   }

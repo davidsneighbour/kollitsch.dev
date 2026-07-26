@@ -151,6 +151,13 @@ export const headerRules: PathRule[] = [
     addExpires: true,
   },
   {
+    path: '/assets/styles/giscus-*.css',
+    comment:
+      'giscus.app fetches custom theme stylesheets via fetch() from its own origin, ' +
+      'which requires an explicit CORS allowance - see Giscus.astro.',
+    headers: [{ name: 'Access-Control-Allow-Origin', value: 'https://giscus.app' }],
+  },
+  {
     path: '/images/*',
     headers: [{ name: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
     addExpires: true,

@@ -111,14 +111,13 @@ const IS_DEV = import.meta.env.DEV;
          * Store it on window.kdev to avoid duplicate initialisations.
          */
         const getNamespace = () => {
-          const w = window as Window & { kdev?: Record<string, unknown> };
-          if (!w.kdev || typeof w.kdev !== "object") w.kdev = {};
-          return w.kdev;
+          if (!window.kdev || typeof window.kdev !== "object") window.kdev = {};
+          return window.kdev;
         };
 
         const destroyLenis = () => {
           const ns = getNamespace();
-          const existing = ns["lenis"];
+          const existing = ns.lenis;
           if (existing && typeof existing === "object" && "destroy" in existing) {
             try {
               const destroyable = existing as { destroy: () => void };
@@ -127,7 +126,7 @@ const IS_DEV = import.meta.env.DEV;
               console.error("[lenis] destroy failed", e);
             }
           }
-          ns["lenis"] = undefined;
+          ns.lenis = undefined;
         };
 
         const initLenis = () => {
@@ -152,7 +151,7 @@ const IS_DEV = import.meta.env.DEV;
               lenis.start();
             }
 
-            ns["lenis"] = lenis;
+            ns.lenis = lenis;
           } catch (e) {
             console.error("[lenis] init failed", e);
           }

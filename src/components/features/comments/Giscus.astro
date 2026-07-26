@@ -80,8 +80,6 @@ const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${theme
 
 <script>
   // Initialise namespacing for guards
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   window.kdev = window.kdev || {};
 
   /**
@@ -93,26 +91,16 @@ const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${theme
       #initialised = false;
 
       /** IntersectionObserver instance shared via window.kdev */
-      static get observer() {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+      static get observer(): IntersectionObserver {
         if (!window.kdev.giscusObserver) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           window.kdev.giscusObserver = new IntersectionObserver(
             (entries) => {
               for (const entry of entries) {
                 if (entry.isIntersecting) {
                   const el = entry.target;
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  if (typeof el?.loadGiscus === 'function') {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
+                  if (el instanceof DnbGiscus) {
                     el.loadGiscus();
                   }
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
                   window.kdev.giscusObserver?.unobserve(el);
                 }
               }
@@ -120,8 +108,6 @@ const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${theme
             { rootMargin: '0px 0px 200px 0px', threshold: 0.01 },
           );
         }
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         return window.kdev.giscusObserver;
       }
 
@@ -141,8 +127,6 @@ const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${theme
        */
       getTheme(): 'light' | 'dark' {
         try {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           const kdevTheme = window.kdev?.theme;
           const stored = kdevTheme?.getTheme?.();
           if (stored === 'light' || stored === 'dark') return stored;
@@ -273,9 +257,7 @@ const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${theme
       disconnectedCallback(): void {
         document.removeEventListener('theme-changed', this.#handleThemeChanged);
         try {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          DnbGiscus.observer?.unobserve(this);
+          DnbGiscus.observer.unobserve(this);
         } catch (e) {
           console.error('[Giscus] disconnectedCallback error:', e);
         }
@@ -291,8 +273,6 @@ const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${theme
           'dnb-giscus:not([data-initialised])',
         );
         nodes.forEach((n) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           DnbGiscus.observer.observe(n);
         });
       } catch (e) {

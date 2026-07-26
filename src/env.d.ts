@@ -1,7 +1,26 @@
 /**
+ * Shared global namespace used by inline site scripts (mobile nav, reading
+ * progress, theme manager, Giscus loader) to avoid duplicate initialisation
+ * across Astro view-transition swaps.
+ */
+interface KdevGlobal {
+  mobileOpen?: boolean;
+  readingProgressInitialised?: boolean;
+  giscusObserver?: IntersectionObserver;
+  lenis?: unknown;
+  theme?: {
+    setTheme: (theme?: 'auto' | 'dark' | 'light') => void;
+    getTheme: () => 'auto' | 'dark' | 'light';
+    getSystemTheme: () => 'light' | 'dark';
+    resetTheme: () => void;
+  };
+}
+
+/**
  * adding global types to the Window object.
  */
 interface Window {
+  kdev: KdevGlobal;
   theme: {
     setTheme: (theme: 'auto' | 'dark' | 'light') => void;
     getTheme: () => 'auto' | 'dark' | 'light';

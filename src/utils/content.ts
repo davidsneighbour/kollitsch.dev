@@ -404,9 +404,9 @@ export async function getHomepagePosts(): Promise<{
     throw new Error('[getHomepagePosts] No published blog posts available.');
   }
 
-  // @ts-ignore - we KNOW this will result in a single valid post (because the content exists)
+  // published.length was checked above, so published[0] is always defined here.
   const featuredPost: CollectionEntry<'blog'> =
-    published.find((post) => post.data.featured === true) ?? published[0];
+    published.find((post) => post.data.featured === true) ?? published[0]!;
 
   // Recent list: all posts (drafts included in dev), minus the featured post.
   const recentPosts: CollectionEntry<'blog'>[] = sorted

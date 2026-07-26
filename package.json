@@ -185,7 +185,7 @@
     "clean:astro": "wireit",
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
-    "dev": "run-p dev:site dev:docs",
+    "dev": "npm run dev:watch",
     "dev:certs": "mkcert -install && mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1",
     "dev:site": "astro dev",
     "dev:docs": "node src/scripts/documentation-server.ts",

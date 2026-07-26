@@ -14,6 +14,10 @@ const ROOT = path.resolve(import.meta.dirname, '..', '..');
 // before startup and after each managed restart to prevent port cascades.
 const DEV_PORT = 4321;
 
+// The documentation server, managed alongside the Astro dev server so a
+// single RESTART sentinel can bounce both.
+const DOCS_PORT = 4322;
+
 // Files and directories to watch that Astro/Vite does not normally pick up.
 // Patterns are relative to the project root.
 const EXTRA_WATCH_PATTERNS = [
@@ -149,9 +153,13 @@ function isIgnored(filePath: string, ig: ReturnType<typeof ignore>): boolean {
 
 // ─── Server lifecycle ────────────────────────────────────────────────────────
 
-let serverProcess: ReturnType<typeof spawn> | null = null;
-let restartTimer: ReturnType<typeof setTimeout> | null = null;
-let isRestarting = false;
+interface ManagedServer {
+  label: string;
+  port: number;
+  process: ReturnType<typeof spawn> | null;
+  isRestarting: boolean;
+  spawn: () => ReturnType<typeof spawn>;
+}
 
 // Known fatal stderr patterns that should not trigger a restart.
 const FATAL_PATTERNS: Array<{ pattern: RegExp; hint: string }> = [
@@ -161,23 +169,49 @@ const FATAL_PATTERNS: Array<{ pattern: RegExp; hint: string }> = [
   },
 ];
 
-function startServer(): void {
-  if (serverProcess) return;
+const astroServer: ManagedServer = {
+  label: 'Astro dev server',
+  port: DEV_PORT,
+  process: null,
+  isRestarting: false,
+  spawn: () =>
+    spawn('npx', ['astro', 'dev', '--port', String(DEV_PORT)], {
+      cwd: ROOT,
+      stdio: ['inherit', 'inherit', 'pipe'],
+      shell: false,
+      env: { ...process.env },
+    }),
+};
+
+const docsServer: ManagedServer = {
+  label: 'Documentation server',
+  port: DOCS_PORT,
+  process: null,
+  isRestarting: false,
+  spawn: () =>
+    spawn('node', [path.join(ROOT, 'src/scripts/documentation-server.ts')], {
+      cwd: ROOT,
+      stdio: ['inherit', 'inherit', 'pipe'],
+      shell: false,
+      env: { ...process.env, DOCS_PORT: String(DOCS_PORT) },
+    }),
+};
+
+const managedServers: ManagedServer[] = [astroServer, docsServer];
+
+function startManagedServer(server: ManagedServer): void {
+  if (server.process) return;
 
   let fatalReason: string | null = null;
 
-  console.log('\x1b[36m[webserver]\x1b[0m Starting Astro dev server...');
+  console.log(`\x1b[36m[webserver]\x1b[0m Starting ${server.label}...`);
 
   // Capture stderr so we can detect fatal errors; pipe it through so output
   // still appears in the terminal.
-  serverProcess = spawn('npx', ['astro', 'dev', '--port', String(DEV_PORT)], {
-    cwd: ROOT,
-    stdio: ['inherit', 'inherit', 'pipe'],
-    shell: false,
-    env: { ...process.env },
-  });
+  const child = server.spawn();
+  server.process = child;
 
-  serverProcess.stderr.on('data', (chunk: Buffer) => {
+  child.stderr?.on('data', (chunk: Buffer) => {
     process.stderr.write(chunk);
     const text = chunk.toString();
     for (const { pattern, hint } of FATAL_PATTERNS) {
@@ -187,19 +221,19 @@ function startServer(): void {
     }
   });
 
-  serverProcess.on('error', (err) => {
-    console.error('\x1b[31m[webserver]\x1b[0m Server process error:', err.message);
+  child.on('error', (err) => {
+    console.error(`\x1b[31m[webserver]\x1b[0m ${server.label} process error:`, err.message);
   });
 
-  serverProcess.on('exit', (code, signal) => {
-    serverProcess = null;
-    if (isRestarting) return;
+  child.on('exit', (code, signal) => {
+    server.process = null;
+    if (server.isRestarting) return;
     if (signal === 'SIGTERM' || signal === 'SIGINT') return;
 
     if (fatalReason) {
       const msg = `\x1b[31m[webserver]\x1b[0m Fatal error — not restarting.\n${fatalReason}`;
       console.error(msg);
-      notify('[webserver] Fatal error — dev server stopped', fatalReason);
+      notify(`[webserver] Fatal error — ${server.label} stopped`, fatalReason);
       process.exit(1);
     }
 
@@ -208,40 +242,48 @@ function startServer(): void {
     if (isInCrashLoop()) {
       const msg = `Crashed ${CRASH_LOOP_MAX} times in ${CRASH_LOOP_WINDOW_MS / 1000}s. Giving up. Restart manually with: npm run dev:watch`;
       console.error(`\x1b[31m[webserver]\x1b[0m Crash loop detected — ${msg}`);
-      notify('[webserver] Crash loop — dev server stopped', msg);
+      notify(`[webserver] Crash loop — ${server.label} stopped`, msg);
       process.exit(1);
     }
 
-    console.log(`\x1b[33m[webserver]\x1b[0m Server exited (code ${code}, signal ${signal}), restarting...`);
-    claimPort(DEV_PORT).then(startServer);
+    console.log(`\x1b[33m[webserver]\x1b[0m ${server.label} exited (code ${code}, signal ${signal}), restarting...`);
+    claimPort(server.port).then(() => startManagedServer(server));
   });
 }
 
-function scheduleRestart(reason: string): void {
+let restartTimer: ReturnType<typeof setTimeout> | null = null;
+
+function scheduleRestart(reason: string, servers: ManagedServer[] = [astroServer]): void {
   if (restartTimer) clearTimeout(restartTimer);
-  restartTimer = setTimeout(() => doRestart(reason), 500);
+  restartTimer = setTimeout(() => doRestart(reason, servers), 500);
 }
 
-function doRestart(reason: string): void {
-  isRestarting = true;
-  console.log(`\x1b[36m[webserver]\x1b[0m Restarting: ${reason}`);
+function restartManagedServer(server: ManagedServer): void {
+  server.isRestarting = true;
 
   const doStart = () => {
-    claimPort(DEV_PORT).then(() => {
-      isRestarting = false;
-      startServer();
+    claimPort(server.port).then(() => {
+      server.isRestarting = false;
+      startManagedServer(server);
     });
   };
 
-  if (serverProcess) {
-    serverProcess.once('exit', doStart);
-    serverProcess.kill('SIGTERM');
+  if (server.process) {
+    server.process.once('exit', doStart);
+    server.process.kill('SIGTERM');
     // Force-kill after 5s if it doesn't exit cleanly
     setTimeout(() => {
-      if (serverProcess) serverProcess.kill('SIGKILL');
+      if (server.process) server.process.kill('SIGKILL');
     }, 5000);
   } else {
     doStart();
+  }
+}
+
+function doRestart(reason: string, servers: ManagedServer[] = [astroServer]): void {
+  console.log(`\x1b[36m[webserver]\x1b[0m Restarting (${servers.map((s) => s.label).join(', ')}): ${reason}`);
+  for (const server of servers) {
+    restartManagedServer(server);
   }
 }
 
@@ -262,7 +304,7 @@ function startRestartFilePoller(): void {
       } catch {
         // ignore — another process may have removed it first
       }
-      scheduleRestart('RESTART file detected');
+      scheduleRestart('RESTART file detected', managedServers);
     }
   }, RESTART_POLL_INTERVAL_MS);
 }
@@ -273,7 +315,9 @@ async function main(): Promise<void> {
   const ig = loadGitignore();
 
   await claimPort(DEV_PORT);
-  startServer();
+  await claimPort(DOCS_PORT);
+  startManagedServer(astroServer);
+  startManagedServer(docsServer);
   startRestartFilePoller();
 
   const watcher = watch(EXTRA_WATCH_PATTERNS, {
@@ -321,16 +365,31 @@ async function main(): Promise<void> {
 
   const shutdown = (signal: string) => {
     console.log(`\x1b[36m[webserver]\x1b[0m ${signal} received, shutting down...`);
-    isRestarting = true;
     watcher.close();
     newFileWatcher.close();
-    if (serverProcess) {
-      serverProcess.kill('SIGTERM');
-      serverProcess.once('exit', () => process.exit(0));
-      setTimeout(() => process.exit(0), 3000);
-    } else {
+
+    const runningProcesses = managedServers
+      .map((server) => {
+        server.isRestarting = true;
+        return server.process;
+      })
+      .filter((child): child is NonNullable<typeof child> => child !== null);
+
+    if (runningProcesses.length === 0) {
       process.exit(0);
+      return;
     }
+
+    let remaining = runningProcesses.length;
+    const onExit = () => {
+      remaining -= 1;
+      if (remaining <= 0) process.exit(0);
+    };
+    for (const child of runningProcesses) {
+      child.once('exit', onExit);
+      child.kill('SIGTERM');
+    }
+    setTimeout(() => process.exit(0), 3000);
   };
 
   process.on('SIGINT', () => shutdown('SIGINT'));

@@ -6,7 +6,17 @@ export interface Props {
 const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: Props = Astro.props;
 ---
 
-<progress class={classes} value="0" max="100" aria-label="Reading progress" data-reading-progress></progress>
+<div
+  class={classes}
+  role="progressbar"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+  aria-label="Reading progress"
+  data-reading-progress
+>
+  <div class="progress-fill"></div>
+</div>
 <script is:inline>
   (() => {
     window.kdev ??= {};
@@ -27,16 +37,16 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
     const updateProgress = () => {
       const scroll = getScroll();
-      const progressBars = document.querySelectorAll("progress[data-reading-progress]");
+      const progressBars = document.querySelectorAll("[data-reading-progress]");
 
       for (const progress of progressBars) {
-        if (!(progress instanceof HTMLProgressElement)) {
+        if (!(progress instanceof HTMLElement)) {
           continue;
         }
 
-        progress.value = scroll;
-        progress.style.setProperty("--scroll", `${scroll}%`);
-        progress.toggleAttribute("data-complete", progress.value >= 99.9); //
+        progress.setAttribute("aria-valuenow", String(Math.round(scroll)));
+        progress.style.setProperty("--scroll", String(scroll / 100));
+        progress.toggleAttribute("data-complete", scroll >= 99.9);
       }
     };
 
@@ -63,20 +73,17 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
   .progress {
     --progress-height: var(--thickness, var(--height, 4px));
-    --progress-bar-transition: width 0.6s ease;
+    --progress-bar-transition: transform 0.6s ease;
+    --scroll: 0;
 
-    @apply block w-full appearance-none rounded-none bg-black/10;
+    @apply relative block w-full overflow-hidden rounded-none bg-black/10;
     @apply shadow-[inset_0_1px_2px_rgba(0,0,0,0.075)];
 
     height: var(--progress-height);
   }
 
-  .progress::-webkit-progress-bar {
-    @apply rounded-full bg-black/10;
-  }
-
-  .progress::-webkit-progress-value {
-    @apply rounded-full bg-brand-main-accent;
+  .progress-fill {
+    @apply absolute inset-y-0 left-0 h-full w-full origin-left rounded-full bg-brand-main-accent;
 
     background-image: linear-gradient(
       -45deg,
@@ -90,36 +97,17 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
     );
     background-size: var(--progress-height) var(--progress-height);
     animation: progress-bar-stripes 1s linear infinite;
-    transition: var(--progress-bar-transition);
-  }
-
-  .progress::-moz-progress-bar {
-    @apply rounded-full bg-brand-main-accent;
-
-    background-image: linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.15) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.15) 50%,
-      rgba(255, 255, 255, 0.15) 75%,
-      transparent 75%,
-      transparent
-    );
-    background-size: var(--progress-height) var(--progress-height);
-    animation: progress-bar-stripes 1s linear infinite;
+    transform: scaleX(var(--scroll));
     transition: var(--progress-bar-transition);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .progress::-webkit-progress-value,
-    .progress::-moz-progress-bar {
+    .progress-fill {
       @apply animate-none transition-none;
     }
   }
 
-  .progress:not([data-complete])::-webkit-progress-value,
-  .progress:not([data-complete])::-moz-progress-bar {
+  .progress:not([data-complete]) .progress-fill {
     @apply rounded-l-none rounded-r-full;
 
     transition:
@@ -127,8 +115,7 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
       border-radius 0.2s ease;
   }
 
-  .progress[data-complete]::-webkit-progress-value,
-  .progress[data-complete]::-moz-progress-bar {
+  .progress[data-complete] .progress-fill {
     @apply rounded-none;
 
     transition:

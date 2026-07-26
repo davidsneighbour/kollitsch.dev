@@ -12,7 +12,7 @@ cover:
   type: image
 ---
 
-Welcome to another edition of my collection of opened and orphaned browser tabs that never made it to the blog or other uses. I found this one somewhere in the attic. Must have written it at the end of last year, or all the obvious and less obvious year end puns would not have been part of my corporate marketing strategy.
+Welcome to another edition of my collection of opened and orphaned browser tabs that never made it to the blog or other uses. Some collections stop at ten. This one required an additional setting on the dial. I found this one somewhere in the attic. Must have written it at the end of last year, or all the obvious and less obvious year end puns would not have been part of my corporate marketing strategy.
 
 I promise to be more observant of regular link dumps from now on.
 

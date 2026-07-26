@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const config = {
   linkPath: 'ai',
-  targetPath: '../ai/ai',
+  targetPath: '../ai',
 };
 
 async function pathExists(filePath) {

@@ -158,7 +158,7 @@ export default defineConfig({
   prefetch: { defaultStrategy: 'hover', prefetchAll: true },
   server: { host: true },
   site: 'https://kollitsch.dev/',
-  //trailingSlash: 'always',
+  trailingSlash: 'always',
   vite: {
     plugins: [
       ...(hasMkcertCert ? [] : [basicSsl()]),
@@ -182,6 +182,8 @@ export default defineConfig({
           '**/scratch/**',
           '**/.vscode/**',
           '**/.agents/**',
+          '**/.claude/**',
+          '**/.codex/**',
           // Root-level all-uppercase docs (README.md, LICENSE.md, TODO.md, etc.).
           // Scoped to the project root so blog/content Markdown is unaffected.
           `${__dirname}/[A-Z]*.md`,

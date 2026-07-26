@@ -28,7 +28,12 @@ src/config/vale/config/vocabularies/DNB
 # Manually authored AI assets belong in .agents/instructions or .agents/prompts, not here.
 .claude/skills/
 .codex/skills/
-.agents/skills/
+
+# .agents/skills/: dnb-* skills are installed via `npx skills add` and reproducible
+# via skills-lock.json, so they are ignored. kdev-* skills are authored in this repo
+# and tracked.
+.agents/skills/*
+!.agents/skills/kdev-*
 
 # Wireit cache
 .wireit

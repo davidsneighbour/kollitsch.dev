@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-radius",
+        "value": "1.5rem",
+        "createdAt": "2026-07-26T09:47:49.619Z",
+        "reason": "Hero-scale gimmick panel (LetterGlitch shell); DESIGN.md rounded scale tops out at 12px for cards/thumbnails, not hero decorative surfaces"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "1rem",
+        "createdAt": "2026-07-26T09:47:49.648Z",
+        "reason": "Hero-scale gimmick content card (LetterGlitch); same rationale as 1.5rem shell radius"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "1.25rem",
+        "createdAt": "2026-07-26T09:47:55.596Z",
+        "reason": "TvHead hero bezel radius on homepage; DESIGN.md rounded scale tops out at 12px for cards/thumbnails, not hero decorative surfaces"
+      }
+    ]
+  }
+}

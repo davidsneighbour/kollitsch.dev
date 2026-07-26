@@ -524,7 +524,7 @@
     --sb-track-color2: var(--color-gray-800);
     --sb-thumb-color: var(--color-orange-600);
     --sb-thumb-color2: var(--color-red-700);
-    --sb-border-radius: 4px;
+    --sb-border-radius: 6px;
   }
 
   ::-webkit-scrollbar {

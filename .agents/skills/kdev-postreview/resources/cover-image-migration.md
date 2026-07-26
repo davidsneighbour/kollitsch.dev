@@ -181,10 +181,10 @@ When migrating multiple posts:
 4. avoid asking the same series-level question repeatedly
 5. provide a summary table
 
-| Post slug                              | Old image                                                 | New image                                                | Action                    |
+| Post slug | Old image | New image | Action |
 | -------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------- | ------------------------- |
-| `the-fungus-that-thrives-on-radiation` | `Fungi-Chernobyl-Cladosporium-sphaerospermum-Medmyco.jpg` | `postimage-for-the-fungus-that-thrives-on-radiation.jpg` | moved                     |
-| `kurzschnitte-ii-11`                   | `kurzschnitte.jpg`                                        | `postimage-for-kurzschnitte-series.jpg`                  | copied; original retained |
+| `the-fungus-that-thrives-on-radiation` | `Fungi-Chernobyl-Cladosporium-sphaerospermum-Medmyco.jpg` | `postimage-for-the-fungus-that-thrives-on-radiation.jpg` | moved |
+| `kurzschnitte-ii-11` | `kurzschnitte.jpg` | `postimage-for-kurzschnitte-series.jpg` | copied; original retained |
 
 ## Done signal
 

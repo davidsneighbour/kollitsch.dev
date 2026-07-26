@@ -154,6 +154,12 @@ export const blogSchema = z
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
     fmContentType: z.string().optional(),
+    /**
+     * Extra Netlify response headers for this post's own URL only - no path
+     * is specified because it's implicit (the page's own permalink). See
+     * `src/data/headers.ts` for how these are merged into `dist/_headers`.
+     */
+    headers: z.record(z.string(), z.string()).optional(),
     lastModified: z.coerce
       .date()
       .transform((s) => new Date(s))

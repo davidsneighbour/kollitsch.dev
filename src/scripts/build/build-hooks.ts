@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createIndex, type PagefindServiceConfig } from 'pagefind';
 import sirv from 'sirv';
 import { generateHeaders } from './build-headers.ts';
+import { collectFrontmatterHeaderRules } from './collect-frontmatter-headers.ts';
 
 export interface PagefindOptions {
     /**
@@ -146,12 +147,10 @@ function pagefindIntegration({
 
 /**
  * Astro build hook that generates `dist/_headers` after the Astro build
- * completes.  Writing after the build (rather than copying from `public/`)
- * allows the Expires header to reflect the actual deploy timestamp and
- * makes the file extensible with rules collected from page frontmatter.
- *
- * Extension point: pass `extraRules` from frontmatter scanning here once
- * the frontmatter header system is implemented (see `src/data/headers.ts`).
+ * completes. Writing after the build (rather than copying from `public/`)
+ * allows the Expires header to reflect the actual deploy timestamp and lets
+ * it merge in rules collected from blog post frontmatter (see
+ * `collect-frontmatter-headers.ts` and `src/data/headers.ts`).
  */
 function generateHeadersIntegration(): AstroIntegration {
     return {
@@ -159,8 +158,9 @@ function generateHeadersIntegration(): AstroIntegration {
         hooks: {
             'astro:build:done': async ({ dir, logger }) => {
                 const outDir = fileURLToPath(dir);
-                generateHeaders(outDir);
-                logger.info('Generated _headers');
+                const extraRules = await collectFrontmatterHeaderRules();
+                generateHeaders(outDir, extraRules);
+                logger.info(`Generated _headers (${extraRules.length} rule(s) from frontmatter)`);
             },
         },
     };

@@ -21,19 +21,19 @@ export interface PathRule {
 /**
  * Base Netlify `_headers` rules.
  *
- * EXTENSION POINT — frontmatter headers
- * ─────────────────────────────────────
- * Pages and directories can add per-path rules via frontmatter or a sidecar file.
- * The build integration in `src/scripts/build/build-headers.ts` accepts an
- * `extraRules: PathRule[]` array that is appended after these base rules.
+ * FRONTMATTER HEADERS
+ * ────────────────────
+ * A blog post can add headers scoped to its own permalink via frontmatter:
  *
- * Planned sources:
- *   1. Page frontmatter:  headers: { 'X-Robots-Tag': 'noindex' }
- *   2. Directory sidecar: src/content/blog/2025/_headers.json
+ *   headers:
+ *     X-Robots-Tag: noindex
  *
- * When implemented, the integration's `astro:build:start` hook will call
- * `getCollection('blog')`, filter entries that carry `data.headers`, and convert
- * them into `PathRule` objects that are forwarded to the generator.
+ * No path is given because it's implicit (the post's own URL). See the
+ * `headers` field on `blogSchema` in `src/content.config.ts`, and
+ * `src/scripts/build/collect-frontmatter-headers.ts`, which scans post
+ * frontmatter at build time and turns matches into `PathRule` objects
+ * appended after `headerRules`/`moduleHeaderRules` by
+ * `generateHeadersIntegration` in `build-hooks.ts`.
  */
 export const headerRules: PathRule[] = [
   {

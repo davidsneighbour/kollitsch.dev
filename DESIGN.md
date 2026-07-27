@@ -9,9 +9,9 @@ colors:
   # Link pair - deep red shifts toward orange on hover
   link: "oklch(50.5% 0.213 27.518deg)"
   link-hover: "oklch(64.6% 0.222 41.116deg)"
-  # Surfaces (light / dark)
-  surface: "oklch(98.6% 0.002 67.8deg)"
-  surface-dark: "oklch(14.7% 0.004 49.3deg)"
+  # Surfaces (light / dark) - Tailwind's `olive` scale (v4.2+), not `gray`
+  surface: "oklch(98.8% 0.003 106.5deg)"
+  surface-dark: "oklch(15.3% 0.006 107.1deg)"
   surface-raised: "#ffffff"
   surface-raised-dark: "oklch(26.8% 0.011 36.5deg)"
   # Text
@@ -184,12 +184,30 @@ The palette keeps its emotional range narrow on purpose. A wide range of grays c
 * **Primary Hover (`oklch(55.3% 0.195 38.402deg)`):** A shade darker than primary, shifting toward deep orange-red - enough movement to confirm activation without a color-family jump.
 * **Link (`oklch(50.5% 0.213 27.518deg)`):** Deep red for inline prose links. Distinct from the orange primary so links read as navigational, not primary-action.
 * **Link Hover (`oklch(64.6% 0.222 41.116deg)`):** Shifts to the primary orange on hover - the brand hue arrives when the user reaches for the link.
-* **Surface / Surface Dark:** Warm off-white (`oklch(98.6%)`) in light mode, near-black (`oklch(14.7%)`) in dark mode. The warmth is intentional - pure white and pure black feel too harsh for long-form reading.
+* **Surface / Surface Dark:** Warm off-white (`oklch(98.8%)`) in light mode, near-black (`oklch(15.3%)`) in dark mode - Tailwind's `olive` scale. The warmth is intentional - pure white and pure black feel too harsh for long-form reading.
 * **On-Surface / On-Surface Dark:** `oklch(43.8%)` mid-gray for light mode body text; `oklch(92.2%)` for dark mode. Both pass WCAG AA against their respective surfaces.
 * **Border:** A whisper-light `oklch(92.2%)` in light mode and `oklch(36.7%)` in dark mode. Borders define without asserting.
 * **Code Highlight:** Red-500 at 10% opacity (`oklch(63.7%)`) as the inline code chip background - visually distinct from prose without introducing a new color family.
 
 The full gray scale (50–950) and an orange scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components.
+
+### Two neutral families: `gray` (structural) vs. `olive` (surface)
+
+Tailwind v4.2 added `mauve`, `olive`, `mist`, and `taupe` as stock neutral palettes alongside the classic `slate`/`gray`/`zinc`/`neutral`/`stone` lineup. This site's own custom `gray` scale (`src/styles/theme.css`) turns out to be an exact, shade-for-shade match of Tailwind's stock `taupe` - it was hand-built before Tailwind shipped the equivalent, and happens to be identical.
+
+Rather than rename that scale retroactively (a values-only diff with zero visual change), `gray` stays the name for **structural neutrals** - body text, muted text, borders, `--input`. `olive` was added as a second, deliberate neutral family reserved specifically for **`--background`** (page surface, light and dark) and anything that derives its tint from `--background`. The two families sit at nearly the same lightness steps but different hues, so text/border legibility choices don't shift just because the page background got warmer.
+
+**Do not** extend this into a blanket "replace all grays with olive" refactor - only `--background`-derived surfaces should use `olive`. Text, borders, and muted-foreground colors stay on `gray` for legibility.
+
+### Deriving tinted surfaces from `--background`
+
+Any UI chrome that needs to read as "a tint of whatever the page background is" - the sticky header, the nav dropdown popover, breadcrumb pills - should be expressed as a `color-mix()` or black/white opacity overlay of `var(--background)`, never as an independently chosen gray/olive shade. This was the actual bug behind several rounds of "doesn't look themed" fixes this session:
+
+* The sticky header's dark-mode tint was hardcoded to 92% opacity while light mode used 70% - nearly opaque, which hid the backdrop blur entirely. Fixed by sharing one `--header-tint: 70%` custom property between both themes (`src/components/layout/header/Header.astro`).
+* The nav dropdown's `--popover` (dark) was a fixed `--color-gray-800`, unrelated in hue to the new olive background. Fixed to `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not a separate palette pick.
+* Breadcrumb pills, previously `bg-gray-100 dark:bg-gray-900`, became `bg-black/5 dark:bg-white/5` - a relative overlay that reads correctly against any background lightness.
+
+The payoff: if `--background` changes again later, these surfaces update automatically instead of needing another pass of manual fixes.
 
 `red-700` is the `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, PageFind error text, and `text-red-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. See the debug-class naming convention in Do's and Don'ts.
 
@@ -225,11 +243,13 @@ The layout does not use a columnar grid in the classical sense. Most pages are a
 
 Depth is achieved through **tonal contrast**, not shadows.
 
-In light mode: the page surface is warm off-white (`surface`). Raised elements like cards sit on pure white (`surface-raised`). The color step is small - enough to group content visually without creating harsh boundaries.
+In light mode: the page surface is warm off-white (`surface`). Some raised elements (the shadcn `card` primitive) sit on pure white (`surface-raised`); the article/feed cards described below instead use a relative opacity overlay rather than a fixed raised color.
 
-In dark mode: shadow-based elevation is replaced entirely with **subtle outlines**. Cards use `dark:outline dark:-outline-offset-1 dark:outline-white/10` - a faint white border at 10% opacity. No box-shadows appear in dark mode.
+In dark mode: shadow-based elevation is replaced entirely with **subtle outlines and rings** rather than box-shadows.
 
-Hover states for interactive surfaces (cards, list items) use a 5–10% opacity tonal shift (`hover:bg-gray-50/50` in light, `hover:bg-gray-800/70` in dark) rather than shadow changes. Motion is handled by `transition-colors duration-300 ease-in-out`.
+**Article/feed cards (`Preview.astro`, `Tag.astro`, `CardLink.astro`) intentionally do not use a fixed "raised" color at all.** They're all a `bg-white/5` (light) / `dark:bg-black/20` (dark) opacity overlay on top of whatever `--background` is, with `hover:bg-white/10` / `dark:hover:bg-black/30` on interaction. This is deliberate: an overlay expressed as an opacity of the surrounding background can never clash with the page background, even if `--background` changes later - there's no separate gray/olive shade to keep in sync. `Preview.astro`/`Tag.astro` add a `ring-1 ring-gray-900/10 dark:ring-gray-100/10` for definition; `CardLink.astro` instead keeps a light-mode `shadow-sm` and swaps to `dark:outline dark:-outline-offset-1 dark:outline-white/10` in dark mode.
+
+Hover states for interactive surfaces (cards, list items) use a small opacity step-up rather than shadow changes. Motion is handled by `transition-colors duration-300 ease-in-out`.
 
 ## Shapes
 
@@ -249,9 +269,26 @@ Do not mix `rounded-lg` and `rounded-xl` on the same container and its child - u
 
 Cards are the primary content container for blog post previews, link lists, and media items.
 
-* Light: white background, `rounded-lg`, `px-4 py-5` (or `sm:p-6`), subtle `shadow-sm`, `hover:bg-gray-50/50`
-* Dark: `bg-gray-800/50` (semi-transparent), no shadow, `outline outline-white/10`, `hover:bg-gray-800/70`
+* Light: `bg-white/5`, `rounded-lg`, `px-4 py-5` (or `sm:p-6`), subtle `shadow-sm`, `hover:bg-white/10`
+* Dark: `bg-black/20` (an opacity overlay of the page background, not a fixed color), no shadow, `outline outline-white/10`, `hover:bg-black/30`
 * Images within cards use `rounded-xl overflow-hidden` to contain the photo without interfering with the card's own radius
+* See "Elevation & Depth" above for why this is an opacity overlay rather than a picked gray/olive shade
+
+### Sticky Header & Popover Chrome
+
+The sticky header (`Header.astro`) and mobile nav dropdown are a frosted-glass overlay: `background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent)` plus `backdrop-filter: blur(20px) saturate(1)`. `--header-tint` (`70%`) is a single CSS custom property shared by light and dark - it must never be given different values per theme, or the blur becomes invisible in whichever theme has the higher opacity.
+
+The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
+
+### Breadcrumbs
+
+A small pill, `bg-black/5 dark:bg-white/5 rounded-sm px-2 py-1` - same relative-overlay logic as cards, sized down for an inline chip.
+
+### Form Fields (Inputs, Textareas)
+
+Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/shadcn-ui/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form) - the site has no React islands in production, so the shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
+
+Do not rely on `@tailwindcss/forms`' class-strategy names (e.g. `form-input`). This project runs the plugin with `strategy: "base"` (see `src/styles/theme.css`), which restyles raw `input`/`select`/`textarea` elements directly and does **not** generate a `.form-input` utility class - a stray `class="form-input"` does nothing and silently falls back to the browser/plugin default (an unstyled white box in both themes).
 
 ### Source Code Link Badges
 
@@ -277,3 +314,9 @@ All inline links in prose content use the `link` color (`text-red-700`) shifting
 * **Don't** add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.
 * **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation and all keyframe animations must be gated behind the `no-preference` media query.
 * **Do** prefix any temporary debugging class with `debug` (e.g. `debug-outline`) if one is ever needed, so it can't be mistaken for an intentional style and is easy to grep for before committing.
+* **Do** derive tinted/frosted surfaces (header, popovers, breadcrumb pills) from `var(--background)` via `color-mix()` or a black/white opacity overlay - never pick an independent gray/olive shade for a "raised" or "frosted" look. See "Deriving tinted surfaces from `--background`" above.
+* **Don't** give the same tinted surface a different opacity per theme (e.g. 70% light / 92% dark) - share one value via a custom property so light and dark can't drift apart.
+* **Don't** extend the `olive` surface scale into structural neutrals - text, borders, and muted-foreground stay on `gray`. `olive` is reserved for `--background` and things derived from it.
+* **Do** use the shadcn primitives in `src/components/shadcn-ui/` (`Input`, `Textarea`, `Button`, `Card`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
+* **Don't** rely on `@tailwindcss/forms`' class-strategy names like `form-input` - this project runs the plugin in `base` strategy, so that class doesn't exist and silently does nothing.
+* **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the orange primary or red link pair.

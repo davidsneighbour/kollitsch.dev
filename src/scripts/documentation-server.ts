@@ -327,6 +327,8 @@ export function renderDocumentationPage(
     markdownProcessor.runSync(markdownProcessor.parse(markdown)),
   );
   const navTree = buildDocumentationNavTree(pages);
+  // the root index page is already linked from the nav <h1>; drop it here to avoid a duplicate entry
+  navTree.pages = navTree.pages.filter((page) => page.routePath !== '/');
   const nav = renderNavNodeChildren(navTree, currentPage.routePath);
 
   return `<!doctype html>

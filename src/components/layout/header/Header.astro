@@ -233,13 +233,16 @@ if (!activeItem && import.meta.env.DEV) {
 <style is:global>
   /* Header bar background — tinted with the page background, not a standalone color */
   .site-header {
+    /* shared so light/dark don't drift apart and hide the backdrop blur again */
+    --header-tint: 70%;
+
     /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    background-color: color-mix(in oklch, var(--background) 70%, transparent);
+    background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent);
   }
 
   [data-theme="dark"] .site-header {
     /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    background-color: color-mix(in oklch, var(--background) 92%, transparent);
+    background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent);
     /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
     backdrop-filter: blur(20px) saturate(1);
   }

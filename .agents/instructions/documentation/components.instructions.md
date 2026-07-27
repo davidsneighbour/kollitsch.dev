@@ -7,8 +7,10 @@ applyTo: "documentation/components/**"
 Every component under `src/components/` that is created or meaningfully changed **must** have a matching documentation file at:
 
 ```text
-documentation/components/<kebab-case-component-name>.md
+documentation/components/<path-mirroring-src-components>/<kebab-case-component-name>.md
 ```
+
+The path under `documentation/components/` mirrors the component's directory path under `src/components/`, kebab-cased per segment. For example `src/components/layout/header/theme/ThemeSelector.astro` documents to `documentation/components/layout/header/theme/theme-selector.md`.
 
 Create the file when the component is first written. Update it whenever the props contract, behaviour, or usage changes.
 

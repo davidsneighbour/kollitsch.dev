@@ -11,9 +11,9 @@ Renders an `<h2>` that replaces its visible text with a random alternative from 
 
 | Field | Value |
 | --- | --- |
-| Component | [`src/components/gimmicks/RandomHeading.astro`](../../src/components/gimmicks/RandomHeading.astro) |
-| Data | [`src/data/random-headings.json`](../../src/data/random-headings.json) |
-| Tests | [`src/test/browser/components-props.test.ts`](../../src/test/browser/components-props.test.ts) |
+| Component | [`src/components/gimmicks/RandomHeading.astro`](../../../src/components/gimmicks/RandomHeading.astro) |
+| Data | [`src/data/random-headings.json`](../../../src/data/random-headings.json) |
+| Tests | [`src/test/browser/components-props.test.ts`](../../../src/test/browser/components-props.test.ts) |
 
 ## Props
 

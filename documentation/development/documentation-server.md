@@ -37,9 +37,14 @@ site tooling: `unified`, `remark-parse`, `remark-gfm`, `remark-rehype`, and
 build, so it does not hydrate Astro components or load the public site design
 system.
 
-The sidebar navigation groups pages by their top-level folder name under
-`documentation/` (for example `Components`). Files directly at the
-documentation root belong to `General`.
+The sidebar navigation mirrors the full folder structure under
+`documentation/`: each directory level (for example `Components` >
+`Layout` > `Header` > `Theme`) becomes a nested, collapsible group,
+rendered with native `<details>`/`<summary>` elements (no JavaScript
+required). Groups on the path to the page currently being viewed are
+expanded automatically; everything else starts collapsed, which keeps the
+sidebar short even as the number of documented components grows. Files
+directly at the documentation root are listed flat, with no group wrapper.
 
 `documentation/api/` holds generated TypeDoc output (see `npm run docs:api`).
 It is never scanned for Markdown or expanded into individual nav entries;

@@ -11,9 +11,9 @@ Renders a single item in the top navigation bar, either as a plain link or as a 
 
 | Field | Value |
 | --- | --- |
-| Component | [`src/components/layout/header/navigation/NavItem.astro`](../../src/components/layout/header/navigation/NavItem.astro) |
+| Component | [`src/components/layout/header/navigation/NavItem.astro`](../../../../../src/components/layout/header/navigation/NavItem.astro) |
 | Data | none (receives all data via props from `TopNavigation.astro`) |
-| Tests | [`src/components/layout/header/navigation/NavItem.test.ts`](../../src/components/layout/header/navigation/NavItem.test.ts) |
+| Tests | [`src/components/layout/header/navigation/NavItem.test.ts`](../../../../../src/components/layout/header/navigation/NavItem.test.ts) |
 
 ## Props
 
@@ -25,7 +25,7 @@ Renders a single item in the top navigation bar, either as a plain link or as a 
 | `classes` | `string` | `""` | Tailwind classes applied to the outer `<li>` |
 | `subItems` | `NavDataItem[]` | `undefined` | Child items; triggers the dropdown branch when non-empty |
 
-`NavDataItem` is the `NavItem` type exported from [`src/utils/navigation.ts`](../../src/utils/navigation.ts).
+`NavDataItem` is the `NavItem` type exported from [`src/utils/navigation.ts`](../../../../../src/utils/navigation.ts).
 
 ## Usage
 
@@ -68,10 +68,10 @@ Renders a `<li>` containing an `IconLink`: an icon followed by the label text.
 
 When `subItems` is non-empty the component renders:
 
-* A `<li data-nav-dropdown>` with named group `group/navitem`.
-* The primary `<a>` link (the label) stays clickable at all times.
-* A `<button data-nav-dropdown-toggle>` with a caret icon next to the label opens and closes the submenu.
-* A `<ul role="menu">` containing one `IconLink` per sub-item.
+- A `<li data-nav-dropdown>` with named group `group/navitem`.
+- The primary `<a>` link (the label) stays clickable at all times.
+- A `<button data-nav-dropdown-toggle>` with a caret icon next to the label opens and closes the submenu.
+- A `<ul role="menu">` containing one `IconLink` per sub-item.
 
 #### CSS hover (desktop, `@md:` breakpoint)
 

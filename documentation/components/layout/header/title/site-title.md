@@ -11,8 +11,8 @@ Renders the large homepage header title as an image-filled heading that dissolve
 
 | Field | Value |
 | --- | --- |
-| Component | [`src/components/layout/header/title/SiteTitle.astro`](../../src/components/layout/header/title/SiteTitle.astro) |
-| Data | [`src/data/setup.json`](../../src/data/setup.json) (site title text), `public/headline.jpg` (background image) |
+| Component | [`src/components/layout/header/title/SiteTitle.astro`](../../../../../src/components/layout/header/title/SiteTitle.astro) |
+| Data | [`src/data/setup.json`](../../../../../src/data/setup.json) (site title text), `public/headline.jpg` (background image) |
 | Tests | none |
 
 ## Props
@@ -33,7 +33,7 @@ import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 
 ## Behaviour
 
-The component wraps [`TextImageFill`](text-image-fill.md) with `imageUrl="/headline.jpg"`, `fallbackColor="var(--color-orange-500)"`, and `tintColor="var(--color-red-800)"` at `tintOpacity={0.1}`, so the title text is normally filled with the headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
+The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl="/headline.jpg"`, `fallbackColor="var(--color-orange-500)"`, and `tintColor="var(--color-red-800)"` at `tintOpacity={0.1}`, so the title text is normally filled with the headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
 
 ### Scroll-exit fade
 
@@ -57,4 +57,4 @@ Under `@media (prefers-reduced-motion: reduce)`, the scroll-exit animation is di
 
 ## Extending
 
-To change the hover mid-tone colour, edit the 40% stop in the `text-colour-morph` `@keyframes` block; it currently uses `--color-red-700` from [`theme.css`](../../src/styles/theme.css). To change which region of the header the background image initially hides behind, adjust the `clip-path: inset(...)` value on `.site-title-hero::after`.
+To change the hover mid-tone colour, edit the 40% stop in the `text-colour-morph` `@keyframes` block; it currently uses `--color-red-700` from [`theme.css`](../../../../../src/styles/theme.css). To change which region of the header the background image initially hides behind, adjust the `clip-path: inset(...)` value on `.site-title-hero::after`.

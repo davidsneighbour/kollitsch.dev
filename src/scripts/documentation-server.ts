@@ -43,7 +43,8 @@ export interface DocumentationServerOptions {
   port?: number;
 }
 
-interface DocumentationNavGroup {
+interface DocumentationNavNode {
+  children: Map<string, DocumentationNavNode>;
   pages: DocumentationPage[];
   title: string;
 }
@@ -106,46 +107,114 @@ function titleFromMarkdown(markdown: string, fallback: string): string {
   );
 }
 
+/** Directory segments with a fixed display casing that titleCase would otherwise mangle. */
+const navSegmentTitleOverrides: Record<string, string> = {
+  cta: 'CTA',
+  seo: 'SEO',
+  ui: 'UI',
+};
+
 function titleCase(value: string): string {
-  return value.replace(
-    /(?:^|-)([a-z])/g,
-    (_, letter: string) => ` ${letter.toUpperCase()}`,
-  ).trim();
+  return (
+    navSegmentTitleOverrides[value] ??
+    value.replace(
+      /(?:^|-)([a-z])/g,
+      (_, letter: string) => ` ${letter.toUpperCase()}`,
+    ).trim()
+  );
 }
 
-function categoryFromRoutePath(routePath: string): string {
-  const firstSegment = routePath.split('/').filter(Boolean)[0];
-  if (!firstSegment || routePath.split('/').filter(Boolean).length <= 1) {
-    return 'General';
-  }
-  return firstSegment === generatedApiDirName
-    ? 'API'
-    : titleCase(firstSegment);
+function newNavNode(title: string): DocumentationNavNode {
+  return { children: new Map(), pages: [], title };
 }
 
-function groupDocumentationPages(
+/**
+ * Builds a nav tree from each page's directory segments under the
+ * documentation root, so nested folders (for example
+ * `components/layout/header/theme/`) become nested, collapsible groups
+ * instead of being flattened into a single top-level category.
+ */
+function buildDocumentationNavTree(
   pages: DocumentationPage[],
-): DocumentationNavGroup[] {
-  const groupedPages = new Map<string, DocumentationPage[]>();
+): DocumentationNavNode {
+  const root = newNavNode('Documentation');
 
   for (const page of pages) {
-    const category = categoryFromRoutePath(page.routePath);
-    groupedPages.set(category, [...(groupedPages.get(category) ?? []), page]);
+    const dirSegments = page.routePath.split('/').filter(Boolean).slice(0, -1);
+    let node = root;
+    for (const segment of dirSegments) {
+      let child = node.children.get(segment);
+      if (!child) {
+        child = newNavNode(
+          segment === generatedApiDirName ? 'API' : titleCase(segment),
+        );
+        node.children.set(segment, child);
+      }
+      node = child;
+    }
+    node.pages.push(page);
   }
 
-  const groupPriority = (title: string): number => {
-    if (title === 'API') return 0;
-    if (title === 'General') return 1;
-    return 2;
-  };
+  return root;
+}
 
-  return [...groupedPages.entries()]
-    .sort(([a], [b]) => {
-      const priorityDiff = groupPriority(a) - groupPriority(b);
+function navGroupPriority(segment: string): number {
+  return segment === generatedApiDirName ? 0 : 1;
+}
+
+function navNodeContainsRoutePath(
+  node: DocumentationNavNode,
+  routePath: string,
+): boolean {
+  if (node.pages.some((page) => page.routePath === routePath)) return true;
+  for (const child of node.children.values()) {
+    if (navNodeContainsRoutePath(child, routePath)) return true;
+  }
+  return false;
+}
+
+function renderNavPageLink(
+  page: DocumentationPage,
+  currentRoutePath: string,
+): string {
+  const active = page.routePath === currentRoutePath;
+  const ariaCurrent = active ? ' aria-current="page"' : '';
+  const target = page.routePath.startsWith(`/${generatedApiDirName}/`)
+    ? ' target="_blank" rel="noopener"'
+    : '';
+  return `<li><a href="${escapeHtml(page.routePath)}"${ariaCurrent}${target}>${escapeHtml(page.title)}</a></li>`;
+}
+
+function renderNavGroup(
+  segment: string,
+  node: DocumentationNavNode,
+  currentRoutePath: string,
+): string {
+  const open = navNodeContainsRoutePath(node, currentRoutePath) ? ' open' : '';
+  const inner = renderNavNodeChildren(node, currentRoutePath);
+  return `<li class="nav-group"><details${open}><summary>${escapeHtml(node.title)}</summary><ul>${inner}</ul></details></li>`;
+}
+
+/** Renders a node's own pages (flat) followed by its child groups (collapsible), both alphabetised. */
+function renderNavNodeChildren(
+  node: DocumentationNavNode,
+  currentRoutePath: string,
+): string {
+  const pageLinks = [...node.pages]
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .map((page) => renderNavPageLink(page, currentRoutePath))
+    .join('\n');
+
+  const childGroups = [...node.children.entries()]
+    .sort(([segmentA, nodeA], [segmentB, nodeB]) => {
+      const priorityDiff = navGroupPriority(segmentA) - navGroupPriority(segmentB);
       if (priorityDiff !== 0) return priorityDiff;
-      return a.localeCompare(b);
+      return nodeA.title.localeCompare(nodeB.title);
     })
-    .map(([title, groupPages]) => ({ pages: groupPages, title }));
+    .map(([segment, child]) => renderNavGroup(segment, child, currentRoutePath))
+    .join('\n');
+
+  return [pageLinks, childGroups].filter(Boolean).join('\n');
 }
 
 async function fileExists(filePath: string): Promise<boolean> {
@@ -257,21 +326,8 @@ export function renderDocumentationPage(
   const html = toHtml(
     markdownProcessor.runSync(markdownProcessor.parse(markdown)),
   );
-  const nav = groupDocumentationPages(pages)
-    .map((group) => {
-      const links = group.pages
-        .map((page) => {
-          const active = page.routePath === currentPage.routePath;
-          const ariaCurrent = active ? ' aria-current="page"' : '';
-          const target = page.routePath.startsWith(`/${generatedApiDirName}/`)
-            ? ' target="_blank" rel="noopener"'
-            : '';
-          return `<li><a href="${escapeHtml(page.routePath)}"${ariaCurrent}${target}>${escapeHtml(page.title)}</a></li>`;
-        })
-        .join('\n');
-      return `<li class="nav-group"><h2>${escapeHtml(group.title)}</h2><ul>${links}</ul></li>`;
-    })
-    .join('\n');
+  const navTree = buildDocumentationNavTree(pages);
+  const nav = renderNavNodeChildren(navTree, currentPage.routePath);
 
   return `<!doctype html>
 <html lang="en">
@@ -337,17 +393,49 @@ export function renderDocumentationPage(
       padding: 0;
     }
 
-    .nav-group + .nav-group {
-      margin-top: 1rem;
+    .nav-group + .nav-group,
+    li:has(> .nav-group) + li:has(> .nav-group) {
+      margin-top: 0.3rem;
     }
 
-    .nav-group h2 {
+    nav > ul > li + li {
+      margin-top: 0.9rem;
+    }
+
+    .nav-group summary {
       color: var(--text);
+      cursor: pointer;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0;
-      margin: 0 0 0.3rem;
+      list-style: none;
+      padding: 0.2rem 0.4rem;
       text-transform: uppercase;
+    }
+
+    .nav-group summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .nav-group summary::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 0.35rem;
+      transition: transform 0.15s ease;
+    }
+
+    .nav-group details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    .nav-group summary:hover {
+      color: var(--accent);
+    }
+
+    .nav-group > ul {
+      border-left: 1px solid var(--border);
+      margin: 0.2rem 0 0 0.65rem;
+      padding-left: 0.5rem;
     }
 
     nav a {

@@ -1,9 +1,9 @@
 ---
 title: "Keeping an old iMac useful"
 subtitle: "Xubuntu 22.04, NVIDIA Legacy Drivers, and H.264 Video"
-description: "How I revived a dead-fan 2012 iMac with Xubuntu 22.04, the 5.15 GA kernel, legacy NVIDIA drivers, and H.264-only video playback for a stable, cool media machine."
+description: "I revived a dead-fan 2012 iMac with Xubuntu 22.04, the 5.15 GA kernel, legacy NVIDIA drivers, and H.264-only video playback for a stable, cool media machine."
 summary: "My old iMac's fan is dead, so heat management drives every decision here: Xubuntu 22.04 with XFCE, the 5.15 GA kernel instead of the 6.8 HWE stack, the NVIDIA 390 legacy driver, and forcing H.264 everywhere (VLC, browser, yt-dlp) since VP9/AV1 push decoding onto the CPU and cook the machine. I also block release upgrades, disable jammy-proposed, pin the kernel line, and tune thermald and the CPU governor to keep temperatures down."
-tags:
+tags: 
 - linux
 - ubuntu-2204
 - xfce
@@ -28,41 +28,41 @@ I also have to admit, that the internal fan is not working on this machine and w
 
 My working solution for the above requirements was this:
 
-* Xubuntu 22.04 LTS (Ubuntu 22.04 / Jammy based)
-* XFCE desktop
-* 5.15 GA kernel (GA = general availability?)
-* NVIDIA legacy drivers for the graphic card
-* H.264-first video playback
-* No HWE kernel stack
-* No release upgrades away from 22.04 (for now)
-* No `jammy-proposed` update channel
+- Xubuntu 22.04 LTS (Ubuntu 22.04 / Jammy based)
+- XFCE desktop
+- 5.15 GA kernel (GA = general availability?)
+- NVIDIA legacy drivers for the graphic card
+- H.264-first video playback
+- No HWE kernel stack
+- No release upgrades away from 22.04 (for now)
+- No `jammy-proposed` update channel
 
 This post documents the decisions, the journey, the mistakes, the fixes and the final state. It's going to be a long one and might not be of interest to you, dear reader, so read on --- on your own advise.
 
 ## Table of contents
 
-* [Table of contents](#table-of-contents)
-* [Final (current) state of this machine](#final-current-state-of-this-machine)
-* [Warning: Do not blindly copy the NVIDIA driver number](#warning-do-not-blindly-copy-the-nvidia-driver-number)
-* [Why Xubuntu 22.04 instead of the latest Ubuntu?](#why-xubuntu-2204-instead-of-the-latest-ubuntu)
-* [Booting the installer from an USB key](#booting-the-installer-from-an-usb-key)
-* [Installing Xubuntu 22.04](#installing-xubuntu-2204)
-* [Installing the 5.15 GA kernel](#installing-the-515-ga-kernel)
-* [Installing the NVIDIA legacy driver](#installing-the-nvidia-legacy-driver)
-* [Why the newer kernel may cause package problems](#why-the-newer-kernel-may-cause-package-problems)
-* [Preventing unwanted release upgrades](#preventing-unwanted-release-upgrades)
-* [Disable jammy-proposed](#disable-jammy-proposed)
-* [Preventing accidental HWE or 6.x kernel installs](#preventing-accidental-hwe-or-6x-kernel-installs)
-* [Ubuntu Pro](#ubuntu-pro)
-* [Now let's OCD a little bit about the heat](#now-lets-ocd-a-little-bit-about-the-heat)
-  * [Reducing CPU heat](#reducing-cpu-heat)
-  * [Video playback: Prefer H.264](#video-playback-prefer-h264)
-  * [VLC settings](#vlc-settings)
-  * [Browser video: Force H.264](#browser-video-force-h264)
-  * [Checking arbitrary video files for the format they are using](#checking-arbitrary-video-files-for-the-format-they-are-using)
-  * [Downloading H.264 video formats with yt-dlp](#downloading-h264-video-formats-with-yt-dlp)
-  * [Watching temperatures during playback](#watching-temperatures-during-playback)
-* [Final state](#final-state)
+- [Table of contents](#table-of-contents)
+- [Final (current) state of this machine](#final-current-state-of-this-machine)
+- [Warning: Do not blindly copy the NVIDIA driver number](#warning-do-not-blindly-copy-the-nvidia-driver-number)
+- [Why Xubuntu 22.04 instead of the latest Ubuntu?](#why-xubuntu-2204-instead-of-the-latest-ubuntu)
+- [Booting the installer from an USB key](#booting-the-installer-from-an-usb-key)
+- [Installing Xubuntu 22.04](#installing-xubuntu-2204)
+- [Installing the 5.15 GA kernel](#installing-the-515-ga-kernel)
+- [Installing the NVIDIA legacy driver](#installing-the-nvidia-legacy-driver)
+- [Why the newer kernel may cause package problems](#why-the-newer-kernel-may-cause-package-problems)
+- [Preventing unwanted release upgrades](#preventing-unwanted-release-upgrades)
+- [Disable jammy-proposed](#disable-jammy-proposed)
+- [Preventing accidental HWE or 6.x kernel installs](#preventing-accidental-hwe-or-6x-kernel-installs)
+- [Ubuntu Pro](#ubuntu-pro)
+- [Now let's OCD a little bit about the heat](#now-lets-ocd-a-little-bit-about-the-heat)
+  - [Reducing CPU heat](#reducing-cpu-heat)
+  - [Video playback: Prefer H.264](#video-playback-prefer-h264)
+  - [VLC settings](#vlc-settings)
+  - [Browser video: Force H.264](#browser-video-force-h264)
+  - [Checking arbitrary video files for the format they are using](#checking-arbitrary-video-files-for-the-format-they-are-using)
+  - [Downloading H.264 video formats with yt-dlp](#downloading-h264-video-formats-with-yt-dlp)
+  - [Watching temperatures during playback](#watching-temperatures-during-playback)
+- [Final state](#final-state)
 
 ## Final (current) state of this machine
 
@@ -111,10 +111,10 @@ dpkg --list | grep '6.8.0-130' || true
 
 That means:
 
-* The system boots the intended 5.15 kernel (I'll explain below)
-* The proprietary NVIDIA driver is active. (I'll explain below)
-* The broken DKMS loop caused by the newer 6.8 HWE kernel is gone. (I'll explain below)
-* The package state is clean. This is just to verify that we don't have any broken dependencies or unused and not preferred packages installed.
+- The system boots the intended 5.15 kernel (I'll explain below)
+- The proprietary NVIDIA driver is active. (I'll explain below)
+- The broken DKMS loop caused by the newer 6.8 HWE kernel is gone. (I'll explain below)
+- The package state is clean. This is just to verify that we don't have any broken dependencies or unused and not preferred packages installed.
 
 ## Warning: Do not blindly copy the NVIDIA driver number
 
@@ -159,9 +159,9 @@ The release choice matters too. Xubuntu 22.04 is based on Ubuntu 22.04 LTS, code
 
 There is an important support distinction:
 
-* Xubuntu 22.04 flavour support ended earlier than the Ubuntu 22.04 base.
-* Ubuntu 22.04 LTS itself continues to receive standard LTS security maintenance.
-* Ubuntu Pro / ESM can extend security coverage further.
+- Xubuntu 22.04 flavour support ended earlier than the Ubuntu 22.04 base.
+- Ubuntu 22.04 LTS itself continues to receive standard LTS security maintenance.
+- Ubuntu Pro / ESM can extend security coverage further.
 
 For this machine, that trade-off is acceptable. I am not trying to run the newest desktop. I am trying to keep a stable old media and browsing machine alive. And with this setup it will be supported until May 2032. Which might be longer than this computer has to live, if we are being honest.
 
@@ -227,8 +227,8 @@ Ubuntu recommendation: nvidia-driver-390
 
 That told us two things:
 
-* The install was correct
-* The kernel was not ideal
+- The install was correct
+- The kernel was not ideal
 
 The Xubuntu 22.04.5 installer had installed a newer HWE kernel, `6.8`, but the old NVIDIA 390 driver needed a more compatible kernel. For this setup, the target is always the 5.15 GA kernel line.
 
@@ -530,12 +530,12 @@ So I am converting every video my cameras produce into this format. Unimportant 
 
 We should always avoid the following formats:
 
-* AV1 / av01
-* VP9 / vp09
-* H.265 / HEVC / hvc1 / hev1
-* 4K
-* 60 fps
-* 10-bit HDR
+- AV1 / av01
+- VP9 / vp09
+- H.265 / HEVC / hvc1 / hev1
+- 4K
+- 60 fps
+- 10-bit HDR
 
 ### VLC settings
 
@@ -553,10 +553,10 @@ In Google Chrome, or Chromium go to `chrome://settings/system` and enable `Use g
 
 Install [h264ify](https://chromewebstore.google.com/detail/h264ify/aleakchihdccplidncghkekgioiakgal?hl=en) or [enhanced-h264ify](https://chromewebstore.google.com/detail/enhanced-h264ify/omkfmpieigblcllmkgbflkikinpkodlk?hl=en) as a browser extension and configure it to block the following formats:
 
-* AV1
-* VP9
-* VP8 if needed
-* 60fps if needed
+- AV1
+- VP9
+- VP8 if needed
+- 60fps if needed
 
 Make sure to allow `H.264` obviously.
 
@@ -638,15 +638,15 @@ Cooling:       external fans until chassis inspection
 
 The main lesson: old machines often do not need the newest Linux release, especially not iMacs. They need the right one that worked best when they were at their peak. For this iMac, the right path was:
 
-* a stable 22.04 LTS base
-* an older compatible GA kernel
-* the Ubuntu-recommended NVIDIA legacy driver
-* a lighter desktop
-* blocked HWE kernel path
-* disabled release upgrades
-* disabled proposed updates
-* the right video format - H.264 video
-* and careful thermal monitoring
+- a stable 22.04 LTS base
+- an older compatible GA kernel
+- the Ubuntu-recommended NVIDIA legacy driver
+- a lighter desktop
+- blocked HWE kernel path
+- disabled release upgrades
+- disabled proposed updates
+- the right video format - H.264 video
+- and careful thermal monitoring
 
 That combination turned the machine from a frustrating entitled overpriced shell of a $&*#@^% into a useful media and internet workstation again.
 

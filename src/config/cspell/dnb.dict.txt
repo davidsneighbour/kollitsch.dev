@@ -7,3 +7,5 @@ KOLLITSCH.dev*
 GoHugo
 neighbour
 davidsneighbour
+Synkevych
+synkevych

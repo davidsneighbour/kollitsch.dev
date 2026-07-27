@@ -205,6 +205,8 @@
     "prebuild": "npm run build:image-index",
     "clean:netlify": "wireit",
     "deploy": "wireit",
+    "deploy:build": "wireit",
+    "deploy:release": "wireit",
     "postprepare": "wireit",
     "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
     "test": "vitest run",
@@ -319,7 +321,22 @@
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     },
     "deploy": {
-      "command": "npm run build && netlify deploy --prod --open"
+      "command": "netlify deploy --prod --open",
+      "dependencies": [
+        "deploy:build"
+      ]
+    },
+    "deploy:build": {
+      "command": "npm run build",
+      "dependencies": [
+        "deploy:release"
+      ]
+    },
+    "deploy:release": {
+      "command": "npm run release",
+      "dependencies": [
+        "check"
+      ]
     },
     "postprepare": {
       "dependencies": [

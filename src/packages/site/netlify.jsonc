@@ -4,14 +4,31 @@
   },
   "scripts": {
     "clean:netlify": "wireit",
-    "deploy": "wireit"
+    "deploy": "wireit",
+    "deploy:build": "wireit",
+    "deploy:release": "wireit"
   },
   "wireit": {
     "clean:netlify": {
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     },
     "deploy": {
-      "command": "netlify deploy --prod --open"
+      "command": "netlify deploy --prod --open",
+      "dependencies": [
+        "deploy:build"
+      ]
+    },
+    "deploy:build": {
+      "command": "npm run build",
+      "dependencies": [
+        "deploy:release"
+      ]
+    },
+    "deploy:release": {
+      "command": "npm run release",
+      "dependencies": [
+        "check"
+      ]
     }
   }
 }

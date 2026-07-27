@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.16.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.16.0...v3001.16.1) (2026-07-27)
+
+### Ci
+
+* **markdownlint:** allow per-post list marker style ([506f628](https://github.com/davidsneighbour/kollitsch/commit/506f628fe9c759d2dfab8360f2b4834f04c199b7)), references [#1687](https://github.com/davidsneighbour/kollitsch/issues/1687)
+
 ## [3001.16.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.15.0...v3001.16.0) (2026-07-27)
 
 ### Feat

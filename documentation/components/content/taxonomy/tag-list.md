@@ -36,5 +36,3 @@ import TagList from '@components/content/taxonomy/TagList.astro';
 ## Behaviour
 
 Renders `(none)` when `tags` is empty. Otherwise renders one [`Tag`](tag.md) per item, with `dataLabel` lowercased at render time for locale-safe client-side matching. The component ships its own inline `<script>` that performs the same fuzzy in-order filtering as [`TagFilter`](tag-filter.md) (see that component for the matching algorithm), scoped directly to its own `[data-tag-filter-list]` element rather than looking one up by `filterId`; the two filtering scripts are not currently shared.
-
-There is also an older, unused duplicate of this component at `src/components/content/metadata/TagList.astro` with a different prop shape (`NormalizedTag[]` instead of `TagListItem[]`); it is tracked separately in `scratch/obsolete-components.md` pending a decision on removal.

@@ -417,6 +417,7 @@
     "radix-ui": "1.6.7",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "remark-definition-list": "2.0.0",
     "tailwind-merge": "3.6.0"
   }
 }

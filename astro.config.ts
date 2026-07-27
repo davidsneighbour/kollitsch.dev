@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { remarkKbdNested } from 'remark-kbd-nested';
+import { remarkDefinitionList, defListHastHandlers } from 'remark-definition-list';
 import { defineConfig, fontProviders } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
@@ -148,7 +149,10 @@ export default defineConfig({
     mdx(), react()],
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkKbdNested],
+      remarkPlugins: [remarkKbdNested, remarkDefinitionList],
+      // Blank-line-separated `Term`/`: Definition` pairs stay one <dl>; a
+      // definition list only ends where a non-definition block begins.
+      remarkRehype: { handlers: { ...defListHastHandlers } },
     }),
     shikiConfig: {
       themes: { dark: 'dark-plus', light: 'github-light' },

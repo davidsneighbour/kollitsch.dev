@@ -2,6 +2,11 @@
 extend-ignore-re = [
   # custom ignore regex patterns: https://github.com/crate-ci/typos/blob/master/docs/reference.md#example-configurations
   "(?s)//\\s*spellchecker:ignore-next-line[^\\n]*\\n[^\\n]*",
+  "\\+ba\\[ext=m4a\\]", # src/content/blog/2026/keeping-an-old-imac-useful/index.md
+]
+
+extend-ignore-identifiers-re = [
+
 ]
 
 [default.extend-words]

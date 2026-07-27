@@ -125,5 +125,6 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#c1000799",
     "titleBar.inactiveForeground": "#e7e7e799"
-  }
+  },
+  "typos.config": "src/config/typos.toml"
 }

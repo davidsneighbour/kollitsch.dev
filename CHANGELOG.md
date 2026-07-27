@@ -1,5 +1,65 @@
 # Changelog
 
+## [3001.16.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.15.0...v3001.16.0) (2026-07-27)
+
+### Feat
+
+* **content:** support Markdown definition lists (dl/dt/dd) ([84aedcb](https://github.com/davidsneighbour/kollitsch/commit/84aedcb1e90fb63d00e285258da4aa7d071b993d)), closes [#1770](https://github.com/davidsneighbour/kollitsch/issues/1770)
+* **skills:** add kdev-kurzschnitte skill for link-collection posts ([3d284ba](https://github.com/davidsneighbour/kollitsch/commit/3d284bace2835d6995ad610605abb5d5c09edefb))
+* **social:** replace Mastodon web component with reusable share-intent link ([9aa365d](https://github.com/davidsneighbour/kollitsch/commit/9aa365d9b6e0ae91fe1241372e19967c32904007)), closes [#1779](https://github.com/davidsneighbour/kollitsch/issues/1779)
+* **theme:** switch dark background to olive-950 and detach dependent surfaces ([82271da](https://github.com/davidsneighbour/kollitsch/commit/82271da773db1c9da9aee9f59ca623132abce206))
+* **theme:** use Tailwind's real olive scale for light/dark backgrounds, themed form fields ([90260c2](https://github.com/davidsneighbour/kollitsch/commit/90260c2fbfdd303eee0d536eb06c2e3582c20a05))
+
+### Content
+
+* **blog:** add Git ignore-rule diagnostic post ([#1786](https://github.com/davidsneighbour/kollitsch/issues/1786)) ([1885ba9](https://github.com/davidsneighbour/kollitsch/commit/1885ba94c591fbc0dafae7afaf772676d6dda8b8))
+* **blog:** tag Git ignore note as TIL ([#1786](https://github.com/davidsneighbour/kollitsch/issues/1786)) ([5543faa](https://github.com/davidsneighbour/kollitsch/commit/5543faa51a7e234f83a8a23a09a21d4c122e523f))
+* **fix:** formatting and typos ([82adccc](https://github.com/davidsneighbour/kollitsch/commit/82adccc58f82b85214bbfd7062abdab7595e4e7f))
+* **fix:** various content updates ([981dfd2](https://github.com/davidsneighbour/kollitsch/commit/981dfd2e8503f02143d91cceae7c231f02816ff7))
+
+### Fix
+
+* **docs-server:** stop listing the root index page twice in the sidebar ([80002ee](https://github.com/davidsneighbour/kollitsch/commit/80002eec387f870a6a36607a46e94d7ca162e4c0))
+* **header:** change site-title hover colour from orange to red ([154e8ef](https://github.com/davidsneighbour/kollitsch/commit/154e8efe9dae01f0ee13d3fa0cfc86120fdc23da))
+* **header:** equalize sticky header tint across themes via shared variable ([4bab780](https://github.com/davidsneighbour/kollitsch/commit/4bab780710bcc1417fdaa35c1d348e5afe87a392))
+* **nav:** enlarge header navigation icons at and below md breakpoint ([252fa83](https://github.com/davidsneighbour/kollitsch/commit/252fa83f9f49ec02a59a93806032c1b64309d0fc)), closes [#1778](https://github.com/davidsneighbour/kollitsch/issues/1778)
+* **nav:** use theme tokens for dropdown colors instead of undefined zinc scale ([0081250](https://github.com/davidsneighbour/kollitsch/commit/0081250bf83a9bc6cf08d7c8335d98e299802935))
+* **typography:** make prose heading/link colors red instead of black/white ([d5a8630](https://github.com/davidsneighbour/kollitsch/commit/d5a86307c135a0e6b490512afe524c4ccd9bb40a))
+
+### Refactor
+
+* **header:** extract theme selector into its own component ([a7cb277](https://github.com/davidsneighbour/kollitsch/commit/a7cb2771f7b61692f8a4e3212af37fb802ab10b5))
+* **utils:** replace [@ts-ignore](https://github.com/ts-ignore) with type-safe alternatives ([57d891b](https://github.com/davidsneighbour/kollitsch/commit/57d891bf2f1417f363860793cf3660cfead16e8b)), closes [#1678](https://github.com/davidsneighbour/kollitsch/issues/1678)
+
+### Docs
+
+* **agents:** forbid merge commits, require rebase/squash on main ([8ba9450](https://github.com/davidsneighbour/kollitsch/commit/8ba9450209ef4193a9538301bd91ac59c2bd18d6)), closes [#1785](https://github.com/davidsneighbour/kollitsch/issues/1785)
+* **ai:** update DESIGN.md to latest changes ([8436ebf](https://github.com/davidsneighbour/kollitsch/commit/8436ebfef0bed3e8894baf175d9968e062da342b))
+* **components:** document all remaining src/components ([52b8607](https://github.com/davidsneighbour/kollitsch/commit/52b860732967ed47ea85953d0b616bda06e8d07e))
+* **components:** document layout components and nest sidebar by folder ([b4e03ae](https://github.com/davidsneighbour/kollitsch/commit/b4e03aeb1290ff2f4a83e1edf07753487da0c099))
+* **components:** drop stale reference to deleted TagList duplicate ([4965be3](https://github.com/davidsneighbour/kollitsch/commit/4965be36ea3b046e85ec63f2e3f0754fb4e49c11))
+
+### Test
+
+* **components:** remove stale SiteTitle props test ([d0982e7](https://github.com/davidsneighbour/kollitsch/commit/d0982e7db9e2d3fa587c76da7a1bdf2fee49fde5)), closes [#1787](https://github.com/davidsneighbour/kollitsch/issues/1787)
+
+### Build
+
+* **ci:** pin GitHub Actions to hashes and bump to latest versions ([84ab9ab](https://github.com/davidsneighbour/kollitsch/commit/84ab9ab2c3d5b7b8826b2a25cef78571eb2310e2))
+* **fix:** depencency regression ([8029303](https://github.com/davidsneighbour/kollitsch/commit/8029303a651b78dfca73de5061b18ae83d37c7d8)), closes [#1775](https://github.com/davidsneighbour/kollitsch/issues/1775)
+* **fix:** sort files into groups in workspace ([605cd95](https://github.com/davidsneighbour/kollitsch/commit/605cd95a6e698506c8ced65faad6fd4da44f1e74))
+
+### Ci
+
+* **fix:** proper typos configuration path and add exemption ([9f720b2](https://github.com/davidsneighbour/kollitsch/commit/9f720b262462898fa78e14d935c83fae9195b0a1))
+
+### Chore
+
+* **deploy:** align deploy pipeline ([bdffbd7](https://github.com/davidsneighbour/kollitsch/commit/bdffbd744e07e30b009266afd9c04d0e42cfe32f)), closes [#1788](https://github.com/davidsneighbour/kollitsch/issues/1788)
+* **gitignore:** ignore agent/ and data/skills as assistant working files ([f1035fd](https://github.com/davidsneighbour/kollitsch/commit/f1035fddfbd9eed6288ffadeebb54751c3d25800))
+* remove confirmed-dead components ([733da5e](https://github.com/davidsneighbour/kollitsch/commit/733da5e8bb8bfa0155bbe3810fdce45aa2ccefeb))
+* **skills:** update dnb-project-task-triage to PROJECT.md-based version ([a1f0269](https://github.com/davidsneighbour/kollitsch/commit/a1f0269d643b451e9672e6cd59307ea7fdc0fbc4))
+
 ## [3001.15.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.14.0...v3001.15.0) (2026-07-26)
 
 ### Feat

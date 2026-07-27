@@ -190,6 +190,18 @@ Four collections:
 
 Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
 
+**Markdown extensions.** Beyond CommonMark/GFM, `astro.config.ts` wires in `remark-kbd-nested` (nested `<kbd>` shortcuts) and `remark-definition-list` (PHP-Markdown-Extra style definition lists) via `markdown.processor`. Definition list syntax:
+
+```markdown
+Term
+: Definition of the term
+
+Another term
+: Another definition
+```
+
+Consecutive `Term`/`: Definition` pairs separated by a single blank line stay part of the same `<dl>`; a blank line followed by a non-definition block (or two blank lines) ends the list. Markdownlint may otherwise collapse blank lines between items — keep them for readability.
+
 ### Styling system
 
 Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.

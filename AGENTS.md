@@ -69,7 +69,7 @@ Both files are gitignored — local-only, never committed — and GitHub Issues 
 
 ## 5. Committing changes
 
-This is a **single-developer project** — commit directly to `main`. Do not create feature branches or pull requests for routine work; open a PR only if explicitly asked to.
+This is a **single-developer project** — commit directly to `main`. Do not create feature branches or pull requests for routine work; open a PR only if explicitly asked to. Never produce merge commits on `main` — rebase or squash instead so history stays linear.
 
 Every AI-assisted change that is committed must reference or close a GitHub issue: use `Closes #123` / `Fixes #123` / `Resolves #123` when the commit fully resolves it, or `Refs #123` / `Related to #123` otherwise. Do not create an issue merely because files exist or changed — see `.agents/instructions/issue-handling.instructions.md` for the full tracked/untracked-file decision workflow.
 

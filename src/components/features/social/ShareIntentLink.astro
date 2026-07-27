@@ -1,0 +1,118 @@
+---
+import IconLink from "@components/shared/links/IconLink.astro";
+import type { IconName } from "@utils/icon-names";
+
+export interface Props {
+  icon: IconName;
+  label: string;
+  /** URL template supporting {text}, {url} and, when instanceStorageKey is set, {instance} placeholders */
+  urlTemplate: string;
+  title: string;
+  description?: string;
+  permalink: string;
+  /** localStorage key used to persist the user's chosen instance domain; presence enables the instance prompt */
+  instanceStorageKey?: string;
+  class?: string;
+}
+
+const {
+  icon,
+  label,
+  urlTemplate,
+  title,
+  description = "",
+  permalink,
+  instanceStorageKey,
+  class: className = "",
+}: Props = Astro.props;
+
+function buildText(title: string, description: string): string {
+  return description ? `${title} - ${description}` : title;
+}
+
+const staticHref = instanceStorageKey
+  ? undefined
+  : urlTemplate
+      .replace("{text}", encodeURIComponent(buildText(title, description)))
+      .replace("{url}", encodeURIComponent(permalink));
+---
+
+{
+  instanceStorageKey ? (
+    <IconLink
+      href="#"
+      icon={icon}
+      class={className}
+      data-share-intent
+      data-url-template={urlTemplate}
+      data-title={title}
+      data-description={description}
+      data-permalink={permalink}
+      data-instance-storage-key={instanceStorageKey}
+    >
+      {label}
+    </IconLink>
+  ) : (
+    <IconLink href={staticHref} icon={icon} class={className} target="_blank" rel="noopener noreferrer">
+      {label}
+    </IconLink>
+  )
+}
+
+<script>
+  function sanitizeInstance(raw: string): string {
+    const trimmed = raw.trim();
+    if (!trimmed) throw new Error("empty");
+    const prefixed = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+    const url = new URL(prefixed);
+    const host = url.host.replace(/\/+$/, "");
+    if (!host) throw new Error("invalid");
+    return host;
+  }
+
+  function buildShareUrl(
+    template: string,
+    instanceHost: string,
+    title: string,
+    description: string,
+    permalink: string,
+  ): string {
+    const text = description ? `${title} - ${description}` : title;
+    return template
+      .replace("{instance}", instanceHost)
+      .replace("{text}", encodeURIComponent(text))
+      .replace("{url}", encodeURIComponent(permalink));
+  }
+
+  document.addEventListener("click", (event) => {
+    const target = (event.target as HTMLElement)?.closest<HTMLElement>("[data-share-intent]");
+    if (!target) return;
+
+    event.preventDefault();
+
+    const storageKey = target.dataset["instanceStorageKey"];
+    const urlTemplate = target.dataset["urlTemplate"];
+    const title = target.dataset["title"];
+    const permalink = target.dataset["permalink"];
+    const description = target.dataset["description"] ?? "";
+
+    if (!storageKey || !urlTemplate || !title || !permalink) return;
+
+    let instanceHost = localStorage.getItem(storageKey) ?? "";
+
+    while (!instanceHost) {
+      const input = window.prompt("Enter your Mastodon instance (e.g. mas.to):");
+      if (input === null) return;
+      try {
+        instanceHost = sanitizeInstance(input);
+      } catch {
+        instanceHost = "";
+      }
+    }
+
+    localStorage.setItem(storageKey, instanceHost);
+
+    const href = buildShareUrl(urlTemplate, instanceHost, title, description, permalink);
+    window.open(href, "_blank", "noopener,noreferrer");
+  });
+</script>

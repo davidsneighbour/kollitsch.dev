@@ -9,6 +9,7 @@ cover:
   title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) on [Unsplash](https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA)
 tags:
   - quickie
+  - today-i-learned
   - git
   - gitignore
   - howto

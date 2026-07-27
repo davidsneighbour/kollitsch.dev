@@ -1,0 +1,309 @@
+---
+export type ThemeMode = "dark" | "light";
+export type StoredThemeMode = ThemeMode | "auto";
+
+export interface Props {
+  defaultTheme?: StoredThemeMode;
+}
+
+const { defaultTheme = "dark" }: Props = Astro.props;
+---
+
+<theme-selector></theme-selector>
+
+<script is:inline data-astro-rerun data-default-theme={defaultTheme}>
+  (() => {
+    /**
+     * @typedef {"dark" | "light"} ThemeMode
+     * @typedef {"dark" | "light" | "auto"} StoredThemeMode
+     */
+
+    /**
+     * @typedef ThemeManager
+     * @property {() => ThemeMode} getSystemTheme
+     * @property {() => StoredThemeMode} getTheme
+     * @property {() => void} resetTheme
+     * @property {(theme?: StoredThemeMode) => void} setTheme
+     */
+
+    window.kdev = window.kdev || {};
+
+    const currentScript = document.currentScript;
+    const defaultThemeAttr = currentScript?.getAttribute("data-default-theme") ?? "dark";
+    const defaultTheme = defaultThemeAttr === "auto" ? "auto" : defaultThemeAttr === "light" ? "light" : "dark";
+
+    /**
+     * @returns {ThemeManager}
+     */
+    function createThemeManager() {
+      const storageKey = "kdev-theme";
+      const store =
+        typeof localStorage !== "undefined"
+          ? localStorage
+          : {
+              getItem() {
+                return null;
+              },
+              removeItem() {
+                return;
+              },
+              setItem() {
+                return;
+              },
+            };
+
+      const mediaMatcher = window.matchMedia("(prefers-color-scheme: dark)");
+      /** @type {ThemeMode} */
+      let systemTheme = mediaMatcher.matches ? "dark" : "light";
+
+      /**
+       * @param {StoredThemeMode} theme
+       * @returns {ThemeMode}
+       */
+      function resolveTheme(theme) {
+        return theme === "auto" ? systemTheme : theme;
+      }
+
+      /**
+       * @param {StoredThemeMode} theme
+       * @returns {void}
+       */
+      function applyTheme(theme) {
+        const resolvedTheme = resolveTheme(theme);
+        const codeTheme = resolvedTheme === "dark" ? "dracula" : "light-plus";
+
+        document.documentElement.dataset.codeTheme = codeTheme;
+        document.documentElement.dataset.theme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+
+        document.dispatchEvent(
+          new CustomEvent("theme-changed", {
+            detail: {
+              defaultTheme,
+              resolvedTheme,
+              systemTheme,
+              theme,
+            },
+          }),
+        );
+      }
+
+      /** @type {ThemeManager} */
+      const api = {
+        getSystemTheme() {
+          return systemTheme;
+        },
+
+        getTheme() {
+          const storedTheme = store.getItem(storageKey);
+          if (storedTheme === "light" || storedTheme === "dark" || storedTheme === "auto") {
+            return storedTheme;
+          }
+
+          return defaultTheme;
+        },
+
+        resetTheme() {
+          store.removeItem(storageKey);
+        },
+
+        setTheme(theme = defaultTheme) {
+          store.setItem(storageKey, theme);
+          applyTheme(theme);
+        },
+      };
+
+      mediaMatcher.addEventListener("change", (event) => {
+        systemTheme = event.matches ? "dark" : "light";
+        api.setTheme(api.getTheme());
+      });
+
+      return api;
+    }
+
+    /** @type {ThemeManager} */
+    const theme = window.kdev.theme ?? createThemeManager();
+    window.kdev.theme = theme;
+
+    theme.setTheme(theme.getTheme());
+
+    if (!customElements.get("theme-selector")) {
+      customElements.define(
+        "theme-selector",
+        class extends HTMLElement {
+          connectedCallback() {
+            /** @type {ThemeMode[]} */
+            this.themes = ["light", "dark"];
+
+            const button = document.createElement("button");
+            button.setAttribute("type", "button");
+            button.setAttribute("role", "switch");
+            button.className = "theme-toggle";
+            button.innerHTML = `
+              <svg class="theme-toggle-icon" viewBox="0 0 48 48" aria-hidden="true">
+                <g class="theme-toggle-rays">
+                  <path d="M24 3v6" />
+                  <path d="M24 39v6" />
+                  <path d="M3 24h6" />
+                  <path d="M39 24h6" />
+                  <path d="M9.15 9.15l4.25 4.25" />
+                  <path d="M34.6 34.6l4.25 4.25" />
+                  <path d="M38.85 9.15 34.6 13.4" />
+                  <path d="M13.4 34.6 9.15 38.85" />
+                </g>
+                <circle class="theme-toggle-body" cx="24" cy="24" r="10" />
+                <circle class="theme-toggle-cutout" cx="15" cy="33" r="10" />
+              </svg>
+              <span class="sr-only">Toggle theme</span>
+            `;
+            button.addEventListener("click", () => {
+              this.nextTheme();
+            });
+
+            this.btn = button;
+            this.replaceChildren(button);
+            this.updateIcon();
+
+            document.addEventListener("theme-changed", this.handleThemeChanged);
+          }
+
+          disconnectedCallback() {
+            document.removeEventListener("theme-changed", this.handleThemeChanged);
+          }
+
+          handleThemeChanged = () => {
+            this.updateIcon();
+          };
+
+          nextTheme() {
+            try {
+              const currentTheme = theme.getTheme();
+              const currentIndex = this.themes.indexOf(
+                currentTheme === "auto" ? theme.getSystemTheme() : currentTheme,
+              );
+              const safeIndex = currentIndex >= 0 ? currentIndex : 0;
+              const nextTheme = this.themes[(safeIndex + 1) % this.themes.length];
+              theme.setTheme(nextTheme);
+            } catch (error) {
+              console.error("theme-selector nextTheme failed:", error);
+            }
+          }
+
+          updateIcon(currentTheme = theme.getTheme()) {
+            if (!(this.btn instanceof HTMLButtonElement)) {
+              return;
+            }
+
+            const visibleTheme = currentTheme === "auto" ? theme.getSystemTheme() : currentTheme;
+            const isDark = visibleTheme === "dark";
+
+            this.btn.setAttribute("aria-checked", String(isDark));
+            this.btn.setAttribute(
+              "aria-label",
+              isDark ? "Switch to light theme" : "Switch to dark theme",
+            );
+          }
+        },
+      );
+    }
+
+    document.addEventListener("astro:after-swap", () => {
+      theme.setTheme(theme.getTheme());
+    });
+  })();
+</script>
+
+<style is:global>
+  /* Theme toggle: sun/moon morph */
+  theme-selector {
+    display: inline-flex;
+  }
+
+  .theme-toggle {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    color: var(--color-red-700);
+    cursor: pointer;
+    transition: color 300ms ease;
+  }
+
+  /*
+   * Deliberately no hover/active scale ("pressed button") feedback here.
+   * The sun/moon icon already animates on click via .theme-toggle-icon,
+   * and stacking a scale(0.95)/scale(1.05) press effect on top of that
+   * read as the icon jumping a couple of pixels. Do not re-add generic
+   * button press feedback to this element.
+   */
+  .theme-toggle:hover {
+    color: var(--color-orange-700);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 3px;
+  }
+
+  .theme-toggle-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    overflow: visible;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(0deg);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-theme="dark"] .theme-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .theme-toggle-rays {
+    opacity: 100%;
+    transform: rotate(0deg) scale(1);
+    transform-origin: 24px 24px;
+    transition:
+      opacity 200ms ease,
+      transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-theme="dark"] .theme-toggle-rays {
+    opacity: 0%;
+    transform: rotate(90deg) scale(0.25);
+  }
+
+  .theme-toggle-body {
+    fill: currentcolor;
+    stroke: currentcolor;
+  }
+
+  .theme-toggle-cutout {
+    fill: var(--color-background);
+    stroke: none;
+    transform: translate(-20px, 20px);
+    transition:
+      fill 400ms ease,
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-theme="dark"] .theme-toggle-cutout {
+    transform: translate(0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle-icon,
+    .theme-toggle-rays,
+    .theme-toggle-cutout {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

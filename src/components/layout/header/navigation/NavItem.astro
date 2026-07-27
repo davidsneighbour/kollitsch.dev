@@ -32,7 +32,7 @@ const hasSubItems = subItems && subItems.length > 0;
         >
           <Icon
             name="caret-down-fill"
-            class="size-[0.65em] text-primary transition-transform duration-200 group-[.open]/navitem:rotate-180"
+            class="size-[0.65em] text-current transition-transform duration-200 group-[.open]/navitem:rotate-180"
             aria-hidden="true"
           />
         </button>
@@ -40,7 +40,7 @@ const hasSubItems = subItems && subItems.length > 0;
 
       <ul
         role="menu"
-        class="block pl-4 md:hidden md:pl-0 md:group-hover/navitem:block md:group-[.open]/navitem:block md:absolute md:left-0 md:top-full md:z-50 md:mt-1 md:min-w-48 md:rounded-lg md:bg-zinc-100 md:py-1 md:shadow-lg md:ring-1 md:ring-gray-900/10 dark:md:bg-zinc-900 dark:md:ring-gray-100/10 md:before:absolute md:before:inset-x-0 md:before:-top-1 md:before:h-1 md:before:content-['']"
+        class="block pl-4 md:hidden md:pl-0 md:group-hover/navitem:block md:group-[.open]/navitem:block md:absolute md:left-0 md:top-full md:z-50 md:mt-1 md:min-w-48 md:rounded-lg md:bg-popover md:py-1 md:text-popover-foreground md:shadow-lg md:ring-1 md:ring-gray-900/10 dark:md:ring-gray-100/10 md:before:absolute md:before:inset-x-0 md:before:-top-1 md:before:h-1 md:before:content-['']"
       >
         {subItems.map((child) => (
           <li class="px-3 py-2">

@@ -110,7 +110,17 @@
   --color-red-800: oklch(44.4% 0.177 26.899deg);
   --color-red-900: oklch(39.6% 0.141 25.723deg);
   --color-red-950: oklch(25.8% 0.092 26.042deg);
-  --color-olive-950: oklch(14.7% 0.02 110deg);
+  --color-olive-50: oklch(98.8% 0.003 106.5deg);
+  --color-olive-100: oklch(96.6% 0.005 106.5deg);
+  --color-olive-200: oklch(93% 0.007 106.5deg);
+  --color-olive-300: oklch(88% 0.011 106.6deg);
+  --color-olive-400: oklch(73.7% 0.021 106.9deg);
+  --color-olive-500: oklch(58% 0.031 107.3deg);
+  --color-olive-600: oklch(46.6% 0.025 107.3deg);
+  --color-olive-700: oklch(39.4% 0.023 107.4deg);
+  --color-olive-800: oklch(28.6% 0.016 107.4deg);
+  --color-olive-900: oklch(22.8% 0.013 107.4deg);
+  --color-olive-950: oklch(15.3% 0.006 107.1deg);
   /* stylelint-enable plugin/no-unsupported-browser-features */
 
   /* Easing functions via Emil Kowalski */
@@ -219,7 +229,7 @@
  ******************************************************************************/
 :root {
   --radius: 0.5rem; /* rounded-lg (8px) - DESIGN.md's standard container radius */
-  --background: var(--color-gray-50); /* surface */
+  --background: var(--color-olive-50); /* surface */
   --foreground: var(--color-gray-600); /* on-surface */
   --card: #ffffff; /* surface-raised */
   --card-foreground: var(--color-gray-600);
@@ -326,7 +336,7 @@
 
   body {
     @apply font-exo2 font-light;
-    @apply bg-gray-50 text-gray-600;
+    @apply bg-olive-50 text-gray-600;
     @apply dark:bg-olive-950 dark:text-gray-200;
 
     /* font sizes */
@@ -712,7 +722,7 @@
 @layer components {
   lite-youtube {
     /* @todo transform into container https://tailwindcss.com/docs/responsive-design#container-queries */
-    @apply relative block w-full cursor-pointer bg-gray-50 dark:bg-gray-950;
+    @apply relative block w-full cursor-pointer bg-olive-50 dark:bg-olive-950;
     @apply bg-cover bg-position-[center_center] contain-content;
 
     /*

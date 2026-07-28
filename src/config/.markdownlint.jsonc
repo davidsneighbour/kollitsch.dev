@@ -43,6 +43,7 @@
     "allowed_elements": [
       "color-grid",
       "date-diff",
+      "SpotifyAlbum",
       "Youtube"
     ],
     "table_allowed_elements": []

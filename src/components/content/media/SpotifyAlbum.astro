@@ -1,0 +1,39 @@
+---
+export interface Props {
+  /** Spotify album id, not a full URL. */
+  id: string;
+  /** Accessible title for the embedded player. */
+  title?: string;
+  /** Extra classes on the wrapper element. */
+  class?: string;
+}
+
+const {
+  id,
+  title = 'Spotify album player',
+  class: className = '',
+}: Props = Astro.props;
+
+const trimmedId = id.trim();
+
+if (!/^[A-Za-z0-9]+$/.test(trimmedId)) {
+  throw new Error(
+    `SpotifyAlbum expected an album id, not a URL or malformed value: ${id}`,
+  );
+}
+
+const src = `https://open.spotify.com/embed/album/${encodeURIComponent(trimmedId)}`;
+---
+
+<div class:list={["my-6 overflow-hidden rounded-xl", className]}>
+  <iframe
+    title={title}
+    src={src}
+    width="100%"
+    height="352"
+    allowfullscreen
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+    class="block w-full border-0"
+  ></iframe>
+</div>

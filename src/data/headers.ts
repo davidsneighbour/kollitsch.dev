@@ -53,7 +53,7 @@ export const headerRules: PathRule[] = [
       {
         name: 'Content-Security-Policy',
         value:
-          "base-uri 'self'; child-src 'self'; connect-src 'self' https://analytics.dnbhub.xyz/ https://api.github.com/ cloudflareinsights.com; default-src 'self'; font-src 'self' https://d33wubrfki0l68.cloudfront.net; form-action 'self' https://formspree.io/f/xoqyzooe; frame-ancestors 'self'; frame-src 'self' https://open.spotify.com/ https://giscus.app/ https://www.youtube-nocookie.com; img-src 'self' https://analytics.dnbhub.xyz/ https://d33wubrfki0l68.cloudfront.net ytimg.googleusercontent.com https://i.ytimg.com; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' https://d33wubrfki0l68.cloudfront.net https://giscus.app/ https://unpkg.com https://identity.netlify.com static.cloudflareinsights.com https://analytics.dnbhub.xyz/; style-src 'self' 'unsafe-inline' https://d33wubrfki0l68.cloudfront.net https://giscus.app/; worker-src 'self'; upgrade-insecure-requests;",
+          "base-uri 'self'; child-src 'self'; connect-src 'self' https://analytics.dnbhub.xyz/ https://api.github.com/ cloudflareinsights.com; default-src 'self'; font-src 'self'; form-action 'self' https://formspree.io/f/xoqyzooe; frame-ancestors 'self'; frame-src 'self' https://open.spotify.com/ https://giscus.app/ https://www.youtube-nocookie.com; img-src 'self' https://analytics.dnbhub.xyz/ ytimg.googleusercontent.com https://i.ytimg.com; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' https://giscus.app/ https://unpkg.com https://identity.netlify.com static.cloudflareinsights.com https://analytics.dnbhub.xyz/; style-src 'self' 'unsafe-inline' https://giscus.app/; worker-src 'self'; upgrade-insecure-requests;",
         disabled: true,
       },
       { name: 'Referrer-Policy', value: 'no-referrer' },
@@ -61,10 +61,6 @@ export const headerRules: PathRule[] = [
       { name: 'X-Frame-Options', value: 'DENY' },
       { name: 'X-XSS-Protection', value: '1; mode=block' },
       { name: 'Link', value: '<https://analytics.dnbhub.xyz>; rel="preconnect"' },
-      {
-        name: 'Link',
-        value: '<https://d33wubrfki0l68.cloudfront.net>; rel="preconnect"',
-      },
     ],
   },
   {

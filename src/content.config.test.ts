@@ -32,3 +32,29 @@ describe('blogSchema cover.video', () => {
     expect(result.success).toBe(false);
   });
 });
+
+describe('blogSchema aliases', () => {
+  it('normalises a string alias to an array', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      aliases: 'old-post',
+    });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.aliases).toEqual(['old-post']);
+    }
+  });
+
+  it('accepts an array of aliases', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      aliases: ['old-post', '/legacy/old-post'],
+    });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.aliases).toEqual(['old-post', '/legacy/old-post']);
+    }
+  });
+});

@@ -16,6 +16,11 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import redirects from './src/data/redirects.json' with { type: 'json' };
 import { buildHooks } from "./src/scripts/build/build-hooks.ts";
+import {
+  collectBlogAliasRedirectsFromFiles,
+  mergeRedirects,
+  type RedirectMap,
+} from './src/utils/redirects.ts';
 import tailwindcss from '@tailwindcss/vite';
 
 // env variables are not automatically loaded
@@ -80,11 +85,24 @@ const draftPagePaths = (() => {
   return draftPaths;
 })();
 
+const blogContentRoot = path.resolve(__dirname, 'src/content/blog');
+const blogContentFiles = fg.sync('src/content/blog/**/*.{md,mdx}', {
+  absolute: true,
+});
+const generatedAliasRedirects = collectBlogAliasRedirectsFromFiles(
+  blogContentFiles,
+  blogContentRoot,
+);
+const configuredRedirects = mergeRedirects(
+  redirects as RedirectMap,
+  generatedAliasRedirects,
+);
+
 // https://astro.build/config
 export default defineConfig({
   // @ts-expect-error - env variable typing not recognized
   compressHTML: import.meta.env.PROD,
-  redirects: redirects,
+  redirects: configuredRedirects,
   devToolbar: {
     enabled: true,
   },

@@ -112,6 +112,8 @@ spacing:
   content-max: 1024px
   cta-max: 672px
   page-px: 24px
+  documentation-nav-indent: 12px
+  documentation-nav-deep-indent: 16px
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
@@ -160,6 +162,10 @@ components:
   scrollbar:
     thumbColor: "{colors.primary}"
     thumbHoverColor: "{colors.link}"
+  documentation-sidebar-nested-list:
+    padding: "{spacing.documentation-nav-indent}"
+  documentation-sidebar-deep-nested-list:
+    padding: "{spacing.documentation-nav-deep-indent}"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -288,7 +294,12 @@ A small pill, `bg-black/5 dark:bg-white/5 rounded-sm px-2 py-1` - same relative-
 
 Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/shadcn-ui/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form) - the site has no React islands in production, so the shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
 
-Do not rely on `@tailwindcss/forms`' class-strategy names (e.g. `form-input`). This project runs the plugin with `strategy: "base"` (see `src/styles/theme.css`), which restyles raw `input`/`select`/`textarea` elements directly and does **not** generate a `.form-input` utility class - a stray `class="form-input"` does nothing and silently falls back to the browser/plugin default (an unstyled white box in both themes).
+Do not rely on `@tailwindcss/forms`' class-strategy names (for example
+`form-input`). This project runs the plugin with `strategy: "base"` (see
+`src/styles/theme.css`), which restyles raw `input`/`select`/`textarea`
+elements directly and does **not** generate a `.form-input` utility class - a
+stray `class="form-input"` does nothing and silently falls back to the
+browser/plugin default (an unstyled white box in both themes).
 
 ### Source Code Link Badges
 
@@ -313,9 +324,13 @@ All inline links in prose content use the `link` color (`text-red-700`) shifting
 * **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.
 * **Don't** add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.
 * **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation and all keyframe animations must be gated behind the `no-preference` media query.
-* **Do** prefix any temporary debugging class with `debug` (e.g. `debug-outline`) if one is ever needed, so it can't be mistaken for an intentional style and is easy to grep for before committing.
+* **Do** prefix any temporary debugging class with `debug` (for example
+  `debug-outline`) if one is ever needed, so it can't be mistaken for an
+  intentional style and is easy to grep for before committing.
 * **Do** derive tinted/frosted surfaces (header, popovers, breadcrumb pills) from `var(--background)` via `color-mix()` or a black/white opacity overlay - never pick an independent gray/olive shade for a "raised" or "frosted" look. See "Deriving tinted surfaces from `--background`" above.
-* **Don't** give the same tinted surface a different opacity per theme (e.g. 70% light / 92% dark) - share one value via a custom property so light and dark can't drift apart.
+* **Don't** give the same tinted surface a different opacity per theme (for
+  example 70% light / 92% dark) - share one value via a custom property so light
+  and dark can't drift apart.
 * **Don't** extend the `olive` surface scale into structural neutrals - text, borders, and muted-foreground stay on `gray`. `olive` is reserved for `--background` and things derived from it.
 * **Do** use the shadcn primitives in `src/components/shadcn-ui/` (`Input`, `Textarea`, `Button`, `Card`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
 * **Don't** rely on `@tailwindcss/forms`' class-strategy names like `form-input` - this project runs the plugin in `base` strategy, so that class doesn't exist and silently does nothing.

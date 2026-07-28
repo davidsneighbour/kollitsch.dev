@@ -434,10 +434,15 @@ export function renderDocumentationPage(
       color: var(--accent);
     }
 
-    .nav-group > ul {
+    .nav-group details > ul {
       border-left: 1px solid var(--border);
-      margin: 0.2rem 0 0 0.65rem;
-      padding-left: 0.5rem;
+      margin: 0.2rem 0 0 0.75rem;
+      padding-left: 0.75rem;
+    }
+
+    .nav-group .nav-group details > ul {
+      margin-left: 1rem;
+      padding-left: 1rem;
     }
 
     nav a {

@@ -6,7 +6,8 @@ updated: 2026-07-28T00:00:00+07:00
 ---
 
 Tags connect blog posts, tag archive pages, featured tag cards, and the public
-tag overview.
+tag overview. See [Frontmatter](frontmatter.md) for the complete frontmatter
+property index.
 
 ## Source Files
 

@@ -49,6 +49,12 @@
       "skillPath": "skills/70-content-design-and-voice/dnb-interface-engineering/SKILL.md",
       "computedHash": "5ff9d920a08167e03c3daa5b30964ea664bd55d1669a7d5889b8f417ea0637ab"
     },
+    "dnb-llm-visibility": {
+      "source": "davidsneighbour/ai",
+      "sourceType": "github",
+      "skillPath": "skills/10-ai-assets/dnb-llm-visibility/SKILL.md",
+      "computedHash": "4cecdc322b5d3237bf6173470fe3ddbfa48d1274fd7a70d4a2ce3a0d96e0ae71"
+    },
     "dnb-markdown-formatting": {
       "source": "davidsneighbour/ai",
       "sourceType": "github",

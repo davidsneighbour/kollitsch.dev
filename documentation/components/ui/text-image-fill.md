@@ -2,7 +2,7 @@
 title: TextImageFill
 tags: []
 created: 2026-07-26T00:00:00+07:00
-updated: 2026-07-26T00:00:00+07:00
+updated: 2026-07-28T00:00:00+07:00
 ---
 
 Renders text whose glyphs are filled with a background image (via `background-clip: text`), with an optional flat colour tint layered over the image and a solid fallback colour for browsers without background-clip support.
@@ -68,4 +68,4 @@ Where `background-clip: text` is supported, the element's text `color` is forced
 
 ## Extending
 
-Consumers that need to animate the fill colour (for example, a hover state) should target the `.text-image-fill` class and either transition `color` directly or set the `--text-fill-active-color` custom property, which controls the colour used inside the `@supports` block. See [`SiteTitle`](../layout/header/title/site-title.md) for an example that animates through several colour stops on hover.
+Consumers that need to animate the fill colour (for example, a hover state) should target the `.text-image-fill` class and either transition `color` directly or set the `--text-fill-active-color` custom property, which controls the colour used inside the `@supports` block. See [`SiteTitle`](../layout/header/title/site-title.md) for an example that transitions the colour on hover.

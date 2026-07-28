@@ -18,13 +18,44 @@ const headlineImage = await getImage({
   src: headlineSrc,
   width: 2000,
 });
+
+// Shatter layer: each letter gets its own scroll-driven exit window so they
+// peel off outward from the centre instead of all moving in lockstep.
+//
+// All timings are percentages of the header's scroll-exit progress (0% =
+// header fully in view, 100% = fully scrolled past). Tune these together —
+// they're kept proportional so the dissolve -> crossfade -> fly-apart handoff
+// stays smooth as the whole sequence is shifted earlier or later.
+const fillDissolveEnd = 25; // image-filled text fully dissolved by this point
+const shatterInStart = 6; // solid-colour letters start fading in
+const shatterInEnd = fillDissolveEnd; // ...and are fully in by the time the fill is gone
+const shatterFlyStart = 20; // first letter starts flying outward
+const shatterStagger = 17; // spread of fly-start times across all letters
+const shatterWindow = 25; // how long each letter's own fly-out animation takes
+
+const letters = [...setup.title];
+const centerIndex = (letters.length - 1) / 2;
+const shatterLetters = letters.map((letter, index) => {
+  const offsetFromCenter = index - centerIndex;
+  const progress = letters.length > 1 ? index / (letters.length - 1) : 0;
+  const rangeStart = shatterFlyStart + shatterStagger * progress;
+  const rangeEnd = Math.min(rangeStart + shatterWindow, 100);
+  const tx = Math.round(offsetFromCenter * 10);
+  const ty = Math.round(-18 - Math.abs(offsetFromCenter) * 3);
+  const rotate = Math.round(offsetFromCenter * 7);
+
+  return {
+    letter: letter === ' ' ? ' ' : letter,
+    style: `--shatter-tx: ${tx}px; --shatter-ty: ${ty}px; --shatter-rot: ${rotate}deg; animation-range: exit ${rangeStart}% exit ${rangeEnd}%;`,
+  };
+});
 ---
 
 <header
   aria-label="Site title"
   id={siteTitleId}
   class="site-title-hero w-full py-6 text-center md:py-10"
-  style={`--headline-bg: url("${headlineImage.src}")`}
+  style={`--headline-bg: url("${headlineImage.src}"); --fill-dissolve-end: ${fillDissolveEnd}%; --shatter-in-start: ${shatterInStart}%; --shatter-in-end: ${shatterInEnd}%;`}
 >
   <a
     href={homepageUrl}
@@ -34,7 +65,7 @@ const headlineImage = await getImage({
       as="span"
       imageUrl={headlineImage.src}
       size={siteTitleSize}
-      classes="font-title leading-none"
+      classes="site-title-fill font-title leading-none"
       fallbackColor="var(--color-orange-500)"
       tintColor="var(--color-red-800)"
       tintOpacity={0.1}
@@ -42,12 +73,25 @@ const headlineImage = await getImage({
     >
       {setup.title}
     </TextImageFill>
+    <span
+      class="site-title-shatter font-title leading-none"
+      style={`font-size: ${siteTitleSize}`}
+      aria-hidden="true"
+    >
+      {shatterLetters.map(({ letter, style }) => (
+        <span class="shatter-letter" style={style}>{letter}</span>
+      ))}
+    </span>
   </a>
 </header>
 
 <style>
   .site-title-hero {
-    overflow: hidden;
+    /* clip, not hidden: `hidden` establishes a scroll container, which would
+       make the child elements below resolve animation-timeline: view()
+       against this element's own (static) scrollport instead of the page's,
+       freezing their scroll-driven progress at whatever it starts at. */
+    overflow: clip;
     position: relative;
     animation: site-title-exit linear both;
     animation-timeline: view();
@@ -60,23 +104,103 @@ const headlineImage = await getImage({
   }
 
   /*
+   * Scroll-exit shatter: layered inside the whole-header opacity/transform
+   * fade above (.site-title-exit), not a replacement for it. As the header
+   * exits, the image-filled text dissolves first, handing off to a duplicate
+   * layer of solid-colour letters that fly outward from the centre and fade.
+   * The outer fade still carries the animation the rest of the way to 0%.
+   */
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  .site-title-link :global(.site-title-fill) {
+    animation: site-title-fill-dissolve linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit var(--fill-dissolve-end);
+  }
+
+  @keyframes site-title-fill-dissolve {
+    from {
+      filter: blur(0);
+      opacity: 100%;
+    }
+
+    to {
+      filter: blur(4px);
+      opacity: 0%;
+    }
+  }
+
+  .site-title-shatter {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-red-700);
+    opacity: 0%;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: site-title-shatter-in linear both;
+    animation-timeline: view();
+    animation-range: exit var(--shatter-in-start) exit var(--shatter-in-end);
+  }
+
+  @keyframes site-title-shatter-in {
+    from {
+      opacity: 0%;
+    }
+
+    to {
+      opacity: 100%;
+    }
+  }
+
+  .shatter-letter {
+    display: inline-block;
+    animation: shatter-letter-fly linear both;
+    animation-timeline: view();
+  }
+
+  @keyframes shatter-letter-fly {
+    from {
+      opacity: 100%;
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    to {
+      opacity: 0%;
+      transform: translate(var(--shatter-tx), var(--shatter-ty)) rotate(var(--shatter-rot)) scale(0.6);
+    }
+  }
+
+  /*
    * Hover animation: image grows outward from the text area while the title
    * transitions to the accent colour before dissolving.
    *
    * Sequence on hover-in:
-   *   0–0.6s   text colour transitions: transparent → accent red
-   *   0–0.7s   ::after clip-path expands from text region to full header
-   *   0.1s–    ::after opacity fades in
-   *   0.2s–    link opacity fades out, the coloured text dissolves into the image
+   *   0–0.35s   text colour pops: transparent → accent red
+   *   0.35–0.85s link opacity fades out, only after the red has fully landed,
+   *              so the pop reads clearly before it dissolves into the image
+   *   0–0.9s    ::after clip-path expands from text region to full header
+   *   0.1–0.45s ::after opacity fades in
    *
-   * On hover-out, the transition:color on the element smoothly returns it
-   * from the accent colour back to transparent.
+   * Two curve families are used on purpose, not by oversight: the colour
+   * pop and both opacity fades use --ease-out-expo (steep, front-loaded —
+   * gives the colour switch its "pop"), while the clip-path reveal uses
+   * --ease-in-out-circ (gentler, spreads the visible motion across the
+   * whole duration) so a full-bleed reveal this large doesn't read as
+   * front-loaded/rushed the way expo would make it feel.
    *
-   * Gated on (hover: hover) so touch devices are unaffected.
+   * On hover-out, color (0.35s) and link opacity (0.4s) settle back first;
+   * the ::after clip-path takes longer to close (0.55s) so the image keeps
+   * shrinking a beat after everything else has already returned to rest,
+   * instead of all three collapsing back at once.
+   *
+   * Gated on (hover: hover) and (pointer: fine) so touch devices — including
+   * hybrid touch+mouse ones reporting hover: hover — are unaffected.
    * background-size: 100vw auto on both layers keeps them pixel-matched
    * (background-attachment: fixed would break under the scroll-driven animation).
    */
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .site-title-hero::after {
       background-image: var(--headline-bg);
       background-position: center;
@@ -89,8 +213,8 @@ const headlineImage = await getImage({
       pointer-events: none;
       position: absolute;
       transition:
-        clip-path 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-        opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        clip-path 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+        opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1);
       z-index: 0;
     }
 
@@ -98,20 +222,20 @@ const headlineImage = await getImage({
       clip-path: inset(0% round 0);
       opacity: 100%;
       transition:
-        clip-path 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+        clip-path 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86),
         opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-link :global(.text-image-fill) {
       color: transparent;
-      transition: color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-hero:hover .site-title-link :global(.text-image-fill) {
       color: var(--color-red-700);
-      transition: color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .site-title-link {
@@ -120,7 +244,7 @@ const headlineImage = await getImage({
 
     .site-title-hero:hover .site-title-link {
       opacity: 0%;
-      transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+      transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.35s;
     }
   }
 
@@ -152,6 +276,16 @@ const headlineImage = await getImage({
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-hero .site-title-link :global(.text-image-fill) {
       transition: color 0.4s ease;
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.site-title-fill) {
+      animation: none;
+    }
+
+    .site-title-shatter {
+      animation: none;
+      display: none;
     }
   }
 </style>

@@ -116,3 +116,6 @@ dist
 
 # TypeDoc generated API docs
 documentation/api
+
+# Animation-plan scratch pads (improve-animations skill output) — local only
+plans/

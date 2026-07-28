@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.18.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.0...v3001.18.1) (2026-07-28)
+
+### Fix
+
+* **build:** move api-catalog test out of src/pages ([7e30804](https://github.com/davidsneighbour/kollitsch.dev/commit/7e30804046934b185400001c03b7d99c2c8d9c03))
+
 ## [3001.18.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.17.0...v3001.18.0) (2026-07-28)
 
 ### Feat

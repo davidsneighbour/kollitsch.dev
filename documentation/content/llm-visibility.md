@@ -130,3 +130,7 @@ its public endpoints require OAuth bearer tokens or scopes. See
 The site also does not publish `/auth.md` because there is no supported or
 planned agent-registration flow that could issue scoped credentials. See
 [`auth-md.md`](auth-md.md).
+
+The site also does not publish an MCP Server Card because it has no MCP server
+transport or tool surface to advertise. See
+[`mcp-server-card.md`](mcp-server-card.md).

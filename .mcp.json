@@ -1,5 +1,48 @@
 {
   "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp",
+        "--headless",
+        "--isolated",
+        "--no-usage-statistics",
+        "--no-performance-crux",
+        "--viewport=1440x1000"
+      ]
+    },
+    "cloudflare-browser": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://browser.mcp.cloudflare.com/mcp"
+      ]
+    },
+    "cloudflare-dns-analytics": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://dns-analytics.mcp.cloudflare.com/mcp"
+      ]
+    },
+    "cloudflare-docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://docs.mcp.cloudflare.com/mcp"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp",
+        "--browser=chromium",
+        "--headless",
+        "--user-data-dir=.playwright-mcp/profile",
+        "--output-dir=.playwright-mcp/output",
+        "--save-session"
+      ]
+    },
     "shadcn": {
       "command": "npx",
       "args": [

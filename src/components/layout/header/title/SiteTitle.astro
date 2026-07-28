@@ -1,7 +1,9 @@
 ---
-import TextImageFill from "@components/ui/TextImageFill.astro";
-import setup from "@data/setup.json" with { type: "json" };
-import { getHomepageUrl } from "@utils/content.ts";
+import { getImage } from 'astro:assets';
+import headlineSrc from '@assets/images/headline.jpg';
+import TextImageFill from '@components/ui/TextImageFill.astro';
+import setup from '@data/setup.json' with { type: 'json' };
+import { getHomepageUrl } from '@utils/content.ts';
 
 export interface Props {
   siteTitleId: string;
@@ -9,14 +11,28 @@ export interface Props {
 
 const homepageUrl = getHomepageUrl();
 const { siteTitleId }: Props = Astro.props;
-const siteTitleSize = "clamp(50px, 13vw, 250px)";
+const siteTitleSize = 'clamp(50px, 13vw, 250px)';
+const headlineImage = await getImage({
+  format: 'webp',
+  quality: 75,
+  src: headlineSrc,
+  width: 2000,
+});
 ---
 
-<header aria-label="Site title" id={siteTitleId} class="site-title-hero w-full py-6 text-center md:py-10">
-  <a href={homepageUrl} class="site-title-link inline-block">
+<header
+  aria-label="Site title"
+  id={siteTitleId}
+  class="site-title-hero w-full py-6 text-center md:py-10"
+  style={`--headline-bg: url("${headlineImage.src}")`}
+>
+  <a
+    href={homepageUrl}
+    class="site-title-link inline-block"
+  >
     <TextImageFill
       as="span"
-      imageUrl="/headline.jpg"
+      imageUrl={headlineImage.src}
       size={siteTitleSize}
       classes="font-title leading-none"
       fallbackColor="var(--color-orange-500)"
@@ -76,7 +92,7 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
 
   @media (hover: hover) {
     .site-title-hero::after {
-      background-image: url("/headline.jpg");
+      background-image: var(--headline-bg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100vw auto;

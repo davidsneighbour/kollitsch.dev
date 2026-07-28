@@ -12,7 +12,7 @@ Renders the large homepage header title as an image-filled heading that dissolve
 | Field | Value |
 | --- | --- |
 | Component | [`src/components/layout/header/title/SiteTitle.astro`](../../../../../src/components/layout/header/title/SiteTitle.astro) |
-| Data | [`src/data/setup.json`](../../../../../src/data/setup.json) (site title text), `public/headline.jpg` (background image) |
+| Data | [`src/data/setup.json`](../../../../../src/data/setup.json) (site title text), `src/assets/images/headline.jpg` (background image, optimized to WebP at build time via `getImage()`) |
 | Tests | none |
 
 ## Props
@@ -33,7 +33,7 @@ import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 
 ## Behaviour
 
-The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl="/headline.jpg"`, `fallbackColor="var(--color-orange-500)"`, and `tintColor="var(--color-red-800)"` at `tintOpacity={0.1}`, so the title text is normally filled with the headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
+The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl` set to the build-time-optimized headline image (via `getImage({ format: "webp", quality: 75, src: headlineSrc, width: 2000 })`), `fallbackColor="var(--color-orange-500)"`, and `tintColor="var(--color-red-800)"` at `tintOpacity={0.1}`, so the title text is normally filled with the headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
 
 ### Scroll-exit fade
 
@@ -44,7 +44,7 @@ The outer `<header class="site-title-hero">` uses a scroll-driven `view()` timel
 On hover-in the following run together:
 
 - **Text colour morph**—the `text-colour-morph` keyframes animate the `.text-image-fill` text colour from `transparent` (0%) through a red mid-tone at `--color-red-700` (40%, previously `--color-orange-500`) to `var(--color-gray-400)` (100%), over 0.9 seconds with an `ease` timing function.
-- **Background reveal**—the `.site-title-hero::after` pseudo-element holds a second, full-size copy of `/headline.jpg`. It starts `clip-path: inset(22% 8% round 48px)` (clipped to roughly the text's footprint) and `opacity: 0%`. On hover it expands to `clip-path: inset(0% round 0)` over 0.7 seconds (`cubic-bezier(0.25, 0.46, 0.45, 0.94)`) and fades to full opacity over 0.35 seconds, starting after a 0.1 second delay.
+- **Background reveal**—the `.site-title-hero::after` pseudo-element holds a second, full-size copy of the headline image (via the `--headline-bg` custom property set on the `<header>`). It starts `clip-path: inset(22% 8% round 48px)` (clipped to roughly the text's footprint) and `opacity: 0%`. On hover it expands to `clip-path: inset(0% round 0)` over 0.7 seconds (`cubic-bezier(0.25, 0.46, 0.45, 0.94)`) and fades to full opacity over 0.35 seconds, starting after a 0.1 second delay.
 - **Link fade-out**—`.site-title-link` (the clickable text layer) fades its opacity to 0% over 0.5 seconds, starting after a 0.2 second delay, so the greying text visually dissolves into the expanding background image.
 
 On hover-out, the `text-colour-morph` animation is removed (CSS animations do not reverse) and a plain `transition: color 0.4s ease` on `.text-image-fill` carries the colour back toward transparent. The `::after` clip-path and opacity, and the link opacity, transition back using their own `transition` declarations.

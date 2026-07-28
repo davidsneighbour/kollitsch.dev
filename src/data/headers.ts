@@ -41,6 +41,14 @@ export const headerRules: PathRule[] = [
     headers: [
       { name: 'Accept-Encoding', value: 'gzip, deflate, br' },
       {
+        name: 'Link',
+        value: '</llms.txt>; rel="service-desc"; type="text/markdown"',
+      },
+      {
+        name: 'Link',
+        value: '</llms-full.txt>; rel="service-desc"; type="text/markdown"',
+      },
+      {
         name: 'Permissions-Policy',
         value:
           'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()',

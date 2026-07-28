@@ -17,7 +17,8 @@ and testable like any other source.
 Two arrays of `PathRule` objects:
 
 * `headerRules` - the site's base rules (security headers, `Cache-Control` for
-  static assets, CORS for the Giscus theme stylesheets, and so on).
+  static assets, homepage `Link` discovery headers, CORS for the Giscus theme
+  stylesheets, and so on).
 * `moduleHeaderRules` - rules contributed by specific site features (feeds,
   etc.), kept separate so they render under their own labelled section in the
   generated file.

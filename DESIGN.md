@@ -126,6 +126,8 @@ components:
     textColor: "{colors.link}"
   prose-link-hover:
     textColor: "{colors.link-hover}"
+  prose-heading:
+    textColor: "inherit"
   card:
     backgroundColor: "{colors.surface-raised}"
     rounded: "{rounded.lg}"
@@ -198,6 +200,8 @@ The palette keeps its emotional range narrow on purpose. A wide range of grays c
 * **Code Highlight:** Red-500 at 10% opacity (`oklch(63.7%)`) as the inline code chip background - visually distinct from prose without introducing a new color family.
 
 The full gray scale (50–950) and an orange scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components.
+
+Legacy `--color-black` and `--color-white` aliases resolve to the olive surface endpoints (`olive-950` and `olive-50`) rather than the structural gray endpoints. This keeps any unavoidable endpoint usage warm and slightly quieter against the page surface.
 
 ### Two neutral families: `gray` (structural) vs. `olive` (surface)
 
@@ -314,6 +318,8 @@ Inline mode: underline-on-hover pattern, no border, fits within prose text
 ### Links (prose)
 
 All inline links in prose content use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover. The transition is `duration-300 ease-in-out`. Do not use the primary orange for links - that color is reserved for CTA buttons and the brand mark.
+
+Prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
 
 ### Footer Author Avatar
 

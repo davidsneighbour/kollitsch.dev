@@ -120,6 +120,8 @@ Keeping them separate avoids accidental styling leakage and makes both systems e
 
 This centralises reading rules instead of scattering them across components.
 
+Prose headings inherit the surrounding reading colour. They do not set their own white, black, or accent colour because the Changa display face already provides the hierarchy, and inherited colour keeps long-form pages calmer against the olive surface palette.
+
 Some content elements inside prose need local scaling without breaking the overall reading system.
 
 Examples:

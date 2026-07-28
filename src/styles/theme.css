@@ -170,9 +170,9 @@
   --color-brand-main-accent: var(--color-orange-600);
   --color-brand-main-accent-hover: var(--color-red-700);
 
-  /* @todo use color values directly */
-  --color-black: var(--color-gray-950);
-  --color-white: var(--color-gray-50);
+  /* Semantic endpoints are softened to the olive page-surface ramp. */
+  --color-black: var(--color-olive-950);
+  --color-white: var(--color-olive-50);
 
   /* @todo cleanup variables */
   --font-sans: var(--font-exo2);
@@ -454,7 +454,7 @@
  ******************************************************************************/
 @utility prose-dnb {
   --tw-prose-body: var(--color-gray-800);
-  --tw-prose-headings: var(--color-red-700);
+  --tw-prose-headings: inherit;
   --tw-prose-lead: var(--color-gray-700);
   --tw-prose-links: var(--color-red-700);
   --tw-prose-bold: var(--color-gray-900);
@@ -470,7 +470,7 @@
   --tw-prose-th-borders: var(--color-gray-300);
   --tw-prose-td-borders: var(--color-gray-200);
   --tw-prose-invert-body: var(--color-gray-200);
-  --tw-prose-invert-headings: var(--color-red-500);
+  --tw-prose-invert-headings: inherit;
   --tw-prose-invert-lead: var(--color-gray-300);
   --tw-prose-invert-links: var(--color-red-500);
   --tw-prose-invert-bold: var(--color-white);
@@ -507,11 +507,9 @@
      * variables, overriding prose-dnb's colors at md+ breakpoints and in dark
      * mode. Reassert the overrides last so they always win.
      */
-    --tw-prose-headings: var(--color-red-700);
     --tw-prose-links: var(--color-red-700);
 
     &:where([data-theme="dark"], [data-theme="dark"] *) {
-      --tw-prose-headings: var(--color-red-500);
       --tw-prose-links: var(--color-red-500);
     }
 

@@ -243,11 +243,11 @@ The layout does not use a columnar grid in the classical sense. Most pages are a
 
 Depth is achieved through **tonal contrast**, not shadows.
 
-In light mode: the page surface is warm off-white (`surface`). Some raised elements (the shadcn `card` primitive) sit on pure white (`surface-raised`); the article/feed cards described below instead use a relative opacity overlay rather than a fixed raised color.
+In light mode: the page surface is warm off-white (`surface`). Raised elements sit on the semantic `card` surface (`surface-raised`) when stronger separation is needed; quieter link-list cards can use a relative opacity overlay instead.
 
 In dark mode: shadow-based elevation is replaced entirely with **subtle outlines and rings** rather than box-shadows.
 
-**Article/feed cards (`Preview.astro`, `Tag.astro`, `CardLink.astro`) intentionally do not use a fixed "raised" color at all.** They're all a `bg-white/5` (light) / `dark:bg-black/20` (dark) opacity overlay on top of whatever `--background` is, with `hover:bg-white/10` / `dark:hover:bg-black/30` on interaction. This is deliberate: an overlay expressed as an opacity of the surrounding background can never clash with the page background, even if `--background` changes later - there's no separate gray/olive shade to keep in sync. `Preview.astro`/`Tag.astro` add a `ring-1 ring-gray-900/10 dark:ring-gray-100/10` for definition; `CardLink.astro` instead keeps a light-mode `shadow-sm` and swaps to `dark:outline dark:-outline-offset-1 dark:outline-white/10` in dark mode.
+**Article/feed cards (`Preview.astro`, `Tag.astro`, `CardLink.astro`) use theme-aware surfaces rather than independent grays.** `Preview.astro` uses the semantic `card` token in light mode (`bg-card text-card-foreground`) and the existing background-relative dark overlay (`dark:bg-black/20 dark:text-gray-200`). `Tag.astro` and `CardLink.astro` still use the older `bg-white/5` (light) / `dark:bg-black/20` (dark) opacity-overlay recipe until they get their own visual pass. `Preview.astro` adds `shadow-sm` in light mode and removes it in dark mode; `Preview.astro`/`Tag.astro` add a `ring-1 ring-gray-900/10 dark:ring-gray-100/10` for definition; `CardLink.astro` instead keeps a light-mode `shadow-sm` and swaps to `dark:outline dark:-outline-offset-1 dark:outline-white/10` in dark mode.
 
 Hover states for interactive surfaces (cards, list items) use a small opacity step-up rather than shadow changes. Motion is handled by `transition-colors duration-300 ease-in-out`.
 
@@ -269,10 +269,10 @@ Do not mix `rounded-lg` and `rounded-xl` on the same container and its child - u
 
 Cards are the primary content container for blog post previews, link lists, and media items.
 
-* Light: `bg-white/5`, `rounded-lg`, `px-4 py-5` (or `sm:p-6`), subtle `shadow-sm`, `hover:bg-white/10`
-* Dark: `bg-black/20` (an opacity overlay of the page background, not a fixed color), no shadow, `outline outline-white/10`, `hover:bg-black/30`
-* Images within cards use `rounded-xl overflow-hidden` to contain the photo without interfering with the card's own radius
-* See "Elevation & Depth" above for why this is an opacity overlay rather than a picked gray/olive shade
+* Light: `bg-card`, `text-card-foreground`, `rounded-lg`, subtle `shadow-sm`, `hover:bg-white`
+* Dark: `bg-black/20` (an opacity overlay of the page background, not a fixed color), `text-gray-200`, no shadow, `ring-gray-100/10`, `hover:bg-black/30`
+* `Preview.astro` keeps its image corner radius derived from the outer card radius minus the card padding, so the image tracks the outer container cleanly
+* See "Elevation & Depth" above for why dark-mode cards stay on a background-relative overlay rather than a picked gray/olive shade
 
 ### Sticky Header & Popover Chrome
 

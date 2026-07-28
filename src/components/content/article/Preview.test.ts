@@ -17,4 +17,16 @@ describe('Preview component (props contract)', () => {
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
   });
+
+  it('uses distinct light and dark card colour classes', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const componentPath = path.join(testDir, 'Preview.astro');
+
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain('bg-card');
+    expect(src).toContain('text-card-foreground');
+    expect(src).toContain('dark:bg-black/20');
+    expect(src).not.toContain('bg-white/5');
+  });
 });

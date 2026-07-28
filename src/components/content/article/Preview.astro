@@ -13,7 +13,7 @@ const { post } = Astro.props;
 
 <article
   transition:animate="slide"
-  class="group @container relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-white/5 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-white/10 dark:bg-black/20 dark:ring-gray-100/10 dark:hover:bg-black/30"
+  class="group @container relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-card p-(--card-padding) text-card-foreground shadow-sm ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-lg)] ring-inset transition-colors duration-300 ease-in-out hover:bg-white dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 dark:hover:bg-black/30"
 >
   <PostImage
     post={post}

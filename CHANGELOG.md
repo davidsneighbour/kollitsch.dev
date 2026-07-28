@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.18.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.2...v3001.18.3) (2026-07-28)
+
+### Fix
+
+* **perf:** serve optimized headline image via Astro image pipeline ([6429500](https://github.com/davidsneighbour/kollitsch.dev/commit/642950087e96cf77c189d538884cd091dd0f0d92))
+
 ## [3001.18.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.1...v3001.18.2) (2026-07-28)
 
 ### Fix

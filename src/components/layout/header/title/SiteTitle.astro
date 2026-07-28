@@ -76,20 +76,6 @@ const headlineImage = await getImage({
    * background-size: 100vw auto on both layers keeps them pixel-matched
    * (background-attachment: fixed would break under the scroll-driven animation).
    */
-  @keyframes text-colour-morph {
-    0% {
-      color: transparent;
-    }
-
-    40% {
-      color: var(--color-red-700);
-    }
-
-    100% {
-      color: var(--color-gray-400);
-    }
-  }
-
   @media (hover: hover) {
     .site-title-hero::after {
       background-image: var(--headline-bg);
@@ -116,16 +102,16 @@ const headlineImage = await getImage({
         opacity 0.35s ease 0.1s;
     }
 
-    /* On hover-out, transition from gray back to transparent */
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-link :global(.text-image-fill) {
+      color: transparent;
       transition: color 0.4s ease;
     }
 
-    /* On hover-in, run the three-stop colour animation */
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-hero:hover .site-title-link :global(.text-image-fill) {
-      animation: text-colour-morph 0.9s ease forwards;
+      color: var(--color-red-700);
+      transition: color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .site-title-link {

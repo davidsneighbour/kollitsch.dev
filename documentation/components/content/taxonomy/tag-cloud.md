@@ -40,3 +40,8 @@ import TagCloud from '@components/content/taxonomy/TagCloud.astro';
 `TagCloud` is distinct from [`TagList`](tag-list.md): it scales each link between `minSize` and `maxSize` based on the tag's post count, while `TagList` renders uniform pill-style [`Tag`](tag.md) components. Both expose `data-tag-filter-list` and `data-label`, so they can be filtered by [`TagFilter`](tag-filter.md).
 
 The main tags index uses `TagCloud` because the page heading promises a cloud-style display. Test pages may still use `TagList` when a flat pill list is the desired component under inspection.
+
+The main tags index filters out tag metadata entries whose
+`hideInTagCloud` option is `true` before rendering the cloud. This keeps
+high-volume utility or challenge tags addressable through posts and tag routes
+without letting them dominate the public overview.

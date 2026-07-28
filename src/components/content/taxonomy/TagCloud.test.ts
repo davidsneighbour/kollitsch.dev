@@ -31,6 +31,9 @@ describe('TagCloud component (props contract)', () => {
     );
 
     expect(src).toContain('@components/content/taxonomy/TagCloud.astro');
+    expect(src).toContain('visibleTagsWithCounts = allTagsWithCounts.filter(');
+    expect(src).toContain('(tag) => !tag.hideInTagCloud');
+    expect(src).toContain('tags={visibleTagsWithCounts}');
     expect(src).toContain('<TagCloud');
   });
 });

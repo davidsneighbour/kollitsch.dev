@@ -27,14 +27,18 @@ const post = {
 
 let allTagsWithCounts: TagListItem[] = [];
 let featuredEntries: CollectionEntry<'tags'>[] = [];
+let visibleTagsWithCounts: TagListItem[] = [];
 try {
   allTagsWithCounts = await getTags({ order: 'label-asc' });
+  visibleTagsWithCounts = allTagsWithCounts.filter(
+    (tag) => !tag.hideInTagCloud,
+  );
   featuredEntries = await getFeaturedTagEntries({
     includeCounts: true,
     order: 'weight-desc',
   });
   if (import.meta.env.PROD) {
-    const publishedTagIds = new Set(allTagsWithCounts.map((tag) => tag.id));
+    const publishedTagIds = new Set(visibleTagsWithCounts.map((tag) => tag.id));
     featuredEntries = featuredEntries.filter((entry) =>
       publishedTagIds.has(entry.data.id),
     );
@@ -48,7 +52,7 @@ try {
   <Heading level={1}>Tag Cloud</Heading>
   <TagFilter filterId="tag-cloud" />
   <TagCloud
-    tags={allTagsWithCounts}
+    tags={visibleTagsWithCounts}
     filterId="tag-cloud"
   />
 

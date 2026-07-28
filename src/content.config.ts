@@ -333,6 +333,7 @@ export const tags = defineCollection({
         .optional()
         .transform((val) => val?.trim() ?? undefined),
       featured: z.boolean().default(false).optional(),
+      hideInTagCloud: z.boolean().default(false).optional(),
       icon: tagIcon,
       id: z
         .string()

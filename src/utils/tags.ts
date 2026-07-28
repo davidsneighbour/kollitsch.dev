@@ -90,6 +90,8 @@ export type TagListItem = {
   id: string;
   /** Display label (linktitle from tags collection; falls back to title). */
   label: string;
+  /** Whether tag metadata is hidden from the overview tag cloud. */
+  hideInTagCloud: boolean;
   /** Optional icon from the tags collection. */
   icon?: TagIcon;
   /** Number of posts containing this tag. */
@@ -277,6 +279,7 @@ async function getTagIndex(): Promise<Map<string, TagIndexEntry>> {
               cover: undefined,
               description: '',
               featured: false,
+              hideInTagCloud: false,
               icon: undefined,
               id,
               label: label,
@@ -605,6 +608,7 @@ export async function getTags(
 
     let id = '';
     let finalLabel = label;
+    let hideInTagCloud = false;
     let weight = 0;
     let icon: TagIcon | undefined;
 
@@ -614,6 +618,7 @@ export async function getTags(
       if (hit) {
         id = hit.data.id;
         finalLabel = hit.data.linktitle;
+        hideInTagCloud = hit.data.hideInTagCloud ?? false;
         weight = (hit.data as { weight?: number }).weight ?? 0;
         icon = (hit.data as { icon?: TagIcon }).icon;
       } else {
@@ -632,6 +637,7 @@ export async function getTags(
 
     items.push({
       count: info.count,
+      hideInTagCloud,
       id,
       label: finalLabel,
       url: tagUrl(id),
@@ -751,6 +757,7 @@ export async function getFeaturedTags(
 
     items.push({
       count,
+      hideInTagCloud: entry.data.hideInTagCloud ?? false,
       id,
       label,
       url: tagUrl(id),
@@ -815,6 +822,7 @@ export async function getFeaturedTagEntries(
   // 3) Project once to TagListItem for sorting (cheaper + stable).
   const items: TagListItem[] = entries.map((entry) => ({
     count: countById?.get(entry.data.id) ?? 0,
+    hideInTagCloud: entry.data.hideInTagCloud ?? false,
     id: entry.data.id,
     label: entry.data.linktitle,
     url: tagUrl(entry.data.id),

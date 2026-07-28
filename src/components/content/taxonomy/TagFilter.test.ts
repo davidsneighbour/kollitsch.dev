@@ -25,6 +25,15 @@ describe('TagFilter component (props & source checks)', () => {
     ).toBe(true);
   });
 
+  it('supports concise placeholder text and an optional note', async () => {
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain('placeholder?: string');
+    expect(src).toContain("placeholder = 'Search tags...'");
+    expect(src).toContain('note?: string');
+    expect(src).toContain('{note ?');
+  });
+
   it('does not contain inline styles', async () => {
     const src = await fs.readFile(componentPath, 'utf8');
     expect(src.includes(' style=')).toBe(false);

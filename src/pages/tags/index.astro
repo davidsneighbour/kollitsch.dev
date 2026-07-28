@@ -55,7 +55,10 @@ try {
 
 <Layout post={post}>
   <Heading level={1}>Tag Cloud</Heading>
-  <TagFilter filterId="tag-cloud" />
+  <TagFilter
+    filterId="tag-cloud"
+    note="Showing tags used more than once. Search includes all tags."
+  />
   <TagCloud
     tags={visibleTagsWithCounts}
     searchTags={searchableTagsWithCounts}

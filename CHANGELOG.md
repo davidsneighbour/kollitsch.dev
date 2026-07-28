@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.21.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.20.0...v3001.21.0) (2026-07-28)
+
+### Feat
+
+* **header:** add scroll-exit shatter and refine title hover reveal ([fcfc709](https://github.com/davidsneighbour/kollitsch.dev/commit/fcfc709fbe21c39ce2dddddf02f7251c3182766d))
+
+### Docs
+
+* **header:** fix em-dash spacing and other vale flags in site-title docs ([590f203](https://github.com/davidsneighbour/kollitsch.dev/commit/590f2036717922418ead1f285a2e243193b361c7))
+
 ## [3001.20.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.19.0...v3001.20.0) (2026-07-28)
 
 ### Content

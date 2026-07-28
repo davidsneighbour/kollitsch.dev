@@ -157,6 +157,6 @@ export default async function markdownNegotiation(
 }
 
 export const config = {
-  method: ['GET', 'HEAD'],
+  method: ['GET'],
   path: '/blog/*',
 };

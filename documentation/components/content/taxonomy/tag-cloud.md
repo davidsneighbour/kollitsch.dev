@@ -7,6 +7,9 @@ updated: 2026-07-28T00:00:00+07:00
 
 Renders a weighted, filterable cloud of tag links.
 
+See the content-level [tags documentation](../../../content/tags.md) for tag
+metadata fields, overview setup, and hiding noisy tags from the default cloud.
+
 ## File locations
 
 | Field | Value |
@@ -38,9 +41,15 @@ import TagCloud from '@components/content/taxonomy/TagCloud.astro';
 
 ## Behaviour
 
-`TagCloud` is distinct from [`TagList`](tag-list.md): it scales each link between `minSize` and `maxSize` based on the tag's post count, while `TagList` renders uniform pill-style [`Tag`](tag.md) components. Both expose `data-tag-filter-list` and `data-label`, so they can be filtered by [`TagFilter`](tag-filter.md).
+`TagCloud` is distinct from [`TagList`](tag-list.md): it scales each link
+between `minSize` and `maxSize` based on the tag's post count, while `TagList`
+renders uniform pill-style [`Tag`](tag.md) components. Both expose
+`data-tag-filter-list` and `data-label`, so they can be filtered by
+[`TagFilter`](tag-filter.md).
 
-The main tags index uses `TagCloud` because the page heading promises a cloud-style display. Test pages may still use `TagList` when a flat pill list is the desired component under inspection.
+The main tags index uses `TagCloud` because the page heading promises a
+cloud-style display. Test pages may still use `TagList` when a flat pill list is
+the desired component under inspection.
 
 The main tags index filters out tag metadata entries whose
 `hideInTagCloud` option is `true` before rendering the cloud. This keeps
@@ -50,3 +59,6 @@ without letting them dominate the public overview.
 The page passes all tags with at least one post through `searchTags`, so
 single-use tags and tags hidden from the default cloud are still discoverable
 when filtering.
+
+Font-size scaling is calculated from the default visible tags only. Search-only
+entries render at the normal baseline size when a query reveals them.

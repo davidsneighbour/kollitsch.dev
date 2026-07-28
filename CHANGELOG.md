@@ -1,5 +1,54 @@
 # Changelog
 
+## [3001.18.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.17.0...v3001.18.0) (2026-07-28)
+
+### Feat
+
+* **content:** add Spotify album embed component ([5b097e0](https://github.com/davidsneighbour/kollitsch.dev/commit/5b097e0978e02c84a38bf5f707a2dbab2ad19dbc)), closes [#1662](https://github.com/davidsneighbour/kollitsch.dev/issues/1662)
+* **content:** generate alias redirects ([c78a1eb](https://github.com/davidsneighbour/kollitsch.dev/commit/c78a1eba36142aef82759b2ef551031619df66b5)), closes [#1794](https://github.com/davidsneighbour/kollitsch.dev/issues/1794)
+* **llm:** add discovery link headers ([06417af](https://github.com/davidsneighbour/kollitsch.dev/commit/06417af3bbf3f5b92dc7806e19a733e77de0c2d1)), closes [#1793](https://github.com/davidsneighbour/kollitsch.dev/issues/1793)
+* **llm:** negotiate markdown blog responses ([b2dcce4](https://github.com/davidsneighbour/kollitsch.dev/commit/b2dcce4b891c78ba0d845031b7d5022495f3946d)), closes [#1798](https://github.com/davidsneighbour/kollitsch.dev/issues/1798)
+* **llm:** publish api catalog ([6cd8b72](https://github.com/davidsneighbour/kollitsch.dev/commit/6cd8b72fc5e4ce966c14b5b3252314f5f92226d2)), closes [#1796](https://github.com/davidsneighbour/kollitsch.dev/issues/1796)
+* **seo:** wire structured data schemas ([c5d9fc2](https://github.com/davidsneighbour/kollitsch.dev/commit/c5d9fc25609993774039e18a1db3c5c4defe17e4)), closes [#1782](https://github.com/davidsneighbour/kollitsch.dev/issues/1782)
+* **sourcecode:** render post source links ([08c6b5a](https://github.com/davidsneighbour/kollitsch.dev/commit/08c6b5a26bbe0eac83ad6fb48d54e2e17c336305)), closes [#1783](https://github.com/davidsneighbour/kollitsch.dev/issues/1783)
+* **tags:** search hidden tag cloud entries ([045296d](https://github.com/davidsneighbour/kollitsch.dev/commit/045296dc964a23d999046aa6fdb0350ce9693777)), closes [#1784](https://github.com/davidsneighbour/kollitsch.dev/issues/1784)
+* **tags:** use weighted tag cloud ([f3cd48b](https://github.com/davidsneighbour/kollitsch.dev/commit/f3cd48b338fa9fe30309934400fe04297eb6440f)), closes [#1784](https://github.com/davidsneighbour/kollitsch.dev/issues/1784)
+
+### Content
+
+* **blog:** add stop-tracking-files-ignored-by-gitignore post ([f20c947](https://github.com/davidsneighbour/kollitsch.dev/commit/f20c947c12ab7e019b384c4587dbc001bd97b5aa)), closes [#1806](https://github.com/davidsneighbour/kollitsch.dev/issues/1806)
+* **legal:** refresh privacy policy audit ([236523c](https://github.com/davidsneighbour/kollitsch.dev/commit/236523cf1748a637c4c6644ea93dedcbef6d28e4)), closes [#1780](https://github.com/davidsneighbour/kollitsch.dev/issues/1780)
+
+### Fix
+
+* **drafts:** use light preview card surface ([e44f2e6](https://github.com/davidsneighbour/kollitsch.dev/commit/e44f2e6eb99cb4a460209f1a7c77663995cc7dfb)), closes [#1792](https://github.com/davidsneighbour/kollitsch.dev/issues/1792)
+* **tags:** clarify tag filter scope ([7c1c9ea](https://github.com/davidsneighbour/kollitsch.dev/commit/7c1c9ea46110119b7bd96269449f37b3ef79927c)), closes [#1784](https://github.com/davidsneighbour/kollitsch.dev/issues/1784)
+* **tags:** hide selected tags from cloud ([0da584b](https://github.com/davidsneighbour/kollitsch.dev/commit/0da584b4eae3ec6be4ff1972ade448ee716f070c)), closes [#1784](https://github.com/davidsneighbour/kollitsch.dev/issues/1784)
+* **tags:** size cloud from visible tags ([dc28bba](https://github.com/davidsneighbour/kollitsch.dev/commit/dc28bbafa25e6ea53cd3581db4e58b06c14a15f4)), closes [#1784](https://github.com/davidsneighbour/kollitsch.dev/issues/1784)
+
+### Docs
+
+* **content:** document frontmatter index ([6fe0276](https://github.com/davidsneighbour/kollitsch.dev/commit/6fe02761b72a8bd76086df8cf6b3a0d455ae0541)), closes [#1804](https://github.com/davidsneighbour/kollitsch.dev/issues/1804)
+* **llm:** document agent skills boundary ([8bdbe9e](https://github.com/davidsneighbour/kollitsch.dev/commit/8bdbe9e937c58d2e490114b901afabff913533c8)), closes [#1802](https://github.com/davidsneighbour/kollitsch.dev/issues/1802)
+* **llm:** record auth md boundary ([d47caa3](https://github.com/davidsneighbour/kollitsch.dev/commit/d47caa3825cc0106ad72f83da43064e4d743de25)), closes [#1800](https://github.com/davidsneighbour/kollitsch.dev/issues/1800)
+* **llm:** record dns-aid assessment ([95b2863](https://github.com/davidsneighbour/kollitsch.dev/commit/95b2863a4a89dbae3f76955a634da9a508e4e2c2)), closes [#1795](https://github.com/davidsneighbour/kollitsch.dev/issues/1795)
+* **llm:** record mcp server card boundary ([ef4e318](https://github.com/davidsneighbour/kollitsch.dev/commit/ef4e31809475a2c42a8da423d6271df92edecf02)), closes [#1801](https://github.com/davidsneighbour/kollitsch.dev/issues/1801)
+* **llm:** record oauth discovery boundary ([f95cf4e](https://github.com/davidsneighbour/kollitsch.dev/commit/f95cf4e614d4283ee70eb5488943c3c7af8a91c1)), closes [#1797](https://github.com/davidsneighbour/kollitsch.dev/issues/1797)
+* **llm:** record protected resource boundary ([83100a8](https://github.com/davidsneighbour/kollitsch.dev/commit/83100a889c9559552f157fad14ee68c794619f96)), closes [#1799](https://github.com/davidsneighbour/kollitsch.dev/issues/1799)
+* **llm:** record webmcp boundary ([f84dbb7](https://github.com/davidsneighbour/kollitsch.dev/commit/f84dbb7e381b7fc7c62705809c782d3bdf381d2e)), closes [#1803](https://github.com/davidsneighbour/kollitsch.dev/issues/1803)
+* **tags:** document tag overview setup ([fc7ed59](https://github.com/davidsneighbour/kollitsch.dev/commit/fc7ed59cdeade39947d4c0753f25f5f458ba5620)), closes [#1784](https://github.com/davidsneighbour/kollitsch.dev/issues/1784)
+
+### Test
+
+* **tags:** fix stale placeholder text in TagFilter spec ([bc23e4f](https://github.com/davidsneighbour/kollitsch.dev/commit/bc23e4fa4e623cb04bb0f0c65006609ccf6dbd78))
+
+### Chore
+
+* **ai:** add local MCP servers ([#1805](https://github.com/davidsneighbour/kollitsch.dev/issues/1805)) ([4f9cd8f](https://github.com/davidsneighbour/kollitsch.dev/commit/4f9cd8fadcec8d13793c5bf344d3f47ed7b93f70))
+* **cta:** retire unused letter glitch wrapper ([306f5dd](https://github.com/davidsneighbour/kollitsch.dev/commit/306f5dd498320454ca15f972f455e7da5864fed6)), closes [#1781](https://github.com/davidsneighbour/kollitsch.dev/issues/1781)
+* **headers:** remove stale CloudFront hints ([15ae5aa](https://github.com/davidsneighbour/kollitsch.dev/commit/15ae5aaae93cd3eb3ed3f3e8736423708f7b979c)), closes [#1791](https://github.com/davidsneighbour/kollitsch.dev/issues/1791)
+* **lighthouse:** update score history [skip ci] ([f17209a](https://github.com/davidsneighbour/kollitsch.dev/commit/f17209a6372624cce3669a506560b982cc8e83da))
+
 ## [3001.17.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.16.1...v3001.17.0) (2026-07-28)
 
 ### Feat

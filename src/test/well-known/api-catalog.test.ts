@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 
-import { API_CATALOG, GET } from './api-catalog.ts';
+import { API_CATALOG, GET } from '@pages/.well-known/api-catalog.ts';
 
 describe('/.well-known/api-catalog', () => {
   it('returns an RFC 9264 JSON linkset response', async () => {

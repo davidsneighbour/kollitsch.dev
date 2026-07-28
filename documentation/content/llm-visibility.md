@@ -134,3 +134,7 @@ planned agent-registration flow that could issue scoped credentials. See
 The site also does not publish an MCP Server Card because it has no MCP server
 transport or tool surface to advertise. See
 [`mcp-server-card.md`](mcp-server-card.md).
+
+The site also does not register WebMCP tools because the browser API is still a
+draft and early preview feature, and the site has no high-value browser action
+that warrants experimental tooling. See [`webmcp.md`](webmcp.md).

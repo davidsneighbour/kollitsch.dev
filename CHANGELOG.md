@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.17.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.16.1...v3001.17.0) (2026-07-28)
+
+### Feat
+
+* **llms:** expose Markdown post alternates ([c1d2cea](https://github.com/davidsneighbour/kollitsch/commit/c1d2ceafb72d2730fdfab7d8f12d7d7c4dccef3f)), closes [#1789](https://github.com/davidsneighbour/kollitsch/issues/1789)
+
+### Chore
+
+* **skills:** record llm visibility skill ([9bcb826](https://github.com/davidsneighbour/kollitsch/commit/9bcb826c60b067574c76c32dec70bad177babdbe)), closes [#1790](https://github.com/davidsneighbour/kollitsch/issues/1790)
+
 ## [3001.16.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.16.0...v3001.16.1) (2026-07-27)
 
 ### Ci

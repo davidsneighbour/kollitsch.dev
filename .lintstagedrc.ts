@@ -40,7 +40,6 @@ export default {
   // see src/scripts/content/fetch-youtube-thumbnails.ts.
   'src/content/blog/**/*.{md,mdx}': () => [
     'node src/scripts/content/fetch-youtube-thumbnails.ts',
-    'git add src/assets/images/youtube-thumbnails',
   ],
 
   '*': [

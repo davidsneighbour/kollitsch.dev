@@ -1,5 +1,21 @@
 # Changelog
 
+## [3001.19.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.3...v3001.19.0) (2026-07-28)
+
+### Feat
+
+* **content:** add scheduled liveness check for referenced YouTube videos ([bb682b5](https://github.com/davidsneighbour/kollitsch.dev/commit/bb682b5154c2d5d08ddc9dfc4c9f3bf524b176cc))
+
+### Fix
+
+* **a11y:** enlarge touch targets for meta-row links on mobile ([419d455](https://github.com/davidsneighbour/kollitsch.dev/commit/419d455474d961442f623aed4744a59266b449b0)), closes [#1808](https://github.com/davidsneighbour/kollitsch.dev/issues/1808)
+* **perf:** serve local YouTube poster images instead of live i.ytimg.com fetches ([c7ee825](https://github.com/davidsneighbour/kollitsch.dev/commit/c7ee825efdaeba3f7a4a0b19592d4f99dc0207e4))
+
+### Docs
+
+* **scripts:** fix em-dash spacing flagged by vale in --verify description ([635c76a](https://github.com/davidsneighbour/kollitsch.dev/commit/635c76a4ab0d0163765d18abfb40237f6d69c8a7))
+* **scripts:** fix em-dash spacing flagged by vale in fetch-youtube-thumbnails entry ([2750fa2](https://github.com/davidsneighbour/kollitsch.dev/commit/2750fa28340bc4e25e4294b867b197e254b5da6d))
+
 ## [3001.18.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.2...v3001.18.3) (2026-07-28)
 
 ### Fix

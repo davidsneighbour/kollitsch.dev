@@ -36,9 +36,21 @@ function permalinkFor(filePath: string): string | undefined {
   return `/blog/${year}/${slug}/`;
 }
 
+function markdownPermalinkFor(path: string): string {
+  return path.replace(/\/$/, '.md');
+}
+
+function markdownLinkHeaderFor(path: string): string {
+  return `<${markdownPermalinkFor(path)}>; rel="alternate"; type="text/markdown"`;
+}
+
+function htmlLinkHeaderFor(path: string): string {
+  return `<${path}>; rel="alternate"; type="text/html"`;
+}
+
 /**
- * Scans blog post frontmatter for a `headers` map and turns each match into
- * a `PathRule` scoped to that post's own permalink.
+ * Scans blog posts and returns generated `PathRule` values for their Markdown
+ * alternates. Frontmatter headers are also folded into the HTML permalink rule.
  */
 export async function collectFrontmatterHeaderRules(): Promise<PathRule[]> {
   const files = await fg(`${BLOG_CONTENT_PATH}/**/*.{md,mdx}`);
@@ -51,20 +63,39 @@ export async function collectFrontmatterHeaderRules(): Promise<PathRule[]> {
     if (data['draft'] === true) continue;
 
     const headers = data['headers'];
-    if (!headers || typeof headers !== 'object' || Array.isArray(headers)) continue;
 
     const path = permalinkFor(file);
     if (!path) continue;
 
-    const entries = Object.entries(headers).filter(
-      (entry): entry is [string, string] => typeof entry[1] === 'string',
-    );
-    if (entries.length === 0) continue;
+    const htmlHeaders = [
+      { name: 'Link', value: markdownLinkHeaderFor(path) },
+      { name: 'Vary', value: 'Accept' },
+    ];
+
+    const entries =
+      headers && typeof headers === 'object' && !Array.isArray(headers)
+        ? Object.entries(headers).filter(
+          (entry): entry is [string, string] => typeof entry[1] === 'string',
+        )
+        : [];
 
     rules.push({
       path,
-      comment: `From frontmatter: ${file.slice(process.cwd().length + 1)}`,
-      headers: entries.map(([name, value]) => ({ name, value })),
+      comment: `Markdown alternate for ${file.slice(process.cwd().length + 1)}`,
+      headers: [
+        ...htmlHeaders,
+        ...entries.map(([name, value]) => ({ name, value })),
+      ],
+    });
+
+    rules.push({
+      path: markdownPermalinkFor(path),
+      comment: `Markdown representation for ${file.slice(process.cwd().length + 1)}`,
+      headers: [
+        { name: 'Content-Type', value: 'text/markdown; charset=utf-8' },
+        { name: 'Link', value: htmlLinkHeaderFor(path) },
+        { name: 'Vary', value: 'Accept' },
+      ],
     });
   }
 

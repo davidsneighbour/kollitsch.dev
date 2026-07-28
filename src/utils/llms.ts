@@ -34,6 +34,10 @@ interface LlmsPostConfig {
   link: string;
 }
 
+export function formatBlogPostPath(slug: string): string {
+  return `/blog/${slug.replace(/^\/+|\/+$/g, '')}/`;
+}
+
 /**
  * Regular expressions used to remove MDX/JSX import lines and component tags
  * from a rendered content string so the plain-text export is cleaner.
@@ -82,7 +86,7 @@ function doc(...sections: (string | string[])[]): Response {
     .trim();
 
   return new Response(content + '\n', {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
   });
 }
 

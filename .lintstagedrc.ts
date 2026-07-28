@@ -2,6 +2,19 @@
  * @see https://github.com/lint-staged/lint-staged
  * @type {import('lint-staged').Configuration}
  */
+const shellQuote = (value: string) => JSON.stringify(value);
+
+const lychee = (files: string[]) => {
+  const contentFiles = files.filter((file) => file.includes('/src/content/'));
+
+  if (contentFiles.length === 0) return [];
+
+  return [
+    '/home/linuxbrew/.linuxbrew/bin/lychee --no-progress',
+    ...contentFiles.map(shellQuote),
+  ].join(' ');
+};
+
 export default {
   // Audit when settings.json is staged (VS Code or an extension wrote to it
   // directly). Exit 3 if the file has keys/values not in base or local — the
@@ -17,7 +30,7 @@ export default {
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.jsonc"',
     'vale --config src/config/.vale.ini --no-exit --minAlertLevel=error',
-    '/home/linuxbrew/.linuxbrew/bin/lychee --no-progress',
+    lychee,
     'typos --config src/config/typos.toml',
   ],
 

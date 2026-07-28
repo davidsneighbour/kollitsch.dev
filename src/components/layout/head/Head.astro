@@ -1,23 +1,24 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 // https://docs.astro.build/en/guides/view-transitions/
-import { ClientRouter } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 // individual head components
-import Favicon from "@components/layout/head/Favicon.astro";
-import FontsPreload from "@components/layout/head/FontsPreload.astro";
-import Meta from "@components/layout/head/Meta.astro";
-import OpenGraph from "@components/layout/head/OpenGraph.astro";
-import SpeculationRules from "@components/layout/head/SpeculationRules.astro";
-import setup from "@data/setup.json" with { type: "json" };
+import Favicon from '@components/layout/head/Favicon.astro';
+import FontsPreload from '@components/layout/head/FontsPreload.astro';
+import Meta from '@components/layout/head/Meta.astro';
+import OpenGraph from '@components/layout/head/OpenGraph.astro';
+import SpeculationRules from '@components/layout/head/SpeculationRules.astro';
+import setup from '@data/setup.json' with { type: 'json' };
 import {
   createDefaultPost,
-  resolveOpenGraphPayload,
   type OpenGraphSource,
   type PostFrontmatterLike,
-} from "@utils/content.ts";
-import type { MarkdownInstance } from "astro";
+  resolveOpenGraphPayload,
+} from '@utils/content.ts';
+import type { MarkdownInstance } from 'astro';
 
-type PostLike = (MarkdownInstance<Record<string, unknown>> & OpenGraphSource) & {
+type PostLike = (MarkdownInstance<Record<string, unknown>> &
+  OpenGraphSource) & {
   readonly data?: PostFrontmatterLike;
 };
 
@@ -31,21 +32,27 @@ const { post: postProp, frontmatter }: Props = Astro.props;
 // never mutate incoming props; derive a safe post object
 const safePost: OpenGraphSource = postProp
   ? postProp.data
-    ? (postProp as unknown as CollectionEntry<"blog">)
+    ? (postProp as unknown as CollectionEntry<'blog'>)
     : ({ ...postProp, data: createDefaultPost(postProp) } as PostLike)
   : undefined;
 
-const baseUrl = import.meta.env.BASE_URL ?? "/";
+const baseUrl = import.meta.env.BASE_URL ?? '/';
 
 // canonical with trailing slash enforced
-const site = new URL(Astro.site ?? "http://localhost/");
+const site = new URL(Astro.site ?? 'http://localhost/');
 const canonicalUrl = new URL(
-  Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`,
+  Astro.url.pathname.endsWith('/')
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`,
   site,
 ).toString();
-const rssUrl = new URL("/rss.xml", site).toString();
-const atomUrl = new URL("/atom.xml", site).toString();
-const jsonFeedUrl = new URL("/feed.json", site).toString();
+const rssUrl = new URL('/rss.xml', site).toString();
+const atomUrl = new URL('/atom.xml', site).toString();
+const jsonFeedUrl = new URL('/feed.json', site).toString();
+const markdownAlternateUrl =
+  safePost?.collection === 'blog' && safePost.id
+    ? new URL(`/blog/${safePost.id}.md`, site).toString()
+    : undefined;
 
 const {
   description,
@@ -55,43 +62,86 @@ const {
 } = resolveOpenGraphPayload(safePost, {
   canonicalUrl,
   ...(frontmatter ? { frontmatter } : {}),
-  siteDescription: (setup?.description as string | undefined) ?? "",
-  siteTitle: setup?.title ?? "",
+  siteDescription: (setup?.description as string | undefined) ?? '',
+  siteTitle: setup?.title ?? '',
   titlePostfix: setup.head?.postfix,
 });
 
 // robots policy
-const robots = isDraft ? "noindex, nofollow, noarchive" : "index, follow";
+const robots = isDraft ? 'noindex, nofollow, noarchive' : 'index, follow';
 
 // only emit <base> if BASE_URL is not root to avoid breaking relative paths
-const shouldEmitBase = typeof baseUrl === "string" && baseUrl !== "/";
+const shouldEmitBase = typeof baseUrl === 'string' && baseUrl !== '/';
 const headCfg = setup.head as Record<string, unknown>;
 
-function getString(obj: Record<string, unknown>, key: string, fallback: string): string {
+function getString(
+  obj: Record<string, unknown>,
+  key: string,
+  fallback: string,
+): string {
   const v = obj[key];
-  return typeof v === "string" && v.trim() !== "" ? v : fallback;
+  return typeof v === 'string' && v.trim() !== '' ? v : fallback;
 }
 
-const themeLight = getString(headCfg, "themeColorLight", "#ffffff");
-const themeDark = getString(headCfg, "themeColorDark", "#000000");
+const themeLight = getString(headCfg, 'themeColorLight', '#ffffff');
+const themeDark = getString(headCfg, 'themeColorDark', '#000000');
 ---
 
-<meta charset={setup.head?.defaults?.charset || "utf-8"} />
-<meta name="viewport" content={setup.head?.defaults?.viewport || "width=device-width, initial-scale=1.0"} />
+<meta charset={setup.head?.defaults?.charset || "utf-8"}>
+<meta
+  name="viewport"
+  content={setup.head?.defaults?.viewport || "width=device-width, initial-scale=1.0"}
+>
 <title>{title}</title>
 
 {shouldEmitBase && <base href={baseUrl} target="_self" />}
 
-<link rel="canonical" href={canonicalUrl} />
-<link rel="alternate" type="application/rss+xml" title={`${setup.title} RSS Feed`} href={rssUrl} />
-<link rel="alternate" type="application/atom+xml" title={`${setup.title} Atom Feed`} href={atomUrl} />
-<link rel="alternate" type="application/feed+json" title={`${setup.title} JSON Feed`} href={jsonFeedUrl} />
-<meta name="robots" content={robots} />
-<meta name="referrer" content="strict-origin-when-cross-origin" />
+<link
+  rel="canonical"
+  href={canonicalUrl}
+>
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${setup.title} RSS Feed`}
+  href={rssUrl}
+>
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title={`${setup.title} Atom Feed`}
+  href={atomUrl}
+>
+<link
+  rel="alternate"
+  type="application/feed+json"
+  title={`${setup.title} JSON Feed`}
+  href={jsonFeedUrl}
+>
+{markdownAlternateUrl && <link rel="alternate" type="text/markdown" href={markdownAlternateUrl} />}
+<meta
+  name="robots"
+  content={robots}
+>
+<meta
+  name="referrer"
+  content="strict-origin-when-cross-origin"
+>
 {description && <meta name="description" content={description} />}
-<meta name="color-scheme" content="dark light" />
-<meta name="theme-color" media="(prefers-color-scheme: light)" content={themeLight} />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content={themeDark} />
+<meta
+  name="color-scheme"
+  content="dark light"
+>
+<meta
+  name="theme-color"
+  media="(prefers-color-scheme: light)"
+  content={themeLight}
+>
+<meta
+  name="theme-color"
+  media="(prefers-color-scheme: dark)"
+  content={themeDark}
+>
 
 <FontsPreload />
 <OpenGraph openGraph={openGraph} />
@@ -100,35 +150,41 @@ const themeDark = getString(headCfg, "themeColorDark", "#000000");
 <Meta />
 <SpeculationRules />
 
-<meta name="generator" content={Astro.generator} />
+<meta
+  name="generator"
+  content={Astro.generator}
+>
 
-{/* Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) */}
+<!-- Matomo snippet (kept minimal; expand trackerUrl/siteId where you configure analytics) -->
 <script is:inline>
   (function () {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
     try {
-      const _paq = (window._paq = window._paq || []);
-      _paq.push(["setReferrerUrl", document.referrer]);
-      _paq.push(["enableLinkTracking"]);
+      const _paq = window._paq || [];
+      window._paq = _paq;
+      _paq.push(['setReferrerUrl', document.referrer]);
+      _paq.push(['enableLinkTracking']);
 
       const trackView = () => {
-        _paq.push(["setCustomUrl", location.href]);
-        _paq.push(["setDocumentTitle", document.title]);
-        _paq.push(["trackPageView"]);
+        _paq.push(['setCustomUrl', location.href]);
+        _paq.push(['setDocumentTitle', document.title]);
+        _paq.push(['trackPageView']);
       };
 
       // Do not count speculative prerender loads — only track once the page is
       // actually visible to the user. Avoids inflating Matomo counts when
       // clientPrerender is enabled and Chrome prerenders viewport-visible links.
       if (document.prerendering) {
-        document.addEventListener("prerenderingchange", trackView, { once: true });
+        document.addEventListener('prerenderingchange', trackView, {
+          once: true,
+        });
       } else {
         trackView();
       }
 
-      document.addEventListener("astro:after-swap", trackView);
+      document.addEventListener('astro:after-swap', trackView);
     } catch (err) {
-      console.error("Matomo bootstrap failed:", err);
+      console.error('Matomo bootstrap failed:', err);
     }
   })();
 </script>

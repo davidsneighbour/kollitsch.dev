@@ -2,7 +2,7 @@
 title: Netlify Response Headers
 tags: []
 created: 2026-07-26T00:00:00+07:00
-updated: 2026-07-26T00:00:00+07:00
+updated: 2026-07-28T00:00:00+07:00
 ---
 
 Netlify reads response headers (caching, CORS, security headers, etc.) from a
@@ -28,7 +28,9 @@ A `PathRule` looks like:
 {
   path: '/assets/styles/*',
   comment: 'optional comment rendered above the path line',
-  headers: [{ name: 'Cache-Control', value: 'public, max-age=300, must-revalidate' }],
+  headers: [
+    { name: 'Cache-Control', value: 'public, max-age=300, must-revalidate' },
+  ],
   addExpires: true, // appends an Expires header set to build time + 1 year
 }
 ```
@@ -72,9 +74,13 @@ field (`Record<string, string>`) on `blogSchema` in
 ### How it's collected
 
 **[`src/scripts/build/collect-frontmatter-headers.ts`](../../src/scripts/build/collect-frontmatter-headers.ts)**
-scans `src/content/blog/**/*.{md,mdx}` frontmatter directly with `gray-matter`
-and turns any post's `headers` map into a `PathRule`. This runs inside the
-`astro:build:done` hook, so the result is passed as `extraRules` to
+scans `src/content/blog/**/*.{md,mdx}` directly with `gray-matter`. For every
+published post, it generates an HTML permalink rule with `Link:
+<...md>; rel="alternate"; type="text/markdown"` and `Vary: Accept`, plus a
+matching `.md` representation rule with `Content-Type: text/markdown`,
+`Link: <.../>; rel="alternate"; type="text/html"`, and `Vary: Accept`. Any
+frontmatter `headers` map is folded into the HTML permalink rule. This runs
+inside the `astro:build:done` hook, so the result is passed as `extraRules` to
 `generateHeaders()` and appended after `headerRules`/`moduleHeaderRules` under
 a `# headers from page frontmatter` section.
 

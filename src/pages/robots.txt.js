@@ -25,7 +25,7 @@ export async function GET(context) {
     const robotsData = await res.json();
 
     for (const userAgent of Object.keys(robotsData)) {
-      dynamicEntries += `User-agent: ${userAgent}\nContent-Signal: search=yes, ai-train=no\nDisallow: /\n\n`;
+      dynamicEntries += `User-agent: ${userAgent}\nContent-Signal: search=yes, ai-input=no, ai-train=no\nDisallow: /\n\n`;
     }
   } catch (err) {
     log.error(`[robots.txt] Error fetching or parsing JSON: ${err.message}`);
@@ -55,7 +55,7 @@ export async function GET(context) {
 
 `;
 
-  const staticRules = `User-agent: *\nContent-Signal: search=yes, ai-train=no\nAllow: /\n\n`;
+  const staticRules = `User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\nAllow: /\n\n`;
 
   const body =
     contentSignalsComment + dynamicEntries + staticRules + sitemapEntry;

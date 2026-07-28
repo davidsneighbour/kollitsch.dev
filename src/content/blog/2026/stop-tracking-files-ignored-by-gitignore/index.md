@@ -32,7 +32,7 @@ The `--cached` flag removes files from the index while keeping the local copies 
 
 Assume `.gitignore` contains:
 
-```gitignore
+```ini
 generated/
 ```
 

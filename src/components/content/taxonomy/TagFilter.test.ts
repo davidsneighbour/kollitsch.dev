@@ -34,4 +34,13 @@ describe('TagFilter component (props & source checks)', () => {
     const src = await fs.readFile(componentPath, 'utf8');
     expect(src.includes('function fuzzyInOrder')).toBe(true);
   });
+
+  it('keeps search-only tags hidden until filtering starts', async () => {
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain('data-tag-filter-default-hidden');
+    expect(src).toContain('defaultVisibleCount');
+    expect(src).toContain("query === ''");
+    expect(src).toContain('!hiddenByDefault');
+  });
 });

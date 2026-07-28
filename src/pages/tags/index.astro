@@ -27,9 +27,14 @@ const post = {
 
 let allTagsWithCounts: TagListItem[] = [];
 let featuredEntries: CollectionEntry<'tags'>[] = [];
+let searchableTagsWithCounts: TagListItem[] = [];
 let visibleTagsWithCounts: TagListItem[] = [];
 try {
   allTagsWithCounts = await getTags({ order: 'label-asc' });
+  searchableTagsWithCounts = await getTags({
+    order: 'label-asc',
+    threshold: 1,
+  });
   visibleTagsWithCounts = allTagsWithCounts.filter(
     (tag) => !tag.hideInTagCloud,
   );
@@ -53,6 +58,7 @@ try {
   <TagFilter filterId="tag-cloud" />
   <TagCloud
     tags={visibleTagsWithCounts}
+    searchTags={searchableTagsWithCounts}
     filterId="tag-cloud"
   />
 

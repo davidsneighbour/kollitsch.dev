@@ -4,6 +4,7 @@ import type { TagListItem } from '@utils/tags.ts';
 
 export interface Props {
   tags: TagListItem[] | Map<string, number>;
+  searchTags?: TagListItem[];
   minSize?: number;
   maxSize?: number;
   showCounts?: boolean;
@@ -19,14 +20,24 @@ const props = mergePropsWithDefaults(Astro.props as Props, {
   Pick<Props, 'filterId' | 'maxSize' | 'minSize' | 'showCounts' | 'tags'>
 >;
 
-const items =
+const visibleItems =
   props.tags instanceof Map
     ? Array.from(props.tags.entries()).map(([tag, count]) => ({
         count,
+        id: tag,
         label: tag,
         url: `/tags/${encodeURIComponent(tag)}/`,
       }))
     : props.tags;
+
+const visibleKeys = new Set(
+  visibleItems.map((item) => `${item.url}|${item.label}`),
+);
+
+const items = (Astro.props.searchTags ?? visibleItems).map((item) => ({
+  ...item,
+  hiddenByDefault: !visibleKeys.has(`${item.url}|${item.label}`),
+}));
 
 const counts = items.map((item) => item.count);
 const maxCount = Math.max(...counts, 0);
@@ -52,6 +63,8 @@ function getFontSize(count: number): string {
         href={tag.url}
         title={`${tag.count} posts`}
         data-label={String(tag.label).toLowerCase()}
+        data-tag-filter-default-hidden={tag.hiddenByDefault ? 'true' : undefined}
+        hidden={tag.hiddenByDefault}
         style={`font-size: ${getFontSize(tag.count)}; line-height: 1.1;`}
       >
         #{props.showCounts ? `${tag.label} (${tag.count})` : tag.label}

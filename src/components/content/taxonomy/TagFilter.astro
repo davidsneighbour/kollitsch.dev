@@ -4,13 +4,21 @@ export interface Props {
   filterId?: string;
 }
 
-const { filterId = "default" } = Astro.props;
-const safeFilterId = String(filterId).replace(/[^a-zA-Z0-9_-]/g, "-");
+const { filterId = 'default' } = Astro.props;
+const safeFilterId = String(filterId).replace(/[^a-zA-Z0-9_-]/g, '-');
 const inputId = `tag-filter-input-${safeFilterId}`;
 ---
 
-<div class="tag-filter" data-tag-filter data-tag-filter-id={filterId}>
-  <label class="sr-only" for={inputId}>Filter tags</label>
+<div
+  class="tag-filter"
+  data-tag-filter
+  data-tag-filter-id={filterId}
+>
+  <label
+    class="sr-only"
+    for={inputId}
+    >Filter tags</label
+  >
 
   <input
     id={inputId}
@@ -21,9 +29,13 @@ const inputId = `tag-filter-input-${safeFilterId}`;
     placeholder="Filter tags..."
     class="h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-input/30 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40"
     data-tag-filter-input
-  />
+  >
 
-  <div class="mt-2 text-xs text-muted-foreground" data-tag-filter-status aria-live="polite"></div>
+  <div
+    class="mt-2 text-xs text-muted-foreground"
+    data-tag-filter-status
+    aria-live="polite"
+  ></div>
 </div>
 
 <script>
@@ -31,7 +43,7 @@ const inputId = `tag-filter-input-${safeFilterId}`;
    * Returns true if every character in `needle` can be found in order within `haystack`.
    * Example: needle "koll" matches haystack "kollitsch".
    */
-  function fuzzyInOrder(haystack: string | any[], needle: string | any[]): boolean {
+  function fuzzyInOrder(haystack: string, needle: string): boolean {
     if (needle.length === 0) return true;
     let i = 0;
     for (let j = 0; j < haystack.length; j += 1) {
@@ -42,41 +54,49 @@ const inputId = `tag-filter-input-${safeFilterId}`;
   }
 
   function escapeSelector(value: string): string {
-    if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+    if (typeof CSS !== 'undefined' && typeof CSS.escape === 'function') {
       return CSS.escape(value);
     }
-    return value.replace(/["\\]/g, "\\$&");
+    return value.replace(/["\\]/g, '\\$&');
   }
 
   function initTagFilter(root: HTMLElement): void {
-    const input = root.querySelector("[data-tag-filter-input]");
-    const status = root.querySelector("[data-tag-filter-status]");
-    const filterId = root.getAttribute("data-tag-filter-id") ?? "default";
+    const input = root.querySelector('[data-tag-filter-input]');
+    const status = root.querySelector('[data-tag-filter-status]');
+    const filterId = root.getAttribute('data-tag-filter-id') ?? 'default';
 
     if (!(input instanceof HTMLInputElement)) {
-      console.error("tag-filter: input not found or wrong type", { root });
+      console.error('tag-filter: input not found or wrong type', { root });
       return;
     }
 
     const selector = `[data-tag-filter-list][data-tag-filter-id="${escapeSelector(filterId)}"]`;
     const lists = Array.from(document.querySelectorAll<HTMLElement>(selector));
     const links = lists.flatMap((list) =>
-      Array.from(list.querySelectorAll<HTMLAnchorElement>("a[data-label]")),
+      Array.from(list.querySelectorAll<HTMLAnchorElement>('a[data-label]')),
     );
+    const defaultVisibleCount = links.filter(
+      (link) => link.getAttribute('data-tag-filter-default-hidden') !== 'true',
+    ).length;
 
     const apply = (q: string) => {
       const query = q.trim().toLowerCase();
       let visible = 0;
 
       for (const a of links) {
-        const label = (a.getAttribute("data-label") ?? "").toLowerCase();
-        const match = query === "" ? true : fuzzyInOrder(label, query);
+        const label = (a.getAttribute('data-label') ?? '').toLowerCase();
+        const hiddenByDefault =
+          a.getAttribute('data-tag-filter-default-hidden') === 'true';
+        const match =
+          query === '' ? !hiddenByDefault : fuzzyInOrder(label, query);
         a.hidden = !match;
         if (match) visible += 1;
       }
 
       if (status instanceof HTMLElement) {
-        status.textContent = links.length === 0 ? "" : `${visible} / ${links.length} tags`;
+        const total = query === '' ? defaultVisibleCount : links.length;
+        status.textContent =
+          links.length === 0 ? '' : `${visible} / ${total} tags`;
       }
     };
 
@@ -84,20 +104,20 @@ const inputId = `tag-filter-input-${safeFilterId}`;
     apply(input.value);
 
     // Avoid double-binding if Astro swaps pages
-    if (input.dataset["tagFilterBound"] === "true") return;
-    input.dataset["tagFilterBound"] = "true";
+    if (input.dataset['tagFilterBound'] === 'true') return;
+    input.dataset['tagFilterBound'] = 'true';
     const handler = () => apply(input.value);
-    input.addEventListener("input", handler, { passive: true });
+    input.addEventListener('input', handler, { passive: true });
   }
 
   function boot() {
-    const roots = document.querySelectorAll("[data-tag-filter]");
+    const roots = document.querySelectorAll('[data-tag-filter]');
     for (const el of roots) {
       if (el instanceof HTMLElement) initTagFilter(el);
     }
   }
 
-  document.addEventListener("astro:page-load", boot);
+  document.addEventListener('astro:page-load', boot);
   // Also run once for non-router loads
   boot();
 </script>

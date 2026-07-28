@@ -20,6 +20,7 @@ Renders a weighted, filterable cloud of tag links.
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `tags` | `TagListItem[] \| Map<string, number>` | required | Tags to render |
+| `searchTags` | `TagListItem[]` | `tags` | Optional superset used by `TagFilter`; entries outside `tags` are hidden until the query matches |
 | `minSize` | `number` | `0.75` | Smallest rendered font size in `rem` |
 | `maxSize` | `number` | `2.0` | Largest rendered font size in `rem` |
 | `showCounts` | `boolean` | `true` | When `true`, appends `(count)` to each tag label |
@@ -45,3 +46,7 @@ The main tags index filters out tag metadata entries whose
 `hideInTagCloud` option is `true` before rendering the cloud. This keeps
 high-volume utility or challenge tags addressable through posts and tag routes
 without letting them dominate the public overview.
+
+The page passes all tags with at least one post through `searchTags`, so
+single-use tags and tags hidden from the default cloud are still discoverable
+when filtering.

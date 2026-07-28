@@ -15,6 +15,8 @@ describe('TagCloud component (props contract)', () => {
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
     expect(src).toContain('TagListItem[] | Map<string, number>');
+    expect(src).toContain('searchTags?: TagListItem[]');
+    expect(src).toContain('data-tag-filter-default-hidden');
     expect(src).toContain('function getFontSize');
     expect(src).toContain('data-tag-filter-list');
     expect(src).toContain('data-label');
@@ -31,9 +33,12 @@ describe('TagCloud component (props contract)', () => {
     );
 
     expect(src).toContain('@components/content/taxonomy/TagCloud.astro');
+    expect(src).toContain('searchableTagsWithCounts = await getTags({');
+    expect(src).toContain('threshold: 1');
     expect(src).toContain('visibleTagsWithCounts = allTagsWithCounts.filter(');
     expect(src).toContain('(tag) => !tag.hideInTagCloud');
     expect(src).toContain('tags={visibleTagsWithCounts}');
+    expect(src).toContain('searchTags={searchableTagsWithCounts}');
     expect(src).toContain('<TagCloud');
   });
 });

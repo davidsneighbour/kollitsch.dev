@@ -1,15 +1,19 @@
 ---
-import ArticleCard from "@components/content/article/Preview.astro";
-import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
-import Pagination from "@/components/content/pagenav/Pagination.astro";
-import Layout from "@layouts/DefaultPage.astro";
-import { getPostsSortedByDraft, paginateBlogPostsByYear } from "@utils/content.ts";
-import { createLogger } from "@utils/logger.ts";
+import ArticleCard from '@components/content/article/Preview.astro';
+import BlogHeading from '@components/content/taxonomy/BlogHeading.astro';
+import BlogSchema from '@components/seo/schema/Blog.astro';
+import Layout from '@layouts/DefaultPage.astro';
+import {
+  getPostsSortedByDraft,
+  paginateBlogPostsByYear,
+} from '@utils/content.ts';
+import { createLogger } from '@utils/logger.ts';
+import Pagination from '@/components/content/pagenav/Pagination.astro';
 
 export async function getStaticPaths() {
   const pageSize = 12;
-  const { getCollection } = await import("astro:content");
-  const allPosts = getPostsSortedByDraft(await getCollection("blog"));
+  const { getCollection } = await import('astro:content');
+  const allPosts = getPostsSortedByDraft(await getCollection('blog'));
 
   const postsByYear: Record<string, number> = {};
   for (const post of allPosts) {
@@ -29,23 +33,38 @@ const { year, page } = Astro.params;
 const currentPage = parseInt(page, 10);
 const pageSize = 12;
 
-const { posts, totalPages } = await paginateBlogPostsByYear(year, currentPage, pageSize);
+const { posts, totalPages } = await paginateBlogPostsByYear(
+  year,
+  currentPage,
+  pageSize,
+);
 
-const log = createLogger({ slug: "blog-year-page" });
+const log = createLogger({ slug: 'blog-year-page' });
 if (import.meta.env.DEV) {
   log.debug(`Loaded blog year page ${year} #${currentPage} (param: ${page})`);
 }
+
+const description = 'Explore our collection of blog posts from this year.';
 ---
 
 <Layout title={`Blog posts from ${year} – Page ${currentPage}`}>
+  <BlogSchema
+    title={`Blog posts from ${year} | Page ${currentPage}`}
+    description={description}
+    posts={posts}
+  />
   <BlogHeading
     title={`Blog Posts from ${year}`}
     posts={posts}
     level={1}
-    description="Explore our collection of blog posts from this year."
+    description={description}
   />
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {posts.map((post) => <ArticleCard post={post} />)}
   </div>
-  <Pagination currentPage={currentPage} totalPages={totalPages} basePath={`/blog/${year}/`} />
+  <Pagination
+    currentPage={currentPage}
+    totalPages={totalPages}
+    basePath={`/blog/${year}/`}
+  />
 </Layout>

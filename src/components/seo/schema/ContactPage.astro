@@ -1,5 +1,37 @@
 ---
-// @todo refactor and comment
-export interface Props {}
 // https://schema.org/ContactPage
+import setup from '@data/setup.json' with { type: 'json' };
+
+export interface Props {
+  readonly description?: string;
+  readonly formPath?: string;
+  readonly title?: string;
+}
+
+const {
+  description = 'Find a way to get into contact with me.',
+  formPath = '/connect/',
+  title = 'Contact',
+}: Props = Astro.props;
+const site = new URL(Astro.site ?? setup.url);
+const pageUrl = new URL(formPath, site).toString();
+const contactPointUrl = new URL(formPath, site);
+contactPointUrl.hash = 'contact-form';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  description,
+  mainEntity: {
+    '@id': contactPointUrl.toString(),
+  },
+  name: title,
+  url: pageUrl,
+};
 ---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema)}
+/>

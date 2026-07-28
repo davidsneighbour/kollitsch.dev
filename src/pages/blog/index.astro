@@ -1,52 +1,65 @@
 ---
 // for /blog/1/, /blog/2/, /blog/3/ (pagination)
 
-import { getCollection } from "astro:content";
-import { getPostsSortedByDraft } from "@utils/content.ts";
-import type { InferGetStaticParamsType } from "astro";
+import { getCollection } from 'astro:content';
+import { getPostsSortedByDraft } from '@utils/content.ts';
+import type { InferGetStaticParamsType } from 'astro';
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
-import ArticleCard from "@components/content/article/Preview.astro";
-import BlogHeading from "@components/content/taxonomy/BlogHeading.astro";
-import Pagination from "@/components/content/pagenav/Pagination.astro";
+import ArticleCard from '@components/content/article/Preview.astro';
+import BlogHeading from '@components/content/taxonomy/BlogHeading.astro';
+import BlogSchema from '@components/seo/schema/Blog.astro';
+import setup from '@data/setup.json' with { type: 'json' };
 // components
-import Layout from "@layouts/DefaultPage.astro";
-import setup from "@data/setup.json" with { type: "json" };
+import Layout from '@layouts/DefaultPage.astro';
+import Pagination from '@/components/content/pagenav/Pagination.astro';
 
 export async function getStaticPaths() {
-  const posts = getPostsSortedByDraft(await getCollection("blog"));
+  const posts = getPostsSortedByDraft(await getCollection('blog'));
   const pageSize = setup.listpages?.limit || 12;
   const totalPages = Math.ceil(posts.length / pageSize);
 
   return Array.from({ length: totalPages }).map((_, i) => ({
-    params: { page: i === 0 ? "1" : `${i + 1}` }, // all as strings
+    params: { page: i === 0 ? '1' : `${i + 1}` }, // all as strings
   }));
 }
 
 const limit = setup.listpages?.limit || 12;
 const { page } = Astro.params as Params;
 const pageNumber = Number(page) || 1; // default to 1 if not provided
-const allPosts = getPostsSortedByDraft(await getCollection("blog"));
+const allPosts = getPostsSortedByDraft(await getCollection('blog'));
 const posts = allPosts.slice((pageNumber - 1) * limit, pageNumber * limit);
 const totalPages = Math.ceil(allPosts.length / limit);
 
 const post = {
   data: {
-    description: "A collection of articles, tutorials, and updates.",
-    title: "Blog | KOLLITSCH.dev*",
+    description: 'A collection of articles, tutorials, and updates.',
+    title: 'Blog | KOLLITSCH.dev*',
   },
 };
 ---
 
 <Layout post={post}>
-  <BlogHeading title="Blog" posts={posts} level={1} description="A collection of articles, tutorials, and updates." />
+  <BlogSchema
+    title="Blog"
+    description={post.data.description}
+    posts={posts}
+  />
+  <BlogHeading
+    title="Blog"
+    posts={posts}
+    level={1}
+    description="A collection of articles, tutorials, and updates."
+  />
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-    {
-      posts.map((post) => {
+    {posts.map((post) => {
         return <ArticleCard post={post} />;
-      })
-    }
+      })}
   </div>
-  <Pagination basePath="/blog" currentPage={pageNumber} totalPages={totalPages} />
+  <Pagination
+    basePath="/blog"
+    currentPage={pageNumber}
+    totalPages={totalPages}
+  />
 </Layout>

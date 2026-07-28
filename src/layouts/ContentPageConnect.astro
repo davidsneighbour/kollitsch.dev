@@ -2,6 +2,8 @@
 // @todo refactor
 
 import Heading from "@components/content/typography/Heading.astro";
+import ContactOptionSchema from "@components/seo/schema/ContactOption.astro";
+import ContactPageSchema from "@components/seo/schema/ContactPage.astro";
 import Layout from "@layouts/ContentPage.astro";
 
 const { post } = Astro.props;
@@ -15,6 +17,8 @@ const isDev = import.meta.env.DEV;
 ---
 
 <Layout post={post} frontmatter={frontmatter}>
+  <ContactPageSchema title={frontmatter?.title} description={frontmatter?.description} />
+  <ContactOptionSchema />
   <div class="isolate">
     <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       <div class="px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">

@@ -2,27 +2,30 @@
 // @todo refactor and comment
 // create a single blog post with full content
 
-import type { CollectionEntry } from "astro:content";
-
-import BreadCrumbs from "@components/content/navigation/BreadCrumbs.astro";
-import Giscus from "@components/features/comments/Giscus.astro";
-import Heading from "@components/content/typography/Heading.astro";
-import PaginationSingle from "@/components/content/pagenav/PaginationSingle.astro";
-import PostImage from "@components/content/media/PostImage.astro";
-import Meta from "@components/content/metadata/PostMeta.astro";
-import Prose from "@components/content/typography/Prose.astro";
-import ShareSeparator from "@components/content/metadata/ShareSeparator.astro";
-import SchemaBlogPost from "@components/seo/schema/BlogPosting.astro";
-import Komut from "@components/content/typography/Komut.astro";
+import type { CollectionEntry } from 'astro:content';
+import PostImage from '@components/content/media/PostImage.astro';
+import Meta from '@components/content/metadata/PostMeta.astro';
+import ShareSeparator from '@components/content/metadata/ShareSeparator.astro';
+import BreadCrumbs from '@components/content/navigation/BreadCrumbs.astro';
+import SourceCode from '@components/content/sourcecode/SourceCode.astro';
+import Heading from '@components/content/typography/Heading.astro';
+import Komut from '@components/content/typography/Komut.astro';
+import Prose from '@components/content/typography/Prose.astro';
+import Giscus from '@components/features/comments/Giscus.astro';
+import SchemaBlogPost from '@components/seo/schema/BlogPosting.astro';
+import PaginationSingle from '@/components/content/pagenav/PaginationSingle.astro';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post }: Props = Astro.props;
 ---
 
-<article transition:animate="slide" class="@container mt-8">
+<article
+  transition:animate="slide"
+  class="@container mt-8"
+>
   <PostImage
     post={post}
     link={`/blog/${post.id}/`}
@@ -30,25 +33,32 @@ const { post }: Props = Astro.props;
     widths={[640, 896, 1024, 1280, 1536, 1792, 2048]}
     sizes="(min-width: 1536px) 1024px, (min-width: 1024px) 896px, 100vw"
   />
-  <a href={`/blog/${post.id}/`} class="group block">
+  <a
+    href={`/blog/${post.id}/`}
+    class="group block"
+  >
     <Heading
       level={1}
       class="heading text-red-700 transition-colors duration-300 ease-in-out group-hover:text-orange-700"
       html={post.data.title}
     />
-    {
-      post.data.subtitle && (
+    {post.data.subtitle && (
         <p
           class="reading-lg mt-1 font-exo2 font-light text-gray-500 italic transition-colors duration-300 ease-in-out group-hover:text-orange-700 dark:text-gray-400"
           set:html={post.data.subtitle}
         />
-      )
-    }
+      )}
   </a>
   <BreadCrumbs path={post.filePath ?? ""} />
   <Prose post={post} />
+  {post.data.sourcecode && (
+      <SourceCode sourcecode={post.data.sourcecode} class="mt-8" />
+    )}
   <Komut class="text-gray-600 inline-block align-middle reading-xl" />
-  <ShareSeparator title={post.data.title} description={post.data.description} />
+  <ShareSeparator
+    title={post.data.title}
+    description={post.data.description}
+  />
   <PaginationSingle post={post} />
   <Giscus post={post} />
   <Meta post={post} />

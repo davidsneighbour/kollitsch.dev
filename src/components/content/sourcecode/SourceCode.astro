@@ -1,12 +1,12 @@
 ---
-import SourceCodeLink from "./SourceCodeLink.astro";
+import SourceCodeLink from './SourceCodeLink.astro';
 
 type SourceCodeEntry = {
   source: string;
-  label?: string;
-  icon?: string;
-  line?: number | string;
-  class?: string;
+  label?: string | undefined;
+  icon?: string | undefined;
+  line?: number | string | undefined;
+  class?: string | undefined;
 };
 
 export type Props = {
@@ -15,10 +15,10 @@ export type Props = {
   class?: string;
 };
 
-const { sourcecode, class: className = "" } = Astro.props;
+const { sourcecode, class: className = '' } = Astro.props;
 
 const entries = Object.entries(sourcecode).map(([slug, value]) => {
-  if (typeof value === "string") {
+  if (typeof value === 'string') {
     return { slug, source: value };
   }
   return { slug, ...value };
@@ -26,8 +26,7 @@ const entries = Object.entries(sourcecode).map(([slug, value]) => {
 ---
 
 <div class:list={["flex flex-wrap gap-2", className]}>
-  {
-    entries.map(({ slug, source, label, icon, line, class: cls }) => (
+  {entries.map(({ slug, source, label, icon, line, class: cls }) => (
       <SourceCodeLink
         url={source}
         label={label ?? slug}
@@ -35,6 +34,5 @@ const entries = Object.entries(sourcecode).map(([slug, value]) => {
         {...(line !== undefined && { line })}
         {...(cls !== undefined && { class: cls })}
       />
-    ))
-  }
+    ))}
 </div>

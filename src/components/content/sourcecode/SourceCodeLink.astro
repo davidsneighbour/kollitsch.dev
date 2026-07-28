@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 /**
  * Icon naming convention:
@@ -44,18 +44,18 @@ export interface Props {
 const {
   url,
   label,
-  icon = "simple-icons:github",
-  class: className = "",
+  icon = 'simple-icons:github',
+  class: className = '',
   line,
   inline = false,
 } = Astro.props;
 
 function buildHref(source: string, line?: number | string): string {
-  if (!line || source.includes("#")) return source;
+  if (!line || source.includes('#')) return source;
   const fragment =
-    typeof line === "number"
+    typeof line === 'number'
       ? `#L${line}`
-      : `#L${String(line).replace(/^(\d+)-(\d+)$/, "$1-L$2")}`;
+      : `#L${String(line).replace(/^(\d+)-(\d+)$/, '$1-L$2')}`;
   return `${source}${fragment}`;
 }
 
@@ -63,17 +63,17 @@ function deriveLabel(source: string): string {
   try {
     const u = new URL(source);
     // GitHub: /user/repo/blob/branch/path/to/file.ts
-    if (u.hostname === "github.com") {
+    if (u.hostname === 'github.com') {
       const m = u.pathname.match(/\/blob\/[^/]+\/(.+)/);
       if (m?.[1]) return m[1];
     }
     // GitLab: /user/repo/-/blob/branch/path/to/file.ts
-    if (u.hostname.endsWith("gitlab.com") || u.hostname.includes("gitlab.")) {
+    if (u.hostname.endsWith('gitlab.com') || u.hostname.includes('gitlab.')) {
       const m = u.pathname.match(/\/-\/blob\/[^/]+\/(.+)/);
       if (m?.[1]) return m[1];
     }
     // Fallback: last non-empty path segment
-    const last = u.pathname.split("/").filter(Boolean).at(-1);
+    const last = u.pathname.split('/').filter(Boolean).at(-1);
     if (last) return last;
   } catch {
     /* non-URL value */
@@ -85,10 +85,10 @@ const href = buildHref(url, line);
 const displayLabel = label ?? deriveLabel(url);
 
 const blockClasses =
-  "inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-1.5 font-mono text-sm text-gray-700 transition-colors hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:bg-gray-800/50";
+  'inline-flex items-center gap-2 rounded-md border border-gray-200 px-3 py-1.5 font-mono text-sm text-gray-700 transition-colors hover:border-gray-400 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:bg-gray-800/50';
 
 const inlineClasses =
-  "inline-flex items-center gap-1 font-mono text-sm underline-offset-2 hover:underline";
+  'inline-flex items-center gap-1 font-mono text-sm underline-offset-2 hover:underline';
 ---
 
 <a
@@ -97,6 +97,9 @@ const inlineClasses =
   rel="noopener noreferrer"
   class:list={[inline ? inlineClasses : blockClasses, className]}
 >
-  <Icon name={icon} class="size-4 shrink-0" />
+  <Icon
+    name={icon}
+    class="size-4 shrink-0"
+  />
   <span class="truncate">{displayLabel}</span>
 </a>

@@ -166,6 +166,8 @@ components:
     padding: "{spacing.documentation-nav-indent}"
   documentation-sidebar-deep-nested-list:
     padding: "{spacing.documentation-nav-deep-indent}"
+  footer-author-avatar:
+    rounded: "0 {rounded.full} {rounded.full} 0"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -312,6 +314,10 @@ Inline mode: underline-on-hover pattern, no border, fits within prose text
 ### Links (prose)
 
 All inline links in prose content use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover. The transition is `duration-300 ease-in-out`. Do not use the primary orange for links - that color is reserved for CTA buttons and the brand mark.
+
+### Footer Author Avatar
+
+The footer author avatar keeps the full circular radius on its right edge and squared corners on its left edge: `0 {rounded.full} {rounded.full} 0`. It retains the standard structural border colours in light and dark mode.
 
 ## Do's and Don'ts
 

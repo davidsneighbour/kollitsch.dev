@@ -122,3 +122,7 @@ agent endpoint or organisational agent registry. See
 The site also does not publish OAuth or OIDC discovery metadata because it has
 no first-party issuer, login flow, token endpoint, or protected API surface. See
 [`oauth-oidc-discovery.md`](oauth-oidc-discovery.md).
+
+The site also does not publish OAuth protected-resource metadata because none of
+its public endpoints require OAuth bearer tokens or scopes. See
+[`oauth-protected-resource.md`](oauth-protected-resource.md).

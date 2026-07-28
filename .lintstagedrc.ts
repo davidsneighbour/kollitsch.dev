@@ -34,6 +34,15 @@ export default {
     'typos --config src/config/typos.toml',
   ],
 
+  // Fetches (and stages) local poster images for any YouTube video ids
+  // referenced in staged blog content, so a new/edited post never ships
+  // without a local thumbnail. Already-downloaded thumbnails are skipped —
+  // see src/scripts/content/fetch-youtube-thumbnails.ts.
+  'src/content/blog/**/*.{md,mdx}': () => [
+    'node src/scripts/content/fetch-youtube-thumbnails.ts',
+    'git add src/assets/images/youtube-thumbnails',
+  ],
+
   '*': [
     'secretlint --no-glob --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore',
     'npm run lint:filenames',

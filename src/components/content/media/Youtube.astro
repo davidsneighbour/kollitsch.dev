@@ -1,10 +1,12 @@
 ---
+import { getImage } from "astro:assets";
 import setup from "@data/setup.json" with { type: "json" };
 import {
   sanitizeYouTubePlayerParams,
   serializeYouTubePlayerParams,
   type YouTubePlayerParamsInput,
 } from "@utils/youtube.ts";
+import type { ImageMetadata } from "astro";
 
 /**
  * YouTube embed component.
@@ -67,6 +69,15 @@ function parseYouTubeId(raw: unknown): string | null {
   return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : null;
 }
 
+// Locally downloaded thumbnails (see src/scripts/content/fetch-youtube-thumbnails.ts)
+// let us serve an Astro-optimized poster instead of live-fetching one from
+// i.ytimg.com on every page view. Falls back to the remote thumbnail when a
+// video hasn't been fetched yet (e.g. freshly added content).
+const localThumbnails = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/youtube-thumbnails/*.jpg",
+  { eager: true },
+);
+
 const defaultParams = sanitizeYouTubePlayerParams(setup?.video?.params);
 
 const { video, label, classes, style, params }: Props = Astro.props;
@@ -85,9 +96,16 @@ const videoId = parseYouTubeId(video);
 if (!videoId) {
   throw new Error(`[Youtube] failed to parse a valid 11-character video id from prop: "${String(video)}"`);
 }
+
+const localThumbnail =
+  localThumbnails[`/src/assets/images/youtube-thumbnails/${videoId}.jpg`];
+const posterImage = localThumbnail
+  ? await getImage({ format: "webp", quality: 82, src: localThumbnail.default, width: 720 })
+  : undefined;
+const posterUrl = posterImage?.src;
 ---
 
-<lite-youtube videoid={videoId} playlabel={label} class={classes} style={style} params={paramsAttribute}></lite-youtube>
+<lite-youtube videoid={videoId} playlabel={label} class={classes} style={style} params={paramsAttribute} poster={posterUrl}></lite-youtube>
 <script>
   // @ts-nocheck
   /**
@@ -115,11 +133,21 @@ if (!videoId) {
       /**
        * Lo, the youtube poster image!  (aka the thumbnail, image placeholder, etc)
        *
+       * A locally-downloaded, Astro-optimized poster (see
+       * src/scripts/content/fetch-youtube-thumbnails.ts) is preferred so we don't
+       * make a live request to i.ytimg.com on every page view. When one isn't
+       * available yet, fall back to fetching straight from YouTube.
+       *
        * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
        */
+      const localPoster = this.getAttribute("poster");
       if (!this.style.backgroundImage) {
-        this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
-        this.upgradePosterImage();
+        if (localPoster) {
+          this.style.backgroundImage = `url("${localPoster}")`;
+        } else {
+          this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
+          this.upgradePosterImage();
+        }
       }
 
       // Set up play button, and its visually hidden label

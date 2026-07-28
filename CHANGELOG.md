@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.18.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.1...v3001.18.2) (2026-07-28)
+
+### Fix
+
+* **netlify:** drop unsupported HEAD from edge function method config ([c56b95f](https://github.com/davidsneighbour/kollitsch.dev/commit/c56b95ffb9d57c445a06823c539ebc359e7f4c04))
+
 ## [3001.18.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.0...v3001.18.1) (2026-07-28)
 
 ### Fix

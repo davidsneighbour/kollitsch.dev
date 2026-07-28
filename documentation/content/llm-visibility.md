@@ -58,12 +58,35 @@ Link: </blog/{year}/{slug}/>; rel="alternate"; type="text/html"
 Both representations include `Vary: Accept` so caches do not collapse future
 content-negotiated variants.
 
+## Markdown negotiation
+
+Supported blog post URLs also run through the Netlify Edge Function at
+[`netlify/edge-functions/markdown-negotiation.ts`](../../netlify/edge-functions/markdown-negotiation.ts).
+The function is scoped to `GET` and `HEAD` requests under `/blog/*`.
+
+For canonical blog post URLs such as `/blog/2026/example-post/`:
+
+* browser-style requests keep receiving the static HTML page,
+* requests where `text/markdown` is explicitly named and has a quality value
+  greater than or equal to `text/html` receive the generated
+  `/blog/2026/example-post.md` representation,
+* requests that accept neither `text/html` nor `text/markdown` receive
+  `406 Not Acceptable`.
+
+The function compares `Accept` q-values and only resolves ties to Markdown when
+the client explicitly named `text/markdown`; wildcard-only requests such as
+`*/*` remain HTML. Markdown responses keep `Vary: Accept`, preserve the
+reciprocal `Link` header generated for the `.md` asset, and add an approximate
+`X-Markdown-Tokens` response header calculated from the generated Markdown
+body.
+
 References:
 
 * [RFC 8288, Web Linking](https://datatracker.ietf.org/doc/html/rfc8288)
 * [IANA Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
 * [RFC 9727, api-catalog](https://www.rfc-editor.org/rfc/rfc9727)
 * [RFC 9264, Linkset](https://www.rfc-editor.org/rfc/rfc9264)
+* [Netlify Edge Functions API](https://docs.netlify.com/build/edge-functions/api/)
 
 ## Robots policy
 
@@ -82,9 +105,10 @@ and carry `ai-input=no, ai-train=no`.
 
 ## Static-site boundary
 
-The site does not use User-Agent sniffing. It also does not perform same-URL
-`Accept: text/markdown` negotiation in static output; instead, it publishes
-explicit Markdown routes and advertises them with HTML and HTTP alternate links.
+The site does not use User-Agent sniffing. Markdown negotiation is limited to
+published blog post pages with generated `.md` alternates. Other static pages
+continue to rely on explicit Markdown routes and discovery links until they have
+their own generated Markdown representation.
 
 The site also does not publish `/.well-known/agent-skills/index.json`.
 Repository-local assistant skills under `.agents/skills/` are contributor

@@ -14,6 +14,14 @@
  *   node src/scripts/content/fetch-youtube-thumbnails.ts <videoId>      → fetch (or refresh) a single video id, skipping the project scan
  *   node src/scripts/content/fetch-youtube-thumbnails.ts --force        → re-fetch all
  *   node src/scripts/content/fetch-youtube-thumbnails.ts <videoId> --force → re-fetch just that one id
+ *   node src/scripts/content/fetch-youtube-thumbnails.ts --verify       → check every known id is still live on YouTube (no download); exits 1 if any are dead
+ *
+ * --verify exists because a video can go dead *after* its thumbnail was
+ * already downloaded successfully — the normal (non-verify) run only ever
+ * looks at ids that don't have a local thumbnail yet, so it can't catch
+ * that drift. It's meant for an occasional/scheduled audit, not every
+ * commit: it makes one HEAD request per known video id, which is too slow
+ * to run on every save.
  */
 
 import fs from 'fs/promises';
@@ -34,6 +42,7 @@ const PLACEHOLDER_MAX_BYTES = 2000;
 
 const cliArgs = process.argv.slice(2);
 const force = cliArgs.includes('--force');
+const verify = cliArgs.includes('--verify');
 const explicitId = cliArgs.find((arg) => !arg.startsWith('--'));
 
 if (explicitId && !VIDEO_ID_RE.test(explicitId)) {
@@ -46,8 +55,13 @@ if (explicitId && !VIDEO_ID_RE.test(explicitId)) {
 const logPath = (filePath: string) =>
   path.relative(process.cwd(), filePath).replace(/\\/g, '/');
 
-async function collectVideoIds(): Promise<Set<string>> {
-  const ids = new Set<string>();
+/**
+ * Maps each referenced video id to the project-relative file(s) it was
+ * found in, so a dead-video report can point straight at the content that
+ * needs fixing.
+ */
+async function collectVideoIds(): Promise<Map<string, Set<string>>> {
+  const idsToFiles = new Map<string, Set<string>>();
 
   const files = await fg(['**/*.md', '**/*.mdx', '**/*.astro'], {
     cwd: SRC_ROOT,
@@ -66,13 +80,30 @@ async function collectVideoIds(): Promise<Set<string>> {
       for (const match of content.matchAll(pattern)) {
         const id = match[1];
         if (id && VIDEO_ID_RE.test(id)) {
-          ids.add(id);
+          const existing = idsToFiles.get(id) ?? new Set<string>();
+          existing.add(logPath(file));
+          idsToFiles.set(id, existing);
         }
       }
     }
   }
 
-  return ids;
+  return idsToFiles;
+}
+
+/**
+ * Checks whether a video still exists on YouTube. `hqdefault.jpg` is
+ * available for essentially every real video regardless of source
+ * resolution, and — unlike the youtube.com watch page, which returns HTTP
+ * 200 with a client-rendered "video unavailable" message — genuinely
+ * returns a real 404 once a video has been deleted or made private.
+ */
+async function isVideoLive(videoId: string): Promise<boolean> {
+  const response = await fetch(
+    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+    { method: 'HEAD' },
+  );
+  return response.ok;
 }
 
 async function fetchBestThumbnail(videoId: string): Promise<Buffer> {
@@ -97,14 +128,48 @@ async function fetchBestThumbnail(videoId: string): Promise<Buffer> {
   throw new Error(`No thumbnail available for video id "${videoId}"`);
 }
 
+async function runVerify(idsToFiles: Map<string, Set<string>>) {
+  const ids = [...idsToFiles.keys()].sort();
+  console.log(`Verifying ${ids.length} unique YouTube video id(s) are still live…`);
+
+  const dead: string[] = [];
+  for (const id of ids) {
+    const live = await isVideoLive(id);
+    console.log(`${live ? '✔' : '✘'} ${id}${live ? '' : ' — no longer available on YouTube'}`);
+    if (!live) dead.push(id);
+  }
+
+  if (dead.length === 0) {
+    console.log(`\nAll ${ids.length} video(s) are still live.`);
+    return;
+  }
+
+  console.log(`\n${dead.length} of ${ids.length} video(s) are no longer available:\n`);
+  for (const id of dead) {
+    const files = [...(idsToFiles.get(id) ?? [])].sort();
+    console.log(`- ${id}`);
+    for (const file of files) console.log(`    ${file}`);
+  }
+  process.exit(1);
+}
+
 async function main() {
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
-  const ids = explicitId ? new Set([explicitId]) : await collectVideoIds();
+  const idsToFiles = explicitId
+    ? new Map([[explicitId, new Set<string>()]])
+    : await collectVideoIds();
+
+  if (verify) {
+    await runVerify(idsToFiles);
+    return;
+  }
+
+  const ids = idsToFiles.keys();
   console.log(
     explicitId
       ? `Fetching thumbnail for video id "${explicitId}".`
-      : `Found ${ids.size} unique YouTube video id(s) referenced in the project.`,
+      : `Found ${idsToFiles.size} unique YouTube video id(s) referenced in the project.`,
   );
 
   let fetched = 0;

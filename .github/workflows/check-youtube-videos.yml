@@ -1,0 +1,77 @@
+name: Check YouTube video liveness
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: check-youtube-videos
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify referenced YouTube videos are still live
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify YouTube videos
+        id: verify
+        run: |
+          set +e
+          node src/scripts/content/fetch-youtube-thumbnails.ts --verify > verify-output.txt 2>&1
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          cat verify-output.txt
+
+      - name: Build issue body
+        if: steps.verify.outputs.exit_code != '0'
+        run: |
+          echo "Weekly automated check found video id(s) referenced in the" > issue-body.md
+          echo "site that are no longer available on YouTube (verified via" >> issue-body.md
+          echo '`node src/scripts/content/fetch-youtube-thumbnails.ts --verify`).' >> issue-body.md
+          echo >> issue-body.md
+          echo '```' >> issue-body.md
+          cat verify-output.txt >> issue-body.md
+          echo '```' >> issue-body.md
+
+      - name: Find existing tracking issue
+        id: existing
+        if: steps.verify.outputs.exit_code != '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SEARCH: "in:title \"chore(content): dead YouTube video(s) detected\""
+        run: |
+          echo "number=$(gh issue list --state open --search "$SEARCH" --json number --jq '.[0].number // empty')" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on existing tracking issue
+        if: steps.verify.outputs.exit_code != '0' && steps.existing.outputs.number != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ steps.existing.outputs.number }}
+        run: gh issue comment "$ISSUE_NUMBER" --body-file issue-body.md
+
+      - name: File new tracking issue
+        if: steps.verify.outputs.exit_code != '0' && steps.existing.outputs.number == ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: "chore(content): dead YouTube video(s) detected"
+        run: |
+          gh issue create --title "$TITLE" --label "type:bug" --label "status:confirmed" --label "prio:low" --body-file issue-body.md

@@ -231,6 +231,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 * `tests.yml` — unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.
 * `lighthouse.yml` — post-deploy Lighthouse audits.
 * `screenshot.yml` — weekly homepage screenshot commit.
+* `check-youtube-videos.yml` — weekly liveness check of every referenced YouTube video id (`fetch-youtube-thumbnails.ts --verify`); files/updates a tracking issue on failure instead of blocking anything.
 * Deployed to Netlify; `netlify.toml` has `command = ""` — this is intentional and overrides any build command set in the Netlify web UI. The build is run separately before `netlify deploy` is called.
 * This site is hosted on Netlify. Fetch [https://netlify.ai](https://netlify.ai) to understand available Netlify features when working on deployment-related tasks.
 

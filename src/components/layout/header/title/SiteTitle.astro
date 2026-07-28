@@ -61,16 +61,16 @@ const headlineImage = await getImage({
 
   /*
    * Hover animation: image grows outward from the text area while the title
-   * characters morph through orange then gray before dissolving.
+   * transitions to the accent colour before dissolving.
    *
    * Sequence on hover-in:
-   *   0–0.9s   text colour keyframes: transparent → orange (40%) → gray (100%)
+   *   0–0.6s   text colour transitions: transparent → accent red
    *   0–0.7s   ::after clip-path expands from text region to full header
    *   0.1s–    ::after opacity fades in
-   *   0.2s–    link opacity fades out, the greying text dissolves into the image
+   *   0.2s–    link opacity fades out, the coloured text dissolves into the image
    *
-   * On hover-out, the @keyframes animation is removed and the transition:color
-   * on the element smoothly returns it from gray back to transparent.
+   * On hover-out, the transition:color on the element smoothly returns it
+   * from the accent colour back to transparent.
    *
    * Gated on (hover: hover) so touch devices are unaffected.
    * background-size: 100vw auto on both layers keeps them pixel-matched
@@ -89,8 +89,8 @@ const headlineImage = await getImage({
       pointer-events: none;
       position: absolute;
       transition:
-        clip-path 0.4s ease,
-        opacity 0.3s ease;
+        clip-path 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
       z-index: 0;
     }
 
@@ -99,13 +99,13 @@ const headlineImage = await getImage({
       opacity: 100%;
       transition:
         clip-path 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        opacity 0.35s ease 0.1s;
+        opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-link :global(.text-image-fill) {
       color: transparent;
-      transition: color 0.4s ease;
+      transition: color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
@@ -115,12 +115,12 @@ const headlineImage = await getImage({
     }
 
     .site-title-link {
-      transition: opacity 0.4s ease;
+      transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .site-title-hero:hover .site-title-link {
       opacity: 0%;
-      transition: opacity 0.5s ease 0.2s;
+      transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
     }
   }
 

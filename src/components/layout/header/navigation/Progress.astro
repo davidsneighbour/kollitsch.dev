@@ -73,7 +73,7 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
   .progress {
     --progress-height: var(--thickness, var(--height, 4px));
-    --progress-bar-transition: transform 0.6s ease;
+    --progress-bar-transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     --scroll: 0;
 
     @apply relative block w-full overflow-hidden rounded-none bg-black/10;
@@ -112,7 +112,7 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
     transition:
       var(--progress-bar-transition),
-      border-radius 0.2s ease;
+      border-radius 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   .progress[data-complete] .progress-fill {
@@ -120,6 +120,6 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
     transition:
       var(--progress-bar-transition),
-      border-radius 0.2s ease;
+      border-radius 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 </style>

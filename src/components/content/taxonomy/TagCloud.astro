@@ -39,11 +39,13 @@ const items = (Astro.props.searchTags ?? visibleItems).map((item) => ({
   hiddenByDefault: !visibleKeys.has(`${item.url}|${item.label}`),
 }));
 
-const counts = items.map((item) => item.count);
+const counts = visibleItems.map((item) => item.count);
 const maxCount = Math.max(...counts, 0);
 const minCount = Math.min(...counts, 0);
 
-function getFontSize(count: number): string {
+function getFontSize(count: number, hiddenByDefault: boolean): string {
+  if (hiddenByDefault) return '1rem';
+
   const weight = (count - minCount) / (maxCount - minCount || 1);
   const size = props.minSize + weight * (props.maxSize - props.minSize);
   return `${size.toFixed(2)}rem`;
@@ -65,7 +67,7 @@ function getFontSize(count: number): string {
         data-label={String(tag.label).toLowerCase()}
         data-tag-filter-default-hidden={tag.hiddenByDefault ? 'true' : undefined}
         hidden={tag.hiddenByDefault}
-        style={`font-size: ${getFontSize(tag.count)}; line-height: 1.1;`}
+        style={`font-size: ${getFontSize(tag.count, tag.hiddenByDefault)}; line-height: 1.1;`}
       >
         #{props.showCounts ? `${tag.label} (${tag.count})` : tag.label}
       </a>

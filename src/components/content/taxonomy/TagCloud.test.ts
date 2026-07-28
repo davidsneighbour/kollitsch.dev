@@ -17,6 +17,8 @@ describe('TagCloud component (props contract)', () => {
     expect(src).toContain('TagListItem[] | Map<string, number>');
     expect(src).toContain('searchTags?: TagListItem[]');
     expect(src).toContain('data-tag-filter-default-hidden');
+    expect(src).toContain('const counts = visibleItems.map');
+    expect(src).toContain("if (hiddenByDefault) return '1rem'");
     expect(src).toContain('function getFontSize');
     expect(src).toContain('data-tag-filter-list');
     expect(src).toContain('data-label');

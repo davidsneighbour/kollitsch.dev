@@ -42,6 +42,11 @@ export const headerRules: PathRule[] = [
       { name: 'Accept-Encoding', value: 'gzip, deflate, br' },
       {
         name: 'Link',
+        value:
+          '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+      },
+      {
+        name: 'Link',
         value: '</llms.txt>; rel="service-desc"; type="text/markdown"',
       },
       {

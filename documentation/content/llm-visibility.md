@@ -23,18 +23,18 @@ posts are excluded from generated LLM indexes and per-post Markdown routes.
 
 ## Discovery
 
-The homepage response advertises the site-level Markdown resources via HTTP
+The homepage response advertises site-level agent discovery resources via HTTP
 `Link` headers:
 
 ```text
+Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
 Link: </llms.txt>; rel="service-desc"; type="text/markdown"
 Link: </llms-full.txt>; rel="service-desc"; type="text/markdown"
 ```
 
 `service-desc` is a registered link relation for machine-oriented service
 descriptions. It is used here for the curated LLM-facing Markdown resources.
-The site does not currently emit `rel="api-catalog"` because RFC 9727 defines
-that relation for a published API catalogue, and this site does not yet publish
+`api-catalog` points to the standards-aligned API catalogue at
 `/.well-known/api-catalog`.
 
 Blog post HTML pages emit:
@@ -63,6 +63,7 @@ References:
 * [RFC 8288, Web Linking](https://datatracker.ietf.org/doc/html/rfc8288)
 * [IANA Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
 * [RFC 9727, api-catalog](https://www.rfc-editor.org/rfc/rfc9727)
+* [RFC 9264, Linkset](https://www.rfc-editor.org/rfc/rfc9264)
 
 ## Robots policy
 

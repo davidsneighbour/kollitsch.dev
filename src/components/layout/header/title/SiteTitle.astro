@@ -141,15 +141,17 @@ const headlineImage = await getImage({
       animation: none;
     }
 
-    .site-title-hero::after,
+    .site-title-hero::after {
+      transition: opacity 0.3s ease;
+    }
+
     .site-title-link {
-      transition: none;
+      transition: opacity 0.4s ease;
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-hero .site-title-link :global(.text-image-fill) {
-      animation: none;
-      transition: none;
+      transition: color 0.4s ease;
     }
   }
 </style>

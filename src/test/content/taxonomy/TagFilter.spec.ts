@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('TagFilter filters tag list based on input', async ({ page }) => {
   await page.goto('/test/content/taxonomy/tagfilter/');
 
-  const input = page.getByPlaceholder('Filter tags...');
+  const input = page.getByPlaceholder('Search tags...');
   await expect(input).toBeVisible();
 
   // Initially all links are visible

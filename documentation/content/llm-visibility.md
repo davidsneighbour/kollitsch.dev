@@ -85,3 +85,8 @@ and carry `ai-input=no, ai-train=no`.
 The site does not use User-Agent sniffing. It also does not perform same-URL
 `Accept: text/markdown` negotiation in static output; instead, it publishes
 explicit Markdown routes and advertises them with HTML and HTTP alternate links.
+
+The site also does not publish `/.well-known/agent-skills/index.json`.
+Repository-local assistant skills under `.agents/skills/` are contributor
+tooling, not public website capabilities. See
+[`agent-skills.md`](agent-skills.md).

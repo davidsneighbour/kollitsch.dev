@@ -1,5 +1,33 @@
 # Changelog
 
+## [3001.20.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.19.0...v3001.20.0) (2026-07-28)
+
+### Content
+
+* **fix:** proper code highlighting language ([95298df](https://github.com/davidsneighbour/kollitsch.dev/commit/95298df58affbcaac8ed501c0a3718ad3c695506))
+
+### Fix
+
+* **header:** keep opacity/color transitioning under reduced motion ([ff4be67](https://github.com/davidsneighbour/kollitsch.dev/commit/ff4be676e5c52f0479411b48a3b46382c50f3841)), closes [#navbar-brand](https://github.com/davidsneighbour/kollitsch.dev/issues/navbar-brand)
+* **header:** match title hover reveal's clip-path curve to its scale ([1c69d32](https://github.com/davidsneighbour/kollitsch.dev/commit/1c69d3227c9e18b8e81af406d88a5eab70205469))
+* **header:** pick a real curve for the title hover reveal transitions ([781911f](https://github.com/davidsneighbour/kollitsch.dev/commit/781911fd9db0d9de2d78f1b8cc7a28ff68bba3d9))
+* **header:** replace transition-all and symmetric timing on sticky brand ([a6899c5](https://github.com/davidsneighbour/kollitsch.dev/commit/a6899c58b82fe470dd9a1784ecbf041826e1d92e)), closes [#navbar-brand](https://github.com/davidsneighbour/kollitsch.dev/issues/navbar-brand) [#navbar-brand](https://github.com/davidsneighbour/kollitsch.dev/issues/navbar-brand)
+* **header:** stop title hover color morph from restarting on rapid hover ([ed2b0dc](https://github.com/davidsneighbour/kollitsch.dev/commit/ed2b0dc3e00f5a15439384e8eb28ce9d3450d295))
+
+### Docs
+
+* **plans:** add plan 005 and mark done, note re-audit findings ([8e57a55](https://github.com/davidsneighbour/kollitsch.dev/commit/8e57a55331579c3b5b91148a8ea11b59e6e97239))
+* **plans:** add site-title animation audit plans and mark done ([123882d](https://github.com/davidsneighbour/kollitsch.dev/commit/123882d6e72028dca928b9e917d2d69cd9b4631c))
+* **plans:** fix em-dash spacing and i.e. flagged by vale ([4c4717a](https://github.com/davidsneighbour/kollitsch.dev/commit/4c4717a8b23ff4de3ee01a04769f3a07dfa7476f))
+
+### Build
+
+* **vscode:** update workspace configuration ([28fb968](https://github.com/davidsneighbour/kollitsch.dev/commit/28fb96812a300989eed44c18a47ac4744795e6ea))
+
+### Ci
+
+* **fix:** remove git add command from lintstaged tasks ([7572cda](https://github.com/davidsneighbour/kollitsch.dev/commit/7572cda36c76f6067946d0a753dac65759bdb73f))
+
 ## [3001.19.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.18.3...v3001.19.0) (2026-07-28)
 
 ### Feat

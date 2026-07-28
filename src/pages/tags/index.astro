@@ -3,48 +3,59 @@
  * Tags index page
  * tag cloud and featured tags list
  */
-import { type CollectionEntry } from "astro:content";
-import Heading from "@components/content/typography/Heading.astro";
-import TagCard from "@components/content/article/Tag.astro";
-import TagFilter from "@components/content/taxonomy/TagFilter.astro";
-import TagList from "@components/content/taxonomy/TagList.astro";
-import Layout from "@layouts/DefaultPage.astro";
-import { getFeaturedTagEntries, getTags, type TagListItem } from "@utils/tags.ts";
-import { createLogger } from "@utils/logger.ts";
+import { type CollectionEntry } from 'astro:content';
+import TagCard from '@components/content/article/Tag.astro';
+import TagCloud from '@components/content/taxonomy/TagCloud.astro';
+import TagFilter from '@components/content/taxonomy/TagFilter.astro';
+import Heading from '@components/content/typography/Heading.astro';
+import Layout from '@layouts/DefaultPage.astro';
+import { createLogger } from '@utils/logger.ts';
+import {
+  getFeaturedTagEntries,
+  getTags,
+  type TagListItem,
+} from '@utils/tags.ts';
 
-const log = createLogger({ slug: "tags-page" });
+const log = createLogger({ slug: 'tags-page' });
 
 const post = {
   data: {
-    description: "Explore the tags used across the blog posts.",
-    title: "Tags",
+    description: 'Explore the tags used across the blog posts.',
+    title: 'Tags',
   },
 };
 
 let allTagsWithCounts: TagListItem[] = [];
-let featuredEntries: CollectionEntry<"tags">[] = [];
+let featuredEntries: CollectionEntry<'tags'>[] = [];
 try {
-  allTagsWithCounts = await getTags({ order: "label-asc" });
+  allTagsWithCounts = await getTags({ order: 'label-asc' });
   featuredEntries = await getFeaturedTagEntries({
     includeCounts: true,
-    order: "weight-desc",
+    order: 'weight-desc',
   });
   if (import.meta.env.PROD) {
     const publishedTagIds = new Set(allTagsWithCounts.map((tag) => tag.id));
-    featuredEntries = featuredEntries.filter((entry) => publishedTagIds.has(entry.data.id));
+    featuredEntries = featuredEntries.filter((entry) =>
+      publishedTagIds.has(entry.data.id),
+    );
   }
 } catch (err) {
-  log.error("[test/tags] failed to load tags", err);
+  log.error('[test/tags] failed to load tags', err);
 }
 ---
 
 <Layout post={post}>
   <Heading level={1}>Tag Cloud</Heading>
   <TagFilter filterId="tag-cloud" />
-  <TagList tags={allTagsWithCounts} filterId="tag-cloud" />
+  <TagCloud
+    tags={allTagsWithCounts}
+    filterId="tag-cloud"
+  />
 
   <Heading level={2}>Tag Pages</Heading>
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
     {featuredEntries.map((entry) => <TagCard post={entry} />)}
   </div>
 </Layout>

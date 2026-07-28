@@ -2,10 +2,10 @@
 title: TagList
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-07-28T00:00:00+07:00
 ---
 
-Renders a flat, filterable list of tags with optional counts, used on the tags index page and in the browser test page for tags.
+Renders a flat, filterable list of tags with optional counts, used when uniform pill-style tags are preferable to a weighted cloud.
 
 ## File locations
 
@@ -30,9 +30,11 @@ Renders a flat, filterable list of tags with optional counts, used on the tags i
 import TagList from '@components/content/taxonomy/TagList.astro';
 ---
 
-<TagList tags={allTagsWithCounts} filterId="tag-cloud" />
+<TagList tags={allTagsWithCounts} filterId="tag-list" />
 ```
 
 ## Behaviour
 
 Renders `(none)` when `tags` is empty. Otherwise renders one [`Tag`](tag.md) per item, with `dataLabel` lowercased at render time for locale-safe client-side matching. The component ships its own inline `<script>` that performs the same fuzzy in-order filtering as [`TagFilter`](tag-filter.md) (see that component for the matching algorithm), scoped directly to its own `[data-tag-filter-list]` element rather than looking one up by `filterId`; the two filtering scripts are not currently shared.
+
+Use [`TagCloud`](tag-cloud.md) instead when tag frequency should affect the visual weight of each link. The main tags index uses `TagCloud`; `TagList` remains useful for flat test views and any future compact tag picker.

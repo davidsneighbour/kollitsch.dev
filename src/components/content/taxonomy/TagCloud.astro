@@ -1,20 +1,36 @@
 ---
-// @todo refactor and comment
-import { mergePropsWithDefaults } from "@utils/content.ts";
+import { mergePropsWithDefaults } from '@utils/content.ts';
+import type { TagListItem } from '@utils/tags.ts';
 
 export interface Props {
-  tags: Map<string, number>;
+  tags: TagListItem[] | Map<string, number>;
   minSize?: number;
   maxSize?: number;
+  showCounts?: boolean;
+  filterId?: string;
 }
 
 const props = mergePropsWithDefaults(Astro.props as Props, {
+  filterId: 'default',
   maxSize: 2.0, // rem
   minSize: 0.75, // rem
-}) as Required<Pick<Props, "tags" | "minSize" | "maxSize">>;
+  showCounts: true,
+}) as Required<
+  Pick<Props, 'filterId' | 'maxSize' | 'minSize' | 'showCounts' | 'tags'>
+>;
 
-const maxCount = Math.max(...props.tags.values());
-const minCount = Math.min(...props.tags.values());
+const items =
+  props.tags instanceof Map
+    ? Array.from(props.tags.entries()).map(([tag, count]) => ({
+        count,
+        label: tag,
+        url: `/tags/${encodeURIComponent(tag)}/`,
+      }))
+    : props.tags;
+
+const counts = items.map((item) => item.count);
+const maxCount = Math.max(...counts, 0);
+const minCount = Math.min(...counts, 0);
 
 function getFontSize(count: number): string {
   const weight = (count - minCount) / (maxCount - minCount || 1);
@@ -23,16 +39,23 @@ function getFontSize(count: number): string {
 }
 ---
 
-<div class="flex flex-wrap gap-3">
-  {
-    Array.from(props.tags.entries()).map(([tag, count]) => (
+<div
+  class="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-3"
+  data-tag-filter-list
+  data-tag-filter-id={props.filterId}
+>
+  {items.length === 0 ? (
+      <span>(none)</span>
+    ) : (
+      items.map((tag) => (
       <a
-        href={`/tags/${encodeURIComponent(tag)}/`}
-        title={`${count} posts`}
-        style={`font-size: ${getFontSize(count)}; line-height: 1.1;`}
+        href={tag.url}
+        title={`${tag.count} posts`}
+        data-label={String(tag.label).toLowerCase()}
+        style={`font-size: ${getFontSize(tag.count)}; line-height: 1.1;`}
       >
-        #{tag}
+        #{props.showCounts ? `${tag.label} (${tag.count})` : tag.label}
       </a>
-    ))
-  }
+      ))
+    )}
 </div>

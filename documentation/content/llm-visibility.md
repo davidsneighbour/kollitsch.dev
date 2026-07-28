@@ -114,3 +114,7 @@ The site also does not publish `/.well-known/agent-skills/index.json`.
 Repository-local assistant skills under `.agents/skills/` are contributor
 tooling, not public website capabilities. See
 [`agent-skills.md`](agent-skills.md).
+
+The domain also does not publish DNS-AID records because the site has no public
+agent endpoint or organisational agent registry. See
+[`dns-aid.md`](dns-aid.md).

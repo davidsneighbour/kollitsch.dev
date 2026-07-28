@@ -28,11 +28,11 @@ const hasSubItems = subItems && subItems.length > 0;
           aria-expanded="false"
           aria-haspopup="menu"
           aria-label={`Toggle ${name} submenu`}
-          class="hidden md:inline-flex ml-0.5 rounded p-0.5 transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+          class="hidden md:inline-flex ml-0.5 rounded p-0.5 transition-colors duration-150 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-black/5 dark:hover:bg-white/5"
         >
           <Icon
             name="caret-down-fill"
-            class="size-[0.65em] text-current transition-transform duration-200 group-[.open]/navitem:rotate-180"
+            class="size-[0.65em] text-current transition-transform duration-200 ease-[cubic-bezier(0.645,0.045,0.355,1)] group-[.open]/navitem:rotate-180"
             aria-hidden="true"
           />
         </button>

@@ -188,6 +188,14 @@ if (!activeItem && import.meta.env.DEV) {
         window.kdev.mobileOpen = !window.kdev.mobileOpen;
         toggleIcons();
         toggleNavVisibility();
+        if (window.kdev.mobileOpen && navSection instanceof HTMLElement) {
+          navSection.classList.add("is-revealing");
+          navSection.addEventListener(
+            "animationend",
+            () => navSection.classList.remove("is-revealing"),
+            { once: true },
+          );
+        }
       });
     }
 
@@ -288,6 +296,9 @@ if (!activeItem && import.meta.env.DEV) {
       border-bottom-left-radius: 0.75rem;
       border-bottom-right-radius: 0.75rem;
       box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
+    }
+
+    #navigation-and-theme-select.is-revealing {
       animation: mobile-nav-reveal 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
@@ -323,7 +334,17 @@ if (!activeItem && import.meta.env.DEV) {
     }
 
     #navigation-and-theme-select {
-      animation: none;
+      animation: mobile-nav-reveal-reduced 150ms ease both;
+    }
+
+    @keyframes mobile-nav-reveal-reduced {
+      from {
+        opacity: 0%;
+      }
+
+      to {
+        opacity: 100%;
+      }
     }
   }
 </style>

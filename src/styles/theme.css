@@ -405,7 +405,8 @@
   a {
     @apply text-red-700;
     @apply hover:text-orange-700;
-    @apply transition-colors duration-300 ease-in-out;
+
+    transition: color 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   /**

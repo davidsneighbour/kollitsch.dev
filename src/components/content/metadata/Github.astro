@@ -26,7 +26,7 @@ const github = post.filePath ? getGithubInfo(post.filePath) : null;
         ) : github?.commitUrl ? (
           <a
             href={github.commitUrl}
-            class="font-jetbrainsmono text-sm uppercase"
+            class="inline-block px-1 py-1 font-jetbrainsmono text-sm uppercase"
           >
             {github.hash}
           </a>
@@ -39,17 +39,17 @@ const github = post.filePath ? getGithubInfo(post.filePath) : null;
           name="slash-lg"
           class="stroke-orange-950"
         />
-        <a href={github?.historyUrl}>History</a>
+        <a href={github?.historyUrl} class="inline-block px-1 py-1">History</a>
         <Icon
           name="slash-lg"
           class="stroke-orange-950"
         />
-        <a href={github?.blameUrl}>Blame</a>
+        <a href={github?.blameUrl} class="inline-block px-1 py-1">Blame</a>
         <Icon
           name="slash-lg"
           class="stroke-orange-950"
         />
-        <a href={github?.editUrl}>Suggest edits on GitHub</a>
+        <a href={github?.editUrl} class="inline-block px-1 py-1">Suggest edits on GitHub</a>
       </div>
     </div>
   )

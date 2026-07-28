@@ -27,6 +27,7 @@ const canonicalUrl = Astro.url.toString();
       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"
       rel="noopener"
+      class="inline-block px-1 py-1"
       >LinkedIn</a
     >
 
@@ -35,6 +36,7 @@ const canonicalUrl = Astro.url.toString();
       href={`https://facebook.com/sharer/sharer.php?&u=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"
       rel="noopener"
+      class="inline-block px-1 py-1"
       >Facebook</a
     >
 
@@ -43,6 +45,7 @@ const canonicalUrl = Astro.url.toString();
       href={`https://www.reddit.com/submit?url=${encodeURIComponent(canonicalUrl)}&title=${encodeURIComponent(post.data.title)}`}
       target="_blank"
       rel="noopener"
+      class="inline-block px-1 py-1"
       >Reddit</a
     >
   </div>

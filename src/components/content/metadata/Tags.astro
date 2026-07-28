@@ -20,7 +20,12 @@ const { post }: Props = Astro.props;
       <div class="flex flex-row flex-wrap items-center justify-start gap-2">
         <span>Tags: </span>
         {post.data.tags.map((tag: string) => (
-          <a href={`/tags/${encodeURIComponent(tag)}/`}>#{tag}</a>
+          <a
+            href={`/tags/${encodeURIComponent(tag)}/`}
+            class="inline-block px-1 py-1"
+          >
+            #{tag}
+          </a>
         ))}
       </div>
     </div>

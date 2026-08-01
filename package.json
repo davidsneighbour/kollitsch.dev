@@ -107,7 +107,7 @@
     "lighthouse": "13.4.1",
     "markdownlint-rule-list-duplicates": "0.0.1",
     "mcp-remote": "0.1.38",
-    "npm-run-all2": "9.0.2",
+    "npm-run-all2": "9.0.3",
     "pagefind": "1.5.2",
     "playwright": "1.62.0",
     "png-to-ico": "3.0.2",

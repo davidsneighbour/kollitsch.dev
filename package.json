@@ -112,7 +112,7 @@
     "playwright": "1.62.0",
     "png-to-ico": "3.0.2",
     "postcss-html": "1.8.1",
-    "release-it": "20.2.1",
+    "release-it": "21.0.0",
     "remark-kbd-nested": "0.6.1",
     "resend": "6.18.0",
     "satori": "0.29.0",

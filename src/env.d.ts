@@ -39,5 +39,4 @@ interface ImportMetaEnv {
   readonly FRESHRSS_USERNAME: string;
   readonly FRESHRSS_API_PASSWORD: string;
   readonly GH_TOKEN: string;
-  readonly GITHUB_TOKEN: string;
 }

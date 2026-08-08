@@ -7,19 +7,19 @@ export interface Props {}
 ---
 
 <div
-  class="isolate mt-64 -mb-16 overflow-hidden
-    font-changa text-center leading-none
+  class="relative isolate mt-64 -mb-16 h-[calc(var(--colophon-title-size)*0.62)] overflow-hidden
+    font-changa leading-none
     whitespace-nowrap select-none"
   aria-hidden="true"
   data-dnb-design-exception="decorative-low-contrast"
+  style={`--colophon-title-size: ${titleFontSize}vw;`}
 >
   <span
-    class="d-inline-block
-    translate-y-16
+    class="absolute bottom-[-0.22em] left-1/2 block -translate-x-1/2
     transition duration-2000 ease-in-out
     text-olive-100 hover:text-olive-200
     dark:text-olive-900 dark:hover:text-olive-800"
-    style={`font-size: ${titleFontSize}vw;`}
+    style="font-size: var(--colophon-title-size);"
   >
     {setup.title}
   </span>

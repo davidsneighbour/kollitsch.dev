@@ -19,6 +19,16 @@ Production deployment is orchestrated through `wireit` in `package.json`.
 The final Netlify command only runs after the local checks, release step, and
 production build have completed successfully.
 
+The top-level script wraps Wireit with `src/scripts/maintenance/timed-run.ts`,
+so the final output includes the elapsed time for the whole deployment pipeline,
+including Wireit dependencies.
+
+The same wrapper can time other npm scripts when needed:
+
+```bash
+node src/scripts/maintenance/timed-run.ts --label "npm run build" -- npm run build
+```
+
 `npm run build` preserves local processed-image caches. Use
 `npm run build:clean` only when Astro image output, generated OG images, or the
 image-index LQIP cache must be rebuilt from source.

@@ -4,7 +4,7 @@
   },
   "scripts": {
     "clean:netlify": "wireit",
-    "deploy": "wireit",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- wireit",
     "deploy:build": "wireit",
     "deploy:release": "wireit"
   },

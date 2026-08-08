@@ -212,7 +212,7 @@
     "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
     "prebuild": "npm run build:image-index",
     "clean:netlify": "wireit",
-    "deploy": "wireit",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- wireit",
     "deploy:build": "wireit",
     "deploy:release": "wireit",
     "postprepare": "wireit",

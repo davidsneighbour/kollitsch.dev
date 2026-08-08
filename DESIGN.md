@@ -9,6 +9,9 @@ colors:
   # Link pair - deep red shifts toward orange on hover
   link: "oklch(50.5% 0.213 27.518deg)"
   link-hover: "oklch(64.6% 0.222 41.116deg)"
+  # Dark-mode link pair - brighter red/orange for AA contrast on dark surfaces
+  link-dark: "oklch(63.7% 0.237 25.331deg)"
+  link-dark-hover: "oklch(75% 0.183 55.934deg)"
   # Surfaces (light / dark) - Tailwind's `olive` scale (v4.2+), not `gray`
   surface: "oklch(98.8% 0.003 106.5deg)"
   surface-dark: "oklch(15.3% 0.006 107.1deg)"
@@ -24,6 +27,9 @@ colors:
   # Semantic
   error: "oklch(57.7% 0.245 27.325deg)"
   code-highlight: "oklch(63.7% 0.237 25.331deg)"
+  draft-badge-background: "oklch(47% 0.157 37.304deg)"
+  colophon-watermark: "oklch(36.7% 0.016 35.7deg)"
+  colophon-watermark-dark: "oklch(86.8% 0.007 39.5deg)"
 typography:
   h1:
     fontFamily: "Changa One"
@@ -126,6 +132,14 @@ components:
     textColor: "{colors.link}"
   prose-link-hover:
     textColor: "{colors.link-hover}"
+  prose-link-dark:
+    textColor: "{colors.link-dark}"
+  prose-link-dark-hover:
+    textColor: "{colors.link-dark-hover}"
+  pagination-inactive:
+    textColor: "{colors.on-surface-muted}"
+  pagination-inactive-dark:
+    textColor: "{colors.colophon-watermark-dark}"
   prose-heading:
     textColor: "inherit"
   card:
@@ -141,6 +155,17 @@ components:
   caption:
     textColor: "{colors.on-surface-muted}"
     typography: "{typography.label}"
+  colophon-watermark:
+    textColor: "{colors.colophon-watermark}"
+    typography: "{typography.h1}"
+  colophon-watermark-dark:
+    textColor: "{colors.colophon-watermark-dark}"
+    typography: "{typography.h1}"
+  draft-badge:
+    backgroundColor: "{colors.draft-badge-background}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.label-sm}"
   inline-code:
     backgroundColor: "{colors.code-highlight}"
     rounded: "{rounded.sm}"
@@ -198,10 +223,14 @@ The palette keeps its emotional range narrow on purpose. A wide range of grays c
 * **Primary Hover (`oklch(55.3% 0.195 38.402deg)`):** A shade darker than primary, shifting toward deep orange-red - enough movement to confirm activation without a color-family jump.
 * **Link (`oklch(50.5% 0.213 27.518deg)`):** Deep red for inline prose links. Distinct from the orange primary so links read as navigational, not primary-action.
 * **Link Hover (`oklch(64.6% 0.222 41.116deg)`):** Shifts to the primary orange on hover - the brand hue arrives when the user reaches for the link.
+* **Link Dark (`oklch(63.7% 0.237 25.331deg)`):** Brighter red for links on dark surfaces. The light-mode link red is intentionally too dark for `surface-dark`, so dark mode uses this AA-safe pair instead of inheriting the global light-mode colour.
+* **Link Dark Hover (`oklch(75% 0.183 55.934deg)`):** Brighter orange hover for links on dark surfaces. It preserves the red-to-orange interaction while maintaining contrast in dark mode.
 * **Surface / Surface Dark:** Warm off-white (`oklch(98.8%)`) in light mode, near-black (`oklch(15.3%)`) in dark mode - Tailwind's `olive` scale. The warmth is intentional - pure white and pure black feel too harsh for long-form reading.
 * **On-Surface / On-Surface Dark:** `oklch(43.8%)` mid-gray for light mode body text; `oklch(92.2%)` for dark mode. Both pass WCAG AA against their respective surfaces.
 * **Border:** A whisper-light `oklch(92.2%)` in light mode and `oklch(36.7%)` in dark mode. Borders define without asserting.
 * **Code Highlight:** Red-500 at 10% opacity (`oklch(63.7%)`) as the inline code chip background - visually distinct from prose without introducing a new color family.
+* **Draft Badge Background (`oklch(47% 0.157 37.304deg)`):** Dark orange for editorial status badges. It keeps the badge in the accent family while giving small uppercase text enough contrast.
+* **Colophon Watermark:** Uses structural gray (`gray-700` in light mode, `gray-300` in dark mode). The word is decorative, but it is still rendered text, so it must meet the large-text contrast threshold rather than relying on low opacity.
 
 The full gray scale (50–950) and an orange scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components.
 
@@ -225,7 +254,16 @@ Any UI chrome that needs to read as "a tint of whatever the page background is" 
 
 The payoff: if `--background` changes again later, these surfaces update automatically instead of needing another pass of manual fixes.
 
-`red-700` is the `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, PageFind error text, and `text-red-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. See the debug-class naming convention in Do's and Don'ts.
+`red-700` is the light-mode `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, PageFind error text, and `text-red-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. In dark mode, equivalent interactive text uses `red-500` with `orange-400` hover so links retain AA contrast on `surface-dark` and dark overlay cards. See the debug-class naming convention in Do's and Don'ts.
+
+Tag chips use the same link text pairs (`red-700`/`orange-700` in light mode,
+`red-500`/`orange-400` in dark mode) over low-opacity red backgrounds. The
+background is decorative only; the readable text colour is the token contract.
+
+Pagination controls use muted gray in light mode and `gray-300` in dark mode
+for inactive or disabled labels; dark hover states shift to the dark link hover
+orange. Disabled pagination text still needs normal text contrast because it is
+visible navigational state, not purely decorative chrome.
 
 For icons that paint via `stroke="currentColor"` (Lucide) or `fill="currentColor"` (Bootstrap Icons in `src/icons/`), use `text-*` to set the color, not `stroke-*`/`fill-*` - the presentation attribute resolves against the CSS `color` property, and a literal `stroke`/`fill` property on an ancestor does not override it.
 

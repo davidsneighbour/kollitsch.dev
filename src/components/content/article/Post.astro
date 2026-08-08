@@ -39,7 +39,7 @@ const { post }: Props = Astro.props;
   >
     <Heading
       level={1}
-      class="heading text-red-700 transition-colors duration-300 ease-in-out group-hover:text-orange-700"
+      class="heading text-red-700 transition-colors duration-300 ease-in-out group-hover:text-orange-700 dark:text-red-500 dark:group-hover:text-orange-400"
       html={post.data.title}
     />
     {post.data.subtitle && (

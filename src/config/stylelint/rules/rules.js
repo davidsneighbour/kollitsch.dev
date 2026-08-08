@@ -145,8 +145,8 @@ const rules = {
     {
       ignore: ['rem', 'css-nesting'],
       ignorePartialSupport: true,
-      // @todo set to repo-global browserslist config
-      //browsers: 'extends @davidsneighbour/browserslist-config',
+      // @todo set to repo-global browserslist config once @dnbhq/browserslist-config is published
+      //browsers: 'extends @dnbhq/browserslist-config',
       severity: 'warning',
     },
   ],

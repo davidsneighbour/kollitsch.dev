@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "@davidsneighbour/browserslist-config": "2026.0.4",
     "postcss-html": "2.0.0",
     "stylelint": "17.14.1",
     "stylelint-config-html": "2.0.0",

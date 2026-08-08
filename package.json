@@ -200,7 +200,7 @@
     "dev:watch": "node src/scripts/webserver.ts",
     "preview": "astro preview",
     "upgrade": "npx @astrojs/upgrade",
-    "bbuild:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
+    "build:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
     "lint:design": "design.md lint DESIGN.md",
     "lint:design:diff": "design.md diff DESIGN.md",
     "docs:api": "typedoc",

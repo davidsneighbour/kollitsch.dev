@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@davidsneighbour/release-config": "2026.0.5",
+    "@davidsneighbour/release-config": "2026.0.6",
     "fast-glob": "3.3.3",
     "fixpack": "4.0.0"
   },
@@ -40,6 +40,7 @@
     "@sentry/cli@2.58.6": true,
     "esbuild@0.27.7": true,
     "esbuild@0.28.0": true,
+    "esbuild@0.28.1": true,
     "gifsicle@5.3.0": true,
     "jpegtran-bin@7.0.0": true,
     "optipng-bin@7.0.1": true,

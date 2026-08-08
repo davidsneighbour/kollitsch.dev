@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "@axe-core/playwright": "4.11.3",
-    "@playwright/test": "1.61.0",
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.1",
     "@vitest/browser-playwright": "^4",
     "@vitest/coverage-v8": "^4",
     "@vitest/ui": "^4",
@@ -14,9 +14,9 @@
   "scripts": {
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "npx playwright test",
-    "test:e2e:ui": "npx playwright test --ui",
-    "test:live": "npx playwright test --config ./playwright.live.config.ts",
+    "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
+    "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
+    "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
     "test:postinstall": "npx playwright install",
     "test:ui": "vitest --ui"
   },

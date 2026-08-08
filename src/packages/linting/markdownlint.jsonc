@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@github/markdownlint-github": "0.8.1",
+    "@dnbhq/markdownlint-config": "0.2.11",
     "markdownlint": "0.41.0",
     "markdownlint-cli2": "0.22.1",
     "markdownlint-rule-extended-ascii": "0.2.1",
@@ -12,5 +13,10 @@
   "scripts": {
     "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
     "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}"
+  },
+  "overrides": {
+    "markdownlint-cli2": {
+      "js-yaml": "4.3.0"
+    }
   }
 }

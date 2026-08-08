@@ -13,7 +13,7 @@
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     },
     "deploy": {
-      "command": "netlify deploy --prod --open",
+      "command": "bash -c 'netlify deploy --message \"v$(node -p \"require(\\\"./package.json\\\").version\")\" --created-via=release --prod --open'",
       "dependencies": [
         "deploy:build"
       ]

@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "png-to-ico": "3.0.1"
+    "png-to-ico": "3.0.2"
   },
   "scripts": {
     "build:favicons": "node src/assets/favicon/regenerate.ts"

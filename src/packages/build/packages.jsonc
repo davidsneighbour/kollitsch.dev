@@ -1,8 +1,6 @@
 {
-  // a collection of scripts to build the package.json file
-  // requires Node24+
   "devDependencies": {
-    "@davidsneighbour/nanny": "0.4.0",
+    "@davidsneighbour/nanny": "0.5.0",
     "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0"
   },
@@ -11,8 +9,6 @@
     "packages:update": "wireit"
   },
   "wireit": {
-    // fixpack returns a non-zero exit code if changes were made but the script did not fail,
-    // so we run it twice and ignore errors
     "compile:fixpack": {
       "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
     },

@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "chrome-launcher": "1.2.1",
-    "lighthouse": "13.4.0"
+    "lighthouse": "13.4.1"
   },
   "scripts": {
     "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",

@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@ls-lint/ls-lint": "2.3.1",
-    "jsdom": "29.1.1"
+    "jsdom": "30.0.1"
   },
   "scripts": {
     "lint:filenames": "ls-lint"

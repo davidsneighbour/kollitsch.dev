@@ -1,5 +1,19 @@
 # Changelog
 
+## [3001.23.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.22.1...v3001.23.0) (2026-08-08)
+
+### Content
+
+* **blog:** draft release-it changelog link post ([6b81a3f](https://github.com/davidsneighbour/kollitsch.dev/commit/6b81a3fe04466dc8f9a698fd4deddf7931c3795d)), closes [#1843](https://github.com/davidsneighbour/kollitsch.dev/issues/1843)
+
+### Fix
+
+* **release:** preserve dotted repository links ([f86b5e3](https://github.com/davidsneighbour/kollitsch.dev/commit/f86b5e3bcab8aa489a9ec5c6219ab0d26cc3f1f3)), closes [#1842](https://github.com/davidsneighbour/kollitsch.dev/issues/1842)
+
+### Perf
+
+* **build:** reuse image caches ([064082e](https://github.com/davidsneighbour/kollitsch.dev/commit/064082e67c97ca022802365ea9c8030dee3db40b)), closes [#1844](https://github.com/davidsneighbour/kollitsch.dev/issues/1844)
+
 ## [3001.22.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.22.0...v3001.22.1) (2026-08-08)
 
 ### Fix

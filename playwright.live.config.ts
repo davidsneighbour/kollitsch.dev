@@ -30,6 +30,9 @@ export default defineConfig({
   ...baseConfig,
   outputDir: 'src/test/logs/playwright-live',
   testDir: 'src/test/live',
+  // baseConfig.testIgnore excludes `**/live/**` so live tests don't run as
+  // part of the default suite; clear it here or testDir above matches nothing.
+  testIgnore: undefined,
   use: {
     ...baseConfig.use,
     baseURL: siteUrl,

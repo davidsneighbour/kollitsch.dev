@@ -28,8 +28,11 @@ colors:
   error: "oklch(57.7% 0.245 27.325deg)"
   code-highlight: "oklch(63.7% 0.237 25.331deg)"
   draft-badge-background: "oklch(47% 0.157 37.304deg)"
-  colophon-watermark: "oklch(36.7% 0.016 35.7deg)"
-  colophon-watermark-dark: "oklch(86.8% 0.007 39.5deg)"
+  pagination-inactive-dark: "oklch(86.8% 0.007 39.5deg)"
+  colophon-watermark: "oklch(96.6% 0.005 106.5deg)"
+  colophon-watermark-hover: "oklch(93% 0.007 106.5deg)"
+  colophon-watermark-dark: "oklch(22.8% 0.013 107.4deg)"
+  colophon-watermark-dark-hover: "oklch(28.6% 0.016 107.4deg)"
 typography:
   h1:
     fontFamily: "Changa One"
@@ -139,7 +142,7 @@ components:
   pagination-inactive:
     textColor: "{colors.on-surface-muted}"
   pagination-inactive-dark:
-    textColor: "{colors.colophon-watermark-dark}"
+    textColor: "{colors.pagination-inactive-dark}"
   prose-heading:
     textColor: "inherit"
   card:
@@ -168,9 +171,13 @@ components:
   colophon-watermark:
     textColor: "{colors.colophon-watermark}"
     typography: "{typography.h1}"
+  colophon-watermark-hover:
+    textColor: "{colors.colophon-watermark-hover}"
   colophon-watermark-dark:
     textColor: "{colors.colophon-watermark-dark}"
     typography: "{typography.h1}"
+  colophon-watermark-dark-hover:
+    textColor: "{colors.colophon-watermark-dark-hover}"
   draft-badge:
     backgroundColor: "{colors.draft-badge-background}"
     textColor: "{colors.surface}"
@@ -240,7 +247,8 @@ The palette keeps its emotional range narrow on purpose. A wide range of grays c
 * **Border:** A whisper-light `oklch(92.2%)` in light mode and `oklch(36.7%)` in dark mode. Borders define without asserting.
 * **Code Highlight:** Red-500 at 10% opacity (`oklch(63.7%)`) as the inline code chip background - visually distinct from prose without introducing a new color family.
 * **Draft Badge Background (`oklch(47% 0.157 37.304deg)`):** Dark orange for editorial status badges. It keeps the badge in the accent family while giving small uppercase text enough contrast.
-* **Colophon Watermark:** Uses structural gray (`gray-700` in light mode, `gray-300` in dark mode). The word is decorative, but it is still rendered text, so it must meet the large-text contrast threshold rather than relying on low opacity.
+* **Pagination Inactive Dark (`oklch(86.8% 0.007 39.5deg)`):** Gray-300 for inactive or disabled pagination labels in dark mode. This is visible navigational state and must remain readable.
+* **Colophon Watermark:** Uses surface-adjacent olive tones (`olive-100` / `olive-200` in light mode, `olive-900` / `olive-800` in dark mode). It is a cosmetic background gimmick, hidden from assistive technology and deliberately below accessible contrast. Do not "fix" it to meet contrast thresholds.
 
 The full gray scale (50–950) and an orange scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components.
 
@@ -386,12 +394,22 @@ Prose headings inherit the surrounding reading colour instead of forcing an inde
 
 The footer author avatar keeps the full circular radius on its right edge and squared corners on its left edge: `0 {rounded.full} {rounded.full} 0`. It retains the standard structural border colours in light and dark mode.
 
+### Footer Colophon Watermark
+
+The oversized footer colophon in `src/components/layout/footer/Colophon.astro`
+is decorative display texture, not content. It must stay `aria-hidden="true"`
+and must stay visually low contrast: `text-olive-100 hover:text-olive-200`
+in light mode, `dark:text-olive-900 dark:hover:text-olive-800` in dark mode.
+This is an intentional exception to the site's general text contrast rule, so
+assistants must not replace it with accessible text colours.
+
 ## Do's and Don'ts
 
 * **Do** use `font-changa` only for headings and display text - never for body copy or code.
 * **Do** apply the primary color exclusively to interactive primary actions (CTAs, hover states). One per screen is ideal.
 * **Don't** add box-shadows in dark mode - use `outline outline-white/10` to define surfaces instead.
 * **Do** maintain WCAG AA contrast (4.5:1 for normal text). The `on-surface` / `on-surface-dark` tokens are calibrated for this.
+* **Don't** apply the contrast rule to the footer colophon watermark - it is hidden from assistive technology and intentionally fails contrast as decorative background texture.
 * **Don't** use `rounded-xl` on outer containers - it belongs only to images inside cards.
 * **Don't** introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.
 * **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.

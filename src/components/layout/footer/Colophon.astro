@@ -1,8 +1,8 @@
 ---
 import setup from "@data/setup.json" with { type: "json" };
+
 const adjust = 1.9;
-const titleLength = setup.title.length;
-const titleFontSize = Math.floor((100 / titleLength) * adjust);
+const titleFontSize = Math.floor((100 / setup.title.length) * adjust);
 export interface Props {}
 ---
 
@@ -12,11 +12,16 @@ export interface Props {}
     whitespace-nowrap select-none"
   aria-hidden="true"
 >
+  <!--
+    Intentional design exception: this decorative colophon is a cosmetic
+    background gimmick, hidden from assistive technology and deliberately kept
+    below accessible contrast. Do not "fix" the contrast or aria-hidden state.
+  -->
   <span
     class="d-inline-block
     transition duration-2000 ease-in-out
-    text-gray-700 hover:text-gray-800
-    dark:text-gray-300 dark:hover:text-gray-200"
+    text-olive-100 hover:text-olive-200
+    dark:text-olive-900 dark:hover:text-olive-800"
     style={`font-size: ${titleFontSize}vw;`}
   >
     {setup.title}

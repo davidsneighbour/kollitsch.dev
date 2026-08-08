@@ -141,7 +141,7 @@
     "wireit": "0.14.13",
     "@humanwhocodes/crosspost": "1.0.4",
     "@total-typescript/ts-reset": "0.6.1",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "scripts": {
     "clean:full": "wireit",

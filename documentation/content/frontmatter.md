@@ -62,7 +62,7 @@ Markdown headings or filenames.
 | `lastModified` | no | date | Explicit last-modified date. |
 | `linktitle` | no | `string` | Plain-text shorter link label; must differ from and be shorter than `title`. |
 | `options` | no | nested object | Per-post rendering options; known keys are listed below. |
-| `options.head.components` | no | `lite-youtube[]`, `color-grid[]`, `date-diff[]` | Extra head components required by a post. |
+| `options.head.components` | no | `lite-youtube[]`, `date-diff[]` | Extra head components required by a post. |
 | `publisher` | no | `rework` or `validate` | Internal publishing workflow state. |
 | `resources` | no | object array | External resources with optional `name`, `src`, and `title`. |
 | `resources[].name` | no | `string` | Resource name. |

@@ -14,15 +14,13 @@ tags:
   - css
   - colors
   - 100daystooffload
-options:
-  head:
-    components:
-      - color-grid
 cover:
   src: ./pantone-color-of-the-year-2024-article-1-image-1.webp
   type: image
 publisher: rework
 ---
+
+import ColorGrid from "@components/content/ColorGrid.astro";
 
 During difficult times, [Pantone has chosen Peach Fuzz as its color of the year 2024](https://www.pantone.com/articles/color-of-the-year/what-is-peach-fuzz/). Peach Fuzz promotes community, togetherness, and self-awareness. It conveys a message of compassion and empathy, reflecting our desire for simpler times with a contemporary touch.
 
@@ -38,10 +36,6 @@ When RGB or HEX values are preferred for consistent color representation online 
 | HSV | 22°, 40%, 100% |
 | CMYK | 0%, 25%, 40%, 0% |
 
-<color-grid>
-#ffbe98
-rgb(255, 190, 152)
-hsl(22deg, 100%, 80%)
-</color-grid>
+<ColorGrid colors={["#ffbe98", "rgb(255, 190, 152)", "hsl(22deg, 100%, 80%)"]} />
 
 Its soothing and calming colors certainly look nice on my website ;)

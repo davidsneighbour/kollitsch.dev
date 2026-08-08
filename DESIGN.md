@@ -155,6 +155,16 @@ components:
   caption:
     textColor: "{colors.on-surface-muted}"
     typography: "{typography.label}"
+  color-grid:
+    backgroundColor: "{colors.surface-raised}"
+    textColor: "{colors.on-surface}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.md}"
+  color-grid-dark:
+    backgroundColor: "{colors.surface-raised-dark}"
+    textColor: "{colors.on-surface-dark}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.md}"
   colophon-watermark:
     textColor: "{colors.colophon-watermark}"
     typography: "{typography.h1}"
@@ -259,6 +269,11 @@ The payoff: if `--background` changes again later, these surfaces update automat
 Tag chips use the same link text pairs (`red-700`/`orange-700` in light mode,
 `red-500`/`orange-400` in dark mode) over low-opacity red backgrounds. The
 background is decorative only; the readable text colour is the token contract.
+
+Colour grids use the existing card surface pair (`surface-raised` /
+`surface-raised-dark`) and `rounded-lg`, with mono labels in body text colours.
+The swatch itself is user-provided content colour; the surrounding component
+must stay neutral so the colour value remains inspectable.
 
 Pagination controls use muted gray in light mode and `gray-300` in dark mode
 for inactive or disabled labels; dark hover states shift to the dark link hover

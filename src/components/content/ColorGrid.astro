@@ -1,0 +1,24 @@
+---
+export interface Props {
+  colors: string[];
+}
+
+const { colors }: Props = Astro.props;
+---
+
+<div class="not-prose my-6 grid gap-3 sm:grid-cols-3" aria-label="Colour swatches">
+  {
+    colors.map((color) => (
+      <figure class="overflow-hidden rounded-lg bg-card text-card-foreground ring-1 ring-gray-900/10 dark:bg-black/20 dark:ring-gray-100/10">
+        <div
+          class="aspect-[3/2] w-full"
+          style={`background-color: ${color};`}
+          aria-hidden="true"
+        />
+        <figcaption class="break-all px-3 py-2 font-mono text-sm text-gray-700 dark:text-gray-200">
+          {color}
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>

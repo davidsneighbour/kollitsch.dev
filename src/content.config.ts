@@ -19,7 +19,7 @@ export type PostData = z.infer<typeof blogSchema>;
  */
 export const explicitOptionTypes = {
   'head.components': z.array(
-    z.enum(['lite-youtube', 'color-grid', 'date-diff']),
+    z.enum(['lite-youtube', 'date-diff']),
   ),
 } as const;
 

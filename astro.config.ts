@@ -21,6 +21,7 @@ import {
   mergeRedirects,
   type RedirectMap,
 } from './src/utils/redirects.ts';
+import { remarkDnbTypography } from './src/utils/markdown-typography.ts';
 import tailwindcss from '@tailwindcss/vite';
 
 // env variables are not automatically loaded
@@ -167,7 +168,7 @@ export default defineConfig({
     mdx(), react()],
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkKbdNested, remarkDefinitionList],
+      remarkPlugins: [remarkKbdNested, remarkDefinitionList, remarkDnbTypography],
       // Blank-line-separated `Term`/`: Definition` pairs stay one <dl>; a
       // definition list only ends where a non-definition block begins.
       remarkRehype: { handlers: { ...defListHastHandlers } },

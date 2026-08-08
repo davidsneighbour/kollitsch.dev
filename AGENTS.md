@@ -190,7 +190,7 @@ Four collections:
 
 Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
 
-**Markdown extensions.** Beyond CommonMark/GFM, `astro.config.ts` wires in `remark-kbd-nested` (nested `<kbd>` shortcuts) and `remark-definition-list` (PHP-Markdown-Extra style definition lists) via `markdown.processor`. Definition list syntax:
+**Markdown extensions.** Beyond CommonMark/GFM, `astro.config.ts` wires in `remark-kbd-nested` (nested `<kbd>` shortcuts), `remark-definition-list` (PHP-Markdown-Extra style definition lists), and the local `remarkDnbTypography` plugin (`src/utils/markdown-typography.ts`, restores Hugo-style `--`/`---` dash shortcuts — see `documentation/development/markdown-typography.md`) via `markdown.processor`. Definition list syntax:
 
 ```markdown
 Term

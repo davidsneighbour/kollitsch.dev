@@ -5,7 +5,7 @@ created: 2026-06-14T00:00:00+07:00
 updated: 2026-06-14T00:00:00+07:00
 ---
 
-`PostImage.astro` renders the cover media for a blog post or tag page. It handles images and YouTube videos differently, and adds an interactive caption overlay for images.
+`PostImage.astro` renders the cover media for a blog post or tag page. It handles images, YouTube videos, and Vimeo videos differently, and adds an interactive caption overlay for images.
 
 ## Behaviour
 
@@ -47,6 +47,18 @@ cover:
     params:
       rel: 0
       modestbranding: 1
+---
+```
+
+To use a Vimeo video as the cover:
+
+```yaml
+---
+cover:
+  type: video
+  video:
+    vimeo: "1094958124"   # video ID only, not the full URL
+    title: "Caption below the video"
 ---
 ```
 

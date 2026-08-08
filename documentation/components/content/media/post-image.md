@@ -5,7 +5,7 @@ created: 2026-07-27T00:00:00+07:00
 updated: 2026-07-27T00:00:00+07:00
 ---
 
-Renders a post's or tag's cover, resolving it to either a responsive `<Picture>`, a plain `<img>` fallback, or a [`Youtube`](youtube.md) embed, with optional draft badge, caption overlay, and background link.
+Renders a post's or tag's cover, resolving it to either a responsive `<Picture>`, a plain `<img>` fallback, a [`Youtube`](youtube.md) embed, or a [`Vimeo`](vimeo.md) embed, with optional draft badge, caption overlay, and background link.
 
 ## File locations
 
@@ -56,10 +56,10 @@ import PostImage from '@components/content/media/PostImage.astro';
 
 `resolveCover()` returns one of three cover types, each rendered differently:
 
-- **`video`** — renders a [`Youtube`](youtube.md) embed at a `2:1` aspect ratio, with the video's own caption below it (not overlaid, since captions don't apply to media players). A `DRAFT` badge still shows for unpublished blog posts.
+- **`video`** — renders either a [`Youtube`](youtube.md) or [`Vimeo`](vimeo.md) embed at a `2:1` aspect ratio, with the video's own caption below it (not overlaid, since captions don't apply to media players). A `DRAFT` badge still shows for unpublished blog posts.
 - **`image`** — renders a responsive `<Picture>` when image metadata is available (locally-imported images), or a plain `<img loading="eager">` fallback otherwise (for example, remote cover URLs). `widths` are capped to the source image's actual width so upscaled variants are never generated. An optional `link` renders as an absolutely positioned background `<a>` (not wrapping the image) so the image itself stays a plain `<img>`/`<Picture>`. A `DRAFT` badge shows for unpublished blog posts. When `cover.title` is set, a caption overlay fades in on hover (desktop) via `group-hover/postimg:opacity-100`, or toggles via a mobile-only info button (`@media (hover: none)`) that adds a `.caption-visible` class.
 - **no cover** (`cover.type` is neither) — renders nothing.
 
 An inline `<script>` wires up the mobile caption-toggle button: on `astro:page-load`, it finds every un-initialised `[data-postimage]` figure, guards against re-initialising it via a `data-caption-init` marker, and toggles `.caption-visible` plus `aria-expanded` on click.
 
-`src/components/README.md` flags this component as embedding YouTube fallbacks and cover-image lookups, and asks that all edge cases be re-verified after any future move.
+`src/components/README.md` flags this component as embedding video fallbacks and cover-image lookups, and asks that all edge cases be re-verified after any future move.

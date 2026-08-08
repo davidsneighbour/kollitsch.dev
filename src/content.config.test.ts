@@ -10,7 +10,7 @@ const baseFrontmatter = {
 };
 
 describe('blogSchema cover.video', () => {
-  it('accepts a valid video cover', () => {
+  it('accepts a valid YouTube video cover', () => {
     const result = blogSchema.safeParse({
       ...baseFrontmatter,
       cover: {
@@ -19,6 +19,43 @@ describe('blogSchema cover.video', () => {
       },
     });
     expect(result.success).toBe(true);
+  });
+
+  it('accepts a valid Vimeo video cover', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      cover: {
+        type: 'video',
+        video: { title: 'Video title', vimeo: '1094958124' },
+      },
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects video covers without a provider id', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      cover: {
+        type: 'video',
+        video: { title: 'Video title' },
+      },
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects video covers with multiple provider ids', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      cover: {
+        type: 'video',
+        video: {
+          title: 'Video title',
+          vimeo: '1094958124',
+          youtube: 'aFfW0DCoGBg',
+        },
+      },
+    });
+    expect(result.success).toBe(false);
   });
 
   it('rejects unknown keys on cover.video', () => {

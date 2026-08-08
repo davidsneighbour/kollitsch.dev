@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import Vimeo from '@components/content/media/Vimeo.astro';
 import Youtube from '@components/content/media/Youtube.astro';
 import { resolveCover } from '@utils/cover';
 import { getTailwindSizes } from '@utils/tailwind.ts';
@@ -121,12 +122,22 @@ const roundedClasses = classes
         </span>
       )}
       <div class={`aspect-2/1 overflow-hidden ${classes}`}>
-        <Youtube
-          label={cover.video.title}
-          video={cover.video.youtube}
-          classes="z-20 mb-4 h-auto w-full max-w-full"
-          params={cover.video.params ?? {}}
-        />
+        {cover.video.platform === "youtube" ? (
+          <Youtube
+            label={cover.video.title}
+            video={cover.video.youtube}
+            classes="z-20 mb-4 h-auto w-full max-w-full"
+            params={cover.video.params ?? {}}
+          />
+        ) : (
+          <Vimeo
+            label={cover.video.title}
+            video={cover.video.vimeo}
+            classes="z-20 mb-4 h-auto w-full max-w-full"
+            hash={cover.video.hash}
+            startAt={cover.video.startAt}
+          />
+        )}
       </div>
       <figcaption class="video-caption italic @sm:px-2 @md:px-3 @lg:px-4">
         {cover.video.title}

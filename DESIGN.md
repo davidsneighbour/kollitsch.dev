@@ -170,6 +170,10 @@ components:
     padding: "{spacing.documentation-nav-deep-indent}"
   footer-author-avatar:
     rounded: "0 {rounded.full} {rounded.full} 0"
+  video-embed-play-button:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.surface-dark}"
+    rounded: "{rounded.xl}"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -224,6 +228,10 @@ The payoff: if `--background` changes again later, these surfaces update automat
 `red-700` is the `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, PageFind error text, and `text-red-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. See the debug-class naming convention in Do's and Don'ts.
 
 For icons that paint via `stroke="currentColor"` (Lucide) or `fill="currentColor"` (Bootstrap Icons in `src/icons/`), use `text-*` to set the color, not `stroke-*`/`fill-*` - the presentation attribute resolves against the CSS `color` property, and a literal `stroke`/`fill` property on an ancestor does not override it.
+
+Video embed play buttons use the shared interactive accent rather than each
+platform's brand colour. This keeps lazy YouTube and Vimeo facades visually
+part of the site while the video poster still carries the platform content.
 
 ## Typography
 

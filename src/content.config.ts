@@ -66,11 +66,52 @@ const cover = z
     video: z
       .object({
         artist: z.string().optional(),
+        hash: z.string().optional(),
+        startAt: z.string().optional(),
         title: z.string(),
-        youtube: z.string(),
+        vimeo: z.string().regex(/^\d+$/, {
+          message: 'cover.video.vimeo must be a numeric Vimeo video id.',
+        }).optional(),
+        youtube: z.string().optional(),
         params: youtubePlayerParamsSchema.optional(),
       })
       .strict()
+      .superRefine((video, ctx) => {
+        const hasYoutube = typeof video.youtube === 'string' && video.youtube.trim().length > 0;
+        const hasVimeo = typeof video.vimeo === 'string' && video.vimeo.trim().length > 0;
+
+        if (hasYoutube === hasVimeo) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video must define exactly one of youtube or vimeo.',
+            path: ['youtube'],
+          });
+        }
+
+        if (hasVimeo && video.params != null) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video.params is only allowed for YouTube covers.',
+            path: ['params'],
+          });
+        }
+
+        if (hasYoutube && video.hash != null) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video.hash is only allowed for Vimeo covers.',
+            path: ['hash'],
+          });
+        }
+
+        if (hasYoutube && video.startAt != null) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video.startAt is only allowed for Vimeo covers.',
+            path: ['startAt'],
+          });
+        }
+      })
       .optional(),
   })
   // Require src when type is image

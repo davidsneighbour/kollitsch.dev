@@ -130,6 +130,8 @@ describe('resolveCover', () => {
     const res = resolveCover(cover, ctx, {});
     expect(res.type).toBe('video');
     if (res.type === 'video') {
+      expect(res.video.platform).toBe('youtube');
+      if (res.video.platform !== 'youtube') return;
       expect(res.video.title).toBe('My Video');
       expect(res.video.youtube).toBe('abcd123');
       expect(res.alt).toBe('My Video');
@@ -164,6 +166,8 @@ describe('resolveCover', () => {
     const res = resolveCover(cover, ctx, {});
     expect(res.type).toBe('video');
     if (res.type === 'video') {
+      expect(res.video.platform).toBe('youtube');
+      if (res.video.platform !== 'youtube') return;
       expect(res.video.params).toEqual({
         color: 'white',
         modestbranding: '1',
@@ -202,7 +206,45 @@ describe('resolveCover', () => {
     const res = resolveCover(cover, ctx, {});
     expect(res.type).toBe('video');
     if (res.type === 'video') {
+      expect(res.video.platform).toBe('youtube');
+      if (res.video.platform !== 'youtube') return;
       expect(res.video.params).toBeUndefined();
+    }
+  });
+
+  it('vimeo cover returns video object with Vimeo id', async () => {
+    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
+    vi.doMock('@utils/opengraph.ts', () => ({
+      resolveImageKey: defaultResolveImageKey,
+    }));
+    vi.doMock('markdown-it', () => ({
+      default: function MockMD() {
+        return { renderInline: (s: string) => s };
+      },
+    }));
+
+    const { resolveCover } = await import('./cover.ts');
+
+    const ctx = { collection: 'blog', id: 'blog/post-vimeo' } as const;
+    const cover = {
+      type: 'video',
+      video: {
+        hash: 'abc123',
+        startAt: '1m30s',
+        title: 'My Vimeo Video',
+        vimeo: '1094958124',
+      },
+    } as const;
+
+    const res = resolveCover(cover, ctx, {});
+    expect(res.type).toBe('video');
+    if (res.type === 'video') {
+      expect(res.video.platform).toBe('vimeo');
+      if (res.video.platform !== 'vimeo') return;
+      expect(res.video.vimeo).toBe('1094958124');
+      expect(res.video.hash).toBe('abc123');
+      expect(res.video.startAt).toBe('1m30s');
+      expect(res.alt).toBe('My Vimeo Video');
     }
   });
 

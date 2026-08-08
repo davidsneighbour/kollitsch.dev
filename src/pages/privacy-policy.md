@@ -11,6 +11,7 @@ date: 2025-07-23T05:47:42.802Z
 * [2. General rules](#2-general-rules)
 * [3. Tool-specific notes](#3-tool-specific-notes)
   * [3.1. YouTube](#31-youtube)
+  * [3.2. Vimeo](#32-vimeo)
   * [3.2. Contact form](#32-contact-form)
   * [3.3. Matomo analytics](#33-matomo-analytics)
   * [3.4. Giscus comments](#34-giscus-comments)
@@ -44,6 +45,12 @@ Last updated: July 28, 2026
 
 * Embedded videos use *privacy-enhanced mode*, which limits tracking unless you interact with the video. I am also using a component that loads the video only when you click it. There is no data transfer to YouTube until you play the video.
 * You can read [YouTube's privacy policy](https://www.youtube.com/howyoutubeworks/privacy/) for more details.
+
+### 3.2. Vimeo
+
+* Embedded Vimeo videos use a lightweight component that loads poster metadata first and creates the Vimeo player only when you interact with the video.
+* The Vimeo player URL sets Vimeo's `dnt=1` parameter where available.
+* You can read [Vimeo's privacy policy](https://vimeo.com/privacy) for more details.
 
 ### 3.2. Contact form
 

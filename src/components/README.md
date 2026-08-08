@@ -73,7 +73,7 @@ should be reviewed during a future refactor:
   and schema output; needs a decomposition plan.
 * `content/metadata/PostMeta.astro` - accepts entire `post` objects and still
   delegates to several TODO-heavy subcomponents.
-* `content/media/PostImage.astro` - embeds YouTube fallbacks and performs cover
+* `content/media/PostImage.astro` - embeds video fallbacks and performs cover
   lookups; verify that all edge cases are still handled after the move.
 * `features/feeds/FeedReader.astro` - bespoke promotional component with hard
   coded defaults that likely deserves its own feature module.

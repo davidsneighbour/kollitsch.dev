@@ -1,0 +1,332 @@
+---
+/**
+ * Vimeo embed component.
+ *
+ * Renders a lightweight custom element that fetches Vimeo oEmbed metadata for
+ * the poster image, then defers the real iframe until user interaction.
+ */
+export interface Props {
+  /**
+   * Vimeo video id.
+   * @example "1094958124"
+   */
+  video: string;
+
+  /**
+   * Accessible label for the video.
+   * @example "100 Years of Meisterstück"
+   */
+  label: string;
+
+  /** Optional unlisted-video hash, matching Vimeo's h query parameter. */
+  hash?: string | undefined;
+
+  /** Optional start offset, e.g. "1m30s". */
+  startAt?: string | undefined;
+
+  classes?: string | undefined;
+  style?: string | undefined;
+}
+
+function parseVimeoId(raw: unknown): string | null {
+  if (typeof raw !== 'string') return null;
+  const value = raw.trim();
+
+  return /^\d+$/.test(value) ? value : null;
+}
+
+const { video, label, hash, startAt, classes, style }: Props = Astro.props;
+const videoId = parseVimeoId(video);
+
+if (!videoId) {
+  throw new Error(
+    `[Vimeo] failed to parse a valid numeric Vimeo id from prop: "${String(video)}"`,
+  );
+}
+---
+
+<lite-vimeo
+  videoid={videoId}
+  playlabel={label}
+  hash={hash}
+  start={startAt}
+  class={classes}
+  style={style}
+></lite-vimeo>
+
+<script>
+  // @ts-nocheck
+  class LiteVimeoEmbed extends HTMLElement {
+    static preconnected = false;
+
+    connectedCallback() {
+      this.videoId = this.getAttribute('videoid')?.trim() ?? '';
+      this.playLabel = this.getAttribute('playlabel')?.trim() || 'Play video';
+      this.videoHash = this.getAttribute('hash')?.trim() ?? '';
+      this.videoStart = this.getAttribute('start')?.trim() ?? '';
+      this.iframeLoaded = false;
+
+      if (!this.videoId) {
+        console.error(
+          'lite-vimeo: missing required "videoid" attribute.',
+          this,
+        );
+        return;
+      }
+
+      this.renderPlaceholder();
+      void this.loadPoster();
+
+      this.addEventListener('pointerover', LiteVimeoEmbed.warmConnections, {
+        once: true,
+      });
+      this.addEventListener('focusin', LiteVimeoEmbed.warmConnections, {
+        once: true,
+      });
+      this.addEventListener('click', () => this.activate());
+    }
+
+    renderPlaceholder() {
+      if (this.querySelector('.lv-frame')) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'lv-frame';
+
+      const picture = document.createElement('picture');
+
+      const webp = document.createElement('source');
+      webp.type = 'image/webp';
+      webp.className = 'lv-webp';
+
+      const jpeg = document.createElement('source');
+      jpeg.type = 'image/jpeg';
+      jpeg.className = 'lv-jpeg';
+
+      const img = document.createElement('img');
+      img.className = 'lv-poster';
+      img.alt = '';
+      img.decoding = 'async';
+      img.loading = 'lazy';
+      img.referrerPolicy = 'origin';
+
+      picture.append(webp, jpeg, img);
+
+      const playButton = document.createElement('button');
+      playButton.type = 'button';
+      playButton.className = 'lv-playbtn';
+
+      const playLabel = document.createElement('span');
+      playLabel.className = 'lv-visually-hidden';
+      playLabel.textContent = this.playLabel;
+      playButton.append(playLabel);
+
+      frame.append(picture, playButton);
+      this.append(frame);
+    }
+
+    async loadPoster() {
+      LiteVimeoEmbed.addPrefetch('preconnect', 'https://i.vimeocdn.com');
+
+      const apiUrl = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(
+        `https://vimeo.com/${this.videoId}`,
+      )}`;
+
+      let data = {};
+      try {
+        const response = await fetch(apiUrl);
+        const json = await response.json();
+        if (json && typeof json === 'object') {
+          data = json;
+        }
+      } catch {
+        return;
+      }
+
+      const title =
+        typeof data.title === 'string' ? data.title : this.playLabel;
+      const label = this.playLabel || title;
+      this.setAttribute('title', label);
+
+      const playButton = this.querySelector('.lv-playbtn');
+      playButton?.setAttribute('aria-label', label);
+
+      const thumbnailUrl =
+        typeof data.thumbnail_url === 'string' ? data.thumbnail_url : '';
+      if (!thumbnailUrl) return;
+
+      const imgId = thumbnailUrl
+        .slice(thumbnailUrl.lastIndexOf('/') + 1)
+        .split('_')[0];
+      if (!imgId) return;
+
+      const webp = this.querySelector('.lv-webp');
+      const jpeg = this.querySelector('.lv-jpeg');
+      const img = this.querySelector('.lv-poster');
+      const base = `https://i.vimeocdn.com/video/${imgId}`;
+
+      webp?.setAttribute('srcset', `${base}.webp?mw=1100&mh=619&q=70`);
+      jpeg?.setAttribute('srcset', `${base}.jpg?mw=1100&mh=619&q=70`);
+      img?.setAttribute('src', `${base}.jpg?mw=1100&mh=619&q=70`);
+    }
+
+    activate() {
+      if (this.iframeLoaded) return;
+
+      LiteVimeoEmbed.warmConnections();
+
+      const frame = this.querySelector('.lv-frame');
+      if (!frame) return;
+
+      const srcUrl = new URL(
+        `https://player.vimeo.com/video/${encodeURIComponent(this.videoId)}`,
+      );
+      srcUrl.searchParams.set('dnt', '1');
+      srcUrl.searchParams.set('autoplay', '1');
+      if (this.videoHash) {
+        srcUrl.searchParams.set('h', this.videoHash);
+      }
+      if (this.videoStart) {
+        srcUrl.hash = `t=${this.videoStart}`;
+      }
+
+      const iframe = document.createElement('iframe');
+      iframe.allow =
+        'accelerometer; autoplay; encrypted-media; fullscreen; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.title = this.playLabel;
+      iframe.src = srcUrl.toString();
+
+      frame.append(iframe);
+      frame.classList.add('lv-activated');
+      this.iframeLoaded = true;
+      iframe.focus();
+    }
+
+    static addPrefetch(kind, url) {
+      const link = document.createElement('link');
+      link.rel = kind;
+      link.href = url;
+      link.crossOrigin = 'true';
+      document.head.append(link);
+    }
+
+    static warmConnections() {
+      if (LiteVimeoEmbed.preconnected) return;
+      LiteVimeoEmbed.addPrefetch('preconnect', 'https://f.vimeocdn.com');
+      LiteVimeoEmbed.addPrefetch('preconnect', 'https://player.vimeo.com');
+      LiteVimeoEmbed.addPrefetch('preconnect', 'https://i.vimeocdn.com');
+      LiteVimeoEmbed.preconnected = true;
+    }
+  }
+
+  if (!customElements.get('lite-vimeo')) {
+    customElements.define('lite-vimeo', LiteVimeoEmbed);
+  }
+</script>
+
+<style>
+  lite-vimeo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-black);
+    cursor: pointer;
+    contain: content;
+  }
+
+  lite-vimeo .lv-frame,
+  lite-vimeo iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  lite-vimeo picture,
+  lite-vimeo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  lite-vimeo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0.12) 0%,
+      rgb(0 0 0 / 0.02) 38%,
+      rgb(0 0 0 / 0.22) 100%
+    );
+    pointer-events: none;
+  }
+
+  lite-vimeo .lv-playbtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: 68px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-xl);
+    background: color-mix(
+      in oklch,
+      var(--color-primary) 82%,
+      var(--color-black)
+    );
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  lite-vimeo:hover .lv-playbtn,
+  lite-vimeo:focus-within .lv-playbtn {
+    background: var(--color-primary);
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+
+  lite-vimeo .lv-playbtn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent var(--color-black);
+    transform: translate(-38%, -50%);
+  }
+
+  lite-vimeo .lv-activated .lv-playbtn,
+  lite-vimeo .lv-activated picture {
+    display: none;
+  }
+
+  lite-vimeo .lv-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    lite-vimeo .lv-playbtn {
+      transition: none;
+    }
+  }
+</style>

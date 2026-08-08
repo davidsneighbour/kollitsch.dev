@@ -19,7 +19,7 @@ cover:
   src: ./header.jpg
   type: video
   video:
-    youtube: tUSRyAha37w
+    vimeo: "1094958124"
     title: 100 Years of Meisterstück
 publisher: rework
 ---

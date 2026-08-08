@@ -43,12 +43,23 @@ export type FMCover = Omit<PostCover, 'alt' | 'src' | 'video' | 'type'> & {
 };
 export type FMCoverFormat = FMCover['format'];
 
-export interface CoverVideo {
+interface BaseCoverVideo {
   title: string;
-  youtube: string;
   artist?: string;
-  params?: YouTubePlayerParams;
 }
+
+export type CoverVideo =
+  | (BaseCoverVideo & {
+      platform: 'youtube';
+      youtube: string;
+      params?: YouTubePlayerParams;
+    })
+  | (BaseCoverVideo & {
+      platform: 'vimeo';
+      vimeo: string;
+      hash?: string;
+      startAt?: string;
+    });
 
 /** Resolved cover object (image) */
 export interface ResolvedCoverImage {
@@ -191,23 +202,42 @@ export function resolveCover(
   if (cover.type === 'video' && cover.video) {
     const v = cover.video;
     const alt = stripMarkup(v.title || fallbackAlt);
-    const overrideParams = sanitizeYouTubePlayerParams(v.params);
-    const mergedParams = {
-      ...defaultVideoParams,
-      ...overrideParams,
-    } satisfies YouTubePlayerParams;
-    const hasParams = Object.keys(mergedParams).length > 0;
-    const result: ResolvedCoverVideo = {
-      alt,
-      type: 'video',
-      video: {
-        title: v.title,
-        youtube: v.youtube,
-        ...(v.artist ? { artist: v.artist } : {}),
-        ...(hasParams ? { params: mergedParams } : {}),
-      },
-    };
-    return result;
+    if (v.vimeo) {
+      const result: ResolvedCoverVideo = {
+        alt,
+        type: 'video',
+        video: {
+          platform: 'vimeo',
+          title: v.title,
+          vimeo: v.vimeo,
+          ...(v.artist ? { artist: v.artist } : {}),
+          ...(v.hash ? { hash: v.hash } : {}),
+          ...(v.startAt ? { startAt: v.startAt } : {}),
+        },
+      };
+      return result;
+    }
+
+    if (v.youtube) {
+      const overrideParams = sanitizeYouTubePlayerParams(v.params);
+      const mergedParams = {
+        ...defaultVideoParams,
+        ...overrideParams,
+      } satisfies YouTubePlayerParams;
+      const hasParams = Object.keys(mergedParams).length > 0;
+      const result: ResolvedCoverVideo = {
+        alt,
+        type: 'video',
+        video: {
+          platform: 'youtube',
+          title: v.title,
+          youtube: v.youtube,
+          ...(v.artist ? { artist: v.artist } : {}),
+          ...(hasParams ? { params: mergedParams } : {}),
+        },
+      };
+      return result;
+    }
   }
 
   // 4) Object cover -> image path

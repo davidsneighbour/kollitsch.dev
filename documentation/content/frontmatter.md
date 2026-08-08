@@ -47,9 +47,12 @@ Markdown headings or filenames.
 | `cover.unsplash` | no | `string` | Unsplash photo id; exactly 11 alphanumeric characters and image-only. |
 | `cover.video` | for video covers | object | Video cover metadata. |
 | `cover.video.artist` | no | `string` | Optional artist label for video covers. |
+| `cover.video.hash` | no | `string` | Vimeo unlisted-video hash; see [Vimeo embeds](../components/content/media/vimeo.md). |
 | `cover.video.params` | no | object | YouTube player parameters; see [YouTube embeds](../components/content/media/youtube.md). |
+| `cover.video.startAt` | no | `string` | Vimeo start offset; see [Vimeo embeds](../components/content/media/vimeo.md). |
 | `cover.video.title` | for video covers | `string` | Video title. |
-| `cover.video.youtube` | for video covers | `string` | YouTube video id or URL accepted by the YouTube helpers. |
+| `cover.video.vimeo` | for Vimeo video covers | `string` | Numeric Vimeo video id. |
+| `cover.video.youtube` | for YouTube video covers | `string` | YouTube video id or URL accepted by the YouTube helpers. |
 | `date` | yes | date | Publication date. |
 | `description` | yes | `string` | Required non-empty description, trimmed before use. |
 | `draft` | no | `boolean` | Draft visibility flag; see [Draft post visibility](draft-status.md). |

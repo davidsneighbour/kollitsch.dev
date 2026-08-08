@@ -41,6 +41,18 @@ export interface Props {}
 * When you find an inline `<svg>` in an existing component, check [simpleicons.org](https://simpleicons.org) (brands) or [lucide.dev](https://lucide.dev) (UI) for an equivalent and replace it.
 * Size icons with a CSS class such as `size-[1em]` so they scale with the surrounding font size. Do not rely solely on the SVG `width`/`height` presentation attributes.
 
+## Intentional decorative accessibility exceptions
+
+`aria-hidden="true"` alone is not an accessibility exemption. Continue to flag
+real structural accessibility problems such as focusable descendants, hidden
+meaningful text, or interactive controls inside an `aria-hidden` subtree.
+
+Elements marked with
+`data-dnb-design-exception="decorative-low-contrast"` are intentional decorative
+low-contrast design exceptions. Do not automatically "fix" their text contrast
+or remove their `aria-hidden` state. If a change would alter the exception, ask
+for explicit confirmation first.
+
 ## Script processing
 
 When using `define:vars` on a `<script>` tag, add `is:inline` explicitly to silence the Astro hint:

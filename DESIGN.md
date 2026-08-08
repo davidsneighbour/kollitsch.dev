@@ -398,10 +398,11 @@ The footer author avatar keeps the full circular radius on its right edge and sq
 
 The oversized footer colophon in `src/components/layout/footer/Colophon.astro`
 is decorative display texture, not content. It must stay `aria-hidden="true"`
-and must stay visually low contrast: `text-olive-100 hover:text-olive-200`
-in light mode, `dark:text-olive-900 dark:hover:text-olive-800` in dark mode.
-This is an intentional exception to the site's general text contrast rule, so
-assistants must not replace it with accessible text colours.
+and carry `data-dnb-design-exception="decorative-low-contrast"`. It must stay
+visually low contrast: `text-olive-100 hover:text-olive-200` in light mode,
+`dark:text-olive-900 dark:hover:text-olive-800` in dark mode. This is an
+intentional exception to the site's general text contrast rule, so assistants
+must not replace it with accessible text colours.
 
 ## Do's and Don'ts
 
@@ -409,7 +410,7 @@ assistants must not replace it with accessible text colours.
 * **Do** apply the primary color exclusively to interactive primary actions (CTAs, hover states). One per screen is ideal.
 * **Don't** add box-shadows in dark mode - use `outline outline-white/10` to define surfaces instead.
 * **Do** maintain WCAG AA contrast (4.5:1 for normal text). The `on-surface` / `on-surface-dark` tokens are calibrated for this.
-* **Don't** apply the contrast rule to the footer colophon watermark - it is hidden from assistive technology and intentionally fails contrast as decorative background texture.
+* **Don't** apply the contrast rule to elements marked `data-dnb-design-exception="decorative-low-contrast"` - they are hidden from assistive technology and intentionally fail contrast as decorative background texture.
 * **Don't** use `rounded-xl` on outer containers - it belongs only to images inside cards.
 * **Don't** introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.
 * **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.

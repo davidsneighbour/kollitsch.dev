@@ -18,3 +18,7 @@ Production deployment is orchestrated through `wireit` in `package.json`.
 
 The final Netlify command only runs after the local checks, release step, and
 production build have completed successfully.
+
+`npm run build` preserves local processed-image caches. Use
+`npm run build:clean` only when Astro image output, generated OG images, or the
+image-index LQIP cache must be rebuilt from source.

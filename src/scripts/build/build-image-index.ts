@@ -10,11 +10,12 @@
 //     --images src/assets/images \
 //     --frontmatter-db .frontmatter/database/mediaDb.json \
 //     --out src/content/_generated/image-index.json \
+//     --cache .cache/image-index/cache.json \
 //     --lqip-width 24 \
 //     --concurrency 4
 
 import { promises as fs } from 'node:fs';
-import { basename, extname, relative, resolve, sep } from 'node:path';
+import { basename, dirname, extname, relative, resolve, sep } from 'node:path';
 import fg from 'fast-glob';
 import sharp from 'sharp';
 
@@ -55,8 +56,22 @@ interface CliOptions {
   readonly metaJsonPath: string | null;
   readonly frontmatterDbPath: string | null;
   readonly outPath: string;
+  readonly cachePath: string | null;
   readonly lqipWidth: number;
   readonly concurrency: number;
+}
+
+interface CachedImageRecord {
+  readonly cacheKey: string;
+  readonly format: string;
+  readonly width: number;
+  readonly height: number;
+  readonly lqipDataUri: string;
+}
+
+interface ImageIndexCache {
+  readonly version: 1;
+  readonly records: Record<string, CachedImageRecord>;
 }
 
 // ---------- CLI ----------
@@ -73,10 +88,14 @@ function parseArgs(argv: readonly string[]): CliOptions {
     '.frontmatter/database/mediaDb.json',
   );
   const outPath = get('--out', 'src/content/_generated/image-index.json')!;
+  const cachePath = argv.includes('--no-cache')
+    ? null
+    : get('--cache', '.cache/image-index/cache.json');
   const lqipWidth = Number.parseInt(get('--lqip-width', '24')!, 10);
   const concurrency = Number.parseInt(get('--concurrency', '4')!, 10);
 
   return {
+    cachePath,
     concurrency,
     frontmatterDbPath,
     imagesDir,
@@ -110,6 +129,47 @@ async function statImage(
 ): Promise<{ width: number; height: number }> {
   const meta = await sharp(fileAbs).metadata();
   return { height: meta.height ?? 0, width: meta.width ?? 0 };
+}
+
+async function cacheKeyFor(fileAbs: string, lqipWidth: number): Promise<string> {
+  const stat = await fs.stat(fileAbs);
+  return [
+    stat.size,
+    Math.round(stat.mtimeMs),
+    lqipWidth,
+  ].join(':');
+}
+
+async function readImageIndexCache(
+  cachePath: string | null,
+): Promise<ImageIndexCache> {
+  if (!cachePath) return { records: {}, version: 1 };
+
+  try {
+    const raw = JSON.parse(await fs.readFile(resolve(cachePath), 'utf8'));
+    if (raw?.version !== 1 || typeof raw?.records !== 'object') {
+      return { records: {}, version: 1 };
+    }
+
+    return raw as ImageIndexCache;
+  } catch {
+    return { records: {}, version: 1 };
+  }
+}
+
+async function writeImageIndexCache(
+  cachePath: string | null,
+  cache: ImageIndexCache,
+): Promise<void> {
+  if (!cachePath) return;
+
+  const resolvedCachePath = resolve(cachePath);
+  await fs.mkdir(dirname(resolvedCachePath), { recursive: true });
+  await fs.writeFile(
+    resolvedCachePath,
+    JSON.stringify(cache, null, 2),
+    'utf8',
+  );
 }
 
 // ---------- Metadata readers ----------
@@ -164,13 +224,17 @@ async function mergeMeta(
 // ---------- Build ----------
 async function buildIndex(opts: CliOptions): Promise<GeneratedIndex> {
   const root = resolve(opts.imagesDir);
-  const files = await fg('**/*.{jpg,jpeg,png,webp,avif,svg,gif}', {
+  const files = (await fg('**/*.{jpg,jpeg,png,webp,avif,svg,gif}', {
     absolute: true,
     cwd: root,
-  });
-  const metaMap = await mergeMeta(opts.metaJsonPath, opts.frontmatterDbPath);
+  })).sort();
+  const [metaMap, imageCache] = await Promise.all([
+    mergeMeta(opts.metaJsonPath, opts.frontmatterDbPath),
+    readImageIndexCache(opts.cachePath),
+  ]);
 
   const out: Record<string, ImageRecord> = {};
+  const nextCacheRecords: Record<string, CachedImageRecord> = {};
   const queue = [...files];
   const workers: Promise<void>[] = [];
 
@@ -182,16 +246,30 @@ async function buildIndex(opts: CliOptions): Promise<GeneratedIndex> {
       const filename = basename(file);
       const id = filename.replace(/\.[^.]+$/, '');
       const ext = extname(filename).slice(1).toLowerCase();
+      const cacheKey = await cacheKeyFor(file, opts.lqipWidth);
+      const cached = imageCache.records[rel];
 
-      const { width, height } =
-        ext === 'svg' ? { height: 0, width: 0 } : await statImage(file);
-      const lqipDataUri =
-        ext === 'svg'
-          ? 'data:image/svg+xml;base64,' +
-            Buffer.from(
-              '<svg xmlns="http://www.w3.org/2000/svg"></svg>',
-            ).toString('base64')
-          : await toLqip(file, opts.lqipWidth);
+      const imageData =
+        cached?.cacheKey === cacheKey && cached.format === ext
+          ? cached
+          : {
+              cacheKey,
+              format: ext,
+              ...(ext === 'svg'
+                ? {
+                    height: 0,
+                    lqipDataUri:
+                      'data:image/svg+xml;base64,' +
+                      Buffer.from(
+                        '<svg xmlns="http://www.w3.org/2000/svg"></svg>',
+                      ).toString('base64'),
+                    width: 0,
+                  }
+                : {
+                    ...(await statImage(file)),
+                    lqipDataUri: await toLqip(file, opts.lqipWidth),
+                  }),
+            };
 
       const dirRel = rel.includes('/')
         ? rel.slice(0, rel.lastIndexOf('/'))
@@ -203,19 +281,24 @@ async function buildIndex(opts: CliOptions): Promise<GeneratedIndex> {
         derivedTags,
         dir: dirRel,
         filename,
-        format: ext,
-        height,
+        format: imageData.format,
+        height: imageData.height,
         id,
-        lqipDataUri,
+        lqipDataUri: imageData.lqipDataUri,
         relPath: asUrlStylePath(resolve(opts.imagesDir, rel)),
-        width,
+        width: imageData.width,
         ...meta,
       };
+      nextCacheRecords[rel] = imageData;
     }
   };
 
   for (let i = 0; i < opts.concurrency; i++) workers.push(worker());
   await Promise.all(workers);
+  await writeImageIndexCache(opts.cachePath, {
+    records: nextCacheRecords,
+    version: 1,
+  });
 
   return {
     createdAt: new Date().toISOString(),

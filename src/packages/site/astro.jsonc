@@ -33,10 +33,12 @@
   "scripts": {
     "astro": "astro",
     "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
+    "build:clean": "npm run clean:build-caches && npm run build",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
     "check": "astro check && npm run check:scripts",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
     "clean:astro": "wireit",
+    "clean:build-caches": "wireit",
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
     "dev": "npm run dev:watch",
@@ -52,6 +54,9 @@
   "wireit": {
     "clean:astro": {
       "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:build-caches": {
+      "command": "rm -rf .astro node_modules/.astro public/og_image .cache/og_image .cache/image-index"
     },
     "clean:og": {
       "command": "rm -rf public/og_image .cache/og_image"

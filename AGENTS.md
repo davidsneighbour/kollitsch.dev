@@ -127,7 +127,8 @@ npm run dev:site          # Astro dev server only
 npm run dev:docs          # Documentation server only (see documentation/development/documentation-server.md)
 npm run dev:open          # Open browser tabs for both servers (does not start them)
 npm run dev:watch         # Dev server with auto-restart watcher (see src/scripts/webserver.ts)
-npm run build             # astro check + astro build (requires API tokens for some hooks)
+npm run build             # cached prebuild image index + astro check + astro build
+npm run build:clean       # delete build/image caches, then run the normal build
 npm run check             # astro check only (type-check without building)
 npm run preview           # Preview production build locally
 npm test                  # Vitest unit tests (fast, no API keys needed)
@@ -218,7 +219,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 
 ### Build pipeline
 
-1. **Pre-build**: `npm run build:image-index` (`src/scripts/build/build-image-index.ts`) generates the LQIP image index.
+1. **Pre-build**: `npm run build:image-index` (`src/scripts/build/build-image-index.ts`) generates the LQIP image index. The normal build preserves `.cache/image-index/cache.json`; use `npm run build:clean` to drop this cache and other processed-image caches before rebuilding.
 2. **Astro build hooks** (`src/scripts/build/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle:
    * `generateFeedsIntegration` — FreshRSS-gated RSS feeds on `astro:build:start`.
    * `generateHeadersIntegration` — writes `dist/_headers` on `astro:build:done`. Rules are defined in `src/data/headers.ts`; `Expires` is computed as build-time + 1 year. Do not edit `dist/_headers` directly; `public/_headers` is gitignored.

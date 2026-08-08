@@ -185,10 +185,12 @@
     "postinstall:vscode": "npm run vscode:sync",
     "astro": "astro",
     "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
+    "build:clean": "npm run clean:build-caches && npm run build",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
     "check": "astro check && npm run check:scripts",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
     "clean:astro": "wireit",
+    "clean:build-caches": "wireit",
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
     "dev": "npm run dev:watch",
@@ -207,7 +209,7 @@
     "build:favicons": "node src/assets/favicon/regenerate.ts",
     "icons:sync": "node src/scripts/maintenance/create-icon-types.ts",
     "postinstall:icons": "npm run icons:sync",
-    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --lqip-width 24 --concurrency 4",
+    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
     "prebuild": "npm run build:image-index",
     "clean:netlify": "wireit",
     "deploy": "wireit",
@@ -325,6 +327,9 @@
     },
     "clean:astro": {
       "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:build-caches": {
+      "command": "rm -rf .astro node_modules/.astro public/og_image .cache/og_image .cache/image-index"
     },
     "clean:og": {
       "command": "rm -rf public/og_image .cache/og_image"

@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.24.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.23.0...v3001.24.0) (2026-08-08)
+
+### Feat
+
+* **deploy:** time deployment pipeline ([26e32cf](https://github.com/davidsneighbour/kollitsch.dev/commit/26e32cffd97c805367e29373e7546098715bd9fe)), closes [#1845](https://github.com/davidsneighbour/kollitsch.dev/issues/1845)
+
+### Fix
+
+* **deploy:** keep timed wrapper outside wireit ([d89349b](https://github.com/davidsneighbour/kollitsch.dev/commit/d89349b0e11a739e47d431a94c6b72de782282d6)), closes [#1845](https://github.com/davidsneighbour/kollitsch.dev/issues/1845)
+
 ## [3001.23.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.22.1...v3001.23.0) (2026-08-08)
 
 ### Content

@@ -1,5 +1,66 @@
 # Changelog
 
+## [3001.22.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.21.0...v3001.22.0) (2026-08-08)
+
+### Feat
+
+* **content:** port typographic replacement rules from samui-samui.de ([8f2698a](https://github.com/davidsneighbour/kollitsch/commit/8f2698a298ed5ab6efcd9b41d4e9f648a1697acd)), closes [#1771](https://github.com/davidsneighbour/kollitsch/issues/1771)
+* **content:** replace colour grid widget ([3db491f](https://github.com/davidsneighbour/kollitsch/commit/3db491f1bfbe460e5ed857d8b271391351a6afef)), closes [#1661](https://github.com/davidsneighbour/kollitsch/issues/1661)
+* **gimmicks:** add GitHub contributions component ([d83c755](https://github.com/davidsneighbour/kollitsch/commit/d83c7552d18c6a540b1020d6f29cbd58940d4fd9)), closes [#1836](https://github.com/davidsneighbour/kollitsch/issues/1836)
+* **media:** add Vimeo cover embeds ([28ead48](https://github.com/davidsneighbour/kollitsch/commit/28ead488e925d2533a34c97714428c1b3bf81b42)), closes [#1809](https://github.com/davidsneighbour/kollitsch/issues/1809)
+* **tests:** extend Playwright e2e suite with live site smoke tests ([d22b0b2](https://github.com/davidsneighbour/kollitsch/commit/d22b0b2185e008924b980d007d83e9394366c0fa)), closes [#1699](https://github.com/davidsneighbour/kollitsch/issues/1699), references [#1835](https://github.com/davidsneighbour/kollitsch/issues/1835)
+
+### Fix
+
+* **a11y:** resolve site contrast failures ([faa6c03](https://github.com/davidsneighbour/kollitsch/commit/faa6c03a82f7e2520be05c100657585d8e81b24f)), closes [#1807](https://github.com/davidsneighbour/kollitsch/issues/1807)
+* **deps:** migrate off deprecated @davidsneighbour/release-config, add missing wireit dependency ([ae45bbd](https://github.com/davidsneighbour/kollitsch/commit/ae45bbd1582716e87a1121672d5db9eadab7bf14))
+* **deps:** resolve 19 open GHSA advisories across npm dependency tree ([0b91338](https://github.com/davidsneighbour/kollitsch/commit/0b91338be4fc0a8002594cc75aaeb98999b8f34b))
+* **header:** tune reading-progress bar's catch-up lag curve ([ddfa9c7](https://github.com/davidsneighbour/kollitsch/commit/ddfa9c70fa023642f5b4f4866564057649d7c49e))
+* **nav:** tighten hover easing and fix mobile-menu reduced-motion/reflow bugs ([4abb0f1](https://github.com/davidsneighbour/kollitsch/commit/4abb0f1fe7638dc4ed460a3e4d73345dc2461c83))
+
+### Docs
+
+* **agents:** mark decorative contrast exceptions ([212448e](https://github.com/davidsneighbour/kollitsch/commit/212448e04dcfe6e3817bfe7cafc2640eaa0d131c)), closes [#1838](https://github.com/davidsneighbour/kollitsch/issues/1838)
+* **design:** preserve colophon contrast exception ([cf97037](https://github.com/davidsneighbour/kollitsch/commit/cf970374bbea1bac46b2360c9bec891c2b6c9670)), closes [#1837](https://github.com/davidsneighbour/kollitsch/issues/1837)
+
+### Style
+
+* **footer:** clip colophon in explicit frame ([1cb7818](https://github.com/davidsneighbour/kollitsch/commit/1cb7818b483f24b3fed710966c32828b9d2dd185)), closes [#1840](https://github.com/davidsneighbour/kollitsch/issues/1840)
+* **footer:** square avatar left edge ([e1d8658](https://github.com/davidsneighbour/kollitsch/commit/e1d86585ecc01872e9bcbb40a3a3ceca7753f1de)), closes [#1810](https://github.com/davidsneighbour/kollitsch/issues/1810)
+* **footer:** tuck colophon below page edge ([501ab9c](https://github.com/davidsneighbour/kollitsch/commit/501ab9ca9799f91d406f627f0edbfc033afbaa2c)), closes [#1839](https://github.com/davidsneighbour/kollitsch/issues/1839)
+* **typography:** soften headline colour endpoints ([#1811](https://github.com/davidsneighbour/kollitsch/issues/1811)) ([ccda310](https://github.com/davidsneighbour/kollitsch/commit/ccda3100d110309d0f4b1d751ff0349a23c42731))
+
+### Test
+
+* **utils:** add co-located unit tests for 12 untested utility modules ([bf39551](https://github.com/davidsneighbour/kollitsch/commit/bf39551218572b72f2898b1baae849321d489e64)), references [#1680](https://github.com/davidsneighbour/kollitsch/issues/1680) [#1680](https://github.com/davidsneighbour/kollitsch/issues/1680)
+
+### Build
+
+* **deps:** bump @hono/node-server from 1.19.15 to 2.1.0 in the npm_and_yarn group across 1 directory ([#1832](https://github.com/davidsneighbour/kollitsch/issues/1832)) ([8b4cf22](https://github.com/davidsneighbour/kollitsch/commit/8b4cf226e9f571a0e156a7ce6687778609bd67a7))
+* **deps:** udpate dependencies ([238465b](https://github.com/davidsneighbour/kollitsch/commit/238465b5b773c71d424af9d28a97efd89045017d))
+* **fix:** fix typo in command ([44309ee](https://github.com/davidsneighbour/kollitsch/commit/44309eea451a4d97b29091138483e5f838e12780))
+* **vscode:** update workspace configuration ([f7ab672](https://github.com/davidsneighbour/kollitsch/commit/f7ab672841b64c4e2105c33cf919ff92076a6adc))
+* **vscode:** update workspace configuration ([a70b827](https://github.com/davidsneighbour/kollitsch/commit/a70b827b978fe14810ce595d9d4bad20067d1d66))
+
+### Chore
+
+* **deps:** remove deprecated @davidsneighbour/remark-config and browserslist-config ([fa4bb0c](https://github.com/davidsneighbour/kollitsch/commit/fa4bb0c34fcf4fb3e35f7333ffa5e56c33857614))
+* **lighthouse:** update score history [skip ci] ([67d5426](https://github.com/davidsneighbour/kollitsch/commit/67d5426f1392b3233a8b06b70e818bc1e10528ee))
+* **lighthouse:** update score history [skip ci] ([9b62b31](https://github.com/davidsneighbour/kollitsch/commit/9b62b31e071a97a312900e0a995265da946c5c14))
+* **lighthouse:** update score history [skip ci] ([23acec6](https://github.com/davidsneighbour/kollitsch/commit/23acec60b133e86b6f0782d93388c8da488590d3))
+* **lighthouse:** update score history [skip ci] ([f66f826](https://github.com/davidsneighbour/kollitsch/commit/f66f826b8edd3fa3ac4741786e842249e2b753b1))
+* **lighthouse:** update score history [skip ci] ([cf61fde](https://github.com/davidsneighbour/kollitsch/commit/cf61fdee04d700c0a2a304840ec63d5e696cf032))
+* **lighthouse:** update score history [skip ci] ([4700662](https://github.com/davidsneighbour/kollitsch/commit/47006628d44d8034d8044ab88a6919275be823ea))
+* **lighthouse:** update score history [skip ci] ([ea96226](https://github.com/davidsneighbour/kollitsch/commit/ea962265e6e564fd1b2cea7089efc957360375e7))
+* **lighthouse:** update score history [skip ci] ([cab2d8c](https://github.com/davidsneighbour/kollitsch/commit/cab2d8c543c01ab5720286769758e3541e2f08f1))
+* **lighthouse:** update score history [skip ci] ([d032395](https://github.com/davidsneighbour/kollitsch/commit/d032395fa6282f0fc3e72cc2f786a5036e26a4ed))
+* **lighthouse:** update score history [skip ci] ([9b7f702](https://github.com/davidsneighbour/kollitsch/commit/9b7f702cce6392f5a53458aed88567f661475389))
+* **lighthouse:** update score history [skip ci] ([77c84b8](https://github.com/davidsneighbour/kollitsch/commit/77c84b898693eca4dd42bd9ec0d54113be9aec9b))
+* **packages:** sync package fragments ([c02b4de](https://github.com/davidsneighbour/kollitsch/commit/c02b4dee6c17f4c19a619f9c1ec8a3e1e8c3dea5)), closes [#1833](https://github.com/davidsneighbour/kollitsch/issues/1833)
+* **plans:** stop tracking plans/ as a scratch pad ([f751692](https://github.com/davidsneighbour/kollitsch/commit/f7516923afddf4997996255c4750669b4a05f84c))
+* **skills:** update skills-lock.json for updated skill sources ([a1a8760](https://github.com/davidsneighbour/kollitsch/commit/a1a8760cdc28f2a13963a3ea0d5ab26fd577ed17))
+* update screenshot ([7724e37](https://github.com/davidsneighbour/kollitsch/commit/7724e378740d5d6b1a76983dc2905ff257aaa6ed))
+
 ## [3001.21.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.20.0...v3001.21.0) (2026-07-28)
 
 ### Feat

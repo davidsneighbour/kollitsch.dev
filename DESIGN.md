@@ -402,7 +402,10 @@ and carry `data-dnb-design-exception="decorative-low-contrast"`. It must stay
 visually low contrast: `text-olive-100 hover:text-olive-200` in light mode,
 `dark:text-olive-900 dark:hover:text-olive-800` in dark mode. This is an
 intentional exception to the site's general text contrast rule, so assistants
-must not replace it with accessible text colours.
+must not replace it with accessible text colours. The outer wrapper clips
+overflow, while the word itself is translated down with `translate-y-16` so it
+appears tucked below the scrollable page edge rather than sitting fully visible
+inside the document flow.
 
 ## Do's and Don'ts
 

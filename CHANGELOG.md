@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.22.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.22.0...v3001.22.1) (2026-08-08)
+
+### Fix
+
+* **gimmicks:** remove GitHub contributions component ([3809003](https://github.com/davidsneighbour/kollitsch/commit/3809003077e8c5a4b90be7662fadb26296252627)), closes [#1841](https://github.com/davidsneighbour/kollitsch/issues/1841)
+
 ## [3001.22.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.21.0...v3001.22.0) (2026-08-08)
 
 ### Feat

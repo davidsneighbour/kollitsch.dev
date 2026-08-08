@@ -1,8 +1,8 @@
 {
   "devDependencies": {
-    "@davidsneighbour/release-config": "2026.0.6",
     "fast-glob": "3.3.3",
-    "fixpack": "4.0.0"
+    "fixpack": "4.0.0",
+    "wireit": "0.14.13"
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",

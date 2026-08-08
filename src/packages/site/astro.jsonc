@@ -19,7 +19,7 @@
     "astro-icon": "1.1.5",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",
-    "js-yaml": "4.2.0",
+    "js-yaml": "4.3.1",
     "remark-definition-list": "2.0.0",
     "remark-kbd-nested": "0.6.1",
     "tailwindcss": "4.3.3",
@@ -55,6 +55,11 @@
     },
     "clean:og": {
       "command": "rm -rf public/og_image .cache/og_image"
+    }
+  },
+  "overrides": {
+    "gray-matter": {
+      "js-yaml": "3.15.1"
     }
   }
 }

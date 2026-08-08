@@ -138,7 +138,7 @@
     "chrome-devtools-mcp": "1.6.0",
     "mcp-remote": "0.1.38",
     "browserslist": "4.28.7",
-    "@davidsneighbour/release-config": "2026.0.6",
+    "wireit": "0.14.13",
     "@humanwhocodes/crosspost": "1.0.4",
     "@total-typescript/ts-reset": "0.6.1",
     "typescript": "6.0.3"
@@ -391,13 +391,13 @@
     "markdownlint-cli2": {
       "js-yaml": "4.3.1"
     },
-    "gray-matter": {
-      "js-yaml": "3.15.1"
-    },
     "markdownlint-rule-title-case-style": {
       "markdownlint": {
         "markdown-it": "14.2.0"
       }
+    },
+    "gray-matter": {
+      "js-yaml": "3.15.1"
     },
     "brace-expansion": "5.0.9"
   },

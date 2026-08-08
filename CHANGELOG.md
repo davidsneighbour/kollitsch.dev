@@ -1,71 +1,71 @@
 # Changelog
 
-## [3001.22.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.22.0...v3001.22.1) (2026-08-08)
+## [3001.22.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.22.0...v3001.22.1) (2026-08-08)
 
 ### Fix
 
-* **gimmicks:** remove GitHub contributions component ([3809003](https://github.com/davidsneighbour/kollitsch/commit/3809003077e8c5a4b90be7662fadb26296252627)), closes [#1841](https://github.com/davidsneighbour/kollitsch/issues/1841)
+* **gimmicks:** remove GitHub contributions component ([3809003](https://github.com/davidsneighbour/kollitsch.dev/commit/3809003077e8c5a4b90be7662fadb26296252627)), closes [#1841](https://github.com/davidsneighbour/kollitsch.dev/issues/1841)
 
-## [3001.22.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.21.0...v3001.22.0) (2026-08-08)
+## [3001.22.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.21.0...v3001.22.0) (2026-08-08)
 
 ### Feat
 
-* **content:** port typographic replacement rules from samui-samui.de ([8f2698a](https://github.com/davidsneighbour/kollitsch/commit/8f2698a298ed5ab6efcd9b41d4e9f648a1697acd)), closes [#1771](https://github.com/davidsneighbour/kollitsch/issues/1771)
-* **content:** replace colour grid widget ([3db491f](https://github.com/davidsneighbour/kollitsch/commit/3db491f1bfbe460e5ed857d8b271391351a6afef)), closes [#1661](https://github.com/davidsneighbour/kollitsch/issues/1661)
-* **gimmicks:** add GitHub contributions component ([d83c755](https://github.com/davidsneighbour/kollitsch/commit/d83c7552d18c6a540b1020d6f29cbd58940d4fd9)), closes [#1836](https://github.com/davidsneighbour/kollitsch/issues/1836)
-* **media:** add Vimeo cover embeds ([28ead48](https://github.com/davidsneighbour/kollitsch/commit/28ead488e925d2533a34c97714428c1b3bf81b42)), closes [#1809](https://github.com/davidsneighbour/kollitsch/issues/1809)
-* **tests:** extend Playwright e2e suite with live site smoke tests ([d22b0b2](https://github.com/davidsneighbour/kollitsch/commit/d22b0b2185e008924b980d007d83e9394366c0fa)), closes [#1699](https://github.com/davidsneighbour/kollitsch/issues/1699), references [#1835](https://github.com/davidsneighbour/kollitsch/issues/1835)
+* **content:** port typographic replacement rules from samui-samui.de ([8f2698a](https://github.com/davidsneighbour/kollitsch.dev/commit/8f2698a298ed5ab6efcd9b41d4e9f648a1697acd)), closes [#1771](https://github.com/davidsneighbour/kollitsch.dev/issues/1771)
+* **content:** replace colour grid widget ([3db491f](https://github.com/davidsneighbour/kollitsch.dev/commit/3db491f1bfbe460e5ed857d8b271391351a6afef)), closes [#1661](https://github.com/davidsneighbour/kollitsch.dev/issues/1661)
+* **gimmicks:** add GitHub contributions component ([d83c755](https://github.com/davidsneighbour/kollitsch.dev/commit/d83c7552d18c6a540b1020d6f29cbd58940d4fd9)), closes [#1836](https://github.com/davidsneighbour/kollitsch.dev/issues/1836)
+* **media:** add Vimeo cover embeds ([28ead48](https://github.com/davidsneighbour/kollitsch.dev/commit/28ead488e925d2533a34c97714428c1b3bf81b42)), closes [#1809](https://github.com/davidsneighbour/kollitsch.dev/issues/1809)
+* **tests:** extend Playwright e2e suite with live site smoke tests ([d22b0b2](https://github.com/davidsneighbour/kollitsch.dev/commit/d22b0b2185e008924b980d007d83e9394366c0fa)), closes [#1699](https://github.com/davidsneighbour/kollitsch.dev/issues/1699), references [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835)
 
 ### Fix
 
-* **a11y:** resolve site contrast failures ([faa6c03](https://github.com/davidsneighbour/kollitsch/commit/faa6c03a82f7e2520be05c100657585d8e81b24f)), closes [#1807](https://github.com/davidsneighbour/kollitsch/issues/1807)
-* **deps:** migrate off deprecated @davidsneighbour/release-config, add missing wireit dependency ([ae45bbd](https://github.com/davidsneighbour/kollitsch/commit/ae45bbd1582716e87a1121672d5db9eadab7bf14))
-* **deps:** resolve 19 open GHSA advisories across npm dependency tree ([0b91338](https://github.com/davidsneighbour/kollitsch/commit/0b91338be4fc0a8002594cc75aaeb98999b8f34b))
-* **header:** tune reading-progress bar's catch-up lag curve ([ddfa9c7](https://github.com/davidsneighbour/kollitsch/commit/ddfa9c70fa023642f5b4f4866564057649d7c49e))
-* **nav:** tighten hover easing and fix mobile-menu reduced-motion/reflow bugs ([4abb0f1](https://github.com/davidsneighbour/kollitsch/commit/4abb0f1fe7638dc4ed460a3e4d73345dc2461c83))
+* **a11y:** resolve site contrast failures ([faa6c03](https://github.com/davidsneighbour/kollitsch.dev/commit/faa6c03a82f7e2520be05c100657585d8e81b24f)), closes [#1807](https://github.com/davidsneighbour/kollitsch.dev/issues/1807)
+* **deps:** migrate off deprecated @davidsneighbour/release-config, add missing wireit dependency ([ae45bbd](https://github.com/davidsneighbour/kollitsch.dev/commit/ae45bbd1582716e87a1121672d5db9eadab7bf14))
+* **deps:** resolve 19 open GHSA advisories across npm dependency tree ([0b91338](https://github.com/davidsneighbour/kollitsch.dev/commit/0b91338be4fc0a8002594cc75aaeb98999b8f34b))
+* **header:** tune reading-progress bar's catch-up lag curve ([ddfa9c7](https://github.com/davidsneighbour/kollitsch.dev/commit/ddfa9c70fa023642f5b4f4866564057649d7c49e))
+* **nav:** tighten hover easing and fix mobile-menu reduced-motion/reflow bugs ([4abb0f1](https://github.com/davidsneighbour/kollitsch.dev/commit/4abb0f1fe7638dc4ed460a3e4d73345dc2461c83))
 
 ### Docs
 
-* **agents:** mark decorative contrast exceptions ([212448e](https://github.com/davidsneighbour/kollitsch/commit/212448e04dcfe6e3817bfe7cafc2640eaa0d131c)), closes [#1838](https://github.com/davidsneighbour/kollitsch/issues/1838)
-* **design:** preserve colophon contrast exception ([cf97037](https://github.com/davidsneighbour/kollitsch/commit/cf970374bbea1bac46b2360c9bec891c2b6c9670)), closes [#1837](https://github.com/davidsneighbour/kollitsch/issues/1837)
+* **agents:** mark decorative contrast exceptions ([212448e](https://github.com/davidsneighbour/kollitsch.dev/commit/212448e04dcfe6e3817bfe7cafc2640eaa0d131c)), closes [#1838](https://github.com/davidsneighbour/kollitsch.dev/issues/1838)
+* **design:** preserve colophon contrast exception ([cf97037](https://github.com/davidsneighbour/kollitsch.dev/commit/cf970374bbea1bac46b2360c9bec891c2b6c9670)), closes [#1837](https://github.com/davidsneighbour/kollitsch.dev/issues/1837)
 
 ### Style
 
-* **footer:** clip colophon in explicit frame ([1cb7818](https://github.com/davidsneighbour/kollitsch/commit/1cb7818b483f24b3fed710966c32828b9d2dd185)), closes [#1840](https://github.com/davidsneighbour/kollitsch/issues/1840)
-* **footer:** square avatar left edge ([e1d8658](https://github.com/davidsneighbour/kollitsch/commit/e1d86585ecc01872e9bcbb40a3a3ceca7753f1de)), closes [#1810](https://github.com/davidsneighbour/kollitsch/issues/1810)
-* **footer:** tuck colophon below page edge ([501ab9c](https://github.com/davidsneighbour/kollitsch/commit/501ab9ca9799f91d406f627f0edbfc033afbaa2c)), closes [#1839](https://github.com/davidsneighbour/kollitsch/issues/1839)
-* **typography:** soften headline colour endpoints ([#1811](https://github.com/davidsneighbour/kollitsch/issues/1811)) ([ccda310](https://github.com/davidsneighbour/kollitsch/commit/ccda3100d110309d0f4b1d751ff0349a23c42731))
+* **footer:** clip colophon in explicit frame ([1cb7818](https://github.com/davidsneighbour/kollitsch.dev/commit/1cb7818b483f24b3fed710966c32828b9d2dd185)), closes [#1840](https://github.com/davidsneighbour/kollitsch.dev/issues/1840)
+* **footer:** square avatar left edge ([e1d8658](https://github.com/davidsneighbour/kollitsch.dev/commit/e1d86585ecc01872e9bcbb40a3a3ceca7753f1de)), closes [#1810](https://github.com/davidsneighbour/kollitsch.dev/issues/1810)
+* **footer:** tuck colophon below page edge ([501ab9c](https://github.com/davidsneighbour/kollitsch.dev/commit/501ab9ca9799f91d406f627f0edbfc033afbaa2c)), closes [#1839](https://github.com/davidsneighbour/kollitsch.dev/issues/1839)
+* **typography:** soften headline colour endpoints ([#1811](https://github.com/davidsneighbour/kollitsch.dev/issues/1811)) ([ccda310](https://github.com/davidsneighbour/kollitsch.dev/commit/ccda3100d110309d0f4b1d751ff0349a23c42731))
 
 ### Test
 
-* **utils:** add co-located unit tests for 12 untested utility modules ([bf39551](https://github.com/davidsneighbour/kollitsch/commit/bf39551218572b72f2898b1baae849321d489e64)), references [#1680](https://github.com/davidsneighbour/kollitsch/issues/1680) [#1680](https://github.com/davidsneighbour/kollitsch/issues/1680)
+* **utils:** add co-located unit tests for 12 untested utility modules ([bf39551](https://github.com/davidsneighbour/kollitsch.dev/commit/bf39551218572b72f2898b1baae849321d489e64)), references [#1680](https://github.com/davidsneighbour/kollitsch.dev/issues/1680) [#1680](https://github.com/davidsneighbour/kollitsch.dev/issues/1680)
 
 ### Build
 
-* **deps:** bump @hono/node-server from 1.19.15 to 2.1.0 in the npm_and_yarn group across 1 directory ([#1832](https://github.com/davidsneighbour/kollitsch/issues/1832)) ([8b4cf22](https://github.com/davidsneighbour/kollitsch/commit/8b4cf226e9f571a0e156a7ce6687778609bd67a7))
-* **deps:** udpate dependencies ([238465b](https://github.com/davidsneighbour/kollitsch/commit/238465b5b773c71d424af9d28a97efd89045017d))
-* **fix:** fix typo in command ([44309ee](https://github.com/davidsneighbour/kollitsch/commit/44309eea451a4d97b29091138483e5f838e12780))
-* **vscode:** update workspace configuration ([f7ab672](https://github.com/davidsneighbour/kollitsch/commit/f7ab672841b64c4e2105c33cf919ff92076a6adc))
-* **vscode:** update workspace configuration ([a70b827](https://github.com/davidsneighbour/kollitsch/commit/a70b827b978fe14810ce595d9d4bad20067d1d66))
+* **deps:** bump @hono/node-server from 1.19.15 to 2.1.0 in the npm_and_yarn group across 1 directory ([#1832](https://github.com/davidsneighbour/kollitsch.dev/issues/1832)) ([8b4cf22](https://github.com/davidsneighbour/kollitsch.dev/commit/8b4cf226e9f571a0e156a7ce6687778609bd67a7))
+* **deps:** udpate dependencies ([238465b](https://github.com/davidsneighbour/kollitsch.dev/commit/238465b5b773c71d424af9d28a97efd89045017d))
+* **fix:** fix typo in command ([44309ee](https://github.com/davidsneighbour/kollitsch.dev/commit/44309eea451a4d97b29091138483e5f838e12780))
+* **vscode:** update workspace configuration ([f7ab672](https://github.com/davidsneighbour/kollitsch.dev/commit/f7ab672841b64c4e2105c33cf919ff92076a6adc))
+* **vscode:** update workspace configuration ([a70b827](https://github.com/davidsneighbour/kollitsch.dev/commit/a70b827b978fe14810ce595d9d4bad20067d1d66))
 
 ### Chore
 
-* **deps:** remove deprecated @davidsneighbour/remark-config and browserslist-config ([fa4bb0c](https://github.com/davidsneighbour/kollitsch/commit/fa4bb0c34fcf4fb3e35f7333ffa5e56c33857614))
-* **lighthouse:** update score history [skip ci] ([67d5426](https://github.com/davidsneighbour/kollitsch/commit/67d5426f1392b3233a8b06b70e818bc1e10528ee))
-* **lighthouse:** update score history [skip ci] ([9b62b31](https://github.com/davidsneighbour/kollitsch/commit/9b62b31e071a97a312900e0a995265da946c5c14))
-* **lighthouse:** update score history [skip ci] ([23acec6](https://github.com/davidsneighbour/kollitsch/commit/23acec60b133e86b6f0782d93388c8da488590d3))
-* **lighthouse:** update score history [skip ci] ([f66f826](https://github.com/davidsneighbour/kollitsch/commit/f66f826b8edd3fa3ac4741786e842249e2b753b1))
-* **lighthouse:** update score history [skip ci] ([cf61fde](https://github.com/davidsneighbour/kollitsch/commit/cf61fdee04d700c0a2a304840ec63d5e696cf032))
-* **lighthouse:** update score history [skip ci] ([4700662](https://github.com/davidsneighbour/kollitsch/commit/47006628d44d8034d8044ab88a6919275be823ea))
-* **lighthouse:** update score history [skip ci] ([ea96226](https://github.com/davidsneighbour/kollitsch/commit/ea962265e6e564fd1b2cea7089efc957360375e7))
-* **lighthouse:** update score history [skip ci] ([cab2d8c](https://github.com/davidsneighbour/kollitsch/commit/cab2d8c543c01ab5720286769758e3541e2f08f1))
-* **lighthouse:** update score history [skip ci] ([d032395](https://github.com/davidsneighbour/kollitsch/commit/d032395fa6282f0fc3e72cc2f786a5036e26a4ed))
-* **lighthouse:** update score history [skip ci] ([9b7f702](https://github.com/davidsneighbour/kollitsch/commit/9b7f702cce6392f5a53458aed88567f661475389))
-* **lighthouse:** update score history [skip ci] ([77c84b8](https://github.com/davidsneighbour/kollitsch/commit/77c84b898693eca4dd42bd9ec0d54113be9aec9b))
-* **packages:** sync package fragments ([c02b4de](https://github.com/davidsneighbour/kollitsch/commit/c02b4dee6c17f4c19a619f9c1ec8a3e1e8c3dea5)), closes [#1833](https://github.com/davidsneighbour/kollitsch/issues/1833)
-* **plans:** stop tracking plans/ as a scratch pad ([f751692](https://github.com/davidsneighbour/kollitsch/commit/f7516923afddf4997996255c4750669b4a05f84c))
-* **skills:** update skills-lock.json for updated skill sources ([a1a8760](https://github.com/davidsneighbour/kollitsch/commit/a1a8760cdc28f2a13963a3ea0d5ab26fd577ed17))
-* update screenshot ([7724e37](https://github.com/davidsneighbour/kollitsch/commit/7724e378740d5d6b1a76983dc2905ff257aaa6ed))
+* **deps:** remove deprecated @davidsneighbour/remark-config and browserslist-config ([fa4bb0c](https://github.com/davidsneighbour/kollitsch.dev/commit/fa4bb0c34fcf4fb3e35f7333ffa5e56c33857614))
+* **lighthouse:** update score history [skip ci] ([67d5426](https://github.com/davidsneighbour/kollitsch.dev/commit/67d5426f1392b3233a8b06b70e818bc1e10528ee))
+* **lighthouse:** update score history [skip ci] ([9b62b31](https://github.com/davidsneighbour/kollitsch.dev/commit/9b62b31e071a97a312900e0a995265da946c5c14))
+* **lighthouse:** update score history [skip ci] ([23acec6](https://github.com/davidsneighbour/kollitsch.dev/commit/23acec60b133e86b6f0782d93388c8da488590d3))
+* **lighthouse:** update score history [skip ci] ([f66f826](https://github.com/davidsneighbour/kollitsch.dev/commit/f66f826b8edd3fa3ac4741786e842249e2b753b1))
+* **lighthouse:** update score history [skip ci] ([cf61fde](https://github.com/davidsneighbour/kollitsch.dev/commit/cf61fdee04d700c0a2a304840ec63d5e696cf032))
+* **lighthouse:** update score history [skip ci] ([4700662](https://github.com/davidsneighbour/kollitsch.dev/commit/47006628d44d8034d8044ab88a6919275be823ea))
+* **lighthouse:** update score history [skip ci] ([ea96226](https://github.com/davidsneighbour/kollitsch.dev/commit/ea962265e6e564fd1b2cea7089efc957360375e7))
+* **lighthouse:** update score history [skip ci] ([cab2d8c](https://github.com/davidsneighbour/kollitsch.dev/commit/cab2d8c543c01ab5720286769758e3541e2f08f1))
+* **lighthouse:** update score history [skip ci] ([d032395](https://github.com/davidsneighbour/kollitsch.dev/commit/d032395fa6282f0fc3e72cc2f786a5036e26a4ed))
+* **lighthouse:** update score history [skip ci] ([9b7f702](https://github.com/davidsneighbour/kollitsch.dev/commit/9b7f702cce6392f5a53458aed88567f661475389))
+* **lighthouse:** update score history [skip ci] ([77c84b8](https://github.com/davidsneighbour/kollitsch.dev/commit/77c84b898693eca4dd42bd9ec0d54113be9aec9b))
+* **packages:** sync package fragments ([c02b4de](https://github.com/davidsneighbour/kollitsch.dev/commit/c02b4dee6c17f4c19a619f9c1ec8a3e1e8c3dea5)), closes [#1833](https://github.com/davidsneighbour/kollitsch.dev/issues/1833)
+* **plans:** stop tracking plans/ as a scratch pad ([f751692](https://github.com/davidsneighbour/kollitsch.dev/commit/f7516923afddf4997996255c4750669b4a05f84c))
+* **skills:** update skills-lock.json for updated skill sources ([a1a8760](https://github.com/davidsneighbour/kollitsch.dev/commit/a1a8760cdc28f2a13963a3ea0d5ab26fd577ed17))
+* update screenshot ([7724e37](https://github.com/davidsneighbour/kollitsch.dev/commit/7724e378740d5d6b1a76983dc2905ff257aaa6ed))
 
 ## [3001.21.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.20.0...v3001.21.0) (2026-07-28)
 
@@ -188,243 +188,243 @@
 * **headers:** remove stale CloudFront hints ([15ae5aa](https://github.com/davidsneighbour/kollitsch.dev/commit/15ae5aaae93cd3eb3ed3f3e8736423708f7b979c)), closes [#1791](https://github.com/davidsneighbour/kollitsch.dev/issues/1791)
 * **lighthouse:** update score history [skip ci] ([f17209a](https://github.com/davidsneighbour/kollitsch.dev/commit/f17209a6372624cce3669a506560b982cc8e83da))
 
-## [3001.17.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.16.1...v3001.17.0) (2026-07-28)
+## [3001.17.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.16.1...v3001.17.0) (2026-07-28)
 
 ### Feat
 
-* **llms:** expose Markdown post alternates ([c1d2cea](https://github.com/davidsneighbour/kollitsch/commit/c1d2ceafb72d2730fdfab7d8f12d7d7c4dccef3f)), closes [#1789](https://github.com/davidsneighbour/kollitsch/issues/1789)
+* **llms:** expose Markdown post alternates ([c1d2cea](https://github.com/davidsneighbour/kollitsch.dev/commit/c1d2ceafb72d2730fdfab7d8f12d7d7c4dccef3f)), closes [#1789](https://github.com/davidsneighbour/kollitsch.dev/issues/1789)
 
 ### Chore
 
-* **skills:** record llm visibility skill ([9bcb826](https://github.com/davidsneighbour/kollitsch/commit/9bcb826c60b067574c76c32dec70bad177babdbe)), closes [#1790](https://github.com/davidsneighbour/kollitsch/issues/1790)
+* **skills:** record llm visibility skill ([9bcb826](https://github.com/davidsneighbour/kollitsch.dev/commit/9bcb826c60b067574c76c32dec70bad177babdbe)), closes [#1790](https://github.com/davidsneighbour/kollitsch.dev/issues/1790)
 
-## [3001.16.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.16.0...v3001.16.1) (2026-07-27)
+## [3001.16.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.16.0...v3001.16.1) (2026-07-27)
 
 ### Ci
 
-* **markdownlint:** allow per-post list marker style ([506f628](https://github.com/davidsneighbour/kollitsch/commit/506f628fe9c759d2dfab8360f2b4834f04c199b7)), references [#1687](https://github.com/davidsneighbour/kollitsch/issues/1687)
+* **markdownlint:** allow per-post list marker style ([506f628](https://github.com/davidsneighbour/kollitsch.dev/commit/506f628fe9c759d2dfab8360f2b4834f04c199b7)), references [#1687](https://github.com/davidsneighbour/kollitsch.dev/issues/1687)
 
-## [3001.16.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.15.0...v3001.16.0) (2026-07-27)
+## [3001.16.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.15.0...v3001.16.0) (2026-07-27)
 
 ### Feat
 
-* **content:** support Markdown definition lists (dl/dt/dd) ([84aedcb](https://github.com/davidsneighbour/kollitsch/commit/84aedcb1e90fb63d00e285258da4aa7d071b993d)), closes [#1770](https://github.com/davidsneighbour/kollitsch/issues/1770)
-* **skills:** add kdev-kurzschnitte skill for link-collection posts ([3d284ba](https://github.com/davidsneighbour/kollitsch/commit/3d284bace2835d6995ad610605abb5d5c09edefb))
-* **social:** replace Mastodon web component with reusable share-intent link ([9aa365d](https://github.com/davidsneighbour/kollitsch/commit/9aa365d9b6e0ae91fe1241372e19967c32904007)), closes [#1779](https://github.com/davidsneighbour/kollitsch/issues/1779)
-* **theme:** switch dark background to olive-950 and detach dependent surfaces ([82271da](https://github.com/davidsneighbour/kollitsch/commit/82271da773db1c9da9aee9f59ca623132abce206))
-* **theme:** use Tailwind's real olive scale for light/dark backgrounds, themed form fields ([90260c2](https://github.com/davidsneighbour/kollitsch/commit/90260c2fbfdd303eee0d536eb06c2e3582c20a05))
+* **content:** support Markdown definition lists (dl/dt/dd) ([84aedcb](https://github.com/davidsneighbour/kollitsch.dev/commit/84aedcb1e90fb63d00e285258da4aa7d071b993d)), closes [#1770](https://github.com/davidsneighbour/kollitsch.dev/issues/1770)
+* **skills:** add kdev-kurzschnitte skill for link-collection posts ([3d284ba](https://github.com/davidsneighbour/kollitsch.dev/commit/3d284bace2835d6995ad610605abb5d5c09edefb))
+* **social:** replace Mastodon web component with reusable share-intent link ([9aa365d](https://github.com/davidsneighbour/kollitsch.dev/commit/9aa365d9b6e0ae91fe1241372e19967c32904007)), closes [#1779](https://github.com/davidsneighbour/kollitsch.dev/issues/1779)
+* **theme:** switch dark background to olive-950 and detach dependent surfaces ([82271da](https://github.com/davidsneighbour/kollitsch.dev/commit/82271da773db1c9da9aee9f59ca623132abce206))
+* **theme:** use Tailwind's real olive scale for light/dark backgrounds, themed form fields ([90260c2](https://github.com/davidsneighbour/kollitsch.dev/commit/90260c2fbfdd303eee0d536eb06c2e3582c20a05))
 
 ### Content
 
-* **blog:** add Git ignore-rule diagnostic post ([#1786](https://github.com/davidsneighbour/kollitsch/issues/1786)) ([1885ba9](https://github.com/davidsneighbour/kollitsch/commit/1885ba94c591fbc0dafae7afaf772676d6dda8b8))
-* **blog:** tag Git ignore note as TIL ([#1786](https://github.com/davidsneighbour/kollitsch/issues/1786)) ([5543faa](https://github.com/davidsneighbour/kollitsch/commit/5543faa51a7e234f83a8a23a09a21d4c122e523f))
-* **fix:** formatting and typos ([82adccc](https://github.com/davidsneighbour/kollitsch/commit/82adccc58f82b85214bbfd7062abdab7595e4e7f))
-* **fix:** various content updates ([981dfd2](https://github.com/davidsneighbour/kollitsch/commit/981dfd2e8503f02143d91cceae7c231f02816ff7))
+* **blog:** add Git ignore-rule diagnostic post ([#1786](https://github.com/davidsneighbour/kollitsch.dev/issues/1786)) ([1885ba9](https://github.com/davidsneighbour/kollitsch.dev/commit/1885ba94c591fbc0dafae7afaf772676d6dda8b8))
+* **blog:** tag Git ignore note as TIL ([#1786](https://github.com/davidsneighbour/kollitsch.dev/issues/1786)) ([5543faa](https://github.com/davidsneighbour/kollitsch.dev/commit/5543faa51a7e234f83a8a23a09a21d4c122e523f))
+* **fix:** formatting and typos ([82adccc](https://github.com/davidsneighbour/kollitsch.dev/commit/82adccc58f82b85214bbfd7062abdab7595e4e7f))
+* **fix:** various content updates ([981dfd2](https://github.com/davidsneighbour/kollitsch.dev/commit/981dfd2e8503f02143d91cceae7c231f02816ff7))
 
 ### Fix
 
-* **docs-server:** stop listing the root index page twice in the sidebar ([80002ee](https://github.com/davidsneighbour/kollitsch/commit/80002eec387f870a6a36607a46e94d7ca162e4c0))
-* **header:** change site-title hover colour from orange to red ([154e8ef](https://github.com/davidsneighbour/kollitsch/commit/154e8efe9dae01f0ee13d3fa0cfc86120fdc23da))
-* **header:** equalize sticky header tint across themes via shared variable ([4bab780](https://github.com/davidsneighbour/kollitsch/commit/4bab780710bcc1417fdaa35c1d348e5afe87a392))
-* **nav:** enlarge header navigation icons at and below md breakpoint ([252fa83](https://github.com/davidsneighbour/kollitsch/commit/252fa83f9f49ec02a59a93806032c1b64309d0fc)), closes [#1778](https://github.com/davidsneighbour/kollitsch/issues/1778)
-* **nav:** use theme tokens for dropdown colors instead of undefined zinc scale ([0081250](https://github.com/davidsneighbour/kollitsch/commit/0081250bf83a9bc6cf08d7c8335d98e299802935))
-* **typography:** make prose heading/link colors red instead of black/white ([d5a8630](https://github.com/davidsneighbour/kollitsch/commit/d5a86307c135a0e6b490512afe524c4ccd9bb40a))
+* **docs-server:** stop listing the root index page twice in the sidebar ([80002ee](https://github.com/davidsneighbour/kollitsch.dev/commit/80002eec387f870a6a36607a46e94d7ca162e4c0))
+* **header:** change site-title hover colour from orange to red ([154e8ef](https://github.com/davidsneighbour/kollitsch.dev/commit/154e8efe9dae01f0ee13d3fa0cfc86120fdc23da))
+* **header:** equalize sticky header tint across themes via shared variable ([4bab780](https://github.com/davidsneighbour/kollitsch.dev/commit/4bab780710bcc1417fdaa35c1d348e5afe87a392))
+* **nav:** enlarge header navigation icons at and below md breakpoint ([252fa83](https://github.com/davidsneighbour/kollitsch.dev/commit/252fa83f9f49ec02a59a93806032c1b64309d0fc)), closes [#1778](https://github.com/davidsneighbour/kollitsch.dev/issues/1778)
+* **nav:** use theme tokens for dropdown colors instead of undefined zinc scale ([0081250](https://github.com/davidsneighbour/kollitsch.dev/commit/0081250bf83a9bc6cf08d7c8335d98e299802935))
+* **typography:** make prose heading/link colors red instead of black/white ([d5a8630](https://github.com/davidsneighbour/kollitsch.dev/commit/d5a86307c135a0e6b490512afe524c4ccd9bb40a))
 
 ### Refactor
 
-* **header:** extract theme selector into its own component ([a7cb277](https://github.com/davidsneighbour/kollitsch/commit/a7cb2771f7b61692f8a4e3212af37fb802ab10b5))
-* **utils:** replace [@ts-ignore](https://github.com/ts-ignore) with type-safe alternatives ([57d891b](https://github.com/davidsneighbour/kollitsch/commit/57d891bf2f1417f363860793cf3660cfead16e8b)), closes [#1678](https://github.com/davidsneighbour/kollitsch/issues/1678)
+* **header:** extract theme selector into its own component ([a7cb277](https://github.com/davidsneighbour/kollitsch.dev/commit/a7cb2771f7b61692f8a4e3212af37fb802ab10b5))
+* **utils:** replace [@ts-ignore](https://github.com/ts-ignore) with type-safe alternatives ([57d891b](https://github.com/davidsneighbour/kollitsch.dev/commit/57d891bf2f1417f363860793cf3660cfead16e8b)), closes [#1678](https://github.com/davidsneighbour/kollitsch.dev/issues/1678)
 
 ### Docs
 
-* **agents:** forbid merge commits, require rebase/squash on main ([8ba9450](https://github.com/davidsneighbour/kollitsch/commit/8ba9450209ef4193a9538301bd91ac59c2bd18d6)), closes [#1785](https://github.com/davidsneighbour/kollitsch/issues/1785)
-* **ai:** update DESIGN.md to latest changes ([8436ebf](https://github.com/davidsneighbour/kollitsch/commit/8436ebfef0bed3e8894baf175d9968e062da342b))
-* **components:** document all remaining src/components ([52b8607](https://github.com/davidsneighbour/kollitsch/commit/52b860732967ed47ea85953d0b616bda06e8d07e))
-* **components:** document layout components and nest sidebar by folder ([b4e03ae](https://github.com/davidsneighbour/kollitsch/commit/b4e03aeb1290ff2f4a83e1edf07753487da0c099))
-* **components:** drop stale reference to deleted TagList duplicate ([4965be3](https://github.com/davidsneighbour/kollitsch/commit/4965be36ea3b046e85ec63f2e3f0754fb4e49c11))
+* **agents:** forbid merge commits, require rebase/squash on main ([8ba9450](https://github.com/davidsneighbour/kollitsch.dev/commit/8ba9450209ef4193a9538301bd91ac59c2bd18d6)), closes [#1785](https://github.com/davidsneighbour/kollitsch.dev/issues/1785)
+* **ai:** update DESIGN.md to latest changes ([8436ebf](https://github.com/davidsneighbour/kollitsch.dev/commit/8436ebfef0bed3e8894baf175d9968e062da342b))
+* **components:** document all remaining src/components ([52b8607](https://github.com/davidsneighbour/kollitsch.dev/commit/52b860732967ed47ea85953d0b616bda06e8d07e))
+* **components:** document layout components and nest sidebar by folder ([b4e03ae](https://github.com/davidsneighbour/kollitsch.dev/commit/b4e03aeb1290ff2f4a83e1edf07753487da0c099))
+* **components:** drop stale reference to deleted TagList duplicate ([4965be3](https://github.com/davidsneighbour/kollitsch.dev/commit/4965be36ea3b046e85ec63f2e3f0754fb4e49c11))
 
 ### Test
 
-* **components:** remove stale SiteTitle props test ([d0982e7](https://github.com/davidsneighbour/kollitsch/commit/d0982e7db9e2d3fa587c76da7a1bdf2fee49fde5)), closes [#1787](https://github.com/davidsneighbour/kollitsch/issues/1787)
+* **components:** remove stale SiteTitle props test ([d0982e7](https://github.com/davidsneighbour/kollitsch.dev/commit/d0982e7db9e2d3fa587c76da7a1bdf2fee49fde5)), closes [#1787](https://github.com/davidsneighbour/kollitsch.dev/issues/1787)
 
 ### Build
 
-* **ci:** pin GitHub Actions to hashes and bump to latest versions ([84ab9ab](https://github.com/davidsneighbour/kollitsch/commit/84ab9ab2c3d5b7b8826b2a25cef78571eb2310e2))
-* **fix:** depencency regression ([8029303](https://github.com/davidsneighbour/kollitsch/commit/8029303a651b78dfca73de5061b18ae83d37c7d8)), closes [#1775](https://github.com/davidsneighbour/kollitsch/issues/1775)
-* **fix:** sort files into groups in workspace ([605cd95](https://github.com/davidsneighbour/kollitsch/commit/605cd95a6e698506c8ced65faad6fd4da44f1e74))
+* **ci:** pin GitHub Actions to hashes and bump to latest versions ([84ab9ab](https://github.com/davidsneighbour/kollitsch.dev/commit/84ab9ab2c3d5b7b8826b2a25cef78571eb2310e2))
+* **fix:** depencency regression ([8029303](https://github.com/davidsneighbour/kollitsch.dev/commit/8029303a651b78dfca73de5061b18ae83d37c7d8)), closes [#1775](https://github.com/davidsneighbour/kollitsch.dev/issues/1775)
+* **fix:** sort files into groups in workspace ([605cd95](https://github.com/davidsneighbour/kollitsch.dev/commit/605cd95a6e698506c8ced65faad6fd4da44f1e74))
 
 ### Ci
 
-* **fix:** proper typos configuration path and add exemption ([9f720b2](https://github.com/davidsneighbour/kollitsch/commit/9f720b262462898fa78e14d935c83fae9195b0a1))
+* **fix:** proper typos configuration path and add exemption ([9f720b2](https://github.com/davidsneighbour/kollitsch.dev/commit/9f720b262462898fa78e14d935c83fae9195b0a1))
 
 ### Chore
 
-* **deploy:** align deploy pipeline ([bdffbd7](https://github.com/davidsneighbour/kollitsch/commit/bdffbd744e07e30b009266afd9c04d0e42cfe32f)), closes [#1788](https://github.com/davidsneighbour/kollitsch/issues/1788)
-* **gitignore:** ignore agent/ and data/skills as assistant working files ([f1035fd](https://github.com/davidsneighbour/kollitsch/commit/f1035fddfbd9eed6288ffadeebb54751c3d25800))
-* remove confirmed-dead components ([733da5e](https://github.com/davidsneighbour/kollitsch/commit/733da5e8bb8bfa0155bbe3810fdce45aa2ccefeb))
-* **skills:** update dnb-project-task-triage to PROJECT.md-based version ([a1f0269](https://github.com/davidsneighbour/kollitsch/commit/a1f0269d643b451e9672e6cd59307ea7fdc0fbc4))
+* **deploy:** align deploy pipeline ([bdffbd7](https://github.com/davidsneighbour/kollitsch.dev/commit/bdffbd744e07e30b009266afd9c04d0e42cfe32f)), closes [#1788](https://github.com/davidsneighbour/kollitsch.dev/issues/1788)
+* **gitignore:** ignore agent/ and data/skills as assistant working files ([f1035fd](https://github.com/davidsneighbour/kollitsch.dev/commit/f1035fddfbd9eed6288ffadeebb54751c3d25800))
+* remove confirmed-dead components ([733da5e](https://github.com/davidsneighbour/kollitsch.dev/commit/733da5e8bb8bfa0155bbe3810fdce45aa2ccefeb))
+* **skills:** update dnb-project-task-triage to PROJECT.md-based version ([a1f0269](https://github.com/davidsneighbour/kollitsch.dev/commit/a1f0269d643b451e9672e6cd59307ea7fdc0fbc4))
 
-## [3001.15.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.14.0...v3001.15.0) (2026-07-26)
+## [3001.15.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.14.0...v3001.15.0) (2026-07-26)
 
 ### Feat
 
-* **comments:** theme Giscus with site design tokens and fix cross-origin theme CSS ([1ce3d46](https://github.com/davidsneighbour/kollitsch/commit/1ce3d468c11c2d78d9debf37818b0caa6962e221))
-* **components:** reintroduce shadcn/ui via Astro islands ([1c39dab](https://github.com/davidsneighbour/kollitsch/commit/1c39dab07af1ef4c6301f95c31363ed4e96ae7f9))
-* **config:** enable trailingSlash and ignore .claude/.codex from watcher ([8007684](https://github.com/davidsneighbour/kollitsch/commit/800768462d41434e7fedbb93dc093f248f22e64f))
-* **dev:** add npm run dev:open to launch dev server browser tabs ([9e426a3](https://github.com/davidsneighbour/kollitsch/commit/9e426a34119b6951f30428f049e97ad11a660a64)), closes [#1758](https://github.com/davidsneighbour/kollitsch/issues/1758), references [#1759](https://github.com/davidsneighbour/kollitsch/issues/1759)
-* **dev:** prioritize API/General docs groups and link post titles ([af7e54b](https://github.com/davidsneighbour/kollitsch/commit/af7e54bd9728c0e9c5fc46578c3966a68f363bf1))
-* **dev:** run Astro dev server and documentation server in parallel ([eca7471](https://github.com/davidsneighbour/kollitsch/commit/eca74714a2364e65260ffb8f49e87698f5e5e5e9))
-* **dev:** use mkcert-trusted HTTPS cert for the dev server ([4277305](https://github.com/davidsneighbour/kollitsch/commit/4277305e69d045496b38f396acded936e05ae508)), closes [#1704](https://github.com/davidsneighbour/kollitsch/issues/1704)
-* **docs:** add local dev server for documentation/ markdown files ([3e9bbec](https://github.com/davidsneighbour/kollitsch/commit/3e9bbec4d583c48f48c383106a644545759c43bc)), closes [#1759](https://github.com/davidsneighbour/kollitsch/issues/1759)
-* **docs:** bind documentation server to all network interfaces ([18dcfef](https://github.com/davidsneighbour/kollitsch/commit/18dcfefdf0021ca241df3f0d8048af544b1a5cf9)), closes [#1765](https://github.com/davidsneighbour/kollitsch/issues/1765)
-* **headers:** implement per-post frontmatter headers ([0830b5c](https://github.com/davidsneighbour/kollitsch/commit/0830b5c73bfb2e0c49f783b8dc803a638db1e396))
-* **skills:** add kdev-postreview skill for blog post maintenance ([8ef3e45](https://github.com/davidsneighbour/kollitsch/commit/8ef3e45ec674510fa2bbe306a972a45eead3edea))
-* **ux:** add page, link, and title transitions ([2f0b364](https://github.com/davidsneighbour/kollitsch/commit/2f0b3642d5b6ad4e9df82ae2dc607c1df42936ce)), closes [#1695](https://github.com/davidsneighbour/kollitsch/issues/1695)
-* **ux:** show link underlines on blog post card hover ([a0f1396](https://github.com/davidsneighbour/kollitsch/commit/a0f1396724348354984caf68eee9adb2efa42be9)), closes [#1696](https://github.com/davidsneighbour/kollitsch/issues/1696)
+* **comments:** theme Giscus with site design tokens and fix cross-origin theme CSS ([1ce3d46](https://github.com/davidsneighbour/kollitsch.dev/commit/1ce3d468c11c2d78d9debf37818b0caa6962e221))
+* **components:** reintroduce shadcn/ui via Astro islands ([1c39dab](https://github.com/davidsneighbour/kollitsch.dev/commit/1c39dab07af1ef4c6301f95c31363ed4e96ae7f9))
+* **config:** enable trailingSlash and ignore .claude/.codex from watcher ([8007684](https://github.com/davidsneighbour/kollitsch.dev/commit/800768462d41434e7fedbb93dc093f248f22e64f))
+* **dev:** add npm run dev:open to launch dev server browser tabs ([9e426a3](https://github.com/davidsneighbour/kollitsch.dev/commit/9e426a34119b6951f30428f049e97ad11a660a64)), closes [#1758](https://github.com/davidsneighbour/kollitsch.dev/issues/1758), references [#1759](https://github.com/davidsneighbour/kollitsch.dev/issues/1759)
+* **dev:** prioritize API/General docs groups and link post titles ([af7e54b](https://github.com/davidsneighbour/kollitsch.dev/commit/af7e54bd9728c0e9c5fc46578c3966a68f363bf1))
+* **dev:** run Astro dev server and documentation server in parallel ([eca7471](https://github.com/davidsneighbour/kollitsch.dev/commit/eca74714a2364e65260ffb8f49e87698f5e5e5e9))
+* **dev:** use mkcert-trusted HTTPS cert for the dev server ([4277305](https://github.com/davidsneighbour/kollitsch.dev/commit/4277305e69d045496b38f396acded936e05ae508)), closes [#1704](https://github.com/davidsneighbour/kollitsch.dev/issues/1704)
+* **docs:** add local dev server for documentation/ markdown files ([3e9bbec](https://github.com/davidsneighbour/kollitsch.dev/commit/3e9bbec4d583c48f48c383106a644545759c43bc)), closes [#1759](https://github.com/davidsneighbour/kollitsch.dev/issues/1759)
+* **docs:** bind documentation server to all network interfaces ([18dcfef](https://github.com/davidsneighbour/kollitsch.dev/commit/18dcfefdf0021ca241df3f0d8048af544b1a5cf9)), closes [#1765](https://github.com/davidsneighbour/kollitsch.dev/issues/1765)
+* **headers:** implement per-post frontmatter headers ([0830b5c](https://github.com/davidsneighbour/kollitsch.dev/commit/0830b5c73bfb2e0c49f783b8dc803a638db1e396))
+* **skills:** add kdev-postreview skill for blog post maintenance ([8ef3e45](https://github.com/davidsneighbour/kollitsch.dev/commit/8ef3e45ec674510fa2bbe306a972a45eead3edea))
+* **ux:** add page, link, and title transitions ([2f0b364](https://github.com/davidsneighbour/kollitsch.dev/commit/2f0b3642d5b6ad4e9df82ae2dc607c1df42936ce)), closes [#1695](https://github.com/davidsneighbour/kollitsch.dev/issues/1695)
+* **ux:** show link underlines on blog post card hover ([a0f1396](https://github.com/davidsneighbour/kollitsch.dev/commit/a0f1396724348354984caf68eee9adb2efa42be9)), closes [#1696](https://github.com/davidsneighbour/kollitsch.dev/issues/1696)
 
 ### Content
 
-* **fix:** add meta info ([7c676ac](https://github.com/davidsneighbour/kollitsch/commit/7c676ac00a84bb7e9b70efbf736812415f0670f8))
-* **new:** blog post of 2026-07-25 ([e7714e5](https://github.com/davidsneighbour/kollitsch/commit/e7714e5971f9289660a4c8aff6d7e948b514f5fb))
-* **new:** post of 2026-07-26 ([ca94412](https://github.com/davidsneighbour/kollitsch/commit/ca944120b895c08d1093bfbaf93203537761e59b))
+* **fix:** add meta info ([7c676ac](https://github.com/davidsneighbour/kollitsch.dev/commit/7c676ac00a84bb7e9b70efbf736812415f0670f8))
+* **new:** blog post of 2026-07-25 ([e7714e5](https://github.com/davidsneighbour/kollitsch.dev/commit/e7714e5971f9289660a4c8aff6d7e948b514f5fb))
+* **new:** post of 2026-07-26 ([ca94412](https://github.com/davidsneighbour/kollitsch.dev/commit/ca944120b895c08d1093bfbaf93203537761e59b))
 
 ### Fix
 
-* **comments:** stop giscus theme CSS from getting stuck in a stale cache partition ([b621a86](https://github.com/davidsneighbour/kollitsch/commit/b621a86539f3503b6933427f5fd41056ce9360e4))
-* **components:** guard Tags meta line against empty tags array ([61f8735](https://github.com/davidsneighbour/kollitsch/commit/61f87359a8be2f9c479484dd8c1f48525c711f8b)), closes [#1684](https://github.com/davidsneighbour/kollitsch/issues/1684)
-* **components:** replace bare console.log in OpenGraphImage cleanup catch with structured logging ([ef41600](https://github.com/davidsneighbour/kollitsch/commit/ef4160028cd1a2841128b060d9620a9a88ff76ae)), closes [#1683](https://github.com/davidsneighbour/kollitsch/issues/1683)
-* **config:** add explicit [@styles](https://github.com/styles) Vite alias for CSS [@reference](https://github.com/reference) resolution ([7e3ba18](https://github.com/davidsneighbour/kollitsch/commit/7e3ba1874056ace5e1e3f3ad69fe8432c968dad5))
-* **config:** type-check astro.config.ts build-hooks entry point ([4b51c7a](https://github.com/davidsneighbour/kollitsch/commit/4b51c7a472ac460d36512e4cb004fe2d92722fd1)), closes [#1681](https://github.com/davidsneighbour/kollitsch/issues/1681)
-* **content:** enforce strict schema validation for YouTube cover video fields ([a0d6886](https://github.com/davidsneighbour/kollitsch/commit/a0d6886dec131b2ede24870b549e6c77d1778d3c)), closes [#1692](https://github.com/davidsneighbour/kollitsch/issues/1692)
-* **content:** fix blog breadcrumb title lookup and validate linktitle ([385db70](https://github.com/davidsneighbour/kollitsch/commit/385db706799a3340499f106438c01e1d2d5b2729))
-* **deps:** add npm overrides for Astro 7 / Vite 8 peer dep gaps ([0ecd271](https://github.com/davidsneighbour/kollitsch/commit/0ecd271a6b238dfeae1d8d964312b3066dfdb43e))
-* **deps:** adopt @dnbhq/markdownlint-config, drop stray top-level js-yaml ([e13f738](https://github.com/davidsneighbour/kollitsch/commit/e13f738a74f419486cb1d0bd977696874e70d0d0))
-* **deps:** allow git-protocol installs for remark-lint-frontmatter-schema ([a474649](https://github.com/davidsneighbour/kollitsch/commit/a4746494e04b0b97f7c80bdf8b095169a50d836c)), references [#1775](https://github.com/davidsneighbour/kollitsch/issues/1775)
-* **deps:** pin brace-expansion and markdownlint-cli2's js-yaml to patched versions ([#1757](https://github.com/davidsneighbour/kollitsch/issues/1757)) ([68c92fa](https://github.com/davidsneighbour/kollitsch/commit/68c92faa7dd2b75459e488641dc7a969ebd3f4dd)), references [1750-#1756](https://github.com/1750-/issues/1756)
-* **deps:** pin js-yaml to 4.2.0 to fix broken static build ([9a7865c](https://github.com/davidsneighbour/kollitsch/commit/9a7865ce5486525d6e65fd43bf03e2635a33cca5))
-* **design:** audit typography scale against DESIGN.md and fill h3 gap ([dc53942](https://github.com/davidsneighbour/kollitsch/commit/dc53942ad3cdf4dc86680e32f2384d548d7bbb80)), closes [#1690](https://github.com/davidsneighbour/kollitsch/issues/1690)
-* **dev:** clear stale astro dev lock and label VS Code terminal tab ([a00d3d5](https://github.com/davidsneighbour/kollitsch/commit/a00d3d50b848a0b74536ad3c53aca777019b1ccd))
-* **dev:** replace npm-run-all with npm-run-all2 for clean CTRL+C shutdown ([66534fc](https://github.com/davidsneighbour/kollitsch/commit/66534fc08942df3efa3bcaf3f3b4e443e769cef5)), closes [#1772](https://github.com/davidsneighbour/kollitsch/issues/1772)
-* **docs:** strip YAML frontmatter before rendering documentation pages ([9946b69](https://github.com/davidsneighbour/kollitsch/commit/9946b6950b84c0b7ab1420ac82207c4e662fb424)), closes [#1773](https://github.com/davidsneighbour/kollitsch/issues/1773)
-* **footer:** audit Static.Quest web ring and use IconLink for nav icons ([e63bd8c](https://github.com/davidsneighbour/kollitsch/commit/e63bd8c6249a87fccd634303380c13c3c8c75a57)), closes [#1694](https://github.com/davidsneighbour/kollitsch/issues/1694)
-* **headers:** correct Netlify _headers glob for giscus CORS rule ([44d9d2e](https://github.com/davidsneighbour/kollitsch/commit/44d9d2ea6026e75d07e8a42ad0275e6b1414a3eb))
-* **nav:** color header search/close icons with text-red-700 instead of stroke-red-700 ([2558518](https://github.com/davidsneighbour/kollitsch/commit/2558518c187dbb6926fe658b35e01fc4594a3278)), closes [#1766](https://github.com/davidsneighbour/kollitsch/issues/1766)
-* proper documentation for typedoc ([bf65997](https://github.com/davidsneighbour/kollitsch/commit/bf659979a90447c64c3cd3661125c6428ec33cdf))
-* proper symlink for ai folder ([98e386d](https://github.com/davidsneighbour/kollitsch/commit/98e386dc48f68e25997323d5a5e405d353dbb5c3))
-* **scripts:** build before deploying to netlify ([ab831d0](https://github.com/davidsneighbour/kollitsch/commit/ab831d0263a954977fec38cc225deecd69dbf72a))
-* **scripts:** make RESTART sentinel bounce both dev servers ([4738945](https://github.com/davidsneighbour/kollitsch/commit/4738945ed98256843dea5ebae3db2714ec5aa11b))
-* **styles:** pin cover caption link color to white for contrast ([f71d455](https://github.com/davidsneighbour/kollitsch/commit/f71d45512d2f86b62c7b1161a15e0f16d1cb962c)), closes [#1769](https://github.com/davidsneighbour/kollitsch/issues/1769)
-* **test:** remove stale header tests and fix playwright tsconfig resolution ([b27fc80](https://github.com/davidsneighbour/kollitsch/commit/b27fc801b3c355e7260ee88baee0bbe2db32b132))
-* **test:** scope Finial aria-hidden locator to avoid dev-toolbar collision ([80959e8](https://github.com/davidsneighbour/kollitsch/commit/80959e8361c41c7b6d3902ffa79d796f1cbabb64))
+* **comments:** stop giscus theme CSS from getting stuck in a stale cache partition ([b621a86](https://github.com/davidsneighbour/kollitsch.dev/commit/b621a86539f3503b6933427f5fd41056ce9360e4))
+* **components:** guard Tags meta line against empty tags array ([61f8735](https://github.com/davidsneighbour/kollitsch.dev/commit/61f87359a8be2f9c479484dd8c1f48525c711f8b)), closes [#1684](https://github.com/davidsneighbour/kollitsch.dev/issues/1684)
+* **components:** replace bare console.log in OpenGraphImage cleanup catch with structured logging ([ef41600](https://github.com/davidsneighbour/kollitsch.dev/commit/ef4160028cd1a2841128b060d9620a9a88ff76ae)), closes [#1683](https://github.com/davidsneighbour/kollitsch.dev/issues/1683)
+* **config:** add explicit [@styles](https://github.com/styles) Vite alias for CSS [@reference](https://github.com/reference) resolution ([7e3ba18](https://github.com/davidsneighbour/kollitsch.dev/commit/7e3ba1874056ace5e1e3f3ad69fe8432c968dad5))
+* **config:** type-check astro.config.ts build-hooks entry point ([4b51c7a](https://github.com/davidsneighbour/kollitsch.dev/commit/4b51c7a472ac460d36512e4cb004fe2d92722fd1)), closes [#1681](https://github.com/davidsneighbour/kollitsch.dev/issues/1681)
+* **content:** enforce strict schema validation for YouTube cover video fields ([a0d6886](https://github.com/davidsneighbour/kollitsch.dev/commit/a0d6886dec131b2ede24870b549e6c77d1778d3c)), closes [#1692](https://github.com/davidsneighbour/kollitsch.dev/issues/1692)
+* **content:** fix blog breadcrumb title lookup and validate linktitle ([385db70](https://github.com/davidsneighbour/kollitsch.dev/commit/385db706799a3340499f106438c01e1d2d5b2729))
+* **deps:** add npm overrides for Astro 7 / Vite 8 peer dep gaps ([0ecd271](https://github.com/davidsneighbour/kollitsch.dev/commit/0ecd271a6b238dfeae1d8d964312b3066dfdb43e))
+* **deps:** adopt @dnbhq/markdownlint-config, drop stray top-level js-yaml ([e13f738](https://github.com/davidsneighbour/kollitsch.dev/commit/e13f738a74f419486cb1d0bd977696874e70d0d0))
+* **deps:** allow git-protocol installs for remark-lint-frontmatter-schema ([a474649](https://github.com/davidsneighbour/kollitsch.dev/commit/a4746494e04b0b97f7c80bdf8b095169a50d836c)), references [#1775](https://github.com/davidsneighbour/kollitsch.dev/issues/1775)
+* **deps:** pin brace-expansion and markdownlint-cli2's js-yaml to patched versions ([#1757](https://github.com/davidsneighbour/kollitsch.dev/issues/1757)) ([68c92fa](https://github.com/davidsneighbour/kollitsch.dev/commit/68c92faa7dd2b75459e488641dc7a969ebd3f4dd)), references [1750-#1756](https://github.com/1750-/issues/1756)
+* **deps:** pin js-yaml to 4.2.0 to fix broken static build ([9a7865c](https://github.com/davidsneighbour/kollitsch.dev/commit/9a7865ce5486525d6e65fd43bf03e2635a33cca5))
+* **design:** audit typography scale against DESIGN.md and fill h3 gap ([dc53942](https://github.com/davidsneighbour/kollitsch.dev/commit/dc53942ad3cdf4dc86680e32f2384d548d7bbb80)), closes [#1690](https://github.com/davidsneighbour/kollitsch.dev/issues/1690)
+* **dev:** clear stale astro dev lock and label VS Code terminal tab ([a00d3d5](https://github.com/davidsneighbour/kollitsch.dev/commit/a00d3d50b848a0b74536ad3c53aca777019b1ccd))
+* **dev:** replace npm-run-all with npm-run-all2 for clean CTRL+C shutdown ([66534fc](https://github.com/davidsneighbour/kollitsch.dev/commit/66534fc08942df3efa3bcaf3f3b4e443e769cef5)), closes [#1772](https://github.com/davidsneighbour/kollitsch.dev/issues/1772)
+* **docs:** strip YAML frontmatter before rendering documentation pages ([9946b69](https://github.com/davidsneighbour/kollitsch.dev/commit/9946b6950b84c0b7ab1420ac82207c4e662fb424)), closes [#1773](https://github.com/davidsneighbour/kollitsch.dev/issues/1773)
+* **footer:** audit Static.Quest web ring and use IconLink for nav icons ([e63bd8c](https://github.com/davidsneighbour/kollitsch.dev/commit/e63bd8c6249a87fccd634303380c13c3c8c75a57)), closes [#1694](https://github.com/davidsneighbour/kollitsch.dev/issues/1694)
+* **headers:** correct Netlify _headers glob for giscus CORS rule ([44d9d2e](https://github.com/davidsneighbour/kollitsch.dev/commit/44d9d2ea6026e75d07e8a42ad0275e6b1414a3eb))
+* **nav:** color header search/close icons with text-red-700 instead of stroke-red-700 ([2558518](https://github.com/davidsneighbour/kollitsch.dev/commit/2558518c187dbb6926fe658b35e01fc4594a3278)), closes [#1766](https://github.com/davidsneighbour/kollitsch.dev/issues/1766)
+* proper documentation for typedoc ([bf65997](https://github.com/davidsneighbour/kollitsch.dev/commit/bf659979a90447c64c3cd3661125c6428ec33cdf))
+* proper symlink for ai folder ([98e386d](https://github.com/davidsneighbour/kollitsch.dev/commit/98e386dc48f68e25997323d5a5e405d353dbb5c3))
+* **scripts:** build before deploying to netlify ([ab831d0](https://github.com/davidsneighbour/kollitsch.dev/commit/ab831d0263a954977fec38cc225deecd69dbf72a))
+* **scripts:** make RESTART sentinel bounce both dev servers ([4738945](https://github.com/davidsneighbour/kollitsch.dev/commit/4738945ed98256843dea5ebae3db2714ec5aa11b))
+* **styles:** pin cover caption link color to white for contrast ([f71d455](https://github.com/davidsneighbour/kollitsch.dev/commit/f71d45512d2f86b62c7b1161a15e0f16d1cb962c)), closes [#1769](https://github.com/davidsneighbour/kollitsch.dev/issues/1769)
+* **test:** remove stale header tests and fix playwright tsconfig resolution ([b27fc80](https://github.com/davidsneighbour/kollitsch.dev/commit/b27fc801b3c355e7260ee88baee0bbe2db32b132))
+* **test:** scope Finial aria-hidden locator to avoid dev-toolbar collision ([80959e8](https://github.com/davidsneighbour/kollitsch.dev/commit/80959e8361c41c7b6d3902ffa79d796f1cbabb64))
 
 ### Perf
 
-* switch reading-progress bar to a transform-based fill ([8a3a53b](https://github.com/davidsneighbour/kollitsch/commit/8a3a53beb0e1a8021feb079be541e4aeffc94a0e))
+* switch reading-progress bar to a transform-based fill ([8a3a53b](https://github.com/davidsneighbour/kollitsch.dev/commit/8a3a53beb0e1a8021feb079be541e4aeffc94a0e))
 
 ### Docs
 
-* add (official) development section to AGENTS.md ([69adbe9](https://github.com/davidsneighbour/kollitsch/commit/69adbe91c7346b26dbd41af1a4bce3b22368049a))
-* add MIGRATION.md tracking Astro 7 / Vite 8 temporary overrides ([1c437f8](https://github.com/davidsneighbour/kollitsch/commit/1c437f8cfec6fb1f39a9b2268269fc03d845a358))
-* **agents:** adopt direct-to-main commit workflow, no PRs ([b3cb50c](https://github.com/davidsneighbour/kollitsch/commit/b3cb50c62bae39c249a930943d721027555a90aa)), closes [#1760](https://github.com/davidsneighbour/kollitsch/issues/1760)
-* **agents:** consolidate PROJECT.md instructions into AGENTS.md ([7b2ba30](https://github.com/davidsneighbour/kollitsch/commit/7b2ba3039a9944a97be0a6cf9da1771a175c4f8b)), closes [#1774](https://github.com/davidsneighbour/kollitsch/issues/1774)
-* **agents:** instruct always committing validated changes promptly ([c8e5ca4](https://github.com/davidsneighbour/kollitsch/commit/c8e5ca4325368d933358164209dedc6186bb1204))
-* **agents:** require full GitHub links in chat and auto-push on finished tasks ([343708d](https://github.com/davidsneighbour/kollitsch/commit/343708d29d8d035521476fe61f6d52cfa5f820b6)), closes [#1768](https://github.com/davidsneighbour/kollitsch/issues/1768)
-* **ai:** add personality instructions ([5418da9](https://github.com/davidsneighbour/kollitsch/commit/5418da9ddf893e6e248402eb325df965d5aea6e7))
-* **ai:** add personality instructions ([862fb65](https://github.com/davidsneighbour/kollitsch/commit/862fb6512f481ae3bac0c7fe32e6725a24a06d7d))
-* **ai:** update assistant intructions ([86c10bd](https://github.com/davidsneighbour/kollitsch/commit/86c10bda224f56bb6dbe1416bf960743f51b4191))
-* consolidate AI assistant onboarding into AGENTS.md ([cc2c5a1](https://github.com/davidsneighbour/kollitsch/commit/cc2c5a153c5cc1a15c2ad11c472b87d89bed417f)), closes [#1776](https://github.com/davidsneighbour/kollitsch/issues/1776)
-* document the Netlify headers generation system ([56116be](https://github.com/davidsneighbour/kollitsch/commit/56116bea1a17691fc1ed597636c87cb680168160))
-* finish onboarding consolidation from previous commit ([bfc08db](https://github.com/davidsneighbour/kollitsch/commit/bfc08db9b014e037584841d5a1a043ff3b268d04)), references [#1776](https://github.com/davidsneighbour/kollitsch/issues/1776)
-* reorganize documentation into topic folders ([700eb38](https://github.com/davidsneighbour/kollitsch/commit/700eb38bfc96241827f568763c9a73e09ca56f5f))
+* add (official) development section to AGENTS.md ([69adbe9](https://github.com/davidsneighbour/kollitsch.dev/commit/69adbe91c7346b26dbd41af1a4bce3b22368049a))
+* add MIGRATION.md tracking Astro 7 / Vite 8 temporary overrides ([1c437f8](https://github.com/davidsneighbour/kollitsch.dev/commit/1c437f8cfec6fb1f39a9b2268269fc03d845a358))
+* **agents:** adopt direct-to-main commit workflow, no PRs ([b3cb50c](https://github.com/davidsneighbour/kollitsch.dev/commit/b3cb50c62bae39c249a930943d721027555a90aa)), closes [#1760](https://github.com/davidsneighbour/kollitsch.dev/issues/1760)
+* **agents:** consolidate PROJECT.md instructions into AGENTS.md ([7b2ba30](https://github.com/davidsneighbour/kollitsch.dev/commit/7b2ba3039a9944a97be0a6cf9da1771a175c4f8b)), closes [#1774](https://github.com/davidsneighbour/kollitsch.dev/issues/1774)
+* **agents:** instruct always committing validated changes promptly ([c8e5ca4](https://github.com/davidsneighbour/kollitsch.dev/commit/c8e5ca4325368d933358164209dedc6186bb1204))
+* **agents:** require full GitHub links in chat and auto-push on finished tasks ([343708d](https://github.com/davidsneighbour/kollitsch.dev/commit/343708d29d8d035521476fe61f6d52cfa5f820b6)), closes [#1768](https://github.com/davidsneighbour/kollitsch.dev/issues/1768)
+* **ai:** add personality instructions ([5418da9](https://github.com/davidsneighbour/kollitsch.dev/commit/5418da9ddf893e6e248402eb325df965d5aea6e7))
+* **ai:** add personality instructions ([862fb65](https://github.com/davidsneighbour/kollitsch.dev/commit/862fb6512f481ae3bac0c7fe32e6725a24a06d7d))
+* **ai:** update assistant intructions ([86c10bd](https://github.com/davidsneighbour/kollitsch.dev/commit/86c10bda224f56bb6dbe1416bf960743f51b4191))
+* consolidate AI assistant onboarding into AGENTS.md ([cc2c5a1](https://github.com/davidsneighbour/kollitsch.dev/commit/cc2c5a153c5cc1a15c2ad11c472b87d89bed417f)), closes [#1776](https://github.com/davidsneighbour/kollitsch.dev/issues/1776)
+* document the Netlify headers generation system ([56116be](https://github.com/davidsneighbour/kollitsch.dev/commit/56116bea1a17691fc1ed597636c87cb680168160))
+* finish onboarding consolidation from previous commit ([bfc08db](https://github.com/davidsneighbour/kollitsch.dev/commit/bfc08db9b014e037584841d5a1a043ff3b268d04)), references [#1776](https://github.com/davidsneighbour/kollitsch.dev/issues/1776)
+* reorganize documentation into topic folders ([700eb38](https://github.com/davidsneighbour/kollitsch.dev/commit/700eb38bfc96241827f568763c9a73e09ca56f5f))
 
 ### Style
 
-* **agents:** fix vale em-dash spacing in issue-handling instructions ([8097da6](https://github.com/davidsneighbour/kollitsch/commit/8097da62db2539bcd5786e8364098fd67b06996c)), references [#1760](https://github.com/davidsneighbour/kollitsch/issues/1760)
-* **docs:** fix vale em-dash spacing in documentation-server.md ([b212c31](https://github.com/davidsneighbour/kollitsch/commit/b212c31bb377749cc861061221b8fe3346043e5a)), references [#1758](https://github.com/davidsneighbour/kollitsch/issues/1758)
-* **theme:** conform scrollbar radius to token scale, document hero-scale exceptions ([e8702ae](https://github.com/davidsneighbour/kollitsch/commit/e8702aee995788de688ab434ffa77af985f36c3f))
+* **agents:** fix vale em-dash spacing in issue-handling instructions ([8097da6](https://github.com/davidsneighbour/kollitsch.dev/commit/8097da62db2539bcd5786e8364098fd67b06996c)), references [#1760](https://github.com/davidsneighbour/kollitsch.dev/issues/1760)
+* **docs:** fix vale em-dash spacing in documentation-server.md ([b212c31](https://github.com/davidsneighbour/kollitsch.dev/commit/b212c31bb377749cc861061221b8fe3346043e5a)), references [#1758](https://github.com/davidsneighbour/kollitsch.dev/issues/1758)
+* **theme:** conform scrollbar radius to token scale, document hero-scale exceptions ([e8702ae](https://github.com/davidsneighbour/kollitsch.dev/commit/e8702aee995788de688ab434ffa77af985f36c3f))
 
 ### Build
 
-* **deps-dev:** bump @vitest/browser-playwright from 4.1.8 to 4.1.10 ([#1743](https://github.com/davidsneighbour/kollitsch/issues/1743)) ([41b946c](https://github.com/davidsneighbour/kollitsch/commit/41b946c1763f0197cb8c6d2d671ad58909f90fc2))
-* **deps-dev:** bump @vitest/coverage-v8 from 4.1.8 to 4.1.10 ([#1730](https://github.com/davidsneighbour/kollitsch/issues/1730)) ([99ab675](https://github.com/davidsneighbour/kollitsch/commit/99ab6753a24643cede7ce557cc1103583eebd06a))
-* **deps-dev:** bump @vitest/ui from 4.1.8 to 4.1.10 ([#1724](https://github.com/davidsneighbour/kollitsch/issues/1724)) ([7e8a90b](https://github.com/davidsneighbour/kollitsch/commit/7e8a90b2d5add3dbadbf62ce27bdc957f9293014))
-* **deps-dev:** bump js-yaml from 4.2.0 to 4.3.0 in the npm_and_yarn group across 1 directory ([#1767](https://github.com/davidsneighbour/kollitsch/issues/1767)) ([a0b9866](https://github.com/davidsneighbour/kollitsch/commit/a0b986646c4b396b99b46b3bffcb33a7f427bd93))
-* **deps-dev:** bump the npm_and_yarn group across 1 directory with 2 updates ([#1748](https://github.com/davidsneighbour/kollitsch/issues/1748)) ([2e17614](https://github.com/davidsneighbour/kollitsch/commit/2e17614c581862f6484ea16de9d03b231abb70fb))
-* **deps-dev:** bump vitest from 4.1.8 to 4.1.10 ([#1732](https://github.com/davidsneighbour/kollitsch/issues/1732)) ([4adf938](https://github.com/davidsneighbour/kollitsch/commit/4adf938167bc82509e66e7ba78bdc2955805993b))
-* **deps:** bump actions/checkout from 6.0.2 to 7.0.0 ([#1715](https://github.com/davidsneighbour/kollitsch/issues/1715)) ([0fcb2a3](https://github.com/davidsneighbour/kollitsch/commit/0fcb2a3e1acd2fc24ff98326fed5d0318b68a303))
-* **deps:** bump actions/upload-artifact from 4.6.2 to 7.0.1 ([#1714](https://github.com/davidsneighbour/kollitsch/issues/1714)) ([6b17bae](https://github.com/davidsneighbour/kollitsch/commit/6b17bae0c04af29e36b88371738add107bff266f))
-* **deps:** bump the npm_and_yarn group across 1 directory with 9 updates ([#1749](https://github.com/davidsneighbour/kollitsch/issues/1749)) ([154e10a](https://github.com/davidsneighbour/kollitsch/commit/154e10a5c5b18b737bdd4a95c3564348a9ba636b))
-* **deps:** update dependencies ([67459d3](https://github.com/davidsneighbour/kollitsch/commit/67459d31f14b4a15c760e3c1cf98a595eb0ad9ab))
+* **deps-dev:** bump @vitest/browser-playwright from 4.1.8 to 4.1.10 ([#1743](https://github.com/davidsneighbour/kollitsch.dev/issues/1743)) ([41b946c](https://github.com/davidsneighbour/kollitsch.dev/commit/41b946c1763f0197cb8c6d2d671ad58909f90fc2))
+* **deps-dev:** bump @vitest/coverage-v8 from 4.1.8 to 4.1.10 ([#1730](https://github.com/davidsneighbour/kollitsch.dev/issues/1730)) ([99ab675](https://github.com/davidsneighbour/kollitsch.dev/commit/99ab6753a24643cede7ce557cc1103583eebd06a))
+* **deps-dev:** bump @vitest/ui from 4.1.8 to 4.1.10 ([#1724](https://github.com/davidsneighbour/kollitsch.dev/issues/1724)) ([7e8a90b](https://github.com/davidsneighbour/kollitsch.dev/commit/7e8a90b2d5add3dbadbf62ce27bdc957f9293014))
+* **deps-dev:** bump js-yaml from 4.2.0 to 4.3.0 in the npm_and_yarn group across 1 directory ([#1767](https://github.com/davidsneighbour/kollitsch.dev/issues/1767)) ([a0b9866](https://github.com/davidsneighbour/kollitsch.dev/commit/a0b986646c4b396b99b46b3bffcb33a7f427bd93))
+* **deps-dev:** bump the npm_and_yarn group across 1 directory with 2 updates ([#1748](https://github.com/davidsneighbour/kollitsch.dev/issues/1748)) ([2e17614](https://github.com/davidsneighbour/kollitsch.dev/commit/2e17614c581862f6484ea16de9d03b231abb70fb))
+* **deps-dev:** bump vitest from 4.1.8 to 4.1.10 ([#1732](https://github.com/davidsneighbour/kollitsch.dev/issues/1732)) ([4adf938](https://github.com/davidsneighbour/kollitsch.dev/commit/4adf938167bc82509e66e7ba78bdc2955805993b))
+* **deps:** bump actions/checkout from 6.0.2 to 7.0.0 ([#1715](https://github.com/davidsneighbour/kollitsch.dev/issues/1715)) ([0fcb2a3](https://github.com/davidsneighbour/kollitsch.dev/commit/0fcb2a3e1acd2fc24ff98326fed5d0318b68a303))
+* **deps:** bump actions/upload-artifact from 4.6.2 to 7.0.1 ([#1714](https://github.com/davidsneighbour/kollitsch.dev/issues/1714)) ([6b17bae](https://github.com/davidsneighbour/kollitsch.dev/commit/6b17bae0c04af29e36b88371738add107bff266f))
+* **deps:** bump the npm_and_yarn group across 1 directory with 9 updates ([#1749](https://github.com/davidsneighbour/kollitsch.dev/issues/1749)) ([154e10a](https://github.com/davidsneighbour/kollitsch.dev/commit/154e10a5c5b18b737bdd4a95c3564348a9ba636b))
+* **deps:** update dependencies ([67459d3](https://github.com/davidsneighbour/kollitsch.dev/commit/67459d31f14b4a15c760e3c1cf98a595eb0ad9ab))
 
 ### Ci
 
-* **fix:** dashes instead of asterisks in markdownlint ([05d57c5](https://github.com/davidsneighbour/kollitsch/commit/05d57c59fe3690d6a73d977204e3b327a14b75c4))
+* **fix:** dashes instead of asterisks in markdownlint ([05d57c5](https://github.com/davidsneighbour/kollitsch.dev/commit/05d57c59fe3690d6a73d977204e3b327a14b75c4))
 
 ### Chore
 
-* **agents:** gitignore and lock-file follow-up for PROJECT.md/TODO.md migration ([8cefab5](https://github.com/davidsneighbour/kollitsch/commit/8cefab57eedd82ecd92702b048a0593dd2ae4ed9))
-* **agents:** ignore installed skills, track skills-lock.json ([c3d3d68](https://github.com/davidsneighbour/kollitsch/commit/c3d3d68cf4b4a6c8cfd2eafaf2e3b67d3115472f))
-* **agents:** migrate ROADMAP.md/TODO.md to local-only PROJECT.md/TODO.md ([a8fa252](https://github.com/davidsneighbour/kollitsch/commit/a8fa252fd6b0baaaaf99d87cd98f8cbdabcbea9b))
-* clean up unused framework entries in .gitignore ([5748610](https://github.com/davidsneighbour/kollitsch/commit/57486107e5cefbd7abe8f6c88be6fb3b6862d5fa))
-* cleanup file structure and workspace setup ([a189bb4](https://github.com/davidsneighbour/kollitsch/commit/a189bb4879b43322cc3d207556b05af2a01a2d36))
-* **config:** install @google/design.md locally instead of via npx ([db773a9](https://github.com/davidsneighbour/kollitsch/commit/db773a9efc8a169934a761ad1b9eae76f386c330)), closes [#1682](https://github.com/davidsneighbour/kollitsch/issues/1682)
-* **config:** track kdev-* local skills separately from dnb-* installs ([5f286d9](https://github.com/davidsneighbour/kollitsch/commit/5f286d9a03726cade70693a7bf1e22863119e50d)), closes [#1777](https://github.com/davidsneighbour/kollitsch/issues/1777)
-* **deps:** update markdownlint-rule-relative-links, release-it, conventional-changelog, js-yaml ([b96cd78](https://github.com/davidsneighbour/kollitsch/commit/b96cd788a4377a0c4d5a1e1b99c1450651cf31b6))
-* **deps:** upgrade to Astro 7.0.0 ([8b2df4e](https://github.com/davidsneighbour/kollitsch/commit/8b2df4e44ca4b2b9fc99e6c7dd6f54c354080d48))
-* **dev:** ignore scratch/, .vscode/, .agents/, and root docs in Vite watcher ([3bc05a0](https://github.com/davidsneighbour/kollitsch/commit/3bc05a0c97ad465640293e7d4dd8819b09945766)), closes [#1762](https://github.com/davidsneighbour/kollitsch/issues/1762)
-* **docs:** move TypeDoc API output from docs/ to documentation/api ([264f3e8](https://github.com/davidsneighbour/kollitsch/commit/264f3e822f05539d53651795a9b1a9ecf1a60805)), closes [#1763](https://github.com/davidsneighbour/kollitsch/issues/1763)
-* **git:** ignore Playwright MCP local session directory ([7320842](https://github.com/davidsneighbour/kollitsch/commit/7320842615619fb84ef5d6af6c5ce048a06cbf92))
-* **lighthouse:** update score history [skip ci] ([a53dac0](https://github.com/davidsneighbour/kollitsch/commit/a53dac0d718b6537120a13938c26d7f4136fb24b))
-* **lighthouse:** update score history [skip ci] ([42c4a17](https://github.com/davidsneighbour/kollitsch/commit/42c4a17420fb4b33ed193283dccd5e1b62d12beb))
-* **lighthouse:** update score history [skip ci] ([ad0872d](https://github.com/davidsneighbour/kollitsch/commit/ad0872daf71539314b394b075cbb4ea447bee2f4))
-* **lighthouse:** update score history [skip ci] ([be7d9c5](https://github.com/davidsneighbour/kollitsch/commit/be7d9c58f60c4dce4790e69161115058a0ac08fc))
-* **lighthouse:** update score history [skip ci] ([db98f52](https://github.com/davidsneighbour/kollitsch/commit/db98f527c84ca7161eed872430029c789ede9fe9))
-* **lighthouse:** update score history [skip ci] ([8c5026a](https://github.com/davidsneighbour/kollitsch/commit/8c5026a0aa8fd6947de84199ee22317cb85ff8a7))
-* **lighthouse:** update score history [skip ci] ([c064d42](https://github.com/davidsneighbour/kollitsch/commit/c064d4246940f31156db3f3b09909c85ee2d173d))
-* **lighthouse:** update score history [skip ci] ([e8b9c42](https://github.com/davidsneighbour/kollitsch/commit/e8b9c42743b6f0343cdebcda78985b3a9fbcb596))
-* **lighthouse:** update score history [skip ci] ([bef2ee1](https://github.com/davidsneighbour/kollitsch/commit/bef2ee1900628c171cc1dd3aa786698321964122))
-* **lighthouse:** update score history [skip ci] ([ab56ffd](https://github.com/davidsneighbour/kollitsch/commit/ab56ffdf52d2256b2d3e8ac952d77dc8b76f0e39))
-* **lighthouse:** update score history [skip ci] ([dabcd35](https://github.com/davidsneighbour/kollitsch/commit/dabcd35fb8606b5de262c1003349836dfd4a834c))
-* **lighthouse:** update score history [skip ci] ([2d5cc90](https://github.com/davidsneighbour/kollitsch/commit/2d5cc9017f6aa47ce40398538b67d31d6985fa96))
-* **lighthouse:** update score history [skip ci] ([601e479](https://github.com/davidsneighbour/kollitsch/commit/601e4791f9cfe6343e0d7e25c1be9c8311efa0d5))
-* **lighthouse:** update score history [skip ci] ([743c316](https://github.com/davidsneighbour/kollitsch/commit/743c316603a9e8e68ba881f2c2b368c32172cf5a))
-* **lighthouse:** update score history [skip ci] ([4f00256](https://github.com/davidsneighbour/kollitsch/commit/4f0025680541652185c5cea64fd7be812612f6ce))
-* **lighthouse:** update score history [skip ci] ([c043896](https://github.com/davidsneighbour/kollitsch/commit/c043896ca577a1cb7561ef8bd44c96972e590661))
-* **lighthouse:** update score history [skip ci] ([54ea7c3](https://github.com/davidsneighbour/kollitsch/commit/54ea7c3db19a47c3eba7261c2ff674a7d1c9ffa8))
-* **lighthouse:** update score history [skip ci] ([5ed9c96](https://github.com/davidsneighbour/kollitsch/commit/5ed9c966911f16a5358cda0a46e6671c3935fb7c))
-* **lighthouse:** update score history [skip ci] ([02ec6cb](https://github.com/davidsneighbour/kollitsch/commit/02ec6cb1ddc697c42cf7974f8b09c1e9093ca126))
-* **lighthouse:** update score history [skip ci] ([97cf7e9](https://github.com/davidsneighbour/kollitsch/commit/97cf7e92b39fef39827ca80cf9f3b9316b56290d))
-* **lighthouse:** update score history [skip ci] ([17735aa](https://github.com/davidsneighbour/kollitsch/commit/17735aaf4f2268fb6bf2443a8ebe9ff878941f9e))
-* **lighthouse:** update score history [skip ci] ([b38c21d](https://github.com/davidsneighbour/kollitsch/commit/b38c21d290cac50d8950e0581f72d3e72914007e))
-* **lighthouse:** update score history [skip ci] ([f2ac769](https://github.com/davidsneighbour/kollitsch/commit/f2ac769f0ad6562415e4b7f899d504eaea384832))
-* **lighthouse:** update score history [skip ci] ([a7219ee](https://github.com/davidsneighbour/kollitsch/commit/a7219eee8c9636c8f811c5093d7d82fbd6ec6c32))
-* **lighthouse:** update score history [skip ci] ([efb6972](https://github.com/davidsneighbour/kollitsch/commit/efb69724ec2197220021833c437743d39f6c0def))
-* **lighthouse:** update score history [skip ci] ([5c4a450](https://github.com/davidsneighbour/kollitsch/commit/5c4a45094c4219639c4b694144c3254ead312028))
-* **lighthouse:** update score history [skip ci] ([dca5fa6](https://github.com/davidsneighbour/kollitsch/commit/dca5fa6b217b685ab72c89fe79f6b425272b33ac))
-* **lighthouse:** update score history [skip ci] ([235d4a2](https://github.com/davidsneighbour/kollitsch/commit/235d4a26e27fd7af1af45f90bf58cef0a412603f))
-* **lighthouse:** update score history [skip ci] ([4821b93](https://github.com/davidsneighbour/kollitsch/commit/4821b93583bf8ec6a61db2a3c4ffbc2d80de4ffa))
-* **lighthouse:** update score history [skip ci] ([d5b50bc](https://github.com/davidsneighbour/kollitsch/commit/d5b50bca9535d79905adf6f3564a164742f8fbb4))
-* **lighthouse:** update score history [skip ci] ([58b8ff5](https://github.com/davidsneighbour/kollitsch/commit/58b8ff5b6d96c3e46f4df77da3ba4559907a70e2))
-* **lighthouse:** update score history [skip ci] ([b7dac0b](https://github.com/davidsneighbour/kollitsch/commit/b7dac0b6fa8163452a52a7751e2f7a111556b6ee))
-* **lighthouse:** update score history [skip ci] ([ce7377f](https://github.com/davidsneighbour/kollitsch/commit/ce7377f7be9cdcc1631ebb7e79a90b83e65b8d71))
-* **lighthouse:** update score history [skip ci] ([bc7f96a](https://github.com/davidsneighbour/kollitsch/commit/bc7f96a5f6e674d4e1eba18e206721ad9ccf1add))
-* **lighthouse:** update score history [skip ci] ([28b0769](https://github.com/davidsneighbour/kollitsch/commit/28b07699a22f5e2c2d35ee2e825022397a46d474))
-* **lighthouse:** update score history [skip ci] ([2468ff0](https://github.com/davidsneighbour/kollitsch/commit/2468ff0b0e7ce3c0372ab1b10d281bf8cf448e09))
-* **lighthouse:** update score history [skip ci] ([12eaaf0](https://github.com/davidsneighbour/kollitsch/commit/12eaaf013edb7079c33f6bf27e4a42c90b4d65a1))
-* **lighthouse:** update score history [skip ci] ([fba6775](https://github.com/davidsneighbour/kollitsch/commit/fba6775c0276a3a18461765f2591ec4db728b5ff))
-* **lint:** exclude auto-generated CHANGELOG/PROJECT/TODO from lychee and markdownlint ([63fbcbc](https://github.com/davidsneighbour/kollitsch/commit/63fbcbc251bbb9cf378f12cfcd861a2e0554dd19))
-* **project:** update project plan ([5feb1a2](https://github.com/davidsneighbour/kollitsch/commit/5feb1a2b00d6c25a1e1305f07f94f839afe0d970)), closes [#1772](https://github.com/davidsneighbour/kollitsch/issues/1772) [#1773](https://github.com/davidsneighbour/kollitsch/issues/1773) [#1769](https://github.com/davidsneighbour/kollitsch/issues/1769), references [#1775](https://github.com/davidsneighbour/kollitsch/issues/1775)
-* **project:** update project plan ([3e888e3](https://github.com/davidsneighbour/kollitsch/commit/3e888e30e1e884cd355fa7ebf42d83f2aa4e5515)), references [#1769](https://github.com/davidsneighbour/kollitsch/issues/1769) [#1770](https://github.com/davidsneighbour/kollitsch/issues/1770) [#1771](https://github.com/davidsneighbour/kollitsch/issues/1771) [#1772](https://github.com/davidsneighbour/kollitsch/issues/1772) [#1773](https://github.com/davidsneighbour/kollitsch/issues/1773)
-* **project:** update project plan ([b63c4cb](https://github.com/davidsneighbour/kollitsch/commit/b63c4cb4f64e7b6fb5e2dbe62cdccb745e7a066b)), closes [#1690](https://github.com/davidsneighbour/kollitsch/issues/1690), references [1750-#1756](https://github.com/1750-/issues/1756) [1758-#1763](https://github.com/1758-/issues/1763)
-* **project:** update project plan ([59493ff](https://github.com/davidsneighbour/kollitsch/commit/59493ffaf9b4033445cd5994b0bb4134232dbafb)), references [#1676](https://github.com/davidsneighbour/kollitsch/issues/1676)
-* **project:** update roadmap after dev-tooling session ([45281b2](https://github.com/davidsneighbour/kollitsch/commit/45281b2b18ad2408dda88b0e4133b16b16f73eaf)), closes [#1760](https://github.com/davidsneighbour/kollitsch/issues/1760) [#1763](https://github.com/davidsneighbour/kollitsch/issues/1763) [#1759](https://github.com/davidsneighbour/kollitsch/issues/1759) [#1758](https://github.com/davidsneighbour/kollitsch/issues/1758) [#1762](https://github.com/davidsneighbour/kollitsch/issues/1762), references [#1764](https://github.com/davidsneighbour/kollitsch/issues/1764) [#1758](https://github.com/davidsneighbour/kollitsch/issues/1758) [#1759](https://github.com/davidsneighbour/kollitsch/issues/1759) [#1760](https://github.com/davidsneighbour/kollitsch/issues/1760) [#1762](https://github.com/davidsneighbour/kollitsch/issues/1762) [#1763](https://github.com/davidsneighbour/kollitsch/issues/1763) [#1764](https://github.com/davidsneighbour/kollitsch/issues/1764)
-* remove unused releases pagination scaffolding ([16bdb96](https://github.com/davidsneighbour/kollitsch/commit/16bdb9603105740b3b3ad582dd8d6febc721e321))
-* update screenshot ([653df2c](https://github.com/davidsneighbour/kollitsch/commit/653df2cb669aa75feee5bedb6e3d2f430861d52b))
-* update screenshot ([1820b23](https://github.com/davidsneighbour/kollitsch/commit/1820b2382bc3a0eacadcb4964bcab3225808f25f))
-* update screenshot ([ac1ce4b](https://github.com/davidsneighbour/kollitsch/commit/ac1ce4bfa0078d5d7fc16a1e426dc69f6b2672d7))
-* update screenshot ([bddfaac](https://github.com/davidsneighbour/kollitsch/commit/bddfaac79d1d2337e24c3c88c549893810b76027))
-* update screenshot ([0d9e3e3](https://github.com/davidsneighbour/kollitsch/commit/0d9e3e3ed13880824ef128b39b469f455d0741c4))
-* **workspace:** update VS Code file-nesting and kdev-postreview resources ([96dac8d](https://github.com/davidsneighbour/kollitsch/commit/96dac8da0ce20ff58f5b5b8e63f8817e7b7c095c))
+* **agents:** gitignore and lock-file follow-up for PROJECT.md/TODO.md migration ([8cefab5](https://github.com/davidsneighbour/kollitsch.dev/commit/8cefab57eedd82ecd92702b048a0593dd2ae4ed9))
+* **agents:** ignore installed skills, track skills-lock.json ([c3d3d68](https://github.com/davidsneighbour/kollitsch.dev/commit/c3d3d68cf4b4a6c8cfd2eafaf2e3b67d3115472f))
+* **agents:** migrate ROADMAP.md/TODO.md to local-only PROJECT.md/TODO.md ([a8fa252](https://github.com/davidsneighbour/kollitsch.dev/commit/a8fa252fd6b0baaaaf99d87cd98f8cbdabcbea9b))
+* clean up unused framework entries in .gitignore ([5748610](https://github.com/davidsneighbour/kollitsch.dev/commit/57486107e5cefbd7abe8f6c88be6fb3b6862d5fa))
+* cleanup file structure and workspace setup ([a189bb4](https://github.com/davidsneighbour/kollitsch.dev/commit/a189bb4879b43322cc3d207556b05af2a01a2d36))
+* **config:** install @google/design.md locally instead of via npx ([db773a9](https://github.com/davidsneighbour/kollitsch.dev/commit/db773a9efc8a169934a761ad1b9eae76f386c330)), closes [#1682](https://github.com/davidsneighbour/kollitsch.dev/issues/1682)
+* **config:** track kdev-* local skills separately from dnb-* installs ([5f286d9](https://github.com/davidsneighbour/kollitsch.dev/commit/5f286d9a03726cade70693a7bf1e22863119e50d)), closes [#1777](https://github.com/davidsneighbour/kollitsch.dev/issues/1777)
+* **deps:** update markdownlint-rule-relative-links, release-it, conventional-changelog, js-yaml ([b96cd78](https://github.com/davidsneighbour/kollitsch.dev/commit/b96cd788a4377a0c4d5a1e1b99c1450651cf31b6))
+* **deps:** upgrade to Astro 7.0.0 ([8b2df4e](https://github.com/davidsneighbour/kollitsch.dev/commit/8b2df4e44ca4b2b9fc99e6c7dd6f54c354080d48))
+* **dev:** ignore scratch/, .vscode/, .agents/, and root docs in Vite watcher ([3bc05a0](https://github.com/davidsneighbour/kollitsch.dev/commit/3bc05a0c97ad465640293e7d4dd8819b09945766)), closes [#1762](https://github.com/davidsneighbour/kollitsch.dev/issues/1762)
+* **docs:** move TypeDoc API output from docs/ to documentation/api ([264f3e8](https://github.com/davidsneighbour/kollitsch.dev/commit/264f3e822f05539d53651795a9b1a9ecf1a60805)), closes [#1763](https://github.com/davidsneighbour/kollitsch.dev/issues/1763)
+* **git:** ignore Playwright MCP local session directory ([7320842](https://github.com/davidsneighbour/kollitsch.dev/commit/7320842615619fb84ef5d6af6c5ce048a06cbf92))
+* **lighthouse:** update score history [skip ci] ([a53dac0](https://github.com/davidsneighbour/kollitsch.dev/commit/a53dac0d718b6537120a13938c26d7f4136fb24b))
+* **lighthouse:** update score history [skip ci] ([42c4a17](https://github.com/davidsneighbour/kollitsch.dev/commit/42c4a17420fb4b33ed193283dccd5e1b62d12beb))
+* **lighthouse:** update score history [skip ci] ([ad0872d](https://github.com/davidsneighbour/kollitsch.dev/commit/ad0872daf71539314b394b075cbb4ea447bee2f4))
+* **lighthouse:** update score history [skip ci] ([be7d9c5](https://github.com/davidsneighbour/kollitsch.dev/commit/be7d9c58f60c4dce4790e69161115058a0ac08fc))
+* **lighthouse:** update score history [skip ci] ([db98f52](https://github.com/davidsneighbour/kollitsch.dev/commit/db98f527c84ca7161eed872430029c789ede9fe9))
+* **lighthouse:** update score history [skip ci] ([8c5026a](https://github.com/davidsneighbour/kollitsch.dev/commit/8c5026a0aa8fd6947de84199ee22317cb85ff8a7))
+* **lighthouse:** update score history [skip ci] ([c064d42](https://github.com/davidsneighbour/kollitsch.dev/commit/c064d4246940f31156db3f3b09909c85ee2d173d))
+* **lighthouse:** update score history [skip ci] ([e8b9c42](https://github.com/davidsneighbour/kollitsch.dev/commit/e8b9c42743b6f0343cdebcda78985b3a9fbcb596))
+* **lighthouse:** update score history [skip ci] ([bef2ee1](https://github.com/davidsneighbour/kollitsch.dev/commit/bef2ee1900628c171cc1dd3aa786698321964122))
+* **lighthouse:** update score history [skip ci] ([ab56ffd](https://github.com/davidsneighbour/kollitsch.dev/commit/ab56ffdf52d2256b2d3e8ac952d77dc8b76f0e39))
+* **lighthouse:** update score history [skip ci] ([dabcd35](https://github.com/davidsneighbour/kollitsch.dev/commit/dabcd35fb8606b5de262c1003349836dfd4a834c))
+* **lighthouse:** update score history [skip ci] ([2d5cc90](https://github.com/davidsneighbour/kollitsch.dev/commit/2d5cc9017f6aa47ce40398538b67d31d6985fa96))
+* **lighthouse:** update score history [skip ci] ([601e479](https://github.com/davidsneighbour/kollitsch.dev/commit/601e4791f9cfe6343e0d7e25c1be9c8311efa0d5))
+* **lighthouse:** update score history [skip ci] ([743c316](https://github.com/davidsneighbour/kollitsch.dev/commit/743c316603a9e8e68ba881f2c2b368c32172cf5a))
+* **lighthouse:** update score history [skip ci] ([4f00256](https://github.com/davidsneighbour/kollitsch.dev/commit/4f0025680541652185c5cea64fd7be812612f6ce))
+* **lighthouse:** update score history [skip ci] ([c043896](https://github.com/davidsneighbour/kollitsch.dev/commit/c043896ca577a1cb7561ef8bd44c96972e590661))
+* **lighthouse:** update score history [skip ci] ([54ea7c3](https://github.com/davidsneighbour/kollitsch.dev/commit/54ea7c3db19a47c3eba7261c2ff674a7d1c9ffa8))
+* **lighthouse:** update score history [skip ci] ([5ed9c96](https://github.com/davidsneighbour/kollitsch.dev/commit/5ed9c966911f16a5358cda0a46e6671c3935fb7c))
+* **lighthouse:** update score history [skip ci] ([02ec6cb](https://github.com/davidsneighbour/kollitsch.dev/commit/02ec6cb1ddc697c42cf7974f8b09c1e9093ca126))
+* **lighthouse:** update score history [skip ci] ([97cf7e9](https://github.com/davidsneighbour/kollitsch.dev/commit/97cf7e92b39fef39827ca80cf9f3b9316b56290d))
+* **lighthouse:** update score history [skip ci] ([17735aa](https://github.com/davidsneighbour/kollitsch.dev/commit/17735aaf4f2268fb6bf2443a8ebe9ff878941f9e))
+* **lighthouse:** update score history [skip ci] ([b38c21d](https://github.com/davidsneighbour/kollitsch.dev/commit/b38c21d290cac50d8950e0581f72d3e72914007e))
+* **lighthouse:** update score history [skip ci] ([f2ac769](https://github.com/davidsneighbour/kollitsch.dev/commit/f2ac769f0ad6562415e4b7f899d504eaea384832))
+* **lighthouse:** update score history [skip ci] ([a7219ee](https://github.com/davidsneighbour/kollitsch.dev/commit/a7219eee8c9636c8f811c5093d7d82fbd6ec6c32))
+* **lighthouse:** update score history [skip ci] ([efb6972](https://github.com/davidsneighbour/kollitsch.dev/commit/efb69724ec2197220021833c437743d39f6c0def))
+* **lighthouse:** update score history [skip ci] ([5c4a450](https://github.com/davidsneighbour/kollitsch.dev/commit/5c4a45094c4219639c4b694144c3254ead312028))
+* **lighthouse:** update score history [skip ci] ([dca5fa6](https://github.com/davidsneighbour/kollitsch.dev/commit/dca5fa6b217b685ab72c89fe79f6b425272b33ac))
+* **lighthouse:** update score history [skip ci] ([235d4a2](https://github.com/davidsneighbour/kollitsch.dev/commit/235d4a26e27fd7af1af45f90bf58cef0a412603f))
+* **lighthouse:** update score history [skip ci] ([4821b93](https://github.com/davidsneighbour/kollitsch.dev/commit/4821b93583bf8ec6a61db2a3c4ffbc2d80de4ffa))
+* **lighthouse:** update score history [skip ci] ([d5b50bc](https://github.com/davidsneighbour/kollitsch.dev/commit/d5b50bca9535d79905adf6f3564a164742f8fbb4))
+* **lighthouse:** update score history [skip ci] ([58b8ff5](https://github.com/davidsneighbour/kollitsch.dev/commit/58b8ff5b6d96c3e46f4df77da3ba4559907a70e2))
+* **lighthouse:** update score history [skip ci] ([b7dac0b](https://github.com/davidsneighbour/kollitsch.dev/commit/b7dac0b6fa8163452a52a7751e2f7a111556b6ee))
+* **lighthouse:** update score history [skip ci] ([ce7377f](https://github.com/davidsneighbour/kollitsch.dev/commit/ce7377f7be9cdcc1631ebb7e79a90b83e65b8d71))
+* **lighthouse:** update score history [skip ci] ([bc7f96a](https://github.com/davidsneighbour/kollitsch.dev/commit/bc7f96a5f6e674d4e1eba18e206721ad9ccf1add))
+* **lighthouse:** update score history [skip ci] ([28b0769](https://github.com/davidsneighbour/kollitsch.dev/commit/28b07699a22f5e2c2d35ee2e825022397a46d474))
+* **lighthouse:** update score history [skip ci] ([2468ff0](https://github.com/davidsneighbour/kollitsch.dev/commit/2468ff0b0e7ce3c0372ab1b10d281bf8cf448e09))
+* **lighthouse:** update score history [skip ci] ([12eaaf0](https://github.com/davidsneighbour/kollitsch.dev/commit/12eaaf013edb7079c33f6bf27e4a42c90b4d65a1))
+* **lighthouse:** update score history [skip ci] ([fba6775](https://github.com/davidsneighbour/kollitsch.dev/commit/fba6775c0276a3a18461765f2591ec4db728b5ff))
+* **lint:** exclude auto-generated CHANGELOG/PROJECT/TODO from lychee and markdownlint ([63fbcbc](https://github.com/davidsneighbour/kollitsch.dev/commit/63fbcbc251bbb9cf378f12cfcd861a2e0554dd19))
+* **project:** update project plan ([5feb1a2](https://github.com/davidsneighbour/kollitsch.dev/commit/5feb1a2b00d6c25a1e1305f07f94f839afe0d970)), closes [#1772](https://github.com/davidsneighbour/kollitsch.dev/issues/1772) [#1773](https://github.com/davidsneighbour/kollitsch.dev/issues/1773) [#1769](https://github.com/davidsneighbour/kollitsch.dev/issues/1769), references [#1775](https://github.com/davidsneighbour/kollitsch.dev/issues/1775)
+* **project:** update project plan ([3e888e3](https://github.com/davidsneighbour/kollitsch.dev/commit/3e888e30e1e884cd355fa7ebf42d83f2aa4e5515)), references [#1769](https://github.com/davidsneighbour/kollitsch.dev/issues/1769) [#1770](https://github.com/davidsneighbour/kollitsch.dev/issues/1770) [#1771](https://github.com/davidsneighbour/kollitsch.dev/issues/1771) [#1772](https://github.com/davidsneighbour/kollitsch.dev/issues/1772) [#1773](https://github.com/davidsneighbour/kollitsch.dev/issues/1773)
+* **project:** update project plan ([b63c4cb](https://github.com/davidsneighbour/kollitsch.dev/commit/b63c4cb4f64e7b6fb5e2dbe62cdccb745e7a066b)), closes [#1690](https://github.com/davidsneighbour/kollitsch.dev/issues/1690), references [1750-#1756](https://github.com/1750-/issues/1756) [1758-#1763](https://github.com/1758-/issues/1763)
+* **project:** update project plan ([59493ff](https://github.com/davidsneighbour/kollitsch.dev/commit/59493ffaf9b4033445cd5994b0bb4134232dbafb)), references [#1676](https://github.com/davidsneighbour/kollitsch.dev/issues/1676)
+* **project:** update roadmap after dev-tooling session ([45281b2](https://github.com/davidsneighbour/kollitsch.dev/commit/45281b2b18ad2408dda88b0e4133b16b16f73eaf)), closes [#1760](https://github.com/davidsneighbour/kollitsch.dev/issues/1760) [#1763](https://github.com/davidsneighbour/kollitsch.dev/issues/1763) [#1759](https://github.com/davidsneighbour/kollitsch.dev/issues/1759) [#1758](https://github.com/davidsneighbour/kollitsch.dev/issues/1758) [#1762](https://github.com/davidsneighbour/kollitsch.dev/issues/1762), references [#1764](https://github.com/davidsneighbour/kollitsch.dev/issues/1764) [#1758](https://github.com/davidsneighbour/kollitsch.dev/issues/1758) [#1759](https://github.com/davidsneighbour/kollitsch.dev/issues/1759) [#1760](https://github.com/davidsneighbour/kollitsch.dev/issues/1760) [#1762](https://github.com/davidsneighbour/kollitsch.dev/issues/1762) [#1763](https://github.com/davidsneighbour/kollitsch.dev/issues/1763) [#1764](https://github.com/davidsneighbour/kollitsch.dev/issues/1764)
+* remove unused releases pagination scaffolding ([16bdb96](https://github.com/davidsneighbour/kollitsch.dev/commit/16bdb9603105740b3b3ad582dd8d6febc721e321))
+* update screenshot ([653df2c](https://github.com/davidsneighbour/kollitsch.dev/commit/653df2cb669aa75feee5bedb6e3d2f430861d52b))
+* update screenshot ([1820b23](https://github.com/davidsneighbour/kollitsch.dev/commit/1820b2382bc3a0eacadcb4964bcab3225808f25f))
+* update screenshot ([ac1ce4b](https://github.com/davidsneighbour/kollitsch.dev/commit/ac1ce4bfa0078d5d7fc16a1e426dc69f6b2672d7))
+* update screenshot ([bddfaac](https://github.com/davidsneighbour/kollitsch.dev/commit/bddfaac79d1d2337e24c3c88c549893810b76027))
+* update screenshot ([0d9e3e3](https://github.com/davidsneighbour/kollitsch.dev/commit/0d9e3e3ed13880824ef128b39b469f455d0741c4))
+* **workspace:** update VS Code file-nesting and kdev-postreview resources ([96dac8d](https://github.com/davidsneighbour/kollitsch.dev/commit/96dac8da0ce20ff58f5b5b8e63f8817e7b7c095c))
 
 ## [3001.14.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.13.1...v3001.14.0) (2026-06-17)
 
@@ -804,11 +804,11 @@
 ### Build
 
 * **config:** remove redundant dist from tsconfig exclude ([6ede195](https://github.com/davidsneighbour/kollitsch.dev/commit/6ede1953f7a95914847f6aedd9c0ee1ca7d61da2))
-* **deps:** bump @vitest/browser-playwright from 4.1.7 to 4.1.8 ([#1643](https://github.com/davidsneighbour/kollitsch/issues/1643)) ([b9851aa](https://github.com/davidsneighbour/kollitsch.dev/commit/b9851aa8006b463637be6cb70d4e2586f465e105))
-* **deps:** bump @vitest/coverage-v8 from 4.1.7 to 4.1.8 ([#1642](https://github.com/davidsneighbour/kollitsch/issues/1642)) ([d0e7ff8](https://github.com/davidsneighbour/kollitsch.dev/commit/d0e7ff8351e58b171fefe64b8bc85507ab0647cb))
-* **deps:** bump @vitest/ui from 4.1.7 to 4.1.8 ([#1650](https://github.com/davidsneighbour/kollitsch/issues/1650)) ([388c0c3](https://github.com/davidsneighbour/kollitsch.dev/commit/388c0c365fb8f1db58631a2b92fcf8b83f418e66))
-* **deps:** bump shell-quote from 1.8.3 to 1.8.4 in the npm_and_yarn group across 1 directory ([#1658](https://github.com/davidsneighbour/kollitsch/issues/1658)) ([b0a9e6d](https://github.com/davidsneighbour/kollitsch.dev/commit/b0a9e6db201b23339c27c80cdccaa2bbe656b06c))
-* **deps:** bump vitest from 4.1.7 to 4.1.8 ([#1646](https://github.com/davidsneighbour/kollitsch/issues/1646)) ([4f155d9](https://github.com/davidsneighbour/kollitsch.dev/commit/4f155d933544198ca86d412345a8aa1d164dcbca))
+* **deps:** bump @vitest/browser-playwright from 4.1.7 to 4.1.8 ([#1643](https://github.com/davidsneighbour/kollitsch.dev/issues/1643)) ([b9851aa](https://github.com/davidsneighbour/kollitsch.dev/commit/b9851aa8006b463637be6cb70d4e2586f465e105))
+* **deps:** bump @vitest/coverage-v8 from 4.1.7 to 4.1.8 ([#1642](https://github.com/davidsneighbour/kollitsch.dev/issues/1642)) ([d0e7ff8](https://github.com/davidsneighbour/kollitsch.dev/commit/d0e7ff8351e58b171fefe64b8bc85507ab0647cb))
+* **deps:** bump @vitest/ui from 4.1.7 to 4.1.8 ([#1650](https://github.com/davidsneighbour/kollitsch.dev/issues/1650)) ([388c0c3](https://github.com/davidsneighbour/kollitsch.dev/commit/388c0c365fb8f1db58631a2b92fcf8b83f418e66))
+* **deps:** bump shell-quote from 1.8.3 to 1.8.4 in the npm_and_yarn group across 1 directory ([#1658](https://github.com/davidsneighbour/kollitsch.dev/issues/1658)) ([b0a9e6d](https://github.com/davidsneighbour/kollitsch.dev/commit/b0a9e6db201b23339c27c80cdccaa2bbe656b06c))
+* **deps:** bump vitest from 4.1.7 to 4.1.8 ([#1646](https://github.com/davidsneighbour/kollitsch.dev/issues/1646)) ([4f155d9](https://github.com/davidsneighbour/kollitsch.dev/commit/4f155d933544198ca86d412345a8aa1d164dcbca))
 * **deps:** fix dependencies ([9981ab4](https://github.com/davidsneighbour/kollitsch.dev/commit/9981ab422e0d1c36a42dab26214b28a26c813b7d))
 * **deps:** sort dependencies and bump [@commitlint](https://github.com/commitlint) to 21.0.2 ([98887b4](https://github.com/davidsneighbour/kollitsch.dev/commit/98887b49f7718204187b17e237863144e26a3d8b))
 * **deps:** update dependencies ([ed8e9f4](https://github.com/davidsneighbour/kollitsch.dev/commit/ed8e9f4b957fb126bd3986927c347ad0bbe2040e))
@@ -850,7 +850,7 @@
 * **agents:** update TODO.md audit findings after ai/ symlink was added ([7148146](https://github.com/davidsneighbour/kollitsch.dev/commit/71481463614273b078a1c1b6e624055d105fe9f6))
 * **readme:** update OS info, versioning note, and docs path reference ([7124e01](https://github.com/davidsneighbour/kollitsch.dev/commit/7124e0108f4b409962414d964ff60ea3b24be999))
 * refactor typography documentation ([be472d9](https://github.com/davidsneighbour/kollitsch.dev/commit/be472d9825e0eb2165456ae8970841ea994ec450))
-* **todo:** update TODO.md with audit follow-up items ([d3d9b8e](https://github.com/davidsneighbour/kollitsch.dev/commit/d3d9b8ead3b2b781d36d86595026f23254563b7c)), closes [#2](https://github.com/davidsneighbour/kollitsch/issues/2) [#3](https://github.com/davidsneighbour/kollitsch/issues/3) [#4](https://github.com/davidsneighbour/kollitsch/issues/4) [#5](https://github.com/davidsneighbour/kollitsch/issues/5) [#6](https://github.com/davidsneighbour/kollitsch/issues/6) [#9](https://github.com/davidsneighbour/kollitsch/issues/9)
+* **todo:** update TODO.md with audit follow-up items ([d3d9b8e](https://github.com/davidsneighbour/kollitsch.dev/commit/d3d9b8ead3b2b781d36d86595026f23254563b7c)), closes [#2](https://github.com/davidsneighbour/kollitsch.dev/issues/2) [#3](https://github.com/davidsneighbour/kollitsch.dev/issues/3) [#4](https://github.com/davidsneighbour/kollitsch.dev/issues/4) [#5](https://github.com/davidsneighbour/kollitsch.dev/issues/5) [#6](https://github.com/davidsneighbour/kollitsch.dev/issues/6) [#9](https://github.com/davidsneighbour/kollitsch.dev/issues/9)
 * update typography docs ([944d428](https://github.com/davidsneighbour/kollitsch.dev/commit/944d42869f80e4b60a906aec28ff42fd91fad558))
 
 ### Refactoring
@@ -1017,91 +1017,91 @@
 
 * **fix:** define commit and compare URL formats to fix links in CHANGELOG ([e2f107b](https://github.com/davidsneighbour/kollitsch.dev/commit/e2f107b9d35cac94cd223df9cdf70c5f260ab6d6))
 
-## [3001.1.0](https://github.com/davidsneighbour/kollitsch/compare/v3001.0.1...v3001.1.0) (2026-03-24)
+## [3001.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.0.1...v3001.1.0) (2026-03-24)
 
 ### Content
 
-* new post of 2025-03-24 ([8aea71e](https://github.com/davidsneighbour/kollitsch/commit/8aea71e2d0229d9094bb565ce659f4ee85c393a9))
-* **new:** blog post for 2026-03-21 ([be4d13d](https://github.com/davidsneighbour/kollitsch/commit/be4d13daf90d5b49e016bb77e3f0e98128f08ce9))
-* test pages for source code examples ([67dd235](https://github.com/davidsneighbour/kollitsch/commit/67dd23586932b92785bd7d60cc34751d90458f69))
-* **update:** description for labnotes.org ([8d0e6db](https://github.com/davidsneighbour/kollitsch/commit/8d0e6db87554a2aa4b6a3a7c1bac6ec78cbb6678))
+* new post of 2025-03-24 ([8aea71e](https://github.com/davidsneighbour/kollitsch.dev/commit/8aea71e2d0229d9094bb565ce659f4ee85c393a9))
+* **new:** blog post for 2026-03-21 ([be4d13d](https://github.com/davidsneighbour/kollitsch.dev/commit/be4d13daf90d5b49e016bb77e3f0e98128f08ce9))
+* test pages for source code examples ([67dd235](https://github.com/davidsneighbour/kollitsch.dev/commit/67dd23586932b92785bd7d60cc34751d90458f69))
+* **update:** description for labnotes.org ([8d0e6db](https://github.com/davidsneighbour/kollitsch.dev/commit/8d0e6db87554a2aa4b6a3a7c1bac6ec78cbb6678))
 
 ### Features
 
-* add ai review setup ([79ed0ba](https://github.com/davidsneighbour/kollitsch/commit/79ed0bad3792d06647d0e832dd768667b407dc85))
-* interruption tv ([eb28b28](https://github.com/davidsneighbour/kollitsch/commit/eb28b288cfe66095606b5202839d5ec70b18fdfb))
+* add ai review setup ([79ed0ba](https://github.com/davidsneighbour/kollitsch.dev/commit/79ed0bad3792d06647d0e832dd768667b407dc85))
+* interruption tv ([eb28b28](https://github.com/davidsneighbour/kollitsch.dev/commit/eb28b288cfe66095606b5202839d5ec70b18fdfb))
 
 ### Bug Fixes
 
-* add script to generate screenshots to package.json ([138ab3e](https://github.com/davidsneighbour/kollitsch/commit/138ab3eb98eb11237c163fb15333c4b8a166a289))
-* blogroll screenshot script fixed and screens updated ([0da0dc0](https://github.com/davidsneighbour/kollitsch/commit/0da0dc0e6aa3ed0fd32e85c3d4951c4bbe10e69f))
-* **components:** update under construction component css ([c8c3107](https://github.com/davidsneighbour/kollitsch/commit/c8c3107cf2e31dd9f537bb2eb45df6d361620f05))
-* font sizes over all site ([3323f9f](https://github.com/davidsneighbour/kollitsch/commit/3323f9f4bc7321a2f023021b1ef5f41c8ed7a5da))
-* footer design ([b64cd9e](https://github.com/davidsneighbour/kollitsch/commit/b64cd9e3467ed7e0a9112c847bdebf3d199c76e6))
-* hr design in prose ([b2c1fa8](https://github.com/davidsneighbour/kollitsch/commit/b2c1fa8ca00be074cf030a77986910df6d93a0d1))
-* images are missing from feeds and shared posts ([4365e23](https://github.com/davidsneighbour/kollitsch/commit/4365e23b241430afc82ff16d870e27f94fbe04d3))
-* load setup.json as json ([64a477e](https://github.com/davidsneighbour/kollitsch/commit/64a477e9bd152794ef54d91efad53b2d2f547ae4))
-* markdown layouts in pages section ([5570068](https://github.com/davidsneighbour/kollitsch/commit/5570068bd8734d55ee7c76637964ac1875cf8398))
-* move namespace into first line ([61ed4a6](https://github.com/davidsneighbour/kollitsch/commit/61ed4a66af126f34d97437ff6eeca07cfac329f8))
-* move underconstruction bar into itw own component ([3660131](https://github.com/davidsneighbour/kollitsch/commit/36601311020a19a701369fde2309916f67bae197))
-* proper og images for feeds ([5605c5b](https://github.com/davidsneighbour/kollitsch/commit/5605c5ba1ad15eb03749be652ebd07e1624c302d))
-* refactor theme styles ([661e127](https://github.com/davidsneighbour/kollitsch/commit/661e1277363fab3594520d1128df217babf400ef))
-* remove Aurora component ([3aff0ca](https://github.com/davidsneighbour/kollitsch/commit/3aff0ca987b3d98f47830e69272063e5663a68a7))
-* remove obsolete file watcher ([2a40ff9](https://github.com/davidsneighbour/kollitsch/commit/2a40ff907490f06b64cc2a4410281696d6369674))
-* remove syncstring component ([3229a16](https://github.com/davidsneighbour/kollitsch/commit/3229a16b68a21f76bd019f56ecde4dbf5954218f))
-* rework content styles to prose via tailwind/typography ([4d4a1da](https://github.com/davidsneighbour/kollitsch/commit/4d4a1da935ec87138d6534103b2bb0a77998c800))
-* rework css files and structure ([31aa67c](https://github.com/davidsneighbour/kollitsch/commit/31aa67c54e1e14d712da1aef8eed48e58d7b29f1))
-* round effect over background in tvhead ([eaa7491](https://github.com/davidsneighbour/kollitsch/commit/eaa749179828937b1d4cf6b663db25c3d66a6f5a))
-* round effect over background in tvhead ([e445a76](https://github.com/davidsneighbour/kollitsch/commit/e445a768f61a730ef527a1f495ef2c217e98d15b))
-* **shadcn:** move shadcn utils path to a subfolder ([73df84e](https://github.com/davidsneighbour/kollitsch/commit/73df84e1fbad0f3bbdd9f7594701928f2093f1d0))
-* slightly more defined radius on the bg image for tvhead ([94b8c69](https://github.com/davidsneighbour/kollitsch/commit/94b8c69e0bc56dbd4fd02ad5e1ff2221d45f65b1))
-* social media icon integration and footer links ([75deb63](https://github.com/davidsneighbour/kollitsch/commit/75deb6307ae7d5bf841f8d1f8bceb023a55a9a97))
-* theme changes and removing obsolete text formatting ([37a5905](https://github.com/davidsneighbour/kollitsch/commit/37a59059bbc7151e9ae156b8d931b33e3b3b5bc7))
-* under construction banner styles ([a67b1c9](https://github.com/davidsneighbour/kollitsch/commit/a67b1c93a3026b495c9e773192b77f2ee3284aac))
-* validation issues and deprecated methods in Zod ([385e9aa](https://github.com/davidsneighbour/kollitsch/commit/385e9aa518d7332e622484d0f721cc8b0d652d5c))
+* add script to generate screenshots to package.json ([138ab3e](https://github.com/davidsneighbour/kollitsch.dev/commit/138ab3eb98eb11237c163fb15333c4b8a166a289))
+* blogroll screenshot script fixed and screens updated ([0da0dc0](https://github.com/davidsneighbour/kollitsch.dev/commit/0da0dc0e6aa3ed0fd32e85c3d4951c4bbe10e69f))
+* **components:** update under construction component css ([c8c3107](https://github.com/davidsneighbour/kollitsch.dev/commit/c8c3107cf2e31dd9f537bb2eb45df6d361620f05))
+* font sizes over all site ([3323f9f](https://github.com/davidsneighbour/kollitsch.dev/commit/3323f9f4bc7321a2f023021b1ef5f41c8ed7a5da))
+* footer design ([b64cd9e](https://github.com/davidsneighbour/kollitsch.dev/commit/b64cd9e3467ed7e0a9112c847bdebf3d199c76e6))
+* hr design in prose ([b2c1fa8](https://github.com/davidsneighbour/kollitsch.dev/commit/b2c1fa8ca00be074cf030a77986910df6d93a0d1))
+* images are missing from feeds and shared posts ([4365e23](https://github.com/davidsneighbour/kollitsch.dev/commit/4365e23b241430afc82ff16d870e27f94fbe04d3))
+* load setup.json as json ([64a477e](https://github.com/davidsneighbour/kollitsch.dev/commit/64a477e9bd152794ef54d91efad53b2d2f547ae4))
+* markdown layouts in pages section ([5570068](https://github.com/davidsneighbour/kollitsch.dev/commit/5570068bd8734d55ee7c76637964ac1875cf8398))
+* move namespace into first line ([61ed4a6](https://github.com/davidsneighbour/kollitsch.dev/commit/61ed4a66af126f34d97437ff6eeca07cfac329f8))
+* move underconstruction bar into itw own component ([3660131](https://github.com/davidsneighbour/kollitsch.dev/commit/36601311020a19a701369fde2309916f67bae197))
+* proper og images for feeds ([5605c5b](https://github.com/davidsneighbour/kollitsch.dev/commit/5605c5ba1ad15eb03749be652ebd07e1624c302d))
+* refactor theme styles ([661e127](https://github.com/davidsneighbour/kollitsch.dev/commit/661e1277363fab3594520d1128df217babf400ef))
+* remove Aurora component ([3aff0ca](https://github.com/davidsneighbour/kollitsch.dev/commit/3aff0ca987b3d98f47830e69272063e5663a68a7))
+* remove obsolete file watcher ([2a40ff9](https://github.com/davidsneighbour/kollitsch.dev/commit/2a40ff907490f06b64cc2a4410281696d6369674))
+* remove syncstring component ([3229a16](https://github.com/davidsneighbour/kollitsch.dev/commit/3229a16b68a21f76bd019f56ecde4dbf5954218f))
+* rework content styles to prose via tailwind/typography ([4d4a1da](https://github.com/davidsneighbour/kollitsch.dev/commit/4d4a1da935ec87138d6534103b2bb0a77998c800))
+* rework css files and structure ([31aa67c](https://github.com/davidsneighbour/kollitsch.dev/commit/31aa67c54e1e14d712da1aef8eed48e58d7b29f1))
+* round effect over background in tvhead ([eaa7491](https://github.com/davidsneighbour/kollitsch.dev/commit/eaa749179828937b1d4cf6b663db25c3d66a6f5a))
+* round effect over background in tvhead ([e445a76](https://github.com/davidsneighbour/kollitsch.dev/commit/e445a768f61a730ef527a1f495ef2c217e98d15b))
+* **shadcn:** move shadcn utils path to a subfolder ([73df84e](https://github.com/davidsneighbour/kollitsch.dev/commit/73df84e1fbad0f3bbdd9f7594701928f2093f1d0))
+* slightly more defined radius on the bg image for tvhead ([94b8c69](https://github.com/davidsneighbour/kollitsch.dev/commit/94b8c69e0bc56dbd4fd02ad5e1ff2221d45f65b1))
+* social media icon integration and footer links ([75deb63](https://github.com/davidsneighbour/kollitsch.dev/commit/75deb6307ae7d5bf841f8d1f8bceb023a55a9a97))
+* theme changes and removing obsolete text formatting ([37a5905](https://github.com/davidsneighbour/kollitsch.dev/commit/37a59059bbc7151e9ae156b8d931b33e3b3b5bc7))
+* under construction banner styles ([a67b1c9](https://github.com/davidsneighbour/kollitsch.dev/commit/a67b1c93a3026b495c9e773192b77f2ee3284aac))
+* validation issues and deprecated methods in Zod ([385e9aa](https://github.com/davidsneighbour/kollitsch.dev/commit/385e9aa518d7332e622484d0f721cc8b0d652d5c))
 
 ### Build
 
-* add MCP server configurations ([838b9e8](https://github.com/davidsneighbour/kollitsch/commit/838b9e86621d8f177d57488974be437ffe57ccc8))
-* **deps:** audit fix for dependencies ([2ba41a7](https://github.com/davidsneighbour/kollitsch/commit/2ba41a7d6b654233e7b228ae231eb291b3efe04f))
-* **deps:** bump h3 from 1.15.8 to 1.15.9 in the npm_and_yarn group across 1 directory ([#1566](https://github.com/davidsneighbour/kollitsch/issues/1566)) ([f6114be](https://github.com/davidsneighbour/kollitsch/commit/f6114be2661f26b408d25de562c46ae46f4bc15a))
-* **deps:** update dependencies ([93cce5a](https://github.com/davidsneighbour/kollitsch/commit/93cce5a5d4ae5f8c342c0937516c2d72f0c02079))
-* **deps:** update dependencies ([e875b4b](https://github.com/davidsneighbour/kollitsch/commit/e875b4b8e577498cf90b36c4ff2e7da7e6ac2ffd))
-* **deps:** update dependencies ([6567055](https://github.com/davidsneighbour/kollitsch/commit/65670557e04bc63c0bef82556ce34201343fe64f))
-* **deps:** update dependencies ([fa66e68](https://github.com/davidsneighbour/kollitsch/commit/fa66e685a88b8acf953ae9bb276a8f5b594c02ce))
-* **deps:** update dependencies ([3ada0e9](https://github.com/davidsneighbour/kollitsch/commit/3ada0e9ce5fab0d9e29e8ec825fd83d87b1ef8f7))
-* **deps:** update dependencies and move devdeps to deps ([0a83e61](https://github.com/davidsneighbour/kollitsch/commit/0a83e61dfb6a677a2ba9b1e17d7c065ab8e5398d))
-* **deps:** update site screenshot ([ba44155](https://github.com/davidsneighbour/kollitsch/commit/ba44155588de3d7ee14d19b8d5e79ed594f1f9a4))
+* add MCP server configurations ([838b9e8](https://github.com/davidsneighbour/kollitsch.dev/commit/838b9e86621d8f177d57488974be437ffe57ccc8))
+* **deps:** audit fix for dependencies ([2ba41a7](https://github.com/davidsneighbour/kollitsch.dev/commit/2ba41a7d6b654233e7b228ae231eb291b3efe04f))
+* **deps:** bump h3 from 1.15.8 to 1.15.9 in the npm_and_yarn group across 1 directory ([#1566](https://github.com/davidsneighbour/kollitsch.dev/issues/1566)) ([f6114be](https://github.com/davidsneighbour/kollitsch.dev/commit/f6114be2661f26b408d25de562c46ae46f4bc15a))
+* **deps:** update dependencies ([93cce5a](https://github.com/davidsneighbour/kollitsch.dev/commit/93cce5a5d4ae5f8c342c0937516c2d72f0c02079))
+* **deps:** update dependencies ([e875b4b](https://github.com/davidsneighbour/kollitsch.dev/commit/e875b4b8e577498cf90b36c4ff2e7da7e6ac2ffd))
+* **deps:** update dependencies ([6567055](https://github.com/davidsneighbour/kollitsch.dev/commit/65670557e04bc63c0bef82556ce34201343fe64f))
+* **deps:** update dependencies ([fa66e68](https://github.com/davidsneighbour/kollitsch.dev/commit/fa66e685a88b8acf953ae9bb276a8f5b594c02ce))
+* **deps:** update dependencies ([3ada0e9](https://github.com/davidsneighbour/kollitsch.dev/commit/3ada0e9ce5fab0d9e29e8ec825fd83d87b1ef8f7))
+* **deps:** update dependencies and move devdeps to deps ([0a83e61](https://github.com/davidsneighbour/kollitsch.dev/commit/0a83e61dfb6a677a2ba9b1e17d7c065ab8e5398d))
+* **deps:** update site screenshot ([ba44155](https://github.com/davidsneighbour/kollitsch.dev/commit/ba44155588de3d7ee14d19b8d5e79ed594f1f9a4))
 
 ### Chores
 
-* add ToDo.md for bug fixing ([b25d96a](https://github.com/davidsneighbour/kollitsch/commit/b25d96aa5dd3505bf5743a97fadab2942a0c73b6))
-* cleanup .gitignore ([f94cd47](https://github.com/davidsneighbour/kollitsch/commit/f94cd4758fc1621706367f4f199a2c50f521765b))
-* **deps:** update package sources with latest changes ([dfcdc47](https://github.com/davidsneighbour/kollitsch/commit/dfcdc474ffdef7e92cab57c90d9841b7d87294e3))
-* **fix:** proper netlify folder gitignore ([58bce74](https://github.com/davidsneighbour/kollitsch/commit/58bce740d61c8d2fc7835c1f81190a2790a70709))
-* update ToDo.md ([83a24f2](https://github.com/davidsneighbour/kollitsch/commit/83a24f23b7512f2bb9c92d10ea43244af8a4c695))
+* add ToDo.md for bug fixing ([b25d96a](https://github.com/davidsneighbour/kollitsch.dev/commit/b25d96aa5dd3505bf5743a97fadab2942a0c73b6))
+* cleanup .gitignore ([f94cd47](https://github.com/davidsneighbour/kollitsch.dev/commit/f94cd4758fc1621706367f4f199a2c50f521765b))
+* **deps:** update package sources with latest changes ([dfcdc47](https://github.com/davidsneighbour/kollitsch.dev/commit/dfcdc474ffdef7e92cab57c90d9841b7d87294e3))
+* **fix:** proper netlify folder gitignore ([58bce74](https://github.com/davidsneighbour/kollitsch.dev/commit/58bce740d61c8d2fc7835c1f81190a2790a70709))
+* update ToDo.md ([83a24f2](https://github.com/davidsneighbour/kollitsch.dev/commit/83a24f23b7512f2bb9c92d10ea43244af8a4c695))
 
 ### CI
 
-* clean out deprecated workflows ([8034ac0](https://github.com/davidsneighbour/kollitsch/commit/8034ac0f46a395d270deea76145d11fa7b1fefda))
-* **fix:** add --no-glob parameter to secretlint lintstaged config ([24e3f54](https://github.com/davidsneighbour/kollitsch/commit/24e3f54e31618aa5bbd5013884806101933a1301))
-* **fix:** fix testing, linting html and markdown ([1f50f04](https://github.com/davidsneighbour/kollitsch/commit/1f50f04c6f3864b5e4929c90d6734cf7af1af24b))
-* **fix:** remove cruft from lychee lintstaged check ([a4db6a6](https://github.com/davidsneighbour/kollitsch/commit/a4db6a6676bd15ac7e0c61d1e5d6fe8f06901279))
+* clean out deprecated workflows ([8034ac0](https://github.com/davidsneighbour/kollitsch.dev/commit/8034ac0f46a395d270deea76145d11fa7b1fefda))
+* **fix:** add --no-glob parameter to secretlint lintstaged config ([24e3f54](https://github.com/davidsneighbour/kollitsch.dev/commit/24e3f54e31618aa5bbd5013884806101933a1301))
+* **fix:** fix testing, linting html and markdown ([1f50f04](https://github.com/davidsneighbour/kollitsch.dev/commit/1f50f04c6f3864b5e4929c90d6734cf7af1af24b))
+* **fix:** remove cruft from lychee lintstaged check ([a4db6a6](https://github.com/davidsneighbour/kollitsch.dev/commit/a4db6a6676bd15ac7e0c61d1e5d6fe8f06901279))
 
 ### Documentation
 
-* **fix:** move docs into Obsidian notes ([523f5c0](https://github.com/davidsneighbour/kollitsch/commit/523f5c0ebe07c65d9341e64ca70238d464ca068a))
-* **fix:** move docs into Obsidian notes ([3fe5bd2](https://github.com/davidsneighbour/kollitsch/commit/3fe5bd2dee12dfe2bce9e9ed55bf0f67965431c4))
-* **fix:** refactor markdown of docs ([7278f91](https://github.com/davidsneighbour/kollitsch/commit/7278f9199263756f9700b8ca603d0cbd0e9216b6))
-* update license year ([360a64f](https://github.com/davidsneighbour/kollitsch/commit/360a64f7b4b7bcacbb85f8ebf380db34928629f9))
+* **fix:** move docs into Obsidian notes ([523f5c0](https://github.com/davidsneighbour/kollitsch.dev/commit/523f5c0ebe07c65d9341e64ca70238d464ca068a))
+* **fix:** move docs into Obsidian notes ([3fe5bd2](https://github.com/davidsneighbour/kollitsch.dev/commit/3fe5bd2dee12dfe2bce9e9ed55bf0f67965431c4))
+* **fix:** refactor markdown of docs ([7278f91](https://github.com/davidsneighbour/kollitsch.dev/commit/7278f9199263756f9700b8ca603d0cbd0e9216b6))
+* update license year ([360a64f](https://github.com/davidsneighbour/kollitsch.dev/commit/360a64f7b4b7bcacbb85f8ebf380db34928629f9))
 
-## [3001.0.1](https://github.com/davidsneighbour/kollitsch/compare/v3001.0.0...v3001.0.1) (2026-03-15)
+## [3001.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.0.0...v3001.0.1) (2026-03-15)
 
 ### Build
 
-* **fix:** fix release issues and remove cruft ([2df4521](https://github.com/davidsneighbour/kollitsch/commit/2df452144f91aad4cf2561d83e3ab411a2ac52d8))
+* **fix:** fix release issues and remove cruft ([2df4521](https://github.com/davidsneighbour/kollitsch.dev/commit/2df452144f91aad4cf2561d83e3ab411a2ac52d8))
 
-## [3001.0.0](https://github.com/davidsneighbour/kollitsch/compare/v3000.2.4...v3001.0.0) (2026-03-15)
+## [3001.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.4...v3001.0.0) (2026-03-15)
 
 ### ⚠ BREAKING CHANGES
 
@@ -1109,36 +1109,36 @@
 
 ### Features
 
-* add local workspace configuration system ([fcf7eb6](https://github.com/davidsneighbour/kollitsch/commit/fcf7eb682768e3b908fce1d770bd22076af54056))
-* upgrade to Astro v6 ([8c9e169](https://github.com/davidsneighbour/kollitsch/commit/8c9e169404c10efe43bff8b0cf91a186a43fec6f))
+* add local workspace configuration system ([fcf7eb6](https://github.com/davidsneighbour/kollitsch.dev/commit/fcf7eb682768e3b908fce1d770bd22076af54056))
+* upgrade to Astro v6 ([8c9e169](https://github.com/davidsneighbour/kollitsch.dev/commit/8c9e169404c10efe43bff8b0cf91a186a43fec6f))
 
 ### Bug Fixes
 
-* **content:** astro before hugo. for cause. ([bca6b58](https://github.com/davidsneighbour/kollitsch/commit/bca6b584ead13514cfcaee51e06e676a843bd76d))
-* re-add MDX support for Astro v6 ([3e4338b](https://github.com/davidsneighbour/kollitsch/commit/3e4338bed94d092d9eae1cc0a963267752b96f72))
-* remove @ascorbic/youtube-loader ([9dafb81](https://github.com/davidsneighbour/kollitsch/commit/9dafb81d059e23363e1d36aa135ded3d374b352d))
-* remove MDX support (for now) ([e45c9f0](https://github.com/davidsneighbour/kollitsch/commit/e45c9f0466fc5491ae55911969323f5b8ff1473e))
-* replace glob with fast-glob ([9675e06](https://github.com/davidsneighbour/kollitsch/commit/9675e06a6738c39e2ff052bfa014b7d9062ae45d))
-* **upgrade:** remove preserveScriptOrder (deprecated) ([ab8feb0](https://github.com/davidsneighbour/kollitsch/commit/ab8feb055a006f76f459637aca478764d5518b35))
+* **content:** astro before hugo. for cause. ([bca6b58](https://github.com/davidsneighbour/kollitsch.dev/commit/bca6b584ead13514cfcaee51e06e676a843bd76d))
+* re-add MDX support for Astro v6 ([3e4338b](https://github.com/davidsneighbour/kollitsch.dev/commit/3e4338bed94d092d9eae1cc0a963267752b96f72))
+* remove @ascorbic/youtube-loader ([9dafb81](https://github.com/davidsneighbour/kollitsch.dev/commit/9dafb81d059e23363e1d36aa135ded3d374b352d))
+* remove MDX support (for now) ([e45c9f0](https://github.com/davidsneighbour/kollitsch.dev/commit/e45c9f0466fc5491ae55911969323f5b8ff1473e))
+* replace glob with fast-glob ([9675e06](https://github.com/davidsneighbour/kollitsch.dev/commit/9675e06a6738c39e2ff052bfa014b7d9062ae45d))
+* **upgrade:** remove preserveScriptOrder (deprecated) ([ab8feb0](https://github.com/davidsneighbour/kollitsch.dev/commit/ab8feb055a006f76f459637aca478764d5518b35))
 
 ### Build
 
-* **debug:** release process issues ([1e16dca](https://github.com/davidsneighbour/kollitsch/commit/1e16dca661cc58de4b0249fc2017404213051bd5))
-* **deps:** update dependencies ([65d18af](https://github.com/davidsneighbour/kollitsch/commit/65d18afbdbe88d43e1197e62e45e2001ca4fe6a9))
-* **deps:** update site screenshot ([7bf3bcf](https://github.com/davidsneighbour/kollitsch/commit/7bf3bcf3cd2895c6c560d1aaff112ffaa702564c))
-* **fix:** add --no-verify to release commit ([780bfd5](https://github.com/davidsneighbour/kollitsch/commit/780bfd5b32419c2910d6b45aa06a50e7e1f62172))
-* **fix:** add debugging for release process ([0993b0d](https://github.com/davidsneighbour/kollitsch/commit/0993b0dce93042b2beb0719ab4995af5afa6fe38))
-* migrate release procedures to release-it ([d8cd11a](https://github.com/davidsneighbour/kollitsch/commit/d8cd11a20ccd9b171d07d8f9b5a6011b2fbbfb7c))
+* **debug:** release process issues ([1e16dca](https://github.com/davidsneighbour/kollitsch.dev/commit/1e16dca661cc58de4b0249fc2017404213051bd5))
+* **deps:** update dependencies ([65d18af](https://github.com/davidsneighbour/kollitsch.dev/commit/65d18afbdbe88d43e1197e62e45e2001ca4fe6a9))
+* **deps:** update site screenshot ([7bf3bcf](https://github.com/davidsneighbour/kollitsch.dev/commit/7bf3bcf3cd2895c6c560d1aaff112ffaa702564c))
+* **fix:** add --no-verify to release commit ([780bfd5](https://github.com/davidsneighbour/kollitsch.dev/commit/780bfd5b32419c2910d6b45aa06a50e7e1f62172))
+* **fix:** add debugging for release process ([0993b0d](https://github.com/davidsneighbour/kollitsch.dev/commit/0993b0dce93042b2beb0719ab4995af5afa6fe38))
+* migrate release procedures to release-it ([d8cd11a](https://github.com/davidsneighbour/kollitsch.dev/commit/d8cd11a20ccd9b171d07d8f9b5a6011b2fbbfb7c))
 
 ### CI
 
-* **fix:** upgrade biome configuration ([bb06d48](https://github.com/davidsneighbour/kollitsch/commit/bb06d48afdfbeab51e77ee98b0bfd286c926d400))
-* **markdownlint:** add custom extensions to configuration ([6368273](https://github.com/davidsneighbour/kollitsch/commit/63682738e8917a799ffc27186856798a934e0cae))
-* **markdownlint:** configure markdownlint rules and create ai documentation for md files ([e994599](https://github.com/davidsneighbour/kollitsch/commit/e9945994048b46f804c3ff3393b807e58f7757a5))
+* **fix:** upgrade biome configuration ([bb06d48](https://github.com/davidsneighbour/kollitsch.dev/commit/bb06d48afdfbeab51e77ee98b0bfd286c926d400))
+* **markdownlint:** add custom extensions to configuration ([6368273](https://github.com/davidsneighbour/kollitsch.dev/commit/63682738e8917a799ffc27186856798a934e0cae))
+* **markdownlint:** configure markdownlint rules and create ai documentation for md files ([e994599](https://github.com/davidsneighbour/kollitsch.dev/commit/e9945994048b46f804c3ff3393b807e58f7757a5))
 
 ### Documentation
 
-* **ai:** refactor AGENTS.md and instructions setup ([ce51872](https://github.com/davidsneighbour/kollitsch/commit/ce518726b8900547d2a143bee64d9390c4090ede))
+* **ai:** refactor AGENTS.md and instructions setup ([ce51872](https://github.com/davidsneighbour/kollitsch.dev/commit/ce518726b8900547d2a143bee64d9390c4090ede))
 
 ## [3000.2.4](https://github.com/davidsneighbour/kollitsch.dev/compare/v3000.2.3...v3000.2.4) (2026-02-05)
 

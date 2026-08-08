@@ -3,6 +3,8 @@ import type { Config } from "release-it";
 
 type CommitInput = { type?: string; notes?: unknown[] };
 
+const REPOSITORY_URL = "https://github.com/davidsneighbour/kollitsch.dev";
+
 const config = createReleaseConfig({
   scopes: {
     minorTypes: ["feat", "content", "prompt", "instructions", "skill"],
@@ -12,6 +14,22 @@ const config = createReleaseConfig({
 const changelogPlugin = (config.plugins as Record<string, Record<string, unknown>>)[
   "@release-it/conventional-changelog"
 ];
+const changelogPreset = changelogPlugin.preset as Record<string, unknown>;
+
+changelogPlugin.context = {
+  ...(changelogPlugin.context as Record<string, unknown> | undefined),
+  host: "https://github.com",
+  owner: "davidsneighbour",
+  repository: "kollitsch.dev",
+  repoUrl: REPOSITORY_URL,
+};
+changelogPlugin.preset = {
+  ...changelogPreset,
+  commitUrlFormat: `${REPOSITORY_URL}/commit/{{hash}}`,
+  compareUrlFormat: `${REPOSITORY_URL}/compare/{{previousTag}}...{{currentTag}}`,
+  issueUrlFormat: `${REPOSITORY_URL}/issues/{{id}}`,
+  userUrlFormat: "https://github.com/{{user}}",
+};
 
 changelogPlugin.whatBump = function (commits: CommitInput[]) {
   let level: 2 | 1 | 0 | null = null;

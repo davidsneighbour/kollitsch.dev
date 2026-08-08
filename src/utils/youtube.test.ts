@@ -13,8 +13,8 @@ describe('sanitizeYouTubePlayerParams', () => {
       color: 'WHITE',
       controls: '2',
       hl: 'EN_us',
-      start: ' 30 ',
       playlist: '  a1b2c3 ',
+      start: ' 30 ',
     });
 
     expect(params).toEqual({
@@ -48,9 +48,9 @@ describe('sanitizeYouTubePlayerParams', () => {
 describe('serializeYouTubePlayerParams', () => {
   it('sorts keys and produces a stable query string', () => {
     const query = serializeYouTubePlayerParams({
-      rel: '0',
-      color: 'white',
       autoplay: '1',
+      color: 'white',
+      rel: '0',
     });
 
     expect(query).toBe('autoplay=1&color=white&rel=0');

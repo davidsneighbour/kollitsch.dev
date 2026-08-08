@@ -4,7 +4,8 @@
   },
   "scripts": {
     "clean:netlify": "wireit",
-    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- wireit",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
+    "deploy:pipeline": "wireit",
     "deploy:build": "wireit",
     "deploy:release": "wireit"
   },
@@ -12,7 +13,7 @@
     "clean:netlify": {
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     },
-    "deploy": {
+    "deploy:pipeline": {
       "command": "bash -c 'netlify deploy --message \"v$(node -p \"require(\\\"./package.json\\\").version\")\" --created-via=release --prod --open'",
       "dependencies": [
         "deploy:build"

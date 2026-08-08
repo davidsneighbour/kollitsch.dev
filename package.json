@@ -212,7 +212,8 @@
     "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
     "prebuild": "npm run build:image-index",
     "clean:netlify": "wireit",
-    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- wireit",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
+    "deploy:pipeline": "wireit",
     "deploy:build": "wireit",
     "deploy:release": "wireit",
     "postprepare": "wireit",
@@ -337,7 +338,7 @@
     "clean:netlify": {
       "command": "find .netlify -type f ! -name \".gitignore\" -delete"
     },
-    "deploy": {
+    "deploy:pipeline": {
       "command": "bash -c 'netlify deploy --message \"v$(node -p \"require(\\\"./package.json\\\").version\")\" --created-via=release --prod --open'",
       "dependencies": [
         "deploy:build"

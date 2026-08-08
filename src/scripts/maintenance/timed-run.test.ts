@@ -2,6 +2,7 @@
 
 import { describe, expect, it } from "vitest";
 
+import packageJson from "../../../package.json" with { type: "json" };
 import { formatDuration, parseArgs } from "./timed-run.ts";
 
 describe("formatDuration", () => {
@@ -24,5 +25,20 @@ describe("parseArgs", () => {
       command: ["wireit"],
       label: "npm run deploy",
     });
+  });
+});
+
+describe("deploy timing package wiring", () => {
+  it("keeps the timed deploy wrapper outside Wireit configuration", () => {
+    expect(packageJson.scripts.deploy).toContain("timed-run.ts");
+    expect(packageJson.wireit).not.toHaveProperty("deploy");
+  });
+
+  it("uses plain wireit scripts for npm scripts with Wireit config", () => {
+    for (const [scriptName, scriptCommand] of Object.entries(packageJson.scripts)) {
+      if (scriptName in packageJson.wireit) {
+        expect(scriptCommand).toBe("wireit");
+      }
+    }
   });
 });

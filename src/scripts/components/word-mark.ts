@@ -40,9 +40,31 @@ class WordMarkElement extends HTMLElement {
           display: inline;
           font-family: var(--font-wordmark, var(--font-title, inherit));
         }
+
+        .wordmark-text {
+          background-image:
+            linear-gradient(
+              rgb(from var(--wordmark-tint-color, transparent) r g b / var(--wordmark-tint-opacity, 0)),
+              rgb(from var(--wordmark-tint-color, transparent) r g b / var(--wordmark-tint-opacity, 0))
+            ),
+            var(--wordmark-background-image);
+          background-position: var(--wordmark-background-position, center);
+          background-repeat: no-repeat;
+          background-size: var(--wordmark-background-size, 100vw auto);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: var(--wordmark-fallback-color, var(--color-orange-500, currentColor));
+        }
+
+        @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+          .wordmark-text {
+            color: transparent;
+          }
+        }
       `;
 
       const span = document.createElement('span');
+      span.className = 'wordmark-text';
       span.setAttribute('part', 'text');
       span.textContent = text;
 

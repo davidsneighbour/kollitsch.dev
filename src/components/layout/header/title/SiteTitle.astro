@@ -1,7 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
-import headlineSrc from '@assets/images/headline.jpg';
 import TextImageFill from '@components/ui/TextImageFill.astro';
+import { wordmarkArtwork } from '@data/brand-artwork.ts';
 import setup from '@data/setup.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content.ts';
 
@@ -12,12 +12,7 @@ export interface Props {
 const homepageUrl = getHomepageUrl();
 const { siteTitleId }: Props = Astro.props;
 const siteTitleSize = 'clamp(50px, 13vw, 250px)';
-const headlineImage = await getImage({
-  format: 'webp',
-  quality: 75,
-  src: headlineSrc,
-  width: 2000,
-});
+const headlineImage = await getImage(wordmarkArtwork.image);
 
 // Shatter layer: each letter gets its own scroll-driven exit window so they
 // peel off outward from the centre instead of all moving in lockstep.
@@ -66,10 +61,11 @@ const shatterLetters = letters.map((letter, index) => {
       imageUrl={headlineImage.src}
       size={siteTitleSize}
       classes="site-title-fill font-title leading-none"
-      fallbackColor="var(--color-orange-500)"
-      tintColor="var(--color-red-800)"
-      tintOpacity={0.1}
-      backgroundSize="100vw auto"
+      fallbackColor={wordmarkArtwork.fallbackColor}
+      tintColor={wordmarkArtwork.tintColor}
+      tintOpacity={wordmarkArtwork.tintOpacity}
+      backgroundSize={wordmarkArtwork.backgroundSize}
+      position={wordmarkArtwork.position}
     >
       {setup.title}
     </TextImageFill>
@@ -168,7 +164,8 @@ const shatterLetters = letters.map((letter, index) => {
 
     to {
       opacity: 0%;
-      transform: translate(var(--shatter-tx), var(--shatter-ty)) rotate(var(--shatter-rot)) scale(0.6);
+      transform: translate(var(--shatter-tx), var(--shatter-ty))
+        rotate(var(--shatter-rot)) scale(0.6);
     }
   }
 
@@ -243,7 +240,9 @@ const shatterLetters = letters.map((letter, index) => {
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-hero:hover .site-title-link :global(.text-image-fill),
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-hero.is-toggle-hover .site-title-link :global(.text-image-fill) {
+      .site-title-hero.is-toggle-hover
+      .site-title-link
+      :global(.text-image-fill) {
       color: var(--color-red-700);
       transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }

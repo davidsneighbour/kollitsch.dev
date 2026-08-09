@@ -12,7 +12,7 @@ Renders the large homepage header title as an image-filled heading that dissolve
 | Field | Value |
 | --- | --- |
 | Component | [`src/components/layout/header/title/SiteTitle.astro`](../../../../../src/components/layout/header/title/SiteTitle.astro) |
-| Data | [`src/data/setup.json`](../../../../../src/data/setup.json) (site title text), `src/assets/images/headline.jpg` (background image, optimized to WebP at build time via `getImage()`) |
+| Data | [`src/data/setup.json`](../../../../../src/data/setup.json) (site title text), [`src/data/brand-artwork.ts`](../../../../../src/data/brand-artwork.ts) (shared wordmark/header artwork and image-fill settings) |
 | Tests | none |
 
 ## Props
@@ -33,7 +33,7 @@ import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 
 ## Behaviour
 
-The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl` set to the build-time-optimized headline image (via `getImage({ format: "webp", quality: 75, src: headlineSrc, width: 2000 })`), `fallbackColor="var(--color-orange-500)"`, and `tintColor="var(--color-red-800)"` at `tintOpacity={0.1}`, so the title text is normally filled with the headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
+The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl` set to the build-time-optimised image from `wordmarkArtwork.image`, plus the shared fallback colour, tint, background size, and position from `src/data/brand-artwork.ts`. The title text is normally filled with the configured headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
 
 ### Scroll-exit: Dissolve and shatter
 

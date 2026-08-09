@@ -1,22 +1,31 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import { getImage } from 'astro:assets';
+import { wordmarkArtwork } from '@data/brand-artwork.ts';
 import setup from '@data/setup.json' with { type: 'json' };
+import type { HTMLAttributes } from 'astro/types';
+import TextImageFill from './TextImageFill.astro';
 
 export interface Props extends HTMLAttributes<'span'> {
   text?: string;
 }
 
-const {
-  text = setup.title,
-  class: className,
-  ...attrs
-}: Props = Astro.props;
+const { text = setup.title, class: className, ...attrs }: Props = Astro.props;
+
+const wordmarkImage = await getImage(wordmarkArtwork.image);
 ---
 
-<span
-  class:list={['wordmark', className]}
+<TextImageFill
+  as="span"
+  imageUrl={wordmarkImage.src}
+  classes={['wordmark', className].filter(Boolean).join(' ')}
+  fallbackColor={wordmarkArtwork.fallbackColor}
+  tintColor={wordmarkArtwork.tintColor}
+  tintOpacity={wordmarkArtwork.tintOpacity}
+  backgroundSize={wordmarkArtwork.backgroundSize}
+  position={wordmarkArtwork.position}
   {...attrs}
->{text}</span>
+  >{text}</TextImageFill
+>
 
 <style>
   .wordmark {

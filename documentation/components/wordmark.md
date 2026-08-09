@@ -8,7 +8,7 @@ The site wordmark is the typographic representation of the configured site title
 }
 ```
 
-The wordmark implementation deliberately does not contain the kollitsch.dev name itself. The displayed text and typography are configuration concerns so the implementation can later be extracted and reused elsewhere.
+The wordmark implementation deliberately does not contain the kollitsch.dev name itself. The displayed text, typography, and image-fill artwork are configuration concerns so the implementation can later be extracted and reused elsewhere.
 
 ## Astro component
 
@@ -32,15 +32,17 @@ An explicit text value can be supplied when required:
 
 Normal `<span>` attributes and classes can also be passed through the component.
 
-### Typography
+### Typography And Artwork
 
-The Astro component changes only the font family:
+The Astro component renders through [`TextImageFill`](./ui/text-image-fill.md), using the shared artwork configuration from `src/data/brand-artwork.ts`. This is the same optimised `headline.jpg` image and red tint used by the non-hovered site-title header.
+
+The component still applies the semantic wordmark font:
 
 ```css
 font-family: var(--font-wordmark, var(--font-title));
 ```
 
-This means size, weight, colour, line height, decoration, opacity, and other surrounding typography continue to inherit from the context in which the wordmark is used.
+Size, weight, line height, decoration, opacity, and other surrounding typography continue to inherit from the context in which the wordmark is used. Colour is image-filled when `background-clip: text` is supported and falls back to the configured orange fallback colour otherwise.
 
 `--font-wordmark` is the semantic override intended for the wordmark. If it is not defined, the component falls back to the site's existing `--font-title` token.
 
@@ -105,13 +107,15 @@ word-mark::part(text) {
 }
 ```
 
-The host uses the same typography contract as the Astro component:
+The host uses the same typography and artwork contract as the Astro component:
 
 ```css
 font-family: var(--font-wordmark, var(--font-title, inherit));
+background-image: var(--wordmark-background-image);
+background-clip: text;
 ```
 
-On kollitsch.dev, the existing title font therefore applies automatically. On a page that does not provide either CSS variable, the Web Component currently inherits the surrounding font.
+On kollitsch.dev, the existing title font and shared wordmark background image therefore apply automatically. On a page that does not provide either CSS variable, the Web Component currently inherits the surrounding font and falls back to plain text colour.
 
 ## Configuration contract
 
@@ -120,6 +124,10 @@ Current configuration is intentionally small:
 | Setting | Source | Purpose |
 | --- | --- | --- |
 | Default text | `setup.title` | Text rendered by `<Wordmark />` and `<word-mark>` |
+| Artwork | `wordmarkArtwork.image` in `src/data/brand-artwork.ts` | Shared image source for the site title and wordmark glyph fill |
+| Artwork sizing | `wordmarkArtwork.backgroundSize` / `position` | Keeps the glyph fill aligned with the header reveal image |
+| Artwork tint | `wordmarkArtwork.tintColor` / `tintOpacity` | Shared red tint layered over the configured artwork |
+| Artwork fallback colour | `wordmarkArtwork.fallbackColor` | Plain text colour where background-clip text fill is unsupported |
 | Wordmark font | `--font-wordmark` | Optional semantic wordmark font override |
 | Fallback font | `--font-title` | Current kollitsch.dev title font |
 | Per-instance Astro text | `text` prop | Overrides the configured text for one `<Wordmark />` |
@@ -127,7 +135,7 @@ Current configuration is intentionally small:
 
 ## Portability
 
-This is step 1 of the wordmark implementation. The component boundary is already generic, but kollitsch.dev currently supplies the font through its normal site stylesheet.
+This is step 1 of the wordmark implementation. The component boundary is already generic, but kollitsch.dev currently supplies the font and artwork through its normal site stylesheet and Astro asset pipeline.
 
 For the portable version, the intended next step is to package the Web Component so a foreign page can load it independently. That version should:
 

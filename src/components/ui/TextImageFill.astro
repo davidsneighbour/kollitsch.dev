@@ -1,29 +1,29 @@
 ---
-import type { HTMLTag } from "astro/types";
-import { z } from "zod";
+import type { HTMLAttributes, HTMLTag } from 'astro/types';
+import { z } from 'zod';
 
 const allowedTags = [
-  "span",
-  "div",
-  "p",
-  "strong",
-  "em",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
+  'span',
+  'div',
+  'p',
+  'strong',
+  'em',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
 ] as const satisfies readonly HTMLTag[];
 
 const textImageFillSchema = z.object({
-  as: z.enum(allowedTags).default("span"),
-  backgroundAttachment: z.enum(["scroll", "fixed", "local"]).default("scroll"),
-  backgroundSize: z.string().min(1).default("cover"),
-  classes: z.string().default(""),
-  fallbackColor: z.string().min(1).default("currentColor"),
-  imageUrl: z.string().min(1, "imageUrl is required."),
-  position: z.string().min(1).default("center"),
+  as: z.enum(allowedTags).default('span'),
+  backgroundAttachment: z.enum(['scroll', 'fixed', 'local']).default('scroll'),
+  backgroundSize: z.string().min(1).default('cover'),
+  classes: z.string().default(''),
+  fallbackColor: z.string().min(1).default('currentColor'),
+  imageUrl: z.string().min(1, 'imageUrl is required.'),
+  position: z.string().min(1).default('center'),
   size: z.string().min(1).optional(),
   tintColor: z.string().min(1).optional(),
   tintOpacity: z.number().min(0).max(1).default(0),
@@ -31,11 +31,52 @@ const textImageFillSchema = z.object({
 
 type TextImageFillProps = z.input<typeof textImageFillSchema>;
 
-export interface Props extends TextImageFillProps {}
+export interface Props
+  extends TextImageFillProps,
+    Omit<HTMLAttributes<'span'>, keyof TextImageFillProps | 'class'> {
+  class?: string;
+}
 
-const parsed = textImageFillSchema.parse(Astro.props);
+const {
+  as: asInput,
+  backgroundAttachment: backgroundAttachmentInput,
+  backgroundSize: backgroundSizeInput,
+  classes: classesInput,
+  class: className,
+  fallbackColor: fallbackColorInput,
+  imageUrl: imageUrlInput,
+  position: positionInput,
+  size: sizeInput,
+  tintColor: tintColorInput,
+  tintOpacity: tintOpacityInput,
+  ...attrs
+}: Props = Astro.props;
 
-const { as, imageUrl, size, position, backgroundSize, backgroundAttachment, classes, fallbackColor, tintColor, tintOpacity } = parsed;
+const parsed = textImageFillSchema.parse({
+  as: asInput,
+  backgroundAttachment: backgroundAttachmentInput,
+  backgroundSize: backgroundSizeInput,
+  classes: [classesInput, className].filter(Boolean).join(' '),
+  fallbackColor: fallbackColorInput,
+  imageUrl: imageUrlInput,
+  position: positionInput,
+  size: sizeInput,
+  tintColor: tintColorInput,
+  tintOpacity: tintOpacityInput,
+});
+
+const {
+  as,
+  imageUrl,
+  size,
+  position,
+  backgroundSize,
+  backgroundAttachment,
+  classes,
+  fallbackColor,
+  tintColor,
+  tintOpacity,
+} = parsed;
 
 const Tag: HTMLTag = as;
 
@@ -56,12 +97,13 @@ if (tintColor) {
   styleParts.push(`--text-fill-tint-color: ${tintColor}`);
 }
 
-const style = styleParts.join("; ");
+const style = styleParts.join('; ');
 ---
 
 <Tag
   class={`text-image-fill inline-block ${size ? "text-(length:--text-fill-font-size)" : ""} ${classes}`}
   style={style}
+  {...attrs}
 >
   <slot />
 </Tag>
@@ -72,8 +114,14 @@ const style = styleParts.join("; ");
     background-attachment: var(--text-fill-attachment, scroll);
     background-image:
       linear-gradient(
-        rgb(from var(--text-fill-tint-color, transparent) r g b / var(--text-fill-tint-opacity, 0)),
-        rgb(from var(--text-fill-tint-color, transparent) r g b / var(--text-fill-tint-opacity, 0))
+        rgb(
+          from var(--text-fill-tint-color, transparent) r g b /
+          var(--text-fill-tint-opacity, 0)
+        ),
+        rgb(
+          from var(--text-fill-tint-color, transparent) r g b /
+          var(--text-fill-tint-opacity, 0)
+        )
       ),
       var(--text-fill-image);
     background-position: var(--text-fill-position, center);

@@ -26,6 +26,7 @@ Renders text whose glyphs are filled with a background image (via `background-cl
 | `backgroundSize` | `string` | `"cover"` | CSS `background-size` for the fill image |
 | `backgroundAttachment` | `"scroll" \| "fixed" \| "local"` | `"scroll"` | CSS `background-attachment` for the fill image |
 | `classes` | `string` | `""` | Additional classes applied to the tag |
+| `class` | `string` | `undefined` | Normal Astro/HTML class value, merged with `classes` |
 | `fallbackColor` | `string` | `"currentColor"` | Solid colour shown where background-clip-based text fill is unsupported, and used as the element's `color` |
 | `tintColor` | `string` | `undefined` | Optional flat colour layered over the fill image via a double linear-gradient trick |
 | `tintOpacity` | `number` (0 to 1) | `0` | Opacity of `tintColor` over the fill image |
@@ -60,7 +61,7 @@ With a colour tint over the image:
 
 ## Behaviour
 
-All configurable values are passed through as inline CSS custom properties (`--text-fill-image`, `--text-fill-position`, `--text-fill-size`, `--text-fill-attachment`, `--text-fill-fallback`, `--text-fill-tint-opacity`, and optionally `--text-fill-font-size` and `--text-fill-tint-color`) rather than hard-coded styles, so each instance can override them independently.
+All configurable values are passed through as inline CSS custom properties (`--text-fill-image`, `--text-fill-position`, `--text-fill-size`, `--text-fill-attachment`, `--text-fill-fallback`, `--text-fill-tint-opacity`, and optionally `--text-fill-font-size` and `--text-fill-tint-color`) rather than hard-coded styles, so each instance can override them independently. Normal span-compatible attributes are forwarded to the rendered element.
 
 The element's `background-image` stacks two layers: a flat `tintColor` rendered twice as a solid-to-solid `linear-gradient` (using the `rgb(from ...)` colour function to apply `tintOpacity`), on top of the `imageUrl` image. `background-clip: text` (with the `-webkit-` prefix for Safari) clips this combined background to the glyph shapes.
 

@@ -220,6 +220,12 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.surface-dark}"
     rounded: "{rounded.xl}"
+  wordmark-artwork:
+    image: "src/assets/images/headline.jpg"
+    fallbackColor: "{colors.primary}"
+    backgroundSize: "100vw auto"
+    backgroundPosition: "center"
+    typography: "{typography.h1}"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -367,6 +373,12 @@ The sticky header (`Header.astro`) and mobile nav dropdown are a frosted-glass o
 The reading-progress bar is drawn inside the sticky header's bottom edge as an absolutely positioned overlay. It must not add height, padding, or margin to the navigation layout. The overlay is pointer-transparent (`pointer-events: none`) so hover, mouseover, and click hit-testing continue to reach the header/navigation area underneath it.
 
 The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
+
+### Wordmark Artwork
+
+The site title header and every wordmark instance share one image-fill artwork contract from `src/data/brand-artwork.ts`. The configured source image is `src/assets/images/headline.jpg`, optimised through Astro's asset pipeline and rendered as glyph fill with `background-clip: text`. The shared sizing is `100vw auto` with centred positioning so inline wordmarks use the same visual crop as the non-hovered header title.
+
+Where `background-clip: text` is unsupported, wordmark text falls back to the primary orange. The Web Component receives the optimised image URL through `--wordmark-background-image`; keep that variable site-owned so the portable component can still be used without hard-coding kollitsch.dev assets.
 
 ### Breadcrumbs
 

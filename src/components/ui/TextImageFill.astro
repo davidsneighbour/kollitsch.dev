@@ -85,9 +85,11 @@ const styleParts: string[] = [
   `--text-fill-position: ${position}`,
   `--text-fill-size: ${backgroundSize}`,
   `--text-fill-attachment: ${backgroundAttachment}`,
-  `--text-fill-fallback: ${fallbackColor}`,
-  `--text-fill-tint-opacity: ${String(tintOpacity)}`,
 ];
+
+if (fallbackColorInput) {
+  styleParts.push(`--text-fill-fallback: ${fallbackColor}`);
+}
 
 if (size) {
   styleParts.push(`--text-fill-font-size: ${size}`);
@@ -95,6 +97,10 @@ if (size) {
 
 if (tintColor) {
   styleParts.push(`--text-fill-tint-color: ${tintColor}`);
+}
+
+if (tintOpacityInput !== undefined) {
+  styleParts.push(`--text-fill-tint-opacity: ${String(tintOpacity)}`);
 }
 
 const style = styleParts.join('; ');
@@ -110,7 +116,7 @@ const style = styleParts.join('; ');
 
 <style>
   .text-image-fill {
-    color: var(--text-fill-fallback);
+    color: var(--text-fill-fallback, currentColor);
     background-attachment: var(--text-fill-attachment, scroll);
     background-image:
       linear-gradient(

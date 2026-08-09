@@ -61,7 +61,7 @@ With a colour tint over the image:
 
 ## Behaviour
 
-All configurable values are passed through as inline CSS custom properties (`--text-fill-image`, `--text-fill-position`, `--text-fill-size`, `--text-fill-attachment`, `--text-fill-fallback`, `--text-fill-tint-opacity`, and optionally `--text-fill-font-size` and `--text-fill-tint-color`) rather than hard-coded styles, so each instance can override them independently. Normal span-compatible attributes are forwarded to the rendered element.
+All configurable values are passed through as CSS custom properties (`--text-fill-image`, `--text-fill-position`, `--text-fill-size`, `--text-fill-attachment`, `--text-fill-fallback`, `--text-fill-tint-opacity`, and optionally `--text-fill-font-size` and `--text-fill-tint-color`) rather than hard-coded styles, so each instance can override them independently. Values passed as props are emitted inline; omitted fallback and tint values can be supplied by CSS classes. Normal span-compatible attributes are forwarded to the rendered element.
 
 The element's `background-image` stacks two layers: a flat `tintColor` rendered twice as a solid-to-solid `linear-gradient` (using the `rgb(from ...)` colour function to apply `tintOpacity`), on top of the `imageUrl` image. `background-clip: text` (with the `-webkit-` prefix for Safari) clips this combined background to the glyph shapes.
 

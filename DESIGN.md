@@ -220,12 +220,6 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.surface-dark}"
     rounded: "{rounded.xl}"
-  wordmark-artwork:
-    image: "src/assets/images/headline.jpg"
-    fallbackColor: "{colors.primary}"
-    backgroundSize: "100vw auto"
-    backgroundPosition: "center"
-    typography: "{typography.h1}"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -378,7 +372,9 @@ The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is
 
 The site title header and every wordmark instance share one image-fill artwork contract from `src/data/brand-artwork.ts`. The configured source image is `src/assets/images/headline.jpg`, optimised through Astro's asset pipeline and rendered as glyph fill with `background-clip: text`. The shared sizing is `100vw auto` with centred positioning so inline wordmarks use the same visual crop as the non-hovered header title.
 
-Where `background-clip: text` is unsupported, wordmark text falls back to the primary orange. The Web Component receives the optimised image URL through `--wordmark-background-image`; keep that variable site-owned so the portable component can still be used without hard-coding kollitsch.dev assets.
+The large header title uses a subtle red tint because its scale carries the image texture. Inline wordmarks need stronger contrast: light mode uses a dark red tint over the same image, and dark mode uses a light orange tint. This keeps the image visible without letting pale parts vanish on the light surface or dark parts vanish on the dark surface.
+
+Where `background-clip: text` is unsupported, inline wordmark text falls back to the theme-aware link/accent colours. The Web Component receives the optimised image URL and inline tint values through `--wordmark-*` custom properties; keep those variables site-owned so the portable component can still be used without hard-coding kollitsch.dev assets.
 
 ### Breadcrumbs
 

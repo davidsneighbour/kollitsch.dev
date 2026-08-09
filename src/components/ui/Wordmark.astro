@@ -18,9 +18,6 @@ const wordmarkImage = await getImage(wordmarkArtwork.image);
   as="span"
   imageUrl={wordmarkImage.src}
   classes={['wordmark', className].filter(Boolean).join(' ')}
-  fallbackColor={wordmarkArtwork.fallbackColor}
-  tintColor={wordmarkArtwork.tintColor}
-  tintOpacity={wordmarkArtwork.tintOpacity}
   backgroundSize={wordmarkArtwork.backgroundSize}
   position={wordmarkArtwork.position}
   {...attrs}
@@ -29,6 +26,28 @@ const wordmarkImage = await getImage(wordmarkArtwork.image);
 
 <style>
   .wordmark {
+    --text-fill-fallback: var(
+      --wordmark-inline-fallback-color,
+      var(--color-red-700)
+    );
+    --text-fill-tint-color: var(
+      --wordmark-inline-tint-color,
+      var(--color-red-950)
+    );
+    --text-fill-tint-opacity: var(--wordmark-inline-tint-opacity, 0.72);
+
     font-family: var(--font-wordmark, var(--font-title));
+  }
+
+  :global(.dark) .wordmark {
+    --text-fill-fallback: var(
+      --wordmark-inline-fallback-color,
+      var(--color-orange-300)
+    );
+    --text-fill-tint-color: var(
+      --wordmark-inline-tint-color,
+      var(--color-orange-200)
+    );
+    --text-fill-tint-opacity: var(--wordmark-inline-tint-opacity, 0.76);
   }
 </style>

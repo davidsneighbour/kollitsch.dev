@@ -33,7 +33,7 @@ import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 
 ## Behaviour
 
-The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl` set to the build-time-optimised image from `wordmarkArtwork.image`, plus the shared fallback colour, tint, background size, and position from `src/data/brand-artwork.ts`. The title text is normally filled with the configured headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
+The component wraps [`TextImageFill`](../../../ui/text-image-fill.md) with `imageUrl` set to the build-time-optimised image from `wordmarkArtwork.image`, plus the header fallback colour, subtle header tint, background size, and position from `src/data/brand-artwork.ts`. The title text is normally filled with the configured headline image tinted red. The title text itself comes from `setup.title` in `setup.json`, and the link points at the homepage URL resolved by `getHomepageUrl()`.
 
 ### Scroll-exit: Dissolve and shatter
 

@@ -55,6 +55,12 @@
       "skillPath": "skills/10-ai-assets/dnb-llm-visibility/SKILL.md",
       "computedHash": "4cecdc322b5d3237bf6173470fe3ddbfa48d1274fd7a70d4a2ce3a0d96e0ae71"
     },
+    "dnb-manage-node-version-policy": {
+      "source": "davidsneighbour/ai",
+      "sourceType": "github",
+      "skillPath": "skills/20-repository-workflows/dnb-manage-node-version-policy/SKILL.md",
+      "computedHash": "b8bfff419378dc061f2fefc7da2eb097ca594d9d1f53910b374ced0ff39cd727"
+    },
     "dnb-markdown-formatting": {
       "source": "davidsneighbour/ai",
       "sourceType": "github",
@@ -174,6 +180,54 @@
       "sourceType": "github",
       "skillPath": "skills/20-repository-workflows/dnb-work-through-issues/SKILL.md",
       "computedHash": "769a878d23bd931e11c8c713136bf46591d826a7c79c6feeddf04b54970735e2"
+    },
+    "posthaste": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste/SKILL.md",
+      "computedHash": "5f34fd167319c1318e32234669021ac0ff88de0c0bd0750f58c449d2d6fa8de1"
+    },
+    "posthaste-config": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-config/SKILL.md",
+      "computedHash": "c2d47bb8ebcf7137bc11864eefa950ee911bbf91b917c25104135f51231e84ee"
+    },
+    "posthaste-post-retrieve-hashtags": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-post-retrieve-hashtags/SKILL.md",
+      "computedHash": "485d2671dd0856b0f30861c33304300e91dbcf46fd3165da7327120f7de448dd"
+    },
+    "posthaste-prepare-link": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-prepare-link/SKILL.md",
+      "computedHash": "526b84c2945a7858241a83281d0c187f316e575aafcc97a9b755364795c80412"
+    },
+    "posthaste-reddit-refresh-token": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-reddit-refresh-token/SKILL.md",
+      "computedHash": "1fce12fab07359009d0507e3f7d8e2088ff5fe1155a8d2aeaa50633485a84b46"
+    },
+    "posthaste-threads-refresh-token": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-threads-refresh-token/SKILL.md",
+      "computedHash": "0598f07ca9e6718ec7e65839dfd6987c77b4bf9d71274a1781a2165fe60d0e15"
+    },
+    "posthaste-tumblr-refresh-token": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-tumblr-refresh-token/SKILL.md",
+      "computedHash": "14fba2ebd733b0ec23bbaff5f679892c01c9825bfeb88c3a8bdb47cc9a850593"
+    },
+    "posthaste-voice": {
+      "source": "davidsneighbour/posthaste",
+      "sourceType": "github",
+      "skillPath": "skills/posthaste-voice/SKILL.md",
+      "computedHash": "e0a7e55e505e89d3934424f204fd33285f817d0a3c252ad690f1aaf6dceb030b"
     }
   }
 }

@@ -47,3 +47,10 @@ const SCRIPTS: Record<string, string> = {
 ---
 
 {Object.entries(SCRIPTS).map(([name, src]) => wants.has(name) && <script src={src} async is:inline />)}
+
+<script>
+  import setup from "../../../data/setup.json";
+  import { defineWordMark } from "../../../scripts/components/word-mark";
+
+  defineWordMark({ text: setup.title });
+</script>

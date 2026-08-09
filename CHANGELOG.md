@@ -1,5 +1,21 @@
 # Changelog
 
+## [3001.25.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.24.0...v3001.25.0) (2026-08-09)
+
+### Feat
+
+* **blog:** add preview card view transition ([3da045e](https://github.com/davidsneighbour/kollitsch.dev/commit/3da045ed83cf82edae5d269016ce538a5f9cc223)), closes [#1846](https://github.com/davidsneighbour/kollitsch.dev/issues/1846)
+
+### Fix
+
+* **blog:** gate preview transitions by motion preference ([0cc901c](https://github.com/davidsneighbour/kollitsch.dev/commit/0cc901c724b7c440f3452befe4701b48916846c9)), references [#1846](https://github.com/davidsneighbour/kollitsch.dev/issues/1846)
+* **blog:** preserve cover media during preview transition ([87d3861](https://github.com/davidsneighbour/kollitsch.dev/commit/87d3861051db85a9a28f40d14304bd223312029a)), references [#1846](https://github.com/davidsneighbour/kollitsch.dev/issues/1846)
+* **header:** flush sticky header, fix broken progress bar, tap targets, a11y ([5b68f2c](https://github.com/davidsneighbour/kollitsch.dev/commit/5b68f2c5bff9354393feb76f8ed8915f1a2de506))
+
+### Chore
+
+* **lighthouse:** update score history [skip ci] ([8e8e3fc](https://github.com/davidsneighbour/kollitsch.dev/commit/8e8e3fceee680e7a8b22def719c24ea1fb4a4b61))
+
 ## [3001.24.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.23.0...v3001.24.0) (2026-08-08)
 
 ### Feat

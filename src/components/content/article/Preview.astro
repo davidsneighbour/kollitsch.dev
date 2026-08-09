@@ -4,13 +4,17 @@ import type { CollectionEntry } from 'astro:content';
 import PostImage from '@components/content/media/PostImage.astro';
 import SchemaBlogPost from '@components/seo/schema/BlogPosting.astro';
 import Button from '@components/shared/elements/Button.astro';
-import { getPostPreviewTransitionName } from '@utils/view-transitions';
+import {
+  getPostPreviewMediaTransitionName,
+  getPostPreviewTransitionName,
+} from '@utils/view-transitions';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
 }
 const { post } = Astro.props;
 const transitionName = getPostPreviewTransitionName(post.id);
+const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 ---
 
 <article
@@ -23,6 +27,7 @@ const transitionName = getPostPreviewTransitionName(post.id);
     link={`/blog/${post.id}/`}
     classes="aspect-dnb max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
     quality="medium"
+    transitionName={mediaTransitionName}
   />
   <div class="flex grow flex-col justify-start @sm:p-2 @md:p-3 @lg:p-4">
     <h2

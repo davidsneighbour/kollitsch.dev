@@ -13,7 +13,10 @@ import Komut from '@components/content/typography/Komut.astro';
 import Prose from '@components/content/typography/Prose.astro';
 import Giscus from '@components/features/comments/Giscus.astro';
 import SchemaBlogPost from '@components/seo/schema/BlogPosting.astro';
-import { getPostPreviewTransitionName } from '@utils/view-transitions';
+import {
+  getPostPreviewMediaTransitionName,
+  getPostPreviewTransitionName,
+} from '@utils/view-transitions';
 import PaginationSingle from '@/components/content/pagenav/PaginationSingle.astro';
 
 export interface Props {
@@ -22,6 +25,7 @@ export interface Props {
 
 const { post }: Props = Astro.props;
 const transitionName = getPostPreviewTransitionName(post.id);
+const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 ---
 
 <article
@@ -35,6 +39,7 @@ const transitionName = getPostPreviewTransitionName(post.id);
     classes="max-w-full aspect-2/1 object-cover rounded-xl"
     widths={[640, 896, 1024, 1280, 1536, 1792, 2048]}
     sizes="(min-width: 1536px) 1024px, (min-width: 1024px) 896px, 100vw"
+    transitionName={mediaTransitionName}
   />
   <a
     href={`/blog/${post.id}/`}

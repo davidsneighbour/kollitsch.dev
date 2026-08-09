@@ -596,17 +596,24 @@
       view-transition-class: post-preview;
     }
 
+    [data-post-preview-media-transition] {
+      view-transition-class: post-preview-media;
+    }
+
     ::view-transition-group(.post-preview),
-    ::view-transition-old(.post-preview),
-    ::view-transition-new(.post-preview) {
+    ::view-transition-group(.post-preview-media) {
       animation-duration: 420ms;
       animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-      height: 100%;
+      border-radius: var(--radius-lg);
       overflow: clip;
     }
 
-    ::view-transition-group(.post-preview) {
-      border-radius: var(--radius-lg);
+    ::view-transition-old(.post-preview-media),
+    ::view-transition-new(.post-preview-media) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: clip;
     }
   }
 
@@ -616,6 +623,11 @@
 
   @media (prefers-reduced-motion: reduce) {
     [data-post-preview-transition] {
+      view-transition-class: none !important;
+      view-transition-name: none !important;
+    }
+
+    [data-post-preview-media-transition] {
       view-transition-class: none !important;
       view-transition-name: none !important;
     }

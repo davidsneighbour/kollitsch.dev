@@ -17,6 +17,7 @@ export interface Props {
   formats?: Array<'avif' | 'webp' | 'png' | 'jpeg'>;
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
+  transitionName?: string;
 }
 
 const {
@@ -28,6 +29,7 @@ const {
   formats = ['avif', 'webp', 'jpeg'],
   sizes = getTailwindSizes({ base: 3, maxContentWidth: 1280, md: 2, sm: 1 }),
   layout = 'constrained',
+  transitionName = '',
 }: Props = Astro.props;
 
 type Quality = number | 'low' | 'medium' | 'high' | 'max';
@@ -115,7 +117,11 @@ const roundedClasses = classes
     // ─── VIDEO ────────────────────────────────────────────────────────────────
     // Caption stays below the video; overlay does not apply to media players.
     // Draft badge still shows so editors can spot unpublished content.
-    <figure class="group relative">
+    <figure
+      class="group relative"
+      transition:name={transitionName}
+      {...transitionName && { "data-post-preview-media-transition": transitionName }}
+    >
       {isDraft && (
         <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
           DRAFT
@@ -151,6 +157,8 @@ const roundedClasses = classes
         roundedClasses,
       ]}
       data-postimage
+      transition:name={transitionName}
+      {...transitionName && { "data-post-preview-media-transition": transitionName }}
     >
       {/* Background link — z-10, covers the whole figure, sits below caption */}
       {link && (

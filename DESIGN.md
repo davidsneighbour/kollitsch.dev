@@ -357,7 +357,7 @@ Cards are the primary content container for blog post previews, link lists, and 
 * Light: `bg-card`, `text-card-foreground`, `rounded-lg`, subtle `shadow-sm`, `hover:bg-white`
 * Dark: `bg-black/20` (an opacity overlay of the page background, not a fixed color), `text-gray-200`, no shadow, `ring-gray-100/10`, `hover:bg-black/30`
 * `Preview.astro` keeps its image corner radius derived from the outer card radius minus the card padding, so the image tracks the outer container cleanly
-* Blog previews and their destination posts share the `post-preview-transition` motion token only inside `prefers-reduced-motion: no-preference`: a 420ms strong ease-out shared-element morph with the standard `rounded-lg` card radius and clipped overflow
+* Blog previews and their destination posts share the `post-preview-transition` motion token only inside `prefers-reduced-motion: no-preference`: a 420ms strong ease-out shared-element morph with the standard `rounded-lg` card radius and clipped overflow. Cover media uses a separate `post-preview-media` transition class with `object-fit: cover` so image snapshots crop rather than stretch while the card shell changes size.
 * See "Elevation & Depth" above for why dark-mode cards stay on a background-relative overlay rather than a picked gray/olive shade
 
 ### Sticky Header & Popover Chrome

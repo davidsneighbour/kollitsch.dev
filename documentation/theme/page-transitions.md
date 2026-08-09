@@ -19,18 +19,22 @@ section of `src/styles/theme.css`); extend that rule for further lock styling.
 ## Blog preview-card transitions
 
 Blog post preview cards morph into the full single-post article surface when a
-visitor opens a post from the card title or the "Read more..." button. Both
+visitor opens a post from the card title or the "Read more…" button. Both
 ends share the CSS-safe transition name returned by
 `getPostPreviewTransitionName(post.id)`:
 
 * Card: `src/components/content/article/Preview.astro` (`<article>`)
 * Post page: `src/components/content/article/Post.astro` (`<article>`)
+* Cover media: `src/components/content/media/PostImage.astro` (`<figure>`)
 
 The shared element uses `view-transition-class: post-preview` styling inside the
 `prefers-reduced-motion: no-preference` media query in `src/styles/theme.css`: a
 420ms strong ease-out morph with clipped overflow and the standard card radius.
-The same pairing is used for browser back/forward navigation when Astro's
-`ClientRouter` can match the originating preview card.
+The cover media uses its own `post-preview-media` transition class, with
+`object-fit: cover` on `::view-transition-old/new`, so image snapshots crop
+inside the changing rectangle rather than stretching. The same pairing is used
+for browser back/forward navigation when Astro's `ClientRouter` can match the
+originating preview card.
 
 Because `transition:name` must be unique per rendered page, only apply the
 shared preview transition to a post preview list where each post appears once.

@@ -37,7 +37,9 @@ describe('Preview component (props contract)', () => {
     const src = await fs.readFile(componentPath, 'utf8');
 
     expect(src).toContain('getPostPreviewTransitionName(post.id)');
+    expect(src).toContain('getPostPreviewMediaTransitionName(post.id)');
     expect(src).toContain('transition:name={transitionName}');
+    expect(src).toContain('transitionName={mediaTransitionName}');
     expect(src).not.toContain('post-title-${post.id}');
   });
 });

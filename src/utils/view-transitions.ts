@@ -5,3 +5,9 @@ export function getPostPreviewTransitionName(postId: string): string {
 
   return `post-preview-${safePostId}`;
 }
+
+export function getPostPreviewMediaTransitionName(postId: string): string {
+  const safePostId = postId.replace(CSS_CUSTOM_IDENT_SAFE_CHARACTER, '-');
+
+  return `post-preview-media-${safePostId}`;
+}

@@ -26,19 +26,23 @@ ends share the CSS-safe transition name returned by
 * Card: `src/components/content/article/Preview.astro` (`<article>`)
 * Post page: `src/components/content/article/Post.astro` (`<article>`)
 
-The shared element uses `view-transition-class: post-preview` styling in
-`src/styles/theme.css`: a 420ms strong ease-out morph with clipped overflow and
-the standard card radius. The same pairing is used for browser back/forward
-navigation when Astro's `ClientRouter` can match the originating preview card.
+The shared element uses `view-transition-class: post-preview` styling inside the
+`prefers-reduced-motion: no-preference` media query in `src/styles/theme.css`: a
+420ms strong ease-out morph with clipped overflow and the standard card radius.
+The same pairing is used for browser back/forward navigation when Astro's
+`ClientRouter` can match the originating preview card.
 
 Because `transition:name` must be unique per rendered page, only apply the
 shared preview transition to a post preview list where each post appears once.
 
 ## Reduced motion
 
-`prefers-reduced-motion: reduce` disables all view-transition animations
-(`::view-transition-group/old/new`) via the same theme.css section, regardless
-of what `transition:animate` directive is used elsewhere in the markup.
+`@view-transition { navigation: auto; }` is declared only inside
+`prefers-reduced-motion: no-preference`, so native cross-document transitions
+are opt-in only for visitors who allow motion. For visitors using
+`prefers-reduced-motion: reduce`, `theme.css` removes the post-preview
+`view-transition-name` and `view-transition-class`, and disables any remaining
+view-transition animations (`::view-transition-group/old/new`) as a fallback.
 
 ## Link hover
 

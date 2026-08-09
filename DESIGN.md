@@ -357,7 +357,7 @@ Cards are the primary content container for blog post previews, link lists, and 
 * Light: `bg-card`, `text-card-foreground`, `rounded-lg`, subtle `shadow-sm`, `hover:bg-white`
 * Dark: `bg-black/20` (an opacity overlay of the page background, not a fixed color), `text-gray-200`, no shadow, `ring-gray-100/10`, `hover:bg-black/30`
 * `Preview.astro` keeps its image corner radius derived from the outer card radius minus the card padding, so the image tracks the outer container cleanly
-* Blog previews and their destination posts share the `post-preview-transition` motion token: a 420ms strong ease-out shared-element morph with the standard `rounded-lg` card radius and clipped overflow
+* Blog previews and their destination posts share the `post-preview-transition` motion token only inside `prefers-reduced-motion: no-preference`: a 420ms strong ease-out shared-element morph with the standard `rounded-lg` card radius and clipped overflow
 * See "Elevation & Depth" above for why dark-mode cards stay on a background-relative overlay rather than a picked gray/olive shade
 
 ### Sticky Header & Popover Chrome
@@ -423,7 +423,7 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 * **Don't** introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.
 * **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.
 * **Don't** add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.
-* **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation and all keyframe animations must be gated behind the `no-preference` media query.
+* **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation, view transitions, and all keyframe animations must be gated behind the `no-preference` media query.
 * **Do** prefix any temporary debugging class with `debug` (for example
   `debug-outline`) if one is ever needed, so it can't be mistaken for an
   intentional style and is easy to grep for before committing.

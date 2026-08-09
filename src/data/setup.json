@@ -67,5 +67,8 @@
     "instance": "https://analytics.dnbhub.xyz/",
     "siteId": "1",
     "cookieDomain": "*.kollitsch.dev"
+  },
+  "wordmark": {
+    "text": "KOLLITSCH.dev*"
   }
 }

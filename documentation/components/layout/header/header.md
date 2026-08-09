@@ -52,7 +52,8 @@ import Header from '@components/layout/header/Header.astro';
 
 An inline script (`data-astro-rerun`, so it re-executes on every view-transition navigation) wires up:
 
-- **Sticky brand fade-in** — an `IntersectionObserver` watches the `SiteTitle` element (via `siteTitleId`). When it scrolls out of view, `#navbar-brand` fades from `opacity-0` to `opacity-100` and slides in from `translateX(-6px)`, the viewport reading-progress bar (`progress--viewport-top`) is shown, and `data-scrolled` is toggled on `#site-header` for a deeper box-shadow.
+- **Sticky brand fade-in** — an `IntersectionObserver` watches the `SiteTitle` element (via `siteTitleId`). When it scrolls out of view, `#navbar-brand` fades from `opacity-0` to `opacity-100` and slides in from `translateX(-6px)`, the viewport reading-progress bar (`progress--viewport-top`) is shown inside the sticky header's bottom edge, and `data-scrolled` is toggled on `#site-header` for a deeper box-shadow.
+- **Reading-progress overlay** — the progress bar is absolutely positioned at the bottom of `#site-header`, so it does not add to the navigation's height, padding, or spacing. It uses `pointer-events: none`, allowing click and hover hit-testing to pass through to the top navigation underneath.
 - **Mobile menu** — clicking `#hamburger-and-close` toggles `window.kdev.mobileOpen`, swapping the open/close icons and the `hidden`/`flex` classes on `#navigation-and-theme-select`. The toggle button is cloned and replaced on each `astro:after-swap` to drop stale listeners before re-binding.
 - **Resize handling** — a `resize` listener keeps the mobile nav visible at `md:` widths and above regardless of the mobile-open state.
 

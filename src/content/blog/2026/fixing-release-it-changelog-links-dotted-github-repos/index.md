@@ -9,24 +9,12 @@ tags:
   - github
   - configuration
 date: 2026-08-08
+cover:
+  type: image
+  src: postimages/postimage-for-fixing-release-it-changelog-links-dotted-github-repos.jpg
 ---
 
-I ran into a small but annoying release automation bug on this site. The
-repository is called [`davidsneighbour/kollitsch.dev`][kollitsch-dev], but
-generated changelog content suddenly started linking to
-`davidsneighbour/kollitsch` instead.
-
-That meant release notes contained links like this:
-
-```markdown
-[https://github.com/davidsneighbour/kollitsch/issues/1841](https://github.com/davidsneighbour/kollitsch/issues/1841)
-```
-
-when they should have contained this:
-
-```markdown
-[https://github.com/davidsneighbour/kollitsch.dev/issues/1841](https://github.com/davidsneighbour/kollitsch.dev/issues/1841)
-```
+I ran into a small but annoying release automation bug on this site. The repository is called `davidsneighbour/kollitsch.dev`, but the generated changelog content suddenly started linking to `davidsneighbour/kollitsch` instead. No `.dev` anymore.
 
 The broken URL is subtle enough that it is easy to miss during a release,
 especially if the changelog is generated and pushed automatically. The
@@ -243,7 +231,6 @@ room to invent the wrong repository.
 [fix-commit]: https://github.com/davidsneighbour/kollitsch.dev/commit/f86b5e3bcab8aa489a9ec5c6219ab0d26cc3f1f3
 [fix-issue]: https://github.com/davidsneighbour/kollitsch.dev/issues/1842
 [hosted-git-info]: https://github.com/TrigenSoftware/simple-libs/tree/main/packages/hosted-git-info
-[kollitsch-dev]: https://github.com/davidsneighbour/kollitsch.dev
 [release-it]: https://github.com/release-it/release-it
 [release-it-changelog]: https://github.com/release-it/conventional-changelog
 [release-it-changelog-npm]: https://www.npmjs.com/package/@release-it/conventional-changelog

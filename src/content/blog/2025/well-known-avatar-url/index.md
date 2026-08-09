@@ -1,5 +1,5 @@
 ---
-title: .well-known avatar URL for kollitsch.dev
+title: .well-known avatar URL for KOLLITSCH.dev*
 description: >-
   This post explains how I set up a .well-known/avatar URL on my site using
   Netlify, with caching headers and image placement, and plans for future
@@ -50,7 +50,7 @@ Since my site is hosted on Netlify, the setup was straightforward:
 
 This is just the beginning. In the future, I might expand this setup to support:
 
-* Different image **sizes** (e.g., `/avatar?size=128`)
+* Different image **sizes** (for example, `/avatar?size=128`)
 * Additional **formats** like WebP and PNG
 * Possibly even a **redirect mechanism** for dynamic avatars
 

@@ -8,7 +8,7 @@ date: 2022-08-21T18:52:10+07:00
 resources:
   - title: >-
       Screenshots and artistically putting together two images by Patrick
-      Kollitsch of [kollitsch.dev](https://kollitsch.dev)
+      Kollitsch of [<wordmark/>](https://kollitsch.dev)
     src: header.png
 tags:
   - html

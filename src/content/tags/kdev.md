@@ -1,6 +1,6 @@
 ---
 id: kdev
-title: "kollitsch.dev"
+title: "KOLLITSCH.dev*"
 linktitle: "KOLLITSCH.dev*"
 aliases:
   - kollitsch.dev
@@ -8,7 +8,7 @@ aliases:
   - kollitsch
   - kdev*
 class: warning
-description: "Posts about kollitsch.dev and internal decisions."
+description: "Posts about KOLLITSCH.dev* and internal decisions."
 featured: true
 weight: 3
 ---

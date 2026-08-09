@@ -2,7 +2,7 @@
 title: 'Notes from the Laboratory: January 2023'
 linkTitle: Laboratory 2023-01
 description: >-
-  Another monthly report from the depths of the laboratory of kollitsch.dev -
+  Another monthly report from the depths of the laboratory of KOLLITSCH.dev* -
   January 2023
 date: 2023-02-01T18:30:58+07:00
 tags:

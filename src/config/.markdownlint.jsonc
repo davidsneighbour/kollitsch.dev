@@ -43,7 +43,8 @@
     "allowed_elements": [
       "date-diff",
       "SpotifyAlbum",
-      "Youtube"
+      "Youtube",
+      "wordmark"
     ],
     "table_allowed_elements": []
   },

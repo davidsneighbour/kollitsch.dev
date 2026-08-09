@@ -9,7 +9,7 @@ cover:
   alt: A type specimen showcasing the fonts Changa One and Exo 2 used on
 ---
 
-Typography plays a subtle but defining role in how a website feels. On [KOLLITSCH.dev*](https://kollitsch.dev/), two distinct typefaces form the visual foundation - **Changa One** and **Exo 2**. Each serves a specific purpose and reflects a balance between a bold character and everyday readability. Both fonts are available under a open source license via Google Fonts.
+Typography plays a subtle but defining role in how a website feels. On [<wordmark/>](https://kollitsch.dev/), two distinct typefaces form the visual foundation - **Changa One** and **Exo 2**. Each serves a specific purpose and reflects a balance between a bold character and everyday readability. Both fonts are available under a open source license via Google Fonts.
 
 ## Changa One - strength in simplicity
 
@@ -23,7 +23,7 @@ Exo 2 performs beautifully on smaller screens and compact layouts, making it ide
 
 ## Why this pairing works
 
-Changa One gives headlines a punchy, geometric authority, while Exo 2 provides a clean, balanced rhythm for extended reading. The result is a combination that feels confident yet approachable - much like the voice of KOLLITSCH.dev* itself.
+Changa One gives headlines a punchy, geometric authority, while Exo 2 provides a clean, balanced rhythm for extended reading. The result is a combination that feels confident yet approachable - much like the voice of <wordmark/> itself.
 
 Changa One defines the tone; Exo 2 carries the conversation.
 

@@ -1,5 +1,28 @@
 # Changelog
 
+## [3001.26.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.25.0...v3001.26.0) (2026-08-09)
+
+### Feat
+
+* add configurable wordmark component ([0e6275d](https://github.com/davidsneighbour/kollitsch.dev/commit/0e6275d987a38a1ef14c13eaba77784922a4af2b))
+* add portable word mark web component ([77c4034](https://github.com/davidsneighbour/kollitsch.dev/commit/77c40346e8ccdd4d7d2eb36b49ae34b5a0c5922c))
+* add wordmark markdown shorthand ([31fd91d](https://github.com/davidsneighbour/kollitsch.dev/commit/31fd91d0f10313a65badfe270f0cbadd49360a6c))
+* configure site wordmark ([eeeb411](https://github.com/davidsneighbour/kollitsch.dev/commit/eeeb411e7c47ef5d9eaa12ca0c2e142851bb8ccf))
+* register word mark web component ([c86f582](https://github.com/davidsneighbour/kollitsch.dev/commit/c86f582ac5ef1996cca8b6abd81618fa231826f8))
+
+### Fix
+
+* **header:** overlay reading progress bar ([68dfe02](https://github.com/davidsneighbour/kollitsch.dev/commit/68dfe02835e5a51fa18c14f5dfaf4bf8778fa356)), closes [#1847](https://github.com/davidsneighbour/kollitsch.dev/issues/1847)
+
+### Refactor
+
+* remove duplicate wordmark config ([c3febe8](https://github.com/davidsneighbour/kollitsch.dev/commit/c3febe819a10ac2fcaa8620f77234167c8ca42a5))
+* use site title for wordmark ([204fcaa](https://github.com/davidsneighbour/kollitsch.dev/commit/204fcaa1da2ece0b7e5973674879abdc637b3451))
+
+### Docs
+
+* document wordmark components ([3cae72c](https://github.com/davidsneighbour/kollitsch.dev/commit/3cae72cdf9711bb318086a910599c7fac0853944))
+
 ## [3001.25.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.24.0...v3001.25.0) (2026-08-09)
 
 ### Feat

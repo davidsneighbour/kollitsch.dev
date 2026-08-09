@@ -7,7 +7,7 @@ export interface Props extends HTMLAttributes<'span'> {
 }
 
 const {
-  text = setup.wordmark.text,
+  text = setup.title,
   class: className,
   ...attrs
 }: Props = Astro.props;

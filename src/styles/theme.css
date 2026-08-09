@@ -587,6 +587,23 @@
  * around the swap so outgoing-page interaction is locked for its duration.
  ******************************************************************************/
 @layer base {
+  [data-post-preview-transition] {
+    view-transition-class: post-preview;
+  }
+
+  ::view-transition-group(.post-preview),
+  ::view-transition-old(.post-preview),
+  ::view-transition-new(.post-preview) {
+    animation-duration: 420ms;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    height: 100%;
+    overflow: clip;
+  }
+
+  ::view-transition-group(.post-preview) {
+    border-radius: var(--radius-lg);
+  }
+
   html.astro-transitioning {
     cursor: wait;
   }

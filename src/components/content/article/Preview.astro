@@ -1,18 +1,21 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from "astro:content";
-import Button from "@components/shared/elements/Button.astro";
-import PostImage from "@components/content/media/PostImage.astro";
-import SchemaBlogPost from "@components/seo/schema/BlogPosting.astro";
+import type { CollectionEntry } from 'astro:content';
+import PostImage from '@components/content/media/PostImage.astro';
+import SchemaBlogPost from '@components/seo/schema/BlogPosting.astro';
+import Button from '@components/shared/elements/Button.astro';
+import { getPostPreviewTransitionName } from '@utils/view-transitions';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 const { post } = Astro.props;
+const transitionName = getPostPreviewTransitionName(post.id);
 ---
 
 <article
-  transition:animate="slide"
+  transition:name={transitionName}
+  data-post-preview-transition={transitionName}
   class="group @container relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-card p-(--card-padding) text-card-foreground shadow-sm ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-lg)] ring-inset transition-colors duration-300 ease-in-out hover:bg-white dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 dark:hover:bg-black/30"
 >
   <PostImage
@@ -24,7 +27,6 @@ const { post } = Astro.props;
   <div class="flex grow flex-col justify-start @sm:p-2 @md:p-3 @lg:p-4">
     <h2
       class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl"
-      transition:name={`post-title-${post.id}`}
     >
       <a
         class="line-clamp-2 no-underline underline-offset-2 group-hover:underline group-hover:decoration-1 hover:decoration-2"
@@ -44,7 +46,8 @@ const { post } = Astro.props;
       outline
       name="arrow-right"
       href={`/${post.collection}/${post.id}/`}
-      classes="justify-self-end">Read more...</Button
+      classes="justify-self-end"
+      >Read more...</Button
     >
   </div>
 </article>

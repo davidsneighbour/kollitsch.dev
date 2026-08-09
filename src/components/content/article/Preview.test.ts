@@ -29,4 +29,15 @@ describe('Preview component (props contract)', () => {
     expect(src).toContain('dark:bg-black/20');
     expect(src).not.toContain('bg-white/5');
   });
+
+  it('uses the shared blog post preview transition name', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const componentPath = path.join(testDir, 'Preview.astro');
+
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain('getPostPreviewTransitionName(post.id)');
+    expect(src).toContain('transition:name={transitionName}');
+    expect(src).not.toContain('post-title-${post.id}');
+  });
 });

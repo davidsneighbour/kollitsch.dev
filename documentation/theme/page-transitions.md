@@ -1,4 +1,4 @@
-# Page, link, and title transitions
+# Page, link, and preview-card transitions
 
 Astro's `ClientRouter` (imported in `src/components/layout/head/Head.astro`) drives
 cross-document view transitions between full page navigations. `src/layouts/Site.astro`
@@ -16,17 +16,23 @@ scroll input can't land mid-swap:
 `astro-transitioning` currently sets `cursor: wait` (see the "view transitions"
 section of `src/styles/theme.css`); extend that rule for further lock styling.
 
-## Title transitions
+## Blog preview-card transitions
 
-Blog post titles morph between the preview card and the single-post view. Both
-share a `transition:name` of `post-title-<post.id>`:
+Blog post preview cards morph into the full single-post article surface when a
+visitor opens a post from the card title or the "Read more..." button. Both
+ends share the CSS-safe transition name returned by
+`getPostPreviewTransitionName(post.id)`:
 
-* Card title: `src/components/content/article/Preview.astro` (`<h2>`)
-* Post page title: `src/layouts/ContentPage.astro`, via the new `transitionName`
-  prop on `src/components/content/typography/Heading.astro`
+* Card: `src/components/content/article/Preview.astro` (`<article>`)
+* Post page: `src/components/content/article/Post.astro` (`<article>`)
 
-Because `transition:name` must be unique per rendered page, only pass
-`transitionName` when a single instance of that post's title is on the page.
+The shared element uses `view-transition-class: post-preview` styling in
+`src/styles/theme.css`: a 420ms strong ease-out morph with clipped overflow and
+the standard card radius. The same pairing is used for browser back/forward
+navigation when Astro's `ClientRouter` can match the originating preview card.
+
+Because `transition:name` must be unique per rendered page, only apply the
+shared preview transition to a post preview list where each post appears once.
 
 ## Reduced motion
 

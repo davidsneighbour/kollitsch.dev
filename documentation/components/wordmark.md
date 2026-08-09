@@ -34,7 +34,7 @@ Normal `<span>` attributes and classes can also be passed through the component.
 
 ### Typography And Artwork
 
-The Astro component renders through [`TextImageFill`](./ui/text-image-fill.md), using the shared artwork configuration from `src/data/brand-artwork.ts`. This is the same optimised `headline.jpg` image used by the non-hovered site-title header, with a stronger theme-aware tint for inline readability.
+The Astro component renders through [`TextImageFill`](./ui/text-image-fill.md), using the shared artwork configuration from `src/data/brand-artwork.ts`. This is the same optimised `headline.jpg` image used by the non-hovered site-title header, cropped through the wordmark glyphs without an extra inline tint or shadow.
 
 The component still applies the semantic wordmark font:
 
@@ -42,7 +42,7 @@ The component still applies the semantic wordmark font:
 font-family: var(--font-wordmark, var(--font-title));
 ```
 
-Size, weight, line height, decoration, opacity, and other surrounding typography continue to inherit from the context in which the wordmark is used. Colour is image-filled when `background-clip: text` is supported and falls back to the configured theme-aware fallback colour otherwise.
+Size, weight, line height, decoration, opacity, and other surrounding typography continue to inherit from the context in which the wordmark is used. Colour is image-filled when `background-clip: text` is supported and falls back to the configured orange fallback colour otherwise.
 
 `--font-wordmark` is the semantic override intended for the wordmark. If it is not defined, the component falls back to the site's existing `--font-title` token.
 
@@ -115,7 +115,7 @@ background-image: var(--wordmark-background-image);
 background-clip: text;
 ```
 
-On kollitsch.dev, the existing title font, shared wordmark background image, and theme-aware inline tint therefore apply automatically. On a page that does not provide those CSS variables, the Web Component currently inherits the surrounding font and falls back to plain text colour.
+On kollitsch.dev, the existing title font and shared wordmark background image therefore apply automatically. On a page that does not provide those CSS variables, the Web Component currently inherits the surrounding font and falls back to plain text colour.
 
 ## Configuration contract
 
@@ -127,8 +127,8 @@ Current configuration is intentionally small:
 | Artwork | `wordmarkArtwork.image` in `src/data/brand-artwork.ts` | Shared image source for the site title and wordmark glyph fill |
 | Artwork sizing | `wordmarkArtwork.backgroundSize` / `position` | Keeps the glyph fill aligned with the header reveal image |
 | Header artwork tint | `wordmarkArtwork.headerFill.tintColor` / `tintOpacity` | Subtle red tint used by the large site-title header |
-| Inline artwork tint | `wordmarkArtwork.inlineFill.tintColor` / `tintColorDark` / opacity values | Stronger light/dark tint layered over the same artwork so prose wordmarks do not disappear against the page surface |
-| Artwork fallback colour | `wordmarkArtwork.inlineFill.fallbackColor` / `fallbackColorDark` | Plain text colour where background-clip text fill is unsupported |
+| Inline artwork tint | none | Prose wordmarks are a transparent crop of the configured image without extra tint or shadow |
+| Artwork fallback colour | `var(--color-orange-500)` | Plain text colour where background-clip text fill is unsupported |
 | Wordmark font | `--font-wordmark` | Optional semantic wordmark font override |
 | Fallback font | `--font-title` | Current kollitsch.dev title font |
 | Per-instance Astro text | `text` prop | Overrides the configured text for one `<Wordmark />` |

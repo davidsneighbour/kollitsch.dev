@@ -43,34 +43,11 @@ const wordmarkImage = await getImage(wordmarkArtwork.image);
 const wordmarkBackgroundImage = `url("${wordmarkImage.src}")`;
 const wordmarkBackgroundPosition = wordmarkArtwork.position;
 const wordmarkBackgroundSize = wordmarkArtwork.backgroundSize;
-const wordmarkFallbackColor = wordmarkArtwork.inlineFill.fallbackColor;
-const wordmarkFallbackColorDark = wordmarkArtwork.inlineFill.fallbackColorDark;
-const wordmarkTintColor = wordmarkArtwork.inlineFill.tintColor;
-const wordmarkTintColorDark = wordmarkArtwork.inlineFill.tintColorDark;
-const wordmarkTintOpacity = String(wordmarkArtwork.inlineFill.tintOpacity);
-const wordmarkTintOpacityDark = String(
-  wordmarkArtwork.inlineFill.tintOpacityDark,
-);
 const wordmarkVariableCss = `
   :root {
     --wordmark-background-image: ${wordmarkBackgroundImage};
     --wordmark-background-position: ${wordmarkBackgroundPosition};
     --wordmark-background-size: ${wordmarkBackgroundSize};
-    --wordmark-fallback-color: ${wordmarkFallbackColor};
-    --wordmark-inline-fallback-color: ${wordmarkFallbackColor};
-    --wordmark-inline-tint-color: ${wordmarkTintColor};
-    --wordmark-inline-tint-opacity: ${wordmarkTintOpacity};
-    --wordmark-tint-color: ${wordmarkTintColor};
-    --wordmark-tint-opacity: ${wordmarkTintOpacity};
-  }
-
-  :root.dark {
-    --wordmark-fallback-color: ${wordmarkFallbackColorDark};
-    --wordmark-inline-fallback-color: ${wordmarkFallbackColorDark};
-    --wordmark-inline-tint-color: ${wordmarkTintColorDark};
-    --wordmark-inline-tint-opacity: ${wordmarkTintOpacityDark};
-    --wordmark-tint-color: ${wordmarkTintColorDark};
-    --wordmark-tint-opacity: ${wordmarkTintOpacityDark};
   }
 `;
 

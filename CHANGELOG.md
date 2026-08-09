@@ -1,5 +1,25 @@
 # Changelog
 
+## [3001.27.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.26.0...v3001.27.0) (2026-08-09)
+
+### Content
+
+* use wordmark in brand mentions ([b28b67e](https://github.com/davidsneighbour/kollitsch.dev/commit/b28b67e36a0ce08fb3ee32d7a22d736ab2dcf317)), closes [#1850](https://github.com/davidsneighbour/kollitsch.dev/issues/1850)
+
+### Fix
+
+* **wordmark:** keep image fill legible ([eb872b7](https://github.com/davidsneighbour/kollitsch.dev/commit/eb872b731501cef03fddbc66317b2013ce00dc94)), closes [#1849](https://github.com/davidsneighbour/kollitsch.dev/issues/1849)
+* **wordmark:** remove inline fill tint ([7bccdfb](https://github.com/davidsneighbour/kollitsch.dev/commit/7bccdfba08fb32d815bee892be4670c6bbc88bfc)), closes [#1849](https://github.com/davidsneighbour/kollitsch.dev/issues/1849)
+
+### Refactor
+
+* **wordmark:** share header artwork fill ([eb4946d](https://github.com/davidsneighbour/kollitsch.dev/commit/eb4946dec2b99622d406e9f589519a9426e8a9eb)), closes [#1849](https://github.com/davidsneighbour/kollitsch.dev/issues/1849)
+
+### Chore
+
+* **skills:** refresh skills lockfile ([#1848](https://github.com/davidsneighbour/kollitsch.dev/issues/1848)) ([0b5797d](https://github.com/davidsneighbour/kollitsch.dev/commit/0b5797d2c4cd73168740a59be6d3248c775fd399))
+* update screenshot ([ab4bf8c](https://github.com/davidsneighbour/kollitsch.dev/commit/ab4bf8ce151aa991263e3e0ab2090dc3feb86958))
+
 ## [3001.26.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.25.0...v3001.26.0) (2026-08-09)
 
 ### Feat

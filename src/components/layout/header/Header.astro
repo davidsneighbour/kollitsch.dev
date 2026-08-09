@@ -35,10 +35,7 @@ if (!activeItem && import.meta.env.DEV) {
 
 <SiteTitle siteTitleId={siteTitleId} />
 
-<header id="site-header" class="site-header sticky top-0 right-0 left-0 isolate z-50 shadow-sm backdrop-blur-xl backdrop-saturate-150">
-  <ProgressBar
-    classes="progress progress--viewport-top pointer-events-none fixed top-0 right-0 left-0 z-70 hidden [--height:4px] lg:[--height:6px]"
-  />
+<div id="site-header" class="site-header sticky top-0 right-0 left-0 isolate z-50 border-b border-white/20 bg-header-glass shadow-sm backdrop-blur-xl backdrop-saturate-150">
   <NavSearch
     navLabel="Main navigation"
     openSearchLabel="Open site search"
@@ -46,8 +43,7 @@ if (!activeItem && import.meta.env.DEV) {
     searchRegionLabel="Site search"
     searchOuterWidthVarName="--pf-searchbox-max-width"
     centerClass="justify-end"
-    rightClass="shrink-0"
-    class="border-b border-white/20"
+    rightClass="shrink-0 pr-3"
   >
     <Fragment slot="left">
       <span id="navbar-sitetitle">
@@ -77,13 +73,11 @@ if (!activeItem && import.meta.env.DEV) {
                     subItems={value.children?.filter(
                       (child) => import.meta.env.DEV || !child.devOnly,
                     )}
-                    classes={`px-3 py-4 ${isNavItemActive(value) ? "font-bold is--active" : ""}`}
+                    classes="px-3 py-3 md:py-2"
+                    isActive={isNavItemActive(value)}
                   />
                 ))
             }
-            <li class="px-3 py-4 md:px-2 md:py-2">
-              <ThemeSelector defaultTheme={defaultTheme} />
-            </li>
           </ul>
         </nav>
       </div>
@@ -93,7 +87,7 @@ if (!activeItem && import.meta.env.DEV) {
       <button
         id="hamburger-and-close"
         type="button"
-        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md transition hover:bg-black/5 md:hidden dark:hover:bg-white/5"
+        class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md transition hover:bg-black/5 md:hidden dark:hover:bg-white/5"
         aria-label="Toggle navigation"
         aria-expanded="false"
         aria-controls="navigation-and-theme-select"
@@ -107,7 +101,7 @@ if (!activeItem && import.meta.env.DEV) {
       </button>
       <button
         type="button"
-        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md transition hover:bg-black/5 dark:hover:bg-white/5"
+        class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md transition hover:bg-black/5 dark:hover:bg-white/5"
         aria-expanded="false"
         data-nav-search-toggle
       >
@@ -130,7 +124,14 @@ if (!activeItem && import.meta.env.DEV) {
       </div>
     </Fragment>
   </NavSearch>
-</header>
+  <ProgressBar
+    classes="progress progress--viewport-top pointer-events-none relative hidden [--height:4px] lg:[--height:6px]"
+  />
+</div>
+
+<div class="theme-corner fixed top-0 right-0 z-100">
+  <ThemeSelector defaultTheme={defaultTheme} />
+</div>
 
 <script is:inline data-astro-rerun data-site-title-id={siteTitleId}>
   (() => {
@@ -145,7 +146,7 @@ if (!activeItem && import.meta.env.DEV) {
     const placeholderId = currentScript?.getAttribute("data-site-title-id");
     const placeholder = placeholderId ? document.querySelector(`#${placeholderId}`) : null;
     const stickyBrand = document.querySelector("#navbar-brand");
-    const viewportProgress = document.querySelector("progress.progress--viewport-top");
+    const viewportProgress = document.querySelector(".progress--viewport-top");
 
     /**
      * @returns {void}
@@ -156,6 +157,8 @@ if (!activeItem && import.meta.env.DEV) {
     }
 
     /**
+     * Instant sync used for the initial render and viewport-crossing resizes
+     * - neither should animate (a transition mid-resize-drag looks broken).
      * @returns {void}
      */
     function toggleNavVisibility() {
@@ -163,6 +166,49 @@ if (!activeItem && import.meta.env.DEV) {
       const shouldShow = isMdUp || window.kdev.mobileOpen;
       navSection?.classList.toggle("hidden", !shouldShow);
       navSection?.classList.toggle("flex", shouldShow);
+      navSection?.classList.toggle("is-open", shouldShow);
+    }
+
+    /**
+     * Animated open for the hamburger click path specifically: unhides first,
+     * then flips to the open state on the next frame so the transition has a
+     * starting point to interpolate from.
+     * @returns {void}
+     */
+    function openMobileNav() {
+      if (!(navSection instanceof HTMLElement)) {
+        return;
+      }
+
+      navSection.classList.remove("hidden");
+      navSection.classList.add("flex");
+      requestAnimationFrame(() => {
+        navSection.classList.add("is-open");
+      });
+    }
+
+    /**
+     * Mirrors openMobileNav() on the way out: `hidden` is only set once the
+     * slide/fade transition has actually finished, so the close is visible
+     * instead of the panel vanishing the instant the class flips.
+     * @returns {void}
+     */
+    function closeMobileNav() {
+      if (!(navSection instanceof HTMLElement)) {
+        return;
+      }
+
+      navSection.classList.remove("is-open");
+      navSection.addEventListener(
+        "transitionend",
+        () => {
+          if (!window.kdev.mobileOpen) {
+            navSection.classList.add("hidden");
+            navSection.classList.remove("flex");
+          }
+        },
+        { once: true },
+      );
     }
 
     /**
@@ -187,14 +233,11 @@ if (!activeItem && import.meta.env.DEV) {
       clone.addEventListener("click", () => {
         window.kdev.mobileOpen = !window.kdev.mobileOpen;
         toggleIcons();
-        toggleNavVisibility();
-        if (window.kdev.mobileOpen && navSection instanceof HTMLElement) {
-          navSection.classList.add("is-revealing");
-          navSection.addEventListener(
-            "animationend",
-            () => navSection.classList.remove("is-revealing"),
-            { once: true },
-          );
+
+        if (window.kdev.mobileOpen) {
+          openMobileNav();
+        } else {
+          closeMobileNav();
         }
       });
     }
@@ -230,31 +273,40 @@ if (!activeItem && import.meta.env.DEV) {
       siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
     }
 
+    /**
+     * Keeps the header hero's hover reveal alive while the pointer is over the
+     * theme toggle. The toggle lives in its own fixed corner overlay outside
+     * this header's DOM subtree, so plain CSS `:hover` on the hero can't see
+     * it; without this, crossing from the title onto the toggle icon reads as
+     * a hover-out/hover-in flicker instead of one continuous hover.
+     * @returns {void}
+     */
+    function initThemeToggleHoverLink() {
+      const themeToggle = document.querySelector(".theme-toggle");
+      if (!(placeholder instanceof HTMLElement) || !(themeToggle instanceof HTMLElement)) {
+        return;
+      }
+
+      const setHover = (/** @type {boolean} */ isHovering) => {
+        placeholder.classList.toggle("is-toggle-hover", isHovering);
+      };
+
+      themeToggle.addEventListener("mouseenter", () => setHover(true));
+      themeToggle.addEventListener("mouseleave", () => setHover(false));
+      themeToggle.addEventListener("focus", () => setHover(true));
+      themeToggle.addEventListener("blur", () => setHover(false));
+    }
+
     window.addEventListener("resize", toggleNavVisibility);
     document.addEventListener("astro:after-swap", initMobileMenu);
 
     initMobileMenu();
     initStickyBrandObserver();
+    initThemeToggleHoverLink();
   })();
 </script>
 
 <style is:global>
-  /* Header bar background — tinted with the page background, not a standalone color */
-  .site-header {
-    /* shared so light/dark don't drift apart and hide the backdrop blur again */
-    --header-tint: 70%;
-
-    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent);
-  }
-
-  [data-theme="dark"] .site-header {
-    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent);
-    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-    backdrop-filter: blur(20px) saturate(1);
-  }
-
   /* Brand name: slide in from the left as the site title scrolls away */
   #navbar-brand {
     transform: translateX(-6px);
@@ -277,6 +329,105 @@ if (!activeItem && import.meta.env.DEV) {
       0 1px 4px rgb(0 0 0 / 0.06);
   }
 
+  /*
+   * Theme switcher: pinned to the viewport corner, icon inset well clear of
+   * the actual pixel corner (more than one icon-width of padding on both
+   * edges, so it never reads as clipped or crowded). The hit-box is a flush
+   * top-right square sized generously bigger than the icon; `clip-path`
+   * keeps the resting hit area a small halo around the icon, then grows the
+   * same circle on hover/focus. Because the circle's centre is inset from
+   * the corner rather than sitting on it, the viewport edges cut it down to
+   * a shape a bit larger than a quarter-circle once expanded - approach the
+   * icon, and the enlarged area is genuinely clickable, not just painted.
+   */
+  .theme-corner {
+    --corner-pad: 1.75rem;
+    --corner-icon: 1.5rem;
+    --corner-cx: calc(100% - var(--corner-pad) - (var(--corner-icon) / 2));
+    --corner-cy: calc(var(--corner-pad) + (var(--corner-icon) / 2));
+    --corner-hover-radius: 4.5rem;
+
+    width: 8rem;
+    height: 8rem;
+
+    /* pointer-events pass through the corner's empty 8rem x 8rem box so hover/click
+       reach whatever sits underneath (the header hero); the toggle re-enables them
+       for itself, scoped to its own clip-path so the hit area matches what's drawn */
+    pointer-events: none;
+    transition:
+      opacity 200ms ease,
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .theme-corner .theme-toggle {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    pointer-events: auto;
+    clip-path: circle(1.4rem at var(--corner-cx) var(--corner-cy));
+    transition:
+      clip-path 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 300ms ease;
+  }
+
+  .theme-corner .theme-toggle:hover,
+  .theme-corner .theme-toggle:focus-visible {
+    clip-path: circle(var(--corner-hover-radius) at var(--corner-cx) var(--corner-cy));
+  }
+
+  .theme-corner .theme-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    /*
+     * Radial fade instead of a flat tint: the clip-path above still draws a
+     * hard-edged circle, but a flat fill inside it reads as a disc with a
+     * sharp rim. Fading the tint out toward the same radius the hover state
+     * clips to means the edge dissolves before the clip boundary is ever hit,
+     * so the halo reads as soft-edged rather than a coin dropped on the page.
+     */
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    background-image: radial-gradient(
+      circle var(--corner-hover-radius) at var(--corner-cx) var(--corner-cy),
+      color-mix(in oklch, var(--background) 92%, transparent) 0%,
+      color-mix(in oklch, var(--background) 92%, transparent) 35%,
+      color-mix(in oklch, var(--background) 40%, transparent) 70%,
+      transparent 100%
+    );
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    backdrop-filter: blur(16px) saturate(1.4);
+
+    /* the ring keeps the disc legible even where the page behind it is the same tone as --background */
+    box-shadow:
+      0 12px 30px rgb(0 0 0 / 0.16),
+      inset 0 0 0 1px rgb(255 255 255 / 0.2);
+  }
+
+  [data-theme="dark"] .theme-corner .theme-toggle::before {
+    box-shadow:
+      0 12px 30px rgb(0 0 0 / 0.3),
+      inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  }
+
+  .theme-corner .theme-toggle-icon {
+    position: absolute;
+    top: var(--corner-pad);
+    right: var(--corner-pad);
+  }
+
+  /* Scroll it out of sight for now; revisit making it sticky later */
+  #site-header[data-scrolled] ~ .theme-corner {
+    opacity: 0%;
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
   /* Mobile nav dropdown */
   @media (max-width: 767px) {
     #navigation-and-theme-select {
@@ -296,10 +447,25 @@ if (!activeItem && import.meta.env.DEV) {
       border-bottom-left-radius: 0.75rem;
       border-bottom-right-radius: 0.75rem;
       box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
+
+      /*
+       * Interruptible transition, not a one-shot @keyframes: the hamburger is
+       * an interactive toggle a user can tap repeatedly, and a transition can
+       * be interrupted mid-flight (e.g. re-closing before the open finishes)
+       * where a keyframe animation can't. `hidden` is only added once this
+       * has actually finished closing - see the click handler below - so the
+       * close is visible instead of the panel vanishing instantly.
+       */
+      transform: translateY(-8px);
+      opacity: 0%;
+      transition:
+        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    #navigation-and-theme-select.is-revealing {
-      animation: mobile-nav-reveal 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    #navigation-and-theme-select.is-open {
+      transform: translateY(0);
+      opacity: 100%;
     }
 
     [data-theme="dark"] #navigation-and-theme-select {
@@ -312,18 +478,6 @@ if (!activeItem && import.meta.env.DEV) {
       flex-direction: column;
       gap: 0.125rem;
     }
-
-    @keyframes mobile-nav-reveal {
-      from {
-        transform: translateY(-8px);
-        opacity: 0%;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 100%;
-      }
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -334,17 +488,20 @@ if (!activeItem && import.meta.env.DEV) {
     }
 
     #navigation-and-theme-select {
-      animation: mobile-nav-reveal-reduced 150ms ease both;
+      transition-duration: 0.01ms;
     }
 
-    @keyframes mobile-nav-reveal-reduced {
-      from {
-        opacity: 0%;
-      }
+    .theme-corner,
+    .theme-corner .theme-toggle {
+      transition-duration: 0.01ms;
+    }
 
-      to {
-        opacity: 100%;
-      }
+    [data-nav-dropdown] [role="menu"] {
+      transition-duration: 0.01ms;
+    }
+
+    [data-nav-search-panel] {
+      transition-duration: 0.01ms;
     }
   }
 </style>

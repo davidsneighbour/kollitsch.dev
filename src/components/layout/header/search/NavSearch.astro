@@ -113,7 +113,7 @@ const searchInputId = `${componentId}-search-input`;
   data-close-search-label={closeSearchLabel}
 >
   <div
-    class:list={["relative mx-auto flex min-h-16 w-full items-center gap-4 px-4 sm:px-6 lg:px-8", innerClass]}
+    class:list={["relative mx-auto flex min-h-14 w-full items-center gap-4 px-4 sm:px-6 lg:px-8", innerClass]}
     data-nav-search-outer
   >
     <div class:list={["relative z-10 flex min-w-0 items-center gap-4", leftClass]} data-nav-search-region-left>
@@ -162,7 +162,7 @@ const searchInputId = `${componentId}-search-input`;
         <slot name="search-toggle">
           <button
             type="button"
-            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md transition"
+            class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md transition"
             aria-expanded={searchInitiallyOpen}
             aria-controls={searchPanelId}
             aria-label={openSearchLabel}
@@ -207,8 +207,8 @@ const searchInputId = `${componentId}-search-input`;
     <div
       id={searchPanelId}
       class:list={[
-        "absolute inset-y-0 right-4 left-4 z-20 flex items-center transition duration-200 sm:right-6 sm:left-6 lg:right-8 lg:left-8",
-        searchInitiallyOpen ? "opacity-100" : "pointer-events-none opacity-0",
+        "absolute inset-y-0 right-4 left-4 z-20 flex origin-right items-center transition-[opacity,scale] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] sm:right-6 sm:left-6 lg:right-8 lg:left-8",
+        searchInitiallyOpen ? "scale-100 opacity-100" : "pointer-events-none scale-50 opacity-0",
       ]}
       role="search"
       aria-label={searchRegionLabel}
@@ -217,10 +217,11 @@ const searchInputId = `${componentId}-search-input`;
       data-nav-search-panel
       style={`${searchOuterWidthVarName}: 0px;`}
     >
-      <div class="flex w-full items-center gap-3 px-3 py-2" data-nav-search-surface>
-        <div class="flex-1
-        bg-amber-700/10 backdrop-blur-sm
-        py-1 px-2 rounded-md" data-nav-search-content>
+      <div
+        class="bg-search-glass flex w-full items-center rounded-lg py-2 shadow-sm ring-1 ring-red-950/10 backdrop-blur-xl backdrop-saturate-150 dark:ring-white/15"
+        data-nav-search-surface
+      >
+        <div class="min-w-0 flex-1 pr-17 pl-3" data-nav-search-content>
           <slot name="search">
             <label for={searchInputId} class="sr-only">Search site</label>
             <input
@@ -271,7 +272,11 @@ const searchInputId = `${componentId}-search-input`;
     }
 
     const getInput = () => {
-      const input = root.querySelector("[data-nav-search-input]");
+      // The fallback slot content carries [data-nav-search-input], but a
+      // slotted replacement (e.g. PageFind's <pagefind-searchbox>) renders
+      // its own undecorated <input> instead, so fall back to finding it by
+      // its position inside the panel.
+      const input = root.querySelector("[data-nav-search-input]") ?? panel.querySelector("input, textarea");
       return input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement ? input : null;
     };
 
@@ -312,13 +317,42 @@ const searchInputId = `${componentId}-search-input`;
         nav.toggleAttribute("inert", isOpen);
       }
 
-      panel.hidden = !isOpen;
       panel.setAttribute("aria-hidden", String(!isOpen));
-      panel.classList.toggle("pointer-events-none", !isOpen);
-      panel.classList.toggle("opacity-0", !isOpen);
-      panel.classList.toggle("opacity-100", isOpen);
-
       updateOuterWidth();
+    };
+
+    /**
+     * Pops the panel open from the toggle button's corner. Removing `hidden`
+     * and flipping the open classes in the same tick gives the transition no
+     * starting point to interpolate from (a `display: none` element has no
+     * prior frame to animate away from), so the reveal is split across two
+     * frames with requestAnimationFrame.
+     */
+    const showPanel = () => {
+      panel.hidden = false;
+      requestAnimationFrame(() => {
+        panel.classList.remove("pointer-events-none", "opacity-0", "scale-50");
+        panel.classList.add("opacity-100", "scale-100");
+      });
+    };
+
+    /**
+     * Mirrors showPanel() on the way out: `hidden` is only set once the
+     * shrink/fade transition has actually finished, so the pop-back-in is
+     * visible instead of the panel vanishing the instant the class flips.
+     */
+    const hidePanel = () => {
+      panel.classList.remove("opacity-100", "scale-100");
+      panel.classList.add("pointer-events-none", "opacity-0", "scale-50");
+      panel.addEventListener(
+        "transitionend",
+        () => {
+          if (!isOpen) {
+            panel.hidden = true;
+          }
+        },
+        { once: true },
+      );
     };
 
     /**
@@ -333,6 +367,7 @@ const searchInputId = `${componentId}-search-input`;
 
       isOpen = true;
       render();
+      showPanel();
 
       requestAnimationFrame(() => {
         const input = getInput();
@@ -356,6 +391,7 @@ const searchInputId = `${componentId}-search-input`;
 
       isOpen = false;
       render();
+      hidePanel();
 
       if (lastFocusedElement instanceof HTMLElement && root.contains(lastFocusedElement)) {
         lastFocusedElement.focus();

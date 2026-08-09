@@ -213,12 +213,20 @@ const shatterLetters = letters.map((letter, index) => {
       pointer-events: none;
       position: absolute;
       transition:
-        clip-path 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-        opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+        clip-path 0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+        opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
       z-index: 0;
     }
 
-    .site-title-hero:hover::after {
+    /*
+     * The theme toggle sits in its own fixed corner overlay, outside this
+     * header's DOM subtree, so plain `:hover` on an ancestor can't see it.
+     * `.is-toggle-hover` (set by the toggle's own listeners, see Header.astro)
+     * keeps the reveal alive while the pointer is over the toggle, so crossing
+     * from the title onto the toggle icon doesn't read as a hover-out/in flicker.
+     */
+    .site-title-hero:hover::after,
+    .site-title-hero.is-toggle-hover::after {
       clip-path: inset(0% round 0);
       opacity: 100%;
       transition:
@@ -233,16 +241,19 @@ const shatterLetters = letters.map((letter, index) => {
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-hero:hover .site-title-link :global(.text-image-fill) {
+    .site-title-hero:hover .site-title-link :global(.text-image-fill),
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-hero.is-toggle-hover .site-title-link :global(.text-image-fill) {
       color: var(--color-red-700);
       transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .site-title-link {
-      transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    .site-title-hero:hover .site-title-link {
+    .site-title-hero:hover .site-title-link,
+    .site-title-hero.is-toggle-hover .site-title-link {
       opacity: 0%;
       transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.35s;
     }

@@ -9,17 +9,26 @@ export interface Props {
   name: string;
   link: string;
   classes?: string;
+  isActive?: boolean;
   subItems?: NavDataItem[] | undefined;
 }
 
-const { icon, name, link, classes = '', subItems }: Props = Astro.props;
+const { icon, name, link, classes = '', isActive = false, subItems }: Props = Astro.props;
 const hasSubItems = subItems && subItems.length > 0;
+const linkClasses = `${classes} ${isActive ? 'font-bold is--active' : ''}`;
 ---
 
 {hasSubItems ? (
-    <li class={`group/navitem relative ${classes}`} data-nav-dropdown>
+    <li class="group/navitem relative" data-nav-dropdown>
       <div class="flex items-center">
-        <IconLink icon={icon} href={link} class="size-5 md:size-[1.35em]" data-astro-prefetch="viewport">
+        <IconLink
+          icon={icon}
+          href={link}
+          class="size-5 md:size-[1.35em]"
+          linkClass={linkClasses}
+          aria-current={isActive ? 'page' : undefined}
+          data-astro-prefetch="viewport"
+        >
           {name}
         </IconLink>
         <button
@@ -28,7 +37,7 @@ const hasSubItems = subItems && subItems.length > 0;
           aria-expanded="false"
           aria-haspopup="menu"
           aria-label={`Toggle ${name} submenu`}
-          class="hidden md:inline-flex ml-0.5 rounded p-0.5 transition-colors duration-150 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-black/5 dark:hover:bg-white/5"
+          class="relative hidden md:inline-flex ml-0.5 rounded p-0.5 text-red-700 transition-colors duration-150 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-black/5 hover:text-orange-700 before:absolute before:-top-2.5 before:-right-2.5 before:-bottom-2.5 before:left-0 before:content-[''] dark:text-red-500 dark:hover:bg-white/5 dark:hover:text-orange-400"
         >
           <Icon
             name="caret-down-fill"
@@ -40,7 +49,7 @@ const hasSubItems = subItems && subItems.length > 0;
 
       <ul
         role="menu"
-        class="block pl-4 md:hidden md:pl-0 md:group-hover/navitem:block md:group-[.open]/navitem:block md:absolute md:left-0 md:top-full md:z-50 md:mt-1 md:min-w-48 md:rounded-lg md:bg-popover md:py-1 md:text-popover-foreground md:shadow-lg md:ring-1 md:ring-gray-900/10 dark:md:ring-gray-100/10 md:before:absolute md:before:inset-x-0 md:before:-top-1 md:before:h-1 md:before:content-['']"
+        class="block pl-4 md:pl-0 md:absolute md:left-0 md:top-full md:z-50 md:mt-1 md:min-w-48 md:origin-top md:rounded-lg md:bg-header-glass md:backdrop-blur-xl md:backdrop-saturate-150 md:py-1 md:text-popover-foreground md:shadow-lg md:ring-1 md:ring-gray-900/10 md:transition-[visibility,opacity,scale] md:duration-200 md:ease-out dark:md:ring-gray-100/10 md:invisible md:scale-95 md:opacity-0 md:pointer-events-none md:group-hover/navitem:visible md:group-hover/navitem:scale-100 md:group-hover/navitem:pointer-events-auto md:group-hover/navitem:opacity-100 md:group-[.open]/navitem:visible md:group-[.open]/navitem:scale-100 md:group-[.open]/navitem:pointer-events-auto md:group-[.open]/navitem:opacity-100 md:before:absolute md:before:inset-x-0 md:before:-top-1 md:before:h-1 md:before:content-['']"
       >
         {subItems.map((child) => (
           <li class="px-3 py-2">
@@ -52,8 +61,15 @@ const hasSubItems = subItems && subItems.length > 0;
       </ul>
     </li>
   ) : (
-    <li class={classes}>
-      <IconLink icon={icon} href={link} class="size-5 md:size-[1.35em]" data-astro-prefetch="viewport">
+    <li>
+      <IconLink
+        icon={icon}
+        href={link}
+        class="size-5 md:size-[1.35em]"
+        linkClass={linkClasses}
+        aria-current={isActive ? 'page' : undefined}
+        data-astro-prefetch="viewport"
+      >
         {name}
       </IconLink>
     </li>

@@ -24,9 +24,9 @@ describe('NavItem component', () => {
 
   it('renders IconLink for the primary link', async () => {
     await load();
-    expect(src).toContain(
-      'icon={icon} href={link} class="size-5 md:size-[1.35em]"',
-    );
+    expect(src).toContain('icon={icon}');
+    expect(src).toContain('href={link}');
+    expect(src).toContain('class="size-5 md:size-[1.35em]"');
     expect(src).toContain('data-astro-prefetch="viewport"');
     expect(src).toContain('{name}');
   });
@@ -41,17 +41,20 @@ describe('NavItem component', () => {
   it('uses named Tailwind group for dropdown state management', async () => {
     await load();
     expect(src).toContain('group/navitem');
-    // submenu is always visible on mobile (block), hidden then shown on desktop
-    expect(src).toContain('md:group-[.open]/navitem:block');
-    expect(src).toContain('md:group-hover/navitem:block');
+    // submenu is always visible on mobile (block); on desktop it's an
+    // invisible/scaled-down popover that transitions to visible on
+    // hover or open, rather than a hard display:none/block toggle
+    expect(src).toContain('md:group-[.open]/navitem:visible');
+    expect(src).toContain('md:group-hover/navitem:visible');
   });
 
   it('hides the chevron toggle on mobile and shows submenu inline', async () => {
     await load();
     // chevron is desktop-only; mobile shows submenu flat
     expect(src).toContain('hidden md:inline-flex');
-    // submenu starts visible on mobile, hidden on desktop until hover/open
-    expect(src).toContain('block pl-4 md:hidden');
+    // submenu starts visible on mobile, invisible on desktop until hover/open
+    expect(src).toContain('block pl-4 md:pl-0');
+    expect(src).toContain('md:invisible');
   });
 
   it('registers dropdown toggles and dismiss handler on astro:page-load', async () => {

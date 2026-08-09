@@ -725,6 +725,43 @@
 }
 
 /*******************************************************************************
+ * MARK: header glass
+ * Tinted, blurred surface shared by the sticky header and anything that
+ * should read as part of it (e.g. the desktop sub-navigation dropdown) —
+ * tinted with the page background rather than a standalone color so it
+ * doesn't drift out of sync with light/dark. Pair with backdrop-blur-xl
+ * backdrop-saturate-150 for the blur; this utility only sets the tint.
+ ******************************************************************************/
+@utility bg-header-glass {
+  --header-tint: 70%;
+
+  background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent);
+
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- backdrop-filter, not covered by this project's target browser list */
+    backdrop-filter: blur(20px) saturate(1);
+  }
+}
+
+/*
+ * Search panel glass: a fixed reddish tint rather than a page-background
+ * mix. The header's own tint blends into the header itself once scrolled
+ * (nothing behind it to distinguish the two), so this surface needs a color
+ * of its own to stay legible instead of "shine-through" contrast borrowed
+ * from whatever's behind it. Darkest red in dark mode; the same near-black
+ * tone reads as a heavy, out-of-place block against a light page, so light
+ * mode gets a soft light-red tint instead - still visibly "reddish glass",
+ * calibrated for the theme's own brightness rather than one fixed color.
+ */
+@utility bg-search-glass {
+  background-color: color-mix(in oklch, var(--color-red-100) 88%, transparent);
+
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    background-color: color-mix(in oklch, var(--color-red-950) 88%, transparent);
+  }
+}
+
+/*******************************************************************************
  * MARK: font utilities
  ******************************************************************************/
 @utility font-changa {

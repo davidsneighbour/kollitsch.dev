@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import setup from '@data/setup.json' with { type: 'json' };
+
+export interface Props extends HTMLAttributes<'span'> {
+  text?: string;
+}
+
+const {
+  text = setup.wordmark.text,
+  class: className,
+  ...attrs
+}: Props = Astro.props;
+---
+
+<span
+  class:list={['wordmark', className]}
+  {...attrs}
+>{text}</span>
+
+<style>
+  .wordmark {
+    font-family: var(--font-wordmark, var(--font-title));
+  }
+</style>

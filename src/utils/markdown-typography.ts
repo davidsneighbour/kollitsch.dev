@@ -1,4 +1,4 @@
-import type { Root, Text } from 'mdast';
+import type { Html, Root, Text } from 'mdast';
 import { visit } from 'unist-util-visit';
 
 export interface TypographyReplacement {
@@ -11,6 +11,8 @@ const DASH_REPLACEMENTS: TypographyReplacement[] = [
   { from: '---', to: '—' },
   { from: '--', to: '–' },
 ];
+
+const WORDMARK_SHORTHAND = /<wordmark\s*\/>/gi;
 
 function applyReplacements(
   value: string,
@@ -27,9 +29,12 @@ function applyReplacements(
 
 /**
  * Restores Hugo-style typography shortcuts (`--`, `---`) in prose Markdown
- * text nodes. Inline code, fenced code, block HTML, raw HTML tags/attributes,
- * and frontmatter are separate mdast nodes, so they are intentionally outside
- * this transform's reach.
+ * text nodes and expands site-specific raw-HTML authoring shorthands.
+ *
+ * `<wordmark/>` is intentionally authoring syntax only. It is rewritten to
+ * the standards-compliant custom element `<word-mark></word-mark>` because
+ * Custom Elements names require a hyphen and HTML custom elements cannot be
+ * self-closing.
  */
 export function remarkDnbTypography(
   replacements: TypographyReplacement[] = DASH_REPLACEMENTS,
@@ -37,6 +42,13 @@ export function remarkDnbTypography(
   return (tree: Root) => {
     visit(tree, 'text', (node: Text) => {
       node.value = applyReplacements(node.value, replacements);
+    });
+
+    visit(tree, 'html', (node: Html) => {
+      node.value = node.value.replace(
+        WORDMARK_SHORTHAND,
+        '<word-mark></word-mark>',
+      );
     });
   };
 }

@@ -211,6 +211,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 * Colour tokens defined in `oklch`; full grey/orange/red ramps. Tailwind colour namespace reset via `--color-*: initial`.
 * Custom utilities include `prose-dnb`, `reading-*`, `scrollbar-red`, `scrollbar-wide`, `font-changa`. Custom scrollbar styling via `--sb-*` variables.
 * `DESIGN.md` is the single source of truth for all design tokens — see §3.
+* shadcn/ui components (`components.json`, `ui` alias → `src/components/shared/elements`) use **Radix UI** as their unstyled primitive layer (`radix-ui`, `@radix-ui/react-slot` in `package.json`), not Base UI. Don't introduce Base UI packages.
 
 ### Image and asset system
 

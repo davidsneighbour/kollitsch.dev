@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "Trusted publishing for npm packages with GitHub Actions"
 description: "Trusted publishing for npm packages with GitHub Actions"
 summary: ""

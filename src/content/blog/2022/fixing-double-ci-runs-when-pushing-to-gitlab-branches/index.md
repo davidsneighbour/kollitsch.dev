@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Fixing Double Ci Runs When Pushing to Gitlab Branches
 description: >-
   A simple addition to your GitLab CI configuration to avoid double runs of

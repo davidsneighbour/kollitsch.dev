@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Refactoring GoHugo Aliases
 description: >-
   Refactoring GoHugo aliases to use full function names for better clarity and

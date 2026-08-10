@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Grief
 linkTitle: Grief
 description: >-

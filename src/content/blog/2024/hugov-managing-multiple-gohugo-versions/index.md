@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: hugov - a tool for managing Hugo versions
 description: >-
   hugov is a Bash tool for managing Hugo versions. Download and link versions

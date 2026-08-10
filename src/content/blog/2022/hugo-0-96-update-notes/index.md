@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Hugo 0.96 update notes
 linkTitle: Hugo 0.96
 description: >-

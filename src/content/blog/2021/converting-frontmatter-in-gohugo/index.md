@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Converting frontmatter in GoHugo
 tags:
   - gohugo

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Fixing package dependency issues on Ubuntu with APT
 description: >-
   Have you ever tried installing a program on your Ubuntu and ran into error

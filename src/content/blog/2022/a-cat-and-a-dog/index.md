@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: A Cat and a Dog
 linkTitle: A Cat and a Dog
 description: >-

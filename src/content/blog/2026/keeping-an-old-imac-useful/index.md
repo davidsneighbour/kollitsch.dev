@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "Keeping an old iMac useful"
 subtitle: "Xubuntu 22.04, NVIDIA Legacy Drivers, and H.264 Video"
 description: "I revived a dead-fan 2012 iMac with Xubuntu 22.04, the 5.15 GA kernel, legacy NVIDIA drivers, and H.264-only video playback for a stable, cool media machine."

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Fixing post previews in VSCode with Front Matter
 description: >-
   VSCode Front Matter may not recognize Hugo blog posts if fmContentType is

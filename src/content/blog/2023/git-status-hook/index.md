@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Git's missing status Hook
 description: >-
   Discover how a custom Git status hook can automate tasks, improve code

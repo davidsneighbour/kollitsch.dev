@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Erasing ~2 decades of Twitter
 description: 'How I deleted all my tweets, likes, and follows on Twitter.'
 date: 2024-03-08T16:03:00+07:00

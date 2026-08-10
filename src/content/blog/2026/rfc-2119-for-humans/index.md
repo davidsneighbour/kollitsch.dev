@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "RFC 2119 for humans"
 description: "RFC 2119 explains MUST, SHOULD, and MAY in documentation. Learn how to read and use these terms correctly to avoid ambiguity and define clear rules."
 summary: "RFC 2119 defines how words like MUST, SHOULD, and MAY are used in technical documentation. This short guide explains what they really mean, how to read them correctly, and how to use them to remove ambiguity and make rules explicit."

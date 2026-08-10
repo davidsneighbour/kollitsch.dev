@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Keybase vs. Ubuntu 24.04
 description: >-
   Trying to install Keybase "the normal way" on Ubuntu leads to errors about

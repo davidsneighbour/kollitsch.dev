@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Image creation timeouts with GoHugo v0.131.0
 description: >-
   Image hashing now uses xxHash, speeding up image processing but may cause

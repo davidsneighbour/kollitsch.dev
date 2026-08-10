@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Alfred Hitchcocks Cameos
 linkTitle: Alfred Hitchcocks Cameos
 description: >-

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Kurzschnitte II - Third Linkdump
 description: >-
   Explore the latest in web development and design with Kurzschnitte II: from

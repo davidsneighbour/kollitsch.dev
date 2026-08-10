@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Using `npx link` for local package development
 linktitle: Using npx link for local package development
 description: >-

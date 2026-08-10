@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: WordPress Drops PHP 5
 description: >-
   WordPress announces end of support for PHP 5 in upcoming release. Learn about

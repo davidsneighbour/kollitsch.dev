@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Installing Firefox on Ubuntu without Snap
 description: A practical guide to removing the Snap version of Firefox and installing it from the Mozilla Team PPA on Ubuntu.
 date: 2026-03-24T06:29:35.184Z

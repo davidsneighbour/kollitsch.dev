@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Less Clutter in VSCode
 description: >-
   A strategy to declutter enabled extensions in VSCode by using a workspace

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: '`scroll-margin-top` property in CSS'
 description: >-
   Simplify anchor link navigation with CSS's modern `scroll-margin-top`

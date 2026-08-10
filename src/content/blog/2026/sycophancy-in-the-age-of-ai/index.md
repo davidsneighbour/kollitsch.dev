@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "Sycophancy in the age of AI"
 description: "How AI sycophancy reflects and amplifies a deeper social problem of valuing agreement over truth."
 summary: ""

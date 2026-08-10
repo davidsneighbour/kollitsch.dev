@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Stop Ubuntu from automounting external harddrives on boot
 description: >-
   Disable Ubuntu's automatic mounting of external drives like Seagate to prevent

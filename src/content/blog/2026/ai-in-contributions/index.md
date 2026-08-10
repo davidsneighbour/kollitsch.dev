@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Policy and guidelines for AI-based contributions
 description: Policy and guidelines for AI use in contributions. AI is a tool, not an author. Contributors must understand, own, and defend every change they submit.
 summary: "A short note introducing my policy and guidelines for AI-based contributions across my projects. AI is treated as a tool, not an author. Every contribution must be understood, owned, and defended by the person submitting it. The goal is simple: reduce low-quality, AI-driven noise and keep responsibility where it belongs."

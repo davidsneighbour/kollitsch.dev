@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "Update: Things might be broken"
 description: "A quick update about the current state of the blog and the website."
 date: 2025-06-30T05:15:06.812Z

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Git stashes for ADHDers
 description: >-
   How to use Git stashes to keep your work in progress organized and out of the

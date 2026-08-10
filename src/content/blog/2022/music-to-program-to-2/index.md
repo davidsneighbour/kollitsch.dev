@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Music to program to (Part II)
 description: A collection of music to listen to while programming
 date: 2022-01-17T16:02:14+07:00

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Kurzschnitte II - These Cuts Go to Eleven
 linktitle: Kurzschnitte II/11
 description: Interesting links around the web, from web development to fun stuff.

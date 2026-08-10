@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: 'Music to Program to, Part 8'
 linktitle: PM8
 description: >-

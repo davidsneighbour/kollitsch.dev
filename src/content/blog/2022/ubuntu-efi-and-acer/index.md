@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: 'Ubuntu, EFI and Acer'
 description: >-
   A quick fix for the "No Bootable Device found" error on Acer notebooks after

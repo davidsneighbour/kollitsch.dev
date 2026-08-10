@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Showing the Current Breakpoint for Bootstrap
 linkTitle: Showing the Current Breakpoint for Bootstrap
 description: How to display the current Bootstrap breakpoint in your templates.

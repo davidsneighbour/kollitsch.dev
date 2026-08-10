@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
 description: Print ordinal date suffixes (1st/2nd/3rd/4th) in GoHugo
 date: 2021-10-28T21:56:41+07:00

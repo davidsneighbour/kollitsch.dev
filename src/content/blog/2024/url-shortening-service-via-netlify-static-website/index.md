@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Url shortening service using a static website on Netlify
 description: >-
   Learn how to set up a link redirection service on Netlify in minutes. Utilize

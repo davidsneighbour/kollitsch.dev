@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: The Case of the Unconnectable Docker Daemon
 description: >-
   I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses

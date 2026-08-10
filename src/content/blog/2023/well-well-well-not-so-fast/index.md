@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: 'Well, well, well, not so fast…'
 description: >-
   As I reported a while ago, I embarked on an exhilarating journey with the

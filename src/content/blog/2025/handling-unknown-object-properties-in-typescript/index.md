@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Handling unknown object properties in TypeScript
 description: Learning how to handle unknown object properties in TypeScript with index signatures for safe and flexible type management.
 date: 2025-11-23T05:56:47.283Z

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: How to pin npm package versions effectively
 description: >-
   Learn how to pin npm package versions effectively to ensure stability and

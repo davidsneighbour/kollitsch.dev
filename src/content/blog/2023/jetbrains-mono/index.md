@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Jetbrains Mono
 linkTitle: Jetbrains Mono
 description: >-

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Cloning All My Repos on a New Ubuntu Installation
 linkTitle: Cloning All My Repos on a New Ubuntu Installation
 description: >-

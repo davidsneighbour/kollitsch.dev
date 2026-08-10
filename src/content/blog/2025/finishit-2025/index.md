@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "FiniSh\U0001F4A9t 2025"
 description: "FiniSh\U0001F4A9t! is my productivity project to finish one task weekly in two hours. Follow my blog for insights, challenges, and tips to overcome procrastination."
 summary: "FiniSh\U0001F4A9t! is a year-long initiative to complete unfinished projects by dedicating two focused hours each week. Through weekly blog posts, I’ll share insights, challenges, and lessons learned, encouraging others to tackle their own lingering tasks and embrace the power of finishing."

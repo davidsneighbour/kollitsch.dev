@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Autobahn by Kraftwerk (Psychedelic Short Film)
 description: |
   A psychedelic short film inspired by Kraftwerk's Autobahn, exploring technology, travel, and human connection through vivid, experimental visuals.

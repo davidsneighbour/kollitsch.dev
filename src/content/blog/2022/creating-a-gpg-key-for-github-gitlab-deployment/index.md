@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Creating a GPG Key for Github/Gitlab Deployment
 description: >-
   A quick guide on how to create a GPG key for signing your commits in Github or

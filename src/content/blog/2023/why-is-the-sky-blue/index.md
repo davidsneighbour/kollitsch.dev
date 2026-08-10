@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Why is the sky blue?
 description: >-
   Did you ever ask yourself why the sky is blue? Here is what you need to know:

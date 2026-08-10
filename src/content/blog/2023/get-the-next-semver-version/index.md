@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Howto get the next semver version number in a bash script
 description: >-
   Discover how to automate Semver version updates with a Bash script for a

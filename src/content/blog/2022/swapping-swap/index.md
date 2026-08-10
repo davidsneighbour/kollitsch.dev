@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Swapping swap
 description: >-
   How to find out if memory issues are the cause for programs suddenly closing

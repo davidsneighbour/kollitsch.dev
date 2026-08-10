@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: The fonts that shape KOLLITSCH.dev*
 description: A look at the typefaces that define the visual identity of KOLLITSCH.dev*.
 date: 2025-10-08T23:59:08.582Z

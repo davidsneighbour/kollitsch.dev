@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: TypeScript vs. Astro
 description: Astro blurs server and client boundaries. This post explains exactly how TypeScript behaves in frontmatter vs. client script tags—including is:inline and define:vars—and how to keep type safety with Astro check, tsc, and Biome.
 tags:

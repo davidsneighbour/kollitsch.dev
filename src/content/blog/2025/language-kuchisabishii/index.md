@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Kuchisabishii
 description: "Kuchisabishii: Discover the Japanese term for eating out of boredom, a neutral way to express a common habit without guilt."
 date: 2025-11-23T09:14:48.533Z

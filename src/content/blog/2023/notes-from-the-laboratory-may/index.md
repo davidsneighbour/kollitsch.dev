@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: 'Notes from the Laboratory: May 2023'
 linkTitle: Laboratory 2023-05
 description: >-

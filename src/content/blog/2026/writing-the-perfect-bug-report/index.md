@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Writing the perfect bug report
 description: Write clear, actionable bug reports that help developers understand and fix your issues quickly.
 date: 2026-02-15T08:36:53.669Z

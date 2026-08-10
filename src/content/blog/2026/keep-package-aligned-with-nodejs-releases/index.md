@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "Keeping `engines.node` aligned with the Node release schedule"
 description: "A script to automatically update `package.json` with the supported Node.js versions based on the official release schedule."
 summary: "A script to automatically update `package.json` with the supported Node.js versions based on the official release schedule."

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Font-weight enforcement in TailwindCSS 4.1
 description: "A quick guide, that covers the steps to ensure a custom font uses a single font weight with a quick linting setup."
 summary: "A quick guide, that covers the steps to ensure a custom font uses font-weight: 400 in all occurrences in TailwindCSS 4.1, including creating utility classes and setting up linting for misuse."

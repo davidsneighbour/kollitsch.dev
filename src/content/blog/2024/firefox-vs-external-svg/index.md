@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Firefox vs. external SVGs
 description: >-
   While I was working on my Content Security Policies (CSP) last week I found

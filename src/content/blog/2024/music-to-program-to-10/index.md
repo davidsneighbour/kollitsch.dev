@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: 'Music to Program to, Part 10'
 description: Floating Points - Ocotillo
 tags:

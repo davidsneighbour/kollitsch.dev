@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 date: 2023-07-25T23:16:02+07:00
 title: Pomplamoose does Moby
 description: >-

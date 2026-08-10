@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 date: 2023-05-02T19:31:30+07:00
 title: What if Wes Anderson… (Part 1)
 description: >-

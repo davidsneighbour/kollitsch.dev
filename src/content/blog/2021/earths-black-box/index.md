@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Earth's Black Box
 description: >-
   It looks like earths climate catastrophe now has it's own black box which will

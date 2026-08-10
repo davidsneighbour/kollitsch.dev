@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: "Hedging: Why we do it and how to be more direct"
 description: "Hedging is a common writing habit that can weaken your message. Learn why we hedge, when it's appropriate, and how to write with more confidence."
 date: 2025-10-27T00:55:34.592Z

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: npkill - cleanup heaps of node_modules
 description: >-
   Discover npkill, a command-line tool to clean up space wasted by node_modules

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Autostart a development server in VSCode
 description: >-
   An easy way to automatically start a development server each time you open a

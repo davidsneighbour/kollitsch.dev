@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Google's new OSV scanner
 description: >-
   Google recently published a security scanner, that checks your files for

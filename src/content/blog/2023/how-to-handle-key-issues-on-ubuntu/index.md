@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: How to handle key issues with apt on Ubuntu
 description: >-
   How to handle key issues with apt on Ubuntu, including deprecation of apt-key

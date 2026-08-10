@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: The fungus that thrives on radiation
 description: fungus news
 date: 2025-11-19T06:07:42.215Z

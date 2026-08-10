@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Hiding UpdraftPlus nagging screens after your subscription ran out
 description: How to hide nagging screens in UpdraftPlus after your subscription ran out
 date: 2022-03-10T22:18:32+07:00

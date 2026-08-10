@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: The problem with VSCode
 description: >-
   Geoffrey Huntley writes an extensive explanation on how "Visual Studio Code is

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Prevent js.Build from removing un-used Javascript functionality
 description: >-
   Discover how I solved an ESBuild issue removing the unused 'themeSwitcher'

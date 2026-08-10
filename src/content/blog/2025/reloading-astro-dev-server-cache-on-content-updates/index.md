@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Reloading Astro dev server cache on content updates
 description: How to automatically trigger full reloads in Astro's dev server when new files are added to your images or content directories.
 tags:

@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Pinning GitHub Actions to commit hashes
 description: A guide on how to pin GitHub Actions to specific commit hashes for better security and stability.
 summary: Learn how to enhance the security and stability of your GitHub workflows by pinning actions to specific commit hashes instead of version tags.

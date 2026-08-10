@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Protected .dotfile files with Keybase
 description: >-
   Adding all my secret files, keys, passwords and api strings into an encrypted

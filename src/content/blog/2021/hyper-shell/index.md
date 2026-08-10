@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: Hyper Shell
 description: A shell inside of Electron
 date: 2021-11-16T19:52:00+07:00

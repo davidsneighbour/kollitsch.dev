@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: A Masterpiece about the Meisterstück
 description: >-
   Wes Anderson's "100 Years of Meisterstück" blends his signature aesthetic with

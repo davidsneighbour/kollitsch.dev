@@ -1,5 +1,5 @@
 ---
-fmContentType: article
+fmContentType: blog
 title: The evolution of the Rolling Stone logo
 description: >-
   The Rolling Stone Magazine has a new logo, which one might have overlooked due

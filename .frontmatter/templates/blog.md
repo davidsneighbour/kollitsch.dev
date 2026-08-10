@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "{{title}}"
 description: "{{description}}"
 date: "{{date}}"

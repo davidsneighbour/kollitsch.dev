@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Music to program to (Part 6)
 description: A collection of music to listen to while programming
 date: 2022-06-26T19:55:34+07:00

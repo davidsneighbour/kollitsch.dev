@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Piping output to files in Bash
 description: How to pipe output and errors of Hugo to a file in Bash
 date: 2022-05-08T15:18:20+07:00

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "Stop tracking files ignored by `.gitignore`"
 linktitle: "Stop tracking files ignored by .gitignore"
 date: "2026-07-28T15:00:00+07:00"

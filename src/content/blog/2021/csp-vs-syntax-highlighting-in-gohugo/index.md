@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Content security policies vs. syntax highlighting in GoHugo
 date: 2021-10-27T21:52:14+07:00
 description: >-

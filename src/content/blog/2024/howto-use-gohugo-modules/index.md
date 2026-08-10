@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: How to use GoHugo modules
 description: >-
   In the world of GoHugo, **modules** serve as the building blocks that allow

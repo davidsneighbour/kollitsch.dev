@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Grief
 linkTitle: Grief
 description: >-

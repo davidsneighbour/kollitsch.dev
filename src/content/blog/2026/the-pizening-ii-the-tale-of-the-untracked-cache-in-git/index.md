@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "The Pizening II: The tale of the untracked cache in Git"
 description: "pizen post"
 draft: true

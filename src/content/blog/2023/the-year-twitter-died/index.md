@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: The Year Twitter Died
 description: >-
   Explore The Verge's 2023 series on Twitter's impact: its news dominance,

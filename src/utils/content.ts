@@ -55,7 +55,7 @@ export function createDefaultPost(input: unknown = {}): BlogPost['data'] {
     description: 'No description available.',
     draft: false,
     featured: false,
-    fmContentType: undefined,
+    fmContentType: 'article',
     resources: [],
     summary: '',
     tags: [],

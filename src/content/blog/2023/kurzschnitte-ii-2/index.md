@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Kurzschnitte II - Sophomore Edition
 description: >-
   A collection of links I came across in recent weeks, noteworthy but not enough

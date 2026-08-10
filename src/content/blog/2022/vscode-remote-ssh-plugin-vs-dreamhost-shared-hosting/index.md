@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: VSCode Remote SSH plugin vs. Dreamhost shared hosting
 description: >-
   How to connect VSCode to a Dreamhost shared hosting server using the Remote

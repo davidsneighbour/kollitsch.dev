@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Changes to Hugo's debugging abilities on the CLI
 description: >-
   Hugo v0.114.0 dropped and deprecated various CLI flags, introducing --logLevel

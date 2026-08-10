@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Kurzschnitte II - The fifth
 linkTitle: Kurzschnitte II - Pt. 5
 description: >-

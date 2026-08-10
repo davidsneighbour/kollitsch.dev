@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Install and link Firefox Developer Edition on Ubuntu
 description: >-
   How to install and link Firefox Developer Edition on Ubuntu, including

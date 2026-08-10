@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Creating a GPG Key for Github/Gitlab Deployment
 description: >-
   A quick guide on how to create a GPG key for signing your commits in Github or
@@ -40,7 +41,7 @@ A sample output could look like this:
 
 ```plaintext
 ❯ gpg2 --list-secret-keys --keyid-format LONG
-/home/patrick/.gnupg/pubring.kbx
+/home/example/.gnupg/pubring.kbx
 --------------------------------
 sec   rsa4096/40BCAA0B2E3817F4 2022-02-17 [SC] [expires: 2023-02-17]
       0FAE21A9BBFDA0FA6E90DF7A40BCAA0B2E3817F4

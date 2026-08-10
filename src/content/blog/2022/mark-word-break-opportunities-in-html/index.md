@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Mark word break opportunities in HTML
 linkTitle: Mark word break opportunities in HTML
 description: >-

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Music to program to (Part 3)
 description: A collection of music to listen to while programming
 linkTitle: PM3

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Reusable GoHugo Forms via Configuration
 linkTitle: Reusable GoHugo Forms via Configuration
 description: >-

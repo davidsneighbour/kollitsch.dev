@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: .well-known avatar URL for KOLLITSCH.dev*
 description: >-
   This post explains how I set up a .well-known/avatar URL on my site using

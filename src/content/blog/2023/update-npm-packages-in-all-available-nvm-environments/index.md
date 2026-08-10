@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Update Npm Packages in All Available Nvm Environments
 description: >-
   Automate the update of global npm packages across multiple Node.js versions

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "Testing Ananke against the latest Hugo release"
 description: "A workflow pattern for checking whether Ananke template repositories still build with the latest Hugo release, using Git submodules and Hugo Modules."
 summary: ""

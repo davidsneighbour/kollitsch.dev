@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Image creation timeouts with GoHugo v0.131.0
 description: >-
   Image hashing now uses xxHash, speeding up image processing but may cause
@@ -24,7 +25,7 @@ But, here is the catch: this nifty update means all your images will be re-proce
 
 ```plaintext
 Error: error building site: render: failed to render pages: render of "page" failed:
-"/home/patrick/github.com/davidsneighbour/kollitsch.dev/layouts/_default/single.html:9:22":
+"/home/example/github.com/davidsneighbour/kollitsch.dev/layouts/_default/single.html:9:22":
 execute of template failed:
 template: _default/single.html:9:22:
 executing "main" at <partials.Include>:

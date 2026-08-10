@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Tom Cruise's directorial debut
 description: >-
   Discover Tom Cruise's directorial debut in Fallen Angels. Grifter Mitch

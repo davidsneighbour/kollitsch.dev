@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: >-
   How to create custom file type handlers for individual folders in VSCode
   projects

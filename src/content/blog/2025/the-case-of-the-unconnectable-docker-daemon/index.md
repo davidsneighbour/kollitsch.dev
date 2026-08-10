@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: The Case of the Unconnectable Docker Daemon
 description: >-
   I unravel, Arthur Conan Doyle style, a mystery where my Docker daemon refuses
@@ -27,7 +28,7 @@ publisher: rework
 It was a dreary April afternoon when I returned to my terminal, only to be met with a chilling refusal:
 
 ```plaintext
-Cannot connect to the Docker daemon at unix:///home/patrick/.docker/desktop/docker.sock
+Cannot connect to the Docker daemon at unix:///home/example/.docker/desktop/docker.sock
 ```
 
 Checking the services status I found it was indeed unresponsive:
@@ -70,7 +71,7 @@ The response was a list of contexts, each with its own endpoint:
 ```plaintext
 NAME            DESCRIPTION                               DOCKER ENDPOINT                                    ERROR
 default         Current DOCKER_HOST based configuration   unix:///var/run/docker.sock                        
-desktop-linux * Docker Desktop                            unix:///home/patrick/.docker/desktop/docker.sock   
+desktop-linux * Docker Desktop                            unix:///home/example/.docker/desktop/docker.sock
 ```
 
 And thus, my friend, it became clear that the daemon had been misled by the context. I was not in the right place, and Docker was confused.

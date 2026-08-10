@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Create a Branch From Within an Issue on Github
 description: >-
   You can now create a branch directly from an issue to begin development work

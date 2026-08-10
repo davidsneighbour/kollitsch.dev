@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Trent Reznor - Archetype of a synthesizer
 description: >-
   Trent Reznor discusses the significance of the Voyager synthesizer in his

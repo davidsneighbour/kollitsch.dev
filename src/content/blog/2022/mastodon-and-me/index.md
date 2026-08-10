@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Mastodon and Me
 linkTitle: Mastodon and Me
 description: >-

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 date: 2023-05-24T20:37:19+07:00
 title: What if Wes Anderson… (Part 2)
 description: >-

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Music for the New Year
 description: >-
   Khruangbin @ Villain | Pitchfork Live - Some mellow music to let the year run

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: 'Shut Up, Don''t Talk'
 description: >-
   John Lithgow and Geoffrey Rush star in Alamo Drafthouse's latest PSA against

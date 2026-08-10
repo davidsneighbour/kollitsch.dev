@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Shutdown Raspberry Pi via SSH
 description: >-
   A quick guide to shutting down your Raspberry Pi via SSH without a password.

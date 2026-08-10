@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: HowTo fix Google Chrome not starting after renaming the host in Ubuntu 24.04
 description: >-
   My recent days were marked by the biennial (as in every two years) prematurely

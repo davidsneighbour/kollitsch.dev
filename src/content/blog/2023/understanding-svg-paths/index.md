@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Understanding SVG paths
 description: >-
   Nanda Syahrasyad has created a perfect little course for us to learn, how SVG

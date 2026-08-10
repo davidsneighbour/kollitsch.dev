@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "Animating KOLLITSCH.dev*: A CSS Image Morphing Effect"
 description: "How to grow a background-clip:text image fill into a full-bleed header background using CSS clip-path, a custom property colour morph, and no JavaScript."
 summary: "A step-by-step walkthrough of the KOLLITSCH.dev* site title animation: the image morphs outward from the character outlines into a full-bleed header, while the text transitions through a brand colour before dissolving. Pure CSS, accessible, and touch-safe."

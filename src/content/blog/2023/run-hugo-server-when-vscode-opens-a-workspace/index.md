@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Run Hugo server when VSCode opens a workspace
 description: >-
   Learn how to automate Hugo server startup in VSCode using tasks.json, saving

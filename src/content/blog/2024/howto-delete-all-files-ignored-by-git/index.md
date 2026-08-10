@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: How to delete all files ignored by Git
 description: >-
   A simple command to clean up your Git repository by removing all files ignored

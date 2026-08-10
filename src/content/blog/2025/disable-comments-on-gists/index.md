@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Disable Comments on Gists
 description: >-
   GitHub Gists now support disabling comments, offering developers better

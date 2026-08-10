@@ -4,6 +4,15 @@
     "path": "src/assets/images/",
     "relative": true
   },
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Blog",
+      "path": "[[workspace]]/src/content/blog",
+      "contentTypes": [
+        "article"
+      ]
+    }
+  ],
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.taxonomy.slugTemplate": "{{title}}",
@@ -116,6 +125,16 @@
           "title": "Tags",
           "name": "tags",
           "type": "tags"
+        },
+        {
+          "title": "Front Matter content type",
+          "name": "fmContentType",
+          "type": "choice",
+          "choices": [
+            "article"
+          ],
+          "default": "article",
+          "required": true
         },
         {
           "title": "Category",

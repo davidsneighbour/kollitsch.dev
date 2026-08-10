@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Alias Expansion in Bash
 linkTitle: Alias Expansion in Bash
 description: Learn how alias expansion works and how to use builtin to override it.

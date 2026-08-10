@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Saving Github Access Token in Local Encrypted Storage via Gh Cli
 description: >-
   GitHub CLI has in it's latest version introduced a new feature that allows

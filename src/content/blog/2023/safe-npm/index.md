@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Safe npm commands
 description: >-
   Socket's safe npm is a CLI tool that wraps the npm command transparently and

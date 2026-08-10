@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "The Pizening III: Installing Docker on Raspberry Pi using apt"
 description: "pizen post"
 draft: true

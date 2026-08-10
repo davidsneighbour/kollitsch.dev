@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Automatically load workspace when starting VSCode
 description: >-
   A simple bash function to automatically load the workspace file when starting

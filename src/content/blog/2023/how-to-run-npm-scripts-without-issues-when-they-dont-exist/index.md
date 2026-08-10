@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: How to run NPM scripts without issues when they don't exist
 description: >-
   Discover how to seamlessly handle optional npm scripts in various build

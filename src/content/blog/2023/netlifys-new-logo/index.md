@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Netlify's new logo
 description: >-
   The company has used its signature teal gem logo for the past eight years.

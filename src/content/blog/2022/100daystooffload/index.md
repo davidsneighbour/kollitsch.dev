@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: '#100DaysToOffload'
 description: A challenge to write 100 posts on your personal blog in a year
 linkTitle: '#100DaysToOffload'

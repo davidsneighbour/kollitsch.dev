@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Bash Function to Remove Github Ghost Notifications
 description: How to clear ghost notifications in your Github inbox using a bash function.
 date: 2024-03-07T07:53:38+07:00

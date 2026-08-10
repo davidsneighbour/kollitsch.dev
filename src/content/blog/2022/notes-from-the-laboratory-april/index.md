@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: 'Notes from the Laboratory: April 2022'
 linkTitle: Laboratory 2022-04
 description: >-

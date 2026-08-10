@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Patrick vs. the Bad Super Block
 description: >-
   Join me in tackling a superblock error on a 20TB LUKS-encrypted drive in

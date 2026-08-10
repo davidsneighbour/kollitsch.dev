@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Jetbrains Mono
 linkTitle: Jetbrains Mono
 description: >-

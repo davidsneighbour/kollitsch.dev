@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Git `push.default` setup
 description: >-
   Pushing a new branch to a repository's remote often requires two attempts by

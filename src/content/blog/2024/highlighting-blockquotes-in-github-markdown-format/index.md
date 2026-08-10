@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Highlighting blockquotes in GitHub Markdown format
 description: >-
   Discover how to use GitHub's new Markdown features to highlight notes,

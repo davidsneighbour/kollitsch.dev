@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Switching from Ubuntu to Windows with WSL
 description: >-
   Learn how to set up WSL on Windows 11 and run Linux like Ubuntu alongside

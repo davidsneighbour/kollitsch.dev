@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Kurzschnitte II - Number 4
 description: >-
   The fourth installment of Kurzschnitte II, where I'm sharing a collection of

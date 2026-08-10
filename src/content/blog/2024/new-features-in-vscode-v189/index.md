@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: New features in VSCode v1.89
 description: >-
   Three VSCode updates this month, that I find useful. VSCode keeps adding

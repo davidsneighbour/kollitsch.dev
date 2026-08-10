@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: How to install a specific version of a program via Snap
 description: >-
   Learn how to install a specific version of a Snap package, like Go, and manage

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "Automating Ananke theme updates with GitHub workflows"
 description: "Automating Ananke theme updates with GitHub workflows"
 summary: ""

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Alfred Hitchcocks Cameos
 linkTitle: Alfred Hitchcocks Cameos
 description: >-

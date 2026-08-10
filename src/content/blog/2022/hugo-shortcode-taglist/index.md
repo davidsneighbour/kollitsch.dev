@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: 'Hugo Shortcode: Taglist'
 description: >-
   I needed a Hugo shortcode to show a list of posts that belonged to a

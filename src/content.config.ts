@@ -194,7 +194,7 @@ export const blogSchema = z
       }),
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
-    fmContentType: z.string().optional(),
+    fmContentType: z.literal('article'),
     /**
      * Extra Netlify response headers for this post's own URL only - no path
      * is specified because it's implicit (the page's own permalink). See

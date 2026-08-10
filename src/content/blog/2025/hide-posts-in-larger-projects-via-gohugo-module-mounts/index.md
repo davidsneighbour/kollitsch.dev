@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: 'Hugo Quick Tip: Hide posts in larger projects via GoHugo Module Mounts'
 description: >-
   Optimize Hugo development by excluding old posts with module mounts. This

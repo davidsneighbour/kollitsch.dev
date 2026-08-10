@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Better code highlighting for Hugo with render hooks
 description: >-
   One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML

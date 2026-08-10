@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Kurzschnitte II - First Edition
 description: >-
   A collection of links I came across in recent weeks. These links were

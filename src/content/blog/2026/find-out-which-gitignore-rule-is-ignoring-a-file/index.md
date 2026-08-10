@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "Why is Git ignoring this file?"
 date: "2026-07-27T13:00:00Z"
 description: "Use git check-ignore to find the exact ignore file, line number, and pattern when Git unexpectedly ignores a file or directory."

@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Hugo 0.95 - Update Notes
 linkTitle: Hugo 0.95
 description: >-

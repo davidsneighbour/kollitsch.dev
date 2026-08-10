@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: How to make browsers download a linked file
 description: >-
   Learn how to use the download attribute in anchor tags to prompt file

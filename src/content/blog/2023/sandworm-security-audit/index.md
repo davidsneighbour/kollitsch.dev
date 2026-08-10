@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Sandworm security audit
 description: >-
   Secure your project with Sandworm Audit, a free tool that scans for

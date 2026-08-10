@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Handling Ubuntu EFI boot issues on Acer laptops
 description: Fix Ubuntu EFI boot problems on Acer laptops with manual workarounds, boot-repair diagnostics, and commands for resolving GRUB issues.
 date: 2026-01-14T21:36:17.779Z

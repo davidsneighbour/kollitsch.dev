@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Ping Goes Poof
 linkTitle: Ping Goes Poof
 description: >-

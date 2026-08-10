@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Fixing installation and plugin errors in LocalWP
 description: >-
   Guide to installing LocalWP on Ubuntu 24.04, resolving issues with missing

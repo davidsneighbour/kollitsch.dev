@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Diogenes vs. Plato
 description: >-
   When Plato gave the definition of man as "featherless bipeds", Diogenes

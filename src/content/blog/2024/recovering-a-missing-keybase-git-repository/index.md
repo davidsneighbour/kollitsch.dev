@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Recovering a missing Keybase git repository
 description: >-
   The fight with Keybase continues. Today we are debugging an empty repo after

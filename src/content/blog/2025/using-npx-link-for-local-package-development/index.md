@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Using `npx link` for local package development
 linktitle: Using npx link for local package development
 description: >-

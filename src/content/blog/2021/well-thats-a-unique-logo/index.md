@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Well… that's a unique… logo?
 description: >-
   I had a weird reaction ("well… that's a unique logo?") to my really great

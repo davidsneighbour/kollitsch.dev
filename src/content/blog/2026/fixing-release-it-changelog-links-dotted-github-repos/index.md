@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: "Fixing release-it changelog links for dotted GitHub repositories"
 description: "How to fix release-it changelog links when a dotted GitHub repository name is truncated, and why explicit release configuration matters."
 summary: "A dotted GitHub repository name can confuse the release-it conventional changelog chain and generate links to the wrong repository. This post explains the bug, the dependency path involved, and the explicit release configuration that keeps changelog links correct."

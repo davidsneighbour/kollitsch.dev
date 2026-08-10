@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: A Zookeeper's Guide to tsconfig.json
 description: A practical guide to configuring TypeScript for a safer, more maintainable codebase. Learn which tsconfig options are essential for catching bugs and improving developer experience.
 draft: true

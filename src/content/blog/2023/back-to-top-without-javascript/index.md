@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Back to the Top without Javascript
 description: >-
   In my lifelong quest to minimize the code to display my view of the world (aka

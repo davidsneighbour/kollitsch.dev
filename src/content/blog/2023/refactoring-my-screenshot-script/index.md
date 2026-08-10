@@ -1,4 +1,5 @@
 ---
+fmContentType: article
 title: Refactoring my screenshot script
 description: >-
   I decided to rewrite my go-to-script to create a screenshot as header images

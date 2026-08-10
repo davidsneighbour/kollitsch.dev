@@ -6,8 +6,23 @@ import { blogSchema } from './content.config';
 const baseFrontmatter = {
   date: '2025-01-01',
   description: 'A description',
+  fmContentType: 'article',
   title: 'A title',
 };
+
+describe('blogSchema fmContentType', () => {
+  it('requires article frontmatter', () => {
+    const { fmContentType: _fmContentType, ...withoutContentType } =
+      baseFrontmatter;
+
+    expect(blogSchema.safeParse(baseFrontmatter).success).toBe(true);
+    expect(blogSchema.safeParse(withoutContentType).success).toBe(false);
+    expect(
+      blogSchema.safeParse({ ...baseFrontmatter, fmContentType: 'note' })
+        .success,
+    ).toBe(false);
+  });
+});
 
 describe('blogSchema cover.video', () => {
   it('accepts a valid YouTube video cover', () => {

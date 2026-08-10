@@ -419,7 +419,7 @@ browser/plugin default (an unstyled white box in both themes).
 
 ### Gimmick Effects
 
-`TvHead.astro` may use the generated Canvas UI `VHS` React island (`src/components/gimmicks/vhs.tsx`) for background-image treatment. The VHS island belongs only in the background layer: it wraps the optional background image at `z-index: 0`, clips to the same radius/classes as that image, and must not wrap the YouTube player or foreground overlay image. Additional CSS overlays such as `tv-head-effect-static` and tint classes stay in the separate background-effect layer above the VHS output.
+`TvHead.astro` may use the generated Canvas UI `VHS` React island (`src/components/gimmicks/vhs.tsx`) for background-image treatment. The plain background image must remain the base layer at `z-index: 0`; the VHS island is an enhancement with `mix-blend-mode: multiply` at `z-index: 1` that uses a duplicate hidden image source, so a blank or white canvas cannot replace the background image. The VHS island must not wrap the YouTube player or foreground overlay image. Additional CSS overlays such as `tv-head-effect-static` and tint classes stay in the separate background-effect layer above the VHS output.
 
 ### Source Code Link Badges
 

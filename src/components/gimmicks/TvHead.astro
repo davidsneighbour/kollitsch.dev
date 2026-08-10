@@ -217,6 +217,12 @@ const backgroundImageClass = ['tv-head__background', backgroundClass]
 const backgroundVhsClass = ['tv-head__background-vhs', backgroundClass]
   .filter(Boolean)
   .join(' ');
+const backgroundVhsSourceClass = [
+  'tv-head__background-vhs-source',
+  backgroundClass,
+]
+  .filter(Boolean)
+  .join(' ');
 const backgroundVhsStyle: CSSProperties = {
   height: '100%',
   inset: 0,
@@ -243,30 +249,7 @@ const backgroundWidths = backgroundImage
   style={shellStyle}
 >
   <div class="tv-head__zoom tv-head__zoom--background">
-    {backgroundImage && hasBackgroundVhs ? (
-      <VHS
-        className={backgroundVhsClass}
-        imageSourceOnly
-        style={backgroundVhsStyle}
-        client:visible
-        {...backgroundVhsOptions}
-      >
-        <Image
-          class={backgroundImageClass}
-          src={backgroundImage}
-          width={backgroundImage.width}
-          height={backgroundImage.height}
-          alt=""
-          sizes={backgroundSizes}
-          widths={backgroundWidths}
-          quality={70}
-          loading="lazy"
-          decoding="async"
-        />
-      </VHS>
-    ) : null}
-
-    {backgroundImage && !hasBackgroundVhs ? (
+    {backgroundImage ? (
       <Image
         class={backgroundImageClass}
         src={backgroundImage}
@@ -279,6 +262,29 @@ const backgroundWidths = backgroundImage
         loading="lazy"
         decoding="async"
       />
+    ) : null}
+
+    {backgroundImage && hasBackgroundVhs ? (
+      <VHS
+        className={backgroundVhsClass}
+        imageSourceOnly
+        style={backgroundVhsStyle}
+        client:visible
+        {...backgroundVhsOptions}
+      >
+        <Image
+          class={backgroundVhsSourceClass}
+          src={backgroundImage}
+          width={backgroundImage.width}
+          height={backgroundImage.height}
+          alt=""
+          sizes={backgroundSizes}
+          widths={backgroundWidths}
+          quality={70}
+          loading="lazy"
+          decoding="async"
+        />
+      </VHS>
     ) : null}
 
     {hasBackgroundEffect ? <div class:list={["tv-head__background-effect", backgroundEffectClass]} /> : null}
@@ -344,12 +350,26 @@ const backgroundWidths = backgroundImage
   }
 
   .tv-head__background-vhs {
-    z-index: 0;
+    z-index: 1;
+    opacity: 0.58;
+    mix-blend-mode: multiply;
     pointer-events: none;
   }
 
   .tv-head__background-vhs canvas {
     border-radius: inherit;
+  }
+
+  .tv-head__background-vhs-source {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   .tv-head__background {
@@ -366,14 +386,14 @@ const backgroundWidths = backgroundImage
   .tv-head__background-effect {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
     will-change: transform, opacity;
   }
 
   .tv-head__screen {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
     border-radius: var(--tvhead-screen-border-radius);
     background: #000;
@@ -394,14 +414,14 @@ const backgroundWidths = backgroundImage
   .tv-head__foreground-effect {
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
   }
 
   .tv-head__overlay {
     position: absolute;
     inset: 0;
-    z-index: 4;
+    z-index: 5;
     width: 100%;
     height: 100%;
     object-fit: contain;

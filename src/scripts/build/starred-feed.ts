@@ -254,6 +254,19 @@ function toRssItem(item: GoogleReaderItem): RssItem {
   };
 }
 
+function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function escapeCData(value: string): string {
+  return value.replace(/]]>/g, "]]]]><![CDATA[>");
+}
+
 function buildXml(config: Config, items: GoogleReaderItem[]): string {
   const rssItems = items.map(toRssItem);
 
@@ -261,11 +274,11 @@ function buildXml(config: Config, items: GoogleReaderItem[]): string {
     .map(
       (i) => `
 <item>
-<title>${i.title}</title>
-<link>${i.link}</link>
-<guid>${i.guid}</guid>
-<pubDate>${i.pubDate}</pubDate>
-<description><![CDATA[${i.description}]]></description>
+<title>${escapeXml(i.title)}</title>
+<link>${escapeXml(i.link)}</link>
+<guid>${escapeXml(i.guid)}</guid>
+<pubDate>${escapeXml(i.pubDate)}</pubDate>
+<description><![CDATA[${escapeCData(i.description)}]]></description>
 </item>`,
     )
     .join("");
@@ -273,8 +286,8 @@ function buildXml(config: Config, items: GoogleReaderItem[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-<title>${config.stream.channelTitle}</title>
-<description>${config.stream.channelDescription}</description>
+<title>${escapeXml(config.stream.channelTitle)}</title>
+<description>${escapeXml(config.stream.channelDescription)}</description>
 ${itemsXml}
 </channel>
 </rss>`;

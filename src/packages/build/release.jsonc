@@ -5,7 +5,7 @@
     "@humanwhocodes/social-changelog": "0.4.0",
     "@release-it/conventional-changelog": "12.0.0",
     "cz-git": "1.13.1",
-    "release-it": "21.0.1",
+    "release-it": "21.0.2",
     "@dnbhq/release-config": "1.1.3"
   },
   "scripts": {

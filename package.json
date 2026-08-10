@@ -2,23 +2,30 @@
   "name": "@davidsneighbour/kollitsch-dev",
   "description": "Website and content for kollitsch.dev",
   "version": "3001.27.2",
-  "author": {
-    "email": "davidsneighbourdev+gh@gmail.com",
-    "name": "Patrick Kollitsch",
-    "web": "https://davids-neighbour.com"
-  },
-  "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
-  "engines": {
-    "node": ">=26"
-  },
-  "homepage": "https://kollitsch.dev",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/davidsneighbour/kollitsch.dev.git"
   },
-  "type": "module",
+  "author": {
+    "email": "davidsneighbourdev+gh@gmail.com",
+    "name": "Patrick Kollitsch",
+    "web": "https://davids-neighbour.com"
+  },
+  "bugs": "https://github.com/davidsneighbour/kollitsch.dev/issues",
+  "homepage": "https://kollitsch.dev",
+  "dependencies": {
+    "@astrojs/react": "6.0.2",
+    "@radix-ui/react-slot": "1.3.3",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.31.0",
+    "radix-ui": "1.6.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwind-merge": "3.6.0"
+  },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@astrojs/markdown-remark": "7.2.2",
@@ -40,13 +47,14 @@
     "@fontsource-variable/jetbrains-mono": "5.3.0",
     "@fontsource/changa-one": "5.3.0",
     "@fontsource/exo-2": "5.3.0",
+    "@frontmatter/extensibility": "0.0.18",
     "@github/markdownlint-github": "0.8.3",
     "@google/design.md": "0.4.0",
     "@humanwhocodes/crosspost": "1.0.4",
     "@humanwhocodes/social-changelog": "0.4.0",
     "@iconify-json/bi": "1.2.7",
     "@iconify-json/fa7-brands": "1.2.4",
-    "@iconify-json/lucide": "1.2.122",
+    "@iconify-json/lucide": "1.2.123",
     "@iconify-json/simple-icons": "1.2.93",
     "@ls-lint/ls-lint": "2.3.1",
     "@netlify/functions": "5.3.0",
@@ -64,7 +72,7 @@
     "@secretlint/secretlint-rule-pattern": "13.0.4",
     "@secretlint/secretlint-rule-preset-recommend": "13.0.4",
     "@secretlint/secretlint-rule-secp256k1-privatekey": "13.0.4",
-    "@sentry/astro": "10.69.0",
+    "@sentry/astro": "10.70.0",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/typography": "0.5.20",
@@ -89,9 +97,9 @@
     "astro-icon": "1.1.5",
     "bootstrap-icons": "1.13.1",
     "brace-expansion": "5.0.9",
-    "browserslist": "4.28.7",
+    "browserslist": "4.28.8",
     "cheerio": "1.2.0",
-    "chrome-devtools-mcp": "1.6.0",
+    "chrome-devtools-mcp": "1.7.0",
     "chrome-launcher": "1.2.1",
     "cspell": "10.0.1",
     "cz-git": "1.13.1",
@@ -105,7 +113,7 @@
     "jsdom": "30.0.1",
     "lenis": "1.3.26",
     "lighthouse": "13.4.1",
-    "markdownlint": "0.41.0",
+    "markdownlint": "0.41.1",
     "markdownlint-cli2": "0.23.2",
     "markdownlint-rule-extended-ascii": "0.2.1",
     "markdownlint-rule-list-duplicates": "0.0.1",
@@ -118,7 +126,7 @@
     "playwright": "1.62.1",
     "png-to-ico": "3.0.2",
     "postcss-html": "2.0.0",
-    "release-it": "21.0.1",
+    "release-it": "21.0.2",
     "remark-definition-list": "2.0.0",
     "remark-kbd-nested": "0.6.1",
     "resend": "6.18.1",
@@ -133,7 +141,7 @@
     "stylelint-order": "8.1.1",
     "tailwindcss": "4.3.3",
     "tinykeys": "4.0.0",
-    "tsx": "4.23.11",
+    "tsx": "4.23.12",
     "tw-animate-css": "1.4.0",
     "typedoc": "0.28.20",
     "typescript": "6.0.3",
@@ -144,55 +152,33 @@
     "wireit": "0.14.13"
   },
   "scripts": {
-    "clean:full": "wireit",
-    "packages:generate": "wireit",
-    "packages:update": "wireit",
-    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
-    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit",
-    "release:forced": "wireit",
-    "release:tests": "wireit",
-    "screenshot": "wireit",
-    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
-    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "astro": "astro",
+    "audit:html": "wireit",
     "biome:check": "biome check",
     "biome:format": "biome format",
     "biome:lint": "biome check --fix",
     "biome:postinstall": "biome migrate --write",
     "biome:watch": "biome check --watch",
-    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
-    "audit:html": "wireit",
-    "lint:descriptions": "node src/scripts/linting/lint-descriptions.ts",
-    "lint:hook:commit": "lint-staged",
-    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
-    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
-    "lint:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
-    "lint:templates": "wireit",
-    "lint:lychee": "wireit",
-    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
-    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}",
-    "lint:filenames": "ls-lint",
-    "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
-    "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
-    "lint:vale": "vale --config src/config/.vale.ini --no-exit --output='dnb.tmpl' ./src/content/",
-    "update:pre:vale": "wireit",
-    "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
-    "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
-    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply",
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
-    "ci:check:vscode": "npm run vscode:check",
-    "postinstall:vscode": "npm run vscode:sync",
-    "astro": "astro",
     "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
+    "build:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
     "build:clean": "npm run clean:build-caches && npm run build",
+    "build:favicons": "node src/assets/favicon/regenerate.ts",
+    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
     "check": "astro check && npm run check:scripts",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
+    "ci:check:vscode": "npm run vscode:check",
     "clean:astro": "wireit",
     "clean:build-caches": "wireit",
+    "clean:full": "wireit",
+    "clean:netlify": "wireit",
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
+    "deploy:build": "wireit",
+    "deploy:pipeline": "wireit",
+    "deploy:release": "wireit",
     "dev": "npm run dev:watch",
     "dev:certs": "mkcert -install && mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1",
     "dev:docs": "node src/scripts/documentation-server.ts",
@@ -200,42 +186,64 @@
     "dev:site": "astro dev",
     "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
     "dev:watch": "node src/scripts/webserver.ts",
-    "preview": "astro preview",
-    "upgrade": "npx @astrojs/upgrade",
-    "build:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
+    "docs:api": "typedoc",
+    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
+    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "hooks:update": "simple-git-hooks",
+    "icons:sync": "node src/scripts/maintenance/create-icon-types.ts",
+    "lighthouse:desktop": "node src/scripts/linting/lighthouse-audit.ts --config=desktop",
+    "lighthouse:desktop-cable": "node src/scripts/linting/lighthouse-audit.ts --config=desktop-cable",
+    "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
+    "lighthouse:mobile-3g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-3g",
+    "lighthouse:mobile-slow4g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-slow4g",
+    "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
+    "lint:descriptions": "node src/scripts/linting/lint-descriptions.ts",
     "lint:design": "design.md lint DESIGN.md",
     "lint:design:diff": "design.md diff DESIGN.md",
-    "docs:api": "typedoc",
-    "build:favicons": "node src/assets/favicon/regenerate.ts",
-    "icons:sync": "node src/scripts/maintenance/create-icon-types.ts",
+    "lint:filenames": "ls-lint",
+    "lint:hook:commit": "lint-staged",
+    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
+    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
+    "lint:lychee": "wireit",
+    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
+    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}",
+    "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
+    "lint:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
+    "lint:styles": "wireit",
+    "lint:styles:fix": "wireit",
+    "lint:templates": "wireit",
+    "lint:vale": "vale --config src/config/.vale.ini --no-exit --output='dnb.tmpl' ./src/content/",
+    "packages:generate": "wireit",
+    "packages:update": "wireit",
+    "postinstall": "run-p postinstall:*",
+    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts",
+    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
     "postinstall:icons": "npm run icons:sync",
-    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
-    "prebuild": "npm run build:image-index",
-    "clean:netlify": "wireit",
-    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
-    "deploy:pipeline": "wireit",
-    "deploy:build": "wireit",
-    "deploy:release": "wireit",
+    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
+    "postinstall:vscode": "npm run vscode:sync",
     "postprepare": "wireit",
-    "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
-    "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
-    "lighthouse:desktop": "node src/scripts/linting/lighthouse-audit.ts --config=desktop",
-    "lighthouse:mobile-slow4g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-slow4g",
-    "lighthouse:mobile-3g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-3g",
-    "lighthouse:desktop-cable": "node src/scripts/linting/lighthouse-audit.ts --config=desktop-cable",
-    "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "prebuild": "npm run build:image-index",
+    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
+    "preview": "astro preview",
+    "release": "wireit",
+    "release:forced": "wireit",
+    "release:tests": "wireit",
+    "screenshot": "wireit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
     "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
     "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
     "test:postinstall": "npx playwright install",
+    "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
     "test:ui": "vitest --ui",
-    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts",
-    "hooks:update": "simple-git-hooks",
-    "postinstall": "run-p postinstall:*",
-    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
-    "update": "wireit"
+    "update": "wireit",
+    "update:pre:vale": "wireit",
+    "upgrade": "npx @astrojs/upgrade",
+    "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
+    "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
+    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply"
   },
   "wireit": {
     "clean:full": {
@@ -387,40 +395,20 @@
       "command": "git submodule update --recursive --remote"
     }
   },
-  "cspell": {
-    "import": [
-      "./src/config/cspell/cspell.jsonc"
-    ],
-    "version": "0.2"
+  "engines": {
+    "node": ">=26"
   },
-  "overrides": {
-    "markdownlint-cli2": {
-      "js-yaml": "4.3.1"
-    },
-    "markdownlint-rule-title-case-style": {
-      "markdownlint": {
-        "markdown-it": "14.2.0"
-      }
-    },
-    "gray-matter": {
-      "js-yaml": "3.15.1"
-    },
-    "brace-expansion": "5.0.9"
-  },
-  "stylelint": {
-    "configFile": "./src/config/stylelint/index.js"
-  },
-  "dependencies": {
-    "@astrojs/react": "6.0.2",
-    "@frontmatter/extensibility": "0.0.18",
-    "@radix-ui/react-slot": "1.3.3",
-    "class-variance-authority": "0.7.1",
-    "clsx": "2.1.1",
-    "lucide-react": "1.30.0",
-    "radix-ui": "1.6.7",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "tailwind-merge": "3.6.0"
+  "allowScripts": {
+    "@sentry/cli@2.58.6": true,
+    "esbuild@0.27.7": true,
+    "esbuild@0.28.0": true,
+    "esbuild@0.28.1": true,
+    "gifsicle@5.3.0": true,
+    "jpegtran-bin@7.0.0": true,
+    "optipng-bin@7.0.1": true,
+    "secp256k1@5.0.1": true,
+    "sharp@0.34.5": true,
+    "simple-git-hooks@2.13.1": true
   },
   "browserslist": {
     "development": [
@@ -448,19 +436,31 @@
       "not kaios 2.5"
     ]
   },
-  "allowScripts": {
-    "@sentry/cli@2.58.6": true,
-    "esbuild@0.27.7": true,
-    "esbuild@0.28.0": true,
-    "esbuild@0.28.1": true,
-    "gifsicle@5.3.0": true,
-    "jpegtran-bin@7.0.0": true,
-    "optipng-bin@7.0.1": true,
-    "secp256k1@5.0.1": true,
-    "sharp@0.34.5": true,
-    "simple-git-hooks@2.13.1": true
+  "cspell": {
+    "import": [
+      "./src/config/cspell/cspell.jsonc"
+    ],
+    "version": "0.2"
+  },
+  "overrides": {
+    "markdownlint-cli2": {
+      "js-yaml": "4.3.1"
+    },
+    "markdownlint-rule-title-case-style": {
+      "markdownlint": {
+        "markdown-it": "14.2.0"
+      }
+    },
+    "gray-matter": {
+      "js-yaml": "3.15.1"
+    },
+    "brace-expansion": "5.0.9"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
-  }
+  },
+  "stylelint": {
+    "configFile": "./src/config/stylelint/index.js"
+  },
+  "type": "module"
 }

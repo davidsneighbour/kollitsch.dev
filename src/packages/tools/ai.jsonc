@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@playwright/mcp": "0.0.79",
-    "chrome-devtools-mcp": "1.6.0",
+    "chrome-devtools-mcp": "1.7.0",
     "mcp-remote": "0.1.38"
   },
   "scripts": {

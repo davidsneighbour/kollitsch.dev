@@ -34,7 +34,7 @@ import Footer from '@components/layout/footer/Footer.astro';
 - Renders an "About" `<aside>` with the author photo (linked to `/connect/`) and an introduction paragraph rendered from Markdown via `markdown-it`. A greeting-free fallback is rendered server-side; a client-side `<script>` re-renders the introduction with a time-of-day greeting (`morning`, `afternoon`, `evening`, `night`, or `default` from `setup.greetings`) substituted for the `{$greeting}` placeholder, based on `new Date().getHours()`.
 - Renders a "Navigation" `<aside>` from `footernavigation.json`, and a "Connect" `<aside>` using `SocialLinks`.
 - Renders a copyright line with the current year. The year is set server-side and corrected client-side via an inline script (`document.getElementById(footerYearId).innerText = ...`) to avoid stale build-time years on statically cached pages.
-- Fetches `/api/siteinfo.json` client-side and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`, with a leading space) after the copyright line. Failures are silently ignored.
+- Fetches `/api/siteinfo.json` client-side and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`, with a leading space) after the copyright line. The endpoint reads `package.json` and sends `Cache-Control: no-store, max-age=0` so release metadata is not kept past a version bump. Failures are silently ignored.
 - Renders Privacy Policy and Security Policy links, a Static.Quest web ring widget (previous/random/next), and RSS/Atom/JSON feed links.
 - Renders `<Colophon />` after the closing `</footer>` tag.
 

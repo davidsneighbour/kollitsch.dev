@@ -10,7 +10,7 @@ export function GET({ generator, site }: APIContext) {
   const body = JSON.stringify({ generator, releasePage, site, version });
   return new Response(body, {
     headers: {
-      'cache-control': 'public, max-age=86400, stale-while-revalidate=3600',
+      'cache-control': 'no-store, max-age=0',
       'content-type': 'application/json; charset=utf-8',
     },
   });

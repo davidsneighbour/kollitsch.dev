@@ -2,7 +2,6 @@
   "extends": "@dnbhq/tsconfig/astro",
   "include": [
     ".astro/types.d.ts",
-    "netlify",
     "src"
   ],
   "exclude": [

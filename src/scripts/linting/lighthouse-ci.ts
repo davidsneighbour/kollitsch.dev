@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// CI Lighthouse runner — runs mobile + desktop profiles, saves JSON reports, appends scores to data/lighthouse/history.json.
+// CI Lighthouse runner — runs mobile + desktop profiles, saves JSON reports, appends scores to src/data/lighthouse/history.json.
 // node src/scripts/linting/lighthouse-ci.ts [--url=...]
 
 import path from 'node:path';
@@ -20,7 +20,7 @@ function arg(flag: string): string | undefined {
 
 const url = arg('url') ?? process.env.LH_URL ?? 'https://kollitsch.dev/';
 const outputDir = path.resolve('reports/lighthouse');
-const historyPath = path.resolve('data/lighthouse/history.json');
+const historyPath = path.resolve('src/data/lighthouse/history.json');
 
 const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 

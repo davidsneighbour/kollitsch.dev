@@ -61,7 +61,7 @@ content-negotiated variants.
 ## Markdown negotiation
 
 Supported blog post URLs also run through the Netlify Edge Function at
-[`netlify/edge-functions/markdown-negotiation.ts`](../../netlify/edge-functions/markdown-negotiation.ts).
+[`src/netlify/edge-functions/markdown-negotiation.ts`](../../src/netlify/edge-functions/markdown-negotiation.ts).
 The function is scoped to `GET` and `HEAD` requests under `/blog/*`.
 
 For canonical blog post URLs such as `/blog/2026/example-post/`:

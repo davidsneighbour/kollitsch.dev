@@ -53,7 +53,6 @@ export default getViteConfig({
     globals: true,
     include: [
       'src/**/*.test.ts',
-      'tests/**/*.test.ts',
       '!src/test/browser/**/*.browser.test.ts',
     ],
     ...(browserProjects ? { projects: browserProjects } : {}),

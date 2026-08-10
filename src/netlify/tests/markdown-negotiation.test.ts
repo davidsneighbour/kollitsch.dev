@@ -6,7 +6,7 @@ import markdownNegotiation, {
   negotiateContent,
   parseAcceptHeader,
   qualityFor,
-} from '../../netlify/edge-functions/markdown-negotiation.ts';
+} from '../edge-functions/markdown-negotiation.ts';
 
 describe('Markdown content negotiation', () => {
   it('parses q-values with sensible defaults', () => {

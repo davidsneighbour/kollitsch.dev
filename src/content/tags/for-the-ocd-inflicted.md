@@ -5,8 +5,11 @@ linktitle: "for the OCD inflicted"
 aliases:
   - ocd
   - ocd-series
-class: info
+badge:
+  variant: gray
+  icon:
+    name: stars
+    position: inline-start
 description: "A joyful collection of glorious over-engineering."
-icon: stars
 draft: true
 ---

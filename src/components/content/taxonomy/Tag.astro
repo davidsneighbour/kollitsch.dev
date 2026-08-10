@@ -1,36 +1,64 @@
 ---
-import { Icon } from "astro-icon/components";
-import type { TagIcon } from "@utils/tags.ts";
+import Badge from '@components/shared/elements/Badge.astro';
+import type { TagBadge, TagIcon } from '@utils/tags.ts';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   href: string;
   label: string;
   dataLabel: string;
+  badge?: TagBadge;
+  hidden?: boolean;
   icon?: TagIcon | string;
+  style?: string;
+  title?: string;
+  dataTagFilterDefaultHidden?: string;
 }
 
-const { href, label, dataLabel, icon } = Astro.props;
-const iconConfig: TagIcon | undefined = typeof icon === "string" ? { name: icon } : icon;
+const {
+  href,
+  label,
+  dataLabel,
+  badge,
+  hidden,
+  icon,
+  style,
+  title,
+  dataTagFilterDefaultHidden,
+} = Astro.props;
+const iconConfig: TagIcon | undefined =
+  badge?.icon ?? (typeof icon === 'string' ? { name: icon } : icon);
 const iconName = iconConfig?.name;
 const iconColor = iconConfig?.color;
+const iconPosition = iconConfig?.position ?? 'inline-start';
+const badgeProps = {
+  href,
+  ...(badge?.variant ? { variant: badge.variant } : {}),
+  ...(badge?.class ? { class: badge.class } : {}),
+  ...(title ? { title } : {}),
+  'data-label': dataLabel,
+  ...(dataTagFilterDefaultHidden
+    ? { 'data-tag-filter-default-hidden': dataTagFilterDefaultHidden }
+    : {}),
+  ...(hidden !== undefined ? { hidden } : {}),
+  ...(style ? { style } : {}),
+};
 ---
 
-<a href={href} data-label={dataLabel}>
-  {iconName && <Icon name={iconName} class="" style={iconColor ? `color: ${iconColor};` : undefined} />}
+<Badge {...badgeProps}>
+  {iconName && iconPosition === "inline-start" && (
+    <Icon
+      name={iconName}
+      data-icon="inline-start"
+      style={iconColor ? `color: ${iconColor};` : undefined}
+    />
+  )}
   {label}
-</a>
-
-<style>
-  @reference "@styles/theme.css";
-  a {
-    @apply inline-flex items-center gap-1
-    m-1 px-2 py-1
-    rounded-md
-    bg-red-700/5 text-red-700
-    hover:bg-red-700/10 hover:text-orange-700
-    dark:bg-red-500/10 dark:text-red-500
-    dark:hover:bg-red-500/20 dark:hover:text-orange-400
-    inset-ring inset-ring-red-700/20
-    dark:inset-ring-red-500/20;
-  }
-</style>
+  {iconName && iconPosition === "inline-end" && (
+    <Icon
+      name={iconName}
+      data-icon="inline-end"
+      style={iconColor ? `color: ${iconColor};` : undefined}
+    />
+  )}
+</Badge>

@@ -56,9 +56,12 @@ aliases:
 hideInTagCloud: true
 title: "100 Days To Offload challenge"
 linktitle: "100 Days To Offload"
-class: success
+badge:
+  variant: green
+  icon:
+    name: bookmark-check-fill
+    position: inline-start
 description: "Read more about this in the [blog post](/blog/2022/100daystooffload/) and see the [100 Days To Offload](https://100daystooffload.com/) website for more information."
-icon: bookmark-check-fill
 cover:
   type: image
   src: tags/100daysToOffload.jpg
@@ -72,13 +75,47 @@ cover:
 | `title` | yes | Full title for tag metadata and card contexts |
 | `linktitle` | no | Plain-text label used in tag links; falls back to `title` |
 | `aliases` | no | Lowercase alternative ids that resolve to the canonical tag |
-| `class` | no | Legacy tag class consumed by tag presentation |
+| `badge` | no | Badge presentation metadata; see [Tag Badges](#tag-badges) |
 | `description` | no | Markdown-capable tag description |
 | `featured` | no | Enables the tag card on the tag overview when the tag is present |
 | `weight` | no | Sort weight for featured-tag helpers; defaults to `0` |
-| `icon` | no | Icon shown by tag components |
 | `cover` | no | Cover image or video metadata for tag cards |
 | `hideInTagCloud` | no | Hides the tag from the default weighted cloud only |
+
+## Tag Badges
+
+Use `badge` when a tag needs a specific chip treatment in tag lists, tag clouds,
+or post metadata. The object follows the local
+[`Badge`](../components/shared/elements/badge.md) component model, which mirrors
+the shadcn badge pattern: choose a `variant`, then add optional custom classes
+only when a variant is not enough.
+
+```yaml
+---
+id: 100-days-to-offload
+badge:
+  variant: green
+  class:
+    - bg-green-50
+    - text-green-700
+    - dark:bg-green-950
+    - dark:text-green-300
+  icon:
+    name: bookmark-check-fill
+    position: inline-start
+---
+```
+
+| Field | Required | Purpose |
+| --- | --- | --- |
+| `variant` | no | Badge template: `default`, `secondary`, `destructive`, `outline`, `ghost`, `link`, `green`, `gray`, or `red` |
+| `class` | no | Extra Tailwind classes as a string or list; appended after the variant classes |
+| `icon.name` | no | Icon name rendered inside the badge via `astro-icon/components` |
+| `icon.position` | no | `inline-start` or `inline-end`; defaults to `inline-start` |
+| `icon.color` | no | Optional inline icon colour override |
+
+Do not use the old top-level `class` or `icon` fields for new tag metadata.
+Keep presentation metadata under `badge`.
 
 ## Tag Overview
 

@@ -1,33 +1,35 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from "astro:content";
-
-import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from 'astro:content';
+import Tag from '@components/content/taxonomy/Tag.astro';
+import { normaliseTags, tagUrl } from '@utils/tags.ts';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post }: Props = Astro.props;
+const tags = Array.isArray(post.data.tags)
+  ? await normaliseTags(post.data.tags)
+  : [];
 ---
 
-{
-  post.data.tags && post.data.tags.length > 0 && (
+{tags.length > 0 && (
     <div class="flex flex-row items-center justify-start gap-2">
       <div class="w-6 flex-none">
         <Icon name="tags" />
       </div>
       <div class="flex flex-row flex-wrap items-center justify-start gap-2">
         <span>Tags: </span>
-        {post.data.tags.map((tag: string) => (
-          <a
-            href={`/tags/${encodeURIComponent(tag)}/`}
-            class="inline-block px-1 py-1"
-          >
-            #{tag}
-          </a>
+        {tags.map((tag) => (
+          <Tag
+            href={tagUrl(tag.id)}
+            label={`#${tag.label}`}
+            dataLabel={tag.label.toLowerCase()}
+            {...(tag.badge && { badge: tag.badge })}
+          />
         ))}
       </div>
     </div>
-  )
-}
+  )}

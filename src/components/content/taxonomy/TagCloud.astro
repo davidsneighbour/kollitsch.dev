@@ -1,6 +1,7 @@
 ---
 import { mergePropsWithDefaults } from '@utils/content.ts';
 import type { TagListItem } from '@utils/tags.ts';
+import Tag from './Tag.astro';
 
 export interface Props {
   tags: TagListItem[] | Map<string, number>;
@@ -20,13 +21,15 @@ const props = mergePropsWithDefaults(Astro.props as Props, {
   Pick<Props, 'filterId' | 'maxSize' | 'minSize' | 'showCounts' | 'tags'>
 >;
 
-const visibleItems =
+const visibleItems: TagListItem[] =
   props.tags instanceof Map
     ? Array.from(props.tags.entries()).map(([tag, count]) => ({
         count,
+        hideInTagCloud: false,
         id: tag,
         label: tag,
         url: `/tags/${encodeURIComponent(tag)}/`,
+        weight: 0,
       }))
     : props.tags;
 
@@ -61,16 +64,17 @@ function getFontSize(count: number, hiddenByDefault: boolean): string {
       <span>(none)</span>
     ) : (
       items.map((tag) => (
-      <a
+      <Tag
         href={tag.url}
+        label={`#${props.showCounts ? `${tag.label} (${tag.count})` : tag.label}`}
+        dataLabel={String(tag.label).toLowerCase()}
         title={`${tag.count} posts`}
-        data-label={String(tag.label).toLowerCase()}
-        data-tag-filter-default-hidden={tag.hiddenByDefault ? 'true' : undefined}
         hidden={tag.hiddenByDefault}
         style={`font-size: ${getFontSize(tag.count, tag.hiddenByDefault)}; line-height: 1.1;`}
-      >
-        #{props.showCounts ? `${tag.label} (${tag.count})` : tag.label}
-      </a>
+        {...(tag.hiddenByDefault && { dataTagFilterDefaultHidden: 'true' })}
+        {...(tag.badge && { badge: tag.badge })}
+        {...(tag.icon && { icon: tag.icon })}
+      />
       ))
     )}
 </div>

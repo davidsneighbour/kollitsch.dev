@@ -19,8 +19,9 @@ Renders a small coloured badge/pill, either as a `<span>` or, when `href` is set
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `color` | `"gray" \| "red" \| "yellow"` | `"red"` | Colour theme |
-| `bordered` | `boolean` | `false` | `true` renders a subtle inset-ring border; `false` renders a flat background |
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link" \| "green" \| "gray" \| "red"` | `"default"` | shadcn-style badge variant |
+| `color` | `"gray" \| "red" \| "yellow"` | `undefined` | Legacy colour theme; `yellow` maps to the green variant |
+| `bordered` | `boolean` | `false` | Legacy border flag; with legacy colours, renders the bordered version where available |
 | `href` | `string` | `undefined` | When set, renders as `<a href={href}>` with hover/focus-visible styling instead of a plain `<span>` |
 | `class` | `string` | `""` | Extra classes appended after the variant classes |
 | `title` | `string` | `undefined` | Applied as both `title` and `aria-label` |
@@ -32,7 +33,7 @@ Renders a small coloured badge/pill, either as a `<span>` or, when `href` is set
 import Badge from '@components/shared/elements/Badge.astro';
 ---
 
-<Badge color="yellow" bordered>Draft</Badge>
+<Badge variant="green">100 Days To Offload</Badge>
 ```
 
 ```astro
@@ -40,9 +41,15 @@ import Badge from '@components/shared/elements/Badge.astro';
 import Badge from '@components/shared/elements/Badge.astro';
 ---
 
-<Badge color="red" href="/tags/astro/" title="View astro tag">astro</Badge>
+<Badge variant="outline" href="/tags/astro/" title="View astro tag">astro</Badge>
 ```
 
 ## Behaviour
 
-This component has no client-side behaviour. Colour/border/hover/focus classes are looked up from fixed per-colour class maps rather than built dynamically, so Tailwind's static class scanner can see every possible class. Hover and focus-visible classes are only applied when `href` is set, since they only make sense on an interactive element.
+This component has no client-side behaviour. Variant, hover, and focus classes
+are looked up from fixed class maps rather than built dynamically, so Tailwind's
+static class scanner can see every possible class. Hover and focus-visible
+classes are only applied when `href` is set, since they only make sense on an
+interactive element. Icons may be placed in the slot by callers; icon elements
+with `data-icon="inline-start"` or `data-icon="inline-end"` receive the badge
+icon sizing rules.

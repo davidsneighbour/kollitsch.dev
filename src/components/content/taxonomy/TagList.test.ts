@@ -14,9 +14,10 @@ describe('TagList component (props contract)', () => {
 
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
-    expect(src).toContain('import Tag from "./Tag.astro"');
+    expect(src).toMatch(/import\s+Tag\s+from\s+['"]\.\/Tag\.astro['"]/);
     expect(src).toContain('showCounts');
     expect(src).toContain('<Tag');
+    expect(src).toContain('tag.badge');
     expect(src).not.toContain('function getFontSize');
   });
 });

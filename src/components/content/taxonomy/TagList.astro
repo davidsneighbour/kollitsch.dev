@@ -5,8 +5,8 @@
  * - Renders a flat inline list of tags with optional counts
  * - `tags` is an array of TagListItem (id, label, count, url, icon)
  */
-import type { TagListItem } from "@utils/tags.ts";
-import Tag from "./Tag.astro";
+import type { TagListItem } from '@utils/tags.ts';
+import Tag from './Tag.astro';
 
 export interface Props {
   tags: TagListItem[];
@@ -15,7 +15,7 @@ export interface Props {
 }
 
 // Props expected from your existing component/usage
-const { tags, showCounts = true, filterId = "default" } = Astro.props;
+const { tags, showCounts = true, filterId = 'default' } = Astro.props;
 ---
 
 <div
@@ -23,8 +23,7 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
   data-tag-filter-list
   data-tag-filter-id={filterId}
 >
-  {
-    tags.length === 0 ? (
+  {tags.length === 0 ? (
       <span>(none)</span>
     ) : (
       tags.map((tag) => {
@@ -37,12 +36,12 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
             href={tag.url}
             label={labelText}
             dataLabel={labelLower}
+            {...(tag.badge && { badge: tag.badge })}
             {...(tag.icon && { icon: tag.icon })}
           />
         );
       })
-    )
-  }
+    )}
 </div>
 
 <script>
@@ -50,7 +49,7 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
    * Returns true if every character in `needle` can be found in order within `haystack`.
    * Example: needle "koll" matches haystack "kollitsch".
    */
-  function fuzzyInOrder(haystack: string | any[], needle: string | any[]): boolean {
+  function fuzzyInOrder(haystack: string, needle: string): boolean {
     if (needle.length === 0) return true;
     let i = 0;
     for (let j = 0; j < haystack.length; j += 1) {
@@ -61,34 +60,37 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
   }
 
   function initTagFilter(root: HTMLElement): void {
-    const input = root.querySelector("[data-tag-filter-input]");
-    const list = root.querySelector("[data-tag-filter-list]");
-    const status = root.querySelector("[data-tag-filter-status]");
+    const input = root.querySelector('[data-tag-filter-input]');
+    const list = root.querySelector('[data-tag-filter-list]');
+    const status = root.querySelector('[data-tag-filter-status]');
 
     if (!(input instanceof HTMLInputElement)) {
-      console.error("tag-filter: input not found or wrong type", { root });
+      console.error('tag-filter: input not found or wrong type', { root });
       return;
     }
     if (!(list instanceof HTMLElement)) {
-      console.error("tag-filter: list not found or wrong type", { root });
+      console.error('tag-filter: list not found or wrong type', { root });
       return;
     }
 
-    const links = Array.from(list.querySelectorAll<HTMLAnchorElement>("a[data-label]"));
+    const links = Array.from(
+      list.querySelectorAll<HTMLAnchorElement>('a[data-label]'),
+    );
 
     const apply = (q: string) => {
       const query = q.trim().toLowerCase();
       let visible = 0;
 
       for (const a of links) {
-        const label = (a.getAttribute("data-label") ?? "").toLowerCase();
-        const match = query === "" ? true : fuzzyInOrder(label, query);
+        const label = (a.getAttribute('data-label') ?? '').toLowerCase();
+        const match = query === '' ? true : fuzzyInOrder(label, query);
         a.hidden = !match;
         if (match) visible += 1;
       }
 
       if (status instanceof HTMLElement) {
-        status.textContent = links.length === 0 ? "" : `${visible} / ${links.length} tags`;
+        status.textContent =
+          links.length === 0 ? '' : `${visible} / ${links.length} tags`;
       }
     };
 
@@ -97,17 +99,17 @@ const { tags, showCounts = true, filterId = "default" } = Astro.props;
 
     // Avoid double-binding if Astro swaps pages
     const handler = () => apply(input.value);
-    input.addEventListener("input", handler, { passive: true });
+    input.addEventListener('input', handler, { passive: true });
   }
 
   function boot() {
-    const roots = document.querySelectorAll("[data-tag-filter]");
+    const roots = document.querySelectorAll('[data-tag-filter]');
     for (const el of roots) {
       if (el instanceof HTMLElement) initTagFilter(el);
     }
   }
 
-  document.addEventListener("astro:page-load", boot);
+  document.addEventListener('astro:page-load', boot);
   // Also run once for non-router loads
   boot();
 </script>

@@ -30,11 +30,27 @@ type Ctx = {
 /**
  * Canonical tag identifier and human label.
  */
-export type NormalizedTag = { id: string; label: string };
+export type NormalizedTag = { badge?: TagBadge; id: string; label: string };
 
 export type TagIcon = {
   name: string;
   color?: string;
+  position?: 'inline-start' | 'inline-end';
+};
+
+export type TagBadge = {
+  class?: string;
+  icon?: TagIcon;
+  variant?:
+    | 'default'
+    | 'secondary'
+    | 'destructive'
+    | 'outline'
+    | 'ghost'
+    | 'link'
+    | 'green'
+    | 'gray'
+    | 'red';
 };
 
 /**
@@ -92,6 +108,8 @@ export type TagListItem = {
   label: string;
   /** Whether tag metadata is hidden from the overview tag cloud. */
   hideInTagCloud: boolean;
+  /** Optional badge presentation metadata from the tags collection. */
+  badge?: TagBadge;
   /** Optional icon from the tags collection. */
   icon?: TagIcon;
   /** Number of posts containing this tag. */
@@ -368,6 +386,19 @@ function buildDebugMsg(msg: string, ctx?: Ctx, raw?: string): string {
   return `${msg}${where}${titled}${rawPart}`;
 }
 
+function getTagBadge(entry: TagIndexEntry | undefined): TagBadge | undefined {
+  if (!entry) return undefined;
+
+  const data = entry.data as {
+    badge?: TagBadge;
+    icon?: TagIcon;
+  };
+
+  if (data.badge) return data.badge;
+  if (data.icon) return { icon: data.icon };
+  return undefined;
+}
+
 /**
  * Lowest-level slug normaliser.
  * - Returns canonical id (`a-z0-9` with dashes between words) or '' if the cleaned result is empty.
@@ -433,7 +464,14 @@ export async function normaliseTag(
 
   const index = await getTagIndex();
   const hit = index.get(idGuess);
-  if (hit) return { id: hit.data.id, label: hit.data.linktitle };
+  if (hit) {
+    const badge = getTagBadge(hit);
+    return {
+      ...(badge ? { badge } : {}),
+      id: hit.data.id,
+      label: hit.data.linktitle,
+    };
+  }
 
   return { id: idGuess, label: input.trim() };
 }
@@ -610,6 +648,7 @@ export async function getTags(
     let finalLabel = label;
     let hideInTagCloud = false;
     let weight = 0;
+    let badge: TagBadge | undefined;
     let icon: TagIcon | undefined;
 
     try {
@@ -620,6 +659,7 @@ export async function getTags(
         finalLabel = hit.data.linktitle;
         hideInTagCloud = hit.data.hideInTagCloud ?? false;
         weight = (hit.data as { weight?: number }).weight ?? 0;
+        badge = getTagBadge(hit);
         icon = (hit.data as { icon?: TagIcon }).icon;
       } else {
         id = key;
@@ -636,6 +676,7 @@ export async function getTags(
     }
 
     items.push({
+      ...(badge ? { badge } : {}),
       count: info.count,
       hideInTagCloud,
       id,
@@ -662,6 +703,7 @@ export async function getTag(
   input: string,
   ctx?: Ctx,
 ): Promise<{
+  badge?: TagBadge;
   id: string;
   label: string;
   url: string;
@@ -679,6 +721,9 @@ export async function getTag(
 
   const canonicalId = normalized.id;
   const canonicalLabel = normalized.label;
+  const idx = await getTagIndex();
+  const tagEntry = idx.get(canonicalId);
+  const badge = getTagBadge(tagEntry);
 
   const posts = await getBlogPosts();
   const matched: BlogPost[] = [];
@@ -706,6 +751,7 @@ export async function getTag(
   }
 
   return {
+    ...(badge ? { badge } : {}),
     id: canonicalId,
     label: canonicalLabel,
     posts: matched,
@@ -752,10 +798,12 @@ export async function getFeaturedTags(
 
     const label = entry.data.linktitle;
     const weight = (entry.data as { weight?: number }).weight ?? 0;
+    const badge = getTagBadge(entry);
     const icon = (entry.data as { icon?: TagIcon }).icon;
     const count = countById?.get(id) ?? 0;
 
     items.push({
+      ...(badge ? { badge } : {}),
       count,
       hideInTagCloud: entry.data.hideInTagCloud ?? false,
       id,
@@ -820,14 +868,19 @@ export async function getFeaturedTagEntries(
   }
 
   // 3) Project once to TagListItem for sorting (cheaper + stable).
-  const items: TagListItem[] = entries.map((entry) => ({
-    count: countById?.get(entry.data.id) ?? 0,
-    hideInTagCloud: entry.data.hideInTagCloud ?? false,
-    id: entry.data.id,
-    label: entry.data.linktitle,
-    url: tagUrl(entry.data.id),
-    weight: (entry.data as { weight?: number }).weight ?? 0,
-  }));
+  const items: TagListItem[] = entries.map((entry) => {
+    const badge = getTagBadge(entry);
+
+    return {
+      ...(badge ? { badge } : {}),
+      count: countById?.get(entry.data.id) ?? 0,
+      hideInTagCloud: entry.data.hideInTagCloud ?? false,
+      id: entry.data.id,
+      label: entry.data.linktitle,
+      url: tagUrl(entry.data.id),
+      weight: (entry.data as { weight?: number }).weight ?? 0,
+    };
+  });
 
   // 4) Sort by requested order (centralised comparators).
   sortTagList(items, order);

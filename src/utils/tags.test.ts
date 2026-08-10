@@ -30,4 +30,13 @@ describe('tag helpers (source contract)', () => {
     expect(src).toContain('const ID_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;');
     expect(src).toContain("const s3 = s2.replace(/[\\s_]+/g, '-');");
   });
+
+  it('carries badge metadata from tag entries to list items', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'tags.ts'), 'utf8');
+
+    expect(src).toContain('export type TagBadge');
+    expect(src).toContain('badge?: TagBadge');
+    expect(src).toContain('function getTagBadge');
+  });
 });

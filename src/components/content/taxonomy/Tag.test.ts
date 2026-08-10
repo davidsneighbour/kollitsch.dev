@@ -20,23 +20,23 @@ describe('Tag component (props contract)', () => {
     const src = await fs.readFile(componentPath, 'utf8');
     const regex = /icon\?\s*:/;
     expect(regex.test(src)).toBe(true);
+    expect(src).toContain('badge?: TagBadge');
+    expect(src).toContain('badge?.icon');
   });
 
-  it('limits inline styles to the optional icon color', async () => {
+  it('uses Badge and icon placement instead of component-local chip CSS', async () => {
     const src = await fs.readFile(componentPath, 'utf8');
-    const styleMatches = src.match(/style=/g) ?? [];
-    const iconStyle = /<Icon[^>]*\sstyle=/;
 
-    expect(
-      styleMatches.length === 0 || (styleMatches.length === 1 && iconStyle.test(src)),
-    ).toBe(true);
+    expect(src).toContain('import Badge from');
+    expect(src).toContain('<Badge');
+    expect(src).toContain('data-icon="inline-start"');
+    expect(src).toContain('data-icon="inline-end"');
+    expect(src).not.toContain('<style>');
   });
 
   it('binds href and dataLabel (uses href and data-label)', async () => {
     const src = await fs.readFile(componentPath, 'utf8');
-    expect(src.includes('href={href}') || src.includes('href=')).toBe(true);
-    expect(
-      src.includes('data-label={dataLabel}') || src.includes('data-label='),
-    ).toBe(true);
+    expect(src).toContain('href,');
+    expect(src).toContain("'data-label': dataLabel");
   });
 });

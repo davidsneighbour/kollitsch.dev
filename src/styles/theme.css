@@ -110,6 +110,13 @@
   --color-red-800: oklch(44.4% 0.177 26.899deg);
   --color-red-900: oklch(39.6% 0.141 25.723deg);
   --color-red-950: oklch(25.8% 0.092 26.042deg);
+  --color-green-50: oklch(98.2% 0.018 155.826deg);
+  --color-green-100: oklch(96.2% 0.044 156.743deg);
+  --color-green-300: oklch(87.1% 0.15 154.449deg);
+  --color-green-400: oklch(79.2% 0.209 151.711deg);
+  --color-green-600: oklch(62.7% 0.194 149.214deg);
+  --color-green-700: oklch(52.7% 0.154 150.069deg);
+  --color-green-950: oklch(26.6% 0.065 152.934deg);
   --color-olive-50: oklch(98.8% 0.003 106.5deg);
   --color-olive-100: oklch(96.6% 0.005 106.5deg);
   --color-olive-200: oklch(93% 0.007 106.5deg);

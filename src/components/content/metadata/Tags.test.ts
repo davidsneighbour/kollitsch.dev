@@ -47,4 +47,14 @@ describe('Tags component rendering', () => {
     expect(html).toContain('#astro');
     expect(html).toContain('#testing');
   });
+
+  it('resolves tag metadata before rendering tag badges', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const componentPath = path.join(testDir, 'Tags.astro');
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain('normaliseTags');
+    expect(src).toContain('<Tag');
+    expect(src).toContain('tag.badge');
+  });
 });

@@ -17,4 +17,15 @@ describe('Badge component (props contract)', () => {
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
   });
+
+  it('supports shadcn-style variants and custom classes', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const componentPath = path.join(testDir, 'Badge.astro');
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain('export type BadgeVariant');
+    expect(src).toContain('variant?: BadgeVariant');
+    expect(src).toContain('green:');
+    expect(src).toContain('${extraClass}');
+  });
 });

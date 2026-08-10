@@ -340,26 +340,66 @@ export const blog = defineCollection({
 
 // MARK: Tags
 const idRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const classList = z
+  .union([z.string(), z.array(z.string())])
+  .optional()
+  .transform((value) => {
+    if (!value) return undefined;
+    const classes = Array.isArray(value) ? value : value.split(/\s+/);
+    const normalized = classes
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0)
+      .join(' ');
+    return normalized.length > 0 ? normalized : undefined;
+  });
 const tagIconName = z
   .string()
   .transform((value) => value.trim())
   .refine((value) => value.length > 0, {
     message: '`icon` name MUST NOT be empty.',
   });
+const tagIconPosition = z
+  .enum(['inline-start', 'inline-end'])
+  .default('inline-start');
 const tagIcon = z
   .union([
     tagIconName,
     z.object({
       name: tagIconName,
       color: z.string().transform((value) => value.trim()).optional(),
+      position: tagIconPosition.optional(),
     }),
   ])
   .optional()
   .transform((value) => {
     if (!value) return undefined;
     if (typeof value === 'string') return { name: value };
-    return value.color ? { name: value.name, color: value.color } : { name: value.name };
+    return {
+      name: value.name,
+      ...(value.color ? { color: value.color } : {}),
+      position: value.position ?? 'inline-start',
+    };
   });
+const tagBadge = z
+  .object({
+    class: classList,
+    icon: tagIcon,
+    variant: z
+      .enum([
+        'default',
+        'secondary',
+        'destructive',
+        'outline',
+        'ghost',
+        'link',
+        'green',
+        'gray',
+        'red',
+      ])
+      .default('default')
+      .optional(),
+  })
+  .optional();
 export const tags = defineCollection({
   loader: glob({ base: './src/content/tags', pattern: '**/*.{md,mdx}' }),
   schema: z
@@ -367,6 +407,7 @@ export const tags = defineCollection({
       aliases: z
         .array(z.string().transform((s) => s.toLowerCase().trim()))
         .optional(),
+      badge: tagBadge,
       class: z.string().optional(),
       cover: cover,
       description: z
@@ -402,6 +443,7 @@ export const tags = defineCollection({
 
       return {
         ...data,
+        badge: data.badge,
         cover: data.cover,
         label: linktitle,
         linktitle,

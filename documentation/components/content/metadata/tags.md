@@ -5,14 +5,14 @@ created: 2026-07-27T00:00:00+07:00
 updated: 2026-07-27T00:00:00+07:00
 ---
 
-Renders a post's tag list as a row of links to each tag's archive page.
+Renders a post's tag list as a row of badge links to each tag's archive page.
 
 ## File locations
 
 | Field | Value |
 | --- | --- |
 | Component | `src/components/content/metadata/Tags.astro` |
-| Data | none (receives tags via `post.data.tags`) |
+| Data | `src/content/tags/*.md` metadata resolved from `post.data.tags` |
 | Tests | [`src/components/content/metadata/Tags.test.ts`](../../../../src/components/content/metadata/Tags.test.ts) |
 
 ## Props
@@ -33,4 +33,7 @@ import Tags from '@components/content/metadata/Tags.astro';
 
 ## Behaviour
 
-This component has no client-side behaviour. It renders nothing when `post.data.tags` is empty or absent. Otherwise it renders a tag icon followed by one `<a href="/tags/<tag>/">#<tag></a>` per tag, with the tag URL-encoded.
+This component has no client-side behaviour. It renders nothing when
+`post.data.tags` is empty or absent. Otherwise it resolves each tag through
+`src/utils/tags.ts` and renders one [`Tag`](../taxonomy/tag.md) badge link per
+canonical tag, including any configured `badge` metadata.

@@ -28,6 +28,13 @@ colors:
   error: "oklch(57.7% 0.245 27.325deg)"
   code-highlight: "oklch(63.7% 0.237 25.331deg)"
   draft-badge-background: "oklch(47% 0.157 37.304deg)"
+  tag-badge-green-50: "oklch(98.2% 0.018 155.826deg)"
+  tag-badge-green-100: "oklch(96.2% 0.044 156.743deg)"
+  tag-badge-green-300: "oklch(87.1% 0.15 154.449deg)"
+  tag-badge-green-400: "oklch(79.2% 0.209 151.711deg)"
+  tag-badge-green-600: "oklch(62.7% 0.194 149.214deg)"
+  tag-badge-green-700: "oklch(52.7% 0.154 150.069deg)"
+  tag-badge-green-950: "oklch(26.6% 0.065 152.934deg)"
   pagination-inactive-dark: "oklch(86.8% 0.007 39.5deg)"
   colophon-watermark: "oklch(96.6% 0.005 106.5deg)"
   colophon-watermark-hover: "oklch(93% 0.007 106.5deg)"
@@ -183,6 +190,25 @@ components:
     textColor: "{colors.surface}"
     rounded: "{rounded.sm}"
     typography: "{typography.label-sm}"
+  tag-badge:
+    rounded: "{rounded.md}"
+    typography: "{typography.label-sm}"
+  tag-badge-green:
+    backgroundColor: "{colors.tag-badge-green-50}"
+    textColor: "{colors.tag-badge-green-700}"
+    rounded: "{rounded.md}"
+    typography: "{typography.label-sm}"
+  tag-badge-green-hover:
+    backgroundColor: "{colors.tag-badge-green-100}"
+  tag-badge-green-focus:
+    textColor: "{colors.tag-badge-green-600}"
+  tag-badge-green-dark:
+    backgroundColor: "{colors.tag-badge-green-950}"
+    textColor: "{colors.tag-badge-green-300}"
+    rounded: "{rounded.md}"
+    typography: "{typography.label-sm}"
+  tag-badge-green-dark-focus:
+    textColor: "{colors.tag-badge-green-400}"
   inline-code:
     backgroundColor: "{colors.code-highlight}"
     rounded: "{rounded.sm}"

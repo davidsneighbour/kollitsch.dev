@@ -16,12 +16,14 @@ describe('TagCloud component (props contract)', () => {
     expect(regex.test(src)).toBe(true);
     expect(src).toContain('TagListItem[] | Map<string, number>');
     expect(src).toContain('searchTags?: TagListItem[]');
-    expect(src).toContain('data-tag-filter-default-hidden');
+    expect(src).toContain("import Tag from './Tag.astro'");
+    expect(src).toContain('dataTagFilterDefaultHidden');
     expect(src).toContain('const counts = visibleItems.map');
     expect(src).toContain("if (hiddenByDefault) return '1rem'");
     expect(src).toContain('function getFontSize');
     expect(src).toContain('data-tag-filter-list');
-    expect(src).toContain('data-label');
+    expect(src).toContain('dataLabel');
+    expect(src).toContain('tag.badge');
   });
 
   it('is used on the tags index page', async () => {

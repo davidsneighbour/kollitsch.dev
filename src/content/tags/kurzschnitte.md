@@ -2,7 +2,11 @@
 id: kurzschnitte
 title: "Kurzschnitte link collections"
 linktitle: "Kurzschnitte"
-class: info
+badge:
+  variant: gray
+  icon:
+    name: scissors
+    position: inline-start
 description: |
   Kurzschnitte II is a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.
 
@@ -10,7 +14,6 @@ description: |
 
   The "news"letter evolved into what became my first blog, which I called "Schreibblogade" (writer's blogade, pun intended) - marking the beginning of an internet era.
 featured: true
-icon: scissors
 cover:
   type: image
   src: tags/kurzschnitte.jpg

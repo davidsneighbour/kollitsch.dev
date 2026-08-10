@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import packageJson from '../../../package.json' with { type: 'json' };
 
-import { GET } from './siteinfo.json.ts';
+import { GET } from '../../pages/api/siteinfo.json.ts';
 
 describe('/api/siteinfo.json', () => {
   it('serves the current package version without cache persistence', async () => {

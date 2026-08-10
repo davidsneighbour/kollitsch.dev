@@ -1,5 +1,45 @@
 # Changelog
 
+## [3001.28.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.27.2...v3001.28.0) (2026-08-10)
+
+### Feat
+
+* **tags:** add badge presentation metadata ([4cd41e8](https://github.com/davidsneighbour/kollitsch.dev/commit/4cd41e8897af9182cf49e6528dc28d8fbbf452e5)), closes [#1858](https://github.com/davidsneighbour/kollitsch.dev/issues/1858)
+
+### Content
+
+* **blog:** require article frontmatter ([4e2f3cf](https://github.com/davidsneighbour/kollitsch.dev/commit/4e2f3cfca1e53666a6697da441b2913269a183d6)), closes [#1855](https://github.com/davidsneighbour/kollitsch.dev/issues/1855)
+* **fix:** proper type front matter for existing blog posts ([28c9bb4](https://github.com/davidsneighbour/kollitsch.dev/commit/28c9bb421342500703843517d58d13189da720b6))
+* **tags:** normalise blog tag identifiers ([b4d71be](https://github.com/davidsneighbour/kollitsch.dev/commit/b4d71be57b52d7b363c24ff38aebeb5f1ed4307e)), closes [#1857](https://github.com/davidsneighbour/kollitsch.dev/issues/1857)
+
+### Fix
+
+* **scripts:** escape untrusted feed data before writing RSS output ([8d607f9](https://github.com/davidsneighbour/kollitsch.dev/commit/8d607f9be9811baec30cf49e7afe7b5dedd8eca6)), closes [#73](https://github.com/davidsneighbour/kollitsch.dev/issues/73)
+* **scripts:** remove TOCTOU race in lighthouse history read ([dc3a660](https://github.com/davidsneighbour/kollitsch.dev/commit/dc3a66012669acb56b543123497693afdf1e364e)), closes [#74](https://github.com/davidsneighbour/kollitsch.dev/issues/74)
+* **scripts:** validate fetched thumbnails are actually JPEGs ([4b18670](https://github.com/davidsneighbour/kollitsch.dev/commit/4b1867077e9c6c439e6415a20b0a56eace40f51d))
+
+### Refactor
+
+* **components:** reorganise pagenav/shadcn-ui into functional folders ([593b488](https://github.com/davidsneighbour/kollitsch.dev/commit/593b488e76d4e3b4f56af0c87c930f9170452137))
+* **structure:** move data/ and netlify/ under src/ ([b6c5169](https://github.com/davidsneighbour/kollitsch.dev/commit/b6c51693ef7a76e1a665c5de7951917ef9bba5ff))
+
+### Docs
+
+* **agents:** note shadcn components use Radix UI, not Base UI ([917d3f4](https://github.com/davidsneighbour/kollitsch.dev/commit/917d3f47868da336db45b5e683a0f5409ccb34b6))
+* **tags:** update badge metadata guidance ([b621449](https://github.com/davidsneighbour/kollitsch.dev/commit/b6214496fcf6994d6d6b72c2d900d475e3b3a958)), closes [#1859](https://github.com/davidsneighbour/kollitsch.dev/issues/1859)
+
+### Build
+
+* **deps:** update dependencies ([2e29ea8](https://github.com/davidsneighbour/kollitsch.dev/commit/2e29ea8d259b602babfa66792e475002b44559e8))
+* **fix:** update frontmatter configuration ([0661adf](https://github.com/davidsneighbour/kollitsch.dev/commit/0661adf778965df713b4d3a18e7b9263a4a42a1d))
+* **fix:** update frontmatter configuration for articles ([ca531d3](https://github.com/davidsneighbour/kollitsch.dev/commit/ca531d359a741a90f77861c74824e6299a00be58))
+* **fix:** update taxonomies in frontmatter ([da11b54](https://github.com/davidsneighbour/kollitsch.dev/commit/da11b54860800fdeef0c619b9b1a0fd178542385))
+
+### Chore
+
+* **lighthouse:** update score history [skip ci] ([f187b04](https://github.com/davidsneighbour/kollitsch.dev/commit/f187b04a1710bf20fecf08d09c7c321f481ba89b))
+* **scripts:** remove unused create-releases maintenance script ([2723b2e](https://github.com/davidsneighbour/kollitsch.dev/commit/2723b2e947b71e1494bce25f3a90cfb17a0a59a4))
+
 ## [3001.27.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.27.1...v3001.27.2) (2026-08-10)
 
 ### Fix

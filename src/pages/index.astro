@@ -1,16 +1,16 @@
 ---
-import FeedReader from "@components/features/feeds/FeedReader.astro";
-import RandomHeading from "@components/gimmicks/RandomHeading.astro";
-import TvHead from "@components/gimmicks/TvHead.astro";
-import Featured from "@components/pages/home/Featured.astro";
-import Recent from "@components/pages/home/Recent.astro";
-import setup from "@data/setup.json" with { type: "json" };
-import Layout from "@layouts/DefaultPage.astro";
+import FeedReader from '@components/features/feeds/FeedReader.astro';
+import RandomHeading from '@components/gimmicks/RandomHeading.astro';
+import TvHead from '@components/gimmicks/TvHead.astro';
+import Featured from '@components/pages/home/Featured.astro';
+import Recent from '@components/pages/home/Recent.astro';
+import setup from '@data/setup.json' with { type: 'json' };
+import Layout from '@layouts/DefaultPage.astro';
 
 const post = {
   data: {
     description: setup.description,
-    title: "Welcome on " + setup.title,
+    title: 'Welcome on ' + setup.title,
   },
 };
 ---
@@ -19,7 +19,10 @@ const post = {
   <Featured />
   <Recent />
 
-  <RandomHeading slug="interrupt" text="Allow me to interrupt!" />
+  <RandomHeading
+    slug="interrupt"
+    text="Allow me to interrupt!"
+  />
   <div class="mb-5 bg-transparent">
     <!--
     ## tv-002.png
@@ -48,18 +51,15 @@ const post = {
       foregroundEffectClass="pointer-events-none"
       foregroundZoom={1.2}
       foregroundZoomOrigin="center center"
-      backgroundVhsOptions={{
-        speed: 0.8,
-        wave: 2.4,
-        jitter: 2,
-        crease: 2,
-        switching: 0.08,
-        bloom: 0.75,
-        aberration: 3,
-        grain: 0.2,
-        scanlines: 0.25,
-        saturation: 0.9,
-        exposure: 1,
+      backgroundGlitchOptions={{
+        blocks: 0.62,
+        duration: 0.45,
+        intensity: 1.2,
+        interval: 0,
+        noise: 0.36,
+        rgbShift: 5,
+        shift: 34,
+        slices: 22,
       }}
     />
   </div>

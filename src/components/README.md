@@ -32,8 +32,8 @@ for the rules that keep it that way.
   `CardLink.astro`, `TextImageFill.astro`, `Wordmark.astro`). **Not shadcn/ui** -
   see note below.
 * `gimmicks/` - visual novelties and canvas/animation experiments (for example
-  `TvHead.astro`, `LetterGlitch.astro`, `vhs.tsx`) that are not part of the core
-  UI.
+  `TvHead.astro`, `LetterGlitch.astro`, `glitch.tsx`) that are not part of the
+  core UI.
 * `devtools/` - development only utilities that assist during implementation.
 * `seo/` - structured data helpers and related head metadata fragments, grouped
   under `schema/` (JSON-LD building blocks).
@@ -60,7 +60,7 @@ that responsibility would use:
 * `shared/elements/button.tsx`, `shared/elements/card.tsx` - generic UI
   primitives, alongside the hand-written `Button.astro`/`Badge.astro`.
 * `forms/input.tsx`, `forms/textarea.tsx` - form fields.
-* `gimmicks/vhs.tsx` - Canvas UI's generated VHS effect, filed with visual
+* `gimmicks/glitch.tsx` - Canvas UI's generated Glitch effect, filed with visual
   experiments because it is used as an isolated Astro island rather than a
   reusable UI primitive.
 
@@ -77,7 +77,7 @@ The toolchain itself:
   practice most generated `.tsx` files exist as the canonical class recipe, and
   the same literal class string is copied onto native, vanilla-JS-driven
   elements instead (see `DESIGN.md`'s "Form Fields" section). Browser-effect
-  components such as `gimmicks/vhs.tsx` hydrate only where the runtime API is
+  components such as `gimmicks/glitch.tsx` hydrate only where the runtime API is
   required.
 * `components.json` at the repo root configures the CLI (`style: new-york`,
   `baseColor: gray`, CSS variables on). Its `ui` alias points at

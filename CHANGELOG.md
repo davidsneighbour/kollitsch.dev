@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.27.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.27.1...v3001.27.2) (2026-08-10)
+
+### Fix
+
+* **api:** keep siteinfo test out of routes ([fead7e4](https://github.com/davidsneighbour/kollitsch.dev/commit/fead7e4715063530c409c8e44039af78b6f55991)), closes [#1854](https://github.com/davidsneighbour/kollitsch.dev/issues/1854)
+
 ## [3001.27.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.27.0...v3001.27.1) (2026-08-10)
 
 ### Fix

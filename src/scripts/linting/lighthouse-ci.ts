@@ -4,7 +4,6 @@
 
 import path from 'node:path';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
 import process from 'node:process';
 import { execSync } from 'node:child_process';
 import { launch } from 'chrome-launcher';
@@ -73,9 +72,11 @@ const record = {
 await mkdir(path.dirname(historyPath), { recursive: true });
 
 let history: unknown[] = [];
-if (existsSync(historyPath)) {
+try {
   const raw = await readFile(historyPath, 'utf8');
   history = JSON.parse(raw);
+} catch (err) {
+  if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
 }
 
 history.push(record);

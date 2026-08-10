@@ -1,5 +1,13 @@
 # Changelog
 
+## [3001.27.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.27.0...v3001.27.1) (2026-08-10)
+
+### Fix
+
+* **button:** align semantic colour themes ([b383295](https://github.com/davidsneighbour/kollitsch.dev/commit/b383295fa7256afa0e2180d3b28a52e22cc890bb)), closes [#1852](https://github.com/davidsneighbour/kollitsch.dev/issues/1852)
+* **footer:** prevent stale version metadata ([7da0435](https://github.com/davidsneighbour/kollitsch.dev/commit/7da0435443a90a83963f596cbcd7cf29a5adc189)), closes [#1851](https://github.com/davidsneighbour/kollitsch.dev/issues/1851)
+* **wordmark:** inherit inline text colour ([35db968](https://github.com/davidsneighbour/kollitsch.dev/commit/35db9681dc420ed45293ad155629d85f7d6adcf6)), closes [#1853](https://github.com/davidsneighbour/kollitsch.dev/issues/1853)
+
 ## [3001.27.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.26.0...v3001.27.0) (2026-08-09)
 
 ### Content

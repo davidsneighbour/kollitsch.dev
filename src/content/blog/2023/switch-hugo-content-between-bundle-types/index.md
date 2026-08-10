@@ -15,7 +15,7 @@ tags:
   - gohugo
   - bash
   - quicky
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: 1COcTd3pRCg
 cover:

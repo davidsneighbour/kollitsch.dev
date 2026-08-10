@@ -7,7 +7,7 @@ linkTitle: PM7
 tags:
   - programming-music
   - queensryche
-  - 100daystooffload
+  - 100-days-to-offload
 resources:
   - src: header.jpg
     title: Silent Lucidity

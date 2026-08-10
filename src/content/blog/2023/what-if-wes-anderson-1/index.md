@@ -11,7 +11,7 @@ summary: >-
 tags:
   - wes-anderson
   - video
-  - 100daystooffload
+  - 100-days-to-offload
   - artificial-intelligence
 resources:
   - src: header.jpg

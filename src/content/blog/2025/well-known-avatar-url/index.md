@@ -18,7 +18,7 @@ resources:
 tags:
   - internals
   - well-known
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./imkara-visual-3blY8iC2o5M-unsplash.jpg
   type: image

@@ -8,7 +8,7 @@ resources:
     src: header.png
 tags:
   - google
-  - webdesign
+  - web-design
 cover:
   src: ./header.png
   type: image

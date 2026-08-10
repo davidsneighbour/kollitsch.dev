@@ -5,10 +5,10 @@ description: "A quick guide, that covers the steps to ensure a custom font uses 
 summary: "A quick guide, that covers the steps to ensure a custom font uses font-weight: 400 in all occurrences in TailwindCSS 4.1, including creating utility classes and setting up linting for misuse."
 date: 2025-09-12T14:02:11.569Z
 tags:
-  - tailwindcss
+  - tailwind-css
   - how-to
   - font-weight
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./the-quick-brown-fox.png
   type: image

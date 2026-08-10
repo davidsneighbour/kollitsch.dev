@@ -15,7 +15,7 @@ date: 2024-05-12T19:55:46+07:00
 tags:
   - wes-anderson
   - advertisement
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: video

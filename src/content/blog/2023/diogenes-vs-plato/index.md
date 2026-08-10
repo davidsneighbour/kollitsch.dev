@@ -15,7 +15,7 @@ tags:
   - philosophy
   - quotes
   - knowledge
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: OlAoxfMngZ4
 cover:

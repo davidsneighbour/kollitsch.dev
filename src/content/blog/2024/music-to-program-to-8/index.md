@@ -14,7 +14,7 @@ summary: >-
 tags:
   - programming-music
   - above-and-beyond
-  - 100daystooffload
+  - 100-days-to-offload
   - programming-environment
 resources:
   - src: header.jpg

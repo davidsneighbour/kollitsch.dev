@@ -1,5 +1,7 @@
 ---
-id: 100daystooffload
+id: 100-days-to-offload
+aliases:
+  - 100daystooffload
 hideInTagCloud: true
 title: "100 Days To Offload challenge"
 linktitle: "100 Days To Offload"

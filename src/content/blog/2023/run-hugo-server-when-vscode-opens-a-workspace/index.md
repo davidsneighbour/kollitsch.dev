@@ -14,7 +14,7 @@ resources:
 tags:
   - vscode
   - automation
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: robot-playing-piano-U3sOwViXhkY
 cover:

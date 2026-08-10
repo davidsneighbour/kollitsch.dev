@@ -11,7 +11,7 @@ tags:
   - chemistry
   - useless-knowledge
   - quicky
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./ave-calvar-MRAu_cKpVqI-unsplash.jpg
   type: image

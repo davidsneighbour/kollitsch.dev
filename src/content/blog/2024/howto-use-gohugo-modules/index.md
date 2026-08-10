@@ -21,7 +21,7 @@ tags:
   - gohugo
   - modules
   - how-to
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: pswcXNE8690
 cover:

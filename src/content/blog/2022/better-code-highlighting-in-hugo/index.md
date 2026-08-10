@@ -14,9 +14,9 @@ resources:
     src: header.jpg
 tags:
   - gohugo
-  - howto
+  - how-to
   - render-hook
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

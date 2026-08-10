@@ -22,4 +22,12 @@ describe('tag helpers (source contract)', () => {
     expect(src).not.toContain('if (hit?.data.hideInTagCloud');
     expect(src).not.toContain('if (entry.data.hideInTagCloud === true)');
   });
+
+  it('normalises tag identifiers to lowercase kebab-case only', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'tags.ts'), 'utf8');
+
+    expect(src).toContain('const ID_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;');
+    expect(src).toContain("const s3 = s2.replace(/[\\s_]+/g, '-');");
+  });
 });

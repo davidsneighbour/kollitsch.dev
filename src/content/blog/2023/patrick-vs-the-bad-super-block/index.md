@@ -14,7 +14,7 @@ tags:
   - patrick-versus
   - hardware
   - troubleshooting
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: 1iVKwElWrPA
 cover:

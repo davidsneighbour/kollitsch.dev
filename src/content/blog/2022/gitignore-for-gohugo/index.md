@@ -12,7 +12,7 @@ tags:
   - git
   - gitignore
   - developers
-  - 100daystooffload
+  - 100-days-to-offload
 aliases:
   - /blog/2021/gitignore-for-gohugo/
 cover:

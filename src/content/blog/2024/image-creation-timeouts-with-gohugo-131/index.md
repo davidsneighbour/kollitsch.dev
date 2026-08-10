@@ -12,7 +12,7 @@ tags:
   - gohugo
   - tag2
   - tag3
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./hugo-0.131.0.png
   type: image

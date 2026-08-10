@@ -19,8 +19,8 @@ tags:
   - markdown
   - github
   - documentation
-  - howto
-  - 100daystooffload
+  - how-to
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

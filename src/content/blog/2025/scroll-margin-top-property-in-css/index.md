@@ -14,9 +14,9 @@ resources:
     src: getty-images-ltpb_WinC3Y-unsplash.jpg
 tags:
   - css
-  - howto
+  - how-to
   - hacks
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./getty-images-ltpb_WinC3Y-unsplash.jpg
   type: image

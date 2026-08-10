@@ -15,10 +15,10 @@ resources:
       [Unsplash](https://unsplash.com/)
     src: louis-reed-MaDXpqp1vM0-unsplash.jpg
 tags:
-  - raspberrypi
+  - raspberry-pi
   - bash
-  - howto
-  - 100daystooffload
+  - how-to
+  - 100-days-to-offload
 unsplash:
   imageid: MaDXpqp1vM0
 cover:

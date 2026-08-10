@@ -13,7 +13,7 @@ resources:
 tags:
   - links
   - design
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./Rolling-Stone-1967-logo.png
   type: image

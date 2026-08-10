@@ -6,7 +6,7 @@ tags:
   - programming-music
   - electronic
   - floating-points
-  - 100daystooffload
+  - 100-days-to-offload
 resources:
   - src: header.jpg
 

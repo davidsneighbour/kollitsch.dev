@@ -15,7 +15,7 @@ tags:
   - trent-reznor
   - nine-inch-nails
   - synthesizer
-  - 100daystooffload
+  - 100-days-to-offload
 publisher: rework
 cover:
   src: ./header.jpg

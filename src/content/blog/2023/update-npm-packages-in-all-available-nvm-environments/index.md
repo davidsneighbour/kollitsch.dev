@@ -16,7 +16,7 @@ tags:
   - npm
   - nvm
   - cronjob
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: oZMUrWFHOB4
 cover:

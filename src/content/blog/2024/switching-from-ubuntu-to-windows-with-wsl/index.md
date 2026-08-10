@@ -23,7 +23,7 @@ tags:
   - ubuntu
   - windows-11
   - wsl-2
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: yGPxCYPS8H4
 cover:

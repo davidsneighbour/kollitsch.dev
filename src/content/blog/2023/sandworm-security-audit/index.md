@@ -13,7 +13,7 @@ tags:
   - security
   - linting
   - opsec
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.png
   type: image

@@ -6,7 +6,7 @@ tags:
   - programming-music
   - electronic-music
   - glass-animals
-  - 100daystooffload
+  - 100-days-to-offload
 resources:
   - src: header.jpg
 date: 2024-06-17T20:41:40+07:00

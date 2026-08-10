@@ -15,10 +15,10 @@ resources:
   - title: Front Matter
     src: frontmatter.png
 tags:
-  - nodejs
+  - node-js
   - frontmatter
   - gohugo
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./frontmatter.png
   type: image

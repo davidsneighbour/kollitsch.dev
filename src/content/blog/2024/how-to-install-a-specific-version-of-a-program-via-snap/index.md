@@ -13,9 +13,9 @@ resources:
 tags:
   - ubuntu
   - snap
-  - howto
+  - how-to
   - golang
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: B0aJBySo8dc
 cover:

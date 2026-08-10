@@ -8,7 +8,7 @@ publishdate: 2021-10-28T21:56:41+07:00
 tags:
   - quicktip
   - ordinals
-  - dateformat
+  - date-format
   - gohugo
 cover:
   src: ./mick-haupt-ePHz9WOME0c-unsplash.jpg

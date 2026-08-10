@@ -16,7 +16,7 @@ tags:
   - github
   - feature
   - project-management
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./yancy-min-842ofHC6MaI-unsplash.jpg
   type: image

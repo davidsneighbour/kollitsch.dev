@@ -14,11 +14,11 @@ resources:
   - title: All the packages…
     src: getty-images-Hh_4mKRYAPM-unsplash.jpg
 tags:
-  - howto
+  - how-to
   - ubuntu-2404
   - flatpak
   - quicky
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./getty-images-Hh_4mKRYAPM-unsplash.jpg
   type: image

@@ -12,9 +12,9 @@ resources:
     src: zbarely-legal.jpg
 tags:
   - twitter
-  - howto
+  - how-to
   - erasing-social-media
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.webp
   type: image

@@ -17,7 +17,7 @@ tags:
   - gohugo
   - bash
   - script
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: M0Ozda1sRYs
 cover:

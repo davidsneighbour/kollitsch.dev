@@ -10,8 +10,8 @@ resources:
       [Unsplash](https://unsplash.com/)
     src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 tags:
-  - 100daystooffload
-  - selfimprovement
+  - 100-days-to-offload
+  - self-improvement
   - davidsneighbour
 aliases:
   - /100daystooffload

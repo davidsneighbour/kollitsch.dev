@@ -13,7 +13,7 @@ resources:
 tags:
   - bash
   - git
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: wX2L8L-fGeA
 cover:

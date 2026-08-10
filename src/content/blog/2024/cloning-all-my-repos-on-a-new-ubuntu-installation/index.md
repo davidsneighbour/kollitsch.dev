@@ -13,9 +13,9 @@ resources:
     src: header.jpg
 tags:
   - ubuntu-2404
-  - howto
+  - how-to
   - git
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

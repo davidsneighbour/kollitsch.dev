@@ -17,7 +17,7 @@ tags:
   - dotfiles
   - privacy
   - security
-  - 100daystooffload
+  - 100-days-to-offload
   - git
 cover:
   src: ./header.jpg

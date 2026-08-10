@@ -13,7 +13,7 @@ tags:
   - pipes
   - logging
   - debugging
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   id: vUNQaTtZeOo
 cover:

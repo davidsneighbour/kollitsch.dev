@@ -11,7 +11,7 @@ summary: >-
 tags:
   - wes-anderson
   - video
-  - 100daystooffload
+  - 100-days-to-offload
   - horror-movie
 resources:
   - src: header.jpg

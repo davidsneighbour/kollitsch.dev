@@ -13,7 +13,7 @@ resources:
 tags:
   - bash
   - git
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

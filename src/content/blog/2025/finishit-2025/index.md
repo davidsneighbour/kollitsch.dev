@@ -8,10 +8,10 @@ resources:
   - title: "FiniSh\U0001F4A9t 2025"
     src: alexander-mils-ULL-cyKjpd4-unsplash.jpg
 tags:
-  - finishit
+  - finish-it
   - self-improvement
   - kollitsch-dev
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./alexander-mils-ULL-cyKjpd4-unsplash.jpg
   type: image

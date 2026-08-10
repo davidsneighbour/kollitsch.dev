@@ -17,7 +17,7 @@ tags:
   - ubuntu-2404
   - hardware
   - how-to
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: l2nY0rP07DI
 cover:

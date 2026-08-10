@@ -12,7 +12,7 @@ tags:
   - ubuntu
   - snapd
   - gohugo
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./markus-winkler-qPjV8XaXPTQ-unsplash.jpg
   type: image

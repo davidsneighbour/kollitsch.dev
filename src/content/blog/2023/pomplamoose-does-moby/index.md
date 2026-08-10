@@ -8,7 +8,7 @@ description: >-
 tags:
   - moby
   - pomplamoose
-  - 100daystooffload
+  - 100-days-to-offload
 resources:
   - src: header.jpg
     title: Pomplamoose does Moby

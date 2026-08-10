@@ -20,9 +20,9 @@ resources:
     src: default-src-report.png
 tags:
   - csp
-  - howto
+  - how-to
   - svg
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
   type: image

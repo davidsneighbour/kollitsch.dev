@@ -4,7 +4,7 @@ title: A Zookeeper's Guide to tsconfig.json
 description: A practical guide to configuring TypeScript for a safer, more maintainable codebase. Learn which tsconfig options are essential for catching bugs and improving developer experience.
 draft: true
 date: 2026-04-11T09:45:53.285Z
-tags: [typescript, howto, configuration, metaphors]
+tags: [typescript, how-to, configuration, metaphors]
 cover:
   src: "eierlegende-wollmilchsau.webp"
   title: "Die eierlegende Wollmilchsau&trade;"

@@ -9,10 +9,10 @@ date: 2023-11-11T21:16:05+07:00
 resources:
   - src: header.png
 tags:
-  - alpinejs
+  - alpine-js
   - esbuild
   - component
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.png
   type: image

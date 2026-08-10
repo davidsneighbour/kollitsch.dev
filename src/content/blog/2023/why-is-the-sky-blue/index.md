@@ -10,7 +10,7 @@ resources:
 tags:
   - physics
   - social-media
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: A-V2Vb6R9NQ
 cover:

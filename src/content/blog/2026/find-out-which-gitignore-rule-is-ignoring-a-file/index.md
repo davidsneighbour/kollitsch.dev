@@ -13,7 +13,7 @@ tags:
   - today-i-learned
   - git
   - gitignore
-  - howto
+  - how-to
 ---
 
 When Git ignores a file and I do not know why, I ask Git.

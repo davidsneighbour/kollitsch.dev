@@ -12,7 +12,7 @@ tags:
   - bash
   - semver
   - build
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4
 cover:

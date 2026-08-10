@@ -166,7 +166,7 @@ export class TagFormatError extends Error {
 // Constants (module-local)
 // ──────────────────────────────────────────────────────────────────────────────
 
-const ID_REGEX = /^[a-z0-9_-]+$/;
+const ID_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 /** Intentional, minimal transliteration for ASCII slugs. */
 const ASCII_MAP: Record<string, string> = {
@@ -370,7 +370,7 @@ function buildDebugMsg(msg: string, ctx?: Ctx, raw?: string): string {
 
 /**
  * Lowest-level slug normaliser.
- * - Returns canonical id (`a-z0-9_-`) or '' if the cleaned result is empty.
+ * - Returns canonical id (`a-z0-9` with dashes between words) or '' if the cleaned result is empty.
  * - Throws TagFormatError on nullish, hashtag usage, or invalid id.
  *
  * @example normaliseTagUnsafe('Tailwind CSS') -> 'tailwind-css'
@@ -403,8 +403,8 @@ export function normaliseTagUnsafe(raw: string, ctx?: Ctx): string {
 
   const s1 = toAsciiLower(s0);
   const s2 = s1.replace(/[^a-z0-9 _-]+/g, '');
-  const s3 = s2.replace(/\s+/g, '-');
-  const id = s3.replace(/-+/g, '-').replace(/^[-_]+|[-_]+$/g, '');
+  const s3 = s2.replace(/[\s_]+/g, '-');
+  const id = s3.replace(/-+/g, '-').replace(/^-+|-+$/g, '');
 
   if (id === '') return '';
   if (!ID_REGEX.test(id)) {

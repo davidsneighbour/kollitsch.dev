@@ -16,7 +16,7 @@ resources:
     src: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
 tags:
   - bash
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
   type: image

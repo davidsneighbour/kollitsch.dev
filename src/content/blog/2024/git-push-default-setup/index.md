@@ -15,7 +15,7 @@ resources:
 tags:
   - git
   - configuration
-  - 100daystooffload
+  - 100-days-to-offload
 date: 2024-04-12T21:09:32+07:00
 cover:
   src: ./header.jpg

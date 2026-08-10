@@ -15,7 +15,7 @@ resources:
 tags:
   - cat
   - dog
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: ouo1hbizWwo
 cover:

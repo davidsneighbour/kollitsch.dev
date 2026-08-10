@@ -26,13 +26,16 @@ property index.
 
 Posts list tags in blog frontmatter. Tags are normalised by `src/utils/tags.ts`
 before they are used for URLs, counts, aliases, and display labels.
+Write tag ids in lowercase kebab-case: words are separated with dashes, never
+spaces, underscores, camel case, PascalCase, leading hash marks, or
+slash-prefixed route aliases.
 
 ```yaml
 ---
 title: Example Post
 tags:
   - astro
-  - 100daystooffload
+  - 100-days-to-offload
 ---
 ```
 
@@ -47,7 +50,9 @@ fields are `id` and `title`.
 
 ```yaml
 ---
-id: 100daystooffload
+id: 100-days-to-offload
+aliases:
+  - 100daystooffload
 hideInTagCloud: true
 title: "100 Days To Offload challenge"
 linktitle: "100 Days To Offload"
@@ -63,7 +68,7 @@ cover:
 
 | Field | Required | Purpose |
 | --- | --- | --- |
-| `id` | yes | Canonical lowercase tag id used for URLs and alias resolution |
+| `id` | yes | Canonical lowercase kebab-case tag id used for URLs and alias resolution |
 | `title` | yes | Full title for tag metadata and card contexts |
 | `linktitle` | no | Plain-text label used in tag links; falls back to `title` |
 | `aliases` | no | Lowercase alternative ids that resolve to the canonical tag |
@@ -100,7 +105,7 @@ or operational tags that appear on many posts.
 
 ```yaml
 ---
-id: 100daystooffload
+id: 100-days-to-offload
 hideInTagCloud: true
 title: "100 Days To Offload challenge"
 ---

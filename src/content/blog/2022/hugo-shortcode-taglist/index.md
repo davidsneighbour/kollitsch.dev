@@ -19,7 +19,7 @@ resources:
 tags:
   - gohugo
   - shortcode
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./joanna-kosinska-1_CMoFsPfso-unsplash.jpg
   type: image

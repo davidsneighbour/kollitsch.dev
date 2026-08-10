@@ -11,7 +11,7 @@ tags:
   - notes
   - self-improvement
   - davidsneighbour
-  - 100daystooffload
+  - 100-days-to-offload
 aliases:
   - /blog/2022/notes-from-the-laboratory-february-2022
 cover:

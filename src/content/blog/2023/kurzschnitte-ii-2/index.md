@@ -8,7 +8,7 @@ date: 2023-12-03T17:37:20+07:00
 tags:
   - kurzschnitte
   - bookmarks
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: UcEzgZ6k19o
 cover:

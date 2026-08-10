@@ -12,9 +12,9 @@ resources:
     src: header.jpg
 tags:
   - vscode
-  - howto
+  - how-to
   - workspace
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

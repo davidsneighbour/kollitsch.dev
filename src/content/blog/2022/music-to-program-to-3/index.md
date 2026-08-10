@@ -8,7 +8,7 @@ tags:
   - programming-music
   - piano
   - ben-lukas-boysen
-  - 100daystooffload
+  - 100-days-to-offload
 resources:
   - src: header.jpg
 

@@ -15,8 +15,8 @@ tags:
   - automation
   - npm
   - devops
-  - howto
-  - 100daystooffload
+  - how-to
+  - 100-days-to-offload
 unsplash:
   imageid: oZMUrWFHOB4
 cover:

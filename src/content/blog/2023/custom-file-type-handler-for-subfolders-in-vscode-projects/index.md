@@ -16,7 +16,7 @@ tags:
   - vscode
   - configuration
   - project-management
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: oXlXu2qukGE
 cover:

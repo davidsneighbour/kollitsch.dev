@@ -5,7 +5,7 @@ description: >-
   Learn how to pin npm package versions effectively to ensure stability and
   control in your projects.
 date: 2025-10-11T11:37:50.444Z
-tags: [npm, how-to, development, 100daystooffload]
+tags: [npm, how-to, development, 100-days-to-offload]
 cover:
   src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image

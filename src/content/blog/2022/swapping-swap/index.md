@@ -12,8 +12,8 @@ resources:
     src: header.jpg
 tags:
   - ubuntu
-  - howto
-  - 100daystooffload
+  - how-to
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

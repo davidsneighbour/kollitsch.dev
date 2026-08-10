@@ -13,7 +13,7 @@ resources:
 tags:
   - wordpress
   - php
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: Zk--Ydz2IAs
 cover:

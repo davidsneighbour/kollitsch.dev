@@ -14,7 +14,7 @@ resources:
 tags:
   - twitter
   - links
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

@@ -13,7 +13,7 @@ tags:
   - helene-vogelsinger
   - synthesizer
   - video
-  - 100daystooffload
+  - 100-days-to-offload
 
 cover:
   src: ./header.jpg

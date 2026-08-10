@@ -12,7 +12,7 @@ tags:
   - javascript
   - css
   - back-to-top
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: bEOrxHU2Op8
 cover:

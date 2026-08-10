@@ -13,12 +13,12 @@ resources:
       [Unsplash](https://unsplash.com)
     src: artiom-vallat-mx9axbKqKW8-unsplash.jpg
 tags:
-  - howto
+  - how-to
   - ubuntu
   - acer
   - uefi
   - efi
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
   type: image

@@ -8,7 +8,7 @@ description: >-
   (CSP) and inline styles.
 tags:
   - gohugo
-  - syntaxhighlighting
+  - syntax-highlighting
   - sri
   - csp
 cover:

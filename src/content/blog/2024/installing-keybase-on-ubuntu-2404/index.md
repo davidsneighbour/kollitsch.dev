@@ -14,8 +14,8 @@ resources:
 tags:
   - ubuntu-2404
   - keybase
-  - howto
-  - 100daystooffload
+  - how-to
+  - 100-days-to-offload
 cover:
   src: ./ubuntu-wallpaper-d.png
   type: image

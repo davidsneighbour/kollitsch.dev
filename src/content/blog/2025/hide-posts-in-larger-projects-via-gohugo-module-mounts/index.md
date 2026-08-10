@@ -18,7 +18,7 @@ tags:
   - gohugo
   - modules
   - website-management
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./valeria-nikitina-li709Gx8v_w-unsplash.jpg
   type: image

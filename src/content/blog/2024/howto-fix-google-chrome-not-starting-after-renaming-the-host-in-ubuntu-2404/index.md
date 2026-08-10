@@ -15,9 +15,9 @@ resources:
     src: ubuntu-wallpaper-d.png
 tags:
   - ubuntu-2404
-  - howto
+  - how-to
   - google-chrome
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./ubuntu-wallpaper-d.png
   type: image

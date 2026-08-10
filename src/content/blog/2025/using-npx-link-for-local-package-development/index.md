@@ -10,7 +10,7 @@ tags:
   - npm
   - how-to
   - development
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
   type: image

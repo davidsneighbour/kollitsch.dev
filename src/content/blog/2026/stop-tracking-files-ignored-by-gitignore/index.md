@@ -10,7 +10,7 @@ tags:
 - gitignore
 - dotfiles
 - cli
-- howto
+- how-to
 cover:
   src: roman-synkevych-wX2L8L-fGeA-unsplash.jpg
   type: image

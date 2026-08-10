@@ -13,9 +13,9 @@ resources:
 tags:
   - es-modules
   - refactoring
-  - howto
+  - how-to
   - javascript
-  - 100daystooffload
+  - 100-days-to-offload
 unsplash:
   imageid: pile-of-rubber-duckies-59yg_LpcvzQ
 cover:

@@ -12,7 +12,7 @@ resources:
 tags:
   - developer-fonts
   - typography
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.png
   type: image

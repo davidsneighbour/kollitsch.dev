@@ -11,9 +11,9 @@ resources:
     copyright: unsplash-plus
 tags:
   - netlify
-  - linkshortening
+  - link-shortening
   - networking
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: image

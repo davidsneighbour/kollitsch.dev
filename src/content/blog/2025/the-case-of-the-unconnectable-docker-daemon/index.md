@@ -18,7 +18,7 @@ tags:
   - docker
   - troubleshooting
   - forensics
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./docker-forensics.png
   type: image

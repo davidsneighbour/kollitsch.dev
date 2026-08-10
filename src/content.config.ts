@@ -194,7 +194,7 @@ export const blogSchema = z
       }),
     draft: z.boolean().default(false).optional(),
     featured: z.boolean().default(false).optional(),
-    fmContentType: z.literal('article'),
+    fmContentType: z.enum(['article', 'blog']),
     /**
      * Extra Netlify response headers for this post's own URL only - no path
      * is specified because it's implicit (the page's own permalink). See
@@ -252,9 +252,9 @@ export const blogSchema = z
               .replace(/^['"]+|['"]+$/g, '')
               .toLowerCase(),
           )
-          .refine((tag) => /^[a-z0-9_-]+$/.test(tag), {
+          .refine((tag) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tag), {
             message:
-              'Tags MUST only contain lowercase letters, numbers, dashes (-), or underscores (_).',
+              'Tags MUST be lowercase kebab-case: use letters, numbers, and dashes between words.',
           }),
       )
       .optional(),
@@ -339,7 +339,7 @@ export const blog = defineCollection({
 });
 
 // MARK: Tags
-const idRegex = /^[a-z0-9_-]+$/;
+const idRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const tagIconName = z
   .string()
   .transform((value) => value.trim())

@@ -12,7 +12,7 @@ tags:
   - notes
   - self-improvement
   - davidsneighbour
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
   type: image

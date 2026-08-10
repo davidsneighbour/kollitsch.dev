@@ -11,10 +11,10 @@ resources:
     src: nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
 tags:
   - wordpress
-  - updraftplus
+  - updraft-plus
   - plugin
   - nagging
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
   type: image

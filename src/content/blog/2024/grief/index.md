@@ -16,7 +16,7 @@ tags:
   - elmo
   - andrew-garfield
   - emotions
-  - 100daystooffload
+  - 100-days-to-offload
 cover:
   src: ./header.jpg
   type: video

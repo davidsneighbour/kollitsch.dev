@@ -11,7 +11,7 @@ tags:
   - laboratory
   - notes
   - self-improvement
-  - 100daystooffload
+  - 100-days-to-offload
 aliases:
   - /notes-from-the-laboratory-july-2023
 cover:

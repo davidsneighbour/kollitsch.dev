@@ -18,8 +18,8 @@ tags:
   - wordpress
   - localwp
   - ubuntu-2404
-  - howto
-  - 100daystooffload
+  - how-to
+  - 100-days-to-offload
 cover:
   src: ./header.png
   type: image

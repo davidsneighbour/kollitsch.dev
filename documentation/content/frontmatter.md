@@ -83,21 +83,29 @@ Markdown headings or filenames.
 ## Tag Metadata
 
 Tag metadata files describe canonical tags used by posts and the tag overview.
-See [Tags](tags.md) for the full tag model, `hideInTagCloud`, featured tag
-cards, and overview search.
+See [Tags](tags.md) for the full tag model, badge presentation metadata,
+`hideInTagCloud`, featured tag cards, and overview search.
 
 | Property | Required | Type | Use |
 | --- | --- | --- | --- |
 | `aliases` | no | `string[]` | Alternative lowercase ids that resolve to the canonical tag. |
-| `class` | no | `string` | Legacy presentation class for tag components. |
+| `badge` | no | object | Badge presentation metadata for tag links; see [Tags](tags.md). |
+| `badge.class` | no | `string` or `string[]` | Extra Tailwind classes appended after the selected badge variant. |
+| `badge.icon` | no | `string` or object | Icon rendered inside the badge. |
+| `badge.icon.color` | no | `string` | Optional inline icon colour value. |
+| `badge.icon.name` | for object icons | `string` | Icon name for `astro-icon/components`. |
+| `badge.icon.position` | no | `inline-start` or `inline-end` | Icon position; defaults to `inline-start`. |
+| `badge.variant` | no | `default`, `secondary`, `destructive`, `outline`, `ghost`, `link`, `green`, `gray`, or `red` | Shared badge variant; defaults to `default`. |
+| `class` | no | `string` | Legacy top-level presentation class; do not use for new tag metadata. |
 | `cover` | no | object | Same cover object used by blog posts. |
 | `description` | no | `string` | Markdown-capable tag description. |
 | `featured` | no | `boolean` | Makes the tag eligible for featured tag cards. |
 | `hideInTagCloud` | no | `boolean` | Hides the tag from the default weighted cloud only; see [Tags](tags.md). |
-| `icon` | no | `string` or object | Icon metadata. |
-| `icon.name` | for object icons | `string` | Icon name. |
-| `icon.color` | no | `string` | Optional icon colour value. |
-| `id` | yes | `string` | Canonical lowercase id matching `^[a-z0-9_-]+$`. |
+| `icon` | no | `string` or object | Legacy top-level icon metadata; do not use for new tag metadata. |
+| `icon.color` | no | `string` | Optional inline icon colour value for the legacy top-level icon. |
+| `icon.name` | for object icons | `string` | Icon name for the legacy top-level icon. |
+| `icon.position` | no | `inline-start` or `inline-end` | Icon position for the legacy top-level icon. |
+| `id` | yes | `string` | Canonical lowercase kebab-case id matching `^[a-z0-9]+(?:-[a-z0-9]+)*$`. |
 | `linktitle` | no | `string` | Plain-text tag link label; falls back to `title`. |
 | `title` | yes | `string` | Full tag title. |
 | `weight` | no | `number` | Featured-tag sort weight; defaults to `0`. |

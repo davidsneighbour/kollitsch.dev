@@ -184,8 +184,8 @@ Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smoo
 
 Four collections:
 
-* **blog** — Markdown/MDX posts from `src/content/blog/`. Uses a custom loader that injects `contentFormat` (`md`/`mdx`) derived from the file path before parsing. `blogSchema` is rich: cover object with image/video union and several cross-field refinements; optional `sourcecode` record; Markdown-rendered `title`/`summary`/`cover.alt`; computed `articleimage`. Refinements enforce `linktitle` rules and lowercase tag patterns (`[a-z0-9_-]`).
-* **tags** — Tag metadata from `src/content/tags/`. Schema normalises `id`/`aliases`, derives `label`/`linktitle`.
+* **blog** — Markdown/MDX posts from `src/content/blog/`. Uses a custom loader that injects `contentFormat` (`md`/`mdx`) derived from the file path before parsing. `blogSchema` is rich: cover object with image/video union and several cross-field refinements; optional `sourcecode` record; Markdown-rendered `title`/`summary`/`cover.alt`; computed `articleimage`. Refinements enforce `linktitle` rules and lowercase kebab-case tag ids.
+* **tags** — Tag metadata from `src/content/tags/`. Schema normalises `id`/`aliases`, derives `label`/`linktitle`, and accepts `badge` presentation metadata for shared tag badge variants, extra classes, and icons.
 * **social** — Social links loaded from `src/content/social.json`.
 * **pages** — Markdown pages under `src/pages/` that require a `layout` frontmatter field.
 

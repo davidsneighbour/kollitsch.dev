@@ -22,8 +22,8 @@ metadata fields, overview setup, and hiding noisy tags from the default cloud.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `tags` | `TagListItem[] \| Map<string, number>` | required | Tags to render |
-| `searchTags` | `TagListItem[]` | `tags` | Optional superset used by `TagFilter`; entries outside `tags` are hidden until the query matches |
+| `tags` | `TagListItem[] \| Map<string, number>` | required | Tags to render; `TagListItem` entries may include `badge` metadata |
+| `searchTags` | `TagListItem[]` | `tags` | Optional superset used by `TagFilter`; entries outside `tags` are hidden until the query matches, and may carry their own `badge` metadata |
 | `minSize` | `number` | `0.75` | Smallest rendered font size in `rem` |
 | `maxSize` | `number` | `2.0` | Largest rendered font size in `rem` |
 | `showCounts` | `boolean` | `true` | When `true`, appends `(count)` to each tag label |
@@ -62,3 +62,9 @@ when filtering.
 
 Font-size scaling is calculated from the default visible tags only. Search-only
 entries render at the normal baseline size when a query reveals them.
+
+When `tags` or `searchTags` are `TagListItem[]`, each item is rendered through
+[`Tag`](tag.md), so `badge.variant`, `badge.class`, and `badge.icon` metadata
+from `src/content/tags/*.md` affects both the default cloud and search-only
+matches. A plain `Map<string, number>` fallback can still render a cloud, but it
+has no tag metadata and therefore uses the default badge treatment.

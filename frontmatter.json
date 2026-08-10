@@ -8,5 +8,6 @@
   "frontMatter.taxonomy.slugTemplate": "{{title}}",
   "frontMatter.validation.enabled": false,
   "frontMatter.website.host": "https://kollitsch.dev",
-  "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.js"
+  "frontMatter.config.dynamicFilePath": "[[workspace]]/.frontmatter/config.js",
+  "frontMatter.preview.trailingSlash": true
 }

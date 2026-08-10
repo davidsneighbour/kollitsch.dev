@@ -10,8 +10,6 @@ resources:
     src: hugo-0.131.0.png
 tags:
   - gohugo
-  - tag2
-  - tag3
   - 100-days-to-offload
 cover:
   src: ./hugo-0.131.0.png

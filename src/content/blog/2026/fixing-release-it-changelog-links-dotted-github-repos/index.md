@@ -1,8 +1,8 @@
 ---
 fmContentType: blog
-title: "Fixing release-it changelog links for dotted GitHub repositories"
-description: "How to fix release-it changelog links when a dotted GitHub repository name is truncated, and why explicit release configuration matters."
-summary: "A dotted GitHub repository name can confuse the release-it conventional changelog chain and generate links to the wrong repository. This post explains the bug, the dependency path involved, and the explicit release configuration that keeps changelog links correct."
+title: Fixing release-it changelog links for dotted GitHub repositories
+description: How to fix release-it changelog links when a dotted GitHub repository name is truncated, and why explicit release configuration matters.
+summary: A dotted GitHub repository name can confuse the release-it conventional changelog chain and generate links to the wrong repository. This post explains the bug, the dependency path involved, and the explicit release configuration that keeps changelog links correct.
 draft: true
 tags:
   - release-it
@@ -13,6 +13,9 @@ date: 2026-08-08
 cover:
   type: image
   src: postimages/postimage-for-fixing-release-it-changelog-links-dotted-github-repos.jpg
+  format:
+    contenttype: jpg
+    quality: 75
 ---
 
 I ran into a small but annoying release automation bug on this site. The repository is called `davidsneighbour/kollitsch.dev`, but the generated changelog content suddenly started linking to `davidsneighbour/kollitsch` instead. No `.dev` anymore.

@@ -368,13 +368,13 @@ The reading-progress bar is drawn inside the sticky header's bottom edge as an a
 
 The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
 
-### Wordmark Artwork
+### Wordmark Typography
 
-The site title header and every wordmark instance share one image-fill artwork contract from `src/data/brand-artwork.ts`. The configured source image is `src/assets/images/headline.jpg`, optimised through Astro's asset pipeline and rendered as glyph fill with `background-clip: text`. The shared sizing is `100vw auto` with centred positioning so inline wordmarks use the same visual crop as the non-hovered header title.
+Inline wordmarks are typographic text, not artwork crops. They render with the semantic wordmark font, `var(--font-wordmark, var(--font-title))`, stay inline with surrounding prose, and inherit the surrounding text colour through normal `currentColor` behaviour.
 
-The large header title uses a subtle red tint because its scale carries the image texture. Inline wordmarks do not add an extra tint or shadow; they are a transparent crop of the configured image through the glyphs.
+The large header title remains the only wordmark-scale surface that uses the image-fill artwork contract from `src/data/brand-artwork.ts`. The configured source image is `src/assets/images/headline.jpg`, optimised through Astro's asset pipeline and rendered as glyph fill with `background-clip: text`. The shared header sizing is `100vw auto` with centred positioning, plus the subtle red tint configured in `wordmarkArtwork.headerFill`.
 
-Where `background-clip: text` is unsupported, inline wordmark text falls back to the primary orange. The Web Component receives the optimised image URL through `--wordmark-*` custom properties; keep those variables site-owned so the portable component can still be used without hard-coding kollitsch.dev assets.
+Inline wordmarks must not set `background-image`, `background-clip: text`, tint layers, shadows, or fallback brand colours. Their job is to provide the proper wordmark font while preserving inherited size, weight, line height, decoration, opacity, and colour.
 
 ### Breadcrumbs
 

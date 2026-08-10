@@ -42,19 +42,7 @@ class WordMarkElement extends HTMLElement {
         }
 
         .wordmark-text {
-          background-image: var(--wordmark-background-image);
-          background-position: var(--wordmark-background-position, center);
-          background-repeat: no-repeat;
-          background-size: var(--wordmark-background-size, 100vw auto);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: var(--color-orange-500, currentColor);
-        }
-
-        @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-          .wordmark-text {
-            color: transparent;
-          }
+          color: inherit;
         }
       `;
 

@@ -1,7 +1,5 @@
 ---
-import { getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import { wordmarkArtwork } from '@data/brand-artwork.ts';
 import type { MarkdownInstance } from 'astro';
 
 type BlogEntry =
@@ -39,17 +37,6 @@ function extractComponentsFromPost(
 }
 
 const components = extractComponentsFromPost(post);
-const wordmarkImage = await getImage(wordmarkArtwork.image);
-const wordmarkBackgroundImage = `url("${wordmarkImage.src}")`;
-const wordmarkBackgroundPosition = wordmarkArtwork.position;
-const wordmarkBackgroundSize = wordmarkArtwork.backgroundSize;
-const wordmarkVariableCss = `
-  :root {
-    --wordmark-background-image: ${wordmarkBackgroundImage};
-    --wordmark-background-position: ${wordmarkBackgroundPosition};
-    --wordmark-background-size: ${wordmarkBackgroundSize};
-  }
-`;
 
 // lookup included components
 const wants = new Set(components ?? []);
@@ -60,11 +47,6 @@ const SCRIPTS: Record<string, string> = {
   'lite-youtube': '/vendor/lite-youtube-embed/lite-yt-embed.js',
 };
 ---
-
-<style
-  is:global
-  set:html={wordmarkVariableCss}
-/>
 
 {Object.entries(SCRIPTS).map(([name, src]) => wants.has(name) && <script src={src} async is:inline />)}
 

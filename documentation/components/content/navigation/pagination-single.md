@@ -11,9 +11,9 @@ Renders "older post" / "newer post" navigation links at the bottom of a single b
 
 | Field | Value |
 | --- | --- |
-| Component | `src/components/content/pagenav/PaginationSingle.astro` |
+| Component | `src/components/content/navigation/PaginationSingle.astro` |
 | Data | none; loads and sorts the `blog` collection itself |
-| Tests | [`src/components/content/pagenav/PaginationSingle.test.ts`](../../../../src/components/content/pagenav/PaginationSingle.test.ts) |
+| Tests | [`src/components/content/navigation/PaginationSingle.test.ts`](../../../../src/components/content/navigation/PaginationSingle.test.ts) |
 
 ## Props
 
@@ -25,7 +25,7 @@ Renders "older post" / "newer post" navigation links at the bottom of a single b
 
 ```astro
 ---
-import PaginationSingle from '@components/content/pagenav/PaginationSingle.astro';
+import PaginationSingle from '@components/content/navigation/PaginationSingle.astro';
 ---
 
 <PaginationSingle post={post} />

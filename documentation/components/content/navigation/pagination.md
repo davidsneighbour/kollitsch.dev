@@ -11,9 +11,9 @@ Renders numbered pagination controls (Prev/Next plus a page-number strip with ga
 
 | Field | Value |
 | --- | --- |
-| Component | `src/components/content/pagenav/Pagination.astro` |
+| Component | `src/components/content/navigation/Pagination.astro` |
 | Data | none |
-| Tests | [`src/components/content/pagenav/Pagination.test.ts`](../../../../src/components/content/pagenav/Pagination.test.ts) |
+| Tests | [`src/components/content/navigation/Pagination.test.ts`](../../../../src/components/content/navigation/Pagination.test.ts) |
 
 ## Props
 
@@ -33,7 +33,7 @@ Renders numbered pagination controls (Prev/Next plus a page-number strip with ga
 
 ```astro
 ---
-import Pagination from '@components/content/pagenav/Pagination.astro';
+import Pagination from '@components/content/navigation/Pagination.astro';
 ---
 
 <Pagination basePath="/blog/" pagingPartial="page" currentPage={currentPage} totalPages={totalPages} />

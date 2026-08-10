@@ -49,4 +49,4 @@ import CardLink from '@components/ui/CardLink.astro';
 
 ## Behaviour
 
-This component has no client-side behaviour. It renders a single `<a>` card: with `image` set, a `24`/`32` (mobile/`sm:`) square thumbnail sits beside the title; without it, the title alone fills the card. `src/components/README.md` notes `ui/` is unrelated to shadcn/ui — see [`shadcn-ui/Button`](../shadcn-ui/button.md) and [`shadcn-ui/Card`](../shadcn-ui/card.md) for the generated shadcn components, kept in a separate directory.
+This component has no client-side behaviour. It renders a single `<a>` card: with `image` set, a `24`/`32` (mobile/`sm:`) square thumbnail sits beside the title; without it, the title alone fills the card. `src/components/README.md` notes `ui/` is unrelated to shadcn/ui — see [`Button (shadcn/ui)`](../shared/elements/button-shadcn.md) and [`Card (shadcn/ui)`](../shared/elements/card-shadcn.md) for the generated shadcn components, which are organised into the same functional folders as hand-written components rather than kept in a separate directory.

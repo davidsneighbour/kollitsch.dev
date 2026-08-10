@@ -13,7 +13,7 @@ import BlogSchema from '@components/seo/schema/Blog.astro';
 import setup from '@data/setup.json' with { type: 'json' };
 // components
 import Layout from '@layouts/DefaultPage.astro';
-import Pagination from '@/components/content/pagenav/Pagination.astro';
+import Pagination from '@/components/content/navigation/Pagination.astro';
 
 export async function getStaticPaths() {
   const posts = getPostsSortedByDraft(await getCollection('blog'));

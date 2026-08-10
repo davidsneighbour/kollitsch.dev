@@ -1,29 +1,41 @@
 # Components directory
 
 This directory is organized by the primary responsibility of each component so that
-the purpose of a file is immediately visible from its location.
+the purpose of a file is immediately visible from its location. Folder placement is
+part of the project's structure, not a suggestion: see
+[`.agents/instructions/component-structure.instructions.md`](../../.agents/instructions/component-structure.instructions.md)
+for the rules that keep it that way.
 
 ## Top-level groups
 
-* `content/` - pieces that render long-form content (articles, metadata, typography,
-  media helpers, taxonomy blocks, and breadcrumb navigation).
-* `layout/` - building blocks that make up the global shell such as the document
-  head, navigation, footer, and branding utilities.
-* `features/` - standalone functional additions that can be dropped into pages
-  (search, comments, social sharing helpers, feed promotions, etc.).
+* `content/` - pieces that render long-form content: `article/` (post rendering),
+  `media/` (image/video embeds), `metadata/` (author, publish date, tags, share
+  links), `navigation/` (breadcrumbs and pagination), `sourcecode/` (code block
+  rendering), `taxonomy/` (tag lists, tag clouds, tag filtering), and
+  `typography/` (headings, prose wrapper). `ColorGrid.astro` sits directly in
+  `content/` as a one-off content block.
+* `layout/` - building blocks that make up the global shell: `head/` (document
+  `<head>`, meta, OG images, speculation rules), `header/` (site header, with its
+  own `navigation/`, `search/`, `theme/`, and `title/` subfolders for the header's
+  internal parts), and `footer/` (footer, colophon, web component registration).
+* `features/` - standalone functional additions that can be dropped into pages:
+  `comments/`, `feeds/`, `search/`, and `social/`.
 * `pages/` - page-specific assemblies that only make sense within a particular
-  route (home sections, release listings, and similar composites).
-* `forms/` - reusable form fields and form related UI.
-* `shared/` - low-level UI primitives like buttons and links that are reused
-  across multiple groups.
+  route: `home/` (home page sections) plus loose single-use layouts such as
+  `NotFoundLayout.astro`.
+* `forms/` - reusable form fields and form-related UI, including the shadcn/ui
+  `Input`/`Textarea` primitives used as the canonical class recipe for text
+  fields (see "shadcn/ui" below).
+* `shared/` - low-level UI primitives reused across multiple groups: `elements/`
+  (buttons, cards, badges) and `links/` (link and icon-link wrappers).
 * `ui/` - small, self-contained presentational components (currently
-  `CardLink.astro`, `TextImageFill.astro`). **Not shadcn/ui** - see note below.
-* `shadcn-ui/` - generated shadcn/ui React components (`button.tsx`,
-  `card.tsx`, ...), used as Astro islands. See "shadcn/ui" below.
+  `CardLink.astro`, `TextImageFill.astro`, `Wordmark.astro`). **Not shadcn/ui** -
+  see note below.
 * `gimmicks/` - visual novelties and canvas/animation experiments (e.g.
   `TvHead.astro`, `LetterGlitch.astro`) that are not part of the core UI.
 * `devtools/` - development only utilities that assist during implementation.
-* `seo/` - structured data helpers and related head metadata fragments.
+* `seo/` - structured data helpers and related head metadata fragments, grouped
+  under `schema/` (JSON-LD building blocks).
 * `support/fixtures/` - test fixtures and miscellaneous building blocks that do
   not belong to any of the functional buckets. Use this as a parking spot until a
   clearer category appears.
@@ -39,14 +51,34 @@ and is unrelated to shadcn/ui.
 
 shadcn/ui was integrated once, removed (see the "remove shadcn and fix
 tailwind generation" entry in `CHANGELOG.md`), and has since been
-reintroduced. It now lives alongside the rest of the toolchain:
+reintroduced. Generated components are **not** kept in a dedicated
+`shadcn-ui/` folder - shadcn is a code generator, not a place components live.
+Each generated file is filed into the same folder a hand-written component with
+that responsibility would use:
+
+* `shared/elements/button.tsx`, `shared/elements/card.tsx` - generic UI
+  primitives, alongside the hand-written `Button.astro`/`Badge.astro`.
+* `forms/input.tsx`, `forms/textarea.tsx` - form fields.
+
+Generated files keep shadcn's own lowercase filename convention (`button.tsx`,
+not `Button.tsx`), which doubles as a visual marker that a file was generated
+rather than hand-written, and avoids clobbering an existing hand-written
+component of the same name in the same folder (see
+`shared/elements/button.tsx` next to `shared/elements/Button.astro`).
+
+The toolchain itself:
 
 * `@astrojs/react` + `react`/`react-dom` are installed so shadcn's generated
-  `.tsx` components can run as Astro islands (`client:*` directives).
+  `.tsx` components can run as Astro islands (`client:*` directives). In
+  practice the site currently has no React islands in production - the
+  generated `.tsx` files exist as the canonical class recipe, and the same
+  literal class string is copied onto native, vanilla-JS-driven elements
+  instead (see `DESIGN.md`'s "Form Fields" section).
 * `components.json` at the repo root configures the CLI (`style: new-york`,
   `baseColor: gray`, CSS variables on). Its `ui` alias points at
-  `src/components/shadcn-ui`, kept deliberately separate from the
-  hand-written `ui/` folder above.
+  `src/components/shared/elements` as the default landing zone for newly
+  generated components - move anything that isn't a generic UI primitive
+  (e.g. a form field) to its proper folder immediately after generating it.
 * `src/utils/shadcn-utils.ts` exports the `cn()` helper (`clsx` +
   `tailwind-merge`), aliased as `@utils/shadcn-utils`.
 * The shadcn CSS variables (`--background`, `--primary`, `--card`, `--radius`,
@@ -59,8 +91,10 @@ reintroduced. It now lives alongside the rest of the toolchain:
   `rounded-xl` and a light/dark-agnostic shadow, both of which DESIGN.md
   forbids for cards - `card.tsx` here was hand-patched to `rounded-lg` and
   the shadow/outline split described in "Elevation & Depth").
-* Add components with `npx shadcn@latest add <name>`, then review the diff
-  against DESIGN.md before use.
+* Add components with `npx shadcn@latest add <name>`, move the generated file
+  into its proper folder, fix its imports (including any `@components/shared/elements/...`
+  cross-imports the CLI generated), then review the diff against DESIGN.md
+  before use.
 * The shadcn registry MCP server is configured in `.mcp.json` (Claude Code)
   per [the shadcn registry MCP docs](https://ui.shadcn.com/docs/registry/mcp).
 
@@ -79,3 +113,6 @@ should be reviewed during a future refactor:
   coded defaults that likely deserves its own feature module.
 * `features/social/ShareToMastodon.astro` & `features/social/SocialLinks.astro`
   * social integrations that should be audited for consistency and localization.
+* `forms/input.tsx` & `forms/textarea.tsx` - unused as hydrated islands (see
+  "shadcn/ui" above); confirm this stays intentional rather than dead code as
+  the forms area grows.

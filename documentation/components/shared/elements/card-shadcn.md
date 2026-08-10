@@ -11,7 +11,7 @@ The generated shadcn/ui `Card` React component family (`Card`, `CardHeader`, `Ca
 
 | Field | Value |
 | --- | --- |
-| Component | `src/components/shadcn-ui/card.tsx` |
+| Component | `src/components/shared/elements/card.tsx` |
 | Data | none |
 | Tests | none |
 
@@ -23,7 +23,7 @@ Each part accepts `React.ComponentProps<"div">` (i.e. any standard `<div>` prop,
 
 ```astro
 ---
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@components/shadcn-ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@components/shared/elements/card';
 ---
 
 <Card client:load>
@@ -44,4 +44,4 @@ The stock shadcn `Card` primitive ships `rounded-xl` and a light/dark-agnostic s
 
 ## Extending
 
-See [`Button`](button.md) and [`src/components/README.md`](../../../README.md) for the general shadcn/ui update workflow (`npx shadcn@latest add <name>`, then review against `DESIGN.md`).
+See [`Button (shadcn/ui)`](./button-shadcn.md) and [`src/components/README.md`](../../../../README.md) for the general shadcn/ui update workflow (`npx shadcn@latest add <name>`, then relocate into the matching folder and review against `DESIGN.md`).

@@ -408,7 +408,7 @@ A small pill, `bg-black/5 dark:bg-white/5 rounded-sm px-2 py-1` - same relative-
 
 ### Form Fields (Inputs, Textareas)
 
-Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/shadcn-ui/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form) - the site has no React islands in production, so the shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
+Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/forms/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form) - the site has no React islands in production, so the shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
 
 Do not rely on `@tailwindcss/forms`' class-strategy names (for example
 `form-input`). This project runs the plugin with `strategy: "base"` (see
@@ -468,6 +468,6 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
   example 70% light / 92% dark) - share one value via a custom property so light
   and dark can't drift apart.
 * **Don't** extend the `olive` surface scale into structural neutrals - text, borders, and muted-foreground stay on `gray`. `olive` is reserved for `--background` and things derived from it.
-* **Do** use the shadcn primitives in `src/components/shadcn-ui/` (`Input`, `Textarea`, `Button`, `Card`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
+* **Do** use the shadcn primitives (`Input`/`Textarea` in `src/components/forms/`, `Button`/`Card` in `src/components/shared/elements/`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
 * **Don't** rely on `@tailwindcss/forms`' class-strategy names like `form-input` - this project runs the plugin in `base` strategy, so that class doesn't exist and silently does nothing.
 * **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the orange primary or red link pair.

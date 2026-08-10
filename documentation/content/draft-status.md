@@ -48,7 +48,7 @@ These are the call sites that use `filterDraftEntries`:
 | `src/utils/content.ts` → `getPostsSortedByDraft` | Blog listing pages, tag pages, year archives |
 | `src/utils/content.ts` → `getHomepagePosts` | Homepage featured + recent posts |
 | `src/pages/blog/[year]/[slug]/index.astro` `getStaticPaths` | Single post route generation |
-| `src/components/content/pagenav/PaginationSingle.astro` | Prev/next post navigation |
+| `src/components/content/navigation/PaginationSingle.astro` | Prev/next post navigation |
 
 All tag-related queries go through `getPostsSortedByDraft` (via `src/utils/tags.ts`), so tag overview pages, tag post lists, and tag counts all respect draft visibility automatically.
 

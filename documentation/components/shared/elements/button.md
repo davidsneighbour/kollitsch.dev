@@ -5,7 +5,7 @@ created: 2026-07-27T00:00:00+07:00
 updated: 2026-07-27T00:00:00+07:00
 ---
 
-The site's hand-written button/link component: renders as `<a>` when `href` is set, otherwise as `<button type="button">`, with a shared theme/size/outline variant system. Not related to the shadcn/ui [`Button`](../../shadcn-ui/button.md).
+The site's hand-written button/link component: renders as `<a>` when `href` is set, otherwise as `<button type="button">`, with a shared theme/size/outline variant system. Not related to the shadcn/ui [`Button`](./button-shadcn.md).
 
 ## File locations
 

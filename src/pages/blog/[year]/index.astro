@@ -7,7 +7,7 @@ import {
   getPostsSortedByDraft,
   paginateBlogPostsByYear,
 } from '@utils/content.ts';
-import Pagination from '@/components/content/pagenav/Pagination.astro';
+import Pagination from '@/components/content/navigation/Pagination.astro';
 
 export async function getStaticPaths() {
   const { getCollection } = await import('astro:content');

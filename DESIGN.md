@@ -408,7 +408,7 @@ A small pill, `bg-black/5 dark:bg-white/5 rounded-sm px-2 py-1` - same relative-
 
 ### Form Fields (Inputs, Textareas)
 
-Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/forms/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form) - the site has no React islands in production, so the shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
+Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/forms/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form), so these shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
 
 Do not rely on `@tailwindcss/forms`' class-strategy names (for example
 `form-input`). This project runs the plugin with `strategy: "base"` (see
@@ -416,6 +416,10 @@ Do not rely on `@tailwindcss/forms`' class-strategy names (for example
 elements directly and does **not** generate a `.form-input` utility class - a
 stray `class="form-input"` does nothing and silently falls back to the
 browser/plugin default (an unstyled white box in both themes).
+
+### Gimmick Effects
+
+`TvHead.astro` may use the generated Canvas UI `VHS` React island (`src/components/gimmicks/vhs.tsx`) for background-image treatment. The VHS island belongs only in the background layer: it wraps the optional background image at `z-index: 0`, clips to the same radius/classes as that image, and must not wrap the YouTube player or foreground overlay image. Additional CSS overlays such as `tv-head-effect-static` and tint classes stay in the separate background-effect layer above the VHS output.
 
 ### Source Code Link Badges
 

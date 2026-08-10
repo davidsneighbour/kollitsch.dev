@@ -31,8 +31,9 @@ for the rules that keep it that way.
 * `ui/` - small, self-contained presentational components (currently
   `CardLink.astro`, `TextImageFill.astro`, `Wordmark.astro`). **Not shadcn/ui** -
   see note below.
-* `gimmicks/` - visual novelties and canvas/animation experiments (e.g.
-  `TvHead.astro`, `LetterGlitch.astro`) that are not part of the core UI.
+* `gimmicks/` - visual novelties and canvas/animation experiments (for example
+  `TvHead.astro`, `LetterGlitch.astro`, `vhs.tsx`) that are not part of the core
+  UI.
 * `devtools/` - development only utilities that assist during implementation.
 * `seo/` - structured data helpers and related head metadata fragments, grouped
   under `schema/` (JSON-LD building blocks).
@@ -59,6 +60,9 @@ that responsibility would use:
 * `shared/elements/button.tsx`, `shared/elements/card.tsx` - generic UI
   primitives, alongside the hand-written `Button.astro`/`Badge.astro`.
 * `forms/input.tsx`, `forms/textarea.tsx` - form fields.
+* `gimmicks/vhs.tsx` - Canvas UI's generated VHS effect, filed with visual
+  experiments because it is used as an isolated Astro island rather than a
+  reusable UI primitive.
 
 Generated files keep shadcn's own lowercase filename convention (`button.tsx`,
 not `Button.tsx`), which doubles as a visual marker that a file was generated
@@ -70,15 +74,16 @@ The toolchain itself:
 
 * `@astrojs/react` + `react`/`react-dom` are installed so shadcn's generated
   `.tsx` components can run as Astro islands (`client:*` directives). In
-  practice the site currently has no React islands in production - the
-  generated `.tsx` files exist as the canonical class recipe, and the same
-  literal class string is copied onto native, vanilla-JS-driven elements
-  instead (see `DESIGN.md`'s "Form Fields" section).
+  practice most generated `.tsx` files exist as the canonical class recipe, and
+  the same literal class string is copied onto native, vanilla-JS-driven
+  elements instead (see `DESIGN.md`'s "Form Fields" section). Browser-effect
+  components such as `gimmicks/vhs.tsx` hydrate only where the runtime API is
+  required.
 * `components.json` at the repo root configures the CLI (`style: new-york`,
   `baseColor: gray`, CSS variables on). Its `ui` alias points at
   `src/components/shared/elements` as the default landing zone for newly
-  generated components - move anything that isn't a generic UI primitive
-  (e.g. a form field) to its proper folder immediately after generating it.
+  generated components - move anything that isn't a generic UI primitive (for
+  example a form field) to its proper folder immediately after generating it.
 * `src/utils/shadcn-utils.ts` exports the `cn()` helper (`clsx` +
   `tailwind-merge`), aliased as `@utils/shadcn-utils`.
 * The shadcn CSS variables (`--background`, `--primary`, `--card`, `--radius`,
@@ -87,10 +92,10 @@ The toolchain itself:
   `DESIGN.md` - no new colors or radii were introduced. `--radius` is `0.5rem`
   (DESIGN.md's `rounded-lg`, the standard container radius).
 * Generated components are not used as-is: check every new component against
-  `DESIGN.md` before committing it (e.g. the stock `Card` primitive ships
-  `rounded-xl` and a light/dark-agnostic shadow, both of which DESIGN.md
-  forbids for cards - `card.tsx` here was hand-patched to `rounded-lg` and
-  the shadow/outline split described in "Elevation & Depth").
+  `DESIGN.md` before committing it (for example the stock `Card` primitive ships
+  `rounded-xl` and a light/dark-agnostic shadow, both of which DESIGN.md forbids
+  for cards - `card.tsx` here was hand-patched to `rounded-lg` and the
+  shadow/outline split described in "Elevation & Depth").
 * Add components with `npx shadcn@latest add <name>`, move the generated file
   into its proper folder, fix its imports (including any `@components/shared/elements/...`
   cross-imports the CLI generated), then review the diff against DESIGN.md

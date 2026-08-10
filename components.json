@@ -18,5 +18,8 @@
     "ui": "@components/shared/elements",
     "lib": "@/lib",
     "hooks": "@/hooks"
+  },
+  "registries": {
+    "@canvas-ui": "https://canvasui.dev/r/{name}.json"
   }
 }

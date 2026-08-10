@@ -106,6 +106,14 @@ async function isVideoLive(videoId: string): Promise<boolean> {
   return response.ok;
 }
 
+// JPEG magic number (FF D8 FF). Network data is written to disk below, so
+// this confirms the response body is actually a JPEG before it's trusted as
+// one — see CodeQL js/http-to-file-access (CWE-434/CWE-912):
+// https://github.com/davidsneighbour/kollitsch.dev/security/code-scanning/75
+function isJpeg(buffer: Buffer): boolean {
+  return buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff;
+}
+
 async function fetchBestThumbnail(videoId: string): Promise<Buffer> {
   const candidates = ['maxresdefault.jpg', 'sddefault.jpg', 'hqdefault.jpg'];
 
@@ -115,7 +123,12 @@ async function fetchBestThumbnail(videoId: string): Promise<Buffer> {
     const response = await fetch(url);
     if (!response.ok) continue;
 
+    const contentType = response.headers.get('content-type');
+    if (!contentType?.startsWith('image/')) continue;
+
     const buffer = Buffer.from(await response.arrayBuffer());
+    if (!isJpeg(buffer)) continue;
+
     if (buffer.byteLength > PLACEHOLDER_MAX_BYTES) {
       return buffer;
     }

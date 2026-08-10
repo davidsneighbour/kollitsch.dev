@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@frontmatter/extensibility": "0.0.18",
+  }
+}

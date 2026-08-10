@@ -1,9 +1,11 @@
 {
   "$schema": "https://frontmatter.codes/config/content.pagefolders.schema.json",
-  "contentTypes": ["default"],
-  "filePrefix": "{{date|yyyy}}/",
+  "title": "Blog",
   "path": "[[workspace]]/src/content/blog/",
   "previewPath": "/{{fm.fmContentType}}/{{fm.date|format:yyyy}}/",
-  "title": "Weblog",
+  "contentTypes": [
+    "blog"
+  ],
+  "filePrefix": "{{date|yyyy}}/",
   "trailingSlash": true
 }

@@ -1,0 +1,148 @@
+{
+  "$schema": "https://frontmatter.codes/config/taxonomy.contenttypes.schema.json",
+  "name": "blog",
+  "clearEmpty": true,
+  "defaultFileName": "index",
+  "fields": [
+    {
+      "name": "title",
+      "required": true,
+      "title": "Title",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "required": true,
+      "title": "Description",
+      "type": "string"
+    },
+    {
+      "isPublishDate": true,
+      "name": "date",
+      "required": true,
+      "title": "Publishing date",
+      "type": "datetime"
+    },
+    {
+      "fields": [
+        {
+          "isPreviewImage": true,
+          "name": "src",
+          "title": "Source",
+          "type": "image"
+        },
+        {
+          "name": "title",
+          "title": "Title",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "title": "Alt text",
+          "type": "string"
+        },
+        {
+          "choices": [
+            "image",
+            "video"
+          ],
+          "default": "image",
+          "name": "type",
+          "title": "Type",
+          "type": "choice"
+        },
+        {
+          "name": "unsplash",
+          "title": "Unsplash ID",
+          "type": "string"
+        },
+        {
+          "fields": [
+            {
+              "choices": [
+                "jpg",
+                "png",
+                "gif",
+                "svg",
+                "webp"
+              ],
+              "default": "jpg",
+              "name": "contenttype",
+              "title": "Content type",
+              "type": "choice"
+            },
+            {
+              "default": 75,
+              "name": "quality",
+              "title": "Quality",
+              "type": "number"
+            }
+          ],
+          "name": "format",
+          "title": "Format",
+          "type": "fields"
+        }
+      ],
+      "name": "cover",
+      "title": "Cover",
+      "type": "fields"
+    },
+    {
+      "name": "subtitle",
+      "title": "Subtitle",
+      "type": "string"
+    },
+    {
+      "name": "summary",
+      "title": "Summary",
+      "type": "string"
+    },
+    {
+      "name": "linktitle",
+      "title": "Link title",
+      "type": "string"
+    },
+    {
+      "name": "tags",
+      "title": "Tags",
+      "type": "tags"
+    },
+    {
+      "choices": [
+        "article"
+      ],
+      "default": "article",
+      "name": "fmContentType",
+      "required": true,
+      "title": "Front Matter content type",
+      "type": "choice"
+    },
+    {
+      "name": "category",
+      "title": "Category",
+      "type": "string"
+    },
+    {
+      "default": false,
+      "name": "featured",
+      "title": "Featured",
+      "type": "boolean"
+    },
+    {
+      "default": false,
+      "name": "draft",
+      "title": "Draft",
+      "type": "draft"
+    },
+    {
+      "choices": [
+        "rework",
+        "validate"
+      ],
+      "name": "publisher",
+      "title": "Publisher",
+      "type": "choice"
+    }
+  ],
+  "pageBundle": true
+}

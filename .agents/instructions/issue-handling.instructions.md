@@ -10,11 +10,11 @@ These instructions apply to all AI-assisted work in this repository.
 
 This is a single-developer project. Commit directly to `main`. Do not create feature branches or pull requests for routine work; open a PR only if explicitly asked to.
 
-Never create merge commits on `main`. If work temporarily exists on another branch or ref, bring it into `main` with a rebase or squash so history stays linear — do not use `git merge` (or any equivalent that produces a two-parent commit).
+Never create merge commits on `main`. If work temporarily exists on another branch or ref, bring it into `main` with a rebase or squash so history stays linear—do not use `git merge` (or any equivalent that produces a two-parent commit).
 
 ## Commit and push when a task finishes
 
-When an AI-assisted task in this repository reaches a finished, validated state, commit the change and push it to `main` — do not stop at a local commit and wait to be asked. This overrides the general default of asking before pushing; in this repository, pushing after a finished, validated commit is pre-authorized.
+When an AI-assisted task in this repository reaches a finished, validated state, commit the change and push it to `main`—do not stop at a local commit and wait to be asked. This overrides the general default of asking before pushing; in this repository, pushing after a finished, validated commit is pre-authorized.
 
 This applies once the task is actually done: validation (`npm test`, `npx astro check`, lint-staged) has passed and the commit follows the rules below. Do not push partial, unvalidated, or still-in-progress work.
 
@@ -86,6 +86,16 @@ If no suitable issue exists and the work will modify tracked files or intentiona
 - apply suitable existing labels.
 
 Do not invent new labels unless explicitly asked. Prefer existing repository labels.
+
+## Issue body formatting
+
+When creating GitHub issues, use plain Markdown labels or bullet lists by
+default. Do not use Markdown headings (`#`, `##`, etc.) in issue bodies unless
+the user explicitly asks for a structured issue-template format.
+
+Use `gh issue create --body-file <file>` for issue bodies containing Markdown,
+backticks, command examples, code spans, or multiple paragraphs. Do not pass
+Markdown-heavy bodies through `--body` inside shell quotes.
 
 ## During implementation
 

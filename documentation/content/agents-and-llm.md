@@ -37,30 +37,210 @@ checks as the `profile=content` URL. It is intentionally not wired into CI or
 deployment pipelines because the scanner is an external service and the audit
 result can vary with network, DNS, cache, and service availability.
 
-## Implemented surfaces
+## LLM Markdown resources
 
-| Surface | Documentation | Purpose |
+KOLLITSCH.dev exposes curated Markdown representations for AI agents and LLM
+tools that fetch URLs, while keeping the HTML and Markdown versions derived
+from the same Astro content source.
+
+| Endpoint | Source | Purpose |
 | --- | --- | --- |
-| LLM Markdown resources | [`llm-visibility.md`](llm-visibility.md) | Publishes `/llms.txt`, `/llms-full.txt`, per-post Markdown routes, and Markdown negotiation. |
-| API catalogue | [`api-catalog.md`](api-catalog.md) | Lists the small set of public machine-readable site resources. |
-| DNS for AI Discovery | [`dns-aid.md`](dns-aid.md) | Publishes the DNS-AID organisation index pointer through Cloudflare DNS. |
-| Robots and Content Signals | [`llm-visibility.md`](llm-visibility.md#robots-policy) | Declares crawl and AI-content-use policy in `robots.txt`. |
+| `/llms.txt` | [`src/pages/llms.txt.ts`](../../src/pages/llms.txt.ts) | Curated index of published blog posts and site-level context links. |
+| `/llms-full.txt` | [`src/pages/llms-full.txt.ts`](../../src/pages/llms-full.txt.ts) | Full published blog content in one Markdown document. |
+| `/llms/{year}/{slug}.txt` | [`src/pages/llms/[...slug].txt.ts`](../../src/pages/llms/[...slug].txt.ts) | Single published post as Markdown. |
+| `/blog/{year}/{slug}.md` | [`src/pages/blog/[year]/[slug].md.ts`](../../src/pages/blog/[year]/[slug].md.ts) | Markdown alternate for the canonical blog post URL. |
+
+All LLM documents use `Content-Type: text/markdown; charset=utf-8`. Draft blog
+posts are excluded from generated LLM indexes and per-post Markdown routes.
+
+## Discovery
+
+The homepage response advertises site-level agent discovery resources in one
+HTTP `Link` field:
+
+```text
+Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="service-desc"; type="text/markdown", </llms-full.txt>; rel="service-doc"; type="text/markdown", <https://analytics.dnbhub.xyz>; rel="preconnect"
+```
+
+`service-desc` is a registered link relation for machine-oriented service
+descriptions, and `service-doc` is for human-oriented service documentation.
+They are used here for the curated LLM-facing Markdown resources.
+
+Blog post HTML pages emit:
+
+```html
+<link
+  rel="alternate"
+  type="text/markdown"
+  href="https://kollitsch.dev/blog/{year}/{slug}.md"
+/>
+```
+
+The generated Netlify `_headers` file also adds HTTP `Link` headers for both
+representations:
+
+```text
+Link: </blog/{year}/{slug}.md>; rel="alternate"; type="text/markdown"
+Link: </blog/{year}/{slug}/>; rel="alternate"; type="text/html"
+```
+
+Both representations include `Vary: Accept` so caches do not collapse future
+content-negotiated variants.
+
+## Markdown negotiation
+
+The homepage and supported blog post URLs run through the Netlify Edge Function
+at
+[`src/netlify/edge-functions/markdown-negotiation.ts`](../../src/netlify/edge-functions/markdown-negotiation.ts).
+The function is scoped to `GET` requests for `/` and `/blog/*`; Netlify Edge
+Functions do not allow `HEAD` in their method configuration.
+
+For the homepage URL `/`:
+
+* browser-style requests keep receiving the static HTML homepage,
+* requests where `text/markdown` is explicitly named and has a quality value
+  greater than or equal to `text/html` receive `/llms.txt`.
+
+For canonical blog post URLs such as `/blog/2026/example-post/`:
+
+* browser-style requests keep receiving the static HTML page,
+* requests where `text/markdown` is explicitly named and has a quality value
+  greater than or equal to `text/html` receive the generated
+  `/blog/2026/example-post.md` representation,
+* requests that accept neither `text/html` nor `text/markdown` receive
+  `406 Not Acceptable`.
+
+The function compares `Accept` q-values and only resolves ties to Markdown when
+the client explicitly named `text/markdown`; wildcard-only requests such as
+`*/*` remain HTML. Markdown responses include `Content-Type:
+text/markdown; charset=utf-8`, ensure `Vary` includes `Accept` while
+preserving any existing `Vary` dimensions, preserve the reciprocal `Link`
+header generated for the `.md` asset where one exists, and add an approximate
+`X-Markdown-Tokens` response header calculated from the generated Markdown
+body.
+
+The site does not use User-Agent sniffing. Markdown negotiation is limited to
+published blog post pages with generated `.md` alternates. Other static pages
+continue to rely on explicit Markdown routes and discovery links until they have
+their own generated Markdown representation.
+
+## API catalogue
+
+KOLLITSCH.dev publishes a small API catalogue at `/.well-known/api-catalog`.
+The endpoint is generated by
+[`src/pages/.well-known/api-catalog.ts`](../../src/pages/.well-known/api-catalog.ts)
+and returns `application/linkset+json`.
+
+The catalogue follows RFC 9727 and RFC 9264's JSON Linkset shape:
+
+```json
+{
+  "linkset": [
+    {
+      "anchor": "https://kollitsch.dev/",
+      "item": [],
+      "service-desc": [],
+      "service-doc": []
+    }
+  ]
+}
+```
+
+The current catalogue is intentionally small. It lists the public JSON-style
+site resources that agents can call directly:
+
+* `/api/siteinfo.json` - static site metadata used by the footer.
+* `/.well-known/webfinger` - the site's WebFinger profile document.
+
+It also points agents to the LLM-facing Markdown resources:
+
+* `/llms.txt` as `service-desc`.
+* `/llms-full.txt` as `service-doc`.
+
+Do not add speculative endpoints to the catalogue. Add an item only when the
+URL is public, stable, and useful for automated clients.
+
+## DNS for AI Discovery
+
+KOLLITSCH.dev publishes DNS for AI Discovery through Cloudflare DNS records
+under the `_agents.kollitsch.dev` namespace.
+
+The organisation index entrypoint is the DNS-AID discovery record:
+
+```dns
+_index._agents.kollitsch.dev. 3600 IN SVCB 1 kollitsch.dev. alpn="h2" port=443 mandatory=alpn,port
+```
+
+This is an organisation-level index pointer, not an A2A or MCP agent endpoint.
+The target name is `kollitsch.dev.` because the public site already serves the
+machine-readable discovery resources listed on this page. The target name
+intentionally contains no underscores so it remains valid for normal public TLS
+endpoint validation.
+
+Cloudflare DNS is the external source that must hold the live DNS record. The
+repository does not contain DNS-as-code for this zone, so Astro and Netlify
+builds cannot publish this record by themselves.
+
+| Field | Value |
+| --- | --- |
+| Type | `SVCB` |
+| Name | `_index._agents` |
+| Priority | `1` |
+| Target | `kollitsch.dev.` |
+| Parameters | `alpn="h2" port=443 mandatory=alpn,port` |
+| TTL | `3600` |
+| Proxy status | DNS only |
+
+DNSSEC must stay enabled for the zone so validating resolvers can authenticate
+the discovery answer. The public DNS-AID SVCB record is live and
+DNSSEC-authenticated.
+
+Validate the record through DNS over HTTPS:
+
+```bash
+curl -s 'https://cloudflare-dns.com/dns-query?name=_index._agents.kollitsch.dev&type=SVCB' \
+  -H 'accept: application/dns-json'
+```
+
+Do not publish `_a2a._agents.kollitsch.dev.` or `_mcp._agents.kollitsch.dev.`
+until the domain has a real A2A or MCP service to advertise.
+
+## Robots policy
+
+[`src/pages/robots.txt.js`](../../src/pages/robots.txt.js) generates the
+site's `robots.txt`. The default rule allows normal search indexing and
+AI-input use, while reserving training rights:
+
+```text
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+```
+
+Known AI crawler entries fetched from the external robot list remain blocked
+and carry `ai-input=no, ai-train=no`.
 
 ## Explicit non-services
-
-Several audit checks are useful for applications, APIs, and agent platforms but
-do not apply to the current site. KOLLITSCH.dev leaves those well-known routes
-absent instead of publishing placeholder metadata.
-
-| Surface | Documentation | Current decision |
-| --- | --- | --- |
-| OAuth and OIDC discovery | [`oauth-oidc-discovery.md`](oauth-oidc-discovery.md) | Do not publish issuer metadata without a real issuer, login flow, token endpoint, or JWKS. |
-| OAuth protected-resource metadata | [`oauth-protected-resource.md`](oauth-protected-resource.md) | Do not publish resource metadata without an OAuth-protected resource and real scopes. |
-| Auth.md | [`auth-md.md`](auth-md.md) | Do not publish agent-registration instructions without a registration flow or credential exchange. |
-| MCP Server Card | [`mcp-server-card.md`](mcp-server-card.md) | Do not publish MCP server metadata without a real MCP transport or tool surface. |
-| Agent Skills Discovery | [`agent-skills.md`](agent-skills.md) | Do not expose repository-local assistant skills as public website capabilities. |
-| WebMCP | [`webmcp.md`](webmcp.md) | Do not register experimental browser tools without a stable browser API and a real page action. |
 
 Publishing a well-known discovery document is a contract with automated
 clients. If the underlying service does not exist, a `404` is more truthful
 than a schema-shaped document that points nowhere.
+
+| Surface | Current decision | References |
+| --- | --- | --- |
+| OAuth and OIDC discovery | KOLLITSCH.dev does not offer authenticated services, an OAuth issuer, login flow, token endpoint, JWKS, session system, or protected user-data API, so it does not publish authentication discovery for agents. | [RFC 8414](https://www.rfc-editor.org/rfc/rfc8414), [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) |
+| OAuth protected-resource metadata | Public endpoints do not require OAuth bearer tokens or scopes, so there is no protected resource metadata to advertise. | [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) |
+| Auth.md | The site has no user-registration flow, agent-registration flow, claim ceremony, token endpoint, revocation endpoint, or protected API scopes, so it does not publish `/auth.md`. | [Auth.md overview](https://workos.com/auth-md), [Auth.md repository](https://github.com/workos/auth.md) |
+| MCP Server Card | The site does not expose an MCP server, streamable HTTP endpoint, SSE transport, JSON-RPC tool surface, resource list, prompt list, or MCP authentication model, so it does not publish MCP server metadata. | [MCP Server Cards discussion](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127) |
+| Agent Skills Discovery | Repository-local assistant skills under `.agents/skills/` are contributor tooling, not public website capabilities, so the site does not publish `/.well-known/agent-skills/index.json`. | [Agent Skills Discovery RFC](https://github.com/cloudflare/agent-skills-discovery-rfc), [Agent Skills](https://agentskills.io/) |
+| WebMCP | The browser API is still draft and early preview territory, and the site has no high-value browser-side workflow that warrants an experimental tool, so it does not register WebMCP tools. | [WebMCP draft](https://webmachinelearning.github.io/webmcp/), [Chrome WebMCP early preview article](https://developer.chrome.com/blog/webmcp-epp) |
+
+## References
+
+* [RFC 8288, Web Linking](https://datatracker.ietf.org/doc/html/rfc8288)
+* [IANA Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+* [RFC 9727, api-catalog](https://www.rfc-editor.org/rfc/rfc9727)
+* [RFC 9264, Linkset](https://www.rfc-editor.org/rfc/rfc9264)
+* [Netlify Edge Functions API](https://docs.netlify.com/build/edge-functions/api/)
+* [DNS for AI Discovery draft](https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/)
+* [RFC 9460, SVCB and HTTPS resource records](https://www.rfc-editor.org/rfc/rfc9460)

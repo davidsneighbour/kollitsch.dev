@@ -7,6 +7,5 @@ Use the sidebar to browse by area. `API reference` links to the generated
 TypeDoc output under `documentation/api/` and opens in a new tab.
 
 Key content references include [Frontmatter](content/frontmatter.md),
-[Tags](content/tags.md), draft visibility, feed headers,
-[LLM visibility](content/llm-visibility.md), and
+[Tags](content/tags.md), draft visibility, feed headers, and
 [agents and LLM readiness](content/agents-and-llm.md).

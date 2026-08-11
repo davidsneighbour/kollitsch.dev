@@ -1,5 +1,25 @@
 # Changelog
 
+## [3001.29.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.28.0...v3001.29.0) (2026-08-11)
+
+### Feat
+
+* **gimmicks:** apply VHS effect to TvHead background ([03d919b](https://github.com/davidsneighbour/kollitsch.dev/commit/03d919b48e5f1be929f66504397548cc3a80e868)), closes [#1861](https://github.com/davidsneighbour/kollitsch.dev/issues/1861)
+* **gimmicks:** replace TvHead VHS with Glitch ([3bd0c73](https://github.com/davidsneighbour/kollitsch.dev/commit/3bd0c73dde4c95a5fbc689499a114b89a2f333f4)), closes [#1862](https://github.com/davidsneighbour/kollitsch.dev/issues/1862)
+
+### Fix
+
+* **gimmicks:** preserve TvHead background under VHS ([64369a2](https://github.com/davidsneighbour/kollitsch.dev/commit/64369a252cc0d1c5f249bae88e8a83e4f798fcb0)), closes [#1861](https://github.com/davidsneighbour/kollitsch.dev/issues/1861)
+* **headers:** expose homepage agent discovery links ([3b578f9](https://github.com/davidsneighbour/kollitsch.dev/commit/3b578f944fe6acad80c69ad106a7ac642b0477a5)), closes [#1868](https://github.com/davidsneighbour/kollitsch.dev/issues/1868)
+
+### Style
+
+* **home:** tune TvHead VHS settings ([9de6d0c](https://github.com/davidsneighbour/kollitsch.dev/commit/9de6d0cf5ddc9b6eeaab22b06599c11d7dd3a89c)), references [#1861](https://github.com/davidsneighbour/kollitsch.dev/issues/1861)
+
+### Chore
+
+* **lighthouse:** update score history [skip ci] ([d8c2b0d](https://github.com/davidsneighbour/kollitsch.dev/commit/d8c2b0dc29db138ee8b967cc6ad294d0326372f8))
+
 ## [3001.28.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.27.2...v3001.28.0) (2026-08-10)
 
 ### Feat

@@ -1,6 +1,7 @@
 {
   "scripts": {
     "lint:vale": "vale --config src/config/.vale.ini --no-exit --output='dnb.tmpl' ./src/content/",
+    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=scratch/vale/vale-blog.json --html=scratch/vale/vale-blog.html",
     "update:pre:vale": "wireit"
   },
   "wireit": {

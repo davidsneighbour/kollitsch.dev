@@ -153,6 +153,7 @@
   },
   "scripts": {
     "astro": "astro",
+    "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
     "audit:html": "wireit",
     "biome:check": "biome check",
     "biome:format": "biome format",

@@ -60,6 +60,7 @@ Quality-gate scripts. All exit non-zero on failure.
 
 | Script | What it does | npm script |
 | --- | --- | --- |
+| `agent-ready-audit.ts` | Runs the public isitagentready.com scanner with the content-site profile checks for `https://kollitsch.dev`. Accepts `--url` or `AGENT_READY_URL` for a different target. This is a manual external audit and is intentionally not part of CI. | `npm run audit:agent-ready` |
 | `lighthouse-audit.ts` | Runs Lighthouse mobile + desktop audits against a URL using `chrome-launcher`. Writes timestamped JSON (and optionally HTML) reports. Accepts `--url`, `--output-dir`, `--save-html`, `--chrome-flags`. | `npm run lighthouse:audit` |
 | `lint-descriptions.ts` | Validates `description` frontmatter length (110–160 chars) across all content. Hard error (exit 1) for missing/empty. Soft warning (exit 0) for out-of-range lengths. | `npm run lint:descriptions` |
 | `verify-sitemap.ts` | Fetches the live sitemap index, extracts all URLs, and makes HTTP requests to verify 2xx responses. Rate-limited. Useful for post-deploy smoke testing. | `npm run lint:sitemap` |

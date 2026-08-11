@@ -231,7 +231,7 @@
     "release": "wireit",
     "release:forced": "wireit",
     "release:tests": "wireit",
-    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=scratch/vale/vale-blog.json --html=scratch/vale/vale-blog.html",
+    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=scratch/vale/vale-blog.json --html=scratch/vale/vale-blog.html --open",
     "screenshot": "wireit",
     "skills": "npx skills",
     "skills:add": "node src/scripts/maintenance/skills.ts add",

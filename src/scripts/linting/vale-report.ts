@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
+import http from 'node:http';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 type ValeSeverity = 'error' | 'warning' | 'suggestion';
 
@@ -29,16 +31,24 @@ type NormalizedIssue = {
 
 type Options = {
   config: string;
+  host: string;
   html: string;
   input?: string;
   json: string;
+  open: boolean;
+  port: number;
+  serve: boolean;
   target: string;
 };
 
 const DEFAULT_OPTIONS: Options = {
   config: 'src/config/.vale.ini',
+  host: '127.0.0.1',
   html: 'scratch/vale/vale-blog.html',
   json: 'scratch/vale/vale-blog.json',
+  open: false,
+  port: 8787,
+  serve: false,
   target: 'src/content/blog',
 };
 
@@ -64,6 +74,11 @@ function parseArgs(argv: string[]): Options {
       continue;
     }
 
+    if (name === '--host' && value) {
+      options.host = value;
+      continue;
+    }
+
     if (name === '--input' && value) {
       options.input = value;
       continue;
@@ -71,6 +86,22 @@ function parseArgs(argv: string[]): Options {
 
     if (name === '--json' && value) {
       options.json = value;
+      continue;
+    }
+
+    if (name === '--open') {
+      options.open = true;
+      options.serve = true;
+      continue;
+    }
+
+    if (name === '--port' && value) {
+      options.port = Number.parseInt(value, 10);
+      continue;
+    }
+
+    if (name === '--serve') {
+      options.serve = true;
       continue;
     }
 
@@ -85,6 +116,10 @@ function parseArgs(argv: string[]): Options {
     }
 
     throw new Error(`Unknown argument: ${arg}`);
+  }
+
+  if (!Number.isInteger(options.port) || options.port < 1 || options.port > 65_535) {
+    throw new Error(`Invalid port: ${options.port}`);
   }
 
   return options;
@@ -105,12 +140,150 @@ Options:
   --html=PATH     HTML report output path.
                   Default: ${DEFAULT_OPTIONS.html}
   --input=PATH    Parse an existing Vale JSON file instead of running Vale.
+  --serve         Start a local static server for the generated report folder.
+  --open          Start the server and open the report in VS Code Simple Browser.
+  --host=HOST     Local report server host.
+                  Default: ${DEFAULT_OPTIONS.host}
+  --port=PORT     Local report server port.
+                  Default: ${DEFAULT_OPTIONS.port}
   --help          Show this help.
 `.trim());
 }
 
 function ensureParentDirectory(filePath: string): void {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
+}
+
+function contentTypeFor(filePath: string): string {
+  switch (path.extname(filePath)) {
+    case '.css':
+      return 'text/css; charset=utf-8';
+    case '.html':
+      return 'text/html; charset=utf-8';
+    case '.js':
+      return 'text/javascript; charset=utf-8';
+    case '.json':
+      return 'application/json; charset=utf-8';
+    case '.svg':
+      return 'image/svg+xml';
+    default:
+      return 'application/octet-stream';
+  }
+}
+
+function serveStaticReport(host: string, port: number, directory: string): void {
+  const root = path.resolve(directory);
+  const server = http.createServer((request, response) => {
+    const requestUrl = new URL(request.url ?? '/', `http://${host}:${port}`);
+    const requestedPath = decodeURIComponent(requestUrl.pathname);
+    const normalisedPath =
+      requestedPath === '/' ? '/vale-blog.html' : requestedPath;
+    const absolutePath = path.resolve(
+      root,
+      normalisedPath.replace(/^\/+/, '')
+    );
+
+    if (!absolutePath.startsWith(`${root}${path.sep}`) && absolutePath !== root) {
+      response.writeHead(403);
+      response.end('Forbidden');
+      return;
+    }
+
+    if (!fs.existsSync(absolutePath) || !fs.statSync(absolutePath).isFile()) {
+      response.writeHead(404);
+      response.end('Not found');
+      return;
+    }
+
+    response.writeHead(200, {
+      'Cache-Control': 'no-store',
+      'Content-Type': contentTypeFor(absolutePath),
+    });
+    fs.createReadStream(absolutePath).pipe(response);
+  });
+
+  server.listen(port, host, () => {
+    console.log(`Vale report server listening at http://${host}:${port}/`);
+  });
+}
+
+function startReportServer(options: Options): string {
+  const reportDirectory = path.dirname(path.resolve(options.html));
+  const child = spawn(
+    process.execPath,
+    [
+      fileURLToPath(import.meta.url),
+      '--serve-static',
+      `--host=${options.host}`,
+      `--port=${options.port}`,
+      `--directory=${reportDirectory}`,
+    ],
+    {
+      detached: true,
+      stdio: 'ignore',
+    }
+  );
+
+  child.unref();
+
+  return `http://${options.host}:${options.port}/${encodeURIComponent(
+    path.basename(options.html)
+  )}`;
+}
+
+async function waitForUrl(url: string, timeoutMs: number): Promise<boolean> {
+  const start = Date.now();
+
+  while (Date.now() - start < timeoutMs) {
+    const isReady = await new Promise<boolean>((resolve) => {
+      const request = http.get(url, (response) => {
+        response.resume();
+        resolve((response.statusCode ?? 500) < 500);
+      });
+
+      request.on('error', () => {
+        resolve(false);
+      });
+
+      request.setTimeout(500, () => {
+        request.destroy();
+        resolve(false);
+      });
+    });
+
+    if (isReady) {
+      return true;
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  }
+
+  return false;
+}
+
+function simpleBrowserUri(url: string): string {
+  return `vscode://command/simpleBrowser.show?${encodeURIComponent(
+    JSON.stringify([url])
+  )}`;
+}
+
+function openVsCodeSimpleBrowser(url: string): boolean {
+  const uri = simpleBrowserUri(url);
+  const commands = [
+    ['code', '--open-url', uri],
+    ['codium', '--open-url', uri],
+    ['xdg-open', uri],
+  ];
+
+  for (const [command, ...args] of commands) {
+    const result = spawnSync(command, args, { stdio: 'ignore' });
+
+    if (result.status === 0) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function runVale(options: Options): string {
@@ -710,8 +883,27 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
 `;
 }
 
-function main(): void {
-  const options = parseArgs(process.argv.slice(2));
+async function main(): Promise<void> {
+  const argv = process.argv.slice(2);
+
+  if (argv.includes('--serve-static')) {
+    const host =
+      argv.find((arg) => arg.startsWith('--host='))?.split('=', 2)[1] ??
+      DEFAULT_OPTIONS.host;
+    const port = Number.parseInt(
+      argv.find((arg) => arg.startsWith('--port='))?.split('=', 2)[1] ??
+        String(DEFAULT_OPTIONS.port),
+      10
+    );
+    const directory =
+      argv.find((arg) => arg.startsWith('--directory='))?.split('=', 2)[1] ??
+      path.dirname(DEFAULT_OPTIONS.html);
+
+    serveStaticReport(host, port, directory);
+    return;
+  }
+
+  const options = parseArgs(argv);
   const rawJson = readValeJson(options);
   const data = JSON.parse(rawJson) as ValeJson;
   const issues = normalizeIssues(data);
@@ -731,6 +923,33 @@ function main(): void {
       `${counts.get('suggestion') ?? 0} suggestions`,
     ].join(', ')
   );
+
+  if (options.serve) {
+    const reportUrl = startReportServer(options);
+    const isReady = await waitForUrl(reportUrl, 3_000);
+
+    if (!isReady) {
+      console.warn(`Report server did not respond at ${reportUrl}`);
+      return;
+    }
+
+    console.log(`Vale report server: ${reportUrl}`);
+
+    if (options.open) {
+      const didOpen = openVsCodeSimpleBrowser(reportUrl);
+
+      if (didOpen) {
+        console.log('Opened Vale report in VS Code Simple Browser.');
+      } else {
+        console.warn(
+          `Could not open VS Code Simple Browser automatically. Open this URL manually: ${reportUrl}`
+        );
+      }
+    }
+  }
 }
 
-main();
+main().catch((error: unknown) => {
+  console.error(error instanceof Error ? error.message : String(error));
+  process.exit(1);
+});

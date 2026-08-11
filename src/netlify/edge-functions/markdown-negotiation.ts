@@ -174,14 +174,6 @@ export default async function markdownNegotiation(
   const markdownUrl = new URL(markdownPath, request.url);
   const response = await context.next(new Request(markdownUrl, request));
 
-  if (request.method === 'HEAD') {
-    return new Response(null, {
-      headers: setMarkdownResponseHeaders(response.headers),
-      status: response.status,
-      statusText: response.statusText,
-    });
-  }
-
   const markdown = await response.text();
   const headers = setMarkdownResponseHeaders(response.headers, markdown);
 
@@ -193,6 +185,6 @@ export default async function markdownNegotiation(
 }
 
 export const config = {
-  method: ['GET', 'HEAD'],
+  method: ['GET'],
   path: ['/', '/blog/*'],
 };

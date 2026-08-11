@@ -62,7 +62,8 @@ content-negotiated variants.
 The homepage and supported blog post URLs also run through the Netlify Edge
 Function at
 [`src/netlify/edge-functions/markdown-negotiation.ts`](../../src/netlify/edge-functions/markdown-negotiation.ts).
-The function is scoped to `GET` and `HEAD` requests for `/` and `/blog/*`.
+The function is scoped to `GET` requests for `/` and `/blog/*`; Netlify Edge
+Functions do not allow `HEAD` in their method configuration.
 
 For the homepage URL `/`:
 
@@ -85,8 +86,8 @@ the client explicitly named `text/markdown`; wildcard-only requests such as
 text/markdown; charset=utf-8`, ensure `Vary` includes `Accept` while
 preserving any existing `Vary` dimensions, preserve the reciprocal `Link`
 header generated for the `.md` asset where one exists, and add an approximate
-`X-Markdown-Tokens` response header calculated from the generated Markdown body
-for `GET` requests.
+`X-Markdown-Tokens` response header calculated from the generated Markdown
+body.
 
 References:
 

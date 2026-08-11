@@ -110,26 +110,6 @@ describe('Markdown content negotiation', () => {
     expect(response?.headers.get('X-Markdown-Tokens')).toBe('14');
   });
 
-  it('sets Markdown headers for HEAD negotiation without reading a body', async () => {
-    const next = vi.fn(async () => {
-      return new Response(null, {
-        headers: { Vary: 'Accept-Encoding' },
-      });
-    });
-    const request = new Request('https://kollitsch.dev/', {
-      headers: { Accept: 'text/markdown' },
-      method: 'HEAD',
-    });
-
-    const response = await markdownNegotiation(request, { next });
-
-    expect(response?.headers.get('Content-Type')).toBe(
-      'text/markdown; charset=utf-8',
-    );
-    expect(response?.headers.get('Vary')).toBe('Accept-Encoding, Accept');
-    expect(response?.headers.get('X-Markdown-Tokens')).toBeNull();
-  });
-
   it('continues the normal request chain for HTML-preferring clients', async () => {
     const next = vi.fn();
     const request = new Request('https://kollitsch.dev/blog/2026/example-post/', {

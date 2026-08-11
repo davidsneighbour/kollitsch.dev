@@ -434,7 +434,11 @@ Inline mode: underline-on-hover pattern, no border, fits within prose text
 
 ### Links (prose)
 
-All inline links in prose content use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover. The transition is `duration-300 ease-in-out`. Do not use the primary orange for links - that color is reserved for CTA buttons and the brand mark.
+All links site-wide (not just prose) use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover, `link-dark`/`link-dark-hover` in dark mode; the transition is `150ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`. Do not use the primary orange for links - that color is reserved for CTA buttons and the brand mark.
+
+Hover also lifts the underline away from the text: `text-underline-offset` animates `2px → 4px` on the same transition, alongside the color shift. This is the site's one deliberate link-hover motion - restrained, and paired with color so hover is legible even for readers who don't perceive the color change.
+
+**The Unlayered Hover Rule.** The base `a`/`a:hover` color rules live in `src/styles/theme.css`'s default `@apply hover:*`/`dark:*`/`dark:hover:*` chains do not compile when `@apply`-ed onto a bare tag selector (confirmed on Tailwind 4.3.3 - they are silently dropped, no build error) - write the variant as literal CSS instead. Separately, the hover *color* rule must live in `@layer utilities`, not `@layer base`: `.typography-reading`'s inlined `prose` styles (`@layer components`) set a fixed, non-hover `color` on every link inside article body text, and `@layer components` always outranks `@layer base` regardless of selector specificity. Only `@layer utilities` reliably wins.
 
 Prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
 

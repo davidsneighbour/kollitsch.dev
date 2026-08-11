@@ -408,14 +408,35 @@
     text-wrap: pretty;
   }
 
-  /* default link styles */
+  /*
+   * default link styles
+   *
+   * Written as literal `color`/selectors rather than `@apply hover:*`/`dark:*`/
+   * `dark:hover:*` chains: those variants silently failed to compile when
+   * `@apply`-ed onto this bare `a` selector (Tailwind 4.3.3 dropped them
+   * without error), which meant links never visibly changed color on hover
+   * anywhere on the site. See DESIGN.md's `link`/`link-hover`/`link-dark`/
+   * `link-dark-hover` tokens for the source values.
+   *
+   * The hover color rules live in `@layer utilities` below (not here) so
+   * they outrank `.typography-reading`'s inlined `prose` rules, which sit in
+   * `@layer components` and would otherwise always win over anything in this
+   * `@layer base` block regardless of selector specificity.
+   */
   a {
-    @apply text-red-700;
-    @apply hover:text-orange-700;
-    @apply dark:text-red-500;
-    @apply dark:hover:text-orange-400;
+    color: var(--color-red-700);
+    text-underline-offset: 2px;
+    transition:
+      color 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      text-underline-offset 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 
-    transition: color 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  :where([data-theme="dark"], [data-theme="dark"] *) a {
+    color: var(--color-red-500);
+  }
+
+  a:hover {
+    text-underline-offset: 4px;
   }
 
   /**
@@ -841,5 +862,21 @@
         @apply pointer-events-none opacity-0;
       }
     }
+  }
+}
+
+@layer utilities {
+  /*
+   * Link hover color, kept in the utilities layer (highest priority) so it
+   * wins over `.typography-reading`'s inlined `prose` rules in @layer
+   * components, which set a fixed, non-hover `color` on every prose link
+   * (see the `a` rule in @layer base above for the rest-state color).
+   */
+  a:hover {
+    color: var(--color-orange-700);
+  }
+
+  :where([data-theme="dark"], [data-theme="dark"] *) a:hover {
+    color: var(--color-orange-400);
   }
 }

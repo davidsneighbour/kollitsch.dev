@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-26T09:13:44Z",
+  "generatedAt": "2026-08-11T16:47:54Z",
   "title": "Design System: KOLLITSCH.dev*",
   "extensions": {
     "colorMeta": {
@@ -44,25 +44,35 @@
         "displayName": "Dusk Orange (link arrival)",
         "canonical": "oklch(64.6% 0.222 41.116deg)"
       },
+      "link-dark": {
+        "role": "secondary",
+        "displayName": "Bright Red (dark surfaces)",
+        "canonical": "oklch(63.7% 0.237 25.331deg)"
+      },
+      "link-dark-hover": {
+        "role": "secondary",
+        "displayName": "Bright Orange (dark link arrival)",
+        "canonical": "oklch(75% 0.183 55.934deg)"
+      },
       "surface": {
         "role": "neutral",
         "displayName": "Warm Off-White Paper",
-        "canonical": "oklch(98.6% 0.002 67.8deg)",
+        "canonical": "oklch(98.8% 0.003 106.5deg)",
         "tonalRamp": [
-          "oklch(15% 0.004 49.3deg)",
-          "oklch(27% 0.006 50deg)",
-          "oklch(39% 0.006 55deg)",
-          "oklch(51% 0.005 60deg)",
-          "oklch(64% 0.004 65deg)",
-          "oklch(78% 0.003 67deg)",
-          "oklch(90% 0.002 67.8deg)",
-          "oklch(98.6% 0.002 67.8deg)"
+          "oklch(15% 0.006 107.1deg)",
+          "oklch(27% 0.011 107.4deg)",
+          "oklch(39% 0.023 107.4deg)",
+          "oklch(51% 0.025 107.3deg)",
+          "oklch(64% 0.021 106.9deg)",
+          "oklch(78% 0.011 106.6deg)",
+          "oklch(90% 0.005 106.5deg)",
+          "oklch(98.8% 0.003 106.5deg)"
         ]
       },
       "surface-dark": {
         "role": "neutral",
         "displayName": "Warm Near-Black",
-        "canonical": "oklch(14.7% 0.004 49.3deg)"
+        "canonical": "oklch(15.3% 0.006 107.1deg)"
       },
       "surface-raised": {
         "role": "neutral",
@@ -108,6 +118,71 @@
         "role": "tertiary",
         "displayName": "Inline Code Wash",
         "canonical": "oklch(63.7% 0.237 25.331deg)"
+      },
+      "draft-badge-background": {
+        "role": "tertiary",
+        "displayName": "Draft Status Orange",
+        "canonical": "oklch(47% 0.157 37.304deg)"
+      },
+      "pagination-inactive-dark": {
+        "role": "neutral",
+        "displayName": "Inactive Pagination Gray (dark)",
+        "canonical": "oklch(86.8% 0.007 39.5deg)"
+      },
+      "tag-badge-green-50": {
+        "role": "tertiary",
+        "displayName": "Tag Green Wash",
+        "canonical": "oklch(98.2% 0.018 155.826deg)"
+      },
+      "tag-badge-green-100": {
+        "role": "tertiary",
+        "displayName": "Tag Green Wash Hover",
+        "canonical": "oklch(96.2% 0.044 156.743deg)"
+      },
+      "tag-badge-green-300": {
+        "role": "tertiary",
+        "displayName": "Tag Green Light",
+        "canonical": "oklch(87.1% 0.15 154.449deg)"
+      },
+      "tag-badge-green-400": {
+        "role": "tertiary",
+        "displayName": "Tag Green Mid",
+        "canonical": "oklch(79.2% 0.209 151.711deg)"
+      },
+      "tag-badge-green-600": {
+        "role": "tertiary",
+        "displayName": "Tag Green Ring",
+        "canonical": "oklch(62.7% 0.194 149.214deg)"
+      },
+      "tag-badge-green-700": {
+        "role": "tertiary",
+        "displayName": "Tag Green Text",
+        "canonical": "oklch(52.7% 0.154 150.069deg)"
+      },
+      "tag-badge-green-950": {
+        "role": "tertiary",
+        "displayName": "Tag Green Dark Wash",
+        "canonical": "oklch(26.6% 0.065 152.934deg)"
+      },
+      "colophon-watermark": {
+        "role": "neutral",
+        "displayName": "Colophon Watermark (light)",
+        "canonical": "oklch(96.6% 0.005 106.5deg)"
+      },
+      "colophon-watermark-hover": {
+        "role": "neutral",
+        "displayName": "Colophon Watermark Hover (light)",
+        "canonical": "oklch(93% 0.007 106.5deg)"
+      },
+      "colophon-watermark-dark": {
+        "role": "neutral",
+        "displayName": "Colophon Watermark (dark)",
+        "canonical": "oklch(22.8% 0.013 107.4deg)"
+      },
+      "colophon-watermark-dark-hover": {
+        "role": "neutral",
+        "displayName": "Colophon Watermark Hover (dark)",
+        "canonical": "oklch(28.6% 0.016 107.4deg)"
       }
     },
     "typographyMeta": {
@@ -128,7 +203,9 @@
     ],
     "motion": [
       { "name": "color-transition", "value": "transition-colors duration-300 ease-in-out", "purpose": "Standard hover/focus color transition for links, cards, and surfaces." },
-      { "name": "press-transition", "value": "transition-transform duration-150", "purpose": "Button active-state press scale (scale-x-97 scale-y-98) with a 150ms delay." }
+      { "name": "press-transition", "value": "transition-transform duration-150", "purpose": "Button active-state press scale (scale-x-97 scale-y-98) with a 150ms delay." },
+      { "name": "post-preview-transition", "value": "420ms cubic-bezier(0.19, 1, 0.22, 1)", "purpose": "Shared-element morph transition between blog post previews and their destination posts, gated behind prefers-reduced-motion: no-preference." },
+      { "name": "link-hover-underline-lift", "value": "150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); text-underline-offset 2px → 4px alongside the link/link-hover color shift", "purpose": "The site-wide link hover cue: the underline pulls away from the text while the color shifts red→orange, so hover reads even for readers who don't perceive the color change. Runs faster than the general 300ms color-transition token because it's on the highest-frequency interactive element on the page." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -144,15 +221,22 @@
       "refersTo": "button-primary",
       "description": "Filled primary action button (Button.astro, theme=\"primary\", outline=false).",
       "html": "<a href=\"#\" class=\"ds-btn-primary\">Save changes</a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; background: #dc2626; color: #ffffff; padding: 0.625rem 1.25rem; font-size: 0.875rem; transition: background-color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-primary:hover { background: #991b1b; } .ds-btn-primary:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; } .ds-btn-primary:active { transform: scale(0.97, 0.98); }"
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; background: oklch(64.6% 0.222 41.116deg); color: oklch(14.7% 0.004 49.3deg); padding: 0.625rem 1.25rem; font-size: 0.875rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: background-color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-primary:hover { background: oklch(55.3% 0.195 38.402deg); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(64.6% 0.222 41.116deg); outline-offset: 2px; } .ds-btn-primary:active { transform: scale(0.97, 0.98); }"
     },
     {
       "name": "Outlined Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Outlined primary button variant (Button.astro, outline=true, the component default).",
+      "description": "Outlined primary button variant (Button.astro, theme=\"primary\", outline=true, the component default).",
       "html": "<a href=\"#\" class=\"ds-btn-outline\">Read more</a>",
-      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; border: 1px solid #b91c1c; background: transparent; color: #b91c1c; padding: 0.625rem 1.25rem; font-size: 0.875rem; transition: background-color 300ms ease-in-out, color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-outline:hover { background: #991b1b; color: #ffffff; } .ds-btn-outline:focus-visible { outline: 2px solid #dc2626; outline-offset: 2px; } .ds-btn-outline:active { transform: scale(0.97, 0.98); }"
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; border: 1px solid oklch(55.3% 0.195 38.402deg); background: transparent; color: oklch(55.3% 0.195 38.402deg); padding: 0.625rem 1.25rem; font-size: 0.875rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: background-color 300ms ease-in-out, color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-outline:hover { background: oklch(47% 0.157 37.304deg); color: #ffffff; } .ds-btn-outline:focus-visible { outline: 2px solid oklch(64.6% 0.222 41.116deg); outline-offset: 2px; } .ds-btn-outline:active { transform: scale(0.97, 0.98); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "description": "Filled secondary action button (Button.astro, theme=\"secondary\", outline=false) - the deep-red/orange-hover pairing shared with prose links.",
+      "html": "<a href=\"#\" class=\"ds-btn-secondary\">Read more</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 6px; background: oklch(50.5% 0.213 27.518deg); color: #ffffff; padding: 0.625rem 1.25rem; font-size: 0.875rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: background-color 300ms ease-in-out, transform 150ms; cursor: pointer; } .ds-btn-secondary:hover { background: oklch(64.6% 0.222 41.116deg); } .ds-btn-secondary:focus-visible { outline: 2px solid oklch(50.5% 0.213 27.518deg); outline-offset: 2px; } .ds-btn-secondary:active { transform: scale(0.97, 0.98); }"
     },
     {
       "name": "Badge",
@@ -162,12 +246,19 @@
       "css": ".ds-badge { display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; border-radius: 6px; background: #fef2f2; color: #b91c1c; box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.1); padding: 0.125rem 0.375rem; font-size: 0.75rem; font-weight: 500; }"
     },
     {
+      "name": "Tag Badge",
+      "kind": "chip",
+      "refersTo": "tag-badge-green",
+      "description": "Green tag/category chip (Tag.astro-family, tag-badge-green tokens) - the site's one deliberate departure from the orange/red accent pair, reserved for taxonomy chips.",
+      "html": "<a href=\"#\" class=\"ds-tag-badge\">astro</a>",
+      "css": ".ds-tag-badge { display: inline-flex; align-items: center; gap: 0.25rem; border-radius: 6px; background: oklch(98.2% 0.018 155.826deg); color: oklch(52.7% 0.154 150.069deg); box-shadow: inset 0 0 0 1px oklch(62.7% 0.194 149.214deg / 0.2); padding: 0.125rem 0.5rem; font-size: 0.75rem; font-weight: 500; text-decoration: none; transition: background-color 300ms ease-in-out; } .ds-tag-badge:hover { background: oklch(96.2% 0.044 156.743deg); }"
+    },
+    {
       "name": "Card Link",
       "kind": "card",
-      "refersTo": "card",
-      "description": "Primary content container for blog previews and link lists (CardLink.astro).",
+      "description": "Link-list card surface (CardLink.astro) - a background-relative opacity overlay, not an independent surface color; still on the older bg-white/5 recipe pending a visual pass to the shared card token.",
       "html": "<a href=\"#\" class=\"ds-card\"><div class=\"ds-card-image\"></div><span class=\"ds-card-title\">Post title goes here</span></a>",
-      "css": ".ds-card { display: flex; align-items: center; gap: 1rem; overflow: hidden; border-radius: 8px; background: #ffffff; padding: 1rem 1.25rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: background-color 300ms ease-in-out; text-decoration: none; } .ds-card:hover { background: rgba(249, 250, 251, 0.5); } .ds-card-image { width: 6rem; height: 6rem; flex-shrink: 0; border-radius: 12px; overflow: hidden; background: #e5e7eb; } .ds-card-title { font-size: 1.5rem; line-height: 1.25; color: #1f2937; }"
+      "css": ".ds-card { display: flex; align-items: center; gap: 1rem; overflow: hidden; border-radius: 8px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 1px 2px rgba(0,0,0,0.05); padding: 1.25rem 1.5rem; transition: background-color 300ms ease-in-out; text-decoration: none; } .ds-card:hover { background: rgba(255, 255, 255, 0.10); } .ds-card-image { width: 6rem; height: 6rem; flex-shrink: 0; border-radius: 12px; overflow: hidden; background: oklch(92.2% 0.005 34.3deg); } .ds-card-title { font-size: 1.5rem; line-height: 1.25; color: oklch(43.8% 0.017 39.3deg); }"
     },
     {
       "name": "Source Code Badge",
@@ -188,23 +279,28 @@
       "Engineered lightness: minimal radii, tonal depth instead of shadows"
     ],
     "rules": [
-      { "name": "The One Voice Rule", "body": "The primary color is used exclusively for interactive primary actions (CTAs, hover states). One per screen is ideal.", "section": "colors" },
-      { "name": "The Flat-By-Default Rule", "body": "Don't add box-shadows in dark mode - use outline outline-white/10 to define surfaces instead.", "section": "elevation" },
-      { "name": "The No-Mix Radius Rule", "body": "Do not mix rounded-lg and rounded-xl on the same container and its child - use rounded-lg on the outer container and rounded-xl only inside, where images live.", "section": "shapes" }
+      { "name": "The Unlayered Hover Rule", "body": "Link hover color rules must live in @layer utilities, not @layer base: .typography-reading's inlined prose styles (@layer components) set a fixed, non-hover color on every link inside article text, and @layer components always outranks @layer base regardless of selector specificity. Also, @apply hover:*/dark:*/dark:hover:* chains silently fail to compile when applied onto a bare tag selector (confirmed on Tailwind 4.3.3, no build error) - write the variant as literal CSS instead.", "section": "components" }
     ],
     "dos": [
       "Do use font-changa only for headings and display text - never for body copy or code.",
       "Do apply the primary color exclusively to interactive primary actions (CTAs, hover states). One per screen is ideal.",
       "Do maintain WCAG AA contrast (4.5:1 for normal text). The on-surface / on-surface-dark tokens are calibrated for this.",
       "Do use transition-colors duration-300 ease-in-out for all color-based hover transitions to maintain consistent motion rhythm.",
-      "Do respect prefers-reduced-motion - the LetterGlitch canvas animation and all keyframe animations must be gated behind the no-preference media query.",
-      "Do prefix any temporary debugging class with debug (e.g. debug-outline) if one is ever needed, so it can't be mistaken for an intentional style and is easy to grep for before committing."
+      "Do respect prefers-reduced-motion - the LetterGlitch canvas animation, view transitions, and all keyframe animations must be gated behind the no-preference media query.",
+      "Do prefix any temporary debugging class with debug (for example debug-outline) if one is ever needed, so it can't be mistaken for an intentional style and is easy to grep for before committing.",
+      "Do derive tinted/frosted surfaces (header, popovers, breadcrumb pills) from var(--background) via color-mix() or a black/white opacity overlay - never pick an independent gray/olive shade for a \"raised\" or \"frosted\" look.",
+      "Do use the shadcn primitives (Input/Textarea in src/components/forms/, Button/Card in src/components/shared/elements/) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island."
     ],
     "donts": [
       "Don't add box-shadows in dark mode - use outline outline-white/10 to define surfaces instead.",
+      "Don't apply the contrast rule to elements marked data-dnb-design-exception=\"decorative-low-contrast\" - they are hidden from assistive technology and intentionally fail contrast as decorative background texture.",
       "Don't use rounded-xl on outer containers - it belongs only to images inside cards.",
       "Don't introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.",
-      "Don't add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing."
+      "Don't add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.",
+      "Don't give the same tinted surface a different opacity per theme (for example 70% light / 92% dark) - share one value via a custom property so light and dark can't drift apart.",
+      "Don't extend the olive surface scale into structural neutrals - text, borders, and muted-foreground stay on gray. olive is reserved for --background and things derived from it.",
+      "Don't rely on @tailwindcss/forms' class-strategy names like form-input - this project runs the plugin in base strategy, so that class doesn't exist and silently does nothing.",
+      "Don't introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the orange primary or red link pair."
     ]
   }
 }

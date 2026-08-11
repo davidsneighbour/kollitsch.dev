@@ -20,16 +20,16 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 <article
   transition:name={transitionName}
   data-post-preview-transition={transitionName}
-  class="group @container relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-card p-(--card-padding) text-card-foreground shadow-sm ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-lg)] ring-inset transition-colors duration-300 ease-in-out hover:bg-white dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 dark:hover:bg-black/30"
+  class="group @container relative isolate flex flex-col justify-normal overflow-hidden rounded-(--card-radius) bg-card p-(--card-padding) text-card-foreground shadow-sm ring-1 ring-gray-900/10 [--card-padding:0px] [--card-radius:var(--radius-lg)] ring-inset transition-colors duration-300 ease-in-out hover:bg-white dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 dark:hover:bg-black/30"
 >
   <PostImage
     post={post}
     link={`/blog/${post.id}/`}
-    classes="aspect-dnb max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
+    classes="aspect-dnb w-full max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
     quality="medium"
     transitionName={mediaTransitionName}
   />
-  <div class="flex grow flex-col justify-start @sm:p-2 @md:p-3 @lg:p-4">
+  <div class="flex grow flex-col justify-start p-3 @md:p-4">
     <h2
       class="mt-0 flex-none text-lg @md:text-xl @lg:text-2xl @xl:text-3xl @2xl:text-4xl @3xl:text-5xl @4xl:text-6xl"
     >

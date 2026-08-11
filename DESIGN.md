@@ -119,6 +119,7 @@ rounded:
   xl: 12px
   full: 9999px
 spacing:
+  none: 0px
   xs: 4px
   sm: 8px
   md: 16px
@@ -161,7 +162,8 @@ components:
     rounded: "{rounded.lg}"
     padding: 24px
   card-image:
-    rounded: "{rounded.xl}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.none}"
   caption:
     textColor: "{colors.on-surface-muted}"
     typography: "{typography.label}"
@@ -369,10 +371,10 @@ The shape language is **minimal and measured**.
 * `rounded-sm` (2px): Not used for primary UI elements. Reserved for very small chips or micro-interactions if needed.
 * `rounded-md` (6px): Source code link badges, form inputs, small UI chips. Just enough softness for inline elements.
 * `rounded-lg` (8px): Cards, content blocks, the primary containment shape. The standard container radius.
-* `rounded-xl` (12px): Thumbnail images within cards. Images get a slightly more generous rounding to feel photographic rather than clipped.
+* `rounded-xl` (12px): Available for large standalone media where the image is not clipped by an outer card or article surface.
 * `rounded-full` (9999px): Pills, avatar circles, and status indicators.
 
-Do not mix `rounded-lg` and `rounded-xl` on the same container and its child - use `rounded-lg` on the outer container and `rounded-xl` only inside, where images live.
+Do not mix `rounded-lg` and `rounded-xl` on the same container and its child. Article and article-card cover images are clipped by their outer `rounded-lg`/card surface and use the matching top radius instead of an inset inner radius.
 
 ## Components
 
@@ -382,7 +384,8 @@ Cards are the primary content container for blog post previews, link lists, and 
 
 * Light: `bg-card`, `text-card-foreground`, `rounded-lg`, subtle `shadow-sm`, `hover:bg-white`
 * Dark: `bg-black/20` (an opacity overlay of the page background, not a fixed color), `text-gray-200`, no shadow, `ring-gray-100/10`, `hover:bg-black/30`
-* `Preview.astro` keeps its image corner radius derived from the outer card radius minus the card padding, so the image tracks the outer container cleanly
+* `Preview.astro` and `Tag.astro` render cover media edge-to-edge inside the card surface; text and button regions carry their own padding
+* Full post covers in `Post.astro` break out to the article surface edge while the article body keeps its normal internal padding
 * Blog previews and their destination posts share the `post-preview-transition` motion token only inside `prefers-reduced-motion: no-preference`: a 420ms strong ease-out shared-element morph with the standard `rounded-lg` card radius and clipped overflow. Cover media uses a separate `post-preview-media` transition class with `object-fit: cover` so image snapshots crop rather than stretch while the card shell changes size.
 * See "Elevation & Depth" above for why dark-mode cards stay on a background-relative overlay rather than a picked gray/olive shade
 

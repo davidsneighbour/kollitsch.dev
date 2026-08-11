@@ -11,6 +11,7 @@ export interface Props {
   post: CollectionEntry<'blog' | 'tags'>;
   link?: string;
   classes?: string;
+  figureClasses?: string;
   // mapped to 30/60/82/95 or use number directly
   quality?: 'low' | 'medium' | 'high' | 'max' | number;
   widths?: number[];
@@ -24,6 +25,7 @@ const {
   post,
   link,
   classes = 'w-full max-w-full h-auto',
+  figureClasses = '',
   quality = 'high',
   widths = [320, 640, 768, 1024],
   formats = ['avif', 'webp', 'jpeg'],
@@ -118,7 +120,7 @@ const roundedClasses = classes
     // Caption stays below the video; overlay does not apply to media players.
     // Draft badge still shows so editors can spot unpublished content.
     <figure
-      class="group relative"
+      class:list={["group relative", figureClasses]}
       transition:name={transitionName}
       {...transitionName && { "data-post-preview-media-transition": transitionName }}
     >
@@ -155,6 +157,7 @@ const roundedClasses = classes
       class:list={[
         "group/postimg relative @container overflow-hidden",
         roundedClasses,
+        figureClasses,
       ]}
       data-postimage
       transition:name={transitionName}

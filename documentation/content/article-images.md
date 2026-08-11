@@ -2,7 +2,7 @@
 title: Article Images (PostImage)
 tags: []
 created: 2026-06-14T00:00:00+07:00
-updated: 2026-06-14T00:00:00+07:00
+updated: 2026-08-11T00:00:00+07:00
 ---
 
 `PostImage.astro` renders the cover media for a blog post or tag page. It handles images, YouTube videos, and Vimeo videos differently, and adds an interactive caption overlay for images.
@@ -82,6 +82,7 @@ import PostImage from '@components/content/media/PostImage.astro';
 | `post` | `CollectionEntry<"blog" \| "tags">` | required | The content entry |
 | `link` | `string` | `undefined` | URL the image links to; omit to disable the background link |
 | `classes` | `string` | `"w-full max-w-full h-auto"` | Tailwind classes applied to the `<img>` or `<Picture>` |
+| `figureClasses` | `string` | `""` | Tailwind classes applied to the root `<figure>`, useful when a cover needs to span to a surrounding card or article edge |
 | `quality` | `"low" \| "medium" \| "high" \| "max" \| number` | `"high"` | Image quality (mapped to values between 30 and 95, or a raw number between 1 and 100) |
 | `widths` | `number[]` | `[320, 640, 768, 1024]` | Srcset breakpoints, in pixel units |
 | `formats` | `Array<"avif" \| "webp" \| "png" \| "jpeg">` | `["avif", "webp", "jpeg"]` | Output formats; ordered by preference |

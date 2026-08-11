@@ -31,12 +31,13 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 <article
   transition:name={transitionName}
   data-post-preview-transition={transitionName}
-  class="@container mt-8 rounded-lg bg-card p-4 text-card-foreground shadow-sm ring-1 ring-gray-900/10 ring-inset dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 sm:p-6 lg:p-8"
+  class="@container mt-8 overflow-hidden rounded-lg bg-card p-4 text-card-foreground shadow-sm ring-1 ring-gray-900/10 ring-inset dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 sm:p-6 lg:p-8"
 >
   <PostImage
     post={post}
     link={`/blog/${post.id}/`}
-    classes="max-w-full aspect-2/1 object-cover rounded-xl"
+    classes="aspect-2/1 w-full max-w-full object-cover rounded-t-lg"
+    figureClasses="-mx-4 -mt-4 sm:-mx-6 sm:-mt-6 lg:-mx-8 lg:-mt-8"
     widths={[640, 896, 1024, 1280, 1536, 1792, 2048]}
     sizes="(min-width: 1536px) 1024px, (min-width: 1024px) 896px, 100vw"
     transitionName={mediaTransitionName}

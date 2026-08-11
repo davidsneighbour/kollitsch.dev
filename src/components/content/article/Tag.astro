@@ -1,11 +1,11 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from "astro:content";
-import Button from "@components/shared/elements/Button.astro";
-import PostImage from "@components/content/media/PostImage.astro";
+import type { CollectionEntry } from 'astro:content';
+import PostImage from '@components/content/media/PostImage.astro';
+import Button from '@components/shared/elements/Button.astro';
 
 export interface Props {
-  post: CollectionEntry<"tags">;
+  post: CollectionEntry<'tags'>;
 }
 const { post } = Astro.props;
 // @todo add schema for tag overview page
@@ -13,12 +13,12 @@ const { post } = Astro.props;
 
 <article
   transition:animate="slide"
-  class="relative isolate flex flex-col justify-normal rounded-(--card-radius) bg-white/5 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:--spacing(1)] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-white/10 dark:bg-black/20 dark:ring-gray-100/10 dark:hover:bg-black/30"
+  class="relative isolate flex flex-col justify-normal overflow-hidden rounded-(--card-radius) bg-white/5 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:0px] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-white/10 dark:bg-black/20 dark:ring-gray-100/10 dark:hover:bg-black/30"
 >
   <PostImage
     post={post}
     link={`/${post.collection}/${post.id}/`}
-    classes="aspect-dnb max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
+    classes="aspect-dnb w-full max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
     quality="medium"
   />
 
@@ -32,7 +32,11 @@ const { post } = Astro.props;
     <p class="line-clamp-3">{post.data.description}</p>
   </div>
   <div class="flex-none px-4 pb-4 text-right">
-    <Button name="arrow-right" href={`/${post.collection}/${post.id}/`} classes="justify-self-end">
+    <Button
+      name="arrow-right"
+      href={`/${post.collection}/${post.id}/`}
+      classes="justify-self-end"
+    >
       Read more...
     </Button>
   </div>

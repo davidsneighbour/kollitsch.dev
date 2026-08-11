@@ -32,28 +32,28 @@ staging folder. shadcn is a code generator, not a place components live.
 1. Generate with `npx shadcn@latest add <name>`. The CLI drops the file at
    the `ui` alias in `components.json` (currently `src/components/shared/elements`).
 2. Immediately move the generated file into the folder matching its actual
-   responsibility per `src/components/README.md` (e.g. a form field belongs
+   responsibility per `src/components/README.md` (for example, a form field belongs
    in `forms/`, not `shared/elements/`).
 3. Fix any imports the move breaks, including cross-imports between shadcn
-   components (e.g. a generated component that imports another via the `ui`
+   components (for example, a generated component that imports another via the `ui`
    alias) and the `cn()` import from `@utils/shadcn-utils`.
 4. Keep the file's own shadcn-generated lowercase filename (`button.tsx`, not
    `Button.tsx`). This is intentional: it signals the file was generated
    rather than hand-written, and lets it coexist in the same folder as a
-   hand-written component of a similar name (e.g. `shared/elements/button.tsx`
+   hand-written component of a similar name (for example, `shared/elements/button.tsx`
    next to `shared/elements/Button.astro`) without a filename collision on
    case-insensitive filesystems being a concern, since the extensions and
    casing both differ by convention.
 5. Review the moved component against `DESIGN.md` before it is used anywhere.
 6. Update `src/components/README.md`'s "shadcn/ui" section if the change
-   introduces a new pattern (e.g. the first generated component in a folder
+   introduces a new pattern (for example, the first generated component in a folder
    that didn't previously hold any).
 
 ## Documentation mirror
 
 Every component documented under `documentation/components/` must have its
 doc file moved alongside it in the same change - see
-`.agents/instructions/documentation/components.instructions.md` for the full
+`.agents/instructions/documentation-components.instructions.md` for the full
 doc-authoring rules. When a move creates a kebab-case filename collision
 between a hand-written and a generated component in the same folder (for
 example `Button.astro` and `button.tsx` both kebab-casing to `button.md`),

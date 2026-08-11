@@ -46,7 +46,7 @@ The image resolver looks up `src/assets/images/postimages/{filename}` automatica
 
 If the slug is ambiguous (for example, a post about a general topic where the slug won't be a stable identifier, or a GIF alongside a JPG for the same post), **ask the user** what name to use before renaming or creating the file. Do not guess.
 
-Prompt: *"What should this image be named in postimages/? The post slug is `{slug}` — does `postimage-for-{slug}.{ext}` work, or would you prefer a different name?"*
+Prompt: *"What should this image be named in postimages/? The post slug is `{slug}`; does `postimage-for-{slug}.{ext}` work, or would you prefer a different name?"*
 
 ## Applying the convention
 

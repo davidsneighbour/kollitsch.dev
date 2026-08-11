@@ -53,11 +53,11 @@ For **refactor/test issues**: check if the described gap in the codebase still e
 
 After completing the audit, present a table:
 
-| #     | Title (truncated)    | Action                                 | Reason                                                   |
-| ----- | -------------------- | -------------------------------------- | -------------------------------------------------------- |
-| #1234 | fix(foo): some issue | Closed (completed)                     | Already implemented in `.lintstagedrc.ts` commit abc1234 |
-| #1235 | feat(bar): other     | Added `prio:low`, `status:unconfirmed` | Missing labels                                           |
-| #1236 | chore(baz): thing    | No change                              | Labels and status correct, still open                    |
+| # | Title (truncated) | Action | Reason |
+| - | - | - | - |
+| #1234 | fix(foo): some issue | Closed (completed) | Already implemented in `.lintstagedrc.ts` commit abc1234 |
+| #1235 | feat(bar): other | Added `prio:low`, `status:unconfirmed` | Missing labels |
+| #1236 | chore(baz): thing | No change | Labels and status correct, still open |
 
 Then add a summary line:
 

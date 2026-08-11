@@ -70,4 +70,4 @@ The `label` value is read aloud by screen readers as the play-button text. Prefe
 
 * Do not use `<lite-youtube videoid="...">` directly in Markdown or MDX. MD033 no longer whitelists this element.
 * Do not add `options.head.components: ["lite-youtube"]` to frontmatter. This mechanism is a legacy workaround; the `Youtube` component handles script registration internally.
-* Do not keep a post as `.md` if it contains a `<Youtube>` import — MDX syntax is only processed in `.mdx` files.
+* Do not keep a post as `.md` if it contains a `<Youtube>` import; MDX syntax is only processed in `.mdx` files.

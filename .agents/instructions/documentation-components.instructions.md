@@ -14,7 +14,7 @@ The path under `documentation/components/` mirrors the component's directory pat
 
 Create the file when the component is first written. Update it whenever the props contract, behaviour, or usage changes.
 
-If two components in the same source folder kebab-case to the same doc filename (this happens with shadcn/ui components, which keep a lowercase filename like `button.tsx` alongside a hand-written `Button.astro` - see `.agents/instructions/component-structure.instructions.md`), suffix the generated component's doc file with `-shadcn` (`button-shadcn.md`) rather than renaming the hand-written one's doc file.
+If two components in the same source folder kebab-case to the same doc filename (this happens with shadcn/ui components, which keep a lowercase filename like `button.tsx` alongside a hand-written `Button.astro` - see `.agents/instructions/src-components-structure.instructions.md`), suffix the generated component's doc file with `-shadcn` (`button-shadcn.md`) rather than renaming the hand-written one's doc file.
 
 ## Required frontmatter
 

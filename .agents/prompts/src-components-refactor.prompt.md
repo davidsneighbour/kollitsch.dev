@@ -5,6 +5,8 @@ tools: ['edit/createFile', 'edit/createDirectory', 'edit/editFiles', 'runCommand
 description: 'Refactor a single Astro component per strict project rules'
 ---
 
+# Component refactor prompt
+
 You are refactoring a single component from this repository. Apply the rules below rigorously. If something is unclear, make the safest reasonable choice and proceed.
 
 ## Scope
@@ -37,7 +39,7 @@ You are refactoring a single component from this repository. Apply the rules bel
 
 ## Props documentation format
 
-1. Exported type
+Exported type:
 
 ```ts
 export interface Props {
@@ -56,8 +58,8 @@ export interface Props {
 }
 ```
 
-2. Add a concise JSDoc header at the top of the component listing props, defaults, and one usage example.
-3. For unions or complex objects, include a minimal example in the JSDoc.
+* Add a concise JSDoc header at the top of the component listing props, defaults, and one usage example.
+* For unions or complex objects, include a minimal example in the JSDoc.
 
 ## Tailwind over CSS
 
@@ -115,15 +117,15 @@ export interface Props {
 
 ---
 
-# Verification & linting contract
+## Verification & linting contract
 
 * After producing the refactor (Mode A or Mode B), **run** (if your agent supports terminal/tools):
 
   1. `npm test`
   2. `npx astro check`
-  
+
 * If any command fails, **revise the patch** until all three pass. Re-emit only the updated Mode A/Mode B output.
-* Do **not** edit files outside `src/components/**` unless the failure is a test-only change tightly coupled to the component (e.g. its `.test.ts` or a fixture).
+* Do **not** edit files outside `src/components/**` unless the failure is a test-only change tightly coupled to the component (for example, its `.test.ts` or a fixture).
 * If you **cannot** run commands, say so in plain text after the code block and list what would have been executed. Then:
 
   * Re-scan the change against the Acceptance checklist.
@@ -132,20 +134,20 @@ export interface Props {
 
 ---
 
-# OUTPUT CONTRACT — PICK EXACTLY ONE MODE
+## Output contract: Pick exactly one mode
 
-**Mode A — Unified diff only**
+### Mode A: Unified diff only
 
 * Output a single fenced code block with language `diff`.
 * Include only a valid unified diff for the current file, starting with `--- a/<path>` and `+++ b/<path>`.
 * No other text or blocks before or after the diff.
 
-**Mode B — Full file only**
+### Mode B: Full file only
 
 * Output a single fenced code block with language `astro` containing the **entire final file content**.
 * No other blocks mixed with the code.
 
-**Optional note (plain chat text, not a code block)**
+### Optional note (plain chat text, not a code block)
 
 * After Mode A or Mode B, you may add normal chat text that includes:
 

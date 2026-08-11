@@ -1,9 +1,11 @@
-***
+---
 mode: agent
 model: gpt*5 mini
 tools: []
 description: Generate a minimal "Today I learned" blog post file for KOLLITSCH.dev* (Astro). Enforce typing and length rules.
-***
+---
+
+# Today I learned blog post prompt
 
 You are helping me create a new blog post of type "today I learned" in my Astro blog.
 

@@ -14,7 +14,7 @@ RFC 2119 keywords (MUST, SHOULD, MAY, etc.) in this repository's documentation c
 
 All project-specific AI assistant assets live under `.agents/`:
 
-* `.agents/instructions/` — scoped behavioural rules, each with an `applyTo` frontmatter glob. Evaluate every file in this directory and apply any whose `applyTo` pattern matches the current task. Applicable instructions are mandatory and cannot be selectively ignored. Notable files: `issue-handling.instructions.md` (issue/commit workflow), plus topic-specific files (Astro components, dev-server ports, post images, YouTube embeds, TypeScript key combinations). General project context lives in this file (AGENTS.md), not in `.agents/instructions/`.
+* `.agents/instructions/` — scoped behavioural rules, each with an `applyTo` frontmatter glob. Evaluate every file in this directory and apply any whose `applyTo` pattern matches the current task. Applicable instructions are mandatory and cannot be selectively ignored. Notable files: `repo-issue-handling.instructions.md` (issue/commit workflow), plus topic-specific files for source components, repository policies, content, documentation, YouTube embeds, and Tinykeys keyboard shortcuts. General project context lives in this file (AGENTS.md), not in `.agents/instructions/`.
 * `.agents/prompts/` — reusable prompt entry points for recurring tasks (refactors, audits, migrations, screenshots). Check here before writing a one-off prompt from scratch for a task that recurs.
 * `.agents/skills/` — skill packages, split by naming convention: `dnb-*` skills are installed via `npm run skills:add`, reproducible from `skills-lock.json`, and gitignored; `kdev-*` skills are authored directly in this repository for kollitsch.dev-only use and are tracked in git. Tool-specific skill directories (`.claude/skills`, `.codex/skills`) are directory symlinks to `.agents/skills` and are always gitignored — never edit through them, edit the source under `.agents/skills/` instead. Use `npm run skills:update` and `npm run skills:install` so the `npx skills` CLI is always run in project scope with `.agents/skills` as the canonical install target.
 
@@ -71,7 +71,7 @@ Both files are gitignored — local-only, never committed — and GitHub Issues 
 
 This is a **single-developer project** — commit directly to `main`. Do not create feature branches or pull requests for routine work; open a PR only if explicitly asked to. Never produce merge commits on `main` — rebase or squash instead so history stays linear.
 
-Every AI-assisted change that is committed must reference or close a GitHub issue: use `Closes #123` / `Fixes #123` / `Resolves #123` when the commit fully resolves it, or `Refs #123` / `Related to #123` otherwise. Do not create an issue merely because files exist or changed — see `.agents/instructions/issue-handling.instructions.md` for the full tracked/untracked-file decision workflow.
+Every AI-assisted change that is committed must reference or close a GitHub issue: use `Closes #123` / `Fixes #123` / `Resolves #123` when the commit fully resolves it, or `Refs #123` / `Related to #123` otherwise. Do not create an issue merely because files exist or changed — see `.agents/instructions/repo-issue-handling.instructions.md` for the full tracked/untracked-file decision workflow.
 
 Once a task reaches a finished, validated state (tests pass, `npx astro check` passes, lint-staged passes, and the commit follows the rules below), commit **and push** to `main` — do not stop at a local commit and wait to be asked. Do not push partial or unvalidated work.
 

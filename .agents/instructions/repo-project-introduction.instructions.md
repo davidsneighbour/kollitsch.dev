@@ -4,17 +4,19 @@ description: "Introduction to the KOLLITSCH.dev Astro project"
 applyTo: "**/*.ts"
 ---
 
+# Project Introduction
+
 This is an Astro-based static site generator project for KOLLITSCH.dev*, a
 personal website and digital garden. The architecture follows Astro's
 conventions with several custom extensions.
 
 Core structure:
 
-The src/ directory contains all source code organized by Astro conventions. 
-components/ holds reusable Astro components (with co-located Vitest tests like 
+The src/ directory contains all source code organized by Astro conventions.
+components/ holds reusable Astro components (with co-located Vitest tests like
 Heading.test.ts). pages/ uses file-based routing where each file becomes a URL
 route. content/ manages structured content via Astro's content collections (blog
-posts in Markdown, data files in JSON). layouts/ contains page templates, while 
+posts in Markdown, data files in JSON). layouts/ contains page templates, while
 assets/ stores static files, images, and styles.
 
 Configuration layer:
@@ -30,7 +32,7 @@ Content management:
 
 Blog posts live in src/content/blog/ as Markdown files with front matter. Static
 data (blogroll, social links, tags) is stored as JSON in src/content/. The site
-uses Astro's content collections API with schema validation via 
+uses Astro's content collections API with schema validation via
 content.config.ts. Scripts in src/scripts/ automate tasks like image indexing,
 sitemap verification, and VS Code extension management.
 

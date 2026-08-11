@@ -2,7 +2,7 @@
 title: Workspace Setup
 tags: []
 created: 2026-06-15T00:00:00+07:00
-updated: 2026-06-15T00:00:00+07:00
+updated: 2026-08-11T00:00:00+07:00
 ---
 
 ## VS Code Settings Pipeline
@@ -40,6 +40,21 @@ In practice: `local` wins on every leaf key that appears in both files. Array va
 | `npm run build:vscode:recommendations` | Regenerate `.vscode/extensions.json` from installed extensions. |
 
 `postinstall:vscode` runs `vscode:sync` automatically after every `npm install`.
+
+## Vale Configuration
+
+Vale uses `src/config/.vale.ini` as its project configuration. The `lint:vale`
+script lints `src/content/` with that file and the `update:pre:vale` script
+synchronises the configured packages.
+
+The project Vale configuration uses these shared DNB packages:
+
+* `dnb-vale-aidetection`
+* `dnb-vale-config`
+* `dnb-vale-millennialisms`
+
+Markdown and MDX content enables the base DNB style set plus the `AIDetection`
+and `Millennialisms` styles from those packages.
 
 ### What belongs where
 

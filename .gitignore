@@ -36,6 +36,7 @@ src/config/vale/config/vocabularies/DNB
 
 # Installed skills (reproducible via skills-lock.json / `npx skills add`)
 # Manually authored AI assets belong in .agents/instructions or .agents/prompts, not here.
+.claude/skills
 .claude/skills/
 .codex/skills/
 .github/skills/

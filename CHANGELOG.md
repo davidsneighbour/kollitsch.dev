@@ -1,5 +1,11 @@
 # Changelog
 
+## [3001.30.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.30.0...v3001.30.1) (2026-08-11)
+
+### Fix
+
+* **netlify:** keep markdown negotiation GET-only ([bb80a5e](https://github.com/davidsneighbour/kollitsch.dev/commit/bb80a5e871a5095e908282c6d832fe36adf5b8e9)), references [#1870](https://github.com/davidsneighbour/kollitsch.dev/issues/1870)
+
 ## [3001.30.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.29.0...v3001.30.0) (2026-08-11)
 
 ### Feat

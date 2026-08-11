@@ -5,6 +5,15 @@
     "mcp-remote": "0.1.38"
   },
   "scripts": {
+    "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
+    "skills": "npx skills",
+    "skills:add": "node src/scripts/maintenance/skills.ts add",
+    "skills:install": "node src/scripts/maintenance/skills.ts install",
+    "skills:links": "node src/scripts/maintenance/prepare-skill-symlinks.ts",
+    "skills:list": "node src/scripts/maintenance/skills.ts list",
+    "skills:sync": "node src/scripts/maintenance/skills.ts sync",
+    "skills:update": "node src/scripts/maintenance/skills.ts update",
+    "postinstall:skills": "npm run skills:links",
     "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts"
   }
 }

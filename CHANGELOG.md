@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.31.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.31.0...v3001.31.1) (2026-08-11)
+
+### Fix
+
+* **links:** repair broken hover color and add underline-lift motion ([8a5531c](https://github.com/davidsneighbour/kollitsch.dev/commit/8a5531c100a6d0eb6d469ecec62e4fb22fbaa335))
+
+### Style
+
+* **article:** remove cover image inset padding ([3226536](https://github.com/davidsneighbour/kollitsch.dev/commit/3226536ec3a68fb85334f884b10cf37b50597401)), closes [#1883](https://github.com/davidsneighbour/kollitsch.dev/issues/1883)
+
 ## [3001.31.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.30.1...v3001.31.0) (2026-08-11)
 
 ### Feat

@@ -1,5 +1,16 @@
 # Changelog
 
+## [3001.30.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.29.0...v3001.30.0) (2026-08-11)
+
+### Feat
+
+* **netlify:** support agent markdown negotiation ([4fa8df4](https://github.com/davidsneighbour/kollitsch.dev/commit/4fa8df47c46486b962b5e4b5265ce106836d0e22)), closes [#1870](https://github.com/davidsneighbour/kollitsch.dev/issues/1870)
+
+### Docs
+
+* **llm:** document DNS-AID publication plan ([cffff00](https://github.com/davidsneighbour/kollitsch.dev/commit/cffff0049214201af9be3f258dbd4260f973f562)), references [#1869](https://github.com/davidsneighbour/kollitsch.dev/issues/1869)
+* **llm:** mark DNS-AID record live ([a97d351](https://github.com/davidsneighbour/kollitsch.dev/commit/a97d3510c26f08e6cf8cb4dd74345b8e65c177f4)), closes [#1869](https://github.com/davidsneighbour/kollitsch.dev/issues/1869)
+
 ## [3001.29.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.28.0...v3001.29.0) (2026-08-11)
 
 ### Feat

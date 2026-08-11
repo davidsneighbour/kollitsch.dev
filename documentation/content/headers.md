@@ -18,7 +18,10 @@ Two arrays of `PathRule` objects:
 
 * `headerRules` - the site's base rules (security headers, `Cache-Control` for
   static assets, homepage `Link` discovery headers, CORS for the Giscus theme
-  stylesheets, and so on).
+  stylesheets, and so on). Rule order matters for repeated header names:
+  the homepage `/` rule is rendered after the broad `/*` rule so its
+  agent-discovery `Link` field is the final homepage `Link` value served by
+  Netlify.
 * `moduleHeaderRules` - rules contributed by specific site features (feeds,
   etc.), kept separate so they render under their own labelled section in the
   generated file.

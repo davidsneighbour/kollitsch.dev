@@ -31,15 +31,18 @@ site resources that agents can call directly:
 * `/api/siteinfo.json` - static site metadata used by the footer.
 * `/.well-known/webfinger` - the site's WebFinger profile document.
 
-It also points agents to the LLM-facing Markdown service descriptions:
+It also points agents to the LLM-facing Markdown resources:
 
 * `/llms.txt` as `service-desc`.
 * `/llms-full.txt` as `service-doc`.
 
-The homepage response advertises the catalogue with:
+The homepage response advertises the catalogue and service resources in one
+RFC 8288 `Link` field. The `/` rule is rendered after the broad `/*` rule so
+Netlify's final homepage `Link` value keeps the agent-useful relations instead
+of only exposing the site-wide analytics preconnect hint:
 
 ```text
-Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="service-desc"; type="text/markdown", </llms-full.txt>; rel="service-doc"; type="text/markdown", <https://analytics.dnbhub.xyz>; rel="preconnect"
 ```
 
 Do not add speculative endpoints to the catalogue. Add an item only when the

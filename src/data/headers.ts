@@ -18,6 +18,15 @@ export interface PathRule {
   addExpires?: boolean;
 }
 
+const analyticsPreconnectLink = '<https://analytics.dnbhub.xyz>; rel="preconnect"';
+
+const homepageAgentDiscoveryLink = [
+  '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+  '</llms.txt>; rel="service-desc"; type="text/markdown"',
+  '</llms-full.txt>; rel="service-doc"; type="text/markdown"',
+  analyticsPreconnectLink,
+].join(', ');
+
 /**
  * Base Netlify `_headers` rules.
  *
@@ -37,30 +46,6 @@ export interface PathRule {
  */
 export const headerRules: PathRule[] = [
   {
-    path: '/',
-    headers: [
-      { name: 'Accept-Encoding', value: 'gzip, deflate, br' },
-      {
-        name: 'Link',
-        value:
-          '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
-      },
-      {
-        name: 'Link',
-        value: '</llms.txt>; rel="service-desc"; type="text/markdown"',
-      },
-      {
-        name: 'Link',
-        value: '</llms-full.txt>; rel="service-desc"; type="text/markdown"',
-      },
-      {
-        name: 'Permissions-Policy',
-        value:
-          'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()',
-      },
-    ],
-  },
-  {
     path: '/*',
     headers: [
       {
@@ -73,7 +58,19 @@ export const headerRules: PathRule[] = [
       { name: 'X-Content-Type-Options', value: 'nosniff' },
       { name: 'X-Frame-Options', value: 'DENY' },
       { name: 'X-XSS-Protection', value: '1; mode=block' },
-      { name: 'Link', value: '<https://analytics.dnbhub.xyz>; rel="preconnect"' },
+      { name: 'Link', value: analyticsPreconnectLink },
+    ],
+  },
+  {
+    path: '/',
+    headers: [
+      { name: 'Accept-Encoding', value: 'gzip, deflate, br' },
+      { name: 'Link', value: homepageAgentDiscoveryLink },
+      {
+        name: 'Permissions-Policy',
+        value:
+          'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()',
+      },
     ],
   },
   {

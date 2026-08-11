@@ -23,17 +23,16 @@ posts are excluded from generated LLM indexes and per-post Markdown routes.
 
 ## Discovery
 
-The homepage response advertises site-level agent discovery resources via HTTP
-`Link` headers:
+The homepage response advertises site-level agent discovery resources in one
+HTTP `Link` field:
 
 ```text
-Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
-Link: </llms.txt>; rel="service-desc"; type="text/markdown"
-Link: </llms-full.txt>; rel="service-desc"; type="text/markdown"
+Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="service-desc"; type="text/markdown", </llms-full.txt>; rel="service-doc"; type="text/markdown", <https://analytics.dnbhub.xyz>; rel="preconnect"
 ```
 
 `service-desc` is a registered link relation for machine-oriented service
-descriptions. It is used here for the curated LLM-facing Markdown resources.
+descriptions, and `service-doc` is for human-oriented service documentation.
+They are used here for the curated LLM-facing Markdown resources.
 `api-catalog` points to the standards-aligned API catalogue at
 `/.well-known/api-catalog`.
 

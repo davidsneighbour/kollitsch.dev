@@ -53,6 +53,7 @@ describe('Markdown content negotiation', () => {
     expect(markdownPathFor('/blog/2026/example-post')).toBe(
       '/blog/2026/example-post.md',
     );
+    expect(markdownPathFor('/')).toBe('/llms.txt');
     expect(markdownPathFor('/tags/css/')).toBeUndefined();
   });
 
@@ -62,6 +63,7 @@ describe('Markdown content negotiation', () => {
       return new Response(markdown, {
         headers: {
           Link: '</blog/2026/example-post/>; rel="alternate"; type="text/html"',
+          Vary: 'Accept-Encoding',
         },
       });
     });
@@ -80,8 +82,52 @@ describe('Markdown content negotiation', () => {
     expect(response?.headers.get('Content-Type')).toBe(
       'text/markdown; charset=utf-8',
     );
-    expect(response?.headers.get('Vary')).toBe('Accept');
+    expect(response?.headers.get('Vary')).toBe('Accept-Encoding, Accept');
     expect(response?.headers.get('X-Markdown-Tokens')).toBe('9');
+  });
+
+  it('rewrites Markdown-preferring homepage requests to the LLM index', async () => {
+    const markdown = '# KOLLITSCH.dev\n\n- [Example](/blog/2026/example-post/)\n';
+    const next = vi.fn(async () => {
+      return new Response(markdown, {
+        headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
+      });
+    });
+    const request = new Request('https://kollitsch.dev/', {
+      headers: { Accept: 'text/markdown' },
+    });
+
+    const response = await markdownNegotiation(request, { next });
+
+    expect(next).toHaveBeenCalledWith(
+      expect.objectContaining({ url: 'https://kollitsch.dev/llms.txt' }),
+    );
+    expect(await response?.text()).toBe(markdown);
+    expect(response?.headers.get('Content-Type')).toBe(
+      'text/markdown; charset=utf-8',
+    );
+    expect(response?.headers.get('Vary')).toBe('Accept');
+    expect(response?.headers.get('X-Markdown-Tokens')).toBe('14');
+  });
+
+  it('sets Markdown headers for HEAD negotiation without reading a body', async () => {
+    const next = vi.fn(async () => {
+      return new Response(null, {
+        headers: { Vary: 'Accept-Encoding' },
+      });
+    });
+    const request = new Request('https://kollitsch.dev/', {
+      headers: { Accept: 'text/markdown' },
+      method: 'HEAD',
+    });
+
+    const response = await markdownNegotiation(request, { next });
+
+    expect(response?.headers.get('Content-Type')).toBe(
+      'text/markdown; charset=utf-8',
+    );
+    expect(response?.headers.get('Vary')).toBe('Accept-Encoding, Accept');
+    expect(response?.headers.get('X-Markdown-Tokens')).toBeNull();
   });
 
   it('continues the normal request chain for HTML-preferring clients', async () => {

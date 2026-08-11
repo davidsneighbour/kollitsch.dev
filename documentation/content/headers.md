@@ -96,12 +96,13 @@ hook (which is what generates `_headers`).
 Draft posts (`draft: true`) are skipped; a header rule for a page that isn't
 published would be dead weight in the generated file.
 
-Same-URL `Accept: text/markdown` negotiation for supported blog posts is handled
-by the Netlify Edge Function in
+Same-URL `Accept: text/markdown` negotiation for the homepage and supported
+blog posts is handled by the Netlify Edge Function in
 [`src/netlify/edge-functions/markdown-negotiation.ts`](../../src/netlify/edge-functions/markdown-negotiation.ts).
-The generated `_headers` rules still matter for both the normal HTML response
-and the `.md` target that the edge function serves when Markdown wins
-negotiation.
+Homepage Markdown requests rewrite to `/llms.txt`; blog Markdown requests
+rewrite to the generated `.md` target when Markdown wins negotiation. The
+generated `_headers` rules still matter for both the normal HTML response and
+the `.md` target.
 
 ## Adding a new static rule
 

@@ -59,9 +59,16 @@ content-negotiated variants.
 
 ## Markdown negotiation
 
-Supported blog post URLs also run through the Netlify Edge Function at
+The homepage and supported blog post URLs also run through the Netlify Edge
+Function at
 [`src/netlify/edge-functions/markdown-negotiation.ts`](../../src/netlify/edge-functions/markdown-negotiation.ts).
-The function is scoped to `GET` and `HEAD` requests under `/blog/*`.
+The function is scoped to `GET` and `HEAD` requests for `/` and `/blog/*`.
+
+For the homepage URL `/`:
+
+* browser-style requests keep receiving the static HTML homepage,
+* requests where `text/markdown` is explicitly named and has a quality value
+  greater than or equal to `text/html` receive `/llms.txt`.
 
 For canonical blog post URLs such as `/blog/2026/example-post/`:
 
@@ -74,10 +81,12 @@ For canonical blog post URLs such as `/blog/2026/example-post/`:
 
 The function compares `Accept` q-values and only resolves ties to Markdown when
 the client explicitly named `text/markdown`; wildcard-only requests such as
-`*/*` remain HTML. Markdown responses keep `Vary: Accept`, preserve the
-reciprocal `Link` header generated for the `.md` asset, and add an approximate
-`X-Markdown-Tokens` response header calculated from the generated Markdown
-body.
+`*/*` remain HTML. Markdown responses include `Content-Type:
+text/markdown; charset=utf-8`, ensure `Vary` includes `Accept` while
+preserving any existing `Vary` dimensions, preserve the reciprocal `Link`
+header generated for the `.md` asset where one exists, and add an approximate
+`X-Markdown-Tokens` response header calculated from the generated Markdown body
+for `GET` requests.
 
 References:
 

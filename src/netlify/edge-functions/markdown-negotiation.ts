@@ -12,6 +12,7 @@ type AcceptEntry = {
 
 const MARKDOWN_TYPE = 'text/markdown';
 const HTML_TYPE = 'text/html';
+const VARY_ACCEPT = 'Accept';
 
 function parseQuality(parameters: string[]): number {
   const qualityParameter = parameters.find((parameter) =>
@@ -101,6 +102,8 @@ export function negotiateContent(accept: string | null): NegotiatedContent {
 }
 
 export function markdownPathFor(pathname: string): string | undefined {
+  if (pathname === '/') return '/llms.txt';
+
   const match = pathname.match(/^\/blog\/(\d{4})\/([^/.]+)\/?$/);
 
   if (!match) return undefined;
@@ -112,6 +115,36 @@ export function markdownPathFor(pathname: string): string | undefined {
 
 function estimateMarkdownTokens(markdown: string): number {
   return Math.max(1, Math.ceil(markdown.length / 4));
+}
+
+function setMarkdownResponseHeaders(headers: Headers, markdown?: string): Headers {
+  const nextHeaders = new Headers(headers);
+  const vary = nextHeaders.get('Vary');
+  const varyParts =
+    vary
+      ?.split(',')
+      .map((part) => part.trim())
+      .filter(Boolean) ?? [];
+
+  if (
+    !varyParts.some(
+      (part) => part.toLowerCase() === VARY_ACCEPT.toLowerCase(),
+    )
+  ) {
+    varyParts.push(VARY_ACCEPT);
+  }
+
+  nextHeaders.set('Content-Type', 'text/markdown; charset=utf-8');
+  nextHeaders.set('Vary', varyParts.join(', '));
+
+  if (markdown) {
+    nextHeaders.set(
+      'X-Markdown-Tokens',
+      estimateMarkdownTokens(markdown).toString(),
+    );
+  }
+
+  return nextHeaders;
 }
 
 function notAcceptable(): Response {
@@ -141,13 +174,16 @@ export default async function markdownNegotiation(
   const markdownUrl = new URL(markdownPath, request.url);
   const response = await context.next(new Request(markdownUrl, request));
 
-  if (request.method === 'HEAD') return response;
+  if (request.method === 'HEAD') {
+    return new Response(null, {
+      headers: setMarkdownResponseHeaders(response.headers),
+      status: response.status,
+      statusText: response.statusText,
+    });
+  }
 
   const markdown = await response.text();
-  const headers = new Headers(response.headers);
-  headers.set('Content-Type', 'text/markdown; charset=utf-8');
-  headers.set('Vary', 'Accept');
-  headers.set('X-Markdown-Tokens', estimateMarkdownTokens(markdown).toString());
+  const headers = setMarkdownResponseHeaders(response.headers, markdown);
 
   return new Response(markdown, {
     headers,
@@ -157,6 +193,6 @@ export default async function markdownNegotiation(
 }
 
 export const config = {
-  method: ['GET'],
-  path: '/blog/*',
+  method: ['GET', 'HEAD'],
+  path: ['/', '/blog/*'],
 };

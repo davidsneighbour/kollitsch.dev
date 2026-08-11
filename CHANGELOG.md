@@ -1,5 +1,31 @@
 # Changelog
 
+## [3001.31.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.30.1...v3001.31.0) (2026-08-11)
+
+### Feat
+
+* **linting:** add Vale HTML report generator ([ba14446](https://github.com/davidsneighbour/kollitsch.dev/commit/ba14446083691a2045cf8c27dc8357e0922fb3b3)), closes [#1878](https://github.com/davidsneighbour/kollitsch.dev/issues/1878)
+* **linting:** open Vale report in VS Code ([d9f1ef0](https://github.com/davidsneighbour/kollitsch.dev/commit/d9f1ef0c6a1888ec2da8e5dd218eeeb31524abbf)), closes [#1879](https://github.com/davidsneighbour/kollitsch.dev/issues/1879)
+
+### Docs
+
+* **agents:** clarify issue body formatting ([a8ed9af](https://github.com/davidsneighbour/kollitsch.dev/commit/a8ed9af33a0fc0d03665ec2af7bca0c327e284c6)), closes [#1877](https://github.com/davidsneighbour/kollitsch.dev/issues/1877)
+* **agents:** consolidate readiness docs ([5dccb45](https://github.com/davidsneighbour/kollitsch.dev/commit/5dccb4539d920734fb05fc9c73e63987bffefdf2)), closes [#1872](https://github.com/davidsneighbour/kollitsch.dev/issues/1872)
+* **agents:** document content audit profile ([9763b07](https://github.com/davidsneighbour/kollitsch.dev/commit/9763b078611fc3d2e6b7c61a3c98ed867426a951)), closes [#1871](https://github.com/davidsneighbour/kollitsch.dev/issues/1871)
+* **instructions:** clarify blog tag guidance ([d2ed424](https://github.com/davidsneighbour/kollitsch.dev/commit/d2ed424306cae8ee34a76b23c45e6d12cc1bcb1b)), closes [#1880](https://github.com/davidsneighbour/kollitsch.dev/issues/1880) [#1881](https://github.com/davidsneighbour/kollitsch.dev/issues/1881)
+
+### Build
+
+* **packages:** update npm scripts for skills ([84b3e91](https://github.com/davidsneighbour/kollitsch.dev/commit/84b3e91d837be1cd2a61d3474291e93d41e1922b))
+* **vscode:** update workspace configuration ([4bb7c05](https://github.com/davidsneighbour/kollitsch.dev/commit/4bb7c054ca139233857631e119618ea9095d8159))
+
+### Chore
+
+* **agents:** align guidance filenames by section ([cbb6859](https://github.com/davidsneighbour/kollitsch.dev/commit/cbb68592d699c9c5c05971401fcdbad7a5d0666e)), closes [#1882](https://github.com/davidsneighbour/kollitsch.dev/issues/1882)
+* **skills:** consolidate project skill paths ([7fd83dd](https://github.com/davidsneighbour/kollitsch.dev/commit/7fd83dd25446f0717424e2d1268e72f5166d86af)), closes [#1873](https://github.com/davidsneighbour/kollitsch.dev/issues/1873)
+* **skills:** recreate local skill symlinks ([0d8d229](https://github.com/davidsneighbour/kollitsch.dev/commit/0d8d22922ea7e6dcc6e318cd1be996240d295d9e)), closes [#1874](https://github.com/davidsneighbour/kollitsch.dev/issues/1874)
+* **vale:** enable DNB style packages ([05d79a8](https://github.com/davidsneighbour/kollitsch.dev/commit/05d79a84b254bdfbed37da318281165a8a5f5051)), closes [#1875](https://github.com/davidsneighbour/kollitsch.dev/issues/1875)
+
 ## [3001.30.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.30.0...v3001.30.1) (2026-08-11)
 
 ### Fix

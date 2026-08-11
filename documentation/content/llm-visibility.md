@@ -114,7 +114,7 @@ Repository-local assistant skills under `.agents/skills/` are contributor
 tooling, not public website capabilities. See
 [`agent-skills.md`](agent-skills.md).
 
-The domain has a DNS-AID organisation index publication plan for Cloudflare
+The domain publishes a DNS-AID organisation index pointer through Cloudflare
 DNS. See [`dns-aid.md`](dns-aid.md).
 
 The site also does not publish OAuth or OIDC discovery metadata because it has

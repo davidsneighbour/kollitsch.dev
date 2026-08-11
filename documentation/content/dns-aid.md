@@ -1,16 +1,16 @@
 ---
-title: DNS-AID publication plan
+title: DNS-AID publication
 tags: []
 created: 2026-07-28T00:00:00+07:00
-updated: 2026-08-11T13:48:03+07:00
+updated: 2026-08-11T13:58:06+07:00
 ---
 
-KOLLITSCH.dev must publish DNS for AI Discovery through Cloudflare DNS records
+KOLLITSCH.dev publishes DNS for AI Discovery through Cloudflare DNS records
 under the `_agents.kollitsch.dev` namespace.
 
-## Record to publish
+## Published record
 
-The organisation index entrypoint is the DNS-AID discovery record to publish:
+The organisation index entrypoint is the DNS-AID discovery record:
 
 ```dns
 _index._agents.kollitsch.dev. 3600 IN SVCB 1 kollitsch.dev. alpn="h2" port=443 mandatory=alpn,port
@@ -42,14 +42,14 @@ A DNSSEC-aware query for `SVCB _index._agents.kollitsch.dev` returned
 DNSSEC capability, but the DNS-AID entrypoint had not been published at that
 time.
 
-Checked again on 2026-08-11:
+Checked again on 2026-08-11 after publishing the Cloudflare record:
 
 | Query | Result |
 | --- | --- |
 | `DNSKEY kollitsch.dev` | present with authenticated data |
-| `SVCB _index._agents.kollitsch.dev` | no answer |
+| `SVCB _index._agents.kollitsch.dev` | ServiceMode answer present with authenticated data |
 
-The public DNS-AID SVCB record still needs to be applied in Cloudflare DNS.
+The public DNS-AID SVCB record is live and DNSSEC-authenticated.
 
 ## Cloudflare requirements
 
@@ -73,17 +73,17 @@ in the 2026-07-28 live check.
 
 ## Validation
 
-After publication, validate the record through DNS over HTTPS:
+Validate the record through DNS over HTTPS:
 
 ```bash
 curl -s 'https://cloudflare-dns.com/dns-query?name=_index._agents.kollitsch.dev&type=SVCB' \
   -H 'accept: application/dns-json'
 ```
 
-The answer must contain the SVCB record above. DNSSEC-aware clients should also
-show authenticated data for the signed answer.
+The answer contains the SVCB record above. DNSSEC-aware clients show
+authenticated data for the signed answer.
 
-Then run the public scanner:
+The public scanner validates DNS-AID with:
 
 ```bash
 curl -s https://isitagentready.com/api/scan \
@@ -91,7 +91,7 @@ curl -s https://isitagentready.com/api/scan \
   --data '{"url":"https://kollitsch.dev"}'
 ```
 
-The `checks.discoverability.dnsAid.status` value should be `pass`.
+The `checks.discoverability.dnsAid.status` value is `pass`.
 
 ## Future agent records
 

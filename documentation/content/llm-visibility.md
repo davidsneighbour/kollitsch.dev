@@ -114,9 +114,8 @@ Repository-local assistant skills under `.agents/skills/` are contributor
 tooling, not public website capabilities. See
 [`agent-skills.md`](agent-skills.md).
 
-The domain also does not publish DNS-AID records because the site has no public
-agent endpoint or organisational agent registry. See
-[`dns-aid.md`](dns-aid.md).
+The domain has a DNS-AID organisation index publication plan for Cloudflare
+DNS. See [`dns-aid.md`](dns-aid.md).
 
 The site also does not publish OAuth or OIDC discovery metadata because it has
 no first-party issuer, login flow, token endpoint, or protected API surface. See

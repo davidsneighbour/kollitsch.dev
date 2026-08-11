@@ -1,25 +1,31 @@
 ---
-title: DNS-AID assessment
+title: DNS-AID publication plan
 tags: []
 created: 2026-07-28T00:00:00+07:00
-updated: 2026-07-28T00:00:00+07:00
+updated: 2026-08-11T13:48:03+07:00
 ---
 
-KOLLITSCH.dev does not currently publish DNS for AI Discovery records.
+KOLLITSCH.dev must publish DNS for AI Discovery through Cloudflare DNS records
+under the `_agents.kollitsch.dev` namespace.
 
-## Current decision
+## Record to publish
 
-Do not publish DNS-AID records for `kollitsch.dev` yet. The website exposes
-LLM-readable Markdown, an API catalogue, and discovery headers, but it does not
-operate a public agent endpoint, MCP server, A2A endpoint, or organisational
-agent registry. Publishing DNS-AID without one of those concrete services would
-advertise a capability the domain does not provide.
+The organisation index entrypoint is the DNS-AID discovery record to publish:
 
-This is a repository-side documentation decision only. Any future DNS-AID
-publication would happen in the external DNS provider, not through Astro or
-Netlify source files.
+```dns
+_index._agents.kollitsch.dev. 3600 IN SVCB 1 kollitsch.dev. alpn="h2" port=443 mandatory=alpn,port
+```
 
-## Live DNS check
+This is an organisation-level index pointer, not an A2A or MCP agent endpoint.
+The target name is `kollitsch.dev.` because the public site already serves the
+machine-readable discovery resources listed in [`llm-visibility.md`](llm-visibility.md).
+The target name intentionally contains no underscores so it remains valid for
+normal public TLS endpoint validation.
+
+Do not publish `_a2a._agents.kollitsch.dev.` or `_mcp._agents.kollitsch.dev.`
+until the domain has a real A2A or MCP service to advertise.
+
+## Live DNS checks
 
 Checked on 2026-07-28:
 
@@ -33,34 +39,70 @@ Checked on 2026-07-28:
 
 A DNSSEC-aware query for `SVCB _index._agents.kollitsch.dev` returned
 `NOERROR` with no answer and signed denial of existence. The zone therefore has
-DNSSEC capability, but the DNS-AID entrypoint is not published.
+DNSSEC capability, but the DNS-AID entrypoint had not been published at that
+time.
 
-## Future publication requirements
+Checked again on 2026-08-11:
 
-Only publish DNS-AID when there is a real public agent surface to describe. At
-that point the required plan is:
+| Query | Result |
+| --- | --- |
+| `DNSKEY kollitsch.dev` | present with authenticated data |
+| `SVCB _index._agents.kollitsch.dev` | no answer |
 
-| Owner | Type | Value |
-| --- | --- | --- |
-| `_index._agents.kollitsch.dev.` | `SVCB` | Service binding to a real organisational agent index host. The target name must not contain underscores. |
-| `<agent-name>.kollitsch.dev.` or an inventory alias below `_agents.kollitsch.dev.` | `SVCB` | Service binding for each public agent endpoint, including real protocol, port, well-known path, and capability metadata. |
-| `_443._tcp.<target-name>.` | `TLSA` | Optional DANE TLSA records only if the endpoint certificate lifecycle is intentionally managed for DANE. If TLSA is published, it must be DNSSEC-signed. |
+The public DNS-AID SVCB record still needs to be applied in Cloudflare DNS.
 
-The draft SVCB parameters currently relevant to a future record include:
+## Cloudflare requirements
 
-* `alpn` for the transport and/or agent protocol suite,
-* `port` for the endpoint port,
-* `well-known` for the capability or agent-card path,
-* `cap` for a capability descriptor locator,
-* `cap-sha256` for the base64url SHA-256 digest of the canonical capability
-  descriptor,
-* `mandatory` when a consumer must understand a parameter before using the
-  record.
+Cloudflare DNS is the external source that must hold the live DNS record. The
+repository does not contain DNS-as-code for this zone, so Astro and Netlify
+builds cannot publish this record by themselves.
 
-Do not publish placeholder values. The `well-known`, `cap`, and `cap-sha256`
-values must point at a real served descriptor and digest its exact canonical
-bytes. If Cloudflare cannot publish the required SVCB parameters through its DNS
-UI at the time of implementation, use its API or defer publication.
+| Field | Value |
+| --- | --- |
+| Type | `SVCB` |
+| Name | `_index._agents` |
+| Priority | `1` |
+| Target | `kollitsch.dev.` |
+| Parameters | `alpn="h2" port=443 mandatory=alpn,port` |
+| TTL | `3600` |
+| Proxy status | DNS only |
+
+DNSSEC must stay enabled for the zone so validating resolvers can authenticate
+the discovery answer. Existing DNSSEC material for `kollitsch.dev` was present
+in the 2026-07-28 live check.
+
+## Validation
+
+After publication, validate the record through DNS over HTTPS:
+
+```bash
+curl -s 'https://cloudflare-dns.com/dns-query?name=_index._agents.kollitsch.dev&type=SVCB' \
+  -H 'accept: application/dns-json'
+```
+
+The answer must contain the SVCB record above. DNSSEC-aware clients should also
+show authenticated data for the signed answer.
+
+Then run the public scanner:
+
+```bash
+curl -s https://isitagentready.com/api/scan \
+  -H 'content-type: application/json' \
+  --data '{"url":"https://kollitsch.dev"}'
+```
+
+The `checks.discoverability.dnsAid.status` value should be `pass`.
+
+## Future agent records
+
+When the domain exposes a real public agent endpoint, publish a separate agent
+record under its primary owner name or through an `_agents.kollitsch.dev`
+inventory alias. Include the real protocol, endpoint port, descriptor path, and
+descriptor digest.
+
+Until the DNS-AID draft parameter names are registered with IANA, use numeric
+`keyNNNNN` SvcParamKey presentation names for experimental custom parameters
+such as capability locators or descriptor hashes.
 
 ## References
 

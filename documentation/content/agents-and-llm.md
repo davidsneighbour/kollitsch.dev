@@ -22,7 +22,7 @@ that apply to a blog, reference site, or static content property:
 * sitemap discovery,
 * HTTP `Link` headers,
 * DNS for AI Discovery,
-* Markdown negotiation,
+* Markdown discovery,
 * AI bot rules,
 * Content Signals.
 
@@ -84,45 +84,11 @@ Link: </blog/{year}/{slug}.md>; rel="alternate"; type="text/markdown"
 Link: </blog/{year}/{slug}/>; rel="alternate"; type="text/html"
 ```
 
-Both representations include `Vary: Accept` so caches do not collapse future
-content-negotiated variants.
-
-## Markdown negotiation
-
-The homepage and supported blog post URLs run through the Netlify Edge Function
-at
-[`src/netlify/edge-functions/markdown-negotiation.ts`](../../src/netlify/edge-functions/markdown-negotiation.ts).
-The function is scoped to `GET` requests for `/` and `/blog/*`; Netlify Edge
-Functions do not allow `HEAD` in their method configuration.
-
-For the homepage URL `/`:
-
-* browser-style requests keep receiving the static HTML homepage,
-* requests where `text/markdown` is explicitly named and has a quality value
-  greater than or equal to `text/html` receive `/llms.txt`.
-
-For canonical blog post URLs such as `/blog/2026/example-post/`:
-
-* browser-style requests keep receiving the static HTML page,
-* requests where `text/markdown` is explicitly named and has a quality value
-  greater than or equal to `text/html` receive the generated
-  `/blog/2026/example-post.md` representation,
-* requests that accept neither `text/html` nor `text/markdown` receive
-  `406 Not Acceptable`.
-
-The function compares `Accept` q-values and only resolves ties to Markdown when
-the client explicitly named `text/markdown`; wildcard-only requests such as
-`*/*` remain HTML. Markdown responses include `Content-Type:
-text/markdown; charset=utf-8`, ensure `Vary` includes `Accept` while
-preserving any existing `Vary` dimensions, preserve the reciprocal `Link`
-header generated for the `.md` asset where one exists, and add an approximate
-`X-Markdown-Tokens` response header calculated from the generated Markdown
-body.
-
-The site does not use User-Agent sniffing. Markdown negotiation is limited to
-published blog post pages with generated `.md` alternates. Other static pages
-continue to rely on explicit Markdown routes and discovery links until they have
-their own generated Markdown representation.
+Both representations include `Vary: Accept` so downstream caches know the
+alternate representation relationship is media-type aware. The site does not
+run same-URL Markdown negotiation at the edge; agents and other automated
+clients should follow the explicit `.md`, `/llms.txt`, `/llms-full.txt`, and
+`/llms/{year}/{slug}.txt` links.
 
 ## API catalogue
 
@@ -241,6 +207,5 @@ than a schema-shaped document that points nowhere.
 * [IANA Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
 * [RFC 9727, api-catalog](https://www.rfc-editor.org/rfc/rfc9727)
 * [RFC 9264, Linkset](https://www.rfc-editor.org/rfc/rfc9264)
-* [Netlify Edge Functions API](https://docs.netlify.com/build/edge-functions/api/)
 * [DNS for AI Discovery draft](https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/)
 * [RFC 9460, SVCB and HTTPS resource records](https://www.rfc-editor.org/rfc/rfc9460)

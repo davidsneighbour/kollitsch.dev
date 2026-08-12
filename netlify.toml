@@ -3,7 +3,6 @@
 #command = "npx astro build"
 command = ""
 publish = "dist"
-edge_functions = "src/netlify/edge-functions"
 
 # 301 redirects to add trailing slashes
 [[redirects]]

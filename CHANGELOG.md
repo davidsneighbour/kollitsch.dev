@@ -1,5 +1,15 @@
 # Changelog
 
+## [3001.31.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.31.1...v3001.31.2) (2026-08-12)
+
+### Fix
+
+* **netlify:** remove edge markdown negotiation ([7b339de](https://github.com/davidsneighbour/kollitsch.dev/commit/7b339de1cb276bf912e9e455c6a93dd18d7c9397)), closes [#1884](https://github.com/davidsneighbour/kollitsch.dev/issues/1884)
+
+### Chore
+
+* **lighthouse:** update score history [skip ci] ([be0f6b7](https://github.com/davidsneighbour/kollitsch.dev/commit/be0f6b788c9b4e190457b17721b3d2a6ef060e7a))
+
 ## [3001.31.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.31.0...v3001.31.1) (2026-08-11)
 
 ### Fix

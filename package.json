@@ -453,6 +453,7 @@
     "version": "0.2"
   },
   "overrides": {
+    "@iconify/tools": "5.0.12",
     "markdownlint-cli2": {
       "js-yaml": "5.3.0"
     },

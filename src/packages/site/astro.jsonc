@@ -65,6 +65,7 @@
     }
   },
   "overrides": {
+    "@iconify/tools": "5.0.12",
     "gray-matter": {
       "js-yaml": "3.15.1"
     }

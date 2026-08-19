@@ -1,0 +1,173 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "clerkwork-dependency-maintenance",
+      "type": "skill-md",
+      "description": "Safely maintain npm dependencies in a single-package repository or npm monorepo. Use when asked to inspect outdated packages, update dependency ranges and lockfiles, assess or fix npm audit findings, validate the result, and optionally create a conventional dependency-update commit while preserving unrelated work.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-dependency-maintenance/SKILL.md",
+      "digest": "sha256:4cd0913f310088b7867580ef535cebd6356e492adc49cac20e96034748cd5169"
+    },
+    {
+      "name": "clerkwork-github-label-classifier",
+      "type": "skill-md",
+      "description": "Analyse GitHub issue text or issue metadata and select or apply labels from Patrick's category:value label taxonomy. Use when creating, triaging, reviewing, updating, or closing GitHub issues, or when validating whether an issue's existing labels correctly represent its type, workflow status, resolution, priority, and metadata.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-github-label-classifier/SKILL.md",
+      "digest": "sha256:2efed1150cafa456b9b50bd7a5d2d28f124293a2a2022c066399b5eecfc2b32a"
+    },
+    {
+      "name": "clerkwork-manage-node-version-policy",
+      "type": "skill-md",
+      "description": "Audits and updates Node.js and npm version declarations across a repository, synchronises package.json engines with actively supported Node.js releases, adds a weekly lifecycle check, and verifies the repository after changes. Use when asked to update Node versions, fix Node engine constraints, remove EOL Node versions, align GitHub Actions with package.json, or enforce an LTS/current Node policy. Triggers on: 'update Node versions', 'check Node engines', 'fix Node workflow versions', 'Node version policy', 'remove EOL Node', 'execute Node updates'.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-manage-node-version-policy/SKILL.md",
+      "digest": "sha256:9bb14d8dac43a90fe42d3d2ddff6eabe1a3b14b816b8f620e5156cce603564b7"
+    },
+    {
+      "name": "clerkwork-osv-scan",
+      "type": "skill-md",
+      "description": "Scan dependencies for known vulnerabilities with osv-scanner, auto-apply safe non-breaking fixes, file GitHub issues for the rest, and track accepted/fixed/workaround decisions in a committed ledger so repeat runs never re-file the same vulnerability. Use when asked to run an OSV scan, check dependencies for vulnerabilities, triage osv-scanner findings, or decide whether to accept, fix, or work around a reported vulnerability.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-osv-scan/SKILL.md",
+      "digest": "sha256:ac365ec5a52c0c83d5ff3e375a9cf9d0b1d29ff5a515393c8b70376475917037"
+    },
+    {
+      "name": "clerkwork-project-state-report",
+      "type": "skill-md",
+      "description": "Analyse a repository's current state, safely fetch and fast-forward remote updates, report what changed since a supplied date phrase or since the user last worked on the project, include GitHub PR and issue activity, and recommend what to do next. Use when asked for a project state report, project catch-up, what changed since yesterday or last week, what happened since we last worked, update from remote and summarize, or a clerkwork-project-task-triage-style status with remote and GitHub activity.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-project-state-report/SKILL.md",
+      "digest": "sha256:ec57ca1624084a724fac6516e1563959897009e8a721c80c8fbb29600864bc63"
+    },
+    {
+      "name": "clerkwork-project-task-triage",
+      "type": "skill-md",
+      "description": "Maintains the repository task-tracking system by syncing the local TODO.md scratch pad with GitHub Issues and regenerating the local PROJECT.md dashboard. Use when asked to check project status, update task tracking, sync todos with GitHub, regenerate the project dashboard, or recommend next steps. Triggers on: 'check status', 'project status', 'sync todos', 'update project', 'update roadmap', 'triage tasks', 'what's next', 'next steps'.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-project-task-triage/SKILL.md",
+      "digest": "sha256:e7ee867f26602d1c935302d9d0d0c7eecdb17cc74ad6c208facb7675dbe68376"
+    },
+    {
+      "name": "clerkwork-resume-interrupted-work",
+      "type": "skill-md",
+      "description": "Manage a project-root RESUME.md handoff file that blocks new work until previously interrupted or paused work is resolved. Use whenever work starts in a repository, when the user says resume, continue, or carry on, or when previous work may have been interrupted.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-resume-interrupted-work/SKILL.md",
+      "digest": "sha256:e8ad351e8e9b5184fb40c50ab72da8b2365f42a83d7071d4639460cebef4d35f"
+    },
+    {
+      "name": "clerkwork-select-next-issue",
+      "type": "skill-md",
+      "description": "Select one suitable open GitHub issue by priority and roadmap relevance, without implementing it. Use as a subskill before clerkwork-work-on-issue.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-select-next-issue/SKILL.md",
+      "digest": "sha256:765c9f3cc3ea33625050edbc2ad9800f88bce711951e843840371f077f5d6db0"
+    },
+    {
+      "name": "clerkwork-work-on-issue",
+      "type": "skill-md",
+      "description": "Inspect a specific GitHub issue by number, implement the required change, validate, and commit with a Conventional Commits message that closes the issue.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-work-on-issue/SKILL.md",
+      "digest": "sha256:bfd4892b75ba9c40db7a03e080919cabf8e39e42b40788d40c182626ed53b29e"
+    },
+    {
+      "name": "clerkwork-work-on-next-issue",
+      "type": "skill-md",
+      "description": "Orchestrate selecting and implementing the next suitable open GitHub issue without a specific issue number provided. Delegates selection to clerkwork-select-next-issue and implementation to clerkwork-work-on-issue.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-work-on-next-issue/SKILL.md",
+      "digest": "sha256:8e8c015a56cb261ac7a00f9d9ecf767fc333a7081f9c57534b4cf82b2d1e4dd3"
+    },
+    {
+      "name": "clerkwork-work-through-issues",
+      "type": "skill-md",
+      "description": "Continuously work through open GitHub issues until no suitable actionable issues remain, committing each fix individually. Orchestrates clerkwork-select-next-issue and clerkwork-work-on-issue in a loop.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/clerkwork-work-through-issues/SKILL.md",
+      "digest": "sha256:07265fbea2499774f8149293f00ab239faab3e43542acfe73387e60259661da7"
+    },
+    {
+      "name": "foreman",
+      "type": "skill-md",
+      "description": "Route Clerkwork engineering skills from short command-style requests such as `foreman audit packages` or `foreman issues next`. Use when the user addresses foreman directly, or asks to audit the repository, work through GitHub issues, check project status, or otherwise wants Clerkwork to decide which skill handles a task. Asks a clarifying question whenever the area or action is missing or ambiguous, and never performs the underlying work itself.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/clerkwork/main/skills/foreman/SKILL.md",
+      "digest": "sha256:6d0b07a9ff0e9903f8acce9456fdd09d0b245ae5f97f2256a0db60a7b9953585"
+    },
+    {
+      "name": "idiolect",
+      "type": "skill-md",
+      "description": "Capture, check, and apply a person's idiolect - their own distinctive vocabulary, rhythm, and habits in writing. Use when the user wants to build a voice profile from writing samples, check whether a draft sounds like them, or rewrite a draft so it reads in their voice.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/idiolect/main/skills/idiolect/SKILL.md",
+      "digest": "sha256:3e1cd72498383e8d12679c1249f9a0f3a3d25a49974128f141c75b5ed94259b0"
+    },
+    {
+      "name": "idiolect-process",
+      "type": "skill-md",
+      "description": "Rewrite user-facing prose into Patrick's established personal voice while preserving meaning, facts, structure, technical accuracy, and intent. This is a cross-cutting finishing skill: prefer running it on any draft, article, report, explanation, documentation prose, proposal, or other publishable/user-authored text produced by another skill when the user asks to \"write this up\", \"write this up as a draft\", \"create a draft\", \"draft this\", \"write this in my words\", \"write this in my own words\", \"make this sound like me\", or otherwise indicates that the resulting prose should represent their own voice. It may run after another skill rather than replacing that skill.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/idiolect/main/skills/idiolect-process/SKILL.md",
+      "digest": "sha256:be2d4859c9d0735b27b07ea7f878ea047e41c13e377dc1360a31d96a7db089d5"
+    },
+    {
+      "name": "idiolect-voice",
+      "type": "skill-md",
+      "description": "Edit, rewrite, or review prose so it reads in the author's own voice. Use when the user asks to make a blog post, documentation page, letter, essay, note, announcement, or other prose sound like the author; preserve the author's intent while catching generic AI prose, hype, filler, awkward structure, false intimacy, and bad writing tropes.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/idiolect/main/skills/idiolect-voice/SKILL.md",
+      "digest": "sha256:194c61a9651a44c4baf522feec241a630736d6b16c9fa6b1ba57118d0db04160"
+    },
+    {
+      "name": "posthaste",
+      "type": "skill-md",
+      "description": "Route the Posthaste! social publishing skill set. Use when the user wants to draft, adapt, review, publish, or configure social media workflows with Posthaste!, especially when choosing between link preparation, hashtag generation, configuration management, and social network credential helper skills.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste/SKILL.md",
+      "digest": "sha256:8d99c5d320d8d1c3819693742f139ef251945e783951e44158d4cd980c4eaefa"
+    },
+    {
+      "name": "posthaste-config",
+      "type": "skill-md",
+      "description": "Load, merge, validate, explain, or create Posthaste! TOML configuration. Use when another Posthaste! skill needs user or project defaults, when the user asks what Posthaste! configuration is active, or when the user wants to initialise or change global or project Posthaste! settings.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-config/SKILL.md",
+      "digest": "sha256:377342fb2e09e3a2cec113c2a193b101e17013dd9c70598b7a58580008f6d3e0"
+    },
+    {
+      "name": "posthaste-post-retrieve-hashtags",
+      "type": "skill-md",
+      "description": "Generate topical hashtags for a URL or supplied text block. Use when Posthaste! needs hashtag candidates for social posts, when the user asks for hashtags for a link or passage, or when posthaste-prepare-link needs source-specific hashtag suggestions.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-post-retrieve-hashtags/SKILL.md",
+      "digest": "sha256:5677f480ee518b6685d548a6395476dd38e2680aa3494e6ea0cad0d896c4ab6c"
+    },
+    {
+      "name": "posthaste-prepare-link",
+      "type": "skill-md",
+      "description": "Take a URL, pull its title/description/tags, screenshot the page, and draft a social post in Patrick's voice with topic hashtags derived from the linked page. Publishes through @humanwhocodes/crosspost or direct platform APIs only after explicit confirmation, attaches the screenshot on networks that support images, and keeps a durable per-network log of what has already been posted so the same link is never reposted to the same network by accident. Use for `/posthaste-prepare-link`, \"post this link\", \"share this article\", or \"make a post about this page\".",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-prepare-link/SKILL.md",
+      "digest": "sha256:a0d2dfeab551057cfde39efd69ddebed796fe6074a1803ce93ac0c1a162d4d98"
+    },
+    {
+      "name": "posthaste-reddit-refresh-token",
+      "type": "skill-md",
+      "description": "Create a Reddit OAuth refresh token for the posthaste-prepare-link direct Reddit poster using a local loopback callback server. Use when Reddit posting is missing REDDIT_REFRESH_TOKEN or REDDIT_ACCESS_TOKEN, when setting up Reddit OAuth for social posting, or when the user asks to generate Reddit credentials for posthaste-prepare-link.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-reddit-refresh-token/SKILL.md",
+      "digest": "sha256:ebe399c97bd20cff1d604810c3593e4e051877b3e02edf9c99777656f8dadf2e"
+    },
+    {
+      "name": "posthaste-threads-refresh-token",
+      "type": "skill-md",
+      "description": "Create or refresh a long-lived Threads API access token for the posthaste-prepare-link direct Threads poster using a local loopback callback server. Use when Threads posting is missing THREADS_ACCESS_TOKEN or THREADS_USER_ID, when the long-lived Threads token has expired or is close to expiring, or when the user asks to generate Threads credentials for posthaste-prepare-link.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-threads-refresh-token/SKILL.md",
+      "digest": "sha256:8f55b5d762250200f64c06b37d3825c9d5f1a9214e57559813953fe2a403e7c1"
+    },
+    {
+      "name": "posthaste-tumblr-refresh-token",
+      "type": "skill-md",
+      "description": "Create or refresh Tumblr OAuth2 credentials for the posthaste-prepare-link direct Tumblr poster using a local loopback callback server. Use when Tumblr posting is missing TUMBLR_ACCESS_TOKEN, TUMBLR_REFRESH_TOKEN, or TUMBLR_BLOG_IDENTIFIER, when the Tumblr token has expired, or when the user asks to generate Tumblr credentials for posthaste-prepare-link.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-tumblr-refresh-token/SKILL.md",
+      "digest": "sha256:0d24146dfe05e67ce9f2251d7f14cdffb0deb6095726f5dd2a5313d2e2e5db83"
+    },
+    {
+      "name": "posthaste-unsplash",
+      "type": "skill-md",
+      "description": "Search, preview, select, and retrieve Unsplash photos with required attribution and download tracking. Use for Unsplash searches, stock-photo requests, random photo selection, image discovery for content, or when another Posthaste skill needs Unsplash image candidates. Treat \"find\" requests as searches.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-unsplash/SKILL.md",
+      "digest": "sha256:7c4c4ffd17cdbb592f4ba3756fa5825781bf9405d8dfdebcc7a0a3012370c39a"
+    },
+    {
+      "name": "posthaste-voice",
+      "type": "skill-md",
+      "description": "Edit, rewrite, or review prose so it reads in the author's own voice. Use when the user asks to make a blog post, documentation page, letter, essay, note, announcement, or other prose sound like the author; preserve the author's intent while catching generic AI prose, hype, filler, awkward structure, false intimacy, and bad writing tropes.",
+      "url": "https://raw.githubusercontent.com/davidsneighbour/posthaste/main/skills/posthaste-voice/SKILL.md",
+      "digest": "sha256:194c61a9651a44c4baf522feec241a630736d6b16c9fa6b1ba57118d0db04160"
+    }
+  ]
+}

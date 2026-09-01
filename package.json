@@ -120,7 +120,7 @@
     "markdownlint-rule-relative-links": "5.1.2",
     "markdownlint-rule-search-replace": "1.2.0",
     "markdownlint-rule-title-case-style": "0.4.3",
-    "mcp-remote": "0.1.38",
+    "mcp-remote": "0.8.2",
     "npm-run-all2": "9.0.3",
     "pagefind": "1.5.2",
     "playwright": "1.62.1",

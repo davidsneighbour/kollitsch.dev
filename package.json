@@ -63,7 +63,7 @@
     "@playwright/test": "1.62.1",
     "@release-it/conventional-changelog": "12.0.0",
     "@resvg/resvg-js": "2.6.2",
-    "@secretlint/secretlint-rule-anthropic": "13.0.4",
+    "@secretlint/secretlint-rule-anthropic": "13.0.5",
     "@secretlint/secretlint-rule-database-connection-string": "13.0.4",
     "@secretlint/secretlint-rule-no-dotenv": "13.0.4",
     "@secretlint/secretlint-rule-no-homedir": "13.0.4",

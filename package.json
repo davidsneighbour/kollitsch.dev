@@ -72,7 +72,7 @@
     "@secretlint/secretlint-rule-pattern": "13.0.4",
     "@secretlint/secretlint-rule-preset-recommend": "13.0.4",
     "@secretlint/secretlint-rule-secp256k1-privatekey": "13.0.4",
-    "@sentry/astro": "10.70.0",
+    "@sentry/astro": "10.72.0",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/typography": "0.5.20",

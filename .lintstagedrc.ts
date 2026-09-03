@@ -29,7 +29,7 @@ export default {
 
   '!(CHANGELOG)**/*.{md,markdown}': [
     'markdownlint-cli2 --config "src/config/.markdownlint.jsonc"',
-    'vale --config src/config/.vale.ini --no-exit --minAlertLevel=error',
+    'vale --config src/config/.vale.ini --no-exit --minAlertLevel=error --output=line',
     lychee,
     'typos --config src/config/typos.toml',
   ],

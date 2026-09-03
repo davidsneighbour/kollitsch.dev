@@ -47,6 +47,11 @@ Vale uses `src/config/.vale.ini` as its project configuration. The `lint:vale`
 script lints `src/content/` with that file and the `update:pre:vale` script
 synchronises the configured packages.
 
+Vale's default CLI table can wrap long messages and split the rule name in
+narrow terminals. Project Vale commands use `--output=line` so each alert uses
+one stable line. Use `npm run lint:vale:file -- README.md` for ad-hoc file
+checks.
+
 The project Vale configuration uses these shared DNB packages:
 
 * `vale-aidetection`

@@ -49,12 +49,13 @@ synchronises the configured packages.
 
 The project Vale configuration uses these shared DNB packages:
 
-* `dnb-vale-aidetection`
-* `dnb-vale-config`
-* `dnb-vale-millennialisms`
+* `vale-aidetection`
+* `vale-config`
+* `vale-millennialisms`
 
 Markdown and MDX content enables the base DNB style set plus the `AIDetection`
-and `Millennialisms` styles from those packages.
+and `Millennialisms` styles from those packages. It also enables `DNB`
+explicitly so the full shared DNB configuration is active after synchronising.
 
 ### What belongs where
 

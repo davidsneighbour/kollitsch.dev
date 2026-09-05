@@ -129,6 +129,7 @@ spacing:
   content-max: 1024px
   cta-max: 672px
   page-px: 24px
+  header-mobile-height: 56px
   documentation-nav-indent: 12px
   documentation-nav-deep-indent: 16px
 components:
@@ -396,6 +397,8 @@ Cards are the primary content container for blog post previews, link lists, and 
 ### Sticky Header & Popover Chrome
 
 The sticky header (`Header.astro`) and mobile nav dropdown are a frosted-glass overlay: `background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent)` plus `backdrop-filter: blur(20px) saturate(1)`. `--header-tint` (`70%`) is a single CSS custom property shared by light and dark - it must never be given different values per theme, or the blur becomes invisible in whichever theme has the higher opacity.
+
+On mobile, the nav dropdown is fixed to the viewport below the sticky header at `{spacing.header-mobile-height}` rather than absolutely positioned inside the centre navigation slot. The centre slot may shrink to zero width when the brand and action buttons fill the row, so it must not be the containing block for the mobile panel.
 
 The reading-progress bar is drawn inside the sticky header's bottom edge as an absolutely positioned overlay. It must not add height, padding, or margin to the navigation layout. The overlay is pointer-transparent (`pointer-events: none`) so hover, mouseover, and click hit-testing continue to reach the header/navigation area underneath it.
 

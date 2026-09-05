@@ -51,6 +51,8 @@ if (!activeItem && import.meta.env.DEV) {
           id="navbar-brand"
           href={getHomepageUrl()}
           class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0"
+          aria-hidden="true"
+          tabindex="-1"
         >
           <Icon name="house-fill" class="place-self-center" />
           {setup.title}
@@ -251,14 +253,26 @@ if (!activeItem && import.meta.env.DEV) {
       }
 
       const siteHeader = document.querySelector("#site-header");
+      const setStickyBrandState = (/** @type {boolean} */ shouldShowStickyState) => {
+        stickyBrand.classList.toggle("opacity-100", shouldShowStickyState);
+        stickyBrand.classList.toggle("opacity-0", !shouldShowStickyState);
+        stickyBrand.classList.toggle("sticky-visible", shouldShowStickyState);
+
+        if (shouldShowStickyState) {
+          stickyBrand.removeAttribute("aria-hidden");
+          stickyBrand.removeAttribute("tabindex");
+        } else {
+          stickyBrand.setAttribute("aria-hidden", "true");
+          stickyBrand.setAttribute("tabindex", "-1");
+        }
+
+        viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
+        siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
+      };
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          const shouldShowStickyState = !entry.isIntersecting;
-          stickyBrand.classList.toggle("opacity-100", shouldShowStickyState);
-          stickyBrand.classList.toggle("opacity-0", !shouldShowStickyState);
-          viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
-          siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
+          setStickyBrandState(!entry.isIntersecting);
         },
         { threshold: 0 },
       );
@@ -267,10 +281,7 @@ if (!activeItem && import.meta.env.DEV) {
 
       const rect = placeholder.getBoundingClientRect();
       const isIntersecting = rect.top >= 0 && rect.bottom > 0;
-      const shouldShowStickyState = !isIntersecting;
-      stickyBrand.classList.toggle("sticky-visible", shouldShowStickyState);
-      viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
-      siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
+      setStickyBrandState(!isIntersecting);
     }
 
     /**

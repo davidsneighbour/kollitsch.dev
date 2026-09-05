@@ -61,4 +61,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## Contributing
 
-Contributions are always welcome. Keep in mind that this is a personal website and things might be wonky for reasons beyond your imagination and you might run into opposition (--- mine ---). Please [open issues](https://github.com/davidsneighbour/kollitsch.dev/issues) or pull requests for improvements, bug fixes, or new content. See CONTRIBUTING.md (if available) for guidelines. Otherwise refer to the agents documentation in AGENTS.md.
+Contributions are always welcome. Keep in mind that this is a personal website and things might be wonky for reasons beyond your imagination and I might have a different opinion. Please [open issues](https://github.com/davidsneighbour/kollitsch.dev/issues) or pull requests for improvements, bug fixes, or new content. See CONTRIBUTING.md (if available) for guidelines. Otherwise refer to the agents documentation in AGENTS.md.

@@ -332,19 +332,18 @@ if (!activeItem && import.meta.env.DEV) {
   /*
    * Theme switcher: pinned to the viewport corner, icon inset well clear of
    * the actual pixel corner (more than one icon-width of padding on both
-   * edges, so it never reads as clipped or crowded). The hit-box is a flush
-   * top-right square sized generously bigger than the icon; `clip-path`
-   * keeps the resting hit area a small halo around the icon, then grows the
-   * same circle on hover/focus. Because the circle's centre is inset from
-   * the corner rather than sitting on it, the viewport edges cut it down to
-   * a shape a bit larger than a quarter-circle once expanded - approach the
-   * icon, and the enlarged area is genuinely clickable, not just painted.
+   * edges, so it never reads as clipped or crowded). The fixed corner shell
+   * stays generously larger than the icon for hover polish, while the actual
+   * resting button is a 4rem target centred on the visible icon. `clip-path`
+   * keeps the painted and clickable resting area aligned, then grows the same
+   * circle on hover/focus.
    */
   .theme-corner {
-    --corner-pad: 1.75rem;
-    --corner-icon: 1.5rem;
-    --corner-cx: calc(100% - var(--corner-pad) - (var(--corner-icon) / 2));
-    --corner-cy: calc(var(--corner-pad) + (var(--corner-icon) / 2));
+    --corner-hit-size: 4rem;
+    --corner-hit-radius: calc(var(--corner-hit-size) / 2);
+    --corner-inset: 0.5rem;
+    --corner-cx: 50%;
+    --corner-cy: 50%;
     --corner-hover-radius: 4.5rem;
 
     width: 8rem;
@@ -361,14 +360,15 @@ if (!activeItem && import.meta.env.DEV) {
 
   .theme-corner .theme-toggle {
     position: absolute;
-    inset: 0;
-    width: auto;
-    height: auto;
+    top: var(--corner-inset);
+    right: var(--corner-inset);
+    width: var(--corner-hit-size);
+    height: var(--corner-hit-size);
     padding: 0;
     border-radius: 0;
     background: transparent;
     pointer-events: auto;
-    clip-path: circle(1.4rem at var(--corner-cx) var(--corner-cy));
+    clip-path: circle(var(--corner-hit-radius) at var(--corner-cx) var(--corner-cy));
     transition:
       clip-path 320ms cubic-bezier(0.22, 1, 0.36, 1),
       color 300ms ease;
@@ -417,8 +417,9 @@ if (!activeItem && import.meta.env.DEV) {
 
   .theme-corner .theme-toggle-icon {
     position: absolute;
-    top: var(--corner-pad);
-    right: var(--corner-pad);
+    top: 50%;
+    right: 50%;
+    translate: 50% -50%;
   }
 
   /* Scroll it out of sight for now; revisit making it sticky later */

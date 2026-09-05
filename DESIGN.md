@@ -248,6 +248,10 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.surface-dark}"
     rounded: "{rounded.xl}"
+  theme-toggle-corner:
+    size: "64px"
+    padding: "{spacing.sm}"
+    rounded: "{rounded.full}"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -394,6 +398,8 @@ Cards are the primary content container for blog post previews, link lists, and 
 The sticky header (`Header.astro`) and mobile nav dropdown are a frosted-glass overlay: `background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent)` plus `backdrop-filter: blur(20px) saturate(1)`. `--header-tint` (`70%`) is a single CSS custom property shared by light and dark - it must never be given different values per theme, or the blur becomes invisible in whichever theme has the higher opacity.
 
 The reading-progress bar is drawn inside the sticky header's bottom edge as an absolutely positioned overlay. It must not add height, padding, or margin to the navigation layout. The overlay is pointer-transparent (`pointer-events: none`) so hover, mouseover, and click hit-testing continue to reach the header/navigation area underneath it.
+
+The fixed theme toggle keeps an 8rem top-right corner shell for the hover/focus halo, but the actual resting `.theme-toggle` button is a centred 64px target around the 24px icon, inset by `{spacing.sm}` from the viewport corner. Its resting `clip-path` radius is 32px and centred on the button itself, so the painted halo, keyboard focus target, and first-click hit area stay aligned.
 
 The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
 

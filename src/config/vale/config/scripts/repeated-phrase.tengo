@@ -1,0 +1,20 @@
+text := import("text")
+
+phrases := [
+    "it is important to",
+    "in this article we",
+    "as a result of",
+    "at the end of the day"
+]
+
+document := text.re_replace("(?s)<!-- vale off -->.*?<!-- vale on -->", scope, "")
+lower := text.to_lower(document)
+matches := []
+
+for phrase in phrases {
+    count := len(text.split(lower, phrase)) - 1
+    if count >= 3 {
+        start := text.index(lower, phrase)
+        matches = append(matches, {begin: start, end: start + len(phrase)})
+    }
+}

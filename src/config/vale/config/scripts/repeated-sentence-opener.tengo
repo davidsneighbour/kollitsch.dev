@@ -1,0 +1,20 @@
+text := import("text")
+
+openers := [
+    "in this article we",
+    "this guide will",
+    "the project is",
+    "we can see"
+]
+
+document := text.re_replace("(?s)<!-- vale off -->.*?<!-- vale on -->", scope, "")
+lower := text.to_lower(document)
+matches := []
+
+for opener in openers {
+    count := len(text.split(lower, opener)) - 1
+    if count >= 3 {
+        start := text.index(lower, opener)
+        matches = append(matches, {begin: start, end: start + len(opener)})
+    }
+}

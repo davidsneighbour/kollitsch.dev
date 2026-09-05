@@ -1,0 +1,28 @@
+text := import("text")
+
+terms := [
+    "delve", "delves", "delved", "delving", "tapestry", "tapestries",
+    "meticulous", "meticulously", "pivotal", "intricate", "intricately",
+    "intricacies", "interplay", "underscore", "underscores", "underscored",
+    "underscoring", "garner", "garners", "garnered", "garnering", "bolster",
+    "bolsters", "bolstered", "bolstering", "vibrant", "bustling",
+    "multifaceted", "seamless", "seamlessly", "commendable", "ever-evolving"
+]
+
+document := text.re_replace("(?s)<!-- vale off -->.*?<!-- vale on -->", scope, "")
+lower := text.to_lower(document)
+count := 0
+
+for term in terms {
+    count += len(text.split(lower, term)) - 1
+}
+
+matches := []
+
+if count >= 3 && count < 6 && len(scope) > 0 {
+    end := len(scope)
+    if end > 120 {
+        end = 120
+    }
+    matches = append(matches, {begin: 0, end: end})
+}

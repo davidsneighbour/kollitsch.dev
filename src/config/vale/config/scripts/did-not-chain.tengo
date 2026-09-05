@@ -1,0 +1,16 @@
+text := import("text")
+
+matches := []
+offset := 0
+
+for line in text.split(scope, "\n") {
+    lower := text.to_lower(line)
+    count := len(text.split(lower, "did not ")) - 1
+    count += len(text.split(lower, "didn't ")) - 1
+
+    if count >= 2 {
+        matches = append(matches, {begin: offset, end: offset + len(line)})
+    }
+
+    offset += len(line) + 1
+}

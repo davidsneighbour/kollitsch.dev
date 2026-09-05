@@ -1,2 +1,0 @@
-# Optional: additional banned terms
-# These entries are enforced automatically by Vale.Avoid when the vocab is active.

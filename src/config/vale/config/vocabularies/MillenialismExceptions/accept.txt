@@ -1,8 +1,0 @@
-# one regular expression per line for terms that is allowed.
-# These entries become global exceptions for styles that use:
-# Vocab = MillennialismExceptions
-#
-# Examples:
-# (?i)doggo
-# (?i)girlboss
-# (?i)self-care

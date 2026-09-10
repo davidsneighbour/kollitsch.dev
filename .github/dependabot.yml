@@ -21,6 +21,9 @@ updates:
     ignore:
       # do not update @davidsneighbour packages, that is done via renovate
       - dependency-name: "@davidsneighbour/*"
+      # TypeScript 7 is not adopted yet; revisit around November 2026
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
     cooldown:
       default-days: 5
       semver-major-days: 30

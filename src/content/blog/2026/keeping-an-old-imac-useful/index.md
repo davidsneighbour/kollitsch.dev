@@ -191,7 +191,7 @@ The final successful method for me was this order:
 1. Insert the Xubuntu USB stick.
 2. Shut the iMac down completely by pushing the button on the back for 10+ seconds.
 3. Take out the power cable and leave it for a couple of minutes.
-4. Connect a wired USB keyboard (bluetooth keeyboard might be too slow to connect and the Mac will ignore the pressed key).
+4. Connect a wired USB keyboard (bluetooth keyboard might be too slow to connect and the Mac will ignore the pressed key).
 5. Hold `Option` (on a Mac keyboard) or `Alt` (the left one, on a normal keyboard) key.
 6. Press the power button.
 7. Keep holding `Option` or `Alt` until the boot picker appears.
@@ -460,7 +460,7 @@ sudo pro enable esm-apps
 sudo pro status
 ```
 
-This does not make old hardware young again. It only helps keep the software base security-maintained for longer. Standard maintenancee for Ubuntu 22.04 ends in May 2027. With Ubuntu Pro this is extended to May 2032.
+This does not make old hardware young again. It only helps keep the software base security-maintained for longer. Standard maintenance for Ubuntu 22.04 ends in May 2027. With Ubuntu Pro this is extended to May 2032.
 
 ## Now let's OCD a little bit about the heat
 

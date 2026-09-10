@@ -28,8 +28,8 @@ cover:
 publisher: rework
 ---
 
-For the religous people under my readers: The card game Exploding Kittens gets its own [TV series on Netflix](https://www.netflix.com/title/81459282). Released finally in July 2024.
+For the religious people under my readers: The card game Exploding Kittens gets its own [TV series on Netflix](https://www.netflix.com/title/81459282). Released finally in July 2024.
 
 > Earth sucks, so God (Tom Ellis) gets fired and sent to Earth to reconnect with humanity. The catch? He's trapped in the body of a chubby house cat. Exploding Kittens premieres July 2024, only on Netflix.
 >
-> As part of Godcat's rehabilitation, he moves in with a dysfunctional family and tries to solve their problems, but ends up spending a lot of time chasing laser pointers. And to top it off, Godcat's next-door neighbor, who is also a cat, turns out to be none other than his nemesis, the Antichrist. The result is the ultimate fight between good versus evil…except, Godcat (Ellis) is distracted by a pigeon he saw in the yard and Devilcat (Sasheer Zamata) is busy napping on someone's laptop.
+> As part of Godcat's rehabilitation, he moves in with a dysfunctional family and tries to solve their problems, but ends up spending a lot of time chasing laser pointers. And to top it off, Godcat's next-door neighbour, who is also a cat, turns out to be none other than his nemesis, the Antichrist. The result is the ultimate fight between good versus evil…except, Godcat (Ellis) is distracted by a pigeon he saw in the yard and Devilcat (Sasheer Zamata) is busy napping on someone's laptop.

@@ -6,7 +6,7 @@ date: 2024-03-08T16:03:00+07:00
 resources:
   - title: >-
       Twitter as imagined by DALL-E (disclaimer: the prompt might have been
-      passive agressive)
+      passive aggressive)
     src: header.webp
   - title: Barely Legal
     src: zbarely-legal.jpg
@@ -29,7 +29,7 @@ There are plenty of tools to mass-unfollow people on Twitter, so let's not go th
 
 I didn't want to delete my tweets by hand (I tried, but it required plenty of clicks and often failed due to some form of rate limiting and general instabilities and bugs), so I ended up using the Chrome extension [Delete Twitter](https://chrome.google.com/webstore/detail/plolbhegbeapkdmpnbabilmfnknlfbpa) to delete all my tweets. It took a while, but it worked. Because the extension doesn't work with the Twitter API and basically simulates clicks on the interface, there were no rate limits or other issues. [It just took a while](https://www.youtube.com/shorts/KNN8wPgKsGE), and every now and then, I had to wait for an hour or restart the process.
 
-After a while, "all" tweets were deleted. All tweets? No, not all tweets. There were some undeleteable tweets left that I removed by hand. Twitter also still showed around 2000 tweets and 200 likes on my profile. So I visited again and again over time, and after about two weeks, the missing items appeared. I deleted them and now have 27 posts and 4 likes that don't exist but are still counted, maybe in a week or so.
+After a while, "all" tweets were deleted. All tweets? No, not all tweets. There were some undeletable tweets left that I removed by hand. Twitter also still showed around 2000 tweets and 200 likes on my profile. So I visited again and again over time, and after about two weeks, the missing items appeared. I deleted them and now have 27 posts and 4 likes that don't exist but are still counted, maybe in a week or so.
 
 My Twitter profile of nearly 2 decades is empty, and I can move on. See you down somewhere on the social…
 

@@ -26,7 +26,7 @@ I had a weird reaction ("well… that's a unique logo?") to my really great webl
 6. I now live and work on an island (for 16+ years)
 7. … in Thailand (we might go into depth about that in a later post)
 8. I work with computers (obviously)
-9. Issac Asimov rules! (if you need further information please refer to logo part 4)
+9. Isaac Asimov rules! (if you need further information please refer to logo part 4)
 10. I create code
 11. It's always a work in progress
 

@@ -39,7 +39,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
   Image via [xkcd](https://xkcd.com/2347/).
 
-  I think that the term "open source" means not much when the only deciding factor of new features is a single developer, when the documentation of a product is attrocious at best and when one receives a response like the following to criticism:
+  I think that the term "open source" means not much when the only deciding factor of new features is a single developer, when the documentation of a product is atrocious at best and when one receives a response like the following to criticism:
 
   > Have you understood my irritation coming from me spending 10 hours of my vacation time to implement basic return support in partials, yet you expect me to spend 100 hours to get it in line with your expectations?
 

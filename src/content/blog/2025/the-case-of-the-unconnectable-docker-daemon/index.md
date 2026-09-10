@@ -54,7 +54,7 @@ And indeed, there I was:
 docker:x:983:patrick
 ```
 
-An often overlooked detail in the Docker documentation is the need for the current user to be in the `docker` group. This though was not the issue for me as the response conveied.
+An often overlooked detail in the Docker documentation is the need for the current user to be in the `docker` group. This though was not the issue for me as the response conveyed.
 
 Yet still the daemon remained mute. I realised that, like a locked door, new group membership might demand a fresh session—log out, log in, or invoke `newgrp docker`. But alas, doing that did not yield the desired result. I was still met with the same chilling message.
 

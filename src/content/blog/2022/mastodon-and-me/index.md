@@ -24,7 +24,7 @@ cover:
 publisher: rework
 ---
 
-When Twitter was sold and bought (after plenty of pretending and peacocking) a couple of weeks by the worlds leading vapor ware promoter many complained about "their Twitter" being opened up to misogyny and hate speech. Let's not talk about that ;) I myself never found a "home" in Twitter and use(d) it more or less to add my own noise to the already existing noises only.
+When Twitter was sold and bought (after plenty of pretending and peacocking) a couple of weeks by the worlds leading vapourware promoter many complained about "their Twitter" being opened up to misogyny and hate speech. Let's not talk about that ;) I myself never found a "home" in Twitter and use(d) it more or less to add my own noise to the already existing noises only.
 
 There were new "like Twitter, but…" networks every two or so years and along came Mastodon about 6 years ago. I [recently](https://twitter.com/davidsneighbour/status/1586016108477222912) (hehe, Twitter link) got my first follower over there and decided to go on and give Mastodon a chance. If you feel that way, then [follow me along](https://mastodon.in.th/@davidsneighbour).
 

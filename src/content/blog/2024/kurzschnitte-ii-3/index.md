@@ -20,7 +20,7 @@ cover:
 publisher: rework
 ---
 
-Two is a company, three's a crowd. … But three is also a magic number. So here's the third installment of my linkdump series, Kurzschnitte II. I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. From open-source reflections to CSS animations and favicon best practices, these resources offer valuable insights and practical tips for web developers and designers. Enjoy the read and let me know what you think!
+Two is a company, three's a crowd. … But three is also a magic number. So here's the third instalment of my linkdump series, Kurzschnitte II. I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. From open-source reflections to CSS animations and favicon best practices, these resources offer valuable insights and practical tips for web developers and designers. Enjoy the read and let me know what you think!
 
 * In a candid and eye-opening [blog post](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md) on GitHub, the developer behind `core-js`, Denis Pushkarev (@zloirock), shares his journey and the challenges faced in maintaining one of the most essential JavaScript polyfill libraries. `core-js` is pivotal in supporting the latest ECMAScript standards across different browsers and platforms, underpinning many popular websites and frameworks. Pushkarev's post delves into the complexities of open-source software development, the unsustainability of relying solely on community support, and the potential future paths for `core-js`. This reflective piece is a must-read for full-stack developers and anyone interested in the dynamics of open-source project maintenance.
 

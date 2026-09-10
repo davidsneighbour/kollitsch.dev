@@ -3,10 +3,10 @@ fmContentType: blog
 title: Kurzschnitte II - The fifth
 linkTitle: Kurzschnitte II - Pt. 5
 description: >-
-  The fifth installment of Kurzschnitte II, where I'm sharing a collection of
+  The fifth instalment of Kurzschnitte II, where I'm sharing a collection of
   articles and tutorials that caught my attention in the past few weeks.
 summary: >-
-  The fifth installment of Kurzschnitte II, where I'm sharing a collection of
+  The fifth instalment of Kurzschnitte II, where I'm sharing a collection of
   articles and tutorials that caught my attention in the past few weeks.
 date: 2024-09-03T18:53:38+07:00
 tags:

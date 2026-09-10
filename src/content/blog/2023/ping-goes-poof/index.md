@@ -28,7 +28,7 @@ The main points are:
 
 Pings are not accepted anymore starting in 6 months, due to them being unreliable. Instead Google will crawl the sitemap.xml file on a regular basis. The sitemap.xml file should be updated whenever a page is updated. The `lastmod` tag in the sitemap.xml file should be updated whenever the page content is updated - NOT  when elements on the page are updated. This seems to be the death punch to [indexnow.org](https://www.indexnow.org/index) too, as it's main purpose was to ping search engines about updates.
 
-On the other hand, Google continues to ignore the changefreq and priority elements in sitemaps. These elements have no impact on Google's crawling and indexing processes. Website owners should be aware that including changefreq and priority in their sitemaps will not influence the search engine's behavior.
+On the other hand, Google continues to ignore the changefreq and priority elements in sitemaps. These elements have no impact on Google's crawling and indexing processes. Website owners should be aware that including changefreq and priority in their sitemaps will not influence the search engine's behaviour.
 
 With these latest updates, Google is streamlining the use of sitemaps and at the same time cutting off some spammers. It also becomes clear that the sitemap as a tool to discover new content should not be used to force Google to crawl a site:
 

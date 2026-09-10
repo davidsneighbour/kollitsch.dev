@@ -347,7 +347,7 @@ Take it as a personal opinion at this point in time. We shall revisit it. We sha
 
 `#cognitive`
 
-#### At What Point Does Delegation to AI Affect Judgment?  
+#### At What Point Does Delegation to AI Affect Judgement?
 
 `#cognitive #risk`
 

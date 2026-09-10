@@ -70,6 +70,8 @@ This output provides detailed information about the file system, including the l
 
 Interesting parts are, for instance the markers that explain more about probable errors:
 
+<!-- cspell:disable -->
+
 ```plaintext
 Filesystem state:         clean with errors
 Errors behavior:          Continue
@@ -82,6 +84,8 @@ Last error time:          Sun Nov 26 13:36:01 2023
 Last error function:      ext4_journal_check_start
 Last error line #:        83
 ```
+
+<!-- cspell:enable -->
 
 Well, seems like we have some issues ;)
 

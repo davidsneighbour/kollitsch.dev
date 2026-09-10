@@ -24,7 +24,7 @@ cover:
 publisher: rework
 ---
 
-I am a huge fan of electrically created soundscapes. People with cables punching them into holes connecting things that rotate elecrons, reverb waves, negate sounds, and create, what is not there. Hélène Vogelsinger is one of these artists. She creates beautiful soundscapes with her modular synthesizers. In this video, she is playing in an abandoned castle. The music is beautiful, the video is beautiful, and the location is beautiful. I love it.
+I am a huge fan of electrically created soundscapes. People with cables punching them into holes connecting things that rotate electrons, reverb waves, negate sounds, and create, what is not there. Hélène Vogelsinger is one of these artists. She creates beautiful soundscapes with her modular synthesizers. In this video, she is playing in an abandoned castle. The music is beautiful, the video is beautiful, and the location is beautiful. I love it.
 
 > As part of the practice behind Hélène Vogelsinger's modular synth compositions, the French singer and sound designer explores abandoned places and connects with their energies to create immersive and suspended moments. "I love the fact that they have layers of stories and histories, with different occupants, often crossing times, and always full of beautiful and melancholic poetry," she says.
 >

@@ -66,4 +66,4 @@ If you want to revert this setting, you can do so by running:
 npm config delete save-exact
 ```
 
-This will remove the setting from your `.npmrc` and npm will revert to its default behavior, which currently is using caret notation when installing packages.
+This will remove the setting from your `.npmrc` and npm will revert to its default behaviour, which currently is using caret notation when installing packages.

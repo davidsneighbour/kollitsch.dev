@@ -24,7 +24,7 @@ Some of the latest features that have landed in Visual Studio Code (VSCode) toda
 
 ## Reopen editors on switching branches
 
-It seems this was a "highly requested" feature. I myself never thought about this much, but it looks very useful to me. You can now [save the open editor tabs with each branch](https://code.visualstudio.com/updates/v1_89#_saverestore-open-editors-when-switching-branches). Checking out any branch will open the editors that were open when the branch was used the last time. To enable this feature, simply adjust the `scm.workingSets.enabled` setting. Additionally, customize your open editors behavior when switching branches for the first time using the `scm.workingSets.default` setting. Choose between starting with no open editors (`empty`) or retaining the currently opened editors (`current`) based on your preference.
+It seems this was a "highly requested" feature. I myself never thought about this much, but it looks very useful to me. You can now [save the open editor tabs with each branch](https://code.visualstudio.com/updates/v1_89#_saverestore-open-editors-when-switching-branches). Checking out any branch will open the editors that were open when the branch was used the last time. To enable this feature, simply adjust the `scm.workingSets.enabled` setting. Additionally, customize your open editors behaviour when switching branches for the first time using the `scm.workingSets.default` setting. Choose between starting with no open editors (`empty`) or retaining the currently opened editors (`current`) based on your preference.
 
 ## Paste via middle mouse click in terminals
 

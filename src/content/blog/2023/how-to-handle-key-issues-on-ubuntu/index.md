@@ -38,7 +38,7 @@ As the warnings instructed, I loaded up the man-page numero 8 for the `apt-key` 
 
 The deprecation notice expands further that there are two types of keys that are accepted:
 
-> Make sure to use the "asc" extension for ASCII armored keys and the "gpg" extension for the binary OpenPGP format (also known as "GPG key public ring"). The binary OpenPGP format works for all apt versions, while the ASCII armored format works for apt version >= 1.4.
+> Make sure to use the "asc" extension for ASCII armoured keys and the "gpg" extension for the binary OpenPGP format (also known as "GPG key public ring"). The binary OpenPGP format works for all apt versions, while the ASCII armoured format works for apt version >= 1.4.
 
 Let's start with the end and cleanup the old keys first. The following command will list all keys in the old keyring:
 
@@ -75,21 +75,21 @@ wget -O temp.key http://prerelease.keybase.io/deb/dists/stable/InRelease
 sudo mv temp.key /etc/apt/trusted.gpg.d/keybase.asc
 ```
 
-Be careful to use the correct file extension for the key. In this case, it is `.asc` because it is an ASCII armored key. If you are unsure, you can check the file with the `file` command:
+Be careful to use the correct file extension for the key. In this case, it is `.asc` because it is an ASCII armoured key. If you are unsure, you can check the file with the `file` command:
 
-If you're not sure if the key is ASCII-armored or not, run the following:
+If you're not sure if the key is ASCII-armoured or not, run the following:
 
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | file -
 ```
 
-The output for an ASCII-armored key  (save it with a .asc extension) should be something like this:
+The output for an ASCII-armoured key  (save it with a .asc extension) should be something like this:
 
 ```plain
 /dev/stdin: PGP public key block Public-Key (old)
 ```
 
-For a non-armored key (save it with a .gpg extension), the output will be along the lines of:
+For a non-armoured key (save it with a .gpg extension), the output will be along the lines of:
 
 ```plain
 /dev/stdin: OpenPGP Public Key Version 4, Created …, RSA (Encrypt or Sign, 4096 bits); User ID; Signature; OpenPGP Certificate

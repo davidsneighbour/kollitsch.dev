@@ -57,6 +57,6 @@ The full script can be found [in this Gist](https://gist.github.com/davidsneighb
 
 Now, let me add the caveats ;) The script is not perfect. The most obvious current bug I found is, that it replaces aliases that might be part of a simple string. If you for instance have a button "Search in this Blog" then the `in` will match and be replaced.
 
-I am however sure, that we all are perfectionist GoHugo layout sculptors that moved all string occurences already into the i18n files, right? Right? ;)
+I am however sure, that we all are perfectionist GoHugo layout sculptors that moved all string occurrences already into the i18n files, right? Right? ;)
 
 Now goeth forth and refactor your GoHugo aliases for a better more understandable layout future!

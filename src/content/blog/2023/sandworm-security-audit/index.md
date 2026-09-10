@@ -26,7 +26,7 @@ It works with any modern JavaScript package manager and supports custom license 
 
 It is powered by D3 and puts security vulnerabilities and package license information into nice looking charts. Additionally, it supports configurable conditions to fail CI/GIT hook workflows, making it a powerful tool for maintaining the security and license compliance of your application on commits or pushes.
 
-To get started, install Sandworm Audit globally via your favorite package manager and run it in the root directory of your application.
+To get started, install Sandworm Audit globally via your favourite package manager and run it in the root directory of your application.
 
 ```bash
 npm install -g @sandworm/audit

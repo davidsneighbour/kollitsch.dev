@@ -40,7 +40,7 @@ target = "content"
 
 This configuration in your `config/development/modules.toml` does something magical: it hides all blog posts from the years 2000 through 2019 when running the Hugo development server. Your website only displays posts from 2020 onward, keeping the build process faster and more efficient.
 
-Onviously, this works only, if your posts are in `content/posts/YEARNUMBER` directories.
+Obviously, this works only, if your posts are in `content/posts/YEARNUMBER` directories.
 
 ## How It Works
 

@@ -41,7 +41,7 @@ Fallen Angels is a 1990s American neo-noir anthology TV series set in Los Angele
 
 ## Why This Episode Is Worth Revisiting
 
-Though this *Fallen Angels* episode aired way back in 1993 and hasn't gained much recognition since, it offers a unique glimpse into Tom Cruise's creative evolution. Featuring a stellar cast, including the always captivating Isabella Rossellini and John C. Reilly before both their major career paths, the episode has a compelling mix of dark humor and gritty desert drama.
+Though this *Fallen Angels* episode aired way back in 1993 and hasn't gained much recognition since, it offers a unique glimpse into Tom Cruise's creative evolution. Featuring a stellar cast, including the always captivating Isabella Rossellini and John C. Reilly before both their major career paths, the episode has a compelling mix of dark humour and gritty desert drama.
 
 If you're a fan of film noir, quirky con-man tales, or simply curious to see what Cruise was up to creatively in the early '90s, this episode is a must-watch. It's a rare piece of television that perfectly captures the essence of noir storytelling—deception, betrayal, and a desperate search for a way out.
 

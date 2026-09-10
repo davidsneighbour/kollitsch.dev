@@ -29,7 +29,7 @@ Happily enough I discovered [`npkill`](https://github.com/voidcosmos/npkill) a w
 
 Its key features are:
 
-* cleaning up space, oviously
+* cleaning up space, obviously
 * showing you the last time the project was updated
 * a very fast execution time to locate all `node_modules` directories
 * it's easy to select and delete the folders you want to remove

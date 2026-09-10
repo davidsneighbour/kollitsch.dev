@@ -27,7 +27,7 @@ publisher: rework
 
 For reasons I don't want to go too deep into (I once again violated my rule to NOT install Ubuntu versions without a LTS in their name and ended up without eyes or ears) I had to reinstall my workstations and computers last week. While that sounds like hard work it isn't much of it due to [my dotfiles repository][1]. I will explain the concept of `.dotfiles` and my own implementation at a later point, for now, just know, that it's a backup of my home directory and settings for pretty much that is happening on my (Linux based) computers these days. I can re-install the programs I use and their configurations and setups with a single command. That's all ;]
 
-One problem though were API keys and secrets that, while I had a backup, didn't make much sense to be added to the repository. It's a bad idea to add secrets, keys and passwords to a public repository. But also would it have been "private" on Github, it would only have been as private as possible until the next human error (me accidentially making it public) or hack (someone gaining access to my repositories).
+One problem though were API keys and secrets that, while I had a backup, didn't make much sense to be added to the repository. It's a bad idea to add secrets, keys and passwords to a public repository. But also would it have been "private" on Github, it would only have been as private as possible until the next human error (me accidentally making it public) or hack (someone gaining access to my repositories).
 
 Which brought me to an idea that I implemented today: Using an encrypted repository with all my keys, passwords, and (Ubuntu based) secrets.
 

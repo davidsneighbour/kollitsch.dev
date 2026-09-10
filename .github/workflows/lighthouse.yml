@@ -1,5 +1,12 @@
 name: Daily Lighthouse audit
 
+# The schedule below runs every day, but a Lighthouse audit is only useful
+# when the site has actually changed since the last one. The "Check for new
+# commits" step compares the current HEAD against the sha recorded in the
+# last src/data/lighthouse/history.json entry (written by lighthouse-ci.ts
+# on every audit) and skips the rest of the job when they match. A manual
+# workflow_dispatch run always audits, regardless of whether HEAD moved.
+
 on:
   schedule:
     - cron: "0 3 * * *"
@@ -28,21 +35,48 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Check for new commits
+        id: check
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+          echo "should_run=true" >>"$GITHUB_OUTPUT"
+          echo "Manual run -- auditing regardless of HEAD."
+          exit 0
+          fi
+
+          current_sha=$(git rev-parse --short HEAD)
+          last_sha=$(jq -r 'last.sha // empty' src/data/lighthouse/history.json)
+
+          if [ -z "$last_sha" ] || [ "$last_sha" != "$current_sha" ]; then
+          echo "should_run=true" >>"$GITHUB_OUTPUT"
+          echo "HEAD is $current_sha, last audited:" \
+          "'${last_sha:-none}' -- auditing."
+          else
+          echo "should_run=false" >>"$GITHUB_OUTPUT"
+          echo "HEAD is still $current_sha, already audited -- skipping."
+          fi
+
       - name: Set up Node.js
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
+        if: steps.check.outputs.should_run == 'true'
         run: npm ci
 
       - name: Run Lighthouse CI
+        if: steps.check.outputs.should_run == 'true'
         env:
           LH_URL: ${{ github.event.inputs.url || 'https://kollitsch.dev/' }}
         run: node src/scripts/linting/lighthouse-ci.ts
 
       - name: Upload JSON reports
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: lighthouse-reports-${{ github.run_id }}
@@ -51,6 +85,7 @@ jobs:
           retention-days: 30
 
       - name: Commit history update
+        if: steps.check.outputs.should_run == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

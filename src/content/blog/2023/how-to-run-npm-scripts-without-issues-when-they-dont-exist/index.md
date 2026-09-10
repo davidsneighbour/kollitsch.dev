@@ -31,7 +31,7 @@ You might run into situations, where you have scripts that are only relevant for
 
 My first idea was to load `package.json` into a JSON object and then search for the script I want to run. If it exists, I would run it, otherwise, I would skip it. This approach works, but it's not very elegant and requires a lot of boilerplate code.
 
-Happily enough it turned out, that npm has a built-in option to handle this scenario. The [`--if-present`](https://docs.npmjs.com/cli/v9/commands/npm-run-script#if-present) flag alters the behavior of `npm run-script` (or `npm run`). Normally, if you try to execute a script that is not defined in your `package.json` file's `scripts` section, npm exits with an error code. When `--if-present` is set to `true`, npm will not throw an error. Great.
+Happily enough it turned out, that npm has a built-in option to handle this scenario. The [`--if-present`](https://docs.npmjs.com/cli/v9/commands/npm-run-script#if-present) flag alters the behaviour of `npm run-script` (or `npm run`). Normally, if you try to execute a script that is not defined in your `package.json` file's `scripts` section, npm exits with an error code. When `--if-present` is set to `true`, npm will not throw an error. Great.
 
 If the script is present *and* it fails during execution, npm will still exit with an error. This ensures that while the script's absence is tolerated, its failure is not, maintaining a level of strictness in your workflow.
 

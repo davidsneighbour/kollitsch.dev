@@ -495,7 +495,7 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
 
 **`background-clip: text` is a display technique, not an animation primitive.** You cannot transition between `background-clip: text` and `background-clip: border-box`. The image can only expand if a second element carries the full-bleed version.
 
-**Alignment requires matching reference frames.** `background-size: cover` is relative to each element individually. For two elements of different sizes to show the same image at the same scale, they need to use the same reference—in this case a fixed absolute width (`100vw`) combined with the mathematical coincidence that centering a child in a full-width parent makes both `background-position: center` calculations resolve to the same origin.
+**Alignment requires matching reference frames.** `background-size: cover` is relative to each element individually. For two elements of different sizes to show the same image at the same scale, they need to use the same reference—in this case a fixed absolute width (`100vw`) combined with the mathematical coincidence that centring a child in a full-width parent makes both `background-position: center` calculations resolve to the same origin.
 
 **Multi-stop colour animations need `@keyframes`.** A CSS `transition` only interpolates between two values. For three stops (transparent, orange, gray), use `@keyframes`. The hover-out direction is handled separately by a `transition` that takes over once the animation is removed.
 

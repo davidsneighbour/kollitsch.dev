@@ -26,13 +26,13 @@ One of the first things I do after a new installation of myt OS of choice Ubuntu
 
 This time I thought, it would be nice to have a script doing all that for me, because with 200+ repositories it was getting a daunting task. GitHub Rest API to the rescue. I wrote a quick script that locates all my private and public repos and clones them into my folder.
 
-Setting it up is relatively hasslefree: copy [the full script](https://github.com/davidsneighbour/dotfiles/blob/2a3178501237a90e29b3e865c1736a0b592f51c2/bin/helpers/setup-repositories.sh) somewhere in your path and make it executable. You'll also need to create a `.env` file in your home directory with the following content:
+Setting it up is relatively hassle-free: copy [the full script](https://github.com/davidsneighbour/dotfiles/blob/2a3178501237a90e29b3e865c1736a0b592f51c2/bin/helpers/setup-repositories.sh) somewhere in your path and make it executable. You'll also need to create a `.env` file in your home directory with the following content:
 
 ```ini
 GITHUB_DEV_TOKEN=github_pat_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-The key can be either a [classic key](https://github.com/settings/tokens) or one of those [fancy new "faingrained" tokens](https://github.com/settings/tokens?type=beta). The script will use this token to authenticate with GitHub and the rights required are either `repo` rights (classic token) or *Metadata* rights (for the fine grained token). The script will clone all repositories under the token user's account, so make sure you have the necessary permissions.
+The key can be either a [classic key](https://github.com/settings/tokens) or one of those [fancy new "fine-grained" tokens](https://github.com/settings/tokens?type=beta). The script will use this token to authenticate with GitHub and the rights required are either `repo` rights (classic token) or *Metadata* rights (for the fine grained token). The script will clone all repositories under the token user's account, so make sure you have the necessary permissions.
 
 After that run it with
 

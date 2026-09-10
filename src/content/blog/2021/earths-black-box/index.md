@@ -22,6 +22,6 @@ It looks like earths climate catastrophe now has it's own black box.
 >
 > The purpose of the device is to provide an unbiased account of the events that lead to the demise of this planet, hold accountability for future generations, and inspire urgent action.
 
-The building is four hours away from the next human settlement on the west coast of Tasmania in Australia. It will be filled with hard drives that collect tweets, reports, news, and so on about climate relevant topics. It also logs meteorologic and climate change relevant data like carbon dioxide levels, temperatures, and so on.
+The building is four hours away from the next human settlement on the west coast of Tasmania in Australia. It will be filled with hard drives that collect tweets, reports, news, and so on about climate relevant topics. It also logs meteorological and climate change relevant data like carbon dioxide levels, temperatures, and so on.
 
 The website already shows incoming log messages and the building is planned to be finished "early 2022". When it's finished the developers expect it to be able to collect 40 to 50 years of data.

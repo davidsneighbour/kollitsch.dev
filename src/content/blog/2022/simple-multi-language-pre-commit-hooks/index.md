@@ -48,7 +48,7 @@ With `pre-commit install` you install the local setup. Read on to know what you 
 
 ## Configuring pre-commit
 
-Your configuration is situated in `.pre-commit-config.yaml`. Feel free to have a look at [mine](https://github.com/davidsneighbour/kollitsch.dev/blob/main/.pre-commit-config.yaml) for some (slightly COD) examples. There is a lot that `pre-commit` can do. Be it line endings, formattings, linting of your stylesheets or markdown documents, keeping an eye on rules for your binary files, and so on, and even more…
+Your configuration is situated in `.pre-commit-config.yaml`. Feel free to have a look at [mine](https://github.com/davidsneighbour/kollitsch.dev/blob/main/.pre-commit-config.yaml) for some (slightly COD) examples. There is a lot that `pre-commit` can do. Be it line endings, formatting, linting of your stylesheets or markdown documents, keeping an eye on rules for your binary files, and so on, and even more…
 
 Some of my favourite examples are the following ones:
 

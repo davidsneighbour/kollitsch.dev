@@ -3,7 +3,7 @@ fmContentType: blog
 title: A Masterpiece about the Meisterstück
 description: >-
   Wes Anderson's "100 Years of Meisterstück" blends his signature aesthetic with
-  humor to present Montblanc's iconic pen, showcasing its timeless legacy and
+  humour to present Montblanc's iconic pen, showcasing its timeless legacy and
   craftsmanship.
 summary: >-
   Wes Anderson directs a humorous, visually striking commercial for Montblanc’s
@@ -25,7 +25,7 @@ cover:
 publisher: rework
 ---
 
-Wes Anderson has directed a three-minute commercial for Montblanc, mostly known for its fountain pens, commemorating the 100-year anniversary of the brand's Meisterstück fountain pen. This commercial. Titled "100 Years of Meisterstück" it features Anderson's signature aesthetic, blending eccentric storytelling with meticulous layouted visuals.
+Wes Anderson has directed a three-minute commercial for Montblanc, mostly known for its fountain pens, commemorating the 100-year anniversary of the brand's Meisterstück fountain pen. This commercial. Titled "100 Years of Meisterstück" it features Anderson's signature aesthetic, blending eccentric storytelling with meticulously laid-out visuals.
 
 In the short film, Anderson himself acts and is joined by Rupert Friend and Jason Schwartzman as characters at the fictional Montblanc Headquarters atop Mont Blanc. They present the pen's story, its cultural legacy and luxurious craftsmanship through the filmmaker's distinctive, whimsical lens. Both actors worked with Anderson on "The Wonderful Story of Henry Sugar".
 

@@ -19,7 +19,7 @@ cover:
 publisher: rework
 ---
 
-Netlify, one of my favorite deployment options and a web development platform, has recently introduced a new logo, marking a significant step towards a new overall visual identity. The company has used its signature teal gem logo for the past eight years, which has remained unchanged since its inception. However, with the recent acquisition of Gatsby and exceptional growth, they felt it was the perfect time to renovate their visual identity from the ground up.
+Netlify, one of my favourite deployment options and a web development platform, has recently introduced a new logo, marking a significant step towards a new overall visual identity. The company has used its signature teal gem logo for the past eight years, which has remained unchanged since its inception. However, with the recent acquisition of Gatsby and exceptional growth, they felt it was the perfect time to renovate their visual identity from the ground up.
 
 Crafting a new brand is a massive undertaking, and Netlify approached the task like a developer by releasing changes iteratively, starting with a minimum viable product (MVP) and releasing new features as they are built. The new logo was created to tell the story of Netlify, drawing inspiration from optical dispersion (a little Pink Floyd hidden there). Optical dispersion is the phenomenon in which light separates into its individual colors as it passes through a medium, such as a prism or a droplet of water. For Netlify it is exemplifying convergence, velocity, and growth.
 

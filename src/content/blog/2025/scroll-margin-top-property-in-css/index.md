@@ -52,7 +52,7 @@ Thankfully, CSS evolves to meet our needs. Modern browsers now support the `scro
 
 This new method is obviously better:
 
-1. **Simplicity**: No need for pseudo-elements or additional content. The property directly modifies the scrolling behavior.
+1. **Simplicity**: No need for pseudo-elements or additional content. The property directly modifies the scrolling behaviour.
 2. **Readability**: Code is easier to understand, reducing the cognitive load for collaborators.
 3. **Performance**: Fewer elements and styles mean less work for the browser, leading to better performance.
 4. **Native Support**: `scroll-margin-top` is supported in all modern browsers (see [caniuse.com](https://caniuse.com/?search=scroll-margin-top)), making it a safe choice for production.

@@ -1,15 +1,15 @@
 {
   "devDependencies": {
-    "@axe-core/playwright": "4.12.1",
-    "@playwright/test": "1.62.1",
-    "@vitest/browser-playwright": "^4",
-    "@vitest/coverage-v8": "^4",
-    "@vitest/ui": "^4",
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@vitest/browser-playwright": "4.1.11",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vitest/ui": "4.1.11",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
     "cheerio": "1.2.0",
     "vite-tsconfig-paths": "6.1.1",
-    "vitest": "^4"
+    "vitest": "4.1.11"
   },
   "scripts": {
     "test": "vitest run",

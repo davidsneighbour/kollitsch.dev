@@ -56,7 +56,7 @@ lsb_release -a
 
 in your Ubuntu. In my case it returned *Ubuntu 24.04.1 LTS*.
 
-While I was happy with the default Ubuntu installation, WSL also supports other distributions like Debian, OpenSUSE, and Kali Linux. To view the available distributions, open your PowerShell again (NOT your Ubunutu shell) and run:
+While I was happy with the default Ubuntu installation, WSL also supports other distributions like Debian, OpenSUSE, and Kali Linux. To view the available distributions, open your PowerShell again (NOT your Ubuntu shell) and run:
 
 ```bash
 wsl --list --online

@@ -20,7 +20,7 @@ For years, I peppered my communication and documentation with phrases like "I th
 
 ## What is "Hedging" in writing?
 
-Hedging is using cautious or non-committal language - little qualifiers that undermine the certainty or directness of a statement. In plainer terms, it's when we soften our statements by saying things like "I think," "maybe," "probably," or "it seems" instead of just stating the idea. By hedging, we leave ourselves an out, signaling that we're not *100%* sure or that we don't want to sound too bold.
+Hedging is using cautious or non-committal language - little qualifiers that undermine the certainty or directness of a statement. In plainer terms, it's when we soften our statements by saying things like "I think," "maybe," "probably," or "it seems" instead of just stating the idea. By hedging, we leave ourselves an out, signalling that we're not *100%* sure or that we don't want to sound too bold.
 
 For example, consider the difference:
 
@@ -70,7 +70,7 @@ The downside is that **excessive or unnecessary hedging can undermine your writi
 * *Hedged:* "This **basically** means the module *might* fail to load under certain conditions."  
 * *Confident:* "This means the module fails to load under specific conditions."
 
-The second version is clearer and more authoritative. It **projects confidence**, which in turn instills confidence in the reader.
+The second version is clearer and more authoritative. It **projects confidence**, which in turn instils confidence in the reader.
 
 ## When (and where) hedging *is* appropriate
 

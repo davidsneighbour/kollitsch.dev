@@ -16,12 +16,13 @@
   },
   "overrides": {
     "markdownlint-cli2": {
-      "js-yaml": "4.3.1"
+      "js-yaml": "5.4.1"
     },
     "markdownlint-rule-title-case-style": {
       "markdownlint": {
         "markdown-it": "14.2.0"
       }
-    }
+    },
+    "smol-toml": "1.8.0"
   }
 }

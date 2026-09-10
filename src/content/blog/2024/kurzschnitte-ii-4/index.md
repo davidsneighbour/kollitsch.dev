@@ -2,7 +2,7 @@
 fmContentType: blog
 title: Kurzschnitte II - Number 4
 description: >-
-  The fourth installment of Kurzschnitte II, where I'm sharing a collection of
+  The fourth instalment of Kurzschnitte II, where I'm sharing a collection of
   articles and tutorials that caught my attention in the past few weeks.
 date: 2024-05-26T19:32:43+07:00
 tags:
@@ -20,7 +20,7 @@ cover:
 publisher: rework
 ---
 
-Two is company, three's a crowd, and four? Four is an outright party where even the furniture insists on joining the dance floor! Welcome to the fourth installment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. Enjoy the read and let me know what you think!
+Two is company, three's a crowd, and four? Four is an outright party where even the furniture insists on joining the dance floor! Welcome to the fourth instalment of Kurzschnitte II, where I'm sharing a collection of articles and tutorials that caught my attention in the past few weeks. Enjoy the read and let me know what you think!
 
 ## Webdev
 

@@ -3,13 +3,13 @@ fmContentType: blog
 title: Kurzschnitte II - Pt. 7
 description: >-
   Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically
-  notable as a prime followed by a cube and is a popular favorite culturally,
+  notable as a prime followed by a cube and is a popular favourite culturally,
   spiritually, and in gaming, particularly in craps. Nature aligns with this
   pattern, structuring a week into seven days. Now, let's continue with our
   curated links of interest.
 summary: >-
   Welcome to Kurzschnitte II, iteration seven. The number 7 is mathematically
-  notable as a prime followed by a cube and is a popular favorite culturally,
+  notable as a prime followed by a cube and is a popular favourite culturally,
   spiritually, and in gaming, particularly in craps. Nature aligns with this
   pattern, structuring a week into seven days. Now, let's continue with our
   curated links of interest.
@@ -31,7 +31,7 @@ cover:
 publisher: rework
 ---
 
-Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathematics, the first prime number followed by a cube. Statistically, it appears as a common favorite number over many fields in daily life, religions, and mythologies. It also plays a crucial role in gaming, where rolling a seven can be pivotal in games like craps. In nature, there are seven days in a week, and it goes on… as do we with our list of links of interest.
+Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathematics, the first prime number followed by a cube. Statistically, it appears as a common favourite number over many fields in daily life, religions, and mythologies. It also plays a crucial role in gaming, where rolling a seven can be pivotal in games like craps. In nature, there are seven days in a week, and it goes on… as do we with our list of links of interest.
 
 ## Webdev
 
@@ -53,4 +53,4 @@ Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathema
 
 ## Fun and stuff
 
-* Explore [the 2024 Ig Nobel Prize winners](https://arstechnica.com/science/2024/09/meet-the-winners-of-the-2024-ig-nobel-prizes/) on Ars Technica, highlighting the quirky and humorous achievements in science that first make people laugh, then think. This year's honorees include birds guiding missiles, detecting drunk worms via chromotography, and research into coin flips (they tend to land on the same side they are are started on).
+* Explore [the 2024 Ig Nobel Prize winners](https://arstechnica.com/science/2024/09/meet-the-winners-of-the-2024-ig-nobel-prizes/) on Ars Technica, highlighting the quirky and humorous achievements in science that first make people laugh, then think. This year's honorees include birds guiding missiles, detecting drunk worms via chromatography, and research into coin flips (they tend to land on the same side they are are started on).

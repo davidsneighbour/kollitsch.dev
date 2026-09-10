@@ -8,7 +8,13 @@
     "node_modules",
     "dist",
     "build",
-    ".git"
+    ".git",
+    "**/test/logs/**"
+  ],
+  "ignoreRegExpList": [
+    "/^\\s*youtube:\\s*\\S+$/m",
+    "/^\\s*imageid:\\s*\\S+$/m",
+    "/^\\s*-?\\s*src:\\s*.+\\.(?:jpg|jpeg|png|webp|gif|svg)\"?\\s*$/m"
   ],
   "dictionaries": [
     "dnb",

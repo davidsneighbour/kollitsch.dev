@@ -56,7 +56,6 @@ Changa
 changaone
 changefreq
 chromastyles
-chromotography
 Chuttersnap
 Ckco
 Cladosporium
@@ -189,7 +188,6 @@ gsettings
 Halas
 Haraway's
 harddrives
-hasslefree
 Haupt
 hehe
 Heinzer
@@ -215,7 +213,6 @@ inlinetemplate
 inodes
 irisarri
 isitagentready
-Issac
 isset
 jour
 journalctl

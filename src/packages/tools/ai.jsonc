@@ -15,5 +15,8 @@
     "skills:update": "node src/scripts/maintenance/skills.ts update",
     "postinstall:skills": "npm run skills:links",
     "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts"
+  },
+  "overrides": {
+    "qs": "6.16.0"
   }
 }

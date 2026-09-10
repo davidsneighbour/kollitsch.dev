@@ -228,6 +228,16 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 3. **Build**: `astro check && astro build` — TypeScript checks run before the build.
 4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `node`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
 
+### `package.json` and `src/packages/` (nanny)
+
+`package.json` is a **generated file**. Its source of truth is the set of `*.jsonc` fragments under `src/packages/**` (one file per feature/tool area — `devDependencies`, `scripts`, `wireit`, `overrides`, etc.). The `nanny` CLI (`npx nanny <command>`) merges these fragments into `package.json` and can sync the other direction:
+
+* `nanny generate-package` (`npm run packages:generate`) — merges `src/packages/**/*.jsonc` → `package.json`. This is the authoritative direction; anything only in `package.json` and not in a fragment gets dropped on the next generate.
+* `nanny update-package` (`npm run packages:update`) — copies dependency **versions** from `package.json` back into the fragments, and audits scripts/wireit for drift. It does **not** sync the `overrides` block — nested override entries (e.g. a package's pinned transitive dependency) must be updated by hand in the relevant fragment.
+* `nanny check` — read-only report of drift between `package.json`, the fragments, and `.vscode/settings.json`.
+
+**Whenever you edit `package.json` directly** (adding/bumping a dependency, changing a script, adding an `overrides` entry), find the fragment that owns that key under `src/packages/` and make the same change there — the fragments are what regenerates `package.json` later and will otherwise silently discard or revert your change. After editing, run `nanny update-package` and then `nanny check` to confirm nothing is left out of sync; check the `overrides` sections manually since `update-package` skips them.
+
 ### CI/CD and deployment
 
 * `tests.yml` — unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.

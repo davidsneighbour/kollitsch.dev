@@ -1,6 +1,6 @@
 ---
 // @todo refactor and comment
-type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export type Props = {
   level?: number;
@@ -13,11 +13,11 @@ export type Props = {
 
 const {
   level = 1,
-  description = "",
-  link = "",
-  class: classname = "",
-  html = "",
-  transitionName = "",
+  description = '',
+  link = '',
+  class: classname = '',
+  html = '',
+  transitionName = '',
 }: Props = Astro.props;
 
 const safeLevel = Math.min(6, Math.max(1, Number(level)));
@@ -29,13 +29,11 @@ const Tag = `h${safeLevel}` as Tag;
   {...classname && { class: classname }}
   {...transitionName && { "transition:name": transitionName }}
 >
-  {
-    link ? (
+  {link ? (
       <a href={link}>{html ? <Fragment set:html={html} /> : <slot />}</a>
     ) : html ? (
       <Fragment set:html={html} />
     ) : (
       <slot />
-    )
-  }
+    )}
 </Tag>

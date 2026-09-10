@@ -1,12 +1,12 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from "astro:content";
-import IconLink from "@components/shared/links/IconLink.astro";
-import { formatDate, getVSCodeUrlById } from "@utils/content.ts";
-import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from 'astro:content';
+import IconLink from '@components/shared/links/IconLink.astro';
+import { formatDate, getVSCodeUrlById } from '@utils/content.ts';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post }: Props = Astro.props;
@@ -14,7 +14,7 @@ const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
 const date = new Date(post.data.date);
 const formattedPublishDate = formatDate(date);
-const metaDate = "date:" + formatDate(date, "YYYY-MM-DD");
+const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
 ---
 
 <div
@@ -26,18 +26,14 @@ const metaDate = "date:" + formatDate(date, "YYYY-MM-DD");
   </div>
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Published: {formattedPublishDate}</span>
-    {
-      post.data.lastModified && (
+    {post.data.lastModified && (
         <span>(Last Modified: {post.data.lastModified})</span>
-      )
-    }
-    {
-      isDev && (
+      )}
+    {isDev && (
         <IconLink
           href={vscodeURL}
           icon="pencil"
         />
-      )
-    }
+      )}
   </div>
 </div>

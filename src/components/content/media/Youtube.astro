@@ -1,12 +1,12 @@
 ---
-import { getImage } from "astro:assets";
-import setup from "@data/setup.json" with { type: "json" };
+import { getImage } from 'astro:assets';
+import setup from '@data/setup.json' with { type: 'json' };
 import {
   sanitizeYouTubePlayerParams,
   serializeYouTubePlayerParams,
   type YouTubePlayerParamsInput,
-} from "@utils/youtube.ts";
-import type { ImageMetadata } from "astro";
+} from '@utils/youtube.ts';
+import type { ImageMetadata } from 'astro';
 
 /**
  * YouTube embed component.
@@ -62,7 +62,7 @@ export interface Props {
  * parseYouTubeId("dQw4w9WgXcQ") // "dQw4w9WgXcQ"
  */
 function parseYouTubeId(raw: unknown): string | null {
-  if (typeof raw !== "string") return null;
+  if (typeof raw !== 'string') return null;
   const s = raw.trim();
 
   // Accept only an exact 11-character id string.
@@ -74,7 +74,7 @@ function parseYouTubeId(raw: unknown): string | null {
 // i.ytimg.com on every page view. Falls back to the remote thumbnail when a
 // video hasn't been fetched yet (e.g. freshly added content).
 const localThumbnails = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/youtube-thumbnails/*.jpg",
+  '/src/assets/images/youtube-thumbnails/*.jpg',
   { eager: true },
 );
 
@@ -88,24 +88,39 @@ const mergedParams = {
   ...propParams,
 };
 const serializedParams = serializeYouTubePlayerParams(mergedParams);
-const paramsAttribute = serializedParams.length > 0 ? serializedParams : undefined;
+const paramsAttribute =
+  serializedParams.length > 0 ? serializedParams : undefined;
 
 const videoId = parseYouTubeId(video);
 
 // Fail fast during SSR/build if the provided video does not resolve to a valid id.
 if (!videoId) {
-  throw new Error(`[Youtube] failed to parse a valid 11-character video id from prop: "${String(video)}"`);
+  throw new Error(
+    `[Youtube] failed to parse a valid 11-character video id from prop: "${String(video)}"`,
+  );
 }
 
 const localThumbnail =
   localThumbnails[`/src/assets/images/youtube-thumbnails/${videoId}.jpg`];
 const posterImage = localThumbnail
-  ? await getImage({ format: "webp", quality: 82, src: localThumbnail.default, width: 720 })
+  ? await getImage({
+      format: 'webp',
+      quality: 82,
+      src: localThumbnail.default,
+      width: 720,
+    })
   : undefined;
 const posterUrl = posterImage?.src;
 ---
 
-<lite-youtube videoid={videoId} playlabel={label} class={classes} style={style} params={paramsAttribute} poster={posterUrl}></lite-youtube>
+<lite-youtube
+  videoid={videoId}
+  playlabel={label}
+  class={classes}
+  style={style}
+  params={paramsAttribute}
+  poster={posterUrl}
+></lite-youtube>
 <script>
   // @ts-nocheck
   /**
@@ -122,13 +137,16 @@ const posterUrl = posterImage?.src;
    */
   class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
-      this.videoId = this.getAttribute("videoid");
+      this.videoId = this.getAttribute('videoid');
 
-      let playBtnEl = this.querySelector(".lty-playbtn");
+      let playBtnEl = this.querySelector('.lty-playbtn');
       // A label for the button takes priority over a [playlabel] attribute on the custom-element
-      this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute("playlabel") || "Play";
+      this.playLabel =
+        (playBtnEl && playBtnEl.textContent.trim()) ||
+        this.getAttribute('playlabel') ||
+        'Play';
 
-      this.dataset.title = this.getAttribute("title") || "";
+      this.dataset.title = this.getAttribute('title') || '';
 
       /**
        * Lo, the youtube poster image!  (aka the thumbnail, image placeholder, etc)
@@ -140,7 +158,7 @@ const posterUrl = posterImage?.src;
        *
        * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
        */
-      const localPoster = this.getAttribute("poster");
+      const localPoster = this.getAttribute('poster');
       if (!this.style.backgroundImage) {
         if (localPoster) {
           this.style.backgroundImage = `url("${localPoster}")`;
@@ -152,16 +170,16 @@ const posterUrl = posterImage?.src;
 
       // Set up play button, and its visually hidden label
       if (!playBtnEl) {
-        playBtnEl = document.createElement("button");
-        playBtnEl.type = "button";
-        playBtnEl.classList.add("lty-playbtn");
-        playBtnEl.classList.add("fill-red-600");
-        playBtnEl.classList.add("hover:fill-red-800");
+        playBtnEl = document.createElement('button');
+        playBtnEl.type = 'button';
+        playBtnEl.classList.add('lty-playbtn');
+        playBtnEl.classList.add('fill-red-600');
+        playBtnEl.classList.add('hover:fill-red-800');
         this.append(playBtnEl);
       }
       if (!playBtnEl.textContent) {
-        const playBtnLabelEl = document.createElement("span");
-        playBtnLabelEl.className = "sr-only";
+        const playBtnLabelEl = document.createElement('span');
+        playBtnLabelEl.className = 'sr-only';
         playBtnLabelEl.textContent = this.playLabel;
         playBtnEl.append(playBtnLabelEl);
       }
@@ -169,13 +187,13 @@ const posterUrl = posterImage?.src;
       this.addNoscriptIframe();
 
       // for the PE pattern, change anchor's semantics to button
-      if (playBtnEl.nodeName === "A") {
-        playBtnEl.removeAttribute("href");
-        playBtnEl.setAttribute("tabindex", "0");
-        playBtnEl.setAttribute("role", "button");
+      if (playBtnEl.nodeName === 'A') {
+        playBtnEl.removeAttribute('href');
+        playBtnEl.setAttribute('tabindex', '0');
+        playBtnEl.setAttribute('role', 'button');
         // fake button needs keyboard help
-        playBtnEl.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
+        playBtnEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             this.activate();
           }
@@ -183,28 +201,30 @@ const posterUrl = posterImage?.src;
       }
 
       // On hover (or tap), warm up the TCP connections we're (likely) about to use.
-      this.addEventListener("pointerover", LiteYTEmbed.warmConnections, {
+      this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {
         once: true,
       });
-      this.addEventListener("focusin", LiteYTEmbed.warmConnections, {
+      this.addEventListener('focusin', LiteYTEmbed.warmConnections, {
         once: true,
       });
 
       // Once the user clicks, add the real iframe and drop our play button
-      this.addEventListener("click", this.activate);
+      this.addEventListener('click', this.activate);
 
       // Chrome & Edge desktop have no problem with the basic YouTube Embed with ?autoplay=1
       // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
       // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
       this.needsYTApi =
-        this.hasAttribute("js-api") || navigator.vendor.includes("Apple") || navigator.userAgent.includes("Mobi");
+        this.hasAttribute('js-api') ||
+        navigator.vendor.includes('Apple') ||
+        navigator.userAgent.includes('Mobi');
     }
 
     /**
      * Add a <link rel={preload | preconnect} ...> to the head
      */
     static addPrefetch(kind, url, as) {
-      const linkEl = document.createElement("link");
+      const linkEl = document.createElement('link');
       linkEl.rel = kind;
       linkEl.href = url;
       if (as) {
@@ -226,13 +246,16 @@ const posterUrl = posterImage?.src;
       if (LiteYTEmbed.preconnected) return;
 
       // The iframe document and most of its subresources come right off youtube.com
-      LiteYTEmbed.addPrefetch("preconnect", "https://www.youtube-nocookie.com");
+      LiteYTEmbed.addPrefetch('preconnect', 'https://www.youtube-nocookie.com');
       // The botguard script is fetched off from google.com
-      LiteYTEmbed.addPrefetch("preconnect", "https://www.google.com");
+      LiteYTEmbed.addPrefetch('preconnect', 'https://www.google.com');
 
       // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.
-      LiteYTEmbed.addPrefetch("preconnect", "https://googleads.g.doubleclick.net");
-      LiteYTEmbed.addPrefetch("preconnect", "https://static.doubleclick.net");
+      LiteYTEmbed.addPrefetch(
+        'preconnect',
+        'https://googleads.g.doubleclick.net',
+      );
+      LiteYTEmbed.addPrefetch('preconnect', 'https://static.doubleclick.net');
 
       LiteYTEmbed.preconnected = true;
     }
@@ -241,8 +264,8 @@ const posterUrl = posterImage?.src;
       if (window.YT || (window.YT && window.YT.Player)) return;
 
       this.ytApiPromise = new Promise((res, rej) => {
-        var el = document.createElement("script");
-        el.src = "https://www.youtube.com/iframe_api";
+        var el = document.createElement('script');
+        el.src = 'https://www.youtube.com/iframe_api';
         el.async = true;
         el.onload = (_) => {
           YT.ready(res);
@@ -265,7 +288,7 @@ const posterUrl = posterImage?.src;
       this.fetchYTPlayerApi();
       await this.ytApiPromise;
 
-      const videoPlaceholderEl = document.createElement("div");
+      const videoPlaceholderEl = document.createElement('div');
       this.append(videoPlaceholderEl);
 
       const paramsObj = Object.fromEntries(this.getParams().entries());
@@ -280,7 +303,7 @@ const posterUrl = posterImage?.src;
           },
           playerVars: paramsObj,
           videoId: this.videoId,
-          width: "100%",
+          width: '100%',
         });
       });
     }
@@ -288,22 +311,22 @@ const posterUrl = posterImage?.src;
     // Add the iframe within <noscript> for indexability discoverability. See https://github.com/paulirish/lite-youtube-embed/issues/105
     addNoscriptIframe() {
       const iframeEl = this.createBasicIframe();
-      const noscriptEl = document.createElement("noscript");
+      const noscriptEl = document.createElement('noscript');
       // Appending into noscript isn't equivalant for mysterious reasons: https://html.spec.whatwg.org/multipage/scripting.html#the-noscript-element
       noscriptEl.innerHTML = iframeEl.outerHTML;
       this.append(noscriptEl);
     }
 
     getParams() {
-      const params = new URLSearchParams(this.getAttribute("params") ?? "");
-      params.set("autoplay", "1");
-      params.set("playsinline", "1");
+      const params = new URLSearchParams(this.getAttribute('params') ?? '');
+      params.set('autoplay', '1');
+      params.set('playsinline', '1');
       return params;
     }
 
     async activate() {
-      if (this.classList.contains("lyt-activated")) return;
-      this.classList.add("lyt-activated");
+      if (this.classList.contains('lyt-activated')) return;
+      this.classList.add('lyt-activated');
 
       if (this.needsYTApi) {
         return this.addYTPlayerIframe(this.getParams());
@@ -317,12 +340,13 @@ const posterUrl = posterImage?.src;
     }
 
     createBasicIframe() {
-      const iframeEl = document.createElement("iframe");
+      const iframeEl = document.createElement('iframe');
       iframeEl.width = 560;
       iframeEl.height = 315;
       // No encoding necessary as [title] is safe. https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#:~:text=Safe%20HTML%20Attributes%20include
       iframeEl.title = this.playLabel;
-      iframeEl.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+      iframeEl.allow =
+        'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
       iframeEl.allowFullscreen = true;
       // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
       // https://stackoverflow.com/q/64959723/89484
@@ -343,14 +367,15 @@ const posterUrl = posterImage?.src;
       setTimeout(() => {
         const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/maxresdefault.webp`;
         const img = new Image();
-        img.fetchPriority = "low"; // low priority to reduce network contention
-        img.referrerpolicy = "origin"; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
+        img.fetchPriority = 'low'; // low priority to reduce network contention
+        img.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
         img.src = webpUrl;
         img.onload = (e) => {
           // A pretty ugly hack since onerror won't fire on YouTube image 404. This is (probably) due to
           // Youtube's style of returning data even with a 404 status. That data is a 120x90 placeholder image.
           // … per "annoying yt 404 behavior" in the .md
-          const noAvailablePoster = e.target.naturalHeight == 90 && e.target.naturalWidth == 120;
+          const noAvailablePoster =
+            e.target.naturalHeight == 90 && e.target.naturalWidth == 120;
           if (noAvailablePoster) return;
 
           this.style.backgroundImage = `url("${webpUrl}")`;
@@ -359,8 +384,8 @@ const posterUrl = posterImage?.src;
     }
   }
   // Register custom element
-  if (!customElements.get("lite-youtube")) {
-    customElements.define("lite-youtube", LiteYTEmbed);
+  if (!customElements.get('lite-youtube')) {
+    customElements.define('lite-youtube', LiteYTEmbed);
   }
 </script>
 <style>
@@ -381,7 +406,12 @@ const posterUrl = posterImage?.src;
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgb(0 0 0 / 0.12) 0%, rgb(0 0 0 / 0.02) 38%, rgb(0 0 0 / 0.22) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0.12) 0%,
+      rgb(0 0 0 / 0.02) 38%,
+      rgb(0 0 0 / 0.22) 100%
+    );
     pointer-events: none;
   }
 

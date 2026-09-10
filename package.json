@@ -214,7 +214,6 @@
     "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
     "lint:styles": "wireit",
     "lint:styles:fix": "wireit",
-    "lint:templates": "wireit",
     "lint:vale": "vale --config src/config/.vale.ini --no-exit --output=line ./src/content/",
     "lint:vale:file": "vale --config src/config/.vale.ini --output=line",
     "packages:generate": "wireit",
@@ -330,9 +329,6 @@
     },
     "audit:html": {
       "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
-    },
-    "lint:templates": {
-      "command": "bin/hugo/lint-templates"
     },
     "lint:lychee": {
       "command": "lychee --require-https src/content/"

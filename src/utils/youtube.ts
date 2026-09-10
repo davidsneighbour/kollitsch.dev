@@ -137,7 +137,7 @@ const baseSchema = {
   vq: qualityString(),
   widget_referrer: urlString(),
   widgetid: trimmedString(),
-} satisfies Record<string, z.ZodTypeAny>;
+} satisfies Record<string, z.ZodType>;
 
 export const youtubePlayerParamsSchema = z
   .object(baseSchema)

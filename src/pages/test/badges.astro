@@ -1,10 +1,10 @@
 ---
-import "@styles/theme.css";
-import Badge from "@components/shared/elements/Badge.astro";
-import Section from "@components/support/fixtures/Section.astro";
-import Heading from "@components/content/typography/Heading.astro";
-import Layout from "@layouts/ContentPageTest.astro";
-import { Icon } from "astro-icon/components";
+import '@styles/theme.css';
+import Heading from '@components/content/typography/Heading.astro';
+import Badge from '@components/shared/elements/Badge.astro';
+import Section from '@components/support/fixtures/Section.astro';
+import Layout from '@layouts/ContentPageTest.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <Layout>
@@ -54,19 +54,22 @@ import { Icon } from "astro-icon/components";
           color="gray"
           href="/docs/"
         >
-          <Icon name="book" /> Docs (gray)
+          <Icon name="book" />
+          Docs (gray)
         </Badge>
         <Badge
           color="red"
           href="/docs/"
         >
-          <Icon name="book" /> Docs (red)
+          <Icon name="book" />
+          Docs (red)
         </Badge>
         <Badge
           color="yellow"
           href="/docs/"
         >
-          <Icon name="book" /> Docs (yellow)
+          <Icon name="book" />
+          Docs (yellow)
         </Badge>
       </div>
 
@@ -77,21 +80,24 @@ import { Icon } from "astro-icon/components";
           bordered
           href="/docs/"
         >
-          <Icon name="book" /> Docs (gray)
+          <Icon name="book" />
+          Docs (gray)
         </Badge>
         <Badge
           color="red"
           bordered
           href="/docs/"
         >
-          <Icon name="book" /> Docs (red)
+          <Icon name="book" />
+          Docs (red)
         </Badge>
         <Badge
           color="yellow"
           bordered
           href="/docs/"
         >
-          <Icon name="book" /> Docs (yellow)
+          <Icon name="book" />
+          Docs (yellow)
         </Badge>
       </div>
 
@@ -102,20 +108,23 @@ import { Icon } from "astro-icon/components";
           bordered
           href="https://github.com"
         >
-          <Icon name="github" /> GitHub (gray)
+          <Icon name="github" />
+          GitHub (gray)
         </Badge>
         <Badge
           color="red"
           href="https://github.com"
         >
-          <Icon name="github" /> GitHub (red)
+          <Icon name="github" />
+          GitHub (red)
         </Badge>
         <Badge
           color="yellow"
           bordered
           href="https://github.com"
         >
-          <Icon name="github" /> GitHub (yellow)
+          <Icon name="github" />
+          GitHub (yellow)
         </Badge>
       </div>
     </div>
@@ -152,21 +161,24 @@ import { Icon } from "astro-icon/components";
           href="/docs/"
           title="Goes to docs"
         >
-          <Icon name="book" /> Docs (gray)
+          <Icon name="book" />
+          Docs (gray)
         </Badge>
         <Badge
           color="red"
           href="/docs/"
           title="Goes to docs"
         >
-          <Icon name="book" /> Docs (red)
+          <Icon name="book" />
+          Docs (red)
         </Badge>
         <Badge
           color="yellow"
           href="/docs/"
           title="Goes to docs"
         >
-          <Icon name="book" /> Docs (yellow)
+          <Icon name="book" />
+          Docs (yellow)
         </Badge>
       </div>
     </div>
@@ -181,13 +193,15 @@ import { Icon } from "astro-icon/components";
         color="red"
         bordered
       >
-        <Icon name="heart" /> Loved
+        <Icon name="heart" />
+        Loved
       </Badge>
       <Badge color="yellow"><strong>Bold</strong> text</Badge>
       <Badge color="gray"><span class="italic">Italic text</span></Badge>
       <!-- Nested anchor inside non-link badge (styling test) -->
       <Badge color="gray">
-        Read <a
+        Read
+        <a
           class="underline underline-offset-2"
           href="/docs/"
           >docs</a
@@ -214,7 +228,8 @@ import { Icon } from "astro-icon/components";
         href="/docs/"
         class="no-underline underline-offset-4"
       >
-        <Icon name="book" /> Link with custom underline control
+        <Icon name="book" />
+        Link with custom underline control
       </Badge>
     </div>
   </Section>
@@ -232,7 +247,8 @@ import { Icon } from "astro-icon/components";
         bordered
         title="Red by default"
       >
-        <Icon name="info-circle" /> Default link bordered
+        <Icon name="info-circle" />
+        Default link bordered
       </Badge>
     </div>
   </Section>
@@ -241,9 +257,9 @@ import { Icon } from "astro-icon/components";
   <Section>
     <Heading level={3}>Keyboard focus check</Heading>
     <p class="text-sm text-gray-500 dark:text-gray-400">
-      Tab through the link badges above to verify the focus-visible rings per color. Non-link badges (<code
-        >&lt;span&gt;</code
-      >) are intentionally not focusable.
+      Tab through the link badges above to verify the focus-visible rings per
+      color. Non-link badges (<code>&lt;span&gt;</code>) are intentionally not
+      focusable.
     </p>
   </Section>
 
@@ -251,28 +267,31 @@ import { Icon } from "astro-icon/components";
   <Section>
     <Heading level={3}>Focus demo (quick QA)</Heading>
     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-      These badges are <em>links</em> (they have an <code>href</code>), which makes them keyboard focusable and shows
-      their focus ring when tabbing.
+      These badges are <em>links</em> (they have an <code>href</code>), which
+      makes them keyboard focusable and shows their focus ring when tabbing.
     </p>
     <div class="flex flex-wrap items-center gap-2">
       <Badge
         color="red"
         href="/test/focus"
       >
-        <Icon name="heart" /> Red focus
+        <Icon name="heart" />
+        Red focus
       </Badge>
       <Badge
         color="gray"
         bordered
         href="/test/focus"
       >
-        <Icon name="info-circle" /> Gray focus
+        <Icon name="info-circle" />
+        Gray focus
       </Badge>
       <Badge
         color="yellow"
         href="/test/focus"
       >
-        <Icon name="star" /> Yellow focus
+        <Icon name="star" />
+        Yellow focus
       </Badge>
     </div>
   </Section>

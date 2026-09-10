@@ -1,18 +1,20 @@
 ---
-import { fade } from "astro:transitions";
-import NavItem from "@components/layout/header/navigation/NavItem.astro";
-import ProgressBar from "@components/layout/header/navigation/Progress.astro";
-import NavSearch from "@components/layout/header/search/NavSearch.astro";
-import PageFind from "@components/layout/header/search/PageFind.astro";
-import ThemeSelector, { type StoredThemeMode } from "@components/layout/header/theme/ThemeSelector.astro";
-import SiteTitle from "@components/layout/header/title/SiteTitle.astro";
-import setup from "@data/setup.json" with { type: "json" };
-import navData from "@data/topnavigation.json" with { type: "json" };
-import { getHomepageUrl } from "@utils/content.ts";
-import { createIdentifier } from "@utils/helpers";
-import { createLogger } from "@utils/logger.ts";
-import { findActive, isActive, type Navigation } from "@utils/navigation.ts";
-import { Icon } from "astro-icon/components";
+import { fade } from 'astro:transitions';
+import NavItem from '@components/layout/header/navigation/NavItem.astro';
+import ProgressBar from '@components/layout/header/navigation/Progress.astro';
+import NavSearch from '@components/layout/header/search/NavSearch.astro';
+import PageFind from '@components/layout/header/search/PageFind.astro';
+import ThemeSelector, {
+  type StoredThemeMode,
+} from '@components/layout/header/theme/ThemeSelector.astro';
+import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
+import setup from '@data/setup.json' with { type: 'json' };
+import navData from '@data/topnavigation.json' with { type: 'json' };
+import { getHomepageUrl } from '@utils/content.ts';
+import { createIdentifier } from '@utils/helpers';
+import { createLogger } from '@utils/logger.ts';
+import { findActive, isActive, type Navigation } from '@utils/navigation.ts';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   defaultTheme?: StoredThemeMode;
@@ -20,13 +22,17 @@ export interface Props {
 }
 
 const typedNavData = navData as Navigation;
-const log = createLogger({ slug: "TopNavigation" });
+const log = createLogger({ slug: 'TopNavigation' });
 const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
-const tagPrefixes = ["/tags/", "/tag/"];
+const tagPrefixes = ['/tags/', '/tag/'];
 const isTagsPath = tagPrefixes.some((prefix) => pathname.startsWith(prefix));
-const isNavItemActive = (item: Navigation[number]) => (isTagsPath ? item.link === "/tags/" : isActive(item, pathname));
-const { defaultTheme = "dark", siteTitleId = createIdentifier({ prefix: "sitetitle" }) }: Props = Astro.props;
+const isNavItemActive = (item: Navigation[number]) =>
+  isTagsPath ? item.link === '/tags/' : isActive(item, pathname);
+const {
+  defaultTheme = 'dark',
+  siteTitleId = createIdentifier({ prefix: 'sitetitle' }),
+}: Props = Astro.props;
 
 if (!activeItem && import.meta.env.DEV) {
   log.debug(`👉 no navigation item to activate for: ${pathname}`);
@@ -35,7 +41,10 @@ if (!activeItem && import.meta.env.DEV) {
 
 <SiteTitle siteTitleId={siteTitleId} />
 
-<div id="site-header" class="site-header sticky top-0 right-0 left-0 isolate z-50 border-b border-white/20 bg-header-glass shadow-sm backdrop-blur-xl backdrop-saturate-150">
+<div
+  id="site-header"
+  class="site-header sticky top-0 right-0 left-0 isolate z-50 border-b border-white/20 bg-header-glass shadow-sm backdrop-blur-xl backdrop-saturate-150"
+>
   <NavSearch
     navLabel="Main navigation"
     openSearchLabel="Open site search"
@@ -54,18 +63,26 @@ if (!activeItem && import.meta.env.DEV) {
           aria-hidden="true"
           tabindex="-1"
         >
-          <Icon name="house-fill" class="place-self-center" />
+          <Icon
+            name="house-fill"
+            class="place-self-center"
+          />
           {setup.title}
         </a>
       </span>
     </Fragment>
 
     <Fragment slot="center">
-      <div id="navigation-and-theme-select" class="hidden md:flex md:items-center">
+      <div
+        id="navigation-and-theme-select"
+        class="hidden md:flex md:items-center"
+      >
         <nav aria-label="Main navigation">
-          <ul class="flex flex-col md:flex-row md:items-center md:gap-6" transition:animate={fade({ duration: "0.4s" })}>
-            {
-              typedNavData
+          <ul
+            class="flex flex-col md:flex-row md:items-center md:gap-6"
+            transition:animate={fade({ duration: "0.4s" })}
+          >
+            {typedNavData
                 .filter((item) => import.meta.env.DEV || !item.devOnly)
                 .map((value) => (
                   <NavItem
@@ -78,8 +95,7 @@ if (!activeItem && import.meta.env.DEV) {
                     classes="px-3 py-3 md:py-2"
                     isActive={isNavItemActive(value)}
                   />
-                ))
-            }
+                ))}
           </ul>
         </nav>
       </div>
@@ -94,11 +110,23 @@ if (!activeItem && import.meta.env.DEV) {
         aria-expanded="false"
         aria-controls="navigation-and-theme-select"
       >
-        <span class="open-icon inline-flex" aria-hidden="true">
-          <Icon name="lucide:menu" class="size-5" />
+        <span
+          class="open-icon inline-flex"
+          aria-hidden="true"
+        >
+          <Icon
+            name="lucide:menu"
+            class="size-5"
+          />
         </span>
-        <span class="close-icon hidden" aria-hidden="true">
-          <Icon name="lucide:x" class="size-5" />
+        <span
+          class="close-icon hidden"
+          aria-hidden="true"
+        >
+          <Icon
+            name="lucide:x"
+            class="size-5"
+          />
         </span>
       </button>
       <button
@@ -107,21 +135,42 @@ if (!activeItem && import.meta.env.DEV) {
         aria-expanded="false"
         data-nav-search-toggle
       >
-        <span class="sr-only" data-nav-search-toggle-label>Open site search</span>
+        <span
+          class="sr-only"
+          data-nav-search-toggle-label
+          >Open site search</span
+        >
         <!-- text-red-700/dark:text-red-500 is the intended navigation icon color, not leftover debugging. See DESIGN.md.
              Lucide icons paint via stroke="currentColor" set on the inner element, which resolves
              against the CSS `color` property - use text-*, not stroke-*, to color them. -->
-        <span class="inline-flex" aria-hidden="true" data-nav-search-icon-open>
-          <Icon name="lucide:search" class="h-5 w-5 text-red-700 dark:text-red-500" />
+        <span
+          class="inline-flex"
+          aria-hidden="true"
+          data-nav-search-icon-open
+        >
+          <Icon
+            name="lucide:search"
+            class="h-5 w-5 text-red-700 dark:text-red-500"
+          />
         </span>
-        <span class="hidden" aria-hidden="true" data-nav-search-icon-close>
-          <Icon name="lucide:x" class="h-5 w-5 text-red-700 dark:text-red-500" />
+        <span
+          class="hidden"
+          aria-hidden="true"
+          data-nav-search-icon-close
+        >
+          <Icon
+            name="lucide:x"
+            class="h-5 w-5 text-red-700 dark:text-red-500"
+          />
         </span>
       </button>
     </Fragment>
 
     <Fragment slot="search">
-      <div class="flex w-full items-center gap-3" id="pagefind-container">
+      <div
+        class="flex w-full items-center gap-3"
+        id="pagefind-container"
+      >
         <PageFind />
       </div>
     </Fragment>
@@ -135,27 +184,33 @@ if (!activeItem && import.meta.env.DEV) {
   <ThemeSelector defaultTheme={defaultTheme} />
 </div>
 
-<script is:inline data-astro-rerun data-site-title-id={siteTitleId}>
+<script
+  is:inline
+  data-astro-rerun
+  data-site-title-id={siteTitleId}
+>
   (() => {
     window.kdev = window.kdev || {};
     window.kdev.mobileOpen = false;
 
     const currentScript = document.currentScript;
 
-    const closeIcon = document.querySelector(".close-icon");
-    const openIcon = document.querySelector(".open-icon");
-    const navSection = document.querySelector("#navigation-and-theme-select");
-    const placeholderId = currentScript?.getAttribute("data-site-title-id");
-    const placeholder = placeholderId ? document.querySelector(`#${placeholderId}`) : null;
-    const stickyBrand = document.querySelector("#navbar-brand");
-    const viewportProgress = document.querySelector(".progress--viewport-top");
+    const closeIcon = document.querySelector('.close-icon');
+    const openIcon = document.querySelector('.open-icon');
+    const navSection = document.querySelector('#navigation-and-theme-select');
+    const placeholderId = currentScript?.getAttribute('data-site-title-id');
+    const placeholder = placeholderId
+      ? document.querySelector(`#${placeholderId}`)
+      : null;
+    const stickyBrand = document.querySelector('#navbar-brand');
+    const viewportProgress = document.querySelector('.progress--viewport-top');
 
     /**
      * @returns {void}
      */
     function toggleIcons() {
-      closeIcon?.classList.toggle("hidden", !window.kdev.mobileOpen);
-      openIcon?.classList.toggle("hidden", window.kdev.mobileOpen);
+      closeIcon?.classList.toggle('hidden', !window.kdev.mobileOpen);
+      openIcon?.classList.toggle('hidden', window.kdev.mobileOpen);
     }
 
     /**
@@ -164,11 +219,11 @@ if (!activeItem && import.meta.env.DEV) {
      * @returns {void}
      */
     function toggleNavVisibility() {
-      const isMdUp = window.matchMedia("(min-width: 768px)").matches;
+      const isMdUp = window.matchMedia('(min-width: 768px)').matches;
       const shouldShow = isMdUp || window.kdev.mobileOpen;
-      navSection?.classList.toggle("hidden", !shouldShow);
-      navSection?.classList.toggle("flex", shouldShow);
-      navSection?.classList.toggle("is-open", shouldShow);
+      navSection?.classList.toggle('hidden', !shouldShow);
+      navSection?.classList.toggle('flex', shouldShow);
+      navSection?.classList.toggle('is-open', shouldShow);
     }
 
     /**
@@ -182,10 +237,10 @@ if (!activeItem && import.meta.env.DEV) {
         return;
       }
 
-      navSection.classList.remove("hidden");
-      navSection.classList.add("flex");
+      navSection.classList.remove('hidden');
+      navSection.classList.add('flex');
       requestAnimationFrame(() => {
-        navSection.classList.add("is-open");
+        navSection.classList.add('is-open');
       });
     }
 
@@ -200,13 +255,13 @@ if (!activeItem && import.meta.env.DEV) {
         return;
       }
 
-      navSection.classList.remove("is-open");
+      navSection.classList.remove('is-open');
       navSection.addEventListener(
-        "transitionend",
+        'transitionend',
         () => {
           if (!window.kdev.mobileOpen) {
-            navSection.classList.add("hidden");
-            navSection.classList.remove("flex");
+            navSection.classList.add('hidden');
+            navSection.classList.remove('flex');
           }
         },
         { once: true },
@@ -221,7 +276,7 @@ if (!activeItem && import.meta.env.DEV) {
       toggleIcons();
       toggleNavVisibility();
 
-      const menuToggle = document.querySelector("#hamburger-and-close");
+      const menuToggle = document.querySelector('#hamburger-and-close');
       if (!(menuToggle instanceof HTMLElement)) {
         return;
       }
@@ -232,7 +287,7 @@ if (!activeItem && import.meta.env.DEV) {
       }
 
       menuToggle.replaceWith(clone);
-      clone.addEventListener("click", () => {
+      clone.addEventListener('click', () => {
         window.kdev.mobileOpen = !window.kdev.mobileOpen;
         toggleIcons();
 
@@ -248,26 +303,31 @@ if (!activeItem && import.meta.env.DEV) {
      * @returns {void}
      */
     function initStickyBrandObserver() {
-      if (!(placeholder instanceof Element) || !(stickyBrand instanceof HTMLElement)) {
+      if (
+        !(placeholder instanceof Element) ||
+        !(stickyBrand instanceof HTMLElement)
+      ) {
         return;
       }
 
-      const siteHeader = document.querySelector("#site-header");
-      const setStickyBrandState = (/** @type {boolean} */ shouldShowStickyState) => {
-        stickyBrand.classList.toggle("opacity-100", shouldShowStickyState);
-        stickyBrand.classList.toggle("opacity-0", !shouldShowStickyState);
-        stickyBrand.classList.toggle("sticky-visible", shouldShowStickyState);
+      const siteHeader = document.querySelector('#site-header');
+      const setStickyBrandState = (
+        /** @type {boolean} */ shouldShowStickyState,
+      ) => {
+        stickyBrand.classList.toggle('opacity-100', shouldShowStickyState);
+        stickyBrand.classList.toggle('opacity-0', !shouldShowStickyState);
+        stickyBrand.classList.toggle('sticky-visible', shouldShowStickyState);
 
         if (shouldShowStickyState) {
-          stickyBrand.removeAttribute("aria-hidden");
-          stickyBrand.removeAttribute("tabindex");
+          stickyBrand.removeAttribute('aria-hidden');
+          stickyBrand.removeAttribute('tabindex');
         } else {
-          stickyBrand.setAttribute("aria-hidden", "true");
-          stickyBrand.setAttribute("tabindex", "-1");
+          stickyBrand.setAttribute('aria-hidden', 'true');
+          stickyBrand.setAttribute('tabindex', '-1');
         }
 
-        viewportProgress?.classList.toggle("hidden", !shouldShowStickyState);
-        siteHeader?.toggleAttribute("data-scrolled", shouldShowStickyState);
+        viewportProgress?.classList.toggle('hidden', !shouldShowStickyState);
+        siteHeader?.toggleAttribute('data-scrolled', shouldShowStickyState);
       };
 
       const observer = new IntersectionObserver(
@@ -293,23 +353,26 @@ if (!activeItem && import.meta.env.DEV) {
      * @returns {void}
      */
     function initThemeToggleHoverLink() {
-      const themeToggle = document.querySelector(".theme-toggle");
-      if (!(placeholder instanceof HTMLElement) || !(themeToggle instanceof HTMLElement)) {
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (
+        !(placeholder instanceof HTMLElement) ||
+        !(themeToggle instanceof HTMLElement)
+      ) {
         return;
       }
 
       const setHover = (/** @type {boolean} */ isHovering) => {
-        placeholder.classList.toggle("is-toggle-hover", isHovering);
+        placeholder.classList.toggle('is-toggle-hover', isHovering);
       };
 
-      themeToggle.addEventListener("mouseenter", () => setHover(true));
-      themeToggle.addEventListener("mouseleave", () => setHover(false));
-      themeToggle.addEventListener("focus", () => setHover(true));
-      themeToggle.addEventListener("blur", () => setHover(false));
+      themeToggle.addEventListener('mouseenter', () => setHover(true));
+      themeToggle.addEventListener('mouseleave', () => setHover(false));
+      themeToggle.addEventListener('focus', () => setHover(true));
+      themeToggle.addEventListener('blur', () => setHover(false));
     }
 
-    window.addEventListener("resize", toggleNavVisibility);
-    document.addEventListener("astro:after-swap", initMobileMenu);
+    window.addEventListener('resize', toggleNavVisibility);
+    document.addEventListener('astro:after-swap', initMobileMenu);
 
     initMobileMenu();
     initStickyBrandObserver();
@@ -379,7 +442,9 @@ if (!activeItem && import.meta.env.DEV) {
     border-radius: 0;
     background: transparent;
     pointer-events: auto;
-    clip-path: circle(var(--corner-hit-radius) at var(--corner-cx) var(--corner-cy));
+    clip-path: circle(
+      var(--corner-hit-radius) at var(--corner-cx) var(--corner-cy)
+    );
     transition:
       clip-path 320ms cubic-bezier(0.22, 1, 0.36, 1),
       color 300ms ease;
@@ -387,7 +452,9 @@ if (!activeItem && import.meta.env.DEV) {
 
   .theme-corner .theme-toggle:hover,
   .theme-corner .theme-toggle:focus-visible {
-    clip-path: circle(var(--corner-hover-radius) at var(--corner-cx) var(--corner-cy));
+    clip-path: circle(
+      var(--corner-hover-radius) at var(--corner-cx) var(--corner-cy)
+    );
   }
 
   .theme-corner .theme-toggle::before {

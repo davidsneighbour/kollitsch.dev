@@ -1,17 +1,17 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
-import ShareIntentLink from "@components/features/social/ShareIntentLink.astro";
-import type { IconName } from "@utils/icon-names";
+import ShareIntentLink from '@components/features/social/ShareIntentLink.astro';
+import type { IconName } from '@utils/icon-names';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
   class?: string;
 }
 
-const { post, class: className = "" }: Props = Astro.props;
+const { post, class: className = '' }: Props = Astro.props;
 const permalink = Astro.url.toString();
-const mastodonIcon = "fa7-brands:mastodon" as IconName;
+const mastodonIcon = 'fa7-brands:mastodon' as IconName;
 ---
 
 <ShareIntentLink

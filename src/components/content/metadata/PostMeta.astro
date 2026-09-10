@@ -1,14 +1,14 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from "astro:content";
-import Heading from "@components/content/typography/Heading.astro";
-import Github from "@components/content/metadata/Github.astro";
-import PublishData from "@components/content/metadata/PublishData.astro";
-import Share from "@components/content/metadata/Share.astro";
-import Tags from "@components/content/metadata/Tags.astro";
+import type { CollectionEntry } from 'astro:content';
+import Github from '@components/content/metadata/Github.astro';
+import PublishData from '@components/content/metadata/PublishData.astro';
+import Share from '@components/content/metadata/Share.astro';
+import Tags from '@components/content/metadata/Tags.astro';
+import Heading from '@components/content/typography/Heading.astro';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post }: Props = Astro.props;

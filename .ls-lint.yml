@@ -11,12 +11,16 @@ ls:
     .test.ts: PascalCase
 
   src/{pages}/**/*:
-    #.astro: kebab-case, but with [parameters] allowed
+    # .astro: kebab-case, but with [parameters] allowed
     .astro: regex:(?:[a-z][a-z0-9]*|\[[a-z][a-z0-9]*(?:-[a-z0-9]+)*\])(?:-(?:[a-z][a-z0-9]*|\[[a-z][a-z0-9]*(?:-[a-z0-9]+)*\]))*
 
+  # Vale rule filenames must match their rule IDs (StyleName.FileName), which
+  # are PascalCase and may contain acronyms (e.g. ReadabilitySMOG).
+  src/config/vale/**/*:
+    .yml: regex:[A-Z][A-Za-z0-9]*
 
 ignore:
   - .git
-  - '**/node_modules'
+  - "**/node_modules"
   - .vite
   - .frontmatter

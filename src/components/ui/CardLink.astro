@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 export interface Props {
   /**
@@ -57,11 +57,11 @@ const {
   title,
   image,
   alt,
-  target = "_blank",
-  rel = "noopener noreferrer",
-  classes = "",
-  titleClasses = "",
-  imageWrapperClasses = "",
+  target = '_blank',
+  rel = 'noopener noreferrer',
+  classes = '',
+  titleClasses = '',
+  imageWrapperClasses = '',
 }: Props = Astro.props;
 
 if (image && !alt) {
@@ -79,8 +79,7 @@ if (image && !alt) {
     classes,
   ]}
 >
-  {
-    image && (
+  {image && (
       <div class:list={["relative size-24 shrink-0 overflow-hidden rounded-xl sm:size-32", imageWrapperClasses]}>
         <Image
           src={image}
@@ -92,8 +91,7 @@ if (image && !alt) {
           class="h-full w-full object-cover"
         />
       </div>
-    )
-  }
+    )}
 
   <span class:list={["text-2xl leading-tight sm:text-3xl", titleClasses]}>
     {title}

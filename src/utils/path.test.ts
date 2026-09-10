@@ -13,8 +13,7 @@ describe('formatUrl', () => {
   });
 
   it('returns empty string when path is null', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    expect(formatUrl(null as any)).toBe('');
+    expect(formatUrl(null as unknown as string)).toBe('');
   });
 
   it('respects options to remove/add leading/trailing slashes', () => {

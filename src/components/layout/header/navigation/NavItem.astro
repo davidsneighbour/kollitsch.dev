@@ -13,7 +13,14 @@ export interface Props {
   subItems?: NavDataItem[] | undefined;
 }
 
-const { icon, name, link, classes = '', isActive = false, subItems }: Props = Astro.props;
+const {
+  icon,
+  name,
+  link,
+  classes = '',
+  isActive = false,
+  subItems,
+}: Props = Astro.props;
 const hasSubItems = subItems && subItems.length > 0;
 const linkClasses = `${classes} ${isActive ? 'font-bold is--active' : ''}`;
 ---

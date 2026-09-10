@@ -40,7 +40,9 @@ export interface Props {}
 
     /* Sizing */
     --pf-input-height: calc(var(--spacing) * 9);
-    --pf-input-font-size: var(--text-base); /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+    --pf-input-font-size: var(
+      --text-base
+    ); /* Keep at 16px+ to prevent iOS auto-zoom on focus */
     --pf-summary-font-size: var(--text-2xl);
     --pf-result-title-font-size: var(--text-2xl);
     --pf-result-excerpt-font-size: var(--text-2xl);
@@ -61,7 +63,11 @@ export interface Props {}
     --pf-icon-arrow: url("data:image/svg+xml,..."); */
 
     /* Modal */
-    --pf-modal-backdrop: color-mix(in oklab, var(--color-black) 50%, transparent);
+    --pf-modal-backdrop: color-mix(
+      in oklab,
+      var(--color-black) 50%,
+      transparent
+    );
     --pf-modal-max-width: calc(var(--spacing) * 140);
     --pf-modal-max-height: min(80dvh, calc(var(--spacing) * 200));
     --pf-modal-top: 10dvh;
@@ -84,7 +90,11 @@ export interface Props {}
     --pf-skeleton-shine: var(--color-gray-700);
     --pf-hover: var(--color-gray-800);
     --pf-mark: var(--color-gray-200);
-    --pf-scroll-shadow: color-mix(in oklab, var(--color-white) 10%, transparent);
+    --pf-scroll-shadow: color-mix(
+      in oklab,
+      var(--color-white) 10%,
+      transparent
+    );
     --pf-outline-focus: var(--color-brand-main-accent);
 
     --pf-shadow-sm: var(--shadow-sm);
@@ -97,6 +107,13 @@ export interface Props {}
     --pf-error-text-secondary: var(--color-red-500);
   }
 </style>
-<script is:inline src="/pagefind/pagefind-component-ui.js" type="module"></script>
+<script
+  is:inline
+  src="/pagefind/pagefind-component-ui.js"
+  type="module"
+></script>
 <!-- `npx astro build` must have run once to generate the pagefind styles in the dist directory -->
-<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+<link
+  href="/pagefind/pagefind-component-ui.css"
+  rel="stylesheet"
+>

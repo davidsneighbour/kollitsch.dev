@@ -1,20 +1,19 @@
 ---
 // @todo refactor and comment
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
-import { getGithubInfo } from "@utils/github.ts";
-import { Icon } from "astro-icon/components";
+import { getGithubInfo } from '@utils/github.ts';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post }: Props = Astro.props;
 const github = post.filePath ? getGithubInfo(post.filePath) : null;
 ---
 
-{
-  github && (
+{github && (
     <div class="flex flex-row items-center justify-start gap-2">
       <div class="w-6 flex-none">
         <Icon name="github" />
@@ -52,5 +51,4 @@ const github = post.filePath ? getGithubInfo(post.filePath) : null;
         <a href={github?.editUrl} class="inline-block px-1 py-1">Suggest edits on GitHub</a>
       </div>
     </div>
-  )
-}
+  )}

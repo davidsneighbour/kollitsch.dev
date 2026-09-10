@@ -12,26 +12,26 @@
  * - **Client JS**: none — these are static SSR debug pages
  */
 
-import "@styles/theme.css";
-import Heading from "@components/content/typography/Heading.astro";
-import TagList from "@components/content/taxonomy/TagList.astro";
-import Layout from "@layouts/ContentPageTest.astro";
-import type { TagListItem } from "@utils/tags.ts";
-import { getTags } from "@utils/tags.ts";
-import { createLogger } from "@utils/logger.ts";
+import '@styles/theme.css';
+import TagList from '@components/content/taxonomy/TagList.astro';
+import Heading from '@components/content/typography/Heading.astro';
+import Layout from '@layouts/ContentPageTest.astro';
+import { createLogger } from '@utils/logger.ts';
+import type { TagListItem } from '@utils/tags.ts';
+import { getTags } from '@utils/tags.ts';
 
-const log = createLogger({ slug: "test-tags-page" });
+const log = createLogger({ slug: 'test-tags-page' });
 
 let allTags: TagListItem[] = [];
 let allTagsWithCounts: TagListItem[] = [];
 let tagsOver5: TagListItem[] = [];
 
 try {
-  allTags = await getTags({ order: "label-asc", threshold: 1 });
-  allTagsWithCounts = await getTags({ order: "count-desc", threshold: 1 });
-  tagsOver5 = await getTags({ order: "count-desc", threshold: 6 });
+  allTags = await getTags({ order: 'label-asc', threshold: 1 });
+  allTagsWithCounts = await getTags({ order: 'count-desc', threshold: 1 });
+  tagsOver5 = await getTags({ order: 'count-desc', threshold: 6 });
 } catch (err) {
-  log.error("[test/tags] failed to load tags", err);
+  log.error('[test/tags] failed to load tags', err);
 }
 ---
 

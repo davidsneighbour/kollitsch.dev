@@ -16,8 +16,8 @@ const DEFAULT_FORMAT_OPTIONS: FormatUrlOptions = {
  * Returns an empty string for falsy input.
  */
 function stripSlashes(path?: string | null): string {
-  if (!path) return "";
-  return path.replace(/^\/+|\/+$/g, "");
+  if (!path) return '';
+  return path.replace(/^\/+|\/+$/g, '');
 }
 
 /**
@@ -31,15 +31,21 @@ function stripSlashes(path?: string | null): string {
  * - `formatUrl("blog/post")` -> `/blog/post/`
  * - `formatUrl("about", { trailingSlash: false })` -> `/about`
  */
-export function formatUrl(path?: string | null, options: FormatUrlOptions = {}): string {
+export function formatUrl(
+  path?: string | null,
+  options: FormatUrlOptions = {},
+): string {
   // If the path is completely missing, return an empty string as caller requested.
-  if (path == null) return "";
+  if (path == null) return '';
 
-  const { trailingSlash, leadingSlash } = { ...DEFAULT_FORMAT_OPTIONS, ...options };
+  const { trailingSlash, leadingSlash } = {
+    ...DEFAULT_FORMAT_OPTIONS,
+    ...options,
+  };
   const cleanPath = stripSlashes(path);
 
   if (!cleanPath) {
-    return "/";
+    return '/';
   }
 
   let url = cleanPath;

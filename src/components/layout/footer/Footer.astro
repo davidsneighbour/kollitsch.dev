@@ -1,21 +1,21 @@
 ---
 // @todo refactor and comment
-import { Image } from "astro:assets";
-import patrickkollitsch from "@assets/images/patrick-kollitsch.png";
-import Heading from "@components/content/typography/Heading.astro";
-import type { SocialMediaItem } from "@components/features/social/SocialLinks.astro";
-import SocialLinks from "@components/features/social/SocialLinks.astro";
-import Colophon from "@components/layout/footer/Colophon.astro";
-import IconLink from "@components/shared/links/IconLink.astro";
-import Link from "@components/shared/links/Link.astro";
-import rawSocialMediaData from "@content/social.json" with { type: "json" };
-import rawNavData from "@data/footernavigation.json" with { type: "json" };
-import setup from "@data/setup.json" with { type: "json" };
-import { getHomepageUrl } from "@utils/content";
-import { generateUniqueHtmlId } from "@utils/helpers";
-import type { Navigation } from "@utils/navigation";
-import { Icon } from "astro-icon/components";
-import MarkdownIt from "markdown-it";
+import { Image } from 'astro:assets';
+import patrickkollitsch from '@assets/images/patrick-kollitsch.png';
+import Heading from '@components/content/typography/Heading.astro';
+import type { SocialMediaItem } from '@components/features/social/SocialLinks.astro';
+import SocialLinks from '@components/features/social/SocialLinks.astro';
+import Colophon from '@components/layout/footer/Colophon.astro';
+import IconLink from '@components/shared/links/IconLink.astro';
+import Link from '@components/shared/links/Link.astro';
+import rawSocialMediaData from '@content/social.json' with { type: 'json' };
+import rawNavData from '@data/footernavigation.json' with { type: 'json' };
+import setup from '@data/setup.json' with { type: 'json' };
+import { getHomepageUrl } from '@utils/content';
+import { generateUniqueHtmlId } from '@utils/helpers';
+import type { Navigation } from '@utils/navigation';
+import { Icon } from 'astro-icon/components';
+import MarkdownIt from 'markdown-it';
 
 export interface Props {}
 
@@ -24,12 +24,20 @@ const footerYearId = generateUniqueHtmlId();
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 const md = new MarkdownIt();
-const introFallback = setup.introduction.replace("{$greeting}", "").trim();
+const introFallback = setup.introduction.replace('{$greeting}', '').trim();
 const introFallbackHtml = md.renderInline(introFallback);
 ---
 
-<footer class={setup.classes.containers.wide} aria-label="Footer">
-  <Heading level={2} class="sr-only"> Footer section with navigation and social media links </Heading>
+<footer
+  class={setup.classes.containers.wide}
+  aria-label="Footer"
+>
+  <Heading
+    level={2}
+    class="sr-only"
+  >
+    Footer section with navigation and social media links
+  </Heading>
   <div
     class="mt-8 mb-8 grid grid-cols-1 gap-8 border-t border-t-gray-700 bg-olive-50 py-8 md:grid-cols-2 lg:grid-cols-9 xl:grid-cols-7 dark:bg-olive-950"
   >
@@ -37,9 +45,17 @@ const introFallbackHtml = md.renderInline(introFallback);
       class="py-4 text-center md:col-span-2 lg:col-span-5 lg:text-left xl:col-span-4"
       aria-label="About section with author image and introduction"
     >
-      <Heading level={3} class="mb-4 border-b border-gray-100 dark:border-gray-900"> About </Heading>
+      <Heading
+        level={3}
+        class="mb-4 border-b border-gray-100 dark:border-gray-900"
+      >
+        About
+      </Heading>
       <div class="about-intro text-left">
-        <Link href="/connect/" class="about-intro__image">
+        <Link
+          href="/connect/"
+          class="about-intro__image"
+        >
           <Image
             src={patrickkollitsch}
             alt="Patrick Kollitsch"
@@ -49,36 +65,59 @@ const introFallbackHtml = md.renderInline(introFallback);
             class="about-intro__image-element border border-gray-200 dark:border-gray-800"
           />
         </Link>
-        <div id="about-introduction" set:html={introFallbackHtml} />
+        <div
+          id="about-introduction"
+          set:html={introFallbackHtml}
+        />
       </div>
     </aside>
-    <aside class="py-4 lg:col-span-2 xl:col-span-1" aria-label="Site navigation links">
-      <Heading level={3} class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"> Navigation </Heading>
-      <ul class="flex flex-row flex-wrap justify-center gap-2 text-center lg:flex-col lg:justify-end">
-        {
-          navData.map((value) => (
+    <aside
+      class="py-4 lg:col-span-2 xl:col-span-1"
+      aria-label="Site navigation links"
+    >
+      <Heading
+        level={3}
+        class="mb-4 border-b border-gray-100 text-center dark:border-gray-900"
+      >
+        Navigation
+      </Heading>
+      <ul
+        class="flex flex-row flex-wrap justify-center gap-2 text-center lg:flex-col lg:justify-end"
+      >
+        {navData.map((value) => (
             <li>
               <IconLink href={value.link} icon={value.icon} linkClass="justify-center">
                 {value.label}
               </IconLink>
             </li>
-          ))
-        }
+          ))}
       </ul>
     </aside>
-    <aside class="py-4 lg:col-span-2" aria-label="Social media links">
-      <Heading level={3} class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900">
+    <aside
+      class="py-4 lg:col-span-2"
+      aria-label="Social media links"
+    >
+      <Heading
+        level={3}
+        class="mb-4 border-b border-gray-100 text-center lg:text-right dark:border-gray-900"
+      >
         Connect
       </Heading>
       <SocialLinks items={socialMediaData} />
     </aside>
   </div>
 
-  <div class="flex flex-col items-center justify-between border-t border-gray-800 pt-6 md:flex-row">
+  <div
+    class="flex flex-col items-center justify-between border-t border-gray-800 pt-6 md:flex-row"
+  >
     <span class="text-center md:text-left"
       >&copy; 2021 &ndash; <span id={footerYearId}>{currentYear}</span>
       <a href={getHomepageUrl()}>{setup.title}</a>
-      <span id="site-version" aria-live="polite" aria-atomic="true"></span>
+      <span
+        id="site-version"
+        aria-live="polite"
+        aria-atomic="true"
+      ></span>
     </span>
     <span class="text-center">All rights reserved.</span>
     <span class="text-center lg:text-right"
@@ -88,18 +127,39 @@ const introFallbackHtml = md.renderInline(introFallback);
   </div>
 
   <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
-    <IconLink href="/privacy-policy/" icon="shield-check"> Privacy Policy </IconLink>
-    <IconLink href="/security-policy/" icon="fingerprint"> Security Policy </IconLink>
+    <IconLink
+      href="/privacy-policy/"
+      icon="shield-check"
+    >
+      Privacy Policy
+    </IconLink>
+    <IconLink
+      href="/security-policy/"
+      icon="fingerprint"
+    >
+      Security Policy
+    </IconLink>
   </div>
 
-  <div class="my-4 flex flex-col md:flex-row items-center justify-center gap-2 text-sm">
+  <div
+    class="my-4 flex flex-col md:flex-row items-center justify-center gap-2 text-sm"
+  >
     <div class="text-center">
       A member of the <a href="https://static.quest">Static.Quest</a> web ring!
     </div>
     <div class="flex flex-row items-center justify-center gap-2">
-      <IconLink href="https://static.quest/previous/?host=kollitsch.dev" icon="chevron-left" aria-label="Previous site in the Static.Quest web ring" />
+      <IconLink
+        href="https://static.quest/previous/?host=kollitsch.dev"
+        icon="chevron-left"
+        aria-label="Previous site in the Static.Quest web ring"
+      />
       <a href="https://static.quest/members">View Members</a>
-      <IconLink href="https://static.quest/next/?host=kollitsch.dev" icon="chevron-right" iconPosition="postfix" aria-label="Next site in the Static.Quest web ring" />
+      <IconLink
+        href="https://static.quest/next/?host=kollitsch.dev"
+        icon="chevron-right"
+        iconPosition="postfix"
+        aria-label="Next site in the Static.Quest web ring"
+      />
       <a href="https://static.quest/random">Feeling lucky?</a>
     </div>
   </div>
@@ -111,26 +171,30 @@ const introFallbackHtml = md.renderInline(introFallback);
     <Link href="/feed.json">JSON</Link>
   </div>
 
-  <script is:inline define:vars={{ footerYearId }} data-astro-rerun>
+  <script
+    is:inline
+    define:vars={{ footerYearId }}
+    data-astro-rerun
+  >
     document.getElementById(footerYearId).innerText = new Date().getFullYear();
 
     (async () => {
       try {
-        const el = document.getElementById("site-version");
+        const el = document.getElementById('site-version');
         if (!el) return;
-        const resp = await fetch("/api/siteinfo.json");
+        const resp = await fetch('/api/siteinfo.json');
         if (!resp.ok) return;
         const data = await resp.json();
         const version = data?.version ?? null;
         const releasePage = data?.releasePage ?? null;
         if (version && releasePage) {
-          el.textContent = "";
-          const separator = document.createTextNode(" ៚ ");
-          const link = document.createElement("a");
+          el.textContent = '';
+          const separator = document.createTextNode(' ៚ ');
+          const link = document.createElement('a');
           Object.assign(link, {
             href: releasePage,
-            rel: "noopener noreferrer",
-            target: "_blank",
+            rel: 'noopener noreferrer',
+            target: '_blank',
             textContent: `v${version}`,
           });
           el.appendChild(separator);
@@ -143,32 +207,35 @@ const introFallbackHtml = md.renderInline(introFallback);
   </script>
 
   <script>
-    import setup from "@data/setup.json" with { type: "json" };
-    import MarkdownIt from "markdown-it";
+    import setup from '@data/setup.json' with { type: 'json' };
+    import MarkdownIt from 'markdown-it';
 
     const md = new MarkdownIt();
 
     /**
      * Render the introduction with a time-based greeting.
      */
-    export function renderIntroduction(introRaw: string, greetings: Record<string, string>): string {
+    export function renderIntroduction(
+      introRaw: string,
+      greetings: Record<string, string>,
+    ): string {
       const hour = new Date().getHours();
       const greeting =
         hour >= 5 && hour < 12
-          ? greetings["morning"]
+          ? greetings['morning']
           : hour >= 12 && hour < 17
-            ? greetings["afternoon"]
+            ? greetings['afternoon']
             : hour >= 17 && hour < 21
-              ? greetings["evening"]
+              ? greetings['evening']
               : hour >= 21 || hour < 5
-                ? greetings["night"]
-                : greetings["default"];
+                ? greetings['night']
+                : greetings['default'];
 
-      const introFinal = introRaw.replace("{$greeting}", greeting ?? "");
+      const introFinal = introRaw.replace('{$greeting}', greeting ?? '');
       return md.renderInline(introFinal);
     }
 
-    const target = document.getElementById("about-introduction");
+    const target = document.getElementById('about-introduction');
     if (target) {
       const html = renderIntroduction(setup.introduction, setup.greetings);
       target.innerHTML = html;

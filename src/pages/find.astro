@@ -1,33 +1,37 @@
 ---
 // @todo refactor
 
-import Heading from "@components/content/typography/Heading.astro";
-import Search from "@components/features/search/Search.astro";
-import Layout from "@layouts/ContentPage.astro";
+import Heading from '@components/content/typography/Heading.astro';
+import Search from '@components/features/search/Search.astro';
+import Layout from '@layouts/ContentPage.astro';
 
 const post = {
   data: {
-    description: "Search the site for content.",
-    title: "Find | KOLLITSCH.dev*",
+    description: 'Search the site for content.',
+    title: 'Find | KOLLITSCH.dev*',
   },
 };
 ---
 
 <Layout post={post}>
-  <Heading level={1} class="mb-6">Find</Heading>
+  <Heading
+    level={1}
+    class="mb-6"
+    >Find</Heading
+  >
   <p>Use the search bar below to find content on this site.</p>
   <Search
     uiOptions={{
-      showImages: true,
+      autofocus: true,
+      debounceTimeoutMs: 300,
       pageSize: 6,
       resetStyles: false,
-      debounceTimeoutMs: 300,
+      showImages: true,
+      sort: { date: "desc" },
       translations: {
         placeholder: "Search on KOLLITSCH.dev*",
         zero_results: "Couldn't find [SEARCH_TERM]",
       },
-      autofocus: true,
-      sort: { date: "desc" },
     }}
   />
 </Layout>
@@ -44,16 +48,20 @@ const post = {
    * Tracks search queries via Matomo, using result count from Pagefind UI.
    */
   function setupMatomoSearchTracker() {
-    const drawer = document.querySelector(".pagefind-ui__drawer");
-    const searchInput = document.querySelector<HTMLInputElement>(".pagefind-ui__search-input");
-    const resultMessageSelector = ".pagefind-ui__message";
+    const drawer = document.querySelector('.pagefind-ui__drawer');
+    const searchInput = document.querySelector<HTMLInputElement>(
+      '.pagefind-ui__search-input',
+    );
+    const resultMessageSelector = '.pagefind-ui__message';
 
     if (!drawer || !searchInput) {
-      console.error("Pagefind drawer or search input not found. Matomo tracker not initialized.");
+      console.error(
+        'Pagefind drawer or search input not found. Matomo tracker not initialized.',
+      );
       return;
     }
 
-    let lastTrackedQuery = "";
+    let lastTrackedQuery = '';
     let lastTrackedCount: number | null = null;
 
     const extractResultCount = (): number | null => {
@@ -66,7 +74,7 @@ const post = {
 
       const match = text.match(/^(\d+)\s+results\s+for\s+(.*)$/i);
       if (match) {
-        const countStr = match[1] ?? "";
+        const countStr = match[1] ?? '';
         if (!countStr) return null;
         const count = parseInt(countStr, 10);
         return isNaN(count) ? null : count;
@@ -81,14 +89,19 @@ const post = {
       try {
         window._paq = window._paq || [];
         // category "default", count null if unknown
-        const category = "default";
+        const category = 'default';
         // If we don't know count we may pass false or 0
         const countForTracking = count !== null ? count : false;
-        window._paq.push(["trackSiteSearch", query, category, countForTracking]);
+        window._paq.push([
+          'trackSiteSearch',
+          query,
+          category,
+          countForTracking,
+        ]);
         lastTrackedQuery = query;
         lastTrackedCount = count;
       } catch (err) {
-        console.error("Matomo trackSiteSearch failed:", err);
+        console.error('Matomo trackSiteSearch failed:', err);
       }
     };
 

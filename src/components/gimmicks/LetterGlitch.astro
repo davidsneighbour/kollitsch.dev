@@ -1,8 +1,8 @@
 ---
 // https://chatgpt.com/g/g-p-69fc43ae826c81918c7eca3bd9c67e6e/c/6a1cd58f-e8f4-83ec-a61f-869dcffd8681
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-export interface Props extends HTMLAttributes<"section"> {
+export interface Props extends HTMLAttributes<'section'> {
   glitchColors?: string[];
   glitchSpeed?: number;
   smooth?: boolean;
@@ -13,12 +13,12 @@ export interface Props extends HTMLAttributes<"section"> {
 }
 
 const {
-  class: className = "",
-  glitchColors = ["#5e4491", "#a476ff", "#241a38"],
+  class: className = '',
+  glitchColors = ['#5e4491', '#a476ff', '#241a38'],
   glitchSpeed = 33,
   smooth = true,
   useBrandTokens = true,
-  brandVars = ["--brand-300", "--brand-600", "--brand-900"],
+  brandVars = ['--brand-300', '--brand-600', '--brand-900'],
   outerVignette = true,
   centerVignette = false,
   ...rest
@@ -33,7 +33,10 @@ const config = {
 };
 ---
 
-<section {...rest} class:list={["letter-glitch-band", className]}>
+<section
+  {...rest}
+  class:list={["letter-glitch-band", className]}
+>
   <div class="letter-glitch-shell">
     <div
       class="letter-glitch-effect"
@@ -96,11 +99,19 @@ const config = {
   }
 
   .letter-glitch-vignette-outer {
-    background: radial-gradient(circle, rgb(16 16 16 / 0) 60%, rgb(16 16 16 / 1) 100%);
+    background: radial-gradient(
+      circle,
+      rgb(16 16 16 / 0) 60%,
+      rgb(16 16 16 / 1) 100%
+    );
   }
 
   .letter-glitch-vignette-center {
-    background: radial-gradient(circle, rgb(0 0 0 / 0.8) 0%, rgb(0 0 0 / 0) 60%);
+    background: radial-gradient(
+      circle,
+      rgb(0 0 0 / 0.8) 0%,
+      rgb(0 0 0 / 0) 60%
+    );
   }
 
   .letter-glitch-content {
@@ -112,7 +123,7 @@ const config = {
     padding: 4rem 1.5rem;
   }
 
-  .letter-glitch-content :global(> *) {
+  .letter-glitch-content > :global(*) {
     width: min(100%, 42rem);
     border: 1px solid rgb(255 255 255 / 0.1);
     border-radius: 1rem;
@@ -147,79 +158,79 @@ const config = {
   };
 
   const FALLBACK_OPTIONS: LetterGlitchOptions = {
-    brandVars: ["--brand-300", "--brand-600", "--brand-900"],
-    glitchColors: ["#5e4491", "#a476ff", "#241a38"],
+    brandVars: ['--brand-300', '--brand-600', '--brand-900'],
+    glitchColors: ['#5e4491', '#a476ff', '#241a38'],
     glitchSpeed: 33,
     smooth: true,
     useBrandTokens: true,
   };
 
   const LETTERS_AND_SYMBOLS = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-    "!",
-    "@",
-    "#",
-    "$",
-    "&",
-    "*",
-    "(",
-    ")",
-    "-",
-    "_",
-    "+",
-    "=",
-    "/",
-    "[",
-    "]",
-    "{",
-    "}",
-    ";",
-    ":",
-    "<",
-    ">",
-    ",",
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+    '!',
+    '@',
+    '#',
+    '$',
+    '&',
+    '*',
+    '(',
+    ')',
+    '-',
+    '_',
+    '+',
+    '=',
+    '/',
+    '[',
+    ']',
+    '{',
+    '}',
+    ';',
+    ':',
+    '<',
+    '>',
+    ',',
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
   ];
 
   const instances = new WeakMap<HTMLElement, LetterGlitchController>();
   const activeInstances = new Set<LetterGlitchController>();
 
   function isRecord(value: unknown): value is Record<string, unknown> {
-    return typeof value === "object" && value !== null && !Array.isArray(value);
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
   }
 
   function readStringArray(value: unknown, fallback: string[]): string[] {
@@ -227,21 +238,25 @@ const config = {
       return fallback;
     }
 
-    const strings = value.filter((item): item is string => typeof item === "string" && item.length > 0);
+    const strings = value.filter(
+      (item): item is string => typeof item === 'string' && item.length > 0,
+    );
 
     return strings.length > 0 ? strings : fallback;
   }
 
   function readNumber(value: unknown, fallback: number): number {
-    return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+    return typeof value === 'number' && Number.isFinite(value)
+      ? value
+      : fallback;
   }
 
   function readBoolean(value: unknown, fallback: boolean): boolean {
-    return typeof value === "boolean" ? value : fallback;
+    return typeof value === 'boolean' ? value : fallback;
   }
 
   function readOptions(root: HTMLElement): LetterGlitchOptions {
-    const rawConfig = root.dataset["letterGlitchConfig"];
+    const rawConfig = root.dataset['letterGlitchConfig'];
 
     if (!rawConfig) {
       return FALLBACK_OPTIONS;
@@ -255,14 +270,26 @@ const config = {
       }
 
       return {
-        brandVars: readStringArray(parsed["brandVars"], FALLBACK_OPTIONS.brandVars),
-        glitchColors: readStringArray(parsed["glitchColors"], FALLBACK_OPTIONS.glitchColors),
-        glitchSpeed: readNumber(parsed["glitchSpeed"], FALLBACK_OPTIONS.glitchSpeed),
-        smooth: readBoolean(parsed["smooth"], FALLBACK_OPTIONS.smooth),
-        useBrandTokens: readBoolean(parsed["useBrandTokens"], FALLBACK_OPTIONS.useBrandTokens),
+        brandVars: readStringArray(
+          parsed['brandVars'],
+          FALLBACK_OPTIONS.brandVars,
+        ),
+        glitchColors: readStringArray(
+          parsed['glitchColors'],
+          FALLBACK_OPTIONS.glitchColors,
+        ),
+        glitchSpeed: readNumber(
+          parsed['glitchSpeed'],
+          FALLBACK_OPTIONS.glitchSpeed,
+        ),
+        smooth: readBoolean(parsed['smooth'], FALLBACK_OPTIONS.smooth),
+        useBrandTokens: readBoolean(
+          parsed['useBrandTokens'],
+          FALLBACK_OPTIONS.useBrandTokens,
+        ),
       };
     } catch (error: unknown) {
-      console.error("Failed to parse LetterGlitch configuration.", error);
+      console.error('Failed to parse LetterGlitch configuration.', error);
       return FALLBACK_OPTIONS;
     }
   }
@@ -272,18 +299,18 @@ const config = {
 
     if (sixHex) {
       return {
-        b: Number.parseInt(sixHex[3] ?? "00", 16),
-        g: Number.parseInt(sixHex[2] ?? "00", 16),
-        r: Number.parseInt(sixHex[1] ?? "00", 16),
+        b: Number.parseInt(sixHex[3] ?? '00', 16),
+        g: Number.parseInt(sixHex[2] ?? '00', 16),
+        r: Number.parseInt(sixHex[1] ?? '00', 16),
       };
     }
 
     const threeHex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i.exec(color);
 
     if (threeHex) {
-      const r = threeHex[1] ?? "0";
-      const g = threeHex[2] ?? "0";
-      const b = threeHex[3] ?? "0";
+      const r = threeHex[1] ?? '0';
+      const g = threeHex[2] ?? '0';
+      const b = threeHex[3] ?? '0';
 
       return {
         b: Number.parseInt(`${b}${b}`, 16),
@@ -296,9 +323,9 @@ const config = {
 
     if (rgb) {
       return {
-        b: Number.parseInt(rgb[3] ?? "0", 10),
-        g: Number.parseInt(rgb[2] ?? "0", 10),
-        r: Number.parseInt(rgb[1] ?? "0", 10),
+        b: Number.parseInt(rgb[3] ?? '0', 10),
+        g: Number.parseInt(rgb[2] ?? '0', 10),
+        r: Number.parseInt(rgb[1] ?? '0', 10),
       };
     }
 
@@ -315,7 +342,7 @@ const config = {
 
   function pickRandomItem(items: readonly string[]): string {
     const index = Math.floor(Math.random() * items.length);
-    return items[index] ?? items[0] ?? "A";
+    return items[index] ?? items[0] ?? 'A';
   }
 
   class LetterGlitchController {
@@ -325,8 +352,12 @@ const config = {
     private readonly fontSize = 16;
     private readonly charWidth = 10;
     private readonly charHeight = 20;
-    private readonly desktopQuery = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
-    private readonly reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    private readonly desktopQuery = window.matchMedia(
+      '(min-width: 1024px) and (pointer: fine)',
+    );
+    private readonly reducedMotionQuery = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    );
     private context: CanvasRenderingContext2D | null = null;
     private resizeObserver: ResizeObserver | null = null;
     private animationFrame: number | null = null;
@@ -339,10 +370,10 @@ const config = {
     private isStarted = false;
 
     public constructor(root: HTMLElement) {
-      const canvas = root.querySelector("canvas");
+      const canvas = root.querySelector('canvas');
 
       if (!(canvas instanceof HTMLCanvasElement)) {
-        throw new Error("LetterGlitch requires a canvas element.");
+        throw new Error('LetterGlitch requires a canvas element.');
       }
 
       this.root = root;
@@ -352,8 +383,11 @@ const config = {
     }
 
     public mount(): void {
-      this.desktopQuery.addEventListener("change", this.handleDesktopChange);
-      this.reducedMotionQuery.addEventListener("change", this.handleMotionChange);
+      this.desktopQuery.addEventListener('change', this.handleDesktopChange);
+      this.reducedMotionQuery.addEventListener(
+        'change',
+        this.handleMotionChange,
+      );
 
       if (this.desktopQuery.matches) {
         this.start();
@@ -362,8 +396,11 @@ const config = {
 
     public destroy(): void {
       this.stop();
-      this.desktopQuery.removeEventListener("change", this.handleDesktopChange);
-      this.reducedMotionQuery.removeEventListener("change", this.handleMotionChange);
+      this.desktopQuery.removeEventListener('change', this.handleDesktopChange);
+      this.reducedMotionQuery.removeEventListener(
+        'change',
+        this.handleMotionChange,
+      );
     }
 
     private readonly handleDesktopChange = (): void => {
@@ -405,10 +442,10 @@ const config = {
         return;
       }
 
-      this.context = this.canvas.getContext("2d");
+      this.context = this.canvas.getContext('2d');
 
       if (!this.context) {
-        console.error("LetterGlitch could not create a 2D canvas context.");
+        console.error('LetterGlitch could not create a 2D canvas context.');
         return;
       }
 
@@ -455,11 +492,11 @@ const config = {
     }
 
     private resolveBrandColors(): string[] {
-      const tmp = document.createElement("canvas");
+      const tmp = document.createElement('canvas');
       tmp.width = 1;
       tmp.height = 1;
 
-      const tmpContext = tmp.getContext("2d");
+      const tmpContext = tmp.getContext('2d');
 
       if (!tmpContext) {
         return [];
@@ -476,7 +513,7 @@ const config = {
         }
 
         tmpContext.clearRect(0, 0, 1, 1);
-        tmpContext.fillStyle = "#000000";
+        tmpContext.fillStyle = '#000000';
         tmpContext.fillStyle = raw;
         tmpContext.fillRect(0, 0, 1, 1);
 
@@ -541,14 +578,16 @@ const config = {
 
       this.context.clearRect(0, 0, rect.width, rect.height);
       this.context.font = `${this.fontSize}px monospace`;
-      this.context.textBaseline = "top";
+      this.context.textBaseline = 'top';
 
       this.letters.forEach((letter, index) => {
         const x = (index % this.columns) * this.charWidth;
         const y = Math.floor(index / this.columns) * this.charHeight;
 
         if (!this.context) {
-          throw new Error("Canvas context disappeared during LetterGlitch rendering.");
+          throw new Error(
+            'Canvas context disappeared during LetterGlitch rendering.',
+          );
         }
 
         this.context.fillStyle = letter.color;
@@ -564,7 +603,7 @@ const config = {
         const letter = this.letters[letterIndex];
 
         if (!letter) {
-          throw new Error("LetterGlitch selected an invalid cell index.");
+          throw new Error('LetterGlitch selected an invalid cell index.');
         }
 
         letter.char = pickRandomItem(LETTERS_AND_SYMBOLS);
@@ -632,7 +671,9 @@ const config = {
   }
 
   function initialiseLetterGlitches(): void {
-    const roots = document.querySelectorAll<HTMLElement>("[data-letter-glitch]");
+    const roots = document.querySelectorAll<HTMLElement>(
+      '[data-letter-glitch]',
+    );
 
     roots.forEach((root) => {
       const existing = instances.get(root);
@@ -649,7 +690,7 @@ const config = {
         instances.set(root, instance);
         activeInstances.add(instance);
       } catch (error: unknown) {
-        console.error("Failed to initialise LetterGlitch.", error);
+        console.error('Failed to initialise LetterGlitch.', error);
       }
     });
   }
@@ -662,11 +703,11 @@ const config = {
     activeInstances.clear();
   }
 
-  document.addEventListener("astro:before-swap", destroyLetterGlitches);
-  document.addEventListener("astro:page-load", initialiseLetterGlitches);
+  document.addEventListener('astro:before-swap', destroyLetterGlitches);
+  document.addEventListener('astro:page-load', initialiseLetterGlitches);
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initialiseLetterGlitches, {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseLetterGlitches, {
       once: true,
     });
   } else {

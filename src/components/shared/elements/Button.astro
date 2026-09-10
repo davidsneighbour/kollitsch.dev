@@ -1,13 +1,13 @@
 ---
 // @todo refactor and comment
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   href?: string;
   name?: string;
   classes?: string;
-  theme?: "primary" | "secondary" | "contrast";
-  size?: "xs" | "sm" | "base" | "lg" | "xl";
+  theme?: 'primary' | 'secondary' | 'contrast';
+  size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
   disabled?: boolean;
   outline?: boolean;
   block?: boolean;
@@ -16,9 +16,9 @@ export interface Props {
 const {
   href,
   name,
-  classes = "",
-  theme = "primary",
-  size = "base",
+  classes = '',
+  theme = 'primary',
+  size = 'base',
   disabled = false,
   outline = true,
   block = false,
@@ -29,7 +29,7 @@ const {
  * @param block - Whether the button should stretch to fill its container
  */
 function getBlockClasses(block: boolean = false): string {
-  return block ? "justify-self-stretch" : "";
+  return block ? 'justify-self-stretch' : '';
 }
 
 /**
@@ -37,20 +37,24 @@ function getBlockClasses(block: boolean = false): string {
  * @param theme - One of 'primary' | 'secondary' | 'contrast'
  * @param outline - If true, returns outlined version of the theme
  */
-function getBaseClasses(theme: "primary" | "secondary" | "contrast", outline = false): string {
+function getBaseClasses(
+  theme: 'primary' | 'secondary' | 'contrast',
+  outline = false,
+): string {
   const filled = {
-    contrast: "dark:bg-gray-600 dark:hover:bg-gray-800 dark:text-white bg-gray-200 hover:bg-gray-400 text-gray-900",
-    primary: "bg-orange-600 hover:bg-orange-700 text-gray-950",
-    secondary: "bg-red-700 hover:bg-orange-600 text-white",
+    contrast:
+      'dark:bg-gray-600 dark:hover:bg-gray-800 dark:text-white bg-gray-200 hover:bg-gray-400 text-gray-900',
+    primary: 'bg-orange-600 hover:bg-orange-700 text-gray-950',
+    secondary: 'bg-red-700 hover:bg-orange-600 text-white',
   };
 
   const outlined = {
     contrast:
-      "border border-gray-800 text-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white",
+      'border border-gray-800 text-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white',
     primary:
-      "border border-orange-700 text-orange-700 hover:bg-orange-800 hover:text-white dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-600 dark:hover:text-gray-950",
+      'border border-orange-700 text-orange-700 hover:bg-orange-800 hover:text-white dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-600 dark:hover:text-gray-950',
     secondary:
-      "border border-red-700 text-red-700 hover:bg-orange-600 hover:text-gray-950 dark:border-red-500 dark:text-red-500 dark:hover:bg-orange-400 dark:hover:text-gray-950",
+      'border border-red-700 text-red-700 hover:bg-orange-600 hover:text-gray-950 dark:border-red-500 dark:text-red-500 dark:hover:bg-orange-400 dark:hover:text-gray-950',
   };
 
   const themes = outline ? outlined : filled;
@@ -62,24 +66,26 @@ function getBaseClasses(theme: "primary" | "secondary" | "contrast", outline = f
  * @param disabled - Whether the button is disabled (default: false)
  */
 function getDisabledClasses(disabled: boolean = false): string {
-  return disabled ? "cursor-not-allowed" : "cursor-pointer";
+  return disabled ? 'cursor-not-allowed' : 'cursor-pointer';
 }
 
 /**
  * Returns padding and font size classes based on the size variant.
  * @param size - One of 'xs' | 'sm' | 'base' | 'lg' | 'xl'
  */
-function getSizeClasses(size: "xs" | "sm" | "base" | "lg" | "xl" = "base"): string {
+function getSizeClasses(
+  size: 'xs' | 'sm' | 'base' | 'lg' | 'xl' = 'base',
+): string {
   const sizes: Record<string, string> = {
-    base: "px-5 py-2.5 text-sm",
-    lg: "px-5 py-3 text-base",
-    sm: "px-3 py-2 text-sm",
-    xl: "px-6 py-3.5 text-base",
-    xs: "px-3 py-2 text-xs",
+    base: 'px-5 py-2.5 text-sm',
+    lg: 'px-5 py-3 text-base',
+    sm: 'px-3 py-2 text-sm',
+    xl: 'px-6 py-3.5 text-base',
+    xs: 'px-3 py-2 text-xs',
   };
 
   // @ts-expect-error - TypeScript does not recognize the dynamic keys
-  return sizes[size ?? "base"] ?? sizes.base;
+  return sizes[size ?? 'base'] ?? sizes.base;
 }
 
 const baseClasses = `
@@ -88,7 +94,7 @@ const baseClasses = `
   rounded-md
 
   ${getBaseClasses(theme, outline)}
-  ${getSizeClasses(size ?? "base")}
+  ${getSizeClasses(size ?? 'base')}
 
   shadow-xs
 
@@ -102,8 +108,7 @@ const baseClasses = `
 `.trim();
 ---
 
-{
-  href ? (
+{href ? (
     <a href={href} class={`${baseClasses} ${classes}`}>
       <slot />
       {name && <Icon name={name} />}
@@ -113,5 +118,4 @@ const baseClasses = `
       <slot />
       {name && <Icon name={name} />}
     </button>
-  )
-}
+  )}

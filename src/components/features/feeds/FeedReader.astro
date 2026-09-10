@@ -1,8 +1,8 @@
 ---
-import feedThisAndThat from "@assets/images/interface/feed-this-and-that.jpg";
-import feedWebTech from "@assets/images/interface/feed-web-tech-development.jpg";
-import CardLink from "@components/ui/CardLink.astro";
-import type { ImageMetadata } from "astro";
+import feedThisAndThat from '@assets/images/interface/feed-this-and-that.jpg';
+import feedWebTech from '@assets/images/interface/feed-web-tech-development.jpg';
+import CardLink from '@components/ui/CardLink.astro';
+import type { ImageMetadata } from 'astro';
 
 export interface Props {
   /**
@@ -38,31 +38,33 @@ interface FeedCard {
 }
 
 const {
-  label = "Follower Feeds",
+  label = 'Follower Feeds',
   description = "Read an eclectic selection of Patrick's reading",
-  linkWebTech = "https://kollitsch.dev/dnb-webdev.rss.xml",
-  linkThisAndThat = "https://kollitsch.dev/dnb-entertainment.rss.xml",
+  linkWebTech = 'https://kollitsch.dev/dnb-webdev.rss.xml',
+  linkThisAndThat = 'https://kollitsch.dev/dnb-entertainment.rss.xml',
 }: Props = Astro.props;
 
-const descriptionId = "follower-feeds-description";
+const descriptionId = 'follower-feeds-description';
 
 const feeds: FeedCard[] = [
   {
-    alt: "Web, Tech and Development feed",
+    alt: 'Web, Tech and Development feed',
     href: linkWebTech,
     image: feedWebTech,
-    title: "Web, Tech & Development",
+    title: 'Web, Tech & Development',
   },
   {
-    alt: "This & That feed",
+    alt: 'This & That feed',
     href: linkThisAndThat,
     image: feedThisAndThat,
-    title: "This & That",
+    title: 'This & That',
   },
 ];
 ---
 
-<div class="typography-ui flex flex-col items-stretch gap-4 md:flex-row md:shrink-0 mx-2">
+<div
+  class="typography-ui flex flex-col items-stretch gap-4 md:flex-row md:shrink-0 mx-2"
+>
   <div class="flex md:items-stretch">
     <h3
       class="text-boxlabel-inherit text-center text-sm uppercase text-gray-800 dark:text-gray-200 md:text-boxlabel-sideways"
@@ -70,7 +72,10 @@ const feeds: FeedCard[] = [
     >
       {label}
     </h3>
-    <p id={descriptionId} class="sr-only">
+    <p
+      id={descriptionId}
+      class="sr-only"
+    >
       {description}
     </p>
   </div>

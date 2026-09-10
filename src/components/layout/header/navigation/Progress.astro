@@ -3,7 +3,9 @@ export interface Props {
   classes?: string;
 }
 
-const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: Props = Astro.props;
+const {
+  classes = 'progress z-40 relative [--height:4px] lg:[--height:6px]',
+}: Props = Astro.props;
 ---
 
 <div
@@ -37,22 +39,22 @@ const { classes = "progress z-40 relative [--height:4px] lg:[--height:6px]" }: P
 
     const updateProgress = () => {
       const scroll = getScroll();
-      const progressBars = document.querySelectorAll("[data-reading-progress]");
+      const progressBars = document.querySelectorAll('[data-reading-progress]');
 
       for (const progress of progressBars) {
         if (!(progress instanceof HTMLElement)) {
           continue;
         }
 
-        progress.setAttribute("aria-valuenow", String(Math.round(scroll)));
-        progress.style.setProperty("--scroll", String(scroll / 100));
-        progress.toggleAttribute("data-complete", scroll >= 99.9);
+        progress.setAttribute('aria-valuenow', String(Math.round(scroll)));
+        progress.style.setProperty('--scroll', String(scroll / 100));
+        progress.toggleAttribute('data-complete', scroll >= 99.9);
       }
     };
 
-    document.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("load", updateProgress);
-    document.addEventListener("astro:page-load", updateProgress);
+    document.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('load', updateProgress);
+    document.addEventListener('astro:page-load', updateProgress);
 
     updateProgress();
   })();

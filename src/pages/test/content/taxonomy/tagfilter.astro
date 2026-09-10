@@ -1,6 +1,7 @@
 ---
 import TagFilter from '../../../../components/content/taxonomy/TagFilter.astro';
 ---
+
 <main>
   <h1>TagFilter component test</h1>
 
@@ -8,9 +9,24 @@ import TagFilter from '../../../../components/content/taxonomy/TagFilter.astro';
   <TagFilter />
 
   <!-- A simple list that the TagFilter script will target -->
-  <div data-tag-filter-list data-tag-filter-id="default">
-    <a href="/tags/apple/" data-label="apple">Apple</a>
-    <a href="/tags/banana/" data-label="banana">Banana</a>
-    <a href="/tags/cherry/" data-label="cherry">Cherry</a>
+  <div
+    data-tag-filter-list
+    data-tag-filter-id="default"
+  >
+    <a
+      href="/tags/apple/"
+      data-label="apple"
+      >Apple</a
+    >
+    <a
+      href="/tags/banana/"
+      data-label="banana"
+      >Banana</a
+    >
+    <a
+      href="/tags/cherry/"
+      data-label="cherry"
+      >Cherry</a
+    >
   </div>
 </main>

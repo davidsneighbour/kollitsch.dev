@@ -1,21 +1,21 @@
 ---
 // @todo refactor and comment
 // @see https://schema.org/BlogPosting
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
-import setup from "@data/setup.json" with { type: "json" };
-import { formatISO8601Local } from "@utils/datetime.ts";
+import setup from '@data/setup.json' with { type: 'json' };
+import { formatISO8601Local } from '@utils/datetime.ts';
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post }: Props = Astro.props;
 const schema = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
   author: {
-    "@type": "Person",
+    '@type': 'Person',
     name: setup.author.name,
     url: setup.author.url,
   },

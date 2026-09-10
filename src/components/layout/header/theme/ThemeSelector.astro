@@ -1,17 +1,21 @@
 ---
-export type ThemeMode = "dark" | "light";
-export type StoredThemeMode = ThemeMode | "auto";
+export type ThemeMode = 'dark' | 'light';
+export type StoredThemeMode = ThemeMode | 'auto';
 
 export interface Props {
   defaultTheme?: StoredThemeMode;
 }
 
-const { defaultTheme = "dark" }: Props = Astro.props;
+const { defaultTheme = 'dark' }: Props = Astro.props;
 ---
 
 <theme-selector></theme-selector>
 
-<script is:inline data-astro-rerun data-default-theme={defaultTheme}>
+<script
+  is:inline
+  data-astro-rerun
+  data-default-theme={defaultTheme}
+>
   (() => {
     /**
      * @typedef {"dark" | "light"} ThemeMode
@@ -29,16 +33,22 @@ const { defaultTheme = "dark" }: Props = Astro.props;
     window.kdev = window.kdev || {};
 
     const currentScript = document.currentScript;
-    const defaultThemeAttr = currentScript?.getAttribute("data-default-theme") ?? "dark";
-    const defaultTheme = defaultThemeAttr === "auto" ? "auto" : defaultThemeAttr === "light" ? "light" : "dark";
+    const defaultThemeAttr =
+      currentScript?.getAttribute('data-default-theme') ?? 'dark';
+    const defaultTheme =
+      defaultThemeAttr === 'auto'
+        ? 'auto'
+        : defaultThemeAttr === 'light'
+          ? 'light'
+          : 'dark';
 
     /**
      * @returns {ThemeManager}
      */
     function createThemeManager() {
-      const storageKey = "kdev-theme";
+      const storageKey = 'kdev-theme';
       const store =
-        typeof localStorage !== "undefined"
+        typeof localStorage !== 'undefined'
           ? localStorage
           : {
               getItem() {
@@ -52,16 +62,16 @@ const { defaultTheme = "dark" }: Props = Astro.props;
               },
             };
 
-      const mediaMatcher = window.matchMedia("(prefers-color-scheme: dark)");
+      const mediaMatcher = window.matchMedia('(prefers-color-scheme: dark)');
       /** @type {ThemeMode} */
-      let systemTheme = mediaMatcher.matches ? "dark" : "light";
+      let systemTheme = mediaMatcher.matches ? 'dark' : 'light';
 
       /**
        * @param {StoredThemeMode} theme
        * @returns {ThemeMode}
        */
       function resolveTheme(theme) {
-        return theme === "auto" ? systemTheme : theme;
+        return theme === 'auto' ? systemTheme : theme;
       }
 
       /**
@@ -70,14 +80,14 @@ const { defaultTheme = "dark" }: Props = Astro.props;
        */
       function applyTheme(theme) {
         const resolvedTheme = resolveTheme(theme);
-        const codeTheme = resolvedTheme === "dark" ? "dracula" : "light-plus";
+        const codeTheme = resolvedTheme === 'dark' ? 'dracula' : 'light-plus';
 
         document.documentElement.dataset.codeTheme = codeTheme;
         document.documentElement.dataset.theme = resolvedTheme;
         document.documentElement.style.colorScheme = resolvedTheme;
 
         document.dispatchEvent(
-          new CustomEvent("theme-changed", {
+          new CustomEvent('theme-changed', {
             detail: {
               defaultTheme,
               resolvedTheme,
@@ -96,7 +106,11 @@ const { defaultTheme = "dark" }: Props = Astro.props;
 
         getTheme() {
           const storedTheme = store.getItem(storageKey);
-          if (storedTheme === "light" || storedTheme === "dark" || storedTheme === "auto") {
+          if (
+            storedTheme === 'light' ||
+            storedTheme === 'dark' ||
+            storedTheme === 'auto'
+          ) {
             return storedTheme;
           }
 
@@ -113,8 +127,8 @@ const { defaultTheme = "dark" }: Props = Astro.props;
         },
       };
 
-      mediaMatcher.addEventListener("change", (event) => {
-        systemTheme = event.matches ? "dark" : "light";
+      mediaMatcher.addEventListener('change', (event) => {
+        systemTheme = event.matches ? 'dark' : 'light';
         api.setTheme(api.getTheme());
       });
 
@@ -127,18 +141,18 @@ const { defaultTheme = "dark" }: Props = Astro.props;
 
     theme.setTheme(theme.getTheme());
 
-    if (!customElements.get("theme-selector")) {
+    if (!customElements.get('theme-selector')) {
       customElements.define(
-        "theme-selector",
+        'theme-selector',
         class extends HTMLElement {
           connectedCallback() {
             /** @type {ThemeMode[]} */
-            this.themes = ["light", "dark"];
+            this.themes = ['light', 'dark'];
 
-            const button = document.createElement("button");
-            button.setAttribute("type", "button");
-            button.setAttribute("role", "switch");
-            button.className = "theme-toggle";
+            const button = document.createElement('button');
+            button.setAttribute('type', 'button');
+            button.setAttribute('role', 'switch');
+            button.className = 'theme-toggle';
             button.innerHTML = `
               <svg class="theme-toggle-icon" viewBox="0 0 48 48" aria-hidden="true">
                 <g class="theme-toggle-rays">
@@ -156,7 +170,7 @@ const { defaultTheme = "dark" }: Props = Astro.props;
               </svg>
               <span class="sr-only">Toggle theme</span>
             `;
-            button.addEventListener("click", () => {
+            button.addEventListener('click', () => {
               this.nextTheme();
             });
 
@@ -164,11 +178,14 @@ const { defaultTheme = "dark" }: Props = Astro.props;
             this.replaceChildren(button);
             this.updateIcon();
 
-            document.addEventListener("theme-changed", this.handleThemeChanged);
+            document.addEventListener('theme-changed', this.handleThemeChanged);
           }
 
           disconnectedCallback() {
-            document.removeEventListener("theme-changed", this.handleThemeChanged);
+            document.removeEventListener(
+              'theme-changed',
+              this.handleThemeChanged,
+            );
           }
 
           handleThemeChanged = () => {
@@ -179,13 +196,14 @@ const { defaultTheme = "dark" }: Props = Astro.props;
             try {
               const currentTheme = theme.getTheme();
               const currentIndex = this.themes.indexOf(
-                currentTheme === "auto" ? theme.getSystemTheme() : currentTheme,
+                currentTheme === 'auto' ? theme.getSystemTheme() : currentTheme,
               );
               const safeIndex = currentIndex >= 0 ? currentIndex : 0;
-              const nextTheme = this.themes[(safeIndex + 1) % this.themes.length];
+              const nextTheme =
+                this.themes[(safeIndex + 1) % this.themes.length];
               theme.setTheme(nextTheme);
             } catch (error) {
-              console.error("theme-selector nextTheme failed:", error);
+              console.error('theme-selector nextTheme failed:', error);
             }
           }
 
@@ -194,20 +212,21 @@ const { defaultTheme = "dark" }: Props = Astro.props;
               return;
             }
 
-            const visibleTheme = currentTheme === "auto" ? theme.getSystemTheme() : currentTheme;
-            const isDark = visibleTheme === "dark";
+            const visibleTheme =
+              currentTheme === 'auto' ? theme.getSystemTheme() : currentTheme;
+            const isDark = visibleTheme === 'dark';
 
-            this.btn.setAttribute("aria-checked", String(isDark));
+            this.btn.setAttribute('aria-checked', String(isDark));
             this.btn.setAttribute(
-              "aria-label",
-              isDark ? "Switch to light theme" : "Switch to dark theme",
+              'aria-label',
+              isDark ? 'Switch to light theme' : 'Switch to dark theme',
             );
           }
         },
       );
     }
 
-    document.addEventListener("astro:after-swap", () => {
+    document.addEventListener('astro:after-swap', () => {
       theme.setTheme(theme.getTheme());
     });
   })();

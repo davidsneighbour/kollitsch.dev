@@ -1,8 +1,8 @@
 ---
-import BreadcrumbListSchema from "@components/seo/schema/BreadcrumbList.astro";
+import BreadcrumbListSchema from '@components/seo/schema/BreadcrumbList.astro';
 // @todo refactor and comment
-import { getBreadcrumbs, stripHtmlTags } from "@utils/content.ts";
-import { Icon } from "astro-icon/components";
+import { getBreadcrumbs, stripHtmlTags } from '@utils/content.ts';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   path: string;
@@ -18,8 +18,7 @@ const breadcrumbs = await getBreadcrumbs(path);
   class="mb-2 flex flex-row items-center justify-start gap-2 rounded-sm bg-black/5 px-2 py-1 dark:bg-white/5"
   aria-label="Breadcrumb"
 >
-  {
-    breadcrumbs &&
+  {breadcrumbs &&
       breadcrumbs.map((breadcrumb, index) => {
         const isLast = index === breadcrumbs.length - 1;
         return (
@@ -37,8 +36,7 @@ const breadcrumbs = await getBreadcrumbs(path);
             )}
           </>
         );
-      })
-  }
+      })}
 </nav>
 
 <BreadcrumbListSchema items={breadcrumbs} />

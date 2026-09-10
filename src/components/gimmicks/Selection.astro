@@ -15,7 +15,7 @@ export interface Props {}
    *   --color-slate-950
    */
 
-  type ThemeMode = "light" | "dark";
+  type ThemeMode = 'light' | 'dark';
 
   interface HighlightConfig {
     varPrefix: string;
@@ -26,9 +26,9 @@ export interface Props {}
   const DEBUG = false;
 
   const highlightConfig: HighlightConfig = {
-    varPrefix: "--color",
-    lightShades: { bg: 950, text: 50 },
     darkShades: { bg: 50, text: 950 },
+    lightShades: { bg: 950, text: 50 },
+    varPrefix: '--color',
   };
 
   let currentStyleElement: HTMLStyleElement | null = null;
@@ -39,13 +39,13 @@ export interface Props {}
    */
   function detectThemeMode(): ThemeMode {
     const html = document.documentElement;
-    const theme = html.getAttribute("data-theme");
+    const theme = html.getAttribute('data-theme');
 
     if (DEBUG) {
-      console.log("[selectionHighlight] data-theme =", theme);
+      console.log('[selectionHighlight] data-theme =', theme);
     }
 
-    return theme === "light" ? "light" : "dark";
+    return theme === 'light' ? 'light' : 'dark';
   }
 
   /**
@@ -63,7 +63,7 @@ export interface Props {}
       const prefix = `${highlightConfig.varPrefix}-`;
       if (!propName.startsWith(prefix)) continue;
       const withoutPrefix = propName.slice(prefix.length);
-      const parts = withoutPrefix.split("-");
+      const parts = withoutPrefix.split('-');
       if (parts.length !== 2) continue;
       const family = parts[0];
       if (family) {
@@ -72,7 +72,7 @@ export interface Props {}
     }
     cachedFamilies = Array.from(families);
     if (DEBUG) {
-      console.log("[selectionHighlight] families =", cachedFamilies);
+      console.log('[selectionHighlight] families =', cachedFamilies);
     }
     return cachedFamilies;
   }
@@ -82,10 +82,15 @@ export interface Props {}
    */
   function resolveColorVar(family: string, shade: number): string | null {
     const varName = `${highlightConfig.varPrefix}-${family}-${shade}`;
-    const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue(varName)
+      .trim();
 
     if (DEBUG) {
-      console.log(`[selectionHighlight] ${varName} =`, value || "(empty / not defined)");
+      console.log(
+        `[selectionHighlight] ${varName} =`,
+        value || '(empty / not defined)',
+      );
     }
 
     return value || null;
@@ -97,7 +102,10 @@ export interface Props {}
   function buildCombos(): { bg: string; color: string }[] {
     const families = extractColorFamilies();
     const mode = detectThemeMode();
-    const shades = mode === "dark" ? highlightConfig.darkShades : highlightConfig.lightShades;
+    const shades =
+      mode === 'dark'
+        ? highlightConfig.darkShades
+        : highlightConfig.lightShades;
 
     const combos: { bg: string; color: string }[] = [];
 
@@ -111,7 +119,7 @@ export interface Props {}
     }
 
     if (DEBUG) {
-      console.log("[selectionHighlight] combos count =", combos.length);
+      console.log('[selectionHighlight] combos count =', combos.length);
     }
 
     return combos;
@@ -125,13 +133,13 @@ export interface Props {}
       return currentStyleElement;
     }
 
-    const el = document.createElement("style");
-    el.setAttribute("data-selection-highlight", "true");
+    const el = document.createElement('style');
+    el.setAttribute('data-selection-highlight', 'true');
     document.head.appendChild(el);
     currentStyleElement = el;
 
     if (DEBUG) {
-      console.log("[selectionHighlight] created <style> element");
+      console.log('[selectionHighlight] created <style> element');
     }
 
     return el;
@@ -153,10 +161,10 @@ export interface Props {}
   color: ${color};
   transition: all 0.15s ease;
 }
-`.trim();
+  `.trim();
 
     if (DEBUG) {
-      console.log("[selectionHighlight] applied combo", { bg, color });
+      console.log('[selectionHighlight] applied combo', { bg, color });
     }
   }
 
@@ -169,7 +177,9 @@ export interface Props {}
     const combos = buildCombos();
     if (combos.length === 0) {
       if (DEBUG) {
-        console.warn("[selectionHighlight] No combos available. Check CSS variable names and shades.");
+        console.warn(
+          '[selectionHighlight] No combos available. Check CSS variable names and shades.',
+        );
       }
       return;
     }
@@ -177,7 +187,9 @@ export interface Props {}
     const combo = combos[Math.floor(Math.random() * combos.length)];
     if (!combo) {
       if (DEBUG) {
-        console.warn("[selectionHighlight] combo unexpectedly undefined despite non-empty combos array");
+        console.warn(
+          '[selectionHighlight] combo unexpectedly undefined despite non-empty combos array',
+        );
       }
       return;
     }
@@ -185,5 +197,5 @@ export interface Props {}
     applySelectionStyle(combo.bg, combo.color);
   }
 
-  document.addEventListener("selectionchange", handleSelectionChange);
+  document.addEventListener('selectionchange', handleSelectionChange);
 </script>

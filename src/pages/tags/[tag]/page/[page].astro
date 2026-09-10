@@ -1,24 +1,24 @@
 ---
 // individual tag page with pagination, page 2+
 
-import { getCollection, getEntry } from "astro:content";
-import ArticleCard from "@components/content/article/Preview.astro";
-import Pagination from "@/components/content/navigation/Pagination.astro";
-import TagIntro from "@components/content/taxonomy/TagIntro.astro";
-import Layout from "@layouts/DefaultPage.astro";
-import { getPostsSortedByDraft } from "@utils/content.ts";
+import { getCollection, getEntry } from 'astro:content';
+import ArticleCard from '@components/content/article/Preview.astro';
+import TagIntro from '@components/content/taxonomy/TagIntro.astro';
+import Layout from '@layouts/DefaultPage.astro';
+import { getPostsSortedByDraft } from '@utils/content.ts';
+import Pagination from '@/components/content/navigation/Pagination.astro';
 
 const { tag, page } = Astro.params;
 const currentPage = Number(page);
 
-import setup from "@data/setup.json" with { type: "json" };
+import setup from '@data/setup.json' with { type: 'json' };
 
 const limit = setup.listpages?.limit || 12;
 
 const pageSize = limit;
 
 // Load and filter blog posts by tag
-const allPosts = getPostsSortedByDraft(await getCollection("blog"));
+const allPosts = getPostsSortedByDraft(await getCollection('blog'));
 const taggedPosts = allPosts.filter((p) => p.data.tags?.includes(tag));
 
 // Pagination logic
@@ -30,13 +30,13 @@ const paginatedPosts = taggedPosts.slice(start, start + pageSize);
 // Try to get the tag entry, but handle cases where getEntry or its result is undefined
 let tagEntry = null;
 try {
-  const entry = await getEntry?.("tags", tag);
+  const entry = await getEntry?.('tags', tag);
   tagEntry = entry ?? null;
 } catch {
   tagEntry = null;
 }
 
-import { getTags } from "@utils/tags.ts";
+import { getTags } from '@utils/tags.ts';
 
 export async function getStaticPaths() {
   const tags = await getTags();
@@ -62,19 +62,24 @@ const post = {
 ---
 
 <Layout post={post}>
-  {
-    tagEntry && currentPage === 1 && (
+  {tagEntry && currentPage === 1 && (
       <TagIntro
         title={tagEntry.data.title}
         description={tagEntry?.data.description || `Posts tagged with #${tagEntry.id}`}
       />
-    )
-  }
+    )}
 
   {!tagEntry && currentPage === 1 && <h1 class="mb-6 text-4xl font-bold">#{tag}</h1>}
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+  >
     {paginatedPosts.map((post) => <ArticleCard post={post} />)}
   </div>
 
-  <Pagination basePath={`/tags/${tag}/`} currentPage={currentPage} totalPages={totalPages} pagingPartial="/page/" />
+  <Pagination
+    basePath={`/tags/${tag}/`}
+    currentPage={currentPage}
+    totalPages={totalPages}
+    pagingPartial="/page/"
+  />
 </Layout>

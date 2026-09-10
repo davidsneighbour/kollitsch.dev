@@ -1,11 +1,11 @@
 ---
-import { getImage } from "astro:assets";
-import image404 from "@assets/images/404.jpg";
-import NotFoundLayout from "@components/pages/NotFoundLayout.astro";
-import Site from "@layouts/Site.astro";
+import { getImage } from 'astro:assets';
+import image404 from '@assets/images/404.jpg';
+import NotFoundLayout from '@components/pages/NotFoundLayout.astro';
+import Site from '@layouts/Site.astro';
 
 const optimizedBackground = await getImage({
-  format: "jpg",
+  format: 'jpg',
   quality: 80,
   src: image404,
   width: 1920,
@@ -14,9 +14,9 @@ const optimizedBackground = await getImage({
 const currentPath = Astro.url.pathname;
 const post = {
   date: new Date(),
-  description: "The page you are looking for does not exist.",
-  tags: ["404", "error"],
-  title: "404 Page Not Found - " + currentPath,
+  description: 'The page you are looking for does not exist.',
+  tags: ['404', 'error'],
+  title: '404 Page Not Found - ' + currentPath,
 };
 ---
 

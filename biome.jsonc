@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.12/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -115,7 +115,7 @@
         "noBarrelFile": "error",
         "noReExportAll": "error"
       },
-      "recommended": false,
+      "preset": "none",
       "suspicious": {
         "noAssignInExpressions": "error",
         "noAsyncPromiseExecutor": "error",
@@ -175,6 +175,9 @@
             // Astro injects framework-level helpers that resolve at build time.
             // https://biomejs.dev/linter/rules/no-undeclared-dependencies/
             "noUndeclaredDependencies": "off",
+            // Astro's built-in <Fragment> is a compiler intrinsic, not a declared import.
+            // https://biomejs.dev/linter/rules/no-undeclared-variables/
+            "noUndeclaredVariables": "off",
             // Astro's compiler resolves aliased imports and component-relative paths.
             // https://biomejs.dev/linter/rules/no-unresolved-imports/
             "noUnresolvedImports": "off",

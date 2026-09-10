@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@astrojs/markdown-remark": "7.3.0",
+    "@astrojs/markdown-remark": "7.3.1",
     "@astrojs/mdx": "8.0.0",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.4",
@@ -15,7 +15,7 @@
     "@types/markdown-it": "14.2.0",
     "@types/mdast": "4.0.4",
     "@types/yargs": "17.0.35",
-    "astro": "7.3.1",
+    "astro": "7.3.2",
     "astro-expressive-code": "0.44.2",
     "astro-icon": "1.2.0",
     "fast-glob": "3.3.3",
@@ -68,6 +68,7 @@
     "@iconify/tools": "5.0.12",
     "gray-matter": {
       "js-yaml": "3.15.2"
-    }
+    },
+    "svgo": "4.1.0"
   }
 }

@@ -250,8 +250,10 @@ components:
     textColor: "{colors.surface-dark}"
     rounded: "{rounded.xl}"
   theme-toggle-corner:
-    size: "64px"
-    padding: "{spacing.sm}"
+    width: "8rem"
+    height: "8rem"
+    size: "1.5rem"
+    padding: "1.75rem"
     rounded: "{rounded.full}"
 ---
 
@@ -402,7 +404,7 @@ On mobile, the nav dropdown is fixed to the viewport below the sticky header at 
 
 The reading-progress bar is drawn inside the sticky header's bottom edge as an absolutely positioned overlay. It must not add height, padding, or margin to the navigation layout. The overlay is pointer-transparent (`pointer-events: none`) so hover, mouseover, and click hit-testing continue to reach the header/navigation area underneath it.
 
-The fixed theme toggle keeps an 8rem top-right corner shell for the hover/focus halo, but the actual resting `.theme-toggle` button is a centred 64px target around the 24px icon, inset by `{spacing.sm}` from the viewport corner. Its resting `clip-path` radius is 32px and centred on the button itself, so the painted halo, keyboard focus target, and first-click hit area stay aligned.
+The fixed theme toggle keeps an 8rem top-right corner shell for the hover and focus halo. The `.theme-toggle` button deliberately fills that shell, while `clip-path` keeps the resting visible and clickable area to a small 1.4rem radial field around the 1.5rem icon, inset 1.75rem from the viewport corner. On hover or focus, the same radial field expands to 4.5rem and may widen into the header. This is intentional: the toggle is only visible at the top of the page while the animated title is already visible, and the radial fade is a wanted part of the header interaction rather than an accessibility defect.
 
 The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
 

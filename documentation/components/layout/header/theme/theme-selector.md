@@ -2,7 +2,7 @@
 title: ThemeSelector
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-09-12T00:00:00+07:00
 ---
 
 Renders a light/dark theme toggle button as a custom element, backed by a shared theme manager that persists the choice to `localStorage` and reacts to the operating system's colour scheme.
@@ -44,11 +44,13 @@ An inline, `data-astro-rerun` script defines a singleton theme manager on `windo
 
 ### `<theme-selector>` custom element
 
-Registers a `theme-selector` custom element (idempotently, guarded by `customElements.get`) whose `connectedCallback` renders a `<button role="switch">` with an inline sun/moon SVG icon. Clicking the button cycles between `"light"` and `"dark"` (not `"auto"`) via `nextTheme()`, and calls `theme.setTheme()`. The element listens for `theme-changed` to keep its `aria-checked` and `aria-label` (`"Switch to light theme"` / `"Switch to dark theme"`) in sync, and removes the listener in `disconnectedCallback`.
+Registers a `theme-selector` custom element with a `customElements.get` guard whose `connectedCallback` renders a `<button role="switch">` with an inline sun/moon SVG icon. Clicking the button cycles between `"light"` and `"dark"` (not `"auto"`) via `nextTheme()`, and calls `theme.setTheme()`. The element listens for `theme-changed` to keep its `aria-checked` and `aria-label` (`"Switch to light theme"` / `"Switch to dark theme"`) in sync, and removes the listener in `disconnectedCallback`.
 
 ### Icon animation
 
 The sun/moon SVG morphs via CSS: `.theme-toggle-icon` rotates 180 degrees in dark mode, `.theme-toggle-rays` shrink and fade out, and `.theme-toggle-cutout` slides in to turn the circle into a crescent. All transitions collapse to `0.01ms` under `@media (prefers-reduced-motion: reduce)`. There is deliberately no hover/active scale ("pressed button") effect, since it visually conflicts with the icon's own morph animation.
+
+When the selector is mounted in the fixed header corner, `Header.astro` expands the button to the full 8rem corner shell and uses `clip-path` to keep the resting hit area small. The hover and focus halo intentionally grows beyond the icon area and may widen into the header while the page is at the top. Do not shrink the actual `.theme-toggle` box to the resting circle; doing so clips the radial fade and removes the established header interaction.
 
 ## Extending
 

@@ -5,7 +5,23 @@ created: 2026-07-27T00:00:00+07:00
 updated: 2026-07-27T00:00:00+07:00
 ---
 
-## Production Deployment
+## Preview deployment
+
+Use the preview command for test deploys:
+
+```bash
+npm run deploy:preview
+```
+
+This runs the normal cache-preserving `npm run build`, then uploads the generated `dist/` directory with:
+
+```bash
+netlify deploy --dir dist --no-build --context deploy-preview --created-via=manual --message "test preview"
+```
+
+The preview path does not run `release`, does not pass `--prod`, and does not clean image caches. Do not use `npm run build:clean` or `clean:build-caches` for a test preview unless cached image output is known to be stale and a clean rebuild was explicitly requested.
+
+## Production deployment
 
 Production deployment is orchestrated through `wireit` in `package.json`.
 

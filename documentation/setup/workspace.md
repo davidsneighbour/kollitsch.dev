@@ -91,13 +91,13 @@ explicitly so the full shared DNB configuration is active after synchronising.
 | Redundant local settings | Keys in local whose value is identical to base. Remove them from local. |
 | Source settings missing from output | Keys in base or local that do not appear in the merge result. Should not happen with a clean merge; investigate if reported. |
 
-### Optimization opportunities
+### Safeguards and optimisation opportunities
 
 **1. Move Peacock writes to local.**
 Peacock writes both `peacock.color` and `workbench.colorCustomizations` to `settings.json` when you pick a color via the command palette. Since `workbench.colorCustomizations` already lives in `settings.local.jsonc`, consider also moving `peacock.color` there so both Peacock-related keys stay together in local.
 
-**2. Add `vscode:audit` to the pre-commit hook.**
-Currently `lint-staged` does not run the audit. Adding `npm run vscode:audit` (or at minimum `npm run vscode:check`) to the pre-commit stage via `lint-staged` would catch manual `settings.json` edits before they are committed.
+**2. Keep the lint-staged audit active.**
+`lint-staged` runs `vscode:audit` when `.vscode/settings.json`, `.vscode/settings.base.jsonc`, or `.vscode/settings.local.jsonc` is staged. This catches direct VS Code writes and source-file edits that have not been synced before commit.
 
 **3. Gitignore `settings.json` and generate it on CI.**
 Because `settings.json` is generated, it could be excluded from version control and regenerated on every machine (including CI) via the `postinstall:vscode` hook. The tradeoff is that VS Code will not work in a fresh clone until `npm install` has run.

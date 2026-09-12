@@ -583,7 +583,7 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
 
     .stat strong {
       display: block;
-      font-size: 1.75rem;
+      font-size: 1.875rem;
       line-height: 1;
     }
 

@@ -1,7 +1,9 @@
 {
   "detector": {
     "ignoreRules": [],
-    "ignoreFiles": [],
+    "ignoreFiles": [
+      "src/scripts/linting/vale-report.ts"
+    ],
     "ignoreValues": [
       {
         "rule": "design-system-radius",

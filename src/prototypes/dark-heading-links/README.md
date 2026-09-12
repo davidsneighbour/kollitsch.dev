@@ -4,6 +4,12 @@ This prototype explores dark-mode treatments for headings and linked headings on
 
 ## Route
 
+Open the prototype overview at:
+
+```text
+/prototypes/
+```
+
 Open the picker route at:
 
 ```text

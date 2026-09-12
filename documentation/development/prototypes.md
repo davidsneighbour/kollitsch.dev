@@ -13,6 +13,8 @@ Place prototype routes under `src/pages/prototypes/`.
 
 Place reusable prototype components and notes under `src/prototypes/<prototype-name>/`.
 
+Add each prototype to the list in `src/pages/prototypes/index.astro` so `/prototypes/` stays the discovery page for preview deploys.
+
 Each prototype route should include:
 
 - realistic surrounding context,
@@ -32,6 +34,12 @@ Then open the prototype route, for example:
 
 ```text
 https://127.0.0.1:4401/prototypes/dark-heading-links/
+```
+
+Use the overview page to browse all committed prototypes:
+
+```text
+https://127.0.0.1:4401/prototypes/
 ```
 
 ## Build behaviour

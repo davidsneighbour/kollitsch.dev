@@ -1,0 +1,183 @@
+---
+import '@styles/theme.css';
+
+const prototypes = [
+  {
+    description:
+      'Article and post-card treatments for dark-mode plain headings, linked headings, and link affordances.',
+    href: '/prototypes/dark-heading-links/',
+    name: 'Dark heading and link treatments',
+    status: 'Selected direction implemented',
+    variants: 6,
+  },
+];
+---
+
+<!doctype html>
+<html
+  lang="en"
+  data-theme="dark"
+  class="h-full bg-olive-950 text-gray-100"
+>
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    >
+    <meta
+      name="color-scheme"
+      content="dark"
+    >
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    >
+    <title>Prototypes</title>
+  </head>
+  <body class="typography-ui min-h-screen bg-olive-950 text-gray-100">
+    <main class="prototype-index">
+      <header class="prototype-index__header">
+        <p class="prototype-index__kicker">Preview-only</p>
+        <h1>Prototypes</h1>
+        <p>
+          Design explorations that can be reviewed locally or on Netlify draft
+          deploys.
+        </p>
+      </header>
+
+      <section
+        class="prototype-index__grid"
+        aria-label="Available prototypes"
+      >
+        {prototypes.map((prototype) => (
+          <article class="prototype-card">
+            <a href={prototype.href}>
+              <span class="prototype-card__meta">
+                {prototype.variants} variants
+              </span>
+              <span class="prototype-card__title">{prototype.name}</span>
+              <span class="prototype-card__description">
+                {prototype.description}
+              </span>
+              <span class="prototype-card__status">{prototype.status}</span>
+            </a>
+          </article>
+        ))}
+      </section>
+    </main>
+
+    <style>
+      .prototype-index {
+        width: min(100%, 1120px);
+        margin-inline: auto;
+        padding: 64px 24px 96px;
+      }
+
+      .prototype-index__header {
+        max-width: 720px;
+      }
+
+      .prototype-index__kicker {
+        margin: 0 0 8px;
+        color: var(--color-red-500);
+        font-family: var(--font-jetbrainsmono);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+      }
+
+      .prototype-index h1 {
+        margin: 0;
+        color: var(--color-orange-400);
+        font-family: var(--font-changa);
+        font-size: clamp(3rem, 12vw, 7rem);
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 0.95;
+        text-wrap: balance;
+      }
+
+      .prototype-index__header p:not(.prototype-index__kicker) {
+        margin: 18px 0 0;
+        color: var(--color-gray-300);
+        font-size: clamp(1.125rem, 3vw, 1.5rem);
+        line-height: 1.5;
+      }
+
+      .prototype-index__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: 24px;
+        margin-top: 48px;
+      }
+
+      .prototype-card {
+        border-radius: var(--radius-lg);
+        background: rgb(0 0 0 / 0.2);
+        box-shadow: inset 0 0 0 1px rgb(243 244 246 / 0.1);
+      }
+
+      .prototype-card a {
+        display: grid;
+        min-height: 100%;
+        padding: 24px;
+        color: inherit;
+        text-decoration: none;
+        transition:
+          background-color 150ms ease-out,
+          box-shadow 150ms ease-out,
+          transform 150ms ease-out;
+      }
+
+      .prototype-card a:hover,
+      .prototype-card a:focus-visible {
+        background: rgb(0 0 0 / 0.3);
+        box-shadow:
+          inset 0 0 0 1px rgb(250 146 0 / 0.45),
+          0 16px 48px rgb(0 0 0 / 0.22);
+        transform: translateY(-2px);
+      }
+
+      .prototype-card a:focus-visible {
+        outline: 2px solid rgb(255 255 255 / 0.55);
+        outline-offset: 4px;
+      }
+
+      .prototype-card__meta,
+      .prototype-card__status {
+        color: var(--color-gray-400);
+        font-family: var(--font-jetbrainsmono);
+        font-size: 0.875rem;
+      }
+
+      .prototype-card__title {
+        margin-top: 16px;
+        color: var(--color-orange-400);
+        font-family: var(--font-changa);
+        font-size: clamp(1.75rem, 4vw, 3rem);
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.05;
+        text-wrap: balance;
+      }
+
+      .prototype-card__description {
+        margin-top: 10px;
+        color: var(--color-gray-300);
+        font-size: 1.125rem;
+        line-height: 1.5;
+      }
+
+      .prototype-card__status {
+        margin-top: 24px;
+        color: var(--color-red-500);
+      }
+
+      @media (max-width: 640px) {
+        .prototype-index {
+          padding-inline: 16px;
+        }
+      }
+    </style>
+  </body>
+</html>

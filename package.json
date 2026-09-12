@@ -178,7 +178,7 @@
     "lint:styles:fix": "wireit",
     "lint:vale": "vale --config src/config/.vale.ini --no-exit --output=line ./src/content/",
     "lint:vale:file": "vale --config src/config/.vale.ini --output=line",
-    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=scratch/vale/vale-blog.json --html=scratch/vale/vale-blog.html --open",
+    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=reports/vale/vale-blog.json --html=reports/vale/vale-blog.html --open",
     "update:pre:vale": "wireit",
     "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
     "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
@@ -232,7 +232,7 @@
     "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
     "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
     "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
-    "playwright:install-browsers": "npx playwright install",
+    "test:postinstall": "npx playwright install",
     "test:ui": "vitest --ui",
     "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
     "skills": "npx skills",
@@ -367,6 +367,7 @@
     },
     "postprepare": {
       "dependencies": [
+        "test:postinstall",
         "build:favicons"
       ]
     },

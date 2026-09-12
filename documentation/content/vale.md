@@ -16,11 +16,14 @@ npm run report:vale:blog
 ```
 
 This runs Vale against `src/content/blog`, writes the raw results to
-`scratch/vale/vale-blog.json`, renders a self-contained HTML report to
-`scratch/vale/vale-blog.html`, serves that file locally, and opens it in the
+`reports/vale/vale-blog.json`, renders a self-contained HTML report to
+`reports/vale/vale-blog.html`, serves that file locally, and opens it in the
 VS Code Simple Browser.
 
 The generator lives at `src/scripts/linting/vale-report.ts`.
+
+Older generated reports can still exist under `scratch/vale`; that directory
+is not used by the current report command.
 
 If styles referenced in `src/config/.vale.ini` (`BasedOnStyles` /
 `Packages`) are missing locally, run `npm run update:pre:vale` first to sync

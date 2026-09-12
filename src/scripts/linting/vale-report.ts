@@ -44,8 +44,8 @@ type Options = {
 const DEFAULT_OPTIONS: Options = {
   config: 'src/config/.vale.ini',
   host: '127.0.0.1',
-  html: 'scratch/vale/vale-blog.html',
-  json: 'scratch/vale/vale-blog.json',
+  html: 'reports/vale/vale-blog.html',
+  json: 'reports/vale/vale-blog.json',
   open: false,
   port: 8799,
   serve: false,

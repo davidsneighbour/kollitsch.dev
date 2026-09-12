@@ -81,6 +81,9 @@ npm-debug.log*
 # Lighthouse local reports (JSON + HTML output from lighthouse:* scripts)
 reports/lighthouse/
 
+# Vale local reports (JSON + HTML output from report:vale:* scripts)
+reports/vale/
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

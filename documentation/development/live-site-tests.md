@@ -38,8 +38,7 @@ it would send a real email.
 
 ## Deliberately not covered here
 
-- **Web Vitals / synthetic timing**—already covered by the daily Lighthouse
-  audit (`.github/workflows/lighthouse.yml`, `src/scripts/linting/lighthouse-*.ts`).
+- **Web Vitals / synthetic timing**—already covered by the daily Lighthouse audit (`.github/workflows/lighthouse.yml`, `src/scripts/linting/lighthouse-*.ts`). The workflow stores score-history commits on the `ci/lighthouse` branch so recurring audit updates can be merged into `main` in batches.
 - **Sitemap integrity**—already covered by `npm run lint:sitemap`
   (`src/scripts/linting/verify-sitemap.ts`).
 - **Matomo consent opt-out**—no consent-toggle UI exists on this site to test.

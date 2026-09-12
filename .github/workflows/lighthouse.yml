@@ -1,10 +1,10 @@
 name: Daily Lighthouse audit
 
 # The schedule below runs every day, but a Lighthouse audit is only useful
-# when the site has actually changed since the last one. The "Check for new
-# commits" step compares the current HEAD against the sha recorded in the
-# last src/data/lighthouse/history.json entry (written by lighthouse-ci.ts
-# on every audit) and skips the rest of the job when they match. A manual
+# when the site has actually changed since the last one. The job loads
+# src/data/lighthouse/history.json from the ci/lighthouse branch, compares
+# the current HEAD against the sha recorded by lighthouse-ci.ts on the last
+# audit, and skips the rest of the job when they match. A manual
 # workflow_dispatch run always audits, regardless of whether HEAD moved.
 
 on:
@@ -19,6 +19,10 @@ on:
 
 permissions:
   contents: write
+
+env:
+  LIGHTHOUSE_HISTORY_BRANCH: ci/lighthouse
+  LIGHTHOUSE_HISTORY_FILE: src/data/lighthouse/history.json
 
 concurrency:
   group: lighthouse-daily
@@ -35,6 +39,26 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Load Lighthouse history branch
+        run: |
+          set -euo pipefail
+
+          remote_head="refs/heads/${LIGHTHOUSE_HISTORY_BRANCH}"
+          remote_tracking="refs/remotes/origin/${LIGHTHOUSE_HISTORY_BRANCH}"
+          history_ref="${remote_tracking}:${LIGHTHOUSE_HISTORY_FILE}"
+          history_tmp="${RUNNER_TEMP}/lighthouse-history.json"
+
+          if git fetch --no-tags --depth=1 origin "+${remote_head}:${remote_tracking}"; then
+          if git show "${history_ref}" >"${history_tmp}"; then
+          mv "${history_tmp}" "${LIGHTHOUSE_HISTORY_FILE}"
+          echo "Loaded ${LIGHTHOUSE_HISTORY_FILE} from ${LIGHTHOUSE_HISTORY_BRANCH}."
+          else
+          echo "${LIGHTHOUSE_HISTORY_BRANCH} has no ${LIGHTHOUSE_HISTORY_FILE}; using checked-out file."
+          fi
+          else
+          echo "${LIGHTHOUSE_HISTORY_BRANCH} does not exist yet; using checked-out file."
+          fi
+
       - name: Check for new commits
         id: check
         run: |
@@ -47,7 +71,7 @@ jobs:
           fi
 
           current_sha=$(git rev-parse --short HEAD)
-          last_sha=$(jq -r 'last.sha // empty' src/data/lighthouse/history.json)
+          last_sha=$(jq -r 'last.sha // empty' "${LIGHTHOUSE_HISTORY_FILE}")
 
           if [ -z "$last_sha" ] || [ "$last_sha" != "$current_sha" ]; then
           echo "should_run=true" >>"$GITHUB_OUTPUT"
@@ -91,9 +115,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/lighthouse/history.json
+          git checkout -B "${LIGHTHOUSE_HISTORY_BRANCH}"
+          git add "${LIGHTHOUSE_HISTORY_FILE}"
           MSG="chore(lighthouse): update score history [skip ci]"
-          git diff --cached --quiet || git commit -m "${MSG}"
+          if git diff --cached --quiet; then
+          echo "No Lighthouse history changes to commit."
+          exit 0
+          fi
+          git commit -m "${MSG}"
           REMOTE="https://x-access-token:${GITHUB_TOKEN}"
           REMOTE="${REMOTE}@github.com/${GITHUB_REPOSITORY}.git"
-          git push "${REMOTE}" HEAD
+          git push --force-with-lease "${REMOTE}" "HEAD:${LIGHTHOUSE_HISTORY_BRANCH}"

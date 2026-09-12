@@ -1,0 +1,606 @@
+---
+import '@styles/theme.css';
+
+import EditorialStructure from '../../prototypes/dark-heading-links/EditorialStructure.astro';
+import OrangeWave from '../../prototypes/dark-heading-links/OrangeWave.astro';
+import QuietHierarchy from '../../prototypes/dark-heading-links/QuietHierarchy.astro';
+import SoftWave from '../../prototypes/dark-heading-links/SoftWave.astro';
+import StraightLine from '../../prototypes/dark-heading-links/StraightLine.astro';
+import WholeCardLink from '../../prototypes/dark-heading-links/WholeCardLink.astro';
+
+const variants = [
+  'Quiet',
+  'Editorial',
+  'Whole card',
+  'Orange wave',
+  'Soft wave',
+  'Straight line',
+];
+---
+
+<!doctype html>
+<html
+  lang="en"
+  data-theme="dark"
+  class="h-full bg-olive-950 text-gray-100"
+>
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    >
+    <meta
+      name="color-scheme"
+      content="dark"
+    >
+    <title>Dark heading and link prototypes</title>
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    >
+  </head>
+  <body class="typography-ui min-h-screen bg-olive-950 text-gray-100">
+    <main
+      id="stage"
+      class="proto-stage"
+      aria-live="polite"
+    ></main>
+
+    <template data-proto-variant="1">
+      <QuietHierarchy />
+    </template>
+    <template data-proto-variant="2">
+      <EditorialStructure />
+    </template>
+    <template data-proto-variant="3">
+      <WholeCardLink />
+    </template>
+    <template data-proto-variant="4">
+      <OrangeWave />
+    </template>
+    <template data-proto-variant="5">
+      <SoftWave />
+    </template>
+    <template data-proto-variant="6">
+      <StraightLine />
+    </template>
+
+    <nav
+      class="proto-picker"
+      aria-label="Prototype variants"
+    >
+      <span
+        class="proto-picker-highlight"
+        aria-hidden="true"
+      ></span>
+      {variants.map((variant, index) => (
+        <button
+          class="proto-picker-item"
+          data-proto-index={index}
+          data-active={index === 0 ? "" : undefined}
+          aria-current={index === 0 ? "true" : undefined}
+        >
+          {variant}
+        </button>
+      ))}
+    </nav>
+
+    <style is:global>
+      .proto-stage {
+        min-height: 100vh;
+      }
+
+      .proto-shell {
+        width: min(100%, 1180px);
+        margin-inline: auto;
+        padding: 56px 24px 112px;
+      }
+
+      .proto-article {
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        background: rgb(0 0 0 / 0.2);
+        box-shadow: inset 0 0 0 1px rgb(243 244 246 / 0.1);
+        padding: 32px;
+      }
+
+      .proto-kicker,
+      .proto-meta {
+        margin: 0;
+        color: var(--color-gray-400);
+        font-size: 0.875rem;
+      }
+
+      .proto-kicker {
+        font-family: var(--font-jetbrainsmono);
+        text-transform: uppercase;
+      }
+
+      .proto-article h1,
+      .proto-prose h2 {
+        color: var(--color-gray-100);
+        font-family: var(--font-changa);
+        font-weight: 400;
+        letter-spacing: 0;
+        text-wrap: balance;
+      }
+
+      .proto-article h1 {
+        max-width: 11ch;
+        margin: 12px 0 8px;
+        font-size: clamp(3rem, 12vw, 7rem);
+        line-height: 0.95;
+      }
+
+      .proto-subtitle {
+        max-width: 62ch;
+        margin: 0;
+        color: var(--color-gray-300);
+        font-size: clamp(1.125rem, 3vw, 1.5rem);
+        line-height: 1.5;
+      }
+
+      .proto-meta {
+        margin-top: 20px;
+      }
+
+      .proto-prose {
+        max-width: 72ch;
+        margin-top: 40px;
+        color: var(--color-gray-200);
+        font-size: 1.125rem;
+        line-height: 1.65;
+      }
+
+      .proto-prose h2 {
+        margin: 32px 0 8px;
+        font-size: clamp(1.875rem, 5vw, 3rem);
+        line-height: 1.05;
+      }
+
+      .proto-prose p {
+        margin: 0;
+      }
+
+      .proto-prose a,
+      .proto-card a,
+      .proto-card-link {
+        color: var(--color-red-500);
+        text-underline-offset: 2px;
+        transition:
+          color 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          text-underline-offset 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          background-color 150ms ease-out,
+          box-shadow 150ms ease-out,
+          transform 150ms ease-out;
+      }
+
+      .proto-prose a:hover,
+      .proto-card a:hover,
+      .proto-card-link:hover {
+        color: var(--color-orange-400);
+        text-underline-offset: 4px;
+      }
+
+      .proto-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 24px;
+      }
+
+      .proto-card {
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        background: rgb(0 0 0 / 0.2);
+        box-shadow: inset 0 0 0 1px rgb(243 244 246 / 0.1);
+      }
+
+      .proto-card-media {
+        display: block;
+        aspect-ratio: 2 / 1;
+        background:
+          linear-gradient(135deg, rgb(197 65 9 / 0.25), transparent 46%),
+          linear-gradient(315deg, rgb(250 146 0 / 0.18), transparent 50%),
+          var(--color-gray-900);
+      }
+
+      .proto-card h2 {
+        margin: 18px 18px 8px;
+        font-family: var(--font-changa);
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .proto-card p {
+        margin: 0 18px 18px;
+        color: var(--color-gray-300);
+        line-height: 1.5;
+      }
+
+      .proto-read-more {
+        display: inline-flex;
+        margin: 0 18px 18px;
+        font-family: var(--font-jetbrainsmono);
+        font-size: 0.875rem;
+      }
+
+      .proto-quiet .proto-prose a,
+      .proto-quiet .proto-card h2 a,
+      .proto-quiet .proto-read-more {
+        text-decoration-line: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-color: rgb(239 68 68 / 0.8);
+      }
+
+      .proto-quiet .proto-card h2 a {
+        color: var(--color-gray-100);
+      }
+
+      .proto-quiet .proto-card h2 a:hover {
+        color: var(--color-orange-400);
+      }
+
+      .proto-editorial .proto-article h1,
+      .proto-editorial .proto-prose h2:not(:has(a)) {
+        padding-left: 18px;
+        border-left: 3px solid rgb(250 146 0 / 0.5);
+      }
+
+      .proto-editorial .proto-prose h2 a::after,
+      .proto-editorial .proto-card h2 a::after {
+        content: " /";
+        color: var(--color-orange-400);
+        font-family: var(--font-jetbrainsmono);
+        font-size: 0.6em;
+      }
+
+      .proto-editorial .proto-card {
+        border-top: 3px solid rgb(250 146 0 / 0.65);
+      }
+
+      .proto-whole-card .proto-card-link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .proto-whole-card .proto-card-link:hover,
+      .proto-whole-card .proto-card-link:focus-visible {
+        color: inherit;
+        background: rgb(0 0 0 / 0.3);
+        box-shadow:
+          inset 0 0 0 1px rgb(250 146 0 / 0.45),
+          0 16px 48px rgb(0 0 0 / 0.22);
+        transform: translateY(-2px);
+      }
+
+      .proto-card-body {
+        display: block;
+        padding: 18px;
+      }
+
+      .proto-card-title {
+        display: block;
+        color: var(--color-gray-100);
+        font-family: var(--font-changa);
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .proto-card-copy {
+        display: block;
+        margin-top: 8px;
+        color: var(--color-gray-300);
+        line-height: 1.5;
+      }
+
+      .proto-whole-card .proto-read-more {
+        margin: 18px 0 0;
+        color: var(--color-red-500);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .proto-whole-card .proto-card-link:hover .proto-read-more,
+      .proto-whole-card .proto-card-link:focus-visible .proto-read-more {
+        color: var(--color-orange-400);
+        text-underline-offset: 4px;
+      }
+
+      .proto-orange-wave .proto-article h1,
+      .proto-orange-wave .proto-prose h2,
+      .proto-orange-wave .proto-prose h2 a,
+      .proto-orange-wave .proto-card h2 a {
+        color: var(--color-orange-400);
+      }
+
+      .proto-orange-wave .proto-prose a,
+      .proto-orange-wave .proto-card h2 a,
+      .proto-orange-wave .proto-read-more {
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: 0.14em;
+        text-decoration-color: var(--color-red-500);
+        text-underline-offset: 0.16em;
+      }
+
+      .proto-orange-wave .proto-prose h2 a,
+      .proto-orange-wave .proto-card h2 a {
+        text-decoration-color: rgb(255 255 255 / 0.82);
+      }
+
+      .proto-orange-wave .proto-prose a:hover,
+      .proto-orange-wave .proto-card h2 a:hover,
+      .proto-orange-wave .proto-read-more:hover {
+        color: var(--color-red-500);
+        text-decoration-color: var(--color-red-500);
+        text-underline-offset: 0.22em;
+      }
+
+      .proto-soft-wave .proto-article h1,
+      .proto-soft-wave .proto-prose h2,
+      .proto-soft-wave .proto-prose h2 a,
+      .proto-soft-wave .proto-card h2 a,
+      .proto-straight-line .proto-article h1,
+      .proto-straight-line .proto-prose h2,
+      .proto-straight-line .proto-prose h2 a,
+      .proto-straight-line .proto-card h2 a {
+        color: var(--color-orange-400);
+      }
+
+      .proto-soft-wave .proto-prose h2 a,
+      .proto-soft-wave .proto-card h2 a,
+      .proto-straight-line .proto-prose h2 a,
+      .proto-straight-line .proto-card h2 a {
+        text-decoration-line: underline;
+        text-decoration-thickness: 0.056em;
+        text-decoration-color: var(--color-red-500);
+        text-decoration-skip-ink: auto;
+        text-underline-offset: 0.14em;
+      }
+
+      .proto-soft-wave .proto-read-more,
+      .proto-soft-wave .proto-prose p a,
+      .proto-straight-line .proto-read-more,
+      .proto-straight-line .proto-prose p a {
+        color: var(--color-red-500);
+        text-decoration-line: underline;
+        text-decoration-thickness: 0.045em;
+        text-decoration-color: var(--color-red-500);
+        text-decoration-skip-ink: auto;
+        text-underline-offset: 0.14em;
+      }
+
+      .proto-soft-wave .proto-prose h2 a,
+      .proto-soft-wave .proto-card h2 a,
+      .proto-soft-wave .proto-read-more,
+      .proto-soft-wave .proto-prose p a {
+        text-decoration-style: wavy;
+      }
+
+      .proto-straight-line .proto-prose h2 a,
+      .proto-straight-line .proto-card h2 a,
+      .proto-straight-line .proto-read-more,
+      .proto-straight-line .proto-prose p a {
+        text-decoration-style: solid;
+      }
+
+      .proto-soft-wave .proto-prose h2 a:hover,
+      .proto-soft-wave .proto-card h2 a:hover,
+      .proto-soft-wave .proto-read-more:hover,
+      .proto-soft-wave .proto-prose p a:hover,
+      .proto-straight-line .proto-prose h2 a:hover,
+      .proto-straight-line .proto-card h2 a:hover,
+      .proto-straight-line .proto-read-more:hover,
+      .proto-straight-line .proto-prose p a:hover {
+        color: var(--color-red-500);
+        text-decoration-color: var(--color-red-500);
+        text-underline-offset: 0.18em;
+      }
+
+      .proto-card-link:focus-visible,
+      .proto-prose a:focus-visible,
+      .proto-card a:focus-visible {
+        outline: 2px solid rgb(255 255 255 / 0.55);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 760px) {
+        .proto-shell {
+          padding-inline: 16px;
+        }
+
+        .proto-article {
+          padding: 24px;
+        }
+
+        .proto-card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .proto-picker {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2147483647;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 4px;
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.82);
+        -webkit-backdrop-filter: blur(12px) saturate(1.4);
+        backdrop-filter: blur(12px) saturate(1.4);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+          0 8px 24px rgba(0, 0, 0, 0.24),
+          0 2px 6px rgba(0, 0, 0, 0.12);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 13px;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      .proto-picker-highlight {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        height: 28px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        will-change: transform;
+      }
+
+      /* The slide is enabled only after first paint (data-ready), so load doesn't animate. */
+      .proto-picker[data-ready] .proto-picker-highlight {
+        transition:
+          transform 250ms cubic-bezier(0.23, 1, 0.32, 1),
+          width 250ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .proto-picker[data-ready] .proto-picker-highlight {
+          transition: none;
+        }
+      }
+
+      .proto-picker-item {
+        position: relative; /* sits above the highlight */
+        display: flex;
+        align-items: center;
+        height: 28px;
+        padding: 0 12px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.55);
+        font: inherit;
+        cursor: pointer;
+        transition: color 150ms ease-out;
+      }
+
+      .proto-picker-item:hover {
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .proto-picker-item:active {
+        transform: scale(0.97);
+      }
+
+      .proto-picker-item:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.4);
+        outline-offset: 2px;
+      }
+
+      .proto-picker-item[data-active] {
+        color: #fff;
+      }
+
+      .proto-picker-divider {
+        width: 1px;
+        height: 16px;
+        margin: 0 4px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .proto-picker-replay {
+        padding: 0 10px;
+        font-size: 14px;
+      }
+
+      .proto-picker[data-position="top"] {
+        bottom: auto;
+        top: 24px;
+      }
+    </style>
+
+    <script>
+      const stage = document.getElementById('stage') as HTMLElement;
+      const picker = document.querySelector('.proto-picker') as HTMLElement;
+      const highlight = picker.querySelector(
+        '.proto-picker-highlight',
+      ) as HTMLElement;
+      const items = [
+        ...picker.querySelectorAll(
+          '.proto-picker-item:not(.proto-picker-replay)',
+        ),
+      ] as HTMLButtonElement[];
+      const replay = picker.querySelector(
+        '.proto-picker-replay',
+      ) as HTMLButtonElement | null;
+      const variants = [
+        ...document.querySelectorAll('template[data-proto-variant]'),
+      ] as HTMLTemplateElement[];
+      let current = 0;
+
+      function moveHighlight() {
+        const el = items[current];
+        if (!el) return;
+        highlight.style.width = el.offsetWidth + 'px';
+        highlight.style.transform = `translateX(${el.offsetLeft}px)`;
+      }
+
+      function mount(i: number) {
+        stage.innerHTML = '';
+        requestAnimationFrame(() => {
+          stage.innerHTML = variants[i]?.innerHTML ?? '';
+        });
+      }
+
+      function setActive(i: number) {
+        if (i < 0 || i >= variants.length) return;
+        current = i;
+        items.forEach((el, j) => {
+          el.toggleAttribute('data-active', j === i);
+          if (j === i) el.setAttribute('aria-current', 'true');
+          else el.removeAttribute('aria-current');
+        });
+        moveHighlight();
+        const url = new URL(location.href);
+        url.searchParams.set('v', String(i + 1));
+        history.replaceState(null, '', url);
+        mount(i);
+      }
+
+      items.forEach((el, i) =>
+        el.addEventListener('click', () => setActive(i)),
+      );
+      replay?.addEventListener('click', () => mount(current));
+      window.addEventListener('resize', moveHighlight);
+
+      document.addEventListener('keydown', (e) => {
+        const target = e.target as HTMLElement | null;
+        if (!target) return;
+        if (
+          /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName) ||
+          target.isContentEditable
+        )
+          return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const num = parseInt(e.key, 10);
+        if (num >= 1 && num <= variants.length) setActive(num - 1);
+        else if (e.key === 'ArrowRight')
+          setActive((current + 1) % variants.length);
+        else if (e.key === 'ArrowLeft')
+          setActive((current - 1 + variants.length) % variants.length);
+        else if (e.key === 'r' || e.key === 'R') mount(current);
+      });
+
+      setActive(
+        (parseInt(new URLSearchParams(location.search).get('v') ?? '1', 10) ||
+          1) - 1,
+      );
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => picker.setAttribute('data-ready', '')),
+      );
+    </script>
+  </body>
+</html>

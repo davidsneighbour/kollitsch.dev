@@ -21,6 +21,14 @@ netlify deploy --dir dist --no-build --context deploy-preview --created-via=manu
 
 The preview path does not run `release`, does not pass `--prod`, and does not clean image caches. Do not use `npm run build:clean` or `clean:build-caches` for a test preview unless cached image output is known to be stale and a clean rebuild was explicitly requested.
 
+Prototype routes use a stricter preview-only path:
+
+```bash
+npm run deploy:preview:prototypes
+```
+
+This keeps `dist/prototypes/` in the built output, then uploads the result as a Netlify draft deploy with `--no-build`. Normal builds and production deploys remove prototype output. See [Prototypes](../development/prototypes.md) for the full workflow.
+
 ## Production deployment
 
 Production deployment is orchestrated through `wireit` in `package.json`.

@@ -187,9 +187,10 @@
     "ci:check:vscode": "npm run vscode:check",
     "postinstall:vscode": "npm run vscode:sync",
     "astro": "astro",
-    "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
+    "build": "astro check && astro build && rm -rf dist/test/ && node src/scripts/build/prune-prototypes.ts && npm run docs:api",
     "build:clean": "npm run clean:build-caches && npm run build",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
+    "build:prototypes": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build",
     "check": "astro check && npm run check:scripts",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
     "clean:astro": "wireit",
@@ -219,6 +220,9 @@
     "deploy:preview": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview\" -- npm run deploy:preview:pipeline",
     "deploy:preview:build": "wireit",
     "deploy:preview:pipeline": "wireit",
+    "deploy:preview:prototypes": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview:prototypes\" -- npm run deploy:preview:prototypes:pipeline",
+    "deploy:preview:prototypes:build": "wireit",
+    "deploy:preview:prototypes:pipeline": "wireit",
     "deploy:pipeline": "wireit",
     "deploy:build": "wireit",
     "deploy:release": "wireit",
@@ -358,6 +362,15 @@
     },
     "deploy:preview:build": {
       "command": "npm run build"
+    },
+    "deploy:preview:prototypes:pipeline": {
+      "command": "netlify deploy --dir dist --no-build --context deploy-preview --created-via=manual --message \"prototype preview\"",
+      "dependencies": [
+        "deploy:preview:prototypes:build"
+      ]
+    },
+    "deploy:preview:prototypes:build": {
+      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
     },
     "deploy:pipeline": {
       "command": "bash -c 'netlify deploy --message \"v$(node -p \"require(\\\"./package.json\\\").version\")\" --created-via=release --prod --open'",

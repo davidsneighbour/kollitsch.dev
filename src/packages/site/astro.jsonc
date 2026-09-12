@@ -34,9 +34,10 @@
   },
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build && rm -rf dist/test/ && npm run docs:api",
+    "build": "astro check && astro build && rm -rf dist/test/ && node src/scripts/build/prune-prototypes.ts && npm run docs:api",
     "build:clean": "npm run clean:build-caches && npm run build",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
+    "build:prototypes": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build",
     "check": "astro check && npm run check:scripts",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
     "clean:astro": "wireit",

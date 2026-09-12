@@ -120,7 +120,9 @@ Keeping them separate avoids accidental styling leakage and makes both systems e
 
 This centralises reading rules instead of scattering them across components.
 
-Prose headings inherit the surrounding reading colour. They do not set their own white, black, or accent colour because the Changa display face already provides the hierarchy, and inherited colour keeps long-form pages calmer against the olive surface palette.
+In light mode, prose headings inherit the surrounding reading colour. They do not set their own white, black, or accent colour because the Changa display face already provides the hierarchy, and inherited colour keeps long-form pages calmer against the olive surface palette.
+
+In dark mode, headings across the site use the orange heading token. A heading that contains a link keeps the same orange heading colour, and the link affordance comes from a straight red underline with skip-ink enabled. On hover, the linked heading text and underline both turn red, and the underline moves slightly farther from the text. Normal inline links stay red in dark mode, so body links and linked headings do not rely on the same signal.
 
 Some content elements inside prose need local scaling without breaking the overall reading system.
 

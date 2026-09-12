@@ -21,6 +21,8 @@ colors:
   on-surface: "oklch(43.8% 0.017 39.3deg)"
   on-surface-dark: "oklch(92.2% 0.005 34.3deg)"
   on-surface-muted: "oklch(54.7% 0.021 43.1deg)"
+  heading-dark: "oklch(75% 0.183 55.934deg)"
+  heading-link-underline-dark: "oklch(63.7% 0.237 25.331deg)"
   # Structural
   border: "oklch(92.2% 0.005 34.3deg)"
   border-dark: "oklch(36.7% 0.016 35.7deg)"
@@ -154,6 +156,12 @@ components:
     textColor: "{colors.pagination-inactive-dark}"
   prose-heading:
     textColor: "inherit"
+  heading-dark:
+    textColor: "{colors.heading-dark}"
+  heading-link-dark:
+    textColor: "{colors.heading-dark}"
+  heading-link-dark-hover:
+    textColor: "{colors.heading-link-underline-dark}"
   card:
     backgroundColor: "{colors.surface-raised}"
     rounded: "{rounded.lg}"
@@ -445,13 +453,15 @@ Inline mode: underline-on-hover pattern, no border, fits within prose text
 
 ### Links (prose)
 
-All links site-wide (not just prose) use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover, `link-dark`/`link-dark-hover` in dark mode; the transition is `150ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`. Do not use the primary orange for links - that color is reserved for CTA buttons and the brand mark.
+All links site-wide (not just prose) use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover, `link-dark`/`link-dark-hover` in dark mode; the transition is `150ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`. Do not use the primary orange for ordinary inline links - that color is reserved for CTA buttons, the brand mark, and the dark-mode heading treatment.
 
 Hover also lifts the underline away from the text: `text-underline-offset` animates `2px → 4px` on the same transition, alongside the color shift. This is the site's one deliberate link-hover motion - restrained, and paired with color so hover is legible even for readers who don't perceive the color change.
 
 **The Unlayered Hover Rule.** The base `a`/`a:hover` color rules live in `src/styles/theme.css`'s default `@apply hover:*`/`dark:*`/`dark:hover:*` chains do not compile when `@apply`-ed onto a bare tag selector (confirmed on Tailwind 4.3.3 - they are silently dropped, no build error) - write the variant as literal CSS instead. Separately, the hover *color* rule must live in `@layer utilities`, not `@layer base`: `.typography-reading`'s inlined `prose` styles (`@layer components`) set a fixed, non-hover `color` on every link inside article body text, and `@layer components` always outranks `@layer base` regardless of selector specificity. Only `@layer utilities` reliably wins.
 
-Prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
+In dark mode, headings across the site use `heading-dark` (`text-orange-400`) so article pages, post cards, taxonomy pages, and non-blog content pages keep one consistent heading colour. Linked headings keep that same orange text at rest, but add a straight red underline using `heading-link-underline-dark` (`text-red-500`), `0.056em` thickness, `0.14em` underline offset, and `text-decoration-skip-ink: auto`; on hover, the heading text and underline both become red and the offset increases to `0.18em`. This makes "heading" and "link" visible without relying on colour alone.
+
+In light mode, prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
 
 ### Footer Author Avatar
 

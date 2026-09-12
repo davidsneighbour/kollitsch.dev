@@ -866,6 +866,18 @@
 }
 
 @layer utilities {
+  :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--color-orange-400);
+  }
+
+  :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a {
+    color: var(--color-orange-400);
+    text-decoration: underline solid var(--color-red-500);
+    text-decoration-thickness: 0.056em;
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.14em;
+  }
+
   /*
    * Link hover color, kept in the utilities layer (highest priority) so it
    * wins over `.typography-reading`'s inlined `prose` rules in @layer
@@ -876,7 +888,24 @@
     color: var(--color-orange-700);
   }
 
-  :where([data-theme="dark"], [data-theme="dark"] *) a:hover {
+  :where([data-theme="dark"]) a:hover {
     color: var(--color-orange-400);
+  }
+
+  :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a:hover {
+    color: var(--color-red-500);
+    text-decoration-color: var(--color-red-500);
+    text-underline-offset: 0.18em;
+  }
+
+  :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a.heading-link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.056em;
+    text-underline-offset: 0.14em;
+  }
+
+  :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a.heading-link:hover {
+    text-decoration-thickness: 0.056em;
+    text-underline-offset: 0.18em;
   }
 }

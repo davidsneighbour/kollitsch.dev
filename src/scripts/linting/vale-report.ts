@@ -47,7 +47,7 @@ const DEFAULT_OPTIONS: Options = {
   html: 'scratch/vale/vale-blog.html',
   json: 'scratch/vale/vale-blog.json',
   open: false,
-  port: 8787,
+  port: 8799,
   serve: false,
   target: 'src/content/blog',
 };
@@ -200,6 +200,15 @@ function serveStaticReport(host: string, port: number, directory: string): void 
       'Content-Type': contentTypeFor(absolutePath),
     });
     fs.createReadStream(absolutePath).pipe(response);
+  });
+
+  server.on('error', (error: NodeJS.ErrnoException) => {
+    if (error.code === 'EADDRINUSE') {
+      console.error(`Port ${port} is already in use; cannot start Vale report server.`);
+    } else {
+      console.error(error.message);
+    }
+    process.exit(1);
   });
 
   server.listen(port, host, () => {
@@ -423,23 +432,32 @@ function renderRuleList(counts: Map<string, number>): string {
 
 function renderRows(issues: NormalizedIssue[]): string {
   return issues
-    .map(
-      (issue) => `
-        <tr
+    .map((issue) => {
+      const location = `${issue.file}:${issue.line}:${issue.column}`;
+      const search = [location, issue.check, issue.message, issue.match]
+        .join(' ')
+        .toLowerCase();
+      const dataAttributes = `
           data-severity="${escapeAttribute(issue.severity)}"
           data-rule="${escapeAttribute(issue.check)}"
           data-file="${escapeAttribute(issue.file)}"
-        >
-          <td>
+          data-search="${escapeAttribute(search)}"
+      `;
+
+      return `
+        <tr class="issue-row issue-row-location" ${dataAttributes}>
+          <td rowspan="2">
             <span class="severity severity-${escapeAttribute(issue.severity)}">
               ${escapeHtml(issue.severity)}
             </span>
           </td>
-          <td>
+          <td colspan="2">
             <a href="${escapeAttribute(toVsCodeUri(issue))}">
-              ${escapeHtml(issue.file)}:${issue.line}:${issue.column}
+              ${escapeHtml(location)}
             </a>
           </td>
+        </tr>
+        <tr class="issue-row issue-row-detail" ${dataAttributes}>
           <td><code>${escapeHtml(issue.check)}</code></td>
           <td>
             <p>${escapeHtml(issue.message)}</p>
@@ -450,8 +468,8 @@ function renderRows(issues: NormalizedIssue[]): string {
             }
           </td>
         </tr>
-      `
-    )
+      `;
+    })
     .join('');
 }
 
@@ -636,9 +654,23 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
       overflow-wrap: anywhere;
     }
 
+    .rule-filter.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
     table {
       border-collapse: collapse;
+      table-layout: fixed;
       width: 100%;
+    }
+
+    colgroup .col-severity {
+      width: 110px;
+    }
+
+    colgroup .col-rule {
+      width: 220px;
     }
 
     thead {
@@ -650,21 +682,27 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
 
     th,
     td {
-      border-bottom: 1px solid var(--border);
+      overflow-wrap: anywhere;
       padding: 10px 12px;
       text-align: left;
       vertical-align: top;
     }
 
     th {
+      border-bottom: 1px solid var(--border);
       color: var(--muted);
       font-size: 0.875rem;
       font-weight: 700;
     }
 
-    td:nth-child(2) {
-      overflow-wrap: anywhere;
-      width: 34%;
+    .issue-row-location td {
+      border-top: 1px solid var(--border);
+      padding-block-end: 4px;
+    }
+
+    .issue-row-detail td {
+      border-bottom: 1px solid var(--border);
+      padding-block-start: 0;
     }
 
     code {
@@ -803,12 +841,15 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
     <section class="layout">
       <section class="panel" aria-label="Issues">
         <table>
+          <colgroup>
+            <col class="col-severity">
+            <col class="col-rule">
+            <col>
+          </colgroup>
           <thead>
             <tr>
               <th>Severity</th>
-              <th>Location</th>
-              <th>Rule</th>
-              <th>Message</th>
+              <th colspan="2">Location</th>
             </tr>
           </thead>
           <tbody id="issues">
@@ -830,7 +871,7 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
   </main>
 
   <script>
-    const rows = Array.from(document.querySelectorAll('#issues tr'));
+    const rows = Array.from(document.querySelectorAll('#issues .issue-row'));
     const search = document.querySelector('#search');
     const severity = document.querySelector('#severity');
     const reset = document.querySelector('#reset');
@@ -844,13 +885,13 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
       let visible = 0;
 
       for (const row of rows) {
-        const matchesQuery = query === '' || row.textContent.toLowerCase().includes(query);
+        const matchesQuery = query === '' || row.dataset.search.includes(query);
         const matchesSeverity = selectedSeverity === '' || row.dataset.severity === selectedSeverity;
         const matchesRule = selectedRule === '' || row.dataset.rule === selectedRule;
         const isVisible = matchesQuery && matchesSeverity && matchesRule;
         row.hidden = !isVisible;
 
-        if (isVisible) {
+        if (isVisible && row.classList.contains('issue-row-location')) {
           visible += 1;
         }
       }
@@ -858,23 +899,32 @@ function renderHtml(issues: NormalizedIssue[], options: Options): string {
       empty.style.display = visible === 0 ? 'block' : 'none';
     }
 
+    const ruleButtons = Array.from(document.querySelectorAll('.rule-filter'));
+
+    function setSelectedRule(rule) {
+      selectedRule = rule;
+
+      for (const button of ruleButtons) {
+        button.classList.toggle('active', button.dataset.rule === selectedRule);
+      }
+
+      applyFilters();
+    }
+
     search.addEventListener('input', applyFilters);
     severity.addEventListener('change', applyFilters);
     reset.addEventListener('click', () => {
       search.value = '';
       severity.value = '';
-      selectedRule = '';
-      applyFilters();
+      setSelectedRule('');
     });
     clearRule.addEventListener('click', () => {
-      selectedRule = '';
-      applyFilters();
+      setSelectedRule('');
     });
 
-    for (const button of document.querySelectorAll('.rule-filter')) {
+    for (const button of ruleButtons) {
       button.addEventListener('click', () => {
-        selectedRule = button.dataset.rule;
-        applyFilters();
+        setSelectedRule(button.dataset.rule);
       });
     }
   </script>

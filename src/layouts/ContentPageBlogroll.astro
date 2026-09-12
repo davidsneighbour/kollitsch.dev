@@ -36,19 +36,21 @@ if (parsed.success) {
 ---
 
 <Layout>
-  <main class={setup.classes.containers.slim}>
-    <ul>
-      {
-        items.map((item) => (
-          <li>
-            <a href={item.url} rel="noopener noreferrer" target="_blank">
-              {item.name}
-            </a>
-            {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
-            {item.description && <div set:html={item.description} />}
-          </li>
-        ))
-      }
-    </ul>
-  </main>
+  <div class="not-prose typography-ui">
+    <main class={setup.classes.containers.slim}>
+      <ul>
+        {
+          items.map((item) => (
+            <li>
+              <a href={item.url} rel="noopener noreferrer" target="_blank">
+                {item.name}
+              </a>
+              {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
+              {item.description && <div set:html={item.description} />}
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </div>
 </Layout>

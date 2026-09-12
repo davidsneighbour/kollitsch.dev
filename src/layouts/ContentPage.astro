@@ -6,6 +6,8 @@ import SiteHeader from "@/components/layout/header/Header.astro";
 import setup from "@data/setup.json" with { type: "json" };
 import Site from "@layouts/Site.astro";
 import Heading from "@components/content/typography/Heading.astro";
+import ReadingArea from "@components/content/typography/ReadingArea.astro";
+import Giscus from "@components/features/comments/Giscus.astro";
 
 const { post, frontmatter } = Astro.props;
 // const { file, url, frontmatter, headings, rawContent, compiledContent } =
@@ -21,6 +23,16 @@ const { post, frontmatter } = Astro.props;
 // ONLY IN MARKDOWN, NOT IN MDX:
 // rawContent() - A function that returns the raw Markdown document as a string.
 // compiledContent() - An async function that returns the Markdown document compiled to an HTML string
+
+// Naked by default: this is the shared layout for plain reading pages
+// (about, uses, colophon, privacy/security policy, ...). Comments only
+// render when frontmatter explicitly asks for them, so a plain text page
+// stays plain. `frontmatter.cover` is already used for the OG/social image
+// (see Head.astro) and is intentionally not rendered inline here — a body
+// cover image needs the same resolveCover() pipeline PostImage.astro uses,
+// which needs collection/id context this generic page layout doesn't have.
+const showComments = frontmatter?.theme?.comments === true;
+const commentsPost = post ?? { id: Astro.url.pathname, data: { title: frontmatter?.title } };
 ---
 
 <Site post={post} frontmatter={frontmatter}>
@@ -30,7 +42,10 @@ const { post, frontmatter } = Astro.props;
       <Heading level={1} class="mb-6" transitionName={post ? `post-title-${post.id}` : ""}>
         {frontmatter?.title ?? post?.data.title}
       </Heading>
-      <slot />
+      <ReadingArea>
+        <slot />
+      </ReadingArea>
+      {showComments && <Giscus post={commentsPost} />}
     </article>
   </main>
   <Footer />

@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
+import ReadingArea from '@components/content/typography/ReadingArea.astro';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
@@ -10,6 +11,6 @@ const { post }: Props = Astro.props;
 const { Content } = await render(post);
 ---
 
-<div class="typography-reading">
+<ReadingArea>
   <Content />
-</div>
+</ReadingArea>

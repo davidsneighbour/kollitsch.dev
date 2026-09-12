@@ -24,7 +24,7 @@ import type { CollectionEntry } from 'astro:content';
 
 // Required
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'blog'> | { id?: string; data?: { title?: string } };
   // Optional overrides
   repo?: string;
   repoId?: string;

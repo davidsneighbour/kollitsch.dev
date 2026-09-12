@@ -1,5 +1,105 @@
 # Changelog
 
+## [3001.32.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.31.2...v3001.32.0) (2026-09-12)
+
+### Feat
+
+* **deploy:** add cache-preserving preview path ([9279df8](https://github.com/davidsneighbour/kollitsch.dev/commit/9279df800229786a28db2edfc733c05ce3c06df8)), closes [#1962](https://github.com/davidsneighbour/kollitsch.dev/issues/1962)
+* **prototypes:** add overview page ([5312e20](https://github.com/davidsneighbour/kollitsch.dev/commit/5312e20dcd711919e9f0cf35fb25b6912050ed6b)), closes [#1964](https://github.com/davidsneighbour/kollitsch.dev/issues/1964)
+* **prototypes:** add preview-only deploy workflow ([1ecb700](https://github.com/davidsneighbour/kollitsch.dev/commit/1ecb70010c83bd4623c3828a2e1ea8ab76167738)), closes [#1963](https://github.com/davidsneighbour/kollitsch.dev/issues/1963)
+* **well-known:** publish Agent Skills discovery index ([3df168b](https://github.com/davidsneighbour/kollitsch.dev/commit/3df168b02e9ee5ffccdbc5edf9c635cd14f2aeaf))
+
+### Content
+
+* **about:** write full about page copy ([728aebf](https://github.com/davidsneighbour/kollitsch.dev/commit/728aebf8c07ad9a4bcc8cce70dc917e440477df5))
+* **blog:** add draft post on Slack's missing Signed-By APT warning ([2b8abd2](https://github.com/davidsneighbour/kollitsch.dev/commit/2b8abd2777d182630a491dc8494e47d32a92ec89))
+
+### Fix
+
+* **a11y:** hide inactive sticky brand link ([f1a07cc](https://github.com/davidsneighbour/kollitsch.dev/commit/f1a07ccaf99f6da70e2bacf76fe9bba1bcd50b0e)), closes [#1865](https://github.com/davidsneighbour/kollitsch.dev/issues/1865)
+* **config:** stabilise Vale output ([#1876](https://github.com/davidsneighbour/kollitsch.dev/issues/1876)) ([ec29154](https://github.com/davidsneighbour/kollitsch.dev/commit/ec29154dcfb457a9a6684fdd8b50ee0b3519c6dc))
+* **config:** sync all Vale packages ([#1876](https://github.com/davidsneighbour/kollitsch.dev/issues/1876)) ([3874ce7](https://github.com/davidsneighbour/kollitsch.dev/commit/3874ce766d7dd46e229be8192f05e4893eda405b))
+* **deps:** resolve dependabot security alerts ([#1933](https://github.com/davidsneighbour/kollitsch.dev/issues/1933)) ([d9f0b81](https://github.com/davidsneighbour/kollitsch.dev/commit/d9f0b810b4b260c648d64bdf4d8cb5fe2c6f29c8))
+* **deps:** resolve qs DoS advisory (GHSA-q8mj-m7cp-5q26) ([c1a6418](https://github.com/davidsneighbour/kollitsch.dev/commit/c1a641812553a6d6fbed43a5686b63892265af76)), closes [#338](https://github.com/davidsneighbour/kollitsch.dev/issues/338)
+* **header:** align theme toggle hit target ([c3ed073](https://github.com/davidsneighbour/kollitsch.dev/commit/c3ed073d0c3480b1125d5342c31a0232ad63396a)), closes [#1864](https://github.com/davidsneighbour/kollitsch.dev/issues/1864)
+* **header:** anchor mobile nav dropdown ([4e4ea48](https://github.com/davidsneighbour/kollitsch.dev/commit/4e4ea480daa777c1f80dd4331ef7ad2d555fc0f8)), closes [#1863](https://github.com/davidsneighbour/kollitsch.dev/issues/1863)
+* **header:** restore theme toggle hover field ([c188b1b](https://github.com/davidsneighbour/kollitsch.dev/commit/c188b1b32ee0895526b78ed8f9086fe76733e1b1)), closes [#1953](https://github.com/davidsneighbour/kollitsch.dev/issues/1953)
+* **lint:** repair biome/vale/ls-lint drift and clean up lints ([d6ce05b](https://github.com/davidsneighbour/kollitsch.dev/commit/d6ce05bd5273d8af40acae6b4d40948f898d17dd))
+* **nav:** point About link to /about/ instead of a blog post ([a6efe26](https://github.com/davidsneighbour/kollitsch.dev/commit/a6efe2625827c7bedde626f9ffdd2793f28e915c))
+* **test:** use system Chrome for Playwright instead of downloading browsers ([440cb07](https://github.com/davidsneighbour/kollitsch.dev/commit/440cb07a14feceb10fe106092582a04c7c22cedb))
+* **typography:** apply typography-reading to plain content pages ([956063a](https://github.com/davidsneighbour/kollitsch.dev/commit/956063a9693eb983db9f729becad2f6ce526095d))
+* **vale:** repair report server port conflict and missing style packages ([ac2f320](https://github.com/davidsneighbour/kollitsch.dev/commit/ac2f320258445914adee2bacad53da0cfa3902f4))
+* **vale:** use consolidated config package ([acd213f](https://github.com/davidsneighbour/kollitsch.dev/commit/acd213f2940963267356f4f79db53c0676a44ec0)), closes [#1876](https://github.com/davidsneighbour/kollitsch.dev/issues/1876)
+
+### Docs
+
+* **content:** require per-year sub-issues for all-content refactors ([be798f5](https://github.com/davidsneighbour/kollitsch.dev/commit/be798f503e3f41398fe4ee6e5d785b7d51685a47)), references [#1952](https://github.com/davidsneighbour/kollitsch.dev/issues/1952)
+* **vscode:** update settings audit docs ([dd814d2](https://github.com/davidsneighbour/kollitsch.dev/commit/dd814d2575d858851ce770265b113424ac6bf9f1)), closes [#1965](https://github.com/davidsneighbour/kollitsch.dev/issues/1965)
+
+### Style
+
+* **theme:** apply dark heading link treatment ([baa5b78](https://github.com/davidsneighbour/kollitsch.dev/commit/baa5b789cc7dc416f2458f78e46517769fccbaba)), closes [#1961](https://github.com/davidsneighbour/kollitsch.dev/issues/1961)
+
+### Build
+
+* **deps-dev:** bump @vitest/coverage-v8 from 4.1.10 to 4.1.11 ([08d8754](https://github.com/davidsneighbour/kollitsch.dev/commit/08d8754d630546e13d97275c7947491abb8defad))
+* **deps-dev:** bump @vitest/ui from 4.1.10 to 4.1.11 ([660cde6](https://github.com/davidsneighbour/kollitsch.dev/commit/660cde697277ca800c65acac3be3fef6171ef24c))
+* **deps-dev:** bump vitest from 4.1.10 to 4.1.11 ([285a0c8](https://github.com/davidsneighbour/kollitsch.dev/commit/285a0c891f0f41c9afd410e7c5f9897a2e853ba3))
+* **deps:** bump fast-uri in the npm_and_yarn group across 1 directory ([4a43915](https://github.com/davidsneighbour/kollitsch.dev/commit/4a439159cd650bf201d2357dd60d306e4364d3c8))
+* **deps:** refresh package metadata ([b7eb64e](https://github.com/davidsneighbour/kollitsch.dev/commit/b7eb64eabf13bb365c4191a700d97770fbf800ae)), closes [#1928](https://github.com/davidsneighbour/kollitsch.dev/issues/1928)
+* **deps:** remove vulnerable extract-zip path ([cd4fd9e](https://github.com/davidsneighbour/kollitsch.dev/commit/cd4fd9ee9799c3bea0d9a9570265a7f9ccb2b854)), closes [#1885](https://github.com/davidsneighbour/kollitsch.dev/issues/1885)
+* **deps:** update dependencies ([ad83be0](https://github.com/davidsneighbour/kollitsch.dev/commit/ad83be0338b56ea6331c45d45aae06c48345665c))
+
+### Ci
+
+* **fix:** update vale config ([5daf8f9](https://github.com/davidsneighbour/kollitsch.dev/commit/5daf8f99a875dc971f475d6f7e44b1aa58350fc3))
+* **lighthouse:** skip daily audit when HEAD hasn't changed ([7ed5b2d](https://github.com/davidsneighbour/kollitsch.dev/commit/7ed5b2dbb8d6682f5a5a9966bc75cfca3f4852c7))
+* **lighthouse:** write history updates to branch ([#1935](https://github.com/davidsneighbour/kollitsch.dev/issues/1935)) ([91931fe](https://github.com/davidsneighbour/kollitsch.dev/commit/91931fe895993abca2d36202f0235dfff05084f0))
+
+### Chore
+
+* **deps-dev:** bump @vitest/browser-playwright to 4.1.11 ([fb775d2](https://github.com/davidsneighbour/kollitsch.dev/commit/fb775d28bf29117543546d710af8efb71223c6a2))
+* **deps:** stop Dependabot from proposing TypeScript 7 bumps ([6378f06](https://github.com/davidsneighbour/kollitsch.dev/commit/6378f06dab2efca11995daf77a5f408d35e28514)), closes [#1815](https://github.com/davidsneighbour/kollitsch.dev/issues/1815)
+* **frontmatter:** refresh CMS databases ([2bf08f5](https://github.com/davidsneighbour/kollitsch.dev/commit/2bf08f540caa81d5d558e2549ac0f3df7c076fc9)), closes [#1930](https://github.com/davidsneighbour/kollitsch.dev/issues/1930)
+* **lighthouse:** update score history [skip ci] ([eb5c3ee](https://github.com/davidsneighbour/kollitsch.dev/commit/eb5c3eee4f9d8c504eae20bdccdac15c5c973eb9))
+* **lighthouse:** update score history [skip ci] ([e9e02fa](https://github.com/davidsneighbour/kollitsch.dev/commit/e9e02faa874c6dd51454bcda868f2e746b26ab9b))
+* **lighthouse:** update score history [skip ci] ([61c7213](https://github.com/davidsneighbour/kollitsch.dev/commit/61c72130068a98c4074a171e6129e88e2af70052))
+* **lighthouse:** update score history [skip ci] ([0ba9839](https://github.com/davidsneighbour/kollitsch.dev/commit/0ba9839b1bf3379da109a79cdd47866fda2b6d33))
+* **lighthouse:** update score history [skip ci] ([4003f1c](https://github.com/davidsneighbour/kollitsch.dev/commit/4003f1cd912ceb5635030fc11a66db8ad8227728))
+* **lighthouse:** update score history [skip ci] ([7c3a605](https://github.com/davidsneighbour/kollitsch.dev/commit/7c3a60552ff4b5a62cfb8586fbd0e94fc5e63c52))
+* **lighthouse:** update score history [skip ci] ([eba11e8](https://github.com/davidsneighbour/kollitsch.dev/commit/eba11e8b36b8601055333a0c9f76100a1d0e8f94))
+* **lighthouse:** update score history [skip ci] ([f6e5a04](https://github.com/davidsneighbour/kollitsch.dev/commit/f6e5a04c2e95e93028c30af5d4c6b0676f575019))
+* **lighthouse:** update score history [skip ci] ([b24e0a7](https://github.com/davidsneighbour/kollitsch.dev/commit/b24e0a7627078c67d42fe9b8b110a367bb5ce652))
+* **lighthouse:** update score history [skip ci] ([57d640c](https://github.com/davidsneighbour/kollitsch.dev/commit/57d640c94e5130e74800dd5de5121607d03a3962))
+* **lighthouse:** update score history [skip ci] ([d999249](https://github.com/davidsneighbour/kollitsch.dev/commit/d999249f1feef904d96302ac154b83329635f9ec))
+* **lighthouse:** update score history [skip ci] ([4f3550f](https://github.com/davidsneighbour/kollitsch.dev/commit/4f3550f897abf7cefb7db4030d2a5c7f7cfd2da3))
+* **lighthouse:** update score history [skip ci] ([bdc08d2](https://github.com/davidsneighbour/kollitsch.dev/commit/bdc08d2faf986d756dcda024d5b2217780976d9a))
+* **lighthouse:** update score history [skip ci] ([ca9e17a](https://github.com/davidsneighbour/kollitsch.dev/commit/ca9e17a77ea834fc5744f59190611f0a69da26cd))
+* **lighthouse:** update score history [skip ci] ([8b1d691](https://github.com/davidsneighbour/kollitsch.dev/commit/8b1d6912a72805d253cec0c9a509314a0d0b1aee))
+* **lighthouse:** update score history [skip ci] ([efe37e2](https://github.com/davidsneighbour/kollitsch.dev/commit/efe37e2ee62115085f38a94c740fad2dd9daa69c))
+* **lighthouse:** update score history [skip ci] ([f1c7028](https://github.com/davidsneighbour/kollitsch.dev/commit/f1c702885a2b94ee2cc5638c9eb06ecb0efed7ab))
+* **lighthouse:** update score history [skip ci] ([f495462](https://github.com/davidsneighbour/kollitsch.dev/commit/f49546298f6663aa74b8205fc5b74390a9eceabf))
+* **lighthouse:** update score history [skip ci] ([178009c](https://github.com/davidsneighbour/kollitsch.dev/commit/178009ce53946c3c0053f64f1c02d5f349cb83e4))
+* **lighthouse:** update score history [skip ci] ([e1fcf6e](https://github.com/davidsneighbour/kollitsch.dev/commit/e1fcf6ecee788b098b4c44bfe4a87027aa0a03fb))
+* **lighthouse:** update score history [skip ci] ([77c7843](https://github.com/davidsneighbour/kollitsch.dev/commit/77c7843d27cf44d7646315f8b841b4b3ffb5a644))
+* **lighthouse:** update score history [skip ci] ([1754691](https://github.com/davidsneighbour/kollitsch.dev/commit/17546918b0d35f5d669c4901a942bd5088883bec))
+* **lighthouse:** update score history [skip ci] ([0ce10e7](https://github.com/davidsneighbour/kollitsch.dev/commit/0ce10e781bdc01b603afe1ec1ff4a1f1ae7e856f))
+* **lighthouse:** update score history [skip ci] ([90285f2](https://github.com/davidsneighbour/kollitsch.dev/commit/90285f2d4f640ee3002e7f1380ae6e05f5a9cb49))
+* **lighthouse:** update score history [skip ci] ([33c6c78](https://github.com/davidsneighbour/kollitsch.dev/commit/33c6c78bae785e213cb2846f7b033c4989d8c545))
+* **lighthouse:** update score history [skip ci] ([adf37c3](https://github.com/davidsneighbour/kollitsch.dev/commit/adf37c34686c0f5877e431f86482df626a3398a0))
+* **lighthouse:** update score history [skip ci] ([b7a2b9b](https://github.com/davidsneighbour/kollitsch.dev/commit/b7a2b9b2b111c2ed72160e66d75afbc6dda730ec))
+* **lighthouse:** update score history [skip ci] ([33c7bf8](https://github.com/davidsneighbour/kollitsch.dev/commit/33c7bf8ea601521f71074cb97d0a999a5ee15fdf))
+* **lighthouse:** update score history [skip ci] ([2063eb0](https://github.com/davidsneighbour/kollitsch.dev/commit/2063eb09aebfd136848df14a0d87d47787eed967))
+* **lighthouse:** update score history [skip ci] ([f7cb955](https://github.com/davidsneighbour/kollitsch.dev/commit/f7cb955ac636fd162ae700b9f60577bbfc83985d))
+* **lighthouse:** update score history [skip ci] ([b5216a6](https://github.com/davidsneighbour/kollitsch.dev/commit/b5216a625f03e5dd03656fc789d82571bfbe94ac))
+* **linting:** move Vale reports under reports ([8acdf95](https://github.com/davidsneighbour/kollitsch.dev/commit/8acdf955b557fca3cad5b701d9cf251ac0f08050)), closes [#1954](https://github.com/davidsneighbour/kollitsch.dev/issues/1954)
+* update screenshot ([bd9d25d](https://github.com/davidsneighbour/kollitsch.dev/commit/bd9d25d33489ba99d08767f25f0309ef7db12596))
+* update screenshot ([50ee828](https://github.com/davidsneighbour/kollitsch.dev/commit/50ee8289b8a7019b4c43b0f01794a96bf0fa5140))
+* update screenshot ([859f186](https://github.com/davidsneighbour/kollitsch.dev/commit/859f186619a0def399e79342290c318448d1049d))
+* update screenshot ([a8d15de](https://github.com/davidsneighbour/kollitsch.dev/commit/a8d15ded3984cc71dad6285dd186e3df3fa9c3b1))
+* **vale:** align stat font-size and exempt report from design review ([c5f4666](https://github.com/davidsneighbour/kollitsch.dev/commit/c5f46666d0dfed370e71bb8a396d38c42d7a418c)), references [#111111](https://github.com/davidsneighbour/kollitsch.dev/issues/111111)
+* **workspace:** refresh local editor metadata ([c6ff35a](https://github.com/davidsneighbour/kollitsch.dev/commit/c6ff35a50e9efd8c5acfd074fadf25550e4a6056)), closes [#1929](https://github.com/davidsneighbour/kollitsch.dev/issues/1929)
+
 ## [3001.31.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.31.1...v3001.31.2) (2026-08-12)
 
 ### Fix

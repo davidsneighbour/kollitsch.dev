@@ -232,7 +232,7 @@
     "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
     "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
     "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
-    "test:postinstall": "npx playwright install",
+    "playwright:install-browsers": "npx playwright install",
     "test:ui": "vitest --ui",
     "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
     "skills": "npx skills",
@@ -367,7 +367,6 @@
     },
     "postprepare": {
       "dependencies": [
-        "test:postinstall",
         "build:favicons"
       ]
     },

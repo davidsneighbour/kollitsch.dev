@@ -37,7 +37,9 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
+      // Use the OS-installed Google Chrome instead of a Playwright-managed
+      // browser build, so `npm install` never needs to download browsers.
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     },
     // {
     //   name: 'firefox',

@@ -30,6 +30,14 @@ The issue requirement applies only when work results in a commit, or when it is 
 
 Do not create issues merely because files exist, changed files are visible, temporary files are present, or untracked files appear in the working tree.
 
+## Content-wide refactors use per-year sub-issues
+
+When a task refactors or changes all (or nearly all) files under `src/content/blog/`—for example a site-wide Vale cleanup, a frontmatter schema migration, or a bulk rewrite—always split the work into one sub-issue per yearly folder (`src/content/blog/2021/`, `.../2022/`, etc.) using `gh issue create --parent <parent-issue-number>`, rather than tracking the whole corpus in a single issue.
+
+This keeps each unit of work small enough to review and land independently, and makes overall progress visible at a glance via the parent issue's sub-issue list.
+
+Apply this whenever the triggering issue or task description spans all years of blog content, not just a single post or a handful of posts.
+
 ## Tracked and untracked files
 
 Before creating or updating an issue, inspect the repository state and distinguish between:

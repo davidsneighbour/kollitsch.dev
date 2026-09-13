@@ -92,7 +92,7 @@
   "todo-tree.tree.scanMode": "workspace only",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "vale.enableSpellcheck": true,
-  "vale.valeCLI.config": "src/config/.vale.ini",
+  "vale.valeCLI.config": "${workspaceFolder}/src/config/.vale.ini",
   "vale.valeCLI.installVale": true,
   "vale.valeCLI.minAlertLevel": "error",
   "vale.valeCLI.syncOnStartup": true,

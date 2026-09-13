@@ -1,9 +1,6 @@
 {
   ".github": {},
   "documentation": {},
-  "netlify": {
-    "functions": {}
-  },
   "public": {},
   "scratch": {
     "tmp": {}

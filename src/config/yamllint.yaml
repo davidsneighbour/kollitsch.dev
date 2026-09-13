@@ -8,9 +8,6 @@ yaml-files:
   - "*.md"
 
 ignore: |
-  .github/workflows/update-netlify.yml
-  .github/workflows/daily-audit.yml
-  .github/workflows/codeql-analysis.yml
   .github/dependabot.yml
 
 # https://yamllint.readthedocs.io/en/stable/rules.html

@@ -123,6 +123,3 @@ documentation/api
 
 # Animation-plan scratch pads (improve-animations skill output) — local only
 plans/
-
-# Local Netlify folder
-.netlify

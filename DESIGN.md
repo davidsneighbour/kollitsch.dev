@@ -16,18 +16,29 @@ colors:
   surface: "oklch(98.8% 0.003 106.5deg)"
   surface-dark: "oklch(15.3% 0.006 107.1deg)"
   surface-raised: "#ffffff"
-  surface-raised-dark: "oklch(26.8% 0.011 36.5deg)"
-  # Text
-  on-surface: "oklch(43.8% 0.017 39.3deg)"
-  on-surface-dark: "oklch(92.2% 0.005 34.3deg)"
-  on-surface-muted: "oklch(54.7% 0.021 43.1deg)"
+  surface-raised-dark: "oklch(27.5% 0.011 216.9deg)"
+  # Text - `grey-*` scale (sourced from Tailwind's `mist`, a blue-leaning
+  # neutral), mapped once for both light and dark mode - not redefined per theme
+  on-surface: "oklch(45% 0.017 213.2deg)"
+  on-surface-dark: "oklch(92.5% 0.005 214.3deg)"
+  on-surface-muted: "oklch(56% 0.021 213.5deg)"
   heading-dark: "oklch(72.3% 0.219 149.579deg)"
   heading-link-underline-dark: "oklch(52.7% 0.154 150.069deg)"
   # Structural
-  border: "oklch(92.2% 0.005 34.3deg)"
-  border-dark: "oklch(36.7% 0.016 35.7deg)"
+  border: "oklch(92.5% 0.005 214.3deg)"
+  border-dark: "oklch(37.8% 0.015 216deg)"
   # Semantic
   error: "oklch(57.7% 0.245 27.325deg)"
+  # Semantic state tokens (danger/warning/success/information) - independent
+  # of the primary/grey palette, used for feedback UI (alerts, validation)
+  danger: "oklch(57.7% 0.245 27.325deg)"
+  danger-dark: "oklch(63.7% 0.237 25.331deg)"
+  warning: "oklch(66.6% 0.179 58.318deg)"
+  warning-dark: "oklch(82.8% 0.189 84.429deg)"
+  success: "oklch(62.7% 0.194 149.214deg)"
+  success-dark: "oklch(79.2% 0.209 151.711deg)"
+  information: "oklch(58.8% 0.158 241.966deg)"
+  information-dark: "oklch(74.6% 0.16 232.661deg)"
   code-highlight: "oklch(72.3% 0.219 149.579deg)"
   draft-badge-background: "oklch(44.8% 0.119 151.328deg)"
   tag-badge-green-50: "oklch(98.2% 0.018 155.826deg)"
@@ -37,7 +48,7 @@ colors:
   tag-badge-green-600: "oklch(62.7% 0.194 149.214deg)"
   tag-badge-green-700: "oklch(52.7% 0.154 150.069deg)"
   tag-badge-green-950: "oklch(26.6% 0.065 152.934deg)"
-  pagination-inactive-dark: "oklch(86.8% 0.007 39.5deg)"
+  pagination-inactive-dark: "oklch(87.2% 0.007 219.6deg)"
   colophon-watermark: "oklch(96.6% 0.005 106.5deg)"
   colophon-watermark-hover: "oklch(93% 0.007 106.5deg)"
   colophon-watermark-dark: "oklch(22.8% 0.013 107.4deg)"
@@ -226,6 +237,22 @@ components:
     typography: "{typography.code-sm}"
   input-error:
     textColor: "{colors.error}"
+  state-danger:
+    textColor: "{colors.danger}"
+  state-danger-dark:
+    textColor: "{colors.danger-dark}"
+  state-warning:
+    textColor: "{colors.warning}"
+  state-warning-dark:
+    textColor: "{colors.warning-dark}"
+  state-success:
+    textColor: "{colors.success}"
+  state-success-dark:
+    textColor: "{colors.success-dark}"
+  state-information:
+    textColor: "{colors.information}"
+  state-information-dark:
+    textColor: "{colors.information-dark}"
   source-code-badge:
     backgroundColor: "{colors.surface-raised}"
     textColor: "{colors.on-surface}"
@@ -273,7 +300,7 @@ components:
 
 The visual language is built around three constraints:
 
-1. A **warm, near-neutral gray palette** as the base - not cool, not clinical.
+1. A **single, blue-leaning neutral grey palette** (`grey-*`, sourced from Tailwind's `mist` scale) as the base for text, borders, and structural chrome - one scale for both light and dark mode, not a separate warm/cool pair.
 2. A **single accent pair** (a green primary shifting to a darker or lighter tone on hover, depending on theme) that signals every interactive element without overwhelming the content.
 3. **Variable-weight typography** that can express both the weight of a technical headline and the lightness of body prose without switching families.
 
@@ -281,7 +308,7 @@ The overriding aesthetic is **engineered lightness**: generous line heights, min
 
 ## Colors
 
-The palette keeps its emotional range narrow on purpose. A wide range of grays covers structure, text, and surface; a single accent hue covers everything interactive.
+The palette keeps its emotional range narrow on purpose. Two token families cover everything: `primary-*` (green, brand/interactive) and `grey-*` (blue-leaning neutral, structure and text). Every component reaches for one of these two semantic families - never a raw Tailwind color name, and never orange or red as an accent.
 
 * **Primary (`oklch(72.3% 0.219 149.579deg)`, `primary-500`):** A saturated green. Used for primary CTAs (as `primary-800`, a darker/stronger fill against either surface), inline links on hover, and the brand asterisk in the site title. One accent, used consistently.
 * **Primary Hover (`oklch(52.7% 0.154 150.069deg)`, `primary-700`):** A darker shade than the light-mode link/primary rest colour, giving a visible but subtle shift on hover without a color-family jump.
@@ -290,24 +317,27 @@ The palette keeps its emotional range narrow on purpose. A wide range of grays c
 * **Link Dark (`oklch(62.7% 0.194 149.214deg)`, `primary-600`):** Brighter green for links on dark surfaces. The light-mode link colour is intentionally too dark for `surface-dark`, so dark mode uses this AA-safe pair instead of inheriting the global light-mode colour.
 * **Link Dark Hover (`oklch(79.2% 0.209 151.711deg)`, `primary-400`):** Brighter green hover for links on dark surfaces, preserving contrast in dark mode.
 * **Surface / Surface Dark:** Warm off-white (`oklch(98.8%)`) in light mode, near-black (`oklch(15.3%)`) in dark mode - Tailwind's `olive` scale. The warmth is intentional - pure white and pure black feel too harsh for long-form reading.
-* **On-Surface / On-Surface Dark:** `oklch(43.8%)` mid-gray for light mode body text; `oklch(92.2%)` for dark mode. Both pass WCAG AA against their respective surfaces.
-* **Border:** A whisper-light `oklch(92.2%)` in light mode and `oklch(36.7%)` in dark mode. Borders define without asserting.
+* **On-Surface / On-Surface Dark:** `oklch(45%)` mid-grey for light mode body text; `oklch(92.5%)` for dark mode - both `grey-*` steps sourced from `mist`. Both pass WCAG AA against their respective surfaces.
+* **Border:** A whisper-light `oklch(92.5%)` in light mode and `oklch(37.8%)` in dark mode, both `grey-*`/`mist` steps. Borders define without asserting.
 * **Code Highlight:** Primary-500 at 10% opacity (`oklch(72.3%)`) as the inline code chip background - visually distinct from prose without introducing a new color family, and the same value in both themes since it's a self-contained tint rather than page-background text.
 * **Draft Badge Background (`oklch(44.8% 0.119 151.328deg)`, `primary-800`):** Dark green for editorial status badges. It keeps the badge in the accent family while giving small uppercase text enough contrast; same value in both themes since it's a filled badge, not text on the page surface.
-* **Pagination Inactive Dark (`oklch(86.8% 0.007 39.5deg)`):** Gray-300 for inactive or disabled pagination labels in dark mode. This is visible navigational state and must remain readable.
+* **Pagination Inactive Dark (`oklch(87.2% 0.007 219.6deg)`):** `grey-300` (`mist-300`) for inactive or disabled pagination labels in dark mode. This is visible navigational state and must remain readable.
 * **Colophon Watermark:** Uses surface-adjacent olive tones (`olive-100` / `olive-200` in light mode, `olive-900` / `olive-800` in dark mode). It is a cosmetic background gimmick, hidden from assistive technology and deliberately below accessible contrast. Do not "fix" it to meet contrast thresholds.
+* **Danger / Warning / Success / Information:** Independent semantic state tokens for feedback UI (form validation, alerts) - `danger` (red), `warning` (amber), `success` (green), `information` (sky/blue). These are deliberately decoupled from `primary` even though `success` happens to also be green today - see `--danger`/`--warning`/`--success`/`--information` in `src/styles/theme.css`. They exist for validation/alert copy only and are never used as a page accent.
 
-The full gray scale (50–950) and a green-based `primary` scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components. The raw `orange`/`red` Tailwind scales still exist as tokens and remain correct for genuinely semantic, theme-independent uses - `destructive`/error states, the named `red`/`green` Badge variants, YouTube's own brand red - but no longer represent this site's brand accent in either light or dark mode.
+The full `grey` scale (50–950, sourced from `mist`) and the green-based `primary` scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components. The raw `red` Tailwind scale exists as a token and remains correct for genuinely semantic, theme-independent uses - `destructive`/error/`danger` states, the named `red` Badge variant, YouTube's own brand red - but is never used as this site's brand accent. The raw `orange` scale is **unused legacy** - it appears only in devtools debug tooling (`ColorScheme.astro`) and retired design prototypes under `src/prototypes/`, never in a live component, and must not be introduced anywhere else.
 
-Legacy `--color-black` and `--color-white` aliases resolve to the olive surface endpoints (`olive-950` and `olive-50`) rather than the structural gray endpoints. This keeps any unavoidable endpoint usage warm and slightly quieter against the page surface.
+Legacy `--color-black` and `--color-white` aliases resolve to the olive surface endpoints (`olive-950` and `olive-50`) rather than the structural grey endpoints. This keeps any unavoidable endpoint usage warm and slightly quieter against the page surface.
 
-### Two neutral families: `gray` (structural) vs. `olive` (surface)
+### Two neutral families: `grey` (structural) vs. `olive` (surface)
 
-Tailwind v4.2 added `mauve`, `olive`, `mist`, and `taupe` as stock neutral palettes alongside the classic `slate`/`gray`/`zinc`/`neutral`/`stone` lineup. This site's own custom `gray` scale (`src/styles/theme.css`) turns out to be an exact, shade-for-shade match of Tailwind's stock `taupe` - it was hand-built before Tailwind shipped the equivalent, and happens to be identical.
+Tailwind v4.2 added `mauve`, `olive`, `mist`, and `taupe` as stock neutral palettes alongside the classic `slate`/`gray`/`zinc`/`neutral`/`stone` lineup. This site's `grey`/`gray-*` scale (`src/styles/theme.css`) is a direct alias of Tailwind's stock `mist` - a blue-leaning neutral - mapped once in the shared `@theme inline` block so light and dark mode read from the exact same scale (only the lightness *step* used differs by theme, never the hue). There is no separate light-mode-only neutral scale; the project previously used a warm `taupe`-based scale for light mode with a dark-mode-only override to `mist`, but that split has been removed - `grey` is `mist`, full stop, in both themes.
 
-Rather than rename that scale retroactively (a values-only diff with zero visual change), `gray` stays the name for **structural neutrals** - body text, muted text, borders, `--input`. `olive` was added as a second, deliberate neutral family reserved specifically for **`--background`** (page surface, light and dark) and anything that derives its tint from `--background`. The two families sit at nearly the same lightness steps but different hues, so text/border legibility choices don't shift just because the page background got warmer.
+`olive` is a second, deliberate neutral family reserved specifically for **`--background`** (page surface, light and dark) and anything that derives its tint from `--background`. It sits at nearly the same lightness steps as `grey` but keeps its own warm-neutral hue, so the page surface can read as warm while text/borders stay on the cooler `grey` family.
 
-**Do not** extend this into a blanket "replace all grays with olive" refactor - only `--background`-derived surfaces should use `olive`. Text, borders, and muted-foreground colors stay on `gray` for legibility.
+**Do not** extend this into a blanket "replace all greys with olive" refactor - only `--background`-derived surfaces should use `olive`. Text, borders, and muted-foreground colors stay on `grey` for legibility.
+
+**Do not** reintroduce a per-theme override of `--color-gray-*`/`--color-grey-*` - the mapping to `mist` lives once, in the shared `@theme inline` block, not inside `[data-theme="dark"]`. A future neutral swap only needs to change that one block.
 
 ### Deriving tinted surfaces from `--background`
 
@@ -506,3 +536,5 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 * **Do** use the shadcn primitives (`Input`/`Textarea` in `src/components/forms/`, `Button`/`Card` in `src/components/shared/elements/`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
 * **Don't** rely on `@tailwindcss/forms`' class-strategy names like `form-input` - this project runs the plugin in `base` strategy, so that class doesn't exist and silently does nothing.
 * **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the primary CTA shade or the green link pair.
+* **Don't** use `orange` for anything - it is unused legacy, present only in devtools tooling and retired prototypes. **Don't** use `red` as an accent or brand colour either - it is reserved for `destructive`/`danger`/error states only.
+* **Don't** reintroduce a per-theme override of the `grey`/`gray-*` scale - it maps to `mist` once, in the shared `@theme inline` block in `src/styles/theme.css`, and must stay identical in light and dark mode.

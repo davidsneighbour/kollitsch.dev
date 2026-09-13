@@ -1,5 +1,11 @@
 # Changelog
 
+## [3003.0.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.0.1...v3003.0.2) (2026-09-13)
+
+### Fix
+
+* **design:** resolve homepage critique findings ([0d26cae](https://github.com/davidsneighbour/kollitsch.dev/commit/0d26cae05b6989691566abaf3b00b8b587b3905a)), references [#000](https://github.com/davidsneighbour/kollitsch.dev/issues/000)
+
 ## [3003.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.0.0...v3003.0.1) (2026-09-13)
 
 ### Fix

@@ -381,12 +381,6 @@
     "deploy:build": {
       "command": "npm run build",
       "dependencies": [
-        "deploy:release"
-      ]
-    },
-    "deploy:release": {
-      "command": "npm run release",
-      "dependencies": [
         "check"
       ]
     },

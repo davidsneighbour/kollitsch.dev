@@ -21,6 +21,7 @@
       "enabled": true
     }
   },
+  // cloudflare will ask for these and they are in .env or need to be recreated
   "secrets": {
     "required": [
       "RESEND_API_KEY",

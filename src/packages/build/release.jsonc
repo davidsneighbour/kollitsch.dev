@@ -13,17 +13,38 @@
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "release": "wireit",
     "release:forced": "wireit",
+    "release:major": "wireit",
+    "release:minor": "wireit",
+    "release:patch": "wireit",
     "release:tests": "wireit",
     "screenshot": "wireit"
   },
   "wireit": {
     "release": {
-      "command": "bash -c 'before=$(git describe --tags --abbrev=0 2>/dev/null || echo none); DEBUG=* release-it --ci --config .release-it.ts; code=$?; after=$(git describe --tags --abbrev=0 2>/dev/null || echo none); if [ \"$before\" = \"$after\" ]; then echo; echo \"No new release created — run npm run release:forced to force a patch release.\"; fi; exit $code'",
+      "command": "bash -c 'before=$(git describe --tags --abbrev=0 2>/dev/null || echo none); DEBUG=* release-it --ci --config .release-it.ts; code=$?; after=$(git describe --tags --abbrev=0 2>/dev/null || echo none); if [ \"$before\" = \"$after\" ]; then echo; echo \"No new release created — run npm run release:patch to force a patch release.\"; fi; exit $code'",
       "dependencies": [
         "release:tests"
       ]
     },
     "release:forced": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment patch",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:major": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment major",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:minor": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment minor",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:patch": {
       "command": "DEBUG=* release-it --ci --config .release-it.ts --increment patch",
       "dependencies": [
         "release:tests"

@@ -1,5 +1,16 @@
 # Changelog
 
+## [3003.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.0.0...v3003.0.1) (2026-09-13)
+
+### Fix
+
+* **styles:** use shared browserslist config to fix stylelint browser-support warnings ([f79b1b5](https://github.com/davidsneighbour/kollitsch.dev/commit/f79b1b519e6713cdfdf30456579c06ad1fa35a32))
+
+### Docs
+
+* **design:** document grey/mist neutral palette migration ([79df07a](https://github.com/davidsneighbour/kollitsch.dev/commit/79df07a61be79ca9ac82edb4d17d5fe793343b10))
+* **hosting:** note secrets are stored in .env ([7a354ac](https://github.com/davidsneighbour/kollitsch.dev/commit/7a354ac4188972490bb8840da95209aac04a8d0a))
+
 ## [3003.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3002.0.1...v3003.0.0) (2026-09-13)
 
 ### Feat

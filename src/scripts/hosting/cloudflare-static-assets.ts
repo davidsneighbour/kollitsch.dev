@@ -1,4 +1,4 @@
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { access, readdir, readFile, stat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
 interface AssetRecord {
@@ -112,9 +112,39 @@ async function readOptionalText(path: string): Promise<string | undefined> {
   }
 }
 
+async function pathExists(path: string): Promise<boolean> {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function main(): Promise<void> {
   const failures: CheckFailure[] = [];
   const warnings: string[] = [];
+
+  if (!(await pathExists(distDir))) {
+    console.error(`Failure (build output): ${relative(process.cwd(), distDir)} does not exist. Run the build first.`);
+    process.exitCode = 1;
+    return;
+  }
+
+  if (!(await pathExists(join(distDir, 'index.html')))) {
+    failures.push({
+      label: 'root document',
+      detail: 'dist/index.html is missing.',
+    });
+  }
+
+  if (!(await pathExists(join(distDir, '404.html')))) {
+    failures.push({
+      label: '404 page',
+      detail: 'dist/404.html is missing; Cloudflare not_found_handling expects a custom 404 page.',
+    });
+  }
+
   const assets = await walk(distDir);
   const directoryCount = await countDirectories(distDir);
   const uploadEntryCount = assets.length + directoryCount;

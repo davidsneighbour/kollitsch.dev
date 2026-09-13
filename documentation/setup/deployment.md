@@ -7,6 +7,14 @@ updated: 2026-09-13T00:00:00+07:00
 
 KOLLITSCH.dev deploys from a local workstation to Cloudflare Workers Static Assets with Wrangler. GitHub Actions validate the project, but they do not deploy it.
 
+## When to reuse this pattern
+
+This site is the reference implementation for hosting an ordinary Astro static site directly on Cloudflare Workers Static Assets, without a separate origin server. Good candidates share its shape: static-site output, a small and slow-growing page count, and no requirement for a persistent filesystem or long-running server process. `hosting:check` (see [Preflight](#preflight)) keeps the asset-count headroom visible so this stays a deliberate decision rather than an assumption.
+
+This differs from the pattern used for larger, long-running archive sites such as `samui-samui.de`, which keep a DreamHost static origin behind Cloudflare's cache (with a Cloudflare Worker handling only `/api/*`) because their output is too large or too actively rewritten to redeploy the whole tree through Wrangler on every change. Reach for that pattern instead of this one when the generated output approaches the Workers Static Assets file-count ceiling, or when the site needs a conventional filesystem/origin.
+
+Extending this pattern with an API works the same way it already does here: `kollitsch-dev` sets `assets.run_worker_first` to `true` in [`wrangler.jsonc`](../../wrangler.jsonc) because the Worker needs to inspect the hostname of every request to redirect `www` to the apex domain, and the same Worker also handles `/api/send-email`. A site with no host-based redirect should instead scope `run_worker_first` to an array of path patterns (for example `["/api/*"]`), so ordinary static requests skip the Worker entirely and are served directly from `assets.directory`.
+
 ## Hosting target
 
 The production Worker is configured in [`wrangler.jsonc`](../../wrangler.jsonc):

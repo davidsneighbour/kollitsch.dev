@@ -165,9 +165,6 @@ Required for full builds and certain scripts (set in `.env`, gitignored):
 | `YOUTUBE_API_KEY` | YouTube-related build scripts; set to `fake_key_for_testing` for local dev |
 | `FRESHRSS_BASE_URL`, `FRESHRSS_USERNAME`, `FRESHRSS_API_PASSWORD` | RSS follower feed generation in `build-hooks.ts` |
 | `GH_TOKEN` / `GITHUB_TOKEN` | GitHub release/repo scripts in CI |
-| `MASTODON_INSTANCE_URL` | `/stream/` and `promote:stream`; Mastodon instance base URL, defaults to `https://mas.to` |
-| `MASTODON_ACCOUNT_ID` / `MASTODON_ACCOUNT_HANDLE` | `/stream/` and `promote:stream`; one is required to resolve the source Mastodon account (id preferred, handle triggers a lookup) |
-| `MASTODON_ACCESS_TOKEN` | `/stream/` and `promote:stream`; optional, only needed for authenticated Mastodon API access |
 
 ## Architecture
 

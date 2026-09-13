@@ -175,23 +175,6 @@ const cover = z
 //   .min(110, { message: "description must be at least 110 characters" })
 //   .max(160, { message: "description must be at most 160 characters" });
 
-// Provenance metadata for a post promoted from an external source (currently
-// only Mastodon). Kept as a plain required-fields object rather than a
-// per-source union: a second source type is unlikely soon and can be added by
-// widening `type` and its required fields then, not by pre-building an
-// abstraction now.
-const origin = z
-  .object({
-    type: z.enum(['mastodon']),
-    id: z.string(),
-    uri: z.string(),
-    url: z.string(),
-    account: z.string(),
-    published: z.coerce.date(),
-    imported: z.coerce.date(),
-  })
-  .optional();
-
 // MARK: Blog Posts
 export const blogSchema = z
   .object({
@@ -232,7 +215,6 @@ export const blogSchema = z
         message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
       }),
     options: optionsSchema.optional(),
-    origin,
     publisher: z.enum(['rework', 'validate']).optional(),
     resources: z
       .array(

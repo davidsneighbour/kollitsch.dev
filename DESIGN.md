@@ -404,10 +404,6 @@ Cards are the primary content container for blog post previews, link lists, and 
 * Blog previews and their destination posts share the `post-preview-transition` motion token only inside `prefers-reduced-motion: no-preference`: a 420ms strong ease-out shared-element morph with the standard `rounded-lg` card radius and clipped overflow. Cover media uses a separate `post-preview-media` transition class with `object-fit: cover` so image snapshots crop rather than stretch while the card shell changes size.
 * See "Elevation & Depth" above for why dark-mode cards stay on a background-relative overlay rather than a picked gray/olive shade
 
-### Stream items
-
-`StreamItem.astro` (`/stream/`) reuses the quieter `Tag.astro`/`CardLink.astro` opacity-overlay card recipe (`bg-white/5` light, `dark:bg-black/20` dark, `ring-1 ring-gray-900/10 dark:ring-gray-100/10`) rather than the stronger `card`/`surface-raised` treatment used for blog previews - the stream is deliberately smaller and quieter than normal blog posts. Density is reduced from `Preview.astro` via a smaller type scale (`text-sm`) and tighter spacing (`gap-2`, `py-2`), staying on the 4px spacing scale. Threaded self-replies nest inside their root's card with a `border-l` divider rather than getting their own card, so a thread reads as one quiet block instead of several.
-
 ### Sticky Header & Popover Chrome
 
 The sticky header (`Header.astro`) and mobile nav dropdown are a frosted-glass overlay: `background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent)` plus `backdrop-filter: blur(20px) saturate(1)`. `--header-tint` (`70%`) is a single CSS custom property shared by light and dark - it must never be given different values per theme, or the blur becomes invisible in whichever theme has the higher opacity.

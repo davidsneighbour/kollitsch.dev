@@ -33,4 +33,4 @@ import PostMeta from '@components/content/metadata/PostMeta.astro';
 
 ## Behaviour
 
-This component has no client-side behaviour of its own. It renders a `Heading level={2}` reading "Meta Information", then delegates to [`PublishData`](publish-data.md), [`Origin`](origin.md), [`Github`](github.md), [`Tags`](tags.md), and [`Share`](share.md) in a `<div class="flex flex-col">`, passing `post` through to each. It is one of the components flagged in `src/components/README.md` as accepting the entire `post` object and delegating to several TODO-heavy subcomponents; a future refactor may narrow the props each subcomponent actually needs.
+This component has no client-side behaviour of its own. It renders a `Heading level={2}` reading "Meta Information", then delegates to [`PublishData`](publish-data.md), [`Github`](github.md), [`Tags`](tags.md), and [`Share`](share.md) in a `<div class="flex flex-col">`, passing `post` through to each. It is one of the components flagged in `src/components/README.md` as accepting the entire `post` object and delegating to several TODO-heavy subcomponents; a future refactor may narrow the props each subcomponent actually needs.

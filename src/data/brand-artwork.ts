@@ -3,8 +3,11 @@ import headlineImageSrc from '@assets/images/headline.jpg';
 export const wordmarkArtwork = {
   backgroundSize: '100vw auto',
   headerFill: {
-    fallbackColor: 'var(--color-orange-500)',
-    tintColor: 'var(--color-red-800)',
+    // Indirected through theme.css's --hero-tint-* tokens (rather than a
+    // literal palette value) so dark mode can retint the hero without a
+    // light/dark branch here.
+    fallbackColor: 'var(--hero-tint-fallback)',
+    tintColor: 'var(--hero-tint-color)',
     tintOpacity: 0.1,
   },
   image: {

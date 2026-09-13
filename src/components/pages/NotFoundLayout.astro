@@ -52,6 +52,12 @@ const { backgroundSrc } = Astro.props;
     background-position: bottom;
     background-attachment: fixed;
   }
+
+  :where([data-theme="dark"]) .h404 {
+    /* decorative brand accent, not a danger/error signal - see the final
+     * report's manual-review notes. */
+    color: var(--color-primary-200);
+  }
 </style>
 <script is:inline>
   (function () {

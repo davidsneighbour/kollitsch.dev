@@ -132,7 +132,7 @@ const roundedClasses = classes
       {...transitionName && { "data-post-preview-media-transition": transitionName }}
     >
       {isDraft && (
-        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white dark:bg-primary-800">
           DRAFT
         </span>
       )}
@@ -174,7 +174,7 @@ const roundedClasses = classes
       {link && (
         <a
           href={link}
-          class="absolute inset-0 z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500"
+          class="absolute inset-0 z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500 dark:focus-visible:ring-primary-500"
           aria-label={cover.alt}
         />
       )}
@@ -204,7 +204,7 @@ const roundedClasses = classes
 
       {/* DRAFT badge — always visible on draft posts, top-left corner */}
       {isDraft && (
-        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white dark:bg-primary-800">
           DRAFT
         </span>
       )}
@@ -217,7 +217,7 @@ const roundedClasses = classes
           {/* Caption text — links get z-30 so they intercept clicks above
               the background <a> link at z-10 */}
           <span
-            class="caption-text min-w-0 flex-1 text-sm leading-snug [&_a]:relative [&_a]:z-30 [&_a]:text-white [&_a]:underline [&_a]:decoration-white/60 [&_a]:underline-offset-2 hover:[&_a]:text-red-300 hover:[&_a]:decoration-white"
+            class="caption-text min-w-0 flex-1 text-sm leading-snug [&_a]:relative [&_a]:z-30 [&_a]:text-white [&_a]:underline [&_a]:decoration-white/60 [&_a]:underline-offset-2 hover:[&_a]:text-primary-300 hover:[&_a]:decoration-white"
             set:html={cover.title}
           />
           {/* Publishing date — visible only on images wider than 22rem

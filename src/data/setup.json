@@ -30,7 +30,8 @@
       "charset": "utf-8",
       "viewport": "width=device-width, initial-scale=1.0"
     },
-    "postfix": " | kollitsch.dev"
+    "postfix": " | kollitsch.dev",
+    "themeColorDark": "#016630"
   },
   "homepage": {
     "recent_posts": 6

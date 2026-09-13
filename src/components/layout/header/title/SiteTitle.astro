@@ -140,6 +140,10 @@ const shatterLetters = letters.map((letter, index) => {
     animation-range: exit var(--shatter-in-start) exit var(--shatter-in-end);
   }
 
+  :where([data-theme="dark"]) .site-title-shatter {
+    color: var(--color-primary-600);
+  }
+
   @keyframes site-title-shatter-in {
     from {
       opacity: 0%;
@@ -243,7 +247,10 @@ const shatterLetters = letters.map((letter, index) => {
       .site-title-hero.is-toggle-hover
       .site-title-link
       :global(.text-image-fill) {
-      color: var(--color-red-700);
+      /* --site-title-hover-color is themed in theme.css (light: red-700,
+       * dark: primary-600) so this selector doesn't need a separate
+       * dark-mode copy of itself. */
+      color: var(--site-title-hover-color);
       transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
 

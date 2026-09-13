@@ -252,6 +252,10 @@ const { defaultTheme = 'dark' }: Props = Astro.props;
     transition: color 300ms ease;
   }
 
+  :where([data-theme="dark"]) .theme-toggle {
+    color: var(--color-primary-600);
+  }
+
   /*
    * Deliberately no hover/active scale ("pressed button") feedback here.
    * The sun/moon icon already animates on click via .theme-toggle-icon,
@@ -261,6 +265,10 @@ const { defaultTheme = 'dark' }: Props = Astro.props;
    */
   .theme-toggle:hover {
     color: var(--color-orange-700);
+  }
+
+  :where([data-theme="dark"]) .theme-toggle:hover {
+    color: var(--color-primary-400);
   }
 
   .theme-toggle:focus-visible {

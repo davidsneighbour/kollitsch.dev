@@ -112,11 +112,54 @@
   --color-red-950: oklch(25.8% 0.092 26.042deg);
   --color-green-50: oklch(98.2% 0.018 155.826deg);
   --color-green-100: oklch(96.2% 0.044 156.743deg);
+  --color-green-200: oklch(92.5% 0.084 155.995deg);
   --color-green-300: oklch(87.1% 0.15 154.449deg);
   --color-green-400: oklch(79.2% 0.209 151.711deg);
+  --color-green-500: oklch(72.3% 0.219 149.579deg);
   --color-green-600: oklch(62.7% 0.194 149.214deg);
   --color-green-700: oklch(52.7% 0.154 150.069deg);
+  --color-green-800: oklch(44.8% 0.119 151.328deg);
+  --color-green-900: oklch(39.3% 0.095 152.535deg);
   --color-green-950: oklch(26.6% 0.065 152.934deg);
+
+  /* Tailwind CSS 4.3.3 default "mist" scale: the project's Mist neutral palette source. */
+  --color-mist-50: oklch(98.7% 0.002 197.1deg);
+  --color-mist-100: oklch(96.3% 0.002 197.1deg);
+  --color-mist-200: oklch(92.5% 0.005 214.3deg);
+  --color-mist-300: oklch(87.2% 0.007 219.6deg);
+  --color-mist-400: oklch(72.3% 0.014 214.4deg);
+  --color-mist-500: oklch(56% 0.021 213.5deg);
+  --color-mist-600: oklch(45% 0.017 213.2deg);
+  --color-mist-700: oklch(37.8% 0.015 216deg);
+  --color-mist-800: oklch(27.5% 0.011 216.9deg);
+  --color-mist-900: oklch(21.8% 0.008 223.9deg);
+  --color-mist-950: oklch(14.8% 0.004 228.8deg);
+
+  /* Tailwind CSS 4.3.3 default "amber" scale: source for the independent `warning` state token. */
+  --color-amber-50: oklch(98.7% 0.022 95.277deg);
+  --color-amber-100: oklch(96.2% 0.059 95.617deg);
+  --color-amber-200: oklch(92.4% 0.12 95.746deg);
+  --color-amber-300: oklch(87.9% 0.169 91.605deg);
+  --color-amber-400: oklch(82.8% 0.189 84.429deg);
+  --color-amber-500: oklch(76.9% 0.188 70.08deg);
+  --color-amber-600: oklch(66.6% 0.179 58.318deg);
+  --color-amber-700: oklch(55.5% 0.163 48.998deg);
+  --color-amber-800: oklch(47.3% 0.137 46.201deg);
+  --color-amber-900: oklch(41.4% 0.112 45.904deg);
+  --color-amber-950: oklch(27.9% 0.077 45.635deg);
+
+  /* Tailwind CSS 4.3.3 default "sky" scale: source for the independent `information` state token. */
+  --color-sky-50: oklch(97.7% 0.013 236.62deg);
+  --color-sky-100: oklch(95.1% 0.026 236.824deg);
+  --color-sky-200: oklch(90.1% 0.058 230.902deg);
+  --color-sky-300: oklch(82.8% 0.111 230.318deg);
+  --color-sky-400: oklch(74.6% 0.16 232.661deg);
+  --color-sky-500: oklch(68.5% 0.169 237.323deg);
+  --color-sky-600: oklch(58.8% 0.158 241.966deg);
+  --color-sky-700: oklch(50% 0.134 242.749deg);
+  --color-sky-800: oklch(44.3% 0.11 240.79deg);
+  --color-sky-900: oklch(39.1% 0.09 240.876deg);
+  --color-sky-950: oklch(29.3% 0.066 243.157deg);
   --color-olive-50: oklch(98.8% 0.003 106.5deg);
   --color-olive-100: oklch(96.6% 0.005 106.5deg);
   --color-olive-200: oklch(93% 0.007 106.5deg);
@@ -177,6 +220,55 @@
   --color-brand-main-accent: var(--color-orange-600);
   --color-brand-main-accent-hover: var(--color-red-700);
 
+  /*
+   * Hero/header wordmark image-tint colors (consumed by
+   * src/data/brand-artwork.ts -> TextImageFill.astro). Indirected through
+   * these tokens rather than passed as literal palette values so the
+   * dark-mode override below can retint the hero without a JS-side
+   * light/dark branch in the data file.
+   */
+  --hero-tint-fallback: var(--color-orange-500);
+  --hero-tint-color: var(--color-red-800);
+
+  /* SiteTitle.astro's hover color-pop (image-filled text -> solid accent
+   * before it dissolves). Same indirection pattern as --hero-tint-*. */
+  --site-title-hover-color: var(--color-red-700);
+
+  /*
+   * Project palette layer: `primary-*`/`grey-*`/`gray-*` are the only
+   * palette names components should reach for. They currently source from
+   * Tailwind's `green`/`gray` (taupe) scales; swapping the brand or neutral
+   * later means changing only this block, never component files.
+   *
+   * `grey-*` is the canonical (British English) spelling; `gray-*` mirrors
+   * it verbatim so both resolve identically - they are not separate
+   * palettes. Both alias the existing raw `--color-gray-*` tokens rather
+   * than introducing a second raw scale, so the dark-mode Mist remap below
+   * (`[data-theme="dark"]`) automatically applies to `grey-*` too.
+   */
+  --color-primary-50: var(--color-green-50);
+  --color-primary-100: var(--color-green-100);
+  --color-primary-200: var(--color-green-200);
+  --color-primary-300: var(--color-green-300);
+  --color-primary-400: var(--color-green-400);
+  --color-primary-500: var(--color-green-500);
+  --color-primary-600: var(--color-green-600);
+  --color-primary-700: var(--color-green-700);
+  --color-primary-800: var(--color-green-800);
+  --color-primary-900: var(--color-green-900);
+  --color-primary-950: var(--color-green-950);
+  --color-grey-50: var(--color-gray-50);
+  --color-grey-100: var(--color-gray-100);
+  --color-grey-200: var(--color-gray-200);
+  --color-grey-300: var(--color-gray-300);
+  --color-grey-400: var(--color-gray-400);
+  --color-grey-500: var(--color-gray-500);
+  --color-grey-600: var(--color-gray-600);
+  --color-grey-700: var(--color-gray-700);
+  --color-grey-800: var(--color-gray-800);
+  --color-grey-900: var(--color-gray-900);
+  --color-grey-950: var(--color-gray-950);
+
   /* Semantic endpoints are softened to the olive page-surface ramp. */
   --color-black: var(--color-olive-950);
   --color-white: var(--color-olive-50);
@@ -197,6 +289,10 @@
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-information: var(--information);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -268,41 +364,97 @@
   --sidebar-accent-foreground: var(--color-gray-600);
   --sidebar-border: var(--color-gray-200);
   --sidebar-ring: var(--color-orange-600);
+
+  /* Semantic state tokens: independent of brand/primary. Light-mode values
+   * are unchanged by this migration; the token names exist so future light
+   * and dark component work can reach for `bg-danger`/`text-warning`/etc.
+   * instead of raw Tailwind color utilities. */
+  --danger: var(--color-red-600);
+  --warning: var(--color-amber-600);
+  --success: var(--color-green-600);
+  --information: var(--color-sky-600);
 }
 
 [data-theme="dark"] {
+  /*
+   * Dark-only neutral remap: Mist replaces the taupe-based `gray-*` raw
+   * scale for the dark theme only (light keeps the original taupe scale
+   * via the unmodified `@theme` block above). Every existing `gray-*`/
+   * `grey-*` utility class site-wide picks this up automatically - no
+   * per-component edits needed. Surfaces favour the darker end of Mist per
+   * the design brief; retune here if the surface hierarchy needs to shift.
+   */
+  --color-gray-50: var(--color-mist-50);
+  --color-gray-100: var(--color-mist-100);
+  --color-gray-200: var(--color-mist-200);
+  --color-gray-300: var(--color-mist-300);
+  --color-gray-400: var(--color-mist-400);
+  --color-gray-500: var(--color-mist-500);
+  --color-gray-600: var(--color-mist-600);
+  --color-gray-700: var(--color-mist-700);
+  --color-gray-800: var(--color-mist-800);
+  --color-gray-900: var(--color-mist-900);
+  --color-gray-950: var(--color-mist-950);
   --background: var(--color-olive-950); /* surface-dark */
   --foreground: var(--color-gray-200); /* on-surface-dark */
   --card: var(--color-gray-800); /* surface-raised-dark */
   --card-foreground: var(--color-gray-200);
   --popover: color-mix(in oklch, var(--background) 88%, #ffffff 12%);
   --popover-foreground: var(--color-gray-200);
-  --primary: var(--color-orange-600);
-  --primary-foreground: var(--color-gray-950);
+
+  /* --primary is a fill background (buttons, selection highlight) in this
+   * token's shadcn usage, so it takes the darker/stronger primary-800 role;
+   * -foreground is white rather than the light theme's dark gray-950,
+   * since green-800 doesn't pass text contrast with a dark foreground
+   * (2.78:1) the way orange-600 did - see the final report for the full
+   * contrast rationale. */
+  --primary: var(--color-primary-800);
+  --primary-foreground: var(--color-white);
   --secondary: var(--color-gray-800);
   --secondary-foreground: var(--color-gray-200);
   --muted: var(--color-gray-800);
   --muted-foreground: var(--color-gray-500);
   --accent: var(--color-gray-800);
   --accent-foreground: var(--color-gray-200);
-  --destructive: var(--color-red-600);
+  --destructive: var(--color-red-600); /* danger state: stays red, independent of primary */
   --destructive-foreground: var(--color-gray-50);
   --border: var(--color-gray-700); /* border-dark */
   --input: var(--color-gray-700);
-  --ring: var(--color-orange-600);
-  --chart-1: var(--color-orange-600);
+
+  /* Focus rings need to stay bright/visible against dark surfaces, so this
+   * uses primary-500 rather than the -800 fill shade. */
+  --ring: var(--color-primary-500);
+  --chart-1: var(--color-primary-600);
   --chart-2: var(--color-red-600);
   --chart-3: var(--color-gray-400);
-  --chart-4: var(--color-orange-300);
+  --chart-4: var(--color-primary-300);
   --chart-5: var(--color-red-300);
   --sidebar: var(--color-gray-950);
   --sidebar-foreground: var(--color-gray-200);
-  --sidebar-primary: var(--color-orange-600);
-  --sidebar-primary-foreground: var(--color-gray-950);
+  --sidebar-primary: var(--color-primary-800);
+  --sidebar-primary-foreground: var(--color-white);
   --sidebar-accent: var(--color-gray-800);
   --sidebar-accent-foreground: var(--color-gray-200);
   --sidebar-border: var(--color-gray-700);
-  --sidebar-ring: var(--color-orange-600);
+  --sidebar-ring: var(--color-primary-500);
+
+  /* Legacy brand-accent token, still consumed by Progress.astro's reading
+   * bar (bg-brand-main-accent) and PageFind.astro's search focus outline. */
+  --color-brand-main-accent: var(--color-primary-500);
+  --color-brand-main-accent-hover: var(--color-primary-700);
+
+  /* Hero wordmark tint: was orange-500/red-800, now the equivalent primary
+   * shades - same blend technique/opacity, only the hue changes. */
+  --hero-tint-fallback: var(--color-primary-500);
+  --hero-tint-color: var(--color-primary-800);
+  --site-title-hover-color: var(--color-primary-600);
+
+  /* Semantic state tokens: intentionally independent of `--primary` even
+   * though primary is Tailwind green today - see scratch/color-scheme-upgrade.md. */
+  --danger: var(--color-red-500);
+  --warning: var(--color-amber-400);
+  --success: var(--color-green-400);
+  --information: var(--color-sky-400);
 }
 
 @theme inline {
@@ -383,12 +535,12 @@
   h2 code,
   h3 code {
     @apply rounded px-1 font-changa text-[90%] not-italic;
-    @apply bg-red-500/10;
+    @apply bg-red-500/10 dark:bg-primary-500/10;
   }
 
   p code {
     @apply font-mono text-[90%] not-italic;
-    @apply bg-red-500/10;
+    @apply bg-red-500/10 dark:bg-primary-500/10;
   }
 
   /* @see https://www.joshwcomeau.com/css/custom-css-reset/#eight-avoid-text-overflows-9 */
@@ -432,7 +584,11 @@
   }
 
   :where([data-theme="dark"], [data-theme="dark"] *) a {
-    color: var(--color-red-500);
+    /* was red-500 (5.13:1 vs. the olive-950 page background); primary-600
+     * is the nearest primary shade with equivalent or better contrast
+     * (6.09:1), kept one step darker than primary-500 (headings/hover) so
+     * body links stay visually distinct from headline text. */
+    color: var(--color-primary-600);
   }
 
   a:hover {
@@ -503,7 +659,7 @@
   --tw-prose-invert-body: var(--color-gray-200);
   --tw-prose-invert-headings: inherit;
   --tw-prose-invert-lead: var(--color-gray-300);
-  --tw-prose-invert-links: var(--color-red-500);
+  --tw-prose-invert-links: var(--color-primary-600); /* was red-500, see the base `a` dark rule above for rationale */
   --tw-prose-invert-bold: var(--color-white);
   --tw-prose-invert-counters: var(--color-gray-400);
   --tw-prose-invert-bullets: var(--color-gray-600);
@@ -541,7 +697,7 @@
     --tw-prose-links: var(--color-red-700);
 
     &:where([data-theme="dark"], [data-theme="dark"] *) {
-      --tw-prose-links: var(--color-red-500);
+      --tw-prose-links: var(--color-primary-600);
     }
 
     p {
@@ -559,7 +715,7 @@
     h5,
     h6 {
       code {
-        @apply underline decoration-wavy decoration-1 underline-offset-1 decoration-red-500;
+        @apply underline decoration-wavy decoration-1 underline-offset-1 decoration-red-500 dark:decoration-primary-700;
       }
     }
   }
@@ -603,6 +759,11 @@
 @layer base {
   ::target-text {
     background-color: var(--color-red-500);
+    color: var(--color-gray-950);
+  }
+
+  :where([data-theme="dark"], [data-theme="dark"] *) ::target-text {
+    background-color: var(--color-primary-500);
     color: var(--color-gray-950);
   }
 }
@@ -707,6 +868,11 @@
     --sb-border-radius: 6px;
   }
 
+  [data-theme="dark"] {
+    --sb-thumb-color: var(--color-primary-700);
+    --sb-thumb-color2: var(--color-primary-500);
+  }
+
   ::-webkit-scrollbar {
     width: var(--sb-size);
   }
@@ -785,7 +951,7 @@
   background-color: color-mix(in oklch, var(--color-red-100) 88%, transparent);
 
   &:where([data-theme="dark"], [data-theme="dark"] *) {
-    background-color: color-mix(in oklch, var(--color-red-950) 88%, transparent);
+    background-color: color-mix(in oklch, var(--color-primary-950) 88%, transparent);
   }
 }
 
@@ -866,13 +1032,22 @@
 }
 
 @layer utilities {
+  /* was orange-400 (L≈75%); primary-500 is the spec's literal "old orange
+   * role" mapping and comfortably passes contrast against olive-950 (8.81:1). */
   :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) {
-    color: var(--color-orange-400);
+    color: var(--color-primary-500);
   }
 
+  /*
+   * Linked-heading underline: the literal "old red role → primary-800"
+   * mapping fails even the lenient 3:1 non-text contrast threshold against
+   * olive-950 (2.76:1) - primary-700 is the nearest shade that clears it
+   * (3.96:1), still reading as the darker/stronger accent relative to the
+   * primary-500 heading text.
+   */
   :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a {
-    color: var(--color-orange-400);
-    text-decoration: underline solid var(--color-red-500);
+    color: var(--color-primary-500);
+    text-decoration: underline solid var(--color-primary-700);
     text-decoration-thickness: 0.056em;
     text-decoration-skip-ink: auto;
     text-underline-offset: 0.14em;
@@ -889,12 +1064,22 @@
   }
 
   :where([data-theme="dark"]) a:hover {
-    color: var(--color-orange-400);
+    color: var(--color-primary-400);
   }
 
+  /*
+   * Linked-heading hover: literal primary-800 fails as text (2.78:1 against
+   * olive-950). Originally set to primary-600 (darker than the primary-500
+   * rest state) to mirror the old orange-rest/red-hover hue swap, but on a
+   * dark surface a darker hover reads as the link dimming/receding rather
+   * than activating. primary-300 goes brighter instead - same direction as
+   * the generic link-hover jump (primary-600 body link -> primary-400 hover)
+   * - giving hover a clear, distinct "pop" (14:1 contrast) rather than a
+   * muddy step down.
+   */
   :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a:hover {
-    color: var(--color-red-500);
-    text-decoration-color: var(--color-red-500);
+    color: var(--color-primary-300);
+    text-decoration-color: var(--color-primary-300);
     text-underline-offset: 0.18em;
   }
 

@@ -45,7 +45,7 @@ purely a stale cross-origin cache.
 
 If asked to fix a color/style issue in one of these files, make the edit,
 then say explicitly that the result **cannot be verified until the branch is
-deployed** — do not attempt to "debug" the live behavior locally as if it
+deployed** — do not attempt to "debug" the live behaviour locally as if it
 were a normal Astro component; there is nothing broken to find until the
 file is actually live. Confirm the `themeVersion` bump was made in the same
 change.
@@ -81,6 +81,6 @@ only works if the browser running the test can actually resolve
 agent's own sandboxed browser tooling (Playwright/Chrome DevTools MCP)
 unless the dev server and the browser session are on the same host and the
 port is reachable from it. Treat this as a quick manual sanity check to hand
-to the user, not a substitute for actually confirming behavior after
+to the user, not a substitute for actually confirming behaviour after
 deploy — reserve real verification (via Chrome DevTools MCP/Playwright) for
 after `themeVersion` and the CSS are live.

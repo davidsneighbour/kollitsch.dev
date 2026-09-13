@@ -110,3 +110,55 @@ describe('blogSchema aliases', () => {
     }
   });
 });
+
+describe('blogSchema origin', () => {
+  const mastodonOrigin = {
+    type: 'mastodon',
+    id: '111111111111111111',
+    uri: 'https://mas.to/users/davidsneighbour/statuses/111111111111111111',
+    url: 'https://mas.to/@davidsneighbour/111111111111111111',
+    account: '@davidsneighbour@mas.to',
+    published: '2026-09-12T10:42:00.000Z',
+    imported: '2026-09-12T11:00:00.000Z',
+  };
+
+  it('is optional', () => {
+    const result = blogSchema.safeParse(baseFrontmatter);
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.origin).toBeUndefined();
+    }
+  });
+
+  it('accepts a complete Mastodon origin', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      origin: mastodonOrigin,
+    });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.origin?.type).toBe('mastodon');
+      expect(result.data.origin?.published).toEqual(
+        new Date(mastodonOrigin.published),
+      );
+    }
+  });
+
+  it('rejects an origin missing required fields', () => {
+    const { url: _url, ...withoutUrl } = mastodonOrigin;
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      origin: withoutUrl,
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects an unknown origin type', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      origin: { ...mastodonOrigin, type: 'bluesky' },
+    });
+    expect(result.success).toBe(false);
+  });
+});

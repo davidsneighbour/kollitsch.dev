@@ -63,6 +63,14 @@ Markdown headings or filenames.
 | `linktitle` | no | `string` | Plain-text shorter link label; must differ from and be shorter than `title`. |
 | `options` | no | nested object | Per-post rendering options; known keys are listed below. |
 | `options.head.components` | no | `lite-youtube[]`, `date-diff[]` | Extra head components required by a post. |
+| `origin` | no | object | Provenance for a post promoted from an external source; see [Stream](stream.md). |
+| `origin.account` | for Mastodon origins | `string` | Source account handle, e.g. `@davidsneighbour@mas.to`. |
+| `origin.id` | for Mastodon origins | `string` | Source status id. |
+| `origin.imported` | for Mastodon origins | date | When the post was promoted into the blog. |
+| `origin.published` | for Mastodon origins | date | When the source status was originally published. |
+| `origin.type` | for Mastodon origins | `mastodon` | Origin source type; only `mastodon` exists today. |
+| `origin.uri` | for Mastodon origins | `string` | Source status's ActivityPub URI. |
+| `origin.url` | for Mastodon origins | `string` | Source status's public permalink. |
 | `publisher` | no | `rework` or `validate` | Internal publishing workflow state. |
 | `resources` | no | object array | External resources with optional `name`, `src`, and `title`. |
 | `resources[].name` | no | `string` | Resource name. |

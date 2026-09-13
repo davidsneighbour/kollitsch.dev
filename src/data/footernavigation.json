@@ -29,6 +29,11 @@
     "link": "/tags/"
   },
   {
+    "icon": "broadcast",
+    "label": "Stream",
+    "link": "/stream/"
+  },
+  {
     "icon": "person-badge",
     "label": "About",
     "link": "/about/"

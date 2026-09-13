@@ -1,0 +1,210 @@
+---
+export interface Props {
+  /** Path the client fetches for stream data. */
+  endpoint?: string;
+  /** Public Mastodon profile linked from the offline/unavailable states. */
+  profileUrl: string;
+}
+
+const { endpoint = '/.netlify/functions/stream', profileUrl }: Props =
+  Astro.props;
+---
+
+<div
+  id="stream-list"
+  data-endpoint={endpoint}
+  data-profile-url={profileUrl}
+>
+  <p
+    class="text-sm text-gray-500 dark:text-gray-400"
+    data-stream-loading
+  >
+    Loading the stream…
+  </p>
+  <p
+    class="hidden text-sm text-gray-500 dark:text-gray-400"
+    data-stream-unavailable
+  >
+    The stream is unavailable right now. Read it directly on
+    <a
+      href={profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline"
+      >Mastodon</a
+    >.
+  </p>
+  <p
+    class="hidden text-xs text-gray-500 dark:text-gray-400"
+    data-stream-stale-note
+  ></p>
+  <div
+    class="flex flex-col gap-3"
+    data-stream-threads
+  ></div>
+  <noscript>
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+      Enable JavaScript, or read the stream directly on
+      <a
+        href={profileUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline"
+        >Mastodon</a
+      >.
+    </p>
+  </noscript>
+</div>
+
+<script>
+  import {
+    groupSelfReplyThreads,
+    type StreamStatus,
+  } from '@utils/stream-shared.ts';
+
+  const CACHE_KEY = 'mastodon_stream_cache_v1';
+  const container = document.getElementById('stream-list');
+  if (!container) throw new Error('StreamList: missing #stream-list container');
+
+  const endpoint =
+    container.dataset['endpoint'] ?? '/.netlify/functions/stream';
+  const loadingEl = container.querySelector<HTMLElement>(
+    '[data-stream-loading]',
+  );
+  const unavailableEl = container.querySelector<HTMLElement>(
+    '[data-stream-unavailable]',
+  );
+  const staleNoteEl = container.querySelector<HTMLElement>(
+    '[data-stream-stale-note]',
+  );
+  const threadsEl = container.querySelector<HTMLElement>(
+    '[data-stream-threads]',
+  );
+
+  interface CachedStream {
+    statuses: StreamStatus[];
+    fetchedAt: string;
+  }
+
+  function readCache(): CachedStream | null {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      return raw ? (JSON.parse(raw) as CachedStream) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function writeCache(data: CachedStream): void {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+    } catch {
+      // Private windows / blocked storage: rendering still works, just without an offline cache.
+    }
+  }
+
+  function escapeHtml(value: string): string {
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function renderStatus(status: StreamStatus, nested: boolean): string {
+    const date = new Date(status.createdAt);
+    const dateLabel = Number.isNaN(date.getTime())
+      ? status.createdAt
+      : date.toLocaleDateString(undefined, {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        });
+    const media = status.media.filter((item) => item.url);
+    const mediaHtml = media.length
+      ? `<div class="mt-2 flex flex-wrap gap-2">${media
+          .map(
+            (item) =>
+              `<img src="${escapeHtml(item.previewUrl ?? item.url ?? '')}" alt="${escapeHtml(
+                item.description ?? 'No alt text provided',
+              )}" class="h-24 w-24 rounded-md object-cover" loading="lazy" />`,
+          )
+          .join('')}</div>`
+      : '';
+    const bodyHtml = status.spoilerText
+      ? `<details><summary class="cursor-pointer">${escapeHtml(status.spoilerText)}</summary><div class="mt-2">${status.contentHtml}</div></details>`
+      : `<div>${status.contentHtml}</div>`;
+    const discussLink = status.url
+      ? `<a href="${escapeHtml(status.url)}" target="_blank" rel="noopener noreferrer" class="ml-auto underline">Discuss on Mastodon</a>`
+      : '';
+
+    const cardClass = nested
+      ? 'flex flex-col gap-2 border-l border-gray-900/10 py-2 pl-4 text-sm dark:border-gray-100/10'
+      : 'flex flex-col gap-2 rounded-lg bg-white/5 px-4 py-3 text-sm outline outline-gray-900/10 -outline-offset-1 dark:bg-black/20 dark:outline-white/10';
+
+    return `
+      <article class="${cardClass}" data-stream-status-id="${status.id}">
+        <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+          <time datetime="${status.createdAt}">${dateLabel}</time>
+        </div>
+        ${bodyHtml}
+        ${mediaHtml}
+        <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+          <span>${status.counts.replies} replies</span>
+          <span>${status.counts.favourites} favourites</span>
+          <span>${status.counts.boosts} boosts</span>
+          ${discussLink}
+        </div>
+      </article>`;
+  }
+
+  function render(statuses: StreamStatus[]): void {
+    if (!threadsEl) return;
+    const threads = groupSelfReplyThreads(statuses);
+    threadsEl.innerHTML = threads
+      .map(
+        (thread) =>
+          `<div>${renderStatus(thread.root, false)}${thread.replies
+            .map((reply) => renderStatus(reply, true))
+            .join('')}</div>`,
+      )
+      .join('');
+  }
+
+  function showUnavailable(): void {
+    if (loadingEl) loadingEl.classList.add('hidden');
+    if (unavailableEl) unavailableEl.classList.remove('hidden');
+  }
+
+  function showStaleNote(fetchedAt: string): void {
+    if (!staleNoteEl) return;
+    const date = new Date(fetchedAt);
+    staleNoteEl.textContent = Number.isNaN(date.getTime())
+      ? 'Showing a cached copy of the stream.'
+      : `Showing a cached copy of the stream, last updated ${date.toLocaleString()}.`;
+    staleNoteEl.classList.remove('hidden');
+  }
+
+  async function load(): Promise<void> {
+    try {
+      const response = await fetch(endpoint);
+      if (!response.ok)
+        throw new Error(`Stream endpoint returned ${response.status}`);
+      const data = (await response.json()) as CachedStream;
+      writeCache(data);
+      render(data.statuses);
+    } catch {
+      const cached = readCache();
+      if (cached && cached.statuses.length > 0) {
+        render(cached.statuses);
+        showStaleNote(cached.fetchedAt);
+      } else {
+        showUnavailable();
+      }
+    } finally {
+      if (loadingEl) loadingEl.classList.add('hidden');
+    }
+  }
+
+  void load();
+</script>

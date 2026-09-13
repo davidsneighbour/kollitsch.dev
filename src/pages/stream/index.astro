@@ -1,0 +1,38 @@
+---
+import Heading from '@components/content/typography/Heading.astro';
+import StreamList from '@components/features/stream/StreamList.astro';
+import social from '@content/social.json' with { type: 'json' };
+import Layout from '@layouts/ContentPage.astro';
+
+const mastodon = social.find(
+  (entry: { id: string }) => entry.id === 'mastodon',
+);
+const profileUrl = mastodon?.url ?? 'https://mas.to/@davidsneighbour';
+
+const post = {
+  data: {
+    description:
+      'Short, public thoughts posted to Mastodon, mirrored here without needing a full blog post.',
+    title: 'Stream | KOLLITSCH.dev*',
+  },
+};
+---
+
+<Layout post={post}>
+  <Heading
+    level={1}
+    class="mb-2"
+    >Stream</Heading
+  >
+  <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">
+    Short posts from
+    <a
+      href={profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline"
+      >Mastodon</a
+    >. Refreshed periodically, no redeploy required.
+  </p>
+  <StreamList profileUrl={profileUrl} />
+</Layout>

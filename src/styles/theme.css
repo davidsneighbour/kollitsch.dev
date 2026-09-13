@@ -217,8 +217,8 @@
  ******************************************************************************/
 @theme inline {
   --font-title: var(--font-changa);
-  --color-brand-main-accent: var(--color-orange-600);
-  --color-brand-main-accent-hover: var(--color-red-700);
+  --color-brand-main-accent: var(--color-primary-500);
+  --color-brand-main-accent-hover: var(--color-primary-700);
 
   /*
    * Hero/header wordmark image-tint colors (consumed by
@@ -227,12 +227,12 @@
    * dark-mode override below can retint the hero without a JS-side
    * light/dark branch in the data file.
    */
-  --hero-tint-fallback: var(--color-orange-500);
-  --hero-tint-color: var(--color-red-800);
+  --hero-tint-fallback: var(--color-primary-500);
+  --hero-tint-color: var(--color-primary-800);
 
   /* SiteTitle.astro's hover color-pop (image-filled text -> solid accent
    * before it dissolves). Same indirection pattern as --hero-tint-*. */
-  --site-title-hover-color: var(--color-red-700);
+  --site-title-hover-color: var(--color-primary-600);
 
   /*
    * Project palette layer: `primary-*`/`grey-*`/`gray-*` are the only
@@ -338,8 +338,15 @@
   --card-foreground: var(--color-gray-600);
   --popover: #ffffff;
   --popover-foreground: var(--color-gray-600);
-  --primary: var(--color-orange-600);
-  --primary-foreground: var(--color-gray-950); /* surface-dark, per button-primary token */
+
+  /* --primary is a fill background (buttons, selection highlight), so it
+   * takes the darker/stronger primary-800 role, same as dark mode - white
+   * foreground since green-800 doesn't pass text contrast with dark text
+   * the way orange-600 did. --ring/--sidebar-ring stay one step darker than
+   * dark mode's primary-500 (primary-600) since they sit directly on the
+   * light page background rather than the dark one. */
+  --primary: var(--color-primary-800);
+  --primary-foreground: var(--color-white);
   --secondary: var(--color-gray-100);
   --secondary-foreground: var(--color-gray-600);
   --muted: var(--color-gray-100);
@@ -350,20 +357,20 @@
   --destructive-foreground: var(--color-gray-50);
   --border: var(--color-gray-200);
   --input: var(--color-gray-200);
-  --ring: var(--color-orange-600); /* primary accent doubles as focus ring */
-  --chart-1: var(--color-orange-600);
+  --ring: var(--color-primary-600);
+  --chart-1: var(--color-primary-600);
   --chart-2: var(--color-red-600);
   --chart-3: var(--color-gray-400);
-  --chart-4: var(--color-orange-300);
+  --chart-4: var(--color-primary-300);
   --chart-5: var(--color-red-300);
   --sidebar: var(--color-gray-50);
   --sidebar-foreground: var(--color-gray-600);
-  --sidebar-primary: var(--color-orange-600);
-  --sidebar-primary-foreground: var(--color-gray-950);
+  --sidebar-primary: var(--color-primary-800);
+  --sidebar-primary-foreground: var(--color-white);
   --sidebar-accent: var(--color-gray-100);
   --sidebar-accent-foreground: var(--color-gray-600);
   --sidebar-border: var(--color-gray-200);
-  --sidebar-ring: var(--color-orange-600);
+  --sidebar-ring: var(--color-primary-600);
 
   /* Semantic state tokens: independent of brand/primary. Light-mode values
    * are unchanged by this migration; the token names exist so future light
@@ -402,14 +409,9 @@
   --popover: color-mix(in oklch, var(--background) 88%, #ffffff 12%);
   --popover-foreground: var(--color-gray-200);
 
-  /* --primary is a fill background (buttons, selection highlight) in this
-   * token's shadcn usage, so it takes the darker/stronger primary-800 role;
-   * -foreground is white rather than the light theme's dark gray-950,
-   * since green-800 doesn't pass text contrast with a dark foreground
-   * (2.78:1) the way orange-600 did - see the final report for the full
-   * contrast rationale. */
-  --primary: var(--color-primary-800);
-  --primary-foreground: var(--color-white);
+  /* --primary/--primary-foreground are the same fill in both themes now
+   * (see :root above) - buttons don't need to contrast against the page
+   * background, only against their own text, so one shade works everywhere. */
   --secondary: var(--color-gray-800);
   --secondary-foreground: var(--color-gray-200);
   --muted: var(--color-gray-800);
@@ -438,16 +440,9 @@
   --sidebar-border: var(--color-gray-700);
   --sidebar-ring: var(--color-primary-500);
 
-  /* Legacy brand-accent token, still consumed by Progress.astro's reading
-   * bar (bg-brand-main-accent) and PageFind.astro's search focus outline. */
-  --color-brand-main-accent: var(--color-primary-500);
-  --color-brand-main-accent-hover: var(--color-primary-700);
-
-  /* Hero wordmark tint: was orange-500/red-800, now the equivalent primary
-   * shades - same blend technique/opacity, only the hue changes. */
-  --hero-tint-fallback: var(--color-primary-500);
-  --hero-tint-color: var(--color-primary-800);
-  --site-title-hover-color: var(--color-primary-600);
+  /* --color-brand-main-accent(-hover), --hero-tint-*, and
+   * --site-title-hover-color no longer need a dark override - both themes
+   * use the same primary-* shade now (see the @theme inline block above). */
 
   /* Semantic state tokens: intentionally independent of `--primary` even
    * though primary is Tailwind green today - see scratch/color-scheme-upgrade.md. */
@@ -535,12 +530,12 @@
   h2 code,
   h3 code {
     @apply rounded px-1 font-changa text-[90%] not-italic;
-    @apply bg-red-500/10 dark:bg-primary-500/10;
+    @apply bg-primary-500/10;
   }
 
   p code {
     @apply font-mono text-[90%] not-italic;
-    @apply bg-red-500/10 dark:bg-primary-500/10;
+    @apply bg-primary-500/10;
   }
 
   /* @see https://www.joshwcomeau.com/css/custom-css-reset/#eight-avoid-text-overflows-9 */
@@ -576,7 +571,7 @@
    * `@layer base` block regardless of selector specificity.
    */
   a {
-    color: var(--color-red-700);
+    color: var(--color-primary-700);
     text-underline-offset: 2px;
     transition:
       color 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -643,7 +638,7 @@
   --tw-prose-body: var(--color-gray-800);
   --tw-prose-headings: inherit;
   --tw-prose-lead: var(--color-gray-700);
-  --tw-prose-links: var(--color-red-700);
+  --tw-prose-links: var(--color-primary-700);
   --tw-prose-bold: var(--color-gray-900);
   --tw-prose-counters: var(--color-gray-600);
   --tw-prose-bullets: var(--color-gray-400);
@@ -694,7 +689,7 @@
      * variables, overriding prose-dnb's colors at md+ breakpoints and in dark
      * mode. Reassert the overrides last so they always win.
      */
-    --tw-prose-links: var(--color-red-700);
+    --tw-prose-links: var(--color-primary-700);
 
     &:where([data-theme="dark"], [data-theme="dark"] *) {
       --tw-prose-links: var(--color-primary-600);
@@ -758,7 +753,7 @@
  ******************************************************************************/
 @layer base {
   ::target-text {
-    background-color: var(--color-red-500);
+    background-color: var(--color-primary-500);
     color: var(--color-gray-950);
   }
 
@@ -863,8 +858,8 @@
     --sb-size-ff: thin;
     --sb-track-color: var(--color-gray-900);
     --sb-track-color2: var(--color-gray-800);
-    --sb-thumb-color: var(--color-orange-600);
-    --sb-thumb-color2: var(--color-red-700);
+    --sb-thumb-color: var(--color-primary-600);
+    --sb-thumb-color2: var(--color-primary-700);
     --sb-border-radius: 6px;
   }
 
@@ -1060,7 +1055,7 @@
    * (see the `a` rule in @layer base above for the rest-state color).
    */
   a:hover {
-    color: var(--color-orange-700);
+    color: var(--color-primary-600);
   }
 
   :where([data-theme="dark"]) a:hover {

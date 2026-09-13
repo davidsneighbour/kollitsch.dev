@@ -132,7 +132,7 @@ const roundedClasses = classes
       {...transitionName && { "data-post-preview-media-transition": transitionName }}
     >
       {isDraft && (
-        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white dark:bg-primary-800">
+        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-primary-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
           DRAFT
         </span>
       )}
@@ -174,7 +174,7 @@ const roundedClasses = classes
       {link && (
         <a
           href={link}
-          class="absolute inset-0 z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500 dark:focus-visible:ring-primary-500"
+          class="absolute inset-0 z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500"
           aria-label={cover.alt}
         />
       )}
@@ -204,7 +204,7 @@ const roundedClasses = classes
 
       {/* DRAFT badge — always visible on draft posts, top-left corner */}
       {isDraft && (
-        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-orange-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white dark:bg-primary-800">
+        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-primary-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
           DRAFT
         </span>
       )}

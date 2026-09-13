@@ -18,8 +18,16 @@ interface ContactPayload {
 }
 
 const contactPath = '/api/send-email';
+const apexHostname = 'kollitsch.dev';
+const wwwHostname = `www.${apexHostname}`;
 const resendEndpoint = 'https://api.resend.com/emails';
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function redirectWwwToApex(url: URL): Response {
+  url.hostname = apexHostname;
+
+  return Response.redirect(url.toString(), 301);
+}
 
 function jsonResponse(body: Record<string, unknown>, init: ResponseInit = {}): Response {
   return new Response(JSON.stringify(body), {
@@ -178,6 +186,10 @@ async function sendContactEmail(request: Request, env: Env): Promise<Response> {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.hostname === wwwHostname) {
+      return redirectWwwToApex(url);
+    }
 
     if (url.pathname === contactPath) {
       return sendContactEmail(request, env);

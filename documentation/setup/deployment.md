@@ -14,11 +14,11 @@ The production Worker is configured in [`wrangler.jsonc`](../../wrangler.jsonc):
 - `assets.directory` points at `./dist/`, the Astro static output directory.
 - `assets.html_handling` is `auto-trailing-slash`, matching Astro's directory-style output.
 - `assets.not_found_handling` is `404-page`, so Cloudflare serves the generated `404.html` for missing assets.
-- `assets.run_worker_first` is limited to `/api/send-email`, so ordinary static page and asset requests do not execute the Worker.
+- `assets.run_worker_first` is enabled, so the Worker can redirect `www.kollitsch.dev` requests before handing ordinary static page and asset requests to the `ASSETS` binding.
 
 Cloudflare DNS is already the zone authority. The canonical hostname remains the apex domain, `kollitsch.dev`, but the default local deploy does not update custom-domain routes or DNS records. Attach the Worker to the apex hostname separately in Cloudflare once the upload path is known-good.
 
-The `www` hostname is handled outside this repository with a Cloudflare Redirect Rule from `https://www.kollitsch.dev/*` to `https://kollitsch.dev/${1}`. Cloudflare requires a proxied placeholder DNS record for the redirected-from hostname when only a redirect rule should run there.
+The `www` hostname is attached to the same Worker as the apex hostname. The Worker redirects `https://www.kollitsch.dev/*` to `https://kollitsch.dev/*` with a permanent redirect while preserving the path and query string.
 
 ## Required local setup
 
@@ -99,7 +99,13 @@ The top-level deploy scripts wrap their Wireit-owned pipeline commands with `src
 
 `npm run deploy` intentionally leaves the production domain configuration alone. This keeps repeat local deploys focused on the Worker and Static Assets upload, and avoids re-running Cloudflare's custom-domain DNS reconciliation on every deploy.
 
-After the first successful upload, attach `kollitsch.dev` to the `kollitsch-dev` Worker in the Cloudflare dashboard under Workers & Pages → `kollitsch-dev` → Settings → Domains & Routes. If Wrangler logs show `Uploaded kollitsch-dev` and then stop or fail while calling a `domains/records` endpoint, the Worker upload has completed and only the domain route update needs attention in Cloudflare.
+After the first successful upload, attach `kollitsch.dev` and `www.kollitsch.dev` to the `kollitsch-dev` Worker in the Cloudflare dashboard under Workers & Pages → `kollitsch-dev` → Settings → Domains & Routes, or run a one-time Wrangler deploy with custom-domain flags:
+
+```bash
+WRANGLER_LOG_PATH=.cache/wrangler npx wrangler deploy --domain kollitsch.dev --domain www.kollitsch.dev
+```
+
+If Wrangler logs show `Uploaded kollitsch-dev` and then stop or fail while calling a `domains/records` endpoint, the Worker upload has completed and only the domain route update needs attention in Cloudflare.
 
 ## Rollback
 

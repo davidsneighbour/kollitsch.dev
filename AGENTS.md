@@ -182,6 +182,8 @@ Astro generates a fully static site (`output: 'static'`). All pages are pre-rend
 
 Astro uses directory-style static output with trailing slashes. Cloudflare Workers Static Assets keeps that URL shape with `assets.html_handling = "auto-trailing-slash"` in `wrangler.jsonc`.
 
+Cloudflare deploys are local-only. `npm run deploy` uploads the Worker and Static Assets bundle with Wrangler, but does not manage production custom-domain routes. Keep `kollitsch.dev` attached to the `kollitsch-dev` Worker through Cloudflare's Domains & Routes settings so routine deploys do not re-run DNS reconciliation.
+
 Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.
 
 ### Content collections (`src/content.config.ts`)

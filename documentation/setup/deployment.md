@@ -15,9 +15,10 @@ The production Worker is configured in [`wrangler.jsonc`](../../wrangler.jsonc):
 - `assets.html_handling` is `auto-trailing-slash`, matching Astro's directory-style output.
 - `assets.not_found_handling` is `404-page`, so Cloudflare serves the generated `404.html` for missing assets.
 - `assets.run_worker_first` is limited to `/api/send-email`, so ordinary static page and asset requests do not execute the Worker.
-- The custom domain route is `kollitsch.dev`; the canonical hostname remains the apex domain.
 
-Cloudflare DNS is already the zone authority. The `www` hostname is handled outside this repository with a Cloudflare Redirect Rule from `https://www.kollitsch.dev/*` to `https://kollitsch.dev/${1}`. Cloudflare requires a proxied placeholder DNS record for the redirected-from hostname when only a redirect rule should run there.
+Cloudflare DNS is already the zone authority. The canonical hostname remains the apex domain, `kollitsch.dev`, but the default local deploy does not update custom-domain routes or DNS records. Attach the Worker to the apex hostname separately in Cloudflare once the upload path is known-good.
+
+The `www` hostname is handled outside this repository with a Cloudflare Redirect Rule from `https://www.kollitsch.dev/*` to `https://kollitsch.dev/${1}`. Cloudflare requires a proxied placeholder DNS record for the redirected-from hostname when only a redirect rule should run there.
 
 ## Required local setup
 
@@ -93,6 +94,12 @@ npm run deploy:dry-run
 ```
 
 The top-level deploy scripts wrap their Wireit-owned pipeline commands with `src/scripts/maintenance/timed-run.ts`, so the final output includes elapsed time for the whole deployment pipeline.
+
+## Production domain cutover
+
+`npm run deploy` intentionally leaves the production domain configuration alone. This keeps repeat local deploys focused on the Worker and Static Assets upload, and avoids re-running Cloudflare's custom-domain DNS reconciliation on every deploy.
+
+After the first successful upload, attach `kollitsch.dev` to the `kollitsch-dev` Worker in the Cloudflare dashboard under Workers & Pages → `kollitsch-dev` → Settings → Domains & Routes. If Wrangler logs show `Uploaded kollitsch-dev` and then stop or fail while calling a `domains/records` endpoint, the Worker upload has completed and only the domain route update needs attention in Cloudflare.
 
 ## Rollback
 

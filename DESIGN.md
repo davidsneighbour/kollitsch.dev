@@ -3,15 +3,15 @@ version: alpha
 name: KOLLITSCH.dev*
 description: Digital garden, blog, and web-development reference for Patrick Kollitsch
 colors:
-  # Primary / brand - the single interactive accent hue
-  primary: "oklch(64.6% 0.222 41.116deg)"
-  primary-hover: "oklch(55.3% 0.195 38.402deg)"
-  # Link pair - deep red shifts toward orange on hover
-  link: "oklch(50.5% 0.213 27.518deg)"
-  link-hover: "oklch(64.6% 0.222 41.116deg)"
-  # Dark-mode link pair - brighter red/orange for AA contrast on dark surfaces
-  link-dark: "oklch(63.7% 0.237 25.331deg)"
-  link-dark-hover: "oklch(75% 0.183 55.934deg)"
+  # Primary / brand - the single interactive accent hue (green-based `primary-*` scale)
+  primary: "oklch(72.3% 0.219 149.579deg)"
+  primary-hover: "oklch(52.7% 0.154 150.069deg)"
+  # Link pair - dark green shifts toward brighter green on hover
+  link: "oklch(52.7% 0.154 150.069deg)"
+  link-hover: "oklch(62.7% 0.194 149.214deg)"
+  # Dark-mode link pair - brighter greens for AA contrast on dark surfaces
+  link-dark: "oklch(62.7% 0.194 149.214deg)"
+  link-dark-hover: "oklch(79.2% 0.209 151.711deg)"
   # Surfaces (light / dark) - Tailwind's `olive` scale (v4.2+), not `gray`
   surface: "oklch(98.8% 0.003 106.5deg)"
   surface-dark: "oklch(15.3% 0.006 107.1deg)"
@@ -21,15 +21,15 @@ colors:
   on-surface: "oklch(43.8% 0.017 39.3deg)"
   on-surface-dark: "oklch(92.2% 0.005 34.3deg)"
   on-surface-muted: "oklch(54.7% 0.021 43.1deg)"
-  heading-dark: "oklch(75% 0.183 55.934deg)"
-  heading-link-underline-dark: "oklch(63.7% 0.237 25.331deg)"
+  heading-dark: "oklch(72.3% 0.219 149.579deg)"
+  heading-link-underline-dark: "oklch(52.7% 0.154 150.069deg)"
   # Structural
   border: "oklch(92.2% 0.005 34.3deg)"
   border-dark: "oklch(36.7% 0.016 35.7deg)"
   # Semantic
   error: "oklch(57.7% 0.245 27.325deg)"
-  code-highlight: "oklch(63.7% 0.237 25.331deg)"
-  draft-badge-background: "oklch(47% 0.157 37.304deg)"
+  code-highlight: "oklch(72.3% 0.219 149.579deg)"
+  draft-badge-background: "oklch(44.8% 0.119 151.328deg)"
   tag-badge-green-50: "oklch(98.2% 0.018 155.826deg)"
   tag-badge-green-100: "oklch(96.2% 0.044 156.743deg)"
   tag-badge-green-300: "oklch(87.1% 0.15 154.449deg)"
@@ -274,7 +274,7 @@ components:
 The visual language is built around three constraints:
 
 1. A **warm, near-neutral gray palette** as the base - not cool, not clinical.
-2. A **single accent pair** (a burnt-orange primary shifting to a darker tone on hover) that signals every interactive element without overwhelming the content.
+2. A **single accent pair** (a green primary shifting to a darker or lighter tone on hover, depending on theme) that signals every interactive element without overwhelming the content.
 3. **Variable-weight typography** that can express both the weight of a technical headline and the lightness of body prose without switching families.
 
 The overriding aesthetic is **engineered lightness**: generous line heights, minimal corner radii, no decorative shadows - hierarchy is achieved through tone, scale, and spacing rather than visual ornament.
@@ -283,21 +283,21 @@ The overriding aesthetic is **engineered lightness**: generous line heights, min
 
 The palette keeps its emotional range narrow on purpose. A wide range of grays covers structure, text, and surface; a single accent hue covers everything interactive.
 
-* **Primary (`oklch(64.6% 0.222 41.116deg)`):** A burnt orange - "Koh Samui Dusk". Used exclusively for primary CTAs, inline links on hover, and the brand asterisk in the site title. One accent, used consistently.
-* **Primary Hover (`oklch(55.3% 0.195 38.402deg)`):** A shade darker than primary, shifting toward deep orange-red - enough movement to confirm activation without a color-family jump.
-* **Link (`oklch(50.5% 0.213 27.518deg)`):** Deep red for inline prose links. Distinct from the orange primary so links read as navigational, not primary-action.
-* **Link Hover (`oklch(64.6% 0.222 41.116deg)`):** Shifts to the primary orange on hover - the brand hue arrives when the user reaches for the link.
-* **Link Dark (`oklch(63.7% 0.237 25.331deg)`):** Brighter red for links on dark surfaces. The light-mode link red is intentionally too dark for `surface-dark`, so dark mode uses this AA-safe pair instead of inheriting the global light-mode colour.
-* **Link Dark Hover (`oklch(75% 0.183 55.934deg)`):** Brighter orange hover for links on dark surfaces. It preserves the red-to-orange interaction while maintaining contrast in dark mode.
+* **Primary (`oklch(72.3% 0.219 149.579deg)`, `primary-500`):** A saturated green. Used for primary CTAs (as `primary-800`, a darker/stronger fill against either surface), inline links on hover, and the brand asterisk in the site title. One accent, used consistently.
+* **Primary Hover (`oklch(52.7% 0.154 150.069deg)`, `primary-700`):** A darker shade than the light-mode link/primary rest colour, giving a visible but subtle shift on hover without a color-family jump.
+* **Link (`oklch(52.7% 0.154 150.069deg)`, `primary-700`):** Darker green for inline prose links, dark enough to read against the light surface without needing a separate hue from the brand primary.
+* **Link Hover (`oklch(62.7% 0.194 149.214deg)`, `primary-600`):** Shifts to a brighter green on hover - lighter and more vivid than the rest state.
+* **Link Dark (`oklch(62.7% 0.194 149.214deg)`, `primary-600`):** Brighter green for links on dark surfaces. The light-mode link colour is intentionally too dark for `surface-dark`, so dark mode uses this AA-safe pair instead of inheriting the global light-mode colour.
+* **Link Dark Hover (`oklch(79.2% 0.209 151.711deg)`, `primary-400`):** Brighter green hover for links on dark surfaces, preserving contrast in dark mode.
 * **Surface / Surface Dark:** Warm off-white (`oklch(98.8%)`) in light mode, near-black (`oklch(15.3%)`) in dark mode - Tailwind's `olive` scale. The warmth is intentional - pure white and pure black feel too harsh for long-form reading.
 * **On-Surface / On-Surface Dark:** `oklch(43.8%)` mid-gray for light mode body text; `oklch(92.2%)` for dark mode. Both pass WCAG AA against their respective surfaces.
 * **Border:** A whisper-light `oklch(92.2%)` in light mode and `oklch(36.7%)` in dark mode. Borders define without asserting.
-* **Code Highlight:** Red-500 at 10% opacity (`oklch(63.7%)`) as the inline code chip background - visually distinct from prose without introducing a new color family.
-* **Draft Badge Background (`oklch(47% 0.157 37.304deg)`):** Dark orange for editorial status badges. It keeps the badge in the accent family while giving small uppercase text enough contrast.
+* **Code Highlight:** Primary-500 at 10% opacity (`oklch(72.3%)`) as the inline code chip background - visually distinct from prose without introducing a new color family, and the same value in both themes since it's a self-contained tint rather than page-background text.
+* **Draft Badge Background (`oklch(44.8% 0.119 151.328deg)`, `primary-800`):** Dark green for editorial status badges. It keeps the badge in the accent family while giving small uppercase text enough contrast; same value in both themes since it's a filled badge, not text on the page surface.
 * **Pagination Inactive Dark (`oklch(86.8% 0.007 39.5deg)`):** Gray-300 for inactive or disabled pagination labels in dark mode. This is visible navigational state and must remain readable.
 * **Colophon Watermark:** Uses surface-adjacent olive tones (`olive-100` / `olive-200` in light mode, `olive-900` / `olive-800` in dark mode). It is a cosmetic background gimmick, hidden from assistive technology and deliberately below accessible contrast. Do not "fix" it to meet contrast thresholds.
 
-The full gray scale (50–950) and an orange scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components.
+The full gray scale (50–950) and a green-based `primary` scale (50–950) are defined as Tailwind design tokens in `src/styles/theme.css`. Only the semantic roles above should be referenced in components. The raw `orange`/`red` Tailwind scales still exist as tokens and remain correct for genuinely semantic, theme-independent uses - `destructive`/error states, the named `red`/`green` Badge variants, YouTube's own brand red - but no longer represent this site's brand accent in either light or dark mode.
 
 Legacy `--color-black` and `--color-white` aliases resolve to the olive surface endpoints (`olive-950` and `olive-50`) rather than the structural gray endpoints. This keeps any unavoidable endpoint usage warm and slightly quieter against the page surface.
 
@@ -319,11 +319,14 @@ Any UI chrome that needs to read as "a tint of whatever the page background is" 
 
 The payoff: if `--background` changes again later, these surfaces update automatically instead of needing another pass of manual fixes.
 
-`red-700` is the light-mode `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, PageFind error text, and `text-red-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. In dark mode, equivalent interactive text uses `red-500` with `orange-400` hover so links retain AA contrast on `surface-dark` and dark overlay cards. See the debug-class naming convention in Do's and Don'ts.
+`primary-700` is the light-mode `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, and `text-primary-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. In dark mode, equivalent interactive text uses `primary-600` with `primary-400` hover so links retain AA contrast on `surface-dark` and dark overlay cards. See the debug-class naming convention in Do's and Don'ts.
 
-Tag chips use the same link text pairs (`red-700`/`orange-700` in light mode,
-`red-500`/`orange-400` in dark mode) over low-opacity red backgrounds. The
+Tag chips use the same link text pairs (`primary-700`/`primary-600` in light mode,
+`primary-600`/`primary-400` in dark mode) over low-opacity backgrounds. The
 background is decorative only; the readable text colour is the token contract.
+Named colour variants (`Badge.astro`'s `red`/`green`/`gray`, `destructive`)
+keep their own literal hue in both themes - only the generic, unnamed variants
+moved to `primary`.
 
 Colour grids use the existing card surface pair (`surface-raised` /
 `surface-raised-dark`) and `rounded-lg`, with mono labels in body text colours.
@@ -331,9 +334,9 @@ The swatch itself is user-provided content colour; the surrounding component
 must stay neutral so the colour value remains inspectable.
 
 Pagination controls use muted gray in light mode and `gray-300` in dark mode
-for inactive or disabled labels; dark hover states shift to the dark link hover
-orange. Disabled pagination text still needs normal text contrast because it is
-visible navigational state, not purely decorative chrome.
+for inactive or disabled labels; hover states shift to the link hover primary
+shade for that theme. Disabled pagination text still needs normal text
+contrast because it is visible navigational state, not purely decorative chrome.
 
 For icons that paint via `stroke="currentColor"` (Lucide) or `fill="currentColor"` (Bootstrap Icons in `src/icons/`), use `text-*` to set the color, not `stroke-*`/`fill-*` - the presentation attribute resolves against the CSS `color` property, and a literal `stroke`/`fill` property on an ancestor does not override it.
 
@@ -453,13 +456,13 @@ Inline mode: underline-on-hover pattern, no border, fits within prose text
 
 ### Links (prose)
 
-All links site-wide (not just prose) use the `link` color (`text-red-700`) shifting to `link-hover` (`text-orange-700`) on hover, `link-dark`/`link-dark-hover` in dark mode; the transition is `150ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`. Do not use the primary orange for ordinary inline links - that color is reserved for CTA buttons, the brand mark, and the dark-mode heading treatment.
+All links site-wide (not just prose) use the `link` color (`text-primary-700`) shifting to `link-hover` (`text-primary-600`) on hover, `link-dark`/`link-dark-hover` in dark mode; the transition is `150ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`. Do not use the CTA/brand primary shade (`primary-800`) for ordinary inline links - that shade is reserved for filled CTA buttons and the brand mark.
 
 Hover also lifts the underline away from the text: `text-underline-offset` animates `2px → 4px` on the same transition, alongside the color shift. This is the site's one deliberate link-hover motion - restrained, and paired with color so hover is legible even for readers who don't perceive the color change.
 
 **The Unlayered Hover Rule.** The base `a`/`a:hover` color rules live in `src/styles/theme.css`'s default `@apply hover:*`/`dark:*`/`dark:hover:*` chains do not compile when `@apply`-ed onto a bare tag selector (confirmed on Tailwind 4.3.3 - they are silently dropped, no build error) - write the variant as literal CSS instead. Separately, the hover *color* rule must live in `@layer utilities`, not `@layer base`: `.typography-reading`'s inlined `prose` styles (`@layer components`) set a fixed, non-hover `color` on every link inside article body text, and `@layer components` always outranks `@layer base` regardless of selector specificity. Only `@layer utilities` reliably wins.
 
-In dark mode, headings across the site use `heading-dark` (`text-orange-400`) so article pages, post cards, taxonomy pages, and non-blog content pages keep one consistent heading colour. Linked headings keep that same orange text at rest, but add a straight red underline using `heading-link-underline-dark` (`text-red-500`), `0.056em` thickness, `0.14em` underline offset, and `text-decoration-skip-ink: auto`; on hover, the heading text and underline both become red and the offset increases to `0.18em`. This makes "heading" and "link" visible without relying on colour alone.
+In dark mode, headings across the site use `heading-dark` (`text-primary-500`) so article pages, post cards, taxonomy pages, and non-blog content pages keep one consistent heading colour. Linked headings keep that same green text at rest, but add a straight underline using `heading-link-underline-dark` (`text-primary-700`), `0.056em` thickness, `0.14em` underline offset, and `text-decoration-skip-ink: auto`; on hover, the heading text and underline both brighten to `primary-300` and the offset increases to `0.18em`. This makes "heading" and "link" visible without relying on colour alone. Light mode has no equivalent heading tint - headings there inherit the ordinary `on-surface` text colour.
 
 In light mode, prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
 
@@ -502,4 +505,4 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 * **Don't** extend the `olive` surface scale into structural neutrals - text, borders, and muted-foreground stay on `gray`. `olive` is reserved for `--background` and things derived from it.
 * **Do** use the shadcn primitives (`Input`/`Textarea` in `src/components/forms/`, `Button`/`Card` in `src/components/shared/elements/`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
 * **Don't** rely on `@tailwindcss/forms`' class-strategy names like `form-input` - this project runs the plugin in `base` strategy, so that class doesn't exist and silently does nothing.
-* **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the orange primary or red link pair.
+* **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the primary CTA shade or the green link pair.

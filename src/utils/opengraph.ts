@@ -209,7 +209,7 @@ export async function getOpenGraphImageFromKey(
     });
   }
 
-  const meta: ImageMetadata | undefined = getImageMeta(keyOrUrl);
+  const meta: ImageMetadata | undefined = await getImageMeta(keyOrUrl);
   if (!meta) {
     throw new Error(
       `[getOpenGraphImageFromKey] Image not indexed: ${keyOrUrl}`,

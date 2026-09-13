@@ -6,7 +6,7 @@ The normal production build is cache-preserving:
 npm run build
 ```
 
-It runs the image-index prebuild, `astro check`, `astro build`, removes the generated `dist/test/` route output, and refreshes API documentation. It does not delete `.astro`, `node_modules/.astro`, `.cache/og_image`, `.cache/image-index`, or `public/og_image`.
+It runs the image-index prebuild, `astro check`, `astro build`, removes the generated `dist/test/` route output, and refreshes API documentation. During `astro build`, the `dnb-prune-image-assets` integration removes image files in `dist/assets/` that are not referenced by any generated text output, so source originals emitted while creating responsive variants are not uploaded to Cloudflare. It does not delete `.astro`, `node_modules/.astro`, `.cache/og_image`, `.cache/image-index`, or `public/og_image`.
 
 Use the clean build only when processed image output must be regenerated from source:
 

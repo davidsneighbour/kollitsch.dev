@@ -45,6 +45,8 @@ export interface IndexedImage {
   readonly record?: GeneratedImageRecord;
 }
 
+type ImageModuleLoader = () => Promise<{ default: ImageMetadata }>;
+
 function ensureLeadingSlash(path: string): string {
   return path.startsWith('/') ? path : `/${path}`;
 }
@@ -102,35 +104,65 @@ function loadGeneratedIndex(): Map<string, GeneratedImageRecord> {
   return new Map(entries);
 }
 
-function loadLocalImages(): Map<string, IndexedImage> {
-  const generatedByPath = loadGeneratedIndex();
+const generatedByPath = loadGeneratedIndex();
 
+function loadImageModules(): Map<string, ImageModuleLoader> {
   const modules = {
     ...import.meta.glob<{ default: ImageMetadata }>(
       '/src/content/**/*.{png,jpg,jpeg,webp,avif,gif}',
-      {
-        eager: true,
-      },
     ),
     ...import.meta.glob<{ default: ImageMetadata }>(
       '/src/assets/images/**/*.{png,jpg,jpeg,webp,avif,gif}',
-      {
-        eager: true,
-      },
     ),
-  } as Record<string, { default: ImageMetadata }>;
+  } as Record<string, ImageModuleLoader>;
 
+  return new Map(Object.entries(modules));
+}
+
+const imageLoadersByKey = loadImageModules();
+const loadedImagesByKey = new Map<string, IndexedImage>();
+
+async function loadIndexedImage(
+  key: string,
+): Promise<IndexedImage | undefined> {
+  const cached = loadedImagesByKey.get(key);
+  if (cached) return cached;
+
+  const loader = imageLoadersByKey.get(key);
+  if (!loader) return undefined;
+
+  const mod = await loader();
+  const filename = key.split('/').pop() ?? key;
+  const record = generatedByPath.get(key);
+  const image = Object.freeze({
+    filename,
+    key,
+    meta: mod.default,
+    ...(record ? { record } : {}),
+  } satisfies IndexedImage);
+  loadedImagesByKey.set(key, image);
+  return image;
+}
+
+function listImageKeys(): readonly string[] {
+  return Array.from(imageLoadersByKey.keys()).sort((a, b) =>
+    a.localeCompare(b),
+  );
+}
+
+async function loadLocalImages(): Promise<Map<string, IndexedImage>> {
   const images = new Map<string, IndexedImage>();
-  for (const [key, mod] of Object.entries(modules)) {
+  for (const key of listImageKeys()) {
+    const image = await loadIndexedImage(key);
+    if (!image) continue;
     const filename = key.split('/').pop() ?? key;
-    const record = generatedByPath.get(key);
     images.set(
       key,
       Object.freeze({
         filename,
         key,
-        meta: mod.default,
-        ...(record ? { record } : {}),
+        meta: image.meta,
+        ...(image.record ? { record: image.record } : {}),
       } satisfies IndexedImage),
     );
   }
@@ -142,23 +174,27 @@ function loadLocalImages(): Map<string, IndexedImage> {
   return images;
 }
 
-const imagesByKey = loadLocalImages();
 let sortedImagesCache: readonly IndexedImage[] | null = null;
 
-export function getIndexedImage(key: string): IndexedImage | undefined {
-  return imagesByKey.get(key);
+export async function getIndexedImage(
+  key: string,
+): Promise<IndexedImage | undefined> {
+  return loadIndexedImage(key);
 }
 
 export function hasImage(key: string): boolean {
-  return imagesByKey.has(key);
+  return imageLoadersByKey.has(key);
 }
 
-export function getImageMeta(key: string): ImageMetadata | undefined {
-  return imagesByKey.get(key)?.meta;
+export async function getImageMeta(
+  key: string,
+): Promise<ImageMetadata | undefined> {
+  return (await loadIndexedImage(key))?.meta;
 }
 
-export function listIndexedImages(): readonly IndexedImage[] {
+export async function listIndexedImages(): Promise<readonly IndexedImage[]> {
   if (!sortedImagesCache) {
+    const imagesByKey = await loadLocalImages();
     sortedImagesCache = Object.freeze(
       Array.from(imagesByKey.values()).sort((a, b) =>
         a.key.localeCompare(b.key),

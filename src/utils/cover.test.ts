@@ -5,7 +5,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
  * Tests for resolveCover.
  *
  * These tests mock:
- * - @utils/image-index.ts -> getIndexedImage
  * - @utils/opengraph.ts -> resolveImageKey
  * - markdown-it (constructor) -> mocked renderInline
  *
@@ -14,15 +13,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
  * Each test calls `vi.resetModules()` and `vi.doMock()` to ensure mocked behavior
  * is applied before the tested module is imported.
  */
-
-const DEFAULT_INDEXED_META = { height: 600, width: 800 };
-
-const makeImageIndexMock = (present: boolean) => {
-  return {
-    getIndexedImage: (_src: string) =>
-      present ? { meta: DEFAULT_INDEXED_META } : undefined,
-  };
-};
 
 const defaultResolveImageKey = (
   key: unknown,
@@ -55,9 +45,7 @@ describe('resolveCover', () => {
     vi.restoreAllMocks();
   });
 
-  it('falls back when no cover (uses defaultKey and indexed meta)', async () => {
-    // image indexed present
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
+  it('falls back when no cover uses defaultKey', async () => {
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -80,12 +68,10 @@ describe('resolveCover', () => {
     if (res.type === 'image') {
       expect(res.src).toBe('/src/assets/images/fallback.jpg');
       expect(res.alt).toBe('Image'); // default fallbackAlt
-      expect(res.meta).toEqual(DEFAULT_INDEXED_META);
     }
   });
 
   it('string cover resolves remote url and has no meta', async () => {
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -109,7 +95,6 @@ describe('resolveCover', () => {
   });
 
   it('video cover returns video object with alt derived from title', async () => {
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -140,7 +125,6 @@ describe('resolveCover', () => {
   });
 
   it('video cover merges params with defaults', async () => {
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -180,7 +164,6 @@ describe('resolveCover', () => {
     vi.doMock('@data/setup.json', () => ({
       default: {},
     }));
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -213,7 +196,6 @@ describe('resolveCover', () => {
   });
 
   it('vimeo cover returns video object with Vimeo id', async () => {
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -250,7 +232,6 @@ describe('resolveCover', () => {
 
   it('image cover with title uses rendered HTML from MarkdownIt', async () => {
     // Mock MarkdownIt to return a formatted inline title
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -279,7 +260,6 @@ describe('resolveCover', () => {
 
   it('when MarkdownIt.renderInline throws, title falls back to raw string', async () => {
     // Mock MarkdownIt to throw
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -311,7 +291,6 @@ describe('resolveCover', () => {
   });
 
   it('image cover alt overrides title', async () => {
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(true));
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -341,8 +320,7 @@ describe('resolveCover', () => {
 
   it('fallbackAlt markup is stripped by internal stripMarkup', async () => {
     // This verifies stripMarkup (now internal to cover.ts) — not mocked.
-    // Mock only image-index/opengraph/markdown-it as usual.
-    vi.doMock('@utils/image-index.ts', () => makeImageIndexMock(false));
+    // Mock only opengraph/markdown-it as usual.
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));

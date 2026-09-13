@@ -1,5 +1,4 @@
 import setup from '@data/setup.json' with { type: 'json' };
-import { getIndexedImage } from '@utils/image-index.ts';
 import { resolveImageKey } from '@utils/opengraph.ts';
 import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
@@ -159,21 +158,11 @@ export function resolveCover(
     alt: string,
     title?: string,
   ): ResolvedCoverImage => {
-    const imageEntry = src.startsWith('/src/')
-      ? getIndexedImage(src)
-      : undefined;
-    const meta = imageEntry?.meta;
-
-    if (src.startsWith('/src/') && !imageEntry && debug) {
-      log.debug(`[resolveCover] Not indexed: ${src} (entry: ${ctx.id})`);
-    }
-
     const result: ResolvedCoverImage = {
       alt,
       src,
       type: 'image',
       ...(title ? { title } : {}),
-      ...(meta ? { meta } : {}),
     };
     return result;
   };

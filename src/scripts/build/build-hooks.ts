@@ -1,7 +1,8 @@
 import { execFile } from "node:child_process";
+import { readdir, readFile, rm, stat } from 'node:fs/promises';
 import { promisify } from "node:util";
 import type { AstroIntegration } from "astro";
-import path from 'node:path';
+import path, { extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createIndex, type PagefindServiceConfig } from 'pagefind';
 import sirv from 'sirv';
@@ -16,6 +17,76 @@ export interface PagefindOptions {
 }
 
 const execFileAsync = promisify(execFile);
+
+const prunableImageExtensions = new Set([
+    '.avif',
+    '.gif',
+    '.jpeg',
+    '.jpg',
+    '.png',
+    '.webp',
+]);
+
+const searchableOutputExtensions = new Set([
+    '.css',
+    '.html',
+    '.js',
+    '.json',
+    '.map',
+    '.mjs',
+    '.svg',
+    '.txt',
+    '.webmanifest',
+    '.xml',
+]);
+
+async function listFiles(root: string): Promise<string[]> {
+    const entries = await readdir(root, { withFileTypes: true });
+    const files = await Promise.all(entries.map(async (entry) => {
+        const fullPath = path.join(root, entry.name);
+        if (entry.isDirectory()) return listFiles(fullPath);
+        if (entry.isFile()) return [fullPath];
+        return [];
+    }));
+    return files.flat();
+}
+
+async function pruneUnreferencedImageAssets(outDir: string): Promise<{ count: number; bytes: number }> {
+    const assetsDir = path.join(outDir, 'assets');
+
+    try {
+        await stat(assetsDir);
+    } catch {
+        return { bytes: 0, count: 0 };
+    }
+
+    const files = await listFiles(outDir);
+    const imageAssets = files.filter((file) => {
+        return path.dirname(file) === assetsDir && prunableImageExtensions.has(extname(file).toLowerCase());
+    });
+    const searchableFiles = files.filter((file) => {
+        return !imageAssets.includes(file) && searchableOutputExtensions.has(extname(file).toLowerCase());
+    });
+
+    const outputText = (
+        await Promise.all(searchableFiles.map((file) => readFile(file, 'utf8').catch(() => '')))
+    ).join('\n');
+
+    let count = 0;
+    let bytes = 0;
+
+    for (const imageAsset of imageAssets) {
+        const filename = path.basename(imageAsset);
+        if (outputText.includes(filename)) continue;
+
+        const fileStat = await stat(imageAsset);
+        await rm(imageAsset);
+        count += 1;
+        bytes += fileStat.size;
+    }
+
+    return { bytes, count };
+}
 
 /**
  * Astro build hook that generates followers RSS feeds before the actual Astro 
@@ -166,9 +237,23 @@ function generateHeadersIntegration(): AstroIntegration {
     };
 }
 
+function pruneImageAssetsIntegration(): AstroIntegration {
+    return {
+        name: 'dnb-prune-image-assets',
+        hooks: {
+            'astro:build:done': async ({ dir, logger }) => {
+                const outDir = fileURLToPath(dir);
+                const { bytes, count } = await pruneUnreferencedImageAssets(outDir);
+                logger.info(`Pruned ${count} unreferenced image asset(s), saving ${(bytes / 1024 / 1024).toFixed(2)} MiB`);
+            },
+        },
+    };
+}
+
 export function buildHooks() {
     return [
         generateFeedsIntegration(),
+        pruneImageAssetsIntegration(),
         generateHeadersIntegration(),
         pagefindIntegration({ indexConfig: { keepIndexUrl: true } }),
     ];

@@ -12,7 +12,37 @@ export interface Props {
 const homepageUrl = getHomepageUrl();
 const { siteTitleId }: Props = Astro.props;
 const siteTitleSize = 'clamp(50px, 13vw, 250px)';
+// Full-res image, used only for the hover-reveal background (desktop-only,
+// see the (hover: hover) and (pointer: fine) block below).
 const headlineImage = await getImage(wordmarkArtwork.image);
+
+// The text-fill image is `background-size: 100vw auto`, so the bitmap it
+// needs scales with viewport width, not with the text itself. Build one
+// image-set() (1x/2x) per breakpoint so narrow viewports don't pay for the
+// full-width source and wide/retina viewports still get a crisp edge on the
+// clipped text.
+async function buildResponsiveFill(minWidth: number) {
+  const retinaWidth = Math.min(minWidth * 2, wordmarkArtwork.image.width);
+  const [oneX, twoX] = await Promise.all([
+    getImage({ ...wordmarkArtwork.image, width: minWidth }),
+    getImage({ ...wordmarkArtwork.image, width: retinaWidth }),
+  ]);
+  return {
+    imageSet: `image-set(url("${oneX.src}") 1x, url("${twoX.src}") 2x)`,
+    minWidth,
+    oneXSrc: oneX.src,
+  };
+}
+
+const [smallestBreakpoint, ...largerBreakpoints] =
+  wordmarkArtwork.responsiveBreakpoints;
+const smallestFill = await buildResponsiveFill(smallestBreakpoint);
+const largerFills = await Promise.all(
+  largerBreakpoints.map(buildResponsiveFill),
+);
+const responsiveFillVars = [smallestFill, ...largerFills]
+  .map((fill) => `--site-title-fill-${fill.minWidth}: ${fill.imageSet};`)
+  .join(' ');
 
 // Shatter layer: each letter gets its own scroll-driven exit window so they
 // peel off outward from the centre instead of all moving in lockstep.
@@ -50,7 +80,7 @@ const shatterLetters = letters.map((letter, index) => {
   aria-label="Site title"
   id={siteTitleId}
   class="site-title-hero w-full py-6 text-center md:py-10"
-  style={`--headline-bg: url("${headlineImage.src}"); --fill-dissolve-end: ${fillDissolveEnd}%; --shatter-in-start: ${shatterInStart}%; --shatter-in-end: ${shatterInEnd}%;`}
+  style={`--headline-bg: url("${headlineImage.src}"); --fill-dissolve-end: ${fillDissolveEnd}%; --shatter-in-start: ${shatterInStart}%; --shatter-in-end: ${shatterInEnd}%; ${responsiveFillVars}`}
 >
   <a
     href={homepageUrl}
@@ -58,7 +88,7 @@ const shatterLetters = letters.map((letter, index) => {
   >
     <TextImageFill
       as="span"
-      imageUrl={headlineImage.src}
+      imageUrl={smallestFill.oneXSrc}
       size={siteTitleSize}
       classes="site-title-fill font-title leading-none"
       fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
@@ -100,6 +130,44 @@ const shatterLetters = letters.map((letter, index) => {
   }
 
   /*
+   * The text-fill image scales with the viewport (background-size: 100vw),
+   * so it's swapped for a wider one as the viewport grows instead of always
+   * shipping the full-width source. Each --site-title-fill-* custom property
+   * is an image-set() built in the frontmatter from
+   * wordmarkArtwork.responsiveBreakpoints — keep the breakpoints below in
+   * sync with that array if it changes. The base (640) size is set on the
+   * dissolve-animation rule below, since stylelint disallows repeating an
+   * unguarded selector.
+   */
+  @media (min-width: 750px) {
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.site-title-fill) {
+      --text-fill-image: var(--site-title-fill-750);
+    }
+  }
+
+  @media (min-width: 828px) {
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.site-title-fill) {
+      --text-fill-image: var(--site-title-fill-828);
+    }
+  }
+
+  @media (min-width: 1080px) {
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.site-title-fill) {
+      --text-fill-image: var(--site-title-fill-1080);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.site-title-fill) {
+      --text-fill-image: var(--site-title-fill-1280);
+    }
+  }
+
+  /*
    * Scroll-exit shatter: layered inside the whole-header opacity/transform
    * fade above (.site-title-exit), not a replacement for it. As the header
    * exits, the image-filled text dissolves first, handing off to a duplicate
@@ -108,6 +176,8 @@ const shatterLetters = letters.map((letter, index) => {
    */
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   .site-title-link :global(.site-title-fill) {
+    --text-fill-image: var(--site-title-fill-640);
+
     animation: site-title-fill-dissolve linear both;
     animation-timeline: view();
     animation-range: exit 0% exit var(--fill-dissolve-end);
@@ -131,7 +201,7 @@ const shatterLetters = letters.map((letter, index) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-red-700);
+    color: var(--color-primary-700);
     opacity: 0%;
     pointer-events: none;
     white-space: nowrap;

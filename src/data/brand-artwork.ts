@@ -1,4 +1,4 @@
-import headlineImageSrc from '@assets/images/headline.jpg';
+import headlineImageSrc from '@assets/images/headline/20260913.jpg';
 
 export const wordmarkArtwork = {
   backgroundSize: '100vw auto',
@@ -17,4 +17,8 @@ export const wordmarkArtwork = {
     width: 2000,
   },
   position: 'center',
+  // Viewport buckets the header's background-image swaps at, mirroring
+  // astro.config's image.breakpoints so the header reuses the same
+  // responsive-width scheme as the rest of the site's images.
+  responsiveBreakpoints: [640, 750, 828, 1080, 1280] as const,
 } as const;

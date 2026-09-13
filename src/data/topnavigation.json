@@ -7,6 +7,11 @@
   {
     "children": [
       {
+        "icon": "tags",
+        "label": "Tags",
+        "link": "/tags/"
+      },
+      {
         "devOnly": true,
         "icon": "file-earmark-lock",
         "label": "Drafts",
@@ -18,11 +23,6 @@
     "link": "/blog/",
     "match": "prefix",
     "matchPaths": ["/tags/"]
-  },
-  {
-    "icon": "tags",
-    "label": "Tags",
-    "link": "/tags/"
   },
   {
     "icon": "person-badge",

@@ -271,6 +271,9 @@ components:
     duration: "420ms"
     easing: "cubic-bezier(0.19, 1, 0.22, 1)"
     rounded: "{rounded.lg}"
+  nav-search-panel-transition:
+    duration: "300ms"
+    easing: "cubic-bezier(0.34, 1.56, 0.64, 1)"
   scrollbar:
     thumbColor: "{colors.primary}"
     thumbHoverColor: "{colors.link}"
@@ -448,6 +451,8 @@ The reading-progress bar is drawn inside the sticky header's bottom edge as an a
 The fixed theme toggle keeps an 8rem top-right corner shell for the hover and focus halo. The `.theme-toggle` button deliberately fills that shell, while `clip-path` keeps the resting visible and clickable area to a small 1.4rem radial field around the 1.5rem icon, inset 1.75rem from the viewport corner. On hover or focus, the same radial field expands to 4.5rem and may widen into the header. This is intentional: the toggle is only visible at the top of the page while the animated title is already visible, and the radial fade is a wanted part of the header interaction rather than an accessibility defect.
 
 The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
+
+The header search panel (`NavSearch.astro`) opens and closes on the `nav-search-panel-transition` token: `300ms`, `cubic-bezier(0.34, 1.56, 0.64, 1)` on `opacity`/`scale`. This is the site's one deliberate overshoot ("bounce") easing, distinct from the strong ease-out used everywhere else (`post-preview-transition`). It is intentional: the small overshoot gives the search panel a spring-open feel appropriate to an on-demand reveal, and is scoped to this one interaction only - do not reuse this easing elsewhere without documenting it here first.
 
 ### Wordmark Typography
 

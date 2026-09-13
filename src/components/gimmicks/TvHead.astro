@@ -412,7 +412,7 @@ const backgroundWidths = backgroundImage
     z-index: 3;
     overflow: hidden;
     border-radius: var(--tvhead-screen-border-radius);
-    background: #000;
+    background: var(--color-black);
     transform: translateZ(0);
   }
 
@@ -513,7 +513,7 @@ const backgroundWidths = backgroundImage
   }
 
   .tv-head__background-effect.tv-head-effect-tint-green {
-    background: rgb(120 255 180 / 0.08);
+    background: color-mix(in oklch, var(--color-primary-500) 8%, transparent);
     mix-blend-mode: screen;
   }
 

@@ -22,6 +22,21 @@
         "value": "1.25rem",
         "createdAt": "2026-07-26T09:47:55.596Z",
         "reason": "TvHead hero bezel radius on homepage; DESIGN.md rounded scale tops out at 12px for cards/thumbnails, not hero decorative surfaces"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(120 180 255 / 0.08)",
+        "createdAt": "2026-09-13T16:08:52.103Z",
+        "reason": "User: kept tint-blue variant unused/unremoved per explicit no-deletion instruction; homepage now uses the documented primary-derived tint-green instead"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "src/components/gimmicks/TvHead.astro"
+        ],
+        "createdAt": "2026-09-13T16:10:37.409Z",
+        "reason": "Agent: literal CRT static/scanline overlay for the TvHead TV-screen gimmick, domain-appropriate rather than a generated-UI grid signature"
       }
     ]
   }

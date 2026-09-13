@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "sanitize-html": "2.14.0",
+    "turndown": "7.2.0",
+    "@types/sanitize-html": "2.16.0",
+    "@types/turndown": "5.0.5"
+  },
+  "scripts": {
+    "promote:stream": "node src/scripts/content/promote-stream-post.ts"
+  }
+}

@@ -17,5 +17,6 @@ describe('Post component (props contract)', () => {
     expect(src).toContain('@components/content/sourcecode/SourceCode.astro');
     expect(src).toContain('post.data.sourcecode');
     expect(src).toContain('<SourceCode');
+    expect(src).toMatch(/<PostImage[\s\S]*\bpriority\b[\s\S]*\/>/);
   });
 });

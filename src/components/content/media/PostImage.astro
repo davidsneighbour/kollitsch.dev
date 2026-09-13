@@ -19,8 +19,8 @@ export interface Props {
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
   transitionName?: string;
-  // only above-the-fold cards (e.g. the first row of a listing page) should
-  // set this; everything else should lazy-load
+  // only above-the-fold images, such as article heroes and the first row of
+  // listing cards, should set this; everything else should lazy-load
   priority?: boolean;
 }
 

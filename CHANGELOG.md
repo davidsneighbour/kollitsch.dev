@@ -1,5 +1,12 @@
 # Changelog
 
+## [3002.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3002.0.0...v3002.0.1) (2026-09-13)
+
+### Fix
+
+* add check if site folder exists with a site in it before deploying, and docs ([004db90](https://github.com/davidsneighbour/kollitsch.dev/commit/004db90906f7c9cbabc6c4aa287cedf4248bf1db))
+* cleanup Netlify traces ([86216f7](https://github.com/davidsneighbour/kollitsch.dev/commit/86216f7ef6154f0b07dc6a54cf9bb838b1b455d9))
+
 ## [3002.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.32.0...v3002.0.0) (2026-09-13)
 
 ### Feat

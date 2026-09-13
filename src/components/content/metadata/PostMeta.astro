@@ -2,6 +2,7 @@
 // @todo refactor and comment
 import type { CollectionEntry } from 'astro:content';
 import Github from '@components/content/metadata/Github.astro';
+import Origin from '@components/content/metadata/Origin.astro';
 import PublishData from '@components/content/metadata/PublishData.astro';
 import Share from '@components/content/metadata/Share.astro';
 import Tags from '@components/content/metadata/Tags.astro';
@@ -17,6 +18,7 @@ const { post }: Props = Astro.props;
 <Heading level={2}>Meta Information</Heading>
 <div class="flex flex-col">
   <PublishData post={post} />
+  <Origin post={post} />
   <Github post={post} />
   <Tags post={post} />
   <Share post={post} />

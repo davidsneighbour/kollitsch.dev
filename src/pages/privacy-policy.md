@@ -55,8 +55,8 @@ Last updated: July 28, 2026
 ### 3.2. Contact form
 
 * If you use the contact form, the data you provide (email, name, message) is *only used to respond* to your request. It's not shared or used for any other purpose.
-* Contact form submissions are sent to a Netlify Function at `/.netlify/functions/send-email`, which forwards the message via Resend using server-side credentials.
-* Spam protection is handled by validation and a hidden honeypot field. The form markup also includes a Netlify reCAPTCHA placeholder, but the current delivery path is the Netlify Function plus Resend, not Netlify Forms storage.
+* Contact form submissions are sent to a Cloudflare Worker endpoint at `/api/send-email`, which forwards the message via Resend using server-side credentials.
+* Spam protection is handled by validation and a hidden honeypot field. The current delivery path is the Cloudflare Worker endpoint plus Resend.
 * *There is no predefined time limit* for storing submitted messages. Messages may be kept indefinitely for communication or reference purposes.
 
 ### 3.3. Matomo analytics

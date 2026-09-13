@@ -95,10 +95,10 @@
     "tw-animate-css": "1.4.0",
     "@astrojs/markdown-satteri": "0.4.0",
     "@types/node": "26.4.1",
+    "wrangler": "4.131.1",
     "brace-expansion": "5.0.9",
     "@google/design.md": "0.4.0",
     "typedoc": "0.28.20",
-    "resend": "6.26.0",
     "png-to-ico": "3.0.2",
     "@frontmatter/extensibility": "0.0.18",
     "@iconify-json/fa7-brands": "1.2.4",
@@ -110,7 +110,6 @@
     "he": "1.2.0",
     "satori": "0.33.4",
     "satori-html": "0.3.2",
-    "@netlify/functions": "6.0.0",
     "@pagefind/default-ui": "1.5.2",
     "pagefind": "1.5.2",
     "sirv": "3.0.2",
@@ -207,6 +206,21 @@
     "preview": "astro preview",
     "upgrade": "npx @astrojs/upgrade",
     "build:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
+    "deploy:build": "wireit",
+    "deploy:dry-run": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:dry-run\" -- npm run deploy:dry-run:pipeline",
+    "deploy:dry-run:pipeline": "wireit",
+    "deploy:preflight": "wireit",
+    "deploy:preview": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview\" -- npm run deploy:preview:pipeline",
+    "deploy:preview:build": "wireit",
+    "deploy:preview:preflight": "wireit",
+    "deploy:preview:pipeline": "wireit",
+    "deploy:preview:prototypes": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview:prototypes\" -- npm run deploy:preview:prototypes:pipeline",
+    "deploy:preview:prototypes:build": "wireit",
+    "deploy:preview:prototypes:preflight": "wireit",
+    "deploy:preview:prototypes:pipeline": "wireit",
+    "deploy:pipeline": "wireit",
+    "hosting:check": "wireit",
     "lint:design": "design.md lint DESIGN.md",
     "lint:design:diff": "design.md diff DESIGN.md",
     "docs:api": "typedoc",
@@ -215,17 +229,6 @@
     "postinstall:icons": "npm run icons:sync",
     "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
     "prebuild": "npm run build:image-index",
-    "clean:netlify": "wireit",
-    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
-    "deploy:preview": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview\" -- npm run deploy:preview:pipeline",
-    "deploy:preview:build": "wireit",
-    "deploy:preview:pipeline": "wireit",
-    "deploy:preview:prototypes": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview:prototypes\" -- npm run deploy:preview:prototypes:pipeline",
-    "deploy:preview:prototypes:build": "wireit",
-    "deploy:preview:prototypes:pipeline": "wireit",
-    "deploy:pipeline": "wireit",
-    "deploy:build": "wireit",
-    "deploy:release": "wireit",
     "postprepare": "wireit",
     "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
     "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
@@ -238,8 +241,8 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
     "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
+    "test:install-browsers": "npx playwright install",
     "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
-    "test:postinstall": "npx playwright install",
     "test:ui": "vitest --ui",
     "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
     "skills": "npx skills",
@@ -351,42 +354,65 @@
     "clean:og": {
       "command": "rm -rf public/og_image .cache/og_image"
     },
-    "clean:netlify": {
-      "command": "find .netlify -type f ! -name \".gitignore\" -delete"
-    },
-    "deploy:preview:pipeline": {
-      "command": "netlify deploy --dir dist --no-build --context deploy-preview --created-via=manual --message \"test preview\"",
-      "dependencies": [
-        "deploy:preview:build"
-      ]
-    },
-    "deploy:preview:build": {
-      "command": "npm run build"
-    },
-    "deploy:preview:prototypes:pipeline": {
-      "command": "netlify deploy --dir dist --no-build --context deploy-preview --created-via=manual --message \"prototype preview\"",
-      "dependencies": [
-        "deploy:preview:prototypes:build"
-      ]
-    },
-    "deploy:preview:prototypes:build": {
-      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
-    },
-    "deploy:pipeline": {
-      "command": "bash -c 'netlify deploy --message \"v$(node -p \"require(\\\"./package.json\\\").version\")\" --created-via=release --prod --open'",
-      "dependencies": [
-        "deploy:build"
-      ]
-    },
     "deploy:build": {
       "command": "npm run build",
       "dependencies": [
         "check"
       ]
     },
+    "deploy:dry-run:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy --dry-run",
+      "dependencies": [
+        "deploy:preflight"
+      ]
+    },
+    "deploy:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:build"
+      ]
+    },
+    "deploy:preview:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias preview",
+      "dependencies": [
+        "deploy:preview:preflight"
+      ]
+    },
+    "deploy:preview:build": {
+      "command": "npm run build"
+    },
+    "deploy:preview:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:preview:build"
+      ]
+    },
+    "deploy:preview:prototypes:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias prototypes",
+      "dependencies": [
+        "deploy:preview:prototypes:preflight"
+      ]
+    },
+    "deploy:preview:prototypes:build": {
+      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
+    },
+    "deploy:preview:prototypes:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:preview:prototypes:build"
+      ]
+    },
+    "deploy:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy",
+      "dependencies": [
+        "deploy:preflight"
+      ]
+    },
+    "hosting:check": {
+      "command": "node src/scripts/hosting/cloudflare-static-assets.ts"
+    },
     "postprepare": {
       "dependencies": [
-        "test:postinstall",
         "build:favicons"
       ]
     },
@@ -488,9 +514,10 @@
     "gifsicle@5.3.0": true,
     "jpegtran-bin@7.0.0": true,
     "optipng-bin@7.0.1": true,
-    "secp256k1@5.0.1": true,
+    "secp256k1@5.0.2": true,
     "sharp@0.34.5": true,
-    "simple-git-hooks@2.13.1": true
+    "simple-git-hooks@2.13.1": true,
+    "workerd@1.20260911.1": true
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

@@ -41,5 +41,6 @@ Build pipeline:
 Development runs on npm run dev with hot reloading. Production builds via npm
 run build generate a static site in dist/. Custom Vite plugins watch extra file
 paths and handle TOML/YAML. Prebuild hooks generate an image index. The site
-deploys to Netlify with configuration in netlify.toml. GitHub Actions workflows
-validate tests, links, and code quality on every PR.
+deploys locally to Cloudflare Workers Static Assets with configuration in
+wrangler.jsonc. GitHub Actions workflows validate tests, links, and code quality
+on every PR, but deployment is triggered from a local workstation.

@@ -1,0 +1,81 @@
+{
+  "devDependencies": {
+    "wrangler": "4.131.1"
+  },
+  "scripts": {
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
+    "deploy:build": "wireit",
+    "deploy:dry-run": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:dry-run\" -- npm run deploy:dry-run:pipeline",
+    "deploy:dry-run:pipeline": "wireit",
+    "deploy:preflight": "wireit",
+    "deploy:preview": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview\" -- npm run deploy:preview:pipeline",
+    "deploy:preview:build": "wireit",
+    "deploy:preview:preflight": "wireit",
+    "deploy:preview:pipeline": "wireit",
+    "deploy:preview:prototypes": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview:prototypes\" -- npm run deploy:preview:prototypes:pipeline",
+    "deploy:preview:prototypes:build": "wireit",
+    "deploy:preview:prototypes:preflight": "wireit",
+    "deploy:preview:prototypes:pipeline": "wireit",
+    "deploy:pipeline": "wireit",
+    "hosting:check": "wireit"
+  },
+  "wireit": {
+    "deploy:build": {
+      "command": "npm run build",
+      "dependencies": [
+        "check"
+      ]
+    },
+    "deploy:dry-run:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy --dry-run",
+      "dependencies": [
+        "deploy:preflight"
+      ]
+    },
+    "deploy:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:build"
+      ]
+    },
+    "deploy:preview:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias preview",
+      "dependencies": [
+        "deploy:preview:preflight"
+      ]
+    },
+    "deploy:preview:build": {
+      "command": "npm run build"
+    },
+    "deploy:preview:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:preview:build"
+      ]
+    },
+    "deploy:preview:prototypes:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias prototypes",
+      "dependencies": [
+        "deploy:preview:prototypes:preflight"
+      ]
+    },
+    "deploy:preview:prototypes:build": {
+      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
+    },
+    "deploy:preview:prototypes:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:preview:prototypes:build"
+      ]
+    },
+    "deploy:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy",
+      "dependencies": [
+        "deploy:preflight"
+      ]
+    },
+    "hosting:check": {
+      "command": "node src/scripts/hosting/cloudflare-static-assets.ts"
+    }
+  }
+}

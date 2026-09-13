@@ -2,8 +2,54 @@
 title: Deployment
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-09-13T00:00:00+07:00
 ---
+
+KOLLITSCH.dev deploys from a local workstation to Cloudflare Workers Static Assets with Wrangler. GitHub Actions validate the project, but they do not deploy it.
+
+## Hosting target
+
+The production Worker is configured in [`wrangler.jsonc`](../../wrangler.jsonc):
+
+- `assets.directory` points at `./dist/`, the Astro static output directory.
+- `assets.html_handling` is `auto-trailing-slash`, matching Astro's directory-style output.
+- `assets.not_found_handling` is `404-page`, so Cloudflare serves the generated `404.html` for missing assets.
+- `assets.run_worker_first` is limited to `/api/send-email`, so ordinary static page and asset requests do not execute the Worker.
+- The custom domain route is `kollitsch.dev`; the canonical hostname remains the apex domain.
+
+Cloudflare DNS is already the zone authority. The `www` hostname is handled outside this repository with a Cloudflare Redirect Rule from `https://www.kollitsch.dev/*` to `https://kollitsch.dev/${1}`. Cloudflare requires a proxied placeholder DNS record for the redirected-from hostname when only a redirect rule should run there.
+
+## Required local setup
+
+Install dependencies and authenticate Wrangler on the deploying machine:
+
+```bash
+npm install
+npx wrangler login
+```
+
+Set the Worker secrets before the first production deploy and whenever a value changes:
+
+```bash
+WRANGLER_LOG_PATH=.cache/wrangler npx wrangler secret put RESEND_API_KEY
+WRANGLER_LOG_PATH=.cache/wrangler npx wrangler secret put RESEND_FROM
+WRANGLER_LOG_PATH=.cache/wrangler npx wrangler secret put RESEND_TO
+```
+
+`WRANGLER_LOG_PATH=.cache/wrangler` keeps Wrangler logs inside the repository cache path instead of the user-level config directory, which is useful in sandboxed or restricted shells.
+
+## Preflight
+
+Run the hosting preflight after a build:
+
+```bash
+npm run build
+npm run hosting:check
+```
+
+The preflight reports regular files, directories, Wrangler-style upload entries, total `dist/` size, largest asset, static asset size failures, `_headers` rule and line-length failures, and `_redirects` count and line-length failures.
+
+The checked Cloudflare limits are the Workers Static Assets limits documented on 2026-09-13: 20,000 files per Worker version on the Free plan, 100,000 files on paid plans, 25 MiB per static asset, 100 `_headers` rules, 2,000 characters per `_headers` line, 2,000 static redirects, 100 dynamic redirects, and 1,000 characters per `_redirects` line.
 
 ## Preview deployment
 
@@ -13,13 +59,7 @@ Use the preview command for test deploys:
 npm run deploy:preview
 ```
 
-This runs the normal cache-preserving `npm run build`, then uploads the generated `dist/` directory with:
-
-```bash
-netlify deploy --dir dist --no-build --context deploy-preview --created-via=manual --message "test preview"
-```
-
-The preview path does not run `release`, does not pass `--prod`, and does not clean image caches. Do not use `npm run build:clean` or `clean:build-caches` for a test preview unless cached image output is known to be stale and a clean rebuild was explicitly requested.
+This runs the normal cache-preserving build, runs the hosting preflight, and uploads a Worker version with the `preview` alias. It does not update the production custom domain.
 
 Prototype routes use a stricter preview-only path:
 
@@ -27,34 +67,46 @@ Prototype routes use a stricter preview-only path:
 npm run deploy:preview:prototypes
 ```
 
-This keeps `dist/prototypes/` in the built output, then uploads the result as a Netlify draft deploy with `--no-build`. Normal builds and production deploys remove prototype output. See [Prototypes](../development/prototypes.md) for the full workflow.
+This keeps `dist/prototypes/` in the built output, runs the hosting preflight, and uploads a Worker version with the `prototypes` alias. Normal builds and production deploys remove prototype output. See [Prototypes](../development/prototypes.md) for the full workflow.
 
 ## Production deployment
 
-Production deployment is orchestrated through `wireit` in `package.json`.
+Production deployment is local and explicit:
+
+```bash
+npm run deploy
+```
 
 `npm run deploy` runs the deployment pipeline in this order:
 
 1. `npm run check`
-2. `npm run release`
-3. `npm run build`
-4. `netlify deploy --prod --open`
+2. `npm run build`
+3. `npm run hosting:check`
+4. `wrangler deploy`
 
-The final Netlify command only runs after the local checks, release step, and
-production build have completed successfully.
+The final Wrangler command only runs after the local checks, production build, and Cloudflare hosting preflight have completed successfully.
 
-The top-level script wraps `npm run deploy:pipeline` with
-`src/scripts/maintenance/timed-run.ts`, so the final output includes the elapsed
-time for the whole deployment pipeline, including Wireit dependencies. The
-internal `deploy:pipeline` script is the Wireit-owned entry; `deploy` itself is
-kept outside the Wireit configuration so it can be a normal npm wrapper.
-
-The same wrapper can time other npm scripts when needed:
+Run a dry run before the first cutover, after Wrangler upgrades, and before risky hosting changes:
 
 ```bash
-node src/scripts/maintenance/timed-run.ts --label "npm run build" -- npm run build
+npm run deploy:dry-run
 ```
 
-`npm run build` preserves local processed-image caches. Use
-`npm run build:clean` only when Astro image output, generated OG images, or the
-image-index LQIP cache must be rebuilt from source.
+The top-level deploy scripts wrap their Wireit-owned pipeline commands with `src/scripts/maintenance/timed-run.ts`, so the final output includes elapsed time for the whole deployment pipeline.
+
+## Rollback
+
+Use Cloudflare's Worker version rollback in the dashboard or with Wrangler if a production deploy needs to be reverted. Keep the `legacy/netlify-hosted` branch as the pre-migration source snapshot until the Cloudflare deployment has been stable for long enough that the old Netlify configuration is no longer needed.
+
+## Post-deploy checks
+
+After production deployment, verify:
+
+- `https://kollitsch.dev/` returns `200` from Cloudflare.
+- `https://www.kollitsch.dev/` redirects to `https://kollitsch.dev/`.
+- `https://kollitsch.dev/about` redirects to `https://kollitsch.dev/about/`.
+- `https://kollitsch.dev/404-test-for-hosting` returns the generated 404 page with a `404` status.
+- `https://kollitsch.dev/api/send-email` returns `405` for `GET`, confirming the contact endpoint is routed to the Worker.
+- `npm run test:live` passes against the production URL.
+
+`npm run build` preserves local processed-image caches. Use `npm run build:clean` only when Astro image output, generated OG images, or the image-index LQIP cache must be rebuilt from source.

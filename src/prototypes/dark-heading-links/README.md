@@ -54,7 +54,7 @@ Prototype pages are removed from normal production-safe build output. Use only t
 npm run deploy:preview:prototypes
 ```
 
-Do not use `npm run deploy`, `netlify deploy --prod`, `npm run build:clean`, or `clean:build-caches` for prototype review.
+Do not use `npm run deploy`, `wrangler deploy`, `npm run build:clean`, or `clean:build-caches` for prototype review.
 
 ## Variants
 

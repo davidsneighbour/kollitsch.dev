@@ -9,7 +9,7 @@ This is my personal website, (currently) built with Astro and TailwindCSS. This 
 * [Preview of the current state of the website](#preview-of-the-current-state-of-the-website)
 * [Contributing](#contributing)
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Netlify Status](https://api.netlify.com/api/v1/badges/02e05c7a-11a0-48e0-988f-7fc12267eb89/deploy-status)](https://app.netlify.com/sites/kollitsch-dev/deploys)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 [![Linted with Biome](https://img.shields.io/badge/Linted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
@@ -52,6 +52,7 @@ All commands are run from the root of the project, from a terminal:
 
 * Astro 5.16+
 * Tailwind CSS 4.1+
+* Cloudflare Workers Static Assets for hosting
 * Vitest & Playwright for testing
 * Biome for linting and formatting
 

@@ -28,7 +28,7 @@ const homepageAgentDiscoveryLink = [
 ].join(', ');
 
 /**
- * Base Netlify `_headers` rules.
+ * Base Cloudflare Workers Static Assets `_headers` rules.
  *
  * FRONTMATTER HEADERS
  * ────────────────────
@@ -51,7 +51,7 @@ export const headerRules: PathRule[] = [
       {
         name: 'Content-Security-Policy',
         value:
-          "base-uri 'self'; child-src 'self'; connect-src 'self' https://analytics.dnbhub.xyz/ https://api.github.com/ cloudflareinsights.com; default-src 'self'; font-src 'self'; form-action 'self' https://formspree.io/f/xoqyzooe; frame-ancestors 'self'; frame-src 'self' https://open.spotify.com/ https://giscus.app/ https://www.youtube-nocookie.com; img-src 'self' https://analytics.dnbhub.xyz/ ytimg.googleusercontent.com https://i.ytimg.com; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' https://giscus.app/ https://unpkg.com https://identity.netlify.com static.cloudflareinsights.com https://analytics.dnbhub.xyz/; style-src 'self' 'unsafe-inline' https://giscus.app/; worker-src 'self'; upgrade-insecure-requests;",
+          "base-uri 'self'; child-src 'self'; connect-src 'self' https://analytics.dnbhub.xyz/ https://api.github.com/ cloudflareinsights.com; default-src 'self'; font-src 'self'; form-action 'self' https://formspree.io/f/xoqyzooe; frame-ancestors 'self'; frame-src 'self' https://open.spotify.com/ https://giscus.app/ https://www.youtube-nocookie.com; img-src 'self' https://analytics.dnbhub.xyz/ ytimg.googleusercontent.com https://i.ytimg.com; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' https://giscus.app/ https://unpkg.com static.cloudflareinsights.com https://analytics.dnbhub.xyz/; style-src 'self' 'unsafe-inline' https://giscus.app/; worker-src 'self'; upgrade-insecure-requests;",
         disabled: true,
       },
       { name: 'Referrer-Policy', value: 'no-referrer' },
@@ -71,6 +71,23 @@ export const headerRules: PathRule[] = [
         value:
           'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()',
       },
+    ],
+  },
+  {
+    path: '/blog/:year/:slug/',
+    comment: 'Pattern-based Markdown alternate discovery for rendered blog posts.',
+    headers: [
+      { name: 'Link', value: '</blog/:year/:slug.md>; rel="alternate"; type="text/markdown"' },
+      { name: 'Vary', value: 'Accept' },
+    ],
+  },
+  {
+    path: '/blog/:year/:slug.md',
+    comment: 'Pattern-based HTML alternate discovery for Markdown blog representations.',
+    headers: [
+      { name: 'Content-Type', value: 'text/markdown; charset=utf-8' },
+      { name: 'Link', value: '</blog/:year/:slug/>; rel="alternate"; type="text/html"' },
+      { name: 'Vary', value: 'Accept' },
     ],
   },
   {
@@ -160,8 +177,7 @@ export const headerRules: PathRule[] = [
     path: '/assets/styles/*',
     comment:
       "giscus.app fetches custom theme stylesheets via fetch() from its own origin, which " +
-      "requires an explicit CORS allowance - see Giscus.astro. Netlify's _headers globbing only " +
-      'supports a single trailing splat, so this cannot be scoped to `giscus-*.css` specifically. ' +
+      'requires an explicit CORS allowance - see Giscus.astro. ' +
       "Cache-Control is overridden (short, no `immutable`) because these files aren't " +
       'content-hashed and can change without a URL bump - the `/assets/*` immutable default ' +
       "would otherwise leave stale, pre-CORS-fix responses cached in giscus.app's request " +

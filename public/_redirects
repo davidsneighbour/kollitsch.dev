@@ -1,17 +1,14 @@
-# Netlify _redirects file for kollitsch.dev
-# See: https://docs.netlify.com/routing/redirects/
-# This file is read and executed first, then the redirections in the
-# `netlify.toml` file are applied.
-
-# Redirect old Netlify preview URLs to production domain
-https://kollitsch-dev.netlify.app/*  /:splat  301!
+# Cloudflare Workers Static Assets _redirects file for kollitsch.dev
+# See: https://developers.cloudflare.com/workers/static-assets/redirects/
+# This file is copied into the Astro build output. Domain-level redirects, such
+# as www-to-apex, are handled by Cloudflare Redirect Rules.
 
 # Redirect legacy sitemap variants to the main sitemap
 /sitemap.xml        /sitemap-index.xml  301
 /sitemap_index.xml  /sitemap-index.xml  301
 
 # Redirect the first pagination page of the yearly blog pages to the main year page
-/blog/:year/1/  /blog/:year/  301!
+/blog/:year/1/  /blog/:year/  301
 
 # Redirect old GoHugo URLs to new structure
 /gohugo/*           https://github.com/davidsneighbour/hugo-modules/tree/main/modules/:splat 301
@@ -22,6 +19,3 @@ https://kollitsch-dev.netlify.app/*  /:splat  301!
 /tags/dnb-org/       /tags/davidsneighbour/  301
 /tags/dnb/           /tags/davidsneighbour/  301
 /tags/kollitsch.de/  /tags/davidsneighbour/  301
-
-# error pages redirections — MUST STAY AT THE END OF THE FILE
-/*  /404  404

@@ -44,8 +44,9 @@
     "gifsicle@5.3.0": true,
     "jpegtran-bin@7.0.0": true,
     "optipng-bin@7.0.1": true,
-    "secp256k1@5.0.1": true,
+    "secp256k1@5.0.2": true,
     "sharp@0.34.5": true,
-    "simple-git-hooks@2.13.1": true
+    "simple-git-hooks@2.13.1": true,
+    "workerd@1.20260911.1": true
   }
 }

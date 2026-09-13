@@ -4,7 +4,7 @@ This is the single onboarding document for every AI assistant working in this re
 
 ## Project overview
 
-Personal website at [KOLLITSCH.dev*](https://kollitsch.dev) — a digital garden, blog, and web development reference. Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript. Deployed to Netlify.
+Personal website at [KOLLITSCH.dev*](https://kollitsch.dev) — a digital garden, blog, and web development reference. Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript. Deployed locally to Cloudflare Workers Static Assets with Wrangler.
 
 **Node version:** defined in `package.json` → `engines.node` (currently `>=26`). This is the single source of truth; `.nvmrc` mirrors it. Even-numbered major versions (LTS) are preferred.
 
@@ -131,6 +131,10 @@ npm run build             # cached prebuild image index + astro check + astro bu
 npm run build:clean       # delete build/image caches, then run the normal build
 npm run check             # astro check only (type-check without building)
 npm run preview           # Preview production build locally
+npm run hosting:check     # Verify dist/ against Cloudflare Static Assets limits
+npm run deploy:preview    # Upload a non-production Worker version preview
+npm run deploy:dry-run    # Build, preflight, and dry-run the Cloudflare deploy
+npm run deploy            # Build, preflight, and deploy locally with Wrangler
 npm test                  # Vitest unit tests (fast, no API keys needed)
 npm run test:coverage     # Vitest with v8 coverage
 npm run test:e2e          # Playwright e2e (run after build)
@@ -176,7 +180,7 @@ Astro generates a fully static site (`output: 'static'`). All pages are pre-rend
 
 **Experimental flags active:** `chromeDevtoolsWorkspace`, `clientPrerender`, `contentIntellisense`.
 
-`trailingSlash` is not configured in Astro; trailing-slash enforcement is delegated to a Netlify 301 redirect in `netlify.toml`.
+Astro uses directory-style static output with trailing slashes. Cloudflare Workers Static Assets keeps that URL shape with `assets.html_handling = "auto-trailing-slash"` in `wrangler.jsonc`.
 
 Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.
 
@@ -223,7 +227,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 1. **Pre-build**: `npm run build:image-index` (`src/scripts/build/build-image-index.ts`) generates the LQIP image index. The normal build preserves `.cache/image-index/cache.json`; use `npm run build:clean` to drop this cache and other processed-image caches before rebuilding.
 2. **Astro build hooks** (`src/scripts/build/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle:
    * `generateFeedsIntegration` — FreshRSS-gated RSS feeds on `astro:build:start`.
-   * `generateHeadersIntegration` — writes `dist/_headers` on `astro:build:done`. Rules are defined in `src/data/headers.ts`; `Expires` is computed as build-time + 1 year. Do not edit `dist/_headers` directly; `public/_headers` is gitignored.
+* `generateHeadersIntegration` — writes the Cloudflare-compatible `dist/_headers` on `astro:build:done`. Rules are defined in `src/data/headers.ts`; `Expires` is computed as build-time + 1 year. Do not edit `dist/_headers` directly; `public/_headers` is gitignored.
    * `pagefindIntegration` — Pagefind search index on `astro:build:done`.
 3. **Build**: `astro check && astro build` — TypeScript checks run before the build.
 4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `node`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
@@ -244,8 +248,10 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 * `lighthouse.yml` — post-deploy Lighthouse audits.
 * `screenshot.yml` — weekly homepage screenshot commit.
 * `check-youtube-videos.yml` — weekly liveness check of every referenced YouTube video id (`fetch-youtube-thumbnails.ts --verify`); files/updates a tracking issue on failure instead of blocking anything.
-* Deployed to Netlify; `netlify.toml` has `command = ""` — this is intentional and overrides any build command set in the Netlify web UI. The build is run separately before `netlify deploy` is called.
-* This site is hosted on Netlify. Fetch [https://netlify.ai](https://netlify.ai) to understand available Netlify features when working on deployment-related tasks.
+* Deployment is local-first with Wrangler, not GitHub Actions. Use `npm run deploy:preview`, `npm run deploy:dry-run`, and `npm run deploy` from a workstation that is authenticated with Cloudflare.
+* `wrangler.jsonc` is the Cloudflare Workers Static Assets configuration. Static assets are served from `dist/`; only `/api/send-email` runs the Worker before static asset lookup.
+* Cloudflare DNS hosts the zone. The canonical hostname is `kollitsch.dev`; `www` redirection is managed with a Cloudflare Redirect Rule outside this repository.
+* Cloudflare provides agent-readable documentation at [https://developers.cloudflare.com/docs-for-agents/](https://developers.cloudflare.com/docs-for-agents/). Use the Cloudflare skills installed through `.agents/skills` for hosting-related tasks.
 
 ### Key directories
 
@@ -257,7 +263,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 | `src/components/` | UI components, co-located with `*.test.ts` files |
 | `src/utils/` | Shared helpers (`content.ts`, `path.ts`, `youtube.ts`, etc.), co-located tests |
 | `src/scripts/` | One-off and build-time scripts, run via `node` |
-| `src/data/` | Static config (nav, site meta, theme, redirects, Netlify header rules) |
+| `src/data/` | Static config (nav, site meta, theme, redirects, Cloudflare header rules) |
 | `src/config/` | Tool configs (biome, stylelint, cspell, secretlint, htmlvalidate) |
 | `src/styles/` | Global CSS (`theme.css`) |
 | `.frontmatter/` | Frontmatter CMS database and templates |
@@ -329,7 +335,7 @@ Rules:
 | Add a new blog post | `npm run create:blog` or create in `src/content/blog/` |
 | Change dev server watcher behaviour | `src/scripts/webserver.ts` (`EXTRA_WATCH_PATTERNS`, `NEW_FILE_WATCH_DIRS`, `RESTART_POLL_INTERVAL_MS`); trigger external restart with `touch RESTART` |
 | Add a redirect | `src/data/redirects.json` |
-| Change Netlify response headers | `src/data/headers.ts` (`headerRules` / `moduleHeaderRules`); `dist/_headers` is generated by `generateHeadersIntegration` on every build |
+| Change Cloudflare response headers | `src/data/headers.ts` (`headerRules` / `moduleHeaderRules`); `dist/_headers` is generated by `generateHeadersIntegration` on every build |
 
 ## Documentation
 

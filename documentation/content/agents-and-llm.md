@@ -76,7 +76,7 @@ Blog post HTML pages emit:
 />
 ```
 
-The generated Netlify `_headers` file also adds HTTP `Link` headers for both
+The generated Cloudflare `_headers` file also adds HTTP `Link` headers for both
 representations:
 
 ```text
@@ -144,8 +144,8 @@ intentionally contains no underscores so it remains valid for normal public TLS
 endpoint validation.
 
 Cloudflare DNS is the external source that must hold the live DNS record. The
-repository does not contain DNS-as-code for this zone, so Astro and Netlify
-builds cannot publish this record by themselves.
+repository does not contain DNS-as-code for this zone, so Astro builds and local
+Wrangler deploys cannot publish this record by themselves.
 
 | Field | Value |
 | --- | --- |

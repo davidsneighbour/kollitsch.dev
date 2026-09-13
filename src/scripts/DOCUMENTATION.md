@@ -22,7 +22,7 @@ Blog content additions (`src/content/blog/`, `src/content/tags/`) are intentiona
 
 ---
 
-Scripts are organised into four topic groups:
+Scripts are organised into five topic groups:
 
 ---
 
@@ -32,8 +32,8 @@ Scripts that run as part of the Astro build pipeline or are invoked by it.
 
 | Script | What it does | npm script |
 | --- | --- | --- |
-| `build-headers.ts` | Renders `src/data/headers.ts` rule definitions into the Netlify `_headers` plain-text format and writes the result to `dist/_headers`. `Expires` is computed at call time as build-time + 1 year (RFC 1123). Called by `generateHeadersIntegration` in `build-hooks.ts`; do not call directly. | (called by build-hooks) |
-| `build-hooks.ts` | Astro integration exported as `buildHooks()`. Registers three integrations: `generateFeedsIntegration` (FreshRSS RSS feeds, `astro:build:start`), `generateHeadersIntegration` (Netlify `_headers`, `astro:build:done`), and `pagefindIntegration` (search index, `astro:build:done`) plus a dev-server middleware. Imported by `astro.config.ts`. | (imported) |
+| `build-headers.ts` | Renders `src/data/headers.ts` rule definitions into the Cloudflare `_headers` plain-text format and writes the result to `dist/_headers`. `Expires` is computed at call time as build-time + 1 year (RFC 1123). Called by `generateHeadersIntegration` in `build-hooks.ts`; do not call directly. | (called by build-hooks) |
+| `build-hooks.ts` | Astro integration exported as `buildHooks()`. Registers three integrations: `generateFeedsIntegration` (FreshRSS RSS feeds, `astro:build:start`), `generateHeadersIntegration` (Cloudflare `_headers`, `astro:build:done`), and `pagefindIntegration` (search index, `astro:build:done`) plus a dev-server middleware. Imported by `astro.config.ts`. | (imported) |
 | `build-image-index.ts` | Scans `src/assets/images/`, merges metadata from Frontmatter CMS `mediaDb.json`, and writes `src/content/_generated/image-index.json` with per-image dimensions and LQIP data URIs. Per-image dimension and LQIP work is cached in `.cache/image-index/cache.json` and reused by the normal build. | `npm run build:image-index` |
 | `build-theme.ts` | Reads `src/data/theme.json` and generates `src/styles/theme-setup.css` via `src/utils/theme.ts`. | (called internally) |
 | `starred-feed.ts` | Fetches starred/labelled items from a FreshRSS instance (Google Reader API) and writes an RSS 2.0 feed to a file or stdout. Called by `build-hooks.ts`. Requires `FRESHRSS_*` env vars. | (called by build-hooks) |
@@ -51,6 +51,16 @@ Scripts for managing blog content and media assets.
 | `create-blog-post.ts` | Interactive CLI to scaffold a new blog post. Prompts for title and tags, generates a slug directory under `src/content/blog/YYYY/slug/`, and optionally opens the file in VS Code. | `npm run create:blog` |
 | `featured.ts` | Manages `featured: true` frontmatter across blog posts. Accepts commands `list` (default), `clean` (remove all featured flags), or `show` (print current). | `node src/scripts/content/featured.ts` |
 | `fetch-youtube-thumbnails.ts` | Scans blog frontmatter (`cover.video.youtube`), inline `<Youtube video="…">` usage, and hardcoded `videoId`/`video` props in `.astro` files for YouTube video ids, then downloads the best available thumbnail (`maxresdefault.jpg` → `sddefault.jpg` → `hqdefault.jpg`, detecting YouTube's 120×90 placeholder for missing sizes) into `src/assets/images/youtube-thumbnails/<id>.jpg`. Lets `Youtube.astro` serve an Astro-optimized local poster instead of live-fetching one from `i.ytimg.com`. Runs automatically via `lint-staged` (see `.lintstagedrc.ts`) whenever staged files under `src/content/blog/` change, so new posts get a local thumbnail without a manual step. Pass a single video id to fetch just that one instead of scanning the whole project. A failed fetch only exits non-zero when an explicit id was given: an unattended full scan warns instead, so one stale/deleted video elsewhere doesn't block unrelated commits. Accepts `--force` to re-fetch. `--verify` instead checks every known id is still live on YouTube via a HEAD request (no download, no lychee involved: YouTube's watch page returns HTTP 200 even for deleted videos, so a plain link checker can't catch this) and exits non-zero listing dead ids and their source file; run via the weekly `check-youtube-videos.yml` GitHub Action rather than on every commit, since it's one request per known video. | `node src/scripts/content/fetch-youtube-thumbnails.ts [videoId] [--force\|--verify]` |
+
+---
+
+## hosting/
+
+Scripts for deployment-provider checks.
+
+| Script | What it does | npm script |
+| --- | --- | --- |
+| `cloudflare-static-assets.ts` | Checks the generated `dist/` directory against Cloudflare Workers Static Assets limits. Reports regular files, directories, Wrangler-style upload entries, total size, largest asset, `_headers` rule and line limits, and `_redirects` count and line limits. | `npm run hosting:check` |
 
 ---
 

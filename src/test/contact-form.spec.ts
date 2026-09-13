@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
-// The contact form posts to a Netlify function backed by the Resend REST API
-// (src/netlify/functions/send-email.ts). Actually submitting would send a real
+// The contact form posts to the Cloudflare Worker endpoint backed by the Resend REST API
+// (src/worker.ts). Actually submitting would send a real
 // email, so this exercises ContentPageConnect.astro's dev-only `?scenario=`
 // client-side simulator instead — it intercepts submit and never reaches the
 // network, matching the same success/error UI paths a real Resend response

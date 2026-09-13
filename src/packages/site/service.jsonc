@@ -6,7 +6,6 @@
     // https://docs.npmjs.com/cli/v8/using-npm/scripts
     "postprepare": {
       "dependencies": [
-        "test:postinstall",
         "build:favicons"
       ]
     }

@@ -32,8 +32,8 @@ actionable the way a PR-blocking check should be.
 `src/test/contact-form.spec.ts` (a regular, non-live e2e spec) covers the
 contact form's success/error UI states via `ContentPageConnect.astro`'s
 dev-only `?scenario=` simulator, which intercepts submit and never reaches the
-network—the form posts to a Netlify function backed by the Resend REST API
-(`src/netlify/functions/send-email.ts`), so a live test that actually submits
+network—the form posts to the Cloudflare Worker contact endpoint backed by the Resend REST API
+(`src/worker.ts`), so a live test that actually submits
 it would send a real email.
 
 ## Deliberately not covered here

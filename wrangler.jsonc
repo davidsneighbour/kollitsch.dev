@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "kollitsch-dev",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-09-13",
+  "preview_urls": true,
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "kollitsch.dev",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./dist/",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": [
+      "/api/send-email"
+    ]
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
+  "secrets": {
+    "required": [
+      "RESEND_API_KEY",
+      "RESEND_FROM",
+      "RESEND_TO"
+    ]
+  }
+}

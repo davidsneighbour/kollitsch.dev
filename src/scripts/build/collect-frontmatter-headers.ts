@@ -1,5 +1,5 @@
 /**
- * Collects Netlify `_headers` rules from blog post frontmatter.
+ * Collects Cloudflare `_headers` rules from blog post frontmatter.
  *
  * Reads `src/content/blog/**\/*.{md,mdx}` frontmatter directly via
  * `gray-matter` (rather than `astro:content`, which isn't resolvable from an
@@ -36,21 +36,10 @@ function permalinkFor(filePath: string): string | undefined {
   return `/blog/${year}/${slug}/`;
 }
 
-function markdownPermalinkFor(path: string): string {
-  return path.replace(/\/$/, '.md');
-}
-
-function markdownLinkHeaderFor(path: string): string {
-  return `<${markdownPermalinkFor(path)}>; rel="alternate"; type="text/markdown"`;
-}
-
-function htmlLinkHeaderFor(path: string): string {
-  return `<${path}>; rel="alternate"; type="text/html"`;
-}
-
 /**
- * Scans blog posts and returns generated `PathRule` values for their Markdown
- * alternates. Frontmatter headers are also folded into the HTML permalink rule.
+ * Scans blog posts and returns `PathRule` values only for explicit frontmatter
+ * headers. Markdown alternate headers are generic rules in `src/data/headers.ts`
+ * so the generated `_headers` file stays inside Cloudflare's rule limit.
  */
 export async function collectFrontmatterHeaderRules(): Promise<PathRule[]> {
   const files = await fg(`${BLOG_CONTENT_PATH}/**/*.{md,mdx}`);
@@ -67,11 +56,6 @@ export async function collectFrontmatterHeaderRules(): Promise<PathRule[]> {
     const path = permalinkFor(file);
     if (!path) continue;
 
-    const htmlHeaders = [
-      { name: 'Link', value: markdownLinkHeaderFor(path) },
-      { name: 'Vary', value: 'Accept' },
-    ];
-
     const entries =
       headers && typeof headers === 'object' && !Array.isArray(headers)
         ? Object.entries(headers).filter(
@@ -79,24 +63,13 @@ export async function collectFrontmatterHeaderRules(): Promise<PathRule[]> {
         )
         : [];
 
-    rules.push({
-      path,
-      comment: `Markdown alternate for ${file.slice(process.cwd().length + 1)}`,
-      headers: [
-        ...htmlHeaders,
-        ...entries.map(([name, value]) => ({ name, value })),
-      ],
-    });
-
-    rules.push({
-      path: markdownPermalinkFor(path),
-      comment: `Markdown representation for ${file.slice(process.cwd().length + 1)}`,
-      headers: [
-        { name: 'Content-Type', value: 'text/markdown; charset=utf-8' },
-        { name: 'Link', value: htmlLinkHeaderFor(path) },
-        { name: 'Vary', value: 'Accept' },
-      ],
-    });
+    if (entries.length > 0) {
+      rules.push({
+        path,
+        comment: `Frontmatter headers for ${file.slice(process.cwd().length + 1)}`,
+        headers: entries.map(([name, value]) => ({ name, value })),
+      });
+    }
   }
 
   return rules;

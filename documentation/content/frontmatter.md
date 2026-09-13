@@ -58,7 +58,7 @@ Markdown headings or filenames.
 | `draft` | no | `boolean` | Draft visibility flag; see [Draft post visibility](draft-status.md). |
 | `featured` | no | `boolean` | Marks a post as eligible for featured-post selection. |
 | `fmContentType` | yes | `article` or `blog` | Required Front Matter CMS content-type marker for blog posts; existing archive entries still use `blog`. |
-| `headers` | no | record of strings | Per-post Netlify response headers; see [Headers](headers.md). |
+| `headers` | no | record of strings | Per-post Cloudflare response headers; see [Headers](headers.md). |
 | `lastModified` | no | date | Explicit last-modified date. |
 | `linktitle` | no | `string` | Plain-text shorter link label; must differ from and be shorter than `title`. |
 | `options` | no | nested object | Per-post rendering options; known keys are listed below. |

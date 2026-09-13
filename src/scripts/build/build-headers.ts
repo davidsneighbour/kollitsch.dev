@@ -1,8 +1,8 @@
 /**
- * Netlify `_headers` file generator.
+ * Cloudflare Workers Static Assets `_headers` file generator.
  *
  * Renders `PathRule[]` data from `src/data/headers.ts` into the plain-text
- * `_headers` format that Netlify reads from the deploy root.
+ * `_headers` format that Cloudflare reads from the deploy root.
  *
  * Called by the `generateHeadersIntegration` Astro hook in `build-hooks.ts`
  * during `astro:build:done` — the generated file is written directly to the
@@ -34,11 +34,9 @@ function renderRule(rule: PathRule, expiresValue: string): string {
   lines.push(rule.path);
 
   for (const header of rule.headers) {
-    lines.push(
-      header.disabled
-        ? `  # ${header.name}: ${header.value}`
-        : `  ${header.name}: ${header.value}`,
-    );
+    if (!header.disabled) {
+      lines.push(`  ${header.name}: ${header.value}`);
+    }
   }
 
   if (rule.addExpires) {
@@ -74,7 +72,7 @@ export function renderHeaders(extraRules: PathRule[] = []): string {
       : '';
 
   return [
-    '# header configuration for kollitsch.dev on Netlify',
+    '# header configuration for kollitsch.dev on Cloudflare Workers Static Assets',
     `# generated at build time (${buildDate}) — edit src/data/headers.ts, not this file`,
     '',
     baseSection,

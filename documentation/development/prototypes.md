@@ -71,9 +71,8 @@ npm run deploy:preview:prototypes
 This command:
 
 - runs a cache-preserving prototype build,
-- uploads the built `dist/` directory,
-- passes `--no-build` to Netlify so the CLI does not build a second time,
-- uses Netlify's `deploy-preview` context,
+- runs the Cloudflare hosting preflight,
+- uploads the built `dist/` directory as a Cloudflare Worker version with the `prototypes` alias,
 - does not pass `--prod`,
 - does not run the release workflow,
 - does not clean image caches.
@@ -85,8 +84,7 @@ Never deploy prototypes with a production command.
 Forbidden for prototype review:
 
 - `npm run deploy`
-- `netlify deploy --prod`
-- `netlify deploy --prod-if-unlocked`
+- `wrangler deploy`
 - `npm run build:clean`
 - `npm run clean:build-caches`
 

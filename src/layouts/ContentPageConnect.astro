@@ -30,7 +30,7 @@ const isDev = import.meta.env.DEV;
       <form
         name="contact"
         method="POST"
-        action="/.netlify/functions/send-email"
+        action="/api/send-email"
         class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
         novalidate
       >
@@ -93,7 +93,6 @@ const isDev = import.meta.env.DEV;
               </div>
               <p id="email-error" data-error-for="email" class="mt-2 text-sm text-red-400 hidden" role="alert"></p>
             </div>
-            <div data-netlify-recaptcha="true"></div>
             <div class="sm:col-span-2">
               <label for="message" class="block text-sm/6">Message</label>
               <div class="mt-2.5">

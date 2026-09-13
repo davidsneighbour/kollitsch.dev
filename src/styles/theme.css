@@ -76,18 +76,6 @@
   --color-*: initial;
   /* stylelint-enable custom-property-pattern */
 
-  /* stylelint-disable plugin/no-unsupported-browser-features -- oklch is ok */
-  --color-gray-50: oklch(98.6% 0.002 67.8deg);
-  --color-gray-100: oklch(96% 0.002 17.2deg);
-  --color-gray-200: oklch(92.2% 0.005 34.3deg);
-  --color-gray-300: oklch(86.8% 0.007 39.5deg);
-  --color-gray-400: oklch(71.4% 0.014 41.2deg);
-  --color-gray-500: oklch(54.7% 0.021 43.1deg);
-  --color-gray-600: oklch(43.8% 0.017 39.3deg);
-  --color-gray-700: oklch(36.7% 0.016 35.7deg);
-  --color-gray-800: oklch(26.8% 0.011 36.5deg);
-  --color-gray-900: oklch(21.4% 0.009 43.1deg);
-  --color-gray-950: oklch(14.7% 0.004 49.3deg);
   --color-orange-50: oklch(98% 0.016 73.684deg);
   --color-orange-100: oklch(95.4% 0.038 75.164deg);
   --color-orange-200: oklch(90.1% 0.076 70.697deg);
@@ -171,7 +159,6 @@
   --color-olive-800: oklch(28.6% 0.016 107.4deg);
   --color-olive-900: oklch(22.8% 0.013 107.4deg);
   --color-olive-950: oklch(15.3% 0.006 107.1deg);
-  /* stylelint-enable plugin/no-unsupported-browser-features */
 
   /* Easing functions via Emil Kowalski */
 
@@ -237,15 +224,27 @@
   /*
    * Project palette layer: `primary-*`/`grey-*`/`gray-*` are the only
    * palette names components should reach for. They currently source from
-   * Tailwind's `green`/`gray` (taupe) scales; swapping the brand or neutral
-   * later means changing only this block, never component files.
+   * Tailwind's `green` scale (primary) and `mist` scale (grey); swapping the
+   * brand or neutral later means changing only this block, never component
+   * files.
    *
    * `grey-*` is the canonical (British English) spelling; `gray-*` mirrors
    * it verbatim so both resolve identically - they are not separate
-   * palettes. Both alias the existing raw `--color-gray-*` tokens rather
-   * than introducing a second raw scale, so the dark-mode Mist remap below
-   * (`[data-theme="dark"]`) automatically applies to `grey-*` too.
+   * palettes. There is only one grey scale, sourced from `mist` (a
+   * blue-leaning neutral) and mapped once here for both light and dark mode
+   * - it is not redefined per theme.
    */
+  --color-gray-50: var(--color-mist-50);
+  --color-gray-100: var(--color-mist-100);
+  --color-gray-200: var(--color-mist-200);
+  --color-gray-300: var(--color-mist-300);
+  --color-gray-400: var(--color-mist-400);
+  --color-gray-500: var(--color-mist-500);
+  --color-gray-600: var(--color-mist-600);
+  --color-gray-700: var(--color-mist-700);
+  --color-gray-800: var(--color-mist-800);
+  --color-gray-900: var(--color-mist-900);
+  --color-gray-950: var(--color-mist-950);
   --color-primary-50: var(--color-green-50);
   --color-primary-100: var(--color-green-100);
   --color-primary-200: var(--color-green-200);
@@ -383,25 +382,6 @@
 }
 
 [data-theme="dark"] {
-  /*
-   * Dark-only neutral remap: Mist replaces the taupe-based `gray-*` raw
-   * scale for the dark theme only (light keeps the original taupe scale
-   * via the unmodified `@theme` block above). Every existing `gray-*`/
-   * `grey-*` utility class site-wide picks this up automatically - no
-   * per-component edits needed. Surfaces favour the darker end of Mist per
-   * the design brief; retune here if the surface hierarchy needs to shift.
-   */
-  --color-gray-50: var(--color-mist-50);
-  --color-gray-100: var(--color-mist-100);
-  --color-gray-200: var(--color-mist-200);
-  --color-gray-300: var(--color-mist-300);
-  --color-gray-400: var(--color-mist-400);
-  --color-gray-500: var(--color-mist-500);
-  --color-gray-600: var(--color-mist-600);
-  --color-gray-700: var(--color-mist-700);
-  --color-gray-800: var(--color-mist-800);
-  --color-gray-900: var(--color-mist-900);
-  --color-gray-950: var(--color-mist-950);
   --background: var(--color-olive-950); /* surface-dark */
   --foreground: var(--color-gray-200); /* on-surface-dark */
   --card: var(--color-gray-800); /* surface-raised-dark */
@@ -895,8 +875,10 @@
   /* Firefox and other browsers that don't support modern standards for scrollbars */
   @supports not selector(::-webkit-scrollbar) {
     body {
+      /* stylelint-disable plugin/no-unsupported-browser-features -- no styleable scrollbar exists on iOS Safari < 26 (no ::-webkit-scrollbar, no scrollbar-color/width); falls back to the native scrollbar there */
       scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
       scrollbar-width: var(--sb-size-ff);
+      /* stylelint-enable plugin/no-unsupported-browser-features */
     }
   }
 }
@@ -927,7 +909,6 @@
   background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent);
 
   &:where([data-theme="dark"], [data-theme="dark"] *) {
-    /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- backdrop-filter, not covered by this project's target browser list */
     backdrop-filter: blur(20px) saturate(1);
   }
 }

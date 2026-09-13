@@ -11,8 +11,11 @@ import {
 
 export interface Props {
   post: CollectionEntry<'blog'>;
+  // only above-the-fold cards (e.g. the first row of a listing page) should
+  // set this; everything else should lazy-load
+  priority?: boolean;
 }
-const { post } = Astro.props;
+const { post, priority = false } = Astro.props;
 const transitionName = getPostPreviewTransitionName(post.id);
 const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 ---
@@ -28,6 +31,7 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
     classes="aspect-dnb w-full max-w-full object-cover rounded-t-[calc(var(--card-radius)-var(--card-padding))]"
     quality="medium"
     transitionName={mediaTransitionName}
+    priority={priority}
   />
   <div class="flex grow flex-col justify-start p-3 @md:p-4">
     <h2

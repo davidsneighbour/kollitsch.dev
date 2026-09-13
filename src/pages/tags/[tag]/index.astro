@@ -73,7 +73,7 @@ export async function getStaticPaths() {
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
   >
-    {paginatedPosts.map((post) => <ArticleCard post={post} />)}
+    {paginatedPosts.map((post, index) => <ArticleCard post={post} priority={index < 2} />)}
   </div>
 
   <Pagination

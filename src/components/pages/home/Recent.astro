@@ -15,7 +15,7 @@ const { featuredPost: _, recentPosts } = await getHomepagePosts();
   <div
     class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2 lg:mx-0 lg:max-w-none xl:grid-cols-3"
   >
-    {recentPosts.map((post) => <ArticleCard post={post} />)}
+    {recentPosts.map((post, index) => <ArticleCard post={post} priority={index < 2} />)}
   </div>
 
   <div class="mx-auto my-8 text-center">

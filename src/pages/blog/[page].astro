@@ -53,8 +53,8 @@ const post = {
   />
 
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-    {posts.map((post) => {
-        return <ArticleCard post={post} />;
+    {posts.map((post, index) => {
+        return <ArticleCard post={post} priority={index < 2} />;
       })}
   </div>
   <Pagination

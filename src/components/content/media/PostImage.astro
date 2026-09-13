@@ -19,6 +19,9 @@ export interface Props {
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
   transitionName?: string;
+  // only above-the-fold cards (e.g. the first row of a listing page) should
+  // set this; everything else should lazy-load
+  priority?: boolean;
 }
 
 const {
@@ -32,6 +35,7 @@ const {
   sizes = getTailwindSizes({ base: 3, maxContentWidth: 1280, md: 2, sm: 1 }),
   layout = 'constrained',
   transitionName = '',
+  priority = false,
 }: Props = Astro.props;
 
 type Quality = number | 'low' | 'medium' | 'high' | 'max';
@@ -183,14 +187,14 @@ const roundedClasses = classes
           layout={layout}
           class={classes}
           quality={mapQuality(quality)}
-          priority
+          priority={priority}
         />
       ) : (
         <img
           src={cover.src}
           alt={cover.alt}
           class={classes}
-          loading="eager"
+          loading={priority ? "eager" : "lazy"}
           decoding="async"
         />
       )}

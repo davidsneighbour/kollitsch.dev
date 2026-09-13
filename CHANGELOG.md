@@ -1,5 +1,31 @@
 # Changelog
 
+## [3003.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3002.0.1...v3003.0.0) (2026-09-13)
+
+### Feat
+
+* **header:** make site title wordmark fill image responsive by viewport ([271109c](https://github.com/davidsneighbour/kollitsch.dev/commit/271109ce8db8170051a19a583a6fe8ad9a876247))
+* **theme:** migrate dark colour scheme to green/Mist brand palette ([29562ac](https://github.com/davidsneighbour/kollitsch.dev/commit/29562acd643a7eefcfd44bf2a360753b45b22f7f))
+
+### Fix
+
+* convert default og image to theme color ([fc11334](https://github.com/davidsneighbour/kollitsch.dev/commit/fc11334be4bf244cf20aefe9c4d385f13c692429))
+* **giscus:** align light theme css with dark theme's primary migration ([51305e2](https://github.com/davidsneighbour/kollitsch.dev/commit/51305e28d387c630184fcdf17ee857278bd4045f)), references [#1974](https://github.com/davidsneighbour/kollitsch.dev/issues/1974)
+* move sub-menu in topnavigation up a nodge ([921c909](https://github.com/davidsneighbour/kollitsch.dev/commit/921c909cbe9e23b08fdd3fdcaa54537fb95e90b7))
+* **theme:** migrate light-mode brand accent from orange/red to primary ([b7e4bbd](https://github.com/davidsneighbour/kollitsch.dev/commit/b7e4bbddbaf16dd7c9794bd3e030e61d5224547f)), closes [#1974](https://github.com/davidsneighbour/kollitsch.dev/issues/1974)
+* **theme:** remove obsolete theme token generation ([d933562](https://github.com/davidsneighbour/kollitsch.dev/commit/d933562b6e1d2eafad6a1e18a2daef7dad2db883))
+
+### Docs
+
+* **agents:** add deploy-before-test instructions for giscus theme css ([6f7ac54](https://github.com/davidsneighbour/kollitsch.dev/commit/6f7ac548c6589b62f6892a5e0c797aa0f7b117dd)), references [#1974](https://github.com/davidsneighbour/kollitsch.dev/issues/1974)
+* **agents:** use British spelling in giscus instructions ([1afe076](https://github.com/davidsneighbour/kollitsch.dev/commit/1afe07680c30ab1e101cbc8ab3b8b5df1340de8b)), references [#1974](https://github.com/davidsneighbour/kollitsch.dev/issues/1974)
+* **design:** update DESIGN.md color tokens for primary migration ([28d39dd](https://github.com/davidsneighbour/kollitsch.dev/commit/28d39ddf17a83490130b1daf18740bb6209ed1d0)), references [#1974](https://github.com/davidsneighbour/kollitsch.dev/issues/1974)
+* **fix:** remove theme token generation ([06e37e5](https://github.com/davidsneighbour/kollitsch.dev/commit/06e37e506b6c470beb5e913120e91c8449f23cf9))
+
+### Build
+
+* **fix:** silence notices in npm scripts ([dff8de6](https://github.com/davidsneighbour/kollitsch.dev/commit/dff8de6ca3a762f01f53f81f8b50b06fea377f76))
+
 ## [3002.0.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3002.0.0...v3002.0.1) (2026-09-13)
 
 ### Fix

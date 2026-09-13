@@ -1,5 +1,35 @@
 # Changelog
 
+## [3002.0.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.32.0...v3002.0.0) (2026-09-13)
+
+### Feat
+
+* **content:** add origin provenance field to blog schema ([63289cc](https://github.com/davidsneighbour/kollitsch.dev/commit/63289cc5fa7f677075ff5db6fe3d3283fdfc2be9))
+* **metadata:** show promotion provenance via Origin component ([06b36a6](https://github.com/davidsneighbour/kollitsch.dev/commit/06b36a6131ae945d51b9b1ff2da3da23fcc3be38))
+* **scripts:** add promote-stream-post to convert Mastodon posts to drafts ([1f4e145](https://github.com/davidsneighbour/kollitsch.dev/commit/1f4e145757c8ac877a4a37ee16b6178dc0dd8732))
+* **stream:** add /stream/ page mirroring public Mastodon posts ([d6e2f13](https://github.com/davidsneighbour/kollitsch.dev/commit/d6e2f13c3785071403fef51fb8c9039167f4e82d))
+
+### Fix
+
+* **build:** prune unreferenced image originals ([78b8d30](https://github.com/davidsneighbour/kollitsch.dev/commit/78b8d30aa438d267e7e5408beb78c998ce7880e9)), closes [#1972](https://github.com/davidsneighbour/kollitsch.dev/issues/1972)
+* **hosting:** keep deploys off domain routing ([0ba01ee](https://github.com/davidsneighbour/kollitsch.dev/commit/0ba01ee87e335bc4c08baadbdda41850a2fdedfc)), references [#1970](https://github.com/davidsneighbour/kollitsch.dev/issues/1970)
+* **hosting:** route www through apex ([2c70d23](https://github.com/davidsneighbour/kollitsch.dev/commit/2c70d238a3da318195081e2c9f1710d0e314e23d)), references [#1970](https://github.com/davidsneighbour/kollitsch.dev/issues/1970)
+
+### Perf
+
+* **content:** load article hero images eagerly ([f27213a](https://github.com/davidsneighbour/kollitsch.dev/commit/f27213aab001ff70e3d75cee89e9d696ec12da96)), closes [#1971](https://github.com/davidsneighbour/kollitsch.dev/issues/1971)
+* lazy-load below-the-fold post card images ([1cd71aa](https://github.com/davidsneighbour/kollitsch.dev/commit/1cd71aa883a983e5ee53565bbe070efb219d1916))
+
+### Build
+
+* **hosting:** migrate deploy target to Cloudflare ([979451e](https://github.com/davidsneighbour/kollitsch.dev/commit/979451e07b36eb96de83949897dcaf33bfc9b293)), references [#1970](https://github.com/davidsneighbour/kollitsch.dev/issues/1970)
+* **release:** add explicit increment scripts ([b95421a](https://github.com/davidsneighbour/kollitsch.dev/commit/b95421a1bd6727e541e5972fa623665ba5302c7e)), closes [#1973](https://github.com/davidsneighbour/kollitsch.dev/issues/1973)
+* **vscode:** update workspace configuration ([edd0a18](https://github.com/davidsneighbour/kollitsch.dev/commit/edd0a18dc36a26b1413eef334d0b3024b4e0108a))
+
+### Chore
+
+* **stream:** remove Mastodon integration ([819eabe](https://github.com/davidsneighbour/kollitsch.dev/commit/819eabe5aba4ae76b9b4c088607d1a239bf0a60b)), closes [#1969](https://github.com/davidsneighbour/kollitsch.dev/issues/1969)
+
 ## [3001.32.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3001.31.2...v3001.32.0) (2026-09-12)
 
 ### Feat

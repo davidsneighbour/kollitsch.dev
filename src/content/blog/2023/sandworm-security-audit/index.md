@@ -22,7 +22,7 @@ publisher: rework
 
 [Sandworm Audit](https://sandworm.dev/) is a free and open source command-line tool designed to scan your project and dependencies for security vulnerabilities, license compliance issues, and other metadata problems.
 
-It works with any modern JavaScript package manager and supports custom license policies. With Sandworm Audit, you can generate easy-to-read reports that include JSON issue and license usage reports, CSV files of all dependencies and license information, and SVG dependency tree and treemap visualizations.
+It works with any modern JavaScript package manager and supports custom license policies. With Sandworm Audit, you can generate easy-to-read reports that include JSON issue and license usage reports, CSV files of all dependencies and license information, and SVG dependency tree and treemap visualisations.
 
 It is powered by D3 and puts security vulnerabilities and package license information into nice looking charts. Additionally, it supports configurable conditions to fail CI/GIT hook workflows, making it a powerful tool for maintaining the security and license compliance of your application on commits or pushes.
 

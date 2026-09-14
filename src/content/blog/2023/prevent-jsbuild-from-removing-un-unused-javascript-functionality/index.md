@@ -19,7 +19,7 @@ cover:
 publisher: rework
 ---
 
-Today, I reworked my theme changer script from vanilla JavaScript to an [Alpine.js](https://alpinejs.dev/)-based component. This change cut down the code lines by 50%. However, initially, it didn't work. The console error messages indicated that my theme switcher function was unrecognized. Intrigued, I decided to investigate.
+Today, I reworked my theme changer script from vanilla JavaScript to an [Alpine.js](https://alpinejs.dev/)-based component. This change cut down the code lines by 50%. However, initially, it didn't work. The console error messages indicated that my theme switcher function was unrecognised. Intrigued, I decided to investigate.
 
 My setup uses [`js.Build`](https://gohugo.io/hugo-pipes/js/), which integrates [ESBuild](https://esbuild.github.io/) into [GoHugo](https://gohugo.io/).
 
@@ -41,7 +41,7 @@ function themeSwitcher() {
 };
 ```
 
-And in my template, I initialized the theme switcher like this:
+And in my template, I initialised the theme switcher like this:
 
 ```go
 <li class="nav-item" id="themeswitcher" x-data="themeSwitcher()">
@@ -64,9 +64,9 @@ The final JavaScript was built using `js.Build` and loaded into the page:
 ></script>
 ```
 
-Nothing too complicated, I thought, but still, on the console, I could see that while Alpine.js was properly initialized, the `themeSwitcher` function was not being recognized or found.
+Nothing too complicated, I thought, but still, on the console, I could see that while Alpine.js was properly initialised, the `themeSwitcher` function was not being recognised or found.
 
-It turned out ESBuild was excluding the `themeSwitcher` function from the final build. I suspect it's because the function wasn't explicitly "used" elsewhere in the script, although it was clearly utilized in the theme.
+It turned out ESBuild was excluding the `themeSwitcher` function from the final build. I suspect it's because the function wasn't explicitly "used" elsewhere in the script, although it was clearly utilised in the theme.
 
 After several trials (including an unsuccessful attempt to directly call `themeSwitcher()` in my JavaScript), I stumbled upon a straightforward solution. I registered the function in the `window` object, similar to how I did with Alpine:
 

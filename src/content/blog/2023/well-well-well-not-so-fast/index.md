@@ -19,7 +19,7 @@ publisher: rework
 
 As I reported a while ago, I embarked on an exhilarating journey with the [#100DaysToOffload challenge](/blog/2022/100daystooffload/), a quest to enrich my blog with 100 posts within a year.
 
-However, I realized that while I have had 80+ posts since then, I still have yet to write that many posts *within a year*, which is the original postulation of the challenge - quite a misrepresentation.
+However, I realised that while I have had 80+ posts since then, I still have yet to write that many posts *within a year*, which is the original postulation of the challenge - quite a misrepresentation.
 
 > The whole point of [#100DaysToOffload](https://100daystooffload.com/) is to challenge you to publish 100 posts on your personal blog in a year.
 

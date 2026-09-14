@@ -34,7 +34,7 @@ see the DEPRECATION section in apt-key(8) for details.
 
 Because it was "just" a warning, I didn't pay much attention to it. This time, however, after installing Ubuntu and both tools on a new computer, I could not ignore it anymore. It's 2023, after all, the deprecation is years old, and my OCD forced me to a) find a solution and b) clean up the old key "situation".
 
-As the warnings instructed, I loaded up the man-page numero 8 for the `apt-key` command (with `man apt-key 8`) and read through the DEPRECATION section. It looks like the command should not be used anymore, and the keys should be managed directly by `apt` itself. The old way was to keep all keys in a GPG keyring at `/etc/apt/trusted.gpg`, and the new method is to keep them as single key files in `/etc/apt/trusted.gpg.d/`.
+As the warnings instructed, I loaded up the man-page number 8 for the `apt-key` command (with `man apt-key 8`) and read through the DEPRECATION section. It looks like the command should not be used anymore, and the keys should be managed directly by `apt` itself. The old way was to keep all keys in a GPG keyring at `/etc/apt/trusted.gpg`, and the new method is to keep them as single key files in `/etc/apt/trusted.gpg.d/`.
 
 The deprecation notice expands further that there are two types of keys that are accepted:
 

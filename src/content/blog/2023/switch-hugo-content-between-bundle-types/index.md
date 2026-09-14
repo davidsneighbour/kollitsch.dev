@@ -2,7 +2,7 @@
 fmContentType: blog
 title: 'Switching content types in Hugo: A step-by-step guide'
 description: >-
-  Optimize your content organization in Hugo with page bundles and learn how to
+  Optimize your content organisation in Hugo with page bundles and learn how to
   switch between leaf and branch bundles for optimal SEO and site structure.
 summary: ''
 date: 2023-06-19T19:45:19+07:00
@@ -24,13 +24,13 @@ cover:
 publisher: rework
 ---
 
-Hugo, the [little static site generator](https://gohugo.io) that powers this website, offers two main content organization options known as [*page bundles*](https://gohugo.io/content-management/page-bundles/). Page bundles provide a way to group page resources in leaf and branch bundles, allowing for more structured content management. In this quick guide, I will show you how to easily switch between the two types without much manual work. All you need is a Bash shell and a text editor. Let's get started!
+Hugo, the [little static site generator](https://gohugo.io) that powers this website, offers two main content organisation options known as [*page bundles*](https://gohugo.io/content-management/page-bundles/). Page bundles provide a way to group page resources in leaf and branch bundles, allowing for more structured content management. In this quick guide, I will show you how to easily switch between the two types without much manual work. All you need is a Bash shell and a text editor. Let's get started!
 
 **Sidenote:** The real reason I am writing this post is *not* to explain page bundles in Hugo, but the difficulties you will have when converting for instance a WordPress website into a Hugo website. The tools available to get the content out of WordPress will leave you with a branch bundle structure for your content while leaf bundles are the better option, as I will explain a little bit later. The bash script in this post solves this issue and requires just some seconds of copy paste instead of "hours of hard manual labour" creating the folder structure by yourself and copying things around.
 
 Page bundles in Hugo can be classified into two types: **leaf bundles** and **branch bundles**. Each type serves a specific purpose and has its own set of characteristics. Let's understand the differences between them.
 
-**Leaf bundles** are used for organizing content and attachments related to a single page inside of its own directory. Some key points to know about leaf bundles are:
+**Leaf bundles** are used for organising content and attachments related to a single page inside of its own directory. Some key points to know about leaf bundles are:
 
 * they can be created at any directory level within the `content` directory
 * they allow the inclusion of unrestricted resource types, such as images, downloadable archives, and PDFs.
@@ -68,7 +68,7 @@ content
     └── document.pdf
 ```
 
-In my opinion, leaf bundles are the superior option when it comes to page bundle types in Hugo. Leaf bundles allow for the seamless grouping of all content elements, including text, images, downloads, and other files, into a single folder or place. This consolidated structure simplifies content organization and ensures that all related resources are readily accessible within the bundle. By keeping everything neatly organized within a leaf bundle, it becomes easier to manage and maintain the content, resulting in a more streamlined and efficient workflow. I highly recommend leveraging leaf bundles for optimal content organization in Hugo.
+In my opinion, leaf bundles are the superior option when it comes to page bundle types in Hugo. Leaf bundles allow for the seamless grouping of all content elements, including text, images, downloads, and other files, into a single folder or place. This consolidated structure simplifies content organisation and ensures that all related resources are readily accessible within the bundle. By keeping everything neatly organised within a leaf bundle, it becomes easier to manage and maintain the content, resulting in a more streamlined and efficient workflow. I highly recommend leveraging leaf bundles for optimal content organisation in Hugo.
 
 To convert content from branch bundles to leaf bundles, use the following lines:
 
@@ -102,8 +102,8 @@ done
 
 Copy and paste these lines all at once while you are inside the directory containing the directories of the leaf bundles. This will copy the markdown file and use the slug of the former leaf bundle as the new file name. The result will be a branch bundle with all the content files inside it. The links to the posts/pages will stay the same.
 
-While I personally recommend using leaf bundles for organizing your content, if you ever need to switch to branch bundles, this script will help you do it.
+While I personally recommend using leaf bundles for organising your content, if you ever need to switch to branch bundles, this script will help you do it.
 
-Long story short: Leaf bundles offer a superior solution for content management, allowing the grouping of all related content elements, including text, images, downloads, and other files, within a single folder or place. This consolidated structure simplifies content organization and enhances workflow efficiency. With the help of a simple Bash script, switching between leaf bundles and branch bundles becomes a quick and straightforward process, enabling effortless content restructuring
+Long story short: Leaf bundles offer a superior solution for content management, allowing the grouping of all related content elements, including text, images, downloads, and other files, within a single folder or place. This consolidated structure simplifies content organisation and enhances workflow efficiency. With the help of a simple Bash script, switching between leaf bundles and branch bundles becomes a quick and straightforward process, enabling effortless content restructuring
 
-Remember to consult the [Hugo documentation](https://gohugo.io/documentation/) for the latest updates and features. Stay up-to-date to make the most of Hugo's content organization capabilities. Happy content organizing!
+Remember to consult the [Hugo documentation](https://gohugo.io/documentation/) for the latest updates and features. Stay up-to-date to make the most of Hugo's content organisation capabilities. Happy content organising!

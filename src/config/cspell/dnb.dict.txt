@@ -360,6 +360,7 @@ Pawel
 peacocking
 Penpot
 Pentaverate
+pessimise
 pessimize
 Pethybridge
 pipefail

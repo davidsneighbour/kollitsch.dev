@@ -31,7 +31,7 @@ Some quick sidenotes:
 I added the shortcode to my shortcodes module. That makes it easier to transport to other sites I am working on. At the time of writing this article, the files in use are the following:
 
 * [`config/_default/params.toml`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/config/_default/params.toml) - the configuration
-* [`i18n/en.toml`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/i18n/en.toml) - the internationalization
+* [`i18n/en.toml`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/i18n/en.toml) - the internationalisation
 * [`layouts/shortcodes/form.html`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/shortcodes/layouts/shortcodes/form.html) - the form generation
 * [`layouts/partials/func/getRandomString.html`](https://github.com/davidsneighbour/hugo-modules/blob/4d7d94314c38f990b625bd0aac2c2d7d030c4927/modules/functions/layouts/partials/func/getRandomString.html) - random string generator used (part of the functions module)
 
@@ -130,7 +130,7 @@ The `buttons` section is an array of buttons. Each button can have the following
 
 This needs much improvement. For instance, we currently do not have `upload`, `select`, `options`, `checkbox`, and `radio` fields. But this is a good start. I also think that with some use of the brain, the `upload`, `checkbox`, and `radio` fields can be used with the existing system.
 
-## Internationalization in `i18n/en.toml`
+## Internationalisation in `i18n/en.toml`
 
 The `labelling` attribute in the form configuration preceding sets the way of labelling the form to `i18n`. All fields can be configured via `i18n/en.toml`.
 

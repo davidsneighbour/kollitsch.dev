@@ -36,7 +36,7 @@ In a nutshell, here's what I tried to achieve:
 * Open all JSON files in a specific folder, let's call it `layouts`, with a custom editor for `gojson` files.
 * Keep the default JSON editor for all other JSON files within the project, like npm, eslint, other configurations, etc.
 
-This requirement is because the `gojson` JSON editor serves a specialized purpose - it's essentially a template engine, not a conventional JSON editor. It doesn't display JSON errors, making it ideal for GoHugo, but errors in other JSON files will evade your attention until things fail.
+This requirement is because the `gojson` JSON editor serves a specialised purpose - it's essentially a template engine, not a conventional JSON editor. It doesn't display JSON errors, making it ideal for GoHugo, but errors in other JSON files will evade your attention until things fail.
 
 Let's assume you have a folder structure like this:
 
@@ -74,7 +74,7 @@ However, I quickly discovered that VSCode ignores these settings. It turns out t
 
 ## Attempt 2: Configuration in per folder
 
-Another attempt was to add the `file.associations` configuration object to the `.vscode/settings.json` file within the `layouts` folder. Unfortunately, this approach is also ineffective, as VSCode does not parse these folder-specific settings. It only recognizes the workspace settings and specific settings in the `.vscode`-folder in the root folder. The workspace file overrides the `.vscode`-folder settings in many cases. So, this approach is also a dead-end.
+Another attempt was to add the `file.associations` configuration object to the `.vscode/settings.json` file within the `layouts` folder. Unfortunately, this approach is also ineffective, as VSCode does not parse these folder-specific settings. It only recognises the workspace settings and specific settings in the `.vscode`-folder in the root folder. The workspace file overrides the `.vscode`-folder settings in many cases. So, this approach is also a dead-end.
 
 ## The solution: Adding the subfolder to the workspace file
 

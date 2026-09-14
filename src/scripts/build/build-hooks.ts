@@ -318,6 +318,6 @@ export function buildHooks() {
         generateFeedsIntegration(),
         pruneImageAssetsIntegration(),
         generateHeadersIntegration(),
-        pagefindIntegration({ indexConfig: { keepIndexUrl: true } }),
+        pagefindIntegration(),
     ];
 }

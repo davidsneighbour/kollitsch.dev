@@ -179,7 +179,7 @@ export default defineConfig({
     },
   },
   output: 'static',
-  prefetch: { defaultStrategy: 'hover', prefetchAll: true },
+  prefetch: { defaultStrategy: 'hover' },
   server: { host: true },
   site: 'https://kollitsch.dev/',
   trailingSlash: 'always',

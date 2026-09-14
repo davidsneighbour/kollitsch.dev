@@ -61,7 +61,7 @@ The downside is that **excessive or unnecessary hedging can undermine your writi
 
 * **Clarity Suffers:** Hedging adds extra words and ambiguity. The more you muddy a statement with "maybe/kind of/possibly", the less clear the core message becomes. Readers might finish a paragraph and wonder, "So… does the feature work or not?"
 
-* **Loss of Confidence & Credibility:** Writing that is riddled with hedges can come across as *unconfident*. It's like you're apologizing for your own ideas. Readers (especially a technical audience) might start to doubt that you know what you're talking about if **every statement is couched in "possibly" and "it seems."**
+* **Loss of Confidence & Credibility:** Writing that is riddled with hedges can come across as *unconfident*. It's like you're apologising for your own ideas. Readers (especially a technical audience) might start to doubt that you know what you're talking about if **every statement is couched in "possibly" and "it seems."**
 
 * **Reader Trust:** In a blog post or an article, if every claim is *hedged to oblivion*, readers might start thinking "Do they even believe what they're saying?" A direct, confident tone builds trust. If you don't sound sure of your info, why should the reader trust it?
 

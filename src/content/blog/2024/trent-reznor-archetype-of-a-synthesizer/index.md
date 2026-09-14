@@ -23,6 +23,8 @@ cover:
   video:
     youtube: zAGtlgwFdhM
     title: Trent Reznor - Archetype of a synthesizer
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 Trent Reznor discusses the significance of the [Moog Voyager synthesizer](https://en.wikipedia.org/wiki/Minimoog_Voyager) in his music career, highlighting its emotional expressiveness and unique sound. He reflects on his journey from rural Pennsylvania to becoming a prominent musician, emphasising the importance of synthesizers in his creative process and the evolution of music technology.

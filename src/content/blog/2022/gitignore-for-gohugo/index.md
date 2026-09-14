@@ -19,6 +19,8 @@ cover:
   src: ./header.jpg
   type: image
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 This is a slight update on my previous post about the perfect `.gitignore` file for GoHugo. TLDR: The current optimum `.gitignore` content for a [GoHugo project](https://gohugo.io) is the following (in addition to your own ignored files and folders):

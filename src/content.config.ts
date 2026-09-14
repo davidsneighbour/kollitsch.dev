@@ -31,6 +31,13 @@ const md = new MarkdownIt();
 const deriveContentFormat = (filePath?: string): 'md' | 'mdx' =>
   filePath?.toLowerCase().endsWith('.mdx') ? 'mdx' : 'md';
 
+const maintenanceReviewDate = z.union([
+  z.string().regex(/^\d{4}-\d{2}-\d{2}$/, {
+    message: '`maintenance.brokenLinksReviewed` MUST use YYYY-MM-DD format.',
+  }),
+  z.date().transform((date) => date.toISOString().slice(0, 10)),
+]);
+
 // Detects HTML tags and paired Markdown syntax (emphasis, links, code, headings).
 // Deliberately does not flag a lone `*`/`_`/`#` since those can be legitimate
 // plain-text punctuation (e.g. a trailing asterisk used as a footnote marker).
@@ -214,6 +221,11 @@ export const blogSchema = z
       .refine((val) => !val || !plainTextViolation.test(val), {
         message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
       }),
+    maintenance: z
+      .object({
+        brokenLinksReviewed: maintenanceReviewDate,
+      })
+      .optional(),
     options: optionsSchema.optional(),
     publisher: z.enum(['rework', 'validate']).optional(),
     resources: z

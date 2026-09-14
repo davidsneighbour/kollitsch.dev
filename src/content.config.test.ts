@@ -110,3 +110,44 @@ describe('blogSchema aliases', () => {
     }
   });
 });
+
+describe('blogSchema maintenance', () => {
+  it('accepts a broken-link review date in YYYY-MM-DD format', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      maintenance: {
+        brokenLinksReviewed: '2026-09-14',
+      },
+    });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.maintenance?.brokenLinksReviewed).toBe('2026-09-14');
+    }
+  });
+
+  it('normalises a parsed frontmatter date to YYYY-MM-DD format', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      maintenance: {
+        brokenLinksReviewed: new Date('2026-09-14T00:00:00.000Z'),
+      },
+    });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.maintenance?.brokenLinksReviewed).toBe('2026-09-14');
+    }
+  });
+
+  it('rejects a broken-link review date in another format', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      maintenance: {
+        brokenLinksReviewed: '14-09-2026',
+      },
+    });
+
+    expect(result.success).toBe(false);
+  });
+});

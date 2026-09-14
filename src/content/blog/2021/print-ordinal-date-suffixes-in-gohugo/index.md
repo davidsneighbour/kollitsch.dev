@@ -17,6 +17,8 @@ cover:
     Photo by [Mick Haupt](https://unsplash.com/@rocinante_11) via
     [Unsplash](https://unsplash.com)
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 Golangs `$date.Format` is unable to add ordinal suffixes to dates (like 1st, 2nd, 3rd, 4th). Let's not judge Golang for that. The following is how I remedy this issue:

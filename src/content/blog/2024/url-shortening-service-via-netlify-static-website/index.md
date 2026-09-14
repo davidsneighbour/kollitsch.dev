@@ -18,6 +18,8 @@ cover:
   src: ./header.jpg
   type: image
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 This is a quick and practical proof of concept of a "free" link redirection service, hosted on [Netlify](https://www.netlify.com/). I am using one of my domains to redirect to various URLs, to my own projects. The setup is simple and can be done in a matter of minutes.

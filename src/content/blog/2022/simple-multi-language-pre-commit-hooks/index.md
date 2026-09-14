@@ -29,6 +29,8 @@ options:
     components:
       - broken-link
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert [some](https://github.com/danielfdickinson/dfd-template/commit/aecb3a68dfcb7a63492cf79df7c3b58b86f29095) <broken-link reason="unknown" checked="2026-09-14"></broken-link> people to use the tool described by this post, so I thought I might as well add some context to it. This is one of the posts that will be posted "quick and dirty" and I will update and optimise them over time.

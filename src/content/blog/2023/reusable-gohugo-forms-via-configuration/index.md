@@ -18,6 +18,8 @@ cover:
   src: ./header.jpg
   type: image
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 A while back (pre-COVID-19 era), I had the idea to create a [GoHugo](https://gohugo.io) module that would allow me to create forms via configuration files. I also wanted to easily translate the form into different languages. I sketched out a solution but never got around to implementing it. I recently stumbled upon the scratch pad and decided to finally implement it. This article is a write-up of the process, and the first final result can be seen with [the contact form](/connect) on this site.

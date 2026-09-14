@@ -19,6 +19,8 @@ cover:
     Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via
     [Unsplash](https://unsplash.com/)
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 I am trying this new "thing" of "reporting" what I was up to in a certain time period this year, and monthly reviews just sound like something normal people would do. So bear with me while I am typing up this report.

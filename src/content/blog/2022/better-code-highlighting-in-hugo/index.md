@@ -21,6 +21,8 @@ cover:
   src: ./header.jpg
   type: image
 publisher: rework
+maintenance:
+  brokenLinksReviewed: 2026-09-14
 ---
 
 One of GoHugo's problems is, that the focus is mostly on speed. Simple HTML rules are prone to be ignored or freely interpreted (for instance, in the [internal templates](https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates)). But it offers ways to override and configure things, so not all is lost.

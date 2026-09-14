@@ -244,24 +244,10 @@ const roundedClasses = classes
         <button
           data-caption-toggle
           type="button"
-          class="caption-toggle absolute bottom-2 right-2 z-30 hidden size-7 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm [@media(hover:none)]:flex"
+          class="caption-toggle-icon absolute bottom-2 right-2 z-30 hidden size-7 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm [@media(hover:none)]:flex"
           aria-label="Show image caption"
           aria-expanded="false"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            class="size-4"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </button>
+        ></button>
       )}
     </figure>
   ) : null}
@@ -277,6 +263,20 @@ const roundedClasses = classes
 
   /* caption-visible toggle is handled via Tailwind's
        group-[.caption-visible]/postimg:opacity-100 on the figcaption */
+
+  /* Info icon drawn with a CSS mask instead of an inline <svg>/<path> pair,
+     saving two DOM nodes per card on listing pages (GH #1967). */
+  .caption-toggle-icon::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-color: currentcolor;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
 </style>
 
 <script>

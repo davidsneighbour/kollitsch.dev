@@ -61,6 +61,35 @@ const inputId = `tag-filter-input-${safeFilterId}`;
     return false;
   }
 
+  /**
+   * Same in-order matching as fuzzyInOrder, but returns the matched
+   * character positions in `haystack` so callers can highlight only the
+   * characters that actually matched. A contiguous run of indices reads as
+   * a "real" match; scattered indices read as a fuzzy one, so highlighting
+   * alone visually tells the two apart without extra UI.
+   *
+   * Matches greedily from the right (last needle character to first),
+   * picking the latest possible occurrence of each character. This tends
+   * to cluster the highlighted positions around the last, most complete
+   * run in the haystack (e.g. needle "how" against "john-lithgow"
+   * highlights the "h" in "lithgow" rather than the "h" in "john").
+   */
+  function fuzzyMatchPositions(
+    haystack: string,
+    needle: string,
+  ): number[] | null {
+    if (needle.length === 0) return [];
+    const positions: number[] = new Array(needle.length);
+    let i = needle.length - 1;
+    for (let j = haystack.length - 1; j >= 0 && i >= 0; j -= 1) {
+      if (haystack[j] === needle[i]) {
+        positions[i] = j;
+        i -= 1;
+      }
+    }
+    return i < 0 ? positions : null;
+  }
+
   function escapeSelector(value: string): string {
     if (typeof CSS !== 'undefined' && typeof CSS.escape === 'function') {
       return CSS.escape(value);
@@ -87,18 +116,77 @@ const inputId = `tag-filter-input-${safeFilterId}`;
       (link) => link.getAttribute('data-tag-filter-default-hidden') !== 'true',
     ).length;
 
+    // Original, un-highlighted text of each tag's label span, captured once
+    // so highlights can be rebuilt from scratch on every keystroke.
+    const labelSpans = new Map<HTMLAnchorElement, HTMLElement>();
+    const originalLabelText = new Map<HTMLElement, string>();
+    for (const a of links) {
+      const span = a.querySelector<HTMLElement>('[data-tag-label]');
+      if (span) {
+        labelSpans.set(a, span);
+        originalLabelText.set(span, span.textContent ?? '');
+      }
+    }
+
+    const markMatch = (a: HTMLAnchorElement, label: string, query: string) => {
+      const span = labelSpans.get(a);
+      if (!span) return;
+      const original = originalLabelText.get(span) ?? '';
+
+      const offset = original.toLowerCase().indexOf(label);
+      if (offset === -1) {
+        span.textContent = original;
+        return;
+      }
+
+      // A real (contiguous) match highlights as one solid run; only fall
+      // back to the scattered fuzzy positions when there is no literal
+      // substring match to prefer.
+      const substringIndex = label.indexOf(query);
+      const positions =
+        substringIndex === -1
+          ? fuzzyMatchPositions(label, query)
+          : Array.from({ length: query.length }, (_, k) => substringIndex + k);
+
+      if (!positions || positions.length === 0) {
+        span.textContent = original;
+        return;
+      }
+
+      const frag = document.createDocumentFragment();
+      let cursor = 0;
+      for (const pos of positions) {
+        const spanIndex = offset + pos;
+        frag.append(original.slice(cursor, spanIndex));
+        const mark = document.createElement('mark');
+        mark.className = 'rounded-sm bg-primary-300/70 text-inherit dark:bg-primary-400/40';
+        mark.textContent = original[spanIndex] ?? '';
+        frag.append(mark);
+        cursor = spanIndex + 1;
+      }
+      frag.append(original.slice(cursor));
+      span.replaceChildren(frag);
+    };
+
     const apply = (q: string) => {
       const query = q.trim().toLowerCase();
+      const isSearching = query !== '';
       let visible = 0;
 
       for (const a of links) {
         const label = (a.getAttribute('data-label') ?? '').toLowerCase();
         const hiddenByDefault =
           a.getAttribute('data-tag-filter-default-hidden') === 'true';
-        const match =
-          query === '' ? !hiddenByDefault : fuzzyInOrder(label, query);
+        const match = isSearching ? fuzzyInOrder(label, query) : !hiddenByDefault;
         a.hidden = !match;
         if (match) visible += 1;
+
+        if (isSearching && match) {
+          markMatch(a, label, query);
+        } else {
+          const span = labelSpans.get(a);
+          if (span) span.textContent = originalLabelText.get(span) ?? '';
+        }
       }
 
       if (status instanceof HTMLElement) {

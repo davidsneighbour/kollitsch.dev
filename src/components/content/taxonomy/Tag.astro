@@ -53,7 +53,7 @@ const badgeProps = {
       style={iconColor ? `color: ${iconColor};` : undefined}
     />
   )}
-  {label}
+  <span data-tag-label>{label}</span>
   {iconName && iconPosition === "inline-end" && (
     <Icon
       name={iconName}

@@ -1,3 +1,7 @@
 shared-config.json
-vale
+vale/*
+!vale/config
+vale/config/*
+!vale/config/vocabularies
+vale/config/vocabularies/*
 !vale/config/vocabularies/kollitsch-dev

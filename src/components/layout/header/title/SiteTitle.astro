@@ -86,19 +86,35 @@ const shatterLetters = letters.map((letter, index) => {
     href={homepageUrl}
     class="site-title-link inline-block"
   >
-    <TextImageFill
-      as="span"
-      imageUrl={smallestFill.oneXSrc}
-      size={siteTitleSize}
-      classes="site-title-fill font-title leading-none"
-      fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
-      tintColor={wordmarkArtwork.headerFill.tintColor}
-      tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
-      backgroundSize={wordmarkArtwork.backgroundSize}
-      position={wordmarkArtwork.position}
-    >
-      {setup.title}
-    </TextImageFill>
+    <span class="site-title-fill-stack">
+      <TextImageFill
+        as="span"
+        imageUrl={smallestFill.oneXSrc}
+        size={siteTitleSize}
+        classes="site-title-fill site-title-fill-sharp font-title leading-none"
+        fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
+        tintColor={wordmarkArtwork.headerFill.tintColor}
+        tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
+        backgroundSize={wordmarkArtwork.backgroundSize}
+        position={wordmarkArtwork.position}
+      >
+        {setup.title}
+      </TextImageFill>
+      <TextImageFill
+        as="span"
+        imageUrl={smallestFill.oneXSrc}
+        size={siteTitleSize}
+        classes="site-title-fill site-title-fill-blur font-title leading-none"
+        fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
+        tintColor={wordmarkArtwork.headerFill.tintColor}
+        tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
+        backgroundSize={wordmarkArtwork.backgroundSize}
+        position={wordmarkArtwork.position}
+        aria-hidden="true"
+      >
+        {setup.title}
+      </TextImageFill>
+    </span>
     <span
       class="site-title-shatter font-title leading-none"
       style={`font-size: ${siteTitleSize}`}
@@ -174,23 +190,62 @@ const shatterLetters = letters.map((letter, index) => {
    * layer of solid-colour letters that fly outward from the centre and fade.
    * The outer fade still carries the animation the rest of the way to 0%.
    */
+  .site-title-fill-stack {
+    display: inline-block;
+    position: relative;
+  }
+
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   .site-title-link :global(.site-title-fill) {
     --text-fill-image: var(--site-title-fill-640);
+  }
 
+  /*
+   * The dissolve used to animate `filter: blur()` directly, which the
+   * compositor can't run off the main thread, forcing a repaint on every
+   * frame of the scroll timeline. Instead, a second copy of the text
+   * carries a permanent, unanimated `blur(4px)` and the two layers
+   * crossfade: only `opacity` moves on either one, which the compositor
+   * handles natively, while the stack still reads as the image dissolving
+   * into blur.
+   */
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  .site-title-link :global(.site-title-fill-sharp) {
     animation: site-title-fill-dissolve linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit var(--fill-dissolve-end);
+  }
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  .site-title-link :global(.site-title-fill-blur) {
+    filter: blur(4px);
+    inset: 0;
+    position: absolute;
+    animation: site-title-fill-blur-fade linear both;
     animation-timeline: view();
     animation-range: exit 0% exit var(--fill-dissolve-end);
   }
 
   @keyframes site-title-fill-dissolve {
     from {
-      filter: blur(0);
       opacity: 100%;
     }
 
     to {
-      filter: blur(4px);
+      opacity: 0%;
+    }
+  }
+
+  @keyframes site-title-fill-blur-fade {
+    0% {
+      opacity: 0%;
+    }
+
+    35% {
+      opacity: 70%;
+    }
+
+    100% {
       opacity: 0%;
     }
   }
@@ -368,6 +423,11 @@ const shatterLetters = letters.map((letter, index) => {
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .site-title-link :global(.site-title-fill) {
       animation: none;
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .site-title-link :global(.site-title-fill-blur) {
+      opacity: 0%;
     }
 
     .site-title-shatter {

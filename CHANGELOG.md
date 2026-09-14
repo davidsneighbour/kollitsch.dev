@@ -1,5 +1,54 @@
 # Changelog
 
+## [3003.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.0.2...v3003.1.0) (2026-09-14)
+
+### Feat
+
+* **content:** add broken link markers ([f39ae3c](https://github.com/davidsneighbour/kollitsch.dev/commit/f39ae3c5c9b4227156549a6076930b5dfb96cacd))
+
+### Content
+
+* **links:** repair broken archive links ([#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)) ([d0d6e8b](https://github.com/davidsneighbour/kollitsch.dev/commit/d0d6e8b73b842b63da91d221c58e2f61d45d8174))
+* **links:** stamp reviewed broken links ([#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)) ([ddddf0a](https://github.com/davidsneighbour/kollitsch.dev/commit/ddddf0a662b73ec83f2b84494d69475a369ef9e6))
+
+### Fix
+
+* **build:** make rendered output deterministic and cache the pagefind index ([4e6fcbe](https://github.com/davidsneighbour/kollitsch.dev/commit/4e6fcbe889c55463d7711750db24eb667a7c5aa3)), closes [#1978](https://github.com/davidsneighbour/kollitsch.dev/issues/1978)
+* **config:** repair gitignore negation for the vale vocab directory ([6ba60d2](https://github.com/davidsneighbour/kollitsch.dev/commit/6ba60d20ac159b961821947889a7b23599d35d82))
+* **content:** clean up Vale spelling baseline for blog/2021 ([3f93034](https://github.com/davidsneighbour/kollitsch.dev/commit/3f93034393c7a19897bf6cb3475bcf7c40ef0939)), closes [#1955](https://github.com/davidsneighbour/kollitsch.dev/issues/1955)
+* **content:** clean up Vale spelling baseline for blog/2022 ([373e20f](https://github.com/davidsneighbour/kollitsch.dev/commit/373e20ff01132a7ec825d4896c763547049be1fa)), closes [#1956](https://github.com/davidsneighbour/kollitsch.dev/issues/1956)
+* **content:** clean up Vale spelling baseline for blog/2023 ([8872cec](https://github.com/davidsneighbour/kollitsch.dev/commit/8872cec06e02bc249b6cfa731820af701b3b0974)), closes [#1957](https://github.com/davidsneighbour/kollitsch.dev/issues/1957), references [#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)
+* **content:** clean up Vale spelling baseline for blog/2024 ([f234f55](https://github.com/davidsneighbour/kollitsch.dev/commit/f234f554be6ffb98417f928b8c327190c9630c2e)), closes [#1958](https://github.com/davidsneighbour/kollitsch.dev/issues/1958), references [#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)
+* **content:** clean up Vale spelling baseline for blog/2025 ([2dde973](https://github.com/davidsneighbour/kollitsch.dev/commit/2dde97397292d659f493bbacf10f871fca60d8c3)), closes [#1959](https://github.com/davidsneighbour/kollitsch.dev/issues/1959), references [#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)
+* **content:** clean up Vale spelling baseline for blog/2026 ([d2d4e97](https://github.com/davidsneighbour/kollitsch.dev/commit/d2d4e9780cd91ce46f659ee105eba28845d829d7)), closes [#1960](https://github.com/davidsneighbour/kollitsch.dev/issues/1960), references [#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)
+
+### Perf
+
+* **article:** align listpages.limit to the 2-column grid ([6994bec](https://github.com/davidsneighbour/kollitsch.dev/commit/6994bec80ab7b06fc2a89aebe4cd045943d94ab4)), references [#1967](https://github.com/davidsneighbour/kollitsch.dev/issues/1967)
+* **article:** drop AVIF from listing-card picture formats ([72f432d](https://github.com/davidsneighbour/kollitsch.dev/commit/72f432d0bb770c07a6c0b52655b5a96b818c4c26)), references [#1967](https://github.com/davidsneighbour/kollitsch.dev/issues/1967)
+* **article:** reduce DOM size on blog and tag listing pages ([64d1591](https://github.com/davidsneighbour/kollitsch.dev/commit/64d1591565047f6508a74396cb845153b0e37168)), closes [#1967](https://github.com/davidsneighbour/kollitsch.dev/issues/1967)
+* disable prefetchAll to stop hover-prefetching every link ([3f3211f](https://github.com/davidsneighbour/kollitsch.dev/commit/3f3211f9d072e8e16fdeca6d1843df684b5aa8a7)), references [#1968](https://github.com/davidsneighbour/kollitsch.dev/issues/1968) [#1968](https://github.com/davidsneighbour/kollitsch.dev/issues/1968)
+* **header:** crossfade site title dissolve instead of animating filter ([66d4f30](https://github.com/davidsneighbour/kollitsch.dev/commit/66d4f303235deb025aeb3591ed64280f6800741d)), closes [#1966](https://github.com/davidsneighbour/kollitsch.dev/issues/1966)
+
+### Docs
+
+* **agents:** add colour locality instruction ([d8c8444](https://github.com/davidsneighbour/kollitsch.dev/commit/d8c8444c0b460a6aaf6af493fe0dd1fa590b61ad)), closes [#1976](https://github.com/davidsneighbour/kollitsch.dev/issues/1976)
+* **design:** clarify local colour token policy ([ebd794c](https://github.com/davidsneighbour/kollitsch.dev/commit/ebd794cbdfac419d0cc9237eebc3fa71bfc6c7f1)), references [#1975](https://github.com/davidsneighbour/kollitsch.dev/issues/1975)
+* **design:** update colour palette references ([3c995df](https://github.com/davidsneighbour/kollitsch.dev/commit/3c995df7eda4cd4d3c5bfac1b31c690b4eb41186)), closes [#1980](https://github.com/davidsneighbour/kollitsch.dev/issues/1980)
+* **links:** document broken-link review workflow ([#1979](https://github.com/davidsneighbour/kollitsch.dev/issues/1979)) ([f143927](https://github.com/davidsneighbour/kollitsch.dev/commit/f143927b8af94472afa904fb97c80f20cc8c872f)), references [#1856](https://github.com/davidsneighbour/kollitsch.dev/issues/1856)
+
+### Ci
+
+* **screenshot:** install only chromium-headless-shell and cache it ([85b09ac](https://github.com/davidsneighbour/kollitsch.dev/commit/85b09ac58939543e831afaea00ebac17be158556))
+* **screenshot:** install Playwright browsers before running screenshot script ([df906aa](https://github.com/davidsneighbour/kollitsch.dev/commit/df906aaf4ec378b13ec0ca07413dcd0d20a56830))
+
+### Chore
+
+* update screenshot ([627eb0e](https://github.com/davidsneighbour/kollitsch.dev/commit/627eb0e5f4f0e117d466976d40e526314c045c68))
+* update screenshot ([b1067e9](https://github.com/davidsneighbour/kollitsch.dev/commit/b1067e9dcffa5289f02ad5a4db34ee425252c8ba))
+* update screenshot ([81e66fa](https://github.com/davidsneighbour/kollitsch.dev/commit/81e66fa9778efa219e716402227779051e9a5cab))
+* **vale:** downgrade DNB.InsensitiveCondescending to warning ([a8ec6d2](https://github.com/davidsneighbour/kollitsch.dev/commit/a8ec6d2dc01402a488168394048f01a01fe4c5d9)), references [#1955](https://github.com/davidsneighbour/kollitsch.dev/issues/1955)
+
 ## [3003.0.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.0.1...v3003.0.2) (2026-09-13)
 
 ### Fix

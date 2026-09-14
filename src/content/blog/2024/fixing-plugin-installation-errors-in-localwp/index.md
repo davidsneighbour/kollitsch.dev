@@ -28,7 +28,7 @@ publisher: rework
 
 [Local](https://localwp.com/) (or LocalWP as I like to call the program so I can find it on Google when I need it) is a developer-friendly local development tool for WordPress sites (think of containers for each WordPress website you work on). It allows developers and designers to quickly create, configure, and manage local WordPress environments, offers features such as one-click WordPress installations, flexible environment configurations, and [seamless integrations with two hosting providers](https://localwp.com/connect/) (Flywheel and WP Engine). But also easy export and import to use the websites with other providers.
 
-I find it particularly useful to keep WordPress websites up to date and do quick fixes to common problems or change some copy. With its many add-ons, it is also useful for regular audits, optimizations, and updates to new WordPress features.
+I find it particularly useful to keep WordPress websites up to date and do quick fixes to common problems or change some copy. With its many add-ons, it is also useful for regular audits, optimisations, and updates to new WordPress features.
 
 Wouldn't it be great if it would work properly out of the box in [Ubuntu 24.04](/tags/ubuntu-2404/)?
 

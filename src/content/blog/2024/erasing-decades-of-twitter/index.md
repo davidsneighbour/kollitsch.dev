@@ -21,7 +21,7 @@ cover:
 publisher: rework
 ---
 
-A while back (about 15 months ago), I stopped using Twitter. At first, I thought I might delete my account, but then I realized that somewhere along the lines, Twitter has begun to enforce a "you have to have an account to watch this content" rule. So I decided to keep my account but delete all my tweets, retweets, likes, and unfollow people.
+A while back (about 15 months ago), I stopped using Twitter. At first, I thought I might delete my account, but then I realised that somewhere along the lines, Twitter has begun to enforce a "you have to have an account to watch this content" rule. So I decided to keep my account but delete all my tweets, retweets, likes, and unfollow people.
 
 A long time ago, in the summer of 2006, I made first contact with Twitter. Back then we called it Twttr and received notifications of every new post via SMS. It was a different time, and I was a different person. Social Networks were social. It was also my first "API" project (well, curl with regular expressions and a nice MySQL database). *Those were the times…*
 

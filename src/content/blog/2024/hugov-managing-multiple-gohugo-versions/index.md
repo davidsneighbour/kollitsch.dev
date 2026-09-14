@@ -65,7 +65,7 @@ Each option is mutually exclusive.
 
 ## How it works
 
-`hugov` uses the GitHub REST API to fetch the latest Hugo releases and then downloads the latest Linux versions (standard and extended). The script then keeps a local copy of all downloaded versions and links to the required (or latest) version. You can customize the symlink directory and set a stop version for downloads. Currently it downloads ALL versions from the latest down to v0.84.0. This is several GB of data, so be prepared for that or set `STOP_VERSION` to a higher version.
+`hugov` uses the GitHub REST API to fetch the latest Hugo releases and then downloads the latest Linux versions (standard and extended). The script then keeps a local copy of all downloaded versions and links to the required (or latest) version. You can customise the symlink directory and set a stop version for downloads. Currently it downloads ALL versions from the latest down to v0.84.0. This is several GB of data, so be prepared for that or set `STOP_VERSION` to a higher version.
 
 ## Example commands
 
@@ -98,7 +98,7 @@ Each option is mutually exclusive.
 1. **Dependencies:**
    `hugov` relies on `jq`, `curl`, `tar`, `rm`, and `ln`. Before running, make sure these dependencies are installed on your system. Most of them are readily available, but you may need to install `jq`.
 2. **Configuration Options:**
-   The script has a few customizable variables:
+   The script has a few customisable variables:
    * **`BINDIR`**: Directory for the symlink (default is `/usr/local/bin`).
    * **`STOP_VERSION`**: Specifies a cutoff version, after which downloads stop (default is `v0.84.0`).
    * **`DOWNLOAD_DIR`**: Directory where Hugo executables are stored (default is `./executables`).

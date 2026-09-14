@@ -36,8 +36,8 @@ Two is company, three's a crowd, and four? Four is an outright party where even 
 
 ## Watch
 
-* Dive into the complexities of workplace burnout with the DW Documentary "Burnout - When does work start feeling pointless?" (video no longer available). This insightful documentary explores the increasing prevalence of burnout among professionals, discussing its causes, symptoms, and impacts on personal and professional lives. It offers a deep dive into why work can sometimes feel utterly meaningless and provides perspectives on how individuals and organizations can address this growing issue.
+* Dive into the complexities of workplace burnout with the DW Documentary "Burnout - When does work start feeling pointless?" (video no longer available). This insightful documentary explores the increasing prevalence of burnout among professionals, discussing its causes, symptoms, and impacts on personal and professional lives. It offers a deep dive into why work can sometimes feel utterly meaningless and provides perspectives on how individuals and organisations can address this growing issue.
 
 ## Listen
 
-* [Free Ambient Sounds:](https://moodist.app/) Discover calming audio with Moodist, a free open-source ambient sound generator. Explore curated sounds like streams, waves, cafes, and more, or create personalized soundscapes with adjustable volume. Enjoy binaural beats, color noise, and serene nature to boost focus, sleep, and relaxation.
+* [Free Ambient Sounds:](https://moodist.app/) Discover calming audio with Moodist, a free open-source ambient sound generator. Explore curated sounds like streams, waves, cafes, and more, or create personalised soundscapes with adjustable volume. Enjoy binaural beats, colour noise, and serene nature to boost focus, sleep, and relaxation.

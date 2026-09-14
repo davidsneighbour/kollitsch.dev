@@ -68,4 +68,4 @@ The following three steps guide you through the process:
    alias shutdown_pi='ssh raspberrypi.local -t "sudo /usr/sbin/shutdown now -h"'
    ```
 
-While this setup allows for a password-less shutdown of your Raspberry Pi, note that it introduces a potential security risk. Ensure your SSH key is secure, and prevent unauthorized access to your little Pi computer.
+While this setup allows for a password-less shutdown of your Raspberry Pi, note that it introduces a potential security risk. Ensure your SSH key is secure, and prevent unauthorised access to your little Pi computer.

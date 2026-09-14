@@ -32,7 +32,7 @@ publisher: rework
 
 "Flow State" by Above & Beyond is in my opinion an ideal soundtrack for enhancing concentration and workflow. The album's 49 minutes of ambient compositions and neo-classical soundscapes create a serene and non-intrusive background, conducive to entering a state of deep focus, often referred to as the "flow state" in programming and other cognitive-intensive tasks.
 
-* **Ambient Compositions:** The tracks lack sudden changes or complex rhythms, which helps in minimizing distractions.
+* **Ambient Compositions:** The tracks lack sudden changes or complex rhythms, which helps in minimising distractions.
 
 * **Neo-Classical Soundscapes:** The genre's smooth, harmonious elements are soothing, helping reduce stress (or even anxieties).
 
@@ -42,4 +42,4 @@ publisher: rework
 
 * **Variety of Tracks:** The 17 different tracks offer enough variety to prevent auditory fatigue or monotony, yet maintain a cohesive theme that keeps the mental state balanced and focused.
 
-In short, 'Flow State' offers a harmonious and consistent auditory environment that enhances concentration, minimizes distractions, and promotes a productive, calm workflow. It's a perfect sample of [music to program to](/tags/programming-music/).
+In short, 'Flow State' offers a harmonious and consistent auditory environment that enhances concentration, minimises distractions, and promotes a productive, calm workflow. It's a perfect sample of [music to program to](/tags/programming-music/).

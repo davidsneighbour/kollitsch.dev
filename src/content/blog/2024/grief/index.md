@@ -26,6 +26,6 @@ cover:
 publisher: rework
 ---
 
-In this video, Andrew Garfield joins Elmo to explain the concept of grief in a way that children can understand. They discuss how grief is a natural response to loss and how it's okay to feel sad when someone important to you is no longer there. The message emphasizes expressing emotions and talking about feelings to help cope with grief. It's part of Sesame Workshop's initiative to help children deal with difficult topics like loss in a comforting and supportive manner.
+In this video, Andrew Garfield joins Elmo to explain the concept of grief in a way that children can understand. They discuss how grief is a natural response to loss and how it's okay to feel sad when someone important to you is no longer there. The message emphasises expressing emotions and talking about feelings to help cope with grief. It's part of Sesame Workshop's initiative to help children deal with difficult topics like loss in a comforting and supportive manner.
 
 You can watch the full video here: [Andrew Garfield and Elmo Explain Grief](https://www.youtube.com/watch?v=EVlXbiP4x2E).

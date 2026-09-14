@@ -41,7 +41,7 @@ Introduced were 5 markers to denote different types of informational blocks:
 * `[!WARNING]` for warnings
 * `[!CAUTION]` for cautionary advice
 
-When used in any Markdown context on GitHub, these markers are automatically styled with distinct colors and icons, making them stand out from the rest of the text.
+When used in any Markdown context on GitHub, these markers are automatically styled with distinct colours and icons, making them stand out from the rest of the text.
 
 Here's how you can use these markers in your Markdown documents:
 
@@ -64,8 +64,8 @@ Here's how you can use these markers in your Markdown documents:
 
 ![Markdown source showing a CAUTION alert block with the [!CAUTION] syntax](input.jpg)
 
-These blocks automatically render with an icon and background color corresponding to their type, enhancing the visual hierarchy of the document and making critical information immediately apparent. The following is the current rendering on GitHub.com:
+These blocks automatically render with an icon and background colour corresponding to their type, enhancing the visual hierarchy of the document and making critical information immediately apparent. The following is the current rendering on GitHub.com:
 
-![GitHub.com rendering of highlighted alert blockquotes showing CAUTION, WARNING, informational note, TIP, and IMPORTANT blocks with icons and background colors](header.jpg)
+![GitHub.com rendering of highlighted alert blockquotes showing CAUTION, WARNING, informational note, TIP, and IMPORTANT blocks with icons and background colours](header.jpg)
 
 For more detailed information on this feature visit the [official discussion on GitHub](https://github.com/orgs/community/discussions/16925).

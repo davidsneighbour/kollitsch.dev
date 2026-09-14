@@ -24,7 +24,7 @@ cover:
 publisher: rework
 ---
 
-Welcome to the fifth edition of Kurzschnitte II, where coding mets quintessence!
+Welcome to the fifth edition of Kurzschnitte II, where coding meets quintessence!
 
 ## Webdev
 
@@ -40,7 +40,7 @@ Welcome to the fifth edition of Kurzschnitte II, where coding mets quintessence!
 ## Watch
 
 * [Patrick Stewart performing a soliloquy on the letter B](https://www.youtube.com/watch?v=hA7lv1SDzno) on Sesame Street. 'Nuff said.
-* A perfect mix of two of my interests, Kintsugi and Oreo: [The art of Kintsugi with Oreo](https://www.youtube.com/watch?v=spY2SsCKOSQ). The video showcases how Oreo creatively applies the ancient Japanese technique of Kintsugi, which is the repairing of broken objects with gold, symbolizing beauty in imperfection. This unique campaign highlights a fascinating blend of cultural art and modern marketing.
+* A perfect mix of two of my interests, Kintsugi and Oreo: [The art of Kintsugi with Oreo](https://www.youtube.com/watch?v=spY2SsCKOSQ). The video showcases how Oreo creatively applies the ancient Japanese technique of Kintsugi, which is the repairing of broken objects with gold, symbolising beauty in imperfection. This unique campaign highlights a fascinating blend of cultural art and modern marketing.
 
 ## Fun and stuff
 

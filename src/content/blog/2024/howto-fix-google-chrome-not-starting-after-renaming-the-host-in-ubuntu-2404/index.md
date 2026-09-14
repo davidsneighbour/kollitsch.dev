@@ -34,13 +34,13 @@ If you are sure no other processes are using this profile, you
 can unlock the profile and relaunch Chrome.
 ```
 
-Chrome did not launch anymore. I initially planned to just delete all of Google Chrome's user profiles in my backup and start fresh. Bookmarks and site data was synchronized to my Google profile so other than logins, settings, cookie settings, and currently open tabs nothing much would have been lost. I guess.
+Chrome did not launch anymore. I initially planned to just delete all of Google Chrome's user profiles in my backup and start fresh. Bookmarks and site data was synchronised to my Google profile so other than logins, settings, cookie settings, and currently open tabs nothing much would have been lost. I guess.
 
 On the other side, the error message sounded like an easy thing to do: *unlock* the profile and *relaunch* Chrome.
 
 After some searching I came across this Bug Report in the Google Chrome bugtracker, that, quite incidentally, celebrated it's 10th birthday yesterday. 10 years open.
 
-The core of the problem lies in how Chrome associates its profile information with the system's hostname. When the hostname is altered, Chrome fails to recognize the existing profile because it continues to reference the old hostname. This mismatch prevents the browser from starting properly. This seems to be a safety feature more than a bug.
+The core of the problem lies in how Chrome associates its profile information with the system's hostname. When the hostname is altered, Chrome fails to recognise the existing profile because it continues to reference the old hostname. This mismatch prevents the browser from starting properly. This seems to be a safety feature more than a bug.
 
 With a bug report being open for more than a decade now I don't think the developers have any interest in fixing this, so we will have to look to hacks to fix it by ourself and it's astonishingly easy:
 

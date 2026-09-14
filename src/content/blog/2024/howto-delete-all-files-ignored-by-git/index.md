@@ -31,7 +31,7 @@ scratch*
 
 `.gitignore` supports various patterns and wildcard characters, allowing for flexible and precise exclusion rules to be defined based on file names, extensions, directories, and more.
 
-To sum it up: `.gitignore` helps keeping the repository clean and focused by filtering out irrelevant or disposable files, enhancing collaboration and project organization.
+To sum it up: `.gitignore` helps keeping the repository clean and focused by filtering out irrelevant or disposable files, enhancing collaboration and project organisation.
 
 Now, I wondered, how to delete all those files ignored by Git? Every now and then I want my repository in pristine condition, without all the generated files that are ignored by Git.
 

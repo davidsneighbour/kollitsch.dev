@@ -17,7 +17,7 @@ cover:
 publisher: rework
 ---
 
-The problem: I am refining the display of certain sections of my website and I need to know what exact break point is userd currently by Bootstrap. I am using the latest Bootstrap version.
+The problem: I am refining the display of certain sections of my website and I need to know what exact break point is used currently by Bootstrap. I am using the latest Bootstrap version.
 
 The solution: I created a shortcode or partial that I can use in my templates to display the current breakpoint. I am
 using the Bootstrap 5.

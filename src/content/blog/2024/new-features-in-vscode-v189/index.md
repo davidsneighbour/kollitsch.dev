@@ -24,7 +24,7 @@ Some of the latest features that have landed in Visual Studio Code (VSCode) toda
 
 ## Reopen editors on switching branches
 
-It seems this was a "highly requested" feature. I myself never thought about this much, but it looks very useful to me. You can now [save the open editor tabs with each branch](https://code.visualstudio.com/updates/v1_89#_saverestore-open-editors-when-switching-branches). Checking out any branch will open the editors that were open when the branch was used the last time. To enable this feature, simply adjust the `scm.workingSets.enabled` setting. Additionally, customize your open editors behaviour when switching branches for the first time using the `scm.workingSets.default` setting. Choose between starting with no open editors (`empty`) or retaining the currently opened editors (`current`) based on your preference.
+It seems this was a "highly requested" feature. I myself never thought about this much, but it looks very useful to me. You can now [save the open editor tabs with each branch](https://code.visualstudio.com/updates/v1_89#_saverestore-open-editors-when-switching-branches). Checking out any branch will open the editors that were open when the branch was used the last time. To enable this feature, simply adjust the `scm.workingSets.enabled` setting. Additionally, customise your open editors behaviour when switching branches for the first time using the `scm.workingSets.default` setting. Choose between starting with no open editors (`empty`) or retaining the currently opened editors (`current`) based on your preference.
 
 ## Paste via middle mouse click in terminals
 
@@ -32,6 +32,6 @@ It was frustrating that the middle click in VSCode's terminal did not work like 
 
 ## Local workspace extensions
 
-[Local Workspace Extensions](https://code.visualstudio.com/updates/v1_89#_local-workspace-extensions) lets me add extensions to a that are specific to this specific project. By placing the extension in the `.vscode/extensions` folder (unpacked, not as package with .vsix extension) within your workspace, VSCode recognizes and presents it in the Workspace Recommendations section of the Extensions view. From there, users can easily install the extension, ensuring it's available only within that workspace.
+[Local Workspace Extensions](https://code.visualstudio.com/updates/v1_89#_local-workspace-extensions) lets me add extensions to a that are specific to this specific project. By placing the extension in the `.vscode/extensions` folder (unpacked, not as package with .vsix extension) within your workspace, VSCode recognises and presents it in the Workspace Recommendations section of the Extensions view. From there, users can easily install the extension, ensuring it's available only within that workspace.
 
 Three updates this month, that I find useful. VSCode keeps adding useful features every month. Read [the full changelog](https://code.visualstudio.com/updates/v1_89) for more details.

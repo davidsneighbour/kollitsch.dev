@@ -1,6 +1,6 @@
 ---
 fmContentType: blog
-title: Url shortening service using a static website on Netlify
+title: URL shortening service using a static website on Netlify
 description: >-
   Learn how to set up a link redirection service on Netlify in minutes. Utilize
   simple steps to manage redirects effortlessly and enhance your project URLs'

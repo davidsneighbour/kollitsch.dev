@@ -22,7 +22,7 @@ cover:
 publisher: rework
 ---
 
-One of the first things I do after a new installation of myt OS of choice Ubuntu, is to clone *all* my repositories from GitHub. This way, I have all my code and configuration files available locally, and I can start working on them right away instead of loading them each time I start working on any project. I like to put all my files into `~/github.com/davidsneighbour/reponame` - which leads to an URL-like path for my repos and makes it easier for me to find them online too.
+One of the first things I do after a new installation of my OS of choice Ubuntu, is to clone *all* my repositories from GitHub. This way, I have all my code and configuration files available locally, and I can start working on them right away instead of loading them each time I start working on any project. I like to put all my files into `~/github.com/davidsneighbour/reponame` - which leads to an URL-like path for my repos and makes it easier for me to find them online too.
 
 This time I thought, it would be nice to have a script doing all that for me, because with 200+ repositories it was getting a daunting task. GitHub Rest API to the rescue. I wrote a quick script that locates all my private and public repos and clones them into my folder.
 
@@ -86,7 +86,7 @@ parse_arguments() {
 }
 ```
 
-## Initialization
+## Initialisation
 
 The `initialize` function sets up the environment. It ensures the `--output-dir` exists and loads the GitHub token from an `.env` file in the user's home directory. If the token isn't set, it exits with an error.
 

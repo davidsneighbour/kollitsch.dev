@@ -80,7 +80,7 @@ git --version
 
 Once Go and Git are installed, the next step is to set up your project as a GoHugo module. This process allows you to manage your site's components—such as themes, layouts, and assets—in a modular and maintainable way.
 
-To initialize your project as a Hugo module, follow these steps:
+To initialise your project as a Hugo module, follow these steps:
 
 1. **Navigate to your project directory** in a terminal.
 
@@ -159,6 +159,6 @@ This command removes all entries from the `go.sum` file that are not needed anym
 
 ## Summary
 
-GoHugo Modules are a powerful way to manage and scale your website's components with ease. From themes and content to custom shortcodes, the modular approach allows you to pull resources from various sources while keeping everything organized and up to date. Whether you're a beginner or a seasoned developer, using modules simplifies how you manage dependencies and keeps your site maintainable as it grows.
+GoHugo Modules are a powerful way to manage and scale your website's components with ease. From themes and content to custom shortcodes, the modular approach allows you to pull resources from various sources while keeping everything organised and up to date. Whether you're a beginner or a seasoned developer, using modules simplifies how you manage dependencies and keeps your site maintainable as it grows.
 
 Do you have any questions or ran into challenges? Leave your comments and questions below. I would love to hear from you, and your feedback will help build a comprehensive FAQ section for this page. Let's keep the conversation going!

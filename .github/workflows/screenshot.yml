@@ -31,6 +31,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Playwright browsers
+        run: npm run test:install-browsers
+
       - name: Run screenshot script
         run: npm run screenshot
 

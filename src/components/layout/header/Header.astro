@@ -11,7 +11,6 @@ import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 import setup from '@data/setup.json' with { type: 'json' };
 import navData from '@data/topnavigation.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content.ts';
-import { createIdentifier } from '@utils/helpers';
 import { createLogger } from '@utils/logger.ts';
 import { findActive, isActive, type Navigation } from '@utils/navigation.ts';
 import { Icon } from 'astro-icon/components';
@@ -31,7 +30,7 @@ const isNavItemActive = (item: Navigation[number]) =>
   isTagsPath ? item.link === '/tags/' : isActive(item, pathname);
 const {
   defaultTheme = 'dark',
-  siteTitleId = createIdentifier({ prefix: 'sitetitle' }),
+  siteTitleId = 'sitetitle-header',
 }: Props = Astro.props;
 
 if (!activeItem && import.meta.env.DEV) {

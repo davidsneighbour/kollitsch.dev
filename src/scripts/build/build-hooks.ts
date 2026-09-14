@@ -1,5 +1,6 @@
 import { execFile } from "node:child_process";
-import { readdir, readFile, rm, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import { promisify } from "node:util";
 import type { AstroIntegration } from "astro";
 import path, { extname } from 'node:path';
@@ -49,6 +50,57 @@ async function listFiles(root: string): Promise<string[]> {
         return [];
     }));
     return files.flat();
+}
+
+const pagefindCacheDir = path.join(process.cwd(), '.cache', 'pagefind');
+const pagefindCacheOutputDir = path.join(pagefindCacheDir, 'output');
+const pagefindCacheHashFile = path.join(pagefindCacheDir, 'content-hash.txt');
+
+/**
+ * Hashes every rendered HTML file in `outDir` so repeated builds with
+ * unchanged output can skip regenerating the Pagefind index. Pagefind's own
+ * output is not guaranteed byte-identical across runs even when the indexed
+ * content is unchanged (internal term ordering depends on file read order),
+ * so comparing indexed page content directly is more reliable than comparing
+ * Pagefind's output.
+ */
+async function hashRenderedOutput(outDir: string): Promise<string> {
+    const files = (await listFiles(outDir))
+        .filter((file) => extname(file).toLowerCase() === '.html')
+        .sort();
+
+    const hash = createHash('sha256');
+    for (const file of files) {
+        hash.update(path.relative(outDir, file));
+        hash.update(await readFile(file));
+    }
+    return hash.digest('hex');
+}
+
+async function readCachedHash(): Promise<string | undefined> {
+    try {
+        return (await readFile(pagefindCacheHashFile, 'utf8')).trim();
+    } catch {
+        return undefined;
+    }
+}
+
+async function restoreCachedPagefindOutput(outputPath: string): Promise<boolean> {
+    try {
+        await stat(pagefindCacheOutputDir);
+    } catch {
+        return false;
+    }
+    await rm(outputPath, { force: true, recursive: true });
+    await cp(pagefindCacheOutputDir, outputPath, { recursive: true });
+    return true;
+}
+
+async function saveCachedPagefindOutput(outputPath: string, hash: string): Promise<void> {
+    await mkdir(pagefindCacheDir, { recursive: true });
+    await rm(pagefindCacheOutputDir, { force: true, recursive: true });
+    await cp(outputPath, pagefindCacheOutputDir, { recursive: true });
+    await writeFile(pagefindCacheHashFile, hash);
 }
 
 async function pruneUnreferencedImageAssets(outDir: string): Promise<{ count: number; bytes: number }> {
@@ -157,6 +209,15 @@ function pagefindIntegration({
         hooks: {
             'astro:build:done': async ({ dir, logger }) => {
                 const outDir = fileURLToPath(dir);
+                const outputPath = path.join(outDir, 'pagefind');
+
+                const contentHash = await hashRenderedOutput(outDir);
+                const cachedHash = await readCachedHash();
+                if (cachedHash === contentHash && await restoreCachedPagefindOutput(outputPath)) {
+                    logger.info('Pagefind output unchanged since last build, reused cached index');
+                    return;
+                }
+
                 const { index, errors: createErrors } = await createIndex(indexConfig);
                 if (!index) {
                     logger.error('Pagefind failed to create index');
@@ -173,8 +234,8 @@ function pagefindIntegration({
                 } else {
                     logger.info(`Pagefind indexed ${page_count} pages`);
                 }
-                const { outputPath, errors: writeErrors } = await index.writeFiles({
-                    outputPath: path.join(outDir, 'pagefind'),
+                const { errors: writeErrors } = await index.writeFiles({
+                    outputPath,
                 });
                 if (writeErrors.length) {
                     logger.error('Pagefind failed to write index');
@@ -183,6 +244,8 @@ function pagefindIntegration({
                 } else {
                     logger.info(`Pagefind wrote index to ${outputPath}`);
                 }
+
+                await saveCachedPagefindOutput(outputPath, contentHash);
             },
             'astro:config:setup': ({ config, logger }) => {
                 if (config.output === 'server') {

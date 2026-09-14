@@ -12,7 +12,6 @@ import rawSocialMediaData from '@content/social.json' with { type: 'json' };
 import rawNavData from '@data/footernavigation.json' with { type: 'json' };
 import setup from '@data/setup.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content';
-import { generateUniqueHtmlId } from '@utils/helpers';
 import type { Navigation } from '@utils/navigation';
 import { Icon } from 'astro-icon/components';
 import MarkdownIt from 'markdown-it';
@@ -20,7 +19,7 @@ import MarkdownIt from 'markdown-it';
 export interface Props {}
 
 const socialMediaData = rawSocialMediaData as SocialMediaItem[];
-const footerYearId = generateUniqueHtmlId();
+const footerYearId = 'footer-current-year';
 const currentYear = new Date().getFullYear().toString();
 const navData = rawNavData as Navigation;
 const md = new MarkdownIt();

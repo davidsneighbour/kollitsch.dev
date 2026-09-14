@@ -53,6 +53,12 @@ low-contrast design exceptions. Do not automatically "fix" their text contrast
 or remove their `aria-hidden` state. If a change would alter the exception, ask
 for explicit confirmation first.
 
+## DOM ids on server-rendered components
+
+Do not use `createIdentifier()`, `generateUniqueHtmlId()`, `Math.random()`, or any other per-render random value to generate an element's `id` unless the component can legitimately render more than once on the same page and the id must not collide.
+
+For a component that only ever appears once per page (check with a repo-wide grep for its import before assuming this), use a fixed, human-readable id string instead, e.g. `'nav-search'` or `'footer-current-year'`. A random id here buys nothing — it only needs to be unique within the page, not across builds or requests — and it makes every build of that page byte-different from the last even when the visible content hasn't changed at all, which defeats content-hash-based deploy diffing (wrangler, Pagefind's own index, CDN cache busting, etc.) and causes far more files to be re-uploaded than necessary on every deploy with no functional benefit. See [GitHub issue #1978](https://github.com/davidsneighbour/kollitsch.dev/issues/1978) for the incident this caused (`Header.astro`, `Footer.astro`, `NavSearch.astro`) and how it was diagnosed.
+
 ## Script processing
 
 When using `define:vars` on a `<script>` tag, add `is:inline` explicitly to silence the Astro hint:

@@ -3,7 +3,6 @@ id: davidsneighbour
 title: "David's Neighbour projects"
 linktitle: "David's Neighbour"
 badge:
-  variant: gray
   icon:
     name: person-bounding-box
     position: inline-start

@@ -6,7 +6,6 @@ aliases:
   - ocd
   - ocd-series
 badge:
-  variant: gray
   icon:
     name: stars
     position: inline-start

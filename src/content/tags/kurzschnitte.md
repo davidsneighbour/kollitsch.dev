@@ -3,7 +3,6 @@ id: kurzschnitte
 title: "Kurzschnitte link collections"
 linktitle: "Kurzschnitte"
 badge:
-  variant: gray
   icon:
     name: scissors
     position: inline-start

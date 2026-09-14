@@ -117,6 +117,14 @@ badge:
 Do not use the old top-level `class` or `icon` fields for new tag metadata.
 Keep presentation metadata under `badge`.
 
+Omit `variant` entirely unless a tag genuinely needs to look different from
+every other tag. The `Badge` component's own default (`variant` unset) already
+renders in the site's green brand colour, so most tags need only `badge.icon`.
+Setting `variant: gray` (or any other named variant) is a deliberate visual
+override, not a neutral/default choice — it was mistakenly applied to a few
+"special" tags (`David's Neighbour`, `Kurzschnitte`, `For the OCD inflicted`)
+and made them look disabled instead of matching the rest of the tag cloud.
+
 ## Tag Overview
 
 The tag overview at `/tags/` has two different tag sets:

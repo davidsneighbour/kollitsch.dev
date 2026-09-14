@@ -2,7 +2,7 @@
 title: Article Images (PostImage)
 tags: []
 created: 2026-06-14T00:00:00+07:00
-updated: 2026-08-11T00:00:00+07:00
+updated: 2026-09-14T00:00:00+07:00
 ---
 
 `PostImage.astro` renders the cover media for a blog post or tag page. It handles images, YouTube videos, and Vimeo videos differently, and adds an interactive caption overlay for images.
@@ -17,7 +17,7 @@ updated: 2026-08-11T00:00:00+07:00
 * Caption links are wrapped with `[&_a]:z-30` so they intercept clicks above the background link.
 * On narrow images (< 22rem container width) only the caption text is shown. At 22 rem and wider the publishing date appears next to it.
 * On touch/no-hover devices a small info icon appears in the bottom-right corner (z-30). Tapping it toggles the `.caption-visible` class on the `<figure>`, revealing the overlay without hover.
-* Draft posts show an orange **DRAFT** badge (z-30) in the top-left corner at all times.
+* Draft posts show a primary **DRAFT** badge (z-30) in the top-left corner at all times.
 
 ### Videos
 

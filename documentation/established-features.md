@@ -16,8 +16,8 @@ Change rule: Do not shrink `.theme-corner .theme-toggle` to a 4rem square or cen
 
 Date: 2026-09-12
 
-Decision: Dark-mode headings across article pages, post cards, taxonomy pages, and non-blog content pages use the orange heading colour. When a heading is also a link, the heading text stays orange at rest and the link affordance is a straight red underline with skip-ink enabled. On hover, both text and underline become red.
+Decision: Dark-mode headings across article pages, post cards, taxonomy pages, and non-blog content pages use the `primary-500` heading colour. When a heading is also a link, the heading text stays `primary-500` at rest and the link affordance is a straight `primary-700` underline with skip-ink enabled. On hover, both text and underline brighten to `primary-300`.
 
 Reason: Plain headings and linked headings must look like the same typographic family, while linked headings still need a non-colour affordance. A straight underline keeps the selected prototype's clarity without the stronger visual personality of the wavy version.
 
-Change rule: Do not make linked headings red at rest in dark mode, and do not remove the underline cue from linked headings. Keep ordinary inline links red so body links remain distinct from heading links.
+Change rule: Do not make linked headings use the body-link colour at rest in dark mode, and do not remove the underline cue from linked headings. Keep ordinary inline links on the `link-dark`/`link-dark-hover` pair so body links remain distinct from heading links.

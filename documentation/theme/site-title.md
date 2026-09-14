@@ -2,7 +2,7 @@
 title: Site title animations
 tags: []
 created: 2026-07-28T00:00:00+07:00
-updated: 2026-07-28T00:00:00+07:00
+updated: 2026-09-14T00:00:00+07:00
 ---
 
 The homepage's large site title has two independent animated behaviours: a hover reveal that swaps the text fill for a full-width image, and a scroll-exit sequence that dissolves the text and shatters it into letters as it scrolls out of view. Both are purely decorative gimmicks—neither has any bearing on usability or accessibility, and both disable entirely under reduced motion.
@@ -19,8 +19,8 @@ See [SiteTitle](../components/layout/header/title/site-title.md) for the compone
 
 On hover-in (desktop only, gated behind `@media (hover: hover) and (pointer: fine)` so touch devices—including hybrid touch+mouse ones that report `hover: hover`—are unaffected), the sequence is deliberately staggered, and deliberately mixes two curve families rather than sharing one:
 
-- **Text colour pop**—a plain `transition: color` on the `TextImageFill` text carries its colour from `transparent` to `var(--color-red-700)` over 0.35 seconds, on `--ease-out-expo` (`cubic-bezier(0.19, 1, 0.22, 1)`). This steep curve front-loads almost all the visible change into the first fraction of the duration, which is exactly what gives the colour switch its "pop."
-- **Link fade-out**—the clickable text layer (`.site-title-link`) fades its opacity to 0% over 0.5 seconds on the same expo curve, but only starts after a 0.35 second delay, so it only fires once the colour pop has essentially finished. Running the pop and the fade concurrently (an earlier iteration) made the red barely register before the text vanished into the image; sequencing them fixes that.
+- **Text colour pop**—a plain `transition: color` on the `TextImageFill` text carries its colour from `transparent` to `var(--site-title-hover-color)` over 0.35 seconds, on `--ease-out-expo` (`cubic-bezier(0.19, 1, 0.22, 1)`). This steep curve front-loads almost all the visible change into the first fraction of the duration, which is exactly what gives the colour switch its "pop."
+- **Link fade-out**—the clickable text layer (`.site-title-link`) fades its opacity to 0% over 0.5 seconds on the same expo curve, but only starts after a 0.35 second delay, so it only fires once the colour pop has essentially finished. Running the pop and the fade concurrently (an earlier iteration) made the accent colour barely register before the text vanished into the image; sequencing them fixes that.
 - **Background reveal**—a `.site-title-hero::after` pseudo-element holds a second, full-size copy of the headline image (via a `--headline-bg` custom property set on the `<header>`). It starts clipped down to roughly the text's footprint (`clip-path: inset(22% 8% round 48px)`) at `opacity: 0%`, then on hover expands to cover the full header (`clip-path: inset(0% round 0)`) over 0.9 seconds on `--ease-in-out-circ` (`cubic-bezier(0.785, 0.135, 0.15, 0.86)`), and fades in over 0.35 seconds on the expo curve, starting after a 0.1 second delay. The clip-path deliberately does *not* share the expo curve: expo's front-loading suits a snappy colour pop, but made a reveal this large (the whole header) read as rushed. The gentler circ curve spreads the visible motion across the full duration instead, which reads as a more deliberate, weightier reveal appropriate to its size.
 
 On hover-out, every property transitions back independently using its own `transition` declaration—there are no `@keyframes` involved in the hover effect, so nothing needs to "reverse" or restarts oddly on rapid hover toggling. Durations are rebalanced from hover-in so the reveal doesn't just collapse all at once: the colour (0.35s) and link opacity (0.4s) settle back first, while the `::after` clip-path takes longer to close (0.55s)—the image keeps shrinking for a beat after everything else is already at rest, rather than all three snapping shut together. Both the text fill and the `::after` reveal share `background-size: 100vw auto` so they stay pixel-aligned; `background-attachment: fixed` is avoided because it doesn't interact correctly with the scroll-driven exit animation below.
@@ -35,7 +35,7 @@ All three are driven by their own `animation-timeline: view()` bound to the head
 
 1. **Outer fade** (`.site-title-hero`, unchanged from before this effect existed)—fades the whole header's opacity to 0 and translates/scales it slightly, across the full `exit 0%` to `exit 100%` range. This is the outer envelope; the two layers below are cosmetic detail happening *inside* it, not a replacement for it.
 2. **Image-fill dissolve** (`.site-title-fill`, the `TextImageFill` text)—fades and blurs out early in the exit.
-3. **Shatter letters** (`.site-title-shatter`, a duplicate `aria-hidden="true"` layer)—crossfades in as the image-fill dissolves, in a solid accent colour (`var(--color-red-700)`, matching the hover reveal's accent), then each letter (`.shatter-letter`) flies outward from the title's centre and fades, on its own staggered `animation-range`.
+3. **Shatter letters** (`.site-title-shatter`, a duplicate `aria-hidden="true"` layer)—crossfades in as the image-fill dissolves, in a solid accent colour (`var(--site-title-hover-color)`, matching the hover reveal's accent), then each letter (`.shatter-letter`) flies outward from the title's centre and fades, on its own staggered `animation-range`.
 
 ### Timing model and tuning knobs
 

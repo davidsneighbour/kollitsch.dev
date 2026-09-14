@@ -100,7 +100,7 @@ The page itself is always generated (static output pre-renders all pages), but i
 
 **Source:** `src/pages/blog/drafts/index.astro`
 
-The page loads all blog collection entries directly (bypassing `filterDraftEntries`) and filters for `draft === true`, then sorts by date descending. Each post is rendered using the same `ArticleCard` component used on the main blog listing pages. The orange **DRAFT** badge visible on post images (via `PostImage.astro`) also appears here.
+The page loads all blog collection entries directly (bypassing `filterDraftEntries`) and filters for `draft === true`, then sorts by date descending. Each post is rendered using the same `ArticleCard` component used on the main blog listing pages. The primary **DRAFT** badge visible on post images (via `PostImage.astro`) also appears here.
 
 To navigate to the draft list during development, open the **Posts** dropdown in the top navigation and select **Drafts**. The link does not appear in production builds.
 

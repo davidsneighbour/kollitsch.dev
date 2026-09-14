@@ -38,7 +38,7 @@ Renders text whose glyphs are filled with a background image (via `background-cl
 import TextImageFill from '@components/ui/TextImageFill.astro';
 ---
 
-<TextImageFill as="h1" imageUrl="/headline.jpg" size="4rem" fallbackColor="var(--color-orange-500)">
+<TextImageFill as="h1" imageUrl="/headline.jpg" size="4rem" fallbackColor="var(--hero-tint-fallback)">
   Headline text
 </TextImageFill>
 ```
@@ -50,8 +50,8 @@ With a colour tint over the image:
   as="span"
   imageUrl="/headline.jpg"
   size="clamp(50px, 13vw, 250px)"
-  fallbackColor="var(--color-orange-500)"
-  tintColor="var(--color-red-800)"
+  fallbackColor="var(--hero-tint-fallback)"
+  tintColor="var(--hero-tint-color)"
   tintOpacity={0.1}
   backgroundSize="100vw auto"
 >

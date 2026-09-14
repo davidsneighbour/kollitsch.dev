@@ -55,7 +55,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
   I love Hugo. Really do. But I don't want to spend anymore time on it. I can realise whatever I want with it. Some features like "content via data files" would have been nice. But a feature that is noted for over four years as "yeah, well, maybe one day" is still not a feature.
 
-  So I started to check what other SSG's are out there and currently am trying out several of them.
+  So I started to check what other SSGs are out there and currently am trying out several of them.
 
   I stopped responding and helping on the GoHugo forum for about 4 weeks now. The initial withdrawal symptoms are gone. There were two or three posts that resulted in really *wrong* answers and discussions that I would have *really* liked to put right, because the people that asked these questions deserved a proper solution, but I withheld myself from them too.
 

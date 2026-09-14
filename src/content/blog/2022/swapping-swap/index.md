@@ -26,7 +26,7 @@ My main workstation recently tends to just close VSCode or Google Chrome on me a
 
 **How to find out if memory issues are the cause for programs suddenly closing down:**
 
-This one is relatively easy, as soon as one has found out how to ask the question on, ehem, [Stackexchange](https://askubuntu.com/questions/1408784/apps-crash-randomly-on-newly-installed-ubuntu-22-04) ;)
+This one is relatively easy, as soon as one has found out how to ask the question on, ehem, [Stack Exchange](https://askubuntu.com/questions/1408784/apps-crash-randomly-on-newly-installed-ubuntu-22-04) ;)
 
 With `journalctl -u systemd-oomd` we receive quite clear explanations why a service called `systemd-oomd` killed processes.
 
@@ -36,7 +36,7 @@ Jun 02 20:34:16 main systemd-oomd[722]: Killed /user.slice/user-1000.slice/user@
 Jun 03 19:41:23 main systemd-oomd[831]: Killed /user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome-code-85943.scope due to memory pressure for /user.slice/user-1000.slice/user@1000.service being 79.93% > 50.00% for > 20s with reclaim activity
 ```
 
-This OOM service is a new service, that simply kills all processes that are using more than 50% of the available memory. They "sell" it as a replacement for the `killall` command, which is nice, but once I have a larger project open in VSCode or PHPStorm they just get closed down, even if the IDE is just trying to index a larger codebase.
+This OOM service is a new service, that simply kills all processes that are using more than 50% of the available memory. They "sell" it as a replacement for the `killall` command, which is nice, but once I have a larger project open in VSCode or PhpStorm they just get closed down, even if the IDE is just trying to index a larger codebase.
 
 The solution would be to disable the service or add more swapspace to the system. Now, for a while I had this policy of adding twice the amount of RAM as swap to the system whenever I installed Ubuntu, but lately I just let it slide and let Ubuntu decide by itself on installation what the amount of swap shall be.
 
@@ -93,6 +93,6 @@ Filename   Type       Size      sed    Priority
 /dev/sda2  partition   8290300      0  -3
 ```
 
-Let's see if that makes VSCode and PHPStorm happy. I know a certain project that keeps killing my IDEs (a Hugo website with a lot (~20) of modules that are all loaded in a VSCode workspace to be worked on) that will happily load everything into the swap space if it worked right.
+Let's see if that makes VSCode and PhpStorm happy. I know a certain project that keeps killing my IDEs (a Hugo website with a lot (~20) of modules that are all loaded in a VSCode workspace to be worked on) that will happily load everything into the swap space if it worked right.
 
 If not, we can always disable the OOM service. But about this later on.

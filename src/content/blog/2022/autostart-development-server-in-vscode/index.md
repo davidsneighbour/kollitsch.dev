@@ -94,7 +94,7 @@ This will create a task, that will run `npm run server` (see line 17) when you o
 
 You can start or restart the task manually by typing ||| ||CTRL|| + ||SHIFT|| + ||B|| |||, but after the change above whenever you open your workspace or folder it will start automatically for you.
 
-As an added bonus, you can configure the look (icon and color) of the automatic terminal with some lines in your user configuration:
+As an added bonus, you can configure the look (icon and colour) of the automatic terminal with some lines in your user configuration:
 
 ```plaintext
 {

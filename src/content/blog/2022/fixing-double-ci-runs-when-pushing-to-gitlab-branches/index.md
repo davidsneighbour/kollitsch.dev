@@ -1,6 +1,6 @@
 ---
 fmContentType: blog
-title: Fixing Double Ci Runs When Pushing to Gitlab Branches
+title: Fixing Double CI Runs When Pushing to GitLab Branches
 description: >-
   A simple addition to your GitLab CI configuration to avoid double runs of
   pipelines when pushing to branches.
@@ -20,7 +20,7 @@ cover:
 publisher: rework
 ---
 
-A while back I realized, that every time I pushed some commits to a branch on GitLab *two* separate CI pipelines started. That soon took up lots of free CI-minutes and became a problem. After some research I found out that this is, while it's to be expected due to the design of the system, avoidable with a specific configuration addition.
+A while back I realised, that every time I pushed some commits to a branch on GitLab *two* separate CI pipelines started. That soon took up lots of free CI-minutes and became a problem. After some research I found out that this is, while it's to be expected due to the design of the system, avoidable with a specific configuration addition.
 
 The reason for the double run is, that CI pipelines run for several events in a repository, the two here are push events to a branch and push events to an existing merge request.
 

@@ -81,7 +81,7 @@ Typos is a great source code spell checker. Use it, check it.
     - id: gitleaks
 ```
 
-Gitleaks checks if you accidentally left any codes, apikeys or secrets in your commits. Very convenient for the light headed developer apprentice.
+Gitleaks checks if you accidentally left any codes, API keys or secrets in your commits. Very convenient for the light headed developer apprentice.
 
 Long story short: `pre-commit` can fix your problems before they hit your repository, it can lint, optimise and clean up your commits. Some times it just fixes things, I add it's changes and retry my commit and all is well.
 

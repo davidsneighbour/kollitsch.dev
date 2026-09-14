@@ -40,7 +40,7 @@ First came the bookmarks into the `todo`-folder, then with the advent of tabs ca
 
 Long story short, there is no better time than **now** to actually read all these maybe useful pages and get the todo-list done.
 
-* [Adobe bought Figma](https://news.adobe.com/news/news-details/2022/Adobe-to-Acquire-Figma/), which makes some people nervous. Fret not though, because there are enough alternatives to develop and design websites in a team. [One of the contentors to replace Figma](https://news.itsfoss.com/penpot-figma-alternative/) as an open source alternative is [Penpot](https://penpot.app/). Check it out.
+* [Adobe bought Figma](https://news.adobe.com/news/news-details/2022/Adobe-to-Acquire-Figma/), which makes some people nervous. Fret not though, because there are enough alternatives to develop and design websites in a team. [One of the contenders to replace Figma](https://news.itsfoss.com/penpot-figma-alternative/) as an open source alternative is [Penpot](https://penpot.app/). Check it out.
 
   > Penpot is the first Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG). For all and empowered by the community.
 

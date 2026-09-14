@@ -1,5 +1,15 @@
 # Changelog
 
+## [3003.1.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.0...v3003.1.1) (2026-09-14)
+
+### Fix
+
+* **content:** drop stray gray badge overrides on special tags ([2a43811](https://github.com/davidsneighbour/kollitsch.dev/commit/2a43811f151f692b6746f1cfda1e4186baa3fe9c))
+* **links:** replace broken-link native title with a hover/focus tooltip ([08e8123](https://github.com/davidsneighbour/kollitsch.dev/commit/08e8123a8f0ca531c86a50d75daf54b3995a8aa4))
+* **search:** drop pagefind keepIndexUrl to match clean site URLs ([f902dec](https://github.com/davidsneighbour/kollitsch.dev/commit/f902decf844af8981bbaa05de71027a0b6d2bbf3))
+* **tags:** highlight matched characters in tag filter search ([504acdc](https://github.com/davidsneighbour/kollitsch.dev/commit/504acdc941abee4f82d73e383ac82d12d8f9b9d7))
+* **theme:** use brand green instead of placeholder red for favicon icon ([ef6ba34](https://github.com/davidsneighbour/kollitsch.dev/commit/ef6ba34e00a1c4f3853db09c3ba02b0ce51ee7c1))
+
 ## [3003.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.0.2...v3003.1.0) (2026-09-14)
 
 ### Feat

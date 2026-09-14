@@ -83,19 +83,86 @@ broken-link[data-broken-link-state='missing-link'] {
 [data-theme='dark'] .broken-link-marker {
   color: var(--color-amber-400);
 }
+
+.broken-link-tooltip-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+}
+
+.broken-link-tooltip {
+  pointer-events: none;
+  position: absolute;
+  bottom: calc(100% + 0.35em);
+  left: 50%;
+  z-index: var(--z-50);
+  width: max-content;
+  max-width: 16rem;
+  translate: -50% 0.25rem;
+  scale: 0.95;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-green-700);
+  color: var(--color-white);
+  padding: 0.375rem 0.75rem;
+  font-size: var(--text-xs);
+  line-height: 1.2;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transition: opacity 150ms ease, scale 150ms ease, translate 150ms ease;
+}
+
+.broken-link-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0.55em;
+  height: 0.55em;
+  translate: -50% -50%;
+  rotate: 45deg;
+  border-radius: 2px;
+  background-color: var(--color-green-700);
+}
+
+.broken-link-tooltip-group:hover .broken-link-tooltip,
+.broken-link-tooltip-group:focus-visible .broken-link-tooltip {
+  translate: -50% 0;
+  scale: 1;
+  opacity: 1;
+}
+
+[data-theme='dark'] .broken-link-tooltip,
+[data-theme='dark'] .broken-link-tooltip::after {
+  background-color: var(--color-green-500);
+  color: var(--color-gray-950);
+}
 `;
   document.head.append(style);
 }
 
 function createMarker(statusText: string): HTMLSpanElement {
+  const group = document.createElement('span');
+  group.className = 'broken-link-tooltip-group';
+  group.dataset['brokenLinkGenerated'] = 'true';
+  group.setAttribute('tabindex', '0');
+  group.setAttribute('role', 'img');
+  group.setAttribute('aria-label', statusText);
+
   const marker = document.createElement('span');
   marker.className = 'broken-link-marker';
-  marker.dataset['brokenLinkGenerated'] = 'true';
   marker.setAttribute('aria-hidden', 'true');
-  marker.title = statusText;
   marker.innerHTML =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.08l-1.72 1.71"></path><path d="m5.17 11.75-1.71 1.71a5 5 0 0 0 7.07 7.08l1.71-1.71"></path><path d="m8 16 8-8"></path><path d="m2 2 20 20"></path></svg>';
-  return marker;
+
+  const tooltip = document.createElement('span');
+  tooltip.className = 'broken-link-tooltip';
+  tooltip.setAttribute('role', 'tooltip');
+  tooltip.setAttribute('aria-hidden', 'true');
+  tooltip.textContent = statusText;
+
+  group.append(marker, tooltip);
+  return group;
 }
 
 function enhanceBrokenLink(element: HTMLElement): void {
@@ -113,7 +180,6 @@ function enhanceBrokenLink(element: HTMLElement): void {
   element.dataset['brokenLinkValidReason'] = String(reason === originalReason);
   element.setAttribute('role', 'note');
   element.setAttribute('aria-label', statusText);
-  element.title ||= statusText;
 
   if (checked) {
     element.dataset['brokenLinkChecked'] = checked;

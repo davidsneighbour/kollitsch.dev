@@ -50,7 +50,6 @@ const linkTitle = title ?? statusText;
   data-broken-link-status="currently-unavailable"
   data-broken-link-checked={checked}
   data-broken-link-valid-reason={String(reason === rawReason)}
-  title={statusText}
 >
   <a
     {...attrs}
@@ -60,15 +59,28 @@ const linkTitle = title ?? statusText;
     <slot />
   </a>
   <span
-    class="inline-flex size-[1.15em] items-center justify-center text-amber-700 align-[-0.15em] dark:text-amber-400"
+    class="group relative inline-flex align-[-0.15em] outline-none"
+    tabindex="0"
     role="img"
     aria-label={statusText}
   >
-    <Icon
-      name={reasonIcons[reason]}
-      class="size-[0.95em]"
+    <span
+      class="inline-flex size-[1.15em] items-center justify-center text-amber-700 dark:text-amber-400"
       aria-hidden="true"
-    />
+    >
+      <Icon
+        name={reasonIcons[reason]}
+        class="size-[0.95em]"
+        aria-hidden="true"
+      />
+    </span>
+    <span
+      class="pointer-events-none absolute bottom-[calc(100%+0.35em)] left-1/2 z-50 w-max max-w-64 -translate-x-1/2 translate-y-1 scale-95 rounded-sm bg-green-700 px-3 py-1.5 text-xs text-white opacity-0 shadow-md transition-[opacity,scale,translate] duration-150 ease-out after:absolute after:top-full after:left-1/2 after:size-2.5 after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:rounded-xs after:bg-green-700 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:scale-100 group-focus-visible:opacity-100 dark:bg-green-500 dark:text-gray-950 dark:after:bg-green-500"
+      role="tooltip"
+      aria-hidden="true"
+    >
+      {statusText}
+    </span>
   </span>
   <span class="sr-only"> Current status: {reasonLabel}.</span>
 </span>

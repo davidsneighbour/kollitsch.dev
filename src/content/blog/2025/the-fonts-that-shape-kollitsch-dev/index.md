@@ -30,6 +30,6 @@ Changa One defines the tone; Exo 2 carries the conversation.
 
 ## Setup notes
 
-Both fonts are hosted locally within this website instead of being served from a third party CDN. I do this mostly because they would be cached per hostname in any case and self-hosting gives me full control over loading strategies, subsetting and future updates or optimizations.
+Both fonts are hosted locally within this website instead of being served from a third party CDN. I do this mostly because they would be cached per hostname in any case and self-hosting gives me full control over loading strategies, subsetting and future updates or optimisations.
 
 You can find the current version of the font-setup in my [GitHub repository](https://github.com/davidsneighbour/kollitsch.dev/blob/509f455ea8e457c3238dd9fa58ca176c8b8d4311/src/styles/components/fonts.css).

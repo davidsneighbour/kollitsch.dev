@@ -36,4 +36,4 @@ Using the feature is easy. Navigate to the Gist's settings, toggle the **Disable
 
 This update addresses a long-standing request from the GitHub community. Gists are often used as lightweight, shareable snippets, and enabling comment control ensures a distraction-free and more professional experience. Developers now have the flexibility to tailor their Gists to specific use cases without worrying about moderating discussions.
 
-GitHub's move highlights its commitment to making its platform more user-friendly and customizable. To learn more about this new feature, check out the [official changelog](https://github.blog/changelog/2025-01-06-you-can-now-disable-comments-on-github-gists/).
+GitHub's move highlights its commitment to making its platform more user-friendly and customisable. To learn more about this new feature, check out the [official changelog](https://github.blog/changelog/2025-01-06-you-can-now-disable-comments-on-github-gists/).

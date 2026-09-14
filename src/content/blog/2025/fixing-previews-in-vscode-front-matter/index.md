@@ -2,11 +2,11 @@
 fmContentType: blog
 title: Fixing post previews in VSCode with Front Matter
 description: >-
-  VSCode Front Matter may not recognize Hugo blog posts if fmContentType is
+  VSCode Front Matter may not recognise Hugo blog posts if fmContentType is
   missing. This post explains how to automate front matter updates using a
   Node.js script.
 summary: >-
-  VSCode Front Matter sometimes fails to recognize Hugo blog posts due to
+  VSCode Front Matter sometimes fails to recognise Hugo blog posts due to
   missing fmContentType. This post explores the issue, explains why it happens,
   and provides a Node.js script to automate front matter updates. The script
   ensures proper previews by setting fmContentType across all Markdown files.
@@ -25,11 +25,11 @@ cover:
 publisher: rework
 ---
 
-If you are using the VSCode plugin [Front Matter](https://frontmatter.codes/) to manage your content in GoHugo, you might have run into this issue: The preview sometimes fails to recognize your posts article image correctly.
+If you are using the VSCode plugin [Front Matter](https://frontmatter.codes/) to manage your content in GoHugo, you might have run into this issue: The preview sometimes fails to recognise your posts article image correctly.
 
 This is exactly what I reported in [GitHub Issue #908](https://github.com/estruyf/vscode-front-matter/issues/908) of the project.
 
-The culprit? My recent changes to the front matter structure in Hugo blog posts. I had a `type: blog` property on all posts, but was more and more removing it, because under Hugo the section (content root folder) that a post is in defines the type. Adding the `type` as frontmatter will override this default type and (in my case) was unnecessary. This change though caused the Front Matter plugin to not recognize my posts as `blog` post type anymore so it stopped showing previews.
+The culprit? My recent changes to the front matter structure in Hugo blog posts. I had a `type: blog` property on all posts, but was more and more removing it, because under Hugo the section (content root folder) that a post is in defines the type. Adding the `type` as frontmatter will override this default type and (in my case) was unnecessary. This change though caused the Front Matter plugin to not recognise my posts as `blog` post type anymore so it stopped showing previews.
 
 The Fix is easy: add `fmContentType` in the front matter of each post.
 

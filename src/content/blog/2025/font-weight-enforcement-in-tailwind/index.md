@@ -48,7 +48,7 @@ This is how I did it in TailwindCSS 4.1+, but it is probably applicable to other
 }
 ```
 
-Note that I have defined a font-weight of 400 for this font. This tells the browser that this font has a single weight. It also makes the browser synthesize a bold version of the font when it's used in other weights. Let's fix that in the next step.
+Note that I have defined a font-weight of 400 for this font. This tells the browser that this font has a single weight. It also makes the browser synthesise a bold version of the font when it's used in other weights. Let's fix that in the next step.
 
 ## Step 2: Create a utility class for the font
 
@@ -66,13 +66,13 @@ Note that I have defined a font-weight of 400 for this font. This tells the brow
 }
 ```
 
-I added again a weight of 400 here, just to be sure that the resulting font is always normal weight. I also added `font-synthesis: none;` to prevent the browser from synthesizing a bold or italic version of the font if a developer tries to apply `font-bold` or `font-italic` to an element with this class.
+I added again a weight of 400 here, just to be sure that the resulting font is always normal weight. I also added `font-synthesis: none;` to prevent the browser from synthesising a bold or italic version of the font if a developer tries to apply `font-bold` or `font-italic` to an element with this class.
 
 The property [`font-synthesis`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis) (in Baseline since 2022) tells the browser not to create processed bold or italic styles, which is particularly useful for fonts that don't have those variants.
 
-This should be enough to ensure that any element with the class `.font-changa` will use the Changa One font at weight 400. However, if someone adds another font-weight utility class (eg. `font-bold` or `font-light`) to the same element, it might override the weight set in `.font-changa`. This is prevented in the next step.
+This should be enough to ensure that any element with the class `.font-changa` will use the Changa One font at weight 400. However, if someone adds another font-weight utility class (e.g. `font-bold` or `font-light`) to the same element, it might override the weight set in `.font-changa`. This is prevented in the next step.
 
-## Step 3: Override and/or neutralize other font weights
+## Step 3: Override and/or neutralise other font weights
 
 The challenge is preventing developers from accidentally applying another weight (for example `font-bold`, `font-semibold`) to an element using the custom font. By default, utility classes like `font-bold` would override the weight since they also target the `font-weight` property. We need to counteract that.
 

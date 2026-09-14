@@ -6,7 +6,7 @@ description: >-
   Netlify, with caching headers and image placement, and plans for future
   improvements.
 summary: >-
-  A .well-known/avatar URL provides a standardized way to retrieve profile
+  A .well-known/avatar URL provides a standardised way to retrieve profile
   images. I implemented it on my site using Netlify, configuring caching headers
   and placing the image in static/.well-known/. Future updates may include
   support for different sizes, formats, and dynamic avatars for greater
@@ -25,7 +25,7 @@ cover:
 publisher: rework
 ---
 
-The idea of a well-known avatar URL has been floating around for a while, and it just makes sense. Instead of manually setting profile images across various services, a standardized `.well-known/avatar` endpoint provides a predictable way to retrieve a user's avatar.
+The idea of a well-known avatar URL has been floating around for a while, and it just makes sense. Instead of manually setting profile images across various services, a standardised `.well-known/avatar` endpoint provides a predictable way to retrieve a user's avatar.
 
 Inspired by [Stefan Judis' post](https://www.stefanjudis.com/blog/a-well-known-avatar-url-would-be-dang-cool/) and [Jim Nielsen's take](https://blog.jim-nielsen.com/2023/well-known-avatar/), I decided to implement my own [here at /.well-known/avatar](https://kollitsch.dev/.well-known/avatar).
 

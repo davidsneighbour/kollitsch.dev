@@ -24,7 +24,7 @@ Let's face it: the list of unfinished projects and ideas in my to-do lists has g
 
 ## The Concept
 
-The idea is simple: I'm committing to completing one project every week instead of letting tasks rot in the graveyard of good intentions. I'll dedicate just two hours to focus exclusively on finishing each project. This means no more overcomplicating, endless tweaking and optimizing, and no more excuses.
+The idea is simple: I'm committing to completing one project every week instead of letting tasks rot in the graveyard of good intentions. I'll dedicate just two hours to focus exclusively on finishing each project. This means no more overcomplicating, endless tweaking and optimising, and no more excuses.
 
 I'll document the journey in a blog post. These posts will cover:
 

@@ -61,16 +61,16 @@ I created a [GoHugo](https://gohugo.io) module in [davidsneighbour/hugo-giscus](
 
 ## Available Configuration Parameters
 
-* **src**: (default `https://giscus.app/client.js`) - useful if you host your own version of Giscus
-* **dataRepo**: (required, `username/reponame`)
-* **dataRepoId**: (required)
-* **dataCategory**: (required) it's recommended to create a category "Comments" before you start configuration, so all your comments are in the same dedicated category.
-* **dataCategoryId**: (required)
-* **dataMapping**: (default "title") set up if
-* **dataReactionsEnabled**: (default "0")
-* **dataEmitMetadata**: (default "0")
-* **dataTheme**: (default "light")
-* **dataLang**: (default "en") currently available are en, fr, id, pl, ro
+* `src`: (default `https://giscus.app/client.js`) - useful if you host your own version of Giscus
+* `dataRepo`: (required, `username/reponame`)
+* `dataRepoId`: (required)
+* `dataCategory`: (required) it's recommended to create a category "Comments" before you start configuration, so all your comments are in the same dedicated category.
+* `dataCategoryId`: (required)
+* `dataMapping`: (default "title") set up if
+* `dataReactionsEnabled`: (default "0")
+* `dataEmitMetadata`: (default "0")
+* `dataTheme`: (default "light")
+* `dataLang`: (default "en") currently available are `en`, `fr`, `id`, `pl`, `ro`
 
 ## Coming soon
 

@@ -16,7 +16,7 @@ cover:
 publisher: rework
 ---
 
-Some days ago I realised, that I keep all my configurations for GoHugo in the TOML format, while using YAML for the frontmatters in my content folder. That did not seem right ;) so I changed those too to TOML.
+Some days ago I realised, that I keep all my configurations for GoHugo in the TOML format, while using YAML for the frontmatter in my content folder. That did not seem right ;) so I changed those too to TOML.
 
 Hugo has an easy command [`convert`](https://gohugo.io/commands/hugo_convert/), to transform frontmatter from one type to another.
 

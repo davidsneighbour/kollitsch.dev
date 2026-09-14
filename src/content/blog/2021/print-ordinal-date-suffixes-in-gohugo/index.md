@@ -52,6 +52,6 @@ call to this partial:
 {{- end -}}">
 ```
 
-Inside of the format string you can use whatever formatting you want to display based on what Golang understands as [date format string](https://programming.guide/go/format-parse-string-time-date-example.html). Then add a `%s` at the location where you wish to have the ordinal suffix.
+Inside of the format string you can use whatever formatting you want to display based on what Golang understands as [date format string](https://yourbasic.org/golang/format-parse-string-time-date-example/). Then add a `%s` at the location where you wish to have the ordinal suffix.
 
 And that's that.

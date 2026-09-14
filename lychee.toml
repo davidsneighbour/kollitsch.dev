@@ -60,6 +60,50 @@ exclude = [
   '^https://brandfetch\.com',         # blocks bots (403)
   '^https://www\.facebook\.com',      # blocks bots (400)
   '^https://www\.youtubesummaries\.com', # blocks bots (402 Payment Required)
+  # source: src/content/blog/2022/swapping-swap/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://askubuntu\.com/questions/1408784/apps-crash-randomly-on-newly-installed-ubuntu-22-04$',
+  # source: src/content/blog/2023/kurzschnitte-ii-1/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://www\.nytimes\.com/2023/08/13/business/zuckerberg-musk-cage-fight\.html$',
+  # source: src/content/blog/2024/kurzschnitte-ii-3/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://www\.w3\.org/WAI/business-case/$',
+  # source: src/content/blog/2024/switching-from-ubuntu-to-windows-with-wsl/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://sourceforge\.net/projects/ext2fsd/$',
+  # source: src/content/blog/2024/kurzschnitte-ii-7/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://arstechnica\.com/security/2024/09/rogue-whois-server-gives-researcher-superpowers-no-one-should-ever-have/$',
+  # source: src/content/blog/2024/kurzschnitte-ii-7/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://arstechnica\.com/science/2024/09/meet-the-winners-of-the-2024-ig-nobel-prizes/$',
+  # source: src/content/blog/2026/sycophancy-in-the-age-of-ai/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://www\.reuters\.com/article/world/asia-pacific/narendra-modi-appalled-by-temple-built-to-worship-him-idUSKBN0LG0RO/\?utm_source=chatgpt\.com$',
+  # source: src/content/blog/2026/sycophancy-in-the-age-of-ai/index.md
+  # checker-reason: bot-blocked
+  # checked: 2026-09-14
+  '^https://www\.reuters\.com/world/us/trump-supporters-see-his-narrow-escape-death-gods-work-2024-07-16/\?utm_source=chatgpt\.com$',
+  # source: src/content/blog/2022/simple-multi-language-pre-commit-hooks/index.md
+  # reason: unknown
+  # checked: 2026-09-14
+  '^https://github\.com/danielfdickinson/dfd-template/commit/aecb3a68dfcb7a63492cf79df7c3b58b86f29095$',
+  # source: src/content/blog/2023/back-to-top-without-javascript/index.md
+  # reason: unknown
+  # checked: 2026-09-14
+  '^https://github\.com/davidsneighbour/hugo-theme/commit/519ce475cd81488ceafd846eeb5549e4de1dff95$',
+  # source: src/content/blog/2023/ping-goes-poof/index.md
+  # reason: unknown
+  # checked: 2026-09-14
+  '^https://github\.com/davidsneighbour/hugo-blockify/releases/tag/v0\.0\.84$',
   # base_url resolves local image references (including @assets/... Astro paths
   # and relative ./file.png paths) as kollitsch.dev URLs; these are verified by
   # the Astro build, not by lychee

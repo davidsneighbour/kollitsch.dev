@@ -18,10 +18,14 @@ unsplash:
 cover:
   src: ./header.jpg
   type: image
+options:
+  head:
+    components:
+      - broken-link
 publisher: rework
 ---
 
-In my lifelong quest to minimise the code required to display my view of the world (aka this website) I today realised, that I can get rid of all the Javascript to display my "Back to top" button. Just look at [this commit](https://github.com/davidsneighbour/hugo-theme/commit/519ce475cd81488ceafd846eeb5549e4de1dff95).
+In my lifelong quest to minimise the code required to display my view of the world (aka this website) I today realised, that I can get rid of all the Javascript to display my "Back to top" button. Just look at [this commit](https://github.com/davidsneighbour/hugo-theme/commit/519ce475cd81488ceafd846eeb5549e4de1dff95) <broken-link reason="unknown" checked="2026-09-14"></broken-link>.
 
 Up to now I had a button that was hidden by default and shown when the user scrolled down a certain amount of pixels. This was done with a bit of Javascript. I also had a bit of Javascript to scroll to the top of the page when the button was clicked.
 

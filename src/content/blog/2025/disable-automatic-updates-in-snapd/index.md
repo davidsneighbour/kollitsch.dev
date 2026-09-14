@@ -19,7 +19,7 @@ cover:
 publisher: rework
 ---
 
-By default, Snap packages update automatically in the background - and while that's great for most users, there are cases where you want to control the timing or version of your Snap apps. This is possible since [Snapd 2.58](https://snapcraft.io/docs/snapd-roadmap#p-9464-snapd-258) with the [introduction of the `--hold` option for `snap refresh`](https://snapcraft.io/docs/managing-updates).
+By default, Snap packages update automatically in the background - and while that's great for most users, there are cases where you want to control the timing or version of your Snap apps. This is possible since [Snapd 2.58](https://snapcraft.io/docs/how-to-guides/manage-snaps/manage-updates/#pause-or-stop-automatic-updates) with the [introduction of the `--hold` option for `snap refresh`](https://snapcraft.io/docs/managing-updates).
 
 Let's go over how to use it.
 

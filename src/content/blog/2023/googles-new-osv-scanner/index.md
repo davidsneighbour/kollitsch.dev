@@ -28,7 +28,7 @@ If you have Go installed, it's a simple one-liner to install the scanner:
 go install github.com/google/osv-scanner/cmd/osv-scanner@v1
 ```
 
-Other methods are described on the [GitHub page](https://github.com/google/osv-scanner#installing). The scanner is also available as a [Docker image](https://hub.docker.com/r/google/osv-scanner).
+Other methods are described on the [GitHub page](https://github.com/google/osv-scanner#basic-installation). The scanner is also available as a [Docker image](https://google.github.io/osv-scanner/usage/#running-in-a-docker-container).
 
 The check after that is easy:
 

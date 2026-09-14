@@ -24,10 +24,14 @@ tags:
 cover:
   src: ./header.jpg
   type: image
+options:
+  head:
+    components:
+      - broken-link
 publisher: rework
 ---
 
-This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert [some](https://github.com/danielfdickinson/dfd-template/commit/aecb3a68dfcb7a63492cf79df7c3b58b86f29095) people to use the tool described by this post, so I thought I might as well add some context to it. This is one of the posts that will be posted "quick and dirty" and I will update and optimise them over time.
+This is one of the posts that spent months in draft (fka ideas) mode. Recently I got to convert [some](https://github.com/danielfdickinson/dfd-template/commit/aecb3a68dfcb7a63492cf79df7c3b58b86f29095) <broken-link reason="unknown" checked="2026-09-14"></broken-link> people to use the tool described by this post, so I thought I might as well add some context to it. This is one of the posts that will be posted "quick and dirty" and I will update and optimise them over time.
 
 Introducing [pre-commit](https://pre-commit.com/) 🎉🎊🍾🙌
 
@@ -48,7 +52,7 @@ With `pre-commit install` you install the local setup. Read on to know what you 
 
 ## Configuring pre-commit
 
-Your configuration is situated in `.pre-commit-config.yaml`. Feel free to have a look at [mine](https://github.com/davidsneighbour/kollitsch.dev/blob/main/.pre-commit-config.yaml) for some (slightly COD) examples. There is a lot that `pre-commit` can do. Be it line endings, formatting, linting of your stylesheets or markdown documents, keeping an eye on rules for your binary files, and so on, and even more…
+Your configuration is situated in `.pre-commit-config.yaml`. Feel free to have a look at [mine](https://github.com/davidsneighbour/kollitsch.dev/blob/08be353496d3873781d327c6bf9233c071be86dd/.pre-commit-config.yaml) for some (slightly COD) examples. There is a lot that `pre-commit` can do. Be it line endings, formatting, linting of your stylesheets or markdown documents, keeping an eye on rules for your binary files, and so on, and even more…
 
 Some of my favourite examples are the following ones:
 

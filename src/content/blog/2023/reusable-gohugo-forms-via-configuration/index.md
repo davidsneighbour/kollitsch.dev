@@ -187,7 +187,7 @@ Then, the form itself is generated. As I wrote above, the only implemented `grou
 </form>
 ```
 
-The actual execution of the form field and button creation is done by [inline partials](https://gohugo.io/templates/partials/#inline-partials). I never used inline partials before, but for this use, that made much more sense than moving these actions into ranged partials.
+The actual execution of the form field and button creation is done by [inline partials](https://gohugo.io/templates/types/#partial). I never used inline partials before, but for this use, that made much more sense than moving these actions into ranged partials.
 
 I don't really like inline partials too much because of the following sentence in the documentation:
 

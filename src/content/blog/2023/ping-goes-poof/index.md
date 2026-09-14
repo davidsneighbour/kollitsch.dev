@@ -19,6 +19,10 @@ tags:
 cover:
   src: ./header.jpg
   type: image
+options:
+  head:
+    components:
+      - broken-link
 publisher: rework
 ---
 
@@ -34,4 +38,4 @@ With these latest updates, Google is streamlining the use of sitemaps and at the
 
 > …it needs to consistently match reality: if your page changed 7 years ago, but you're telling us in the lastmod element that it changed yesterday, eventually we're not going to believe you anymore when it comes to the last modified date of your pages.
 
-My [sitemap module for GoHugo](/components/hugo-sitemap/) by the way is already only displaying updates when the content of a page is updated. It does not change the date on changes of unrelated page elements. It also does not include the changefreq and priority elements in the sitemap.xml file in it's [latest release](https://github.com/davidsneighbour/hugo-blockify/releases/tag/v0.0.84).
+My [sitemap module for GoHugo](/components/hugo-sitemap/) by the way is already only displaying updates when the content of a page is updated. It does not change the date on changes of unrelated page elements. It also does not include the changefreq and priority elements in the sitemap.xml file in it's [latest release](https://github.com/davidsneighbour/hugo-blockify/releases/tag/v0.0.84) <broken-link reason="unknown" checked="2026-09-14"></broken-link>.

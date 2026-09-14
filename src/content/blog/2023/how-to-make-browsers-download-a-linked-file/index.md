@@ -5,7 +5,7 @@ description: >-
   Learn how to use the download attribute in anchor tags to prompt file
   downloads in browsers.
 links:
-  - 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download'
+  - 'https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download'
   - 'https://www.w3schools.com/tags/att_a_download.asp'
 date: 2023-11-12T20:29:27+07:00
 resources:

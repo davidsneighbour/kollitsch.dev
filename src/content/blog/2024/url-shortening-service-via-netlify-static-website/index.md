@@ -22,7 +22,7 @@ publisher: rework
 
 This is a quick and practical proof of concept of a "free" link redirection service, hosted on [Netlify](https://www.netlify.com/). I am using one of my domains to redirect to various URLs, to my own projects. The setup is simple and can be done in a matter of minutes.
 
-**Step 1**: add your redirects in [`quicklinks/_redirects`](https://github.com/davidsneighbour/namespace/blob/main/quicklinks/_redirects). The accepted format is [documented at Netlify](https://docs.netlify.com/routing/redirects/#syntax-for-the-redirects-file). For more complicated cases add your rules to `netlify.toml`.
+**Step 1**: add your redirects in [`public/_redirects`](https://github.com/davidsneighbour/namespace/blob/main/public/_redirects). The accepted format is [documented at Netlify](https://docs.netlify.com/manage/routing/redirects/overview/#syntax-for-the-_redirects-file). For more complicated cases add your rules to `netlify.toml`.
 
 For example:
 
@@ -46,6 +46,6 @@ publish = "quicklinks/"
 
 Then use your redirects.
 
-I connected my tool-domain `dnbhub.xyz` to a quick setup of URLs for my projects and you can test it by any arbitrary redirection from this [setup file](https://github.com/davidsneighbour/namespace/blob/main/quicklinks/_redirects) (I admit it's not widely used yet). For example [`https://dnbhub.xyz`](https://dnbhub.xyz) sends you right to my [GoHugo module repository](https://github.com/davidsneighbour/hugo-modules/#readme) and [`https://dnbhub.xyz/hooks`](https://dnbhub.xyz/hooks) sends you to [the landing page for my hooks module](https://github.com/davidsneighbour/hugo-modules/tree/main/modules/hooks#readme).
+I connected my tool-domain `dnbhub.xyz` to a quick setup of URLs for my projects and you can test it by any arbitrary redirection from this [setup file](https://github.com/davidsneighbour/namespace/blob/main/public/_redirects) (I admit it's not widely used yet). For example [`https://dnbhub.xyz`](https://dnbhub.xyz) sends you right to my [GoHugo module repository](https://github.com/davidsneighbour/hugo-modules) and [`https://dnbhub.xyz/hooks`](https://dnbhub.xyz/hooks) sends you to [the landing page for my hooks module](https://github.com/davidsneighbour/hugo-modules/tree/main/modules/hooks#readme).
 
 The initial advantage of having shorter URLs is topped by your ability to change endpoints by just re-deploying a new version of your site instead of having to go through all places where you mentioned this URL. This is a great way to have a "free" URL shortening service for your own projects.

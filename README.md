@@ -47,6 +47,9 @@ All commands are run from the root of the project, from a terminal:
 | `npx astro dev` | Start local dev server at `https://localhost:4321`. |
 | `npx astro build` | Build production site to `./dist/`. |
 | `npx astro preview` | Preview the build locally, before deploying. |
+| `npm run lint:lychee` | Check links with Lychee. |
+
+For GitHub URLs, Lychee uses `GITHUB_TOKEN` from the shell environment to avoid rate limits. Do not commit secrets to `lychee.toml` or the repository. If your existing token has another name, alias it in your shell, for example `export GITHUB_TOKEN="${MY_GITHUB_TOKEN}"`.
 
 ## Tech stack
 

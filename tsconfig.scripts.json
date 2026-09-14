@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "include": [
     "src/scripts/build/build-hooks.ts",
+    "src/scripts/components/broken-link.ts",
     "src/scripts/hosting/cloudflare-static-assets.ts"
   ],
   "exclude": [],

@@ -17,4 +17,13 @@ describe('WebComponents component (props contract)', () => {
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
   });
+
+  it('registers the broken-link web component only when requested', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const componentPath = path.join(testDir, 'WebComponents.astro');
+    const src = await fs.readFile(componentPath, 'utf8');
+
+    expect(src).toContain("wants.has('broken-link')");
+    expect(src).toContain('defineBrokenLink');
+  });
 });

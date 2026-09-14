@@ -9,11 +9,12 @@ for the rules that keep it that way.
 ## Top-level groups
 
 * `content/` - pieces that render long-form content: `article/` (post rendering),
-  `media/` (image/video embeds), `metadata/` (author, publish date, tags, share
-  links), `navigation/` (breadcrumbs and pagination), `sourcecode/` (code block
-  rendering), `taxonomy/` (tag lists, tag clouds, tag filtering), and
-  `typography/` (headings, prose wrapper). `ColorGrid.astro` sits directly in
-  `content/` as a one-off content block.
+  `links/` (editorial link annotations), `media/` (image/video embeds),
+  `metadata/` (author, publish date, tags, share links), `navigation/`
+  (breadcrumbs and pagination), `sourcecode/` (code block rendering),
+  `taxonomy/` (tag lists, tag clouds, tag filtering), and `typography/`
+  (headings, prose wrapper). `ColorGrid.astro` sits directly in `content/` as a
+  one-off content block.
 * `layout/` - building blocks that make up the global shell: `head/` (document
   `<head>`, meta, OG images, speculation rules), `header/` (site header, with its
   own `navigation/`, `search/`, `theme/`, and `title/` subfolders for the header's

@@ -50,6 +50,14 @@ const SCRIPTS: Record<string, string> = {
 
 {Object.entries(SCRIPTS).map(([name, src]) => wants.has(name) && <script src={src} async is:inline />)}
 
+{wants.has('broken-link') && (
+  <script>
+    import { defineBrokenLink } from '../../../scripts/components/broken-link';
+
+    defineBrokenLink();
+  </script>
+)}
+
 <script>
   import setup from '../../../data/setup.json';
   import { defineWordMark } from '../../../scripts/components/word-mark';

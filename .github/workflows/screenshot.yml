@@ -31,8 +31,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
-        run: npm run test:install-browsers
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: |
+          echo "version=$(npm ls playwright --json | jq -r '.dependencies.playwright.version')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browser
+        id: playwright-cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-headless-shell-${{ steps.playwright-version.outputs.version }}
+
+      - name: Install Playwright browser
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install chromium-headless-shell
 
       - name: Run screenshot script
         run: npm run screenshot

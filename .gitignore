@@ -32,14 +32,6 @@ src/config/vale/config/vocabularies/DNB
 /agent
 /data/skills
 .github/hooks
-.codex
-
-# Installed skills (reproducible via skills-lock.json / `npx skills add`)
-# Manually authored AI assets belong in .agents/instructions or .agents/prompts, not here.
-.claude/skills
-.claude/skills/
-.codex/skills/
-.github/skills/
 
 # .agents/skills/: dnb-* skills are installed via `npx skills add` and reproducible
 # via skills-lock.json, so they are ignored. kdev-* skills are authored in this repo

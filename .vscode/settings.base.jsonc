@@ -54,7 +54,7 @@
   "markdownlint.configFile": "src/config/.markdownlint.jsonc",
   // workspace color theme configuration
   // (via peacock, disable plugin after setting up the theme)
-  "peacock.color": "#c10007",
+  "peacock.color": "#00c950",
   "scss.validate": false,
   // remove scratch files from search
   "search.exclude": {

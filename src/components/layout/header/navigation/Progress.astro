@@ -63,16 +63,13 @@ const {
 <style>
   @reference "@styles/theme.css";
 
-  @keyframes progress-bar-stripes {
-    0% {
-      background-position-x: 0;
-    }
-
-    100% {
-      background-position-x: var(--progress-height);
-    }
-  }
-
+  /*
+   * A striped shimmer used to run here via an animated `background-position`,
+   * then via a transform-animated overlay layer - at this bar's thickness
+   * (4-6px) neither read as a visible "rolling" effect, so the shimmer was
+   * dropped rather than kept for a look nobody could actually see. Only the
+   * scroll-driven width fill remains.
+   */
   .progress {
     --progress-height: var(--thickness, var(--height, 4px));
     --progress-bar-transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -87,31 +84,31 @@ const {
   .progress-fill {
     @apply absolute inset-y-0 left-0 h-full w-full origin-left rounded-full bg-brand-main-accent;
 
-    background-image: linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.15) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.15) 50%,
-      rgba(255, 255, 255, 0.15) 75%,
-      transparent 75%,
-      transparent
-    );
-    background-size: var(--progress-height) var(--progress-height);
-    animation: progress-bar-stripes 1s linear infinite;
     transform: scaleX(var(--scroll));
     transition: var(--progress-bar-transition);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .progress-fill {
-      @apply animate-none transition-none;
+      @apply transition-none;
     }
   }
 
   .progress:not([data-complete]) .progress-fill {
-    @apply rounded-l-none rounded-r-full;
+    /*
+     * The leading corner's radius is set on the box before `transform:
+     * scaleX()` runs, so a plain circular radius gets squashed horizontally
+     * by the same factor as the fill's width - a near-flat oval at low
+     * scroll percentages instead of a round cap. Scaling the horizontal
+     * radius by 1/scroll cancels that squash out, so the rendered corner
+     * stays a true circle (matching the vertical radius) at every width.
+     */
+    --cap-radius: calc(var(--progress-height) / 2);
 
+    border-radius: 0
+      calc(var(--cap-radius) / max(var(--scroll), 0.01))
+      calc(var(--cap-radius) / max(var(--scroll), 0.01))
+      0 / 0 var(--cap-radius) var(--cap-radius) 0;
     transition:
       var(--progress-bar-transition),
       border-radius 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);

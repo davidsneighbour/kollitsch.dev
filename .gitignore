@@ -44,6 +44,7 @@ src/config/vale/config/vocabularies/DNB
 
 # Local build artifact cache (og_image renders, build:profile logs)
 /.cache
+/.vitest
 
 # impeccable skill: per-run dated critique reports and hook cache
 .impeccable/critique/

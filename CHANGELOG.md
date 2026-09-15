@@ -1,5 +1,11 @@
 # Changelog
 
+## [3003.1.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.2...v3003.1.3) (2026-09-15)
+
+### Fix
+
+* **vscode:** improve workbench colour contrast ([d7f05fc](https://github.com/davidsneighbour/kollitsch.dev/commit/d7f05fcd8d76c8060aa6ae1e97542b628381b9a2)), references [#e7e7e7](https://github.com/davidsneighbour/kollitsch.dev/issues/e7e7e7) [#15202b](https://github.com/davidsneighbour/kollitsch.dev/issues/15202b)
+
 ## [3003.1.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.1...v3003.1.2) (2026-09-15)
 
 ### Fix

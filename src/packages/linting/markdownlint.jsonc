@@ -16,7 +16,7 @@
   },
   "overrides": {
     "markdownlint-cli2": {
-      "js-yaml": "5.4.1"
+      "js-yaml": "5.4.2"
     },
     "markdownlint-rule-title-case-style": {
       "markdownlint": {

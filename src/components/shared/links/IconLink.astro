@@ -54,11 +54,7 @@ const buttonAttrs = {
           class={iconClass}
         />
       )}
-      {hasSlot && (
-        <span>
-          <slot />
-        </span>
-      )}
+      {hasSlot && <slot />}
       {iconPosition === "postfix" && (
         <Icon
           name={icon}
@@ -77,11 +73,7 @@ const buttonAttrs = {
           class={iconClass}
         />
       )}
-      {hasSlot && (
-        <span>
-          <slot />
-        </span>
-      )}
+      {hasSlot && <slot />}
       {iconPosition === "postfix" && (
         <Icon
           name={icon}

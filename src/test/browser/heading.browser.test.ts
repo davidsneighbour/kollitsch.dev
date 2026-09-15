@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-declare const page: any;
+import { page } from 'vitest/browser';
 
 const TEST_IFRAME_ID = 'vitest-heading-preview';
 

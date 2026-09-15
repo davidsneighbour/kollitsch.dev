@@ -11,6 +11,7 @@ const enableBrowserProject = process.env.VITEST_BROWSER === 'true';
 const browserProjects = enableBrowserProject
   ? [
     {
+      extends: false,
       name: 'browser',
       test: {
         browser: {
@@ -24,7 +25,7 @@ const browserProjects = enableBrowserProject
           provider: playwright(),
         },
         globals: true,
-        include: ['src/test/browser/**/*.test.ts'],
+        include: ['src/test/browser/**/*.browser.test.ts'],
       },
     },
   ]

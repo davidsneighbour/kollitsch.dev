@@ -1,5 +1,26 @@
 # Changelog
 
+## [3003.1.2](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.1...v3003.1.2) (2026-09-15)
+
+### Fix
+
+* better rounded progress bar ([a4837d0](https://github.com/davidsneighbour/kollitsch.dev/commit/a4837d0e9e3bd8d58c65869f3c137593c1a1e3a1))
+* **components:** drop unnecessary span wrapper in IconLink ([13088ea](https://github.com/davidsneighbour/kollitsch.dev/commit/13088ea9a519cd78fc49edf86016ba5b1fb7a457)), closes [#1984](https://github.com/davidsneighbour/kollitsch.dev/issues/1984)
+* less depth in DOM size ([199e088](https://github.com/davidsneighbour/kollitsch.dev/commit/199e088e29e4714494d8f001017802bd2892b709))
+* remove impeccable config ([32bd4ca](https://github.com/davidsneighbour/kollitsch.dev/commit/32bd4caa986f1d38bf498c7a825807e9965413ca))
+* **vitest:** ignore .vitest directory with test artifacts ([e74f0a7](https://github.com/davidsneighbour/kollitsch.dev/commit/e74f0a711883c44087c580d2c3bd5eedb4362db6))
+
+### Docs
+
+* **ai:** allow global Claude skills alongside local overrides ([12f0bcf](https://github.com/davidsneighbour/kollitsch.dev/commit/12f0bcf407ada497ef57165100dfbf1dc8ebf532))
+* **ai:** document mcp-remote usage ([#1981](https://github.com/davidsneighbour/kollitsch.dev/issues/1981)) ([f13f40b](https://github.com/davidsneighbour/kollitsch.dev/commit/f13f40bc54b140b5bef59152bcbcd0b03bbcb32b))
+* **ai:** fix and update ai files ([c31b7fc](https://github.com/davidsneighbour/kollitsch.dev/commit/c31b7fc95df8899912367b883d07356405f00555))
+
+### Build
+
+* **deps:** update dependencies ([#1981](https://github.com/davidsneighbour/kollitsch.dev/issues/1981)) ([b422c30](https://github.com/davidsneighbour/kollitsch.dev/commit/b422c30ae95322b8bf67ed2fc94d5cba53669f84))
+* **test:** upgrade Vitest to 5.0.1 ([#1981](https://github.com/davidsneighbour/kollitsch.dev/issues/1981)) ([5876c8f](https://github.com/davidsneighbour/kollitsch.dev/commit/5876c8f6b3aedcf20f251af1913b7bfca74354b9))
+
 ## [3003.1.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.0...v3003.1.1) (2026-09-14)
 
 ### Fix

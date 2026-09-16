@@ -6,6 +6,7 @@
         "chrome-devtools-mcp",
         "--headless",
         "--isolated",
+        "--acceptInsecureCerts",
         "--no-usage-statistics",
         "--no-performance-crux",
         "--viewport=1440x1000"

@@ -7,6 +7,7 @@ args = [
     "--no-usage-statistics",
     "--no-performance-crux",
     "--viewport=1440x1000",
+    "--acceptInsecureCerts",
 ]
 
 [mcp_servers.cloudflare-browser]

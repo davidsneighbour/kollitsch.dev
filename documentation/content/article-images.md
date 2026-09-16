@@ -126,8 +126,8 @@ This provides enough contrast for white text on any image. Adjust the opacity st
 
 ## Z-index stacking
 
-| Layer | z-index | Element |
-| --- | --- | --- |
+| Layer | z&#x2011;index | Element |
+| --- | :---: | --- |
 | Background link | 10 | `<a>` covering the figure |
 | Caption overlay | 20 | `<figcaption>` |
 | Caption links, draft badge, info button | 30 | `[&_a]` inside caption, `.draft-badge`, `[data-caption-toggle]` |

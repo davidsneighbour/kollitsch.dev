@@ -105,6 +105,8 @@ Use `gh issue create --body-file <file>` for issue bodies containing Markdown,
 backticks, command examples, code spans, or multiple paragraphs. Do not pass
 Markdown-heavy bodies through `--body` inside shell quotes.
 
+Use the same rule for issue comments. For any multi-line `gh issue comment` body, write the Markdown to a temporary file and use `--body-file`; do not pass escaped newline sequences such as `\n` through `--body`, because the shell may preserve them as literal backslash+n text in the GitHub comment. If `--body` is used for a one-line comment, it must not contain escaped newlines, Markdown backticks, or shell-sensitive formatting.
+
 ## During implementation
 
 Keep the change focused on the referenced issue.

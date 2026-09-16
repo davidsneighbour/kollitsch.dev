@@ -21,3 +21,13 @@ Decision: Dark-mode headings across article pages, post cards, taxonomy pages, a
 Reason: Plain headings and linked headings must look like the same typographic family, while linked headings still need a non-colour affordance. A straight underline keeps the selected prototype's clarity without the stronger visual personality of the wavy version.
 
 Change rule: Do not make linked headings use the body-link colour at rest in dark mode, and do not remove the underline cue from linked headings. Keep ordinary inline links on the `link-dark`/`link-dark-hover` pair so body links remain distinct from heading links.
+
+## Blog-first homepage
+
+Date: 2026-09-16
+
+Decision: The homepage is intentionally blog-first. It must always show the latest post or a featured post in full before the secondary homepage modules.
+
+Reason: The site is a blog and digital garden, not a marketing website with a blog attached. A long featured post can make the homepage tall, and that is acceptable when it reflects the current or selected post.
+
+Change rule: Optimise loading cost, image priority, below-the-fold media, script behaviour, and interaction reliability around the full post. Do not hide, truncate, paginate, remove, or structurally demote the full post as a performance fix unless the site owner explicitly revises this decision.

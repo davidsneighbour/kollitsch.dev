@@ -36,6 +36,7 @@ export interface Props {
   foregroundZoomOrigin?: string;
   imageSizes?: string;
   backgroundSizes?: string;
+  eager?: boolean;
 }
 
 const {
@@ -68,6 +69,7 @@ const {
   foregroundZoomOrigin = 'center center',
   imageSizes = '100vw',
   backgroundSizes = '100vw',
+  eager = false,
 } = Astro.props;
 
 const imageModules = import.meta.glob<{ default: ImageMetadata }>(
@@ -333,7 +335,7 @@ const backgroundWidths = backgroundImage
       sizes={imageSizes}
       widths={overlayWidths}
       quality={75}
-      loading="eager"
+      loading={eager ? "eager" : "lazy"}
       decoding="async"
     />
   </div>

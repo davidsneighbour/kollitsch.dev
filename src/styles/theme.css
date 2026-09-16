@@ -683,6 +683,17 @@
       @apply my-8 border-0 border-t border-gray-300 dark:border-gray-700;
     }
 
+    .expressive-code {
+      max-width: 100%;
+    }
+
+    .expressive-code pre {
+      max-width: 100%;
+      overflow-x: auto !important;
+      overscroll-behavior-x: contain !important;
+      scrollbar-gutter: stable !important;
+    }
+
     h1,
     h2,
     h3,

@@ -1,16 +1,16 @@
 # Homepage optimisation audit resume
 
-Current umbrella issue: https://github.com/davidsneighbour/kollitsch.dev/issues/1987
+Current umbrella issue: [Optimise homepage loading without changing the blog-first layout](https://github.com/davidsneighbour/kollitsch.dev/issues/1987)
 
 This work comes from a live `gpt-taste` audit against `https://192.168.1.201:4321/`. Do not stop the running dev server or start a replacement while continuing this work unless the user explicitly asks for that.
 
 ## Work tasks
 
-- Point 1: Diagnose live dev-server Vite dependency 504s — https://github.com/davidsneighbour/kollitsch.dev/issues/1988
-- Point 2: Make homepage recent-card eager loading caller-controlled — https://github.com/davidsneighbour/kollitsch.dev/issues/1989
-- Point 3: Make TvHead lazy by default with explicit eager option — https://github.com/davidsneighbour/kollitsch.dev/issues/1990
-- Point 4: Improve mobile code-block overflow affordance — https://github.com/davidsneighbour/kollitsch.dev/issues/1991
-- Point 5: Document the blog-first homepage design contract — https://github.com/davidsneighbour/kollitsch.dev/issues/1992
+- Point 1: [Diagnose live dev-server Vite dependency 504s](https://github.com/davidsneighbour/kollitsch.dev/issues/1988)
+- Point 2: [Make homepage recent-card eager loading caller-controlled](https://github.com/davidsneighbour/kollitsch.dev/issues/1992)
+- Point 3: [Make TvHead lazy by default with explicit eager option](https://github.com/davidsneighbour/kollitsch.dev/issues/1991)
+- Point 4: [Improve mobile code-block overflow affordance](https://github.com/davidsneighbour/kollitsch.dev/issues/1990)
+- Point 5: [Document the blog-first homepage design contract](https://github.com/davidsneighbour/kollitsch.dev/issues/1989)
 
 Point 6 from the audit was an acknowledgement that the current visual direction is acceptable. It has no separate implementation issue.
 

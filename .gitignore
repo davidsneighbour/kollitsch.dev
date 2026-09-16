@@ -26,6 +26,9 @@ src/config/vale/config/vocabularies/DNB
 /PROJECT.md
 /TODO.md
 
+# Temporary agent resume scratch file
+/RESUME.md
+
 # AI assistant settings
 .claude/settings*.json
 /ai

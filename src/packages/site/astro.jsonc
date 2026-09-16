@@ -45,7 +45,7 @@
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
     "dev": "npm run dev:watch",
-    "dev:certs": "mkcert -install && mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1",
+    "dev:certs": "mkcert -install && mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1 192.168.1.201",
     "dev:docs": "node src/scripts/documentation-server.ts",
     "dev:open": "node src/scripts/dev-open.ts",
     "dev:site": "astro dev",

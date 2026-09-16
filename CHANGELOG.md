@@ -1,5 +1,34 @@
 # Changelog
 
+## [3003.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.3...v3003.2.0) (2026-09-16)
+
+### Content
+
+* **blog:** humanise new beginning post ([97cf5a5](https://github.com/davidsneighbour/kollitsch.dev/commit/97cf5a5fad81697dd4e075324a7d95e130296d35)), references [#1952](https://github.com/davidsneighbour/kollitsch.dev/issues/1952)
+
+### Perf
+
+* **home:** optimise blog-first homepage loading ([0dad322](https://github.com/davidsneighbour/kollitsch.dev/commit/0dad322169bd3c7a571412102f08f9efdcf8822f)), closes [#1987](https://github.com/davidsneighbour/kollitsch.dev/issues/1987) [#1988](https://github.com/davidsneighbour/kollitsch.dev/issues/1988) [#1989](https://github.com/davidsneighbour/kollitsch.dev/issues/1989) [#1990](https://github.com/davidsneighbour/kollitsch.dev/issues/1990) [#1991](https://github.com/davidsneighbour/kollitsch.dev/issues/1991) [#1992](https://github.com/davidsneighbour/kollitsch.dev/issues/1992)
+
+### Docs
+
+* **agents:** enforce resume handoff protocol ([dde51a0](https://github.com/davidsneighbour/kollitsch.dev/commit/dde51a02b42725de7ed5b7fdc73a5dbdf517781f)), references [#1987](https://github.com/davidsneighbour/kollitsch.dev/issues/1987)
+* **agents:** prevent escaped issue-comment newlines ([35a65e2](https://github.com/davidsneighbour/kollitsch.dev/commit/35a65e221f362e6b6b2968032672ebaf7e90cfe4)), closes [#1985](https://github.com/davidsneighbour/kollitsch.dev/issues/1985)
+* align instruction contracts ([#1986](https://github.com/davidsneighbour/kollitsch.dev/issues/1986)) ([ad24128](https://github.com/davidsneighbour/kollitsch.dev/commit/ad241289d654a4df27de465e55aa13bbf80fb419))
+* **fix:** update dash display as non-breaking ([21232ad](https://github.com/davidsneighbour/kollitsch.dev/commit/21232adeb4a0cbd30c2d240d82513e9f9a3dfeb4))
+* **resume:** correct homepage issue map ([ec82ede](https://github.com/davidsneighbour/kollitsch.dev/commit/ec82ede640b166d9513fbd4460c93119c6822441)), references [#1987](https://github.com/davidsneighbour/kollitsch.dev/issues/1987)
+
+### Build
+
+* **fix:** limit interfaces for dev servers to 192.168.1.201 ([6b18f90](https://github.com/davidsneighbour/kollitsch.dev/commit/6b18f90e311132369dc7c744f9fec11dc521f4e2))
+* **fix:** update cert installation script for dev server ([02e499c](https://github.com/davidsneighbour/kollitsch.dev/commit/02e499c32c009c8b8c0f4102b39a029554eae48e))
+* **fix:** update mcp configuration for chrome devtools mcp ([f56d5d0](https://github.com/davidsneighbour/kollitsch.dev/commit/f56d5d0abaaea7c7484195c91980fbfd297fa267))
+* **vscode:** update workspace configuration ([327349d](https://github.com/davidsneighbour/kollitsch.dev/commit/327349dea58f401f7b9e10141aefe809d8a89bdb))
+
+### Chore
+
+* **ci:** remove unit test workflow ([ff13535](https://github.com/davidsneighbour/kollitsch.dev/commit/ff13535182f3422b17f0462027bb7751972222b0))
+
 ## [3003.1.3](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.2...v3003.1.3) (2026-09-15)
 
 ### Fix

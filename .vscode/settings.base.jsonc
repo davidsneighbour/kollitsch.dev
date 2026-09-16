@@ -89,13 +89,13 @@
     "**/.astro/**"
   ],
   "terminal.integrated.tabs.title": "${sequence}",
-  "todo-tree.general.automaticGitRefreshInterval": 300,
-  "todo-tree.general.debug": true,
-  "todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",
-  "todo-tree.general.showActivityBarBadge": false,
-  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
-  "todo-tree.general.statusBar": "total",
-  "todo-tree.general.tags": [
+  "better-todo-tree.general.automaticGitRefreshInterval": 300,
+  "better-todo-tree.general.debug": true,
+  "better-todo-tree.general.exportPath": "~/todo-tree-%Y%m%d-%H%M.txt",
+  "better-todo-tree.general.showActivityBarBadge": false,
+  "better-todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "better-todo-tree.general.statusBar": "total",
+  "better-todo-tree.general.tags": [
     "BUG",
     "HACK",
     "FIXME",
@@ -105,9 +105,9 @@
     "[x]",
     "@todo"
   ],
-  "todo-tree.highlights.useColourScheme": true,
+  "better-todo-tree.highlights.useColourScheme": true,
   // PLUGIN: todo tree
-  "todo-tree.tree.scanMode": "workspace only",
+  "better-todo-tree.tree.scanMode": "workspace only",
   // path resolution in components (and others)
   "typescript.preferences.importModuleSpecifier": "non-relative",
   // PLUGIN: vale setup

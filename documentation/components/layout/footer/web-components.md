@@ -2,10 +2,10 @@
 title: WebComponents
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-09-16T00:00:00+07:00
 ---
 
-Conditionally loads vendored JavaScript for optional interactive widgets (date-diff, lite YouTube embed) that a blog post opts into via frontmatter.
+Conditionally loads vendored JavaScript for optional legacy interactive widgets that a page opts into via frontmatter.
 
 ## File locations
 
@@ -38,7 +38,9 @@ Reads `post.data.options.head.components` (an array of component identifier stri
 | Identifier | Script |
 | --- | --- |
 | `date-diff` | `/vendor/datediff.js` |
-| `lite-youtube` | `/vendor/lite-youtube-embed/lite-yt-embed.js` |
+| `lite-youtube` | `/vendor/lite-youtube-embed/lite-yt-embed.js` (legacy only) |
+
+New blog-post YouTube embeds do not use this opt-in path. Use [`Youtube`](../../content/media/youtube.md) from MDX instead; the component registers the underlying `<lite-youtube>` custom element itself.
 
 ## Extending
 

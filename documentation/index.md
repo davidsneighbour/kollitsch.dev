@@ -8,5 +8,6 @@ TypeDoc output under `documentation/api/` and opens in a new tab.
 
 Key content references include [Frontmatter](content/frontmatter.md),
 [Tags](content/tags.md), draft visibility, feed headers,
+[component development](development/components.md),
 [release scripts](setup/release.md), [deployment](setup/deployment.md), and
 [agents and LLM readiness](content/agents-and-llm.md).

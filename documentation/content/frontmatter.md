@@ -2,7 +2,7 @@
 title: Frontmatter
 tags: []
 created: 2026-07-28T00:00:00+07:00
-updated: 2026-07-28T00:00:00+07:00
+updated: 2026-09-16T00:00:00+07:00
 ---
 
 This page is the complete frontmatter index for Markdown and MDX content in
@@ -62,7 +62,7 @@ Markdown headings or filenames.
 | `lastModified` | no | date | Explicit last-modified date. |
 | `linktitle` | no | `string` | Plain-text shorter link label; must differ from and be shorter than `title`. |
 | `options` | no | nested object | Per-post rendering options; known keys are listed below. |
-| `options.head.components` | no | `lite-youtube[]`, `date-diff[]` | Extra head components required by a post. |
+| `options.head.components` | no | `date-diff[]`, legacy `lite-youtube[]` | Extra footer-loaded web components required by old content. New YouTube embeds use the MDX `Youtube` component instead; see [YouTube embeds](../components/content/media/youtube.md). |
 | `publisher` | no | `rework` or `validate` | Internal publishing workflow state. |
 | `resources` | no | object array | External resources with optional `name`, `src`, and `title`. |
 | `resources[].name` | no | `string` | Resource name. |

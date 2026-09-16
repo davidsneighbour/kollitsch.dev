@@ -3,7 +3,7 @@
 This directory is organized by the primary responsibility of each component so that
 the purpose of a file is immediately visible from its location. Folder placement is
 part of the project's structure, not a suggestion: see
-[`.agents/instructions/component-structure.instructions.md`](../../.agents/instructions/component-structure.instructions.md)
+[`src-components-structure.instructions.md`](../../.agents/instructions/src-components-structure.instructions.md)
 for the rules that keep it that way.
 
 ## Top-level groups

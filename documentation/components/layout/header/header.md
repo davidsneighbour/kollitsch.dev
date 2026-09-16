@@ -2,7 +2,7 @@
 title: Header
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-09-16T00:00:00+07:00
 ---
 
 Renders the sticky site header: the homepage [`SiteTitle`](title/site-title.md) hero, the reading-progress bar, the [`NavSearch`](search/nav-search.md) shell wrapping the main navigation, the mobile hamburger menu, and the [`PageFind`](search/page-find.md) search box.
@@ -21,7 +21,7 @@ Renders the sticky site header: the homepage [`SiteTitle`](title/site-title.md) 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `defaultTheme` | `StoredThemeMode` (`"dark" \| "light" \| "auto"`) | `"dark"` | Initial theme passed through to [`ThemeSelector`](theme/theme-selector.md) |
-| `siteTitleId` | `string` | auto-generated via `createIdentifier({ prefix: "sitetitle" })` | `id` shared with [`SiteTitle`](title/site-title.md); used as the intersection-observer target that toggles the sticky brand state |
+| `siteTitleId` | `string` | `"sitetitle-header"` | Stable `id` shared with [`SiteTitle`](title/site-title.md); used as the intersection-observer target that toggles the sticky brand state |
 
 ## Usage
 

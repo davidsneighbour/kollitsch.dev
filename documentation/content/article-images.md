@@ -2,7 +2,7 @@
 title: Article Images (PostImage)
 tags: []
 created: 2026-06-14T00:00:00+07:00
-updated: 2026-09-14T00:00:00+07:00
+updated: 2026-09-16T00:00:00+07:00
 ---
 
 `PostImage.astro` renders the cover media for a blog post or tag page. It handles images, YouTube videos, and Vimeo videos differently, and adds an interactive caption overlay for images.
@@ -25,16 +25,28 @@ Videos keep the existing layout: the caption appears below the player in a plain
 
 ## Adding a cover to a post
 
-Set the `cover` field in frontmatter. The `resolveCover()` utility accepts:
+Cover image source files live in `src/assets/images/postimages/`. Name each post-specific cover `postimage-for-{slug}.{ext}`, where `{slug}` is the last path segment of the post directory and `{ext}` is the original source extension. Keep the source format unchanged.
+
+For a post at `src/content/blog/2026/example-post/index.md`, the preferred source file is:
+
+```text
+src/assets/images/postimages/postimage-for-example-post.jpg
+```
+
+Set the `cover` field in frontmatter and reference the image through the `postimages/` key. The image resolver maps this key to `src/assets/images/postimages/` automatically:
 
 ```yaml
 ---
 cover:
-  image: ./cover.jpg          # relative path from the post directory
+  src: "postimages/postimage-for-example-post.jpg"
   alt: "Description for accessibility"
   title: "Caption shown in the overlay"  # optional, supports HTML
 ---
 ```
+
+When the same cover image is intentionally shared across a series, name it after the series instead of a single post, for example `postimage-for-kurzschnitte-series.jpg`, and reference that same `postimages/` key from each post.
+
+If the stable filename is not obvious, decide it before adding or moving the image. Do not invent a non-obvious image name during a content edit.
 
 To use a YouTube video as the cover:
 

@@ -2,7 +2,7 @@
 title: Tags
 tags: []
 created: 2026-07-28T00:00:00+07:00
-updated: 2026-07-28T00:00:00+07:00
+updated: 2026-09-16T00:00:00+07:00
 ---
 
 Tags connect blog posts, tag archive pages, featured tag cards, and the public
@@ -28,7 +28,7 @@ Posts list tags in blog frontmatter. Tags are normalised by `src/utils/tags.ts`
 before they are used for URLs, counts, aliases, and display labels.
 Write tag ids in lowercase kebab-case: words are separated with dashes, never
 spaces, underscores, camel case, PascalCase, leading hash marks, or
-slash-prefixed route aliases.
+slash-prefixed route aliases. Use only lowercase ASCII letters, digits, and single dashes. Do not use leading dashes, trailing dashes, or consecutive dashes.
 
 ```yaml
 ---
@@ -37,6 +37,12 @@ tags:
   - astro
   - 100-days-to-offload
 ---
+```
+
+Write post tags as a YAML block list, with one tag per line. Do not use an inline YAML array:
+
+```yaml
+tags: ["astro", "100-days-to-offload"]
 ```
 
 Every tag used by a post can generate a tag archive route. A tag does not need a

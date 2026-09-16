@@ -2,7 +2,7 @@
 title: Youtube
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-09-16T00:00:00+07:00
 ---
 
 Renders a lightweight, lazy-loading YouTube embed (a `<lite-youtube>` custom element) that only loads the full YouTube iframe API after the user interacts with it.
@@ -27,6 +27,8 @@ Renders a lightweight, lazy-loading YouTube embed (a `<lite-youtube>` custom ele
 
 ## Usage
 
+### Astro component usage
+
 ```astro
 ---
 import Youtube from '@components/content/media/Youtube.astro';
@@ -42,6 +44,25 @@ import Youtube from '@components/content/media/Youtube.astro';
 
 <Youtube video="dQw4w9WgXcQ" label="Rick Astley - Never Gonna Give You Up" params={{ controls: 0, rel: 0 }} />
 ```
+
+### Blog post embeds
+
+Blog posts that embed YouTube videos use this Astro component through MDX. The post file must be `index.mdx`, the import must appear after the frontmatter and before prose, and each embed must pass both `video` and `label`.
+
+```mdx
+---
+title: My Post
+date: 2026-09-16T00:00:00+07:00
+---
+
+import Youtube from "@components/content/media/Youtube.astro";
+
+Post content goes here.
+
+<Youtube video="dQw4w9WgXcQ" label="Rick Astley - Never Gonna Give You Up" />
+```
+
+Do not write raw `<lite-youtube>` custom elements in Markdown or MDX. Do not add `options.head.components: ["lite-youtube"]` for new YouTube embeds; the `Youtube` component registers its custom element itself.
 
 ## Behaviour
 

@@ -17,7 +17,7 @@ import { unified } from 'unified';
 const scriptPath = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(scriptPath), '../..');
 const defaultDocumentationRoot = path.join(projectRoot, 'documentation');
-const defaultHost = '0.0.0.0';
+const defaultHost = '192.168.1.201';
 const defaultPort = 4322;
 
 /** Generated API docs live under this folder; treated as a single nav leaf, never expanded. */

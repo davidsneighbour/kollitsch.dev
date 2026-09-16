@@ -180,7 +180,7 @@ export default defineConfig({
   },
   output: 'static',
   prefetch: { defaultStrategy: 'hover' },
-  server: { host: true },
+  server: { host: '192.168.1.201' },
   site: 'https://kollitsch.dev/',
   trailingSlash: 'always',
   vite: {

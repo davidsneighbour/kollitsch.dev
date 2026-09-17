@@ -1,5 +1,20 @@
 # Changelog
 
+## [3003.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.2.0...v3003.3.0) (2026-09-17)
+
+### Feat
+
+* **content:** report all blog frontmatter schema issues, not just the first ([be9a4d7](https://github.com/davidsneighbour/kollitsch.dev/commit/be9a4d74a5242bfeef65c668640499a427b7dfff))
+
+### Content
+
+* **fix:** rephase a couple of things in the enpass post ([945fecc](https://github.com/davidsneighbour/kollitsch.dev/commit/945fecc1ccd1af36ad89701cacf227bf8cdd24c4))
+* **new:** enpass blog post of 2026-09-17 ([5c10b83](https://github.com/davidsneighbour/kollitsch.dev/commit/5c10b83fbb4bcaf3039bf2d7871a9a64dd6aa09f))
+
+### Fix
+
+* **header:** resolve dark-mode contrast failure in site title wordmark ([2176269](https://github.com/davidsneighbour/kollitsch.dev/commit/21762690b23aa74eafa30bfec78597c6285e0f20)), references [#016630](https://github.com/davidsneighbour/kollitsch.dev/issues/016630)
+
 ## [3003.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.1.3...v3003.2.0) (2026-09-16)
 
 ### Content

@@ -30,6 +30,8 @@ Renders text whose glyphs are filled with a background image (via `background-cl
 | `fallbackColor` | `string` | `"currentColor"` | Solid colour shown where background-clip-based text fill is unsupported, and used as the element's `color` |
 | `tintColor` | `string` | `undefined` | Optional flat colour layered over the fill image via a double linear-gradient trick |
 | `tintOpacity` | `number` (0 to 1) | `0` | Opacity of `tintColor` over the fill image |
+| `tintColorDark` | `string` | `undefined` | Optional dark-mode override for `tintColor`, applied under `[data-theme="dark"]` |
+| `tintOpacityDark` | `number` (0 to 1) | `undefined` | Optional dark-mode override for `tintOpacity`, applied under `[data-theme="dark"]` |
 
 ## Usage
 
@@ -43,7 +45,7 @@ import TextImageFill from '@components/ui/TextImageFill.astro';
 </TextImageFill>
 ```
 
-With a colour tint over the image:
+With a colour tint over the image, computed per theme (see [brand-artwork.ts](../../../src/data/brand-artwork.ts) and [hero-tint.ts](../../../src/utils/hero-tint.ts) for how `wordmarkArtwork.headerFill`'s values are derived):
 
 ```astro
 <TextImageFill
@@ -51,8 +53,10 @@ With a colour tint over the image:
   imageUrl="/headline.jpg"
   size="clamp(50px, 13vw, 250px)"
   fallbackColor="var(--hero-tint-fallback)"
-  tintColor="var(--hero-tint-color)"
-  tintOpacity={0.1}
+  tintColor={wordmarkArtwork.headerFill.tintColor}
+  tintColorDark={wordmarkArtwork.headerFill.tintColorDark}
+  tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
+  tintOpacityDark={wordmarkArtwork.headerFill.tintOpacityDark}
   backgroundSize="100vw auto"
 >
   Site Title
@@ -61,9 +65,9 @@ With a colour tint over the image:
 
 ## Behaviour
 
-All configurable values are passed through as CSS custom properties (`--text-fill-image`, `--text-fill-position`, `--text-fill-size`, `--text-fill-attachment`, `--text-fill-fallback`, `--text-fill-tint-opacity`, and optionally `--text-fill-font-size` and `--text-fill-tint-color`) rather than hard-coded styles, so each instance can override them independently. Values passed as props are emitted inline; omitted fallback and tint values can be supplied by CSS classes. Normal span-compatible attributes are forwarded to the rendered element.
+All configurable values are passed through as CSS custom properties (`--text-fill-image`, `--text-fill-position`, `--text-fill-size`, `--text-fill-attachment`, `--text-fill-fallback`, `--text-fill-tint-opacity`, and optionally `--text-fill-font-size`, `--text-fill-tint-color`, `--text-fill-tint-color-dark`, and `--text-fill-tint-opacity-dark`) rather than hard-coded styles, so each instance can override them independently. Values passed as props are emitted inline; omitted fallback and tint values can be supplied by CSS classes. Normal span-compatible attributes are forwarded to the rendered element.
 
-The element's `background-image` stacks two layers: a flat `tintColor` rendered twice as a solid-to-solid `linear-gradient` (using the `rgb(from ...)` colour function to apply `tintOpacity`), on top of the `imageUrl` image. `background-clip: text` (with the `-webkit-` prefix for Safari) clips this combined background to the glyph shapes.
+The element's `background-image` stacks two layers: a flat tint colour (`--text-fill-active-tint-color`, which resolves to `tintColor` normally and `tintColorDark` under `[data-theme="dark"]` when set) rendered twice as a solid-to-solid `linear-gradient` (using the `rgb(from ...)` colour function to apply the matching opacity), on top of the `imageUrl` image. `background-clip: text` (with the `-webkit-` prefix for Safari) clips this combined background to the glyph shapes.
 
 Where `background-clip: text` is supported, the element's text `color` is forced to `transparent` inside an `@supports` block so the underlying background shows through the glyphs; otherwise the `fallbackColor` is used as a plain text colour.
 

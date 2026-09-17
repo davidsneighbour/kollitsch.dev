@@ -314,7 +314,20 @@ export function hslToRgb(hsl: HSL): RGB {
   };
 }
 
-function srgbToLinear(channel: number): number {
+/**
+ * Convert a single gamma-encoded sRGB channel into linear-light intensity.
+ *
+ * @param channel - sRGB channel in [0, 255].
+ * @returns Linear intensity in [0, 1].
+ * @throws {TypeError} When the input is not finite.
+ * @example
+ * ```ts
+ * import { srgbToLinear } from '@utils/color.ts';
+ *
+ * srgbToLinear(188); // ~0.5
+ * ```
+ */
+export function srgbToLinear(channel: number): number {
   assertFiniteNumber(channel, 'sRGB channel');
   const value = channel / 255;
   if (value <= 0.04045) {

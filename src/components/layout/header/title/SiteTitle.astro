@@ -94,7 +94,9 @@ const shatterLetters = letters.map((letter, index) => {
         classes="site-title-fill site-title-fill-sharp font-title leading-none"
         fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
         tintColor={wordmarkArtwork.headerFill.tintColor}
+        tintColorDark={wordmarkArtwork.headerFill.tintColorDark}
         tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
+        tintOpacityDark={wordmarkArtwork.headerFill.tintOpacityDark}
         backgroundSize={wordmarkArtwork.backgroundSize}
         position={wordmarkArtwork.position}
       >
@@ -107,7 +109,9 @@ const shatterLetters = letters.map((letter, index) => {
         classes="site-title-fill site-title-fill-blur font-title leading-none"
         fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
         tintColor={wordmarkArtwork.headerFill.tintColor}
+        tintColorDark={wordmarkArtwork.headerFill.tintColorDark}
         tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
+        tintOpacityDark={wordmarkArtwork.headerFill.tintOpacityDark}
         backgroundSize={wordmarkArtwork.backgroundSize}
         position={wordmarkArtwork.position}
         aria-hidden="true"
@@ -218,6 +222,14 @@ const shatterLetters = letters.map((letter, index) => {
 
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   .site-title-link :global(.site-title-fill-blur) {
+    /* Explicit fallback for browsers/tools that don't establish the
+     * animation-timeline: view() below (no scroll-driven-animations
+     * support, or a headless/automated context that never scrolls) - CSS's
+     * initial `opacity` is 1, so without this the blurred duplicate would
+     * sit fully opaque on top of the sharp layer forever, muddying the
+     * whole title. .site-title-shatter (below) already needed the same
+     * explicit default for the same reason. */
+    opacity: 0%;
     filter: blur(4px);
     inset: 0;
     position: absolute;

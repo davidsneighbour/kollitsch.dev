@@ -208,14 +208,13 @@
   --color-brand-main-accent-hover: var(--color-primary-700);
 
   /*
-   * Hero/header wordmark image-tint colors (consumed by
-   * src/data/brand-artwork.ts -> TextImageFill.astro). Indirected through
-   * these tokens rather than passed as literal palette values so the
-   * dark-mode override below can retint the hero without a JS-side
-   * light/dark branch in the data file.
+   * Hero/header wordmark fallback text color (consumed by
+   * src/data/brand-artwork.ts -> TextImageFill.astro), used only when a
+   * browser doesn't support background-clip: text. The actual tint colors
+   * are computed per header image by src/utils/hero-tint.ts, not tokenised
+   * here, since they need to track whichever photo is currently in place.
    */
   --hero-tint-fallback: var(--color-primary-500);
-  --hero-tint-color: var(--color-primary-800);
 
   /* SiteTitle.astro's hover color-pop (image-filled text -> solid accent
    * before it dissolves). Same indirection pattern as --hero-tint-*. */
@@ -420,9 +419,11 @@
   --sidebar-border: var(--color-gray-700);
   --sidebar-ring: var(--color-primary-500);
 
-  /* --color-brand-main-accent(-hover), --hero-tint-*, and
-   * --site-title-hover-color no longer need a dark override - both themes
-   * use the same primary-* shade now (see the @theme inline block above). */
+  /* --color-brand-main-accent(-hover) and --site-title-hover-color don't
+   * need a dark override - both themes use the same primary-* shade now
+   * (see the @theme inline block above). The hero wordmark's tint is
+   * per-image computed and dark-themed at the component level instead
+   * (TextImageFill.astro), not tokenised here - see src/utils/hero-tint.ts. */
 
   /* Semantic state tokens: intentionally independent of `--primary` even
    * though primary is Tailwind green today - see scratch/color-scheme-upgrade.md. */

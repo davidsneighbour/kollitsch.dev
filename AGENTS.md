@@ -28,6 +28,10 @@ If multiple instruction documents apply, the most specific scope wins, but core 
 ## 1. Non-negotiable global constraints
 
 * Use strict British English at all times.
+* Use metric units only.
+* Do not use emojis in repository files.
+* Do not use typographic/curly quotes — use plain straight quotes.
+* Use backticks for paths, commands, file names, package names, and identifiers.
 * Maintain a cordial but transactional tone.
 * Never apologise or express regret.
 * If information is unknown or unverifiable, state: "I don't know".
@@ -204,6 +208,8 @@ Four collections:
 
 Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
 
+**Pure vs Astro-bound utilities.** Where a utility is intended to be testable without the Astro runtime, keep it in a `.pure.ts` file (for example `src/utils/content.pure.ts`, tested by `content.pure.test.ts`). Pure utilities must not import server-only Astro modules such as `astro:content`. Astro-specific collection utilities (for example `src/utils/content.ts`, `tags.ts`, `content-object.ts`) may import Astro APIs, but generic Node/Vitest tests should not load those modules unless the test environment is specifically configured for Astro.
+
 **Markdown extensions.** Beyond CommonMark/GFM, `astro.config.ts` wires in `remark-kbd-nested` (nested `<kbd>` shortcuts), `remark-definition-list` (PHP-Markdown-Extra style definition lists), and the local `remarkDnbTypography` plugin (`src/utils/markdown-typography.ts`, restores Hugo-style `--`/`---` dash shortcuts — see `documentation/development/markdown-typography.md`) via `markdown.processor`. Definition list syntax:
 
 ```markdown
@@ -241,6 +247,17 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 3. **Build**: `astro check && astro build` — TypeScript checks run before the build.
 4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `node`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
 
+### Scripts (`src/scripts/`)
+
+Scripts are ESM and TypeScript-friendly (see "Run TS scripts" in Code conventions). CLI scripts should:
+
+* expose configurable options rather than hard-coding values;
+* validate their input;
+* report errors clearly;
+* exit non-zero on failure;
+* avoid silent failure;
+* avoid destructive behaviour unless explicitly requested.
+
 ### `package.json` and `src/packages/` (nanny)
 
 `package.json` is a **generated file**. Its source of truth is the set of `*.jsonc` fragments under `src/packages/**` (one file per feature/tool area — `devDependencies`, `scripts`, `wireit`, `overrides`, etc.). The `nanny` CLI (`npx nanny <command>`) merges these fragments into `package.json` and can sync the other direction:
@@ -252,6 +269,14 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 **Whenever you edit `package.json` directly** (adding/bumping a dependency, changing a script, adding an `overrides` entry), find the fragment that owns that key under `src/packages/` and make the same change there — the fragments are what regenerates `package.json` later and will otherwise silently discard or revert your change. After editing, run `nanny update-package` and then `nanny check` to confirm nothing is left out of sync; check the `overrides` sections manually since `update-package` skips them.
 
 ### CI/CD and deployment
+
+Workflow hardening is a standing rule for every workflow, not only `tests.yml`:
+
+* set `persist-credentials: false` on every `actions/checkout` step;
+* prefer SHA-pinned actions (`uses: owner/action@<sha> # vX.Y.Z`), matching the existing convention;
+* grant each job only the minimum `permissions` it needs; do not leave unnecessary write permissions enabled;
+* cron schedules are UTC — convert carefully when a schedule is requested in another timezone;
+* do not add a workflow that commits, pushes, deploys, or opens issues unless explicitly requested.
 
 * `tests.yml` — unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.
 * `lighthouse.yml` — post-deploy Lighthouse audits.
@@ -328,6 +353,8 @@ Rules:
 * **ESM only** — `type: "module"` in `package.json`; use `import`/`export`.
 * **Static versions** in `package.json` — no `^` or `~` ranges.
 * **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
+* **File globbing**: prefer `fast-glob` over `glob` — `fast-glob` is the project's dependency; `glob` is not installed.
+* **Explicit return types** on exported functions are preferred for readability. This is a style convention only — neither Biome nor `tsconfig.json` currently enforces it (Biome has no type-aware "explicit function return type" rule, and there is no equivalent `tsc` compiler flag), so review for it manually.
 * **Run TS scripts** with `node script.ts` — the Node version in `package.json` `engines` handles type stripping natively (Node 26+).
 * **Imports sorted** by Biome's `organizeImports` assist action.
 * **JSON imports**: never import `.json` directly in `.astro` frontmatter (the Astro compiler strips `with { type: 'json' }` and causes an `INCONSISTENT_IMPORT_ATTRIBUTES` warning). Import JSON through a `.ts` utility that re-exports it instead. In `.ts` files, all JSON imports must carry `with { type: 'json' }`. Never import the same JSON module twice in one file — use a local alias instead.

@@ -1,6 +1,6 @@
 ---
 id: review-blog-post
-name: review-blog-post
+name: kdev-postreview
 title: Review Blog Post
 description: "Reviews, improves, validates, and maintains one blog post at a time. Use when asked to review a post, fix post metadata, generate tags, write a description or summary, migrate a cover image, lint a post, or prepare a post for publication."
 ---
@@ -15,6 +15,7 @@ Use this skill for tasks such as:
 * generating or improving the description
 * generating or improving the summary
 * migrating the cover image
+* reviewing broken links
 * running repository checks relevant to the post
 * preparing a post for publication
 * applying future post-level maintenance operations
@@ -104,10 +105,11 @@ Run these phases in order unless the user requests only a specific operation.
 2. Validate frontmatter
 3. Review generated metadata
 4. Review associated assets
-5. Apply requested changes
-6. Run focused checks
-7. Run broader checks when justified
-8. Summarise changes and remaining issues
+5. Review broken links
+6. Apply requested changes
+7. Run focused checks
+8. Run broader checks when justified
+9. Summarise changes and remaining issues
 
 ## 1. Identify and inspect the post
 
@@ -285,7 +287,23 @@ resources/cover-image-migration.md
 
 Do not migrate images automatically unless requested or clearly included in the current task.
 
-## 5. Apply changes
+## 5. Broken link review
+
+Inspect external links referenced by the post.
+
+This is an interactive editorial workflow, not an automatic fix. Do not suppress, replace, remove, or annotate a failing link without the user's explicit item-level decision.
+
+This operation supports three scopes: `post` (the default, matching this skill's normal single-post behaviour), `batch` (an explicitly supplied post set), and `repository` (a full repository-wide cleanup, used only when explicitly requested). Determine the scope before running Lychee; see the resource file for how each scope filters findings and modifications.
+
+Load its complete procedure from:
+
+```text
+resources/link-review.md
+```
+
+Do not run the broken-link review automatically unless requested or clearly included in the current task.
+
+## 6. Apply changes
 
 Before modifying the post:
 
@@ -299,7 +317,7 @@ When several valid editorial choices exist, present the recommended choice and e
 
 Do not stop for confirmation when the correct action is established by repository rules and the requested task. Ask only when an irreversible or genuinely ambiguous choice cannot be resolved from the repository.
 
-## 6. Focused validation
+## 7. Focused validation
 
 Run the narrowest checks that meaningfully validate the selected post.
 
@@ -325,7 +343,7 @@ These are examples only. Inspect `package.json` and repository documentation bef
 
 Never assume a command supports file arguments. Check its definition first.
 
-## 7. Repository checks
+## 8. Repository checks
 
 Run the repository's established non-mutating quality gates relevant to the change.
 
@@ -351,7 +369,7 @@ If a full repository check fails for unrelated existing reasons:
 3. do not repair unrelated files without approval
 4. report the exact command and relevant failure
 
-## 8. Final verification
+## 9. Final verification
 
 After changes:
 
@@ -436,7 +454,6 @@ Potential future extensions include:
 
 * canonical URL review
 * SEO metadata review
-* link validation
 * heading hierarchy review
 * image alt-text generation
 * image optimisation

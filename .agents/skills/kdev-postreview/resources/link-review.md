@@ -1,8 +1,20 @@
-# Content broken link review prompt
+# Review broken links
 
-Review broken external links in this repository interactively and reconcile approved unavailable links with the existing broken-link content components and Lychee configuration.
+Review broken external links interactively and reconcile approved unavailable links with the existing broken-link content components and Lychee configuration.
 
 This is an editorial maintenance workflow. Do not automatically suppress, replace, remove, or annotate failing links.
+
+## Scope
+
+This operation supports three scopes. Determine the scope before running Phase 1.
+
+* **post** — the default. The selected single post from the parent `kdev-postreview` workflow. Findings, questions, and content modifications are limited to content files belonging to that post.
+* **batch** — an explicitly supplied set of posts (see the parent skill's batch mode). Findings, questions, and content modifications are limited to content files belonging to that set.
+* **repository** — every content file in the repository. Use only when the user explicitly asks for a repository-wide or archive-wide broken-link cleanup, not merely because several posts are being reviewed. This preserves the full repository-wide workflow that previously existed as a standalone prompt.
+
+Do not silently widen scope. A request to review "this post" or "these posts" stays in `post` or `batch` scope even if a failing URL happens to appear elsewhere in the repository too — report that the URL is shared beyond the current scope, but do not fold unrelated posts into the review without asking.
+
+A `repository`-scope run may surface content files outside the post(s) the user originally opened. Treat that as expected for this scope, not as an accidental widening.
 
 ## Existing broken-link implementation
 
@@ -30,14 +42,14 @@ Usage:
 
 Required props:
 
-- `href`
-- `reason`
+* `href`
+* `reason`
 
 Optional:
 
-- `checked`
-- `title`
-- normal anchor attributes
+* `checked`
+* `title`
+* normal anchor attributes
 
 ### Markdown
 
@@ -53,7 +65,7 @@ Markdown files using `<broken-link>` must opt into the web component in frontmat
 options:
   head:
     components:
-      - broken-link
+      * broken-link
 ```
 
 Preserve existing `options`, `head`, and `components` configuration. Add `broken-link` only if it is not already present.
@@ -127,14 +139,14 @@ Lychee should also expect `GITHUB_TOKEN` to be available in the shell environmen
 
 When running Lychee:
 
-- do not treat failures caused by the agent sandbox's lack of network access as broken links;
-- if a sandboxed Lychee run cannot access the network, stop that run rather than retrying links inside the sandbox;
-- request approval to run the Lychee command with network access / outside the restrictive sandbox, using the environment's normal escalation mechanism;
-- once approved, use that network-capable execution for the link-checking phase;
-- use authenticated GitHub checks through `GITHUB_TOKEN` when the environment provides it;
-- distinguish clearly between:
-  - a URL failure returned by the real remote server; and
-  - a failure caused by Codex's execution sandbox or network policy.
+* do not treat failures caused by the agent sandbox's lack of network access as broken links;
+* if a sandboxed Lychee run cannot access the network, stop that run rather than retrying links inside the sandbox;
+* request approval to run the Lychee command with network access / outside the restrictive sandbox, using the environment's normal escalation mechanism;
+* once approved, use that network-capable execution for the link-checking phase;
+* use authenticated GitHub checks through `GITHUB_TOKEN` when the environment provides it;
+* distinguish clearly between:
+  * a URL failure returned by the real remote server; and
+  * a failure caused by the execution sandbox or network policy.
 
 Never classify or modify content based on a network-disabled sandbox run.
 
@@ -146,21 +158,25 @@ Do not silently weaken GitHub checking globally.
 
 Before diagnosing link failures, ensure that the Lychee process has outbound network access. If the current execution sandbox blocks outbound HTTP/HTTPS, request the required execution approval instead of interpreting those failures as link failures.
 
-Run the project's existing Lychee link-checking workflow.
+Run the project's existing Lychee link-checking workflow, scoped according to the current [scope](#scope):
 
-For every failing external URL:
+* **post** — scope the Lychee run to the selected post's content file(s) when the workflow supports scoping. If it does not, run the normal repository-wide check but discard findings for content files outside the selected post before Phase 2.
+* **batch** — scope the Lychee run to the explicitly supplied post set, the same way.
+* **repository** — run the project's existing repository-wide Lychee link-checking workflow unscoped, exactly as today's repository-wide cleanup does.
+
+For every failing external URL found within the current scope:
 
 1. Determine every content file containing that URL.
 2. Inspect the context in which the link appears.
 3. Test the target sufficiently to classify the failure.
 4. Where useful, investigate whether:
-   - the content moved to another canonical URL;
-   - the site's URL structure changed;
-   - the destination now redirects elsewhere;
-   - an obvious typo or malformed URL exists;
-   - the failure appears temporary;
-   - the entire origin is malfunctioning;
-   - the resource is genuinely gone.
+   * the content moved to another canonical URL;
+   * the site's URL structure changed;
+   * the destination now redirects elsewhere;
+   * an obvious typo or malformed URL exists;
+   * the failure appears temporary;
+   * the entire origin is malfunctioning;
+   * the resource is genuinely gone.
 
 5. Separately classify links that are confirmed reachable for ordinary users or browsers but blocked, rate-limited, authentication-gated, or incompatible with Lychee/checker behaviour.
 
@@ -187,13 +203,13 @@ These headings define processing order only. Do not wait until the end of a sect
 For each decision item:
 
 1. Present only the information needed to make the decision:
-   - a short descriptive title;
-   - the current external URL as a clickable HTTPS link;
-   - each affected repository content file as a clickable local link opening at the relevant line whenever the environment supports this;
-   - enough surrounding source context to make the editorial decision understandable;
-   - the diagnosed failure or checker condition;
-   - a clickable proposed replacement URL when one was found;
-   - the recommended action with a short explanation.
+   * a short descriptive title;
+   * the current external URL as a clickable HTTPS link;
+   * each affected repository content file as a clickable local link opening at the relevant line whenever the environment supports this;
+   * enough surrounding source context to make the editorial decision understandable;
+   * the diagnosed failure or checker condition;
+   * a clickable proposed replacement URL when one was found;
+   * the recommended action with a short explanation.
 
 2. Then MUST invoke the environment's interactive user-question or choice UI when that capability is available.
 
@@ -207,7 +223,7 @@ For each decision item:
 
 Continue until every decision item has been reviewed or the user explicitly stops the process.
 
-Do not avoid interactive questions because there are many findings. An initial archive cleanup with 20–30 broken links is expected to result in roughly 20–30 interactive decisions.
+Do not avoid interactive questions because there are many findings. A cleanup with 20-30 broken links is expected to result in roughly 20-30 interactive decisions.
 
 ### Source context
 
@@ -223,10 +239,10 @@ Make the affected link or link text visually identifiable within that context wh
 
 For links in `Recommended fixes` and `No confirmed replacement found`, offer:
 
-- `1 - Fix / replace`
-- `2 - Mark currently unavailable`
-- `3 - Remove link`
-- `4 - Ignore for now`
+* `1 - Fix / replace`
+* `2 - Mark currently unavailable`
+* `3 - Remove link`
+* `4 - Ignore for now`
 
 Keep these numbers stable for ordinary broken links. Do not dynamically renumber choices based on what is recommended.
 
@@ -242,9 +258,9 @@ If no replacement was found, recommend the most appropriate remaining action bas
 
 For links in `Known-good but checker-blocked links`, offer:
 
-- `1 - Add Lychee-only exclusion`
-- `2 - Fix / replace` only when a genuine replacement URL was found
-- `3 - Ignore for now`
+* `1 - Add Lychee-only exclusion`
+* `2 - Fix / replace` only when a genuine replacement URL was found
+* `3 - Ignore for now`
 
 Keep these numbers stable for checker-blocked links. Do not dynamically renumber choices based on what is recommended.
 
@@ -260,12 +276,12 @@ Do not change content for a checker-blocked link unless the user explicitly choo
 
 After every 5 completed decisions, perform an internal interaction checkpoint before presenting the next item:
 
-- keep the remaining queue and all already-recorded decisions;
-- re-read and re-apply all Phase 2 interaction requirements;
-- restore the exact per-item structure and numbered choice format;
-- do not rerun Phase 1;
-- do not repeat already reviewed items;
-- continue with the next unresolved item.
+* keep the remaining queue and all already-recorded decisions;
+* re-read and re-apply all Phase 2 interaction requirements;
+* restore the exact per-item structure and numbered choice format;
+* do not rerun Phase 1;
+* do not repeat already reviewed items;
+* continue with the next unresolved item.
 
 This is a prompt re-anchoring step only, not a fresh full link check.
 
@@ -273,9 +289,9 @@ This is a prompt re-anchoring step only, not a fresh full link check.
 
 One interactive decision may cover multiple URLs only when all of the following are true:
 
-- they occur in the same editorial context;
-- they have effectively the same diagnosis;
-- the same action clearly applies to all of them.
+* they occur in the same editorial context;
+* they have effectively the same diagnosis;
+* the same action clearly applies to all of them.
 
 If different actions could reasonably apply, split them into separate decision items.
 
@@ -337,11 +353,11 @@ The user's explicit decision remains the boundary between diagnosis and modifica
 
 Do not:
 
-- replace a URL;
-- add a broken-link marker;
-- remove a link;
-- add a Lychee exclusion;
-- or otherwise change content
+* replace a URL;
+* add a broken-link marker;
+* remove a link;
+* add a Lychee exclusion;
+* or otherwise change content
 
 until the user has made the corresponding item-level decision.
 
@@ -351,11 +367,11 @@ until the user has made the corresponding item-level decision.
 
 After all interactive decisions have been processed, produce a compact summary grouped by outcome, including:
 
-- URLs fixed or replaced;
-- URLs marked currently unavailable;
-- URLs given Lychee-only checker exclusions;
-- URLs removed;
-- URLs ignored or left unresolved.
+* URLs fixed or replaced;
+* URLs marked currently unavailable;
+* URLs given Lychee-only checker exclusions;
+* URLs removed;
+* URLs ignored or left unresolved.
 
 The final report is a summary only.
 
@@ -365,12 +381,12 @@ Do not use the final report as a substitute for the per-item interactive review.
 
 When the user chooses to fix the link:
 
-- replace only the affected URL;
-- preserve the original link text unless a change is clearly necessary;
-- do not add a broken-link marker;
-- remove any obsolete broken-link marker attached to that link;
-- remove any corresponding Lychee exclusion that existed solely because this URL was marked unavailable;
-- add or update `maintenance.brokenLinksReviewed` in every content file modified by this action.
+* replace only the affected URL;
+* preserve the original link text unless a change is clearly necessary;
+* do not add a broken-link marker;
+* remove any obsolete broken-link marker attached to that link;
+* remove any corresponding Lychee exclusion that existed solely because this URL was marked unavailable;
+* add or update `maintenance.brokenLinksReviewed` in every content file modified by this action.
 
 Recheck the resulting URL.
 
@@ -424,7 +440,7 @@ Ensure the file's frontmatter includes:
 options:
   head:
     components:
-      - broken-link
+      * broken-link
 ```
 
 Merge this into existing frontmatter without overwriting other `options.head.components` entries.
@@ -491,10 +507,10 @@ Do not add `maintenance.brokenLinksReviewed` for this action unless the user als
 
 If the user decides the historical reference no longer warrants an external link:
 
-- remove the hyperlink while preserving useful surrounding/link text where appropriate;
-- remove any corresponding broken-link marker;
-- remove any Lychee exclusion associated only with that link;
-- add or update `maintenance.brokenLinksReviewed` in every content file modified by this action.
+* remove the hyperlink while preserving useful surrounding/link text where appropriate;
+* remove any corresponding broken-link marker;
+* remove any Lychee exclusion associated only with that link;
+* add or update `maintenance.brokenLinksReviewed` in every content file modified by this action.
 
 Do not rewrite the surrounding article unnecessarily.
 
@@ -516,9 +532,9 @@ Do not automatically remove the marker.
 
 If approved:
 
-- convert it back to a normal Markdown/MDX link;
-- remove the corresponding Lychee exclusion;
-- remove the MDX import or Markdown `options.head.components` entry only if it is no longer used anywhere else in that content file.
+* convert it back to a normal Markdown/MDX link;
+* remove the corresponding Lychee exclusion;
+* remove the MDX import or Markdown `options.head.components` entry only if it is no longer used anywhere else in that content file.
 
 ## Rechecking checker-blocked exclusions
 
@@ -528,10 +544,10 @@ When asked to recheck checker-blocked exclusions:
 
 1. Inspect the repository's Lychee configuration.
 2. Collect exclusions annotated with one of the checker reason identifiers:
-   - `bot-blocked`
-   - `rate-limited`
-   - `authentication-required`
-   - `checker-incompatible`
+   * `bot-blocked`
+   * `rate-limited`
+   * `authentication-required`
+   * `checker-incompatible`
 3. Test those URLs independently of the normal link-check run.
 4. Use direct HTTP checks and browser verification where practical, because Lychee may reproduce the same checker rejection.
 5. If the Lychee setup supports `include` overriding `exclude`, use a targeted Lychee invocation or temporary config for those URLs only. Otherwise use an equivalent direct-check mechanism.
@@ -545,14 +561,14 @@ If a checker-blocked URL now works normally in the standard check, recommend rem
 
 After approved changes:
 
-- every intentionally unavailable link must have an appropriate content marker;
-- every intentionally unavailable marked URL should have the corresponding exact Lychee exclusion;
-- every checker-blocked exclusion should have a checker reason and should not have a content marker solely because of the checker failure;
-- every content file modified by a replacement, link removal, or unavailable marker should have `maintenance.brokenLinksReviewed` set to the current date;
-- ordinary broken links must not be hidden from Lychee;
-- exclusions without a corresponding editorial or checker decision should be reported;
-- duplicate exclusions should be avoided;
-- unrelated Lychee configuration must remain untouched.
+* every intentionally unavailable link must have an appropriate content marker;
+* every intentionally unavailable marked URL should have the corresponding exact Lychee exclusion;
+* every checker-blocked exclusion should have a checker reason and should not have a content marker solely because of the checker failure;
+* every content file modified by a replacement, link removal, or unavailable marker should have `maintenance.brokenLinksReviewed` set to the current date;
+* ordinary broken links must not be hidden from Lychee;
+* exclusions without a corresponding editorial or checker decision should be reported;
+* duplicate exclusions should be avoided;
+* unrelated Lychee configuration must remain untouched.
 
 Do not automatically generate unavailable markers from Lychee output.
 
@@ -563,16 +579,16 @@ The user's explicit decision is the boundary between "broken link detected" and 
 After completing the reviewed changes:
 
 1. Run the project's formatter and relevant content/type checks.
-2. Run Lychee again.
+2. Run Lychee again, scoped the same way as in Phase 1 (post, batch, or repository).
 3. Confirm that approved unavailable links are no longer reported.
 4. Confirm that ignored/unreviewed failures remain visible.
 5. Report:
-   - URLs fixed or replaced;
-   - URLs marked currently unavailable;
-   - URLs removed;
-   - URLs left unresolved;
-   - the number of content files marked with `maintenance.brokenLinksReviewed`;
-   - existing unavailable links found to have recovered;
-   - any inconsistencies between content markers and Lychee exclusions.
+   * URLs fixed or replaced;
+   * URLs marked currently unavailable;
+   * URLs removed;
+   * URLs left unresolved;
+   * the number of content files marked with `maintenance.brokenLinksReviewed`;
+   * existing unavailable links found to have recovered;
+   * any inconsistencies between content markers and Lychee exclusions.
 
 Do not make unrelated changes.

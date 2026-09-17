@@ -7,6 +7,7 @@ Register additional post-level operations here.
 | Frontmatter review | `frontmatter.md` | active | review or validate post metadata |
 | Metadata generation | `metadata-generation.md` | active | generate tags, description, or summary |
 | Cover-image migration | `cover-image-migration.md` | active | migrate or standardise a post cover |
+| Broken link review | `link-review.md` | active | review or reconcile broken/unavailable external links |
 
 ## Extension template
 

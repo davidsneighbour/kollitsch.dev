@@ -1,0 +1,328 @@
+// Pure Zod schema definitions for the blog collection, deliberately free of
+// any `astro:content` / `astro/loaders` imports. Those virtual modules only
+// resolve inside Astro's own Vite pipeline (or vitest, which loads Astro's
+// plugin), so a plain Node script - like `src/scripts/linting/lint-frontmatter.ts`
+// - cannot import them. Keeping the schema itself import-free lets it run
+// there directly. `content.config.ts` re-exports everything from here and
+// adds the `defineCollection`/loader wiring on top.
+import { z } from 'astro/zod';
+
+import setup from '../data/setup.json' with { type: 'json' };
+import { buildOptionsSchema } from '../utils/schema.ts';
+import { youtubePlayerParamsSchema } from '../utils/youtube.ts';
+
+import MarkdownIt from 'markdown-it';
+
+/**
+ * Explicitly typed paths: override default (string) with custom type.
+ */
+export const explicitOptionTypes = {
+  'head.components': z.array(
+    z.enum(['lite-youtube', 'date-diff', 'broken-link']),
+  ),
+} as const;
+
+export const optionsSchema = buildOptionsSchema(explicitOptionTypes);
+export type OptionsData = z.infer<typeof optionsSchema>;
+
+const md = new MarkdownIt();
+
+export const deriveContentFormat = (filePath?: string): 'md' | 'mdx' =>
+  filePath?.toLowerCase().endsWith('.mdx') ? 'mdx' : 'md';
+
+const maintenanceReviewDate = z.union([
+  z.string().regex(/^\d{4}-\d{2}-\d{2}$/, {
+    message: '`maintenance.brokenLinksReviewed` MUST use YYYY-MM-DD format.',
+  }),
+  z.date().transform((date) => date.toISOString().slice(0, 10)),
+]);
+
+// Detects HTML tags and paired Markdown syntax (emphasis, links, code, headings).
+// Deliberately does not flag a lone `*`/`_`/`#` since those can be legitimate
+// plain-text punctuation (e.g. a trailing asterisk used as a footnote marker).
+export const plainTextViolation =
+  /<\/?[a-z][^>]*>|\*\*[^*]+\*\*|__[^_]+__|`[^`]+`|\[[^\]]+\]\([^)]*\)|^#{1,6}\s/i;
+
+export const cover = z
+  .object({
+    format: z
+      .object({
+        contenttype: z
+          .enum(['jpg', 'png', 'gif', 'svg', 'webp'])
+          .optional()
+          .default('jpg'),
+        quality: z.number().min(1).max(100).optional().default(75),
+      })
+      .optional(),
+    src: z.string().optional(),
+    title: z.string().optional(),
+    type: z.enum(['image', 'video']).optional().default('image'),
+    unsplash: z
+      .string()
+      .regex(/^[A-Za-z0-9]{11}$/, {
+        message:
+          'cover.unsplash must be exactly 11 characters: letters (a-z, A-Z) or digits (0-9) only.',
+      })
+      .optional(),
+    // Optional alt (Markdown allowed). Validation below enforces:
+    // - only with type === "image"
+    // - only if title is set
+    // - must differ from title
+    alt: z.string().optional(),
+    video: z
+      .object({
+        artist: z.string().optional(),
+        hash: z.string().optional(),
+        startAt: z.string().optional(),
+        title: z.string(),
+        vimeo: z.string().regex(/^\d+$/, {
+          message: 'cover.video.vimeo must be a numeric Vimeo video id.',
+        }).optional(),
+        youtube: z.string().optional(),
+        params: youtubePlayerParamsSchema.optional(),
+      })
+      .strict()
+      .superRefine((video, ctx) => {
+        const hasYoutube = typeof video.youtube === 'string' && video.youtube.trim().length > 0;
+        const hasVimeo = typeof video.vimeo === 'string' && video.vimeo.trim().length > 0;
+
+        if (hasYoutube === hasVimeo) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video must define exactly one of youtube or vimeo.',
+            path: ['youtube'],
+          });
+        }
+
+        if (hasVimeo && video.params != null) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video.params is only allowed for YouTube covers.',
+            path: ['params'],
+          });
+        }
+
+        if (hasYoutube && video.hash != null) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video.hash is only allowed for Vimeo covers.',
+            path: ['hash'],
+          });
+        }
+
+        if (hasYoutube && video.startAt != null) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'cover.video.startAt is only allowed for Vimeo covers.',
+            path: ['startAt'],
+          });
+        }
+      })
+      .optional(),
+  })
+  // Require src when type is image
+  .refine((c) => (c.type === 'image' ? c.src != null && c.src.trim().length > 0 : true), {
+    message: 'cover.src is required when cover.type is "image"',
+    path: ['src'],
+  })
+  // Require video metadata when type is video
+  .refine((c) => (c.type === 'video' ? c.video != null : true), {
+    message: 'video metadata must be provided when cover.type is "video"',
+    path: ['video'],
+  })
+  // Unsplash only for images
+  .refine((c) => (c.type === 'image' ? true : c.unsplash == null), {
+    message: 'cover.unsplash is only allowed when cover.type is "image".',
+    path: ['unsplash'],
+  })
+  // Alt/title/type relationship:
+  // - alt only for images
+  // - alt only allowed if title exists
+  // - alt must differ from title
+  .superRefine((c, ctx) => {
+    const isImage = c.type !== 'video';
+    const hasAlt = typeof c.alt === 'string' && c.alt.trim().length > 0;
+    const hasTitle = typeof c.title === 'string' && c.title.trim().length > 0;
+
+    if (!isImage && hasAlt) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'cover.alt is only allowed when cover.type is "image".',
+        path: ['alt'],
+      });
+    }
+
+    if (hasAlt && !hasTitle) {
+      ctx.addIssue({
+        code: 'custom',
+        message:
+          'cover.alt is only allowed when cover.title is set. Define a title or remove alt.',
+        path: ['alt'],
+      });
+    }
+
+    if (hasAlt && hasTitle) {
+      const t = c.title!.trim();
+      const a = c.alt!.trim();
+      if (a === t) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'cover.alt must differ from cover.title.',
+          path: ['alt'],
+        });
+      }
+    }
+  })
+  .optional();
+
+// const description110to160 = z
+//   .string()
+//   .trim()
+//   .min(110, { message: "description must be at least 110 characters" })
+//   .max(160, { message: "description must be at most 160 characters" });
+
+// MARK: Blog Posts
+export const blogSchema = z
+  .object({
+    aliases: z
+      .union([z.string(), z.array(z.string())])
+      .optional()
+      .transform((val) => (typeof val === 'string' ? [val] : val)),
+    category: z.string().optional(),
+    contentFormat: z.enum(['md', 'mdx']).optional().default('md'),
+    cover: cover,
+    date: z.coerce.date().transform((s) => new Date(s)),
+    description: z
+      .string()
+      .transform((str) => str.trim())
+      .refine((str) => str.length > 0, {
+        message: 'The `description` frontmatter MUST NOT be empty.',
+      }),
+    draft: z.boolean().default(false).optional(),
+    featured: z.boolean().default(false).optional(),
+    fmContentType: z.enum(['article', 'blog']),
+    /**
+     * Extra Cloudflare response headers for this post's own URL only - no path
+     * is specified because it's implicit (the page's own permalink). See
+     * `src/data/headers.ts` for how these are merged into `dist/_headers`.
+     */
+    headers: z.record(z.string(), z.string()).optional(),
+    lastModified: z.coerce
+      .date()
+      .transform((s) => new Date(s))
+      .optional(),
+    linktitle: z
+      .string()
+      .optional()
+      .refine((val) => val?.trim() !== '', {
+        message: '`linktitle` MUST NOT be empty if defined.',
+      })
+      .refine((val) => !val || !plainTextViolation.test(val), {
+        message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
+      }),
+    maintenance: z
+      .object({
+        brokenLinksReviewed: maintenanceReviewDate,
+      })
+      .optional(),
+    options: optionsSchema.optional(),
+    publisher: z.enum(['rework', 'validate']).optional(),
+    resources: z
+      .array(
+        z.object({
+          name: z.string().optional(),
+          src: z.string().optional(),
+          title: z.string().optional(),
+        }),
+      )
+      .optional(),
+    sourcecode: z
+      .record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.object({
+            source: z.string(),
+            label: z.string().optional(),
+            icon: z.string().optional(),
+            line: z.union([z.number(), z.string()]).optional(),
+            class: z.string().optional(),
+          }),
+        ]),
+      )
+      .optional(),
+    subtitle: z.string().optional(),
+    summary: z.string().optional(),
+    tags: z
+      .array(
+        z
+          .string()
+          .transform((tag) =>
+            tag
+              .trim()
+              .replace(/^['"]+|['"]+$/g, '')
+              .toLowerCase(),
+          )
+          .refine((tag) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tag), {
+            message:
+              'Tags MUST be lowercase kebab-case: use letters, numbers, and dashes between words.',
+          }),
+      )
+      .optional(),
+    title: z.string(),
+  })
+  .refine(
+    (entry) => {
+      if (!entry.linktitle) return true;
+      return entry.linktitle !== entry.title;
+    },
+    {
+      message: '`linktitle` MUST not be identical to `title`.',
+      path: ['linktitle'],
+    },
+  )
+  .refine(
+    (entry) => {
+      if (!entry.linktitle) return true;
+      return entry.linktitle.length < entry.title.length;
+    },
+    {
+      message: '`linktitle` MUST be shorter than `title`.',
+      path: ['linktitle'],
+    },
+  )
+  .transform((entry) => {
+    const summaryRaw =
+      entry.summary && entry.summary.trim() !== ''
+        ? entry.summary
+        : entry.description;
+
+    // compute articleimage:
+    const coverIsImage =
+      entry.cover?.type !== 'video' && typeof entry.cover?.src === 'string';
+    const articleimage: string | null =
+      (coverIsImage ? entry.cover?.src : undefined) ??
+      setup?.images?.default ??
+      null;
+
+    // render markdown for alt text if exists and valid for images
+    const coverAlt =
+      entry.cover?.alt && entry.cover?.type !== 'video'
+        ? md.renderInline(entry.cover.alt)
+        : undefined;
+
+    return {
+      ...entry,
+      cover: entry.cover
+        ? {
+          ...entry.cover,
+          alt: coverAlt ?? entry.cover.alt,
+        }
+        : entry.cover,
+      articleimage,
+      summary: md.renderInline(summaryRaw),
+      title: md.renderInline(entry.title),
+      subtitle: entry.subtitle ? md.renderInline(entry.subtitle) : undefined,
+    };
+  });
+export type PostData = z.infer<typeof blogSchema>;

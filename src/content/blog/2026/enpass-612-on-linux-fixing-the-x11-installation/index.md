@@ -94,12 +94,12 @@ I have used Enpass for more than ten years. For most of that time, it has been a
 
 More importantly, it has helped me maintain good password hygiene for a very long time. I don't have to reuse memorable passwords or choose credentials that are realistically vulnerable simply because I need to remember them. A password manager has become a fundamental part of how I use computers, and Enpass has filled that role reliably for years.
 
-So this isn't a case of dismissing Enpass as a bad product. It isn't. But changes like the 6.12 redesign do make me wonder whether it is time to reconsider the tool. This is not a minor update.
+Enpass isn't a bad product. But a redesign this size doesn't belong in a minor semver bump, and it has me wondering whether it's time to reconsider the tool.
 
-There are longstanding limitations alongside the new interface problems. One particularly annoying example is export: Enpass can export a vault, but it does not provide a useful way to export an arbitrary tag, group, or selected collection of items. The official export workflow is still centred around exporting an entire vault rather than a selected logical subset of its contents.
+There are longstanding limitations alongside the new interface problems. One particularly annoying example is export: Enpass can export a vault, but not an arbitrary tag, group, or other selected subset of items.
 
 For something as fundamental and long-lived as a password database, portability matters.
 
-After more than a decade with Enpass, perhaps this is a good point to investigate the open-source alternatives. Not because Enpass has suddenly become useless, but because a password manager is important enough that I would increasingly prefer the software, data formats, migration paths, and long-term availability not to depend entirely on one proprietary application.
+After more than a decade with Enpass, this seems like a good point to look at open-source alternatives. Enpass hasn't become useless; I'd just prefer that something as important as a password manager, its software, data formats, migration paths, and long-term availability, didn't depend entirely on one proprietary application.
 
 Enpass has served me well for a very long time. That also means any replacement has quite a high bar to clear. I remember using Keepass before.

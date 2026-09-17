@@ -15,8 +15,15 @@
     "skills:list": "node src/scripts/maintenance/skills.ts list",
     "skills:sync": "node src/scripts/maintenance/skills.ts sync",
     "skills:update": "node src/scripts/maintenance/skills.ts update",
-    "postinstall:skills": "npm run skills:links",
+    "postinstall:skills": "wireit",
     "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts"
+  },
+  "wireit": {
+    "postinstall:skills": {
+      "dependencies": [
+        "skills:links"
+      ]
+    }
   },
   "overrides": {
     "qs": "6.16.0"

@@ -6,11 +6,21 @@
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",
-    "postinstall": "run-p postinstall:*",
+    "postinstall": "wireit",
     "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
     "update": "wireit"
   },
   "wireit": {
+    "postinstall": {
+      "dependencies": [
+        "postinstall:sharedconfig",
+        "postinstall:vscode",
+        "postinstall:icons",
+        "postinstall:skills",
+        "postinstall:ai",
+        "postinstall:favicons"
+      ]
+    },
     "update": {
       "dependencies": [
         "update:git-hooks"

@@ -9,7 +9,7 @@
     "@dnbhq/release-config": "1.1.3"
   },
   "scripts": {
-    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
+    "postinstall:sharedconfig": "wireit",
     "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
     "release": "wireit",
     "release:forced": "wireit",
@@ -20,6 +20,11 @@
     "screenshot": "wireit"
   },
   "wireit": {
+    "postinstall:sharedconfig": {
+      "dependencies": [
+        "prepare:sharedconfig"
+      ]
+    },
     "release": {
       "command": "bash -c 'before=$(git describe --tags --abbrev=0 2>/dev/null || echo none); DEBUG=* release-it --ci --config .release-it.ts; code=$?; after=$(git describe --tags --abbrev=0 2>/dev/null || echo none); if [ \"$before\" = \"$after\" ]; then echo; echo \"No new release created — run npm run release:patch to force a patch release.\"; fi; exit $code'",
       "dependencies": [

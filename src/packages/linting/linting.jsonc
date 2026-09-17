@@ -12,7 +12,10 @@
   },
   "wireit": {
     "audit:html": {
-      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
+      "command": "html-validate dist/**/*.html --config=src/config/htmlvalidate.json",
+      "dependencies": [
+        "build"
+      ]
     }
   }
 }

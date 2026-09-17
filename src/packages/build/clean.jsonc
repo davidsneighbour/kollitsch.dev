@@ -1,7 +1,4 @@
 {
-  "devDependencies": {
-    "npm-run-all2": "9.0.3"
-  },
   "scripts": {
     "clean:full": "wireit"
   },
@@ -14,7 +11,11 @@
       ]
     },
     "clean:full:items": {
-      "command": "run-p clean:*"
+      "dependencies": [
+        "clean:astro",
+        "clean:build-caches",
+        "clean:og"
+      ]
     },
     "clean:full:last": {
       "command": "rm -rf node_modules package-lock.json .wireit"

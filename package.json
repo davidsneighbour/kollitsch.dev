@@ -19,8 +19,418 @@
     "url": "https://github.com/davidsneighbour/kollitsch.dev.git"
   },
   "type": "module",
+  "scripts": {
+    "clean:full": "wireit",
+    "packages:generate": "wireit",
+    "packages:update": "wireit",
+    "postinstall:sharedconfig": "wireit",
+    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
+    "release": "wireit",
+    "release:forced": "wireit",
+    "release:major": "wireit",
+    "release:minor": "wireit",
+    "release:patch": "wireit",
+    "release:tests": "wireit",
+    "screenshot": "wireit",
+    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
+    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
+    "biome:check": "biome check",
+    "biome:format": "biome format",
+    "biome:lint": "biome check --fix",
+    "biome:postinstall": "biome migrate --write",
+    "biome:watch": "biome check --watch",
+    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
+    "audit:html": "wireit",
+    "lint:descriptions": "node src/scripts/linting/lint-descriptions.ts",
+    "lint:hook:commit": "lint-staged",
+    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
+    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
+    "lint:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "lint:lychee": "wireit",
+    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
+    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}",
+    "lint:filenames": "ls-lint",
+    "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
+    "lint:styles": "wireit",
+    "lint:styles:fix": "wireit",
+    "lint:vale": "vale --config src/config/.vale.ini --no-exit --output=line ./src/content/",
+    "lint:vale:file": "vale --config src/config/.vale.ini --output=line",
+    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=reports/vale/vale-blog.json --html=reports/vale/vale-blog.html --open",
+    "update:pre:vale": "wireit",
+    "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
+    "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
+    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply",
+    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
+    "ci:check:vscode": "wireit",
+    "postinstall:vscode": "wireit",
+    "astro": "astro",
+    "build": "wireit",
+    "build:check": "wireit",
+    "build:clean": "wireit",
+    "build:compile": "wireit",
+    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
+    "build:prototypes": "wireit",
+    "build:prune-prototypes": "wireit",
+    "build:prune-test": "wireit",
+    "check": "wireit",
+    "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
+    "clean:astro": "wireit",
+    "clean:build-caches": "wireit",
+    "clean:og": "wireit",
+    "create:blog": "node src/scripts/content/create-blog-post.ts",
+    "dev": "npm run dev:watch",
+    "dev:certs": "mkcert -install && mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1 192.168.1.201",
+    "dev:docs": "node src/scripts/documentation-server.ts",
+    "dev:open": "node src/scripts/dev-open.ts",
+    "dev:site": "astro dev",
+    "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
+    "dev:watch": "node src/scripts/webserver.ts",
+    "preview": "astro preview",
+    "upgrade": "npx @astrojs/upgrade",
+    "build:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
+    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
+    "deploy:build": "wireit",
+    "deploy:dry-run": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:dry-run\" -- npm run deploy:dry-run:pipeline",
+    "deploy:dry-run:pipeline": "wireit",
+    "deploy:preflight": "wireit",
+    "deploy:preview": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview\" -- npm run deploy:preview:pipeline",
+    "deploy:preview:build": "wireit",
+    "deploy:preview:preflight": "wireit",
+    "deploy:preview:pipeline": "wireit",
+    "deploy:preview:prototypes": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview:prototypes\" -- npm run deploy:preview:prototypes:pipeline",
+    "deploy:preview:prototypes:build": "wireit",
+    "deploy:preview:prototypes:preflight": "wireit",
+    "deploy:preview:prototypes:pipeline": "wireit",
+    "deploy:pipeline": "wireit",
+    "hosting:check": "wireit",
+    "lint:design": "design.md lint DESIGN.md",
+    "lint:design:diff": "design.md diff DESIGN.md",
+    "docs:api": "typedoc",
+    "build:favicons": "node src/assets/favicon/regenerate.ts",
+    "icons:sync": "node src/scripts/maintenance/create-icon-types.ts",
+    "postinstall:icons": "wireit",
+    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
+    "prebuild": "wireit",
+    "postprepare": "wireit",
+    "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
+    "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
+    "lighthouse:desktop": "node src/scripts/linting/lighthouse-audit.ts --config=desktop",
+    "lighthouse:mobile-slow4g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-slow4g",
+    "lighthouse:mobile-3g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-3g",
+    "lighthouse:desktop-cable": "node src/scripts/linting/lighthouse-audit.ts --config=desktop-cable",
+    "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
+    "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
+    "test:install-browsers": "npx playwright install",
+    "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
+    "test:ui": "vitest --ui",
+    "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
+    "skills": "npx skills",
+    "skills:add": "node src/scripts/maintenance/skills.ts add",
+    "skills:install": "node src/scripts/maintenance/skills.ts install",
+    "skills:links": "node src/scripts/maintenance/prepare-skill-symlinks.ts",
+    "skills:list": "node src/scripts/maintenance/skills.ts list",
+    "skills:sync": "node src/scripts/maintenance/skills.ts sync",
+    "skills:update": "node src/scripts/maintenance/skills.ts update",
+    "postinstall:skills": "wireit",
+    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts",
+    "hooks:update": "simple-git-hooks",
+    "postinstall": "wireit",
+    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
+    "update": "wireit"
+  },
+  "wireit": {
+    "clean:full": {
+      "command": "clean:full:last",
+      "dependencies": [
+        "clean:full:items"
+      ]
+    },
+    "clean:full:items": {
+      "dependencies": [
+        "clean:astro",
+        "clean:build-caches",
+        "clean:og"
+      ]
+    },
+    "clean:full:last": {
+      "command": "rm -rf node_modules package-lock.json .wireit"
+    },
+    "compile:fixpack": {
+      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
+    },
+    "compile:package": {
+      "dependencies": [
+        "compile:package:install",
+        "compile:package:run"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
+    },
+    "compile:package:install": {
+      "command": "npm install",
+      "dependencies": [
+        "compile:fixpack"
+      ]
+    },
+    "compile:package:run": {
+      "command": "nanny generate-package"
+    },
+    "packages:generate": {
+      "command": "nanny generate-package",
+      "dependencies": [
+        "compile:package"
+      ],
+      "files": [
+        "./src/packages/**/*.jsonc"
+      ]
+    },
+    "packages:update": {
+      "command": "nanny update-package",
+      "dependencies": [
+        "compile:fixpack"
+      ]
+    },
+    "postinstall:sharedconfig": {
+      "dependencies": [
+        "prepare:sharedconfig"
+      ]
+    },
+    "release": {
+      "command": "bash -c 'before=$(git describe --tags --abbrev=0 2>/dev/null || echo none); DEBUG=* release-it --ci --config .release-it.ts; code=$?; after=$(git describe --tags --abbrev=0 2>/dev/null || echo none); if [ \"$before\" = \"$after\" ]; then echo; echo \"No new release created — run npm run release:patch to force a patch release.\"; fi; exit $code'",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:forced": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment patch",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:major": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment major",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:minor": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment minor",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:patch": {
+      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment patch",
+      "dependencies": [
+        "release:tests"
+      ]
+    },
+    "release:tests": {
+      "command": "npx astro check",
+      "dependencies": [
+        "test",
+        "test:e2e"
+      ]
+    },
+    "screenshot": {
+      "command": "node src/scripts/maintenance/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png --scroll-step=500 --scroll-delay=250 --settle-ms=5000 --timeout=120000"
+    },
+    "audit:html": {
+      "command": "html-validate dist/**/*.html --config=src/config/htmlvalidate.json",
+      "dependencies": [
+        "build"
+      ]
+    },
+    "lint:lychee": {
+      "command": "lychee --require-https src/content/"
+    },
+    "lint:styles": {
+      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "lint:styles:fix": {
+      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
+    },
+    "update:pre:vale": {
+      "command": "vale --config src/config/.vale.ini --no-exit sync"
+    },
+    "ci:check:vscode": {
+      "dependencies": [
+        "vscode:check"
+      ]
+    },
+    "postinstall:vscode": {
+      "dependencies": [
+        "vscode:sync"
+      ]
+    },
+    "build": {
+      "command": "npm run docs:api",
+      "dependencies": [
+        "build:prune-prototypes"
+      ]
+    },
+    "build:check": {
+      "command": "astro check"
+    },
+    "build:clean": {
+      "command": "npm run build",
+      "dependencies": [
+        "clean:build-caches"
+      ]
+    },
+    "build:compile": {
+      "command": "astro build",
+      "dependencies": [
+        "build:check"
+      ]
+    },
+    "build:prototypes": {
+      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
+    },
+    "build:prune-prototypes": {
+      "command": "node src/scripts/build/prune-prototypes.ts",
+      "dependencies": [
+        "build:prune-test"
+      ]
+    },
+    "build:prune-test": {
+      "command": "rm -rf dist/test/",
+      "dependencies": [
+        "build:compile"
+      ]
+    },
+    "check": {
+      "command": "npm run check:scripts",
+      "dependencies": [
+        "build:check"
+      ]
+    },
+    "clean:astro": {
+      "command": "rm -rf .astro dist node_modules/.astro"
+    },
+    "clean:build-caches": {
+      "command": "rm -rf .astro node_modules/.astro public/og_image .cache/og_image .cache/image-index"
+    },
+    "clean:og": {
+      "command": "rm -rf public/og_image .cache/og_image"
+    },
+    "deploy:build": {
+      "command": "npm run build",
+      "dependencies": [
+        "check"
+      ]
+    },
+    "deploy:dry-run:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy --dry-run",
+      "dependencies": [
+        "deploy:preflight"
+      ]
+    },
+    "deploy:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:build"
+      ]
+    },
+    "deploy:preview:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias preview",
+      "dependencies": [
+        "deploy:preview:preflight"
+      ]
+    },
+    "deploy:preview:build": {
+      "command": "npm run build"
+    },
+    "deploy:preview:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:preview:build"
+      ]
+    },
+    "deploy:preview:prototypes:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias prototypes",
+      "dependencies": [
+        "deploy:preview:prototypes:preflight"
+      ]
+    },
+    "deploy:preview:prototypes:build": {
+      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
+    },
+    "deploy:preview:prototypes:preflight": {
+      "command": "npm run hosting:check",
+      "dependencies": [
+        "deploy:preview:prototypes:build"
+      ]
+    },
+    "deploy:pipeline": {
+      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy",
+      "dependencies": [
+        "deploy:preflight"
+      ]
+    },
+    "hosting:check": {
+      "command": "node src/scripts/hosting/cloudflare-static-assets.ts"
+    },
+    "postinstall:icons": {
+      "dependencies": [
+        "icons:sync"
+      ]
+    },
+    "prebuild": {
+      "dependencies": [
+        "build:image-index"
+      ]
+    },
+    "postprepare": {
+      "dependencies": [
+        "build:favicons"
+      ]
+    },
+    "postinstall:skills": {
+      "dependencies": [
+        "skills:links"
+      ]
+    },
+    "postinstall": {
+      "dependencies": [
+        "postinstall:sharedconfig",
+        "postinstall:vscode",
+        "postinstall:icons",
+        "postinstall:skills",
+        "postinstall:ai",
+        "postinstall:favicons"
+      ]
+    },
+    "update": {
+      "dependencies": [
+        "update:git-hooks"
+      ]
+    },
+    "update:git-hooks": {
+      "command": "npm test && npx simple-git-hooks",
+      "dependencies": [
+        "update:post"
+      ]
+    },
+    "update:post": {
+      "command": "fixpack && browserslist --update-db",
+      "dependencies": [
+        "update:pre:npm",
+        "update:pre:submodules"
+      ]
+    },
+    "update:pre:npm": {
+      "command": "npm-check-updates -u --target minor"
+    },
+    "update:pre:submodules": {
+      "command": "git submodule update --recursive --remote"
+    }
+  },
   "devDependencies": {
-    "npm-run-all2": "9.0.3",
     "@davidsneighbour/nanny": "0.5.0",
     "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0",
@@ -143,326 +553,6 @@
     "twitter-text": "3.1.0",
     "@total-typescript/ts-reset": "0.6.1",
     "typescript": "6.0.3"
-  },
-  "scripts": {
-    "clean:full": "wireit",
-    "packages:generate": "wireit",
-    "packages:update": "wireit",
-    "postinstall:sharedconfig": "npm run prepare:sharedconfig",
-    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
-    "release": "wireit",
-    "release:forced": "wireit",
-    "release:major": "wireit",
-    "release:minor": "wireit",
-    "release:patch": "wireit",
-    "release:tests": "wireit",
-    "screenshot": "wireit",
-    "firewall:allow": "bash -c 'sudo ufw allow from 192.168.1.0/24 to any port 1313 proto tcp comment \"Allow dev server on LAN\" || true'",
-    "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'",
-    "biome:check": "biome check",
-    "biome:format": "biome format",
-    "biome:lint": "biome check --fix",
-    "biome:postinstall": "biome migrate --write",
-    "biome:watch": "biome check --watch",
-    "lint:spell": "cspell 'src/{*,.*}/**/*.{md,mdx}'",
-    "audit:html": "wireit",
-    "lint:descriptions": "node src/scripts/linting/lint-descriptions.ts",
-    "lint:frontmatter": "node src/scripts/linting/lint-frontmatter.ts",
-    "lint:hook:commit": "lint-staged",
-    "lint:html": "html-validate --config=src/config/htmlvalidate.json dist/**/*.html",
-    "lint:html:config": "html-validate --print-config=src/config/htmlvalidate.json",
-    "lint:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
-    "lint:lychee": "wireit",
-    "lint:markdown": "markdownlint-cli2 --config src/config/.markdownlint.jsonc src/content/blog/**/*.{md,mdx}",
-    "lint:markdown:fix": "markdownlint-cli2 --config src/config/.markdownlint.jsonc --fix src/content/blog/**/*.{md,mdx}",
-    "lint:filenames": "ls-lint",
-    "lint:secretlint": "secretlint --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore",
-    "lint:styles": "wireit",
-    "lint:styles:fix": "wireit",
-    "lint:vale": "vale --config src/config/.vale.ini --no-exit --output=line ./src/content/",
-    "lint:vale:file": "vale --config src/config/.vale.ini --output=line",
-    "report:vale:blog": "node src/scripts/linting/vale-report.ts --target=src/content/blog --json=reports/vale/vale-blog.json --html=reports/vale/vale-blog.html --open",
-    "update:pre:vale": "wireit",
-    "vscode:audit": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --audit",
-    "vscode:check": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --check",
-    "vscode:sync": "node src/scripts/maintenance/vscode/merge-vscode-config.ts --apply",
-    "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
-    "ci:check:vscode": "npm run vscode:check",
-    "postinstall:vscode": "npm run vscode:sync",
-    "astro": "astro",
-    "build": "astro check && astro build && rm -rf dist/test/ && node src/scripts/build/prune-prototypes.ts && npm run docs:api",
-    "build:clean": "npm run clean:build-caches && npm run build",
-    "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
-    "build:prototypes": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build",
-    "check": "astro check && npm run check:scripts",
-    "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
-    "clean:astro": "wireit",
-    "clean:build-caches": "wireit",
-    "clean:og": "wireit",
-    "create:blog": "node src/scripts/content/create-blog-post.ts",
-    "predev": "node src/scripts/linting/lint-frontmatter.ts --soft",
-    "dev": "npm run dev:watch",
-    "dev:certs": "mkcert -install && mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1 192.168.1.201",
-    "dev:docs": "node src/scripts/documentation-server.ts",
-    "dev:open": "node src/scripts/dev-open.ts",
-    "dev:site": "astro dev",
-    "dev:verbose": "DEBUG_FRONTMATTER=true astro dev --verbose",
-    "dev:watch": "node src/scripts/webserver.ts",
-    "preview": "astro preview",
-    "upgrade": "npx @astrojs/upgrade",
-    "build:blogroll": "node src/scripts/content/blogroll-screenshots.ts --input src/content/blogroll.json --out-dir src/assets/images/blogroll/",
-    "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",
-    "deploy:build": "wireit",
-    "deploy:dry-run": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:dry-run\" -- npm run deploy:dry-run:pipeline",
-    "deploy:dry-run:pipeline": "wireit",
-    "deploy:preflight": "wireit",
-    "deploy:preview": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview\" -- npm run deploy:preview:pipeline",
-    "deploy:preview:build": "wireit",
-    "deploy:preview:preflight": "wireit",
-    "deploy:preview:pipeline": "wireit",
-    "deploy:preview:prototypes": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy:preview:prototypes\" -- npm run deploy:preview:prototypes:pipeline",
-    "deploy:preview:prototypes:build": "wireit",
-    "deploy:preview:prototypes:preflight": "wireit",
-    "deploy:preview:prototypes:pipeline": "wireit",
-    "deploy:pipeline": "wireit",
-    "hosting:check": "wireit",
-    "lint:design": "design.md lint DESIGN.md",
-    "lint:design:diff": "design.md diff DESIGN.md",
-    "docs:api": "typedoc",
-    "build:favicons": "node src/assets/favicon/regenerate.ts",
-    "icons:sync": "node src/scripts/maintenance/create-icon-types.ts",
-    "postinstall:icons": "npm run icons:sync",
-    "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
-    "prebuild": "npm run build:image-index",
-    "postprepare": "wireit",
-    "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
-    "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
-    "lighthouse:desktop": "node src/scripts/linting/lighthouse-audit.ts --config=desktop",
-    "lighthouse:mobile-slow4g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-slow4g",
-    "lighthouse:mobile-3g": "node src/scripts/linting/lighthouse-audit.ts --config=mobile-3g",
-    "lighthouse:desktop-cable": "node src/scripts/linting/lighthouse-audit.ts --config=desktop-cable",
-    "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:e2e": "npx playwright test --tsconfig ./tsconfig.playwright.json",
-    "test:e2e:ui": "npx playwright test --ui --tsconfig ./tsconfig.playwright.json",
-    "test:install-browsers": "npx playwright install",
-    "test:live": "npx playwright test --config ./playwright.live.config.ts --tsconfig ./tsconfig.playwright.json",
-    "test:ui": "vitest --ui",
-    "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",
-    "skills": "npx skills",
-    "skills:add": "node src/scripts/maintenance/skills.ts add",
-    "skills:install": "node src/scripts/maintenance/skills.ts install",
-    "skills:links": "node src/scripts/maintenance/prepare-skill-symlinks.ts",
-    "skills:list": "node src/scripts/maintenance/skills.ts list",
-    "skills:sync": "node src/scripts/maintenance/skills.ts sync",
-    "skills:update": "node src/scripts/maintenance/skills.ts update",
-    "postinstall:skills": "npm run skills:links",
-    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts",
-    "hooks:update": "simple-git-hooks",
-    "postinstall": "run-p postinstall:*",
-    "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
-    "update": "wireit"
-  },
-  "wireit": {
-    "clean:full": {
-      "command": "clean:full:last",
-      "dependencies": [
-        "clean:full:items"
-      ]
-    },
-    "clean:full:items": {
-      "command": "run-p clean:*"
-    },
-    "clean:full:last": {
-      "command": "rm -rf node_modules package-lock.json .wireit"
-    },
-    "compile:fixpack": {
-      "command": "fixpack --config ci/.fixpackrc.json || true && fixpack --config ci/.fixpackrc.json || true"
-    },
-    "compile:package": {
-      "dependencies": [
-        "compile:package:install",
-        "compile:package:run"
-      ],
-      "files": [
-        "./src/packages/**/*.jsonc"
-      ]
-    },
-    "compile:package:install": {
-      "command": "npm install",
-      "dependencies": [
-        "compile:fixpack"
-      ]
-    },
-    "compile:package:run": {
-      "command": "nanny generate-package"
-    },
-    "packages:generate": {
-      "command": "nanny generate-package",
-      "dependencies": [
-        "compile:package"
-      ],
-      "files": [
-        "./src/packages/**/*.jsonc"
-      ]
-    },
-    "packages:update": {
-      "command": "nanny update-package",
-      "dependencies": [
-        "compile:fixpack"
-      ]
-    },
-    "release": {
-      "command": "bash -c 'before=$(git describe --tags --abbrev=0 2>/dev/null || echo none); DEBUG=* release-it --ci --config .release-it.ts; code=$?; after=$(git describe --tags --abbrev=0 2>/dev/null || echo none); if [ \"$before\" = \"$after\" ]; then echo; echo \"No new release created — run npm run release:patch to force a patch release.\"; fi; exit $code'",
-      "dependencies": [
-        "release:tests"
-      ]
-    },
-    "release:forced": {
-      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment patch",
-      "dependencies": [
-        "release:tests"
-      ]
-    },
-    "release:major": {
-      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment major",
-      "dependencies": [
-        "release:tests"
-      ]
-    },
-    "release:minor": {
-      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment minor",
-      "dependencies": [
-        "release:tests"
-      ]
-    },
-    "release:patch": {
-      "command": "DEBUG=* release-it --ci --config .release-it.ts --increment patch",
-      "dependencies": [
-        "release:tests"
-      ]
-    },
-    "release:tests": {
-      "command": "npx astro check",
-      "dependencies": [
-        "test",
-        "test:e2e"
-      ]
-    },
-    "screenshot": {
-      "command": "node src/scripts/maintenance/screenshot.ts --url=https://kollitsch.dev/ --width=1280 --format=png --scheme=dark --output=.github/screenshot.png --scroll-step=500 --scroll-delay=250 --settle-ms=5000 --timeout=120000"
-    },
-    "audit:html": {
-      "command": "npm run build && html-validate dist/**/*.html --config=src/config/htmlvalidate.json"
-    },
-    "lint:lychee": {
-      "command": "lychee --require-https src/content/"
-    },
-    "lint:styles": {
-      "command": "stylelint -f verbose --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "lint:styles:fix": {
-      "command": "stylelint --fix --config src/config/stylelint/index.js --color --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables --ignore-path src/config/stylelint/.stylelintignore src/styles/**/*.css"
-    },
-    "update:pre:vale": {
-      "command": "vale --config src/config/.vale.ini --no-exit sync"
-    },
-    "clean:astro": {
-      "command": "rm -rf .astro dist node_modules/.astro"
-    },
-    "clean:build-caches": {
-      "command": "rm -rf .astro node_modules/.astro public/og_image .cache/og_image .cache/image-index"
-    },
-    "clean:og": {
-      "command": "rm -rf public/og_image .cache/og_image"
-    },
-    "deploy:build": {
-      "command": "npm run build",
-      "dependencies": [
-        "check"
-      ]
-    },
-    "deploy:dry-run:pipeline": {
-      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy --dry-run",
-      "dependencies": [
-        "deploy:preflight"
-      ]
-    },
-    "deploy:preflight": {
-      "command": "npm run hosting:check",
-      "dependencies": [
-        "deploy:build"
-      ]
-    },
-    "deploy:preview:pipeline": {
-      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias preview",
-      "dependencies": [
-        "deploy:preview:preflight"
-      ]
-    },
-    "deploy:preview:build": {
-      "command": "npm run build"
-    },
-    "deploy:preview:preflight": {
-      "command": "npm run hosting:check",
-      "dependencies": [
-        "deploy:preview:build"
-      ]
-    },
-    "deploy:preview:prototypes:pipeline": {
-      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler versions upload --preview-alias prototypes",
-      "dependencies": [
-        "deploy:preview:prototypes:preflight"
-      ]
-    },
-    "deploy:preview:prototypes:build": {
-      "command": "KOLLITSCH_INCLUDE_PROTOTYPES=1 npm run build"
-    },
-    "deploy:preview:prototypes:preflight": {
-      "command": "npm run hosting:check",
-      "dependencies": [
-        "deploy:preview:prototypes:build"
-      ]
-    },
-    "deploy:pipeline": {
-      "command": "WRANGLER_LOG_PATH=.cache/wrangler wrangler deploy",
-      "dependencies": [
-        "deploy:preflight"
-      ]
-    },
-    "hosting:check": {
-      "command": "node src/scripts/hosting/cloudflare-static-assets.ts"
-    },
-    "postprepare": {
-      "dependencies": [
-        "build:favicons"
-      ]
-    },
-    "update": {
-      "dependencies": [
-        "update:git-hooks"
-      ]
-    },
-    "update:git-hooks": {
-      "command": "npm test && npx simple-git-hooks",
-      "dependencies": [
-        "update:post"
-      ]
-    },
-    "update:post": {
-      "command": "fixpack && browserslist --update-db",
-      "dependencies": [
-        "update:pre:npm",
-        "update:pre:submodules"
-      ]
-    },
-    "update:pre:npm": {
-      "command": "npm-check-updates -u --target minor"
-    },
-    "update:pre:submodules": {
-      "command": "git submodule update --recursive --remote"
-    }
   },
   "cspell": {
     "import": [

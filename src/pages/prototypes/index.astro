@@ -178,6 +178,13 @@ const prototypes = [
           padding-inline: 16px;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        .prototype-card a:hover,
+        .prototype-card a:focus-visible {
+          transform: none;
+        }
+      }
     </style>
   </body>
 </html>

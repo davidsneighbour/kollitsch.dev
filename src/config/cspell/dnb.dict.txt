@@ -225,6 +225,7 @@ karman
 KASE
 Kaushal
 kdev
+Keepass
 Kelsy
 keybase
 Keybase
@@ -435,6 +436,7 @@ Shunk
 Sidenote
 sidenotes
 signingkey
+simpleicons
 sitetitle
 slacktechnologies
 Sleepmi
@@ -451,6 +453,7 @@ Steinbauer
 Sticka
 submod
 subsetting
+Suchow
 sudoedit
 sunsetting
 Supabase

@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
+import Icon from '@components/shared/elements/Icon.astro';
 
 interface NavItem {
   label: string;
@@ -209,7 +209,7 @@ const searchInputId = `${componentId}-search-input`;
             >
               <slot name="search-close-icon">
                 <Icon
-                  name="x"
+                  name="lucide:x"
                   class="h-5 w-5"
                 />
               </slot>

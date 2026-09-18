@@ -93,7 +93,7 @@ See [Tags](tags.md) for the full tag model, badge presentation metadata,
 | `badge.class` | no | `string` or `string[]` | Extra Tailwind classes appended after the selected badge variant. |
 | `badge.icon` | no | `string` or object | Icon rendered inside the badge. |
 | `badge.icon.color` | no | `string` | Optional inline icon colour value. |
-| `badge.icon.name` | for object icons | `string` | Icon name for `astro-icon/components`. |
+| `badge.icon.name` | for object icons | `string` | Icon name registered in `src/utils/icon-names.ts` (e.g. `lucide:tags`). |
 | `badge.icon.position` | no | `inline-start` or `inline-end` | Icon position; defaults to `inline-start`. |
 | `badge.variant` | no | `default`, `secondary`, `destructive`, `outline`, `ghost`, `link`, `green`, `gray`, or `red` | Shared badge variant; defaults to `default`. |
 | `class` | no | `string` | Legacy top-level presentation class; do not use for new tag metadata. |

@@ -48,7 +48,7 @@ import Tag from '@components/content/taxonomy/Tag.astro';
   dataLabel="astro"
   badge={{
     variant: "green",
-    icon: { name: "lucide:hash", position: "inline-end" },
+    icon: { name: "lucide:tags", position: "inline-end" },
   }}
 />
 ```

@@ -1,9 +1,9 @@
 ---
 // @todo refactor and comment
 import type { CollectionEntry } from 'astro:content';
+import Icon from '@components/shared/elements/Icon.astro';
 import IconLink from '@components/shared/links/IconLink.astro';
 import { formatDate, getVSCodeUrlById } from '@utils/content.ts';
-import { Icon } from 'astro-icon/components';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
@@ -22,7 +22,7 @@ const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
   data-pagefind-meta={metaDate}
 >
   <div class="w-6 flex-none">
-    <Icon name="calendar3" />
+    <Icon name="lucide:calendar" />
   </div>
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Published: {formattedPublishDate}</span>
@@ -32,7 +32,7 @@ const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
     {isDev && (
         <IconLink
           href={vscodeURL}
-          icon="pencil"
+          icon="lucide:pencil"
         />
       )}
   </div>

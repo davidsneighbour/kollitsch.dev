@@ -36,7 +36,7 @@ Plain item (no dropdown):
 import NavItem from '@components/layout/header/navigation/NavItem.astro';
 ---
 
-<NavItem icon="house-fill" name="Home" link="/" classes="px-3 py-2" />
+<NavItem icon="lucide:house" name="Home" link="/" classes="px-3 py-2" />
 ```
 
 Item with a dropdown:

@@ -2,8 +2,8 @@
 // @todo refactor and comment
 import ArticleCard from '@components/content/article/Preview.astro';
 import Heading from '@components/content/typography/Heading.astro';
+import Icon from '@components/shared/elements/Icon.astro';
 import { getHomepagePosts } from '@utils/content.ts';
-import { Icon } from 'astro-icon/components';
 
 export interface Props {
   eagerPreviewCount?: number;
@@ -27,7 +27,7 @@ const { featuredPost: _, recentPosts } = await getHomepagePosts();
       class="inline-flex items-center gap-x-2 rounded-md bg-primary-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-500 hover:text-gray-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
     >
       Read more...
-      <Icon name="arrow-right" />
+      <Icon name="lucide:arrow-right" />
     </a>
   </div>
 </section>

@@ -21,7 +21,7 @@ Renders a single external source-code badge link.
 | --- | --- | --- | --- |
 | `url` | `string` | required | Full external source URL |
 | `label` | `string` | derived from `url` | Display label |
-| `icon` | `string` | `simple-icons:github` | Iconify icon name |
+| `icon` | `IconName` | `simple-icons:github` | Icon name registered in `src/utils/icon-names.ts` |
 | `class` | `string` | `""` | Extra classes on the link |
 | `line` | `number \| string` | `undefined` | Single line or `start-end` range appended as a GitHub/GitLab-style anchor |
 | `inline` | `boolean` | `false` | Renders an inline prose-style link instead of a badge |

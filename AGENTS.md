@@ -189,7 +189,7 @@ Required for full builds and certain scripts (set in `.env`, gitignored):
 
 Astro generates a fully static site (`output: 'static'`). All pages are pre-rendered at build time. `compressHTML` is gated on `import.meta.env.PROD`. `pagefind` creates a client-side search index during the build.
 
-**Integrations:** custom `buildHooks()` (from `src/scripts/build/build-hooks.ts`), `@astrojs/sitemap`, `astro-icon`, `astro-expressive-code`, `@astrojs/mdx`. Vite plugins: `vite-plugin-devtools-json`, `@tailwindcss/vite`.
+**Integrations:** custom `buildHooks()` (from `src/scripts/build/build-hooks.ts`), `@astrojs/sitemap`, `astro-expressive-code`, `@astrojs/mdx`. Vite plugins: `vite-plugin-devtools-json`, `@tailwindcss/vite`.
 
 **Experimental flags active:** `chromeDevtoolsWorkspace`, `clientPrerender`, `contentIntellisense`.
 
@@ -327,21 +327,22 @@ Note: `src/scripts/` is excluded from TypeScript compilation (no type-checking).
 
 ## Icons
 
-Four icon sources are available via `astro-icon/components`:
+Icons render through `@components/shared/elements/Icon.astro`, backed by a small hand-maintained registry in `src/utils/icon-names.ts` (see `documentation/theme/icons.md`):
 
 | Source | Prefix | Use for |
 | --- | --- | --- |
-| `src/icons/` | none (for example `house-fill`) | Existing Bootstrap Icons — do not add new ones |
-| `simple-icons` | `simple-icons:github` | Brand/logo icons |
-| `lucide` | `lucide:rss` | All other UI icons |
-| `fa7-brands` | `fa7-brands:x-twitter` | Legacy brand icons — prefer `simple-icons` for new additions |
+| `lucide` (`@lucide/astro`) | `lucide:rss` | All UI icons |
+| `simple-icons` (`simple-icons-astro`) | `simple-icons:github` | Brand/logo icons |
+| `local` (`src/components/icons/local/`) | `local:name` | Extreme cases only — a brand mark neither set can provide |
+
+There is no auto-generated list of every Lucide or Simple Icons icon — `IconName` only contains entries actually registered in `src/utils/icon-names.ts`.
 
 Rules:
 
-* **Always** use `<Icon name="..." />` from `astro-icon/components` — never inline raw SVG.
+* **Always** use `<Icon name="..." />` from `@components/shared/elements/Icon.astro` — never inline raw SVG.
 * **Always** use `<IconLink>` from `src/components/shared/links/IconLink.astro` when an icon appears inside a link or button. Do not compose `<Icon>` + `<a>` by hand.
-* When you encounter an inline `<svg>` in existing code, check whether an equivalent icon exists in one of the sets above and replace it.
-* For brand/social icons, search [simpleicons.org](https://simpleicons.org) first. For UI icons, search [lucide.dev](https://lucide.dev) first.
+* When you encounter an inline `<svg>` in existing code, check whether an equivalent icon exists in one of the sets above; if it's not yet registered, add it to `src/utils/icon-names.ts` before using it.
+* For brand/social icons, search [simpleicons.org](https://simpleicons.org) first. For UI icons, search [lucide.dev](https://lucide.dev) first. If a brand mark isn't available in either (for example one Simple Icons removed under legal pressure), see `src/components/icons/local/README.md`.
 
 ## Testing conventions
 

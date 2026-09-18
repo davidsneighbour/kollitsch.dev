@@ -2,7 +2,7 @@
 // @todo refactor and comment
 import type { CollectionEntry } from 'astro:content';
 
-import { Icon } from 'astro-icon/components';
+import Icon from '@components/shared/elements/Icon.astro';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
@@ -17,12 +17,14 @@ const canonicalUrl = Astro.url.toString();
 
 <div class="flex flex-row items-center justify-start gap-2">
   <div class="w-6 flex-none">
-    <Icon name="share-fill" />
+    <Icon name="lucide:share-2" />
   </div>
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Share:</span>
 
-    <Icon name="linkedin" />
+    {/* @todo swap for a custom LinkedIn mark once available; simple-icons
+        dropped it under legal pressure — see issue #2024 */}
+    <Icon name="lucide:id-card" />
     <a
       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"
@@ -31,7 +33,7 @@ const canonicalUrl = Astro.url.toString();
       >LinkedIn</a
     >
 
-    <Icon name="facebook" />
+    <Icon name="simple-icons:facebook" />
     <a
       href={`https://facebook.com/sharer/sharer.php?&u=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"
@@ -40,7 +42,7 @@ const canonicalUrl = Astro.url.toString();
       >Facebook</a
     >
 
-    <Icon name="reddit" />
+    <Icon name="simple-icons:reddit" />
     <a
       href={`https://www.reddit.com/submit?url=${encodeURIComponent(canonicalUrl)}&title=${encodeURIComponent(post.data.title)}`}
       target="_blank"

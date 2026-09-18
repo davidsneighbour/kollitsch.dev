@@ -44,7 +44,7 @@ if (parsed.success) {
             <a href={item.url} rel="noopener noreferrer" target="_blank">
               {item.name}
             </a>
-            {item.rss && <IconLink icon="rss" href={item.rss} title={`RSS for ${item.name}`} />}
+            {item.rss && <IconLink icon="lucide:rss" href={item.rss} title={`RSS for ${item.name}`} />}
             {item.description && <div set:html={item.description} />}
           </li>
         ))

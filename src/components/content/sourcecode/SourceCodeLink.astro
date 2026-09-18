@@ -1,10 +1,11 @@
 ---
-import { Icon } from 'astro-icon/components';
+import Icon from '@components/shared/elements/Icon.astro';
+import type { IconName } from '@utils/icon-names.ts';
 
 /**
  * Icon naming convention:
- *  - Brand/social icons:  "simple-icons:github", "fa7-brands:gitlab"
- *  - UI/non-brand icons:  "lucide:code", or bare Bootstrap Icon name
+ *  - Brand/social icons:  "simple-icons:github", "simple-icons:gitlab"
+ *  - UI/non-brand icons:  "lucide:code"
  *
  * The prefix is the distinguisher — no extra flag needed.
  *
@@ -19,12 +20,12 @@ export interface Props {
   /** Display text; derived from the URL path when omitted */
   label?: string;
   /**
-   * Any iconify icon name.
-   * Brand icons:  "simple-icons:github" | "fa7-brands:gitlab"
-   * UI icons:     "lucide:code" | bare Bootstrap Icon name
+   * Any registered icon name.
+   * Brand icons:  "simple-icons:github" | "simple-icons:gitlab"
+   * UI icons:     "lucide:code"
    * Default:      "simple-icons:github"
    */
-  icon?: string;
+  icon?: IconName;
   /** Extra CSS classes on the <a> element */
   class?: string;
   /**

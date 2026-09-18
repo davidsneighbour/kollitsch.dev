@@ -1,6 +1,6 @@
 [
   {
-    "icon": "fa7-brands:discord",
+    "icon": "simple-icons:discord",
     "id": "discord",
     "label": "Discord",
     "url": "https://discord.com/users/davidsneighbour"
@@ -8,7 +8,7 @@
   {
     "background": "group-hover:bg-[#0085ff]/10 hover:bg-[#0085ff]/20 hover:shadow-[#0085ff]",
     "fill": "hover:text-[#0085ff]",
-    "icon": "fa7-brands:bluesky",
+    "icon": "simple-icons:bluesky",
     "id": "bluesky",
     "label": "Bluesky",
     "rel": "atproto",
@@ -18,7 +18,7 @@
   {
     "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/70 hover:shadow-[#ffffff]",
     "fill": "hover:text-[#000000]",
-    "icon": "fa7-brands:threads",
+    "icon": "simple-icons:threads",
     "id": "threads",
     "label": "Threads",
     "share": "https://threads.net/intent/post?url=${url}&text=${description}",
@@ -27,14 +27,14 @@
   {
     "background": "group-hover:bg-[#6364ff]/10 hover:bg-[#6364ff]/20 hover:shadow-[#6364ff]",
     "fill": "hover:text-[#6364ff]",
-    "icon": "fa7-brands:mastodon",
+    "icon": "simple-icons:mastodon",
     "id": "mastodon",
     "label": "Mastodon",
     "share": "https://mas.to/share?text=${title}&url=${url}",
     "url": "https://mas.to/@davidsneighbour"
   },
   {
-    "icon": "fa7-brands:instagram",
+    "icon": "simple-icons:instagram",
     "id": "instagram",
     "label": "Instagram",
     "url": "https://www.instagram.com/davidsneighbour.dev/"
@@ -51,7 +51,7 @@
   {
     "background": "group-hover:bg-[#1877f2]/10 hover:bg-[#1877f2]/20 hover:shadow-[#1877f2]",
     "fill": "hover:text-[#1877f2]",
-    "icon": "fa7-brands:facebook",
+    "icon": "simple-icons:facebook",
     "id": "facebook",
     "label": "Facebook",
     "share": "https://www.facebook.com/sharer/sharer.php?u=${url}",
@@ -60,7 +60,7 @@
   {
     "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/70 hover:shadow-[#ffffff]",
     "fill": "hover:text-[#000000]",
-    "icon": "fa7-brands:twitter",
+    "icon": "simple-icons:x",
     "id": "twitter",
     "label": "Twitter (aka X)",
     "share": "https://x.com/intent/tweet?url=${url}",
@@ -69,7 +69,7 @@
   {
     "background": "group-hover:bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:shadow-[#0A66C2]",
     "fill": "hover:text-[#0A66C2]",
-    "icon": "fa7-brands:linkedin",
+    "icon": "lucide:id-card",
     "id": "linkedin",
     "label": "LinkedIn",
     "share": "https://www.linkedin.com/sharing/share-offsite/?url=${url}",
@@ -78,7 +78,7 @@
   {
     "background": "group-hover:bg-[#FF4500]/10 hover:bg-[#FF4500]/20 hover:shadow-[#FF4500]",
     "fill": "hover:text-[#FF4500]",
-    "icon": "fa7-brands:reddit",
+    "icon": "simple-icons:reddit",
     "id": "reddit",
     "label": "Reddit",
     "share": "https://www.reddit.com/submit?url=${url}&title=${title}",
@@ -87,7 +87,7 @@
   {
     "background": "group-hover:bg-[#0088cc]/10 hover:bg-[#0088cc]/20 hover:shadow-[#0088cc]",
     "fill": "hover:text-[#0088cc]",
-    "icon": "fa7-brands:telegram",
+    "icon": "simple-icons:telegram",
     "id": "telegram",
     "label": "Telegram",
     "share": "https://t.me/share/url?url=${url}&text=${title}",
@@ -96,7 +96,7 @@
   {
     "background": "group-hover:bg-[#E60023]/10 hover:bg-[#E60023]/20 hover:shadow-[#E60023]",
     "fill": "hover:text-[#E60023]",
-    "icon": "fa7-brands:pinterest",
+    "icon": "simple-icons:pinterest",
     "id": "pinterest",
     "label": "Pinterest",
     "share": "https://pinterest.com/pin/create/button/?url=${url}&media=&description=${title}",
@@ -105,14 +105,14 @@
   {
     "background": "group-hover:bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:shadow-[#25D366]",
     "fill": "hover:text-[#25D366]",
-    "icon": "fa7-brands:whatsapp",
+    "icon": "simple-icons:whatsapp",
     "id": "whatsapp",
     "label": "WhatsApp",
     "share": "https://wa.me/?text=${title}%20${url}",
     "url": "https://wa.me/66878979350"
   },
   {
-    "icon": "fa7-brands:youtube",
+    "icon": "simple-icons:youtube",
     "id": "youtube",
     "label": "YouTube",
     "url": "https://www.youtube.com/@davidsneighbour"
@@ -120,7 +120,7 @@
   {
     "background": "group-hover:bg-[#00AB6C]/10 hover:bg-[#00AB6C]/20 hover:shadow-[#00AB6C]",
     "fill": "hover:text-[#00AB6C]",
-    "icon": "fa7-brands:medium",
+    "icon": "simple-icons:medium",
     "id": "medium",
     "label": "Medium",
     "share": "https://medium.com/new_story?title=${title}&url=${url}",
@@ -129,7 +129,7 @@
   {
     "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20 hover:shadow-[#000000]",
     "fill": "hover:text-[#000000]",
-    "icon": "fa7-brands:github",
+    "icon": "simple-icons:github",
     "id": "github",
     "label": "GitHub",
     "url": "https://github.com/davidsneighbour"
@@ -138,7 +138,7 @@
     "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20 hover:shadow-[#000000]",
     "fill": "hover:text-[#000000]",
     "label": "Dev.to",
-    "icon": "fa7-brands:dev",
+    "icon": "simple-icons:devdotto",
     "id": "devto",
     "share": "https://dev.to/new?title=${title}&url=${url}",
     "url": "https://dev.to/davidsneighbour"

@@ -2,9 +2,9 @@
 import '@styles/theme.css';
 import Heading from '@components/content/typography/Heading.astro';
 import Badge from '@components/shared/elements/Badge.astro';
+import Icon from '@components/shared/elements/Icon.astro';
 import Section from '@components/support/fixtures/Section.astro';
 import Layout from '@layouts/ContentPageTest.astro';
-import { Icon } from 'astro-icon/components';
 ---
 
 <Layout>
@@ -54,21 +54,21 @@ import { Icon } from 'astro-icon/components';
           color="gray"
           href="/docs/"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (gray)
         </Badge>
         <Badge
           color="red"
           href="/docs/"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (red)
         </Badge>
         <Badge
           color="yellow"
           href="/docs/"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (yellow)
         </Badge>
       </div>
@@ -80,7 +80,7 @@ import { Icon } from 'astro-icon/components';
           bordered
           href="/docs/"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (gray)
         </Badge>
         <Badge
@@ -88,7 +88,7 @@ import { Icon } from 'astro-icon/components';
           bordered
           href="/docs/"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (red)
         </Badge>
         <Badge
@@ -96,7 +96,7 @@ import { Icon } from 'astro-icon/components';
           bordered
           href="/docs/"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (yellow)
         </Badge>
       </div>
@@ -108,14 +108,14 @@ import { Icon } from 'astro-icon/components';
           bordered
           href="https://github.com"
         >
-          <Icon name="github" />
+          <Icon name="simple-icons:github" />
           GitHub (gray)
         </Badge>
         <Badge
           color="red"
           href="https://github.com"
         >
-          <Icon name="github" />
+          <Icon name="simple-icons:github" />
           GitHub (red)
         </Badge>
         <Badge
@@ -123,7 +123,7 @@ import { Icon } from 'astro-icon/components';
           bordered
           href="https://github.com"
         >
-          <Icon name="github" />
+          <Icon name="simple-icons:github" />
           GitHub (yellow)
         </Badge>
       </div>
@@ -161,7 +161,7 @@ import { Icon } from 'astro-icon/components';
           href="/docs/"
           title="Goes to docs"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (gray)
         </Badge>
         <Badge
@@ -169,7 +169,7 @@ import { Icon } from 'astro-icon/components';
           href="/docs/"
           title="Goes to docs"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (red)
         </Badge>
         <Badge
@@ -177,7 +177,7 @@ import { Icon } from 'astro-icon/components';
           href="/docs/"
           title="Goes to docs"
         >
-          <Icon name="book" />
+          <Icon name="lucide:book-open" />
           Docs (yellow)
         </Badge>
       </div>
@@ -193,7 +193,7 @@ import { Icon } from 'astro-icon/components';
         color="red"
         bordered
       >
-        <Icon name="heart" />
+        <Icon name="lucide:heart" />
         Loved
       </Badge>
       <Badge color="yellow"><strong>Bold</strong> text</Badge>
@@ -228,7 +228,7 @@ import { Icon } from 'astro-icon/components';
         href="/docs/"
         class="no-underline underline-offset-4"
       >
-        <Icon name="book" />
+        <Icon name="lucide:book-open" />
         Link with custom underline control
       </Badge>
     </div>
@@ -247,7 +247,7 @@ import { Icon } from 'astro-icon/components';
         bordered
         title="Red by default"
       >
-        <Icon name="info-circle" />
+        <Icon name="lucide:info" />
         Default link bordered
       </Badge>
     </div>
@@ -275,7 +275,7 @@ import { Icon } from 'astro-icon/components';
         color="red"
         href="/test/focus"
       >
-        <Icon name="heart" />
+        <Icon name="lucide:heart" />
         Red focus
       </Badge>
       <Badge
@@ -283,14 +283,14 @@ import { Icon } from 'astro-icon/components';
         bordered
         href="/test/focus"
       >
-        <Icon name="info-circle" />
+        <Icon name="lucide:info" />
         Gray focus
       </Badge>
       <Badge
         color="yellow"
         href="/test/focus"
       >
-        <Icon name="star" />
+        <Icon name="lucide:star" />
         Yellow focus
       </Badge>
     </div>

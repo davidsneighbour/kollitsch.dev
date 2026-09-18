@@ -2,19 +2,20 @@
 title: Icons
 tags: []
 created: 2026-06-14T00:00:00+07:00
-updated: 2026-06-14T00:00:00+07:00
+updated: 2026-09-18T00:00:00+07:00
 ---
 
-All icons are rendered through `astro-icon`, which provides a single `<Icon>` component backed by multiple icon sets. Never write inline SVG; always use the component.
+All icons are rendered through `@components/shared/elements/Icon.astro`, backed by a small hand-maintained registry in `src/utils/icon-names.ts`. Never write inline SVG; always use the component.
 
 ## Icon sets
 
 | Set | Prefix | Use for | Source |
 | --- | --- | --- | --- |
-| Local Bootstrap Icons | none | Existing nav and UI icons; do not add new files here | `src/icons/` |
-| Simple Icons | `simple-icons:` | Brand and logo icons | [simpleicons.org](https://simpleicons.org) |
-| Lucide | `lucide:` | General UI icons | [lucide.dev](https://lucide.dev) |
-| Font Awesome 7 Brands | `fa7-brands:` | Legacy brand icons; prefer Simple Icons for new work | — |
+| Lucide | `lucide:` | All UI icons | [lucide.dev](https://lucide.dev), via `@lucide/astro` |
+| Simple Icons | `simple-icons:` | Brand and logo icons | [simpleicons.org](https://simpleicons.org), via `simple-icons-astro` |
+| Local | `local:` | Extreme cases only — a brand mark neither set can provide (for example a mark Simple Icons removed under legal pressure) | `src/components/icons/local/` |
+
+Every `IconName` is a hand-picked entry — there is no auto-generated list of every Lucide or Simple Icons icon. Add an icon to `src/utils/icon-names.ts` only when it's actually used somewhere in the site. See `src/components/icons/local/README.md` for when and how to add a local icon.
 
 ## Usage
 
@@ -22,7 +23,7 @@ All icons are rendered through `astro-icon`, which provides a single `<Icon>` co
 
 ```astro
 ---
-import { Icon } from 'astro-icon/components';
+import Icon from '@components/shared/elements/Icon.astro';
 ---
 
 <Icon name="lucide:rss" class="size-[1em]" aria-hidden="true" />
@@ -66,14 +67,17 @@ When you encounter an existing inline `<svg>` element, look up the equivalent ic
 
 1. Identify whether it is a brand/logo or a UI icon.
 2. Search [simpleicons.org](https://simpleicons.org) for brands or [lucide.dev](https://lucide.dev) for UI icons.
-3. Replace the `<svg>` with `<Icon name="prefix:icon-name" class="size-[1em]" />`.
-4. If no equivalent exists in either set, check the local `src/icons/` Bootstrap Icons before adding a new file.
+3. Add it to `src/utils/icon-names.ts` if it isn't already registered, then replace the `<svg>` with `<Icon name="prefix:icon-name" class="size-[1em]" />`.
+4. If no equivalent exists in either set (for example a mark Simple Icons has removed), see `src/components/icons/local/README.md`.
 
 ## Choosing the right set
 
 | Scenario | Icon set |
 | --- | --- |
-| GitHub, npm, X, LinkedIn, YouTube, etc. | `simple-icons:` |
+| GitHub, npm, X, Mastodon, etc. | `simple-icons:` |
 | RSS, search, menu, close, chevron, etc. | `lucide:` |
-| Icons already used in existing navigation | local `src/icons/` (Bootstrap Icons) |
-| New navigation or UI additions | `lucide:` |
+| A brand mark Simple Icons can't ship (legal takedown) | `local:` — file an issue and add a local icon |
+
+## Content-driven icon names
+
+Some icon names come from JSON or frontmatter (`src/content/social.json`, `src/data/*navigation.json`, tag `badge.icon.name`) rather than a literal string in a component. Those values are plain strings at the content layer and are narrowed to `IconName` with a cast at the single point where they're rendered (see `ShareSeparator.astro`). Keep those content values in sync with the registry in `src/utils/icon-names.ts` — an unregistered name throws at render time.

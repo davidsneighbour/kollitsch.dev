@@ -4,7 +4,7 @@ title: "Kurzschnitte link collections"
 linktitle: "Kurzschnitte"
 badge:
   icon:
-    name: scissors
+    name: lucide:scissors
     position: inline-start
 description: |
   Kurzschnitte II is a collection of links I came across in recent weeks. These links were noteworthy to me, but I don't want to write a full blog post about them. Instead, I've gathered them here for you to enjoy.

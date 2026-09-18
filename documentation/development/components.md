@@ -52,7 +52,7 @@ Stable ids keep unchanged builds byte-stable, which avoids unnecessary Pagefind 
 
 ## Icons
 
-Render icons through `astro-icon/components`. Do not write inline SVG in components. Use `IconLink` from `@components/shared/links/IconLink.astro` when a link or button contains an icon. See [Icons](../theme/icons.md) for icon set selection and sizing.
+Render icons through `@components/shared/elements/Icon.astro`. Do not write inline SVG in components. Use `IconLink` from `@components/shared/links/IconLink.astro` when a link or button contains an icon. See [Icons](../theme/icons.md) for icon set selection and sizing.
 
 ## Inline scripts
 

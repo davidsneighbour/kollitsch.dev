@@ -1,0 +1,13 @@
+---
+import { getIcon, type IconName } from '@utils/icon-names.ts';
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'svg'> {
+  name: IconName;
+}
+
+const { name, ...rest }: Props = Astro.props;
+const IconComponent = getIcon(name);
+---
+
+<IconComponent {...rest} />

@@ -4,7 +4,7 @@ title: "David's Neighbour projects"
 linktitle: "David's Neighbour"
 badge:
   icon:
-    name: person-bounding-box
+    name: lucide:scan-face
     position: inline-start
 description: |
   @davidsneighbour (aka David's Neighbour) is an umbrella brand, project and freelance company for my open source and business projects.

@@ -6,6 +6,7 @@ import Heading from '@components/content/typography/Heading.astro';
 import type { SocialMediaItem } from '@components/features/social/SocialLinks.astro';
 import SocialLinks from '@components/features/social/SocialLinks.astro';
 import Colophon from '@components/layout/footer/Colophon.astro';
+import Icon from '@components/shared/elements/Icon.astro';
 import IconLink from '@components/shared/links/IconLink.astro';
 import Link from '@components/shared/links/Link.astro';
 import rawSocialMediaData from '@content/social.json' with { type: 'json' };
@@ -13,7 +14,6 @@ import rawNavData from '@data/footernavigation.json' with { type: 'json' };
 import setup from '@data/setup.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content';
 import type { Navigation } from '@utils/navigation';
-import { Icon } from 'astro-icon/components';
 import MarkdownIt from 'markdown-it';
 
 export interface Props {}
@@ -128,13 +128,13 @@ const introFallbackHtml = md.renderInline(introFallback);
   <div class="my-4 flex flex-row items-center justify-center gap-8 text-sm">
     <IconLink
       href="/privacy-policy/"
-      icon="shield-check"
+      icon="lucide:shield-check"
     >
       Privacy Policy
     </IconLink>
     <IconLink
       href="/security-policy/"
-      icon="fingerprint"
+      icon="lucide:fingerprint-pattern"
     >
       Security Policy
     </IconLink>
@@ -149,13 +149,13 @@ const introFallbackHtml = md.renderInline(introFallback);
     <div class="flex flex-row items-center justify-center gap-2">
       <IconLink
         href="https://static.quest/previous/?host=kollitsch.dev"
-        icon="chevron-left"
+        icon="lucide:chevron-left"
         aria-label="Previous site in the Static.Quest web ring"
       />
       <a href="https://static.quest/members">View Members</a>
       <IconLink
         href="https://static.quest/next/?host=kollitsch.dev"
-        icon="chevron-right"
+        icon="lucide:chevron-right"
         iconPosition="postfix"
         aria-label="Next site in the Static.Quest web ring"
       />

@@ -1,7 +1,7 @@
 ---
 // @todo refactor and comment
+import Icon from '@components/shared/elements/Icon.astro';
 import { mergePropsWithDefaults } from '@utils/content.ts';
-import { Icon } from 'astro-icon/components';
 
 /**
  * Props for the Pagination component.
@@ -113,7 +113,7 @@ const isLast = props.currentPage === props.totalPages;
           {isFirst ? (
             <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm text-gray-500 dark:text-gray-300">
               <Icon
-                name="arrow-left"
+                name="lucide:arrow-left"
                 class="mr-2 place-self-center"
               />
               Prev
@@ -124,7 +124,7 @@ const isLast = props.currentPage === props.totalPages;
               class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:text-primary-400"
             >
               <Icon
-                name="arrow-left"
+                name="lucide:arrow-left"
                 class="mr-2 place-self-center"
               />
               Prev
@@ -160,7 +160,7 @@ const isLast = props.currentPage === props.totalPages;
             <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm text-gray-500 dark:text-gray-300">
               Next
               <Icon
-                name="arrow-right"
+                name="lucide:arrow-right"
                 class="ml-2 place-self-center"
               />
             </span>
@@ -171,7 +171,7 @@ const isLast = props.currentPage === props.totalPages;
             >
               Next
               <Icon
-                name="arrow-right"
+                name="lucide:arrow-right"
                 class="ml-2 place-self-center"
               />
             </a>

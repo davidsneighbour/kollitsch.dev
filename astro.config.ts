@@ -10,7 +10,6 @@ import { remarkDefinitionList, defListHastHandlers } from 'remark-definition-lis
 import { defineConfig, fontProviders } from 'astro/config';
 import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
 import matter from 'gray-matter';
-import icon from 'astro-icon';
 import fg from 'fast-glob';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import devtoolsJson from 'vite-plugin-devtools-json';
@@ -130,22 +129,7 @@ export default defineConfig({
       !page.startsWith('https://kollitsch.dev/test/') &&
       !page.startsWith('https://kollitsch.dev/blog/1/') &&
       !draftPagePaths.has(new URL(page).pathname),
-    }), icon({
-    svgoOptions: {
-      multipass: true,
-      plugins: [
-        {
-          name: 'preset-default',
-          params: {
-            overrides: {
-              removeComments: { preservePatterns: false },
-              removeDoctype: true,
-            },
-          },
-        },
-      ],
-    },
-  }), expressiveCode({
+    }), expressiveCode({
     shiki: {
       langs: [
         crontabTmLanguage

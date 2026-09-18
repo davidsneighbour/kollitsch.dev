@@ -11,6 +11,7 @@ import { getCollection } from 'astro:content';
 // ──────────────────────────────────────────────────────────────────────────────
 import setup from '@data/setup.json' with { type: 'json' };
 import { type BlogPost, getPostsSortedByDraft } from '@utils/content.ts';
+import type { IconName } from '@utils/icon-names.ts';
 import { createLogger, refOf } from '@utils/logger.ts';
 
 const log = createLogger({ slug: 'tags' });
@@ -33,7 +34,7 @@ export type Ctx = {
 export type NormalizedTag = { badge?: TagBadge; id: string; label: string };
 
 export type TagIcon = {
-  name: string;
+  name: IconName;
   color?: string;
   position?: 'inline-start' | 'inline-end';
 };

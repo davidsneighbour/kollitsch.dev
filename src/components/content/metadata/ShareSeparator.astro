@@ -1,8 +1,9 @@
 ---
+import Icon from '@components/shared/elements/Icon.astro';
 import networks from '@content/social.json' with { type: 'json' };
+import type { IconName } from '@utils/icon-names.ts';
 // @todo refactor and comment
 // @todo fix the URL being the homepage URL when shown on other pages than individual ones
-import { Icon } from 'astro-icon/components';
 
 export interface Props {
   title: string;
@@ -81,7 +82,7 @@ const vars: ShareVars = {
               rel="noopener noreferrer"
             >
               <span class="sr-only">{network.label}</span>
-              <Icon name={network.icon} />
+              <Icon name={network.icon as IconName} />
             </a>
           );
         })}

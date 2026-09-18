@@ -116,7 +116,7 @@ badge:
 | --- | --- | --- |
 | `variant` | no | Badge template: `default`, `secondary`, `destructive`, `outline`, `ghost`, `link`, `green`, `gray`, or `red` |
 | `class` | no | Extra Tailwind classes as a string or list; appended after the variant classes |
-| `icon.name` | no | Icon name rendered inside the badge via `astro-icon/components` |
+| `icon.name` | no | Icon name registered in `src/utils/icon-names.ts`, rendered inside the badge via `@components/shared/elements/Icon.astro` |
 | `icon.position` | no | `inline-start` or `inline-end`; defaults to `inline-start` |
 | `icon.color` | no | Optional inline icon colour override |
 

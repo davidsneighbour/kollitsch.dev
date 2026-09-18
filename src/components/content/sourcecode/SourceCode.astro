@@ -1,9 +1,11 @@
 ---
+import type { IconName } from '@utils/icon-names.ts';
 import SourceCodeLink from './SourceCodeLink.astro';
 
 type SourceCodeEntry = {
   source: string;
   label?: string | undefined;
+  /** Free-text in frontmatter; narrowed to IconName when rendered below. */
   icon?: string | undefined;
   line?: number | string | undefined;
   class?: string | undefined;
@@ -30,7 +32,7 @@ const entries = Object.entries(sourcecode).map(([slug, value]) => {
       <SourceCodeLink
         url={source}
         label={label ?? slug}
-        {...(icon !== undefined && { icon })}
+        {...(icon !== undefined && { icon: icon as IconName })}
         {...(line !== undefined && { line })}
         {...(cls !== undefined && { class: cls })}
       />

@@ -7,7 +7,7 @@ aliases:
   - ocd-series
 badge:
   icon:
-    name: stars
+    name: lucide:sparkles
     position: inline-start
 description: "A joyful collection of glorious over-engineering."
 draft: true

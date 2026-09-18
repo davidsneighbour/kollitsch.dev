@@ -84,7 +84,6 @@ One-off and recurring tooling scripts for the dev environment and repository.
 | Script | What it does | npm script |
 | --- | --- | --- |
 | `check-ai-symlink.ts` | Creates or updates the `ai/ → ../ai/ai` symlink. Run automatically on `postinstall`. | `npm run postinstall:ai` |
-| `create-icon-types.ts` | Copies Bootstrap Icons SVGs to `src/icons/` and generates `src/utils/icon-names.ts` with TypeScript union types for all Bootstrap + Lucide icon names. | `npm run icons:sync` |
 | `export-schema.ts` | Exports the Zod `blogSchema` from `content.config.ts` as a JSON Schema draft-7 file at `schemas/blog.schema.json`. | `node src/scripts/maintenance/export-schema.ts` |
 | `screenshot.ts` | Full-page website screenshot via Playwright. Supports `--url`, `--output`, `--width`, `--format`, `--scheme`, and scroll/settle timing options. Writes atomically via temp file. | `node src/scripts/maintenance/screenshot.ts --url=...` |
 | `tsc-config-to-instructions.ts` | Runs `tsc --showConfig` and injects the JSON output into a Markdown file between HTML comment markers. Keeps `.github/instructions/typescript.instructions.md` in sync. | `node src/scripts/maintenance/tsc-config-to-instructions.ts` |

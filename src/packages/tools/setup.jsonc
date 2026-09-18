@@ -15,7 +15,6 @@
       "dependencies": [
         "postinstall:sharedconfig",
         "postinstall:vscode",
-        "postinstall:icons",
         "postinstall:skills",
         "postinstall:ai",
         "postinstall:favicons"

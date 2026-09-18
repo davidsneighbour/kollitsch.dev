@@ -1,7 +1,8 @@
 ---
 import Badge from '@components/shared/elements/Badge.astro';
+import Icon from '@components/shared/elements/Icon.astro';
+import type { IconName } from '@utils/icon-names.ts';
 import type { TagBadge, TagIcon } from '@utils/tags.ts';
-import { Icon } from 'astro-icon/components';
 
 export interface Props {
   href: string;
@@ -9,7 +10,7 @@ export interface Props {
   dataLabel: string;
   badge?: TagBadge;
   hidden?: boolean;
-  icon?: TagIcon | string;
+  icon?: TagIcon | IconName;
   style?: string;
   title?: string;
   dataTagFilterDefaultHidden?: string;

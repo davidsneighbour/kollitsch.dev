@@ -1,10 +1,11 @@
 ---
 // @todo refactor and comment
-import { Icon } from 'astro-icon/components';
+import Icon from '@components/shared/elements/Icon.astro';
+import type { IconName } from '@utils/icon-names.ts';
 
 export interface Props {
   href?: string;
-  name?: string;
+  name?: IconName;
   classes?: string;
   theme?: 'primary' | 'secondary' | 'contrast';
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';

@@ -1,34 +1,33 @@
 // @vitest-environment node
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { getIcon, type IconName, iconNames } from './icon-names.ts';
 
-// The real @iconify-json/* packages ship multi-megabyte icons.json files.
-// Vitest's SSR node runtime externalizes them and hands the raw import
-// straight to Node's loader, which then rejects it for missing the
-// "type: json" attribute the source strips during transform. Mock both
-// packages with a small fixture so icon-names.ts's own merging/prefixing
-// logic can be tested without hitting that loader issue.
-vi.mock('@iconify-json/bi/icons.json', () => ({
-  default: { icons: { alarm: {}, 'house-door': {} } },
-}));
-vi.mock('@iconify-json/lucide/icons.json', () => ({
-  default: { icons: { home: {}, user: {} } },
-}));
+describe('getIcon', () => {
+  it('resolves a known Lucide icon', () => {
+    expect(getIcon('lucide:house')).toBeTypeOf('function');
+  });
 
-const { iconNames } = await import('./icon-names.ts');
+  it('resolves a known Simple Icons brand icon', () => {
+    expect(getIcon('simple-icons:github')).toBeTypeOf('function');
+  });
+
+  it('throws for an unknown icon name', () => {
+    expect(() => getIcon('lucide:does-not-exist' as IconName)).toThrow();
+  });
+});
 
 describe('iconNames', () => {
-  it('lists Bootstrap icon names without a prefix', () => {
-    expect(iconNames).toContain('alarm');
-    expect(iconNames).toContain('house-door');
+  it('prefixes every Lucide icon with "lucide:"', () => {
+    expect(iconNames).toContain('lucide:house');
+    expect(iconNames).toContain('lucide:arrow-right');
   });
 
-  it('prefixes every Lucide icon name with "lucide:"', () => {
-    expect(iconNames).toContain('lucide:home');
-    expect(iconNames).toContain('lucide:user');
+  it('prefixes every Simple Icons brand with "simple-icons:"', () => {
+    expect(iconNames).toContain('simple-icons:github');
+    expect(iconNames).toContain('simple-icons:mastodon');
   });
 
-  it('combines both icon sets into a single flat array with no duplicates', () => {
-    expect(iconNames).toHaveLength(4);
+  it('has no duplicates', () => {
     expect(new Set(iconNames).size).toBe(iconNames.length);
   });
 });

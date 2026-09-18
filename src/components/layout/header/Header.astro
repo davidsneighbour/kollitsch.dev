@@ -8,12 +8,12 @@ import ThemeSelector, {
   type StoredThemeMode,
 } from '@components/layout/header/theme/ThemeSelector.astro';
 import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
+import Icon from '@components/shared/elements/Icon.astro';
 import setup from '@data/setup.json' with { type: 'json' };
 import navData from '@data/topnavigation.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content.ts';
 import { createLogger } from '@utils/logger.ts';
 import { findActive, isActive, type Navigation } from '@utils/navigation.ts';
-import { Icon } from 'astro-icon/components';
 
 export interface Props {
   defaultTheme?: StoredThemeMode;
@@ -60,7 +60,7 @@ if (!activeItem && import.meta.env.DEV) {
           tabindex="-1"
         >
           <Icon
-            name="house-fill"
+            name="lucide:house"
             class="place-self-center"
           />
           {setup.title}

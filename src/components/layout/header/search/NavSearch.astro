@@ -222,7 +222,7 @@ const searchInputId = `${componentId}-search-input`;
     <div
       id={searchPanelId}
       class:list={[
-        "absolute inset-y-0 right-4 left-4 z-20 flex origin-right items-center transition-[opacity,scale] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] sm:right-6 sm:left-6 lg:right-8 lg:left-8",
+        "absolute inset-y-0 right-4 left-4 z-20 flex origin-right items-center transition-[opacity,scale] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-transform sm:right-6 sm:left-6 lg:right-8 lg:left-8",
         searchInitiallyOpen ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0",
       ]}
       role="search"

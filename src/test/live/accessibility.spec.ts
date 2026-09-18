@@ -10,11 +10,12 @@ test.describe('Accessibility (WCAG 2.1 AA)', () => {
     }) => {
       await page.goto(path);
       const results = await makeAxeBuilder()
-        // Pre-existing, tracked in #1835: sitewide colour-contrast debt (watermark
-        // heading + footer feed/web-ring links), plus one post with an empty
-        // aria-label from a missing cover.alt. Remove both once #1835 is fixed.
-        .disableRules(['color-contrast'])
-        .exclude('a[href="/blog/2025/language-kuchisabishii/"]')
+        // The footer colophon watermark (Colophon.astro) is decorative display
+        // texture by design - see DESIGN.md's "Footer Colophon Watermark"
+        // section. It's aria-hidden and intentionally low-contrast, marked
+        // with data-dnb-design-exception="decorative-low-contrast" for tools
+        // like this one to exclude explicitly (#1835).
+        .exclude('[data-dnb-design-exception="decorative-low-contrast"]')
         .analyze();
       expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
     });

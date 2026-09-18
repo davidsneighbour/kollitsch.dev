@@ -24,10 +24,7 @@ const typedNavData = navData as Navigation;
 const log = createLogger({ slug: 'TopNavigation' });
 const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
-const tagPrefixes = ['/tags/', '/tag/'];
-const isTagsPath = tagPrefixes.some((prefix) => pathname.startsWith(prefix));
-const isNavItemActive = (item: Navigation[number]) =>
-  isTagsPath ? item.link === '/tags/' : isActive(item, pathname);
+const isNavItemActive = (item: Navigation[number]) => isActive(item, pathname);
 const {
   defaultTheme = 'dark',
   siteTitleId = 'sitetitle-header',

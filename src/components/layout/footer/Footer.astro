@@ -12,6 +12,7 @@ import Link from '@components/shared/links/Link.astro';
 import rawSocialMediaData from '@content/social.json' with { type: 'json' };
 import rawNavData from '@data/footernavigation.json' with { type: 'json' };
 import setup from '@data/setup.json' with { type: 'json' };
+import Wordmark from '@dnbhq/wordmark';
 import { getHomepageUrl } from '@utils/content';
 import type { Navigation } from '@utils/navigation';
 import MarkdownIt from 'markdown-it';
@@ -120,8 +121,11 @@ const introFallbackHtml = md.renderInline(introFallback);
     </span>
     <span class="text-center">All rights reserved.</span>
     <span class="text-center lg:text-right"
-      >Webwork done by
-      <a href="https://davids-neighbour.com/">David's Neighbour</a></span
+      >Another production by
+      <Wordmark
+        inline
+        color="var(--footer-wordmark-color)"
+      /></span
     >
   </div>
 
@@ -242,8 +246,53 @@ const introFallbackHtml = md.renderInline(introFallback);
   </script>
 
   <style>
+    footer {
+      --footer-wordmark-color: var(--color-primary-700);
+    }
+
+    :where([data-theme="dark"]) footer {
+      --footer-wordmark-color: var(--color-primary-600);
+    }
+
+    /*
+     * The wordmark is an <a> from the @dnbhq/wordmark package, styled via its
+     * `color` prop as a CSS variable reference (see the `footer` rule above),
+     * so it can react to hover the same way the site's other nav links do
+     * (NavItem.astro: primary-700/600 in light, primary-600/400 in dark)
+     * instead of staying a flat, unhoverable brand color.
+     */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    :global(.dnb-wordmark) {
+      transition: color 150ms ease;
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    :global(.dnb-wordmark:hover) {
+      --footer-wordmark-color: var(--color-primary-600);
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    :where([data-theme="dark"]) :global(.dnb-wordmark:hover) {
+      --footer-wordmark-color: var(--color-primary-400);
+    }
+
     .about-intro {
       text-align: justify;
+    }
+
+    /*
+     * The site's global links rely on color alone at rest (underline only
+     * appears on hover - see DESIGN.md's "Links (prose)" section), which is
+     * fine against a page background but fails WCAG 1.4.1 (Use of Color) for
+     * links embedded inside a paragraph of body text: axe's link-in-text-block
+     * rule flagged these against the surrounding text color at 2.89:1, just
+     * under the 3:1 non-text-contrast threshold (#1835). Scoped underline
+     * here, rather than changing the site-wide hover-only convention, since
+     * this is the one place links sit inline in a prose paragraph.
+     */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    #about-introduction :global(a) {
+      text-decoration-line: underline;
     }
 
     .about-intro__image {

@@ -276,6 +276,14 @@ const { defaultTheme = 'dark' }: Props = Astro.props;
     outline-offset: 3px;
   }
 
+  /*
+   * 500-600ms across this icon's three transitioning parts (rotation, ray
+   * retraction, cutout translate) is above the site's ~300ms "no stated
+   * reason" ceiling, but deliberately so: this is a multi-part sun/moon
+   * morph, not a single-property hover, and the longer duration is what
+   * makes the three parts read as one coordinated transformation rather
+   * than a snap. See the "large/complex element" duration allowance.
+   */
   .theme-toggle-icon {
     width: 1.5rem;
     height: 1.5rem;

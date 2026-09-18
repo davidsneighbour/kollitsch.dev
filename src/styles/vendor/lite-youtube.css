@@ -51,7 +51,7 @@ lite-youtube .lyt-playbtn {
 lite-youtube:hover .lyt-playbtn,
 lite-youtube:focus-within .lyt-playbtn {
   background: rgb(255 0 0 / 0.9);
-  transform: translate(-50%, -50%) scale(1.03);
+  transform: translate(-50%, -50%) scale(1.02);
 }
 
 lite-youtube .lyt-playbtn::before {

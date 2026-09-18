@@ -44,7 +44,37 @@ const inputId = `tag-filter-input-${safeFilterId}`;
     data-tag-filter-status
     aria-live="polite"
   ></div>
+
+  <p
+    class="tag-filter-empty mt-2 text-sm text-muted-foreground"
+    data-tag-filter-empty
+    aria-live="polite"
+    hidden
+  ></p>
 </div>
+
+<style>
+  /*
+   * Softens the abrupt "nothing here" moment when a search narrows the tag
+   * list to zero matches - opacity only, no movement. The keystroke-driven
+   * show/hide of matched tags itself stays instant (100+/day action); this
+   * only covers the rare zero-match state.
+   */
+  .tag-filter-empty {
+    opacity: 100%;
+    transition: opacity 150ms ease-out;
+
+    @starting-style {
+      opacity: 0%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tag-filter-empty {
+      transition: none;
+    }
+  }
+</style>
 
 <script>
   /**
@@ -100,6 +130,7 @@ const inputId = `tag-filter-input-${safeFilterId}`;
   function initTagFilter(root: HTMLElement): void {
     const input = root.querySelector('[data-tag-filter-input]');
     const status = root.querySelector('[data-tag-filter-status]');
+    const empty = root.querySelector('[data-tag-filter-empty]');
     const filterId = root.getAttribute('data-tag-filter-id') ?? 'default';
 
     if (!(input instanceof HTMLInputElement)) {
@@ -193,6 +224,12 @@ const inputId = `tag-filter-input-${safeFilterId}`;
         const total = query === '' ? defaultVisibleCount : links.length;
         status.textContent =
           links.length === 0 ? '' : `${visible} / ${total} tags`;
+      }
+
+      if (empty instanceof HTMLElement) {
+        const showEmpty = isSearching && visible === 0 && links.length > 0;
+        empty.hidden = !showEmpty;
+        empty.textContent = showEmpty ? `No tags match "${q.trim()}".` : '';
       }
     };
 

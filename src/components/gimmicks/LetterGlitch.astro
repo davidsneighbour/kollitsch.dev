@@ -360,6 +360,7 @@ const config = {
     );
     private context: CanvasRenderingContext2D | null = null;
     private resizeObserver: ResizeObserver | null = null;
+    private intersectionObserver: IntersectionObserver | null = null;
     private animationFrame: number | null = null;
     private resizeTimeout: number | null = null;
     private letters: LetterCell[] = [];
@@ -368,6 +369,7 @@ const config = {
     private rows = 0;
     private lastGlitchTime = Date.now();
     private isStarted = false;
+    private isVisible = true;
 
     public constructor(root: HTMLElement) {
       const canvas = root.querySelector('canvas');
@@ -423,7 +425,25 @@ const config = {
         return;
       }
 
-      this.animate();
+      if (this.isVisible) {
+        this.animate();
+      }
+    };
+
+    private readonly handleIntersection = (
+      entries: IntersectionObserverEntry[],
+    ): void => {
+      const entry = entries.at(-1);
+      this.isVisible = entry?.isIntersecting ?? true;
+
+      if (!this.isVisible) {
+        this.cancelAnimation();
+        return;
+      }
+
+      if (this.isStarted && !this.reducedMotionQuery.matches) {
+        this.animate();
+      }
     };
 
     private readonly handleResize = (): void => {
@@ -460,10 +480,15 @@ const config = {
       this.resizeObserver = new ResizeObserver(this.handleResize);
       this.resizeObserver.observe(this.root);
 
+      this.intersectionObserver = new IntersectionObserver(
+        this.handleIntersection,
+      );
+      this.intersectionObserver.observe(this.root);
+
       this.isStarted = true;
       this.resizeCanvas();
 
-      if (!this.reducedMotionQuery.matches) {
+      if (this.isVisible && !this.reducedMotionQuery.matches) {
         this.animate();
       }
     }
@@ -479,6 +504,11 @@ const config = {
       if (this.resizeObserver) {
         this.resizeObserver.disconnect();
         this.resizeObserver = null;
+      }
+
+      if (this.intersectionObserver) {
+        this.intersectionObserver.disconnect();
+        this.intersectionObserver = null;
       }
 
       this.isStarted = false;
@@ -649,7 +679,11 @@ const config = {
     }
 
     private readonly animate = (): void => {
-      if (!this.isStarted || this.reducedMotionQuery.matches) {
+      if (
+        !this.isStarted ||
+        !this.isVisible ||
+        this.reducedMotionQuery.matches
+      ) {
         this.animationFrame = null;
         return;
       }

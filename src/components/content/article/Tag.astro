@@ -1,6 +1,8 @@
 ---
 // @todo refactor and comment
+import type { TransitionAnimation } from 'astro';
 import type { CollectionEntry } from 'astro:content';
+import { slide } from 'astro:transitions';
 import PostImage from '@components/content/media/PostImage.astro';
 import Button from '@components/shared/elements/Button.astro';
 
@@ -9,10 +11,40 @@ export interface Props {
 }
 const { post } = Astro.props;
 // @todo add schema for tag overview page
+
+/*
+ * Astro's built-in `slide` preset uses its own EASE_IN_OUT_QUART
+ * (cubic-bezier(0.76, 0, 0.24, 1)), a curve close to but distinct from the
+ * site's documented --ease-in-out-quart token (cubic-bezier(0.77, 0, 0.175,
+ * 1), theme.css). Re-easing the same preset keeps this card's page
+ * transition on the site's own documented curve instead of an
+ * undocumented, unrelated one.
+ */
+const SITE_EASE_IN_OUT_QUART = 'cubic-bezier(0.77, 0, 0.175, 1)';
+
+function reEase(
+  animation: TransitionAnimation | TransitionAnimation[],
+): TransitionAnimation | TransitionAnimation[] {
+  const applyEasing = (item: TransitionAnimation) =>
+    item.easing ? { ...item, easing: SITE_EASE_IN_OUT_QUART } : item;
+
+  return Array.isArray(animation)
+    ? animation.map(applyEasing)
+    : applyEasing(animation);
+}
+
+const baseTransition = slide();
+const tagCardTransition = {
+  backwards: baseTransition.backwards,
+  forwards: {
+    new: reEase(baseTransition.forwards.new),
+    old: reEase(baseTransition.forwards.old),
+  },
+};
 ---
 
 <article
-  transition:animate="slide"
+  transition:animate={tagCardTransition}
   class="relative isolate flex flex-col justify-normal overflow-hidden rounded-(--card-radius) bg-white/5 p-(--card-padding) ring-1 ring-gray-900/10 [--card-padding:0px] [--card-radius:var(--radius-2xl)] ring-inset hover:bg-white/10 dark:bg-black/20 dark:ring-gray-100/10 dark:hover:bg-black/30"
 >
   <PostImage

@@ -1,5 +1,68 @@
 # Changelog
 
+## [3003.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.3.0...v3003.4.0) (2026-09-18)
+
+### Feat
+
+* **design:** add a small entrance treatment to the 404 page ([f8d053c](https://github.com/davidsneighbour/kollitsch.dev/commit/f8d053c32caf77411d6c46a36dbb9a368e553db9)), closes [#2020](https://github.com/davidsneighbour/kollitsch.dev/issues/2020)
+* **design:** add empty-state fade-in to zero-match tag filter search ([bc3d2de](https://github.com/davidsneighbour/kollitsch.dev/commit/bc3d2de51bf53f52f991e7b7973aa9f0af6d3469)), closes [#2021](https://github.com/davidsneighbour/kollitsch.dev/issues/2021)
+* **design:** add restrained load-time entrance to blog/tag listing grids ([6b585d5](https://github.com/davidsneighbour/kollitsch.dev/commit/6b585d599868f4a3565fa55be8bba7f40380b1e0)), closes [#2019](https://github.com/davidsneighbour/kollitsch.dev/issues/2019)
+* **ui:** add press feedback to the shared Button component ([df8fa4e](https://github.com/davidsneighbour/kollitsch.dev/commit/df8fa4e0358208deeecdeb9273a3a35a710591ec)), closes [#2012](https://github.com/davidsneighbour/kollitsch.dev/issues/2012)
+
+### Fix
+
+* **a11y:** disable prototype gallery card hover-lift under reduced motion ([7cc30d9](https://github.com/davidsneighbour/kollitsch.dev/commit/7cc30d94cfe000372576c8a688a7716b3374a908)), closes [#2018](https://github.com/davidsneighbour/kollitsch.dev/issues/2018)
+* **a11y:** gate Button.astro press-scale transition under reduced motion ([cd0b476](https://github.com/davidsneighbour/kollitsch.dev/commit/cd0b476e6a2f940c8c34412087999b6317752aa5)), closes [#2015](https://github.com/davidsneighbour/kollitsch.dev/issues/2015)
+* **a11y:** gate Lenis smooth scroll behind prefers-reduced-motion ([dc311af](https://github.com/davidsneighbour/kollitsch.dev/commit/dc311af4e4a5333fed4616d97263b3a6dc20c090)), closes [#1998](https://github.com/davidsneighbour/kollitsch.dev/issues/1998)
+* **a11y:** gate TvHead static overlay keyframes behind prefers-reduced-motion ([a53cb99](https://github.com/davidsneighbour/kollitsch.dev/commit/a53cb99bbc6079e9a085f65210a780f6e5f5ce74)), closes [#2000](https://github.com/davidsneighbour/kollitsch.dev/issues/2000)
+* **a11y:** gate Youtube play-button hover transition under reduced motion ([e403349](https://github.com/davidsneighbour/kollitsch.dev/commit/e40334901d6feef27b587bda21d8d87e1add9dcb)), closes [#2005](https://github.com/davidsneighbour/kollitsch.dev/issues/2005)
+* **a11y:** restrict broken-link tooltip to opacity under reduced motion ([d56c9ed](https://github.com/davidsneighbour/kollitsch.dev/commit/d56c9edcf67fab440e94314f96a021f334e42c16)), closes [#2007](https://github.com/davidsneighbour/kollitsch.dev/issues/2007)
+* **a11y:** reveal post image caption on keyboard focus, not just hover ([ee36444](https://github.com/davidsneighbour/kollitsch.dev/commit/ee364445765c486139f80166739982451b26d7ec)), closes [#2006](https://github.com/davidsneighbour/kollitsch.dev/issues/2006)
+* **design:** align Tag card page transition with the site's documented easing ([4d66e6b](https://github.com/davidsneighbour/kollitsch.dev/commit/4d66e6bc03fba17e780100f28c30147788f121ff)), closes [#2014](https://github.com/davidsneighbour/kollitsch.dev/issues/2014)
+* **design:** trim video play-button hover scale to the 2% ceiling ([307614f](https://github.com/davidsneighbour/kollitsch.dev/commit/307614fc292c4102419adbe8757dc5aa99a0e69c)), closes [#2017](https://github.com/davidsneighbour/kollitsch.dev/issues/2017)
+* **footer:** align colophon title hover duration with site standard ([7bfb385](https://github.com/davidsneighbour/kollitsch.dev/commit/7bfb385a4789ef17450ada2ac7534c75c86d13aa)), closes [#2009](https://github.com/davidsneighbour/kollitsch.dev/issues/2009)
+* **header:** anchor nav dropdown scale-open to its trigger's position ([cc2e2d2](https://github.com/davidsneighbour/kollitsch.dev/commit/cc2e2d28ae988a438bfa325ae1fdc4c0eec0a7c8)), closes [#2008](https://github.com/davidsneighbour/kollitsch.dev/issues/2008)
+* **header:** cancel pending rAF before closing nav/search panels ([c7f84af](https://github.com/davidsneighbour/kollitsch.dev/commit/c7f84afb57d64f6bfe6b0db6ce406a11fad7a0bf)), closes [#1997](https://github.com/davidsneighbour/kollitsch.dev/issues/1997) [#1996](https://github.com/davidsneighbour/kollitsch.dev/issues/1996)
+* **header:** drop overshoot easing on search panel entrance ([dabe996](https://github.com/davidsneighbour/kollitsch.dev/commit/dabe9961d07c32ad33e07628ee3c948f308d8072))
+* **header:** drop per-navigation fade on the primary nav list ([d70531d](https://github.com/davidsneighbour/kollitsch.dev/commit/d70531dc41cb0ddd18abb1d042d484e550ed452e)), closes [#2004](https://github.com/davidsneighbour/kollitsch.dev/issues/2004)
+* **header:** keep search panel composited to prevent 1px snap ([5743b14](https://github.com/davidsneighbour/kollitsch.dev/commit/5743b14081070aedf4192506642712ed5c5a2c17))
+* **header:** let Pagefind results dropdown scroll independently of page ([d6764a4](https://github.com/davidsneighbour/kollitsch.dev/commit/d6764a41103caf054f2be924adf9a8ec4a82a516)), closes [#2025](https://github.com/davidsneighbour/kollitsch.dev/issues/2025)
+* **header:** make mobile nav close faster than its open ([8841215](https://github.com/davidsneighbour/kollitsch.dev/commit/8841215027fc4d5f1171a436f976201921daa48d)), closes [#2011](https://github.com/davidsneighbour/kollitsch.dev/issues/2011)
+* **header:** raise search panel entrance scale from scale-50 to scale-90 ([1ec50ca](https://github.com/davidsneighbour/kollitsch.dev/commit/1ec50cae867b2d7a620a1026ff1d27be03a0f4cd))
+* **pagination:** shorten prev/next tooltip fade to the tooltip budget ([ee56268](https://github.com/davidsneighbour/kollitsch.dev/commit/ee56268c7cf8764c2980105d3faba2e0a83d922d)), closes [#2010](https://github.com/davidsneighbour/kollitsch.dev/issues/2010)
+* **theme:** make parent menu items fat on active ([f25cd32](https://github.com/davidsneighbour/kollitsch.dev/commit/f25cd323126c20462dadf0568ac0781cfa06f6ee))
+
+### Perf
+
+* **gimmicks:** pause LetterGlitch canvas loop when scrolled off-screen ([7bc543b](https://github.com/davidsneighbour/kollitsch.dev/commit/7bc543b871c341810e3a063924868f1159d8113a)), closes [#2001](https://github.com/davidsneighbour/kollitsch.dev/issues/2001)
+* **header:** throttle reading-progress scroll handler to one rAF tick ([b3d2099](https://github.com/davidsneighbour/kollitsch.dev/commit/b3d209955c7d0907df3188b6fb375bd06cceeb10)), closes [#2013](https://github.com/davidsneighbour/kollitsch.dev/issues/2013)
+* **ui:** scope shared Button transition to color and box-shadow ([a84f166](https://github.com/davidsneighbour/kollitsch.dev/commit/a84f166445d85790c7f9450a05fcd9da7ade974b)), closes [#2002](https://github.com/davidsneighbour/kollitsch.dev/issues/2002)
+
+### Refactor
+
+* **build:** use wireit dependency graphs instead of shell && chains ([f96bf3a](https://github.com/davidsneighbour/kollitsch.dev/commit/f96bf3ad6e41ecc9e2ffa1f5c9733e8d206acd8c))
+* **gimmicks:** scope ::selection transition to color and background ([2be7126](https://github.com/davidsneighbour/kollitsch.dev/commit/2be7126b8ba1fabe430e2fcd70449228a134019c)), closes [#2003](https://github.com/davidsneighbour/kollitsch.dev/issues/2003)
+* **icons:** replace astro-icon with Lucide and Simple Icons only ([322e043](https://github.com/davidsneighbour/kollitsch.dev/commit/322e04309397a217acfbbfa28fe420806028096b)), closes [#1886](https://github.com/davidsneighbour/kollitsch.dev/issues/1886), references [#2024](https://github.com/davidsneighbour/kollitsch.dev/issues/2024)
+
+### Docs
+
+* **agents:** require stopping the Astro dev server after use ([899157a](https://github.com/davidsneighbour/kollitsch.dev/commit/899157ab0ed8ff3d92b5ff9af3e2e89d8b53173d))
+* **ai:** remove prompts ([8d0717b](https://github.com/davidsneighbour/kollitsch.dev/commit/8d0717bca60fe88c345dc8a8595ad9e70fffc5ff))
+* **api:** export internal types referenced by public exports ([1c09e56](https://github.com/davidsneighbour/kollitsch.dev/commit/1c09e562266199a9438ce8159d666c92daa6dc43))
+* **header:** document theme-toggle icon morph duration rationale ([018b156](https://github.com/davidsneighbour/kollitsch.dev/commit/018b15611630f5fbc62e493f2b48fac007536a77)), closes [#2016](https://github.com/davidsneighbour/kollitsch.dev/issues/2016)
+* **skills:** fold standalone prompts into kdev-postreview and AGENTS.md ([edd0941](https://github.com/davidsneighbour/kollitsch.dev/commit/edd094140668622008aa7284692d83fcf4b2fa26))
+
+### Build
+
+* **deps:** bump devalue from 5.9.0 to 5.9.2 in the npm_and_yarn group across 1 directory ([#1994](https://github.com/davidsneighbour/kollitsch.dev/issues/1994)) ([b4a8e42](https://github.com/davidsneighbour/kollitsch.dev/commit/b4a8e42d4f825e90d67361b28ab911dad9417f85))
+* **deps:** update dependencies ([00116bc](https://github.com/davidsneighbour/kollitsch.dev/commit/00116bc63c2a0805c81806409ba1450a264847f4))
+* **fix:** disable telemetry in wrangler ([3009d01](https://github.com/davidsneighbour/kollitsch.dev/commit/3009d019212ea4eb70bf5cf277ea01809ae4d24d))
+
+### Chore
+
+* **deps:** remove unused @sentry/astro and @spotlightjs/astro ([c042c99](https://github.com/davidsneighbour/kollitsch.dev/commit/c042c996f84c07d3e4a09bbf7bf2585f2766bf19)), closes [#1751](https://github.com/davidsneighbour/kollitsch.dev/issues/1751)
+* **deps:** switch secretlint config to @dnbhq/secretlint-config ([bf48a79](https://github.com/davidsneighbour/kollitsch.dev/commit/bf48a79d0bec08ed8723fba7abcdcb6d35ba9225)), closes [#1752](https://github.com/davidsneighbour/kollitsch.dev/issues/1752)
+
 ## [3003.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.2.0...v3003.3.0) (2026-09-17)
 
 ### Feat

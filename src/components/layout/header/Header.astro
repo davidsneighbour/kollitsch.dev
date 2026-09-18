@@ -1,5 +1,4 @@
 ---
-import { fade } from 'astro:transitions';
 import NavItem from '@components/layout/header/navigation/NavItem.astro';
 import ProgressBar from '@components/layout/header/navigation/Progress.astro';
 import NavSearch from '@components/layout/header/search/NavSearch.astro';
@@ -74,10 +73,7 @@ if (!activeItem && import.meta.env.DEV) {
         class="hidden md:flex md:items-center"
       >
         <nav aria-label="Main navigation">
-          <ul
-            class="flex flex-col md:flex-row md:items-center md:gap-6"
-            transition:animate={fade({ duration: "0.4s" })}
-          >
+          <ul class="flex flex-col md:flex-row md:items-center md:gap-6">
             {typedNavData
                 .filter((item) => import.meta.env.DEV || !item.devOnly)
                 .map((value) => (

@@ -45,7 +45,7 @@ const post = {
           : " All posts have been published."}
       </p>
     ) : (
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div class="grid-entrance grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {draftPosts.map((draftPost) => (
           <ArticleCard post={draftPost} />
         ))}

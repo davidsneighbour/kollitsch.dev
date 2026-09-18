@@ -48,7 +48,7 @@ const description = 'Explore our collection of blog posts from this year.';
     level={1}
     description={description}
   />
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  <div class="grid-entrance grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
     {posts.map((post, index) => <ArticleCard post={post} priority={index < 2} />)}
   </div>
   <Pagination

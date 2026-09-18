@@ -196,6 +196,18 @@
     }
   }
 
+  @keyframes grid-entrance-item {
+    from {
+      opacity: 0%;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 100%;
+      transform: translateY(0);
+    }
+  }
+
   /* --font-title--font-variation-settings: "opsz" 32;  */
 }
 
@@ -1080,5 +1092,32 @@
   :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6) a.heading-link:hover {
     text-decoration-thickness: 0.056em;
     text-underline-offset: 0.18em;
+  }
+
+  /*
+   * Restrained one-shot entrance for grids seen once per page load (blog/tag
+   * listings) - page load is a low-frequency trigger, unlike list
+   * navigation, which stays instant. The stagger is capped at 8 items so a
+   * large grid doesn't turn into a long, distracting cascade.
+   */
+  .grid-entrance > * {
+    animation: grid-entrance-item 400ms var(--ease-out-quart) backwards;
+  }
+
+  .grid-entrance > *:nth-child(1) { animation-delay: 0ms; }
+  .grid-entrance > *:nth-child(2) { animation-delay: 40ms; }
+  .grid-entrance > *:nth-child(3) { animation-delay: 80ms; }
+  .grid-entrance > *:nth-child(4) { animation-delay: 120ms; }
+  .grid-entrance > *:nth-child(5) { animation-delay: 160ms; }
+  .grid-entrance > *:nth-child(6) { animation-delay: 200ms; }
+  .grid-entrance > *:nth-child(7) { animation-delay: 240ms; }
+  .grid-entrance > *:nth-child(n + 8) { animation-delay: 280ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grid-entrance > * {
+      animation: none;
+      opacity: 100%;
+      transform: none;
+    }
   }
 }

@@ -43,7 +43,7 @@ export default {
   ],
 
   '*': [
-    'secretlint --no-glob --secretlintrc src/config/secretlint/.secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore',
+    'secretlint --no-glob --secretlintrc node_modules/@dnbhq/secretlint-config/config/secretlintrc.json --secretlintignore src/config/secretlint/.secretlintignore',
     'npm run lint:filenames',
   ],
 

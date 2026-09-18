@@ -552,4 +552,11 @@ const backgroundWidths = backgroundImage
       transform: translateY(8%);
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tv-head__background-effect.tv-head-effect-static,
+    .tv-head__background-effect.tv-head-effect-static::before {
+      animation: none;
+    }
+  }
 </style>

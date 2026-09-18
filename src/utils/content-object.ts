@@ -2,7 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 
 import type { CoverData } from './content.ts';
 
-type PlainRecord = Record<string, unknown>;
+export type PlainRecord = Record<string, unknown>;
 
 /**
  * Supported cover metadata on a {@link ContentObject}.

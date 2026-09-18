@@ -108,7 +108,7 @@ const qualityString = () =>
       },
     );
 
-const baseSchema = {
+export const baseSchema = {
   autoplay: zeroOrOne(),
   cc_lang_pref: languageCode(),
   cc_load_policy: zeroOrOne(),
@@ -145,7 +145,7 @@ export const youtubePlayerParamsSchema = z
   .strict();
 
 export type YouTubePlayerParamKey = keyof typeof baseSchema;
-type YouTubePlayerParamInputMap = {
+export type YouTubePlayerParamInputMap = {
   autoplay: string | number | boolean;
   cc_lang_pref: string;
   cc_load_policy: string | number | boolean;

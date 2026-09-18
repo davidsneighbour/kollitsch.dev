@@ -1,18 +1,18 @@
 import type { BlogPost } from '@utils/content';
 
-interface LlmsItem {
+export interface LlmsItem {
   title: string;
   description: string;
   link: string;
 }
 
-interface LlmsFullItem extends LlmsItem {
+export interface LlmsFullItem extends LlmsItem {
   pubDate: Date;
   category: string;
   body: string;
 }
 
-interface LlmsTxtConfig {
+export interface LlmsTxtConfig {
   name: string;
   description: string;
   site: string;
@@ -20,7 +20,7 @@ interface LlmsTxtConfig {
   optional?: LlmsItem[];
 }
 
-interface LlmsFullTxtConfig {
+export interface LlmsFullTxtConfig {
   name: string;
   description: string;
   author: string;
@@ -28,7 +28,7 @@ interface LlmsFullTxtConfig {
   items: LlmsFullItem[];
 }
 
-interface LlmsPostConfig {
+export interface LlmsPostConfig {
   post: BlogPost;
   site: string;
   link: string;

@@ -11,6 +11,9 @@
   "skipErrorChecking": true,
   "excludePrivate": true,
   "excludeInternal": true,
+  "validation": {
+    "notExported": false
+  },
   "searchInComments": true,
   "navigationLinks": {
     "Site": "https://kollitsch.dev"

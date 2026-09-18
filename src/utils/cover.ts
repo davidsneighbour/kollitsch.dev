@@ -32,7 +32,7 @@ export interface ResolveCoverOptions {
   warnOnFallback?: boolean;
 }
 
-type PostCover = NonNullable<PostData['cover']>;
+export type PostCover = NonNullable<PostData['cover']>;
 
 export type FMCover = Omit<PostCover, 'alt' | 'src' | 'video' | 'type'> & {
   alt?: PostCover['alt'];
@@ -42,7 +42,7 @@ export type FMCover = Omit<PostCover, 'alt' | 'src' | 'video' | 'type'> & {
 };
 export type FMCoverFormat = FMCover['format'];
 
-interface BaseCoverVideo {
+export interface BaseCoverVideo {
   title: string;
   artist?: string;
 }

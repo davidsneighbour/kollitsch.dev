@@ -22,7 +22,7 @@ const log = createLogger({ slug: 'tags' });
 /**
  * Context for error/debug messages when normalising tags.
  */
-type Ctx = {
+export type Ctx = {
   file?: string;
   postTitle?: string;
 };

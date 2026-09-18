@@ -424,7 +424,7 @@ export async function getHomepagePosts(): Promise<{
  * In development, site is optional.
  * In production, site should be provided, but this is enforced at runtime.
  */
-interface GetHomepageUrlOptions {
+export interface GetHomepageUrlOptions {
   site?: URL | string; // Accepts URL or string, optional for flexibility
 }
 
@@ -498,7 +498,7 @@ export async function paginateBlogPostsByYear(
   };
 }
 
-interface TitleOptions {
+export interface TitleOptions {
   prefix?: string;
   postfix?: string;
 }

@@ -1,7 +1,7 @@
 /**
  * Options to control how `formatUrl` returns the string.
  */
-interface FormatUrlOptions {
+export interface FormatUrlOptions {
   trailingSlash?: boolean;
   leadingSlash?: boolean;
 }

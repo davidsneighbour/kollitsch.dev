@@ -273,7 +273,7 @@ components:
     rounded: "{rounded.lg}"
   nav-search-panel-transition:
     duration: "300ms"
-    easing: "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    easing: "cubic-bezier(0.19, 1, 0.22, 1)"
   scrollbar:
     thumbColor: "{colors.primary}"
     thumbHoverColor: "{colors.link}"
@@ -454,7 +454,7 @@ The fixed theme toggle keeps an 8rem top-right corner shell for the hover and fo
 
 The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is `color-mix(in oklch, var(--background) 88%, #ffffff 12%)` - a lightened tint of the actual background, not an independent gray.
 
-The header search panel (`NavSearch.astro`) opens and closes on the `nav-search-panel-transition` token: `300ms`, `cubic-bezier(0.34, 1.56, 0.64, 1)` on `opacity`/`scale`. This is the site's one deliberate overshoot ("bounce") easing, distinct from the strong ease-out used everywhere else (`post-preview-transition`). It is intentional: the small overshoot gives the search panel a spring-open feel appropriate to an on-demand reveal, and is scoped to this one interaction only - do not reuse this easing elsewhere without documenting it here first.
+The header search panel (`NavSearch.astro`) opens and closes on the `nav-search-panel-transition` token: `300ms`, `cubic-bezier(0.19, 1, 0.22, 1)` on `opacity`/`scale`. This is the same strong ease-out curve as `post-preview-transition`, just at a shorter duration suited to the panel's smaller size. The site no longer uses any overshoot/bounce easing anywhere.
 
 ### Wordmark Typography
 

@@ -44,6 +44,22 @@ const { backgroundSrc } = Astro.props;
     height: 100vh;
   }
 
+  /*
+   * A rare, first-time-per-visit surface: a small one-shot entrance is a
+   * reasonable "delight budget" spend here, since it won't be seen often
+   * enough to become annoying. Content stays interactive throughout - this
+   * only fades/scales in, it never blocks pointer events.
+   */
+  main > * {
+    animation: fade-in-scale 350ms var(--ease-out-quart) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    main > * {
+      animation: none;
+    }
+  }
+
   .h404 {
     color: var(--color-red-200);
     font-size: 33vw;

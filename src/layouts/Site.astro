@@ -144,6 +144,9 @@ const IS_DEV = import.meta.env.DEV;
           try {
             const lenis = new Lenis({
               autoRaf: true,
+              // Let nested scrollable regions (e.g. the Pagefind results
+              // dropdown) capture wheel input instead of the page.
+              allowNestedScroll: true,
             });
 
             // Some bfcache restores benefit from forcing a sync.

@@ -213,7 +213,7 @@ const roundedClasses = classes
           or when .caption-visible is toggled (mobile). Only rendered when
           the post has a cover.title caption. */}
       {cover.title && (
-        <figcaption class="caption-overlay absolute inset-x-0 bottom-0 z-20 flex items-end gap-3 bg-linear-to-t from-black/90 via-black/60 to-black/10 px-4 py-3 text-white opacity-0 transition-opacity duration-300 group-hover/postimg:opacity-100 group-[.caption-visible]/postimg:opacity-100">
+        <figcaption class="caption-overlay absolute inset-x-0 bottom-0 z-20 flex items-end gap-3 bg-linear-to-t from-black/90 via-black/60 to-black/10 px-4 py-3 text-white opacity-0 transition-opacity duration-300 group-hover/postimg:opacity-100 group-focus-within/postimg:opacity-100 group-[.caption-visible]/postimg:opacity-100">
           {/* Caption text — links get z-30 so they intercept clicks above
               the background <a> link at z-10 */}
           <span

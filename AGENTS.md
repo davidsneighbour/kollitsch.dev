@@ -171,6 +171,8 @@ npx vitest run src/path/to/file.test.ts
 
 When starting the dev server directly (outside `npm run dev`), use background mode: `astro dev --background`, then manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+**AI assistants MUST NOT leave the Astro dev server running.** Before starting it, run `npx astro dev stop` first (clears any stale instance, including a stale one left over from HMR/cache issues), then `astro dev --background`, do the work that needed the server, and run `npx astro dev stop` again once done — every time, no exceptions.
+
 ## Environment variables
 
 Required for full builds and certain scripts (set in `.env`, gitignored):

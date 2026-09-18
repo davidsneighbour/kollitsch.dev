@@ -51,9 +51,15 @@ const {
           continue;
         }
 
+        const fill = progress.querySelector('.progress-fill');
+
         progress.setAttribute('aria-valuenow', String(Math.round(scroll)));
         progress.style.setProperty('--scroll', String(scroll / 100));
         progress.toggleAttribute('data-complete', scroll >= 99.9);
+
+        if (fill instanceof HTMLElement) {
+          fill.style.transform = `scaleX(${scroll / 100})`;
+        }
       }
     };
 
@@ -106,7 +112,7 @@ const {
   .progress-fill {
     @apply absolute inset-y-0 left-0 h-full w-full origin-left rounded-full bg-brand-main-accent;
 
-    transform: scaleX(var(--scroll));
+    transform: scaleX(0);
     transition: var(--progress-bar-transition);
   }
 

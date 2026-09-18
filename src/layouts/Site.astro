@@ -135,6 +135,12 @@ const IS_DEV = import.meta.env.DEV;
           // Avoid stacking multiple Lenis instances and wheel listeners.
           destroyLenis();
 
+          // Respect prefers-reduced-motion: leave Lenis uninitialised and fall
+          // back to the native "scroll-smooth" class already on <html>.
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+          }
+
           try {
             const lenis = new Lenis({
               autoRaf: true,

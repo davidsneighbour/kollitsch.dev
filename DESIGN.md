@@ -533,7 +533,7 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 * **Don't** introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.
 * **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.
 * **Don't** add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.
-* **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation, view transitions, and all keyframe animations must be gated behind the `no-preference` media query.
+* **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation, view transitions, all keyframe animations, and the Lenis smooth-scroll instance (`src/layouts/Site.astro`) must be gated behind the `no-preference` media query. Under `reduce`, Lenis is not constructed at all and the page falls back to the native `scroll-smooth` class already on `<html>`.
 * **Do** prefix any temporary debugging class with `debug` (for example
   `debug-outline`) if one is ever needed, so it can't be mistaken for an
   intentional style and is easy to grep for before committing.

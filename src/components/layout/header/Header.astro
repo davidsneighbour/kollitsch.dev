@@ -194,6 +194,7 @@ if (!activeItem && import.meta.env.DEV) {
     const closeIcon = document.querySelector('.close-icon');
     const openIcon = document.querySelector('.open-icon');
     const navSection = document.querySelector('#navigation-and-theme-select');
+    let pendingOpenFrame = 0;
     const placeholderId = currentScript?.getAttribute('data-site-title-id');
     const placeholder = placeholderId
       ? document.querySelector(`#${placeholderId}`)
@@ -235,7 +236,8 @@ if (!activeItem && import.meta.env.DEV) {
 
       navSection.classList.remove('hidden');
       navSection.classList.add('flex');
-      requestAnimationFrame(() => {
+      pendingOpenFrame = requestAnimationFrame(() => {
+        pendingOpenFrame = 0;
         navSection.classList.add('is-open');
       });
     }
@@ -249,6 +251,11 @@ if (!activeItem && import.meta.env.DEV) {
     function closeMobileNav() {
       if (!(navSection instanceof HTMLElement)) {
         return;
+      }
+
+      if (pendingOpenFrame) {
+        cancelAnimationFrame(pendingOpenFrame);
+        pendingOpenFrame = 0;
       }
 
       navSection.classList.remove('is-open');

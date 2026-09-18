@@ -319,6 +319,7 @@ const searchInputId = `${componentId}-search-input`;
     const closeSearchLabel = root.dataset.closeSearchLabel ?? 'Close search';
 
     let isOpen = root.dataset.searchInitiallyOpen === 'true';
+    let pendingOpenFrame = 0;
     let lastFocusedElement = null;
 
     /**
@@ -363,7 +364,8 @@ const searchInputId = `${componentId}-search-input`;
      */
     const showPanel = () => {
       panel.hidden = false;
-      requestAnimationFrame(() => {
+      pendingOpenFrame = requestAnimationFrame(() => {
+        pendingOpenFrame = 0;
         panel.classList.remove('pointer-events-none', 'opacity-0', 'scale-90');
         panel.classList.add('opacity-100', 'scale-100');
       });
@@ -375,6 +377,11 @@ const searchInputId = `${componentId}-search-input`;
      * visible instead of the panel vanishing the instant the class flips.
      */
     const hidePanel = () => {
+      if (pendingOpenFrame) {
+        cancelAnimationFrame(pendingOpenFrame);
+        pendingOpenFrame = 0;
+      }
+
       panel.classList.remove('opacity-100', 'scale-100');
       panel.classList.add('pointer-events-none', 'opacity-0', 'scale-90');
       panel.addEventListener(

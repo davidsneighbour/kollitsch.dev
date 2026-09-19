@@ -39,11 +39,12 @@ import { fileURLToPath } from 'node:url';
 import {
   type Browser,
   type BrowserContext,
-  type ColorScheme,
   chromium,
   type Page,
 } from 'playwright';
 import { z } from 'zod';
+
+type ColorScheme = 'dark' | 'light' | 'no-preference';
 
 /** CLI configuration */
 interface Config {
@@ -116,8 +117,7 @@ function parseArgs(argv: string[]): Config {
     const arg = args.shift()!;
     switch (arg) {
       case '--help':
-        printHelpAndExit();
-        break;
+        printHelpAndExit(); // implicit break out of the switch
       case '--input':
         cfg.input = mustArgValue('--input', args.shift());
         break;
@@ -332,7 +332,7 @@ async function runWithConcurrency<T>(
     const next = () => {
       if (idx >= queue.length && active === 0) return resolveAll();
       while (active < limit && idx < queue.length) {
-        const i = queue[idx++];
+        const i = queue[idx++]!;
         active++;
         worker(items[i]!, i)
           .catch(rejectAll)
@@ -367,12 +367,7 @@ async function screenshotItem(
     page.setDefaultNavigationTimeout(cfg.navTimeout);
 
     // Emulate media at the page level too, for good measure.
-    if (cfg.colorScheme === 'dark' || cfg.colorScheme === 'light') {
-      await page.emulateMedia({ colorScheme: cfg.colorScheme });
-    } else {
-      // no-preference
-      await page.emulateMedia({ colorScheme: undefined });
-    }
+    await page.emulateMedia({ colorScheme: cfg.colorScheme });
 
     await page.goto(item.url, { waitUntil: cfg.waitUntil });
     if (cfg.delay > 0) await page.waitForTimeout(cfg.delay);
@@ -406,7 +401,6 @@ async function main() {
     items = await loadBlogroll(cfg.input, cfg.verbose);
   } catch (err) {
     fail((err as Error).message);
-    return;
   }
 
   if (cfg.verbose) console.log(`Loaded ${items.length} item(s).`);
@@ -427,10 +421,7 @@ async function main() {
   const browser: Browser = await chromium.launch();
   const context: BrowserContext = await chromium.launchPersistentContext('', {
     // This signals CSS media query prefers-color-scheme to the page.
-    colorScheme:
-      cfg.colorScheme === 'no-preference'
-        ? undefined
-        : (cfg.colorScheme as ColorScheme),
+    colorScheme: cfg.colorScheme,
     deviceScaleFactor: 1,
     // Provide a client hint header for servers that use it (best effort).
     extraHTTPHeaders: {
@@ -496,9 +487,8 @@ async function main() {
  */
 async function loadDotEnv(): Promise<void> {
   const cwdEnv = resolve(process.cwd(), '.env');
-  const homeEnv = process.env.HOME
-    ? resolve(process.env.HOME, '.env')
-    : undefined;
+  const home = process.env['HOME'];
+  const homeEnv = home ? resolve(home, '.env') : undefined;
 
   if (homeEnv) await loadEnvFile(homeEnv, { override: false });
   await loadEnvFile(cwdEnv, { onMissing: 'note', override: true });
@@ -541,7 +531,7 @@ function extractEnvKeys(source: string): string[] {
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith('#')) continue;
     const match = /^(?:export\s+)?([\w.-]+)\s*=/.exec(trimmed);
-    if (match) keys.push(match[1]);
+    if (match?.[1]) keys.push(match[1]);
   }
   return keys;
 }

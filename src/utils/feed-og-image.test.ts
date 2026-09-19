@@ -18,41 +18,27 @@ function makePost(
 }
 
 describe('getFeedOgImage', () => {
-  it('returns a /og_image/<hash>.jpg URL resolved against the given site', () => {
-    const url = getFeedOgImage(makePost('2025/my-post'), site);
-    expect(url).toMatch(
-      /^https:\/\/kollitsch\.dev\/og_image\/[0-9a-f]{16}\.jpg$/,
+  it('resolves the generated post image when it exists on disk', () => {
+    // 2026/ai-in-contributions is generated as part of this session's
+    // `build:ogimages --force` run (see scratch/og-image-generation.plan.md).
+    const url = getFeedOgImage(makePost('2026/ai-in-contributions'), site);
+    expect(url).toBe(
+      'https://kollitsch.dev/images/social/blog/2026/ai-in-contributions.jpg',
     );
+  });
+
+  it('falls back to the default social image when no post image exists', () => {
+    const url = getFeedOgImage(makePost('2099/does-not-exist'), site);
+    expect(url).toBe('https://kollitsch.dev/images/social/default.jpg');
   });
 
   it('is deterministic for the same post and site', () => {
-    const post = makePost('2025/my-post', { title: 'Same title' });
+    const post = makePost('2026/ai-in-contributions');
     expect(getFeedOgImage(post, site)).toBe(getFeedOgImage(post, site));
   });
 
-  it('produces a different hash when the title changes', () => {
-    const a = getFeedOgImage(makePost('2025/my-post', { title: 'A' }), site);
-    const b = getFeedOgImage(makePost('2025/my-post', { title: 'B' }), site);
-    expect(a).not.toBe(b);
-  });
-
-  it('produces a different hash when the publish date changes', () => {
-    const a = getFeedOgImage(
-      makePost('2025/my-post', { date: new Date('2024-01-01') }),
-      site,
-    );
-    const b = getFeedOgImage(
-      makePost('2025/my-post', { date: new Date('2024-06-01') }),
-      site,
-    );
-    expect(a).not.toBe(b);
-  });
-
-  it('resolves against the given site origin while keeping the same content hash', () => {
-    // The content hash is derived from title/date/image only (see
-    // generateContentHash), not from the `site` argument, so a different
-    // origin changes the URL's host but not its /og_image/<hash>.jpg path.
-    const post = makePost('2025/my-post', { title: 'Same title' });
+  it('resolves against the given site origin while keeping the same path', () => {
+    const post = makePost('2026/ai-in-contributions');
     const other = new URL('https://staging.kollitsch.dev/');
 
     const url = getFeedOgImage(post, site);

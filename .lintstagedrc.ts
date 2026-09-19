@@ -38,8 +38,19 @@ export default {
   // ids referenced in staged blog content, so a new/edited post never ships
   // without a local thumbnail. Already-downloaded thumbnails are skipped —
   // see src/scripts/content/fetch-youtube-thumbnails.ts.
-  'src/content/blog/**/*.{md,mdx}': () => [
+  //
+  // Also (re)generates the staged posts' social/OG images and stages the
+  // result — additions, updates, and deletions from a rename/removal — so
+  // the image always ships in the same commit as the content change. See
+  // src/scripts/build/build-og-images.ts and
+  // scratch/og-image-generation.plan.md.
+  'src/content/blog/**/*.{md,mdx}': (files) => [
     'node src/scripts/content/fetch-youtube-thumbnails.ts',
+    [
+      'node src/scripts/build/build-og-images.ts',
+      ...files.map((file) => `--file=${shellQuote(file)}`),
+    ].join(' '),
+    'git add public/images/social',
   ],
 
   '*': [

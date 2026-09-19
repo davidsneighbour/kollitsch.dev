@@ -96,17 +96,21 @@
     "check": {
       "command": "npm run check:scripts",
       "dependencies": [
-        "build:check"
+        "build:check",
+        "check:ogimages"
       ]
+    },
+    "check:ogimages": {
+      "command": "node src/scripts/build/build-og-images.ts --check"
     },
     "clean:astro": {
       "command": "rm -rf .astro dist node_modules/.astro"
     },
     "clean:build-caches": {
-      "command": "rm -rf .astro node_modules/.astro public/og_image .cache/og_image .cache/image-index"
+      "command": "rm -rf .astro node_modules/.astro .cache/image-index .cache/social-images"
     },
     "clean:og": {
-      "command": "rm -rf public/og_image .cache/og_image"
+      "command": "rm -rf .cache/social-images"
     }
   },
   "overrides": {

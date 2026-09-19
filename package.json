@@ -154,6 +154,7 @@
     "build:compile:verbose": "WIREIT_LOGGER=simple npm run build:compile",
     "build:favicons": "node src/assets/favicon/regenerate.ts",
     "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
+    "build:ogimages": "node src/scripts/build/build-og-images.ts",
     "build:profile": "DEBUG=astro:build,OpenGraphImage npx astro build --verbose | tee .cache/build.log",
     "build:prototypes": "wireit",
     "build:prune-prototypes": "wireit",
@@ -424,17 +425,21 @@
     "check": {
       "command": "npm run check:scripts",
       "dependencies": [
-        "build:check"
+        "build:check",
+        "check:ogimages"
       ]
+    },
+    "check:ogimages": {
+      "command": "node src/scripts/build/build-og-images.ts --check"
     },
     "clean:astro": {
       "command": "rm -rf .astro dist node_modules/.astro"
     },
     "clean:build-caches": {
-      "command": "rm -rf .astro node_modules/.astro public/og_image .cache/og_image .cache/image-index"
+      "command": "rm -rf .astro node_modules/.astro .cache/image-index .cache/social-images"
     },
     "clean:og": {
-      "command": "rm -rf public/og_image .cache/og_image"
+      "command": "rm -rf .cache/social-images"
     },
     "deploy:build": {
       "command": "npm run build",

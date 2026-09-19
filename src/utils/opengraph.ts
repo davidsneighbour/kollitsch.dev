@@ -1,7 +1,7 @@
 import { getImage } from 'astro:assets';
-import path from 'node:path';
 import rawSetup from '@data/setup.json' with { type: 'json' };
 import { getImageMeta, hasImage } from '@utils/image-index.ts';
+import { resolveImageKeyCore } from '@utils/social-image/resolve-image-key.ts';
 import type { GetImageResult, ImageMetadata } from 'astro';
 import { createLogger } from './logger.ts';
 
@@ -34,41 +34,7 @@ export interface OgImageOptions {
   position?: string; // 'center', 'left top', etc.
 }
 
-const toPosix = (p: string) => p.replace(/\\/g, '/');
 const isRemoteUrl = (s: string) => /^https?:\/\//i.test(s);
-const hasExt = (p: string) => /\.[a-z0-9]+$/i.test(p);
-
-/**
- * Build '/src/content/<collection>/<dir-of-entry>'.
- * - '2025/slug' -> '/src/content/<collection>/2025/slug'
- * - '2025/slug/index' -> '/src/content/<collection>/2025/slug'
- * - '2025/slug.md' -> '/src/content/<collection>/2025'
- */
-function contentDirFromId(entryId: string, collection: string): string {
-  const base = '/src/content/' + collection;
-  const rel = entryId.startsWith('/') ? entryId.slice(1) : entryId;
-  const dir =
-    hasExt(rel) || rel.endsWith('/index') ? path.posix.dirname(rel) : rel;
-  return path.posix.join(base, dir === '.' ? '' : dir);
-}
-
-/**
- * Turn '/anything' into '/src/anything' when appropriate.
- * Remote URLs are passed through unchanged.
- */
-function normalizeToProjectKey(
-  p: string,
-  { assumeUnderSrc = true } = {},
-): string {
-  if (isRemoteUrl(p)) return p;
-  if (p.startsWith('/src/')) return toPosix(p);
-  if (p.startsWith('/')) {
-    return assumeUnderSrc
-      ? toPosix(path.posix.join('/src', p.replace(/^\/+/, '')))
-      : toPosix(p);
-  }
-  return toPosix(p);
-}
 
 export interface ResolveImageKeyOptions {
   defaultKey?: string; // default from setup.images.opengraph
@@ -107,67 +73,31 @@ export function resolveImageKey(
     warnOnFallback = true,
   }: ResolveImageKeyOptions = {},
 ): string {
-  let candidate = (imageName ?? '').toString().trim();
-  if (!candidate) candidate = defaultKey;
-  if (!candidate) {
+  const { resolved, tried, usedFallback } = resolveImageKeyCore(
+    imageName,
+    entryId,
+    collection,
+    hasImage,
+    { assetsDir, contentRoot, defaultKey },
+  );
+
+  if (!resolved && tried.length === 0) {
     if (warnOnFallback)
       log.warn('[resolveImageKey] No imageName and no defaultKey configured.');
     return '';
   }
 
-  const clean = candidate.replace(/^[.][/\\]/, ''); // strip leading './'
-  const tried: string[] = [];
-
-  if (isRemoteUrl(candidate)) return candidate;
-
-  if (candidate.startsWith('/src/')) {
-    tried.push(candidate);
-    if (hasImage(candidate)) return candidate;
-  }
-
-  if (candidate.startsWith('/') && !candidate.startsWith('/src/')) {
-    const mapped = toPosix(
-      path.posix.join('/src', candidate.replace(/^\/+/, '')),
-    );
-    tried.push(mapped);
-    if (hasImage(mapped)) return mapped;
-  }
-
-  const entryBase = contentDirFromId(entryId, collection).replace(
-    /^\/src\/content/,
-    contentRoot,
-  );
-  const localKey1 = toPosix(path.posix.join(entryBase, candidate));
-  const localKey2 = toPosix(path.posix.join(entryBase, clean));
-  tried.push(localKey1);
-  if (hasImage(localKey1)) return localKey1;
-  if (clean !== candidate) {
-    tried.push(localKey2);
-    if (hasImage(localKey2)) return localKey2;
-  }
-
-  const globalKey1 = toPosix(path.posix.join(assetsDir, candidate));
-  const globalKey2 = toPosix(path.posix.join(assetsDir, clean));
-  tried.push(globalKey1);
-  if (hasImage(globalKey1)) return globalKey1;
-  if (clean !== candidate) {
-    tried.push(globalKey2);
-    if (hasImage(globalKey2)) return globalKey2;
-  }
-
-  const fallback = normalizeToProjectKey(defaultKey);
-
-  if (import.meta.env.DEV) {
+  if (usedFallback && import.meta.env.DEV) {
     log.warn(
       `[resolveImageKey] Missed all candidates for '${collection}:${entryId}'. Tried:\n` +
         tried
           .map((k) => ` - ${k} ${hasImage(k) ? '(found)' : '(missing)'}`)
           .join('\n') +
-        `\n→ Falling back to: ${fallback}`,
+        `\n→ Falling back to: ${resolved}`,
     );
   }
 
-  return fallback;
+  return resolved;
 }
 
 /**

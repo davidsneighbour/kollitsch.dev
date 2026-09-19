@@ -236,7 +236,7 @@ Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
 
 ### Image and asset system
 
-* **OG images**: `src/components/layout/head/OpenGraphImage.astro`. Pipeline: `satori-html` → Satori SVG → Resvg PNG → Sharp transcode. Two-tier cache with in-flight de-duplication; supports remote and local background images.
+* **OG images**: pre-generated, not rendered at request time. `npm run build:ogimages` (`src/scripts/build/build-og-images.ts`; `--force`/`--check`/`--file=` modes) renders via `satori-html` → Satori SVG → Resvg PNG → Sharp transcode (`src/utils/social-image/*`) into deterministic, Git-tracked files under `public/images/social/blog/<year>/<slug>.jpg` (plus `public/images/social/default.jpg`). `OpenGraphImage.astro` only resolves the static path and falls back to the default image when a post-specific file is missing. lint-staged regenerates images for staged blog posts and stages the result. See [documentation/development/build-cache.md](documentation/development/build-cache.md#socialog-images).
 * **LQIP**: pre-build image index at `src/content/_generated/image-index.json` via `src/scripts/build/build-image-index.ts`. `src/utils/opengraph.ts` resolves cover image keys against this index.
 
 ### Build pipeline

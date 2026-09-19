@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
+    "build:ogimages": "node src/scripts/build/build-og-images.ts",
     "prebuild": "wireit"
   },
   "wireit": {

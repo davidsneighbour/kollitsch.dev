@@ -49,7 +49,7 @@ const ALWAYS_IGNORED = [
   '**/.wireit/**',
   '**/coverage/**',
   '**/reports/**',
-  '**/public/og_image/**',
+  '**/public/images/social/**',
   '**/src/content/_generated/**',
   '**/.git/**',
 ];

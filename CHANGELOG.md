@@ -1,5 +1,21 @@
 # Changelog
 
+## [3003.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.4.0...v3003.4.1) (2026-09-19)
+
+### Fix
+
+* make sure the footer wordmark is treated as decorative display ([90e1a7a](https://github.com/davidsneighbour/kollitsch.dev/commit/90e1a7a35bb5319a24f2bf50a26c4e09e770e2a1))
+* replace footer comment with wordmark ([eea82fb](https://github.com/davidsneighbour/kollitsch.dev/commit/eea82fbaebbac1366dd60edb72e432a905ac90da))
+* **spell:** add remaining unrecognized words to cspell dictionary ([3e76695](https://github.com/davidsneighbour/kollitsch.dev/commit/3e7669587d3a0183a4365f66c4bdbdb6fecb2264)), closes [#1931](https://github.com/davidsneighbour/kollitsch.dev/issues/1931)
+
+### Perf
+
+* **header:** write reading-progress transform directly instead of via CSS variable ([aa2b601](https://github.com/davidsneighbour/kollitsch.dev/commit/aa2b601612de9125575791edd970bc1832e0ead3)), closes [#1982](https://github.com/davidsneighbour/kollitsch.dev/issues/1982)
+
+### Build
+
+* **deps:** update dependencies ([0275c3e](https://github.com/davidsneighbour/kollitsch.dev/commit/0275c3eab937170f1dad27cb70014a0cd1390a44))
+
 ## [3003.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.3.0...v3003.4.0) (2026-09-18)
 
 ### Feat

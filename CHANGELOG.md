@@ -1,5 +1,35 @@
 # Changelog
 
+## [3.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.0.0...v3.1.0) (2026-09-19)
+
+### Feat
+
+* **build:** pre-generate and track social/OG images instead of rendering at request time ([ce22f8f](https://github.com/davidsneighbour/kollitsch.dev/commit/ce22f8f2d6049f3a21c4741533a6ed8eb4b80392)), closes [#2027](https://github.com/davidsneighbour/kollitsch.dev/issues/2027)
+* **content:** add Vimeo support to video-liveness checker ([3750018](https://github.com/davidsneighbour/kollitsch.dev/commit/37500186ac070c32c67e7a6252b090bb59d599ac)), closes [#2026](https://github.com/davidsneighbour/kollitsch.dev/issues/2026)
+
+### Fix
+
+* ts errors inn blogroll screenshots script ([c4b4d00](https://github.com/davidsneighbour/kollitsch.dev/commit/c4b4d00cf8c2cc8a42a59de586d780fd32d11804))
+
+### Docs
+
+* **agents:** clarify main-branch and plan-to-issue workflow ([f8e6dfd](https://github.com/davidsneighbour/kollitsch.dev/commit/f8e6dfdc3e66280200c8b25687c0deb646a5a363)), closes [#2028](https://github.com/davidsneighbour/kollitsch.dev/issues/2028)
+
+### Style
+
+* align dark giscus theme with site ([49989f4](https://github.com/davidsneighbour/kollitsch.dev/commit/49989f4fb32c38e985a65178fde859918b29d67f))
+* align light giscus theme with site ([b1b0931](https://github.com/davidsneighbour/kollitsch.dev/commit/b1b0931430b7762a6ce67ee27441310b0d4659f5))
+
+### Build
+
+* **fix:** add verbose build method ([7256c1a](https://github.com/davidsneighbour/kollitsch.dev/commit/7256c1a04d3c1e4c779e0300156d41470fc28fca))
+* **fix:** replace localhost with local ip in dev-open.ts ([498d4ec](https://github.com/davidsneighbour/kollitsch.dev/commit/498d4ecbeb816617f233cc0df627eea672226496))
+
+### Chore
+
+* bust giscus theme cache ([7a75c1b](https://github.com/davidsneighbour/kollitsch.dev/commit/7a75c1ba068391ae4a9807c8cfea15e080ee4c33))
+* cleanup in package.json ([a9a201b](https://github.com/davidsneighbour/kollitsch.dev/commit/a9a201b6cc15d7d2b86a59c1f5d4a4a3532c7f7b))
+
 ## [3003.4.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3003.4.0...v3003.4.1) (2026-09-19)
 
 ### Fix

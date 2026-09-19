@@ -283,7 +283,7 @@ Workflow hardening is a standing rule for every workflow, not only `tests.yml`:
 * `tests.yml` — unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.
 * `lighthouse.yml` — post-deploy Lighthouse audits.
 * `screenshot.yml` — weekly homepage screenshot commit.
-* `check-youtube-videos.yml` — weekly liveness check of every referenced YouTube video id (`fetch-youtube-thumbnails.ts --verify`); files/updates a tracking issue on failure instead of blocking anything.
+* `check-youtube-videos.yml` — weekly liveness check of every referenced YouTube/Vimeo video id (`fetch-youtube-thumbnails.ts --verify`); files/updates a tracking issue on failure instead of blocking anything.
 * Deployment is local-first with Wrangler, not GitHub Actions. Use `npm run deploy:preview`, `npm run deploy:dry-run`, and `npm run deploy` from a workstation that is authenticated with Cloudflare.
 * `wrangler.jsonc` is the Cloudflare Workers Static Assets configuration. Static assets are served from `dist/`; only `/api/send-email` runs the Worker before static asset lookup.
 * Cloudflare DNS hosts the zone. The canonical hostname is `kollitsch.dev`; `www` redirection is managed with a Cloudflare Redirect Rule outside this repository.

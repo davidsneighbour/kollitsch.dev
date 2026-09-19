@@ -34,8 +34,8 @@ export default {
     'typos --config src/config/typos.toml',
   ],
 
-  // Fetches (and stages) local poster images for any YouTube video ids
-  // referenced in staged blog content, so a new/edited post never ships
+  // Fetches (and stages) local poster images for any YouTube/Vimeo video
+  // ids referenced in staged blog content, so a new/edited post never ships
   // without a local thumbnail. Already-downloaded thumbnails are skipped —
   // see src/scripts/content/fetch-youtube-thumbnails.ts.
   'src/content/blog/**/*.{md,mdx}': () => [

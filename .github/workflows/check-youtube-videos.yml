@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify YouTube videos
+      - name: Verify referenced videos
         id: verify
         run: |
           set +e
@@ -45,8 +45,8 @@ jobs:
         if: steps.verify.outputs.exit_code != '0'
         run: |
           echo "Weekly automated check found video id(s) referenced in the" > issue-body.md
-          echo "site that are no longer available on YouTube (verified via" >> issue-body.md
-          echo '`node src/scripts/content/fetch-youtube-thumbnails.ts --verify`).' >> issue-body.md
+          echo "site that are no longer available on YouTube/Vimeo (verified" >> issue-body.md
+          echo 'via `node src/scripts/content/fetch-youtube-thumbnails.ts --verify`).' >> issue-body.md
           echo >> issue-body.md
           echo '```' >> issue-body.md
           cat verify-output.txt >> issue-body.md

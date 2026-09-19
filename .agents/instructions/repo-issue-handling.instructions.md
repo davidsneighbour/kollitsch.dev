@@ -12,6 +12,8 @@ This is a single-developer project. Commit directly to `main`. Do not create fea
 
 Never create merge commits on `main`. If work temporarily exists on another branch or ref, bring it into `main` with a rebase or squash so history stays linear—do not use `git merge` (or any equivalent that produces a two-parent commit).
 
+Working on `main` is the unconditional default here, not a fallback being explained or apologized for. Do not comment on it in summaries ("this went directly to main since...", "let me know if you'd rather this went through a branch"). Only raise the topic of branches/PRs if the user brings it up first.
+
 ## Commit and push when a task finishes
 
 When an AI-assisted task in this repository reaches a finished, validated state, commit the change and push it to `main`—do not stop at a local commit and wait to be asked. This overrides the general default of asking before pushing; in this repository, pushing after a finished, validated commit is pre-authorized.
@@ -71,6 +73,14 @@ Only create or require an issue for an untracked file when at least one of these
 - the file is necessary for the implementation,
 - the file is intentionally staged for commit,
 - the assistant is certain that the file belongs in the repository.
+
+## Plans handed over without an issue
+
+When the user hands over a plan, design doc, or spec for a task and no GitHub issue already covers it, create the issue immediately, at the start of the work—not deferred until the commit step. Use `gh issue create --body-file <path-to-plan>` so the plan becomes the issue body verbatim (see "Issue body formatting" above for why `--body-file` and not `--body`).
+
+Reference that issue number in every commit made while implementing the plan (`Refs #123` for intermediate commits, `Closes #123` on the commit that finishes it). If the plan is implemented across multiple commits or sessions, use issue comments to track meaningful progress rather than letting the issue sit silent until the close.
+
+Close the issue once the plan is fully implemented and validated—don't leave a finished plan's issue open "just in case."
 
 ## Before changing committed files
 

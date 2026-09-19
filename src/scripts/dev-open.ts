@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 
-const siteUrl = 'https://localhost:4321';
+const siteUrl = 'https://192.168.1.201:4321';
 const docsUrl = 'http://127.0.0.1:4322';
 
 function openUrl(url: string): void {

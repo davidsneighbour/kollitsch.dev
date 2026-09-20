@@ -22,6 +22,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import fg from 'fast-glob';
 import matter from 'gray-matter';
 import { blogSchema, deriveContentFormat } from '../../content/blog-schema.ts';
@@ -65,7 +66,7 @@ interface CliOptions {
   files: string[] | null; // null = full scan
 }
 
-function parseArgs(argv: string[]): CliOptions {
+export function parseArgs(argv: string[]): CliOptions {
   const force = argv.includes('--force');
   const check = argv.includes('--check');
   const files = argv
@@ -86,7 +87,7 @@ interface ParsedPost {
   cover: PostImageIdentity['cover'];
 }
 
-function idFromFile(file: string): string {
+export function idFromFile(file: string): string {
   const rel = path.relative(CONTENT_ROOT, file).replace(/\\/g, '/');
   return rel.replace(/\.(md|mdx)$/i, '').replace(/\/index$/, '');
 }
@@ -170,6 +171,46 @@ function existsFs(key: string): boolean {
   return fs.existsSync(path.resolve(process.cwd(), rel));
 }
 
+// ---------- Pure decision logic (unit-tested directly) ----------
+
+/**
+ * Whether a post's image needs (re)generation: forced, missing on disk, or
+ * its stored fingerprint no longer matches the freshly computed one.
+ */
+export function isImageStale(
+  force: boolean,
+  fileExists: boolean,
+  storedFingerprint: string | undefined,
+  currentFingerprint: string,
+): boolean {
+  return force || !fileExists || storedFingerprint !== currentFingerprint;
+}
+
+/**
+ * Whether default.jpg should be (re)generated. In `--file` mode (lint-staged,
+ * one post at a time) an unrelated post commit must not force-rewrite the
+ * shared default image just because its fingerprint drifted — only its
+ * absence triggers generation there. Full/`--force` runs regenerate on any
+ * staleness.
+ */
+export function shouldGenerateDefault(
+  opts: Pick<CliOptions, 'files' | 'force'>,
+  fileExists: boolean,
+  fingerprintStale: boolean,
+): boolean {
+  if (opts.force) return true;
+  if (opts.files) return !fileExists;
+  return !fileExists || fingerprintStale;
+}
+
+/** Social-image files with no corresponding blog post left. Pure set diff. */
+export function computeOrphans(
+  validPaths: ReadonlySet<string>,
+  existingFiles: readonly string[],
+): string[] {
+  return existingFiles.filter((f) => !validPaths.has(f));
+}
+
 // ---------- Generation ----------
 
 type PostStatus = 'generated' | 'ok' | 'missing' | 'stale';
@@ -248,8 +289,12 @@ async function processPost(
 
   const fileExists = fs.existsSync(absPath);
   const existingEntry = manifest[fsPath];
-  const stale =
-    opts.force || !fileExists || existingEntry?.fingerprint !== fingerprint;
+  const stale = isImageStale(
+    opts.force,
+    fileExists,
+    existingEntry?.fingerprint,
+    fingerprint,
+  );
 
   if (opts.check) {
     if (!fileExists) return { fsPath, status: 'missing' };
@@ -291,8 +336,12 @@ async function processDefaultImage(
     width: SOCIAL_IMAGE_WIDTH,
   });
   const existingEntry = manifest[fsPath];
-  const fingerprintStale =
-    opts.force || existingEntry?.fingerprint !== fingerprint;
+  const fingerprintStale = isImageStale(
+    opts.force,
+    fileExists,
+    existingEntry?.fingerprint,
+    fingerprint,
+  );
 
   if (opts.check) {
     if (!fileExists) return { fsPath, status: 'missing' };
@@ -300,16 +349,9 @@ async function processDefaultImage(
     return { fsPath, status: 'ok' };
   }
 
-  // In --file mode (lint-staged), only ensure default.jpg *exists* — a
-  // fingerprint-stale default shouldn't be rewritten on every unrelated
-  // post commit; that's what a full `build:ogimages` run or `--force` is for.
-  const shouldGenerate = opts.force
-    ? true
-    : opts.files
-      ? !fileExists
-      : !fileExists || fingerprintStale;
-
-  if (!shouldGenerate) return { fsPath, status: 'ok' };
+  if (!shouldGenerateDefault(opts, fileExists, fingerprintStale)) {
+    return { fsPath, status: 'ok' };
+  }
 
   const backgroundSrc = await toBackgroundImageSrc(
     siteOgImageKey,
@@ -345,7 +387,7 @@ function pruneOrphans(
   const existingFiles = fg.sync('public/images/social/blog/**/*.jpg', {
     cwd: process.cwd(),
   });
-  const orphans = existingFiles.filter((f) => !validPaths.has(f));
+  const orphans = computeOrphans(validPaths, existingFiles);
 
   if (!opts.check) {
     for (const orphan of orphans) {
@@ -412,7 +454,13 @@ async function main(): Promise<void> {
   );
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+function isMainModule(): boolean {
+  return process.argv[1] === fileURLToPath(import.meta.url);
+}
+
+if (isMainModule()) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

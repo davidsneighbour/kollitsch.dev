@@ -1,5 +1,49 @@
 # Changelog
 
+## [3.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.1.0...v3.2.0) (2026-09-20)
+
+### Feat
+
+* **footer:** add People's Pledge badge below feed links ([3ddc358](https://github.com/davidsneighbour/kollitsch.dev/commit/3ddc3587427ef7e31527f9470ec91b45bf3e8a2c)), closes [#2037](https://github.com/davidsneighbour/kollitsch.dev/issues/2037)
+* **styles:** animate heading and hr underlines on scroll into view ([a6e2b89](https://github.com/davidsneighbour/kollitsch.dev/commit/a6e2b891a9116b03db1a180d48b9b54f913ec120)), closes [#2039](https://github.com/davidsneighbour/kollitsch.dev/issues/2039)
+
+### Content
+
+* **footer:** tighten About intro copy into shorter sentences ([62f2ab1](https://github.com/davidsneighbour/kollitsch.dev/commit/62f2ab18990375837115c20c3816f8178dbab87d)), closes [#2040](https://github.com/davidsneighbour/kollitsch.dev/issues/2040)
+
+### Fix
+
+* **a11y:** resolve footer link and search placeholder contrast violations ([0c3035c](https://github.com/davidsneighbour/kollitsch.dev/commit/0c3035c7f9ddfff5ac72fcb1131740cea9c77674)), references [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835)
+* **footer:** break the About avatar out of its text column ([edf4a3c](https://github.com/davidsneighbour/kollitsch.dev/commit/edf4a3c636dc05d692e9dd1eeb32d4fbb702a649)), closes [#2036](https://github.com/davidsneighbour/kollitsch.dev/issues/2036)
+* **footer:** stop the Navigation heading wrapping mid-word ([ef32f92](https://github.com/davidsneighbour/kollitsch.dev/commit/ef32f920876c45615568407c4754e984647e0bd9)), closes [#2036](https://github.com/davidsneighbour/kollitsch.dev/issues/2036)
+* **header:** cap search panel width on large screens ([e3f50d8](https://github.com/davidsneighbour/kollitsch.dev/commit/e3f50d842db28ca7bcaae3509bb956a7351c66e7)), closes [#2029](https://github.com/davidsneighbour/kollitsch.dev/issues/2029)
+* **icons:** add local LinkedIn mark to replace the lucide:id-card stand-in ([15d002c](https://github.com/davidsneighbour/kollitsch.dev/commit/15d002c3601f3285b94873bb1aab5d884899cd38)), closes [#2024](https://github.com/davidsneighbour/kollitsch.dev/issues/2024)
+* **nav:** render breadcrumb separators as chevrons, not filled triangles ([a424755](https://github.com/davidsneighbour/kollitsch.dev/commit/a4247550e79afda2b7ea4cf5973c3daa037d8c8d)), closes [#2034](https://github.com/davidsneighbour/kollitsch.dev/issues/2034)
+* **nav:** stop Posts dropdown overlapping its own tap target ([e4656dd](https://github.com/davidsneighbour/kollitsch.dev/commit/e4656dda2f390e30d98309b3647e9c262b3f9e24)), closes [#2033](https://github.com/davidsneighbour/kollitsch.dev/issues/2033)
+
+### Perf
+
+* **tests:** cache Vitest module transforms ([9288b31](https://github.com/davidsneighbour/kollitsch.dev/commit/9288b312324897ba57c633cea60c2273e9f2f7be)), closes [#2031](https://github.com/davidsneighbour/kollitsch.dev/issues/2031)
+
+### Docs
+
+* **a11y:** link the axe placeholder false positive to a blocked follow-up issue ([4e1f76c](https://github.com/davidsneighbour/kollitsch.dev/commit/4e1f76c7dd830ccfe30ae5bb21da3b2827552ba3)), references [#2032](https://github.com/davidsneighbour/kollitsch.dev/issues/2032) [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835) [#2032](https://github.com/davidsneighbour/kollitsch.dev/issues/2032)
+* **agents:** add Protected project rules section, normalise bullets ([a7d3dbd](https://github.com/davidsneighbour/kollitsch.dev/commit/a7d3dbd5a6b94b699eba2cc472d399aadf4f2172)), closes [#2041](https://github.com/davidsneighbour/kollitsch.dev/issues/2041)
+* **agents:** clarify dev-server ownership ([82d7039](https://github.com/davidsneighbour/kollitsch.dev/commit/82d7039ab44d74be55b029ac07e5f6512c1a40b3)), closes [#2038](https://github.com/davidsneighbour/kollitsch.dev/issues/2038)
+
+### Test
+
+* **build:** add unit tests for build-og-images decision logic ([2541ff3](https://github.com/davidsneighbour/kollitsch.dev/commit/2541ff3612affe57e8eafaa0483a23352c41b779)), closes [#2030](https://github.com/davidsneighbour/kollitsch.dev/issues/2030)
+
+### Build
+
+* **deps:** update dependencies ([f523b97](https://github.com/davidsneighbour/kollitsch.dev/commit/f523b975f6720d3136957852a0f07f9b7d9f7b21))
+
+### Chore
+
+* **build:** sync package script/dependency drift into src/packages fragments ([bbb6476](https://github.com/davidsneighbour/kollitsch.dev/commit/bbb64762fce3a9726824b99a27fb8b82c3abc638)), references [#2035](https://github.com/davidsneighbour/kollitsch.dev/issues/2035)
+* update screenshot ([9011da9](https://github.com/davidsneighbour/kollitsch.dev/commit/9011da9bface2de3b6cfbddad4e5017cea26bd15))
+
 ## [3.1.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.0.0...v3.1.0) (2026-09-19)
 
 ### Feat

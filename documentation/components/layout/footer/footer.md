@@ -2,10 +2,10 @@
 title: Footer
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-09-20T00:00:00+07:00
 ---
 
-Renders the site-wide footer: an about section with author bio, footer navigation, social links, legal links, the Static.Quest web ring widget, feed links, and the [`Colophon`](colophon.md) vanity heading.
+Renders the site-wide footer: an about section with author bio, footer navigation, social links, legal links, the Static.Quest web ring widget, feed links, a People's Pledge badge, and the [`Colophon`](colophon.md) vanity heading.
 
 ## File locations
 
@@ -36,6 +36,7 @@ import Footer from '@components/layout/footer/Footer.astro';
 - Renders a copyright line with the current year. The year is set server-side and corrected client-side via an inline script (`document.getElementById(footerYearId).innerText = ...`) to avoid stale build-time years on statically cached pages.
 - Fetches `/api/siteinfo.json` client-side and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`, with a leading space) after the copyright line. The endpoint reads `package.json` and sends `Cache-Control: no-store, max-age=0` so release metadata is not kept past a version bump. Failures are silently ignored.
 - Renders Privacy Policy and Security Policy links, a Static.Quest web ring widget (previous/random/next), and RSS/Atom/JSON feed links.
+- Renders a [People's Pledge](https://people.pledge.party/) badge (`PeoplePledgeBadge`, [`src/components/features/badges/PeoplePledgeBadge.astro`](../../../../src/components/features/badges/PeoplePledgeBadge.astro)) below the feed links, linked to `https://people.pledge.party/`. The badge SVG's fill is `currentColor`; the wrapping `.people-pledge-badge` link sets `color` to `--color-primary-700` in light mode and `--color-primary-600` in dark mode, the same per-theme shade already used for the footer's `Wordmark`.
 - Renders `<Colophon />` after the closing `</footer>` tag.
 
 ## Extending

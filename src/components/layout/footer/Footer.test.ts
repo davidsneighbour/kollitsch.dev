@@ -40,3 +40,13 @@ describe('Footer component (Static.Quest web ring)', () => {
     expect(src).toMatch(/<IconLink[^>]+href="https:\/\/static\.quest\/next/);
   });
 });
+
+describe("Footer component (People's Pledge badge)", () => {
+  it('links the badge to people.pledge.party', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toContain('https://people.pledge.party/');
+    expect(src).toContain('<PeoplePledgeBadge');
+  });
+});

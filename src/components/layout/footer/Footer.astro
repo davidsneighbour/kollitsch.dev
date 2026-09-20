@@ -3,6 +3,7 @@
 import { Image } from 'astro:assets';
 import patrickkollitsch from '@assets/images/patrick-kollitsch.png';
 import Heading from '@components/content/typography/Heading.astro';
+import PeoplePledgeBadge from '@components/features/badges/PeoplePledgeBadge.astro';
 import type { SocialMediaItem } from '@components/features/social/SocialLinks.astro';
 import SocialLinks from '@components/features/social/SocialLinks.astro';
 import Colophon from '@components/layout/footer/Colophon.astro';
@@ -177,6 +178,16 @@ const introFallbackHtml = md.renderInline(introFallback);
     <Link href="/feed.json">JSON</Link>
   </div>
 
+  <div class="my-4 flex flex-row items-center justify-center">
+    <Link
+      href="https://people.pledge.party/"
+      class="people-pledge-badge"
+      aria-label="The People's Pledge"
+    >
+      <PeoplePledgeBadge />
+    </Link>
+  </div>
+
   <script
     is:inline
     define:vars={{ footerYearId }}
@@ -253,10 +264,25 @@ const introFallbackHtml = md.renderInline(introFallback);
 
     footer {
       --footer-wordmark-color: var(--color-primary-700);
+      --footer-badge-color: var(--color-primary-700);
     }
 
     :where([data-theme="dark"]) footer {
       --footer-wordmark-color: var(--color-primary-600);
+      --footer-badge-color: var(--color-primary-600);
+    }
+
+    .people-pledge-badge {
+      color: var(--footer-badge-color);
+      transition: color 150ms ease;
+    }
+
+    .people-pledge-badge:hover {
+      color: var(--color-primary-600);
+    }
+
+    :where([data-theme="dark"]) .people-pledge-badge:hover {
+      color: var(--color-primary-400);
     }
 
     /*

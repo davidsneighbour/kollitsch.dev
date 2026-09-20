@@ -16,6 +16,11 @@ test.describe('Accessibility (WCAG 2.1 AA)', () => {
         // with data-dnb-design-exception="decorative-low-contrast" for tools
         // like this one to exclude explicitly (#1835).
         .exclude('[data-dnb-design-exception="decorative-low-contrast"]')
+        // axe-core misreads this element's ::placeholder colour-contrast - a
+        // proven false positive, not a real issue. See
+        // documentation/development/known-false-positives.md for the
+        // evidence before removing this exclusion (#1835).
+        .exclude('.pagefind-ui__search-input')
         .analyze();
       expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
     });

@@ -46,9 +46,17 @@ it would send a real email.
 
 ## Known accessibility exclusions
 
-`accessibility.spec.ts` disables the `color-contrast` rule and excludes one
-specific post's cover-image link, both tracked by
-[#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835)—
-pre-existing, sitewide colour-contrast debt and one post missing `cover.alt`.
-Remove both exclusions once that issue is resolved so the full WCAG 2.1 AA
-ruleset applies again.
+`accessibility.spec.ts` excludes two elements from axe's scan, both tracked
+by [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835):
+
+- the footer colophon watermark (`data-dnb-design-exception="decorative-low-contrast"`)—
+  intentionally decorative, low-contrast, and `aria-hidden`; see
+  `DESIGN.md`'s "Footer Colophon Watermark" section.
+- the `/find/` page's Pagefind search input—a documented axe-core false
+  positive on `::placeholder` colour-contrast, not a real issue; see
+  `documentation/development/known-false-positives.md` for the evidence
+  before touching this exclusion.
+
+Everything else axe originally flagged under #1835 (the About-section
+inline links, the RSS/Atom/JSON footer links, the blog post `link-name`
+gap) has been fixed in the page itself, not excluded.

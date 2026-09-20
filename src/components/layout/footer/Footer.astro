@@ -147,7 +147,10 @@ const introFallbackHtml = md.renderInline(introFallback);
   <div
     class="my-4 flex flex-col md:flex-row items-center justify-center gap-2 text-sm"
   >
-    <div class="text-center">
+    <div
+      id="webring-mention"
+      class="text-center"
+    >
       A member of the <a href="https://static.quest">Static.Quest</a> web ring!
     </div>
     <div class="flex flex-row items-center justify-center gap-2">
@@ -288,10 +291,11 @@ const introFallbackHtml = md.renderInline(introFallback);
      * rule flagged these against the surrounding text color at 2.89:1, just
      * under the 3:1 non-text-contrast threshold (#1835). Scoped underline
      * here, rather than changing the site-wide hover-only convention, since
-     * this is the one place links sit inline in a prose paragraph.
+     * these are the only places links sit inline in a prose sentence.
      */
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    #about-introduction :global(a) {
+    #about-introduction :global(a),
+    #webring-mention a {
       text-decoration-line: underline;
     }
 

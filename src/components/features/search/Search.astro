@@ -155,20 +155,20 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
 
   /*
    * @pagefind/default-ui's Svelte component injects its own <style> into
-   * <head> at runtime (after this stylesheet), setting `::placeholder {
-   * opacity: 0.2 }` regardless of the input's actual text colour. That drops
-   * the placeholder well under WCAG 2.1 AA's 4.5:1 minimum (#1835) and can't
-   * be reliably beaten by cascade layering or source order alone, since the
-   * injection happens after hydration. `!important`, outside `@layer`,
-   * guarantees this wins regardless of when Pagefind's own rule lands.
+   * <head> at runtime (after this stylesheet), setting both the input's
+   * background and `::placeholder { opacity: 0.2 }` regardless of theme or
+   * the input's own text colour. Without `!important` those rules land
+   * after ours in source order and win on the tie, which is why the
+   * `dark:bg-white/5` utility on `.pagefind-ui__search-input` never actually
+   * applies - measured in the browser, the input's background stays solid
+   * white (`rgb(255, 255, 255)`) in both themes. So there is no dark variant
+   * here: gray-600 against that white background clears 4.5:1 in light and
+   * dark mode alike. The `.pagefind-ui__form` ancestor raises specificity
+   * above Pagefind's own single-class rule, and `!important` guarantees this
+   * wins regardless of when Pagefind's rule lands (#1835).
    */
-  .pagefind-ui__search-input::placeholder {
-    color: var(--color-gray-500) !important;
+  .pagefind-ui__form .pagefind-ui__search-input::placeholder {
+    color: var(--color-gray-600) !important;
     opacity: 100% !important;
-  }
-
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  :global([data-theme="dark"]) .pagefind-ui__search-input::placeholder {
-    color: var(--color-gray-400) !important;
   }
 </style>

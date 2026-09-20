@@ -403,6 +403,24 @@ if (!activeItem && import.meta.env.DEV) {
   }
 
   /*
+   * The search panel itself (`[data-nav-search-panel]`) still spans the
+   * full header width - that's needed so NavSearch's ResizeObserver can
+   * feed an accurate width into --pf-searchbox-max-width (see PageFind.astro).
+   * Without this, the glass surface behind the (now width-capped) searchbox
+   * would stay stretched full-width too, leaving a large empty gap to its
+   * right. Cap the surface itself to match the searchbox's capped width plus
+   * its icon/close-button gutters (pl-3 + pr-17 = 5rem), and pin it to the
+   * right so it stays anchored under the toggle button it opened from.
+   */
+  @media (min-width: 64rem) {
+    [data-nav-search-surface] {
+      font-size: var(--pf-input-font-size);
+      max-width: calc(65ch + 5rem);
+      margin-inline-start: auto;
+    }
+  }
+
+  /*
    * Theme switcher: pinned to the viewport corner, icon inset well clear of
    * the actual pixel corner (more than one icon-width of padding on both
    * edges, so it never reads as clipped or crowded). The hit-box is a flush

@@ -79,6 +79,26 @@ export interface Props {}
     --pf-dropdown-max-height: calc(var(--spacing) * 70);
     --pf-dropdown-z-index: var(--z-50);
   }
+  /*
+   * NavSearch feeds the panel's full outer width into
+   * --pf-searchbox-max-width (see searchOuterWidthVarName in Header.astro),
+   * which is why the searchbox and its results dropdown otherwise stretch
+   * edge-to-edge. On larger screens, cap it back down to a readable
+   * measure. The cap is in `ch`, so it must be set where `ch` resolves
+   * against the searchbox's own font size, not the surrounding nav bar's -
+   * hence redefining font-size on the component itself before using `ch`.
+   */
+
+  @media (min-width: 64rem) {
+    #pagefind-container pagefind-searchbox {
+      font-size: var(--pf-input-font-size);
+    }
+
+    #pagefind-container {
+      --pf-searchbox-max-width: 65ch;
+    }
+  }
+
   [data-theme="dark"] #pagefind-container {
     --pf-text: var(--color-gray-200);
     --pf-text-secondary: var(--color-gray-400);

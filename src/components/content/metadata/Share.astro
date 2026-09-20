@@ -22,9 +22,7 @@ const canonicalUrl = Astro.url.toString();
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Share:</span>
 
-    {/* @todo swap for a custom LinkedIn mark once available; simple-icons
-        dropped it under legal pressure — see issue #2024 */}
-    <Icon name="lucide:id-card" />
+    <Icon name="local:linkedin" />
     <a
       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`}
       target="_blank"

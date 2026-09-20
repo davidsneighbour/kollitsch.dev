@@ -3,6 +3,8 @@
 // old astro-icon setup, this is not generated from the full @iconify-json/*
 // icon sets — see issue #1886. Add an entry here only when a new icon is
 // actually used somewhere in the site.
+
+import Linkedin from '@components/icons/local/Linkedin.astro';
 import {
   Archive,
   ArrowLeft,
@@ -150,7 +152,9 @@ const simpleIcons = {
 // src/components/icons/local/README.md. Keep this empty except for those
 // extreme cases; add entries by importing from
 // '@components/icons/local/<Name>.astro'.
-const localIcons = {} as const satisfies Record<string, IconComponent>;
+const localIcons = {
+  linkedin: Linkedin,
+} as const satisfies Record<string, IconComponent>;
 
 export type LucideIconName = keyof typeof lucideIcons;
 export type SimpleIconsName = keyof typeof simpleIcons;

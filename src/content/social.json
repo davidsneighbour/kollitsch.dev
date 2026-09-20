@@ -69,7 +69,7 @@
   {
     "background": "group-hover:bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:shadow-[#0A66C2]",
     "fill": "hover:text-[#0A66C2]",
-    "icon": "lucide:id-card",
+    "icon": "local:linkedin",
     "id": "linkedin",
     "label": "LinkedIn",
     "share": "https://www.linkedin.com/sharing/share-offsite/?url=${url}",

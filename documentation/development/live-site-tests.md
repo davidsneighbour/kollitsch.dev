@@ -46,17 +46,9 @@ it would send a real email.
 
 ## Known accessibility exclusions
 
-`accessibility.spec.ts` excludes two elements from axe's scan, both tracked
-by [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835):
+`accessibility.spec.ts` excludes two elements from axe's scan, both tracked by [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835):
 
-- the footer colophon watermark (`data-dnb-design-exception="decorative-low-contrast"`)—
-  intentionally decorative, low-contrast, and `aria-hidden`; see
-  `DESIGN.md`'s "Footer Colophon Watermark" section.
-- the `/find/` page's Pagefind search input—a documented axe-core false
-  positive on `::placeholder` colour-contrast, not a real issue; see
-  `documentation/development/known-false-positives.md` for the evidence
-  before touching this exclusion.
+- the footer colophon watermark (`data-dnb-design-exception="decorative-low-contrast"`)—intentionally decorative, low-contrast, and `aria-hidden`; see `DESIGN.md`'s "Footer Colophon Watermark" section.
+- the `/find/` page's Pagefind search input—a documented axe-core false positive on `::placeholder` colour-contrast, not a real issue; see `documentation/development/known-false-positives.md` for the evidence, and [#2032](https://github.com/davidsneighbour/kollitsch.dev/issues/2032) for the blocked follow-up to remove this exclusion once axe-core fixes the underlying bug.
 
-Everything else axe originally flagged under #1835 (the About-section
-inline links, the RSS/Atom/JSON footer links, the blog post `link-name`
-gap) has been fixed in the page itself, not excluded.
+Everything else axe originally flagged under #1835 (the About-section inline links, the RSS/Atom/JSON footer links, the blog post `link-name` gap) has been fixed in the page itself, not excluded.

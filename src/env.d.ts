@@ -7,6 +7,7 @@ interface KdevGlobal {
   mobileOpen?: boolean;
   readingProgressInitialised?: boolean;
   giscusObserver?: IntersectionObserver;
+  ruleObserver?: IntersectionObserver;
   lenis?: unknown;
   theme?: {
     setTheme: (theme?: 'auto' | 'dark' | 'light') => void;

@@ -187,6 +187,71 @@ const IS_DEV = import.meta.env.DEV;
         });
       })();
     </script>
+    <script>
+      /**
+       * Drives the animated rule/underline that CSS draws under every
+       * heading and prose <hr> (see `theme.css`'s "Animated rule system").
+       * CSS alone ships the line pre-drawn at 40% length; this only (a)
+       * tells each heading which edge to grow from, based on its *computed*
+       * text-align so inherited alignment (e.g. a centered ancestor
+       * section) still resolves correctly, and (b) extends the line to
+       * full length the first time it scrolls into view.
+       */
+      (() => {
+        const RULE_SELECTOR = "h1, h2, h3, h4, h5, h6, .typography-reading hr";
+
+        const getNamespace = () => {
+          if (!window.kdev || typeof window.kdev !== "object") window.kdev = {};
+          return window.kdev;
+        };
+
+        const originForAlign = (align: string) => {
+          if (align === "right" || align === "end") return "right";
+          if (align === "center") return "center";
+          return "left";
+        };
+
+        const initRuleLines = () => {
+          const ns = getNamespace();
+
+          // Drop the previous observer before re-scanning after a ClientRouter swap.
+          if (ns.ruleObserver && typeof ns.ruleObserver.disconnect === "function") {
+            ns.ruleObserver.disconnect();
+          }
+
+          // Reduced motion: CSS already shows the line fully extended and
+          // skips the transition, so there is nothing left for JS to do.
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+          }
+
+          const elements = document.querySelectorAll(RULE_SELECTOR);
+          if (elements.length === 0) return;
+
+          const observer = new IntersectionObserver(
+            (entries, obs) => {
+              for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                entry.target.classList.add("rule-visible");
+                obs.unobserve(entry.target);
+              }
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -10% 0px" },
+          );
+
+          for (const el of elements) {
+            if (el.tagName !== "HR" && el instanceof HTMLElement) {
+              el.style.setProperty("--rule-origin", originForAlign(getComputedStyle(el).textAlign));
+            }
+            observer.observe(el);
+          }
+
+          ns.ruleObserver = observer;
+        };
+
+        document.addEventListener("astro:page-load", initRuleLines);
+      })();
+    </script>
     <WebComponents post={post} />
     <script>
       import "@tailwindplus/elements";

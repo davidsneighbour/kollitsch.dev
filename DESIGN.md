@@ -293,6 +293,11 @@ components:
     size: "1.5rem"
     padding: "1.75rem"
     rounded: "{rounded.full}"
+  animated-rule:
+    thickness: "2px"
+    startScale: 0.4
+    duration: "600ms"
+    easing: "cubic-bezier(0.165, 0.84, 0.44, 1)"
 ---
 
 # KOLLITSCH.dev* Design System
@@ -504,6 +509,16 @@ Hover also lifts the underline away from the text: `text-underline-offset` anima
 In dark mode, headings across the site use `heading-dark` (`text-primary-500`) so article pages, post cards, taxonomy pages, and non-blog content pages keep one consistent heading colour. Linked headings keep that same green text at rest, but add a straight underline using `heading-link-underline-dark` (`text-primary-700`), `0.056em` thickness, `0.14em` underline offset, and `text-decoration-skip-ink: auto`; on hover, the heading text and underline both brighten to `primary-300` and the offset increases to `0.18em`. This makes "heading" and "link" visible without relying on colour alone. Light mode has no equivalent heading tint - headings there inherit the ordinary `on-surface` text colour.
 
 In light mode, prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
+
+### Animated Rule (heading underlines & `<hr>`)
+
+Every heading (`h1`–`h6`, site-wide, not just prose) and every prose `<hr>` draws a hairline rule using the `animated-rule` token: `{components.animated-rule.thickness}` thick, `gray-300` in light mode / `gray-700` in dark mode - the same neutral already used for `<hr>` before this system existed, kept deliberately quiet rather than tinted with `primary`. This replaces the old hand-placed `border-b` dividers on the footer's About/Navigation/Connect headings and `BlogHeading.astro`'s title section - do not re-add a manual border next to a heading or `<hr>`, the animated rule already provides it.
+
+The rule ships pre-drawn at `{components.animated-rule.startScale}` (40%) of its final length so the page never looks unfinished before JavaScript runs or before the element is in view. The first time it scrolls into the viewport (`IntersectionObserver`, `src/layouts/Site.astro`), it grows to full length over `{components.animated-rule.duration}` `{components.animated-rule.easing}` - the same curve as `--ease-out-quart` - and does not repeat.
+
+The growth direction always reads as "from the text, outward": a left-aligned heading grows left-to-right, a right-aligned heading grows right-to-left, and a centered heading (or an `<hr>`, which has no text to anchor to) grows from the middle toward both edges at once. Alignment is read from the heading's *computed* `text-align` at runtime, not from a class on the heading itself, so a heading that only inherits centering from an ancestor (for example `BlogHeading.astro`'s centered `<section>`) still resolves correctly.
+
+Respects `prefers-reduced-motion`: the rule renders fully extended immediately, with no transition and no observer attached.
 
 ### Footer Author Avatar
 

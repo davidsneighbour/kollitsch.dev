@@ -699,8 +699,12 @@
       font-variant-ligatures: common-ligatures;
     }
 
+    /*
+     * Border/height/background for hr now live in the animated rule system
+     * (`@layer utilities`, below `.grid-entrance`) - only spacing stays here.
+     */
     hr {
-      @apply my-8 border-0 border-t border-gray-300 dark:border-gray-700;
+      @apply my-8;
     }
 
     .expressive-code {
@@ -1125,6 +1129,83 @@
       animation: none;
       opacity: 100%;
       transform: none;
+    }
+  }
+
+  :root {
+    --rule-thickness: 2px;
+    --rule-scale-start: 0.4;
+    --rule-duration: 600ms;
+  }
+
+  /*
+   * Animated rule system: every heading gets a hairline underneath it, and
+   * every prose <hr> becomes the same hairline. Both ship pre-drawn at 40%
+   * length (`--rule-scale-start`) so the page never looks broken without JS;
+   * `.rule-visible` (added once by the IntersectionObserver in Site.astro
+   * the first time the element scrolls into view) extends it to full
+   * length. Thickness matches the `decoration-2` weight already used for
+   * heading-link underlines elsewhere (see Preview.astro) so headings, hr,
+   * and links read as one consistent line weight - see DESIGN.md's
+   * `animated-rule` token to retune it.
+   *
+   * The growth direction is set per-element by Site.astro via the
+   * `--rule-origin` custom property, based on the heading's *computed*
+   * text-align (so it still resolves correctly when alignment is inherited
+   * from an ancestor rather than set on the heading itself): left-aligned
+   * headings grow left-to-right, right-aligned grow right-to-left, centered
+   * grow from the middle outward. <hr> has no text to anchor to, so it
+   * always grows from the middle outward.
+   */
+  :where(h1, h2, h3, h4, h5, h6)::after {
+    content: "";
+    display: block;
+    margin-block-start: 0.3em;
+    height: var(--rule-thickness, 2px);
+    background: var(--color-gray-300);
+    transform: scaleX(var(--rule-scale-start, 0.4));
+    transform-origin: var(--rule-origin, left);
+    transition: transform var(--rule-duration, 600ms) var(--ease-out-quart);
+  }
+
+  :where([data-theme="dark"]) :where(h1, h2, h3, h4, h5, h6)::after {
+    background: var(--color-gray-700);
+  }
+
+  .typography-reading hr {
+    height: 0;
+    border: 0;
+
+    /* Browsers' UA stylesheet clips `hr` at `overflow: hidden` by default,
+     * which would hide the `::after` line below since the host box itself
+     * is zero-height. */
+    overflow: visible;
+  }
+
+  .typography-reading hr::after {
+    content: "";
+    display: block;
+    height: var(--rule-thickness, 2px);
+    background: var(--color-gray-300);
+    transform: scaleX(var(--rule-scale-start, 0.4));
+    transform-origin: center;
+    transition: transform var(--rule-duration, 600ms) var(--ease-out-quart);
+  }
+
+  :where([data-theme="dark"]) .typography-reading hr::after {
+    background: var(--color-gray-700);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6).rule-visible::after,
+  .typography-reading hr.rule-visible::after {
+    transform: scaleX(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(h1, h2, h3, h4, h5, h6)::after,
+    .typography-reading hr::after {
+      transition: none;
+      transform: scaleX(1);
     }
   }
 }

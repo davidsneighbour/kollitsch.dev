@@ -8,7 +8,7 @@ updated: 2026-09-16T00:00:00+07:00
 The Astro dev server (`npm run dev:site`, part of `npm run dev`) always runs over HTTPS at
 `https://localhost:4321`.
 
-Port `4321` is reserved for the Astro dev server managed by `npm run dev:watch`. Do not bind preview servers, Playwright `webServer` blocks, or ad-hoc static servers to that port. Temporary HTTP servers used for inspecting built output should use ports in the `4400` to `4499` range, for example `npx serve dist --listen 4400`.
+Port `4321` is the normal Astro dev-server port. Do not bind unrelated preview servers, Playwright `webServer` processes, or ad-hoc static servers to that port. Temporary HTTP servers used for inspecting built output should use ports in the `4400` to `4499` range, for example `npx serve dist --listen 4400`.
 
 ## Locally trusted certificates (recommended)
 

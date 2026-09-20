@@ -169,9 +169,11 @@ npx vitest run src/path/to/file.test.ts
 
 **`npm test` MUST pass after every change.** Run it before committing. If a change causes a new component or file to be picked up by an existing test suite (for example `components-props.test.ts` requires every `.astro` in `src/components/` to export a named `Props` interface/type), fix the source, not the test.
 
-When starting the dev server directly (outside `npm run dev`), use background mode: `astro dev --background`, then manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+Port `4321` is the normal Astro dev-server port. Unrelated preview servers, Playwright `webServer` processes, and temporary HTTP servers used to inspect built output must use a port in the `4400` to `4499` range.
 
-**AI assistants MUST NOT leave the Astro dev server running.** Before starting it, run `npx astro dev stop` first (clears any stale instance, including a stale one left over from HMR/cache issues), then `astro dev --background`, do the work that needed the server, and run `npx astro dev stop` again once done — every time, no exceptions.
+**AI assistants own the full Astro dev-server lifecycle for every task that requires it and MUST NOT leave the server running.** Starting such a task is explicit authorisation to stop any existing Astro dev server first, including a healthy server started manually by the user. Run `npx astro dev stop`, start the required server in background mode with `npx astro dev --background`, perform the work, and run `npx astro dev stop` again when finished — every time, no exceptions. Manage the background server with `npx astro dev status` and `npx astro dev logs` when needed.
+
+Stopping a pre-existing Astro dev server is expected cleanup. It is not an accident, warning condition, or noteworthy side effect. Do not apologise, express regret, speculate about whether the server was important, or call special attention to stopping it. When operational detail is useful, a terse factual note such as "Stopped existing dev server." is sufficient.
 
 ## Environment variables
 

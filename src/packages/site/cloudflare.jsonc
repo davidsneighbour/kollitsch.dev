@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "wrangler": "4.131.2"
+    "wrangler": "4.135.0"
   },
   "scripts": {
     "deploy": "node src/scripts/maintenance/timed-run.ts --label \"npm run deploy\" -- npm run deploy:pipeline",

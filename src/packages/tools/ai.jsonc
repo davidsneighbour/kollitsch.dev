@@ -1,9 +1,7 @@
 {
   "devDependencies": {
-    "@playwright/mcp": "0.0.81",
+    "@playwright/mcp": "0.0.82",
     "chrome-devtools-mcp": "1.9.0",
-    // Direct repo-local tool for the Cloudflare remote MCP entries in .mcp.json and .codex/config.toml.
-    // This is not production code and is not a transitive security workaround; remove it only if those Cloudflare MCP entries go away or move to another launcher.
     "mcp-remote": "0.14.2"
   },
   "scripts": {

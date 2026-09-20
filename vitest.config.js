@@ -8,28 +8,49 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 const enableBrowserProject = process.env.VITEST_BROWSER === 'true';
 
-const browserProjects = enableBrowserProject
-  ? [
-    {
-      extends: false,
-      name: 'browser',
-      test: {
-        browser: {
-          enabled: true,
-          headless: true,
-          instances: [
-            {
-              browser: 'chromium',
-            },
-          ],
-          provider: playwright(),
-        },
-        globals: true,
-        include: ['src/test/browser/**/*.browser.test.ts'],
-      },
+// Astro's generated image modules are faster without persistent caching. Keep
+// the image-index test separate so the rest of the suite can reuse transforms.
+const testProjects = [
+  {
+    test: {
+      include: [
+        'src/**/*.test.ts',
+        '!src/test/browser/**/*.browser.test.ts',
+        '!src/utils/image-index.test.ts',
+      ],
+      name: 'unit',
     },
-  ]
-  : undefined;
+  },
+  {
+    test: {
+      fsModuleCache: false,
+      include: ['src/utils/image-index.test.ts'],
+      name: 'image-index',
+    },
+  },
+  ...(enableBrowserProject
+    ? [
+        {
+          extends: false,
+          test: {
+            browser: {
+              enabled: true,
+              headless: true,
+              instances: [
+                {
+                  browser: 'chromium',
+                },
+              ],
+              provider: playwright(),
+            },
+            globals: true,
+            include: ['src/test/browser/**/*.browser.test.ts'],
+            name: 'browser',
+          },
+        },
+      ]
+    : []),
+];
 
 /**
  * @type {import('vite').UserConfig}
@@ -51,11 +72,8 @@ export default getViteConfig({
       reportsDirectory: 'src/test/logs/vitest/coverage',
     },
     environment: 'jsdom',
+    fsModuleCache: true,
     globals: true,
-    include: [
-      'src/**/*.test.ts',
-      '!src/test/browser/**/*.browser.test.ts',
-    ],
-    ...(browserProjects ? { projects: browserProjects } : {}),
+    projects: testProjects,
   },
 });

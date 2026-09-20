@@ -489,6 +489,13 @@
     /* font sizes */
     @apply text-sm md:text-base lg:text-xl xl:text-2xl;
 
+    /*
+     * Guards against a horizontal scrollbar from deliberate breakout
+     * elements (e.g. the footer avatar) that intentionally render past
+     * their container's edge up to the viewport boundary.
+     */
+    overflow-x: clip;
+
     /* @see https://www.joshwcomeau.com/css/custom-css-reset/#four-add-accessible-line-height-5 */
     line-height: 1.6;
     line-height: calc(1em + 0.6rem);

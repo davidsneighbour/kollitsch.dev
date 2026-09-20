@@ -303,8 +303,24 @@ const introFallbackHtml = md.renderInline(introFallback);
       float: left;
       height: 14rem;
       width: 14rem;
-      margin: 1rem 1rem 1rem 0;
-      shape-outside: circle();
+
+      /*
+       * Break the avatar 30% out of the text column to the left. This moves
+       * the actual floated box (not just a visual transform), so
+       * `shape-outside` and the surrounding text reflow around the new
+       * position instead of the image overlapping already-wrapped text.
+       */
+      margin: 1rem 1rem 1rem -4.2rem;
+
+      /*
+       * `circle()` defaults to wrapping the margin-box. With an asymmetric
+       * (negative-left, positive-right) margin that box is no longer square,
+       * so its center drifts from the visual circle and text creeps over the
+       * border. Pin the shape to the border-box, which matches the rounded
+       * image exactly regardless of margin.
+       */
+      shape-outside: circle() border-box;
+      shape-margin: 1rem;
     }
 
     .about-intro__image-element {
@@ -319,8 +335,15 @@ const introFallbackHtml = md.renderInline(introFallback);
         float: left;
         height: 10rem;
         width: 10rem;
-        margin: 0 0.75rem 0.5rem 0;
-        shape-outside: circle();
+
+        /* Smaller, fixed breakout on mobile so the face stays in the viewport. */
+        margin: 0 0.75rem 0.5rem -25px;
+        shape-outside: circle() border-box;
+      }
+
+      /* Keep the text (not the image, which intentionally breaks out) off the viewport edge. */
+      #about-introduction {
+        padding-inline: 1em;
       }
     }
   </style>

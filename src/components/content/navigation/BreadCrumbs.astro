@@ -32,7 +32,11 @@ const breadcrumbs = await getBreadcrumbs(path);
               {breadcrumb.label === "Home" ? <Icon name="lucide:house" /> : <span set:html={breadcrumb.label} />}
             </a>
             {!isLast && (
-              <Icon name="lucide:chevron-right" class="shrink-0 fill-gray-400 text-gray-400 dark:fill-gray-600 dark:text-gray-600" />
+              <Icon
+                name="lucide:chevron-right"
+                class="shrink-0 text-primary-800/70 dark:text-primary-700/80"
+                aria-hidden="true"
+              />
             )}
           </>
         );

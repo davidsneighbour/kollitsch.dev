@@ -249,12 +249,24 @@ const introFallbackHtml = md.renderInline(introFallback);
   </script>
 
   <style>
+    @reference "@styles/theme.css";
+
     footer {
       --footer-wordmark-color: var(--color-primary-700);
     }
 
     :where([data-theme="dark"]) footer {
       --footer-wordmark-color: var(--color-primary-600);
+    }
+
+    /*
+     * Site-wide h3 is text-3xl, which is too large for the narrow
+     * Navigation column (lg:col-span-2 of 9, xl:col-span-1 of 7): "Navigation"
+     * wraps mid-word. Trim footer headings a size down.
+     */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    footer :global(h3) {
+      @apply text-2xl;
     }
 
     /*

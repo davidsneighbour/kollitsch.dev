@@ -1,8 +1,15 @@
 ---
+import BreadcrumbSwitcher from '@components/content/navigation/BreadcrumbSwitcher.astro';
 import BreadcrumbListSchema from '@components/seo/schema/BreadcrumbList.astro';
 import Icon from '@components/shared/elements/Icon.astro';
 // @todo refactor and comment
-import { getBreadcrumbs, stripHtmlTags } from '@utils/content.ts';
+import {
+  getBlogPostsForYear,
+  getBlogYears,
+  getBreadcrumbs,
+  pickFrontmatterString,
+  stripHtmlTags,
+} from '@utils/content.ts';
 
 export interface Props {
   path: string;
@@ -12,6 +19,35 @@ const { path }: Props = Astro.props;
 const breadcrumbs = await getBreadcrumbs(path);
 // @todo the home button should not be aria-hidden and have a label. Icon component needs some fine tuning.
 // @todo handle empty paths (no breadcrumb here)
+
+// The year switcher and post switcher only apply to blog post breadcrumbs
+// (Home / Blog / <year> / <post title>). Derive their data from the
+// breadcrumb trail itself rather than re-parsing `path`, since getBreadcrumbs
+// already found the year segment and the post's own href.
+const yearCrumbIndex = breadcrumbs.findIndex((crumb) =>
+  /^\d{4}$/.test(crumb.label),
+);
+const currentYear =
+  yearCrumbIndex >= 0 ? breadcrumbs[yearCrumbIndex]!.label : undefined;
+
+const lastCrumb = breadcrumbs.at(-1);
+const currentSlug =
+  currentYear && lastCrumb
+    ? lastCrumb.href.replace(/\/+$/, '').split('/').pop()
+    : undefined;
+const currentPostId =
+  currentYear && currentSlug ? `${currentYear}/${currentSlug}` : undefined;
+
+const yearItems = currentYear ? await getBlogYears() : [];
+const postItems = currentYear
+  ? (await getBlogPostsForYear(currentYear)).map((post) => ({
+      href: `/blog/${post.id}/`,
+      id: post.id,
+      label:
+        pickFrontmatterString(post.data, ['linktitle', 'title']) ??
+        post.data.title,
+    }))
+  : [];
 ---
 
 <nav
@@ -19,28 +55,54 @@ const breadcrumbs = await getBreadcrumbs(path);
   aria-label="Breadcrumb"
 >
   {breadcrumbs &&
-      breadcrumbs.map((breadcrumb, index) => {
-        const isLast = index === breadcrumbs.length - 1;
-        return (
-          <>
-            <a
-              href={breadcrumb.href}
-              class="line-clamp-1 min-w-0 shrink"
-              aria-current={isLast ? "page" : undefined}
-              aria-label={`Go to ${stripHtmlTags(breadcrumb.label)} page`}
-            >
-              {breadcrumb.label === "Home" ? <Icon name="lucide:house" /> : <span set:html={breadcrumb.label} />}
-            </a>
-            {!isLast && (
-              <Icon
-                name="lucide:chevron-right"
-                class="shrink-0 text-primary-800/70 dark:text-primary-700/80"
-                aria-hidden="true"
-              />
+  breadcrumbs.map((breadcrumb, index) => {
+    const isLast = index === breadcrumbs.length - 1;
+    const isYearCrumb = index === yearCrumbIndex && yearItems.length > 0;
+    const isPostCrumb =
+      isLast && postItems.length > 0 && currentPostId !== undefined;
+    return (
+      <>
+        {isYearCrumb ? (
+          <BreadcrumbSwitcher
+            href={breadcrumb.href}
+            label={breadcrumb.label}
+            items={yearItems}
+            currentId={currentYear!}
+            ariaLabel="Switch blog year"
+          />
+        ) : isPostCrumb ? (
+          <BreadcrumbSwitcher
+            href={breadcrumb.href}
+            label={breadcrumb.label}
+            items={postItems}
+            currentId={currentPostId!}
+            ariaLabel="Switch post"
+            isCurrentPage
+          />
+        ) : (
+          <a
+            href={breadcrumb.href}
+            class="line-clamp-1 min-w-0 shrink"
+            aria-current={isLast ? 'page' : undefined}
+            aria-label={`Go to ${stripHtmlTags(breadcrumb.label)} page`}
+          >
+            {breadcrumb.label === 'Home' ? (
+              <Icon name="lucide:house" />
+            ) : (
+              <span set:html={breadcrumb.label} />
             )}
-          </>
-        );
-      })}
+          </a>
+        )}
+        {!isLast && (
+          <Icon
+            name="lucide:chevron-right"
+            class="shrink-0 text-primary-800/70 dark:text-primary-700/80"
+            aria-hidden="true"
+          />
+        )}
+      </>
+    );
+  })}
 </nav>
 
 <BreadcrumbListSchema items={breadcrumbs} />

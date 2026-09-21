@@ -1,0 +1,230 @@
+---
+import Icon from '@components/shared/elements/Icon.astro';
+import { stripHtmlTags } from '@utils/content.ts';
+
+export interface BreadcrumbSwitcherItem {
+  id: string;
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  href: string;
+  label: string;
+  items: BreadcrumbSwitcherItem[];
+  currentId: string;
+  ariaLabel: string;
+  isCurrentPage?: boolean;
+}
+
+const {
+  href,
+  label,
+  items,
+  currentId,
+  ariaLabel,
+  isCurrentPage = false,
+}: Props = Astro.props;
+
+const activeIndex = items.findIndex((item) => item.id === currentId);
+const above = activeIndex > 0 ? items.slice(0, activeIndex) : [];
+const below = activeIndex >= 0 ? items.slice(activeIndex + 1) : [];
+const hasSwitcher = items.length > 1;
+const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}`;
+---
+
+<span
+  class="group/switcher relative inline-flex min-w-0 shrink items-center"
+  data-breadcrumb-switcher
+>
+  <a
+    href={href}
+    class="line-clamp-1 min-w-0 shrink"
+    aria-current={isCurrentPage ? 'page' : undefined}
+    aria-label={`Go to ${stripHtmlTags(label)} page`}
+  >
+    <span set:html={label} />
+  </a>
+  {hasSwitcher && (
+  <>
+    <button
+      type="button"
+      data-breadcrumb-switcher-toggle
+      aria-expanded="false"
+      aria-controls={panelId}
+      aria-label={ariaLabel}
+      class="relative ml-0.5 inline-flex shrink-0 rounded p-0.5 text-primary-700 transition-colors duration-150 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] before:absolute before:-top-2.5 before:-right-2.5 before:-bottom-2.5 before:left-0 before:content-[''] hover:bg-black/5 hover:text-primary-600 dark:text-primary-600 dark:hover:bg-white/5 dark:hover:text-primary-400"
+    >
+      <Icon
+        name="lucide:chevron-down"
+        class="size-[0.65em] text-current transition-transform duration-200 ease-[cubic-bezier(0.645,0.045,0.355,1)] group-[.open]/switcher:rotate-180"
+        aria-hidden="true"
+      />
+    </button>
+    <span id={panelId} class="contents">
+      {above.length > 0 && (
+        <ul
+          data-breadcrumb-switcher-list="above"
+          class="invisible absolute inset-x-0 bottom-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] -translate-y-1 flex-col overflow-y-auto rounded-sm bg-black/5 py-1 text-xs opacity-0 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:bg-white/5"
+        >
+          {above.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-breadcrumb-switcher-item
+                class="block px-3 py-1.5 text-wrap transition-colors duration-300 ease-in-out hover:text-primary-600 dark:hover:text-primary-400"
+                aria-label={`Go to ${stripHtmlTags(item.label)}`}
+              >
+                <span set:html={item.label} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+      {below.length > 0 && (
+        <ul
+          data-breadcrumb-switcher-list="below"
+          class="invisible absolute inset-x-0 top-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] translate-y-1 flex-col overflow-y-auto rounded-sm bg-black/5 py-1 text-xs opacity-0 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:bg-white/5"
+        >
+          {below.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-breadcrumb-switcher-item
+                class="block px-3 py-1.5 text-wrap transition-colors duration-300 ease-in-out hover:text-primary-600 dark:hover:text-primary-400"
+                aria-label={`Go to ${stripHtmlTags(item.label)}`}
+              >
+                <span set:html={item.label} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </span>
+  </>
+)}
+</span>
+
+<script>
+  function closeSwitcher(el: HTMLElement): void {
+    el.classList.remove('open');
+    el.querySelector<HTMLButtonElement>(
+      '[data-breadcrumb-switcher-toggle]',
+    )?.setAttribute('aria-expanded', 'false');
+  }
+
+  function openSwitcher(el: HTMLElement): void {
+    for (const other of document.querySelectorAll<HTMLElement>(
+      '[data-breadcrumb-switcher].open',
+    )) {
+      if (other !== el) closeSwitcher(other);
+    }
+
+    el.classList.add('open');
+    el.querySelector<HTMLButtonElement>(
+      '[data-breadcrumb-switcher-toggle]',
+    )?.setAttribute('aria-expanded', 'true');
+
+    const above = el.querySelector<HTMLElement>(
+      '[data-breadcrumb-switcher-list="above"]',
+    );
+    if (above) above.scrollTop = above.scrollHeight;
+
+    el.querySelector<HTMLAnchorElement>(':scope > a')?.focus();
+  }
+
+  function getVisibleLinks(el: HTMLElement): HTMLAnchorElement[] {
+    return Array.from(
+      el.querySelectorAll<HTMLAnchorElement>('[data-breadcrumb-switcher-item]'),
+    );
+  }
+
+  function initBreadcrumbSwitchers(): void {
+    for (const toggle of document.querySelectorAll<HTMLButtonElement>(
+      '[data-breadcrumb-switcher-toggle]:not([data-breadcrumb-switcher-init])',
+    )) {
+      toggle.setAttribute('data-breadcrumb-switcher-init', '');
+      const wrapper = toggle.closest<HTMLElement>('[data-breadcrumb-switcher]');
+      if (!wrapper) continue;
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (wrapper.classList.contains('open')) {
+          closeSwitcher(wrapper);
+          toggle.focus();
+        } else {
+          openSwitcher(wrapper);
+        }
+      });
+
+      wrapper.addEventListener('keydown', (e) => {
+        if (!wrapper.classList.contains('open')) return;
+
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeSwitcher(wrapper);
+          toggle.focus();
+          return;
+        }
+
+        const links = getVisibleLinks(wrapper);
+        if (links.length === 0) return;
+        const currentIndex = links.indexOf(
+          document.activeElement as HTMLAnchorElement,
+        );
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextIndex =
+            currentIndex === -1
+              ? 0
+              : Math.min(currentIndex + 1, links.length - 1);
+          links[nextIndex]?.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (currentIndex <= 0) {
+            wrapper.querySelector<HTMLAnchorElement>(':scope > a')?.focus();
+          } else {
+            links[currentIndex - 1]?.focus();
+          }
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          links[0]?.focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          links[links.length - 1]?.focus();
+        }
+      });
+    }
+
+    // Single delegated dismiss handler, guarded by a flag on <body>. Astro
+    // replaces <body> on view-transition swap, so this auto-resets across
+    // navigations without needing astro:before-swap teardown.
+    if (document.body.hasAttribute('data-breadcrumb-switcher-dismiss-init')) {
+      return;
+    }
+    document.body.setAttribute('data-breadcrumb-switcher-dismiss-init', '');
+
+    document.addEventListener('click', (e) => {
+      if (!(e.target instanceof Element)) return;
+      if (e.target.closest('[data-breadcrumb-switcher]')) return;
+      for (const el of document.querySelectorAll<HTMLElement>(
+        '[data-breadcrumb-switcher].open',
+      )) {
+        closeSwitcher(el);
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', initBreadcrumbSwitchers);
+</script>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    [data-breadcrumb-switcher-list] {
+      transform: none;
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

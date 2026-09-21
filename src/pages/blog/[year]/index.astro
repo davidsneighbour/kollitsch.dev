@@ -3,23 +3,13 @@ import ArticleCard from '@components/content/article/Preview.astro';
 import BlogHeading from '@components/content/taxonomy/BlogHeading.astro';
 import BlogSchema from '@components/seo/schema/Blog.astro';
 import Layout from '@layouts/DefaultPage.astro';
-import {
-  getPostsSortedByDraft,
-  paginateBlogPostsByYear,
-} from '@utils/content.ts';
+import { getBlogYears, paginateBlogPostsByYear } from '@utils/content.ts';
 import Pagination from '@/components/content/navigation/Pagination.astro';
 
 export async function getStaticPaths() {
-  const { getCollection } = await import('astro:content');
-  const allPosts = getPostsSortedByDraft(await getCollection('blog'));
+  const years = await getBlogYears();
 
-  const years = Array.from(
-    new Set(
-      allPosts.map((post) => new Date(post.data.date).getFullYear().toString()),
-    ),
-  );
-
-  return years.map((year) => ({
+  return years.map(({ id: year }) => ({
     params: { year },
   }));
 }
@@ -48,7 +38,9 @@ const description = 'Explore our collection of blog posts from this year.';
     level={1}
     description={description}
   />
-  <div class="grid-entrance grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  <div
+    class="grid-entrance grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3"
+  >
     {posts.map((post, index) => <ArticleCard post={post} priority={index < 2} />)}
   </div>
   <Pagination

@@ -270,7 +270,7 @@ const toTitleCase = (segment: string) =>
     .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
     .join(' ');
 
-const pickFrontmatterString = (
+export const pickFrontmatterString = (
   data: unknown,
   keys: readonly string[],
 ): string | null => {
@@ -465,6 +465,51 @@ export const isDateBefore = (date1: Date, date2: Date) =>
 export const isDateAfter = (date1: Date, date2: Date) =>
   date1.getTime() > date2.getTime();
 
+/**
+ * Returns all published (non-draft, or draft in dev) blog posts for a given
+ * year, sorted newest first. Unlike `paginateBlogPostsByYear`, this returns
+ * the complete list rather than a single page.
+ *
+ * @param year - The 4-digit year string (e.g. "2025")
+ */
+export async function getBlogPostsForYear(
+  year: string,
+): Promise<CollectionEntry<'blog'>[]> {
+  const allPosts = getPostsSortedByDraft(await getCollection('blog'));
+
+  return allPosts.filter(
+    (post) => new Date(post.data.date).getFullYear().toString() === year,
+  );
+}
+
+export interface BreadcrumbSwitcherItem {
+  id: string;
+  label: string;
+  href: string;
+}
+
+/**
+ * Returns every year that has at least one blog post, newest first, mapped
+ * to its archive route. Used both to generate `/blog/[year]/` static paths
+ * and to populate the breadcrumb year switcher.
+ */
+export async function getBlogYears(): Promise<BreadcrumbSwitcherItem[]> {
+  const homepage = getHomepageUrl().replace(/\/+$/, '');
+  const allPosts = getPostsSortedByDraft(await getCollection('blog'));
+
+  const years = Array.from(
+    new Set(
+      allPosts.map((post) => new Date(post.data.date).getFullYear().toString()),
+    ),
+  );
+
+  return years.map((year) => ({
+    href: `${homepage}/blog/${year}/`,
+    id: year,
+    label: year,
+  }));
+}
+
 export interface PaginatedPosts {
   posts: CollectionEntry<'blog'>[];
   totalPages: number;
@@ -482,11 +527,7 @@ export async function paginateBlogPostsByYear(
   page: number,
   pageSize: number,
 ): Promise<PaginatedPosts> {
-  const allPosts = getPostsSortedByDraft(await getCollection('blog'));
-
-  const postsOfYear = allPosts.filter(
-    (post) => new Date(post.data.date).getFullYear().toString() === year,
-  );
+  const postsOfYear = await getBlogPostsForYear(year);
 
   const totalPages = Math.ceil(postsOfYear.length / pageSize);
   const start = (page - 1) * pageSize;

@@ -24,10 +24,8 @@ const log = createLogger({ slug: 'TopNavigation' });
 const pathname = Astro.url.pathname;
 const activeItem = findActive(typedNavData, pathname);
 const isNavItemActive = (item: Navigation[number]) => isActive(item, pathname);
-const {
-  defaultTheme = 'dark',
-  siteTitleId = 'sitetitle-header',
-}: Props = Astro.props;
+const { defaultTheme = 'dark', siteTitleId = 'sitetitle-header' }: Props =
+  Astro.props;
 
 if (!activeItem && import.meta.env.DEV) {
   log.debug(`👉 no navigation item to activate for: ${pathname}`);
@@ -35,6 +33,12 @@ if (!activeItem && import.meta.env.DEV) {
 ---
 
 <SiteTitle siteTitleId={siteTitleId} />
+
+<div
+  data-mesh-trigger
+  aria-hidden="true"
+  style="display: block; height: 1px;"
+></div>
 
 <div
   id="site-header"
@@ -75,19 +79,19 @@ if (!activeItem && import.meta.env.DEV) {
         <nav aria-label="Main navigation">
           <ul class="flex flex-col md:flex-row md:items-center md:gap-6">
             {typedNavData
-                .filter((item) => import.meta.env.DEV || !item.devOnly)
-                .map((value) => (
-                  <NavItem
-                    icon={value.icon}
-                    name={value.label}
-                    link={value.link}
-                    subItems={value.children?.filter(
-                      (child) => import.meta.env.DEV || !child.devOnly,
-                    )}
-                    classes="px-3 py-3 md:py-3"
-                    isActive={isNavItemActive(value)}
-                  />
-                ))}
+  .filter((item) => import.meta.env.DEV || !item.devOnly)
+  .map((value) => (
+    <NavItem
+      icon={value.icon}
+      name={value.label}
+      link={value.link}
+      subItems={value.children?.filter(
+        (child) => import.meta.env.DEV || !child.devOnly,
+      )}
+      classes="px-3 py-3 md:py-3"
+      isActive={isNavItemActive(value)}
+    />
+  ))}
           </ul>
         </nav>
       </div>

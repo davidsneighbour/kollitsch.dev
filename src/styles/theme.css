@@ -395,7 +395,7 @@
 [data-theme="dark"] {
   --background: var(--color-olive-950); /* surface-dark */
   --foreground: var(--color-gray-200); /* on-surface-dark */
-  --card: var(--color-gray-800); /* surface-raised-dark */
+  --card: var(--color-gray-950); /* surface-raised-dark */
   --card-foreground: var(--color-gray-200);
   --popover: color-mix(in oklch, var(--background) 88%, #ffffff 12%);
   --popover-foreground: var(--color-gray-200);

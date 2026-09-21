@@ -368,6 +368,7 @@ Rules:
 - Every test file MUST start with `// @vitest-environment node`.
 - Add a co-located unit test whenever changing observable behaviour.
 - Browser tests live in `src/test/browser/` and require `VITEST_BROWSER=true`.
+- **"Visible" means visible to the human eye.** When verifying a UI change, "it's visible"/"it shows"/"it renders" means confirmed in an actual screenshot or live view — not that the element exists in the DOM, has a non-zero computed opacity, or paints non-zero pixels per a script-read canvas. Those checks prove the mechanism runs; they do not prove a human looking at the page would ever notice it. Take a real screenshot before reporting a visual feature as working, especially for anything deliberately subtle (low opacity, background effects, animations).
 
 ## Code conventions
 

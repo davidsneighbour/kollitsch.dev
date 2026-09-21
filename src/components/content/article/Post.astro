@@ -31,7 +31,8 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 <article
   transition:name={transitionName}
   data-post-preview-transition={transitionName}
-  class="@container mt-8 overflow-hidden rounded-lg bg-card p-4 text-card-foreground shadow-sm ring-1 ring-gray-900/10 ring-inset dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 sm:p-6 lg:p-8"
+  data-obscures-mesh
+  class="@container mt-8 overflow-hidden rounded-lg bg-card p-4 text-card-foreground shadow-sm ring-1 ring-gray-900/10 ring-inset dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 sm:p-6 lg:p-8"
 >
   <PostImage
     post={post}

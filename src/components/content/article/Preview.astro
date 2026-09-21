@@ -23,7 +23,8 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 <article
   transition:name={transitionName}
   data-post-preview-transition={transitionName}
-  class="group @container relative isolate flex flex-col justify-normal overflow-hidden rounded-(--card-radius) bg-card p-(--card-padding) text-card-foreground shadow-sm ring-1 ring-gray-900/10 [--card-padding:0px] [--card-radius:var(--radius-lg)] ring-inset transition-colors duration-300 ease-in-out hover:bg-white dark:bg-black/20 dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 dark:hover:bg-black/30"
+  data-obscures-mesh
+  class="group @container relative isolate flex flex-col justify-normal overflow-hidden rounded-(--card-radius) bg-card p-(--card-padding) text-card-foreground shadow-sm ring-1 ring-gray-900/10 [--card-padding:0px] [--card-radius:var(--radius-lg)] ring-inset transition-colors duration-300 ease-in-out hover:bg-white dark:text-gray-200 dark:shadow-none dark:ring-gray-100/10 dark:hover:bg-gray-700"
 >
   <PostImage
     post={post}

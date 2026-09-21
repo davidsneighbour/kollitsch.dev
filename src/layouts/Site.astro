@@ -5,6 +5,7 @@ import Breakpoints from "@components/devtools/Breakpoints.astro";
 import Head from "@components/layout/head/Head.astro";
 import SchemaWebSite from "@components/seo/schema/WebSite.astro";
 import WebComponents from "@components/layout/footer/WebComponents.astro";
+import Mesh from "@components/gimmicks/Mesh.astro";
 import Selection from "@components/gimmicks/Selection.astro";
 import setup from "@data/setup.json" with { type: "json" };
 
@@ -43,6 +44,30 @@ const IS_DEV = import.meta.env.DEV;
     {import.meta.env.DEV && <link rel="stylesheet" href="/src/styles/auditor.css" />}
   </head>
   <body class={bodyClasses}>
+    {/*
+      Deliberately first, not grouped with the other "extras" at the
+      bottom of this file. It has no z-index (see its own stylesheet for
+      why), so it relies on being painted before everything else in
+      document order to stay behind real content. Moving it would put it
+      visually on top of the whole page. Confirmed not a loading-perf
+      concern either: its script is type="module" (deferred regardless of
+      DOM position) and does not appear in Lighthouse's render-blocking
+      list; a production trace measured 0ms attributable LCP/FCP impact.
+    */}
+    <Mesh
+      nodeOpacity={0.4}
+      connectionOpacity={0.16}
+      particleRadiusMin={3.5}
+      particleRadiusMax={5.5}
+      pointerRadius={130}
+      fadeDuration="6000ms"
+      fadeEasing="linear(0, 0.6 12%, 0.92 55%, 1)"
+      density={{
+        desktop: { particles: 190 },
+        tablet: { particles: 130 },
+        mobile: { particles: 80 },
+      }}
+    />
     <slot />
     <Breakpoints />
     <SchemaWebSite />
@@ -169,7 +194,8 @@ const IS_DEV = import.meta.env.DEV;
         // Do not initialise Lenis in a speculative prerender — the page is not
         // yet visible and the scroll context is meaningless. Defer to activation.
         // document.prerendering is not yet in TypeScript's DOM lib.
-        const isPrerendering = "prerendering" in document && (document as Document & { prerendering: boolean }).prerendering;
+        const isPrerendering =
+          "prerendering" in document && (document as Document & { prerendering: boolean }).prerendering;
         if (isPrerendering) {
           document.addEventListener("prerenderingchange", initLenis, { once: true });
         } else {

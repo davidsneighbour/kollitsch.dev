@@ -1,0 +1,1109 @@
+---
+export interface DensitySettingProp {
+  particles?: number;
+  connectionRadius?: number;
+}
+
+export interface Props {
+  colorVar?: string;
+  nodeOpacity?: number;
+  connectionOpacity?: number;
+  particleRadiusMin?: number;
+  particleRadiusMax?: number;
+  movementSpeed?: number;
+  pointerRadius?: number;
+  pointerForce?: number;
+  // Multiplier for how much brighter dots and connections get the closer
+  // they are to the pointer - 0 disables the glow entirely. 1 means "at
+  // the very centre, twice as bright as normal", tapering with the same
+  // eased curve as the repulsion force down to normal at pointerRadius.
+  pointerGlowStrength?: number;
+  // Minimum gap kept between any two particles, and how hard they push
+  // apart when closer than that. Always active (not just near the
+  // pointer) - this is what stops particles left clustered together
+  // after a pointer interaction from just sitting there, and what makes
+  // the field settle back into an even, non-overlapping spread once the
+  // pointer moves away.
+  particleMinDistance?: number;
+  particleSeparationForce?: number;
+  scrollInfluence?: number;
+  scrollDamping?: number;
+  // Box height as a CSS clamp(heightMin, heightPreferred, heightMax).
+  // heightPreferred is the value that actually drives the height on most
+  // screens (a vh unit); heightMin/heightMax are the floor/ceiling that
+  // stop it from getting absurdly short or tall on extreme viewports.
+  heightMin?: string;
+  heightPreferred?: string;
+  heightMax?: string;
+  // How long the whole box takes to fade in/out as the trigger crosses
+  // the viewport, and the CSS timing-function shaping that fade. Any
+  // valid CSS <easing-function> works, including a linear() curve for a
+  // custom multi-phase shape (fast in, then linear-ish, then a long slow
+  // settle) that a single cubic-bezier() can't really express.
+  fadeDuration?: string;
+  fadeEasing?: string;
+  density?: {
+    desktop?: DensitySettingProp;
+    tablet?: DensitySettingProp;
+    mobile?: DensitySettingProp;
+  };
+}
+
+// Base tuning. All of this is overridable per-instance via props - see the
+// <Mesh /> call site (currently src/layouts/Site.astro) for the
+// single place that actually controls how the effect looks on the site.
+const DEFAULT_DENSITY = {
+  desktop: { connectionRadius: 135, particles: 110 },
+  mobile: { connectionRadius: 95, particles: 40 },
+  tablet: { connectionRadius: 115, particles: 70 },
+};
+
+const {
+  colorVar = '--color-primary',
+  nodeOpacity = 0.14,
+  connectionOpacity = 0.05,
+  particleRadiusMin = 1,
+  particleRadiusMax = 2.2,
+  movementSpeed = 0.08,
+  pointerRadius = 200,
+  pointerForce = 0.04,
+  pointerGlowStrength = 1.2,
+  particleMinDistance = 26,
+  particleSeparationForce = 0.06,
+  scrollInfluence = 0.002,
+  scrollDamping = 0.04,
+  heightMin = '280px',
+  heightPreferred = '66vh',
+  heightMax = '850px',
+  fadeDuration = '900ms',
+  fadeEasing = 'ease',
+  density = {},
+} = Astro.props;
+
+const config = {
+  colorVar,
+  connectionOpacity,
+  density: {
+    desktop: { ...DEFAULT_DENSITY.desktop, ...density.desktop },
+    mobile: { ...DEFAULT_DENSITY.mobile, ...density.mobile },
+    tablet: { ...DEFAULT_DENSITY.tablet, ...density.tablet },
+  },
+  movementSpeed,
+  nodeOpacity,
+  particleMinDistance,
+  particleRadiusMax,
+  particleRadiusMin,
+  particleSeparationForce,
+  pointerForce,
+  pointerGlowStrength,
+  pointerRadius,
+  scrollDamping,
+  scrollInfluence,
+};
+---
+
+<div
+  class="mesh"
+  data-mesh
+  data-mesh-config={JSON.stringify(config)}
+  style={`--mesh-height-min: ${heightMin}; --mesh-height-preferred: ${heightPreferred}; --mesh-height-max: ${heightMax}; --mesh-fade-duration: ${fadeDuration}; --mesh-fade-easing: ${fadeEasing};`}
+  aria-hidden="true"
+>
+  <canvas class="mesh-canvas"></canvas>
+</div>
+
+<style>
+  .mesh {
+    /*
+     * No z-index here, deliberately. This is the first child of <body>,
+     * and <body> has its own explicit background-color (not "transparent",
+     * so it isn't promoted to the page canvas). A negative z-index would
+     * land this in the "negative z-index descendants" paint step, which
+     * runs BEFORE <body>'s own background paint step - hiding it behind
+     * that background entirely. Leaving z-index at its default (auto)
+     * keeps this in document order: painted after body's background,
+     * before every later sibling (header/main/footer), which is what
+     * "behind content, above the page background" actually requires.
+     */
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    height: clamp(
+      var(--mesh-height-min),
+      var(--mesh-height-preferred),
+      var(--mesh-height-max)
+    );
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity var(--mesh-fade-duration) var(--mesh-fade-easing);
+    will-change: opacity;
+  }
+
+  .mesh.is-visible {
+    opacity: 100%;
+  }
+
+  .mesh-canvas {
+    /*
+     * No mask here, deliberately. A canvas element already hard-clips its
+     * own drawing to its own box on every side - that alone gives the
+     * contained-with-a-hard-top-edge look. A mask that fades toward
+     * transparent near the top would soften that edge instead of just
+     * cutting it off.
+     */
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mesh {
+      transition-duration: 400ms;
+    }
+  }
+</style>
+
+<script>
+  interface Particle {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    angle: number;
+    radius: number;
+  }
+
+  type DensityTier = 'desktop' | 'mobile' | 'tablet';
+
+  interface DensitySetting {
+    particles: number;
+    connectionRadius: number;
+  }
+
+  interface MeshOptions {
+    colorVar: string;
+    nodeOpacity: number;
+    connectionOpacity: number;
+    particleRadiusMin: number;
+    particleRadiusMax: number;
+    density: Record<DensityTier, DensitySetting>;
+    movementSpeed: number;
+    pointerRadius: number;
+    pointerForce: number;
+    pointerGlowStrength: number;
+    particleMinDistance: number;
+    particleSeparationForce: number;
+    scrollInfluence: number;
+    scrollDamping: number;
+  }
+
+  interface LenisLike {
+    velocity: number;
+    on: (
+      event: 'scroll',
+      callback: (instance: LenisLike) => void,
+    ) => () => void;
+  }
+
+  const FALLBACK_OPTIONS: MeshOptions = {
+    colorVar: '--color-primary',
+    connectionOpacity: 0.05,
+    density: {
+      desktop: { connectionRadius: 135, particles: 110 },
+      mobile: { connectionRadius: 95, particles: 40 },
+      tablet: { connectionRadius: 115, particles: 70 },
+    },
+    movementSpeed: 0.08,
+    nodeOpacity: 0.14,
+    particleMinDistance: 26,
+    particleRadiusMax: 2.2,
+    particleRadiusMin: 1,
+    particleSeparationForce: 0.06,
+    pointerForce: 0.04,
+    pointerGlowStrength: 1.2,
+    pointerRadius: 200,
+    scrollDamping: 0.04,
+    scrollInfluence: 0.002,
+  };
+
+  const FALLBACK_RGB = '120,120,120';
+  const TRIGGER_SELECTOR = '[data-mesh-trigger]';
+  // Marks content boxes known to sit fully opaque on top of the mesh (see
+  // Post.astro, Preview.astro) - the pointer shouldn't disturb dots that
+  // are hidden underneath one of these.
+  const OBSCURING_SELECTOR = '[data-obscures-mesh]';
+  // Fraction of the box's height that the centre column's reach is
+  // recessed by, relative to the edges (which always reach the full top).
+  const CONCAVE_DEPTH = 0.28;
+
+  const instances = new WeakMap<HTMLElement, MeshController>();
+  const activeInstances = new Set<MeshController>();
+
+  function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+  }
+
+  function isLenisLike(value: unknown): value is LenisLike {
+    return (
+      isRecord(value) &&
+      typeof value['velocity'] === 'number' &&
+      typeof value['on'] === 'function'
+    );
+  }
+
+  function readDensity(
+    value: unknown,
+    fallback: Record<DensityTier, DensitySetting>,
+  ): Record<DensityTier, DensitySetting> {
+    if (!isRecord(value)) return fallback;
+
+    const readTier = (tier: DensityTier): DensitySetting => {
+      const raw = value[tier];
+      if (!isRecord(raw)) return fallback[tier];
+      const particles =
+        typeof raw['particles'] === 'number'
+          ? raw['particles']
+          : fallback[tier].particles;
+      const connectionRadius =
+        typeof raw['connectionRadius'] === 'number'
+          ? raw['connectionRadius']
+          : fallback[tier].connectionRadius;
+      return { connectionRadius, particles };
+    };
+
+    return {
+      desktop: readTier('desktop'),
+      mobile: readTier('mobile'),
+      tablet: readTier('tablet'),
+    };
+  }
+
+  function readNumber(value: unknown, fallback: number): number {
+    return typeof value === 'number' && Number.isFinite(value)
+      ? value
+      : fallback;
+  }
+
+  // Zero slope at both t=0 and t=1, unlike a straight linear ramp - used
+  // everywhere something should ease in as it approaches the pointer and
+  // ease back out approaching pointerRadius, rather than starting or
+  // stopping abruptly.
+  function smoothstep(t: number): number {
+    return t * t * (3 - 2 * t);
+  }
+
+  function readOptions(root: HTMLElement): MeshOptions {
+    const raw = root.dataset['meshConfig'];
+    if (!raw) return FALLBACK_OPTIONS;
+
+    try {
+      const parsed: unknown = JSON.parse(raw);
+      if (!isRecord(parsed)) return FALLBACK_OPTIONS;
+
+      return {
+        colorVar:
+          typeof parsed['colorVar'] === 'string'
+            ? parsed['colorVar']
+            : FALLBACK_OPTIONS.colorVar,
+        connectionOpacity: readNumber(
+          parsed['connectionOpacity'],
+          FALLBACK_OPTIONS.connectionOpacity,
+        ),
+        density: readDensity(parsed['density'], FALLBACK_OPTIONS.density),
+        movementSpeed: readNumber(
+          parsed['movementSpeed'],
+          FALLBACK_OPTIONS.movementSpeed,
+        ),
+        nodeOpacity: readNumber(
+          parsed['nodeOpacity'],
+          FALLBACK_OPTIONS.nodeOpacity,
+        ),
+        particleMinDistance: readNumber(
+          parsed['particleMinDistance'],
+          FALLBACK_OPTIONS.particleMinDistance,
+        ),
+        particleRadiusMax: readNumber(
+          parsed['particleRadiusMax'],
+          FALLBACK_OPTIONS.particleRadiusMax,
+        ),
+        particleRadiusMin: readNumber(
+          parsed['particleRadiusMin'],
+          FALLBACK_OPTIONS.particleRadiusMin,
+        ),
+        particleSeparationForce: readNumber(
+          parsed['particleSeparationForce'],
+          FALLBACK_OPTIONS.particleSeparationForce,
+        ),
+        pointerForce: readNumber(
+          parsed['pointerForce'],
+          FALLBACK_OPTIONS.pointerForce,
+        ),
+        pointerGlowStrength: readNumber(
+          parsed['pointerGlowStrength'],
+          FALLBACK_OPTIONS.pointerGlowStrength,
+        ),
+        pointerRadius: readNumber(
+          parsed['pointerRadius'],
+          FALLBACK_OPTIONS.pointerRadius,
+        ),
+        scrollDamping: readNumber(
+          parsed['scrollDamping'],
+          FALLBACK_OPTIONS.scrollDamping,
+        ),
+        scrollInfluence: readNumber(
+          parsed['scrollInfluence'],
+          FALLBACK_OPTIONS.scrollInfluence,
+        ),
+      };
+    } catch (error: unknown) {
+      console.error('Failed to parse Mesh configuration.', error);
+      return FALLBACK_OPTIONS;
+    }
+  }
+
+  // Disjoint-set over particle indices, used to detect whether the
+  // connection graph drawn this frame is a single connected component or
+  // several isolated ones. Path compression only (no union-by-rank) - at
+  // a few hundred particles the difference is not worth the extra code.
+  class UnionFind {
+    private readonly parent: number[];
+
+    public constructor(size: number) {
+      this.parent = Array.from({ length: size }, (_, index) => index);
+    }
+
+    public find(index: number): number {
+      const parent = this.parent[index];
+      if (parent === undefined) return index;
+      if (parent !== index) {
+        this.parent[index] = this.find(parent);
+      }
+      return this.parent[index] ?? index;
+    }
+
+    public union(a: number, b: number): void {
+      const rootA = this.find(a);
+      const rootB = this.find(b);
+      if (rootA !== rootB) this.parent[rootA] = rootB;
+    }
+  }
+
+  class MeshController {
+    private readonly root: HTMLElement;
+    private readonly canvas: HTMLCanvasElement;
+    private readonly options: MeshOptions;
+    private readonly reducedMotionQuery = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    );
+    private readonly finePointerQuery = window.matchMedia('(pointer: fine)');
+    private readonly tabletQuery = window.matchMedia('(min-width: 768px)');
+    private readonly desktopQuery = window.matchMedia('(min-width: 1024px)');
+
+    private context: CanvasRenderingContext2D | null = null;
+    private triggerObserver: IntersectionObserver | null = null;
+    private particles: Particle[] = [];
+    private grid = new Map<string, number[]>();
+    private cellSize = 120;
+    private tier: DensityTier = 'desktop';
+    private colorRgb = FALLBACK_RGB;
+    private width = 0;
+    private height = 0;
+    private pointerX = -9999;
+    private pointerY = -9999;
+    private scrollOffset = 0;
+    private scrollTargetOffset = 0;
+    private lastFrameTime = 0;
+    private resizeTimeout: number | null = null;
+    private animationFrame: number | null = null;
+    private lenisUnsubscribe: (() => void) | null = null;
+    private lenisPollInterval: number | null = null;
+    private started = false;
+    private running = false;
+    private visible = false;
+
+    public constructor(root: HTMLElement) {
+      const canvas = root.querySelector('canvas');
+      if (!(canvas instanceof HTMLCanvasElement)) {
+        throw new Error('Mesh requires a canvas element.');
+      }
+
+      this.root = root;
+      this.canvas = canvas;
+      this.options = readOptions(root);
+    }
+
+    public mount(): void {
+      const trigger = document.querySelector<HTMLElement>(TRIGGER_SELECTOR);
+      if (!trigger) return;
+
+      this.triggerObserver = new IntersectionObserver(this.handleTrigger, {
+        threshold: 0,
+      });
+      this.triggerObserver.observe(trigger);
+
+      this.reducedMotionQuery.addEventListener(
+        'change',
+        this.handleMotionChange,
+      );
+      this.tabletQuery.addEventListener('change', this.handleTierChange);
+      this.desktopQuery.addEventListener('change', this.handleTierChange);
+      document.addEventListener(
+        'visibilitychange',
+        this.handleVisibilityChange,
+      );
+      document.addEventListener('theme-changed', this.handleThemeChange);
+      window.addEventListener('resize', this.handleResize, { passive: true });
+
+      if (this.finePointerQuery.matches) {
+        window.addEventListener('pointermove', this.handlePointerMove, {
+          passive: true,
+        });
+      }
+    }
+
+    public destroy(): void {
+      this.stopLoop();
+
+      this.triggerObserver?.disconnect();
+      this.triggerObserver = null;
+
+      if (this.resizeTimeout !== null) window.clearTimeout(this.resizeTimeout);
+      if (this.lenisPollInterval !== null)
+        window.clearInterval(this.lenisPollInterval);
+      this.lenisUnsubscribe?.();
+
+      this.reducedMotionQuery.removeEventListener(
+        'change',
+        this.handleMotionChange,
+      );
+      this.tabletQuery.removeEventListener('change', this.handleTierChange);
+      this.desktopQuery.removeEventListener('change', this.handleTierChange);
+      document.removeEventListener(
+        'visibilitychange',
+        this.handleVisibilityChange,
+      );
+      document.removeEventListener('theme-changed', this.handleThemeChange);
+      window.removeEventListener('resize', this.handleResize);
+      window.removeEventListener('pointermove', this.handlePointerMove);
+    }
+
+    private readonly handleTrigger = (
+      entries: IntersectionObserverEntry[],
+    ): void => {
+      const entry = entries.at(-1);
+      if (!entry) return;
+
+      // Sentinel still visible (or not yet reached): stay near the top, hidden.
+      if (entry.isIntersecting) {
+        this.hide();
+        return;
+      }
+
+      // Sentinel has scrolled above the viewport: the hero is fully gone.
+      if (entry.boundingClientRect.top < 0) {
+        this.show();
+      } else {
+        this.hide();
+      }
+    };
+
+    private readonly handleMotionChange = (): void => {
+      if (!this.started || !this.visible) return;
+      this.startLoop();
+    };
+
+    private readonly handleTierChange = (): void => {
+      if (!this.started) return;
+      this.buildParticles();
+    };
+
+    private readonly handleVisibilityChange = (): void => {
+      if (document.hidden) {
+        this.stopLoop();
+      } else if (this.visible) {
+        this.startLoop();
+      }
+    };
+
+    private readonly handleThemeChange = (): void => {
+      if (!this.started) return;
+      this.resolveColor();
+      if (this.reducedMotionQuery.matches) this.draw();
+    };
+
+    private readonly handlePointerMove = (event: PointerEvent): void => {
+      // elementFromPoint already skips pointer-events:none elements (this
+      // canvas included), landing on whatever the cursor is actually
+      // interacting with. If that's inside a box we know sits opaque on
+      // top of the mesh, the dots underneath aren't visible right now -
+      // don't let the cursor push them around sight unseen.
+      const hit = document.elementFromPoint(event.clientX, event.clientY);
+      if (hit?.closest(OBSCURING_SELECTOR)) {
+        this.pointerX = -9999;
+        this.pointerY = -9999;
+        return;
+      }
+
+      const rect = this.root.getBoundingClientRect();
+      this.pointerX = event.clientX - rect.left;
+      this.pointerY = event.clientY - rect.top;
+    };
+
+    private readonly handleResize = (): void => {
+      if (this.resizeTimeout !== null) window.clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = window.setTimeout(() => {
+        if (!this.started) return;
+        this.resizeCanvas(true);
+        if (this.reducedMotionQuery.matches || !this.running) this.draw();
+      }, 150);
+    };
+
+    private show(): void {
+      if (!this.started) this.ensureStarted();
+      this.visible = true;
+      this.root.classList.add('is-visible');
+      this.startLoop();
+    }
+
+    private hide(): void {
+      this.visible = false;
+      this.root.classList.remove('is-visible');
+      this.stopLoop();
+    }
+
+    private ensureStarted(): void {
+      this.context = this.canvas.getContext('2d');
+      if (!this.context) {
+        console.error('Mesh could not create a 2D canvas context.');
+        return;
+      }
+
+      this.resolveColor();
+      this.resizeCanvas(false);
+      this.buildParticles();
+      this.subscribeToLenis();
+      this.started = true;
+    }
+
+    private startLoop(): void {
+      if (!this.started || document.hidden) return;
+
+      if (this.reducedMotionQuery.matches) {
+        this.draw();
+        return;
+      }
+
+      if (this.running) return;
+      this.running = true;
+      this.lastFrameTime = performance.now();
+      this.animationFrame = window.requestAnimationFrame(this.animate);
+    }
+
+    private stopLoop(): void {
+      this.running = false;
+      if (this.animationFrame !== null) {
+        window.cancelAnimationFrame(this.animationFrame);
+        this.animationFrame = null;
+      }
+    }
+
+    private readonly animate = (now: number): void => {
+      if (!this.running) return;
+
+      const dt = Math.min(2, (now - this.lastFrameTime) / 16.67);
+      this.lastFrameTime = now;
+
+      this.updateParticles(dt);
+      this.updateScrollOffset();
+      this.draw();
+
+      this.animationFrame = window.requestAnimationFrame(this.animate);
+    };
+
+    private determineTier(): DensityTier {
+      if (this.desktopQuery.matches) return 'desktop';
+      if (this.tabletQuery.matches) return 'tablet';
+      return 'mobile';
+    }
+
+    private buildParticles(): void {
+      this.tier = this.determineTier();
+      const setting = this.options.density[this.tier];
+      this.cellSize =
+        setting.connectionRadius > 0 ? setting.connectionRadius : 100;
+
+      const radiusMin = this.options.particleRadiusMin;
+      const radiusSpread = Math.max(
+        0,
+        this.options.particleRadiusMax - radiusMin,
+      );
+
+      this.particles = Array.from({ length: setting.particles }, () => {
+        const x = Math.random() * this.width;
+        const ceiling = this.columnCeiling(x);
+        const span = Math.max(0, this.height - ceiling);
+
+        return {
+          angle: Math.random() * Math.PI * 2,
+          radius: radiusMin + Math.random() * radiusSpread,
+          vx: 0,
+          vy: 0,
+          x,
+          // Bottom-biased and tapering smoothly to zero density at this
+          // column's own ceiling (0.45 < 1 skews Math.random() toward 1,
+          // so most particles land near `ceiling + span`, i.e. the
+          // bottom; the rarer, higher ones thin out approaching the
+          // ceiling instead of piling up along it).
+          y: ceiling + span * Math.pow(Math.random(), 0.45),
+        };
+      });
+
+      this.rebuildGrid();
+      if (this.started && (this.reducedMotionQuery.matches || !this.running))
+        this.draw();
+    }
+
+    // The field's upper reach dips lower toward the centre and rises back
+    // up toward the left/right edges - a shallow concave "bowl" rather
+    // than a flat horizontal ceiling. 0 at the edges (full reach to the
+    // very top), CONCAVE_DEPTH * height at the centre (recessed).
+    private columnCeiling(x: number): number {
+      if (this.width <= 0) return 0;
+      const nx = x / this.width;
+      const centerness = Math.cos((nx - 0.5) * Math.PI);
+      return this.height * CONCAVE_DEPTH * Math.max(0, centerness);
+    }
+
+    private resizeCanvas(rescaleExisting: boolean): void {
+      const rect = this.canvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const prevWidth = this.width;
+      const prevHeight = this.height;
+
+      this.canvas.width = Math.round(rect.width * dpr);
+      this.canvas.height = Math.round(rect.height * dpr);
+      this.context?.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      this.width = rect.width;
+      this.height = rect.height;
+
+      if (
+        rescaleExisting &&
+        prevWidth > 0 &&
+        prevHeight > 0 &&
+        this.particles.length > 0
+      ) {
+        const scaleX = this.width / prevWidth;
+        const scaleY = this.height / prevHeight;
+        for (const particle of this.particles) {
+          particle.x *= scaleX;
+          particle.y *= scaleY;
+        }
+        this.rebuildGrid();
+      }
+    }
+
+    private resolveColor(): void {
+      const probe = document.createElement('canvas');
+      probe.width = 1;
+      probe.height = 1;
+      const probeContext = probe.getContext('2d');
+      const raw = getComputedStyle(document.documentElement)
+        .getPropertyValue(this.options.colorVar)
+        .trim();
+
+      if (!probeContext || !raw) {
+        this.colorRgb = FALLBACK_RGB;
+        return;
+      }
+
+      probeContext.fillStyle = '#000';
+      probeContext.fillStyle = raw;
+      probeContext.fillRect(0, 0, 1, 1);
+      const data = probeContext.getImageData(0, 0, 1, 1).data;
+      this.colorRgb = `${data[0] ?? 120},${data[1] ?? 120},${data[2] ?? 120}`;
+    }
+
+    private subscribeToLenis(): void {
+      const tryAttach = (): boolean => {
+        const lenis = window.kdev.lenis;
+        if (!isLenisLike(lenis)) return false;
+        this.lenisUnsubscribe = lenis.on('scroll', this.handleLenisScroll);
+        return true;
+      };
+
+      if (tryAttach()) return;
+
+      // Lenis initialises asynchronously; poll briefly rather than assuming
+      // a fixed init order relative to this controller.
+      let attempts = 0;
+      this.lenisPollInterval = window.setInterval(() => {
+        attempts += 1;
+        if (tryAttach() || attempts > 20) {
+          if (this.lenisPollInterval !== null)
+            window.clearInterval(this.lenisPollInterval);
+          this.lenisPollInterval = null;
+        }
+      }, 250);
+    }
+
+    private readonly handleLenisScroll = (instance: LenisLike): void => {
+      if (this.reducedMotionQuery.matches) return;
+      const delta = instance.velocity * this.options.scrollInfluence * 1000;
+      this.scrollTargetOffset = Math.max(
+        -20,
+        Math.min(20, this.scrollTargetOffset + delta),
+      );
+    };
+
+    private updateScrollOffset(): void {
+      this.scrollOffset +=
+        (this.scrollTargetOffset - this.scrollOffset) *
+        this.options.scrollDamping;
+      this.scrollTargetOffset *= 0.9;
+    }
+
+    private updateParticles(dt: number): void {
+      const speed = this.options.movementSpeed;
+      const margin = 40;
+      const pointerActive =
+        this.finePointerQuery.matches && this.pointerX > -9000;
+
+      // Always-on mutual repulsion, not just near the pointer. This is
+      // what stops particles left clumped together by a pointer
+      // interaction from just sitting there afterwards: with nothing
+      // else to push against, the only way a crowded pile-up can relax
+      // is to spread back out, including back off a boundary it got
+      // pushed against. Uses the grid built at the end of the previous
+      // frame, which is one frame stale but close enough for a gentle
+      // force like this.
+      this.applySeparation();
+
+      for (const particle of this.particles) {
+        particle.angle += (Math.random() - 0.5) * 0.05;
+        particle.vx += Math.cos(particle.angle) * speed * 0.02;
+        particle.vy += Math.sin(particle.angle) * speed * 0.02;
+
+        if (particle.x < margin) particle.vx += (margin - particle.x) * 0.0006;
+        if (particle.x > this.width - margin)
+          particle.vx -= (particle.x - (this.width - margin)) * 0.0006;
+        // Top containment follows this column's own concave ceiling, not a
+        // flat line, so ambient drift can't blur the bowl shape into a
+        // horizontal band of particles hovering at one fixed height.
+        const topLimit = this.columnCeiling(particle.x) + margin;
+        if (particle.y < topLimit)
+          particle.vy += (topLimit - particle.y) * 0.0006;
+        if (particle.y > this.height - margin)
+          particle.vy -= (particle.y - (this.height - margin)) * 0.0006;
+
+        if (pointerActive) {
+          const dx = particle.x - this.pointerX;
+          const dy = particle.y - (this.pointerY - this.scrollOffset);
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < this.options.pointerRadius && distance > 0.01) {
+            const eased = smoothstep(1 - distance / this.options.pointerRadius);
+            const force = eased * this.options.pointerForce;
+            particle.vx += (dx / distance) * force;
+            particle.vy += (dy / distance) * force;
+          }
+        }
+
+        particle.vx *= 0.94;
+        particle.vy *= 0.94;
+
+        particle.x += particle.vx * dt;
+        particle.y += particle.vy * dt;
+      }
+
+      this.rebuildGrid();
+    }
+
+    // Pushes any two particles closer than particleMinDistance apart, in
+    // both directions equally. Run every frame regardless of pointer
+    // state - it's a standing "no two dots on top of each other, no
+    // pile-ups" rule, not a pointer-triggered effect.
+    private applySeparation(): void {
+      const minDistance = this.options.particleMinDistance;
+      if (minDistance <= 0) return;
+
+      const strength = this.options.particleSeparationForce;
+
+      for (let index = 0; index < this.particles.length; index += 1) {
+        this.forEachNeighbor(index, (otherIndex) => {
+          const a = this.particles[index];
+          const b = this.particles[otherIndex];
+          if (!a || !b) return;
+
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance >= minDistance) return;
+
+          let nx: number;
+          let ny: number;
+          if (distance > 0.01) {
+            nx = dx / distance;
+            ny = dy / distance;
+          } else {
+            // Exactly (or almost) overlapping: the normalised direction
+            // between them is undefined, so pick a random one instead of
+            // leaving them stuck on top of each other.
+            const randomAngle = Math.random() * Math.PI * 2;
+            nx = Math.cos(randomAngle);
+            ny = Math.sin(randomAngle);
+          }
+
+          const push = (1 - distance / minDistance) * strength;
+          a.vx += nx * push;
+          a.vy += ny * push;
+          b.vx -= nx * push;
+          b.vy -= ny * push;
+        });
+      }
+    }
+
+    private cellKey(x: number, y: number): string {
+      return `${Math.floor(x / this.cellSize)}:${Math.floor(y / this.cellSize)}`;
+    }
+
+    private rebuildGrid(): void {
+      this.grid.clear();
+      for (let index = 0; index < this.particles.length; index += 1) {
+        const particle = this.particles[index];
+        if (!particle) continue;
+        const key = this.cellKey(particle.x, particle.y);
+        const bucket = this.grid.get(key);
+        if (bucket) {
+          bucket.push(index);
+        } else {
+          this.grid.set(key, [index]);
+        }
+      }
+    }
+
+    private forEachNeighbor(
+      index: number,
+      callback: (otherIndex: number) => void,
+    ): void {
+      const particle = this.particles[index];
+      if (!particle) return;
+
+      const cx = Math.floor(particle.x / this.cellSize);
+      const cy = Math.floor(particle.y / this.cellSize);
+
+      for (let dx = -1; dx <= 1; dx += 1) {
+        for (let dy = -1; dy <= 1; dy += 1) {
+          const bucket = this.grid.get(`${cx + dx}:${cy + dy}`);
+          if (!bucket) continue;
+          for (const otherIndex of bucket) {
+            if (otherIndex > index) callback(otherIndex);
+          }
+        }
+      }
+    }
+
+    private draw(): void {
+      if (!this.context) return;
+      const ctx = this.context;
+      const radius = this.options.density[this.tier].connectionRadius;
+      const unionFind = new UnionFind(this.particles.length);
+
+      ctx.clearRect(0, 0, this.width, this.height);
+      ctx.save();
+      ctx.translate(0, this.scrollOffset);
+      ctx.lineWidth = 0.6;
+
+      for (let index = 0; index < this.particles.length; index += 1) {
+        this.forEachNeighbor(index, (otherIndex) => {
+          const a = this.particles[index];
+          const b = this.particles[otherIndex];
+          if (!a || !b) return;
+
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance >= radius) return;
+
+          unionFind.union(index, otherIndex);
+
+          const glow = this.pointerGlowMultiplier(
+            (a.x + b.x) / 2,
+            (a.y + b.y) / 2,
+          );
+          const alpha = Math.min(
+            1,
+            this.options.connectionOpacity * (1 - distance / radius) * glow,
+          );
+          ctx.strokeStyle = `rgba(${this.colorRgb}, ${alpha.toFixed(3)})`;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        });
+      }
+
+      // Rare: the proximity connections above happened to leave more than
+      // one isolated cluster. Bridge them so any dot can reach any other -
+      // this is the only part of draw() with any real cost, and it never
+      // runs at all on the (vast majority of) frames where the mesh is
+      // already a single connected graph.
+      this.bridgeIsolatedComponents(ctx, unionFind);
+
+      for (const particle of this.particles) {
+        const glow = this.pointerGlowMultiplier(particle.x, particle.y);
+        const alpha = Math.min(1, this.options.nodeOpacity * glow);
+        ctx.fillStyle = `rgba(${this.colorRgb}, ${alpha.toFixed(3)})`;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    // 1 when the pointer isn't influencing the mesh right now (reduced
+    // motion, coarse pointer, out of range, or the effect is disabled via
+    // pointerGlowStrength <= 0); otherwise eases up to
+    // 1 + pointerGlowStrength at the pointer's exact position, using the
+    // same smoothstep curve as the repulsion force so the glow and the
+    // push read as one effect.
+    private pointerGlowMultiplier(x: number, y: number): number {
+      if (
+        this.reducedMotionQuery.matches ||
+        !this.finePointerQuery.matches ||
+        this.pointerX <= -9000 ||
+        this.options.pointerGlowStrength <= 0
+      ) {
+        return 1;
+      }
+
+      const dx = x - this.pointerX;
+      const dy = y - (this.pointerY - this.scrollOffset);
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance >= this.options.pointerRadius) return 1;
+
+      const eased = smoothstep(1 - distance / this.options.pointerRadius);
+      return 1 + eased * this.options.pointerGlowStrength;
+    }
+
+    // Finds every isolated cluster left by the proximity connections in
+    // draw(), then greedily connects the globally closest pair of points
+    // between any two clusters, merging them, repeating until only one
+    // remains. With the rare handful of stray clusters this normally
+    // involves, the nested search below is trivially cheap; it simply
+    // never runs when there is nothing to bridge.
+    private bridgeIsolatedComponents(
+      ctx: CanvasRenderingContext2D,
+      unionFind: UnionFind,
+    ): void {
+      if (this.particles.length === 0) return;
+
+      const groups = new Map<number, number[]>();
+      for (let index = 0; index < this.particles.length; index += 1) {
+        const root = unionFind.find(index);
+        const group = groups.get(root);
+        if (group) {
+          group.push(index);
+        } else {
+          groups.set(root, [index]);
+        }
+      }
+
+      let components = Array.from(groups.values());
+      if (components.length <= 1) return;
+
+      ctx.strokeStyle = `rgba(${this.colorRgb}, ${this.options.connectionOpacity.toFixed(3)})`;
+
+      while (components.length > 1) {
+        let bestDistanceSq = Number.POSITIVE_INFINITY;
+        let bestA: Particle | null = null;
+        let bestB: Particle | null = null;
+        let bestIndexA = -1;
+        let bestIndexB = -1;
+
+        for (let ci = 0; ci < components.length; ci += 1) {
+          for (let cj = ci + 1; cj < components.length; cj += 1) {
+            const groupA = components[ci];
+            const groupB = components[cj];
+            if (!groupA || !groupB) continue;
+
+            for (const aIndex of groupA) {
+              const a = this.particles[aIndex];
+              if (!a) continue;
+
+              for (const bIndex of groupB) {
+                const b = this.particles[bIndex];
+                if (!b) continue;
+
+                const dx = a.x - b.x;
+                const dy = a.y - b.y;
+                const distanceSq = dx * dx + dy * dy;
+                if (distanceSq < bestDistanceSq) {
+                  bestDistanceSq = distanceSq;
+                  bestA = a;
+                  bestB = b;
+                  bestIndexA = ci;
+                  bestIndexB = cj;
+                }
+              }
+            }
+          }
+        }
+
+        if (!bestA || !bestB || bestIndexA === -1 || bestIndexB === -1) break;
+
+        ctx.beginPath();
+        ctx.moveTo(bestA.x, bestA.y);
+        ctx.lineTo(bestB.x, bestB.y);
+        ctx.stroke();
+
+        const groupA = components[bestIndexA];
+        const groupB = components[bestIndexB];
+        const merged = groupA && groupB ? groupA.concat(groupB) : [];
+        components = components.filter(
+          (_, index) => index !== bestIndexA && index !== bestIndexB,
+        );
+        components.push(merged);
+      }
+    }
+  }
+
+  function initialiseMeshes(): void {
+    const roots = document.querySelectorAll<HTMLElement>('[data-mesh]');
+
+    roots.forEach((root) => {
+      const existing = instances.get(root);
+      if (existing) {
+        existing.destroy();
+        activeInstances.delete(existing);
+      }
+
+      try {
+        const instance = new MeshController(root);
+        instance.mount();
+        instances.set(root, instance);
+        activeInstances.add(instance);
+      } catch (error: unknown) {
+        console.error('Failed to initialise Mesh.', error);
+      }
+    });
+  }
+
+  function destroyMeshes(): void {
+    activeInstances.forEach((instance) => instance.destroy());
+    activeInstances.clear();
+  }
+
+  document.addEventListener('astro:before-swap', destroyMeshes);
+  document.addEventListener('astro:page-load', initialiseMeshes);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseMeshes, {
+      once: true,
+    });
+  } else {
+    initialiseMeshes();
+  }
+</script>

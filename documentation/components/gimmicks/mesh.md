@@ -18,7 +18,7 @@ This document is intentionally more thorough than a typical entry in this tree: 
 | Activation sentinel | `src/components/layout/header/Header.astro` (`<div data-mesh-trigger>`, right after `<SiteTitle />`) |
 | Opaque boxes that hide the mesh from the pointer | `src/components/content/article/Post.astro`, `src/components/content/article/Preview.astro` (both carry `data-obscures-mesh`) |
 | Data | none |
-| Tests | none |
+| Tests | `src/test/gimmicks/Mesh.spec.ts` (`prefers-reduced-motion` behaviour: fade duration, single static frame, no pointer reactivity) |
 
 ## Props
 

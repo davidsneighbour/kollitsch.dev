@@ -116,12 +116,6 @@ const {
     transition: var(--progress-bar-transition);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .progress-fill {
-      @apply transition-none;
-    }
-  }
-
   .progress:not([data-complete]) .progress-fill {
     /*
      * The leading corner's radius is set on the box before `transform:
@@ -148,5 +142,20 @@ const {
     transition:
       var(--progress-bar-transition),
       border-radius 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  /*
+   * Both compound rules above set their own `transition` shorthand at
+   * higher specificity than a bare `.progress-fill` override, so the
+   * reduced-motion exception has to match that specificity too - otherwise
+   * it silently loses the cascade in every real state (scrolling or
+   * complete) and the catch-up lag never actually turns off.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill,
+    .progress:not([data-complete]) .progress-fill,
+    .progress[data-complete] .progress-fill {
+      transition: none;
+    }
   }
 </style>

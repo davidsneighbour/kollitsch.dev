@@ -65,7 +65,7 @@ const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}
       {above.length > 0 && (
         <ul
           data-breadcrumb-switcher-list="above"
-          class="invisible absolute inset-x-0 bottom-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] -translate-y-1 flex-col overflow-y-auto rounded-sm bg-black/5 py-1 text-xs opacity-0 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:bg-white/5"
+          class="invisible absolute inset-x-0 bottom-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] -translate-y-1 flex-col overflow-y-auto rounded-sm bg-popover py-1 text-xs text-popover-foreground opacity-0 ring-1 ring-gray-900/10 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:ring-gray-100/10"
         >
           {above.map((item) => (
             <li>
@@ -84,7 +84,7 @@ const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}
       {below.length > 0 && (
         <ul
           data-breadcrumb-switcher-list="below"
-          class="invisible absolute inset-x-0 top-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] translate-y-1 flex-col overflow-y-auto rounded-sm bg-black/5 py-1 text-xs opacity-0 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:bg-white/5"
+          class="invisible absolute inset-x-0 top-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] translate-y-1 flex-col overflow-y-auto rounded-sm bg-popover py-1 text-xs text-popover-foreground opacity-0 ring-1 ring-gray-900/10 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:ring-gray-100/10"
         >
           {below.map((item) => (
             <li>

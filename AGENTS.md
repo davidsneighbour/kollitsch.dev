@@ -217,6 +217,10 @@ Cloudflare deploys are local-only. `npm run deploy` uploads the Worker and Stati
 
 Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.
 
+### Gimmicks and progressive enhancement
+
+Gimmicks are progressive enhancement only. They MUST NOT be required for core content, navigation, layout, or page rendering, and MUST NOT participate unnecessarily in the critical loading or execution path. Prefer lazy initialisation and lazy loading for gimmick code, and ensure performance/baseline tests can evaluate the site's core experience independently of gimmicks. A gimmick failing or being unavailable must leave the site usable and visually intentional.
+
 ### Content collections (`src/content.config.ts`)
 
 Four collections:

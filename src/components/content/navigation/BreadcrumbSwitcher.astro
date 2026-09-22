@@ -113,6 +113,22 @@ const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}
     )?.setAttribute('aria-expanded', 'false');
   }
 
+  function syncPanelWidths(el: HTMLElement): void {
+    const above = el.querySelector<HTMLElement>(
+      '[data-breadcrumb-switcher-list="above"]',
+    );
+    const below = el.querySelector<HTMLElement>(
+      '[data-breadcrumb-switcher-list="below"]',
+    );
+    if (!above || !below) return;
+
+    above.style.width = '';
+    below.style.width = '';
+    const width = Math.max(above.scrollWidth, below.scrollWidth);
+    above.style.width = `${width}px`;
+    below.style.width = `${width}px`;
+  }
+
   function openSwitcher(el: HTMLElement): void {
     for (const other of document.querySelectorAll<HTMLElement>(
       '[data-breadcrumb-switcher].open',
@@ -124,6 +140,8 @@ const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}
     el.querySelector<HTMLButtonElement>(
       '[data-breadcrumb-switcher-toggle]',
     )?.setAttribute('aria-expanded', 'true');
+
+    syncPanelWidths(el);
 
     const above = el.querySelector<HTMLElement>(
       '[data-breadcrumb-switcher-list="above"]',
@@ -213,6 +231,14 @@ const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}
         '[data-breadcrumb-switcher].open',
       )) {
         closeSwitcher(el);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      for (const el of document.querySelectorAll<HTMLElement>(
+        '[data-breadcrumb-switcher].open',
+      )) {
+        syncPanelWidths(el);
       }
     });
   }

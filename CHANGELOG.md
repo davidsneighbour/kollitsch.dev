@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.2.0...v3.3.0) (2026-09-22)
+
+### Feat
+
+* **gimmicks:** add the mesh - subtle scroll-activated network background ([eddd015](https://github.com/davidsneighbour/kollitsch.dev/commit/eddd015e2866470daa1155138712d9adbe1377a0)), closes [#2044](https://github.com/davidsneighbour/kollitsch.dev/issues/2044)
+* **navigation:** add breadcrumb year/post switcher ([f7c41b0](https://github.com/davidsneighbour/kollitsch.dev/commit/f7c41b038c15841c8dcad6ef653b4d2644fc8f94)), closes [#2048](https://github.com/davidsneighbour/kollitsch.dev/issues/2048)
+
+### Fix
+
+* **breadcrumbs:** align width of dropdown/up to largest value ([0afb985](https://github.com/davidsneighbour/kollitsch.dev/commit/0afb9855616242d3641cdbd7f50f808a0c3e5726))
+
+### Docs
+
+* **agents:** define gimmicks as progressive enhancement ([c09c435](https://github.com/davidsneighbour/kollitsch.dev/commit/c09c435e844f431bef204c788527c4f7ebffd03a)), references [#2045](https://github.com/davidsneighbour/kollitsch.dev/issues/2045)
+
+### Style
+
+* **navigation:** make breadcrumb switcher panels opaque ([958fee6](https://github.com/davidsneighbour/kollitsch.dev/commit/958fee68c5497c0da60c0b8399f1fbf87a00e599)), references [#2048](https://github.com/davidsneighbour/kollitsch.dev/issues/2048)
+
+### Test
+
+* **fix:** all specs share a single worker ([5b52205](https://github.com/davidsneighbour/kollitsch.dev/commit/5b5220598fdad665f2b091d00c9fab7cdcfeaacf))
+* **motion:** add prefers-reduced-motion coverage for animated features ([6c0e93d](https://github.com/davidsneighbour/kollitsch.dev/commit/6c0e93d47beacab466df27297a4f421d6dc9efd9)), closes [#2047](https://github.com/davidsneighbour/kollitsch.dev/issues/2047)
+
 ## [3.2.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.1.0...v3.2.0) (2026-09-20)
 
 ### Feat

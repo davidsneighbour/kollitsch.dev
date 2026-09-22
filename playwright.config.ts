@@ -105,5 +105,9 @@ export default defineConfig({
     url: 'https://localhost:4321/',
   },
   timeout: 60_000,
-  workers: process.env.CI ? 1 : undefined,
+  // All specs share a single `astro dev` instance rather than per-worker
+  // servers, so running many workers in parallel starves it under load and
+  // makes timing-sensitive specs (view-transition duration checks, the
+  // breadcrumb switcher's navigation) flake. Match CI's serial run locally.
+  workers: 1,
 });

@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.3.0...v3.4.0) (2026-09-30)
+
+### Content
+
+* **new:** add post of 2026-10-01 ([e043edb](https://github.com/davidsneighbour/kollitsch.dev/commit/e043edb1a2829bf9ee49ff6b9f6f95c2bac26647))
+
+### Fix
+
+* add notebook-pen icon to icon registry ([7c03717](https://github.com/davidsneighbour/kollitsch.dev/commit/7c03717dba8cd871d3bb197463831016903b069a))
+
+### Chore
+
+* update screenshot ([53666f4](https://github.com/davidsneighbour/kollitsch.dev/commit/53666f4c08d0287bf39bdbac1c13fe907eb4fd7a))
+
 ## [3.3.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.2.0...v3.3.0) (2026-09-22)
 
 ### Feat

@@ -443,7 +443,7 @@
     "@vitejs/plugin-basic-ssl": "2.3.0",
     "@biomejs/biome": "2.5.14",
     "cspell": "10.3.3",
-    "html-validate": "11.16.0",
+    "html-validate": "11.16.1",
     "@davidsneighbour/imagemin-lint-staged": "3.0.2",
     "@github/markdownlint-github": "0.8.3",
     "@dnbhq/markdownlint-config": "0.2.11",

@@ -542,7 +542,7 @@
     "vitest": "5.0.1",
     "@playwright/mcp": "0.0.82",
     "chrome-devtools-mcp": "1.9.0",
-    "mcp-remote": "0.14.2",
+    "mcp-remote": "0.14.3",
     "browserslist": "4.29.0",
     "wireit": "0.14.13",
     "@humanwhocodes/crosspost": "1.0.4",

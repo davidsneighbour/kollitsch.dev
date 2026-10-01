@@ -455,7 +455,7 @@
     "markdownlint-rule-search-replace": "1.2.0",
     "markdownlint-rule-title-case-style": "0.4.3",
     "@ls-lint/ls-lint": "2.3.1",
-    "jsdom": "30.1.0",
+    "jsdom": "30.1.1",
     "@secretlint/secretlint-rule-anthropic": "13.0.5",
     "@secretlint/secretlint-rule-database-connection-string": "13.0.5",
     "@secretlint/secretlint-rule-no-dotenv": "13.0.5",

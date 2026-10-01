@@ -480,7 +480,7 @@
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.4",
     "@astrojs/ts-plugin": "1.10.12",
-    "@sentry/astro": "10.74.0",
+    "@sentry/astro": "11.0.0",
     "@spotlightjs/astro": "3.2.6",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/typography": "0.5.20",

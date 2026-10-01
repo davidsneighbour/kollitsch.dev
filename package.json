@@ -466,7 +466,7 @@
     "@secretlint/secretlint-rule-preset-recommend": "13.0.5",
     "@secretlint/secretlint-rule-secp256k1-privatekey": "13.0.5",
     "@dnbhq/secretlint-config": "0.1.1",
-    "secretlint": "13.0.5",
+    "secretlint": "13.0.6",
     "postcss-html": "2.0.0",
     "stylelint": "17.15.0",
     "stylelint-config-html": "2.0.0",

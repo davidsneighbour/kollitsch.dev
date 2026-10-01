@@ -543,7 +543,7 @@
     "@playwright/mcp": "0.0.82",
     "chrome-devtools-mcp": "1.9.0",
     "mcp-remote": "0.14.2",
-    "browserslist": "4.29.0",
+    "browserslist": "4.29.2",
     "wireit": "0.14.13",
     "@humanwhocodes/crosspost": "1.0.4",
     "twitter-text": "3.1.0",

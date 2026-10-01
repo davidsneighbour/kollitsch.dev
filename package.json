@@ -509,7 +509,7 @@
     "typedoc": "0.28.20",
     "png-to-ico": "3.0.2",
     "@frontmatter/extensibility": "0.0.18",
-    "@lucide/astro": "1.47.0",
+    "@lucide/astro": "1.48.0",
     "simple-icons-astro": "16.1.0",
     "@resvg/resvg-js": "2.6.2",
     "@types/he": "1.2.3",

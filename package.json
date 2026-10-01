@@ -488,7 +488,7 @@
     "@types/markdown-it": "14.2.0",
     "@types/mdast": "4.0.4",
     "@types/yargs": "17.0.35",
-    "astro": "7.3.3",
+    "astro": "7.3.5",
     "astro-expressive-code": "0.44.2",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",

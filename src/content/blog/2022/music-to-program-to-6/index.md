@@ -9,9 +9,6 @@ tags:
   - nine-inch-nails
   - trent-reznor
   - 100-days-to-offload
-resources:
-  - src: header.jpg
-
 cover:
   src: postimages/postimage-for-music-to-program-to-6.jpg
   type: video

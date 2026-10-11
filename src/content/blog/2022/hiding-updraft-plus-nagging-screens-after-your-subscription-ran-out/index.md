@@ -3,12 +3,6 @@ fmContentType: blog
 title: Hiding UpdraftPlus nagging screens after your subscription ran out
 description: How to hide nagging screens in UpdraftPlus after your subscription ran out
 date: 2022-03-10T22:18:32+07:00
-resources:
-  - title: >-
-      Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via
-      [Unsplash](https://unsplash.com/)
-    name: image name if other than src
-    src: nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
 tags:
   - wordpress
   - updraft-plus
@@ -17,6 +11,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-hiding-updraft-plus-nagging-screens-after-your-subscription-ran-out.jpg
+  title: "Photo by [Nagara Oyodo](https://unsplash.com/@nagaranbasaran) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

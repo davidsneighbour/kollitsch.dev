@@ -3,11 +3,6 @@ fmContentType: blog
 title: Piping output to files in Bash
 description: How to pipe output and errors of Hugo to a file in Bash
 date: 2022-05-08T15:18:20+07:00
-resources:
-  - title: >-
-      Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge)
-      via [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - bash
   - pipes
@@ -18,6 +13,7 @@ unsplash:
   id: vUNQaTtZeOo
 cover:
   src: postimages/postimage-for-piping-output-to-files-in-bash.jpg
+  title: "Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

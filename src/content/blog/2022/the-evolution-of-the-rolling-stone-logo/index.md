@@ -7,15 +7,13 @@ description: >-
   give a little insight into the illustrious history of the logo through the
   decades and the reasoning behind their updates.
 date: 2022-09-08T18:49:08+07:00
-resources:
-  - title: 'The 1967 Rolling Stone logo, drawn by Rick Griffin.'
-    src: Rolling-Stone-1967-logo.png
 tags:
   - links
   - design
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-the-evolution-of-the-rolling-stone-logo.png
+  title: "The 1967 Rolling Stone logo, drawn by Rick Griffin."
   type: image
 publisher: rework
 ---

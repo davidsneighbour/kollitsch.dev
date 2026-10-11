@@ -5,17 +5,13 @@ description: >-
   A simple addition to your GitLab CI configuration to avoid double runs of
   pipelines when pushing to branches.
 date: 2022-11-09T20:01:35+07:00
-resources:
-  - title: >-
-      Photo by [Mila Tovar](https://unsplash.com/@milatovar) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - gitlab
   - ci
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-fixing-double-ci-runs-when-pushing-to-gitlab-branches.jpg
+  title: "Photo by [Mila Tovar](https://unsplash.com/@milatovar) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

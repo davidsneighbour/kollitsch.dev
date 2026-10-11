@@ -9,9 +9,6 @@ tags:
   - deep-core
   - danny-kreutzfeldt
   - 100-days-to-offload
-resources:
-  - src: header.jpg
-
 cover:
   src: postimages/postimage-for-music-to-program-to-5.jpg
   type: video

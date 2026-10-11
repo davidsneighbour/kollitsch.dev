@@ -7,11 +7,6 @@ description: >-
 date: 2022-03-02T21:22:28+07:00
 images:
   - /blog/2022/ubuntu-efi-and-acer/artiom-vallat-mx9axbKqKW8-unsplash.jpg
-resources:
-  - title: >-
-      Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via
-      [Unsplash](https://unsplash.com)
-    src: artiom-vallat-mx9axbKqKW8-unsplash.jpg
 tags:
   - how-to
   - ubuntu
@@ -21,6 +16,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-ubuntu-efi-and-acer.jpg
+  title: "Photo by [Artiom Vallat](https://unsplash.com/@virussinside) via [Unsplash](https://unsplash.com)"
   type: image
 publisher: rework
 ---

@@ -5,19 +5,13 @@ description: >-
   A strategy to declutter enabled extensions in VSCode by using a workspace
   specific extension setup.
 date: 2022-07-13T17:52:34+07:00
-resources:
-  - title: >-
-      Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
-  - src: workspace-enable.png
-  - src: workspace-recommendations.png
 tags:
   - vscode
   - how-i-work
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-less-clutter-in-vscode.jpg
+  title: "Photo by [Chuttersnap](https://unsplash.com/@chuttersnap) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

@@ -8,11 +8,6 @@ description: >-
   and decided to go on and give Mastodon a chance. If you feel that way, then
   follow me along.
 date: 2022-11-10T18:45:13+07:00
-resources:
-  - title: >-
-      Photo by [April Pethybridge](https://unsplash.com/@apriiil) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - mastodon
   - social-media
@@ -20,6 +15,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-mastodon-and-me.jpg
+  title: "Photo by [April Pethybridge](https://unsplash.com/@apriiil) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

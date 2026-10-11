@@ -6,17 +6,13 @@ description: >-
   Every now and then it might be helpful, if we could just break a word in two
   on smaller screens. We can. Introducing `<wbr>`.
 date: 2022-08-21T18:52:10+07:00
-resources:
-  - title: >-
-      Screenshots and artistically putting together two images by Patrick
-      Kollitsch of [<wordmark/>](https://kollitsch.dev)
-    src: header.png
 tags:
   - html
   - today-i-learned
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-mark-word-break-opportunities-in-html.png
+  title: "Screenshots and artistically putting together two images by Patrick Kollitsch of [<wordmark/>](https://kollitsch.dev)"
   type: image
 publisher: rework
 ---

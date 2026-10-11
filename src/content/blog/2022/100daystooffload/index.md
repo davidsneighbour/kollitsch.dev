@@ -4,11 +4,6 @@ title: '#100DaysToOffload'
 description: A challenge to write 100 posts on your personal blog in a year
 linkTitle: '#100DaysToOffload'
 date: 2022-03-21T23:27:23+07:00
-resources:
-  - title: >-
-      Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via
-      [Unsplash](https://unsplash.com/)
-    src: marcel-eberle-SCBREPQuYoM-unsplash.jpg
 tags:
   - 100-days-to-offload
   - self-improvement
@@ -17,6 +12,7 @@ aliases:
   - /100daystooffload
 cover:
   src: postimages/postimage-for-100daystooffload.jpg
+  title: "Photo by [Marcel Eberle](https://unsplash.com/@marcel_eberle) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

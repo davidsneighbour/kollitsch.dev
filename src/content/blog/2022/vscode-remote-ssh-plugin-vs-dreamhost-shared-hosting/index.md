@@ -5,11 +5,6 @@ description: >-
   How to connect VSCode to a DreamHost shared hosting server using the Remote
   SSH plugin.
 date: 2022-05-20T22:10:32+07:00
-resources:
-  - title: >-
-      Photo by [NASA](https://unsplash.com/@nasa) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - dreamhost
   - vscode
@@ -17,6 +12,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-vscode-remote-ssh-plugin-vs-dreamhost-shared-hosting.jpg
+  title: "Photo by [NASA](https://unsplash.com/@nasa) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

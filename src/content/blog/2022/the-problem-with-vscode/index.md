@@ -6,15 +6,13 @@ description: >-
   designed to fracture" and unburies some (well, expected) shadiness on the part
   of Microsoft.
 date: 2022-09-09T21:53:58+07:00
-resources:
-  - title: 'The problem with VSCode, quote by Geoffrey Huntley'
-    src: header.png
 tags:
   - vscode
   - link
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-the-problem-with-vscode.png
+  title: "The problem with VSCode, quote by Geoffrey Huntley"
   type: image
 publisher: rework
 ---

@@ -5,13 +5,6 @@ description: >-
   Adding all my secret files, keys, passwords and api strings into an encrypted
   repository on Keybase to add them to my dotfiles repository.
 date: 2022-11-06T18:29:12+07:00
-resources:
-  - title: >-
-      Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
-  - title: The Git screen in the Keybase application
-    src: keybase-git.png
 tags:
   - keybase
   - dotfiles
@@ -21,6 +14,7 @@ tags:
   - git
 cover:
   src: postimages/postimage-for-protected-dotfiles-with-keybase.jpg
+  title: "Photo by [Stefan Steinbauer](https://unsplash.com/@usinglight) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

@@ -8,10 +8,6 @@ tags:
   - programming-music
   - queensryche
   - 100-days-to-offload
-resources:
-  - src: header.jpg
-    title: Silent Lucidity
-
 cover:
   src: postimages/postimage-for-music-to-program-to-7.jpg
   type: video

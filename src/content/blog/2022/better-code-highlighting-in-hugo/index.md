@@ -7,11 +7,6 @@ description: >-
   internal templates). But it offers ways to override and configure things, so
   not all is lost.
 date: 2022-05-04T22:11:55+07:00
-resources:
-  - title: >-
-      Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - gohugo
   - how-to
@@ -19,6 +14,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-better-code-highlighting-in-hugo.jpg
+  title: "Photo by [Ussama Azam](https://unsplash.com/@ussamaazam) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 maintenance:

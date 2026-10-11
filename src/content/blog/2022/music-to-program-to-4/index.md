@@ -8,9 +8,6 @@ tags:
   - programming-music
   - rammstein
   - 100-days-to-offload
-resources:
-  - src: header.jpg
-
 cover:
   src: postimages/postimage-for-music-to-program-to-4.jpg
   type: video

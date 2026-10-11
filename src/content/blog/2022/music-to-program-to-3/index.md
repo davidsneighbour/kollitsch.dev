@@ -9,9 +9,6 @@ tags:
   - piano
   - ben-lukas-boysen
   - 100-days-to-offload
-resources:
-  - src: header.jpg
-
 cover:
   src: postimages/postimage-for-music-to-program-to-3.jpg
   type: video

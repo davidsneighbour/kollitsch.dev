@@ -6,8 +6,6 @@ description: >-
   Another monthly report from the depths of the laboratory of kollitsch.den -
   June 2022
 date: 2022-07-03T17:04:11+07:00
-resources:
-  - src: iallthatsleft.jpg
 tags:
   - laboratory
   - notes

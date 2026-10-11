@@ -6,9 +6,6 @@ description: >-
   Update notes for Hugo 0.96.0 with new features like vertical merging of
   content mounts, HTTP error objects for Get* functions, and more.
 date: 2022-03-28T17:58:49+07:00
-resources:
-  - title: GoHugo
-    src: header.png
 tags:
   - gohugo
   - notes
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-hugo-0-96-update-notes.png
+  title: "GoHugo"
   type: image
 publisher: rework
 ---

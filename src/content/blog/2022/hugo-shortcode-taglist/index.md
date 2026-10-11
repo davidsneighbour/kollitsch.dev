@@ -11,17 +11,13 @@ summary: >-
   tag, which is quite easy. Add the following to a layout file in
   `layouts/shortcodes` to use for the shortcode.
 date: 2022-03-01T21:18:21+07:00
-resources:
-  - title: >-
-      Photo by [Joanna Kosinska](https://unsplash.com/@joannakosinska) via
-      [Unsplash](https://unsplash.com/)
-    src: joanna-kosinska-1_CMoFsPfso-unsplash.jpg
 tags:
   - gohugo
   - shortcode
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-hugo-shortcode-taglist.jpg
+  title: "Photo by [Joanna Kosinska](https://unsplash.com/@joannakosinska) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

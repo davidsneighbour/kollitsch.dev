@@ -7,11 +7,6 @@ description: >-
   under the "Development" section, which has replaced "Linked pull requests", in
   the sidebar of an issue.
 date: 2022-03-02T23:46:51+07:00
-resources:
-  - title: >-
-      Photo by [Yancy Min](https://unsplash.com/@yancymin) via
-      [Unsplash](https://unsplash.com/)
-    src: yancy-min-842ofHC6MaI-unsplash.jpg
 tags:
   - github
   - feature
@@ -19,6 +14,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-create-a-branch-from-within-an-issue-on-github.jpg
+  title: "Photo by [Yancy Min](https://unsplash.com/@yancymin) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

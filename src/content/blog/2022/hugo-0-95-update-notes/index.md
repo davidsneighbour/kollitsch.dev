@@ -6,9 +6,6 @@ description: >-
   Update notes for Hugo 0.95.0 with new features like `break` and `continue` in
   templates, short-circuiting logic, and Golang 1.18.
 date: 2022-03-16T23:16:55+07:00
-resources:
-  - title: GoHugo
-    src: header.png
 tags:
   - gohugo
   - notes
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-hugo-0-95-update-notes.png
+  title: "GoHugo"
   type: image
 publisher: rework
 ---

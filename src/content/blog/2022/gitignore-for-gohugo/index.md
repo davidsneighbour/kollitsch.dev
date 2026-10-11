@@ -3,11 +3,6 @@ fmContentType: blog
 title: .gitignore for GoHugo
 description: The perfect .gitignore file for GoHugo projects
 date: 2022-07-22T00:02:35+07:00
-resources:
-  - src: header.jpg
-    title: >-
-      Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) via
-      [Unsplash](https://unsplash.com/)
 tags:
   - git
   - gitignore
@@ -17,6 +12,7 @@ aliases:
   - /blog/2021/gitignore-for-gohugo/
 cover:
   src: postimages/postimage-for-gitignore-for-gohugo.jpg
+  title: "Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 maintenance:

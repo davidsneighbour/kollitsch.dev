@@ -7,11 +7,6 @@ description: >-
   just for some testing purposes ;) Keep calm and keep walking, there is nothing
   to see here…
 date: 2022-08-25T23:25:16+07:00
-resources:
-  - title: >-
-      Photo by [Andrew S](https://unsplash.com/@sita2) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - cat
   - dog
@@ -20,6 +15,7 @@ unsplash:
   imageid: ouo1hbizWwo
 cover:
   src: postimages/postimage-for-a-cat-and-a-dog.jpg
+  title: "Photo by [Andrew S](https://unsplash.com/@sita2) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

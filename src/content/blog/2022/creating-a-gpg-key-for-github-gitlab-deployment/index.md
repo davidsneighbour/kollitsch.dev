@@ -5,11 +5,6 @@ description: >-
   A quick guide on how to create a GPG key for signing your commits in Github or
   Gitlab.
 date: 2022-02-23T22:43:14+07:00
-resources:
-  - title: >-
-      Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via
-      [Unsplash](https://unsplash.com/)
-    src: mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
 tags:
   - encryption
   - security
@@ -17,6 +12,7 @@ tags:
   - gitlab
 cover:
   src: postimages/postimage-for-creating-a-gpg-key-for-github-gitlab-deployment.jpg
+  title: "Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

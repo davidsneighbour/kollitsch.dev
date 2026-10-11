@@ -6,9 +6,6 @@ date: 2022-01-17T16:02:14+07:00
 linkTitle: Music to program to II
 tags:
   - programming-music
-resources:
-  - src: header.jpg
-
 cover:
   src: postimages/postimage-for-music-to-program-to-2.jpg
   type: video

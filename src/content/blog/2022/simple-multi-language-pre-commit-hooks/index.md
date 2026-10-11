@@ -10,11 +10,6 @@ summary: >-
   I got to convert some people to use the tool described by this post, so I
   thought I might as well add some context to it.
 date: 2022-08-14T22:28:21+07:00
-resources:
-  - title: >-
-      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - pre-commit
   - git
@@ -23,6 +18,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-simple-multi-language-pre-commit-hooks.jpg
+  title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
   type: image
 options:
   head:

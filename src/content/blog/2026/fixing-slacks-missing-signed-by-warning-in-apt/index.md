@@ -2,10 +2,8 @@
 title: Fixing Slack's missing Signed-By warning in APT
 cover:
   type: image
-  src: 2.jpg
-  format:
-    contenttype: jpg
-    quality: 75
+  src: postimages/postimage-for-lab-notes-limit-git-status-to-the-current-directory.jpg
+  title: "Notes from the Laboratory"
 fmContentType: blog
 featured: false
 date: 2026-08-26

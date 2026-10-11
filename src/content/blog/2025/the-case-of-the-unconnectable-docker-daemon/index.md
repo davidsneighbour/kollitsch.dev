@@ -12,8 +12,6 @@ summary: >-
   ownership to navigating Docker contexts and rootless environments, I follow
   each clue until the service speaks again.
 date: 2025-04-26T06:35:29+07:00
-resources:
-  - src: docker-forensics.png
 tags:
   - docker
   - troubleshooting

@@ -10,17 +10,13 @@ summary: >-
   control and helping reduce spam and distractions. Learn how to enable this
   feature and keep your code snippets focused.
 date: 2025-01-10T21:26:18+07:00
-resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: roman-synkevych-wX2L8L-fGeA-unsplash.jpg
 tags:
   - github
   - how-to
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-disable-comments-on-gists.jpg
+  title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

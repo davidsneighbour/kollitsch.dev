@@ -9,16 +9,12 @@ summary: >-
   expansion works, what happens when aliases reference other aliases, and how to
   use builtin to ensure the original command runs.
 date: 2025-02-05T08:34:49+07:00
-resources:
-  - title: >-
-      Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via
-      [Unsplash](https://unsplash.com/)
-    src: gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
 tags:
   - bash
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-alias-expansion-in-bash.jpg
+  title: "Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

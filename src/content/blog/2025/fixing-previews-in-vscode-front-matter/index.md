@@ -11,9 +11,6 @@ summary: >-
   and provides a Node.js script to automate front matter updates. The script
   ensures proper previews by setting fmContentType across all Markdown files.
 date: 2025-02-08T14:09:39+07:00
-resources:
-  - title: Front Matter
-    src: frontmatter.png
 tags:
   - node-js
   - frontmatter
@@ -21,6 +18,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-fixing-previews-in-vscode-front-matter.png
+  title: "Front Matter"
   type: image
 publisher: rework
 ---

@@ -3,11 +3,6 @@ fmContentType: blog
 title: Disable automatic updates in Snapd
 description: Learn how to control Snap package updates with the `--hold` option in Snapd.
 date: 2025-04-16T18:31:39+07:00
-resources:
-  - title: >-
-      Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) via
-      [Unsplash](https://unsplash.com/)
-    src: markus-winkler-qPjV8XaXPTQ-unsplash.jpg
 tags:
   - ubuntu
   - snapd
@@ -15,6 +10,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-disable-automatic-updates-in-snapd.jpg
+  title: "Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 maintenance:

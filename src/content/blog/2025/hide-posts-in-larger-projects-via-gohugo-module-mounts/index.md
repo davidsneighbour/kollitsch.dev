@@ -11,9 +11,6 @@ summary: >-
   years, reducing rebuild times for testing layouts, pagination, and other
   features. Ideal for blogs with decade-spanning archives.
 date: 2025-01-10T17:40:43+07:00
-resources:
-  - title: Hiding in plain sight
-    src: valeria-nikitina-li709Gx8v_w-unsplash.jpg
 tags:
   - gohugo
   - modules
@@ -21,6 +18,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-hide-posts-in-larger-projects-via-gohugo-module-mounts.jpg
+  title: "Hiding in plain sight"
   type: image
 publisher: rework
 ---

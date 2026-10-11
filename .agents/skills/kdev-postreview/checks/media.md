@@ -6,7 +6,7 @@ Verify body embeds, imports, local assets, and referenced media.
 
 ## Input
 
-`.agents/instructions/content-blog-youtube-embed.instructions.md`, schema, media components under `src/components/content/media/`, and `src/scripts/content/fetch-youtube-thumbnails.ts`.
+`.agents/references/youtube-embed.md`, schema, media components under `src/components/content/media/`, and `src/scripts/content/fetch-youtube-thumbnails.ts`.
 
 ## Verify
 

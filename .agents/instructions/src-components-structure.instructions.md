@@ -51,6 +51,10 @@ staging folder. shadcn is a code generator, not a place components live.
 
 ## Documentation mirror
 
+Every component that is created or meaningfully changed must have a matching
+doc file under `documentation/components/`; follow
+`.agents/instructions/documentation-components.instructions.md` when writing it.
+
 Every component documented under `documentation/components/` must have its
 doc file moved alongside it in the same change - see
 `.agents/instructions/documentation-components.instructions.md` for the full

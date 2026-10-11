@@ -6,7 +6,7 @@ Validate topical classification and canonical tag syntax.
 
 ## Input
 
-Post body, `.agents/instructions/content-blog-tags.instructions.md`, `src/content/tags/`, `src/utils/tags.ts`, and `documentation/content/tags.md`.
+Post body, `.agents/instructions/content-blog.instructions.md`, `src/content/tags/`, `src/utils/tags.ts`, and `documentation/content/tags.md`.
 
 ## Verify
 

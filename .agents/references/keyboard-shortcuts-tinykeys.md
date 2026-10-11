@@ -1,15 +1,11 @@
----
-name: "Keyboard shortcuts: tinykeys"
-applyTo: "**/*.ts,**/*.astro"
----
-
 # Keyboard shortcuts: Tinykeys
+
+Read this when adding, changing, or removing a keyboard shortcut.
 
 All keyboard shortcut bindings in this project use **tinykeys** (v4, named export).
 
 * **npm package**: `tinykeys` (in `devDependencies`)
 * **Documentation**: [github.com/jamiebuilds/tinykeys](https://github.com/jamiebuilds/tinykeys)
-* **API reference**: [tinykeys README](https://github.com/jamiebuilds/tinykeys)
 
 ## Usage pattern
 

@@ -1,415 +1,130 @@
 # AGENTS.md — Core Rules
 
-This is the single onboarding document for every AI assistant working in this repository (Claude, Codex, Copilot, or any other agent). Read it before doing anything else. Tool-specific entry files (`CLAUDE.md`, etc.) exist only to point back here and to note genuine tool-specific behaviour — they must not duplicate rules defined here.
+This is the single onboarding document for every AI assistant working in this repository (Claude, Codex, Copilot, or any other agent). Read it before doing anything else. Do not add tool-specific entry files such as `CLAUDE.md`: Claude Code and Codex read this file directly, and a project `CLAUDE.md` would stop Claude Code from using it.
 
 ## Protected project rules
 
 `AGENTS.md`, `DESIGN.md`, and all files under `.agents/instructions/` define binding rules for this project.
 
-- Treat every applicable rule in these files as mandatory.
-- Do not silently override, ignore, reinterpret, or weaken a rule because a user request conflicts with it.
-- A conflicting user request does not by itself override an existing rule.
-- Each conflicting rule requires separate, explicit user confirmation before it may be violated.
-- Confirmation applies only to that single rule and that single requested change. It does not create a general exception.
-- If one requested change conflicts with multiple rules, request separate confirmation for each conflict.
-- Do not combine multiple rule conflicts into one approval request.
-- When the user explicitly confirms a change that contradicts an existing project rule, update the relevant documentation or instruction so that the project rules reflect the newly approved decision.
-- Do not leave a confirmed exception undocumented where doing so would cause the written rules and the intended project behaviour to disagree.
-
-Example: if a requested change conflicts with one rule in `DESIGN.md` and one rule in `.agents/instructions/`, treat these as two independent conflicts requiring two independent confirmations.
+- Treat every applicable rule in these files as mandatory. Do not silently override, ignore, reinterpret, or weaken a rule because a user request conflicts with it.
+- Each conflicting rule requires separate, explicit user confirmation before it may be violated. A confirmation covers only that rule and that change; it does not create a general exception. Do not combine several rule conflicts into one approval request.
+- When the user confirms a change that contradicts a rule, update the relevant documentation or instruction in the same change so the written rules match the approved behaviour.
 
 ## Project overview
 
-Personal website at [KOLLITSCH.dev*](https://kollitsch.dev) — a digital garden, blog, and web development reference. Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript. Deployed locally to Cloudflare Workers Static Assets with Wrangler.
+Personal website at [KOLLITSCH.dev*](https://kollitsch.dev): a digital garden, blog, and web development reference. Astro 6 (static output), Tailwind CSS 4, TypeScript, and React for a few UI components. Deployed locally to Cloudflare Workers Static Assets with Wrangler.
 
-**Node version:** defined in `package.json` → `engines.node` (currently `>=26`). This is the single source of truth; `.nvmrc` mirrors it. Even-numbered major versions (LTS) are preferred.
+**Node version:** `package.json` `engines.node` (currently `>=26`) is the single source of truth; `.nvmrc` mirrors it. Even-numbered (LTS) majors are preferred.
 
-RFC 2119 keywords (MUST, SHOULD, MAY, etc.) in this repository's documentation carry their standard meanings.
+RFC 2119 keywords (MUST, SHOULD, MAY, and so on) in this repository's documentation carry their standard meanings.
 
-## 0. Instruction, prompt, and skill discovery
+## Instructions, references, and skills
 
-All project-specific AI assistant assets live under `.agents/`:
+All project-specific agent assets live under `.agents/`.
 
-- `.agents/instructions/` — scoped behavioural rules, each with an `applyTo` frontmatter glob. Evaluate every file in this directory and apply any whose `applyTo` pattern matches the current task. Applicable instructions are mandatory and cannot be selectively ignored. Notable files: `repo-issue-handling.instructions.md` (issue/commit workflow), `repo-colour-theme-locality.instructions.md` (local palette utilities versus global semantic tokens), `repo-known-false-positives.instructions.md` (read `documentation/development/known-false-positives.md` before re-diagnosing an unexpected test/lint/check failure), plus topic-specific files for source components, repository policies, content, documentation, YouTube embeds, and Tinykeys keyboard shortcuts. General project context lives in this file (AGENTS.md), not in `.agents/instructions/`.
-- `.agents/prompts/` — reusable prompt entry points for recurring tasks (refactors, audits, migrations, screenshots). Check here before writing a one-off prompt from scratch for a task that recurs.
-- `.agents/skills/` — skill packages, split by naming convention: `dnb-*` skills are installed via `npm run skills:add`, reproducible from `skills-lock.json`, and gitignored; `kdev-*` skills are authored directly in this repository for kollitsch.dev-only use and are tracked in git. Tool-specific skill directories (`.claude/skills`, `.codex/skills`) are directory symlinks to `.agents/skills` and are always gitignored — never edit through them, edit the source under `.agents/skills/` instead. These symlinks are created by `npm run skills:links` (wired into `postinstall`); if a fresh checkout has not run `npm install`, the symlinks are missing and skill autodiscovery silently finds nothing — run `npm run skills:links` to regenerate them. Use `npm run skills:update` and `npm run skills:install` so the `npx skills` CLI is always run in project scope with `.agents/skills` as the canonical install target.
+- `.agents/instructions/`: behavioural rules with an `applyTo` glob. Evaluate every file and apply each one whose `applyTo` matches the files you work on. Applicable instructions are mandatory.
+- `.agents/references/`: task knowledge without `applyTo`. Read the matching file when the task needs it:
+  - `architecture.md`: orientation, directory layout, content collections, styling system, files for common tasks.
+  - `build-and-deploy.md`: build pipeline, OG images, environment variables, Cloudflare hosting, deployment, workflows.
+  - `issue-and-commit-workflow.md`: before creating or updating an issue, and before committing.
+  - `keyboard-shortcuts-tinykeys.md`: adding or changing a keyboard shortcut.
+  - `youtube-embed.md`: adding a YouTube video to a post.
+- `.agents/skills/`: `kdev-*` skills are authored here and tracked (`kdev-kurzschnitte` for Kurzschnitte link-collection posts, `kdev-postreview` for reviewing one blog post). Other skills installed with `npm run skills:add` land here and are gitignored. `.claude/skills` and `.codex/skills` are tracked symlinks to `.agents/skills`; edit skills only under `.agents/skills/`. Globally installed skills may also be used; a project skill takes precedence over a global skill with the same name.
+- Tool-local configuration such as `.claude/settings*.json` is gitignored machine configuration, not shared project policy.
 
-  Repository-authored `kdev-*` skills, listed explicitly here because they are not part of `skills-lock.json` and so will not appear in any inventory generated from it:
+If several instructions apply, the most specific scope wins, but no instruction may weaken or contradict this file.
 
-  - `kdev-kurzschnitte` — create, standardise, or refactor one Kurzschnitte link-collection post: categorised, reader-facing, with edition number, title, metadata, introduction, and per-link descriptions.
-  - `kdev-postreview` — review, improve, validate, and maintain one blog post at a time: frontmatter, tags, description/summary, cover image, and pre-publication linting.
+## Global constraints
 
-If multiple instruction documents apply, the most specific scope wins, but core rules in this file (AGENTS.md) cannot be weakened or contradicted by any other instruction file.
-
-## 1. Non-negotiable global constraints
-
-- Use strict British English at all times.
-- Use metric units only.
-- Do not use emojis in repository files.
-- Do not use typographic/curly quotes — use plain straight quotes.
+- Use strict British English and metric units.
+- Do not use emojis or typographic (curly) quotes in repository files.
 - Use backticks for paths, commands, file names, package names, and identifiers.
-- Maintain a cordial but transactional tone.
-- Never apologise or express regret.
 - If information is unknown or unverifiable, state: "I don't know".
-- Previously established preferences are binding defaults.
-- Do not re-question established conventions.
+- Previously established preferences are binding defaults. Do not re-question established conventions.
 - Never expose internal reasoning, chain-of-thought, or meta-commentary.
 
-## 2. When to refuse
+## Communication
 
-Refuse if the request:
+Communicate in a neutral, cordial but transactional technical register, like a CLI.
 
-- violates established rules or constraints,
-- requires speculation presented as fact,
-- demands hidden reasoning or internal chain-of-thought,
-- conflicts with previously locked decisions.
+- Never apologise or express regret.
+- Do not use discourse markers, filler, or evaluative acknowledgements ("Good.", "Great.", "Perfect.", "Good catch.", "Sure.", "Okay."), casual social phrases, rhetorical questions, or deferential phrasing ("let me also check", "want me to do that?").
+- State information and actions directly: "Checking the config.", not "Let me also check the config."
+- Do not end a response with an offer or a question about next steps. End with a factual status or a summary of what was produced; the user directs next steps.
+- Do not imply a human agent. Avoid first-person "I"; use direct statements or passive voice ("Analysing", "This session lacks the context to parse this code", "High prediction confidence this will work").
 
-Refusals must be short, neutral, and without apology.
+## When to refuse
 
-## 3. Design System (DESIGN.md)
+Refuse, briefly and neutrally, if a request violates established rules or locked decisions, requires speculation presented as fact, or demands hidden reasoning.
 
-`DESIGN.md` in the repository root is the single source of truth for all visual design decisions.
+## Design system
 
-- **Always read DESIGN.md first** for any decision involving colour, typography, spacing, border radius, elevation, animation, or component styling. Do not use design values from memory or inference.
-- **Always update DESIGN.md** when any design-related change is made: new tokens, modified values, new components, or revised rationale. A design change without a DESIGN.md update is incomplete.
-- Run `npm run lint:design` after every DESIGN.md edit to confirm 0 errors remain.
-- Do not introduce design values that are absent from DESIGN.md. If a value is missing, add it to DESIGN.md before using it in code.
-- Use token references (`{colors.primary}`, `{rounded.md}`, etc.) in component token definitions — never inline raw values.
+`DESIGN.md` is the single source of truth for visual design.
 
-## 4. Task and idea tracking (PROJECT.md, TODO.md)
+- Read `DESIGN.md` first for any decision about colour, typography, spacing, radius, elevation, animation, or component styling. Do not use design values from memory.
+- Update `DESIGN.md` with every design change (new tokens, changed values, new components, revised rationale), then run `npm run lint:design` until it reports 0 errors.
+- Do not introduce values that are absent from `DESIGN.md`; add them there first. Use token references (`{colors.primary}`, `{rounded.md}`) in component token definitions, never inline raw values.
 
-Both files are gitignored — local-only, never committed — and GitHub Issues remain the source of truth for actionable work.
+## Task tracking
 
-Before starting larger repository work, including issue-sized tasks and the first project task in a new conversation, agents must use the `clerkwork-resume-interrupted-work` protocol when that skill is available. At minimum, check for project-root `RESUME.md`; if it exists, read it, resolve or explicitly abandon the unfinished work, and remove `RESUME.md` before starting unrelated work.
+GitHub Issues are the source of truth for actionable work. `PROJECT.md`, `TODO.md`, and `RESUME.md` are gitignored and local-only.
 
-- **`PROJECT.md`** is a generated dashboard (issue state summary, health indicators), regenerated by the `dnb-project-task-triage` skill. An agent MAY read it for context. An agent MUST NOT edit it directly — only the `dnb-project-task-triage` skill is permitted to regenerate it. Explicit user instruction overrides this.
-- **`TODO.md`** is a scratchpad inbox for rough or unprocessed notes. An agent MAY read it and MAY append new entries. An agent MUST NOT remove or rewrite existing entries — only add. Explicit user instruction overrides this.
-- If an agent identifies deferred, speculative, or out-of-scope work and has no way to open a GitHub issue directly, add an entry to `TODO.md` instead of dropping the observation. Use the format `[P0]`–`[P3]` or `[IDEA]` at the start of the item (see priority table below). Items without a label are treated as `P3`.
+- Before larger work (issue-sized tasks, the first project task in a conversation), use the `resume-interrupted-work` skill when available. At minimum, if `RESUME.md` exists, read it, resolve or explicitly abandon that work, and delete `RESUME.md` before unrelated work.
+- `PROJECT.md` is generated by the `project-task-triage` skill. Read it if useful; do not edit it unless the user says so.
+- `TODO.md` is an append-only inbox: add entries, never remove or rewrite existing ones unless the user says so. When you find deferred or out-of-scope work and cannot open an issue, add it here, prefixed `[P0]` (blocking) to `[P3]` (nice to have) or `[IDEA]`; unlabelled items count as `P3`.
 
-| Label | Meaning |
-| :------ | :------- |
-| `P0` | Address immediately — blocks progress or is a critical defect |
-| `P1` | High priority — complete in the next working session |
-| `P2` | Medium priority — planned, no hard deadline |
-| `P3` | Nice to have — complete when convenient |
-| `IDEA` | Worth thinking about — not committed, no timeline |
+## Commits and documentation
 
-## 5. Committing changes
+This is a single-developer project.
 
-This is a **single-developer project** — commit directly to `main`. Do not create feature branches or pull requests for routine work; open a PR only if explicitly asked to. Never produce merge commits on `main` — rebase or squash instead so history stays linear.
+- Commit directly to `main`. Do not create branches or pull requests unless asked, and never create merge commits; rebase or squash. Do not comment on working on `main`.
+- Every committed AI-assisted change references a GitHub issue (`Closes #123` when it fully resolves it, `Refs #123` otherwise). When work starts from a plan with no issue, create the issue at the start, not at commit time. Read `.agents/references/issue-and-commit-workflow.md` before creating issues or committing.
+- When a task is finished and validated (`npm test`, `npx astro check`, and lint-staged pass), commit and push to `main` without waiting to be asked. Do not push partial or unvalidated work. Commit validated config and content edits too, even small ones; uncommitted changes are not durable.
+- Every feature has documentation in `documentation/`. Keep it describing the current state, not a history of changes.
+- Give issues, pull requests, and commits as full GitHub URLs in chat.
 
-Every AI-assisted change that is committed must reference or close a GitHub issue: use `Closes #123` / `Fixes #123` / `Resolves #123` when the commit fully resolves it, or `Refs #123` / `Related to #123` otherwise. Do not create an issue merely because files exist or changed — see `.agents/instructions/repo-issue-handling.instructions.md` for the full tracked/untracked-file decision workflow.
+## Scratch directory
 
-Once a task reaches a finished, validated state (tests pass, `npx astro check` passes, lint-staged passes, and the commit follows the rules below), commit **and push** to `main` — do not stop at a local commit and wait to be asked. Do not push partial or unvalidated work.
+`scratch/` is a gitignored directory for notes, prompts, plans, and one-off scripts that are useful later or elsewhere but must not be committed.
 
-Always commit config/content edits once they're validated, even small ones (e.g. a single lint-config exclusion). Uncommitted working-tree changes are not durable — a later session, tool, or linter run can silently revert them, and the loss goes unnoticed until someone re-discovers the same problem.
-
-### Format
-
-```text
-type(scope): short imperative subject (≤72 chars)
-
-Body: describe every meaningful change. Use one bullet per logical
-unit. Cover what changed, why it changed, and any non-obvious
-decisions or constraints that informed the approach.
-```
-
-### Types
-
-Use only the types defined in `.release-it.ts`:
-
-| Type | Use for |
-| :--------- | :------ |
-| `content` | Blog posts, page copy, taxonomy changes |
-| `feat` | New user-visible features or components |
-| `fix` | Bug fixes and corrections |
-| `build` | Build tooling, package.json, lock files, scripts |
-| `chore` | Maintenance without user-visible effect |
-| `ci` | CI/CD workflow files |
-| `docs` | Documentation, AGENTS.md, CLAUDE.md, DESIGN.md |
-| `perf` | Performance improvements |
-| `refactor` | Code restructuring without behaviour change |
-| `revert` | Reverts a prior commit |
-| `style` | Visual/CSS changes with no logic change |
-| `test` | Test files and test configuration |
-
-Scopes are optional but strongly preferred — a noun naming the affected area (`components`, `layout`, `styles`, `config`, `scripts`, `ci`, `deps`, `design`, `content`, or a specific component name).
-
-Breaking changes must be prefixed `BREAKING CHANGE:` in the body. Every feature change must be synced to `documentation/` — update the current-state description, do not leave a changelog of what used to be true.
-
-## 6. Scratch directory
-
-`scratch/` is a gitignored working directory for ephemeral notes, prompts, and artefacts useful in the current session or another project, but which must not be committed here.
-
-- Write a new file in `scratch/` whenever you produce something (a prompt, a plan, a reference note, a one-off script) useful later or elsewhere but not part of the committed codebase. One piece of work per file.
-- **Never modify a file in `scratch/` unless the instruction names the full path explicitly.** A bare filename is not sufficient.
-- **Never create a scratch file unless its content would be genuinely useful outside the current task** — it is not a place to dump intermediate reasoning.
-- **Filename collision check:** if a referenced filename cannot be found anywhere in the repository except under `scratch/`, stop and ask: "Did you mean `scratch/<filename>`? Or should I look elsewhere?" Do not act on the scratch file until the answer is explicit.
+- Create a scratch file only when its content is useful outside the current task; one piece of work per file.
+- Never modify a file in `scratch/` unless the instruction names its full path.
+- If a referenced filename exists only under `scratch/`, ask: "Did you mean `scratch/<filename>`? Or should I look elsewhere?" and wait for the answer.
 
 ## Commands
 
 ```bash
-npm run dev               # Astro dev server (https://localhost:4321) + documentation server (http://127.0.0.1:4322), in parallel
-npm run dev:site          # Astro dev server only
-npm run dev:docs          # Documentation server only (see documentation/development/documentation-server.md)
-npm run dev:open          # Open browser tabs for both servers (does not start them)
-npm run dev:watch         # Dev server with auto-restart watcher (see src/scripts/webserver.ts)
-npm run build             # cached prebuild image index + astro check + astro build
-npm run build:clean       # delete build/image caches, then run the normal build
-npm run check             # astro check only (type-check without building)
-npm run preview           # Preview production build locally
-npm run hosting:check     # Verify dist/ against Cloudflare Static Assets limits
-npm run deploy:preview    # Upload a non-production Worker version preview
-npm run deploy:dry-run    # Build, preflight, and dry-run the Cloudflare deploy
-npm run deploy            # Build, preflight, and deploy locally with Wrangler
-npm test                  # Vitest unit tests (fast, no API keys needed)
-npm run test:coverage     # Vitest with v8 coverage
-npm run test:e2e          # Playwright e2e (run after build)
-npm run test:e2e:ui       # Playwright with interactive UI
-npm run biome:check       # Lint and format check
-npm run biome:lint        # Auto-fix lint/format issues
-npm run lint:markdown     # markdownlint on src/content/blog/**
-npm run lint:styles       # stylelint on src/styles/**
-npm run lint:secretlint   # Scan for leaked secrets
-npm run create:blog       # Interactive script to scaffold a new blog post
-node src/scripts/<file>.ts      # Run a TypeScript utility script (type stripping is native; see engines in package.json)
+npm run dev               # Astro dev server (https://localhost:4321) and documentation server (http://127.0.0.1:4322), auto-restarting
+npm run check             # Type checks without building
+npm test                  # Vitest unit tests (no API keys needed)
+npm run test:e2e          # Playwright e2e (after a build)
+npm run biome:check       # Lint and format check (biome:lint fixes)
+npm run lint:markdown     # markdownlint on blog posts
+npm run lint:styles       # stylelint on src/styles
+npm run create:blog       # Scaffold a new blog post
+node src/scripts/<file>.ts  # Run a TypeScript script (native type stripping)
 ```
 
-Run a single Vitest test file:
+Build and deploy commands are in `.agents/references/build-and-deploy.md`. Do not run `npm run build` in sandboxed environments without API tokens; use `npm run check`.
 
-```bash
-npx vitest run src/path/to/file.test.ts
-```
+## Validation
 
-**Do not run `npm run build` in sandboxed environments without API tokens** — it calls the `prebuild` image-index step and may fail. Use `npm run check` for type-checking only.
+- `npm test` MUST pass after every change. Fix the source, not the test.
+- Add a co-located unit test whenever you change observable behaviour.
+- "Visible" means visible to the human eye. Before reporting a visual change as working, confirm it in a real screenshot or live view, not only through DOM presence, computed opacity, or script-read pixels.
+- When a check fails unexpectedly, read `documentation/development/known-false-positives.md` before re-diagnosing. Treat a failure as a real regression unless it is documented there; add a new entry only with hard evidence (computed values, screenshots, rasterised pixels) and a tracking issue, and never disable a check without that evidence.
 
-**`npm test` MUST pass after every change.** Run it before committing. If a change causes a new component or file to be picked up by an existing test suite (for example `components-props.test.ts` requires every `.astro` in `src/components/` to export a named `Props` interface/type), fix the source, not the test.
+## Dev server
 
-Port `4321` is the normal Astro dev-server port. Unrelated preview servers, Playwright `webServer` processes, and temporary HTTP servers used to inspect built output must use a port in the `4400` to `4499` range.
+Port `4321` is the Astro dev server. Other preview servers, Playwright `webServer` processes, and temporary HTTP servers use a port from `4400` to `4499`.
 
-**AI assistants own the full Astro dev-server lifecycle for every task that requires it and MUST NOT leave the server running.** Starting such a task is explicit authorisation to stop any existing Astro dev server first, including a healthy server started manually by the user. Run `npx astro dev stop`, start the required server in background mode with `npx astro dev --background`, perform the work, and run `npx astro dev stop` again when finished — every time, no exceptions. Manage the background server with `npx astro dev status` and `npx astro dev logs` when needed.
-
-Stopping a pre-existing Astro dev server is expected cleanup. It is not an accident, warning condition, or noteworthy side effect. Do not apologise, express regret, speculate about whether the server was important, or call special attention to stopping it. When operational detail is useful, a terse factual note such as "Stopped existing dev server." is sufficient.
-
-## Environment variables
-
-Required for full builds and certain scripts (set in `.env`, gitignored):
-
-| Variable | Required for |
-| --- | --- |
-| `YOUTUBE_API_KEY` | YouTube-related build scripts; set to `fake_key_for_testing` for local dev |
-| `FRESHRSS_BASE_URL`, `FRESHRSS_USERNAME`, `FRESHRSS_API_PASSWORD` | RSS follower feed generation in `build-hooks.ts` |
-| `GH_TOKEN` / `GITHUB_TOKEN` | GitHub release/repo scripts in CI |
-
-## Architecture
-
-### Output and rendering
-
-Astro generates a fully static site (`output: 'static'`). All pages are pre-rendered at build time. `compressHTML` is gated on `import.meta.env.PROD`. `pagefind` creates a client-side search index during the build.
-
-**Integrations:** custom `buildHooks()` (from `src/scripts/build/build-hooks.ts`), `@astrojs/sitemap`, `astro-expressive-code`, `@astrojs/mdx`. Vite plugins: `vite-plugin-devtools-json`, `@tailwindcss/vite`.
-
-**Experimental flags active:** `chromeDevtoolsWorkspace`, `clientPrerender`, `contentIntellisense`.
-
-Astro uses directory-style static output with trailing slashes. Cloudflare Workers Static Assets keeps that URL shape with `assets.html_handling = "auto-trailing-slash"` in `wrangler.jsonc`. `assets.run_worker_first` stays enabled so the Worker can redirect `www.kollitsch.dev` before passing static requests to the `ASSETS` binding.
-
-Cloudflare deploys are local-only. `npm run deploy` uploads the Worker and Static Assets bundle with Wrangler, but does not manage production custom-domain routes. Keep `kollitsch.dev` and `www.kollitsch.dev` attached to the `kollitsch-dev` Worker through Cloudflare's Domains & Routes settings so routine deploys do not re-run DNS reconciliation. The Worker redirects `www.kollitsch.dev` requests to `kollitsch.dev`.
-
-Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.
-
-### Gimmicks and progressive enhancement
-
-Gimmicks are progressive enhancement only. They MUST NOT be required for core content, navigation, layout, or page rendering, and MUST NOT participate unnecessarily in the critical loading or execution path. Prefer lazy initialisation and lazy loading for gimmick code, and ensure performance/baseline tests can evaluate the site's core experience independently of gimmicks. A gimmick failing or being unavailable must leave the site usable and visually intentional.
-
-### Content collections (`src/content.config.ts`)
-
-Four collections:
-
-- **blog** — Markdown/MDX posts from `src/content/blog/`. Uses a custom loader that injects `contentFormat` (`md`/`mdx`) derived from the file path before parsing. `blogSchema` is rich: cover object with image/video union and several cross-field refinements; optional `sourcecode` record; Markdown-rendered `title`/`summary`/`cover.alt`; computed `articleimage`. Refinements enforce `linktitle` rules and lowercase kebab-case tag ids.
-- **tags** — Tag metadata from `src/content/tags/`. Schema normalises `id`/`aliases`, derives `label`/`linktitle`, and accepts `badge` presentation metadata for shared tag badge variants, extra classes, and icons.
-- **social** — Social links loaded from `src/content/social.json`.
-- **pages** — Markdown pages under `src/pages/` that require a `layout` frontmatter field.
-
-Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
-
-**Pure vs Astro-bound utilities.** Where a utility is intended to be testable without the Astro runtime, keep it in a `.pure.ts` file (for example `src/utils/content.pure.ts`, tested by `content.pure.test.ts`). Pure utilities must not import server-only Astro modules such as `astro:content`. Astro-specific collection utilities (for example `src/utils/content.ts`, `tags.ts`, `content-object.ts`) may import Astro APIs, but generic Node/Vitest tests should not load those modules unless the test environment is specifically configured for Astro.
-
-**Markdown extensions.** Beyond CommonMark/GFM, `astro.config.ts` wires in `remark-kbd-nested` (nested `<kbd>` shortcuts), `remark-definition-list` (PHP-Markdown-Extra style definition lists), and the local `remarkDnbTypography` plugin (`src/utils/markdown-typography.ts`, restores Hugo-style `--`/`---` dash shortcuts — see `documentation/development/markdown-typography.md`) via `markdown.processor`. Definition list syntax:
-
-```markdown
-Term
-: Definition of the term
-
-Another term
-: Another definition
-```
-
-Consecutive `Term`/`: Definition` pairs separated by a single blank line stay part of the same `<dl>`; a blank line followed by a non-definition block (or two blank lines) ends the list. Markdownlint may otherwise collapse blank lines between items — keep them for readability.
-
-### Styling system
-
-Single global stylesheet `src/styles/theme.css`, Tailwind CSS v4.
-
-- Uses `@theme`, `@theme inline`, `@theme static`, `@layer base`, `@layer components`, `@utility`, `@plugin`, `@custom-variant`.
-- Colour tokens defined in `oklch`; full grey/orange/red ramps. Tailwind colour namespace reset via `--color-*: initial`.
-- Custom utilities include `prose-dnb`, `reading-*`, `scrollbar-red`, `scrollbar-wide`, `font-changa`. Custom scrollbar styling via `--sb-*` variables.
-- `DESIGN.md` is the single source of truth for all design tokens — see §3.
-- shadcn/ui components (`components.json`, `ui` alias → `src/components/shared/elements`) use **Radix UI** as their unstyled primitive layer (`radix-ui`, `@radix-ui/react-slot` in `package.json`), not Base UI. Don't introduce Base UI packages.
-
-### Image and asset system
-
-- **OG images**: pre-generated, not rendered at request time. `npm run build:ogimages` (`src/scripts/build/build-og-images.ts`; `--force`/`--check`/`--file=` modes) renders via `satori-html` → Satori SVG → Resvg PNG → Sharp transcode (`src/utils/social-image/*`) into deterministic, Git-tracked files under `public/images/social/blog/<year>/<slug>.jpg` (plus `public/images/social/default.jpg`). `OpenGraphImage.astro` only resolves the static path and falls back to the default image when a post-specific file is missing. lint-staged regenerates images for staged blog posts and stages the result. See [documentation/development/build-cache.md](documentation/development/build-cache.md#socialog-images).
-- **LQIP**: pre-build image index at `src/content/_generated/image-index.json` via `src/scripts/build/build-image-index.ts`. `src/utils/opengraph.ts` resolves cover image keys against this index.
-
-### Build pipeline
-
-1. **Pre-build**: `npm run build:image-index` (`src/scripts/build/build-image-index.ts`) generates the LQIP image index. The normal build preserves `.cache/image-index/cache.json`; use `npm run build:clean` to drop this cache and other processed-image caches before rebuilding.
-2. **Astro build hooks** (`src/scripts/build/build-hooks.ts`) register as Astro integrations and run during the Astro build lifecycle:
-   - `generateFeedsIntegration` — FreshRSS-gated RSS feeds on `astro:build:start`.
-   - `generateHeadersIntegration` — writes the Cloudflare-compatible `dist/_headers` on `astro:build:done`. Rules are defined in `src/data/headers.ts`; `Expires` is computed as build-time + 1 year. Do not edit `dist/_headers` directly; `public/_headers` is gitignored.
-   - `pagefindIntegration` — Pagefind search index on `astro:build:done`.
-3. **Build**: `astro check && astro build` — TypeScript checks run before the build.
-4. **Scripts and automation**: many one-off scripts under `src/scripts/`, run via `node`. `wireit` orchestrates release, clean, package generation, linting, and update flows.
-
-### Scripts (`src/scripts/`)
-
-Scripts are ESM and TypeScript-friendly (see "Run TS scripts" in Code conventions). CLI scripts should:
-
-- expose configurable options rather than hard-coding values;
-- validate their input;
-- report errors clearly;
-- exit non-zero on failure;
-- avoid silent failure;
-- avoid destructive behaviour unless explicitly requested.
-
-### `package.json` and `src/packages/` (nanny)
-
-`package.json` is a **generated file**. Its source of truth is the set of `*.jsonc` fragments under `src/packages/**` (one file per feature/tool area — `devDependencies`, `scripts`, `wireit`, `overrides`, etc.). The `nanny` CLI (`npx nanny <command>`) merges these fragments into `package.json` and can sync the other direction:
-
-- `nanny generate-package` (`npm run packages:generate`) — merges `src/packages/**/*.jsonc` → `package.json`. This is the authoritative direction; anything only in `package.json` and not in a fragment gets dropped on the next generate.
-- `nanny update-package` (`npm run packages:update`) — copies dependency **versions** from `package.json` back into the fragments. For scripts and `wireit` entries it only **audits and reports** drift (missing/changed keys) — it does not write the fix. It also does **not** sync the `overrides` block. Both scripts/wireit drift and `overrides` entries must be corrected by hand in the relevant fragment.
-- `nanny check` — read-only report of drift between `package.json`, the fragments, and `.vscode/settings.json`.
-
-**Whenever you edit `package.json` directly** (adding/bumping a dependency, changing a script, adding an `overrides` entry), find the fragment that owns that key under `src/packages/` and make the same change there — the fragments are what regenerates `package.json` later and will otherwise silently discard or revert your change. After editing, run `nanny update-package` and then `nanny check` to confirm nothing is left out of sync. `update-package` only auto-fixes dependency **versions**; treat its scripts/wireit audit output and the `overrides` sections as manual-fix-only — read the reported diffs and edit the owning fragment's `scripts`/`wireit`/`overrides` block yourself, then re-run `nanny check` to confirm it is clean.
-
-### CI/CD and deployment
-
-Workflow hardening is a standing rule for every workflow, not only `tests.yml`:
-
-- set `persist-credentials: false` on every `actions/checkout` step;
-- prefer SHA-pinned actions (`uses: owner/action@<sha> # vX.Y.Z`), matching the existing convention;
-- grant each job only the minimum `permissions` it needs; do not leave unnecessary write permissions enabled;
-- cron schedules are UTC — convert carefully when a schedule is requested in another timezone;
-- do not add a workflow that commits, pushes, deploys, or opens issues unless explicitly requested.
-
-- `tests.yml` — unit tests on push/PR to `main`; SHA-pinned actions, `contents: read`, `persist-credentials: false`.
-- `lighthouse.yml` — post-deploy Lighthouse audits.
-- `screenshot.yml` — weekly homepage screenshot commit.
-- `check-youtube-videos.yml` — weekly liveness check of every referenced YouTube/Vimeo video id (`fetch-youtube-thumbnails.ts --verify`); files/updates a tracking issue on failure instead of blocking anything.
-- Deployment is local-first with Wrangler, not GitHub Actions. Use `npm run deploy:preview`, `npm run deploy:dry-run`, and `npm run deploy` from a workstation that is authenticated with Cloudflare.
-- `wrangler.jsonc` is the Cloudflare Workers Static Assets configuration. Static assets are served from `dist/`; only `/api/send-email` runs the Worker before static asset lookup.
-- Cloudflare DNS hosts the zone. The canonical hostname is `kollitsch.dev`; `www` redirection is managed with a Cloudflare Redirect Rule outside this repository.
-- Cloudflare provides agent-readable documentation at [https://developers.cloudflare.com/docs-for-agents/](https://developers.cloudflare.com/docs-for-agents/). Use the Cloudflare skills installed through `.agents/skills` for hosting-related tasks.
-
-### Key directories
-
-| Path | Purpose |
-| --- | --- |
-| `src/content/` | Blog posts (md/mdx), tags, and generated data |
-| `src/content.config.ts` | Collection schemas and Zod validation |
-| `src/layouts/` | Page layouts (`Site.astro`, `ContentPage.astro`, `DefaultPage.astro`) |
-| `src/components/` | UI components, co-located with `*.test.ts` files |
-| `src/utils/` | Shared helpers (`content.ts`, `path.ts`, `youtube.ts`, etc.), co-located tests |
-| `src/scripts/` | One-off and build-time scripts, run via `node` |
-| `src/data/` | Static config (nav, site meta, theme, redirects, Cloudflare header rules) |
-| `src/config/` | Tool configs (biome, stylelint, cspell, secretlint, htmlvalidate) |
-| `src/styles/` | Global CSS (`theme.css`) |
-| `.frontmatter/` | Frontmatter CMS database and templates |
-| `.agents/instructions/` | Project-specific instruction files (`applyTo`-scoped) |
-| `.agents/prompts/` | Project-specific reusable prompts |
-| `.agents/skills/` | Installed skill packages (tracked; symlinked into tool-specific dirs) |
-
-### TypeScript path aliases
-
-Defined in `tsconfig.json`. Use these instead of relative `../..` imports:
-
-```plaintext
-@/*           → src/*
-@components/* → src/components/*
-@utils/*      → src/utils/*
-@layouts/*    → src/layouts/*
-@data/*       → src/data/*
-@scripts/*    → src/scripts/*
-@config/*     → src/config/*
-@content/*    → src/content/*
-@contentconfig → src/content.config.ts
-```
-
-Note: `src/scripts/` is excluded from TypeScript compilation (no type-checking). Run scripts with `node script.ts` — the required Node version (see `package.json` `engines`) strips types natively without flags.
-
-## Icons
-
-Icons render through `@components/shared/elements/Icon.astro`, backed by a small hand-maintained registry in `src/utils/icon-names.ts` (see `documentation/theme/icons.md`):
-
-| Source | Prefix | Use for |
-| --- | --- | --- |
-| `lucide` (`@lucide/astro`) | `lucide:rss` | All UI icons |
-| `simple-icons` (`simple-icons-astro`) | `simple-icons:github` | Brand/logo icons |
-| `local` (`src/components/icons/local/`) | `local:name` | Extreme cases only — a brand mark neither set can provide |
-
-There is no auto-generated list of every Lucide or Simple Icons icon — `IconName` only contains entries actually registered in `src/utils/icon-names.ts`.
-
-Rules:
-
-- **Always** use `<Icon name="..." />` from `@components/shared/elements/Icon.astro` — never inline raw SVG.
-- **Always** use `<IconLink>` from `src/components/shared/links/IconLink.astro` when an icon appears inside a link or button. Do not compose `<Icon>` + `<a>` by hand.
-- When you encounter an inline `<svg>` in existing code, check whether an equivalent icon exists in one of the sets above; if it's not yet registered, add it to `src/utils/icon-names.ts` before using it.
-- For brand/social icons, search [simpleicons.org](https://simpleicons.org) first. For UI icons, search [lucide.dev](https://lucide.dev) first. If a brand mark isn't available in either (for example one Simple Icons removed under legal pressure), see `src/components/icons/local/README.md`.
-
-## Testing conventions
-
-- Unit tests live **next to** the source files they test (`Component.test.ts` beside `Component.astro`).
-- Every test file MUST start with `// @vitest-environment node`.
-- Add a co-located unit test whenever changing observable behaviour.
-- Browser tests live in `src/test/browser/` and require `VITEST_BROWSER=true`.
-- **"Visible" means visible to the human eye.** When verifying a UI change, "it's visible"/"it shows"/"it renders" means confirmed in an actual screenshot or live view — not that the element exists in the DOM, has a non-zero computed opacity, or paints non-zero pixels per a script-read canvas. Those checks prove the mechanism runs; they do not prove a human looking at the page would ever notice it. Take a real screenshot before reporting a visual feature as working, especially for anything deliberately subtle (low opacity, background effects, animations).
+AI assistants own the full Astro dev-server lifecycle for every task that needs it and MUST NOT leave it running. Starting such a task is explicit authorisation to stop any existing Astro dev server, including one the user started. Run `npx astro dev stop`, start with `npx astro dev --background`, do the work, and run `npx astro dev stop` again, every time. Use `npx astro dev status` and `npx astro dev logs` when needed. Stopping a pre-existing server is expected cleanup: do not apologise or draw attention to it; "Stopped existing dev server." is enough.
 
 ## Code conventions
 
-- **ESM only** — `type: "module"` in `package.json`; use `import`/`export`.
-- **Static versions** in `package.json` — no `^` or `~` ranges.
-- **Formatting**: Biome with spaces (width from `.editorconfig`), multiline HTML attributes.
-- **File globbing**: prefer `fast-glob` over `glob` — `fast-glob` is the project's dependency; `glob` is not installed.
-- **Explicit return types** on exported functions are preferred for readability. This is a style convention only — neither Biome nor `tsconfig.json` currently enforces it (Biome has no type-aware "explicit function return type" rule, and there is no equivalent `tsc` compiler flag), so review for it manually.
-- **Run TS scripts** with `node script.ts` — the Node version in `package.json` `engines` handles type stripping natively (Node 26+).
-- **Imports sorted** by Biome's `organizeImports` assist action.
-- **JSON imports**: never import `.json` directly in `.astro` frontmatter (the Astro compiler strips `with { type: 'json' }` and causes an `INCONSISTENT_IMPORT_ATTRIBUTES` warning). Import JSON through a `.ts` utility that re-exports it instead. In `.ts` files, all JSON imports must carry `with { type: 'json' }`. Never import the same JSON module twice in one file — use a local alias instead.
-
-## Important files for common tasks
-
-| Task | Files |
-| --- | --- |
-| Change homepage feed | `src/utils/content.ts` (`getHomepagePosts`), homepage layout in `src/layouts/` |
-| Update content frontmatter schema | `src/content.config.ts` |
-| Add/change site metadata | `src/data/setup.json` |
-| Change navigation | `src/data/topnavigation.json`, `src/data/footernavigation.json` |
-| Change search/indexing | `src/scripts/integrations/pagefind.ts`, `astro.config.ts` |
-| Add a new blog post | `npm run create:blog` or create in `src/content/blog/` |
-| Change dev server watcher behaviour | `src/scripts/webserver.ts` (`EXTRA_WATCH_PATTERNS`, `NEW_FILE_WATCH_DIRS`, `RESTART_POLL_INTERVAL_MS`); trigger external restart with `touch RESTART` |
-| Add a redirect | `src/data/redirects.json` |
-| Change Cloudflare response headers | `src/data/headers.ts` (`headerRules` / `moduleHeaderRules`); `dist/_headers` is generated by `generateHeadersIntegration` on every build |
-
-## Documentation
-
-Full Astro documentation: [https://docs.astro.build](https://docs.astro.build)
-
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
-
-Every feature must have documentation in `documentation/`; keep it describing the current state, not a history of changes (see §5).
+- ESM only (`"type": "module"`).
+- Biome formats and lints (spaces, width from `.editorconfig`, multiline HTML attributes, imports sorted by `organizeImports`).
+- Use the TypeScript path aliases from `tsconfig.json` (`@components/*`, `@utils/*`, and others) instead of deep relative imports.
+- Use `fast-glob` for file globbing; `glob` is not installed.
+- Explicit return types on exported functions are preferred. No tool enforces this; check it in review.
+- Never import `.json` directly in `.astro` frontmatter (Astro strips `with { type: 'json' }` and warns `INCONSISTENT_IMPORT_ATTRIBUTES`); re-export it through a `.ts` module. In `.ts` files, every JSON import carries `with { type: 'json' }`, and the same JSON module is imported only once per file.

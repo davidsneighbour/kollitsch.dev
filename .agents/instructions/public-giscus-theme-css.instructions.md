@@ -29,7 +29,7 @@ cross-origin, keyed by URL. `Giscus.astro` works around this with a
 `themeVersion` query-string constant:
 
 ```ts
-const themeVersion = '4';
+const themeVersion = '<n>'; // current value: see Giscus.astro
 const themeLight = `https://kollitsch.dev/assets/styles/giscus-light.css?v=${themeVersion}`;
 const themeDark = `https://kollitsch.dev/assets/styles/giscus-dark.css?v=${themeVersion}`;
 ```

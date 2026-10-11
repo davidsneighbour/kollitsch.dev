@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "src/components/**,src/layouts/**,src/pages/**,src/styles/**,documentation/established-features.md"
 ---
 
 # Established feature contracts

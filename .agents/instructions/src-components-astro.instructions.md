@@ -34,14 +34,6 @@ If a component genuinely accepts no props, declare an empty exported interface r
 export interface Props {}
 ```
 
-## Icons in components
-
-* Import `Icon` from `@components/shared/elements/Icon.astro`, never write inline `<svg>`.
-* `Icon`'s `name` prop is an `IconName` from `src/utils/icon-names.ts` — a small hand-maintained registry, not every Lucide/Simple Icons icon. Add an entry there before using a new icon.
-* If a component renders a link that contains an icon, use `<IconLink>` from `@components/shared/links/IconLink.astro` rather than composing `<Icon>` and `<a>` by hand.
-* When you find an inline `<svg>` in an existing component, check [simpleicons.org](https://simpleicons.org) (brands) or [lucide.dev](https://lucide.dev) (UI) for an equivalent, register it, and replace it. See `src/components/icons/local/README.md` for brand marks unavailable in either set.
-* Size icons with a CSS class such as `size-[1em]` so they scale with the surrounding font size. Do not rely solely on the SVG `width`/`height` presentation attributes.
-
 ## Intentional decorative accessibility exceptions
 
 `aria-hidden="true"` alone is not an accessibility exemption. Continue to flag

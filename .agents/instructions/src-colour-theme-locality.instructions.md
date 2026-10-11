@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "src/**/*.{astro,css,tsx},public/assets/styles/**,DESIGN.md"
 ---
 
 # Colour and theme locality

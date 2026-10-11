@@ -15,7 +15,7 @@ tags:
   - golang
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-hugo-0-95-update-notes.png
   type: image
 publisher: rework
 ---

@@ -20,7 +20,7 @@ tags:
   - 100-days-to-offload
   - git
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-protected-dotfiles-with-keybase.jpg
   type: image
 publisher: rework
 ---

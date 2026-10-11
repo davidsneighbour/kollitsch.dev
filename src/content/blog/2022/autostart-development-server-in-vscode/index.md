@@ -16,7 +16,7 @@ tags:
   - automation
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-autostart-development-server-in-vscode.jpg
   type: image
 publisher: rework
 ---

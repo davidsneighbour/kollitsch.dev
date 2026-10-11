@@ -16,7 +16,7 @@ tags:
   - today-i-learned
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-mark-word-break-opportunities-in-html.png
   type: image
 publisher: rework
 ---

@@ -15,7 +15,7 @@ tags:
   - design
   - 100-days-to-offload
 cover:
-  src: ./Rolling-Stone-1967-logo.png
+  src: postimages/postimage-for-the-evolution-of-the-rolling-stone-logo.png
   type: image
 publisher: rework
 ---

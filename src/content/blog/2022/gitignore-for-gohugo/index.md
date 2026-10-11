@@ -16,7 +16,7 @@ tags:
 aliases:
   - /blog/2021/gitignore-for-gohugo/
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-gitignore-for-gohugo.jpg
   type: image
 publisher: rework
 maintenance:

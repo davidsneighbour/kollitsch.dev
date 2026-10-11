@@ -15,7 +15,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-swapping-swap.jpg
   type: image
 publisher: rework
 ---

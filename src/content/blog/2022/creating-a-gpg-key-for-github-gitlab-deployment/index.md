@@ -16,7 +16,7 @@ tags:
   - github
   - gitlab
 cover:
-  src: ./mauro-sbicego-4hfpVsi-gSg-unsplash.jpg
+  src: postimages/postimage-for-creating-a-gpg-key-for-github-gitlab-deployment.jpg
   type: image
 publisher: rework
 ---

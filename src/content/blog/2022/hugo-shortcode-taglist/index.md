@@ -21,7 +21,7 @@ tags:
   - shortcode
   - 100-days-to-offload
 cover:
-  src: ./joanna-kosinska-1_CMoFsPfso-unsplash.jpg
+  src: postimages/postimage-for-hugo-shortcode-taglist.jpg
   type: image
 publisher: rework
 ---

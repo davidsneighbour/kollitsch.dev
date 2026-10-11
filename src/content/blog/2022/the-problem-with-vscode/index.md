@@ -14,7 +14,7 @@ tags:
   - link
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-the-problem-with-vscode.png
   type: image
 publisher: rework
 ---

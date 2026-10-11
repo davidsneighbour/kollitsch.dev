@@ -10,7 +10,7 @@ tags:
   - google
   - web-design
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-googles-new-not-found-animation.png
   type: image
 publisher: rework
 ---

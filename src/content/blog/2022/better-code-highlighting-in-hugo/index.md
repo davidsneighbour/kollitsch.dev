@@ -18,7 +18,7 @@ tags:
   - render-hook
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-better-code-highlighting-in-hugo.jpg
   type: image
 publisher: rework
 maintenance:

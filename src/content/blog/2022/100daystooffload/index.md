@@ -16,7 +16,7 @@ tags:
 aliases:
   - /100daystooffload
 cover:
-  src: ./marcel-eberle-SCBREPQuYoM-unsplash.jpg
+  src: postimages/postimage-for-100daystooffload.jpg
   type: image
 publisher: rework
 ---

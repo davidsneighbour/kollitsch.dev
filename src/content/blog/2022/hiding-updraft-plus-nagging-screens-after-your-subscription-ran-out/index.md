@@ -16,7 +16,7 @@ tags:
   - nagging
   - 100-days-to-offload
 cover:
-  src: ./nagara-oyodo-cBPSOscB5Z0-unsplash.jpg
+  src: postimages/postimage-for-hiding-updraft-plus-nagging-screens-after-your-subscription-ran-out.jpg
   type: image
 publisher: rework
 ---

@@ -17,7 +17,7 @@ tags:
 unsplash:
   id: vUNQaTtZeOo
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-piping-output-to-files-in-bash.jpg
   type: image
 publisher: rework
 ---

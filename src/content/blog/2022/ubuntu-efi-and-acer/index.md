@@ -20,7 +20,7 @@ tags:
   - efi
   - 100-days-to-offload
 cover:
-  src: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
+  src: postimages/postimage-for-ubuntu-efi-and-acer.jpg
   type: image
 publisher: rework
 ---

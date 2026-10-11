@@ -22,7 +22,7 @@ tags:
   - automation
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-simple-multi-language-pre-commit-hooks.jpg
   type: image
 options:
   head:

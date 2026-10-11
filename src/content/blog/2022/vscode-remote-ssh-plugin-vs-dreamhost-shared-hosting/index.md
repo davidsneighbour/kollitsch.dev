@@ -16,7 +16,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-vscode-remote-ssh-plugin-vs-dreamhost-shared-hosting.jpg
   type: image
 publisher: rework
 ---

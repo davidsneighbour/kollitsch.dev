@@ -13,7 +13,7 @@ tags:
   - todo
   - me-now
 cover:
-  src: ./glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg
+  src: postimages/postimage-for-just-another-new-year.jpg
   type: image
 publisher: rework
 ---

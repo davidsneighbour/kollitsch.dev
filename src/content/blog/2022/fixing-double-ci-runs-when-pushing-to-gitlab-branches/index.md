@@ -15,7 +15,7 @@ tags:
   - ci
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-fixing-double-ci-runs-when-pushing-to-gitlab-branches.jpg
   type: image
 publisher: rework
 ---

@@ -13,7 +13,7 @@ resources:
   - src: header.jpg
 
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-music-to-program-to-3.jpg
   type: video
   video:
     youtube: 7iYCBlJ-33o

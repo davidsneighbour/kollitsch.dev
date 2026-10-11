@@ -17,7 +17,7 @@ tags:
   - how-i-work
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-less-clutter-in-vscode.jpg
   type: image
 publisher: rework
 ---

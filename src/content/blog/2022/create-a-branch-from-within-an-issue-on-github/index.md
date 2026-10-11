@@ -18,7 +18,7 @@ tags:
   - project-management
   - 100-days-to-offload
 cover:
-  src: ./yancy-min-842ofHC6MaI-unsplash.jpg
+  src: postimages/postimage-for-create-a-branch-from-within-an-issue-on-github.jpg
   type: image
 publisher: rework
 ---

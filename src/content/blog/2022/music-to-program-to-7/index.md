@@ -13,7 +13,7 @@ resources:
     title: Silent Lucidity
 
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-music-to-program-to-7.jpg
   type: video
   video:
     youtube: jhat-xUQ6dw

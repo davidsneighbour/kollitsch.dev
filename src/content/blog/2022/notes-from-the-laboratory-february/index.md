@@ -15,7 +15,7 @@ tags:
 aliases:
   - /blog/2022/notes-from-the-laboratory-february-2022
 cover:
-  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
+  src: postimages/postimage-for-notes-from-the-laboratory-series.jpg
   type: image
   title: >-
     Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via

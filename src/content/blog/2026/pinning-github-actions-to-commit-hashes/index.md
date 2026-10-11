@@ -4,16 +4,16 @@ title: Pinning GitHub Actions to commit hashes
 description: A guide on how to pin GitHub Actions to specific commit hashes for better security and stability.
 summary: Learn how to enhance the security and stability of your GitHub workflows by pinning actions to specific commit hashes instead of version tags.
 tags:
- - automation
- - github
- - reproducibility
- - security
- - workflows
- - dotfiles
+- automation
+- github
+- reproducibility
+- security
+- workflows
+- dotfiles
 cover:
- src: postimages/postimage-for-pinning-github-actions-to-commit-hashes.jpg
- type: image
- title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) on [Unsplash](https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA)
+  src: postimages/postimage-for-pinning-github-actions-to-commit-hashes.jpg
+  type: image
+  title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) on [Unsplash](https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA)
 date: 2026-05-26T00:52:58.383Z
 ---
 

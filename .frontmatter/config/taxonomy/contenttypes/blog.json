@@ -109,9 +109,9 @@
     },
     {
       "choices": [
-        "article"
+        "blog"
       ],
-      "default": "article",
+      "default": "blog",
       "name": "fmContentType",
       "required": true,
       "title": "Front Matter content type",

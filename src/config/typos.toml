@@ -12,3 +12,9 @@ extend-ignore-identifiers-re = [
 [default.extend-words]
 # "quicky" is an established tag slug used across several posts
 quicky = "quicky"
+# "Tilda" Swinton, actor name (src/content/blog/2023/what-if-wes-anderson-2/index.md)
+tilda = "tilda"
+# "AAArdvark", accessibility product name (src/content/blog/2025/kurzschnitte-ii-10/index.mdx)
+ardvark = "ardvark"
+# "statuss", the git alias the post defines (src/content/blog/2026/lab-notes-limit-git-status-to-the-current-directory/index.md)
+statuss = "statuss"

@@ -11,7 +11,7 @@ tags:
   - efi
   - 100-days-to-offload
 cover:
-  src: ./artiom-vallat-mx9axbKqKW8-unsplash.jpg
+  src: postimages/postimage-for-handling-ubuntu-efi-boot-issues-on-acer-laptops.jpg
   type: image
 ---
 

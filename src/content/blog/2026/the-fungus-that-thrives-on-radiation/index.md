@@ -6,7 +6,7 @@ date: 2025-11-19T06:07:42.215Z
 draft: true
 cover:
   type: image
-  src: "Fungi-Chernobyl-Cladosporium-sphaerospermum-Medmyco.jpg"
+  src: "postimages/postimage-for-the-fungus-that-thrives-on-radiation.jpg"
   title: Fungus Cladosporium sphaerospermum growing inside the Chernobyl Nuclear Power Plant
 ---
 

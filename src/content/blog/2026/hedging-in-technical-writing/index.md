@@ -6,7 +6,7 @@ date: 2025-10-27T00:55:34.592Z
 draft: true
 tags: [ technical-writing, communication, style-guide]
 cover:
-  src: "tycho-atsma-oDiU9WRz5CI-unsplash.jpg"
+  src: "postimages/postimage-for-hedging-in-technical-writing.jpg"
   title: "Photo by [Tycho Atsma](https://unsplash.com/@tychoa) on [Unsplash](https://unsplash.com/photos/man-walking-near-tall-trees-oDiU9WRz5CI)"
   type: image
 ---

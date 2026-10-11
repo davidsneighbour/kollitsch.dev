@@ -6,7 +6,7 @@ draft: true
 date: 2025-10-10T12:17:16.215Z
 tags: []
 cover:
-  src: "patrycja-jadach-1bS1PGDrdy4-unsplash.jpg"
+  src: "postimages/postimage-for-the-pizening-series.jpg"
   title: ""
 ---
 

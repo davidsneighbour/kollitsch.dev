@@ -6,7 +6,7 @@ tags:
   - git
 cover:
   type: image
-  src: alexander-mils-Z9jrIi3pEQo-unsplash.jpg
+  src: postimages/postimage-for-lab-notes-limit-git-status-to-the-current-directory.jpg
   title: "Notes from the Laboratory"
 date: 2026-09-30T22:53:04.799Z
 fmContentType: blog

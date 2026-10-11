@@ -11,7 +11,7 @@ tags:
   - ubuntu
   - open-source
 cover:
-  src: enpass-new-look-linux-cover.png
+  src: postimages/postimage-for-enpass-612-on-linux-fixing-the-x11-installation.png
   type: image
   title: "Enpass's new interface design, from the Enpass blog post announcing it for Linux"
 date: 2026-09-17T08:56:15.215Z

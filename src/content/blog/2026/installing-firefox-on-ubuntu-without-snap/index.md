@@ -5,7 +5,7 @@ description: A practical guide to removing the Snap version of Firefox and insta
 date: 2026-03-24T06:29:35.184Z
 tags: [firefox, snap, ubuntu]
 cover:
-  src: "simone-dinoia-L9JMv_ACMK0-unsplash.jpg"
+  src: "postimages/postimage-for-installing-firefox-on-ubuntu-without-snap.jpg"
   title: "Photo by [Simone Dinoia](https://unsplash.com/@simonedna) on [Unsplash](https://unsplash.com/photos/a-red-panda-sitting-on-top-of-a-tree-branch-L9JMv_ACMK0)"
 ---
 

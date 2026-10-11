@@ -6,7 +6,7 @@ date: 2026-02-15T08:36:53.669Z
 tags: [issue-management, project-management]
 draft: true
 cover:
-  src: abhi-verma-372ou8Fc9jg-unsplash.jpg
+  src: postimages/postimage-for-writing-the-perfect-bug-report.jpg
   title: Two bugs.
 ---
 

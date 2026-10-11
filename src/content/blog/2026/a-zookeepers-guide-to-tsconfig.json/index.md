@@ -6,7 +6,7 @@ draft: true
 date: 2026-04-11T09:45:53.285Z
 tags: [typescript, how-to, configuration, metaphors]
 cover:
-  src: "eierlegende-wollmilchsau.webp"
+  src: "postimages/postimage-for-a-zookeepers-guide-to-tsconfig.json.webp"
   title: "Die eierlegende Wollmilchsau&trade;"
 ---
 

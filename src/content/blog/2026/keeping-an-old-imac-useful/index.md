@@ -13,7 +13,7 @@ tags:
 - hardware
 - troubleshooting
 cover:
-  src: "tigran-kharatyan-lL1NCmptNYw-unsplash.jpg"
+  src: "postimages/postimage-for-keeping-an-old-imac-useful.jpg"
   type: image
   title: "Photo by [Tigran Kharatyan](https://unsplash.com/@t1ko) on [Unsplash](https://unsplash.com/photos/a-close-up-of-an-apple-logo-on-a-silver-surface-lL1NCmptNYw)"
 date: 2026-07-25T13:00:00Z

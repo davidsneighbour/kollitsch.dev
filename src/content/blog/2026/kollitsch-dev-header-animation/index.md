@@ -12,7 +12,7 @@ tags:
   - design
 draft: true
 cover:
-  src: "headline.jpg"
+  src: "postimages/postimage-for-kollitsch-dev-header-animation.jpg"
   type: image
   title: "The KOLLITSCH.dev* header—the image fills the character outlines before the hover animation begins"
   alt: "The word KOLLITSCH.dev* rendered in large type with a coloured photograph showing through the character shapes"

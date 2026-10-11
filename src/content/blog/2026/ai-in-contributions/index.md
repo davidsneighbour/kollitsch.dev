@@ -8,7 +8,7 @@ tags:
   - llm
   - open-source
 cover:
-  src: getty-images-TpoaSGzAy00-unsplash.jpg
+  src: postimages/postimage-for-ai-in-contributions.jpg
   type: image
   title: Just an AI.
 date: 2026-03-21T04:00:00.000Z

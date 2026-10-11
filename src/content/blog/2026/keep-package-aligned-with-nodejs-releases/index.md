@@ -9,7 +9,7 @@ tags:
   - how-to
   - automation
 cover:
-  src: a-c-1pB9i4SBoMM-unsplash.jpg
+  src: postimages/postimage-for-keep-package-aligned-with-nodejs-releases.jpg
   type: image
   title: "Nodes. JS."
 date: 2026-05-26T22:55:46.612Z

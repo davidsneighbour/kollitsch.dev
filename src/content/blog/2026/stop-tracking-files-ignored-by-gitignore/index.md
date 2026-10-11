@@ -12,7 +12,7 @@ tags:
 - cli
 - how-to
 cover:
-  src: roman-synkevych-wX2L8L-fGeA-unsplash.jpg
+  src: postimages/postimage-for-stop-tracking-files-ignored-by-gitignore.jpg
   type: image
   title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) on [Unsplash](https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA)
 ---

@@ -1,0 +1,7 @@
+version = 1
+
+[posting]
+default_networks = ["mastodon", "bluesky", "linkedin"]
+
+[paths]
+dotenv = ".env"

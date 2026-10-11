@@ -48,11 +48,14 @@ When the same cover image is intentionally shared across a series, name it after
 
 If the stable filename is not obvious, decide it before adding or moving the image. Do not invent a non-obvious image name during a content edit.
 
+Video covers set `type: video` and take no `src`: the player shows the cached video thumbnail, and social images use the site default image.
+
 To use a YouTube video as the cover:
 
 ```yaml
 ---
 cover:
+  type: video
   video:
     youtube: dQw4w9WgXcQ   # video ID only, not the full URL
     title: "Caption below the video"

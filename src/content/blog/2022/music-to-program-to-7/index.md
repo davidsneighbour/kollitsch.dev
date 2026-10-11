@@ -9,7 +9,6 @@ tags:
   - queensryche
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-music-to-program-to-7.jpg
   type: video
   video:
     youtube: jhat-xUQ6dw

@@ -14,7 +14,6 @@ tags:
   - 100-days-to-offload
   - artificial-intelligence
 cover:
-  src: postimages/postimage-for-what-if-wes-anderson-1.jpg
   type: video
   video:
     youtube: d-8DT5Q8kzI

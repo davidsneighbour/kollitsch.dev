@@ -10,7 +10,6 @@ tags:
   - danny-kreutzfeldt
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-music-to-program-to-5.jpg
   type: video
   video:
     youtube: 3We_dXYnjK0

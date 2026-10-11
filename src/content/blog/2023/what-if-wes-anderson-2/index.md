@@ -14,7 +14,6 @@ tags:
   - 100-days-to-offload
   - horror-movie
 cover:
-  src: postimages/postimage-for-what-if-wes-anderson-2.jpg
   type: video
   video:
     youtube: gfDIAZCwHQE

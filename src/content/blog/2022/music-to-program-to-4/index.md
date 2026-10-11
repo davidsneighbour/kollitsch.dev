@@ -9,7 +9,6 @@ tags:
   - rammstein
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-music-to-program-to-4.jpg
   type: video
   video:
     youtube: oQ10_EzMvtQ

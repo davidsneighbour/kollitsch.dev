@@ -11,7 +11,6 @@ tags:
   - video
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-shut-up-dont-talk.jpg
   type: video
   video:
     title: Shut Up, Don't Talk

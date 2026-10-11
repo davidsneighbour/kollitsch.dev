@@ -10,7 +10,6 @@ tags:
   - trent-reznor
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-music-to-program-to-6.jpg
   type: video
   video:
     youtube: _g8nAqDu3gI

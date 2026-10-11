@@ -18,7 +18,6 @@ tags:
   - 100-days-to-offload
 
 cover:
-  src: postimages/postimage-for-alfred-hitchcocks-cameos.jpg
   type: video
   video:
     youtube: _YbaOkiMiRQ

@@ -18,7 +18,6 @@ tags:
   - emotions
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
   type: video
   video:
     youtube: EVlXbiP4x2E

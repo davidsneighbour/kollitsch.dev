@@ -17,7 +17,6 @@ tags:
   - advertisement
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
   type: video
   video:
     vimeo: "1094958124"

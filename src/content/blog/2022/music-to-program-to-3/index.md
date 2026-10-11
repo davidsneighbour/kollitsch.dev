@@ -10,7 +10,6 @@ tags:
   - ben-lukas-boysen
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-music-to-program-to-3.jpg
   type: video
   video:
     youtube: 7iYCBlJ-33o

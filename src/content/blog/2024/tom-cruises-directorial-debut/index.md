@@ -16,7 +16,6 @@ tags:
   - video
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-tom-cruises-directorial-debut.jpg
   type: video
   video:
     youtube: mAZXRpPX-hI

@@ -41,7 +41,7 @@ Markdown headings or filenames.
 | `cover.format` | no | object | Image output settings. |
 | `cover.format.contenttype` | no | `jpg`, `png`, `gif`, `svg`, or `webp` | Requested image content type; defaults to `jpg`. |
 | `cover.format.quality` | no | `1`-`100` | Requested image quality; defaults to `75`. |
-| `cover.src` | for image covers | `string` | Image path or key used by the cover pipeline. |
+| `cover.src` | for image covers | `string` | Image path or key used by the cover pipeline. Omit it on video covers: they show the cached video thumbnail and ignore `src`. |
 | `cover.title` | no | `string` | Cover title/caption source. |
 | `cover.type` | no | `image` or `video` | Cover type; defaults to `image`. |
 | `cover.unsplash` | no | `string` | Unsplash photo id; exactly 11 alphanumeric characters and image-only. |

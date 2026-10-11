@@ -10,7 +10,6 @@ tags:
   - pomplamoose
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-pomplamoose-does-moby.jpg
   type: video
   video:
     youtube: s0OWyoXNjcw

@@ -13,7 +13,6 @@ tags:
   - 100-days-to-offload
 
 cover:
-  src: postimages/postimage-for-patch-notes-hlne-vogelsinger.jpg
   type: video
   video:
     youtube: kYxheEGl2oM

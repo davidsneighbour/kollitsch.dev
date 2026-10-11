@@ -7,7 +7,6 @@ linkTitle: Music to program to II
 tags:
   - programming-music
 cover:
-  src: postimages/postimage-for-music-to-program-to-2.jpg
   type: video
   video:
     youtube: 49FXjBiccG4

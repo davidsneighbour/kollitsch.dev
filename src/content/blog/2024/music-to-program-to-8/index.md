@@ -18,7 +18,6 @@ tags:
   - programming-environment
 date: 2024-01-02T17:26:42+07:00
 cover:
-  src: postimages/postimage-for-music-to-program-to-8.jpg
   type: video
   video:
     youtube: CNfmij_Cpq8

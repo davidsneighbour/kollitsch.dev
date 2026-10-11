@@ -17,7 +17,7 @@ tags:
 unsplash:
   imageid: Zk--Ydz2IAs
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-wordpress-drops-php-5.jpg
   type: image
 publisher: rework
 ---

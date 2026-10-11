@@ -20,7 +20,7 @@ tags:
 unsplash:
   imageid: oXlXu2qukGE
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-custom-file-type-handler-for-subfolders-in-vscode-projects.jpg
   type: image
 publisher: rework
 ---

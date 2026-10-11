@@ -19,7 +19,7 @@ tags:
 unsplash:
   imageid: OlAoxfMngZ4
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-diogenes-vs-plato.jpg
   type: image
 publisher: rework
 ---

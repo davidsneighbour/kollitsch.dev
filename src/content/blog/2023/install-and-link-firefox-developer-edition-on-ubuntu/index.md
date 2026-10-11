@@ -15,7 +15,7 @@ tags:
   - ubuntu
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-install-and-link-firefox-developer-edition-on-ubuntu.jpg
   type: image
 publisher: rework
 ---

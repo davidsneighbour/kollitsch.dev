@@ -13,7 +13,7 @@ tags:
 unsplash:
   imageid: UcEzgZ6k19o
 cover:
-  src: kurzschnitte.jpg
+  src: postimages/postimage-for-kurzschnitte-series.jpg
   type: image
   title: >-
       Photo by [Kelsy Gagnebin](https://unsplash.com/@kelsymichael) via

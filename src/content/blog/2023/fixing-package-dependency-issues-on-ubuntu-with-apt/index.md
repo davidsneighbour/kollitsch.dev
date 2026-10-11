@@ -17,7 +17,7 @@ tags:
   - ubuntu
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-fixing-package-dependency-issues-on-ubuntu-with-apt.jpg
   type: image
 publisher: rework
 ---

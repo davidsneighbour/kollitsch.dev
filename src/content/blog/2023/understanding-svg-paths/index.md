@@ -14,7 +14,7 @@ tags:
   - course
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-understanding-svg-paths.jpg
 publisher: rework
 ---
 

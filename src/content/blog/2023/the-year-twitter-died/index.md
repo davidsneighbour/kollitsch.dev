@@ -16,7 +16,7 @@ tags:
   - links
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-the-year-twitter-died.jpg
   type: image
 publisher: rework
 ---

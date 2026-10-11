@@ -18,7 +18,7 @@ tags:
   - cleanup
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-cleanup-heaps-of-node-modules.jpg
   type: image
 publisher: rework
 ---

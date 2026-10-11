@@ -15,7 +15,7 @@ tags:
   - security
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-safe-npm.jpg
   type: image
 publisher: rework
 ---

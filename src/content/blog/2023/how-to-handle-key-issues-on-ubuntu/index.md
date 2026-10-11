@@ -16,7 +16,7 @@ tags:
   - apt
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-how-to-handle-key-issues-on-ubuntu.jpg
   type: image
 publisher: rework
 ---

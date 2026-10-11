@@ -15,7 +15,7 @@ tags:
 aliases:
   - /notes-from-the-laboratory-july-2023
 cover:
-  src: todd-quackenbush-IClZBVw5W5A-unsplash.jpg
+  src: postimages/postimage-for-notes-from-the-laboratory-series.jpg
   type: image
   title: >-
     Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) via

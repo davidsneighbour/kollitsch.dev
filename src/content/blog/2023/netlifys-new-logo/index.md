@@ -14,7 +14,7 @@ tags:
   - logo
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-netlifys-new-logo.png
   type: image
 publisher: rework
 ---

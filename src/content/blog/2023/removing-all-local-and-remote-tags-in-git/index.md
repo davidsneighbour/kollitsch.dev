@@ -13,7 +13,7 @@ tags:
   - devops
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-removing-all-local-and-remote-tags-in-git.jpg
   type: image
 publisher: rework
 ---

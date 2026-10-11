@@ -14,7 +14,7 @@ resources:
     title: Pomplamoose does Moby
 
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-pomplamoose-does-moby.jpg
   type: video
   video:
     youtube: s0OWyoXNjcw

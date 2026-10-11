@@ -16,7 +16,7 @@ tags:
 unsplash:
   imageid: a-group-of-multicolored-teddy-bears-sitting-next-to-each-other-z7EthZ7gYL4
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-get-the-next-semver-version.jpg
   type: image
 publisher: rework
 ---

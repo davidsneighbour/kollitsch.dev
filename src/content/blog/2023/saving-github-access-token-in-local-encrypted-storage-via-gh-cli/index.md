@@ -14,7 +14,7 @@ tags:
   - authentication
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-saving-github-access-token-in-local-encrypted-storage-via-gh-cli.jpg
   type: image
 publisher: rework
 ---

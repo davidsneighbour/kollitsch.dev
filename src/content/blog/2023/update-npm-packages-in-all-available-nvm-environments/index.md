@@ -20,7 +20,7 @@ tags:
 unsplash:
   imageid: oZMUrWFHOB4
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-update-npm-packages-in-all-available-nvm-environments.jpg
   type: image
 publisher: rework
 ---

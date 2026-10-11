@@ -15,7 +15,7 @@ tags:
   - opsec
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-googles-new-osv-scanner.jpg
   type: image
 publisher: rework
 maintenance:

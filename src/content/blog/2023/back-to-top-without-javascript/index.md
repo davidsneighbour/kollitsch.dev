@@ -16,7 +16,7 @@ tags:
 unsplash:
   imageid: bEOrxHU2Op8
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-back-to-top-without-javascript.jpg
   type: image
 options:
   head:

@@ -17,7 +17,7 @@ tags:
   - hugo-sitemap
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-ping-goes-poof.jpg
   type: image
 options:
   head:

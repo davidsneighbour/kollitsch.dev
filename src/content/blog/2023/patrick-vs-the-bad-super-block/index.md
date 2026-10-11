@@ -18,7 +18,7 @@ tags:
 unsplash:
   imageid: 1iVKwElWrPA
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-patrick-vs-the-bad-super-block.jpg
   type: image
 publisher: rework
 ---

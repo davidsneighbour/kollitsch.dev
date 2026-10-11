@@ -17,7 +17,7 @@ tags:
 unsplash:
   imageid: wX2L8L-fGeA
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-git-status-hook.jpg
   type: image
 publisher: rework
 ---

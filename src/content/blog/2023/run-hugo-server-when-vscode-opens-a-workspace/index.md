@@ -18,7 +18,7 @@ tags:
 unsplash:
   imageid: robot-playing-piano-U3sOwViXhkY
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-run-hugo-server-when-vscode-opens-a-workspace.jpg
   type: image
 publisher: rework
 ---

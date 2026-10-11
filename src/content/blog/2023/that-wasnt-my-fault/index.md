@@ -11,7 +11,7 @@ tags:
   - picard
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-that-wasnt-my-fault.png
   type: image
 publisher: rework
 ---

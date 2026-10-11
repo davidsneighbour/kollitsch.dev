@@ -16,7 +16,7 @@ tags:
   - refactoring
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-refactoring-my-screenshot-script.jpg
   type: image
 publisher: rework
 ---

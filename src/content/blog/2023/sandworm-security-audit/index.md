@@ -15,7 +15,7 @@ tags:
   - opsec
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-sandworm-security-audit.png
   type: image
 publisher: rework
 ---

@@ -12,7 +12,7 @@ tags:
   - kollitsch-dev
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-well-well-well-not-so-fast.jpg
   type: image
 publisher: rework
 ---

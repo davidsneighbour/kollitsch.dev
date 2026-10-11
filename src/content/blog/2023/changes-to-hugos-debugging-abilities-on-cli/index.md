@@ -19,7 +19,7 @@ tags:
   - debugging
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-changes-to-hugos-debugging-abilities-on-cli.jpg
   type: image
 publisher: rework
 ---

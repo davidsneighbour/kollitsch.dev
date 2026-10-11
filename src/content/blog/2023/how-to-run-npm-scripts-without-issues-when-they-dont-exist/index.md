@@ -20,7 +20,7 @@ tags:
 unsplash:
   imageid: oZMUrWFHOB4
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-how-to-run-npm-scripts-without-issues-when-they-dont-exist.jpg
   type: image
 publisher: rework
 ---

@@ -14,7 +14,7 @@ tags:
   - component
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-prevent-jsbuild-from-removing-un-unused-javascript-functionality.png
   type: image
 publisher: rework
 ---

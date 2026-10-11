@@ -19,7 +19,7 @@ tags:
 unsplash:
   imageid: 1COcTd3pRCg
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-switch-hugo-content-between-bundle-types.jpg
   type: image
 publisher: rework
 ---

@@ -15,7 +15,7 @@ tags:
   - gohugo
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-creating-a-hugo-site-index.jpg
   type: image
 publisher: rework
 ---

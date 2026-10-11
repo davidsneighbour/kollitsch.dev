@@ -10,7 +10,7 @@
   },
   "scripts": {
     "postinstall:sharedconfig": "wireit",
-    "prepare:sharedconfig": "npx tsx src/config/shared-config-create.ts",
+    "prepare:sharedconfig": "node src/config/shared-config-create.ts",
     "release": "wireit",
     "release:forced": "wireit",
     "release:major": "wireit",

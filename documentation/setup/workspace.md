@@ -107,7 +107,7 @@ Running `npm run vscode:sync -- --verbose` shows which files were read and writt
 
 ### Script internals
 
-`src/scripts/vscode/merge-vscode-config.ts` is a self-contained TypeScript script with no Astro or project dependencies beyond `jsonc-parser`. It can be run with Node.js 22+ native TypeScript stripping (`node`) or with `npx tsx`.
+`src/scripts/vscode/merge-vscode-config.ts` is a self-contained TypeScript script with no Astro or project dependencies beyond `jsonc-parser`. Run it with `node`; the required Node.js version (see `engines` in `package.json`) strips TypeScript types natively.
 
 Key implementation details:
 

@@ -191,11 +191,8 @@ The Web App Manifest spec supports SVG icons (`"type": "image/svg+xml"`). Adding
 
 ### Low priority
 
-**6. `regenerate.ts` is called with `node`, not `npx tsx`.**
-`package.json` calls `node src/assets/favicon/regenerate.ts` directly. This relies on Node.js ≥ 22.6 native TypeScript stripping. The project convention (per `CLAUDE.md`) is `npx tsx` for all TypeScript scripts. Aligning would make the script consistent with other scripts and avoid a silent failure on older Node versions.
-
-**7. ICO includes 48×48 and 64×64 sizes.**
+**6. ICO includes 48×48 and 64×64 sizes.**
 Modern guidelines (including the Evil Martians favicon reference linked in `manifest.json.ts`) recommend a 32×32-only ICO. The 48×48 and 64×64 frames add ~18 KB to `favicon.ico` without benefit for current browsers.
 
-**8. Maskable icon needs padding verification.**
+**7. Maskable icon needs padding verification.**
 The SVG letterform fills the full 135×135 viewBox. Maskable icons require the important content to fit inside a 409×409 circle within a 512×512 canvas (roughly 80% safe zone). The current artwork likely clips at the corners when applied as a maskable icon on Android. A separate `favicon-maskable.svg` with additional padding should be created and used only for the maskable entry.

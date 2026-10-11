@@ -36,9 +36,8 @@ src/config/vale/config/vocabularies/DNB
 /data/skills
 .github/hooks
 
-# .agents/skills/: dnb-* skills are installed via `npx skills add` and reproducible
-# via skills-lock.json, so they are ignored. kdev-* skills are authored in this repo
-# and tracked.
+# .agents/skills/: skills installed via `npm run skills:add` are ignored.
+# kdev-* skills are authored in this repo and tracked.
 .agents/skills/*
 !.agents/skills/kdev-*
 

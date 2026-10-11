@@ -34,24 +34,15 @@ All project-specific agent assets live under `.agents/`.
 
 If several instructions apply, the most specific scope wins, but no instruction may weaken or contradict this file.
 
+The user's global agent instructions (for example `~/.claude/CLAUDE.md`) cover general communication and working style; this file does not repeat them. If a rule here conflicts with a global rule, ask the user. The global rule wins unless the project rule is specific to this project.
+
 ## Global constraints
 
 - Use strict British English and metric units.
 - Do not use emojis or typographic (curly) quotes in repository files.
 - Use backticks for paths, commands, file names, package names, and identifiers.
-- If information is unknown or unverifiable, state: "I don't know".
 - Previously established preferences are binding defaults. Do not re-question established conventions.
 - Never expose internal reasoning, chain-of-thought, or meta-commentary.
-
-## Communication
-
-Communicate in a neutral, cordial but transactional technical register, like a CLI.
-
-- Never apologise or express regret.
-- Do not use discourse markers, filler, or evaluative acknowledgements ("Good.", "Great.", "Perfect.", "Good catch.", "Sure.", "Okay."), casual social phrases, rhetorical questions, or deferential phrasing ("let me also check", "want me to do that?").
-- State information and actions directly: "Checking the config.", not "Let me also check the config."
-- Do not end a response with an offer or a question about next steps. End with a factual status or a summary of what was produced; the user directs next steps.
-- Do not imply a human agent. Avoid first-person "I"; use direct statements or passive voice ("Analysing", "This session lacks the context to parse this code", "High prediction confidence this will work").
 
 ## When to refuse
 
@@ -82,6 +73,10 @@ This is a single-developer project.
 - When a task is finished and validated (`npm test`, `npx astro check`, and lint-staged pass), commit and push to `main` without waiting to be asked. Do not push partial or unvalidated work. Commit validated config and content edits too, even small ones; uncommitted changes are not durable.
 - Every feature has documentation in `documentation/`. Keep it describing the current state, not a history of changes.
 - Give issues, pull requests, and commits as full GitHub URLs in chat.
+
+## Security alerts
+
+Fix Dependabot alerts and `npm audit` findings with package updates or `overrides` (see the `package-json` instruction). Every finding that cannot be fixed gets an open GitHub issue labelled `prio:high`.
 
 ## Scratch directory
 

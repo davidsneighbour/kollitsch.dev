@@ -114,7 +114,7 @@ npm run hosting:check
 Render the file without running a full build:
 
 ```bash
-npx tsx -e "
+node --input-type=module -e "
 import { renderHeaders } from './src/scripts/build/build-headers.ts';
 console.log(renderHeaders());
 "

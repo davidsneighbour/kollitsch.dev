@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "@davidsneighbour/imagemin-lint-staged": "3.0.2"
+    "@davidsneighbour/imagemin-lint-staged": "3.0.2",
+    "lint-staged": "17.6.0"
   },
   "scripts": {
     "audit:html": "wireit",

@@ -20,7 +20,7 @@ tags:
   - exploding-kittens
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-the-official-netflix-trailer-for-exploding-kittens-the-series-is-out.jpg
   type: video
   video:
     youtube: T3F0Nt6ssLU

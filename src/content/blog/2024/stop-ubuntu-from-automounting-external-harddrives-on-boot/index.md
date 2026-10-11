@@ -21,7 +21,7 @@ tags:
 unsplash:
   imageid: l2nY0rP07DI
 cover:
-  src: ./curated-lifestyle-l2nY0rP07DI-unsplash.jpg
+  src: postimages/postimage-for-stop-ubuntu-from-automounting-external-harddrives-on-boot.jpg
   type: image
 publisher: rework
 ---

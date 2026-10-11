@@ -25,7 +25,7 @@ tags:
 unsplash:
   imageid: pswcXNE8690
 cover:
-  src: ./nigel-hoare-pswcXNE8690-unsplash.jpg
+  src: postimages/postimage-for-howto-use-gohugo-modules.jpg
   type: image
 publisher: rework
 ---

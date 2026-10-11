@@ -17,7 +17,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: ./ubuntu-wallpaper-d.png
+  src: postimages/postimage-for-installing-keybase-on-ubuntu-2404.png
   type: image
 publisher: rework
 ---

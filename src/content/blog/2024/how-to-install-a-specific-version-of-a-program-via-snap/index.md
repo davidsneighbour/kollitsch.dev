@@ -19,7 +19,7 @@ tags:
 unsplash:
   imageid: B0aJBySo8dc
 cover:
-  src: ./kumas_taverne-B0aJBySo8dc-unsplash.jpg
+  src: postimages/postimage-for-how-to-install-a-specific-version-of-a-program-via-snap.jpg
   type: image
 publisher: rework
 ---

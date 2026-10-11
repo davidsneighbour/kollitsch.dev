@@ -19,7 +19,7 @@ tags:
 unsplash:
   imageid: pile-of-rubber-duckies-59yg_LpcvzQ
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-how-to-fix-dirname-not-defined-in-es-module-scope.jpg
   type: image
 publisher: rework
 ---

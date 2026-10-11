@@ -13,7 +13,7 @@ tags:
   - quicky
   - 100-days-to-offload
 cover:
-  src: ./ave-calvar-MRAu_cKpVqI-unsplash.jpg
+  src: postimages/postimage-for-nacho.jpg
   type: image
 publisher: rework
 ---

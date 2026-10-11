@@ -12,7 +12,7 @@ tags:
   - development
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-showing-the-current-breakpoint-for-bootstrap.jpg
   type: image
 publisher: rework
 ---

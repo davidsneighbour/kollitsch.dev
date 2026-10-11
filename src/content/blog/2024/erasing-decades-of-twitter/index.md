@@ -16,7 +16,7 @@ tags:
   - erasing-social-media
   - 100-days-to-offload
 cover:
-  src: ./header.webp
+  src: postimages/postimage-for-erasing-decades-of-twitter.webp
   type: image
 publisher: rework
 ---

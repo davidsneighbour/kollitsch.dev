@@ -21,7 +21,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: ./header.png
+  src: postimages/postimage-for-fixing-plugin-installation-errors-in-localwp.png
   type: image
 publisher: rework
 ---

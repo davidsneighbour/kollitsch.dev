@@ -17,7 +17,7 @@ tags:
   - encryption
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-recovering-a-missing-keybase-git-repository.jpg
   type: image
 publisher: rework
 ---

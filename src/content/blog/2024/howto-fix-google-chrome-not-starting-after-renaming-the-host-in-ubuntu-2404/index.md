@@ -19,7 +19,7 @@ tags:
   - google-chrome
   - 100-days-to-offload
 cover:
-  src: ./ubuntu-wallpaper-d.png
+  src: postimages/postimage-for-howto-fix-google-chrome-not-starting-after-renaming-the-host-in-ubuntu-2404.png
   type: image
 publisher: rework
 ---

@@ -22,7 +22,7 @@ tags:
 unsplash:
   imageid: MaDXpqp1vM0
 cover:
-  src: ./louis-reed-MaDXpqp1vM0-unsplash.jpg
+  src: postimages/postimage-for-shutdown-raspberry-pi-via-ssh.jpg
   type: image
 publisher: rework
 ---

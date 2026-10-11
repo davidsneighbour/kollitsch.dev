@@ -18,7 +18,7 @@ tags:
   - 100-days-to-offload
 date: 2024-04-12T21:09:32+07:00
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-git-push-default-setup.jpg
   type: image
 publisher: rework
 ---

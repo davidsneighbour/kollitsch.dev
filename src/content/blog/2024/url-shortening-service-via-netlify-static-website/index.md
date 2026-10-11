@@ -15,7 +15,7 @@ tags:
   - networking
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-url-shortening-service-via-netlify-static-website.jpg
   type: image
 publisher: rework
 maintenance:

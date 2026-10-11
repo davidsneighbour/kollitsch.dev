@@ -16,7 +16,7 @@ tags:
   - workspace
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-automatically-load-workspace-when-starting-vscode.jpg
   type: image
 publisher: rework
 ---

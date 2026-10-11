@@ -27,7 +27,7 @@ tags:
 unsplash:
   imageid: yGPxCYPS8H4
 cover:
-  src: ./clint-patterson-yGPxCYPS8H4-unsplash.jpg
+  src: postimages/postimage-for-switching-from-ubuntu-to-windows-with-wsl.jpg
   type: image
 publisher: rework
 ---

@@ -21,7 +21,7 @@ tags:
   - 100-days-to-offload
 
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-bambie-meets-godzilla.jpg
   type: video
   video:
     youtube: 5R-rbzcEM8A

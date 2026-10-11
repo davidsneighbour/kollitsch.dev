@@ -15,7 +15,7 @@ tags:
   - code-editor
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-new-features-in-vscode-v189.jpg
   type: image
 publisher: rework
 ---

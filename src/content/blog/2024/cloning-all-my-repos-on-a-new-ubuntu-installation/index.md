@@ -17,7 +17,7 @@ tags:
   - git
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-cloning-all-my-repos-on-a-new-ubuntu-installation.jpg
   type: image
 publisher: rework
 ---

@@ -12,7 +12,7 @@ resources:
 
 date: 2024-08-25T18:41:03+07:00
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-music-to-program-to-10.jpg
   type: video
   video:
     youtube: H7Dr-qwWEqk

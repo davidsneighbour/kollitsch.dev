@@ -24,7 +24,7 @@ tags:
   - svg
   - 100-days-to-offload
 cover:
-  src: ./simone-dinoia-L9JMv_ACMK0-unsplash.jpg
+  src: postimages/postimage-for-firefox-vs-external-svg.jpg
   type: image
   title: >-
     Photo by [Simone Dinoia](https://unsplash.com/@erraticframe) via

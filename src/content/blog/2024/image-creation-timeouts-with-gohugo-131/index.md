@@ -12,7 +12,7 @@ tags:
   - gohugo
   - 100-days-to-offload
 cover:
-  src: ./hugo-0.131.0.png
+  src: postimages/postimage-for-image-creation-timeouts-with-gohugo-131.png
   type: image
 publisher: rework
 ---

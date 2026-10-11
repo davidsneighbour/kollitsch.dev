@@ -20,7 +20,7 @@ tags:
   - quicky
   - 100-days-to-offload
 cover:
-  src: ./getty-images-Hh_4mKRYAPM-unsplash.jpg
+  src: postimages/postimage-for-how-to-install-flatpak-on-ubuntu-2404.jpg
   type: image
 publisher: rework
 ---

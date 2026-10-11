@@ -18,7 +18,7 @@ tags:
   - 100-days-to-offload
 publisher: rework
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-trent-reznor-archetype-of-a-synthesizer.jpg
   type: video
   video:
     youtube: zAGtlgwFdhM

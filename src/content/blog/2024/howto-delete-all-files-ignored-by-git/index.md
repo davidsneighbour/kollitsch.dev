@@ -16,7 +16,7 @@ tags:
   - gitignore
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-howto-delete-all-files-ignored-by-git.jpg
   type: image
 publisher: rework
 ---

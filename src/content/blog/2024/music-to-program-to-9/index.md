@@ -11,7 +11,7 @@ resources:
   - src: header.jpg
 date: 2024-06-17T20:41:40+07:00
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-music-to-program-to-9.jpg
   type: video
   video:
     youtube: h7UsQIx14CE

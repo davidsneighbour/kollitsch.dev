@@ -15,7 +15,7 @@ tags:
   - git
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-git-stashes-for-adhders.jpg
   type: image
 publisher: rework
 ---

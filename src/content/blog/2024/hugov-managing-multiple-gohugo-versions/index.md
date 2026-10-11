@@ -21,7 +21,7 @@ tags:
 unsplash:
   imageid: M0Ozda1sRYs
 cover:
-  src: ./getty-images-M0Ozda1sRYs-unsplash.jpg
+  src: postimages/postimage-for-hugov-managing-multiple-gohugo-versions.jpg
   type: image
 publisher: rework
 ---

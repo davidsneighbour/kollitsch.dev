@@ -20,7 +20,7 @@ tags:
   - rest-api
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-bash-function-to-remove-github-ghost-notifications.jpg
   type: image
 publisher: rework
 ---

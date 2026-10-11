@@ -22,7 +22,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: ./header.jpg
+  src: postimages/postimage-for-highlighting-blockquotes-in-github-markdown-format.jpg
   type: image
 publisher: rework
 ---

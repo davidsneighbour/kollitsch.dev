@@ -227,15 +227,6 @@ export const blogSchema = z
       .optional(),
     options: optionsSchema.optional(),
     publisher: z.enum(['rework', 'validate']).optional(),
-    resources: z
-      .array(
-        z.object({
-          name: z.string().optional(),
-          src: z.string().optional(),
-          title: z.string().optional(),
-        }),
-      )
-      .optional(),
     sourcecode: z
       .record(
         z.string(),

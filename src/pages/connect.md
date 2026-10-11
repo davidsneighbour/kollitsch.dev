@@ -7,6 +7,7 @@ description: >-
   cold call me ;)
 cover:
   src: contact.jpg
+  title: "Photo by [John Barkiple](https://unsplash.com/@barkiple) via [Unsplash](https://unsplash.com/)"
 menu:
   main:
     name: Connect
@@ -20,11 +21,6 @@ menu:
     params:
       bsicon: envelope-paper-fill
 date: 2022-07-28T14:20:06.000Z
-resources:
-  - title: >-
-      Photo by [John Barkiple](https://unsplash.com/@barkiple) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 theme:
   comments: false
 aliases:

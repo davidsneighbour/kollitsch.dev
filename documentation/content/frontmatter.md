@@ -64,10 +64,6 @@ Markdown headings or filenames.
 | `options` | no | nested object | Per-post rendering options; known keys are listed below. |
 | `options.head.components` | no | `date-diff[]`, legacy `lite-youtube[]` | Extra footer-loaded web components required by old content. New YouTube embeds use the MDX `Youtube` component instead; see [YouTube embeds](../components/content/media/youtube.md). |
 | `publisher` | no | `rework` or `validate` | Internal publishing workflow state. |
-| `resources` | no | object array | External resources with optional `name`, `src`, and `title`. |
-| `resources[].name` | no | `string` | Resource name. |
-| `resources[].src` | no | `string` | Resource URL or source path. |
-| `resources[].title` | no | `string` | Resource title. |
 | `sourcecode` | no | record | Source-code links; see [SourceCode](../components/content/sourcecode/source-code.md). |
 | `sourcecode.*` | no | `string` or object | Either a direct source string or structured source metadata. |
 | `sourcecode.*.class` | no | `string` | Optional presentation class for the source-code link. |
@@ -130,7 +126,7 @@ migration residue unless a future schema change explicitly adopts them.
 | --- | --- |
 | `blog` | `categories`, `images`, `lastmod`, `linkTitle`, `links`, `publishdate`, `unsplash` |
 | `tags` | `draft` |
-| `pages` | `aliases`, `build`, `config`, `cover`, `date`, `description`, `draft`, `lastmod`, `linkTitle`, `linktitle`, `menu`, `options`, `publishDate`, `publisher`, `resources`, `tags`, `theme`, `title`, `type`, `url` |
+| `pages` | `aliases`, `build`, `config`, `cover`, `date`, `description`, `draft`, `lastmod`, `linkTitle`, `linktitle`, `menu`, `options`, `publishDate`, `publisher`, `tags`, `theme`, `title`, `type`, `url` |
 | `documentation` | `created`, `tags`, `title`, `updated` |
 
 ## Maintenance

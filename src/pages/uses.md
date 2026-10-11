@@ -9,11 +9,6 @@ description: >-
 date: 2022-02-13T11:29:07.000Z
 lastmod: 2022-07-28T14:21:43.000Z
 url: /uses
-resources:
-  - title: >-
-      Photo by [Cesar Carlevarino Aragon](https://unsplash.com/@carlevarino) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 menu:
   footer:
     weight: 100
@@ -92,4 +87,4 @@ To be written… ~~Two mediocre all in one stations, one by Acer (never again), 
 
 ## About /uses
 
-[/uses](https://github.com/wesbos/awesome-uses) is a project that collects what tools, hardware and system setup _people like me_&trade; have to enable or easen up their daily work, creation and art. Find more at [uses.tech](https://uses.tech/).
+[/uses](https://github.com/wesbos/awesome-uses) is a project that collects what tools, hardware and system setup *people like me*&trade; have to enable or easen up their daily work, creation and art. Find more at [uses.tech](https://uses.tech/).

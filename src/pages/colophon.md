@@ -16,11 +16,6 @@ menu:
 date: 2022-07-18T10:28:10.000Z
 publishDate: 2022-07-18T10:28:10.000Z
 lastmod: 2022-07-18T12:37:05.000Z
-resources:
-  - title: >-
-      Photo by [Osman Rana](https://unsplash.com/@osmanrana) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 build:
   list: never
 options:

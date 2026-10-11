@@ -7,7 +7,7 @@ tags:
   - kurzschnitte
   - bookmarks
 cover:
-  src: kurzschnitte.jpg
+  src: postimages/postimage-for-kurzschnitte-series.jpg
   title: Short Cuts
   type: image
 ---

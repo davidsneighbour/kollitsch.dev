@@ -5,15 +5,13 @@ description: A shell inside of Electron
 date: 2021-11-16T19:52:00+07:00
 lastmod: 2021-11-16T19:52:00+07:00
 publishdate: 2021-11-16T19:52:00+07:00
-resources:
-  - src: hyper-shell.png
-    title: Hyper shell
 tags:
   - shell
   - electron
   - link
 cover:
   src: postimages/postimage-for-hyper-shell.png
+  title: "Hyper shell"
   type: image
 publisher: rework
 ---

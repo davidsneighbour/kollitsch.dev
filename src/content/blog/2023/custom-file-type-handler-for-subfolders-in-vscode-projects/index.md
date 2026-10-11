@@ -7,11 +7,6 @@ description: >-
   Unlock VSCode's full potential: Customize file handlers for subfolders. A
   quick guide to boost productivity in Visual Studio Code.
 date: 2023-10-27T21:14:21+07:00
-resources:
-  - title: >-
-      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - vscode
   - configuration
@@ -21,6 +16,7 @@ unsplash:
   imageid: oXlXu2qukGE
 cover:
   src: postimages/postimage-for-custom-file-type-handler-for-subfolders-in-vscode-projects.jpg
+  title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

@@ -8,17 +8,13 @@ summary: >-
   Discover npkill, a command-line tool to clean up space wasted by node_modules
   folders. Easy to use, fast, and minimal dependencies.
 date: 2023-06-21T22:10:52+07:00
-resources:
-  - title: Heaps of garbage
-    src: header.jpg
-  - title: npkill in action
-    src: screenshot.png
 tags:
   - npm
   - cleanup
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-cleanup-heaps-of-node-modules.jpg
+  title: "Heaps of garbage"
   type: image
 publisher: rework
 ---

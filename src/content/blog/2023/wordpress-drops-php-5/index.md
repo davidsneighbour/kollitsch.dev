@@ -5,11 +5,6 @@ description: >-
   WordPress announces end of support for PHP 5 in upcoming release. Learn about
   the impact and challenges of updating PHP versions. Read more here.
 date: 2023-07-19T21:01:33+07:00
-resources:
-  - title: >-
-      Photo by [Fikret tozak](https://unsplash.com/@tozakfikret) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - wordpress
   - php
@@ -18,6 +13,7 @@ unsplash:
   imageid: Zk--Ydz2IAs
 cover:
   src: postimages/postimage-for-wordpress-drops-php-5.jpg
+  title: "Photo by [Fikret tozak](https://unsplash.com/@tozakfikret) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

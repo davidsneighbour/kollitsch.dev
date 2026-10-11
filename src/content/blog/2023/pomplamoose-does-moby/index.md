@@ -9,10 +9,6 @@ tags:
   - moby
   - pomplamoose
   - 100-days-to-offload
-resources:
-  - src: header.jpg
-    title: Pomplamoose does Moby
-
 cover:
   src: postimages/postimage-for-pomplamoose-does-moby.jpg
   type: video

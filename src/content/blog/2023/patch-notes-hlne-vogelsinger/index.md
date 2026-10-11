@@ -6,9 +6,6 @@ description: >-
   compositions, the French singer and sound designer explores abandoned places
   and connects with their energies to create immersive and suspended moments.
 date: 2023-05-05T19:38:04+07:00
-resources:
-  - title: 'Patch Notes: Hélène Vogelsinger'
-    src: header.jpg
 tags:
   - helene-vogelsinger
   - synthesizer

@@ -6,8 +6,6 @@ description: >-
   function in my Alpine.js integration, and learn about Alpine.js startup
   nuances.
 date: 2023-11-11T21:16:05+07:00
-resources:
-  - src: header.png
 tags:
   - alpine-js
   - esbuild

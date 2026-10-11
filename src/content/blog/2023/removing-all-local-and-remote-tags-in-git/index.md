@@ -3,17 +3,13 @@ fmContentType: blog
 title: Removing all local and remote tags in Git
 description: How to clean up all local and remote tags in Git repositories in one go.
 date: 2023-07-09T18:44:36+07:00
-resources:
-  - title: >-
-      Photo by [Henry & Co.](https://unsplash.com/@hngstrm) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - git
   - devops
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-removing-all-local-and-remote-tags-in-git.jpg
+  title: "Photo by [Henry & Co.](https://unsplash.com/@hngstrm) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

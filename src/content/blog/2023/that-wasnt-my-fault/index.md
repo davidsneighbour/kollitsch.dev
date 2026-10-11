@@ -3,15 +3,13 @@ fmContentType: blog
 title: That wasn't my fault
 description: 'A short note about the Enterprise E in Star Trek: Picard'
 date: 2023-04-21T21:33:04+07:00
-resources:
-  - title: That wasn't my fault
-    src: header.png
 tags:
   - star-trek
   - picard
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-that-wasnt-my-fault.png
+  title: "That wasn't my fault"
   type: image
 publisher: rework
 ---

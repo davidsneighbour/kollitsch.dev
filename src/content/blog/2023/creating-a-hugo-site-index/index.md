@@ -5,17 +5,13 @@ description: >-
   How to export all the content of your Hugo website to a JSON file, to populate
   a search index.
 date: 2023-05-23T21:53:48+07:00
-resources:
-  - title: >-
-      Photo by [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - search
   - gohugo
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-creating-a-hugo-site-index.jpg
+  title: "Photo by [Maksym Kaharlytskyi](https://unsplash.com/@qwitka) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

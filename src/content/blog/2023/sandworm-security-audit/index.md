@@ -6,9 +6,6 @@ description: >-
   vulnerabilities and license compliance issues. Easy-to-read reports and
   customizable policies.
 date: 2023-03-13T20:37:22+07:00
-resources:
-  - title: Screenshot of sandworm.dev
-    src: header.png
 tags:
   - security
   - linting
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-sandworm-security-audit.png
+  title: "Screenshot of sandworm.dev"
   type: image
 publisher: rework
 ---

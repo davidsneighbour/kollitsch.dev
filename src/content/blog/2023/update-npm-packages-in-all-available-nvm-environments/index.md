@@ -6,11 +6,6 @@ description: >-
   using nvm and a bash script. Schedule it with cron for hassle-free
   maintenance.
 date: 2023-10-12T18:53:01+07:00
-resources:
-  - title: >-
-      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - node
   - npm
@@ -21,6 +16,7 @@ unsplash:
   imageid: oZMUrWFHOB4
 cover:
   src: postimages/postimage-for-update-npm-packages-in-all-available-nvm-environments.jpg
+  title: "Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

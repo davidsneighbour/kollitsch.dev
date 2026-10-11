@@ -5,11 +5,6 @@ description: >-
   I decided to rewrite my go-to-script to create a screenshot as header images
   of posts about a website a little bit.
 date: 2023-03-08T21:57:10+07:00
-resources:
-  - title: >-
-      Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - javascript
   - module
@@ -17,6 +12,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-refactoring-my-screenshot-script.jpg
+  title: "Photo by [Shubh karman Singh](https://unsplash.com/@theshutterclap) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

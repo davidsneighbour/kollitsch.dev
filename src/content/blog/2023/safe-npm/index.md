@@ -6,9 +6,6 @@ description: >-
   protects developers from malware, typo squats, install scripts, protestware,
   telemetry, and more.
 date: 2023-03-28T21:57:51+07:00
-resources:
-  - title: Introducing safe npm
-    src: header.jpg
 tags:
   - node
   - devops
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-safe-npm.jpg
+  title: "Introducing safe npm"
   type: image
 publisher: rework
 ---

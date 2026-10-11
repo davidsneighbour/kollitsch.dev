@@ -6,11 +6,6 @@ description: >-
   for verbosity. Theme developers though can only access WARN and ERROR
   loglines.
 date: 2023-06-21T22:54:26+07:00
-resources:
-  - title: >-
-      Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge)
-      via [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - gohugo
   - bash
@@ -20,6 +15,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-changes-to-hugos-debugging-abilities-on-cli.jpg
+  title: "Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

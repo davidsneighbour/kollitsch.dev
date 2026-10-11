@@ -5,9 +5,6 @@ description: >-
   How to install and link Firefox Developer Edition on Ubuntu, including
   creating a desktop shortcut.
 date: 2023-03-10T21:44:58+07:00
-resources:
-  - title: Firefox Developer Edition
-    src: header.jpg
 tags:
   - firefox
   - browser
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-install-and-link-firefox-developer-edition-on-ubuntu.jpg
+  title: "Firefox Developer Edition"
   type: image
 publisher: rework
 ---

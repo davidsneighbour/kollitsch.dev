@@ -6,11 +6,6 @@ description: >-
   switch between leaf and branch bundles for optimal SEO and site structure.
 summary: ''
 date: 2023-06-19T19:45:19+07:00
-resources:
-  - title: >-
-      Photo by [Hitoshi Suzuki](https://unsplash.com/@hitoshi_suzuki) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - gohugo
   - bash
@@ -20,6 +15,7 @@ unsplash:
   imageid: 1COcTd3pRCg
 cover:
   src: postimages/postimage-for-switch-hugo-content-between-bundle-types.jpg
+  title: "Photo by [Hitoshi Suzuki](https://unsplash.com/@hitoshi_suzuki) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

@@ -5,12 +5,6 @@ description: >-
   Learn how to automate Hugo server startup in VSCode using tasks.json, saving
   time and effort every time you open your project.
 date: 2023-12-01T20:35:07+07:00
-resources:
-  - title: >-
-      Photo by [Possessed
-      Photography](https://unsplash.com/@possessedphotography) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - vscode
   - automation
@@ -19,6 +13,7 @@ unsplash:
   imageid: robot-playing-piano-U3sOwViXhkY
 cover:
   src: postimages/postimage-for-run-hugo-server-when-vscode-opens-a-workspace.jpg
+  title: "Photo by [Possessed Photography](https://unsplash.com/@possessedphotography) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

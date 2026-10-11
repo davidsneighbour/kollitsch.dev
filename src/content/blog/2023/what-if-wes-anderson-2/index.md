@@ -13,10 +13,6 @@ tags:
   - video
   - 100-days-to-offload
   - horror-movie
-resources:
-  - src: header.jpg
-    title: What if Wes Anderson directed a horror movie?
-
 cover:
   src: postimages/postimage-for-what-if-wes-anderson-2.jpg
   type: video

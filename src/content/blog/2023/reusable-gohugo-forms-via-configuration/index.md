@@ -6,9 +6,6 @@ description: >-
   A write-up of the process of creating reusable forms in GoHugo via
   configuration files.
 date: 2023-10-22T17:29:40+07:00
-resources:
-  - title: Carefully implemented forms
-    src: header.jpg
 tags:
   - gohugo
   - shortcode
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-reusable-gohugo-forms-via-configuration.jpg
+  title: "Carefully implemented forms"
   type: image
 publisher: rework
 maintenance:

@@ -6,11 +6,6 @@ description: >-
   messages about unconfigured dependencies? Don't worry; it happens to the best
   of us.
 date: 2023-03-06T19:07:56+07:00
-resources:
-  - title: >-
-      Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - troubleshooting
   - shell
@@ -18,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-fixing-package-dependency-issues-on-ubuntu-with-apt.jpg
+  title: "Photo by [Gabriel Heinzer](https://unsplash.com/@6heinz3r) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

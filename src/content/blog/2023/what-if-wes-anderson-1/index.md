@@ -13,10 +13,6 @@ tags:
   - video
   - 100-days-to-offload
   - artificial-intelligence
-resources:
-  - src: header.jpg
-    title: What if Wes Anderson directed a Star Wars movie?
-
 cover:
   src: postimages/postimage-for-what-if-wes-anderson-1.jpg
   type: video

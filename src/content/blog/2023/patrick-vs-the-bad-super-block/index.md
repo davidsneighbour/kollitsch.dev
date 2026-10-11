@@ -5,11 +5,6 @@ description: >-
   Join me in tackling a superblock error on a 20TB LUKS-encrypted drive in
   Ubuntu, featuring step-by-step recovery insights and practical tips.
 date: 2023-11-26T17:05:13+07:00
-resources:
-  - title: >-
-      Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - patrick-versus
   - hardware
@@ -19,6 +14,7 @@ unsplash:
   imageid: 1iVKwElWrPA
 cover:
   src: postimages/postimage-for-patrick-vs-the-bad-super-block.jpg
+  title: "Photo by [Patrick Lindenberg](https://unsplash.com/@heapdump) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

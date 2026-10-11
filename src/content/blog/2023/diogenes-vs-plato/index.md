@@ -6,11 +6,6 @@ description: >-
   plucked a chicken and brought it into Plato's Academy, saying, "Behold! I've
   brought you a man".
 date: 2023-11-20T21:49:15+07:00
-resources:
-  - title: >-
-      Photo by [Mystery Cat](https://unsplash.com/@themysterycat) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - philosophy
   - quotes
@@ -20,6 +15,7 @@ unsplash:
   imageid: OlAoxfMngZ4
 cover:
   src: postimages/postimage-for-diogenes-vs-plato.jpg
+  title: "Photo by [Mystery Cat](https://unsplash.com/@themysterycat) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

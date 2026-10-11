@@ -6,9 +6,6 @@ description: >-
   vulnerabilities in your code. It connects and checks for all issues collected
   on the OSV database
 date: 2023-01-18T00:16:01+07:00
-resources:
-  - src: header.jpg
-    title: A hacker hacking away doing mischievous stuff.
 tags:
   - security
   - linting
@@ -16,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-googles-new-osv-scanner.jpg
+  title: "A hacker hacking away doing mischievous stuff."
   type: image
 publisher: rework
 maintenance:

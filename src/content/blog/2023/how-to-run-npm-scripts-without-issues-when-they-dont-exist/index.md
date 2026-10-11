@@ -6,11 +6,6 @@ description: >-
   environments using the --if-present flag. Avoid errors and streamline CI
   processes.
 date: 2023-11-19T18:15:06+07:00
-resources:
-  - title: >-
-      Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - automation
   - npm
@@ -21,6 +16,7 @@ unsplash:
   imageid: oZMUrWFHOB4
 cover:
   src: postimages/postimage-for-how-to-run-npm-scripts-without-issues-when-they-dont-exist.jpg
+  title: "Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

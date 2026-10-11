@@ -6,15 +6,13 @@ description: >-
   paths work. Including paths, animations, and, of course, tests if we
   understood the lesson.
 date: 2023-07-10T21:17:23+07:00
-resources:
-  - title: Paths…
-    src: header.jpg
 tags:
   - svg
   - course
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-understanding-svg-paths.jpg
+  title: "Paths…"
 publisher: rework
 ---
 

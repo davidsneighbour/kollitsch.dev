@@ -5,7 +5,7 @@ date: "2026-07-27T13:00:00Z"
 description: "Use git check-ignore to find the exact ignore file, line number, and pattern when Git unexpectedly ignores a file or directory."
 summary: "This post shows how git check-ignore reveals which .gitignore, nested exclude, or global ignore rule matches a path, including tracked-file checks."
 cover:
-  src: postimages/postimage-for-find-out-which-gitignore-rule-is-ignoring-a-file.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   type: image
   title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) on [Unsplash](https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA)
 tags:

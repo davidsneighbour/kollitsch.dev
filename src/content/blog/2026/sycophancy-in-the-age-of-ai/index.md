@@ -9,7 +9,7 @@ tags:
   - psychology
   - sociology
 cover:
-  src: postimages/postimage-for-sycophancy-in-the-age-of-ai.jpg
+  src: postimages/postimage-for-ai-in-contributions.jpg
   type: image
   title: Just an AI.
 date: 2026-05-18T06:18:37.348Z

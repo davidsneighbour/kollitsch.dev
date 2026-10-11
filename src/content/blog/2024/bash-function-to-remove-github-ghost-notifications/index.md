@@ -10,7 +10,7 @@ tags:
   - rest-api
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-bash-function-to-remove-github-ghost-notifications.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

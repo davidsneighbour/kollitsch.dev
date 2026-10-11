@@ -11,7 +11,7 @@ tags:
 - workflows
 - dotfiles
 cover:
-  src: postimages/postimage-for-pinning-github-actions-to-commit-hashes.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   type: image
   title: Photo by [Roman Synkevych](https://unsplash.com/@synkevych) on [Unsplash](https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA)
 date: 2026-05-26T00:52:58.383Z

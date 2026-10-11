@@ -14,7 +14,7 @@ tags:
   - debugging
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-changes-to-hugos-debugging-abilities-on-cli.jpg
+  src: postimages/postimage-for-piping-output-to-files-in-bash.jpg
   title: "Photo by [Vincent van Zalinge](https://unsplash.com/@vincentvanzalinge) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

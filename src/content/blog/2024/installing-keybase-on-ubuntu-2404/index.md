@@ -13,7 +13,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-installing-keybase-on-ubuntu-2404.png
+  src: postimages/postimage-for-howto-fix-google-chrome-not-starting-after-renaming-the-host-in-ubuntu-2404.png
   title: "Ubuntu 24.04 - official wallpaper"
   type: image
 publisher: rework

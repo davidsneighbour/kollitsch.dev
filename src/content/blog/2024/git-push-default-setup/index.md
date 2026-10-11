@@ -13,7 +13,7 @@ tags:
   - 100-days-to-offload
 date: 2024-04-12T21:09:32+07:00
 cover:
-  src: postimages/postimage-for-git-push-default-setup.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

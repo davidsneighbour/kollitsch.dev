@@ -10,7 +10,7 @@ tags:
   - code-editor
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-new-features-in-vscode-v189.jpg
+  src: postimages/postimage-for-automatically-load-workspace-when-starting-vscode.jpg
   title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

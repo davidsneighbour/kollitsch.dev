@@ -12,7 +12,7 @@ tags:
 unsplash:
   imageid: wX2L8L-fGeA
 cover:
-  src: postimages/postimage-for-git-status-hook.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

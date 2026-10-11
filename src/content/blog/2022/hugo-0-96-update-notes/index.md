@@ -12,7 +12,7 @@ tags:
   - golang
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-hugo-0-96-update-notes.png
+  src: postimages/postimage-for-hugo-0-95-update-notes.png
   title: "GoHugo"
   type: image
 publisher: rework

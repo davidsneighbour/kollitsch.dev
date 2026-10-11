@@ -12,7 +12,7 @@ tags:
   - git
   - 100-days-to-offload
 cover:
-  src: postimages/postimage-for-cloning-all-my-repos-on-a-new-ubuntu-installation.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

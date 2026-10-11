@@ -15,7 +15,7 @@ tags:
 unsplash:
   imageid: oZMUrWFHOB4
 cover:
-  src: postimages/postimage-for-update-npm-packages-in-all-available-nvm-environments.jpg
+  src: postimages/postimage-for-using-npx-link-for-local-package-development.jpg
   title: "Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework

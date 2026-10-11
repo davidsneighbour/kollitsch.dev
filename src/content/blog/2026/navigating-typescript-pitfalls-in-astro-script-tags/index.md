@@ -7,7 +7,7 @@ tags:
   - typescript
   - frontend
 cover:
-  src: postimages/postimage-for-navigating-typescript-pitfalls-in-astro-script-tags.jpg
+  src: postimages/postimage-for-reloading-astro-dev-server-cache-on-content-updates.jpg
   type: image
   title: That one lonely Astro-naut
 date: 2025-11-05

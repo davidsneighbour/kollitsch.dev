@@ -20,9 +20,9 @@
     },
     "markdownlint-rule-title-case-style": {
       "markdownlint": {
-        "markdown-it": "14.2.0"
+        "markdown-it": "14.3.2"
       }
     },
-    "smol-toml": "1.8.0"
+    "smol-toml": "1.9.1"
   }
 }

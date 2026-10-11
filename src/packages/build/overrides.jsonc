@@ -2,6 +2,19 @@
   // Dependabot security fixes for transitive dependencies. Remove an entry once
   // the parent package ships a patched version on its own.
   "overrides": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "devalue": "5.9.4",
+    "fast-uri": "3.1.8",
+    "image-size": "2.0.4",
+    "katex": "0.19.0",
+    "markdown-it": "14.3.2",
+    "postcss-selector-parser": "7.1.6",
+    "proxy-addr": "2.0.8",
+    "satori": {
+      "fflate": "0.7.5"
+    },
+    "sharp": "0.35.5",
+    "source-map-js": "1.2.2",
     "get-uri": {
       "basic-ftp": "^6.2.1"
     },

@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "package": "proxy-addr",
+      "ecosystem": "npm",
+      "severity": "critical",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "2.0.8",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-pqg4-j6r4-53mv",
+      "package": "shell-quote",
+      "ecosystem": "npm",
+      "severity": "critical",
+      "status": "fixed",
+      "decided_date": "2026-10-11",
+      "fixed_version": "removed",
+      "reason": "removed unused @spotlightjs/astro"
+    },
+    {
+      "id": "GHSA-6qxp-vccf-f47h",
+      "package": "@modelcontextprotocol/sdk",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "1.32.1",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-j22f-vq7h-c4qm",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-mcm9-63f2-9j32",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-r9w8-h9r3-54w4",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-x5rw-q4pp-hg5g",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-wf3x-273g-mvxv",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "low",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-4q55-j62x-fr9h",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-hx4r-w6wj-j8fg",
+      "package": "devalue",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "5.9.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-5p2g-fcmc-qvqq",
+      "package": "image-size",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "2.0.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-w3rx-r6r6-pgpr",
+      "package": "image-size",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "2.0.4",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-wq5f-xc86-pv6w",
+      "package": "sharp",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "0.35.5",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-68fv-2mgg-jv7q",
+      "package": "source-map-js",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "1.2.2",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-238p-pmpm-9mq7",
+      "package": "katex",
+      "ecosystem": "npm",
+      "severity": "low",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "0.19.0",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-8988-4f7v-96qf",
+      "package": "@opentelemetry/core",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "fixed",
+      "decided_date": "2026-10-11",
+      "fixed_version": "removed",
+      "reason": "removed unused @spotlightjs/astro"
+    },
+    {
+      "id": "GHSA-qqmp-wf37-98f9",
+      "package": "@opentelemetry/instrumentation-*",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "fixed",
+      "decided_date": "2026-10-11",
+      "fixed_version": "removed",
+      "reason": "removed unused @spotlightjs/astro"
+    },
+    {
+      "id": "GHSA-hrr3-gc8f-f4qj",
+      "package": "fast-uri",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "3.1.8",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-px8p-9vwx-vf98",
+      "package": "fflate",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "0.7.5",
+      "reason": "override (satori)"
+    },
+    {
+      "id": "GHSA-253c-mchw-3w2r",
+      "package": "markdown-it",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "14.3.2",
+      "reason": "override and direct dependency"
+    },
+    {
+      "id": "GHSA-rj75-hqrm-r3gf",
+      "package": "postcss-selector-parser",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "7.1.6",
+      "reason": "override (forces 6.x consumers to 7.x)"
+    },
+    {
+      "id": "GHSA-r4xh-jqrq-34v2",
+      "package": "smol-toml",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "workaround",
+      "decided_date": "2026-10-11",
+      "fixed_version": "1.9.1",
+      "reason": "override"
+    },
+    {
+      "id": "GHSA-vfj7-8cjw-p6xm",
+      "package": "braces",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "open",
+      "decided_date": "2026-10-11",
+      "github_issue": 2113,
+      "reason": "No patched version; open with prio:high per project rule"
+    },
+    {
+      "id": "GHSA-ch52-4w7c-c8xp",
+      "package": "http-cache-semantics",
+      "ecosystem": "npm",
+      "severity": "high",
+      "status": "open",
+      "decided_date": "2026-10-11",
+      "github_issue": 2114,
+      "reason": "No patched version; open with prio:high per project rule"
+    },
+    {
+      "id": "GHSA-hp3w-g68c-fv3c",
+      "package": "sprintf-js",
+      "ecosystem": "npm",
+      "severity": "moderate",
+      "status": "open",
+      "decided_date": "2026-10-11",
+      "github_issue": 2115,
+      "reason": "No patched version; open with prio:high per project rule"
+    },
+    {
+      "id": "GHSA-848j-6mx2-7j84",
+      "package": "elliptic",
+      "ecosystem": "npm",
+      "severity": "low",
+      "status": "open",
+      "decided_date": "2026-10-11",
+      "github_issue": 1752,
+      "reason": "No patched version; open with prio:high per project rule"
+    }
+  ]
+}

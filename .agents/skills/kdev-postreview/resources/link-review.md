@@ -65,7 +65,7 @@ Markdown files using `<broken-link>` must opt into the web component in frontmat
 options:
   head:
     components:
-      * broken-link
+      - broken-link
 ```
 
 Preserve existing `options`, `head`, and `components` configuration. Add `broken-link` only if it is not already present.
@@ -440,7 +440,7 @@ Ensure the file's frontmatter includes:
 options:
   head:
     components:
-      * broken-link
+      - broken-link
 ```
 
 Merge this into existing frontmatter without overwriting other `options.head.components` entries.

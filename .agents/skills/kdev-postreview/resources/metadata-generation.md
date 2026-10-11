@@ -1,6 +1,6 @@
 # Metadata generation
 
-Generate metadata only after reading the complete post.
+Generate metadata only after reading the complete post and only in an authorised editing operation. Tags use lowercase kebab-case IDs and YAML block lists under the binding tag instructions; prefer canonical IDs over display labels. Description limits come from `../checks/seo.md`.
 
 ## Tags
 
@@ -14,14 +14,14 @@ Produce a restrained set of established topical terms that accurately classify t
 2. Identify named entities that materially affect the post.
 3. Inspect the repository's existing tags.
 4. Map candidate terms to established taxonomy spelling.
-5. remove:
+5. Remove:
 
    * incidental mentions
    * synonyms of selected tags
    * format-based terms
    * terms unsupported by the post
-6. retain valid existing tags.
-7. explain removed or materially renamed tags.
+6. Retain valid existing tags.
+7. Explain removed or materially renamed tags.
 
 ### Output
 
@@ -42,7 +42,7 @@ Write a concise standalone explanation of the post's subject and distinguishing 
 3. Write one compact description in the post's language.
 4. Remove repetition of the title.
 5. Check every factual statement against the post.
-6. enforce repository length and style rules.
+6. Enforce repository length and style rules.
 
 ### Quality test
 
@@ -62,11 +62,13 @@ Condense the post's main narrative, argument, event, or observation.
 4. Exclude minor examples unless essential.
 5. Write in the post's language.
 6. Ensure it is not merely a rewritten description.
-7. enforce repository length and style rules.
+7. Enforce repository length and style rules.
 
 ### Quality test
 
 A reader should understand the substance of the post without the summary pretending to replace the full article.
+
+An omitted or empty summary falls back to the description in `blogSchema`. Do not add a summary merely to satisfy a review checklist; generate a distinct synopsis only when useful and requested.
 
 ## Description and summary distinction
 

@@ -1,6 +1,6 @@
 # Migrate post cover image
 
-Migrate the cover image of one or more blog posts to the `src/assets/images/postimages/` convention.
+Migrate image covers to the `src/assets/images/postimages/` convention when requested or required by `.agents/instructions/content-post-images.instructions.md` after editing an existing post. Review mode reports defects without moving files. Video covers and posts without a cover do not require image migration.
 
 ## Target convention
 
@@ -41,10 +41,7 @@ Do not proceed with a missing, external, or ambiguous source without reporting i
 Search for the current image filename across all posts:
 
 ```bash
-grep -r "{current-filename}" src/content/blog/ \
-  --include="*.md" \
-  --include="*.mdx" \
-  -l
+rg -l -F "{current-filename}" src/content/blog/ -g "*.md" -g "*.mdx"
 ```
 
 Interpret the result:
@@ -137,15 +134,7 @@ Use `git mv` for tracked, unshared files when appropriate.
 Search the repository for the original filename:
 
 ```bash
-grep -r "{old-filename}" src/ \
-  --include="*.md" \
-  --include="*.mdx" \
-  --include="*.ts" \
-  --include="*.tsx" \
-  --include="*.js" \
-  --include="*.mjs" \
-  --include="*.astro" \
-  -l
+rg -l -F "{old-filename}" src/
 ```
 
 Also inspect other relevant file types used by the repository.

@@ -1,28 +1,11 @@
-# Post-operation extensions
+# Extension entry points
 
-Register additional post-level operations here.
+Selectable verification lives in [the check registry](../checks/index.md). Add checks with [the shared contract](check-contract.md) and [the template](check-template.md); register their IDs and scopes there. This file indexes mutation procedures only, so there is one selection registry.
 
-| Operation | Resource | Status | Trigger |
-| --- | --- | --- | --- |
-| Frontmatter review | `frontmatter.md` | active | review or validate post metadata |
-| Metadata generation | `metadata-generation.md` | active | generate tags, description, or summary |
-| Cover-image migration | `cover-image-migration.md` | active | migrate or standardise a post cover |
-| Broken link review | `link-review.md` | active | review or reconcile broken/unavailable external links |
+| Operation | Procedure | Boundary |
+| --- | --- | --- |
+| Generate tags, description, or summary | [Metadata](metadata-generation.md) | Requested editing only; preserve optional summary fallback |
+| Migrate cover image | [Cover migration](cover-image-migration.md) | Explicit migration or mandatory consequence of editing a non-conforming image cover |
+| Reconcile link failures | [Link review](link-review.md) | Item-level user decisions; diagnosis alone never authorises changes |
 
-## Extension template
-
-### Operation name
-
-* Resource:
-* Status:
-* Purpose:
-* Triggers:
-* Required inputs:
-* Files that may be changed:
-* Files that must not be changed:
-* Inspection procedure:
-* Ambiguous decisions:
-* Execution procedure:
-* Validation:
-* Cleanup:
-* Result format:
+Procedures cannot weaken repository instructions or create new publication authority.

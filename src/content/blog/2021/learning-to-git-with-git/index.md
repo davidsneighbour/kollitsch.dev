@@ -8,7 +8,7 @@ tags:
   - learning
   - quicklink
 cover:
-  src: yancy-min-842ofHC6MaI-unsplash.jpg
+  src: postimages/postimage-for-learning-to-git-with-git.jpg
   type: image
   title: >-
     Photo by [Yancy Min](https://unsplash.com/@yancymin) via

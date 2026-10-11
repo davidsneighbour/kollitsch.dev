@@ -8,7 +8,7 @@ tags:
 date: 2021-11-02T22:49:49+07:00
 description: 'How to convert frontmatter in GoHugo between TOML, YAML and JSON.'
 cover:
-  src: ferenc-almasi-HfFoo4d061A-unsplash.jpg
+  src: postimages/postimage-for-converting-frontmatter-in-gohugo.jpg
   type: image
   title: >-
     Photo by [Ferenc Almasi](https://unsplash.com/@flowforfrank) via

@@ -11,7 +11,7 @@ tags:
   - date-format
   - gohugo
 cover:
-  src: ./mick-haupt-ePHz9WOME0c-unsplash.jpg
+  src: postimages/postimage-for-print-ordinal-date-suffixes-in-gohugo.jpg
   type: image
   title: >-
     Photo by [Mick Haupt](https://unsplash.com/@rocinante_11) via

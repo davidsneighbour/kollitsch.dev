@@ -12,7 +12,7 @@ tags:
   - sri
   - csp
 cover:
-  src: christopher-gower-m_HRfLhgABo-unsplash.jpg
+  src: postimages/postimage-for-csp-vs-syntax-highlighting-in-gohugo.jpg
   type: image
   title: >-
     Photo by [Christopher Gower](https://unsplash.com/@cgower) via

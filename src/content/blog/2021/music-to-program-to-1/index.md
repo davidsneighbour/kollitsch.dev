@@ -7,7 +7,7 @@ linkTitle: Music to program to I
 tags:
   - programming-music
 cover:
-  src: blog/2021/music-to-program-to-1.jpg
+  src: postimages/postimage-for-music-to-program-to-1.jpg
   type: video
   video:
     youtube: iFi0n_odlh8

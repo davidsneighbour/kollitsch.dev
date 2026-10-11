@@ -7,7 +7,7 @@ tags:
   - davidsneighbour
   - me-now
 cover:
-  src: ave-calvar-HcUDHJfd5GY-unsplash.jpg
+  src: postimages/postimage-for-another-new-beginning.jpg
   type: image
   unsplash: HcUDHJfd5GY
   title: >-

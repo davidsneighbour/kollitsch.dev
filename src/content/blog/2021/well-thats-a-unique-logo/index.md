@@ -10,7 +10,7 @@ tags:
   - me-now
   - logos
 cover:
-  src: blog/2021/well-thats-a-unique-logo.png
+  src: postimages/postimage-for-well-thats-a-unique-logo.png
   type: image
   title: The greatest logo of them all
 publisher: rework

@@ -10,7 +10,7 @@ tags:
   - earth
   - logging
 cover:
-  src: blog/2021/earths-black-box.jpg
+  src: postimages/postimage-for-earths-black-box.jpg
   type: image
   title: 'Earth''s Black Box by [earthsblackbox.com](https://www.earthsblackbox.com/)'
 publisher: rework

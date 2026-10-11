@@ -9,7 +9,7 @@ tags:
   - projects
   - planning
 cover:
-  src: blog/2021/game-off-2021.png
+  src: postimages/postimage-for-game-off-2021.png
   type: image
   title: Game Off 2021
 ---

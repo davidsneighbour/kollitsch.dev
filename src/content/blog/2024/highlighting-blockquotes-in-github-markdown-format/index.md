@@ -62,6 +62,6 @@ Here's how you can use these markers in your Markdown documents:
 
 These blocks automatically render with an icon and background colour corresponding to their type, enhancing the visual hierarchy of the document and making critical information immediately apparent. The following is the current rendering on GitHub.com:
 
-![GitHub.com rendering of highlighted alert blockquotes showing CAUTION, WARNING, informational note, TIP, and IMPORTANT blocks with icons and background colours](header.jpg)
+![GitHub.com rendering of highlighted alert blockquotes showing CAUTION, WARNING, informational note, TIP, and IMPORTANT blocks with icons and background colours](@assets/images/postimages/postimage-for-highlighting-blockquotes-in-github-markdown-format.jpg)
 
 For more detailed information on this feature visit the [official discussion on GitHub](https://github.com/orgs/community/discussions/16925).

@@ -429,6 +429,33 @@
       "command": "git submodule update --recursive --remote"
     }
   },
+  "overrides": {
+    "get-uri": {
+      "basic-ftp": "^6.2.1"
+    },
+    "miniflare": {
+      "undici": "7.29.1"
+    },
+    "release-it": {
+      "undici": "^7.29.1"
+    },
+    "markdownlint-cli2": {
+      "js-yaml": "5.4.2"
+    },
+    "markdownlint-rule-title-case-style": {
+      "markdownlint": {
+        "markdown-it": "14.2.0"
+      }
+    },
+    "smol-toml": "1.8.0",
+    "gray-matter": {
+      "js-yaml": "3.15.2"
+    },
+    "svgo": "4.1.0",
+    "brace-expansion": "5.0.12",
+    "qs": "6.16.0",
+    "hono": "4.13.7"
+  },
   "devDependencies": {
     "@davidsneighbour/nanny": "0.5.0",
     "@dnbhq/tsconfig": "0.1.6",
@@ -556,33 +583,6 @@
       "./src/config/cspell/cspell.jsonc"
     ],
     "version": "0.2"
-  },
-  "overrides": {
-    "markdownlint-cli2": {
-      "js-yaml": "5.4.2"
-    },
-    "markdownlint-rule-title-case-style": {
-      "markdownlint": {
-        "markdown-it": "14.2.0"
-      }
-    },
-    "smol-toml": "1.8.0",
-    "gray-matter": {
-      "js-yaml": "3.15.2"
-    },
-    "svgo": "4.1.0",
-    "brace-expansion": "5.0.12",
-    "qs": "6.16.0",
-    "hono": "4.13.7",
-    "get-uri": {
-      "basic-ftp": "^6.2.1"
-    },
-    "miniflare": {
-      "undici": "7.29.1"
-    },
-    "release-it": {
-      "undici": "^7.29.1"
-    }
   },
   "stylelint": {
     "configFile": "./src/config/stylelint/index.js"

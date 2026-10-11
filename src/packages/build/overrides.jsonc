@@ -1,0 +1,15 @@
+{
+  // Dependabot security fixes for transitive dependencies. Remove an entry once
+  // the parent package ships a patched version on its own.
+  "overrides": {
+    "get-uri": {
+      "basic-ftp": "^6.2.1"
+    },
+    "miniflare": {
+      "undici": "7.29.1"
+    },
+    "release-it": {
+      "undici": "^7.29.1"
+    }
+  }
+}

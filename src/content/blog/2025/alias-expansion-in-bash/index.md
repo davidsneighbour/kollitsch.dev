@@ -18,7 +18,7 @@ tags:
   - bash
   - 100-days-to-offload
 cover:
-  src: ./gabriel-heinzer-xbEVM6oJ1Fs-unsplash.jpg
+  src: postimages/postimage-for-alias-expansion-in-bash.jpg
   type: image
 publisher: rework
 ---

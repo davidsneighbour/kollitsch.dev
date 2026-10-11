@@ -5,7 +5,7 @@ description: A look at the typefaces that define the visual identity of KOLLITSC
 date: 2025-10-08T23:59:08.582Z
 tags: [fonts,typography,design,kdev]
 cover:
-  src: type-specimen.png
+  src: postimages/postimage-for-the-fonts-that-shape-kollitsch-dev.png
   title: Type specimen of Changa One and Exo 2
   alt: A type specimen showcasing the fonts Changa One and Exo 2 used on
 ---

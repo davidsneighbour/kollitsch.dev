@@ -20,7 +20,7 @@ tags:
   - gohugo
   - 100-days-to-offload
 cover:
-  src: ./frontmatter.png
+  src: postimages/postimage-for-fixing-previews-in-vscode-front-matter.png
   type: image
 publisher: rework
 ---

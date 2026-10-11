@@ -20,7 +20,7 @@ tags:
   - well-known
   - 100-days-to-offload
 cover:
-  src: ./imkara-visual-3blY8iC2o5M-unsplash.jpg
+  src: postimages/postimage-for-well-known-avatar-url.jpg
   type: image
 publisher: rework
 ---

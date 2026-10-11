@@ -7,7 +7,7 @@ description: >-
 date: 2025-10-11T11:37:50.444Z
 tags: [npm, how-to, development, 100-days-to-offload]
 cover:
-  src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  src: postimages/postimage-for-how-to-pin-npm-package-versions-effectively.jpg
   type: image
   title: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
   alt: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) on Unsplash

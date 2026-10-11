@@ -12,7 +12,7 @@ tags:
   - development
   - 100-days-to-offload
 cover:
-  src: paul-esch-laurent-oZMUrWFHOB4-unsplash.jpg
+  src: postimages/postimage-for-using-npx-link-for-local-package-development.jpg
   type: image
   title: Photo by [Paul Esch-Laurent](https://unsplash.com/@pinjasaur) via [Unsplash](https://unsplash.com/)
 publisher: rework

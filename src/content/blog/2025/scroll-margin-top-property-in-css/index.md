@@ -18,7 +18,7 @@ tags:
   - hacks
   - 100-days-to-offload
 cover:
-  src: ./getty-images-ltpb_WinC3Y-unsplash.jpg
+  src: postimages/postimage-for-scroll-margin-top-property-in-css.jpg
   type: image
 publisher: rework
 ---

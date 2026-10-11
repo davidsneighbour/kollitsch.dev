@@ -20,7 +20,7 @@ tags:
   - forensics
   - 100-days-to-offload
 cover:
-  src: ./docker-forensics.png
+  src: postimages/postimage-for-the-case-of-the-unconnectable-docker-daemon.png
   type: image
 publisher: rework
 ---

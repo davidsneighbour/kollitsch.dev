@@ -9,7 +9,7 @@ tags:
   - automation
 date: 2025-09-14T12:44:11.906Z
 cover:
-  src: getty-images-P6AC5E9pxlg-unsplash.jpg
+  src: postimages/postimage-for-reloading-astro-dev-server-cache-on-content-updates.jpg
   type: image
   title: That one lonely Astro-naut
 ---

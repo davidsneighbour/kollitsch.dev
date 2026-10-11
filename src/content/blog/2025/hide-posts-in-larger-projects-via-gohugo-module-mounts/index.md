@@ -20,7 +20,7 @@ tags:
   - website-management
   - 100-days-to-offload
 cover:
-  src: ./valeria-nikitina-li709Gx8v_w-unsplash.jpg
+  src: postimages/postimage-for-hide-posts-in-larger-projects-via-gohugo-module-mounts.jpg
   type: image
 publisher: rework
 ---

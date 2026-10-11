@@ -13,7 +13,7 @@ tags:
   - kollitsch-dev
   - 100-days-to-offload
 cover:
-  src: ./alexander-mils-ULL-cyKjpd4-unsplash.jpg
+  src: postimages/postimage-for-finishit-2025.jpg
   type: image
 publisher: rework
 ---

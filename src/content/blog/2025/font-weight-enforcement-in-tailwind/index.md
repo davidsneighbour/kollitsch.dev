@@ -10,7 +10,7 @@ tags:
   - font-weight
   - 100-days-to-offload
 cover:
-  src: ./the-quick-brown-fox.png
+  src: postimages/postimage-for-font-weight-enforcement-in-tailwind.png
   type: image
 ---
 

@@ -20,7 +20,7 @@ tags:
   - how-to
   - 100-days-to-offload
 cover:
-  src: ./roman-synkevych-wX2L8L-fGeA-unsplash.jpg
+  src: postimages/postimage-for-disable-comments-on-gists.jpg
   type: image
 publisher: rework
 ---

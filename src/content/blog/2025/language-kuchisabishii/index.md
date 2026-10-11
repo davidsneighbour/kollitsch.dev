@@ -8,7 +8,7 @@ tags:
   - culture
   - japan
 cover:
-  src: "language/kuchisabishii.jpg"
+  src: "postimages/postimage-for-language-kuchisabishii.jpg"
   title: ""
 ---
 

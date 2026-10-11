@@ -14,7 +14,7 @@ tags:
   - gohugo
   - 100-days-to-offload
 cover:
-  src: ./markus-winkler-qPjV8XaXPTQ-unsplash.jpg
+  src: postimages/postimage-for-disable-automatic-updates-in-snapd.jpg
   type: image
 publisher: rework
 maintenance:

@@ -8,7 +8,7 @@ tags:
   - typescript
   - today-i-learned
 cover:
-  src: getty-images-o4exhQKCbRE-unsplash.jpg
+  src: postimages/postimage-for-handling-unknown-object-properties-in-typescript.jpg
   title: Sometimes it's complicated.
 ---
 

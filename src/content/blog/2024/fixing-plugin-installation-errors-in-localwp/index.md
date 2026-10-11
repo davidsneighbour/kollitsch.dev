@@ -11,9 +11,6 @@ summary: >-
   older PHP versions, and problems installing add-ons due to `TEMP_DIR`
   unavailability.
 date: 2024-05-17T16:26:12+07:00
-resources:
-  - title: '[LocalWP](https://localwp.com/)'
-    src: header.png
 tags:
   - wordpress
   - localwp
@@ -22,6 +19,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-fixing-plugin-installation-errors-in-localwp.png
+  title: "[LocalWP](https://localwp.com/)"
   type: image
 publisher: rework
 ---

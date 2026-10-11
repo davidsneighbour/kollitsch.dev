@@ -16,9 +16,6 @@ tags:
   - above-and-beyond
   - 100-days-to-offload
   - programming-environment
-resources:
-  - src: header.jpg
-
 date: 2024-01-02T17:26:42+07:00
 cover:
   src: postimages/postimage-for-music-to-program-to-8.jpg

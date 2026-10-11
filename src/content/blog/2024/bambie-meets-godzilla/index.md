@@ -10,9 +10,6 @@ summary: >-
   animation to a new generation, capturing the original's humour while adding a
   digital twist.
 date: 2024-10-27T20:42:56+07:00
-resources:
-  - title: Godzilla vs. Bambi (1969)
-    src: header.jpg
 tags:
   - bambie
   - godzilla

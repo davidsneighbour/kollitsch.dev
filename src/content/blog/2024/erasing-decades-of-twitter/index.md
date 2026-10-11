@@ -3,13 +3,6 @@ fmContentType: blog
 title: Erasing ~2 decades of Twitter
 description: 'How I deleted all my tweets, likes, and follows on Twitter.'
 date: 2024-03-08T16:03:00+07:00
-resources:
-  - title: >-
-      Twitter as imagined by DALL-E (disclaimer: the prompt might have been
-      passive aggressive)
-    src: header.webp
-  - title: Barely Legal
-    src: zbarely-legal.jpg
 tags:
   - twitter
   - how-to
@@ -17,6 +10,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-erasing-decades-of-twitter.webp
+  title: "Twitter as imagined by DALL-E (disclaimer: the prompt might have been passive aggressive)"
   type: image
 publisher: rework
 ---

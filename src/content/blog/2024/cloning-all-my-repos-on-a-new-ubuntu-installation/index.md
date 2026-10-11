@@ -6,11 +6,6 @@ description: >-
   A script to automatically clone all my GitHub repos to a local Ubuntu system
   using GitHub's REST API.
 date: 2024-04-28T15:15:56+07:00
-resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - ubuntu-2404
   - how-to
@@ -18,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-cloning-all-my-repos-on-a-new-ubuntu-installation.jpg
+  title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

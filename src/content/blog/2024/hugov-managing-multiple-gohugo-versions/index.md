@@ -10,9 +10,6 @@ summary: >-
   custom directories, update to the latest version, and pick standard or
   extended versions—all from the command line.
 date: 2024-11-07T16:24:38+07:00
-resources:
-  - title: hugov - a tool for managing Hugo versions
-    src: getty-images-M0Ozda1sRYs-unsplash.jpg
 tags:
   - gohugo
   - bash
@@ -22,6 +19,7 @@ unsplash:
   imageid: M0Ozda1sRYs
 cover:
   src: postimages/postimage-for-hugov-managing-multiple-gohugo-versions.jpg
+  title: "hugov - a tool for managing Hugo versions"
   type: image
 publisher: rework
 ---

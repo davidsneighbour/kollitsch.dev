@@ -10,9 +10,6 @@ summary: >-
   (I'll explain that in a later post) installation of a new Ubuntu LTS (**long**
   **term** **support**) version.
 date: 2024-04-26T19:09:08+07:00
-resources:
-  - title: Ubuntu 24.04 - official wallpaper
-    src: ubuntu-wallpaper-d.png
 tags:
   - ubuntu-2404
   - how-to
@@ -20,6 +17,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-howto-fix-google-chrome-not-starting-after-renaming-the-host-in-ubuntu-2404.png
+  title: "Ubuntu 24.04 - official wallpaper"
   type: image
 publisher: rework
 ---

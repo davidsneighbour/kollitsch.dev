@@ -7,8 +7,6 @@ tags:
   - electronic-music
   - glass-animals
   - 100-days-to-offload
-resources:
-  - src: header.jpg
 date: 2024-06-17T20:41:40+07:00
 cover:
   src: postimages/postimage-for-music-to-program-to-9.jpg

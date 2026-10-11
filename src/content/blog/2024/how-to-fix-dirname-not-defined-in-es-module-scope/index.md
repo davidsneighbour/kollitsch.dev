@@ -5,11 +5,6 @@ description: >-
   Replicate the missing `__dirname` and `__filename` variables from CommonJS in
   ES modules.
 date: 2024-08-12T19:04:31+07:00
-resources:
-  - title: >-
-      Photo by [Andrew Wulf](https://unsplash.com/@andreuuuw) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - es-modules
   - refactoring
@@ -20,6 +15,7 @@ unsplash:
   imageid: pile-of-rubber-duckies-59yg_LpcvzQ
 cover:
   src: postimages/postimage-for-how-to-fix-dirname-not-defined-in-es-module-scope.jpg
+  title: "Photo by [Andrew Wulf](https://unsplash.com/@andreuuuw) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

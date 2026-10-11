@@ -10,9 +10,6 @@ summary: >-
   while booting the computer. Which leads to that hard drive being mounted all
   the time.
 date: 2024-09-09T14:52:46+07:00
-resources:
-  - title: The improper way to keep Ubuntu from mounting drives automatically
-    src: curated-lifestyle-l2nY0rP07DI-unsplash.jpg
 tags:
   - ubuntu-2404
   - hardware
@@ -22,6 +19,7 @@ unsplash:
   imageid: l2nY0rP07DI
 cover:
   src: postimages/postimage-for-stop-ubuntu-from-automounting-external-harddrives-on-boot.jpg
+  title: "The improper way to keep Ubuntu from mounting drives automatically"
   type: image
 publisher: rework
 ---

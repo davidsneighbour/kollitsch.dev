@@ -14,11 +14,6 @@ summary: >-
   and certain development tools. However, it provides a decent solution for
   developers needing Linux on a Windows system.
 date: 2024-10-18T19:10:37+07:00
-resources:
-  - title: >-
-      Photo by [Clint Patterson](https://unsplash.com/@cbpsc1) via
-      [Unsplash](https://unsplash.com/)
-    src: clint-patterson-yGPxCYPS8H4-unsplash.jpg
 tags:
   - ubuntu
   - windows-11
@@ -28,6 +23,7 @@ unsplash:
   imageid: yGPxCYPS8H4
 cover:
   src: postimages/postimage-for-switching-from-ubuntu-to-windows-with-wsl.jpg
+  title: "Photo by [Clint Patterson](https://unsplash.com/@cbpsc1) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

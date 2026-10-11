@@ -5,17 +5,13 @@ description: >-
   Three VSCode updates this month, that I find useful. VSCode keeps adding
   useful features every month.
 date: 2024-05-03T18:10:07+07:00
-resources:
-  - title: >-
-      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - vscode
   - code-editor
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-new-features-in-vscode-v189.jpg
+  title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

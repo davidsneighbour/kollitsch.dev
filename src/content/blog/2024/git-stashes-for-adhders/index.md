@@ -5,17 +5,13 @@ description: >-
   How to use Git stashes to keep your work in progress organized and out of the
   way.
 date: 2024-03-01T19:19:32+07:00
-resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - bash
   - git
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-git-stashes-for-adhders.jpg
+  title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

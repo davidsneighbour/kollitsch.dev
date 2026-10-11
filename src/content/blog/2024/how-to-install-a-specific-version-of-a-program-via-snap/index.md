@@ -5,11 +5,6 @@ description: >-
   Learn how to install a specific version of a Snap package, like Go, and manage
   updates effectively.
 date: 2024-08-19T21:12:37+07:00
-resources:
-  - title: >-
-      Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via
-      [Unsplash](https://unsplash.com/)
-    src: kumas_taverne-B0aJBySo8dc-unsplash.jpg
 tags:
   - ubuntu
   - snap
@@ -20,6 +15,7 @@ unsplash:
   imageid: B0aJBySo8dc
 cover:
   src: postimages/postimage-for-how-to-install-a-specific-version-of-a-program-via-snap.jpg
+  title: "Photo by [Kumas Taverne](https://unsplash.com/@kumas_taverne) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

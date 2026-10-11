@@ -5,11 +5,6 @@ description: >-
   A simple bash function to automatically load the workspace file when starting
   VSCode.
 date: 2024-04-11T21:15:08+07:00
-resources:
-  - title: >-
-      Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - vscode
   - how-to
@@ -17,6 +12,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-automatically-load-workspace-when-starting-vscode.jpg
+  title: "Photo by [Mohammad Rahmani](https://unsplash.com/@afgprogrammer) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

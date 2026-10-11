@@ -10,11 +10,6 @@ summary: >-
   more effectively. An enhancement useful for developers who want to draw
   attention to important information in their documentation or discussions.
 date: 2024-03-25T20:48:04+07:00
-resources:
-  - title: Setting up highlighted notes in GitHub Markdown
-    src: header.jpg
-  - title: Setting up highlighted notes in GitHub Markdown
-    src: input.jpg
 tags:
   - markdown
   - github
@@ -23,6 +18,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-highlighting-blockquotes-in-github-markdown-format.jpg
+  title: "Setting up highlighted notes in GitHub Markdown"
   type: image
 publisher: rework
 ---

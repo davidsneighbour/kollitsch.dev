@@ -6,17 +6,13 @@ description: >-
   by Git.
 summary: ''
 date: 2024-04-11T19:31:26+07:00
-resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - git
   - gitignore
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-howto-delete-all-files-ignored-by-git.jpg
+  title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

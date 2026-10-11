@@ -10,9 +10,6 @@ summary: >-
   Ubuntu, allowing to access a wide range of applications from Flathub, the
   leading Flatpak repository.
 date: 2024-09-28T21:59:41+07:00
-resources:
-  - title: All the packages…
-    src: getty-images-Hh_4mKRYAPM-unsplash.jpg
 tags:
   - how-to
   - ubuntu-2404
@@ -21,6 +18,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-how-to-install-flatpak-on-ubuntu-2404.jpg
+  title: "All the packages…"
   type: image
 publisher: rework
 ---

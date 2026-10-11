@@ -4,8 +4,6 @@ title: Showing the Current Breakpoint for Bootstrap
 linkTitle: Showing the Current Breakpoint for Bootstrap
 description: How to display the current Bootstrap breakpoint in your templates.
 date: 2024-01-03T21:42:52+07:00
-resources:
-  - src: header.jpg
 tags:
   - shortcode
   - bootstrap

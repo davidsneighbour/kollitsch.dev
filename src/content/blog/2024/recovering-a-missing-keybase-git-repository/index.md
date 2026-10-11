@@ -5,11 +5,6 @@ description: >-
   The fight with Keybase continues. Today we are debugging an empty repo after
   checking out.
 date: 2024-05-05T16:02:34+07:00
-resources:
-  - title: >-
-      Photo by [Michael Dziedzic](https://unsplash.com/@lazycreekimages) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - keybase
   - ubuntu-2204
@@ -18,6 +13,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-recovering-a-missing-keybase-git-repository.jpg
+  title: "Photo by [Michael Dziedzic](https://unsplash.com/@lazycreekimages) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

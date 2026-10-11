@@ -4,9 +4,6 @@ title: Nacho
 description: The secret ingredient to perfectly smooth nacho cheese is Sodium Citrate.
 summary: The secret ingredient to perfectly smooth nacho cheese is Sodium Citrate.
 date: 2024-09-22T16:28:51+07:00
-resources:
-  - title: Hmmm… tasty chemistry.
-    src: ave-calvar-MRAu_cKpVqI-unsplash.jpg
 tags:
   - chemistry
   - useless-knowledge
@@ -14,6 +11,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-nacho.jpg
+  title: "Hmmm… tasty chemistry."
   type: image
 publisher: rework
 ---

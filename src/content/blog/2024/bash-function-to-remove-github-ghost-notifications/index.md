@@ -3,16 +3,6 @@ fmContentType: blog
 title: Bash Function to Remove Github Ghost Notifications
 description: How to clear ghost notifications in your Github inbox using a bash function.
 date: 2024-03-07T07:53:38+07:00
-resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
-    name: header
-  - title: Ghost notifications on Github
-    src: github-ghost-notifications.png
-  - title: Screenshot Github support email
-    src: screenshot.jpg
 tags:
   - bash
   - git
@@ -21,6 +11,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-bash-function-to-remove-github-ghost-notifications.jpg
+  title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

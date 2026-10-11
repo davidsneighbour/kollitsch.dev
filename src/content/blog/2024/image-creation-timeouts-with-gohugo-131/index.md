@@ -5,14 +5,12 @@ description: >-
   Image hashing now uses xxHash, speeding up image processing but may cause
   timeouts on first build.
 date: 2024-08-04T19:47:01+07:00
-resources:
-  - title: GoHugo v0.131.0
-    src: hugo-0.131.0.png
 tags:
   - gohugo
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-image-creation-timeouts-with-gohugo-131.png
+  title: "GoHugo v0.131.0"
   type: image
 publisher: rework
 ---

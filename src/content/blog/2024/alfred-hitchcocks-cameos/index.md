@@ -11,8 +11,6 @@ summary: >-
   suspense. This video highlights his unique storytelling style when it comes to
   including himself.
 date: 2024-11-30T18:54:20+07:00
-resources:
-  - src: header.jpg
 tags:
   - alfred-hitchcock
   - video

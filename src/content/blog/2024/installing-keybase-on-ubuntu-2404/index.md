@@ -7,10 +7,6 @@ description: >-
   lead to Keybase being uninstalled again. In older releases this worked. Now it
   does not
 date: 2024-04-29T17:03:49+07:00
-resources:
-  - title: Ubuntu 24.04 - official wallpaper
-    src: ubuntu-wallpaper-d.png
-  - src: xxselection_002.png
 tags:
   - ubuntu-2404
   - keybase
@@ -18,6 +14,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-installing-keybase-on-ubuntu-2404.png
+  title: "Ubuntu 24.04 - official wallpaper"
   type: image
 publisher: rework
 ---

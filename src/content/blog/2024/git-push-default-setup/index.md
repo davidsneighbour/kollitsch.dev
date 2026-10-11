@@ -7,11 +7,6 @@ description: >-
 summary: >-
   Pushing a new branch to a repository's remote often requires two attempts by
   the scatterbrained developer, but there is help in `push.autoSetupRemote`.
-resources:
-  - title: >-
-      Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via
-      [Unsplash](https://unsplash.com/)
-    src: header.jpg
 tags:
   - git
   - configuration
@@ -19,6 +14,7 @@ tags:
 date: 2024-04-12T21:09:32+07:00
 cover:
   src: postimages/postimage-for-git-push-default-setup.jpg
+  title: "Photo by [Roman Synkevych](https://unsplash.com/@synkevych) via [Unsplash](https://unsplash.com/)"
   type: image
 publisher: rework
 ---

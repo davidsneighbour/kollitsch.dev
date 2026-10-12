@@ -250,4 +250,14 @@ describe('NavSearch.astro', () => {
     );
     expect(source).toContain("control.toggleAttribute('inert', isOpen);");
   });
+
+  it('does not keep a will-change hint on the search panel at rest', async () => {
+    const { readFile } = await import('node:fs/promises');
+    const source = await readFile(
+      new URL('./NavSearch.astro', import.meta.url),
+      'utf8',
+    );
+
+    expect(source).not.toContain('will-change');
+  });
 });

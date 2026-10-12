@@ -1,5 +1,88 @@
 # Changelog
 
+## [3.5.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.4.0...v3.5.0) (2026-10-12)
+
+### Feat
+
+* **header:** move the theme toggle into the nav bar on mobile ([8b52398](https://github.com/davidsneighbour/kollitsch.dev/commit/8b5239852b19a425b08a01825487260e1ef197cb)), closes [#2124](https://github.com/davidsneighbour/kollitsch.dev/issues/2124)
+* **header:** use a compact masthead on single post pages ([0d12f76](https://github.com/davidsneighbour/kollitsch.dev/commit/0d12f76486a32fdee62bcc7141b31b00c7e2021a)), closes [#2122](https://github.com/davidsneighbour/kollitsch.dev/issues/2122)
+* **post:** move the post date into a cover badge ([e533019](https://github.com/davidsneighbour/kollitsch.dev/commit/e533019dbf1d532f4ba454be319c7927a699225c)), references [#2121](https://github.com/davidsneighbour/kollitsch.dev/issues/2121)
+* **post:** show a dateline above the post title ([11580c1](https://github.com/davidsneighbour/kollitsch.dev/commit/11580c141ba87102013b291105c252141d6ca201)), closes [#2121](https://github.com/davidsneighbour/kollitsch.dev/issues/2121)
+* **post:** show the cover date badge top-right in primary green ([5a604b3](https://github.com/davidsneighbour/kollitsch.dev/commit/5a604b3324465c4b7c80fcc35811e10be04b610f)), references [#2121](https://github.com/davidsneighbour/kollitsch.dev/issues/2121)
+
+### Content
+
+* **blog:** drop unused cover.src from video covers ([654b1ef](https://github.com/davidsneighbour/kollitsch.dev/commit/654b1efba93aba6b9bf69a204f52b3d451d2d3c1)), closes [#2104](https://github.com/davidsneighbour/kollitsch.dev/issues/2104)
+* **blog:** load blockquotes post body image from postimages/ ([53d7f48](https://github.com/davidsneighbour/kollitsch.dev/commit/53d7f482e872633844b20dcf008068b1a533e877)), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** migrate 2021 post covers to postimages/ ([d001ece](https://github.com/davidsneighbour/kollitsch.dev/commit/d001ecef7a1ba85710f0b263eaf88d579d44414e)), closes [#2088](https://github.com/davidsneighbour/kollitsch.dev/issues/2088), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** migrate 2022 post covers to postimages/ ([9d28a6f](https://github.com/davidsneighbour/kollitsch.dev/commit/9d28a6fc2db2c21145eff4de98b25bf9d2ff9ca6)), closes [#2089](https://github.com/davidsneighbour/kollitsch.dev/issues/2089), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** migrate 2023 post covers to postimages/ ([8792a57](https://github.com/davidsneighbour/kollitsch.dev/commit/8792a57d1c3dafc63cfdc0238fb28d6e7db06d42)), closes [#2090](https://github.com/davidsneighbour/kollitsch.dev/issues/2090), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** migrate 2024 post covers to postimages/ ([7439f40](https://github.com/davidsneighbour/kollitsch.dev/commit/7439f406d1e8b3c4cee0f6f96ba42e85a07e5566)), closes [#2091](https://github.com/davidsneighbour/kollitsch.dev/issues/2091), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** migrate 2025 post covers to postimages/ ([52a6ee9](https://github.com/davidsneighbour/kollitsch.dev/commit/52a6ee91e45d01bff23dc20fde2a78500be45b66)), closes [#2092](https://github.com/davidsneighbour/kollitsch.dev/issues/2092), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** migrate 2026 post covers to postimages/ ([dba1cde](https://github.com/davidsneighbour/kollitsch.dev/commit/dba1cde96cd56c221945793a12bfa0a1abb9317d)), closes [#2093](https://github.com/davidsneighbour/kollitsch.dev/issues/2093), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** normalise frontmatter indent in pinning-github-actions-to-commit-hashes ([ab4a083](https://github.com/davidsneighbour/kollitsch.dev/commit/ab4a0836e3c08ce1d668164f9550a4a702d13444)), references [#2087](https://github.com/davidsneighbour/kollitsch.dev/issues/2087)
+* **blog:** remove obsolete resources frontmatter from 2021 posts ([f90610f](https://github.com/davidsneighbour/kollitsch.dev/commit/f90610f4d3dd3e4fb8104b3f313721ceffb5aecc)), closes [#2095](https://github.com/davidsneighbour/kollitsch.dev/issues/2095), references [#2094](https://github.com/davidsneighbour/kollitsch.dev/issues/2094)
+* **blog:** remove obsolete resources frontmatter from 2022 posts ([87fa02c](https://github.com/davidsneighbour/kollitsch.dev/commit/87fa02c9b847de8228b691ed1defbff40285c083)), closes [#2096](https://github.com/davidsneighbour/kollitsch.dev/issues/2096), references [#2094](https://github.com/davidsneighbour/kollitsch.dev/issues/2094)
+* **blog:** remove obsolete resources frontmatter from 2023 posts ([3fcd3ce](https://github.com/davidsneighbour/kollitsch.dev/commit/3fcd3ce996db2313225e86e0465abf5d3cd1fd20)), closes [#2097](https://github.com/davidsneighbour/kollitsch.dev/issues/2097), references [#2094](https://github.com/davidsneighbour/kollitsch.dev/issues/2094)
+* **blog:** remove obsolete resources frontmatter from 2024 posts ([a9f3f9a](https://github.com/davidsneighbour/kollitsch.dev/commit/a9f3f9aa82172ab7307d5b8c1e80f7019fd9ea4c)), closes [#2098](https://github.com/davidsneighbour/kollitsch.dev/issues/2098), references [#2094](https://github.com/davidsneighbour/kollitsch.dev/issues/2094)
+* **blog:** remove obsolete resources frontmatter from 2025 posts ([b4728d6](https://github.com/davidsneighbour/kollitsch.dev/commit/b4728d6c1695b75051429145e3e378e32d3f2bd0)), closes [#2099](https://github.com/davidsneighbour/kollitsch.dev/issues/2099), references [#2094](https://github.com/davidsneighbour/kollitsch.dev/issues/2094)
+* **blog:** reuse one cover image per photo instead of duplicates ([eeee45b](https://github.com/davidsneighbour/kollitsch.dev/commit/eeee45b1e75356a080cc817dc91309d4df13dead)), closes [#2105](https://github.com/davidsneighbour/kollitsch.dev/issues/2105)
+* **fix:** image for slack post ([ec4a3f6](https://github.com/davidsneighbour/kollitsch.dev/commit/ec4a3f697b279cfe7359f457f92aca6a0c54f46a))
+
+### Fix
+
+* **a11y:** give dropdown chevron toggles a 24 px minimum box ([0d88544](https://github.com/davidsneighbour/kollitsch.dev/commit/0d885444161d1e7923404db9638d2c7275382eca)), closes [#2128](https://github.com/davidsneighbour/kollitsch.dev/issues/2128)
+* **blog:** show 12 posts per list page ([ed5274d](https://github.com/davidsneighbour/kollitsch.dev/commit/ed5274dcb43c790ae56dc8e76de31cdc3efaac73)), closes [#2120](https://github.com/davidsneighbour/kollitsch.dev/issues/2120)
+* **config:** allowlist typos false positives in existing posts ([d9cf1f8](https://github.com/davidsneighbour/kollitsch.dev/commit/d9cf1f8bcc77062caa1e581642fb0dc68f45fd23)), closes [#2100](https://github.com/davidsneighbour/kollitsch.dev/issues/2100)
+* **covers:** unify image and video cover rendering ([f2dee0f](https://github.com/davidsneighbour/kollitsch.dev/commit/f2dee0f0f9e6684284f7befa52d7eea2ff17c4f6)), references [#2118](https://github.com/davidsneighbour/kollitsch.dev/issues/2118)
+* **deps:** resolve Dependabot and OSV findings with updates and overrides ([63ce36c](https://github.com/davidsneighbour/kollitsch.dev/commit/63ce36c981ff8521c76c7c2e49bac9b82baa2ddf)), closes [#2116](https://github.com/davidsneighbour/kollitsch.dev/issues/2116), references [#2113](https://github.com/davidsneighbour/kollitsch.dev/issues/2113) [#2114](https://github.com/davidsneighbour/kollitsch.dev/issues/2114) [#2115](https://github.com/davidsneighbour/kollitsch.dev/issues/2115) [#1752](https://github.com/davidsneighbour/kollitsch.dev/issues/1752)
+* **frontmatter:** align CMS blog template with the blog schema ([510cefb](https://github.com/davidsneighbour/kollitsch.dev/commit/510cefbcf22622cb585340f6fb83d85ddb1bda46)), closes [#2102](https://github.com/davidsneighbour/kollitsch.dev/issues/2102)
+* **header:** make the mobile menu opaque and mask the theme icon cutout ([a739df1](https://github.com/davidsneighbour/kollitsch.dev/commit/a739df1194e2d87a0cbeeab88bb8aaf93628ca5d)), closes [#2126](https://github.com/davidsneighbour/kollitsch.dev/issues/2126)
+* **post:** drop self-links and keep mobile breadcrumbs readable ([84cf1df](https://github.com/davidsneighbour/kollitsch.dev/commit/84cf1df1de5d9a3cdbb4caadfc04c8d6f2530e48)), closes [#2123](https://github.com/davidsneighbour/kollitsch.dev/issues/2123)
+* **search:** hide other nav controls while the search field is open ([c48622d](https://github.com/davidsneighbour/kollitsch.dev/commit/c48622d620379655e391e8e90cc8a2873e67c13a)), closes [#2125](https://github.com/davidsneighbour/kollitsch.dev/issues/2125)
+* **theme:** make dark-mode rules in scoped styles apply ([c83fe6e](https://github.com/davidsneighbour/kollitsch.dev/commit/c83fe6e3cc8b58f05b7176191554c7d683d68717)), closes [#2127](https://github.com/davidsneighbour/kollitsch.dev/issues/2127)
+
+### Perf
+
+* **search:** drop the always-on will-change hint from the search panel ([3821d55](https://github.com/davidsneighbour/kollitsch.dev/commit/3821d5586f8c2f3758b6d71419bbffc02d72c466)), closes [#2129](https://github.com/davidsneighbour/kollitsch.dev/issues/2129)
+
+### Refactor
+
+* **content:** drop resources frontmatter from schema, pages, and templates ([a24ac25](https://github.com/davidsneighbour/kollitsch.dev/commit/a24ac25db982283b76abb4c2192dc7dbc8a2b1dd)), closes [#2094](https://github.com/davidsneighbour/kollitsch.dev/issues/2094)
+* **covers:** move video cover titles to cover.title ([ae796c4](https://github.com/davidsneighbour/kollitsch.dev/commit/ae796c421d71796da2f0243cca8a6da8fa929de5)), references [#2118](https://github.com/davidsneighbour/kollitsch.dev/issues/2118)
+* **skills:** split post review into selectable checks ([7741b8f](https://github.com/davidsneighbour/kollitsch.dev/commit/7741b8f807736f70c57143cad745d8a601146dac)), closes [#2101](https://github.com/davidsneighbour/kollitsch.dev/issues/2101)
+
+### Docs
+
+* **ai:** slim AGENTS.md and scope agent instructions ([bc93f84](https://github.com/davidsneighbour/kollitsch.dev/commit/bc93f8488e63c1a562de82f7eefe4f356e4bc09b)), closes [#2111](https://github.com/davidsneighbour/kollitsch.dev/issues/2111)
+
+### Style
+
+* **tokens:** map off-token values to design tokens ([e065671](https://github.com/davidsneighbour/kollitsch.dev/commit/e0656712f754584eebca3d51c826af83656c6820)), closes [#2130](https://github.com/davidsneighbour/kollitsch.dev/issues/2130)
+
+### Test
+
+* **header:** match the nav theme toggle independent of formatting ([452ccb5](https://github.com/davidsneighbour/kollitsch.dev/commit/452ccb56ff60ce0b6448b25804faeffbc48bf877)), references [#2124](https://github.com/davidsneighbour/kollitsch.dev/issues/2124)
+
+### Build
+
+* **deps:** add lint-staged as a pinned devDependency ([206ac65](https://github.com/davidsneighbour/kollitsch.dev/commit/206ac65bdcb8f8820fbe10dca5d6207adca31480)), closes [#2109](https://github.com/davidsneighbour/kollitsch.dev/issues/2109)
+* **deps:** keep Dependabot security overrides in a package fragment ([4ee8369](https://github.com/davidsneighbour/kollitsch.dev/commit/4ee83690438b4c6af642589207dad1ab5e110fdd)), closes [#2110](https://github.com/davidsneighbour/kollitsch.dev/issues/2110)
+* **deps:** remove unused Sentry integration ([5ff3aa6](https://github.com/davidsneighbour/kollitsch.dev/commit/5ff3aa6dfcf05e187fe2447c88031eee8bce6813)), references [#2116](https://github.com/davidsneighbour/kollitsch.dev/issues/2116)
+* **deps:** update dependencies ([f99c87b](https://github.com/davidsneighbour/kollitsch.dev/commit/f99c87b76ff37879a5c1f15073cc49feac11f6a0))
+* **deps:** update dependencies and fix npm install ([1909944](https://github.com/davidsneighbour/kollitsch.dev/commit/1909944d869bc069543157c686580187a8b7b396)), closes [#2114](https://github.com/davidsneighbour/kollitsch.dev/issues/2114), references [#2113](https://github.com/davidsneighbour/kollitsch.dev/issues/2113) [#2115](https://github.com/davidsneighbour/kollitsch.dev/issues/2115) [#1752](https://github.com/davidsneighbour/kollitsch.dev/issues/1752)
+
+### Chore
+
+* **ai:** align agent rules, issue labels, and TypeScript runner ([3612adc](https://github.com/davidsneighbour/kollitsch.dev/commit/3612adc436f13a064b5f7079208058a3664ae23d)), references [#2111](https://github.com/davidsneighbour/kollitsch.dev/issues/2111)
+* **config:** add project Posthaste configuration ([def9af8](https://github.com/davidsneighbour/kollitsch.dev/commit/def9af841b82cf2a856dc1bbac44fad926ae4c36)), closes [#2117](https://github.com/davidsneighbour/kollitsch.dev/issues/2117)
+* **deps:** update actions/setup-node action to v7.1.0 ([#2086](https://github.com/davidsneighbour/kollitsch.dev/issues/2086)) ([f614546](https://github.com/davidsneighbour/kollitsch.dev/commit/f614546d187282664f245d8578e60912a3bc0980))
+* **deps:** update actions/upload-artifact action to v7.0.2 ([#2085](https://github.com/davidsneighbour/kollitsch.dev/issues/2085)) ([cf7977d](https://github.com/davidsneighbour/kollitsch.dev/commit/cf7977dc5b188f66535b0b025e8a17a90efc017b))
+* **impeccable:** record product context and design-review scope ([7669e05](https://github.com/davidsneighbour/kollitsch.dev/commit/7669e05ac0876403de7bc966c7ce29e7f7605081)), references [#2119](https://github.com/davidsneighbour/kollitsch.dev/issues/2119)
+* **impeccable:** set up design skill and project context ([899046e](https://github.com/davidsneighbour/kollitsch.dev/commit/899046e489eb659aa414e4d5f56a42bbeb1ecd3c)), closes [#2119](https://github.com/davidsneighbour/kollitsch.dev/issues/2119)
+* update screenshot ([242d882](https://github.com/davidsneighbour/kollitsch.dev/commit/242d88274709d2eade88923500f4974d23497964))
+* update screenshot ([431d4ef](https://github.com/davidsneighbour/kollitsch.dev/commit/431d4ef8a607e1e833e43480a7229f2a32b9c204))
+
 ## [3.4.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.3.0...v3.4.0) (2026-09-30)
 
 ### Content

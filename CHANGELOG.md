@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.5.0...v3.5.1) (2026-10-12)
+
+### Chore
+
+* **config:** remove obsolete AI symlink setup ([64354a6](https://github.com/davidsneighbour/kollitsch.dev/commit/64354a683bd3e425ebb658ca6fa64eec325c9552)), closes [#2132](https://github.com/davidsneighbour/kollitsch.dev/issues/2132)
+* **config:** remove obsolete Netlify remnants ([df37ef5](https://github.com/davidsneighbour/kollitsch.dev/commit/df37ef5707579c14dd7bbbeb874f53215b768418)), closes [#2131](https://github.com/davidsneighbour/kollitsch.dev/issues/2131)
+
 ## [3.5.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.4.0...v3.5.0) (2026-10-12)
 
 ### Feat

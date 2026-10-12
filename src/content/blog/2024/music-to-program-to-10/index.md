@@ -10,9 +10,9 @@ tags:
 date: 2024-08-25T18:41:03+07:00
 cover:
   type: video
+  title: Ocotillo
   video:
     youtube: H7Dr-qwWEqk
     artist: floating-points
-    title: Ocotillo
 publisher: rework
 ---

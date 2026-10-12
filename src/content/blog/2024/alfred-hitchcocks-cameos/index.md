@@ -19,9 +19,9 @@ tags:
 
 cover:
   type: video
+  title: Alfred Hitchcock Cameos
   video:
     youtube: _YbaOkiMiRQ
-    title: Alfred Hitchcock Cameos
 publisher: rework
 ---
 

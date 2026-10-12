@@ -94,7 +94,7 @@ describe('resolveCover', () => {
     }
   });
 
-  it('video cover returns video object with alt derived from title', async () => {
+  it('video cover without cover.title falls back to the post title', async () => {
     vi.doMock('@utils/opengraph.ts', () => ({
       resolveImageKey: defaultResolveImageKey,
     }));
@@ -109,10 +109,10 @@ describe('resolveCover', () => {
     const ctx = { collection: 'blog', id: 'blog/post-3' } as const;
     const cover = {
       type: 'video',
-      video: { artist: 'Artist', title: 'My Video', youtube: 'abcd123' },
+      video: { artist: 'Artist', youtube: 'abcd123' },
     } as const;
 
-    const res = resolveCover(cover, ctx, {});
+    const res = resolveCover(cover, ctx, { fallbackAlt: 'My Video' });
     expect(res.type).toBe('video');
     if (res.type === 'video') {
       expect(res.video.platform).toBe('youtube');
@@ -141,14 +141,15 @@ describe('resolveCover', () => {
     const cover = {
       title: 'Live at Villain',
       type: 'video',
-      video: { title: 'My Video', youtube: 'abcd123' },
+      video: { youtube: 'abcd123' },
     } as const;
 
     const res = resolveCover(cover, ctx, {});
     expect(res.type).toBe('video');
     if (res.type === 'video') {
       expect(res.title).toBe('<em>Live at Villain</em>');
-      expect(res.alt).toBe('My Video');
+      expect(res.alt).toBe('Live at Villain');
+      expect(res.video.title).toBe('Live at Villain');
     }
   });
 
@@ -170,7 +171,6 @@ describe('resolveCover', () => {
       video: {
         artist: 'Artist',
         params: { color: 'white', rel: '1' },
-        title: 'My Video',
         youtube: 'abcd123',
       },
     } as const;
@@ -209,7 +209,6 @@ describe('resolveCover', () => {
       video: {
         artist: 'Artist',
         params: {},
-        title: 'My Video',
         youtube: 'abcd123',
       },
     } as const;
@@ -237,11 +236,11 @@ describe('resolveCover', () => {
 
     const ctx = { collection: 'blog', id: 'blog/post-vimeo' } as const;
     const cover = {
+      title: 'My Vimeo Video',
       type: 'video',
       video: {
         hash: 'abc123',
         startAt: '1m30s',
-        title: 'My Vimeo Video',
         vimeo: '1094958124',
       },
     } as const;

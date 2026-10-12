@@ -18,9 +18,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: 100 Years of Meisterstück
   video:
     vimeo: "1094958124"
-    title: 100 Years of Meisterstück
 publisher: rework
 ---
 

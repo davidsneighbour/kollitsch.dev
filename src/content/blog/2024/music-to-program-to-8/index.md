@@ -19,10 +19,10 @@ tags:
 date: 2024-01-02T17:26:42+07:00
 cover:
   type: video
+  title: Flow State
   video:
     youtube: CNfmij_Cpq8
     artist: above-and-beyond
-    title: Flow State
 publisher: rework
 ---
 

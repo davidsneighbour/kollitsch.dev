@@ -11,9 +11,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Nocturne 4
   video:
     youtube: 7iYCBlJ-33o
     artist: ben-lukas-boysen
-    title: Nocturne 4
 publisher: rework
 ---

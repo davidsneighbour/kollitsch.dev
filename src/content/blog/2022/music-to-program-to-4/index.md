@@ -10,10 +10,10 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Zeit
   video:
     youtube: oQ10_EzMvtQ
     artist: rammstein
-    title: Zeit
 publisher: rework
 ---
 

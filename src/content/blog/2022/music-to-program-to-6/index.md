@@ -11,10 +11,10 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: This isn't the place
   video:
     youtube: _g8nAqDu3gI
     artist: nineinchnails
-    title: This isn't the place
 publisher: rework
 ---
 

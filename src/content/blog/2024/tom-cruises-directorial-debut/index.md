@@ -17,9 +17,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Tom Cruise's Directorial Debut
   video:
     youtube: mAZXRpPX-hI
-    title: Tom Cruise's Directorial Debut
 publisher: rework
 ---
 

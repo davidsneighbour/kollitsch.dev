@@ -11,9 +11,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Pomplamoose does Moby
   video:
     youtube: s0OWyoXNjcw
-    title: Pomplamoose does Moby
 publisher: rework
 ---
 

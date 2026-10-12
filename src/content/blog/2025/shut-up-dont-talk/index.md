@@ -12,8 +12,8 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Shut Up, Don't Talk
   video:
-    title: Shut Up, Don't Talk
     youtube: GSIB8W3KGsM
 publisher: rework
 ---

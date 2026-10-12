@@ -42,7 +42,7 @@ Markdown headings or filenames.
 | `cover.format.contenttype` | no | `jpg`, `png`, `gif`, `svg`, or `webp` | Requested image content type; defaults to `jpg`. |
 | `cover.format.quality` | no | `1`-`100` | Requested image quality; defaults to `75`. |
 | `cover.src` | for image covers | `string` | Image path or key used by the cover pipeline. Omit it on video covers: they show the cached video thumbnail and ignore `src`. |
-| `cover.title` | no | `string` | Cover title/caption source. |
+| `cover.title` | no | `string` | Cover caption for image and video covers. For video covers it is also the play button label (falls back to the post title). |
 | `cover.type` | no | `image` or `video` | Cover type; defaults to `image`. |
 | `cover.unsplash` | no | `string` | Unsplash photo id; exactly 11 alphanumeric characters and image-only. |
 | `cover.video` | for video covers | object | Video cover metadata. |
@@ -50,7 +50,6 @@ Markdown headings or filenames.
 | `cover.video.hash` | no | `string` | Vimeo unlisted-video hash; see [Vimeo embeds](../components/content/media/vimeo.md). |
 | `cover.video.params` | no | object | YouTube player parameters; see [YouTube embeds](../components/content/media/youtube.md). |
 | `cover.video.startAt` | no | `string` | Vimeo start offset; see [Vimeo embeds](../components/content/media/vimeo.md). |
-| `cover.video.title` | for video covers | `string` | Video title. |
 | `cover.video.vimeo` | for Vimeo video covers | `string` | Numeric Vimeo video id. |
 | `cover.video.youtube` | for YouTube video covers | `string` | YouTube video id or URL accepted by the YouTube helpers. |
 | `date` | yes | date | Publication date. |

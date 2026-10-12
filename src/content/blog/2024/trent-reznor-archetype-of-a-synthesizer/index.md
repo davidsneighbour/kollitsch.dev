@@ -19,9 +19,9 @@ tags:
 publisher: rework
 cover:
   type: video
+  title: Trent Reznor - Archetype of a synthesizer
   video:
     youtube: zAGtlgwFdhM
-    title: Trent Reznor - Archetype of a synthesizer
 maintenance:
   brokenLinksReviewed: 2026-09-14
 ---

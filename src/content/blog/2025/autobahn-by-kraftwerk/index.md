@@ -13,12 +13,12 @@ tags:
   - kraftwerk
 cover:
   type: video
+  title: Autobahn by Kraftwerk (Psychedelic Short Film)
   video: 
     youtube: aFfW0DCoGBg
     artist: Kraftwerk
     params:
       start: 15
-    title: Autobahn by Kraftwerk (Psychedelic Short Film)
 ---
 
 This video is a wild little 12-minute 1979 animated film by Roger Mainwood, underlined by Kraftwerk's *Autobahn*.

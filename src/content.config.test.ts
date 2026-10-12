@@ -30,7 +30,7 @@ describe('blogSchema cover.video', () => {
       ...baseFrontmatter,
       cover: {
         type: 'video',
-        video: { title: 'Video title', youtube: 'aFfW0DCoGBg' },
+        video: { youtube: 'aFfW0DCoGBg' },
       },
     });
     expect(result.success).toBe(true);
@@ -41,7 +41,7 @@ describe('blogSchema cover.video', () => {
       ...baseFrontmatter,
       cover: {
         type: 'video',
-        video: { title: 'Video title', vimeo: '1094958124' },
+        video: { vimeo: '1094958124' },
       },
     });
     expect(result.success).toBe(true);
@@ -52,7 +52,7 @@ describe('blogSchema cover.video', () => {
       ...baseFrontmatter,
       cover: {
         type: 'video',
-        video: { title: 'Video title' },
+        video: {},
       },
     });
     expect(result.success).toBe(false);
@@ -64,10 +64,20 @@ describe('blogSchema cover.video', () => {
       cover: {
         type: 'video',
         video: {
-          title: 'Video title',
           vimeo: '1094958124',
           youtube: 'aFfW0DCoGBg',
         },
+      },
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects the retired cover.video.title key', () => {
+    const result = blogSchema.safeParse({
+      ...baseFrontmatter,
+      cover: {
+        type: 'video',
+        video: { title: 'Video title', youtube: 'aFfW0DCoGBg' },
       },
     });
     expect(result.success).toBe(false);
@@ -78,7 +88,7 @@ describe('blogSchema cover.video', () => {
       ...baseFrontmatter,
       cover: {
         type: 'video',
-        video: { class: 'scale-2', title: 'Video title', youtube: 'aFfW0DCoGBg' },
+        video: { class: 'scale-2', youtube: 'aFfW0DCoGBg' },
       },
     });
     expect(result.success).toBe(false);

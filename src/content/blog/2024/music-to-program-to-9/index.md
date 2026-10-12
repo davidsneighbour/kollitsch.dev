@@ -10,10 +10,10 @@ tags:
 date: 2024-06-17T20:41:40+07:00
 cover:
   type: video
+  title: Exxus
   video:
     youtube: h7UsQIx14CE
     artist: glass-animals
-    title: Exxus
 publisher: rework
 ---
 

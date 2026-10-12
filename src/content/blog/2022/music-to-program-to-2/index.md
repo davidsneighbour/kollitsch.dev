@@ -8,9 +8,9 @@ tags:
   - programming-music
 cover:
   type: video
+  title: Tick Of The Clock (Extended Overdrive)
   video:
     youtube: 49FXjBiccG4
     artist: chromatics
-    title: Tick Of The Clock (Extended Overdrive)
 publisher: rework
 ---

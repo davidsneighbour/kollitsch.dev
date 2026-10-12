@@ -19,9 +19,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Andrew Garfield and Elmo Explain Grief
   video:
     youtube: EVlXbiP4x2E
-    title: Andrew Garfield and Elmo Explain Grief
 publisher: rework
 ---
 

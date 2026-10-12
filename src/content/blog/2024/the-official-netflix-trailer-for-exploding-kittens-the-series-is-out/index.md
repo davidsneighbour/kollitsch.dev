@@ -21,9 +21,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Exploding Kittens - Official Trailer
   video:
     youtube: T3F0Nt6ssLU
-    title: Exploding Kittens - Official Trailer
 publisher: rework
 ---
 

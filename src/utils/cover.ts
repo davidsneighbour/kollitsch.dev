@@ -43,6 +43,7 @@ export type FMCover = Omit<PostCover, 'alt' | 'src' | 'video' | 'type'> & {
 export type FMCoverFormat = FMCover['format'];
 
 export interface BaseCoverVideo {
+  /** Plain-text video label (play button, iframe title): cover.title or the fallback alt */
   title: string;
   artist?: string;
 }
@@ -72,7 +73,7 @@ export interface ResolvedCoverImage {
 /** Resolved cover object (video) */
 export interface ResolvedCoverVideo {
   type: 'video';
-  alt: string; // derived from video title
+  alt: string; // plain-text cover.title, or the fallback alt
   title?: string; // inline-rendered HTML caption from cover.title
   video: CoverVideo;
 }
@@ -191,7 +192,7 @@ export function resolveCover(
   // 3) Object cover -> handle video first
   if (cover.type === 'video' && cover.video) {
     const v = cover.video;
-    const alt = stripMarkup(v.title || fallbackAlt);
+    const alt = stripMarkup(cover.title || fallbackAlt);
     const renderedCaption = renderTitleInline(cover.title);
     if (v.vimeo) {
       const result: ResolvedCoverVideo = {
@@ -200,7 +201,7 @@ export function resolveCover(
         type: 'video',
         video: {
           platform: 'vimeo',
-          title: v.title,
+          title: alt,
           vimeo: v.vimeo,
           ...(v.artist ? { artist: v.artist } : {}),
           ...(v.hash ? { hash: v.hash } : {}),
@@ -223,7 +224,7 @@ export function resolveCover(
         type: 'video',
         video: {
           platform: 'youtube',
-          title: v.title,
+          title: alt,
           youtube: v.youtube,
           ...(v.artist ? { artist: v.artist } : {}),
           ...(hasParams ? { params: mergedParams } : {}),

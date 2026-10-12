@@ -19,9 +19,9 @@ tags:
 
 cover:
   type: video
+  title: Bambi Meets Godzilla
   video:
     youtube: 5R-rbzcEM8A
-    title: Bambi Meets Godzilla
 publisher: rework
 ---
 

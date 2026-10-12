@@ -15,9 +15,9 @@ tags:
   - horror-movie
 cover:
   type: video
+  title: What if Wes Anderson directed a horror movie?
   video:
     youtube: gfDIAZCwHQE
-    title: What if Wes Anderson directed a horror movie?
 publisher: rework
 ---
 

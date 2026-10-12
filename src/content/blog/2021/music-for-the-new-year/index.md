@@ -12,7 +12,6 @@ cover:
   title: Khruangbin @ Villain | Pitchfork Live
   video:
     artist: khruangbin
-    title: Khruangbin @ Villain | Pitchfork Live
     youtube: q4xKvHANqjk
 publisher: rework
 ---

@@ -10,9 +10,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Silent Lucidity
   video:
     youtube: jhat-xUQ6dw
     artist: queensryche
-    title: Silent Lucidity
 publisher: rework
 ---

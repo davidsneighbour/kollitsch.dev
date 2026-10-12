@@ -27,7 +27,7 @@ updated: 2026-10-12T00:00:00+07:00
 ### Videos
 
 * The player fills a box with the same size classes as an image cover. There is no background link: the player owns clicks inside the frame.
-* The play button uses the `video-embed-play-button` design token on both YouTube and Vimeo. Its accessible name is "Play video: " followed by `cover.video.title`.
+* The play button uses the `video-embed-play-button` design token on both YouTube and Vimeo. Its accessible name is "Play video: " followed by `cover.title`, or by the post title when `cover.title` is not set.
 * The caption overlay and the info button disappear once the player is activated, so they cannot cover the player controls.
 
 ## Adding a cover to a post
@@ -57,7 +57,7 @@ If the stable filename is not obvious, decide it before adding or moving the ima
 
 Video covers set `type: video` and take no `src`: the player shows the cached video thumbnail, and social images use the site default image.
 
-For a caption on a video cover, set the top-level `cover.title`, the same field image covers use. `cover.video.title` is only the video title for the play button and the player.
+Video covers use the top-level `cover.title`, the same field image covers use, as the caption and the play button label. `cover.video` takes no `title`.
 
 To use a YouTube video as the cover:
 
@@ -65,9 +65,9 @@ To use a YouTube video as the cover:
 ---
 cover:
   type: video
+  title: "Video title"   # caption and play button label
   video:
     youtube: dQw4w9WgXcQ   # video ID only, not the full URL
-    title: "Video title (play button label)"
     params:
       rel: 0
       modestbranding: 1
@@ -80,9 +80,9 @@ To use a Vimeo video as the cover:
 ---
 cover:
   type: video
+  title: "Video title"   # caption and play button label
   video:
     vimeo: "1094958124"   # video ID only, not the full URL
-    title: "Video title (play button label)"
 ---
 ```
 

@@ -11,9 +11,9 @@ tags:
   - 100-days-to-offload
 cover:
   type: video
+  title: Verge
   video:
     youtube: 3We_dXYnjK0
     artist: dannykreutzfeldt
-    title: Verge
 publisher: rework
 ---

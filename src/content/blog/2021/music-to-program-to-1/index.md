@@ -8,9 +8,9 @@ tags:
   - programming-music
 cover:
   type: video
+  title: Empire Systems
   video:
     youtube: iFi0n_odlh8
     artist: irisarri
-    title: Empire Systems
 publisher: rework
 ---

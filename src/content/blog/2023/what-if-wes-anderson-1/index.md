@@ -15,9 +15,9 @@ tags:
   - artificial-intelligence
 cover:
   type: video
+  title: What if Wes Anderson directed a Star Wars movie?
   video:
     youtube: d-8DT5Q8kzI
-    title: What if Wes Anderson directed a Star Wars movie?
 publisher: rework
 ---
 

@@ -74,7 +74,6 @@ export const cover = z
         artist: z.string().optional(),
         hash: z.string().optional(),
         startAt: z.string().optional(),
-        title: z.string(),
         vimeo: z.string().regex(/^\d+$/, {
           message: 'cover.video.vimeo must be a numeric Vimeo video id.',
         }).optional(),

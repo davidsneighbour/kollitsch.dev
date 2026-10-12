@@ -14,9 +14,9 @@ tags:
 
 cover:
   type: video
+  title: "Patch Notes: Hélène Vogelsinger"
   video:
     youtube: kYxheEGl2oM
-    title: "Patch Notes: Hélène Vogelsinger"
 publisher: rework
 ---
 

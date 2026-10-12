@@ -21,8 +21,8 @@ export interface Props {
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
   transitionName?: string;
-  // permanent date badge in the bottom-right corner (single post pages);
-  // it gives way to the caption overlay, which repeats the date
+  // permanent date badge in the top-right corner (single post pages);
+  // the caption overlay then leaves the date out
   dateBadge?: boolean;
   // only above-the-fold images, such as article heroes and the first row of
   // listing cards, should set this; everything else should lazy-load
@@ -229,16 +229,13 @@ const caption = captionRepeatsTitle ? undefined : captionHtml;
     </span>
   )}
 
-  {/* Date badge — always visible, bottom-right. It fades while the caption
-      overlay (which repeats the date) is open, moves left of the touch
-      info button, and hides once a video player is activated. */}
+  {/* Date badge — always visible, top-right, in the same green as the
+      draft badge. Hidden once a video player is activated. */}
   {dateline && (
     <p
       class:list={[
-        'date-badge pointer-events-none absolute right-3 bottom-3 z-20 m-0 rounded-full bg-black/60 px-3 py-1 text-xs text-white backdrop-blur-sm transition-opacity duration-300 @lg:text-sm',
+        'date-badge pointer-events-none absolute top-2 right-2 z-30 m-0 rounded bg-primary-800 px-2 py-0.5 text-xs font-bold text-white @lg:text-sm',
         'group-has-[.lyt-activated]/postimg:hidden group-has-[.lv-activated]/postimg:hidden',
-        caption &&
-          'group-hover/postimg:opacity-0 group-focus-within/postimg:opacity-0 group-[.caption-visible]/postimg:opacity-0 [@media(hover:none)]:right-12',
       ]}
     >
       <time datetime={dateline.publishedIso}>{dateline.published}</time>
@@ -269,7 +266,7 @@ const caption = captionRepeatsTitle ? undefined : captionHtml;
       />
       {/* Publishing date — visible only on covers wider than 22rem
           via CSS container query on the figure */}
-      {postDate && (
+      {!dateline && postDate && (
         <time
           class="caption-date hidden flex-none whitespace-nowrap text-xs opacity-70 @[22rem]:block"
           datetime={postDate.toISOString()}

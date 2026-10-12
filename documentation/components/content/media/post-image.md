@@ -28,7 +28,7 @@ Renders a post's or tag's cover, resolving it to either a responsive `<Picture>`
 | `sizes` | `string` | computed via `getTailwindSizes({ base: 3, maxContentWidth: 1280, md: 2, sm: 1 })` | `sizes` attribute for the `<Picture>` |
 | `layout` | `"fixed" \| "constrained" \| "full-width"` | `"constrained"` | Layout mode forwarded to `<Picture>` |
 | `transitionName` | `string` | `""` | Optional shared-element transition name applied to the root media `<figure>` |
-| `dateBadge` | `boolean` | `false` | Shows a permanent date badge (publish date, plus "updated" and the update date when `lastModified` is on a later day) in the bottom-right corner. Single post pages turn it on. |
+| `dateBadge` | `boolean` | `false` | Shows a permanent date badge (publish date, plus "updated" and the update date when `lastModified` is on a later day) in the top-right corner. Single post pages turn it on. |
 
 ## Usage
 
@@ -64,7 +64,7 @@ import PostImage from '@components/content/media/PostImage.astro';
 
 Both media types share one `<figure>` frame and one caption model. When `cover.title` is set and does not only repeat the post title, a caption overlay fades in on hover or keyboard focus (desktop) via `group-hover/postimg:opacity-100` and `group-focus-within/postimg:opacity-100`, or toggles via a touch-only info button (`@media (hover: none)`, 44 px hit area) that adds a `.caption-visible` class. The overlay and the button are hidden once a video player is activated (`group-has-[.lyt-activated]` and `group-has-[.lv-activated]`).
 
-With `dateBadge`, a dark translucent pill shows the date in the bottom-right corner at all times, so the date is visible even on covers without a caption. It fades while the caption overlay is open, because the overlay repeats the date; on touch devices it sits left of the info button; and it hides once a video player is activated. The dates come from `getDateline()` in `src/utils/datetime.ts` (British order, site timezone).
+With `dateBadge`, a green badge (the `post-date-badge` token, same treatment as the draft badge) shows the date in the top-right corner at all times, so the date is visible even on covers without a caption. The caption overlay then leaves the date out, so it is never shown twice. The badge hides once a video player is activated. The dates come from `getDateline()` in `src/utils/datetime.ts` (British order, site timezone).
 
 When `transitionName` is provided, the root media `<figure>` receives both `transition:name` and `data-post-preview-media-transition`. The blog preview-card transition uses this to animate cover media separately from the card shell, preserving `object-fit: cover` during the view transition instead of stretching the image snapshot.
 

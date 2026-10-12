@@ -212,6 +212,11 @@ components:
     textColor: "{colors.surface}"
     rounded: "{rounded.sm}"
     typography: "{typography.label-sm}"
+  post-date-badge:
+    backgroundColor: "{colors.draft-badge-background}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.label-sm}"
   tag-badge:
     rounded: "{rounded.md}"
     typography: "{typography.label-sm}"
@@ -332,6 +337,7 @@ Local visual decisions stay local. Global design decisions are tokens. Use `prim
 * **Code Highlight:** Primary-500 at 10% opacity (`oklch(72.3%)`) as the inline code chip background - visually distinct from prose without introducing a new color family, and the same value in both themes since it's a self-contained tint rather than page-background text.
 * **Syntax Highlighting (out of scope):** Token colours inside highlighted code blocks come from third-party editor themes (Expressive Code: `dracula` and `light-plus`; Shiki: `dark-plus` and `github-light`, configured in `astro.config.ts`). They are not part of this palette and not generated design choices. Design reviews, audits, and detectors (including Impeccable) MUST ignore them: do not flag them as off-palette, low-contrast, or AI-style colour, and do not map them to tokens. The code block frame (font, radius, spacing) remains in scope.
 * **Draft Badge Background (`oklch(44.8% 0.119 151.328deg)`, `primary-800`):** Dark green for editorial status badges. It keeps the badge in the accent family while giving small uppercase text enough contrast; same value in both themes since it's a filled badge, not text on the page surface.
+* **Post Date Badge:** Reuses the draft badge green (`primary-800`) with white text for the permanent date badge in the top-right corner of a single post cover. Same treatment as the draft badge, so both read as one badge family; the contrast is the same verified AA pair.
 * **Pagination Inactive Dark (`oklch(87.2% 0.007 219.6deg)`):** `grey-300` (`mist-300`) for inactive or disabled pagination labels in dark mode. This is visible navigational state and must remain readable.
 * **Colophon Watermark:** Uses surface-adjacent olive tones (`olive-100` / `olive-200` in light mode, `olive-900` / `olive-800` in dark mode). It is a cosmetic background gimmick, hidden from assistive technology and deliberately below accessible contrast. Do not "fix" it to meet contrast thresholds.
 * **Danger / Warning / Success / Information:** Independent semantic state tokens for feedback UI (form validation, alerts) - `danger` (red), `warning` (amber), `success` (green), `information` (sky/blue). These are deliberately decoupled from `primary` even though `success` happens to also be green today - see `--danger`/`--warning`/`--success`/`--information` in `src/styles/theme.css`. They exist for validation/alert copy only and are never used as a page accent.

@@ -20,4 +20,20 @@ describe('SiteHeader.astro', () => {
     expect(source).toContain('pointer-events-none');
     expect(source).toContain('absolute inset-x-0 bottom-0');
   });
+
+  it('moves the theme toggle into the nav bar below md', async () => {
+    const p = path.resolve(__dirname, './Header.astro');
+    const source = await import('node:fs/promises').then((fs) =>
+      fs.readFile(p, 'utf8'),
+    );
+
+    expect(source).toContain('<theme-selector class="nav-theme-toggle');
+    expect(source).toMatch(
+      /@media \(max-width: 767px\) \{\s*\.theme-corner \{\s*display: none;/,
+    );
+    expect(source).toMatch(
+      /@media \(min-width: 768px\) \{\s*\.nav-theme-toggle \{\s*display: none;/,
+    );
+    expect(source).toContain("'.theme-corner .theme-toggle'");
+  });
 });

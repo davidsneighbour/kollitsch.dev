@@ -468,6 +468,8 @@ The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is
 
 The header search panel (`NavSearch.astro`) opens and closes on the `nav-search-panel-transition` token: `300ms`, `cubic-bezier(0.19, 1, 0.22, 1)` on `opacity`/`scale`. This is the same strong ease-out curve as `post-preview-transition`, just at a shorter duration suited to the panel's smaller size. The site no longer uses any overshoot/bounce easing anywhere.
 
+The theme toggle uses the `theme-toggle-corner` treatment from `md` up only. Below `md` it moves into the sticky nav bar as a plain 44 px icon button next to the hamburger and search buttons, so it cannot collide with the centred wordmark and stays reachable while scrolling.
+
 ### Wordmark Typography
 
 Inline wordmarks are typographic text, not artwork crops. They render with the semantic wordmark font, `var(--font-wordmark, var(--font-title))`, stay inline with surrounding prose, and inherit the surrounding text colour through normal `currentColor` behaviour.

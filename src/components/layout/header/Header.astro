@@ -105,6 +105,13 @@ if (!activeItem && import.meta.env.DEV) {
     </Fragment>
 
     <Fragment slot="right">
+      <!-- Mobile theme toggle: the corner toggle collides with the wordmark
+           on narrow screens and scrolls away, so below md it lives in the
+           sticky nav bar. Same custom element, kept in sync via the
+           theme-changed event. -->
+      <theme-selector
+        class="nav-theme-toggle h-11 w-11 shrink-0 items-center justify-center"
+      ></theme-selector>
       <button
         id="hamburger-and-close"
         type="button"
@@ -363,7 +370,7 @@ if (!activeItem && import.meta.env.DEV) {
      * @returns {void}
      */
     function initThemeToggleHoverLink() {
-      const themeToggle = document.querySelector('.theme-toggle');
+      const themeToggle = document.querySelector('.theme-corner .theme-toggle');
       if (
         !(placeholder instanceof HTMLElement) ||
         !(themeToggle instanceof HTMLElement)
@@ -523,6 +530,30 @@ if (!activeItem && import.meta.env.DEV) {
     position: absolute;
     top: var(--corner-pad);
     right: var(--corner-pad);
+  }
+
+  /* Below md the toggle lives in the sticky nav bar instead (see the
+     nav-theme-toggle element), so the corner one would only collide with
+     the wordmark */
+  @media (max-width: 767px) {
+    .theme-corner {
+      display: none;
+    }
+  }
+
+  /* md and up keeps the corner toggle. A plain CSS rule, not Tailwind's
+     md:hidden: ThemeSelector's unlayered `theme-selector { display }` rule
+     would beat the layered utility. */
+  @media (min-width: 768px) {
+    .nav-theme-toggle {
+      display: none;
+    }
+  }
+
+  /* match the 44px hamburger and search buttons next to it */
+  .nav-theme-toggle .theme-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
   /* Scroll it out of sight for now; revisit making it sticky later */

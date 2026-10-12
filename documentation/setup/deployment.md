@@ -117,7 +117,7 @@ If Wrangler logs show `Uploaded kollitsch-dev` and then stop or fail while calli
 
 ## Rollback
 
-Use Cloudflare's Worker version rollback in the dashboard or with Wrangler if a production deploy needs to be reverted. Keep the `legacy/netlify-hosted` branch as the pre-migration source snapshot until the Cloudflare deployment has been stable for long enough that the old Netlify configuration is no longer needed.
+Use Cloudflare's Worker version rollback in the dashboard or with Wrangler if a production deploy needs to be reverted.
 
 ## Post-deploy checks
 

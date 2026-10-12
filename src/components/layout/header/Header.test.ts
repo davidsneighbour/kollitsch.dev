@@ -27,7 +27,7 @@ describe('SiteHeader.astro', () => {
       fs.readFile(p, 'utf8'),
     );
 
-    expect(source).toContain('<theme-selector class="nav-theme-toggle');
+    expect(source).toMatch(/<theme-selector\s+class="nav-theme-toggle/);
     expect(source).toMatch(
       /@media \(max-width: 767px\) \{\s*\.theme-corner \{\s*display: none;/,
     );

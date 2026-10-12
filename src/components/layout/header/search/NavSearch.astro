@@ -351,6 +351,18 @@ const searchInputId = `${componentId}-search-input`;
         nav.toggleAttribute('inert', isOpen);
       }
 
+      // The right region sits above the panel so the toggle stays usable
+      // as the close button; its other controls (for example a menu or
+      // theme toggle) would otherwise stay visible on top of the open
+      // search field. Looked up on every render because callers may
+      // replace those elements (Header.astro clones its menu button).
+      const rightRegion = root.querySelector('[data-nav-search-region-right]');
+      for (const control of rightRegion?.children ?? []) {
+        if (control === toggle || control.contains(toggle)) continue;
+        control.classList.toggle('invisible', isOpen);
+        control.toggleAttribute('inert', isOpen);
+      }
+
       panel.setAttribute('aria-hidden', String(!isOpen));
       updateOuterWidth();
     };

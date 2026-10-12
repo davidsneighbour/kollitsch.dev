@@ -234,4 +234,20 @@ describe('NavSearch.astro', () => {
     expect(html).toContain('data-nav-search-icon-open');
     expect(html).toContain('data-nav-search-icon-close');
   });
+
+  it('hides and disables other right-region controls while search is open', async () => {
+    const { readFile } = await import('node:fs/promises');
+    const source = await readFile(
+      new URL('./NavSearch.astro', import.meta.url),
+      'utf8',
+    );
+
+    expect(source).toContain(
+      "root.querySelector('[data-nav-search-region-right]')",
+    );
+    expect(source).toContain(
+      'if (control === toggle || control.contains(toggle)) continue;',
+    );
+    expect(source).toContain("control.toggleAttribute('inert', isOpen);");
+  });
 });

@@ -89,6 +89,7 @@ An inline script (scoped per instance via a random `data-component-id`) manages 
 
 - Toggles the search panel and swaps the open/close icon and label on the toggle button, updating `aria-expanded` and `aria-label`.
 - Hides the `<nav>` behind `invisible`, `pointer-events-none`, `aria-hidden`, and `inert` while the panel is open, so it cannot receive focus or be announced.
+- Hides every other control in the right region (for example the mobile menu button and theme toggle) behind `invisible` and `inert` while the panel is open. Only the search toggle, which acts as the close button, stays visible above the panel. The controls are looked up on every render, because callers may replace them.
 - Moves focus into the first focusable field inside the `search` slot on open (via `requestAnimationFrame`, selecting existing text if the field supports `.select()`), and restores focus to whichever element had it before opening (or the toggle button, as a fallback) on close.
 - Closes on `Escape` and on any click outside the search surface or toggle button.
 - Continuously measures the outer wrapper's width (on `resize` and via a `ResizeObserver`) and writes it to the `searchOuterWidthVarName` CSS custom property on the search panel, so consumers can size the panel relative to the bar's own width.

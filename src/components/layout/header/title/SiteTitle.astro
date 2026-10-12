@@ -7,11 +7,16 @@ import { getHomepageUrl } from '@utils/content.ts';
 
 export interface Props {
   siteTitleId: string;
+  // smaller masthead for reading pages (single posts), so the content
+  // title starts above the fold
+  compact?: boolean;
 }
 
 const homepageUrl = getHomepageUrl();
-const { siteTitleId }: Props = Astro.props;
-const siteTitleSize = 'clamp(50px, 13vw, 250px)';
+const { siteTitleId, compact = false }: Props = Astro.props;
+const siteTitleSize = compact
+  ? 'clamp(40px, 7vw, 120px)'
+  : 'clamp(50px, 13vw, 250px)';
 // Full-res image, used only for the hover-reveal background (desktop-only,
 // see the (hover: hover) and (pointer: fine) block below).
 const headlineImage = await getImage(wordmarkArtwork.image);
@@ -79,7 +84,10 @@ const shatterLetters = letters.map((letter, index) => {
 <header
   aria-label="Site title"
   id={siteTitleId}
-  class="site-title-hero w-full py-6 text-center md:py-10"
+  class:list={[
+    'site-title-hero w-full text-center',
+    compact ? 'py-4 md:py-6' : 'py-6 md:py-10',
+  ]}
   style={`--headline-bg: url("${headlineImage.src}"); --fill-dissolve-end: ${fillDissolveEnd}%; --shatter-in-start: ${shatterInStart}%; --shatter-in-end: ${shatterInEnd}%; ${responsiveFillVars}`}
 >
   <a
@@ -125,7 +133,9 @@ const shatterLetters = letters.map((letter, index) => {
       aria-hidden="true"
     >
       {shatterLetters.map(({ letter, style }) => (
-        <span class="shatter-letter" style={style}>{letter}</span>
+        <span class="shatter-letter" style={style}>
+          {letter}
+        </span>
       ))}
     </span>
   </a>

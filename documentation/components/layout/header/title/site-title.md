@@ -20,6 +20,7 @@ Renders the large homepage header title as an image-filled heading that dissolve
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `siteTitleId` | `string` | required | `id` applied to the outer `<header>`, used as a scroll or navigation anchor |
+| `compact` | `boolean` | `false` | Smaller masthead for reading pages: wordmark at `clamp(40px, 7vw, 120px)` instead of `clamp(50px, 13vw, 250px)`, padding `py-4 md:py-6` instead of `py-6 md:py-10`. Single post pages turn it on so the post title starts above the fold. |
 
 ## Usage
 

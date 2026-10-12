@@ -44,6 +44,7 @@ if (import.meta.env.PROD && post.data.draft) {
   post={post}
   title={post.data.title}
   description={post.data.description ?? ""}
+  compactHeader
 >
   <BlogPost post={post} />
 </Layout>

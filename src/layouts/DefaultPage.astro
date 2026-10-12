@@ -3,13 +3,13 @@ import Footer from "@components/layout/footer/Footer.astro";
 import SiteHeader from "@/components/layout/header/Header.astro";
 import Site from "@layouts/Site.astro";
 
-const { post } = Astro.props;
+const { post, compactHeader = false } = Astro.props;
 
 import setup from "@data/setup.json" with { type: "json" };
 ---
 
 <Site post={post}>
-  <SiteHeader />
+  <SiteHeader compact={compactHeader} />
   <main class={setup.classes.containers.slim}>
     <slot />
   </main>

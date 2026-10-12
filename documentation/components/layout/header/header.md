@@ -22,6 +22,7 @@ Renders the sticky site header: the homepage [`SiteTitle`](title/site-title.md) 
 | --- | --- | --- | --- |
 | `defaultTheme` | `StoredThemeMode` (`"dark" \| "light" \| "auto"`) | `"dark"` | Initial theme passed through to [`ThemeSelector`](theme/theme-selector.md) |
 | `siteTitleId` | `string` | `"sitetitle-header"` | Stable `id` shared with [`SiteTitle`](title/site-title.md); used as the intersection-observer target that toggles the sticky brand state |
+| `compact` | `boolean` | `false` | Passed to [`SiteTitle`](title/site-title.md) for the smaller reading-page masthead. `DefaultPage.astro` sets it from its `compactHeader` prop; single post pages opt in. |
 
 ## Usage
 

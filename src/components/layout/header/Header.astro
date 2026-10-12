@@ -574,10 +574,12 @@ if (!activeItem && import.meta.env.DEV) {
       flex-direction: column;
       align-items: stretch;
       padding: 0.5rem 1rem 1rem;
-      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-      backdrop-filter: blur(20px) saturate(1.5);
-      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-      background-color: color-mix(in oklch, var(--background) 92%, transparent);
+      /* Opaque on purpose: the panel overlays arbitrary page content, and a
+         nested backdrop-filter cannot blur anything outside #site-header
+         (which has its own backdrop-filter), so a translucent panel let
+         page text show through sharply. Same surface as the desktop nav
+         dropdown and the breadcrumb switchers. */
+      background-color: var(--popover);
       border-bottom: 1px solid rgb(255 255 255 / 0.2);
       border-bottom-left-radius: 0.75rem;
       border-bottom-right-radius: 0.75rem;
@@ -610,8 +612,6 @@ if (!activeItem && import.meta.env.DEV) {
     }
 
     [data-theme="dark"] #navigation-and-theme-select {
-      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-      background-color: color-mix(in oklch, var(--background) 92%, transparent);
       border-color: rgb(255 255 255 / 0.08);
     }
 

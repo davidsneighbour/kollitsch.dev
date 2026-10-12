@@ -456,7 +456,9 @@ Cards are the primary content container for blog post previews, link lists, and 
 
 ### Sticky Header & Popover Chrome
 
-The sticky header (`Header.astro`) and mobile nav dropdown are a frosted-glass overlay: `background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent)` plus `backdrop-filter: blur(20px) saturate(1)`. `--header-tint` (`70%`) is a single CSS custom property shared by light and dark - it must never be given different values per theme, or the blur becomes invisible in whichever theme has the higher opacity.
+The sticky header (`Header.astro`) is a frosted-glass overlay: `background-color: color-mix(in oklch, var(--background) var(--header-tint), transparent)` plus `backdrop-filter: blur(20px) saturate(1)`. `--header-tint` (`70%`) is a single CSS custom property shared by light and dark - it must never be given different values per theme, or the blur becomes invisible in whichever theme has the higher opacity.
+
+The mobile nav dropdown is **opaque**, not glass: it uses the `--popover` surface, the same as the desktop nav dropdown and the breadcrumb switchers, with its border, shadow, and rounded bottom corners. It overlays arbitrary page content, and because it is nested inside the header's own `backdrop-filter`, its blur cannot reach the page, so a translucent panel let page text show through sharply behind the menu items.
 
 On mobile, the nav dropdown is fixed to the viewport below the sticky header at `{spacing.header-mobile-height}` rather than absolutely positioned inside the centre navigation slot. The centre slot may shrink to zero width when the brand and action buttons fill the row, so it must not be the containing block for the mobile panel.
 

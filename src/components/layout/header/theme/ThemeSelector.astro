@@ -149,6 +149,12 @@ const { defaultTheme = 'dark' }: Props = Astro.props;
             /** @type {ThemeMode[]} */
             this.themes = ['light', 'dark'];
 
+            // Several selectors can render on one page (corner and nav), so
+            // each icon gets its own mask id.
+            window.kdev.themeToggleCount =
+              (window.kdev.themeToggleCount ?? 0) + 1;
+            const maskId = `theme-toggle-mask-${window.kdev.themeToggleCount}`;
+
             const button = document.createElement('button');
             button.setAttribute('type', 'button');
             button.setAttribute('role', 'switch');
@@ -165,8 +171,13 @@ const { defaultTheme = 'dark' }: Props = Astro.props;
                   <path d="M38.85 9.15 34.6 13.4" />
                   <path d="M13.4 34.6 9.15 38.85" />
                 </g>
-                <circle class="theme-toggle-body" cx="24" cy="24" r="10" />
-                <circle class="theme-toggle-cutout" cx="15" cy="33" r="10" />
+                <defs>
+                  <mask id="${maskId}">
+                    <rect width="48" height="48" fill="white" />
+                    <circle class="theme-toggle-cutout" cx="15" cy="33" r="10" />
+                  </mask>
+                </defs>
+                <circle class="theme-toggle-body" cx="24" cy="24" r="10" mask="url(#${maskId})" />
               </svg>
               <span class="sr-only">Toggle theme</span>
             `;
@@ -320,13 +331,14 @@ const { defaultTheme = 'dark' }: Props = Astro.props;
     stroke: currentcolor;
   }
 
+  /* The cutout is a mask shape (black = cut away), not a circle painted in
+     the page background colour, so the moon reads correctly on any surface
+     (the corner on the page, or the nav bar on mobile). */
   .theme-toggle-cutout {
-    fill: var(--color-background);
+    fill: black;
     stroke: none;
     transform: translate(-20px, 20px);
-    transition:
-      fill 400ms ease,
-      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   [data-theme="dark"] .theme-toggle-cutout {

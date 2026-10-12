@@ -48,7 +48,7 @@ Registers a `theme-selector` custom element with a `customElements.get` guard wh
 
 ### Icon animation
 
-The sun/moon SVG morphs via CSS: `.theme-toggle-icon` rotates 180 degrees in dark mode, `.theme-toggle-rays` shrink and fade out, and `.theme-toggle-cutout` slides in to turn the circle into a crescent. All transitions collapse to `0.01ms` under `@media (prefers-reduced-motion: reduce)`. There is deliberately no hover/active scale ("pressed button") effect, since it visually conflicts with the icon's own morph animation.
+The sun/moon SVG morphs via CSS: `.theme-toggle-icon` rotates 180 degrees in dark mode, `.theme-toggle-rays` shrink and fade out, and `.theme-toggle-cutout` slides in to turn the circle into a crescent. The cutout is a shape inside an SVG `<mask>` on the body circle, not a circle painted in the page background colour, so the crescent reads correctly on any surface (the page corner or the mobile nav bar). Each instance gets its own mask id (`theme-toggle-mask-<n>`), because several selectors can render on one page. All transitions collapse to `0.01ms` under `@media (prefers-reduced-motion: reduce)`. There is deliberately no hover/active scale ("pressed button") effect, since it visually conflicts with the icon's own morph animation.
 
 When the selector is mounted in the fixed header corner, `Header.astro` expands the button to the full 8rem corner shell and uses `clip-path` to keep the resting hit area small. The hover and focus halo intentionally grows beyond the icon area and may widen into the header while the page is at the top. Do not shrink the actual `.theme-toggle` box to the resting circle; doing so clips the radial fade and removes the established header interaction.
 

@@ -3,7 +3,7 @@ import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Vimeo from '@components/content/media/Vimeo.astro';
 import Youtube from '@components/content/media/Youtube.astro';
-import { resolveCover } from '@utils/cover';
+import { resolveCover, stripMarkup } from '@utils/cover';
 import { getImageMeta } from '@utils/image-index.ts';
 import { getTailwindSizes } from '@utils/tailwind.ts';
 import type { ImageMetadata } from 'astro';
@@ -120,56 +120,65 @@ const roundedClasses = classes
   .split(/\s+/)
   .filter((c) => c.startsWith('rounded'))
   .join(' ');
+
+// Video players fill a box with the same size classes as an image cover.
+// object-* utilities only apply to replaced elements, so they are dropped,
+// and a 16:9 box is the fallback when the caller passes no aspect ratio.
+const mediaClasses = classes
+  .split(/\s+/)
+  .filter((c) => c.length > 0 && !c.startsWith('object-') && c !== 'h-auto')
+  .join(' ');
+const videoBoxClasses = /(^|\s)aspect-/.test(mediaClasses)
+  ? mediaClasses
+  : `aspect-video ${mediaClasses}`;
+
+// Both cover types share one caption model: the cover.title overlay. A
+// caption that only repeats the post title adds nothing, so it is skipped.
+const captionHtml = cover.title;
+const captionRepeatsTitle =
+  captionHtml !== undefined &&
+  stripMarkup(captionHtml).toLowerCase() ===
+    stripMarkup(fallbackAlt).toLowerCase();
+const caption = captionRepeatsTitle ? undefined : captionHtml;
 ---
 
-{cover.type === "video" && cover.video ? (
-    // ─── VIDEO ────────────────────────────────────────────────────────────────
-    // Caption stays below the video; overlay does not apply to media players.
-    // Draft badge still shows so editors can spot unpublished content.
-    <figure
-      class:list={["group relative", figureClasses]}
-      transition:name={transitionName}
-      {...transitionName && { "data-post-preview-media-transition": transitionName }}
-    >
-      {isDraft && (
-        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-primary-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
-          DRAFT
-        </span>
+<figure
+  class:list={[
+    'group/postimg relative @container overflow-hidden',
+    roundedClasses,
+    figureClasses,
+  ]}
+  data-postimage
+  data-cover-type={cover.type}
+  transition:name={transitionName}
+  {...transitionName && {
+    'data-post-preview-media-transition': transitionName,
+  }}
+>
+  {cover.type === 'video' && cover.video ? (
+    // ─── VIDEO ──────────────────────────────────────────────────────────────
+    // No background link: the player owns clicks inside the frame.
+    <div class={videoBoxClasses}>
+      {cover.video.platform === 'youtube' ? (
+        <Youtube
+          label={cover.video.title}
+          video={cover.video.youtube}
+          classes="h-full w-full"
+          params={cover.video.params ?? {}}
+        />
+      ) : (
+        <Vimeo
+          label={cover.video.title}
+          video={cover.video.vimeo}
+          classes="h-full w-full"
+          hash={cover.video.hash}
+          startAt={cover.video.startAt}
+        />
       )}
-      <div class={`aspect-2/1 overflow-hidden ${classes}`}>
-        {cover.video.platform === "youtube" ? (
-          <Youtube
-            label={cover.video.title}
-            video={cover.video.youtube}
-            classes="z-20 mb-4 h-auto w-full max-w-full"
-            params={cover.video.params ?? {}}
-          />
-        ) : (
-          <Vimeo
-            label={cover.video.title}
-            video={cover.video.vimeo}
-            classes="z-20 mb-4 h-auto w-full max-w-full"
-            hash={cover.video.hash}
-            startAt={cover.video.startAt}
-          />
-        )}
-      </div>
-      <figcaption class="video-caption italic @sm:px-2 @md:px-3 @lg:px-4">
-        {cover.video.title}
-      </figcaption>
-    </figure>
-  ) : cover.type === "image" ? (
-    // ─── IMAGE ────────────────────────────────────────────────────────────────
-    <figure
-      class:list={[
-        "group/postimg relative @container overflow-hidden",
-        roundedClasses,
-        figureClasses,
-      ]}
-      data-postimage
-      transition:name={transitionName}
-      {...transitionName && { "data-post-preview-media-transition": transitionName }}
-    >
+    </div>
+  ) : cover.type === 'image' ? (
+    // ─── IMAGE ──────────────────────────────────────────────────────────────
+    <>
       {/* Background link — z-10, covers the whole figure, sits below caption */}
       {link && (
         <a
@@ -197,69 +206,71 @@ const roundedClasses = classes
           src={cover.src}
           alt={cover.alt}
           class={classes}
-          loading={priority ? "eager" : "lazy"}
+          loading={priority ? 'eager' : 'lazy'}
           decoding="async"
         />
       )}
-
-      {/* DRAFT badge — always visible on draft posts, top-left corner */}
-      {isDraft && (
-        <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-primary-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
-          DRAFT
-        </span>
-      )}
-
-      {/* Caption overlay — bottom of image, visible on hover (desktop)
-          or when .caption-visible is toggled (mobile). Only rendered when
-          the post has a cover.title caption. */}
-      {cover.title && (
-        <figcaption class="caption-overlay absolute inset-x-0 bottom-0 z-20 flex items-end gap-3 bg-linear-to-t from-black/90 via-black/60 to-black/10 px-4 py-3 text-white opacity-0 transition-opacity duration-300 group-hover/postimg:opacity-100 group-focus-within/postimg:opacity-100 group-[.caption-visible]/postimg:opacity-100">
-          {/* Caption text — links get z-30 so they intercept clicks above
-              the background <a> link at z-10 */}
-          <span
-            class="caption-text min-w-0 flex-1 text-sm leading-snug [&_a]:relative [&_a]:z-30 [&_a]:text-white [&_a]:underline [&_a]:decoration-white/60 [&_a]:underline-offset-2 hover:[&_a]:text-primary-300 hover:[&_a]:decoration-white"
-            set:html={cover.title}
-          />
-          {/* Publishing date — visible only on images wider than 22rem
-              via CSS container query on the figure */}
-          {postDate && (
-            <time
-              class="caption-date hidden flex-none whitespace-nowrap text-xs opacity-70 @[22rem]:block"
-              datetime={postDate.toISOString()}
-            >
-              {postDate.toLocaleDateString("en", {
-                day: "numeric",
-                month: "short",
-                year: "numeric",
-              })}
-            </time>
-          )}
-        </figcaption>
-      )}
-
-      {/* Mobile info button — shown only on touch/no-hover devices.
-          Tapping it toggles .caption-visible on the figure, making the
-          caption overlay visible without hover. Hidden on pointer devices. */}
-      {cover.title && (
-        <button
-          data-caption-toggle
-          type="button"
-          class="caption-toggle-icon absolute bottom-2 right-2 z-30 hidden size-7 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm [@media(hover:none)]:flex"
-          aria-label="Show image caption"
-          aria-expanded="false"
-        ></button>
-      )}
-    </figure>
+    </>
   ) : null}
+
+  {/* DRAFT badge — always visible on draft posts, top-left corner */}
+  {isDraft && (
+    <span class="draft-badge absolute left-2 top-2 z-30 rounded bg-primary-800 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+      DRAFT
+    </span>
+  )}
+
+  {/* Caption overlay — bottom of the cover, visible on hover or keyboard
+      focus (desktop) or when .caption-visible is toggled (touch). The
+      overlay ignores pointer events except on its links, so it never
+      blocks the cover link or the player. It disappears once a video
+      player is activated, so it cannot cover the player controls. */}
+  {caption && (
+    <figcaption class="caption-overlay pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end gap-3 bg-linear-to-t from-black/90 via-black/60 to-black/10 px-4 py-3 text-white opacity-0 [@media(hover:none)]:pr-12 transition-opacity duration-300 group-hover/postimg:opacity-100 group-focus-within/postimg:opacity-100 group-[.caption-visible]/postimg:opacity-100 group-has-[.lyt-activated]/postimg:hidden group-has-[.lv-activated]/postimg:hidden">
+      {/* Caption text — links get z-30 and pointer events so they
+          intercept clicks above the background <a> link at z-10 */}
+      <span
+        class="caption-text min-w-0 flex-1 text-sm leading-snug [&_a]:pointer-events-auto [&_a]:relative [&_a]:z-30 [&_a]:text-white [&_a]:underline [&_a]:decoration-white/60 [&_a]:underline-offset-2 hover:[&_a]:text-primary-300 hover:[&_a]:decoration-white"
+        set:html={caption}
+      />
+      {/* Publishing date — visible only on covers wider than 22rem
+          via CSS container query on the figure */}
+      {postDate && (
+        <time
+          class="caption-date hidden flex-none whitespace-nowrap text-xs opacity-70 @[22rem]:block"
+          datetime={postDate.toISOString()}
+        >
+          {postDate.toLocaleDateString('en', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })}
+        </time>
+      )}
+    </figcaption>
+  )}
+
+  {/* Touch info button — shown only on touch/no-hover devices. Tapping it
+      toggles .caption-visible on the figure, making the caption overlay
+      visible without hover. The 44px hit area meets WCAG 2.5.5; the
+      visible disc stays small. Hidden on pointer devices. */}
+  {caption && (
+    <button
+      data-caption-toggle
+      type="button"
+      class="caption-toggle absolute bottom-0 right-0 z-30 hidden size-11 items-center justify-center text-white [@media(hover:none)]:flex group-has-[.lyt-activated]/postimg:hidden! group-has-[.lv-activated]/postimg:hidden!"
+      aria-label={
+        cover.type === 'video' ? 'Show video caption' : 'Show image caption'
+      }
+      aria-expanded="false"
+    >
+      <span class="caption-toggle-icon flex size-7 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm"></span>
+    </button>
+  )}
+</figure>
 
 <style>
   @reference "@styles/theme.css";
-
-  /* Video figcaption stays below the video, no overlay treatment */
-  .video-caption {
-    @apply mt-2 text-sm text-gray-600 dark:text-gray-400;
-    @apply lg:text-base xl:text-lg;
-  }
 
   /* caption-visible toggle is handled via Tailwind's
        group-[.caption-visible]/postimg:opacity-100 on the figcaption */

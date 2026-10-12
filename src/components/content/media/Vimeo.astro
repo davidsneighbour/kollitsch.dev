@@ -117,7 +117,10 @@ if (!videoId) {
 
       const playLabel = document.createElement('span');
       playLabel.className = 'lv-visually-hidden';
-      playLabel.textContent = this.playLabel;
+      playLabel.textContent =
+        this.playLabel === 'Play video'
+          ? this.playLabel
+          : `Play video: ${this.playLabel}`;
       playButton.append(playLabel);
 
       frame.append(picture, playButton);

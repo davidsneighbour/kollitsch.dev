@@ -173,14 +173,15 @@ const posterUrl = posterImage?.src;
         playBtnEl = document.createElement('button');
         playBtnEl.type = 'button';
         playBtnEl.classList.add('lty-playbtn');
-        playBtnEl.classList.add('fill-red-600');
-        playBtnEl.classList.add('hover:fill-red-800');
         this.append(playBtnEl);
       }
       if (!playBtnEl.textContent) {
         const playBtnLabelEl = document.createElement('span');
         playBtnLabelEl.className = 'sr-only';
-        playBtnLabelEl.textContent = this.playLabel;
+        playBtnLabelEl.textContent =
+          this.playLabel === 'Play'
+            ? 'Play video'
+            : `Play video: ${this.playLabel}`;
         playBtnEl.append(playBtnLabelEl);
       }
 

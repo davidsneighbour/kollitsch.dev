@@ -1021,13 +1021,47 @@
       @apply absolute top-0 left-0 h-full w-full border-0;
     }
 
-    /* Play button. */
+    /*
+     * Play button: the whole poster is the hit area; the visible pill is
+     * drawn with pseudo-elements so it can use the video-embed-play-button
+     * token (DESIGN.md) - the same treatment as lite-vimeo.
+     */
     & > .lty-playbtn {
-      @apply absolute z-10 block h-full w-full cursor-pointer border-0;
-      @apply bg-size-[48px_36px] bg-center bg-no-repeat contain-content;
+      @apply absolute inset-0 z-10 block h-full w-full cursor-pointer border-0 bg-transparent p-0;
 
-      /* YouTube's actual play button SVG. */
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23c54109"/><path d="M45 24 27 14v20" fill="%23ffffff"/></svg>');
+      &::before {
+        @apply absolute top-1/2 left-1/2 h-12 w-[4.25rem] -translate-1/2 rounded-xl content-[''];
+
+        background: color-mix(in oklch, var(--color-primary) 82%, var(--color-black));
+        transition:
+          background-color 0.2s ease,
+          scale 0.2s ease;
+      }
+
+      &::after {
+        @apply absolute top-1/2 left-1/2 content-[''];
+
+        border-style: solid;
+        border-width: 10px 0 10px 18px;
+        border-color: transparent transparent transparent var(--color-black);
+        transform: translate(-38%, -50%);
+      }
+
+      &:focus-visible {
+        @apply outline-2 -outline-offset-4 outline-primary-500;
+      }
+    }
+
+    &:hover > .lty-playbtn::before,
+    & > .lty-playbtn:focus-visible::before {
+      background: var(--color-primary);
+      scale: 1.02;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      & > .lty-playbtn::before {
+        transition: none;
+      }
     }
 
     /* Post-click styles. */

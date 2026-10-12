@@ -121,6 +121,34 @@ describe('resolveCover', () => {
       expect(res.video.youtube).toBe('abcd123');
       expect(res.alt).toBe('My Video');
       expect(res.video.params).toEqual({ modestbranding: '1', rel: '0' });
+      expect(res.title).toBeUndefined();
+    }
+  });
+
+  it('video cover renders cover.title as the caption', async () => {
+    vi.doMock('@utils/opengraph.ts', () => ({
+      resolveImageKey: defaultResolveImageKey,
+    }));
+    vi.doMock('markdown-it', () => ({
+      default: function MockMD() {
+        return { renderInline: (s: string) => `<em>${s}</em>` };
+      },
+    }));
+
+    const { resolveCover } = await import('./cover.ts');
+
+    const ctx = { collection: 'blog', id: 'blog/post-3b' } as const;
+    const cover = {
+      title: 'Live at Villain',
+      type: 'video',
+      video: { title: 'My Video', youtube: 'abcd123' },
+    } as const;
+
+    const res = resolveCover(cover, ctx, {});
+    expect(res.type).toBe('video');
+    if (res.type === 'video') {
+      expect(res.title).toBe('<em>Live at Villain</em>');
+      expect(res.alt).toBe('My Video');
     }
   });
 

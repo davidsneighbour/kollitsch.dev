@@ -2,26 +2,33 @@
 title: Article Images (PostImage)
 tags: []
 created: 2026-06-14T00:00:00+07:00
-updated: 2026-09-16T00:00:00+07:00
+updated: 2026-10-12T00:00:00+07:00
 ---
 
-`PostImage.astro` renders the cover media for a blog post or tag page. It handles images, YouTube videos, and Vimeo videos differently, and adds an interactive caption overlay for images.
+`PostImage.astro` renders the cover media for a blog post or tag page. It handles images, YouTube videos, and Vimeo videos in one shared `<figure>` frame (same corners, clipping, aspect ratio, and spacing), and adds the same interactive caption overlay to both cover types.
 
 ## Behaviour
+
+### Shared frame and caption
+
+* Both cover types render inside the same `<figure>`, which carries the corner radius, `overflow-hidden`, the breakout margins, and `transition:name`.
+* The caption comes from `cover.title` for both types. It is skipped when it only repeats the post title.
+* A gradient caption overlay (z-20) sits at the bottom. It is invisible by default and fades in on hover or keyboard focus (desktop), or on tap (touch). It ignores pointer events except on its own links, so it never blocks the cover link or the player.
+* On narrow covers (< 22rem container width) only the caption text is shown. At 22 rem and wider the publishing date appears next to it.
+* On touch/no-hover devices an info button with a 44 px hit area appears in the bottom-right corner (z-30). Tapping it toggles the `.caption-visible` class on the `<figure>`, revealing the overlay without hover.
+* Draft posts show a primary **DRAFT** badge (z-30) in the top-left corner at all times.
 
 ### Images
 
 * The full image is rendered inside a `<figure>` that acts as a CSS container (`@container`).
 * A transparent background `<a>` (z-10) covers the entire figure and links to the post when a `link` prop is passed.
-* A gradient caption overlay (z-20) sits at the bottom. It is invisible by default and fades in on hover (desktop) or on tap (mobile).
 * Caption links are wrapped with `[&_a]:z-30` so they intercept clicks above the background link.
-* On narrow images (< 22rem container width) only the caption text is shown. At 22 rem and wider the publishing date appears next to it.
-* On touch/no-hover devices a small info icon appears in the bottom-right corner (z-30). Tapping it toggles the `.caption-visible` class on the `<figure>`, revealing the overlay without hover.
-* Draft posts show a primary **DRAFT** badge (z-30) in the top-left corner at all times.
 
 ### Videos
 
-Videos keep the existing layout: the caption appears below the player in a plain `<figcaption>`, with no overlay treatment. The draft badge still appears if the post is a draft.
+* The player fills a box with the same size classes as an image cover. There is no background link: the player owns clicks inside the frame.
+* The play button uses the `video-embed-play-button` design token on both YouTube and Vimeo. Its accessible name is "Play video: " followed by `cover.video.title`.
+* The caption overlay and the info button disappear once the player is activated, so they cannot cover the player controls.
 
 ## Adding a cover to a post
 
@@ -50,6 +57,8 @@ If the stable filename is not obvious, decide it before adding or moving the ima
 
 Video covers set `type: video` and take no `src`: the player shows the cached video thumbnail, and social images use the site default image.
 
+For a caption on a video cover, set the top-level `cover.title`, the same field image covers use. `cover.video.title` is only the video title for the play button and the player.
+
 To use a YouTube video as the cover:
 
 ```yaml
@@ -58,7 +67,7 @@ cover:
   type: video
   video:
     youtube: dQw4w9WgXcQ   # video ID only, not the full URL
-    title: "Caption below the video"
+    title: "Video title (play button label)"
     params:
       rel: 0
       modestbranding: 1
@@ -73,7 +82,7 @@ cover:
   type: video
   video:
     vimeo: "1094958124"   # video ID only, not the full URL
-    title: "Caption below the video"
+    title: "Video title (play button label)"
 ---
 ```
 

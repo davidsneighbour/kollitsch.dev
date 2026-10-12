@@ -73,6 +73,7 @@ export interface ResolvedCoverImage {
 export interface ResolvedCoverVideo {
   type: 'video';
   alt: string; // derived from video title
+  title?: string; // inline-rendered HTML caption from cover.title
   video: CoverVideo;
 }
 
@@ -91,7 +92,7 @@ export type CoverObject = ResolvedCoverImage | ResolvedCoverVideo;
  * stripMarkup('<em>Fancy</em>') // -> 'Fancy'
  * ```
  */
-function stripMarkup(input: string): string {
+export function stripMarkup(input: string): string {
   return String(input)
     .replace(/<[^>]*>/g, '')
     .trim();
@@ -191,9 +192,11 @@ export function resolveCover(
   if (cover.type === 'video' && cover.video) {
     const v = cover.video;
     const alt = stripMarkup(v.title || fallbackAlt);
+    const renderedCaption = renderTitleInline(cover.title);
     if (v.vimeo) {
       const result: ResolvedCoverVideo = {
         alt,
+        ...(renderedCaption ? { title: renderedCaption } : {}),
         type: 'video',
         video: {
           platform: 'vimeo',
@@ -216,6 +219,7 @@ export function resolveCover(
       const hasParams = Object.keys(mergedParams).length > 0;
       const result: ResolvedCoverVideo = {
         alt,
+        ...(renderedCaption ? { title: renderedCaption } : {}),
         type: 'video',
         video: {
           platform: 'youtube',

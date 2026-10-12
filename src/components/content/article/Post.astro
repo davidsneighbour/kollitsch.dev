@@ -4,7 +4,6 @@
 
 import type { CollectionEntry } from 'astro:content';
 import PostImage from '@components/content/media/PostImage.astro';
-import PostDateline from '@components/content/metadata/PostDateline.astro';
 import Meta from '@components/content/metadata/PostMeta.astro';
 import ShareSeparator from '@components/content/metadata/ShareSeparator.astro';
 import BreadCrumbs from '@components/content/navigation/BreadCrumbs.astro';
@@ -43,17 +42,13 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
     widths={[640, 896, 1024, 1280, 1536, 1792, 2048]}
     sizes="(min-width: 1536px) 1024px, (min-width: 1024px) 896px, 100vw"
     transitionName={mediaTransitionName}
-    captionDate={false}
+    dateBadge
     priority
-  />
-  <PostDateline
-    post={post}
-    class="mt-4 mb-0"
   />
   <Heading
     level={1}
     link={`/blog/${post.id}/`}
-    class="heading mt-1 text-primary-700 transition-colors duration-300 ease-in-out hover:text-primary-600 dark:text-primary-500"
+    class="heading text-primary-700 transition-colors duration-300 ease-in-out hover:text-primary-600 dark:text-primary-500"
     html={post.data.title}
   />
   {post.data.subtitle && (

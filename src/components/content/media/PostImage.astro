@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import Vimeo from '@components/content/media/Vimeo.astro';
 import Youtube from '@components/content/media/Youtube.astro';
 import { resolveCover, stripMarkup } from '@utils/cover';
+import { getDateline } from '@utils/datetime.ts';
 import { getImageMeta } from '@utils/image-index.ts';
 import { getTailwindSizes } from '@utils/tailwind.ts';
 import type { ImageMetadata } from 'astro';
@@ -20,9 +21,9 @@ export interface Props {
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
   transitionName?: string;
-  // show the publish date in the caption overlay; single post pages turn
-  // this off because they show a dateline above the title instead
-  captionDate?: boolean;
+  // permanent date badge in the bottom-right corner (single post pages);
+  // it gives way to the caption overlay, which repeats the date
+  dateBadge?: boolean;
   // only above-the-fold images, such as article heroes and the first row of
   // listing cards, should set this; everything else should lazy-load
   priority?: boolean;
@@ -39,7 +40,7 @@ const {
   sizes = getTailwindSizes({ base: 3, maxContentWidth: 1280, md: 2, sm: 1 }),
   layout = 'constrained',
   transitionName = '',
-  captionDate = true,
+  dateBadge = false,
   priority = false,
 }: Props = Astro.props;
 
@@ -116,6 +117,10 @@ const cappedImageMeta =
 // Derived state — only available for blog posts
 const isDraft = post.collection === 'blog' && post.data.draft === true;
 const postDate = post.collection === 'blog' ? post.data.date : null;
+const dateline =
+  dateBadge && post.collection === 'blog'
+    ? getDateline(post.data.date, post.data.lastModified)
+    : null;
 
 // Extract rounded-* classes from the image classes so the figure can
 // carry the same rounding, enabling overflow-hidden to clip at the
@@ -224,6 +229,31 @@ const caption = captionRepeatsTitle ? undefined : captionHtml;
     </span>
   )}
 
+  {/* Date badge — always visible, bottom-right. It fades while the caption
+      overlay (which repeats the date) is open, moves left of the touch
+      info button, and hides once a video player is activated. */}
+  {dateline && (
+    <p
+      class:list={[
+        'date-badge pointer-events-none absolute right-3 bottom-3 z-20 m-0 rounded-full bg-black/60 px-3 py-1 text-xs text-white backdrop-blur-sm transition-opacity duration-300 @lg:text-sm',
+        'group-has-[.lyt-activated]/postimg:hidden group-has-[.lv-activated]/postimg:hidden',
+        caption &&
+          'group-hover/postimg:opacity-0 group-focus-within/postimg:opacity-0 group-[.caption-visible]/postimg:opacity-0 [@media(hover:none)]:right-12',
+      ]}
+    >
+      <time datetime={dateline.publishedIso}>{dateline.published}</time>
+      {dateline.updated && (
+        <>
+          <span aria-hidden="true"> · </span>
+          <span>
+            updated{' '}
+            <time datetime={dateline.updatedIso}>{dateline.updated}</time>
+          </span>
+        </>
+      )}
+    </p>
+  )}
+
   {/* Caption overlay — bottom of the cover, visible on hover or keyboard
       focus (desktop) or when .caption-visible is toggled (touch). The
       overlay ignores pointer events except on its links, so it never
@@ -239,7 +269,7 @@ const caption = captionRepeatsTitle ? undefined : captionHtml;
       />
       {/* Publishing date — visible only on covers wider than 22rem
           via CSS container query on the figure */}
-      {captionDate && postDate && (
+      {postDate && (
         <time
           class="caption-date hidden flex-none whitespace-nowrap text-xs opacity-70 @[22rem]:block"
           datetime={postDate.toISOString()}

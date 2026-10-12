@@ -51,6 +51,11 @@ src/config/vale/config/vocabularies/DNB
 # impeccable skill: per-run dated critique reports and hook cache
 .impeccable/critique/
 .impeccable/hook.cache.json
+# impeccable skill: per-developer overrides and live-mode session state
+.impeccable/config.local.json
+.impeccable/live/annotations/
+.impeccable/live/sessions/
+.impeccable/live/roots.json
 
 # Dynamically generated files
 public/_headers

@@ -20,13 +20,13 @@ Value comes from first-hand, tested solutions in Patrick's own voice, published 
 
 ## Operating Context
 
-Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript; deployed to Netlify. Content lives as Markdown/MDX under `src/content/blog`, organised by year. `DESIGN.md` in the repository root is the binding design-token source of truth for this project (see `AGENTS.md`).
+Built with Astro 6 (static output), Tailwind CSS 4, and TypeScript; deployed locally to Cloudflare Workers Static Assets with Wrangler. Content lives as Markdown/MDX under `src/content/blog`, organised by year. `DESIGN.md` in the repository root is the binding design-token source of truth for this project (see `AGENTS.md`).
 
 ## Capabilities and Constraints
 
 - Static site generation via Astro; no dynamic backend/user accounts.
 - Blog is the primary content type; a blogroll and social links list are also maintained as content.
-- `src/pages/about.md` currently exists but is a draft placeholder — no confirmed "About" copy yet.
+- `src/pages/about.md` contains approved first-person About copy; it is still marked `draft: true`, and publishing it is a separate step.
 - Strict British English and a cordial, transactional tone are binding constraints on all copy (per `AGENTS.md`).
 
 ## Brand Commitments
@@ -35,7 +35,7 @@ Name: "KOLLITSCH.dev*" (per existing `DESIGN.md`). No further brand assets, logo
 
 ## Evidence on Hand
 
-Existing blog archive under `src/content/blog/` (multiple years of first-hand technical posts) is the primary evidence of the product's actual content and voice. No testimonials, case studies, or press exist and none should be fabricated. About-page copy is not yet written.
+Existing blog archive under `src/content/blog/` (multiple years of first-hand technical posts) is the primary evidence of the product's actual content and voice. No testimonials, case studies, or press exist and none should be fabricated. Approved About-page copy in `src/pages/about.md` is a reference for Patrick's voice.
 
 ## Product Principles
 

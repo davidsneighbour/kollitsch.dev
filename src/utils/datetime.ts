@@ -106,3 +106,52 @@ export function formatDisplayDate(raw: Date | string | undefined): string {
   }
   return '';
 }
+
+/** Display parts for a post dateline: publish date plus an optional update. */
+export interface Dateline {
+  published: string;
+  publishedIso: string;
+  updated?: string;
+  updatedIso?: string;
+}
+
+const formatDateShort = (date: Date): string =>
+  date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    timeZone: setup.timezone,
+    year: 'numeric',
+  });
+
+const toDayKey = (date: Date): string => formatISO8601Local(date).slice(0, 10);
+
+/**
+ * Build the dateline shown above a post title, such as
+ * "12 October 2026 · updated 3 March 2027". The update is only included
+ * when it falls on a later day than the publish date.
+ *
+ * @example
+ * getDateline(new Date('2026-10-12'), new Date('2027-03-03'))
+ * // → { published: '12 October 2026', updated: '3 March 2027', ... }
+ *
+ * @param date - Publish date
+ * @param lastModified - Optional last modification date
+ * @returns Formatted dateline parts, with ISO dates for `<time datetime>`
+ */
+export function getDateline(date: Date, lastModified?: Date): Dateline {
+  const dateline: Dateline = {
+    published: formatDateShort(date),
+    publishedIso: toDayKey(date),
+  };
+
+  if (
+    lastModified instanceof Date &&
+    !Number.isNaN(lastModified.getTime()) &&
+    toDayKey(lastModified) > dateline.publishedIso
+  ) {
+    dateline.updated = formatDateShort(lastModified);
+    dateline.updatedIso = toDayKey(lastModified);
+  }
+
+  return dateline;
+}

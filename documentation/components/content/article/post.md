@@ -2,10 +2,10 @@
 title: Post
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-08-11T00:00:00+07:00
+updated: 2026-10-12T00:00:00+07:00
 ---
 
-Renders a full blog post: cover image, title, breadcrumbs, rendered content, optional source-code links, share widget, single-post pagination, comments, meta information, and structured data.
+Renders a full blog post: cover image, dateline, title, breadcrumbs, rendered content, optional source-code links, share widget, single-post pagination, comments, meta information, and structured data.
 
 ## File locations
 
@@ -33,7 +33,7 @@ import Post from '@components/content/article/Post.astro';
 
 ## Behaviour
 
-This component has no behaviour of its own; it is a composition root that renders, in order: [`PostImage`](../media/post-image.md) as the cover, a level-1 [`Heading`](../typography/heading.md) (title rendered via `set:html`, since `post.data.title` may contain inline HTML) with an optional subtitle, [`BreadCrumbs`](../navigation/breadcrumbs.md), [`Prose`](../typography/prose.md) for the rendered body, optional [`SourceCode`](../sourcecode/source-code.md) links when `post.data.sourcecode` is present, a [`Komut`](../typography/komut.md) flourish, [`ShareSeparator`](../metadata/share-separator.md), [`PaginationSingle`](../pagenav/pagination-single.md), `Giscus` comments, [`PostMeta`](../metadata/post-meta.md), and the `BlogPosting` schema.
+This component has no behaviour of its own; it is a composition root that renders, in order: [`PostImage`](../media/post-image.md) as the cover (with `captionDate={false}`, so the caption overlay shows no date), a [`PostDateline`](../metadata/post-dateline.md) with the publish and update dates, a level-1 [`Heading`](../typography/heading.md) (title rendered via `set:html`, since `post.data.title` may contain inline HTML) with an optional subtitle, [`BreadCrumbs`](../navigation/breadcrumbs.md), [`Prose`](../typography/prose.md) for the rendered body, optional [`SourceCode`](../sourcecode/source-code.md) links when `post.data.sourcecode` is present, a [`Komut`](../typography/komut.md) flourish, [`ShareSeparator`](../metadata/share-separator.md), [`PaginationSingle`](../pagenav/pagination-single.md), `Giscus` comments, [`PostMeta`](../metadata/post-meta.md), and the `BlogPosting` schema.
 
 The root `<article>` uses the same `transition:name={getPostPreviewTransitionName(post.id)}` value as [`Preview`](preview.md), so opening a preview card morphs the card into the full article surface and browser back/forward can reverse the transition when the originating card is present. The cover `PostImage` receives the matching `getPostPreviewMediaTransitionName(post.id)` value so cover media transitions separately from the shell and keeps `object-fit: cover` during the morph.
 

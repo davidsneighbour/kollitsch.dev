@@ -1,0 +1,31 @@
+---
+// Quiet dateline above a post title: the publish date, plus the last
+// modification when it falls on a later day.
+import type { CollectionEntry } from 'astro:content';
+import { getDateline } from '@utils/datetime.ts';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+  class?: string;
+}
+
+const { post, class: className = '' }: Props = Astro.props;
+const dateline = getDateline(post.data.date, post.data.lastModified);
+---
+
+<p
+  class:list={[
+    'post-dateline font-exo2 text-sm text-gray-600 lg:text-base xl:text-lg dark:text-gray-400',
+    className,
+  ]}
+>
+  <time datetime={dateline.publishedIso}>{dateline.published}</time>
+  {dateline.updated && (
+    <>
+      <span aria-hidden="true"> · </span>
+      <span>
+        updated <time datetime={dateline.updatedIso}>{dateline.updated}</time>
+      </span>
+    </>
+  )}
+</p>

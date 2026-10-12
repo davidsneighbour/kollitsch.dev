@@ -20,6 +20,9 @@ export interface Props {
   sizes?: string;
   layout?: 'fixed' | 'constrained' | 'full-width';
   transitionName?: string;
+  // show the publish date in the caption overlay; single post pages turn
+  // this off because they show a dateline above the title instead
+  captionDate?: boolean;
   // only above-the-fold images, such as article heroes and the first row of
   // listing cards, should set this; everything else should lazy-load
   priority?: boolean;
@@ -36,6 +39,7 @@ const {
   sizes = getTailwindSizes({ base: 3, maxContentWidth: 1280, md: 2, sm: 1 }),
   layout = 'constrained',
   transitionName = '',
+  captionDate = true,
   priority = false,
 }: Props = Astro.props;
 
@@ -235,7 +239,7 @@ const caption = captionRepeatsTitle ? undefined : captionHtml;
       />
       {/* Publishing date — visible only on covers wider than 22rem
           via CSS container query on the figure */}
-      {postDate && (
+      {captionDate && postDate && (
         <time
           class="caption-date hidden flex-none whitespace-nowrap text-xs opacity-70 @[22rem]:block"
           datetime={postDate.toISOString()}

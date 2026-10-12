@@ -28,6 +28,7 @@ Renders a post's or tag's cover, resolving it to either a responsive `<Picture>`
 | `sizes` | `string` | computed via `getTailwindSizes({ base: 3, maxContentWidth: 1280, md: 2, sm: 1 })` | `sizes` attribute for the `<Picture>` |
 | `layout` | `"fixed" \| "constrained" \| "full-width"` | `"constrained"` | Layout mode forwarded to `<Picture>` |
 | `transitionName` | `string` | `""` | Optional shared-element transition name applied to the root media `<figure>` |
+| `captionDate` | `boolean` | `true` | Shows the publish date in the caption overlay. Single post pages set it to `false` because they show a dateline above the title. |
 
 ## Usage
 

@@ -4,6 +4,7 @@ import {
   formatDateLong,
   formatDisplayDate,
   formatISO8601Local,
+  getDateline,
 } from './datetime.ts';
 
 describe('formatISO8601Local', () => {
@@ -90,5 +91,39 @@ describe('formatDisplayDate', () => {
 
   it('returns an empty string for undefined', () => {
     expect(formatDisplayDate(undefined)).toBe('');
+  });
+});
+
+describe('getDateline', () => {
+  it('formats the publish date in British order with an ISO day', () => {
+    const dateline = getDateline(new Date('2026-10-12T05:00:00Z'));
+    expect(dateline).toEqual({
+      published: '12 October 2026',
+      publishedIso: '2026-10-12',
+    });
+  });
+
+  it('adds the update when it falls on a later day', () => {
+    const dateline = getDateline(
+      new Date('2026-10-12T05:00:00Z'),
+      new Date('2027-03-03T05:00:00Z'),
+    );
+    expect(dateline.updated).toBe('3 March 2027');
+    expect(dateline.updatedIso).toBe('2027-03-03');
+  });
+
+  it('omits an update on the same day or earlier', () => {
+    const date = new Date('2026-10-12T05:00:00Z');
+    expect(getDateline(date, new Date('2026-10-12T09:00:00Z')).updated).toBe(
+      undefined,
+    );
+    expect(getDateline(date, new Date('2025-01-01T00:00:00Z')).updated).toBe(
+      undefined,
+    );
+  });
+
+  it('ignores an invalid update date', () => {
+    const date = new Date('2026-10-12T05:00:00Z');
+    expect(getDateline(date, new Date('nope')).updated).toBeUndefined();
   });
 });

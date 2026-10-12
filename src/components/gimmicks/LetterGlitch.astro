@@ -35,7 +35,7 @@ const config = {
 
 <section
   {...rest}
-  class:list={["letter-glitch-band", className]}
+  class:list={['letter-glitch-band', className]}
 >
   <div class="letter-glitch-shell">
     <div
@@ -46,8 +46,12 @@ const config = {
     >
       <canvas class="letter-glitch-canvas"></canvas>
 
-      {outerVignette && <div class="letter-glitch-vignette letter-glitch-vignette-outer" />}
-      {centerVignette && <div class="letter-glitch-vignette letter-glitch-vignette-center" />}
+      {outerVignette && (
+        <div class="letter-glitch-vignette letter-glitch-vignette-outer" />
+      )}
+      {centerVignette && (
+        <div class="letter-glitch-vignette letter-glitch-vignette-center" />
+      )}
     </div>
 
     <div class="letter-glitch-content type-ui">
@@ -75,15 +79,15 @@ const config = {
     overflow: hidden;
     min-height: 24rem;
     border: 1px solid rgb(255 255 255 / 0.1);
-    border-radius: 1.5rem;
-    background: #101010;
+    border-radius: var(--radius-xl);
+    background: var(--color-black);
   }
 
   .letter-glitch-effect {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background: #101010;
+    background: var(--color-black);
   }
 
   .letter-glitch-canvas {
@@ -126,11 +130,10 @@ const config = {
   .letter-glitch-content > :global(*) {
     width: min(100%, 42rem);
     border: 1px solid rgb(255 255 255 / 0.1);
-    border-radius: 1rem;
-    background: color-mix(in srgb, var(--brand-900, #241a38) 85%, transparent);
+    border-radius: var(--radius-xl);
+    background: color-mix(in oklch, var(--color-black) 85%, transparent);
     padding: 2.5rem;
     text-align: center;
-    box-shadow: 0 20px 50px rgb(0 0 0 / 0.35);
     backdrop-filter: blur(12px);
   }
 </style>

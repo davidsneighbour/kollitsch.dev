@@ -1,3 +1,15 @@
 {
-  "buildPath": "code"
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-radius",
+        "value": "1.25rem",
+        "createdAt": "2026-10-12T15:44:58.296Z",
+        "reason": "Agent: TvHead screen radius matches the TV artwork opening; documented exception in DESIGN.md (Gimmick Effects)"
+      }
+    ]
+  }
 }

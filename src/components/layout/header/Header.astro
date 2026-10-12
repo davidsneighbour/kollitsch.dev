@@ -583,7 +583,7 @@ if (!activeItem && import.meta.env.DEV) {
       border-bottom: 1px solid rgb(255 255 255 / 0.2);
       border-bottom-left-radius: 0.75rem;
       border-bottom-right-radius: 0.75rem;
-      box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
+      box-shadow: 0 8px 32px color-mix(in oklch, var(--color-black) 12%, transparent);
 
       /*
        * Interruptible transition, not a one-shot @keyframes: the hamburger is
@@ -613,6 +613,8 @@ if (!activeItem && import.meta.env.DEV) {
 
     [data-theme="dark"] #navigation-and-theme-select {
       border-color: rgb(255 255 255 / 0.08);
+      /* DESIGN.md: dark mode uses outlines, not shadow elevation */
+      box-shadow: none;
     }
 
     #navigation-and-theme-select nav ul {

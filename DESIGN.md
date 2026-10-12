@@ -503,6 +503,8 @@ browser/plugin default (an unstyled white box in both themes).
 
 `TvHead.astro` may use the generated Canvas UI `Glitch` React island (`src/components/gimmicks/glitch.tsx`) for background-image treatment. The plain background image must remain the base layer at `z-index: 0`; the Glitch island is an enhancement with `mix-blend-mode: multiply` at `z-index: 1` that uses a duplicate hidden image source, so a blank or white canvas cannot replace the background image. The Glitch island must not wrap the YouTube player or foreground overlay image. Additional CSS overlays such as `tv-head-effect-static` and tint classes stay in the separate background-effect layer above the Glitch output.
 
+Gimmicks may use geometry that is tied to their artwork rather than the radius scale: the home page `TvHead` screen uses `borderRadius="1.25rem"` so the embedded video's corners match the screen opening in the TV background image (together with the `crop*` offsets). Changing it to a scale value would misalign the video with the artwork, so it is a documented exception. Gimmick colours and tints otherwise use tokens (for example `tv-head-effect-tint-green` uses `primary-500`, `tv-head-effect-tint-blue` uses `information`).
+
 ### Source Code Link Badges
 
 Used to reference source files from blog post frontmatter (see `SourceCodeLink.astro`).

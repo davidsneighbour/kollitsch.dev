@@ -262,7 +262,7 @@ const backgroundWidths = backgroundImage
 
 <div
   id={componentId}
-  class:list={["tv-head", className]}
+  class:list={['tv-head', className]}
   style={shellStyle}
 >
   <div class="tv-head__zoom tv-head__zoom--background">
@@ -305,7 +305,9 @@ const backgroundWidths = backgroundImage
       </Glitch>
     ) : null}
 
-    {hasBackgroundEffect ? <div class:list={["tv-head__background-effect", backgroundEffectClass]} /> : null}
+    {hasBackgroundEffect ? (
+      <div class:list={['tv-head__background-effect', backgroundEffectClass]} />
+    ) : null}
   </div>
 
   <div class="tv-head__zoom tv-head__zoom--foreground">
@@ -324,7 +326,9 @@ const backgroundWidths = backgroundImage
       </div>
     </div>
 
-    {hasForegroundEffect ? <div class:list={["tv-head__foreground-effect", foregroundEffectClass]} /> : null}
+    {hasForegroundEffect ? (
+      <div class:list={['tv-head__foreground-effect', foregroundEffectClass]} />
+    ) : null}
 
     <Image
       class="tv-head__overlay"
@@ -335,7 +339,7 @@ const backgroundWidths = backgroundImage
       sizes={imageSizes}
       widths={overlayWidths}
       quality={75}
-      loading={eager ? "eager" : "lazy"}
+      loading={eager ? 'eager' : 'lazy'}
       decoding="async"
     />
   </div>
@@ -510,7 +514,7 @@ const backgroundWidths = backgroundImage
   }
 
   .tv-head__background-effect.tv-head-effect-tint-blue {
-    background: rgb(120 180 255 / 0.08);
+    background: color-mix(in oklch, var(--color-information) 8%, transparent);
     mix-blend-mode: screen;
   }
 

@@ -16,7 +16,6 @@
         "postinstall:sharedconfig",
         "postinstall:vscode",
         "postinstall:skills",
-        "postinstall:ai",
         "postinstall:favicons"
       ]
     },

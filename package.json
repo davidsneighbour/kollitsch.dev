@@ -136,7 +136,6 @@
     "skills:sync": "node src/scripts/maintenance/skills.ts sync",
     "skills:update": "node src/scripts/maintenance/skills.ts update",
     "postinstall:skills": "wireit",
-    "postinstall:ai": "node src/scripts/maintenance/check-ai-symlink.ts",
     "hooks:update": "simple-git-hooks",
     "postinstall": "wireit",
     "postinstall:favicons": "node ./src/assets/favicon/regenerate.ts",
@@ -400,7 +399,6 @@
         "postinstall:sharedconfig",
         "postinstall:vscode",
         "postinstall:skills",
-        "postinstall:ai",
         "postinstall:favicons"
       ]
     },

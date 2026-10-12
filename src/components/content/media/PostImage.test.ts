@@ -17,4 +17,16 @@ describe('PostImage component (props contract)', () => {
     const regex = /export\s+(?:interface|type)\s+[A-Za-z0-9_]*Props\b/;
     expect(regex.test(src)).toBe(true);
   });
+
+  it('keeps the caption info button keyboard-reachable when there is no cover link', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(
+      path.join(testDir, 'PostImage.astro'),
+      'utf8',
+    );
+
+    // with a link: touch-only button; without: focusable and shown on focus
+    expect(src).toContain("? 'hidden [@media(hover:none)]:flex'");
+    expect(src).toContain('focus-visible:opacity-100');
+  });
 });

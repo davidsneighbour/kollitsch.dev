@@ -289,7 +289,16 @@ const caption = captionRepeatsTitle ? undefined : captionHtml;
     <button
       data-caption-toggle
       type="button"
-      class="caption-toggle absolute bottom-0 right-0 z-30 hidden size-11 items-center justify-center text-white [@media(hover:none)]:flex group-has-[.lyt-activated]/postimg:hidden! group-has-[.lv-activated]/postimg:hidden!"
+      class:list={[
+        'caption-toggle absolute bottom-0 right-0 z-30 size-11 items-center justify-center text-white group-has-[.lyt-activated]/postimg:hidden! group-has-[.lv-activated]/postimg:hidden!',
+        // With a cover link, keyboard users reach the caption through the
+        // link's focus, so the button is a touch-only affordance. Without
+        // one (single post pages), the button is the keyboard path too: it
+        // stays in the tab order and shows on focus or hover.
+        link
+          ? 'hidden [@media(hover:none)]:flex'
+          : 'flex opacity-0 transition-opacity duration-300 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-primary-500 group-hover/postimg:opacity-100 [@media(hover:none)]:opacity-100',
+      ]}
       aria-label={
         cover.type === 'video' ? 'Show video caption' : 'Show image caption'
       }

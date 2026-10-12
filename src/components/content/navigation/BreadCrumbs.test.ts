@@ -77,4 +77,19 @@ describe('stripHtmlTags', () => {
       'Keeping engines.node aligned with the Node release schedule',
     );
   });
+
+  it('keeps leading crumbs at full width so only the last one truncates', async () => {
+    const src = await fs.readFile(
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        'BreadCrumbs.astro',
+      ),
+      'utf8',
+    );
+
+    expect(src).toContain('<span class="inline-flex shrink-0">');
+    expect(src).toContain(
+      "class={isLast ? 'line-clamp-1 min-w-0 shrink' : 'shrink-0'}",
+    );
+  });
 });

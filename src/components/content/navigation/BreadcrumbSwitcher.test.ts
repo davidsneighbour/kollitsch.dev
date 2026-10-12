@@ -87,4 +87,9 @@ describe('BreadcrumbSwitcher component', () => {
     expect(src).toContain('transition-duration: 0.01ms;');
     expect(src).toContain('transform: none;');
   });
+
+  it('gives the toggle at least a 24 px box (WCAG 2.2 SC 2.5.8)', async () => {
+    await load();
+    expect(src).toMatch(/min-h-6 min-w-6[^"]*items-center justify-center/);
+  });
 });

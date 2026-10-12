@@ -64,4 +64,9 @@ describe('NavItem component', () => {
     );
     expect(src).toContain('data-nav-dismiss-init');
   });
+
+  it('gives the toggle at least a 24 px box (WCAG 2.2 SC 2.5.8)', async () => {
+    await load();
+    expect(src).toMatch(/min-h-6 min-w-6[^"]*items-center justify-center/);
+  });
 });

@@ -287,7 +287,7 @@ const shatterLetters = letters.map((letter, index) => {
     animation-range: exit var(--shatter-in-start) exit var(--shatter-in-end);
   }
 
-  :where([data-theme="dark"]) .site-title-shatter {
+  :global(:where([data-theme="dark"])) .site-title-shatter {
     color: var(--color-primary-600);
   }
 

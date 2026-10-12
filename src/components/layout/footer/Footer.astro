@@ -267,7 +267,7 @@ const introFallbackHtml = md.renderInline(introFallback);
       --footer-badge-color: var(--color-primary-700);
     }
 
-    :where([data-theme="dark"]) footer {
+    :global(:where([data-theme="dark"])) footer {
       --footer-wordmark-color: var(--color-primary-600);
       --footer-badge-color: var(--color-primary-600);
     }
@@ -281,7 +281,7 @@ const introFallbackHtml = md.renderInline(introFallback);
       color: var(--color-primary-600);
     }
 
-    :where([data-theme="dark"]) .people-pledge-badge:hover {
+    :global(:where([data-theme="dark"])) .people-pledge-badge:hover {
       color: var(--color-primary-400);
     }
 
@@ -313,7 +313,7 @@ const introFallbackHtml = md.renderInline(introFallback);
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    :where([data-theme="dark"]) :global(.dnb-wordmark:hover) {
+    :global(:where([data-theme="dark"])) :global(.dnb-wordmark:hover) {
       --footer-wordmark-color: var(--color-primary-400);
     }
 

@@ -553,6 +553,7 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 ## Do's and Don'ts
 
 * **Do** use `font-changa` only for headings and display text - never for body copy or code.
+* **Do** write theme overrides in scoped Astro `<style>` blocks as `:global(:where([data-theme="dark"])) .selector`. **Don't** write `:where([data-theme="dark"]) .selector` there: Astro scopes the ancestor too (`[data-astro-cid-…]:where(…)`), and `<html>` never carries the scope id, so the dark rule silently never applies.
 * **Do** apply the primary color exclusively to interactive primary actions (CTAs, hover states). One per screen is ideal.
 * **Don't** add box-shadows in dark mode - use `outline outline-white/10` to define surfaces instead.
 * **Do** maintain WCAG AA contrast (4.5:1 for normal text). The `on-surface` / `on-surface-dark` tokens are calibrated for this.

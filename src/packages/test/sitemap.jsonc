@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "fast-xml-parser": "5.11.1",
-    "playwright": "1.63.0"
+    "fast-xml-parser": "5.11.2",
+    "playwright": "1.64.0"
   },
   "scripts": {
     "test:sitemap": "node src/scripts/linting/verify-sitemap.ts --sitemap-index https://kollitsch.dev/sitemap-index.xml --delay-ms 1000"

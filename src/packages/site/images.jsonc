@@ -3,8 +3,8 @@
     "brace-expansion": "5.0.12",
     "@resvg/resvg-js": "2.6.2",
     "@types/he": "1.2.3",
-    "he": "1.2.0",
-    "satori": "0.33.4",
+    "he": "2.0.0",
+    "satori": "0.51.0",
     "satori-html": "0.3.2"
   },
   "scripts": {

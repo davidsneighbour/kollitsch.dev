@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@lucide/astro": "1.47.0",
+    "@lucide/astro": "1.55.0",
     "simple-icons-astro": "16.1.0"
   }
 }

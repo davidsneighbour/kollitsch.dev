@@ -4,7 +4,6 @@
 
 import { playwright } from '@vitest/browser-playwright';
 import { getViteConfig } from 'astro/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 const enableBrowserProject = process.env.VITEST_BROWSER === 'true';
 
@@ -63,8 +62,9 @@ const testProjects = [
  */
 // @ts-expect-error Astro config's getViteConfig has wrong types
 export default getViteConfig({
-  // @ts-expect-error another issue in connection with Astro's config
-  plugins: [tsconfigPaths()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   test: {
     coverage: {
       include: ['src/**.{js,jsx,ts,tsx}'],

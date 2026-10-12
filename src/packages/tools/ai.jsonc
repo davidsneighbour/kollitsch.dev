@@ -1,8 +1,8 @@
 {
   "devDependencies": {
-    "@playwright/mcp": "0.0.82",
-    "chrome-devtools-mcp": "1.9.0",
-    "mcp-remote": "0.14.2"
+    "@playwright/mcp": "0.0.83",
+    "chrome-devtools-mcp": "1.10.1",
+    "mcp-remote": "0.14.3"
   },
   "scripts": {
     "audit:agent-ready": "node src/scripts/linting/agent-ready-audit.ts",

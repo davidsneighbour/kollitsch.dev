@@ -10,4 +10,5 @@ Key content references include [Frontmatter](content/frontmatter.md),
 [Tags](content/tags.md), draft visibility, feed headers,
 [component development](development/components.md),
 [release scripts](setup/release.md), [deployment](setup/deployment.md), and
-[agents and LLM readiness](content/agents-and-llm.md).
+[agents and LLM readiness](content/agents-and-llm.md), and
+[SocialSpec well-known files](content/socialspec.md).

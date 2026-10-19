@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 
-import { headerRules } from './headers.ts';
+import { headerRules, moduleHeaderRules } from './headers.ts';
 import { renderHeaders } from '../scripts/build/build-headers.ts';
 
 describe('headerRules homepage agent discovery', () => {
@@ -47,5 +47,20 @@ describe('headerRules homepage agent discovery', () => {
 
     expect(wildcardLinkIndex).toBeGreaterThanOrEqual(0);
     expect(homepageLinkIndex).toBeGreaterThan(wildcardLinkIndex);
+  });
+});
+
+describe('moduleHeaderRules SocialSpec files', () => {
+  it.each([
+    ['/.well-known/following.opml', 'text/x-opml; charset=utf-8'],
+    ['/.well-known/about.md', 'text/markdown; charset=utf-8'],
+    ['/.well-known/contact.vcf', 'text/vcard; charset=utf-8'],
+  ])('serves %s with its media type and open CORS', (path, contentType) => {
+    const rule = moduleHeaderRules.find((entry) => entry.path === path);
+    const header = (name: string): string | undefined =>
+      rule?.headers.find((entry) => entry.name === name)?.value;
+
+    expect(header('Content-Type')).toBe(contentType);
+    expect(header('Access-Control-Allow-Origin')).toBe('*');
   });
 });

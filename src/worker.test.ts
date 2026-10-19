@@ -25,3 +25,25 @@ describe('worker hostname handling', () => {
     await expect(response.text()).resolves.toBe('asset response');
   });
 });
+
+describe('worker SocialSpec CORS preflight', () => {
+  it('answers OPTIONS for SocialSpec files with CORS headers', async () => {
+    const response = await worker.fetch(
+      new Request('https://kollitsch.dev/.well-known/following.opml', { method: 'OPTIONS' }),
+      env,
+    );
+
+    expect(response.status).toBe(204);
+    expect(response.headers.get('access-control-allow-origin')).toBe('*');
+    expect(response.headers.get('access-control-allow-headers')).toContain('If-None-Match');
+  });
+
+  it('serves GET for SocialSpec files from static assets', async () => {
+    const response = await worker.fetch(
+      new Request('https://kollitsch.dev/.well-known/contact.vcf'),
+      env,
+    );
+
+    await expect(response.text()).resolves.toBe('asset response');
+  });
+});

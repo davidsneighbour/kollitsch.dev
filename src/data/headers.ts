@@ -1,3 +1,5 @@
+import { SOCIALSPEC_CORS_HEADERS, SOCIALSPEC_FILES } from '../utils/socialspec.pure.ts';
+
 export interface HeaderEntry {
   name: string;
   value: string;
@@ -206,5 +208,24 @@ export const moduleHeaderRules: PathRule[] = [
       { name: 'Accept-Encoding', value: 'gzip, deflate, br' },
       { name: 'Content-Type', value: 'application/json; charset=utf-8' },
     ],
+  },
+  ...Object.values(SOCIALSPEC_FILES).map(
+    (file): PathRule => ({
+      path: file.path,
+      comment:
+        'SocialSpec file (https://socialspec.org/), readable from any origin. ' +
+        'CORS preflight requests are answered in src/worker.ts.',
+      headers: [
+        { name: 'Content-Type', value: file.contentType },
+        ...Object.entries(SOCIALSPEC_CORS_HEADERS).map(([name, value]) => ({ name, value })),
+      ],
+    }),
+  ),
+  {
+    path: '/.well-known/avatar',
+    comment:
+      'The avatar has no file extension, so Cloudflare sends no Content-Type. ' +
+      'contact.vcf and about.md use this URL as the profile image.',
+    headers: [{ name: 'Content-Type', value: 'image/png' }],
   },
 ];

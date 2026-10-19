@@ -15,7 +15,8 @@ Two arrays of `PathRule` objects:
 
 * `headerRules` - the site's base rules, including security headers, `Cache-Control` for static assets, homepage `Link` discovery headers, Markdown alternate discovery for blog posts, and CORS for the Giscus theme stylesheet.
 * `moduleHeaderRules` - rules contributed by specific site features (feeds,
-  etc.), kept separate so they render under their own labelled section in the
+  the [SocialSpec well-known files](socialspec.md), the extensionless
+  `/.well-known/avatar` content type, etc.), kept separate so they render under their own labelled section in the
   generated file.
 
 A `PathRule` looks like:

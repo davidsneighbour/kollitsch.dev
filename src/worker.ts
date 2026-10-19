@@ -1,3 +1,5 @@
+import { isSocialSpecPath, SOCIALSPEC_CORS_HEADERS } from './utils/socialspec.pure.ts';
+
 interface AssetFetcher {
   fetch(request: Request): Promise<Response>;
 }
@@ -193,6 +195,12 @@ export default {
 
     if (url.pathname === contactPath) {
       return sendContactEmail(request, env);
+    }
+
+    // Static assets do not answer OPTIONS. SocialSpec clients may send
+    // `If-None-Match`, which is not CORS-safelisted and triggers a preflight.
+    if (request.method === 'OPTIONS' && isSocialSpecPath(url.pathname)) {
+      return new Response(null, { status: 204, headers: SOCIALSPEC_CORS_HEADERS });
     }
 
     return env.ASSETS.fetch(request);

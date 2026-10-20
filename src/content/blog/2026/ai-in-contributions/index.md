@@ -8,7 +8,7 @@ tags:
   - llm
   - open-source
 cover:
-  src: postimages/postimage-for-ai-in-contributions.jpg
+  src: postimages/postimage-for-ai-contributions-series.jpg
   type: image
   title: Just an AI.
 date: 2026-03-21T04:00:00.000Z
@@ -17,6 +17,8 @@ date: 2026-03-21T04:00:00.000Z
 Over the past two years I looked into use cases for AI and slowly got acclimated with the fact that it is here to stay. I normally sit out anything new and wait until the rules are written, the facts are stated, and we know for sure it's not a waste of time (looking at all the block chain applications and NFTs out there). But as I am a member of the 50+ club now I just don't care anymore and will be posting every now and then about things that I do not fully understand. I will also apply my own biases and opinions as if they were the absolute truth. Like a vegan.
 
 The following is a short notice for my CONTRIBUTING.md in various projects where I state some things about AI usage in contributions and communication on these projects. I think that is something that will become common sense in many open source projects and will make it easier to deal with sloppy contributions without opening up a flame war each time it happens.
+
+**Update, 20 October 2026:** I have since compared this policy with the ready-made options on ai-policy.dev. The [follow-up explains what I kept, what I changed, and why the AI may submit a contribution but cannot be responsible for it](/blog/2026/the-ai-can-submit-it-you-still-own-it/).
 
 ---
 

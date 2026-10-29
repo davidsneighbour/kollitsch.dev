@@ -13,13 +13,16 @@
     "run_worker_first": true
   },
   "send_metrics": false,
+  // Workers Logs and traces are off: the worker runs first for every request
+  // and filled the daily observability quota. `wrangler tail` still works.
   "observability": {
-    "enabled": true,
+    "enabled": false,
     "logs": {
-      "enabled": true
+      "enabled": false,
+      "invocation_logs": false
     },
     "traces": {
-      "enabled": true
+      "enabled": false
     }
   },
   // cloudflare will ask for these and they are in .env or need to be recreated

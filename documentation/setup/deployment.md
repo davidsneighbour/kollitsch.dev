@@ -23,6 +23,7 @@ The production Worker is configured in [`wrangler.jsonc`](../../wrangler.jsonc):
 - `assets.html_handling` is `auto-trailing-slash`, matching Astro's directory-style output.
 - `assets.not_found_handling` is `404-page`, so Cloudflare serves the generated `404.html` for missing assets.
 - `assets.run_worker_first` is enabled, so the Worker can redirect `www.kollitsch.dev` requests before handing ordinary static page and asset requests to the `ASSETS` binding.
+- `observability` (Workers Logs and traces) is disabled. The Worker runs for every request, so logging filled the daily observability quota. The contact form does not need it to send email. Use `npx wrangler tail` for live debugging; `console.error` output from `src/worker.ts` still shows there.
 
 Cloudflare DNS is already the zone authority. The canonical hostname remains the apex domain, `kollitsch.dev`, but the default local deploy does not update custom-domain routes or DNS records. Attach the Worker to the apex hostname separately in Cloudflare once the upload path is known-good.
 

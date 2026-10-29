@@ -34,6 +34,7 @@ Worker secrets (`RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`) are declared in `w
 - `wrangler.jsonc` configures the `kollitsch-dev` Worker (`src/worker.ts`) with Static Assets from `dist/`.
 - `assets.html_handling = "auto-trailing-slash"` keeps Astro's directory-style URLs.
 - `assets.run_worker_first` is `true`: the Worker sees every request, redirects `www.kollitsch.dev` to `kollitsch.dev` (301), handles `/api/send-email`, and passes everything else to the `ASSETS` binding.
+- `observability` is disabled (logs, invocation logs, and traces) to stay below the daily Workers Logs limit. Do not enable it again without asking.
 - Cloudflare DNS hosts the zone. Keep `kollitsch.dev` and `www.kollitsch.dev` attached to the Worker through Cloudflare Domains & Routes, so routine deploys do not reconcile DNS.
 - Cloudflare provides agent-readable documentation at [https://developers.cloudflare.com/docs-for-agents/](https://developers.cloudflare.com/docs-for-agents/). Use the installed Cloudflare skills for hosting tasks.
 

@@ -443,6 +443,9 @@ async function main(): Promise<void> {
     const problems = missing.length + stale.length + orphans.length;
     if (problems > 0) {
       console.error(`\n✖ ${problems} social-image issue(s) found.`);
+      console.error(
+        'Run `npm run build:ogimages` and commit the result before deploying. Drafts are checked too.',
+      );
       process.exit(1);
     }
     console.log(`✔ All ${results.length} social images are present and current.`);

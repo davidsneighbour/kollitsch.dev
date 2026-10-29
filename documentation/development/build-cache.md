@@ -31,7 +31,7 @@ npm run build:ogimages -- --check                    # validate only, no writes;
 npm run build:ogimages -- --file="src/content/blog/2026/example/index.md"  # one or more specific posts
 ```
 
-`--check` is wired into `npm run check` (via the `check:ogimages` wireit task), so a CI run that calls `npm run check` catches missing/stale/orphaned social images.
+`--check` is wired into `npm run check` (via the `check:ogimages` wireit task), so a CI run that calls `npm run check` catches missing/stale/orphaned social images. On failure it prints a hint to run `npm run build:ogimages` and commit the result before deploying.
 
 Staleness is tracked in a fingerprint manifest at `.cache/social-images/manifest.json` (not tracked in Git) rather than in the filename, since filenames are deterministic. The fingerprint covers title, publish/modified date, resolved background image, dimensions, format, and a `TEMPLATE_VERSION` constant in `src/utils/social-image/template.ts` — bump that constant after any visual change to invalidate every existing image.
 

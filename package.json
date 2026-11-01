@@ -567,7 +567,7 @@
     "lighthouse": "13.5.0",
     "fast-xml-parser": "5.11.2",
     "playwright": "1.64.0",
-    "@axe-core/playwright": "4.13.0",
+    "@axe-core/playwright": "4.14.0",
     "@playwright/test": "1.64.0",
     "@vitest/browser-playwright": "5.0.4",
     "@vitest/coverage-v8": "5.0.4",

@@ -479,7 +479,7 @@
     "release-it": "21.1.1",
     "@dnbhq/release-config": "2.0.0",
     "@vitejs/plugin-basic-ssl": "2.3.0",
-    "@biomejs/biome": "2.5.15",
+    "@biomejs/biome": "2.6.4",
     "cspell": "10.3.6",
     "html-validate": "11.16.2",
     "@davidsneighbour/imagemin-lint-staged": "3.0.2",

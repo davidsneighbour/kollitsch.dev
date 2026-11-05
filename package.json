@@ -598,7 +598,7 @@
   "dependencies": {
     "@dnbhq/wordmark": "2.0.5",
     "@codesandbox/sandpack-react": "2.20.0",
-    "@astrojs/react": "7.0.1",
+    "@astrojs/react": "7.1.2",
     "@radix-ui/react-slot": "1.5.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",

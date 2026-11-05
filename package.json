@@ -604,7 +604,7 @@
     "clsx": "2.1.1",
     "lucide-react": "1.55.0",
     "radix-ui": "1.8.0",
-    "react": "19.3.0",
+    "react": "19.3.1",
     "react-dom": "19.3.0",
     "tailwind-merge": "3.7.0"
   },

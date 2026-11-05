@@ -9,6 +9,15 @@
         "value": "1.25rem",
         "createdAt": "2026-10-12T15:44:58.296Z",
         "reason": "Agent: TvHead screen radius matches the TV artwork opening; documented exception in DESIGN.md (Gimmick Effects)"
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/utils/code-playground.pure.test.ts"
+        ],
+        "createdAt": "2026-11-05T21:24:06.292Z",
+        "reason": "assistant: XSS escaping fixture string inside a unit test, not rendered markup"
       }
     ]
   }

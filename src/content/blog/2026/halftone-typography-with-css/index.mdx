@@ -1,0 +1,56 @@
+---
+fmContentType: blog
+title: Halftone typography with CSS gradients
+description: Fill a heading with a printed dot pattern using a repeating radial gradient and background-clip text, and try every setting in an editable example.
+summary: A halftone dot pattern for display type needs one radial gradient, a background size, and background-clip text. The example below is editable, so you can change the code or use the controls and see the result straight away.
+date: 2026-11-06T10:00:00+07:00
+draft: true
+tags:
+  - css
+  - typography
+  - code-playground
+---
+
+import CodePlayground from "@components/content/sourcecode/CodePlayground.astro";
+
+Halftone printing builds an image from dots of one ink colour. Larger or denser dots read as darker areas, smaller or sparser dots as lighter areas. For display type, the same look needs no image at all: a repeating radial gradient creates the dots, and `background-clip: text` limits them to the shape of the letters.
+
+The heading in the example stays real text. Screen readers announce it, you can select and copy it, and search engines index it. Only its fill changes.
+
+<CodePlayground leaf="2026/halftone-typography-with-css" example="halftone" />
+
+## How the pattern works
+
+One dot is a `radial-gradient()` that's solid ink up to the dot radius and transparent half a pixel later. The half pixel softens the edge, so the dots don't look jagged:
+
+```css
+background-image: radial-gradient(
+  circle at center,
+  var(--ink) var(--dot-radius),
+  transparent calc(var(--dot-radius) + 0.5px)
+);
+background-size: var(--dot-spacing) var(--dot-spacing);
+```
+
+`background-size` sets the size of one cell, and the background repeats that cell in both directions. The dot spacing is therefore the cell size, and the dot radius must stay below half of it. At half the cell size, neighbouring dots touch and the pattern turns into a solid fill with small holes. The example clamps the radius in its controls and again in `index.js`.
+
+To clip the pattern to the glyphs, the text colour becomes transparent and the background is clipped to the text:
+
+```css
+background-clip: text;
+color: transparent;
+```
+
+## Keep a readable fallback
+
+Transparent text without a clipped background is invisible. The example only sets `color: transparent` inside an `@supports` block, so a browser without `background-clip: text` shows solid text in the ink colour. The "Solid text" control switches to the same fallback on purpose, which is useful for comparing the two.
+
+Contrast is the other risk. The dots cover only part of each glyph, so the effective contrast of halftone text is lower than the contrast of the ink colour alone. Use the effect for large display type, keep the ink dark on a light paper colour (or the reverse), and don't use it for body text.
+
+## Motion
+
+The "Animate" control moves the pattern diagonally by one cell, which makes it loop without a visible jump. The animation only runs when your system doesn't request reduced motion, it pauses with the "Pause animation" control, and it also pauses while the preview is scrolled out of view.
+
+## About the example
+
+You can edit the HTML, CSS, JavaScript, and the state file. The controls change only `playground-state.json`, and `index.js` applies that state as CSS custom properties and as the heading text. Because the state is an ordinary file, copying the files gives you exactly what you see. The preview runs in a sandboxed frame without network access, so it can't load remote fonts or images.

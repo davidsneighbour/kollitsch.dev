@@ -1,0 +1,69 @@
+:root {
+  --dot-spacing: 8px;
+  --dot-radius: 2px;
+  --sample-size: 96px;
+  --ink: #202020;
+  --paper: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.halftone {
+  margin: 0;
+  max-width: 100%;
+  font-size: var(--sample-size);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  /* Fallback: solid text in the ink colour. */
+  color: var(--ink);
+}
+
+/* Only make the text transparent where the gradient can be clipped to it. */
+@supports (background-clip: text) {
+  .halftone:not(.is-solid) {
+    background-image: radial-gradient(
+      circle at center,
+      var(--ink) var(--dot-radius),
+      transparent calc(var(--dot-radius) + 0.5px)
+    );
+    background-size: var(--dot-spacing) var(--dot-spacing);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes drift {
+  to {
+    background-position: var(--dot-spacing) var(--dot-spacing);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .halftone.is-animated:not(.is-solid) {
+    animation: drift 1.5s linear infinite;
+  }
+
+  .halftone.is-animated.is-paused,
+  :root[data-playground-hidden] .halftone {
+    animation-play-state: paused;
+  }
+}

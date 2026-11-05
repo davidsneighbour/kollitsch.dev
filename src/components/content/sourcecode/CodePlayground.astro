@@ -1,0 +1,81 @@
+---
+/**
+ * Editable code playground for one example stored next to a blog post in
+ * `src/content/blog/<leaf>/examples/<example>/`. Renders the title, the
+ * description, and the static source at build time, and hydrates the
+ * interactive shell (`CodePlaygroundIsland.tsx`) when it scrolls into view.
+ */
+import { loadPlayground } from '@utils/code-playground.ts';
+import { Code } from 'astro-expressive-code/components';
+import CodePlaygroundIsland from './CodePlaygroundIsland.tsx';
+
+export interface Props {
+  /** Post leaf, `<year>/<post-slug>`, for example `2026/my-post`. */
+  leaf: string;
+  /** Directory name below the post's `examples/` folder. */
+  example: string;
+  /** Heading level of the playground title. */
+  headingLevel?: 2 | 3 | 4;
+  /** Extra CSS classes on the outer `<section>`. */
+  class?: string;
+}
+
+const { leaf, example, headingLevel = 3, class: className } = Astro.props;
+
+const descriptor = await loadPlayground(leaf, example);
+const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
+const titleId = `${descriptor.anchorId}-title`;
+
+const languages: Record<string, string> = {
+  css: 'css',
+  html: 'html',
+  js: 'js',
+  json: 'json',
+};
+const sourceFiles = descriptor.files
+  .filter((file) => !file.hidden)
+  .map((file) => ({
+    code: file.code,
+    lang: languages[file.path.split('.').pop() ?? ''] ?? 'text',
+    name: file.path.slice(1),
+  }));
+---
+
+<section
+  id={descriptor.anchorId}
+  aria-labelledby={titleId}
+  class:list={[
+    'not-prose my-8 grid gap-4 rounded-lg bg-card p-4 text-sm text-card-foreground ring-1 ring-gray-900/10 sm:p-6 md:text-base dark:bg-black/20 dark:text-gray-200 dark:ring-gray-100/10',
+    className,
+  ]}
+>
+  <div class="grid gap-1">
+    <Heading
+      id={titleId}
+      class="font-changa text-2xl"
+    >
+      <a
+        href={`#${descriptor.anchorId}`}
+        class="heading-link"
+        >{descriptor.title}</a
+      >
+    </Heading>
+    <p class="text-muted-foreground">{descriptor.description}</p>
+  </div>
+
+  <CodePlaygroundIsland
+    client:visible
+    descriptor={descriptor}
+  >
+    <details class="group grid gap-3">
+      <summary class="cursor-pointer text-sm">
+        Source files ({sourceFiles.map((file) => file.name).join(', ')})
+      </summary>
+      <div class="mt-3 grid gap-3">
+        {sourceFiles.map((file) => (
+          <Code code={file.code} lang={file.lang} title={file.name} />
+        ))}
+      </div>
+    </details>
+  </CodePlaygroundIsland>
+</section>

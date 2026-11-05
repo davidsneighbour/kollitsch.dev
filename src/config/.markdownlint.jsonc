@@ -42,6 +42,7 @@
   "MD033": {
     "allowed_elements": [
       "broken-link",
+      "CodePlayground",
       "date-diff",
       "SpotifyAlbum",
       "Youtube",

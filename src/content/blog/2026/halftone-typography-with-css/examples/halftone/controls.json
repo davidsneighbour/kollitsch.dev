@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "controls": [
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Sample text",
+      "maxLength": 80
+    },
+    {
+      "id": "dotSpacing",
+      "type": "range",
+      "label": "Dot spacing",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "dotRadius",
+      "type": "range",
+      "label": "Dot radius",
+      "help": "Stays below half of the dot spacing, so neighbouring dots never merge.",
+      "min": 0.5,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "below": { "id": "dotSpacing", "factor": 0.5 }
+    },
+    {
+      "id": "typeSize",
+      "type": "range",
+      "label": "Type size",
+      "min": 32,
+      "max": 180,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "ink",
+      "type": "colour",
+      "label": "Ink"
+    },
+    {
+      "id": "paper",
+      "type": "colour",
+      "label": "Paper",
+      "help": "You can pick unreadable ink and paper combinations. The defaults are high contrast."
+    },
+    {
+      "id": "solid",
+      "type": "switch",
+      "label": "Solid text"
+    },
+    {
+      "id": "animate",
+      "type": "switch",
+      "label": "Animate",
+      "help": "The pattern only moves when your system does not request reduced motion."
+    },
+    {
+      "id": "paused",
+      "type": "toggle",
+      "label": "Pause animation",
+      "when": "animate"
+    }
+  ]
+}

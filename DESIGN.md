@@ -272,6 +272,13 @@ components:
     padding: "6px 12px"
   source-code-badge-hover:
     backgroundColor: "{colors.surface}"
+  code-playground:
+    backgroundColor: "{colors.surface-raised}"
+    textColor: "{colors.on-surface}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.lg}"
+  code-playground-pane:
+    rounded: "{rounded.md}"
   post-preview-transition:
     duration: "420ms"
     easing: "cubic-bezier(0.19, 1, 0.22, 1)"
@@ -512,6 +519,14 @@ Used to reference source files from blog post frontmatter (see `SourceCodeLink.a
 Block mode (standalone): bordered chip with icon + mono filename label, `rounded-md`, `px-3 py-1.5`
 
 Inline mode: underline-on-hover pattern, no border, fits within prose text
+
+### Code Playground
+
+`CodePlayground.astro` (with `CodePlaygroundIsland.tsx`) uses the card treatment: `code-playground` is `bg-card` with `rounded-lg`, `ring-1 ring-gray-900/10` in light mode and the `dark:bg-black/20 dark:ring-gray-100/10` overlay in dark mode, `p-4 sm:p-6`. Its chrome is set in `text-sm` regardless of the article's responsive body size. The editor and preview panes (`code-playground-pane`) are `rounded-md` with a `border-border` outline (`border` in light mode, `border-dark` in dark mode), inside the `rounded-lg` card, so the radii never match on nested containers.
+
+Toolbar buttons reuse the shadcn `Button` recipe (`src/components/shared/elements/button.tsx`); fields reuse the `Input` recipe. Selected states (active layout mode, switches, pressed toggles, slider accent) use `primary-700` in light mode and `primary-500` in dark mode. Errors use the semantic danger state (red), missing-hook warnings the warning state (amber).
+
+The preview iframe always has a white background: it shows the example's own colours, not the site theme. The editor's syntax colours mirror the Expressive Code themes (`dracula` in dark mode, `light-plus` in light mode) and follow `data-code-theme`. Like all syntax highlighting they are independent of the site palette and live in `PlaygroundEditor.tsx`, not in this file; comment and inactive-tab colours are raised to at least 4.5:1 contrast.
 
 ### Links (prose)
 

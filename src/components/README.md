@@ -11,8 +11,8 @@ for the rules that keep it that way.
 * `content/` - pieces that render long-form content: `article/` (post rendering),
   `links/` (editorial link annotations), `media/` (image/video embeds),
   `metadata/` (author, publish date, tags, share links), `navigation/`
-  (breadcrumbs and pagination), `sourcecode/` (code block rendering),
-  `taxonomy/` (tag lists, tag clouds, tag filtering), and `typography/`
+  (breadcrumbs and pagination), `sourcecode/` (code block rendering, source
+  links, and the editable `CodePlayground`), `taxonomy/` (tag lists, tag clouds, tag filtering), and `typography/`
   (headings, prose wrapper). `ColorGrid.astro` sits directly in `content/` as a
   one-off content block.
 * `layout/` - building blocks that make up the global shell: `head/` (document

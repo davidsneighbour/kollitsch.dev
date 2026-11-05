@@ -1,0 +1,8 @@
+{
+  // Editable code playground (src/components/content/sourcecode/CodePlayground.*).
+  // Sandpack supplies the editor, file tabs, and file state. Its hosted preview
+  // runtime is not used; previews run in a local sandboxed srcdoc iframe.
+  "dependencies": {
+    "@codesandbox/sandpack-react": "2.20.0"
+  }
+}

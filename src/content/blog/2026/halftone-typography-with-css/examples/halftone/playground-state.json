@@ -1,0 +1,11 @@
+{
+  "text": "HALFTONE",
+  "dotSpacing": 8,
+  "dotRadius": 2,
+  "typeSize": 96,
+  "ink": "#202020",
+  "paper": "#ffffff",
+  "solid": false,
+  "animate": false,
+  "paused": false
+}

@@ -530,7 +530,7 @@
     "astro-expressive-code": "0.44.2",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",
-    "js-yaml": "5.4.3",
+    "js-yaml": "5.5.0",
     "remark-definition-list": "2.0.1",
     "remark-kbd-nested": "0.6.1",
     "tailwindcss": "4.3.3",

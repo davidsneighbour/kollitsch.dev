@@ -12,6 +12,7 @@ cover:
   type: image
   title: Just an AI.
 date: 2026-10-20T00:00:00.000+07:00
+draft: true
 ---
 
 In March I published my [policy and guidelines for AI-based contributions](/blog/2026/ai-in-contributions/). The basic rule was simple: use whatever tools help you, but do not hand your responsibility to them.

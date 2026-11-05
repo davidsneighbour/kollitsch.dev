@@ -1,0 +1,12 @@
+{
+  "text": "STRIPES",
+  "stripeWidth": 3,
+  "stripeGap": 3,
+  "angle": 45,
+  "typeSize": 96,
+  "ink": "#202020",
+  "paper": "#ffffff",
+  "solid": false,
+  "animate": false,
+  "paused": false
+}

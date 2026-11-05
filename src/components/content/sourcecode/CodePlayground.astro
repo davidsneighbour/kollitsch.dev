@@ -43,6 +43,7 @@ const sourceFiles = descriptor.files
 
 <section
   id={descriptor.anchorId}
+  data-playground-example={descriptor.exampleId}
   aria-labelledby={titleId}
   class:list={[
     'not-prose my-8 grid gap-4 rounded-lg bg-card p-4 text-sm text-card-foreground ring-1 ring-gray-900/10 sm:p-6 md:text-base dark:bg-black/20 dark:text-gray-200 dark:ring-gray-100/10',
@@ -60,7 +61,7 @@ const sourceFiles = descriptor.files
         >{descriptor.title}</a
       >
     </Heading>
-    <p class="text-muted-foreground">{descriptor.description}</p>
+    <p class="text-gray-600 dark:text-gray-400">{descriptor.description}</p>
   </div>
 
   <CodePlaygroundIsland
@@ -79,3 +80,22 @@ const sourceFiles = descriptor.files
     </details>
   </CodePlaygroundIsland>
 </section>
+
+<script>
+  // Settings links use the hash for playground settings, not an element id,
+  // so the browser does not scroll. Scroll to the first playground named in
+  // the hash; that also hydrates its island (`client:visible`), which then
+  // applies the settings. Bundled once per page.
+  const raw = window.location.hash.slice(1);
+  if (raw.includes('=')) {
+    const examples = new Set(
+      [...new URLSearchParams(raw).keys()].map((key) => key.split('.')[0]),
+    );
+    const target = [
+      ...document.querySelectorAll<HTMLElement>('[data-playground-example]'),
+    ].find((section) =>
+      examples.has(section.dataset['playgroundExample'] ?? ''),
+    );
+    target?.scrollIntoView({ block: 'start' });
+  }
+</script>

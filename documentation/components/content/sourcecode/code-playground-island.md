@@ -44,3 +44,6 @@ import CodePlaygroundIsland from './CodePlaygroundIsland.tsx';
 - Messages from the preview are validated with `readPreviewMessage()` (instance id and revision) after checking `event.source` and the `null` origin.
 - An `IntersectionObserver` tells the preview when it leaves or enters the viewport.
 - After "Discard edits", focus moves to the first enabled toolbar button, because "Reset all" is disabled once nothing is changed.
+- After hydration it applies its own entries from the URL hash (`decodeSettings()`) once, then writes non-default settings back with `history.replaceState` 400 ms after each change (`encodeSettings()`, `updateHash()`). Other playgrounds' entries in the hash are kept.
+- "Copy link" copies the current URL, or the playground's anchor when no setting differs from the defaults.
+- Layout buttons ("Split", "Code", "Preview") are `aria-pressed` buttons in a `fieldset` labelled "Layout".

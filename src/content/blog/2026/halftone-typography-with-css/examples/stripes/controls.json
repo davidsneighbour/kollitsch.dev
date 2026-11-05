@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "controls": [
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Sample text",
+      "maxLength": 80
+    },
+    {
+      "id": "stripeWidth",
+      "type": "range",
+      "label": "Stripe width",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "stripeGap",
+      "type": "range",
+      "label": "Gap width",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "angle",
+      "type": "range",
+      "label": "Stripe angle",
+      "help": "0 degrees draws horizontal stripes, 90 degrees vertical stripes.",
+      "min": 0,
+      "max": 180,
+      "step": 5,
+      "unit": "deg"
+    },
+    {
+      "id": "typeSize",
+      "type": "range",
+      "label": "Type size",
+      "min": 32,
+      "max": 180,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "id": "ink",
+      "type": "colour",
+      "label": "Ink"
+    },
+    {
+      "id": "paper",
+      "type": "colour",
+      "label": "Paper",
+      "help": "You can pick unreadable ink and paper combinations. The defaults are high contrast."
+    },
+    {
+      "id": "solid",
+      "type": "switch",
+      "label": "Solid text"
+    },
+    {
+      "id": "animate",
+      "type": "switch",
+      "label": "Animate",
+      "help": "The stripes only move when your system does not request reduced motion."
+    },
+    {
+      "id": "paused",
+      "type": "toggle",
+      "label": "Pause animation",
+      "when": "animate"
+    }
+  ]
+}

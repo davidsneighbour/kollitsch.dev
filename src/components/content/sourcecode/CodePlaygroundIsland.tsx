@@ -10,13 +10,17 @@ import { Button } from '@components/shared/elements/button.tsx';
 import {
   applyControlChange,
   buildPreviewDocument,
+  decodeSettings,
+  encodeSettings,
   HOST_MESSAGE_SOURCE,
   type PlaygroundDescriptor,
   type PlaygroundState,
   type PlaygroundValue,
   parseStateText,
+  readHashParams,
   readPreviewMessage,
   serialiseState,
+  updateHash,
 } from '@utils/code-playground.pure.ts';
 import { cn } from '@utils/shadcn-utils';
 import {
@@ -62,12 +66,20 @@ type PlaygroundAction =
   | { type: 'file'; path: string; code: string }
   | { type: 'control'; id: string; value: PlaygroundValue }
   | { type: 'reset-file'; path: string }
-  | { type: 'reset-all' };
+  | { type: 'reset-all' }
+  | { type: 'apply-state'; state: PlaygroundState };
+
+const VIEW_MODES: ReadonlyArray<{ mode: ViewMode; label: string }> = [
+  { label: 'Split', mode: 'split' },
+  { label: 'Code', mode: 'code' },
+  { label: 'Preview', mode: 'preview' },
+];
 
 const SPLIT_MIN = 25;
 const SPLIT_MAX = 75;
 const SPLIT_DEFAULT = 50;
 const PREVIEW_DEBOUNCE_MS = 200;
+const URL_DEBOUNCE_MS = 400;
 
 function initialModel(descriptor: PlaygroundDescriptor): PlaygroundModel {
   const files = Object.fromEntries(
@@ -138,6 +150,11 @@ function createReducer(descriptor: PlaygroundDescriptor) {
         );
       case 'reset-all':
         return { ...authored, externalRevision: model.externalRevision + 1 };
+      case 'apply-state':
+        if (model.stateError) return model;
+        return external(
+          withFile(model, descriptor.stateFile, serialiseState(action.state)),
+        );
     }
   };
 }
@@ -180,6 +197,11 @@ export default function CodePlaygroundIsland({
   const [view, setView] = useState<ViewMode>('split');
   const [split, setSplit] = useState(SPLIT_DEFAULT);
   const [confirmReset, setConfirmReset] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const defaults = useMemo(
+    () => initialModel(descriptor).validState,
+    [descriptor],
+  );
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const panesRef = useRef<HTMLDivElement>(null);
@@ -197,10 +219,68 @@ export default function CodePlaygroundIsland({
   const editorActive = editorState !== 'closed';
 
   // The bridge needs the host origin, which is only known in the browser.
+  // Settings recorded in the URL hash are applied once, after hydration, so
+  // the server-rendered markup and the first client render stay identical.
+  // Runs once on mount.
   useEffect(() => {
     setHydrated(true);
     setParentOrigin(window.location.origin);
+    const params = readHashParams(window.location.hash);
+    if (!params) return;
+    const state = decodeSettings(
+      descriptor.exampleId,
+      descriptor.controls,
+      defaults,
+      params,
+    );
+    if (state) {
+      dispatch({ state, type: 'apply-state' });
+      setAnnouncement(
+        `Settings from the link were applied to ${descriptor.title}.`,
+      );
+    }
   }, []);
+
+  // Record non-default settings in the URL hash. Debounced, because browsers
+  // limit how often history entries may be replaced.
+  useEffect(() => {
+    if (!hydrated) return;
+    const timer = window.setTimeout(() => {
+      const hash = updateHash(
+        window.location.hash,
+        descriptor.exampleId,
+        encodeSettings(
+          descriptor.exampleId,
+          descriptor.controls,
+          defaults,
+          model.validState,
+        ),
+      );
+      if (hash === window.location.hash) return;
+      const url = `${window.location.pathname}${window.location.search}${hash}`;
+      window.history.replaceState(window.history.state, '', url);
+    }, URL_DEBOUNCE_MS);
+    return () => window.clearTimeout(timer);
+  }, [hydrated, model.validState, defaults, descriptor]);
+
+  const copyLink = useCallback(async () => {
+    const { origin, pathname, search, hash } = window.location;
+    const fragment = readHashParams(hash) ? hash : `#${descriptor.anchorId}`;
+    try {
+      await navigator.clipboard.writeText(
+        `${origin}${pathname}${search}${fragment}`,
+      );
+      setAnnouncement('Link copied. It includes the settings you changed.');
+      setLinkCopied(true);
+    } catch {
+      setAnnouncement('Could not copy the link. Copy it from the address bar.');
+    }
+  }, [descriptor.anchorId]);
+  useEffect(() => {
+    if (!linkCopied) return;
+    const timer = window.setTimeout(() => setLinkCopied(false), 2000);
+    return () => window.clearTimeout(timer);
+  }, [linkCopied]);
 
   // Rebuild the preview after edits settle. The first run after hydration
   // enables the bridge immediately.
@@ -401,20 +481,20 @@ export default function CodePlaygroundIsland({
         {editorActive ? (
           <fieldset className="inline-flex rounded-md border border-input p-0.5">
             <legend className="sr-only">Layout</legend>
-            {(['split', 'code', 'preview'] as const).map((mode) => (
+            {VIEW_MODES.map(({ label, mode }) => (
               <button
                 key={mode}
                 type="button"
                 aria-pressed={view === mode}
                 className={cn(
-                  'h-7 rounded-sm px-2.5 text-sm capitalize outline-none transition-colors duration-150 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none',
+                  'h-7 rounded-sm px-2.5 text-sm outline-none transition-colors duration-150 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none',
                   view === mode
                     ? 'bg-primary-700 text-white dark:bg-primary-500 dark:text-gray-950'
                     : 'text-foreground hover:bg-black/5 dark:hover:bg-white/5',
                 )}
                 onClick={() => setView(mode)}
               >
-                {mode}
+                {label}
               </button>
             ))}
           </fieldset>
@@ -476,7 +556,19 @@ export default function CodePlaygroundIsland({
           </Button>
         )}
 
-        <p className="ml-auto text-sm text-muted-foreground">{statusText}</p>
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          disabled={!hydrated}
+          onClick={copyLink}
+        >
+          {linkCopied ? 'Link copied' : 'Copy link'}
+        </Button>
+
+        <p className="ml-auto text-sm text-gray-600 dark:text-gray-400">
+          {statusText}
+        </p>
       </div>
 
       <div
@@ -529,6 +621,7 @@ export default function CodePlaygroundIsland({
             ) : null}
             {Editor ? (
               <Editor
+                idPrefix={idPrefix}
                 filesRef={filesRef}
                 externalRevision={model.externalRevision}
                 meta={descriptor.files}

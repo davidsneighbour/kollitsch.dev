@@ -192,6 +192,23 @@ describe('createDescriptor', () => {
     ).toThrow(/not a switch control/);
   });
 
+  it('validates every authored example of the test post', () => {
+    const leaf = '2026/halftone-typography-with-css';
+    const root = path.resolve('src/content/blog', leaf, 'examples');
+    for (const example of readdirSync(root)) {
+      const directory = path.join(root, example);
+      const files = Object.fromEntries(
+        readdirSync(directory).map((name) => [
+          name,
+          readFileSync(path.join(directory, name), 'utf8'),
+        ]),
+      );
+      expect(createDescriptor({ example, files, leaf }).exampleId).toBe(
+        example,
+      );
+    }
+  });
+
   it('validates the authored halftone example', () => {
     const leaf = '2026/halftone-typography-with-css';
     const directory = path.resolve(

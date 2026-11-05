@@ -8,15 +8,17 @@
  * contacted. The preview is rendered by `CodePlaygroundIsland.tsx`.
  */
 import {
-  SandpackCodeEditor,
+  CodeEditor,
   type SandpackFiles,
   SandpackProvider,
   type SandpackTheme,
+  useActiveCode,
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { Button } from '@components/shared/elements/button.tsx';
 import type { PlaygroundFile } from '@utils/code-playground.pure.ts';
 import {
+  type KeyboardEvent,
   memo,
   type ReactElement,
   useCallback,
@@ -29,6 +31,8 @@ import {
 const REPORT_DELAY_MS = 120;
 
 export interface PlaygroundEditorProps {
+  /** Prefix for element ids, unique per playground on the page. */
+  idPrefix: string;
   /**
    * Current host files. A ref, not a value, so that host updates while the
    * reader types do not re-render the Sandpack tree (re-rendering it while
@@ -198,10 +202,153 @@ function EditorSync({
   return null;
 }
 
+const tabId = (idPrefix: string, path: string): string =>
+  `${idPrefix}-tab-${path.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '')}`;
+
+/**
+ * File tabs. Sandpack's own tab strip puts `role="tab"` on a wrapper around
+ * a button (axe: nested-interactive), so the playground renders its own
+ * tablist: one button per file, roving `tabindex`, arrow keys, Home, and End,
+ * with automatic activation.
+ */
+function FileTabs({
+  idPrefix,
+  paths,
+}: {
+  idPrefix: string;
+  paths: readonly string[];
+}): ReactElement {
+  const { sandpack } = useSandpack();
+  const tabs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  const onKeyDown = (
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ): void => {
+    const last = paths.length - 1;
+    const targets: Record<string, number> = {
+      ArrowLeft: index === 0 ? last : index - 1,
+      ArrowRight: index === last ? 0 : index + 1,
+      End: last,
+      Home: 0,
+    };
+    const next = targets[event.key];
+    const path = next === undefined ? undefined : paths[next];
+    if (next === undefined || path === undefined) return;
+    event.preventDefault();
+    sandpack.setActiveFile(path);
+    tabs.current[next]?.focus();
+  };
+
+  return (
+    <div
+      role="tablist"
+      aria-label="Source files"
+      className="flex shrink-0 overflow-x-auto border-b border-(--sp-colors-surface2) bg-(--sp-colors-surface1)"
+    >
+      {paths.map((path, index) => {
+        const selected = path === sandpack.activeFile;
+        return (
+          <button
+            key={path}
+            ref={(element) => {
+              tabs.current[index] = element;
+            }}
+            id={tabId(idPrefix, path)}
+            type="button"
+            role="tab"
+            aria-selected={selected}
+            aria-controls={`${idPrefix}-panel`}
+            tabIndex={selected ? 0 : -1}
+            className={
+              selected
+                ? 'shrink-0 border-b-2 border-(--sp-colors-accent) px-3 py-2 font-mono text-xs text-(--sp-colors-base) outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-inset'
+                : 'shrink-0 border-b-2 border-transparent px-3 py-2 font-mono text-xs text-(--sp-colors-clickable) outline-none hover:text-(--sp-colors-hover) focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-inset'
+            }
+            onClick={() => sandpack.setActiveFile(path)}
+            onKeyDown={(event) => onKeyDown(event, index)}
+          >
+            {path.replace(/^\//, '')}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/**
+ * The tab panel: one CodeMirror instance for the active file.
+ *
+ * Sandpack wraps CodeMirror in a focusable `role="textbox"` element and takes
+ * the real editable element out of the tab order (Enter moves focus into it).
+ * That nests one textbox in another for screen readers and leaves the
+ * scrolling region without focusable content. After each mount, the editable
+ * element becomes the single tab stop and the wrapper a labelled group that
+ * still receives focus from Escape, so Escape then Tab leaves the editor.
+ */
+function EditorPanel({ idPrefix }: { idPrefix: string }): ReactElement {
+  const { sandpack } = useSandpack();
+  const { code, updateCode, readOnly } = useActiveCode();
+  const path = sandpack.activeFile;
+  const panelRef = useRef<HTMLDivElement>(null);
+  const hintId = `${idPrefix}-editor-hint`;
+
+  useEffect(() => {
+    const panel = panelRef.current;
+    const wrapper = panel?.querySelector<HTMLElement>('.sp-cm');
+    const content = panel?.querySelector<HTMLElement>('.cm-content');
+    if (!wrapper || !content) return;
+    wrapper.setAttribute('role', 'group');
+    wrapper.removeAttribute('aria-autocomplete');
+    wrapper.removeAttribute('aria-multiline');
+    wrapper.tabIndex = -1;
+    content.tabIndex = 0;
+    content.setAttribute('aria-describedby', hintId);
+    // Escape focuses the wrapper. Tab from there would re-enter the editable
+    // element inside it, so it leaves the tab order until the wrapper loses
+    // focus again.
+    const onWrapperFocus = (event: FocusEvent): void => {
+      if (event.target === wrapper) content.tabIndex = -1;
+    };
+    const onWrapperBlur = (event: FocusEvent): void => {
+      if (event.target === wrapper) content.tabIndex = 0;
+    };
+    wrapper.addEventListener('focus', onWrapperFocus);
+    wrapper.addEventListener('blur', onWrapperBlur);
+    return () => {
+      wrapper.removeEventListener('focus', onWrapperFocus);
+      wrapper.removeEventListener('blur', onWrapperBlur);
+    };
+  }, [path, readOnly, hintId]);
+
+  return (
+    <div
+      ref={panelRef}
+      id={`${idPrefix}-panel`}
+      role="tabpanel"
+      aria-labelledby={tabId(idPrefix, path)}
+      className="min-h-0 flex-1 overflow-hidden bg-(--sp-colors-surface1) [&_.cm-editor]:h-full [&_.sp-code-editor]:h-full"
+    >
+      <CodeEditor
+        key={path}
+        code={code}
+        filePath={path}
+        initMode="immediate"
+        readOnly={readOnly}
+        showLineNumbers
+        showReadOnly
+        onCodeUpdate={(next) => updateCode(next, false)}
+      />
+    </div>
+  );
+}
+
 function EditorActions({
+  idPrefix,
   onResetFile,
   onAnnounce,
 }: {
+  idPrefix: string;
   onResetFile: (path: string) => void;
   onAnnounce: (message: string) => void;
 }): ReactElement {
@@ -244,14 +391,19 @@ function EditorActions({
           Reset {name}
         </Button>
       )}
-      <p className="ml-auto text-xs text-muted-foreground">
-        Press <kbd>Esc</kbd>, then <kbd>Tab</kbd>, to leave the editor.
+      <p
+        id={`${idPrefix}-editor-hint`}
+        className="ml-auto text-xs text-gray-600 dark:text-gray-400"
+      >
+        <kbd>Tab</kbd> indents. Press <kbd>Esc</kbd>, then <kbd>Tab</kbd>, to
+        leave the editor.
       </p>
     </div>
   );
 }
 
 function PlaygroundEditor({
+  idPrefix,
   filesRef,
   externalRevision,
   meta,
@@ -306,14 +458,13 @@ function PlaygroundEditor({
         paths={paths}
         onFileChange={onFileChange}
       />
-      <SandpackCodeEditor
-        showTabs
-        showLineNumbers
-        showRunButton={false}
-        className="min-h-0 flex-1"
-        style={{ height: 'auto' }}
+      <FileTabs idPrefix={idPrefix} paths={options.visibleFiles} />
+      <EditorPanel idPrefix={idPrefix} />
+      <EditorActions
+        idPrefix={idPrefix}
+        onResetFile={onResetFile}
+        onAnnounce={onAnnounce}
       />
-      <EditorActions onResetFile={onResetFile} onAnnounce={onAnnounce} />
     </SandpackProvider>
   );
 }

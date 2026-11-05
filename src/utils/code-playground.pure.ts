@@ -72,6 +72,8 @@ export interface PlaygroundFile {
 export interface PlaygroundDescriptor {
   /** Unique per page: `<leaf>#<example>`. */
   instanceId: string;
+  /** Example directory name; prefixes this example's keys in the URL hash. */
+  exampleId: string;
   /** Stable DOM id used for the canonical link anchor. */
   anchorId: string;
   title: string;
@@ -263,6 +265,134 @@ export function applyControlChange(
   }
 
   return validateState(controls, next);
+}
+
+// MARK: URL settings
+
+/**
+ * Control settings are kept in the URL hash as URL search parameters named
+ * `<exampleId>.<controlId>`, for example `#halftone.dotSpacing=14&stripes.angle=30`.
+ * Only values that differ from the authored state are written, so the hash
+ * records exactly the settings a reader applied. The hash never reaches the
+ * server or analytics, and several playgrounds can share one page.
+ */
+
+/** Returns the hash as parameters, or `null` when it is a plain anchor. */
+export function readHashParams(hash: string): URLSearchParams | null {
+  const raw = hash.startsWith('#') ? hash.slice(1) : hash;
+  if (!raw.includes('=')) return null;
+  return new URLSearchParams(raw);
+}
+
+/** Text form of one control value in the URL. */
+export function encodeControlValue(
+  control: PlaygroundControl,
+  value: unknown,
+): string | null {
+  switch (control.type) {
+    case 'text':
+      return typeof value === 'string' ? value : null;
+    case 'range':
+      return typeof value === 'number' && Number.isFinite(value)
+        ? String(value)
+        : null;
+    case 'colour':
+      return typeof value === 'string' && HEX_COLOUR.test(value)
+        ? value.slice(1).toLowerCase()
+        : null;
+    case 'switch':
+    case 'toggle':
+      return typeof value === 'boolean' ? (value ? '1' : '0') : null;
+  }
+}
+
+/** Parses one URL value for a control. Returns `undefined` when invalid. */
+export function decodeControlValue(
+  control: PlaygroundControl,
+  text: string,
+): PlaygroundValue | undefined {
+  switch (control.type) {
+    case 'text':
+      return text.slice(0, control.maxLength);
+    case 'range': {
+      if (text.trim() === '') return undefined;
+      const number = Number(text);
+      return Number.isFinite(number) ? number : undefined;
+    }
+    case 'colour':
+      return /^#?[0-9a-f]{6}$/i.test(text)
+        ? `#${text.replace(/^#/, '').toLowerCase()}`
+        : undefined;
+    case 'switch':
+    case 'toggle':
+      if (text === '1' || text === 'true') return true;
+      if (text === '0' || text === 'false') return false;
+      return undefined;
+  }
+}
+
+/**
+ * URL entries for every control whose value differs from the defaults, in
+ * control order. Keys are prefixed with the example id.
+ */
+export function encodeSettings(
+  exampleId: string,
+  controls: readonly PlaygroundControl[],
+  defaults: PlaygroundState,
+  state: PlaygroundState,
+): Array<[string, string]> {
+  const entries: Array<[string, string]> = [];
+  for (const control of controls) {
+    if (state[control.id] === defaults[control.id]) continue;
+    const text = encodeControlValue(control, state[control.id]);
+    if (text !== null) entries.push([`${exampleId}.${control.id}`, text]);
+  }
+  return entries;
+}
+
+/**
+ * Applies this example's URL settings to the defaults. Values are decoded,
+ * then applied in control order through `applyControlChange`, so ranges are
+ * clamped and dependent bounds hold. Unknown keys and invalid values are
+ * ignored. Returns `null` when the URL holds no settings for the example.
+ */
+export function decodeSettings(
+  exampleId: string,
+  controls: readonly PlaygroundControl[],
+  defaults: PlaygroundState,
+  params: URLSearchParams,
+): PlaygroundState | null {
+  let state = defaults;
+  let found = false;
+  for (const control of controls) {
+    const text = params.get(`${exampleId}.${control.id}`);
+    if (text === null) continue;
+    found = true;
+    const value = decodeControlValue(control, text);
+    if (value === undefined) continue;
+    const next = applyControlChange(controls, state, control.id, value);
+    if (next.ok) state = next.value;
+  }
+  return found ? state : null;
+}
+
+/**
+ * Returns the new hash after replacing this example's entries. Other
+ * examples' entries are kept; a plain anchor is replaced. Returns `''` when
+ * nothing is left.
+ */
+export function updateHash(
+  hash: string,
+  exampleId: string,
+  entries: ReadonlyArray<[string, string]>,
+): string {
+  const params = readHashParams(hash) ?? new URLSearchParams();
+  for (const key of [...params.keys()]) {
+    if (key.startsWith(`${exampleId}.`)) params.delete(key);
+  }
+  for (const [key, value] of entries) params.append(key, value);
+  const text = params.toString();
+  return text === '' ? '' : `#${text}`;
 }
 
 // MARK: Preview document

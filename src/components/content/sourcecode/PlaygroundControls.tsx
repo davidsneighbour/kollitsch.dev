@@ -23,7 +23,7 @@ export interface PlaygroundControlsProps {
 const HEX_COLOUR = /^#[0-9a-f]{6}$/i;
 
 const labelClass = 'text-sm font-normal text-foreground';
-const helpClass = 'text-xs text-muted-foreground';
+const helpClass = 'text-xs text-gray-600 dark:text-gray-400';
 
 function Help({
   id,
@@ -102,7 +102,10 @@ function NumberField({
           }
         }}
       />
-      <span className="text-sm text-muted-foreground" aria-hidden="true">
+      <span
+        className="text-sm text-gray-600 dark:text-gray-400"
+        aria-hidden="true"
+      >
         {control.unit}
       </span>
     </div>
@@ -216,7 +219,7 @@ export function PlaygroundControls({
                 <div className="flex items-center gap-3">
                   <input
                     type="range"
-                    aria-label={`${control.label} slider`}
+                    aria-label={control.label}
                     aria-valuetext={`${number} ${control.unit}`}
                     min={control.min}
                     max={max}

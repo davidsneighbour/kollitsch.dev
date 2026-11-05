@@ -244,6 +244,7 @@ export function createDescriptor(
     controls,
     description: manifest.description,
     entry: `/${manifest.entry}`,
+    exampleId: input.example,
     files,
     hooks: manifest.hooks,
     instanceId: `${input.leaf}#${input.example}`,

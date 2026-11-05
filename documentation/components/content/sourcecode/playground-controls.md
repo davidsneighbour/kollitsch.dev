@@ -44,7 +44,7 @@ import { PlaygroundControls } from './PlaygroundControls.tsx';
 ## Behaviour
 
 - `text`: a labelled text field with `maxLength`.
-- `range`: a slider plus a number field with the unit next to it. The number field keeps an editable draft and commits only valid values; on blur it clamps the draft. With `below`, the maximum follows the related control.
+- `range`: a slider (named after the control label, with `aria-valuetext` including the unit) plus a number field labelled with the unit, for example "Dot spacing in px". The number field keeps an editable draft and commits only valid values; on blur it clamps the draft. With `below`, the maximum follows the related control.
 - `colour`: a native colour input plus a labelled hex text field that commits only six-digit hex values.
 - `switch`: a `button` with `role="switch"` and `aria-checked`.
 - `toggle`: a `button` with `aria-pressed`.

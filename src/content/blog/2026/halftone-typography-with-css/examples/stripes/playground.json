@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "stripes",
+  "title": "Striped typography",
+  "description": "A heading filled with a repeating linear gradient, so the glyphs show angled stripes instead of dots.",
+  "runtime": "vanilla",
+  "entry": "index.html",
+  "activeFile": "styles.css",
+  "state": "playground-state.json",
+  "controls": "controls.json",
+  "hooks": ["#sample"],
+  "files": [
+    { "path": "index.html" },
+    { "path": "styles.css" },
+    { "path": "index.js" },
+    { "path": "playground-state.json" }
+  ]
+}

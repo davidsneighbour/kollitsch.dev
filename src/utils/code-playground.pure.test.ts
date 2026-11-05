@@ -4,7 +4,9 @@ import {
   applyControlChange,
   buildPreviewDocument,
   clampRange,
+  decodeSettings,
   effectiveMax,
+  encodeSettings,
   escapeRawText,
   HOST_MESSAGE_SOURCE,
   type PlaygroundControl,
@@ -12,9 +14,11 @@ import {
   PREVIEW_BASE_URL,
   PREVIEW_MESSAGE_SOURCE,
   parseStateText,
+  readHashParams,
   readPreviewMessage,
   resolveFileReference,
   serialiseState,
+  updateHash,
   validateState,
 } from './code-playground.pure.ts';
 
@@ -304,5 +308,88 @@ describe('readPreviewMessage', () => {
       2,
     );
     expect(result?.kind === 'error' && result.message.length).toBe(500);
+  });
+});
+
+describe('URL settings', () => {
+  it('treats a plain anchor as no settings', () => {
+    expect(readHashParams('#some-heading')).toBeNull();
+    expect(readHashParams('')).toBeNull();
+    expect(readHashParams('#demo.text=Hi')?.get('demo.text')).toBe('Hi');
+  });
+
+  it('encodes only values that differ from the defaults', () => {
+    const state = {
+      ...validState,
+      dotSpacing: 14,
+      ink: '#ff0000',
+      solid: true,
+    };
+    expect(encodeSettings('demo', controls, validState, state)).toEqual([
+      ['demo.dotSpacing', '14'],
+      ['demo.ink', 'ff0000'],
+      ['demo.solid', '1'],
+    ]);
+    expect(encodeSettings('demo', controls, validState, validState)).toEqual(
+      [],
+    );
+  });
+
+  it('round-trips settings through the hash', () => {
+    const state = {
+      ...validState,
+      dotRadius: 5,
+      dotSpacing: 14,
+      text: 'A & B <b>',
+    };
+    const hash = updateHash(
+      '',
+      'demo',
+      encodeSettings('demo', controls, validState, state),
+    );
+    const params = readHashParams(hash);
+    expect(params).not.toBeNull();
+    expect(
+      decodeSettings('demo', controls, validState, params as URLSearchParams),
+    ).toEqual(state);
+  });
+
+  it('applies dependent ranges in control order and clamps values', () => {
+    const params = new URLSearchParams(
+      'demo.dotRadius=5&demo.dotSpacing=14&demo.text=0123456789ABC',
+    );
+    expect(decodeSettings('demo', controls, validState, params)).toEqual({
+      ...validState,
+      dotRadius: 5,
+      dotSpacing: 14,
+      text: '0123456789',
+    });
+    const tooLarge = new URLSearchParams('demo.dotSpacing=99&demo.dotRadius=9');
+    expect(
+      decodeSettings('demo', controls, validState, tooLarge),
+    ).toMatchObject({ dotRadius: 5, dotSpacing: 24 });
+  });
+
+  it('ignores invalid values and returns null without own keys', () => {
+    const params = new URLSearchParams(
+      'demo.ink=red&demo.solid=maybe&demo.dotSpacing=&other.text=x',
+    );
+    expect(decodeSettings('demo', controls, validState, params)).toEqual(
+      validState,
+    );
+    expect(
+      decodeSettings('demo', controls, validState, new URLSearchParams('x=1')),
+    ).toBeNull();
+  });
+
+  it('replaces only its own entries in the hash', () => {
+    const hash = '#other.text=keep&demo.ink=000000';
+    expect(updateHash(hash, 'demo', [['demo.solid', '1']])).toBe(
+      '#other.text=keep&demo.solid=1',
+    );
+    expect(updateHash('#demo.ink=000000', 'demo', [])).toBe('');
+    expect(updateHash('#heading', 'demo', [['demo.solid', '1']])).toBe(
+      '#demo.solid=1',
+    );
   });
 });

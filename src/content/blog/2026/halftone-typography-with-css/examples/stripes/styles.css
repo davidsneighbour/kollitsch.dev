@@ -1,0 +1,83 @@
+/* A registered property can be animated; the stripes slide by animating it. */
+@property --stripe-offset {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+
+:root {
+  --stripe-width: 3px;
+  --stripe-gap: 3px;
+  --stripe-angle: 45deg;
+  --sample-size: 96px;
+  --ink: #202020;
+  --paper: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.stripes {
+  /* One repeat: a stripe of ink followed by a transparent gap. */
+  --period: calc(var(--stripe-width) + var(--stripe-gap));
+  --start: calc(var(--stripe-offset) - var(--period));
+
+  margin: 0;
+  max-width: 100%;
+  font-size: var(--sample-size);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  /* Fallback: solid text in the ink colour. */
+  color: var(--ink);
+}
+
+/* Only make the text transparent where the gradient can be clipped to it. */
+@supports (background-clip: text) {
+  .stripes:not(.is-solid) {
+    background-image: repeating-linear-gradient(
+      var(--stripe-angle),
+      var(--ink) var(--start),
+      var(--ink) calc(var(--start) + var(--stripe-width)),
+      transparent calc(var(--start) + var(--stripe-width)),
+      transparent var(--stripe-offset)
+    );
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Moving the stripes by one period loops without a visible jump. */
+@keyframes slide {
+  to {
+    --stripe-offset: var(--period);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stripes.is-animated:not(.is-solid) {
+    animation: slide 1s linear infinite;
+  }
+
+  .stripes.is-animated.is-paused,
+  :root[data-playground-hidden] .stripes {
+    animation-play-state: paused;
+  }
+}

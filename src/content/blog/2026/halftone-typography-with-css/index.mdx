@@ -51,6 +51,16 @@ Contrast is the other risk. The dots cover only part of each glyph, so the effec
 
 The "Animate" control moves the pattern diagonally by one cell, which makes it loop without a visible jump. The animation only runs when your system doesn't request reduced motion, it pauses with the "Pause animation" control, and it also pauses while the preview is scrolled out of view.
 
-## About the example
+## Stripes instead of dots
 
-You can edit the HTML, CSS, JavaScript, and the state file. The controls change only `playground-state.json`, and `index.js` applies that state as CSS custom properties and as the heading text. Because the state is an ordinary file, copying the files gives you exactly what you see. The preview runs in a sandboxed frame without network access, so it can't load remote fonts or images.
+The same technique works with any gradient. A `repeating-linear-gradient()` fills the glyphs with stripes, and unlike the dot pattern, its angle visibly changes the result:
+
+<CodePlayground leaf="2026/halftone-typography-with-css" example="stripes" />
+
+Each repeat is one stripe of ink followed by a transparent gap. The animation moves the stripes by one repeat, which needs a registered custom property: `@property` gives `--stripe-offset` a `<length>` type, so the browser can interpolate it.
+
+## About the examples
+
+You can edit the HTML, CSS, JavaScript, and the state file of each example. The controls change only `playground-state.json`, and `index.js` applies that state as CSS custom properties and as the heading text. Because the state is an ordinary file, copying the files gives you exactly what you see. The preview runs in a sandboxed frame without network access, so it can't load remote fonts or images.
+
+The address bar records every setting you change: the link holds only the values that differ from the defaults, so you can bookmark it or send it to someone, and the "Copy link" button copies it. Code edits aren't part of the link.

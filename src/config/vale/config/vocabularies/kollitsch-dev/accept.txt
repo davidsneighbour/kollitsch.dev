@@ -361,3 +361,6 @@ yargs
 zsh
 prerendered
 vCard
+Sandpack(?:'s)?
+[Ii]frames?
+ids

@@ -471,7 +471,7 @@
     "@davidsneighbour/nanny": "0.5.0",
     "@dnbhq/tsconfig": "0.1.6",
     "fixpack": "4.0.0",
-    "@commitlint/cli": "21.2.3",
+    "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.3",
     "@humanwhocodes/social-changelog": "0.6.0",
     "@release-it/conventional-changelog": "12.0.2",

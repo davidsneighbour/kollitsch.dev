@@ -580,7 +580,7 @@
     "chrome-devtools-mcp": "1.10.1",
     "mcp-remote": "0.14.3",
     "browserslist": "4.29.3",
-    "wireit": "0.14.13",
+    "wireit": "0.15.0",
     "@humanwhocodes/crosspost": "1.0.4",
     "twitter-text": "3.1.0",
     "@total-typescript/ts-reset": "0.6.1",

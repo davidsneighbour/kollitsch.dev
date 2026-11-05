@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 import { remarkKbdNested } from 'remark-kbd-nested';
 import { remarkDefinitionList, defListHastHandlers } from 'remark-definition-list';
 import { defineConfig, fontProviders } from 'astro/config';
-import expressiveCode, { createInlineSvgUrl } from 'astro-expressive-code';
+import expressiveCode from 'astro-expressive-code';
 import matter from 'gray-matter';
 import fg from 'fast-glob';
 import basicSsl from '@vitejs/plugin-basic-ssl';
@@ -28,9 +28,6 @@ import tailwindcss from '@tailwindcss/vite';
 // const { SECRET_PASSWORD } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const crontabTmLanguage = JSON.parse(
-  fs.readFileSync('./src/config/tmLanguages/crontab.tmLanguage.json', 'utf-8'),
-);
 
 // Prefer a locally-trusted mkcert certificate (see `npm run dev:certs`) so the
 // dev origin is treated as fully secure by the browser (secure cookies, Web
@@ -129,26 +126,9 @@ export default defineConfig({
       !page.startsWith('https://kollitsch.dev/test/') &&
       !page.startsWith('https://kollitsch.dev/blog/1/') &&
       !draftPagePaths.has(new URL(page).pathname),
-    }), expressiveCode({
-    shiki: {
-      langs: [
-        crontabTmLanguage
-      ],
-    },
-    styleOverrides: {
-      codeFontFamily: "'jetbrainsmono', monospace",
-      codeFontWeight: '300',
-      uiFontFamily: "'jetbrainsmono', monospace",
-      uiFontWeight: '300',
-      frames: {
-        frameBoxShadowCssValue: '0',
-        copyIcon: createInlineSvgUrl('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16"> <path d = "M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" /></svg>'),
-      }
-    },
-    themeCssSelector: (theme) => `[data-code-theme='${theme.name}']`,
-    themes: ['dracula', 'light-plus'],
-    useDarkModeMediaQuery: false,
-  }),
+    }),
+    // Options live in ec.config.mjs so the <Code> component can read them.
+    expressiveCode(),
     mdx(), react()],
   markdown: {
     processor: unified({

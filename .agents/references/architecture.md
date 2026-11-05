@@ -6,7 +6,7 @@ Read this when you need orientation in the codebase: where something lives, how 
 
 Astro generates a fully static site (`output: 'static'`). All pages are pre-rendered at build time. `compressHTML` is gated on `import.meta.env.PROD`.
 
-- Integrations (`astro.config.ts`): `buildHooks()` from `src/scripts/build/build-hooks.ts`, `@astrojs/sitemap`, `astro-expressive-code`, `@astrojs/mdx`, `@astrojs/react`.
+- Integrations (`astro.config.ts`): `buildHooks()` from `src/scripts/build/build-hooks.ts`, `@astrojs/sitemap`, `astro-expressive-code` (options in `ec.config.mjs`, which its `<Code>` component requires), `@astrojs/mdx`, `@astrojs/react`.
 - Vite plugins include `vite-plugin-devtools-json` and `@tailwindcss/vite`.
 - Experimental flags: `chromeDevtoolsWorkspace`, `clientPrerender`, `contentIntellisense`.
 - Layouts: `src/layouts/Site.astro` (root shell, Matomo inline tracker, Lenis smooth scroll, view-transition lock handling), `src/layouts/ContentPage.astro`, `src/layouts/DefaultPage.astro`.

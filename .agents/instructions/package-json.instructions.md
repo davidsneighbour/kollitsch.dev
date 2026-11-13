@@ -1,5 +1,5 @@
 ---
-applyTo: "package.json,src/packages/**"
+applyTo: "package.json,src/packages/**,.nvmrc"
 ---
 
 # `package.json` and `src/packages/` (nanny)
@@ -13,3 +13,7 @@ applyTo: "package.json,src/packages/**"
 Whenever you edit `package.json` directly (dependency, script, `overrides` entry), make the same change in the fragment that owns that key. Then run `nanny update-package` and `nanny check`. Fix reported `scripts`, `wireit`, and `overrides` drift by hand in the owning fragment and rerun `nanny check` until it is clean.
 
 Dependency versions are exact. Do not use `^` or `~` ranges.
+
+## Node version
+
+`package.json` `engines.node` (currently `>=26`) is the single source of truth; `.nvmrc` mirrors it. Even-numbered (LTS) majors are preferred.

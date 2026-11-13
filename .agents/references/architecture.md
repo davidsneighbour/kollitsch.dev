@@ -49,7 +49,7 @@ Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogP
 | `.frontmatter/` | Frontmatter CMS database and templates |
 | `documentation/` | Feature documentation, served by `npm run dev:docs` |
 
-TypeScript path aliases are defined in `tsconfig.json` (`@/*`, `@components/*`, `@utils/*`, and others). Use them instead of deep relative imports.
+TypeScript path aliases are defined in `tsconfig.json` (`@/*`, `@components/*`, `@utils/*`, and others); see the `code-conventions` instruction.
 
 ## Files for common tasks
 

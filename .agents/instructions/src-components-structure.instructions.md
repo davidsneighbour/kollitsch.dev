@@ -56,17 +56,12 @@ doc file under `documentation/components/`; follow
 `.agents/instructions/documentation-components.instructions.md` when writing it.
 
 Every component documented under `documentation/components/` must have its
-doc file moved alongside it in the same change - see
-`.agents/instructions/documentation-components.instructions.md` for the full
-doc-authoring rules. When a move creates a kebab-case filename collision
-between a hand-written and a generated component in the same folder (for
-example `Button.astro` and `button.tsx` both kebab-casing to `button.md`),
-suffix the generated component's doc file with `-shadcn`
-(`button-shadcn.md`) rather than renaming the hand-written one, and update
-the cross-links in both files.
+doc file moved alongside it in the same change. That instruction file also
+holds the `-shadcn` suffix rule for doc filename collisions; when a move
+applies it, update the cross-links in both doc files.
 
 ## Tests
 
-Component tests live next to their source file (`Component.test.ts` beside
-`Component.astro`) and move with it - never leave a test behind when
-relocating a component.
+Component tests move with their component (co-location rules are in
+`.agents/instructions/src-tests.instructions.md`); never leave a test behind
+when relocating a component.

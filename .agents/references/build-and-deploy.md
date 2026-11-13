@@ -11,7 +11,7 @@ Read this when working on the build pipeline, generated assets, environment vari
    - `pagefindIntegration` (`src/scripts/build/integrations/pagefind.ts`): Pagefind search index on `astro:build:done`.
 3. **Build**: `npm run build` is orchestrated by `wireit` and runs `astro check` before `astro build`.
 
-Do not run `npm run build` in sandboxed environments without API tokens. The pre-build step can fail there; use `npm run check` for type checking.
+The pre-build step needs API tokens, which is why `AGENTS.md` forbids `npm run build` in sandboxed environments.
 
 ## Social (OG) images
 

@@ -14,22 +14,20 @@ This is the single onboarding document for every AI assistant working in this re
 
 Personal website at [KOLLITSCH.dev*](https://kollitsch.dev): a digital garden, blog, and web development reference. Astro 6 (static output), Tailwind CSS 4, TypeScript, and React for a few UI components. Deployed locally to Cloudflare Workers Static Assets with Wrangler.
 
-**Node version:** `package.json` `engines.node` (currently `>=26`) is the single source of truth; `.nvmrc` mirrors it. Even-numbered (LTS) majors are preferred.
-
 RFC 2119 keywords (MUST, SHOULD, MAY, and so on) in this repository's documentation carry their standard meanings.
 
 ## Instructions, references, and skills
 
 All project-specific agent assets live under `.agents/`.
 
-- `.agents/instructions/`: behavioural rules with an `applyTo` glob. Evaluate every file and apply each one whose `applyTo` matches the files you work on. Applicable instructions are mandatory.
-- `.agents/references/`: task knowledge without `applyTo`. Read the matching file when the task needs it:
+- `.agents/instructions/`: behavioural rules, each scoped by an `applyTo` glob in its frontmatter. List the scopes with `grep -H '^applyTo:' .agents/instructions/*.md`, then read and apply every file whose `applyTo` matches the files you work on. Applicable instructions are mandatory.
+- `.agents/references/`: task knowledge without `applyTo`. Scoped instructions point to the references for their files. Read these when the task needs them:
   - `architecture.md`: orientation, directory layout, content collections, styling system, files for common tasks.
   - `build-and-deploy.md`: build pipeline, OG images, environment variables, Cloudflare hosting, deployment, workflows.
+  - `dev-server.md`: before you start, use, or stop the Astro dev server or any other local HTTP server.
   - `issue-and-commit-workflow.md`: before creating or updating an issue, and before committing.
   - `keyboard-shortcuts-tinykeys.md`: adding or changing a keyboard shortcut.
-  - `youtube-embed.md`: adding a YouTube video to a post.
-- `.agents/skills/`: `kdev-*` skills are authored here and tracked (`kdev-kurzschnitte` for Kurzschnitte link-collection posts, `kdev-postreview` for reviewing one blog post). Other skills installed with `npm run skills:add` land here and are gitignored. `.claude/skills` and `.codex/skills` are tracked symlinks to `.agents/skills`; edit skills only under `.agents/skills/`. Globally installed skills may also be used; a project skill takes precedence over a global skill with the same name.
+- `.agents/skills/`: tracked `kdev-*` skills (`kdev-kurzschnitte` for Kurzschnitte link-collection posts, `kdev-postreview` for reviewing one blog post); skills installed with `npm run skills:add` are gitignored. `.claude/skills` and `.codex/skills` are symlinks to it; edit skills only under `.agents/skills/`. A project skill takes precedence over a global skill with the same name.
 - Tool-local configuration such as `.claude/settings*.json` is gitignored machine configuration, not shared project policy.
 
 If several instructions apply, the most specific scope wins, but no instruction may weaken or contradict this file.
@@ -50,11 +48,7 @@ Refuse, briefly and neutrally, if a request violates established rules or locked
 
 ## Design system
 
-`DESIGN.md` is the single source of truth for visual design.
-
-- Read `DESIGN.md` first for any decision about colour, typography, spacing, radius, elevation, animation, or component styling. Do not use design values from memory.
-- Update `DESIGN.md` with every design change (new tokens, changed values, new components, revised rationale), then run `npm run lint:design` until it reports 0 errors.
-- Do not introduce values that are absent from `DESIGN.md`; add them there first. Use token references (`{colors.primary}`, `{rounded.md}`) in component token definitions, never inline raw values.
+`DESIGN.md` is the single source of truth for visual design. Read it first for any decision about colour, typography, spacing, radius, elevation, animation, or component styling. Do not use design values from memory. The rules for changing design values are in `.agents/instructions/design-system.instructions.md`.
 
 ## Task tracking
 
@@ -111,15 +105,4 @@ Build and deploy commands are in `.agents/references/build-and-deploy.md`. Do no
 
 ## Dev server
 
-Port `4321` is the Astro dev server. Other preview servers, Playwright `webServer` processes, and temporary HTTP servers use a port from `4400` to `4499`.
-
-AI assistants own the full Astro dev-server lifecycle for every task that needs it and MUST NOT leave it running. Starting such a task is explicit authorisation to stop any existing Astro dev server, including one the user started. Run `npx astro dev stop`, start with `npx astro dev --background`, do the work, and run `npx astro dev stop` again, every time. Use `npx astro dev status` and `npx astro dev logs` when needed. Stopping a pre-existing server is expected cleanup: do not apologise or draw attention to it; "Stopped existing dev server." is enough.
-
-## Code conventions
-
-- ESM only (`"type": "module"`).
-- Biome formats and lints (spaces, width from `.editorconfig`, multiline HTML attributes, imports sorted by `organizeImports`).
-- Use the TypeScript path aliases from `tsconfig.json` (`@components/*`, `@utils/*`, and others) instead of deep relative imports.
-- Use `fast-glob` for file globbing; `glob` is not installed.
-- Explicit return types on exported functions are preferred. No tool enforces this; check it in review.
-- Never import `.json` directly in `.astro` frontmatter (Astro strips `with { type: 'json' }` and warns `INCONSISTENT_IMPORT_ATTRIBUTES`); re-export it through a `.ts` module. In `.ts` files, every JSON import carries `with { type: 'json' }`, and the same JSON module is imported only once per file.
+AI assistants own the Astro dev-server lifecycle for every task that needs it and MUST NOT leave it running. Follow the procedure and port rules in `.agents/references/dev-server.md` every time.

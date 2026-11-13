@@ -254,6 +254,13 @@ describe("Footer component (author's uptime)", () => {
     expect(src).toMatch(
       /@media \(prefers-reduced-motion: no-preference\) \{\s*\.footer-mark \{[\s\S]*?\.footer-mark\[data-footer-mark="pending"\]/,
     );
+    expect(src).toContain("mark.dataset['footerBurst'] = 'true'");
+    expect(src).toContain('margin-top: 5lh');
+    expect(src).toContain('footer-word-pop 900ms');
+    expect(src).toContain('footer-spark-burst 900ms');
+    expect(src).not.toMatch(
+      /footer-(?:word-pop|spark-burst|arrow-kick)[^;]*infinite/,
+    );
     expect(src).toContain('footerMarkInitialState({');
     expect(src).toContain(
       "document.addEventListener('astro:page-load', initFooterMark)",

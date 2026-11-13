@@ -85,7 +85,7 @@ export default defineConfig({
   testIgnore: ['**/*.test.*', '**/browser/**', '**/live/**'],
 
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'https://localhost:4321',
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'https://127.0.0.1:4400',
     colorScheme: 'dark',
     ignoreHTTPSErrors: true,
     locale: 'en-US',
@@ -98,11 +98,11 @@ export default defineConfig({
   },
 
   webServer: {
-    command: 'npm run dev:site -- --host 127.0.0.1 --port 4321',
+    command: 'npm run dev:site -- --ignore-lock --host 127.0.0.1 --port 4400',
     ignoreHTTPSErrors: true,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    url: 'https://localhost:4321/',
+    url: 'https://127.0.0.1:4400/',
   },
   timeout: 60_000,
   // All specs share a single `astro dev` instance rather than per-worker

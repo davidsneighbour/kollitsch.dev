@@ -9,7 +9,7 @@ import { expect, test } from '@playwright/test';
 async function submitContactForm(page: import('@playwright/test').Page, scenario: string) {
   await page.goto(`/connect/?scenario=${scenario}`);
   await page.getByLabel('First name').fill('Ada');
-  await page.getByLabel('Email').fill('ada@example.com');
+  await page.getByRole('textbox', { name: 'Email', exact: true }).fill('ada@example.com');
   await page.getByLabel('Message').fill('Hello there.');
   await page.getByRole('button', { name: 'Send message' }).click();
 }
@@ -29,7 +29,7 @@ test.describe('Contact form submission states', () => {
 
     await expect(page.locator('[data-form-status]')).toHaveText('Email is required.');
     await expect(page.locator('#email-error')).toHaveText('Email is required.');
-    await expect(page.getByLabel('Email')).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.getByRole('textbox', { name: 'Email', exact: true })).toHaveAttribute('aria-invalid', 'true');
   });
 
   test('invalid-email scenario flags the email field', async ({ page }) => {

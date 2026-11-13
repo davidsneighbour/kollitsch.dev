@@ -6,7 +6,7 @@ Read this when working on the build pipeline, generated assets, environment vari
 
 1. **Pre-build**: `npm run build:image-index` (`src/scripts/build/build-image-index.ts`) generates the LQIP image index at `src/content/_generated/image-index.json`. The normal build keeps `.cache/image-index/cache.json`; `npm run build:clean` drops this and other processed-image caches. `src/utils/opengraph.ts` resolves cover image keys against the index.
 2. **Astro build hooks** (`src/scripts/build/build-hooks.ts`) run as Astro integrations:
-   - `generateFeedsIntegration`: FreshRSS-gated RSS feeds on `astro:build:start`.
+   - `generateFeedsIntegration`: optional FreshRSS RSS feeds on `astro:build:start`. Generation failures log a warning and preserve any existing feed files without stopping the build or deployment.
    - `generateHeadersIntegration`: writes `dist/_headers` on `astro:build:done` from the rules in `src/data/headers.ts`. `Expires` is build time plus one year. Do not edit `dist/_headers`; `public/_headers` is gitignored.
    - `pagefindIntegration` (`src/scripts/build/integrations/pagefind.ts`): Pagefind search index on `astro:build:done`.
 3. **Build**: `npm run build` is orchestrated by `wireit` and runs `astro check` before `astro build`.

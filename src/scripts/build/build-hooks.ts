@@ -186,8 +186,8 @@ function generateFeedsIntegration(): AstroIntegration {
 
                     logger.info("Feeds generated successfully.");
                 } catch (error: unknown) {
-                    logger.error("Feed generation failed.");
-                    throw error;
+                    logger.warn("Feed generation failed; continuing the build with any existing feed files.");
+                    logger.debug(error instanceof Error ? error.message : String(error));
                 }
             },
         },

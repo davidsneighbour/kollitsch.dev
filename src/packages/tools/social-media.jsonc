@@ -5,6 +5,9 @@
     "twitter-text": "3.1.0"
   },
   "overrides": {
-    "hono": "4.13.7"
+    "hono": "4.13.18",
+    "@humanwhocodes/crosspost": {
+      "zod": "4.6.7"
+    }
   }
 }

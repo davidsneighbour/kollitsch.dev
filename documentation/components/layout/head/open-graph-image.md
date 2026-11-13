@@ -2,7 +2,7 @@
 title: OpenGraphImage
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-09-19T00:00:00+07:00
+updated: 2026-11-13T00:00:00+07:00
 ---
 
 Resolves the pre-generated social/OG image for a page and emits the matching `<meta>`/`<img>` output for it. Performs no image rendering itself — generation happens ahead of time via `npm run build:ogimages` (see [social-image build script](../../development/build-cache.md)).
@@ -76,3 +76,5 @@ See `npm run build:ogimages` (normal/`--force`/`--check`/`--file=` modes), docum
 ## Extending the rendered layout
 
 To change the image layout (typography, colours, spacing), edit `markup()` in `src/utils/social-image/template.ts`. Bump `TEMPLATE_VERSION` in that same file after any visual change, so `build-og-images.ts`'s fingerprint check treats every existing image as stale and regenerates it on the next run. Remember: whenever a Tailwind `leading-*` utility is used in the Satori markup, an explicit `text-*` size must also be set on the same node, or Satori misrenders line height.
+
+The markup sets two values explicitly that Satori would otherwise derive differently since version 0.63: `font-weight:400` on the title, because only the 400 weight of Changa is registered and Satori now synthesises the default bold of `<h1>`, and `margin:20px 0` on the site title, because Satori now computes the default `1em` paragraph margin from the element's own font size. Keep both when you change the layout, or bump `TEMPLATE_VERSION` if the new layout is intended.

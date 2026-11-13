@@ -10,7 +10,11 @@ const config = {
   cache: true,
   extends: ['stylelint-config-html/astro', 'stylelint-config-html/html'],
   ignoreFiles: [],
-  plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-order'],
+  plugins: [
+    '@stylistic/stylelint-plugin',
+    'stylelint-no-unsupported-browser-features',
+    'stylelint-order',
+  ],
   rules, // insert rules
   ...order, // merger order settings
 };

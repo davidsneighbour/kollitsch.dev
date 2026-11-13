@@ -84,6 +84,12 @@ export function buildOgOptions(width: number, height: number): SatoriOptions {
 /**
  * Satori markup — background via CSS on the outer container (no absolute positioning).
  * Tailwind notes: whenever using leading-*, also set text-* on the same node or inline line-height.
+ *
+ * The title sets `font-weight:400` explicitly: only the 400 weight of Changa is
+ * registered, and since Satori 0.63 the default bold of `<h1>` is synthesised.
+ * The site title sets `margin:20px 0` explicitly: since Satori 0.63 the default
+ * `1em` paragraph margin uses the element's own font size, which moved the
+ * footer up by 16px. Both pins keep the layout of the tracked images.
  */
 export function markup(
   title: string,
@@ -109,11 +115,11 @@ export function markup(
     <div style="${containerStyle}" tw="flex flex-col">
       <div style="font-family:'Exo 2',sans-serif;" tw="flex flex-col w-full h-full bg-[#09090b]/40 text-white text-xl">
         <div tw="flex flex-col flex-1 w-full p-10 text-xl">
-          <h1 style="font-family:'Changa';line-height:1" tw="text-6xl text-white p-0 m-0">${title}</h1>
+          <h1 style="font-family:'Changa';font-weight:400;line-height:1" tw="text-6xl text-white p-0 m-0">${title}</h1>
           <p tw="p-0 m-0 text-xl">by ${siteAuthorName}</p>
         </div>
         <div tw="flex items-center justify-between w-full p-10 text-xl">
-          <p style="font-family:'Changa';line-height:1" tw="text-4xl">${siteTitle}</p>
+          <p style="font-family:'Changa';line-height:1;margin:20px 0" tw="text-4xl">${siteTitle}</p>
           <p tw="text-right text-xl" style="line-height:1">${dateHtml}</p>
         </div>
       </div>

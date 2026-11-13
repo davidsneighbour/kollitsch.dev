@@ -6,4 +6,11 @@
     "lint:design": "design.md lint DESIGN.md",
     "lint:design:diff": "design.md diff DESIGN.md",
   },
+  "overrides": {
+    // design.md bundles its own zod at runtime; this only replaces the
+    // vulnerable zod 3 copy that npm installs for its type declarations.
+    "@google/design.md": {
+      "zod": "4.6.7",
+    },
+  },
 }

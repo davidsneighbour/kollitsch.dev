@@ -12,6 +12,9 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import patrickkollitsch from '@assets/images/patrick-kollitsch.png';
+import patrickEyesBase from '@assets/images/patrick-kollitsch-eyes-base.png';
+import pupilLeft from '@assets/images/patrick-pupil-left.png';
+import pupilRight from '@assets/images/patrick-pupil-right.png';
 import PeoplePledgeBadge from '@components/features/badges/PeoplePledgeBadge.astro';
 import Colophon from '@components/layout/footer/Colophon.astro';
 import Icon from '@components/shared/elements/Icon.astro';
@@ -150,7 +153,8 @@ const networkColourStyle = (fill: string): string | undefined => {
           >
             <span
               class="footer-prompt-user"
-              aria-hidden="true">{promptUser}:~$</span
+              aria-hidden="true"
+              >{promptUser}:~$</span
             >
             whoami<span class="sr-only">: about Patrick Kollitsch</span>
           </h3>
@@ -159,6 +163,7 @@ const networkColourStyle = (fill: string): string | undefined => {
             <Link
               href="/connect/"
               class="footer-fetch-avatar"
+              data-footer-eyes
             >
               <Image
                 src={patrickkollitsch}
@@ -168,6 +173,32 @@ const networkColourStyle = (fill: string): string | undefined => {
                 loading="lazy"
                 class="footer-fetch-avatar-image border border-gray-200 dark:border-gray-800"
               />
+              <Image
+                src={patrickEyesBase}
+                width={400}
+                height={400}
+                alt=""
+                loading="lazy"
+                aria-hidden="true"
+                class="footer-eyes-base footer-fetch-avatar-image"
+              />
+              {[
+                { image: pupilLeft, x: 144 },
+                { image: pupilRight, x: 220 },
+              ].map(({ image, x }) => (
+                <img
+                  src={image.src}
+                  width={16}
+                  height={16}
+                  alt=""
+                  aria-hidden="true"
+                  class="footer-eye-pupil"
+                  data-footer-pupil
+                  data-x={x}
+                  data-y="154"
+                  style={`left: ${x / 4}%; top: 38.5%;`}
+                />
+              ))}
             </Link>
             <div class="min-w-0">
               <p class="footer-fetch-title">{promptUser}</p>
@@ -210,7 +241,12 @@ const networkColourStyle = (fill: string): string | undefined => {
                       {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
                       {UPTIME_UNITS.map((unit, index) => (
                         <Fragment>
-                          <span class="footer-uptime-unit" data-unit={unit}><span data-uptime-value></span> <span data-uptime-label>{unit}</span>{index < UPTIME_UNITS.length - 1 && ","}</span>{index < UPTIME_UNITS.length - 1 && " "}
+                          <span class="footer-uptime-unit" data-unit={unit}>
+                            <span data-uptime-value></span>{' '}
+                            <span data-uptime-label>{unit}</span>
+                            {index < UPTIME_UNITS.length - 1 && ','}
+                          </span>
+                          {index < UPTIME_UNITS.length - 1 && ' '}
                         </Fragment>
                       ))}
                     </span>
@@ -224,7 +260,12 @@ const networkColourStyle = (fill: string): string | undefined => {
                 </dd>
                 <dt>garden</dt>
                 <dd>
-                  <a href="/blog/">{postCount} posts</a>{tagCount > 0 && <Fragment>, <a href="/tags/">{tagCount} tags</a></Fragment>}
+                  <a href="/blog/">{postCount} posts</a>
+                  {tagCount > 0 && (
+                    <Fragment>
+                      , <a href="/tags/">{tagCount} tags</a>
+                    </Fragment>
+                  )}
                 </dd>
               </dl>
             </div>
@@ -238,7 +279,8 @@ const networkColourStyle = (fill: string): string | undefined => {
           >
             <span
               class="footer-prompt-user"
-              aria-hidden="true">{promptUser}:~$</span
+              aria-hidden="true"
+              >{promptUser}:~$</span
             >
             cat about.md<span class="sr-only">: introduction</span>
           </h3>
@@ -258,9 +300,12 @@ const networkColourStyle = (fill: string): string | undefined => {
           >
             <span
               class="footer-prompt-user"
-              aria-hidden="true">{promptUser}:~$</span
+              aria-hidden="true"
+              >{promptUser}:~$</span
             >
-            uname -r &amp;&amp; uptime<span class="sr-only">: Patrick's age</span>
+            uname -r &amp;&amp; uptime<span class="sr-only"
+              >: Patrick's age</span
+            >
           </h3>
           <dl
             class="footer-fetch-facts"
@@ -284,8 +329,13 @@ const networkColourStyle = (fill: string): string | undefined => {
                 hidden
               >
                 {/* Same no-wrap units as the "online" counter; the line can break after the comma. */}
-                <span class="footer-uptime-unit"><span data-age-value="days"></span> days,</span>
-                <span class="footer-uptime-unit"><span data-age-value="time"></span></span>
+                <span class="footer-uptime-unit"
+                  ><span data-age-value="days"></span>
+                  days,</span
+                >
+                <span class="footer-uptime-unit"
+                  ><span data-age-value="time"></span></span
+                >
               </span>
               <span
                 class="footer-muted block"
@@ -304,7 +354,8 @@ const networkColourStyle = (fill: string): string | undefined => {
           >
             <span
               class="footer-prompt-user"
-              aria-hidden="true">{promptUser}:~$</span
+              aria-hidden="true"
+              >{promptUser}:~$</span
             >
             ls ~/<span class="sr-only">: site navigation</span>
           </h3>
@@ -324,7 +375,8 @@ const networkColourStyle = (fill: string): string | undefined => {
           >
             <span
               class="footer-prompt-user"
-              aria-hidden="true">{promptUser}:~$</span
+              aria-hidden="true"
+              >{promptUser}:~$</span
             >
             ls ~/elsewhere<span class="sr-only">: social media profiles</span>
           </h3>
@@ -430,7 +482,8 @@ const networkColourStyle = (fill: string): string | undefined => {
         <span
           data-credit-slot
           data-credits={JSON.stringify(setup.credits)}
-        >{credit}</span>
+          >{credit}</span
+        >
         <Wordmark
           inline
           color="var(--footer-wordmark-color)"
@@ -539,6 +592,19 @@ const networkColourStyle = (fill: string): string | undefined => {
         // silence failures; footer should not break if API is unavailable
       }
     })();
+  </script>
+
+  <script>
+    import { initFooterEyes } from '@components/layout/footer/FooterEyes';
+
+    let cleanupEyes = () => {
+      /* No portrait has been initialised yet. */
+    };
+    document.addEventListener('astro:page-load', () => {
+      cleanupEyes();
+      cleanupEyes = initFooterEyes();
+    });
+    document.addEventListener('astro:before-swap', () => cleanupEyes());
   </script>
 
   <script>
@@ -670,9 +736,8 @@ const networkColourStyle = (fill: string): string | undefined => {
       }
 
       // A random credit line per page load; the server text stays otherwise.
-      const creditSlot = footer.querySelector<HTMLElement>(
-        '[data-credit-slot]',
-      );
+      const creditSlot =
+        footer.querySelector<HTMLElement>('[data-credit-slot]');
       if (creditSlot) {
         let credits: unknown = [];
         try {
@@ -937,6 +1002,7 @@ const networkColourStyle = (fill: string): string | undefined => {
      * grid track shrinks with it and the facts table keeps its gap.
      */
     .footer-fetch-avatar {
+      position: relative;
       --footer-avatar-size: 10rem;
       --footer-avatar-breakout: 1rem;
 
@@ -952,6 +1018,27 @@ const networkColourStyle = (fill: string): string | undefined => {
       height: 100%;
       object-fit: cover;
       border-radius: 0 9999px 9999px 0;
+    }
+
+    .footer-eyes-base,
+    .footer-eye-pupil {
+      display: none;
+      pointer-events: none;
+      position: absolute;
+    }
+    .footer-eyes-base {
+      inset: 0;
+    }
+    .footer-eye-pupil {
+      width: 4%;
+      height: 4%;
+      transform: translate(-50%, -50%);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      [data-eyes-active] .footer-eyes-base,
+      [data-eyes-active] .footer-eye-pupil {
+        display: block;
+      }
     }
 
     .footer-fetch-title {
@@ -1040,7 +1127,9 @@ const networkColourStyle = (fill: string): string | undefined => {
       }
 
       /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-      :global(:where([data-theme="dark"])) .footer-network:hover :global(.footer-network-glyph) {
+      :global(:where([data-theme="dark"]))
+        .footer-network:hover
+        :global(.footer-network-glyph) {
         color: var(--footer-network-colour-dark, currentcolor);
       }
     }
@@ -1051,7 +1140,9 @@ const networkColourStyle = (fill: string): string | undefined => {
     }
 
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    :global(:where([data-theme="dark"])) .footer-network:focus-visible :global(.footer-network-glyph) {
+    :global(:where([data-theme="dark"]))
+      .footer-network:focus-visible
+      :global(.footer-network-glyph) {
       color: var(--footer-network-colour-dark, currentcolor);
     }
 

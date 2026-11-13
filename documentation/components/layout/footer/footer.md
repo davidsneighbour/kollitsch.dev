@@ -31,7 +31,7 @@ import Footer from '@components/layout/footer/Footer.astro';
 
 ## Behaviour
 
-- Every section starts with a prompt line (`patrick@koh-samui:~$ <command>`) set in JetBrains Mono. Each prompt is an `h3`; the `user@host` part is `aria-hidden`, and a screen-reader-only suffix gives the plain section name (for example `whoami: about Patrick Kollitsch`). Each section is labelled by its prompt through `aria-labelledby`.
+- Every section starts with a prompt line (`patrick@dnb:~$ <command>`) set in JetBrains Mono. Each prompt is an `h3`; the `user@host` part is `aria-hidden`, and a screen-reader-only suffix gives the plain section name (for example `whoami: about Patrick Kollitsch`). Each section is labelled by its prompt through `aria-labelledby`.
 - Below `xl` the sections stack in one column; from `xl` they split into two columns (7/5).
 - `whoami` shows the author avatar (linked to `/connect/`, breaking out of the column to the left by one third of its width from 64rem up) beside a key-value table: name, alias, role, host, local time, uptime, stack, and garden (post count from the `blog` collection without drafts, tag count from `getTags()`). If the tag count fails, the tag link is left out.
 - The local time is the current time in `setup.timezone`, written into `[data-footer-clock]` by the client script and updated every 15 seconds. Without JavaScript only the time zone name shows.

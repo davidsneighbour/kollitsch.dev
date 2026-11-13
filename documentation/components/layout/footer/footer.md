@@ -2,7 +2,7 @@
 title: Footer
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-11-13T20:20:00+07:00
+updated: 2026-11-13T22:00:00+07:00
 ---
 
 Renders the site-wide footer as a terminal session: a neofetch-style `whoami` block, the introduction, the author's own uptime, the footer navigation, ranked social profiles, and one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
@@ -12,7 +12,7 @@ Renders the site-wide footer as a terminal session: a neofetch-style `whoami` bl
 | Field | Value |
 | --- | --- |
 | Component | `src/components/layout/footer/Footer.astro` |
-| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (navigation links), [`src/data/setup.json`](../../../../src/data/setup.json) (`title`, `author` including `born` and `bornTimezone`, `introduction`, `greetings`, `timezone`, and the `social` section) |
+| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (navigation links), [`src/data/setup.json`](../../../../src/data/setup.json) (`title`, `author` including `born` and `bornTimezone`, `introduction`, `greetings`, `credits`, `timezone`, and the `social` section) |
 | Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts), [`src/utils/greeting.pure.test.ts`](../../../../src/utils/greeting.pure.test.ts), [`src/utils/uptime.pure.test.ts`](../../../../src/utils/uptime.pure.test.ts), [`src/utils/introduction.pure.test.ts`](../../../../src/utils/introduction.pure.test.ts) |
 
 ## Props
@@ -43,11 +43,12 @@ import Footer from '@components/layout/footer/Footer.astro';
 - `uname -r && uptime` shows the author's age from `setup.author.born` (`1975-07-05T05:25:00+01:00`) with three rows. `kernel` is the age as a version number (years.months.days, for example `51.4.8-samui`, from `ageVersion()`). `boot` is the birth date and time in `setup.author.bornTimezone`, with the zone abbreviation (`5 July 1975, 05:25 CET`). `uptime` counts whole days and the time of the current day (`18,759 days, 08:49:39`, from `dayClock()`), and a muted comment line names the next multiple of 1,000 days in `setup.timezone` (`# next: day 19,000, 12 July 2027`, or `# today: day 19,000` on the day, from `nextDayMilestone()` and `formatDayMilestone()`). The day count follows the author's decimal birthdays from the 2022 post "Just another New Year". The server renders all values at build time. The client script corrects the kernel version and the comment line every second, shows the `aria-hidden` rolling counter, and keeps a plain `<n> days` text for screen readers that it sets once per page load.
 - Both counters share the timer, the `IntersectionObserver`, and the digit roll. Each counter rolls only while it is on screen.
 - An `aria-hidden` final prompt ends with a blinking green bar cursor, aligned with the prompt text. The blink runs only under `prefers-reduced-motion: no-preference`.
-- The colophon strip shows the copyright line with the current year, the version link, "Another production by" with the `Wordmark`, privacy and security policy links, RSS/Atom/JSON feed links, the `Static.Quest` web ring widget (previous, members, next, random), and the [People's Pledge](https://people.pledge.party/) badge (`PeoplePledgeBadge` at 40 px).
+- The colophon strip shows the copyright line with the current year, the version link, a credit line with the `Wordmark`, privacy and security policy links, RSS/Atom/JSON feed links, the `Static.Quest` web ring widget (previous, members, next, random), and the [People's Pledge](https://people.pledge.party/) badge (`PeoplePledgeBadge` at 40 px).
+- The credit line before the `Wordmark` comes from `setup.credits`. The server renders the first entry, so every build is identical and visitors without JavaScript see a stable line. The client script picks a random entry with `pickCredit()` (`src/utils/greeting.pure.ts`) on every `astro:page-load` and writes it into `[data-credit-slot]`. It reads the list from the `data-credits` attribute and skips blank entries.
 - The year is set on the server and corrected by an inline script to avoid stale build-time years. The same inline script fetches `/api/siteinfo.json` and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`) after the site title. Failures are ignored.
 - The badge and `Wordmark` use `--color-primary-700` in light mode and `--color-primary-600` in dark mode.
 - Renders `<Colophon />` after the closing `</footer>` tag.
 
 ## Extending
 
-To add or reorder navigation links, edit [`footernavigation.json`](../../../../src/data/footernavigation.json). To change the greeting text, edit `setup.greetings` in [`setup.json`](../../../../src/data/setup.json). To move a network between the featured list and the icon row, change its `show.connect` flag; see [Social media setup](../../../content/social-setup.md).
+To add or reorder navigation links, edit [`footernavigation.json`](../../../../src/data/footernavigation.json). To change the greeting text, edit `setup.greetings` in [`setup.json`](../../../../src/data/setup.json). To add, change, or remove a credit line, edit the `setup.credits` list in the same file. To move a network between the featured list and the icon row, change its `show.connect` flag; see [Social media setup](../../../content/social-setup.md).

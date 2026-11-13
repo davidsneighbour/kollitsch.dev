@@ -1,5 +1,6 @@
 /**
- * Client-safe helpers for the footer greeting and the Koh Samui clock.
+ * Client-safe helpers for the footer greeting, the credit line, and the Koh
+ * Samui clock.
  *
  * This module has no dependencies, so the footer's client script can import
  * it without pulling `setup.json` or `markdown-it` into the browser bundle.
@@ -41,6 +42,33 @@ export function pickGreeting(hour: number, greetings: Greetings): string {
     greeting = greetings.night;
   }
   return greeting ?? fallback;
+}
+
+/**
+ * Picks one credit line (the text before the footer wordmark), as configured
+ * in `setup.credits`.
+ *
+ * Ignores entries that are not strings or are blank. Returns an empty string
+ * when no entry is left, so callers can keep their server-rendered fallback.
+ *
+ * @param credits The configured credit lines.
+ * @param random Returns a number in [0, 1); defaults to `Math.random`.
+ */
+export function pickCredit(
+  credits: readonly unknown[],
+  random: () => number = Math.random,
+): string {
+  const usable = credits.filter(
+    (credit): credit is string =>
+      typeof credit === 'string' && credit.trim() !== '',
+  );
+  if (usable.length === 0) {
+    return '';
+  }
+  const index = Math.floor(random() * usable.length);
+  // A random source outside [0, 1) falls back to the first entry.
+  const safeIndex = index >= 0 && index < usable.length ? index : 0;
+  return usable[safeIndex]?.trim() ?? '';
 }
 
 /**

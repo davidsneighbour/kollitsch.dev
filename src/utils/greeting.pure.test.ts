@@ -1,7 +1,7 @@
 // @vitest-environment node
 
 import { describe, expect, it } from 'vitest';
-import { formatZoneTime, pickGreeting } from './greeting.pure.ts';
+import { formatZoneTime, pickCredit, pickGreeting } from './greeting.pure.ts';
 
 const greetings = {
   afternoon: 'Good afternoon!',
@@ -34,6 +34,39 @@ describe('pickGreeting', () => {
   it('falls back to the default greeting when the slot is missing', () => {
     expect(pickGreeting(8, { default: 'Hi' })).toBe('Hi');
     expect(pickGreeting(8, {})).toBe('');
+  });
+});
+
+describe('pickCredit', () => {
+  const credits = ['Webwork done by', 'Proudly presented by', 'Another by'];
+
+  it.each([
+    [0, 'Webwork done by'],
+    [0.4, 'Proudly presented by'],
+    [0.999, 'Another by'],
+  ])('random %f gives %s', (value, expected) => {
+    expect(pickCredit(credits, () => value)).toBe(expected);
+  });
+
+  it('skips blank and non-string entries', () => {
+    expect(pickCredit(['  ', 42, null, ' Webwork done by '], () => 0)).toBe(
+      'Webwork done by',
+    );
+  });
+
+  it('returns an empty string when no entry is usable', () => {
+    expect(pickCredit([])).toBe('');
+    expect(pickCredit(['', '   '])).toBe('');
+  });
+
+  it('falls back to the first entry for a random value outside [0, 1)', () => {
+    expect(pickCredit(credits, () => 1)).toBe('Webwork done by');
+    expect(pickCredit(credits, () => -0.5)).toBe('Webwork done by');
+    expect(pickCredit(credits, () => Number.NaN)).toBe('Webwork done by');
+  });
+
+  it('returns one of the entries with the default random source', () => {
+    expect(credits).toContain(pickCredit(credits));
   });
 });
 

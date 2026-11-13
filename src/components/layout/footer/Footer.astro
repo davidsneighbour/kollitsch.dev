@@ -20,6 +20,7 @@ import setup from '@data/setup.json' with { type: 'json' };
 import { social, socialNetworksFor } from '@data/social.ts';
 import Wordmark from '@dnbhq/wordmark';
 import { getHomepageUrl, getPostsSortedByDraft } from '@utils/content';
+import { pickCredit } from '@utils/greeting.pure.ts';
 import { renderIntroductionHtml } from '@utils/introduction.pure.ts';
 import type { Navigation } from '@utils/navigation';
 import { mergeRel } from '@utils/social.pure.ts';
@@ -40,6 +41,10 @@ const currentYear = new Date().getFullYear().toString();
 const siteSince = 2021;
 const navData = rawNavData as Navigation;
 const introductionHtml = renderIntroductionHtml(setup.introduction);
+
+// The server renders the first credit line, so every build is identical; the
+// client script swaps in a random one from `setup.credits` on page load.
+const credit = pickCredit(setup.credits, () => 0);
 
 // Prompt shown before every command; the dashes underline it, neofetch style.
 const promptUser = 'patrick@dnb';
@@ -369,7 +374,10 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
         >. All rights reserved.
       </p>
       <p>
-        Another production by
+        <span
+          data-credit-slot
+          data-credits={JSON.stringify(setup.credits)}
+        >{credit}</span>
         <Wordmark
           inline
           color="var(--footer-wordmark-color)"
@@ -484,6 +492,7 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
     import {
       formatZoneTime,
       type Greetings,
+      pickCredit,
       pickGreeting,
     } from '@utils/greeting.pure.ts';
     import {
@@ -604,6 +613,21 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       const greeting = pickGreeting(new Date().getHours(), greetings);
       for (const slot of footer.querySelectorAll('[data-greeting-slot]')) {
         slot.textContent = greeting;
+      }
+
+      // A random credit line per page load; the server text stays otherwise.
+      const creditSlot = footer.querySelector<HTMLElement>(
+        '[data-credit-slot]',
+      );
+      if (creditSlot) {
+        let credits: unknown = [];
+        try {
+          credits = JSON.parse(creditSlot.dataset['credits'] ?? '[]');
+        } catch {
+          // keep the server-rendered credit line
+        }
+        const credit = Array.isArray(credits) ? pickCredit(credits) : '';
+        if (credit) creditSlot.textContent = credit;
       }
 
       const clock = footer.querySelector<HTMLElement>('[data-footer-clock]');

@@ -128,4 +128,15 @@ describe("Footer component (author's uptime)", () => {
     expect(src).toContain('<span data-age-days>');
     expect(src).toContain("days.classList.add('sr-only')");
   });
+
+  it('renders the first credit line on the server and picks a random one on the client', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toContain('pickCredit(setup.credits, () => 0)');
+    expect(src).toContain('data-credits={JSON.stringify(setup.credits)}');
+    expect(src).toMatch(
+      /<script>[\s\S]*pickCredit\(credits\)[\s\S]*<\/script>/,
+    );
+  });
 });

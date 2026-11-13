@@ -11,6 +11,14 @@
       "wide": "isolate z-0 mx-auto max-w-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl px-1 sm:px-2 md:px-3"
     }
   },
+  "credits": [
+    "Just some other production by",
+    "Webwork done by",
+    "Another one of these sites by",
+    "You look at a production by",
+    "One of those sites done by",
+    "Proudly presented by"
+  ],
   "debug": {
     "enabled": true,
     "logLevel": "info"

@@ -267,3 +267,68 @@ describe("Footer component (author's uptime)", () => {
     );
   });
 });
+
+describe('Footer marker scroll replay', () => {
+  it('rearms on exit and replays on return without looping while visible', async () => {
+    const { transpile } = await import('typescript');
+    const { footerMarkInitialState } = await import(
+      '../../../utils/footer-mark.pure.ts'
+    );
+    const src = await fs.readFile(
+      new URL('./Footer.astro', import.meta.url),
+      'utf8',
+    );
+    const start = src.indexOf('function initFooterMark(): void');
+    const end = src.indexOf(
+      "document.addEventListener('astro:page-load', initFooterMark)",
+      start,
+    );
+    const mark = {
+      dataset: {} as { footerMark?: string; footerBurst?: string },
+      getBoundingClientRect: () => ({ top: 2000 }),
+    };
+    let callback: (entries: { isIntersecting: boolean }[]) => void = () => {
+      throw new Error('Observer has not been initialised');
+    };
+    let observed: unknown;
+    class Observer {
+      constructor(next: typeof callback) {
+        callback = next;
+      }
+      observe(target: unknown) {
+        observed = target;
+      }
+      disconnect() {
+        // No previous observer exists on this first page load.
+      }
+    }
+    const initialise = new Function(
+      'document',
+      'window',
+      'IntersectionObserver',
+      'footerMarkInitialState',
+      transpile(`let markObserver; ${src.slice(start, end)} initFooterMark();`),
+    );
+    initialise(
+      { querySelector: () => mark },
+      {
+        IntersectionObserver: Observer,
+        innerHeight: 900,
+        matchMedia: () => ({ matches: false }),
+      },
+      Observer,
+      footerMarkInitialState,
+    );
+    expect(observed).toBe(mark);
+    expect(mark.dataset.footerMark).toBe('pending');
+    callback([{ isIntersecting: true }]);
+    expect(mark.dataset.footerBurst).toBe('true');
+    expect(mark.dataset.footerMark).toBe('shown');
+    callback([{ isIntersecting: false }]);
+    expect(mark.dataset.footerBurst).toBeUndefined();
+    expect(mark.dataset.footerMark).toBe('pending');
+    callback([{ isIntersecting: true }]);
+    expect(mark.dataset.footerBurst).toBe('true');
+    expect(mark.dataset.footerMark).toBe('shown');
+  });
+});

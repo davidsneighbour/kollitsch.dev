@@ -880,42 +880,47 @@ const networkColourStyle = (fill: string): string | undefined => {
     let markObserver: IntersectionObserver | undefined;
 
     /**
-     * Runs the entrance of the "we have a footer" mark once, the first
-     * time the footer window scrolls into view.
+     * Replays the footer mark entrance after it leaves and returns to view.
      */
     function initFooterMark(): void {
       markObserver?.disconnect();
       markObserver = undefined;
 
       const mark = document.querySelector<HTMLElement>('[data-footer-mark]');
-      const target = document.querySelector<HTMLElement>(
-        '[data-footer-window]',
-      );
-      if (!mark || !target) return;
+      if (!mark) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const canObserve = 'IntersectionObserver' in window;
 
       const state = footerMarkInitialState({
-        canObserve: 'IntersectionObserver' in window,
-        reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)')
-          .matches,
-        targetTop: target.getBoundingClientRect().top,
+        canObserve,
+        reduceMotion: reduceMotion.matches,
+        targetTop: mark.getBoundingClientRect().top,
         viewportHeight: window.innerHeight,
       });
       mark.dataset['footerMark'] = state;
-      if (state === 'shown') return;
+      if (!canObserve || reduceMotion.matches) return;
+      let armed = state === 'pending';
 
-      // Start once the window's top edge is 15% above the viewport bottom,
-      // so the mark above it is well inside the viewport.
+      // Watching the note itself permits a return from either direction.
       markObserver = new IntersectionObserver(
         (entries) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
-          mark.dataset['footerBurst'] = 'true';
-          mark.dataset['footerMark'] = 'shown';
-          markObserver?.disconnect();
-          markObserver = undefined;
+          for (const entry of entries) {
+            if (!entry.isIntersecting) {
+              armed = true;
+              delete mark.dataset['footerBurst'];
+              mark.dataset['footerMark'] = 'pending';
+            } else {
+              if (armed && !reduceMotion.matches) {
+                mark.dataset['footerBurst'] = 'true';
+              }
+              mark.dataset['footerMark'] = 'shown';
+              armed = false;
+            }
+          }
         },
         { rootMargin: '0px 0px -15% 0px' },
       );
-      markObserver.observe(target);
+      markObserver.observe(mark);
     }
 
     document.addEventListener('astro:page-load', initFooterMark);
@@ -988,7 +993,7 @@ const networkColourStyle = (fill: string): string | undefined => {
       @apply text-gray-600 dark:text-gray-400;
     }
 
-    /* Finite celebration, only on the first scroll arrival. */
+    /* Finite celebration, replayed on each scroll return. */
     @media (prefers-reduced-motion: no-preference) {
       .footer-mark {
         transition: opacity 200ms ease-out;

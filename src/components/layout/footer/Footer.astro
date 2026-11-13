@@ -61,9 +61,9 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
   <h2 class="sr-only">Footer section with navigation and social media links</h2>
 
   <div
-    class="footer-terminal mt-8 grid grid-cols-1 gap-x-16 gap-y-12 border-t border-gray-300 px-2 py-12 font-jetbrainsmono text-sm sm:px-4 lg:grid-cols-12 lg:text-base dark:border-gray-800"
+    class="footer-terminal mt-8 grid grid-cols-1 gap-x-16 gap-y-12 border-t border-gray-300 px-2 py-12 font-jetbrainsmono text-sm sm:px-4 xl:grid-cols-12 lg:text-base dark:border-gray-800"
   >
-    <div class="flex flex-col gap-12 lg:col-span-7">
+    <div class="flex flex-col gap-12 xl:col-span-7">
       <section aria-labelledby="footer-whoami">
         <h3
           id="footer-whoami"
@@ -84,8 +84,8 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
             <Image
               src={patrickkollitsch}
               alt="Patrick Kollitsch"
-              width={256}
-              height={256}
+              width={400}
+              height={400}
               loading="lazy"
               class="footer-fetch-avatar-image border border-gray-200 dark:border-gray-800"
             />
@@ -153,7 +153,7 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       </section>
     </div>
 
-    <div class="flex flex-col gap-12 lg:col-span-5">
+    <div class="flex flex-col gap-12 xl:col-span-5">
       <nav aria-labelledby="footer-ls">
         <h3
           id="footer-ls"
@@ -212,7 +212,7 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
             <p class="footer-muted mt-6 mb-2">
               # and {moreNetworks.length} more
             </p>
-            <ul class="-ml-2.5 flex flex-wrap">
+            <ul class="footer-network-more -ml-2.5">
               {moreNetworks.map((network) => (
                 <li>
                   <IconLink
@@ -456,10 +456,22 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       align-items: start;
     }
 
+    /*
+     * The avatar breaks out of the column to the left. The negative margin
+     * moves the box itself, so the grid track shrinks with it and the facts
+     * table keeps its gap. From 64rem up it breaks out by one third of its
+     * own width; the side gutter there is at least 88px. Below that the
+     * gutter is only 12-28px, so the breakout is limited to the gutter and
+     * the face is never cut off at the viewport edge.
+     */
     .footer-fetch-avatar {
+      --footer-avatar-size: 10rem;
+      --footer-avatar-breakout: 0.75rem;
+
       display: block;
-      width: 7rem;
-      height: 7rem;
+      width: var(--footer-avatar-size);
+      height: var(--footer-avatar-size);
+      margin-inline-start: calc(-1 * var(--footer-avatar-breakout));
     }
 
     .footer-fetch-avatar-image {
@@ -483,8 +495,15 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
 
     @media (min-width: 40rem) {
       .footer-fetch-avatar {
-        width: 9rem;
-        height: 9rem;
+        --footer-avatar-size: 12rem;
+        --footer-avatar-breakout: 1.5rem;
+      }
+    }
+
+    @media (min-width: 64rem) {
+      .footer-fetch-avatar {
+        --footer-avatar-size: 15rem;
+        --footer-avatar-breakout: calc(var(--footer-avatar-size) / 3);
       }
     }
 
@@ -519,6 +538,22 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       min-width: 0;
     }
 
+    /*
+     * The icon-only networks wrap like words in a balanced headline: each
+     * item is an inline block, and `text-wrap: balance` evens out the line
+     * lengths, so 13 icons split 7 + 6 instead of leaving one orphan icon
+     * on its own line. Browsers without `balance` fall back to normal
+     * wrapping.
+     */
+    .footer-network-more {
+      text-wrap: balance;
+    }
+
+    .footer-network-more > li {
+      display: inline-block;
+      vertical-align: top;
+    }
+
     .footer-network-icon {
       @apply text-gray-600 dark:text-gray-400;
     }
@@ -530,7 +565,8 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       height: 1.15em;
       margin-left: 0.25em;
       vertical-align: text-bottom;
-      background: currentcolor;
+
+      @apply bg-primary-700 dark:bg-primary-500;
     }
 
     @media (prefers-reduced-motion: no-preference) {

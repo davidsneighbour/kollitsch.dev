@@ -24,6 +24,7 @@ import { renderIntroductionHtml } from '@utils/introduction.pure.ts';
 import type { Navigation } from '@utils/navigation';
 import { mergeRel } from '@utils/social.pure.ts';
 import { getTags } from '@utils/tags.ts';
+import { UPTIME_UNITS } from '@utils/uptime.pure.ts';
 
 export interface Props {}
 
@@ -37,7 +38,20 @@ const introductionHtml = renderIntroductionHtml(setup.introduction);
 const promptUser = 'patrick@koh-samui';
 const promptRule = '-'.repeat(promptUser.length);
 
-const postCount = getPostsSortedByDraft(await getCollection('blog')).length;
+const posts = getPostsSortedByDraft(await getCollection('blog'));
+const postCount = posts.length;
+
+// The uptime counter starts at the first published post.
+const firstPostDate = posts.reduce<Date | undefined>((earliest, post) => {
+  const date = new Date(post.data.date);
+  return !earliest || date < earliest ? date : earliest;
+}, undefined);
+const firstPostLabel = firstPostDate
+  ? new Intl.DateTimeFormat('en-GB', {
+      dateStyle: 'long',
+      timeZone: setup.timezone,
+    }).format(firstPostDate)
+  : String(siteSince);
 let tagCount = 0;
 try {
   tagCount = (await getTags()).length;
@@ -118,7 +132,25 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
                 <span class="footer-muted">{setup.timezone}</span>
               </dd>
               <dt>uptime</dt>
-              <dd>since {siteSince}</dd>
+              <dd>
+                <span data-uptime-since>since {firstPostLabel}</span>
+                {firstPostDate && (
+                  <span
+                    class="footer-uptime"
+                    data-footer-uptime
+                    data-start={firstPostDate.toISOString()}
+                    aria-hidden="true"
+                    hidden
+                  >
+                    {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
+                    {UPTIME_UNITS.map((unit, index) => (
+                      <Fragment>
+                        <span class="footer-uptime-unit" data-unit={unit}><span data-uptime-value></span> <span data-uptime-label>{unit}</span>{index < UPTIME_UNITS.length - 1 && ","}</span>{index < UPTIME_UNITS.length - 1 && " "}
+                      </Fragment>
+                    ))}
+                  </span>
+                )}
+              </dd>
               <dt>stack</dt>
               <dd>
                 <a href="https://astro.build/">Astro</a>,
@@ -372,16 +404,104 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       type Greetings,
       pickGreeting,
     } from '@utils/greeting.pure.ts';
+    import {
+      formatUptimeValue,
+      UPTIME_UNITS,
+      uptimeParts,
+      uptimeUnitLabel,
+    } from '@utils/uptime.pure.ts';
 
-    let clockTimer: number | undefined;
+    // footer-uptime-digit-transition token (DESIGN.md).
+    const DIGIT_DURATION = 400;
+    const DIGIT_EASING = 'cubic-bezier(0.19, 1, 0.22, 1)';
+
+    let tickTimer: number | undefined;
+    let uptimeObserver: IntersectionObserver | undefined;
+
+    function createDigit(char: string): HTMLSpanElement {
+      const digit = document.createElement('span');
+      digit.textContent = char;
+      return digit;
+    }
 
     /**
-     * Fill the greeting slot (visitor's local hour) and start the Koh Samui
-     * clock. Runs on every page load, including ClientRouter navigations,
-     * because the footer is swapped with the rest of the page.
+     * Writes `text` into `target`, one clipped slot per character. When
+     * `animate` is set, a changed digit rolls up and out while the new one
+     * rolls in from below. A change in digit count rebuilds without motion.
+     */
+    function renderValue(
+      target: HTMLElement,
+      text: string,
+      animate: boolean,
+    ): void {
+      const slots = Array.from(target.children) as HTMLElement[];
+      if (slots.length !== text.length) {
+        target.replaceChildren(
+          ...Array.from(text, (char) => {
+            const slot = document.createElement('span');
+            slot.className = 'footer-uptime-digit';
+            slot.append(createDigit(char));
+            return slot;
+          }),
+        );
+        return;
+      }
+
+      Array.from(text).forEach((char, index) => {
+        const slot = slots[index];
+        if (!slot) return;
+        const current = slot.lastElementChild as HTMLElement | null;
+        if (current?.textContent === char) return;
+        const next = createDigit(char);
+        if (!animate || !current) {
+          slot.replaceChildren(next);
+          return;
+        }
+        // Drop digits still leaving from an earlier change.
+        for (const child of Array.from(slot.children)) {
+          if (child !== current) child.remove();
+        }
+        slot.append(next);
+        const timing = { duration: DIGIT_DURATION, easing: DIGIT_EASING };
+        current
+          .animate(
+            [
+              { filter: 'blur(0)', opacity: 1, transform: 'translateY(0)' },
+              {
+                filter: 'blur(2px)',
+                opacity: 0,
+                transform: 'translateY(-100%)',
+              },
+            ],
+            timing,
+          )
+          .finished.then(
+            () => current.remove(),
+            () => current.remove(),
+          );
+        next.animate(
+          [
+            {
+              filter: 'blur(2px)',
+              opacity: 0,
+              transform: 'translateY(100%)',
+            },
+            { filter: 'blur(0)', opacity: 1, transform: 'translateY(0)' },
+          ],
+          timing,
+        );
+      });
+    }
+
+    /**
+     * Fill the greeting slot (visitor's local hour), and run the Koh Samui
+     * clock and the uptime counter on one timer aligned to whole seconds.
+     * Runs on every page load, including ClientRouter navigations, because
+     * the footer is swapped with the rest of the page.
      */
     function initFooterTerminal(): void {
-      window.clearInterval(clockTimer);
+      window.clearTimeout(tickTimer);
+      uptimeObserver?.disconnect();
       const footer = document.querySelector<HTMLElement>(
         '[data-footer-terminal]',
       );
@@ -400,12 +520,67 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
 
       const clock = footer.querySelector<HTMLElement>('[data-footer-clock]');
       const timeZone = clock?.dataset['timezone'];
-      if (!clock || !timeZone) return;
-      const tick = (): void => {
-        clock.textContent = formatZoneTime(new Date(), timeZone);
+
+      const uptime = footer.querySelector<HTMLElement>('[data-footer-uptime]');
+      const start = new Date(uptime?.dataset['start'] ?? '');
+      const hasUptime = !!uptime && !Number.isNaN(start.getTime());
+      let inView = false;
+      if (uptime && hasUptime) {
+        uptime.hidden = false;
+        // Screen readers keep the calm "since <date>" text instead of a
+        // counter that changes every second.
+        footer
+          .querySelector('[data-uptime-since]')
+          ?.classList.add('sr-only');
+        uptimeObserver = new IntersectionObserver((entries) => {
+          inView = entries.some((entry) => entry.isIntersecting);
+        });
+        uptimeObserver.observe(uptime);
+      }
+
+      if (!(clock && timeZone) && !hasUptime) return;
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      );
+
+      const tick = (animate: boolean): void => {
+        const now = new Date();
+        if (clock && timeZone) {
+          const time = formatZoneTime(now, timeZone);
+          if (clock.textContent !== time) clock.textContent = time;
+        }
+        if (!uptime || !hasUptime) return;
+        const parts = uptimeParts(start, now);
+        for (const unit of UPTIME_UNITS) {
+          const unitEl = uptime.querySelector<HTMLElement>(
+            `[data-unit="${unit}"]`,
+          );
+          const valueEl = unitEl?.querySelector<HTMLElement>(
+            '[data-uptime-value]',
+          );
+          const labelEl = unitEl?.querySelector<HTMLElement>(
+            '[data-uptime-label]',
+          );
+          if (!valueEl || !labelEl) continue;
+          renderValue(valueEl, formatUptimeValue(unit, parts[unit]), animate);
+          const label = uptimeUnitLabel(unit, parts[unit]);
+          if (labelEl.textContent !== label) labelEl.textContent = label;
+        }
       };
-      tick();
-      clockTimer = window.setInterval(tick, 15_000);
+
+      // Animate only when the counter is on screen and motion is allowed;
+      // otherwise the digits are swapped without animation.
+      const schedule = (): void => {
+        tickTimer = window.setTimeout(
+          () => {
+            tick(inView && !reduceMotion.matches);
+            schedule();
+          },
+          1000 - (Date.now() % 1000),
+        );
+      };
+      tick(false);
+      schedule();
     }
 
     document.addEventListener('astro:page-load', initFooterTerminal);
@@ -491,6 +666,29 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       grid-template-columns: max-content minmax(0, 1fr);
       gap: 0.25rem 1.25rem;
       margin-top: 0.25rem;
+    }
+
+    /*
+     * Uptime counter. Each unit stays on one line ("07 seconds" never
+     * splits). Digit slots are created by the client script, so they are
+     * reached through :global() under the scoped parent. Each slot stacks
+     * the leaving and the arriving digit in one grid cell and clips them
+     * with clip-path, which (unlike overflow: hidden) keeps the text
+     * baseline.
+     */
+    .footer-uptime-unit {
+      white-space: nowrap;
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .footer-uptime :global(.footer-uptime-digit) {
+      display: inline-grid;
+      clip-path: inset(0);
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .footer-uptime :global(.footer-uptime-digit > span) {
+      grid-area: 1 / 1;
     }
 
     @media (min-width: 40rem) {

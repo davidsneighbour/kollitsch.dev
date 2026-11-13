@@ -220,14 +220,15 @@ describe("Footer component (author's uptime)", () => {
     expect(missing).toEqual([]);
   });
 
-  it('wraps the terminal sections in a separate window with a decorative title bar', async () => {
+  it('wraps the terminal sections in a separate window without a decorative title bar', async () => {
     const testDir = path.dirname(fileURLToPath(import.meta.url));
     const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
 
     expect(src).toMatch(
-      /class="footer-window"\s+data-footer-window\s*>\s*<div\s+class="footer-window-bar"\s+aria-hidden="true"/,
+      /class="footer-window"\s+data-footer-window\s*>\s*<div\s+class="footer-terminal /,
     );
-    expect(src).toMatch(/data-footer-window[\s\S]*class="footer-terminal /);
+    expect(src).not.toContain('footer-window-bar');
+    expect(src).not.toContain('footer-window-dots');
     expect(src).toMatch(/\.footer-window \{\s*@apply rounded-lg bg-card/);
   });
 

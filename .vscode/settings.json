@@ -129,6 +129,8 @@
   },
   "typos.config": "src/config/typos.toml",
   "explorer.fileNesting.patterns": {
-    "astro.config.ts": "ec.config.mjs, components.json, config.toml, frontmatter.json, .posthaste.toml, .ncurc.json"
+    "astro.config.ts": "ec.config.mjs, components.json, config.toml, frontmatter.json, .posthaste.toml, .ncurc.json",
+    "*.json": "${capture}.schema.json",
+    "*.toml": "${capture}.schema.json"
   }
 }

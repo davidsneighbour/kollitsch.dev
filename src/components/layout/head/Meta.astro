@@ -1,6 +1,7 @@
 ---
 // @todo refactor and comment
 import metaDataRaw from '@data/meta.json' with { type: 'json' };
+import { getSocialNetwork } from '@data/social.ts';
 
 /**
  * MetaConfig interface defines the structure for meta tags configuration.
@@ -17,9 +18,19 @@ type MetaConfig = {
 
 const metaData = metaDataRaw as MetaConfig;
 
+// Fediverse author attribution comes from the Mastodon entry of the social setup.
+const fediverseCreator = getSocialNetwork('mastodon').profile.handle;
+
 export interface Props {}
 ---
 
-{Object.entries(metaData.name).map(([name, content]) => <meta name={name} content={content} />)}
-{Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => <meta http-equiv={httpEquiv} content={content} />)}
+{Object.entries(metaData.name).map(([name, content]) => (
+  <meta name={name} content={content} />
+))}
+{Object.entries(metaData.httpEquiv).map(([httpEquiv, content]) => (
+  <meta http-equiv={httpEquiv} content={content} />
+))}
+{fediverseCreator && (
+  <meta name="fediverse:creator" content={fediverseCreator} />
+)}
 {metaData.link.map((item) => <link {...item} />)}

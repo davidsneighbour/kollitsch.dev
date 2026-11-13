@@ -1,8 +1,9 @@
 ---
-// @todo refactor and comment
 import type { CollectionEntry } from 'astro:content';
 
 import Icon from '@components/shared/elements/Icon.astro';
+import { socialNetworksFor } from '@data/social.ts';
+import { buildShareUrl } from '@utils/social.pure.ts';
 
 export interface Props {
   post: CollectionEntry<'blog'>;
@@ -10,9 +11,13 @@ export interface Props {
 
 const { post }: Props = Astro.props;
 
-const canonicalUrl = Astro.url.toString();
-
 // @todo rework Props so we pass url, title, description instead of the whole post
+const shareValues = {
+  description: post.data.description ?? '',
+  title: post.data.title,
+  url: Astro.url.toString(),
+};
+const shareNetworks = socialNetworksFor('shareMeta');
 ---
 
 <div class="flex flex-row items-center justify-start gap-2">
@@ -21,32 +26,18 @@ const canonicalUrl = Astro.url.toString();
   </div>
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Share:</span>
-
-    <Icon name="local:linkedin" />
-    <a
-      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`}
-      target="_blank"
-      rel="noopener"
-      class="inline-block px-1 py-1"
-      >LinkedIn</a
-    >
-
-    <Icon name="simple-icons:facebook" />
-    <a
-      href={`https://facebook.com/sharer/sharer.php?&u=${encodeURIComponent(canonicalUrl)}`}
-      target="_blank"
-      rel="noopener"
-      class="inline-block px-1 py-1"
-      >Facebook</a
-    >
-
-    <Icon name="simple-icons:reddit" />
-    <a
-      href={`https://www.reddit.com/submit?url=${encodeURIComponent(canonicalUrl)}&title=${encodeURIComponent(post.data.title)}`}
-      target="_blank"
-      rel="noopener"
-      class="inline-block px-1 py-1"
-      >Reddit</a
-    >
+    {shareNetworks.map((network) => (
+      <>
+        <Icon name={network.icon} />
+        <a
+          href={buildShareUrl(network.share?.url ?? '', shareValues)}
+          target="_blank"
+          rel="noopener"
+          class="inline-block px-1 py-1"
+        >
+          {network.label}
+        </a>
+      </>
+    ))}
   </div>
 </div>

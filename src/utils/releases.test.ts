@@ -15,6 +15,7 @@ import {
   normalizeRelease,
   paginate,
   type Release,
+  sortReleases,
 } from './releases.ts';
 
 describe('isSemverTag', () => {
@@ -224,5 +225,42 @@ describe('getReleasesPerPage', () => {
 
   it('falls back to the provided default when called with no config guarantees', () => {
     expect(getReleasesPerPage()).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('sortReleases', () => {
+  it('drops invalid entries and sorts newest first, then by semver', () => {
+    const sorted = sortReleases([
+      {
+        descriptionHTML: '',
+        name: 'a',
+        publishedAt: '2026-01-01T00:00:00Z',
+        tagName: 'v1.0.0',
+      },
+      {
+        descriptionHTML: '',
+        name: 'b',
+        publishedAt: '2026-03-01T00:00:00Z',
+        tagName: 'v1.2.0',
+      },
+      {
+        descriptionHTML: '',
+        name: 'c',
+        publishedAt: '2026-03-01T00:00:00Z',
+        tagName: 'v1.10.0',
+      },
+      {
+        descriptionHTML: '',
+        name: 'broken',
+        publishedAt: 'not a date',
+        tagName: 'v0.1.0',
+      },
+    ]);
+
+    expect(sorted.map((release) => release.tag)).toEqual([
+      'v1.10.0',
+      'v1.2.0',
+      'v1.0.0',
+    ]);
   });
 });

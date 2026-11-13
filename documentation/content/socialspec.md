@@ -2,7 +2,7 @@
 title: SocialSpec well-known files
 tags: []
 created: 2026-10-19T00:00:00+07:00
-updated: 2026-10-19T00:00:00+07:00
+updated: 2026-11-13T00:00:00+07:00
 ---
 
 KOLLITSCH.dev publishes the three [SocialSpec](https://socialspec.org/) files. Each file is a single static document that any client can fetch with one `GET` request.
@@ -20,10 +20,10 @@ The specifications are v1 drafts. Their RFC issues on GitHub do not yet contain 
 Edit [`src/data/socialspec.ts`](../../src/data/socialspec.ts). It exports one object per file:
 
 * `following` - built from the entries in [`src/content/blogroll.json`](../../src/content/blogroll.json) that have an `rss` URL. Entries without a feed URL stay on the blogroll page but are not subscriptions, so they are not in the OPML file. Add an `rss` value to a blogroll entry to publish it.
-* `about` - the summary is the site description and the body is the site introduction from [`src/data/setup.json`](../../src/data/setup.json). The links list is the site URL followed by the social profiles in `PROFILE_IDS`.
+* `about` - the summary is the site description and the body is the site introduction from [`src/data/setup.json`](../../src/data/setup.json). The links list is the site URL followed by the social profiles with `show.socialspec` in the [social media setup](social-setup.md), in config order.
 * `contact` - name, nickname, location, time zone, languages, profile image, and the same social profiles. `email` is empty by default; set it to a public address to add an `EMAIL;PREF=1` property.
 
-`PROFILE_IDS` refers to `id` values in [`src/content/social.json`](../../src/content/social.json). The build fails if an id has no URL there.
+To add or remove a profile in these files, change `show.socialspec` on the network in [`src/data/setup.json`](../../src/data/setup.json).
 
 ## Implementation
 

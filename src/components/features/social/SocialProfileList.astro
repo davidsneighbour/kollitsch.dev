@@ -1,0 +1,40 @@
+---
+import IconLink from '@components/shared/links/IconLink.astro';
+import {
+  type SocialMediaNetwork,
+  social,
+  socialNetworksFor,
+} from '@data/social.ts';
+import { mergeRel } from '@utils/social.pure.ts';
+
+export interface Props {
+  /** Networks to list. Defaults to the networks with `show.connect`. */
+  items?: readonly SocialMediaNetwork[];
+  class?: string;
+}
+
+const { items = socialNetworksFor('connect'), class: className = '' }: Props =
+  Astro.props;
+---
+
+<ul class={`mt-6 space-y-4 ${className}`}>
+  {items.map((network) => (
+    <li>
+      <IconLink
+        href={network.profile.url}
+        icon={network.icon}
+        target={social.defaults.target}
+        rel={mergeRel(social.defaults.rel, network.profile.rel)}
+        class={`size-5 ${network.classes.fill}`}
+        linkClass="font-medium"
+      >
+        {network.profile.handle
+          ? `${network.label}: ${network.profile.handle}`
+          : network.label}
+      </IconLink>
+      <p class="ml-7 text-sm text-gray-600 dark:text-gray-400">
+        {network.profile.title}
+      </p>
+    </li>
+  ))}
+</ul>

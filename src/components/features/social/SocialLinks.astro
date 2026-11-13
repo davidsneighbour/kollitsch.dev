@@ -1,65 +1,44 @@
 ---
 import IconLink from '@components/shared/links/IconLink.astro';
-import contentSocialData from '@content/social.json' with { type: 'json' };
-import type { IconName } from '@utils/icon-names';
-
-export interface SocialMediaItem {
-  id: string;
-  label: string;
-  icon: IconName;
-  url?: string;
-  share?: string;
-  rel?: string;
-  background?: string;
-  fill?: string;
-}
+import {
+  type SocialMediaNetwork,
+  social,
+  socialNetworksFor,
+} from '@data/social.ts';
+import { mergeRel } from '@utils/social.pure.ts';
 
 export interface Props {
   container?: 'ul' | 'ol' | 'div' | 'menu';
   containerClass?: string;
-  items?: SocialMediaItem[];
+  /** Networks to render. Defaults to the networks with `show.footer`. */
+  items?: readonly SocialMediaNetwork[];
   target?: string;
 }
-
-const contentItems = contentSocialData as SocialMediaItem[];
 
 const {
   container = 'ul',
   containerClass = 'flex flex-row flex-wrap justify-center gap-2 lg:justify-end',
-  items = contentItems,
-  target = '_blank',
+  items = socialNetworksFor('footer'),
+  target = social.defaults.target,
 } = Astro.props as Props;
 
 const Tag = container;
 const ListTag = container === 'div' ? 'span' : 'li';
-
-const defaultRelParts = ['noopener', 'noreferrer', 'me'];
-function mergedRel(itemRel?: string) {
-  const parts = [...defaultRelParts];
-  if (itemRel) {
-    itemRel
-      .split(/\s+/)
-      .filter(Boolean)
-      .forEach((p) => {
-        if (!parts.includes(p)) parts.push(p);
-      });
-  }
-  return parts.join(' ');
-}
 ---
 
 <Tag class={containerClass}>
-  {items.map((value) => (
-      <ListTag>
-        <IconLink
-          href={value.url}
-          icon={value.icon as IconName}
-          target={target}
-          rel={mergedRel(value.rel)}
-          class={`size-6 ${value.fill ?? ""}`}
-        >
-          {value.label}
-        </IconLink>
-      </ListTag>
-    ))}
+  {items.map((network) => (
+    <ListTag>
+      <IconLink
+        href={network.profile.url}
+        icon={network.icon}
+        target={target}
+        rel={mergeRel(social.defaults.rel, network.profile.rel)}
+        title={network.profile.title}
+        class={`size-6 ${network.classes.fill}`}
+      >
+        {network.label}
+      </IconLink>
+    </ListTag>
+  ))}
 </Tag>

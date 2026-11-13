@@ -2,7 +2,7 @@
 title: Footer
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-09-20T00:00:00+07:00
+updated: 2026-11-13T00:00:00+07:00
 ---
 
 Renders the site-wide footer: an about section with author bio, footer navigation, social links, legal links, the Static.Quest web ring widget, feed links, a People's Pledge badge, and the [`Colophon`](colophon.md) vanity heading.
@@ -12,7 +12,7 @@ Renders the site-wide footer: an about section with author bio, footer navigatio
 | Field | Value |
 | --- | --- |
 | Component | `src/components/layout/footer/Footer.astro` |
-| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (nav links), [`src/data/setup.json`](../../../../src/data/setup.json) (title, introduction, greetings), [`src/content/social.json`](../../../../src/content/social.json) (social links) |
+| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (nav links), [`src/data/setup.json`](../../../../src/data/setup.json) (title, introduction, greetings), [`src/data/setup.json`](../../../../src/data/setup.json) (`social` section, social links) |
 | Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts) |
 
 ## Props

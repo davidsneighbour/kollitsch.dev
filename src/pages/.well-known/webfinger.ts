@@ -1,30 +1,22 @@
+import setup from '@data/setup.json' with { type: 'json' };
+import { getSocialNetwork } from '@data/social.ts';
+import { buildWebfinger } from '@utils/social.pure.ts';
 import type { APIRoute } from 'astro';
 
-const WEBFINGER_BODY = {
-  aliases: ['https://mas.to/@davidsneighbour'],
-  links: [
-    {
-      href: 'https://mas.to/@davidsneighbour',
-      rel: 'http://webfinger.net/rel/profile-page',
-      type: 'text/html',
-    },
-    {
-      href: 'https://mas.to/users/davidsneighbour',
-      rel: 'self',
-      type: 'application/activity+json',
-    },
-    {
-      rel: 'http://ostatus.org/schema/1.0/subscribe',
-      template: 'https://mas.to/authorize_interaction?uri={uri}',
-    },
-    {
-      href: 'https://media.mas.to/accounts/avatars/109/705/059/351/505/561/original/1922ed28820230d4.jpg',
-      rel: 'http://webfinger.net/rel/avatar',
-      type: 'image/jpeg',
-    },
-  ],
-  subject: 'acct:davidsneighbour@mas.to',
-} as const;
+// Points WebFinger lookups on this domain to the Mastodon account that is
+// configured in the `social` section of src/data/setup.json.
+const mastodon = getSocialNetwork('mastodon');
+if (!mastodon.profile.handle) {
+  throw new Error(
+    'The mastodon network in src/data/setup.json needs a profile.handle',
+  );
+}
+
+const WEBFINGER_BODY = buildWebfinger(
+  mastodon.profile.handle,
+  mastodon.profile.url,
+  new URL('/.well-known/avatar', setup.url).toString(),
+);
 
 export const GET: APIRoute = async () => {
   try {

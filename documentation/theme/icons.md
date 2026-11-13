@@ -2,7 +2,7 @@
 title: Icons
 tags: []
 created: 2026-06-14T00:00:00+07:00
-updated: 2026-09-18T00:00:00+07:00
+updated: 2026-11-13T00:00:00+07:00
 ---
 
 All icons are rendered through `@components/shared/elements/Icon.astro`, backed by a small hand-maintained registry in `src/utils/icon-names.ts`. Never write inline SVG; always use the component.
@@ -80,4 +80,4 @@ When you encounter an existing inline `<svg>` element, look up the equivalent ic
 
 ## Content-driven icon names
 
-Some icon names come from JSON or frontmatter (`src/content/social.json`, `src/data/*navigation.json`, tag `badge.icon.name`) rather than a literal string in a component. Those values are plain strings at the content layer and are narrowed to `IconName` with a cast at the single point where they're rendered (see `ShareSeparator.astro`). Keep those content values in sync with the registry in `src/utils/icon-names.ts` — an unregistered name throws at render time.
+Some icon names come from JSON or frontmatter (`social.networks[].icon` in `src/data/setup.json`, `src/data/*navigation.json`, tag `badge.icon.name`) rather than a literal string in a component. Those values are plain strings at the content layer and are narrowed to `IconName` with a cast at the single point where they're rendered (see `ShareSeparator.astro`). Keep those content values in sync with the registry in `src/utils/icon-names.ts` — an unregistered name throws at render time.

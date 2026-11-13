@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 
-import { file, glob } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 // for github releases loader
 // https://github.com/lin-stephanie/astro-loaders/tree/main/packages/astro-loader-github-releases
 // import { githubReleasesLoader } from 'astro-loader-github-releases';
@@ -172,22 +172,6 @@ export const tags = defineCollection({
 //   }),
 // });
 
-// MARK: Social Media Links
-export const social = defineCollection({
-  loader: file('./src/content/social.json', {
-    parser: (text) => JSON.parse(text),
-  }),
-  schema: z.object({
-    fill: z.string().optional(),
-    icon: z.string(),
-    id: z.string(),
-    label: z.string(),
-    share: z.string().optional(),
-    url: z.string().optional(),
-  }),
-});
-
-
 // MARK: Markdown Pages
 export const pages = defineCollection({
   loader: glob({ base: './src/pages', pattern: '**/*.{md,mdx}' }),
@@ -207,6 +191,5 @@ export const collections = {
   blog,
   tags,
   // githubReleases,
-  social,
   pages,
 };

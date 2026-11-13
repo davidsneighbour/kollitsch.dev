@@ -117,8 +117,9 @@ should be reviewed during a future refactor:
   lookups; verify that all edge cases are still handled after the move.
 * `features/feeds/FeedReader.astro` - bespoke promotional component with hard
   coded defaults that likely deserves its own feature module.
-* `features/social/ShareToMastodon.astro` & `features/social/SocialLinks.astro`
-  * social integrations that should be audited for consistency and localization.
+* `features/social/ShareToMastodon.astro` - unused instance-aware Mastodon share
+  link with its own hardcoded share template; not part of the `social` section
+  of `src/data/setup.json`.
 * `forms/input.tsx` & `forms/textarea.tsx` - unused as hydrated islands (see
   "shadcn/ui" above); confirm this stays intentional rather than dead code as
   the forms area grows.

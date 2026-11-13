@@ -15,7 +15,6 @@ Astro generates a fully static site (`output: 'static'`). All pages are pre-rend
 
 - **blog**: Markdown/MDX posts from `src/content/blog/`. A custom loader injects `contentFormat` (`md`/`mdx`) from the file path before parsing. `blogSchema` has a cover object with an image/video union and cross-field refinements, an optional `sourcecode` record, Markdown-rendered `title`/`summary`/`cover.alt`, and a computed `articleimage`. Refinements enforce `linktitle` rules and lowercase kebab-case tag ids.
 - **tags**: tag metadata from `src/content/tags/`. The schema normalises `id`/`aliases`, derives `label`/`linktitle`, and accepts `badge` presentation metadata.
-- **social**: social links from `src/content/social.json`.
 - **pages**: Markdown pages under `src/pages/` that require a `layout` frontmatter field.
 
 Query helpers live in `src/utils/content.ts` (`getHomepagePosts`, `paginateBlogPostsByYear`, `getPostsSortedByDraft`, breadcrumbs, date formatting).
@@ -58,6 +57,7 @@ TypeScript path aliases are defined in `tsconfig.json` (`@/*`, `@components/*`, 
 | Change homepage feed | `src/utils/content.ts` (`getHomepagePosts`) |
 | Update content frontmatter schema | `src/content.config.ts` |
 | Add/change site metadata | `src/data/setup.json` |
+| Change social media profiles and share buttons | `src/data/setup.json` (`social` section), see `documentation/content/social-setup.md` |
 | Change navigation | `src/data/topnavigation.json`, `src/data/footernavigation.json` |
 | Change search/indexing | `src/scripts/build/integrations/pagefind.ts`, `astro.config.ts` |
 | Add a new blog post | `npm run create:blog` or create in `src/content/blog/` |

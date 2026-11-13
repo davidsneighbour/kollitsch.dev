@@ -14,9 +14,6 @@
     "logLevel": "info"
   },
   "description": "Patrick Kollitsch builds snappy websites for modern browsers - all from a little island called Koh Samui, where coconuts grow and deadlines stay chill.",
-  "discord": {
-    "invite": "https://discord.gg/C3ugcF5c9d"
-  },
   "fallback": "/src/assets/images/fallback.jpg",
   "greetings": {
     "afternoon": "Good afternoon \ud83d\udc4b",
@@ -53,6 +50,431 @@
     "url": "https://github.com/davidsneighbour/kollitsch.dev"
   },
   "releasesPerPage": 10,
+  "social": {
+    "defaults": {
+      "rel": ["noopener", "noreferrer", "me"],
+      "target": "_blank"
+    },
+    "networks": [
+      {
+        "id": "discord",
+        "label": "Discord",
+        "icon": "simple-icons:discord",
+        "profile": {
+          "url": "https://discord.gg/C3ugcF5c9d",
+          "handle": "@davidsneighbour",
+          "title": "Join my Discord server and look up @davidsneighbour to connect with me",
+          "rel": []
+        },
+        "share": null,
+        "classes": {
+          "fill": "",
+          "background": ""
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": false,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "bluesky",
+        "label": "Bluesky",
+        "icon": "simple-icons:bluesky",
+        "profile": {
+          "url": "https://bsky.app/profile/davidsneighbour.dev",
+          "handle": "@davidsneighbour.dev",
+          "title": "Follow me on Bluesky",
+          "rel": ["atproto"]
+        },
+        "share": {
+          "url": "https://bsky.app/intent/compose?text={title}%20{url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#0085ff]",
+          "background": "group-hover:bg-[#0085ff]/10 hover:bg-[#0085ff]/20 hover:shadow-[#0085ff]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "threads",
+        "label": "Threads",
+        "icon": "simple-icons:threads",
+        "profile": {
+          "url": "https://www.threads.com/@davidsneighbour.dev",
+          "handle": "@davidsneighbour.dev",
+          "title": "Follow me on Threads",
+          "rel": []
+        },
+        "share": {
+          "url": "https://threads.net/intent/post?url={url}&text={description}"
+        },
+        "classes": {
+          "fill": "hover:text-[#000000]",
+          "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/70 hover:shadow-[#ffffff]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "mastodon",
+        "label": "Mastodon",
+        "icon": "simple-icons:mastodon",
+        "profile": {
+          "url": "https://mas.to/@davidsneighbour",
+          "handle": "@davidsneighbour@mas.to",
+          "title": "Follow me on Mastodon",
+          "rel": []
+        },
+        "share": {
+          "url": "https://mas.to/share?text={title}&url={url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#6364ff]",
+          "background": "group-hover:bg-[#6364ff]/10 hover:bg-[#6364ff]/20 hover:shadow-[#6364ff]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "icon": "simple-icons:instagram",
+        "profile": {
+          "url": "https://www.instagram.com/davidsneighbour.dev/",
+          "handle": "@davidsneighbour.dev",
+          "title": "Follow me on Instagram",
+          "rel": []
+        },
+        "share": null,
+        "classes": {
+          "fill": "",
+          "background": ""
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": false,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "email",
+        "label": "Email",
+        "icon": "lucide:mail",
+        "profile": {
+          "url": "/connect/",
+          "handle": null,
+          "title": "Send me a message through the contact form",
+          "rel": []
+        },
+        "share": {
+          "url": "mailto:?subject={title}&body={description}%0A{url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#000000]",
+          "background": "group-hover:bg-[#FFCC00]/20 hover:bg-[#FFCC00]/50 hover:shadow-[#FFCC00]"
+        },
+        "show": {
+          "footer": true,
+          "connect": false,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "facebook",
+        "label": "Facebook",
+        "icon": "simple-icons:facebook",
+        "profile": {
+          "url": "https://www.facebook.com/davidsneighbour",
+          "handle": "davidsneighbour",
+          "title": "Follow me on Facebook",
+          "rel": []
+        },
+        "share": {
+          "url": "https://www.facebook.com/sharer/sharer.php?u={url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#1877f2]",
+          "background": "group-hover:bg-[#1877f2]/10 hover:bg-[#1877f2]/20 hover:shadow-[#1877f2]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": true,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "twitter",
+        "label": "Twitter (aka X)",
+        "icon": "simple-icons:x",
+        "profile": {
+          "url": "https://x.com/davidsneighbour",
+          "handle": "@davidsneighbour",
+          "title": "Follow me on X",
+          "rel": []
+        },
+        "share": {
+          "url": "https://x.com/intent/tweet?url={url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#000000]",
+          "background": "group-hover:bg-[#ffffff]/10 hover:bg-[#ffffff]/70 hover:shadow-[#ffffff]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "icon": "local:linkedin",
+        "profile": {
+          "url": "https://www.linkedin.com/in/patrickkollitsch/",
+          "handle": "patrickkollitsch",
+          "title": "Connect with me on LinkedIn",
+          "rel": []
+        },
+        "share": {
+          "url": "https://www.linkedin.com/sharing/share-offsite/?url={url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#0A66C2]",
+          "background": "group-hover:bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:shadow-[#0A66C2]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": true,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "reddit",
+        "label": "Reddit",
+        "icon": "simple-icons:reddit",
+        "profile": {
+          "url": "https://www.reddit.com/r/davidsneighbour/",
+          "handle": "r/davidsneighbour",
+          "title": "Follow r/davidsneighbour on Reddit",
+          "rel": []
+        },
+        "share": {
+          "url": "https://www.reddit.com/submit?url={url}&title={title}"
+        },
+        "classes": {
+          "fill": "hover:text-[#FF4500]",
+          "background": "group-hover:bg-[#FF4500]/10 hover:bg-[#FF4500]/20 hover:shadow-[#FF4500]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": true,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "telegram",
+        "label": "Telegram",
+        "icon": "simple-icons:telegram",
+        "profile": {
+          "url": "https://t.me/davidsneighbour",
+          "handle": "@davidsneighbour",
+          "title": "Message me on Telegram",
+          "rel": []
+        },
+        "share": {
+          "url": "https://t.me/share/url?url={url}&text={title}"
+        },
+        "classes": {
+          "fill": "hover:text-[#0088cc]",
+          "background": "group-hover:bg-[#0088cc]/10 hover:bg-[#0088cc]/20 hover:shadow-[#0088cc]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "pinterest",
+        "label": "Pinterest",
+        "icon": "simple-icons:pinterest",
+        "profile": {
+          "url": "https://www.pinterest.com/davidsneighbour/",
+          "handle": "davidsneighbour",
+          "title": "Follow me on Pinterest",
+          "rel": []
+        },
+        "share": {
+          "url": "https://pinterest.com/pin/create/button/?url={url}&media=&description={title}"
+        },
+        "classes": {
+          "fill": "hover:text-[#E60023]",
+          "background": "group-hover:bg-[#E60023]/10 hover:bg-[#E60023]/20 hover:shadow-[#E60023]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "whatsapp",
+        "label": "WhatsApp",
+        "icon": "simple-icons:whatsapp",
+        "profile": {
+          "url": "https://wa.me/66878979350",
+          "handle": null,
+          "title": "Message me on WhatsApp",
+          "rel": []
+        },
+        "share": {
+          "url": "https://wa.me/?text={title}%20{url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#25D366]",
+          "background": "group-hover:bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:shadow-[#25D366]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "youtube",
+        "label": "YouTube",
+        "icon": "simple-icons:youtube",
+        "profile": {
+          "url": "https://www.youtube.com/@davidsneighbour",
+          "handle": "@davidsneighbour",
+          "title": "Subscribe to my YouTube channel",
+          "rel": []
+        },
+        "share": null,
+        "classes": {
+          "fill": "",
+          "background": ""
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": false,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "medium",
+        "label": "Medium",
+        "icon": "simple-icons:medium",
+        "profile": {
+          "url": "https://davidsneighbour.medium.com/",
+          "handle": "@davidsneighbour",
+          "title": "Read my posts on Medium",
+          "rel": []
+        },
+        "share": {
+          "url": "https://medium.com/new_story?title={title}&url={url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#00AB6C]",
+          "background": "group-hover:bg-[#00AB6C]/10 hover:bg-[#00AB6C]/20 hover:shadow-[#00AB6C]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "github",
+        "label": "GitHub",
+        "icon": "simple-icons:github",
+        "profile": {
+          "url": "https://github.com/davidsneighbour",
+          "handle": "davidsneighbour",
+          "title": "See my code on GitHub",
+          "rel": []
+        },
+        "share": null,
+        "classes": {
+          "fill": "hover:text-[#000000]",
+          "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20 hover:shadow-[#000000]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": false,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      },
+      {
+        "id": "devto",
+        "label": "Dev.to",
+        "icon": "simple-icons:devdotto",
+        "profile": {
+          "url": "https://dev.to/davidsneighbour",
+          "handle": "davidsneighbour",
+          "title": "Read my posts on Dev.to",
+          "rel": []
+        },
+        "share": {
+          "url": "https://dev.to/new?title={title}&url={url}"
+        },
+        "classes": {
+          "fill": "hover:text-[#000000]",
+          "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20 hover:shadow-[#000000]"
+        },
+        "show": {
+          "footer": true,
+          "connect": true,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": true
+        }
+      }
+    ]
+  },
   "tagline": "Smart websites with a tropical mindset.",
   "tagThreshold": 2,
   "timezone": "Asia/Bangkok",

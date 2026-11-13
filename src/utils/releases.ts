@@ -1,5 +1,3 @@
-import { getCollection } from 'astro:content';
-
 export interface RawRelease {
   name: string;
   tagName?: string;
@@ -85,16 +83,8 @@ export function normalizeRelease(raw: RawRelease): Release | null {
   };
 }
 
-export async function loadAllReleases(): Promise<Release[]> {
-  const repos = (await getCollection('social')) as Array<{
-    data?: { releases?: unknown };
-  }>;
-  const raw: RawRelease[] =
-    repos[0]?.data &&
-    Array.isArray((repos[0].data as { releases?: unknown }).releases)
-      ? (repos[0].data as { releases: RawRelease[] }).releases
-      : [];
-
+/** Normalise raw releases and sort them newest first (date, then semver). */
+export function sortReleases(raw: RawRelease[]): Release[] {
   const list = raw.map(normalizeRelease).filter(Boolean) as Release[];
   list.sort((a, b) => {
     const timeDiff =

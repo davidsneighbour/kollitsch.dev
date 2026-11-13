@@ -3,14 +3,15 @@
  *
  * Edit this file to change what `following.opml`, `about.md`, and
  * `contact.vcf` publish. Values that already exist elsewhere (site
- * description, social profile URLs, blogroll) are read from their source
- * files so that there is one place to change them.
+ * description, social profiles, blogroll) are read from their source
+ * files so that there is one place to change them. The social profiles are
+ * the networks with `show.socialspec` in `src/data/setup.json`.
  *
  * @see documentation/content/socialspec.md
  */
 import blogroll from '@content/blogroll.json' with { type: 'json' };
-import social from '@content/social.json' with { type: 'json' };
 import setup from '@data/setup.json' with { type: 'json' };
+import { socialNetworksFor } from '@data/social.ts';
 import type {
   AboutConfig,
   ContactConfig,
@@ -21,32 +22,11 @@ import type {
 const SITE_URL = setup.url;
 const AVATAR_URL = new URL('/.well-known/avatar', SITE_URL).toString();
 
-/**
- * Social profiles to publish, by `id` from `src/content/social.json`, in
- * display order.
- */
-const PROFILE_IDS = [
-  'mastodon',
-  'bluesky',
-  'github',
-  'linkedin',
-  'threads',
-  'youtube',
-  'devto',
-  'medium',
-  'instagram',
-  'reddit',
-  'discord',
-] as const;
-
 function profileLinks(): ProfileLink[] {
-  return PROFILE_IDS.map((id) => {
-    const entry = social.find((item) => item.id === id);
-    if (!entry?.url) {
-      throw new Error(`SocialSpec profile "${id}" has no URL in src/content/social.json`);
-    }
-    return { label: entry.label, url: entry.url };
-  });
+  return socialNetworksFor('socialspec').map((network) => ({
+    label: network.label,
+    url: network.profile.url,
+  }));
 }
 
 export const following: FollowingConfig = {

@@ -28,7 +28,7 @@ configurations
 cookieconsent
 CookieMonster
 crontab-dotbot
-davids-neighbour.com
+davidsneighbour.dev
 davidsneighbour
 debuglogger
 discord-vscode

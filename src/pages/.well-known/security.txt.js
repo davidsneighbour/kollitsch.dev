@@ -16,7 +16,7 @@ export async function GET() {
 Expires: ${expiresIso}
 Contact: https://kollitsch.dev/contact/
 Preferred-Languages: en,de
-Policy: https://davids-neighbour.com/security-policy/
+Policy: https://kollitsch.dev/security-policy/
 `;
 
   return new Response(body, {

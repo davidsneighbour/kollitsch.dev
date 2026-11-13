@@ -14,7 +14,7 @@ This document outlines security procedures and general policies for projects by 
 
 David's Neighbour takes all security bugs in our projects seriously. Thank you for improving the security of our projects. We appreciate your efforts and responsible disclosure and will make every effort to acknowledge your contributions and fix the underlying issues.
 
-Report security bugs by emailing the security maintainer at [security@davids-neighbour.com](mailto:security@davids-neighbour.com).
+Report security bugs by emailing the security maintainer at [security@davidsneighbour.dev](mailto:security@davidsneighbour.dev).
 
 The lead maintainer of the project will acknowledge your email within 48 hours and will send a more detailed response within 48 hours indicating the next steps in handling your report. After the initial reply to your report, the security team will endeavour to keep you informed of the progress towards a fix and full announcement, and may ask for additional information or guidance.
 

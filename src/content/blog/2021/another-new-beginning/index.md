@@ -24,7 +24,7 @@ Around that time I started my first blog, "Die Schreibbloggade" (the writer's bl
 
 After leaving university in 2001, I set up my own company and promptly ran it into the ground a few years later. Not having a business plan or much experience was not ideal. Companies I worked for during that time included [Draeger](https://www.draeger.com/) in L&uuml;beck, and other, much smaller companies in northern Germany.
 
-Fast forward to 2004, and you find me employed by a company in Berlin that dabbled in online education and prepared to open a developer branch in Thailand. I found that interesting, applied, got accepted, and ended up travelling to Thailand on January 8th of 2005. I did not stay long with that company, but I did stay in Thailand. In 2006 I opened my own business, [**David's Neighbour**](https://davids-neighbour.com/), and have worked as a freelancer since then here on our beautiful island of Koh Samui in the Gulf of Thailand.
+Fast forward to 2004, and you find me employed by a company in Berlin that dabbled in online education and prepared to open a developer branch in Thailand. I found that interesting, applied, got accepted, and ended up travelling to Thailand on January 8th of 2005. I did not stay long with that company, but I did stay in Thailand. In 2006 I opened my own business, [**David's Neighbour**](https://davidsneighbour.dev/), and have worked as a freelancer since then here on our beautiful island of Koh Samui in the Gulf of Thailand.
 
 In 2005 I mostly worked with a small website builder system called [Textpattern](https://textpattern.com/), and "hated" [WordPress](https://wordpress.org) with all my heart, mostly because of the almost monthly security holes that made life hard for existing websites. That changed over time. After many years of [WordPress](https://wordpress.org) work, I ended up using static website generators.
 
@@ -32,7 +32,7 @@ Then came Corona (Covid-19) (*meaningful pause*).
 
 On March 18th 2020, Thailand closed all country borders, and tourism, tourism operators, and companies depending on tourism instantly died down. That was my main income source, because Samui is an island and one of the top 3 tourist spots in Thailand.
 
-[**David's Neighbour**](https://davids-neighbour.com/) is an agency that depends on word of mouth marketing. All my customers found me by talking to someone I helped establish, optimise, or grow a business. I don't complain, but I realised over the past 2 years that my online footprint is not large enough to "instantly" create new business and income. Which brings us to the *NOW* and *WHY* of this weblog. I completely ignored building any kind of online reputation for myself (references, references, references), and lost quite a few opportunities in the past 2 years because of it.
+[**David's Neighbour**](https://davidsneighbour.dev/) is an agency that depends on word of mouth marketing. All my customers found me by talking to someone I helped establish, optimise, or grow a business. I don't complain, but I realised over the past 2 years that my online footprint is not large enough to "instantly" create new business and income. Which brings us to the *NOW* and *WHY* of this weblog. I completely ignored building any kind of online reputation for myself (references, references, references), and lost quite a few opportunities in the past 2 years because of it.
 
 I always had some kind of company site or personal blog in the works, but never quite got it to the point where I published it.
 

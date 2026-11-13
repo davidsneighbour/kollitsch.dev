@@ -73,7 +73,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": false,
           "shareMeta": false,
           "socialspec": true
@@ -171,7 +171,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": false,
           "shareMeta": false,
           "socialspec": true
@@ -221,7 +221,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": true,
           "socialspec": false
@@ -296,7 +296,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": true,
           "socialspec": true
@@ -321,7 +321,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": false,
           "socialspec": false
@@ -346,7 +346,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": false,
           "socialspec": false
@@ -371,7 +371,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": false,
           "socialspec": false
@@ -394,7 +394,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": false,
           "shareMeta": false,
           "socialspec": true
@@ -419,7 +419,7 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": false,
           "socialspec": true
@@ -467,10 +467,35 @@
         },
         "show": {
           "footer": true,
-          "connect": true,
+          "connect": false,
           "shareBar": true,
           "shareMeta": false,
           "socialspec": true
+        }
+      },
+      {
+        "id": "tumblr",
+        "label": "Tumblr",
+        "icon": "simple-icons:tumblr",
+        "profile": {
+          "url": "https://davidsneighbour.tumblr.com/",
+          "handle": "@davidsneighbour",
+          "title": "Follow my blog on Tumblr",
+          "rel": []
+        },
+        "share": {
+          "url": "https://www.tumblr.com/widgets/share/tool?posttype=link&canonicalUrl={url}&title={title}&caption={description}"
+        },
+        "classes": {
+          "fill": "hover:text-[#36465D]",
+          "background": "group-hover:bg-[#36465D]/10 hover:bg-[#36465D]/20 hover:shadow-[#36465D]"
+        },
+        "show": {
+          "footer": true,
+          "connect": false,
+          "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
         }
       }
     ]

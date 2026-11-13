@@ -229,7 +229,9 @@ describe("Footer component (author's uptime)", () => {
     );
     expect(src).not.toContain('footer-window-bar');
     expect(src).not.toContain('footer-window-dots');
-    expect(src).toMatch(/\.footer-window \{\s*@apply rounded-lg bg-card/);
+    expect(src).toMatch(
+      /\.footer-window \{\s*@apply rounded-lg shadow-sm dark:shadow-none;/,
+    );
   });
 
   it('shows the "we have a footer" mark without JavaScript and animates it only with motion allowed', async () => {

@@ -892,13 +892,11 @@ const networkColourStyle = (fill: string): string | undefined => {
     }
 
     /*
-     * The footer is a separate terminal window: a raised card surface.
-     * Light mode uses the card surface with a subtle shadow;
-     * dark mode uses the background-relative overlay with no
-     * shadow (see "Cards" in DESIGN.md).
+     * The footer is a separate terminal section with no background fill.
+     * Light mode retains its subtle shadow; dark mode has no shadow.
      */
     .footer-window {
-      @apply rounded-lg bg-card shadow-sm dark:bg-black/20 dark:shadow-none;
+      @apply rounded-lg shadow-sm dark:shadow-none;
     }
 
     /* Secondary text: keys, handles, comments, the colophon strip. */

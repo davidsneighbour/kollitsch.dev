@@ -78,8 +78,8 @@
         },
         "share": null,
         "classes": {
-          "fill": "",
-          "background": ""
+          "fill": "hover:text-[#5865F2]",
+          "background": "group-hover:bg-[#5865F2]/10 hover:bg-[#5865F2]/20 hover:shadow-[#5865F2]"
         },
         "show": {
           "footer": true,

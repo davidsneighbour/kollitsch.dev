@@ -1,5 +1,6 @@
 // @vitest-environment node
 
+import { networkHoverColour } from '@utils/social.pure.ts';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -170,5 +171,28 @@ describe("Footer component (author's uptime)", () => {
     expect(instagram?.classes.fill).toContain(
       'hover:fill-[url(#instagram-gradient)_#FF0069]',
     );
+  });
+
+  it('gives every footer network a brand hover colour', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const setupJson = await fs.readFile(
+      path.join(testDir, '../../../data/setup.json'),
+      'utf8',
+    );
+    const setup = JSON.parse(setupJson) as {
+      social: {
+        networks: {
+          id: string;
+          classes: { fill: string };
+          show: { footer: boolean };
+        }[];
+      };
+    };
+    const missing = setup.social.networks
+      .filter((n) => n.show.footer)
+      .filter((n) => networkHoverColour(n.classes.fill) === null)
+      .map((n) => n.id);
+
+    expect(missing).toEqual([]);
   });
 });

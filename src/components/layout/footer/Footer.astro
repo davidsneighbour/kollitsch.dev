@@ -902,11 +902,11 @@ const networkColourStyle = (fill: string): string | undefined => {
     /*
      * The footer is a separate terminal window: a raised card surface with
      * a title bar. Light mode uses the card surface with a subtle shadow;
-     * dark mode uses the background-relative overlay with a ring and no
+     * dark mode uses the background-relative overlay with no
      * shadow (see "Cards" in DESIGN.md).
      */
     .footer-window {
-      @apply rounded-lg bg-card shadow-sm ring-1 ring-gray-900/10 dark:bg-black/20 dark:shadow-none dark:ring-gray-100/10;
+      @apply rounded-lg bg-card shadow-sm dark:bg-black/20 dark:shadow-none;
     }
 
     .footer-window-bar {

@@ -472,7 +472,7 @@ const networkColourStyle = (fill: string): string | undefined => {
       class="flex flex-col gap-x-8 gap-y-2 md:flex-row md:items-baseline md:justify-between"
     >
       <p>
-        &copy; {siteSince}&ndash;<span id={footerYearId}>{currentYear}</span>
+        <span class="text-[1.5em] leading-none align-middle">&copy;</span> {siteSince}&ndash;<span id={footerYearId}>{currentYear}</span>
         <a href={getHomepageUrl()}>{setup.title}</a
         ><span
           id="site-version"

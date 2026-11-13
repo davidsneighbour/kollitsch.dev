@@ -219,4 +219,32 @@ describe("Footer component (author's uptime)", () => {
 
     expect(missing).toEqual([]);
   });
+
+  it('wraps the terminal sections in a separate window with a decorative title bar', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toMatch(
+      /class="footer-window"\s+data-footer-window\s*>\s*<div\s+class="footer-window-bar"\s+aria-hidden="true"/,
+    );
+    expect(src).toMatch(/data-footer-window[\s\S]*class="footer-terminal /);
+    expect(src).toMatch(/\.footer-window \{\s*@apply rounded-lg bg-card/);
+  });
+
+  it('shows the "we have a footer" mark without JavaScript and animates it only with motion allowed', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toMatch(
+      /class="footer-mark"\s+aria-hidden="true"\s+data-footer-mark="shown"/,
+    );
+    expect(src).toContain('Hey look, we have a footer!!!!111One');
+    expect(src).toMatch(
+      /@media \(prefers-reduced-motion: no-preference\) \{\s*\.footer-mark \{[\s\S]*?\.footer-mark\[data-footer-mark="pending"\]/,
+    );
+    expect(src).toContain('footerMarkInitialState({');
+    expect(src).toContain(
+      "document.addEventListener('astro:page-load', initFooterMark)",
+    );
+  });
 });

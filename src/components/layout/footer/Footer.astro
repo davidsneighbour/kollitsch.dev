@@ -1,9 +1,11 @@
 ---
 /**
- * Site footer, styled as a terminal session: a neofetch-style `whoami`
- * block, the introduction as `cat about.md`, the footer navigation as
- * `ls ~/`, ranked social profiles as `ls ~/elsewhere`, and one compact
- * colophon strip above the decorative `Colophon` watermark.
+ * Site footer, styled as a terminal window below a decorative "we have a
+ * footer" sticker note. The window holds a terminal session: a
+ * neofetch-style `whoami` block, the introduction as `cat about.md`, the
+ * footer navigation as `ls ~/`, and ranked social profiles as
+ * `ls ~/elsewhere`. One compact colophon strip follows the window, above
+ * the decorative `Colophon` watermark.
  *
  * @see documentation/components/layout/footer/footer.md
  */
@@ -121,278 +123,303 @@ const networkColourStyle = (fill: string): string | undefined => {
 >
   <h2 class="sr-only">Footer section with navigation and social media links</h2>
 
-  <div
-    class="footer-terminal mt-8 grid grid-cols-1 gap-x-16 gap-y-12 border-t border-gray-300 px-2 py-12 font-jetbrainsmono text-sm sm:px-4 xl:grid-cols-12 lg:text-base dark:border-gray-800"
+  <p
+    class="footer-mark"
+    aria-hidden="true"
+    data-footer-mark="shown"
   >
-    <div class="flex flex-col gap-12 xl:col-span-7">
-      <section aria-labelledby="footer-whoami">
-        <h3
-          id="footer-whoami"
-          class="footer-prompt"
-        >
-          <span
-            class="footer-prompt-user"
-            aria-hidden="true">{promptUser}:~$</span
-          >
-          whoami<span class="sr-only">: about Patrick Kollitsch</span>
-        </h3>
+    Hey look, we have a footer!!!!111One
+    <Icon
+      name="lucide:corner-right-down"
+      class="footer-mark-arrow"
+    />
+  </p>
 
-        <div class="footer-fetch">
-          <Link
-            href="/connect/"
-            class="footer-fetch-avatar"
-          >
-            <Image
-              src={patrickkollitsch}
-              alt="Patrick Kollitsch"
-              width={400}
-              height={400}
-              loading="lazy"
-              class="footer-fetch-avatar-image border border-gray-200 dark:border-gray-800"
-            />
-          </Link>
-          <div class="min-w-0">
-            <p class="footer-fetch-title">{promptUser}</p>
-            <p
-              class="footer-fetch-rule"
-              aria-hidden="true"
-            >
-              {promptRule}
-            </p>
-            <dl class="footer-fetch-facts">
-              <dt>name</dt>
-              <dd>{setup.author.name}</dd>
-              <dt>alias</dt>
-              <dd>
-                <a href="https://davidsneighbour.dev/">David's Neighbour</a>
-              </dd>
-              <dt>role</dt>
-              <dd>full-stack web developer, online business consultant</dd>
-              <dt>host</dt>
-              <dd>Koh Samui, Thailand</dd>
-              <dt>local</dt>
-              <dd class="flex flex-wrap gap-x-2">
-                <span
-                  data-footer-clock
-                  data-timezone={setup.timezone}
-                ></span>
-                <span class="footer-muted">{setup.timezone}</span>
-              </dd>
-              <dt>online</dt>
-              <dd>
-                <span data-uptime-since>since {firstPostLabel}</span>
-                {firstPostDate && (
-                  <span
-                    class="footer-uptime"
-                    data-footer-uptime
-                    data-start={firstPostDate.toISOString()}
-                    aria-hidden="true"
-                    hidden
-                  >
-                    {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
-                    {UPTIME_UNITS.map((unit, index) => (
-                      <Fragment>
-                        <span class="footer-uptime-unit" data-unit={unit}><span data-uptime-value></span> <span data-uptime-label>{unit}</span>{index < UPTIME_UNITS.length - 1 && ","}</span>{index < UPTIME_UNITS.length - 1 && " "}
-                      </Fragment>
-                    ))}
-                  </span>
-                )}
-              </dd>
-              <dt>stack</dt>
-              <dd>
-                <a href="https://astro.build/">Astro</a>,
-                <a href="https://gohugo.io/">GoHugo</a>,
-                <a href="https://wordpress.org/">WordPress</a>
-              </dd>
-              <dt>garden</dt>
-              <dd>
-                <a href="/blog/">{postCount} posts</a>{tagCount > 0 && <Fragment>, <a href="/tags/">{tagCount} tags</a></Fragment>}
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="footer-about">
-        <h3
-          id="footer-about"
-          class="footer-prompt"
-        >
-          <span
-            class="footer-prompt-user"
-            aria-hidden="true">{promptUser}:~$</span
-          >
-          cat about.md<span class="sr-only">: introduction</span>
-        </h3>
-        <div
-          id="about-introduction"
-          class="footer-intro"
-          set:html={introductionHtml}
-        />
-      </section>
+  <div
+    class="footer-window"
+    data-footer-window
+  >
+    <div
+      class="footer-window-bar"
+      aria-hidden="true"
+    >
+      <span class="footer-window-dots"><span></span><span></span><span></span></span>
+      <span>{promptUser}: ~</span>
     </div>
 
-    <div class="flex flex-col gap-12 xl:col-span-5">
-      <section aria-labelledby="footer-uptime">
-        <h3
-          id="footer-uptime"
-          class="footer-prompt"
-        >
-          <span
-            class="footer-prompt-user"
-            aria-hidden="true">{promptUser}:~$</span
+    <div
+      class="footer-terminal grid grid-cols-1 gap-x-16 gap-y-12 px-4 py-12 font-jetbrainsmono text-sm sm:px-6 lg:px-8 xl:grid-cols-12 lg:text-base"
+    >
+      <div class="flex flex-col gap-12 xl:col-span-7">
+        <section aria-labelledby="footer-whoami">
+          <h3
+            id="footer-whoami"
+            class="footer-prompt"
           >
-          uname -r &amp;&amp; uptime<span class="sr-only">: Patrick's age</span>
-        </h3>
-        <dl
-          class="footer-fetch-facts"
-          data-footer-age
-          data-born={born.toISOString()}
-          data-timezone={setup.timezone}
-        >
-          <dt>kernel</dt>
-          <dd><span data-age-version>{bornVersion}</span>-samui</dd>
-          <dt>boot</dt>
-          <dd>
-            <time datetime={setup.author.born}>{bornLabel} {bornZone}</time>
-          </dd>
-          <dt>uptime</dt>
-          <dd>
-            <span data-age-days>{formatDayCount(bornClock.days)} days</span>
             <span
-              class="footer-uptime"
-              data-age-counter
-              aria-hidden="true"
-              hidden
+              class="footer-prompt-user"
+              aria-hidden="true">{promptUser}:~$</span
             >
-              {/* Same no-wrap units as the "online" counter; the line can break after the comma. */}
-              <span class="footer-uptime-unit"><span data-age-value="days"></span> days,</span>
-              <span class="footer-uptime-unit"><span data-age-value="time"></span></span>
-            </span>
-            <span
-              class="footer-muted block"
-              data-age-milestone
+            whoami<span class="sr-only">: about Patrick Kollitsch</span>
+          </h3>
+
+          <div class="footer-fetch">
+            <Link
+              href="/connect/"
+              class="footer-fetch-avatar"
             >
-              # {bornMilestone}
-            </span>
-          </dd>
-        </dl>
-      </section>
-
-      <nav aria-labelledby="footer-ls">
-        <h3
-          id="footer-ls"
-          class="footer-prompt"
-        >
-          <span
-            class="footer-prompt-user"
-            aria-hidden="true">{promptUser}:~$</span
-          >
-          ls ~/<span class="sr-only">: site navigation</span>
-        </h3>
-        <ul class="flex flex-wrap gap-x-6 gap-y-2">
-          {navData.map((value) => (
-            <li>
-              <a href={value.link}>{value.label.toLowerCase()}/</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <section aria-labelledby="footer-elsewhere">
-        <h3
-          id="footer-elsewhere"
-          class="footer-prompt"
-        >
-          <span
-            class="footer-prompt-user"
-            aria-hidden="true">{promptUser}:~$</span
-          >
-          ls ~/elsewhere<span class="sr-only">: social media profiles</span>
-        </h3>
-        <ul class="flex flex-col gap-2">
-          {featuredNetworks.map((network) => (
-            <li>
-              <IconLink
-                href={network.profile.url}
-                icon={network.icon}
-                target={social.defaults.target}
-                rel={mergeRel(social.defaults.rel, network.profile.rel)}
-                title={network.profile.title}
-                style={networkColourStyle(network.classes.fill)}
-                class="footer-network-glyph size-[1.1em] shrink-0"
-                linkClass="footer-network gap-3"
+              <Image
+                src={patrickkollitsch}
+                alt="Patrick Kollitsch"
+                width={400}
+                height={400}
+                loading="lazy"
+                class="footer-fetch-avatar-image border border-gray-200 dark:border-gray-800"
+              />
+            </Link>
+            <div class="min-w-0">
+              <p class="footer-fetch-title">{promptUser}</p>
+              <p
+                class="footer-fetch-rule"
+                aria-hidden="true"
               >
-                <span class="footer-network-name">{network.id}</span>
-                {network.profile.handle && (
-                  <span class="footer-network-handle footer-muted">
-                    {network.profile.handle}
-                  </span>
-                )}
-              </IconLink>
-            </li>
-          ))}
-        </ul>
-        {moreNetworks.length > 0 && (
-          <>
-            <p class="footer-muted mt-6 mb-2">
-              # and {moreNetworks.length} more
-            </p>
-            {/* Paint server for the Instagram icon, used on hover through
-                `hover:fill-[url(#instagram-gradient)_#FF0069]` in setup.json.
-                It stays rendered at zero size, because some browsers drop
-                gradients inside `display: none`. */}
-            <svg
-              class="absolute size-0 overflow-hidden"
-              aria-hidden="true"
-              focusable="false"
+                {promptRule}
+              </p>
+              <dl class="footer-fetch-facts">
+                <dt>name</dt>
+                <dd>{setup.author.name}</dd>
+                <dt>alias</dt>
+                <dd>
+                  <a href="https://davidsneighbour.dev/">David's Neighbour</a>
+                </dd>
+                <dt>role</dt>
+                <dd>full-stack web developer, online business consultant</dd>
+                <dt>host</dt>
+                <dd>Koh Samui, Thailand</dd>
+                <dt>local</dt>
+                <dd class="flex flex-wrap gap-x-2">
+                  <span
+                    data-footer-clock
+                    data-timezone={setup.timezone}
+                  ></span>
+                  <span class="footer-muted">{setup.timezone}</span>
+                </dd>
+                <dt>online</dt>
+                <dd>
+                  <span data-uptime-since>since {firstPostLabel}</span>
+                  {firstPostDate && (
+                    <span
+                      class="footer-uptime"
+                      data-footer-uptime
+                      data-start={firstPostDate.toISOString()}
+                      aria-hidden="true"
+                      hidden
+                    >
+                      {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
+                      {UPTIME_UNITS.map((unit, index) => (
+                        <Fragment>
+                          <span class="footer-uptime-unit" data-unit={unit}><span data-uptime-value></span> <span data-uptime-label>{unit}</span>{index < UPTIME_UNITS.length - 1 && ","}</span>{index < UPTIME_UNITS.length - 1 && " "}
+                        </Fragment>
+                      ))}
+                    </span>
+                  )}
+                </dd>
+                <dt>stack</dt>
+                <dd>
+                  <a href="https://astro.build/">Astro</a>,
+                  <a href="https://gohugo.io/">GoHugo</a>,
+                  <a href="https://wordpress.org/">WordPress</a>
+                </dd>
+                <dt>garden</dt>
+                <dd>
+                  <a href="/blog/">{postCount} posts</a>{tagCount > 0 && <Fragment>, <a href="/tags/">{tagCount} tags</a></Fragment>}
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="footer-about">
+          <h3
+            id="footer-about"
+            class="footer-prompt"
+          >
+            <span
+              class="footer-prompt-user"
+              aria-hidden="true">{promptUser}:~$</span
             >
-              <defs>
-                <radialGradient
-                  id="instagram-gradient"
-                  cx="30%"
-                  cy="107%"
-                  r="150%"
+            cat about.md<span class="sr-only">: introduction</span>
+          </h3>
+          <div
+            id="about-introduction"
+            class="footer-intro"
+            set:html={introductionHtml}
+          />
+        </section>
+      </div>
+
+      <div class="flex flex-col gap-12 xl:col-span-5">
+        <section aria-labelledby="footer-uptime">
+          <h3
+            id="footer-uptime"
+            class="footer-prompt"
+          >
+            <span
+              class="footer-prompt-user"
+              aria-hidden="true">{promptUser}:~$</span
+            >
+            uname -r &amp;&amp; uptime<span class="sr-only">: Patrick's age</span>
+          </h3>
+          <dl
+            class="footer-fetch-facts"
+            data-footer-age
+            data-born={born.toISOString()}
+            data-timezone={setup.timezone}
+          >
+            <dt>kernel</dt>
+            <dd><span data-age-version>{bornVersion}</span>-samui</dd>
+            <dt>boot</dt>
+            <dd>
+              <time datetime={setup.author.born}>{bornLabel} {bornZone}</time>
+            </dd>
+            <dt>uptime</dt>
+            <dd>
+              <span data-age-days>{formatDayCount(bornClock.days)} days</span>
+              <span
+                class="footer-uptime"
+                data-age-counter
+                aria-hidden="true"
+                hidden
+              >
+                {/* Same no-wrap units as the "online" counter; the line can break after the comma. */}
+                <span class="footer-uptime-unit"><span data-age-value="days"></span> days,</span>
+                <span class="footer-uptime-unit"><span data-age-value="time"></span></span>
+              </span>
+              <span
+                class="footer-muted block"
+                data-age-milestone
+              >
+                # {bornMilestone}
+              </span>
+            </dd>
+          </dl>
+        </section>
+
+        <nav aria-labelledby="footer-ls">
+          <h3
+            id="footer-ls"
+            class="footer-prompt"
+          >
+            <span
+              class="footer-prompt-user"
+              aria-hidden="true">{promptUser}:~$</span
+            >
+            ls ~/<span class="sr-only">: site navigation</span>
+          </h3>
+          <ul class="flex flex-wrap gap-x-6 gap-y-2">
+            {navData.map((value) => (
+              <li>
+                <a href={value.link}>{value.label.toLowerCase()}/</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <section aria-labelledby="footer-elsewhere">
+          <h3
+            id="footer-elsewhere"
+            class="footer-prompt"
+          >
+            <span
+              class="footer-prompt-user"
+              aria-hidden="true">{promptUser}:~$</span
+            >
+            ls ~/elsewhere<span class="sr-only">: social media profiles</span>
+          </h3>
+          <ul class="flex flex-col gap-2">
+            {featuredNetworks.map((network) => (
+              <li>
+                <IconLink
+                  href={network.profile.url}
+                  icon={network.icon}
+                  target={social.defaults.target}
+                  rel={mergeRel(social.defaults.rel, network.profile.rel)}
+                  title={network.profile.title}
+                  style={networkColourStyle(network.classes.fill)}
+                  class="footer-network-glyph size-[1.1em] shrink-0"
+                  linkClass="footer-network gap-3"
                 >
-                  <stop offset="0%" stop-color="#fdf497" />
-                  <stop offset="5%" stop-color="#fdf497" />
-                  <stop offset="45%" stop-color="#fd5949" />
-                  <stop offset="60%" stop-color="#d6249f" />
-                  <stop offset="90%" stop-color="#285aeb" />
-                </radialGradient>
-              </defs>
-            </svg>
-            <ul class="footer-network-more -ml-2.5">
-              {moreNetworks.map((network) => (
-                <li>
-                  <IconLink
-                    href={network.profile.url}
-                    icon={network.icon}
-                    target={social.defaults.target}
-                    rel={mergeRel(social.defaults.rel, network.profile.rel)}
-                    title={network.profile.title}
-                    aria-label={network.label}
-                    class={`size-5 ${network.classes.fill}`}
-                    linkClass="footer-network-icon size-10 justify-center rounded-md"
-                  />
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-        <p
-          class="footer-prompt mt-10"
-          aria-hidden="true"
-        >
-          <span class="footer-prompt-user">{promptUser}:~$</span>
-          <span class="footer-cursor"></span>
-        </p>
-      </section>
+                  <span class="footer-network-name">{network.id}</span>
+                  {network.profile.handle && (
+                    <span class="footer-network-handle footer-muted">
+                      {network.profile.handle}
+                    </span>
+                  )}
+                </IconLink>
+              </li>
+            ))}
+          </ul>
+          {moreNetworks.length > 0 && (
+            <>
+              <p class="footer-muted mt-6 mb-2">
+                # and {moreNetworks.length} more
+              </p>
+              {/* Paint server for the Instagram icon, used on hover through
+                  `hover:fill-[url(#instagram-gradient)_#FF0069]` in setup.json.
+                  It stays rendered at zero size, because some browsers drop
+                  gradients inside `display: none`. */}
+              <svg
+                class="absolute size-0 overflow-hidden"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <defs>
+                  <radialGradient
+                    id="instagram-gradient"
+                    cx="30%"
+                    cy="107%"
+                    r="150%"
+                  >
+                    <stop offset="0%" stop-color="#fdf497" />
+                    <stop offset="5%" stop-color="#fdf497" />
+                    <stop offset="45%" stop-color="#fd5949" />
+                    <stop offset="60%" stop-color="#d6249f" />
+                    <stop offset="90%" stop-color="#285aeb" />
+                  </radialGradient>
+                </defs>
+              </svg>
+              <ul class="footer-network-more -ml-2.5">
+                {moreNetworks.map((network) => (
+                  <li>
+                    <IconLink
+                      href={network.profile.url}
+                      icon={network.icon}
+                      target={social.defaults.target}
+                      rel={mergeRel(social.defaults.rel, network.profile.rel)}
+                      title={network.profile.title}
+                      aria-label={network.label}
+                      class={`size-5 ${network.classes.fill}`}
+                      linkClass="footer-network-icon size-10 justify-center rounded-md"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          <p
+            class="footer-prompt mt-10"
+            aria-hidden="true"
+          >
+            <span class="footer-prompt-user">{promptUser}:~$</span>
+            <span class="footer-cursor"></span>
+          </p>
+        </section>
+      </div>
     </div>
   </div>
 
   <div
-    class="footer-strip flex flex-col gap-4 border-t border-gray-300 px-2 pt-6 pb-2 font-jetbrainsmono text-xs sm:px-4 lg:text-sm dark:border-gray-800"
+    class="footer-strip flex flex-col gap-4 px-4 pt-6 pb-2 font-jetbrainsmono text-xs sm:px-6 lg:px-8 lg:text-sm"
   >
     <div
       class="flex flex-col gap-x-8 gap-y-2 md:flex-row md:items-baseline md:justify-between"
@@ -523,6 +550,7 @@ const networkColourStyle = (fill: string): string | undefined => {
   </script>
 
   <script>
+    import { footerMarkInitialState } from '@utils/footer-mark.pure.ts';
     import {
       formatZoneTime,
       type Greetings,
@@ -779,6 +807,48 @@ const networkColourStyle = (fill: string): string | undefined => {
     }
 
     document.addEventListener('astro:page-load', initFooterTerminal);
+
+    let markObserver: IntersectionObserver | undefined;
+
+    /**
+     * Runs the entrance of the "we have a footer" mark once, the first
+     * time the footer window scrolls into view.
+     */
+    function initFooterMark(): void {
+      markObserver?.disconnect();
+      markObserver = undefined;
+
+      const mark = document.querySelector<HTMLElement>('[data-footer-mark]');
+      const target = document.querySelector<HTMLElement>(
+        '[data-footer-window]',
+      );
+      if (!mark || !target) return;
+
+      const state = footerMarkInitialState({
+        canObserve: 'IntersectionObserver' in window,
+        reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)')
+          .matches,
+        targetTop: target.getBoundingClientRect().top,
+        viewportHeight: window.innerHeight,
+      });
+      mark.dataset['footerMark'] = state;
+      if (state === 'shown') return;
+
+      // Start once the window's top edge is 15% above the viewport bottom,
+      // so the mark above it is well inside the viewport.
+      markObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          mark.dataset['footerMark'] = 'shown';
+          markObserver?.disconnect();
+          markObserver = undefined;
+        },
+        { rootMargin: '0px 0px -15% 0px' },
+      );
+      markObserver.observe(target);
+    }
+
+    document.addEventListener('astro:page-load', initFooterMark);
   </script>
 
   <style>
@@ -793,6 +863,64 @@ const networkColourStyle = (fill: string): string | undefined => {
     :global(:where([data-theme="dark"])) footer {
       --footer-wordmark-color: var(--color-primary-600);
       --footer-badge-color: var(--color-primary-600);
+    }
+
+    /*
+     * "Hey look, we have a footer" mark: a tilted sticker note in the
+     * display face that points down at the footer window. It is decorative
+     * and aria-hidden. Its resting state is visible, so it shows without
+     * JavaScript; the client script sets data-footer-mark="pending" only
+     * when the entrance can run.
+     */
+    .footer-mark {
+      @apply mt-16 mr-4 mb-6 ml-auto flex w-fit max-w-[80%] items-end gap-1 font-changa text-xl leading-tight text-primary-700 sm:mr-12 sm:text-2xl lg:mr-24 lg:text-3xl dark:text-primary-500;
+
+      transform: rotate(-3deg);
+      transform-origin: right bottom;
+    }
+
+    .footer-mark-arrow {
+      @apply size-[1.25em] shrink-0;
+
+      translate: 0 0.5em;
+    }
+
+    /* footer-mark-transition token (DESIGN.md). */
+    @media (prefers-reduced-motion: no-preference) {
+      .footer-mark {
+        transition:
+          opacity 600ms cubic-bezier(0.19, 1, 0.22, 1),
+          transform 600ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .footer-mark[data-footer-mark="pending"] {
+        opacity: 0%;
+        transform: translateY(-1rem) rotate(-12deg);
+      }
+    }
+
+    /*
+     * The footer is a separate terminal window: a raised card surface with
+     * a title bar. Light mode uses the card surface with a subtle shadow;
+     * dark mode uses the background-relative overlay with a ring and no
+     * shadow (see "Cards" in DESIGN.md).
+     */
+    .footer-window {
+      @apply rounded-lg bg-card shadow-sm ring-1 ring-gray-900/10 dark:bg-black/20 dark:shadow-none dark:ring-gray-100/10;
+    }
+
+    .footer-window-bar {
+      @apply grid items-center gap-4 border-b border-gray-900/10 px-4 py-2 font-jetbrainsmono text-xs text-gray-600 sm:px-6 lg:px-8 dark:border-gray-100/10 dark:text-gray-400;
+
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .footer-window-dots {
+      @apply flex gap-2;
+    }
+
+    .footer-window-dots > span {
+      @apply size-3 rounded-full bg-gray-300 dark:bg-gray-700;
     }
 
     /* Secondary text: keys, handles, comments, the colophon strip. */
@@ -827,16 +955,14 @@ const networkColourStyle = (fill: string): string | undefined => {
     }
 
     /*
-     * The avatar breaks out of the column to the left. The negative margin
-     * moves the box itself, so the grid track shrinks with it and the facts
-     * table keeps its gap. From 64rem up it breaks out by one third of its
-     * own width; the side gutter there is at least 88px. Below that the
-     * gutter is only 12-28px, so the breakout is limited to the gutter and
-     * the face is never cut off at the viewport edge.
+     * The avatar's flat left side sits flush on the left edge of the footer
+     * window. The breakout equals the window's horizontal padding (px-4,
+     * sm:px-6, lg:px-8). The negative margin moves the box itself, so the
+     * grid track shrinks with it and the facts table keeps its gap.
      */
     .footer-fetch-avatar {
       --footer-avatar-size: 10rem;
-      --footer-avatar-breakout: 0.75rem;
+      --footer-avatar-breakout: 1rem;
 
       display: block;
       width: var(--footer-avatar-size);
@@ -896,7 +1022,7 @@ const networkColourStyle = (fill: string): string | undefined => {
     @media (min-width: 64rem) {
       .footer-fetch-avatar {
         --footer-avatar-size: 15rem;
-        --footer-avatar-breakout: calc(var(--footer-avatar-size) / 3);
+        --footer-avatar-breakout: 2rem;
       }
     }
 

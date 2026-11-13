@@ -2,10 +2,10 @@
 title: Footer
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-11-13T22:00:00+07:00
+updated: 2026-11-13T22:30:00+07:00
 ---
 
-Renders the site-wide footer as a terminal session: a neofetch-style `whoami` block, the introduction, the author's own uptime, the footer navigation, ranked social profiles, and one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
+Renders the site-wide footer as a terminal window, announced by a "we have a footer" sticker note. The window holds a terminal session: a neofetch-style `whoami` block, the introduction, the author's own uptime, the footer navigation, ranked social profiles, and below the window one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
 
 ## File locations
 
@@ -13,7 +13,7 @@ Renders the site-wide footer as a terminal session: a neofetch-style `whoami` bl
 | --- | --- |
 | Component | `src/components/layout/footer/Footer.astro` |
 | Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (navigation links), [`src/data/setup.json`](../../../../src/data/setup.json) (`title`, `author` including `born` and `bornTimezone`, `introduction`, `greetings`, `credits`, `timezone`, and the `social` section) |
-| Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts), [`src/utils/greeting.pure.test.ts`](../../../../src/utils/greeting.pure.test.ts), [`src/utils/uptime.pure.test.ts`](../../../../src/utils/uptime.pure.test.ts), [`src/utils/introduction.pure.test.ts`](../../../../src/utils/introduction.pure.test.ts), [`src/utils/social.pure.test.ts`](../../../../src/utils/social.pure.test.ts) |
+| Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts), [`src/utils/greeting.pure.test.ts`](../../../../src/utils/greeting.pure.test.ts), [`src/utils/uptime.pure.test.ts`](../../../../src/utils/uptime.pure.test.ts), [`src/utils/introduction.pure.test.ts`](../../../../src/utils/introduction.pure.test.ts), [`src/utils/social.pure.test.ts`](../../../../src/utils/social.pure.test.ts), [`src/utils/footer-mark.pure.test.ts`](../../../../src/utils/footer-mark.pure.test.ts) |
 
 ## Props
 
@@ -31,9 +31,11 @@ import Footer from '@components/layout/footer/Footer.astro';
 
 ## Behaviour
 
+- The footer starts with a decorative, `aria-hidden` sticker note above the window: "Hey look, we have a footer!!!!111One" with a `lucide:corner-right-down` arrow. Its resting state is visible (`data-footer-mark="shown"`), so it shows without JavaScript. On `astro:page-load` the client script calls `footerMarkInitialState()` (`src/utils/footer-mark.pure.ts`). When motion is allowed, `IntersectionObserver` exists, and the window is still below the viewport, the script sets `data-footer-mark="pending"`, which hides the note. When the window's top edge is 15% above the viewport bottom, the script sets it back to `shown` and the CSS transition runs once. Otherwise the note shows at once.
+- The terminal sections sit in a terminal window (`[data-footer-window]`): a raised card surface with `rounded-lg` and an `aria-hidden` title bar with three neutral dots and `patrick@dnb: ~`. The colophon strip stays outside the window, below it.
 - Every section starts with a prompt line (`patrick@dnb:~$ <command>`) set in JetBrains Mono. Each prompt is an `h3`; the `user@host` part is `aria-hidden`, and a screen-reader-only suffix gives the plain section name (for example `whoami: about Patrick Kollitsch`). Each section is labelled by its prompt through `aria-labelledby`.
 - Below `xl` the sections stack in one column; from `xl` they split into two columns (7/5). The left column holds `whoami` and `cat about.md`; the right column holds `uname -r && uptime`, `ls ~/`, and `ls ~/elsewhere`, so both columns end at about the same height.
-- `whoami` shows the author avatar (linked to `/connect/`, breaking out of the column to the left by one third of its width from 64rem up) beside a key-value table: name, alias, role, host, local time, online, stack, and garden (post count from the `blog` collection without drafts, tag count from `getTags()`). If the tag count fails, the tag link is left out.
+- `whoami` shows the author avatar (linked to `/connect/`, with its flat left side flush on the left edge of the window) beside a key-value table: name, alias, role, host, local time, online, stack, and garden (post count from the `blog` collection without drafts, tag count from `getTags()`). If the tag count fails, the tag link is left out.
 - The local time is the current time in `setup.timezone`, written into `[data-footer-clock]` by the client script and updated every 15 seconds. Without JavaScript only the time zone name shows.
 - `cat about.md` renders `setup.introduction` on the server with `renderIntroductionHtml()` (`src/utils/introduction.pure.ts`), so blank lines become separate paragraphs. The `{$greeting}` placeholder becomes an empty `<span data-greeting-slot>`. The client script fills it with a greeting from `setup.greetings`, chosen by the visitor's local hour with `pickGreeting()` (`src/utils/greeting.pure.ts`): 05-11 morning, 12-16 afternoon, 17-20 evening, 21-04 night.
 - The client script runs on `astro:page-load`, so the greeting and clock also work after `ClientRouter` navigations. It reads the greetings from the footer's `data-greetings` attribute and does not bundle `setup.json` or `markdown-it`.

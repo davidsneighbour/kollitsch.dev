@@ -478,7 +478,7 @@
         "label": "Tumblr",
         "icon": "simple-icons:tumblr",
         "profile": {
-          "url": "https://davidsneighbour.tumblr.com/",
+          "url": "https://www.tumblr.com/davidsneighbour",
           "handle": "@davidsneighbour",
           "title": "Follow my blog on Tumblr",
           "rel": []
@@ -494,6 +494,29 @@
           "footer": true,
           "connect": false,
           "shareBar": true,
+          "shareMeta": false,
+          "socialspec": false
+        }
+      },
+      {
+        "id": "nostr",
+        "label": "Nostr",
+        "icon": "local:nostr",
+        "profile": {
+          "url": "https://njump.me/npub14p2he4pww3tcps2fms0607u8e9zkpvc87y4z2vr80scs9lwn4rxqexwhe3",
+          "handle": "npub14p2he4pww3tcps2fms0607u8e9zkpvc87y4z2vr80scs9lwn4rxqexwhe3",
+          "title": "Follow me on Nostr",
+          "rel": []
+        },
+        "share": null,
+        "classes": {
+          "fill": "hover:text-[#662482]",
+          "background": ""
+        },
+        "show": {
+          "footer": true,
+          "connect": false,
+          "shareBar": false,
           "shareMeta": false,
           "socialspec": false
         }

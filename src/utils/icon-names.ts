@@ -5,6 +5,7 @@
 // actually used somewhere in the site.
 
 import Linkedin from '@components/icons/local/Linkedin.astro';
+import Nostr from '@components/icons/local/Nostr.astro';
 import {
   Archive,
   ArrowLeft,
@@ -158,6 +159,7 @@ const simpleIcons = {
 // '@components/icons/local/<Name>.astro'.
 const localIcons = {
   linkedin: Linkedin,
+  nostr: Nostr,
 } as const satisfies Record<string, IconComponent>;
 
 export type LucideIconName = keyof typeof lucideIcons;

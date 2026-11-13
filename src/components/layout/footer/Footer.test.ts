@@ -234,6 +234,15 @@ describe("Footer component (author's uptime)", () => {
     );
   });
 
+  it('keeps the final strip outside the constrained terminal wrapper', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toMatch(/<footer\s+class="isolate z-0 w-full"/);
+    expect(src).toContain('<div class={setup.classes.containers.wide}>');
+    expect(src).toMatch(/<\/div>\s*<\/div>\s*<div\s+class="footer-strip /);
+  });
+
   it('shows the "we have a footer" mark without JavaScript and animates it only with motion allowed', async () => {
     const testDir = path.dirname(fileURLToPath(import.meta.url));
     const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');

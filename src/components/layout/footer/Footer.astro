@@ -119,347 +119,350 @@ const networkColourStyle = (fill: string): string | undefined => {
 ---
 
 <footer
-  class={setup.classes.containers.wide}
+  class="isolate z-0 w-full"
   aria-label="Footer"
   data-footer-terminal
   data-greetings={JSON.stringify(setup.greetings)}
 >
-  <h2 class="sr-only">Footer section with navigation and social media links</h2>
+  <div class={setup.classes.containers.wide}>
+    <h2 class="sr-only">Footer section with navigation and social media links</h2>
 
-  <p
-    class="footer-mark"
-    aria-hidden="true"
-    data-footer-mark="shown"
-  >
-    Hey look, we have a footer!!!!111One
-    <Icon
-      name="lucide:corner-right-down"
-      class="footer-mark-arrow"
-    />
-  </p>
-
-  <div
-    class="footer-window"
-    data-footer-window
-  >
-    <div
-      class="footer-terminal grid grid-cols-1 gap-x-16 gap-y-12 px-4 py-12 font-jetbrainsmono text-sm sm:px-6 lg:px-8 xl:grid-cols-12 lg:text-base"
+    <p
+      class="footer-mark"
+      aria-hidden="true"
+      data-footer-mark="shown"
     >
-      <div class="flex flex-col gap-12 xl:col-span-7">
-        <section aria-labelledby="footer-whoami">
-          <h3
-            id="footer-whoami"
-            class="footer-prompt"
-          >
-            <span
-              class="footer-prompt-user"
-              aria-hidden="true"
-              >{promptUser}:~$</span
-            >
-            whoami<span class="sr-only">: about Patrick Kollitsch</span>
-          </h3>
+      Hey look, we have a footer!!!!111One
+      <Icon
+        name="lucide:corner-right-down"
+        class="footer-mark-arrow"
+      />
+    </p>
 
-          <div class="footer-fetch">
-            <Link
-              href="/connect/"
-              class="footer-fetch-avatar"
-              data-footer-eyes
+    <div
+      class="footer-window"
+      data-footer-window
+    >
+      <div
+        class="footer-terminal grid grid-cols-1 gap-x-16 gap-y-12 px-4 py-12 font-jetbrainsmono text-sm sm:px-6 lg:px-8 xl:grid-cols-12 lg:text-base"
+      >
+        <div class="flex flex-col gap-12 xl:col-span-7">
+          <section aria-labelledby="footer-whoami">
+            <h3
+              id="footer-whoami"
+              class="footer-prompt"
             >
-              <Image
-                src={patrickkollitsch}
-                alt="Patrick Kollitsch"
-                width={400}
-                height={400}
-                loading="lazy"
-                class="footer-fetch-avatar-image border border-gray-200 dark:border-gray-800"
-              />
-              <Image
-                src={patrickEyesBase}
-                width={400}
-                height={400}
-                alt=""
-                loading="lazy"
+              <span
+                class="footer-prompt-user"
                 aria-hidden="true"
-                class="footer-eyes-base footer-fetch-avatar-image"
-              />
-              {[
-                { image: pupilLeft, x: 144 },
-                { image: pupilRight, x: 220 },
-              ].map(({ image, x }) => (
-                <img
-                  src={image.src}
-                  width={16}
-                  height={16}
-                  alt=""
-                  aria-hidden="true"
-                  class="footer-eye-pupil"
-                  data-footer-pupil
-                  data-x={x}
-                  data-y="154"
-                  style={`left: ${x / 4}%; top: 38.5%;`}
+                >{promptUser}:~$</span
+              >
+              whoami<span class="sr-only">: about Patrick Kollitsch</span>
+            </h3>
+
+            <div class="footer-fetch">
+              <Link
+                href="/connect/"
+                class="footer-fetch-avatar"
+                data-footer-eyes
+              >
+                <Image
+                  src={patrickkollitsch}
+                  alt="Patrick Kollitsch"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  class="footer-fetch-avatar-image border border-gray-200 dark:border-gray-800"
                 />
-              ))}
-            </Link>
-            <div class="min-w-0">
-              <p class="footer-fetch-title">{promptUser}</p>
-              <p
-                class="footer-fetch-rule"
-                aria-hidden="true"
-              >
-                {promptRule}
-              </p>
-              <dl class="footer-fetch-facts">
-                <dt>name</dt>
-                <dd>{setup.author.name}</dd>
-                <dt>alias</dt>
-                <dd>
-                  <a href="https://davidsneighbour.dev/">David's Neighbour</a>
-                </dd>
-                <dt>role</dt>
-                <dd>full-stack web developer, online business consultant</dd>
-                <dt>host</dt>
-                <dd>Koh Samui, Thailand</dd>
-                <dt>local</dt>
-                <dd class="flex flex-wrap gap-x-2">
-                  <span
-                    data-footer-clock
-                    data-timezone={setup.timezone}
-                  ></span>
-                  <span class="footer-muted">{setup.timezone}</span>
-                </dd>
-                <dt>online</dt>
-                <dd>
-                  <span data-uptime-since>since {firstPostLabel}</span>
-                  {firstPostDate && (
-                    <span
-                      class="footer-uptime"
-                      data-footer-uptime
-                      data-start={firstPostDate.toISOString()}
-                      aria-hidden="true"
-                      hidden
-                    >
-                      {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
-                      {UPTIME_UNITS.map((unit, index) => (
-                        <Fragment>
-                          <span class="footer-uptime-unit" data-unit={unit}>
-                            <span data-uptime-value></span>{' '}
-                            <span data-uptime-label>{unit}</span>
-                            {index < UPTIME_UNITS.length - 1 && ','}
-                          </span>
-                          {index < UPTIME_UNITS.length - 1 && ' '}
-                        </Fragment>
-                      ))}
-                    </span>
-                  )}
-                </dd>
-                <dt>stack</dt>
-                <dd>
-                  <a href="https://astro.build/">Astro</a>,
-                  <a href="https://gohugo.io/">GoHugo</a>,
-                  <a href="https://wordpress.org/">WordPress</a>
-                </dd>
-                <dt>garden</dt>
-                <dd>
-                  <a href="/blog/">{postCount} posts</a>
-                  {tagCount > 0 && (
-                    <Fragment>
-                      , <a href="/tags/">{tagCount} tags</a>
-                    </Fragment>
-                  )}
-                </dd>
-              </dl>
-            </div>
-          </div>
-        </section>
-
-        <section aria-labelledby="footer-about">
-          <h3
-            id="footer-about"
-            class="footer-prompt"
-          >
-            <span
-              class="footer-prompt-user"
-              aria-hidden="true"
-              >{promptUser}:~$</span
-            >
-            cat about.md<span class="sr-only">: introduction</span>
-          </h3>
-          <div
-            id="about-introduction"
-            class="footer-intro"
-            set:html={introductionHtml}
-          />
-        </section>
-      </div>
-
-      <div class="flex flex-col gap-12 xl:col-span-5">
-        <section aria-labelledby="footer-uptime">
-          <h3
-            id="footer-uptime"
-            class="footer-prompt"
-          >
-            <span
-              class="footer-prompt-user"
-              aria-hidden="true"
-              >{promptUser}:~$</span
-            >
-            uname -r &amp;&amp; uptime<span class="sr-only"
-              >: Patrick's age</span
-            >
-          </h3>
-          <dl
-            class="footer-fetch-facts"
-            data-footer-age
-            data-born={born.toISOString()}
-            data-timezone={setup.timezone}
-          >
-            <dt>kernel</dt>
-            <dd><span data-age-version>{bornVersion}</span>-samui</dd>
-            <dt>boot</dt>
-            <dd>
-              <time datetime={setup.author.born}>{bornLabel} {bornZone}</time>
-            </dd>
-            <dt>uptime</dt>
-            <dd>
-              <span data-age-days>{formatDayCount(bornClock.days)} days</span>
-              <span
-                class="footer-uptime"
-                data-age-counter
-                aria-hidden="true"
-                hidden
-              >
-                {/* Same no-wrap units as the "online" counter; the line can break after the comma. */}
-                <span class="footer-uptime-unit"
-                  ><span data-age-value="days"></span>
-                  days,</span
-                >
-                <span class="footer-uptime-unit"
-                  ><span data-age-value="time"></span></span
-                >
-              </span>
-              <span
-                class="footer-muted block"
-                data-age-milestone
-              >
-                # {bornMilestone}
-              </span>
-            </dd>
-          </dl>
-        </section>
-
-        <nav aria-labelledby="footer-ls">
-          <h3
-            id="footer-ls"
-            class="footer-prompt"
-          >
-            <span
-              class="footer-prompt-user"
-              aria-hidden="true"
-              >{promptUser}:~$</span
-            >
-            ls ~/<span class="sr-only">: site navigation</span>
-          </h3>
-          <ul class="flex flex-wrap gap-x-6 gap-y-2">
-            {navData.map((value) => (
-              <li>
-                <a href={value.link}>{value.label.toLowerCase()}/</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <section aria-labelledby="footer-elsewhere">
-          <h3
-            id="footer-elsewhere"
-            class="footer-prompt"
-          >
-            <span
-              class="footer-prompt-user"
-              aria-hidden="true"
-              >{promptUser}:~$</span
-            >
-            ls ~/elsewhere<span class="sr-only">: social media profiles</span>
-          </h3>
-          <ul class="flex flex-col gap-2">
-            {featuredNetworks.map((network) => (
-              <li>
-                <IconLink
-                  href={network.profile.url}
-                  icon={network.icon}
-                  target={social.defaults.target}
-                  rel={mergeRel(social.defaults.rel, network.profile.rel)}
-                  title={network.profile.title}
-                  style={networkColourStyle(network.classes.fill)}
-                  class="footer-network-glyph size-[1.1em] shrink-0"
-                  linkClass="footer-network gap-3"
-                >
-                  <span class="footer-network-name">{network.id}</span>
-                  {network.profile.handle && (
-                    <span class="footer-network-handle footer-muted">
-                      {network.profile.handle}
-                    </span>
-                  )}
-                </IconLink>
-              </li>
-            ))}
-          </ul>
-          {moreNetworks.length > 0 && (
-            <>
-              <p class="footer-muted mt-6 mb-2">
-                # and {moreNetworks.length} more
-              </p>
-              {/* Paint server for the Instagram icon, used on hover through
-                  `hover:fill-[url(#instagram-gradient)_#FF0069]` in setup.json.
-                  It stays rendered at zero size, because some browsers drop
-                  gradients inside `display: none`. */}
-              <svg
-                class="absolute size-0 overflow-hidden"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <defs>
-                  <radialGradient
-                    id="instagram-gradient"
-                    cx="30%"
-                    cy="107%"
-                    r="150%"
-                  >
-                    <stop offset="0%" stop-color="#fdf497" />
-                    <stop offset="5%" stop-color="#fdf497" />
-                    <stop offset="45%" stop-color="#fd5949" />
-                    <stop offset="60%" stop-color="#d6249f" />
-                    <stop offset="90%" stop-color="#285aeb" />
-                  </radialGradient>
-                </defs>
-              </svg>
-              <ul class="footer-network-more -ml-2.5">
-                {moreNetworks.map((network) => (
-                  <li>
-                    <IconLink
-                      href={network.profile.url}
-                      icon={network.icon}
-                      target={social.defaults.target}
-                      rel={mergeRel(social.defaults.rel, network.profile.rel)}
-                      title={network.profile.title}
-                      aria-label={network.label}
-                      class={`size-5 ${network.classes.fill}`}
-                      linkClass="footer-network-icon size-10 justify-center rounded-md"
-                    />
-                  </li>
+                <Image
+                  src={patrickEyesBase}
+                  width={400}
+                  height={400}
+                  alt=""
+                  loading="lazy"
+                  aria-hidden="true"
+                  class="footer-eyes-base footer-fetch-avatar-image"
+                />
+                {[
+                  { image: pupilLeft, x: 144 },
+                  { image: pupilRight, x: 220 },
+                ].map(({ image, x }) => (
+                  <img
+                    src={image.src}
+                    width={16}
+                    height={16}
+                    alt=""
+                    aria-hidden="true"
+                    class="footer-eye-pupil"
+                    data-footer-pupil
+                    data-x={x}
+                    data-y="154"
+                    style={`left: ${x / 4}%; top: 38.5%;`}
+                  />
                 ))}
-              </ul>
-            </>
-          )}
-          <p
-            class="footer-prompt mt-10"
-            aria-hidden="true"
-          >
-            <span class="footer-prompt-user">{promptUser}:~$</span>
-            <span class="footer-cursor"></span>
-          </p>
-        </section>
+              </Link>
+              <div class="min-w-0">
+                <p class="footer-fetch-title">{promptUser}</p>
+                <p
+                  class="footer-fetch-rule"
+                  aria-hidden="true"
+                >
+                  {promptRule}
+                </p>
+                <dl class="footer-fetch-facts">
+                  <dt>name</dt>
+                  <dd>{setup.author.name}</dd>
+                  <dt>alias</dt>
+                  <dd>
+                    <a href="https://davidsneighbour.dev/">David's Neighbour</a>
+                  </dd>
+                  <dt>role</dt>
+                  <dd>full-stack web developer, online business consultant</dd>
+                  <dt>host</dt>
+                  <dd>Koh Samui, Thailand</dd>
+                  <dt>local</dt>
+                  <dd class="flex flex-wrap gap-x-2">
+                    <span
+                      data-footer-clock
+                      data-timezone={setup.timezone}
+                    ></span>
+                    <span class="footer-muted">{setup.timezone}</span>
+                  </dd>
+                  <dt>online</dt>
+                  <dd>
+                    <span data-uptime-since>since {firstPostLabel}</span>
+                    {firstPostDate && (
+                      <span
+                        class="footer-uptime"
+                        data-footer-uptime
+                        data-start={firstPostDate.toISOString()}
+                        aria-hidden="true"
+                        hidden
+                      >
+                        {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
+                        {UPTIME_UNITS.map((unit, index) => (
+                          <Fragment>
+                            <span class="footer-uptime-unit" data-unit={unit}>
+                              <span data-uptime-value></span>{' '}
+                              <span data-uptime-label>{unit}</span>
+                              {index < UPTIME_UNITS.length - 1 && ','}
+                            </span>
+                            {index < UPTIME_UNITS.length - 1 && ' '}
+                          </Fragment>
+                        ))}
+                      </span>
+                    )}
+                  </dd>
+                  <dt>stack</dt>
+                  <dd>
+                    <a href="https://astro.build/">Astro</a>,
+                    <a href="https://gohugo.io/">GoHugo</a>,
+                    <a href="https://wordpress.org/">WordPress</a>
+                  </dd>
+                  <dt>garden</dt>
+                  <dd>
+                    <a href="/blog/">{postCount} posts</a>
+                    {tagCount > 0 && (
+                      <Fragment>
+                        , <a href="/tags/">{tagCount} tags</a>
+                      </Fragment>
+                    )}
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="footer-about">
+            <h3
+              id="footer-about"
+              class="footer-prompt"
+            >
+              <span
+                class="footer-prompt-user"
+                aria-hidden="true"
+                >{promptUser}:~$</span
+              >
+              cat about.md<span class="sr-only">: introduction</span>
+            </h3>
+            <div
+              id="about-introduction"
+              class="footer-intro"
+              set:html={introductionHtml}
+            />
+          </section>
+        </div>
+
+        <div class="flex flex-col gap-12 xl:col-span-5">
+          <section aria-labelledby="footer-uptime">
+            <h3
+              id="footer-uptime"
+              class="footer-prompt"
+            >
+              <span
+                class="footer-prompt-user"
+                aria-hidden="true"
+                >{promptUser}:~$</span
+              >
+              uname -r &amp;&amp; uptime<span class="sr-only"
+                >: Patrick's age</span
+              >
+            </h3>
+            <dl
+              class="footer-fetch-facts"
+              data-footer-age
+              data-born={born.toISOString()}
+              data-timezone={setup.timezone}
+            >
+              <dt>kernel</dt>
+              <dd><span data-age-version>{bornVersion}</span>-samui</dd>
+              <dt>boot</dt>
+              <dd>
+                <time datetime={setup.author.born}>{bornLabel} {bornZone}</time>
+              </dd>
+              <dt>uptime</dt>
+              <dd>
+                <span data-age-days>{formatDayCount(bornClock.days)} days</span>
+                <span
+                  class="footer-uptime"
+                  data-age-counter
+                  aria-hidden="true"
+                  hidden
+                >
+                  {/* Same no-wrap units as the "online" counter; the line can break after the comma. */}
+                  <span class="footer-uptime-unit"
+                    ><span data-age-value="days"></span>
+                    days,</span
+                  >
+                  <span class="footer-uptime-unit"
+                    ><span data-age-value="time"></span></span
+                  >
+                </span>
+                <span
+                  class="footer-muted block"
+                  data-age-milestone
+                >
+                  # {bornMilestone}
+                </span>
+              </dd>
+            </dl>
+          </section>
+
+          <nav aria-labelledby="footer-ls">
+            <h3
+              id="footer-ls"
+              class="footer-prompt"
+            >
+              <span
+                class="footer-prompt-user"
+                aria-hidden="true"
+                >{promptUser}:~$</span
+              >
+              ls ~/<span class="sr-only">: site navigation</span>
+            </h3>
+            <ul class="flex flex-wrap gap-x-6 gap-y-2">
+              {navData.map((value) => (
+                <li>
+                  <a href={value.link}>{value.label.toLowerCase()}/</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <section aria-labelledby="footer-elsewhere">
+            <h3
+              id="footer-elsewhere"
+              class="footer-prompt"
+            >
+              <span
+                class="footer-prompt-user"
+                aria-hidden="true"
+                >{promptUser}:~$</span
+              >
+              ls ~/elsewhere<span class="sr-only">: social media profiles</span>
+            </h3>
+            <ul class="flex flex-col gap-2">
+              {featuredNetworks.map((network) => (
+                <li>
+                  <IconLink
+                    href={network.profile.url}
+                    icon={network.icon}
+                    target={social.defaults.target}
+                    rel={mergeRel(social.defaults.rel, network.profile.rel)}
+                    title={network.profile.title}
+                    style={networkColourStyle(network.classes.fill)}
+                    class="footer-network-glyph size-[1.1em] shrink-0"
+                    linkClass="footer-network gap-3"
+                  >
+                    <span class="footer-network-name">{network.id}</span>
+                    {network.profile.handle && (
+                      <span class="footer-network-handle footer-muted">
+                        {network.profile.handle}
+                      </span>
+                    )}
+                  </IconLink>
+                </li>
+              ))}
+            </ul>
+            {moreNetworks.length > 0 && (
+              <>
+                <p class="footer-muted mt-6 mb-2">
+                  # and {moreNetworks.length} more
+                </p>
+                {/* Paint server for the Instagram icon, used on hover through
+                    `hover:fill-[url(#instagram-gradient)_#FF0069]` in setup.json.
+                    It stays rendered at zero size, because some browsers drop
+                    gradients inside `display: none`. */}
+                <svg
+                  class="absolute size-0 overflow-hidden"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <defs>
+                    <radialGradient
+                      id="instagram-gradient"
+                      cx="30%"
+                      cy="107%"
+                      r="150%"
+                    >
+                      <stop offset="0%" stop-color="#fdf497" />
+                      <stop offset="5%" stop-color="#fdf497" />
+                      <stop offset="45%" stop-color="#fd5949" />
+                      <stop offset="60%" stop-color="#d6249f" />
+                      <stop offset="90%" stop-color="#285aeb" />
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <ul class="footer-network-more -ml-2.5">
+                  {moreNetworks.map((network) => (
+                    <li>
+                      <IconLink
+                        href={network.profile.url}
+                        icon={network.icon}
+                        target={social.defaults.target}
+                        rel={mergeRel(social.defaults.rel, network.profile.rel)}
+                        title={network.profile.title}
+                        aria-label={network.label}
+                        class={`size-5 ${network.classes.fill}`}
+                        linkClass="footer-network-icon size-10 justify-center rounded-md"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            <p
+              class="footer-prompt mt-10"
+              aria-hidden="true"
+            >
+              <span class="footer-prompt-user">{promptUser}:~$</span>
+              <span class="footer-cursor"></span>
+            </p>
+          </section>
+        </div>
       </div>
     </div>
+
   </div>
 
   <div

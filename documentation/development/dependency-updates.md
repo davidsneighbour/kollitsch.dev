@@ -8,4 +8,4 @@ Vitest resolves TypeScript path aliases through Vite's native `resolve.tsconfigP
 
 After changing `package.json`, run `npx nanny update-package` to synchronise dependency versions into `src/packages/**/*.jsonc`, then run `npx nanny check` to check scripts, Wireit configuration, and dependency versions. The fragments are the source of truth for package generation.
 
-Run `npm test`, `npx astro check`, and `npm run check:scripts` before committing. Keep unfixable security findings tracked in open GitHub issues labelled `prio:high`.
+Run `npm test` and `npm run check` (which runs `astro check`, the social-image check, `npm run check:scripts`, and `npm run check:types`) before committing. Keep unfixable security findings tracked in open GitHub issues labelled `prio:high`.

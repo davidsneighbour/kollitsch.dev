@@ -45,6 +45,7 @@
     "build:verbose": "WIREIT_LOGGER=simple npm run build",
     "check": "wireit",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
+    "check:types": "tsc --noEmit",
     "clean:astro": "wireit",
     "clean:build-caches": "wireit",
     "clean:og": "wireit",
@@ -97,7 +98,7 @@
       ]
     },
     "check": {
-      "command": "npm run check:scripts",
+      "command": "npm run check:scripts && npm run check:types",
       "dependencies": [
         "build:check",
         "check:ogimages"

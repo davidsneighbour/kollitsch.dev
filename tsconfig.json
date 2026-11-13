@@ -9,6 +9,7 @@
     "src/scripts"
   ],
   "compilerOptions": {
+    "module": "ESNext",
     "paths": {
       "@/*": [
         "./src/*"

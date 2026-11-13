@@ -97,7 +97,6 @@ const configuredRedirects = mergeRedirects(
 
 // https://astro.build/config
 export default defineConfig({
-  // @ts-expect-error - env variable typing not recognized
   compressHTML: import.meta.env.PROD,
   redirects: configuredRedirects,
   devToolbar: {

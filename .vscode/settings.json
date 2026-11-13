@@ -127,5 +127,8 @@
     "titleBar.inactiveBackground": "#00c95099",
     "titleBar.inactiveForeground": "#15202b99"
   },
-  "typos.config": "src/config/typos.toml"
+  "typos.config": "src/config/typos.toml",
+  "explorer.fileNesting.patterns": {
+    "astro.config.ts": "ec.config.mjs, components.json, config.toml, frontmatter.json, .posthaste.toml, .ncurc.json"
+  }
 }

@@ -1,5 +1,83 @@
 # Changelog
 
+## [3.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.5.1...v3.6.0) (2026-11-13)
+
+### Feat
+
+* **components:** add editable CodePlayground with halftone pilot ([f5e7686](https://github.com/davidsneighbour/kollitsch.dev/commit/f5e7686cb0675257b50010a5951e64613a5fc431)), references [#2196](https://github.com/davidsneighbour/kollitsch.dev/issues/2196)
+* **components:** add playground settings links, a11y fixes, and stripes ([958f824](https://github.com/davidsneighbour/kollitsch.dev/commit/958f8245b7c2ce58303b17f3ac11e4f761ec3487)), references [#2196](https://github.com/davidsneighbour/kollitsch.dev/issues/2196)
+* **footer:** add pointer-following portrait eyes ([fa8f3a2](https://github.com/davidsneighbour/kollitsch.dev/commit/fa8f3a207545194718e5c7662265988266f33035)), closes [#2215](https://github.com/davidsneighbour/kollitsch.dev/issues/2215)
+* **footer:** add the author's own uptime as a uname/uptime section ([40f91d7](https://github.com/davidsneighbour/kollitsch.dev/commit/40f91d7e3c469fefcdaff2b9f33efcf3efed021b)), closes [#2208](https://github.com/davidsneighbour/kollitsch.dev/issues/2208)
+* **footer:** brand hover colour for Discord ([21e3d0f](https://github.com/davidsneighbour/kollitsch.dev/commit/21e3d0f3a4e56b91dd2b2715369244b8036b72a6)), references [#2211](https://github.com/davidsneighbour/kollitsch.dev/issues/2211)
+* **footer:** brand hover colours for email, YouTube, and Instagram ([b7ff43a](https://github.com/davidsneighbour/kollitsch.dev/commit/b7ff43aa88d5c3d28e67bb53a431baf43c957e4d)), references [_#FF0069](https://github.com/_/issues/FF0069) [#2211](https://github.com/davidsneighbour/kollitsch.dev/issues/2211)
+* **footer:** brand-colour featured network icons on row hover ([1fc2fd0](https://github.com/davidsneighbour/kollitsch.dev/commit/1fc2fd0fe17f826023b6bb82ed1375611944dbbd)), closes [#2211](https://github.com/davidsneighbour/kollitsch.dev/issues/2211)
+* **footer:** give the marker a brief explosive entrance ([daf04ee](https://github.com/davidsneighbour/kollitsch.dev/commit/daf04ee0d3bd1d803c45b033e478ca77cf863a89)), closes [#2219](https://github.com/davidsneighbour/kollitsch.dev/issues/2219)
+* **footer:** live uptime counter since the first post with rolling digits ([eb33963](https://github.com/davidsneighbour/kollitsch.dev/commit/eb33963895289fb11910b9d0c62107d3b767abf8)), references [#2206](https://github.com/davidsneighbour/kollitsch.dev/issues/2206)
+* **footer:** random credit line before the wordmark from setup.credits ([a686bb4](https://github.com/davidsneighbour/kollitsch.dev/commit/a686bb468a343a213910d2dc987528b80b297127)), closes [#2209](https://github.com/davidsneighbour/kollitsch.dev/issues/2209), references [#1978](https://github.com/davidsneighbour/kollitsch.dev/issues/1978)
+* **footer:** redesign the footer as a terminal-style whoami colophon ([16c4988](https://github.com/davidsneighbour/kollitsch.dev/commit/16c49887ffdc03344708369470ef85e2078d9cc8)), closes [#2206](https://github.com/davidsneighbour/kollitsch.dev/issues/2206)
+* **footer:** replay the marker burst on scroll return ([d71b759](https://github.com/davidsneighbour/kollitsch.dev/commit/d71b759cb0aab793774c759ff2bdbc9724947e47)), closes [#2220](https://github.com/davidsneighbour/kollitsch.dev/issues/2220)
+* **footer:** terminal window with a "we have a footer" sticker note ([616c6a0](https://github.com/davidsneighbour/kollitsch.dev/commit/616c6a02c8280e0308edde0ee4f91c1fb2d41c3e)), closes [#2212](https://github.com/davidsneighbour/kollitsch.dev/issues/2212)
+* **og-images:** hint at build:ogimages when the check fails ([979652e](https://github.com/davidsneighbour/kollitsch.dev/commit/979652ed05869573c17cfa81210078dca9b0a169)), closes [#2139](https://github.com/davidsneighbour/kollitsch.dev/issues/2139)
+* **well-known:** publish SocialSpec following, about, and contact files ([5ce061d](https://github.com/davidsneighbour/kollitsch.dev/commit/5ce061d702f6298076bae16e40560702836b6c32)), closes [#2134](https://github.com/davidsneighbour/kollitsch.dev/issues/2134)
+
+### Content
+
+* **ai:** explain the revised contribution policy ([a3bbbc4](https://github.com/davidsneighbour/kollitsch.dev/commit/a3bbbc4ee1e4cc6ff0ac979bd6d0089165cc5e32)), closes [#2135](https://github.com/davidsneighbour/kollitsch.dev/issues/2135)
+* **ai:** quote the contribution policy as a blockquote ([ab19eda](https://github.com/davidsneighbour/kollitsch.dev/commit/ab19edabf173e03ca48729678bad56972c3ded31)), references [#2135](https://github.com/davidsneighbour/kollitsch.dev/issues/2135)
+* **ai:** set the AI contribution follow-up back to draft ([9567077](https://github.com/davidsneighbour/kollitsch.dev/commit/95670771e8e8cd979d6256c2bdb66b0f0a96cdcc)), references [#2135](https://github.com/davidsneighbour/kollitsch.dev/issues/2135)
+* **footer:** rename the terminal prompt to patrick@dnb ([191e20b](https://github.com/davidsneighbour/kollitsch.dev/commit/191e20bb8399c6331584f25fe8a6725d519899ce)), references [#2206](https://github.com/davidsneighbour/kollitsch.dev/issues/2206)
+* **obsidian:** draft TIL on keyring detection in i3 ([f8aefba](https://github.com/davidsneighbour/kollitsch.dev/commit/f8aefbab91d6ac6f0620882f211be82a937c5a66)), closes [#2137](https://github.com/davidsneighbour/kollitsch.dev/issues/2137)
+* **og-images:** add social image for the halftone typography draft ([7bdfb82](https://github.com/davidsneighbour/kollitsch.dev/commit/7bdfb82ca47231a2765155efc52e5f7adf06b823)), references [#2196](https://github.com/davidsneighbour/kollitsch.dev/issues/2196)
+* **og-images:** add social image for the Obsidian keyring TIL ([06c20e3](https://github.com/davidsneighbour/kollitsch.dev/commit/06c20e3f5fa75aa34af81a16ac4c47da163e75bb)), references [#2137](https://github.com/davidsneighbour/kollitsch.dev/issues/2137)
+* **og-images:** refresh social image for the sycophancy draft ([8e0666c](https://github.com/davidsneighbour/kollitsch.dev/commit/8e0666cfa981a6f17226f3ce66c9bc822b7f4c57)), references [#1947](https://github.com/davidsneighbour/kollitsch.dev/issues/1947)
+* replace davids-neighbour.com with davidsneighbour.dev ([fdd9bff](https://github.com/davidsneighbour/kollitsch.dev/commit/fdd9bffea597ea0ae934a94be5d44cd72a274d7c)), closes [#2207](https://github.com/davidsneighbour/kollitsch.dev/issues/2207)
+* **social:** add Nostr and fix the Tumblr profile link ([e0719a2](https://github.com/davidsneighbour/kollitsch.dev/commit/e0719a2c4d6ed3d8b257d9c54edd4a57fa84efeb)), references [#2204](https://github.com/davidsneighbour/kollitsch.dev/issues/2204)
+* **social:** pick /connect/ networks and add Tumblr ([9e904d1](https://github.com/davidsneighbour/kollitsch.dev/commit/9e904d1373ed2907f393c2221e5c440ed3905d31)), references [#2204](https://github.com/davidsneighbour/kollitsch.dev/issues/2204)
+
+### Fix
+
+* **config:** isolate the release test server ([30a75be](https://github.com/davidsneighbour/kollitsch.dev/commit/30a75be2828239d1e3f17490a66ce588a8305253)), closes [#2223](https://github.com/davidsneighbour/kollitsch.dev/issues/2223)
+* **footer:** show the DEV icon in white on hover in dark mode ([a37bd61](https://github.com/davidsneighbour/kollitsch.dev/commit/a37bd61cb109997d51f1ca6f7fa316abd8c02b85)), references [#2211](https://github.com/davidsneighbour/kollitsch.dev/issues/2211)
+* **scripts:** make FreshRSS feed generation optional ([2779002](https://github.com/davidsneighbour/kollitsch.dev/commit/2779002b403d039c231a86ec564393ab3a9be9a1)), closes [#2221](https://github.com/davidsneighbour/kollitsch.dev/issues/2221)
+
+### Refactor
+
+* **config:** move Expressive Code options to ec.config.mjs ([b10fbe7](https://github.com/davidsneighbour/kollitsch.dev/commit/b10fbe76033186281ca7fdd2d195ab0931544bea)), references [#2196](https://github.com/davidsneighbour/kollitsch.dev/issues/2196)
+* **social:** move all social media setup into setup.json ([4c9f1e0](https://github.com/davidsneighbour/kollitsch.dev/commit/4c9f1e0dfb8cd8a6a0817c3aee5a37ac5454e58d)), closes [#2204](https://github.com/davidsneighbour/kollitsch.dev/issues/2204)
+
+### Docs
+
+* **ai:** reduce AGENTS.md bootstrap size and remove duplication ([4d35ed2](https://github.com/davidsneighbour/kollitsch.dev/commit/4d35ed2d928b21e5c5e293b6f22dccc4610a1697)), closes [#2197](https://github.com/davidsneighbour/kollitsch.dev/issues/2197), references [#1978](https://github.com/davidsneighbour/kollitsch.dev/issues/1978)
+* **vale:** accept vCard and prerendered ([8f8c8bb](https://github.com/davidsneighbour/kollitsch.dev/commit/8f8c8bb0b37e2b70b31ea48027000a63b28fa28c)), references [#2134](https://github.com/davidsneighbour/kollitsch.dev/issues/2134)
+
+### Style
+
+* **footer:** align the cursor with the prompt text and halve its width ([b4bbd0b](https://github.com/davidsneighbour/kollitsch.dev/commit/b4bbd0be3c56a66615cf173531670c1244562da1)), references [#2206](https://github.com/davidsneighbour/kollitsch.dev/issues/2206)
+* **footer:** enlarge the copyright symbol ([969be89](https://github.com/davidsneighbour/kollitsch.dev/commit/969be897829982b6a48686c76737fc39ad972bc6)), closes [#2218](https://github.com/davidsneighbour/kollitsch.dev/issues/2218)
+* **footer:** larger breakout avatar, balanced icon row, green cursor ([602450d](https://github.com/davidsneighbour/kollitsch.dev/commit/602450d67e6df12939da889e7ae39188dbe81541)), references [#2206](https://github.com/davidsneighbour/kollitsch.dev/issues/2206)
+* **footer:** make the final strip full width ([d40adfc](https://github.com/davidsneighbour/kollitsch.dev/commit/d40adfc2e43ea992ca472a19314d5785c0e4c2f4)), closes [#2217](https://github.com/davidsneighbour/kollitsch.dev/issues/2217)
+* **footer:** raise the cursor by 1px ([dac98ef](https://github.com/davidsneighbour/kollitsch.dev/commit/dac98ef3b454b2d511989876f6704ded85faaf4b)), references [#2206](https://github.com/davidsneighbour/kollitsch.dev/issues/2206)
+* **footer:** remove the decorative title bar ([fbb3213](https://github.com/davidsneighbour/kollitsch.dev/commit/fbb3213cd04a781fe5bd3a672d4fd19e94cf9f24)), closes [#2214](https://github.com/davidsneighbour/kollitsch.dev/issues/2214)
+* **footer:** remove the outer window border ([9f20118](https://github.com/davidsneighbour/kollitsch.dev/commit/9f201183d21312fb67cf1ff83cec481116e90b6b)), closes [#2213](https://github.com/davidsneighbour/kollitsch.dev/issues/2213)
+* **footer:** remove the panel background fill ([5197d5c](https://github.com/davidsneighbour/kollitsch.dev/commit/5197d5cedc3812ef3d67505525b3b4d48d1d2603)), closes [#2216](https://github.com/davidsneighbour/kollitsch.dev/issues/2216)
+
+### Build
+
+* **deps:** align override fragments with package.json ([46b8fd5](https://github.com/davidsneighbour/kollitsch.dev/commit/46b8fd5ddeb57a2b0c2854f22a4155ef514941f9)), references [#2196](https://github.com/davidsneighbour/kollitsch.dev/issues/2196)
+* **deps:** fix npm install and update all dependencies to latest ([2cdeca8](https://github.com/davidsneighbour/kollitsch.dev/commit/2cdeca8f603b95b6389c6319f93908e7859406f4)), closes [#2199](https://github.com/davidsneighbour/kollitsch.dev/issues/2199), references [#2200](https://github.com/davidsneighbour/kollitsch.dev/issues/2200) [#2201](https://github.com/davidsneighbour/kollitsch.dev/issues/2201) [#1752](https://github.com/davidsneighbour/kollitsch.dev/issues/1752)
+* **deps:** update packages and retain TypeScript 6 ([0cde81a](https://github.com/davidsneighbour/kollitsch.dev/commit/0cde81a5d973b6dab3d5aed0584a1972e7f8583c)), closes [#2133](https://github.com/davidsneighbour/kollitsch.dev/issues/2133), references [#2035](https://github.com/davidsneighbour/kollitsch.dev/issues/2035)
+* **types:** make tsc --noEmit pass and add it to npm run check ([423bb8b](https://github.com/davidsneighbour/kollitsch.dev/commit/423bb8b0e33b1cbc1fdbcdd46d6bfc81c533f0c6)), closes [#2203](https://github.com/davidsneighbour/kollitsch.dev/issues/2203)
+
+### Chore
+
+* **cloudflare:** disable Workers observability ([4dbce30](https://github.com/davidsneighbour/kollitsch.dev/commit/4dbce306c7fa30f2cbd5be0fa0ecdb482b96aa07)), closes [#2138](https://github.com/davidsneighbour/kollitsch.dev/issues/2138)
+* **git:** attribute screenshot commits to Patrick Kollitsch ([b2f4ab2](https://github.com/davidsneighbour/kollitsch.dev/commit/b2f4ab2858d0ee20676a53faac71cce01764aafc)), closes [#2140](https://github.com/davidsneighbour/kollitsch.dev/issues/2140)
+* update screenshot ([f193eee](https://github.com/davidsneighbour/kollitsch.dev/commit/f193eeebbf1b6dbfa9e85544be4d71950490b486))
+* update screenshot ([123271b](https://github.com/davidsneighbour/kollitsch.dev/commit/123271b0449b961c329e7076347f84e4b8c165d8))
+* update screenshot ([5b0920d](https://github.com/davidsneighbour/kollitsch.dev/commit/5b0920dfde349d314c7b4e11093396d0ac0a5b8c))
+* update screenshot ([542f7a2](https://github.com/davidsneighbour/kollitsch.dev/commit/542f7a2e2f9d495a7d1e5f966b708714e8106a2f))
+* **vscode:** nest schema files below their JSON and TOML files ([1dd4243](https://github.com/davidsneighbour/kollitsch.dev/commit/1dd4243fb116e889ff8d55c7ea710bcb8558482d)), closes [#2210](https://github.com/davidsneighbour/kollitsch.dev/issues/2210)
+
 ## [3.5.1](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.5.0...v3.5.1) (2026-10-12)
 
 ### Chore

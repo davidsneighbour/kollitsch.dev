@@ -338,6 +338,30 @@ const networkColourStyle = (fill: string): string | undefined => {
             <p class="footer-muted mt-6 mb-2">
               # and {moreNetworks.length} more
             </p>
+            {/* Paint server for the Instagram icon, used on hover through
+                `hover:fill-[url(#instagram-gradient)_#FF0069]` in setup.json.
+                It stays rendered at zero size, because some browsers drop
+                gradients inside `display: none`. */}
+            <svg
+              class="absolute size-0 overflow-hidden"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <radialGradient
+                  id="instagram-gradient"
+                  cx="30%"
+                  cy="107%"
+                  r="150%"
+                >
+                  <stop offset="0%" stop-color="#fdf497" />
+                  <stop offset="5%" stop-color="#fdf497" />
+                  <stop offset="45%" stop-color="#fd5949" />
+                  <stop offset="60%" stop-color="#d6249f" />
+                  <stop offset="90%" stop-color="#285aeb" />
+                </radialGradient>
+              </defs>
+            </svg>
             <ul class="footer-network-more -ml-2.5">
               {moreNetworks.map((network) => (
                 <li>

@@ -176,8 +176,8 @@
         },
         "share": null,
         "classes": {
-          "fill": "",
-          "background": ""
+          "fill": "hover:text-[#FF0069] hover:fill-[url(#instagram-gradient)_#FF0069]",
+          "background": "group-hover:bg-[#FF0069]/10 hover:bg-[#FF0069]/20 hover:shadow-[#FF0069]"
         },
         "show": {
           "footer": true,
@@ -201,7 +201,7 @@
           "url": "mailto:?subject={title}&body={description}%0A{url}"
         },
         "classes": {
-          "fill": "hover:text-[#000000]",
+          "fill": "hover:text-[#FFCC00]",
           "background": "group-hover:bg-[#FFCC00]/20 hover:bg-[#FFCC00]/50 hover:shadow-[#FFCC00]"
         },
         "show": {
@@ -399,8 +399,8 @@
         },
         "share": null,
         "classes": {
-          "fill": "",
-          "background": ""
+          "fill": "hover:text-[#FF0000]",
+          "background": "group-hover:bg-[#FF0000]/10 hover:bg-[#FF0000]/20 hover:shadow-[#FF0000]"
         },
         "show": {
           "footer": true,

@@ -152,4 +152,23 @@ describe("Footer component (author's uptime)", () => {
       /\.footer-network:focus-visible :global\(\.footer-network-glyph\)/,
     );
   });
+
+  it('defines the Instagram gradient that the Instagram icon references', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+    const setupJson = await fs.readFile(
+      path.join(testDir, '../../../data/setup.json'),
+      'utf8',
+    );
+    const setup = JSON.parse(setupJson) as {
+      social: { networks: { id: string; classes: { fill: string } }[] };
+    };
+    const instagram = setup.social.networks.find((n) => n.id === 'instagram');
+
+    expect(src).toMatch(/<radialGradient\s+id="instagram-gradient"/);
+    expect(src).toMatch(/<svg[^>]*aria-hidden="true"[\s\S]*?<defs>/);
+    expect(instagram?.classes.fill).toContain(
+      'hover:fill-[url(#instagram-gradient)_#FF0069]',
+    );
+  });
 });

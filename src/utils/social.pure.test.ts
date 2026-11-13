@@ -4,6 +4,7 @@ import {
   buildShareUrl,
   buildWebfinger,
   mergeRel,
+  networkHoverColour,
   networksFor,
   parseFediverseHandle,
   type SocialConfig,
@@ -85,6 +86,34 @@ describe('validateSocialConfig', () => {
     expect(() =>
       validateSocialConfig(config([network({ share })])),
     ).not.toThrow();
+  });
+});
+
+describe('networkHoverColour', () => {
+  it('reads the hex colour from the hover text class', () => {
+    expect(networkHoverColour('hover:text-[#0085ff]')).toEqual({
+      dark: '#0085ff',
+      light: '#0085ff',
+    });
+    expect(networkHoverColour('size-5 hover:text-[#0A66C2]')).toEqual({
+      dark: '#0a66c2',
+      light: '#0a66c2',
+    });
+  });
+
+  it('shows a black brand colour as white on dark surfaces', () => {
+    expect(networkHoverColour('hover:text-[#000000]')).toEqual({
+      dark: '#ffffff',
+      light: '#000000',
+    });
+    expect(networkHoverColour('hover:text-[#000]')?.dark).toBe('#ffffff');
+  });
+
+  it('returns null without a hex hover colour', () => {
+    expect(networkHoverColour('')).toBeNull();
+    expect(networkHoverColour('text-[#0085ff]')).toBeNull();
+    expect(networkHoverColour('group-hover:text-[#0085ff]')).toBeNull();
+    expect(networkHoverColour('hover:text-primary-500')).toBeNull();
   });
 });
 

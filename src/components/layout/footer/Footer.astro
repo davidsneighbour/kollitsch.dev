@@ -23,7 +23,7 @@ import { getHomepageUrl, getPostsSortedByDraft } from '@utils/content';
 import { pickCredit } from '@utils/greeting.pure.ts';
 import { renderIntroductionHtml } from '@utils/introduction.pure.ts';
 import type { Navigation } from '@utils/navigation';
-import { mergeRel } from '@utils/social.pure.ts';
+import { mergeRel, networkHoverColour } from '@utils/social.pure.ts';
 import { getTags } from '@utils/tags.ts';
 import {
   ageVersion,
@@ -102,6 +102,15 @@ try {
 const footerNetworks = socialNetworksFor('footer');
 const featuredNetworks = footerNetworks.filter((n) => n.show.connect);
 const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
+
+// Featured rows colour only their icon with the brand colour, on hover of
+// the whole row, so the colour moves into custom properties on the link.
+const networkColourStyle = (fill: string): string | undefined => {
+  const colour = networkHoverColour(fill);
+  return colour
+    ? `--footer-network-colour: ${colour.light}; --footer-network-colour-dark: ${colour.dark};`
+    : undefined;
+};
 ---
 
 <footer
@@ -310,7 +319,8 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
                 target={social.defaults.target}
                 rel={mergeRel(social.defaults.rel, network.profile.rel)}
                 title={network.profile.title}
-                class={`size-[1.1em] shrink-0 ${network.classes.fill}`}
+                style={networkColourStyle(network.classes.fill)}
+                class="footer-network-glyph size-[1.1em] shrink-0"
                 linkClass="footer-network gap-3"
               >
                 <span class="footer-network-name">{network.id}</span>
@@ -884,6 +894,39 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     .footer-intro :global(p + p) {
       margin-top: 1em;
+    }
+
+    /*
+     * Hovering or focusing a featured row colours only its icon with the
+     * network's brand colour (set as custom properties on the link); the
+     * name and handle keep their link colours. The icon is rendered by a
+     * child component, so it is reached with :global().
+     */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .footer-network :global(.footer-network-glyph) {
+      transition: color 150ms var(--ease-out-quad);
+    }
+
+    @media (hover: hover) {
+      /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+      .footer-network:hover :global(.footer-network-glyph) {
+        color: var(--footer-network-colour, currentcolor);
+      }
+
+      /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+      :global(:where([data-theme="dark"])) .footer-network:hover :global(.footer-network-glyph) {
+        color: var(--footer-network-colour-dark, currentcolor);
+      }
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .footer-network:focus-visible :global(.footer-network-glyph) {
+      color: var(--footer-network-colour, currentcolor);
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    :global(:where([data-theme="dark"])) .footer-network:focus-visible :global(.footer-network-glyph) {
+      color: var(--footer-network-colour-dark, currentcolor);
     }
 
     .footer-network-name {

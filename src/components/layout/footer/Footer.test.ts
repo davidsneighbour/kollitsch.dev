@@ -139,4 +139,17 @@ describe("Footer component (author's uptime)", () => {
       /<script>[\s\S]*pickCredit\(credits\)[\s\S]*<\/script>/,
     );
   });
+
+  it('colours only the featured network icon on hover of the whole row', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toContain('style={networkColourStyle(network.classes.fill)}');
+    expect(src).toMatch(
+      /\.footer-network:hover :global\(\.footer-network-glyph\)\s*\{\s*color: var\(--footer-network-colour/,
+    );
+    expect(src).toMatch(
+      /\.footer-network:focus-visible :global\(\.footer-network-glyph\)/,
+    );
+  });
 });

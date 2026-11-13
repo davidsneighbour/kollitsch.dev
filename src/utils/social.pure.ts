@@ -164,6 +164,30 @@ export function mergeRel(
   return [...new Set([...defaults, ...extra].filter(Boolean))].join(' ');
 }
 
+/** A network's brand colour for light and dark surfaces. */
+export interface NetworkHoverColour {
+  light: string;
+  dark: string;
+}
+
+/**
+ * Read the brand colour from a network's `classes.fill`, for example
+ * `hover:text-[#0085ff]`, so `setup.json` stays the only place that holds
+ * network colours. A black brand colour would vanish on a dark surface, so
+ * its dark variant is white. Returns `null` when `fill` has no hex colour.
+ */
+export function networkHoverColour(fill: string): NetworkHoverColour | null {
+  const match = /(?:^|\s)hover:text-\[(#[0-9a-f]{3}(?:[0-9a-f]{3})?)\]/i.exec(
+    fill,
+  );
+  if (!match?.[1]) {
+    return null;
+  }
+  const light = match[1].toLowerCase();
+  const isBlack = light === '#000' || light === '#000000';
+  return { dark: isBlack ? '#ffffff' : light, light };
+}
+
 export interface FediverseAccount {
   username: string;
   host: string;

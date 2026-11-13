@@ -195,4 +195,28 @@ describe("Footer component (author's uptime)", () => {
 
     expect(missing).toEqual([]);
   });
+
+  it('shows black icon-only footer networks as white in dark mode', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const setupJson = await fs.readFile(
+      path.join(testDir, '../../../data/setup.json'),
+      'utf8',
+    );
+    const setup = JSON.parse(setupJson) as {
+      social: {
+        networks: {
+          id: string;
+          classes: { fill: string };
+          show: { footer: boolean; connect: boolean };
+        }[];
+      };
+    };
+    const missing = setup.social.networks
+      .filter((n) => n.show.footer && !n.show.connect)
+      .filter((n) => networkHoverColour(n.classes.fill)?.dark === '#ffffff')
+      .filter((n) => !n.classes.fill.includes('dark:hover:text-[#ffffff]'))
+      .map((n) => n.id);
+
+    expect(missing).toEqual([]);
+  });
 });

@@ -472,7 +472,7 @@
           "url": "https://dev.to/new?title={title}&url={url}"
         },
         "classes": {
-          "fill": "hover:text-[#000000]",
+          "fill": "hover:text-[#000000] dark:hover:text-[#ffffff]",
           "background": "group-hover:bg-[#000000]/10 hover:bg-[#000000]/20 hover:shadow-[#000000]"
         },
         "show": {

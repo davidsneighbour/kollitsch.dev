@@ -560,15 +560,16 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
 
     /*
      * The one authored motion: a blinking bar cursor on the last prompt.
-     * Sized and placed to match the JetBrains Mono ink box of the prompt:
-     * glyphs reach 0.9375em above and 0.1875em below the baseline.
+     * Sized to the JetBrains Mono ink box of the prompt (glyphs reach
+     * 0.9375em above and 0.1875em below the baseline), then raised by
+     * 0.0625em (1px at 16px) because it reads better optically.
      */
     .footer-cursor {
       display: inline-block;
       width: 0.3em;
       height: 1.125em;
       margin-left: 0.25em;
-      vertical-align: -0.1875em;
+      vertical-align: -0.125em;
 
       @apply bg-primary-700 dark:bg-primary-500;
     }

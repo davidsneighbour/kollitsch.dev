@@ -31,3 +31,13 @@ Decision: The homepage is intentionally blog-first. It must always show the late
 Reason: The site is a blog and digital garden, not a marketing website with a blog attached. A long featured post can make the homepage tall, and that is acceptable when it reflects the current or selected post.
 
 Change rule: Optimise loading cost, image priority, below-the-fold media, script behaviour, and interaction reliability around the full post. Do not hide, truncate, paginate, remove, or structurally demote the full post as a performance fix unless the site owner explicitly revises this decision.
+
+## Terminal-style footer
+
+Date: 2026-11-13
+
+Decision: The site footer reads as a terminal session. Each section starts with a JetBrains Mono prompt line (`patrick@koh-samui:~$ whoami`, `cat about.md`, `ls ~/`, `ls ~/elsewhere`) that is an `h3` with a screen-reader-only plain name, followed by the site-wide animated heading rule. The `whoami` block is neofetch-style: the author avatar beside a key-value table that includes the live Koh Samui time from `setup.timezone` and the post and tag counts. The introduction stays in Exo 2, as two paragraphs, ragged right. Social networks that also show on `/connect/` (`show.connect`) are featured with their handles; the other footer networks are one row of icon-only links. A blinking block cursor on the last prompt is the footer's only animation.
+
+Reason: The previous three-column footer (About, Navigation, Connect) read as a generic list, gave all 19 social networks the same weight, and repeated the header navigation without a visual reason. The terminal session gives the footer an identity that fits a developer's site and creates a clear hierarchy.
+
+Change rule: Keep the introduction in the reading face, not in mono. Keep the featured/more split driven by `show.connect` rather than a hard-coded list. Keep the cursor animation behind `prefers-reduced-motion: no-preference`. Do not return to equal-weight social link lists unless the site owner explicitly revises this decision.

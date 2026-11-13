@@ -542,7 +542,7 @@ In light mode, prose headings inherit the surrounding reading colour instead of 
 
 ### Animated Rule (heading underlines & `<hr>`)
 
-Every heading (`h1`–`h6`, site-wide, not just prose) and every prose `<hr>` draws a hairline rule using the `animated-rule` token: `{components.animated-rule.thickness}` thick, `gray-300` in light mode / `gray-700` in dark mode - the same neutral already used for `<hr>` before this system existed, kept deliberately quiet rather than tinted with `primary`. This replaces the old hand-placed `border-b` dividers on the footer's About/Navigation/Connect headings and `BlogHeading.astro`'s title section - do not re-add a manual border next to a heading or `<hr>`, the animated rule already provides it.
+Every heading (`h1`–`h6`, site-wide, not just prose) and every prose `<hr>` draws a hairline rule using the `animated-rule` token: `{components.animated-rule.thickness}` thick, `gray-300` in light mode / `gray-700` in dark mode - the same neutral already used for `<hr>` before this system existed, kept deliberately quiet rather than tinted with `primary`. This replaces the old hand-placed `border-b` dividers on the footer's section headings and `BlogHeading.astro`'s title section - do not re-add a manual border next to a heading or `<hr>`, the animated rule already provides it.
 
 The rule ships pre-drawn at `{components.animated-rule.startScale}` (40%) of its final length so the page never looks unfinished before JavaScript runs or before the element is in view. The first time it scrolls into the viewport (`IntersectionObserver`, `src/layouts/Site.astro`), it grows to full length over `{components.animated-rule.duration}` `{components.animated-rule.easing}` - the same curve as `--ease-out-quart` - and does not repeat.
 
@@ -553,6 +553,17 @@ Respects `prefers-reduced-motion`: the rule renders fully extended immediately, 
 ### Footer Author Avatar
 
 The footer author avatar keeps the full circular radius on its right edge and squared corners on its left edge: `0 {rounded.full} {rounded.full} 0`. It retains the standard structural border colours in light and dark mode.
+
+### Footer Terminal
+
+The footer (`src/components/layout/footer/Footer.astro`) is styled as a terminal session; see `documentation/established-features.md` ("Terminal-style footer") for the behaviour contract.
+
+* **Prompt lines** are `h3` elements set in `font-jetbrainsmono` at `text-sm lg:text-base`, weight 400 - the one place where headings are not Changa One, because they read as shell input. The `user@host:~$` part is muted, the command takes the normal heading colour (`on-surface` in light mode, `heading-dark` in dark mode). The site-wide animated rule draws under each prompt as the section divider.
+* **Muted text** (fact keys, handles, comments, the colophon strip) uses `text-gray-600 dark:text-gray-400`. `gray-500` measured 4.45:1 against the light surface, below WCAG AA, so it is not used for text here.
+* **Data, not prose, is mono.** The `whoami` facts, navigation, handles, and the colophon strip use JetBrains Mono. The introduction stays in Exo 2 light at `text-base lg:text-lg`, `max-w-[62ch]`, ragged right with `text-wrap: pretty` - never justified.
+* **Avatar** is 7rem (9rem from 40rem up), with the `footer-author-avatar` radius. Below 30rem it stacks above the facts table.
+* **Social ranking:** featured networks are one row each (icon, name at `min-width: 9ch`, muted handle). The rest are icon-only links with a 40px (`size-10`) target and `rounded-md` corners.
+* **Motion:** a 0.6em block cursor after the last prompt blinks with `steps(1, end)` over 1.1s, only under `prefers-reduced-motion: no-preference`. It is `aria-hidden` and the footer's only animation.
 
 ### Footer Colophon Watermark
 

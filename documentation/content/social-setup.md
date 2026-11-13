@@ -11,8 +11,8 @@ All social media configuration is in the `social` section of [`src/data/setup.js
 
 | Placement (`show` key) | Where | Links to |
 | --- | --- | --- |
-| `footer` | Footer "Connect" column ([`SocialLinks`](../components/features/social/social-links.md)) | profile |
-| `connect` | `/connect/` page list ([`SocialProfileList`](../components/features/social/social-profile-list.md)) | profile |
+| `footer` | Footer `ls ~/elsewhere` section ([`Footer`](../components/layout/footer/footer.md)) | profile |
+| `connect` | `/connect/` page list ([`SocialProfileList`](../components/features/social/social-profile-list.md)); in the footer, also marks a network as featured (row with handle) instead of icon-only | profile |
 | `shareBar` | Share button row below each post ([`ShareSeparator`](../components/content/metadata/share-separator.md)) | share intent |
 | `shareMeta` | "Share:" row in the post meta block ([`Share`](../components/content/metadata/share.md)) | share intent |
 | `socialspec` | `/.well-known/about.md` and `/.well-known/contact.vcf` ([SocialSpec](socialspec.md)) | profile |

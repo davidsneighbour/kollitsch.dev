@@ -16,11 +16,11 @@
   "description": "Patrick Kollitsch builds snappy websites for modern browsers - all from a little island called Koh Samui, where coconuts grow and deadlines stay chill.",
   "fallback": "/src/assets/images/fallback.jpg",
   "greetings": {
-    "afternoon": "Good afternoon \ud83d\udc4b",
+    "afternoon": "Good afternoon!",
     "default": "Hello there :)",
-    "evening": "Good evening \ud83c\udf19",
-    "morning": "Good morning \ud83c\udf1e",
-    "night": "Burning the midnight oil, huh? \ud83c\udf1c"
+    "evening": "Good evening!",
+    "morning": "Good morning!",
+    "night": "Burning the midnight oil, huh?"
   },
   "head": {
     "defaults": {

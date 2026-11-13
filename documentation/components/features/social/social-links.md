@@ -5,7 +5,7 @@ created: 2026-07-27T00:00:00+07:00
 updated: 2026-11-13T00:00:00+07:00
 ---
 
-Renders a list of social media profile links (icon plus label) from the [social media setup](../../../content/social-setup.md), used in the footer.
+Renders a list of social media profile links (icon plus label) from the [social media setup](../../../content/social-setup.md). The footer no longer uses it (it renders its own ranked list); no page uses it at the moment.
 
 ## File locations
 

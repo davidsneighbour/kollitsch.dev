@@ -5,15 +5,15 @@ created: 2026-07-27T00:00:00+07:00
 updated: 2026-11-13T00:00:00+07:00
 ---
 
-Renders the site-wide footer: an about section with author bio, footer navigation, social links, legal links, the Static.Quest web ring widget, feed links, a People's Pledge badge, and the [`Colophon`](colophon.md) vanity heading.
+Renders the site-wide footer as a terminal session: a neofetch-style `whoami` block, the introduction, the footer navigation, ranked social profiles, and one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
 
 ## File locations
 
 | Field | Value |
 | --- | --- |
 | Component | `src/components/layout/footer/Footer.astro` |
-| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (nav links), [`src/data/setup.json`](../../../../src/data/setup.json) (title, introduction, greetings), [`src/data/setup.json`](../../../../src/data/setup.json) (`social` section, social links) |
-| Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts) |
+| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (navigation links), [`src/data/setup.json`](../../../../src/data/setup.json) (`title`, `author`, `introduction`, `greetings`, `timezone`, and the `social` section) |
+| Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts), [`src/utils/greeting.pure.test.ts`](../../../../src/utils/greeting.pure.test.ts), [`src/utils/introduction.pure.test.ts`](../../../../src/utils/introduction.pure.test.ts) |
 
 ## Props
 
@@ -31,14 +31,19 @@ import Footer from '@components/layout/footer/Footer.astro';
 
 ## Behaviour
 
-- Renders an "About" `<aside>` with the author photo (linked to `/connect/`) and an introduction paragraph rendered from Markdown via `markdown-it`. A greeting-free fallback is rendered server-side; a client-side `<script>` re-renders the introduction with a time-of-day greeting (`morning`, `afternoon`, `evening`, `night`, or `default` from `setup.greetings`) substituted for the `{$greeting}` placeholder, based on `new Date().getHours()`.
-- Renders a "Navigation" `<aside>` from `footernavigation.json`, and a "Connect" `<aside>` using `SocialLinks`.
-- Renders a copyright line with the current year. The year is set server-side and corrected client-side via an inline script (`document.getElementById(footerYearId).innerText = ...`) to avoid stale build-time years on statically cached pages.
-- Fetches `/api/siteinfo.json` client-side and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`, with a leading space) after the copyright line. The endpoint reads `package.json` and sends `Cache-Control: no-store, max-age=0` so release metadata is not kept past a version bump. Failures are silently ignored.
-- Renders Privacy Policy and Security Policy links, a Static.Quest web ring widget (previous/random/next), and RSS/Atom/JSON feed links.
-- Renders a [People's Pledge](https://people.pledge.party/) badge (`PeoplePledgeBadge`, [`src/components/features/badges/PeoplePledgeBadge.astro`](../../../../src/components/features/badges/PeoplePledgeBadge.astro)) below the feed links, linked to `https://people.pledge.party/`. The badge SVG's fill is `currentColor`; the wrapping `.people-pledge-badge` link sets `color` to `--color-primary-700` in light mode and `--color-primary-600` in dark mode, the same per-theme shade already used for the footer's `Wordmark`.
+- Every section starts with a prompt line (`patrick@koh-samui:~$ <command>`) set in JetBrains Mono. Each prompt is an `h3`; the `user@host` part is `aria-hidden`, and a screen-reader-only suffix gives the plain section name (for example `whoami: about Patrick Kollitsch`). Each section is labelled by its prompt through `aria-labelledby`.
+- `whoami` shows the author avatar (linked to `/connect/`) beside a key-value table: name, alias, role, host, local time, uptime (`since 2021`), stack, and garden (post count from the `blog` collection without drafts, tag count from `getTags()`). If the tag count fails, the tag link is left out.
+- The local time is the current time in `setup.timezone`, written into `[data-footer-clock]` by the client script and updated every 15 seconds. Without JavaScript only the time zone name shows.
+- `cat about.md` renders `setup.introduction` on the server with `renderIntroductionHtml()` (`src/utils/introduction.pure.ts`), so blank lines become separate paragraphs. The `{$greeting}` placeholder becomes an empty `<span data-greeting-slot>`. The client script fills it with a greeting from `setup.greetings`, chosen by the visitor's local hour with `pickGreeting()` (`src/utils/greeting.pure.ts`): 05-11 morning, 12-16 afternoon, 17-20 evening, 21-04 night.
+- The client script runs on `astro:page-load`, so the greeting and clock also work after `ClientRouter` navigations. It reads the greetings from the footer's `data-greetings` attribute and does not bundle `setup.json` or `markdown-it`.
+- `ls ~/` lists the top-level entries of `footernavigation.json` as lowercase directory names (`home/`, `posts/`, and so on). Child entries are not rendered.
+- `ls ~/elsewhere` lists the networks with `show.footer`. Networks that also have `show.connect` are featured, one row each with icon, network id, and handle. The other networks render as one row of icon-only links with the network label as `aria-label` and `profile.title` as `title`. All links use `social.defaults.target` and `social.defaults.rel` merged with the network's `profile.rel`.
+- An `aria-hidden` final prompt ends with a blinking block cursor. The blink runs only under `prefers-reduced-motion: no-preference`.
+- The colophon strip shows the copyright line with the current year, the version link, "Another production by" with the `Wordmark`, privacy and security policy links, RSS/Atom/JSON feed links, the `Static.Quest` web ring widget (previous, members, next, random), and the [People's Pledge](https://people.pledge.party/) badge (`PeoplePledgeBadge` at 40 px).
+- The year is set on the server and corrected by an inline script to avoid stale build-time years. The same inline script fetches `/api/siteinfo.json` and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`) after the site title. Failures are ignored.
+- The badge and `Wordmark` use `--color-primary-700` in light mode and `--color-primary-600` in dark mode.
 - Renders `<Colophon />` after the closing `</footer>` tag.
 
 ## Extending
 
-To add or reorder footer navigation links, edit [`footernavigation.json`](../../../../src/data/footernavigation.json). To change the greeting text per time of day, edit `setup.greetings` in [`setup.json`](../../../../src/data/setup.json).
+To add or reorder navigation links, edit [`footernavigation.json`](../../../../src/data/footernavigation.json). To change the greeting text, edit `setup.greetings` in [`setup.json`](../../../../src/data/setup.json). To move a network between the featured list and the icon row, change its `show.connect` flag; see [Social media setup](../../../content/social-setup.md).

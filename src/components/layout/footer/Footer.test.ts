@@ -50,3 +50,36 @@ describe("Footer component (People's Pledge badge)", () => {
     expect(src).toContain('<PeoplePledgeBadge');
   });
 });
+
+describe('Footer component (terminal layout)', () => {
+  it('ranks social networks by show.connect into featured and icon-only lists', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toContain("socialNetworksFor('footer')");
+    expect(src).toMatch(
+      /featuredNetworks = footerNetworks\.filter\(\(n\) => n\.show\.connect\)/,
+    );
+    expect(src).toMatch(
+      /moreNetworks = footerNetworks\.filter\(\(n\) => !n\.show\.connect\)/,
+    );
+  });
+
+  it('renders the introduction on the server and fills only the greeting on the client', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toContain('renderIntroductionHtml(setup.introduction)');
+    expect(src).toContain("addEventListener('astro:page-load'");
+    expect(src).not.toMatch(/<script>[\s\S]*markdown-it[\s\S]*<\/script>/);
+  });
+
+  it('only animates the cursor when motion is allowed', async () => {
+    const testDir = path.dirname(fileURLToPath(import.meta.url));
+    const src = await fs.readFile(path.join(testDir, 'Footer.astro'), 'utf8');
+
+    expect(src).toMatch(
+      /@media \(prefers-reduced-motion: no-preference\) \{\s*\.footer-cursor \{\s*animation:/,
+    );
+  });
+});
